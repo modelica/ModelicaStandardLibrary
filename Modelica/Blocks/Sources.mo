@@ -2205,7 +2205,6 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
       annotation (Dialog(group="Table data definition"));
     parameter Real table[:, :] = fill(0.0, 0, 2)
       "Table matrix (time = first column; e.g., table=[0, 0; 1, 1; 2, 4])";
-      annotation (Dialog(group="Table data definition",enable=not tableOnFile));
     parameter String tableName="NoName"
       "Table name on file or in function usertab (see docu)"
       annotation (Dialog(group="Table data definition",enable=tableOnFile));
@@ -2397,7 +2396,7 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
         y[i] = p_offset[i] + getTableValue(tableID, i, timeScaled, nextTimeEventScaled, pre(nextTimeEventScaled), tableOnFileRead);
       end for;
     end if;
-    annotation (
+      annotation (Dialog(group="Table data definition",enable=not tableOnFile),
       Documentation(info="<html>
 <p>
 This block generates an output signal y[:] by <strong>constant</strong>,

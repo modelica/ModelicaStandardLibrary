@@ -10,7 +10,6 @@ package Tables
       annotation (Dialog(group="Table data definition"));
     parameter Real table[:, :] = fill(0.0, 0, 2)
       "Table matrix (grid = first column; e.g., table=[0, 0; 1, 1; 2, 4])";
-      annotation (Dialog(group="Table data definition",enable=not tableOnFile));
     parameter String tableName="NoName"
       "Table name on file or in function usertab (see docu)"
       annotation (Dialog(group="Table data definition",enable=tableOnFile));
@@ -148,7 +147,7 @@ package Tables
         y[i] = getTableValue(tableID, i, u[i], tableOnFileRead);
       end for;
     end if;
-    annotation (
+      annotation (Dialog(group="Table data definition",enable=not tableOnFile),
       Documentation(info="<html>
 <p>
 <strong>Constant</strong>, <strong>linear</strong> or <strong>cubic Hermite
@@ -368,7 +367,6 @@ MATLAB is a registered trademark of The MathWorks, Inc.
       annotation (Dialog(group="Table data definition"));
     parameter Real table[:, :] = fill(0.0, 0, 2)
       "Table matrix (grid = first column; e.g., table=[0, 0; 1, 1; 2, 4])";
-      annotation (Dialog(group="Table data definition",enable=not tableOnFile));
     parameter String tableName="NoName"
       "Table name on file or in function usertab (see docu)"
       annotation (Dialog(group="Table data definition",enable=tableOnFile));
@@ -506,7 +504,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
         y[i] = getTableValue(tableID, i, u, tableOnFileRead);
       end for;
     end if;
-    annotation (
+      annotation (Dialog(group="Table data definition",enable=not tableOnFile),
       Documentation(info="<html>
 <p>
 <strong>Constant</strong>, <strong>linear</strong> or <strong>cubic Hermite
