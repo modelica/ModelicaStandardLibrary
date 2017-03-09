@@ -26,21 +26,24 @@ package Constants
     "Biggest Integer number such that Integer_inf and -Integer_inf are representable on the machine";
 
   // Constants of nature
-  // (name, value, description from http://physics.nist.gov/cuu/Constants/index.html, data from 2014)
+  // (name, value, description from http://www.bipm.org/utils/common/pdf/si-brochure-draft-2016b.pdf, data from 2016)
+  // The values for c, e_charge, h, k, N_A are exact and part of the basis of the SI-system
+  // The values for F, R, sigma, mue_0, epsilson_0, T_zero are also exact.
   final constant SI.Velocity c=299792458 "Speed of light in vacuum";
   final constant SI.Acceleration g_n=9.80665
     "Standard acceleration of gravity on earth";
   final constant Real G(final unit="m3/(kg.s2)") = 6.67408e-11
     "Newtonian constant of gravitation (previous value: 6.6742e-11)";
-  final constant SI.FaradayConstant F = 9.648533289e4
+  final constant SI.Charge e_charge = 1.6021766208e-19 "elementary charge";
+  final constant SI.FaradayConstant F = e_charge*N_A
     "Faraday constant, C/mol (previous value: 9.64853399e4)";
   final constant Real h(final unit="J.s") = 6.626070040e-34
     "Planck constant (previous value: 6.6260693e-34)";
   final constant Real k(final unit="J/K") = 1.38064852e-23
     "Boltzmann constant (previous value: 1.3806505e-23)";
-  final constant Real R(final unit="J/(mol.K)") = 8.3144598
+  final constant Real R(final unit="J/(mol.K)") = k*N_A
     "Molar gas constant (previous value: 8.314472)";
-  final constant Real sigma(final unit="W/(m2.K4)") = 5.670367e-8
+  final constant Real sigma(final unit="W/(m2.K4)") = 2*pi^5*k^4/(15*h^3*c^2)
     "Stefan-Boltzmann constant (previous value: 5.670400e-8)";
   final constant Real N_A(final unit="1/mol") = 6.022140857e23
     "Avogadro constant (previous value: 6.0221415e23)";

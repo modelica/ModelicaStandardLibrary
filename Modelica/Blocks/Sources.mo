@@ -2397,7 +2397,7 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
         y[i] = p_offset[i] + getTableValue(tableID, i, timeScaled, nextTimeEventScaled, pre(nextTimeEventScaled), tableOnFileRead);
       end for;
     end if;
-    annotation (
+      annotation (Dialog(group="Table data definition",enable=not tableOnFile),
       Documentation(info="<html>
 <p>
 This block generates an output signal y[:] by <strong>constant</strong>,
