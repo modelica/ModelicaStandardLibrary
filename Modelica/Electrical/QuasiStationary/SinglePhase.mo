@@ -9,13 +9,11 @@ package SinglePhase "Single phase AC components"
       extends Modelica.Icons.Example;
       output Modelica.SIunits.Current I_abs=complexToPolar.len "Current";
       output Modelica.SIunits.Angle I_arg=complexToPolar.phi "Current phase";
-      Modelica.Blocks.Sources.Constant V(k=1) annotation (Placement(
-            transformation(
+      Modelica.Blocks.Sources.Constant V(k=1) annotation (Placement(transformation(
             origin={-40,50},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      Modelica.Blocks.Sources.Constant phi(k=0) annotation (Placement(
-            transformation(
+      Modelica.Blocks.Sources.Constant phi(k=0) annotation (Placement(transformation(
             origin={-80,50},
             extent={{-10,-10},{10,10}},
             rotation=270)));
@@ -26,28 +24,26 @@ package SinglePhase "Single phase AC components"
             origin={-60,-50},
             extent={{-10,-10},{10,10}},
             rotation=90)));
-      QuasiStationary.SinglePhase.Sources.VariableVoltageSource voltageSource(
-          gamma(fixed=true, start=0)) annotation (Placement(transformation(
+      Modelica.Electrical.QuasiStationary.SinglePhase.Sources.VariableVoltageSource voltageSource(gamma(fixed=true, start=0), animationVoltage=true) annotation (Placement(transformation(
             origin={-30,-20},
             extent={{-10,10},{10,-10}},
             rotation=270)));
-      QuasiStationary.SinglePhase.Basic.Ground ground annotation (Placement(
-            transformation(extent={{-40,-60},{-20,-40}})));
-      QuasiStationary.SinglePhase.Basic.Resistor resistor(R_ref=0.1)
-        annotation (Placement(transformation(extent={{10,-10},{30,10}})));
-      QuasiStationary.SinglePhase.Basic.Inductor inductor(L=1/(2*Modelica.Constants.pi))
-        annotation (Placement(transformation(extent={{40,-10},{60,10}})));
-      QuasiStationary.SinglePhase.Basic.Capacitor capacitor(C=1/(2*Modelica.Constants.pi))
-        annotation (Placement(transformation(extent={{70,-10},{90,10}})));
-      QuasiStationary.SinglePhase.Sensors.CurrentSensor currentSensor
-        annotation (Placement(transformation(extent={{-20,10},{0,-10}})));
-      Modelica.ComplexBlocks.ComplexMath.PolarToComplex polarToComplex
-        annotation (Placement(transformation(
+      Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Ground ground(animation=true) annotation (Placement(transformation(extent={{-40,-60},{-20,-40}})));
+      Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Resistor resistor(
+        R_ref=0.1,
+        animationVoltage=true,
+        animationCurrent=true) annotation (Placement(transformation(extent={{10,-10},{30,10}})));
+      Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Inductor inductor(
+        L=1/(2*Modelica.Constants.pi),
+        animationVoltage=true,
+        colorVoltage={0,128,255}) annotation (Placement(transformation(extent={{40,-10},{60,10}})));
+      Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Capacitor capacitor(C=1/(2*Modelica.Constants.pi), animationVoltage=true) annotation (Placement(transformation(extent={{70,-10},{90,10}})));
+      Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.CurrentSensor currentSensor annotation (Placement(transformation(extent={{-20,10},{0,-10}})));
+      Modelica.ComplexBlocks.ComplexMath.PolarToComplex polarToComplex annotation (Placement(transformation(
             origin={-60,10},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      Modelica.ComplexBlocks.ComplexMath.ComplexToPolar complexToPolar
-        annotation (Placement(transformation(
+      Modelica.ComplexBlocks.ComplexMath.ComplexToPolar complexToPolar annotation (Placement(transformation(
             origin={-10,30},
             extent={{-10,-10},{10,10}},
             rotation=90)));
@@ -88,13 +84,11 @@ Plot length and angle of the current phasor, i.e., complexToPolar.len and .phi, 
       extends Modelica.Icons.Example;
       output Modelica.SIunits.Voltage V_abs=complexToPolar.len "Voltage";
       output Modelica.SIunits.Angle V_arg=complexToPolar.phi "Voltage phase";
-      Modelica.Blocks.Sources.Constant I(k=1) annotation (Placement(
-            transformation(
+      Modelica.Blocks.Sources.Constant I(k=1) annotation (Placement(transformation(
             origin={-80,-50},
             extent={{-10,-10},{10,10}},
             rotation=90)));
-      Modelica.Blocks.Sources.Constant phi(k=0) annotation (Placement(
-            transformation(
+      Modelica.Blocks.Sources.Constant phi(k=0) annotation (Placement(transformation(
             origin={-40,-50},
             extent={{-10,-10},{10,10}},
             rotation=90)));
@@ -105,40 +99,43 @@ Plot length and angle of the current phasor, i.e., complexToPolar.len and .phi, 
             origin={-60,50},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      QuasiStationary.SinglePhase.Sources.VariableCurrentSource currentSource(
-          gamma(fixed=true, start=0)) annotation (Placement(transformation(
+      Modelica.Electrical.QuasiStationary.SinglePhase.Sources.VariableCurrentSource currentSource(gamma(fixed=true, start=0), animationCurrent=true) annotation (Placement(transformation(
             origin={-30,20},
             extent={{10,10},{-10,-10}},
             rotation=270)));
-      QuasiStationary.SinglePhase.Basic.Ground ground annotation (Placement(
-            transformation(extent={{-40,-20},{-20,0}})));
-      QuasiStationary.SinglePhase.Basic.Resistor resistor(R_ref=10) annotation (
-         Placement(transformation(
+      Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Ground ground(animation=true) annotation (Placement(transformation(extent={{-40,-20},{-20,0}})));
+      Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Resistor resistor(
+        R_ref=10,
+        animationCurrent=true,
+        animationVoltage=true) annotation (Placement(transformation(
             origin={-10,20},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      QuasiStationary.SinglePhase.Basic.Inductor inductor(L=1/(2*Modelica.Constants.pi))
-        annotation (Placement(transformation(
+      Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Inductor inductor(
+        L=1/(2*Modelica.Constants.pi),
+        animationCurrent=true,
+        colorCurrent={255,128,0},
+        iStart=resistor.i) annotation (Placement(transformation(
             origin={10,20},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      QuasiStationary.SinglePhase.Basic.Capacitor capacitor(C=1/(2*Modelica.Constants.pi))
-        annotation (Placement(transformation(
+      Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Capacitor capacitor(
+        C=1/(2*Modelica.Constants.pi),
+        animationCurrent=true,
+        colorCurrent={155,0,0},
+        iStart=resistor.i + inductor.i) annotation (Placement(transformation(
             origin={30,20},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      QuasiStationary.SinglePhase.Sensors.VoltageSensor voltageSensor
-        annotation (Placement(transformation(
+      Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.VoltageSensor voltageSensor annotation (Placement(transformation(
             origin={50,20},
             extent={{10,-10},{-10,10}},
             rotation=90)));
-      Modelica.ComplexBlocks.ComplexMath.PolarToComplex polarToComplex
-        annotation (Placement(transformation(
+      Modelica.ComplexBlocks.ComplexMath.PolarToComplex polarToComplex annotation (Placement(transformation(
             origin={-60,-10},
             extent={{-10,-10},{10,10}},
             rotation=90)));
-      Modelica.ComplexBlocks.ComplexMath.ComplexToPolar complexToPolar
-        annotation (Placement(transformation(extent={{70,10},{90,30}})));
+      Modelica.ComplexBlocks.ComplexMath.ComplexToPolar complexToPolar annotation (Placement(transformation(extent={{70,10},{90,30}})));
     equation
       connect(currentSource.pin_n, resistor.pin_p) annotation (Line(points={{-30,
               30},{-30,40},{-10,40},{-10,30}}, color={85,170,255}));
@@ -444,7 +441,7 @@ Examples to demonstrate the usage of quasistationary electric components.
     extends Modelica.Icons.Package;
 
     model Ground "Electrical ground"
-
+      extends Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.VisualizationAxes;
       Interfaces.PositivePin pin annotation (Placement(transformation(extent={{
                 -10,90},{10,110}})));
     equation
@@ -473,7 +470,7 @@ Every electrical circuit, e.g., a series resonance
     end Ground;
 
     model Resistor "Single phase linear resistor"
-      extends Interfaces.OnePort;
+      extends Interfaces.OnePortVisualization;
       import Modelica.ComplexMath.real;
       import Modelica.ComplexMath.conj;
       parameter Modelica.SIunits.Resistance R_ref(start=1) "Reference resistance at T_ref";
@@ -531,7 +528,7 @@ A linear temperature dependency of the resistance is also taken into account.
     end Resistor;
 
     model Conductor "Single phase linear conductor"
-      extends Interfaces.OnePort;
+      extends Interfaces.OnePortVisualization;
       import Modelica.ComplexMath.real;
       import Modelica.ComplexMath.conj;
       parameter Modelica.SIunits.Conductance G_ref(start=1) "Reference conductance at T_ref";
@@ -590,7 +587,7 @@ A linear temperature dependency of the conductance is also taken into account.
     end Conductor;
 
     model Capacitor "Single phase linear capacitor"
-      extends Interfaces.OnePort;
+      extends Interfaces.OnePortVisualization;
       import Modelica.ComplexMath.j;
       parameter Modelica.SIunits.Capacitance C(start=1) "Capacitance";
     equation
@@ -637,7 +634,7 @@ The capacitance <code>C</code> is allowed to be positive, zero, or negative.
     end Capacitor;
 
     model Inductor "Single phase linear inductor"
-      extends Interfaces.OnePort;
+      extends Interfaces.OnePortVisualization;
       import Modelica.ComplexMath.j;
       parameter Modelica.SIunits.Inductance L(start=1) "Inductance";
     equation
@@ -685,7 +682,7 @@ The Inductance <code>L</code> is allowed to be positive, zero, or negative.
     end Inductor;
 
     model Impedance "Single phase linear impedance"
-      extends Interfaces.OnePort;
+      extends Interfaces.OnePortVisualization;
       import Modelica.ComplexMath.j;
       import Modelica.ComplexMath.real;
       import Modelica.ComplexMath.imag;
@@ -747,7 +744,7 @@ the actual operating temperature and the reference input resistance <code>real(<
     end Impedance;
 
     model Admittance "Single phase linear admittance"
-      extends Interfaces.OnePort;
+      extends Interfaces.OnePortVisualization;
       import Modelica.ComplexMath.j;
       import Modelica.ComplexMath.real;
       import Modelica.ComplexMath.imag;
@@ -808,7 +805,7 @@ the actual operating temperature and the reference input conductance <code>real(
     end Admittance;
 
     model VariableResistor "Single phase variable resistor"
-      extends Interfaces.OnePort;
+      extends Interfaces.OnePortVisualization;
       import Modelica.ComplexMath.real;
       import Modelica.ComplexMath.conj;
       parameter Modelica.SIunits.Temperature T_ref=293.15 "Reference temperature";
@@ -879,7 +876,7 @@ A zero crossing of the R signal could cause singularities due to the actual stru
     end VariableResistor;
 
     model VariableConductor "Single phase variable conductor"
-      extends Interfaces.OnePort;
+      extends Interfaces.OnePortVisualization;
       import Modelica.ComplexMath.real;
       import Modelica.ComplexMath.conj;
       parameter Modelica.SIunits.Temperature T_ref=293.15 "Reference temperature";
@@ -945,7 +942,7 @@ A linear temperature dependency of the conductance is also taken into account.
     end VariableConductor;
 
     model VariableCapacitor "Single phase variable capacitor"
-      extends Interfaces.OnePort;
+      extends Interfaces.OnePortVisualization;
       import Modelica.ComplexMath.j;
       Modelica.Blocks.Interfaces.RealInput C(unit="F") "Variable capacitances"
         annotation (Placement(transformation(
@@ -1007,7 +1004,7 @@ The abstraction of a variable capacitor at quasi stationary operation assumes:
     end VariableCapacitor;
 
     model VariableInductor "Single phase variable inductor"
-      extends Interfaces.OnePort;
+      extends Interfaces.OnePortVisualization;
       import Modelica.ComplexMath.j;
       Modelica.Blocks.Interfaces.RealInput L(unit="H") "Variable inductances"
         annotation (Placement(transformation(
@@ -1069,7 +1066,7 @@ The abstraction of a variable inductor at quasi stationary operation assumes:
     end VariableInductor;
 
     model VariableImpedance "Single phase variable impedance"
-      extends Interfaces.OnePort;
+      extends Interfaces.OnePortVisualization;
       import Modelica.ComplexMath.real;
       import Modelica.ComplexMath.imag;
       import Modelica.ComplexMath.conj;
@@ -1152,7 +1149,7 @@ singularities due to the actual structure of the connected network.
     end VariableImpedance;
 
     model VariableAdmittance "Single phase variable admittance"
-      extends Interfaces.OnePort;
+      extends Interfaces.OnePortVisualization;
       import Modelica.ComplexMath.real;
       import Modelica.ComplexMath.imag;
       import Modelica.ComplexMath.conj;
@@ -1258,7 +1255,7 @@ Quasi stationary theory for single phase circuits can be found in the
     extends Modelica.Icons.Package;
 
     model Idle "Idle branch"
-      extends Interfaces.OnePort;
+      extends Interfaces.OnePortVisualization;
     equation
       i = Complex(0);
       annotation (Icon(graphics={
@@ -1285,7 +1282,7 @@ This model is a simple idle branch considering the complex current <i><u>i</u></
     end Idle;
 
     model Short "Short cut branch"
-      extends Interfaces.OnePort;
+      extends Interfaces.OnePortVisualization;
     equation
       v = Complex(0);
       annotation (Icon(graphics={
@@ -1550,7 +1547,7 @@ This switch is only intended to be used for structural changes, not for fast swi
     model IdealOpeningSwitch "Ideal electrical opener"
       import Modelica.ComplexMath.real;
       import Modelica.ComplexMath.conj;
-      extends Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.OnePort;
+      extends Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.OnePortVisualization;
       parameter Modelica.SIunits.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance"
                                    annotation (Placement(transformation(extent=
                 {{-56.6667,10},{-10,56.6667}})));
@@ -1637,7 +1634,7 @@ This switch is only intended to be used for structural changes, not for fast swi
     model IdealClosingSwitch "Ideal electrical closer"
       import Modelica.ComplexMath.real;
       import Modelica.ComplexMath.conj;
-      extends Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.OnePort;
+      extends Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.OnePortVisualization;
       parameter Modelica.SIunits.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance"
                                    annotation (Placement(transformation(extent=
                 {{-56.6667,10},{-10,56.6667}})));
@@ -2505,8 +2502,102 @@ and <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfa
 </html>"));
     end TwoPin;
 
+    partial model TwoPinVisualization "Two pins including phasor #"
+      extends Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.TwoPin;
+      extends Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.VisualizationSetting;
+
+      // Starting points of phasors
+      Modelica.SIunits.ComplexVoltage vStart=pin_n.v "Starting poing of voltage phasor" annotation (Dialog(
+          tab="Animation",
+          group="Voltage",
+          enable=animationVoltage));
+      Modelica.SIunits.ComplexCurrent iStart=Complex(0, 0) "Starting poing of current phasor" annotation (Dialog(
+          tab="Animation",
+          group="Current",
+          enable=animationCurrent));
+
+      // Voltage phasor calculations
+      Modelica.SIunits.Angle anglePhasor_v=atan2(pin_p.v.im - pin_n.v.im, pin_p.v.re - pin_n.v.re) "Angle of voltage phasor";
+      Real begPhasor_v[3] = {vStart.re/VRef,vStart.im/VRef,0} "Begin of voltage phasor in coordinates";
+      Real endPhasor_v[3] = {(vStart.re+pin_p.v.re-pin_n.v.re)/VRef,(vStart.im+pin_p.v.im-pin_n.v.im)/VRef,0};
+      Real difPhasor_v[3] = endPhasor_v - begPhasor_v;
+      Real lenPhasor_v = Modelica.Math.Vectors.length(difPhasor_v);
+      Real orientationPhasor_v[3] = {cos(anglePhasor_v),sin(anglePhasor_v),0};
+      Real orientationPhasorWidth_v[3] = {-sin(anglePhasor_v),cos(anglePhasor_v),0};
+
+      // Current phasor calculations
+      Modelica.SIunits.Angle anglePhasor_i=atan2(pin_p.i.im, pin_p.i.re) "Angle of current phasor";
+      Real begPhasor_i[3] = {iStart.re/IRef,iStart.im/IRef,0} "Begin of current phasor in coordinates";
+      Real endPhasor_i[3] = {(iStart.re+pin_p.i.re)/IRef,(iStart.im+pin_p.i.im)/IRef,0};
+      Real difPhasor_i[3] = endPhasor_i - begPhasor_i;
+      Real lenPhasor_i = Modelica.Math.Vectors.length(difPhasor_i);
+      Real orientationPhasor_i[3] = {cos(anglePhasor_i),sin(anglePhasor_i),0};
+      Real orientationPhasorWidth_i[3] = {-sin(anglePhasor_i),cos(anglePhasor_i),0};
+
+      // Vizualize voltage phasor if animationVoltage = true
+      Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape arrowLine_v(
+        shapeType="cylinder",
+        length=lenPhasor_v - lengthHead,
+        width=width*linewidthVoltage,
+        height=width,
+        lengthDirection=orientationPhasor_v,
+        widthDirection=orientationPhasorWidth_v,
+        color=colorVoltage,
+        r=begPhasor_v,
+        specularCoefficient=0) if animationVoltage;
+
+      Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape arrowHead_v(
+        shapeType="cone",
+        length=lengthHead,
+        width=widthHead,
+        height=widthHead,
+        lengthDirection=orientationPhasor_v,
+        widthDirection=orientationPhasorWidth_v,
+        color=colorVoltage,
+        r=begPhasor_v + (lenPhasor_v - lengthHead)*orientationPhasor_v,
+        specularCoefficient=0) if animationVoltage;
+
+      // Vizualize current phasor if animationCurrent = true
+      Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape arrowLine_i(
+        shapeType="cylinder",
+        length=lenPhasor_i - lengthHead,
+        width=width*linewidthCurrent,
+        height=width,
+        lengthDirection=orientationPhasor_i,
+        widthDirection=orientationPhasorWidth_i,
+        color=colorCurrent,
+        r=begPhasor_i,
+        specularCoefficient=0) if animationCurrent;
+
+      Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape arrowHead_i(
+        shapeType="cone",
+        length=lengthHead,
+        width=widthHead,
+        height=widthHead,
+        lengthDirection=orientationPhasor_i,
+        widthDirection=orientationPhasorWidth_i,
+        color=colorCurrent,
+        r=begPhasor_i + (lenPhasor_i - lengthHead)*orientationPhasor_i,
+        specularCoefficient=0) if animationCurrent;
+
+      annotation (Documentation(info="<html>
+<p>
+This partial model uses a <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.PositivePin\">positive</a>
+and <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.NegativePin\">negative pin</a> and defines the complex voltage difference as well as the complex current (into the positive pin). Additionally, the angular velocity of the quasi stationary system is explicitly defined as variable. This model is mainly intended to be used with graphical representation of user models.
+</p>
+
+<h4>See also</h4>
+
+<p>
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.PositivePin\">PositivePin</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.NegativePin\">NegativePin</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.OnePort\">OnePort</a>
+</p>
+</html>"));
+    end TwoPinVisualization;
+
     partial model OnePort "Two pins, current through"
-      extends TwoPin;
+      extends TwoPinVisualization;
     equation
       pin_p.i + pin_n.i = Complex(0);
       annotation (Documentation(info="<html>
@@ -2527,6 +2618,29 @@ This model is intended to be used with textual representation of user models.
 </p>
 </html>"));
     end OnePort;
+
+    partial model OnePortVisualization "Two pins, current through including phasor visualization"
+      extends TwoPinVisualization;
+    equation
+      pin_p.i + pin_n.i = Complex(0);
+      annotation (Documentation(info="<html>
+<p>
+This partial model is based on <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.TwoPin\">TwoPin</a> and
+additionally considers the complex current balance of the
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.PositivePin\">positive</a> and the
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.NegativePin\">negative pin</a>.
+This model is intended to be used with textual representation of user models.
+</p>
+
+<h4>See also</h4>
+
+<p>
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.PositivePin\">PositivePin</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.NegativePin\">NegativePin</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.TwoPin\">TwoPin</a>
+</p>
+</html>"));
+    end OnePortVisualization;
 
     partial model AbsoluteSensor "Partial potential sensor"
       extends Modelica.Icons.RotationalSensor;
@@ -2562,7 +2676,7 @@ The absolute sensor partial model provides a single
 
     partial model RelativeSensor "Partial voltage / current sensor"
       extends Modelica.Icons.RotationalSensor;
-      extends OnePort;
+      extends OnePortVisualization;
       Modelica.ComplexBlocks.Interfaces.ComplexOutput y annotation (Placement(
             transformation(
             origin={0,-110},
@@ -2597,7 +2711,7 @@ The relative sensor partial model relies on the
     end RelativeSensor;
 
     partial model Source "Partial voltage / current source"
-      extends OnePort;
+      extends OnePortVisualization;
       Modelica.SIunits.Angle gamma(start=0) = pin_p.reference.gamma;
     equation
       Connections.root(pin_p.reference);
@@ -2629,6 +2743,139 @@ The source partial model relies on the
 </p>
 </html>"));
     end Source;
+
+    partial model VisualizationSetting "Parameter settings of phasor visualization"
+
+      parameter Boolean animationVoltage = false "Enable animation of voltage phasor" annotation(Dialog(tab="Animation", group="Voltage"));
+      parameter ModelicaVis.SIunits.Voltage VRef=1 "Reference scaling voltage" annotation (Dialog(
+          tab="Animation",
+          group="Voltage",
+          enable=animationVoltage));
+      parameter ModelicaVis.Mechanics.MultiBody.Types.Color colorVoltage={0,0,255} "RGB color of voltage phasor" annotation (Dialog(
+          tab="Animation",
+          group="Voltage",
+          enable=animationVoltage));
+      parameter Real linewidthVoltage=1 "Relative linewidth of voltage phasor w.r.t. width" annotation(Dialog(tab="Animation",group="Voltage",enable=animationVoltage));
+
+      parameter Boolean animationCurrent = false "Enable animation of current phasor" annotation(Dialog(tab="Animation",group="Current"));
+      parameter ModelicaVis.SIunits.Current IRef=1 "Reference scaling current" annotation (Dialog(
+          tab="Animation",
+          group="Current",
+          enable=animationCurrent));
+      parameter ModelicaVis.Mechanics.MultiBody.Types.Color colorCurrent={255,0,0} "RGB color of current phasor" annotation (Dialog(
+          tab="Animation",
+          group="Current",
+          enable=animationCurrent));
+      parameter Real linewidthCurrent=1 "Relative linewidth of current phasor w.r.t. width" annotation(Dialog(tab="Animation",group="Current",enable=animationCurrent));
+
+      parameter ModelicaVis.SIunits.Length length=1 "Length of arrow including head" annotation (Dialog(
+          tab="Animation",
+          group="Phasor settings",
+          enable=animationVoltage or animationCurrent), Evaluate=true);
+      parameter ModelicaVis.SIunits.Length lengthHead=0.08 "Length of arrow including head" annotation (Dialog(
+          tab="Animation",
+          group="Phasor settings",
+          enable=animationVoltage or animationCurrent), Evaluate=true);
+      parameter ModelicaVis.SIunits.Length width=0.01 "Width of arrow" annotation (Dialog(
+          tab="Animation",
+          group="Phasor settings",
+          enable=animationVoltage or animationCurrent), Evaluate=true);
+      parameter ModelicaVis.SIunits.Length widthHead=0.04 "Width of arrow head" annotation (Dialog(
+          tab="Animation",
+          group="Phasor settings",
+          enable=animationVoltage or animationCurrent), Evaluate=true);
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false), graphics={
+            Line(visible=animationVoltage,points={{-100,-20},{100,-20}},color={0,0,255}),
+            Polygon(visible=animationVoltage,
+              points={{100,-20},{70,-30},{70,-10},{100,-20}},
+              lineColor={0,0,255},
+              fillColor={0,0,255},
+              fillPattern=FillPattern.Solid),
+            Line(visible=animationCurrent,points={{-140,-20},{-100,-20}},color={255,0,0}),
+            Polygon(visible=animationCurrent,
+              points={{-100,-20},{-130,-10},{-130,-32},{-100,-20}},
+              lineColor={255,0,0},
+              fillColor={255,0,0},
+              fillPattern=FillPattern.Solid)}),                      Diagram(coordinateSystem(preserveAspectRatio=false)));
+    end VisualizationSetting;
+
+    partial model VisualizationAxes "Displays axes if viszalization is used"
+
+      parameter Boolean animation = false annotation(Dialog(tab="Animation"));
+      parameter ModelicaVis.SIunits.Length length=1 "Length of arrow including head" annotation (Dialog(
+          tab="Animation",
+          group="Phasor settings",
+          enable=animation), Evaluate=true);
+      parameter ModelicaVis.SIunits.Length lengthHead=0.08 "Length of arrow including head" annotation (Dialog(
+          tab="Animation",
+          group="Phasor settings",
+          enable=animation), Evaluate=true);
+      parameter ModelicaVis.SIunits.Length width=0.01 "Width of arrow" annotation (Dialog(
+          tab="Animation",
+          group="Phasor settings",
+          enable=animation), Evaluate=true);
+      parameter ModelicaVis.SIunits.Length widthHead=0.04 "Width of arrow head" annotation (Dialog(
+          tab="Animation",
+          group="Phasor settings",
+          enable=animation), Evaluate=true);
+
+      // x-axis
+      ModelicaVis.Mechanics.MultiBody.Visualizers.Advanced.Shape x_arrowLine(
+        shapeType="cylinder",
+        length=length,
+        width=width,
+        height=width,
+        lengthDirection={1,0,0},
+        widthDirection={0,1,0},
+        color={0,0,0},
+        specularCoefficient=0) if animation;
+      ModelicaVis.Mechanics.MultiBody.Visualizers.Advanced.Shape x_arrowHead(
+        shapeType="cone",
+        length=lengthHead,
+        width=widthHead,
+        height=widthHead,
+        lengthDirection={1,0,0},
+        widthDirection={0,1,0},
+        color={0,0,0},
+        r={length,0,0},
+        specularCoefficient=0) if animation;
+
+      // y-axis
+      ModelicaVis.Mechanics.MultiBody.Visualizers.Advanced.Shape y_arrowLine(
+        shapeType="cylinder",
+        length=length,
+        width=width,
+        height=width,
+        lengthDirection={0,1,0},
+        widthDirection={1,0,0},
+        color={0,0,0},
+        specularCoefficient=0) if animation;
+      ModelicaVis.Mechanics.MultiBody.Visualizers.Advanced.Shape y_arrowHead(
+        shapeType="cone",
+        length=lengthHead,
+        width=widthHead,
+        height=widthHead,
+        lengthDirection={0,1,0},
+        widthDirection={1,0,0},
+        color={0,0,0},
+        r={0,length,0},
+        specularCoefficient=0) if animation;
+
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false), graphics={
+            Line(visible=animation,points={{-100,-100},{100,-100}},                color={0,0,0}),
+            Polygon(visible=animation,
+              points={{100,-100},{70,-110},{70,-90},{100,-100}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid),
+            Line(visible=animation,points={{-100,-100},{-100,100}},color={0,0,0}),
+            Polygon(visible=animation,
+              points={{-100,100},{-110,70},{-90,70},{-100,100}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid)}),
+        Diagram(coordinateSystem(preserveAspectRatio=false)));
+    end VisualizationAxes;
     annotation (Documentation(info="<html>
 <p>This package contains connector specifications and partial models for more complex components.</p>
 </html>"));
