@@ -148,7 +148,7 @@ package Tables
         y[i] = getTableValue(tableID, i, u[i], tableOnFileRead);
       end for;
     end if;
-      annotation (
+    annotation (
       Documentation(info="<html>
 <p>
 <strong>Constant</strong>, <strong>linear</strong> or <strong>cubic Hermite
@@ -506,7 +506,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
         y[i] = getTableValue(tableID, i, u, tableOnFileRead);
       end for;
     end if;
-      annotation (
+    annotation (
       Documentation(info="<html>
 <p>
 <strong>Constant</strong>, <strong>linear</strong> or <strong>cubic Hermite
