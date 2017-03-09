@@ -2525,7 +2525,8 @@ and <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfa
         final length=length,
         final lengthHead=lengthHead,
         final width=width,
-        final widthHead=widthHead) if animationVoltage annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
+        final widthHead=widthHead) if animationVoltage;
+        // Original graphical annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
       Visualization.CurrentPhasor currentPhasor(
         final IRef=IRef,
         final iStart=iStart,
@@ -2535,7 +2536,8 @@ and <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfa
         final length=length,
         final lengthHead=lengthHead,
         final width=width,
-        final widthHead=widthHead) if animationCurrent annotation (Placement(transformation(extent={{-80,-40},{-60,-20}})));
+        final widthHead=widthHead) if animationCurrent;
+        // Origignal graphical annotation (Placement(transformation(extent={{-80,-40},{-60,-20}})));
 
       annotation (Documentation(info="<html>
 <p>
