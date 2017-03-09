@@ -347,9 +347,10 @@ no. 829420.
       extends Modelica.Icons.ReleaseNotes;
       annotation (Documentation(info="<html>
 
-<h5>Version 3.2.2, 2017-03-05</h5>
+<h5>Version 3.2.2, 2017-03-09</h5>
 
 <ul>
+<li>Replace wrong permeance image in documentation according to #2208</li>
 <li>Added obsolete annotation to 
     <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseCageWinding_obsolete\">SymmetricMultiPhaseCageWinding_obsolete</a> and
     <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SaliencyCageWinding_obsolete\">SaliencyCageWinding_obsolete</a>,
@@ -3833,7 +3834,7 @@ The salient permeance models the relationship between the complex magnetic poten
 
 <blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/Components/permeance.png\"
-      alt=\"reluctance.png\">
+      alt=\"permeance.png\">
 </blockquote>
 <p></p>
 
