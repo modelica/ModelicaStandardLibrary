@@ -2516,69 +2516,26 @@ and <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfa
           group="Current",
           enable=animationCurrent));
 
-      // Voltage phasor calculations
-      Modelica.SIunits.Angle anglePhasor_v=atan2(pin_p.v.im - pin_n.v.im, pin_p.v.re - pin_n.v.re) "Angle of voltage phasor";
-      Real begPhasor_v[3] = {vStart.re/VRef,vStart.im/VRef,0} "Begin of voltage phasor in coordinates";
-      Real endPhasor_v[3] = {(vStart.re+pin_p.v.re-pin_n.v.re)/VRef,(vStart.im+pin_p.v.im-pin_n.v.im)/VRef,0};
-      Real difPhasor_v[3] = endPhasor_v - begPhasor_v;
-      Real lenPhasor_v = Modelica.Math.Vectors.length(difPhasor_v);
-      Real orientationPhasor_v[3] = {cos(anglePhasor_v),sin(anglePhasor_v),0};
-      Real orientationPhasorWidth_v[3] = {-sin(anglePhasor_v),cos(anglePhasor_v),0};
-
-      // Current phasor calculations
-      Modelica.SIunits.Angle anglePhasor_i=atan2(pin_p.i.im, pin_p.i.re) "Angle of current phasor";
-      Real begPhasor_i[3] = {iStart.re/IRef,iStart.im/IRef,0} "Begin of current phasor in coordinates";
-      Real endPhasor_i[3] = {(iStart.re+pin_p.i.re)/IRef,(iStart.im+pin_p.i.im)/IRef,0};
-      Real difPhasor_i[3] = endPhasor_i - begPhasor_i;
-      Real lenPhasor_i = Modelica.Math.Vectors.length(difPhasor_i);
-      Real orientationPhasor_i[3] = {cos(anglePhasor_i),sin(anglePhasor_i),0};
-      Real orientationPhasorWidth_i[3] = {-sin(anglePhasor_i),cos(anglePhasor_i),0};
-
-      // Vizualize voltage phasor if animationVoltage = true
-      Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape arrowLine_v(
-        shapeType="cylinder",
-        length=lenPhasor_v - lengthHead,
-        width=width*linewidthVoltage,
-        height=width,
-        lengthDirection=orientationPhasor_v,
-        widthDirection=orientationPhasorWidth_v,
-        color=colorVoltage,
-        r=begPhasor_v,
-        specularCoefficient=0) if animationVoltage;
-
-      Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape arrowHead_v(
-        shapeType="cone",
-        length=lengthHead,
-        width=widthHead,
-        height=widthHead,
-        lengthDirection=orientationPhasor_v,
-        widthDirection=orientationPhasorWidth_v,
-        color=colorVoltage,
-        r=begPhasor_v + (lenPhasor_v - lengthHead)*orientationPhasor_v,
-        specularCoefficient=0) if animationVoltage;
-
-      // Vizualize current phasor if animationCurrent = true
-      Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape arrowLine_i(
-        shapeType="cylinder",
-        length=lenPhasor_i - lengthHead,
-        width=width*linewidthCurrent,
-        height=width,
-        lengthDirection=orientationPhasor_i,
-        widthDirection=orientationPhasorWidth_i,
-        color=colorCurrent,
-        r=begPhasor_i,
-        specularCoefficient=0) if animationCurrent;
-
-      Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape arrowHead_i(
-        shapeType="cone",
-        length=lengthHead,
-        width=widthHead,
-        height=widthHead,
-        lengthDirection=orientationPhasor_i,
-        widthDirection=orientationPhasorWidth_i,
-        color=colorCurrent,
-        r=begPhasor_i + (lenPhasor_i - lengthHead)*orientationPhasor_i,
-        specularCoefficient=0) if animationCurrent;
+      Visualization.VoltagePhasor voltagePhasor(
+        final VRef=VRef,
+        final vStart=vStart,
+        final v=pin_p.v - pin_n.v,
+        final color=colorVoltage,
+        final linewidth=linewidthVoltage,
+        final length=length,
+        final lengthHead=lengthHead,
+        final width=width,
+        final widthHead=widthHead) if animationVoltage annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
+      Visualization.CurrentPhasor currentPhasor(
+        final IRef=IRef,
+        final iStart=iStart,
+        final i=pin_p.i,
+        final color=colorCurrent,
+        final linewidth=linewidthCurrent,
+        final length=length,
+        final lengthHead=lengthHead,
+        final width=width,
+        final widthHead=widthHead) if animationCurrent annotation (Placement(transformation(extent={{-80,-40},{-60,-20}})));
 
       annotation (Documentation(info="<html>
 <p>
@@ -2746,7 +2703,7 @@ The source partial model relies on the
 
     partial model VisualizationSetting "Parameter settings of phasor visualization"
 
-      parameter Boolean animationVoltage = false "Enable animation of voltage phasor" annotation(Dialog(tab="Animation", group="Voltage"));
+      parameter Boolean animationVoltage = false "Enable animation of voltage phasor" annotation(choices(checkBox=true),Dialog(tab="Animation", group="Voltage"));
       parameter ModelicaVis.SIunits.Voltage VRef=1 "Reference scaling voltage" annotation (Dialog(
           tab="Animation",
           group="Voltage",
@@ -2757,7 +2714,7 @@ The source partial model relies on the
           enable=animationVoltage));
       parameter Real linewidthVoltage=1 "Relative linewidth of voltage phasor w.r.t. width" annotation(Dialog(tab="Animation",group="Voltage",enable=animationVoltage));
 
-      parameter Boolean animationCurrent = false "Enable animation of current phasor" annotation(Dialog(tab="Animation",group="Current"));
+      parameter Boolean animationCurrent = false "Enable animation of current phasor" annotation(choices(checkBox=true),Dialog(tab="Animation",group="Current"));
       parameter ModelicaVis.SIunits.Current IRef=1 "Reference scaling current" annotation (Dialog(
           tab="Animation",
           group="Current",
@@ -3066,6 +3023,103 @@ Quasi stationary theory for single phase circuits can be found in the
 
 </html>"));
   end Utilities;
+
+  package Visualization "Visualization of phasors"
+    extends Icons.Package;
+    model VoltagePhasor "Visualization of single phase voltage phasor"
+      parameter Modelica.SIunits.Voltage VRef "Reference scaling voltage";
+      parameter ModelicaVis.Mechanics.MultiBody.Types.Color color={0,0,255} "RGB color of voltage phasor";
+      parameter Real linewidth=1 "Relative linewidth of voltage phasor w.r.t. width";
+      parameter ModelicaVis.SIunits.Length length=1 "Length of arrow including head";
+      parameter ModelicaVis.SIunits.Length lengthHead=0.08 "Length of arrow including head";
+      parameter ModelicaVis.SIunits.Length width=0.01 "Width of arrow";
+      parameter ModelicaVis.SIunits.Length widthHead=0.04 "Width of arrow head";
+
+      input Modelica.SIunits.ComplexVoltage vStart "Start of voltage phasor" annotation (Dialog(enable=true));
+      input Modelica.SIunits.ComplexVoltage v "Voltage phasor" annotation (Dialog(enable=true));
+      Modelica.SIunits.ComplexVoltage vEnd=vStart+v "End of voltage phasors";
+
+      Modelica.SIunits.Angle anglePhasor=Modelica.ComplexMath.arg(v) "Angle of voltage phasor";
+      // Voltage phasor calculations
+      Real phasorStart[3] = {vStart.re/VRef,vStart.im/VRef,0} "Start of voltage phasor in coordinates";
+      Real phasorEnd[3] = {(vStart.re+v.re)/VRef,(vStart.im+v.im)/VRef,0};
+      Real phasorDifference[3] = phasorEnd - phasorStart;
+      Real phasorLength = Modelica.Math.Vectors.length(phasorDifference);
+      Real phasorOrientation[3] = {cos(anglePhasor),sin(anglePhasor),0};
+      Real phasorOrientationWidth[3] = {-sin(anglePhasor),cos(anglePhasor),0};
+
+      Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape arrowLine(
+        shapeType="cylinder",
+        length=phasorLength - lengthHead,
+        width=width*linewidth,
+        height=width,
+        lengthDirection=phasorOrientation,
+        widthDirection=phasorOrientationWidth,
+        color=color,
+        r=phasorStart,
+        specularCoefficient=0);
+
+      Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape arrowHead(
+        shapeType="cone",
+        length=lengthHead,
+        width=widthHead,
+        height=widthHead,
+        lengthDirection=phasorOrientation,
+        widthDirection=phasorOrientationWidth,
+        color=color,
+        r=phasorStart + (phasorLength - lengthHead)*phasorOrientation,
+        specularCoefficient=0);
+
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(coordinateSystem(preserveAspectRatio=false)));
+    end VoltagePhasor;
+
+    model CurrentPhasor "Visualization of single phase current phasor"
+      parameter Modelica.SIunits.Current IRef "Reference scaling current";
+      parameter ModelicaVis.Mechanics.MultiBody.Types.Color color={0,0,255} "RGB color of current phasor";
+      parameter Real linewidth=1 "Relative linewidth of current phasor w.r.t. width";
+      parameter ModelicaVis.SIunits.Length length=1 "Length of arrow including head";
+      parameter ModelicaVis.SIunits.Length lengthHead=0.08 "Length of arrow including head";
+      parameter ModelicaVis.SIunits.Length width=0.01 "Width of arrow";
+      parameter ModelicaVis.SIunits.Length widthHead=0.04 "Width of arrow head";
+      input Modelica.SIunits.ComplexCurrent iStart "Start of current phasor" annotation (Dialog(enable=true));
+      input Modelica.SIunits.ComplexCurrent i "Current phasor" annotation (Dialog(enable=true));
+      Modelica.SIunits.ComplexCurrent iEnd=iStart+i "End of current phasors";
+
+      Modelica.SIunits.Angle anglePhasor=Modelica.ComplexMath.arg(i) "Angle of current phasor";
+      // Current phasor calculations
+      Real phasorStart[3] = {iStart.re/IRef,iStart.im/IRef,0} "Start of current phasor in coordinates";
+      Real phasorEnd[3] = {(iStart.re+i.re)/IRef,(iStart.im+i.im)/IRef,0};
+      Real phasorDifference[3] = phasorEnd - phasorStart;
+      Real phasorLength = Modelica.Math.Vectors.length(phasorDifference);
+      Real phasorOrientation[3] = {cos(anglePhasor),sin(anglePhasor),0};
+      Real phasorOrientationWidth[3] = {-sin(anglePhasor),cos(anglePhasor),0};
+
+      Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape arrowLine(
+        shapeType="cylinder",
+        length=phasorLength - lengthHead,
+        width=width*linewidth,
+        height=width,
+        lengthDirection=phasorOrientation,
+        widthDirection=phasorOrientationWidth,
+        color=color,
+        r=phasorStart,
+        specularCoefficient=0);
+
+      Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape arrowHead(
+        shapeType="cone",
+        length=lengthHead,
+        width=widthHead,
+        height=widthHead,
+        lengthDirection=phasorOrientation,
+        widthDirection=phasorOrientationWidth,
+        color=color,
+        r=phasorStart + (phasorLength - lengthHead)*phasorOrientation,
+        specularCoefficient=0);
+
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(coordinateSystem(preserveAspectRatio=false)));
+    end CurrentPhasor;
+    annotation ();
+  end Visualization;
   annotation (Icon(graphics={Rectangle(lineColor={0,0,255}, extent={{-50,-50},{
               50,50}}), Rectangle(
           fillColor={170,213,255},
