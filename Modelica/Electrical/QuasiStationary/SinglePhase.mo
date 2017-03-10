@@ -2706,40 +2706,40 @@ The source partial model relies on the
     partial model VisualizationSetting "Parameter settings of phasor visualization"
 
       parameter Boolean animationVoltage = false "Enable animation of voltage phasor" annotation(choices(checkBox=true),Dialog(tab="Animation", group="Voltage"));
-      parameter ModelicaVis.SIunits.Voltage VRef=1 "Reference scaling voltage" annotation (Dialog(
+      parameter Modelica.SIunits.Voltage VRef=1 "Reference scaling voltage" annotation (Dialog(
           tab="Animation",
           group="Voltage",
           enable=animationVoltage));
-      parameter ModelicaVis.Mechanics.MultiBody.Types.Color colorVoltage={0,0,255} "RGB color of voltage phasor" annotation (Dialog(
+      parameter Modelica.Mechanics.MultiBody.Types.Color colorVoltage={0,0,255} "RGB color of voltage phasor" annotation (Dialog(
           tab="Animation",
           group="Voltage",
           enable=animationVoltage));
       parameter Real linewidthVoltage=1 "Relative linewidth of voltage phasor w.r.t. width" annotation(Dialog(tab="Animation",group="Voltage",enable=animationVoltage));
 
       parameter Boolean animationCurrent = false "Enable animation of current phasor" annotation(choices(checkBox=true),Dialog(tab="Animation",group="Current"));
-      parameter ModelicaVis.SIunits.Current IRef=1 "Reference scaling current" annotation (Dialog(
+      parameter Modelica.SIunits.Current IRef=1 "Reference scaling current" annotation (Dialog(
           tab="Animation",
           group="Current",
           enable=animationCurrent));
-      parameter ModelicaVis.Mechanics.MultiBody.Types.Color colorCurrent={255,0,0} "RGB color of current phasor" annotation (Dialog(
+      parameter Modelica.Mechanics.MultiBody.Types.Color colorCurrent={255,0,0} "RGB color of current phasor" annotation (Dialog(
           tab="Animation",
           group="Current",
           enable=animationCurrent));
       parameter Real linewidthCurrent=1 "Relative linewidth of current phasor w.r.t. width" annotation(Dialog(tab="Animation",group="Current",enable=animationCurrent));
 
-      parameter ModelicaVis.SIunits.Length length=1 "Length of arrow including head" annotation (Dialog(
+      parameter Modelica.SIunits.Length length=1 "Length of arrow including head" annotation (Dialog(
           tab="Animation",
           group="Phasor settings",
           enable=animationVoltage or animationCurrent), Evaluate=true);
-      parameter ModelicaVis.SIunits.Length lengthHead=0.08 "Length of arrow including head" annotation (Dialog(
+      parameter Modelica.SIunits.Length lengthHead=0.08 "Length of arrow including head" annotation (Dialog(
           tab="Animation",
           group="Phasor settings",
           enable=animationVoltage or animationCurrent), Evaluate=true);
-      parameter ModelicaVis.SIunits.Length width=0.01 "Width of arrow" annotation (Dialog(
+      parameter Modelica.SIunits.Length width=0.01 "Width of arrow" annotation (Dialog(
           tab="Animation",
           group="Phasor settings",
           enable=animationVoltage or animationCurrent), Evaluate=true);
-      parameter ModelicaVis.SIunits.Length widthHead=0.04 "Width of arrow head" annotation (Dialog(
+      parameter Modelica.SIunits.Length widthHead=0.04 "Width of arrow head" annotation (Dialog(
           tab="Animation",
           group="Phasor settings",
           enable=animationVoltage or animationCurrent), Evaluate=true);
@@ -2761,25 +2761,25 @@ The source partial model relies on the
     partial model VisualizationAxes "Displays axes if viszalization is used"
 
       parameter Boolean animation = false annotation(Dialog(tab="Animation"));
-      parameter ModelicaVis.SIunits.Length length=1 "Length of arrow including head" annotation (Dialog(
+      parameter Modelica.SIunits.Length length=1 "Length of arrow including head" annotation (Dialog(
           tab="Animation",
           group="Phasor settings",
           enable=animation), Evaluate=true);
-      parameter ModelicaVis.SIunits.Length lengthHead=0.08 "Length of arrow including head" annotation (Dialog(
+      parameter Modelica.SIunits.Length lengthHead=0.08 "Length of arrow including head" annotation (Dialog(
           tab="Animation",
           group="Phasor settings",
           enable=animation), Evaluate=true);
-      parameter ModelicaVis.SIunits.Length width=0.01 "Width of arrow" annotation (Dialog(
+      parameter Modelica.SIunits.Length width=0.01 "Width of arrow" annotation (Dialog(
           tab="Animation",
           group="Phasor settings",
           enable=animation), Evaluate=true);
-      parameter ModelicaVis.SIunits.Length widthHead=0.04 "Width of arrow head" annotation (Dialog(
+      parameter Modelica.SIunits.Length widthHead=0.04 "Width of arrow head" annotation (Dialog(
           tab="Animation",
           group="Phasor settings",
           enable=animation), Evaluate=true);
 
       // x-axis
-      ModelicaVis.Mechanics.MultiBody.Visualizers.Advanced.Shape x_arrowLine(
+      Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape x_arrowLine(
         shapeType="cylinder",
         length=length,
         width=width,
@@ -2788,7 +2788,7 @@ The source partial model relies on the
         widthDirection={0,1,0},
         color={0,0,0},
         specularCoefficient=0) if animation;
-      ModelicaVis.Mechanics.MultiBody.Visualizers.Advanced.Shape x_arrowHead(
+      Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape x_arrowHead(
         shapeType="cone",
         length=lengthHead,
         width=widthHead,
@@ -2800,7 +2800,7 @@ The source partial model relies on the
         specularCoefficient=0) if animation;
 
       // y-axis
-      ModelicaVis.Mechanics.MultiBody.Visualizers.Advanced.Shape y_arrowLine(
+      Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape y_arrowLine(
         shapeType="cylinder",
         length=length,
         width=width,
@@ -2809,7 +2809,7 @@ The source partial model relies on the
         widthDirection={1,0,0},
         color={0,0,0},
         specularCoefficient=0) if animation;
-      ModelicaVis.Mechanics.MultiBody.Visualizers.Advanced.Shape y_arrowHead(
+      Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape y_arrowHead(
         shapeType="cone",
         length=lengthHead,
         width=widthHead,
@@ -3030,12 +3030,12 @@ Quasi stationary theory for single phase circuits can be found in the
     extends Icons.Package;
     model VoltagePhasor "Visualization of single phase voltage phasor"
       parameter Modelica.SIunits.Voltage VRef "Reference scaling voltage";
-      parameter ModelicaVis.Mechanics.MultiBody.Types.Color color={0,0,255} "RGB color of voltage phasor";
+      parameter Modelica.Mechanics.MultiBody.Types.Color color={0,0,255} "RGB color of voltage phasor";
       parameter Real linewidth=1 "Relative linewidth of voltage phasor w.r.t. width";
-      parameter ModelicaVis.SIunits.Length length=1 "Length of arrow including head";
-      parameter ModelicaVis.SIunits.Length lengthHead=0.08 "Length of arrow including head";
-      parameter ModelicaVis.SIunits.Length width=0.01 "Width of arrow";
-      parameter ModelicaVis.SIunits.Length widthHead=0.04 "Width of arrow head";
+      parameter Modelica.SIunits.Length length=1 "Length of arrow including head";
+      parameter Modelica.SIunits.Length lengthHead=0.08 "Length of arrow including head";
+      parameter Modelica.SIunits.Length width=0.01 "Width of arrow";
+      parameter Modelica.SIunits.Length widthHead=0.04 "Width of arrow head";
 
       input Modelica.SIunits.ComplexVoltage vStart "Start of voltage phasor" annotation (Dialog(enable=true));
       input Modelica.SIunits.ComplexVoltage v "Voltage phasor" annotation (Dialog(enable=true));
@@ -3077,12 +3077,12 @@ Quasi stationary theory for single phase circuits can be found in the
 
     model CurrentPhasor "Visualization of single phase current phasor"
       parameter Modelica.SIunits.Current IRef "Reference scaling current";
-      parameter ModelicaVis.Mechanics.MultiBody.Types.Color color={0,0,255} "RGB color of current phasor";
+      parameter Modelica.Mechanics.MultiBody.Types.Color color={0,0,255} "RGB color of current phasor";
       parameter Real linewidth=1 "Relative linewidth of current phasor w.r.t. width";
-      parameter ModelicaVis.SIunits.Length length=1 "Length of arrow including head";
-      parameter ModelicaVis.SIunits.Length lengthHead=0.08 "Length of arrow including head";
-      parameter ModelicaVis.SIunits.Length width=0.01 "Width of arrow";
-      parameter ModelicaVis.SIunits.Length widthHead=0.04 "Width of arrow head";
+      parameter Modelica.SIunits.Length length=1 "Length of arrow including head";
+      parameter Modelica.SIunits.Length lengthHead=0.08 "Length of arrow including head";
+      parameter Modelica.SIunits.Length width=0.01 "Width of arrow";
+      parameter Modelica.SIunits.Length widthHead=0.04 "Width of arrow head";
       input Modelica.SIunits.ComplexCurrent iStart "Start of current phasor" annotation (Dialog(enable=true));
       input Modelica.SIunits.ComplexCurrent i "Current phasor" annotation (Dialog(enable=true));
       Modelica.SIunits.ComplexCurrent iEnd=iStart+i "End of current phasors";
