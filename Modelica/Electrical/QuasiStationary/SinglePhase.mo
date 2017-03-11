@@ -2744,18 +2744,16 @@ The source partial model relies on the
           group="Phasor settings",
           enable=animationVoltage or animationCurrent), Evaluate=true);
       annotation (Icon(coordinateSystem(preserveAspectRatio=false), graphics={
-            Line(visible=animationVoltage,points={{-100,-20},{100,-20}},color={0,0,255}),
-            Polygon(visible=animationVoltage,
-              points={{100,-20},{70,-30},{70,-10},{100,-20}},
-              lineColor={0,0,255},
-              fillColor={0,0,255},
-              fillPattern=FillPattern.Solid),
-            Line(visible=animationCurrent,points={{-140,-20},{-100,-20}},color={255,0,0}),
+            Line(visible=animationCurrent,points={{-140,20},{-100,20}},  color={255,0,0}),
             Polygon(visible=animationCurrent,
-              points={{-100,-20},{-130,-10},{-130,-32},{-100,-20}},
+              points={{-100,20},{-130,30},{-130,8},{-100,20}},
               lineColor={255,0,0},
               fillColor={255,0,0},
-              fillPattern=FillPattern.Solid)}),                      Diagram(coordinateSystem(preserveAspectRatio=false)));
+              fillPattern=FillPattern.Solid),
+            Line(visible=animationVoltage,points={{-136,-20},{-102,-20}},color={255,0,0}),
+            Line(visible=animationVoltage,points={{-120,-4},{-120,-36}},color={255,0,0}),
+            Line(visible=animationVoltage,points={{106,-20},{136,-20}}, color={0,0,255})}),
+                                                                     Diagram(coordinateSystem(preserveAspectRatio=false)));
     end VisualizationSetting;
 
     partial model VisualizationAxes "Displays axes if viszalization is used"
