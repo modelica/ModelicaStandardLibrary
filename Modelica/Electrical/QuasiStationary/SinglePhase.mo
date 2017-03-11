@@ -3028,6 +3028,53 @@ Quasi stationary theory for single phase circuits can be found in the
 
   package Visualization "Visualization of phasors"
     extends Icons.Package;
+    model Phasor "Visualization of generic phasor"
+      parameter Real uRef "Reference scaling quantity of phasor u";
+      parameter Modelica.Mechanics.MultiBody.Types.Color color={0,0,255} "RGB color of voltage phasor";
+      parameter Real linewidth=1 "Relative linewidth of voltage phasor w.r.t. width";
+      parameter Modelica.SIunits.Length length=1 "Length of arrow including head";
+      parameter Modelica.SIunits.Length lengthHead=0.08 "Length of arrow including head";
+      parameter Modelica.SIunits.Length width=0.01 "Width of arrow";
+      parameter Modelica.SIunits.Length widthHead=0.04 "Width of arrow head";
+
+      input Complex uStart "Start of phasor" annotation (Dialog(enable=true));
+      input Complex u "Phasor" annotation (Dialog(enable=true));
+      Complex uEnd=uStart+u "End of phasors";
+
+      Modelica.SIunits.Angle anglePhasor=Modelica.ComplexMath.arg(u) "Angle of phasor";
+      // Phasor calculations
+      Real phasorStart[3] = {uStart.re/uRef,uStart.im/uRef,0} "Start of voltage phasor in coordinates";
+      Real phasorEnd[3] = {(uStart.re+u.re)/uRef,(uStart.im+u.im)/uRef,0};
+      Real phasorDifference[3] = phasorEnd - phasorStart;
+      Real phasorLength = Modelica.Math.Vectors.length(phasorDifference);
+      Real phasorOrientation[3] = {cos(anglePhasor),sin(anglePhasor),0};
+      Real phasorOrientationWidth[3] = {-sin(anglePhasor),cos(anglePhasor),0};
+
+      Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape arrowLine(
+        shapeType="cylinder",
+        length=phasorLength - lengthHead,
+        width=width*linewidth,
+        height=width,
+        lengthDirection=phasorOrientation,
+        widthDirection=phasorOrientationWidth,
+        color=color,
+        r=phasorStart,
+        specularCoefficient=0);
+
+      Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape arrowHead(
+        shapeType="cone",
+        length=lengthHead,
+        width=widthHead,
+        height=widthHead,
+        lengthDirection=phasorOrientation,
+        widthDirection=phasorOrientationWidth,
+        color=color,
+        r=phasorStart + (phasorLength - lengthHead)*phasorOrientation,
+        specularCoefficient=0);
+
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(coordinateSystem(preserveAspectRatio=false)));
+    end Phasor;
+
     model VoltagePhasor "Visualization of single phase voltage phasor"
       parameter Modelica.SIunits.Voltage VRef "Reference scaling voltage";
       parameter Modelica.Mechanics.MultiBody.Types.Color color={0,0,255} "RGB color of voltage phasor";
