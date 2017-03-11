@@ -24,20 +24,20 @@ package SinglePhase "Single phase AC components"
             origin={-60,-50},
             extent={{-10,-10},{10,10}},
             rotation=90)));
-      Modelica.Electrical.QuasiStationary.SinglePhase.Sources.VariableVoltageSource voltageSource(gamma(fixed=true, start=0), animationVoltage=true) annotation (Placement(transformation(
+      Modelica.Electrical.QuasiStationary.SinglePhase.Sources.VariableVoltageSource voltageSource(gamma(fixed=true, start=0), visualizationVoltage=true) annotation (Placement(transformation(
             origin={-30,-20},
             extent={{-10,10},{10,-10}},
             rotation=270)));
-      Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Ground ground(animation=true) annotation (Placement(transformation(extent={{-40,-60},{-20,-40}})));
+      Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Ground ground(visualization=true) annotation (Placement(transformation(extent={{-40,-60},{-20,-40}})));
       Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Resistor resistor(
         R_ref=0.1,
-        animationVoltage=true,
-        animationCurrent=true) annotation (Placement(transformation(extent={{10,-10},{30,10}})));
+        visualizationVoltage=true,
+        visualizationCurrent=true) annotation (Placement(transformation(extent={{10,-10},{30,10}})));
       Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Inductor inductor(
         L=1/(2*Modelica.Constants.pi),
-        animationVoltage=true,
+        visualizationVoltage=true,
         colorVoltage={0,128,255}) annotation (Placement(transformation(extent={{40,-10},{60,10}})));
-      Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Capacitor capacitor(C=1/(2*Modelica.Constants.pi), animationVoltage=true) annotation (Placement(transformation(extent={{70,-10},{90,10}})));
+      Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Capacitor capacitor(C=1/(2*Modelica.Constants.pi), visualizationVoltage=true) annotation (Placement(transformation(extent={{70,-10},{90,10}})));
       Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.CurrentSensor currentSensor annotation (Placement(transformation(extent={{-20,10},{0,-10}})));
       Modelica.ComplexBlocks.ComplexMath.PolarToComplex polarToComplex annotation (Placement(transformation(
             origin={-60,10},
@@ -99,21 +99,21 @@ Plot length and angle of the current phasor, i.e., complexToPolar.len and .phi, 
             origin={-60,50},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      Modelica.Electrical.QuasiStationary.SinglePhase.Sources.VariableCurrentSource currentSource(gamma(fixed=true, start=0), animationCurrent=true) annotation (Placement(transformation(
+      Modelica.Electrical.QuasiStationary.SinglePhase.Sources.VariableCurrentSource currentSource(gamma(fixed=true, start=0), visualizationCurrent=true) annotation (Placement(transformation(
             origin={-30,20},
             extent={{10,10},{-10,-10}},
             rotation=270)));
-      Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Ground ground(animation=true) annotation (Placement(transformation(extent={{-40,-20},{-20,0}})));
+      Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Ground ground(visualization=true) annotation (Placement(transformation(extent={{-40,-20},{-20,0}})));
       Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Resistor resistor(
         R_ref=10,
-        animationCurrent=true,
-        animationVoltage=true) annotation (Placement(transformation(
+        visualizationCurrent=true,
+        visualizationVoltage=true) annotation (Placement(transformation(
             origin={-10,20},
             extent={{-10,-10},{10,10}},
             rotation=270)));
       Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Inductor inductor(
         L=1/(2*Modelica.Constants.pi),
-        animationCurrent=true,
+        visualizationCurrent=true,
         colorCurrent={255,128,0},
         iStart=resistor.i) annotation (Placement(transformation(
             origin={10,20},
@@ -121,7 +121,7 @@ Plot length and angle of the current phasor, i.e., complexToPolar.len and .phi, 
             rotation=270)));
       Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Capacitor capacitor(
         C=1/(2*Modelica.Constants.pi),
-        animationCurrent=true,
+        visualizationCurrent=true,
         colorCurrent={155,0,0},
         iStart=resistor.i + inductor.i) annotation (Placement(transformation(
             origin={30,20},
@@ -2508,13 +2508,13 @@ and <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfa
 
       // Starting points of phasors
       Modelica.SIunits.ComplexVoltage vStart=pin_n.v "Starting poing of voltage phasor" annotation (Dialog(
-          tab="Animation",
+          tab="Visualization",
           group="Voltage",
-          enable=animationVoltage));
+          enable=visualizationVoltage));
       Modelica.SIunits.ComplexCurrent iStart=Complex(0, 0) "Starting poing of current phasor" annotation (Dialog(
-          tab="Animation",
+          tab="Visualization",
           group="Current",
-          enable=animationCurrent));
+          enable=visualizationCurrent));
 
       Visualization.VoltagePhasor voltagePhasor(
         final VRef=VRef,
@@ -2525,7 +2525,7 @@ and <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfa
         final length=length,
         final lengthHead=lengthHead,
         final width=width,
-        final widthHead=widthHead) if animationVoltage;
+        final widthHead=widthHead) if visualizationVoltage;
         // Original graphical annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
       Visualization.CurrentPhasor currentPhasor(
         final IRef=IRef,
@@ -2536,7 +2536,7 @@ and <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfa
         final length=length,
         final lengthHead=lengthHead,
         final width=width,
-        final widthHead=widthHead) if animationCurrent;
+        final widthHead=widthHead) if visualizationCurrent;
         // Origignal graphical annotation (Placement(transformation(extent={{-80,-40},{-60,-20}})));
 
       annotation (Documentation(info="<html>
@@ -2705,76 +2705,76 @@ The source partial model relies on the
 
     partial model VisualizationSetting "Parameter settings of phasor visualization"
 
-      parameter Boolean animationVoltage = false "Enable animation of voltage phasor" annotation(choices(checkBox=true),Dialog(tab="Animation", group="Voltage"));
+      parameter Boolean visualizationVoltage = false "Enable visualization of voltage phasor" annotation(choices(checkBox=true),Dialog(tab="Visualization", group="Voltage"));
       parameter Modelica.SIunits.Voltage VRef=1 "Reference scaling voltage" annotation (Dialog(
-          tab="Animation",
+          tab="Visualization",
           group="Voltage",
-          enable=animationVoltage));
+          enable=visualizationVoltage));
       parameter Modelica.Mechanics.MultiBody.Types.Color colorVoltage={0,0,255} "RGB color of voltage phasor" annotation (Dialog(
-          tab="Animation",
+          tab="Visualization",
           group="Voltage",
-          enable=animationVoltage));
-      parameter Real linewidthVoltage=1 "Relative linewidth of voltage phasor w.r.t. width" annotation(Dialog(tab="Animation",group="Voltage",enable=animationVoltage));
+          enable=visualizationVoltage));
+      parameter Real linewidthVoltage=1 "Relative linewidth of voltage phasor w.r.t. width" annotation(Dialog(tab="Visualization",group="Voltage",enable=visualizationVoltage));
 
-      parameter Boolean animationCurrent = false "Enable animation of current phasor" annotation(choices(checkBox=true),Dialog(tab="Animation",group="Current"));
+      parameter Boolean visualizationCurrent = false "Enable visualization of current phasor" annotation(choices(checkBox=true),Dialog(tab="Visualization",group="Current"));
       parameter Modelica.SIunits.Current IRef=1 "Reference scaling current" annotation (Dialog(
-          tab="Animation",
+          tab="Visualization",
           group="Current",
-          enable=animationCurrent));
+          enable=visualizationCurrent));
       parameter Modelica.Mechanics.MultiBody.Types.Color colorCurrent={255,0,0} "RGB color of current phasor" annotation (Dialog(
-          tab="Animation",
+          tab="Visualization",
           group="Current",
-          enable=animationCurrent));
-      parameter Real linewidthCurrent=1 "Relative linewidth of current phasor w.r.t. width" annotation(Dialog(tab="Animation",group="Current",enable=animationCurrent));
+          enable=visualizationCurrent));
+      parameter Real linewidthCurrent=1 "Relative linewidth of current phasor w.r.t. width" annotation(Dialog(tab="Visualization",group="Current",enable=visualizationCurrent));
 
       parameter Modelica.SIunits.Length length=1 "Length of arrow including head" annotation (Dialog(
-          tab="Animation",
+          tab="Visualization",
           group="Phasor settings",
-          enable=animationVoltage or animationCurrent), Evaluate=true);
+          enable=visualizationVoltage or visualizationCurrent), Evaluate=true);
       parameter Modelica.SIunits.Length lengthHead=0.08 "Length of arrow including head" annotation (Dialog(
-          tab="Animation",
+          tab="Visualization",
           group="Phasor settings",
-          enable=animationVoltage or animationCurrent), Evaluate=true);
+          enable=visualizationVoltage or visualizationCurrent), Evaluate=true);
       parameter Modelica.SIunits.Length width=0.01 "Width of arrow" annotation (Dialog(
-          tab="Animation",
+          tab="Visualization",
           group="Phasor settings",
-          enable=animationVoltage or animationCurrent), Evaluate=true);
+          enable=visualizationVoltage or visualizationCurrent), Evaluate=true);
       parameter Modelica.SIunits.Length widthHead=0.04 "Width of arrow head" annotation (Dialog(
-          tab="Animation",
+          tab="Visualization",
           group="Phasor settings",
-          enable=animationVoltage or animationCurrent), Evaluate=true);
+          enable=visualizationVoltage or visualizationCurrent), Evaluate=true);
       annotation (Icon(coordinateSystem(preserveAspectRatio=false), graphics={
-            Line(visible=animationCurrent,points={{-140,20},{-100,20}},  color={255,0,0}),
-            Polygon(visible=animationCurrent,
+            Line(visible=visualizationCurrent,points={{-140,20},{-100,20}},  color={255,0,0}),
+            Polygon(visible=visualizationCurrent,
               points={{-100,20},{-130,30},{-130,8},{-100,20}},
               lineColor={255,0,0},
               fillColor={255,0,0},
               fillPattern=FillPattern.Solid),
-            Line(visible=animationVoltage,points={{-136,-20},{-102,-20}},color={255,0,0}),
-            Line(visible=animationVoltage,points={{-120,-4},{-120,-36}},color={255,0,0}),
-            Line(visible=animationVoltage,points={{106,-20},{136,-20}}, color={0,0,255})}),
+            Line(visible=visualizationVoltage,points={{-136,-20},{-102,-20}},color={255,0,0}),
+            Line(visible=visualizationVoltage,points={{-120,-4},{-120,-36}},color={255,0,0}),
+            Line(visible=visualizationVoltage,points={{106,-20},{136,-20}}, color={0,0,255})}),
                                                                      Diagram(coordinateSystem(preserveAspectRatio=false)));
     end VisualizationSetting;
 
     partial model VisualizationAxes "Displays axes if viszalization is used"
 
-      parameter Boolean animation = false annotation(Dialog(tab="Animation"));
+      parameter Boolean visualization = false annotation(Dialog(tab="Visualization"));
       parameter Modelica.SIunits.Length length=1 "Length of arrow including head" annotation (Dialog(
-          tab="Animation",
+          tab="Visualization",
           group="Phasor settings",
-          enable=animation), Evaluate=true);
+          enable=visualization), Evaluate=true);
       parameter Modelica.SIunits.Length lengthHead=0.08 "Length of arrow including head" annotation (Dialog(
-          tab="Animation",
+          tab="Visualization",
           group="Phasor settings",
-          enable=animation), Evaluate=true);
+          enable=visualization), Evaluate=true);
       parameter Modelica.SIunits.Length width=0.01 "Width of arrow" annotation (Dialog(
-          tab="Animation",
+          tab="Visualization",
           group="Phasor settings",
-          enable=animation), Evaluate=true);
+          enable=visualization), Evaluate=true);
       parameter Modelica.SIunits.Length widthHead=0.04 "Width of arrow head" annotation (Dialog(
-          tab="Animation",
+          tab="Visualization",
           group="Phasor settings",
-          enable=animation), Evaluate=true);
+          enable=visualization), Evaluate=true);
 
       // x-axis
       Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape x_arrowLine(
@@ -2785,7 +2785,7 @@ The source partial model relies on the
         lengthDirection={1,0,0},
         widthDirection={0,1,0},
         color={0,0,0},
-        specularCoefficient=0) if animation;
+        specularCoefficient=0) if visualization;
       Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape x_arrowHead(
         shapeType="cone",
         length=lengthHead,
@@ -2795,7 +2795,7 @@ The source partial model relies on the
         widthDirection={0,1,0},
         color={0,0,0},
         r={length,0,0},
-        specularCoefficient=0) if animation;
+        specularCoefficient=0) if visualization;
 
       // y-axis
       Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape y_arrowLine(
@@ -2806,7 +2806,7 @@ The source partial model relies on the
         lengthDirection={0,1,0},
         widthDirection={1,0,0},
         color={0,0,0},
-        specularCoefficient=0) if animation;
+        specularCoefficient=0) if visualization;
       Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape y_arrowHead(
         shapeType="cone",
         length=lengthHead,
@@ -2816,17 +2816,17 @@ The source partial model relies on the
         widthDirection={1,0,0},
         color={0,0,0},
         r={0,length,0},
-        specularCoefficient=0) if animation;
+        specularCoefficient=0) if visualization;
 
       annotation (Icon(coordinateSystem(preserveAspectRatio=false), graphics={
-            Line(visible=animation,points={{-100,-100},{100,-100}},                color={0,0,0}),
-            Polygon(visible=animation,
+            Line(visible=visualization,points={{-100,-100},{100,-100}},                color={0,0,0}),
+            Polygon(visible=visualization,
               points={{100,-100},{70,-110},{70,-90},{100,-100}},
               lineColor={0,0,0},
               fillColor={0,0,0},
               fillPattern=FillPattern.Solid),
-            Line(visible=animation,points={{-100,-100},{-100,100}},color={0,0,0}),
-            Polygon(visible=animation,
+            Line(visible=visualization,points={{-100,-100},{-100,100}},color={0,0,0}),
+            Polygon(visible=visualization,
               points={{-100,100},{-110,70},{-90,70},{-100,100}},
               lineColor={0,0,0},
               fillColor={0,0,0},
