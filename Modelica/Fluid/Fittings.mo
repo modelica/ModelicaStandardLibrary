@@ -1296,9 +1296,9 @@ The used sufficient criteria for monotonicity follows from:
         input LossFactorData data
           "Constant loss factors for both flow directions" annotation (
             choices(
-            choice=Modelica.Fluid.Fittings.Utilities.QuadraticTurbulent.LossFactorData.wallFriction(),
-            choice=Modelica.Fluid.Fittings.Utilities.QuadraticTurbulent.LossFactorData.suddenExpansion(),
-            choice=Modelica.Fluid.Fittings.Utilities.QuadraticTurbulent.LossFactorData.sharpEdgedOrifice()));
+            choice=Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData.wallFriction(),
+            choice=Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData.suddenExpansion(),
+            choice=Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData.sharpEdgedOrifice()));
         input SI.AbsolutePressure dp_small = 1
           "Turbulent flow if |dp| >= dp_small";
         output SI.MassFlowRate m_flow "Mass flow rate from port_a to port_b";
@@ -1338,9 +1338,9 @@ a polynomial in order to have a finite derivative at zero mass flow rate.
         input LossFactorData data
           "Constant loss factors for both flow directions" annotation (
             choices(
-            choice=BaseClasses.PressureLosses.QuadraticTurbulent.LossFactorData.wallFriction(),
-            choice=BaseClasses.PressureLosses.QuadraticTurbulent.LossFactorData.suddenExpansion(),
-            choice=BaseClasses.PressureLosses.QuadraticTurbulent.LossFactorData.sharpEdgedOrifice()));
+            choice=Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData.wallFriction(),
+            choice=Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData.suddenExpansion(),
+            choice=Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData.sharpEdgedOrifice()));
         output SI.MassFlowRate m_flow "Mass flow rate from port_a to port_b";
 
       protected
@@ -1436,9 +1436,9 @@ The used sufficient criteria for monotonicity follows from:
         input LossFactorData data
           "Constant loss factors for both flow directions" annotation (
             choices(
-            choice=BaseClasses.PressureLosses.QuadraticTurbulent.LossFactorData.wallFriction(),
-            choice=BaseClasses.PressureLosses.QuadraticTurbulent.LossFactorData.suddenExpansion(),
-            choice=BaseClasses.PressureLosses.QuadraticTurbulent.LossFactorData.sharpEdgedOrifice()));
+            choice=Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData.wallFriction(),
+            choice=Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData.suddenExpansion(),
+            choice=Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData.sharpEdgedOrifice()));
         input SI.MassFlowRate m_flow_small = 0.01
           "Turbulent flow if |m_flow| >= m_flow_small";
         output SI.Pressure dp "Pressure drop (dp = port_a.p - port_b.p)";
@@ -1478,9 +1478,9 @@ a polynomial in order to have a finite derivative at zero mass flow rate.
         input LossFactorData data
           "Constant loss factors for both flow directions" annotation (
             choices(
-            choice=BaseClasses.PressureLosses.QuadraticTurbulent.LossFactorData.wallFriction(),
-            choice=BaseClasses.PressureLosses.QuadraticTurbulent.LossFactorData.suddenExpansion(),
-            choice=BaseClasses.PressureLosses.QuadraticTurbulent.LossFactorData.sharpEdgedOrifice()));
+            choice=Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData.wallFriction(),
+            choice=Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData.suddenExpansion(),
+            choice=Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData.sharpEdgedOrifice()));
         output SI.Pressure dp "Pressure drop (dp = port_a.p - port_b.p)";
 
       protected
@@ -2031,9 +2031,9 @@ The used sufficient criteria for monotonicity follows from:
         input LossFactorData data
           "Constant loss factors for both flow directions" annotation (
             choices(
-            choice=BaseClasses.PressureLosses.QuadraticTurbulent.LossFactorData.wallFriction(),
-            choice=BaseClasses.PressureLosses.QuadraticTurbulent.LossFactorData.suddenExpansion(),
-            choice=BaseClasses.PressureLosses.QuadraticTurbulent.LossFactorData.sharpEdgedOrifice()));
+            choice=Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData.wallFriction(),
+            choice=Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData.suddenExpansion(),
+            choice=Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData.sharpEdgedOrifice()));
         input SI.MassFlowRate m_flow_small = 0.01
           "Turbulent flow if |m_flow| >= m_flow_small";
         output SI.Pressure dp "Pressure drop (dp = port_a.p - port_b.p)";
