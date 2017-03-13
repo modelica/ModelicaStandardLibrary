@@ -2026,6 +2026,9 @@ a flange according to a given acceleration.
       b := b - a*startTimeScaled;
     end getInterpolationCoefficients;
   algorithm
+    if noEvent(size(table, 1) > 1) then
+      assert(table[1, 1] == 0, "The first point in time has to be set to 0, but is table[1,1] = " + String(table[1, 1]));
+    end if;
     timeScaled := time/timeScale;
     when {time >= pre(nextEvent),initial()} then
       (a,b,nextEventScaled,last) := getInterpolationCoefficients(
@@ -2038,6 +2041,7 @@ a flange according to a given acceleration.
       nextEvent := nextEventScaled*timeScale;
     end when;
   equation
+    assert(size(table, 1) > 0, "No table values defined.");
     y = a*timeScaled + b;
     annotation (
       Icon(coordinateSystem(
@@ -2144,7 +2148,7 @@ The table interpolation has the following properties:
     the function value is just returned independently of the actual time instant.</li>
 <li>Via parameters <strong>startTime</strong> and <strong>offset</strong> the curve defined
     by the table can be shifted both in time and in the ordinate value.</li>
-<li>The first point in time <strong>always</strong> has to be set to <strong>0</strong>, e.g.,
+<li>If the table has more than one row, the first point in time <strong>always</strong> has to be set to <strong>0</strong>, e.g.,
     <strong>table=[1,1;2,2]</strong> is <strong>illegal</strong>. If you want to
     shift the time table in time use the <strong>startTime</strong> parameter instead.</li>
 <li>The table is implemented in a numerically sound way by
