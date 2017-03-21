@@ -1136,11 +1136,6 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> for the
         "Input record for function kc_flatTube and kc_flatTube_KC"
         extends Modelica.Icons.Record;
 
-      protected
-        type TYP =
-            Modelica.Fluid.Dissipation.Utilities.Types.HTXGeometry_flatTubes;
-
-      public
         Modelica.Fluid.Dissipation.Utilities.Types.HTXGeometry_flatTubes
           geometry =                                                              Dissipation.Utilities.Types.HTXGeometry_flatTubes.LouverFin
           "Choice of fin geometry" annotation (Dialog(group="HeatExchanger"));
