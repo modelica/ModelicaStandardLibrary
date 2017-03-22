@@ -504,7 +504,7 @@ Modelica_ERROR:
 
 MODELICA_EXPORT void ModelicaStrings_scanString(_In_z_ const char* string, int startIndex,
                                 _Out_ int* nextIndex, _Out_ const char** result) {
-                                int i, token_start, past_token, token_length;
+    int i, token_start, past_token, token_length;
 
     token_length = 0;
     token_start = ModelicaStrings_skipWhiteSpace(string, startIndex);
