@@ -967,7 +967,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
           Modelica.Fluid.Dissipation.Utilities.Records.General.FluidProperties;
         SI.DynamicViscosity eta_wall
           "Dynamic viscosity of fluid at wall temperature" annotation (Dialog(group=
-                "Fluid properties", enable=if target == 2 then true else false));
+                "Fluid properties", enable= target == 2));
 
         //input variable (mass flow rate)
         SI.MassFlowRate m_flow annotation (Dialog(group="Input"));
@@ -1147,33 +1147,32 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> for the
 
         SI.Area A_fr=0 "Frontal area" annotation (Dialog(group="HeatExchanger"));
         SI.Length D_h=0 "Hydraulic diameter" annotation (Dialog(group="HeatExchanger",
-              enable=if geometry == 2 then true else false));
+              enable= geometry == 2));
         SI.Length D_m=0 "Major tube diameter for flat tube"
           annotation (Dialog(group="HeatExchanger"));
         SI.Length F_l=0 "Fin length" annotation (Dialog(group="HeatExchanger", enable=
-               if geometry == 1 then true else false));
+               geometry == 1));
         SI.Length F_p=0 "Fin pitch, fin spacing + fin thickness" annotation (Dialog(
-              group="HeatExchanger", enable=if geometry == 1 then true else false));
+              group="HeatExchanger", enable= geometry == 1));
         SI.Length L_l=0 "Louver length" annotation (Dialog(group="HeatExchanger",
-              enable=if geometry == 1 then true else false));
+              enable= geometry == 1));
         SI.Length L_p=0 "Louver pitch" annotation (Dialog(group="HeatExchanger",
-              enable=if geometry == 1 then true else false));
+              enable= geometry == 1));
         SI.Length T_d=0 "Tube depth" annotation (Dialog(group="HeatExchanger", enable=
-               if geometry == 1 then true else false));
+               geometry == 1));
         SI.Length T_p=0 "Tube pitch" annotation (Dialog(group="HeatExchanger", enable=
-               if geometry == 1 then true else false));
+               geometry == 1));
 
         Real alpha=0 "Lateral fin spacing (s) / free flow height (h)" annotation (
-            Dialog(group="HeatExchanger", enable=if geometry == 2 then true else
-                false));
+            Dialog(group="HeatExchanger", enable= geometry == 2));
         Real gamma=0 "Fin thickness (t) / lateral fin spacing (s)" annotation (Dialog(
-              group="HeatExchanger", enable=if geometry == 2 then true else false));
+              group="HeatExchanger", enable= geometry == 2));
         Real delta=0 "Fin thickness (t) / Fin length (l)" annotation (Dialog(group=
-                "HeatExchanger", enable=if geometry == 2 then true else false));
+                "HeatExchanger", enable= geometry == 2));
         SI.Length delta_f=0 "Fin thickness" annotation (Dialog(group="HeatExchanger",
-              enable=if geometry == 1 then true else false));
+              enable= geometry == 1));
         SI.Angle Phi=0 "Louver angle" annotation (Dialog(group="HeatExchanger",
-              enable=if geometry == 1 then true else false));
+              enable= geometry == 1));
 
         annotation (Documentation(info="<html>
 This record is used as <b> input record </b> for the heat transfer function <a href=\"Modelica://Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_flatTube\"> kc_flatTube</a> and
@@ -1430,27 +1429,25 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> for the
         SI.Length F_p=0 "Fin pitch, fin spacing + fin thickness"
           annotation (Dialog(group="HeatExchanger"));
         SI.Length L=0 "Heat exchanger length" annotation (Dialog(group=
-                "HeatExchanger", enable=if geometry == 2 then true else false));
+                "HeatExchanger", enable= geometry == 2));
         SI.Length L_h=0 "Louver height" annotation (Dialog(group="HeatExchanger",
-              enable=if geometry == 2 then true else false));
+              enable= geometry == 2));
         SI.Length L_p=0 "Louver pitch" annotation (Dialog(group="HeatExchanger",
-              enable=if geometry == 2 then true else false));
+              enable= geometry == 2));
         Integer N=0 "Number of tube rows" annotation (Dialog(group="HeatExchanger",
-              enable=if geometry == 1 or geometry == 2 or geometry == 3 then true else
-                      false));
+              enable= (geometry == 1 or geometry == 2 or geometry == 3)));
         SI.Length P_d=0 "Pattern depth of wavy fin, wave height" annotation (Dialog(
-              group="HeatExchanger", enable=if geometry == 4 then true else false));
+              group="HeatExchanger", enable= geometry == 4));
         SI.Length P_l=0 "Longitudinal tube pitch" annotation (Dialog(group=
-                "HeatExchanger", enable=if geometry == 1 or geometry == 2 or geometry
-                 == 3 then true else false));
+                "HeatExchanger", enable= (geometry == 1 or geometry == 2 or geometry == 3)));
         SI.Length P_t=0 "Transverse tube pitch"
           annotation (Dialog(group="HeatExchanger"));
         SI.Length S_h=0 "Slit height" annotation (Dialog(group="HeatExchanger",
-              enable=if geometry == 3 then true else false));
+              enable= geometry == 3));
         SI.Length S_p=0 "Slit pitch" annotation (Dialog(group="HeatExchanger", enable=
-               if geometry == 3 then true else false));
+               geometry == 3));
         SI.Length X_f=0 "Half wave length of wavy fin" annotation (Dialog(group=
-                "HeatExchanger", enable=if geometry == 4 then true else false));
+                "HeatExchanger", enable= geometry == 4));
 
         SI.Length delta_f=0 "Fin thickness" annotation (Dialog(group="HeatExchanger"));
 
@@ -5795,7 +5792,7 @@ Generally the pressure loss for two phase flow in a horizontal or a vertical str
           annotation (Dialog(group="Choices"));
         Boolean massFlowRateCorrection=false
           "Consider heterogeneous mass flow rate correction" annotation (Dialog(group=
-               "Choices", enable=if momentumPressureLoss then true else false));
+               "Choices", enable= momentumPressureLoss));
         Boolean geodeticPressureLoss=false "Considering geodetic pressure loss"
           annotation (Dialog(group="Choices"));
 
@@ -6086,21 +6083,20 @@ Generally this  function is numerically best used for the <b> compressible case 
 
         //valve variables
         Real Av=PI*0.1^2/4 "Av (metric) flow coefficient [Av]=m^2" annotation (Dialog(
-              group="Valve", enable=if valveCoefficient == 1 then true else false));
+              group="Valve", enable= valveCoefficient == 1));
         Real Kv=Av/27.7e-6 "Kv (metric) flow coefficient [Kv]=m^3/h" annotation (
-            Dialog(group="Valve", enable=if valveCoefficient == 2 then true else
-                false));
+            Dialog(group="Valve", enable= valveCoefficient == 2));
         Real Cv=Av/24.6e-6 "Cv (US) flow coefficient [Cv]=USG/min" annotation (Dialog(
-              group="Valve", enable=if valveCoefficient == 3 then true else false));
+              group="Valve", enable= valveCoefficient == 3));
         SI.Pressure dp_nominal=1e3 "Nominal pressure loss" annotation (Dialog(group=
-                "Valve", enable=if valveCoefficient == 4 then true else false));
+                "Valve", enable= valveCoefficient == 4));
         SI.MassFlowRate m_flow_nominal=opening_nominal*Av*(rho_nominal*dp_nominal)^
-            0.5 "Nominal mass flow rate" annotation (Dialog(group="Valve", enable=if
-                valveCoefficient == 4 then true else false));
+            0.5 "Nominal mass flow rate" annotation (Dialog(group="Valve", enable=
+                valveCoefficient == 4));
         SI.Density rho_nominal=1000 "Nominal inlet density" annotation (Dialog(group=
-                "Valve", enable=if valveCoefficient == 4 then true else false));
+                "Valve", enable= valveCoefficient == 4));
         Real opening_nominal=0.5 "Nominal opening" annotation (Dialog(group="Valve",
-              enable=if valveCoefficient == 4 then true else false));
+              enable= valveCoefficient == 4));
         Real zeta_TOT_min=1e-3
           "Minimal pressure loss coefficient at full opening"
           annotation (Dialog(group="Valve"));
@@ -12680,18 +12676,17 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
           SI.Density rho_l "Density of liquid"
             annotation (Dialog(group="Fluid properties"));
           SI.Density rho_g "Density of gas" annotation (Dialog(group=
-                  "Fluid properties", enable=if KC == 1 or KC == 2 then true else false));
+                  "Fluid properties", enable= (KC == 1 or KC == 2)));
           SI.DynamicViscosity eta_l "Dynamic viscosity of liquid"
             annotation (Dialog(group="Fluid properties"));
           SI.DynamicViscosity eta_g "Dynamic viscosity of gas" annotation (
-              Dialog(group="Fluid properties", enable=if KC == 1 or KC == 2 then true else
-                        false));
+              Dialog(group="Fluid properties", enable= (KC == 1 or KC == 2)));
           SI.MassFraction x=0.5 "Vapour fraction"
             annotation (Dialog(group="Fluid properties"));
           SI.SurfaceTension sigma "Surface Tension" annotation (Dialog(group=
-                  "Fluid properties", enable=if DP_fric == 1 then true else false));
+                  "Fluid properties", enable= DP_fric == 1));
           Real n=0.25 "Exponent in Blasius equation (0.2-0.25)" annotation (Dialog(
-                group="others", enable=if DP_fric == 2 then true else false));
+                group="others", enable= DP_fric == 2));
         end TwoPhaseFlow;
       end General;
 
