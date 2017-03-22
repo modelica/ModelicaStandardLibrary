@@ -1115,20 +1115,28 @@ using <code>m</code> <a href=\"modelica://Modelica.Electrical.QuasiStationary.Si
       annotation (Icon(graphics={Text(
                   extent={{100,60},{-100,100}},
                   textString="%name",
-                  lineColor={0,0,255}),Ellipse(extent={{-60,-15},{-30,15}},
-              lineColor={85,170,255}),Ellipse(extent={{-30,-15},{0,15}},
-              lineColor={85,170,255}),Ellipse(extent={{0,-15},{30,15}},
-              lineColor={85,170,255}),Ellipse(extent={{30,-15},{60,15}},
-              lineColor={85,170,255}),Rectangle(
-                  extent={{-60,-30},{60,0}},
-                  lineColor={255,255,255},
-                  fillColor={255,255,255},
-                  fillPattern=FillPattern.Solid),Line(points={{60,0},{90,0}},
+                  lineColor={0,0,255}),          Line(points={{60,0},{90,0}},
               color={85,170,255}),Line(points={{-90,0},{-60,0}}, color={85,170,
               255}),Text(
                   extent={{100,-80},{-100,-40}},
                   lineColor={0,0,0},
-                  textString="m=%m")}), Documentation(info="<html>
+                  textString="m=%m"),
+            Line(
+              points={{-60,0},{-59,6},{-52,14},{-38,14},{-31,6},{-30,0}},
+              color={0,128,255},
+              smooth=Smooth.Bezier),
+            Line(
+              points={{-30,0},{-29,6},{-22,14},{-8,14},{-1,6},{0,0}},
+              color={0,128,255},
+              smooth=Smooth.Bezier),
+            Line(
+              points={{0,0},{1,6},{8,14},{22,14},{29,6},{30,0}},
+              color={0,128,255},
+              smooth=Smooth.Bezier),
+            Line(
+              points={{30,0},{31,6},{38,14},{52,14},{59,6},{60,0}},
+              color={0,128,255},
+              smooth=Smooth.Bezier)}),  Documentation(info="<html>
 <p>
 The linear inductor connects the complex voltages <code><u>v</u></code> with the complex
 currents <code><u>i</u></code> by <code><u>i</u>*j*&omega;*L = <u>v</u></code>,
@@ -1180,28 +1188,10 @@ Model of a multi phase inductor providing a mutual inductance matrix model.
 </pre>
 
 </html>"), Icon(graphics={
-            Ellipse(extent={{30,-50},{60,10}}, lineColor={85,170,255}),
-            Ellipse(extent={{0,-50},{30,10}}, lineColor={85,170,255}),
-            Ellipse(extent={{-30,-50},{0,10}}, lineColor={85,170,255}),
-            Ellipse(extent={{-60,-50},{-30,10}}, lineColor={85,170,255}),
             Line(points={{-80,20},{-80,-20},{-60,-20}}, color={85,170,255}),
             Line(points={{-80,20},{-60,20}}, color={85,170,255}),
-            Ellipse(extent={{-60,-10},{-30,50}}, lineColor={85,170,255}),
-            Ellipse(extent={{-30,-10},{0,50}}, lineColor={85,170,255}),
-            Ellipse(extent={{0,-10},{30,50}}, lineColor={85,170,255}),
-            Ellipse(extent={{30,-10},{60,50}}, lineColor={85,170,255}),
             Line(points={{60,20},{80,20}}, color={85,170,255}),
             Line(points={{80,20},{80,-20},{60,-20}}, color={85,170,255}),
-            Rectangle(
-              extent={{-60,0},{60,20}},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid,
-              pattern=LinePattern.None),
-            Rectangle(
-              extent={{-60,-20},{60,0}},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid,
-              pattern=LinePattern.None),
             Line(points={{-90,0},{-80,0}}, color={85,170,255}),
             Line(points={{80,0},{90,0}}, color={85,170,255}),
             Text(
@@ -1211,7 +1201,39 @@ Model of a multi phase inductor providing a mutual inductance matrix model.
             Text(
               extent={{-100,-100},{100,-60}},
               lineColor={0,0,0},
-              textString="m=%m")}));
+              textString="m=%m"),
+            Line(
+              points={{-60,20},{-59,26},{-52,34},{-38,34},{-31,26},{-30,20}},
+              color={0,128,255},
+              smooth=Smooth.Bezier),
+            Line(
+              points={{-30,20},{-29,26},{-22,34},{-8,34},{-1,26},{0,20}},
+              color={0,128,255},
+              smooth=Smooth.Bezier),
+            Line(
+              points={{0,20},{1,26},{8,34},{22,34},{29,26},{30,20}},
+              color={0,128,255},
+              smooth=Smooth.Bezier),
+            Line(
+              points={{30,20},{31,26},{38,34},{52,34},{59,26},{60,20}},
+              color={0,128,255},
+              smooth=Smooth.Bezier),
+            Line(
+              points={{-60,-20},{-59,-26},{-52,-34},{-38,-34},{-31,-26},{-30,-20}},
+              color={0,128,255},
+              smooth=Smooth.Bezier),
+            Line(
+              points={{-30,-20},{-29,-26},{-22,-34},{-8,-34},{-1,-26},{0,-20}},
+              color={0,128,255},
+              smooth=Smooth.Bezier),
+            Line(
+              points={{0,-20},{1,-26},{8,-34},{22,-34},{29,-26},{30,-20}},
+              color={0,128,255},
+              smooth=Smooth.Bezier),
+            Line(
+              points={{30,-20},{31,-26},{38,-34},{52,-34},{59,-26},{60,-20}},
+              color={0,128,255},
+              smooth=Smooth.Bezier)}));
     end MutualInductor;
 
     model Impedance "Multiphase linear impedance"
@@ -1596,20 +1618,29 @@ The capacitances <code>C</code> are given as <code>m</code> input signals.
         Icon(graphics={Text(
                   extent={{100,-80},{-100,-40}},
                   textString="%name",
-                  lineColor={0,0,255}),Ellipse(extent={{-60,-15},{-30,15}},
-              lineColor={85,170,255}),Ellipse(extent={{-30,-15},{0,15}},
-              lineColor={85,170,255}),Ellipse(extent={{0,-15},{30,15}},
-              lineColor={85,170,255}),Ellipse(extent={{30,-15},{60,15}},
-              lineColor={85,170,255}),Rectangle(
-                  extent={{-60,-30},{60,0}},
-                  lineColor={255,255,255},
-                  fillColor={255,255,255},
-                  fillPattern=FillPattern.Solid),Line(points={{60,0},{90,0}},
+                  lineColor={0,0,255}),          Line(points={{60,0},{90,0}},
               color={85,170,255}),Line(points={{-90,0},{-60,0}}, color={85,170,
-              255}),Line(points={{0,90},{0,8}}, color={85,170,255}),Text(
+              255}),                                                Text(
                   extent={{100,40},{-100,80}},
                   lineColor={0,0,0},
-                  textString="m=%m")}),
+                  textString="m=%m"),
+            Line(
+              points={{-60,0},{-59,6},{-52,14},{-38,14},{-31,6},{-30,0}},
+              color={0,128,255},
+              smooth=Smooth.Bezier),
+            Line(
+              points={{-30,0},{-29,6},{-22,14},{-8,14},{-1,6},{0,0}},
+              color={0,128,255},
+              smooth=Smooth.Bezier),
+            Line(
+              points={{0,0},{1,6},{8,14},{22,14},{29,6},{30,0}},
+              color={0,128,255},
+              smooth=Smooth.Bezier),
+            Line(
+              points={{30,0},{31,6},{38,14},{52,14},{59,6},{60,0}},
+              color={0,128,255},
+              smooth=Smooth.Bezier),                                 Line(
+              points={{0,90},{0,30}}, color={85,170,255})}),
         Documentation(info="<html>
 <p>
 The linear inductors connect the complex voltages <code><u>v</u></code> with the complex
