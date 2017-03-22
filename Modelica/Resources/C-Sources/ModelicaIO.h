@@ -82,11 +82,11 @@ void ModelicaIO_readRealMatrix(_In_z_ const char* fileName,
      -> verbose: Print message that file is loading
   */
 
-int  ModelicaIO_writeRealMatrix(_In_z_ const char* fileName,
-                                _In_z_ const char* matrixName,
-                                _In_ double* matrix, size_t m, size_t n,
-                                int append,
-                                _In_z_ const char* version) MODELICA_NONNULLATTR;
+int ModelicaIO_writeRealMatrix(_In_z_ const char* fileName,
+                               _In_z_ const char* matrixName,
+                               _In_ double* matrix, size_t m, size_t n,
+                               int append,
+                               _In_z_ const char* version) MODELICA_NONNULLATTR;
   /* Write matrix to file
 
      -> fileName: Name of file
@@ -105,7 +105,7 @@ int  ModelicaIO_writeRealMatrix(_In_z_ const char* fileName,
   */
 
 double* ModelicaIO_readRealTable(_In_z_ const char* fileName,
-                                 _In_z_ const char* matrixName,
+                                 _In_z_ const char* tableName,
                                  _Out_ size_t* m, _Out_ size_t* n,
                                  int verbose) MODELICA_NONNULLATTR;
   /* Read matrix and its dimensions from file

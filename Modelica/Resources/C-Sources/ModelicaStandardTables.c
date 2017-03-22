@@ -469,11 +469,12 @@ static void spline2DClose(CubicHermite2D** spline);
 
 /* ----- Interface functions ----- */
 
-void* ModelicaStandardTables_CombiTimeTable_init(const char* tableName,
-                                                 const char* fileName,
-                                                 double* table,
-                                                 size_t nRow, size_t nColumn,
-                                                 double startTime, int* cols,
+void* ModelicaStandardTables_CombiTimeTable_init(_In_z_ const char* tableName,
+                                                 _In_z_ const char* fileName,
+                                                 _In_ double* table, size_t nRow,
+                                                 size_t nColumn,
+                                                 double startTime,
+                                                 _In_ int* cols,
                                                  size_t nCols, int smoothness,
                                                  int extrapolation) {
     CombiTimeTable* tableID = (CombiTimeTable*)calloc(1, sizeof(CombiTimeTable));
@@ -1471,7 +1472,6 @@ double ModelicaStandardTables_CombiTimeTable_nextTimeEvent(void* _tableID,
                     tableID->smoothness == CONSTANT_SEGMENTS) {
                     for (i = iStart + 1; i < nRow - 1; i++) {
                         double t0 = TABLE_COL0(i);
-                        double t1 = TABLE_COL0(i + 1);
                         if (t0 > t) {
                             nextTimeEvent = t0;
                             break;
@@ -1628,19 +1628,21 @@ double ModelicaStandardTables_CombiTimeTable_read(void* _tableID, int force,
     return 1.; /* Success */
 }
 
-void* ModelicaStandardTables_CombiTable1D_init(const char* tableName,
-                                               const char* fileName,
-                                               double* table, size_t nRow,
-                                               size_t nColumn, int* cols,
+void* ModelicaStandardTables_CombiTable1D_init(_In_z_ const char* tableName,
+                                               _In_z_ const char* fileName,
+                                               _In_ double* table, size_t nRow,
+                                               size_t nColumn,
+                                               _In_ int* cols,
                                                size_t nCols, int smoothness) {
     return ModelicaStandardTables_CombiTable1D_init2(tableName, fileName,
         table, nRow, nColumn, cols, nCols, smoothness, LAST_TWO_POINTS);
 }
 
-void* ModelicaStandardTables_CombiTable1D_init2(const char* tableName,
-                                                const char* fileName,
-                                                double* table, size_t nRow,
-                                                size_t nColumn, int* cols,
+void* ModelicaStandardTables_CombiTable1D_init2(_In_z_ const char* tableName,
+                                                _In_z_ const char* fileName,
+                                                _In_ double* table, size_t nRow,
+                                                size_t nColumn,
+                                                _In_ int* cols,
                                                 size_t nCols, int smoothness,
                                                 int extrapolation) {
     CombiTable1D* tableID = (CombiTable1D*)calloc(1, sizeof(CombiTable1D));
@@ -2315,9 +2317,9 @@ double ModelicaStandardTables_CombiTable1D_read(void* _tableID, int force,
     return 1.; /* Success */
 }
 
-void* ModelicaStandardTables_CombiTable2D_init(const char* tableName,
-                                               const char* fileName,
-                                               double* table, size_t nRow,
+void* ModelicaStandardTables_CombiTable2D_init(_In_z_ const char* tableName,
+                                               _In_z_ const char* fileName,
+                                               _In_ double* table, size_t nRow,
                                                size_t nColumn, int smoothness) {
     CombiTable2D* tableID = (CombiTable2D*)calloc(1, sizeof(CombiTable2D));
     if (tableID != NULL) {
@@ -3281,7 +3283,7 @@ static size_t findRowIndex(const double* table, size_t nRow, size_t nCol,
     return i0;
 }
 
-static size_t findColIndex(const double* table, size_t nCol, size_t last,
+static size_t findColIndex(_In_ const double* table, size_t nCol, size_t last,
                            double x) {
     size_t i0 = 0;
     size_t i1 = nCol - 1;
@@ -3310,7 +3312,7 @@ static size_t findColIndex(const double* table, size_t nCol, size_t last,
 
 /* ----- Internal check functions ----- */
 
-static int isValidName(const char* name) {
+static int isValidName(_In_z_ const char* name) {
     int isValid = 0;
     if (name != NULL) {
         if (strcmp(name, "NoName") != 0) {
@@ -3550,8 +3552,8 @@ static int isValidCombiTable2D(const CombiTable2D* tableID) {
     return isValid;
 }
 
-static enum TableSource getTableSource(const char *tableName,
-                                       const char *fileName) {
+static enum TableSource getTableSource(_In_z_ const char *tableName,
+                                       _In_z_ const char *fileName) {
     enum TableSource tableSource;
     int tableNameGiven = isValidName(tableName);
     int fileNameGiven = isValidName(fileName);
@@ -3587,8 +3589,8 @@ static enum TableSource getTableSource(const char *tableName,
 
 /* ----- Internal univariate spline functions ---- */
 
-static CubicHermite1D* akimaSpline1DInit(const double* table, size_t nRow,
-                                         size_t nCol, const int* cols,
+static CubicHermite1D* akimaSpline1DInit(_In_ const double* table, size_t nRow,
+                                         size_t nCol, _In_ const int* cols,
                                          size_t nCols) {
   /* Reference:
 
@@ -3665,9 +3667,9 @@ static CubicHermite1D* akimaSpline1DInit(const double* table, size_t nRow,
     return spline;
 }
 
-static CubicHermite1D* fritschButlandSpline1DInit(const double* table,
+static CubicHermite1D* fritschButlandSpline1DInit(_In_ const double* table,
                                                   size_t nRow, size_t nCol,
-                                                  const int* cols,
+                                                  _In_ const int* cols,
                                                   size_t nCols) {
   /* Reference:
 
@@ -3735,9 +3737,9 @@ static CubicHermite1D* fritschButlandSpline1DInit(const double* table,
     return spline;
 }
 
-static CubicHermite1D* steffenSpline1DInit(const double* table,
+static CubicHermite1D* steffenSpline1DInit(_In_ const double* table,
                                            size_t nRow, size_t nCol,
-                                           const int* cols,
+                                           _In_ const int* cols,
                                            size_t nCols) {
   /* Reference:
 
@@ -3861,7 +3863,8 @@ static void spline1DExtrapolateRight(double x1, double x2, double x3, double x4,
     }
 }
 
-static CubicHermite2D* spline2DInit(const double* table, size_t nRow, size_t nCol) {
+static CubicHermite2D* spline2DInit(_In_ const double* table, size_t nRow,
+                                    size_t nCol) {
   /* Reference:
 
      Hiroshi Akima. A method of bivariate interpolation and smooth surface
@@ -4252,7 +4255,7 @@ static void spline2DClose(CubicHermite2D** spline) {
     }
 }
 
-static void transpose(double* table, size_t nRow, size_t nCol) {
+static void transpose(_Inout_ double* table, size_t nRow, size_t nCol) {
   /* Reference:
 
      Cycle-based in-place array transposition
@@ -4290,8 +4293,9 @@ static void transpose(double* table, size_t nRow, size_t nCol) {
 /* ----- Internal I/O functions ----- */
 
 #if !defined(NO_FILE_SYSTEM)
-static double* readTable(const char* tableName, const char* fileName,
-                         size_t* nRow, size_t* nCol, int verbose, int force) {
+static double* readTable(_In_z_ const char* tableName, _In_z_ const char* fileName,
+                         _Inout_ size_t* nRow, _Inout_ size_t* nCol, int verbose,
+                         int force) {
 #if defined(TABLE_SHARE)
 #define uthash_fatal(msg) do { \
     MUTEX_UNLOCK(); \

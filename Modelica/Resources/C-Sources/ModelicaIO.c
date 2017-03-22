@@ -79,6 +79,7 @@
 
 #include <stdlib.h>
 #include <string.h>
+#include "ModelicaIO.h"
 #include "ModelicaUtilities.h"
 
 #ifdef NO_FILE_SYSTEM
@@ -90,17 +91,20 @@ static void ModelicaNotExistError(const char* name) {
         "as for dSPACE or xPC systems)\n", name);
 }
 
-MODELICA_EXPORT void ModelicaIO_readMatrixSizes(const char* fileName,
-    const char* matrixName, int* dim) {
+MODELICA_EXPORT void ModelicaIO_readMatrixSizes(_In_z_ const char* fileName,
+    _In_z_ const char* matrixName, _Out_ int* dim) {
     ModelicaNotExistError("ModelicaIO_readMatrixSizes"); }
-MODELICA_EXPORT void ModelicaIO_readRealMatrix(const char* fileName,
-    const char* matrixName, double* a, size_t m, size_t n, int verbose) {
+MODELICA_EXPORT void ModelicaIO_readRealMatrix(_In_z_ const char* fileName,
+    _In_z_ const char* matrixName, _Out_ double* matrix, size_t m, size_t n,
+    int verbose) {
     ModelicaNotExistError("ModelicaIO_readRealMatrix"); }
-MODELICA_EXPORT int ModelicaIO_writeRealMatrix(const char* fileName,
-    const char* matrixName, double* a, size_t m, size_t n, int append, const char* version) {
+MODELICA_EXPORT int ModelicaIO_writeRealMatrix(_In_z_ const char* fileName,
+    _In_z_ const char* matrixName, _In_ double* matrix, size_t m, size_t n,
+    int append, _In_z_ const char* version) {
     ModelicaNotExistError("ModelicaIO_writeRealMatrix"); return 0; }
-MODELICA_EXPORT double* ModelicaIO_readRealTable(const char* fileName,
-    const char* tableName, size_t* m, size_t* n, int verbose) {
+MODELICA_EXPORT double* ModelicaIO_readRealTable(_In_z_ const char* fileName,
+    _In_z_ const char* matrixName, _Out_ size_t* m, _Out_ size_t* n,
+    int verbose) {
     ModelicaNotExistError("ModelicaIO_readRealTable"); return NULL; }
 #else
 
@@ -108,7 +112,6 @@ MODELICA_EXPORT double* ModelicaIO_readRealTable(const char* fileName,
 #if !defined(NO_LOCALE)
 #include <locale.h>
 #endif
-#include "ModelicaIO.h"
 #include "ModelicaMatIO.h"
 
 /* The standard way to detect posix is to check _POSIX_VERSION,
@@ -143,7 +146,7 @@ typedef struct MatIO {
 } MatIO;
 
 static double* readMatTable(_In_z_ const char* tableName, _In_z_ const char* fileName,
-                            _Inout_ size_t* nRow, _Inout_ size_t* nCol) MODELICA_NONNULLATTR;
+                            _Out_ size_t* m, _Out_ size_t* n) MODELICA_NONNULLATTR;
   /* Read a table from a MATLAB MAT-file using MatIO functions
 
      <- RETURN: Pointer to array (row-wise storage) of table values
@@ -153,7 +156,7 @@ static void readMatIO(_In_z_ const char* fileName, _In_z_ const char* matrixName
   /* Read a variable from a MATLAB MAT-file using MatIO functions */
 
 static double* readTxtTable(_In_z_ const char* tableName, _In_z_ const char* fileName,
-                            _Inout_ size_t* nRow, _Inout_ size_t* nCol) MODELICA_NONNULLATTR;
+                            _Out_ size_t* m, _Out_ size_t* n) MODELICA_NONNULLATTR;
   /* Read a table from an ASCII text file
 
      <- RETURN: Pointer to array (row-wise storage) of table values
@@ -168,8 +171,9 @@ static int IsNumber(char* token);
 static void transpose(_Inout_ double* table, size_t nRow, size_t nCol) MODELICA_NONNULLATTR;
   /* Cycle-based in-place array transposition */
 
-MODELICA_EXPORT void ModelicaIO_readMatrixSizes(const char* fileName,
-    const char* matrixName, int* dim) {
+MODELICA_EXPORT void ModelicaIO_readMatrixSizes(_In_z_ const char* fileName,
+                                _In_z_ const char* matrixName,
+                                _Out_ int* dim) {
     MatIO matio = {NULL, NULL, NULL};
 
     dim[0] = 0;
@@ -187,8 +191,10 @@ MODELICA_EXPORT void ModelicaIO_readMatrixSizes(const char* fileName,
     (void)Mat_Close(matio.mat);
 }
 
-MODELICA_EXPORT void ModelicaIO_readRealMatrix(const char* fileName,
-    const char* matrixName, double* a, size_t m, size_t n, int verbose) {
+MODELICA_EXPORT void ModelicaIO_readRealMatrix(_In_z_ const char* fileName,
+                               _In_z_ const char* matrixName,
+                               _Out_ double* matrix, size_t m, size_t n,
+                               int verbose) {
     MatIO matio = {NULL, NULL, NULL};
     int tableReadError = 0;
 
@@ -232,16 +238,16 @@ MODELICA_EXPORT void ModelicaIO_readRealMatrix(const char* fileName,
             int edge[2];
             edge[0] = (int)matvar->dims[0];
             edge[1] = (int)matvar->dims[1];
-            tableReadError = Mat_VarReadData(matio.mat, matvar, a, start, stride, edge);
+            tableReadError = Mat_VarReadData(matio.mat, matvar, matrix, start, stride, edge);
         }
     }
 
     Mat_VarFree(matio.matvarRoot);
     (void)Mat_Close(matio.mat);
 
-    if (tableReadError == 0) {
+    if (tableReadError == 0 && NULL != matrix) {
         /* Array is stored column-wise -> need to transpose */
-        transpose(a, m, n);
+        transpose(matrix, m, n);
     }
     else {
         ModelicaFormatError(
@@ -251,8 +257,11 @@ MODELICA_EXPORT void ModelicaIO_readRealMatrix(const char* fileName,
     }
 }
 
-MODELICA_EXPORT int ModelicaIO_writeRealMatrix(const char* fileName,
-    const char* matrixName, double* a, size_t m, size_t n, int append, const char* version) {
+MODELICA_EXPORT int ModelicaIO_writeRealMatrix(_In_z_ const char* fileName,
+                               _In_z_ const char* matrixName,
+                               _In_ double* matrix, size_t m, size_t n,
+                               int append,
+                               _In_z_ const char* version) {
     int status;
     mat_t* mat;
     matvar_t* matvar;
@@ -303,7 +312,7 @@ MODELICA_EXPORT int ModelicaIO_writeRealMatrix(const char* fileName,
         ModelicaError("Memory allocation error\n");
         return 0;
     }
-    memcpy(aT, a, m*n*sizeof(double));
+    memcpy(aT, matrix, m*n*sizeof(double));
     transpose(aT, n, m);
 
     if (append != 0) {
@@ -324,8 +333,10 @@ MODELICA_EXPORT int ModelicaIO_writeRealMatrix(const char* fileName,
     return 1;
 }
 
-MODELICA_EXPORT double* ModelicaIO_readRealTable(const char* fileName,
-    const char* tableName, size_t* m, size_t* n, int verbose) {
+MODELICA_EXPORT double* ModelicaIO_readRealTable(_In_z_ const char* fileName,
+                                 _In_z_ const char* tableName,
+                                 _Out_ size_t* m, _Out_ size_t* n,
+                                 int verbose) {
     double* table = NULL;
     const char* ext;
     int isMatExt = 0;
@@ -354,8 +365,8 @@ MODELICA_EXPORT double* ModelicaIO_readRealTable(const char* fileName,
     return table;
 }
 
-static double* readMatTable(const char* fileName, const char* tableName,
-                            size_t* m, size_t* n) {
+static double* readMatTable(_In_z_ const char* tableName, _In_z_ const char* fileName,
+                            _Out_ size_t* m, _Out_ size_t* n) {
     double* table = NULL;
     MatIO matio = {NULL, NULL, NULL};
     int tableReadError = 0;
@@ -390,7 +401,7 @@ static double* readMatTable(const char* fileName, const char* tableName,
     Mat_VarFree(matio.matvarRoot);
     (void)Mat_Close(matio.mat);
 
-    if (tableReadError == 0) {
+    if (tableReadError == 0 && NULL != table) {
         /* Array is stored column-wise -> need to transpose */
         transpose(table, *m, *n);
     }
@@ -411,13 +422,15 @@ static double* readMatTable(const char* fileName, const char* tableName,
     return table;
 }
 
-static void readMatIO(const char* fileName, const char* matrixName, MatIO* matio) {
+static void readMatIO(_In_z_ const char* fileName, _In_z_ const char* matrixName, _Inout_ MatIO* matio) {
     mat_t* mat;
     matvar_t* matvar;
     matvar_t* matvarRoot;
     char* matrixNameCopy;
     char* token;
+#if defined(_POSIX_) || (defined(_MSC_VER) && _MSC_VER >= 1400)
     char* nextToken = NULL;
+#endif
 
     matrixNameCopy = (char*)malloc((strlen(matrixName) + 1)*sizeof(char));
     if (matrixNameCopy != NULL) {
@@ -569,8 +582,8 @@ static int IsNumber(char* token) {
     return isNumber;
 }
 
-static double* readTxtTable(const char* fileName, const char* tableName,
-                            size_t* _nRow, size_t* _nCol) {
+static double* readTxtTable(_In_z_ const char* tableName, _In_z_ const char* fileName,
+                            _Out_ size_t* m, _Out_ size_t* n) {
 #define DELIM_TABLE_HEADER " \t(,)\r"
 #define DELIM_TABLE_NUMBER " \t,;\r"
     double* table = NULL;
@@ -661,7 +674,9 @@ static double* readTxtTable(const char* fileName, const char* tableName,
     while (readLine(&buf, &bufLen, fp) == 0) {
         char* token;
         char* endptr;
+#if defined(_POSIX_) || (defined(_MSC_VER) && _MSC_VER >= 1400)
         char* nextToken = NULL;
+#endif
 
         lineNo++;
         /* Expected table header format: "dataType tableName(nRow,nCol)" */
@@ -717,8 +732,8 @@ static double* readTxtTable(const char* fileName, const char* tableName,
 
             table = (double*)malloc(nRow*nCol*sizeof(double));
             if (table == NULL) {
-                *_nRow = 0;
-                *_nCol = 0;
+                *m = 0;
+                *n = 0;
                 free(buf);
                 fclose(fp);
 #if defined(NO_LOCALE)
@@ -750,7 +765,9 @@ static double* readTxtTable(const char* fileName, const char* tableName,
                     /* Skip empty or comment line */
                     continue;
                 }
+#if defined(_POSIX_) || (defined(_MSC_VER) && _MSC_VER >= 1400)
                 nextToken = NULL;
+#endif
                 token = strtok_r(&buf[k], DELIM_TABLE_NUMBER, &nextToken);
                 while (token != NULL && i < nRow && j < nCol) {
                     if (token[0] == '#') {
@@ -789,8 +806,8 @@ static double* readTxtTable(const char* fileName, const char* tableName,
                             free(token2);
                         }
                         else {
-                            *_nRow = 0;
-                            *_nCol = 0;
+                            *m = 0;
+                            *n = 0;
                             free(buf);
                             fclose(fp);
                             tableReadError = 1;
@@ -837,7 +854,9 @@ static double* readTxtTable(const char* fileName, const char* tableName,
                             /* Skip empty or comment line */
                             continue;
                         }
+#if defined(_POSIX_) || (defined(_MSC_VER) && _MSC_VER >= 1400)
                         nextToken = NULL;
+#endif
                         token = strtok_r(&buf[k], DELIM_TABLE_NUMBER, &nextToken);
                         if (NULL != token) {
                             if (1 == IsNumber(token)) {
@@ -878,14 +897,14 @@ static double* readTxtTable(const char* fileName, const char* tableName,
     }
 
     if (tableReadError == 0) {
-        *_nRow = (size_t)nRow;
-        *_nCol = (size_t)nCol;
+        *m = (size_t)nRow;
+        *n = (size_t)nCol;
     }
     else {
         free(table);
         table = NULL;
-        *_nRow = 0;
-        *_nCol = 0;
+        *m = 0;
+        *n = 0;
         if (tableReadError == EOF) {
             ModelicaFormatError(
                 "End-of-file reached when reading numeric data of matrix "
@@ -910,7 +929,7 @@ static double* readTxtTable(const char* fileName, const char* tableName,
 #undef DELIM_TABLE_NUMBER
 }
 
-static int readLine(char** buf, int* bufLen, FILE* fp) {
+static int readLine(_In_ char** buf, _In_ int* bufLen, _In_ FILE* fp) {
     char* offset;
     int oldBufLen;
 
@@ -944,7 +963,7 @@ static int readLine(char** buf, int* bufLen, FILE* fp) {
     return 0;
 }
 
-static void transpose(double* table, size_t nRow, size_t nCol) {
+static void transpose(_Inout_ double* table, size_t nRow, size_t nCol) {
   /* Reference:
 
      Cycle-based in-place array transposition

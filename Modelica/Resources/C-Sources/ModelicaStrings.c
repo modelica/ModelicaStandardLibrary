@@ -1,6 +1,6 @@
 /* ModelicaStrings.c - External functions for Modelica.Functions.Strings
 
-   Copyright (C) 2002-2016, Modelica Association and DLR
+   Copyright (C) 2002-2017, Modelica Association and DLR
    All rights reserved.
 
    Redistribution and use in source and binary forms, with or without
@@ -118,6 +118,7 @@
 #if !defined(__ATTR_SAL)
 #define _In_z_
 #define _Out_
+#define _Ret_z_
 #endif
 
 MODELICA_EXPORT MODELICA_RETURNNONNULLATTR const char* ModelicaStrings_substring(
@@ -136,7 +137,8 @@ MODELICA_EXPORT void ModelicaStrings_scanString(_In_z_ const char* string, int s
     _Out_ int* nextIndex, _Out_ const char** result) MODELICA_NONNULLATTR;
 MODELICA_EXPORT int ModelicaStrings_hashString(_In_z_ const char* str) MODELICA_NONNULLATTR;
 
-MODELICA_EXPORT const char* ModelicaStrings_substring(const char* string, int startIndex, int endIndex) {
+MODELICA_EXPORT _Ret_z_ const char* ModelicaStrings_substring(_In_z_ const char* string,
+                                      int startIndex, int endIndex) {
     /* Return string1(startIndex:endIndex) if endIndex >= startIndex,
        or return string1(startIndex:startIndex), if endIndex = 0.
        An assert is triggered, if startIndex/endIndex are not valid.
@@ -174,7 +176,7 @@ MODELICA_EXPORT const char* ModelicaStrings_substring(const char* string, int st
     return substring;
 }
 
-MODELICA_EXPORT int ModelicaStrings_length(const char* string) {
+MODELICA_EXPORT int ModelicaStrings_length(_In_z_ const char* string) {
     /* Return the number of characters "string" */
     return (int) strlen(string);
 }
@@ -211,7 +213,7 @@ MODELICA_EXPORT int ModelicaStrings_compare(const char* string1, const char* str
 
 #define MAX_TOKEN_SIZE 100
 
-MODELICA_EXPORT int ModelicaStrings_skipWhiteSpace(const char* string, int i) {
+MODELICA_EXPORT int ModelicaStrings_skipWhiteSpace(_In_z_ const char* string, int i) {
     /* Return index in string after skipping ws, or position of terminating nul. */
     while (string[i-1] != '\0' && isspace((unsigned char)string[i-1])) {
         ++i;
@@ -280,7 +282,9 @@ static int MatchUnsignedInteger(const char* string, int start) {
 
 /* --------------- end of utility functions used in scanXXX functions ----------- */
 
-MODELICA_EXPORT void ModelicaStrings_scanIdentifier(const char* string, int startIndex, int* nextIndex, const char** identifier) {
+MODELICA_EXPORT void ModelicaStrings_scanIdentifier(_In_z_ const char* string,
+                                    int startIndex, _Out_ int* nextIndex,
+                                    _Out_ const char** identifier) {
     int token_start = ModelicaStrings_skipWhiteSpace(string, startIndex);
     /* Index of first char of token, after ws. */
 
@@ -310,8 +314,9 @@ MODELICA_EXPORT void ModelicaStrings_scanIdentifier(const char* string, int star
     return;
 }
 
-MODELICA_EXPORT void ModelicaStrings_scanInteger(const char* string, int startIndex, int unsignedNumber,
-                                 int* nextIndex, int* integerNumber) {
+MODELICA_EXPORT void ModelicaStrings_scanInteger(_In_z_ const char* string,
+                                 int startIndex, int unsignedNumber,
+                                 _Out_ int* nextIndex, _Out_ int* integerNumber) {
     int sign = 0;
     /* Number of characters used for sign. */
 
@@ -375,8 +380,9 @@ MODELICA_EXPORT void ModelicaStrings_scanInteger(const char* string, int startIn
     return;
 }
 
-MODELICA_EXPORT void ModelicaStrings_scanReal(const char* string, int startIndex, int unsignedNumber,
-                              int* nextIndex, double* number) {
+MODELICA_EXPORT void ModelicaStrings_scanReal(_In_z_ const char* string, int startIndex,
+                              int unsignedNumber, _Out_ int* nextIndex,
+                              _Out_ double* number) {
     /*
     Grammar of real number:
 
@@ -496,9 +502,9 @@ Modelica_ERROR:
     return;
 }
 
-MODELICA_EXPORT void ModelicaStrings_scanString(const char* string, int startIndex,
-                                int* nextIndex, const char** result) {
-    int i, token_start, past_token, token_length;
+MODELICA_EXPORT void ModelicaStrings_scanString(_In_z_ const char* string, int startIndex,
+                                _Out_ int* nextIndex, _Out_ const char** result) {
+                                int i, token_start, past_token, token_length;
 
     token_length = 0;
     token_start = ModelicaStrings_skipWhiteSpace(string, startIndex);
@@ -540,7 +546,7 @@ Modelica_ERROR:
     return;
 }
 
-MODELICA_EXPORT int ModelicaStrings_hashString(const char* inStr) {
+MODELICA_EXPORT int ModelicaStrings_hashString(_In_z_ const char* inStr) {
     /* Compute an unsigned int hash code from a character string
      *
      * Author: Arash Partow - 2002                                            *

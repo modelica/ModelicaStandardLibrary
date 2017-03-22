@@ -1,6 +1,6 @@
 /* ModelicaFFT.c - FFT functions
 
-   Copyright (C) 2015-2016, Modelica Association and DLR
+   Copyright (C) 2015-2017, Modelica Association and DLR
    Copyright (C) 2003-2010, Mark Borgerding
    All rights reserved.
 
@@ -111,7 +111,7 @@ typedef struct mrkiss_fftr_state* mrkiss_fftr_cfg;
 #define _Out_
 #endif
 
-MODELICA_EXPORT int ModelicaFFT_kiss_fftr(_In_ double u[], size_t nu, _In_ double work[], size_t nwork,
+MODELICA_EXPORT int ModelicaFFT_kiss_fftr(_In_ double* u, size_t nu, _In_ double* work, size_t nwork,
     _Out_ double *amplitudes, _Out_ double *phases) MODELICA_NONNULLATTR;
 
 /* include from _kiss_fft_guts.h ------------------------------------------ */
@@ -555,8 +555,8 @@ static void mrkiss_fftr(mrkiss_fftr_cfg st, const mrkiss_fft_scalar *timedata, m
     }
 }
 
-MODELICA_EXPORT int ModelicaFFT_kiss_fftr(double u[], size_t nu, double work[], size_t nwork,
-        double *amplitudes, double *phases) {
+MODELICA_EXPORT int ModelicaFFT_kiss_fftr(_In_ double* u, size_t nu, _In_ double* work, size_t nwork,
+                          _Out_ double *amplitudes, _Out_ double *phases) {
 
     /* Compute real FFT with mrkiss_fftr
        -> u[nu]        : Real data at sample points; nu must be even
