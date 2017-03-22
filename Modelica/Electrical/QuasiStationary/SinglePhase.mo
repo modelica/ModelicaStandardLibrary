@@ -647,18 +647,25 @@ The capacitance <code>C</code> is allowed to be positive, zero, or negative.
               extent={{100,60},{-100,100}},
               textString="%name",
               lineColor={0,0,255}),
-            Ellipse(extent={{-60,-15},{-30,15}}, lineColor={85,170,255}),
-            Ellipse(extent={{-30,-15},{0,15}}, lineColor={85,170,255}),
-            Ellipse(extent={{0,-15},{30,15}}, lineColor={85,170,255}),
-            Ellipse(extent={{30,-15},{60,15}}, lineColor={85,170,255}),
-            Rectangle(
-              extent={{-60,-30},{60,0}},
-              lineColor={255,255,255},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
             Line(points={{60,0},{90,0}}, color={85,170,255}),
             Line(points={{-90,0},{-60,0}}, color={85,170,255}),
-            Text(extent={{100,-80},{-100,-40}}, textString="L=%L")}),
+            Text(extent={{100,-80},{-100,-40}}, textString="L=%L"),
+            Line(
+              points={{-60,0},{-59,6},{-52,14},{-38,14},{-31,6},{-30,0}},
+              color={0,128,255},
+              smooth=Smooth.Bezier),
+            Line(
+              points={{-30,0},{-29,6},{-22,14},{-8,14},{-1,6},{0,0}},
+              color={0,128,255},
+              smooth=Smooth.Bezier),
+            Line(
+              points={{0,0},{1,6},{8,14},{22,14},{29,6},{30,0}},
+              color={0,128,255},
+              smooth=Smooth.Bezier),
+            Line(
+              points={{30,0},{31,6},{38,14},{52,14},{59,6},{60,0}},
+              color={0,128,255},
+              smooth=Smooth.Bezier)}),
           Documentation(info="<html>
 
 <p>
@@ -1022,18 +1029,25 @@ The abstraction of a variable capacitor at quasi stationary operation assumes:
               extent={{100,-80},{-100,-40}},
               textString="%name",
               lineColor={0,0,255}),
-            Ellipse(extent={{-60,-15},{-30,15}}, lineColor={85,170,255}),
-            Ellipse(extent={{-30,-15},{0,15}}, lineColor={85,170,255}),
-            Ellipse(extent={{0,-15},{30,15}}, lineColor={85,170,255}),
-            Ellipse(extent={{30,-15},{60,15}}, lineColor={85,170,255}),
-            Rectangle(
-              extent={{-60,-30},{60,0}},
-              lineColor={255,255,255},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
             Line(points={{60,0},{90,0}}, color={85,170,255}),
             Line(points={{-90,0},{-60,0}}, color={85,170,255}),
-            Line(points={{0,90},{0,8}}, color={85,170,255})}),
+            Line(
+              points={{-60,0},{-59,6},{-52,14},{-38,14},{-31,6},{-30,0}},
+              color={0,128,255},
+              smooth=Smooth.Bezier),
+            Line(
+              points={{-30,0},{-29,6},{-22,14},{-8,14},{-1,6},{0,0}},
+              color={0,128,255},
+              smooth=Smooth.Bezier),
+            Line(
+              points={{0,0},{1,6},{8,14},{22,14},{29,6},{30,0}},
+              color={0,128,255},
+              smooth=Smooth.Bezier),
+            Line(
+              points={{30,0},{31,6},{38,14},{52,14},{59,6},{60,0}},
+              color={0,128,255},
+              smooth=Smooth.Bezier),
+            Line(points={{0,88},{0,28}}, color={85,170,255})}),
         Documentation(info="<html>
 
 <p>
@@ -1832,26 +1846,8 @@ This switch is only intended to be used for structural changes, not for fast swi
             Line(points={{111,50},{136,50}})}),
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
-            Ellipse(extent={{-45,-50},{-20,-25}}, lineColor={85,170,255}),
-            Ellipse(extent={{-45,-25},{-20,0}}, lineColor={85,170,255}),
-            Ellipse(extent={{-45,0},{-20,25}}, lineColor={85,170,255}),
-            Ellipse(extent={{-45,25},{-20,50}}, lineColor={85,170,255}),
-            Rectangle(
-              extent={{-72,-60},{-33,60}},
-              lineColor={255,255,255},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
             Line(points={{-90,50},{-32,50}}, color={85,170,255}),
             Line(points={{-90,-50},{-32,-50}}, color={85,170,255}),
-            Ellipse(extent={{20,-50},{45,-25}}, lineColor={85,170,255}),
-            Ellipse(extent={{20,-25},{45,0}}, lineColor={85,170,255}),
-            Ellipse(extent={{20,0},{45,25}}, lineColor={85,170,255}),
-            Ellipse(extent={{20,25},{45,50}}, lineColor={85,170,255}),
-            Rectangle(
-              extent={{33,-60},{72,60}},
-              lineColor={255,255,255},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
             Line(points={{32,50},{90,50}}, color={85,170,255}),
             Line(points={{32,-50},{90,-50}}, color={85,170,255}),
             Text(extent={{-100,-80},{100,-100}}, textString="n=%n"),
@@ -1866,7 +1862,23 @@ This switch is only intended to be used for structural changes, not for fast swi
             Text(
               extent={{80,10},{100,-10}},
               lineColor={0,0,255},
-              textString="2")}),
+              textString="2"),
+     Line(points={{-32,-50},{-27,-50},{-20,-43},{-20,-38},{-20,-33},{-27,-25},{-32,-25}}, color={0,128,255},
+                                                                                                           smooth=Smooth.Bezier),
+     Line(points={{-32,-25},{-27,-25},{-20,-18},{-20,-13},{-20,-8},{-27,0},{-32,0}}, color={0,128,255},
+                                                                                                      smooth=Smooth.Bezier),
+     Line(points={{-32,0},{-27,0},{-20,8},{-20,13},{-20,18},{-27,25},{-32,25}}, color={0,128,255},
+                                                                                                 smooth=Smooth.Bezier),
+     Line(points={{-32,25},{-27,25},{-20,33},{-20,38},{-20,43},{-27,50},{-32,50}}, color={0,128,255},
+                                                                                                    smooth=Smooth.Bezier),
+     Line(points={{32,-50},{27,-50},{20,-43},{20,-38},{20,-33},{27,-25},{32,-25}}, color={0,128,255},
+                                                                                                    smooth=Smooth.Bezier),
+     Line(points={{32,-25},{27,-25},{20,-18},{20,-13},{20,-8},{27,0},{32,0}}, color={0,128,255},
+                                                                                               smooth=Smooth.Bezier),
+     Line(points={{32,0},{27,0},{20,8},{20,13},{20,18},{27,25},{32,25}}, color={0,128,255},
+                                                                                          smooth=Smooth.Bezier),
+     Line(points={{32,25},{27,25},{20,33},{20,38},{20,43},{27,50},{32,50}}, color={0,128,255},
+                                                                                             smooth=Smooth.Bezier)}),
         Documentation(info="<html>
 <p>
 The ideal transformer is a two-port circuit element without magnetization. Voltages and currents are ideally transformed:
