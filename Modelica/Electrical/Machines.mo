@@ -113,8 +113,9 @@ email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
       extends Modelica.Icons.ReleaseNotes;
       annotation (preferredView="info",Documentation(info="<html>
 
-<h5>Version 3.2.2, 2015-07-31 (Anton Haumer, Christian Kral)</h5>
+<h5>Version 3.2.2, 2017-03-22 (Anton Haumer, Christian Kral)</h5>
 <ul>
+  <li>Fixed icons of Modelica.Electrical.Machines.BasicMachines.Components, see #2031</li>
   <li>Updated blocks and functions towards multi phase systems greater or equal to three</li>
   <li>Added standard blocks and functions</li>
   <li>Improved documentation</li>
@@ -9311,15 +9312,6 @@ Model of the airgap in rotor-fixed coordinate system, using only equations.
         annotation (Documentation(info="<html>
 This is a model of an inductor, described with space phasors.
 </html>"),Icon(graphics={
-              Ellipse(extent={{-60,-15},{-30,15}}, lineColor={0,0,255}),
-              Ellipse(extent={{-30,-15},{0,15}}, lineColor={0,0,255}),
-              Ellipse(extent={{0,-15},{30,15}}, lineColor={0,0,255}),
-              Ellipse(extent={{30,-15},{60,15}}, lineColor={0,0,255}),
-              Rectangle(
-                extent={{-60,-30},{60,0}},
-                lineColor={255,255,255},
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid),
               Line(
                 points={{-60,0},{-90,0}},
                 color={0,0,255}),
@@ -9329,7 +9321,23 @@ This is a model of an inductor, described with space phasors.
               Text(
                 extent={{-100,100},{100,60}},
                 lineColor={0,0,255},
-                textString="%name")}));
+                textString="%name"),
+              Line(
+                points={{-60,0},{-59,6},{-52,14},{-38,14},{-31,6},{-30,0}},
+                color={0,0,255},
+                smooth=Smooth.Bezier),
+              Line(
+                points={{-30,0},{-29,6},{-22,14},{-8,14},{-1,6},{0,0}},
+                color={0,0,255},
+                smooth=Smooth.Bezier),
+              Line(
+                points={{0,0},{1,6},{8,14},{22,14},{29,6},{30,0}},
+                color={0,0,255},
+                smooth=Smooth.Bezier),
+              Line(
+                points={{30,0},{31,6},{38,14},{52,14},{59,6},{60,0}},
+                color={0,0,255},
+                smooth=Smooth.Bezier)}));
       end Inductor;
 
       model SquirrelCage "Squirrel Cage"
@@ -9360,15 +9368,7 @@ This is a model of an inductor, described with space phasors.
         2/3*LossPower = Rr_actual*(spacePhasor_r.i_[1]*spacePhasor_r.i_[1] +
           spacePhasor_r.i_[2]*spacePhasor_r.i_[2]);
         annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                  -100},{100,100}}), graphics={Ellipse(extent={{-60,45},{-30,75}},
-                lineColor={0,0,255}),Ellipse(extent={{-30,45},{0,75}},
-                lineColor={0,0,255}),Ellipse(extent={{0,45},{30,75}}, lineColor=
-                 {0,0,255}),Ellipse(extent={{30,45},{60,75}}, lineColor={0,0,
-                255}),Rectangle(
-                      extent={{-60,30},{60,60}},
-                      lineColor={255,255,255},
-                      fillColor={255,255,255},
-                      fillPattern=FillPattern.Solid),Line(points={{-100,60},{-60,
+                  -100},{100,100}}), graphics={      Line(points={{-100,60},{-60,
                 60}}, color={0,0,255}),Line(points={{60,60},{80,60},{80,40}},
                 color={0,0,255}),Rectangle(
                       extent={{60,40},{100,-40}},
@@ -9381,7 +9381,24 @@ This is a model of an inductor, described with space phasors.
                       extent={{-150,-90},{150,-150}},
                       lineColor={0,0,255},
                       textString="%name"),Line(points={{-100,90},{-100,60}},
-                color={0,0,255})}), Documentation(info="<html>
+                color={0,0,255}),
+              Line(
+                points={{-60,60},{-59,66},{-52,74},{-38,74},{-31,66},{-30,60}},
+                color={0,0,255},
+                smooth=Smooth.Bezier),
+              Line(
+                points={{-30,60},{-29,66},{-22,74},{-8,74},{-1,66},{0,60}},
+                color={0,0,255},
+                smooth=Smooth.Bezier),
+              Line(
+                points={{0,60},{1,66},{8,74},{22,74},{29,66},{30,60}},
+                color={0,0,255},
+                smooth=Smooth.Bezier),
+              Line(
+                points={{30,60},{31,66},{38,74},{52,74},{59,66},{60,60}},
+                color={0,0,255},
+                smooth=Smooth.Bezier)}),
+                                    Documentation(info="<html>
 <p>
 Model of a squirrel cage / symmetrical damper cage in two axis.
 </p>
@@ -9433,7 +9450,9 @@ Material properties alpha of both axis are the same.
         2/3*LossPower = Rrd_actual*spacePhasor_r.i_[1]*spacePhasor_r.i_[1] +
           Rrq_actual*spacePhasor_r.i_[2]*spacePhasor_r.i_[2];
         annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                  -100},{100,100}}), graphics={
+                  -100},{100,100}},
+              grid={2,2},
+              initialScale=0.1),     graphics={
               Line(points={{60,60},{100,60}}, color={0,0,255}),
               Line(points={{70,40},{90,40}}, color={0,0,255}),
               Line(points={{66,50},{94,50}}, color={0,0,255}),
@@ -9441,34 +9460,48 @@ Material properties alpha of both axis are the same.
                 extent={{-150,-90},{150,-150}},
                 lineColor={0,0,255},
                 textString="%name"),
-              Ellipse(extent={{-60,90},{-40,70}}, lineColor={0,0,255}),
-              Ellipse(extent={{-40,90},{-20,70}}, lineColor={0,0,255}),
-              Ellipse(extent={{-20,90},{0,70}}, lineColor={0,0,255}),
               Line(points={{-80,0},{-80,-20}}, color={0,0,255}),
               Rectangle(extent={{20,90},{60,70}}, lineColor={0,0,255}),
               Line(points={{60,80},{80,80},{80,60}}, color={0,0,255}),
               Line(points={{-100,90},{-100,80},{-60,80}}, color={0,0,255}),
               Line(points={{-100,90},{-100,80},{-80,80},{-80,60}}, color={0,0,
                     255}),
-              Ellipse(extent={{-90,60},{-70,40}}, lineColor={0,0,255}),
-              Ellipse(extent={{-90,40},{-70,20}}, lineColor={0,0,255}),
-              Ellipse(extent={{-90,20},{-70,0}}, lineColor={0,0,255}),
-              Rectangle(
-                extent={{-80,0},{-70,60}},
-                lineColor={255,255,255},
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid),
               Line(points={{0,80},{20,80}}, color={0,0,255}),
               Rectangle(extent={{-90,-20},{-70,-60}}, lineColor={0,0,255}),
               Line(points={{-100,-80},{-60,-80}}, color={0,0,255}),
               Line(points={{-90,-100},{-70,-100}}, color={0,0,255}),
               Line(points={{-94,-90},{-66,-90}}, color={0,0,255}),
               Line(points={{-80,-60},{-80,-80}}, color={0,0,255}),
-              Rectangle(
-                extent={{0,70},{-60,80}},
-                lineColor={255,255,255},
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid)}), Documentation(info="<html>
+              Line(
+                points={{-60,80},{-59,85},{-54,90},{-46,90},{-41,85},{-40,80}},
+                color={0,0,255},
+                smooth=Smooth.Bezier),
+              Line(
+                points={{-40,80},{-39,85},{-34,90},{-26,90},{-21,85},{-20,80}},
+                color={0,0,255},
+                smooth=Smooth.Bezier),
+              Line(
+                points={{-20,80},{-19,85},{-14,90},{-6,90},{-1,85},{0,80}},
+                color={0,0,255},
+                smooth=Smooth.Bezier),
+              Line(
+                points={{-10,-5},{-9,0},{-4,5},{4,5},{9,0},{10,-5}},
+                color={0,0,255},
+                smooth=Smooth.Bezier,
+                origin={-85,50},
+                rotation=90),
+              Line(
+                points={{-10,-5},{-9,0},{-4,5},{4,5},{9,0},{10,-5}},
+                color={0,0,255},
+                smooth=Smooth.Bezier,
+                origin={-85,30},
+                rotation=90),
+              Line(
+                points={{-10,-5},{-9,0},{-4,5},{4,5},{9,0},{10,-5}},
+                color={0,0,255},
+                smooth=Smooth.Bezier,
+                origin={-85,10},
+                rotation=90)}),                   Documentation(info="<html>
 <p>
 Model of an asymmetrical damper cage in two axis.
 </p>
@@ -9599,16 +9632,7 @@ If <code>quasiStationary == false</code>, the electrical transients are neglecte
                       fillColor={85,170,255},
                       fillPattern=FillPattern.Solid)}),
           Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                  {100,100}}), graphics={Ellipse(extent={{-60,-15},{-30,15}},
-                lineColor={0,0,255}),Ellipse(extent={{-30,-15},{0,15}},
-                lineColor={0,0,255}),Ellipse(extent={{0,-15},{30,15}},
-                lineColor={0,0,255}),Ellipse(extent={{30,-15},{60,15}},
-                lineColor={0,0,255}),Rectangle(
-                      extent={{-60,-30},{60,0}},
-                      lineColor={255,255,255},
-                      fillColor={255,255,255},
-                      fillPattern=FillPattern.Solid),Line(points={{60,0},{96,0}},
-                color={0,0,255}),Line(points={{-96,0},{-60,0}}, color={0,0,255})}));
+                  {100,100}})));
       end InductorDC;
 
       partial model PartialAirGapDC "Partial airgap model of a DC machine"
@@ -9799,33 +9823,81 @@ the connection to airgap has to be grounded at one point.
                   -100},{100,100}}), graphics={Text(
                       extent={{-100,130},{100,110}},
                       textString="%name",
-                      lineColor={0,0,255}),Ellipse(extent={{-45,-50},{-20,-25}},
-                lineColor={0,0,255}),Ellipse(extent={{-45,-25},{-20,0}},
-                lineColor={0,0,255}),Ellipse(extent={{-45,0},{-20,25}},
-                lineColor={0,0,255}),Ellipse(extent={{-45,25},{-20,50}},
-                lineColor={0,0,255}),Rectangle(
-                      extent={{-46,-50},{-34,50}},
-                      lineColor={255,255,255},
-                      fillColor={255,255,255},
-                      fillPattern=FillPattern.Solid),Line(points={{-90,50},{-32,
-                50}}, color={0,0,255}),Line(points={{-90,-50},{-32,-50}}, color=
-                 {0,0,255}),Ellipse(extent={{20,40},{45,65}}, lineColor={0,0,
-                255}),Ellipse(extent={{20,65},{45,90}}, lineColor={0,0,255}),
-                Rectangle(
-                      extent={{36,40},{46,90}},
-                      lineColor={255,255,255},
-                      fillColor={255,255,255},
-                      fillPattern=FillPattern.Solid),Line(points={{32,90},{90,
-                90}}, color={0,0,255}),Line(points={{34,40},{92,40}}, color={0,
-                0,255}),Ellipse(extent={{20,-90},{45,-65}}, lineColor={0,0,255}),
-                Ellipse(extent={{20,-65},{45,-40}}, lineColor={0,0,255}),
-                Rectangle(
-                      extent={{36,-90},{46,-40}},
-                      lineColor={255,255,255},
-                      fillColor={255,255,255},
-                      fillPattern=FillPattern.Solid),Line(points={{32,-40},{90,
-                -40}}, color={0,0,255}),Line(points={{34,-90},{92,-90}}, color=
-                {0,0,255})}), Documentation(info="<html>
+                      lineColor={0,0,255}),          Line(points={{-90,50},{-30,50}},
+                      color={0,0,255}),Line(points={{-90,-50},{-30,-50}}, color=
+                 {0,0,255}),                         Line(points={{30,100},{90,100}},
+                      color={0,0,255}),Line(points={{30,40},{92,40}}, color={0,
+                0,255}),                             Line(points={{30,-40},{90,-40}},
+                       color={0,0,255}),Line(points={{30,-100},{90,-100}},
+                                                                         color=
+                {0,0,255}),
+              Line(
+                points={{-10,-5},{-9,0},{-4,5},{4,5},{9,0},{10,-5}},
+                color={0,0,255},
+                smooth=Smooth.Bezier,
+                origin={25,90},
+                rotation=90),
+              Line(
+                points={{-10,-5},{-9,0},{-4,5},{4,5},{9,0},{10,-5}},
+                color={0,0,255},
+                smooth=Smooth.Bezier,
+                origin={25,70},
+                rotation=90),
+              Line(
+                points={{-10,-5},{-9,0},{-4,5},{4,5},{9,0},{10,-5}},
+                color={0,0,255},
+                smooth=Smooth.Bezier,
+                origin={25,50},
+                rotation=90),
+              Line(
+                points={{-10,-5},{-9,0},{-4,5},{4,5},{9,0},{10,-5}},
+                color={0,0,255},
+                smooth=Smooth.Bezier,
+                origin={25,-50},
+                rotation=90),
+              Line(
+                points={{-10,-5},{-9,0},{-4,5},{4,5},{9,0},{10,-5}},
+                color={0,0,255},
+                smooth=Smooth.Bezier,
+                origin={25,-70},
+                rotation=90),
+              Line(
+                points={{-10,-5},{-9,0},{-4,5},{4,5},{9,0},{10,-5}},
+                color={0,0,255},
+                smooth=Smooth.Bezier,
+                origin={25,-90},
+                rotation=90),
+              Line(
+                points={{-5,-10},{0,-9},{5,-4},{5,4},{0,9},{-5,10}},
+                color={0,0,255},
+                smooth=Smooth.Bezier,
+                origin={-25,40},
+                rotation=360),
+              Line(
+                points={{-5,-10},{0,-9},{5,-4},{5,4},{0,9},{-5,10}},
+                color={0,0,255},
+                smooth=Smooth.Bezier,
+                origin={-25,20},
+                rotation=360),
+              Line(
+                points={{-5,-10},{0,-9},{5,-4},{5,4},{0,9},{-5,10}},
+                color={0,0,255},
+                smooth=Smooth.Bezier,
+                origin={-25,0},
+                rotation=360),
+              Line(
+                points={{-5,-10},{0,-9},{5,-4},{5,4},{0,9},{-5,10}},
+                color={0,0,255},
+                smooth=Smooth.Bezier,
+                origin={-25,-20},
+                rotation=360),
+              Line(
+                points={{-5,-10},{0,-9},{5,-4},{5,4},{0,9},{-5,10}},
+                color={0,0,255},
+                smooth=Smooth.Bezier,
+                origin={-25,-40},
+                rotation=360)}),
+                              Documentation(info="<html>
 Partial model of transformer core with 3 windings; saturation function flux versus magnetizing current has to be defined.
 </html>"));
       end PartialCore;
@@ -14062,10 +14134,10 @@ Thermal ports for DC machines
           points={{-20,80},{0,80}},
           color={191,0,0}));
       connect(r1.heatPort, internalThermalPort.heatPort1) annotation (Line(
-          points={{-80,10},{-80,60},{0,60},{0,80}},
+          points={{-80,10},{-80,60},{-0.4,60},{-0.4,80.8}},
           color={191,0,0}));
       connect(r2.heatPort, internalThermalPort.heatPort2) annotation (Line(
-          points={{80,10},{80,60},{0,60},{0,80}},
+          points={{80,10},{80,60},{-0.4,60},{-0.4,79.2}},
           color={191,0,0}));
       connect(r2.plug_p, plug2) annotation (Line(
           points={{90,0},{100,0}},
