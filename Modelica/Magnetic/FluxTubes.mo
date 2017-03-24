@@ -3404,6 +3404,7 @@ An example simulation shows the transformer inrush currents due to an initially 
       end ThreePhaseTransformerWithRectifier;
 
       package Components "Components to be used in examples"
+        extends Modelica.Icons.Package;
 
         model Transformer1PhaseWithHysteresis
           "Single Phase transformer with ferromagnetic core and hysteresis"
