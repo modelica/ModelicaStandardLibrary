@@ -30,19 +30,7 @@
    OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-/* Adapted to the needs of the Modelica Standard Library library:
-
-   The functions in this file are non-portable. The following #define's are used
-   to define the system calls of the operating system
-
-   __GNUC__       : GNU C compiler
-   MODELICA_EXPORT: Prefix used for function calls. If not defined, blank is used
-                    Useful definitions:
-                    - "static" that is all functions become static
-                      (useful if file is included with other C-sources for an
-                       embedded system)
-                    - "__declspec(dllexport)" if included in a DLL and the
-                      functions shall be visible outside of the DLL
+/* Adapted to the needs of the Modelica Standard Library:
 
    Release Notes:
       Dec. 02, 2015: by Martin Otter, DLR
@@ -54,17 +42,10 @@
                      the function is left)
 */
 
-#ifndef MRKISS_FTR_H
-#define MRKISS_FTR_H
-
+#include "ModelicaFFT.h"
 #include <math.h>
 #include <limits.h>
-#include <stdlib.h>
 #include <string.h>
-
-#if !defined(MODELICA_EXPORT)
-#   define MODELICA_EXPORT
-#endif
 
 #define MRKISS_FFT_TMP_ALLOC malloc
 #define MRKISS_FFT_TMP_FREE free
@@ -95,24 +76,6 @@ struct mrkiss_fftr_state {
     mrkiss_fft_cpx * super_twiddles;
 };
 typedef struct mrkiss_fftr_state* mrkiss_fftr_cfg;
-
-/*
- * Non-null pointers need to be passed to external functions.
- *
- * The following macros handle nonnull attributes for GNU C and Microsoft SAL.
- */
-#if defined(__GNUC__)
-#define MODELICA_NONNULLATTR __attribute__((nonnull))
-#else
-#define MODELICA_NONNULLATTR
-#endif
-#if !defined(__ATTR_SAL)
-#define _In_
-#define _Out_
-#endif
-
-MODELICA_EXPORT int ModelicaFFT_kiss_fftr(_In_ double* u, size_t nu, _In_ double* work, size_t nwork,
-    _Out_ double *amplitudes, _Out_ double *phases) MODELICA_NONNULLATTR;
 
 /* include from _kiss_fft_guts.h ------------------------------------------ */
 
@@ -555,7 +518,7 @@ static void mrkiss_fftr(mrkiss_fftr_cfg st, const mrkiss_fft_scalar *timedata, m
     }
 }
 
-MODELICA_EXPORT int ModelicaFFT_kiss_fftr(_In_ double* u, size_t nu, _In_ double* work, size_t nwork,
+int ModelicaFFT_kiss_fftr(_In_ double* u, size_t nu, _In_ double* work, size_t nwork,
                           _Out_ double *amplitudes, _Out_ double *phases) {
 
     /* Compute real FFT with mrkiss_fftr
@@ -604,5 +567,3 @@ MODELICA_EXPORT int ModelicaFFT_kiss_fftr(_In_ double* u, size_t nu, _In_ double
     }
     return 0;
 }
-
-#endif

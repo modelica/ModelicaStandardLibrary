@@ -25,12 +25,14 @@
    OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-/* Definition of interface to external functions for array I/O
-   in the Modelica Standard Library:
+/* The following #define's are available.
 
-      Modelica.Utilities.Streams.readMatrixSize
-      Modelica.Utilities.Streams.readRealMatrix
-      Modelica.Utilities.Streams.writeRealMatrix
+   NO_FILE_SYSTEM : A file system is not present (e.g. on dSPACE or xPC).
+   NO_LOCALE      : locale.h is not present (e.g. on AVR).
+   MODELICA_EXPORT: Prefix used for function calls. If not defined, blank is used
+                    Useful definition:
+                    - "__declspec(dllexport)" if included in a DLL and the
+                      functions shall be visible outside of the DLL
 
    Release Notes:
       Mar. 08, 2017: by Thomas Beutlich, ESI ITI GmbH
@@ -41,11 +43,25 @@
                      Implemented a first version (ticket #1856)
 */
 
-#if !defined(MODELICAIO_H)
-#define MODELICAIO_H
+#ifndef MODELICA_IO_H_
+#define MODELICA_IO_H_
 
 #include <stdlib.h>
 
+#if !defined(MODELICA_EXPORT)
+#if defined(__cplusplus)
+#define MODELICA_EXPORT extern "C"
+#else
+#define MODELICA_EXPORT
+#endif
+#endif
+
+/*
+ * Non-null pointers and esp. null-terminated strings need to be passed to
+ * external functions.
+ *
+ * The following macros handle nonnull attributes for GNU C and Microsoft SAL.
+ */
 #if defined(__GNUC__)
 #define MODELICA_NONNULLATTR __attribute__((nonnull))
 #else
@@ -58,7 +74,7 @@
 #define _Out_
 #endif
 
-void ModelicaIO_readMatrixSizes(_In_z_ const char* fileName,
+MODELICA_EXPORT void ModelicaIO_readMatrixSizes(_In_z_ const char* fileName,
                                 _In_z_ const char* matrixName,
                                 _Out_ int* dim) MODELICA_NONNULLATTR;
   /* Read matrix dimensions from file
@@ -68,7 +84,7 @@ void ModelicaIO_readMatrixSizes(_In_z_ const char* fileName,
      -> dim: Output array for number of rows and columns
   */
 
-void ModelicaIO_readRealMatrix(_In_z_ const char* fileName,
+MODELICA_EXPORT void ModelicaIO_readRealMatrix(_In_z_ const char* fileName,
                                _In_z_ const char* matrixName,
                                _Out_ double* matrix, size_t m, size_t n,
                                int verbose) MODELICA_NONNULLATTR;
@@ -82,7 +98,7 @@ void ModelicaIO_readRealMatrix(_In_z_ const char* fileName,
      -> verbose: Print message that file is loading
   */
 
-int ModelicaIO_writeRealMatrix(_In_z_ const char* fileName,
+MODELICA_EXPORT int ModelicaIO_writeRealMatrix(_In_z_ const char* fileName,
                                _In_z_ const char* matrixName,
                                _In_ double* matrix, size_t m, size_t n,
                                int append,
@@ -104,7 +120,7 @@ int ModelicaIO_writeRealMatrix(_In_z_ const char* fileName,
                  = "7.3": MATLAB MAT-file of version 7.3
   */
 
-double* ModelicaIO_readRealTable(_In_z_ const char* fileName,
+MODELICA_EXPORT double* ModelicaIO_readRealTable(_In_z_ const char* fileName,
                                  _In_z_ const char* tableName,
                                  _Out_ size_t* m, _Out_ size_t* n,
                                  int verbose) MODELICA_NONNULLATTR;

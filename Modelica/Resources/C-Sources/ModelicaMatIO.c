@@ -26,8 +26,7 @@
    OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-/*
-   This file was created by concatenation of the following C source files of the
+/* This file was created by concatenation of the following C source files of the
    MAT file I/O library from <http://sourceforge.net/projects/matio/>:
 
    endian.c
@@ -43,8 +42,7 @@
    matvar_struct.c
 */
 
-/*
-   By default v4 and v6 MAT-files are supported. The v7 and v7.3 MAT-file
+/* By default v4 and v6 MAT-files are supported. The v7 and v7.3 MAT-file
    formats require additional preprocessor options and third-party libraries.
    The following #define's are available.
 
@@ -56,7 +54,6 @@
                    The hdf5 (>= v1.8) library is required.
 */
 
-#include "ModelicaUtilities.h"
 #if !defined(NO_FILE_SYSTEM)
 #if defined(__gnu_linux__)
 #define _GNU_SOURCE 1
@@ -64,6 +61,7 @@
 #define __USE_MINGW_ANSI_STDIO 1
 #endif
 #include <stdarg.h>
+#include "ModelicaUtilities.h"
 
 /* -------------------------------
  * ---------- endian.c

@@ -25,29 +25,7 @@
    OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-/* The functions in this file are mostly non-portable. The following #define's
-   are used to define the system calls of the operating system
-
-   _WIN32         : System calls of Windows'95, Windows'NT
-                    (Note, that these system calls allow both '/' and '\'
-                    as directory separator for input arguments. As return
-                    argument '\' is used).
-                    All system calls are from the library libc.a.
-   _POSIX_        : System calls of POSIX
-   _MSC_VER       : Microsoft Visual C++
-   __GNUC__       : GNU C compiler
-   NO_FILE_SYSTEM : A file system is not present (e.g. on dSPACE or xPC).
-   NO_PID         : Function getpid is not present (e.g. on dSPACE)
-   NO_TIME        : Function gettimeofday is not present (e.g. on dSPACE)
-   MODELICA_EXPORT: Prefix used for function calls. If not defined, blank is used
-                    Useful definitions:
-                    - "static" that is all functions become static
-                      (useful if file is included with other C-sources for an
-                       embedded system)
-                    - "__declspec(dllexport)" if included in a DLL and the
-                      functions shall be visible outside of the DLL
-
-   Release Notes:
+/* Release Notes:
       Mar. 27, 2017: by Thomas Beutlich, ESI ITI GmbH
                      Replaced localtime by re-entrant function
 
@@ -122,10 +100,7 @@
                      ModelicaInternal_getFullPath
 */
 
-#if !defined(MODELICA_EXPORT)
-  #define MODELICA_EXPORT
-#endif
-
+#include "ModelicaInternal.h"
 #include <string.h>
 #include "ModelicaUtilities.h"
 
@@ -139,32 +114,6 @@
   #define _POSIX_ 1
 #endif
 
-/*
- * Non-null pointers and esp. null-terminated strings need to be passed to
- * external functions.
- *
- * The following macros handle nonnull attributes for GNU C and Microsoft SAL.
- */
-#if defined(__GNUC__)
-#define MODELICA_NONNULLATTR __attribute__((nonnull))
-#if defined(__GNUC_MINOR__) && (__GNUC__ > 3 && __GNUC_MINOR__ > 8)
-#define MODELICA_RETURNNONNULLATTR __attribute__((returns_nonnull))
-#else
-#define MODELICA_RETURNNONNULLATTR
-#endif
-#elif defined(__ATTR_SAL)
-#define MODELICA_NONNULLATTR
-#define MODELICA_RETURNNONNULLATTR _Ret_z_ /* _Ret_notnull_ and null-terminated */
-#else
-#define MODELICA_NONNULLATTR
-#define MODELICA_RETURNNONNULLATTR
-#endif
-#if !defined(__ATTR_SAL)
-#define _In_z_
-#define _Out_
-#define _Ret_z_
-#endif
-
 static void ModelicaNotExistError(const char* name) {
   /* Print error message if a function is not implemented */
     ModelicaFormatError("C-Function \"%s\" is called\n"
@@ -174,54 +123,54 @@ static void ModelicaNotExistError(const char* name) {
 }
 
 #ifdef NO_FILE_SYSTEM
-MODELICA_EXPORT void ModelicaInternal_mkdir(_In_z_ const char* directoryName) {
+void ModelicaInternal_mkdir(_In_z_ const char* directoryName) {
     ModelicaNotExistError("ModelicaInternal_mkdir"); }
-MODELICA_EXPORT void ModelicaInternal_rmdir(_In_z_ const char* directoryName) {
+void ModelicaInternal_rmdir(_In_z_ const char* directoryName) {
     ModelicaNotExistError("ModelicaInternal_rmdir"); }
-MODELICA_EXPORT int ModelicaInternal_stat(_In_z_ const char* name) {
+int ModelicaInternal_stat(_In_z_ const char* name) {
     ModelicaNotExistError("ModelicaInternal_stat"); return 0; }
-MODELICA_EXPORT void ModelicaInternal_rename(_In_z_ const char* oldName,
+void ModelicaInternal_rename(_In_z_ const char* oldName,
     _In_z_ const char* newName) {
     ModelicaNotExistError("ModelicaInternal_rename"); }
-MODELICA_EXPORT void ModelicaInternal_removeFile(_In_z_ const char* file) {
+void ModelicaInternal_removeFile(_In_z_ const char* file) {
     ModelicaNotExistError("ModelicaInternal_removeFile"); }
-MODELICA_EXPORT void ModelicaInternal_copyFile(_In_z_ const char* oldFile,
+void ModelicaInternal_copyFile(_In_z_ const char* oldFile,
     _In_z_ const char* newFile) {
     ModelicaNotExistError("ModelicaInternal_copyFile"); }
-MODELICA_EXPORT void ModelicaInternal_readDirectory(_In_z_ const char* directory,
+void ModelicaInternal_readDirectory(_In_z_ const char* directory,
     int nFiles, _Out_ const char** files) {
     ModelicaNotExistError("ModelicaInternal_readDirectory"); }
-MODELICA_EXPORT int ModelicaInternal_getNumberOfFiles(_In_z_ const char* directory) {
+int ModelicaInternal_getNumberOfFiles(_In_z_ const char* directory) {
     ModelicaNotExistError("ModelicaInternal_getNumberOfFiles"); return 0; }
-MODELICA_EXPORT const char* ModelicaInternal_fullPathName(_In_z_ const char* name) {
+const char* ModelicaInternal_fullPathName(_In_z_ const char* name) {
     ModelicaNotExistError("ModelicaInternal_fullPathName"); return NULL; }
-MODELICA_EXPORT const char* ModelicaInternal_temporaryFileName(void) {
+const char* ModelicaInternal_temporaryFileName(void) {
     ModelicaNotExistError("ModelicaInternal_temporaryFileName"); return NULL; }
-MODELICA_EXPORT void ModelicaStreams_closeFile(_In_z_ const char* fileName) {
+void ModelicaStreams_closeFile(_In_z_ const char* fileName) {
     ModelicaNotExistError("ModelicaStreams_closeFile"); }
-MODELICA_EXPORT void ModelicaInternal_print(_In_z_ const char* string,
+void ModelicaInternal_print(_In_z_ const char* string,
     _In_z_ const char* fileName) {
     if ( fileName[0] == '\0' ) {
       /* Write string to terminal */
         ModelicaFormatMessage("%s\n", string);
     }
     return; }
-MODELICA_EXPORT int ModelicaInternal_countLines(_In_z_ const char* fileName) {
+int ModelicaInternal_countLines(_In_z_ const char* fileName) {
     ModelicaNotExistError("ModelicaInternal_countLines"); return 0; }
-MODELICA_EXPORT void ModelicaInternal_readFile(_In_z_ const char* fileName,
+void ModelicaInternal_readFile(_In_z_ const char* fileName,
     _Out_ const char** string, size_t nLines) {
     ModelicaNotExistError("ModelicaInternal_readFile"); }
-MODELICA_EXPORT const char* ModelicaInternal_readLine(_In_z_ const char* fileName,
+const char* ModelicaInternal_readLine(_In_z_ const char* fileName,
     int lineNumber, _Out_ int* endOfFile) {
     ModelicaNotExistError("ModelicaInternal_readLine"); return NULL; }
-MODELICA_EXPORT void ModelicaInternal_chdir(_In_z_ const char* directoryName) {
+void ModelicaInternal_chdir(_In_z_ const char* directoryName) {
     ModelicaNotExistError("ModelicaInternal_chdir"); }
-MODELICA_EXPORT const char* ModelicaInternal_getcwd(int dummy) {
+const char* ModelicaInternal_getcwd(int dummy) {
     ModelicaNotExistError("ModelicaInternal_getcwd"); return NULL; }
-MODELICA_EXPORT void ModelicaInternal_getenv(_In_z_ const char* name, int convertToSlash,
+void ModelicaInternal_getenv(_In_z_ const char* name, int convertToSlash,
     _Out_ const char** content, _Out_ int* exist) {
     ModelicaNotExistError("ModelicaInternal_getenv"); }
-MODELICA_EXPORT void ModelicaInternal_setenv(_In_z_ const char* name,
+void ModelicaInternal_setenv(_In_z_ const char* name,
     _In_z_ const char* value, int convertFromSlash) {
     ModelicaNotExistError("ModelicaInternal_setenv"); }
 #else
@@ -260,38 +209,6 @@ MODELICA_EXPORT void ModelicaInternal_setenv(_In_z_ const char* name,
   #include <sys/types.h>
   #include <sys/stat.h>
 #endif
-
-MODELICA_EXPORT void ModelicaInternal_mkdir(_In_z_ const char* directoryName) MODELICA_NONNULLATTR;
-MODELICA_EXPORT void ModelicaInternal_rmdir(_In_z_ const char* directoryName) MODELICA_NONNULLATTR;
-MODELICA_EXPORT int ModelicaInternal_stat(_In_z_ const char* name) MODELICA_NONNULLATTR;
-MODELICA_EXPORT void ModelicaInternal_rename(_In_z_ const char* oldName,
-    _In_z_ const char* newName) MODELICA_NONNULLATTR;
-MODELICA_EXPORT void ModelicaInternal_removeFile(_In_z_ const char* file) MODELICA_NONNULLATTR;
-MODELICA_EXPORT void ModelicaInternal_copyFile(_In_z_ const char* oldFile,
-    _In_z_ const char* newFile) MODELICA_NONNULLATTR;
-MODELICA_EXPORT void ModelicaInternal_readDirectory(_In_z_ const char* directory, int nFiles,
-    _Out_ const char** files) MODELICA_NONNULLATTR;
-MODELICA_EXPORT int ModelicaInternal_getNumberOfFiles(_In_z_ const char* directory) MODELICA_NONNULLATTR;
-MODELICA_EXPORT MODELICA_RETURNNONNULLATTR const char* ModelicaInternal_fullPathName(
-    _In_z_ const char* name) MODELICA_NONNULLATTR;
-MODELICA_EXPORT MODELICA_RETURNNONNULLATTR const char* ModelicaInternal_temporaryFileName(void);
-MODELICA_EXPORT void ModelicaStreams_closeFile(_In_z_ const char* fileName) MODELICA_NONNULLATTR;
-MODELICA_EXPORT void ModelicaInternal_print(_In_z_ const char* string,
-    _In_z_ const char* fileName) MODELICA_NONNULLATTR;
-MODELICA_EXPORT int ModelicaInternal_countLines(_In_z_ const char* fileName) MODELICA_NONNULLATTR;
-MODELICA_EXPORT void ModelicaInternal_readFile(_In_z_ const char* fileName,
-    _Out_ const char** string, size_t nLines) MODELICA_NONNULLATTR;
-MODELICA_EXPORT MODELICA_RETURNNONNULLATTR const char* ModelicaInternal_readLine(_In_z_ const char* fileName,
-    int lineNumber, _Out_ int* endOfFile) MODELICA_NONNULLATTR;
-MODELICA_EXPORT void ModelicaInternal_chdir(_In_z_ const char* directoryName) MODELICA_NONNULLATTR;
-MODELICA_EXPORT MODELICA_RETURNNONNULLATTR const char* ModelicaInternal_getcwd(int dummy);
-MODELICA_EXPORT void ModelicaInternal_getenv(_In_z_ const char* name, int convertToSlash,
-    _Out_ const char** content, _Out_ int* exist) MODELICA_NONNULLATTR;
-MODELICA_EXPORT void ModelicaInternal_setenv(_In_z_ const char* name,
-    _In_z_ const char* value, int convertFromSlash) MODELICA_NONNULLATTR;
-MODELICA_EXPORT void ModelicaInternal_getTime(_Out_ int* ms, _Out_ int* sec, _Out_ int* min, _Out_ int* hour,
-    _Out_ int* mday, _Out_ int* mon, _Out_ int* year) MODELICA_NONNULLATTR;
-MODELICA_EXPORT int ModelicaInternal_getpid(void);
 
 #if PATH_MAX > 1024
 #define BUFFER_LENGTH PATH_MAX
@@ -336,7 +253,7 @@ static void ModelicaConvertFromUnixDirectorySeparator(char* string) {
 
 /* --------------------- Modelica_Utilities.Internal --------------------------------- */
 
-MODELICA_EXPORT void ModelicaInternal_mkdir(_In_z_ const char* directoryName) {
+void ModelicaInternal_mkdir(_In_z_ const char* directoryName) {
     /* Create directory */
 #if defined(__WATCOMC__) || defined(__LCC__)
     int result = mkdir(directoryName);
@@ -355,7 +272,7 @@ MODELICA_EXPORT void ModelicaInternal_mkdir(_In_z_ const char* directoryName) {
 #endif
 }
 
-MODELICA_EXPORT void ModelicaInternal_rmdir(_In_z_ const char* directoryName) {
+void ModelicaInternal_rmdir(_In_z_ const char* directoryName) {
     /* Remove directory */
 #if defined(__WATCOMC__) || defined(__LCC__) || defined(_POSIX_) || defined(__GNUC__)
     int result = rmdir(directoryName);
@@ -372,7 +289,7 @@ MODELICA_EXPORT void ModelicaInternal_rmdir(_In_z_ const char* directoryName) {
 #endif
 }
 
-MODELICA_EXPORT int ModelicaInternal_stat(_In_z_ const char* name) {
+int ModelicaInternal_stat(_In_z_ const char* name) {
     /* Inquire type of file */
     ModelicaFileType type = FileType_NoFile;
 #if defined(_WIN32)
@@ -441,7 +358,7 @@ MODELICA_EXPORT int ModelicaInternal_stat(_In_z_ const char* name) {
     return type;
 }
 
-MODELICA_EXPORT void ModelicaInternal_rename(_In_z_ const char* oldName,
+void ModelicaInternal_rename(_In_z_ const char* oldName,
                              _In_z_ const char* newName) {
     /* Change the name of a file or of a directory */
     if ( rename(oldName, newName) != 0 ) {
@@ -450,7 +367,7 @@ MODELICA_EXPORT void ModelicaInternal_rename(_In_z_ const char* oldName,
     }
 }
 
-MODELICA_EXPORT void ModelicaInternal_removeFile(_In_z_ const char* file) {
+void ModelicaInternal_removeFile(_In_z_ const char* file) {
     /* Remove file */
     if ( remove(file) != 0 ) {
         ModelicaFormatError("Not possible to remove file \"%s\":\n%s",
@@ -458,7 +375,7 @@ MODELICA_EXPORT void ModelicaInternal_removeFile(_In_z_ const char* file) {
     }
 }
 
-MODELICA_EXPORT void ModelicaInternal_copyFile(_In_z_ const char* oldFile,
+void ModelicaInternal_copyFile(_In_z_ const char* oldFile,
                                _In_z_ const char* newFile) {
     /* Copy file */
 #ifdef _WIN32
@@ -515,7 +432,7 @@ MODELICA_EXPORT void ModelicaInternal_copyFile(_In_z_ const char* oldFile,
     fclose(fpNew);
 }
 
-MODELICA_EXPORT void ModelicaInternal_readDirectory(_In_z_ const char* directory, int nFiles,
+void ModelicaInternal_readDirectory(_In_z_ const char* directory, int nFiles,
                                     _Out_ const char** files) {
     /* Get all file and directory names in a directory in any order
        (must be very careful, to call closedir if an error occurs)
@@ -593,7 +510,7 @@ MODELICA_EXPORT void ModelicaInternal_readDirectory(_In_z_ const char* directory
 #endif
 }
 
-MODELICA_EXPORT int ModelicaInternal_getNumberOfFiles(_In_z_ const char* directory) {
+int ModelicaInternal_getNumberOfFiles(_In_z_ const char* directory) {
     /* Get number of files and directories in a directory */
 #if defined(__WATCOMC__) || defined(__BORLANDC__) || defined(_WIN32) || defined(_POSIX_) || defined(__GNUC__)
     int nFiles = 0;
@@ -633,7 +550,7 @@ Modelica_ERROR:
 
 /* --------------------- Modelica_Utilities.Files ------------------------------------- */
 
-MODELICA_EXPORT _Ret_z_ const char* ModelicaInternal_fullPathName(_In_z_ const char* name) {
+_Ret_z_ const char* ModelicaInternal_fullPathName(_In_z_ const char* name) {
     /* Get full path name of file or directory */
 
 #if defined(_WIN32) || (_BSD_SOURCE || _XOPEN_SOURCE >= 500 || _XOPEN_SOURCE && _XOPEN_SOURCE_EXTENDED || (_POSIX_VERSION >= 200112L))
@@ -677,7 +594,7 @@ MODELICA_EXPORT _Ret_z_ const char* ModelicaInternal_fullPathName(_In_z_ const c
     return fullName;
 }
 
-MODELICA_EXPORT _Ret_z_ const char* ModelicaInternal_temporaryFileName(void) {
+_Ret_z_ const char* ModelicaInternal_temporaryFileName(void) {
     /* Get full path name of a temporary */
     char* fullName;
 
@@ -859,7 +776,7 @@ static FILE* ModelicaStreams_openFileForReading(const char* fileName, int line) 
     return fp;
 }
 
-MODELICA_EXPORT void ModelicaStreams_closeFile(_In_z_ const char* fileName) {
+void ModelicaStreams_closeFile(_In_z_ const char* fileName) {
     /* Close file */
     CloseCachedFile(fileName); /* Closes it */
 }
@@ -886,7 +803,7 @@ static FILE* ModelicaStreams_openFileForWriting(const char* fileName) {
 
 /* --------------------- Modelica_Utilities.Streams ----------------------------------- */
 
-MODELICA_EXPORT void ModelicaInternal_print(_In_z_ const char* string,
+void ModelicaInternal_print(_In_z_ const char* string,
                             _In_z_ const char* fileName) {
     /* Write string to terminal or to file */
     if ( fileName[0] == '\0' ) {
@@ -912,7 +829,7 @@ Modelica_ERROR2:
     }
 }
 
-MODELICA_EXPORT int ModelicaInternal_countLines(_In_z_ const char* fileName) {
+int ModelicaInternal_countLines(_In_z_ const char* fileName) {
     /* Get number of lines of a file */
     int c;
     int nLines = 0;
@@ -935,7 +852,7 @@ MODELICA_EXPORT int ModelicaInternal_countLines(_In_z_ const char* fileName) {
     return nLines;
 }
 
-MODELICA_EXPORT void ModelicaInternal_readFile(_In_z_ const char* fileName,
+void ModelicaInternal_readFile(_In_z_ const char* fileName,
                                _Out_ const char** string, size_t nLines) {
     /* Read file into string vector string[nLines] */
     FILE* fp = ModelicaStreams_openFileForReading(fileName, 0);
@@ -997,7 +914,7 @@ MODELICA_EXPORT void ModelicaInternal_readFile(_In_z_ const char* fileName,
     fclose(fp);
 }
 
-MODELICA_EXPORT _Ret_z_ const char* ModelicaInternal_readLine(_In_z_ const char* fileName,
+_Ret_z_ const char* ModelicaInternal_readLine(_In_z_ const char* fileName,
                                       int lineNumber, _Out_ int* endOfFile) {
     /* Read line lineNumber from file fileName */
     FILE* fp = ModelicaStreams_openFileForReading(fileName, lineNumber - 1);
@@ -1072,7 +989,7 @@ Modelica_ERROR3:
 
 /* --------------------- Modelica_Utilities.System ------------------------------------ */
 
-MODELICA_EXPORT void ModelicaInternal_chdir(_In_z_ const char* directoryName) {
+void ModelicaInternal_chdir(_In_z_ const char* directoryName) {
     /* Change current working directory */
 #if defined(__WATCOMC__) || defined(__LCC__)
     int result = chdir(directoryName);
@@ -1093,7 +1010,7 @@ MODELICA_EXPORT void ModelicaInternal_chdir(_In_z_ const char* directoryName) {
 #endif
 }
 
-MODELICA_EXPORT _Ret_z_ const char* ModelicaInternal_getcwd(int dummy) {
+_Ret_z_ const char* ModelicaInternal_getcwd(int dummy) {
     const char* cwd;
     char* directory;
 
@@ -1120,7 +1037,7 @@ MODELICA_EXPORT _Ret_z_ const char* ModelicaInternal_getcwd(int dummy) {
     return directory;
 }
 
-MODELICA_EXPORT void ModelicaInternal_getenv(_In_z_ const char* name, int convertToSlash,
+void ModelicaInternal_getenv(_In_z_ const char* name, int convertToSlash,
                              _Out_ const char** content, _Out_ int* exist) {
     /* Get content of environment variable */
     char* result;
@@ -1166,7 +1083,7 @@ MODELICA_EXPORT void ModelicaInternal_getenv(_In_z_ const char* name, int conver
     *content = result;
 }
 
-MODELICA_EXPORT void ModelicaInternal_setenv(_In_z_ const char* name,
+void ModelicaInternal_setenv(_In_z_ const char* name,
                              _In_z_ const char* value, int convertFromSlash) {
 #if defined(__WATCOMC__) || defined(__BORLANDC__) || defined(_WIN32) || defined(_POSIX_) || defined(__GNUC__)
     char localbuf[BUFFER_LENGTH];
@@ -1229,7 +1146,7 @@ MODELICA_EXPORT void ModelicaInternal_setenv(_In_z_ const char* name,
   #endif
 #endif
 
-MODELICA_EXPORT int ModelicaInternal_getpid(void) {
+int ModelicaInternal_getpid(void) {
 #if defined(NO_PID)
     return 0;
 #else
@@ -1241,7 +1158,7 @@ MODELICA_EXPORT int ModelicaInternal_getpid(void) {
 #endif
 }
 
-MODELICA_EXPORT void ModelicaInternal_getTime(_Out_ int* ms, _Out_ int* sec, _Out_ int* min, _Out_ int* hour,
+void ModelicaInternal_getTime(_Out_ int* ms, _Out_ int* sec, _Out_ int* min, _Out_ int* hour,
                               _Out_ int* mday, _Out_ int* mon, _Out_ int* year) {
 #if defined(NO_TIME)
     *ms   = 0;
