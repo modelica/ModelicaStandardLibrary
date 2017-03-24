@@ -33,18 +33,6 @@
       Modelica.Blocks.Tables.CombiTable1Ds
       Modelica.Blocks.Tables.CombiTable2D
 
-   The following #define's are available.
-
-   NO_FILE_SYSTEM        : A file system is not present (e.g. on dSPACE or xPC).
-   DEBUG_TIME_EVENTS     : Trace time events of CombiTimeTable
-   DUMMY_FUNCTION_USERTAB: Use a dummy function "usertab"
-   NO_TABLE_COPY         : Do not copy table data passed to _init functions
-                           This is a potentially unsafe optimization (ticket #1143).
-   TABLE_SHARE           : If NO_FILE_SYTEM is not defined then common/shared table
-                           arrays are stored in a global hash table in order to
-                           avoid superfluous file input access and to decrease the
-                           utilized memory (tickets #1110 and #1550).
-
    Release Notes:
       Apr. 05, 2017: by Thomas Beutlich, ESI ITI GmbH
                      Fixed extrapolation of CombiTimeTable if simulation start
@@ -726,7 +714,7 @@ void ModelicaStandardTables_CombiTimeTable_close(void* _tableID) {
         if (tableID->table != NULL && tableID->source == TABLESOURCE_FILE) {
 #if defined(TABLE_SHARE) && !defined(NO_FILE_SYSTEM)
             if (tableID->tableName != NULL && tableID->fileName != NULL) {
-                char* key = malloc((strlen(tableID->tableName) +
+                char* key = (char*)malloc((strlen(tableID->tableName) +
                     strlen(tableID->fileName) + 2)*sizeof(char));
                 if (key != NULL) {
                     TableShare *iter;
@@ -1907,7 +1895,7 @@ void ModelicaStandardTables_CombiTable1D_close(void* _tableID) {
         if (tableID->table != NULL && tableID->source == TABLESOURCE_FILE) {
 #if defined(TABLE_SHARE) && !defined(NO_FILE_SYSTEM)
             if (tableID->tableName != NULL && tableID->fileName != NULL) {
-                char* key = malloc((strlen(tableID->tableName) +
+                char* key = (char*)malloc((strlen(tableID->tableName) +
                     strlen(tableID->fileName) + 2)*sizeof(char));
                 if (key != NULL) {
                     TableShare *iter;
@@ -2478,7 +2466,7 @@ void ModelicaStandardTables_CombiTable2D_close(void* _tableID) {
         if (tableID->table != NULL && tableID->source == TABLESOURCE_FILE) {
 #if defined(TABLE_SHARE) && !defined(NO_FILE_SYSTEM)
             if (tableID->tableName != NULL && tableID->fileName != NULL) {
-                char* key = malloc((strlen(tableID->tableName) +
+                char* key = (char*)malloc((strlen(tableID->tableName) +
                     strlen(tableID->fileName) + 2)*sizeof(char));
                 if (key != NULL) {
                     TableShare *iter;
@@ -4325,7 +4313,7 @@ static double* readTable(_In_z_ const char* tableName, _In_z_ const char* fileNa
     double* table = NULL;
     if (tableName != NULL && fileName != NULL && nRow != NULL && nCol != NULL) {
 #if defined(TABLE_SHARE)
-        char* key = malloc((strlen(tableName) +
+        char* key = (char*)malloc((strlen(tableName) +
             strlen(fileName) + 2)*sizeof(char));
         if (key != NULL) {
             int updateError = 0;
@@ -4356,7 +4344,7 @@ static double* readTable(_In_z_ const char* tableName, _In_z_ const char* fileNa
             }
             if (iter == NULL) {
                 /* Share miss -> Insert new table */
-                iter = malloc(sizeof(TableShare));
+                iter = (TableShare*)malloc(sizeof(TableShare));
                 if (iter != NULL) {
                     iter->key = key;
                     iter->refCount = 1;

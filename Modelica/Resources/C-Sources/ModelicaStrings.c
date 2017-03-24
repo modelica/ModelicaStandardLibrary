@@ -25,21 +25,7 @@
    OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-/* The functions are mostly non-portable. The following #define's are used
-   to define the system calls of the operating system
-
-   _MSC_VER       : Microsoft Visual C++
-   __GNUC__       : GNU C compiler
-   NO_LOCALE      : locale.h is not present (e.g. on AVR).
-   MODELICA_EXPORT: Prefix used for function calls. If not defined, blank is used
-                    Useful definitions:
-                    - "static" that is all functions become static
-                      (useful if file is included with other C-sources for an
-                       embedded system)
-                    - "__declspec(dllexport)" if included in a DLL and the
-                      functions shall be visible outside of the DLL
-
-   Release Notes:
+/* Release Notes:
       Nov. 23, 2016: by Martin Sjölund, SICS East Swedish ICT AB
                      Added NO_LOCALE define flag, in case the OS does
                      not have this (for example when using GCC compiler,
@@ -80,64 +66,21 @@
                      Implemented a first version
 */
 
-#if !defined(MODELICA_EXPORT)
-#   define MODELICA_EXPORT
-#endif
 #if defined(__gnu_linux__)
 #define _GNU_SOURCE 1
 #endif
 
-#include "ModelicaUtilities.h"
+#include "ModelicaStrings.h"
+
 #include <ctype.h>
-#include <stdlib.h>
 #include <string.h>
 #if !defined(NO_LOCALE)
 #include <locale.h>
 #endif
 
-/*
- * Non-null pointers and esp. null-terminated strings need to be passed to
- * external functions.
- *
- * The following macros handle nonnull attributes for GNU C and Microsoft SAL.
- */
-#if defined(__GNUC__)
-#define MODELICA_NONNULLATTR __attribute__((nonnull))
-#if defined(__GNUC_MINOR__) && (__GNUC__ > 3 && __GNUC_MINOR__ > 8)
-#define MODELICA_RETURNNONNULLATTR __attribute__((returns_nonnull))
-#else
-#define MODELICA_RETURNNONNULLATTR
-#endif
-#elif defined(__ATTR_SAL)
-#define MODELICA_NONNULLATTR
-#define MODELICA_RETURNNONNULLATTR _Ret_z_ /* _Ret_notnull_ and null-terminated */
-#else
-#define MODELICA_NONNULLATTR
-#define MODELICA_RETURNNONNULLATTR
-#endif
-#if !defined(__ATTR_SAL)
-#define _In_z_
-#define _Out_
-#define _Ret_z_
-#endif
+#include "ModelicaUtilities.h"
 
-MODELICA_EXPORT MODELICA_RETURNNONNULLATTR const char* ModelicaStrings_substring(
-    _In_z_ const char* string, int startIndex, int endIndex) MODELICA_NONNULLATTR;
-MODELICA_EXPORT int ModelicaStrings_length(_In_z_ const char* string) MODELICA_NONNULLATTR;
-MODELICA_EXPORT int ModelicaStrings_skipWhiteSpace(_In_z_ const char* string,
-    int i) MODELICA_NONNULLATTR;
-MODELICA_EXPORT void ModelicaStrings_scanIdentifier(_In_z_ const char* string,
-    int startIndex, _Out_ int* nextIndex, _Out_ const char** identifier) MODELICA_NONNULLATTR;
-MODELICA_EXPORT void ModelicaStrings_scanInteger(_In_z_ const char* string,
-    int startIndex, int unsignedNumber, _Out_ int* nextIndex,
-    _Out_ int* integerNumber) MODELICA_NONNULLATTR;
-MODELICA_EXPORT void ModelicaStrings_scanReal(_In_z_ const char* string, int startIndex,
-    int unsignedNumber, _Out_ int* nextIndex, _Out_ double* number) MODELICA_NONNULLATTR;
-MODELICA_EXPORT void ModelicaStrings_scanString(_In_z_ const char* string, int startIndex,
-    _Out_ int* nextIndex, _Out_ const char** result) MODELICA_NONNULLATTR;
-MODELICA_EXPORT int ModelicaStrings_hashString(_In_z_ const char* str) MODELICA_NONNULLATTR;
-
-MODELICA_EXPORT _Ret_z_ const char* ModelicaStrings_substring(_In_z_ const char* string,
+_Ret_z_ const char* ModelicaStrings_substring(_In_z_ const char* string,
                                       int startIndex, int endIndex) {
     /* Return string1(startIndex:endIndex) if endIndex >= startIndex,
        or return string1(startIndex:startIndex), if endIndex = 0.
@@ -176,12 +119,12 @@ MODELICA_EXPORT _Ret_z_ const char* ModelicaStrings_substring(_In_z_ const char*
     return substring;
 }
 
-MODELICA_EXPORT int ModelicaStrings_length(_In_z_ const char* string) {
+int ModelicaStrings_length(_In_z_ const char* string) {
     /* Return the number of characters "string" */
     return (int) strlen(string);
 }
 
-MODELICA_EXPORT int ModelicaStrings_compare(const char* string1, const char* string2, int caseSensitive) {
+int ModelicaStrings_compare(const char* string1, const char* string2, int caseSensitive) {
     /* Compare two strings, optionally ignoring case */
     int result;
     if (string1 == 0 || string2 == 0) {
@@ -213,7 +156,7 @@ MODELICA_EXPORT int ModelicaStrings_compare(const char* string1, const char* str
 
 #define MAX_TOKEN_SIZE 100
 
-MODELICA_EXPORT int ModelicaStrings_skipWhiteSpace(_In_z_ const char* string, int i) {
+int ModelicaStrings_skipWhiteSpace(_In_z_ const char* string, int i) {
     /* Return index in string after skipping ws, or position of terminating nul. */
     while (string[i-1] != '\0' && isspace((unsigned char)string[i-1])) {
         ++i;
@@ -282,7 +225,7 @@ static int MatchUnsignedInteger(const char* string, int start) {
 
 /* --------------- end of utility functions used in scanXXX functions ----------- */
 
-MODELICA_EXPORT void ModelicaStrings_scanIdentifier(_In_z_ const char* string,
+void ModelicaStrings_scanIdentifier(_In_z_ const char* string,
                                     int startIndex, _Out_ int* nextIndex,
                                     _Out_ const char** identifier) {
     int token_start = ModelicaStrings_skipWhiteSpace(string, startIndex);
@@ -314,7 +257,7 @@ MODELICA_EXPORT void ModelicaStrings_scanIdentifier(_In_z_ const char* string,
     return;
 }
 
-MODELICA_EXPORT void ModelicaStrings_scanInteger(_In_z_ const char* string,
+void ModelicaStrings_scanInteger(_In_z_ const char* string,
                                  int startIndex, int unsignedNumber,
                                  _Out_ int* nextIndex, _Out_ int* integerNumber) {
     int sign = 0;
@@ -377,7 +320,7 @@ MODELICA_EXPORT void ModelicaStrings_scanInteger(_In_z_ const char* string,
     return;
 }
 
-MODELICA_EXPORT void ModelicaStrings_scanReal(_In_z_ const char* string, int startIndex,
+void ModelicaStrings_scanReal(_In_z_ const char* string, int startIndex,
                               int unsignedNumber, _Out_ int* nextIndex,
                               _Out_ double* number) {
     /*
@@ -499,7 +442,7 @@ Modelica_ERROR:
     return;
 }
 
-MODELICA_EXPORT void ModelicaStrings_scanString(_In_z_ const char* string, int startIndex,
+void ModelicaStrings_scanString(_In_z_ const char* string, int startIndex,
                                 _Out_ int* nextIndex, _Out_ const char** result) {
     int i, token_start, past_token, token_length;
 
@@ -543,7 +486,7 @@ Modelica_ERROR:
     return;
 }
 
-MODELICA_EXPORT int ModelicaStrings_hashString(_In_z_ const char* inStr) {
+int ModelicaStrings_hashString(_In_z_ const char* inStr) {
     /* Compute an unsigned int hash code from a character string
      *
      * Author: Arash Partow - 2002                                            *

@@ -25,18 +25,12 @@
    OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-/* The functions in this file are non-portable. The following #define's are used
-   to define the system calls of the operating system
+/* Definition of interface to external functions for array I/O
+   in the Modelica Standard Library:
 
-   NO_FILE_SYSTEM : A file system is not present (e.g. on dSPACE or xPC).
-   NO_LOCALE      : locale.h is not present (e.g. on AVR).
-   MODELICA_EXPORT: Prefix used for function calls. If not defined, blank is used
-                    Useful definitions:
-                    - "static" that is all functions become static
-                      (useful if file is included with other C-sources for an
-                       embedded system)
-                    - "__declspec(dllexport)" if included in a DLL and the
-                      functions shall be visible outside of the DLL
+      Modelica.Utilities.Streams.readMatrixSize
+      Modelica.Utilities.Streams.readRealMatrix
+      Modelica.Utilities.Streams.writeRealMatrix
 
    Release Notes:
       Mar. 08, 2017: by Thomas Beutlich, ESI ITI GmbH
@@ -55,7 +49,7 @@
                      Replaced strtok by re-entrant string tokenize function
                      (ticket #1153)
 
-      Nov. 23, 2016: by Martin Sjölund, SICS East Swedish ICT AB
+      Nov. 23, 2016: by Martin SjÃ¶lund, SICS East Swedish ICT AB
                      Added NO_LOCALE define flag, in case the OS does
                      not have this (for example when using GCC compiler,
                      but not libc). Also added autoconf detection for
@@ -69,17 +63,12 @@
                      Implemented a first version (ticket #1856)
 */
 
-#if !defined(MODELICA_EXPORT)
-  #define MODELICA_EXPORT
-#endif
-
 #if defined(__gnu_linux__) && !defined(NO_FILE_SYSTEM)
 #define _GNU_SOURCE 1
 #endif
 
-#include <stdlib.h>
-#include <string.h>
 #include "ModelicaIO.h"
+#include <string.h>
 #include "ModelicaUtilities.h"
 
 #ifdef NO_FILE_SYSTEM
@@ -91,18 +80,18 @@ static void ModelicaNotExistError(const char* name) {
         "as for dSPACE or xPC systems)\n", name);
 }
 
-MODELICA_EXPORT void ModelicaIO_readMatrixSizes(_In_z_ const char* fileName,
+void ModelicaIO_readMatrixSizes(_In_z_ const char* fileName,
     _In_z_ const char* matrixName, _Out_ int* dim) {
     ModelicaNotExistError("ModelicaIO_readMatrixSizes"); }
-MODELICA_EXPORT void ModelicaIO_readRealMatrix(_In_z_ const char* fileName,
+void ModelicaIO_readRealMatrix(_In_z_ const char* fileName,
     _In_z_ const char* matrixName, _Out_ double* matrix, size_t m, size_t n,
     int verbose) {
     ModelicaNotExistError("ModelicaIO_readRealMatrix"); }
-MODELICA_EXPORT int ModelicaIO_writeRealMatrix(_In_z_ const char* fileName,
+int ModelicaIO_writeRealMatrix(_In_z_ const char* fileName,
     _In_z_ const char* matrixName, _In_ double* matrix, size_t m, size_t n,
     int append, _In_z_ const char* version) {
     ModelicaNotExistError("ModelicaIO_writeRealMatrix"); return 0; }
-MODELICA_EXPORT double* ModelicaIO_readRealTable(_In_z_ const char* fileName,
+double* ModelicaIO_readRealTable(_In_z_ const char* fileName,
     _In_z_ const char* matrixName, _Out_ size_t* m, _Out_ size_t* n,
     int verbose) {
     ModelicaNotExistError("ModelicaIO_readRealTable"); return NULL; }
@@ -171,7 +160,7 @@ static int IsNumber(char* token);
 static void transpose(_Inout_ double* table, size_t nRow, size_t nCol) MODELICA_NONNULLATTR;
   /* Cycle-based in-place array transposition */
 
-MODELICA_EXPORT void ModelicaIO_readMatrixSizes(_In_z_ const char* fileName,
+void ModelicaIO_readMatrixSizes(_In_z_ const char* fileName,
                                 _In_z_ const char* matrixName,
                                 _Out_ int* dim) {
     MatIO matio = {NULL, NULL, NULL};
@@ -191,7 +180,7 @@ MODELICA_EXPORT void ModelicaIO_readMatrixSizes(_In_z_ const char* fileName,
     (void)Mat_Close(matio.mat);
 }
 
-MODELICA_EXPORT void ModelicaIO_readRealMatrix(_In_z_ const char* fileName,
+void ModelicaIO_readRealMatrix(_In_z_ const char* fileName,
                                _In_z_ const char* matrixName,
                                _Out_ double* matrix, size_t m, size_t n,
                                int verbose) {
@@ -257,7 +246,7 @@ MODELICA_EXPORT void ModelicaIO_readRealMatrix(_In_z_ const char* fileName,
     }
 }
 
-MODELICA_EXPORT int ModelicaIO_writeRealMatrix(_In_z_ const char* fileName,
+int ModelicaIO_writeRealMatrix(_In_z_ const char* fileName,
                                _In_z_ const char* matrixName,
                                _In_ double* matrix, size_t m, size_t n,
                                int append,
@@ -333,7 +322,7 @@ MODELICA_EXPORT int ModelicaIO_writeRealMatrix(_In_z_ const char* fileName,
     return 1;
 }
 
-MODELICA_EXPORT double* ModelicaIO_readRealTable(_In_z_ const char* fileName,
+double* ModelicaIO_readRealTable(_In_z_ const char* fileName,
                                  _In_z_ const char* tableName,
                                  _Out_ size_t* m, _Out_ size_t* n,
                                  int verbose) {
