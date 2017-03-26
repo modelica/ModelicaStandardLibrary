@@ -6439,7 +6439,7 @@ The partial two port elementary model extends from the partial two port model an
   end Interfaces;
 
   package Utilities "Utilities for quasi static fundamental wave machines"
-    extends Modelica.Icons.Package;
+    extends Modelica.Icons.UtilitiesPackage;
     block VfController "Voltage-Frequency-Controller"
       import Modelica.Constants.pi;
       parameter Integer m=3 "Number of phases";
