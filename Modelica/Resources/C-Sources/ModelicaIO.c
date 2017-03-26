@@ -357,10 +357,10 @@ MODELICA_EXPORT double* ModelicaIO_readRealTable(_In_z_ const char* fileName,
     }
 
     if (isMatExt == 1) {
-        table = readMatTable(fileName, tableName, m, n);
+        table = readMatTable(tableName, fileName, m, n);
     }
     else {
-        table = readTxtTable(fileName, tableName, m, n);
+        table = readTxtTable(tableName, fileName, m, n);
     }
     return table;
 }
