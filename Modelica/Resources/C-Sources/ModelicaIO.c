@@ -145,7 +145,7 @@ typedef struct MatIO {
     matvar_t* matvarRoot; /* Pointer to MAT-file variable for free */
 } MatIO;
 
-static double* readMatTable(_In_z_ const char* tableName, _In_z_ const char* fileName,
+static double* readMatTable(_In_z_ const char* fileName, _In_z_ const char* tableName,
                             _Out_ size_t* m, _Out_ size_t* n) MODELICA_NONNULLATTR;
   /* Read a table from a MATLAB MAT-file using MatIO functions
 
@@ -155,7 +155,7 @@ static double* readMatTable(_In_z_ const char* tableName, _In_z_ const char* fil
 static void readMatIO(_In_z_ const char* fileName, _In_z_ const char* matrixName, _Inout_ MatIO* matio);
   /* Read a variable from a MATLAB MAT-file using MatIO functions */
 
-static double* readTxtTable(_In_z_ const char* tableName, _In_z_ const char* fileName,
+static double* readTxtTable(_In_z_ const char* fileName, _In_z_ const char* tableName,
                             _Out_ size_t* m, _Out_ size_t* n) MODELICA_NONNULLATTR;
   /* Read a table from an ASCII text file
 
@@ -365,7 +365,7 @@ MODELICA_EXPORT double* ModelicaIO_readRealTable(_In_z_ const char* fileName,
     return table;
 }
 
-static double* readMatTable(_In_z_ const char* tableName, _In_z_ const char* fileName,
+static double* readMatTable(_In_z_ const char* fileName, _In_z_ const char* tableName,
                             _Out_ size_t* m, _Out_ size_t* n) {
     double* table = NULL;
     MatIO matio = {NULL, NULL, NULL};
@@ -582,7 +582,7 @@ static int IsNumber(char* token) {
     return isNumber;
 }
 
-static double* readTxtTable(_In_z_ const char* tableName, _In_z_ const char* fileName,
+static double* readTxtTable(_In_z_ const char* fileName, _In_z_ const char* tableName,
                             _Out_ size_t* m, _Out_ size_t* n) {
 #define DELIM_TABLE_HEADER " \t(,)\r"
 #define DELIM_TABLE_NUMBER " \t,;\r"
