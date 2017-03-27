@@ -48,6 +48,9 @@
                       functions shall be visible outside of the DLL
 
    Release Notes:
+      Mar. 27, 2017: by Thomas Beutlich, ESI ITI GmbH
+                     Replaced localtime by re-entrant function
+
       Feb. 26, 2017: by Thomas Beutlich, ESI ITI GmbH
                      Fixed definition of uthash_fatal, called by HASH_ADD_KEYPTR in
                      function CacheFileForReading (ticket #2097)
@@ -1252,9 +1255,19 @@ MODELICA_EXPORT void ModelicaInternal_getTime(_Out_ int* ms, _Out_ int* sec, _Ou
     struct tm* tlocal;
     time_t calendarTime;
     int ms0;
+#if defined(_POSIX_) || (defined(_MSC_VER) && _MSC_VER >= 1400)
+    struct tm tres;
+#endif
 
     time( &calendarTime );               /* Retrieve sec time */
-    tlocal = localtime( &calendarTime ); /* Time fields in local time zone */
+#if defined(_POSIX_)
+    tlocal = localtime_r(&calendarTime, &tres); /* Time fields in local time zone */
+#elif defined(_MSC_VER) && _MSC_VER >= 1400
+    localtime_s(&tres, &calendarTime);          /* Time fields in local time zone */
+    tlocal = &tres;
+#else
+    tlocal = localtime( &calendarTime );        /* Time fields in local time zone */
+#endif
 
     /* Get millisecond resolution depending on platform */
 #if defined(_WIN32)
