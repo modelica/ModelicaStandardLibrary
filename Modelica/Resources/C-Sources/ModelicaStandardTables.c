@@ -1423,7 +1423,7 @@ double ModelicaStandardTables_CombiTimeTable_nextTimeEvent(void* _tableID,
                 const double tOld = t;
 #endif
                 double tEvent = tMin;
-                size_t i, iStart, iEnd;
+                size_t iStart, iEnd;
 
                 t -= tableID->startTime;
                 if (tableID->extrapolation == PERIODIC) {
@@ -1470,6 +1470,7 @@ double ModelicaStandardTables_CombiTimeTable_nextTimeEvent(void* _tableID,
 
                 if (tableID->smoothness == LINEAR_SEGMENTS ||
                     tableID->smoothness == CONSTANT_SEGMENTS) {
+                    size_t i;
                     for (i = iStart + 1; i < nRow - 1; i++) {
                         double t0 = TABLE_COL0(i);
                         if (t0 > t) {
