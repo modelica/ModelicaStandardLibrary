@@ -782,6 +782,9 @@ static void CacheFileForReading(FILE* fp, const char* fileName, int line) {
                 fv->line = line;
                 HASH_ADD_KEYPTR(hh, fileCache, key, (unsigned)strlen(key), fv);
             }
+            else {
+                free(fv);
+            }
         }
     }
     MUTEX_UNLOCK();
