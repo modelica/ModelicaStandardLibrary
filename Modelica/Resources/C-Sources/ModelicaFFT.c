@@ -372,7 +372,7 @@ static void kf_bfly_generic(
     int m,
     int p
 ) {
-    int u,k,q1,q;
+    int u,q1,q;
     mrkiss_fft_cpx * twiddles = st->twiddles;
     mrkiss_fft_cpx t;
     int Norig = st->nfft;
@@ -380,7 +380,7 @@ static void kf_bfly_generic(
     mrkiss_fft_cpx * scratch = (mrkiss_fft_cpx*)MRKISS_FFT_TMP_ALLOC(sizeof(mrkiss_fft_cpx)*p);
 
     for ( u=0; u<m; ++u ) {
-        k=u;
+        int k=u;
         for ( q1=0 ; q1<p ; ++q1 ) {
             scratch[q1] = Fout[ k  ];
             C_FIXDIV(scratch[q1],p);

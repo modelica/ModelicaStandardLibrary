@@ -342,14 +342,14 @@ MODELICA_EXPORT void ModelicaInternal_mkdir(_In_z_ const char* directoryName) {
 #elif defined(_POSIX_) || defined(__GNUC__)
     int result = mkdir(directoryName, S_IRUSR | S_IWUSR | S_IXUSR);
 #else
-    int result = -1;
-    ModelicaNotExistError("ModelicaInternal_mkdir");
+   ModelicaNotExistError("ModelicaInternal_mkdir");
 #endif
-
+#if defined(__WATCOMC__) || defined(__LCC__) || defined(__BORLANDC__) || defined(_WIN32) || defined(_POSIX_) || defined(__GNUC__)
     if (result != 0) {
         ModelicaFormatError("Not possible to create new directory\n"
             "\"%s\":\n%s", directoryName, strerror(errno));
     }
+#endif
 }
 
 MODELICA_EXPORT void ModelicaInternal_rmdir(_In_z_ const char* directoryName) {
@@ -359,14 +359,14 @@ MODELICA_EXPORT void ModelicaInternal_rmdir(_In_z_ const char* directoryName) {
 #elif defined(__BORLANDC__) || defined(_WIN32)
     int result = _rmdir(directoryName);
 #else
-    int result = -1;
     ModelicaNotExistError("ModelicaInternal_rmdir");
 #endif
-
+#if defined(__WATCOMC__) || defined(__LCC__) || defined(__BORLANDC__) || defined(_WIN32) || defined(_POSIX_) || defined(__GNUC__)
     if (result != 0) {
         ModelicaFormatError("Not possible to remove directory\n"
             "\"%s\":\n%s", directoryName, strerror(errno));
     }
+#endif
 }
 
 MODELICA_EXPORT int ModelicaInternal_stat(_In_z_ const char* name) {
@@ -580,8 +580,7 @@ MODELICA_EXPORT void ModelicaInternal_readDirectory(_In_z_ const char* directory
             "Less files (= %d) found as defined by argument nNames (= %d)",
              directory, iFiles, nFiles);
     }
-
-    if ( closedir(pdir) != 0 ) {
+    else if ( closedir(pdir) != 0 ) {
         ModelicaFormatError("Not possible to get file names of \"%s\":\n",
             directory, strerror(errno));
     }
@@ -1081,14 +1080,14 @@ MODELICA_EXPORT void ModelicaInternal_chdir(_In_z_ const char* directoryName) {
 #elif defined(_POSIX_) || defined(__GNUC__)
     int result = chdir(directoryName);
 #else
-    int result = -1;
     ModelicaNotExistError("ModelicaInternal_chdir");
 #endif
-
+#if defined(__WATCOMC__) || defined(__LCC__) || defined(__BORLANDC__) || defined(_WIN32) || defined(_POSIX_) || defined(__GNUC__)
     if (result != 0) {
         ModelicaFormatError("Not possible to change current working directory to\n"
             "\"%s\":\n%s", directoryName, strerror(errno));
     }
+#endif
 }
 
 MODELICA_EXPORT _Ret_z_ const char* ModelicaInternal_getcwd(int dummy) {
@@ -1105,13 +1104,13 @@ MODELICA_EXPORT _Ret_z_ const char* ModelicaInternal_getcwd(int dummy) {
     ModelicaNotExistError("ModelicaInternal_getcwd");
     cwd = "";
 #endif
-
+#if defined(__WATCOMC__) || defined(__BORLANDC__) || defined(_WIN32) || defined(_POSIX_) || defined(__GNUC__)
     if (cwd == NULL) {
         ModelicaFormatError("Not possible to get current working directory:\n%s",
             strerror(errno));
         cwd = "";
     }
-
+#endif
     directory = ModelicaAllocateString(strlen(cwd));
     strcpy(directory, cwd);
     ModelicaConvertToUnixDirectorySeparator(directory);
