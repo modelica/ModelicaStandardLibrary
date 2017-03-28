@@ -368,9 +368,6 @@ MODELICA_EXPORT void ModelicaStrings_scanInteger(_In_z_ const char* string,
                     return;
                 }
             }
-            else {
-                ++number_length;
-            }
         }
     }
 
