@@ -2338,7 +2338,7 @@ This blocks computes the output <b>y</b> as the
 
   block Power "Output the power to a base of the input"
     extends Interfaces.SISO;
-    parameter Real base = Modelica.Constants.e "Base of logarithm";
+    parameter Real base = Modelica.Constants.e "Base of power";
   equation
     y = base ^ u;
     annotation (
