@@ -233,16 +233,11 @@ orientation object R12 that describes the orientation  to rotate frame 1 into fr
       Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-v2 = Frames.<b>resolveRelative</b>(R1, R2, v1);
+v2 = Frames.<b>resolveRelative</b>(v1, R1, R2);
 </pre></blockquote>
 
 <h4>Description</h4>
-<p>
-The function call <code>Frames.<b>resolveRelative</b>(R1,R2,v1)</code> returns vector v
-resolved in frame 2 (= v1) from vector v resolved in frame 1 (= v1) given the
-orientation object R1 that describes the orientation to rotate frame 0 into frame 1 and
-orientation object R2 that describes the orientation to rotate frame 0 into frame 2.
-</p>
+<p>The function call <code>Frames.<b>resolveRelative</b>(v1,R1,R2)</code> returns vector v resolved in frame 2 (= v1) from vector v resolved in frame 1 (= v1) given the orientation object R1 that describes the orientation to rotate frame 0 into frame 1 and orientation object R2 that describes the orientation to rotate frame 0 into frame 2. </p>
 </html>"));
   end resolveRelative;
 
