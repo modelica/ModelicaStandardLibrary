@@ -898,13 +898,13 @@ If the input voltage is vin larger than 0, the output voltage is out.v = VMax.
             textString="%name",
             lineColor={0,0,255})}),
       Documentation(info="<html>
-<p>Idealized operational amplifier with saturation: </p>
+<p>Idealized operational amplifier with saturation:</p>
 <ul>
-<li>Input currents are zero. </li>
-<li>No-load amplification is high (but not infinite). </li>
-<li>Output voltage is limited between positive and negative supply. </li>
+<li>Input currents are zero.</li>
+<li>No-load amplification is high (but not infinite).</li>
+<li>Output voltage is limited between positive and negative supply.</li>
 </ul>
-<p>Supply voltage is either defined by parameter Vps and Vpn or by (optional) pins s_p and s_n. </p>
+<p>Supply voltage is either defined by parameter Vps and Vns or by (optional) pins s_p and s_n.</p>
 <p>In the first case the necessary power is drawn from an implicit internal supply, in the second case from the external supply.</p>
 </html>"));
   end IdealizedOpAmpLimted;
