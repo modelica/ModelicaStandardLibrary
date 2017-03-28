@@ -452,36 +452,16 @@ object and an assert to check that both frame connectors are connected.
 
   partial model PartialForce
     "Base model for force elements (provide frame_b.f and frame_b.t in subclasses)"
-
-    Interfaces.Frame_a frame_a
-      "Coordinate system fixed to the joint with one cut-force and cut-torque"
-                               annotation (Placement(transformation(extent={{
-              -116,-16},{-84,16}})));
-    Interfaces.Frame_b frame_b
-      "Coordinate system fixed to the joint with one cut-force and cut-torque"
-                               annotation (Placement(transformation(extent={{84,
-              -16},{116,16}})));
-
+    extends PartialTwoFrames;
     SI.Position r_rel_b[3]
       "Position vector from origin of frame_a to origin of frame_b, resolved in frame_b";
-  protected
-    outer Modelica.Mechanics.MultiBody.World world;
   equation
-    assert(cardinality(frame_a) > 0,
-      "Connector frame_a of force object is not connected");
-    assert(cardinality(frame_b) > 0,
-      "Connector frame_b of force object is not connected");
-
-    /* Determine relative position vector
-     between frame_a and frame_b
-  */
+    // Determine relative position vector between frame_a and frame_b
     r_rel_b = Frames.resolve2(frame_b.R, frame_b.r_0 - frame_a.r_0);
 
-    /* Force and torque balance between frame_a and frame_b */
-    zeros(3) = frame_a.f + Frames.resolveRelative(frame_b.f, frame_b.R, frame_a.
-       R);
-    zeros(3) = frame_a.t + Frames.resolveRelative(frame_b.t + cross(r_rel_b,
-      frame_b.f), frame_b.R, frame_a.R);
+    // Force and torque balance between frame_a and frame_b
+    zeros(3) = frame_a.f + Frames.resolveRelative(frame_b.f, frame_b.R, frame_a.R);
+    zeros(3) = frame_a.t + Frames.resolveRelative(frame_b.t + cross(r_rel_b, frame_b.f), frame_b.R, frame_a.R);
     annotation (Documentation(info="<html>
 <p>
 All <b>3-dimensional force</b> and <b>torque elements</b>
@@ -517,18 +497,11 @@ Note, that frame_b.f and frame_b.t are flow variables and therefore
 the negative value of frame_b.f and frame_b.t is acting at the part
 to which this force element is connected.
 </p>
-</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-              {100,100}}), graphics={Text(
-            extent={{-136,42},{-100,17}},
-            lineColor={128,128,128},
-            textString="a"), Text(
-            extent={{102,44},{138,19}},
-            lineColor={128,128,128},
-            textString="b")}));
+</html>"));
   end PartialForce;
 
   partial model PartialLineForce "Base model for line force elements"
-
+    extends PartialTwoFrames;
     parameter SI.Position s_small=1.E-6
       "Prevent zero-division if relative distance s=0"
       annotation (Dialog(tab="Advanced"));
@@ -539,14 +512,6 @@ to which this force element is connected.
       "=true, if rotation frame_b.R is fixed (to directly connect line forces)"
        annotation (Evaluate=true, choices(checkBox=true),Dialog(tab="Advanced", group="If enabled, can give wrong results, see MultiBody.UsersGuide.Tutorial.ConnectionOfLineForces"));
 
-    Interfaces.Frame_a frame_a
-      "Coordinate system fixed to the force element with one cut-force and cut-torque"
-                               annotation (Placement(transformation(extent={{
-              -116,-16},{-84,16}})));
-    Interfaces.Frame_b frame_b
-      "Coordinate system fixed to the force element with one cut-force and cut-torque"
-                               annotation (Placement(transformation(extent={{84,
-              -16},{116,16}})));
     SI.Force f
       "Line force acting on frame_a and on frame_b (positive, if acting on frame_b and directed from frame_a to frame_b)";
     SI.Position s
@@ -555,24 +520,15 @@ to which this force element is connected.
       "Unit vector on the line connecting the origin of frame_a with the origin of frame_b resolved in frame_a (directed from frame_a to frame_b)";
     Modelica.SIunits.Position r_rel_a[3]
       "Position vector from origin of frame_a to origin of frame_b, resolved in frame_a";
-  protected
-    outer Modelica.Mechanics.MultiBody.World world;
   equation
-    assert(cardinality(frame_a) > 0,
-      "Connector frame_a of line force object is not connected");
-    assert(cardinality(frame_b) > 0,
-      "Connector frame_b of line force object is not connected");
-
     // Determine distance s and n_a
     r_rel_a = Frames.resolve2(frame_a.R, frame_b.r_0 - frame_a.r_0);
-    s = noEvent(max(Modelica.Math.Vectors.length(
-                                  r_rel_a), s_small));
+    s = noEvent(max(Modelica.Math.Vectors.length(r_rel_a), s_small));
     e_a = r_rel_a/s;
 
-    /* Determine forces and torques at frame_a and frame_b */
+    // Determine forces and torques at frame_a and frame_b
     frame_a.f = -e_a*f;
-    frame_b.f = -Frames.resolve2(Frames.relativeRotation(frame_a.R, frame_b.R),
-       frame_a.f);
+    frame_b.f = -Frames.resolve2(Frames.relativeRotation(frame_a.R, frame_b.R), frame_a.f);
 
     // Additional equations, if direct connections of line forces
     if fixedRotationAtFrame_a then
@@ -610,13 +566,7 @@ has to be defined. Example:
    <b>end</b> Spring;
 </pre>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-              {100,100}}), graphics={Text(
-            extent={{-136,-44},{-100,-19}},
-            lineColor={128,128,128},
-            textString="a"), Text(
-            extent={{100,-42},{136,-17}},
-            lineColor={128,128,128},
-            textString="b"),
+              {100,100}}), graphics={
           Ellipse(visible=fixedRotationAtFrame_a, extent={{-70,30},{-130,-30}}, lineColor={255,0,0}),
           Text(visible=fixedRotationAtFrame_a,
             extent={{-62,50},{-140,30}},
