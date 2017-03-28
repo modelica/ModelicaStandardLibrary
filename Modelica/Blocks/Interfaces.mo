@@ -383,7 +383,6 @@ one continuous Real output signal.
           Rectangle(
             extent={{-100,100},{100,-100}},
             lineColor={255,137,0},
-            lineThickness=5.0,
             fillColor={255,255,255},
             borderPattern=BorderPattern.Raised,
             fillPattern=FillPattern.Solid)}));
@@ -901,7 +900,6 @@ where the signal sizes of the input and output vector are identical.
           Rectangle(
             extent={{-100,100},{100,-100}},
             lineColor={0,0,0},
-            lineThickness=5.0,
             fillColor={255,213,170},
             fillPattern=FillPattern.Solid,
             borderPattern=BorderPattern.Raised)}));
@@ -935,7 +933,6 @@ where the signal sizes of the input and output vector are identical.
           Rectangle(
             extent={{-100,100},{100,-100}},
             lineColor={255,137,0},
-            lineThickness=5.0,
             fillColor={255,213,170},
             borderPattern=BorderPattern.Raised,
             fillPattern=FillPattern.Solid)}));
@@ -1181,7 +1178,6 @@ and a 3D icon (e.g., used in Blocks.Logical library).
           Rectangle(
             extent={{-100,100},{100,-100}},
             lineColor={0,0,0},
-            lineThickness=5.0,
             fillColor={210,210,210},
             fillPattern=FillPattern.Solid,
             borderPattern=BorderPattern.Raised),
@@ -1219,7 +1215,6 @@ as well as a 3D icon (e.g., used in Blocks.Logical library).
           Rectangle(
             extent={{-100,100},{100,-100}},
             lineColor={0,0,0},
-            lineThickness=5.0,
             fillColor={210,210,210},
             fillPattern=FillPattern.Solid,
             borderPattern=BorderPattern.Raised),
@@ -1260,7 +1255,6 @@ has a 3D icon (e.g., used in Blocks.Logical library).
           Rectangle(
             extent={{-100,100},{100,-100}},
             lineColor={0,0,0},
-            lineThickness=5.0,
             fillColor={215,215,215},
             fillPattern=FillPattern.Solid,
             borderPattern=BorderPattern.Raised),
@@ -1294,7 +1288,6 @@ has a 3D icon (e.g., used in Blocks.Logical library).
           Rectangle(
             extent={{-100,100},{100,-100}},
             lineColor={0,0,0},
-            lineThickness=5.0,
             fillColor={215,215,215},
             fillPattern=FillPattern.Solid,
             borderPattern=BorderPattern.Raised),
@@ -1616,7 +1609,6 @@ Instead the icon <a href=\"modelica://Modelica.Blocks.Icons.BooleanBlock\">Model
               {100,100}}), graphics={Rectangle(
             extent={{-100,-100},{100,100}},
             lineColor={0,0,127},
-            lineThickness=5.0,
             fillColor={223,211,169},
             fillPattern=FillPattern.Solid,
             borderPattern=BorderPattern.Raised), Text(
@@ -1658,7 +1650,6 @@ Instead the icon <a href=\"modelica://Modelica.Blocks.Icons.IntegerBlock\">Model
               {100,100}}), graphics={Rectangle(
             extent={{-100,100},{100,-100}},
             lineColor={0,0,0},
-            lineThickness=5.0,
             fillColor={210,210,210},
             fillPattern=FillPattern.Solid,
             borderPattern=BorderPattern.Raised), Text(
