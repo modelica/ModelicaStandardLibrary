@@ -2360,7 +2360,7 @@ built-in function \"max\" or an if-statement with \"noEvent(..)\",
 in order that the function can be differentiated by providing
 the first and second derivatives with additional functions.
 Note, from a strict mathematical point of view the derivatives
-will be wrong, since a Dirac impulses would occur in the
+will be wrong, since Dirac impulses would occur in the
 derivatives. For the special cases as used in the MultiBody
 library, this is irrelevant and therefore the usage of the function is correct.
 </p>
