@@ -2338,7 +2338,7 @@ This blocks computes the output <b>y</b> as the
 
   block Power "Output the power to a base of the input"
     extends Interfaces.SISO;
-    parameter Real base = Modelica.Constants.e "Base of power";
+    parameter Real base = Modelica.Constants.e "Base of power" annotation(Evaluate=true);
   equation
     y = base ^ u;
     annotation (
@@ -2394,7 +2394,7 @@ This blocks computes the output <b>y</b> as the
 power to the parameter <i>base</i> of the input <b>u</b>:
 </p>
 <pre>
-    y = <b>base </b> ^ ( u );
+    y = <b>base </b> ^ u;
 </pre>
 
 
@@ -2405,7 +2405,7 @@ power to the parameter <i>base</i> of the input <b>u</b>:
     "Output the natural (base e) logarithm of the input (input > 0 required)"
 
     extends Interfaces.SISO;
-    parameter Real base = Modelica.Constants.e "Base of logarithm";
+    parameter Real base = Modelica.Constants.e "Base of logarithm" annotation(Evaluate=true);
 
   equation
     y = Modelica.Math.log(u)/Modelica.Math.log(base);
