@@ -2402,7 +2402,7 @@ power to the parameter <i>base</i> of the input <b>u</b>:
   end Power;
 
   block Log
-    "Output the natural (base e) logarithm of the input (input > 0 required)"
+    "Output the logarithm (default base e) of the input (input > 0 required)"
 
     extends Interfaces.SISO;
     parameter Real base = Modelica.Constants.e "Base of logarithm" annotation(Evaluate=true);
