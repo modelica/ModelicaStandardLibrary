@@ -2339,8 +2339,9 @@ This blocks computes the output <b>y</b> as the
   block Power "Output the power to a base of the input"
     extends Interfaces.SISO;
     parameter Real base = Modelica.Constants.e "Base of power" annotation(Evaluate=true);
+    parameter Boolean useExp = true "Use exp function in implementation"  annotation(Evaluate=true);
   equation
-    y = base ^ u;
+    y = if useExp then Modelica.Math.exp(u*Modelica.Math.log(base)) else base ^ u;
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
@@ -2391,10 +2392,17 @@ This blocks computes the output <b>y</b> as the
       Documentation(info="<html>
 <p>
 This blocks computes the output <b>y</b> as the
-power to the parameter <i>base</i> of the input <b>u</b>:
+power to the parameter <i>base</i> of the input <b>u</b>. 
+If the boolean parameter <b>useExp</b> is true, the output is determined by:
 </p>
 <pre>
-    y = <b>base </b> ^ u;
+    y = <b>exp</b> ( u * <b>log</b> (base) )
+</pre>
+<p>
+otherwise:
+</p>
+<pre>
+    y = base <b>^</b> u;
 </pre>
 
 
