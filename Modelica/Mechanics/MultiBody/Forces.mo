@@ -1528,27 +1528,27 @@ in the other flange connector.
       "Distance between point mass b and frame_b (positive, if in direction of frame_a)";
     input SI.Diameter cylinderDiameter_a=world.defaultForceWidth
       "Diameter of cylinder at frame_a"
-      annotation (Dialog(tab="Animation", group="Cylinder at frame_a if animation = true", enable=animate));
+      annotation (Dialog(tab="Animation", group="Cylinder at frame_a if animate = true", enable=animate));
     parameter SI.Length cylinderLength_a=2*L_a "Length of cylinder at frame_a"
-      annotation (Dialog(tab="Animation", group="Cylinder at frame_a if animation = true", enable=animate));
+      annotation (Dialog(tab="Animation", group="Cylinder at frame_a if animate = true", enable=animate));
     input Types.Color color_a={155,155,155} "Color of cylinder at frame_a"
-      annotation (Dialog(colorSelector=true, tab="Animation", group="Cylinder at frame_a if animation = true", enable=animate));
+      annotation (Dialog(colorSelector=true, tab="Animation", group="Cylinder at frame_a if animate = true", enable=animate));
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
       "Reflection of ambient light (= 0: light is completely absorbed)"
-      annotation (Dialog(tab="Animation", group="Cylinder at frame_a if animation = true", enable=animate));
+      annotation (Dialog(tab="Animation", group="Cylinder at frame_a if animate = true", enable=animate));
     input Real diameterFraction=0.8
       "Diameter of cylinder at frame_b with respect to diameter of cylinder at frame_a"
-      annotation (Dialog(tab="Animation", group="Cylinder at frame_b if animation = true", enable=animate));
+      annotation (Dialog(tab="Animation", group="Cylinder at frame_b if animate = true", enable=animate));
     parameter SI.Length cylinderLength_b=2*L_b "Length of cylinder at frame_b"
-      annotation (Dialog(tab="Animation", group="Cylinder at frame_b if animation = true", enable=animate));
+      annotation (Dialog(tab="Animation", group="Cylinder at frame_b if animate = true", enable=animate));
     input Types.Color color_b={100,100,100} "Color of cylinder at frame_b"
-      annotation (Dialog(colorSelector=true, tab="Animation", group="Cylinder at frame_b if animation = true", enable=animate));
+      annotation (Dialog(colorSelector=true, tab="Animation", group="Cylinder at frame_b if animate = true", enable=animate));
     input Real massDiameterFaction=1.7
       "Diameter of point mass spheres with respect to cylinderDiameter_a"
-      annotation (Dialog(tab="Animation", group="if animation = true and animateMasses = true", enable=animate and animateMasses));
+      annotation (Dialog(tab="Animation", group="if animate = true and animateMasses = true", enable=animate and animateMasses));
     input Types.Color massColor=Modelica.Mechanics.MultiBody.Types.Defaults.BodyColor
       "Color of point masses"
-      annotation (Dialog(colorSelector=true, tab="Animation", group="if animation = true and animateMasses = true", enable=animate and animateMasses));
+      annotation (Dialog(colorSelector=true, tab="Animation", group="if animate = true and animateMasses = true", enable=animate and animateMasses));
 
   protected
     SI.Force fa "Force from flange_a";
