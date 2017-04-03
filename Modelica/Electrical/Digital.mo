@@ -4416,7 +4416,7 @@ If the signal width is greater than 1 this conversion is done for each signal.
           parameter Integer n(final min=1, start=2) "signal width";
         equation
           for i in 1:n loop
-            y[i] = if x[i] == L.'1' or x[i] == L.'H' then true else false;
+            y[i] = (x[i] == L.'1' or x[i] == L.'H');
           end for;
           annotation (Documentation(info="<html>
 <P>

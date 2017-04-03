@@ -434,7 +434,7 @@ it is open.
         "Selection of flow coefficient"
        annotation(Dialog(group = "Flow Coefficient"));
       parameter SI.Area Av(
-        fixed=if CvData == Modelica.Fluid.Types.CvTypes.Av then true else false,
+        fixed= CvData == Modelica.Fluid.Types.CvTypes.Av,
         start=m_flow_nominal/(sqrt(rho_nominal*dp_nominal))*valveCharacteristic(
             opening_nominal)) "Av (metric) flow coefficient"
        annotation(Dialog(group = "Flow Coefficient",
