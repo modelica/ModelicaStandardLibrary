@@ -1526,6 +1526,9 @@ in the other flange connector.
       "Distance between point mass a and frame_a (positive, if in direction of frame_b)";
     parameter SI.Position L_b=L_a
       "Distance between point mass b and frame_b (positive, if in direction of frame_a)";
+    input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
+      "Reflection of ambient light (= 0: light is completely absorbed)"
+      annotation (Dialog(tab="Animation", enable=animate));
     input SI.Diameter cylinderDiameter_a=world.defaultForceWidth
       "Diameter of cylinder at frame_a"
       annotation (Dialog(tab="Animation", group="Cylinder at frame_a if animate = true", enable=animate));
@@ -1533,9 +1536,6 @@ in the other flange connector.
       annotation (Dialog(tab="Animation", group="Cylinder at frame_a if animate = true", enable=animate));
     input Types.Color color_a={155,155,155} "Color of cylinder at frame_a"
       annotation (Dialog(colorSelector=true, tab="Animation", group="Cylinder at frame_a if animate = true", enable=animate));
-    input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
-      "Reflection of ambient light (= 0: light is completely absorbed)"
-      annotation (Dialog(tab="Animation", group="Cylinder at frame_a if animate = true", enable=animate));
     input Real diameterFraction=0.8
       "Diameter of cylinder at frame_b with respect to diameter of cylinder at frame_a"
       annotation (Dialog(tab="Animation", group="Cylinder at frame_b if animate = true", enable=animate));
