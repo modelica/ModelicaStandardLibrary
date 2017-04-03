@@ -500,10 +500,10 @@ to which this force element is connected.
 </html>"));
   end PartialForce;
 
-  partial model PartialLineForce "Base model for line force elements"
+  partial model LineForceBase "Base model for line force elements"
     extends PartialTwoFrames;
-    parameter SI.Position s_small=1.E-6
-      "Prevent zero-division if relative distance s=0"
+    parameter SI.Position s_small=1.E-10
+      "Prevent zero-division if distance between frame_a and frame_b is zero"
       annotation (Dialog(tab="Advanced"));
     parameter Boolean fixedRotationAtFrame_a=false
       "=true, if rotation frame_a.R is fixed (to directly connect line forces)"
@@ -512,23 +512,39 @@ to which this force element is connected.
       "=true, if rotation frame_b.R is fixed (to directly connect line forces)"
        annotation (Evaluate=true, choices(checkBox=true),Dialog(tab="Advanced", group="If enabled, can give wrong results, see MultiBody.UsersGuide.Tutorial.ConnectionOfLineForces"));
 
-    SI.Force f
-      "Line force acting on frame_a and on frame_b (positive, if acting on frame_b and directed from frame_a to frame_b)";
+    SI.Distance length
+      "Distance between the origin of frame_a and the origin of frame_b";
     SI.Position s
       "(Guarded) distance between the origin of frame_a and the origin of frame_b (>= s_small))";
-    Real e_a[3](each final unit="1")
-      "Unit vector on the line connecting the origin of frame_a with the origin of frame_b resolved in frame_a (directed from frame_a to frame_b)";
-    Modelica.SIunits.Position r_rel_a[3]
-      "Position vector from origin of frame_a to origin of frame_b, resolved in frame_a";
+    SI.Position r_rel_0[3]
+      "Position vector from frame_a to frame_b resolved in world frame";
+    Real e_rel_0[3](each final unit="1")
+      "Unit vector in direction from frame_a to frame_b, resolved in world frame";
   equation
-    // Determine distance s and n_a
-    r_rel_a = Frames.resolve2(frame_a.R, frame_b.r_0 - frame_a.r_0);
-    s = noEvent(max(Modelica.Math.Vectors.length(r_rel_a), s_small));
-    e_a = r_rel_a/s;
+    assert(noEvent(length > s_small), "
+The distance between the origin of frame_a and the origin of frame_b
+of a line force component became smaller as parameter s_small
+(= a small number, defined in the \"Advanced\" menu). The distance is
+set to s_small, although it is smaller, to avoid a division by zero
+when computing the direction of the line force. Possible reasons
+for this situation:
+- At initial time the distance may already be zero: Change the initial
+  positions of the bodies connected by this element.
+- Hardware stops are not modeled or are modeled not stiff enough.
+  Include stops, e.g., stiff springs, or increase the stiffness
+  if already present.
+- Another error in your model may lead to unrealistically large forces
+  and torques that would in reality destroy the stops.
+- The flange_b connector might be defined by a pre-defined motion,
+  e.g., with Modelica.Mechanics.Translational.Position and the
+  predefined flange_b.s is zero or negative.
+");
 
-    // Determine forces and torques at frame_a and frame_b
-    frame_a.f = -e_a*f;
-    frame_b.f = -Frames.resolve2(Frames.relativeRotation(frame_a.R, frame_b.R), frame_a.f);
+    // Determine relative position vector between the two frames
+    r_rel_0 = frame_b.r_0 - frame_a.r_0;
+    length = Modelica.Math.Vectors.length(r_rel_0);
+    s = Frames.Internal.maxWithoutEvent(length, s_small);
+    e_rel_0 = r_rel_0/s;
 
     // Additional equations, if direct connections of line forces
     if fixedRotationAtFrame_a then
@@ -548,7 +564,46 @@ to which this force element is connected.
     annotation (Documentation(info="<html>
 <p>
 All <b>line force</b> elements should be based on this base model.
-This model defines frame_a and frame_b, computes the relative
+This model defines frame_a and frame_b and computes the (guarded) relative
+distance <b>s</b>. An assertion is raised if the relative
+distance <strong>length</strong> became smaller as parameter <strong>s_small</strong>.
+</p>
+</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+              {100,100}}), graphics={
+          Ellipse(visible=fixedRotationAtFrame_a, extent={{-70,30},{-130,-30}}, lineColor={255,0,0}),
+          Text(visible=fixedRotationAtFrame_a,
+            extent={{-62,50},{-140,30}},
+            lineColor={255,0,0},
+            textString="R=0"),
+          Ellipse(visible=fixedRotationAtFrame_b, extent={{70,30},{130,-30}}, lineColor={255,0,0}),
+          Text(visible=fixedRotationAtFrame_b,
+            extent={{62,50},{140,30}},
+            lineColor={255,0,0},
+            textString="R=0")}));
+  end LineForceBase;
+  
+  partial model PartialLineForce "Base model for massless line force elements"
+    extends LineForceBase;
+
+    Modelica.SIunits.Position r_rel_a[3]
+      "Position vector from origin of frame_a to origin of frame_b, resolved in frame_a";
+    Real e_a[3](each final unit="1")
+      "Unit vector on the line connecting the origin of frame_a with the origin of frame_b resolved in frame_a (directed from frame_a to frame_b)";
+    SI.Force f
+      "Line force acting on frame_a and on frame_b (positive, if acting on frame_b and directed from frame_a to frame_b)";
+  equation
+    // Determine relative position vector between the two frames
+    r_rel_a = Frames.resolve2(frame_a.R, r_rel_0);
+    e_a = r_rel_a/s;
+
+    // Determine forces and torques at frame_a and frame_b
+    frame_a.f = -e_a*f;
+    frame_b.f = -Frames.resolve2(Frames.relativeRotation(frame_a.R, frame_b.R), frame_a.f);
+
+    annotation (Documentation(info="<html>
+<p>
+All massless <b>line force</b> elements should be based on this base model.
+This model defines frame_a and frame_b, computes the (guarded) relative
 distance <b>s</b> and provides the force and torque
 balance of the cut-forces and cut-torques at frame_a and
 frame_b, respectively. In sub-models, only the line force <b>f</b>,

@@ -1194,7 +1194,7 @@ clarity this is not shown in the animation):
     "General line force component with an optional point mass on the connection line"
 
     import Modelica.Mechanics.MultiBody.Types;
-    extends Interfaces.PartialTwoFrames;
+    extends Interfaces.LineForceBase;
     Modelica.Mechanics.Translational.Interfaces.Flange_a flange_b
       "1-dim. translational flange (connect force of Translational library between flange_a and flange_b)"
       annotation (Placement(transformation(
@@ -1240,22 +1240,6 @@ clarity this is not shown in the animation):
     input Types.Color massColor=Modelica.Mechanics.MultiBody.Types.Defaults.BodyColor
       "Color of point mass"
       annotation (Dialog(colorSelector=true, tab="Animation", group="if animateMass = true", enable=animateMass));
-    parameter SI.Position s_small=1.E-10
-      "Prevent zero-division if distance between frame_a and frame_b is zero"
-      annotation (Dialog(tab="Advanced"));
-    parameter Boolean fixedRotationAtFrame_a=false
-      "=true, if rotation frame_a.R is fixed (to directly connect line forces)"
-       annotation (Evaluate=true, choices(checkBox=true),Dialog(tab="Advanced", group="If enabled, can give wrong results, see MultiBody.UsersGuide.Tutorial.ConnectionOfLineForces"));
-    parameter Boolean fixedRotationAtFrame_b=false
-      "=true, if rotation frame_b.R is fixed (to directly connect line forces)"
-       annotation (Evaluate=true, choices(checkBox=true),Dialog(tab="Advanced", group="If enabled, can give wrong results, see MultiBody.UsersGuide.Tutorial.ConnectionOfLineForces"));
-
-    SI.Distance length
-      "Distance between the origin of frame_a and the origin of frame_b";
-    SI.Position r_rel_0[3]
-      "Position vector from frame_a to frame_b resolved in world frame";
-    Real e_rel_0[3](each final unit="1")
-      "Unit vector in direction from frame_a to frame_b, resolved in world frame";
 
   protected
     SI.Force fa "Force from flange_a";
@@ -1289,33 +1273,10 @@ clarity this is not shown in the animation):
       widthDirection={0,1,0},
       r_shape=e_rel_0*(length*lengthFraction - massDiameter/2),
       r=frame_a.r_0) if world.enableAnimation and animateMass and m > 0;
-  equation
-    assert(noEvent(length > s_small), "
-The distance between the origin of frame_a and the origin of frame_b
-of a LineForceWithMass component became smaller as parameter s_small
-(= a small number, defined in the \"Advanced\" menu). The distance is
-set to s_small, although it is smaller, to avoid a division by zero
-when computing the direction of the line force. Possible reasons
-for this situation:
-- At initial time the distance may already be zero: Change the initial
-  positions of the bodies connected by this element.
-- Hardware stops are not modeled or are modeled not stiff enough.
-  Include stops, e.g., stiff springs, or increase the stiffness
-  if already present.
-- Another error in your model may lead to unrealistically large forces
-  and torques that would in reality destroy the stops.
-- The flange_b connector might be defined by a pre-defined motion,
-  e.g., with Modelica.Mechanics.Translational.Position and the
-  predefined flange_b.s is zero or negative.
-");
 
-    // Determine relative position vector between the two frames
-    r_rel_0 = frame_b.r_0 - frame_a.r_0;
-    length = Modelica.Math.Vectors.length(
-                           r_rel_0);
+  equation
     flange_a.s = 0;
     flange_b.s = length;
-    e_rel_0 = r_rel_0/Frames.Internal.maxWithoutEvent(length, s_small);
 
     // Determine translational flange forces
     if cardinality(flange_a) > 0 and cardinality(flange_b) > 0 then
@@ -1356,10 +1317,8 @@ for this situation:
       r_CM_0 = frame_a.r_0 + r_rel_0*lengthFraction;
       v_CM_0 = der(r_CM_0);
       ag_CM_0 = der(v_CM_0) - world.gravityAcceleration(r_CM_0);
-      frame_a.f = Frames.resolve2(frame_a.R, (m*(1 - lengthFraction))*ag_CM_0
-         - e_rel_0*fa);
-      frame_b.f = Frames.resolve2(frame_b.R, (m*lengthFraction)*ag_CM_0 -
-        e_rel_0*fb);
+      frame_a.f = Frames.resolve2(frame_a.R, (m*(1 - lengthFraction))*ag_CM_0 - e_rel_0*fa);
+      frame_b.f = Frames.resolve2(frame_b.R, (m*lengthFraction)*ag_CM_0 - e_rel_0*fb);
     else
       r_CM_0 = zeros(3);
       v_CM_0 = zeros(3);
@@ -1368,20 +1327,6 @@ for this situation:
       frame_b.f = -Frames.resolve2(frame_b.R, e_rel_0*fb);
     end if;
 
-    // Provide appropriate equations, if direct connections of line forces
-    if fixedRotationAtFrame_a then
-      Connections.root(frame_a.R);
-      frame_a.R = Frames.nullRotation();
-    else
-      frame_a.t = zeros(3);
-    end if;
-
-    if fixedRotationAtFrame_b then
-      Connections.root(frame_b.R);
-      frame_b.R = Frames.nullRotation();
-    else
-      frame_b.t = zeros(3);
-    end if;
     annotation (
       Icon(coordinateSystem(
           preserveAspectRatio=true,
@@ -1556,7 +1501,7 @@ in the other flange connector.
 
     import Modelica.Mechanics.MultiBody.Types;
 
-    extends Interfaces.PartialTwoFrames;
+    extends Interfaces.LineForceBase;
     Modelica.Mechanics.Translational.Interfaces.Flange_a flange_b
       "1-dim. translational flange (connect force of Translational library between flange_a and flange_b)"
       annotation (Placement(transformation(
@@ -1604,22 +1549,6 @@ in the other flange connector.
     input Types.Color massColor=Modelica.Mechanics.MultiBody.Types.Defaults.BodyColor
       "Color of point masses"
       annotation (Dialog(colorSelector=true, tab="Animation", group="if animation = true and animateMasses = true", enable=animate and animateMasses));
-    parameter SI.Position s_small=1.E-10
-      "Prevent zero-division if distance between frame_a and frame_b is zero"
-      annotation (Dialog(tab="Advanced"));
-    parameter Boolean fixedRotationAtFrame_a=false
-      "=true, if rotation frame_a.R is fixed (to directly connect line forces)"
-       annotation (Evaluate=true, choices(checkBox=true),Dialog(tab="Advanced", group="If enabled, can give wrong results, see MultiBody.UsersGuide.Tutorial.ConnectionOfLineForces"));
-    parameter Boolean fixedRotationAtFrame_b=false
-      "=true, if rotation frame_b.R is fixed (to directly connect line forces)"
-       annotation (Evaluate=true, choices(checkBox=true),Dialog(tab="Advanced", group="If enabled, can give wrong results, see MultiBody.UsersGuide.Tutorial.ConnectionOfLineForces"));
-
-    SI.Distance length
-      "Distance between the origin of frame_a and the origin of frame_b";
-    SI.Position r_rel_0[3]
-      "Position vector from frame_a to frame_b resolved in world frame";
-    Real e_rel_0[3](each final unit="1")
-      "Unit vector in direction from frame_a to frame_b, resolved in world frame";
 
   protected
     SI.Force fa "Force from flange_a";
@@ -1685,33 +1614,10 @@ in the other flange connector.
       widthDirection={0,1,0},
       r_shape=-e_rel_0*(L_b - massDiameter/2),
       r=frame_b.r_0) if animateMasses2;
-  equation
-    assert(noEvent(length > s_small), "
-The distance between the origin of frame_a and the origin of frame_b
-of a LineForceWithTwoMasses component became smaller as parameter s_small
-(= a small number, defined in the \"Advanced\" menu). The distance is
-set to s_small, although it is smaller, to avoid a division by zero
-when computing the direction of the line force. Possible reasons
-for this situation:
-- At initial time the distance may already be zero: Change the initial
-  positions of the bodies connected by this element.
-- Hardware stops are not modeled or are modeled not stiff enough.
-  Include stops, e.g., stiff springs, or increase the stiffness
-  if already present.
-- Another error in your model may lead to unrealistically large forces
-  and torques that would in reality destroy the stops.
-- The flange_b connector might be defined by a pre-defined motion,
-  e.g., with Modelica.Mechanics.Translational.Position and the
-  predefined flange_b.s is zero or negative.
-");
 
-    // Determine relative position vector between the two frames
-    r_rel_0 = frame_b.r_0 - frame_a.r_0;
-    length = Modelica.Math.Vectors.length(
-                           r_rel_0);
+  equation
     flange_a.s = 0;
     flange_b.s = length;
-    e_rel_0 = r_rel_0/Frames.Internal.maxWithoutEvent(length, s_small);
 
     // Determine translational flange forces
     if cardinality(flange_a) > 0 and cardinality(flange_b) > 0 then
@@ -1793,21 +1699,6 @@ for this situation:
       aux2_0 = zeros(3);
       frame_a.f = -Frames.resolve2(frame_a.R, e_rel_0*fa);
       frame_b.f = -Frames.resolve2(frame_b.R, e_rel_0*fb);
-    end if;
-
-    // Provide appropriate equations, if direct connections of line forces
-    if fixedRotationAtFrame_a then
-      Connections.root(frame_a.R);
-      frame_a.R = Frames.nullRotation();
-    else
-      frame_a.t = zeros(3);
-    end if;
-
-    if fixedRotationAtFrame_b then
-      Connections.root(frame_b.R);
-      frame_b.R = Frames.nullRotation();
-    else
-      frame_b.t = zeros(3);
     end if;
 
     annotation (
@@ -2078,11 +1969,10 @@ in the other flange connector.
       massDiameter=massDiameter,
       massColor=massColor,
       fixedRotationAtFrame_a=fixedRotationAtFrame_a,
-      fixedRotationAtFrame_b=fixedRotationAtFrame_b) annotation (Placement(transformation(extent={{-20,
-              -20},{20,20}})));
+      fixedRotationAtFrame_b=fixedRotationAtFrame_b) annotation (Placement(transformation(extent={{-20,-20},{20,20}})));
     Modelica.Mechanics.Translational.Components.Spring spring(
-                                                   s_rel0=s_unstretched, c=c)
-      annotation (Placement(transformation(extent={{-8,40},{12,60}})));
+       s_rel0=s_unstretched,
+       c=c) annotation (Placement(transformation(extent={{-8,40},{12,60}})));
 
   equation
     connect(lineForce.frame_a, frame_a)
