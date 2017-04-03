@@ -1221,7 +1221,7 @@ clarity this is not shown in the animation):
       "Location of point mass with respect to frame_a as a fraction of the distance from frame_a to frame_b";
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
       "Reflection of ambient light (= 0: light is completely absorbed)"
-      annotation (Dialog(tab="Animation"));
+      annotation (Dialog(tab="Animation", enable=animateLine or animateMass));
     parameter Types.ShapeType lineShapeType="cylinder"
       "Type of shape visualizing the line from frame_a to frame_b"
       annotation (Dialog(tab="Animation", group="if animateLine = true", enable=animateLine));
