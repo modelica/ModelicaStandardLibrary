@@ -1948,7 +1948,7 @@ in the other flange connector.
     input Types.Color massColor=Modelica.Mechanics.MultiBody.Types.Defaults.BodyColor
       "Color of mass point" annotation (Dialog(colorSelector=true, tab="Animation", group=
             "if animation = true and showMass = true", enable=animation and showMass));
-    parameter SI.Position s_small=1.E-10
+    parameter SI.Distance s_small=1.E-10
       "Prevent zero-division if distance between frame_a and frame_b is zero"
       annotation (Dialog(tab="Advanced"));
     parameter Boolean fixedRotationAtFrame_a=false
