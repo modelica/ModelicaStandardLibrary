@@ -841,7 +841,7 @@ If the input voltage is vin larger than 0, the output voltage is out.v = VMax.
   model IdealizedOpAmpLimted "Idealized operational amplifier with limitation"
     parameter Real V0=15000.0 "No-load amplification";
     parameter Boolean useSupply=false
-      "Use supply pins (otherwise constant supply" annotation (Evaluate=true);
+      "Use supply pins (otherwise constant supply)" annotation (Evaluate=true);
     parameter SI.Voltage Vps=+15 "Positive supply voltage"
       annotation (Dialog(enable=not useSupply));
     parameter SI.Voltage Vns=-15 "Negative supply voltage"
