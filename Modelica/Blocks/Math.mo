@@ -2336,12 +2336,87 @@ This blocks computes the output <b>y</b> as the
 </html>"));
   end Exp;
 
+  block Power "Output the power to a base of the input"
+    extends Interfaces.SISO;
+    parameter Real base = Modelica.Constants.e "Base of power" annotation(Evaluate=true);
+    parameter Boolean useExp = true "Use exp function in implementation"  annotation(Evaluate=true);
+  equation
+    y = if useExp then Modelica.Math.exp(u*Modelica.Math.log(base)) else base ^ u;
+    annotation (
+      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
+              100}}), graphics={
+          Line(points={{0,-80},{0,68}}, color={192,192,192}),
+          Polygon(
+            points={{0,90},{-8,68},{8,68},{0,90}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
+          Text(
+            extent={{-86,50},{-14,2}},
+            lineColor={192,192,192},
+            textString="^"),
+          Line(points={{-80,-80},{-31,-77.9},{-6.03,-74},{10.9,-68.4},{23.7,-61},
+                {34.2,-51.6},{43,-40.3},{50.3,-27.8},{56.7,-13.5},{62.3,2.23},{
+                67.1,18.6},{72,38.2},{76,57.6},{80,80}}),
+          Line(
+            points={{-90,-80.3976},{68,-80.3976}},
+            color={192,192,192},
+            smooth=Smooth.Bezier),
+          Polygon(
+            points={{90,-80.3976},{68,-72.3976},{68,-88.3976},{90,-80.3976}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid)}),
+      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+              100,100}}), graphics={Line(points={{0,80},{-8,80}}, color={192,
+            192,192}),Line(points={{0,-80},{-8,-80}}, color={192,192,192}),Line(
+            points={{0,-90},{0,84}}, color={192,192,192}),Text(
+              extent={{9,100},{40,80}},
+              lineColor={160,160,164},
+              textString="y"),Polygon(
+              points={{0,100},{-6,84},{6,84},{0,100}},
+              lineColor={192,192,192},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid),Line(points={{-100,-80.3976},{84,-80.3976}},
+            color={192,192,192}),Polygon(
+              points={{100,-80.3976},{84,-74.3976},{84,-86.3976},{100,-80.3976}},
+              lineColor={192,192,192},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid),Line(points={{-80,-80},{-31,-77.9},
+            {-6.03,-74},{10.9,-68.4},{23.7,-61},{34.2,-51.6},{43,-40.3},{50.3,-27.8},
+            {56.7,-13.5},{62.3,2.23},{67.1,18.6},{72,38.2},{76,57.6},{80,80}}),
+                                   Text(
+              extent={{66,-52},{96,-72}},
+              lineColor={160,160,164},
+              textString="u")}),
+      Documentation(info="<html>
+<p>
+This blocks computes the output <b>y</b> as the
+power to the parameter <i>base</i> of the input <b>u</b>. 
+If the boolean parameter <b>useExp</b> is true, the output is determined by:
+</p>
+<pre>
+    y = <b>exp</b> ( u * <b>log</b> (base) )
+</pre>
+<p>
+otherwise:
+</p>
+<pre>
+    y = base <b>^</b> u;
+</pre>
+
+
+</html>"));
+  end Power;
+
   block Log
-    "Output the natural (base e) logarithm of the input (input > 0 required)"
+    "Output the logarithm (default base e) of the input (input > 0 required)"
 
     extends Interfaces.SISO;
+    parameter Real base = Modelica.Constants.e "Base of logarithm" annotation(Evaluate=true);
+
   equation
-    y = Modelica.Math.log(u);
+    y = Modelica.Math.log(u)/Modelica.Math.log(base);
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
@@ -2384,29 +2459,18 @@ This blocks computes the output <b>y</b> as the
               fillPattern=FillPattern.Solid),Line(points={{-80,-80},{-79.2,-50.6},
             {-78.4,-37},{-77.6,-28},{-76.8,-21.3},{-75.2,-11.4},{-72.8,-1.31},{
             -69.5,8.08},{-64.7,17.9},{-57.5,28},{-47,38.1},{-31.8,48.1},{-10.1,
-            58},{22.1,68},{68.7,78.1},{80,80}}),Text(
-              extent={{-105,72},{-85,88}},
-              textString="3",
-              lineColor={0,0,255}),Text(
-              extent={{-109,-88},{-89,-72}},
-              textString="-3",
-              lineColor={0,0,255}),Text(
-              extent={{70,-3},{90,-23}},
-              textString="20",
-              lineColor={0,0,255}),Text(
-              extent={{-78,-1},{-58,-21}},
-              textString="1",
-              lineColor={0,0,255}),Text(
+            58},{22.1,68},{68.7,78.1},{80,80}}),
+                                   Text(
               extent={{68,28},{94,8}},
               lineColor={160,160,164},
               textString="u")}),
       Documentation(info="<html>
 <p>
 This blocks computes the output <b>y</b> as the
-<i>natural (base e) logarithm</i> of the input <b>u</b>:
+<i>logarithm</i> to the parameter <i>base</i> of the input <b>u</b>:
 </p>
 <pre>
-    y = <b>log</b>( u );
+    y = <b>log</b>( u ) / <b>log</b>( base );
 </pre>
 <p>
 An error occurs if the elements of the input <b>u</b> are
