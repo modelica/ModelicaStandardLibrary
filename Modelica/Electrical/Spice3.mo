@@ -38,7 +38,7 @@ extends Modelica.Icons.Package;
 <p>Within the semiconductor devices SPICE3 differentiates between technology parameters and device parameters. Device parameters can be chosen for every single model instance, e.g., the channel length of a transistor. Technology parameters which are specified in a model card (.model) are adjustable for more than one element simultaneously, e.g. the type of transistors. As usually done in Modelica the parameters of the modelcard can be set in a parameter list.</p>
 <p>To parametrize more than one model two ways are possible:</p>
 <ol>
-<li>Apart record:<br>For each transistor in the circuit a record with the technologieparameters is made available as an instance of the record modelcardMOS. In the example<br>&quot;inverterApartRecord&quot; this way is explained more in detail.</li>
+<li>Apart record:<br>For each transistor in the circuit a record with the technologyparameters is made available as an instance of the record modelcardMOS. In the example<br>&quot;inverterApartRecord&quot; this way is explained more in detail.</li>
 <li>Extended model:<br>For each set of technologyparameters a apart model has to be defined. In the example &quot;inverterExtendedModel&quot; this way is explained more in detail.</li>
 </ol>
 </html>"));
@@ -366,7 +366,7 @@ Zeunerstrasse 38<br />
       Basic.Ground ground        annotation (Placement(transformation(extent={{-38,-80},
                 {-18,-60}})));
     //--------------------------------------------------------------------------------------------------------------
-    /*apart record: For each transistor in the circuit a record with the technologieparameters is made available
+    /*apart record: For each transistor in the circuit a record with the technologyparameters is made available
   as an instance of the record modelcardMOS */
       parameter Semiconductors.ModelcardMOS MPmos(GAMMA=0.37, CBD=0, CBS=0)
         "Specified modelcardMOS for MPmos"; //instance of record modelcardMOS
@@ -579,7 +579,7 @@ Zeunerstrasse 38<br />
 <p>Input voltages: vin.p.v and v.p.v</p>
 <p>Output voltage of the first inverter: mn1.ND.v</p>
 <p>Output voltage of the second Inverter: mn2.ND.v</p>
-<p>This example shows one possibility to make the record of the technology parameters available for more than one transistor. For each set of technology parameters an apart model has to be defined (in this example: MPmos ans MNmos). Inside the model definition the technology parameters are appointed (Spice3.Semiconductors.modelcardMOS M(GAMMA=0.37, LAMBDA=0.02)). Every model extends a transistor. In this process the required technologieparameters are specified (extends Spice3.Repository.MOS(final mtype=1, modelcard=M). To make transistors available in the circuit instances of the defined models are applied (MPmos mp1; MNmos mn1; MPmos mp2; MNmos mn2;).</p>
+<p>This example shows one possibility to make the record of the technology parameters available for more than one transistor. For each set of technology parameters an apart model has to be defined (in this example: MPmos ans MNmos). Inside the model definition the technology parameters are appointed (Spice3.Semiconductors.modelcardMOS M(GAMMA=0.37, LAMBDA=0.02)). Every model extends a transistor. In this process the required technologyparameters are specified (extends Spice3.Repository.MOS(final mtype=1, modelcard=M). To make transistors available in the circuit instances of the defined models are applied (MPmos mp1; MNmos mn1; MPmos mp2; MNmos mn2;).</p>
 </html>", revisions="<html>
 <ul>
 <li><i>April 2009 </i>by Kristin Majetta initially implemented</li>
@@ -8515,7 +8515,7 @@ on the model behaviour.
 
       function mos1RenameParameters "Parameter renaming to internal names"
       extends Modelica.Icons.Function;
-        input ModelcardMOS ex "Modelcard with technologieparameters";
+        input ModelcardMOS ex "Modelcard with technologyparameters";
         input SpiceConstants con "Spice constants";
 
         output Mos.MosModelLineParams intern
@@ -12869,7 +12869,7 @@ to the internal parameters (e.g., m_satCur). It also does the analysis of the Is
         function jfetRenameParameters "Parameter renaming to internal names"
         extends Modelica.Icons.Function;
           input Modelica.Electrical.Spice3.Internal.ModelcardJFET ex
-          "Modelcard with technologieparameters";
+          "Modelcard with technologyparameters";
 
           output JfetModelLine intern "Output record model line parameters";
 
