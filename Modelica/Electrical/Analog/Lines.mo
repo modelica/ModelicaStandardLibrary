@@ -37,7 +37,7 @@ package Lines
     parameter SI.LinearTemperatureCoefficient alpha_R=0
       "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(T_heatPort - T_ref))";
     parameter SI.LinearTemperatureCoefficient alpha_G=0
-      "Temperature coefficient of conductance (G_actual = G_ref/(1 + alpha*(T_heatPort - T_ref))";
+      "Temperature coefficient of conductance (G_actual = G/(1 + alpha*(T_heatPort - T_ref))";
     parameter Boolean useHeatPort=false "=true, if HeatPort is enabled"
       annotation (
       Evaluate=true,
@@ -181,7 +181,7 @@ package Lines
     parameter SI.LinearTemperatureCoefficient alpha_R=0
       "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(T_heatPort - T_ref))";
     parameter SI.LinearTemperatureCoefficient alpha_G=0
-      "Temperature coefficient of conductance (G_actual = G_ref/(1 + alpha*(T_heatPort - T_ref))";
+      "Temperature coefficient of conductance (G_actual = G/(1 + alpha*(T_heatPort - T_ref))";
     parameter Boolean useHeatPort=false "=true, if HeatPort is enabled"
       annotation (
       Evaluate=true,
@@ -214,7 +214,7 @@ package Lines
       parameter SI.LinearTemperatureCoefficient alpha_R
         "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(T_heatPort - T_ref))";
       parameter SI.LinearTemperatureCoefficient alpha_G
-        "Temperature coefficient of conductance (G_actual = G_ref/(1 + alpha*(T_heatPort - T_ref))";
+        "Temperature coefficient of conductance (G_actual = G/(1 + alpha*(T_heatPort - T_ref))";
       parameter Boolean useHeatPort=false "=true, if HeatPort is enabled"
         annotation (
         Evaluate=true,
