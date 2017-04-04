@@ -435,7 +435,7 @@ package Lines
             extent={{-146,135},{154,95}},
             textString="%name",
             lineColor={0,0,255})}), Documentation(info="<html>
-<p>The M_OLine is a multi line model which consists of several segments and several single lines. Each segment consists of resistors and inductors that are connected in series in each single line, and of capacitors and conductors both between the lines and to the ground. The inductors are coupled to each other like in the M_Inductor model. The following picture shows the schematic of a segment with four single lines (lines=4):</p>
+<p>The M_OLine is a multi line model which consists of several segments and several single lines. Each segment consists of resistors and inductors that are connected in series in each single line, and of capacitors and conductors both between the lines and to the ground. The inductors are coupled to each other like in the M_Transformer model. The following picture shows the schematic of a segment with four single lines (lines=4):</p>
 
 <blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/segment.png\"
