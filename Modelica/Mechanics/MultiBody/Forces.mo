@@ -1948,6 +1948,9 @@ in the other flange connector.
     input Types.Color massColor=Modelica.Mechanics.MultiBody.Types.Defaults.BodyColor
       "Color of mass point" annotation (Dialog(colorSelector=true, tab="Animation", group=
             "if animation = true and showMass = true", enable=animation and showMass));
+    parameter SI.Position s_small=1.E-10
+      "Prevent zero-division if distance between frame_a and frame_b is zero"
+      annotation (Dialog(tab="Advanced"));
     parameter Boolean fixedRotationAtFrame_a=false
       "=true, if rotation frame_a.R is fixed (to directly connect line forces)"
        annotation (Evaluate=true, choices(checkBox=true),Dialog(tab="Advanced", group="If enabled, can give wrong results, see MultiBody.UsersGuide.Tutorial.ConnectionOfLineForces"));
@@ -1968,6 +1971,7 @@ in the other flange connector.
       specularCoefficient=specularCoefficient,
       massDiameter=massDiameter,
       massColor=massColor,
+      s_small=s_small,
       fixedRotationAtFrame_a=fixedRotationAtFrame_a,
       fixedRotationAtFrame_b=fixedRotationAtFrame_b) annotation (Placement(transformation(extent={{-20,-20},{20,20}})));
     Modelica.Mechanics.Translational.Components.Spring spring(
