@@ -1958,6 +1958,21 @@ in the other flange connector.
       "=true, if rotation frame_b.R is fixed (to directly connect line forces)"
        annotation (Evaluate=true, choices(checkBox=true),Dialog(tab="Advanced", group="If enabled, can give wrong results, see MultiBody.UsersGuide.Tutorial.ConnectionOfLineForces"));
 
+    Modelica.SIunits.Position r_rel_a[3]
+      "Position vector from origin of frame_a to origin of frame_b, resolved in frame_a";
+    Real e_a[3](each final unit="1")
+      "Unit vector on the line connecting the origin of frame_a with the origin of frame_b resolved in frame_a (directed from frame_a to frame_b)";
+    SI.Force f
+      "Line force acting on frame_a and on frame_b (positive, if acting on frame_b and directed from frame_a to frame_b)";
+    SI.Distance length
+      "Distance between the origin of frame_a and the origin of frame_b";
+    SI.Position s
+      "(Guarded) distance between the origin of frame_a and the origin of frame_b (>= s_small))";
+    SI.Position r_rel_0[3]
+      "Position vector from frame_a to frame_b resolved in world frame";
+    Real e_rel_0[3](each final unit="1")
+      "Unit vector in direction from frame_a to frame_b, resolved in world frame";
+
     Forces.LineForceWithMass lineForce(
       animateLine=animation,
       animateMass=showMass,
@@ -1977,6 +1992,16 @@ in the other flange connector.
     Modelica.Mechanics.Translational.Components.Spring spring(
        s_rel0=s_unstretched,
        c=c) annotation (Placement(transformation(extent={{-8,40},{12,60}})));
+
+  equation
+    // Results
+    r_rel_a = Frames.resolve2(frame_a.R, r_rel_0);
+    e_a = r_rel_a/s;
+    f = spring.f;
+    length = lineForce.length;
+    s = lineForce.s;
+    r_rel_0 = lineForce.r_rel_0;
+    e_rel_0 = lineForce.e_rel_0;
 
   equation
     connect(lineForce.frame_a, frame_a)
