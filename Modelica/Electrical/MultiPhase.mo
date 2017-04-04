@@ -3421,7 +3421,7 @@ with a default phase shift determined by
 </html>"));
     end CosineVoltage;
 
-    model SignalCurrent "Multiphase sine current source"
+    model SignalCurrent "Multiphase signal current source"
       parameter Integer m(min=1) = 3 "Number of phases";
       Modelica.SIunits.Voltage v[m]=plug_p.pin.v - plug_n.pin.v
         "Voltage drops between the two plugs";
