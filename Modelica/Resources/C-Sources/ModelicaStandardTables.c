@@ -46,6 +46,10 @@
                            utilized memory (tickets #1110 and #1550).
 
    Release Notes:
+      Apr. 05, 2017: by Thomas Beutlich, ESI ITI GmbH
+                     Fixed extrapolation of CombiTimeTable if simulation start
+                     time equals the maximum time of the table (ticket #2233)
+
       Mar. 08, 2017: by Thomas Beutlich, ESI ITI GmbH
                      Moved file I/O functions to ModelicaIO (ticket #2192)
 
@@ -1442,7 +1446,7 @@ double ModelicaStandardTables_CombiTimeTable_nextTimeEvent(void* _tableID,
                     tableID->eventInterval = 1;
                     iEnd = iStart < (nRow - 1) ? iStart : (nRow - 1);
                 }
-                else if (t > tMax) {
+                else if (t >= tMax) {
                     iStart = nRow - 1;
                     tableID->eventInterval = tableID->maxEvents + 1;
                     iEnd = 0;
