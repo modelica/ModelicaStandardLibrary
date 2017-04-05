@@ -1547,10 +1547,23 @@ double ModelicaStandardTables_CombiTimeTable_nextTimeEvent(void* _tableID,
 
 #if defined(DEBUG_TIME_EVENTS)
         if (nextTimeEvent < DBL_MAX) {
-            ModelicaFormatMessage("At time %.17lg (interval %lu of %lu): %lu. "
-                "time event at %.17lg\n", t, (unsigned long)tableID->eventInterval,
-                (unsigned long)tableID->maxEvents, (unsigned long)tableID->nEvent,
-                nextTimeEvent);
+            if (tableID->extrapolation == PERIODIC) {
+                ModelicaFormatMessage("At time %.17lg (interval %lu of %lu): %lu. "
+                    "time event at %.17lg\n", t, (unsigned long)tableID->eventInterval,
+                    (unsigned long)tableID->maxEvents, (unsigned long)tableID->nEvent,
+                    nextTimeEvent);
+            }
+            else if (tableID->eventInterval > 0) {
+                ModelicaFormatMessage("At time %.17lg (interval %lu of %lu): %lu. "
+                    "time event at %.17lg\n", t, (unsigned long)tableID->eventInterval - 1,
+                    (unsigned long)tableID->maxEvents, (unsigned long)tableID->nEvent,
+                    nextTimeEvent);
+            }
+            else {
+                ModelicaFormatMessage("At time %.17lg: %lu. "
+                    "time event at %.17lg\n", t, (unsigned long)tableID->nEvent,
+                    nextTimeEvent);
+            }
         }
         else {
             ModelicaFormatMessage("No more time events for time > %.17lg\n", t);
