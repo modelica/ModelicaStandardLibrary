@@ -1066,4 +1066,14 @@ double mydummyfunc(double* dummy_in) {
     annotation (experiment(StartTime=0, StopTime=4));
   end Test82;
 */
+  model Test83 "Simulation StartTime = t_max (Ticket #2233)"
+    extends Modelica.Icons.Example;
+    Modelica.Blocks.Sources.CombiTimeTable t_new(
+      table=[0,1;0.4,0;1,1],
+      smoothness=Modelica.Blocks.Types.Smoothness.ConstantSegments,
+      extrapolation=Modelica.Blocks.Types.Extrapolation.HoldLastPoint,
+      columns={2}) annotation(Placement(transformation(extent={{-40,0},{-20,20}})));
+    Modelica.Blocks.Sources.BooleanTable booleanTable(table={0,0.4,1}) annotation(Placement(transformation(extent={{-40,-30},{-20,-10}})));
+    annotation (experiment(StartTime=1, StopTime=3));
+  end Test83;
 end CombiTimeTable;
