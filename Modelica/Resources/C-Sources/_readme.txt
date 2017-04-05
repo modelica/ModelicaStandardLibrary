@@ -33,12 +33,15 @@ resolved. For instance, this can be achieved by building shared object
 libraries (.dll, .so) and dynamically linking library "ModelicaStandardTables" to
 "ModelicaIO", "ModelicaIO" to "ModelicaMatIO" and "ModelicaMatIO" to "zlib".
 
-If dynamic link libraries (*.dll) are to be built by Visual C++ on Windows the
-following linker optimization options in the Release configuration shall be set
-- /OPT:NOREF (non-working default is /OPT:REF)
-- /LTCG (non-working default for Visual Studio 2015 is /LTCG:incremental)
-This is required for the projects including gconstructor.h, i.e.,
-ModelicaExternalC.dll and ModelicaStandardTables.dll.
+On Windows, when compiling libraries (.dll, .lib) or executables (.exe) with
+C sources including gconstructor.h, particularly, projects that build
+ModelicaInternal.c or ModelicaStandardTables.c, the following (optimization)
+options shall be applied in the Release configuration of Visual Studio 2013, 2015
+or 2017:
+- Compiler: /Zc:inline (Remove unreferenced COMDAT) must not be set. Either do not
+  set this option at all or explicitly set /Zc:inline- to unset
+- Linker: /OPT:NOREF (Keep unreferenced functions) should be set, in case
+  /GL (Whole Program Optimization) and /LTCG (Link-time Code Generation) are set
 
 Build projects for the object libraries are provided under
   ../BuildProjects
@@ -48,4 +51,4 @@ Additionally, a tool vendor has to provide library "lapack"
 and this library should be used in the linker when a model is compiled
 that uses this library in its library annotation.
 
-March 08, 2017.
+April 05, 2017.
