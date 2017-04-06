@@ -26,7 +26,7 @@
 */
 
 /* Release Notes:
-      Nov. 23, 2016: by Martin Sjölund, SICS East Swedish ICT AB
+      Nov. 23, 2016: by Martin Sjoelund, SICS East Swedish ICT AB
                      Added NO_LOCALE define flag, in case the OS does
                      not have this (for example when using GCC compiler,
                      but not libc). Also added autoconf detection for
@@ -55,7 +55,7 @@
       Sep. 24, 2004: by Martin Otter, DLR
                      Final cleaning up of the code
 
-      Sep.  9, 2004: by Dag Bruck, Dynasim AB
+      Sep.  9, 2004: by Dag Brueck, Dynasim AB
                      Implementation of scan functions
 
       Aug. 19, 2004: by Martin Otter, DLR

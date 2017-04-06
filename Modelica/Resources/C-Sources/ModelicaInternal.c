@@ -87,7 +87,7 @@
                      Added missing implementations, merged code from previous
                      ModelicaFiles and clean-up of code
 
-      Sep. 09, 2004: by Dag Bruck, Dynasim AB
+      Sep. 09, 2004: by Dag Brueck, Dynasim AB
                      Further implementation and clean-up of code
 
       Aug. 24, 2004: by Martin Otter, DLR

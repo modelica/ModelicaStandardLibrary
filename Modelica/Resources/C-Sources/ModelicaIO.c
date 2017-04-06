@@ -49,7 +49,7 @@
                      Replaced strtok by re-entrant string tokenize function
                      (ticket #1153)
 
-      Nov. 23, 2016: by Martin Sjölund, SICS East Swedish ICT AB
+      Nov. 23, 2016: by Martin Sjoelund, SICS East Swedish ICT AB
                      Added NO_LOCALE define flag, in case the OS does
                      not have this (for example when using GCC compiler,
                      but not libc). Also added autoconf detection for
