@@ -1949,9 +1949,11 @@ a flange according to a given acceleration.
       min=Modelica.Constants.eps)=1 "Time scale of first table column"
       annotation (Evaluate=true);
     extends Interfaces.SignalSource;
+    parameter Modelica.SIunits.Time shiftTime=startTime
+      "Shift time of first table column";
   protected
-    Real a "Interpolation coefficients a of actual interval (y=a*x+b)";
-    Real b "Interpolation coefficients b of actual interval (y=a*x+b)";
+    Real a "Interpolation coefficient a of actual interval (y=a*x+b)";
+    Real b "Interpolation coefficient b of actual interval (y=a*x+b)";
     Integer last(start=1) "Last used lower grid index";
     discrete SIunits.Time nextEvent(start=0, fixed=true) "Next event instant";
     discrete Real nextEventScaled(start=0, fixed=true)
@@ -1966,10 +1968,10 @@ a flange according to a given acceleration.
       input Real startTimeScaled "Scaled time-offset";
       input Real timeScaled "Actual scaled time instant";
       input Integer last "Last used lower grid index";
-      input Real TimeEps
-        "Relative epsilon to check for identical time instants";
-      output Real a "Interpolation coefficients a (y=a*x + b)";
-      output Real b "Interpolation coefficients b (y=a*x + b)";
+      input Real TimeEps "Relative epsilon to check for identical time instants";
+      input Real shiftTimeScaled "Time shift";
+      output Real a "Interpolation coefficient a (y=a*x + b)";
+      output Real b "Interpolation coefficient b (y=a*x + b)";
       output Real nextEventScaled "Next scaled event instant";
       output Integer next "New lower grid index";
     protected
@@ -1983,9 +1985,9 @@ a flange according to a given acceleration.
       next := last;
       nextEventScaled := timeScaled - TimeEps*abs(timeScaled);
       // in case there are no more time events
-      tp := timeScaled + TimeEps*abs(timeScaled) - startTimeScaled;
+      tp := timeScaled + TimeEps*abs(timeScaled);
 
-      if tp < 0.0 then
+      if tp < startTimeScaled then
         // First event not yet reached
         nextEventScaled := startTimeScaled;
         a := 0;
@@ -1995,7 +1997,7 @@ a flange according to a given acceleration.
         a := 0;
         b := offset + table[1, columns];
       else
-
+        tp := tp - shiftTimeScaled;
         // Find next time event instant. Note, that two consecutive time instants
         // in the table may be identical due to a discontinuous point.
         while next < nrow and tp >= table[next, 1] loop
@@ -2004,7 +2006,7 @@ a flange according to a given acceleration.
 
         // Define next time event, if last table entry not reached
         if next < nrow then
-          nextEventScaled := startTimeScaled + table[next, 1];
+          nextEventScaled := shiftTimeScaled + table[next, 1];
         end if;
 
         // Determine interpolation coefficients
@@ -2019,8 +2021,8 @@ a flange according to a given acceleration.
           b := offset + table[next0, columns] - a*table[next0, 1];
         end if;
       end if;
-      // Take into account startTimeScaled "a*(time - startTime) + b"
-      b := b - a*startTimeScaled;
+      // Take into account shiftTimeScaled "a*(time - shiftTime) + b"
+      b := b - a*shiftTimeScaled;
     end getInterpolationCoefficients;
   algorithm
     if noEvent(size(table, 1) > 1) then
@@ -2034,7 +2036,8 @@ a flange according to a given acceleration.
           startTime/timeScale,
           timeScaled,
           last,
-          100*Modelica.Constants.eps);
+          100*Modelica.Constants.eps,
+          shiftTime/timeScale);
       nextEvent := nextEventScaled*timeScale;
     end when;
   equation
@@ -2143,11 +2146,15 @@ The table interpolation has the following properties:
     table.</li>
 <li>If the table has only <strong>one row</strong>, no interpolation is performed and
     the function value is just returned independently of the actual time instant.</li>
-<li>Via parameters <strong>startTime</strong> and <strong>offset</strong> the curve defined
-    by the table can be shifted both in time and in the ordinate value.</li>
+<li>Via parameters <strong>shiftTime</strong> and <strong>offset</strong> the curve defined
+    by the table can be shifted both in time and in the ordinate value.
+    The time instants stored in the table are therefore <strong>relative</strong>
+    to <strong>shiftTime</strong>.</li>
+<li>If time &lt; startTime, no interpolation is performed and the offset
+    is used as ordinate value for the output.</li>
 <li>If the table has more than one row, the first point in time <strong>always</strong> has to be set to <strong>0</strong>, e.g.,
     <strong>table=[1,1;2,2]</strong> is <strong>illegal</strong>. If you want to
-    shift the time table in time use the <strong>startTime</strong> parameter instead.</li>
+    shift the time table in time use the <strong>shiftTime</strong> parameter instead.</li>
 <li>The table is implemented in a numerically sound way by
     generating <strong>time events</strong> at interval boundaries.
     This generates continuously differentiable values for the integrator.</li>
@@ -2236,6 +2243,9 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
     parameter Modelica.SIunits.Time startTime=0
       "Output = offset for time < startTime"
       annotation (Dialog(group="Table data interpretation"));
+    parameter Modelica.SIunits.Time shiftTime=startTime
+      "Shift time of first table column"
+      annotation (Dialog(group="Table data interpretation"));
     final parameter Modelica.SIunits.Time t_min(fixed=false)
       "Minimum abscissa value defined in table";
     final parameter Modelica.SIunits.Time t_max(fixed=false)
@@ -2255,7 +2265,8 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
           startTime/timeScale,
           columns,
           smoothness,
-          extrapolation) "External table object";
+          extrapolation,
+          shiftTime/timeScale) "External table object";
     discrete Modelica.SIunits.Time nextTimeEvent(start=0, fixed=true)
       "Next time event instant";
     discrete Real nextTimeEventScaled(start=0, fixed=true)
@@ -2454,11 +2465,11 @@ The table interpolation has the following properties:
 </pre></li>
 <li>If the table has only <strong>one row</strong>, no interpolation is performed and
     the table values of this row are just returned.</li>
-<li>Via parameters <strong>startTime</strong> and <strong>offset</strong> the curve defined
+<li>Via parameters <strong>shiftTime</strong> and <strong>offset</strong> the curve defined
     by the table can be shifted both in time and in the ordinate value.
     The time instants stored in the table are therefore <strong>relative</strong>
-    to <strong>startTime</strong>.
-    If time &lt; startTime, no interpolation is performed and the offset
+    to <strong>shiftTime</strong>.</li>
+<li>If time &lt; startTime, no interpolation is performed and the offset
     is used as ordinate value for all outputs.</li>
 <li>The table is implemented in a numerically sound way by <strong>always</strong>
     generating <strong>time events</strong> at interval boundaries, in case of

@@ -134,9 +134,10 @@ initialization definition.
       input Integer columns[:];
       input Modelica.Blocks.Types.Smoothness smoothness;
       input Modelica.Blocks.Types.Extrapolation extrapolation;
+      input Modelica.SIunits.Time shiftTime;
       output ExternalCombiTimeTable externalCombiTimeTable;
     external"C" externalCombiTimeTable =
-        ModelicaStandardTables_CombiTimeTable_init(
+        ModelicaStandardTables_CombiTimeTable_init2(
             tableName,
             fileName,
             table,
@@ -146,7 +147,8 @@ initialization definition.
             columns,
             size(columns, 1),
             smoothness,
-            extrapolation) annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
+            extrapolation,
+            shiftTime) annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
     end constructor;
 
     function destructor "Terminate 1-dim. table where first column is time"
