@@ -117,7 +117,7 @@ MODELICA_EXPORT void* ModelicaStandardTables_CombiTimeTable_init(_In_z_ const ch
                in the Modelica environment that holds this matrix.
      -> nRow: Number of rows of table
      -> nColumn: Number of columns of table
-     -> startTime: Output = offset for time < startTime
+     -> startTime: Start time of inter-/extrapolation
      -> columns: Columns of table to be interpolated
      -> nCols: Number of columns of table to be interpolated
      -> smoothness: Interpolation type
@@ -220,7 +220,6 @@ MODELICA_EXPORT void* ModelicaStandardTables_CombiTable1D_init2(_In_z_ const cha
                in the Modelica environment that holds this matrix.
      -> nRow: Number of rows of table
      -> nColumn: Number of columns of table
-     -> startTime: Output = offset for time < startTime
      -> columns: Columns of table to be interpolated
      -> nCols: Number of columns of table to be interpolated
      -> smoothness: Interpolation type
