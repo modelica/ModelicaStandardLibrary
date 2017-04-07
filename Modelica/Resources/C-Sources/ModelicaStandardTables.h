@@ -39,6 +39,10 @@
    DUMMY_FUNCTION_USERTAB: Use a dummy function "usertab"
 
    Release Notes:
+      Apr. 07, 2017: by Thomas Beutlich, ESI ITI GmbH
+                     Decoupled shift time from start time in CombiTimeTable
+                     (ticket #1771)
+
       Feb. 25, 2017: by Thomas Beutlich, ESI ITI GmbH
                      Added support of extrapolation for CombiTable1D
                      Added functions to retrieve minimum and maximum
@@ -107,6 +111,17 @@ MODELICA_EXPORT void* ModelicaStandardTables_CombiTimeTable_init(_In_z_ const ch
                                                  _In_ int* columns,
                                                  size_t nCols, int smoothness,
                                                  int extrapolation) MODELICA_NONNULLATTR;
+  /* Same as ModelicaStandardTables_CombiTimeTable_init2, but without shiftTime argument */
+
+MODELICA_EXPORT void* ModelicaStandardTables_CombiTimeTable_init2(_In_z_ const char* tableName,
+                                                  _In_z_ const char* fileName,
+                                                  _In_ double* table, size_t nRow,
+                                                  size_t nColumn,
+                                                  double startTime,
+                                                  _In_ int* columns,
+                                                  size_t nCols, int smoothness,
+                                                  int extrapolation,
+                                                  double shiftTime) MODELICA_NONNULLATTR;
   /* Initialize 1-dim. table where first column is time
 
      -> tableName: Name of table
@@ -133,6 +148,7 @@ MODELICA_EXPORT void* ModelicaStandardTables_CombiTimeTable_init(_In_z_ const ch
                        = 2: linear
                        = 3: periodic
                        = 4: no
+     -> shiftTime: Shift time of first table column
      <- RETURN: Pointer to internal memory of table structure
   */
 

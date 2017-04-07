@@ -34,6 +34,10 @@
       Modelica.Blocks.Tables.CombiTable2D
 
    Release Notes:
+      Apr. 07, 2017: by Thomas Beutlich, ESI ITI GmbH
+                     Decoupled shift time from start time in CombiTimeTable
+                     (ticket #1771)
+
       Apr. 05, 2017: by Thomas Beutlich, ESI ITI GmbH
                      Fixed extrapolation of CombiTimeTable if simulation start
                      time equals the maximum time of the table (ticket #2233)
@@ -204,7 +208,8 @@ typedef struct CombiTimeTable {
     enum TableSource source; /* Source kind */
     int* cols; /* Columns of table to be interpolated */
     size_t nCols; /* Number of columns of table to be interpolated */
-    double startTime; /* Start time of interpolation */
+    double startTime; /* Start time of inter-/extrapolation */
+    double shiftTime; /* Shift time of first table column */
     CubicHermite1D* spline; /* Pre-calculated cubic Hermite spline coefficients,
         only used if smoothness is AKIMA_C1 or
         FRITSCH_BUTLAND_MONOTONE_C1 or STEFFEN_MONOTONE_C1 */
@@ -469,6 +474,20 @@ void* ModelicaStandardTables_CombiTimeTable_init(_In_z_ const char* tableName,
                                                  _In_ int* cols,
                                                  size_t nCols, int smoothness,
                                                  int extrapolation) {
+    return ModelicaStandardTables_CombiTimeTable_init2(tableName,
+        fileName, table, nRow, nColumn, startTime, cols, nCols, smoothness,
+        extrapolation, startTime);
+}
+
+void* ModelicaStandardTables_CombiTimeTable_init2(_In_z_ const char* tableName,
+                                                  _In_z_ const char* fileName,
+                                                  _In_ double* table, size_t nRow,
+                                                  size_t nColumn,
+                                                  double startTime,
+                                                  _In_ int* cols,
+                                                  size_t nCols, int smoothness,
+                                                  int extrapolation,
+                                                  double shiftTime) {
     CombiTimeTable* tableID = (CombiTimeTable*)calloc(1, sizeof(CombiTimeTable));
     if (tableID != NULL) {
         tableID->smoothness = (enum Smoothness)smoothness;
@@ -486,6 +505,7 @@ void* ModelicaStandardTables_CombiTimeTable_init(_In_z_ const char* tableName,
             }
         }
         tableID->startTime = startTime;
+        tableID->shiftTime = shiftTime;
         tableID->preNextTimeEvent = -DBL_MAX;
         tableID->preNextTimeEventCalled = -DBL_MAX;
         tableID->source = getTableSource(tableName, fileName);
@@ -779,18 +799,14 @@ double ModelicaStandardTables_CombiTimeTable_getValue(void* _tableID, int iCol,
                                                       double preNextTimeEvent) {
     double y = 0.;
     CombiTimeTable* tableID = (CombiTimeTable*)_tableID;
-    if (tableID != NULL && tableID->table != NULL && tableID->cols != NULL) {
-        /* Shift time by start time */
-        const double tOld = t;
-        t -= tableID->startTime;
-
-        if (t >= 0 && nextTimeEvent < DBL_MAX &&
-            nextTimeEvent == preNextTimeEvent &&
+    if (tableID != NULL && tableID->table != NULL && tableID->cols != NULL &&
+        t >= tableID->startTime) {
+        if (nextTimeEvent < DBL_MAX && nextTimeEvent == preNextTimeEvent &&
             tableID->startTime >= nextTimeEvent) {
             /* Before start time event iteration: Return zero */
-            return 0.;
+            return y;
         }
-        else if (t >= 0) {
+        else {
             const double* table = tableID->table;
             const size_t nRow = tableID->nRow;
             const size_t nCol = tableID->nCol;
@@ -804,6 +820,9 @@ double ModelicaStandardTables_CombiTimeTable_getValue(void* _tableID, int iCol,
                 enum PointInterval extrapolate = IN_TABLE;
                 const double tMin = TABLE_ROW0(0);
                 const double tMax = TABLE_COL0(nRow - 1);
+                /* Shift time */
+                const double tOld = t;
+                t -= tableID->shiftTime;
 
                 /* Periodic extrapolation */
                 if (tableID->extrapolation == PERIODIC) {
@@ -1056,18 +1075,14 @@ double ModelicaStandardTables_CombiTimeTable_getDerValue(void* _tableID, int iCo
                                                          double der_t) {
     double der_y = 0.;
     CombiTimeTable* tableID = (CombiTimeTable*)_tableID;
-    if (tableID != NULL && tableID->table != NULL && tableID->cols != NULL) {
-        /* Shift time by start time */
-        const double tOld = t;
-        t -= tableID->startTime;
-
-        if (t >= 0 && nextTimeEvent < DBL_MAX &&
-            nextTimeEvent == preNextTimeEvent &&
+    if (tableID != NULL && tableID->table != NULL && tableID->cols != NULL &&
+        t >= tableID->startTime) {
+        if (nextTimeEvent < DBL_MAX && nextTimeEvent == preNextTimeEvent &&
             tableID->startTime >= nextTimeEvent) {
             /* Before start time event iteration: Return zero */
-            return 0.;
+            return der_y;
         }
-        else if (t >= 0) {
+        else {
             const double* table = tableID->table;
             const size_t nRow = tableID->nRow;
             const size_t nCol = tableID->nCol;
@@ -1079,6 +1094,9 @@ double ModelicaStandardTables_CombiTimeTable_getDerValue(void* _tableID, int iCo
                 const double tMax = TABLE_COL0(nRow - 1);
                 size_t last = 0;
                 int haveLast = 0;
+                /* Shift time */
+                const double tOld = t;
+                t -= tableID->shiftTime;
 
                 /* Periodic extrapolation */
                 if (tableID->extrapolation == PERIODIC) {
@@ -1417,7 +1435,7 @@ double ModelicaStandardTables_CombiTimeTable_nextTimeEvent(void* _tableID,
                 double tEvent = tMin;
                 size_t iStart, iEnd;
 
-                t -= tableID->startTime;
+                t -= tableID->shiftTime;
                 if (tableID->extrapolation == PERIODIC) {
                     /* Initialization of offset time */
                     tableID->tOffset = floor((t - tMin)/T)*T;
@@ -1493,7 +1511,7 @@ double ModelicaStandardTables_CombiTimeTable_nextTimeEvent(void* _tableID,
                 t = tOld;
 #endif
                 if (nextTimeEvent < DBL_MAX) {
-                    nextTimeEvent += tableID->startTime;
+                    nextTimeEvent += tableID->shiftTime;
                 }
             }
             else {
@@ -1504,20 +1522,20 @@ double ModelicaStandardTables_CombiTimeTable_nextTimeEvent(void* _tableID,
                             1 + tableID->eventInterval % tableID->maxEvents;
                         if (tableID->eventInterval == tableID->maxEvents) {
                             nextTimeEvent = tMax + tableID->tOffset +
-                                tableID->startTime;
+                                tableID->shiftTime;
                             tableID->tOffset += T;
                         }
                         else {
                             size_t i = tableID->intervals[
                                 tableID->eventInterval - 1][1];
                             nextTimeEvent = TABLE_COL0(i) + tableID->tOffset +
-                                tableID->startTime;
+                                tableID->shiftTime;
                         }
                     }
                     else if (tableID->eventInterval <= tableID->maxEvents) {
                         size_t i = tableID->intervals[
                             tableID->eventInterval - 1][1];
-                        nextTimeEvent = TABLE_COL0(i) + tableID->startTime;
+                        nextTimeEvent = TABLE_COL0(i) + tableID->shiftTime;
                         /* Increment event interval */
                         tableID->eventInterval++;
                     }
