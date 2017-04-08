@@ -182,7 +182,7 @@ void ModelicaIO_readMatrixSizes(_In_z_ const char* fileName,
 
 void ModelicaIO_readRealMatrix(_In_z_ const char* fileName,
                                _In_z_ const char* matrixName,
-                               _Out_ double* matrix, size_t m, size_t n,
+                               _Inout_ double* matrix, size_t m, size_t n,
                                int verbose) {
     MatIO matio = {NULL, NULL, NULL};
     int tableReadError = 0;

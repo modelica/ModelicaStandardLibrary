@@ -86,7 +86,7 @@ MODELICA_EXPORT void ModelicaIO_readMatrixSizes(_In_z_ const char* fileName,
 
 MODELICA_EXPORT void ModelicaIO_readRealMatrix(_In_z_ const char* fileName,
                                _In_z_ const char* matrixName,
-                               _Out_ double* matrix, size_t m, size_t n,
+                               _Inout_ double* matrix, size_t m, size_t n,
                                int verbose) MODELICA_NONNULLATTR;
   /* Read matrix from file
 
