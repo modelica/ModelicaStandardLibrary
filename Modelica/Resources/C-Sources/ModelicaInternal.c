@@ -26,6 +26,10 @@
 */
 
 /* Release Notes:
+      Apr. 09, 2017: by Thomas Beutlich, ESI ITI GmbH
+                     Fixed macOS support of ModelicaInternal_setenv
+                     (ticket #2235)
+
       Mar. 27, 2017: by Thomas Beutlich, ESI ITI GmbH
                      Replaced localtime by re-entrant function
 
@@ -1083,37 +1087,102 @@ void ModelicaInternal_getenv(_In_z_ const char* name, int convertToSlash,
     *content = result;
 }
 
+#if !defined(_MSC_VER) && !defined(__WATCOMC__) && !defined(__BORLANDC__) && !defined(_WIN32) && defined(_POSIX_) && _POSIX_VERSION < 200112L
+static char envBuf[BUFFER_LENGTH];
+#endif
+
 void ModelicaInternal_setenv(_In_z_ const char* name,
                              _In_z_ const char* value, int convertFromSlash) {
-#if defined(__WATCOMC__) || defined(__BORLANDC__) || defined(_WIN32) || defined(_POSIX_) || defined(__GNUC__)
-    char localbuf[BUFFER_LENGTH];
-    if (strlen(name) + strlen(value) + 1 > sizeof(localbuf)) {
+    /* Set environment variable */
+#if defined(_MSC_VER) && _MSC_VER >= 1400
+    errno_t err;
+    if (1 == convertFromSlash) {
+        char* buf = (char*)malloc((strlen(value) + 1)*sizeof(char));
+        if (NULL != buf) {
+            strcpy(buf, value);
+            ModelicaConvertFromUnixDirectorySeparator(buf);
+            err = _putenv_s(name, buf);
+            free(buf);
+        }
+        else {
+            ModelicaError("Memory allocation error\n");
+        }
+    }
+    else {
+        err = _putenv_s(name, value);
+    }
+    if (0 != err) {
+        ModelicaFormatError("Not possible to set environment variable:\n%s",
+        strerror(err));
+    }
+#elif defined(__WATCOMC__) || defined(__BORLANDC__) || defined(_WIN32)
+    char* buf = (char*)malloc((strlen(name) + strlen(value) + 2)*sizeof(char));
+    if (NULL != buf) {
+        int result;
+
+        strcpy(buf, name);
+        strcat(buf, "=");
+        strcat(buf, value);
+
+        if (1 == convertFromSlash) {
+            ModelicaConvertFromUnixDirectorySeparator(&buf[strlen(name) + 1]);
+        }
+#if defined(__WATCOMC__) || defined(__BORLANDC__)
+        result = putenv(buf);
+#else
+        result = _putenv(buf);
+#endif
+        free(buf);
+        if (0 != result) {
+            ModelicaFormatError("Environment variable\n"
+                "\"%s\"=\"%s\"\n"
+                "cannot be set: %s", name, value, strerror(errno));
+        }
+    }
+    else {
+        ModelicaError("Memory allocation error\n");
+    }
+#elif defined(_POSIX_) && _POSIX_VERSION >= 200112L
+    int result;
+    if (1 == convertFromSlash) {
+        char* buf = (char*)malloc((strlen(value) + 1)*sizeof(char));
+        if (NULL != buf) {
+            strcpy(buf, value);
+            ModelicaConvertFromUnixDirectorySeparator(buf);
+            result = setenv(name, buf, 1);
+            free(buf);
+        }
+        else {
+            ModelicaError("Memory allocation error\n");
+        }
+    }
+    else {
+        result = setenv(name, value, 1);
+    }
+    if (0 != result) {
+        ModelicaFormatError("Not possible to set environment variable:\n%s",
+        strerror(errno));
+    }
+#elif defined(_POSIX_)
+    /* This legacy implementation only works on exactly one environment
+       variable. It is flawed if ModelicaInternal_setenv is called with
+       different environment variable names. */
+    if (strlen(name) + strlen(value) + 2 > sizeof(envBuf)) {
         ModelicaFormatError("Environment variable\n"
             "\"%s\"=\"%s\"\n"
             "cannot be set, because the internal buffer\n"
             "in file \"ModelicaInternal.c\" is too small (= %d)",
-            name, value, sizeof(localbuf));
+            name, value, sizeof(envBuf));
+    }
+    strcpy(envBuf, name);
+    strcat(envBuf, "=");
+    strcat(envBuf, value);
+
+    if (1 == convertFromSlash) {
+        ModelicaConvertFromUnixDirectorySeparator(&envBuf[strlen(name) + 1]);
     }
 
-    strcpy(localbuf, name);
-    strcat(localbuf, "=");
-    strcat(localbuf, value);
-
-    if ( convertFromSlash == 1 ) {
-        ModelicaConvertFromUnixDirectorySeparator(&localbuf[strlen(name) + 1]);
-    }
-#endif
-
-    /* Set environment variable */
-#if defined(__WATCOMC__) || defined(__BORLANDC__) || defined(_POSIX_) || defined(__GNUC__)
-    if (putenv(localbuf) != 0) {
-        ModelicaFormatError("Environment variable\n"
-            "\"%s\"=\"%s\"\n"
-            "cannot be set: %s", name, value, strerror(errno));
-    }
-
-#elif defined(_WIN32)
-    if (_putenv(localbuf) != 0) {
+    if (putenv(envBuf) != 0) {
         ModelicaFormatError("Environment variable\n"
             "\"%s\"=\"%s\"\n"
             "cannot be set: %s", name, value, strerror(errno));
