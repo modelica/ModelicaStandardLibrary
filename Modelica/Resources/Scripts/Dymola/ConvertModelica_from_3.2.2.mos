@@ -1,0 +1,8 @@
+// Convert from Modelica 3.2.2
+
+// clear
+convertClear();
+
+// Rename references to classes that are moved
+convertClass("Modelica.ComplexBlocks.Sources.LogFrequencySweep", 
+             "Modelica.Blocks.Sources.LogFrequencySweep")
