@@ -251,7 +251,7 @@ function can be used as part of another scan operation.
 
   function readRealParameter "Read the value of a Real parameter from file"
     extends Modelica.Icons.Function;
-    input String fileName "Name of file"       annotation(Dialog(
+    input String fileName "Name of file" annotation(Dialog(
                            loadSelector(filter="Text files (*.txt)",
                            caption="Open file in which Real parameters are present")));
     input String name "Name of parameter";

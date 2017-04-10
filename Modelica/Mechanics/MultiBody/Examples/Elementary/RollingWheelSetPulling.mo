@@ -43,7 +43,7 @@ model RollingWheelSetPulling "Rolling wheel set that is pulled by a force"
     final width=2*wheelSet.wheelRadius,
     final height=2*wheelSet.wheelRadius,
     final color={0,128,255},
-    final extra=0.8)        annotation (Placement(transformation(extent={{-10,-10},
+    final extra=0.8) annotation (Placement(transformation(extent={{-10,-10},
             {10,10}},
         origin={52,54})));
 equation
@@ -66,7 +66,7 @@ equation
       points={{42,54},{34,54},{34,30},{20,30}},
       color={95,95,95},
       thickness=0.5));
-  annotation (    experiment(StopTime=3),
+  annotation (experiment(StopTime=3),
     Documentation(info="<html>
 <p>
 Demonstrates how a RollingWheelSet (two wheels rigidly coupled together) is rolling

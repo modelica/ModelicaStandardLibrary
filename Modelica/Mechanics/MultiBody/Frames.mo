@@ -989,7 +989,7 @@ is not possible or too difficult to compute, use function from_T2(..).
         annotation(Inline=true);
       end equalityConstraint;
 
-      annotation ( Documentation(info="<html>
+      annotation (Documentation(info="<html>
 <p>
 This type describes the <b>rotation</b> to rotate a frame 1 into
 a frame 2 using quaternions (also called <b>Euler parameters</b>)
@@ -1317,7 +1317,7 @@ confused with Modelica \"parameters\".
       annotation(Inline=true);
     end to_T_inv;
 
-    annotation ( Documentation(info="<html>
+    annotation (Documentation(info="<html>
 <p>
 Package <b>Frames.Quaternions</b> contains type definitions and
 functions to transform rotational frame quantities with quaternions.
@@ -2446,7 +2446,7 @@ library, this is irrelevant and therefore the usage of the function is correct.
     end resolveRelative_der;
   end Internal;
 
-  annotation ( Documentation(info="<html>
+  annotation (Documentation(info="<html>
 <p>
 Package <b>Frames</b> contains type definitions and
 functions to transform rotational frame quantities. The basic idea is to

@@ -475,14 +475,14 @@ a one-dimensional model that is mounted with an
       a(fixed=false),
       phi(fixed=true, start=0),
       w(fixed=true, start=0),
-      n=na)                   annotation (Placement(transformation(extent={{-30,60},
+      n=na) annotation (Placement(transformation(extent={{-30,60},
               {-10,80}})));
     Modelica.Mechanics.MultiBody.Parts.Rotor1D       inertia2(J=18.2, n=nb)
       annotation (Placement(transformation(extent={{30,60},{50,80}})));
     Modelica.Mechanics.MultiBody.Parts.BevelGear1D bevelGear(
       ratio=10,
       n_a=na,
-      n_b=nb)      annotation (Placement(transformation(extent={{0,60},{20,80}})));
+      n_b=nb) annotation (Placement(transformation(extent={{0,60},{20,80}})));
     Modelica.Mechanics.MultiBody.Joints.Revolute revolute1(useAxisFlange=true, n={
           1,0,0},
       stateSelect=StateSelect.always,
@@ -606,7 +606,7 @@ a one-dimensional model that is mounted with an
         points={{10,32},{10,20},{72,20},{72,-10},{66,-10}},
         color={95,95,95},
         thickness=0.5));
-    annotation (      Documentation(info="<html>
+    annotation (Documentation(info="<html>
 <p>
 This model consists of a drive train with two inertias that are coupled by a bevel gear
 (with 90 degree angle between the two gear flanges).

@@ -21,7 +21,7 @@ package Explanatory
       crossArea=2,
       portsData={Modelica.Fluid.Vessels.BaseClasses.VesselPortsData(diameter=0.05)},
       level_start=0.975,
-      T_start=293.15)                                                                annotation (Placement(transformation(extent={{20,6},{
+      T_start=293.15) annotation (Placement(transformation(extent={{20,6},{
               40,26}})));
     Modelica.Fluid.Vessels.OpenTank openTankCold1(
       redeclare package Medium = Modelica.Media.Water.StandardWater,
@@ -30,7 +30,7 @@ package Explanatory
       portsData={Modelica.Fluid.Vessels.BaseClasses.VesselPortsData(diameter=0.05)},
       nPorts=1,
       level_start=0.975,
-      T_start=293.15)                                                                annotation (Placement(transformation(extent={{20,60},
+      T_start=293.15) annotation (Placement(transformation(extent={{20,60},
               {40,80}})));
     Modelica.Fluid.Vessels.OpenTank openTankHot1(nPorts=1,
       level_start=1,
@@ -38,7 +38,7 @@ package Explanatory
       height=2,
       crossArea=2,
       portsData={Modelica.Fluid.Vessels.BaseClasses.VesselPortsData(diameter=0.05)},
-      T_start=353.15)                                                                annotation (Placement(transformation(extent={{60,40},
+      T_start=353.15) annotation (Placement(transformation(extent={{60,40},
               {80,60}})));
     Modelica.Fluid.Vessels.OpenTank openTankHot2(nPorts=1,
       level_start=1,
@@ -46,20 +46,20 @@ package Explanatory
       height=2,
       crossArea=2,
       portsData={Modelica.Fluid.Vessels.BaseClasses.VesselPortsData(diameter=0.05)},
-      T_start=353.15)                                                                annotation (Placement(transformation(extent={{60,-10},
+      T_start=353.15) annotation (Placement(transformation(extent={{60,-10},
               {80,10}})));
     Modelica.Fluid.Sources.MassFlowSource_T mFlow1(
       nPorts=1,
       redeclare package Medium = Modelica.Media.Water.StandardWater,
       use_m_flow_in=true,
       use_T_in=false,
-      T=323.15)                       annotation (Placement(transformation(extent=
+      T=323.15) annotation (Placement(transformation(extent=
              {{-60,30},{-40,50}})));
     Modelica.Fluid.Sources.MassFlowSource_T mFlow2(
       nPorts=1,
       redeclare package Medium = Modelica.Media.Water.StandardWater,
       use_m_flow_in=true,
-      T=323.15)                       annotation (Placement(transformation(extent=
+      T=323.15) annotation (Placement(transformation(extent=
              {{-60,-20},{-40,0}})));
     Modelica.Blocks.Sources.Sine sine(freqHz=1)
                                       annotation (Placement(transformation(extent=
@@ -73,7 +73,7 @@ package Explanatory
       crossArea=2,
       portsData={Modelica.Fluid.Vessels.BaseClasses.VesselPortsData(diameter=0.05)},
       level_start=0.975,
-      T_start=293.15)                                                                annotation (Placement(transformation(extent={{20,-60},
+      T_start=293.15) annotation (Placement(transformation(extent={{20,-60},
               {40,-40}})));
     Modelica.Fluid.Vessels.OpenTank openTankHot3(nPorts=1,
       level_start=1,
@@ -81,13 +81,13 @@ package Explanatory
       height=2,
       crossArea=2,
       portsData={Modelica.Fluid.Vessels.BaseClasses.VesselPortsData(diameter=0.05)},
-      T_start=353.15)                                                                annotation (Placement(transformation(extent={{60,-80},
+      T_start=353.15) annotation (Placement(transformation(extent={{60,-80},
               {80,-60}})));
     Modelica.Fluid.Sources.MassFlowSource_T mFlow3(
       nPorts=1,
       redeclare package Medium = Modelica.Media.Water.StandardWater,
       use_m_flow_in=true,
-      T=323.15)                       annotation (Placement(transformation(extent=
+      T=323.15) annotation (Placement(transformation(extent=
              {{-60,-90},{-40,-70}})));
     Modelica.Fluid.Fittings.TeeJunctionIdeal junctionIdeal(
                                                          redeclare package
@@ -95,38 +95,38 @@ package Explanatory
           Modelica.Media.Water.StandardWater)
       annotation (Placement(transformation(extent={{20,-90},{40,-70}})));
   equation
-    connect(mFlow2.ports[1], T_twoPort.port_a)             annotation (Line(
+    connect(mFlow2.ports[1], T_twoPort.port_a) annotation (Line(
         points={{-40,-10},{-20,-10}},
         color={0,127,255}));
-    connect(mFlow1.ports[1], T_onePort.port)             annotation (Line(
+    connect(mFlow1.ports[1], T_onePort.port) annotation (Line(
         points={{-40,40},{-10,40}},
         color={0,127,255}));
-    connect(sine.y, mFlow1.m_flow_in)        annotation (Line(
+    connect(sine.y, mFlow1.m_flow_in) annotation (Line(
         points={{-79,20},{-70,20},{-70,48},{-60,48}},
         color={0,0,127}));
-    connect(sine.y, mFlow2.m_flow_in)        annotation (Line(
+    connect(sine.y, mFlow2.m_flow_in) annotation (Line(
         points={{-79,20},{-70,20},{-70,-2},{-60,-2}},
         color={0,0,127}));
-    connect(mFlow3.ports[1], T_junction.port)                    annotation (Line(
+    connect(mFlow3.ports[1], T_junction.port) annotation (Line(
         points={{-40,-80},{-10,-80}},
         color={0,127,255}));
-    connect(sine.y, mFlow3.m_flow_in)        annotation (Line(
+    connect(sine.y, mFlow3.m_flow_in) annotation (Line(
         points={{-79,20},{-70,20},{-70,-72},{-60,-72}},
         color={0,0,127}));
-    connect(T_junction.port, junctionIdeal.port_1)          annotation (Line(
+    connect(T_junction.port, junctionIdeal.port_1) annotation (Line(
         points={{-10,-80},{20,-80}},
         color={0,127,255}));
-    connect(T_twoPort.port_b, openTankCold2.ports[1])          annotation (Line(
-          points={{0,-10},{0,-10},{30,-10},{30,6}},  color={0,127,255}));
-    connect(T_onePort.port, openTankHot1.ports[1])   annotation (Line(
-          points={{-10,40},{-10,40},{70,40}},            color={0,127,255}));
-    connect(T_twoPort.port_b, openTankHot2.ports[1])          annotation (Line(
-          points={{0,-10},{30,-10},{70,-10}},              color={0,127,255}));
+    connect(T_twoPort.port_b, openTankCold2.ports[1]) annotation (Line(
+          points={{0,-10},{0,-10},{30,-10},{30,6}}, color={0,127,255}));
+    connect(T_onePort.port, openTankHot1.ports[1]) annotation (Line(
+          points={{-10,40},{-10,40},{70,40}}, color={0,127,255}));
+    connect(T_twoPort.port_b, openTankHot2.ports[1]) annotation (Line(
+          points={{0,-10},{30,-10},{70,-10}}, color={0,127,255}));
     connect(junctionIdeal.port_3, openTankCold3.ports[1]) annotation (Line(points={{30,-70},
-            {30,-65},{30,-60}},   color={0,127,255}));
+            {30,-65},{30,-60}}, color={0,127,255}));
     connect(junctionIdeal.port_2, openTankHot3.ports[1]) annotation (Line(points={{40,-80},
-            {55.5,-80},{70,-80}},                          color={0,127,255}));
-    connect(T_onePort.port, openTankCold1.ports[1])   annotation (Line(
+            {55.5,-80},{70,-80}}, color={0,127,255}));
+    connect(T_onePort.port, openTankCold1.ports[1]) annotation (Line(
         points={{-10,40},{30,40},{30,60}},
         color={0,127,255}));
     annotation (Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,

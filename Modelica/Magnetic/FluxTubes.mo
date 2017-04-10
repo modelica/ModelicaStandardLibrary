@@ -2575,7 +2575,7 @@ During model-based actuator design, the radii and lengths of the flux tube eleme
           connect(coil2.port_p, g_mFeArm.port_p)
             annotation (Line(points={{24,30},{20,30}}, color={255,127,0}));
           connect(G_mLeakRad.port_p, g_mFeArm.port_n) annotation (Line(points={{
-                  0,46},{0,46},{0,30}},  color={255,127,0}));
+                  0,46},{0,46},{0,30}}, color={255,127,0}));
           connect(g_mAirWork.port_p, g_mFeArm.port_n)
             annotation (Line(points={{-10,30},{0,30}}, color={255,127,0}));
           connect(coil1.port_n, g_mAirWork.port_n)
@@ -2869,7 +2869,7 @@ The differences between these two models in static behaviour can be analysed and
                 {22,80},{30,80}}, color={255,127,0}));
         connect(magGnd1.port, TellinenSoft.port_n) annotation (Line(points={{22,
                 58},{54,58},{54,80},{50,80}}, color={255,127,0}));
-        annotation (experiment(StartTime=0, StopTime=14, Interval=3e-3, Tolerance=1e-005),            Documentation(info="<html>
+        annotation (experiment(StartTime=0, StopTime=14, Interval=3e-3, Tolerance=1e-005), Documentation(info="<html>
 <p>
 Use the following simulation settings:
 </p>
@@ -2945,7 +2945,7 @@ Compared to the complex Preisach hysteresis model the Tellinen model is very sim
                 15,20},{20,20}}, color={255,127,0}));
         connect(mag_ground.port, Core.port_n) annotation (Line(points={{10,-12},
                 {46,-12},{46,20},{40,20}}, color={255,127,0}));
-        annotation (experiment(StartTime=0, StopTime=0.02, Interval=4e-6, Tolerance=1e-004),                                                                                  Documentation(info="<html>
+        annotation (experiment(StartTime=0, StopTime=0.02, Interval=4e-6, Tolerance=1e-004), Documentation(info="<html>
 <p>
 This is a simple model of an inductor with a ferromagnetic core. The used GenericHystTellinenEverett model considers the ferromagnetic hysteresis, eddy currents and remanence of the core material. For example you can simulate the model for 0.02s and plot Core.B vs. Core.H to visualize the resulting hysteresis loops.
 </p>
@@ -2972,7 +2972,7 @@ This is a simple model of an inductor with a ferromagnetic core. The used Generi
         Modelica.Electrical.Analog.Basic.Resistor Rprim(R=0.05)
           annotation (Placement(transformation(extent={{-56,22},{-36,42}})));
         Modelica.Electrical.Analog.Sources.SineVoltage SineVoltage(      freqHz=
-             400, V=8)  annotation (Placement(transformation(
+             400, V=8) annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=270,
               origin={-60,16})));
@@ -3074,7 +3074,7 @@ Then plot the flux density of the Core Core.B over the magnetic field strength C
         Modelica.Electrical.Analog.Basic.Resistor Rprim(R=0.05)
           annotation (Placement(transformation(extent={{-54,22},{-34,42}})));
         Modelica.Electrical.Analog.Sources.SineVoltage SineVoltage(      freqHz=
-             400, V=6)  annotation (Placement(transformation(
+             400, V=6) annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=270,
               origin={-80,16})));
@@ -3150,7 +3150,7 @@ The figure shows the magnetic hysteresis in the transformer core. In (a) the con
         Modelica.Electrical.Analog.Sources.SineVoltage VA(
           offset=0,
           freqHz=50,
-          V=50)      annotation (Placement(transformation(
+          V=50) annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=270,
               origin={-131,-40})));
@@ -3241,7 +3241,7 @@ The figure shows the magnetic hysteresis in the transformer core. In (a) the con
               rotation=90,
               origin={69,-31})));
         Modelica.Electrical.Analog.Basic.Capacitor capacitor1(C=1e-6, v(fixed=
-                true))                                                annotation (
+                true)) annotation (
            Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=270,
@@ -3253,7 +3253,7 @@ The figure shows the magnetic hysteresis in the transformer core. In (a) the con
         Modelica.Electrical.Analog.Basic.Inductor inductor2(L=1e-3)
           annotation (Placement(transformation(extent={{-10,-32},{10,-12}})));
         Modelica.Electrical.Analog.Basic.Capacitor capacitor2(C=1e-6, v(fixed=
-                true))                                                annotation (
+                true)) annotation (
            Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=270,
@@ -3274,7 +3274,7 @@ The figure shows the magnetic hysteresis in the transformer core. In (a) the con
           "Approx. average copper losses"
           annotation (Placement(transformation(extent={{-48,30},{-38,40}})));
       equation
-        connect(VA.n, G1.p)          annotation (Line(
+        connect(VA.n, G1.p) annotation (Line(
             points={{-131,-50},{-131,-71}},
             color={0,0,255}));
         connect(VB.n, G1.p) annotation (Line(
@@ -3328,7 +3328,7 @@ The figure shows the magnetic hysteresis in the transformer core. In (a) the con
         connect(D5.n, capacitor1.p) annotation (Line(
             points={{69,29},{89,29}},
             color={0,0,255}));
-        connect(RL.p, capacitor1.p)   annotation (Line(
+        connect(RL.p, capacitor1.p) annotation (Line(
             points={{116,3},{116,29},{89,29}},
             color={0,0,255}));
         connect(TR3PhaseYy.p_a, inductor.p) annotation (Line(
@@ -3376,7 +3376,7 @@ The figure shows the magnetic hysteresis in the transformer core. In (a) the con
         annotation (experiment(StartTime=0, StopTime=0.2, Interval=1e-4, Tolerance=1e-006), Diagram(coordinateSystem(
               preserveAspectRatio=false,
               extent={{-150,-100},{150,100}},
-              grid={1,1})),          Documentation(info="<html>
+              grid={1,1})), Documentation(info="<html>
 <p>
 This is a model of a three-phase transformer and rectifier unit using the <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.Hysteresis.Components.Transformer3PhaseYyWithHysteresis\">Transformer3PhaseYyWithHysteresis</a> model. Use the following simulation settings:
 </p>
@@ -3456,11 +3456,11 @@ An example simulation shows the transformer inrush currents due to an initially 
             "Temperature coefficient of secondary turns" annotation(Dialog(tab="Electrical", group="Secondary Winding"));
 
           parameter SI.Length l1(displayUnit="mm") = 40e-3
-            "Mean Length l1 of core"                                                 annotation (Dialog(tab="Core", group="Geometry", groupImage="modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Examples/Hysteresis/Components/Transformer1PhaseWithHysteresis/Core_SinglePhase.png"));
+            "Mean Length l1 of core" annotation (Dialog(tab="Core", group="Geometry", groupImage="modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Examples/Hysteresis/Components/Transformer1PhaseWithHysteresis/Core_SinglePhase.png"));
           parameter SI.Length l2(displayUnit="mm") = 60e-3
-            "Mean Length l2 of core"                                                annotation (Dialog(tab="Core", group="Geometry"));
-          parameter SI.Length a(displayUnit="mm") = 15e-3 "Height of core"  annotation (Dialog(tab="Core", group="Geometry"));
-          parameter SI.Length b(displayUnit="mm") = 10e-3 "Width of core"  annotation (Dialog(tab="Core", group="Geometry"));
+            "Mean Length l2 of core" annotation (Dialog(tab="Core", group="Geometry"));
+          parameter SI.Length a(displayUnit="mm") = 15e-3 "Height of core" annotation (Dialog(tab="Core", group="Geometry"));
+          parameter SI.Length b(displayUnit="mm") = 10e-3 "Width of core" annotation (Dialog(tab="Core", group="Geometry"));
 
           //
           parameter FluxTubes.Material.HysteresisEverettParameter.BaseData mat=
@@ -3497,7 +3497,7 @@ An example simulation shows the transformer inrush currents due to an initially 
           parameter Boolean HFixed = false "Fixed"
             annotation (Dialog(tab="Core", group="Initialization"),choices(checkBox=true));
           parameter SI.ElectricCurrent IpStart=0
-            "Initial primary current through winding"                                     annotation (Dialog(tab="Core", group="Initialization"));
+            "Initial primary current through winding" annotation (Dialog(tab="Core", group="Initialization"));
           parameter Boolean IpFixed = false "Fixed" annotation (Dialog(tab="Core", group="Initialization"),choices(checkBox=true));
 
           output SI.Power LossPowerWinding "Winding lossses";
@@ -3508,20 +3508,20 @@ An example simulation shows the transformer inrush currents due to an initially 
           parameter Boolean EddyCurrents = false "Enable eddy currents"
             annotation(Dialog(tab="Losses and Heat", group="Eddy Currents"), choices(checkBox=true));
           parameter SI.Conductivity sigma = mat.sigma
-            "Conductivity of core material"                                           annotation (Dialog(tab="Losses and Heat", group="Eddy Currents", enable=EddyCurrents));
+            "Conductivity of core material" annotation (Dialog(tab="Losses and Heat", group="Eddy Currents", enable=EddyCurrents));
           parameter SI.Length t(displayUnit="mm") = 0.5e-3
-            "Tickness of lamination"                                                annotation (Dialog(tab="Losses and Heat", group="Eddy Currents", enable=EddyCurrents));
-          parameter SI.Length L_lp=10e-3 "Length of leakage of primary Winding"                   annotation (Dialog(tab="Leakage"));
+            "Tickness of lamination" annotation (Dialog(tab="Losses and Heat", group="Eddy Currents", enable=EddyCurrents));
+          parameter SI.Length L_lp=10e-3 "Length of leakage of primary Winding" annotation (Dialog(tab="Leakage"));
           parameter SI.Area A_lp=10e-6
-            "Cross section of leakage of primary Winding"                                               annotation (Dialog(tab="Leakage"));
+            "Cross section of leakage of primary Winding" annotation (Dialog(tab="Leakage"));
           parameter Real mu_relp=1
-            "Constant relative permeability of primary leakage (>0 required)"                            annotation (Dialog(tab="Leakage"));
+            "Constant relative permeability of primary leakage (>0 required)" annotation (Dialog(tab="Leakage"));
           parameter SI.Length L_ls=10e-3
-            "Length of leakage of secondary Winding"                               annotation (Dialog(tab="Leakage"));
+            "Length of leakage of secondary Winding" annotation (Dialog(tab="Leakage"));
           parameter SI.Area A_ls=10e-6
-            "Cross section of leakage of secondary Winding"                            annotation (Dialog(tab="Leakage"));
+            "Cross section of leakage of secondary Winding" annotation (Dialog(tab="Leakage"));
           parameter Real mu_rels=1
-            "Constant relative permeability of secondary leakage (>0 required)"                            annotation (Dialog(tab="Leakage"));
+            "Constant relative permeability of secondary leakage (>0 required)" annotation (Dialog(tab="Leakage"));
 
         protected
           Basic.Ground ground
@@ -3584,25 +3584,25 @@ An example simulation shows the transformer inrush currents due to an initially 
           LossPowerEddy = Core.LossPowerEddy;
           LossPower = LossPowerWinding + LossPowerEddy + LossPowerStat;
 
-          connect(Wp.port_n, ground.port)        annotation (Line(
+          connect(Wp.port_n, ground.port) annotation (Line(
               points={{-40,-12},{-40,-26},{0,-26}},
               color={255,127,0}));
-          connect(Rp.n, Wp.p)         annotation (Line(
+          connect(Rp.n, Wp.p) annotation (Line(
               points={{-70,0},{-60,0}},
               color={0,0,255}));
-          connect(Rp.p, p_A)  annotation (Line(
+          connect(Rp.p, p_A) annotation (Line(
               points={{-90,0},{-100,0}},
               color={0,0,255}));
-          connect(Rs.n, p_a)  annotation (Line(
+          connect(Rs.n, p_a) annotation (Line(
               points={{88,0},{100,0}},
               color={0,0,255}));
-          connect(Wp.n, p_N)  annotation (Line(
+          connect(Wp.n, p_N) annotation (Line(
               points={{-60,-12},{-60,-100}},
               color={0,0,255}));
-          connect(Temp.port, Rp.heatPort)  annotation (Line(
+          connect(Temp.port, Rp.heatPort) annotation (Line(
               points={{-86,-40},{-80,-40},{-80,-10}},
               color={191,0,0}));
-          connect(Rs.heatPort, Temp.port)  annotation (Line(
+          connect(Rs.heatPort, Temp.port) annotation (Line(
               points={{78,-10},{78,-40},{-86,-40}},
               color={191,0,0}));
           connect(Ws.port_n, ground.port) annotation (Line(
@@ -3618,7 +3618,7 @@ An example simulation shows the transformer inrush currents due to an initially 
             annotation (Line(points={{-10,10},{-40,10},{-40,0}}, color={255,127,0}));
           connect(Core.port_n, Ws.port_p)
             annotation (Line(points={{10,10},{40,10},{40,0}}, color={255,127,0}));
-          annotation (defaultComponentName="tr",                                                                    Icon(graphics={
+          annotation (defaultComponentName="tr", Icon(graphics={
                 Polygon(
                   points={{50,60},{30,40},{30,-40},{50,-60},{50,60}},
                   fillColor={255,128,0},
@@ -3708,11 +3708,11 @@ Simple model of a single phase transformer with a primary and a secondary windin
             "Temperature coefficient of secondary turns" annotation(Dialog(tab="Electrical", group="Secondary Winding"));
 
           parameter SI.Length l1(displayUnit="mm") = 40e-3
-            "Mean length l1 of core"                                                 annotation (Dialog(tab="Core", group="Geometry", groupImage="modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Examples/Hysteresis/Components/Transformer3PhaseYyWithHysteresis/Core_ThreePhase1.png"));
+            "Mean length l1 of core" annotation (Dialog(tab="Core", group="Geometry", groupImage="modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Examples/Hysteresis/Components/Transformer3PhaseYyWithHysteresis/Core_ThreePhase1.png"));
           parameter SI.Length l2(displayUnit="mm") = 60e-3
-            "Mean length l2 of core"                                                annotation (Dialog(tab="Core", group="Geometry"));
-          parameter SI.Length a(displayUnit="mm") = 15e-3 "Height of core"  annotation (Dialog(tab="Core", group="Geometry"));
-          parameter SI.Length b(displayUnit="mm") = 10e-3 "Width of core"  annotation (Dialog(tab="Core", group="Geometry"));
+            "Mean length l2 of core" annotation (Dialog(tab="Core", group="Geometry"));
+          parameter SI.Length a(displayUnit="mm") = 15e-3 "Height of core" annotation (Dialog(tab="Core", group="Geometry"));
+          parameter SI.Length b(displayUnit="mm") = 10e-3 "Width of core" annotation (Dialog(tab="Core", group="Geometry"));
 
           parameter FluxTubes.Material.HysteresisEverettParameter.BaseData mat=
               FluxTubes.Material.HysteresisEverettParameter.BaseData()
@@ -3743,35 +3743,35 @@ Simple model of a single phase transformer with a primary and a secondary windin
           //output SI.Resistance R_p
 
           parameter Real MagRelStart[3]={0,0,0}
-            "Initial magnetization of Core (-1..1)"      annotation (Dialog(tab="Core", group="Initialization"));
+            "Initial magnetization of Core (-1..1)" annotation (Dialog(tab="Core", group="Initialization"));
           parameter Boolean MagRelFixed[3] = {false,false,false} "Fixed" annotation (Dialog(tab="Core", group="Initialization"));
 
           parameter SI.MagneticFieldStrength HStart[3]={0,0,0}
-            "Initial magnetic field strength of Core"  annotation (Dialog(tab="Core", group="Initialization"));
-          parameter Boolean HFixed[3] = {false,false,false} "Fixed"  annotation (Dialog(tab="Core", group="Initialization"),choices(checkBox=true));
+            "Initial magnetic field strength of Core" annotation (Dialog(tab="Core", group="Initialization"));
+          parameter Boolean HFixed[3] = {false,false,false} "Fixed" annotation (Dialog(tab="Core", group="Initialization"),choices(checkBox=true));
 
           parameter SI.ElectricCurrent IprimStart[3]={0,0,0}
-            "Initial current of primary Windings"  annotation (Dialog(tab="Core", group="Initialization"));
-          parameter Boolean IprimFixed[3] = {false,false,false} "Fixed"  annotation (Dialog(tab="Core", group="Initialization"),choices(checkBox=true));
+            "Initial current of primary Windings" annotation (Dialog(tab="Core", group="Initialization"));
+          parameter Boolean IprimFixed[3] = {false,false,false} "Fixed" annotation (Dialog(tab="Core", group="Initialization"),choices(checkBox=true));
 
           parameter SI.ElectricCurrent IsecStart[3]={0,0,0}
-            "Initial current of secondary Windings"   annotation (Dialog(tab="Core", group="Initialization"));
-          parameter Boolean IsecFixed[3] = {false,false,false} "Fixed"  annotation (Dialog(tab="Core", group="Initialization"),choices(checkBox=true));
+            "Initial current of secondary Windings" annotation (Dialog(tab="Core", group="Initialization"));
+          parameter Boolean IsecFixed[3] = {false,false,false} "Fixed" annotation (Dialog(tab="Core", group="Initialization"),choices(checkBox=true));
 
           output SI.Power LossPowerWinding "Winding lossses";
           output SI.Power LossPowerStat "Ferromagnetic hysteresis losses";
           output SI.Power LossPowerEddy "Eddy current losses";
 
           extends Interfaces.ConditionalHeatPort;
-          parameter Boolean EddyCurrents = false "Enable eddy currents"  annotation(Dialog(tab="Losses and Heat", group="Eddy Currents"), choices(checkBox=true));
+          parameter Boolean EddyCurrents = false "Enable eddy currents" annotation(Dialog(tab="Losses and Heat", group="Eddy Currents"), choices(checkBox=true));
           parameter SI.Conductivity sigma = mat.sigma
-            "Conductivity of core material"                                           annotation (Dialog(tab="Losses and Heat", group="Eddy Currents", enable=EddyCurrents));
+            "Conductivity of core material" annotation (Dialog(tab="Losses and Heat", group="Eddy Currents", enable=EddyCurrents));
           parameter SI.Length t(displayUnit="mm") = 0.5e-3
-            "Tickness of lamination"                                                annotation (Dialog(tab="Losses and Heat", group="Eddy Currents", enable=EddyCurrents));
+            "Tickness of lamination" annotation (Dialog(tab="Losses and Heat", group="Eddy Currents", enable=EddyCurrents));
 
-          parameter SI.Length L_lp=10e-3 "Length of leakage of primary Winding"  annotation (Dialog(tab="Leakage"));
+          parameter SI.Length L_lp=10e-3 "Length of leakage of primary Winding" annotation (Dialog(tab="Leakage"));
           parameter SI.Area A_lp=10e-6
-            "Cross section of leakage of primary Winding"                            annotation (Dialog(tab="Leakage"));
+            "Cross section of leakage of primary Winding" annotation (Dialog(tab="Leakage"));
           parameter Real mu_relp=1
             "Constant relative permeability of primary leakage (>0 required)" annotation (Dialog(tab="Leakage"));
           parameter SI.Length L_ls=10e-3
@@ -5116,7 +5116,7 @@ This is a simple short cut branch.
               color={255,128,0}),
           Line(
               points={{-100,100},{-100,40},{100,-40},{100,-100}},
-              color={255,128,0})}),                              Documentation(
+              color={255,128,0})}), Documentation(
             info="<html>
 <p>
 This is a simple crossing of two branches. The ports <code>port_p1</code> and <code>port_p2</code> are connected, as well as <code>port_n1</code> and <code>port_n2</code>.
@@ -5700,7 +5700,7 @@ All dimensions are defined as parameters. As a result, the shape of these elemen
 </td>
 </tr>
 </table>
-</html>"),       Icon(graphics={Text(
+</html>"), Icon(graphics={Text(
                 extent={{40,0},{40,-30}},
                 lineColor={255,128,0},
                 textString="TS")}));
@@ -5744,12 +5744,12 @@ All dimensions are defined as parameters. As a result, the shape of these elemen
                 color={255,128,0}),
               Line(
                 points={{-90,0},{-70,0}},
-                color={255,128,0}),   Line(
+                color={255,128,0}), Line(
                 points={{-30,-20},{-14,-20},{-6,-16},{2,0},{10,16},{18,20},{26,20}},
                 color={255,128,0},
                 smooth=Smooth.Bezier,
                 origin={-14,0},
-                rotation=180),     Line(
+                rotation=180), Line(
                 points={{-18,-20},{-2,-20},{6,-16},{14,0},{22,16},{30,20},{38,
                     20}},
                 color={255,128,0},
@@ -5763,7 +5763,7 @@ All dimensions are defined as parameters. As a result, the shape of these elemen
               Text(
                 extent={{40,-2},{40,-30}},
                 lineColor={255,128,0},
-                textString="TH")}),    Documentation(info="<html>
+                textString="TH")}), Documentation(info="<html>
 <p>
   Flux tube element for modeling the ferromagnetic (static) hysteresis of hard magnetic materials. The ferromagnetic hysteresis behavior is defined by the <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Hysteresis.StaticHysteresis.Tellinen\">Tellinen hysteresis model</a>. The shape of the limiting hysteresis loop is described by simple hyperbolic tangent functions with 4 parameters.
 </p>
@@ -5844,7 +5844,7 @@ An overview of all available hysteresis and permanent magnet elements of the pac
             FluxTubes.Material.HysteresisTableData.BaseData()
           annotation (choicesAllMatching=true, Dialog(group="Hysteresis"));
         parameter Real K = 1
-          "Slope of hysteresis in the saturation region (K*mu_0)"                    annotation(Dialog(group="Hysteresis"));
+          "Slope of hysteresis in the saturation region (K*mu_0)" annotation(Dialog(group="Hysteresis"));
 
         extends Interfaces.PartialGenericHysteresisTellinen(mu0=mu_0*K, sigma=mat.sigma);
 
@@ -5894,7 +5894,7 @@ An overview of all available hysteresis and permanent magnet elements of the pac
 
         parameter Integer Count=100 "Length of history array" annotation(Dialog(group="Advanced"));
         parameter SI.MagneticFieldStrength eps=1e-5
-          "Tolerance in Preisach history"                                           annotation(Dialog(group="Advanced"));
+          "Tolerance in Preisach history" annotation(Dialog(group="Advanced"));
         parameter SI.Time t1=1e-6 "Initialization time" annotation(Dialog(group="Advanced"));
 
         extends Interfaces.PartialGenericHysteresis(sigma=mat.sigma);
@@ -6089,7 +6089,7 @@ An overview over all available hysteresis and permanent magnet elements of the p
         parameter SI.MagneticFluxDensity Br=1.2 "Remanence" annotation (Dialog(group="Hysteresis", groupImage="modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Shapes/HysteresisAndMagnets/GenericHystTellinenHard/HardMagneticHysteresis.png"));
         parameter SI.MagneticFieldStrength Hc=5e5 "Coercitivity" annotation (Dialog(group="Hysteresis"));
         parameter Real M(final unit="1") = unitH*10/Hc
-          "Slope of tanh()-function"                                              annotation (Dialog(group="Hysteresis"));
+          "Slope of tanh()-function" annotation (Dialog(group="Hysteresis"));
         parameter Real K(final unit="1")=1 "mu_0 multiplier" annotation (Dialog(group="Hysteresis"));
 
       protected
@@ -6122,7 +6122,7 @@ An overview over all available hysteresis and permanent magnet elements of the p
                 textStyle={TextStyle.Bold},
                 origin={47,0},
                 rotation=90,
-                textString="S"),   Line(
+                textString="S"), Line(
                 points={{-38,-20},{-4,-20},{4,-16},{12,0},{20,16},{28,20},{36,
                     20}},
                 color={255,128,0},
@@ -6150,7 +6150,7 @@ An overview over all available hysteresis and permanent magnet elements of the p
               Text(
                 extent={{22,0},{22,-18}},
                 lineColor={255,128,0},
-                textString="TH")}),    Documentation(info="<html>
+                textString="TH")}), Documentation(info="<html>
 
 <p>
 Flux tube element for modeling the hard magnetic hysteresis of permanent magnets. The model is similar to <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystTellinenHard\">GenericHystTellinenHard</a> but has an initial magnetization preset of -100% and an adapted icon for better readability of the diagram.
@@ -6168,7 +6168,7 @@ An overview over all available hysteresis and permanent magnet elements of the p
         extends Interfaces.PartialGeneric;
 
         parameter Material.HardMagnetic.BaseData mat=
-            Material.HardMagnetic.BaseData() "Material"   annotation (Dialog(group="Material"),choicesAllMatching=true);
+            Material.HardMagnetic.BaseData() "Material" annotation (Dialog(group="Material"),choicesAllMatching=true);
 
         output SI.MagneticFieldStrength H;
         output SI.MagneticFluxDensity B;
@@ -7933,7 +7933,7 @@ Please refer to the description of  the sub-package <a href=\"modelica://Modelic
          T_heatPort = T;
       end if;
 
-      annotation (        Documentation(revisions="<html>
+      annotation (Documentation(revisions="<html>
 <ul>
 <li><i> February 17, 2009   </i>
        by Christoph Clauss<br> initially implemented<br>
@@ -8051,7 +8051,7 @@ on the model behaviour.
         k = max(0.01, (B - hystR)/diffHyst);
       end if;
 
-      annotation (                                     Documentation(info="<html>
+      annotation (Documentation(info="<html>
 <p>A reluctance with the Tellinen hysteresis model. The major hysteresis loop is defined by the hyperbolic tangent function.</p>
 <h4>The Tellinen Hysteresis Model</h4>
 <p>The Tellinen hysteresis model is a simple model to describe the magnetic hysteresis behavior of ferromagnetic materials. It only uses the rising (hystR) and falling (hystF) branch of the major hysteresis loop and their derivatives der(hystR) and der(hystF). See Fig. 1 and the following equations for a short description of the Tellinen hysteresis model.</p>

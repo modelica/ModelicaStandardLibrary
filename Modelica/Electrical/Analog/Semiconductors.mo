@@ -210,7 +210,7 @@ Stefan Vorkoetter - new model proposed.</li>
        by Christoph Clauss<br> implemented<br>
        </li>
 </ul>
-</html>"),  Icon(coordinateSystem(
+</html>"), Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
           Polygon(
@@ -1044,7 +1044,7 @@ end HeatingDiode;
        by Christoph Clauss<br> implemented<br>
        </li>
 </ul>
-</html>"),  Icon(coordinateSystem(
+</html>"), Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
           Line(points={{-90,-50},{-10,-50}}, color={0,0,255}),
@@ -1179,7 +1179,7 @@ end HeatingDiode;
        by Christoph Clauss<br> implemented<br>
        </li>
 </ul>
-</html>"),  Icon(coordinateSystem(
+</html>"), Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
           Line(points={{-90,-50},{-10,-50}}, color={0,0,255}),
@@ -1344,7 +1344,7 @@ end HeatingDiode;
        by Christoph Clauss<br> implemented<br>
        </li>
 </ul>
-</html>"),  Icon(coordinateSystem(
+</html>"), Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
           Line(points={{-10,40},{-10,-40}}, color={0,0,255}),
@@ -1506,7 +1506,7 @@ end HeatingDiode;
        by Christoph Clauss<br> implemented<br>
        </li>
 </ul>
-</html>"),  Icon(coordinateSystem(
+</html>"), Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
           Line(points={{-10,40},{-10,-40}}, color={0,0,255}),

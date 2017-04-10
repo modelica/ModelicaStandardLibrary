@@ -299,7 +299,7 @@ block Extractor
   parameter Boolean allowOutOfRange=false "Index may be out of range";
   parameter Real outOfRangeValue=1e10 "Output signal if index is out of range";
 
-  Modelica.Blocks.Interfaces.IntegerInput index             annotation (Placement(
+  Modelica.Blocks.Interfaces.IntegerInput index annotation (Placement(
           transformation(
           origin={0,-120},
           extent={{-20,-20},{20,20}},
@@ -417,7 +417,7 @@ The output connector is the <b>concatenation</b> of the two input connectors.
 Note, that the dimensions of the input connector signals have to be
 explicitly defined via parameters n1 and n2.
 </p>
-</html>"),   Icon(coordinateSystem(
+</html>"), Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
           Line(points={{8,0},{102,0}}, color={0,0,127}),
@@ -467,7 +467,7 @@ explicitly defined via parameters n1 and n2.
 The output connector is the <b>concatenation</b> of the three input connectors.
 Note, that the dimensions of the input connector signals have to be
 explicitly defined via parameters n1, n2 and n3.
-</html>"),   Icon(coordinateSystem(
+</html>"), Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
           Line(points={{8,0},{102,0}}, color={0,0,127}),
@@ -524,7 +524,7 @@ The output connector is the <b>concatenation</b> of the four input connectors.
 Note, that the dimensions of the input connector signals have to be
 explicitly defined via parameters n1, n2, n3 and n4.
 </p>
-</html>"),   Icon(coordinateSystem(
+</html>"), Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
           Line(points={{8,0},{102,0}}, color={0,0,127}),
@@ -587,7 +587,7 @@ The output connector is the <b>concatenation</b> of the five input connectors.
 Note, that the dimensions of the input connector signals have to be
 explicitly defined via parameters n1, n2, n3, n4 and n5.
 </p>
-</html>"),   Icon(coordinateSystem(
+</html>"), Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
           Line(points={{8,0},{102,0}}, color={0,0,255}),
@@ -657,7 +657,7 @@ The output connector is the <b>concatenation</b> of the six input connectors.
 Note, that the dimensions of the input connector signals have to be
 explicitly defined via parameters n1, n2, n3, n4, n5 and n6.
 </p>
-</html>"),   Icon(coordinateSystem(
+</html>"), Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
           Line(points={{8,0},{102,0}}, color={0,0,127}),
@@ -712,7 +712,7 @@ The input connector is <b>split</b> up into two output connectors.
 Note, that the dimensions of the output connector signals have to be
 explicitly defined via parameters n1 and n2.
 </p>
-</html>"),   Icon(coordinateSystem(
+</html>"), Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}),
         graphics={
@@ -764,7 +764,7 @@ The input connector is <b>split</b> into three output connectors.
 Note, that the dimensions of the output connector signals have to be
 explicitly defined via parameters n1, n2 and n3.
 </p>
-</html>"),   Icon(coordinateSystem(
+</html>"), Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
           Ellipse(
@@ -821,7 +821,7 @@ explicitly defined via parameters n1, n2 and n3.
 The input connector is <b>split</b> into four output connectors.
 Note, that the dimensions of the output connector signals have to be
 explicitly defined via parameters n1, n2, n3 and n4.
-</html>"),   Icon(coordinateSystem(
+</html>"), Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
           Ellipse(
@@ -884,7 +884,7 @@ explicitly defined via parameters n1, n2, n3 and n4.
 The input connector is <b>split</b> into five output connectors.
 Note, that the dimensions of the output connector signals have to be
 explicitly defined via parameters n1, n2, n3, n4 and n5.
-</html>"),   Icon(coordinateSystem(
+</html>"), Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
           Ellipse(
@@ -952,7 +952,7 @@ explicitly defined via parameters n1, n2, n3, n4 and n5.
 The input connector is <b>split</b> into six output connectors.
 Note, that the dimensions of the output connector signals have to be
 explicitly defined via parameters n1, n2, n3, n4, n5 and n6.
-</html>"),   Icon(coordinateSystem(
+</html>"), Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
           Ellipse(
@@ -1020,7 +1020,7 @@ Passes a Real signal through without modification.  Enables signals to be read o
     extends Modelica.Blocks.Interfaces.BooleanSISO;
   equation
     y = u;
-    annotation (                         Documentation(info="<html>
+    annotation (Documentation(info="<html>
 <p>Passes a Boolean signal through without modification.  Enables signals to be read out of one bus, have their name changed and be sent back to a bus.</p>
 </html>"),
       Icon(

@@ -56,7 +56,7 @@ equation
   connect(dA_Converter.n, ground.p) annotation (Line(
       points={{40.1,-6.1},{54,-6.1},{54,-20}},
       color={0,0,255}));
-  annotation (    experiment(StopTime=0.2),
+  annotation (experiment(StopTime=0.2),
     Documentation(info="<html>
 <p>The simple converter circuit converts an analog sine signal into a N-bit (by default a 4 bit) logic signal, which is converted backward into an analog signal.</p>
 <ul>

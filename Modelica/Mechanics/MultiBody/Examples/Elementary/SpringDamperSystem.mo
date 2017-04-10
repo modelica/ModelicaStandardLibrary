@@ -31,7 +31,7 @@ model SpringDamperSystem "Simple spring/damper/mass system"
     animation=animation,
     cylinderDiameter=0.05,
     sphereDiameter=0.15,
-    r_CM={0,0,0})        annotation (Placement(transformation(
+    r_CM={0,0,0}) annotation (Placement(transformation(
         origin={50,-50},
         extent={{-10,10},{10,-10}},
         rotation=270)));

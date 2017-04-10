@@ -201,7 +201,7 @@ equation
   connect(R6.n, n8)
     annotation (Line(points={{-11,0},{-9.25,0},{-7.5,0},{-4,0}},
                                               color={0,0,255}));
-  connect(n7, n8) annotation (Line(points={{-4,-50},{-4,0}},        color={0,0,
+  connect(n7, n8) annotation (Line(points={{-4,-50},{-4,0}}, color={0,0,
           255}));
   connect(C6.p, p2)
     annotation (Line(points={{9,20},{-4,20}}, color={0,0,255}));
@@ -273,9 +273,9 @@ equation
         color={0,0,255}));
   connect(Op5.in_p, G4.p) annotation (Line(points={{200,-60},{200,-80},{220,-80}},
         color={0,0,255}));
-  connect(V.p, Ground1.p)            annotation (Line(points={{-240,-180},{-240,
+  connect(V.p, Ground1.p) annotation (Line(points={{-240,-180},{-240,
           -190}}, color={0,0,255}));
-  connect(V.n, R1.p)            annotation (Line(points={{-240,-160},{-250,-160},
+  connect(V.n, R1.p) annotation (Line(points={{-240,-160},{-250,-160},
           {-250,-40},{-240,-40}}, color={0,0,255}));
   annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-250,
             -200},{250,200}}), graphics={Text(

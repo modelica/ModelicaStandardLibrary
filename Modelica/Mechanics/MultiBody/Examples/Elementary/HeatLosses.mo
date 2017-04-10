@@ -45,7 +45,7 @@ model HeatLosses "Demonstrate the modeling of heat losses"
     width=0.1,
     coilWidth=0.01,
     numberOfWindings=10,
-    useHeatPort=true)                       annotation (Placement(
+    useHeatPort=true) annotation (Placement(
         transformation(
         extent={{-10,-10},{10,10}},
         rotation=-90,
@@ -73,7 +73,7 @@ model HeatLosses "Demonstrate the modeling of heat losses"
     d=2,
     c=30,
     s_unstretched=0.1,
-    useHeatPort=true)                       annotation (Placement(
+    useHeatPort=true) annotation (Placement(
         transformation(
         extent={{-10,10},{10,-10}},
         rotation=-90,
@@ -98,7 +98,7 @@ model HeatLosses "Demonstrate the modeling of heat losses"
   Forces.Spring spring(
     s_unstretched=0.2,
     width=0.05,
-    c=30)              annotation (Placement(transformation(
+    c=30) annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=-90,
         origin={60,10})));
@@ -137,11 +137,11 @@ equation
       points={{-26,0},{-26,-8},{-40,-8},{-40,-20}},
       color={95,95,95},
       thickness=0.5));
-  connect(bar2.frame_b, springDamper.frame_a)  annotation (Line(
+  connect(bar2.frame_b, springDamper.frame_a) annotation (Line(
       points={{0,50},{26,50},{26,20}},
       color={95,95,95},
       thickness=0.5));
-  connect(springDamper.frame_b, body2.frame_a)  annotation (Line(
+  connect(springDamper.frame_b, body2.frame_a) annotation (Line(
       points={{26,0},{26,-5},{26,-5},{26,-10},{26,-20},{26,-20}},
       color={95,95,95},
       thickness=0.5));

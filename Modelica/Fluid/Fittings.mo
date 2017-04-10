@@ -789,7 +789,7 @@ of the modeller.
       Real zeta1 "Loss factor for flow port_a -> port_b" annotation(Dialog);
       Real zeta2 "Loss factor for flow port_b -> port_a" annotation(Dialog);
       SI.ReynoldsNumber Re_turbulent
-          "Loss factors suited for Re >= Re_turbulent"                            annotation(Dialog);
+          "Loss factors suited for Re >= Re_turbulent" annotation(Dialog);
       SI.Diameter D_Re "Diameter used to compute Re" annotation(Dialog);
       Boolean zeta1_at_a = true
           "dp = zeta1*(if zeta1_at_a then rho_a*v_a^2/2 else rho_b*v_b^2/2)"
@@ -798,7 +798,7 @@ of the modeller.
           "dp = -zeta2*(if zeta2_at_a then rho_a*v_a^2/2 else rho_b*v_b^2/2)"
                                                                          annotation(Dialog);
       Boolean zetaLaminarKnown = false
-          "= true, if zeta = c0/Re in laminar region"                              annotation(Dialog);
+          "= true, if zeta = c0/Re in laminar region" annotation(Dialog);
       Real c0 = 1
           "zeta = c0/Re; dp = zeta*rho_Re*v_Re^2/2, Re=v_Re*D_Re*rho_Re/mu_Re)"
                                                                                         annotation(Dialog(enable=zetaLaminarKnown));
@@ -1800,7 +1800,7 @@ The used sufficient criteria for monotonicity follows from:
                              Medium.reference_p,
                              Medium.reference_T,
                              Medium.reference_X)
-          "Medium state to compute nominal pressure drop"                                        annotation(HideResult=true);
+          "Medium state to compute nominal pressure drop" annotation(HideResult=true);
         parameter Modelica.SIunits.Pressure dp_nominal=
           pressureLoss_m_flow(m_flow_nominal, Medium.density(state_nominal), Medium.density(state_nominal), data, m_flow_small)
           "Nominal pressure loss";
@@ -2536,7 +2536,7 @@ The details of the record are described
            geometry.venaCrossArea := venaDiameter^2*pi/4;
            geometry.venaPerimeter := pi*venaDiameter;
            geometry.venaLength := venaLength;
-          annotation (                               Icon(coordinateSystem(preserveAspectRatio=false,
+          annotation (Icon(coordinateSystem(preserveAspectRatio=false,
                            extent={{-100,-100},{100,100}}), graphics={Ellipse(
                   extent={{-80,80},{80,-80}},
                   fillColor={255,255,255},
@@ -2572,7 +2572,7 @@ cross section of the orifice.
            geometry.venaCrossArea := venaWidth*venaHeight;
            geometry.venaPerimeter := 2*venaWidth + 2*venaHeight;
            geometry.venaLength := venaLength;
-          annotation (                               Icon(coordinateSystem(preserveAspectRatio=true,
+          annotation (Icon(coordinateSystem(preserveAspectRatio=true,
                            extent={{-100,-100},{100,100}}), graphics={Rectangle(
                   extent={{-80,60},{80,-60}},
                   fillColor={255,255,255},
@@ -2610,7 +2610,7 @@ cross section of the orifice.
            geometry.venaCrossArea := venaCrossArea;
            geometry.venaPerimeter := venaPerimeter;
            geometry.venaLength := venaLength;
-          annotation (                               Icon(coordinateSystem(preserveAspectRatio=false,
+          annotation (Icon(coordinateSystem(preserveAspectRatio=false,
                            extent={{-100,-100},{100,100}}), graphics={
                                                  Polygon(
                   points={{-80,8},{0,80},{80,40},{20,-20},{40,-80},{-60,-80},{-80,8}},

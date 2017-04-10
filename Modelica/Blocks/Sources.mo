@@ -175,7 +175,7 @@ variable <b>y</b> is both a variable and a connector.
             lineColor={95,95,95},
             fillColor={95,95,95},
             fillPattern=FillPattern.Solid),
-          Line(points={{-34,0},{-34,-70}},   color={95,95,95}),
+          Line(points={{-34,0},{-34,-70}}, color={95,95,95}),
           Polygon(
             points={{-34,-70},{-37,-57},{-31,-57},{-34,-70},{-34,-70}},
             lineColor={95,95,95},
@@ -1020,7 +1020,7 @@ by a falling exponential signal:
             lineColor={95,95,95},
             fillColor={95,95,95},
             fillPattern=FillPattern.Solid),
-          Line(points={{-34,0},{-34,-70}},  color={95,95,95}),
+          Line(points={{-34,0},{-34,-70}}, color={95,95,95}),
           Polygon(
             points={{-34,-70},{-37,-57},{-31,-57},{-34,-70},{-34,-70}},
             lineColor={95,95,95},

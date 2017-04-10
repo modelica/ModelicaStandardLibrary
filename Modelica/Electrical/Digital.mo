@@ -164,7 +164,7 @@ the library and has the following content:
           import L = Modelica.Electrical.Digital.Interfaces.Logic;
           extends Modelica.Icons.Example;
 
-          D.Sources.Clock CLK(period=20, startTime=0, width=50)  annotation (Placement(transformation(
+          D.Sources.Clock CLK(period=20, startTime=0, width=50) annotation (Placement(transformation(
                   extent={{-80,-56},{-60,-36}})));
           D.Sources.Table D0(
             y0=L.'0',
@@ -234,7 +234,7 @@ the library and has the following content:
           D.Examples.Utilities.JKFF FF
                          annotation (Placement(transformation(extent={{-10,-40},{70,
                     40}})));
-          D.Sources.Clock CLK(period=10, startTime=0, width=50)  annotation (Placement(transformation(
+          D.Sources.Clock CLK(period=10, startTime=0, width=50) annotation (Placement(transformation(
                   extent={{-80,-10},{-60,10}})));
           D.Sources.Table J(
             y0=L.'0',
@@ -247,13 +247,13 @@ the library and has the following content:
             t={22,140,150,180}) annotation (Placement(transformation(extent={{-80,
                     -38},{-60,-18}})));
         equation
-          connect(J.y, FF.j)     annotation (Line(
+          connect(J.y, FF.j) annotation (Line(
               points={{-60,28},{-10,28}},
               color={127,0,127}));
-          connect(CLK.y, FF.clk)    annotation (Line(
+          connect(CLK.y, FF.clk) annotation (Line(
               points={{-60,0},{-10,0}},
               color={127,0,127}));
-          connect(K.y, FF.k)      annotation (Line(
+          connect(K.y, FF.k) annotation (Line(
               points={{-60,-28},{-10,-28}},
               color={127,0,127}));
           annotation (
@@ -271,11 +271,11 @@ the library and has the following content:
           Modelica.Electrical.Digital.Sources.Table a(
             t={1,2,3,4},
             x={L.'1',L.'0',L.'1',L.'0'},
-            y0=L.'0')   annotation (Placement(transformation(extent={{-80,18},{-60,38}})));
+            y0=L.'0') annotation (Placement(transformation(extent={{-80,18},{-60,38}})));
           Modelica.Electrical.Digital.Sources.Table b(
             x={L.'1',L.'0'},
             t={2,4},
-            y0=L.'0')   annotation (Placement(transformation(extent={{-80,-38},{-60,-18}})));
+            y0=L.'0') annotation (Placement(transformation(extent={{-80,-38},{-60,-18}})));
           Modelica.Electrical.Digital.Examples.Utilities.HalfAdder Adder(delayTime=0.3, AND(G2(
                                                                                         y(       start=L.'U', fixed=true))),
         XOR(G2(                                                                                                    y(       start=L.'U', fixed=true))))
@@ -291,7 +291,7 @@ the library and has the following content:
         value_W=0.5,
         value_L=0,
         value_H=1,
-        value_m=0.5)               annotation (Placement(transformation(extent={{60,
+        value_m=0.5) annotation (Placement(transformation(extent={{60,
                     18},{80,38}})));
           Modelica.Electrical.Digital.Converters.LogicToReal c(
         n=1,
@@ -303,7 +303,7 @@ the library and has the following content:
         value_W=0.5,
         value_L=0,
         value_H=1,
-        value_m=0.5)               annotation (Placement(transformation(extent={{60,
+        value_m=0.5) annotation (Placement(transformation(extent={{60,
                     -38},{80,-18}})));
         equation
           connect(b.y,Adder. b) annotation (Line(
@@ -362,7 +362,7 @@ The simulation stop time should be 5 seconds.
           import L = Modelica.Electrical.Digital.Interfaces.Logic;
           extends Modelica.Icons.Example;
 
-          D.Examples.Utilities.FullAdder Adder1                  annotation (Placement(
+          D.Examples.Utilities.FullAdder Adder1 annotation (Placement(
                 transformation(extent={{0,-30},{60,30}})));
           D.Converters.LogicToReal s(value_0=0, value_1=1, value_H=1, value_L=0, value_m=0.5, value_U=0.5, value_W=0.5, value_X=0.5, value_Z=0.5, n=1)
                                    annotation (Placement(transformation(extent={{70,
@@ -372,9 +372,9 @@ The simulation stop time should be 5 seconds.
                     {{70,-32},{90,-12}})));
           D.Examples.Utilities.Counter3 Counter
             annotation (Placement(transformation(extent={{-60,-18},{-20,22}})));
-          D.Sources.Set Enable(x=L.'1')       annotation (Placement(transformation(
+          D.Sources.Set Enable(x=L.'1') annotation (Placement(transformation(
                   extent={{-90,6},{-70,26}})));
-          D.Sources.Clock CLK(period=1, startTime=0, width=50)       annotation (Placement(transformation(extent={{
+          D.Sources.Clock CLK(period=1, startTime=0, width=50) annotation (Placement(transformation(extent={{
                     -90,-22},{-70,-2}})));
         equation
           connect(Adder1.s, s.x[1])
@@ -489,16 +489,16 @@ The simulation stop time should be 10 seconds.
                                       annotation (Placement(transformation(extent={
                     {140,-80},{180,-40}})));
         equation
-          connect(b1.y, Adder1.b)  annotation (Line(
+          connect(b1.y, Adder1.b) annotation (Line(
               points={{-130,0},{-120,0},{-120,-54},{-100,-54}},
               color={127,0,127}));
-          connect(a1.y, Adder1.a)  annotation (Line(
+          connect(a1.y, Adder1.a) annotation (Line(
               points={{-130,60},{-110,60},{-110,-46},{-100,-46}},
               color={127,0,127}));
-          connect(Set.y, Adder1.c_in)  annotation (Line(
+          connect(Set.y, Adder1.c_in) annotation (Line(
               points={{-130,-74},{-100,-74}},
               color={127,0,127}));
-          connect(Adder1.c_out, Adder2.c_in)  annotation (Line(
+          connect(Adder1.c_out, Adder2.c_in) annotation (Line(
               points={{-60,-74},{-20,-74}},
               color={127,0,127}));
           connect(Adder2.c_out, Adder3.c_in) annotation (Line(
@@ -569,9 +569,9 @@ The result can be seen in the output signals of the FullAdders according to:</p>
           import D = Modelica.Electrical.Digital;
           extends Modelica.Icons.Example;
 
-          D.Sources.Step Enable(after=D.Interfaces.Logic.'1', before=D.Interfaces.Logic.'0', stepTime=1)       annotation (Placement(transformation(extent={
+          D.Sources.Step Enable(after=D.Interfaces.Logic.'1', before=D.Interfaces.Logic.'0', stepTime=1) annotation (Placement(transformation(extent={
                     {-90,8},{-50,48}})));
-          D.Sources.Clock Clock(period=1, startTime=0, width=50)       annotation (Placement(transformation(extent={
+          D.Sources.Clock Clock(period=1, startTime=0, width=50) annotation (Placement(transformation(extent={
                     {-90,-48},{-50,-8}})));
           D.Examples.Utilities.Counter3 Counter
             annotation (Placement(transformation(extent={{-30,-40},{50,40}})));
@@ -594,9 +594,9 @@ The result can be seen in the output signals of the FullAdders according to:</p>
           import D = Modelica.Electrical.Digital;
           extends Modelica.Icons.Example;
 
-          D.Sources.Step Enable(after=D.Interfaces.Logic.'1', before=D.Interfaces.Logic.'0', stepTime=1)       annotation (Placement(transformation(extent={
+          D.Sources.Step Enable(after=D.Interfaces.Logic.'1', before=D.Interfaces.Logic.'0', stepTime=1) annotation (Placement(transformation(extent={
                     {-90,8},{-50,48}})));
-          D.Sources.Clock Clock(period=1, startTime=0, width=50)       annotation (Placement(transformation(extent={
+          D.Sources.Clock Clock(period=1, startTime=0, width=50) annotation (Placement(transformation(extent={
                     {-90,-48},{-50,-8}})));
           D.Examples.Utilities.Counter Counter(n=4)
             annotation (Placement(transformation(extent={{-30,-40},{50,40}})));
@@ -657,7 +657,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
           connect(table2.y, delay.x[3]) annotation (Line(
               points={{-76,-40},{-30.68,-40},{-30.68,13.4833}},
               color={127,0,127}));
-          annotation (        Documentation(info="<html>
+          annotation (Documentation(info="<html>
 <p>This example is a simple test of the vector valued sensitive delay component. The delay times are chosen different from each other. To examine the results plot both the input vector x and the output vector y.</p>
 </html>"),
         experiment(StopTime=10));
@@ -696,7 +696,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
           connect(data_1.y, dFFREG.dataIn[2]) annotation (Line(
               points={{-66,50},{-44,50},{-44,41.68},{-20.24,41.68}},
               color={127,0,127}));
-          annotation (            experiment(StopTime=25),
+          annotation (experiment(StopTime=25),
         Documentation(info="<html>
 <p>This example is a simple test of the Registers.DFFREG component. The data width is set to two. After simulation plot both the dataIn and the dataOut vectors. To verify the results compare the truth table which is documented in the DFFREG component.</p>
 </html>"));
@@ -734,7 +734,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
           connect(data_1.y, dFFREGL.dataIn[2]) annotation (Line(
               points={{-66,50},{-52,50},{-52,35.88},{-36.88,35.88}},
               color={127,0,127}));
-          annotation (            experiment(StopTime=25),
+          annotation (experiment(StopTime=25),
         Documentation(info="<html>
 <p>This example is a simple test of the Registers.DFFREGL component. The data width is set to two. After simulation plot both the dataIn and the dataOut vectors. To verify the results compare the truth table which is documented in the DFFREGL component.</p>
 </html>"));
@@ -777,7 +777,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
           connect(data_1.y, dFFREGSRH.dataIn[2]) annotation (Line(
               points={{-66,50},{-48,50},{-48,40.76},{-29.72,40.76}},
               color={127,0,127}));
-          annotation (            experiment(StopTime=15),
+          annotation (experiment(StopTime=15),
         Documentation(info="<html>
 <p>This example is a simple test of the Registers.DFFREGSRH component. The data width is set to two. After simulation plot both the dataIn and the dataOut vectors. To verify the results compare the truth table which is documented in the DFFREGSRH component.</p>
 </html>"));
@@ -818,7 +818,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
           connect(data_1.y, dFFREGSRL.dataIn[2]) annotation (Line(
               points={{-66,50},{-56,50},{-56,36.72},{-39.96,36.72}},
               color={127,0,127}));
-          annotation (            experiment(StopTime=15),
+          annotation (experiment(StopTime=15),
         Documentation(info="<html>
 <p>This example is a simple test of the Registers.DFFREGSRL component. The data width is set to two. After simulation plot both the dataIn and the dataOut vectors. To verify the results compare the truth table which is documented in the DFFREGSRL component.</p>
 </html>"));
@@ -855,7 +855,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
           connect(data_1.y, dLATREG.dataIn[2]) annotation (Line(
               points={{-66,50},{-56,50},{-56,42.88},{-39.84,42.88}},
               color={127,0,127}));
-          annotation (            experiment(StopTime=25),
+          annotation (experiment(StopTime=25),
         Documentation(info="<html>
 <p>This example is a simple test of the Registers.DLATREG component. The data width is set to two. After simulation plot both the dataIn and the dataOut vectors. To verify the results compare the truth table which is documented in the DLATREG component.</p>
 </html>"));
@@ -891,7 +891,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
           connect(data_1.y, dLATREGL.dataIn[2]) annotation (Line(
               points={{-66,50},{-56,50},{-56,42.88},{-39.84,42.88}},
               color={127,0,127}));
-          annotation (            experiment(StopTime=25),
+          annotation (experiment(StopTime=25),
         Documentation(info="<html>
 <p>This example is a simple test of the Registers.DLATREGL component. The data width is set to two. After simulation plot both the dataIn and the dataOut vectors. To verify the results compare the truth table which is documented in the DLATREGL component.</p>
 </html>"));
@@ -934,7 +934,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
               points={{-66,84},{-40.44,84},{-40.44,59.7}},
               color={127,0,127}));
 
-          annotation (            experiment(StopTime=25),
+          annotation (experiment(StopTime=25),
         Documentation(info="<html>
 <p>This example is a simple test of the Registers.DLATREGSRH component. The data width is set to two. After simulation plot both the dataIn and the dataOut vectors. To verify the results compare the truth table which is documented in the DLATREGSRH component.</p>
 </html>"));
@@ -976,7 +976,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
           connect(set.y, dLATREGSRL.set) annotation (Line(
               points={{-66,84},{-40.44,84},{-40.44,59.6}},
               color={127,0,127}));
-          annotation (            experiment(StopTime=25),
+          annotation (experiment(StopTime=25),
         Documentation(info="<html>
 <p>This example is a simple test of the Registers.DLATREGSRL component. The data width is set to two. After simulation plot both the dataIn and the dataOut vectors. To verify the results compare the truth table which is documented in the DLATREGSRL component.</p>
 </html>"));
@@ -1373,7 +1373,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
             Documentation(info="<html>
 <p>MUX4 is a four bit multiplexer which is built up by And, Not, and Or gates according to the schematic.</p>
 <p>The parameters delayTime and q0 are prepared but <b>not</b> yet used in the component. The MUX4 component uses standard values in its components.</p>
-</html>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                   {100,100}}), graphics={
               Rectangle(
                 extent={{-90,100},{90,-100}},
@@ -1422,31 +1422,31 @@ The result can be seen in the output signals of the FullAdders according to:</p>
 
           parameter SI.Time delayTime=0 "Delay time";
           parameter D.Interfaces.Logic q0=L.'U' "Initial value of output";
-          D.Basic.Nor Nor1   annotation (Placement(transformation(extent={{-40,42},
+          D.Basic.Nor Nor1 annotation (Placement(transformation(extent={{-40,42},
                       {0,82}})));
-          D.Basic.Nor Nor2   annotation (Placement(transformation(extent={{-40,-82},
+          D.Basic.Nor Nor2 annotation (Placement(transformation(extent={{-40,-82},
                       {0,-42}})));
-          D.Interfaces.DigitalInput s   annotation (Placement(transformation(extent=
+          D.Interfaces.DigitalInput s annotation (Placement(transformation(extent=
                      {{-110,60},{-90,80}})));
-          D.Interfaces.DigitalInput r    annotation (Placement(transformation(
+          D.Interfaces.DigitalInput r annotation (Placement(transformation(
                     extent={{-110,-80},{-90,-60}})));
-          D.Interfaces.DigitalOutput q   annotation (Placement(transformation(
+          D.Interfaces.DigitalOutput q annotation (Placement(transformation(
                     extent={{90,60},{110,80}})));
-          D.Interfaces.DigitalOutput qn   annotation (Placement(transformation(
+          D.Interfaces.DigitalOutput qn annotation (Placement(transformation(
                     extent={{90,-80},{110,-60}})));
           D.Delay.TransportDelay TD1(delayTime=delayTime,y0=q0)
               annotation (Placement(transformation(extent={{-60,-64},{-40,-44}})));
         equation
-          connect(s, Nor1.x[2])   annotation (Line(points={{-100,70},{-32,70}},
+          connect(s, Nor1.x[2]) annotation (Line(points={{-100,70},{-32,70}},
                   color={127,0,127}));
-          connect(r, Nor2.x[1])    annotation (Line(points={{-100,-70},{-32,-70}},
+          connect(r, Nor2.x[1]) annotation (Line(points={{-100,-70},{-32,-70}},
                   color={127,0,127}));
-          connect(Nor2.y, Nor1.x[1])   annotation (Line(points={{0,-62},{20,-62},{
+          connect(Nor2.y, Nor1.x[1]) annotation (Line(points={{0,-62},{20,-62},{
                     20,-20},{-70,20},{-70,54},{-32,54}}, color={127,0,127}));
-          connect(Nor1.y,qn)    annotation (Line(
+          connect(Nor1.y,qn) annotation (Line(
                 points={{0,62},{50,62},{50,-70},{100,-70}},
                 color={127,0,127}));
-          connect(Nor2.y,q)    annotation (Line(
+          connect(Nor2.y,q) annotation (Line(
                 points={{0,-62},{70,-62},{70,70},{100,70}},
                 color={127,0,127}));
           connect(TD1.y, Nor2.x[2]) annotation (Line(points={{-40,-54},{-32,-54}},
@@ -1456,7 +1456,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
           annotation (
             Documentation(info="<html>
 <p>RS is a basic component for e.g., the RS (set-reset) flipflop, which is built up by Nor gates according to the schematic. To avoid a numerical loop a small transport delay is inserted which delay time is a parameter of the RS component. Also its initial value can be set by parameter.</p>
-</html>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                   {100,100}}), graphics={
               Rectangle(
                 extent={{-90,100},{90,-100}},
@@ -1496,22 +1496,22 @@ The result can be seen in the output signals of the FullAdders according to:</p>
 
           parameter SI.Time delayTime=0.01 "Delay time";
           parameter D.Interfaces.Logic q0=L.'U' "Initial value";
-          D.Interfaces.DigitalInput s   annotation (Placement(transformation(extent=
+          D.Interfaces.DigitalInput s annotation (Placement(transformation(extent=
                      {{-110,60},{-90,80}})));
-          D.Interfaces.DigitalInput r     annotation (Placement(transformation(
+          D.Interfaces.DigitalInput r annotation (Placement(transformation(
                     extent={{-110,-80},{-90,-60}})));
           D.Interfaces.DigitalOutput q annotation (Placement(transformation(extent=
                       {{90,60},{110,80}})));
           D.Interfaces.DigitalOutput qn "not Q"
             annotation (Placement(transformation(extent={{90,-80},{110,-60}})));
-          D.Interfaces.DigitalInput clk       annotation (Placement(transformation(
+          D.Interfaces.DigitalInput clk annotation (Placement(transformation(
                     extent={{-110,-10},{-90,10}})));
           D.Examples.Utilities.RS RS1(delayTime=delayTime,q0=q0)
                                             annotation (Placement(transformation(
                     extent={{-10,-40},{70,40}})));
-          D.Basic.And And1       annotation (Placement(transformation(extent={{-70,
+          D.Basic.And And1 annotation (Placement(transformation(extent={{-70,
                       8},{-30,48}})));
-          D.Basic.And And2       annotation (Placement(transformation(extent={{-70,
+          D.Basic.And And2 annotation (Placement(transformation(extent={{-70,
                       -48},{-30,-8}})));
         equation
           connect(And2.y, RS1.r)
@@ -1543,7 +1543,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
           annotation (
             Documentation(info="<html>
 <p>Basing on the RS component RSFF is a RS (set-reset) flipflop composed according the schematic. Its parameter delayTime is the delay time of the RS component transport delay, q0 is the initial value of that delay.</p>
-</html>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                   {100,100}}), graphics={
               Rectangle(
                 extent={{-90,100},{90,-100}},
@@ -1584,17 +1584,17 @@ The result can be seen in the output signals of the FullAdders according to:</p>
 
           parameter SI.Time Tdel=0.01 "Delay time";
           parameter L QInit=L.'U' "Initial value";
-          D.Interfaces.DigitalInput d   annotation (Placement(transformation(extent=
+          D.Interfaces.DigitalInput d annotation (Placement(transformation(extent=
                      {{-110,60},{-90,80}})));
           D.Interfaces.DigitalOutput q annotation (Placement(transformation(extent=
                       {{90,60},{110,80}})));
           D.Interfaces.DigitalOutput qn "not Q"
             annotation (Placement(transformation(extent={{90,-80},{110,-60}})));
-          D.Interfaces.DigitalInput clk       annotation (Placement(transformation(
+          D.Interfaces.DigitalInput clk annotation (Placement(transformation(
                     extent={{-110,-10},{-90,10}})));
-          D.Examples.Utilities.RSFF RSFF1   annotation (Placement(transformation(
+          D.Examples.Utilities.RSFF RSFF1 annotation (Placement(transformation(
                     extent={{-10,-40},{70,40}})));
-          D.Basic.Not Not1      annotation (Placement(transformation(extent={{-70,
+          D.Basic.Not Not1 annotation (Placement(transformation(extent={{-70,
                       -48},{-30,-8}})));
         equation
           connect(RSFF1.q,q)
@@ -1609,10 +1609,10 @@ The result can be seen in the output signals of the FullAdders according to:</p>
                                  annotation (Line(
                 points={{-30,-28},{-22,-28},{-10,-28}},
                 color={127,0,127}));
-          connect(d, Not1.x)  annotation (Line(
+          connect(d, Not1.x) annotation (Line(
                 points={{-100,70},{-80,70},{-80,-28},{-62,-28}},
                 color={127,0,127}));
-          connect(d, RSFF1.s)  annotation (Line(
+          connect(d, RSFF1.s) annotation (Line(
                 points={{-100,70},{-80,70},{-80,28},{-10,28}},
                 color={127,0,127}));
         connect(clk, RSFF1.clk) annotation (Line(
@@ -1621,7 +1621,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
           annotation (
             Documentation(info="<html>
 <p>Basing on the RS component DFF is a D  flipflop composed according the schematic. Its parameter delayTime is the delay time of the RS component transport delay, q0 is the initial value of that delay.</p>
-</html>"),   Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                   {100,100}}), graphics={
               Rectangle(
                 extent={{-90,100},{90,-100}},
@@ -1659,32 +1659,32 @@ The result can be seen in the output signals of the FullAdders according to:</p>
 
           parameter SI.Time delayTime=0.001 "Delay time";
           parameter D.Interfaces.Logic q0=L.'0' "Initial value";
-          D.Interfaces.DigitalInput j   annotation (Placement(transformation(extent=
+          D.Interfaces.DigitalInput j annotation (Placement(transformation(extent=
                      {{-110,60},{-90,80}})));
           D.Interfaces.DigitalOutput q annotation (Placement(transformation(extent=
                       {{90,60},{110,80}})));
           D.Interfaces.DigitalOutput qn "not Q"
             annotation (Placement(transformation(extent={{90,-80},{110,-60}})));
-          D.Interfaces.DigitalInput clk       annotation (Placement(transformation(
+          D.Interfaces.DigitalInput clk annotation (Placement(transformation(
                     extent={{-110,-10},{-90,10}})));
-          D.Interfaces.DigitalInput k   annotation (Placement(transformation(extent=
+          D.Interfaces.DigitalInput k annotation (Placement(transformation(extent=
                      {{-110,-80},{-90,-60}})));
-            D.Examples.Utilities.RS RS1(delayTime=delayTime,q0=q0)
-                                         annotation (Placement(transformation(
-                    extent={{30,-24},{70,16}})));
-            D.Examples.Utilities.RS RS2(delayTime=delayTime,q0=q0)
-                                         annotation (Placement(transformation(
-                    extent={{-44,-20},{-4,20}})));
-            D.Basic.And And1(n=3) annotation (Placement(transformation(extent={{-70,
-                      4},{-50,24}})));
-            D.Basic.And And2(n=3) annotation (Placement(transformation(extent={{-70,
-                      -24},{-50,-4}})));
-            D.Basic.And And3 annotation (Placement(transformation(extent={{4,0},{24,
-                      20}})));
-            D.Basic.And And4 annotation (Placement(transformation(extent={{4,-28},{
-                      24,-8}})));
-            D.Basic.Not Not1 annotation (Placement(transformation(extent={{-34,-66},
-                      {-14,-46}})));
+          D.Examples.Utilities.RS RS1(delayTime=delayTime,q0=q0)
+                                       annotation (Placement(transformation(
+                  extent={{30,-24},{70,16}})));
+          D.Examples.Utilities.RS RS2(delayTime=delayTime,q0=q0)
+                                       annotation (Placement(transformation(
+                  extent={{-44,-20},{-4,20}})));
+          D.Basic.And And1(n=3) annotation (Placement(transformation(extent={{-70,
+                    4},{-50,24}})));
+          D.Basic.And And2(n=3) annotation (Placement(transformation(extent={{-70,
+                    -24},{-50,-4}})));
+          D.Basic.And And3 annotation (Placement(transformation(extent={{4,0},{24,
+                    20}})));
+          D.Basic.And And4 annotation (Placement(transformation(extent={{4,-28},{
+                    24,-8}})));
+          D.Basic.Not Not1 annotation (Placement(transformation(extent={{-34,-66},
+                    {-14,-46}})));
         equation
             connect(And2.y, RS2.r) annotation (Line(points={{-50,-14},{-44,-14}},
                   color={127,0,127}));
@@ -1724,7 +1724,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
           annotation (
             Documentation(info="<html>
 <p>Basing on the RS component JKFF is a J-K-flipflop composed according the schematic. Its parameter delayTime is the delay time of the RS component transport delay, q0 is the initial value of that delay.</p>
-</html>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                   {100,100}}), graphics={
               Rectangle(
                 extent={{-90,100},{90,-100}},
@@ -1799,7 +1799,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
                     connect(a, AND.x[2])
                                       annotation (Line(points={{-100,70},{-40,70},{
                     -40,-54},{-12,-54}}, color={127,0,127}));
-                    annotation ( Icon(coordinateSystem(preserveAspectRatio=true,
+                    annotation (Icon(coordinateSystem(preserveAspectRatio=true,
                     extent={{-100,-100},{100,100}}), graphics={Rectangle(
                                   extent={{-90,100},{90,-100}},
                                   lineThickness=0.5,
@@ -1900,7 +1900,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
                       -50}})));
         equation
 
-          connect(c_out, OR.y)   annotation (Line(
+          connect(c_out, OR.y) annotation (Line(
                 points={{100,-70},{50,-70}},
                 color={127,0,127}));
           connect(Adder2.c, OR.x[2])
@@ -1988,7 +1988,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
 <td valign=\"top\"><p>1</p></td>
 </tr>
 </table>
-</html>"),  Icon(coordinateSystem(
+</html>"), Icon(coordinateSystem(
                   preserveAspectRatio=true,
                   extent={{-100,-100},{100,100}}), graphics={
               Rectangle(
@@ -2062,7 +2062,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
           annotation (
             Documentation(info="<html>
 <p>The Adder is a generic n bit adder which is composed as a chain of FullAdder components. n can be chosen by the user, a and b are the n bit input vectors, s is the sum vector, and c_out is the carry bit of the &quot;highes&quot; FullAdder.   All components are built up by Gate components.</p>
-</html>"),  Icon(coordinateSystem(
+</html>"), Icon(coordinateSystem(
                   preserveAspectRatio=true,
                   extent={{-100,-100},{100,100}}), graphics={
               Rectangle(
@@ -2117,34 +2117,34 @@ The result can be seen in the output signals of the FullAdders according to:</p>
           D.Interfaces.DigitalOutput q0 annotation (Placement(transformation(extent=
                      {{90,-80},{110,-60}})));
         equation
-          connect(enable, FF1.j)       annotation (Line(
+          connect(enable, FF1.j) annotation (Line(
                 points={{-100,70},{-80,70},{-80,14},{-74,14}},
                 color={127,0,127}));
-          connect(enable, FF1.k)      annotation (Line(
+          connect(enable, FF1.k) annotation (Line(
                 points={{-100,70},{-80,70},{-80,-14},{-74,-14}},
                 color={127,0,127}));
-          connect(count, FF1.clk)      annotation (Line(
+          connect(count, FF1.clk) annotation (Line(
                 points={{-100,-70},{-86,-70},{-86,0},{-74,0}},
                 color={127,0,127}));
-          connect(FF1.q, FF2.clk)        annotation (Line(
+          connect(FF1.q, FF2.clk) annotation (Line(
                 points={{-34,14},{-30,14},{-30,0},{-20,0}},
                 color={127,0,127}));
-          connect(FF2.q, FF3.clk)        annotation (Line(
+          connect(FF2.q, FF3.clk) annotation (Line(
                 points={{20,14},{24,14},{24,0},{34,0}},
                 color={127,0,127}));
-          connect(FF2.j, enable)       annotation (Line(
+          connect(FF2.j, enable) annotation (Line(
                 points={{-20,14},{-26,14},{-26,70},{-100,70}},
                 color={127,0,127}));
-          connect(FF2.k, FF2.j)         annotation (Line(
+          connect(FF2.k, FF2.j) annotation (Line(
                 points={{-20,-14},{-26,-14},{-26,14},{-20,14}},
                 color={127,0,127}));
-          connect(FF3.k, FF3.j)         annotation (Line(
+          connect(FF3.k, FF3.j) annotation (Line(
                 points={{34,-14},{28,-14},{28,14},{34,14}},
                 color={127,0,127}));
-          connect(FF3.j, enable)       annotation (Line(
+          connect(FF3.j, enable) annotation (Line(
                 points={{34,14},{28,14},{28,70},{-100,70}},
                 color={127,0,127}));
-          connect(FF3.q, q2)     annotation (Line(
+          connect(FF3.q, q2) annotation (Line(
                 points={{74,14},{80,14},{80,70},{100,70}},
                 color={127,0,127}));
           connect(FF1.q, q0) annotation (Line(points={{-34,14},{-30,14},{-30,-70},{
@@ -2154,7 +2154,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
            annotation (
              Documentation(info="<html>
 <p>The Counter3 counts the high-low slopes of the count signal, if the enable signal is set to be true. It is composed by three JK flipflops. q0, q1, and q2 are the bits of the resulting number, where q0 is the lowest, and q2 the highest bit.</p>
-</html>"),   Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                   {100,100}}), graphics={
               Rectangle(
                 extent={{-90,100},{90,-100}},
@@ -2215,7 +2215,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
           annotation (
             Documentation(info="<html>
 <p>The Counter is a generic component, which counts the high-low slopes of the count signal, if the enable signal is set to be true. It is composed by  n JK flipflops. q is the resulting number, where q[0] is the lowest, and q[n] the highest bit.</p>
-</html>"),  Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+</html>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                   -100},{100,100}}), graphics={Rectangle(
                 extent={{90,80},{110,-80}},
                 lineColor={127,0,127},
@@ -2255,7 +2255,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
 </html>"));
       end Utilities;
 
-        annotation (                                Documentation(info="<html>
+        annotation (Documentation(info="<html>
 <p>This package contains examples that demonstrate the usage of the components of the Electrical.Digital library.</p>
 <p>The examples are simple to understand. They will show a typical behavior of the components, and they will give hints to users.</p>
 </html>"));
@@ -2327,7 +2327,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
         'S_WLZ',
         'S_WZH',
         'S_W0H',
-        'S_WL1') "Output strengths of registers"     annotation (Documentation(info="<html>
+        'S_WL1') "Output strengths of registers" annotation (Documentation(info="<html>
 
 <p><b>Strength Table:</b></p>
 
@@ -2351,7 +2351,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
 
         connector DigitalSignal = Logic
       "Digital port (both input/output possible)"
-          annotation (          Documentation(info="<html>
+          annotation (Documentation(info="<html>
 <p>DigitalSignal is the basic digital connector definition. A direction (input, output) is not yet defined. DigitalSignal is of type Logic. It can have the logic values (U, X, 0, 1, ...) which are internally coded by integer values by using the enumeration (c.f. the definition of type Logic).</p>
 </html>"));
 
@@ -2409,7 +2409,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
           D.Interfaces.DigitalOutput y "Connector of Digital output signal"
                         annotation (Placement(transformation(extent={{90,-10},{110,
                     10}})));
-          annotation (                                        Icon(
+          annotation (Icon(
                 coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={Rectangle(
               extent={{-50,100},{50,-100}},
@@ -2476,7 +2476,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
 </html>"));
         end MIMO;
 
-        annotation (                                Documentation(info="<html>
+        annotation (Documentation(info="<html>
 <p>This package contains basic definitions: Type definitions of Logic and Strength,  interface definitions (connectors) for digital electrical components, and partial models for connection patterns which are often used.</p>
 </html>"));
       end Interfaces;
@@ -2673,7 +2673,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
          {{L.'U',L.'U',L.'U',L.'1'},{L.'U',L.'X',L.'X',L.'1'},{L.'U',L.'X',L.'0',L.'1'},{L.'1',L.'1',L.'1',L.'1'}}}]
       "Multiplexer Table by [select, input1, input0] reading";
 
-    annotation (                            Documentation(info="<html>
+    annotation (Documentation(info="<html>
 
 </html>"));
   end Tables;
@@ -2774,7 +2774,7 @@ If time is less than <i>delayTime</i> the initial value <i>y0</i> holds.
 <dt><i>March 19, 2003</i></dt>
 <dd>by Martin Otter initially modelled.</dd>
 </dl>
-</html>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
             Text(
               extent={{152,-160},{-148,-100}},
@@ -2860,7 +2860,7 @@ is used, if it is zero, the input is not delayed.
        by Christoph Clauss<br>
        initially modelled</li>
 </ul>
-</html>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
             Text(
               extent={{152,-160},{-148,-100}},
@@ -2934,7 +2934,7 @@ is used, if it is zero, the input is not delayed.
             Text(
               extent={{-32,0},{28,-62}},
               lineColor={127,0,127},
-              textString="sensitive")}),            Documentation(info="<html>
+              textString="sensitive")}), Documentation(info="<html>
 
 <p>
 The delay element <b>Inertial Delay Sensitive</b> is applied to a vector of n signals.
@@ -2947,7 +2947,7 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
 </ul>
 </html>"));
         end InertialDelaySensitiveVector;
-        annotation (                                Documentation(info="<html>
+        annotation (Documentation(info="<html>
 <p>The Delay package collects the delay blocks which are used in many components. Both transport and inertial delay are offered for scalar connectors. The most advanced component is the sensitive inertial delay the delay time of which is chosen in dependency of the signal values. This component is also available for vector valued input.</p>
 </html>"));
       end Delay;
@@ -2975,7 +2975,7 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
 <dt><i>August 14, 2003</i></dt>
 <dd>by Teresa Schlegel initially modelled.</dd>
 </dl>
-</html>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
             Text(
               extent={{-50,40},{50,80}},
@@ -3021,7 +3021,7 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
        by  Teresa Schlegel<br>
        initially modelled.</li>
 </ul>
-</html>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={Text(
               extent={{-50,40},{50,80}},
               textString="&"), Text(
@@ -3060,7 +3060,7 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
        by  Teresa Schlegel<br>
        initially modelled.</li>
 </ul>
-</html>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
             Text(
               extent={{-50,40},{50,80}},
@@ -3106,7 +3106,7 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
        by  Teresa Schlegel<br>
        initially modelled.</li>
 </ul>
-</html>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={Text(
               extent={{-50,40},{50,80}},
               textString=">=1"), Text(
@@ -3146,7 +3146,7 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
        by Liane Jacobi<br>
        initially modelled.</li>
 </ul>
-</html>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
             Text(
               extent={{-50,40},{50,80}},
@@ -3192,7 +3192,7 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
        by Liane Jacobi<br>
        initially modelled.</li>
 </ul>
-</html>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={Text(
               extent={{-50,40},{50,80}},
               textString="=1"), Text(
@@ -3231,7 +3231,7 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
        by Liane Jacobi<br>
        initially modelled.</li>
 </ul>
-</html>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={Text(
               extent={{-50,40},{50,80}},
               textString="="), Text(
@@ -3239,7 +3239,7 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
               lineColor={0,0,255},
               textString="%name")}));
         end Xnor;
-        annotation (                                Documentation(info="<html>
+        annotation (Documentation(info="<html>
 <p>Basic contains the basic gates according to standard logic. The components of Basic calculate their results using the corresponding truth tables. They do not contain any delay components.</p>
 </html>"));
       end Basic;
@@ -3252,14 +3252,14 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
       import D = Modelica.Electrical.Digital;
           extends D.Delay.DelayParams;
           extends D.Interfaces.SISO;
-          D.Basic.Not G1         annotation (Placement(transformation(extent={{-60,
+          D.Basic.Not G1 annotation (Placement(transformation(extent={{-60,
                     -20},{-20,20}})));
           D.Delay.InertialDelaySensitive G2(tLH=tLH, tHL=tHL)
             annotation (Placement(transformation(extent={{20,-20},{60,20}})));
         equation
-          connect(G2.y, y)                      annotation (Line(points={{60,0},{
+          connect(G2.y, y) annotation (Line(points={{60,0},{
                   100,0}}, color={127,0,127}));
-          connect(G1.x, x)   annotation (Line(points={{-52,0},{-60,0}}, color={127,
+          connect(G1.x, x) annotation (Line(points={{-52,0},{-60,0}}, color={127,
                   0,127}));
           connect(G1.y, G2.x)
             annotation (Line(points={{-20,0},{28,0}}, color={127,0,127}));
@@ -3272,7 +3272,7 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
 <dt><i>August 14, 2003</i></dt>
 <dd>by Teresa Schlegel initially modelled.</dd>
 </dl>
-</html>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
             Text(
               extent={{152,-160},{-148,-100}},
@@ -3300,12 +3300,12 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
       import D = Modelica.Electrical.Digital;
           extends D.Interfaces.MISO;
           extends D.Delay.DelayParams;
-          D.Basic.And G1(final n=n)     annotation (Placement(transformation(extent={
+          D.Basic.And G1(final n=n) annotation (Placement(transformation(extent={
                     {-40,-20},{0,20}})));
           D.Delay.InertialDelaySensitive G2(
             tLH=tLH,
             tHL=tHL,
-            y0=y0)     annotation (Placement(transformation(extent={{20,-20},{60,20}})));
+            y0=y0) annotation (Placement(transformation(extent={{20,-20},{60,20}})));
         equation
           connect(x, G1.x)
             annotation (Line(points={{-60,0},{-32,0}}, color={127,0,127}));
@@ -3326,7 +3326,7 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
        by Teresa Schlegel<br>
        initially modelled.</li>
 </ul>
-</html>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
             Text(
               extent={{152,-160},{-148,-100}},
@@ -3349,12 +3349,12 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
       import D = Modelica.Electrical.Digital;
           extends D.Delay.DelayParams;
           extends D.Interfaces.MISO;
-          D.Basic.Nand G1(final n=n)      annotation (Placement(transformation(extent=
+          D.Basic.Nand G1(final n=n) annotation (Placement(transformation(extent=
                    {{-40,-20},{0,20}})));
           D.Delay.InertialDelaySensitive G2(
             tLH=tLH,
             tHL=tHL,
-            y0=y0)     annotation (Placement(transformation(extent={{20,-20},{60,20}})));
+            y0=y0) annotation (Placement(transformation(extent={{20,-20},{60,20}})));
         equation
           connect(x, G1.x)
             annotation (Line(points={{-60,0},{-32,0}}, color={127,0,127}));
@@ -3362,7 +3362,7 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
             annotation (Line(points={{0,0},{28,0}}, color={127,0,127}));
           connect(G2.y, y)
             annotation (Line(points={{60,0},{100,0}}, color={127,0,127}));
-          annotation (            Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
+          annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
                              graphics={
             Text(
               extent={{152,-160},{-148,-100}},
@@ -3402,12 +3402,12 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
       import D = Modelica.Electrical.Digital;
           extends D.Delay.DelayParams;
           extends D.Interfaces.MISO;
-          D.Basic.Or G1(final n=n)    annotation (Placement(transformation(extent={{
+          D.Basic.Or G1(final n=n) annotation (Placement(transformation(extent={{
                     -40,-20},{0,20}})));
           D.Delay.InertialDelaySensitive G2(
             tLH=tLH,
             tHL=tHL,
-            y0=y0)     annotation (Placement(transformation(extent={{20,-20},{60,20}})));
+            y0=y0) annotation (Placement(transformation(extent={{20,-20},{60,20}})));
         equation
           connect(G1.y, G2.x)
             annotation (Line(points={{0,0},{28,0}}, color={127,0,127}));
@@ -3428,7 +3428,7 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
        by Teresa Schlegel<br>
        initially modelled.</li>
 </ul>
-</html>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
             Text(
               extent={{152,-160},{-148,-100}},
@@ -3451,12 +3451,12 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
       import D = Modelica.Electrical.Digital;
           extends D.Delay.DelayParams;
           extends D.Interfaces.MISO;
-          D.Basic.Nor G1(final n=n)     annotation (Placement(transformation(extent={
+          D.Basic.Nor G1(final n=n) annotation (Placement(transformation(extent={
                     {-40,-20},{0,20}})));
           D.Delay.InertialDelaySensitive G2(
             tLH=tLH,
             tHL=tHL,
-            y0=y0)     annotation (Placement(transformation(extent={{20,-20},{60,20}})));
+            y0=y0) annotation (Placement(transformation(extent={{20,-20},{60,20}})));
         equation
           connect(G1.y, G2.x)
             annotation (Line(points={{0,0},{28,0}}, color={127,0,127}));
@@ -3477,7 +3477,7 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
        by Liane Jacobi<br>
        initially modelled.</li>
 </ul>
-</html>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
             Text(
               extent={{152,-160},{-148,-100}},
@@ -3505,12 +3505,12 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
       import D = Modelica.Electrical.Digital;
           extends D.Delay.DelayParams;
           extends D.Interfaces.MISO;
-          D.Basic.Xor G1(final n=n)     annotation (Placement(transformation(extent={
+          D.Basic.Xor G1(final n=n) annotation (Placement(transformation(extent={
                     {-40,-20},{0,20}})));
           D.Delay.InertialDelaySensitive G2(
             tLH=tLH,
             tHL=tHL,
-            y0=y0)     annotation (Placement(transformation(extent={{20,-20},{60,20}})));
+            y0=y0) annotation (Placement(transformation(extent={{20,-20},{60,20}})));
         equation
           connect(x, G1.x)
             annotation (Line(points={{-60,0},{-32,0}}, color={127,0,127}));
@@ -3531,7 +3531,7 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
        by Liane Jacobi<br>
        initially modelled.</li>
 </ul>
-</html>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
             Text(
               extent={{152,-160},{-148,-100}},
@@ -3554,12 +3554,12 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
       import D = Modelica.Electrical.Digital;
           extends D.Delay.DelayParams;
           extends D.Interfaces.MISO;
-          D.Basic.Xnor G1(final n=n)      annotation (Placement(transformation(extent=
+          D.Basic.Xnor G1(final n=n) annotation (Placement(transformation(extent=
                    {{-40,-20},{0,20}})));
           D.Delay.InertialDelaySensitive G2(
             tLH=tLH,
             tHL=tHL,
-            y0=y0)     annotation (Placement(transformation(extent={{20,-20},{60,20}})));
+            y0=y0) annotation (Placement(transformation(extent={{20,-20},{60,20}})));
         equation
           connect(x, G1.x)
             annotation (Line(points={{-60,0},{-32,0}}, color={127,0,127}));
@@ -3580,7 +3580,7 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
        by Liane Jacobi<br>
        initially modelled.</li>
 </ul>
-</html>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
             Text(
               extent={{152,-160},{-148,-100}},
@@ -3607,7 +3607,7 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
           D.Delay.InertialDelaySensitive G1(tLH=tLH, tHL=tHL)
             annotation (Placement(transformation(extent={{-30,-20},{10,20}})));
         equation
-          connect(G1.y, y)                      annotation (Line(points={{10,0},{
+          connect(G1.y, y) annotation (Line(points={{10,0},{
                   100,0}}, color={127,0,127}));
           connect(G1.x, x) annotation (Line(points={{-22,0},{-60,0}}, color={127,0,
                   127}));
@@ -3620,7 +3620,7 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
 <dt><i>September 21, 2004</i></dt>
 <dd>by Andre Schneider initially modelled.</dd>
 </dl>
-</html>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
             Text(
               extent={{152,-160},{-148,-100}},
@@ -3638,7 +3638,7 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
               extent={{-50,80},{50,40}},
               textString="1")}));
         end BufGate;
-        annotation (                                Documentation(info="<html>
+        annotation (Documentation(info="<html>
 <p>Gates contains the basic gates according to standard logic as they are provided in the Basic package. Additionally they contain an InertialDelaySensitive component They are composed graphically, not using any equations.</p>
 </html>"));
       end Gates;
@@ -3764,7 +3764,7 @@ they can be used to specify the parameter, e.g., <b>L.'0'</b> for forcing 0.
 <dt><i>August 20, 2003</i></dt>
 <dd>by Teresa Schlegel initially modelled.</dd>
 </dl>
-</html>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
             Rectangle(
               extent={{-50,100},{50,-100}},
@@ -3839,7 +3839,7 @@ they can be used to specify the parameter, e.g., <b>L.'0'</b> for forcing 0.
 <dt><i>August 20, 2003</i></dt>
 <dd>by Teresa Schlegel initially modelled.</dd>
 </dl>
-</html>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
             Rectangle(
               extent={{-50,100},{50,-100}},
@@ -4006,7 +4006,7 @@ The number of periods is unlimited. The first pulse starts at startTime.
             Line(points={{-36,40},{-30,40},{-30,80},{-18,80},{-18,40},{-6,40},{
                   -6,80},{6,80},{6,40},{18,40},{18,80},{30,80},{30,40},{36,40}})}));
         end Clock;
-        annotation (                                Documentation(info="<html>
+        annotation (Documentation(info="<html>
 <p>The sources are not taken from Standard Logic. They were added since they turned out to be quite useful, since such sources are often needed. For a better optical overview the colour green was chosen for the sources.</p>
 </html>"));
       end Sources;
@@ -4059,7 +4059,7 @@ If the signal width is greater than 1 this conversion is done for each signal.
        by Christoph Clauss<br>
        initially modelled.</li>
 </ul>
-</html>"),         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
             Text(
               extent={{152,-100},{-148,-40}},
@@ -4129,7 +4129,7 @@ If the signal width is greater than 1 this conversion is done for each signal.
        by Christoph Clauss<br>
        initially modelled.</li>
 </ul>
-</html>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
             Text(
               extent={{152,-100},{-148,-40}},
@@ -4199,7 +4199,7 @@ If the signal width is greater than 1 this conversion is done for each signal.
        by Christoph Clauss<br>
        initially modelled.</li>
 </ul>
-</html>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
             Text(
               extent={{152,-100},{-148,-40}},
@@ -4257,7 +4257,7 @@ If the signal width is greater than 1 this conversion is done for each signal.
        by Christoph Clauss<br>
        initially modelled.</li>
 </ul>
-</html>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
             Polygon(
               points={{-40,-40},{40,40},{40,-40},{-40,-40}},
@@ -4379,7 +4379,7 @@ If the signal width is greater than 1 this conversion is done for each signal.
        by Christoph Clauss<br>
        initially modelled.</li>
 </ul>
-</html>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
             Polygon(
               points={{-40,-40},{40,40},{40,-40},{-40,-40}},
@@ -4525,7 +4525,7 @@ If the signal width is greater than 1 this conversion is done for each signal.
        by Christoph Clauss<br>
        initially modelled.</li>
 </ul>
-</html>"),         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
             Text(
               extent={{152,-100},{-148,-40}},
@@ -4600,7 +4600,7 @@ If the signal width is greater than 1 this conversion is done for each signal.
        by Christoph Clauss<br>
        initially modelled.</li>
 </ul>
-</html>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
             Text(
               extent={{152,-100},{-148,-40}},
@@ -4624,7 +4624,7 @@ If the signal width is greater than 1 this conversion is done for each signal.
               extent={{-40,40},{40,-40}},
               lineThickness=0.5)}));
         end LogicToXO1Z;
-        annotation (                                Documentation(info="<html>
+        annotation (Documentation(info="<html>
 <p>The Converter BooleanToLogic, LogicToBoolean, RealToLogic, and LogicTo Real components are not standard logic components. They were designed to easily convert from or to Boolean or Real valued signals. The LogicToX01, LogicToX01Z and LogicTo UX01 converters correspond to standard logic functions. They transform 9-valued logic to 3- or 4-valued logic.</p>
 </html>"));
       end Converters;
@@ -4719,7 +4719,7 @@ If the signal width is greater than 1 this conversion is done for each signal.
         end if;
         next_assign_val := nextstate;
         dataOut := nextstate;
-          annotation (   Icon(coordinateSystem(
+          annotation (Icon(coordinateSystem(
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
             graphics={
             Rectangle(
@@ -4875,7 +4875,7 @@ Clock transition definitions:
           connect(reset, dFFR.reset) annotation (Line(
               points={{-92,-60},{-30,-60},{-30,-18.15}},
               color={127,0,127}));
-          annotation (   Icon(coordinateSystem(
+          annotation (Icon(coordinateSystem(
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
             graphics={
             Rectangle(
@@ -5001,7 +5001,7 @@ Clock transition definitions:
 <li><i>September 11, 2009 </i> created by Ulrich Donath<br>
        </li>
 </ul>
-</html>"),         Icon(graphics={Rectangle(
+</html>"), Icon(graphics={Rectangle(
               extent={{-30,30},{28,16}},
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid,
@@ -5139,7 +5139,7 @@ Clock transition definitions:
 
         next_assign_val := nextstate;
         dataOut := nextstate;
-          annotation (   Icon(coordinateSystem(
+          annotation (Icon(coordinateSystem(
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
             graphics={
             Rectangle(
@@ -5327,7 +5327,7 @@ Clock transition definitions:
               points={{75.08,40},{92,40}},
               color={127,0,127},
               thickness=1));
-          annotation (   Icon(coordinateSystem(
+          annotation (Icon(coordinateSystem(
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
             graphics={
             Rectangle(
@@ -5437,7 +5437,7 @@ Clock transition definitions:
               pattern=LinePattern.None), Text(
               extent={{-30,38},{24,12}},
               lineColor={127,0,127},
-              textString="low active")}),     Documentation(info="<html>
+              textString="low active")}), Documentation(info="<html>
 <p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</p>
 
 <p><b>Truth Table</b></p>
@@ -5634,7 +5634,7 @@ Clock transition definitions:
 <li><i>September 11, 2009 </i> created by Ulrich Donath<br>
        </li>
 </ul>
-</html>"),  Icon(coordinateSystem(
+</html>"), Icon(coordinateSystem(
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
             graphics={
             Rectangle(
@@ -5768,7 +5768,7 @@ Clock transition definitions:
 <li><i>September 11, 2009 </i> created by Ulrich Donath<br>
        </li>
 </ul>
-</html>"),  Icon(coordinateSystem(
+</html>"), Icon(coordinateSystem(
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
             graphics={
             Rectangle(
@@ -5856,7 +5856,7 @@ Clock transition definitions:
 <li><i>September 11, 2009 </i> created by Ulrich Donath<br>
        </li>
 </ul>
-</html>"),            Icon(graphics={Rectangle(
+</html>"), Icon(graphics={Rectangle(
               extent={{-28,30},{30,18}},
               pattern=LinePattern.None,
               fillColor={255,255,255},
@@ -6069,7 +6069,7 @@ Clock transition definitions:
 <li><i>September 11, 2009 </i> created by Ulrich Donath<br>
        </li>
 </ul>
-</html>"),  Icon(coordinateSystem(
+</html>"), Icon(coordinateSystem(
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
             graphics={
             Rectangle(
@@ -6228,7 +6228,7 @@ Clock transition definitions:
 <li><i>September 11, 2009 </i> created by Ulrich Donath<br>
        </li>
 </ul>
-</html>"),  Icon(coordinateSystem(
+</html>"), Icon(coordinateSystem(
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
             graphics={
             Rectangle(
@@ -6328,7 +6328,7 @@ Clock transition definitions:
 <li><i>September 11, 2009 </i> created by Ulrich Donath<br>
        </li>
 </ul>
-</html>"),            Icon(graphics={Rectangle(
+</html>"), Icon(graphics={Rectangle(
               extent={{-40,30},{40,16}},
               pattern=LinePattern.None,
               fillColor={255,255,255},
@@ -7059,7 +7059,7 @@ Wires n input signals in one output signal, without delay.
                              loadSelector(filter="Text files (*.txt)",
                              caption="Open file in which table is present")));
 
-      D.Interfaces.DigitalInput RE "read enable"   annotation (Placement(transformation(
+      D.Interfaces.DigitalInput RE "read enable" annotation (Placement(transformation(
               extent={{-100,-30},{-84,-14}}),
                                             iconTransformation(extent={{-100,-28},{
                 -84,-12}})));
@@ -7312,7 +7312,7 @@ Firstly Write is carried out, then Read.</b></p>
                              loadSelector(filter="Text files (*.txt)",
                              caption="Open file in which table is present")));
 
-      D.Interfaces.DigitalInput RE "read enable"   annotation (Placement(transformation(
+      D.Interfaces.DigitalInput RE "read enable" annotation (Placement(transformation(
               extent={{-100,-30},{-80,-10}}),
                                             iconTransformation(extent={{-100,
                 -27},{-86,-13}})));
@@ -7508,7 +7508,7 @@ Description in VHDL is given by <a href=\"http://www.cs.sfu.ca/~ggbaker/referenc
       connect(yy, inertialDelaySensitive.x);
       connect(inertialDelaySensitive.y, out);
 
-      annotation (        Icon(graphics={
+      annotation (Icon(graphics={
             Line(
               points={{-80,50},{-40,50}},
               color={127,0,127},

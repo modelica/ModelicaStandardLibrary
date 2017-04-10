@@ -52,7 +52,7 @@ equation
   connect(switch1.n,inductor1. p)
     annotation (Line(points={{20,40},{40,40}}, color={0,0,255}));
   connect(constantVoltage1.p,switch1. p) annotation (Line(points={{-20,30},{-20,
-          40},{0,40}},     color={0,0,255}));
+          40},{0,40}}, color={0,0,255}));
   connect(inductor2.n,resistor2. p) annotation (Line(points={{60,-40},{80,-40},
           {80,-50}}, color={0,0,255}));
   connect(resistor2.n,ground2. p)
@@ -63,9 +63,9 @@ equation
     annotation (Line(points={{20,-40},{40,-40}}, color={0,0,255}));
   connect(constantVoltage2.p,switch2. p) annotation (Line(points={{-20,-50},{
           -20,-40},{0,-40}}, color={0,0,255}));
-  connect(booleanPulse.y, switch1.control)  annotation (Line(points={{-59,-20},
+  connect(booleanPulse.y, switch1.control) annotation (Line(points={{-59,-20},
           {-40,-20},{-40,60},{10,60},{10,47}}, color={255,0,255}));
-  connect(booleanPulse.y, switch2.control)  annotation (Line(points={{-59,-20},
+  connect(booleanPulse.y, switch2.control) annotation (Line(points={{-59,-20},
           {10,-20},{10,-30}}, color={255,0,255}));
   annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
             -100},{100,100}}), graphics={Text(

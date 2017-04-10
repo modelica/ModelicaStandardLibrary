@@ -696,7 +696,7 @@ through the sensor is allowed.
 
     Modelica.Blocks.Interfaces.RealOutput T_rel(final quantity="ThermodynamicTemperature",
                                                 final unit = "K", displayUnit = "degC", min=0)
-      "Relative temperature signal"                                                                               annotation (Placement(
+      "Relative temperature signal" annotation (Placement(
           transformation(
           origin={0,-90},
           extent={{10,-10},{-10,10}},
@@ -756,7 +756,7 @@ as signal.
       "Partial component to model a sensor that measures the difference between two potential variables"
       extends Modelica.Icons.TranslationalSensor;
       replaceable package Medium =
-        Modelica.Media.Interfaces.PartialMedium "Medium in the sensor"  annotation (
+        Modelica.Media.Interfaces.PartialMedium "Medium in the sensor" annotation (
           choicesAllMatching = true);
 
       Modelica.Fluid.Interfaces.FluidPort_a port_a(m_flow(min=0),

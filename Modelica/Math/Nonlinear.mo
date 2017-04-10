@@ -826,7 +826,7 @@ or the Modelica Language  Specification, Chapter 12.4.2.
 <li><i>June 2002 </i> by Gerhard Schillhuber (master thesis at DLR-RM):<br>
        Adaptive quadrature to compute the curve length of a Spline.</li>
 </ul>
-</html>"), Icon(graphics={       Polygon(points={{-44,-52},{-44,-26},{-17.1,
+</html>"), Icon(graphics={Polygon(points={{-44,-52},{-44,-26},{-17.1,
               44.4},{-11.4,52.6},{-5.8,57.1},{-0.2,57.8},{5.4,54.6},{11.1,47.7},
               {16.7,37.4},{23.1,22.1},{31.17,-0.8},{48,-52},{-44,-52}},
           lineColor={135,135,135},

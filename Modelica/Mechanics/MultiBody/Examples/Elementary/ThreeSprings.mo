@@ -15,7 +15,7 @@ model ThreeSprings "3-dim. springs in series and parallel connection"
     r_0(start={0.5,-0.3,0}, each fixed=true),
     v_0(each fixed=true),
     angles_fixed=true,
-    w_0_fixed=true)     annotation (Placement(transformation(
+    w_0_fixed=true) annotation (Placement(transformation(
         origin={30,-70},
         extent={{-10,10},{10,-10}},
         rotation=270)));

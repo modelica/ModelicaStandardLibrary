@@ -40,18 +40,18 @@ package HeatExchanger "Demo of a heat exchanger model"
       Twall_start=300,
       dT=10,
       T_start_1=304,
-      T_start_2=300)       annotation (Placement(transformation(extent={{
+      T_start_2=300) annotation (Placement(transformation(extent={{
               -26,-14},{34,46}})));
 
     Modelica.Fluid.Sources.Boundary_pT ambient2(nPorts=1,
       p=1e5,
       T=280,
-      redeclare package Medium = Medium)                              annotation (Placement(
+      redeclare package Medium = Medium) annotation (Placement(
           transformation(extent={{82,-28},{62,-8}})));
     Modelica.Fluid.Sources.Boundary_pT ambient1(nPorts=1,
       p=1e5,
       T=300,
-      redeclare package Medium = Medium)                              annotation (Placement(
+      redeclare package Medium = Medium) annotation (Placement(
           transformation(extent={{82,24},{62,44}})));
     Modelica.Fluid.Sources.MassFlowSource_T massFlowRate2(nPorts=1,
       m_flow=0.2,
@@ -64,23 +64,23 @@ package HeatExchanger "Demo of a heat exchanger model"
     Modelica.Fluid.Sources.MassFlowSource_T massFlowRate1(nPorts=1,
       redeclare package Medium = Medium,
       m_flow=0.2,
-      T=300)       annotation (Placement(transformation(extent={{-66,-10},{-46,10}})));
+      T=300) annotation (Placement(transformation(extent={{-66,-10},{-46,10}})));
     Modelica.Blocks.Sources.Ramp Ramp1(
       startTime=50,
       duration=5,
       height=0.4,
-      offset=-0.2)  annotation (Placement(transformation(extent={{-98,24},{-78,
+      offset=-0.2) annotation (Placement(transformation(extent={{-98,24},{-78,
               44}})));
     inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.SteadyStateInitial,
-        use_eps_Re=true)             annotation (Placement(transformation(extent=
+        use_eps_Re=true) annotation (Placement(transformation(extent=
               {{60,70},{80,90}})));
   equation
-    connect(massFlowRate1.ports[1], HEX.port_a1)        annotation (Line(points={
+    connect(massFlowRate1.ports[1], HEX.port_a1) annotation (Line(points={
             {-46,0},{-40,0},{-40,15.4},{-29,15.4}}, color={0,127,255}));
-    connect(HEX.port_b1, ambient1.ports[1])        annotation (Line(points={{37,
+    connect(HEX.port_b1, ambient1.ports[1]) annotation (Line(points={{37,
             15.4},{48.5,15.4},{48.5,34},{62,34}}, color={0,127,255}));
     connect(Ramp1.y, massFlowRate2.m_flow_in) annotation (Line(points={{-77,34},
-            {-74,34},{-74,42},{-66,42}},  color={0,0,127}));
+            {-74,34},{-74,42},{-66,42}}, color={0,0,127}));
     connect(massFlowRate2.ports[1], HEX.port_b2)
                                              annotation (Line(
         points={{-46,34},{-40,34},{-40,29.8},{-29,29.8}},
@@ -89,7 +89,7 @@ package HeatExchanger "Demo of a heat exchanger model"
                                         annotation (Line(
         points={{37,2.2},{42,2},{50,2},{50,-18},{62,-18}},
         color={0,127,255}));
-    annotation (                         experiment(StopTime=200, Tolerance=
+    annotation (experiment(StopTime=200, Tolerance=
             1e-005),
       Documentation(info="<html>
 <p>The simulation start in steady state with counterflow operation. At time t = 50, the mass flow rate on the secondary circuit is changed to a negative value in 5 seconds. After a transient, the heat exchanger operates in co-current flow.</p>
@@ -223,19 +223,19 @@ package HeatExchanger "Demo of a heat exchanger model"
         "Start value of mass fractions m_i/m"
         annotation (Dialog(tab="Initialization", group = "Fluid 2", enable=Medium_2.nXi>0));
       parameter Medium_2.MassFlowRate m_flow_start_2 = system.m_flow_start
-        "Start value of mass flow rate"    annotation(Evaluate=true, Dialog(tab = "Initialization", group = "Fluid 2"));
+        "Start value of mass flow rate" annotation(Evaluate=true, Dialog(tab = "Initialization", group = "Fluid 2"));
 
       //Pressure drop and heat transfer
       replaceable model FlowModel_1 =
           Modelica.Fluid.Pipes.BaseClasses.FlowModels.DetailedPipeFlow
         constrainedby
         Modelica.Fluid.Pipes.BaseClasses.FlowModels.PartialStaggeredFlowModel
-        "Characteristic of wall friction"                                                                                                   annotation(choicesAllMatching, Dialog(tab="General", group="Fluid 1"));
+        "Characteristic of wall friction" annotation(choicesAllMatching, Dialog(tab="General", group="Fluid 1"));
       replaceable model FlowModel_2 =
           Modelica.Fluid.Pipes.BaseClasses.FlowModels.DetailedPipeFlow
         constrainedby
         Modelica.Fluid.Pipes.BaseClasses.FlowModels.PartialStaggeredFlowModel
-        "Characteristic of wall friction"                                                                                                   annotation(choicesAllMatching, Dialog(tab="General", group="Fluid 2"));
+        "Characteristic of wall friction" annotation(choicesAllMatching, Dialog(tab="General", group="Fluid 2"));
       parameter SI.Length roughness_1=2.5e-5
         "Absolute roughness of pipe (default = smooth steel pipe)" annotation(Dialog(tab="General", group="Fluid 1"));
       parameter SI.Length roughness_2=2.5e-5
@@ -280,7 +280,7 @@ package HeatExchanger "Demo of a heat exchanger model"
         final p_b_start=p_b_start1,
         final roughness=roughness_1,
         redeclare final model FlowModel = FlowModel_1,
-        final modelStructure=modelStructure_1)              annotation (Placement(transformation(extent={{-40,-80},
+        final modelStructure=modelStructure_1) annotation (Placement(transformation(extent={{-40,-80},
                 {20,-20}})));
 
       Pipes.DynamicPipe pipe_2(
@@ -352,7 +352,7 @@ package HeatExchanger "Demo of a heat exchanger model"
         annotation (Line(
           points={{-10.3,44.8},{-10.3,31.7},{-10,31.7},{-10,20.5}},
           color={127,0,0}));
-      annotation (   Icon(coordinateSystem(preserveAspectRatio=false,
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false,
               extent={{-100,-100},{100,100}}), graphics={
             Rectangle(
               extent={{-100,-26},{100,-30}},

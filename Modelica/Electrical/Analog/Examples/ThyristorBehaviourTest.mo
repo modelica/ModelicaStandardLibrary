@@ -10,7 +10,7 @@ model ThyristorBehaviourTest "Thyristor demonstration example"
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={-72,4})));
-  Modelica.Electrical.Analog.Basic.Resistor resistor(R=10)  annotation (
+  Modelica.Electrical.Analog.Basic.Resistor resistor(R=10) annotation (
       Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
@@ -19,7 +19,7 @@ model ThyristorBehaviourTest "Thyristor demonstration example"
     width=10,
     period=0.0001,
     startTime=0.00002,
-    I=0.005)       annotation (Placement(transformation(
+    I=0.005) annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=180,
         origin={-8,70})));
@@ -54,7 +54,7 @@ equation
   connect(inductor.n, ground.p) annotation (Line(
       points={{8,-14},{8,-20},{28,-20}},
       color={0,0,255}));
-  annotation (    experiment(StopTime=0.0002),
+  annotation (experiment(StopTime=0.0002),
     Documentation(info="<html>
 <p>This is a simple test circuit, to test the behavior of the thyristor model.</p><p>Interesting values to plot are Cathode.v, Gate.v and sineVoltage.p.v. and in another plot window pulseCurrent.p.i</p><p>The simulation time should be from 0 seconds to 2e-4 seconds.</p>
 </html>"));

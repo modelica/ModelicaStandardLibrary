@@ -271,7 +271,7 @@ or other flow models without storage, are directly connected.
               pattern=LinePattern.None), Rectangle(
               extent={{-100,44},{100,-44}},
               fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={0,127,255})}),        Documentation(info="<html>
+              fillColor={0,127,255})}), Documentation(info="<html>
 <p>
 Base class for one dimensional flow models. It specializes a PartialTwoPort with a parameter interface and icon graphics.
 </p>
@@ -1073,7 +1073,7 @@ of the segments as well as the actual densities rhos_act[n-1] and the actual vis
 in this base model. Note that no events are raised on flow reversal. This needs to be treated by an extending model,
 e.g., with numerical smoothing or by raising events as appropriate.
 </p>
-</html>"),     Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+</html>"), Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                   -100},{100,100}}), graphics={Line(
                 points={{-80,-50},{-80,50},{80,-50},{80,50}},
                 color={0,0,255},
@@ -1291,7 +1291,7 @@ to compute the correlations with constant media values
 at the desired operating point. This might speed-up the
 simulation and/or might give a more robust simulation.
 </p>
-</html>"),    Diagram(coordinateSystem(
+</html>"), Diagram(coordinateSystem(
                   preserveAspectRatio=false,
                   extent={{-100,-100},{100,100}}), graphics={
               Rectangle(
@@ -1509,7 +1509,7 @@ b has the same sign of the change of density.</p>
 <img src=\"modelica://Modelica/Resources/Images/Fluid/Components/PipeFrictionStaticHead_case-b.png\"
      alt=\"PipeFrictionStaticHead_case-b.png\">
 </p>
-</html>"),    Diagram(coordinateSystem(
+</html>"), Diagram(coordinateSystem(
                   preserveAspectRatio=false,
                   extent={{-100,-100},{100,100}}), graphics={
               Rectangle(
@@ -3433,7 +3433,7 @@ b has the same sign of the change of density.</p>
           Modelica.Fluid.Pipes.BaseClasses.WallFriction.QuadraticTurbulent
           constrainedby
           Modelica.Fluid.Pipes.BaseClasses.WallFriction.PartialWallFriction
-          "Characteristic of wall friction"  annotation(choicesAllMatching=true);
+          "Characteristic of wall friction" annotation(choicesAllMatching=true);
 
         parameter SI.Length length "Length of pipe";
         parameter SI.Diameter diameter "Inner (hydraulic) diameter of pipe";
@@ -3538,7 +3538,7 @@ b has the same sign of the change of density.</p>
               Text(
                 extent={{-150,80},{150,120}},
                 lineColor={0,0,255},
-                textString="%name")}),           Documentation(info="<html>
+                textString="%name")}), Documentation(info="<html>
 <p>
 This model describes pressure losses due to <b>wall friction</b> in a pipe
 and due to gravity.

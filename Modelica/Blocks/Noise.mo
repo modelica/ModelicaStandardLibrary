@@ -15,7 +15,7 @@ package Noise "Library of noise blocks"
         annotation(Dialog(enable=not useAutomaticSeed));
     final parameter Integer seed(fixed=false) "Actually used global seed";
     final parameter Integer id_impure(fixed=false)
-      "ID for impure random number generators Modelica.Math.Random.Utilities.impureXXX"        annotation(HideResult=true);
+      "ID for impure random number generators Modelica.Math.Random.Utilities.impureXXX" annotation(HideResult=true);
   initial equation
     seed = if useAutomaticSeed then Modelica.Math.Random.Utilities.automaticGlobalSeed() else fixedSeed;
     id_impure = Modelica.Math.Random.Utilities.initializeImpureRandom(seed);
@@ -29,7 +29,7 @@ an inner \"globalSeed\" component is not defined and therefore
 a default inner \"globalSeed\" component is introduced by the tool.
 To change the default setting, drag Noise.GlobalSeed
 into your model and specify the seed.
-",  Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
+", Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
                            graphics={Ellipse(
             extent={{-100,100},{100,-100}},
             lineColor={0,0,127},
@@ -224,7 +224,7 @@ is dragged to provide global settings for all instances.
     // Main dialog menu
     parameter Real mu=0 "Expectation (mean) value of the normal distribution" annotation(Dialog(enable=enableNoise));
     parameter Real sigma(start=1)
-      "Standard deviation of the normal distribution"                             annotation(Dialog(enable=enableNoise));
+      "Standard deviation of the normal distribution" annotation(Dialog(enable=enableNoise));
 
   initial equation
      r = distribution(r_raw, mu, sigma);
@@ -288,7 +288,7 @@ is dragged to provide global settings for all instances.
     parameter Real y_min(start=0) "Lower limit of y" annotation(Dialog(enable=enableNoise));
     parameter Real y_max(start=1) "Upper limit of y" annotation(Dialog(enable=enableNoise));
     parameter Real mu =    (y_max + y_min)/2
-      "Expectation (mean) value of the normal distribution"  annotation(Dialog(enable=enableNoise,tab="Advanced",group="Noise generation"));
+      "Expectation (mean) value of the normal distribution" annotation(Dialog(enable=enableNoise,tab="Advanced",group="Noise generation"));
     parameter Real sigma = (y_max - y_min)/6
       "Standard deviation of the normal distribution" annotation(Dialog(enable=enableNoise,tab="Advanced",group="Noise generation"));
 

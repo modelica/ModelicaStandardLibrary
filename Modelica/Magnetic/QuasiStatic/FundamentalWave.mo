@@ -354,7 +354,7 @@ This is the library of quasi static fundamental wave models for multi phase elec
         connect(resistor_m.plug_n, converter_m.plug_p) annotation (Line(
             points={{-20,-20},{0,-20}},
             color={85,170,255}));
-        annotation ( experiment(StopTime=100,
+        annotation (experiment(StopTime=100,
               Interval=0.01));
       end MultiPhaseInductance;
 
@@ -808,7 +808,7 @@ In this example the eddy current losses are implemented in two different ways. C
                           extent={{20,-6},{100,-14}},
                           textStyle={TextStyle.Bold},
                           textString="%m phase transient
-"),             Text(
+"), Text(
                   extent={{20,14},{100,6}},
                           textStyle={TextStyle.Bold},
                           textString="%m phase QS
@@ -1073,7 +1073,7 @@ and accelerating inertias. At time <code>tStep</code> a load step is applied.<p>
 <li><code>imc|imcQS.wMechanical</code>: machine speed</li>
 <li><code>imc|imcQS.tauElectrical</code>: machine torque</li>
 </ul>
-</html>"),  Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+</html>"), Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                     -100},{100,100}}),
                                  graphics={Rectangle(
                           extent={{-74,-2},{100,-100}},
@@ -1089,7 +1089,7 @@ and accelerating inertias. At time <code>tStep</code> a load step is applied.<p>
                           extent={{20,-6},{100,-14}},
                           textStyle={TextStyle.Bold},
                           textString="%m phase transient
-"),             Text(
+"), Text(
                   extent={{-66,10},{14,2}},
                           textStyle={TextStyle.Bold},
                           textString="%m phase QS
@@ -1402,7 +1402,7 @@ Simulate for 1.5 seconds and plot (versus time):
 <li><code>ims|imsQS.wMechanical</code>: machine speed</li>
 <li><code>ims|imsQS.tauElectrical</code>: machine torque</li>
 </ul>
-</html>"),  Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+</html>"), Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                     -100},{100,100}}),
                                  graphics={Rectangle(
                           extent={{-100,100},{100,2}},
@@ -1418,7 +1418,7 @@ Simulate for 1.5 seconds and plot (versus time):
                           extent={{20,12},{100,4}},
                           textStyle={TextStyle.Bold},
                           textString="%m phase QS
-"),             Text(
+"), Text(
                   extent={{20,-4},{100,-12}},
                           textStyle={TextStyle.Bold},
                           textString="%m phase transient
@@ -1872,7 +1872,7 @@ Simulate for 0.1 second and plot (versus time):
 
 <h5>Note</h5>
 <p>The resistors connected to the terminals of the windings of the quasi static machine model are necessary to numerically stabilize the simulation.</p>
-</html>"),  Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+</html>"), Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                     {100,100}}), graphics={Rectangle(
                           extent={{-60,-4},{40,-80}},
                           pattern=LinePattern.Dash,
@@ -2221,7 +2221,7 @@ Simulate for 2 seconds and plot (versus time):
 
 <h5>Note</h5>
 <p>The resistors connected to the terminals of the windings of the quasi static machine model are necessary to numerically stabilize the simulation.</p>
-</html>"),  Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+</html>"), Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                     -100},{100,100}}),
                                  graphics={Rectangle(
                           extent={{-64,100},{100,2}},
@@ -2562,7 +2562,7 @@ Simulate for 30 seconds:
 </ul>
 
 <p>Since the rotor slip is very low the transient and quasi static electro magnetic torque are practically equal.</p>
-</html>"),  Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+</html>"), Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                     -100},{100,100}}),
                                  graphics={Rectangle(
                           extent={{-100,-6},{100,-96}},
@@ -2578,7 +2578,7 @@ Simulate for 30 seconds:
                           extent={{20,10},{100,2}},
                           textStyle={TextStyle.Bold},
                           textString="%m phase QS
-"),             Text(
+"), Text(
                   extent={{20,-10},{100,-18}},
                           textStyle={TextStyle.Bold},
                           textString="%m phase transient
@@ -2923,7 +2923,7 @@ Simulate for 2 seconds and plot (versus time):
 <li><code>smpm|smpmQS.wMechanical</code>: machine speed</li>
 <li><code>smpm|smpmQS.tauElectrical</code>: machine torque</li>
 </ul>
-</html>"),  Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+</html>"), Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                     {100,100}}), graphics={Rectangle(
                           extent={{-64,100},{100,2}},
                           fillColor={255,255,170},
@@ -5284,7 +5284,7 @@ Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap</a>
 <p>Permanent magnet model with magnetic, mechanical and thermal connector including losses. The PM model is source  of constant magnetic potential difference. The PM loss is calculated by
 <a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Losses.PermanentMagnetLosses\">PermanentMagnetLosses</a>.
 </p>
-</html>"),          Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+</html>"), Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                   {100,100}}), graphics={Line(
                 points={{-100,0},{100,0}},
                 color={255,170,85}), Ellipse(extent={{-50,50},{50,-50}},

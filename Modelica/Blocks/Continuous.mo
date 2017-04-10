@@ -13,7 +13,7 @@ package Continuous "Library of continuous control blocks with internal states"
      and therefore this setting is backward compatible
   */
     parameter Modelica.Blocks.Types.Init initType=Modelica.Blocks.Types.Init.InitialState
-      "Type of initialization (1: no init, 2: steady state, 3,4: initial output)"     annotation(Evaluate=true,
+      "Type of initialization (1: no init, 2: steady state, 3,4: initial output)" annotation(Evaluate=true,
         Dialog(group="Initialization"));
     parameter Real y_start=0 "Initial or guess value of output (= state)"
       annotation (Dialog(group="Initialization"));
@@ -47,7 +47,7 @@ This is discussed in the description of package
 <a href=\"modelica://Modelica.Blocks.Continuous#info\">Continuous</a>.
 </p>
 
-</html>"),   Icon(coordinateSystem(
+</html>"), Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100.0,-100.0},{100.0,100.0}}),
           graphics={
@@ -155,7 +155,7 @@ defined limits. For backward compatibility reasons
 <b>limitAtInit</b> = <b>true</b>. In most cases it is best
 to use <b>limitAtInit</b> = <b>false</b>.
 </p>
-</html>"),   Icon(coordinateSystem(
+</html>"), Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
           Line(points={{-80,78},{-80,-90}}, color={192,192,192}),
@@ -258,7 +258,7 @@ b = {k,0}, a = {T, 1}.
 <p>
 If k=0, the block reduces to y=0.
 </p>
-</html>"),   Icon(
+</html>"), Icon(
       coordinateSystem(preserveAspectRatio=true,
           extent={{-100.0,-100.0},{100.0,100.0}}),
         graphics={
@@ -303,7 +303,7 @@ If k=0, the block reduces to y=0.
     parameter Real k(unit="1")=1 "Gain";
     parameter SIunits.Time T(start=1) "Time Constant";
     parameter Modelica.Blocks.Types.Init initType=Modelica.Blocks.Types.Init.NoInit
-      "Type of initialization (1: no init, 2: steady state, 3/4: initial output)"     annotation(Evaluate=true,
+      "Type of initialization (1: no init, 2: steady state, 3/4: initial output)" annotation(Evaluate=true,
         Dialog(group="Initialization"));
     parameter Real y_start=0 "Initial or guess value of output (= state)"
       annotation (Dialog(group="Initialization"));
@@ -345,7 +345,7 @@ Example:
           0.4 s + 1.0
 </pre>
 
-</html>"),   Icon(
+</html>"), Icon(
     coordinateSystem(preserveAspectRatio=true,
         extent={{-100.0,-100.0},{100.0,100.0}}),
       graphics={
@@ -391,7 +391,7 @@ Example:
     parameter Real w(start=1) "Angular frequency";
     parameter Real D(start=1) "Damping";
     parameter Modelica.Blocks.Types.Init initType=Modelica.Blocks.Types.Init.NoInit
-      "Type of initialization (1: no init, 2: steady state, 3/4: initial output)"     annotation(Evaluate=true,
+      "Type of initialization (1: no init, 2: steady state, 3/4: initial output)" annotation(Evaluate=true,
         Dialog(group="Initialization"));
     parameter Real y_start=0 "Initial or guess value of output (= state)"
       annotation (Dialog(group="Initialization"));
@@ -441,7 +441,7 @@ Example:
           4.0 s^2 + 1.6 s + 1
 </pre>
 
-</html>"),   Icon(
+</html>"), Icon(
         coordinateSystem(preserveAspectRatio=true,
               extent={{-100.0,-100.0},{100.0,100.0}}),
             graphics={
@@ -573,7 +573,7 @@ This is discussed in the description of package
 <a href=\"modelica://Modelica.Blocks.Continuous#info\">Continuous</a>.
 </p>
 
-</html>"),   Icon(coordinateSystem(
+</html>"), Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
           Line(points={{-80,78},{-80,-90}}, color={192,192,192}),
@@ -639,7 +639,7 @@ This is discussed in the description of package
     parameter Real y_start=0 "Initial value of output"
       annotation(Dialog(enable=initType == InitPID.InitialOutput, group=
             "Initialization"));
-    constant SI.Time unitTime=1  annotation(HideResult=true);
+    constant SI.Time unitTime=1 annotation(HideResult=true);
 
     Blocks.Math.Gain P(k=1) "Proportional part of PID controller"
       annotation (Placement(transformation(extent={{-60,60},{-20,100}})));
@@ -844,7 +844,7 @@ to compute u by an algebraic equation.
             "Initialization"));
     parameter Boolean strict=false "= true, if strict limits with noEvent(..)"
       annotation (Evaluate=true, choices(checkBox=true), Dialog(tab="Advanced"));
-    constant SI.Time unitTime=1  annotation(HideResult=true);
+    constant SI.Time unitTime=1 annotation(HideResult=true);
     Blocks.Math.Add addP(k1=wp, k2=-1)
       annotation (Placement(transformation(extent={{-80,40},{-60,60}})));
     Blocks.Math.Add addD(k1=wd, k2=-1) if with_D
@@ -1318,7 +1318,7 @@ results in the following equations:
        y[1]   = [0.1  2.0] * [    ] + [0  0] * [    ]
                              [x[2]]            [u[2]]
 </pre>
-</html>"),   Icon(
+</html>"), Icon(
       coordinateSystem(preserveAspectRatio=true,
         extent={{-100,-100},{100,100}}),
         graphics={

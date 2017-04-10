@@ -15,7 +15,7 @@ encapsulated model ChuaCircuit "Chua's circuit, ns, V, A"
         rotation=270)));
   Basic.Conductor G(G=0.565) annotation (Placement(transformation(extent={{-25,38},
             {25,88}})));
-  Basic.Capacitor C1(C=10, v(start=4, fixed=true))                          annotation (Placement(transformation(
+  Basic.Capacitor C1(C=10, v(start=4, fixed=true)) annotation (Placement(transformation(
         origin={25,3},
         extent={{-25,-25},{25,25}},
         rotation=270)));

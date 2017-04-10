@@ -149,7 +149,7 @@ package Icons "Library of icons"
           Rectangle(
             lineColor={128,128,128},
             extent={{-100.0,-100.0},{100.0,100.0}},
-            radius=25.0)}),   Documentation(info="<html>
+            radius=25.0)}), Documentation(info="<html>
 <p>Standard package icon.</p>
 </html>"));
   end Package;
@@ -171,7 +171,7 @@ package Icons "Library of icons"
   partial package VariantsPackage "Icon for package containing variants"
     extends Modelica.Icons.Package;
     annotation (Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},
-              {100,100}}),       graphics={
+              {100,100}}), graphics={
           Ellipse(
             origin={10.0,10.0},
             fillColor={76,76,76},
@@ -519,7 +519,7 @@ This icon is designed for a <b>translational sensor</b> model.
           Line(
             origin={0.0,-25.0},
             points={{0.0,75.0},{0.0,-75.0}},
-            color={64,64,64})}),                        Documentation(info="<html>
+            color={64,64,64})}), Documentation(info="<html>
 <p>
 This icon is indicates a record.
 </p>
@@ -785,7 +785,7 @@ corresponding library in a future release.
           Rectangle(
             lineColor={128,128,128},
             extent={{-100.0,-100.0},{100.0,100.0}},
-            radius=25.0)}),   Documentation(info="<html>
+            radius=25.0)}), Documentation(info="<html>
 <p>This icon of a package will be removed in future versions of the library.</p>
 <h5>Note</h5>
 <p>This icon will be removed in future versions of the Modelica Standard Library. Instead the icon <a href=\"modelica://Modelica.Icons.Package\">Package</a> shall be used.</p>
@@ -806,7 +806,7 @@ corresponding library in a future release.
           Rectangle(
             lineColor={128,128,128},
             extent={{-100.0,-100.0},{100.0,100.0}},
-            radius=25.0)}),   Documentation(info="<html>
+            radius=25.0)}), Documentation(info="<html>
 <p>This icon of a package will be removed in future versions of the library.</p>
 <h5>Note</h5>
 <p>This icon will be removed in future versions of the Modelica Standard Library. Instead the icon <a href=\"modelica://Modelica.Icons.Package\">Package</a> shall be used.</p></html>"));
@@ -816,7 +816,7 @@ corresponding library in a future release.
     "This icon will be removed in future Modelica versions"
     // extends Modelica.Icons.ObsoleteModel;
 
-    annotation (             Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
+    annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
           Rectangle(
             lineColor={64,64,64},
             fillColor={255,255,255},
@@ -856,7 +856,7 @@ This icon of a <b>gearbox</b> will be removed in future versions of the library.
     "This icon will be removed in future Modelica versions."
     // extends Modelica.Icons.ObsoleteModel;
 
-    annotation (             Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
+    annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
           Rectangle(
             lineColor={82,0,2},
             fillColor={252,37,57},

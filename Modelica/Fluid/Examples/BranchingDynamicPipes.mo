@@ -11,7 +11,7 @@ replaceable package Medium=Modelica.Media.Air.MoistAir constrainedby
     annotation (Placement(transformation(extent={{-90,70},{-70,90}})));
   Modelica.Fluid.Sources.Boundary_pT boundary1(nPorts=1,
     redeclare package Medium = Medium,
-    p=150000)                                                       annotation (Placement(
+    p=150000) annotation (Placement(
         transformation(extent={{-10,-10},{10,10}},    rotation=90,
         origin={0,-80})));
   Pipes.DynamicPipe             pipe1(
@@ -78,7 +78,7 @@ replaceable package Medium=Modelica.Media.Air.MoistAir constrainedby
     redeclare package Medium = Medium,
     use_p_in=true,
     use_T_in=false,
-    p=100000)                                            annotation (Placement(
+    p=100000) annotation (Placement(
         transformation(extent={{10,-10},{-10,10}}, rotation=90,
         origin={0,60})));
   Modelica.Blocks.Sources.Ramp ramp1(

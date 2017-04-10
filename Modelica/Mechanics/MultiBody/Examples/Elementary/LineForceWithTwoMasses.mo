@@ -11,7 +11,7 @@ model LineForceWithTwoMasses
   inner Modelica.Mechanics.MultiBody.World world annotation (Placement(
         transformation(extent={{-80,60},{-60,80}})));
   Modelica.Mechanics.MultiBody.Joints.Revolute revolute1(phi(fixed=true), w(
-        fixed=true))      annotation (Placement(transformation(extent={{-20,60},
+        fixed=true)) annotation (Placement(transformation(extent={{-20,60},
             {0,80}})));
   Modelica.Mechanics.MultiBody.Parts.BodyBox bodyBox1(r={0.7,0,0})
     annotation (Placement(transformation(extent={{20,60},{40,80}})));
@@ -51,7 +51,7 @@ model LineForceWithTwoMasses
                                                   d=3)
     annotation (Placement(transformation(extent={{0,24},{20,4}})));
   Modelica.Mechanics.MultiBody.Joints.Revolute revolute2(phi(fixed=true), w(
-        fixed=true))      annotation (Placement(transformation(extent={{-20,-40},
+        fixed=true)) annotation (Placement(transformation(extent={{-20,-40},
             {0,-20}})));
   Modelica.Mechanics.MultiBody.Parts.BodyBox bodyBox2(r={0.7,0,0})
     annotation (Placement(transformation(extent={{20,-40},{40,-20}})));

@@ -910,34 +910,34 @@ package Examples
     InitialStep step0 annotation (
           Placement(transformation(extent={{-140,-100},{-120,-80}})));
     Transition transition1(enableTimer=true, waitTime=1)
-      annotation (                                             Placement(
+      annotation (Placement(
             transformation(extent={{-100,-100},{-80,-80}})));
     Step step1 annotation (
           Placement(transformation(extent={{-10,-40},{10,-20}})));
     Transition transition2(enableTimer=true, waitTime=1)
-      annotation (                                           Placement(
+      annotation (Placement(
             transformation(extent={{90,-100},{110,-80}})));
-    Step step6 annotation (                                           Placement(
+    Step step6 annotation (Placement(
             transformation(extent={{120,-100},{140,-80}})));
     Step step2 annotation (
           Placement(transformation(extent={{-98,40},{-78,60}})));
     Transition transition3(enableTimer=true, waitTime=1)
-      annotation (                                            Placement(
+      annotation (Placement(
             transformation(extent={{-42,80},{-22,100}})));
     Transition transition4(enableTimer=true, waitTime=1)
-      annotation (                                           Placement(
+      annotation (Placement(
             transformation(extent={{-42,40},{-22,60}})));
-    Step step3 annotation (                                           Placement(
+    Step step3 annotation (Placement(
             transformation(extent={{-8,80},{12,100}})));
-    Step step4 annotation (                                          Placement(
+    Step step4 annotation (Placement(
             transformation(extent={{-8,40},{12,60}})));
     Transition transition5(enableTimer=true, waitTime=1)
-      annotation (                                          Placement(
+      annotation (Placement(
             transformation(extent={{26,80},{46,100}})));
     Transition transition6(enableTimer=true, waitTime=1)
-      annotation (                                         Placement(
+      annotation (Placement(
             transformation(extent={{26,40},{46,60}})));
-    Step step5 annotation (                                          Placement(
+    Step step5 annotation (Placement(
             transformation(extent={{80,40},{100,60}})));
     Modelica.Blocks.Sources.RealExpression setReal(y=time)
                             annotation (Placement(transformation(extent={{21,
@@ -947,16 +947,16 @@ package Examples
     Modelica.Blocks.Sources.BooleanExpression setCondition(y=time > 7)
       annotation (Placement(transformation(extent={{-77,-160},{-19,-140}})));
     Transition transition4a(enableTimer=true, waitTime=1)
-      annotation (                                          Placement(
+      annotation (Placement(
             transformation(extent={{-42,0},{-22,20}})));
-    Step step4a annotation (                                         Placement(
+    Step step4a annotation (Placement(
             transformation(extent={{-8,0},{12,20}})));
     Transition transition6a(enableTimer=true, waitTime=2)
-      annotation (                                        Placement(
+      annotation (Placement(
             transformation(extent={{26,0},{46,20}})));
     StateGraph.Temporary.NumericValue NumericValue1
       annotation (Placement(transformation(extent={{61,-160},{81,-140}})));
-    Alternative alternative(nBranches=3)  annotation (Placement(transformation(
+    Alternative alternative(nBranches=3) annotation (Placement(transformation(
               extent={{-70,-10},{72,110}})));
     Parallel Parallel1 annotation (Placement(transformation(extent={{-154,-50},
                 {152,120}})));
@@ -984,19 +984,19 @@ package Examples
     connect(setReal.y, NumericValue1.Value) annotation (Line(
           points={{42,-150},{59,-150}},
           color={0,0,255}));
-    connect(transition3.inPort, alternative.split[1])  annotation (Line(points={{-36,90},
+    connect(transition3.inPort, alternative.split[1]) annotation (Line(points={{-36,90},
               {-55.09,90}}));
-    connect(transition4.inPort, alternative.split[2])  annotation (Line(points={{-36,50},
+    connect(transition4.inPort, alternative.split[2]) annotation (Line(points={{-36,50},
               {-55.09,50}}));
-    connect(transition4a.inPort, alternative.split[3])  annotation (Line(points={{-36,10},
+    connect(transition4a.inPort, alternative.split[3]) annotation (Line(points={{-36,10},
               {-45.0125,10},{-45.0125,10},{-55.09,10}}));
-    connect(transition5.outPort, alternative.join[1])  annotation (Line(points={{37.5,90},
+    connect(transition5.outPort, alternative.join[1]) annotation (Line(points={{37.5,90},
               {57.09,90}}));
-    connect(transition6.outPort, alternative.join[2])  annotation (Line(points={{37.5,50},
+    connect(transition6.outPort, alternative.join[2]) annotation (Line(points={{37.5,50},
               {57.09,50}}));
-    connect(transition6a.outPort, alternative.join[3])  annotation (Line(points={{37.5,10},
+    connect(transition6a.outPort, alternative.join[3]) annotation (Line(points={{37.5,10},
               {46.7625,10},{46.7625,10},{57.09,10}}));
-    connect(step2.outPort[1], alternative.inPort)  annotation (Line(points={{
+    connect(step2.outPort[1], alternative.inPort) annotation (Line(points={{
               -77.5,50},{-72.13,50}}));
     connect(alternative.outPort, step5.inPort[1])
       annotation (Line(points={{73.42,50},{79,50}}));
@@ -1047,14 +1047,14 @@ has a higher priority to fire as alternative.split[2]).
     InitialStep step0 annotation (
           Placement(transformation(extent={{-89,-10},{-69,10}})));
     Transition transition1(enableTimer=true, waitTime=1)
-      annotation (                                             Placement(
+      annotation (Placement(
             transformation(extent={{-59,-10},{-39,10}})));
-    Step step1 annotation (                                           Placement(
+    Step step1 annotation (Placement(
             transformation(extent={{-4,-30},{16,-10}})));
     Transition transition2(enableTimer=true, waitTime=1)
-      annotation (                                           Placement(
+      annotation (Placement(
             transformation(extent={{45,-10},{65,10}})));
-    Step step6 annotation (                                           Placement(
+    Step step6 annotation (Placement(
             transformation(extent={{71,-10},{91,10}})));
     TransitionWithSignal transition7 annotation (Placement(transformation(
               extent={{10,-70},{-10,-50}})));
@@ -1110,17 +1110,17 @@ is that the alternative paths are included in a \"CompositeStep\".
                       annotation (
           Placement(transformation(extent={{-80,30},{-60,50}})));
     Transition transition1(enableTimer=true, waitTime=1)
-      annotation (                                             Placement(
+      annotation (Placement(
             transformation(extent={{-50,30},{-30,50}})));
     Transition transition2(enableTimer=true, waitTime=1)
-      annotation (                                             Placement(
+      annotation (Placement(
             transformation(extent={{20,30},{40,50}})));
     Transition transition3(enableTimer=true, waitTime=2)
-      annotation (                                             Placement(
+      annotation (Placement(
             transformation(extent={{-55,-30},{-35,-10}})));
     Step step1 annotation (Placement(transformation(extent={{-24,-30},{-4,-10}})));
     Transition transition4(enableTimer=true, waitTime=1)
-      annotation (                                             Placement(
+      annotation (Placement(
             transformation(extent={{10,-30},{30,-10}})));
       inner StateGraphRoot stateGraphRoot
         annotation (Placement(transformation(extent={{-90,-80},{-70,-60}})));
@@ -1222,7 +1222,7 @@ according to their setting before leaving the \"compositeStep\" via its
     connect(tankController.valve1, valve1.valveControl) annotation (Line(points=
              {{-9,12},{10,12},{10,72},{18.1,72}}, color={255,0,255}));
     connect(tankController.valve2, valve2.valveControl) annotation (Line(points={{-9,0},{
-              30,0},{30,13},{40.1,13}},         color={255,0,255}));
+              30,0},{30,13},{40.1,13}}, color={255,0,255}));
     connect(tankController.valve3, valve3.valveControl) annotation (Line(points=
              {{-9,-12},{23,-12},{23,-77},{67.1,-77}}, color={255,0,255}));
 
@@ -1639,28 +1639,28 @@ buttons:
         "State machine demonstrating a composite step (used in StateGraph.Examples.ShowCompositeStep)"
       extends StateGraph.PartialCompositeStep;
       Transition transition3(enableTimer=true, waitTime=1)
-        annotation (                                            Placement(
+        annotation (Placement(
               transformation(extent={{-64,50},{-44,70}})));
       Transition transition4(enableTimer=true, waitTime=1)
-        annotation (                                             Placement(
+        annotation (Placement(
               transformation(extent={{-64,-10},{-44,10}})));
       Step step3 annotation (
             Placement(transformation(extent={{-10,50},{10,70}})));
       Step step4 annotation (
             Placement(transformation(extent={{-10,-10},{10,10}})));
       Transition transition5(enableTimer=true, waitTime=2)
-        annotation (                                          Placement(
+        annotation (Placement(
               transformation(extent={{36,50},{56,70}})));
       Transition transition6(enableTimer=true, waitTime=2)
-        annotation (                                           Placement(
+        annotation (Placement(
               transformation(extent={{36,-10},{56,10}})));
       Transition transition4a(enableTimer=true, waitTime=1)
-        annotation (                                               Placement(
+        annotation (Placement(
               transformation(extent={{-64,-70},{-44,-50}})));
       Step step4a annotation (
             Placement(transformation(extent={{-10,-70},{10,-50}})));
       Transition transition6a(enableTimer=true, waitTime=2)
-        annotation (                                             Placement(
+        annotation (Placement(
               transformation(extent={{36,-70},{56,-50}})));
       Step initStep annotation (Placement(transformation(extent={{-140,-10},{
                   -120,10}})));
@@ -1710,7 +1710,7 @@ buttons:
         enableTimer=false,
         waitTime=0,
         condition=time > 8)
-        annotation (                                            Placement(
+        annotation (Placement(
               transformation(extent={{-60,20},{-40,40}})));
       Step initStep annotation (Placement(transformation(extent={{-140,-10},{
                   -120,10}})));
@@ -1726,13 +1726,13 @@ buttons:
         condition=time > 4,
         enableTimer=false,
         waitTime=0)
-        annotation (                                            Placement(
+        annotation (Placement(
               transformation(extent={{-61,-40},{-41,-20}})));
       Transition transition3(enableTimer=false, waitTime=0)
-        annotation (                                            Placement(
+        annotation (Placement(
               transformation(extent={{29,20},{49,40}})));
       Transition transition4(enableTimer=false, waitTime=0)
-        annotation (                                            Placement(
+        annotation (Placement(
               transformation(extent={{29,-40},{49,-20}})));
       Alternative Alternative1 annotation (Placement(transformation(extent={{
                   -100,-60},{89,60}})));
@@ -1769,7 +1769,7 @@ buttons:
         "Composite step used to demonstrate exceptions (in StateGraph.Examples.ShowExceptions)"
       extends PartialCompositeStep;
       Transition transition(enableTimer=true, waitTime=waitTime)
-        annotation (                                            Placement(
+        annotation (Placement(
               transformation(extent={{-30,-10},{-10,10}})));
       Step initStep annotation (Placement(transformation(extent={{-140,-10},{
                   -120,10}})));
@@ -2471,7 +2471,7 @@ connector Transition_in_forParallel
               thickness=0.5),
             Line(
               points={{100,100},{100,-100}},
-              thickness=0.5)}),             Diagram(coordinateSystem(
+              thickness=0.5)}), Diagram(coordinateSystem(
             extent={{-100,-100},{100,100}}), graphics={
             Rectangle(
               extent={{-100,100},{100,-100}},
@@ -2881,7 +2881,7 @@ value, still requires to go in to the text layer.
       annotation (Dialog(group="Time varying expressions"));
 
     Modelica.Blocks.Interfaces.BooleanOutput on
-      annotation (                                            Placement(
+      annotation (Placement(
             transformation(extent={{100,-10},{120,10}})));
     protected
     Modelica.Blocks.Sources.BooleanTable table(table=buttonTimeTable);

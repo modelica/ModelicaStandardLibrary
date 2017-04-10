@@ -14,7 +14,7 @@ model ForceAndTorque "Demonstrate usage of ForceAndTorque element"
     annotation (Placement(transformation(extent={{60,50},{40,30}})));
   Joints.Revolute revolute2(n={0,1,0},
     phi(fixed=true),
-    w(fixed=true))        annotation (Placement(transformation(
+    w(fixed=true)) annotation (Placement(transformation(
         origin={-20,20},
         extent={{-10,-10},{10,10}},
         rotation=90)));

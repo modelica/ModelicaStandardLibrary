@@ -724,11 +724,11 @@ combination). In this case the system is not at rest.
               extent={{-60,-84},{-40,-94}},
               lineColor={255,0,0},
               textString=" 0.5 m
- (1 m) "),  Text(
+ (1 m) "), Text(
               extent={{20,-84},{40,-94}},
               lineColor={255,0,0},
               textString=" 1 m
- (1 m) "),  Text(
+ (1 m) "), Text(
               extent={{-20,-84},{0,-94}},
               textString="  1 m  "),
             Text(
@@ -1680,7 +1680,7 @@ is present in variable convection.fluid.
             origin={-10,-30})));
     equation
       connect(eddyCurrentForce.flange, mass.flange_a)
-        annotation (Line(points={{10,0},{20,0}},   color={0,127,0}));
+        annotation (Line(points={{10,0},{20,0}}, color={0,127,0}));
       connect(eddyCurrentForce.heatPort, heatCapacitor.port) annotation (Line(
             points={{-10,-10},{-10,-15},{-10,-20}}, color={191,0,0}));
       annotation (
@@ -2272,7 +2272,7 @@ where the different effects are visualized:
                   fillPattern=FillPattern.Solid),Text(
                   extent={{-150,100},{150,60}},
                   textString="%name",
-                  lineColor={0,0,255}),    Text(
+                  lineColor={0,0,255}), Text(
                   extent={{-150,-125},{150,-95}},
                   textString="c=%c"),Text(
                   extent={{-150,-160},{150,-130}},
@@ -4115,7 +4115,7 @@ Negative force brakes in positive direction of movement, but accelerates in reve
       parameter Modelica.SIunits.Force f_nominal
         "Nominal force (if negative, force is acting as load)";
       parameter Modelica.Blocks.Types.Regularization reg=Modelica.Blocks.Types.Regularization.Exp
-        "Type of regularization"  annotation(Evaluate=true);
+        "Type of regularization" annotation(Evaluate=true);
       parameter Modelica.SIunits.Velocity v0(final min=Modelica.Constants.eps, start=0.1)
         "Regularization below v0";
     Modelica.SIunits.Velocity v
@@ -4220,7 +4220,7 @@ Positive force acts accelerating.
                   {-12,36},{-8,32},{-4,28},{0,24},{10,15},{20,8},{30,2},{40,-2}},
               color={95,95,95},
               origin={-40,-30},
-              rotation=180)}),    Documentation(info="<HTML>
+              rotation=180)}), Documentation(info="<HTML>
 <p>This is a simple model of a translational <b>eddy current brake</b>. The force versus speed characteristic is defined by Kloss' equation.</p>
 <p><b>Thermal behaviour:</b><br>
 The resistance of the braking fin is influenced by the actual temperature Theatport, which in turn shifts the speed v_nominal at which the (unchanged) maximum torque occurs.<br>

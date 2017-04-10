@@ -161,7 +161,7 @@ respectively. The predefined type
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Types.Color\">MultiBody.Types.Color</a> contains a menu
 definition of the colors used in the MultiBody library together with a color editor.
 </p>
-</html>"),   Icon(coordinateSystem(
+</html>"), Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
           Polygon(
@@ -803,12 +803,12 @@ with respect to frame_a (vector from the origin of frame_a to the arrow tail).
       parameter Boolean animation=true
       "= true, if animation of ground shall be enabled";
       parameter Modelica.SIunits.Position length = 10
-      "Length and width of box (center is at x=y=0)"                  annotation (Dialog(enable=animation));
+      "Length and width of box (center is at x=y=0)" annotation (Dialog(enable=animation));
       parameter Modelica.SIunits.Position height = 0.02
       "Height of box (upper surface is at z=0, lower surface is at z=-height)"
                                                                         annotation (Dialog(enable=animation));
       parameter Modelica.Mechanics.MultiBody.Types.Color groundColor={0,255,0}
-      "Color of box"    annotation (Dialog(colorSelector=true, enable=animation));
+      "Color of box" annotation (Dialog(colorSelector=true, enable=animation));
 
       Modelica.Mechanics.MultiBody.Visualizers.FixedShape ground(
         lengthDirection={1,0,0},
@@ -857,7 +857,7 @@ with respect to frame_a (vector from the origin of frame_a to the arrow tail).
             Text(
             extent={{-150,-105},{150,-145}},
             textString="%name",
-            lineColor={0,0,255})}),        Documentation(info="<html>
+            lineColor={0,0,255})}), Documentation(info="<html>
 <p>
 This shape visualizes the x-y plane by a box
 </p>
@@ -885,7 +885,7 @@ This shape visualizes the x-y plane by a box
       "= true: 3D model will be displayed without faces"
       annotation (Dialog(enable=animation, group="Material properties"),choices(checkBox=true));
     input Modelica.Mechanics.MultiBody.Types.RealColor color={0,128,255}
-      "Color of surface"  annotation(Dialog(enable=animation and not multiColoredSurface,colorSelector=true,group="Material properties"));
+      "Color of surface" annotation(Dialog(enable=animation and not multiColoredSurface,colorSelector=true,group="Material properties"));
     input Types.SpecularCoefficient specularCoefficient = 0.7
       "Reflection of ambient light (= 0: light is completely absorbed)" annotation(Dialog(enable=animation,group="Material properties"));
     input Real transparency=0
@@ -1062,7 +1062,7 @@ connector frame_a (visualized by the red coordinate system in the figure below).
     parameter Real T_min "Minimum value of T that corresponds to colorMap[1,:]"
                                                                                     annotation(Dialog(enable=animation));
     parameter Real T_max
-      "Maximum value of T that corresponds to colorMap[end,:]"                       annotation(Dialog(enable=animation));
+      "Maximum value of T that corresponds to colorMap[end,:]" annotation(Dialog(enable=animation));
     replaceable function colorMap =
         Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.jet
           constrainedby Modelica.Mechanics.MultiBody.Interfaces.partialColorMap
@@ -2338,14 +2338,14 @@ settings:
           Modelica.Mechanics.MultiBody.Interfaces.partialSurfaceCharacteristic(
                   final multiColoredSurface=true);
         input Modelica.SIunits.Radius rOuter "Outer radius of cylinder" annotation(Dialog);
-        input Modelica.SIunits.Length length "Length of cylinder"  annotation(Dialog);
+        input Modelica.SIunits.Length length "Length of cylinder" annotation(Dialog);
         input Modelica.SIunits.Position xsi[:]
-          "Relative position along the pipe with x[1] = 0, x[end] = 1"                                       annotation(Dialog);
+          "Relative position along the pipe with x[1] = 0, x[end] = 1" annotation(Dialog);
         input Real T[size(xsi,1)] "Scalar field value at position xsi*length" annotation(Dialog);
         input Real T_min "T <= T_min is mapped to colorMap[1,:]" annotation(Dialog);
         input Real T_max "T >= T_max is mapped to colorMap[end,:]" annotation(Dialog);
         input Real colorMap[:,3]
-          "Color map to map scalar T to a corresponding color"                                                annotation(Dialog);
+          "Color map to map scalar T to a corresponding color" annotation(Dialog);
       protected
         Real beta;
         Real xsi_i;
@@ -2424,7 +2424,7 @@ model.
 </p>
 </html>"));
     end SurfaceCharacteristics;
-    annotation ( Documentation(info="<html>
+    annotation (Documentation(info="<html>
 <p>
 Package <b>Visualizers.Advanced</b> contains components to visualize
 3-dimensional shapes with dynamical sizes. None of the components
@@ -2704,7 +2704,7 @@ Modelica tools. The components are used to construct the \"x\", \"y\",
 </p>
 </html>"));
   end Internal;
-  annotation ( Documentation(info="<html>
+  annotation (Documentation(info="<html>
 <p>
 Package <b>Visualizers</b> contains components to visualize
 3-dimensional shapes. These components are the basis for the

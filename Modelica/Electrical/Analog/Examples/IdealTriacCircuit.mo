@@ -4,7 +4,7 @@ model IdealTriacCircuit "Ideal triac test circuit"
 
   Modelica.Electrical.Analog.Basic.Ground ground
     annotation (Placement(transformation(extent={{-12,-40},{8,-20}})));
-  Modelica.Electrical.Analog.Basic.Resistor R(R=20)         annotation (
+  Modelica.Electrical.Analog.Basic.Resistor R(R=20) annotation (
       Placement(transformation(
         extent={{-10,-10},{12,12}},
         origin={-44,32})));
@@ -21,22 +21,22 @@ model IdealTriacCircuit "Ideal triac test circuit"
     annotation (Placement(transformation(extent={{6,20},{32,46}})));
 
 equation
-  connect(V.n, ground.p)            annotation (Line(
+  connect(V.n, ground.p) annotation (Line(
       points={{-32,-20},{-2,-20}},
       color={0,0,255}));
-  connect(R.p, V.p)                   annotation (Line(
+  connect(R.p, V.p) annotation (Line(
       points={{-54,33},{-60,33},{-60,-20},{-52,-20}},
       color={0,0,255}));
-  connect(R.n, idealTriac.n)                      annotation (Line(
+  connect(R.n, idealTriac.n) annotation (Line(
       points={{-32,33},{6,33}},
       color={0,0,255}));
-  connect(idealTriac.p, ground.p)               annotation (Line(
+  connect(idealTriac.p, ground.p) annotation (Line(
       points={{32.52,33},{42,33},{42,-20},{-2,-20}},
       color={0,0,255}));
-  connect(idealTriac.fire1, booleanPulse.y)               annotation (Line(
+  connect(idealTriac.fire1, booleanPulse.y) annotation (Line(
       points={{11.2,21.04},{0,21.04},{0,8},{-5.2,8}},
       color={255,0,255}));
-  annotation (    experiment(StopTime=2),
+  annotation (experiment(StopTime=2),
     Documentation(revisions="<html>
 <ul>
 <li><i>November 25, 2009   </i> <br>

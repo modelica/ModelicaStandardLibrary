@@ -93,7 +93,7 @@ package MultiPhase "Multiphase AC components"
       connect(powerSensor.voltageN, star.plug_p) annotation (Line(points={{-60,
               0},{-60,-40},{-80,-40}}, color={85,170,255}));
       connect(currentSensor.plug_n, plugToPin_p2.plug_p)
-        annotation (Line(points={{-20,10},{8,10}},  color={85,170,255}));
+        annotation (Line(points={{-20,10},{8,10}}, color={85,170,255}));
       connect(currentSensor.plug_n, plugToPin_p3.plug_p) annotation (Line(
             points={{-20,10},{-20,10},{-10,10},{-10,-30},{8,-30}},
                                                   color={85,170,255}));
@@ -113,11 +113,11 @@ package MultiPhase "Multiphase AC components"
       connect(resistor.pin_n, plugToPin_n3.pin_n)
         annotation (Line(points={{50,-30},{68,-30}}, color={85,170,255}));
       connect(plugToPin_n1.plug_n, star2.plug_p) annotation (Line(points={{72,50},{90,
-              50},{90,-40}},         color={85,170,255}));
+              50},{90,-40}}, color={85,170,255}));
       connect(plugToPin_n2.plug_n, star2.plug_p) annotation (Line(points={{72,10},{90,
-              10},{90,-40}},         color={85,170,255}));
+              10},{90,-40}}, color={85,170,255}));
       connect(plugToPin_n3.plug_n, star2.plug_p) annotation (Line(points={{72,-30},{
-              90,-30},{90,-40}},  color={85,170,255}));
+              90,-30},{90,-40}}, color={85,170,255}));
       connect(star2.pin_n, currentSensor0.pin_p)
         annotation (Line(points={{90,-60},{-20,-60}}, color={85,170,255}));
       connect(currentSensor0.pin_n, star.pin_n)
@@ -220,9 +220,9 @@ P.Vaske, Berechnung von Drehstromschaltungen (German, Calculation of polyphase c
       connect(powerSensor.currentN, currentSensor.plug_p)
         annotation (Line(points={{-50,10},{-40,10}}, color={85,170,255}));
       connect(powerSensor.voltageN, star.plug_p) annotation (Line(points={{-60,0},{-60,
-              -40},{-80,-40}},         color={85,170,255}));
+              -40},{-80,-40}}, color={85,170,255}));
       connect(currentSensor.plug_n, plugToPin_p2.plug_p)
-        annotation (Line(points={{-20,10},{8,10}},  color={85,170,255}));
+        annotation (Line(points={{-20,10},{8,10}}, color={85,170,255}));
       connect(currentSensor.plug_n, plugToPin_p1.plug_p) annotation (Line(
             points={{-20,10},{-10,10},{-10,80},{10,80}},
                                                      color={85,170,255}));
@@ -234,15 +234,15 @@ P.Vaske, Berechnung von Drehstromschaltungen (German, Calculation of polyphase c
       connect(currentSensor12.pin_n, capacitor.pin_p)
         annotation (Line(points={{30,52},{30,42}}, color={85,170,255}));
       connect(capacitor.pin_n, plugToPin_p2.pin_p) annotation (Line(points={{30,22},
-              {30,10},{12,10}},     color={85,170,255}));
+              {30,10},{12,10}}, color={85,170,255}));
       connect(plugToPin_p2.pin_p, currentSensor23.pin_p)
         annotation (Line(points={{12,10},{30,10},{30,2}}, color={85,170,255}));
       connect(currentSensor23.pin_n, inductor.pin_p)
         annotation (Line(points={{30,-18},{30,-28}}, color={85,170,255}));
       connect(inductor.pin_n, plugToPin_p3.pin_p) annotation (Line(points={{30,-48},
-              {30,-60},{12,-60}},      color={85,170,255}));
+              {30,-60},{12,-60}}, color={85,170,255}));
       connect(plugToPin_p1.pin_p, resistor.pin_n) annotation (Line(points={{14,80},{
-              60,80},{60,40}},      color={85,170,255}));
+              60,80},{60,40}}, color={85,170,255}));
       connect(resistor.pin_p, currentSensor31.pin_n)
         annotation (Line(points={{60,20},{60,0}}, color={85,170,255}));
       connect(currentSensor31.pin_p, plugToPin_p3.pin_p) annotation (Line(
@@ -395,29 +395,29 @@ P.Vaske, Berechnung von Drehstromschaltungen (German, Calculation of polyphase c
       connect(currentSensor2.plug_n, plugToPins_p_2.plug_p) annotation (Line(points=
              {{-40,-10},{-32,-10},{-32,-10}}, color={85,170,255}));
       connect(plugToPins_p_1.pin_p[1], resistor1_1.pin_p) annotation (Line(points={{-28,
-              90.6667},{-19,90},{-10,90}},     color={85,170,255}));
+              90.6667},{-19,90},{-10,90}}, color={85,170,255}));
       connect(plugToPins_p_1.pin_p[2], resistor1_2.pin_p) annotation (Line(points={{
               -28,90},{-18,90},{-18,70},{-10,70}}, color={85,170,255}));
       connect(plugToPins_p_1.pin_p[3], resistor1_3.pin_p) annotation (Line(points={{-28,
-              89.3333},{-22,89.3333},{-22,50},{-10,50}},     color={85,170,255}));
+              89.3333},{-22,89.3333},{-22,50},{-10,50}}, color={85,170,255}));
       connect(plugToPins_p_2.pin_p[1], resistor2_1.pin_p) annotation (Line(points={{-28,
-              -9.33333},{-20,-9.33333},{-20,-10},{-10,-10}},     color={85,170,255}));
+              -9.33333},{-20,-9.33333},{-20,-10},{-10,-10}}, color={85,170,255}));
       connect(plugToPins_p_2.pin_p[2], resistor2_2.pin_p) annotation (Line(points={{
               -28,-10},{-18,-10},{-18,-30},{-10,-30}}, color={85,170,255}));
       connect(plugToPins_p_2.pin_p[3], resistor2_3.pin_p) annotation (Line(points={{-28,
-              -10.6667},{-22,-10.6667},{-22,-50},{-10,-50}},     color={85,170,255}));
+              -10.6667},{-22,-10.6667},{-22,-50},{-10,-50}}, color={85,170,255}));
       connect(plugToPins_n_1.pin_n[1], resistor1_1.pin_n) annotation (Line(points={{58,
-              90.6667},{34,90},{10,90}},    color={85,170,255}));
+              90.6667},{34,90},{10,90}}, color={85,170,255}));
       connect(plugToPins_n_1.pin_n[2], inductor1_2.pin_n) annotation (Line(points={{
               58,90},{48,90},{48,70},{40,70}}, color={85,170,255}));
       connect(plugToPins_n_1.pin_n[3], resistor1_3.pin_n) annotation (Line(points={{58,
-              89.3333},{52,89.3333},{52,50},{10,50}},    color={85,170,255}));
+              89.3333},{52,89.3333},{52,50},{10,50}}, color={85,170,255}));
       connect(plugToPins_n_2.pin_n[1], resistor2_1.pin_n) annotation (Line(points={{60,
-              -9.33333},{36,-10},{10,-10}},    color={85,170,255}));
+              -9.33333},{36,-10},{10,-10}}, color={85,170,255}));
       connect(plugToPins_n_2.pin_n[2], inductor2_2.pin_n) annotation (Line(points={{
               60,-10},{48,-10},{48,-30},{40,-30}}, color={85,170,255}));
       connect(plugToPins_n_2.pin_n[3], resistor2_3.pin_n) annotation (Line(points={{60,
-              -10.6667},{52,-10.6667},{52,-50},{10,-50}},    color={85,170,255}));
+              -10.6667},{52,-10.6667},{52,-50},{10,-50}}, color={85,170,255}));
       connect(plugToPins_n_1.plug_n, star1_2.plug_p)
         annotation (Line(points={{62,90},{80,90},{80,60}}, color={85,170,255}));
       connect(plugToPins_n_2.plug_n, star2_2.plug_p)
@@ -1098,7 +1098,7 @@ using <code>m</code> <a href=\"modelica://Modelica.Electrical.QuasiStationary.Si
       annotation (Icon(graphics={Text(
                   extent={{100,60},{-100,100}},
                   textString="%name",
-                  lineColor={0,0,255}),          Line(points={{60,0},{90,0}},
+                  lineColor={0,0,255}), Line(points={{60,0},{90,0}},
               color={85,170,255}),Line(points={{-90,0},{-60,0}}, color={85,170,
               255}),Text(
                   extent={{100,-80},{-100,-40}},
@@ -1118,7 +1118,7 @@ using <code>m</code> <a href=\"modelica://Modelica.Electrical.QuasiStationary.Si
             Line(
               points={{30,0},{31,6},{38,14},{52,14},{59,6},{60,0}},
               color={0,128,255},
-              smooth=Smooth.Bezier)}),  Documentation(info="<html>
+              smooth=Smooth.Bezier)}), Documentation(info="<html>
 <p>
 The linear inductor connects the complex voltages <code><u>v</u></code> with the complex
 currents <code><u>i</u></code> by <code><u>i</u>*j*&omega;*L = <u>v</u></code>,
@@ -1245,7 +1245,7 @@ Model of a multi phase inductor providing a mutual inductance matrix model.
                   lineColor={0,0,255}),
                     Text(
                   extent={{100,-80},{-100,-40}},
-                  textString="m=%m"),  Line(points={{60,0},{90,0}}, color={85,
+                  textString="m=%m"), Line(points={{60,0},{90,0}}, color={85,
               170,255}),Line(points={{-90,0},{-60,0}}, color={85,170,255}),
               Rectangle(
                   extent={{-70,30},{70,-30}},
@@ -1316,7 +1316,7 @@ the actual operating temperature and the reference input resistances <code>real(
                   textString="m=%m"),
                     Text(
                   extent={{100,-80},{-100,-40}},
-                  textString="m=%m"),  Line(points={{60,0},{90,0}}, color={85,
+                  textString="m=%m"), Line(points={{60,0},{90,0}}, color={85,
               170,255}),Line(points={{-90,0},{-60,0}}, color={85,170,255}),
               Rectangle(
                   extent={{-70,30},{70,-30}},
@@ -1593,9 +1593,9 @@ The capacitances <code>C</code> are given as <code>m</code> input signals.
         Icon(graphics={Text(
                   extent={{100,-80},{-100,-40}},
                   textString="%name",
-                  lineColor={0,0,255}),          Line(points={{60,0},{90,0}},
+                  lineColor={0,0,255}), Line(points={{60,0},{90,0}},
               color={85,170,255}),Line(points={{-90,0},{-60,0}}, color={85,170,
-              255}),                                                Text(
+              255}), Text(
                   extent={{100,40},{-100,80}},
                   textString="m=%m"),
             Line(
@@ -1613,7 +1613,7 @@ The capacitances <code>C</code> are given as <code>m</code> input signals.
             Line(
               points={{30,0},{31,6},{38,14},{52,14},{59,6},{60,0}},
               color={0,128,255},
-              smooth=Smooth.Bezier),                                 Line(
+              smooth=Smooth.Bezier), Line(
               points={{0,90},{0,30}}, color={85,170,255})}),
         Documentation(info="<html>
 <p>
@@ -2311,7 +2311,7 @@ This block determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.
         y[j] = Complex(sum({sTM[j,k].re*u[k].re - sTM[j,k].im*u[k].im for k in 1:m}),
                        sum({sTM[j,k].re*u[k].im + sTM[j,k].im*u[k].re for k in 1:m}));
       end for;
-      annotation ( Icon(coordinateSystem(
+      annotation (Icon(coordinateSystem(
               preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
             graphics={
             Line(
@@ -2387,7 +2387,7 @@ Calculates the symmetric components according to Charles L. Fortescue from the t
         y[j] = Complex(sum({sbTM[j,k].re*u[k].re - sbTM[j,k].im*u[k].im for k in 1:m}),
                        sum({sbTM[j,k].re*u[k].im + sbTM[j,k].im*u[k].re for k in 1:m}));
       end for;
-      annotation ( Icon(coordinateSystem(
+      annotation (Icon(coordinateSystem(
               preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
             graphics={
             Line(

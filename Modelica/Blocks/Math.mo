@@ -2259,7 +2259,7 @@ This blocks computes the output <b>y</b> as the
   block Power "Output the power to a base of the input"
     extends Interfaces.SISO;
     parameter Real base = Modelica.Constants.e "Base of power" annotation(Evaluate=true);
-    parameter Boolean useExp = true "Use exp function in implementation"  annotation(Evaluate=true);
+    parameter Boolean useExp = true "Use exp function in implementation" annotation(Evaluate=true);
   equation
     y = if useExp then Modelica.Math.exp(u*Modelica.Math.log(base)) else base ^ u;
     annotation (
@@ -3003,7 +3003,7 @@ This block is demonstrated in the examples
 <a href=\"modelica://Modelica.Blocks.Examples.NoiseExamples.UniformNoiseProperties\">UniformNoiseProperties</a> and
 <a href=\"modelica://Modelica.Blocks.Examples.NoiseExamples.NormalNoiseProperties\">NormalNoiseProperties</a>.
 </p>
-</html>"),                                   Icon(coordinateSystem(
+</html>"), Icon(coordinateSystem(
             preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
           graphics={
           Polygon(
@@ -3269,7 +3269,7 @@ This block is demonstrated in the examples
     Sources.Cosine      sin1(
       final amplitude=sqrt(2),
       final freqHz=k*f,
-      final phase=0)    annotation (Placement(transformation(
+      final phase=0) annotation (Placement(transformation(
           extent={{-10,-10},{10,10}},
           rotation=270,
           origin={-80,70})));
@@ -3395,7 +3395,7 @@ The harmonic is defined by <code>&radic;2 rms cos(k 2 &pi; f t + arg)</code> if 
         Modelica.Math.FastFourierTransform.realFFTwriteToFile(startTime + (ns - 1)*samplePeriod, resultFileName, f_max, abs, arg);
       end if;
     end when;
-    annotation (                                 Documentation(info="<html>
+    annotation (Documentation(info="<html>
 <p>
 This block samples the input signal, calculates the Fast Fourier Transform by function <a href=\"modelica://Modelica.Math.FastFourierTransform.realFFT\">Math.realFFT</a>,
 and (when simulation terminates) writes the output to result file resultFileName by function <a href=\"modelica://Modelica.Math.FastFourierTransform.realFFTwriteToFile\">Math.realFFTwriteToFile</a>.

@@ -23,7 +23,7 @@ model SpringMassSystem "Mass attached with a spring to the world frame"
     m=1,
     sphereDiameter=0.2,
     animation=animation,
-    r_CM={0,0,0})        annotation (Placement(transformation(
+    r_CM={0,0,0}) annotation (Placement(transformation(
         origin={-20,-50},
         extent={{-10,10},{10,-10}},
         rotation=270)));
@@ -35,7 +35,7 @@ model SpringMassSystem "Mass attached with a spring to the world frame"
     m=1,
     sphereDiameter=0.2,
     animation=animation,
-    r_CM={0,0,0})        annotation (Placement(transformation(
+    r_CM={0,0,0}) annotation (Placement(transformation(
         origin={50,-50},
         extent={{-10,10},{10,-10}},
         rotation=270)));

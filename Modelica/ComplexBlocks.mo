@@ -2191,7 +2191,7 @@ The output y is a complex phasor with constant magnitude, spinning with constant
         "Duration of ramp (= 0.0 gives a Step)";
     equation
       y = 10^(log10(wMin) + (log10(wMax) - log10(wMin))*min(1, time/max(duration,eps)));
-       annotation ( Documentation(info="<html>
+       annotation (Documentation(info="<html>
 <p>The output performs a logarithmic frequency sweep:<br>
 The logarithm of w performs a linear ramp from log10(wMin) to log10(wMax), after the duration it is kept constant.<br>
 The output is the decimal power of this logarithmic ramp.

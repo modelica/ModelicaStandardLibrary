@@ -52,7 +52,7 @@ After every call of \"print(..)\" a \"new line\" is printed automatically.
                         caption="Open text file for reading")));
     output String stringVector[countLines(fileName)] "Content of file";
     external "C" ModelicaInternal_readFile(fileName,stringVector,size(stringVector,1)) annotation(Library="ModelicaExternalC");
-    annotation ( Documentation(info="<html>
+    annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 stringVector = Streams.<b>readFile</b>(fileName)

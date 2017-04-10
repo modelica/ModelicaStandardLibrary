@@ -6,7 +6,7 @@ model DoublePendulum
   inner Modelica.Mechanics.MultiBody.World world annotation (Placement(
         transformation(extent={{-88,0},{-68,20}})));
   Modelica.Mechanics.MultiBody.Joints.Revolute revolute1(useAxisFlange=true,phi(fixed=true),
-      w(fixed=true))                                             annotation (Placement(transformation(extent={{-48,0},
+      w(fixed=true)) annotation (Placement(transformation(extent={{-48,0},
             {-28,20}})));
   Modelica.Mechanics.Rotational.Components.Damper damper(
                                               d=0.1)
@@ -14,7 +14,7 @@ model DoublePendulum
   Modelica.Mechanics.MultiBody.Parts.BodyBox boxBody1(r={0.5,0,0}, width=0.06)
     annotation (Placement(transformation(extent={{-10,0},{10,20}})));
   Modelica.Mechanics.MultiBody.Joints.Revolute revolute2(phi(fixed=true), w(
-        fixed=true))                                     annotation (Placement(transformation(extent={{32,0},{
+        fixed=true)) annotation (Placement(transformation(extent={{32,0},{
             52,20}})));
   Modelica.Mechanics.MultiBody.Parts.BodyBox boxBody2(r={0.5,0,0}, width=0.06)
     annotation (Placement(transformation(extent={{74,0},{94,20}})));

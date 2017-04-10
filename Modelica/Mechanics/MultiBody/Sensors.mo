@@ -122,13 +122,13 @@ package Sensors "Sensors to measure variables"
           origin={70,-60})));
 
   protected
-    Blocks.Continuous.Der der1[3] if get_a                  annotation (Placement(
+    Blocks.Continuous.Der der1[3] if get_a annotation (Placement(
           transformation(
           extent={{-6,-6},{6,6}},
           rotation=-90,
           origin={-20,-34})));
   protected
-    Blocks.Continuous.Der der2[3] if get_z     annotation (Placement(
+    Blocks.Continuous.Der der2[3] if get_z annotation (Placement(
           transformation(
           extent={{-6,-6},{6,6}},
           rotation=-90,
@@ -179,14 +179,14 @@ package Sensors "Sensors to measure variables"
     connect(absoluteAngles.angles, angles) annotation (Line(
         points={{20,-71},{20,-90},{20,-90},{20,-110}},
         color={0,0,127}));
-    connect(angularVelocity.frame_a, frame_a)         annotation (Line(
+    connect(angularVelocity.frame_a, frame_a) annotation (Line(
         points={{50,-50},{50,-40},{20,-40},{20,0},{-100,0}},
         color={95,95,95},
         thickness=0.5));
-    connect(angularVelocity.w, w)                 annotation (Line(
+    connect(angularVelocity.w, w) annotation (Line(
         points={{50,-71},{50,-94},{60,-94},{60,-110}},
         color={0,0,127}));
-    connect(frame_resolve, position.frame_resolve)         annotation (Line(
+    connect(frame_resolve, position.frame_resolve) annotation (Line(
         points={{100,0},{114,0},{114,-90},{-80,-90},{-80,-60},{-89.9,-60}},
         color={95,95,95},
         pattern=LinePattern.Dot));
@@ -194,7 +194,7 @@ package Sensors "Sensors to measure variables"
         points={{100,0},{90,0},{90,30},{80,30}},
         color={95,95,95},
         pattern=LinePattern.Dot));
-    connect(angularVelocity.frame_resolve, frame_resolve)         annotation (
+    connect(angularVelocity.frame_resolve, frame_resolve) annotation (
         Line(
         points={{60.1,-60},{66,-60},{66,-90},{114,-90},{114,0},{100,0}},
         color={95,95,95},
@@ -203,28 +203,28 @@ package Sensors "Sensors to measure variables"
         points={{-10,-60},{0,-60},{0,-40},{20,-40},{20,0},{-100,0}},
         color={95,95,95},
         thickness=0.5));
-    connect(transformVector_a.frame_resolve, frame_resolve)      annotation (Line(
+    connect(transformVector_a.frame_resolve, frame_resolve) annotation (Line(
         points={{-30,-59.9},{-40,-59.9},{-40,-90},{114,-90},{114,0},{100,0}},
         color={95,95,95},
         pattern=LinePattern.Dot));
-    connect(transformVector_a.r_out, a)          annotation (Line(
+    connect(transformVector_a.r_out, a) annotation (Line(
         points={{-20,-71},{-20,-110}},
         color={0,0,127}));
-    connect(der2.y, transformVector_z.r_in)     annotation (Line(
+    connect(der2.y, transformVector_z.r_in) annotation (Line(
         points={{100,-52.6},{100,-58}},
         color={0,0,127}));
-    connect(transformVector_z.r_out, z)         annotation (Line(
+    connect(transformVector_z.r_out, z) annotation (Line(
         points={{100,-81},{100,-110}},
         color={0,0,127}));
-    connect(transformVector_z.frame_a, frame_a)     annotation (Line(
+    connect(transformVector_z.frame_a, frame_a) annotation (Line(
         points={{90,-70},{80,-70},{80,-40},{20,-40},{20,0},{-100,0}},
         color={95,95,95},
         thickness=0.5));
-    connect(transformVector_z.frame_resolve, frame_resolve)     annotation (Line(
+    connect(transformVector_z.frame_resolve, frame_resolve) annotation (Line(
         points={{110,-69.9},{110,-70},{114,-70},{114,0},{100,0}},
         color={95,95,95},
         pattern=LinePattern.Dot));
-    connect(frame_a, position.frame_a)         annotation (Line(
+    connect(frame_a, position.frame_a) annotation (Line(
         points={{-100,0},{-80,0},{-80,-40},{-100,-40},{-100,-50}},
         color={95,95,95},
         thickness=0.5));
@@ -232,7 +232,7 @@ package Sensors "Sensors to measure variables"
         points={{20,-50},{20,0},{-100,0}},
         color={95,95,95},
         thickness=0.5));
-    connect(position.r, r)         annotation (Line(
+    connect(position.r, r) annotation (Line(
         points={{-100,-71},{-100,-110}},
         color={0,0,127}));
     connect(velocity.frame_a, frame_a) annotation (Line(
@@ -263,7 +263,7 @@ package Sensors "Sensors to measure variables"
     connect(absoluteAngularVelocity.w, der2.u) annotation (Line(
         points={{61,0},{80,0},{80,-30},{100,-30},{100,-38.8}},
         color={0,0,127}));
-    annotation (                         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+    annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={
           Line(
             visible=get_r,
@@ -685,22 +685,22 @@ and sequence[2] &ne; sequence[3]. Often used values are:
         points={{70,-21.9},{77,-21.9},{77,80},{100,80}},
         color={95,95,95},
         pattern=LinePattern.Dot));
-    connect(der2.y, transformVector_a_rel.r_in)  annotation (Line(
+    connect(der2.y, transformVector_a_rel.r_in) annotation (Line(
         points={{-20,-50.5},{-20,-58}},
         color={0,0,127}));
-    connect(transformVector_a_rel.frame_a, frame_a)  annotation (Line(
+    connect(transformVector_a_rel.frame_a, frame_a) annotation (Line(
         points={{-30,-70},{-90,-70},{-90,0},{-100,0}},
         color={95,95,95},
         thickness=0.5));
-    connect(transformVector_a_rel.frame_b, frame_b)  annotation (Line(
+    connect(transformVector_a_rel.frame_b, frame_b) annotation (Line(
         points={{-10,-70},{6,-70},{6,0},{100,0}},
         color={95,95,95},
         thickness=0.5));
-    connect(transformVector_a_rel.frame_resolve, frame_resolve)  annotation (Line(
+    connect(transformVector_a_rel.frame_resolve, frame_resolve) annotation (Line(
         points={{-10,-61.9},{-10,80},{100,80}},
         color={95,95,95},
         pattern=LinePattern.Dot));
-    connect(transformVector_a_rel.r_out, a_rel)  annotation (Line(
+    connect(transformVector_a_rel.r_out, a_rel) annotation (Line(
         points={{-20,-81},{-20,-110}},
         color={0,0,127}));
     connect(der3.y, transformVector_z_rel.r_in) annotation (Line(
@@ -721,7 +721,7 @@ and sequence[2] &ne; sequence[3]. Often used values are:
         points={{110,-76.9},{116,-76.9},{116,80},{100,80}},
         color={95,95,95},
         pattern=LinePattern.Dot));
-    annotation (   Icon(coordinateSystem(preserveAspectRatio=true,
+    annotation (Icon(coordinateSystem(preserveAspectRatio=true,
             extent={{-100,-100},{100,100}}), graphics={
           Line(
             visible=get_r_rel,
@@ -936,7 +936,7 @@ and sequence[2] &ne; sequence[3]. Often used values are:
       annotation (Placement(transformation(extent={{20,-40},{40,-20}})));
 
   equation
-    connect(position.frame_resolve, frame_resolve)         annotation (Line(
+    connect(position.frame_resolve, frame_resolve) annotation (Line(
         points={{0,-10},{0,-100}},
         color={95,95,95},
         pattern=LinePattern.Dot));
@@ -952,7 +952,7 @@ and sequence[2] &ne; sequence[3]. Often used values are:
         points={{-10,0},{-100,0}},
         color={95,95,95},
         thickness=0.5));
-    annotation ( Icon(coordinateSystem(
+    annotation (Icon(coordinateSystem(
             preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
           Line(
             points={{70,0},{100,0}},
@@ -1086,7 +1086,7 @@ computed as:
         points={{49.9,-10},{50,-10},{50,-50},{0,-50},{0,-100}},
         color={95,95,95},
         pattern=LinePattern.Dot));
-    annotation (                                                 Icon(coordinateSystem(
+    annotation (Icon(coordinateSystem(
             preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
           Line(
             points={{70,0},{100,0}},
@@ -1153,7 +1153,7 @@ computed as:
     "Measure absolute angles between frame connector and the world frame"
     extends Modelica.Icons.RotationalSensor;
     Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a
-      "Coordinate system a from which the angles shall be determined"             annotation (Placement(
+      "Coordinate system a from which the angles shall be determined" annotation (Placement(
           transformation(extent={{-116,-16},{-84,16}})));
 
     Modelica.Blocks.Interfaces.RealOutput angles[3](
@@ -1196,7 +1196,7 @@ computed as:
             color={0,0,127}),
           Text(
             extent={{62,-22},{172,-44}},
-            textString="angles")}),      Documentation(info="<html>
+            textString="angles")}), Documentation(info="<html>
 <p>
 This model determines the 3 angles to rotate the world frame
 into frame_a along the axes defined by parameter <b>sequence</b>.
@@ -1266,7 +1266,7 @@ and sequence[2] &ne; sequence[3]. Often used values are:
       annotation (Placement(transformation(extent={{40,-40},{60,-20}})));
 
   equation
-    connect(angularVelocity.frame_resolve, frame_resolve)  annotation (Line(
+    connect(angularVelocity.frame_resolve, frame_resolve) annotation (Line(
         points={{0,-10},{0,-100}},
         color={95,95,95},
         pattern=LinePattern.Dot));
@@ -1282,7 +1282,7 @@ and sequence[2] &ne; sequence[3]. Often used values are:
         points={{-10,0},{-100,0}},
         color={95,95,95},
         thickness=0.5));
-    annotation (              Icon(coordinateSystem(
+    annotation (Icon(coordinateSystem(
             preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
           Line(
             points={{70,0},{100,0}},
@@ -1395,7 +1395,7 @@ computed as:
     connect(relativePosition.r_rel, r_rel) annotation (Line(
         points={{0,-11},{0,-110}},
         color={0,0,127}));
-    annotation ( Icon(coordinateSystem(
+    annotation (Icon(coordinateSystem(
             preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
           Line(
             points={{0,-70},{0,-100}},
@@ -1524,7 +1524,7 @@ computed as:
         points={{50,-50},{35,-50},{35,-61.9},{10,-61.9}},
         color={95,95,95},
         pattern=LinePattern.Dot));
-    annotation (              Icon(coordinateSystem(
+    annotation (Icon(coordinateSystem(
             preserveAspectRatio=true,  extent={{-100,-100},{100,100}}), graphics={
           Line(
             points={{0,-70},{0,-100}},
@@ -1592,10 +1592,10 @@ computed as:
   model RelativeAngles "Measure relative angles between two frame connectors"
     extends Modelica.Icons.RotationalSensor;
     Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a
-      "Coordinate system a"                                                       annotation (Placement(
+      "Coordinate system a" annotation (Placement(
           transformation(extent={{-116,-16},{-84,16}})));
     Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_b
-      "Coordinate system b"                                                       annotation (Placement(
+      "Coordinate system b" annotation (Placement(
           transformation(extent={{84,-16},{116,16}})));
 
     Modelica.Blocks.Interfaces.RealOutput angles[3](
@@ -1650,7 +1650,7 @@ computed as:
             color={0,0,127}),
           Text(
             extent={{0,-76},{110,-98}},
-            textString="angles")}),      Documentation(info="<html>
+            textString="angles")}), Documentation(info="<html>
 <p>
 This model determines the 3 angles to rotate frame_a
 into frame_b along the axes defined by parameter <b>sequence</b>.
@@ -1742,7 +1742,7 @@ and sequence[2] &ne; sequence[3]. Often used values are:
                                            annotation (Line(
         points={{0,-11},{0,-110}},
         color={0,0,127}));
-    annotation ( Icon(coordinateSystem(
+    annotation (Icon(coordinateSystem(
             preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
           Line(
             points={{0,-70},{0,-100}},
@@ -1963,22 +1963,22 @@ differentiable everywhere. The derivative at zero distance is 3/(2*s_small).
       not (resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve)
       annotation (Placement(transformation(extent={{0,-40},{20,-20}})));
   equation
-    connect(cutForce.frame_a, frame_a)      annotation (Line(
+    connect(cutForce.frame_a, frame_a) annotation (Line(
         points={{-50,0},{-100,0}},
         color={95,95,95},
         thickness=0.5));
-    connect(cutForce.frame_b, frame_b)      annotation (Line(
+    connect(cutForce.frame_b, frame_b) annotation (Line(
         points={{-30,0},{100,0}},
         color={95,95,95},
         thickness=0.5));
-    connect(cutForce.frame_resolve, frame_resolve)      annotation (Line(
+    connect(cutForce.frame_resolve, frame_resolve) annotation (Line(
         points={{-32,-10},{-32,-60},{80,-60},{80,-100}},
         color={95,95,95},
         pattern=LinePattern.Dot));
-    connect(cutForce.force, force)      annotation (Line(
+    connect(cutForce.force, force) annotation (Line(
         points={{-48,-11},{-48,-60},{-80,-60},{-80,-110}},
         color={0,0,127}));
-    connect(zeroPosition.frame_resolve, cutForce.frame_resolve)      annotation (
+    connect(zeroPosition.frame_resolve, cutForce.frame_resolve) annotation (
         Line(
         points={{0,-30},{-32,-30},{-32,-10}},
         color={95,95,95},
@@ -2426,7 +2426,7 @@ as output signal <b>power</b>.
     connect(basicTransformVector.r_in, r_in) annotation (Line(
         points={{0,12},{0,120}},
         color={0,0,127}));
-    annotation ( Icon(coordinateSystem(
+    annotation (Icon(coordinateSystem(
             preserveAspectRatio=true,  extent={{-100,-100},{100,100}}),
           graphics={
           Line(
@@ -2528,7 +2528,7 @@ transformed output vector as \"Real r_out[3]\";
     connect(basicTransformVector.r_in, r_in) annotation (Line(
         points={{0,12},{0,120}},
         color={0,0,127}));
-    annotation ( Icon(coordinateSystem(
+    annotation (Icon(coordinateSystem(
             preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
           Line(
             points={{0,-70},{0,-100}},
@@ -2561,12 +2561,12 @@ transformed output vector as \"Real r_out[3]\";
       extends Modelica.Icons.RotationalSensor;
 
       Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a
-        "Coordinate system at which the kinematic quantities are measured"          annotation (Placement(
+        "Coordinate system at which the kinematic quantities are measured" annotation (Placement(
             transformation(extent={{-116,-16},{-84,16}})));
 
     equation
        assert(cardinality(frame_a) > 0, "Connector frame_a must be connected at least once");
-      annotation ( Icon(coordinateSystem(preserveAspectRatio=true,
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true,
               extent={{-100,-100},{100,100}}), graphics={Text(
               extent={{-108,43},{-72,18}},
               lineColor={128,128,128},
@@ -2579,7 +2579,7 @@ transformed output vector as \"Real r_out[3]\";
       extends Modelica.Icons.RotationalSensor;
 
       Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a
-        "Coordinate system from which kinematic quantities are measured"            annotation (Placement(
+        "Coordinate system from which kinematic quantities are measured" annotation (Placement(
             transformation(extent={{-116,-16},{-84,16}})));
 
       Modelica.Mechanics.MultiBody.Interfaces.Frame_resolve frame_resolve
@@ -2598,7 +2598,7 @@ transformed output vector as \"Real r_out[3]\";
        frame_a.t = zeros(3);
        frame_resolve.f = zeros(3);
        frame_resolve.t = zeros(3);
-      annotation ( Icon(coordinateSystem(preserveAspectRatio=true,
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true,
               extent={{-100,-100},{100,100}}), graphics={
             Text(
               extent={{-108,43},{-72,18}},
@@ -2625,16 +2625,16 @@ transformed output vector as \"Real r_out[3]\";
       extends Modelica.Icons.RotationalSensor;
 
       Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a
-        "Coordinate system a"                                                       annotation (Placement(
+        "Coordinate system a" annotation (Placement(
             transformation(extent={{-116,-16},{-84,16}})));
       Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_b
-        "Coordinate system b"                                                       annotation (Placement(
+        "Coordinate system b" annotation (Placement(
             transformation(extent={{84,-16},{116,16}})));
 
     equation
        assert(cardinality(frame_a) > 0, "Connector frame_a must be connected at least once");
        assert(cardinality(frame_b) > 0, "Connector frame_b must be connected at least once");
-      annotation ( Icon(coordinateSystem(preserveAspectRatio=true,
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true,
               extent={{-100,-100},{100,100}}), graphics={
             Text(
               extent={{-108,43},{-72,18}},
@@ -2658,10 +2658,10 @@ transformed output vector as \"Real r_out[3]\";
       extends Modelica.Icons.RotationalSensor;
 
       Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a
-        "Coordinate system a (measurement is between frame_a and frame_b)"          annotation (Placement(
+        "Coordinate system a (measurement is between frame_a and frame_b)" annotation (Placement(
             transformation(extent={{-116,-16},{-84,16}})));
       Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_b
-        "Coordinate system b (measurement is between frame_a and frame_b)"          annotation (Placement(
+        "Coordinate system b (measurement is between frame_a and frame_b)" annotation (Placement(
             transformation(extent={{84,-16},{116,16}})));
 
       Modelica.Mechanics.MultiBody.Interfaces.Frame_resolve frame_resolve
@@ -2679,7 +2679,7 @@ transformed output vector as \"Real r_out[3]\";
        frame_b.t = zeros(3);
        frame_resolve.f = zeros(3);
        frame_resolve.t = zeros(3);
-      annotation ( Icon(coordinateSystem(preserveAspectRatio=true,
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true,
               extent={{-100,-100},{100,100}}), graphics={
             Text(
               extent={{-108,43},{-72,18}},
@@ -3043,10 +3043,10 @@ transformed output vector as \"Real r_out[3]\";
 
       extends Modelica.Icons.RotationalSensor;
       Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a
-        "Coordinate system a"                                                          annotation (Placement(
+        "Coordinate system a" annotation (Placement(
             transformation(extent={{-116,-16},{-84,16}})));
       Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_b
-        "Coordinate system b"                                                          annotation (Placement(
+        "Coordinate system b" annotation (Placement(
             transformation(extent={{84,-16},{116,16}})));
       Modelica.Mechanics.MultiBody.Interfaces.Frame_resolve frame_resolve if
              resolveInFrame==Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve
@@ -3078,7 +3078,7 @@ cut-torque acting between the two frames and
 to provide the measured signals as output for further processing
 with the blocks of package Modelica.Blocks.
 </p>
-</html>"),     Icon(coordinateSystem(
+</html>"), Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}}), graphics={
             Line(points={{-70,0},{-101,0}}),
@@ -3110,10 +3110,10 @@ with the blocks of package Modelica.Blocks.
 
       extends Modelica.Icons.RotationalSensor;
       Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a
-        "Coordinate system a"                                                          annotation (Placement(
+        "Coordinate system a" annotation (Placement(
             transformation(extent={{-116,-16},{-84,16}})));
       Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_b
-        "Coordinate system b"                                                          annotation (Placement(
+        "Coordinate system b" annotation (Placement(
             transformation(extent={{84,-16},{116,16}})));
       Modelica.Mechanics.MultiBody.Interfaces.Frame_resolve frame_resolve
         "The output vector is optionally resolved in this frame (cut-force/-torque are set to zero)"
@@ -3154,7 +3154,7 @@ cut-torque acting between the two frames and
 to provide the measured signals as output for further processing
 with the blocks of package Modelica.Blocks.
 </p>
-</html>"),     Icon(coordinateSystem(
+</html>"), Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}}), graphics={
             Line(points={{-70,0},{-101,0}}),
@@ -3273,7 +3273,7 @@ with the blocks of package Modelica.Blocks.
     // extends Modelica.Icons.ObsoleteModel;
   end TansformRelativeVector;
 
-  annotation ( Documentation(info="<html>
+  annotation (Documentation(info="<html>
 <p>
 Package <b>Sensors</b> contains <b>ideal measurement</b>
 components to determine absolute and relative kinematic

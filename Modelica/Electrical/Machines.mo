@@ -1213,7 +1213,7 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
         connect(mass.flange_b, signForce.flange)
           annotation (Line(points={{60,-40},{66,-40},{70,-40}},
                                                        color={0,127,0}));
-        annotation (experiment(StopTime=20, Interval=0.001),  Documentation(
+        annotation (experiment(StopTime=20, Interval=0.001), Documentation(
               info="<html>
 <b>Test example: Asynchronous induction machine with squirrel cage fed by an ideal inverter</b><br>
 An ideal frequency inverter is modeled by using a VfController and a three-phase SignalVoltage.<br>
@@ -2587,14 +2587,14 @@ Default machine parameters of model <a href=\"modelica://Modelica.Electrical.Mac
           annotation (Line(points={{-10,20},{-10,15},{-10,10}},
                                                               color={0,0,255}));
         connect(variableResistor.p, diodeBridge2mPulse.dc_p) annotation (Line(points={{0,60},{
-                0,50},{-4,50},{-4,40}},               color={0,0,255}));
+                0,50},{-4,50},{-4,40}}, color={0,0,255}));
         connect(variableResistor.n, diodeBridge2mPulse.dc_n)
           annotation (Line(points={{-20,60},{-20,50},{-16,50},{-16,40}},
                                                                    color={0,0,255}));
         connect(smpm.flange, inertiaLoad.flange_a)
           annotation (Line(points={{0,-40},{50,-40}}));
         connect(gain.u, speedSensor.w)
-          annotation (Line(points={{40,18},{40,11}},      color={0,0,127}));
+          annotation (Line(points={{40,18},{40,11}}, color={0,0,127}));
         connect(limiter.u, gain.y)
           annotation (Line(points={{40,48},{40,41}}, color={0,0,127}));
         connect(limiter.y, ac2dc.u)
@@ -9359,7 +9359,7 @@ This is a model of an inductor, described with space phasors.
         2/3*LossPower = Rr_actual*(spacePhasor_r.i_[1]*spacePhasor_r.i_[1] +
           spacePhasor_r.i_[2]*spacePhasor_r.i_[2]);
         annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                  -100},{100,100}}), graphics={      Line(points={{-100,60},{-60,
+                  -100},{100,100}}), graphics={Line(points={{-100,60},{-60,
                 60}}, color={0,0,255}),Line(points={{60,60},{80,60},{80,40}},
                 color={0,0,255}),Rectangle(
                       extent={{60,40},{100,-40}},
@@ -9491,7 +9491,7 @@ Material properties alpha of both axis are the same.
                 color={0,0,255},
                 smooth=Smooth.Bezier,
                 origin={-85,10},
-                rotation=90)}),                   Documentation(info="<html>
+                rotation=90)}), Documentation(info="<html>
 <p>
 Model of an asymmetrical damper cage in two axis.
 </p>
@@ -9807,11 +9807,11 @@ the connection to airgap has to be grounded at one point.
                   -100},{100,100}}), graphics={Text(
                       extent={{-100,130},{100,110}},
                       textString="%name",
-                      lineColor={0,0,255}),          Line(points={{-90,50},{-30,50}},
+                      lineColor={0,0,255}), Line(points={{-90,50},{-30,50}},
                       color={0,0,255}),Line(points={{-90,-50},{-30,-50}}, color=
-                 {0,0,255}),                         Line(points={{30,100},{90,100}},
+                 {0,0,255}), Line(points={{30,100},{90,100}},
                       color={0,0,255}),Line(points={{30,40},{92,40}}, color={0,
-                0,255}),                             Line(points={{30,-40},{90,-40}},
+                0,255}), Line(points={{30,-40},{90,-40}},
                        color={0,0,255}),Line(points={{30,-100},{90,-100}},
                                                                          color=
                 {0,0,255}),
@@ -14209,7 +14209,7 @@ Circuit layout (vector group) of primary and secondary windings have to be defin
               extent={{-60,60},{60,-60}},
               lineColor={191,0,0},
               fillColor={95,95,95},
-              fillPattern=FillPattern.Solid),    Ellipse(
+              fillPattern=FillPattern.Solid), Ellipse(
                   extent={{-50,50},{50,-50}},
                   lineColor={191,0,0},
                   fillColor={191,0,0},
@@ -14218,7 +14218,7 @@ Circuit layout (vector group) of primary and secondary windings have to be defin
               extent={{-110,110},{110,-110}},
               lineColor={191,0,0},
               fillColor={95,95,95},
-              fillPattern=FillPattern.Solid),    Ellipse(
+              fillPattern=FillPattern.Solid), Ellipse(
                   extent={{-80,80},{80,-80}},
                   lineColor={191,0,0},
                   fillColor={191,0,0},
@@ -15389,14 +15389,14 @@ If <i>control</i> is true, plug_sp and plug_sn are delta connected and they are 
                 {{-100,-50},{-80,-30}})));
     equation
       connect(plug_sn, star.plug_p)
-        annotation (Line(points={{-60,-60},{-60,-80}},  color={0,0,255}));
+        annotation (Line(points={{-60,-60},{-60,-80}}, color={0,0,255}));
       connect(plug_sn, delta.plug_n) annotation (Line(points={{-60,-60},{-40,
               -60},{-40,-60}},
                           color={0,0,255}));
       connect(delta.plug_p, plug_sp) annotation (Line(points={{-20,-60},{60,-60},
-              {60,-60}},  color={0,0,255}));
+              {60,-60}}, color={0,0,255}));
       connect(plug_sp, plugSupply) annotation (Line(points={{60,-60},{0,-60},{0,
-              -40}},    color={0,0,255}));
+              -40}}, color={0,0,255}));
       connect(star.pin_n, starpoint)
         annotation (Line(points={{-80,-80},{-86,-80},{-86,-40},{-90,-40}},
                                                        color={0,0,255}));
@@ -15448,13 +15448,13 @@ choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
             iconTransformation(extent={{-100,-50},{-80,-30}})));
     equation
       connect(plug_sn, multiStar.plug_p)
-        annotation (Line(points={{-60,-60},{-60,-80}},  color={0,0,255}));
+        annotation (Line(points={{-60,-60},{-60,-80}}, color={0,0,255}));
       connect(plug_sn, multiDelta.plug_n) annotation (Line(points={{-60,-60},{
-              -40,-60},{-40,-60}},  color={0,0,255}));
+              -40,-60},{-40,-60}}, color={0,0,255}));
       connect(multiDelta.plug_p, plug_sp) annotation (Line(points={{-20,-60},{
-              60,-60},{60,-60}},  color={0,0,255}));
+              60,-60},{60,-60}}, color={0,0,255}));
       connect(plug_sp, plugSupply) annotation (Line(points={{60,-60},{0,-60},{0,
-              -40}},    color={0,0,255}));
+              -40}}, color={0,0,255}));
       connect(starpoint, multiStar.starpoints) annotation (Line(
           points={{-90,-40},{-86,-40},{-86,-80},{-80,-80}},
           color={0,0,255}));

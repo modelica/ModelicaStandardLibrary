@@ -6,7 +6,7 @@ model Pendulum "Simple pendulum with one revolute joint and one body"
             -40,20}})));
   Modelica.Mechanics.MultiBody.Joints.Revolute rev(n={0,0,1},useAxisFlange=true,
     phi(fixed=true),
-    w(fixed=true))             annotation (Placement(transformation(extent={{
+    w(fixed=true)) annotation (Placement(transformation(extent={{
             -20,0},{0,20}})));
   Modelica.Mechanics.Rotational.Components.Damper damper(
                                               d=0.1)

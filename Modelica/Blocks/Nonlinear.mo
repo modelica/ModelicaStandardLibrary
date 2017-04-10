@@ -31,7 +31,7 @@ as long as the input is within the specified upper and lower
 limits. If this is not the case, the corresponding limits are passed
 as output.
 </p>
-</html>"),       Icon(coordinateSystem(
+</html>"), Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
           Line(points={{0,-90},{0,68}}, color={192,192,192}),
@@ -129,7 +129,7 @@ limits specified by the two additional inputs limit1 and
 limit2. If this is not the case, the corresponding limit
 is passed as output.
 </p>
-</html>"),   Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
+</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
           Line(points={{0,-90},{0,68}}, color={192,192,192}),
           Line(points={{-90,0},{68,0}}, color={192,192,192}),
@@ -287,7 +287,7 @@ If the input is within uMin ... uMax, the output
 is zero. Outside of this zone, the output is a linear
 function of the input with a slope of 1.
 </p>
-</html>"),       Icon(coordinateSystem(
+</html>"), Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
           Line(points={{0,-90},{0,68}}, color={192,192,192}),
@@ -361,7 +361,7 @@ The Input signal is delayed by a given time instant, or more precisely:
    y = u(time - delayTime) for time &gt; time.start + delayTime
      = u(time.start)       for time &le; time.start + delayTime
 </pre>
-</html>"),   Icon(
+</html>"), Icon(
       coordinateSystem(preserveAspectRatio=true,
         extent={{-100.0,-100.0},{100.0,100.0}}),
         graphics={
@@ -610,7 +610,7 @@ chapter 11.9, page 412-414, Huethig Verlag Heidelberg, 1994
  of the PadeDelay block with an optional, more reliable numerics</td>
 </tr>
 </table>
-</html>"),   Icon(
+</html>"), Icon(
       coordinateSystem(preserveAspectRatio=false,
         extent={{-100,-100},{100,100}}),
         graphics={
@@ -693,7 +693,7 @@ chapter 11.9, page 412-414, Huethig Verlag Heidelberg, 1994
     extends Modelica.Blocks.Interfaces.SISO;
     parameter Modelica.SIunits.Duration delayMax(min=0, start=1) "Maximum delay time";
 
-    Modelica.Blocks.Interfaces.RealInput delayTime         annotation (Placement(
+    Modelica.Blocks.Interfaces.RealInput delayTime annotation (Placement(
           transformation(extent={{-140,-80},{-100,-40}})));
   equation
     y = delay(u, delayTime, delayMax);

@@ -48,7 +48,7 @@ package ControlledTankSystem
             diameter=0.2,
             height=0,
             zeta_out=0,
-            zeta_in=1)})    annotation (Placement(transformation(extent={{10,30},
+            zeta_in=1)}) annotation (Placement(transformation(extent={{10,30},
               {50,70}})));
     Modelica.Blocks.Sources.RealExpression level1(y=tank1.level)
       annotation (Placement(transformation(extent={{-90,-60},{-55,-40}})));
@@ -81,7 +81,7 @@ package ControlledTankSystem
             diameter=0.2,
             height=0,
             zeta_out=0,
-            zeta_in=1)})   annotation (Placement(transformation(extent={{50,-60},
+            zeta_in=1)}) annotation (Placement(transformation(extent={{50,-60},
               {90,-20}})));
     Modelica.Fluid.Sources.Boundary_pT ambient1(redeclare package Medium =
           Medium,nPorts=1,
@@ -107,11 +107,11 @@ package ControlledTankSystem
     connect(start.on, tankController.start) annotation (Line(points={{-79,30},{
             -70,30},{-70,12},{-62,12}}, color={255,0,255}));
     connect(tankController.valve1, valve1.open) annotation (Line(points={{-19,12},
-            {-10,12},{-10,62}},             color={255,0,255}));
+            {-10,12},{-10,62}}, color={255,0,255}));
     connect(level1.y, tankController.level1) annotation (Line(points={{-53.25,
             -50},{-52,-50},{-52,-22}}, color={0,0,127}));
     connect(tankController.valve2, valve2.open) annotation (Line(points={{-19,0},
-            {-5,0},{26,0}},            color={255,0,255}));
+            {-5,0},{26,0}}, color={255,0,255}));
     connect(tankController.valve3, valve3.open) annotation (Line(points={{-19,-12},
             {-10,-12},{-10,-50},{35,-50},{35,-72}},
                                                 color={255,0,255}));
@@ -293,9 +293,9 @@ This example is based on
       connect(s1.outPort[1], T1.inPort)
                                      annotation (Line(points={{-51.5,40},{-44,
               40}}));
-      connect(T1.outPort, normal.inPort)      annotation (Line(points={{-38.5,
+      connect(T1.outPort, normal.inPort) annotation (Line(points={{-38.5,
               40},{-21.3333,40}}));
-      connect(normal.outPort, T2.inPort)      annotation (Line(points={{20.6667,
+      connect(normal.outPort, T2.inPort) annotation (Line(points={{20.6667,
               40},{33,40}}));
       connect(T5.outPort, emptyTanks.inPort[1])
                                              annotation (Line(points={{5.5,-50},
@@ -311,12 +311,12 @@ This example is based on
               255,0,255}));
       connect(setValve3.y, valve3) annotation (Line(points={{86,-93},{95,-93},{
               95,-60},{105,-60}}, color={255,0,255}));
-      connect(normal.suspend[1], T3.inPort)   annotation (Line(points={{-10,
+      connect(normal.suspend[1], T3.inPort) annotation (Line(points={{-10,
               19.3333},{-10,12},{-23,12},{-23,3}}));
       connect(T3.outPort, s2.inPort[1])
                                      annotation (Line(points={{-23,-2.5},{-23,
               -20},{-60,-20},{-60,-50},{-51,-50}}));
-      connect(level1, normal.level1)      annotation (Line(points={{-60,-110},{
+      connect(level1, normal.level1) annotation (Line(points={{-60,-110},{
               -60,-80},{-80,-80},{-80,20},{-30,20},{-30,24},{-22.6667,24}},
             color={0,0,255}));
       connect(s2.outPort[1], T5.inPort) annotation (Line(points={{-29.5,-49.75},
@@ -327,7 +327,7 @@ This example is based on
               40},{70,70},{-80,70},{-80,40},{-73,40},{-73,40.5}}));
       connect(T6.outPort, s1.inPort[2]) annotation (Line(points={{56.5,-50},{70,
               -50},{70,70},{-80,70},{-80,40},{-74,40},{-73,39.5}}));
-      connect(T4.outPort, normal.resume[1])      annotation (Line(points={{10,1.5},
+      connect(T4.outPort, normal.resume[1]) annotation (Line(points={{10,1.5},
               {10,10},{10.5,10},{10.5,18.6667},{10,18.6667}}));
       annotation (
         Diagram(coordinateSystem(

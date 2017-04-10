@@ -11,13 +11,13 @@ Point mass used at all places in this example (has a mass  of 1 kg and a blue co
 </html>"));
 
   PointMass pointMass1(r_0(start={3,0,0}, each fixed=true), v_0(start={0,0,-1},
-        each fixed=true))   annotation (Placement(transformation(extent={{60,-10},{
+        each fixed=true)) annotation (Placement(transformation(extent={{60,-10},{
             80,10}})));
 
   PointMass pointMass2 annotation (Placement(transformation(extent={{-60,-10},{
             -40,10}})));
   PointMass pointMass3(r_0(start={2,1,0}, each fixed=true), v_0(start={0,0,-1},
-        each fixed=true))   annotation (Placement(transformation(extent={{60,20},{80,
+        each fixed=true)) annotation (Placement(transformation(extent={{60,20},{80,
             40}})));
   PointMass pointMass4 annotation (Placement(transformation(extent={{-50,-40},{
             -30,-20}})));
@@ -68,7 +68,7 @@ Body used at all places of the comparison model with zero inertia tensor (and ma
       v_0(start={0,0,-1}, each fixed=true),
       angles_fixed=true,
       w_0_fixed=true,
-      r_CM={0,0,0})    annotation (Placement(transformation(extent={{40,-20},{
+      r_CM={0,0,0}) annotation (Placement(transformation(extent={{40,-20},{
               60,0}})));
   PointMass pointMass2(r_CM={0,0,0})
                        annotation (Placement(transformation(extent={{-60,-20},{
@@ -162,7 +162,7 @@ equation
         points={{-40,-10},{-60,-10}},
         color={95,95,95},
         thickness=0.5));
-  annotation (                       Documentation(info="<html>
+  annotation (Documentation(info="<html>
 <p>
 In order to compare the results of the \"PointMass\" example where
 6 point masses are rigidly connected together, in this comparison model,

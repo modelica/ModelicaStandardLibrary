@@ -30,7 +30,7 @@ model PendulumWithSpringDamper "Simple spring/damper/mass system"
     diameter_a=0.08,
     animation=false) annotation (Placement(transformation(extent={{0,-20},{20,0}})));
   Modelica.Mechanics.MultiBody.Joints.Revolute revolute(phi(fixed=true), w(
-        fixed=true))      annotation (Placement(transformation(extent={{-12,20},
+        fixed=true)) annotation (Placement(transformation(extent={{-12,20},
             {8,40}})));
   Modelica.Mechanics.MultiBody.Joints.Prismatic prismatic(
     boxWidth=0.04,

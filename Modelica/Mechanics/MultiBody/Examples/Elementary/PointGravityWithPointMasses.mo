@@ -34,7 +34,7 @@ model PointGravityWithPointMasses
     annotation (Placement(transformation(extent={{20,60},{40,80}})));
   Forces.Spring spring(showMass=false, c=10,
     fixedRotationAtFrame_b=true,
-    fixedRotationAtFrame_a=true)             annotation (Placement(
+    fixedRotationAtFrame_a=true) annotation (Placement(
         transformation(extent={{0,60},{20,80}})));
 equation
 

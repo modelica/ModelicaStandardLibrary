@@ -122,12 +122,12 @@ model IncompressibleFluidNetwork
            annotation (Placement(transformation(extent={{118,4},{106,16}})));
   inner Modelica.Fluid.System system(
       massDynamics=systemMassDynamics, energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial,
-    use_eps_Re=true)    annotation (Placement(transformation(extent={{90,-92},{
+    use_eps_Re=true) annotation (Placement(transformation(extent={{90,-92},{
             110,-72}})));
   Modelica.Blocks.Sources.Step valveOpening1(
     offset=1,
     startTime=50,
-    height=-1)   annotation (Placement(transformation(extent={{-80,80},{-60,60}})));
+    height=-1) annotation (Placement(transformation(extent={{-80,80},{-60,60}})));
   Modelica.Blocks.Sources.Step valveOpening2(
     offset=1,
     height=-0.5,
@@ -193,22 +193,22 @@ model IncompressibleFluidNetwork
     modelStructure=pipeModelStructure,
     redeclare model FlowModel =
         Modelica.Fluid.Pipes.BaseClasses.FlowModels.TurbulentPipeFlow,
-    length=0.5)                        annotation (Placement(transformation(
+    length=0.5) annotation (Placement(transformation(
           extent={{54,0},{74,20}})));
 equation
   connect(source.ports[1], pipe1.port_a) annotation (Line(points={{-86,0},{-80,
-          0}},  color={0,127,255}));
+          0}}, color={0,127,255}));
   connect(pipe1.port_b, pipe3.port_a) annotation (Line(points={{-60,0},{-50,0},
-          {-50,-10}},    color={0,127,255}));
+          {-50,-10}}, color={0,127,255}));
   connect(pipe1.port_b, pipe2.port_a) annotation (Line(points={{-60,0},{-50,0},
-          {-50,10}},     color={0,127,255}));
+          {-50,10}}, color={0,127,255}));
   connect(pipe2.port_b, valve1.port_a) annotation (Line(points={{-50,30},{-50,
           40},{-46,40}}, color={0,127,255}));
   connect(valve2.port_b, pipe4.port_a) annotation (Line(points={{-26,-40},{-26,
           -40},{-20,-40}},
                  color={0,127,255}));
   connect(pipe3.port_b, valve2.port_a) annotation (Line(points={{-50,-30},{-50,
-          -40},{-46,-40}},     color={0,127,255}));
+          -40},{-46,-40}}, color={0,127,255}));
   connect(valve1.port_b, pipe7.port_a) annotation (Line(points={{-26,40},{-26,
           40},{-20,40}},
                 color={0,127,255}));
@@ -216,11 +216,11 @@ equation
           10},{106,10}},
         color={0,127,255}));
   connect(valveOpening1.y, valve1.opening) annotation (Line(points={{-59,70},{
-          -36,70},{-36,48}},        color={0,0,127}));
+          -36,70},{-36,48}}, color={0,0,127}));
   connect(valveOpening2.y, valve2.opening) annotation (Line(points={{-59,-70},{
-          -36,-70},{-36,-48}},         color={0,0,127}));
+          -36,-70},{-36,-48}}, color={0,0,127}));
   connect(valveOpening3.y, valve3.opening) annotation (Line(points={{81,70},{90,
-          70},{90,18}},           color={0,0,127}));
+          70},{90,18}}, color={0,0,127}));
   connect(pipe7.port_b, pipe9.port_a)
     annotation (Line(points={{0,40},{0,40},{20,40}},
                                               color={0,127,255}));
@@ -256,7 +256,7 @@ equation
   connect(pipe10.port_b, pipe11.port_a) annotation (Line(
       points={{40,-20},{50,-20},{50,10},{54,10}},
       color={0,127,255}));
-  annotation (         Documentation(info="<html>
+  annotation (Documentation(info="<html>
 <p>
 This example demonstrates two aspects: the treatment of multi-way connections
 and the usage of an incompressible medium model.

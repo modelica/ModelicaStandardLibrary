@@ -296,7 +296,7 @@ extends Modelica.Icons.ExamplesPackage;
         points={{-20,-20},{-40,-20}},
         color={95,95,95},
         thickness=0.5));
-    connect(joint.frame_b, bodyOfJoint.frame_a)                annotation (
+    connect(joint.frame_b, bodyOfJoint.frame_a) annotation (
         Line(
         points={{40,-20},{0,-20}},
         color={95,95,95},
@@ -320,7 +320,7 @@ extends Modelica.Icons.ExamplesPackage;
         points={{0,20},{40,20}},
         color={95,95,95},
         thickness=0.5));
-    connect(joint.frame_a, fixedRotation.frame_b)  annotation (Line(
+    connect(joint.frame_a, fixedRotation.frame_b) annotation (Line(
         points={{60,-20},{80,-20},{80,-40}},
         color={95,95,95},
         thickness=0.5));
@@ -463,7 +463,7 @@ extends Modelica.Icons.ExamplesPackage;
         points={{-20,-20},{-40,-20}},
         color={95,95,95},
         thickness=0.5));
-    connect(joint.frame_b, bodyOfJoint.frame_a)                annotation (
+    connect(joint.frame_b, bodyOfJoint.frame_a) annotation (
         Line(
         points={{40,-20},{0,-20}},
         color={95,95,95},
@@ -487,7 +487,7 @@ extends Modelica.Icons.ExamplesPackage;
         points={{0,20},{40,20}},
         color={95,95,95},
         thickness=0.5));
-    connect(joint.frame_a, fixedRotation.frame_b)  annotation (Line(
+    connect(joint.frame_a, fixedRotation.frame_b) annotation (Line(
         points={{60,-20},{80,-20},{80,-40}},
         color={95,95,95},
         thickness=0.5));
@@ -628,7 +628,7 @@ extends Modelica.Icons.ExamplesPackage;
         points={{60,20},{80,20},{80,50},{60,50}},
         color={95,95,95},
         thickness=0.5));
-    connect(joint.frame_b, bodyOfJoint.frame_a)                annotation (
+    connect(joint.frame_b, bodyOfJoint.frame_a) annotation (
         Line(
         points={{40,-20},{20,-20}},
         color={95,95,95},
@@ -652,7 +652,7 @@ extends Modelica.Icons.ExamplesPackage;
         points={{20,20},{40,20}},
         color={95,95,95},
         thickness=0.5));
-    connect(joint.frame_a, fixedRotation.frame_b)  annotation (Line(
+    connect(joint.frame_a, fixedRotation.frame_b) annotation (Line(
         points={{60,-20},{80,-20},{80,-40}},
         color={95,95,95},
         thickness=0.5));

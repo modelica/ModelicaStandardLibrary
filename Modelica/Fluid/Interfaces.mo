@@ -979,7 +979,7 @@ initial equation
     end for;
   end if;
 
-   annotation (      Documentation(info="<html>
+   annotation (Documentation(info="<html>
 <p>
 Interface and base class for <code><b>n</b></code> ideally mixed fluid volumes with the ability to store mass and energy.
 It is intended to model a one-dimensional spatial discretization of fluid flow according to the finite volume method.

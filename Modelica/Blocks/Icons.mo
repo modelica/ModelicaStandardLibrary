@@ -96,7 +96,7 @@ end IntegerBlock;
             borderPattern=BorderPattern.Raised), Text(
             extent={{-150,150},{150,110}},
             textString="%name",
-            lineColor={0,0,255})}),                        Documentation(info="<html>
+            lineColor={0,0,255})}), Documentation(info="<html>
 <p>
 Block that has only the basic icon for an input/output,
 Boolean block (no declarations, no equations) used especially

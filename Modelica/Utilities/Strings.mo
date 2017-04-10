@@ -560,7 +560,7 @@ Returns an Integer hash value of the provided string
          nextIndex := startTokenIndex + 1;
       end if;
     end if;
-    annotation ( Documentation(info="<html>
+    annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 (token, nextIndex) = Strings.<b>scanToken</b>(string, startIndex, unsigned=false);

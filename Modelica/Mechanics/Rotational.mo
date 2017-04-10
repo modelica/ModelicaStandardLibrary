@@ -1960,7 +1960,7 @@ force law in a target system between two inertias.
         connect(torqueToAngle.a, a) annotation (Line(
             points={{17,-3},{66,-3},{66,-30},{110,-30}},
             color={0,0,127}));
-        annotation ( Icon(coordinateSystem(
+        annotation (Icon(coordinateSystem(
                 preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
               graphics={Text(
                       extent={{-84,-58},{24,-90}},
@@ -2022,7 +2022,7 @@ force law in a target system between two inertias.
         connect(angleToTorque.tau, tau) annotation (Line(
             points={{-29,-8},{-70,-8},{-70,-80},{-110,-80}},
             color={0,0,127}));
-        annotation ( Icon(coordinateSystem(
+        annotation (Icon(coordinateSystem(
                 preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
               graphics={Text(
                       extent={{0,-62},{96,-94}},
@@ -2104,7 +2104,7 @@ force law in a target system between two inertias.
         connect(angleToTorque2.tau, tau2) annotation (Line(
             points={{31,-8},{60,-8},{60,-80},{110,-80}},
             color={0,0,127}));
-        annotation ( Icon(coordinateSystem(
+        annotation (Icon(coordinateSystem(
                 preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
               graphics={Text(
                       extent={{-48,-36},{48,-68}},
@@ -2175,7 +2175,7 @@ d=%d"),Bitmap(extent={{-72,-44},{84,46}}, fileName=
         connect(angleToTorque2.tau, tau2) annotation (Line(
             points={{31,-8},{60,-8},{60,-80},{110,-80}},
             color={0,0,127}));
-        annotation ( Icon(coordinateSystem(
+        annotation (Icon(coordinateSystem(
                 preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
               graphics={Text(
                       extent={{-48,-36},{48,-68}},
@@ -6490,7 +6490,7 @@ Negative torque brakes in positive direction of rotation, but accelerates in rev
       parameter Modelica.SIunits.Torque tau_constant
         "Constant torque (if negative, torque is acting as load in positive direction of rotation)";
       parameter Modelica.Blocks.Types.Regularization reg=Modelica.Blocks.Types.Regularization.Exp
-        "Type of regularization"  annotation(Evaluate=true);
+        "Type of regularization" annotation(Evaluate=true);
       parameter Modelica.SIunits.AngularVelocity w0(final min=Modelica.Constants.eps, start=0.1)
         "Regularization below w0";
       Modelica.SIunits.AngularVelocity w
@@ -6524,7 +6524,7 @@ Negative torque brakes in positive direction of rotation, but accelerates in rev
                 points={{-100,0},{100,0}},
                 color={0,0,127},
               rotation=90),
-            Line(points={{-80,-40},{-6,-40},{-4,-38},{4,38},{6,40},{80,40}})}),              Documentation(info="<html>
+            Line(points={{-80,-40},{-6,-40},{-4,-38},{4,38},{6,40},{80,40}})}), Documentation(info="<html>
 <p>Model of constant torque which changes sign with direction of rotation.</p>
 <p>Please note:<br>
 Positive torque accelerates in both directions of rotation.<br>
@@ -6614,7 +6614,7 @@ Positive torque acts accelerating.
                   {-12,36},{-8,32},{-4,28},{0,24},{10,15},{20,8},{30,2},{40,-2}},
               color={95,95,95},
               origin={-40,-30},
-              rotation=180)}),    Documentation(info="<HTML>
+              rotation=180)}), Documentation(info="<HTML>
 <p>This is a simple model of a rotational <b>eddy current brake</b>. The torque versus speed characteristic is defined by Kloss' equation.</p>
 <p><b>Thermal behaviour:</b><br>
 The resistance of the braking disc is influenced by the actual temperature Theatport, which in turn shifts the speed w_nominal at which the (unchanged) maximum torque occurs.<br>

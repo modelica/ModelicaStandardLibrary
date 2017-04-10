@@ -45,19 +45,19 @@ package TraceSubstances "Library demonstrating the usage of trace substances"
     connect(C.y, boundary1.C_in[1]) annotation (Line(
         points={{-73,-18},{-60,-18}},
         color={0,0,127}));
-    connect(pipe.port_b, boundary4.ports[1])         annotation (Line(
+    connect(pipe.port_b, boundary4.ports[1]) annotation (Line(
         points={{40,-10},{60,-10}},
         color={0,127,255}));
-    connect(volume.ports[2], pipe.port_a)         annotation (Line(
+    connect(volume.ports[2], pipe.port_a) annotation (Line(
         points={{-8,0},{-8,-10},{20,-10}},
         color={0,127,255}));
-    connect(traceVolume.port, pipe.port_a)                  annotation (Line(
+    connect(traceVolume.port, pipe.port_a) annotation (Line(
         points={{10,20},{10,-10},{20,-10}},
         color={0,127,255}));
     connect(boundary1.ports[2], volume.ports[1]) annotation (Line(
         points={{-40,-10.5},{-12,-10.5},{-12,0}},
         color={0,127,255}));
-    connect(boundary1.ports[1], traceSource.port)          annotation (Line(
+    connect(boundary1.ports[1], traceSource.port) annotation (Line(
         points={{-40,-9.5},{-30,-9.5},{-30,20}},
         color={0,127,255}));
     annotation (
@@ -100,7 +100,7 @@ of magnitude.
     inner System system(energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial,
       use_eps_Re=true,
       m_flow_nominal=0.1,
-      eps_m_flow=1e-2)               annotation (Placement(transformation(extent={{70,70},
+      eps_m_flow=1e-2) annotation (Placement(transformation(extent={{70,70},
               {90,90}})));
     Sources.MassFlowSource_T freshAir(
       use_C_in=true,
@@ -161,7 +161,7 @@ of magnitude.
       yMax=0,
       yMin=-1,
       Ti=10,
-      k=10)   annotation (Placement(transformation(extent={{-40,40},{-20,60}})));
+      k=10) annotation (Placement(transformation(extent={{-40,40},{-20,60}})));
 
     Pipes.DynamicPipe ductIn(
       mCs_scaled(each nominal = 0.01),
@@ -183,7 +183,7 @@ of magnitude.
                                     annotation (Line(
         points={{-79,-38},{-70,-38}},
         color={0,0,127}));
-    connect(ductOut.port_b, boundary4.ports[1])      annotation (Line(
+    connect(ductOut.port_b, boundary4.ports[1]) annotation (Line(
         points={{60,-30},{72,-30}},
         color={0,127,255}));
     connect(NumberOfPeople.y[1], gain.u) annotation (Line(
@@ -192,7 +192,7 @@ of magnitude.
     connect(gain.y, peopleSource.m_flow_in) annotation (Line(
         points={{-47,-80},{-38,-80}},
         color={0,0,127}));
-    connect(traceVolume.C, gainSensor.u)     annotation (Line(
+    connect(traceVolume.C, gainSensor.u) annotation (Line(
         points={{41,10},{58,10}},
         color={0,0,127}));
     connect(CO2Set.y, PID.u_s) annotation (Line(
@@ -205,7 +205,7 @@ of magnitude.
     connect(PID.y, gain1.u) annotation (Line(
         points={{-19,50},{-2,50}},
         color={0,0,127}));
-    connect(gain1.y, freshAir.m_flow_in)  annotation (Line(
+    connect(gain1.y, freshAir.m_flow_in) annotation (Line(
         points={{21,50},{30,50},{30,70},{-88,70},{-88,-22},{-70,-22}},
         color={0,0,127}));
     connect(ductIn.port_b, volume.ports[1]) annotation (Line(

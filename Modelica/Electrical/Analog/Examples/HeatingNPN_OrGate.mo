@@ -155,7 +155,7 @@ equation
   connect(C1.p, R1.n)
                     annotation (Line(points={{-70,48},{-70,58}}, color={0,0,255}));
   connect(Gnd5.p, C3.n)
-  annotation (Line(points={{-16,-56},{-16,-50}},           color={0,0,255}));
+  annotation (Line(points={{-16,-56},{-16,-50}}, color={0,0,255}));
   connect(T1.B, R1.n)
   annotation (Line(points={{-20,58},{-70,58}}, color={0,0,255}));
   connect(T1.E, Gnd3.p)
@@ -185,7 +185,7 @@ annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
             -100},{100,100}}), graphics={Text(
           extent={{-100,100},{-6,72}},
           textString="Heating \"NPN or\" Gate",
-          lineColor={0,0,255})}),    Documentation(info="<html>
+          lineColor={0,0,255})}), Documentation(info="<html>
 <p>The heating &quot;NPN or&quot; gate shows a heat flow always if a transistor is leading.</p>
 <p>Simulate until T=200 s. Plot in separate windows:
 <br>V1.v and V2.v and C2.v

@@ -316,36 +316,36 @@ Zeunerstrasse 38<br />
             extent={{-10,-10},{10,10}},
             rotation=270,
             origin={-40,-16})));
-      Sources.V_pulse v(V2=5, TR=0.1e-12)               annotation (Placement(
+      Sources.V_pulse v(V2=5, TR=0.1e-12) annotation (Placement(
             transformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
             origin={40,-4})));
     equation
-      connect(mn.D,mp. S)    annotation (Line(
+      connect(mn.D,mp. S) annotation (Line(
           points={{-4,-14},{-4,8}},
           color={0,0,255}));
-      connect(mp.G,mn. G)    annotation (Line(
+      connect(mp.G,mn. G) annotation (Line(
           points={{-14,17.9},{-14,-24.1}},
           color={0,0,255}));
-      connect(mn.S,mn. B)     annotation (Line(
+      connect(mn.S,mn. B) annotation (Line(
           points={{-4,-34},{6,-34},{6,-24}}));
-      connect(mp.B,mp. D)   annotation (Line(
+      connect(mp.B,mp. D) annotation (Line(
           points={{6,18},{6,28},{-4,28}},
           color={0,0,255}));
-      connect(mn.S, ground.p)   annotation (Line(
+      connect(mn.S, ground.p) annotation (Line(
           points={{-4,-34},{-4,-40}}));
-      connect(v.p,mp. D)         annotation (Line(
+      connect(v.p,mp. D) annotation (Line(
           points={{40,6},{40,28},{-4,28}},
           color={0,0,255}));
-      connect(v.n, ground.p)        annotation (Line(
+      connect(v.n, ground.p) annotation (Line(
           points={{40,-14},{40,-40},{-4,-40}}));
-      connect(vin.p,mp. G)      annotation (Line(
+      connect(vin.p,mp. G) annotation (Line(
           points={{-40,-6},{-40,17.9},{-14,17.9}},
           color={0,0,255}));
-      connect(vin.n, ground.p)     annotation (Line(
+      connect(vin.n, ground.p) annotation (Line(
           points={{-40,-26},{-40,-40},{-4,-40}}));
-      annotation (        experiment(
+      annotation (experiment(
           StopTime=1e-11,
           Interval=5e-15,
           Tolerance=1e-7),
@@ -363,7 +363,7 @@ Zeunerstrasse 38<br />
       "Two inverters where transistor models use different modelcard instances"
       extends Modelica.Icons.Example;
 
-      Basic.Ground ground        annotation (Placement(transformation(extent={{-38,-80},
+      Basic.Ground ground annotation (Placement(transformation(extent={{-38,-80},
                 {-18,-60}})));
     //--------------------------------------------------------------------------------------------------------------
     /*apart record: For each transistor in the circuit a record with the technologyparameters is made available
@@ -405,7 +405,7 @@ Zeunerstrasse 38<br />
             extent={{-10,-10},{10,10}},
             rotation=270,
             origin={-60,-32})));
-      Sources.V_pulse v(V2=5, TR=1)              annotation (Placement(transformation(
+      Sources.V_pulse v(V2=5, TR=1) annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
             origin={60,-32})));
@@ -433,7 +433,7 @@ Zeunerstrasse 38<br />
       connect(mn2.B, mn2.S) annotation (Line(points={{22,-20},{22,-30},{12,
               -30}}, color={0,0,255}));
       connect(mp2.G, mn1.D) annotation (Line(points={{2,29.9},{2,0},{-28,0},{
-              -28,-10}},  color={0,0,255}));
+              -28,-10}}, color={0,0,255}));
       connect(c1.p, mn1.D) annotation (Line(points={{-8,-20},{-8,0},{-28,0},{
               -28,-10}}, color={0,0,255}));
       connect(mn2.D, c2.p) annotation (Line(points={{12,-10},{12,0},{34,0},{34,
@@ -442,20 +442,20 @@ Zeunerstrasse 38<br />
               -60}}, color={0,0,255}));
       connect(c1.n, ground.p) annotation (Line(points={{-8,-40},{-8,-60},{-28,
               -60}}, color={0,0,255}));
-      connect(mp1.G, vin.p)    annotation (Line(
+      connect(mp1.G, vin.p) annotation (Line(
           points={{-38,29.9},{-60,29.9},{-60,-22}},
           color={0,0,255}));
-      connect(vin.n, ground.p)    annotation (Line(
+      connect(vin.n, ground.p) annotation (Line(
           points={{-60,-42},{-60,-60},{-28,-60}}));
-      connect(v.p, mp2.D)       annotation (Line(
+      connect(v.p, mp2.D) annotation (Line(
           points={{60,-22},{60,40},{12,40}},
           color={0,0,255}));
       connect(mp1.D, mp2.D) annotation (Line(
           points={{-28,40},{12,40}},
           color={0,0,255}));
-      connect(v.n, ground.p)       annotation (Line(
+      connect(v.n, ground.p) annotation (Line(
           points={{60,-42},{60,-60},{-28,-60}}));
-      annotation (        experiment(StopTime=5),
+      annotation (experiment(StopTime=5),
         Documentation(info="<html>
 <p>An inverter is an electrical circuit that consists of a PMOS and a NMOS. Its task is to turn the input voltage from high potential to low potential or the other way round. This circuit <i>InverterApartModel</i> contains two inverters. The input voltage of the first inverter is nearly equal to the output voltage of the second inverter. Capacities cause some differences.</p>
 <p>To see the typical behavior of the circuit the input voltages and the output voltages should be plotted. Besides that it can be interesting to watch the output voltage of the first inverter. Simulated until t=5s.</p>
@@ -474,7 +474,7 @@ Zeunerstrasse 38<br />
       "Two inverters with MOS models defined by inheritance"
       extends Modelica.Icons.Example;
 
-      Basic.Ground ground        annotation (Placement(transformation(extent={{-40,-80},
+      Basic.Ground ground annotation (Placement(transformation(extent={{-40,-80},
                 {-20,-60}})));
     //--------------------------------------------------------------------------------------------------------------
     /*extended model: For each set of technology parameters an apart model has to be defined. Every transistor extends
@@ -524,7 +524,7 @@ Zeunerstrasse 38<br />
             extent={{-10,-10},{10,10}},
             rotation=270,
             origin={-60,-22})));
-      Sources.V_pulse v(V2=5, TR=1)              annotation (Placement(transformation(
+      Sources.V_pulse v(V2=5, TR=1) annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
             origin={56,-22})));
@@ -559,20 +559,20 @@ Zeunerstrasse 38<br />
               -60}}, color={0,0,255}));
       connect(c1.n, ground.p) annotation (Line(points={{-10,-40},{-10,-60},{-30,
               -60}}, color={0,0,255}));
-      connect(vin.p, mp1.G)    annotation (Line(
+      connect(vin.p, mp1.G) annotation (Line(
           points={{-60,-12},{-60,26},{-40,26},{-40,29.9}},
           color={0,0,255}));
-      connect(vin.n, ground.p)    annotation (Line(
+      connect(vin.n, ground.p) annotation (Line(
           points={{-60,-32},{-60,-60},{-30,-60}}));
-      connect(v.p, mp2.D)       annotation (Line(
+      connect(v.p, mp2.D) annotation (Line(
           points={{56,-12},{56,40},{10,40}},
           color={0,0,255}));
       connect(mp2.D, mp1.D) annotation (Line(
           points={{10,40},{-30,40}},
           color={0,0,255}));
-      connect(v.n, ground.p)       annotation (Line(
+      connect(v.n, ground.p) annotation (Line(
           points={{56,-32},{56,-60},{-30,-60}}));
-      annotation (        experiment(StopTime=5),
+      annotation (experiment(StopTime=5),
         Documentation(info="<html>
 <p>An inverter is an electrical circuit that consists of a PMOS and a NMOS. Its task is to turn the input voltage from high potential to low potential or the other way round. This circuit <i>InverterExtendedModel</i> contains two inverters. The input voltage of the first inverter is nearly equal to the output voltage of the second inverter. Capacities cause some differences.</p>
 <p>To see the typical behavior of the circuit the input voltages and the output voltages should be plotted. Besides that it can be interesting to watch the output voltage of the first inverter. Simulated until t=5s.</p>
@@ -591,7 +591,7 @@ Zeunerstrasse 38<br />
       "Four inverters with MOSFET level 1, using private record as model card"
       extends Modelica.Icons.Example;
 
-      Basic.Ground ground        annotation (Placement(transformation(extent={{-74,-80},
+      Basic.Ground ground annotation (Placement(transformation(extent={{-74,-80},
                 {-54,-60}})));
 
       parameter Semiconductors.ModelcardMOS modp(CBD=0, CBS=0)
@@ -650,7 +650,7 @@ Zeunerstrasse 38<br />
             extent={{-10,-10},{10,10}},
             rotation=270,
             origin={-86,-42})));
-      Sources.V_pulse v(V2=5, TR=1)                               annotation (
+      Sources.V_pulse v(V2=5, TR=1) annotation (
           Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
@@ -705,34 +705,34 @@ Zeunerstrasse 38<br />
       connect(mp3.S, mn3.D)
         annotation (Line(points={{16,20},{16,-10}}, color={0,0,255}));
       connect(mp4.S, mn4.D)
-        annotation (Line(points={{56,20},{56,-10}},   color={0,0,255}));
+        annotation (Line(points={{56,20},{56,-10}}, color={0,0,255}));
       connect(mn3.S, ground.p) annotation (Line(points={{16,-30},{16,-60},{-64,
               -60}}, color={0,0,255}));
       connect(mn4.S, ground.p) annotation (Line(points={{56,-30},{56,-60},{-64,
-              -60}},     color={0,0,255}));
+              -60}}, color={0,0,255}));
       connect(c3.p, mn3.D) annotation (Line(points={{36,-20},{36,0},{16,0},{16,
               -10}}, color={0,0,255}));
       connect(c4.p, mn4.D) annotation (Line(points={{76,-20},{76,0},{56,0},{56,
-              -10}},      color={0,0,255}));
+              -10}}, color={0,0,255}));
       connect(c2.p, mn3.G) annotation (Line(points={{-2,-20},{2,-20},{2,-20.1},
-              {6,-20.1}},         color={0,0,255}));
+              {6,-20.1}}, color={0,0,255}));
       connect(mn3.G, mp3.G) annotation (Line(points={{6,-20.1},{6,29.9}},
             color={0,0,255}));
       connect(c3.p, mn4.G) annotation (Line(points={{36,-20},{41,-20},{41,
-              -20.1},{46,-20.1}},  color={0,0,255}));
+              -20.1},{46,-20.1}}, color={0,0,255}));
       connect(mn4.G, mp4.G) annotation (Line(points={{46,-20.1},{46,29.9}},
             color={0,0,255}));
       connect(c1.p, mn2.G) annotation (Line(points={{-44,-20},{-39,-20},{-39,
               -20.1},{-34,-20.1}},color={0,0,255}));
-      connect(vin.p, mn1.G)    annotation (Line(
+      connect(vin.p, mn1.G) annotation (Line(
           points={{-86,-32},{-86,0},{-74,0},{-74,-20.1}},
           color={0,0,255}));
-      connect(vin.n, ground.p)    annotation (Line(
+      connect(vin.n, ground.p) annotation (Line(
           points={{-86,-52},{-86,-60},{-64,-60}}));
-      connect(v.p, mp4.D)       annotation (Line(
+      connect(v.p, mp4.D) annotation (Line(
           points={{92,-38},{92,40},{56,40}},
           color={0,0,255}));
-      connect(v.n, ground.p)       annotation (Line(
+      connect(v.n, ground.p) annotation (Line(
           points={{92,-58},{92,-60},{-64,-60}}));
       connect(mp3.D, mp4.D) annotation (Line(
           points={{16,40},{56,40}},
@@ -743,7 +743,7 @@ Zeunerstrasse 38<br />
       connect(mp1.D, mp2.D) annotation (Line(
           points={{-64,40},{-24,40}},
           color={0,0,255}));
-      annotation (        experiment(StopTime=5),
+      annotation (experiment(StopTime=5),
         Documentation(info="<html>
 <p>This circuit that contains four inverter was designed to show the functionality of the MOS transistor models. To see the behavior of the circuit the output voltages of each inverter should be displayed (mp1.NS.v, mp2.NS.v, mp3.NS.v, mp4.NS.v). The output voltages of the second an fourth inverter and the input voltage of the first inverter have the same potential. The output voltages of the first and third inverter have the opposite potential compared with inverter 2 and 4.</p>
 <p>Simulate until t=5s. The output values should be: mp1.NS.v, mp2.NS.v, mp3.NS.v, mp4.NS.v and vgate.p.v</p>
@@ -760,20 +760,20 @@ Zeunerstrasse 38<br />
       Semiconductors.M_PMOS mp1(
         L=2e-5,
         W=1e-5,
-        modelcard(PHI=0.7, CBD=0, CBS=0), Sinternal(start=0), IC=-1e40)               annotation (Placement(transformation(
+        modelcard(PHI=0.7, CBD=0, CBS=0), Sinternal(start=0), IC=-1e40) annotation (Placement(transformation(
               extent={{-22,24},{-2,44}})));
       Semiconductors.M_PMOS mp2(modelcard(PHI=0.7,CBD=0, CBS=0), IC=-1e40)
                                            annotation (Placement(transformation(
               extent={{24,24},{44,44}})));
-      Semiconductors.M_NMOS mn2(Dinternal(start=0), modelcard(CBD=0, CBS=0), IC=-1e40)           annotation (Placement(transformation(
+      Semiconductors.M_NMOS mn2(Dinternal(start=0), modelcard(CBD=0, CBS=0), IC=-1e40) annotation (Placement(transformation(
               extent={{-24,-44},{-4,-24}})));
-      Semiconductors.M_NMOS mn1(modelcard(CBD=0, CBS=0), IC=-1e40)            annotation (Placement(transformation(
+      Semiconductors.M_NMOS mn1(modelcard(CBD=0, CBS=0), IC=-1e40) annotation (Placement(transformation(
               extent={{-24,-10},{-4,10}})));
-      Sources.V_constant vconstant(V=5)         annotation (Placement(
+      Sources.V_constant vconstant(V=5) annotation (Placement(
             transformation(extent={{-10,-10},{10,10}},
                                                      rotation=270,
             origin={62,34})));
-      Basic.Ground ground        annotation (Placement(transformation(extent={{20,-100},
+      Basic.Ground ground annotation (Placement(transformation(extent={{20,-100},
                 {40,-80}})));
       Sources.V_pulse vin1(
         TR=1e-9,
@@ -781,7 +781,7 @@ Zeunerstrasse 38<br />
         V2=5,
         TD=2e-8,
         PW=4e-8,
-        PER=8e-8)                    annotation (Placement(transformation(
+        PER=8e-8) annotation (Placement(transformation(
             origin={-50,24},
             extent={{-10,-10},{10,10}},
             rotation=270)));
@@ -791,40 +791,40 @@ Zeunerstrasse 38<br />
         TF=1e-9,
         TD=1e-8,
         PW=4e-8,
-        PER=8e-8)                     annotation (Placement(transformation(
+        PER=8e-8) annotation (Placement(transformation(
             origin={-52,-44},
             extent={{-10,-10},{10,10}},
             rotation=270)));
 
     equation
-      connect(mp1.B, mp1.D)       annotation (Line(points={{-2,34},{-2,44},{
-              -12,44}},  color={0,0,255}));
-      connect(mp2.B, mp2.D)         annotation (Line(points={{44,34},{44,44},
+      connect(mp1.B, mp1.D) annotation (Line(points={{-2,34},{-2,44},{
+              -12,44}}, color={0,0,255}));
+      connect(mp2.B, mp2.D) annotation (Line(points={{44,34},{44,44},
               {34,44}}, color={0,0,255}));
-      connect(vconstant.p, mp2.D)      annotation (Line(points={{62,44},{62,44},
+      connect(vconstant.p, mp2.D) annotation (Line(points={{62,44},{62,44},
               {34,44}}, color={0,0,255}));
       connect(mp2.D, mp1.D)
         annotation (Line(points={{34,44},{-12,44}}, color={0,0,255}));
-      connect(mp1.G, mn1.G)        annotation (Line(points={{-22,33.9},{-22,
+      connect(mp1.G, mn1.G) annotation (Line(points={{-22,33.9},{-22,
               16},{-24,16},{-24,-0.1}},
                       color={0,0,255}));
-      connect(mp1.G, vin1.p)     annotation (Line(points={{-22,33.9},{-38,33.9},
+      connect(mp1.G, vin1.p) annotation (Line(points={{-22,33.9},{-38,33.9},
               {-38,34},{-50,34}}, color={0,0,255}));
-      connect(vin1.n, ground.p)  annotation (Line(points={{-50,14},{-62,14},{
+      connect(vin1.n, ground.p) annotation (Line(points={{-50,14},{-62,14},{
               -62,-80},{30,-80}},color={0,0,255}));
-      connect(mp2.G, mn2.G)        annotation (Line(points={{24,33.9},{24,14},
+      connect(mp2.G, mn2.G) annotation (Line(points={{24,33.9},{24,14},
               {-32,14},{-32,-34.1},{-24,-34.1}},
                                               color={0,0,255}));
-      connect(mn2.G, vin2.p)     annotation (Line(points={{-24,-34.1},{-38,
+      connect(mn2.G, vin2.p) annotation (Line(points={{-24,-34.1},{-38,
               -34.1},{-38,-34},{-52,-34}},
                                   color={0,0,255}));
-      connect(vin2.n, ground.p)  annotation (Line(points={{-52,-54},{-52,-80},{
+      connect(vin2.n, ground.p) annotation (Line(points={{-52,-54},{-52,-80},{
               30,-80}},color={0,0,255}));
-      connect(mn2.S, ground.p)    annotation (Line(points={{-14,-44},{-14,-80},
+      connect(mn2.S, ground.p) annotation (Line(points={{-14,-44},{-14,-80},
               {30,-80}},color={0,0,255}));
       connect(mn1.B, mn2.B)
-        annotation (Line(points={{-4,0},{-4,-34}},   color={0,0,255}));
-      connect(mn2.B, mn2.S)       annotation (Line(points={{-4,-34},{-4,-44},
+        annotation (Line(points={{-4,0},{-4,-34}}, color={0,0,255}));
+      connect(mn2.B, mn2.S) annotation (Line(points={{-4,-34},{-4,-44},
               {-14,-44}}, color={0,0,255}));
       connect(mn1.S, mn2.D)
         annotation (Line(points={{-14,-10},{-14,-24}},
@@ -832,11 +832,11 @@ Zeunerstrasse 38<br />
       connect(mp1.S, mn1.D)
         annotation (Line(points={{-12,24},{-12,18},{-14,18},{-14,10}},
                                                      color={0,0,255}));
-      connect(mp2.S, mn1.D)         annotation (Line(points={{34,24},{34,10},
+      connect(mp2.S, mn1.D) annotation (Line(points={{34,24},{34,10},
               {-14,10}}, color={0,0,255}));
-      connect(vconstant.n, ground.p)  annotation (Line(points={{62,24},{62,-80},
+      connect(vconstant.n, ground.p) annotation (Line(points={{62,24},{62,-80},
               {30,-80}},color={0,0,255}));
-      annotation (        Documentation(info="<html>
+      annotation (Documentation(info="<html>
 <p>In nearly every electronic the basic circuit &quot;nand&quot; are used. A nand contains two PMOS and two NMOS. The faulty wiring can be seen in the graphical mode. If and only if the two input voltages have high potential, the output voltage has low potential, otherwise the output voltage has high potential.</p>
 <p>Nand truth table (1 means true, it is represented by the 5V voltage):</p>
 <table cellspacing=\"2\" cellpadding=\"0\" border=\"1\"><tr>
@@ -884,7 +884,7 @@ Zeunerstrasse 38<br />
           CBS=1e-5,
           CGSO=1e-5,
           CGDO=1e-5,
-          CGBO=1e-5), Dinternal(start=0,fixed=true), Sinternal(start=0,fixed=true), IC=-1e40)                     annotation (Placement(transformation(
+          CGBO=1e-5), Dinternal(start=0,fixed=true), Sinternal(start=0,fixed=true), IC=-1e40) annotation (Placement(transformation(
               extent={{-16,24},{4,44}})));
       Semiconductors.M_PMOS mp2(modelcard(
           RD=1e-4,
@@ -893,7 +893,7 @@ Zeunerstrasse 38<br />
           CBS=1e-5,
           CGSO=1e-5,
           CGDO=1e-5,
-          CGBO=1e-5), Dinternal(start=0,fixed=true), Sinternal(start=0,fixed=true), IC=-1e40)                      annotation (Placement(transformation(
+          CGBO=1e-5), Dinternal(start=0,fixed=true), Sinternal(start=0,fixed=true), IC=-1e40) annotation (Placement(transformation(
               extent={{-16,-6},{4,14}})));
       Semiconductors.M_NMOS mn1(modelcard(
           RD=1e-4,
@@ -902,7 +902,7 @@ Zeunerstrasse 38<br />
           CBS=1e-5,
           CGSO=1e-5,
           CGDO=1e-5,
-          CGBO=1e-5), Dinternal(start=0,fixed=true), Sinternal(start=0,fixed=true), IC=-1e40)                     annotation (Placement(transformation(
+          CGBO=1e-5), Dinternal(start=0,fixed=true), Sinternal(start=0,fixed=true), IC=-1e40) annotation (Placement(transformation(
               extent={{-16,-44},{4,-24}})));
       Semiconductors.M_NMOS mn2(modelcard(
           RD=1e-4,
@@ -911,9 +911,9 @@ Zeunerstrasse 38<br />
           CBS=1e-5,
           CGSO=1e-5,
           CGDO=1e-5,
-          CGBO=1e-5), Dinternal(start=0,fixed=true), Sinternal(start=0,fixed=true), IC=-1e40)                      annotation (Placement(transformation(
+          CGBO=1e-5), Dinternal(start=0,fixed=true), Sinternal(start=0,fixed=true), IC=-1e40) annotation (Placement(transformation(
               extent={{32,-44},{52,-24}})));
-      Basic.Ground ground        annotation (Placement(transformation(extent={{28,-100},
+      Basic.Ground ground annotation (Placement(transformation(extent={{28,-100},
                 {48,-80}})));
       Sources.V_pulse vin1(
         V2=5,
@@ -921,7 +921,7 @@ Zeunerstrasse 38<br />
         TF=0.001,
         PW=2,
         PER=10,
-        TD=2)                        annotation (Placement(transformation(
+        TD=2) annotation (Placement(transformation(
             origin={-42,24},
             extent={{-10,-10},{10,10}},
             rotation=270)));
@@ -931,7 +931,7 @@ Zeunerstrasse 38<br />
         TF=0.001,
         PW=2,
         PER=10,
-        TD=1)                         annotation (Placement(transformation(
+        TD=1) annotation (Placement(transformation(
             origin={-44,-44},
             extent={{-10,-10},{10,10}},
             rotation=270)));
@@ -943,47 +943,47 @@ Zeunerstrasse 38<br />
             rotation=270,
             origin={62,34})));
     equation
-      connect(mn1.B, mn1.S)       annotation (Line(points={{4,-34},{4,-44},{
-              -6,-44}},   color={0,0,255}));
-      connect(mn2.B, mn2.S)         annotation (Line(points={{52,-34},{52,-44},
+      connect(mn1.B, mn1.S) annotation (Line(points={{4,-34},{4,-44},{
+              -6,-44}}, color={0,0,255}));
+      connect(mn2.B, mn2.S) annotation (Line(points={{52,-34},{52,-44},
               {42,-44}}, color={0,0,255}));
-      connect(mn2.S, ground.p)     annotation (Line(points={{42,-44},{38,-44},
+      connect(mn2.S, ground.p) annotation (Line(points={{42,-44},{38,-44},
               {38,-80}},
                        color={0,0,255}));
-      connect(mn1.S, ground.p)    annotation (Line(points={{-6,-44},{-6,-80},{
+      connect(mn1.S, ground.p) annotation (Line(points={{-6,-44},{-6,-80},{
               38,-80}}, color={0,0,255}));
-      connect(vin2.p, mn1.G)        annotation (Line(points={{-44,-34},{-29,
+      connect(vin2.p, mn1.G) annotation (Line(points={{-44,-34},{-29,
               -34},{-29,-34.1},{-16,-34.1}},
                                       color={0,0,255}));
-      connect(vin2.n, ground.p)     annotation (Line(points={{-44,-54},{-44,-80},
+      connect(vin2.n, ground.p) annotation (Line(points={{-44,-54},{-44,-80},
               {38,-80}},color={0,0,255}));
-      connect(vin1.p, mp1.G)       annotation (Line(points={{-42,34},{-29,34},
+      connect(vin1.p, mp1.G) annotation (Line(points={{-42,34},{-29,34},
               {-29,33.9},{-16,33.9}}, color={0,0,255}));
-      connect(vin1.n, ground.p)    annotation (Line(points={{-42,14},{-64,14},{
+      connect(vin1.n, ground.p) annotation (Line(points={{-42,14},{-64,14},{
               -64,-80},{38,-80}},color={0,0,255}));
       connect(mp1.S, mp2.D)
-        annotation (Line(points={{-6,24},{-6,14}},   color={0,0,255}));
-      connect(mp2.S, mn1.D)        annotation (Line(points={{-6,-6},{-6,-24}},
+        annotation (Line(points={{-6,24},{-6,14}}, color={0,0,255}));
+      connect(mp2.S, mn1.D) annotation (Line(points={{-6,-6},{-6,-24}},
             color={0,0,255}));
-      connect(mn2.D, mn1.D)        annotation (Line(points={{42,-24},{-6,-24}},
+      connect(mn2.D, mn1.D) annotation (Line(points={{42,-24},{-6,-24}},
             color={0,0,255}));
-      connect(vin2.p, mp2.G)         annotation (Line(points={{-44,-34},{-44,4},
-              {-16,4},{-16,3.9}},   color={0,0,255}));
-      connect(vin1.p, mn2.G)        annotation (Line(points={{-42,34},{-28,34},
+      connect(vin2.p, mp2.G) annotation (Line(points={{-44,-34},{-44,4},
+              {-16,4},{-16,3.9}}, color={0,0,255}));
+      connect(vin1.p, mn2.G) annotation (Line(points={{-42,34},{-28,34},
               {-28,-18},{32,-18},{32,-34.1}},
                                          color={0,0,255}));
-      connect(mp1.B, mp1.D)       annotation (Line(
+      connect(mp1.B, mp1.D) annotation (Line(
           points={{4,34},{4,44},{-6,44}},
           color={0,0,255}));
-      connect(mp2.B, mp1.B)        annotation (Line(
+      connect(mp2.B, mp1.B) annotation (Line(
           points={{4,4},{4,34}},
           color={0,0,255}));
-      connect(v.p, mp1.D)           annotation (Line(
+      connect(v.p, mp1.D) annotation (Line(
           points={{62,44},{-6,44}},
           color={0,0,255}));
-      connect(v.n, ground.p)        annotation (Line(
+      connect(v.n, ground.p) annotation (Line(
           points={{62,24},{62,-80},{38,-80}}));
-      annotation (        Documentation(info="<html>
+      annotation (Documentation(info="<html>
 <p>In nearly every electronic the basic circuit &quot;nor&quot; is used. A nor contains two PMOS and two NMOS. The faulty wiring can be seen in the graphical mode. If and only if the two input voltages have low potential, the output voltage has high potential, otherwise the output voltage has low potential.</p>
 <p>Nor truth table (1 means true, it is represented by the 5V voltage):</p>
 <table cellspacing=\"2\" cellpadding=\"0\" border=\"1\"><tr>
@@ -1067,14 +1067,14 @@ Zeunerstrasse 38<br />
       connect(D4.p, ground.p) annotation (Line(
           points={{-9,-30},{-20,-30},{-20,-40}},
           color={0,0,255}));
-      connect(vsin.n, ground.p)  annotation (Line(
+      connect(vsin.n, ground.p) annotation (Line(
           points={{-44,-18},{-44,-40},{-20,-40}}));
-      connect(D4.n, rout.p)       annotation (Line(
+      connect(D4.n, rout.p) annotation (Line(
           points={{11,-30},{42,-30},{42,-17}}));
-      connect(rout.n, D1.p)       annotation (Line(
+      connect(rout.n, D1.p) annotation (Line(
           points={{42,3},{42,26},{-20,26},{-20,14},{-10,14}},
           color={0,0,255}));
-      connect(D3.p, vsin.p)  annotation (Line(
+      connect(D3.p, vsin.p) annotation (Line(
           points={{20,2},{20,40},{-44,40},{-44,2}},
           color={0,0,255}));
       annotation (
@@ -1092,7 +1092,7 @@ Zeunerstrasse 38<br />
     model Oscillator "Oscillator circuit"
       extends Modelica.Icons.Example;
 
-      Basic.R_Resistor r(R=1000)        annotation (Placement(
+      Basic.R_Resistor r(R=1000) annotation (Placement(
             transformation(
             extent={{-10,-10},{10,10}},
             rotation=90,
@@ -1101,17 +1101,17 @@ Zeunerstrasse 38<br />
         annotation (Placement(transformation(extent={{-32,0},{-12,20}})));
       Basic.C_Capacitor c1(C=1e-7)
         annotation (Placement(transformation(extent={{24,0},{44,20}})));
-      Basic.R_Resistor r1(R=22000)        annotation (Placement(
+      Basic.R_Resistor r1(R=22000) annotation (Placement(
             transformation(
             extent={{-10,-10},{10,10}},
             rotation=90,
             origin={-6,20})));
-      Basic.R_Resistor r2(R=22000)        annotation (Placement(
+      Basic.R_Resistor r2(R=22000) annotation (Placement(
             transformation(
             extent={{-10,-10},{10,10}},
             rotation=90,
             origin={18,20})));
-      Basic.R_Resistor r3(R=1000)        annotation (Placement(
+      Basic.R_Resistor r3(R=1000) annotation (Placement(
             transformation(
             extent={{-10,-10},{10,10}},
             rotation=90,
@@ -1127,7 +1127,7 @@ Zeunerstrasse 38<br />
         annotation (Placement(transformation(extent={{-78,-34},{-58,-14}})));
       Basic.Ground ground2
         annotation (Placement(transformation(extent={{50,-60},{70,-40}})));
-      Basic.R_Resistor r4(R=10000)                annotation (
+      Basic.R_Resistor r4(R=10000) annotation (
           Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
@@ -1138,7 +1138,7 @@ Zeunerstrasse 38<br />
         TR=0.01,
         PW=1000,
         PER=1000,
-        TF=0)     annotation (Placement(transformation(
+        TF=0) annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
             origin={-68,20})));
@@ -1160,32 +1160,32 @@ Zeunerstrasse 38<br />
           color={0,0,255}));
       connect(c1.n,r3. p) annotation (Line(
           points={{44,10},{50,10}}));
-      connect(r1.p, T2.B)     annotation (Line(
+      connect(r1.p, T2.B) annotation (Line(
           points={{-6,10},{-6,-30},{30.4,-30}},
           color={0,0,255}));
-      connect(r2.p, T1.B)    annotation (Line(
+      connect(r2.p, T1.B) annotation (Line(
           points={{18,10},{18,-24},{-20.4,-24}},
           color={0,0,255}));
-      connect(T1.C, r.p)    annotation (Line(
+      connect(T1.C, r.p) annotation (Line(
           points={{-33,-34},{-48,-34},{-48,10},{-36,10}},
           color={0,0,255}));
-      connect(T1.E, ground1.p)    annotation (Line(
+      connect(T1.E, ground1.p) annotation (Line(
           points={{-33,-14},{-68,-14}}));
-      connect(T2.E, ground2.p)     annotation (Line(
+      connect(T2.E, ground2.p) annotation (Line(
           points={{43,-40},{60,-40}}));
-      connect(r3.p, T2.C)     annotation (Line(
+      connect(r3.p, T2.C) annotation (Line(
           points={{50,10},{50,-20},{43,-20}},
           color={0,0,255}));
-      connect(r3.p, r4.p)         annotation (Line(
+      connect(r3.p, r4.p) annotation (Line(
           points={{50,10},{58,10},{58,8},{64,8}},
           color={0,0,255}));
-      connect(ground2.p, r4.n)         annotation (Line(
+      connect(ground2.p, r4.n) annotation (Line(
           points={{60,-40},{60,-12},{64,-12}},
           color={0,0,255}));
-      connect(v.p, r.n)       annotation (Line(
+      connect(v.p, r.n) annotation (Line(
           points={{-68,30},{-36,30}},
           color={0,0,255}));
-      connect(v.n, ground1.p)       annotation (Line(
+      connect(v.n, ground1.p) annotation (Line(
           points={{-68,10},{-68,-14}}));
       annotation (
         experiment(StopTime=0.025),
@@ -1220,19 +1220,19 @@ Zeunerstrasse 38<br />
             extent={{-10,10},{10,-10}},
             rotation=270,
             origin={20,60})));
-      Modelica.Electrical.Spice3.Basic.R_Resistor R2(R=1)                     annotation (Placement(
+      Modelica.Electrical.Spice3.Basic.R_Resistor R2(R=1) annotation (Placement(
             transformation(
             extent={{-10,-10},{10,10}},
             rotation=180,
             origin={42,80})));
       Modelica.Electrical.Spice3.Basic.K_CoupledInductors k1(k=0.1)
         annotation (Placement(transformation(extent={{-20,50},{0,70}})));
-      Modelica.Electrical.Spice3.Basic.R_Resistor R3(R=1000)                     annotation (Placement(
+      Modelica.Electrical.Spice3.Basic.R_Resistor R3(R=1000) annotation (Placement(
             transformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
             origin={60,50})));
-      Modelica.Electrical.Spice3.Basic.C_Capacitor C1(C=1.e-6)                     annotation (
+      Modelica.Electrical.Spice3.Basic.C_Capacitor C1(C=1.e-6) annotation (
           Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
@@ -1242,17 +1242,17 @@ Zeunerstrasse 38<br />
             extent={{-10,10},{10,-10}},
             rotation=270,
             origin={20,-40})));
-      Modelica.Electrical.Spice3.Basic.R_Resistor R4(R=1)                     annotation (Placement(
+      Modelica.Electrical.Spice3.Basic.R_Resistor R4(R=1) annotation (Placement(
             transformation(
             extent={{-10,-10},{10,10}},
             rotation=180,
             origin={42,-20})));
-      Modelica.Electrical.Spice3.Basic.R_Resistor R5(R=1000)                     annotation (Placement(
+      Modelica.Electrical.Spice3.Basic.R_Resistor R5(R=1000) annotation (Placement(
             transformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
             origin={60,-50})));
-      Modelica.Electrical.Spice3.Basic.C_Capacitor C2(C=2.e-3)                     annotation (
+      Modelica.Electrical.Spice3.Basic.C_Capacitor C2(C=2.e-3) annotation (
           Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
@@ -1366,10 +1366,10 @@ Zeunerstrasse 38<br />
             rotation=270,
             origin={-66,4})));
     equation
-      connect(J2.D, J1.S)        annotation (Line(
+      connect(J2.D, J1.S) annotation (Line(
           points={{-44,24},{-44,38}},
           color={0,0,255}));
-      connect(ground.p, J2.S)     annotation (Line(
+      connect(ground.p, J2.S) annotation (Line(
           points={{-44,-6},{-44,4}},
           color={0,0,255}));
       connect(v_sin.p, J2.G) annotation (Line(
@@ -1393,7 +1393,7 @@ Zeunerstrasse 38<br />
       connect(UDD.n, ground.p) annotation (Line(
           points={{-10,50},{-10,-6},{-44,-6}},
           color={0,0,255}));
-      annotation (        Documentation(info="<html>
+      annotation (Documentation(info="<html>
 <p>This model is a simple JFET cascode circuit. The J2 gate variation (v_sin.p.v) is transformed to the J2 drain variation (J2.D.v). </p>
 <p><br/>Simulate until 0.2s, and display the mentioned voltages.</p>
 </html>", revisions="<html>
@@ -1533,7 +1533,7 @@ CJC=.5PF.</p>
       connect(VIDS.p, n3);
       connect(VIDS.n, n1);
 
-      annotation ( experiment(StopTime=1e-007, Interval=1e-009),
+      annotation (experiment(StopTime=1e-007, Interval=1e-009),
         Documentation(info="<html>
 <p>This Mosfet Characterization model is one of the five benchmark circuits described in the SPICE3 Version e3 User&apos;s Manual (see information of package Spice3). </p>
 <p>This circuit is a very simple one than consists of an NMOS transistor level 1 that is connected to voltage sources at gate and drain node whereas the drain voltage source supplies the
@@ -2398,7 +2398,7 @@ The Resistance <i>R</i> is allowed to be positive, zero, or negative.
             Text(
               extent={{-136,-46},{140,-62}},
               textString="R=%R"),
-            Text(extent={{-136,34},{138,54}},  textString="%name")}));
+            Text(extent={{-136,34},{138,54}}, textString="%name")}));
     end R_Resistor;
 
     model C_Capacitor "Ideal linear electrical capacitor"
@@ -2421,7 +2421,7 @@ The linear capacitor connects the branch voltage <i>v</i> with the
 branch current <i>i</i> by <i>i = C * dv/dt</i>.
 The Capacitance <i>C</i> is allowed to be positive, zero, or negative.
 </p>
-</html>"),     Icon(coordinateSystem(
+</html>"), Icon(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}}), graphics={
             Line(
@@ -2435,7 +2435,7 @@ The Capacitance <i>C</i> is allowed to be positive, zero, or negative.
             Text(
               extent={{-130,-40},{134,-60}},
               textString="C=%C"),
-            Text(extent={{-138,42},{136,62}},  textString="%name")}));
+            Text(extent={{-138,42},{136,62}}, textString="%name")}));
     end C_Capacitor;
 
     model L_Inductor "Ideal linear electrical inductor"
@@ -2488,7 +2488,7 @@ The Capacitance <i>C</i> is allowed to be positive, zero, or negative.
             Text(
               extent={{-142,-40},{142,-60}},
               textString="L=%L"),
-            Text(extent={{-136,36},{138,56}},  textString="%name")}));
+            Text(extent={{-136,36},{138,56}}, textString="%name")}));
     end L_Inductor;
 
     model K_CoupledInductors "Inductive coupling via coupling factor K"
@@ -2577,7 +2577,7 @@ The corresponding SPICE description
     NC- -> n1.v
     VALUE -> gain
 </pre>
-</html>"),     Icon(coordinateSystem(
+</html>"), Icon(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}}), graphics={
             Rectangle(
@@ -2632,7 +2632,7 @@ The corresponding SPICE description
     NC- -> n1.v
     VALUE -> transConductance
 </pre>
-</html>"),     Icon(coordinateSystem(
+</html>"), Icon(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}}), graphics={
             Rectangle(
@@ -2966,7 +2966,7 @@ Christoph Clau&szlig;
 <li><i>September 2011 </i>revised by Sandra B&ouml;hme</br/>
 <li><i>August 2009 </i>by Kristin Majetta <br/>initially implemented</li>
 </ul>
-</html>"),    Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Polygon(
               points={{8,-68},{2,-55},{-4,-62},{8,-68}},
               lineColor={0,0,255},
@@ -3117,7 +3117,7 @@ Christoph Clau&szlig;
                lineColor={0,0,255},
                fillColor={255,255,255},
                fillPattern=FillPattern.Solid),
-             Line(points={{-90,0},{50,0}},  color={0,0,255}),
+             Line(points={{-90,0},{50,0}}, color={0,0,255}),
              Line(points={{50,0},{90,0}}, color={0,0,255}),
             Line(points={{-80,4},{-75.2,36.3},{-72,54.3},{-68.7,68.5},{-65.5,
                   78.2},{-62.3,83.3},{-59.1,83.6},{-55.9,79.3},{-52.7,71.1},{
@@ -3130,7 +3130,7 @@ Christoph Clau&szlig;
             Text(
               extent={{-150,-56},{150,-96}},
               textString="%name",
-              lineColor={0,0,255})}),        Documentation(info="<html>
+              lineColor={0,0,255})}), Documentation(info="<html>
 <p>Damped sinusoidal source</p>
 <h4>Note:</h4>
 <ul>
@@ -3176,7 +3176,7 @@ Christoph Clau&szlig;
                lineColor={0,0,255},
                fillColor={255,255,255},
                fillPattern=FillPattern.Solid),
-             Line(points={{-90,0},{50,0}},  color={0,0,255}),
+             Line(points={{-90,0},{50,0}}, color={0,0,255}),
              Line(points={{50,0},{90,0}}, color={0,0,255}),
             Line(points={{-70,-48},{-67.2,-33.3},{-64.3,-20.1},{-60.8,-5.6},{
                   -57.3,7},{-53.7,17.92},{-49.5,29.18},{-45.3,38.7},{-40.3,48},
@@ -3249,7 +3249,7 @@ Christoph Clau&szlig;
                lineColor={0,0,255},
                fillColor={255,255,255},
                fillPattern=FillPattern.Solid),
-             Line(points={{-90,0},{50,0}},  color={0,0,255}),
+             Line(points={{-90,0},{50,0}}, color={0,0,255}),
              Line(points={{50,0},{90,0}}, color={0,0,255}),
             Line(points={{-86,-74},{-65,-74},{-35,66},{-4,66},{25,-74},{46,-74},
                   {75,66}}, color={192,192,192})}),
@@ -3362,7 +3362,7 @@ Christoph Clau&szlig;
                lineColor={0,0,255},
                fillColor={255,255,255},
                fillPattern=FillPattern.Solid),
-             Line(points={{-90,0},{50,0}},  color={0,0,255}),
+             Line(points={{-90,0},{50,0}}, color={0,0,255}),
              Line(points={{50,0},{90,0}}, color={0,0,255}),
                                    Line(points={{-40,-50},{-40,70},{60,70},{60,
                   -50},{-40,-50},{-40,-20},{60,-20},{60,10},{-40,10},{-40,40},{
@@ -3424,7 +3424,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
                lineColor={0,0,255},
                fillColor={255,255,255},
                fillPattern=FillPattern.Solid),
-             Line(points={{-90,0},{50,0}},  color={0,0,255}),
+             Line(points={{-90,0},{50,0}}, color={0,0,255}),
              Line(points={{50,0},{90,0}}, color={0,0,255}),
             Text(
               extent={{-51,57},{55,18}},
@@ -3480,7 +3480,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
       annotation (
         Icon(coordinateSystem(
             preserveAspectRatio=false,
-            extent={{-100,-100},{100,100}}), graphics={   Polygon(
+            extent={{-100,-100},{100,100}}), graphics={Polygon(
               points={{90,0},{60,10},{60,-10},{90,0}},
               lineColor={0,0,255},
               fillColor={0,0,255},
@@ -3532,7 +3532,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
       annotation (
         Icon(coordinateSystem(
             preserveAspectRatio=false,
-            extent={{-100,-100},{100,100}}), graphics={                              Polygon(
+            extent={{-100,-100},{100,100}}), graphics={Polygon(
               points={{90,0},{60,10},{60,-10},{90,0}},
               lineColor={0,0,255},
               fillColor={0,0,255},
@@ -3598,7 +3598,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
         (I2-I1)/Trising else if (time < T0 + Twidth) then I2-I1 else
         (T0 + Tfalling - time)*(I2-I1)/(Tfalling - Twidth));
 
-      annotation (                               Icon(coordinateSystem(preserveAspectRatio=false,
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false,
               extent={{-100,-100},{100,100}}), graphics={
                                   Polygon(
               points={{90,0},{60,10},{60,-10},{90,0}},
@@ -3617,7 +3617,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
             Text(
               extent={{-150,-58},{150,-98}},
               textString="%name",
-              lineColor={0,0,255}),                      Line(points={{-85,-60},
+              lineColor={0,0,255}), Line(points={{-85,-60},
                   {-64,-60},{-34,80},{-3,80},{26,-60},{47,-60},{76,80}}, color=
                   {192,192,192})}),
         Documentation(info="<html>
@@ -3728,7 +3728,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               textString="%name",
               lineColor={0,0,255}),Line(points={{-44,-39},{-44,81},{56,81},{56,
                   -39},{-44,-39},{-44,-9},{56,-9},{56,21},{-44,21},{-44,51},{56,
-                  51},{56,81},{6,81},{6,-40}},     color={192,192,192}),
+                  51},{56,81},{6,81},{6,-40}}, color={192,192,192}),
                                   Polygon(
               points={{90,0},{60,10},{60,-10},{90,0}},
               lineColor={0,0,255},
@@ -4029,11 +4029,11 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})</pre>
       parameter Integer N(final min=1) = 1 "Number of controlling voltages";
       parameter Real coeff[:] = {1} "Coefficients of polynomial";
       Modelica.Electrical.Analog.Interfaces.PositivePin p
-        "Positive pin of the right port (potential p2.v > n2.v for positive voltage drop v2)"              annotation (Placement(
+        "Positive pin of the right port (potential p2.v > n2.v for positive voltage drop v2)" annotation (Placement(
             transformation(extent={{110,40},{90,60}}),
             iconTransformation(extent={{110,40},{90,60}})));
       Modelica.Electrical.Analog.Interfaces.NegativePin n
-        "Negative pin of the right port"              annotation (Placement(
+        "Negative pin of the right port" annotation (Placement(
             transformation(extent={{90,-60},{110,-40}}),
             iconTransformation(extent={{90,-60},{110,-40}})));
 
@@ -4124,11 +4124,11 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...}) </pre>
       parameter Integer N(final min=1) = 1 "Number of controlling voltages";
       parameter Real coeff[:] = {1} "Coefficients of polynomial";
       Modelica.Electrical.Analog.Interfaces.PositivePin p
-        "Positive pin of the right port (potential p2.v > n2.v for positive voltage drop v2)"              annotation (Placement(
+        "Positive pin of the right port (potential p2.v > n2.v for positive voltage drop v2)" annotation (Placement(
             transformation(extent={{110,40},{90,60}}),
             iconTransformation(extent={{110,40},{90,60}})));
       Modelica.Electrical.Analog.Interfaces.NegativePin n
-        "Negative pin of the right port"              annotation (Placement(
+        "Negative pin of the right port" annotation (Placement(
             transformation(extent={{90,-60},{110,-40}}),
             iconTransformation(extent={{90,-60},{110,-40}})));
 
@@ -4226,11 +4226,11 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})
       parameter Integer N(final min=1) = 1 "Number of controlling voltages";
       parameter Real coeff[:] = {1} "Coefficients of polynomial";
       Modelica.Electrical.Analog.Interfaces.PositivePin p
-        "Positive pin of the right port (potential p2.v > n2.v for positive voltage drop v2)"              annotation (Placement(
+        "Positive pin of the right port (potential p2.v > n2.v for positive voltage drop v2)" annotation (Placement(
             transformation(extent={{110,40},{90,60}}),
             iconTransformation(extent={{110,40},{90,60}})));
       Modelica.Electrical.Analog.Interfaces.NegativePin n
-        "Negative pin of the right port"              annotation (Placement(
+        "Negative pin of the right port" annotation (Placement(
             transformation(extent={{90,-60},{110,-40}}),
             iconTransformation(extent={{90,-60},{110,-40}})));
 
@@ -4337,16 +4337,16 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})
       SI.Current i2
         "Current flowing from pos. to neg. pin of the controlled port";
       Modelica.Electrical.Analog.Interfaces.PositivePin p1
-        "Positive pin of the controlling port"       annotation (Placement(
+        "Positive pin of the controlling port" annotation (Placement(
             transformation(extent={{-110,40},{-90,60}})));
       Modelica.Electrical.Analog.Interfaces.NegativePin n1
-        "Negative pin of the controlling port"       annotation (Placement(
+        "Negative pin of the controlling port" annotation (Placement(
             transformation(extent={{-90,-60},{-110,-40}})));
       Modelica.Electrical.Analog.Interfaces.PositivePin p2
-        "Positive pin of the controlled port"         annotation (Placement(
+        "Positive pin of the controlled port" annotation (Placement(
             transformation(extent={{110,40},{90,60}})));
       Modelica.Electrical.Analog.Interfaces.NegativePin n2
-        "Negative pin of the controlled port"         annotation (Placement(
+        "Negative pin of the controlled port" annotation (Placement(
             transformation(extent={{90,-60},{110,-40}})));
     equation
       v1 = p1.v - n1.v;
@@ -4401,7 +4401,7 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})
       if not useSubstrateNode then
         substrateVoltage = 0;
       end if;
-      annotation (        Documentation(revisions="<html>
+      annotation (Documentation(revisions="<html>
 <ul>
 <li><i> February 17, 2009   </i>
        by Christoph Clauss<br> initially implemented<br>
@@ -4478,10 +4478,10 @@ on the model behaviour.
         "Initial condition values, not implemented yet";
     parameter SI.Temp_C TEMP = 27 "Operating temperature of the device";
 
-    parameter ModelcardMOS modelcard "MOSFET modelcard"            annotation(Evaluate=true);
+    parameter ModelcardMOS modelcard "MOSFET modelcard" annotation(Evaluate=true);
     constant SpiceConstants C "General constants of SPICE simulator";
     final parameter Mos1.Mos1ModelLineParams p = Mos1.mos1RenameParameters(modelcard, C)
-        "Model line parameters"                                                                                  annotation(Evaluate=true);
+        "Model line parameters" annotation(Evaluate=true);
     final parameter Mosfet.Mosfet m = Mos1.mos1RenameParametersDev(
       modelcard,
       mtype,
@@ -4945,11 +4945,11 @@ on the model behaviour.
         "Flag to request sensitivity WRT area, not implemented yet";
 
       parameter Modelica.Electrical.Spice3.Internal.ModelcardBJT2
-                             modelcard "BJT modelcard"   annotation(Evaluate=true);
+                             modelcard "BJT modelcard" annotation(Evaluate=true);
 
       final parameter Spice3.Internal.Bjt.BjtModelLineParams p=
           Spice3.Internal.Bjt.bjtRenameParameters(modelcard,
-          TBJT) "Model line parameters"             annotation(Evaluate=true);
+          TBJT) "Model line parameters" annotation(Evaluate=true);
       final parameter Spice3.Internal.Bjt.Bjt dev=
           Spice3.Internal.Bjt.bjtRenameParametersDev(
             AREA,
@@ -4958,7 +4958,7 @@ on the model behaviour.
             IC_VCE,
             UIC,
             SENS_AREA,
-            TEMP) "Renamed parameters"          annotation(Evaluate=true);
+            TEMP) "Renamed parameters" annotation(Evaluate=true);
       final parameter Spice3.Internal.Bjt.BjtModelLineParams p1=
           Spice3.Internal.Bjt.bjtModelLineInitEquations(p)
         "Model line variables";
@@ -5137,12 +5137,12 @@ on the model behaviour.
         "Flag to request sensitivity WRT area, not implemented yet";
 
       parameter Modelica.Electrical.Spice3.Internal.ModelcardBJT
-                             modelcard "BJT modelcard"                                              annotation(Evaluate=true);
+                             modelcard "BJT modelcard" annotation(Evaluate=true);
 
       final parameter Spice3.Internal.Bjt3.BjtModelLineParams
                                               p=Spice3.Internal.Bjt3.bjtRenameParameters(
                                                                          modelcard,
-          Con,TBJT) "Model line parameters"                                                                                                     annotation(Evaluate=true);
+          Con,TBJT) "Model line parameters" annotation(Evaluate=true);
       constant Spice3.Internal.SpiceConstants Con
         "General constants of SPICE simulator";
       final parameter Spice3.Internal.Bjt3.Bjt
@@ -5155,7 +5155,7 @@ on the model behaviour.
                    annotation(Evaluate=true);
       final parameter Spice3.Internal.Model.Model m=
           Spice3.Internal.Bjt3.bjtRenameParametersDevTemp(TEMP)
-        "Renamed parameters"                                                                                                     annotation(Evaluate=true);
+        "Renamed parameters" annotation(Evaluate=true);
       final parameter Spice3.Internal.Bjt3.BjtModelLineVariables vl=
           Spice3.Internal.Bjt3.bjtModelLineInitEquations(p)
         "Model line variables";
@@ -5246,7 +5246,7 @@ on the model behaviour.
             Text(
               extent={{-94,56},{206,16}},
               textString="%name",
-              lineColor={0,0,255})}),        Documentation(info="<html>
+              lineColor={0,0,255})}), Documentation(info="<html>
 <p>This model is obsolete, please use BJT2</p>
 <p>Bipolar junction transistor model</p>
 <p>The package Internal is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
@@ -5341,10 +5341,10 @@ on the model behaviour.
     parameter SI.Temp_C TEMP=27 "Operating temperature of the device";
 
     parameter Modelica.Electrical.Spice3.Internal.ModelcardJFET modelcard
-        "JFET modelcard"                                   annotation(Evaluate=true);
+        "JFET modelcard" annotation(Evaluate=true);
     final parameter Modelica.Electrical.Spice3.Internal.Jfet.JfetModelLine p=
           Modelica.Electrical.Spice3.Internal.Jfet.jfetRenameParameters(modelcard)
-        "Model line parameters"               annotation(Evaluate=true);
+        "Model line parameters" annotation(Evaluate=true);
     final parameter Modelica.Electrical.Spice3.Internal.Fet.Fet m=
           Modelica.Electrical.Spice3.Internal.Fet.fetRenameParametersDev(
             AREA,
@@ -5352,7 +5352,7 @@ on the model behaviour.
             IC_VDS,
             IC_VGS,
             UIC,
-            TEMP) "Renamed parameters"       annotation(Evaluate=true);
+            TEMP) "Renamed parameters" annotation(Evaluate=true);
 
     final parameter Integer m_type = if (mtype > 0.5) then -1 else 1
         "Type of the transistor";
@@ -5482,7 +5482,7 @@ on the model behaviour.
      parameter Boolean SENS_AREA( start = false)
         "Flag to request sensitivity WRT area, not implemented yet";
 
-     parameter ModelcardDIODE modelcarddiode "DIODE modelcard"                    annotation(Evaluate=true);
+     parameter ModelcardDIODE modelcarddiode "DIODE modelcard" annotation(Evaluate=true);
      constant SpiceConstants C "General constants of SPICE simulator";
      final parameter Diode.DiodeModelLineParams param=
           Diode.diodeRenameParameters(modelcarddiode, C)
@@ -5538,7 +5538,7 @@ on the model behaviour.
 
      annotation (
        Icon(graphics={
-            Line(points={{90,0},{-90,0}},     color={0,0,255}),
+            Line(points={{90,0},{-90,0}}, color={0,0,255}),
            Polygon(
              points={{30,0},{-30,40},{-30,-40},{30,0}},
              lineColor={0,0,255},
@@ -5737,7 +5737,7 @@ on the model behaviour.
             Text(
               extent={{-130,-40},{134,-60}},
               textString="C=%C"),
-            Text(extent={{-138,42},{136,62}},  textString="%name")}),
+            Text(extent={{-138,42},{136,62}}, textString="%name")}),
                                      Documentation(revisions="<html>
 <ul>
 <li><i>April 2009</i> by Kristin Majetta

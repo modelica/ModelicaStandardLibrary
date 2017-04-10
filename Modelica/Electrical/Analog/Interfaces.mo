@@ -314,7 +314,7 @@ The reason could be that
        T_heatPort = T;
     end if;
 
-    annotation (      Documentation(revisions="<html>
+    annotation (Documentation(revisions="<html>
 <ul>
 <li><i> February 17, 2009   </i>
        by Christoph Clauss<br> initially implemented<br>

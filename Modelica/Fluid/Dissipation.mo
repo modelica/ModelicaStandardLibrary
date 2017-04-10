@@ -1621,7 +1621,7 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> for a h
         extends
           Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe.kc_overall_IN_con;
 
-      annotation (  Documentation(info="<html>
+      annotation (Documentation(info="<html>
 This record is used as <b> input record </b> for the heat transfer function <a href=\"Modelica://Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe.kc_laminar\"> kc_laminar</a> and
 <a href=\"Modelica://Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe.kc_laminar_KC\"> kc_laminar_KC</a>.
 </html>"));
@@ -1633,7 +1633,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
         extends
           Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe.kc_overall_IN_var;
 
-      annotation (  Documentation(info="<html>
+      annotation (Documentation(info="<html>
 This record is used as <b> input record </b> for the heat transfer function <a href=\"Modelica://Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe.kc_laminar\"> kc_laminar</a> and
 <a href=\"Modelica://Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe.kc_laminar_KC\"> kc_laminar_KC</a>.
 </html>"));
@@ -1765,7 +1765,7 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> of a he
         extends
           Modelica.Fluid.Dissipation.Utilities.Records.HeatTransfer.HelicalPipe;
 
-      annotation (  Documentation(info="<html>
+      annotation (Documentation(info="<html>
 This record is used as <b> input record </b> for the heat transfer function <a href=\"Modelica://Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe.kc_overall\"> kc_overall</a> and
 <a href=\"Modelica://Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe.kc_overall_KC\"> kc_overall_KC</a>.
 </html>"));
@@ -1781,7 +1781,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
         //input variable (mass flow rate)
         SI.MassFlowRate m_flow annotation (Dialog(group="Input"));
 
-      annotation (  Documentation(info="<html>
+      annotation (Documentation(info="<html>
 This record is used as <b> input record </b> for the heat transfer function <a href=\"Modelica://Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe.kc_overall\"> kc_overall</a> and
 <a href=\"Modelica://Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe.kc_overall_KC\"> kc_overall_KC</a>.
 </html>"));
@@ -1916,7 +1916,7 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> of a he
         extends
           Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe.kc_overall_IN_con;
 
-      annotation (  Documentation(info="<html>
+      annotation (Documentation(info="<html>
 This record is used as <b> input record </b> for the heat transfer function <a href=\"Modelica://Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe.kc_turbulent\">  kc_turbulent</a> and
 <a href=\"Modelica://Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe.kc_turbulent_KC\">  kc_turbulent_KC</a>.
 </html>"));
@@ -1928,7 +1928,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
         extends
           Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe.kc_overall_IN_var;
 
-      annotation (  Documentation(info="<html>
+      annotation (Documentation(info="<html>
 This record is used as <b> input record </b> for the heat transfer function <a href=\"Modelica://Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe.kc_turbulent\">  kc_turbulent</a> and
 <a href=\"Modelica://Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe.kc_turbulent_KC\">  kc_turbulent_KC</a>.
 </html>"));
@@ -2065,7 +2065,7 @@ Generally this function is numerically best used for the calculation of the mean
         "Input record for function kc_laminar and kc_laminar_KC"
         extends Modelica.Fluid.Dissipation.HeatTransfer.Plate.kc_overall_IN_con;
 
-      annotation (  Documentation(info="<html>
+      annotation (Documentation(info="<html>
 <p>
 This record is used as <b> input record </b> for the heat transfer function <a href=\"modelica://Modelica.Fluid.Dissipation.HeatTransfer.Plate.kc_laminar\">  kc_laminar</a> and
 <a href=\"modelica://Modelica.Fluid.Dissipation.HeatTransfer.Plate.kc_laminar_KC\">  kc_laminar_KC</a>.
@@ -2077,7 +2077,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
         "Input record for function kc_laminar and kc_laminar_KC"
         extends Modelica.Fluid.Dissipation.HeatTransfer.Plate.kc_overall_IN_var;
 
-      annotation (  Documentation(info="<html>
+      annotation (Documentation(info="<html>
 <p>
 This record is used as <b> input record </b> for the heat transfer function <a href=\"modelica://Modelica.Fluid.Dissipation.HeatTransfer.Plate.kc_laminar\">  kc_laminar</a> and
 <a href=\"modelica://Modelica.Fluid.Dissipation.HeatTransfer.Plate.kc_laminar_KC\">  kc_laminar_KC</a>.
@@ -2191,7 +2191,7 @@ Generally this function is numerically best used for the calculation of the mean
         //plate variables
         extends Modelica.Fluid.Dissipation.Utilities.Records.HeatTransfer.Plate;
 
-      annotation (  Documentation(info="<html>
+      annotation (Documentation(info="<html>
 This record is used as <b> input record </b> for the heat transfer function <a href=\"modelica://Modelica.Fluid.Dissipation.HeatTransfer.Plate.kc_overall\"> kc_overall</a> and
 <a href=\"modelica://Modelica.Fluid.Dissipation.HeatTransfer.Plate.kc_overall_KC\"> kc_overall_KC</a>.
 </html>"));
@@ -2206,7 +2206,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
         //input variable (fluid flow velocity)
         Modelica.SIunits.Velocity velocity annotation (Dialog(group="Input"));
 
-      annotation (  Documentation(info="<html>
+      annotation (Documentation(info="<html>
 This record is used as <b> input record </b> for the heat transfer function <a href=\"modelica://Modelica.Fluid.Dissipation.HeatTransfer.Plate.kc_overall\"> kc_overall</a> and
 <a href=\"modelica://Modelica.Fluid.Dissipation.HeatTransfer.Plate.kc_overall_KC\"> kc_overall_KC</a>.
 </html>"));
@@ -2327,7 +2327,7 @@ Generally this function is numerically best used for the calculation of the mean
         "Input record for function kc_turbulent and kc_turbulent_KC"
         extends Modelica.Fluid.Dissipation.HeatTransfer.Plate.kc_overall_IN_con;
 
-      annotation (  Documentation(info="<html>
+      annotation (Documentation(info="<html>
 This record is used as <b> input record </b> for the heat transfer function <a href=\"modelica://Modelica.Fluid.Dissipation.HeatTransfer.Plate.kc_turbulent\">  kc_turbulent</a> and
 <a href=\"modelica://Modelica.Fluid.Dissipation.HeatTransfer.Plate.kc_turbulent_KC\">  kc_turbulent_KC</a>.
 </html>"));
@@ -2337,7 +2337,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
         "Input record for function kc_turbulent and kc_turbulent_KC"
         extends Modelica.Fluid.Dissipation.HeatTransfer.Plate.kc_overall_IN_var;
 
-      annotation (  Documentation(info="<html>
+      annotation (Documentation(info="<html>
 This record is used as <b> input record </b> for the heat transfer function <a href=\"modelica://Modelica.Fluid.Dissipation.HeatTransfer.Plate.kc_turbulent\">  kc_turbulent</a> and
 <a href=\"modelica://Modelica.Fluid.Dissipation.HeatTransfer.Plate.kc_turbulent_KC\">  kc_turbulent_KC</a>.
 </html>"));
@@ -2499,7 +2499,7 @@ Calculation of mean convective heat transfer coefficient <b> kc </b> of a straig
           "Choice of heat transfer boundary condition"
           annotation (Dialog(group="Choices"));
 
-      annotation (  Documentation(info="<html>
+      annotation (Documentation(info="<html>
 <p>
 This record is used as <b> input record </b> for the heat transfer function <a href=\"modelica://Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_laminar\"> kc_laminar</a> and
 <a href=\"modelica://Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_laminar_KC\"> kc_laminar_KC</a>.
@@ -2512,7 +2512,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
         extends
           Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_overall_IN_var;
 
-      annotation (  Documentation(info="<html>
+      annotation (Documentation(info="<html>
 <p>
 This record is used as <b> input record </b> for the heat transfer function <a href=\"modelica://Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_laminar\"> kc_laminar</a> and
 <a href=\"modelica://Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_laminar_KC\"> kc_laminar_KC</a>.
@@ -2665,7 +2665,7 @@ Calculation of mean convective heat transfer coefficient <b> kc </b> of a straig
 
         extends kc_turbulent_IN_con;
 
-      annotation (  Documentation(info="<html>
+      annotation (Documentation(info="<html>
 This record is used as <b> input record </b> for the heat transfer function <a href=\"modelica://Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_overall\"> kc_overall</a> and
 <a href=\"modelica://Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_overall_KC\"> kc_overall_KC</a>.
 </html>"));
@@ -2680,7 +2680,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
         //input variable (mass flow rate)
         SI.MassFlowRate m_flow annotation (Dialog(group="Input"));
 
-      annotation (  Documentation(info="<html>
+      annotation (Documentation(info="<html>
 This record is used as <b> input record </b> for the heat transfer function <a href=\"modelica://Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_overall\"> kc_overall</a> and
 <a href=\"modelica://Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_overall_KC\"> kc_overall_KC</a>.
 </html>"));
@@ -2825,7 +2825,7 @@ Calculation of mean convective heat transfer coefficient <b> kc </b> of a straig
         SI.Length K=0 "Roughness (average height of surface asperities)" annotation (
             Dialog(group="Straight pipe", enable=roughness == Modelica.Fluid.Dissipation.Utilities.Types.Roughness.Considered));
 
-      annotation (  Documentation(info="<html>
+      annotation (Documentation(info="<html>
 This record is used as <b> input record </b> for the heat transfer function <a href=\"modelica://Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_turbulent\">kc_turbulent</a> and
 <a href=\"modelica://Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_turbulent_KC\">kc_turbulent_KC</a>.
 </html>"));
@@ -2836,7 +2836,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
         extends
           Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_overall_IN_var;
 
-      annotation (  Documentation(info="<html>
+      annotation (Documentation(info="<html>
 This record is used as <b> input record </b> for the heat transfer function <a href=\"modelica://Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_turbulent\">kc_turbulent</a> and
 <a href=\"modelica://Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_turbulent_KC\">kc_turbulent_KC</a>.
 </html>"));
@@ -2886,7 +2886,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
         extends
           Modelica.Fluid.Dissipation.Utilities.Records.HeatTransfer.TwoPhaseFlowHT_IN_con;
 
-      annotation (  Documentation(info="<html>
+      annotation (Documentation(info="<html>
 This record is used as <b> input record </b> for the heat transfer function <a href=\"modelica://Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_twoPhaseOverall_KC\"> kc_twoPhaseOverall_KC</a>.
 </html>"));
       end kc_twoPhaseOverall_KC_IN_con;
@@ -2896,7 +2896,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
         extends
           Modelica.Fluid.Dissipation.Utilities.Records.HeatTransfer.TwoPhaseFlowHT_IN_var;
 
-      annotation (  Documentation(info="<html>
+      annotation (Documentation(info="<html>
 This record is used as <b>input record</b> for the heat transfer function <a href=\"modelica://Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_twoPhaseOverall_KC\"> kc_twoPhaseOverall_KC</a>.
 </html>"));
       end kc_twoPhaseOverall_KC_IN_var;
@@ -11126,7 +11126,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
 
         partial model Gap1_d "Geometry figure for gap"
 
-          annotation ( Diagram(coordinateSystem(
+          annotation (Diagram(coordinateSystem(
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
                 graphics={
                 Rectangle(
@@ -11262,7 +11262,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
 
         partial model HelicalPipe1_d "Geometry figure for helical pipe"
 
-          annotation ( Diagram(coordinateSystem(
+          annotation (Diagram(coordinateSystem(
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
                 graphics={
                 Line(
@@ -11479,7 +11479,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
 
         partial model Plate1_d "Geometry figure 1 for plate"
 
-          annotation ( Diagram(coordinateSystem(
+          annotation (Diagram(coordinateSystem(
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
                 graphics={
                 Rectangle(
@@ -11502,7 +11502,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
 
         partial model Plate2_d "Geometry figure 2 for plate"
 
-          annotation ( Diagram(coordinateSystem(
+          annotation (Diagram(coordinateSystem(
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
                   Rectangle(
                   extent={{-100,-20},{60,-40}},
@@ -11595,7 +11595,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
 
         partial model BendEdged_d "Geometry figure of edged bend"
 
-          annotation ( Diagram(coordinateSystem(
+          annotation (Diagram(coordinateSystem(
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
                 graphics={
                 Rectangle(
@@ -11684,7 +11684,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
 
         partial model Channel_d "Geometry figure for channel"
 
-          annotation ( Diagram(coordinateSystem(
+          annotation (Diagram(coordinateSystem(
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
                 graphics={
                 Line(
@@ -11964,7 +11964,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
         partial model OrificeSuddenChangeSection_d
           "Geometry figure for orifice with sudden change of cross sectional area"
 
-          annotation ( Diagram(coordinateSystem(
+          annotation (Diagram(coordinateSystem(
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
                 graphics={
                 Rectangle(
@@ -12044,7 +12044,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
         partial model OrificeThickEdged_d
           "Geometry figure for orifice with thick edged vena contraction"
 
-          annotation ( Diagram(coordinateSystem(
+          annotation (Diagram(coordinateSystem(
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
                 graphics={
                 Rectangle(
@@ -12149,7 +12149,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
 
         partial model StraightPipe_d "Geometry figure for straight pipe"
 
-          annotation ( Diagram(coordinateSystem(
+          annotation (Diagram(coordinateSystem(
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
                 graphics={
                 Ellipse(
@@ -12231,7 +12231,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
 
         partial model Valve_d "Icon for valve"
 
-          annotation ( Diagram(coordinateSystem(
+          annotation (Diagram(coordinateSystem(
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
                 graphics={
                 Rectangle(
@@ -12671,7 +12671,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
             annotation (Dialog(group="Geometry"));
 
           Modelica.Fluid.Dissipation.Utilities.Types.MolarMass_gpmol  MM=18.02
-            "Molar mass of fluid"                                                                          annotation (Dialog(group=
+            "Molar mass of fluid" annotation (Dialog(group=
                   "Fluid properties", enable=if target == Modelica.Fluid.Dissipation.Utilities.Types.TwoPhaseHeatTransferTarget.BoilHor
                    or target == Modelica.Fluid.Dissipation.Utilities.Types.TwoPhaseHeatTransferTarget.BoilVer then
                         true else false));
@@ -12903,7 +12903,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
             annotation (Dialog(group="Bend"));
           SI.Angle delta=90*PI/180 "Angle of turning" annotation (Dialog(group="Bend"));
           SI.Length K=0
-            "Roughness (absolute average height of surface asperities)"             annotation (Dialog(group="Bend"));
+            "Roughness (absolute average height of surface asperities)" annotation (Dialog(group="Bend"));
 
         end EdgedBend;
 

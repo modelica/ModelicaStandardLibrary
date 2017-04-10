@@ -150,7 +150,7 @@ previous sample instant. Before the second sample instant,
 the output y is identical to parameter yStart.
 </p>
 
-</html>"),   Icon(
+</html>"), Icon(
       coordinateSystem(preserveAspectRatio=true,
         extent={{-100.0,-100.0},{100.0,100.0}}),
         graphics={
@@ -339,7 +339,7 @@ results in the following equations:
        y[1]   = [0.1  2.0] * [         ] + [0  0] * [    ]
                              [pre(x[2])]            [u[2]]
 </pre>
-</html>"),   Icon(coordinateSystem(
+</html>"), Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
           Text(
@@ -384,7 +384,7 @@ results in the following equations:
                                                           annotation (Placement(
           transformation(extent={{-140,-20},{-100,20}})));
     Modelica.Blocks.Interfaces.RealOutput y
-      "Connector with a Real output signal"                annotation (Placement(
+      "Connector with a Real output signal" annotation (Placement(
           transformation(extent={{100,-10},{120,10}})));
     Modelica.Blocks.Interfaces.BooleanInput trigger annotation (Placement(
           transformation(

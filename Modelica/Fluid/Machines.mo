@@ -36,7 +36,7 @@ package Machines
       vessel_ps_static[i] = medium.p;
     end for;
 
-    annotation (                         Icon(coordinateSystem(preserveAspectRatio=true,
+    annotation (Icon(coordinateSystem(preserveAspectRatio=true,
             extent={{-100,-100},{100,100}}), graphics={
           Rectangle(
             extent={{-50,36},{50,-90}},
@@ -715,7 +715,7 @@ provided a two-phase medium model is used (see Advanced tab).
       extends basePower;
       input SI.VolumeFlowRate V_flow_nominal[2]
           "Volume flow rate for two operating points (single pump)" annotation(Dialog);
-      input SI.Power W_nominal[2] "Power consumption for two operating points"   annotation(Dialog);
+      input SI.Power W_nominal[2] "Power consumption for two operating points" annotation(Dialog);
       /* Linear system to determine the coefficients:
   W_nominal[1] = c[1] + V_flow_nominal[1]*c[2];
   W_nominal[2] = c[1] + V_flow_nominal[2]*c[2];
@@ -733,7 +733,7 @@ provided a two-phase medium model is used (see Advanced tab).
           "Volume flow rate for three operating points (single pump)"
                                                                     annotation(Dialog);
       input SI.Power W_nominal[3]
-          "Power consumption for three operating points"                         annotation(Dialog);
+          "Power consumption for three operating points" annotation(Dialog);
       protected
       Real V_flow_nominal2[3] = {V_flow_nominal[1]^2,V_flow_nominal[2]^2, V_flow_nominal[3]^2}
           "Squared nominal flow rates";

@@ -84,13 +84,13 @@ Tsensor1.T, Tsensor2.T, T_final_degC
       HeatTransfer.Sources.FixedTemperature fixedTemperature(
                                                      T=TAmb)
         annotation (Placement(transformation(extent={{100,-60},{80,-40}})));
-      HeatTransfer.Celsius.TemperatureSensor temperatureSensor  annotation (Placement(
+      HeatTransfer.Celsius.TemperatureSensor temperatureSensor annotation (Placement(
             transformation(
             origin={10,-30},
             extent={{-10,-10},{10,10}},
             rotation=90)));
       HeatTransfer.Components.ThermalConductor thermalConductor(
-                                                     G=0.1)  annotation (Placement(
+                                                     G=0.1) annotation (Placement(
             transformation(extent={{40,-60},{60,-40}})));
       Modelica.Electrical.Analog.Ideal.IdealOpeningSwitch idealSwitch
             annotation (Placement(transformation(extent={{-70,-50},{-50,-30}})));
@@ -105,25 +105,25 @@ Tsensor1.T, Tsensor2.T, T_final_degC
                                        annotation (Placement(transformation(
               extent={{-30,-20},{-50,0}})));
     equation
-      connect(constantVoltage.n, heatingResistor.n)   annotation (Line(points={{-90,-60},
-              {-30,-60}},           color={0,0,255}));
-      connect(constantVoltage.n, ground.p)   annotation (Line(points={{-90,-60},
+      connect(constantVoltage.n, heatingResistor.n) annotation (Line(points={{-90,-60},
+              {-30,-60}}, color={0,0,255}));
+      connect(constantVoltage.n, ground.p) annotation (Line(points={{-90,-60},
               {-90,-80}}, color={0,0,255}));
-      connect(heatingResistor.heatPort, thermalConductor.port_a)   annotation (Line(
+      connect(heatingResistor.heatPort, thermalConductor.port_a) annotation (Line(
             points={{-20,-50},{40,-50}}, color={191,0,0}));
-      connect(thermalConductor.port_b, fixedTemperature.port)   annotation (Line(
+      connect(thermalConductor.port_b, fixedTemperature.port) annotation (Line(
             points={{60,-50},{80,-50}}, color={191,0,0}));
-      connect(heatingResistor.heatPort, temperatureSensor.port)   annotation (Line(
+      connect(heatingResistor.heatPort, temperatureSensor.port) annotation (Line(
             points={{-20,-50},{10,-50},{10,-40}}, color={191,0,0}));
-      connect(heatingResistor.heatPort, heatCapacitor.port)   annotation (Line(
+      connect(heatingResistor.heatPort, heatCapacitor.port) annotation (Line(
             points={{-20,-50},{10,-50},{10,-60}}, color={191,0,0}));
-      connect(constantVoltage.p, idealSwitch.p)   annotation (Line(points={{-90,
+      connect(constantVoltage.p, idealSwitch.p) annotation (Line(points={{-90,
               -40},{-70,-40}}, color={0,0,255}));
-      connect(idealSwitch.n, heatingResistor.p)   annotation (Line(points={{-50,-40},
-              {-30,-40}},      color={0,0,255}));
-      connect(ramp.y, onOffController.reference)   annotation (Line(points={{19,
+      connect(idealSwitch.n, heatingResistor.p) annotation (Line(points={{-50,-40},
+              {-30,-40}}, color={0,0,255}));
+      connect(ramp.y, onOffController.reference) annotation (Line(points={{19,
               10},{10,10},{10,-4},{2,-4}}, color={0,0,127}));
-      connect(temperatureSensor.T, onOffController.u)   annotation (Line(points=
+      connect(temperatureSensor.T, onOffController.u) annotation (Line(points=
              {{10,-20},{10,-16},{2,-16}}, color={0,0,127}));
       connect(onOffController.y, logicalNot.u)
                                           annotation (Line(points={{-21,-10},{
@@ -157,12 +157,12 @@ An appropriate simulating time would be 10 seconds.
       Modelica.Blocks.Sources.CombiTimeTable lossTable(extrapolation=Modelica.
             Blocks.Types.Extrapolation.Periodic, smoothness=Modelica.Blocks.
             Types.Smoothness.ConstantSegments, table=[0,100,500; 360,1000,500;
-            600,100,500])       annotation (Placement(transformation(
+            600,100,500]) annotation (Placement(transformation(
             origin={-40,70},
             extent={{-10,-10},{10,10}},
             rotation=270)));
       HeatTransfer.Sources.PrescribedHeatFlow windingLosses(T_ref=368.15,
-        alpha=3.03E-3)           annotation (Placement(
+        alpha=3.03E-3) annotation (Placement(
             transformation(
             origin={-80,10},
             extent={{-10,-10},{10,10}},
@@ -185,9 +185,9 @@ An appropriate simulating time would be 10 seconds.
             origin={0,10},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      HeatTransfer.Components.HeatCapacitor core(C=25000, T(start=TAmb, fixed=true))            annotation (Placement(
+      HeatTransfer.Components.HeatCapacitor core(C=25000, T(start=TAmb, fixed=true)) annotation (Placement(
             transformation(extent={{-10,-20},{10,-40}})));
-      HeatTransfer.Celsius.TemperatureSensor Tcore   annotation (Placement(
+      HeatTransfer.Celsius.TemperatureSensor Tcore annotation (Placement(
             transformation(
             origin={-20,-50},
             extent={{-10,-10},{10,10}},
@@ -200,16 +200,16 @@ An appropriate simulating time would be 10 seconds.
       HeatTransfer.Components.Convection convection
                                          annotation (Placement(transformation(
               extent={{30,-20},{50,0}})));
-      HeatTransfer.Sources.FixedTemperature environment(T=TAmb)       annotation (Placement(
+      HeatTransfer.Sources.FixedTemperature environment(T=TAmb) annotation (Placement(
             transformation(
             origin={80,-10},
             extent={{-10,-10},{10,10}},
             rotation=180)));
     equation
-      connect(windingLosses.port, winding.port)  annotation (Line(points={{-80,0},
-              {-80,-20}},    color={191,0,0}));
-      connect(coreLosses.port, core.port)  annotation (Line(points={{0,0},{0,
-              -10},{0,-20}},                                       color={191,0,
+      connect(windingLosses.port, winding.port) annotation (Line(points={{-80,0},
+              {-80,-20}}, color={191,0,0}));
+      connect(coreLosses.port, core.port) annotation (Line(points={{0,0},{0,
+              -10},{0,-20}}, color={191,0,
               0}));
       connect(winding.port, winding2core.port_a)
                                        annotation (Line(points={{-80,-20},{-80,
@@ -217,21 +217,21 @@ An appropriate simulating time would be 10 seconds.
       connect(winding2core.port_b, core.port)
                                     annotation (Line(points={{-30,-10},{0,-10},
               {0,-20}}, color={191,0,0}));
-      connect(winding.port, Twinding.port)  annotation (Line(points={{-80,-20},
+      connect(winding.port, Twinding.port) annotation (Line(points={{-80,-20},
               {-80,-10},{-60,-10},{-60,-40}}, color={191,0,0}));
-      connect(core.port, Tcore.port)  annotation (Line(points={{0,-20},{0,-10},
+      connect(core.port, Tcore.port) annotation (Line(points={{0,-20},{0,-10},
               {-20,-10},{-20,-40}}, color={191,0,0}));
       connect(winding2core.port_b, convection.solid)
                                           annotation (Line(points={{-30,-10},{
               30,-10}}, color={191,0,0}));
       connect(convection.fluid, environment.port) annotation (Line(points={{50,-10},
-              {60,-10},{70,-10}},               color={191,0,0}));
+              {60,-10},{70,-10}}, color={191,0,0}));
       connect(convectionConstant.y, convection.Gc)
         annotation (Line(points={{40,19},{40,0}}, color={0,0,127}));
       connect(lossTable.y[1], windingLosses.Q_flow) annotation (Line(points={{-40,59},
-              {-40,40},{-80,40},{-80,20}},         color={0,0,127}));
+              {-40,40},{-80,40},{-80,20}}, color={0,0,127}));
       connect(lossTable.y[2], coreLosses.Q_flow) annotation (Line(points={{-40,59},
-              {-40,40},{0,40},{0,20}},                             color={0,0,
+              {-40,40},{0,40},{0,20}}, color={0,0,
               127}));
       annotation (Documentation(info="<html>
 <p>
@@ -267,7 +267,7 @@ Simulate for 7200 s; plot Twinding.T and Tcore.T.
 </html>"),
         experiment(StopTime=7200, Interval=0.01));
     end Motor;
-    annotation (                              Documentation(info="<html>
+    annotation (Documentation(info="<html>
 
 </html>"));
   end Examples;
@@ -668,7 +668,7 @@ McGraw-Hill, 1997, p.270):
    and the equation for h holds, provided
       Re &lt; 5e5 and 0.6 &lt; Pr &lt; 50
 </pre>
-</html>"),     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+</html>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
             Rectangle(
               extent={{-90,80},{-60,-80}},
@@ -766,8 +766,8 @@ but using the convective resistance instead of the convective conductance as an 
 This is advantageous for series connections of ConvectiveResistors,
 especially if it shall be allowed that a convective resistance is defined to be zero (i.e. no temperature difference).
 </p>
-</html>"),     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-                100}}),      graphics={
+</html>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
+                100}}), graphics={
             Rectangle(
               extent={{-90,80},{-60,-80}},
               fillColor={192,192,192},
@@ -908,7 +908,7 @@ place from the inner to the outer cylinder):
        e1: Emission value of inner cylinder (0..1)
        e2: Emission value of outer cylinder (0..1)
 </pre>
-</html>"),     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+</html>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Rectangle(
               extent={{-90,80},{-56,-80}},
@@ -948,7 +948,7 @@ place from the inner to the outer cylinder):
     equation
       port_b.Q_flow + sum(port_a.Q_flow) = 0;
       port_a.T = fill(port_b.T, m);
-      annotation (        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Text(
               extent={{-150,-30},{150,-70}},
@@ -1316,7 +1316,7 @@ To avoid a singular equation system, the temperature of the sensor is set to 293
 </p>
 </html>"));
     end ConditionalFixedHeatFlowSensor;
-    annotation (   Documentation(info="<html>
+    annotation (Documentation(info="<html>
 
 </html>"));
   end Sensors;
@@ -1363,7 +1363,7 @@ To avoid a singular equation system, the temperature of the sensor is set to 293
 This model defines a fixed temperature T at its port in Kelvin,
 i.e., it defines a fixed temperature as a boundary condition.
 </p>
-</html>"),     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+</html>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Rectangle(
               extent={{-100,100},{100,-101}},
@@ -1425,7 +1425,7 @@ to the model. The effect is that an instance of this model acts as
 an infinite reservoir able to absorb or generate as much energy
 as required to keep the temperature at the specified value.
 </p>
-</html>"),     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+</html>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Rectangle(
               extent={{-100,100},{100,-100}},
@@ -1592,7 +1592,7 @@ if the input signal is positive.
 If parameter alpha is &lt;&gt; 0, the heat flow is multiplied by (1 + alpha*(port.T - T_ref))
 in order to simulate temperature dependent losses (which are given with respect to reference temperature T_ref).
 </p>
-</html>"),     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+</html>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
             Line(
               points={{-60,-20},{68,-20}},
@@ -1621,7 +1621,7 @@ in order to simulate temperature dependent losses (which are given with respect 
               fillColor={191,0,0},
               fillPattern=FillPattern.Solid)}));
     end PrescribedHeatFlow;
-    annotation (   Documentation(info="<html>
+    annotation (Documentation(info="<html>
 
 </html>"));
   end Sources;
@@ -1772,7 +1772,7 @@ and provides is as output signal.
 This model defines a fixed temperature T at its port in [degC],
 i.e., it defines a fixed temperature as a boundary condition.
 </p>
-</html>"),     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+</html>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
             Rectangle(
               extent={{-100,100},{100,-100}},
@@ -1838,7 +1838,7 @@ to the model. The effect is that an instance of this model acts as
 an infinite reservoir able to absorb or generate as much energy
 as required to keep the temperature at the specified value.
 </p>
-</html>"),     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+</html>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
             Rectangle(
               extent={{-100,100},{100,-100}},
@@ -2110,7 +2110,7 @@ and provides them as output signals.
 This model defines a fixed temperature T at its port in [degF],
 i.e., it defines a fixed temperature as a boundary condition.
 </p>
-</html>"),     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+</html>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
             Rectangle(
               extent={{-100,100},{100,-100}},
@@ -2176,7 +2176,7 @@ to the model. The effect is that an instance of this model acts as
 an infinite reservoir able to absorb or generate as much energy
 as required to keep the temperature at the specified value.
 </p>
-</html>"),     Diagram(graphics={
+</html>"), Diagram(graphics={
             Rectangle(
               extent={{-100,100},{100,-100}},
               pattern=LinePattern.None,
@@ -2444,7 +2444,7 @@ and provides them as output signals.
 This model defines a fixed temperature T at its port in degree Rankine,
 [degRk], i.e., it defines a fixed temperature as a boundary condition.
 </p>
-</html>"),     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+</html>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
             Rectangle(
               extent={{-100,100},{100,-100}},
@@ -2510,7 +2510,7 @@ to the model. The effect is that an instance of this model acts as
 an infinite reservoir able to absorb or generate as much energy
 as required to keep the temperature at the specified value.
 </p>
-</html>"),     Diagram(graphics={
+</html>"), Diagram(graphics={
             Rectangle(
               extent={{-100,100},{100,-100}},
               pattern=LinePattern.None,
@@ -2666,7 +2666,7 @@ convention has to be used whenever this connector is used in a model
 class.</p>
 <p>Note, that the two connector classes <b>HeatPort_a</b> and
 <b>HeatPort_b</b> are identical with the only exception of the different
-<b>icon layout</b>.</p></html>"),     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+<b>icon layout</b>.</p></html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Rectangle(
               extent={{-100,100},{100,-100}},
               lineColor={191,0,0},
@@ -2702,7 +2702,7 @@ convention has to be used whenever this connector is used in a model
 class.</p>
 <p>Note, that the two connector classes <b>HeatPort_a</b> and
 <b>HeatPort_b</b> are identical with the only exception of the different
-<b>icon layout</b>.</p></html>"),     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+<b>icon layout</b>.</p></html>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={Rectangle(
               extent={{-50,50},{50,-50}},
               lineColor={191,0,0},
@@ -2854,7 +2854,7 @@ The device temperature <b>internalHeatPort.T</b> can be used to describe the inf
 </p>
 </html>"));
     end PartialConditionalHeatPort;
-    annotation (                               Documentation(info="<html>
+    annotation (Documentation(info="<html>
 
 </html>"));
   end Interfaces;

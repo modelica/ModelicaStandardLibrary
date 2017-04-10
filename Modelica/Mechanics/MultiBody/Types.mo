@@ -3,7 +3,7 @@ package Types "Constants and types with choices, especially to build menus"
   extends Modelica.Icons.TypesPackage;
 
   type Axis = Modelica.Icons.TypeReal[3](each final unit="1")
-    "Axis vector with choices for menus"                                      annotation (
+    "Axis vector with choices for menus" annotation (
     preferredView="text",
     Evaluate=true,
     choices(
@@ -23,7 +23,7 @@ For an example see parameter \"n\" in model
 </html>"));
 
   type AxisLabel = Modelica.Icons.TypeString
-    "Label of axis with choices for menus"                                          annotation (
+    "Label of axis with choices for menus" annotation (
       preferredView="text", choices(
       choice="x" "\"x\"",
       choice="y" "\"y\"",
@@ -393,7 +393,7 @@ type Init = enumeration(
   constant Real Nm_to_m(unit="N.m/m") = 1000
     "Default torque arrow scaling (length = torque/Nm_to_m_default)";
 */
-    annotation ( Documentation(info="<html>
+    annotation (Documentation(info="<html>
 <p>
 This package contains constants used as default setting
 in the MultiBody library.
@@ -401,7 +401,7 @@ in the MultiBody library.
 </html>"));
   end Defaults;
 
-  annotation ( Documentation(info="<html>
+  annotation (Documentation(info="<html>
 <p>
 In this package <b>types</b> and <b>constants</b> are defined that are used in the
 MultiBody library. The types have additional annotation choices

@@ -269,16 +269,13 @@ end UsersGuide;
 
       type Temperature_degC = Real (final quantity="ThermodynamicTemperature",
             final unit="degC")
-        "Absolute temperature in degree Celsius (for relative temperature use SIunits.TemperatureDifference)"
-                                                                                                            annotation(absoluteValue=true);
+        "Absolute temperature in degree Celsius (for relative temperature use SIunits.TemperatureDifference)" annotation(absoluteValue=true);
       type Temperature_degF = Real (final quantity="ThermodynamicTemperature",
             final unit="degF")
-        "Absolute temperature in degree Fahrenheit (for relative temperature use SIunits.TemperatureDifference)"
-                                                                                                            annotation(absoluteValue=true);
+        "Absolute temperature in degree Fahrenheit (for relative temperature use SIunits.TemperatureDifference)" annotation(absoluteValue=true);
       type Temperature_degRk = Real (final quantity="ThermodynamicTemperature",
             final unit="degRk")
-        "Absolute temperature in degree Rankine (for relative temperature use SIunits.TemperatureDifference)"
-                                                                                                            annotation(absoluteValue=true);
+        "Absolute temperature in degree Rankine (for relative temperature use SIunits.TemperatureDifference)" annotation(absoluteValue=true);
       type Angle_deg = Real (final quantity="Angle", final unit="deg")
         "Angle in degree";
       type AngularVelocity_rpm = Real (final quantity="AngularVelocity", final unit=
@@ -309,10 +306,10 @@ end UsersGuide;
 
       type FirstOrderTemperaturCoefficient =
                               Real (final quantity="FirstOrderTemperatureCoefficient",
-            final unit="Ohm/degC") "First Order Temperature Coefficient"                                         annotation(absoluteValue=true);
+            final unit="Ohm/degC") "First Order Temperature Coefficient" annotation(absoluteValue=true);
       type SecondOrderTemperaturCoefficient =
                               Real (final quantity="SecondOrderTemperatureCoefficient",
-            final unit="Ohm/degC2") "Second Order Temperature Coefficient"                                        annotation(absoluteValue=true);
+            final unit="Ohm/degC2") "Second Order Temperature Coefficient" annotation(absoluteValue=true);
       type Area_cm =   Real (final quantity="Area", final unit="cm2")
         "Area in cm";
       type PerArea_cm =Real (final quantity="PerArea", final unit="1/cm2")
@@ -400,7 +397,7 @@ The function call \"<code>Conversions.<b>to_unit1</b>(r)</code>\" returns r with
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}},
-              textString="degC"),  Text(
+              textString="degC"), Text(
               extent={{100,-20},{20,-100}},
               textString="K")}));
     end from_degC;
@@ -458,7 +455,7 @@ The function call \"<code>Conversions.<b>to_unit1</b>(r)</code>\" returns r with
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-8,100},{-100,42}},
-              textString="degRk"),  Text(
+              textString="degRk"), Text(
               extent={{100,-20},{20,-100}},
               textString="K")}));
     end from_degRk;
@@ -627,7 +624,7 @@ The function call \"<code>Conversions.<b>to_unit1</b>(r)</code>\" returns r with
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{26,100},{-100,48}},
-              textString="min"),    Text(
+              textString="min"), Text(
               extent={{100,-46},{0,-100}},
               textString="s")}));
     end from_minute;
@@ -641,7 +638,7 @@ The function call \"<code>Conversions.<b>to_unit1</b>(r)</code>\" returns r with
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{100,-56},{0,-100}},
-              textString="litre"),           Text(
+              textString="litre"), Text(
               extent={{6,100},{-100,56}},
               textString="m3")}));
     end to_litre;
@@ -655,7 +652,7 @@ The function call \"<code>Conversions.<b>to_unit1</b>(r)</code>\" returns r with
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-4,100},{-100,62}},
-              textString="litre"),           Text(
+              textString="litre"), Text(
               extent={{100,-56},{-6,-100}},
               textString="m3")}));
     end from_litre;
@@ -668,9 +665,9 @@ The function call \"<code>Conversions.<b>to_unit1</b>(r)</code>\" returns r with
     algorithm
       Coulomb := AmpereHour * 3600;
 
-      annotation (Icon(graphics={         Text(
+      annotation (Icon(graphics={Text(
               extent={{-2,100},{-100,48}},
-              textString="Ah"),     Text(
+              textString="Ah"), Text(
               extent={{100,-46},{0,-100}},
               textString="C")}));
     end from_Ah;
@@ -683,9 +680,9 @@ The function call \"<code>Conversions.<b>to_unit1</b>(r)</code>\" returns r with
     algorithm
       AmpereHour := Coulomb/3600;
 
-      annotation (Icon(graphics={         Text(
+      annotation (Icon(graphics={Text(
               extent={{-18,100},{-100,48}},
-              textString="C"),            Text(
+              textString="C"), Text(
               extent={{100,-48},{2,-100}},
               textString="Ah")}));
     end to_Ah;
@@ -697,9 +694,9 @@ The function call \"<code>Conversions.<b>to_unit1</b>(r)</code>\" returns r with
     algorithm
       Joule := WattHour * 3600;
 
-      annotation (Icon(graphics={            Text(
+      annotation (Icon(graphics={Text(
               extent={{-20,100},{-100,54}},
-              textString="Wh"),  Text(
+              textString="Wh"), Text(
               extent={{100,-38},{4,-100}},
               textString="J")}));
     end from_Wh;
@@ -711,9 +708,9 @@ The function call \"<code>Conversions.<b>to_unit1</b>(r)</code>\" returns r with
     algorithm
       WattHour := Joule/3600;
 
-      annotation (Icon(graphics={            Text(
+      annotation (Icon(graphics={Text(
               extent={{-30,100},{-100,48}},
-              textString="J"),      Text(
+              textString="J"), Text(
               extent={{100,-46},{-14,-100}},
               textString="Wh")}));
     end to_Wh;
@@ -755,7 +752,7 @@ The function call \"<code>Conversions.<b>to_unit1</b>(r)</code>\" returns r with
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-12,100},{-100,56}},
-              textString="Pa"),     Text(
+              textString="Pa"), Text(
               extent={{98,-52},{-4,-100}},
               textString="bar")}));
     end to_bar;
@@ -769,7 +766,7 @@ The function call \"<code>Conversions.<b>to_unit1</b>(r)</code>\" returns r with
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{100,-56},{12,-100}},
-              textString="Pa"),     Text(
+              textString="Pa"), Text(
               extent={{2,100},{-100,52}},
               textString="bar")}));
     end from_bar;
@@ -812,7 +809,7 @@ The function call \"<code>Conversions.<b>to_unit1</b>(r)</code>\" returns r with
       annotation (Inline=true,Icon(graphics={
                                     Text(
               extent={{2,100},{-100,52}},
-              textString="Hz"),              Text(
+              textString="Hz"), Text(
               extent={{100,-56},{12,-100}},
               textString="1/s")}));
     end from_Hz;
@@ -826,7 +823,7 @@ The function call \"<code>Conversions.<b>to_unit1</b>(r)</code>\" returns r with
       annotation (Inline=true,Icon(graphics={
                                     Text(
               extent={{100,-52},{-2,-100}},
-              textString="Hz"),              Text(
+              textString="Hz"), Text(
               extent={{-12,100},{-100,56}},
               textString="1/s")}));
     end to_Hz;
@@ -854,7 +851,7 @@ The function call \"<code>Conversions.<b>to_unit1</b>(r)</code>\" returns r with
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{2,100},{-100,58}},
-              textString="cm2"),  Text(
+              textString="cm2"), Text(
               extent={{100,-50},{-16,-98}},
               textString="m/s")}));
     end from_cm2;
@@ -885,7 +882,7 @@ This icon of a <b>conversion symbol</b> will be removed in future versions of th
 </p>
 </html>"));
     end ConversionIcon;
-    annotation (                              Documentation(info="<html>
+    annotation (Documentation(info="<html>
 <p>This package provides conversion functions from the non SI Units
 defined in package Modelica.SIunits.Conversions.NonSIunits to the
 corresponding SI Units defined in package Modelica.SIunits and vice
@@ -1068,8 +1065,7 @@ argument):</p>
       start = 288.15,
       nominal = 300,
       displayUnit="degC")
-    "Absolute temperature (use type TemperatureDifference for relative temperatures)"
-                                                                                                        annotation(absoluteValue=true);
+    "Absolute temperature (use type TemperatureDifference for relative temperatures)" annotation(absoluteValue=true);
   type Temp_K = ThermodynamicTemperature;
   type Temperature = ThermodynamicTemperature;
   type TemperatureDifference = Real (

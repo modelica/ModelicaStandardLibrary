@@ -19,7 +19,7 @@ package DrumBoiler
       redeclare package Medium = Modelica.Media.Water.StandardWater,
       energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial,
       massDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial,
-      p_start=100000)     annotation (Placement(transformation(extent={{-46,-30},
+      p_start=100000) annotation (Placement(transformation(extent={{-46,-30},
               {-26,-10}})));
     Modelica.Thermal.HeatTransfer.Sources.PrescribedHeatFlow furnace
       annotation (Placement(transformation(
@@ -109,8 +109,8 @@ package DrumBoiler
     connect(evaporator.V, V_l)
       annotation (Line(points={{-32,-9},{-32,16},{-4,16},{-4,80},{106,80}},
           color={0,0,127}));
-    connect(MW2W.y,furnace.Q_flow)       annotation (Line(points={{-43.5,-70},{-36,
-            -70},{-36,-63}},     color={0,0,127}));
+    connect(MW2W.y,furnace.Q_flow) annotation (Line(points={{-43.5,-70},{-36,
+            -70},{-36,-63}}, color={0,0,127}));
     connect(pressure.p, Pa2bar.u)
       annotation (Line(points={{31,28},{36,28}}, color={0,0,127}));
     connect(Pa2bar.y, p_S)
@@ -120,18 +120,18 @@ package DrumBoiler
     connect(controller.y, limiter.u) annotation (Line(points={{-63.7,30},{-69.6,
             30}}, color={0,0,127}));
     connect(limiter.y, pump.m_flow_in) annotation (Line(points={{-85.7,30},{-90,
-            30},{-90,-12},{-80,-12}},   color={0,0,127}));
+            30},{-90,-12},{-80,-12}}, color={0,0,127}));
     connect(temperature.T, K2degC.Kelvin) annotation (Line(points={{4,-1},{4,-1},
             {8,-1},{8,54},{37,54}},
                               color={0,0,127}));
     connect(pressure.port, massFlowRate.port_a) annotation (Line(points={{20,18},{
-            20,-20}},  color={0,127,255}));
+            20,-20}}, color={0,127,255}));
     connect(pump.ports[1], evaporator.port_a) annotation (Line(points={{-60,-20},
             {-46,-20}}, color={0,127,255}));
     connect(massFlowRate.port_b, SteamValve.port_a) annotation (Line(points={{
             40,-20},{50,-20}}, color={0,127,255}));
     connect(SteamValve.port_b, sink.ports[1]) annotation (Line(points={{70,-20},{75,
-            -20},{80,-20}},          color={0,127,255}));
+            -20},{80,-20}}, color={0,127,255}));
     connect(evaporator.port_b, massFlowRate.port_a) annotation (Line(points={{
             -26,-20},{20,-20}}, color={0,127,255}));
     connect(temperature.port, massFlowRate.port_a) annotation (Line(
@@ -375,7 +375,7 @@ package DrumBoiler
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
             Line(points={{0,-64},{0,-100}}, color={191,0,0}),
-            Line(points={{40,100},{40,64}},   color={0,0,127}),
+            Line(points={{40,100},{40,64}}, color={0,0,127}),
             Ellipse(
               extent={{58,-11},{88,-40}},
               lineColor={0,0,255},

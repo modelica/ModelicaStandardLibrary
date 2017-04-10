@@ -232,7 +232,7 @@ to the FlangeWithBearing connector.
       "1-dim. rotational flange"
       annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
     Frame_a frame if includeBearingConnector
-      "3-dim. frame in which the 1-dim. shaft is mounted"             annotation (Placement(
+      "3-dim. frame in which the 1-dim. shaft is mounted" annotation (Placement(
           transformation(
           origin={0,-100},
           extent={{-16,-16},{16,16}},
@@ -357,14 +357,14 @@ joint aggregation models.
     "Base model for components providing one frame_a connector + outer world + assert to guarantee that the component is connected"
 
     Interfaces.Frame_a frame_a
-      "Coordinate system fixed to the component with one cut-force and cut-torque"                        annotation (Placement(
+      "Coordinate system fixed to the component with one cut-force and cut-torque" annotation (Placement(
           transformation(extent={{-116,-16},{-84,16}})));
   protected
     outer Modelica.Mechanics.MultiBody.World world;
   equation
     assert(cardinality(frame_a) > 0,
       "Connector frame_a of component is not connected");
-    annotation (                      Documentation(info="<html>
+    annotation (Documentation(info="<html>
 <p>
 This partial model provides one frame_a connector, access to the world
 object and an assert to check that the frame_a connector is connected.
@@ -651,7 +651,7 @@ output port in order to measure an absolute quantity in the frame connector
 and to provide the measured signal as output for further processing
 with the blocks of package Modelica.Blocks.
 </p>
-</html>"),   Icon(coordinateSystem(
+</html>"), Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
           Line(points={{-70,0},{-100,0}}),
@@ -695,7 +695,7 @@ between the two frames or the cut-forces/torques in the frame and
 to provide the measured signals as output for further processing
 with the blocks of package Modelica.Blocks.
 </p>
-</html>"),   Icon(coordinateSystem(
+</html>"), Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
           Line(points={{-70,0},{-101,0}}),
@@ -719,7 +719,7 @@ with the blocks of package Modelica.Blocks.
     "Base model for visualizers (has a frame_a on the left side + outer world + assert to guarantee that the component is connected)"
 
     Interfaces.Frame_a frame_a
-      "Coordinate system in which visualization data is resolved"                          annotation (Placement(
+      "Coordinate system in which visualization data is resolved" annotation (Placement(
           transformation(extent={{-116,-16},{-84,16}})));
   protected
     outer Modelica.Mechanics.MultiBody.World world;
@@ -798,7 +798,7 @@ a color map. Predefined color map functions are defined in package
 </html>"));
   end partialColorMap;
 
-  annotation ( Documentation(info="<html>
+  annotation (Documentation(info="<html>
 <p>
 This package contains connectors and partial models (i.e., models
 that are only used to build other models) of the MultiBody library.

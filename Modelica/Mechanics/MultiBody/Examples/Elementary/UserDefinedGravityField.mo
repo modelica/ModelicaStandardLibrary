@@ -14,11 +14,11 @@ model UserDefinedGravityField
         Modelica.Mechanics.MultiBody.Examples.Elementary.Utilities.theoreticalNormalGravityWGS84
         (phi=geodeticLatitude),
     axisLength=10,
-    nominalLength=10)              annotation (Placement(transformation(extent={{-80,-20},
+    nominalLength=10) annotation (Placement(transformation(extent={{-80,-20},
             {-60,0}})));
   Joints.Revolute rev(n={0,0,1},useAxisFlange=true,
     phi(fixed=true),
-    w(fixed=true))             annotation (Placement(transformation(extent={{-14,20},
+    w(fixed=true)) annotation (Placement(transformation(extent={{-14,20},
             {6,40}})));
   Rotational.Components.Damper damper(d=0.1)
     annotation (Placement(transformation(extent={{-14,60},{6,80}})));

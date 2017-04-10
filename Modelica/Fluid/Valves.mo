@@ -515,7 +515,7 @@ The block passes its input signal as output signal
 as long as the input is above uMin. If this is not the case,
 y=uMin is passed as output.
 </p>
-</html>"),     Icon(coordinateSystem(
+</html>"), Icon(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}}), graphics={
         Line(points={{0,-90},{0,68}}, color={192,192,192}),

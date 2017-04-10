@@ -59,7 +59,7 @@ equation
   connect(zDiode1.n, zDiode.n) annotation (Line(
       points={{-20,12},{-20,1},{-20,1},{-20,-10}},
       color={0,0,255}));
- annotation (   experiment(StopTime=0.4),
+ annotation (experiment(StopTime=0.4),
    Documentation(info="<html>
 <p>This example is a simple circuit for overvoltage protection. If the voltage zDiode_1.n.v is too high, the Diode zDiode_2 breaks through and the voltage gets down.</p>
 <p>The simulation end time should be set to 0.4. To get the typical behaviour please plot sineVoltage.p.v, RL.p.v, zDiode_2.n.v and zDiode_1.n.i.</p>

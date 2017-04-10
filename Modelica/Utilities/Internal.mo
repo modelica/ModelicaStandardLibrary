@@ -30,12 +30,12 @@ partial package PartialModelicaServices
     input Real widthDirection[3](each final unit="1")={0,1,0}
           "Vector in width direction, resolved in object frame"
                                                              annotation(Dialog);
-    input SI.Length length=0 "Length of visual object"  annotation(Dialog);
-    input SI.Length width=0 "Width of visual object"  annotation(Dialog);
-    input SI.Length height=0 "Height of visual object"  annotation(Dialog);
+    input SI.Length length=0 "Length of visual object" annotation(Dialog);
+    input SI.Length width=0 "Width of visual object" annotation(Dialog);
+    input SI.Length height=0 "Height of visual object" annotation(Dialog);
     input Types.ShapeExtra extra=0.0
-          "Additional size data for some of the shape types"                             annotation(Dialog);
-    input Real color[3]={255,0,0} "Color of shape"               annotation(Dialog(colorSelector=true));
+          "Additional size data for some of the shape types" annotation(Dialog);
+    input Real color[3]={255,0,0} "Color of shape" annotation(Dialog(colorSelector=true));
     input Types.SpecularCoefficient specularCoefficient = 0.7
           "Reflection of ambient light (= 0: light is completely absorbed)"
                                                                         annotation(Dialog);

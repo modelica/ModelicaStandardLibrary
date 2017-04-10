@@ -40,7 +40,7 @@ equation
   annotation (Line(points={{0,50},{20,50}}, color={0,0,255}));
   connect(HeatingDiode1.heatPort, ThermalConductor1.port_a)
                                                           annotation (Line(
-        points={{-10,40},{-10,0},{-20,0}},            color={191,0,0}));
+        points={{-10,40},{-10,0},{-20,0}}, color={191,0,0}));
   connect(ThermalConductor1.port_b, HeatCapacitor1.port)
                                                        annotation (Line(points={{-20,-20},
           {-20,-25.75},{-20,-40}},

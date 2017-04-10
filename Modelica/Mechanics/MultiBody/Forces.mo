@@ -293,7 +293,7 @@ This leads to the following animation
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/WorldTorque2.png\">
 </p>
 
-</html>"),   Icon(coordinateSystem(
+</html>"), Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
           Text(
@@ -1040,7 +1040,7 @@ clarity this is not shown in the animation):
         points={{-70,10},{-70,80},{80,80},{80,100}},
         color={95,95,95},
         pattern=LinePattern.Dot));
-    connect(zeroPosition.frame_resolve, basicTorque.frame_resolve)  annotation (
+    connect(zeroPosition.frame_resolve, basicTorque.frame_resolve) annotation (
         Line(
         points={{20,40},{10,40},{10,30}},
         color={95,95,95},
@@ -2201,7 +2201,7 @@ where \"c\", \"s_unstretched\" and \"d\" are parameters, \"s\" is the
 distance between the origin of frame_a and the origin of frame_b
 and der(s) is the time derivative of s.
 </p>
-</html>"),   Icon(coordinateSystem(
+</html>"), Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
           Text(
@@ -2309,7 +2309,7 @@ distance between the origin of frame_a and the origin of frame_b.
 \"s_damper\" is the length of the damper (= an internal state of this
 force element) and der(s_damper) is the time derivative of s_damper.
 </p>
-</html>"),   Icon(coordinateSystem(
+</html>"), Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
           Line(points={{-100,0},{-15,0}}),
@@ -2877,7 +2877,7 @@ The models in this package should not be directly used by a user.
 </p>
 </html>"));
   end Internal;
-  annotation ( Documentation(info="<html>
+  annotation (Documentation(info="<html>
 <p>
 This package contains components that exert forces and torques
 between two frame connectors, e.g., between two parts.

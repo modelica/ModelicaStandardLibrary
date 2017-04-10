@@ -754,7 +754,7 @@ with exception of boundary flow rate, do not have an effect.
     protected
     parameter Types.PortFlowDirection flowDirection=
                      Types.PortFlowDirection.Bidirectional
-        "Allowed flow direction"             annotation(Evaluate=true, Dialog(tab="Advanced"));
+        "Allowed flow direction" annotation(Evaluate=true, Dialog(tab="Advanced"));
   equation
     // Only one connection allowed to a port to avoid unwanted ideal mixing
     for i in 1:nPorts loop
@@ -808,7 +808,7 @@ features are:
     protected
     parameter Types.PortFlowDirection flowDirection=
                      Types.PortFlowDirection.Bidirectional
-        "Allowed flow direction"             annotation(Evaluate=true, Dialog(tab="Advanced"));
+        "Allowed flow direction" annotation(Evaluate=true, Dialog(tab="Advanced"));
   equation
     assert(abs(sum(abs(ports.m_flow)) - max(abs(ports.m_flow))) <= Modelica.Constants.small, "FlowSource only supports one connection with flow");
     // Only one connection allowed to a port to avoid unwanted ideal mixing

@@ -135,13 +135,13 @@ equation
   connect(IdealDiode3.p, IdealDiode6.n)
     annotation (Line(points={{20,30},{20,-30}}, color={0,0,255}));
   connect(IdealDiode1.n, IdealDiode2.n)
-    annotation (Line(points={{-20,50},{0,50}},            color={0,0,255}));
+    annotation (Line(points={{-20,50},{0,50}}, color={0,0,255}));
   connect(IdealDiode2.n, IdealDiode3.n)
-    annotation (Line(points={{0,50},{20,50}},            color={0,0,255}));
+    annotation (Line(points={{0,50},{20,50}}, color={0,0,255}));
   connect(IdealDiode4.p, IdealDiode5.p)
-    annotation (Line(points={{-20,-50},{0,-50}},             color={0,0,255}));
+    annotation (Line(points={{-20,-50},{0,-50}}, color={0,0,255}));
   connect(IdealDiode5.p, IdealDiode6.p)
-    annotation (Line(points={{0,-50},{20,-50}},             color={0,0,255}));
+    annotation (Line(points={{0,-50},{20,-50}}, color={0,0,255}));
   connect(Capacitor2.n, IdealDiode6.p)
     annotation (Line(points={{40,-50},{20,-50}}, color={0,0,255}));
   connect(IdealDiode3.n, Capacitor1.p)
@@ -155,7 +155,7 @@ equation
   connect(SignalCurrent1.n, Capacitor2.n)
     annotation (Line(points={{60,-10},{60,-50},{40,-50}}, color={0,0,255}));
   connect(Constant1.y, SignalCurrent1.i)
-    annotation (Line(points={{79,0},{79,0},{67,0}},                       color=
+    annotation (Line(points={{79,0},{79,0},{67,0}}, color=
          {0,0,255}));
   connect(Inductor1.n, IdealDiode1.p)
     annotation (Line(points={{-40,20},{-20,20},{-20,30}}, color={0,0,255}));

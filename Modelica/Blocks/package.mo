@@ -1161,7 +1161,7 @@ just potential signals. The user might still add different signal names.
         useAutomaticLocalSeed=false,
         fixedLocalSeed=10)
         annotation (Placement(transformation(extent={{-60,-20},{-40,0}})));
-     annotation (experiment(StopTime=2),    Documentation(info="<html>
+     annotation (experiment(StopTime=2), Documentation(info="<html>
 <p>
 This example demonstrates the most simple usage of the
 <a href=\"modelica://Modelica.Blocks.Noise.UniformNoise\">Noise.UniformNoise</a>
@@ -1260,7 +1260,7 @@ The result of a simulation is shown in the next diagram:
         useAutomaticLocalSeed=false,y_min=-1, y_max=3,
         fixedLocalSeed=3)
         annotation (Placement(transformation(extent={{0,-60},{20,-40}})));
-     annotation (experiment(StopTime=2),    Documentation(info="<html>
+     annotation (experiment(StopTime=2), Documentation(info="<html>
 <p>
 This example demonstrates manual and automatic seed selection of
 <a href=\"Modelica.Blocks.Noise.UniformNoise\">UniformNoise</a> blocks, as well
@@ -1344,7 +1344,7 @@ manualSeed2 will produce exactly the same noise.
         y_min=y_min,
         y_max=y_max)
         annotation (Placement(transformation(extent={{-60,20},{-40,40}})));
-     annotation (experiment(StopTime=2),    Documentation(info="<html>
+     annotation (experiment(StopTime=2), Documentation(info="<html>
 <p>
 This example demonstrates different noise distributions methods that can be selected
 for a Noise block. Both noise blocks use samplePeriod = 0.02 s, y_min=-1, y_max=3, and have
@@ -1696,7 +1696,7 @@ inputs:
 
       Utilities.ImpureRandom impureRandom(samplePeriod=0.01)
         annotation (Placement(transformation(extent={{-60,20},{-40,40}})));
-     annotation (experiment(StopTime=2),    Documentation(info="<html>
+     annotation (experiment(StopTime=2), Documentation(info="<html>
 <p>
 This example demonstrates how to use the
 <a href=\"modelica://Modelica.Math.Random.Utilities.impureRandom\">impureRandom(..)</a> function
@@ -1987,7 +1987,7 @@ Reference
                 lineColor={192,192,192},
                 fillColor={192,192,192},
                 fillPattern=FillPattern.Solid),
-              Line(points={{0,76},{0,-72}},     color={192,192,192}),
+              Line(points={{0,76},{0,-72}}, color={192,192,192}),
               Line(points={{-86,-82},{72,-82}},
                                             color={192,192,192}),
               Polygon(
@@ -2058,7 +2058,7 @@ This block is demonstrated in the example
                 lineColor={192,192,192},
                 fillColor={192,192,192},
                 fillPattern=FillPattern.Solid),
-              Line(points={{0,76},{0,-72}},     color={192,192,192}),
+              Line(points={{0,76},{0,-72}}, color={192,192,192}),
               Line(points={{-86,-82},{72,-82}},
                                             color={192,192,192}),
               Polygon(
@@ -2130,7 +2130,7 @@ This block is demonstrated in the example
                 lineColor={192,192,192},
                 fillColor={192,192,192},
                 fillPattern=FillPattern.Solid),
-              Line(points={{0,76},{0,-72}},     color={192,192,192}),
+              Line(points={{0,76},{0,-72}}, color={192,192,192}),
               Line(points={{-86,-82},{72,-82}},
                                             color={192,192,192}),
               Polygon(
@@ -2428,7 +2428,7 @@ random number generator. This block is used in the example
           connect(speedSensor.w, w) annotation (Line(points={{30,11},{30,11},{30,10},{70,
                   10}}, color={0,0,127}));
           connect(angleSensor.phi, phi_motor) annotation (Line(points={{10,11},{10,11},{
-                  10,22},{10,30},{70,30}},  color={0,0,127}));
+                  10,22},{10,30},{70,30}}, color={0,0,127}));
           annotation (
             Documentation(info="<html>
 <p>
@@ -2468,12 +2468,12 @@ actuator example
 </td></tr>
 
 </table>
-</html>"),  Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+</html>"), Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
                     100}}), graphics={Rectangle(
                   extent={{40,50},{-100,100}},
                   fillColor={255,170,85},
                   fillPattern=FillPattern.Solid,
-                  pattern=LinePattern.None),           Text(
+                  pattern=LinePattern.None), Text(
                 extent={{-150,150},{150,110}},
                 textString="%name",
                 lineColor={0,0,255})}));
@@ -2533,7 +2533,7 @@ actuator example
           connect(positionToSpeed.y, speedFeedback.u2) annotation (Line(
               points={{-39,-60},{20,-60},{20,-8}},
               color={0,0,127}));
-          annotation ( Icon(coordinateSystem(
+          annotation (Icon(coordinateSystem(
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
                 Rectangle(extent={{-100,100},{100,-100}}, lineColor={0,0,255},
                   fillColor={255,255,255},
@@ -2541,7 +2541,7 @@ actuator example
                 Text(
                   extent={{-40,50},{40,-30}},
                   lineColor={0,0,255},
-                  textString="PI"),             Text(
+                  textString="PI"), Text(
                 extent={{-150,150},{150,110}},
                 textString="%name",
                 lineColor={0,0,255})}),

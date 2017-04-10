@@ -2194,7 +2194,7 @@ Simulate for 1.5 seconds and plot (versus time):
         connect(terminalBoxM.plug_sp, smpmM.plug_sp)
           annotation (Line(points={{6,-10},{6,-10}}, color={0,0,255}));
         connect(terminalBoxM.plugSupply, currentRMSsensorM.plug_n) annotation (
-            Line(points={{0,-8},{0,-8},{0,6},{0,20}},              color={0,0,
+            Line(points={{0,-8},{0,-8},{0,6},{0,20}}, color={0,0,
                 255}));
         connect(loadInertiaE.flange_b, torqueStepE.flange)
           annotation (Line(points={{70,-80},{80,-80}}));
@@ -2439,7 +2439,7 @@ and accelerate the inertias.</p>
         connect(terminalBoxM.plug_sp, smpmM.plug_sp)
           annotation (Line(points={{6,-10},{6,-10}}, color={0,0,255}));
         connect(terminalBoxM.plugSupply, currentRMSsensorM.plug_n) annotation (
-            Line(points={{0,-8},{0,-8},{0,10},{30,10}},        color={0,0,255}));
+            Line(points={{0,-8},{0,-8},{0,10},{30,10}}, color={0,0,255}));
         connect(loadInertia3.flange_b, torqueStep3.flange)
           annotation (Line(points={{70,-80},{80,-80}}));
         connect(rotorAngle3.plug_n, smpm3.plug_sn) annotation (Line(points={{36,
@@ -2523,7 +2523,7 @@ and accelerate the inertias. Two equivalent machines with different numbers of p
                       extent={{40,-54},{100,-62}},
                       textStyle={TextStyle.Bold},
                       textString="3 phase machine
-"),           Text(
+"), Text(
                 extent={{40,-44},{100,-52}},
                       textStyle={TextStyle.Bold},
                       textString="%m phase machine
@@ -3182,11 +3182,11 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM3.rotorDisplacementAng
                       extent={{10,16},{70,8}},
                       textStyle={TextStyle.Bold},
                       textString="%m phase machine
-"),           Text(
+"), Text(
                 extent={{10,-52},{70,-60}},
                       textStyle={TextStyle.Bold},
                       textString="3 phase machine
-"),           Rectangle(
+"), Rectangle(
                 extent={{-50,-60},{100,-100}},
                       fillColor={255,255,170},
                       fillPattern=FillPattern.Solid,
@@ -3373,7 +3373,7 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM3.rotorDisplacementAng
         connect(terminalBoxM.plug_sn, smrM.plug_sn)
           annotation (Line(points={{-6,-10},{-6,-10}}, color={0,0,255}));
         connect(currentRMSsensorM.plug_n, terminalBoxM.plugSupply) annotation (
-            Line(points={{0,10},{0,-8}},                             color={0,0,
+            Line(points={{0,10},{0,-8}}, color={0,0,
                 255}));
         connect(signalVoltage.plug_p, currentRMSsensorM.plug_p) annotation (
             Line(points={{0,50},{0,45},{0,40},
@@ -3613,7 +3613,7 @@ Simulate for 1.5 seconds and plot (versus time):
         connect(vfController3.y, signalVoltage3.v)
           annotation (Line(points={{-19,70},{-7,70}}, color={0,0,255}));
         connect(terminalBoxM.plugSupply, currentRMSsensorM.plug_n) annotation (
-            Line(points={{0,-8},{0,-8},{0,10},{30,10}},        color={0,0,255}));
+            Line(points={{0,-8},{0,-8},{0,10},{30,10}}, color={0,0,255}));
         connect(signalVoltage3.plug_p, currentRMSsensor3.plug_p) annotation (
             Line(
             points={{0,60},{0,34},{-80,34},{-80,10}},
@@ -3680,11 +3680,11 @@ Simulate for 1.5 seconds and plot (versus time):
                       extent={{40,-44},{100,-52}},
                       textStyle={TextStyle.Bold},
                       textString="%m phase machine
-"),           Text(
+"), Text(
                 extent={{40,-54},{100,-62}},
                       textStyle={TextStyle.Bold},
                       textString="3 phase machine
-"),           Rectangle(
+"), Rectangle(
                 extent={{-20,-60},{100,-100}},
                       fillColor={255,255,170},
                       fillPattern=FillPattern.Solid,
@@ -5434,7 +5434,7 @@ The single phase winding consists of a winding
         connect(plug_p, resistor.plug_p) annotation (Line(points={{-100,100},{-20,
                 100},{-20,80}}, color={0,0,255}));
         connect(resistor.plug_n, zeroInductor.plug_p) annotation (Line(points={{-20,60},
-                {-20,55},{-20,40},{-30,40}},          color={0,0,255}));
+                {-20,55},{-20,40},{-30,40}}, color={0,0,255}));
         connect(electroMagneticConverter.plug_n, plug_n) annotation (Line(
               points={{-10,-40},{-10,-40},{-100,-40},{-100,-100}}, color={0,0,
                 255}));
@@ -7098,7 +7098,7 @@ i.e., with small derivatives.
                   fillPattern=FillPattern.Solid),Text(
                   extent={{-60,60},{60,-60}},
                   textString="S",
-                  lineColor={0,0,255}),          Text(
+                  lineColor={0,0,255}), Text(
                   extent={{0,-60},{0,-100}},
                   lineColor={0,0,255},
                   textString="%name")}));

@@ -50,7 +50,7 @@ model RollingWheelSetDriving
     final width=2*wheelSet.wheelRadius,
     final height=2*wheelSet.wheelRadius,
     final color={0,128,255},
-    final extra=0.8)        annotation (Placement(transformation(extent={{-10,-10},
+    final extra=0.8) annotation (Placement(transformation(extent={{-10,-10},
             {10,10}},
         origin={50,90})));
 equation
@@ -80,7 +80,7 @@ equation
       points={{40,90},{28,90},{28,66},{20,66}},
       color={95,95,95},
       thickness=0.5));
-  annotation (    experiment(StopTime=3),
+  annotation (experiment(StopTime=3),
     Documentation(info="<html>
 <p>
 Demonstrates how a RollingWheelSet (two wheels rigidly coupled together) is rolling

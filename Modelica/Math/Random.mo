@@ -301,7 +301,7 @@ For an overview, comparison with other random number generators, and links to ar
 </td></tr>
 
 </table>
-</html>"),     Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
+</html>"), Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
             graphics={
         Ellipse(
           extent={{-64,0},{-14,-50}},

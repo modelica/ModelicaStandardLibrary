@@ -62,7 +62,7 @@ model EngineV6
       start=10,
       fixed=true),
     stateSelect=StateSelect.always,
-    J=1)                               annotation (Placement(transformation(
+    J=1) annotation (Placement(transformation(
           extent={{-44,-30},{-24,-10}})));
   Modelica.Mechanics.Rotational.Sources.QuadraticSpeedDependentTorque load2(
                                                  tau_nominal=-100, w_nominal=
@@ -167,6 +167,6 @@ Simulate for 3 s with about 50000 output intervals, and plot the variables <b>en
 <b>engineTorque</b>, and <b>filteredEngineTorque</b>. Note, the result file has
 a size of about 300 Mbyte in this case. The default setting of StopTime = 1.01 s (with the default setting of the tool for the number of output points), in order that (automatic) regression testing does not have to cope with a large result file.
 </p>
-</html>"), experiment(StopTime=1.01),    Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-140,-100},{140,
+</html>"), experiment(StopTime=1.01), Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-140,-100},{140,
             100}})));
 end EngineV6;

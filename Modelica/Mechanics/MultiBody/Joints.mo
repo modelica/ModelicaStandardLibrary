@@ -99,10 +99,10 @@ Possible reasons:
     connect(fixed.flange, support) annotation (Line(
         points={{-40,40},{-40,60}},
         color={0,127,0}));
-    connect(internalAxis.flange, axis)    annotation (Line(
+    connect(internalAxis.flange, axis) annotation (Line(
         points={{80,40},{80,60}},
         color={0,127,0}));
-    connect(constantForce.flange, internalAxis.flange)    annotation (Line(
+    connect(constantForce.flange, internalAxis.flange) annotation (Line(
         points={{60,40},{80,40}},
         color={0,127,0}));
     annotation (
@@ -781,7 +781,7 @@ vector \"n\" defining the cylinder axis
 <p>
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/Cylindrical.png\">
 </p>
-</html>"),   Icon(coordinateSystem(
+</html>"), Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
           Rectangle(
@@ -1159,7 +1159,7 @@ s_y.start = 0.5, phi.start = 45<sup>o</sup>).
 <p>
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/Planar.png\">
 </p>
-</html>"),   Icon(coordinateSystem(
+</html>"), Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
           Rectangle(
@@ -1426,7 +1426,7 @@ frame_b of the joint.
 <p>
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/Spherical.png\">
 </p>
-</html>"),   Icon(coordinateSystem(
+</html>"), Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
           Ellipse(
@@ -1772,7 +1772,7 @@ frame_b of the joint.
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/FreeMotion.png\">
 </p>
 
-</html>"),   Icon(coordinateSystem(
+</html>"), Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
           Line(
@@ -2112,11 +2112,11 @@ frame_b of the joint.
     connect(initAngularVelocity.w_rel_b, derz.u) annotation (Line(
         points={{1,30},{18,30}},
         color={0,0,127}));
-    connect(frame_a, arrow.frame_a)       annotation (Line(
+    connect(frame_a, arrow.frame_a) annotation (Line(
         points={{-100,0},{-88,0},{-88,70},{-80,70}},
         color={95,95,95},
         thickness=0.5));
-    connect(initPosition.r_rel_a, arrow.r_head)       annotation (Line(
+    connect(initPosition.r_rel_a, arrow.r_head) annotation (Line(
         points={{1,70},{10,70},{10,52},{-70,52},{-70,58}},
         color={0,0,127}));
     annotation (
@@ -2150,7 +2150,7 @@ A example to use this joint for the initialization of a planar double pendulum b
 its tip position, is shown in
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Examples.Elementary.DoublePendulumInitTip\">Examples.Elementary.DoublePendulumInitTip</a>.
 </p>
-</html>"),   Icon(coordinateSystem(
+</html>"), Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
           Line(
@@ -2223,7 +2223,7 @@ its tip position, is shown in
             "Animation", group="if animation = true and showMass = true and m > 0",
             enable=animation and showMass and m > 0));
     input Types.Color massColor=Modelica.Mechanics.MultiBody.Types.Defaults.BodyColor
-      "Color of sphere representing the mass point"  annotation (
+      "Color of sphere representing the mass point" annotation (
         Dialog(colorSelector=true, tab="Animation", group=
             "if animation = true and showMass = true and m > 0",
             enable=animation and showMass and m > 0));
@@ -2925,7 +2925,7 @@ the origin of frame_a to the middle of the rod, this might be defined as:
   <b>equation</b>
     <b>connect</b>(jointUS.frame_ia, shape.frame_a);
 </pre>
-</html>"),   Icon(coordinateSystem(
+</html>"), Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
           Text(
@@ -3414,7 +3414,7 @@ November 3-4, 2003, pp. 149-158</p>
 
       parameter SI.Radius wheelRadius "Wheel radius";
       parameter StateSelect stateSelect=StateSelect.always
-      "Priority to use generalized coordinates as states"   annotation(HideResult=true,Evaluate=true);
+      "Priority to use generalized coordinates as states" annotation(HideResult=true,Evaluate=true);
 
       SI.Position x(start=0, stateSelect=stateSelect)
       "x-coordinate of wheel axis";
@@ -3583,12 +3583,12 @@ November 3-4, 2003, pp. 149-158</p>
             0,wheelDistance/2,0}, animation=animation)
         annotation (Placement(transformation(extent={{-8,-10},{-28,10}})));
       Modelica.Mechanics.MultiBody.Joints.Prismatic prismatic1(animation=
-            animation)                   annotation (Placement(transformation(
+            animation) annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=90,
             origin={0,-66})));
       Modelica.Mechanics.MultiBody.Joints.Prismatic prismatic2(
-        n={0,1,0}, animation=animation)  annotation (Placement(transformation(
+        n={0,1,0}, animation=animation) annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=180,
             origin={-24,-50})));
@@ -3626,7 +3626,7 @@ November 3-4, 2003, pp. 149-158</p>
       Modelica.Mechanics.MultiBody.Parts.Mounting1D mounting1D
         annotation (Placement(transformation(extent={{-10,38},{10,58}})));
       Modelica.Mechanics.Rotational.Interfaces.Flange_b support
-      "Support of 1D axes"   annotation (Placement(transformation(extent={{-10,70},
+      "Support of 1D axes" annotation (Placement(transformation(extent={{-10,70},
               {10,90}}),       iconTransformation(extent={{-10,70},{10,90}})));
     equation
       prismatic1.s  = x;
@@ -4658,7 +4658,7 @@ component).
           points={{60,-80},{96,-80},{96,0},{100,0}},
           color={95,95,95},
           pattern=LinePattern.Dot));
-      connect(position_b.y, revolute.position_b)       annotation (Line(
+      connect(position_b.y, revolute.position_b) annotation (Line(
           points={{1,-40},{20,-40},{20,-12},{31,-12}},
           color={0,0,127}));
       connect(rod2.frame_b, frame_im) annotation (Line(
@@ -5150,7 +5150,7 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
           points={{-80,20},{-80,100}},
           color={95,95,95},
           thickness=0.5));
-      connect(position_b.y, prismatic.position_b)       annotation (Line(
+      connect(position_b.y, prismatic.position_b) annotation (Line(
           points={{1,-50},{10,-50},{10,-12},{32,-12}},
           color={0,0,127}));
       connect(prismatic.axis, axis) annotation (Line(points={{40,14},{40,56},{
@@ -5629,7 +5629,7 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
           points={{60,-80},{96,-80},{96,0},{100,0}},
           color={95,95,95},
           pattern=LinePattern.Dot));
-      connect(position_b.y, revolute.position_b)       annotation (Line(
+      connect(position_b.y, revolute.position_b) annotation (Line(
           points={{1,-40},{20,-40},{20,-12},{31,-12}},
           color={0,0,127}));
       connect(revolute.axis, axis) annotation (Line(points={{55,20},{55,60},{90,
@@ -5974,7 +5974,7 @@ component).
           points={{60,-80},{96,-80},{96,0},{100,0}},
           color={95,95,95},
           pattern=LinePattern.Dot));
-      connect(position_b.y, prismatic.position_b)       annotation (Line(
+      connect(position_b.y, prismatic.position_b) annotation (Line(
           points={{1,-40},{20,-40},{20,-12},{31,-12}},
           color={0,0,127}));
       connect(prismatic.axis, axis) annotation (Line(points={{39,14},{40,14},{
@@ -6765,7 +6765,7 @@ and 1 prismatic joint are connected by rigid rods.
               color={95,95,95},
               thickness=0.5)}));
     end JointRRP;
-    annotation ( Documentation(info="<html>
+    annotation (Documentation(info="<html>
 <p>
 The joints in this package are mainly designed to be used
 in <b>kinematic loop</b> structures. Every component consists of
@@ -8459,7 +8459,7 @@ menu of \"Joints.SphericalSpherical\" or \"Joints.UniversalSpherical\".
      equation
        r_b_0 = r_a_0 + Frames.resolve1(R_a, {r_rel_a[1], r_rel_a[2], r_rel_a[3]});
 
-       annotation ( Icon(coordinateSystem(
+       annotation (Icon(coordinateSystem(
               preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
             graphics={Text(
               extent={{-88,16},{82,-12}},
@@ -8508,7 +8508,7 @@ menu of \"Joints.SphericalSpherical\" or \"Joints.UniversalSpherical\".
        frame_b.f = zeros(3);
        frame_b.t = zeros(3);
 
-       annotation ( Icon(graphics={Text(
+       annotation (Icon(graphics={Text(
               extent={{-84,-58},{86,-86}},
               textString="angle")}));
      end InitAngle;
@@ -8528,7 +8528,7 @@ menu of \"Joints.SphericalSpherical\" or \"Joints.UniversalSpherical\".
      equation
       Frames.angularVelocity2(R_b) = Frames.resolve2(R_b,Frames.angularVelocity1(R_a)) + w_rel_b;
 
-       annotation ( Icon(graphics={Text(
+       annotation (Icon(graphics={Text(
               extent={{-86,16},{84,-12}},
               textString="w_rel_b")}));
      end InitAngularVelocity;
@@ -8543,7 +8543,7 @@ Don't use the models of this package.
 </html>"));
   end Internal;
 
-  annotation ( Documentation(info="<html>
+  annotation (Documentation(info="<html>
 <p>
 This package contains <b>joint components</b>,
 that is, idealized, massless elements that constrain

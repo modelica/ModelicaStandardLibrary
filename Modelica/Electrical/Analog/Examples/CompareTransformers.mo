@@ -91,7 +91,7 @@ model CompareTransformers
   Modelica.Electrical.Analog.Basic.Transformer basicTransformer(
     L1=L1,
     L2=L2,
-    M=M)      annotation (Placement(transformation(extent={{-10,40},{10,60}})));
+    M=M) annotation (Placement(transformation(extent={{-10,40},{10,60}})));
   Modelica.Electrical.Analog.Ideal.IdealTransformer idealTransformer(n=n,
       Lm1=Lm1,
     considerMagnetization=false)
@@ -125,15 +125,15 @@ equation
   connect(ground11.p, basicTransformer.n1) annotation (Line(points={{-80,20},
           {-10,20},{-10,45}}, color={0,0,255}));
   connect(basicTransformer.n2, ground12.p) annotation (Line(points={{10,45},{10,
-          20},{80,20}},    color={0,0,255}));
+          20},{80,20}}, color={0,0,255}));
   connect(basicTransformer.p1, resistor11.n) annotation (Line(points={{-10,55},
           {-10,60},{-60,60}}, color={0,0,255}));
   connect(basicTransformer.p2, resistor12.p) annotation (Line(points={{10,55},{
-          10,60},{60,60}},  color={0,0,255}));
+          10,60},{60,60}}, color={0,0,255}));
   connect(ground21.p, idealTransformer.n1) annotation (Line(points={{-80,-70},
           {-10,-70},{-10,-45}}, color={0,0,255}));
   connect(ground22.p, idealTransformer.n2) annotation (Line(points={{80,-70},{
-          10,-70},{10,-45}},  color={0,0,255}));
+          10,-70},{10,-45}}, color={0,0,255}));
   connect(idealTransformer.p1, inductor21.n) annotation (Line(points={{-10,
           -35},{-10,-30},{-30,-30}}, color={0,0,255}));
   connect(idealTransformer.p2, inductor22.p) annotation (Line(points={{10,-35},

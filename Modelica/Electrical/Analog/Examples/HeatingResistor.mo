@@ -28,7 +28,7 @@ equation
   annotation (Line(points={{-70,30},{-70,20}}, color={0,0,255}));
   connect(heatingResistor.heatPort, thermalConductor.port_a)
                                                           annotation (Line(
-        points={{-22,34},{-6,34}},                    color={191,0,0}));
+        points={{-22,34},{-6,34}}, color={191,0,0}));
 
   connect(SineVoltage1.p, heatingResistor.p) annotation (Line(
       points={{-70,50},{-32,50},{-32,44}},

@@ -6,7 +6,7 @@ block MultiSwitch
     "Set Integer expression that is associated with the first active input signal"
 
   input Integer expr[nu]=fill(0, nu)
-      "y = if u[i] then expr[i] elseif use_pre_as_default then pre(y) else y_default"            annotation(Dialog);
+      "y = if u[i] then expr[i] elseif use_pre_as_default then pre(y) else y_default" annotation(Dialog);
   parameter Integer y_default=0
       "Default value of output y if use_pre_as_default=false, as well as pre(y) at initial time";
 
@@ -31,7 +31,7 @@ equation
                                                   u);
   y = if firstActiveIndex > 0 then expr[firstActiveIndex] else
       if use_pre_as_default then pre(y) else y_default;
-  annotation (defaultComponentName="multiSwitch1",             Icon(coordinateSystem(
+  annotation (defaultComponentName="multiSwitch1", Icon(coordinateSystem(
         preserveAspectRatio=false,
         extent={{-100,-100},{300,100}}), graphics={
             Text(
@@ -224,7 +224,7 @@ the output is set to zero: y=0.
     when {trigger, local_reset} then
        y = if local_reset then local_set else pre(y) + u;
     end when;
-    annotation (       Icon(coordinateSystem(
+    annotation (Icon(coordinateSystem(
             preserveAspectRatio=false, extent={{-100,-100},{100,100}},
           initialScale=0.06), graphics={
             Line(

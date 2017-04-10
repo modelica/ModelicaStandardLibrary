@@ -2,18 +2,17 @@ within Modelica.Mechanics.MultiBody.Examples.Elementary;
 model DoublePendulumInitTip
   "Demonstrate how to initialize a double pendulum so that its tip starts at a predefined position"
   extends Modelica.Icons.Example;
-  inner World world                              annotation (Placement(
+  inner World world annotation (Placement(
         transformation(extent={{-100,0},{-80,20}})));
-  Joints.Revolute revolute1(                             useAxisFlange=true)
-                                                                 annotation (Placement(transformation(extent={{-60,0},
+  Joints.Revolute revolute1(useAxisFlange=true) annotation (Placement(transformation(extent={{-60,0},
             {-40,20}})));
-  Rotational.Components.Damper damper(        d=0.1)
+  Rotational.Components.Damper damper(d=0.1)
     annotation (Placement(transformation(extent={{-60,40},{-40,60}})));
-  Parts.BodyBox boxBody1(                             r={0.5,0,0}, width=0.06)
+  Parts.BodyBox boxBody1(r={0.5,0,0}, width=0.06)
     annotation (Placement(transformation(extent={{-22,0},{-2,20}})));
-  Joints.Revolute revolute2                              annotation (Placement(transformation(extent={{20,0},{
+  Joints.Revolute revolute2 annotation (Placement(transformation(extent={{20,0},{
             40,20}})));
-  Parts.BodyBox boxBody2(                             r={0.5,0,0}, width=0.06)
+  Parts.BodyBox boxBody2(r={0.5,0,0}, width=0.06)
     annotation (Placement(transformation(extent={{62,0},{82,20}})));
   Modelica.Mechanics.MultiBody.Joints.FreeMotionScalarInit freeMotionScalarInit(
     use_r=true,

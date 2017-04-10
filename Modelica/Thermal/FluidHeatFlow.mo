@@ -224,13 +224,13 @@ This library provides simple components for 1-dimensional incompressible thermo-
         annotation (Line(points={{-20,0},{0,0}}, color={255,0,0}));
       connect(pipe.flowPort_b, ambient2.flowPort)
         annotation (Line(points={{20,0},{40,0}}, color={255,0,0}));
-      connect(heatFlow.y, prescribedHeatFlow.Q_flow)  annotation (Line(points={
+      connect(heatFlow.y, prescribedHeatFlow.Q_flow) annotation (Line(points={
               {-39,-50},{-30,-50}}, color={0,0,255}));
-      connect(convection.solid, prescribedHeatFlow.port)   annotation (Line(
+      connect(convection.solid, prescribedHeatFlow.port) annotation (Line(
             points={{10,-40},{10,-50},{-10,-50}}, color={191,0,0}));
-      connect(convection.solid, heatCapacitor.port)   annotation (Line(points={
+      connect(convection.solid, heatCapacitor.port) annotation (Line(points={
               {10,-40},{10,-50},{30,-50}}, color={191,0,0}));
-      connect(pipe.heatPort, convection.fluid)   annotation (Line(points={{10,
+      connect(pipe.heatPort, convection.fluid) annotation (Line(points={{10,
               -10},{10,-20}}, color={191,0,0}));
       connect(thermalConductance.y, convection.Gc)
                                    annotation (Line(points={{-9,-30},{0,-30}},
@@ -405,17 +405,17 @@ A prescribed heat source dissipates its heat through a thermal conductor to a co
                                     annotation (Line(points={{-9,-40},{0,-40}},
             color={0,0,127}));
       connect(pipe1.heatPort,convection1. fluid) annotation (Line(points={{10,-20},{
-              10,-30}},                         color={191,0,0}));
+              10,-30}}, color={191,0,0}));
       connect(convection2.fluid,pipe2. heatPort) annotation (Line(points={{10,
               30},{10,20}}, color={191,0,0}));
       connect(convection2.solid,prescribedHeatFlow2. port) annotation (Line(
             points={{10,50},{10,60},{-10,60}}, color={191,0,0}));
       connect(convection2.solid,heatCapacitor2. port) annotation (Line(points={{10,50},
-              {10,60},{28,60}},         color={191,0,0}));
+              {10,60},{28,60}}, color={191,0,0}));
       connect(convection1.solid,prescribedHeatFlow1. port) annotation (Line(
             points={{10,-50},{10,-60},{-10,-60}}, color={191,0,0}));
       connect(convection1.solid,heatCapacitor1. port) annotation (Line(points={{10,-50},
-              {10,-60},{30,-60}},          color={191,0,0}));
+              {10,-60},{30,-60}}, color={191,0,0}));
       connect(pipe2.flowPort_b,pipe3. flowPort_a) annotation (Line(points={{20,
               10},{30,10},{30,0},{40,0}}, color={255,0,0}));
       connect(pipe1.flowPort_b,pipe3. flowPort_a) annotation (Line(points={{20,
@@ -620,26 +620,26 @@ Two prescribed heat sources dissipate their heat through thermal conductors to c
         annotation (Line(points={{-39,-90},{-30,-90}}, color={0,0,255}));
       connect(innerPump.flowPort_b, innerPipe.flowPort_a)
         annotation (Line(points={{-20,-20},{0,-20}}, color={255,0,0}));
-      connect(innerPipe.flowPort_b, absolutePressure.flowPort)  annotation (Line(
+      connect(innerPipe.flowPort_b, absolutePressure.flowPort) annotation (Line(
             points={{20,-20},{40,-20},{40,-30}}, color={255,0,0}));
       connect(outerPump.flowPort_b, outerPipe.flowPort_a)
         annotation (Line(points={{-20,70},{0,70}}, color={255,0,0}));
       connect(outerPipe.flowPort_b,ambient2. flowPort)
         annotation (Line(points={{20,70},{40,70}}, color={255,0,0}));
       connect(outerPipe.heatPort, outerConvection.fluid)
-        annotation (Line(points={{10,60},{10,55},{10,50}},         color={191,0,
+        annotation (Line(points={{10,60},{10,55},{10,50}}, color={191,0,
               0}));
       connect(outerConvection.solid, innerConvection.solid)
         annotation (Line(points={{10,30},{10,20},{10,20}},
                        color={191,0,0}));
       connect(innerConvection.fluid, innerPipe.heatPort)
-        annotation (Line(points={{10,0},{10,-5},{10,-10}},         color={191,0,
+        annotation (Line(points={{10,0},{10,-5},{10,-10}}, color={191,0,
               0}));
       connect(innerGc.y, innerConvection.Gc)
         annotation (Line(points={{-19,10},{-9.5,10},{-9.5,10},{0,10}}, color={0,
               0,127}));
       connect(outerGc.y, outerConvection.Gc)
-        annotation (Line(points={{-19,40},{0,40}},  color={0,0,127}));
+        annotation (Line(points={{-19,40},{0,40}}, color={0,0,127}));
       connect(outerVolumeFlow.y, outerPump.volumeFlow) annotation (Line(
           points={{-39,90},{-30,90},{-30,80}},
           color={0,0,127}));
@@ -784,13 +784,13 @@ Inner coolant's temperature rise near the source is the same as temperature drop
     equation
       connect(pipe.flowPort_b, ambient2.flowPort)
         annotation (Line(points={{20,0},{40,0}}, color={255,0,0}));
-      connect(heatFlow.y, prescribedHeatFlow.Q_flow)  annotation (Line(points={
+      connect(heatFlow.y, prescribedHeatFlow.Q_flow) annotation (Line(points={
               {-39,-50},{-30,-50}}, color={0,0,255}));
-      connect(convection.solid, prescribedHeatFlow.port)   annotation (Line(
+      connect(convection.solid, prescribedHeatFlow.port) annotation (Line(
             points={{10,-40},{10,-50},{-10,-50}}, color={191,0,0}));
-      connect(convection.solid, heatCapacitor.port)   annotation (Line(points={
+      connect(convection.solid, heatCapacitor.port) annotation (Line(points={
               {10,-40},{10,-50},{30,-50}}, color={191,0,0}));
-      connect(pipe.heatPort, convection.fluid)   annotation (Line(points={{10,
+      connect(pipe.heatPort, convection.fluid) annotation (Line(points={{10,
               -10},{10,-20}}, color={191,0,0}));
       connect(thermalConductance.y, convection.Gc)
                                    annotation (Line(points={{-9,-30},{0,-30}},
@@ -890,13 +890,13 @@ You may try to:
         annotation (Line(points={{-20,0},{0,0}}, color={255,0,0}));
       connect(pipe.flowPort_b, ambient2.flowPort)
         annotation (Line(points={{20,0},{40,0}}, color={255,0,0}));
-      connect(heatFlow.y, prescribedHeatFlow.Q_flow)  annotation (Line(points={
+      connect(heatFlow.y, prescribedHeatFlow.Q_flow) annotation (Line(points={
               {-39,-50},{-30,-50}}, color={0,0,255}));
-      connect(convection.solid, prescribedHeatFlow.port)   annotation (Line(
+      connect(convection.solid, prescribedHeatFlow.port) annotation (Line(
             points={{10,-40},{10,-50},{-10,-50}}, color={191,0,0}));
-      connect(convection.solid, heatCapacitor.port)   annotation (Line(points={
+      connect(convection.solid, heatCapacitor.port) annotation (Line(points={
               {10,-40},{10,-50},{30,-50}}, color={191,0,0}));
-      connect(pipe.heatPort, convection.fluid)   annotation (Line(points={{10,
+      connect(pipe.heatPort, convection.fluid) annotation (Line(points={{10,
               -10},{10,-20}}, color={191,0,0}));
       connect(thermalConductance.y, convection.Gc)
                                    annotation (Line(points={{-9,-30},{0,-30}},
@@ -1048,17 +1048,17 @@ then started again (using a ramp of 0.2 s).
                                     annotation (Line(points={{-9,-40},{0,-40}},
             color={0,0,127}));
       connect(pipe1.heatPort, Convection1.fluid) annotation (Line(points={{10,-20},{
-              10,-25},{10,-30}},                color={191,0,0}));
+              10,-25},{10,-30}}, color={191,0,0}));
       connect(convection2.fluid,pipe2. heatPort) annotation (Line(points={{10,
               30},{10,20}}, color={191,0,0}));
       connect(convection2.solid,prescribedHeatFlow2. port) annotation (Line(
             points={{10,50},{10,60},{-10,60}}, color={191,0,0}));
       connect(convection2.solid,heatCapacitor2. port) annotation (Line(points={{10,50},
-              {10,60},{28,60}},         color={191,0,0}));
+              {10,60},{28,60}}, color={191,0,0}));
       connect(Convection1.solid,prescribedHeatFlow1. port) annotation (Line(
             points={{10,-50},{10,-60},{-10,-60}}, color={191,0,0}));
       connect(Convection1.solid,heatCapacitor1. port) annotation (Line(points={{10,-50},
-              {10,-60},{30,-60}},          color={191,0,0}));
+              {10,-60},{30,-60}}, color={191,0,0}));
       connect(pipe2.flowPort_b,pipe3. flowPort_a) annotation (Line(points={{20,
               10},{30,10},{30,0},{40,0}}, color={255,0,0}));
       connect(pipe1.flowPort_b,pipe3. flowPort_a) annotation (Line(points={{20,
@@ -1141,8 +1141,8 @@ then started again (using a ramp of 0.2 s).
         annotation (Line(points={{-20,0},{0,0}}, color={255,0,0}));
       connect(pipe.flowPort_b, ambient2.flowPort)
         annotation (Line(points={{20,0},{40,0}}, color={255,0,0}));
-      connect(thermalConductor.port_a, heatCapacitor.port)   annotation (Line(
-            points={{10,-40},{10,-45},{10,-50}},          color={191,0,0}));
+      connect(thermalConductor.port_a, heatCapacitor.port) annotation (Line(
+            points={{10,-40},{10,-45},{10,-50}}, color={191,0,0}));
       connect(pipe.heatPort, thermalConductor.port_b)
         annotation (Line(points={{10,-10},{10,-20}}, color={191,0,0}));
       connect(volumeFlow.y, pump.volumeFlow) annotation (Line(
@@ -1276,13 +1276,13 @@ the time behaviour depending on coolant flow.
       connect(pipe3.flowPort_b,ambient2. flowPort)
         annotation (Line(points={{60,0},{80,0}}, color={255,0,0}));
       connect(heatCapacitor2.port,thermalConductor2. port_a) annotation (Line(
-            points={{10,60},{10,55},{10,50}},         color={191,0,0}));
+            points={{10,60},{10,55},{10,50}}, color={191,0,0}));
       connect(thermalConductor2.port_b,pipe2. heatPort)
         annotation (Line(points={{10,30},{10,20}}, color={191,0,0}));
       connect(pipe1.heatPort,thermalConductor1. port_b) annotation (Line(points=
              {{10,-20},{10,-30}}, color={191,0,0}));
       connect(thermalConductor1.port_a, heatCapacitor1.port) annotation (Line(
-            points={{10,-50},{10,-55},{10,-60}},          color={191,0,0}));
+            points={{10,-50},{10,-55},{10,-60}}, color={191,0,0}));
       connect(volumeFlow.y, pump.volumeFlow) annotation (Line(
           points={{-39,20},{-30,20},{-30,10}},
           color={0,0,127}));
@@ -1316,7 +1316,7 @@ the time behaviour depending on coolant flow.
           "Duration of ramp"
           annotation(Dialog(group="Ramp 2"));
 
-        Modelica.Blocks.Math.Add add  annotation (Placement(transformation(
+        Modelica.Blocks.Math.Add add annotation (Placement(transformation(
                 extent={{10,-10},{30,10}})));
         Modelica.Blocks.Sources.Ramp ramp1(
           final height=height_1,
@@ -1332,11 +1332,11 @@ the time behaviour depending on coolant flow.
           final offset=0)
           annotation (Placement(transformation(extent={{-30,-30},{-10,-10}})));
       equation
-        connect(ramp1.y, add.u1)  annotation (Line(points={{-9,20},{0,20},{0,6},
+        connect(ramp1.y, add.u1) annotation (Line(points={{-9,20},{0,20},{0,6},
                 {8,6}}, color={0,0,127}));
-        connect(ramp2.y, add.u2)  annotation (Line(points={{-9,-20},{0,-20},{0,
+        connect(ramp2.y, add.u2) annotation (Line(points={{-9,-20},{0,-20},{0,
                 -6},{8,-6}}, color={0,0,127}));
-        connect(add.y, y)  annotation (Line(points={{31,0},{110,0}}, color={0,0,
+        connect(add.y, y) annotation (Line(points={{31,0},{110,0}}, color={0,0,
                 127}));
         annotation (
           Documentation(info="<html>
@@ -1859,7 +1859,7 @@ All sensors are considered massless, they do not change mass flow or enthalpy fl
     annotation (Documentation(info="<html>
 (Infinite) ambient with constant pressure and temperature.<br>
 Thermodynamic equations are defined by Partials.Ambient.
-</html>"),        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Text(
               extent={{20,80},{80,20}},
               textString="p"), Text(
@@ -2151,7 +2151,7 @@ Same as FlowPort, but icon allows to differentiate direction of flow.
               lineColor={255,0,0},
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid), Ellipse(extent={{-98,98},{98,-98}},
-                lineColor={0,0,255})}),      Diagram(coordinateSystem(
+                lineColor={0,0,255})}), Diagram(coordinateSystem(
               preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
             graphics={
             Rectangle(
@@ -2337,7 +2337,7 @@ Parameter 0 &lt; tapT &lt; 1 defines temperature of heatPort between medium's in
 <p>
 Partial model of (Infinite) ambient, defines pressure and temperature.
 </p>
-</html>"),   Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                   {100,100}}), graphics={Ellipse(
                 extent={{-90,90},{90,-90}},
                 lineColor={255,0,0},
@@ -2366,7 +2366,7 @@ Partial model of (Infinite) ambient, defines pressure and temperature.
       annotation (Documentation(info="<html>
 Partial model for an absolute sensor (pressure/temperature).<br>
 Pressure, mass flow, temperature and enthalpy flow of medium are not affected.
-</html>"),          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                   -100},{100,100}}), graphics={
               Line(points={{-70,0},{-90,0}}),
               Line(points={{70,0},{100,0}}),
@@ -2401,7 +2401,7 @@ Pressure, mass flow, temperature and enthalpy flow of medium are not affected.
       annotation (Documentation(info="<html>
 Partial model for a relative sensor (pressure drop/temperature difference).<br>
 Pressure, mass flow, temperature and enthalpy flow of medium are not affected.
-</html>"),          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                   -100},{100,100}}), graphics={
               Line(points={{-70,0},{-90,0}}),
               Line(points={{70,0},{90,0}}),
@@ -2428,7 +2428,7 @@ Pressure, mass flow, temperature and enthalpy flow of medium are not affected.
       annotation (Documentation(info="<html>
 Partial model for a flow sensor (mass flow/heat flow).<br>
 Pressure, mass flow, temperature and enthalpy flow of medium are not affected, but mixing rule is applied.
-</html>"),          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                   -100},{100,100}}), graphics={
               Line(points={{-70,0},{-90,0}}),
               Line(points={{70,0},{90,0}}),

@@ -379,7 +379,7 @@ whereas the transient model may have only one ground since AC side and DC side a
     equation
       connect(voltageSource.pin_p, sensor0.currentP) annotation (Line(points={{-90,-20},{-90,-20},{-90,-10},{-80,-10}},color={85,170,255}));
       connect(zk.pin_n, idealTransformer.pin_p1) annotation (Line(points={{-10,-10},{-10,-25}},color={85,170,255}));
-      connect(sensorL.voltageP, sensorL.currentP) annotation (Line(points={{60,0},{50,0},{50,-10}},  color={85,170,255}));
+      connect(sensorL.voltageP, sensorL.currentP) annotation (Line(points={{60,0},{50,0},{50,-10}}, color={85,170,255}));
       connect(voltageSource.pin_n, ground1.pin) annotation (Line(points={{-90,-40},{-90,-40},{-90,-50}}, color={85,170,255}));
       connect(ground1.pin, idealTransformer.pin_n1) annotation (Line(points={{-90,-50},{-10,-50},{-10,-35}},color={85,170,255}));
       connect(sensor0.currentP, sensor0.voltageP) annotation (Line(points={{-80,-10},{-80,-10},{-80,0},{-70,0}}, color={85,170,255}));
@@ -403,7 +403,7 @@ whereas the transient model may have only one ground since AC side and DC side a
               extent={{50,10},{96,-60}},
               pattern=LinePattern.Dash,
               fillColor={255,255,170},
-              fillPattern=FillPattern.Solid),                                                                    Rectangle(
+              fillPattern=FillPattern.Solid), Rectangle(
               extent={{-40,10},{20,-60}},
               pattern=LinePattern.Dash,
               fillColor={255,255,170},

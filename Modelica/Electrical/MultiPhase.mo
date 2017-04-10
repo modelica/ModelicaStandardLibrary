@@ -1222,8 +1222,8 @@ Contains m conductors (Modelica.Electrical.Analog.Basic.Conductor)
             Line(
               points={{6,28},{6,-28}},
               color={0,0,255}),
-            Line(points={{-90,0},{-6,0}},  color={0,0,255}),
-            Line(points={{6,0},{90,0}},  color={0,0,255}),
+            Line(points={{-90,0},{-6,0}}, color={0,0,255}),
+            Line(points={{6,0},{90,0}}, color={0,0,255}),
             Text(
               extent={{-100,-100},{100,-60}},
               textString="m=%m")}), Documentation(info="<html>
@@ -1634,8 +1634,8 @@ Contains m variable conductors (Modelica.Electrical.Analog.Basic.VariableConduct
             Text(
               extent={{-100,40},{100,80}},
               textString="m=%m"),
-            Line(points={{-90,0},{-6,0}},  color={0,0,255}),
-            Line(points={{6,0},{90,0}},  color={0,0,255}),
+            Line(points={{-90,0},{-6,0}}, color={0,0,255}),
+            Line(points={{6,0},{90,0}}, color={0,0,255}),
             Line(points={{-6,28},{-6,-28}}, color={0,0,255}),
             Line(points={{6,28},{6,-28}}, color={0,0,255})}),
                                   Documentation(info="<html>
@@ -3525,7 +3525,7 @@ with a default phase shift determined by
                   lineColor={0,0,255},
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid),Line(points={{0,50},{0,-50}},
-              color={0,0,255}),         Text(
+              color={0,0,255}), Text(
                   extent={{-100,-100},{100,-60}},
                   textString="%name",
                   lineColor={0,0,255}),Text(
@@ -3540,7 +3540,7 @@ with a default phase shift determined by
                   color={192,192,192},
                   smooth=Smooth.Bezier),Line(points={{35,0},{44.8,29.9},{51.2,46.5},{56.8,58.1},{61.7,65.2},{66.7,69.2},{71.6,69.8}},
                                                                       color={
-              192,192,192})}),                      Documentation(info="<html>
+              192,192,192})}), Documentation(info="<html>
 <p>
 Contains m cosine current sources (Modelica.Electrical.Analog.Sources.CosineCurrent)
 with a default phase shift determined by
