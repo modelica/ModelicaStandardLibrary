@@ -1164,9 +1164,8 @@ void ModelicaInternal_setenv(_In_z_ const char* name,
         strerror(errno));
     }
 #elif defined(_POSIX_)
-    /* This legacy implementation only works on exactly one environment
-       variable. It is flawed if ModelicaInternal_setenv is called with
-       different environment variable names. */
+    /* Restriction: This legacy implementation only works on exactly one
+       environment variable since a single buffer is used. */
     if (strlen(name) + strlen(value) + 2 > sizeof(envBuf)) {
         ModelicaFormatError("Environment variable\n"
             "\"%s\"=\"%s\"\n"
