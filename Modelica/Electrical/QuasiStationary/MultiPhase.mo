@@ -477,7 +477,6 @@ Examples to demonstrate the usage of quasistationary electric components.
                   color={85,170,255},
                   thickness=0.5),Text(
                   extent={{-100,-110},{100,-70}},
-                  lineColor={0,0,0},
                   textString="m=%m"),Line(points={{-90,0},{-40,0}}, color={85,
               170,255}),Line(points={{80,0},{90,0}}, color={0,0,255})}),
           Documentation(info="<html>
@@ -524,7 +523,6 @@ Star (wye) connection of a multi phase circuit. The potentials at the star point
                   color={85,170,255},
                   thickness=0.5),Text(
                   extent={{-100,-110},{100,-70}},
-                  lineColor={0,0,0},
                   textString="m=%m"),Line(points={{-90,0},{-40,0}}, color={85,
               170,255}),Line(points={{80,0},{90,0}}, color={85,170,255})}),
           Documentation(info="<html>
@@ -586,7 +584,6 @@ Delta (polygon) connection of a multi phase circuit.
                   color={85,170,255},
                   thickness=0.5),Text(
                   extent={{-100,-110},{100,-70}},
-                  lineColor={0,0,0},
                   textString="m=%m"),Line(points={{-90,0},{-40,0}}, color={85,
               170,255}),Line(points={{80,0},{90,0}}, color={0,0,255}),Line(
                   points={{-6,-4},{-45,64}},
@@ -653,7 +650,6 @@ Star (wye) connection of a multi phase circuit consisting of multiple base syste
                   color={85,170,255},
                   thickness=0.5),Text(
                   extent={{-100,-110},{100,-70}},
-                  lineColor={0,0,0},
                   textString="m=%m"),Line(points={{-90,0},{-44,0}}, color={85,
               170,255}),Line(points={{80,0},{90,0}}, color={85,170,255}),Line(
                   points={{-36,74},{-36,-64},{83,6},{-36,74},{-36,73}},
@@ -750,18 +746,15 @@ Multi star points are connected by resistors. This model is required to operate 
       end for;
       annotation (Icon(graphics={Rectangle(
                   extent={{-20,20},{40,-20}},
-                  lineColor={0,0,0},
                   fillColor={215,215,215},
                   fillPattern=FillPattern.Solid),Ellipse(
                   extent={{-40,20},{0,-20}},
-                  lineColor={0,0,0},
                   fillColor={215,215,215},
                   fillPattern=FillPattern.Solid),Text(
                   extent={{-100,100},{100,40}},
                   textString="%name",
                   lineColor={0,0,255}),Text(
                   extent={{-100,-60},{100,-100}},
-                  lineColor={0,0,0},
                   textString="k = %k")}), Documentation(info="<html>
 <p>
 Connects the single phase (positive) pin <code>k</code> of the multi phase (positive) plug to a single phase (positive) pin.
@@ -795,18 +788,15 @@ Connects the single phase (positive) pin <code>k</code> of the multi phase (posi
       end for;
       annotation (Icon(graphics={Rectangle(
                   extent={{-20,20},{40,-20}},
-                  lineColor={0,0,0},
                   fillColor={215,215,215},
                   fillPattern=FillPattern.Solid),Ellipse(
                   extent={{-40,20},{0,-20}},
-                  lineColor={0,0,0},
                   fillColor={215,215,215},
                   fillPattern=FillPattern.Solid),Text(
                   extent={{-100,100},{100,40}},
                   textString="%name",
                   lineColor={0,0,255}),Text(
                   extent={{-100,-60},{100,-100}},
-                  lineColor={0,0,0},
                   textString="k = %k")}), Documentation(info="<html>
 <p>
 Connects the single phase (negative) pin <code>k</code> of the multi phase (negative) plug to a single phase (negative) pin.
@@ -842,12 +832,10 @@ Connects the single phase (negative) pin <code>k</code> of the multi phase (nega
       annotation (Icon(graphics={
             Rectangle(
               extent={{-20,20},{40,-20}},
-              lineColor={0,0,0},
               fillColor={170,255,255},
               fillPattern=FillPattern.Solid),
             Ellipse(
               extent={{-40,20},{0,-20}},
-              lineColor={0,0,0},
               fillColor={170,255,255},
               fillPattern=FillPattern.Solid),
             Text(
@@ -888,12 +876,10 @@ Connects all <code>m</code> single phase (positive) pins of the multi phase (pos
       annotation (Icon(graphics={
             Rectangle(
               extent={{-20,20},{40,-20}},
-              lineColor={0,0,0},
               fillColor={170,255,255},
               fillPattern=FillPattern.Solid),
             Ellipse(
               extent={{-40,20},{0,-20}},
-              lineColor={0,0,0},
               fillColor={170,255,255},
               fillPattern=FillPattern.Solid),
             Text(
@@ -948,7 +934,6 @@ Connects all <code>m</code> single phase (negative) pins of the multi phase (neg
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid),Text(
                   extent={{100,-80},{-100,-40}},
-                  lineColor={0,0,0},
                   textString="m=%m")}), Documentation(info="<html>
 <p>
 The linear resistor connects the complex voltages <code><u>v</u></code> with the complex
@@ -1017,7 +1002,6 @@ A linear temperature dependency of the resistances for enabled heat ports is als
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid),Text(
                   extent={{100,-80},{-100,-40}},
-                  lineColor={0,0,0},
                   textString="m=%m")}), Documentation(info="<html>
 <p>
 The linear resistor connects the complex currents <code><u>i</u></code> with the complex
@@ -1073,7 +1057,6 @@ A linear temperature dependency of the conductances for enabled heat ports is al
                   thickness=0.5),Line(points={{-90,0},{-14,0}}, color={85,170,
               255}),Line(points={{14,0},{90,0}}, color={85,170,255}),Text(
                   extent={{100,-80},{-100,-40}},
-                  lineColor={0,0,0},
                   textString="m=%m")}), Documentation(info="<html>
 <p>
 The linear capacitor connects the complex currents <code><u>i</u></code> with the complex
@@ -1119,7 +1102,6 @@ using <code>m</code> <a href=\"modelica://Modelica.Electrical.QuasiStationary.Si
               color={85,170,255}),Line(points={{-90,0},{-60,0}}, color={85,170,
               255}),Text(
                   extent={{100,-80},{-100,-40}},
-                  lineColor={0,0,0},
                   textString="m=%m"),
             Line(
               points={{-60,0},{-59,6},{-52,14},{-38,14},{-31,6},{-30,0}},
@@ -1200,7 +1182,6 @@ Model of a multi phase inductor providing a mutual inductance matrix model.
               lineColor={0,0,255}),
             Text(
               extent={{-100,-100},{100,-60}},
-              lineColor={0,0,0},
               textString="m=%m"),
             Line(
               points={{-60,20},{-59,26},{-52,34},{-38,34},{-31,26},{-30,20}},
@@ -1264,7 +1245,6 @@ Model of a multi phase inductor providing a mutual inductance matrix model.
                   lineColor={0,0,255}),
                     Text(
                   extent={{100,-80},{-100,-40}},
-                  lineColor={0,0,0},
                   textString="m=%m"),  Line(points={{60,0},{90,0}}, color={85,
               170,255}),Line(points={{-90,0},{-60,0}}, color={85,170,255}),
               Rectangle(
@@ -1333,11 +1313,9 @@ the actual operating temperature and the reference input resistances <code>real(
                   lineColor={0,0,255}),
                     Text(
                   extent={{100,-80},{-100,-40}},
-                  lineColor={0,0,0},
                   textString="m=%m"),
                     Text(
                   extent={{100,-80},{-100,-40}},
-                  lineColor={0,0,0},
                   textString="m=%m"),  Line(points={{60,0},{90,0}}, color={85,
               170,255}),Line(points={{-90,0},{-60,0}}, color={85,170,255}),
               Rectangle(
@@ -1424,7 +1402,6 @@ the actual operating temperature and the reference input conductances <code>real
                   points={{0,90},{0,30}},
                   color={85,170,255}),Text(
                   extent={{100,40},{-100,80}},
-                  lineColor={0,0,0},
                   textString="m=%m")}),
         Documentation(info="<html>
 <p>
@@ -1503,7 +1480,6 @@ A linear temperature dependency of the resistances is also taken into account.
                   points={{0,90},{0,30}},
                   color={85,170,255}),Text(
                   extent={{100,40},{-100,80}},
-                  lineColor={0,0,0},
                   textString="m=%m")}),
         Documentation(info="<html>
 <p>
@@ -1569,7 +1545,6 @@ A linear temperature dependency of the conductances is also taken into account.
               255}),Line(points={{14,0},{90,0}}, color={85,170,255}),Line(
               points={{0,90},{0,30}}, color={85,170,255}),Text(
                   extent={{100,40},{-100,80}},
-                  lineColor={0,0,0},
                   textString="m=%m")}),
         Documentation(info="<html>
 <p>
@@ -1622,7 +1597,6 @@ The capacitances <code>C</code> are given as <code>m</code> input signals.
               color={85,170,255}),Line(points={{-90,0},{-60,0}}, color={85,170,
               255}),                                                Text(
                   extent={{100,40},{-100,80}},
-                  lineColor={0,0,0},
                   textString="m=%m"),
             Line(
               points={{-60,0},{-59,6},{-52,14},{-38,14},{-31,6},{-30,0}},
@@ -1714,7 +1688,6 @@ The inductances <code>L</code> are given as <code>m</code> input signals.
                   points={{0,90},{0,30}},
                   color={85,170,255}),Text(
                   extent={{100,40},{-100,80}},
-                  lineColor={0,0,0},
                   textString="m=%m"),Polygon(
                   points={{-70,-30},{70,30},{70,-30},{-70,-30}},
                   lineColor={85,170,255},
@@ -1803,7 +1776,6 @@ A linear temperature dependency of the resistances is also taken into account.
                   points={{0,90},{0,30}},
                   color={85,170,255}),Text(
                   extent={{100,40},{-100,80}},
-                  lineColor={0,0,0},
                   textString="m=%m"),Polygon(
                   points={{-70,-30},{70,30},{70,-30},{-70,-30}},
                   lineColor={85,170,255},
@@ -2007,10 +1979,8 @@ it uses <i>m</i> <a href=\"modelica://Modelica.Electrical.QuasiStationary.Single
                   textString="%name",
                   lineColor={0,0,255}),Text(
                   extent={{-100,100},{-20,60}},
-                  lineColor={0,0,0},
                   textString="m="),Text(
                   extent={{20,100},{100,60}},
-                  lineColor={0,0,0},
                   textString="%m"),Ellipse(extent={{-44,4},{-36,-4}}, lineColor=
                {85,170,255}),Line(points={{-90,0},{-44,0}}, color={85,170,255}),
               Line(points={{-37,2},{40,50}}, color={85,170,255}),Line(points={{
@@ -2111,10 +2081,8 @@ This switch is only intended to be used for structural changes, not fast switchi
                   textString="%name",
                   lineColor={0,0,255}),Text(
                   extent={{-100,100},{-20,60}},
-                  lineColor={0,0,0},
                   textString="m="),Text(
                   extent={{20,100},{100,60}},
-                  lineColor={0,0,0},
                   textString="%m"),Ellipse(extent={{-4,30},{4,22}}, lineColor={
               85,170,255}),Line(points={{-90,0},{-40,0}}, color={85,170,255}),
               Line(points={{-90,50},{-40,50}}, color={85,170,255}),Line(points=
@@ -2175,10 +2143,8 @@ This switch is only intended to be used for structural changes, not fast switchi
               points={{0,88},{0,26}}, color={85,170,255}),Line(points={{40,0},{
               90,0}}, color={85,170,255}),Text(
                   extent={{-100,100},{-20,60}},
-                  lineColor={0,0,0},
                   textString="m="),Text(
                   extent={{20,100},{100,60}},
-                  lineColor={0,0,0},
                   textString="%m"),Line(points={{40,20},{40,0}}, color={85,170,
               255})}), Documentation(info="<html>
 <p>
@@ -2233,10 +2199,8 @@ This switch is only intended to be used for structural changes, not fast switchi
               points={{0,88},{0,26}}, color={85,170,255}),Line(points={{40,0},{
               90,0}}, color={85,170,255}),Text(
                   extent={{-100,100},{-20,60}},
-                  lineColor={0,0,0},
                   textString="m="),Text(
                   extent={{20,100},{100,60}},
-                  lineColor={0,0,0},
                   textString="%m")}), Documentation(info="<html>
 <p>
 Contains m ideal closing switches (Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.IdealClosingSwitch).
@@ -2562,7 +2526,6 @@ This function propagates the input phasor to m output phasors with <a href=\"mod
               smooth=Smooth.Bezier),
             Text(
               extent={{-12,-74},{64,-86}},
-              lineColor={0,0,0},
               textString="zero")}),
         Documentation(info="<html>
 <p>
@@ -2611,7 +2574,6 @@ Transformation of m phase values (voltages or currents) to space phasor.
               smooth=Smooth.Bezier),
             Text(
               extent={{-62,-74},{14,-86}},
-              lineColor={0,0,0},
               textString="zero")}), Documentation(info="<html>
 <p>
 Transformation of space phasor to m phase values (voltages or currents).
@@ -2633,7 +2595,6 @@ Transformation of space phasor to m phase values (voltages or currents).
       plug_p.pin.i = fill(Complex(0), m);
       annotation (Icon(graphics={Text(
               extent={{60,-60},{-60,-30}},
-              lineColor={0,0,0},
               textString="ref")}));
     end ReferenceSensor;
 
@@ -2659,7 +2620,6 @@ Transformation of space phasor to m phase values (voltages or currents).
       annotation (Icon(graphics={Line(points={{70,0},{80,0},{90,0},{100,0}},
                 color={0,0,127}), Text(
               extent={{-29,-11},{30,-70}},
-              lineColor={0,0,0},
               textString="f")}), Documentation(info="<html>
 
 <p>
@@ -2701,7 +2661,6 @@ This sensor can be used to measure the frequency of the reference system, using 
           color={85,170,255}));
       annotation (Icon(graphics={Text(
               extent={{-29,-11},{30,-70}},
-              lineColor={0,0,0},
               textString="V")}), Documentation(info="<html>
 
 <p>
@@ -2740,7 +2699,6 @@ This sensor can be used to measure <i>m</i> complex potentials, using <i>m</i>
               0,-35.75},{0,-60.5},{0,-60.5},{0,-110}}, color={85,170,255}));
       annotation (Icon(graphics={Text(
               extent={{-29,-11},{30,-70}},
-              lineColor={0,0,0},
               textString="V")}), Documentation(info="<html>
 
 <p>
@@ -2802,11 +2760,9 @@ This sensor can be used to measure <i>m</i> complex voltages, using <i>m</i>
               lineColor={0,0,255}),
             Text(
               extent={{-100,-60},{-20,-100}},
-              lineColor={0,0,0},
               textString="m="),
             Text(
               extent={{20,-60},{100,-100}},
-              lineColor={0,0,0},
               textString="%m"),
             Line(points={{70,0},{90,0}}, color={0,0,255})}),
         Documentation(revisions="<html>
@@ -2838,7 +2794,6 @@ This sensor determines the continuous quasi <a href=\"Modelica://Modelica.Blocks
               0,-35.75},{0,-60.5},{0,-60.5},{0,-110}}, color={85,170,255}));
       annotation (Icon(graphics={Text(
               extent={{-29,-11},{30,-70}},
-              lineColor={0,0,0},
               textString="I")}), Documentation(info="<html>
 
 <p>
@@ -2901,11 +2856,9 @@ This sensor can be used to measure <i>m</i> complex currents, using <i>m</i>
               lineColor={0,0,255}),
             Text(
               extent={{-100,-60},{-20,-100}},
-              lineColor={0,0,0},
               textString="m="),
             Text(
               extent={{20,-60},{100,-100}},
-              lineColor={0,0,0},
               textString="%m"),
             Line(points={{70,0},{90,0}}, color={0,0,255})}),
         Documentation(revisions="<html>
@@ -3620,7 +3573,6 @@ a <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Plug
             Line(points={{70,0},{80,0},{90,0},{100,0}}, color={85,170,255}),
             Text(
               extent={{100,-100},{-100,-70}},
-              lineColor={0,0,0},
               textString="m=%m")}), Documentation(info="<html>
 
 <p>
@@ -3653,7 +3605,6 @@ The absolute sensor partial model relies on the a
             Line(points={{0,-70},{0,-80},{0,-90},{0,-100}}, color={85,170,255}),
             Text(
               extent={{100,-100},{-100,-70}},
-              lineColor={0,0,0},
               textString="m=%m")}), Documentation(info="<html>
 <p>
 The relative sensor partial model relies on the
@@ -3681,7 +3632,6 @@ The relative sensor partial model relies on the
       annotation (
         Icon(graphics={Ellipse(
                   extent={{-50,50},{50,-50}},
-                  lineColor={0,0,0},
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid),Text(
                   extent={{100,-100},{-100,-60}},
@@ -3689,7 +3639,6 @@ The relative sensor partial model relies on the
                   lineColor={0,0,255}),Line(points={{-90,0},{-50,0}}, color={0,
               0,0}),Line(points={{50,0},{90,0}}),Text(
                   extent={{100,60},{-100,100}},
-                  lineColor={0,0,0},
                   textString="m=%m")}),
         Documentation(info="<html>
 <p>
@@ -3717,7 +3666,6 @@ The source partial model relies on the
       Connections.root(plug_p.reference);
       annotation (Icon(graphics={Ellipse(
                   extent={{-50,50},{50,-50}},
-                  lineColor={0,0,0},
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid),Text(
                   extent={{100,-100},{-100,-60}},
@@ -3725,7 +3673,6 @@ The source partial model relies on the
                   lineColor={0,0,255}),Line(points={{-90,0},{-50,0}}, color={0,
               0,0}),Line(points={{50,0},{90,0}}),Text(
                   extent={{100,60},{-100,100}},
-                  lineColor={0,0,0},
                   textString="m=%m")}), Documentation(info="<html>
 <p>
 The source partial model relies on the

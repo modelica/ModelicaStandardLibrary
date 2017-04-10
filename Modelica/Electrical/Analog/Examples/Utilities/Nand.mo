@@ -92,18 +92,16 @@ equation
         extent={{-100,-100},{100,100}}), graphics={
         Rectangle(
           extent={{-50,70},{50,-70}},
-          lineColor={0,0,0},
           fillColor={192,192,192},
           fillPattern=FillPattern.Solid),
         Text(
           extent={{-16,50},{14,20}},
-          lineColor={0,0,0},
           textString="&"),
         Line(points={{60,0},{100,0}}, color={0,0,255}),
         Line(points={{0,70},{0,100}}, color={0,0,255}),
         Line(points={{-50,50},{-100,50}}, color={0,0,255}),
         Line(points={{-50,-50},{-100,-50}}, color={0,0,255}),
-        Ellipse(extent={{50,5},{60,-5}}, lineColor={0,0,0}),
+        Ellipse(extent={{50,5},{60,-5}}),
         Text(
           extent={{-100,34},{-90,24}},
           textString="x1",

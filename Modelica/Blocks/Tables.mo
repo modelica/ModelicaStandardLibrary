@@ -324,22 +324,18 @@ MATLAB is a registered trademark of The MathWorks, Inc.
           Line(points={{0,40},{0,-40}}),
           Rectangle(
             extent={{-54,40},{-28,20}},
-            lineColor={0,0,0},
             fillColor={255,255,0},
             fillPattern=FillPattern.Solid),
           Rectangle(
             extent={{-54,20},{-28,0}},
-            lineColor={0,0,0},
             fillColor={255,255,0},
             fillPattern=FillPattern.Solid),
           Rectangle(
             extent={{-54,0},{-28,-20}},
-            lineColor={0,0,0},
             fillColor={255,255,0},
             fillPattern=FillPattern.Solid),
           Rectangle(
             extent={{-54,-20},{-28,-40}},
-            lineColor={0,0,0},
             fillColor={255,255,0},
             fillPattern=FillPattern.Solid),
           Text(
@@ -682,22 +678,18 @@ MATLAB is a registered trademark of The MathWorks, Inc.
           Line(points={{0,40},{0,-40}}),
           Rectangle(
             extent={{-54,40},{-28,20}},
-            lineColor={0,0,0},
             fillColor={255,255,0},
             fillPattern=FillPattern.Solid),
           Rectangle(
             extent={{-54,20},{-28,0}},
-            lineColor={0,0,0},
             fillColor={255,255,0},
             fillPattern=FillPattern.Solid),
           Rectangle(
             extent={{-54,0},{-28,-20}},
-            lineColor={0,0,0},
             fillColor={255,255,0},
             fillPattern=FillPattern.Solid),
           Rectangle(
             extent={{-54,-20},{-28,-40}},
-            lineColor={0,0,0},
             fillColor={255,255,0},
             fillPattern=FillPattern.Solid),
           Text(
@@ -1006,32 +998,26 @@ MATLAB is a registered trademark of The MathWorks, Inc.
           Line(points={{0,40},{0,-40}}),
           Rectangle(
             extent={{-54,20},{-28,0}},
-            lineColor={0,0,0},
             fillColor={255,255,0},
             fillPattern=FillPattern.Solid),
           Rectangle(
             extent={{-54,0},{-28,-20}},
-            lineColor={0,0,0},
             fillColor={255,255,0},
             fillPattern=FillPattern.Solid),
           Rectangle(
             extent={{-54,-20},{-28,-40}},
-            lineColor={0,0,0},
             fillColor={255,255,0},
             fillPattern=FillPattern.Solid),
           Rectangle(
             extent={{-28,40},{0,20}},
-            lineColor={0,0,0},
             fillColor={255,255,0},
             fillPattern=FillPattern.Solid),
           Rectangle(
             extent={{0,40},{28,20}},
-            lineColor={0,0,0},
             fillColor={255,255,0},
             fillPattern=FillPattern.Solid),
           Rectangle(
             extent={{28,40},{54,20}},
-            lineColor={0,0,0},
             fillColor={255,255,0},
             fillPattern=FillPattern.Solid),
           Line(points={{-54,40},{-28,20}}),

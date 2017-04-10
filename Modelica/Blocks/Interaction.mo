@@ -202,6 +202,5 @@ The usage is demonstrated, e.g., in example
   end Show;
   annotation (Icon(graphics={Text(
           extent={{-98,-30},{96,34}},
-          textString="0",
-          lineColor={0,0,0})}));
+          textString="0")}));
 end Interaction;

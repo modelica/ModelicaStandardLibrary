@@ -11,7 +11,6 @@ package Logical "Library of components with Boolean input and output signals"
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={Text(
             extent={{-90,40},{90,-40}},
-            lineColor={0,0,0},
             textString="and")}),
       Documentation(info="<html>
 <p>
@@ -30,7 +29,6 @@ the output is <b>false</b>.
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={Text(
             extent={{-90,40},{90,-40}},
-            lineColor={0,0,0},
             textString="or")}),
       Documentation(info="<html>
 <p>
@@ -47,7 +45,6 @@ the output is <b>false</b>.
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}), graphics={Text(
             extent={{-90,40},{90,-40}},
-            lineColor={0,0,0},
             textString="xor")}), Documentation(info="<html>
 <p>
 The output is <b>true</b> if exactly one input is <b>true</b>, otherwise
@@ -63,7 +60,6 @@ the output is <b>false</b>.
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}), graphics={Text(
             extent={{-90,40},{90,-40}},
-            lineColor={0,0,0},
             textString="nor")}), Documentation(info="<html>
 <p>
 The output is <b>true</b> if none of the inputs is <b>true</b>, otherwise
@@ -79,7 +75,6 @@ the output is <b>false</b>.
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}), graphics={Text(
             extent={{-90,40},{90,-40}},
-            lineColor={0,0,0},
             textString="nand")}), Documentation(info="<html>
 <p>
 The output is <b>true</b> if at least one input is <b>false</b>, otherwise
@@ -98,7 +93,6 @@ the output is <b>false</b>.
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={Text(
             extent={{-90,40},{90,-40}},
-            lineColor={0,0,0},
             textString="not")}),
       Documentation(info="<html>
 <p>
@@ -123,7 +117,6 @@ the output is <b>false</b>.
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={Text(
             extent={{-90,40},{90,-40}},
-            lineColor={0,0,0},
             textString="pre")}),
       Documentation(info="<html>
 <p>
@@ -155,7 +148,6 @@ values are identical (u = pre(u)).
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={Text(
             extent={{-90,40},{90,-40}},
-            lineColor={0,0,0},
             textString="edge")}),
       Documentation(info="<html>
 <p>
@@ -181,7 +173,6 @@ the output is <b>false</b>.
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}), graphics={Text(
             extent={{-90,40},{90,-40}},
-            lineColor={0,0,0},
             textString="falling")}), Documentation(info="<html>
 <p>
 The output is <b>true</b> if the Boolean input has a falling edge
@@ -206,7 +197,6 @@ the output is <b>false</b>.
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={Text(
             extent={{-90,40},{90,-40}},
-            lineColor={0,0,0},
             textString="change")}),
       Documentation(info="<html>
 <p>
@@ -226,7 +216,6 @@ the output is <b>false</b>.
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}), graphics={Text(
             extent={{-90,-40},{60,40}},
-            lineColor={0,0,0},
             textString=">")}), Documentation(info="<html>
 <p>
 The output is <b>true</b> if the Real input is greater than
@@ -245,7 +234,6 @@ the output is <b>false</b>.
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}), graphics={Text(
             extent={{-90,-40},{60,40}},
-            lineColor={0,0,0},
             textString=">=")}), Documentation(info="<html>
 <p>
 The output is <b>true</b> if the Real input is greater than or equal to
@@ -263,7 +251,6 @@ the output is <b>false</b>.
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}), graphics={Text(
             extent={{-90,-40},{60,40}},
-            lineColor={0,0,0},
             textString="<")}), Documentation(info="<html>
 <p>
 The output is <b>true</b> if the Real input is less than
@@ -281,7 +268,6 @@ the output is <b>false</b>.
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}), graphics={Text(
             extent={{-90,-40},{60,40}},
-            lineColor={0,0,0},
             textString="<=")}), Documentation(info="<html>
 <p>
 The output is <b>true</b> if the Real input is less than or equal to
@@ -580,10 +566,8 @@ u1, else it is set equal to u3.</p>
               lineColor={160,160,164},
               textString="false"),Text(
               extent={{19,-87},{44,-70}},
-              lineColor={0,0,0},
               textString="uHigh"),Text(
               extent={{-63,-88},{-38,-71}},
-              lineColor={0,0,0},
               textString="uLow"),Line(points={{-69,10},{-60,10}}, color={160,
             160,164})}),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
@@ -742,11 +726,9 @@ signal <b>u</b> exceeds the <b>reference</b> signal plus half of the bandwidth.<
             82,-70}}),Line(points={{-80,68},{-80,-80}}, color={0,
             0,0}),Polygon(
               points={{90,-70},{68,-62},{68,-78},{90,-70}},
-              lineColor={0,0,0},
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),Polygon(
               points={{-80,90},{-88,68},{-72,68},{-80,90}},
-              lineColor={0,0,0},
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),Line(points={{-80,-68},{-60,-68},{
             -60,-42},{8,-42},{8,-68},{60,-68}}, color={255,0,255}),Line(
@@ -757,41 +739,31 @@ signal <b>u</b> exceeds the <b>reference</b> signal plus half of the bandwidth.<
             0,0,0}),Line(points={{8,-20},{40,-20}}),Line(points=
             {{-20,40},{-20,-20}}),Line(points={{-20,-20},{-20,-70}}),Text(
               extent={{-44,50},{-44,40}},
-              lineColor={0,0,0},
               textString="rising"),Text(
               extent={{24,-10},{24,-20}},
-              lineColor={0,0,0},
               textString="falling"),Polygon(
               points={{-60,40},{-56,42},{-56,38},{-60,40}},
-              lineColor={0,0,0},
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),Polygon(
               points={{-30,40},{-34,42},{-34,38},{-30,40}},
-              lineColor={0,0,0},
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),Polygon(
               points={{8,-20},{12,-18},{12,-22},{8,-20}},
-              lineColor={0,0,0},
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),Polygon(
               points={{40,-20},{36,-18},{36,-22},{40,-20}},
-              lineColor={0,0,0},
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),Polygon(
               points={{-22,-24},{-20,-20},{-18,-24},{-22,-24}},
-              lineColor={0,0,0},
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),Polygon(
               points={{-18,-66},{-22,-66},{-20,-70},{-18,-66}},
-              lineColor={0,0,0},
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),Polygon(
               points={{-22,36},{-20,40},{-18,36},{-22,36}},
-              lineColor={0,0,0},
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),Polygon(
               points={{-18,-16},{-22,-16},{-20,-20},{-18,-16}},
-              lineColor={0,0,0},
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),Rectangle(
               extent={{-40,6},{0,-4}},
@@ -799,23 +771,18 @@ signal <b>u</b> exceeds the <b>reference</b> signal plus half of the bandwidth.<
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),Text(
               extent={{-20,6},{-20,-4}},
-              lineColor={0,0,0},
               textString="amplitude"),Rectangle(
               extent={{-40,-48},{0,-58}},
               lineColor={255,255,255},
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),Text(
               extent={{-20,-48},{-20,-58}},
-              lineColor={0,0,0},
               textString="offset"),Text(
               extent={{60,-82},{94,-92}},
-              lineColor={0,0,0},
               textString="time"),Text(
               extent={{-88,-4},{-54,-14}},
-              lineColor={0,0,0},
               textString="y"),Text(
               extent={{-88,-46},{-54,-56}},
-              lineColor={0,0,0},
               textString="u")}),
       Documentation(info="<html>
 <p>The block TriggeredTrapezoid has a Boolean input and a real
@@ -879,24 +846,19 @@ handled properly.</p>
               100,100}}), graphics={Line(points={{-90,-70},{82,-70}}, color={0,
             0,0}),Line(points={{-80,68},{-80,-80}}),Polygon(
               points={{90,-70},{68,-62},{68,-78},{90,-70}},
-              lineColor={0,0,0},
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),Polygon(
               points={{-80,90},{-88,68},{-72,68},{-80,90}},
-              lineColor={0,0,0},
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),Line(points={{-80,-68},{-60,-68},{
             -60,-40},{20,-40},{20,-68},{60,-68}}, color={255,0,255}),Line(
             points={{-80,-20},{-60,-20},{20,60},{20,-20},{60,-20},{60,-20}},
             color={0,0,255}),Text(
               extent={{-88,6},{-54,-4}},
-              lineColor={0,0,0},
               textString="y"),Text(
               extent={{48,-80},{84,-88}},
-              lineColor={0,0,0},
               textString="time"),Text(
               extent={{-88,-36},{-54,-46}},
-              lineColor={0,0,0},
               textString="u")}),
       Documentation(info="<html>
 <p> When the Boolean input \"u\" becomes <b>true</b>, the timer is started
@@ -945,19 +907,15 @@ input becomes false.
     Icon(graphics={
         Text(
           extent={{-60,-30},{-20,-90}},
-          lineColor={0,0,0},
           textString="R"),
         Text(
           extent={{-62,90},{-22,30}},
-          lineColor={0,0,0},
           textString="S"),
         Text(
           extent={{20,90},{60,30}},
-          lineColor={0,0,0},
           textString="Q"),
         Text(
           extent={{6,-30},{66,-90}},
-          lineColor={0,0,0},
           textString="Q!"),
         Ellipse(
           extent={{-73,54},{-87,68}},

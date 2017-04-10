@@ -401,12 +401,10 @@ whereas the transient model may have only one ground since AC side and DC side a
       connect(idealTransformer.pin_p2, i2.pin_p) annotation (Line(points={{10,-25},{12,-25},{12,-10},{20,-10}}, color={85,170,255}));
       annotation (experiment(StopTime=1),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={Rectangle(
               extent={{50,10},{96,-60}},
-              lineColor={0,0,0},
               pattern=LinePattern.Dash,
               fillColor={255,255,170},
               fillPattern=FillPattern.Solid),                                                                    Rectangle(
               extent={{-40,10},{20,-60}},
-              lineColor={0,0,0},
               pattern=LinePattern.Dash,
               fillColor={255,255,170},
               fillPattern=FillPattern.Solid),
@@ -1836,11 +1834,9 @@ This switch is only intended to be used for structural changes, not for fast swi
               textString="i2"),
             Text(
               extent={{118,52},{135,67}},
-              lineColor={0,0,0},
               textString="i2"),
             Polygon(
               points={{120,53},{110,50},{120,47},{120,53}},
-              lineColor={0,0,0},
               fillPattern=FillPattern.HorizontalCylinder,
               fillColor={160,160,164}),
             Line(points={{111,50},{136,50}})}),
@@ -1927,7 +1923,6 @@ Quasi stationary theory for single phase circuits can be found in the
       y = pin.reference.gamma;
       annotation (Icon(graphics={Text(
               extent={{60,-60},{-60,-30}},
-              lineColor={0,0,0},
               textString="ref")}));
     end ReferenceSensor;
 
@@ -1940,7 +1935,6 @@ Quasi stationary theory for single phase circuits can be found in the
       2*pi*y = omega;
       annotation (Icon(graphics={Text(
               extent={{-29,-11},{30,-70}},
-              lineColor={0,0,0},
               textString="f")}), Documentation(info="<html>
 
 <p>
@@ -1969,7 +1963,6 @@ This sensor can be used to measure the frequency of the reference system.
       y = pin.v;
       annotation (Icon(graphics={Text(
               extent={{-29,-11},{30,-70}},
-              lineColor={0,0,0},
               textString="V")}), Documentation(info="<html>
 
 <p>
@@ -1996,7 +1989,6 @@ This sensor can be used to measure the complex potential.
       y = v;
       annotation (Icon(graphics={Text(
               extent={{-29,-11},{30,-70}},
-              lineColor={0,0,0},
               textString="V")}), Documentation(info="<html>
 <p>
 This sensor can be used to measure the complex voltage.
@@ -2022,7 +2014,6 @@ This sensor can be used to measure the complex voltage.
       y = i;
       annotation (Icon(graphics={Text(
               extent={{-29,-11},{30,-70}},
-              lineColor={0,0,0},
               textString="I")}), Documentation(info="<html>
 <p>
 This sensor can be used to measure the complex current.
@@ -2616,7 +2607,6 @@ The relative sensor partial model relies on the
       annotation (Icon(graphics={
             Ellipse(
               extent={{-50,50},{50,-50}},
-              lineColor={0,0,0},
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
             Text(

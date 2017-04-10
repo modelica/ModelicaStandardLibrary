@@ -1967,24 +1967,19 @@ force law in a target system between two inertias.
                       lineColor={135,135,135},
                       textString="to FMU"),Text(
                       extent={{8,96},{92,66}},
-                      lineColor={0,0,0},
                       textString="phi",
                       horizontalAlignment=TextAlignment.Right),Text(
                       extent={{10,46},{94,16}},
-                      lineColor={0,0,0},
                       horizontalAlignment=TextAlignment.Right,
                       textString="w"),Text(
                       extent={{6,-10},{90,-40}},
-                      lineColor={0,0,0},
                       horizontalAlignment=TextAlignment.Right,
                       textString="a"),Text(
                       extent={{-150,-110},{150,-140}},
-                      lineColor={0,0,0},
                       textString="J=%J"),Bitmap(extent={{-96,-42},{64,54}},
                 fileName=
                 "modelica://Modelica/Resources/Images/Mechanics/Rotational/DirectInertia.png"),
                 Text( extent={{10,-60},{94,-90}},
-                      lineColor={0,0,0},
                       horizontalAlignment=TextAlignment.Right,
                       textString="tau")}));
       end DirectInertia;
@@ -2034,24 +2029,19 @@ force law in a target system between two inertias.
                       lineColor={135,135,135},
                       textString="to FMU"),Text(
                       extent={{-94,96},{-10,66}},
-                      lineColor={0,0,0},
                       horizontalAlignment=TextAlignment.Left,
                       textString="phi"),Text(
                       extent={{-94,46},{-10,16}},
-                      lineColor={0,0,0},
                       horizontalAlignment=TextAlignment.Left,
                       textString="w"),Text(
                       extent={{-92,-14},{-8,-44}},
-                      lineColor={0,0,0},
                       horizontalAlignment=TextAlignment.Left,
                       textString="a"),Text(
                       extent={{-150,-110},{150,-140}},
-                      lineColor={0,0,0},
                       textString="J=%J"),Bitmap(extent={{-58,-42},{98,48}},
                 fileName=
                 "modelica://Modelica/Resources/Images/Mechanics/Rotational/InverseInertia.png"),
                 Text( extent={{-90,-64},{-6,-94}},
-                      lineColor={0,0,0},
                       horizontalAlignment=TextAlignment.Left,
                       textString="tau")}));
       end InverseInertia;
@@ -2121,32 +2111,25 @@ force law in a target system between two inertias.
                       lineColor={135,135,135},
                       textString="to FMU"),Text(
                       extent={{-94,96},{-10,66}},
-                      lineColor={0,0,0},
                       horizontalAlignment=TextAlignment.Left,
                       textString="phi1"),Text(
                       extent={{-150,-118},{150,-148}},
-                      lineColor={0,0,0},
                       textString="c=%c
 d=%d"),Bitmap(extent={{-72,-44},{84,46}}, fileName=
                 "modelica://Modelica/Resources/Images/Mechanics/Rotational/SpringDamper.png"),
                 Text( extent={{12,96},{96,66}},
-                      lineColor={0,0,0},
                       horizontalAlignment=TextAlignment.Right,
                       textString="phi2"),Text(
                       extent={{12,48},{96,18}},
-                      lineColor={0,0,0},
                       horizontalAlignment=TextAlignment.Right,
                       textString="w2"),Text(
                       extent={{10,-60},{94,-90}},
-                      lineColor={0,0,0},
                       horizontalAlignment=TextAlignment.Right,
                       textString="tau2"),Text(
                       extent={{-94,46},{-10,16}},
-                      lineColor={0,0,0},
                       horizontalAlignment=TextAlignment.Left,
                       textString="w1"),Text(
                       extent={{-90,-64},{-6,-94}},
-                      lineColor={0,0,0},
                       horizontalAlignment=TextAlignment.Left,
                       textString="tau1")}));
       end SpringDamper;
@@ -2199,24 +2182,19 @@ d=%d"),Bitmap(extent={{-72,-44},{84,46}}, fileName=
                       lineColor={135,135,135},
                       textString="to FMU"),Text(
                       extent={{-94,96},{-10,66}},
-                      lineColor={0,0,0},
                       horizontalAlignment=TextAlignment.Left,
                       textString="phi1"),Text(
                       extent={{-150,-114},{150,-144}},
-                      lineColor={0,0,0},
                       textString="c=%c"),Bitmap(extent={{-88,-36},{92,56}},
                 fileName=
                 "modelica://Modelica/Resources/Images/Mechanics/Rotational/Spring.png"),
                 Text( extent={{12,96},{96,66}},
-                      lineColor={0,0,0},
                       horizontalAlignment=TextAlignment.Right,
                       textString="phi2"),Text(
                       extent={{10,-60},{94,-90}},
-                      lineColor={0,0,0},
                       horizontalAlignment=TextAlignment.Right,
                       textString="tau2"),Text(
                       extent={{-90,-64},{-6,-94}},
-                      lineColor={0,0,0},
                       horizontalAlignment=TextAlignment.Left,
                       textString="tau1")}));
       end Spring;
@@ -2267,7 +2245,6 @@ desired for a force element.
           Line(points={{-80,40},{-80,-40}}),
           Line(points={{-80,-40},{-50,-40}}),
           Rectangle(extent={{-50,-10},{40,-70}},
-            lineColor={0,0,0},
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid),
           Line(points={{-50,-10},{70,-10}}),
@@ -2278,7 +2255,6 @@ desired for a force element.
           Line(points={{80,0},{90,0}}),
           Text(origin={0,-9},
             extent={{-150,-144},{150,-104}},
-            lineColor={0,0,0},
             textString="d=%d"),
           Text(extent={{-190,110},{190,70}},
             lineColor={0,0,255},
@@ -2286,7 +2262,6 @@ desired for a force element.
           Text(
             origin={0,-7},
             extent={{-150,-108},{150,-68}},
-            lineColor={0,0,0},
             textString="c=%c"),
           Line(visible=useHeatPort,
             points={{-100,-100},{-100,-55},{-5,-55}},
@@ -2313,7 +2288,6 @@ desired for a force element.
                 textString="phi_rel"),
               Rectangle(
                 extent={{-50,-20},{40,-80}},
-                lineColor={0,0,0},
                 fillColor={192,192,192},
                 fillPattern=FillPattern.Solid),
               Line(points={{-50,-80},{68,-80}}),
@@ -2521,7 +2495,6 @@ a coupling of the element with the housing via a spring.
           textString="%name",
           lineColor={0,0,255}),
         Text(extent={{-150,-40},{150,-80}},
-          lineColor={0,0,0},
           textString="c=%c"),
         Line(points={{-100,0},{-58,0},{-43,-30},{-13,30},{17,-30},{47,30},{62,0},{100,0}})}),
         Diagram(coordinateSystem(
@@ -2574,7 +2547,6 @@ in the User's Guide of the Rotational library.
         Line(points={{-60,-30},{60,-30}}),
         Line(points={{-60,30},{60,30}}),
         Rectangle(extent={{-60,30},{30,-30}},
-          lineColor={0,0,0},
           fillColor={192,192,192},
           fillPattern=FillPattern.Solid),
         Line(points={{30,0},{90,0}}),
@@ -2582,7 +2554,6 @@ in the User's Guide of the Rotational library.
           textString="%name",
           lineColor={0,0,255}),
         Text(extent={{-150,-50},{150,-90}},
-          lineColor={0,0,0},
           textString="d=%d"),
         Line(visible=useHeatPort,
           points={{-100,-100},{-100,-40},{-20,-40},{-20,0}},
@@ -2597,7 +2568,6 @@ in the User's Guide of the Rotational library.
             Line(points={{-60,30},{60,30}}),
             Rectangle(
               extent={{-60,30},{30,-30}},
-              lineColor={0,0,0},
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid),
             Line(points={{30,0},{96,0}}),
@@ -2657,7 +2627,6 @@ in the User's Guide of the Rotational library.
         Line(points={{-80,40},{-80,-40}}),
         Line(points={{-80,-40},{-50,-40}}),
         Rectangle(extent={{-50,-10},{40,-70}},
-          lineColor={0,0,0},
           fillColor={192,192,192},
           fillPattern=FillPattern.Solid),
         Line(points={{-50,-10},{70,-10}}),
@@ -2668,7 +2637,6 @@ in the User's Guide of the Rotational library.
         Line(points={{80,0},{90,0}}),
         Text(origin={0,-9},
           extent={{-150,-144},{150,-104}},
-          lineColor={0,0,0},
           textString="d=%d"),
         Text(extent={{-190,110},{190,70}},
           lineColor={0,0,255},
@@ -2676,7 +2644,6 @@ in the User's Guide of the Rotational library.
         Text(
           origin={0,-7},
           extent={{-150,-108},{150,-68}},
-          lineColor={0,0,0},
           textString="c=%c"),
         Line(visible=useHeatPort,
           points={{-100,-100},{-100,-55},{-5,-55}},
@@ -2703,7 +2670,6 @@ in the User's Guide of the Rotational library.
               textString="phi_rel"),
             Rectangle(
               extent={{-50,-20},{40,-80}},
-              lineColor={0,0,0},
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid),
             Line(points={{-50,-80},{68,-80}}),
@@ -2919,7 +2885,6 @@ in the User's Guide of the Rotational library.
           graphics={
         Line(points={{-80,32},{-58,32},{-48,0},{-34,61},{-20,0},{-8,60},{0,30},{20,30}}),
         Rectangle(extent={{-60,-10},{-10,-50}},
-          lineColor={0,0,0},
           fillColor={192,192,192},
           fillPattern=FillPattern.Solid),
         Line(points={{-60,-50},{0,-50}}),
@@ -2933,13 +2898,11 @@ in the User's Guide of the Rotational library.
         Line(points={{20,0},{60,0},{60,-30}}),
         Line(points={{40,-12},{40,-40},{80,-40},{80,0}}),
         Text(extent={{-150,-130},{150,-90}},
-          lineColor={0,0,0},
           textString="b=%b"),
         Text(extent={{-150,100},{150,60}},
           lineColor={0,0,255},
           textString="%name"),
         Text(extent={{-152,-92},{148,-52}},
-          lineColor={0,0,0},
           textString="c=%c"),
         Line(visible=useHeatPort,
           points={{-100,-100},{-100,-43},{-34,-43}},
@@ -2966,7 +2929,6 @@ in the User's Guide of the Rotational library.
               textString="phi_rel"),
             Rectangle(
               extent={{-60,-20},{-10,-80}},
-              lineColor={0,0,0},
               lineThickness=0.5,
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid),
@@ -3210,7 +3172,6 @@ in the User's Guide of the Rotational library.
           graphics={
         Line(points={{-80,32},{-58,32},{-48,0},{-34,61},{-20,0},{-8,60},{0,30},{20,30}}),
         Rectangle(extent={{-60,-10},{-10,-50}},
-          lineColor={0,0,0},
           fillColor={192,192,192},
           fillPattern=FillPattern.Solid),
         Line(points={{-60,-50},{0,-50}}),
@@ -3224,13 +3185,11 @@ in the User's Guide of the Rotational library.
         Line(points={{20,0},{60,0},{60,-30}}),
         Line(points={{40,-12},{40,-40},{80,-40},{80,0}}),
         Text(extent={{-150,-130},{150,-90}},
-          lineColor={0,0,0},
           textString="b=%b"),
         Text(extent={{-150,100},{150,60}},
           lineColor={0,0,255},
           textString="%name"),
         Text(extent={{-152,-92},{148,-52}},
-          lineColor={0,0,0},
           textString="c=%c"),
         Line(visible=useHeatPort,
           points={{-100,-100},{-100,-43},{-34,-43}},
@@ -3261,7 +3220,6 @@ in the User's Guide of the Rotational library.
               textString="phi_rel"),
             Rectangle(
               extent={{-60,-20},{-10,-80}},
-              lineColor={0,0,0},
               lineThickness=0.5,
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid),
@@ -3933,8 +3891,6 @@ in the User's Guide of the Rotational library.
               textString="%name",
               lineColor={0,0,255}),
             Polygon(points={{-10,30},{50,0},{-10,-30},{-10,30}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
               fillPattern=FillPattern.Solid),
             Line(visible=useHeatPort,
               points={{-100,-99},{-100,-40},{0,-40}},
@@ -4065,8 +4021,7 @@ connected to other elements in an appropriate way.
             lineColor={0,0,255},
             textString="%name"),
           Text(extent={{-146,-49},{154,-79}},
-            lineColor={0,0,0},
-          textString="ratio=%ratio")}));
+            textString="ratio=%ratio")}));
     end IdealGear;
 
     model LossyGear
@@ -4838,7 +4793,6 @@ Gearbox.
                   lineColor={0,0,255},
                   textString="%name"),Text(
                   extent={{-150,70},{150,100}},
-                  lineColor={0,0,0},
                   textString="ratio=%ratio, c=%c"),Line(
                   visible=useHeatPort,
                   points={{-100,-100},{-100,-30},{0,-30}},
@@ -5126,15 +5080,12 @@ no rolling resistance. This component defines the kinematic constraint:
                 -100},{100,100}}), graphics={
             Text(
               extent={{-94,94},{68,66}},
-              lineColor={0,0,0},
               textString="phi_start"),
             Text(
               extent={{-94,16},{70,-14}},
-              lineColor={0,0,0},
               textString="w_start"),
             Text(
               extent={{-92,-66},{68,-94}},
-              lineColor={0,0,0},
               textString="a_start")}), Documentation(info="<html>
 <p>
 This component is used to optionally initialize the angle, speed,
@@ -5338,18 +5289,14 @@ in the User's Guide of the Rotational library.
                   radius=10),
                 Text(
                   extent={{-20,92},{20,70}},
-                  lineColor={0,0,0},
                   textString="phi"),Text(
                   visible=use_w,
                   extent={{-20,42},{20,20}},
-                  lineColor={0,0,0},
                   textString="w"),Text(
                   visible=use_a,
                   extent={{-20,-18},{20,-40}},
-                  lineColor={0,0,0},
                   textString="a"),Text(
                   extent={{-20,-68},{20,-90}},
-                  lineColor={0,0,0},
                   textString="tau"),Text(
                   extent={{-150,150},{150,110}},
                   textString="%name",
@@ -5447,7 +5394,6 @@ blocks of the block library Modelica.Blocks.Sources.
               preserveAspectRatio=true,
               extent={{-100,-100},{100,100}}), graphics={Text(
                       extent={{-80,-60},{-80,-100}},
-                      lineColor={0,0,0},
                       textString="phi"),Rectangle(
                       extent={{-100,20},{100,-20}},
                       lineColor={64,64,64},
@@ -5520,7 +5466,6 @@ blocks of the block library Modelica.Blocks.Sources.
               preserveAspectRatio=true,
               extent={{-100,-100},{100,100}}), graphics={Text(
                       extent={{-80,-60},{-80,-100}},
-                      lineColor={0,0,0},
                       textString="phi,w"),Rectangle(
                       extent={{-100,20},{100,-20}},
                       lineColor={64,64,64},
@@ -5585,18 +5530,14 @@ blocks of the block library Modelica.Blocks.Sources.
                   radius=10),
                 Text(
                   extent={{-20,90},{20,68}},
-                  lineColor={0,0,0},
                   textString="phi"),Text(
                   visible=use_w or use_a,
                   extent={{-20,40},{20,18}},
-                  lineColor={0,0,0},
                   textString="w"),Text(
                   visible=use_a,
                   extent={{-20,-20},{20,-42}},
-                  lineColor={0,0,0},
                   textString="a"),Text(
                   extent={{-20,-70},{20,-92}},
-                  lineColor={0,0,0},
                   textString="tau"),Text(
                   extent={{-150,150},{150,110}},
                   textString="%name",
@@ -5668,7 +5609,6 @@ way and provides the result as output signal <b>phi</b>
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}}), graphics={Text(
                   extent={{70,-30},{120,-70}},
-                  lineColor={0,0,0},
                   textString="phi")}));
     end AngleSensor;
 
@@ -5692,7 +5632,6 @@ way and provides the result as output signal <b>w</b>
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}}), graphics={Text(
                   extent={{70,-30},{120,-70}},
-                  lineColor={0,0,0},
                   textString="w")}));
     end SpeedSensor;
 
@@ -5718,7 +5657,6 @@ blocks of the Modelica.Blocks library).
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}}), graphics={Text(
                   extent={{70,-30},{120,-70}},
-                  lineColor={0,0,0},
                   textString="a")}));
     end AccSensor;
 
@@ -5916,15 +5854,12 @@ and provides the result as output signal <b>power</b>
             extent={{-100,-100},{100,100}}), graphics={
             Text(
               extent={{60,-68},{100,-96}},
-              lineColor={0,0,0},
               textString="w"),
             Text(
               extent={{-140,-68},{-60,-96}},
-              lineColor={0,0,0},
               textString="power"),
             Text(
               extent={{-30,-68},{30,-96}},
-              lineColor={0,0,0},
               textString="tau"),
             Line(points={{-60,-100},{-60,-60},{-94,-2}}),
             Line(points={{0,-100},{0,-70}}, color={0,0,127}),
@@ -6341,14 +6276,11 @@ blocks of Modelica.Blocks.Sources.
           textString="%name",
           lineColor={0,0,255}),
         Text(extent={{-62,-29},{-141,-70}},
-          lineColor={0,0,0},
           textString="tau"),
         Line(points={{-88,0},{-64,30},{-36,52},{-2,62},{28,56},{48,44},{64,28},{76,14},{86,0}},
           thickness=0.5,
           smooth=Smooth.Bezier),
         Polygon(points={{86,0},{66,58},{37,27},{86,0}},
-          lineColor={0,0,0},
-          fillColor={0,0,0},
           fillPattern=FillPattern.Solid),
         Line(points={{-30,-30},{30,-30}}),
         Line(points={{0,-30},{0,-101}}),
@@ -6358,8 +6290,6 @@ blocks of Modelica.Blocks.Sources.
         Line(points={{-54,-42},{-38,-28},{-16,-16},{4,-14},{22,-18},{36,-26},{48,-36},{56,-46},{64,-58}},
           smooth=Smooth.Bezier),
         Polygon(points={{-61,-66},{-44,-42},{-58,-36},{-61,-66}},
-          lineColor={0,0,0},
-          fillColor={0,0,0},
           fillPattern=FillPattern.Solid)}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
@@ -6381,8 +6311,6 @@ blocks of Modelica.Blocks.Sources.
               smooth=Smooth.Bezier),
             Polygon(
               points={{86,0},{66,58},{38,28},{86,0}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
               fillPattern=FillPattern.Solid)}));
     end Torque;
 
@@ -6417,17 +6345,13 @@ blocks of Modelica.Blocks.Sources.
           textString="%name",
           lineColor={0,0,255}),
         Polygon(points={{-78,24},{-69,17},{-89,0},{-78,24}},
-          lineColor={0,0,0},
           lineThickness=0.5,
-          fillColor={0,0,0},
           fillPattern=FillPattern.Solid),
         Line(points={{-74,20},{-70,23},{-65,26},{-60,28},{-56,29},{-50,30},{-41,30},{-35,29},{-31,28},{-26,26},{-21,23},{-17,20},{-13,15},{-10,9}},
           thickness=0.5, smooth=Smooth.Bezier),
         Line(points={{74,20},{70,23},{65,26},{60,28},{56,29},{50,30},{41,30},{35,29},{31,28},{26,26},{21,23},{17,20},{13,15},{10,9}},
           thickness=0.5, smooth=Smooth.Bezier),
         Polygon(points={{89,0},{78,24},{69,17},{89,0}},
-          lineColor={0,0,0},
-          fillColor={0,0,0},
           fillPattern=FillPattern.Solid)}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
@@ -6449,9 +6373,7 @@ blocks of Modelica.Blocks.Sources.
               thickness=0.5, smooth=Smooth.Bezier),
             Polygon(
               points={{-79,24},{-70,17},{-90,0},{-79,24}},
-              lineColor={0,0,0},
               lineThickness=0.5,
-              fillColor={0,0,0},
               fillPattern=FillPattern.Solid),
             Line(
               points={{73,20},{69,23},{64,26},{59,28},{55,29},{49,30},{40,30},{
@@ -6459,8 +6381,6 @@ blocks of Modelica.Blocks.Sources.
               thickness=0.5, smooth=Smooth.Bezier),
             Polygon(
               points={{88,0},{77,24},{68,17},{88,0}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
               fillPattern=FillPattern.Solid)}));
     end Torque2;
 
@@ -6757,17 +6677,14 @@ differentiation of the flange angle phi:
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
           Ellipse(
             extent={{-100,100},{100,-100}},
-            lineColor={0,0,0},
             fillColor={95,95,95},
             fillPattern=FillPattern.Solid)}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}}), graphics={Text(
                   extent={{-160,90},{40,50}},
-                  lineColor={0,0,0},
                   textString="%name"),Ellipse(
                   extent={{-40,40},{40,-40}},
-                  lineColor={0,0,0},
                   fillColor={135,135,135},
                   fillPattern=FillPattern.Solid)}));
     end Flange_a;
@@ -6816,18 +6733,15 @@ differentiation of the flange angle phi:
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}}), graphics={Ellipse(
                   extent={{-98,100},{102,-100}},
-                  lineColor={0,0,0},
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid)}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}}), graphics={Ellipse(
                   extent={{-40,40},{40,-40}},
-                  lineColor={0,0,0},
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid),Text(
                   extent={{-40,90},{160,50}},
-                  lineColor={0,0,0},
                   textString="%name")}));
     end Flange_b;
 
@@ -6874,7 +6788,6 @@ It is most convenient to utilize it
             extent={{-100,-100},{100,100}}), graphics={
             Ellipse(
               extent={{-100,100},{100,-100}},
-              lineColor={0,0,0},
               fillColor={95,95,95},
               fillPattern=FillPattern.Solid),
             Rectangle(
@@ -6884,7 +6797,6 @@ It is most convenient to utilize it
               fillPattern=FillPattern.Solid),
             Ellipse(
               extent={{-100,100},{100,-100}},
-              lineColor={0,0,0},
               fillColor={95,95,95},
               fillPattern=FillPattern.Solid)}),
         Diagram(coordinateSystem(
@@ -6895,10 +6807,8 @@ It is most convenient to utilize it
                   fillColor={192,192,192},
                   fillPattern=FillPattern.Solid),Text(
                   extent={{-160,100},{40,60}},
-                  lineColor={0,0,0},
                   textString="%name"),Ellipse(
                   extent={{-40,40},{40,-40}},
-                  lineColor={0,0,0},
                   fillColor={135,135,135},
                   fillPattern=FillPattern.Solid)}));
     end Support;
@@ -7553,15 +7463,11 @@ and instead the translational part is internally fixed to ground.
               textString="%name"),
             Polygon(
               points={{94,16},{80,74},{50,52},{94,16}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
               fillPattern=FillPattern.Solid),
             Line(points={{-58,-82},{-42,-68},{-20,-56},{0,-54},{18,-56},{34,-62},
                   {44,-72},{54,-82},{60,-94}}, smooth=Smooth.Bezier),
             Polygon(
               points={{-65,-98},{-46,-80},{-58,-72},{-65,-98}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
               fillPattern=FillPattern.Solid),
             Line(
               visible=not useSupport,

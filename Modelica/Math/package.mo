@@ -11829,7 +11829,6 @@ package Icons "Icons for Math"
               100}}), graphics={
           Rectangle(
             extent={{-100,100},{100,-100}},
-            lineColor={0,0,0},
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid),
           Line(points={{-80,-80},{-80,68}}, color={192,192,192}),
@@ -11869,7 +11868,6 @@ It is expected, that an x-axis is added and a plot of the function.
               100}}), graphics={
           Rectangle(
             extent={{-100,100},{100,-100}},
-            lineColor={0,0,0},
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid),
           Line(points={{0,-80},{0,68}}, color={192,192,192}),
@@ -13095,7 +13093,6 @@ partial function baseIcon1
             100}}), graphics={
         Rectangle(
           extent={{-100,100},{100,-100}},
-          lineColor={0,0,0},
           fillColor={255,255,255},
           fillPattern=FillPattern.Solid),
         Line(points={{-80,-80},{-80,68}}, color={192,192,192}),
@@ -13137,7 +13134,6 @@ partial function baseIcon2
             100}}), graphics={
         Rectangle(
           extent={{-100,100},{100,-100}},
-          lineColor={0,0,0},
           fillColor={255,255,255},
           fillPattern=FillPattern.Solid),
         Line(points={{0,-80},{0,68}}, color={192,192,192}),

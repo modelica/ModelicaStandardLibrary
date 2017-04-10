@@ -169,33 +169,25 @@ or other flow models without storage, are directly connected.
   Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{100,100}}), graphics={
           Rectangle(
             extent={{-100,44},{100,-44}},
-            lineColor={0,0,0},
             fillPattern=FillPattern.HorizontalCylinder,
             fillColor={0,127,255}),
           Ellipse(
             extent={{-72,10},{-52,-10}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
             fillPattern=FillPattern.Solid),
           Ellipse(
             extent={{50,10},{70,-10}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
             fillPattern=FillPattern.Solid),
           Text(
             extent={{-48,15},{46,-20}},
-            lineColor={0,0,0},
             textString="%nNodes")}),
   Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{100,
               100}}), graphics={
           Rectangle(
             extent={{-100,60},{100,50}},
-            lineColor={0,0,0},
             fillColor={255,255,255},
             fillPattern=FillPattern.Backward),
           Rectangle(
             extent={{-100,-50},{100,-60}},
-            lineColor={0,0,0},
             fillColor={255,255,255},
             fillPattern=FillPattern.Backward),
           Line(
@@ -278,7 +270,6 @@ or other flow models without storage, are directly connected.
               fillColor={95,95,95},
               pattern=LinePattern.None), Rectangle(
               extent={{-100,44},{100,-44}},
-              lineColor={0,0,0},
               fillPattern=FillPattern.HorizontalCylinder,
               fillColor={0,127,255})}),        Documentation(info="<html>
 <p>
@@ -693,12 +684,8 @@ This also allows for taking into account friction losses with respect to the act
     Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{100,
                 100}}), graphics={Ellipse(
               extent={{-72,10},{-52,-10}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
               fillPattern=FillPattern.Solid), Ellipse(
               extent={{50,10},{70,-10}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
               fillPattern=FillPattern.Solid)}),
     Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
                 100,100}}), graphics={
@@ -706,14 +693,12 @@ This also allows for taking into account friction losses with respect to the act
               points={{-100,-50},{-100,50},{100,60},{100,-60},{-100,-50}},
               fillColor={215,215,215},
               fillPattern=FillPattern.Solid,
-              pattern=LinePattern.None,
-              lineColor={0,0,0}),
+              pattern=LinePattern.None),
             Polygon(
               points={{-34,-53},{-34,53},{34,57},{34,-57},{-34,-53}},
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid,
-              pattern=LinePattern.None,
-              lineColor={0,0,0}),
+              pattern=LinePattern.None),
             Line(
               points={{-100,-50},{-100,50}},
               arrow={Arrow.Filled,Arrow.Filled},
@@ -814,8 +799,6 @@ This also allows for taking into account friction losses with respect to the act
             Ellipse(
               extent={{-5,5},{5,-5}},
               pattern=LinePattern.None,
-              lineColor={0,0,0},
-              fillColor={0,0,0},
               fillPattern=FillPattern.Solid),
             Text(
               extent={{3,-4},{33,-10}},
@@ -824,8 +807,6 @@ This also allows for taking into account friction losses with respect to the act
             Ellipse(
               extent={{95,5},{105,-5}},
               pattern=LinePattern.None,
-              lineColor={0,0,0},
-              fillColor={0,0,0},
               fillPattern=FillPattern.Solid),
             Text(
               extent={{104,-4},{124,-10}},
@@ -834,8 +815,6 @@ This also allows for taking into account friction losses with respect to the act
             Ellipse(
               extent={{-105,5},{-95,-5}},
               pattern=LinePattern.None,
-              lineColor={0,0,0},
-              fillColor={0,0,0},
               fillPattern=FillPattern.Solid),
             Text(
               extent={{-96,-4},{-76,-10}},
@@ -1100,7 +1079,6 @@ e.g., with numerical smoothing or by raising events as appropriate.
                 color={0,0,255},
                 thickness=1), Text(
                 extent={{-40,-50},{40,-90}},
-                lineColor={0,0,0},
                 textString="%name")}));
           end PartialStaggeredFlowModel;
 
@@ -1318,12 +1296,10 @@ simulation and/or might give a more robust simulation.
                   extent={{-100,-100},{100,100}}), graphics={
               Rectangle(
                 extent={{-100,64},{100,-64}},
-                lineColor={0,0,0},
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Backward),
               Rectangle(
                 extent={{-100,50},{100,-49}},
-                lineColor={0,0,0},
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid),
               Line(
@@ -1538,12 +1514,10 @@ b has the same sign of the change of density.</p>
                   extent={{-100,-100},{100,100}}), graphics={
               Rectangle(
                 extent={{-100,64},{100,-64}},
-                lineColor={0,0,0},
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Backward),
               Rectangle(
                 extent={{-100,50},{100,-49}},
-                lineColor={0,0,0},
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid),
               Line(
@@ -1593,11 +1567,9 @@ for example definitions.
                   {100,100}}), graphics={Rectangle(
                 extent={{-80,60},{80,-60}},
                 pattern=LinePattern.None,
-                lineColor={0,0,0},
                 fillColor={255,0,0},
                 fillPattern=FillPattern.HorizontalCylinder), Text(
                 extent={{-40,22},{38,-18}},
-                lineColor={0,0,0},
                 textString="%name")}));
     end PartialFlowHeatTransfer;
 
@@ -3557,12 +3529,10 @@ b has the same sign of the change of density.</p>
               extent={{-100,-100},{100,100}}), graphics={
               Rectangle(
                 extent={{-100,60},{100,-60}},
-                lineColor={0,0,0},
                 fillPattern=FillPattern.HorizontalCylinder,
                 fillColor={192,192,192}),
               Rectangle(
                 extent={{-100,44},{100,-45}},
-                lineColor={0,0,0},
                 fillPattern=FillPattern.HorizontalCylinder,
                 fillColor={0,127,255}),
               Text(
@@ -3608,12 +3578,10 @@ simulation and/or might give a more robust simulation.
               extent={{-100,-100},{100,100}}), graphics={
               Rectangle(
                 extent={{-100,64},{100,-64}},
-                lineColor={0,0,0},
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Backward),
               Rectangle(
                 extent={{-100,50},{100,-49}},
-                lineColor={0,0,0},
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid),
               Line(

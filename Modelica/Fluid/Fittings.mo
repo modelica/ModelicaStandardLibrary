@@ -381,7 +381,6 @@ equation
           Line(points={{60,0},{100,0}}, color={0,127,255}),
           Text(
             extent={{-173,104},{175,62}},
-            lineColor={0,0,0},
             textString="zeta=%zeta")}),
     Documentation(info="<html>
 <p>
@@ -444,34 +443,28 @@ model SharpEdgedOrifice
               100}}), graphics={
           Rectangle(
             extent={{-100,44},{100,-44}},
-            lineColor={0,0,0},
             fillPattern=FillPattern.HorizontalCylinder,
             fillColor={0,127,255}),
           Polygon(
             points={{-25,44},{-25,7},{35,37},{35,44},{-25,44}},
-            lineColor={0,0,0},
             fillPattern=FillPattern.Backward,
             fillColor={175,175,175}),
           Polygon(
             points={{-25,-7},{-25,-44},{35,-44},{35,-36},{-25,-7}},
-            lineColor={0,0,0},
             fillColor={175,175,175},
             fillPattern=FillPattern.Backward)}),
     Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
               100,100}}), graphics={
           Rectangle(
             extent={{-100,60},{100,-60}},
-            lineColor={0,0,0},
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid),
           Polygon(
             points={{-30,60},{-30,12},{30,50},{30,60},{-30,60}},
-            lineColor={0,0,0},
             fillColor={255,255,255},
             fillPattern=FillPattern.Backward),
           Polygon(
             points={{-30,-10},{-30,-60},{30,-60},{30,-50},{-30,-10}},
-            lineColor={0,0,0},
             fillColor={255,255,255},
             fillPattern=FillPattern.Backward),
           Line(
@@ -555,13 +548,11 @@ model AbruptAdaptor
             extent=DynamicSelect({{-100,22},{0,-22}}, {{-100,max(0.1, min(1,
                 diameter_a/max(diameter_a, diameter_b)))*60},{0,-max(0.1, min(1,
                 diameter_a/max(diameter_a, diameter_b)))*60}}),
-            lineColor={0,0,0},
             fillPattern=FillPattern.HorizontalCylinder,
             fillColor={0,127,255}), Rectangle(
             extent=DynamicSelect({{0,60},{100,-60}}, {{0,max(0.1, min(1,
                 diameter_b/max(diameter_a, diameter_b)))*60},{100,-max(0.1, min(
                 1, diameter_b/max(diameter_a, diameter_b)))*60}}),
-            lineColor={0,0,0},
             fillPattern=FillPattern.HorizontalCylinder,
             fillColor={0,127,255})}),
       Documentation(info="<html>
@@ -763,8 +754,6 @@ of the modeller.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={Ellipse(
             extent={{-9,10},{11,-10}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
             fillPattern=FillPattern.Solid)}));
   end TeeJunctionVolume;
 
@@ -846,7 +835,6 @@ of the modeller.
                 preserveAspectRatio=false,
                 extent={{-100,-100},{100,100}}), graphics={Rectangle(
                   extent={{-100,50},{100,-50}},
-                  lineColor={0,0,0},
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid)}),
                                    Diagram(coordinateSystem(
@@ -854,12 +842,10 @@ of the modeller.
                 extent={{-100,-100},{100,100}}), graphics={
                 Rectangle(
                   extent={{-100,64},{100,-64}},
-                  lineColor={0,0,0},
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Backward),
                 Rectangle(
                   extent={{-100,50},{100,-49}},
-                  lineColor={0,0,0},
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid),
                 Line(
@@ -1090,34 +1076,28 @@ port_a to port_b as:
                     {100,100}}), graphics={
                 Rectangle(
                   extent={{-100,60},{100,-60}},
-                  lineColor={0,0,0},
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid),
                 Polygon(
                   points={{-30,60},{-30,12},{30,50},{30,60},{-30,60}},
-                  lineColor={0,0,0},
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Backward),
                 Polygon(
                   points={{-30,-10},{-30,-60},{30,-60},{30,-50},{-30,-10}},
-                  lineColor={0,0,0},
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Backward)}),
             Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                     -100},{100,100}}), graphics={
                 Rectangle(
                   extent={{-100,60},{100,-60}},
-                  lineColor={0,0,0},
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid),
                 Polygon(
                   points={{-30,60},{-30,12},{30,50},{30,60},{-30,60}},
-                  lineColor={0,0,0},
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Backward),
                 Polygon(
                   points={{-30,-10},{-30,-60},{30,-60},{30,-50},{-30,-10}},
-                  lineColor={0,0,0},
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Backward),
                 Line(
@@ -1772,21 +1752,17 @@ The used sufficient criteria for monotonicity follows from:
                   100,100}}), graphics={
               Text(
                 extent={{-150,80},{150,120}},
-                lineColor={0,0,0},
                 textString="%name"),
               Rectangle(
                 extent={{-100,60},{100,-60}},
-                lineColor={0,0,0},
                 fillPattern=FillPattern.HorizontalCylinder,
                 fillColor={192,192,192}),
               Rectangle(
                 extent={{-100,34},{100,-36}},
-                lineColor={0,0,0},
                 fillPattern=FillPattern.HorizontalCylinder,
                 fillColor={0,127,255}),
               Text(
                 extent={{-134,-66},{130,-92}},
-                lineColor={0,0,0},
                 textString="quad. turbulent")}),
           Documentation(info="<html>
 
@@ -2131,7 +2107,6 @@ where
             extent={{-100,-100},{100,100}}), graphics={
             Rectangle(
               extent={{-100,44},{100,-44}},
-              lineColor={0,0,0},
               fillPattern=FillPattern.HorizontalCylinder,
               fillColor={0,127,255}),
             Text(
@@ -2140,15 +2115,13 @@ where
               textString="%name"),
             Rectangle(
               extent={{-44,100},{44,44}},
-              lineColor={0,0,0},
               fillPattern=FillPattern.VerticalCylinder,
               fillColor={0,127,255}),
             Rectangle(
               extent={{-22,82},{21,-4}},
               fillPattern=FillPattern.Solid,
               fillColor={0,128,255},
-              pattern=LinePattern.None,
-              lineColor={0,0,0})}));
+              pattern=LinePattern.None)}));
     end PartialTeeJunction;
 
     package Bends "Pressure loss functions for bends"
@@ -2566,7 +2539,6 @@ The details of the record are described
           annotation (                               Icon(coordinateSystem(preserveAspectRatio=false,
                            extent={{-100,-100},{100,100}}), graphics={Ellipse(
                   extent={{-80,80},{80,-80}},
-                  lineColor={0,0,0},
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid)}),
             Documentation(revisions="",
@@ -2603,7 +2575,6 @@ cross section of the orifice.
           annotation (                               Icon(coordinateSystem(preserveAspectRatio=true,
                            extent={{-100,-100},{100,100}}), graphics={Rectangle(
                   extent={{-80,60},{80,-60}},
-                  lineColor={0,0,0},
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid)}),
             Documentation(revisions="",
@@ -2643,7 +2614,6 @@ cross section of the orifice.
                            extent={{-100,-100},{100,100}}), graphics={
                                                  Polygon(
                   points={{-80,8},{0,80},{80,40},{20,-20},{40,-80},{-60,-80},{-80,8}},
-                  lineColor={0,0,0},
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid)}),
             Documentation(revisions="",

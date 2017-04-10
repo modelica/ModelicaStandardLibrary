@@ -356,27 +356,22 @@ package HeatExchanger "Demo of a heat exchanger model"
               extent={{-100,-100},{100,100}}), graphics={
             Rectangle(
               extent={{-100,-26},{100,-30}},
-              lineColor={0,0,0},
               fillColor={95,95,95},
               fillPattern=FillPattern.Forward),
             Rectangle(
               extent={{-100,30},{100,26}},
-              lineColor={0,0,0},
               fillColor={95,95,95},
               fillPattern=FillPattern.Forward),
             Rectangle(
               extent={{-100,60},{100,30}},
-              lineColor={0,0,0},
               fillPattern=FillPattern.HorizontalCylinder,
               fillColor={0,63,125}),
             Rectangle(
               extent={{-100,-30},{100,-60}},
-              lineColor={0,0,0},
               fillPattern=FillPattern.HorizontalCylinder,
               fillColor={0,63,125}),
             Rectangle(
               extent={{-100,26},{100,-26}},
-              lineColor={0,0,0},
               fillPattern=FillPattern.HorizontalCylinder,
               fillColor={0,128,255}),
             Text(
@@ -463,11 +458,9 @@ The design flow direction with positive m_flow variables is counterflow.</p>
         annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={Rectangle(
               extent={{-100,40},{100,-40}},
-              lineColor={0,0,0},
               fillColor={95,95,95},
               fillPattern=FillPattern.Forward), Text(
               extent={{-82,18},{76,-18}},
-              lineColor={0,0,0},
               textString="%name")}),
                                 Documentation(revisions="<html>
 <ul>

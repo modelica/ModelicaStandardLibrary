@@ -169,22 +169,18 @@ annotation (
             100}}), graphics={
         Text(
           extent={{-80,90},{80,70}},
-          lineColor={0,0,0},
           textString="Rectifier"),
         Line(points={{-16,18},{-16,2},{-18,6},{-14,6},{-16,2}}),
         Line(points={{-30,22},{-26,20},{-30,18},{-30,22}}),
         Line(points={{32,30},{32,-30},{30,-26},{34,-26},{32,-30}}),
         Text(
           extent={{-38,16},{-22,8}},
-          lineColor={0,0,0},
           textString="iAC"),
         Text(
           extent={{-14,8},{2,0}},
-          lineColor={0,0,0},
           textString="uAC"),
         Text(
           extent={{22,-16},{38,-24}},
-          lineColor={0,0,0},
           textString="uDC")}),
   experiment(StopTime=0.1, Interval=1e-005),
   Documentation(info="<html>

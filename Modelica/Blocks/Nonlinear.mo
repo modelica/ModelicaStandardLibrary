@@ -49,7 +49,6 @@ as output.
           Line(points={{-80,-70},{-50,-70},{50,70},{80,70}}),
           Text(
             extent={{-150,-150},{150,-110}},
-            lineColor={0,0,0},
             textString="uMax=%uMax"),
           Text(
             extent={{-150,150},{150,110}},
@@ -406,7 +405,6 @@ The Input signal is delayed by a given time instant, or more precisely:
                 smooth=Smooth.Bezier),
           Text(
             extent={{-24,98},{-2,78}},
-            lineColor={0,0,0},
             textString="input"),
           Line(points={{-64,0},{-52.7,34.2},{-45.5,53.1},{-39.1,66.4},{-33.4,
                 74.6},{-27.8,79.1},{-22.2,79.8},{-16.6,76.6},{-10.9,69.7},{-5.3,
@@ -662,7 +660,6 @@ chapter 11.9, page 412-414, Huethig Verlag Heidelberg, 1994
                 smooth=Smooth.Bezier),
           Text(
             extent={{-24,98},{-2,78}},
-            lineColor={0,0,0},
             textString="input"),
           Line(points={{-64,0},{-52.7,34.2},{-45.5,53.1},{-39.1,66.4},{-33.4,
                 74.6},{-27.8,79.1},{-22.2,79.8},{-16.6,76.6},{-10.9,69.7},{-5.3,
@@ -773,7 +770,6 @@ the following relationship:
       Line(points={{-80,-88},{-80,86}}, color={192,192,192}),
       Text(
         extent={{-24,98},{-2,78}},
-        lineColor={0,0,0},
         textString="input"),
       Polygon(
         points={{-80,-26},{-88,-24},{-88,-28},{-80,-26}},

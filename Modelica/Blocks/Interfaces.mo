@@ -373,7 +373,6 @@ one continuous Real output signal.
           initialScale=0.06), graphics={
           Text(
             extent={{110,-50},{300,-70}},
-            lineColor={0,0,0},
             textString=DynamicSelect(" ", String(y, significantDigits=
                 significantDigits))),
           Text(
@@ -635,13 +634,10 @@ These signals are sampled due to the defined <b>samplePeriod</b> parameter.
     annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={Text(
               extent={{-100,34},{-140,24}},
-              lineColor={0,0,0},
               textString="(setpoint)"),Text(
               extent={{100,22},{130,14}},
-              lineColor={0,0,0},
               textString="(actuator)"),Text(
               extent={{-70,-112},{-20,-102}},
-              lineColor={0,0,0},
               textString=" (measurement)")}), Documentation(info="<html>
 <p>
 Block has two continuous Real input signals and one
@@ -688,13 +684,10 @@ to be used as base class for a corresponding controller.
               textString="u_s",
               lineColor={0,0,255}),Text(
               extent={{-98,34},{-138,24}},
-              lineColor={0,0,0},
               textString="(setpoint)"),Text(
               extent={{98,24},{138,14}},
-              lineColor={0,0,0},
               textString="(actuator)"),Text(
               extent={{-62,-110},{-12,-100}},
-              lineColor={0,0,0},
               textString=" (measurement)")}), Documentation(info="<html>
 <p>
 Block has two continuous Real input signal vectors and one
@@ -888,7 +881,6 @@ where the signal sizes of the input and output vector are identical.
           initialScale=0.06), graphics={
           Text(
             extent={{110,-50},{250,-70}},
-            lineColor={0,0,0},
             textString=DynamicSelect(" ", String(
                   y,
                   minimumLength=1,
@@ -899,7 +891,6 @@ where the signal sizes of the input and output vector are identical.
             lineColor={0,0,255}),
           Rectangle(
             extent={{-100,100},{100,-100}},
-            lineColor={0,0,0},
             fillColor={255,213,170},
             fillPattern=FillPattern.Solid,
             borderPattern=BorderPattern.Raised)}));
@@ -921,7 +912,6 @@ where the signal sizes of the input and output vector are identical.
           initialScale=0.06), graphics={
           Text(
             extent={{110,-50},{250,-70}},
-            lineColor={0,0,0},
             textString=DynamicSelect(" ", String(
                   y,
                   minimumLength=1,
@@ -1148,10 +1138,8 @@ with a 3D icon (e.g., used in Blocks.Logical library).
               fillColor={95,95,95},
               fillPattern=FillPattern.Solid),Text(
               extent={{54,-80},{106,-92}},
-              lineColor={0,0,0},
               textString="time"),Text(
               extent={{-64,92},{-46,74}},
-              lineColor={0,0,0},
               textString="y")}),
       Documentation(info="<html>
 <p>
@@ -1177,13 +1165,11 @@ and a 3D icon (e.g., used in Blocks.Logical library).
               {100,100}}), graphics={
           Rectangle(
             extent={{-100,100},{100,-100}},
-            lineColor={0,0,0},
             fillColor={210,210,210},
             fillPattern=FillPattern.Solid,
             borderPattern=BorderPattern.Raised),
           Text(
             extent={{-150,-140},{150,-110}},
-            lineColor={0,0,0},
             textString="%threshold"),
           Ellipse(
             extent={{71,7},{85,-7}},
@@ -1214,7 +1200,6 @@ as well as a 3D icon (e.g., used in Blocks.Logical library).
               {100,100}}), graphics={
           Rectangle(
             extent={{-100,100},{100,-100}},
-            lineColor={0,0,0},
             fillColor={210,210,210},
             fillPattern=FillPattern.Solid,
             borderPattern=BorderPattern.Raised),
@@ -1254,7 +1239,6 @@ has a 3D icon (e.g., used in Blocks.Logical library).
             lineColor={0,0,255}),
           Rectangle(
             extent={{-100,100},{100,-100}},
-            lineColor={0,0,0},
             fillColor={215,215,215},
             fillPattern=FillPattern.Solid,
             borderPattern=BorderPattern.Raised),
@@ -1287,7 +1271,6 @@ has a 3D icon (e.g., used in Blocks.Logical library).
             lineColor={0,0,255}),
           Rectangle(
             extent={{-100,100},{100,-100}},
-            lineColor={0,0,0},
             fillColor={215,215,215},
             fillPattern=FillPattern.Solid,
             borderPattern=BorderPattern.Raised),
@@ -1320,7 +1303,6 @@ has a 3D icon (e.g., used in Blocks.Logical library).
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid),Text(
                   extent={{-144,96},{144,46}},
-                  lineColor={0,0,0},
                   textString="%name"),Text(
                   extent={{-100,30},{100,-30}},
                   lineColor={0,0,127},
@@ -1354,7 +1336,6 @@ for signal buses, see example
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid),Text(
                   extent={{-144,96},{144,46}},
-                  lineColor={0,0,0},
                   textString="%name"),Text(
                   extent={{-100,30},{100,-30}},
                   lineColor={255,0,255},
@@ -1388,7 +1369,6 @@ for signal buses, see example
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid),Text(
                   extent={{-144,96},{144,46}},
-                  lineColor={0,0,0},
                   textString="%name"),Text(
                   extent={{-100,30},{100,-30}},
                   lineColor={255,127,0},
@@ -1425,7 +1405,6 @@ for signal buses, see example
                   lineColor={0,0,127},
                   textString="receive"),Text(
                   extent={{-144,96},{144,46}},
-                  lineColor={0,0,0},
                   textString="%name")}), Documentation(info="<html>
 <p>
 Obsolete block that was previously used to connect a Real signal
@@ -1459,7 +1438,6 @@ for signal buses, see example
                   lineColor={255,0,255},
                   textString="receive"),Text(
                   extent={{-144,96},{144,46}},
-                  lineColor={0,0,0},
                   textString="%name")}), Documentation(info="<html>
 <p>
 Obsolete block that was previously used to connect a Boolean signal
@@ -1493,7 +1471,6 @@ for signal buses, see example
                   lineColor={255,127,0},
                   textString="receive"),Text(
                   extent={{-144,96},{144,46}},
-                  lineColor={0,0,0},
                   textString="%name")}), Documentation(info="<html>
 <p>
 Obsolete block that was previously used to connect an Integer signal
@@ -1649,7 +1626,6 @@ Instead the icon <a href=\"modelica://Modelica.Blocks.Icons.IntegerBlock\">Model
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}), graphics={Rectangle(
             extent={{-100,100},{100,-100}},
-            lineColor={0,0,0},
             fillColor={210,210,210},
             fillPattern=FillPattern.Solid,
             borderPattern=BorderPattern.Raised), Text(
@@ -1744,13 +1720,11 @@ Instead the icon <a href=\"modelica://Modelica.Blocks.Icons.PartialBooleanBlock\
                 {48,13},{56,13},{56,-53},{66,-53}}),
           Text(
             extent={{-150,-110},{150,-150}},
-            lineColor={0,0,0},
             textString="%samplePeriod s"),
           Line(visible=not enableNoise,
             points={{-76,48},{72,48}}),
           Text(visible=not enableNoise,
             extent={{-75,42},{95,2}},
-            lineColor={0,0,0},
             textString="%y_off"),
           Text(visible=enableNoise and not useAutomaticLocalSeed,
             extent={{-92,20},{98,-22}},

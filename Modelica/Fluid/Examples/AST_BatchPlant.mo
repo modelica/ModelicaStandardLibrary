@@ -627,13 +627,11 @@ package AST_BatchPlant
             extent={{-100,-100},{100,100}}), graphics={
             Rectangle(
               extent={{-100,40},{100,-40}},
-              lineColor={0,0,0},
               fillColor={235,235,235},
               fillPattern=FillPattern.Solid,
               borderPattern=BorderPattern.Raised),
             Text(
               extent={{-96,15},{96,-15}},
-              lineColor={0,0,0},
               textString="%u"),
             Text(extent={{-150,90},{140,50}}, textString="%name")}),
         Documentation(info="<html>
@@ -937,7 +935,6 @@ package AST_BatchPlant
             Rectangle(
               extent=DynamicSelect({{-200,-100},{0,0}}, {{-200,-100},{0,(-100
                    + 200*level/height)}}),
-              lineColor={0,0,0},
               fillColor={85,170,255},
               fillPattern=FillPattern.VerticalCylinder),
             Line(points={{-200,100},{-200,-100},{0,-100},{0,100}}),
@@ -947,7 +944,6 @@ package AST_BatchPlant
               textString="%name"),
             Polygon(
               points={{0,100},{200,70},{200,50},{200,50},{0,80},{0,100}},
-              lineColor={0,0,0},
               fillPattern=FillPattern.HorizontalCylinder,
               fillColor={0,0,255}),
             Polygon(
@@ -955,16 +951,13 @@ package AST_BatchPlant
                   {130,60},{144,70},{152,60},{168,66},{180,54},{196,74},{190,76},
                   {180,64},{170,70},{156,66},{148,76},{132,68},{120,80},{100,74},
                   {88,88},{70,78},{50,92},{32,82},{28,100},{20,98},{20,98}},
-              lineColor={0,0,0},
               fillPattern=FillPattern.HorizontalCylinder,
               fillColor={170,255,255}),
             Text(
               extent={{-193,30},{-3,10}},
-              lineColor={0,0,0},
               textString="level ="),
             Text(
               extent={{-195,-38},{-5,-58}},
-              lineColor={0,0,0},
               textString=DynamicSelect("%level_start", String(
                       level,
                       minimumLength=1,
@@ -1251,19 +1244,15 @@ Full steady state initialization is not supported, because the corresponding ini
               lineColor={0,0,255},
               textString="%name"),
             Line(points={{-48,0},{0,0}}),
-            Rectangle(extent={{-170,60},{-50,-60}}, lineColor={0,0,0}),
+            Rectangle(extent={{-170,60},{-50,-60}}),
             Line(points={{0,40},{0,-40}}),
             Line(points={{0,0},{26,0}}),
             Polygon(
               points={{26,10},{50,0},{26,-10},{26,10}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
               fillPattern=FillPattern.Solid),
-            Rectangle(extent={{50,60},{170,-60}}, lineColor={0,0,0}),
+            Rectangle(extent={{50,60},{170,-60}}),
             Polygon(
               points={{-24,10},{0,0},{-24,-10},{-24,10}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
               fillPattern=FillPattern.Solid)}),
             Diagram(coordinateSystem(
               preserveAspectRatio=false, extent={{-200,-160},{200,160}})));
@@ -1388,7 +1377,6 @@ Full steady state initialization is not supported, because the corresponding ini
         annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                   -100},{100,100}}), graphics={Polygon(
                 points={{-100,100},{100,0},{-100,-100},{-100,100}},
-                lineColor={0,0,0},
                 lineThickness=0.5,
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid)}),
@@ -1396,7 +1384,6 @@ Full steady state initialization is not supported, because the corresponding ini
                 preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
               graphics={Polygon(
                 points={{0,50},{100,0},{0,-50},{0,50}},
-                lineColor={0,0,0},
                 lineThickness=0.5,
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid)}));
@@ -1420,7 +1407,6 @@ Full steady state initialization is not supported, because the corresponding ini
         annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                   -100},{100,100}}), graphics={Polygon(
                 points={{-100,100},{-100,-100},{100,0},{-100,100}},
-                lineColor={0,0,0},
                 lineThickness=0.5,
                 fillColor={215,215,215},
                 fillPattern=FillPattern.Solid)}),
@@ -1428,7 +1414,6 @@ Full steady state initialization is not supported, because the corresponding ini
                 preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
               graphics={Polygon(
                 points={{0,50},{0,-50},{100,0},{0,50}},
-                lineColor={0,0,0},
                 lineThickness=0.5,
                 fillColor={215,215,215},
                 fillPattern=FillPattern.Solid)}));
@@ -1735,7 +1720,6 @@ end for;
             Rectangle(
               extent=DynamicSelect({{-100,-100},{100,0}}, {{-100,-100},{100,(-100
                    + 200*level/height)}}),
-              lineColor={0,0,0},
               fillColor={85,170,255},
               fillPattern=FillPattern.VerticalCylinder),
             Text(
@@ -1744,13 +1728,11 @@ end for;
               textString="%name"),
             Text(
               extent={{-95,41},{95,21}},
-              lineColor={0,0,0},
               textString="level ="),
             Line(points={{-100,100},{-100,-100},{100,-100},{100,100}}, color={0,
                   0,0}),
             Text(
               extent={{-95,-39},{95,-59}},
-              lineColor={0,0,0},
               textString=DynamicSelect("%level_start", String(
                     level,
                     minimumLength=1,

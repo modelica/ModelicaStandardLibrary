@@ -78,8 +78,6 @@ package Forces "Components that exert forces and/or torques between frames"
           Polygon(
             points={{-100,10},{50,10},{50,31},{94,0},{50,-31},{50,-10},{-100,-10},
                 {-100,10}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
             fillPattern=FillPattern.Solid),
           Text(
             extent={{-150,85},{150,45}},
@@ -317,8 +315,6 @@ This leads to the following animation
             thickness=0.5),
           Polygon(
             points={{94,10},{75,59},{41,24},{94,10}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
             fillPattern=FillPattern.Solid)}));
   end WorldTorque;
 
@@ -450,8 +446,6 @@ This leads to the following animation
             thickness=0.5),
           Polygon(
             points={{89,17},{64,76},{30,41},{89,17}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
             fillPattern=FillPattern.Solid),
           Line(
             points={{0,95},{0,-26}},
@@ -464,8 +458,6 @@ This leads to the following animation
           Polygon(
             points={{-104,-48},{54,0},{46,20},{96,0},{66,-42},{60,-22},{-96,-72},
                 {-104,-48}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
             fillPattern=FillPattern.Solid)}),
       Documentation(info="<html>
 <p>
@@ -653,8 +645,6 @@ This leads to the following animation
             pattern=LinePattern.Dot),
           Polygon(
             points={{-94,0},{-64,11},{-64,-10},{-94,0}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
             fillPattern=FillPattern.Solid),
           Line(
             points={{-60,100},{40,100}},
@@ -662,8 +652,6 @@ This leads to the following animation
             pattern=LinePattern.Dot),
           Polygon(
             points={{94,0},{65,12},{65,-11},{94,0}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
             fillPattern=FillPattern.Solid),
           Line(points={{-64,0},{-20,0}}),
           Line(points={{20,0},{65,0}})}),
@@ -841,8 +829,6 @@ clarity this is not shown in the animation):
             lineColor={0,0,255}),
           Polygon(
             points={{100,20},{84,52},{69,39},{100,20}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
             fillPattern=FillPattern.Solid),
           Line(
             points={{40,100},{76,46}},
@@ -850,8 +836,6 @@ clarity this is not shown in the animation):
             pattern=LinePattern.Dot),
           Polygon(
             points={{-99,20},{-86,53},{-70,42},{-99,20}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
             fillPattern=FillPattern.Solid),
           Line(
             points={{-60,100},{40,100}},
@@ -1084,8 +1068,6 @@ clarity this is not shown in the animation):
             lineColor={0,0,255}),
           Polygon(
             points={{100,21},{84,55},{69,39},{100,21}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
             fillPattern=FillPattern.Solid),
           Line(
             points={{80,100},{80,0}},
@@ -1093,13 +1075,9 @@ clarity this is not shown in the animation):
             pattern=LinePattern.Dot),
           Polygon(
             points={{-95,1},{-64,11},{-64,-10},{-95,1}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
             fillPattern=FillPattern.Solid),
           Polygon(
             points={{-100,20},{-86,53},{-70,42},{-100,20}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
             fillPattern=FillPattern.Solid),
           Line(
             points={{-80,100},{80,100}},
@@ -1107,8 +1085,6 @@ clarity this is not shown in the animation):
             pattern=LinePattern.Dot),
           Polygon(
             points={{94,0},{65,12},{65,-11},{94,0}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
             fillPattern=FillPattern.Solid),
           Line(points={{-64,0},{-20,0}}),
           Line(points={{20,0},{65,0}}),
@@ -1116,11 +1092,9 @@ clarity this is not shown in the animation):
           Line(points={{76,47},{66,60},{55,69},{49,74},{41,80},{31,84},{20,85}}),
           Text(
             extent={{-144,124},{-106,102}},
-            lineColor={0,0,0},
             textString="f"),
           Text(
             extent={{20,124},{58,102}},
-            lineColor={0,0,0},
             textString="t")}),
       Documentation(info="<html>
 <p>
@@ -1333,17 +1307,14 @@ clarity this is not shown in the animation):
           extent={{-100,-100},{100,100}}), graphics={
           Ellipse(
             extent={{-95,-40},{-15,40}},
-            lineColor={0,0,0},
             fillPattern=FillPattern.Sphere,
             fillColor={192,192,192}),
           Ellipse(
             extent={{-85,-30},{-25,30}},
-            lineColor={0,0,0},
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid),
           Ellipse(
             extent={{15,-40},{95,40}},
-            lineColor={0,0,0},
             fillPattern=FillPattern.Sphere,
             fillColor={192,192,192}),
           Ellipse(
@@ -1362,12 +1333,10 @@ clarity this is not shown in the animation):
             fillPattern=FillPattern.Solid),
           Ellipse(
             extent={{-70,15},{-41,-13}},
-            lineColor={0,0,0},
             fillPattern=FillPattern.Sphere,
             fillColor={192,192,192}),
           Ellipse(
             extent={{40,14},{69,-14}},
-            lineColor={0,0,0},
             fillPattern=FillPattern.Sphere,
             fillColor={192,192,192}),
           Line(points={{-56,0},{-56,23},{-30,23},{-30,70},{-60,70},{-60,101}}),
@@ -1377,8 +1346,6 @@ clarity this is not shown in the animation):
             pattern=LinePattern.Dot),
           Ellipse(
             extent={{-8,8},{8,-8}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
             fillPattern=FillPattern.Solid),
           Ellipse(visible=fixedRotationAtFrame_a, extent={{-70,30},{-130,-30}}, lineColor={255,0,0}),
           Text(visible=fixedRotationAtFrame_a,
@@ -1405,17 +1372,14 @@ clarity this is not shown in the animation):
             lineColor={0,0,255}),
           Ellipse(
             extent={{-100,-40},{-20,40}},
-            lineColor={0,0,0},
             fillPattern=FillPattern.Sphere,
             fillColor={192,192,192}),
           Ellipse(
             extent={{-90,-30},{-30,30}},
-            lineColor={0,0,0},
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid),
           Ellipse(
             extent={{20,-40},{100,40}},
-            lineColor={0,0,0},
             fillPattern=FillPattern.Sphere,
             fillColor={192,192,192}),
           Ellipse(
@@ -1430,12 +1394,10 @@ clarity this is not shown in the animation):
             fillPattern=FillPattern.Solid),
           Ellipse(
             extent={{-74,15},{-45,-13}},
-            lineColor={0,0,0},
             fillPattern=FillPattern.Sphere,
             fillColor={192,192,192}),
           Ellipse(
             extent={{45,15},{74,-13}},
-            lineColor={0,0,0},
             fillPattern=FillPattern.Sphere,
             fillColor={192,192,192}),
           Line(points={{-60,0},{-60,24},{-40,24},{-40,60},{-60,60},{-60,100}}),
@@ -1445,8 +1407,6 @@ clarity this is not shown in the animation):
             pattern=LinePattern.Dot),
           Ellipse(
             extent={{-8,8},{8,-8}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
             fillPattern=FillPattern.Solid),
           Line(points={{-60,0},{-31,0}}, color={0,0,255}),
           Polygon(points={{-19,0},{-31,3},{-31,-3},{-19,0}}, lineColor={0,0,255}),
@@ -1454,12 +1414,10 @@ clarity this is not shown in the animation):
           Line(points={{0,0},{0,20}}, color={0,0,255}),
           Text(
             extent={{-49,-11},{-8,-21}},
-            lineColor={0,0,0},
             textString="e_rel_0"),
           Polygon(points={{0,16},{-12,19},{-12,13},{0,16}}, lineColor={0,0,255}),
           Text(
             extent={{-50,35},{51,26}},
-            lineColor={0,0,0},
             textString="length*lengthFraction"),
           Line(
             points={{-17,26},{-26,16}},
@@ -1707,17 +1665,14 @@ in the other flange connector.
           extent={{-100,-100},{100,100}}), graphics={
           Ellipse(
             extent={{-100,-40},{-20,40}},
-            lineColor={0,0,0},
             fillPattern=FillPattern.Sphere,
             fillColor={192,192,192}),
           Ellipse(
             extent={{-90,-30},{-30,30}},
-            lineColor={0,0,0},
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid),
           Ellipse(
             extent={{20,-40},{100,40}},
-            lineColor={0,0,0},
             fillPattern=FillPattern.Sphere,
             fillColor={192,192,192}),
           Ellipse(
@@ -1736,12 +1691,10 @@ in the other flange connector.
             fillPattern=FillPattern.Solid),
           Ellipse(
             extent={{-74,15},{-45,-13}},
-            lineColor={0,0,0},
             fillPattern=FillPattern.Sphere,
             fillColor={192,192,192}),
           Ellipse(
             extent={{45,14},{74,-14}},
-            lineColor={0,0,0},
             fillPattern=FillPattern.Sphere,
             fillColor={192,192,192}),
           Line(points={{-60,0},{-60,23},{-30,23},{-30,70},{-60,70},{-60,101}}),
@@ -1751,13 +1704,9 @@ in the other flange connector.
             pattern=LinePattern.Dot),
           Ellipse(
             extent={{23,8},{39,-8}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
             fillPattern=FillPattern.Solid),
           Ellipse(
             extent={{-39,8},{-23,-8}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
             fillPattern=FillPattern.Solid),
           Line(points={{-60,0},{-29,0}}),
           Line(points={{29,0},{60,0}}),
@@ -1786,17 +1735,14 @@ in the other flange connector.
             lineColor={0,0,255}),
           Ellipse(
             extent={{-100,-40},{-20,40}},
-            lineColor={0,0,0},
             fillPattern=FillPattern.Sphere,
             fillColor={192,192,192}),
           Ellipse(
             extent={{-90,-30},{-30,30}},
-            lineColor={0,0,0},
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid),
           Ellipse(
             extent={{20,-40},{100,40}},
-            lineColor={0,0,0},
             fillPattern=FillPattern.Sphere,
             fillColor={192,192,192}),
           Ellipse(
@@ -1811,12 +1757,10 @@ in the other flange connector.
             fillPattern=FillPattern.Solid),
           Ellipse(
             extent={{-74,15},{-45,-13}},
-            lineColor={0,0,0},
             fillPattern=FillPattern.Sphere,
             fillColor={192,192,192}),
           Ellipse(
             extent={{45,15},{74,-13}},
-            lineColor={0,0,0},
             fillPattern=FillPattern.Sphere,
             fillColor={192,192,192}),
           Line(points={{-60,0},{-60,24},{-40,24},{-40,60},{-60,60},{-60,110}}),
@@ -1826,8 +1770,6 @@ in the other flange connector.
             pattern=LinePattern.Dot),
           Ellipse(
             extent={{20,8},{36,-8}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
             fillPattern=FillPattern.Solid),
           Line(points={{-18,-18},{11,-18}}, color={0,0,255}),
           Polygon(points={{23,-18},{11,-15},{11,-21},{23,-18}}, lineColor={0,0,
@@ -1836,25 +1778,20 @@ in the other flange connector.
           Line(points={{-25,0},{-25,20}}, color={0,0,255}),
           Text(
             extent={{-38,-20},{33,-35}},
-            lineColor={0,0,0},
             textString="e_rel_0"),
           Polygon(points={{-25,16},{-37,19},{-37,13},{-25,16}}, lineColor={0,0,
                 255}),
           Text(
             extent={{-39,31},{-22,21}},
-            lineColor={0,0,0},
             textString="L_a"),
           Ellipse(
             extent={{-33,7},{-17,-9}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
             fillPattern=FillPattern.Solid),
           Line(points={{29,3},{29,22}}, color={0,0,255}),
           Line(points={{29,16},{60,16}}, color={0,0,255}),
           Polygon(points={{29,16},{41,19},{41,13},{29,16}}, lineColor={0,0,255}),
           Text(
             extent={{15,36},{32,26}},
-            lineColor={0,0,0},
             textString="L_b"),
           Line(
             points={{37,18},{30,27}},
@@ -2031,12 +1968,9 @@ in the other flange connector.
             lineColor={0,0,255}),
           Text(
             extent={{-150,-80},{150,-50}},
-            lineColor={0,0,0},
             textString="c=%c"),
           Ellipse(
             extent={{-8,8},{8,-8}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
             fillPattern=FillPattern.Solid),
           Ellipse(visible=fixedRotationAtFrame_a, extent={{-70,30},{-130,-30}}, lineColor={255,0,0}),
           Text(visible=fixedRotationAtFrame_a,
@@ -2170,7 +2104,6 @@ where a mass is hanging on a damper.
           Line(points={{-60,30},{60,30}}),
           Rectangle(
             extent={{-60,30},{30,-30}},
-            lineColor={0,0,0},
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid),
           Line(points={{30,0},{100,0}}),
@@ -2180,7 +2113,6 @@ where a mass is hanging on a damper.
             lineColor={0,0,255}),
           Text(
             extent={{-150,-75},{150,-45}},
-            lineColor={0,0,0},
             textString="d=%d"),
           Line(visible=useHeatPort,
             points={{-100,-99},{-100,-25},{-10,-25}},
@@ -2195,7 +2127,6 @@ where a mass is hanging on a damper.
           Line(points={{-60,30},{60,30}}),
           Rectangle(
             extent={{-60,30},{30,-30}},
-            lineColor={0,0,0},
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid),
           Line(points={{30,0},{100,0}}),
@@ -2283,7 +2214,6 @@ and der(s) is the time derivative of s.
           Line(points={{-80,-70},{-52,-70}}),
           Rectangle(
             extent={{-52,-40},{38,-100}},
-            lineColor={0,0,0},
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid),
           Line(points={{-52,-40},{68,-40}}),
@@ -2294,7 +2224,6 @@ and der(s) is the time derivative of s.
           Line(points={{80,0},{100,0}}),
           Text(
             extent={{-150,70},{150,100}},
-            lineColor={0,0,0},
             textString="d=%d"),
           Line(visible=useHeatPort,
             points={{-100,-101},{-100,-80},{-6,-80}},
@@ -2302,7 +2231,6 @@ and der(s) is the time derivative of s.
             pattern=LinePattern.Dot),
           Text(
             extent={{-150,105},{150,135}},
-            lineColor={0,0,0},
             textString="c=%c")}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -2325,7 +2253,6 @@ and der(s) is the time derivative of s.
             textString="s"),
           Rectangle(
             extent={{-52,-20},{38,-80}},
-            lineColor={0,0,0},
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid),
           Line(points={{-52,-80},{68,-80}}),
@@ -2390,7 +2317,6 @@ force element) and der(s_damper) is the time derivative of s_damper.
           Line(points={{-60,30},{-15,30}}),
           Rectangle(
             extent={{-60,30},{-30,-30}},
-            lineColor={0,0,0},
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid),
           Line(points={{-15,0},{-5,0},{5,-30},{25,30},{45,-30},{65,30},{75,0},{
@@ -2401,7 +2327,6 @@ force element) and der(s_damper) is the time derivative of s_damper.
             lineColor={0,0,255}),
           Text(
             extent={{-150,-65},{150,-35}},
-            lineColor={0,0,0},
             textString="c=%c"),
           Line(visible=useHeatPort,
             points={{-100,-99},{-100,-24},{-45,-24}},
@@ -2409,7 +2334,6 @@ force element) and der(s_damper) is the time derivative of s_damper.
             pattern=LinePattern.Dot),
           Text(
             extent={{-150,-100},{150,-70}},
-            lineColor={0,0,0},
             textString="d=%d")}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -2419,7 +2343,6 @@ force element) and der(s_damper) is the time derivative of s_damper.
           Line(points={{-60,30},{-15,30}}),
           Rectangle(
             extent={{-60,30},{-30,-30}},
-            lineColor={0,0,0},
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid),
           Line(points={{-15,0},{-5,0},{5,-30},{25,30},{45,-30},{65,30},{75,0},{
@@ -2527,8 +2450,6 @@ force element) and der(s_damper) is the time derivative of s_damper.
               pattern=LinePattern.Dot),
             Polygon(
               points={{-94,0},{-64,11},{-64,-10},{-94,0}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
               fillPattern=FillPattern.Solid),
             Line(
               points={{-60,100},{40,100}},
@@ -2536,8 +2457,6 @@ force element) and der(s_damper) is the time derivative of s_damper.
               pattern=LinePattern.Dot),
             Polygon(
               points={{94,0},{65,12},{65,-11},{94,0}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
               fillPattern=FillPattern.Solid),
             Line(points={{-64,0},{-20,0}}),
             Line(points={{20,0},{65,0}})}),
@@ -2653,8 +2572,6 @@ values from the outside in order that the model remains balanced
               lineColor={0,0,255}),
             Polygon(
               points={{100,20},{84,52},{69,39},{100,20}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
               fillPattern=FillPattern.Solid),
             Line(
               points={{40,100},{76,46}},
@@ -2662,8 +2579,6 @@ values from the outside in order that the model remains balanced
               pattern=LinePattern.Dot),
             Polygon(
               points={{-99,20},{-86,53},{-70,42},{-99,20}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
               fillPattern=FillPattern.Solid),
             Line(
               points={{-60,100},{40,100}},
@@ -2749,8 +2664,6 @@ values from the outside in order that the model remains balanced
                 {100,100}}), graphics={Polygon(
               points={{-100,10},{50,10},{50,31},{97,0},{50,-31},{50,-10},{-100,
                   -10},{-100,10}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
               fillPattern=FillPattern.Solid), Line(
               points={{0,-10},{0,-97}},
               color={95,95,95},
@@ -2764,8 +2677,6 @@ values from the outside in order that the model remains balanced
             Polygon(
               points={{-100,10},{50,10},{50,31},{94,0},{50,-31},{50,-10},{-100,
                   -10},{-100,10}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
               fillPattern=FillPattern.Solid),
             Text(
               extent={{-149,103},{136,42}},
@@ -2860,8 +2771,6 @@ values from the outside in order that the model remains balanced
               thickness=0.5),
             Polygon(
               points={{97,6},{75,59},{41,24},{97,6}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
               fillPattern=FillPattern.Solid)}),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
@@ -2884,8 +2793,6 @@ values from the outside in order that the model remains balanced
               thickness=0.5),
             Polygon(
               points={{94,10},{75,59},{41,24},{94,10}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
               fillPattern=FillPattern.Solid)}),
         Documentation(info="<html>
 <p>

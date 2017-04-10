@@ -27,7 +27,6 @@ package Interfaces
                 Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
               -100},{100,100}}), graphics={Ellipse(
             extent={{-40,40},{40,-40}},
-            lineColor={0,0,0},
             fillColor={0,127,255},
             fillPattern=FillPattern.Solid), Text(extent={{-150,110},{150,50}},
               textString="%name")}),
@@ -38,7 +37,6 @@ package Interfaces
             fillColor={0,127,255},
             fillPattern=FillPattern.Solid), Ellipse(
             extent={{-100,100},{100,-100}},
-            lineColor={0,0,0},
             fillColor={0,127,255},
             fillPattern=FillPattern.Solid)}));
   end FluidPort_a;
@@ -50,7 +48,6 @@ package Interfaces
               -100},{100,100}}), graphics={
           Ellipse(
             extent={{-40,40},{40,-40}},
-            lineColor={0,0,0},
             fillColor={0,127,255},
             fillPattern=FillPattern.Solid),
           Ellipse(
@@ -68,7 +65,6 @@ package Interfaces
             fillPattern=FillPattern.Solid),
           Ellipse(
             extent={{-100,100},{100,-100}},
-            lineColor={0,0,0},
             fillColor={0,127,255},
             fillPattern=FillPattern.Solid),
           Ellipse(
@@ -92,17 +88,14 @@ package Interfaces
             lineColor={0,127,255}),
           Ellipse(
             extent={{-25,90},{25,40}},
-            lineColor={0,0,0},
             fillColor={0,127,255},
             fillPattern=FillPattern.Solid),
           Ellipse(
             extent={{-25,25},{25,-25}},
-            lineColor={0,0,0},
             fillColor={0,127,255},
             fillPattern=FillPattern.Solid),
           Ellipse(
             extent={{-25,-40},{25,-90}},
-            lineColor={0,0,0},
             fillColor={0,127,255},
             fillPattern=FillPattern.Solid)}),
          Icon(coordinateSystem(
@@ -116,17 +109,14 @@ package Interfaces
             fillPattern=FillPattern.Solid),
           Ellipse(
             extent={{-50,180},{50,80}},
-            lineColor={0,0,0},
             fillColor={0,127,255},
             fillPattern=FillPattern.Solid),
           Ellipse(
             extent={{-50,50},{50,-50}},
-            lineColor={0,0,0},
             fillColor={0,127,255},
             fillPattern=FillPattern.Solid),
           Ellipse(
             extent={{-50,-80},{50,-180}},
-            lineColor={0,0,0},
             fillColor={0,127,255},
             fillPattern=FillPattern.Solid)}));
   end FluidPorts_a;
@@ -141,21 +131,17 @@ package Interfaces
           initialScale=0.2), graphics={
           Text(extent={{-75,130},{75,100}}, textString="%name"),
           Rectangle(
-            extent={{-25,100},{25,-100}},
-            lineColor={0,0,0}),
+            extent={{-25,100},{25,-100}}),
           Ellipse(
             extent={{-25,90},{25,40}},
-            lineColor={0,0,0},
             fillColor={0,127,255},
             fillPattern=FillPattern.Solid),
           Ellipse(
             extent={{-25,25},{25,-25}},
-            lineColor={0,0,0},
             fillColor={0,127,255},
             fillPattern=FillPattern.Solid),
           Ellipse(
             extent={{-25,-40},{25,-90}},
-            lineColor={0,0,0},
             fillColor={0,127,255},
             fillPattern=FillPattern.Solid),
           Ellipse(
@@ -184,17 +170,14 @@ package Interfaces
             fillPattern=FillPattern.Solid),
           Ellipse(
             extent={{-50,180},{50,80}},
-            lineColor={0,0,0},
             fillColor={0,127,255},
             fillPattern=FillPattern.Solid),
           Ellipse(
             extent={{-50,50},{50,-50}},
-            lineColor={0,0,0},
             fillColor={0,127,255},
             fillPattern=FillPattern.Solid),
           Ellipse(
             extent={{-50,-80},{50,-180}},
-            lineColor={0,0,0},
             fillColor={0,127,255},
             fillPattern=FillPattern.Solid),
           Ellipse(
@@ -283,14 +266,10 @@ This will be visualized at the port icons, in order to improve the understanding
             textString="%name"),
           Ellipse(
             extent={{-110,26},{-90,-24}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
             fillPattern=FillPattern.Solid,
             visible=port_a_exposesState),
           Ellipse(
             extent={{90,25},{110,-25}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
             fillPattern=FillPattern.Solid,
             visible=port_b_exposesState)}));
   end PartialTwoPort;

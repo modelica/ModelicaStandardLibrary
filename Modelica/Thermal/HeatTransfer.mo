@@ -315,12 +315,10 @@ Simulate for 7200 s; plot Twinding.T and Tcore.T.
                   -73},{-22,-73},{-30,-71},{-40,-65},{-50,-55},{-56,-43},{-58,-35},
                   {-58,-25},{-60,-13},{-60,-5},{-60,7},{-58,17},{-56,19},{-52,
                   27},{-48,35},{-44,45},{-40,57},{-58,35}},
-              lineColor={0,0,0},
               fillColor={160,160,164},
               fillPattern=FillPattern.Solid),
             Text(
               extent={{-69,7},{71,-24}},
-              lineColor={0,0,0},
               textString="%C")}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
@@ -342,7 +340,6 @@ Simulate for 7200 s; plot Twinding.T and Tcore.T.
                   -73},{-22,-73},{-30,-71},{-40,-65},{-50,-55},{-56,-43},{-58,-35},
                   {-58,-25},{-60,-13},{-60,-5},{-60,7},{-58,17},{-56,19},{-52,
                   27},{-48,35},{-44,45},{-40,57},{-58,35}},
-              lineColor={0,0,0},
               fillColor={160,160,164},
               fillPattern=FillPattern.Solid),
             Ellipse(
@@ -352,7 +349,6 @@ Simulate for 7200 s; plot Twinding.T and Tcore.T.
               fillPattern=FillPattern.Solid),
             Text(
               extent={{11,13},{50,-25}},
-              lineColor={0,0,0},
               textString="T"),
             Line(points={{0,-12},{0,-96}}, color={255,0,0})}),
         Documentation(info="<html>
@@ -420,7 +416,6 @@ compute C:
                 100,100}}), graphics={
             Rectangle(
               extent={{-90,70},{90,-70}},
-              lineColor={0,0,0},
               pattern=LinePattern.None,
               fillColor={192,192,192},
               fillPattern=FillPattern.Backward),
@@ -436,7 +431,6 @@ compute C:
               lineColor={0,0,255}),
             Text(
               extent={{-150,-75},{150,-105}},
-              lineColor={0,0,0},
               textString="G=%G")}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
@@ -451,7 +445,6 @@ compute C:
               textString="Q_flow"),
             Text(
               extent={{-100,40},{100,20}},
-              lineColor={0,0,0},
               textString="dT = port_a.T - port_b.T")}),
         Documentation(info="<html>
 <p>
@@ -516,7 +509,6 @@ e.g., with one of the following equations:
                 100,100}}), graphics={
             Rectangle(
               extent={{-90,70},{90,-70}},
-              lineColor={0,0,0},
               pattern=LinePattern.None,
               fillColor={192,192,192},
               fillPattern=FillPattern.Forward),
@@ -532,7 +524,6 @@ e.g., with one of the following equations:
               lineColor={0,0,255}),
             Text(
               extent={{-150,-75},{150,-105}},
-              lineColor={0,0,0},
               textString="R=%R")}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
@@ -547,7 +538,6 @@ e.g., with one of the following equations:
               textString="Q_flow"),
             Text(
               extent={{-100,40},{100,20}},
-              lineColor={0,0,0},
               textString="dT = port_a.T - port_b.T")}),
         Documentation(info="<html>
 <p>
@@ -589,7 +579,6 @@ especially if it shall be allowed that a ThermalResistance is defined to be zero
               fillPattern=FillPattern.Solid),
             Rectangle(
               extent={{-90,80},{-60,-80}},
-              lineColor={0,0,0},
               fillColor={192,192,192},
               fillPattern=FillPattern.Backward),
             Text(
@@ -617,7 +606,6 @@ especially if it shall be allowed that a ThermalResistance is defined to be zero
             Line(points={{56,30},{76,20}}, color={191,0,0}),
             Text(
               extent={{22,124},{92,98}},
-              lineColor={0,0,0},
               textString="Gc")}),
         Documentation(info="<html>
 <p>
@@ -684,7 +672,6 @@ McGraw-Hill, 1997, p.270):
                 {100,100}}), graphics={
             Rectangle(
               extent={{-90,80},{-60,-80}},
-              lineColor={0,0,0},
               fillColor={192,192,192},
               fillPattern=FillPattern.Backward),
             Line(points={{100,0},{100,0}}, color={0,127,255}),
@@ -743,7 +730,6 @@ McGraw-Hill, 1997, p.270):
               fillPattern=FillPattern.Solid),
             Rectangle(
               extent={{-90,80},{-60,-80}},
-              lineColor={0,0,0},
               fillColor={192,192,192},
               fillPattern=FillPattern.Forward),
             Text(
@@ -771,7 +757,6 @@ McGraw-Hill, 1997, p.270):
             Line(points={{56,30},{76,20}}, color={191,0,0}),
             Text(
               extent={{22,124},{92,98}},
-              lineColor={0,0,0},
               textString="Rc")}),
         Documentation(info="<html>
 <p>
@@ -785,7 +770,6 @@ especially if it shall be allowed that a convective resistance is defined to be 
                 100}}),      graphics={
             Rectangle(
               extent={{-90,80},{-60,-80}},
-              lineColor={0,0,0},
               fillColor={192,192,192},
               fillPattern=FillPattern.Forward),
             Line(points={{100,0},{100,0}}, color={0,127,255}),
@@ -826,12 +810,10 @@ especially if it shall be allowed that a convective resistance is defined to be 
                 100,100}}), graphics={
             Rectangle(
               extent={{50,80},{90,-80}},
-              lineColor={0,0,0},
               fillColor={192,192,192},
               fillPattern=FillPattern.Backward),
             Rectangle(
               extent={{-90,80},{-50,-80}},
-              lineColor={0,0,0},
               fillColor={192,192,192},
               fillPattern=FillPattern.Backward),
             Line(points={{-36,10},{36,10}}, color={191,0,0}),
@@ -852,7 +834,6 @@ especially if it shall be allowed that a convective resistance is defined to be 
               lineColor={0,0,255}),
             Text(
               extent={{-150,-90},{150,-120}},
-              lineColor={0,0,0},
               textString="Gr=%Gr"),
             Rectangle(
               extent={{-50,80},{-44,-80}},
@@ -931,7 +912,6 @@ place from the inner to the outer cylinder):
                 100,100}}), graphics={
             Rectangle(
               extent={{-90,80},{-56,-80}},
-              lineColor={0,0,0},
               fillColor={192,192,192},
               fillPattern=FillPattern.Backward),
             Line(
@@ -942,7 +922,6 @@ place from the inner to the outer cylinder):
               thickness=1),
             Rectangle(
               extent={{50,80},{90,-80}},
-              lineColor={0,0,0},
               fillColor={192,192,192},
               fillPattern=FillPattern.Backward),
             Line(points={{-40,10},{40,10}}, color={191,0,0}),
@@ -977,7 +956,6 @@ place from the inner to the outer cylinder):
               lineColor={0,0,255}),
             Text(
               extent={{-150,80},{150,50}},
-              lineColor={0,0,0},
               textString="m=%m"),
             Line(
               points={{0,90},{0,40}},
@@ -1106,7 +1084,6 @@ This is a model to collect the heat flows from <i>m</i> heatports to one single 
                 100,100}}), graphics={
             Ellipse(
               extent={{-20,-98},{20,-60}},
-              lineColor={0,0,0},
               lineThickness=0.5,
               fillColor={191,0,0},
               fillPattern=FillPattern.Solid),
@@ -1120,7 +1097,6 @@ This is a model to collect the heat flows from <i>m</i> heatports to one single 
             Polygon(
               points={{-12,40},{-12,80},{-10,86},{-6,88},{0,90},{6,88},{10,86},{
                   12,80},{12,40},{-12,40}},
-              lineColor={0,0,0},
               lineThickness=0.5),
             Line(
               points={{-12,40},{-12,-64}},
@@ -1133,13 +1109,11 @@ This is a model to collect the heat flows from <i>m</i> heatports to one single 
             Line(points={{-40,60},{-12,60}}),
             Text(
               extent={{102,-28},{60,-78}},
-              lineColor={0,0,0},
               textString="K")}),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Ellipse(
               extent={{-20,-98},{20,-60}},
-              lineColor={0,0,0},
               lineThickness=0.5,
               fillColor={191,0,0},
               fillPattern=FillPattern.Solid),
@@ -1153,7 +1127,6 @@ This is a model to collect the heat flows from <i>m</i> heatports to one single 
             Polygon(
               points={{-12,40},{-12,80},{-10,86},{-6,88},{0,90},{6,88},{10,86},
                   {12,80},{12,40},{-12,40}},
-              lineColor={0,0,0},
               lineThickness=0.5),
             Line(
               points={{-12,40},{-12,-64}},
@@ -1166,7 +1139,6 @@ This is a model to collect the heat flows from <i>m</i> heatports to one single 
             Line(points={{-40,60},{-12,60}}),
             Text(
               extent={{126,-20},{26,-120}},
-              lineColor={0,0,0},
               textString="K"),
             Text(
               extent={{-150,130},{150,90}},
@@ -1213,7 +1185,6 @@ sensor model.
               lineColor={0,0,255}),
             Text(
               extent={{92,-62},{34,-122}},
-              lineColor={0,0,0},
               textString="K")}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
@@ -1223,7 +1194,6 @@ sensor model.
             Line(points={{0,-30},{0,-80}}, color={0,0,255}),
             Text(
               extent={{64,-74},{32,-102}},
-              lineColor={0,0,0},
               textString="K")}),
         Documentation(info="<html>
 <p>
@@ -1259,7 +1229,6 @@ the two ports of this component and is provided as output signal in Kelvin.
                 100,100}}), graphics={
             Text(
               extent={{5,-86},{116,-110}},
-              lineColor={0,0,0},
               textString="Q_flow"),
             Line(points={{-70,0},{-90,0}}, color={191,0,0}),
             Line(points={{69,0},{90,0}}, color={191,0,0}),
@@ -1371,17 +1340,14 @@ To avoid a singular equation system, the temperature of the sensor is set to 293
               lineColor={0,0,255}),
             Text(
               extent={{-150,-110},{150,-140}},
-              lineColor={0,0,0},
               textString="T=%T"),
             Rectangle(
               extent={{-100,100},{100,-100}},
-              lineColor={0,0,0},
               pattern=LinePattern.None,
               fillColor={159,159,223},
               fillPattern=FillPattern.Backward),
             Text(
               extent={{0,0},{-100,-100}},
-              lineColor={0,0,0},
               textString="K"),
             Line(
               points={{-52,0},{56,0}},
@@ -1401,7 +1367,6 @@ i.e., it defines a fixed temperature as a boundary condition.
                 100,100}}), graphics={
             Rectangle(
               extent={{-100,100},{100,-101}},
-              lineColor={0,0,0},
               pattern=LinePattern.None,
               fillColor={159,159,223},
               fillPattern=FillPattern.Backward),
@@ -1411,7 +1376,6 @@ i.e., it defines a fixed temperature as a boundary condition.
               thickness=0.5),
             Text(
               extent={{0,0},{-100,-100}},
-              lineColor={0,0,0},
               textString="K"),
             Polygon(
               points={{52,-20},{52,20},{90,0},{52,-20}},
@@ -1434,7 +1398,6 @@ i.e., it defines a fixed temperature as a boundary condition.
                 100,100}}), graphics={
             Rectangle(
               extent={{-100,100},{100,-100}},
-              lineColor={0,0,0},
               pattern=LinePattern.None,
               fillColor={159,159,223},
               fillPattern=FillPattern.Backward),
@@ -1444,7 +1407,6 @@ i.e., it defines a fixed temperature as a boundary condition.
               thickness=0.5),
             Text(
               extent={{0,0},{-100,-100}},
-              lineColor={0,0,0},
               textString="K"),
             Text(
               extent={{-150,150},{150,110}},
@@ -1467,13 +1429,11 @@ as required to keep the temperature at the specified value.
                 100,100}}), graphics={
             Rectangle(
               extent={{-100,100},{100,-100}},
-              lineColor={0,0,0},
               pattern=LinePattern.None,
               fillColor={159,159,223},
               fillPattern=FillPattern.Backward),
             Text(
               extent={{0,0},{-100,-100}},
-              lineColor={0,0,0},
               textString="K"),
             Line(
               points={{-102,0},{64,0}},
@@ -1506,7 +1466,6 @@ as required to keep the temperature at the specified value.
               lineColor={0,0,255}),
             Text(
               extent={{-150,-55},{150,-85}},
-              lineColor={0,0,0},
               textString="Q_flow=%Q_flow"),
             Line(
               points={{-100,-20},{48,-20}},
@@ -1535,7 +1494,6 @@ as required to keep the temperature at the specified value.
                 {100,100}}), graphics={
             Text(
               extent={{-100,40},{0,-36}},
-              lineColor={0,0,0},
               textString="Q_flow=const."),
             Line(
               points={{-48,-20},{60,-20}},
@@ -1685,17 +1643,14 @@ in order to simulate temperature dependent losses (which are given with respect 
                 {100,100}}), graphics={
             Ellipse(
               extent={{-40,40},{40,-40}},
-              lineColor={0,0,0},
               lineThickness=0.5,
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
             Text(
               extent={{-40,-50},{-99,-99}},
-              lineColor={0,0,0},
               textString="degC"),
             Text(
               extent={{100,-47},{44,-100}},
-              lineColor={0,0,0},
               textString="K"),
             Line(points={{-100,0},{-40,0}}, color={0,0,255}),
             Line(points={{41,0},{100,0}}, color={0,0,255})}),
@@ -1703,17 +1658,14 @@ in order to simulate temperature dependent losses (which are given with respect 
                 100,100}}), graphics={
             Ellipse(
               extent={{-40,40},{40,-40}},
-              lineColor={0,0,0},
               lineThickness=0.5,
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
             Text(
               extent={{124,-38},{52,-94}},
-              lineColor={0,0,0},
               textString="K"),
             Text(
               extent={{-62,-38},{-141,-97}},
-              lineColor={0,0,0},
               textString="degC"),
             Line(points={{-41,0},{-100,0}}, color={0,0,255}),
             Line(points={{100,0},{40,0}}, color={0,0,255}),
@@ -1746,17 +1698,14 @@ and provide is as output signal.
               lineColor={0,0,255}),
             Ellipse(
               extent={{-40,40},{40,-40}},
-              lineColor={0,0,0},
               lineThickness=0.5,
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
             Text(
               extent={{-72,-46},{-152,-108}},
-              lineColor={0,0,0},
               textString="K"),
             Text(
               extent={{122,-48},{38,-109}},
-              lineColor={0,0,0},
               textString="degC"),
             Line(points={{-40,0},{-100,0}}, color={0,0,255}),
             Line(points={{40,0},{100,0}}, color={0,0,255})}),
@@ -1764,17 +1713,14 @@ and provide is as output signal.
                 {100,100}}), graphics={
             Ellipse(
               extent={{-40,40},{40,-40}},
-              lineColor={0,0,0},
               lineThickness=0.5,
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
             Text(
               extent={{-42,-41},{-101,-98}},
-              lineColor={0,0,0},
               textString="K"),
             Text(
               extent={{100,-40},{30,-100}},
-              lineColor={0,0,0},
               textString="degC"),
             Line(points={{-100,0},{-40,0}}, color={0,0,255}),
             Line(points={{40,0},{100,0}}, color={0,0,255})}),
@@ -1803,13 +1749,11 @@ and provides is as output signal.
               lineColor={0,0,255}),
             Rectangle(
               extent={{-100,100},{100,-100}},
-              lineColor={0,0,0},
               pattern=LinePattern.None,
               fillColor={159,159,223},
               fillPattern=FillPattern.Backward),
             Text(
               extent={{0,0},{-100,-100}},
-              lineColor={0,0,0},
               textString="degC"),
             Polygon(
               points={{52,-20},{52,20},{90,0},{52,-20}},
@@ -1818,7 +1762,6 @@ and provides is as output signal.
               fillPattern=FillPattern.Solid),
             Text(
               extent={{-150,-110},{150,-140}},
-              lineColor={0,0,0},
               textString="T=%T"),
             Line(
               points={{-42,0},{66,0}},
@@ -1833,7 +1776,6 @@ i.e., it defines a fixed temperature as a boundary condition.
                 {100,100}}), graphics={
             Rectangle(
               extent={{-100,100},{100,-100}},
-              lineColor={0,0,0},
               pattern=LinePattern.None,
               fillColor={159,159,223},
               fillPattern=FillPattern.Backward),
@@ -1843,7 +1785,6 @@ i.e., it defines a fixed temperature as a boundary condition.
               thickness=0.5),
             Text(
               extent={{0,0},{-100,-100}},
-              lineColor={0,0,0},
               textString="degC"),
             Polygon(
               points={{52,-20},{52,20},{90,0},{52,-20}},
@@ -1866,7 +1807,6 @@ i.e., it defines a fixed temperature as a boundary condition.
                 100,100}}), graphics={
             Rectangle(
               extent={{-100,100},{100,-100}},
-              lineColor={0,0,0},
               pattern=LinePattern.None,
               fillColor={159,159,223},
               fillPattern=FillPattern.Backward),
@@ -1876,7 +1816,6 @@ i.e., it defines a fixed temperature as a boundary condition.
               thickness=0.5),
             Text(
               extent={{0,0},{-100,-100}},
-              lineColor={0,0,0},
               textString="degC"),
             Text(
               extent={{-150,150},{150,110}},
@@ -1903,7 +1842,6 @@ as required to keep the temperature at the specified value.
                 {100,100}}), graphics={
             Rectangle(
               extent={{-100,100},{100,-100}},
-              lineColor={0,0,0},
               pattern=LinePattern.None,
               fillColor={159,159,223},
               fillPattern=FillPattern.Backward),
@@ -1913,7 +1851,6 @@ as required to keep the temperature at the specified value.
               thickness=0.5),
             Text(
               extent={{0,0},{-100,-100}},
-              lineColor={0,0,0},
               textString="degC"),
             Polygon(
               points={{52,-20},{52,20},{90,0},{52,-20}},
@@ -1938,7 +1875,6 @@ as required to keep the temperature at the specified value.
                 {100,100}}), graphics={
             Ellipse(
               extent={{-20,-98},{20,-60}},
-              lineColor={0,0,0},
               lineThickness=0.5,
               fillColor={191,0,0},
               fillPattern=FillPattern.Solid),
@@ -1952,7 +1888,6 @@ as required to keep the temperature at the specified value.
             Polygon(
               points={{-12,40},{-12,80},{-10,86},{-6,88},{0,90},{6,88},{10,86},
                   {12,80},{12,40},{-12,40}},
-              lineColor={0,0,0},
               lineThickness=0.5),
             Line(
               points={{-12,40},{-12,-64}},
@@ -1965,13 +1900,11 @@ as required to keep the temperature at the specified value.
             Line(points={{-40,60},{-12,60}}),
             Text(
               extent={{102,-22},{60,-74}},
-              lineColor={0,0,0},
               textString="degC")}),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Ellipse(
               extent={{-20,-98},{20,-60}},
-              lineColor={0,0,0},
               lineThickness=0.5,
               fillColor={191,0,0},
               fillPattern=FillPattern.Solid),
@@ -1985,7 +1918,6 @@ as required to keep the temperature at the specified value.
             Polygon(
               points={{-12,40},{-12,80},{-10,86},{-6,88},{0,90},{6,88},{10,86},
                   {12,80},{12,40},{-12,40}},
-              lineColor={0,0,0},
               lineThickness=0.5),
             Line(
               points={{-12,40},{-12,-64}},
@@ -1998,7 +1930,6 @@ as required to keep the temperature at the specified value.
             Line(points={{-40,60},{-12,60}}),
             Text(
               extent={{150,-22},{30,-92}},
-              lineColor={0,0,0},
               textString="degC"),
             Text(
               extent={{-150,135},{150,95}},
@@ -2051,17 +1982,14 @@ Example:
         Diagram(graphics={
             Ellipse(
               extent={{-40,40},{40,-40}},
-              lineColor={0,0,0},
               lineThickness=0.5,
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
             Text(
               extent={{-40,-50},{-99,-99}},
-              lineColor={0,0,0},
               textString="degF"),
             Text(
               extent={{100,-47},{44,-100}},
-              lineColor={0,0,0},
               textString="K"),
             Line(points={{-100,0},{-40,0}}, color={0,0,255}),
             Line(points={{41,0},{100,0}}, color={0,0,255})}),
@@ -2069,13 +1997,11 @@ Example:
                 100,100}}), graphics={
             Ellipse(
               extent={{-40,40},{40,-40}},
-              lineColor={0,0,0},
               lineThickness=0.5,
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
             Text(
               extent={{130,-42},{38,-94}},
-              lineColor={0,0,0},
               textString="K"),
             Line(points={{-41,0},{-100,0}}, color={0,0,255}),
             Line(points={{100,0},{40,0}}, color={0,0,255}),
@@ -2085,7 +2011,6 @@ Example:
               lineColor={0,0,255}),
             Text(
               extent={{-42,-44},{-153,-91}},
-              lineColor={0,0,0},
               textString="degF")}),
         Documentation(info="<html>
 <p>
@@ -2112,34 +2037,28 @@ and provides is as output signal.
               lineColor={0,0,255}),
             Ellipse(
               extent={{-40,40},{40,-40}},
-              lineColor={0,0,0},
               lineThickness=0.5,
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
             Text(
               extent={{-60,-52},{-144,-96}},
-              lineColor={0,0,0},
               textString="K"),
             Line(points={{-40,0},{-100,0}}, color={0,0,255}),
             Line(points={{40,0},{100,0}}, color={0,0,255}),
             Text(
               extent={{138,-52},{27,-99}},
-              lineColor={0,0,0},
               textString="degF")}),
         Diagram(graphics={
             Ellipse(
               extent={{-40,40},{40,-40}},
-              lineColor={0,0,0},
               lineThickness=0.5,
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
             Text(
               extent={{-42,-41},{-101,-98}},
-              lineColor={0,0,0},
               textString="K"),
             Text(
               extent={{100,-40},{30,-100}},
-              lineColor={0,0,0},
               textString="degF"),
             Line(points={{-100,0},{-40,0}}, color={0,0,255}),
             Line(points={{40,0},{100,0}}, color={0,0,255})}),
@@ -2168,13 +2087,11 @@ and provides them as output signals.
               lineColor={0,0,255}),
             Rectangle(
               extent={{-100,100},{100,-100}},
-              lineColor={0,0,0},
               pattern=LinePattern.None,
               fillColor={159,159,223},
               fillPattern=FillPattern.Backward),
             Text(
               extent={{0,0},{-100,-100}},
-              lineColor={0,0,0},
               textString="degF"),
             Polygon(
               points={{52,-20},{52,20},{90,0},{52,-20}},
@@ -2183,7 +2100,6 @@ and provides them as output signals.
               fillPattern=FillPattern.Solid),
             Text(
               extent={{-150,-110},{150,-140}},
-              lineColor={0,0,0},
               textString="T=%T"),
             Line(
               points={{-42,0},{66,0}},
@@ -2198,7 +2114,6 @@ i.e., it defines a fixed temperature as a boundary condition.
                 {100,100}}), graphics={
             Rectangle(
               extent={{-100,100},{100,-100}},
-              lineColor={0,0,0},
               pattern=LinePattern.None,
               fillColor={159,159,223},
               fillPattern=FillPattern.Backward),
@@ -2208,7 +2123,6 @@ i.e., it defines a fixed temperature as a boundary condition.
               thickness=0.5),
             Text(
               extent={{0,0},{-100,-100}},
-              lineColor={0,0,0},
               textString="degF"),
             Polygon(
               points={{52,-20},{52,20},{90,0},{52,-20}},
@@ -2231,7 +2145,6 @@ i.e., it defines a fixed temperature as a boundary condition.
                 100,100}}), graphics={
             Rectangle(
               extent={{-100,100},{100,-100}},
-              lineColor={0,0,0},
               pattern=LinePattern.None,
               fillColor={159,159,223},
               fillPattern=FillPattern.Backward),
@@ -2241,7 +2154,6 @@ i.e., it defines a fixed temperature as a boundary condition.
               thickness=0.5),
             Text(
               extent={{0,0},{-100,-100}},
-              lineColor={0,0,0},
               textString="degF"),
             Text(
               extent={{-150,150},{150,110}},
@@ -2267,7 +2179,6 @@ as required to keep the temperature at the specified value.
 </html>"),     Diagram(graphics={
             Rectangle(
               extent={{-100,100},{100,-100}},
-              lineColor={0,0,0},
               pattern=LinePattern.None,
               fillColor={159,159,223},
               fillPattern=FillPattern.Backward),
@@ -2277,7 +2188,6 @@ as required to keep the temperature at the specified value.
               thickness=0.5),
             Text(
               extent={{0,0},{-100,-100}},
-              lineColor={0,0,0},
               textString="degF"),
             Polygon(
               points={{52,-20},{52,20},{90,0},{52,-20}},
@@ -2299,7 +2209,6 @@ as required to keep the temperature at the specified value.
         Diagram(graphics={
             Ellipse(
               extent={{-20,-98},{20,-60}},
-              lineColor={0,0,0},
               lineThickness=0.5,
               fillColor={191,0,0},
               fillPattern=FillPattern.Solid),
@@ -2313,7 +2222,6 @@ as required to keep the temperature at the specified value.
             Polygon(
               points={{-12,40},{-12,80},{-10,86},{-6,88},{0,90},{6,88},{10,86},
                   {12,80},{12,40},{-12,40}},
-              lineColor={0,0,0},
               lineThickness=0.5),
             Line(
               points={{-12,40},{-12,-64}},
@@ -2326,13 +2234,11 @@ as required to keep the temperature at the specified value.
             Line(points={{-40,60},{-12,60}}),
             Text(
               extent={{102,-22},{60,-74}},
-              lineColor={0,0,0},
               textString="degF")}),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Ellipse(
               extent={{-20,-98},{20,-60}},
-              lineColor={0,0,0},
               lineThickness=0.5,
               fillColor={191,0,0},
               fillPattern=FillPattern.Solid),
@@ -2346,7 +2252,6 @@ as required to keep the temperature at the specified value.
             Polygon(
               points={{-12,40},{-12,80},{-10,86},{-6,88},{0,90},{6,88},{10,86},
                   {12,80},{12,40},{-12,40}},
-              lineColor={0,0,0},
               lineThickness=0.5),
             Line(
               points={{-12,40},{-12,-64}},
@@ -2359,7 +2264,6 @@ as required to keep the temperature at the specified value.
             Line(points={{-40,60},{-12,60}}),
             Text(
               extent={{150,-22},{30,-92}},
-              lineColor={0,0,0},
               textString="degF"),
             Text(
               extent={{-150,135},{150,95}},
@@ -2412,17 +2316,14 @@ Example:
         Diagram(graphics={
             Ellipse(
               extent={{-40,40},{40,-40}},
-              lineColor={0,0,0},
               lineThickness=0.5,
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
             Text(
               extent={{-40,-50},{-99,-99}},
-              lineColor={0,0,0},
               textString="degRk"),
             Text(
               extent={{100,-47},{44,-100}},
-              lineColor={0,0,0},
               textString="K"),
             Line(points={{-100,0},{-40,0}}, color={0,0,255}),
             Line(points={{41,0},{100,0}}, color={0,0,255})}),
@@ -2430,17 +2331,14 @@ Example:
                 100,100}}), graphics={
             Ellipse(
               extent={{-40,40},{40,-40}},
-              lineColor={0,0,0},
               lineThickness=0.5,
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
             Text(
               extent={{140,-38},{56,-94}},
-              lineColor={0,0,0},
               textString="K"),
             Text(
               extent={{-44,-42},{-155,-89}},
-              lineColor={0,0,0},
               textString="degRk"),
             Line(points={{-41,0},{-100,0}}, color={0,0,255}),
             Line(points={{100,0},{40,0}}, color={0,0,255}),
@@ -2473,34 +2371,28 @@ and provides them as output signals.
               lineColor={0,0,255}),
             Ellipse(
               extent={{-40,40},{40,-40}},
-              lineColor={0,0,0},
               lineThickness=0.5,
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
             Text(
               extent={{-54,-38},{-162,-90}},
-              lineColor={0,0,0},
               textString="K"),
             Text(
               extent={{142,-48},{26,-91}},
-              lineColor={0,0,0},
               textString="degRk"),
             Line(points={{-40,0},{-100,0}}, color={0,0,255}),
             Line(points={{40,0},{100,0}}, color={0,0,255})}),
         Diagram(graphics={
             Ellipse(
               extent={{-40,40},{40,-40}},
-              lineColor={0,0,0},
               lineThickness=0.5,
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
             Text(
               extent={{-42,-41},{-101,-98}},
-              lineColor={0,0,0},
               textString="K"),
             Text(
               extent={{100,-40},{30,-100}},
-              lineColor={0,0,0},
               textString="degRk"),
             Line(points={{-100,0},{-40,0}}, color={0,0,255}),
             Line(points={{40,0},{100,0}}, color={0,0,255})}),
@@ -2529,13 +2421,11 @@ and provides them as output signals.
               lineColor={0,0,255}),
             Rectangle(
               extent={{-100,100},{100,-100}},
-              lineColor={0,0,0},
               pattern=LinePattern.None,
               fillColor={159,159,223},
               fillPattern=FillPattern.Backward),
             Text(
               extent={{48,-22},{-100,-86}},
-              lineColor={0,0,0},
               textString="degRk"),
             Polygon(
               points={{52,-20},{52,20},{90,0},{52,-20}},
@@ -2544,7 +2434,6 @@ and provides them as output signals.
               fillPattern=FillPattern.Solid),
             Text(
               extent={{-150,-110},{150,-150}},
-              lineColor={0,0,0},
               textString="T=%T"),
             Line(
               points={{-42,0},{66,0}},
@@ -2559,7 +2448,6 @@ This model defines a fixed temperature T at its port in degree Rankine,
                 {100,100}}), graphics={
             Rectangle(
               extent={{-100,100},{100,-100}},
-              lineColor={0,0,0},
               pattern=LinePattern.None,
               fillColor={159,159,223},
               fillPattern=FillPattern.Backward),
@@ -2569,7 +2457,6 @@ This model defines a fixed temperature T at its port in degree Rankine,
               thickness=0.5),
             Text(
               extent={{0,0},{-100,-100}},
-              lineColor={0,0,0},
               textString="degRk"),
             Polygon(
               points={{52,-20},{52,20},{90,0},{52,-20}},
@@ -2592,7 +2479,6 @@ This model defines a fixed temperature T at its port in degree Rankine,
                 100,100}}), graphics={
             Rectangle(
               extent={{-100,100},{100,-100}},
-              lineColor={0,0,0},
               pattern=LinePattern.None,
               fillColor={159,159,223},
               fillPattern=FillPattern.Backward),
@@ -2602,7 +2488,6 @@ This model defines a fixed temperature T at its port in degree Rankine,
               thickness=0.5),
             Text(
               extent={{56,-34},{-100,-100}},
-              lineColor={0,0,0},
               textString="degRk"),
             Text(
               extent={{-150,150},{150,110}},
@@ -2628,7 +2513,6 @@ as required to keep the temperature at the specified value.
 </html>"),     Diagram(graphics={
             Rectangle(
               extent={{-100,100},{100,-100}},
-              lineColor={0,0,0},
               pattern=LinePattern.None,
               fillColor={159,159,223},
               fillPattern=FillPattern.Backward),
@@ -2638,7 +2522,6 @@ as required to keep the temperature at the specified value.
               thickness=0.5),
             Text(
               extent={{0,0},{-100,-100}},
-              lineColor={0,0,0},
               textString="degRk"),
             Polygon(
               points={{52,-20},{52,20},{90,0},{52,-20}},
@@ -2660,7 +2543,6 @@ as required to keep the temperature at the specified value.
         Diagram(graphics={
             Ellipse(
               extent={{-20,-98},{20,-60}},
-              lineColor={0,0,0},
               lineThickness=0.5,
               fillColor={191,0,0},
               fillPattern=FillPattern.Solid),
@@ -2674,7 +2556,6 @@ as required to keep the temperature at the specified value.
             Polygon(
               points={{-12,40},{-12,80},{-10,86},{-6,88},{0,90},{6,88},{10,86},
                   {12,80},{12,40},{-12,40}},
-              lineColor={0,0,0},
               lineThickness=0.5),
             Line(
               points={{-12,40},{-12,-64}},
@@ -2687,13 +2568,11 @@ as required to keep the temperature at the specified value.
             Line(points={{-40,60},{-12,60}}),
             Text(
               extent={{102,-22},{60,-74}},
-              lineColor={0,0,0},
               textString="degRk")}),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Ellipse(
               extent={{-20,-98},{20,-60}},
-              lineColor={0,0,0},
               lineThickness=0.5,
               fillColor={191,0,0},
               fillPattern=FillPattern.Solid),
@@ -2707,7 +2586,6 @@ as required to keep the temperature at the specified value.
             Polygon(
               points={{-12,40},{-12,80},{-10,86},{-6,88},{0,90},{6,88},{10,86},
                   {12,80},{12,40},{-12,40}},
-              lineColor={0,0,0},
               lineThickness=0.5),
             Line(
               points={{-12,40},{-12,-64}},
@@ -2720,7 +2598,6 @@ as required to keep the temperature at the specified value.
             Line(points={{-40,60},{-12,60}}),
             Text(
               extent={{144,-34},{32,-82}},
-              lineColor={0,0,0},
               textString="degRk"),
             Text(
               extent={{-150,135},{150,95}},

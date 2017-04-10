@@ -51,7 +51,6 @@ package Semiconductors
           Line(points={{30,40},{30,-40}}, color={0,0,255}),
           Text(
             extent={{-150,-49},{149,-77}},
-            lineColor={0,0,0},
             textString="Vt=%Vt"),
           Text(
             extent={{-154,100},{146,60}},

@@ -5696,12 +5696,10 @@ These models use package SpacePhasors.
                   100,100}}), graphics={
               Rectangle(
                 extent={{-130,10},{-100,-10}},
-                lineColor={0,0,0},
                 fillColor={0,255,0},
                 fillPattern=FillPattern.Solid),
               Rectangle(
                 extent={{-100,10},{-70,-10}},
-                lineColor={0,0,0},
                 fillColor={255,0,0},
                 fillPattern=FillPattern.Solid),
               Ellipse(extent={{-134,34},{-66,-34}}, lineColor={0,0,255})}),
@@ -6403,12 +6401,10 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
                   100,100}}), graphics={
               Rectangle(
                 extent={{-130,10},{-100,-10}},
-                lineColor={0,0,0},
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid),
               Rectangle(
                 extent={{-100,10},{-70,-10}},
-                lineColor={0,0,0},
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid),
               Ellipse(extent={{-134,34},{-66,-34}}, lineColor={0,0,255})}),
@@ -6686,11 +6682,9 @@ These models use package SpacePhasors.
           Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                   100,100}}), graphics={Rectangle(
                 extent={{-130,10},{-100,-10}},
-                lineColor={0,0,0},
                 fillColor={0,255,0},
                 fillPattern=FillPattern.Solid), Rectangle(
                 extent={{-100,10},{-70,-10}},
-                lineColor={0,0,0},
                 fillColor={255,0,0},
                 fillPattern=FillPattern.Solid)}),
           Documentation(info="<html>
@@ -9221,7 +9215,6 @@ equation
               Ellipse(extent={{-80,80},{80,-80}}, lineColor={0,0,255}),
               Rectangle(
                 extent={{-10,90},{10,-80}},
-                lineColor={0,0,0},
                 fillPattern=FillPattern.VerticalCylinder,
                 fillColor={128,128,128}),
               Text(
@@ -9252,7 +9245,6 @@ Partial model of the airgap, using only equations.
           Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                   100,100}}), graphics={Text(
                 extent={{-80,40},{0,-40}},
-                lineColor={0,0,0},
                 textString="S"), Text(
                 extent={{-150,-90},{150,-150}},
                 lineColor={0,0,255},
@@ -9285,7 +9277,6 @@ Model of the airgap in stator-fixed coordinate system, using only equations.
           Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                   100,100}}), graphics={Text(
                 extent={{0,40},{80,-40}},
-                lineColor={0,0,0},
                 textString="R"), Text(
                 extent={{-150,-90},{150,-150}},
                 lineColor={0,0,255},
@@ -9620,7 +9611,6 @@ If <code>quasiStationary == false</code>, the electrical transients are neglecte
                       fillPattern=FillPattern.Solid),Line(points={{60,0},{90,0}},
                 color={0,0,255}),Line(points={{-90,0},{-60,0}}, color={0,0,255}),
                 Text( extent={{-138,-60},{144,-94}},
-                      lineColor={0,0,0},
                       textString="L=%L"),Text(
                       extent={{-152,79},{148,39}},
                       textString="%name",
@@ -9688,17 +9678,14 @@ If <code>quasiStationary == false</code>, the electrical transients are neglecte
                       fillColor={255,255,255},
                       fillPattern=FillPattern.Solid),Rectangle(
                       extent={{-10,90},{10,-80}},
-                      lineColor={0,0,0},
                       fillPattern=FillPattern.VerticalCylinder,
                       fillColor={128,128,128}),Text(
                       extent={{0,40},{80,-40}},
-                      lineColor={0,0,0},
                       textString="E"),Text(
                       extent={{-150,-100},{150,-160}},
                       lineColor={0,0,255},
                       textString="%name"),Text(
                       extent={{-80,40},{0,-40}},
-                      lineColor={0,0,0},
                       textString="A"),Rectangle(
                       visible=quasiStationary,
                       extent={{-10,90},{10,-80}},
@@ -10637,7 +10624,6 @@ a ground has to be used where necessary for currents flowing back.
                       fillColor={0,0,255},
                       fillPattern=FillPattern.Solid),Text(
                       extent={{-88,-72},{84,-92}},
-                      lineColor={0,0,0},
                       textString="angle")}), Documentation(info="<html>
 Rotates a space phasor (voltage or current) input <code>u</code> by the <code>angle</code> in negative mathematical direction. This block represents the transformation of one space phasor <code>u</code> from one rotating reference (coordinate) frame into another where the space phasor is <code>y</code>. The output reference frame leads the input reference frame by angle <code>angle</code>.
 
@@ -10691,7 +10677,6 @@ Rotates a space phasor (voltage or current) input <code>u</code> by the <code>an
                       color={0,0,255},
                       smooth=Smooth.Bezier),Text(
                       extent={{-12,-74},{64,-86}},
-                      lineColor={0,0,0},
                       textString="zero")}),
           Documentation(info="<html>
 Transformation of multi phase values (of voltages or currents) to space phasor and zero sequence value.
@@ -10735,7 +10720,6 @@ Transformation of multi phase values (of voltages or currents) to space phasor a
                       color={0,0,255},
                       smooth=Smooth.Bezier),Text(
                       extent={{-62,-74},{14,-86}},
-                      lineColor={0,0,0},
                       textString="zero")}), Documentation(info="<html>
 Transformation of space phasor and zero sequence value to multi phase values (of voltages or currents).
 </html>"));
@@ -11239,52 +11223,42 @@ Parameter record for <a href=\"modelica://Modelica.Electrical.Machines.Losses.In
       annotation (Icon(graphics={
             Ellipse(
               extent={{-60,60},{60,-60}},
-              lineColor={0,0,0},
               fillColor={175,175,175},
               fillPattern=FillPattern.Solid),
             Ellipse(
               extent={{-50,50},{50,-50}},
-              lineColor={0,0,0},
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
             Ellipse(
               extent={{-12,50},{8,30}},
-              lineColor={0,0,0},
               fillPattern=FillPattern.Sphere,
               fillColor={135,135,135}),
             Ellipse(
               extent={{-10,-30},{10,-50}},
-              lineColor={0,0,0},
               fillPattern=FillPattern.Sphere,
               fillColor={135,135,135}),
             Ellipse(
               extent={{24,-10},{44,-30}},
-              lineColor={0,0,0},
               fillPattern=FillPattern.Sphere,
               fillColor={135,135,135}),
             Ellipse(
               extent={{22,34},{42,14}},
-              lineColor={0,0,0},
               fillPattern=FillPattern.Sphere,
               fillColor={135,135,135}),
             Ellipse(
               extent={{-44,30},{-24,10}},
-              lineColor={0,0,0},
               fillPattern=FillPattern.Sphere,
               fillColor={135,135,135}),
             Ellipse(
               extent={{-44,-12},{-24,-32}},
-              lineColor={0,0,0},
               fillPattern=FillPattern.Sphere,
               fillColor={135,135,135}),
             Ellipse(
               extent={{-30,30},{30,-30}},
-              lineColor={0,0,0},
               fillColor={175,175,175},
               fillPattern=FillPattern.Solid),
             Ellipse(
               extent={{-20,20},{20,-20}},
-              lineColor={0,0,0},
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
             Line(
@@ -12061,7 +12035,6 @@ where <code>RRef</code> is the resistance at the reference temperature <code>TRe
             color={0,0,127}));
         annotation (Icon(graphics={Text(
                 extent={{-100,-20},{100,-80}},
-                lineColor={0,0,0},
                 textString="AIMC")}), Documentation(info="<html>
 Thermal ambient for asynchronous induction machines with squirrel cage to prescribe winding temperatures either constant or via signal connectors.
 Additionally, all losses = heat flows are recorded.
@@ -12132,7 +12105,6 @@ Additionally, all losses = heat flows are recorded.
             color={0,0,127}));
         annotation (Icon(graphics={Text(
                 extent={{-100,-20},{100,-80}},
-                lineColor={0,0,0},
                 textString="AIMS")}), Documentation(info="<html>
 Thermal ambient for asynchronous induction machines with slipring rotor to prescribe winding temperatures either constant or via signal connectors.
 Additionally, all losses = heat flows are recorded.
@@ -12229,7 +12201,6 @@ Thermal parts for asynchronous induction machines
             color={0,0,127}));
         annotation (Icon(graphics={Text(
                 extent={{-100,-20},{100,-80}},
-                lineColor={0,0,0},
                 textString="SMPM")}), Documentation(info="<html>
 Thermal ambient for synchronous induction machines with permanent magnets to prescribe winding temperatures either constant or via signal connectors.
 Additionally, all losses = heat flows are recorded.
@@ -12325,7 +12296,6 @@ Additionally, all losses = heat flows are recorded.
             color={191,0,0}));
         annotation (Icon(graphics={Text(
                 extent={{-100,-20},{100,-80}},
-                lineColor={0,0,0},
                 textString="SMEE")}), Documentation(info="<html>
 Thermal ambient for synchronous induction machines with electrical excitation to prescribe winding temperatures either constant or via signal connectors.
 Additionally, all losses = heat flows are recorded.
@@ -12381,7 +12351,6 @@ Additionally, all losses = heat flows are recorded.
             color={0,0,127}));
         annotation (Icon(graphics={Text(
                 extent={{-100,-20},{100,-80}},
-                lineColor={0,0,0},
                 textString="SMR")}), Documentation(info="<html>
 Thermal ambient for synchronous induction machines with reluctance rotor to prescribe winding temperatures either constant or via signal connectors.
 Additionally, all losses = heat flows are recorded.
@@ -12439,7 +12408,6 @@ Thermal parts for synchronous induction machines
             color={0,0,127}));
         annotation (Icon(graphics={Text(
                       extent={{-100,-20},{100,-80}},
-                      lineColor={0,0,0},
                       textString="DCPM")}), Documentation(info="<html>
 Thermal ambient for DC machines with permanent magnets to prescribe winding temperatures either constant or via signal connectors.
 Additionally, all losses = heat flows are recorded.
@@ -12489,7 +12457,6 @@ Additionally, all losses = heat flows are recorded.
             color={191,0,0}));
         annotation (Icon(graphics={Text(
                       extent={{-100,-20},{100,-80}},
-                      lineColor={0,0,0},
                       textString="DCEE")}), Documentation(info="<html>
 Thermal ambient for DC machines with electrical (shunt) excitation to prescribe winding temperatures either constant or via signal connectors.
 Additionally, all losses = heat flows are recorded.
@@ -12539,7 +12506,6 @@ Additionally, all losses = heat flows are recorded.
             color={191,0,0}));
         annotation (Icon(graphics={Text(
                       extent={{-100,-20},{100,-80}},
-                      lineColor={0,0,0},
                       textString="DCSE")}), Documentation(info="<html>
 Thermal ambient for DC machines with serial excitation to prescribe winding temperatures either constant or via signal connectors.
 Additionally, all losses = heat flows are recorded.
@@ -12621,7 +12587,6 @@ Additionally, all losses = heat flows are recorded.
             color={191,0,0}));
         annotation (Icon(graphics={Text(
                       extent={{-100,-20},{100,-80}},
-                      lineColor={0,0,0},
                       textString="DCCE")}), Documentation(info="<html>
 Thermal ambient for DC machines with compound excitation to prescribe winding temperatures either constant or via signal connectors.
 Additionally, all losses = heat flows are recorded.
@@ -12727,7 +12692,6 @@ Thermal parts for DC machines
           color={191,0,0}));
       annotation (Icon(graphics={Rectangle(
                   extent={{-100,100},{100,-100}},
-                  lineColor={0,0,0},
                   pattern=LinePattern.None,
                   fillColor={159,159,223},
                   fillPattern=FillPattern.Backward),Line(
@@ -12743,7 +12707,6 @@ Thermal parts for DC machines
                   origin={0,68},
                   rotation=90),Text(
                   extent={{-100,-20},{100,-80}},
-                  lineColor={0,0,0},
                   textString="Trafo")}), Documentation(info="<html>
 Thermal ambient for transformers to prescribe winding temperatures either constant or via signal connectors.
 Additionally, all losses = heat flows are recorded.
@@ -13370,7 +13333,6 @@ Partial thermal port for induction machines
         annotation (Icon(graphics={
               Rectangle(
                 extent={{-100,100},{100,-100}},
-                lineColor={0,0,0},
                 pattern=LinePattern.None,
                 fillColor={159,159,223},
                 fillPattern=FillPattern.Backward),
@@ -13861,7 +13823,6 @@ Partial thermal port for DC machines
             color={191,0,0}));
         annotation (Icon(graphics={Rectangle(
                       extent={{-100,100},{100,-100}},
-                      lineColor={0,0,0},
                       pattern=LinePattern.None,
                       fillColor={159,159,223},
                       fillPattern=FillPattern.Backward),Line(
@@ -14350,17 +14311,14 @@ This package contains the space phasor connector and partial models for machine 
       annotation (Icon(graphics={
             Rectangle(
               extent={{-40,60},{80,-60}},
-              lineColor={0,0,0},
               fillPattern=FillPattern.HorizontalCylinder,
               fillColor={0,128,255}),
             Rectangle(
               extent={{-40,60},{-60,-60}},
-              lineColor={0,0,0},
               fillPattern=FillPattern.HorizontalCylinder,
               fillColor={128,128,128}),
             Rectangle(
               extent={{80,10},{100,-10}},
-              lineColor={0,0,0},
               fillPattern=FillPattern.HorizontalCylinder,
               fillColor={95,95,95}),
             Rectangle(
@@ -14371,8 +14329,6 @@ This package contains the space phasor connector and partial models for machine 
             Polygon(
               points={{-50,-90},{-40,-90},{-10,-20},{40,-20},{70,-90},{80,-90},
                   {80,-100},{-50,-100},{-50,-90}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
               fillPattern=FillPattern.Solid)}), Documentation(info="<html>
 <p>
 This icon is designed for a <b>transient machine</b> model.
@@ -14383,15 +14339,12 @@ This icon is designed for a <b>transient machine</b> model.
     partial model QuasiStationaryMachine
       annotation (Icon(graphics={Rectangle(
                   extent={{-40,60},{80,-60}},
-                  lineColor={0,0,0},
                   fillPattern=FillPattern.HorizontalCylinder,
                   fillColor={170,213,255}),Rectangle(
                   extent={{-40,60},{-60,-60}},
-                  lineColor={0,0,0},
                   fillPattern=FillPattern.HorizontalCylinder,
                   fillColor={128,128,128}),Rectangle(
                   extent={{80,10},{100,-10}},
-                  lineColor={0,0,0},
                   fillPattern=FillPattern.HorizontalCylinder,
                   fillColor={95,95,95}),Rectangle(
                   extent={{-40,70},{40,50}},
@@ -14400,8 +14353,6 @@ This icon is designed for a <b>transient machine</b> model.
                   fillPattern=FillPattern.Solid),Polygon(
                   points={{-50,-90},{-40,-90},{-10,-20},{40,-20},{70,-90},{80,-90},
                 {80,-100},{-50,-100},{-50,-90}},
-                  lineColor={0,0,0},
-                  fillColor={0,0,0},
                   fillPattern=FillPattern.Solid)}), Documentation(info="<html>
 <p>
 This icon is designed for a <b>quasistationary machine</b> model.
@@ -14413,17 +14364,14 @@ This icon is designed for a <b>quasistationary machine</b> model.
       annotation (Icon(graphics={
             Rectangle(
               extent={{-40,60},{80,-60}},
-              lineColor={0,0,0},
               fillPattern=FillPattern.HorizontalCylinder,
               fillColor={255,128,0}),
             Rectangle(
               extent={{-40,60},{-60,-60}},
-              lineColor={0,0,0},
               fillPattern=FillPattern.HorizontalCylinder,
               fillColor={128,128,128}),
             Rectangle(
               extent={{80,10},{100,-10}},
-              lineColor={0,0,0},
               fillPattern=FillPattern.HorizontalCylinder,
               fillColor={95,95,95}),
             Rectangle(
@@ -14434,8 +14382,6 @@ This icon is designed for a <b>quasistationary machine</b> model.
             Polygon(
               points={{-50,-90},{-40,-90},{-10,-20},{40,-20},{70,-90},{80,-90},
                   {80,-100},{-50,-100},{-50,-90}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
               fillPattern=FillPattern.Solid)}), Documentation(info="<html>
 <p>
 This icon is designed for a <b>FundamentalWave machine</b> model.
@@ -14446,26 +14392,21 @@ This icon is designed for a <b>FundamentalWave machine</b> model.
     model TransientTransformer
       annotation (Icon(graphics={Polygon(
                   points={{-70,60},{-50,40},{-50,-40},{-70,-60},{-70,60}},
-                  lineColor={0,0,0},
                   fillColor={135,135,135},
                   fillPattern=FillPattern.VerticalCylinder),Polygon(
                   points={{70,60},{50,40},{50,-40},{70,-60},{70,60}},
-                  lineColor={0,0,0},
                   fillColor={135,135,135},
                   fillPattern=FillPattern.VerticalCylinder),Polygon(
                   points={{0,50},{-10,40},{-10,-40},{0,-50},{10,-40},{10,40},{0,
                 50}},
-                  lineColor={0,0,0},
                   fillPattern=FillPattern.VerticalCylinder,
                   fillColor={135,135,135}),Polygon(
                   points={{-70,60},{70,60},{50,40},{10,40},{0,50},{-10,40},{-50,
                 40},{-70,60}},
-                  lineColor={0,0,0},
                   fillPattern=FillPattern.VerticalCylinder,
                   fillColor={135,135,135}),Polygon(
                   points={{-70,-60},{70,-60},{50,-40},{10,-40},{0,-50},{-10,-40},
                 {-50,-40},{-70,-60}},
-                  lineColor={0,0,0},
                   fillPattern=FillPattern.VerticalCylinder,
                   fillColor={135,135,135}),Rectangle(
                   extent={{-78,36},{-42,-36}},
@@ -14502,26 +14443,21 @@ This icon is designed for a <b>transient transformer</b> model.
     partial model QuasiStationaryTransformer
       annotation (Icon(graphics={Polygon(
                   points={{-70,60},{-50,40},{-50,-40},{-70,-60},{-70,60}},
-                  lineColor={0,0,0},
                   fillColor={135,135,135},
                   fillPattern=FillPattern.VerticalCylinder),Polygon(
                   points={{70,60},{50,40},{50,-40},{70,-60},{70,60}},
-                  lineColor={0,0,0},
                   fillColor={135,135,135},
                   fillPattern=FillPattern.VerticalCylinder),Polygon(
                   points={{0,50},{-10,40},{-10,-40},{0,-50},{10,-40},{10,40},{0,
                 50}},
-                  lineColor={0,0,0},
                   fillPattern=FillPattern.VerticalCylinder,
                   fillColor={135,135,135}),Polygon(
                   points={{-70,60},{70,60},{50,40},{10,40},{0,50},{-10,40},{-50,
                 40},{-70,60}},
-                  lineColor={0,0,0},
                   fillPattern=FillPattern.VerticalCylinder,
                   fillColor={135,135,135}),Polygon(
                   points={{-70,-60},{70,-60},{50,-40},{10,-40},{0,-50},{-10,-40},
                 {-50,-40},{-70,-60}},
-                  lineColor={0,0,0},
                   fillPattern=FillPattern.VerticalCylinder,
                   fillColor={135,135,135}),Rectangle(
                   extent={{-78,36},{-42,-36}},
@@ -14560,17 +14496,14 @@ This icon is designed for a <b>quasistationary transformer</b> model.
       annotation (Icon(graphics={
             Rectangle(
               extent={{-40,60},{80,-60}},
-              lineColor={0,0,0},
               fillPattern=FillPattern.HorizontalCylinder,
               fillColor={255,206,120}),
             Rectangle(
               extent={{-40,60},{-60,-60}},
-              lineColor={0,0,0},
               fillPattern=FillPattern.HorizontalCylinder,
               fillColor={128,128,128}),
             Rectangle(
               extent={{80,10},{100,-10}},
-              lineColor={0,0,0},
               fillPattern=FillPattern.HorizontalCylinder,
               fillColor={95,95,95}),
             Rectangle(
@@ -14581,8 +14514,6 @@ This icon is designed for a <b>quasistationary transformer</b> model.
             Polygon(
               points={{-50,-90},{-40,-90},{-10,-20},{40,-20},{70,-90},{80,-90},
                   {80,-100},{-50,-100},{-50,-90}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
               fillPattern=FillPattern.Solid)}), Documentation(info="<html>
 <p>
 This icon is designed for a <b>quasi static fundamental wave machine</b> model.
@@ -15477,7 +15408,6 @@ If <i>control</i> is true, plug_sp and plug_sn are delta connected and they are 
               fillColor={135,135,135},
               fillPattern=FillPattern.Solid), Text(
               extent={{-40,-50},{40,-90}},
-              lineColor={0,0,0},
               textString="%terminalConnection")}), Documentation(info="<html>
 TerminalBox: at the bottom connected to both machine plugs, connect at the top to the grid as usual,<br>
 choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
@@ -15537,7 +15467,6 @@ choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
               fillColor={135,135,135},
               fillPattern=FillPattern.CrossDiag), Text(
               extent={{-40,-50},{40,-90}},
-              lineColor={0,0,0},
               textString="%terminalConnection")}),
         Documentation(info="<html>
 TerminalBox: at the bottom connected to both machine plugs, connect at the top to the grid as usual,<br>

@@ -332,42 +332,33 @@ This example is based on
       annotation (
         Diagram(coordinateSystem(
             preserveAspectRatio=false,
-            extent={{-100,-100},{100,100}}), graphics={Rectangle(extent={{-100,100},{100,-100}},
-                lineColor={0,0,0})}),
+            extent={{-100,-100},{100,100}}), graphics={Rectangle(extent={{-100,100},{100,-100}})}),
         Icon(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}}), graphics={
             Text(
               extent={{-100,68},{-12,54}},
-              lineColor={0,0,0},
               textString="start"),
             Text(
               extent={{-99,6},{-14,-9}},
-              lineColor={0,0,0},
               textString="stop"),
             Text(
               extent={{-99,-54},{-14,-69}},
-              lineColor={0,0,0},
               textString="shut"),
             Text(
               extent={{-94,-82},{-9,-96}},
-              lineColor={0,0,0},
               textString="level1"),
             Text(
               extent={{11,-83},{96,-98}},
-              lineColor={0,0,0},
               textString="level2"),
             Text(
               extent={{10,68},{99,54}},
-              lineColor={0,0,0},
               textString="valve1"),
             Text(
               extent={{7,10},{101,-5}},
-              lineColor={0,0,0},
               textString="valve2"),
             Text(
               extent={{2,-51},{102,-67}},
-              lineColor={0,0,0},
               textString="valve3")}));
     end TankController;
 
@@ -467,7 +458,6 @@ This example is based on
               lineColor={128,128,128},
               lineThickness=0.5), Text(
               extent={{-80,-40},{80,40}},
-              lineColor={0,0,0},
               textString="%name")},
                               interaction={OnMouseDownSetBoolean(
                               on, true)}));

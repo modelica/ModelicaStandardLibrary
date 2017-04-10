@@ -1862,10 +1862,8 @@ Thermodynamic equations are defined by Partials.Ambient.
 </html>"),        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Text(
               extent={{20,80},{80,20}},
-              lineColor={0,0,0},
               textString="p"), Text(
               extent={{20,-20},{80,-80}},
-              lineColor={0,0,0},
               textString="T")}));
     end Ambient;
 
@@ -1942,7 +1940,6 @@ Thermodynamic equations are defined by Partials.TwoPort.
               fillPattern=FillPattern.Solid),
             Text(
               extent={{-40,20},{0,-20}},
-              lineColor={0,0,0},
               textString="V")}));
     end VolumeFlow;
 
@@ -1993,7 +1990,6 @@ Thermodynamic equations are defined by Partials.TwoPort.
               fillPattern=FillPattern.Solid),
             Text(
               extent={{-40,20},{0,-20}},
-              lineColor={0,0,0},
               textString="dp")}));
     end PressureIncrease;
 
@@ -2056,12 +2052,10 @@ Thermodynamic equations are defined by Partials.TwoPort.
               textString="%name"),
             Rectangle(
               extent={{-10,-40},{10,-100}},
-              lineColor={0,0,0},
               fillPattern=FillPattern.VerticalCylinder,
               fillColor={175,175,175}),
             Polygon(
               points={{-60,68},{90,10},{90,-10},{-60,-68},{-60,68}},
-              lineColor={0,0,0},
               fillPattern=FillPattern.HorizontalCylinder,
               fillColor={0,0,255})}));
     end IdealPump;

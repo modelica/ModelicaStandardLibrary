@@ -299,32 +299,26 @@ package Sensors "Sensors to measure variables"
           Text(
             visible=get_r,
             extent={{-130,-74},{-95,-90}},
-            lineColor={0,0,0},
             textString="r"),
           Text(
             visible=get_v,
             extent={{-95,-74},{-60,-90}},
-            lineColor={0,0,0},
             textString="v"),
           Text(
             visible=get_a,
             extent={{-55,-74},{-20,-90}},
-            lineColor={0,0,0},
             textString="a"),
           Text(
             visible=get_angles,
             extent={{-71,-35},{96,-54}},
-            lineColor={0,0,0},
             textString="angles"),
           Text(
             visible=get_w,
             extent={{59,-68},{105,-85}},
-            lineColor={0,0,0},
             textString="w"),
           Text(
             visible=get_z,
             extent={{107,-68},{153,-84}},
-            lineColor={0,0,0},
             textString="z"),
           Text(
             extent={{60,52},{191,27}},
@@ -760,32 +754,26 @@ and sequence[2] &ne; sequence[3]. Often used values are:
           Text(
             visible=get_r_rel,
             extent={{-130,-74},{-95,-90}},
-            lineColor={0,0,0},
             textString="r"),
           Text(
             visible=get_v_rel,
             extent={{-95,-74},{-60,-90}},
-            lineColor={0,0,0},
             textString="v"),
           Text(
             visible=get_a_rel,
             extent={{-55,-74},{-20,-90}},
-            lineColor={0,0,0},
             textString="a"),
           Text(
             visible=get_angles,
             extent={{-71,-35},{96,-54}},
-            lineColor={0,0,0},
             textString="angles"),
           Text(
             visible=get_w_rel,
             extent={{63,-73},{103,-90}},
-            lineColor={0,0,0},
             textString="w"),
           Text(
             visible=get_z_rel,
             extent={{103,-71},{149,-87}},
-            lineColor={0,0,0},
             textString="z")}),
       Documentation(info="<html>
 <p>
@@ -975,7 +963,6 @@ and sequence[2] &ne; sequence[3]. Often used values are:
             lineColor={0,0,255}),
           Text(
             extent={{62,46},{146,16}},
-            lineColor={0,0,0},
             textString="r"),
           Text(
             extent={{15,-67},{146,-92}},
@@ -1110,7 +1097,6 @@ computed as:
             lineColor={0,0,255}),
           Text(
             extent={{58,48},{142,18}},
-            lineColor={0,0,0},
             textString="v"),
           Text(
             extent={{15,-67},{146,-92}},
@@ -1210,7 +1196,6 @@ computed as:
             color={0,0,127}),
           Text(
             extent={{62,-22},{172,-44}},
-            lineColor={0,0,0},
             textString="angles")}),      Documentation(info="<html>
 <p>
 This model determines the 3 angles to rotate the world frame
@@ -1308,7 +1293,6 @@ and sequence[2] &ne; sequence[3]. Often used values are:
             lineColor={0,0,255}),
           Text(
             extent={{66,48},{150,18}},
-            lineColor={0,0,0},
             textString="w"),
           Line(
             points={{0,-70},{0,-96}},
@@ -1422,7 +1406,6 @@ computed as:
             lineColor={0,0,255}),
           Text(
             extent={{18,-80},{102,-110}},
-            lineColor={0,0,0},
             textString="r_rel")}),
       Documentation(info="<html>
 <p>
@@ -1552,7 +1535,6 @@ computed as:
             lineColor={0,0,255}),
           Text(
             extent={{18,-80},{102,-110}},
-            lineColor={0,0,0},
             textString="v_rel")}),
       Documentation(info="<html>
 <p>
@@ -1668,7 +1650,6 @@ computed as:
             color={0,0,127}),
           Text(
             extent={{0,-76},{110,-98}},
-            lineColor={0,0,0},
             textString="angles")}),      Documentation(info="<html>
 <p>
 This model determines the 3 angles to rotate frame_a
@@ -1772,7 +1753,6 @@ and sequence[2] &ne; sequence[3]. Often used values are:
             lineColor={0,0,255}),
           Text(
             extent={{14,-78},{98,-108}},
-            lineColor={0,0,0},
             textString="w_rel")}),
       Documentation(info="<html>
 <p>
@@ -2007,7 +1987,6 @@ differentiable everywhere. The derivative at zero distance is 3/(2*s_small).
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={Text(
             extent={{-190,-70},{-74,-96}},
-            lineColor={0,0,0},
             textString="force"), Line(points={{-80,-100},{-80,0}}, color={0,0,
                 127})}),
       Documentation(info="<html>
@@ -2125,7 +2104,6 @@ with negative sign at frame_a.
       Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{100,
               100}}), graphics={Text(
             extent={{-180,-72},{-64,-98}},
-            lineColor={0,0,0},
             textString="torque"), Line(points={{-80,-100},{-80,0}}, color={0,0,
                 127})}),
       Documentation(info="<html>
@@ -2292,11 +2270,9 @@ with negative sign at frame_a.
           Line(points={{0,-100},{0,-70}}, color={0,0,127}),
           Text(
             extent={{-188,-70},{-72,-96}},
-            lineColor={0,0,0},
             textString="force"),
           Text(
             extent={{-56,-70},{60,-96}},
-            lineColor={0,0,0},
             textString="torque")}),
       Documentation(info="<html>
 <p>
@@ -2375,7 +2351,6 @@ with negative sign at frame_a.
           Line(points={{-80,0},{-80,-100}}, color={0,0,127}),
           Text(
             extent={{-60,-92},{16,-114}},
-            lineColor={0,0,0},
             textString="power"),
           Text(
             extent={{-128,126},{126,68}},
@@ -2462,11 +2437,9 @@ as output signal <b>power</b>.
             color={0,0,127}),
           Text(
             extent={{-104,124},{-18,96}},
-            lineColor={0,0,0},
             textString="r_in"),
           Text(
             extent={{-124,-76},{2,-104}},
-            lineColor={0,0,0},
             textString="r_out"),
           Line(
             points={{95,0},{95,0},{70,0},{70,0}},
@@ -2565,11 +2538,9 @@ transformed output vector as \"Real r_out[3]\";
             color={0,0,127}),
           Text(
             extent={{-104,124},{-18,96}},
-            lineColor={0,0,0},
             textString="r_in"),
           Text(
             extent={{-124,-76},{2,-104}},
-            lineColor={0,0,0},
             textString="r_out")}),
       Documentation(info="<html>
 <p>
@@ -2761,7 +2732,6 @@ transformed output vector as \"Real r_out[3]\";
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{61,47},{145,17}},
-              lineColor={0,0,0},
               textString="r"), Text(
               extent={{-127,75},{134,123}},
               textString="%name",
@@ -2798,7 +2768,6 @@ transformed output vector as \"Real r_out[3]\";
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{62,48},{146,18}},
-              lineColor={0,0,0},
               textString="w"), Text(
               extent={{-130,76},{131,124}},
               textString="%name",
@@ -2839,7 +2808,6 @@ transformed output vector as \"Real r_out[3]\";
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{12,-76},{96,-106}},
-              lineColor={0,0,0},
               textString="r_rel"), Text(
               extent={{-127,95},{134,143}},
               textString="%name",
@@ -2883,7 +2851,6 @@ transformed output vector as \"Real r_out[3]\";
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{12,-76},{96,-106}},
-              lineColor={0,0,0},
               textString="w_rel"), Text(
               extent={{-132,90},{129,138}},
               textString="%name",
@@ -2968,11 +2935,9 @@ transformed output vector as \"Real r_out[3]\";
                 -100},{100,100}}), graphics={
             Text(
               extent={{-128,-84},{-2,-112}},
-              lineColor={0,0,0},
               textString="r_out"),
             Text(
               extent={{-108,137},{-22,109}},
-              lineColor={0,0,0},
               textString="r_in"),
             Line(
               points={{0,100},{0,70}},
@@ -3051,11 +3016,9 @@ transformed output vector as \"Real r_out[3]\";
                 -100},{100,100}}), graphics={
             Text(
               extent={{-128,-92},{-2,-120}},
-              lineColor={0,0,0},
               textString="r_out"),
             Text(
               extent={{-108,144},{-22,116}},
-              lineColor={0,0,0},
               textString="r_in"),
             Line(
               points={{0,100},{0,70}},
@@ -3072,7 +3035,6 @@ transformed output vector as \"Real r_out[3]\";
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-74,24},{80,-20}},
-              lineColor={0,0,0},
               textString="f = t = 0")}));
     end ZeroForceAndTorque;
 
@@ -3252,7 +3214,6 @@ with the blocks of package Modelica.Blocks.
          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Text(
               extent={{-190,-70},{-74,-96}},
-              lineColor={0,0,0},
               textString="force"), Line(points={{-80,-100},{-80,0}}, color={0,0,
                   127})}),
         Documentation(info="<html>
@@ -3295,7 +3256,6 @@ with the blocks of package Modelica.Blocks.
          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Text(
               extent={{-190,-70},{-74,-96}},
-              lineColor={0,0,0},
               textString="torque"), Line(points={{-80,-100},{-80,0}}, color={0,
                   0,127})}));
     end BasicCutTorque;

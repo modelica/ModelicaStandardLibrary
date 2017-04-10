@@ -806,12 +806,10 @@ In this example the eddy current losses are implemented in two different ways. C
                           fillPattern=FillPattern.Solid,
                           pattern=LinePattern.Dash),Text(
                           extent={{20,-6},{100,-14}},
-                          lineColor={0,0,0},
                           textStyle={TextStyle.Bold},
                           textString="%m phase transient
 "),             Text(
                   extent={{20,14},{100,6}},
-                          lineColor={0,0,0},
                           textStyle={TextStyle.Bold},
                           textString="%m phase QS
 ")}),           experiment(StopTime=1.5, Interval=0.001),
@@ -1089,12 +1087,10 @@ and accelerating inertias. At time <code>tStep</code> a load step is applied.<p>
                           fillPattern=FillPattern.Solid,
                           pattern=LinePattern.Dash),Text(
                           extent={{20,-6},{100,-14}},
-                          lineColor={0,0,0},
                           textStyle={TextStyle.Bold},
                           textString="%m phase transient
 "),             Text(
                   extent={{-66,10},{14,2}},
-                          lineColor={0,0,0},
                           textStyle={TextStyle.Bold},
                           textString="%m phase QS
 ")}));
@@ -1420,12 +1416,10 @@ Simulate for 1.5 seconds and plot (versus time):
                           fillPattern=FillPattern.Solid,
                           pattern=LinePattern.Dash),Text(
                           extent={{20,12},{100,4}},
-                          lineColor={0,0,0},
                           textStyle={TextStyle.Bold},
                           textString="%m phase QS
 "),             Text(
                   extent={{20,-4},{100,-12}},
-                          lineColor={0,0,0},
                           textStyle={TextStyle.Bold},
                           textString="%m phase transient
 ")}));
@@ -1698,12 +1692,10 @@ Simulate for 1.5 seconds and plot (versus time):
           annotation (Diagram(coordinateSystem(preserveAspectRatio=false,
                   extent={{-100,-100},{100,100}}), graphics={Rectangle(
                           extent={{-90,-2},{100,-100}},
-                          lineColor={0,0,0},
                           pattern=LinePattern.Dash,
                           fillColor={255,255,170},
                           fillPattern=FillPattern.Solid),Rectangle(
                           extent={{-90,100},{100,0}},
-                          lineColor={0,0,0},
                           pattern=LinePattern.Dash,
                           fillColor={255,255,170},
                           fillPattern=FillPattern.Solid)}), experiment(StopTime=
@@ -1883,12 +1875,10 @@ Simulate for 0.1 second and plot (versus time):
 </html>"),  Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                     {100,100}}), graphics={Rectangle(
                           extent={{-60,-4},{40,-80}},
-                          lineColor={0,0,0},
                           pattern=LinePattern.Dash,
                           fillColor={255,255,170},
                           fillPattern=FillPattern.Solid),Rectangle(
                           extent={{-60,80},{40,4}},
-                          lineColor={0,0,0},
                           pattern=LinePattern.Dash,
                           fillColor={255,255,170},
                           fillPattern=FillPattern.Solid)}));
@@ -2235,12 +2225,10 @@ Simulate for 2 seconds and plot (versus time):
                     -100},{100,100}}),
                                  graphics={Rectangle(
                           extent={{-64,100},{100,2}},
-                          lineColor={0,0,0},
                           fillColor={255,255,170},
                           fillPattern=FillPattern.Solid,
                           pattern=LinePattern.Dash),Rectangle(
                           extent={{-64,0},{100,-100}},
-                          lineColor={0,0,0},
                           fillColor={255,255,170},
                           fillPattern=FillPattern.Solid,
                           pattern=LinePattern.Dash)}));
@@ -2588,12 +2576,10 @@ Simulate for 30 seconds:
                           fillPattern=FillPattern.Solid,
                           pattern=LinePattern.Dash),Text(
                           extent={{20,10},{100,2}},
-                          lineColor={0,0,0},
                           textStyle={TextStyle.Bold},
                           textString="%m phase QS
 "),             Text(
                   extent={{20,-10},{100,-18}},
-                          lineColor={0,0,0},
                           textStyle={TextStyle.Bold},
                           textString="%m phase transient
 ")}));
@@ -2940,12 +2926,10 @@ Simulate for 2 seconds and plot (versus time):
 </html>"),  Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                     {100,100}}), graphics={Rectangle(
                           extent={{-64,100},{100,2}},
-                          lineColor={0,0,0},
                           fillColor={255,255,170},
                           fillPattern=FillPattern.Solid,
                           pattern=LinePattern.Dash),Rectangle(
                           extent={{-64,0},{100,-100}},
-                          lineColor={0,0,0},
                           fillColor={255,255,170},
                           fillPattern=FillPattern.Solid,
                           pattern=LinePattern.Dash)}));
@@ -3095,7 +3079,6 @@ The salient permeance models the relationship between the complex magnetic poten
                   lineColor={0,0,255},
                   textString="%name"),Text(
                   extent={{0,-40},{0,-80}},
-                  lineColor={0,0,0},
                   textString="G=%G")}),
         Documentation(info="<html>
 <p>
@@ -4047,12 +4030,10 @@ Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_Squirre
           Icon(graphics={
               Rectangle(
                 extent={{-130,10},{-100,-10}},
-                lineColor={0,0,0},
                 fillColor={0,255,0},
                 fillPattern=FillPattern.Solid),
               Rectangle(
                 extent={{-100,10},{-70,-10}},
-                lineColor={0,0,0},
                 fillColor={255,0,0},
                 fillPattern=FillPattern.Solid),
               Ellipse(extent={{-134,34},{-66,-34}}, lineColor={85,170,255})}),
@@ -4450,8 +4431,8 @@ Magnetic.FundamentalWave.BasicMachines.SM_ReluctanceRotor</a>,
         annotation (
           defaultComponentName="smr",
           Icon(graphics={
-              Rectangle(extent={{-130,10},{-100,-10}}, lineColor={0,0,0}),
-              Rectangle(extent={{-100,10},{-70,-10}}, lineColor={0,0,0}),
+              Rectangle(extent={{-130,10},{-100,-10}}),
+              Rectangle(extent={{-100,10},{-70,-10}}),
               Ellipse(extent={{-134,34},{-66,-34}}, lineColor={85,170,255})}),
           Documentation(info="<html>
 <p>
@@ -4907,7 +4888,6 @@ Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding</a>
                   {100,100}}), graphics={
               Ellipse(
                 extent={{-100,100},{100,-100}},
-                lineColor={0,0,0},
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid),
               Line(points={{-100,90},{-100,60},{-80,60}}, color={255,128,0}),
@@ -4916,7 +4896,6 @@ Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding</a>
               Line(points={{40,-60},{100,-60},{100,-90}}, color={255,128,0}),
               Ellipse(
                 extent={{-60,80},{60,-80}},
-                lineColor={0,0,0},
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid),
               Line(points={{0,80},{0,90}})}),
@@ -5068,31 +5047,24 @@ Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap</a>
           Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                   {100,100}}), graphics={Ellipse(
                       extent={{-80,80},{80,-80}},
-                      lineColor={0,0,0},
                       fillColor={175,175,175},
                       fillPattern=FillPattern.Solid),Ellipse(
                       extent={{-20,76},{20,36}},
-                      lineColor={0,0,0},
                       fillColor={255,255,255},
                       fillPattern=FillPattern.Solid),Ellipse(
                       extent={{28,46},{68,6}},
-                      lineColor={0,0,0},
                       fillColor={255,255,255},
                       fillPattern=FillPattern.Solid),Ellipse(
                       extent={{28,-8},{68,-48}},
-                      lineColor={0,0,0},
                       fillColor={255,255,255},
                       fillPattern=FillPattern.Solid),Ellipse(
                       extent={{-20,-36},{20,-76}},
-                      lineColor={0,0,0},
                       fillColor={255,255,255},
                       fillPattern=FillPattern.Solid),Ellipse(
                       extent={{-68,-6},{-28,-46}},
-                      lineColor={0,0,0},
                       fillColor={255,255,255},
                       fillPattern=FillPattern.Solid),Ellipse(
                       extent={{-66,50},{-26,10}},
-                      lineColor={0,0,0},
                       fillColor={255,255,255},
                       fillPattern=FillPattern.Solid),Line(points={{-80,0},{-100,
                 0}}, color={255,128,0}),Line(points={{100,0},{80,0}}, color={
@@ -5222,37 +5194,30 @@ Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap</a>
                   {100,100}}), graphics={
               Ellipse(
                 extent={{-80,80},{80,-80}},
-                lineColor={0,0,0},
                 fillColor={175,175,175},
                 fillPattern=FillPattern.Solid),
               Ellipse(
                 extent={{-20,76},{20,36}},
-                lineColor={0,0,0},
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid),
               Ellipse(
                 extent={{28,46},{68,6}},
-                lineColor={0,0,0},
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid),
               Ellipse(
                 extent={{28,-8},{68,-48}},
-                lineColor={0,0,0},
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid),
               Ellipse(
                 extent={{-20,-36},{20,-76}},
-                lineColor={0,0,0},
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid),
               Ellipse(
                 extent={{-68,-6},{-28,-46}},
-                lineColor={0,0,0},
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid),
               Ellipse(
                 extent={{-66,50},{-26,10}},
-                lineColor={0,0,0},
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid),
               Line(points={{-80,0},{-100,0}}, color={255,128,0}),
@@ -6019,7 +5984,6 @@ ConstantFlux</a>
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={Text(
                   extent={{-29,-11},{30,-70}},
-                  lineColor={0,0,0},
                   textString="Phi"),Line(points={{-72,0},{-90,0}}),
               Text(
                   extent={{-140,120},{140,80}},
@@ -6066,7 +6030,6 @@ ConstantFlux</a>
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={Text(
                   extent={{-52,1},{48,-57}},
-                  lineColor={0,0,0},
                   textString="V_m"),Line(points={{-70,0},{-90,0}}),
               Line(points={{70,0},{90,0}}),Line(points={{0,-90},
               {0,-70}}),Text(
@@ -6108,7 +6071,6 @@ ConstantFlux</a>
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={Text(
                   extent={{-52,1},{48,-57}},
-                  lineColor={0,0,0},
                   textString="V_m"),Line(points={{-70,0},{-90,0}}),
               Line(points={{0,-90},{0,-70}}),Text(
                   extent={{-140,120},{140,80}},
@@ -6466,7 +6428,6 @@ The partial two port elementary model extends from the partial two port model an
         Icon(coordinateSystem(preserveAspectRatio=false,extent={{-100,-100},{
                 100,100}}), graphics={Rectangle(
                   extent={{-100,100},{100,-100}},
-                  lineColor={0,0,0},
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid),Line(points={{-100,-100},{0,60},
               {80,60}}, color={0,0,255}),Line(
@@ -6562,7 +6523,6 @@ The output voltages may serve as inputs for complex voltage sources with phase i
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={Text(
                   extent={{-40,-50},{40,-90}},
-                  lineColor={0,0,0},
                   textString="%terminalConnection"),Polygon(
                   points={{-80,-40},{-80,-44},{-80,-80},{-40,-100},{40,-100},{
                   80,-70},{80,-44},{76,-40},{-80,-40}},
@@ -6632,7 +6592,6 @@ choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
                   fillColor={135,135,135},
                   fillPattern=FillPattern.CrossDiag),Text(
                   extent={{-40,-50},{40,-90}},
-                  lineColor={0,0,0},
                   textString="%terminalConnection")}),
         Documentation(info="<html>
 TerminalBox: at the bottom connected to both machine plugs, connect at the top to the grid as usual,<br>
@@ -6788,7 +6747,6 @@ choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={Rectangle(
                   extent={{-100,100},{100,-100}},
-                  lineColor={0,0,0},
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid),Text(
                   extent={{-100,60},{20,40}},

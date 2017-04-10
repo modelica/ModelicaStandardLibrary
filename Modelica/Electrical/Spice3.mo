@@ -2397,7 +2397,6 @@ The Resistance <i>R</i> is allowed to be positive, zero, or negative.
             Line(points={{70,0},{90,0}}, color={0,0,255}),
             Text(
               extent={{-136,-46},{140,-62}},
-              lineColor={0,0,0},
               textString="R=%R"),
             Text(extent={{-136,34},{138,54}},  textString="%name")}));
     end R_Resistor;
@@ -2435,7 +2434,6 @@ The Capacitance <i>C</i> is allowed to be positive, zero, or negative.
             Line(points={{6,0},{90,0}}),
             Text(
               extent={{-130,-40},{134,-60}},
-              lineColor={0,0,0},
               textString="C=%C"),
             Text(extent={{-138,42},{136,62}},  textString="%name")}));
     end C_Capacitor;
@@ -2489,7 +2487,6 @@ The Capacitance <i>C</i> is allowed to be positive, zero, or negative.
             Line(points={{-90,0},{-60,0}}),
             Text(
               extent={{-142,-40},{142,-60}},
-              lineColor={0,0,0},
               textString="L=%L"),
             Text(extent={{-136,36},{138,56}},  textString="%name")}));
     end L_Inductor;
@@ -5739,7 +5736,6 @@ on the model behaviour.
             Line(points={{14,0},{90,0}},color={0,0,255}),
             Text(
               extent={{-130,-40},{134,-60}},
-              lineColor={0,0,0},
               textString="C=%C"),
             Text(extent={{-138,42},{136,62}},  textString="%name")}),
                                      Documentation(revisions="<html>

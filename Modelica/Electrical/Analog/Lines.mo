@@ -686,8 +686,7 @@ The capacitances are calculated with: C=c*length/N.
           Line(points={{30,40},{30,20}}, color={0,0,255}),
           Text(
             extent={{-50,0},{50,-20}},
-            textString="TLine1",
-            lineColor={0,0,0}),
+            textString="TLine1"),
           Text(
             extent={{-152,122},{148,82}},
             textString="%name",
@@ -760,8 +759,7 @@ The capacitances are calculated with: C=c*length/N.
           Line(points={{30,40},{30,20}}, color={0,0,255}),
           Text(
             extent={{-51,-10},{50,-31}},
-            textString="TLine2",
-            lineColor={0,0,0}),
+            textString="TLine2"),
           Text(
             extent={{-148,119},{152,79}},
             textString="%name",
@@ -828,8 +826,7 @@ The capacitances are calculated with: C=c*length/N.
           Line(points={{30,40},{30,20}}, color={0,0,255}),
           Text(
             extent={{-50,-10},{51,-30}},
-            textString="TLine3",
-            lineColor={0,0,0}),
+            textString="TLine3"),
           Text(
             extent={{-155,124},{145,84}},
             textString="%name",
@@ -881,8 +878,7 @@ Modelica in file \"Modelica/package.mo\".</i>
 </html>"), Icon(graphics={
         Line(points={{-60,50},{-90,50}}),
         Rectangle(
-          extent={{-60,60},{60,-60}},
-          lineColor={0,0,0}),
+          extent={{-60,60},{60,-60}}),
         Line(points={{-60,-50},{-90,-50}}),
         Line(points={{36,20},{-36,20}}),
         Line(points={{-36,40},{-36,0}}),

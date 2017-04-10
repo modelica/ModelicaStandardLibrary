@@ -465,7 +465,6 @@ determined from the connections to this bus.
             extent={{-100,-100},{100,100}}), graphics={
             Rectangle(
               extent={{-100,100},{100,-100}},
-              lineColor={0,0,0},
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
             Text(
@@ -491,7 +490,6 @@ determined from the connections to this bus.
             Line(points={{-80,0},{-41,69},{26,69},{58,0}}),
             Text(
               extent={{-73,-44},{82,-69}},
-              lineColor={0,0,0},
               textString="1 axis")}),
         Documentation(info="<html>
 <p>
@@ -678,7 +676,6 @@ motion on the controlBus of the r3 robot.
             extent={{-100,-100},{100,100}}), graphics={
             Rectangle(
               extent={{-100,100},{100,-100}},
-              lineColor={0,0,0},
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
             Text(
@@ -704,7 +701,6 @@ motion on the controlBus of the r3 robot.
             Line(points={{-80,0},{-41,69},{26,69},{58,0}}),
             Text(
               extent={{-70,-43},{85,-68}},
-              lineColor={0,0,0},
               textString="6 axes")}),
         Documentation(info="<html>
 <p>
@@ -807,27 +803,21 @@ motion on the controlBus of the r3 robot.
             extent={{-100,-100},{100,100}}), graphics={
             Text(
               extent={{-100,98},{-24,68}},
-              lineColor={0,0,0},
               textString="q"),
             Text(
               extent={{-94,46},{-18,16}},
-              lineColor={0,0,0},
               textString="qd"),
             Text(
               extent={{-96,-16},{-20,-46}},
-              lineColor={0,0,0},
               textString="qdd"),
             Text(
               extent={{-2,20},{80,-18}},
-              lineColor={0,0,0},
               textString="%axisUsed"),
             Text(
               extent={{2,52},{76,28}},
-              lineColor={0,0,0},
               textString="axis"),
             Text(
               extent={{-94,-70},{32,-96}},
-              lineColor={0,0,0},
               textString="moving")}),
         Documentation(info="<html>
 <p>
@@ -950,10 +940,8 @@ the definition of initial values considerably.
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}}), graphics={Text(
               extent={{72,30},{130,22}},
-              lineColor={0,0,0},
               textString="flange of joint axis"), Text(
               extent={{-128,26},{-70,18}},
-              lineColor={0,0,0},
               textString="flange of motor axis")}));
     end GearType1;
 
@@ -1289,7 +1277,6 @@ produced by the motor).
             extent={{-100,-100},{100,100}}), graphics={
             Rectangle(
               extent={{-100,-100},{100,100}},
-              lineColor={0,0,0},
               fillColor={235,235,235},
               fillPattern=FillPattern.Solid),
             Rectangle(
@@ -1483,7 +1470,6 @@ Default values of the parameters are given for the axis of joint 1.
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}}), graphics={Rectangle(
               extent={{-100,50},{100,-50}},
-              lineColor={0,0,0},
               fillPattern=FillPattern.HorizontalCylinder,
               fillColor={160,160,164}), Text(
               extent={{-150,57},{150,97}},
@@ -1792,7 +1778,6 @@ This model contains the mechanical components of the r3 robot
             extent={{-200,-200},{200,200}}), graphics={
             Rectangle(
               extent={{-200,200},{200,-200}},
-              lineColor={0,0,0},
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid),
             Text(

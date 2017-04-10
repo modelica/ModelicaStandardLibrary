@@ -97,16 +97,12 @@ to specify system properties.",
         Line(points={{74,84},{74,14}}),
         Polygon(
           points={{60,14},{88,14},{74,-18},{60,14}},
-          lineColor={0,0,0},
-          fillColor={0,0,0},
           fillPattern=FillPattern.Solid),
         Text(
           extent={{16,20},{60,-18}},
-          lineColor={0,0,0},
           textString="g"),
         Text(
           extent={{-90,82},{74,50}},
-          lineColor={0,0,0},
           textString="defaults"),
         Line(
           points={{-82,14},{-42,-20},{2,30}},
@@ -114,7 +110,6 @@ to specify system properties.",
         Ellipse(
           extent={{-10,40},{12,18}},
           pattern=LinePattern.None,
-          lineColor={0,0,0},
           fillColor={255,0,0},
           fillPattern=FillPattern.Solid)}),
     Documentation(info="<html>

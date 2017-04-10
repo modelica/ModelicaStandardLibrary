@@ -25,7 +25,6 @@ package Sensors
             lineColor={0,0,255}),
           Text(
             extent={{151,-20},{57,-50}},
-            lineColor={0,0,0},
             textString="p")}),
       Documentation(info="<html>
 <p>
@@ -56,7 +55,6 @@ ideal, i.e., it does not influence the fluid.
             lineColor={0,0,255}),
           Text(
             extent={{154,-31},{56,-61}},
-            lineColor={0,0,0},
             textString="d"),
           Line(points={{70,0},{100,0}}, color={0,0,127})}),
     Documentation(info="<html>
@@ -100,7 +98,6 @@ The sensor is ideal, i.e., it does not influence the fluid.
               100}}), graphics={
           Text(
             extent={{102,124},{6,95}},
-            lineColor={0,0,0},
             textString="d"),
           Line(points={{0,100},{0,70}}, color={0,0,127}),
           Line(points={{-100,0},{-70,0}}, color={0,128,255}),
@@ -134,7 +131,6 @@ The sensor is ideal, i.e., it does not influence the fluid.
           Line(points={{0,-70},{0,-100}}, color={0,0,127}),
           Ellipse(
             extent={{-20,-98},{20,-60}},
-            lineColor={0,0,0},
             lineThickness=0.5,
             fillColor={191,0,0},
             fillPattern=FillPattern.Solid),
@@ -146,7 +142,6 @@ The sensor is ideal, i.e., it does not influence the fluid.
           Polygon(
             points={{-12,40},{-12,80},{-10,86},{-6,88},{0,90},{6,88},{10,86},{
                 12,80},{12,40},{-12,40}},
-            lineColor={0,0,0},
             lineThickness=0.5),
           Line(
             points={{-12,40},{-12,-64}},
@@ -162,7 +157,6 @@ The sensor is ideal, i.e., it does not influence the fluid.
               100}}), graphics={
           Ellipse(
             extent={{-20,-88},{20,-50}},
-            lineColor={0,0,0},
             lineThickness=0.5,
             fillColor={191,0,0},
             fillPattern=FillPattern.Solid),
@@ -174,7 +168,6 @@ The sensor is ideal, i.e., it does not influence the fluid.
           Polygon(
             points={{-12,50},{-12,90},{-10,96},{-6,98},{0,100},{6,98},{10,96},{
                 12,90},{12,50},{-12,50}},
-            lineColor={0,0,0},
             lineThickness=0.5),
           Line(
             points={{-12,50},{-12,-54}},
@@ -187,7 +180,6 @@ The sensor is ideal, i.e., it does not influence the fluid.
           Line(points={{-40,70},{-12,70}}),
           Text(
             extent={{126,-30},{6,-60}},
-            lineColor={0,0,0},
             textString="T"),
           Text(
             extent={{-150,110},{150,150}},
@@ -230,7 +222,6 @@ The sensor is ideal, i.e., it does not influence the fluid.
           Line(points={{-92,0},{100,0}}, color={0,128,255}),
           Ellipse(
             extent={{-20,-68},{20,-30}},
-            lineColor={0,0,0},
             lineThickness=0.5,
             fillColor={191,0,0},
             fillPattern=FillPattern.Solid),
@@ -242,7 +233,6 @@ The sensor is ideal, i.e., it does not influence the fluid.
           Polygon(
             points={{-12,50},{-12,70},{-10,76},{-6,78},{0,80},{6,78},{10,76},{
                 12,70},{12,50},{-12,50}},
-            lineColor={0,0,0},
             lineThickness=0.5),
           Line(
             points={{-12,50},{-12,-35}},
@@ -255,7 +245,6 @@ The sensor is ideal, i.e., it does not influence the fluid.
           Line(points={{-40,50},{-12,50}}),
           Text(
             extent={{94,122},{0,92}},
-            lineColor={0,0,0},
             textString="T")}),
     Documentation(info="<html>
 <p>
@@ -285,7 +274,6 @@ The sensor is ideal, i.e., it does not influence the fluid.
             lineColor={0,0,255}),
           Text(
             extent={{168,-30},{52,-60}},
-            lineColor={0,0,0},
             textString="h"),
           Line(points={{70,0},{100,0}}, color={0,0,127})}),
     Documentation(info="<html>
@@ -319,7 +307,6 @@ The sensor is ideal, i.e., it does not influence the fluid.
               100}}), graphics={
           Text(
             extent={{102,120},{0,90}},
-            lineColor={0,0,0},
             textString="h"),
           Line(points={{0,100},{0,70}}, color={0,0,127}),
           Line(points={{-100,0},{-70,0}}, color={0,128,255}),
@@ -352,7 +339,6 @@ The sensor is ideal, i.e., it does not influence the fluid.
             lineColor={0,0,255}),
           Text(
             extent={{156,-24},{54,-54}},
-            lineColor={0,0,0},
             textString="s"),
           Line(points={{70,0},{100,0}}, color={0,0,127})}),
     Documentation(info="<html>
@@ -394,7 +380,6 @@ The sensor is ideal, i.e., it does not influence the fluid.
               100}}), graphics={
           Text(
             extent={{120,120},{0,90}},
-            lineColor={0,0,0},
             textString="s"),
           Line(points={{0,100},{0,70}}, color={0,0,127}),
           Line(points={{-100,0},{-70,0}}, color={0,128,255}),
@@ -443,7 +428,6 @@ The sensor is ideal, i.e., it does not influence the fluid.
             lineColor={0,0,255}),
           Text(
             extent={{160,-30},{60,-60}},
-            lineColor={0,0,0},
             textString="Xi"),
           Line(points={{70,0},{100,0}}, color={0,0,127})}),
     Documentation(info="<html>
@@ -494,7 +478,6 @@ The sensor is ideal, i.e., it does not influence the fluid.
               100}}), graphics={
           Text(
             extent={{82,122},{0,92}},
-            lineColor={0,0,0},
             textString="Xi"),
           Line(points={{0,100},{0,70}}, color={0,0,127}),
           Line(points={{-100,0},{-70,0}}, color={0,128,255}),
@@ -547,7 +530,6 @@ The sensor is ideal, i.e., it does not influence the fluid.
             lineColor={0,0,255}),
           Text(
             extent={{160,-30},{60,-60}},
-            lineColor={0,0,0},
             textString="C"),
           Line(points={{70,0},{100,0}}, color={0,0,127})}),
     Documentation(info="<html>
@@ -593,7 +575,6 @@ The sensor is ideal, i.e., it does not influence the fluid.
               100}}), graphics={
           Text(
             extent={{82,122},{0,92}},
-            lineColor={0,0,0},
             textString="C"),
           Line(points={{0,100},{0,70}}, color={0,0,127}),
           Line(points={{-100,0},{-70,0}}, color={0,128,255}),
@@ -625,7 +606,6 @@ The sensor is ideal, i.e., it does not influence the fluid.
           Line(points={{70,0},{100,0}}, color={0,128,255}),
           Text(
             extent={{162,120},{2,90}},
-            lineColor={0,0,0},
             textString="m_flow"),
           Line(points={{0,100},{0,70}}, color={0,0,127}),
           Line(points={{-100,0},{-70,0}}, color={0,128,255})}),
@@ -669,7 +649,6 @@ The sensor is ideal, i.e., it does not influence the fluid.
               100}}), graphics={
           Text(
             extent={{160,120},{0,90}},
-            lineColor={0,0,0},
             textString="V_flow"),
           Line(points={{0,100},{0,70}}, color={0,0,127}),
           Line(points={{-100,0},{-70,0}}, color={0,128,255}),
@@ -701,7 +680,6 @@ The sensor is ideal, i.e., it does not influence the fluid.
           Line(points={{0,-30},{0,-80}}, color={0,0,127}),
           Text(
             extent={{130,-70},{4,-100}},
-            lineColor={0,0,0},
             textString="p_rel")}),
       Documentation(info="<html>
 <p>
@@ -732,7 +710,6 @@ through the sensor is allowed.
           Line(points={{0,-30},{0,-80}}, color={0,0,127}),
           Text(
             extent={{128,-70},{10,-100}},
-            lineColor={0,0,0},
             textString="T_rel")}),
       Documentation(info="<html>
 <p>

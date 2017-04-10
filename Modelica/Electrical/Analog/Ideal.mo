@@ -649,12 +649,10 @@ are possible (norator).
               lineColor={160,160,164},
               textString="p1.i=0"),Polygon(
               points={{120,3},{110,0},{120,-3},{120,3}},
-              lineColor={0,0,0},
               fillPattern=FillPattern.HorizontalCylinder,
               fillColor={160,160,164}),Line(points={{111,0},{136,0}}, color={0,
             0,0}),Text(
               extent={{118,2},{135,17}},
-              lineColor={0,0,0},
               textString="i2"),Text(
               extent={{-111,60},{-90,80}},
               lineColor={160,160,164},
@@ -665,7 +663,6 @@ are possible (norator).
               fillColor={160,160,164},
               fillPattern=FillPattern.Solid),Text(
               extent={{22,-100},{39,-85}},
-              lineColor={0,0,0},
               textString="i2")}));
   end IdealOpAmp;
 
@@ -728,12 +725,10 @@ are possible.
               lineColor={160,160,164},
               textString="p1.i=0"),Polygon(
               points={{120,3},{110,0},{120,-3},{120,3}},
-              lineColor={0,0,0},
               fillPattern=FillPattern.HorizontalCylinder,
               fillColor={160,160,164}),Line(points={{111,0},{136,0}}, color={0,
             0,0}),Text(
               extent={{118,2},{135,17}},
-              lineColor={0,0,0},
               textString="i2"),Text(
               extent={{-111,60},{-90,80}},
               lineColor={160,160,164},
@@ -824,13 +819,11 @@ If the input voltage is vin larger than 0, the output voltage is out.v = VMax.
             textString="p1.i=0"),
           Polygon(
             points={{120,3},{110,0},{120,-3},{120,3}},
-            lineColor={0,0,0},
             fillPattern=FillPattern.HorizontalCylinder,
             fillColor={160,160,164}),
           Line(points={{111,0},{136,0}}),
           Text(
             extent={{118,2},{135,17}},
-            lineColor={0,0,0},
             textString="i2"),
           Text(
             extent={{-111,60},{-90,80}},
@@ -1527,11 +1520,9 @@ For details of the arc effect, see partial model <a href=\"modelica://Modelica.E
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}), graphics={
           Polygon(
-            points={{-30,0},{-30,-100},{70,-50},{-30,0}},
-            lineColor={0,0,0}),
+            points={{-30,0},{-30,-100},{70,-50},{-30,0}}),
           Polygon(
-            points={{70,100},{70,0},{-30,50},{70,100}},
-            lineColor={0,0,0}),
+            points={{70,100},{70,0},{-30,50},{70,100}}),
           Line(
             points={{70,0},{70,-100}}),
           Line(

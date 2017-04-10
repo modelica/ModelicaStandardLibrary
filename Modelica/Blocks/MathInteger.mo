@@ -36,7 +36,6 @@ equation
         extent={{-100,-100},{300,100}}), graphics={
             Text(
               extent={{310,-25},{410,-45}},
-              lineColor={0,0,0},
               textString=DynamicSelect(" ", String(
                   y,
                   minimumLength=1,
@@ -44,16 +43,13 @@ equation
             Text(
               visible=not use_pre_as_default,
               extent={{-100,-60},{300,-90}},
-              lineColor={0,0,0},
               textString="else: %y_default"),
             Text(
               visible=use_pre_as_default,
               extent={{-100,-50},{300,-80}},
-              lineColor={0,0,0},
               textString="else: pre(y)"),
             Rectangle(
               extent={{-100,-40},{300,40}},
-              lineColor={0,0,0},
               fillColor={255,213,170},
               fillPattern=FillPattern.Solid,
               borderPattern=BorderPattern.Raised),
@@ -63,7 +59,6 @@ equation
               lineColor={0,0,255}),
             Text(
               extent={{-80,15},{290,-15}},
-              lineColor={0,0,0},
               textString="%expr")}),
     Documentation(info="<html>
 <p>
@@ -108,10 +103,8 @@ end MultiSwitch;
     end if;
     annotation (Icon(graphics={Text(
               extent={{-200,-110},{200,-140}},
-              lineColor={0,0,0},
               textString="%k"), Text(
               extent={{-72,68},{92,-68}},
-              lineColor={0,0,0},
               textString="+")}), Documentation(info="<html>
 <p>
 This blocks computes the scalar Integer output \"y\" as sum of the elements of the
@@ -152,7 +145,6 @@ the output is set to zero: y=0.
 
     annotation (Icon(graphics={Text(
               extent={{-74,50},{94,-94}},
-              lineColor={0,0,0},
               textString="*")}), Documentation(info="<html>
 <p>
 This blocks computes the scalar Integer output \"y\" as product of the elements of the
@@ -252,7 +244,6 @@ the output is set to zero: y=0.
             Text(
               visible=use_reset,
               extent={{-28,-62},{94,-86}},
-              lineColor={0,0,0},
               textString="reset")}),
       Documentation(info="<html>
 <p>

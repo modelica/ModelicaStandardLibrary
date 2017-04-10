@@ -2473,8 +2473,7 @@ actuator example
                   extent={{40,50},{-100,100}},
                   fillColor={255,170,85},
                   fillPattern=FillPattern.Solid,
-                  pattern=LinePattern.None,
-                  lineColor={0,0,0}),           Text(
+                  pattern=LinePattern.None),           Text(
                 extent={{-150,150},{150,110}},
                 textString="%name",
                 lineColor={0,0,255})}));

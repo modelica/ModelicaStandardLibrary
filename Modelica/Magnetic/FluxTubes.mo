@@ -3621,12 +3621,10 @@ An example simulation shows the transformer inrush currents due to an initially 
           annotation (defaultComponentName="tr",                                                                    Icon(graphics={
                 Polygon(
                   points={{50,60},{30,40},{30,-40},{50,-60},{50,60}},
-                  lineColor={0,0,0},
                   fillColor={255,128,0},
                   fillPattern=FillPattern.VerticalCylinder),
                 Polygon(
                   points={{-50,60},{-30,40},{-30,-40},{-50,-60},{-50,60}},
-                  lineColor={0,0,0},
                   fillColor={255,128,0},
                   fillPattern=FillPattern.VerticalCylinder),
                 Rectangle(
@@ -3645,14 +3643,12 @@ An example simulation shows the transformer inrush currents due to an initially 
                   textString="%name"),
                 Polygon(
                   points={{-10,60},{10,40},{10,-20},{-10,-40},{-10,60}},
-                  lineColor={0,0,0},
                   fillColor={255,128,0},
                   fillPattern=FillPattern.VerticalCylinder,
                   origin={10,-50},
                   rotation=90),
                 Polygon(
                   points={{-10,20},{-30,0},{-30,-60},{-10,-80},{-10,-44.0625},{-10,20}},
-                  lineColor={0,0,0},
                   fillColor={255,128,0},
                   fillPattern=FillPattern.VerticalCylinder,
                   origin={-30,70},
@@ -4117,12 +4113,10 @@ Simple model of a single phase transformer with a primary and a secondary windin
                                  graphics), Icon(graphics={
                 Polygon(
                   points={{70,60},{50,40},{50,-40},{70,-60},{70,60}},
-                  lineColor={0,0,0},
                   fillColor={255,128,0},
                   fillPattern=FillPattern.VerticalCylinder),
                 Polygon(
                   points={{-70,60},{-50,40},{-50,-40},{-70,-60},{-70,60}},
-                  lineColor={0,0,0},
                   fillColor={255,128,0},
                   fillPattern=FillPattern.VerticalCylinder),
                 Rectangle(
@@ -4136,33 +4130,28 @@ Simple model of a single phase transformer with a primary and a secondary windin
                   textString="%name"),
                 Polygon(
                   points={{-20,10},{0,-10},{1.22465e-016,-50},{-10,-60},{-20,-60},{-20,10}},
-                  lineColor={0,0,0},
                   fillColor={255,128,0},
                   fillPattern=FillPattern.VerticalCylinder,
                   origin={-60,-40},
                   rotation=90),
                 Polygon(
                   points={{-10,40},{0,50},{10,40},{10,-40},{0,-50},{-10,-40},{-10,40}},
-                  lineColor={0,0,0},
                   fillColor={255,128,0},
                   fillPattern=FillPattern.VerticalCylinder),
                 Polygon(
                   points={{-20,-10},{0,10},{0,50},{-10,60},{-20,60},{-20,-10}},
-                  lineColor={0,0,0},
                   fillColor={255,128,0},
                   fillPattern=FillPattern.VerticalCylinder,
                   origin={60,-40},
                   rotation=90),
                 Polygon(
                   points={{20,10},{0,-10},{0,-50},{10,-60},{20,-60},{20,10}},
-                  lineColor={0,0,0},
                   fillColor={255,128,0},
                   fillPattern=FillPattern.VerticalCylinder,
                   origin={-60,40},
                   rotation=90),
                 Polygon(
                   points={{20,-10},{0,10},{0,50},{10,60},{20,60},{20,-10}},
-                  lineColor={0,0,0},
                   fillColor={255,128,0},
                   fillPattern=FillPattern.VerticalCylinder,
                   origin={60,40},
@@ -4305,7 +4294,6 @@ Simple model of a three phase transformer with primary and a secondary windings 
             extent={{-100,-100},{100,100}}), graphics={
             Rectangle(
               extent={{-90,10},{90,-10}},
-              lineColor={0,0,0},
               fillPattern=FillPattern.HorizontalCylinder,
               fillColor={255,127,0}),
             Text(
@@ -4314,7 +4302,6 @@ Simple model of a three phase transformer with primary and a secondary windings 
               textString="%name"),
             Rectangle(
               extent={{-50,60},{50,-60}},
-              lineColor={0,0,0},
               fillPattern=FillPattern.HorizontalCylinder,
               fillColor={255,127,0}),
             Rectangle(
@@ -4339,7 +4326,6 @@ Simple model of a three phase transformer with primary and a secondary windings 
               fillPattern=FillPattern.Solid),
             Text(
               extent={{-100,-100},{100,-140}},
-              lineColor={0,0,0},
               textString="m=%m"),
             Line(points={{-50,-80},{30,-80}}),
             Polygon(
@@ -4557,7 +4543,6 @@ The magnetic potential at the magnetic ground node is zero. Every magnetic netwo
                   lineColor={160,160,164},
                   textString="Phi"),Text(
                   extent={{128,64},{145,79}},
-                  lineColor={0,0,0},
                   textString="Phi"),Line(points={{-150,-59},{-125,-59}}, color=
               {160,160,164}),Polygon(
                   points={{-140,-56},{-150,-59},{-140,-62},{-140,-56}},
@@ -4755,7 +4740,6 @@ The flux linkage &Psi; and the static inductance L_stat = |&Psi;/i| are calculat
               textString="Phi"),
             Text(
               extent={{128,64},{145,79}},
-              lineColor={0,0,0},
               textString="Phi"),
             Line(points={{-150,-59},{-125,-59}}, color={160,160,164}),
             Polygon(
@@ -6135,7 +6119,6 @@ An overview over all available hysteresis and permanent magnet elements of the p
                 fillPattern=FillPattern.Solid),
               Text(
                 extent={{-20,13},{20,-13}},
-                lineColor={0,0,0},
                 textStyle={TextStyle.Bold},
                 origin={47,0},
                 rotation=90,
@@ -6160,7 +6143,6 @@ An overview over all available hysteresis and permanent magnet elements of the p
                 fillPattern=FillPattern.Solid),
               Text(
                 extent={{-20,13},{20,-13}},
-                lineColor={0,0,0},
                 textStyle={TextStyle.Bold},
                 textString="N",
                 origin={-47,0},
@@ -6214,7 +6196,6 @@ An overview over all available hysteresis and permanent magnet elements of the p
                 fillPattern=FillPattern.Solid),
               Text(
                 extent={{-20,13},{20,-13}},
-                lineColor={0,0,0},
                 textStyle={TextStyle.Bold},
                 textString="N",
                 origin={-47,0},
@@ -6226,7 +6207,6 @@ An overview over all available hysteresis and permanent magnet elements of the p
                 fillPattern=FillPattern.Solid),
               Text(
                 extent={{-20,13},{20,-13}},
-                lineColor={0,0,0},
                 textStyle={TextStyle.Bold},
                 origin={47,0},
                 rotation=90,
@@ -7868,7 +7848,6 @@ Please refer to the description of  the sub-package <a href=\"modelica://Modelic
             fillPattern=FillPattern.Solid),
           Rectangle(
             extent={{-10,80},{10,-30}},
-            lineColor={0,0,0},
             fillColor={0,127,0},
             fillPattern=FillPattern.Solid)}), Documentation(info="<html>
 <p>
@@ -8345,7 +8324,6 @@ This package contains sources of a magnetic potential difference or a magnetic f
           extent={{-100,-100},{100,100}}), graphics={
             Text(
               extent={{-52,1},{48,-57}},
-              lineColor={0,0,0},
               textString="V_m"),
             Line(points={{-70,0},{-90,0}}),
             Line(points={{70,0},{90,0}}),

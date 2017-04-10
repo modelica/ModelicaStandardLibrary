@@ -481,7 +481,6 @@ input <code>u</code>. Optionally, the input <code>u</code> can be processed conj
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid),Text(
                   extent={{-150,-140},{150,-100}},
-                  lineColor={0,0,0},
                   textString="k=%k"),Text(
                   extent={{-150,140},{150,100}},
                   textString="%name",
@@ -596,7 +595,6 @@ result in the following equation:
               color={0,0,127}),Line(points={{20,0},{80,0}}, color={0,0,127}),
               Line(points={{0,-20},{0,-60}}, color={0,0,127}),Text(
                   extent={{-14,0},{82,-94}},
-                  lineColor={0,0,0},
                   textString="-"),Text(
                   extent={{-150,94},{150,44}},
                   textString="%name",
@@ -610,7 +608,6 @@ result in the following equation:
               0,255}),Line(points={{20,0},{80,0}}, color={0,0,255}),Line(points=
                {{0,-20},{0,-60}}, color={0,0,255}),Text(
                   extent={{-12,10},{84,-84}},
-                  lineColor={0,0,0},
                   textString="-")}));
     end Feedback;
 
@@ -649,10 +646,8 @@ result in the following equation:
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Text(
                   extent={{-98,-52},{7,-92}},
-                  lineColor={0,0,0},
                   textString="%k2"),Text(
                   extent={{-100,90},{5,50}},
-                  lineColor={0,0,0},
                   textString="%k1"),Text(
                   extent={{-150,150},{150,110}},
                   textString="%name",
@@ -670,13 +665,10 @@ result in the following equation:
               0,0,127}),Ellipse(extent={{-50,50},{50,-50}}, lineColor={0,0,127}),
               Line(points={{50,0},{100,0}}, color={0,0,127}),Text(
                   extent={{-38,34},{38,-34}},
-                  lineColor={0,0,0},
                   textString="+"),Text(
                   extent={{-100,52},{5,92}},
-                  lineColor={0,0,0},
                   textString="%k1"),Text(
                   extent={{-100,-52},{5,-92}},
-                  lineColor={0,0,0},
                   textString="%k2")}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={Rectangle(
@@ -685,10 +677,8 @@ result in the following equation:
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid),Text(
                   extent={{-98,-52},{7,-92}},
-                  lineColor={0,0,0},
                   textString="%k2"),Text(
                   extent={{-100,90},{5,50}},
-                  lineColor={0,0,0},
                   textString="%k1"),Line(points={{-100,60},{-40,60},{-30,40}},
               color={0,0,255}),Ellipse(extent={{-50,50},{50,-50}}, lineColor={0,
               0,255}),Line(points={{-100,-60},{-40,-60},{-30,-40}}, color={0,0,
@@ -703,13 +693,10 @@ result in the following equation:
               0,0,127}),Ellipse(extent={{-50,50},{50,-50}}, lineColor={0,0,127}),
               Line(points={{50,0},{100,0}}, color={0,0,127}),Text(
                   extent={{-38,34},{38,-34}},
-                  lineColor={0,0,0},
                   textString="+"),Text(
                   extent={{-100,52},{5,92}},
-                  lineColor={0,0,0},
                   textString="k1"),Text(
                   extent={{-100,-52},{5,-92}},
-                  lineColor={0,0,0},
                   textString="k2")}));
     end Add;
 
@@ -774,16 +761,12 @@ three input signals <code>u1</code>, <code>u2</code> and <code>u3</code>. Option
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Text(
                   extent={{-100,50},{5,90}},
-                  lineColor={0,0,0},
                   textString="%k1"),Text(
                   extent={{-100,-20},{5,20}},
-                  lineColor={0,0,0},
                   textString="%k2"),Text(
                   extent={{-100,-50},{5,-90}},
-                  lineColor={0,0,0},
                   textString="%k3"),Text(
                   extent={{2,36},{100,-44}},
-                  lineColor={0,0,0},
                   textString="+")}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={Rectangle(
@@ -792,32 +775,24 @@ three input signals <code>u1</code>, <code>u2</code> and <code>u3</code>. Option
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid),Text(
                   extent={{-100,50},{5,90}},
-                  lineColor={0,0,0},
                   textString="%k1"),Text(
                   extent={{-100,-20},{5,20}},
-                  lineColor={0,0,0},
                   textString="%k2"),Text(
                   extent={{-100,-50},{5,-90}},
-                  lineColor={0,0,0},
                   textString="%k3"),Text(
                   extent={{2,36},{100,-44}},
-                  lineColor={0,0,0},
                   textString="+"),Rectangle(
                   extent={{-100,-100},{100,100}},
                   lineColor={0,0,255},
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid),Text(
                   extent={{-100,50},{5,90}},
-                  lineColor={0,0,0},
                   textString="k1"),Text(
                   extent={{-100,-20},{5,20}},
-                  lineColor={0,0,0},
                   textString="k2"),Text(
                   extent={{-100,-50},{5,-90}},
-                  lineColor={0,0,0},
                   textString="k3"),Text(
                   extent={{2,36},{100,-44}},
-                  lineColor={0,0,0},
                   textString="+")}));
     end Add3;
 
@@ -889,12 +864,8 @@ the two inputs <code>u1</code> and <code>u2</code>. Optionally, either input <co
                 100,100}}), graphics={Line(points={{50,0},{100,0}}, color={0,0,
               127}),Line(points={{-30,0},{30,0}}),Ellipse(
                   extent={{-5,20},{5,30}},
-                  lineColor={0,0,0},
-                  fillColor={0,0,0},
                   fillPattern=FillPattern.Solid),Ellipse(
                   extent={{-5,-20},{5,-30}},
-                  lineColor={0,0,0},
-                  fillColor={0,0,0},
                   fillPattern=FillPattern.Solid),Ellipse(extent={{-50,50},{50,-50}},
               lineColor={0,0,127}),Text(
                   extent={{-150,150},{150,110}},
@@ -911,12 +882,8 @@ the two inputs <code>u1</code> and <code>u2</code>. Optionally, either input <co
               color={0,0,255}),Line(points={{-30,0},{30,0}}),
               Ellipse(
                   extent={{-5,20},{5,30}},
-                  lineColor={0,0,0},
-                  fillColor={0,0,0},
                   fillPattern=FillPattern.Solid),Ellipse(
                   extent={{-5,-20},{5,-30}},
-                  lineColor={0,0,0},
-                  fillColor={0,0,0},
                   fillPattern=FillPattern.Solid),Ellipse(extent={{-50,50},{50,-50}},
               lineColor={0,0,255}),Line(points={{-100,60},{-66,60},{-40,30}},
               color={0,0,255}),Line(points={{-100,-60},{0,-60},{0,-50}}, color=
@@ -2013,13 +1980,11 @@ connected with continuous blocks or with sampled-data blocks.
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={Rectangle(
                   extent={{-100,40},{100,-40}},
-                  lineColor={0,0,0},
                   lineThickness=5.0,
                   fillColor={235,235,235},
                   fillPattern=FillPattern.Solid,
                   borderPattern=BorderPattern.Raised),Text(
                   extent={{-96,15},{96,-15}},
-                  lineColor={0,0,0},
                   textString="%y"),Text(
                   extent={{-150,90},{140,50}},
                   textString="%name",
@@ -2057,7 +2022,6 @@ Variable <b>y</b> is both a variable and a connector.
                   fillColor={192,192,192},
                   fillPattern=FillPattern.Solid),Line(points={{-80,0},{80,0}}),Text(
                   extent={{-150,-150},{150,-110}},
-                  lineColor={0,0,0},
                   textString="k=%k")}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={Polygon(
@@ -2075,13 +2039,10 @@ Variable <b>y</b> is both a variable and a connector.
                   fillColor={95,95,95},
                   fillPattern=FillPattern.Solid),Text(
                   extent={{-83,92},{-30,74}},
-                  lineColor={0,0,0},
                   textString="y"),Text(
                   extent={{70,-80},{94,-100}},
-                  lineColor={0,0,0},
                   textString="time"),Text(
                   extent={{-101,8},{-81,-12}},
-                  lineColor={0,0,0},
                   textString="k")}),
         Documentation(info="<html>
 <p>
@@ -2116,7 +2077,6 @@ The Complex output y is a constant signal:
                   fillPattern=FillPattern.Solid),Line(points={{-80,-70},{0,-70},
               {0,50},{80,50}}),Text(
                   extent={{-150,-150},{150,-110}},
-                  lineColor={0,0,0},
                   textString="startTime=%startTime")}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={Polygon(
@@ -2134,14 +2094,11 @@ The Complex output y is a constant signal:
                   fillColor={95,95,95},
                   fillPattern=FillPattern.Solid),Text(
                   extent={{70,-80},{94,-100}},
-                  lineColor={0,0,0},
                   textString="time"),Text(
                   extent={{-21,-72},{25,-90}},
-                  lineColor={0,0,0},
                   textString="startTime"),Line(points={{0,-17},{0,-71}}, color=
               {95,95,95}),Text(
                   extent={{-68,-36},{-22,-54}},
-                  lineColor={0,0,0},
                   textString="offset"),Line(points={{-13,50},{-13,-17}}, color=
               {95,95,95}),Polygon(
                   points={{2,50},{-19,50},{2,50}},
@@ -2157,7 +2114,6 @@ The Complex output y is a constant signal:
                   fillColor={95,95,95},
                   fillPattern=FillPattern.Solid),Text(
                   extent={{-68,26},{-22,8}},
-                  lineColor={0,0,0},
                   textString="height"),Polygon(
                   points={{-13,-69},{-16,-56},{-10,-56},{-13,-69},{-13,-69}},
                   lineColor={95,95,95},
@@ -2169,7 +2125,6 @@ The Complex output y is a constant signal:
                   fillColor={95,95,95},
                   fillPattern=FillPattern.Solid),Text(
                   extent={{-72,100},{-31,80}},
-                  lineColor={0,0,0},
                   textString="y")}),
         Documentation(info="<html>
 <p>

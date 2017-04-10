@@ -42,12 +42,10 @@ equation
             Text(
               visible=not use_pre_as_default,
               extent={{-100,-60},{300,-90}},
-              lineColor={0,0,0},
               textString="else: %y_default"),
             Text(
               visible=use_pre_as_default,
               extent={{-100,-60},{300,-90}},
-              lineColor={0,0,0},
               textString="else: pre(y)"),
             Text(
               extent={{-99,99},{300,59}},
@@ -62,7 +60,6 @@ equation
               borderPattern=BorderPattern.Raised),
             Text(
               extent={{-84,16},{273,-15}},
-              lineColor={0,0,0},
               textString="%expr"),
             Ellipse(
               extent={{275,8},{289,-6}},
@@ -104,7 +101,6 @@ end MultiSwitch;
                               u);
     annotation (defaultComponentName="and1", Icon(graphics={Text(
               extent={{-76,40},{60,-40}},
-              lineColor={0,0,0},
               textString="and")}),
       Documentation(info="<html>
 <p>
@@ -140,7 +136,6 @@ the output is set to <b>false</b>: y=false.
                               u);
     annotation (defaultComponentName="or1", Icon(graphics={Text(
               extent={{-80,40},{60,-40}},
-              lineColor={0,0,0},
               textString="or")}),
       Documentation(info="<html>
 <p>
@@ -178,7 +173,6 @@ the output is set to <b>false</b>: y=false.
                               u);
     annotation (defaultComponentName="xor1", Icon(graphics={Text(
               extent={{-80,40},{60,-40}},
-              lineColor={0,0,0},
               textString="xor")}),
       Documentation(info="<html>
 <p>
@@ -215,7 +209,6 @@ the output is set to <b>false</b>: y=false.
                                   u);
     annotation (defaultComponentName="nand1", Icon(graphics={Text(
               extent={{-78,36},{64,-30}},
-              lineColor={0,0,0},
               textString="nand")}),
       Documentation(info="<html>
 <p>
@@ -252,7 +245,6 @@ the output is set to <b>false</b>: y=false.
                                   u);
     annotation (defaultComponentName="nor1", Icon(graphics={Text(
               extent={{-80,40},{60,-40}},
-              lineColor={0,0,0},
               textString="nor")}),
       Documentation(info="<html>
 <p>
@@ -287,8 +279,7 @@ the output is set to <b>false</b>: y=false.
     y = not u;
     annotation (defaultComponentName="not1", Icon(graphics={Text(
               extent={{-98,40},{42,-40}},
-              lineColor={0,0,0},
-            textString="not")}),
+              textString="not")}),
       Documentation(info="<html>
 <p>
 The output is <b>false</b> if at least one input is <b>true</b>, otherwise
@@ -422,7 +413,6 @@ The usage is demonstrated, e.g., in example
         annotation (Icon(graphics={
             Text(
               extent={{-250,-120},{250,-150}},
-              lineColor={0,0,0},
               textString="%delayTime s"),
             Line(points={{-80,-66},{-60,-66},{-60,-22},{38,-22},{38,-66},{66,-66}}),
             Line(points={{-80,32},{-4,32},{-4,76},{38,76},{38,32},{66,32}},

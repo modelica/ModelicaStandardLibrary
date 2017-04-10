@@ -24,11 +24,9 @@ package Vessels "Devices for storing fluid"
         Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
               100,100}}), graphics={Ellipse(
             extent={{-100,100},{100,-100}},
-            lineColor={0,0,0},
             fillPattern=FillPattern.Sphere,
             fillColor={170,213,255}), Text(
             extent={{-150,12},{150,-18}},
-            lineColor={0,0,0},
             textString="V=%V")}),
       Documentation(info="<html>
 <p>
@@ -122,18 +120,15 @@ initial equation
           Rectangle(
             extent=DynamicSelect({{-100,-100},{100,10}}, {{-100,-100},{100,(-100
                  + 200*level/height)}}),
-            lineColor={0,0,0},
             fillColor={85,170,255},
             fillPattern=FillPattern.VerticalCylinder),
           Line(points={{-100,100},{-100,-100},{100,-100},{100,100}}, color={0,0,
                 0}),
           Text(
             extent={{-95,60},{95,40}},
-            lineColor={0,0,0},
             textString="level ="),
           Text(
             extent={{-95,-24},{95,-44}},
-            lineColor={0,0,0},
             textString=DynamicSelect("%level_start", String(
                 level,
                 minimumLength=1,
@@ -497,11 +492,9 @@ Base class for vessel heat transfer models.
 </html>"),Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},
                   {100,100}}), graphics={Ellipse(
                 extent={{-60,64},{60,-56}},
-                lineColor={0,0,0},
                 fillPattern=FillPattern.Sphere,
                 fillColor={232,0,0}), Text(
                 extent={{-38,26},{40,-14}},
-                lineColor={0,0,0},
                 textString="%name")}));
     end PartialVesselHeatTransfer;
 
@@ -680,21 +673,17 @@ For larger port diameters, relative to the area of the vessel, the inlet pressur
             initialScale=0.2), graphics={
             Text(extent={{-75,130},{75,100}}, textString="%name"),
             Rectangle(
-              extent={{-25,100},{25,-100}},
-              lineColor={0,0,0}),
+              extent={{-25,100},{25,-100}}),
             Ellipse(
               extent={{-22,100},{-10,-100}},
-              lineColor={0,0,0},
               fillColor={0,127,255},
               fillPattern=FillPattern.Solid),
             Ellipse(
               extent={{-6,100},{6,-100}},
-              lineColor={0,0,0},
               fillColor={0,127,255},
               fillPattern=FillPattern.Solid),
             Ellipse(
               extent={{10,100},{22,-100}},
-              lineColor={0,0,0},
               fillColor={0,127,255},
               fillPattern=FillPattern.Solid)}),
            Icon(coordinateSystem(
@@ -708,17 +697,14 @@ For larger port diameters, relative to the area of the vessel, the inlet pressur
               fillPattern=FillPattern.Solid),
             Ellipse(
               extent={{-44,200},{-20,-200}},
-              lineColor={0,0,0},
               fillColor={0,127,255},
               fillPattern=FillPattern.Solid),
             Ellipse(
               extent={{-12,200},{12,-200}},
-              lineColor={0,0,0},
               fillColor={0,127,255},
               fillPattern=FillPattern.Solid),
             Ellipse(
               extent={{20,200},{44,-200}},
-              lineColor={0,0,0},
               fillColor={0,127,255},
               fillPattern=FillPattern.Solid)}));
     end VesselFluidPorts_a;
@@ -733,11 +719,9 @@ For larger port diameters, relative to the area of the vessel, the inlet pressur
             initialScale=0.2), graphics={
             Text(extent={{-75,130},{75,100}}, textString="%name"),
             Rectangle(
-              extent={{-25,100},{25,-100}},
-              lineColor={0,0,0}),
+              extent={{-25,100},{25,-100}}),
             Ellipse(
               extent={{-22,100},{-10,-100}},
-              lineColor={0,0,0},
               fillColor={0,127,255},
               fillPattern=FillPattern.Solid),
             Ellipse(
@@ -747,12 +731,10 @@ For larger port diameters, relative to the area of the vessel, the inlet pressur
               fillPattern=FillPattern.Solid),
             Ellipse(
               extent={{-6,100},{6,-100}},
-              lineColor={0,0,0},
               fillColor={0,127,255},
               fillPattern=FillPattern.Solid),
             Ellipse(
               extent={{10,100},{22,-100}},
-              lineColor={0,0,0},
               fillColor={0,127,255},
               fillPattern=FillPattern.Solid),
             Ellipse(
@@ -776,17 +758,14 @@ For larger port diameters, relative to the area of the vessel, the inlet pressur
               fillPattern=FillPattern.Solid),
             Ellipse(
               extent={{-44,200},{-20,-200}},
-              lineColor={0,0,0},
               fillColor={0,127,255},
               fillPattern=FillPattern.Solid),
             Ellipse(
               extent={{-12,200},{12,-200}},
-              lineColor={0,0,0},
               fillColor={0,127,255},
               fillPattern=FillPattern.Solid),
             Ellipse(
               extent={{20,200},{44,-200}},
-              lineColor={0,0,0},
               fillColor={0,127,255},
               fillPattern=FillPattern.Solid),
             Ellipse(

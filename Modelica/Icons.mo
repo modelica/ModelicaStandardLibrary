@@ -32,22 +32,18 @@ package Icons "Library of icons"
               -100},{100,100}}), graphics={
           Rectangle(
             extent={{-100,70},{100,-72}},
-            lineColor={0,0,0},
             fillColor={235,235,235},
             fillPattern=FillPattern.Solid),
           Polygon(
             points={{-100,-72},{100,-72},{0,20},{-100,-72}},
-            lineColor={0,0,0},
             fillColor={215,215,215},
             fillPattern=FillPattern.Solid),
           Polygon(
             points={{22,0},{100,70},{100,-72},{22,0}},
-            lineColor={0,0,0},
             fillColor={235,235,235},
             fillPattern=FillPattern.Solid),
           Polygon(
             points={{-100,70},{100,70},{0,-20},{-100,70}},
-            lineColor={0,0,0},
             fillColor={241,241,241},
             fillPattern=FillPattern.Solid)}),
                               Documentation(info="<html>
@@ -62,24 +58,20 @@ package Icons "Library of icons"
           Polygon(
             points={{-80,-100},{-80,100},{0,100},{0,20},{80,20},{80,-100},{-80,
                 -100}},
-            lineColor={0,0,0},
             fillColor={245,245,245},
             fillPattern=FillPattern.Solid),
           Polygon(
             points={{0,100},{80,20},{0,20},{0,100}},
-            lineColor={0,0,0},
             fillColor={215,215,215},
             fillPattern=FillPattern.Solid),
           Line(points={{2,-12},{50,-12}}),
           Ellipse(
             extent={{-56,2},{-28,-26}},
-            lineColor={0,0,0},
             fillColor={215,215,215},
             fillPattern=FillPattern.Solid),
           Line(points={{2,-60},{50,-60}}),
           Ellipse(
             extent={{-56,-46},{-28,-74}},
-            lineColor={0,0,0},
             fillColor={215,215,215},
             fillPattern=FillPattern.Solid)}), Documentation(info="<html>
 <p>This icon indicates release notes and the revision history of a library.</p>
@@ -98,8 +90,7 @@ package Icons "Library of icons"
             pattern=LinePattern.None,
             fillColor={245,245,245},
             fillPattern=FillPattern.Solid),
-          Polygon(points={{-20,-100},{-10,-80},{90,-80},{100,-100},{-20,-100}},
-              lineColor={0,0,0}),
+          Polygon(points={{-20,-100},{-10,-80},{90,-80},{100,-100},{-20,-100}}),
           Line(points={{90,-80},{90,60},{100,40},{100,-100}}),
           Line(points={{90,60},{-10,60},{-10,-80}}),
           Line(points={{-10,60},{-40,100},{-40,-40},{-10,-80},{-10,60}}),
@@ -311,8 +302,7 @@ package Icons "Library of icons"
             points={{12.167,65},{14.167,93},{36.167,89},{24.167,20},{4.167,-30},
                 {14.167,-30},{24.167,-30},{24.167,-40},{-5.833,-50},{-15.833,
                 -30},{4.167,20},{12.167,65}},
-            smooth=Smooth.Bezier,
-            lineColor={0,0,0}), Polygon(
+            smooth=Smooth.Bezier), Polygon(
             origin={2.7403,1.6673},
             fillColor={128,128,128},
             pattern=LinePattern.None,
@@ -344,14 +334,12 @@ package Icons "Library of icons"
             points={{-15.833,20.0},{-15.833,30.0},{14.167,40.0},{24.167,20.0},{
                 4.167,-30.0},{14.167,-30.0},{24.167,-30.0},{24.167,-40.0},{-5.833,
                 -50.0},{-15.833,-30.0},{4.167,20.0},{-5.833,20.0}},
-            smooth=Smooth.Bezier,
-            lineColor={0,0,0}), Ellipse(
+            smooth=Smooth.Bezier), Ellipse(
             origin={-0.5,56.5},
             fillColor={128,128,128},
             pattern=LinePattern.None,
             fillPattern=FillPattern.Solid,
-            extent={{-12.5,-12.5},{12.5,12.5}},
-            lineColor={0,0,0})}));
+            extent={{-12.5,-12.5},{12.5,12.5}})}));
   end IconsPackage;
 
   partial package InternalPackage
@@ -671,38 +659,26 @@ This icon is designed for a <b>String</b> type.
           initialScale=0.2), graphics={
           Polygon(
             points={{-40,25},{40,25},{50,15},{40,-20},{30,-25},{-30,-25},{-40,-20},{-50,15}},
-            lineColor={0,0,0},
             fillColor={255,204,51},
             fillPattern=FillPattern.Solid,
             smooth=Smooth.Bezier),
           Ellipse(
             extent={{-32.5,7.5},{-27.5,12.5}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
             fillPattern=FillPattern.Solid),
           Ellipse(
             extent={{-2.5,12.5},{2.5,7.5}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
             fillPattern=FillPattern.Solid),
           Ellipse(
             extent={{27.5,12.5},{32.5,7.5}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
             fillPattern=FillPattern.Solid),
           Ellipse(
             extent={{-17.5,-7.5},{-12.5,-12.5}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
             fillPattern=FillPattern.Solid),
           Ellipse(
             extent={{12.5,-7.5},{17.5,-12.5}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
             fillPattern=FillPattern.Solid),
           Text(
             extent={{-150,70},{150,40}},
-            lineColor={0,0,0},
             textString="%name")}),
       Documentation(info="<html>
 This icon is designed for a <b>signal bus</b> connector.
@@ -744,28 +720,20 @@ This icon is designed for a <b>signal bus</b> connector.
           extent={{-100,-100},{100,100}}), graphics={
           Polygon(
             points={{-40,25},{40,25},{50,15},{40,-20},{30,-25},{-30,-25},{-40,-20},{-50,15}},
-            lineColor={0,0,0},
             fillColor={255,204,51},
             fillPattern=FillPattern.Solid,
             smooth=Smooth.Bezier),
           Ellipse(
             extent={{-22.5,7.5},{-17.5,12.5}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
             fillPattern=FillPattern.Solid),
           Ellipse(
             extent={{17.5,12.5},{22.5,7.5}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
             fillPattern=FillPattern.Solid),
           Ellipse(
             extent={{-2.5,-7.5},{2.5,-12.5}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
             fillPattern=FillPattern.Solid),
           Text(
             extent={{-150,70},{150,40}},
-            lineColor={0,0,0},
             textString=
                  "%name")}),
       Documentation(info="<html>
@@ -947,14 +915,12 @@ This icon of an <b>electrical motor</b> model will be removed in future versions
             points={{-15.833,20.0},{-15.833,30.0},{14.167,40.0},{24.167,20.0},{
                 4.167,-30.0},{14.167,-30.0},{24.167,-30.0},{24.167,-40.0},{-5.833,
                 -50.0},{-15.833,-30.0},{4.167,20.0},{-5.833,20.0}},
-            smooth=Smooth.Bezier,
-            lineColor={0,0,0}), Ellipse(
+            smooth=Smooth.Bezier), Ellipse(
             origin={-0.5,56.5},
             fillColor={128,128,128},
             pattern=LinePattern.None,
             fillPattern=FillPattern.Solid,
-            extent={{-12.5,-12.5},{12.5,12.5}},
-            lineColor={0,0,0})}), Documentation(info="<html>
+            extent={{-12.5,-12.5},{12.5,12.5}})}), Documentation(info="<html>
 <p>This package contains definitions for the graphical layout of components which may be used in different libraries. The icons can be utilized by inheriting them in the desired class using &quot;extends&quot; or by directly copying the &quot;icon&quot; layer. </p>
 
 <h4>Main Authors:</h4>

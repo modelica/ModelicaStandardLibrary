@@ -109,7 +109,6 @@ package Parts
           Line(points={{0,0},{100,0}}),
           Text(
             extent={{-150,-105},{150,-135}},
-            lineColor={0,0,0},
             textString="r=%r")}),
       Documentation(info="<html>
 <p>
@@ -244,8 +243,6 @@ animation = <b>false</b>.
           extent={{-100,-100},{100,100}}), graphics={
           Rectangle(
             extent={{-99,5},{101,-5}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
             fillPattern=FillPattern.Solid),
           Text(
             extent={{-150,85},{150,45}},
@@ -253,7 +250,6 @@ animation = <b>false</b>.
             lineColor={0,0,255}),
           Text(
             extent={{150,-50},{-150,-20}},
-            lineColor={0,0,0},
             textString="r=%r"),
           Text(
             extent={{-89,38},{-53,13}},
@@ -268,8 +264,6 @@ animation = <b>false</b>.
           extent={{-100,-100},{100,100}}), graphics={
           Rectangle(
             extent={{-100,5},{100,-5}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
             fillPattern=FillPattern.Solid),
           Line(
             points={{-95,20},{-58,20}},
@@ -295,8 +289,6 @@ animation = <b>false</b>.
             textString="r"),
           Polygon(
             points={{88,-59},{88,-68},{100,-63},{88,-59}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
             fillPattern=FillPattern.Solid),
           Line(points={{100,-3},{100,-68}}, color={128,128,128}),
           Line(
@@ -558,24 +550,17 @@ the animation may be switched off via parameter animation = <b>false</b>.
             lineColor={0,0,255}),
           Rectangle(
             extent={{-100,5},{100,-4}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
             fillPattern=FillPattern.Solid),
           Line(points={{80,20},{129,50}}),
           Line(points={{80,20},{57,59}}),
           Polygon(
             points={{144,60},{117,59},{132,37},{144,60}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
             fillPattern=FillPattern.Solid),
           Polygon(
             points={{43,80},{46,50},{68,65},{43,80}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
             fillPattern=FillPattern.Solid),
           Text(
             extent={{-150,-50},{150,-80}},
-            lineColor={0,0,0},
             textString="r=%r"),
           Text(
             extent={{-117,51},{-81,26}},
@@ -597,8 +582,6 @@ the animation may be switched off via parameter animation = <b>false</b>.
             textString="r"),
           Rectangle(
             extent={{-100,5},{100,-5}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
             fillPattern=FillPattern.Solid),
           Line(
             points={{69,29},{97,45}},
@@ -634,8 +617,6 @@ the animation may be switched off via parameter animation = <b>false</b>.
             textString="y"),
           Polygon(
             points={{88,-56},{88,-65},{100,-60},{88,-56}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
             fillPattern=FillPattern.Solid)}));
   end FixedRotation;
 
@@ -919,7 +900,6 @@ the animation may be switched off via parameter animation = <b>false</b>.
             radius=10),
           Text(
             extent={{150,-100},{-150,-70}},
-            lineColor={0,0,0},
             textString="m=%m"),
           Text(
             extent={{-150,110},{150,70}},
@@ -1294,7 +1274,6 @@ states and of the \"Advanced\" menu parameters, see model
             lineColor={0,0,255}),
           Text(
             extent={{-150,-100},{150,-70}},
-            lineColor={0,0,0},
             textString="r=%r"),
           Rectangle(
             extent={{-100,31},{101,-30}},
@@ -1309,15 +1288,12 @@ states and of the \"Advanced\" menu parameters, see model
             fillColor={0,127,255}),
           Text(
             extent={{-50,24},{55,-27}},
-            lineColor={0,0,0},
             textString="%m"),
           Text(
             extent={{55,12},{91,-13}},
-            lineColor={0,0,0},
             textString="b"),
           Text(
             extent={{-92,13},{-56,-12}},
-            lineColor={0,0,0},
             textString="a")}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -1568,15 +1544,12 @@ states and of the \"Advanced\" menu parameters, see model
             lineColor={0,0,255}),
           Text(
             extent={{150,-80},{-150,-50}},
-            lineColor={0,0,0},
             textString="r=%r"),
           Text(
             extent={{52,8},{88,-17}},
-            lineColor={0,0,0},
             textString="b"),
           Text(
             extent={{-87,12},{-51,-13}},
-            lineColor={0,0,0},
             textString="a")}));
   end BodyBox;
 
@@ -1783,7 +1756,6 @@ states and of the \"Advanced\" menu parameters, see model
             lineColor={0,0,255}),
           Text(
             extent={{150,-80},{-150,-50}},
-            lineColor={0,0,0},
             textString="r=%r"),
           Rectangle(
             extent={{-100,40},{100,-40}},
@@ -1793,11 +1765,9 @@ states and of the \"Advanced\" menu parameters, see model
             radius=10),
           Text(
             extent={{-87,13},{-51,-12}},
-            lineColor={0,0,0},
             textString="a"),
           Text(
             extent={{51,12},{87,-13}},
-            lineColor={0,0,0},
             textString="b")}));
   end BodyCylinder;
 
@@ -1892,7 +1862,6 @@ the only case where this is done.
           extent={{-100,-100},{100,100}}), graphics={
           Text(
             extent={{150,-90},{-150,-60}},
-            lineColor={0,0,0},
             textString="m=%m"),
           Text(
             extent={{-150,100},{150,60}},
@@ -1964,7 +1933,6 @@ are forced to be used as states.
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Rectangle(
                   extent={{-100,100},{100,-100}},
-                  lineColor={0,0,0},
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid),Text(
                   extent={{-150,110},{150,150}},
@@ -1983,7 +1951,6 @@ are forced to be used as states.
               {100,100}}), graphics={
           Rectangle(
             extent={{-80,-60},{80,-100}},
-            lineColor={0,0,0},
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid),
           Text(
@@ -2400,7 +2367,6 @@ November 3-4, 2003, pp. 149-158</p>
           Line(points={{0,-70},{0,-100}}),
           Text(
             extent={{-150,80},{150,50}},
-            lineColor={0,0,0},
             textString="%J")}));
   end Rotor1D;
 
@@ -2440,7 +2406,6 @@ November 3-4, 2003, pp. 149-158</p>
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Rectangle(
                   extent={{-100,100},{100,-100}},
-                  lineColor={0,0,0},
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid),Text(
                   extent={{-150,110},{150,150}},
@@ -2465,7 +2430,6 @@ November 3-4, 2003, pp. 149-158</p>
             textString="%name"),
         Text(origin = {0,-10},
           extent = {{-150,-66},{150,-36}},
-            lineColor={0,0,0},
             textString="ratio=%ratio"),
         Rectangle(origin = {-35,60},
           fillColor = {255,255,255},
@@ -2723,12 +2687,10 @@ November 3-4, 2003, pp. 149-158
             preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
           Rectangle(
             extent={{-100,-80},{100,-100}},
-            lineColor={0,0,0},
             fillColor={175,175,175},
             fillPattern=FillPattern.Solid),
           Ellipse(
             extent={{-80,80},{80,-80}},
-            lineColor={0,0,0},
             fillColor={215,215,215},
             fillPattern=FillPattern.Solid),
           Text(
@@ -2935,7 +2897,6 @@ November 3-4, 2003, pp. 149-158
               100}}), graphics={
           Rectangle(
             extent={{-100,-80},{100,-100}},
-            lineColor={0,0,0},
             fillColor={175,175,175},
             fillPattern=FillPattern.Solid),
           Text(
@@ -2944,17 +2905,14 @@ November 3-4, 2003, pp. 149-158
             lineColor={0,0,255}),
           Ellipse(
             extent={{42,80},{118,-80}},
-            lineColor={0,0,0},
             fillColor={215,215,215},
             fillPattern=FillPattern.Sphere),
           Rectangle(
             extent={{-62,2},{64,-6}},
-            lineColor={0,0,0},
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid),
           Ellipse(
             extent={{-118,80},{-42,-80}},
-            lineColor={0,0,0},
             fillColor={215,215,215},
             fillPattern=FillPattern.Sphere),
           Line(

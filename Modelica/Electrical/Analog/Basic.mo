@@ -95,7 +95,6 @@ package Basic "Basic electrical components"
           Line(points={{70,0},{90,0}}, color={0,0,255}),
           Text(
             extent={{-144,-40},{142,-72}},
-            lineColor={0,0,0},
             textString="R=%R"),
           Line(
             visible=useHeatPort,
@@ -249,7 +248,6 @@ package Basic "Basic electrical components"
             lineColor={0,0,255}),
           Text(
             extent={{-144,-38},{142,-70}},
-            lineColor={0,0,0},
             textString="G=%G")}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={Line(points={{-96,0},{-70,0}}, color={0,0,
@@ -282,7 +280,6 @@ package Basic "Basic electrical components"
           Line(points={{6,0},{90,0}}, color={0,0,255}),
           Text(
             extent={{-136,-60},{136,-92}},
-            lineColor={0,0,0},
             textString="C=%C"),
           Text(
             extent={{-150,85},{150,45}},
@@ -326,7 +323,6 @@ package Basic "Basic electrical components"
           Line(points={{-90,0},{-60,0}}, color={0,0,255}),
           Text(
             extent={{-138,-60},{144,-94}},
-            lineColor={0,0,0},
             textString="L=%L"),
           Text(
             extent={{-152,79},{148,39}},
@@ -377,12 +373,10 @@ package Basic "Basic electrical components"
           Line(points={{-90,0},{-60,0}}, color={0,0,255}),
           Rectangle(
             extent={{-60,-10},{60,-20}},
-            lineColor={0,0,0},
             fillPattern=FillPattern.Sphere,
             fillColor={0,0,255}),
           Text(
             extent={{-148,-50},{152,-80}},
-            lineColor={0,0,0},
             textString="Lnom=%Lnom"),
           Text(
             extent={{-148,91},{152,51}},
@@ -419,7 +413,6 @@ package Basic "Basic electrical components"
      Line(points={{-96,0},{-60,0}}, color={0,0,255}),
             Rectangle(
               extent={{-60,-10},{60,-20}},
-              lineColor={0,0,0},
               fillPattern=FillPattern.Sphere,
               fillColor={0,0,255})}));
   end SaturatingInductor;
@@ -472,16 +465,13 @@ package Basic "Basic electrical components"
           Line(points={{32,-50},{90,-50}}, color={0,0,255}),
           Text(
             extent={{-103,16},{-60,-10}},
-            textString="L1",
-            lineColor={0,0,0}),
+            textString="L1"),
           Text(
             extent={{64,15},{105,-9}},
-            textString="L2",
-            lineColor={0,0,0}),
+            textString="L2"),
           Text(
             extent={{-27,-71},{33,-97}},
-            textString="M",
-            lineColor={0,0,0}),
+            textString="M"),
           Text(
             extent={{-153,113},{147,73}},
             textString="%name",
@@ -666,12 +656,10 @@ the user has to allocate the parameter vector <i>L[6] </i>, since <i>Nv=(N*(N+1)
           Line(points={{-14,9},{16,10}}),
           Text(
             extent={{-29,59},{30,30}},
-            textString="G1",
-            lineColor={0,0,0}),
+            textString="G1"),
           Text(
             extent={{-29,-29},{29,-58}},
-            textString="G2",
-            lineColor={0,0,0}),
+            textString="G2"),
           Text(
             extent={{-156,117},{144,77}},
             textString="%name",
@@ -759,13 +747,11 @@ the user has to allocate the parameter vector <i>L[6] </i>, since <i>Nv=(N*(N+1)
               100}}), graphics={
           Rectangle(
             extent={{-85,10},{-36,-10}},
-            lineColor={0,0,0},
             fillPattern=FillPattern.HorizontalCylinder,
             fillColor={192,192,192}),
           Line(points={{0,90},{0,40}}, color={0,0,255}),
           Rectangle(
             extent={{35,10},{100,-10}},
-            lineColor={0,0,0},
             fillPattern=FillPattern.HorizontalCylinder,
             fillColor={192,192,192}),
           Ellipse(
@@ -884,7 +870,6 @@ the user has to allocate the parameter vector <i>L[6] </i>, since <i>Nv=(N*(N+1)
               100}}), graphics={
           Rectangle(
             extent={{-90,51},{-40,-50}},
-            lineColor={0,0,0},
             fillColor={135,135,135},
             fillPattern=FillPattern.HorizontalCylinder),
           Rectangle(
@@ -961,8 +946,6 @@ the user has to allocate the parameter vector <i>L[6] </i>, since <i>Nv=(N*(N+1)
               textString="i"),Line(points={{8,-79},{18,-79}}, color={192,192,
             192}),Line(points={{14,80},{14,70}}, color={192,192,192}),Polygon(
               points={{140,3},{150,0},{140,-3},{140,3},{140,3}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
               fillPattern=FillPattern.Solid)}),
       Documentation(info="<html>
 <p>EMF transforms electrical energy into translational mechanical energy. It is used as basic building block of an electrical linear motor. The mechanical connector flange can be connected to elements of the Modelica.Mechanics.Translational library. flange.f is the cut-force, flange.s is the distance at the translational connection.</p>
@@ -1269,12 +1252,10 @@ the user has to allocate the parameter vector <i>L[6] </i>, since <i>Nv=(N*(N+1)
               lineColor={160,160,164},
               textString="in_p.i=0"),Polygon(
               points={{120,3},{110,0},{120,-3},{120,3}},
-              lineColor={0,0,0},
               fillPattern=FillPattern.HorizontalCylinder,
               fillColor={160,160,164}),Line(points={{111,0},{136,0}}, color={0,
             0,0}),Text(
               extent={{118,2},{135,17}},
-              lineColor={0,0,0},
               textString="i2"),Text(
               extent={{-111,60},{-85,80}},
               lineColor={160,160,164},
@@ -1547,12 +1528,10 @@ the user has to allocate the parameter vector <i>L[6] </i>, since <i>Nv=(N*(N+1)
             {-50,-55}}, color={0,0,255}),Line(points={{-55,-50},{-45,-50}},
             color={0,0,255}),Polygon(
               points={{120,3},{110,0},{120,-3},{120,3}},
-              lineColor={0,0,0},
               fillPattern=FillPattern.HorizontalCylinder,
               fillColor={160,160,164}),Line(points={{111,0},{136,0}}, color={0,
             0,0}),Text(
               extent={{114,2},{131,17}},
-              lineColor={0,0,0},
               textString="i2"),Line(
               points={{-100,-35},{-100,23},{-100,24}},
               color={160,160,164},

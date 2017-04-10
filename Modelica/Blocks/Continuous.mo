@@ -85,11 +85,9 @@ This is discussed in the description of package
           Line(points={{60,0},{100,0}}, color={0,0,255}),
           Text(
             extent={{-36,60},{32,2}},
-            lineColor={0,0,0},
             textString="k"),
           Text(
             extent={{-32,0},{36,-58}},
-            lineColor={0,0,0},
             textString="s"),
           Line(points={{-46,0},{46,0}})}));
   end Integrator;
@@ -179,7 +177,6 @@ to use <b>limitAtInit</b> = <b>false</b>.
             textString="I"),
           Text(
             extent={{-150,-150},{150,-110}},
-            lineColor={0,0,0},
             textString="k=%k"),
           Line(
             visible=strict,
@@ -191,17 +188,14 @@ to use <b>limitAtInit</b> = <b>false</b>.
           Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}),
           Text(
             extent={{-54,46},{-4,-48}},
-            lineColor={0,0,0},
             textString="lim"),
           Line(points={{-100,0},{-60,0}}, color={0,0,255}),
           Line(points={{60,0},{100,0}}, color={0,0,255}),
           Text(
             extent={{-8,60},{60,2}},
-            lineColor={0,0,0},
             textString="k"),
           Text(
             extent={{-8,-2},{60,-60}},
-            lineColor={0,0,0},
             textString="s"),
           Line(points={{4,0},{46,0}})}));
   end LimIntegrator;
@@ -294,11 +288,9 @@ If k=0, the block reduces to y=0.
           extent={{-100,-100},{100,100}}), graphics={
           Text(
             extent={{-54,52},{50,10}},
-            lineColor={0,0,0},
             textString="k s"),
           Text(
             extent={{-54,-6},{52,-52}},
-            lineColor={0,0,0},
             textString="T s + 1"),
           Line(points={{-50,0},{50,0}}),
           Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}),
@@ -383,11 +375,9 @@ Example:
           extent={{-100,-100},{100,100}}), graphics={
           Text(
             extent={{-48,52},{50,8}},
-            lineColor={0,0,0},
             textString="k"),
           Text(
             extent={{-54,-6},{56,-56}},
-            lineColor={0,0,0},
             textString="T s + 1"),
           Line(points={{-50,0},{50,0}}),
           Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}),
@@ -482,11 +472,9 @@ Example:
           Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}),
           Text(
             extent={{-60,60},{60,14}},
-            lineColor={0,0,0},
             textString="k"),
           Text(
             extent={{-60,8},{-32,-20}},
-            lineColor={0,0,0},
             textString="s"),
           Line(points={{-100,0},{-60,0}}, color={0,0,255}),
           Line(points={{60,0},{100,0}}, color={0,0,255}),
@@ -494,32 +482,26 @@ Example:
           Line(points={{-54,-20},{-38,-20}}),
           Text(
             extent={{-52,-26},{-36,-48}},
-            lineColor={0,0,0},
             textString="w"),
           Line(points={{-50,2},{-56,-8},{-56,-28},{-52,-46}}),
           Line(points={{-40,2},{-34,-10},{-34,-30},{-38,-46}}),
           Text(
             extent={{-34,8},{-22,-10}},
-            lineColor={0,0,0},
             textString="2"),
           Text(
             extent={{-34,-6},{6,-36}},
-            lineColor={0,0,0},
             textString="+2D"),
           Text(
             extent={{2,8},{30,-20}},
-            lineColor={0,0,0},
             textString="s"),
           Line(points={{8,-20},{24,-20}}),
           Text(
             extent={{10,-26},{26,-48}},
-            lineColor={0,0,0},
             textString="w"),
           Line(points={{12,2},{6,-8},{6,-28},{10,-46}}),
           Line(points={{22,2},{28,-10},{28,-30},{24,-46}}),
           Text(
             extent={{30,2},{58,-42}},
-            lineColor={0,0,0},
             textString="+1")}));
   end SecondOrder;
 
@@ -613,7 +595,6 @@ This is discussed in the description of package
             textString="PI"),
           Text(
             extent={{-150,-150},{150,-110}},
-            lineColor={0,0,0},
             textString="T=%T")}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -621,15 +602,12 @@ This is discussed in the description of package
           Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}),
           Text(
             extent={{-68,24},{-24,-18}},
-            lineColor={0,0,0},
             textString="k"),
           Text(
             extent={{-32,48},{60,0}},
-            lineColor={0,0,0},
             textString="T s + 1"),
           Text(
             extent={{-30,-8},{52,-40}},
-            lineColor={0,0,0},
             textString="T s"),
           Line(points={{-24,0},{54,0}}),
           Line(points={{-100,0},{-60,0}}, color={0,0,255}),
@@ -1255,11 +1233,9 @@ results in the following transfer function:
           Line(points={{40,0},{-40,0}}),
           Text(
             extent={{-55,55},{55,5}},
-            lineColor={0,0,0},
             textString="b(s)"),
           Text(
             extent={{-55,-5},{55,-55}},
-            lineColor={0,0,0},
             textString="a(s)"),
           Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}),
           Line(points={{-100,0},{-60,0}}, color={0,0,255}),
@@ -1368,11 +1344,9 @@ results in the following equations:
           Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}),
           Text(
             extent={{-60,40},{60,0}},
-            lineColor={0,0,0},
             textString="sx=Ax+Bu"),
           Text(
             extent={{-60,0},{60,-40}},
-            lineColor={0,0,0},
             textString=" y=Cx+Du"),
           Line(points={{-100,0},{-60,0}}, color={0,0,255}),
           Line(points={{60,0},{100,0}}, color={0,0,255})}));
@@ -1538,11 +1512,9 @@ the model.
           Line(points={{40,0},{-40,0}}),
           Text(
             extent={{-55,55},{55,5}},
-            lineColor={0,0,0},
             textString="1"),
           Text(
             extent={{-55,-5},{55,-55}},
-            lineColor={0,0,0},
             textString="a(s)"),
           Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}),
           Line(points={{-100,0},{-60,0}}, color={0,0,255}),
@@ -1648,18 +1620,15 @@ initType=Modelica.Blocks.Types.Init.SteadyState).
           Line(points={{40,0},{-40,0}}),
           Text(
             extent={{-55,55},{55,5}},
-            lineColor={0,0,0},
             textString="1"),
           Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}),
           Line(points={{-100,0},{-60,0}}, color={0,0,255}),
           Line(points={{60,0},{100,0}}, color={0,0,255}),
           Text(
             extent={{-54,-6},{44,-56}},
-            lineColor={0,0,0},
             textString="(s/w + 1)"),
           Text(
             extent={{38,-10},{58,-30}},
-            lineColor={0,0,0},
             textString="n")}),
       Documentation(info="<html>
 <p>This block defines the transfer function between the

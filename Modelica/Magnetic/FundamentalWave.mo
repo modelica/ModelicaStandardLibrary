@@ -1491,11 +1491,9 @@ Simulate for 1.5 seconds and plot (versus time):
                       fillPattern=FillPattern.Solid,
                       pattern=LinePattern.Dash),Text(
                       extent={{20,88},{100,80}},
-                      lineColor={0,0,0},
                       textString="%m phase machine",
                       textStyle={TextStyle.Bold}),Text(
                       extent={{20,-22},{100,-30}},
-                      lineColor={0,0,0},
                       textString="3 phase machine",
                       textStyle={TextStyle.Bold})}));
       end AIMC_DOL_MultiPhase;
@@ -2016,11 +2014,9 @@ Simulate for 1.5 seconds and plot (versus time):
                       fillPattern=FillPattern.Solid,
                       pattern=LinePattern.Dash),Text(
                       extent={{40,68},{100,60}},
-                      lineColor={0,0,0},
                       textString="%m phase machine",
                       textStyle={TextStyle.Bold}),Text(
                       extent={{40,-32},{100,-40}},
-                      lineColor={0,0,0},
                       textString="3 phase machine",
                       textStyle={TextStyle.Bold})}));
       end AIMS_Start_MultiPhase;
@@ -2517,22 +2513,18 @@ and accelerate the inertias. Two equivalent machines with different numbers of p
                   -100},{100,100}}),
                                graphics={Rectangle(
                       extent={{-20,0},{100,-40}},
-                      lineColor={0,0,0},
                       fillColor={255,255,170},
                       fillPattern=FillPattern.Solid,
                       pattern=LinePattern.Dash),Rectangle(
                       extent={{-20,-60},{100,-100}},
-                      lineColor={0,0,0},
                       fillColor={255,255,170},
                       fillPattern=FillPattern.Solid,
                       pattern=LinePattern.Dash),Text(
                       extent={{40,-54},{100,-62}},
-                      lineColor={0,0,0},
                       textStyle={TextStyle.Bold},
                       textString="3 phase machine
 "),           Text(
                 extent={{40,-44},{100,-52}},
-                      lineColor={0,0,0},
                       textStyle={TextStyle.Bold},
                       textString="%m phase machine
 ")}));
@@ -3184,22 +3176,18 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM3.rotorDisplacementAng
 </html>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                   {100,100}}), graphics={Rectangle(
                       extent={{-50,60},{70,20}},
-                      lineColor={0,0,0},
                       fillColor={255,255,170},
                       fillPattern=FillPattern.Solid,
                       pattern=LinePattern.Dash),Text(
                       extent={{10,16},{70,8}},
-                      lineColor={0,0,0},
                       textStyle={TextStyle.Bold},
                       textString="%m phase machine
 "),           Text(
                 extent={{10,-52},{70,-60}},
-                      lineColor={0,0,0},
                       textStyle={TextStyle.Bold},
                       textString="3 phase machine
 "),           Rectangle(
                 extent={{-50,-60},{100,-100}},
-                      lineColor={0,0,0},
                       fillColor={255,255,170},
                       fillPattern=FillPattern.Solid,
                       pattern=LinePattern.Dash)}));
@@ -3686,22 +3674,18 @@ Simulate for 1.5 seconds and plot (versus time):
 </html>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                   {100,100}}), graphics={Rectangle(
                       extent={{-20,0},{100,-40}},
-                      lineColor={0,0,0},
                       fillColor={255,255,170},
                       fillPattern=FillPattern.Solid,
                       pattern=LinePattern.Dash),Text(
                       extent={{40,-44},{100,-52}},
-                      lineColor={0,0,0},
                       textStyle={TextStyle.Bold},
                       textString="%m phase machine
 "),           Text(
                 extent={{40,-54},{100,-62}},
-                      lineColor={0,0,0},
                       textStyle={TextStyle.Bold},
                       textString="3 phase machine
 "),           Rectangle(
                 extent={{-20,-60},{100,-100}},
-                      lineColor={0,0,0},
                       fillColor={255,255,170},
                       fillPattern=FillPattern.Solid,
                       pattern=LinePattern.Dash)}));
@@ -3853,7 +3837,6 @@ The salient permeance models the relationship between the complex magnetic poten
                   lineColor={0,0,255},
                   textString="%name"),Text(
                   extent={{0,-40},{0,-80}},
-                  lineColor={0,0,0},
                   textString="G=%G")}), Documentation(info="<html>
 <p>
 The eddy current loss model with respect to fundamental wave effects is designed in accordance to
@@ -4743,12 +4726,10 @@ Resistances and stray inductances of the machine always refer to either stator o
           Icon(graphics={
               Rectangle(
                 extent={{-130,10},{-100,-10}},
-                lineColor={0,0,0},
                 fillColor={0,255,0},
                 fillPattern=FillPattern.Solid),
               Rectangle(
                 extent={{-100,10},{-70,-10}},
-                lineColor={0,0,0},
                 fillColor={255,0,0},
                 fillPattern=FillPattern.Solid),
               Ellipse(extent={{-134,34},{-66,-34}}, lineColor={0,0,255})}),
@@ -5152,8 +5133,8 @@ The symmetry of the stator is assumed. For rotor asymmetries can be taken into a
         annotation (
           defaultComponentName="smr",
           Icon(graphics={
-              Rectangle(extent={{-130,10},{-100,-10}}, lineColor={0,0,0}),
-              Rectangle(extent={{-100,10},{-70,-10}}, lineColor={0,0,0}),
+              Rectangle(extent={{-130,10},{-100,-10}}),
+              Rectangle(extent={{-100,10},{-70,-10}}),
               Ellipse(extent={{-134,34},{-66,-34}}, lineColor={0,0,255})}),
           Documentation(info="<html>
 <p>
@@ -5626,7 +5607,6 @@ heat <a href=\"modelica://Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a\">
                   -100},{100,100}}), graphics={
               Ellipse(
                 extent={{-100,100},{100,-100}},
-                lineColor={0,0,0},
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid),
               Line(points={{-100,90},{-100,60},{-80,60}}, color={255,128,0}),
@@ -5635,7 +5615,6 @@ heat <a href=\"modelica://Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a\">
               Line(points={{40,-60},{100,-60},{100,-90}}, color={255,128,0}),
               Ellipse(
                 extent={{-60,80},{60,-80}},
-                lineColor={0,0,0},
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid),
               Line(points={{0,80},{0,90}})}), Documentation(info="<html>
@@ -5789,37 +5768,30 @@ according to the following figure.
                   {100,100}}), graphics={
               Ellipse(
                 extent={{-80,80},{80,-80}},
-                lineColor={0,0,0},
                 fillColor={175,175,175},
                 fillPattern=FillPattern.Solid),
               Ellipse(
                 extent={{-20,76},{20,36}},
-                lineColor={0,0,0},
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid),
               Ellipse(
                 extent={{28,46},{68,6}},
-                lineColor={0,0,0},
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid),
               Ellipse(
                 extent={{28,-8},{68,-48}},
-                lineColor={0,0,0},
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid),
               Ellipse(
                 extent={{-20,-36},{20,-76}},
-                lineColor={0,0,0},
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid),
               Ellipse(
                 extent={{-68,-6},{-28,-46}},
-                lineColor={0,0,0},
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid),
               Ellipse(
                 extent={{-66,50},{-26,10}},
-                lineColor={0,0,0},
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid),
               Line(points={{-80,0},{-100,0}}, color={255,128,0}),
@@ -5952,31 +5924,24 @@ The symmetric rotor cage model of this library does not consist of rotor bars an
           Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                   {100,100}}), graphics={Ellipse(
                       extent={{-80,80},{80,-80}},
-                      lineColor={0,0,0},
                       fillColor={175,175,175},
                       fillPattern=FillPattern.Solid),Ellipse(
                       extent={{-20,76},{20,36}},
-                      lineColor={0,0,0},
                       fillColor={255,255,255},
                       fillPattern=FillPattern.Solid),Ellipse(
                       extent={{28,46},{68,6}},
-                      lineColor={0,0,0},
                       fillColor={255,255,255},
                       fillPattern=FillPattern.Solid),Ellipse(
                       extent={{28,-8},{68,-48}},
-                      lineColor={0,0,0},
                       fillColor={255,255,255},
                       fillPattern=FillPattern.Solid),Ellipse(
                       extent={{-20,-36},{20,-76}},
-                      lineColor={0,0,0},
                       fillColor={255,255,255},
                       fillPattern=FillPattern.Solid),Ellipse(
                       extent={{-68,-6},{-28,-46}},
-                      lineColor={0,0,0},
                       fillColor={255,255,255},
                       fillPattern=FillPattern.Solid),Ellipse(
                       extent={{-66,50},{-26,10}},
-                      lineColor={0,0,0},
                       fillColor={255,255,255},
                       fillPattern=FillPattern.Solid),Line(points={{-80,0},{-100,
                 0}}, color={255,128,0}),Line(points={{100,0},{80,0}}, color={
@@ -6116,31 +6081,24 @@ The permanent magnet is modeled by a magnetic potential difference. The internal
           Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                   {100,100}}), graphics={Ellipse(
                       extent={{-80,80},{80,-80}},
-                      lineColor={0,0,0},
                       fillColor={175,175,175},
                       fillPattern=FillPattern.Solid),Ellipse(
                       extent={{-20,76},{20,36}},
-                      lineColor={0,0,0},
                       fillColor={255,255,255},
                       fillPattern=FillPattern.Solid),Ellipse(
                       extent={{28,46},{68,6}},
-                      lineColor={0,0,0},
                       fillColor={255,255,255},
                       fillPattern=FillPattern.Solid),Ellipse(
                       extent={{28,-8},{68,-48}},
-                      lineColor={0,0,0},
                       fillColor={255,255,255},
                       fillPattern=FillPattern.Solid),Ellipse(
                       extent={{-20,-36},{20,-76}},
-                      lineColor={0,0,0},
                       fillColor={255,255,255},
                       fillPattern=FillPattern.Solid),Ellipse(
                       extent={{-68,-6},{-28,-46}},
-                      lineColor={0,0,0},
                       fillColor={255,255,255},
                       fillPattern=FillPattern.Solid),Ellipse(
                       extent={{-66,50},{-26,10}},
-                      lineColor={0,0,0},
                       fillColor={255,255,255},
                       fillPattern=FillPattern.Solid),Line(points={{-80,0},{-100,
                 0}}, color={255,128,0}),Line(points={{100,0},{80,0}}, color={
@@ -6265,31 +6223,24 @@ The symmetric rotor cage model of this library does not consist of rotor bars an
           Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                   -100},{100,100}}), graphics={Ellipse(
                       extent={{-80,80},{80,-80}},
-                      lineColor={0,0,0},
                       fillColor={175,175,175},
                       fillPattern=FillPattern.Solid),Ellipse(
                       extent={{-20,76},{20,36}},
-                      lineColor={0,0,0},
                       fillColor={255,255,255},
                       fillPattern=FillPattern.Solid),Ellipse(
                       extent={{28,46},{68,6}},
-                      lineColor={0,0,0},
                       fillColor={255,255,255},
                       fillPattern=FillPattern.Solid),Ellipse(
                       extent={{28,-8},{68,-48}},
-                      lineColor={0,0,0},
                       fillColor={255,255,255},
                       fillPattern=FillPattern.Solid),Ellipse(
                       extent={{-20,-36},{20,-76}},
-                      lineColor={0,0,0},
                       fillColor={255,255,255},
                       fillPattern=FillPattern.Solid),Ellipse(
                       extent={{-68,-6},{-28,-46}},
-                      lineColor={0,0,0},
                       fillColor={255,255,255},
                       fillPattern=FillPattern.Solid),Ellipse(
                       extent={{-66,50},{-26,10}},
-                      lineColor={0,0,0},
                       fillColor={255,255,255},
                       fillPattern=FillPattern.Solid),Line(points={{-80,0},{-100,
                 0}}, color={255,128,0}),Line(points={{100,0},{80,0}}, color={
@@ -6575,7 +6526,6 @@ Source of magnetic flux with complex signal input.
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-29,-11},{30,-70}},
-                  lineColor={0,0,0},
                   textString="Phi"),Line(points={{-72,0},{-90,0}}),
               Text(
                   extent={{-140,120},{140,80}},
@@ -6614,7 +6564,6 @@ Source of magnetic flux with complex signal input.
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-52,1},{48,-57}},
-                  lineColor={0,0,0},
                   textString="V_m"),Line(points={{-70,0},{-90,0}}),
               Line(points={{70,0},{90,0}}),Line(points={{0,-90},
               {0,-70}}),Text(
@@ -6647,7 +6596,6 @@ Source of magnetic flux with complex signal input.
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-52,1},{48,-57}},
-                  lineColor={0,0,0},
                   textString="V_m"),Line(points={{-70,0},{-90,0}}),
               Line(points={{0,-90},{0,-70}}),Text(
                   extent={{-140,120},{140,80}},

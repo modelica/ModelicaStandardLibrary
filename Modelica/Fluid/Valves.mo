@@ -330,8 +330,6 @@ explained in detail in the
           Line(points={{0,50},{0,0}}),
           Rectangle(
             extent={{-20,60},{20,50}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
             fillPattern=FillPattern.Solid),
           Polygon(
             points={{-100,50},{100,-50},{100,50},{0,0},{-100,-50},{-100,50}},
@@ -345,7 +343,7 @@ explained in detail in the
             lineColor={255,255,255},
             fillPattern=FillPattern.Solid),
           Polygon(points={{-100,50},{100,-50},{100,50},{0,0},{-100,-50},{-100,
-                50}}, lineColor={0,0,0})}),
+                50}})}),
     Documentation(info="<html>
 <p>This very simple model provides a pressure drop which is proportional to the flowrate and to the <code>opening</code> input, without computing any fluid property. It can be used for testing purposes, when
 a simple model of a variable pressure loss is needed.</p>
@@ -391,14 +389,11 @@ a simple model of a variable pressure loss is needed.</p>
           Line(points={{0,50},{0,0}}),
           Rectangle(
             extent={{-20,60},{20,50}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
             fillPattern=FillPattern.Solid),
           Polygon(
             points={{-100,50},{100,-50},{100,50},{0,0},{-100,-50},{-100,50}},
             fillColor=DynamicSelect({255,255,255}, if open > 0.5 then {0,255,0} else
                       {255,255,255}),
-            lineColor={0,0,0},
             fillPattern=FillPattern.Solid)}),
     Documentation(info="<html>
 <p>
@@ -538,8 +533,7 @@ y=uMin is passed as output.
         Line(points={{-80,-70},{-50,-70},{50,70},{64,90}}),
         Text(
           extent={{-150,-150},{150,-110}},
-          lineColor={0,0,0},
-                textString="uMin=%uMin"),
+          textString="uMin=%uMin"),
         Text(
           extent={{-150,150},{150,110}},
           textString="%name",
@@ -615,8 +609,6 @@ y=uMin is passed as output.
             Line(points={{0,52},{0,0}}),
             Rectangle(
               extent={{-20,60},{20,52}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
               fillPattern=FillPattern.Solid),
             Polygon(
               points={{-100,50},{100,-50},{100,50},{0,0},{-100,-50},{-100,50}},
@@ -631,7 +623,7 @@ y=uMin is passed as output.
               lineColor={255,255,255},
               fillPattern=FillPattern.Solid),
             Polygon(points={{-100,50},{100,-50},{100,50},{0,0},{-100,-50},{-100,
-                  50}}, lineColor={0,0,0}),
+                  50}}),
             Ellipse(visible=filteredOpening,
               extent={{-40,94},{40,14}},
               lineColor={0,0,127},

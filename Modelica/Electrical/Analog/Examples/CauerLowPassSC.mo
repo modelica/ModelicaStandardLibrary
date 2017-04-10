@@ -55,7 +55,6 @@ equation
             lineColor={0,0,255}),
           Text(
             extent={{-30,-40},{30,-72}},
-            lineColor={0,0,0},
             textString="R=%R"),
           Line(points={{-74,0},{-80,0},{-60,0}}, color={85,255,85}),
           Line(points={{-80,-20},{-60,-20},{-60,-16},{-40,-8},{-4,-8}}, color={
@@ -134,7 +133,6 @@ equation
           Line(points={{80,0},{92,0}}, color={85,85,255}),
           Text(
             extent={{-40,-40},{32,-72}},
-            lineColor={0,0,0},
             textString="R=%R"),
           Line(points={{-74,0},{-80,0},{-60,0}}, color={85,255,85}),
           Line(points={{-80,-20},{-60,-20},{-60,-16},{-40,-10},{-4,-10}}, color=

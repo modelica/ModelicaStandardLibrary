@@ -2322,7 +2322,6 @@ This package contains components for modeling quasi stationary electrical induct
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{0,-60},{0,-100}},
-              lineColor={0,0,0},
               textString="%VectorGroup"), Text(
               extent={{0,100},{0,60}},
               lineColor={0,0,255},
@@ -2462,7 +2461,6 @@ This package contains the quasi stationary space phasor connector and partial mo
                 smooth=Smooth.Bezier),
               Text(
                 extent={{-12,-74},{64,-86}},
-                lineColor={0,0,0},
                 textString="zero")}),
           Documentation(info="<html>
 Transformation of quasi stationary multi phase values (voltages or currents) to space phasor and zero sequence value.
@@ -2509,7 +2507,6 @@ Transformation of quasi stationary multi phase values (voltages or currents) to 
                 smooth=Smooth.Bezier),
               Text(
                 extent={{-62,-74},{14,-86}},
-                lineColor={0,0,0},
                 textString="zero")}), Documentation(info="<html>
 Transformation of space phasor and zero sequence value to quasi stationary multi phase values (voltages or currents).
 </html>"));

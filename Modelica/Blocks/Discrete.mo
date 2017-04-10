@@ -179,11 +179,9 @@ the output y is identical to parameter yStart.
           Line(points={{40,0},{-40,0}}),
           Text(
             extent={{-55,55},{55,5}},
-            lineColor={0,0,0},
             textString="1"),
           Text(
             extent={{-55,-5},{55,-55}},
-            lineColor={0,0,0},
             textString="z")}));
   end UnitDelay;
 
@@ -278,11 +276,9 @@ states can be set as start values of <b>x</b>.</p>
             thickness=0.5),
           Text(
             extent={{-54,54},{54,4}},
-            lineColor={0,0,0},
             textString="b(z)"),
           Text(
             extent={{-54,-6},{56,-56}},
-            lineColor={0,0,0},
             textString="a(z)"),
           Line(points={{-100,0},{-60,0}}, color={0,0,255}),
           Line(points={{60,0},{100,0}}, color={0,0,255})}));
@@ -372,11 +368,9 @@ results in the following equations:
           Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}),
           Text(
             extent={{-54,50},{52,-10}},
-            lineColor={0,0,0},
             textString="zx=Ax+Bu"),
           Text(
             extent={{-56,14},{54,-50}},
-            lineColor={0,0,0},
             textString="  y=Cx+Du"),
           Line(points={{-102,0},{-60,0}}, color={0,0,255}),
           Line(points={{60,0},{100,0}}, color={0,0,255})}));

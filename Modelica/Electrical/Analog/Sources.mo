@@ -1076,10 +1076,8 @@ package Sources "Time-dependent and controlled voltage and current sources"
               lineColor={160,160,164},
               textString="time"),Text(
               extent={{-15,83},{24,68}},
-              lineColor={0,0,0},
               textString="time"),Text(
               extent={{33,83},{76,67}},
-              lineColor={0,0,0},
               textString="v"),Text(
               extent={{-81,98},{-31,85}},
               lineColor={160,160,164},
@@ -2162,10 +2160,8 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               lineColor={160,160,164},
               textString="time"),Text(
               extent={{-15,83},{24,68}},
-              lineColor={0,0,0},
               textString="time"),Text(
               extent={{33,83},{76,67}},
-              lineColor={0,0,0},
               textString="i"),Text(
               extent={{-73,75},{-53,95}},
               lineColor={192,192,192},

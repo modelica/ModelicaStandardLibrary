@@ -11131,25 +11131,21 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                 graphics={
                 Rectangle(
                   extent={{-100,-40},{60,-60}},
-                  lineColor={0,0,0},
                   fillPattern=FillPattern.Forward,
                   fillColor={255,255,170},
                   lineThickness=1),
                 Polygon(
                   points={{60,-40},{60,-60},{100,-20},{100,0},{60,-40}},
-                  lineColor={0,0,0},
                   lineThickness=1,
                   fillColor={255,255,170},
                   fillPattern=FillPattern.Forward),
                 Rectangle(
                   extent={{-100,40},{60,20}},
-                  lineColor={0,0,0},
                   fillPattern=FillPattern.Forward,
                   fillColor={255,255,170},
                   lineThickness=1),
                 Polygon(
                   points={{60,40},{60,20},{100,60},{100,80},{60,40}},
-                  lineColor={0,0,0},
                   lineThickness=1,
                   fillColor={255,255,170},
                   fillPattern=FillPattern.Forward),
@@ -11158,18 +11154,15 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                   lineThickness=1,
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid,
-                  pattern=LinePattern.None,
-                  lineColor={0,0,0}),
+                  pattern=LinePattern.None),
                 Polygon(
                   points={{-100,-40},{-100,20},{60,20},{60,0},{-60,0},{-100,-40}},
                   lineThickness=1,
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid,
-                  pattern=LinePattern.None,
-                  lineColor={0,0,0}),
+                  pattern=LinePattern.None),
                 Polygon(
                   points={{-100,40},{-60,80},{100,80},{60,40},{-100,40}},
-                  lineColor={0,0,0},
                   lineThickness=1,
                   fillColor={255,255,170},
                   fillPattern=FillPattern.Forward),
@@ -11191,7 +11184,6 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                   pattern=LinePattern.None),
                 Text(
                   extent={{-10,66},{10,54}},
-                  lineColor={0,0,0},
                   textString="h"),
                 Line(
                   points={{60,-66},{-100,-66}},
@@ -11205,11 +11197,9 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                   pattern=LinePattern.None),
                 Text(
                   extent={{-28,-62},{-8,-74}},
-                  lineColor={0,0,0},
                   textString="L"),
                 Polygon(
                   points={{-100,-40},{-60,0},{100,0},{60,-40},{-100,-40}},
-                  lineColor={0,0,0},
                   lineThickness=1,
                   fillColor={255,255,170},
                   fillPattern=FillPattern.Forward),
@@ -11224,7 +11214,6 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                   pattern=LinePattern.None),
                 Text(
                   extent={{-90,-2},{-70,-14}},
-                  lineColor={0,0,0},
                   textString="s"),
                 Line(
                   points={{26,-10},{-24,-10}},
@@ -11238,22 +11227,17 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                   pattern=LinePattern.None),
                 Text(
                   extent={{-10,-2},{10,-14}},
-                  lineColor={0,0,0},
                   textString="v"),
                 Ellipse(
                   extent={{78,52},{82,48}},
                   pattern=LinePattern.None,
                   lineThickness=0.5,
-                  fillColor={0,0,0},
-                  fillPattern=FillPattern.Solid,
-                  lineColor={0,0,0}),
+                  fillPattern=FillPattern.Solid),
                 Ellipse(
                   extent={{78,-28},{82,-32}},
                   pattern=LinePattern.None,
                   lineThickness=0.5,
-                  fillColor={0,0,0},
-                  fillPattern=FillPattern.Solid,
-                  lineColor={0,0,0}),
+                  fillPattern=FillPattern.Solid),
                 Line(
                   points={{80,-28},{80,48}},
                   arrow={Arrow.Filled,Arrow.Filled},
@@ -11266,15 +11250,12 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                   pattern=LinePattern.None),
                 Text(
                   extent={{70,16},{90,4}},
-                  lineColor={0,0,0},
                   textString="T_wall"),
                 Text(
                   extent={{-30,36},{-10,24}},
-                  lineColor={0,0,0},
                   textString="wall 1"),
                 Text(
                   extent={{-30,-44},{-10,-56}},
-                  lineColor={0,0,0},
                   textString="wall 2")}));
 
         end Gap1_d;
@@ -11302,25 +11283,21 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                   thickness=1),
                 Ellipse(
                   extent={{38,64},{78,24}},
-                  lineColor={0,0,0},
                   lineThickness=0.5,
                   fillColor={255,255,170},
                   fillPattern=FillPattern.Forward),
                 Ellipse(
                   extent={{38,14},{78,-26}},
-                  lineColor={0,0,0},
                   lineThickness=0.5,
                   fillColor={255,255,170},
                   fillPattern=FillPattern.Forward),
                 Ellipse(
                   extent={{-78,24},{-38,-16}},
-                  lineColor={0,0,0},
                   lineThickness=0.5,
                   fillColor={255,255,170},
                   fillPattern=FillPattern.Forward),
                 Ellipse(
                   extent={{-78,-26},{-38,-66}},
-                  lineColor={0,0,0},
                   lineThickness=0.5,
                   fillColor={255,255,170},
                   fillPattern=FillPattern.Forward),
@@ -11346,7 +11323,6 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                   pattern=LinePattern.Dash),
                 Ellipse(
                   extent={{40,-36},{80,-76}},
-                  lineColor={0,0,0},
                   lineThickness=0.5,
                   fillColor={255,255,170},
                   fillPattern=FillPattern.Forward),
@@ -11362,7 +11338,6 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                   pattern=LinePattern.Dash),
                 Ellipse(
                   extent={{-80,74},{-40,34}},
-                  lineColor={0,0,0},
                   lineThickness=0.5,
                   fillColor={255,255,170},
                   fillPattern=FillPattern.Forward),
@@ -11410,13 +11385,11 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                   thickness=1),
                 Ellipse(
                   extent={{46,-42},{74,-70}},
-                  lineColor={0,0,0},
                   lineThickness=0.5,
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid),
                 Ellipse(
                   extent={{-74,68},{-46,40}},
-                  lineColor={0,0,0},
                   lineThickness=0.5,
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid),
@@ -11480,7 +11453,6 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                   pattern=LinePattern.DashDot),
                 Text(
                   extent={{72,-26},{98,-36}},
-                  lineColor={0,0,0},
                   textString="h"),
                 Rectangle(
                   extent={{-68,84},{-50,76}},
@@ -11490,7 +11462,6 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                   pattern=LinePattern.None),
                 Text(
                   extent={{-72,86},{-50,78}},
-                  lineColor={0,0,0},
                   textString="d_hyd"),
                 Rectangle(
                   extent={{-36,56},{-30,48}},
@@ -11503,7 +11474,6 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                   thickness=1),
                 Text(
                   extent={{-44,56},{-22,48}},
-                  lineColor={0,0,0},
                   textString="L")}));
         end HelicalPipe1_d;
 
@@ -11514,7 +11484,6 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                 graphics={
                 Rectangle(
                   extent={{-100,10},{100,-10}},
-                  lineColor={0,0,0},
                   fillPattern=FillPattern.Forward,
                   fillColor={255,255,170}),
                 Line(
@@ -11522,14 +11491,12 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                   arrow={Arrow.Filled,Arrow.Filled}),
                 Text(
                   extent={{-14,-20},{12,-30}},
-                  lineColor={0,0,0},
                   textString="L"),
                 Line(
                   points={{-20,16},{20,16}},
                   arrow={Arrow.None,Arrow.Filled}),
                 Text(
                   extent={{-14,26},{12,16}},
-                  lineColor={0,0,0},
                   textString="velocity")}));
         end Plate1_d;
 
@@ -11541,15 +11508,12 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                   extent={{-100,-20},{60,-40}},
                   fillPattern=FillPattern.Forward,
                   fillColor={255,255,170},
-                  lineThickness=0.5,
-                  lineColor={0,0,0}),Polygon(
+                  lineThickness=0.5),Polygon(
                   points={{-100,-20},{-60,20},{100,20},{60,-20},{-100,-20}},
-                  lineColor={0,0,0},
                   fillColor={255,255,170},
                   fillPattern=FillPattern.Forward,
                   lineThickness=0.5),Polygon(
                   points={{60,-20},{60,-40},{100,0},{100,20},{60,-20}},
-                  lineColor={0,0,0},
                   lineThickness=0.5,
                   fillColor={255,255,170},
                   fillPattern=FillPattern.Forward),Line(
@@ -11557,7 +11521,6 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                   thickness=1,
                   arrow={Arrow.None,Arrow.Filled}),Text(
                   extent={{-14,10},{12,0}},
-                  lineColor={0,0,0},
                   textString="v"),Line(
                   points={{-100,-48},{60,-48}},
                   arrow={Arrow.Filled,Arrow.Filled}),Rectangle(
@@ -11567,7 +11530,6 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                   lineThickness=1,
                   pattern=LinePattern.None),Text(
                   extent={{-34,-44},{-8,-54}},
-                  lineColor={0,0,0},
                   textString="L")}));
         end Plate2_d;
 
@@ -11648,7 +11610,6 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                   pattern=LinePattern.None),
                 Ellipse(
                   extent={{-6,16},{8,2}},
-                  lineColor={0,0,0},
                   lineThickness=0.5,
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid),
@@ -11665,23 +11626,19 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                 Polygon(
                   points={{-100,-40},{-100,-20},{0,-20},{0,-40},{-100,-40}},
                   fillColor={255,255,170},
-                  fillPattern=FillPattern.Forward,
-                  lineColor={0,0,0}),
+                  fillPattern=FillPattern.Forward),
                 Polygon(
                   points={{0,-40},{0,-20},{100,-80},{100,-100},{0,-40}},
                   fillColor={255,255,170},
-                  fillPattern=FillPattern.Forward,
-                  lineColor={0,0,0}),
+                  fillPattern=FillPattern.Forward),
                 Polygon(
                   points={{0,40},{0,60},{100,0},{100,-20},{0,40}},
                   fillColor={255,255,170},
-                  fillPattern=FillPattern.Forward,
-                  lineColor={0,0,0}),
+                  fillPattern=FillPattern.Forward),
                 Polygon(
                   points={{-100,40},{-100,60},{0,60},{0,40},{-100,40}},
                   fillColor={255,255,170},
-                  fillPattern=FillPattern.Forward,
-                  lineColor={0,0,0}),
+                  fillPattern=FillPattern.Forward),
                 Line(
                   points={{0,10},{100,-48}},
                   arrow={Arrow.None,Arrow.Filled},
@@ -11702,11 +11659,9 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                   pattern=LinePattern.None),
                 Text(
                   extent={{-90,30},{-64,20}},
-                  lineColor={0,0,0},
                   textString="d_hyd"),
                 Text(
                   extent={{-10,20},{16,10}},
-                  lineColor={0,0,0},
                   textString="delta"),
                 Rectangle(
                   extent={{-54,18},{-44,2}},
@@ -11716,13 +11671,10 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                   pattern=LinePattern.None),
                 Text(
                   extent={{-58,14},{-40,4}},
-                  lineColor={0,0,0},
                   textString="L"),
                 Ellipse(
                   extent={{-2,6},{0,4}},
-                  lineColor={0,0,0},
                   lineThickness=0.5,
-                  fillColor={0,0,0},
                   fillPattern=FillPattern.Solid),
                 Line(
                   points={{-2,4},{2,10}},
@@ -11741,19 +11693,16 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                   pattern=LinePattern.Dot),
                 Ellipse(
                   extent={{20,80},{-20,40}},
-                  lineColor={0,0,0},
                   lineThickness=0.5,
                   fillColor={255,255,170},
                   fillPattern=FillPattern.Forward),
                 Ellipse(
                   extent={{80,74},{40,46}},
-                  lineColor={0,0,0},
                   lineThickness=0.5,
                   fillColor={255,255,170},
                   fillPattern=FillPattern.Forward),
                 Ellipse(
                   extent={{14,74},{-14,46}},
-                  lineColor={0,0,0},
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid),
                 Line(
@@ -11767,17 +11716,14 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                   pattern=LinePattern.None),
                 Text(
                   extent={{-9,66},{9,56}},
-                  lineColor={0,0,0},
                   textString="d_cir"),
                 Ellipse(
                   extent={{-40,80},{-80,40}},
-                  lineColor={0,0,0},
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid,
                   lineThickness=0.5),
                 Ellipse(
                   extent={{-46,74},{-74,46}},
-                  lineColor={0,0,0},
                   lineThickness=0.5,
                   fillColor={255,255,170},
                   fillPattern=FillPattern.Forward),
@@ -11802,7 +11748,6 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                   pattern=LinePattern.None),
                 Text(
                   extent={{-99,65},{-81,55}},
-                  lineColor={0,0,0},
                   textString="D_ann"),
                 Line(
                   points={{-16,0},{16,0}},
@@ -11823,11 +11768,9 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                   pattern=LinePattern.None),
                 Text(
                   extent={{-69,39},{-51,29}},
-                  lineColor={0,0,0},
                   textString="d_ann"),
                 Ellipse(
                   extent={{78,72},{42,48}},
-                  lineColor={0,0,0},
                   lineThickness=0.5,
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid),
@@ -11850,7 +11793,6 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                   pattern=LinePattern.None),
                 Text(
                   extent={{46,46},{55,39}},
-                  lineColor={0,0,0},
                   textString="a_ell"),
                 Line(
                   points={{0,0},{22,0}},
@@ -11879,19 +11821,16 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                   pattern=LinePattern.None),
                 Text(
                   extent={{83,69},{95,63}},
-                  lineColor={0,0,0},
                   textString="b_ell"),
                 Rectangle(
                   extent={{-60,24},{-20,-6}},
                   fillColor={255,255,170},
                   fillPattern=FillPattern.Forward,
-                  lineColor={0,0,0},
                   lineThickness=0.5),
                 Rectangle(
                   extent={{-56,20},{-24,-2}},
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid,
-                  lineColor={0,0,0},
                   lineThickness=0.5),
                 Line(
                   points={{-16,0},{16,0}},
@@ -11918,7 +11857,6 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                   pattern=LinePattern.None),
                 Text(
                   extent={{-48,-9},{-31,-18}},
-                  lineColor={0,0,0},
                   textString="a_rec"),
                 Line(
                   points={{-16,0},{16,0}},
@@ -11945,17 +11883,14 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                   pattern=LinePattern.None),
                 Text(
                   extent={{-18,13},{-1,4}},
-                  lineColor={0,0,0},
                   textString="b_rec"),
                 Polygon(
                   points={{20,-10},{40,30},{60,-10},{20,-10}},
-                  lineColor={0,0,0},
                   lineThickness=0.5,
                   fillColor={255,255,170},
                   fillPattern=FillPattern.Forward),
                 Polygon(
                   points={{26,-6},{40,22},{54,-6},{26,-6}},
-                  lineColor={0,0,0},
                   lineThickness=0.5,
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid),
@@ -12002,7 +11937,6 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                   pattern=LinePattern.None),
                 Text(
                   extent={{56,13},{73,4}},
-                  lineColor={0,0,0},
                   textString="h_tri"),
                 Rectangle(
                   extent={{31,-11},{50,-23}},
@@ -12011,7 +11945,6 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                   pattern=LinePattern.None),
                 Text(
                   extent={{32,-11},{49,-20}},
-                  lineColor={0,0,0},
                   textString="a_tri"),
                 Line(
                   points={{36,14},{38,12},{42,12},{44,14}},
@@ -12024,7 +11957,6 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                   rotation=360),
                 Text(
                   extent={{12,27},{29,18}},
-                  lineColor={0,0,0},
                   textString="beta")}));
 
         end Channel_d;
@@ -12037,26 +11969,21 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                 graphics={
                 Rectangle(
                   extent={{-100,60},{100,-60}},
-                  lineColor={0,0,0},
                   fillColor={255,255,170},
                   fillPattern=FillPattern.Backward),
                 Rectangle(
                   extent={{-100,20},{0,-20}},
-                  lineColor={0,0,0},
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid),
                 Rectangle(
                   extent={{0,40},{100,-42}},
                   fillColor={255,255,255},
-                  fillPattern=FillPattern.Solid,
-                  lineColor={0,0,0}),
+                  fillPattern=FillPattern.Solid),
                 Text(
                   extent={{-80,88},{86,76}},
-                  lineColor={0,0,0},
                   textString="sudden expansion"),
                 Text(
                   extent={{-82,-76},{86,-88}},
-                  lineColor={0,0,0},
                   textString="sudden contraction"),
                 Line(
                   points={{-20,0},{20,0}},
@@ -12084,7 +12011,6 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                   pattern=LinePattern.None),
                 Text(
                   extent={{38,4},{64,-6}},
-                  lineColor={0,0,0},
                   textString="A_2"),
                 Rectangle(
                   extent={{-58,6},{-38,-8}},
@@ -12094,7 +12020,6 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                   pattern=LinePattern.None),
                 Text(
                   extent={{-62,4},{-36,-6}},
-                  lineColor={0,0,0},
                   textString="A_1"),
                 Rectangle(
                   extent={{0,20},{0,-20}},
@@ -12104,7 +12029,6 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                   pattern=LinePattern.None),
                 Text(
                   extent={{-44,10},{40,2}},
-                  lineColor={0,0,0},
                   textString="design flow direction"),
                 Line(
                   points={{-24,-4},{16,-4}},
@@ -12125,19 +12049,16 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                 graphics={
                 Rectangle(
                   extent={{-100,60},{100,-60}},
-                  lineColor={0,0,0},
                   fillColor={255,255,170},
                   fillPattern=FillPattern.Backward),
                 Rectangle(
                   extent={{-40,20},{40,-20}},
-                  lineColor={0,0,0},
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid),
                 Rectangle(
                   extent={{40,40},{100,-42}},
                   fillColor={255,255,255},
-                  fillPattern=FillPattern.Solid,
-                  lineColor={0,0,0}),
+                  fillPattern=FillPattern.Solid),
                 Line(
                   points={{-20,0},{20,0}},
                   thickness=0.5,
@@ -12158,7 +12079,6 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                   pattern=LinePattern.None),
                 Text(
                   extent={{56,4},{82,-6}},
-                  lineColor={0,0,0},
                   textString="A_1"),
                 Rectangle(
                   extent={{0,20},{0,-20}},
@@ -12173,8 +12093,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                 Rectangle(
                   extent={{-100,40},{-40,-42}},
                   fillColor={255,255,255},
-                  fillPattern=FillPattern.Solid,
-                  lineColor={0,0,0}),
+                  fillPattern=FillPattern.Solid),
                 Line(
                   points={{-62,0},{20,0}},
                   thickness=0.5,
@@ -12189,7 +12108,6 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                   pattern=LinePattern.None),
                 Text(
                   extent={{-84,4},{-58,-6}},
-                  lineColor={0,0,0},
                   textString="A_1"),
                 Line(
                   points={{-42,0},{-2,0}},
@@ -12205,7 +12123,6 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                   pattern=LinePattern.None),
                 Text(
                   extent={{-14,4},{12,-6}},
-                  lineColor={0,0,0},
                   textString="A_0"),
                 Rectangle(
                   extent={{-44,20},{-40,-20}},
@@ -12227,7 +12144,6 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                   pattern=LinePattern.None),
                 Text(
                   extent={{-12,-28},{14,-38}},
-                  lineColor={0,0,0},
                   textString="L")}));
         end OrificeThickEdged_d;
 
@@ -12238,7 +12154,6 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                 graphics={
                 Ellipse(
                   extent={{98,46},{62,-54}},
-                  lineColor={0,0,0},
                   lineThickness=0.5,
                   fillPattern=FillPattern.Forward,
                   fillColor={255,255,170}),
@@ -12260,11 +12175,9 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                   pattern=LinePattern.None),
                 Text(
                   extent={{-8,58},{10,48}},
-                  lineColor={0,0,0},
                   textString="L"),
                 Ellipse(
                   extent={{90,26},{70,-34}},
-                  lineColor={0,0,0},
                   pattern=LinePattern.Dash,
                   lineThickness=0.5),
                 Line(
@@ -12279,13 +12192,11 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                   pattern=LinePattern.None),
                 Ellipse(
                   extent={{-62,46},{-98,-54}},
-                  lineColor={0,0,0},
                   lineThickness=0.5,
                   fillColor={255,255,170},
                   fillPattern=FillPattern.Forward),
                 Ellipse(
                   extent={{-70,26},{-90,-34}},
-                  lineColor={0,0,0},
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid,
                   lineThickness=0.5),
@@ -12314,7 +12225,6 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                   pattern=LinePattern.None),
                 Text(
                   extent={{-14,2},{12,-8}},
-                  lineColor={0,0,0},
                   textString="d_hyd")}));
 
         end StraightPipe_d;

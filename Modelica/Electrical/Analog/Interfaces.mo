@@ -265,11 +265,9 @@ The reason could be that
             textString="i2"),
           Text(
             extent={{118,52},{135,67}},
-            lineColor={0,0,0},
             textString="i2"),
           Polygon(
             points={{120,53},{110,50},{120,47},{120,53}},
-            lineColor={0,0,0},
             fillPattern=FillPattern.HorizontalCylinder,
             fillColor={160,160,164}),
           Line(points={{111,50},{136,50}}),
@@ -564,7 +562,6 @@ behavior is <b>not</b> modelled.
               100}}), graphics={
           Polygon(
             points={{30,0},{-30,40},{-30,-40},{30,0}},
-            lineColor={0,0,0},
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid),
           Line(points={{-90,0},{40,0}}, color={0,0,255}),
@@ -723,27 +720,18 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
       Diagram(graphics={Line(points={{-60,60},{-60,-60},{60,-60}}, color={0,0,
             255}),Line(points={{-60,-60},{-40,-60},{-40,-40},{-20,40},{40,40}}),Text(
               extent={{30,-60},{50,-70}},
-              lineColor={0,0,0},
               textString="time"),Text(
               extent={{-60,60},{-20,50}},
-              lineColor={0,0,0},
               textString="voltage"),Text(
               extent={{-60,-30},{-40,-40}},
-              lineColor={0,0,0},
               textString="V0"),Text(
               extent={{-50,40},{-30,30}},
-              lineColor={0,0,0},
               textString="Vmax"),Text(
               extent={{-40,10},{-20,0}},
-              lineColor={0,0,0},
               textString="dVdt"),Polygon(
               points={{-60,60},{-62,52},{-58,52},{-60,60}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
               fillPattern=FillPattern.Solid),Polygon(
               points={{60,-60},{54,-58},{54,-62},{60,-60}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
               fillPattern=FillPattern.Solid)}),
       Documentation(info="<html>
 <p>

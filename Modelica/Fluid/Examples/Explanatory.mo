@@ -133,15 +133,12 @@ package Explanatory
               -100},{100,100}}), graphics={
           Text(
             extent={{42,52},{62,46}},
-            lineColor={0,0,0},
             textString="T=80"),
           Text(
             extent={{-4,76},{18,70}},
-            lineColor={0,0,0},
             textString="T=20"),
           Text(
             extent={{-62,20},{-36,12}},
-            lineColor={0,0,0},
             textString="T=50")}),
                          Documentation(info="<html>
 <p>

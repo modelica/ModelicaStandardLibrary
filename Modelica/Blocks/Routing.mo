@@ -16,7 +16,6 @@ package Routing "Library of blocks to combine and extract signals"
           Line(points={{0,0},{100,-10}}, color={0,0,127}),
           Ellipse(
             extent={{-14,16},{16,-14}},
-            lineColor={0,0,0},
             fillColor={0,0,127},
             fillPattern=FillPattern.Solid)}),
       Documentation(info="<html>
@@ -48,7 +47,6 @@ This block replicates the input signal to an array of <code>nout</code> identica
           Line(points={{0,0},{100,-10}}, color={255,127,0}),
           Ellipse(
             extent={{-14,16},{16,-14}},
-            lineColor={0,0,0},
             fillColor={255,127,0},
             fillPattern=FillPattern.Solid)}),
       Documentation(info="<html>
@@ -80,7 +78,6 @@ This block replicates the Integer input signal to an array of <code>nout</code> 
           Line(points={{0,0},{100,-10}}, color={255,0,255}),
           Ellipse(
             extent={{-14,16},{16,-14}},
-            lineColor={0,0,0},
             fillColor={255,0,255},
             fillPattern=FillPattern.Solid)}),
       Documentation(info="<html>
@@ -185,7 +182,6 @@ equation
           Line(points={{49,-30},{60,-30},{74,-4}}, color={0,0,127}),
           Text(
             extent={{-150,-150},{150,-110}},
-            lineColor={0,0,0},
             textString="extract=%extract")}),
     Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -204,7 +200,6 @@ equation
             points={{-94.4104,1.90792},{-94.4104,-2.09208},{-90.4104,-0.0920762},
                 {-94.4104,1.90792}},
             lineColor={0,0,255},
-            fillColor={0,0,0},
             fillPattern=FillPattern.Solid),
           Line(points={{-72,2},{-60.1395,12.907},{-49.1395,12.907}}, color={0,0,
                 255}),
@@ -336,7 +331,6 @@ equation
             points={{-84.4104,1.9079},{-84.4104,-2.09208},{-80.4104,-0.09208},{
                 -84.4104,1.9079}},
             lineColor={0,0,127},
-            fillColor={0,0,0},
             fillPattern=FillPattern.Solid),
           Line(points={{-62,2},{-50.1395,12.907},{-39.1395,12.907}}, color={0,0,
                 127}),

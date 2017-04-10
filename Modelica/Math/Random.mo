@@ -305,12 +305,10 @@ For an overview, comparison with other random number generators, and links to ar
             graphics={
         Ellipse(
           extent={{-64,0},{-14,-50}},
-          lineColor={0,0,0},
           fillColor={215,215,215},
           fillPattern=FillPattern.Solid),
         Ellipse(
           extent={{12,52},{62,2}},
-          lineColor={0,0,0},
           fillColor={215,215,215},
           fillPattern=FillPattern.Solid)}));
     end Xorshift64star;
@@ -481,17 +479,14 @@ other random number generators, and links to articles, see
      Icon(graphics={
         Ellipse(
           extent={{-70,60},{-20,10}},
-          lineColor={0,0,0},
           fillColor={215,215,215},
           fillPattern=FillPattern.Solid),
         Ellipse(
           extent={{32,58},{82,8}},
-          lineColor={0,0,0},
           fillColor={215,215,215},
           fillPattern=FillPattern.Solid),
         Ellipse(
           extent={{-20,-12},{30,-62}},
-          lineColor={0,0,0},
           fillColor={215,215,215},
           fillPattern=FillPattern.Solid)}));
     end Xorshift128plus;
@@ -660,22 +655,18 @@ For an overview, comparison with other random number generators, and links to ar
      Icon(graphics={
         Ellipse(
           extent={{-70,78},{-20,28}},
-          lineColor={0,0,0},
           fillColor={215,215,215},
           fillPattern=FillPattern.Solid),
         Ellipse(
           extent={{20,58},{70,8}},
-          lineColor={0,0,0},
           fillColor={215,215,215},
           fillPattern=FillPattern.Solid),
         Ellipse(
           extent={{-64,6},{-14,-44}},
-          lineColor={0,0,0},
           fillColor={215,215,215},
           fillPattern=FillPattern.Solid),
         Ellipse(
           extent={{16,-20},{66,-70}},
-          lineColor={0,0,0},
           fillColor={215,215,215},
           fillPattern=FillPattern.Solid)}));
     end Xorshift1024star;
@@ -1265,22 +1256,18 @@ that are usually of no interest for the user
         -100},{100,100}}), graphics={
     Ellipse(
       extent={{-84,84},{-24,24}},
-      lineColor={0,0,0},
       fillColor={215,215,215},
       fillPattern=FillPattern.Solid),
     Ellipse(
       extent={{22,62},{82,2}},
-      lineColor={0,0,0},
       fillColor={215,215,215},
       fillPattern=FillPattern.Solid),
     Ellipse(
       extent={{-58,6},{2,-54}},
-      lineColor={0,0,0},
       fillColor={215,215,215},
       fillPattern=FillPattern.Solid),
     Ellipse(
       extent={{26,-30},{86,-90}},
-      lineColor={0,0,0},
       fillColor={215,215,215},
       fillPattern=FillPattern.Solid)}), Documentation(info="<html>
 <p>

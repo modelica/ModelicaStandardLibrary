@@ -693,7 +693,6 @@ This package contains test examples of analog electrical multiphase circuits.
               color={0,0,255}),
             Text(
               extent={{-100,-110},{100,-70}},
-              lineColor={0,0,0},
               textString="m=%m"),
             Line(points={{-90,0},{-40,0}}, color={0,0,255}),
             Line(points={{80,0},{90,0}}, color={0,0,255})}), Documentation(info=
@@ -741,7 +740,6 @@ Connects all pins of plug_p to pin_n, thus establishing a so-called star-connect
               color={0,0,255}),
             Text(
               extent={{-100,-110},{100,-70}},
-              lineColor={0,0,0},
               textString="m=%m"),
             Line(points={{-90,0},{-40,0}}, color={0,0,255}),
             Line(points={{80,0},{90,0}}, color={0,0,255})}), Documentation(info=
@@ -789,7 +787,6 @@ when used in parallel to another component.
               lineColor={0,0,255}),
             Text(
               extent={{-100,-110},{100,-70}},
-              lineColor={0,0,0},
               textString="m=%m"),
             Line(
               points={{74,-4},{-6,-4}},
@@ -859,7 +856,6 @@ Star (wye) connection of a multi phase circuit consisting of multiple base syste
               textString="%name"),
             Text(
               extent={{-100,-110},{100,-70}},
-              lineColor={0,0,0},
               textString="m=%m"),
             Line(points={{-90,0},{-46,0}}, color={0,0,255}),
             Line(
@@ -946,7 +942,6 @@ Delta (polygon) connection of a multi phase circuit consisting of multiple base 
               lineColor={0,0,255}),
             Text(
               extent={{-100,-110},{100,-70}},
-              lineColor={0,0,0},
               textString="R=%R")}),
         Documentation(info="<html>
 <p>
@@ -979,7 +974,6 @@ Multi star points are connected by resistors. This model is required to operate 
               lineColor={0,0,255}),
             Text(
               extent={{-100,-60},{100,-100}},
-              lineColor={0,0,0},
               textString="k = %k"),
             Line(points={{-20,20},{40,20},{40,-20},{-20,-20}}),
             Rectangle(
@@ -990,7 +984,6 @@ Multi star points are connected by resistors. This model is required to operate 
               lineColor={0,0,255}),
             Ellipse(
               extent={{-40,20},{0,-20}},
-              lineColor={0,0,0},
               fillColor={215,215,215},
               fillPattern=FillPattern.Solid),
             Line(points={{-20,20},{40,20},{40,-20},{-20,-20}})}),
@@ -1024,7 +1017,6 @@ Connects pin <i>k</i> of plug_p to pin_p, leaving the other pins of plug_p uncon
               lineColor={0,0,255}),
             Text(
               extent={{-100,-60},{100,-100}},
-              lineColor={0,0,0},
               textString="k = %k"),
             Line(points={{-20,20},{40,20},{40,-20},{-20,-20}}),
             Rectangle(
@@ -1035,7 +1027,6 @@ Connects pin <i>k</i> of plug_p to pin_p, leaving the other pins of plug_p uncon
               lineColor={0,0,255}),
             Ellipse(
               extent={{-40,20},{0,-20}},
-              lineColor={0,0,0},
               fillColor={215,215,215},
               fillPattern=FillPattern.Solid),
             Line(points={{-20,20},{40,20},{40,-20},{-20,-20}})}),
@@ -1070,7 +1061,6 @@ Connects pin <i>k</i> of plug_n to pin_n, leaving the other pins of plug_n uncon
               lineColor={0,0,255}),
             Ellipse(
               extent={{-40,20},{0,-20}},
-              lineColor={0,0,0},
               fillColor={170,255,255},
               fillPattern=FillPattern.Solid),
             Line(points={{-20,20},{40,20},{40,-20},{-20,-20}})}),
@@ -1105,7 +1095,6 @@ Connects all pins of plug_p to the pin array pin_p.
               lineColor={0,0,255}),
             Ellipse(
               extent={{-40,20},{0,-20}},
-              lineColor={0,0,0},
               fillColor={170,255,255},
               fillPattern=FillPattern.Solid),
             Line(points={{-20,20},{40,20},{40,-20},{-20,-20}})}),
@@ -1156,7 +1145,6 @@ Connects all pins of plug_n to the pin array pin_n.
               lineColor={0,0,255}),
             Text(
               extent={{-100,-100},{100,-60}},
-              lineColor={0,0,0},
               textString="m=%m")}), Documentation(info="<html>
 <p>
 Contains m resistors (Modelica.Electrical.Analog.Basic.Resistor)
@@ -1204,7 +1192,6 @@ Contains m resistors (Modelica.Electrical.Analog.Basic.Resistor)
               lineColor={0,0,255}),
             Text(
               extent={{-100,-100},{100,-60}},
-              lineColor={0,0,0},
               textString="m=%m")}), Documentation(info="<html>
 <p>
 Contains m conductors (Modelica.Electrical.Analog.Basic.Conductor)
@@ -1239,7 +1226,6 @@ Contains m conductors (Modelica.Electrical.Analog.Basic.Conductor)
             Line(points={{6,0},{90,0}},  color={0,0,255}),
             Text(
               extent={{-100,-100},{100,-60}},
-              lineColor={0,0,0},
               textString="m=%m")}), Documentation(info="<html>
 <p>
 Contains m capacitors (Modelica.Electrical.Analog.Basic.Capacitor)
@@ -1276,7 +1262,6 @@ Contains m capacitors (Modelica.Electrical.Analog.Basic.Capacitor)
               lineColor={0,0,255}),
             Text(
               extent={{-100,-100},{100,-60}},
-              lineColor={0,0,0},
               textString="m=%m")}), Documentation(info="<html>
 <p>
 Contains m inductors (Modelica.Electrical.Analog.Basic.Inductor)
@@ -1320,7 +1305,6 @@ Contains m inductors (Modelica.Electrical.Analog.Basic.Inductor)
             Line(points={{-90,0},{-60,0}}, color={0,0,255}),
             Rectangle(
               extent={{-60,-10},{60,-20}},
-              lineColor={0,0,0},
               fillPattern=FillPattern.Sphere,
               fillColor={0,0,255}),
             Text(
@@ -1329,7 +1313,6 @@ Contains m inductors (Modelica.Electrical.Analog.Basic.Inductor)
               lineColor={0,0,255}),
             Text(
               extent={{-100,-100},{100,-60}},
-              lineColor={0,0,0},
               textString="m=%m")}), Documentation(info="<html>
 <p>
 Contains m saturating inductors (Modelica.Electrical.Analog.Basic.SaturatingInductor)
@@ -1397,7 +1380,6 @@ Model of a multi phase inductor providing a mutual inductance matrix model.
               lineColor={0,0,255}),
             Text(
               extent={{-100,-100},{100,-60}},
-              lineColor={0,0,0},
               textString="m=%m")}));
     end MutualInductor;
 
@@ -1426,7 +1408,6 @@ Model of a multi phase zero sequence inductor.
               lineColor={0,0,255}),
             Text(
               extent={{-100,-100},{100,-60}},
-              lineColor={0,0,0},
               textString="m=%m"),
             Line(points={{-90,0},{-50,0}}, color={0,0,255}),
             Line(points={{52,0},{90,0}}, color={0,0,255}),
@@ -1496,7 +1477,6 @@ Model of a multi phase zero sequence inductor.
               lineColor={0,0,255}),
             Text(
               extent={{-80,-100},{80,-60}},
-              lineColor={0,0,0},
               textString="m=%m"),
             Text(
               extent={{-100,60},{100,100}},
@@ -1554,7 +1534,6 @@ Contains m transformers (Modelica.Electrical.Analog.Basic.Transformer)
               lineColor={0,0,255}),
             Text(
               extent={{-100,40},{100,80}},
-              lineColor={0,0,0},
               textString="m=%m")}), Documentation(info="<html>
 <p>
 Contains m variable resistors (Modelica.Electrical.Analog.Basic.VariableResistor)
@@ -1613,7 +1592,6 @@ Contains m variable resistors (Modelica.Electrical.Analog.Basic.VariableResistor
               lineColor={0,0,255}),
             Text(
               extent={{-100,40},{100,80}},
-              lineColor={0,0,0},
               textString="m=%m")}), Documentation(info="<html>
 <p>
 Contains m variable conductors (Modelica.Electrical.Analog.Basic.VariableConductor)
@@ -1655,7 +1633,6 @@ Contains m variable conductors (Modelica.Electrical.Analog.Basic.VariableConduct
               lineColor={0,0,255}),
             Text(
               extent={{-100,40},{100,80}},
-              lineColor={0,0,0},
               textString="m=%m"),
             Line(points={{-90,0},{-6,0}},  color={0,0,255}),
             Line(points={{6,0},{90,0}},  color={0,0,255}),
@@ -1703,7 +1680,6 @@ Cmin is a parameter with default value Modelica.Constants.eps.
               lineColor={0,0,255}),
             Text(
               extent={{-100,40},{100,80}},
-              lineColor={0,0,0},
               textString="m=%m"),
             Line(points={{-90,0},{-60,0}}, color={0,0,255}),
             Line(points={{60,0},{90,0}}, color={0,0,255}),
@@ -1807,13 +1783,11 @@ This package contains basic analog electrical multiphase components.
             Line(points={{-90,0},{40,0}}, color={0,0,255}),
             Polygon(
               points={{30,0},{-30,40},{-30,-40},{30,0}},
-              lineColor={0,0,0},
               fillColor={255,255,255}),
             Line(points={{30,40},{30,-40}}, color={0,0,255}),
             Line(points={{40,0},{90,0}}, color={0,0,255}),
             Text(
               extent={{-80,100},{80,60}},
-              lineColor={0,0,0},
               textString="m=%m")}),
         Documentation(info="<html>
 <p>
@@ -1864,7 +1838,6 @@ Contains m ideal diodes (Modelica.Electrical.Analog.Ideal.IdealDiode).
             Line(points={{-90,0},{40,0}}, color={0,0,255}),
             Polygon(
               points={{30,0},{-30,40},{-30,-40},{30,0}},
-              lineColor={0,0,0},
               fillColor={255,255,255}),
             Line(points={{30,40},{30,-40}}, color={0,0,255}),
             Line(points={{40,0},{90,0}}, color={0,0,255}),
@@ -1872,7 +1845,6 @@ Contains m ideal diodes (Modelica.Electrical.Analog.Ideal.IdealDiode).
             Line(points={{30,20},{70,60},{70,90}}, color={0,0,255}),
             Text(
               extent={{-100,100},{60,60}},
-              lineColor={0,0,0},
               textString="m=%m")}), Documentation(info="<html>
 <p>
 Contains m ideal thyristors (Modelica.Electrical.Analog.Ideal.IdealThyristor).
@@ -1920,7 +1892,6 @@ Contains m ideal thyristors (Modelica.Electrical.Analog.Ideal.IdealThyristor).
             Line(points={{-90,0},{40,0}}, color={0,0,255}),
             Polygon(
               points={{30,0},{-30,40},{-30,-40},{30,0}},
-              lineColor={0,0,0},
               fillColor={255,255,255}),
             Line(points={{30,40},{30,-40}}, color={0,0,255}),
             Line(points={{40,0},{90,0}}, color={0,0,255}),
@@ -1928,7 +1899,6 @@ Contains m ideal thyristors (Modelica.Electrical.Analog.Ideal.IdealThyristor).
             Line(points={{30,20},{70,60},{70,90}}, color={0,0,255}),
             Text(
               extent={{-100,100},{60,60}},
-              lineColor={0,0,0},
               textString="m=%m")}), Documentation(info="<html>
 <p>
 Contains m ideal GTO thyristors (Modelica.Electrical.Analog.Ideal.IdealGTOThyristor).
@@ -1982,11 +1952,9 @@ Contains m ideal GTO thyristors (Modelica.Electrical.Analog.Ideal.IdealGTOThyris
               lineColor={0,0,255}),
             Text(
               extent={{-100,100},{-20,60}},
-              lineColor={0,0,0},
               textString="m="),
             Text(
               extent={{20,100},{100,60}},
-              lineColor={0,0,0},
               textString="%m"),
             Ellipse(extent={{-44,4},{-36,-4}}, lineColor={0,0,255}),
             Line(points={{-90,0},{-44,0}}, color={0,0,255}),
@@ -2051,11 +2019,9 @@ Contains m ideal commuting switches (Modelica.Electrical.Analog.Ideal.IdealCommu
               lineColor={0,0,255}),
             Text(
               extent={{-100,100},{-20,60}},
-              lineColor={0,0,0},
               textString="m="),
             Text(
               extent={{20,100},{100,60}},
-              lineColor={0,0,0},
               textString="%m"),
             Ellipse(extent={{-4,30},{4,22}}, lineColor={0,0,255}),
             Line(points={{-90,0},{-44,0}}, color={0,0,255}),
@@ -2097,7 +2063,6 @@ Contains m ideal intermediate switches (Modelica.Electrical.Analog.Ideal.IdealIn
                 -100},{100,100}}), graphics={
             Text(
               extent={{-80,100},{80,60}},
-              lineColor={0,0,0},
               textString="m=%m"),
             Text(
               extent={{-100,-90},{100,-50}},
@@ -2148,7 +2113,6 @@ Contains m ideal transformers (Modelica.Electrical.Analog.Ideal.IdealTransformer
               lineColor={0,0,255}),
             Text(
               extent={{-100,-100},{100,-60}},
-              lineColor={0,0,0},
               textString="m=%m"),
             Rectangle(
               extent={{-60,60},{60,-60}},
@@ -2182,7 +2146,6 @@ Contains m idles (Modelica.Electrical.Analog.Ideal.Idle)
               lineColor={0,0,255}),
             Text(
               extent={{-100,-100},{100,-60}},
-              lineColor={0,0,0},
               textString="m=%m"),
             Rectangle(
               extent={{-60,60},{60,-60}},
@@ -2239,11 +2202,9 @@ Contains m short cuts (Modelica.Electrical.Analog.Ideal.Short)
             Line(points={{40,0},{90,0}}, color={0,0,255}),
             Text(
               extent={{-100,100},{-20,60}},
-              lineColor={0,0,0},
               textString="m="),
             Text(
               extent={{20,100},{100,60}},
-              lineColor={0,0,0},
               textString="%m"),
             Line(points={{40,20},{40,0}}, color={0,0,255})}), Documentation(
             info="<html>
@@ -2295,11 +2256,9 @@ Contains m ideal opening switches (Modelica.Electrical.Analog.Ideal.IdealOpening
             Line(points={{40,0},{90,0}}, color={0,0,255}),
             Text(
               extent={{-100,100},{-20,60}},
-              lineColor={0,0,0},
               textString="m="),
             Text(
               extent={{20,100},{100,60}},
-              lineColor={0,0,0},
               textString="%m")}), Documentation(info="<html>
 <p>
 Contains m ideal closing switches (Modelica.Electrical.Analog.Ideal.IdealClosingSwitch).
@@ -2358,11 +2317,9 @@ Contains m ideal closing switches (Modelica.Electrical.Analog.Ideal.IdealClosing
             Line(points={{40,0},{90,0}}, color={0,0,255}),
             Text(
               extent={{-100,100},{-20,60}},
-              lineColor={0,0,0},
               textString="m="),
             Text(
               extent={{20,100},{100,60}},
-              lineColor={0,0,0},
               textString="%m"),
             Line(points={{40,20},{40,0}}, color={0,0,255}),
             Line(points={{40,50},{32,34},{48,30},{40,20}}, color={255,0,0})}),
@@ -2422,11 +2379,9 @@ Contains m ideal closing switches (Modelica.Electrical.Analog.Ideal.IdealClosing
             Line(points={{40,0},{90,0}}, color={0,0,255}),
             Text(
               extent={{-100,100},{-20,60}},
-              lineColor={0,0,0},
               textString="m="),
             Text(
               extent={{20,100},{100,60}},
-              lineColor={0,0,0},
               textString="%m"),
             Line(points={{40,50},{32,24},{48,28},{40,0}}, color={255,0,0})}),
           Documentation(info="<html>
@@ -2818,7 +2773,6 @@ This function determines the indices of non-positive sequence of the symmetrical
       annotation (Icon(graphics={Line(points={{70,0},{100,0}}, color={0,0,127}),
               Line(points={{-70,0},{-90,0}}),Text(
                   extent={{-100,-70},{100,-110}},
-                  lineColor={0,0,0},
                   textString="m=%m"),Text(
                   extent={{-100,60},{100,100}},
                   textString="%name",
@@ -2855,18 +2809,15 @@ thus measuring the m potentials <i>phi[m]</i> of the m pins of plug_p.
           color={0,0,127}));
       annotation (Icon(graphics={Text(
                   extent={{-29,-11},{30,-70}},
-                  lineColor={0,0,0},
                   textString="V"),Text(
                   extent={{-100,60},{100,100}},
                   textString="%name",
                   lineColor={0,0,255}),Text(
                   extent={{-100,-60},{-20,-100}},
-                  lineColor={0,0,0},
                   textString="m="),Line(points={{-70,0},{-90,0}}),
               Line(points={{70,0},{90,0}}),Line(points={{0,-100},
               {0,-70}}, color={0,0,127}),Text(
                   extent={{20,-60},{100,-100}},
-                  lineColor={0,0,0},
                   textString="%m")}), Documentation(info="<html>
 <p>
 Contains m voltage sensors (Modelica.Electrical.Analog.Sensors.VoltageSensor),
@@ -2912,10 +2863,8 @@ thus measuring the m potential differences <i>v[m]</i> between the m pins of plu
                   textString="%name",
                   lineColor={0,0,255}),Text(
                   extent={{-100,-60},{-20,-100}},
-                  lineColor={0,0,0},
                   textString="m="),Text(
                   extent={{20,-60},{100,-100}},
-                  lineColor={0,0,0},
                   textString="%m")}), Documentation(revisions="<html>
 </html>", info="<html>
 <p>
@@ -2953,18 +2902,15 @@ This sensor determines the continuous quasi <a href=\"Modelica://Modelica.Blocks
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-29,-11},{30,-70}},
-                  lineColor={0,0,0},
                   textString="A"),Text(
                   extent={{-100,60},{100,100}},
                   textString="%name",
                   lineColor={0,0,255}),Text(
                   extent={{-100,-60},{-20,-100}},
-                  lineColor={0,0,0},
                   textString="m="),Line(points={{-70,0},{-90,0}}),
               Line(points={{70,0},{90,0}}),Line(points={{0,-100},
               {0,-70}}, color={0,0,127}),Text(
                   extent={{20,-60},{100,-100}},
-                  lineColor={0,0,0},
                   textString="%m")}), Documentation(info="<html>
 <p>
 Contains m current sensors (Modelica.Electrical.Analog.Sensors.CurrentSensor),
@@ -3011,10 +2957,8 @@ thus measuring the m currents <i>i[m]</i> flowing from the m pins of plug_p to t
                   textString="%name",
                   lineColor={0,0,255}),Text(
                   extent={{-100,-60},{-20,-100}},
-                  lineColor={0,0,0},
                   textString="m="),Text(
                   extent={{20,-60},{100,-100}},
-                  lineColor={0,0,0},
                   textString="%m"),Line(points={{70,0},{90,0}}, color={0,0,255})}),
           Documentation(revisions="<html>
 </html>", info="<html>
@@ -3251,7 +3195,6 @@ This package contains multiphase potential, voltage, and current sensors.
                   textString="%name",
                   lineColor={0,0,255}),Text(
                   extent={{20,100},{100,60}},
-                  lineColor={0,0,0},
                   textString="%m"),Text(
                   extent={{30,60},{110,0}},
                   lineColor={0,0,255},
@@ -3288,7 +3231,6 @@ Contains m signal controlled voltage sources (Modelica.Electrical.Analog.Sources
                   textString="%name",
                   lineColor={0,0,255}),Text(
                   extent={{-100,100},{100,60}},
-                  lineColor={0,0,0},
                   textString="m=%m"),Text(
                   extent={{30,60},{110,0}},
                   lineColor={0,0,255},
@@ -3345,7 +3287,6 @@ Contains m constant voltage sources (Modelica.Electrical.Analog.Sources.Constant
                   textString="%name",
                   lineColor={0,0,255}),Text(
                   extent={{-100,100},{100,60}},
-                  lineColor={0,0,0},
                   textString="m=%m"),Text(
                   extent={{30,60},{110,0}},
                   lineColor={0,0,255},
@@ -3397,7 +3338,6 @@ with a default phase shift determined by
                   textString="%name",
                   lineColor={0,0,255}),Text(
                   extent={{-100,100},{100,60}},
-                  lineColor={0,0,0},
                   textString="m=%m"),Text(
                   extent={{30,60},{110,0}},
                   lineColor={0,0,255},
@@ -3455,10 +3395,8 @@ with a default phase shift determined by
                   textString="%name",
                   lineColor={0,0,255}),Text(
                   extent={{-100,100},{-20,60}},
-                  lineColor={0,0,0},
                   textString="m="),Text(
                   extent={{20,100},{100,60}},
-                  lineColor={0,0,0},
                   textString="%m"),Polygon(
                   points={{90,0},{60,10},{60,-10},{90,0}},
                   lineColor={0,0,255},
@@ -3493,7 +3431,6 @@ Contains m signal controlled current sources (Modelica.Electrical.Analog.Sources
                   textString="%name",
                   lineColor={0,0,255}),Text(
                   extent={{-100,100},{100,60}},
-                  lineColor={0,0,0},
                   textString="m=%m"),Polygon(
                   points={{90,0},{60,10},{60,-10},{90,0}},
                   lineColor={0,0,255},
@@ -3546,7 +3483,6 @@ Contains m constant current sources (Modelica.Electrical.Analog.Sources.Constant
                   textString="%name",
                   lineColor={0,0,255}),Text(
                   extent={{-100,100},{100,60}},
-                  lineColor={0,0,0},
                   textString="m=%m"),Polygon(
                   points={{90,0},{60,10},{60,-10},{90,0}},
                   lineColor={0,0,255},
@@ -3594,7 +3530,6 @@ with a default phase shift determined by
                   textString="%name",
                   lineColor={0,0,255}),Text(
                   extent={{-100,100},{100,60}},
-                  lineColor={0,0,0},
                   textString="m=%m"),Polygon(
                   points={{90,0},{60,10},{60,-10},{90,0}},
                   lineColor={0,0,255},

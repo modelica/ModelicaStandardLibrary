@@ -20,10 +20,8 @@ package Math "Library of Real mathematical functions as input/output blocks"
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-20,100},{-100,20}},
-                  lineColor={0,0,0},
                   textString="K"),Text(
                   extent={{100,-20},{20,-100}},
-                  lineColor={0,0,0},
                   textString="degC")}), Documentation(info="<html>
 <p>
 This block converts the input signal from Kelvin to degCelsius and returns
@@ -40,10 +38,8 @@ the result as output signal.
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-20,100},{-100,20}},
-                  lineColor={0,0,0},
                   textString="degC"),Text(
                   extent={{100,-20},{20,-100}},
-                  lineColor={0,0,0},
                   textString="K")}), Documentation(info="<html>
 <p>
 This block converts the input signal from degCelsius to Kelvin and returns
@@ -60,10 +56,8 @@ the result as output signal.
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-20,100},{-100,20}},
-                  lineColor={0,0,0},
                   textString="K"),Text(
                   extent={{100,-20},{20,-100}},
-                  lineColor={0,0,0},
                   textString="degF")}), Documentation(info="<html>
 <p>
 This block converts the input signal from Kelvin to degFahrenheit and returns
@@ -80,10 +74,8 @@ the result as output signal.
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-20,100},{-100,20}},
-                  lineColor={0,0,0},
                   textString="degF"),Text(
                   extent={{100,-20},{20,-100}},
-                  lineColor={0,0,0},
                   textString="K")}), Documentation(info="<html>
 <p>
 This block converts the input signal from degFahrenheit to Kelvin and returns
@@ -100,10 +92,8 @@ the result as output signal.
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-20,100},{-100,20}},
-                  lineColor={0,0,0},
                   textString="K"),Text(
                   extent={{100,-20},{20,-100}},
-                  lineColor={0,0,0},
                   textString="degRk")}), Documentation(info="<html>
 <p>
 This block converts the input signal from Kelvin to degRankine and returns
@@ -120,10 +110,8 @@ the result as output signal.
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-20,100},{-100,20}},
-                  lineColor={0,0,0},
                   textString="degRk"),Text(
                   extent={{100,-20},{20,-100}},
-                  lineColor={0,0,0},
                   textString="K")}), Documentation(info="<html>
 <p>
 This block converts the input signal from degRankine to Kelvin and returns
@@ -140,10 +128,8 @@ the result as output signal.
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-20,100},{-100,20}},
-                  lineColor={0,0,0},
                   textString="rad"),Text(
                   extent={{100,-20},{20,-100}},
-                  lineColor={0,0,0},
                   textString="deg")}), Documentation(info="<html>
 <p>
 This block converts the input signal from radian to degree and returns
@@ -160,10 +146,8 @@ the result as output signal.
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-20,100},{-100,20}},
-                  lineColor={0,0,0},
                   textString="deg"),Text(
                   extent={{100,-20},{20,-100}},
-                  lineColor={0,0,0},
                   textString="rad")}), Documentation(info="<html>
 <p>
 This block converts the input signal from degree to radian and returns
@@ -180,10 +164,8 @@ the result as output signal.
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{26,82},{-98,50}},
-                  lineColor={0,0,0},
                   textString="rad/s"),Text(
                   extent={{100,-42},{-62,-74}},
-                  lineColor={0,0,0},
                   textString="rev/min")}), Documentation(info="<html>
 <p>
 This block converts the input signal from radian per second to revolutions per minute and returns
@@ -200,10 +182,8 @@ the result as output signal.
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{50,84},{-94,56}},
-                  lineColor={0,0,0},
                   textString="rev/min"),Text(
                   extent={{94,-42},{-26,-74}},
-                  lineColor={0,0,0},
                   textString="rad/s")}), Documentation(info="<html>
 <p>
 This block converts the input signal from revolutions per minute to radian per second and returns
@@ -220,10 +200,8 @@ the result as output signal.
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{0,82},{-96,42}},
-                  lineColor={0,0,0},
                   textString="m/s"),Text(
                   extent={{92,-40},{-14,-84}},
-                  lineColor={0,0,0},
                   textString="km/h")}), Documentation(info="<html>
 <p>
 This block converts the input signal from metre per second to kilometre per hour and returns
@@ -240,10 +218,8 @@ the result as output signal.
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{26,80},{-96,48}},
-                  lineColor={0,0,0},
                   textString="km/h"),Text(
                   extent={{92,-46},{-20,-82}},
-                  lineColor={0,0,0},
                   textString="m/s")}), Documentation(info="<html>
 <p>
 This block converts the input signal from kilometre per hour to metre per second and returns
@@ -260,10 +236,8 @@ the result as output signal.
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-20,100},{-100,20}},
-                  lineColor={0,0,0},
                   textString="s"),Text(
                   extent={{100,-20},{20,-100}},
-                  lineColor={0,0,0},
                   textString="day")}), Documentation(info="<html>
 <p>
 This block converts the input signal from second to day and returns
@@ -280,10 +254,8 @@ the result as output signal.
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-20,100},{-100,20}},
-                  lineColor={0,0,0},
                   textString="day"),Text(
                   extent={{100,-20},{20,-100}},
-                  lineColor={0,0,0},
                   textString="s")}), Documentation(info="<html>
 <p>
 This block converts the input signal from day to second and returns
@@ -300,10 +272,8 @@ the result as output signal.
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-20,100},{-100,20}},
-                  lineColor={0,0,0},
                   textString="s"),Text(
                   extent={{100,-20},{20,-100}},
-                  lineColor={0,0,0},
                   textString="hour")}), Documentation(info="<html>
 <p>
 This block converts the input signal from second to hour and returns
@@ -320,10 +290,8 @@ the result as output signal.
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-20,100},{-100,20}},
-                  lineColor={0,0,0},
                   textString="hour"),Text(
                   extent={{100,-20},{20,-100}},
-                  lineColor={0,0,0},
                   textString="s")}), Documentation(info="<html>
 <p>
 This block converts the input signal from hour to second and returns
@@ -340,10 +308,8 @@ the result as output signal.
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-20,100},{-100,20}},
-                  lineColor={0,0,0},
                   textString="s"),Text(
                   extent={{100,-20},{20,-100}},
-                  lineColor={0,0,0},
                   textString="minute")}), Documentation(info="<html>
 <p>
 This block converts the input signal from second to minute and returns
@@ -360,10 +326,8 @@ the result as output signal.
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-20,100},{-100,20}},
-                  lineColor={0,0,0},
                   textString="minute"),Text(
                   extent={{100,-20},{20,-100}},
-                  lineColor={0,0,0},
                   textString="s")}), Documentation(info="<html>
 <p>
 This block converts the input signal from minute to second and returns
@@ -380,10 +344,8 @@ the result as output signal.
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-20,100},{-100,20}},
-                  lineColor={0,0,0},
                   textString="m3"),Text(
                   extent={{100,-20},{20,-100}},
-                  lineColor={0,0,0},
                   textString="litre")}), Documentation(info="<html>
 <p>
 This block converts the input signal from metre to litre and returns
@@ -400,10 +362,8 @@ the result as output signal.
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-20,100},{-100,20}},
-                  lineColor={0,0,0},
                   textString="litre"),Text(
                   extent={{100,-20},{20,-100}},
-                  lineColor={0,0,0},
                   textString="m3")}), Documentation(info="<html>
 <p>
 This block converts the input signal from litre to cubic metre and returns
@@ -420,10 +380,8 @@ the result as output signal.
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-20,100},{-100,20}},
-                  lineColor={0,0,0},
                   textString="J"),Text(
                   extent={{100,-20},{20,-100}},
-                  lineColor={0,0,0},
                   textString="kW.h")}), Documentation(info="<html>
 <p>
 This block converts the input signal from Joule to kilo Watt hour and returns
@@ -440,10 +398,8 @@ the result as output signal.
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-20,100},{-100,20}},
-                  lineColor={0,0,0},
                   textString="kW.h"),Text(
                   extent={{100,-20},{20,-100}},
-                  lineColor={0,0,0},
                   textString="J")}), Documentation(info="<html>
 <p>
 This block converts the input signal from kilo Watt hour to Joule and returns
@@ -460,10 +416,8 @@ the result as output signal.
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-20,100},{-100,20}},
-                  lineColor={0,0,0},
                   textString="Pa"),Text(
                   extent={{100,-20},{20,-100}},
-                  lineColor={0,0,0},
                   textString="bar")}), Documentation(info="<html>
 <p>
 This block converts the input signal from Pascal to bar and returns
@@ -480,10 +434,8 @@ the result as output signal.
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-20,100},{-100,20}},
-                  lineColor={0,0,0},
                   textString="bar"),Text(
                   extent={{100,-20},{20,-100}},
-                  lineColor={0,0,0},
                   textString="Pa")}), Documentation(info="<html>
 <p>
 This block converts the input signal from bar to Pascal and returns
@@ -500,10 +452,8 @@ the result as output signal.
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-20,100},{-100,20}},
-                  lineColor={0,0,0},
                   textString="kg/s"),Text(
                   extent={{100,-20},{20,-100}},
-                  lineColor={0,0,0},
                   textString="g/s")}), Documentation(info="<html>
 <p>
 This block converts the input signal from kilogram per second to gram per seconds and returns
@@ -520,10 +470,8 @@ the result as output signal.
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-20,100},{-100,20}},
-                  lineColor={0,0,0},
                   textString="g/s"),Text(
                   extent={{100,-20},{20,-100}},
-                  lineColor={0,0,0},
                   textString="kg/s")}), Documentation(info="<html>
 <p>
 This block converts the input signal from gram per second to kilogram per second and returns
@@ -623,7 +571,6 @@ input <i>u</i>:
             fillPattern=FillPattern.Solid),
           Text(
             extent={{-150,-140},{150,-100}},
-            lineColor={0,0,0},
             textString="k=%k"),
           Text(
             extent={{-150,140},{150,100}},
@@ -702,10 +649,8 @@ Example:
 
     annotation (Icon(graphics={Text(
             extent={{-200,-110},{200,-140}},
-            lineColor={0,0,0},
             textString="%k"), Text(
             extent={{-72,68},{92,-68}},
-            lineColor={0,0,0},
             textString="+")}), Documentation(info="<html>
 <p>
 This blocks computes the scalar Real output \"y\" as sum of the elements of the
@@ -747,7 +692,6 @@ the output is set to zero: y=0.
 
     annotation (Icon(graphics={Text(
             extent={{-74,50},{94,-94}},
-            lineColor={0,0,0},
             textString="*")}), Documentation(info="<html>
 <p>
 This blocks computes the scalar Real output \"y\" as product of the elements of the
@@ -812,24 +756,20 @@ the output is set to zero: y=0.
           Rectangle(
             extent={{-100,-51},{300,50}},
             lineThickness=5.0,
-            lineColor={0,0,0},
             fillColor={170,213,255},
             fillPattern=FillPattern.Solid,
             borderPattern=BorderPattern.Raised),
           Text(
             extent={{-86,16},{295,-17}},
-            lineColor={0,0,0},
             textString="%expr"),
           Text(
             extent={{310,-25},{410,-45}},
-            lineColor={0,0,0},
             textString=DynamicSelect(" ", String(
                   y,
                   minimumLength=1,
                   significantDigits=precision))),
           Text(
             extent={{-100,-60},{300,-90}},
-            lineColor={0,0,0},
             textString="else: %y_default"),
           Text(
             extent={{-100,100},{300,60}},
@@ -968,7 +908,6 @@ Example:
             255}),Line(points={{20,0},{80,0}}, color={0,0,255}),Line(points={{0,
             -20},{0,-60}}, color={0,0,255}),Text(
               extent={{-12,10},{84,-84}},
-              lineColor={0,0,0},
               textString="-")}));
   end Feedback;
 
@@ -1026,13 +965,10 @@ Example:
             127}),Ellipse(extent={{-50,50},{50,-50}}, lineColor={0,0,127}),Line(
             points={{50,0},{100,0}}, color={0,0,127}),Text(
               extent={{-36,38},{40,-30}},
-              lineColor={0,0,0},
               textString="+"),Text(
               extent={{-100,52},{5,92}},
-              lineColor={0,0,0},
               textString="k1"),Text(
               extent={{-100,-52},{5,-92}},
-              lineColor={0,0,0},
               textString="k2")}));
   end Add;
 
@@ -1078,19 +1014,15 @@ Example:
               100}}), graphics={
           Text(
             extent={{-100,50},{5,90}},
-            lineColor={0,0,0},
             textString="%k1"),
           Text(
             extent={{-100,-20},{5,20}},
-            lineColor={0,0,0},
             textString="%k2"),
           Text(
             extent={{-100,-50},{5,-90}},
-            lineColor={0,0,0},
             textString="%k3"),
           Text(
             extent={{2,36},{100,-44}},
-            lineColor={0,0,0},
             textString="+")}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={Rectangle(
@@ -1099,16 +1031,12 @@ Example:
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),Text(
               extent={{-100,50},{5,90}},
-              lineColor={0,0,0},
               textString="k1"),Text(
               extent={{-100,-20},{5,20}},
-              lineColor={0,0,0},
               textString="k2"),Text(
               extent={{-100,-50},{5,-90}},
-              lineColor={0,0,0},
               textString="k3"),Text(
               extent={{2,46},{100,-34}},
-              lineColor={0,0,0},
               textString="+")}));
   end Add3;
 
@@ -1193,12 +1121,8 @@ the two inputs <b>u1</b> and <b>u2</b>:
             color={0,0,255}),Line(points={{-30,0},{30,0}}),
             Ellipse(
               extent={{-5,20},{5,30}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
               fillPattern=FillPattern.Solid),Ellipse(
               extent={{-5,-20},{5,-30}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
               fillPattern=FillPattern.Solid),Ellipse(extent={{-50,50},{50,-50}},
             lineColor={0,0,255}),Line(points={{-100,60},{-66,60},{-40,30}},
             color={0,0,255}),Line(points={{-100,-60},{0,-60},{0,-50}}, color={0,
@@ -1312,8 +1236,6 @@ The Boolean parameter generateEvent decides whether Events are generated at zero
           Line(points={{0,80},{80,80}}),
           Rectangle(
             extent={{-2,2},{2,-4}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
             fillPattern=FillPattern.Solid)}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={Line(points={{-90,0},{68,0}}, color={192,
@@ -1324,8 +1246,6 @@ The Boolean parameter generateEvent decides whether Events are generated at zero
               fillPattern=FillPattern.Solid),Line(points={{-80,-80},{0,-80}}),Line(points={{-0.01,0},{0.01,0}}),
             Line(points={{0,80},{80,80}}),Rectangle(
               extent={{-2,2},{2,-4}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
               fillPattern=FillPattern.Solid),Polygon(
               points={{0,100},{-6,84},{6,84},{0,100}},
               lineColor={192,192,192},
@@ -2881,19 +2801,15 @@ where <b>threshold</b> is a parameter.
     annotation (Icon(graphics={
           Text(
             extent={{-90,80},{-20,40}},
-            lineColor={0,0,0},
             textString="re"),
           Text(
             extent={{-90,-40},{-20,-80}},
-            lineColor={0,0,0},
             textString="im"),
           Text(
             extent={{20,80},{90,40}},
-            lineColor={0,0,0},
             textString="abs"),
           Text(
             extent={{20,-40},{90,-80}},
-            lineColor={0,0,0},
             textString="arg")}), Documentation(info="<html>
 <p>
 The input values of this block are the rectangular components
@@ -2929,19 +2845,15 @@ the angle <code>y_arg</code> of the polar representation of this phasor.
     annotation (Icon(graphics={
           Text(
             extent={{-90,80},{-20,40}},
-            lineColor={0,0,0},
             textString="abs"),
           Text(
             extent={{-90,-40},{-20,-80}},
-            lineColor={0,0,0},
             textString="arg"),
           Text(
             extent={{20,80},{90,40}},
-            lineColor={0,0,0},
             textString="re"),
           Text(
             extent={{20,-40},{90,-80}},
-            lineColor={0,0,0},
             textString="im")}), Documentation(info="<html>
 <p>
 The input values of this block are the polar components <code>uabs</code> and <code>uarg</code> of a phasor.
@@ -2996,10 +2908,8 @@ explicitly set to 0.0, if the mean value results in a negative value.
 </p>
 </html>"), Icon(graphics={Text(
             extent={{-80,60},{80,20}},
-            lineColor={0,0,0},
             textString="mean"), Text(
             extent={{-80,-20},{80,-60}},
-            lineColor={0,0,0},
             textString="f=%f")}));
   end Mean;
 
@@ -3031,10 +2941,8 @@ Note: The output is updated after each period defined by 1/f.
 </p>
 </html>"), Icon(graphics={Text(
             extent={{-80,60},{80,20}},
-            lineColor={0,0,0},
             textString="RM"), Text(
             extent={{-80,-20},{80,-60}},
-            lineColor={0,0,0},
             textString="f=%f")}));
   end RectifiedMean;
 
@@ -3161,10 +3069,8 @@ Note: The output is updated after each period defined by 1/f.
 </p>
 </html>"), Icon(graphics={Text(
             extent={{-80,60},{80,20}},
-            lineColor={0,0,0},
             textString="RMS"), Text(
             extent={{-80,-20},{80,-60}},
-            lineColor={0,0,0},
             textString="f=%f")}));
   end RootMeanSquare;
 
@@ -3255,8 +3161,6 @@ This block is demonstrated in the examples
             fillPattern=FillPattern.Solid),
           Polygon(
             points={{-16,66},{-24,44},{-8,44},{-16,66}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
             fillPattern=FillPattern.Solid)}));
   end Variance;
 
@@ -3350,8 +3254,6 @@ This block is demonstrated in the examples
             fillPattern=FillPattern.Solid),
           Polygon(
             points={{-16,46},{-24,24},{-8,24},{-16,46}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
             fillPattern=FillPattern.Solid)}));
   end StandardDeviation;
 
@@ -3449,19 +3351,15 @@ The harmonic is defined by <code>&radic;2 rms cos(k 2 &pi; f t + arg)</code> if 
 </html>"), Icon(graphics={
           Text(
             extent={{-80,60},{80,20}},
-            lineColor={0,0,0},
             textString="H%k"),
           Text(
             extent={{-80,-20},{80,-60}},
-            lineColor={0,0,0},
             textString="f=%f"),
           Text(
             extent={{20,100},{100,60}},
-            lineColor={0,0,0},
             textString="rms"),
           Text(
             extent={{20,-60},{100,-100}},
-            lineColor={0,0,0},
             textString="arg")}));
   end Harmonic;
 
@@ -3569,10 +3467,8 @@ the two Real inputs <b>u1</b> and <b>u2</b>:
           preserveAspectRatio=false,
           extent={{-100,-100},{100,100}}), graphics={Text(
             extent={{-12,80},{100,40}},
-            lineColor={0,0,0},
             textString="yMax"), Text(
             extent={{-10,-40},{100,-80}},
-            lineColor={0,0,0},
             textString="yMin")}), Documentation(info="<html>
 <p>
 Determines the minimum and maximum element of the input vector and
@@ -3595,15 +3491,12 @@ provide both values as output.
             color={0,0,127}),
           Text(
             extent={{-14,88},{94,32}},
-            lineColor={0,0,0},
             textString="%k1"),
           Text(
             extent={{-40,-48},{96,-96}},
-            lineColor={0,0,0},
             textString="%k2"),
           Text(
             extent={{-94,26},{8,-30}},
-            lineColor={0,0,0},
             textString="%y0")}), Documentation(info="<html>
 <p>Determine the linear combination of the two inputs: <code>y = y0*(1 + k1*u1 + k2*u2)</code> </p>
 <p><b>Note</b>, for y0=0 the output is always zero. </p>

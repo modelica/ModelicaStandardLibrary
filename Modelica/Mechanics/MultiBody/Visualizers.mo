@@ -182,7 +182,6 @@ definition of the colors used in the MultiBody library together with a color edi
             fillPattern=FillPattern.Solid),
           Text(
             extent={{-150,-65},{150,-95}},
-            lineColor={0,0,0},
             textString="%shapeType"),
           Text(
             extent={{-150,100},{150,60}},
@@ -269,7 +268,6 @@ MultiBody.Visualizers.FixedShape2 object is connected");
             lineColor={0,0,255}),
           Text(
             extent={{150,-90},{-150,-60}},
-            lineColor={0,0,0},
             textString="r=%r"),
           Polygon(
             points={{-100,50},{-100,-44},{-10,-24},{79,-43},{80,49},{-10,28},{-100,
@@ -285,11 +283,9 @@ MultiBody.Visualizers.FixedShape2 object is connected");
             fillPattern=FillPattern.Solid),
           Text(
             extent={{-86,15},{-50,-10}},
-            lineColor={0,0,0},
             textString="a"),
           Text(
             extent={{37,15},{73,-10}},
-            lineColor={0,0,0},
             textString="b"),
           Polygon(
             points={{100,70},{78,48},{78,-44},{100,-16},{100,70}},
@@ -585,12 +581,9 @@ vector <b>r</b>.
             textString="y"),
           Text(
             extent={{43,11},{92,-38}},
-            lineColor={0,0,0},
             textString="x"),
           Polygon(
             points={{98,-70},{74,-44},{64,-60},{98,-70}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
             fillPattern=FillPattern.Solid),
           Line(
             points={{-2,-18},{72,-54}},
@@ -706,7 +699,6 @@ parameter menu.
             lineColor={0,0,255}),
           Text(
             extent={{-150,-75},{150,-105}},
-            lineColor={0,0,0},
             textString="%length")}),
       Documentation(info="<html>
 <p>
@@ -840,34 +832,27 @@ with respect to frame_a (vector from the origin of frame_a to the arrow tail).
                 -100},{100,100}}), graphics={
             Polygon(
               points={{-20,60},{-100,-32},{20,-92},{100,8},{-20,60}},
-              lineColor={0,0,0},
               fillColor={0,255,0},
               fillPattern=FillPattern.Solid),
             Text(
               extent={{2,82},{44,54}},
-              lineColor={0,0,0},
               textString="z"),
             Polygon(
               points={{100,8},{100,-4},{20,-104},{20,-92},{100,8}},
-              lineColor={0,0,0},
               fillColor={0,255,0},
               fillPattern=FillPattern.Solid),
             Polygon(
               points={{-100,-32},{-100,-44},{20,-104},{20,-92},{-100,-32}},
-              lineColor={0,0,0},
               fillColor={0,255,0},
               fillPattern=FillPattern.Solid),
             Ellipse(
               extent={{-11,-7},{-1,-12}},
-              lineColor={0,0,0},
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
             Line(
               points={{-6,-10},{-6,88}}),
             Polygon(
               points={{-6,102},{-14,72},{2,72},{-6,102}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
               fillPattern=FillPattern.Solid),
             Text(
             extent={{-150,-105},{150,-145}},
@@ -2000,7 +1985,6 @@ library (will be replaced by a color editor).
               fillPattern=FillPattern.Solid),
             Text(
               extent={{-100,-54},{80,8}},
-              lineColor={0,0,0},
               textString="%shapeType"),
             Text(
               extent={{-150,150},{150,110}},

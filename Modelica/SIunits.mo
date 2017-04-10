@@ -343,7 +343,6 @@ still kept in Modelica.SIunits.</p>
       Text(
         origin={15.0,51.8518},
         extent={{-105.0,-86.8518},{75.0,-16.8518}},
-        lineColor={0,0,0},
         textString="[km/h]")}));
     end NonSIunits;
 
@@ -371,11 +370,9 @@ The function call \"<code>Conversions.<b>to_unit1</b>(r)</code>\" returns r with
     Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
             100}}), graphics={Text(
           extent={{-90,86},{32,50}},
-          lineColor={0,0,0},
           textString="any",
           horizontalAlignment=TextAlignment.Left), Text(
           extent={{-36,-52},{86,-88}},
-          lineColor={0,0,0},
           horizontalAlignment=TextAlignment.Right,
           textString="1")}));
   end to_unit1;
@@ -389,10 +386,8 @@ The function call \"<code>Conversions.<b>to_unit1</b>(r)</code>\" returns r with
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}},
-              lineColor={0,0,0},
               textString="K"), Text(
               extent={{100,-20},{20,-100}},
-              lineColor={0,0,0},
               textString="degC")}));
     end to_degC;
 
@@ -405,10 +400,8 @@ The function call \"<code>Conversions.<b>to_unit1</b>(r)</code>\" returns r with
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}},
-              lineColor={0,0,0},
               textString="degC"),  Text(
               extent={{100,-20},{20,-100}},
-              lineColor={0,0,0},
               textString="K")}));
     end from_degC;
 
@@ -421,10 +414,8 @@ The function call \"<code>Conversions.<b>to_unit1</b>(r)</code>\" returns r with
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}},
-              lineColor={0,0,0},
               textString="K"), Text(
               extent={{100,-20},{20,-100}},
-              lineColor={0,0,0},
               textString="degF")}));
     end to_degF;
 
@@ -437,13 +428,10 @@ The function call \"<code>Conversions.<b>to_unit1</b>(r)</code>\" returns r with
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}},
-              lineColor={0,0,0},
               textString="degF"), Text(
               extent={{100,-20},{20,-100}},
-              lineColor={0,0,0},
               textString="K"), Text(
               extent={{-20,100},{-100,20}},
-              lineColor={0,0,0},
               textString="degF")}));
     end from_degF;
 
@@ -456,10 +444,8 @@ The function call \"<code>Conversions.<b>to_unit1</b>(r)</code>\" returns r with
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}},
-              lineColor={0,0,0},
               textString="K"), Text(
               extent={{100,-32},{-18,-100}},
-              lineColor={0,0,0},
               textString="degRk")}));
     end to_degRk;
 
@@ -472,10 +458,8 @@ The function call \"<code>Conversions.<b>to_unit1</b>(r)</code>\" returns r with
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-8,100},{-100,42}},
-              lineColor={0,0,0},
               textString="degRk"),  Text(
               extent={{100,-20},{20,-100}},
-              lineColor={0,0,0},
               textString="K")}));
     end from_degRk;
 
@@ -488,10 +472,8 @@ The function call \"<code>Conversions.<b>to_unit1</b>(r)</code>\" returns r with
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{10,100},{-100,46}},
-              lineColor={0,0,0},
               textString="rad"), Text(
               extent={{100,-44},{-10,-100}},
-              lineColor={0,0,0},
               textString="deg")}));
     end to_deg;
 
@@ -504,10 +486,8 @@ The function call \"<code>Conversions.<b>to_unit1</b>(r)</code>\" returns r with
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{4,100},{-102,46}},
-              lineColor={0,0,0},
               textString="deg"), Text(
               extent={{100,-32},{-18,-100}},
-              lineColor={0,0,0},
               textString="rad")}));
     end from_deg;
 
@@ -520,10 +500,8 @@ The function call \"<code>Conversions.<b>to_unit1</b>(r)</code>\" returns r with
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{30,100},{-100,50}},
-              lineColor={0,0,0},
               textString="rad/s"), Text(
               extent={{100,-52},{-40,-98}},
-              lineColor={0,0,0},
               textString="rev/min")}));
     end to_rpm;
 
@@ -537,10 +515,8 @@ The function call \"<code>Conversions.<b>to_unit1</b>(r)</code>\" returns r with
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{14,100},{-102,56}},
-              lineColor={0,0,0},
               textString="rev/min"), Text(
               extent={{100,-56},{-32,-102}},
-              lineColor={0,0,0},
               textString="rad/s")}));
     end from_rpm;
 
@@ -553,10 +529,8 @@ The function call \"<code>Conversions.<b>to_unit1</b>(r)</code>\" returns r with
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{8,100},{-100,58}},
-              lineColor={0,0,0},
               textString="m/s"), Text(
               extent={{100,-56},{-16,-100}},
-              lineColor={0,0,0},
               textString="km/h")}));
     end to_kmh;
 
@@ -569,10 +543,8 @@ The function call \"<code>Conversions.<b>to_unit1</b>(r)</code>\" returns r with
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{10,100},{-100,56}},
-              lineColor={0,0,0},
               textString="km/h"), Text(
               extent={{100,-50},{-20,-100}},
-              lineColor={0,0,0},
               textString="m/s")}));
     end from_kmh;
 
@@ -585,10 +557,8 @@ The function call \"<code>Conversions.<b>to_unit1</b>(r)</code>\" returns r with
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-6,100},{-100,48}},
-              lineColor={0,0,0},
               textString="s"), Text(
               extent={{100,-48},{-10,-98}},
-              lineColor={0,0,0},
               textString="day")}));
     end to_day;
 
@@ -601,10 +571,8 @@ The function call \"<code>Conversions.<b>to_unit1</b>(r)</code>\" returns r with
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{10,100},{-100,52}},
-              lineColor={0,0,0},
               textString="day"), Text(
               extent={{100,-54},{20,-100}},
-              lineColor={0,0,0},
               textString="s")}));
     end from_day;
 
@@ -617,10 +585,8 @@ The function call \"<code>Conversions.<b>to_unit1</b>(r)</code>\" returns r with
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{12,100},{-100,50}},
-              lineColor={0,0,0},
               textString="s"), Text(
               extent={{100,-56},{-20,-100}},
-              lineColor={0,0,0},
               textString="hour")}));
     end to_hour;
 
@@ -633,10 +599,8 @@ The function call \"<code>Conversions.<b>to_unit1</b>(r)</code>\" returns r with
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{12,100},{-100,58}},
-              lineColor={0,0,0},
               textString="hour"), Text(
               extent={{100,-50},{16,-100}},
-              lineColor={0,0,0},
               textString="s")}));
     end from_hour;
 
@@ -649,10 +613,8 @@ The function call \"<code>Conversions.<b>to_unit1</b>(r)</code>\" returns r with
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-26,100},{-100,52}},
-              lineColor={0,0,0},
               textString="s"), Text(
               extent={{100,-54},{-20,-100}},
-              lineColor={0,0,0},
               textString="min")}));
     end to_minute;
 
@@ -665,10 +627,8 @@ The function call \"<code>Conversions.<b>to_unit1</b>(r)</code>\" returns r with
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{26,100},{-100,48}},
-              lineColor={0,0,0},
               textString="min"),    Text(
               extent={{100,-46},{0,-100}},
-              lineColor={0,0,0},
               textString="s")}));
     end from_minute;
 
@@ -681,10 +641,8 @@ The function call \"<code>Conversions.<b>to_unit1</b>(r)</code>\" returns r with
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{100,-56},{0,-100}},
-              lineColor={0,0,0},
               textString="litre"),           Text(
               extent={{6,100},{-100,56}},
-              lineColor={0,0,0},
               textString="m3")}));
     end to_litre;
 
@@ -697,10 +655,8 @@ The function call \"<code>Conversions.<b>to_unit1</b>(r)</code>\" returns r with
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-4,100},{-100,62}},
-              lineColor={0,0,0},
               textString="litre"),           Text(
               extent={{100,-56},{-6,-100}},
-              lineColor={0,0,0},
               textString="m3")}));
     end from_litre;
 
@@ -714,10 +670,8 @@ The function call \"<code>Conversions.<b>to_unit1</b>(r)</code>\" returns r with
 
       annotation (Icon(graphics={         Text(
               extent={{-2,100},{-100,48}},
-              lineColor={0,0,0},
               textString="Ah"),     Text(
               extent={{100,-46},{0,-100}},
-              lineColor={0,0,0},
               textString="C")}));
     end from_Ah;
 
@@ -731,10 +685,8 @@ The function call \"<code>Conversions.<b>to_unit1</b>(r)</code>\" returns r with
 
       annotation (Icon(graphics={         Text(
               extent={{-18,100},{-100,48}},
-              lineColor={0,0,0},
               textString="C"),            Text(
               extent={{100,-48},{2,-100}},
-              lineColor={0,0,0},
               textString="Ah")}));
     end to_Ah;
 
@@ -747,10 +699,8 @@ The function call \"<code>Conversions.<b>to_unit1</b>(r)</code>\" returns r with
 
       annotation (Icon(graphics={            Text(
               extent={{-20,100},{-100,54}},
-              lineColor={0,0,0},
               textString="Wh"),  Text(
               extent={{100,-38},{4,-100}},
-              lineColor={0,0,0},
               textString="J")}));
     end from_Wh;
 
@@ -763,10 +713,8 @@ The function call \"<code>Conversions.<b>to_unit1</b>(r)</code>\" returns r with
 
       annotation (Icon(graphics={            Text(
               extent={{-30,100},{-100,48}},
-              lineColor={0,0,0},
               textString="J"),      Text(
               extent={{100,-46},{-14,-100}},
-              lineColor={0,0,0},
               textString="Wh")}));
     end to_Wh;
 
@@ -779,10 +727,8 @@ The function call \"<code>Conversions.<b>to_unit1</b>(r)</code>\" returns r with
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,54}},
-              lineColor={0,0,0},
               textString="J"), Text(
               extent={{100,-50},{-10,-100}},
-              lineColor={0,0,0},
               textString="kWh")}));
     end to_kWh;
 
@@ -795,10 +741,8 @@ The function call \"<code>Conversions.<b>to_unit1</b>(r)</code>\" returns r with
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{12,100},{-100,52}},
-              lineColor={0,0,0},
               textString="kWh"), Text(
               extent={{100,-44},{12,-100}},
-              lineColor={0,0,0},
               textString="J")}));
     end from_kWh;
 
@@ -811,10 +755,8 @@ The function call \"<code>Conversions.<b>to_unit1</b>(r)</code>\" returns r with
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-12,100},{-100,56}},
-              lineColor={0,0,0},
               textString="Pa"),     Text(
               extent={{98,-52},{-4,-100}},
-              lineColor={0,0,0},
               textString="bar")}));
     end to_bar;
 
@@ -827,10 +769,8 @@ The function call \"<code>Conversions.<b>to_unit1</b>(r)</code>\" returns r with
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{100,-56},{12,-100}},
-              lineColor={0,0,0},
               textString="Pa"),     Text(
               extent={{2,100},{-100,52}},
-              lineColor={0,0,0},
               textString="bar")}));
     end from_bar;
 
@@ -843,10 +783,8 @@ The function call \"<code>Conversions.<b>to_unit1</b>(r)</code>\" returns r with
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-12,100},{-100,60}},
-              lineColor={0,0,0},
               textString="kg/s"), Text(
               extent={{100,-46},{-6,-100}},
-              lineColor={0,0,0},
               textString="g/s")}));
     end to_gps;
 
@@ -859,10 +797,8 @@ The function call \"<code>Conversions.<b>to_unit1</b>(r)</code>\" returns r with
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-8,100},{-100,54}},
-              lineColor={0,0,0},
               textString="g/s"), Text(
               extent={{100,-44},{-10,-100}},
-              lineColor={0,0,0},
               textString="kg/s")}));
     end from_gps;
 
@@ -876,10 +812,8 @@ The function call \"<code>Conversions.<b>to_unit1</b>(r)</code>\" returns r with
       annotation (Inline=true,Icon(graphics={
                                     Text(
               extent={{2,100},{-100,52}},
-              lineColor={0,0,0},
               textString="Hz"),              Text(
               extent={{100,-56},{12,-100}},
-              lineColor={0,0,0},
               textString="1/s")}));
     end from_Hz;
 
@@ -892,10 +826,8 @@ The function call \"<code>Conversions.<b>to_unit1</b>(r)</code>\" returns r with
       annotation (Inline=true,Icon(graphics={
                                     Text(
               extent={{100,-52},{-2,-100}},
-              lineColor={0,0,0},
               textString="Hz"),              Text(
               extent={{-12,100},{-100,56}},
-              lineColor={0,0,0},
               textString="1/s")}));
     end to_Hz;
 
@@ -908,10 +840,8 @@ The function call \"<code>Conversions.<b>to_unit1</b>(r)</code>\" returns r with
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,58}},
-              lineColor={0,0,0},
               textString="m/s"), Text(
               extent={{100,-50},{-18,-100}},
-              lineColor={0,0,0},
               textString="cm2")}));
     end to_cm2;
 
@@ -924,10 +854,8 @@ The function call \"<code>Conversions.<b>to_unit1</b>(r)</code>\" returns r with
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{2,100},{-100,58}},
-              lineColor={0,0,0},
               textString="cm2"),  Text(
               extent={{100,-50},{-16,-98}},
-              lineColor={0,0,0},
               textString="m/s")}));
     end from_cm2;
 

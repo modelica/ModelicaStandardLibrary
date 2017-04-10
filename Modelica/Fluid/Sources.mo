@@ -101,7 +101,6 @@ package Sources "Define fixed or prescribed boundary conditions"
           preserveAspectRatio=false,
           extent={{-100,-100},{100,100}}), graphics={Ellipse(
             extent={{-100,100},{100,-100}},
-            lineColor={0,0,0},
             fillPattern=FillPattern.Sphere,
             fillColor={0,127,255}), Text(
             extent={{-150,110},{150,150}},
@@ -215,7 +214,6 @@ with exception of boundary pressure, do not have an effect.
           extent={{-100,-100},{100,100}}), graphics={
           Ellipse(
             extent={{-100,100},{100,-100}},
-            lineColor={0,0,0},
             fillPattern=FillPattern.Sphere,
             fillColor={0,127,255}),
           Text(
@@ -241,22 +239,18 @@ with exception of boundary pressure, do not have an effect.
           Text(
             visible=use_p_in,
             extent={{-152,134},{-68,94}},
-            lineColor={0,0,0},
             textString="p"),
           Text(
             visible=use_X_in,
             extent={{-164,4},{-62,-36}},
-            lineColor={0,0,0},
             textString="X"),
           Text(
             visible=use_C_in,
             extent={{-164,-90},{-62,-130}},
-            lineColor={0,0,0},
             textString="C"),
           Text(
             visible=use_T_in,
             extent={{-162,34},{-60,-6}},
-            lineColor={0,0,0},
             textString="T")}),
       Documentation(info="<html>
 <p>
@@ -368,7 +362,6 @@ with exception of boundary pressure, do not have an effect.
           extent={{-100,-100},{100,100}}), graphics={
           Ellipse(
             extent={{-100,100},{100,-100}},
-            lineColor={0,0,0},
             fillPattern=FillPattern.Sphere,
             fillColor={0,127,255}),
           Text(
@@ -394,22 +387,18 @@ with exception of boundary pressure, do not have an effect.
           Text(
             visible=use_p_in,
             extent={{-150,134},{-72,94}},
-            lineColor={0,0,0},
             textString="p"),
           Text(
             visible=use_h_in,
             extent={{-166,34},{-64,-6}},
-            lineColor={0,0,0},
             textString="h"),
           Text(
             visible=use_X_in,
             extent={{-164,4},{-62,-36}},
-            lineColor={0,0,0},
             textString="X"),
           Text(
             visible=use_C_in,
             extent={{-164,-90},{-62,-130}},
-            lineColor={0,0,0},
             textString="C")}),
       Documentation(info="<html>
 <p>
@@ -523,7 +512,6 @@ with exception of boundary pressure, do not have an effect.
           extent={{-100,-100},{100,100}}), graphics={
           Rectangle(
             extent={{35,45},{100,-45}},
-            lineColor={0,0,0},
             fillPattern=FillPattern.HorizontalCylinder,
             fillColor={0,127,255}),
           Ellipse(
@@ -552,22 +540,18 @@ with exception of boundary pressure, do not have an effect.
           Text(
             visible=use_m_flow_in,
             extent={{-185,132},{-45,100}},
-            lineColor={0,0,0},
             textString="m_flow"),
           Text(
             visible=use_T_in,
             extent={{-111,71},{-71,37}},
-            lineColor={0,0,0},
             textString="T"),
           Text(
             visible=use_X_in,
             extent={{-153,-44},{-33,-72}},
-            lineColor={0,0,0},
             textString="X"),
           Text(
             visible=use_C_in,
             extent={{-155,-98},{-35,-126}},
-            lineColor={0,0,0},
             textString="C")}),
       Documentation(info="<html>
 <p>
@@ -681,7 +665,6 @@ with exception of boundary flow rate, do not have an effect.
           extent={{-100,-100},{100,100}}), graphics={
           Rectangle(
             extent={{36,45},{100,-45}},
-            lineColor={0,0,0},
             fillPattern=FillPattern.HorizontalCylinder,
             fillColor={0,127,255}),
           Ellipse(
@@ -706,22 +689,18 @@ with exception of boundary flow rate, do not have an effect.
           Text(
             visible=use_m_flow_in,
             extent={{-185,132},{-45,100}},
-            lineColor={0,0,0},
             textString="m_flow"),
           Text(
             visible=use_h_in,
             extent={{-113,72},{-73,38}},
-            lineColor={0,0,0},
             textString="h"),
           Text(
             visible=use_X_in,
             extent={{-153,-44},{-33,-72}},
-            lineColor={0,0,0},
             textString="X"),
           Text(
             visible=use_X_in,
             extent={{-155,-98},{-35,-126}},
-            lineColor={0,0,0},
             textString="C"),
           Text(
             extent={{-150,110},{150,150}},

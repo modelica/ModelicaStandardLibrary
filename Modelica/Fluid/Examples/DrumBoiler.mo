@@ -165,11 +165,9 @@ package DrumBoiler
             textString="%name"),
           Text(
             extent={{-79,67},{67,21}},
-            lineColor={0,0,0},
             textString="drum"),
           Text(
             extent={{-90,-14},{88,-64}},
-            lineColor={0,0,0},
             textString="boiler")}),
       experiment(StopTime=5400),
       Documentation(info="<html>
@@ -311,18 +309,15 @@ package DrumBoiler
             extent={{-100,-100},{100,100}}), graphics={
             Rectangle(
               extent={{-100,64},{100,-64}},
-              lineColor={0,0,0},
               fillPattern=FillPattern.Backward,
               fillColor={135,135,135}),
             Rectangle(
               extent={{-100,-44},{100,44}},
-              lineColor={0,0,0},
               fillPattern=FillPattern.HorizontalCylinder,
               fillColor={255,255,255}),
             Rectangle(
               extent=DynamicSelect({{-100,-44},{100,44}},
                                    {{-100,-44},{(-100 + 200*V_l/V_t),44}}),
-              lineColor={0,0,0},
               fillPattern=FillPattern.HorizontalCylinder,
               fillColor={0,127,255}),
             Ellipse(

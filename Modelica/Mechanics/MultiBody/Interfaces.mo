@@ -44,7 +44,6 @@ different icons.
             lineColor={95,95,95},
             lineThickness=0.5), Rectangle(
             extent={{-30,100},{30,-100}},
-            lineColor={0,0,0},
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid)}),
      Diagram(coordinateSystem(
@@ -52,10 +51,8 @@ different icons.
           extent={{-100,-100},{100,100}},
           initialScale=0.16), graphics={Text(
             extent={{-140,-50},{140,-88}},
-            lineColor={0,0,0},
             textString="%name"), Rectangle(
             extent={{-12,40},{12,-40}},
-            lineColor={0,0,0},
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid)}),
       Documentation(info="<html>
@@ -81,7 +78,6 @@ This component has a filled rectangular icon.
             lineColor={95,95,95},
             lineThickness=0.5), Rectangle(
             extent={{-30,100},{30,-100}},
-            lineColor={0,0,0},
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid)}),
      Diagram(coordinateSystem(
@@ -89,10 +85,8 @@ This component has a filled rectangular icon.
           extent={{-100,-100},{100,100}},
           initialScale=0.16), graphics={Text(
             extent={{-140,-50},{140,-88}},
-            lineColor={0,0,0},
             textString="%name"), Rectangle(
             extent={{-12,40},{12,-40}},
-            lineColor={0,0,0},
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid)}),
       Documentation(info="<html>
@@ -126,7 +120,6 @@ and the cut-torque is acting. This component has a non-filled rectangular icon.
             extent={{-100,-100},{100,100}},
             initialScale=0.16), graphics={Text(
               extent={{-140,-50},{140,-88}},
-              lineColor={0,0,0},
               textString="%name"), Rectangle(
               extent={{-12,40},{12,-40}},
               lineColor={95,95,95},
@@ -194,7 +187,6 @@ This component has a non-filled rectangular icon.
             thickness=0.5),
           Text(
             extent={{-158,-66},{158,-124}},
-            lineColor={0,0,0},
             textString="%name"),
           Rectangle(
             extent={{-60,60},{60,-60}},
@@ -755,7 +747,6 @@ It is used by inheritance from all visualizer objects.
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={Text(
             extent={{-74,24},{80,-20}},
-            lineColor={0,0,0},
             textString="r = 0")}));
   end ZeroPosition;
 
