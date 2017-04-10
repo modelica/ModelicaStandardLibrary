@@ -25,7 +25,6 @@ operator record Complex "Complex number with overloaded operators"
             extent={{-100,-100},{100,100}},
             radius=25.0), Rectangle(
             lineColor={128,128,128},
-            fillPattern=FillPattern.None,
             extent={{-100,-100},{100,100}},
             radius=25.0)}));
   end 'constructor';
@@ -75,13 +74,10 @@ operator record Complex "Complex number with overloaded operators"
             radius=25.0),
           Rectangle(
             lineColor={128,128,128},
-            fillPattern=FillPattern.None,
             extent={{-100,-100},{100,100}},
             radius=25.0),
           Line(
-            points={{-50,0},{50,0}},
-            color={0,0,0},
-            smooth=Smooth.None)}));
+            points={{-50,0},{50,0}})}));
   end '-';
 
   encapsulated operator '*' "Multiplication"
@@ -133,25 +129,16 @@ operator record Complex "Complex number with overloaded operators"
             radius=25.0),
           Rectangle(
             lineColor={128,128,128},
-            fillPattern=FillPattern.None,
             extent={{-100,-100},{100,100}},
             radius=25.0),
           Line(
-            points={{-42,36},{39,-34}},
-            color={0,0,0},
-            smooth=Smooth.None),
+            points={{-42,36},{39,-34}}),
           Line(
-            points={{-42,-35},{39,37}},
-            color={0,0,0},
-            smooth=Smooth.None),
+            points={{-42,-35},{39,37}}),
           Line(
-            points={{-55,1},{52,1}},
-            color={0,0,0},
-            smooth=Smooth.None),
+            points={{-55,1},{52,1}}),
           Line(
-            points={{-1.5,55},{-2,-53}},
-            color={0,0,0},
-            smooth=Smooth.None)}));
+            points={{-1.5,55},{-2,-53}})}));
   end '*';
 
   encapsulated operator function '+' "Add two complex numbers"

@@ -48,7 +48,6 @@ package BaseClasses "Specific models used for testing"
           Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
               {100,100}}), graphics={Rectangle(
             extent={{-100,60},{100,-60}},
-            lineColor={0,0,0},
             fillPattern=FillPattern.HorizontalCylinder,
             fillColor={0,127,255})}),        Documentation(info="<html>
 <p>
@@ -199,8 +198,6 @@ The regularization can be changed for the PressureLoss model.
           extent={{-100,-100},{100,100}}),
           graphics={Ellipse(
             extent={{-10,10},{10,-10}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
             fillPattern=FillPattern.Solid)}),Documentation(info="<html>
 <p>
 Simple pipe model consisting of one volume,

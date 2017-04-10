@@ -1199,7 +1199,6 @@ chapter 11.9, page 412-414, Huethig Verlag Heidelberg, 1994
                 smooth=Smooth.Bezier),
           Text(
             extent={{-24,98},{-2,78}},
-            lineColor={0,0,0},
             textString="inPort"),
           Line(points={{-64,0},{-52.7,34.2},{-45.5,53.1},{-39.1,66.4},{-33.4,
                 74.6},{-27.8,79.1},{-22.2,79.8},{-16.6,76.6},{-10.9,69.7},{-5.3,
@@ -1490,10 +1489,8 @@ This shows the improvements in the numerics when balance=true is set.
           color={0,0,127}));
       annotation (experiment(StopTime=0.9), Icon(graphics={Text(
                   extent={{-82,54},{86,22}},
-                  lineColor={0,0,0},
                   textString="basic"),Text(
                   extent={{-84,2},{84,-30}},
-                  lineColor={0,0,0},
                   textString="filters")}));
     end Basic;
 

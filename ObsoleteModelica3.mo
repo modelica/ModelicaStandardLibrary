@@ -60,7 +60,6 @@ Connector with one signal of type .
                   fillPattern=FillPattern.Solid),
                 Text(
                   extent={{-144,96},{144,46}},
-                  lineColor={0,0,0},
                   textString=""),
                 Text(
                   extent={{-88,22},{88,-24}},
@@ -68,7 +67,6 @@ Connector with one signal of type .
                   textString="adaptor"),
                 Text(
                   extent={{-216,-58},{36,-80}},
-                  lineColor={0,0,0},
                   textString="port.signal")}),
                                       Documentation(info="<html>
 <p>
@@ -111,7 +109,6 @@ This block is only provided for backward compatibility.
                   fillPattern=FillPattern.Solid),
                 Text(
                   extent={{-144,96},{144,46}},
-                  lineColor={0,0,0},
                   textString=""),
                 Text(
                   extent={{-88,22},{88,-24}},
@@ -119,7 +116,6 @@ This block is only provided for backward compatibility.
                   textString="adaptor"),
                 Text(
                   extent={{-216,-58},{36,-80}},
-                  lineColor={0,0,0},
                   textString="port.signal")}),
                                       Documentation(info="<html>
 <p>
@@ -162,7 +158,6 @@ This block is only provided for backward compatibility.
                   fillPattern=FillPattern.Solid),
                 Text(
                   extent={{-144,96},{144,46}},
-                  lineColor={0,0,0},
                   textString=""),
                 Text(
                   extent={{-88,22},{88,-24}},
@@ -170,7 +165,6 @@ This block is only provided for backward compatibility.
                   textString="adaptor"),
                 Text(
                   extent={{-216,-58},{36,-80}},
-                  lineColor={0,0,0},
                   textString="port.signal")}),
                                       Documentation(info="<html>
 <p>
@@ -559,8 +553,6 @@ This icon is designed for an <b>enumeration</b>
                 Polygon(
                   points={{-100,10},{50,10},{50,31},{97,0},{50,-31},{50,-10},{-100,
                       -10},{-100,10}},
-                  lineColor={0,0,0},
-                  fillColor={0,0,0},
                   fillPattern=FillPattern.Solid),
                 Line(
                   points={{-100,11},{-94,24},{-86,39},{-74,59},{-65,71},{-52,83},
@@ -569,8 +561,6 @@ This icon is designed for an <b>enumeration</b>
                   thickness=0.5),
                 Polygon(
                   points={{97,18},{72,77},{38,42},{97,18}},
-                  lineColor={0,0,0},
-                  fillColor={0,0,0},
                   fillPattern=FillPattern.Solid)}),
             Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                     {100,100}}), graphics={
@@ -581,8 +571,6 @@ This icon is designed for an <b>enumeration</b>
                 Polygon(
                   points={{-100,10},{50,10},{50,31},{94,0},{50,-31},{50,-10},{-100,
                       -10},{-100,10}},
-                  lineColor={0,0,0},
-                  fillColor={0,0,0},
                   fillPattern=FillPattern.Solid),
                 Text(extent={{-137,-47},{148,-108}}, textString="%name"),
                 Line(
@@ -592,8 +580,6 @@ This icon is designed for an <b>enumeration</b>
                   thickness=0.5),
                 Polygon(
                   points={{99,21},{74,80},{40,45},{99,21}},
-                  lineColor={0,0,0},
-                  fillColor={0,0,0},
                   fillPattern=FillPattern.Solid)}),
             Documentation(info="<HTML>
 <p>
@@ -720,16 +706,12 @@ This leads to the following animation
                 Polygon(
                   points={{-100,10},{50,10},{50,31},{97,0},{50,-31},{50,-10},{-100,
                       -10},{-100,10}},
-                  lineColor={0,0,0},
-                  fillColor={0,0,0},
                   fillPattern=FillPattern.Solid),
                 Line(points={{-100,11},{-94,24},{-86,39},{-74,59},{-65,71},{-52,
                       83},{-35,92},{-22,95},{-8,95},{7,91},{19,84},{32,76},{44,
                       66},{52,58},{58,51}}),
                 Polygon(
                   points={{97,18},{72,77},{38,42},{97,18}},
-                  lineColor={0,0,0},
-                  fillColor={0,0,0},
                   fillPattern=FillPattern.Solid),
                 Line(
                   points={{0,97},{0,10}},
@@ -744,8 +726,6 @@ This leads to the following animation
                 Polygon(
                   points={{-100,10},{50,10},{50,31},{94,0},{50,-31},{50,-10},{-100,
                       -10},{-100,10}},
-                  lineColor={0,0,0},
-                  fillColor={0,0,0},
                   fillPattern=FillPattern.Solid),
                 Text(extent={{-137,-47},{148,-108}}, textString="%name"),
                 Line(points={{-100,10},{-92,26},{-84,42},{-76,52},{-60,68},{-46,
@@ -753,8 +733,6 @@ This leads to the following animation
                       69},{54,61},{60,54}}),
                 Polygon(
                   points={{99,21},{74,80},{40,45},{99,21}},
-                  lineColor={0,0,0},
-                  fillColor={0,0,0},
                   fillPattern=FillPattern.Solid),
                 Line(
                   points={{0,95},{0,10}},
@@ -934,8 +912,6 @@ This leads to the following animation
                 Text(extent={{-136,-52},{149,-113}}, textString="%name"),
                 Polygon(
                   points={{100,21},{84,55},{69,39},{100,21}},
-                  lineColor={0,0,0},
-                  fillColor={0,0,0},
                   fillPattern=FillPattern.Solid),
                 Line(
                   points={{40,100},{40,0}},
@@ -943,13 +919,9 @@ This leads to the following animation
                   pattern=LinePattern.Dot),
                 Polygon(
                   points={{-95,1},{-64,11},{-64,-10},{-95,1}},
-                  lineColor={0,0,0},
-                  fillColor={0,0,0},
                   fillPattern=FillPattern.Solid),
                 Polygon(
                   points={{-100,20},{-86,53},{-70,42},{-100,20}},
-                  lineColor={0,0,0},
-                  fillColor={0,0,0},
                   fillPattern=FillPattern.Solid),
                 Line(
                   points={{-60,100},{40,100}},
@@ -957,8 +929,6 @@ This leads to the following animation
                   pattern=LinePattern.Dot),
                 Polygon(
                   points={{94,0},{65,12},{65,-11},{94,0}},
-                  lineColor={0,0,0},
-                  fillColor={0,0,0},
                   fillPattern=FillPattern.Solid),
                 Line(points={{-64,0},{-20,0}}),
                 Line(points={{20,0},{65,0}}),
@@ -1375,25 +1345,21 @@ position a degree of freedom is lost.
                   graphics={
                   Rectangle(
                     extent={{-30,10},{10,-10}},
-                    lineColor={0,0,0},
                     fillColor={192,192,192},
                     fillPattern=FillPattern.Solid),
                   Rectangle(
                     extent={{-100,-60},{-30,60}},
-                    lineColor={0,0,0},
                     fillPattern=FillPattern.HorizontalCylinder,
                     fillColor={192,192,192}),
                   Rectangle(
                     extent={{30,-60},{100,60}},
-                    lineColor={0,0,0},
                     fillPattern=FillPattern.HorizontalCylinder,
                     fillColor={192,192,192}),
                   Text(extent={{-139,-168},{137,-111}}, textString="%name"),
-                  Rectangle(extent={{-100,60},{-30,-60}}, lineColor={0,0,0}),
-                  Rectangle(extent={{30,60},{100,-60}}, lineColor={0,0,0}),
+                  Rectangle(extent={{-100,60},{-30,-60}}),
+                  Rectangle(extent={{30,60},{100,-60}}),
                   Text(
                     extent={{-142,-108},{147,-69}},
-                    lineColor={0,0,0},
                     textString="n=%n"),
                   Line(points={{-60,60},{-60,90}}),
                   Line(points={{-20,70},{-60,70}}),
@@ -1402,17 +1368,14 @@ position a degree of freedom is lost.
                   Line(points={{20,70},{41,70}}),
                   Polygon(
                     points={{-9,30},{10,30},{30,50},{-29,50},{-9,30}},
-                    lineColor={0,0,0},
                     fillColor={192,192,192},
                     fillPattern=FillPattern.Solid),
                   Polygon(
                     points={{10,30},{30,50},{30,-51},{10,-31},{10,30}},
-                    lineColor={0,0,0},
                     fillColor={192,192,192},
                     fillPattern=FillPattern.Solid),
                   Rectangle(
                     extent={{-10,90},{10,50}},
-                    lineColor={0,0,0},
                     fillPattern=FillPattern.VerticalCylinder,
                     fillColor={192,192,192})}),
               Diagram(coordinateSystem(
@@ -1421,17 +1384,14 @@ position a degree of freedom is lost.
                   graphics={
                   Rectangle(
                     extent={{-100,-60},{-30,60}},
-                    lineColor={0,0,0},
                     fillPattern=FillPattern.HorizontalCylinder,
                     fillColor={192,192,192}),
                   Rectangle(
                     extent={{-30,10},{10,-10}},
-                    lineColor={0,0,0},
                     fillColor={192,192,192},
                     fillPattern=FillPattern.Solid),
                   Rectangle(
                     extent={{30,-60},{100,60}},
-                    lineColor={0,0,0},
                     fillPattern=FillPattern.HorizontalCylinder,
                     fillColor={192,192,192}),
                   Line(points={{-60,60},{-60,96}}),
@@ -1441,17 +1401,14 @@ position a degree of freedom is lost.
                   Line(points={{20,70},{41,70}}),
                   Polygon(
                     points={{-9,30},{10,30},{30,50},{-29,50},{-9,30}},
-                    lineColor={0,0,0},
                     fillColor={192,192,192},
                     fillPattern=FillPattern.Solid),
                   Polygon(
                     points={{10,30},{30,50},{30,-51},{10,-31},{10,30}},
-                    lineColor={0,0,0},
                     fillColor={192,192,192},
                     fillPattern=FillPattern.Solid),
                   Rectangle(
                     extent={{-10,50},{10,100}},
-                    lineColor={0,0,0},
                     fillPattern=FillPattern.VerticalCylinder,
                     fillColor={192,192,192})}),
               Documentation(info="<HTML>
@@ -1684,7 +1641,7 @@ degree of freedom is lost.
                     pattern=LinePattern.None,
                     fillColor={192,192,192},
                     fillPattern=FillPattern.Solid),
-                  Rectangle(extent={{-30,40},{100,-40}}, lineColor={0,0,0}),
+                  Rectangle(extent={{-30,40},{100,-40}}),
                   Rectangle(
                     extent={{-100,-60},{-30,50}},
                     lineColor={0,0,255},
@@ -1695,25 +1652,21 @@ degree of freedom is lost.
                     extent={{-100,50},{-30,60}},
                     lineColor={0,0,255},
                     pattern=LinePattern.None,
-                    fillColor={0,0,0},
                     fillPattern=FillPattern.Solid),
                   Rectangle(
                     extent={{-30,30},{100,40}},
                     lineColor={0,0,255},
                     pattern=LinePattern.None,
-                    fillColor={0,0,0},
                     fillPattern=FillPattern.Solid),
                   Text(extent={{-136,-170},{140,-113}}, textString="%name"),
-                  Rectangle(extent={{-100,60},{-30,-60}}, lineColor={0,0,0}),
+                  Rectangle(extent={{-100,60},{-30,-60}}),
                   Line(points={{100,-40},{100,-60}}),
                   Rectangle(
                     extent={{100,40},{90,80}},
-                    lineColor={0,0,0},
                     fillColor={192,192,192},
                     fillPattern=FillPattern.Solid),
                   Text(
                     extent={{-136,-116},{153,-77}},
-                    lineColor={0,0,0},
                     textString="n=%n")}),
               Diagram(coordinateSystem(
                   preserveAspectRatio=false,
@@ -1747,7 +1700,6 @@ degree of freedom is lost.
                     extent={{-100,50},{-30,60}},
                     lineColor={0,0,255},
                     pattern=LinePattern.None,
-                    fillColor={0,0,0},
                     fillPattern=FillPattern.Solid),
                   Rectangle(
                     extent={{-100,-60},{-30,50}},
@@ -1755,7 +1707,7 @@ degree of freedom is lost.
                     pattern=LinePattern.None,
                     fillColor={192,192,192},
                     fillPattern=FillPattern.Solid),
-                  Rectangle(extent={{-30,40},{100,-40}}, lineColor={0,0,0}),
+                  Rectangle(extent={{-30,40},{100,-40}}),
                   Rectangle(
                     extent={{-30,-40},{100,30}},
                     lineColor={0,0,255},
@@ -1766,9 +1718,8 @@ degree of freedom is lost.
                     extent={{-30,30},{100,40}},
                     lineColor={0,0,255},
                     pattern=LinePattern.None,
-                    fillColor={0,0,0},
                     fillPattern=FillPattern.Solid),
-                  Rectangle(extent={{-100,60},{-30,-60}}, lineColor={0,0,0}),
+                  Rectangle(extent={{-100,60},{-30,-60}}),
                   Line(points={{100,-40},{100,-60}}),
                   Text(extent={{42,91},{57,76}}, textString="f"),
                   Line(points={{40,75},{70,75}}, color={0,0,255}),
@@ -1796,7 +1747,6 @@ degree of freedom is lost.
                     textString="s"),
                   Rectangle(
                     extent={{100,40},{90,80}},
-                    lineColor={0,0,0},
                     fillColor={192,192,192},
                     fillPattern=FillPattern.Solid)}),
               Documentation(info="<HTML>
@@ -3002,12 +2952,9 @@ of several base components.</p>
                 Text(
                   extent={{-150,140},{150,100}},
                   lineColor={0,0,255},
-                  textString=
-                       "%name"),
+                  textString="%name"),
                 Polygon(
                   points={{94,16},{80,74},{50,52},{94,16}},
-                  lineColor={0,0,0},
-                  fillColor={0,0,0},
                   fillPattern=FillPattern.Solid)}),
             Documentation(info="<HTML>
 <p>
@@ -3246,7 +3193,6 @@ user interface when the type is used as parameter in a declaration.
                 lineColor={0,0,255}),
               Rectangle(
                 extent={{-100,20},{100,-20}},
-                lineColor={0,0,0},
                 fillPattern=FillPattern.HorizontalCylinder,
                 fillColor={192,192,192}),
               Line(points={{-30,-40},{30,-40}}),
@@ -3254,12 +3200,10 @@ user interface when the type is used as parameter in a declaration.
               Polygon(
                 points={{-30,-20},{60,-20},{60,-80},{70,-80},{50,-100},{30,-80},
                     {40,-80},{40,-30},{-30,-30},{-30,-20},{-30,-20}},
-                lineColor={0,0,0},
                 fillColor={255,0,0},
                 fillPattern=FillPattern.Solid),
               Text(
                 extent={{-150,60},{150,20}},
-                lineColor={0,0,0},
                 textString="eta=%eta"),
               Line(points={{30,-50},{20,-60}}),
               Line(points={{30,-40},{10,-60}}),
@@ -3326,7 +3270,6 @@ from tables of the gear manufacturers.
               graphics={
               Rectangle(
                 extent={{-96,20},{96,-21}},
-                lineColor={0,0,0},
                 fillPattern=FillPattern.HorizontalCylinder,
                 fillColor={192,192,192}),
               Line(points={{-30,-40},{30,-40}}),
@@ -3336,7 +3279,6 @@ from tables of the gear manufacturers.
               Polygon(
                 points={{-30,-20},{60,-20},{60,-80},{70,-80},{50,-100},{30,-80},
                     {40,-80},{40,-30},{-30,-30},{-30,-20},{-30,-20}},
-                lineColor={0,0,0},
                 fillColor={255,0,0},
                 fillPattern=FillPattern.Solid),
               Text(
@@ -3431,29 +3373,23 @@ to the left and/or the right flange.
                   100,100}}), graphics={
               Rectangle(
                 extent={{-40,60},{40,-60}},
-                lineColor={0,0,0},
                 lineThickness=0.25,
                 fillPattern=FillPattern.HorizontalCylinder,
                 fillColor={192,192,192}),
               Polygon(
                 points={{-60,-80},{-46,-80},{-20,-20},{20,-20},{46,-80},{60,-80},
                     {60,-90},{-60,-90},{-60,-80}},
-                lineColor={0,0,0},
-                fillColor={0,0,0},
                 fillPattern=FillPattern.Solid),
               Rectangle(
                 extent={{-100,10},{-60,-10}},
-                lineColor={0,0,0},
                 fillPattern=FillPattern.HorizontalCylinder,
                 fillColor={192,192,192}),
               Rectangle(
                 extent={{60,10},{100,-10}},
-                lineColor={0,0,0},
                 fillPattern=FillPattern.HorizontalCylinder,
                 fillColor={192,192,192}),
               Polygon(
                 points={{-60,10},{-60,20},{-40,40},{-40,-40},{-60,-20},{-60,10}},
-                lineColor={0,0,0},
                 fillPattern=FillPattern.HorizontalCylinder,
                 fillColor={128,128,128}),
               Polygon(
@@ -3467,7 +3403,6 @@ to the left and/or the right flange.
                 lineColor={0,0,255}),
               Text(
                 extent={{-150,-160},{150,-120}},
-                lineColor={0,0,0},
                 textString="c=%c")}),
           Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                   {100,100}}), graphics={

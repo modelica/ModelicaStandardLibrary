@@ -971,7 +971,6 @@ is given to compare the approximation.
                       fillColor={0,127,255},
                       fillPattern=FillPattern.Solid),Ellipse(
                       extent={{-100,100},{100,-100}},
-                      lineColor={0,0,0},
                       fillColor={0,127,255},
                       fillPattern=FillPattern.Solid),Text(
                       extent={{-88,206},{112,112}},
@@ -984,7 +983,6 @@ is given to compare the approximation.
                       fillColor={0,127,255},
                       fillPattern=FillPattern.Solid),Ellipse(
                       extent={{-100,100},{100,-100}},
-                      lineColor={0,0,0},
                       fillColor={0,127,255},
                       fillPattern=FillPattern.Solid)}),
           Documentation(info="<html>Modelica.Media.Examples.Tests.Components.FluidPort_a
@@ -1001,7 +999,6 @@ is given to compare the approximation.
                       fillColor={0,127,255},
                       fillPattern=FillPattern.Solid),Ellipse(
                       extent={{-100,100},{100,-100}},
-                      lineColor={0,0,0},
                       fillColor={0,127,255},
                       fillPattern=FillPattern.Solid),Ellipse(
                       extent={{-80,80},{80,-80}},
@@ -1018,7 +1015,6 @@ is given to compare the approximation.
                       fillColor={0,127,255},
                       fillPattern=FillPattern.Solid),Ellipse(
                       extent={{-100,100},{100,-100}},
-                      lineColor={0,0,0},
                       fillColor={0,127,255},
                       fillPattern=FillPattern.Solid),Ellipse(
                       extent={{-80,80},{80,-80}},
@@ -1106,14 +1102,12 @@ is given to compare the approximation.
         annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                   -100},{100,100}}), graphics={Ellipse(
                       extent={{-100,100},{100,-100}},
-                      lineColor={0,0,0},
                       fillPattern=FillPattern.Sphere,
                       fillColor={170,213,255}),Text(
                       extent={{-144,178},{146,116}},
                       textString="%name",
                       lineColor={0,0,255}),Text(
                       extent={{-130,-108},{144,-150}},
-                      lineColor={0,0,0},
                       textString="V=%V")}), Documentation(info="<html>
 <p>
 This component models the <b>volume</b> of <b>fixed size</b> that is
@@ -1181,11 +1175,9 @@ transport.
               extent={{-100,-100},{100,100}}),
                 graphics={Rectangle(
                       extent={{20,60},{100,-60}},
-                      lineColor={0,0,0},
                       fillPattern=FillPattern.HorizontalCylinder,
                       fillColor={192,192,192}),Rectangle(
                       extent={{38,40},{100,-40}},
-                      lineColor={0,0,0},
                       fillPattern=FillPattern.HorizontalCylinder,
                       fillColor={0,127,255}),Ellipse(
                       extent={{-100,80},{60,-80}},
@@ -1203,7 +1195,6 @@ transport.
                       textString="%name",
                       lineColor={0,0,255}),Text(
                       extent={{-154,-88},{150,-132}},
-                      lineColor={0,0,0},
                       textString="%m_flow"),Ellipse(
                       extent={{-26,30},{-18,22}},
                       lineColor={255,0,0},
@@ -1277,7 +1268,6 @@ transport.
               extent={{-100,-100},{100,100}}),
                 graphics={Ellipse(
                       extent={{-100,80},{100,-80}},
-                      lineColor={0,0,0},
                       fillPattern=FillPattern.Sphere,
                       fillColor={0,127,255}),Text(
                       extent={{-136,144},{132,82}},
@@ -1347,18 +1337,14 @@ with exception of ambient pressure, do not have an effect.
         annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                   -100},{100,100}}), graphics={Rectangle(
                       extent={{-100,60},{100,-60}},
-                      lineColor={0,0,0},
                       fillPattern=FillPattern.HorizontalCylinder,
                       fillColor={192,192,192}),Rectangle(
                       extent={{-100,34},{100,-36}},
-                      lineColor={0,0,0},
                       fillPattern=FillPattern.HorizontalCylinder,
                       fillColor={0,127,255}),Text(
                       extent={{-150,140},{150,80}},
-                      lineColor={0,0,0},
                       textString="%name"),Text(
                       extent={{-136,-62},{122,-108}},
-                      lineColor={0,0,0},
                       textString="k=%m_flow_nominal/%dp_nominal")}),
             Documentation(info="<html>
 <p>

@@ -215,11 +215,8 @@ package Rotational "Test models for Modelica.Mechanics.Rotational"
       annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
                 -100,-100},{100,100}}), graphics={Polygon(
                   points={{-23,87},{-13,84},{-23,81},{-23,87}},
-                  lineColor={0,0,0},
-                  fillColor={0,0,0},
                   fillPattern=FillPattern.Solid),Line(points={{-23,84},{-53,84}}),Text(
                   extent={{-18,88},{72,80}},
-                  lineColor={0,0,0},
                   textString="(positive) axis of rotation")}), experiment(
             StopTime=2));
     end Directions;
@@ -323,74 +320,46 @@ package Rotational "Test models for Modelica.Mechanics.Rotational"
             extent={{-100,-100},{100,100}}),
               graphics={Text(
                   extent={{-28,94},{62,86}},
-                  lineColor={0,0,0},
                   textString="(positive) axis of rotation"),Line(points={{-61,
               65},{-80,65}}),Polygon(
                   points={{-68,67},{-61,65},{-68,63},{-68,67}},
-                  lineColor={0,0,0},
-                  fillColor={0,0,0},
                   fillPattern=FillPattern.Solid),Text(
                   extent={{-57,69},{-91,73}},
-                  lineColor={0,0,0},
                   textString="J2.flange_a.tau"),Line(points={{-42,45},{-61,45}}),Polygon(
                   points={{-49,47},{-42,45},{-49,43},{-49,47}},
-                  lineColor={0,0,0},
-                  fillColor={0,0,0},
                   fillPattern=FillPattern.Solid),Text(
                   extent={{-33,38},{-67,42}},
-                  lineColor={0,0,0},
                   textString="J2.w"),Line(points={{-9,65},{-28,65}}, color={0,0,
               0}),Polygon(
                   points={{-16,67},{-9,65},{-16,63},{-16,67}},
-                  lineColor={0,0,0},
-                  fillColor={0,0,0},
                   fillPattern=FillPattern.Solid),Text(
                   extent={{-5,69},{-39,73}},
-                  lineColor={0,0,0},
                   textString="J4.flange_a.tau"),Line(points={{10,45},{-9,45}}),Polygon(
                   points={{3,47},{10,45},{3,43},{3,47}},
-                  lineColor={0,0,0},
-                  fillColor={0,0,0},
                   fillPattern=FillPattern.Solid),Text(
                   extent={{19,38},{-15,42}},
-                  lineColor={0,0,0},
                   textString="J4.w"),Line(points={{44,65},{25,65}}, color={0,0,
               0}),Polygon(
                   points={{37,67},{44,65},{37,63},{37,67}},
-                  lineColor={0,0,0},
-                  fillColor={0,0,0},
                   fillPattern=FillPattern.Solid),Text(
                   extent={{48,69},{14,73}},
-                  lineColor={0,0,0},
                   textString="J6.flange_b.tau"),Line(points={{63,45},{44,45}}),Polygon(
                   points={{56,47},{63,45},{56,43},{56,47}},
-                  lineColor={0,0,0},
-                  fillColor={0,0,0},
                   fillPattern=FillPattern.Solid),Text(
                   extent={{72,38},{38,42}},
-                  lineColor={0,0,0},
                   textString="J6.w"),Line(points={{-32,90},{-62,90}}, color={0,
               0,0}),Polygon(
                   points={{-32,93},{-22,90},{-32,87},{-32,93}},
-                  lineColor={0,0,0},
-                  fillColor={0,0,0},
                   fillPattern=FillPattern.Solid),Text(
                   extent={{-19,24},{71,16}},
-                  lineColor={0,0,0},
                   textString="(positive) axis of rotation"),Line(points={{-23,
               20},{-53,20}}),Polygon(
                   points={{-23,23},{-13,20},{-23,17},{-23,23}},
-                  lineColor={0,0,0},
-                  fillColor={0,0,0},
                   fillPattern=FillPattern.Solid),Polygon(
                   points={{-47,-47},{-54,-49},{-47,-51},{-47,-47}},
-                  lineColor={0,0,0},
-                  fillColor={0,0,0},
                   fillPattern=FillPattern.Solid),Line(points={{-52,-49},{-33,-49}}),Line(points={{31.5,-79.5},{31.5,-60.5}}, color={0,
               0,0}),Polygon(
                   points={{29.5,-75.5},{31.5,-82.5},{33.5,-75.5},{29.5,-75.5}},
-                  lineColor={0,0,0},
-                  fillColor={0,0,0},
                   fillPattern=FillPattern.Solid)}), experiment(StopTime=2));
     end Directions2;
 
@@ -419,24 +388,15 @@ package Rotational "Test models for Modelica.Mechanics.Rotational"
       annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
                 -100,-100},{100,100}}), graphics={Line(points={{-60,66},{-80,66}}),Polygon(
                   points={{-67,68},{-60,66},{-67,64},{-67,68}},
-                  lineColor={0,0,0},
-                  fillColor={0,0,0},
                   fillPattern=FillPattern.Solid),Polygon(
                   points={{-34,68},{-41,66},{-34,64},{-34,68}},
-                  lineColor={0,0,0},
-                  fillColor={0,0,0},
                   fillPattern=FillPattern.Solid),Line(points={{-20,66},{-39,66}}),Text(
                   extent={{-10,60},{14,40}},
-                  lineColor={0,0,0},
                   textString="="),Line(points={{40,66},{20,66}}),
               Polygon(
                   points={{33,68},{40,66},{33,64},{33,68}},
-                  lineColor={0,0,0},
-                  fillColor={0,0,0},
                   fillPattern=FillPattern.Solid),Line(points={{80,66},{60,66}}),Polygon(
                   points={{73,68},{80,66},{73,64},{73,68}},
-                  lineColor={0,0,0},
-                  fillColor={0,0,0},
                   fillPattern=FillPattern.Solid)}), experiment(StopTime=2));
     end Directions3;
   end ForUsersGuide;
