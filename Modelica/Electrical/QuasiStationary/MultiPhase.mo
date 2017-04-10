@@ -3112,8 +3112,8 @@ This sensor can be used to measure <i>m</i> complex apparent power values, using
             textString="v"),
           Line(points={{100,-60},{80,-60},{56,-42}}, color={28,108,200})}),
       Documentation(info="<html>
-<p>This multi sensor measures currents, voltages and instantaneous electrical power of a multiphase system and has separated voltage and current paths. 
-The plugs of the voltage paths are pv and nv, the plugs of the current paths are pc and nc. 
+<p>This multi sensor measures currents, voltages and instantaneous electrical power of a multiphase system and has separated voltage and current paths.
+The plugs of the voltage paths are pv and nv, the plugs of the current paths are pc and nc.
 The internal resistance of each current path is zero, the internal resistance of each voltage path is infinite.</p>
 </html>",   revisions="<html>
 <ul>

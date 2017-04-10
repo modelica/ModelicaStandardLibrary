@@ -581,7 +581,7 @@ distance <strong>length</strong> became smaller as parameter <strong>s_small</st
             lineColor={255,0,0},
             textString="R=0")}));
   end LineForceBase;
-  
+
   partial model PartialLineForce "Base model for massless line force elements"
     extends LineForceBase;
 

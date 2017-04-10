@@ -2195,8 +2195,8 @@ This sensor can be used to measure the complex apparent power.
             lineColor={28,108,200},
             textString="v")}),
       Documentation(info="<html>
-<p>This multi sensor measures current, voltage and instantaneous electrical power of a singlephase system and has a separated voltage and current path. 
-The pins of the voltage path are pv and nv, the pins of the current path are pc and nc. 
+<p>This multi sensor measures current, voltage and instantaneous electrical power of a singlephase system and has a separated voltage and current path.
+The pins of the voltage path are pv and nv, the pins of the current path are pc and nc.
 The internal resistance of the current path is zero, the internal resistance of the voltage path is infinite.</p>
 </html>",   revisions="<html>
 <ul>

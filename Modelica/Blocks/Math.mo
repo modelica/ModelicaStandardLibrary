@@ -2392,7 +2392,7 @@ This blocks computes the output <b>y</b> as the
       Documentation(info="<html>
 <p>
 This blocks computes the output <b>y</b> as the
-power to the parameter <i>base</i> of the input <b>u</b>. 
+power to the parameter <i>base</i> of the input <b>u</b>.
 If the boolean parameter <b>useExp</b> is true, the output is determined by:
 </p>
 <pre>
@@ -2578,14 +2578,13 @@ zero or negative.
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
           Line(points={{-80,54},{-80,54},{-60,80},{-60,-80},{60,80},{60,-80},{
-                80,-52}},
-              color={0,0,0}),
+                80,-52}}),
           Polygon(
             points={{90,0},{68,8},{68,-8},{90,0}},
             lineColor={192,192,192},
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid),
-          Line(points={{-90,0},{68,0}},     color={192,192,192}),
+          Line(points={{-90,0},{68,0}}, color={192,192,192}),
           Line(points={{0,-80},{0,68}}, color={192,192,192}),
           Polygon(
             points={{0,90},{-8,68},{8,68},{0,90}},

@@ -9451,8 +9451,7 @@ Material properties alpha of both axis are the same.
           Rrq_actual*spacePhasor_r.i_[2]*spacePhasor_r.i_[2];
         annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                   -100},{100,100}},
-              grid={2,2},
-              initialScale=0.1),     graphics={
+              grid={2,2}), graphics={
               Line(points={{60,60},{100,60}}, color={0,0,255}),
               Line(points={{70,40},{90,40}}, color={0,0,255}),
               Line(points={{66,50},{94,50}}, color={0,0,255}),
@@ -9630,9 +9629,7 @@ If <code>quasiStationary == false</code>, the electrical transients are neglecte
                       extent={{-70,30},{70,-30}},
                       lineColor={0,0,255},
                       fillColor={85,170,255},
-                      fillPattern=FillPattern.Solid)}),
-          Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                  {100,100}})));
+                      fillPattern=FillPattern.Solid)}));
       end InductorDC;
 
       partial model PartialAirGapDC "Partial airgap model of a DC machine"

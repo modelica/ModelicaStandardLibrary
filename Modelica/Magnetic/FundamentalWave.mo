@@ -351,7 +351,7 @@ no. 829420.
 
 <ul>
 <li>Replace wrong permeance image in documentation according to #2208</li>
-<li>Added obsolete annotation to 
+<li>Added obsolete annotation to
     <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseCageWinding_obsolete\">SymmetricMultiPhaseCageWinding_obsolete</a> and
     <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SaliencyCageWinding_obsolete\">SaliencyCageWinding_obsolete</a>,
     see #1536</li>

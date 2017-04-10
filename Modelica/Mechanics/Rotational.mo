@@ -1744,8 +1744,7 @@ is present in variable convection.fluid.
             origin={-10,-30})));
     equation
       connect(eddyCurrentTorque.flange, inertia.flange_a)
-        annotation (Line(points={{10,0},{16,0},{20,0}},
-                                                     color={0,0,0}));
+        annotation (Line(points={{10,0},{16,0},{20,0}}));
       connect(eddyCurrentTorque.heatPort, heatCapacitor.port) annotation (Line(
             points={{-10,-10},{-10,-15},{-10,-20}}, color={191,0,0}));
       annotation (

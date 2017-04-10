@@ -116,7 +116,7 @@ email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
 <li>Removed redundant (and not identical) parameter m from
     <a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.MutualInductor\">MutualInductor</a>,
     see #2202</li>
-<li>Changed epsiolon from constant to parameter in 
+<li>Changed epsiolon from constant to parameter in
     <a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.MutualInductor\">MutualInductor</a>,
     see #2200</li>
 <li>Added User's Guide</li>
@@ -3173,8 +3173,8 @@ This power sensor measures instantaneous electrical power of a multiphase system
             textString="v"),
           Line(points={{100,-60},{80,-60},{56,-42}}, color={28,108,200})}),
       Documentation(info="<html>
-<p>This multi sensor measures currents, voltages and instantaneous electrical power of a multiphase system and has separated voltage and current paths. 
-The plugs of the voltage paths are pv and nv, the plugs of the current paths are pc and nc. 
+<p>This multi sensor measures currents, voltages and instantaneous electrical power of a multiphase system and has separated voltage and current paths.
+The plugs of the voltage paths are pv and nv, the plugs of the current paths are pc and nc.
 The internal resistance of each current path is zero, the internal resistance of each voltage path is infinite.</p>
 </html>",   revisions="<html>
 <ul>

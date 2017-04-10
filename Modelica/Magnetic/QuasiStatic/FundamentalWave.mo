@@ -1678,18 +1678,18 @@ Simulate for 1.5 seconds and plot (versus time):
               points={{-50,-30},{-50,-70},{-60,-70}},
               color={0,0,255}));
           connect(smpm.flange, rotorDisplacementAngle.flange) annotation (Line(
-                points={{10,-60},{14,-60},{18,-60}}, color={0,0,0}));
+                points={{10,-60},{14,-60},{18,-60}}));
           connect(rotorDisplacementAngle.flange, loadInertiaM.flange_a)
-            annotation (Line(points={{18,-60},{40,-60}}, color={0,0,0}));
+            annotation (Line(points={{18,-60},{40,-60}}));
           connect(terminalBox.plug_sp, rotorDisplacementAngle.plug_p)
             annotation (Line(points={{6,-50},{14,-50},{22,-50}}, color={0,0,255}));
           connect(terminalBox.plug_sn, rotorDisplacementAngle.plug_n)
             annotation (Line(points={{-6,-50},{-6,-50},{-6,-42},{34,-42},{34,
                   -50}}, color={0,0,255}));
           connect(smpmQS.flange, rotorDisplacementAngleQS.flange)
-            annotation (Line(points={{10,40},{14,40},{18,40}}, color={0,0,0}));
+            annotation (Line(points={{10,40},{14,40},{18,40}}));
           connect(rotorDisplacementAngleQS.flange, loadInertiaMQS.flange_a)
-            annotation (Line(points={{18,40},{30,40},{40,40}}, color={0,0,0}));
+            annotation (Line(points={{18,40},{30,40},{40,40}}));
           connect(rotorDisplacementAngleQS.plug_p, terminalBoxQS.plug_sp)
             annotation (Line(points={{22,50},{14,50},{6,50}}, color={85,170,255}));
           connect(terminalBoxQS.plug_sn, rotorDisplacementAngleQS.plug_n)
@@ -2201,7 +2201,7 @@ Simulate for 0.1 second and plot (versus time):
               points={{20,74},{0,74}},
               color={85,170,255}));
           connect(rotorDisplacementAngleQS.flange, smpmQS.flange)
-            annotation (Line(points={{20,24},{20,24},{10,24}}, color={0,0,0}));
+            annotation (Line(points={{20,24},{20,24},{10,24}}));
           connect(angleSensorQS.flange, rotorDisplacementAngleQS.flange)
             annotation (Line(points={{18,44},{18,44},{18,24},{20,24}}, color={0,
                   0,0}));
@@ -2211,7 +2211,7 @@ Simulate for 0.1 second and plot (versus time):
             annotation (Line(points={{-6,34},{-6,40},{36,40},{36,34}}, color={
                   85,170,255}));
           connect(rotorDisplacementAngleQS.flange, inertiaLoadQS.flange_a)
-            annotation (Line(points={{20,24},{40,24}}, color={0,0,0}));
+            annotation (Line(points={{20,24},{40,24}}));
           annotation (
             experiment(StopTime=2.0, Interval=0.001),
             Documentation(info="<html>
@@ -2541,13 +2541,13 @@ Simulate for 2 seconds and plot (versus time):
             annotation (Line(points={{-6,40},{-6,48},{34,48},{34,40}}, color={
                   85,170,255}));
           connect(smeeQS.flange, rotorDisplacementAngleQS.flange)
-            annotation (Line(points={{10,30},{14,30},{18,30}}, color={0,0,0}));
+            annotation (Line(points={{10,30},{14,30},{18,30}}));
           connect(rotorDisplacementAngleQS.flange, mechanicalPowerSensorQS.flange_a)
-            annotation (Line(points={{18,30},{30,30},{40,30}}, color={0,0,0}));
+            annotation (Line(points={{18,30},{30,30},{40,30}}));
           connect(smee.flange, rotorDisplacementAngle.flange) annotation (Line(
-                points={{10,-70},{14,-70},{18,-70}}, color={0,0,0}));
+                points={{10,-70},{14,-70},{18,-70}}));
           connect(rotorDisplacementAngle.flange, mechanicalPowerSensor.flange_a)
-            annotation (Line(points={{18,-70},{30,-70},{40,-70}}, color={0,0,0}));
+            annotation (Line(points={{18,-70},{30,-70},{40,-70}}));
           connect(smee.plug_sp, rotorDisplacementAngle.plug_p) annotation (Line(
                 points={{6,-60},{14,-60},{22,-60}}, color={0,0,255}));
           connect(rotorDisplacementAngle.plug_n, smee.plug_sn) annotation (Line(
@@ -2914,9 +2914,9 @@ Simulate for 30 seconds:
             annotation (Line(
               points={{20,-82},{44,-82}}));
           connect(smrQS.flange, rotorDisplacementAngleQS.flange)
-            annotation (Line(points={{10,24},{16,24},{20,24}}, color={0,0,0}));
+            annotation (Line(points={{10,24},{16,24},{20,24}}));
           connect(rotorDisplacementAngleQS.flange, inertiaLoadQS.flange_a)
-            annotation (Line(points={{20,24},{30,24},{40,24}}, color={0,0,0}));
+            annotation (Line(points={{20,24},{30,24},{40,24}}));
           connect(rotorDisplacementAngleQS.plug_p, smrQS.plug_sp) annotation (
               Line(points={{24,34},{15,34},{6,34}}, color={85,170,255}));
           connect(rotorDisplacementAngleQS.plug_n, smrQS.plug_sn) annotation (
