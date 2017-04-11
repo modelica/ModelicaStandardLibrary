@@ -1,19 +1,16 @@
 within Modelica.Blocks;
 package Types
-  "Library of constants and types with choices, especially to build menus"
+  "Library of constants, external objects and types with choices, especially to build menus"
   extends Modelica.Icons.TypesPackage;
 
   type Smoothness = enumeration(
       LinearSegments "Table points are linearly interpolated",
       ContinuousDerivative
         "Table points are interpolated (by Akima splines) such that the first derivative is continuous",
-
       ConstantSegments
         "Table points are not interpolated, but the value from the previous abscissa point is returned",
-
       MonotoneContinuousDerivative1
         "Table points are interpolated (by Fritsch-Butland splines) such that the monotonicity is preserved and the first derivative is continuous",
-
       MonotoneContinuousDerivative2
         "Table points are interpolated (by Steffen splines) such that the monotonicity is preserved and the first derivative is continuous")
     "Enumeration defining the smoothness of table interpolation";
@@ -23,7 +20,6 @@ package Types
         "Hold the first/last table point outside of the table scope",
       LastTwoPoints
         "Extrapolate by using the derivative at the first/last table points outside of the table scope",
-
       Periodic "Repeat the table scope periodically",
       NoExtrapolation "Extrapolation triggers an error")
     "Enumeration defining the extrapolation of time table interpolation";
@@ -31,7 +27,6 @@ package Types
   type Init = enumeration(
       NoInit
         "No initialization (start values are used as guess values with fixed=false)",
-
       SteadyState
         "Steady state initialization (derivatives of states are zero)",
       InitialState "Initialization with initial states",
@@ -55,13 +50,11 @@ package Types
   type InitPID = enumeration(
       NoInit
         "No initialization (start values are used as guess values with fixed=false)",
-
       SteadyState
         "Steady state initialization (derivatives of states are zero)",
       InitialState "Initialization with initial states",
       InitialOutput
         "Initialization with initial outputs (and steady state of the states if possible)",
-
       DoNotUse_InitialIntegratorState
         "Do not use, only for backward compatibility (initialize only integrator state)")
     "Enumeration defining initialization of PID and LimPID blocks" annotation (
@@ -121,6 +114,7 @@ initialization definition.
       Linear "Linear regularization",
       Cosine "Cosine regularization")
     "Enumeration defining the regularization around zero";
+
   class ExternalCombiTimeTable
     "External object of 1-dim. table where first column is time"
     extends ExternalObject;
@@ -135,11 +129,11 @@ initialization definition.
       input Modelica.Blocks.Types.Smoothness smoothness;
       input Modelica.Blocks.Types.Extrapolation extrapolation;
       input Modelica.SIunits.Time shiftTime;
+      input Boolean verboseRead=true "= true: Print info message; = false: No info message";
       output ExternalCombiTimeTable externalCombiTimeTable;
-    external"C" externalCombiTimeTable =
-        ModelicaStandardTables_CombiTimeTable_init2(
-            tableName,
+    external"C" externalCombiTimeTable = ModelicaStandardTables_CombiTimeTable_init2(
             fileName,
+            tableName,
             table,
             size(table, 1),
             size(table, 2),
@@ -148,7 +142,8 @@ initialization definition.
             size(columns, 1),
             smoothness,
             extrapolation,
-            shiftTime) annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
+            shiftTime,
+            verboseRead) annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
     end constructor;
 
     function destructor "Terminate 1-dim. table where first column is time"
@@ -172,17 +167,19 @@ initialization definition.
       input Integer columns[:];
       input Modelica.Blocks.Types.Smoothness smoothness;
       input Modelica.Blocks.Types.Extrapolation extrapolation;
+      input Boolean verboseRead=true "= true: Print info message; = false: No info message";
       output ExternalCombiTable1D externalCombiTable1D;
     external"C" externalCombiTable1D = ModelicaStandardTables_CombiTable1D_init2(
-            tableName,
             fileName,
+            tableName,
             table,
             size(table, 1),
             size(table, 2),
             columns,
             size(columns, 1),
             smoothness,
-            extrapolation) annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
+            extrapolation,
+            verboseRead) annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
     end constructor;
 
     function destructor "Terminate 1-dim. table defined by matrix"
@@ -204,14 +201,16 @@ initialization definition.
       input String fileName "File name";
       input Real table[:, :];
       input Modelica.Blocks.Types.Smoothness smoothness;
+      input Boolean verboseRead=true "= true: Print info message; = false: No info message";
       output ExternalCombiTable2D externalCombiTable2D;
-    external"C" externalCombiTable2D = ModelicaStandardTables_CombiTable2D_init(
-            tableName,
+    external"C" externalCombiTable2D = ModelicaStandardTables_CombiTable2D_init2(
             fileName,
+            tableName,
             table,
             size(table, 1),
             size(table, 2),
-            smoothness) annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
+            smoothness,
+            verboseRead) annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
     end constructor;
 
     function destructor "Terminate 2-dim. table defined by matrix"

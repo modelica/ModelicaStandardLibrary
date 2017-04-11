@@ -340,7 +340,7 @@ package CombiTable2D
   protected
     parameter String fileName=loadResource(
         "modelica://Modelica/Resources/Data/Tables/test_v4.mat");
-    Modelica.Blocks.Types.ExternalCombiTable2D tableID=
+    parameter Modelica.Blocks.Types.ExternalCombiTable2D tableID=
         Modelica.Blocks.Types.ExternalCombiTable2D(
           "akima2D",
           fileName,
@@ -357,10 +357,7 @@ package CombiTable2D
       extends Modelica.Mechanics.MultiBody.Interfaces.partialSurfaceCharacteristic(
           final multiColoredSurface=false);
       input Modelica.Blocks.Types.ExternalCombiTable2D tableID;
-    protected
-      Real tableOnFileRead;
     algorithm
-      tableOnFileRead := Internal.readTable2DData(tableID);
       for i in 1:nu loop
         for j in 1:nv loop
           X[i, j] := (i - 1)/2;
@@ -368,8 +365,7 @@ package CombiTable2D
           Z[i, j] := Internal.getTable2DValue(
                 tableID,
                 X[i, j],
-                Y[i, j],
-                tableOnFileRead);
+                Y[i, j]);
         end for;
       end for;
       C := fill({0,200,0}, 0, 0);
@@ -394,7 +390,7 @@ package CombiTable2D
   protected
     parameter String fileName=loadResource(
         "modelica://Modelica/Resources/Data/Tables/test_v4.mat");
-    Modelica.Blocks.Types.ExternalCombiTable2D tableID=
+    parameter Modelica.Blocks.Types.ExternalCombiTable2D tableID=
         Modelica.Blocks.Types.ExternalCombiTable2D(
           "akima2D",
           fileName,
@@ -411,10 +407,7 @@ package CombiTable2D
       extends Modelica.Mechanics.MultiBody.Interfaces.partialSurfaceCharacteristic(
           final multiColoredSurface=false);
       input Modelica.Blocks.Types.ExternalCombiTable2D tableID;
-    protected
-      Real tableOnFileRead;
     algorithm
-      tableOnFileRead := Internal.readTable2DData(tableID);
       for i in 1:nu loop
         for j in 1:nv loop
           X[i, j] := (i - 1)/2;
@@ -422,8 +415,7 @@ package CombiTable2D
           Z[i, j] := Internal.getTable2DValue(
                 tableID,
                 X[i, j],
-                Y[i, j],
-                tableOnFileRead);
+                Y[i, j]);
         end for;
       end for;
       C := fill({0,200,0}, 0, 0);
@@ -448,7 +440,7 @@ package CombiTable2D
   protected
     parameter String fileName=loadResource(
         "modelica://Modelica/Resources/Data/Tables/test_v4.mat");
-    Modelica.Blocks.Types.ExternalCombiTable2D tableID=
+    parameter Modelica.Blocks.Types.ExternalCombiTable2D tableID=
         Modelica.Blocks.Types.ExternalCombiTable2D(
           "akima2D",
           fileName,
@@ -490,10 +482,7 @@ package CombiTable2D
       extends Modelica.Mechanics.MultiBody.Interfaces.partialSurfaceCharacteristic(
           final multiColoredSurface=true);
       input Modelica.Blocks.Types.ExternalCombiTable2D tableID;
-    protected
-      Real tableOnFileRead;
     algorithm
-      tableOnFileRead := Internal.readTable2DData(tableID);
       for i in 1:nu loop
         for j in 1:nv loop
           X[i, j] := i - 1;
@@ -501,8 +490,7 @@ package CombiTable2D
           Z[i, j] := Internal.getTable2DValue(
                 tableID,
                 X[i, j],
-                Y[i, j],
-                tableOnFileRead);
+                Y[i, j]);
           C[i, j, :] := calcColor(Z[i, j]/64)*255;
         end for;
       end for;

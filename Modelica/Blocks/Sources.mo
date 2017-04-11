@@ -2151,18 +2151,18 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
     parameter Modelica.SIunits.Time shiftTime=startTime
       "Shift time of first table column"
       annotation (Dialog(group="Table data interpretation"));
-    final parameter Modelica.SIunits.Time t_min(fixed=false)
+    final parameter Modelica.SIunits.Time t_min=t_minScaled*timeScale
       "Minimum abscissa value defined in table";
-    final parameter Modelica.SIunits.Time t_max(fixed=false)
+    final parameter Modelica.SIunits.Time t_max=t_maxScaled*timeScale
       "Maximum abscissa value defined in table";
-    final parameter Real t_minScaled(fixed=false)
+    final parameter Real t_minScaled=Internal.getTimeTableTmin(tableID)
       "Minimum (scaled) abscissa value defined in table";
-    final parameter Real t_maxScaled(fixed=false)
+    final parameter Real t_maxScaled=Internal.getTimeTableTmax(tableID)
       "Maximum (scaled) abscissa value defined in table";
   protected
     final parameter Real p_offset[nout]=(if size(offset, 1) == 1 then ones(nout)*offset[1] else offset)
       "Offsets of output signals";
-    Modelica.Blocks.Types.ExternalCombiTimeTable tableID=
+    parameter Modelica.Blocks.Types.ExternalCombiTimeTable tableID=
         Modelica.Blocks.Types.ExternalCombiTimeTable(
           if tableOnFile then tableName else "NoName",
           if tableOnFile and fileName <> "NoName" and not Modelica.Utilities.Strings.isEmpty(fileName) then fileName else "NoName",
@@ -2171,26 +2171,15 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
           columns,
           smoothness,
           extrapolation,
-          shiftTime/timeScale) "External table object";
+          shiftTime/timeScale,
+          if tableOnFile then verboseRead else false) "External table object";
     discrete Modelica.SIunits.Time nextTimeEvent(start=0, fixed=true)
       "Next time event instant";
     discrete Real nextTimeEventScaled(start=0, fixed=true)
       "Next scaled time event instant";
-    parameter Real tableOnFileRead(fixed=false)
-      "= 1, if table was successfully read from file";
     constant Real DBL_MAX = 1.7976931348623158e+308;
     Real timeScaled "Scaled time";
 
-  initial algorithm
-    if tableOnFile then
-      tableOnFileRead := Internal.readTimeTableData(tableID, false, verboseRead);
-    else
-      tableOnFileRead := 1.;
-    end if;
-    t_minScaled := Internal.getTimeTableTmin(tableID, tableOnFileRead);
-    t_maxScaled := Internal.getTimeTableTmax(tableID, tableOnFileRead);
-    t_min := t_minScaled*timeScale;
-    t_max := t_maxScaled*timeScale;
   equation
     if tableOnFile then
       assert(tableName <> "NoName",
@@ -2200,8 +2189,8 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
         "tableOnFile = false and parameter table is an empty matrix");
     end if;
     timeScaled = time/timeScale;
-    when {time >= pre(nextTimeEvent),initial()} then
-      nextTimeEventScaled = Internal.getNextTimeEvent(tableID, timeScaled, tableOnFileRead);
+    when {time >= pre(nextTimeEvent), initial()} then
+      nextTimeEventScaled = Internal.getNextTimeEvent(tableID, timeScaled);
       if (nextTimeEventScaled < DBL_MAX) then
         nextTimeEvent = nextTimeEventScaled*timeScale;
       else
@@ -2210,11 +2199,11 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
     end when;
     if smoothness == Modelica.Blocks.Types.Smoothness.ConstantSegments then
       for i in 1:nout loop
-        y[i] = p_offset[i] + Internal.getTimeTableValueNoDer(tableID, i, timeScaled, nextTimeEventScaled, pre(nextTimeEventScaled), tableOnFileRead);
+        y[i] = p_offset[i] + Internal.getTimeTableValueNoDer(tableID, i, timeScaled, nextTimeEventScaled, pre(nextTimeEventScaled));
       end for;
     else
       for i in 1:nout loop
-        y[i] = p_offset[i] + Internal.getTimeTableValue(tableID, i, timeScaled, nextTimeEventScaled, pre(nextTimeEventScaled), tableOnFileRead);
+        y[i] = p_offset[i] + Internal.getTimeTableValue(tableID, i, timeScaled, nextTimeEventScaled, pre(nextTimeEventScaled));
       end for;
     end if;
     annotation (
