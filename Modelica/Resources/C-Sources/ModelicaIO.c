@@ -33,13 +33,17 @@
       Modelica.Utilities.Streams.writeRealMatrix
 
    Release Notes:
+      Apr. 12, 2017: by Thomas Beutlich, ESI ITI GmbH
+                     Improved error messages if reading struct arrays from
+                     MATLAB MAT-file fails (ticket #2105)
+
       Mar. 08, 2017: by Thomas Beutlich, ESI ITI GmbH
                      Added ModelicaIO_readRealTable from ModelicaStandardTables
                      (ticket #2192)
 
       Feb. 07, 2017: by Thomas Beutlich, ESI ITI GmbH
-                     Added support for integer and single-precision variable
-                     classes of MATLAB MAT-files (ticket #2106)
+                     Added support for reading integer and single-precision
+                     variable classes of MATLAB MAT-files (ticket #2106)
 
       Jan. 31, 2017: by Thomas Beutlich, ESI ITI GmbH
                      Added diagnostic message for (supported) partial read of table
@@ -282,13 +286,13 @@ int ModelicaIO_writeRealMatrix(_In_z_ const char* fileName,
 
     if (append == 0) {
         mat = Mat_CreateVer(fileName, NULL, matv);
-        if (mat == NULL) {
+        if (NULL == mat) {
             ModelicaFormatError("Not possible to newly create file \"%s\"\n(maybe version 7.3 not supported)\n", fileName);
             return 0;
         }
     } else {
         mat = Mat_Open(fileName, (int)MAT_ACC_RDWR | matv);
-        if (mat == NULL) {
+        if (NULL == mat) {
             ModelicaFormatError("Not possible to open file \"%s\"\n", fileName);
             return 0;
         }
@@ -296,7 +300,7 @@ int ModelicaIO_writeRealMatrix(_In_z_ const char* fileName,
 
     /* MAT file array is stored column-wise -> need to transpose */
     aT = (double*)malloc(m*n*sizeof(double));
-    if (aT == NULL) {
+    if (NULL == aT) {
         (void)Mat_Close(mat);
         ModelicaError("Memory allocation error\n");
         return 0;
@@ -332,7 +336,7 @@ double* ModelicaIO_readRealTable(_In_z_ const char* fileName,
 
     /* Table file can be either ASCII text or binary MATLAB MAT-file */
     ext = strrchr(fileName, '.');
-    if (ext != NULL) {
+    if (NULL != ext) {
         if (0 == strncmp(ext, ".mat", 4) ||
             0 == strncmp(ext, ".MAT", 4)) {
             isMatExt = 1;
@@ -368,7 +372,7 @@ static double* readMatTable(_In_z_ const char* fileName, _In_z_ const char* tabl
         matvar_t* matvar = matio.matvar;
 
         table = (double*)malloc(matvar->dims[0]*matvar->dims[1]*sizeof(double));
-        if (table == NULL) {
+        if (NULL == table) {
             Mat_VarFree(matio.matvarRoot);
             (void)Mat_Close(matio.mat);
             ModelicaError("Memory allocation error\n");
@@ -420,9 +424,11 @@ static void readMatIO(_In_z_ const char* fileName, _In_z_ const char* matrixName
 #if defined(_POSIX_) || (defined(_MSC_VER) && _MSC_VER >= 1400)
     char* nextToken = NULL;
 #endif
+    char* prevToken;
+    int err = 0;
 
     matrixNameCopy = (char*)malloc((strlen(matrixName) + 1)*sizeof(char));
-    if (matrixNameCopy != NULL) {
+    if (NULL != matrixNameCopy) {
         strcpy(matrixNameCopy, matrixName);
     }
     else {
@@ -431,7 +437,7 @@ static void readMatIO(_In_z_ const char* fileName, _In_z_ const char* matrixName
     }
 
     mat = Mat_Open(fileName, (int)MAT_ACC_RDONLY);
-    if (mat == NULL) {
+    if (NULL == mat) {
         free(matrixNameCopy);
         ModelicaFormatError("Not possible to open file \"%s\": "
             "No such file or directory\n", fileName);
@@ -439,10 +445,10 @@ static void readMatIO(_In_z_ const char* fileName, _In_z_ const char* matrixName
     }
 
     token = strtok_r(matrixNameCopy, ".", &nextToken);
-    matvarRoot = Mat_VarReadInfo(mat, token == NULL ? matrixName : token);
-    if (matvarRoot == NULL) {
+    matvarRoot = Mat_VarReadInfo(mat, NULL == token ? matrixName : token);
+    if (NULL == matvarRoot) {
         (void)Mat_Close(mat);
-        if (token == NULL) {
+        if (NULL == token) {
             free(matrixNameCopy);
             ModelicaFormatError(
                 "Variable \"%s\" not found on file \"%s\".\n",
@@ -450,55 +456,98 @@ static void readMatIO(_In_z_ const char* fileName, _In_z_ const char* matrixName
         }
         else {
             char matrixNameBuf[MATLAB_NAME_LENGTH_MAX];
+            char dots[4];
             if (strlen(token) > MATLAB_NAME_LENGTH_MAX - 1) {
                 strncpy(matrixNameBuf, token, MATLAB_NAME_LENGTH_MAX - 1);
                 matrixNameBuf[MATLAB_NAME_LENGTH_MAX - 1] = '\0';
-                free(matrixNameCopy);
-                ModelicaFormatError(
-                    "Variable \"%s...\" not found on file \"%s\".\n",
-                    matrixNameBuf, fileName);
+                strcpy(dots, "...");
             }
             else {
                 strcpy(matrixNameBuf, token);
-                free(matrixNameCopy);
-                ModelicaFormatError(
-                    "Variable \"%s\" not found on file \"%s\".\n",
-                    matrixNameBuf, fileName);
+                dots[0] = '\0';
             }
+            free(matrixNameCopy);
+            ModelicaFormatError(
+                "Variable \"%s%s\" not found on file \"%s\".\n",
+                matrixNameBuf, dots, fileName);
         }
         return;
     }
 
     matvar = matvarRoot;
+    prevToken = token;
     token = strtok_r(NULL, ".", &nextToken);
     /* Get field while matvar is of struct class and of 1x1 size */
-    while (token != NULL && matvar != NULL) {
+    while (NULL != token && NULL != matvar) {
         if (matvar->class_type == MAT_C_STRUCT && matvar->rank == 2 &&
             matvar->dims[0] == 1 && matvar->dims[1] == 1) {
             matvar = Mat_VarGetStructField(matvar, (void*)token, MAT_BY_NAME, 0);
             token = strtok_r(NULL, ".", &nextToken);
         }
-        else {
+        else if (matvar->class_type != MAT_C_STRUCT) {
+            err = 1;
+            matvar = NULL;
+            break;
+        }
+        else if (matvar->rank != 2) {
+            err = 2;
+            matvar = NULL;
+            break;
+        }
+        else if (matvar->dims[0] != 1 || matvar->dims[2] != 1) {
+            err = 3;
             matvar = NULL;
             break;
         }
     }
-    free(matrixNameCopy);
 
-    if (matvar == NULL) {
+    if (NULL == matvar) {
         Mat_VarFree(matvarRoot);
         (void)Mat_Close(mat);
-        ModelicaFormatError(
-            "Variable \"%s\" not found on file \"%s\".\n", matrixName, fileName);
+        if (NULL != token) {
+            char matrixNameBuf[MATLAB_NAME_LENGTH_MAX];
+            char dots[4];
+            if (strlen(prevToken) > MATLAB_NAME_LENGTH_MAX - 1) {
+                strncpy(matrixNameBuf, prevToken, MATLAB_NAME_LENGTH_MAX - 1);
+                matrixNameBuf[MATLAB_NAME_LENGTH_MAX - 1] = '\0';
+                strcpy(dots, "...");
+            }
+            else {
+                strcpy(matrixNameBuf, prevToken);
+                dots[0] = '\0';
+            }
+            free(matrixNameCopy);
+            if (1 == err) {
+                ModelicaFormatError(
+                    "Variable \"%s%s\" of \"%s\" is not a struct array.\n",
+                    matrixNameBuf, dots, matrixName);
+            }
+            else if (2 == err) {
+                ModelicaFormatError(
+                    "Variable \"%s%s\" of \"%s\" is not a struct array "
+                    "of rank 2.\n",  matrixNameBuf, dots, matrixName);
+            }
+            else if (3 == err) {
+                ModelicaFormatError(
+                    "Variable \"%s%s\" of \"%s\" is not a 1x1 struct array.\n",
+                    matrixNameBuf, dots, matrixName);
+            }
+        }
+        else {
+            free(matrixNameCopy);
+            ModelicaFormatError(
+                "Variable \"%s\" not found on file \"%s\".\n", matrixName, fileName);
+        }
         return;
     }
+    free(matrixNameCopy);
 
     /* Check if matvar is a matrix */
     if (matvar->rank != 2) {
         Mat_VarFree(matvarRoot);
         (void)Mat_Close(mat);
         ModelicaFormatError(
-            "Variable \"%s\" has not the required rank 2.\n", matrixName);
+            "Variable \"%s\" is not of rank 2.\n", matrixName);
         return;
     }
 
@@ -510,8 +559,8 @@ static void readMatIO(_In_z_ const char* fileName, _In_z_ const char* matrixName
         matvar->class_type != MAT_C_INT64 && matvar->class_type != MAT_C_UINT64) {
         Mat_VarFree(matvarRoot);
         (void)Mat_Close(mat);
-        ModelicaFormatError("Matrix \"%s\" has not the required "
-            "numeric variable class.\n", matrixName);
+        ModelicaFormatError("Matrix \"%s\" is not a "
+            "numeric array.\n", matrixName);
         return;
     }
     matvar->class_type = MAT_C_DOUBLE;
@@ -595,14 +644,14 @@ static double* readTxtTable(_In_z_ const char* fileName, _In_z_ const char* tabl
 #endif
 
     fp = fopen(fileName, "r");
-    if (fp == NULL) {
+    if (NULL == fp) {
         ModelicaFormatError("Not possible to open file \"%s\": "
             "No such file or directory\n", fileName);
         return NULL;
     }
 
     buf = (char*)malloc(LINE_BUFFER_LENGTH*sizeof(char));
-    if (buf == NULL) {
+    if (NULL == buf) {
         fclose(fp);
         ModelicaError("Memory allocation error\n");
         return NULL;
@@ -670,14 +719,14 @@ static double* readTxtTable(_In_z_ const char* fileName, _In_z_ const char* tabl
         lineNo++;
         /* Expected table header format: "dataType tableName(nRow,nCol)" */
         token = strtok_r(buf, DELIM_TABLE_HEADER, &nextToken);
-        if (token == NULL) {
+        if (NULL == token) {
             continue;
         }
         if ((0 != strcmp(token, "double")) && (0 != strcmp(token, "float"))) {
             continue;
         }
         token = strtok_r(NULL, DELIM_TABLE_HEADER, &nextToken);
-        if (token == NULL) {
+        if (NULL == token) {
             continue;
         }
         if (0 == strcmp(token, tableName)) {
@@ -687,7 +736,7 @@ static double* readTxtTable(_In_z_ const char* fileName, _In_z_ const char* tabl
             continue;
         }
         token = strtok_r(NULL, DELIM_TABLE_HEADER, &nextToken);
-        if (token == NULL) {
+        if (NULL == token) {
             continue;
         }
 #if !defined(NO_LOCALE) && (defined(_MSC_VER) && _MSC_VER >= 1400)
@@ -701,7 +750,7 @@ static double* readTxtTable(_In_z_ const char* fileName, _In_z_ const char* tabl
             continue;
         }
         token = strtok_r(NULL, DELIM_TABLE_HEADER, &nextToken);
-        if (token == NULL) {
+        if (NULL == token) {
             continue;
         }
 #if !defined(NO_LOCALE) && (defined(_MSC_VER) && _MSC_VER >= 1400)
@@ -720,7 +769,7 @@ static double* readTxtTable(_In_z_ const char* fileName, _In_z_ const char* tabl
             size_t j = 0;
 
             table = (double*)malloc(nRow*nCol*sizeof(double));
-            if (table == NULL) {
+            if (NULL == table) {
                 *m = 0;
                 *n = 0;
                 free(buf);
@@ -758,7 +807,7 @@ static double* readTxtTable(_In_z_ const char* fileName, _In_z_ const char* tabl
                 nextToken = NULL;
 #endif
                 token = strtok_r(&buf[k], DELIM_TABLE_NUMBER, &nextToken);
-                while (token != NULL && i < nRow && j < nCol) {
+                while (NULL != token && i < nRow && j < nCol) {
                     if (token[0] == '#') {
                         /* Skip trailing comment line */
                         break;
@@ -783,7 +832,7 @@ static double* readTxtTable(_In_z_ const char* fileName, _In_z_ const char* tabl
                     else {
                         char* token2 = (char*)malloc(
                             (strlen(token) + 1)*sizeof(char));
-                        if (token2 != NULL) {
+                        if (NULL != token2) {
                             char* p;
                             strcpy(token2, token);
                             p = strchr(token2, '.');
@@ -818,7 +867,7 @@ static double* readTxtTable(_In_z_ const char* fileName, _In_z_ const char* tabl
                     }
                 }
                 /* Check for trailing non-comment character */
-                if (token != NULL && token[0] != '#') {
+                if (NULL != token && token[0] != '#') {
                     tableReadError = 1;
                     /* Check for trailing number (on same line) */
                     if (i == nRow && 1 == IsNumber(token)) {
@@ -938,7 +987,7 @@ static int readLine(_In_ char** buf, _In_ int* bufLen, _In_ FILE* fp) {
         oldBufLen = *bufLen;
         *bufLen *= 2;
         tmp = (char*)realloc(*buf, (size_t)*bufLen);
-        if (tmp == NULL) {
+        if (NULL == tmp) {
             fclose(fp);
             free(*buf);
             ModelicaError("Memory allocation error\n");
