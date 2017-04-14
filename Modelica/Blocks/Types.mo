@@ -22,7 +22,7 @@ package Types
         "Extrapolate by using the derivative at the first/last table points outside of the table scope",
       Periodic "Repeat the table scope periodically",
       NoExtrapolation "Extrapolation triggers an error")
-    "Enumeration defining the extrapolation of time table interpolation";
+    "Enumeration defining the extrapolation of table interpolation";
 
   type Init = enumeration(
       NoInit
