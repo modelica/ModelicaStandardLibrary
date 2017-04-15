@@ -24,6 +24,12 @@ package Types
       NoExtrapolation "Extrapolation triggers an error")
     "Enumeration defining the extrapolation of table interpolation";
 
+  type TimeEvents = enumeration(
+      Always "Always generate time events at interval boundaries",
+      AtDiscontinuities "Generate time events at discontinuities (defined by duplicated sample points)",
+      NoTimeEvents "No time events at interval boundaries")
+    "Enumeration defining the time event handling of time table interpolation";
+
   type Init = enumeration(
       NoInit
         "No initialization (start values are used as guess values with fixed=false)",
@@ -129,6 +135,7 @@ initialization definition.
       input Modelica.Blocks.Types.Smoothness smoothness;
       input Modelica.Blocks.Types.Extrapolation extrapolation;
       input Modelica.SIunits.Time shiftTime;
+      input Modelica.Blocks.Types.TimeEvents timeEvents;
       input Boolean verboseRead=true "= true: Print info message; = false: No info message";
       output ExternalCombiTimeTable externalCombiTimeTable;
     external"C" externalCombiTimeTable = ModelicaStandardTables_CombiTimeTable_init2(
@@ -143,6 +150,7 @@ initialization definition.
             smoothness,
             extrapolation,
             shiftTime,
+            timeEvents,
             verboseRead) annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
     end constructor;
 

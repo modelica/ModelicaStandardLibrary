@@ -39,6 +39,10 @@
    DUMMY_FUNCTION_USERTAB: Use a dummy function "usertab"
 
    Release Notes:
+      Apr. 15, 2017: by Thomas Beutlich, ESI ITI GmbH
+                     Added support for time event generation (independent of
+                     smoothness) in CombiTimeTable (ticket #2080)
+
       Apr. 11, 2017: by Thomas Beutlich, ESI ITI GmbH
                      Revised initialization of CombiTimeTable, CombiTable1D
                      and CombiTable2D (ticket #1899)
@@ -46,11 +50,11 @@
                      - Removed the implementation of the read functions
 
       Apr. 07, 2017: by Thomas Beutlich, ESI ITI GmbH
-                     Decoupled shift time from start time in CombiTimeTable
-                     (ticket #1771)
+                     Added support for shift time (independent of start time)
+                     in CombiTimeTable (ticket #1771)
 
       Feb. 25, 2017: by Thomas Beutlich, ESI ITI GmbH
-                     Added support of extrapolation for CombiTable1D
+                     Added support for extrapolation in CombiTable1D
                      Added functions to retrieve minimum and maximum
                      abscissa values of CombiTable1D
                      (ticket #2120)
@@ -71,7 +75,7 @@
          (= table    is "NoName" or has only blanks AND
             fileName is "NoName" or has only blanks).
 
-     (2) Read from a file (tableName, fileName have to be supplied).
+     (2) Read from a file (fileName, tableName have to be supplied).
 
    Tables may be linearly interpolated or the first derivative
    may be continuous. In the latter case, cubic Hermite splines with Akima slope
@@ -117,7 +121,7 @@ MODELICA_EXPORT void* ModelicaStandardTables_CombiTimeTable_init(_In_z_ const ch
                                                  _In_ int* columns,
                                                  size_t nCols, int smoothness,
                                                  int extrapolation) MODELICA_NONNULLATTR;
-  /* Same as ModelicaStandardTables_CombiTimeTable_init2, but without shiftTime and
+  /* Same as ModelicaStandardTables_CombiTimeTable_init2, but without shiftTime, timeEvents and
      verbose arguments
   */
 
@@ -130,6 +134,7 @@ MODELICA_EXPORT void* ModelicaStandardTables_CombiTimeTable_init2(_In_z_ const c
                                                   size_t nCols, int smoothness,
                                                   int extrapolation,
                                                   double shiftTime,
+                                                  int timeEvents,
                                                   int verbose) MODELICA_NONNULLATTR;
   /* Initialize 1-dim. table where first column is time
 
@@ -158,6 +163,10 @@ MODELICA_EXPORT void* ModelicaStandardTables_CombiTimeTable_init2(_In_z_ const c
                        = 3: periodic
                        = 4: no
      -> shiftTime: Shift time of first table column
+     -> timeEvents: Time event handling (for constant or linear interpolation)
+                    = 1: always
+                    = 2: at discontinuities
+                    = 3: no
      -> verbose: Print message that file is loading
      <- RETURN: Pointer to internal memory of table structure
   */

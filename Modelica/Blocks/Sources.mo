@@ -2151,6 +2151,9 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
     parameter Modelica.SIunits.Time shiftTime=startTime
       "Shift time of first table column"
       annotation (Dialog(group="Table data interpretation"));
+    parameter Modelica.Blocks.Types.TimeEvents timeEvents=Modelica.Blocks.Types.TimeEvents.Always
+      "Time event handling of table interpolation"
+      annotation (Dialog(group="Table data interpretation", enable=smoothness == Modelica.Blocks.Types.Smoothness.LinearSegments));
     final parameter Modelica.SIunits.Time t_min=t_minScaled*timeScale
       "Minimum abscissa value defined in table";
     final parameter Modelica.SIunits.Time t_max=t_maxScaled*timeScale
@@ -2172,6 +2175,7 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
           smoothness,
           extrapolation,
           shiftTime/timeScale,
+          if smoothness == Modelica.Blocks.Types.Smoothness.LinearSegments then timeEvents elseif smoothness == Modelica.Blocks.Types.Smoothness.ConstantSegments then Modelica.Blocks.Types.TimeEvents.Always else Modelica.Blocks.Types.TimeEvents.NoTimeEvents,
           if tableOnFile then verboseRead else false) "External table object";
     discrete Modelica.SIunits.Time nextTimeEvent(start=0, fixed=true)
       "Next time event instant";
@@ -2268,18 +2272,18 @@ The table interpolation has the following properties:
     to <strong>shiftTime</strong>.</li>
 <li>If time &lt; startTime, no interpolation is performed and the offset
     is used as ordinate value for all outputs.</li>
-<li>The table is implemented in a numerically sound way by <strong>always</strong>
+<li>The table is implemented in a numerically sound way by
     generating <strong>time events</strong> at interval boundaries, in case of
-    interpolation by constant or linear segments.
+    interpolation by linear segments.
     This generates continuously differentiable values for the integrator.
-    (In package Modelica&nbsp;v3.2 and earlier, time events had always been generated
-    at interval boundaries if smoothness was LinearSegments, which means the blocks
-    <a href=\"modelica://Modelica.Blocks.Sources.TimeTable\">TimeTable</a> and
-    CombiTimetable behaved identically. In contrast, in packages Modelica&nbsp;v3.2.1
-    and&nbsp;v3.2.2 time events were only generated for replicated time points,
-    which could lead to unexpected simulation results. This behaviour was later
-    reverted again to match the previous behaviour of Modelica&nbsp;v3.2 and earlier.)
-    </li>
+    Via parameter <strong>timeEvents</strong> it is defined how the time events are generated:
+<pre>
+  timeEvents = 1: Always generate time events at interval boundaries
+             = 2: Generate time events at discontinuities (defined by duplicated sample points)
+             = 3: No time events at interval boundaries
+</pre></li>
+    For interpolation by constant segments time events are always generated at interval boundaries.
+    For smooth interpolation by cubic Hermite splines no time events are generated at interval boundaries.
 <li>Via parameter <strong>timeScale</strong> the first column of the table array can
     be scaled, e.g., if the table array is given in hours (instead of seconds)
     <strong>timeScale</strong> shall be set to 3600.</li>
@@ -2303,7 +2307,7 @@ Example:
             2, 4;
             3, 9;
             4, 16];
-   extrapolation = 2 (default)
+   extrapolation = 2 (default), timeEvents = 2
 If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
     e.g., time = 1.5, the output y =  2.5,
     e.g., time = 2.0, the output y =  4.0,

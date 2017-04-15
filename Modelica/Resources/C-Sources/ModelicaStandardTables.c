@@ -34,6 +34,10 @@
       Modelica.Blocks.Tables.CombiTable2D
 
    Release Notes:
+      Apr. 15, 2017: by Thomas Beutlich, ESI ITI GmbH
+                     Added support for time event generation (independent of
+                     smoothness) in CombiTimeTable (ticket #2080)
+
       Apr. 11, 2017: by Thomas Beutlich, ESI ITI GmbH
                      Revised initialization of CombiTimeTable, CombiTable1D
                      and CombiTable2D (ticket #1899)
@@ -41,8 +45,8 @@
                      - Removed the implementation of the read functions
 
       Apr. 07, 2017: by Thomas Beutlich, ESI ITI GmbH
-                     Decoupled shift time from start time in CombiTimeTable
-                     (ticket #1771)
+                     Added support for shift time (independent of start time)
+                     in CombiTimeTable (ticket #1771)
 
       Apr. 05, 2017: by Thomas Beutlich, ESI ITI GmbH
                      Fixed extrapolation of CombiTimeTable if simulation start
@@ -59,11 +63,6 @@
                      Added support of extrapolation for CombiTable1D (ticket #1839)
                      Added functions to retrieve minimum and maximum abscissa
                      values of CombiTable1D (ticket #2120)
-
-      Jan. 27, 2017: by Thomas Beutlich, ESI ITI GmbH
-                     Always generate time events for CombiTimeTable with linear
-                     interpolation (similarly to constant segments)
-                     (tickets #1627 and #2080)
 
       Aug. 10, 2016: by Thomas Beutlich, ESI ITI GmbH
                      Fixed event detection of CombiTimeTable for restarted
@@ -176,6 +175,13 @@ enum Extrapolation {
     NO_EXTRAPOLATION
 };
 
+enum TimeEvents {
+    UNDEFINED = 0,
+    ALWAYS,
+    AT_DISCONT,
+    NO_TIMEEVENTS
+};
+
 /* ----- Internal enumerations ----- */
 
 enum PointInterval {
@@ -213,6 +219,7 @@ typedef struct CombiTimeTable {
     enum Smoothness smoothness; /* Smoothness kind */
     enum Extrapolation extrapolation; /* Extrapolation kind */
     enum TableSource source; /* Source kind */
+    enum TimeEvents timeEvents; /* Kind of time event handling */
     int* cols; /* Columns of table to be interpolated */
     size_t nCols; /* Number of columns of table to be interpolated */
     double startTime; /* Start time of inter-/extrapolation */
@@ -494,7 +501,7 @@ void* ModelicaStandardTables_CombiTimeTable_init(_In_z_ const char* tableName,
                                                  int extrapolation) {
     return ModelicaStandardTables_CombiTimeTable_init2(fileName,
         tableName, table, nRow, nColumn, startTime, cols, nCols, smoothness,
-        extrapolation, startTime, 1 /* verbose */);
+        extrapolation, startTime, ALWAYS, 1 /* verbose */);
 }
 
 void* ModelicaStandardTables_CombiTimeTable_init2(_In_z_ const char* fileName,
@@ -506,6 +513,7 @@ void* ModelicaStandardTables_CombiTimeTable_init2(_In_z_ const char* fileName,
                                                   size_t nCols, int smoothness,
                                                   int extrapolation,
                                                   double shiftTime,
+                                                  int timeEvents,
                                                   int verbose) {
     CombiTimeTable* tableID;
 #if defined(TABLE_SHARE)
@@ -566,6 +574,7 @@ void* ModelicaStandardTables_CombiTimeTable_init2(_In_z_ const char* fileName,
 
     tableID->smoothness = (enum Smoothness)smoothness;
     tableID->extrapolation = (enum Extrapolation)extrapolation;
+    tableID->timeEvents = (enum TimeEvents)timeEvents;
     tableID->nCols = nCols;
     tableID->startTime = startTime;
     tableID->shiftTime = shiftTime;
@@ -1319,13 +1328,15 @@ double ModelicaStandardTables_CombiTimeTable_nextTimeEvent(void* _tableID,
 
             /* There is at least one time event at the interval boundaries */
             tableID->maxEvents = 1;
-            if (tableID->smoothness == LINEAR_SEGMENTS ||
-                tableID->smoothness == CONSTANT_SEGMENTS) {
+            if (tableID->timeEvents == ALWAYS ||
+                tableID->timeEvents == AT_DISCONT) {
                 for (i = 0; i < nRow - 1; i++) {
                     double t0 = TABLE_COL0(i);
                     double t1 = TABLE_COL0(i + 1);
                     if (t1 > tEvent && !isNearlyEqual(t1, tMax)) {
-                        if (!isNearlyEqual(t0, t1)) {
+                        int isEq = isNearlyEqual(t0, t1);
+                        if ((tableID->timeEvents == ALWAYS && !isEq) ||
+                            (tableID->timeEvents == AT_DISCONT && isEq)) {
                             tEvent = t1;
                             tableID->maxEvents++;
                         }
@@ -1342,25 +1353,45 @@ double ModelicaStandardTables_CombiTimeTable_nextTimeEvent(void* _tableID,
 
             tEvent = TABLE_ROW0(0);
             eventInterval = 0;
-            if (tableID->smoothness == LINEAR_SEGMENTS ||
-                tableID->smoothness == CONSTANT_SEGMENTS) {
+            if (tableID->timeEvents == ALWAYS ||
+                tableID->timeEvents == AT_DISCONT) {
                 for (i = 0; i < nRow - 1 &&
                     eventInterval < tableID->maxEvents; i++) {
                     double t0 = TABLE_COL0(i);
                     double t1 = TABLE_COL0(i + 1);
-                    if (t1 > tEvent) {
-                        if (!isNearlyEqual(t0, t1)) {
-                            tEvent = t1;
-                            tableID->intervals[eventInterval][0] = i;
+                    if (tableID->timeEvents == ALWAYS) {
+                        if (t1 > tEvent && !isNearlyEqual(t1, tMax)) {
+                            if (!isNearlyEqual(t0, t1)) {
+                                tEvent = t1;
+                                tableID->intervals[eventInterval][0] = i;
+                                tableID->intervals[eventInterval][1] = i + 1;
+                                eventInterval++;
+                            }
+                            else {
+                                tableID->intervals[eventInterval][0] = i + 1;
+                            }
+                        }
+                        else {
                             tableID->intervals[eventInterval][1] = i + 1;
-                            eventInterval++;
+                        }
+                    }
+                    else if (tableID->timeEvents == AT_DISCONT) {
+                        if (t1 > tEvent && !isNearlyEqual(t1, tMax)) {
+                            if (isNearlyEqual(t0, t1)) {
+                                tEvent = t1;
+                                tableID->intervals[eventInterval][1] = i;
+                                eventInterval++;
+                                if (eventInterval < tableID->maxEvents) {
+                                    tableID->intervals[eventInterval][0] = i + 1;
+                                }
+                            }
+                            else {
+                                tableID->intervals[eventInterval][1] = i + 1;
+                            }
                         }
                         else {
                             tableID->intervals[eventInterval][0] = i + 1;
                         }
-                    }
-                    else {
-                        tableID->intervals[eventInterval][1] = i + 1;
                     }
                 }
             }
@@ -1425,14 +1456,19 @@ double ModelicaStandardTables_CombiTimeTable_nextTimeEvent(void* _tableID,
                     iEnd = iStart < (nRow - 1) ? iStart : (nRow - 1);
                 }
 
-                if (tableID->smoothness == LINEAR_SEGMENTS ||
-                    tableID->smoothness == CONSTANT_SEGMENTS) {
+                if (tableID->timeEvents == ALWAYS ||
+                    tableID->timeEvents == AT_DISCONT) {
                     size_t i;
                     for (i = iStart + 1; i < nRow - 1; i++) {
                         double t0 = TABLE_COL0(i);
                         if (t0 > t) {
-                            nextTimeEvent = t0;
-                            break;
+                            double t1 = TABLE_COL0(i + 1);
+                            int isEq = isNearlyEqual(t0, t1);
+                            if ((tableID->timeEvents == ALWAYS && !isEq) ||
+                                (tableID->timeEvents == AT_DISCONT && isEq)) {
+	                            nextTimeEvent = t0;
+	                            break;
+	                        }
                         }
                     }
 
@@ -1440,7 +1476,9 @@ double ModelicaStandardTables_CombiTimeTable_nextTimeEvent(void* _tableID,
                         double t0 = TABLE_COL0(i);
                         double t1 = TABLE_COL0(i + 1);
                         if (t1 > tEvent && !isNearlyEqual(t1, tMax)) {
-                            if (!isNearlyEqual(t0, t1)) {
+                            int isEq = isNearlyEqual(t0, t1);
+                            if ((tableID->timeEvents == ALWAYS && !isEq) ||
+                                (tableID->timeEvents == AT_DISCONT && isEq)) {
                                 tEvent = t1;
                                 tableID->eventInterval++;
                             }
