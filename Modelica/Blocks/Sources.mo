@@ -2181,7 +2181,6 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
       "Next time event instant";
     discrete Real nextTimeEventScaled(start=0, fixed=true)
       "Next scaled time event instant";
-    constant Real DBL_MAX = 1.7976931348623158e+308;
     Real timeScaled "Scaled time";
 
   equation
@@ -2195,11 +2194,7 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
     timeScaled = time/timeScale;
     when {time >= pre(nextTimeEvent), initial()} then
       nextTimeEventScaled = Internal.getNextTimeEvent(tableID, timeScaled);
-      if (nextTimeEventScaled < DBL_MAX) then
-        nextTimeEvent = nextTimeEventScaled*timeScale;
-      else
-        nextTimeEvent = DBL_MAX;
-      end if;
+      nextTimeEvent = if nextTimeEventScaled < Modelica.Constants.inf then nextTimeEventScaled*timeScale else Modelica.Constants.inf;
     end when;
     if smoothness == Modelica.Blocks.Types.Smoothness.ConstantSegments then
       for i in 1:nout loop
