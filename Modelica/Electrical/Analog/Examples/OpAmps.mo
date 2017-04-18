@@ -618,7 +618,7 @@ package OpAmps
         Interval=0.001));
   end Comparator;
 
-  model InvertingSchmittTrigger "Schmitt trigger with hysteresis"
+  model InvertingSchmittTrigger "Inverting Schmitt trigger with hysteresis"
     extends Modelica.Icons.Example;
     parameter SI.Voltage Vps=+15 "Positive supply";
     parameter SI.Voltage Vns=-15 "Negative supply";
@@ -777,7 +777,7 @@ package OpAmps
         Interval=0.001));
   end SchmittTrigger;
 
-  model Multivibrator "Multivibrator with Schmidt Trigger"
+  model Multivibrator "Multivibrator with Schmitt trigger"
     extends Modelica.Icons.Example;
     parameter SI.Voltage Vps=+15 "Positive supply";
     parameter SI.Voltage Vns=-15 "Negative supply";
@@ -844,7 +844,7 @@ package OpAmps
         color={0,0,255}));
     annotation (Documentation(info=
                    "<html>
-                        <p>This is a Multivibrator with Schmitt Trigger according to:</p>
+                        <p>This is a Multivibrator with Schmitt trigger according to:</p>
                         <p>U. Tietze and C. Schenk, Halbleiter-Schaltungstechnik (German), 11th edition, Springer 1999, Chapter 6.5.3</p>
                         </html>"),
       experiment(
@@ -854,8 +854,7 @@ package OpAmps
         Interval=0.001));
   end Multivibrator;
 
-  model SignalGenerator
-    "Rectangle-Triangle generatorSchmitt trigger with hysteresis"
+  model SignalGenerator "Rectangle-Triangle generator"
     extends Modelica.Icons.Example;
     import Modelica.Constants.pi;
     parameter SI.Voltage Vps=+15 "Positive supply";
@@ -944,7 +943,7 @@ package OpAmps
         color={0,0,255}));
     annotation (Documentation(info=
                    "<html>
-                        <p>This signal generator consists of a Schmitt Trigger and an integrator. The output of the first OpAmp (Schmidt Trigger) s a rectangular signal, the output of the second OpAmp (integrator) is a triangular signal. </p>
+                        <p>This signal generator consists of a Schmitt trigger and an integrator. The output of the first OpAmp (Schmitt trigger) is a rectangular signal, the output of the second OpAmp (integrator) is a triangular signal. </p>
                         <p>The switching level of the comparator defines the amplitude of the triangle, the frequency is defined by: f = Vps/VAmp/(4*R*C) according to:</p>
                         <p>U. Tietze and C. Schenk, Halbleiter-Schaltungstechnik (German), 11th edition, Springer 1999, Chapter 14.5.2</p>
                         </html>"),
