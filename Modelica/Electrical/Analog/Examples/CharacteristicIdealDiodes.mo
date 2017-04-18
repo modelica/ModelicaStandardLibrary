@@ -26,11 +26,11 @@ model CharacteristicIdealDiodes "Characteristic of ideal diodes"
   Modelica.Electrical.Analog.Basic.Ground Ground1 annotation (Placement(
         transformation(extent={{-50,-80},{-30,-60}})));
 
-  Modelica.Electrical.Analog.Basic.Resistor R1(R=1.e-3) annotation (Placement(
+  Modelica.Electrical.Analog.Basic.Resistor R1(R=1e-3) annotation (Placement(
         transformation(extent={{60,40},{80,60}})));
-  Modelica.Electrical.Analog.Basic.Resistor R2(R=1.e-3)
+  Modelica.Electrical.Analog.Basic.Resistor R2(R=1e-3)
     annotation (Placement(transformation(extent={{60,0},{80,20}})));
-  Modelica.Electrical.Analog.Basic.Resistor R3(R=1.e-3) annotation (Placement(
+  Modelica.Electrical.Analog.Basic.Resistor R3(R=1e-3) annotation (Placement(
         transformation(extent={{60,-40},{80,-20}})));
   Modelica.Electrical.Analog.Sources.SineVoltage SineVoltage2(
     V=10,

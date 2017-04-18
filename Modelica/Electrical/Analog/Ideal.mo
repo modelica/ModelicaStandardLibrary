@@ -148,8 +148,8 @@ Otherwise, the GTO thyristor is locking.
   end IdealGTOThyristor;
 
   model IdealCommutingSwitch "Ideal commuting switch"
-    parameter SI.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance";
-    parameter SI.Conductance Goff(final min=0) = 1.E-5
+    parameter SI.Resistance Ron(final min=0) = 1e-5 "Closed switch resistance";
+    parameter SI.Conductance Goff(final min=0) = 1e-5
       "Opened switch conductance";
     extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
           293.15);
@@ -230,8 +230,8 @@ behavior is <strong>not</strong> modelled. The parameters are not temperature de
   end IdealCommutingSwitch;
 
   model IdealIntermediateSwitch "Ideal intermediate switch"
-    parameter SI.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance";
-    parameter SI.Conductance Goff(final min=0) = 1.E-5
+    parameter SI.Resistance Ron(final min=0) = 1e-5 "Closed switch resistance";
+    parameter SI.Conductance Goff(final min=0) = 1e-5
       "Opened switch conductance";
     extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
           293.15);
@@ -317,8 +317,8 @@ behavior is <strong>not</strong> modelled. The parameters are not temperature de
 
   model ControlledIdealCommutingSwitch "Controlled ideal commuting switch"
     parameter SI.Voltage level=0.5 "Switch level";
-    parameter SI.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance";
-    parameter SI.Conductance Goff(final min=0) = 1.E-5
+    parameter SI.Resistance Ron(final min=0) = 1e-5 "Closed switch resistance";
+    parameter SI.Conductance Goff(final min=0) = 1e-5
       "Opened switch conductance";
     extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
           293.15);
@@ -400,8 +400,8 @@ behavior is <strong>not</strong> modelled. The parameters are not temperature de
   model ControlledIdealIntermediateSwitch
     "Controlled ideal intermediate switch"
     parameter SI.Voltage level=0.5 "Switch level";
-    parameter SI.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance";
-    parameter SI.Conductance Goff(final min=0) = 1.E-5
+    parameter SI.Resistance Ron(final min=0) = 1e-5 "Closed switch resistance";
+    parameter SI.Conductance Goff(final min=0) = 1e-5
       "Opened switch conductance";
     extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
           293.15);
@@ -1307,8 +1307,8 @@ For details of the arc effect, see partial model <a href=\"modelica://Modelica.E
 
   model IdealTriac "Ideal triac, based on ideal thyristors"
 
-    parameter SI.Resistance Ron(final min=0) = 1.e-5 "Closed triac resistance";
-    parameter SI.Conductance Goff(final min=0) = 1.e-5
+    parameter SI.Resistance Ron(final min=0) = 1e-5 "Closed triac resistance";
+    parameter SI.Conductance Goff(final min=0) = 1e-5
       "Opened triac conductance";
     parameter SI.Voltage Vknee(
       final min=0,

@@ -25,7 +25,7 @@ model HeatingMOSInverter "Heating MOS Inverter"
   annotation (Placement(transformation(extent={{-40,40},{-20,60}})));
   Semiconductors.HeatingNMOS H_NMOS(useHeatPort=true)
   annotation (Placement(transformation(extent={{-40,0},{-20,20}})));
-  Modelica.Electrical.Analog.Sources.RampVoltage V(V=5, duration=1.e-2)
+  Modelica.Electrical.Analog.Sources.RampVoltage V(V=5, duration=1e-2)
   annotation (Placement(transformation(
         origin={50,50},
         extent={{-10,-10},{10,10}},

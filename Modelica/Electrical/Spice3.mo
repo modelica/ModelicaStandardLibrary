@@ -351,7 +351,7 @@ Zeunerstrasse 38<br />
           Tolerance=1e-7),
         Documentation(info="<html>
 <p>An inverter is an electrical circuit that consists of a PMOS and a NMOS transistor. Its task is to turn the input voltage from high potential to low potential or the other way round.</p>
-<p>Simulate until 1.e-11 s. Display the input voltage Vin.p.v as well as the output voltage mp.S.v. It shows that the input voltage is inverted.</p>
+<p>Simulate until 1e-11 s. Display the input voltage Vin.p.v as well as the output voltage mp.S.v. It shows that the input voltage is inverted.</p>
 </html>", revisions="<html>
 <ul>
 <li><em>March 2009 </em>by Kristin Majetta initially implemented</li>
@@ -1232,7 +1232,7 @@ Zeunerstrasse 38<br />
             extent={{-10,-10},{10,10}},
             rotation=270,
             origin={60,50})));
-      Modelica.Electrical.Spice3.Basic.C_Capacitor C1(C=1.e-6) annotation (
+      Modelica.Electrical.Spice3.Basic.C_Capacitor C1(C=1e-6) annotation (
           Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
@@ -1491,7 +1491,7 @@ RE 4 8 10K<br/>
 .AC DEC 10 1 100MEG<br/>
 .END
 </pre>
-<p>In the Modelica representation the tiny capacity CJC was set to 1.e-9F to get a higher numerical
+<p>In the Modelica representation the tiny capacity CJC was set to 1e-9F to get a higher numerical
 robustness. In future the numerical behavior will be analysed to be able to apply the original value
 CJC=.5PF.</p>
 </html>"));
@@ -4615,7 +4615,7 @@ on the model behaviour.
         "Zero-bias B-D junction capacitance, default 0";
        parameter SI.Capacitance CBS=-1e40
         "Zero-bias B-S junction capacitance, default 0";
-       parameter SI.Current IS=1.e-14 "Bulk junction saturation current";
+       parameter SI.Current IS=1e-14 "Bulk junction saturation current";
        parameter SI.Voltage PB=0.8 "Bulk junction potential";
        parameter SI.Permittivity CGSO=0.0
         "Gate-source overlap capacitance per meter channel width";
@@ -4903,7 +4903,7 @@ on the model behaviour.
        parameter SI.Conversions.NonSIunits.PerArea_cm NFS=0.0
         "Fast surface state density";
        parameter SI.Length XJ=0.0 "Metallurgical junction depth";
-       parameter Types.ElectricFieldStrength_cm UCRIT=1.e4
+       parameter Types.ElectricFieldStrength_cm UCRIT=1e4
         "Critical field for mobility degradation (MOS2 only)";
        parameter Real UEXP=0.0
         "Critical field exponent in mobility degradation (MOS2 only)";
@@ -5447,7 +5447,7 @@ on the model behaviour.
         "Zero-bias G-S junction capacitance, default 0";
       parameter SI.Capacitance CGD=-1e40
         "Zero-bias G-D junction capacitance, default 0";
-      parameter SI.Current IS=1.e-14 "Saturation current of pn junctions";
+      parameter SI.Current IS=1e-14 "Saturation current of pn junctions";
       parameter Real FC=0.5
         "Coefficient for forward-bias depletion capacitance formula";
       parameter SI.Resistance RD=-1e40 "Drain ohmic resistance, default 0";
@@ -5895,7 +5895,7 @@ on the model behaviour.
         ret := if ( ret > 1e10) then  1e10 else ret;
 
         annotation (Documentation(info="<html>
-<p>This internal function limits the junction voltage. If it increases 1.e10, it is hold to be constant at that value.</p>
+<p>This internal function limits the junction voltage. If it increases 1e10, it is hold to be constant at that value.</p>
 </html>"));
       end junctionVCrit;
 
@@ -5995,7 +5995,7 @@ on the model behaviour.
       Real evbd;
       Real evd;
       constant Real max_exp = 50.;
-      constant SI.Current max_current = 1.e4;
+      constant SI.Current max_current = 1e4;
 
     algorithm
       if (satcur > 1e-101) then
@@ -6049,7 +6049,7 @@ on the model behaviour.
       Real evbd;
       Real evd;
       constant Real max_exp =     50.;
-      constant SI.Current max_current = 1.e4;
+      constant SI.Current max_current = 1e4;
 
     algorithm
       out_current := current;

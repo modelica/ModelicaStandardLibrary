@@ -1325,8 +1325,8 @@ This model is a simple short cut branch considering the complex voltage <em><u>v
     model IdealCommutingSwitch "Ideal commuting switch"
       import Modelica.ComplexMath.real;
       import Modelica.ComplexMath.conj;
-      parameter Modelica.SIunits.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance";
-      parameter Modelica.SIunits.Conductance Goff(final min=0) = 1.E-5 "Opened switch conductance";
+      parameter Modelica.SIunits.Resistance Ron(final min=0) = 1e-5 "Closed switch resistance";
+      parameter Modelica.SIunits.Conductance Goff(final min=0) = 1e-5 "Opened switch conductance";
       extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
            293.15);
       Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.PositivePin p
@@ -1407,8 +1407,8 @@ This switch is only intended to be used for structural changes, not for fast swi
     model IdealIntermediateSwitch "Ideal intermediate switch"
       import Modelica.ComplexMath.real;
       import Modelica.ComplexMath.conj;
-      parameter Modelica.SIunits.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance";
-      parameter Modelica.SIunits.Conductance Goff(final min=0) = 1.E-5 "Opened switch conductance";
+      parameter Modelica.SIunits.Resistance Ron(final min=0) = 1e-5 "Closed switch resistance";
+      parameter Modelica.SIunits.Conductance Goff(final min=0) = 1e-5 "Opened switch conductance";
       extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
            293.15);
       Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.PositivePin p1
@@ -1515,8 +1515,8 @@ This switch is only intended to be used for structural changes, not for fast swi
       import Modelica.ComplexMath.real;
       import Modelica.ComplexMath.conj;
       extends Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.OnePort;
-      parameter Modelica.SIunits.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance";
-      parameter Modelica.SIunits.Conductance Goff(final min=0) = 1.E-5 "Opened switch conductance";
+      parameter Modelica.SIunits.Resistance Ron(final min=0) = 1e-5 "Closed switch resistance";
+      parameter Modelica.SIunits.Conductance Goff(final min=0) = 1e-5 "Opened switch conductance";
       extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=293.15);
       Modelica.Blocks.Interfaces.BooleanInput control "true => switch open, false => p--n connected"
                                                        annotation (Placement(
@@ -1590,8 +1590,8 @@ This switch is only intended to be used for structural changes, not for fast swi
       import Modelica.ComplexMath.real;
       import Modelica.ComplexMath.conj;
       extends Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.OnePort;
-      parameter Modelica.SIunits.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance";
-      parameter Modelica.SIunits.Conductance Goff(final min=0) = 1.E-5 "Opened switch conductance";
+      parameter Modelica.SIunits.Resistance Ron(final min=0) = 1e-5 "Closed switch resistance";
+      parameter Modelica.SIunits.Conductance Goff(final min=0) = 1e-5 "Opened switch conductance";
       extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=293.15);
       Modelica.Blocks.Interfaces.BooleanInput control "true => p--n connected, false => switch open"
                                                        annotation (Placement(

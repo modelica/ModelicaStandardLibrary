@@ -1138,20 +1138,16 @@ The result can be seen in the output signals of the FullAdders according to:</p>
           Modelica.Electrical.Digital.Tristates.WiredX wiredX(n=2)
             annotation (Placement(transformation(extent={{26,-38},{80,16}})));
         equation
-          connect(x_table2.y, bUF3S2.x)
-                                      annotation (Line(
+          connect(x_table2.y, bUF3S2.x) annotation (Line(
               points={{-65,28},{-44.8,27.8}},
               color={127,0,127}));
-          connect(e_table2.y, bUF3S2.enable)
-                                           annotation (Line(
+          connect(e_table2.y, bUF3S2.enable) annotation (Line(
               points={{-65,78},{-44.8,78},{-44.8,53.4}},
               color={127,0,127}));
-          connect(x_table1.y, bUF3S1.x)
-                                      annotation (Line(
+          connect(x_table1.y, bUF3S1.x) annotation (Line(
               points={{-65,-64},{-48.7,-64.3}},
               color={127,0,127}));
-          connect(e_table1.y, bUF3S1.enable)
-                                           annotation (Line(
+          connect(e_table1.y, bUF3S1.enable) annotation (Line(
               points={{-65,-14},{-48.7,-14},{-48.7,-37.9}},
               color={127,0,127}));
           connect(bUF3S1.y, wiredX.x[1]) annotation (Line(

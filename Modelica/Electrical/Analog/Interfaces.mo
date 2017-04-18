@@ -504,9 +504,9 @@ on the model behaviour.
 
   partial model IdealSemiconductor "Ideal semiconductor"
     extends Modelica.Electrical.Analog.Interfaces.OnePort;
-    parameter Modelica.SIunits.Resistance Ron(final min=0) = 1.E-5
+    parameter Modelica.SIunits.Resistance Ron(final min=0) = 1e-5
       "Forward state-on differential resistance (closed resistance)";
-    parameter Modelica.SIunits.Conductance Goff(final min=0) = 1.E-5
+    parameter Modelica.SIunits.Conductance Goff(final min=0) = 1e-5
       "Backward state-off conductance (opened conductance)";
     parameter Modelica.SIunits.Voltage Vknee(final min=0) = 0
       "Forward threshold voltage";
@@ -617,9 +617,9 @@ behavior is <strong>not</strong> modelled.
 
   partial model IdealSwitch "Ideal electrical switch"
     extends Modelica.Electrical.Analog.Interfaces.OnePort;
-    parameter Modelica.SIunits.Resistance Ron(final min=0) = 1.E-5
+    parameter Modelica.SIunits.Resistance Ron(final min=0) = 1e-5
       "Closed switch resistance";
-    parameter Modelica.SIunits.Conductance Goff(final min=0) = 1.E-5
+    parameter Modelica.SIunits.Conductance Goff(final min=0) = 1e-5
       "Opened switch conductance";
     extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=293.15);
   protected

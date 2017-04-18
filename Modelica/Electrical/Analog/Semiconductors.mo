@@ -6,12 +6,12 @@ package Semiconductors
 
   model Diode "Simple diode"
     extends Modelica.Electrical.Analog.Interfaces.OnePort;
-    parameter SI.Current Ids=1.e-6 "Saturation current";
+    parameter SI.Current Ids=1e-6 "Saturation current";
     parameter SI.Voltage Vt=0.04
       "Voltage equivalent of temperature (kT/qn)";
     parameter Real Maxexp(final min=Modelica.Constants.small) = 15
       "Max. exponent for linear continuation";
-    parameter SI.Resistance R=1.e8 "Parallel ohmic resistance";
+    parameter SI.Resistance R=1e8 "Parallel ohmic resistance";
     extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(
        T=293.15);
   equation
@@ -155,11 +155,11 @@ Stefan Vorkoetter - new model proposed.</li>
 
   model ZDiode "Zener diode with 3 working areas"
     extends Modelica.Electrical.Analog.Interfaces.OnePort;
-    parameter SI.Current Ids=1.e-6 "Saturation current";
+    parameter SI.Current Ids=1e-6 "Saturation current";
     parameter SI.Voltage Vt=0.04 "Voltage equivalent of temperature (kT/qn)";
     parameter Real Maxexp(final min=Modelica.Constants.small) = 30
       "Max. exponent for linear continuation";
-    parameter SI.Resistance R=1.e8 "Parallel ohmic resistance";
+    parameter SI.Resistance R=1e8 "Parallel ohmic resistance";
     parameter SI.Voltage Bv=5.1 "Breakthrough voltage = Zener- or Z-voltage";
     parameter SI.Current Ibv=0.7 "Breakthrough knee current";
     parameter Real Nbv=0.74 "Breakthrough emission coefficient";
@@ -227,7 +227,7 @@ model PMOS "Simple MOS Transistor"
   parameter Real K5=0.839 "Reduction of pinch-off region";
   parameter SI.Length dW=-2.5e-6 "Narrowing of channel";
   parameter SI.Length dL=-2.1e-6 "Shortening of channel";
-  parameter SI.Resistance RDS=1.e+7 "Drain-Source-Resistance";
+  parameter SI.Resistance RDS=1e7 "Drain-Source-Resistance";
   extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(
      T=293.15);
   protected
@@ -243,7 +243,7 @@ model PMOS "Simple MOS Transistor"
 equation
   assert(L + dL > 0, "PMOS: Effective length must be positive");
   assert(W + dW > 0, "PMOS: Effective width  must be positive");
-  gds = if (RDS < 1.e-20 and RDS > -1.e-20) then 1.e20 else 1/RDS;
+  gds = if (RDS < 1e-20 and RDS > -1e-20) then 1e20 else 1/RDS;
   v = Beta*(W + dW)/(L + dL);
   ud = smooth(0,if (D.v > S.v) then S.v else D.v);
   us = smooth(0,if (D.v > S.v) then D.v else S.v);
@@ -348,7 +348,7 @@ model NMOS "Simple MOS Transistor"
   parameter Real K5=0.7311 "Reduction of pinch-off region";
   parameter SI.Length dW=-2.5e-6 "Narrowing of channel";
   parameter SI.Length dL=-1.5e-6 "Shortening of channel";
-  parameter SI.Resistance RDS=1.e+7 "Drain-Source-Resistance";
+  parameter SI.Resistance RDS=1e7 "Drain-Source-Resistance";
   extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=293.15);
   protected
   Real v;
@@ -363,7 +363,7 @@ model NMOS "Simple MOS Transistor"
 equation
   assert(L + dL > 0, "NMOS: Effective length must be positive");
   assert(W + dW > 0, "NMOS: Effective width  must be positive");
-  gds = if (RDS < 1.e-20 and RDS > -1.e-20) then 1.e20 else 1/RDS;
+  gds = if (RDS < 1e-20 and RDS > -1e-20) then 1e20 else 1/RDS;
   v = Beta*(W + dW)/(L + dL);
   ud = smooth(0,if (D.v < S.v) then S.v else D.v);
   us = if (D.v < S.v) then D.v else S.v;
@@ -464,7 +464,7 @@ end NMOS;
 model NPN "Simple BJT according to Ebers-Moll"
   parameter Real Bf=50 "Forward beta";
   parameter Real Br=0.1 "Reverse beta";
-  parameter SI.Current Is=1.e-16 "Transport saturation current";
+  parameter SI.Current Is=1e-16 "Transport saturation current";
   parameter SI.InversePotential Vak=0.02 "Early voltage (inverse), 1/Volt";
   parameter SI.Time Tauf=0.12e-9 "Ideal forward transit time";
   parameter SI.Time Taur=5e-9 "Ideal reverse transit time";
@@ -589,7 +589,7 @@ end NPN;
 model PNP "Simple BJT according to Ebers-Moll"
   parameter Real Bf=50 "Forward beta";
   parameter Real Br=0.1 "Reverse beta";
-  parameter SI.Current Is=1.e-16 "Transport saturation current";
+  parameter SI.Current Is=1e-16 "Transport saturation current";
   parameter SI.InversePotential Vak=0.02 "Early voltage (inverse), 1/Volt";
   parameter SI.Time Tauf=0.12e-9 "Ideal forward transit time";
   parameter SI.Time Taur=5e-9 "Ideal reverse transit time";
@@ -703,11 +703,11 @@ end PNP;
 
 model HeatingDiode "Simple diode with heating port"
   extends Modelica.Electrical.Analog.Interfaces.OnePort;
-  parameter SI.Current Ids=1.e-6 "Saturation current";
+  parameter SI.Current Ids=1e-6 "Saturation current";
   /* parameter SI.Voltage Vt=0.04 "Voltage equivalent of temperature (kT/qn)"; */
   parameter Real Maxexp(final min=Modelica.Constants.small) = 15
       "Max. exponent for linear continuation";
-  parameter SI.Resistance R=1.e8 "Parallel ohmic resistance";
+  parameter SI.Resistance R=1e8 "Parallel ohmic resistance";
   parameter Real EG=1.11 "Activation energy";
   parameter Real N=1 "Emission coefficient";
   parameter SI.Temperature TNOM=300.15
@@ -802,10 +802,10 @@ end HeatingDiode;
           parameter Real K5=0.7311 "Reduction of pinch-off region";
           parameter SI.Length dW=-2.5e-6 "Narrowing of channel";
           parameter SI.Length dL=-1.5e-6 "Shortening of channel";
-          parameter SI.Resistance RDS=1.e+7 "Drain-Source-Resistance";
+          parameter SI.Resistance RDS=1e7 "Drain-Source-Resistance";
           parameter SI.Temperature Tnom=300.15 "Parameter measurement temperature";
           parameter Real kvt=-6.96e-3 "Fitting parameter for Vt";
-          parameter Real kk2=6.0e-4 "Fitting parameter for K2";
+          parameter Real kk2=6e-4 "Fitting parameter for K2";
           extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(
              useHeatPort=true);
   protected
@@ -824,7 +824,7 @@ end HeatingDiode;
           assert(L + dL > 0, "Heating NMOS: Effective length must be positive");
           assert(W + dW > 0, "Heating NMOS: Effective width  must be positive");
           assert(T_heatPort > 0,"Heating NMOS: Temperature must be positive");
-          gds = if (RDS < 1.e-20 and RDS > -1.e-20) then 1.e20 else 1/RDS;
+          gds = if (RDS < 1e-20 and RDS > -1e-20) then 1e20 else 1/RDS;
           v = beta_t*(W + dW)/(L + dL);
           ud = smooth(0,if (D.v < S.v) then S.v else D.v);
           us = smooth(0,if (D.v < S.v) then D.v else S.v);
@@ -925,7 +925,7 @@ end HeatingDiode;
           parameter Real K5=0.839 "Reduction of pinch-off region";
           parameter SI.Length dW=-2.5e-6 "Narrowing of channel";
           parameter SI.Length dL=-2.1e-6 "Shortening of channel";
-          parameter SI.Resistance RDS=1.e+7 "Drain-Source-Resistance";
+          parameter SI.Resistance RDS=1e7 "Drain-Source-Resistance";
           parameter SI.Temperature Tnom=300.15 "Parameter measurement temperature";
           parameter Real kvt=-2.9e-3 "Fitting parameter for Vt";
           parameter Real kk2=6.2e-4 "Fitting parameter for K2";
@@ -947,7 +947,7 @@ end HeatingDiode;
           assert(L + dL > 0, "HeatingPMOS: Effective length must be positive");
           assert(W + dW > 0, "HeatingPMOS: Effective width  must be positive");
           assert(T_heatPort > 0,"HeatingPMOS: Temperature must be positive");
-          gds = if (RDS < 1.e-20 and RDS > -1.e-20) then 1.e20 else 1/RDS;
+          gds = if (RDS < 1e-20 and RDS > -1e-20) then 1e20 else 1/RDS;
           v = beta_t*(W + dW)/(L + dL);
           ud = smooth(0,if (D.v > S.v) then S.v else D.v);
           us = smooth(0,if (D.v > S.v) then D.v else S.v);
@@ -1022,7 +1022,7 @@ end HeatingDiode;
         model HeatingNPN "Simple NPN BJT according to Ebers-Moll with heating port"
           parameter Real Bf=50 "Forward beta";
           parameter Real Br=0.1 "Reverse beta";
-          parameter SI.Current Is=1.e-16 "Transport saturation current";
+          parameter SI.Current Is=1e-16 "Transport saturation current";
           parameter SI.InversePotential Vak=0.02 "Early voltage (inverse), 1/Volt";
           parameter SI.Time Tauf=0.12e-9 "Ideal forward transit time";
           parameter SI.Time Taur=5e-9 "Ideal reverse transit time";
@@ -1136,7 +1136,7 @@ end HeatingDiode;
         model HeatingPNP "Simple PNP BJT according to Ebers-Moll with heating port"
           parameter Real Bf=50 "Forward beta";
           parameter Real Br=0.1 "Reverse beta";
-          parameter SI.Current Is=1.e-16 "Transport saturation current";
+          parameter SI.Current Is=1e-16 "Transport saturation current";
           parameter SI.InversePotential Vak=0.02 "Early voltage (inverse), 1/Volt";
           parameter SI.Time Tauf=0.12e-9 "Ideal forward transit time";
           parameter SI.Time Taur=5e-9 "Ideal reverse transit time";

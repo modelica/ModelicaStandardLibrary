@@ -15,14 +15,14 @@ model CharacteristicThyristors "Characteristic of ideal thyristors"
         rotation=270)));
   Modelica.Electrical.Analog.Basic.Ground Ground1
   annotation (Placement(transformation(extent={{-50,-108},{-30,-88}})));
-  Modelica.Electrical.Analog.Basic.Resistor R3(R=1.e-3)
+  Modelica.Electrical.Analog.Basic.Resistor R3(R=1e-3)
   annotation (Placement(transformation(extent={{40,30},{60,50}})));
 
   Modelica.Electrical.Analog.Ideal.IdealGTOThyristor IdealGTOThyristor1(
                                 off(fixed=true, start=true), Vknee=1)
                               annotation (Placement(transformation(extent={{-20,0},
             {0,20}})));
-  Modelica.Electrical.Analog.Basic.Resistor R1(R=1.e-3)
+  Modelica.Electrical.Analog.Basic.Resistor R1(R=1e-3)
   annotation (Placement(transformation(extent={{40,0},{60,20}})));
 
   Blocks.Sources.BooleanTable booleanStep1(table={1.25,3.2,4.2,4.25,5.7,5.72})
@@ -31,13 +31,13 @@ model CharacteristicThyristors "Characteristic of ideal thyristors"
                              off(start=true, fixed= true), Vknee=1)
                            annotation (Placement(transformation(extent={{-20,-52},
             {0,-32}})));
-  Modelica.Electrical.Analog.Basic.Resistor R2(R=1.e-3)
+  Modelica.Electrical.Analog.Basic.Resistor R2(R=1e-3)
   annotation (Placement(transformation(extent={{40,-52},{60,-32}})));
   Modelica.Electrical.Analog.Ideal.IdealGTOThyristor IdealGTOThyristor2(
                                 off(fixed=true, start=true), Vknee=1)
                               annotation (Placement(transformation(extent={{-20,-82},
             {0,-62}})));
-  Modelica.Electrical.Analog.Basic.Resistor R4(R=1.e-3)
+  Modelica.Electrical.Analog.Basic.Resistor R4(R=1e-3)
   annotation (Placement(transformation(extent={{40,-82},{60,-62}})));
   Blocks.Sources.BooleanPulse booleanPulse(
     width=20,

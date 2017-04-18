@@ -1959,9 +1959,9 @@ it uses <em>m</em> <a href=\"modelica://Modelica.Electrical.QuasiStationary.Sing
     model IdealCommutingSwitch "Multiphase ideal commuting switch"
       parameter Integer m(final min=1) = 3 "Number of phases";
       parameter Modelica.SIunits.Resistance Ron[m](final min=zeros(m), start=
-            fill(1.E-5, m)) "Closed switch resistance";
+            fill(1e-5, m)) "Closed switch resistance";
       parameter Modelica.SIunits.Conductance Goff[m](final min=zeros(m), start=
-            fill(1.E-5, m)) "Opened switch conductance";
+            fill(1e-5, m)) "Opened switch conductance";
       extends Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort(
           final mh=m, final T=fill(293.15, m));
       Modelica.Blocks.Interfaces.BooleanInput control[m]
@@ -2050,9 +2050,9 @@ This switch is only intended to be used for structural changes, not fast switchi
     model IdealIntermediateSwitch "Multiphase ideal intermediate switch"
       parameter Integer m(final min=1) = 3 "Number of phases";
       parameter Modelica.SIunits.Resistance Ron[m](final min=zeros(m), start=
-            fill(1.E-5, m)) "Closed switch resistance";
+            fill(1e-5, m)) "Closed switch resistance";
       parameter Modelica.SIunits.Conductance Goff[m](final min=zeros(m), start=
-            fill(1.E-5, m)) "Opened switch conductance";
+            fill(1e-5, m)) "Opened switch conductance";
       extends Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort(
           final mh=m, final T=fill(293.15, m));
       Modelica.Blocks.Interfaces.BooleanInput control[m]
@@ -2153,9 +2153,9 @@ This switch is only intended to be used for structural changes, not fast switchi
     model IdealOpeningSwitch "Multiphase ideal opener"
       extends Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.TwoPlug;
       parameter Modelica.SIunits.Resistance Ron[m](final min=zeros(m), start=
-            fill(1.E-5, m)) "Closed switch resistance";
+            fill(1e-5, m)) "Closed switch resistance";
       parameter Modelica.SIunits.Conductance Goff[m](final min=zeros(m), start=
-            fill(1.E-5, m)) "Opened switch conductance";
+            fill(1e-5, m)) "Opened switch conductance";
       extends Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort(
           final mh=m, final T=fill(293.15, m));
       Modelica.Blocks.Interfaces.BooleanInput control[m]
@@ -2212,9 +2212,9 @@ This switch is only intended to be used for structural changes, not fast switchi
     model IdealClosingSwitch "Multiphase ideal closer"
       extends Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.TwoPlug;
       parameter Modelica.SIunits.Resistance Ron[m](final min=zeros(m), start=
-            fill(1.E-5, m)) "Closed switch resistance";
+            fill(1e-5, m)) "Closed switch resistance";
       parameter Modelica.SIunits.Conductance Goff[m](final min=zeros(m), start=
-            fill(1.E-5, m)) "Opened switch conductance";
+            fill(1e-5, m)) "Opened switch conductance";
       extends Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort(
           final mh=m, final T=fill(293.15, m));
       Modelica.Blocks.Interfaces.BooleanInput control[m]

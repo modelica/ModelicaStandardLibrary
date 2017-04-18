@@ -89,7 +89,7 @@ model HeatingNPN_OrGate "Heating NPN Or Gate"
   Semiconductors.HeatingNPN T1(
     Bf=100,
     Br=1,
-    Is=1.e-14,
+    Is=1e-14,
     Vak=0,
     Tauf=tauVal,
     Taur=tauVal,
@@ -100,8 +100,8 @@ model HeatingNPN_OrGate "Heating NPN Or Gate"
     Me=0.5,
     Phic=1,
     Mc=0.5,
-    Gbc=1.e-12,
-    Gbe=1.e-12,
+    Gbc=1e-12,
+    Gbe=1e-12,
     EMax=40,
     vt_t(start=0.01, fixed=false),
     useHeatPort=true, ibe(start=0), vbc(start=0))
@@ -109,7 +109,7 @@ model HeatingNPN_OrGate "Heating NPN Or Gate"
   Semiconductors.HeatingNPN T2(
     Bf=100,
     Br=1,
-    Is=1.e-14,
+    Is=1e-14,
     Vak=0,
     Tauf=tauVal,
     Taur=tauVal,
@@ -120,8 +120,8 @@ model HeatingNPN_OrGate "Heating NPN Or Gate"
     Me=0.5,
     Phic=1,
     Mc=0.5,
-    Gbc=1.e-12,
-    Gbe=1.e-12,
+    Gbc=1e-12,
+    Gbe=1e-12,
     EMax=40,
     vt_t(start=0.01, fixed=false),
     useHeatPort=true, ibe(start=0), vbc(start=0))

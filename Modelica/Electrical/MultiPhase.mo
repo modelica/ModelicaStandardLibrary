@@ -384,8 +384,8 @@ Simulate for 1 second (2 periods) and compare voltages and currents of source, t
       parameter Modelica.SIunits.Resistance RL=2 "Load Resistance";
       parameter Modelica.SIunits.Capacitance C=0.05 "Total DC-Capacitance";
       parameter Modelica.SIunits.Resistance RE=1E6 "Earthing Resistance";
-      parameter Modelica.SIunits.Resistance Ron=1.E-5 "Closed diode resistance";
-      parameter Modelica.SIunits.Conductance Goff=1.E-5
+      parameter Modelica.SIunits.Resistance Ron=1e-5 "Closed diode resistance";
+      parameter Modelica.SIunits.Conductance Goff=1e-5
         "Opened diode conductance";
       parameter Modelica.SIunits.Voltage Vknee=0 "Threshold diode voltage";
 
@@ -1835,9 +1835,9 @@ This package contains basic analog electrical multiphase components.
     model IdealDiode "Multiphase ideal diode"
       extends Interfaces.TwoPlug;
       parameter Modelica.SIunits.Resistance Ron[m](final min=zeros(m), start=
-            fill(1.E-5, m)) "Closed diode resistance";
+            fill(1e-5, m)) "Closed diode resistance";
       parameter Modelica.SIunits.Conductance Goff[m](final min=zeros(m), start=
-            fill(1.E-5, m)) "Opened diode conductance";
+            fill(1e-5, m)) "Opened diode conductance";
       parameter Modelica.SIunits.Voltage Vknee[m](final min=zeros(m), start=
             zeros(m)) "Threshold voltage";
       extends Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort(
@@ -1882,9 +1882,9 @@ Contains m ideal diodes (Modelica.Electrical.Analog.Ideal.IdealDiode).
     model IdealThyristor "Multiphase ideal thyristor"
       extends Interfaces.TwoPlug;
       parameter Modelica.SIunits.Resistance Ron[m](final min=zeros(m), start=
-            fill(1.E-5, m)) "Closed thyristor resistance";
+            fill(1e-5, m)) "Closed thyristor resistance";
       parameter Modelica.SIunits.Conductance Goff[m](final min=zeros(m), start=
-            fill(1.E-5, m)) "Opened thyristor conductance";
+            fill(1e-5, m)) "Opened thyristor conductance";
       parameter Modelica.SIunits.Voltage Vknee[m](final min=zeros(m), start=
             zeros(m)) "Threshold voltage";
       Boolean off[m] = idealThyristor.off "Alias of boolean thyristor off";
@@ -1944,9 +1944,9 @@ Contains m ideal thyristors (Modelica.Electrical.Analog.Ideal.IdealThyristor).
     model IdealGTOThyristor "Multiphase ideal GTO thyristor"
       extends Interfaces.TwoPlug;
       parameter Modelica.SIunits.Resistance Ron[m](final min=zeros(m), start=
-            fill(1.E-5, m)) "Closed thyristor resistance";
+            fill(1e-5, m)) "Closed thyristor resistance";
       parameter Modelica.SIunits.Conductance Goff[m](final min=zeros(m), start=
-            fill(1.E-5, m)) "Opened thyristor conductance";
+            fill(1e-5, m)) "Opened thyristor conductance";
       parameter Modelica.SIunits.Voltage Vknee[m](final min=zeros(m), start=
             zeros(m)) "Threshold voltage";
       extends Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort(
@@ -2001,9 +2001,9 @@ Contains m ideal GTO thyristors (Modelica.Electrical.Analog.Ideal.IdealGTOThyris
     model IdealCommutingSwitch "Multiphase ideal commuting switch"
       parameter Integer m(final min=1) = 3 "Number of phases";
       parameter Modelica.SIunits.Resistance Ron[m](final min=zeros(m), start=
-            fill(1.E-5, m)) "Closed switch resistance";
+            fill(1e-5, m)) "Closed switch resistance";
       parameter Modelica.SIunits.Conductance Goff[m](final min=zeros(m), start=
-            fill(1.E-5, m)) "Opened switch conductance";
+            fill(1e-5, m)) "Opened switch conductance";
       extends Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort(
           final mh=m, final T=fill(293.15, m));
       Modelica.Blocks.Interfaces.BooleanInput control[m]
@@ -2062,9 +2062,9 @@ Contains m ideal commuting switches (Modelica.Electrical.Analog.Ideal.IdealCommu
     model IdealIntermediateSwitch "Multiphase ideal intermediate switch"
       parameter Integer m(final min=1) = 3 "Number of phases";
       parameter Modelica.SIunits.Resistance Ron[m](final min=zeros(m), start=
-            fill(1.E-5, m)) "Closed switch resistance";
+            fill(1e-5, m)) "Closed switch resistance";
       parameter Modelica.SIunits.Conductance Goff[m](final min=zeros(m), start=
-            fill(1.E-5, m)) "Opened switch conductance";
+            fill(1e-5, m)) "Opened switch conductance";
       extends Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort(
           final mh=m, final T=fill(293.15, m));
       Modelica.Blocks.Interfaces.BooleanInput control[m]
@@ -2293,9 +2293,9 @@ Contains m short cuts (Modelica.Electrical.Analog.Ideal.Short)
     model IdealOpeningSwitch "Multiphase ideal opener"
       extends Interfaces.TwoPlug;
       parameter Modelica.SIunits.Resistance Ron[m](final min=zeros(m), start=
-            fill(1.E-5, m)) "Closed switch resistance";
+            fill(1e-5, m)) "Closed switch resistance";
       parameter Modelica.SIunits.Conductance Goff[m](final min=zeros(m), start=
-            fill(1.E-5, m)) "Opened switch conductance";
+            fill(1e-5, m)) "Opened switch conductance";
       extends Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort(
           final mh=m, final T=fill(293.15, m));
       Modelica.Blocks.Interfaces.BooleanInput control[m]
@@ -2344,9 +2344,9 @@ Contains m ideal opening switches (Modelica.Electrical.Analog.Ideal.IdealOpening
     model IdealClosingSwitch "Multiphase ideal closer"
       extends Interfaces.TwoPlug;
       parameter Modelica.SIunits.Resistance Ron[m](final min=zeros(m), start=
-            fill(1.E-5, m)) "Closed switch resistance";
+            fill(1e-5, m)) "Closed switch resistance";
       parameter Modelica.SIunits.Conductance Goff[m](final min=zeros(m), start=
-            fill(1.E-5, m)) "Opened switch conductance";
+            fill(1e-5, m)) "Opened switch conductance";
       extends Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort(
           final mh=m, final T=fill(293.15, m));
       Modelica.Blocks.Interfaces.BooleanInput control[m]
@@ -2394,9 +2394,9 @@ Contains m ideal closing switches (Modelica.Electrical.Analog.Ideal.IdealClosing
     model OpenerWithArc "Multiphase opener with arc"
       extends Interfaces.TwoPlug;
       parameter Modelica.SIunits.Resistance Ron[m](final min=zeros(m), start=
-            fill(1.E-5, m)) "Closed switch resistance";
+            fill(1e-5, m)) "Closed switch resistance";
       parameter Modelica.SIunits.Conductance Goff[m](final min=zeros(m), start=
-            fill(1.E-5, m)) "Opened switch conductance";
+            fill(1e-5, m)) "Opened switch conductance";
       parameter Modelica.SIunits.Voltage V0[m](start=fill(30, m))
         "Initial arc voltage";
       parameter Modelica.SIunits.VoltageSlope dVdt[m](start=fill(10E3, m))
@@ -2453,9 +2453,9 @@ Contains m ideal closing switches (Modelica.Electrical.Analog.Ideal.IdealClosing
     model CloserWithArc "Multiphase closer with arc"
       extends Interfaces.TwoPlug;
       parameter Modelica.SIunits.Resistance Ron[m](final min=zeros(m), start=
-            fill(1.E-5, m)) "Closed switch resistance";
+            fill(1e-5, m)) "Closed switch resistance";
       parameter Modelica.SIunits.Conductance Goff[m](final min=zeros(m), start=
-            fill(1.E-5, m)) "Opened switch conductance";
+            fill(1e-5, m)) "Opened switch conductance";
       parameter Modelica.SIunits.Voltage V0[m](start=fill(30, m))
         "Initial arc voltage";
       parameter Modelica.SIunits.VoltageSlope dVdt[m](start=fill(10E3, m))
