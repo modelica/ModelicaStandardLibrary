@@ -954,7 +954,7 @@ package OpAmps
         Interval=0.001));
   end SignalGenerator;
 
-  model LCOscillator
+  model LCOscillator "LC oscillator"
     extends Modelica.Icons.Example;
     import Modelica.Constants.pi;
     parameter SI.Voltage VAmp=10 "Amplitude of output";
