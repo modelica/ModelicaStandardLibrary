@@ -189,10 +189,7 @@ Documentation(info="<html>
 end command;
 
 function exit "Terminate execution of Modelica environment"
-  extends Modelica.Icons.Function;
-  input Integer status=0
-      "Result to be returned by environment (0 means success)";
-  external "C" exit(status) annotation(Include="#include <stdlib.h>", Library="ModelicaExternalC");
+  extends ModelicaServices.System.exit;
     annotation (__ModelicaAssociation_Impure=true,
 Documentation(info="<html>
 

@@ -460,6 +460,15 @@ printing and shipping costs may be recovered.</p>
     class ReleaseNotes "Release notes"
       extends Modelica.Icons.ReleaseNotes;
       annotation (Documentation(info="<html>
+<h4>Version 3.x.x, 20xx-xx-xx</h4>
+
+<ul>
+<li> New function
+     <a href=\"modelica://ModelicaServices.System.exit\">exit</a>
+     to terminate the Modelica environment, see <a href=\"https://github.com/modelica/Modelica/issues/2211\">#2211</a>.
+     </li>
+</ul>
+
 <h4>Version 3.2.1, 2012-12-05</h4>
 
 <ul>
@@ -597,13 +606,12 @@ The interface of this model is documented at
     end loadResource;
   end ExternalReferences;
 
-  package Machine
-    // Machine dependent constants
+  package Machine "Machine dependent constants"
     extends Modelica.Icons.Package;
-    final constant Real eps=1.e-15 "Biggest number such that 1.0 + eps = 1.0";
-    final constant Real small=1.e-60
+    final constant Real eps=1e-15 "Biggest number such that 1.0 + eps = 1.0";
+    final constant Real small=1e-60
       "Smallest number such that small and -small are representable on the machine";
-    final constant Real inf=1.e+60
+    final constant Real inf=1e60
       "Biggest Real number such that inf and -inf are representable on the machine";
     final constant Integer Integer_inf=2147483647
       "Biggest Integer number such that Integer_inf and -Integer_inf are representable on the machine";
@@ -616,6 +624,19 @@ but indirectly via the alias definition in
 </p>
 </html>"));
   end Machine;
+
+  package System "System dependent functions"
+    extends Modelica.Icons.Package;
+    function exit "Terminate execution of Modelica environment"
+      extends Modelica.Utilities.Internal.PartialModelicaServices.System.exitBase;
+      external "C" exit(status) annotation(Include="#include <stdlib.h>", Library="ModelicaExternalC");
+      annotation(__ModelicaAssociation_Impure=true, Documentation(info="<html>
+<p>
+Tool-specific implementation of <a href=\"modelica://Modelica.Utilities.System.exit\">Modelica.Utilities.System.exit</a>.
+</p>
+</html>"));
+    end exit;
+  end System;
 
   package Types "Library of types with vendor specific choices"
     extends Modelica.Icons.Package;
@@ -647,7 +668,7 @@ Specification (version &ge; 3.3).
     versionDate="2016-01-15",
     dateModified = "2016-01-15 08:44:41Z",
     revisionId="$Id::                                       $",
-    uses(Modelica(version="3.2.2")),
+    uses(Modelica(version="3.x.x")),
     conversion(
       noneFromVersion="1.0",
       noneFromVersion="1.1",
@@ -661,26 +682,28 @@ These are:
 </p>
 
 <ul>
-<li> <a href=\"modelica://ModelicaServices.Animation.Shape\">Shape</a>
+<li> <a href=\"modelica://ModelicaServices.Animation.Shape\">Animation.Shape</a>
      provides a 3-dim. visualization of elementary
      mechanical objects. It is used in
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape\">Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape</a>
      via inheritance.</li>
 
-<li> <a href=\"modelica://ModelicaServices.Animation.Surface\">Surface</a>
+<li> <a href=\"modelica://ModelicaServices.Animation.Surface\">Animation.Surface</a>
      provides a 3-dim. visualization of
      moveable parameterized surface. It is used in
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.Surface\">Modelica.Mechanics.MultiBody.Visualizers.Advanced.Surface</a>
      via inheritance.</li>
 
-<li> <a href=\"modelica://ModelicaServices.ExternalReferences.loadResource\">loadResource</a>
+<li> <a href=\"modelica://ModelicaServices.ExternalReferences.loadResource\">ExternalReferences.loadResource</a>
      provides a function to return the absolute path name of an URI or a local file name. It is used in
 <a href=\"modelica://Modelica.Utilities.Files.loadResource\">Modelica.Utilities.Files.loadResource</a>
      via inheritance.</li>
 
-<li> <a href=\"modelica://ModelicaServices.Machine\">ModelicaServices.Machine</a>
+<li> <a href=\"modelica://ModelicaServices.Machine\">Machine</a>
      provides a package of machine constants. It is used in
 <a href=\"modelica://Modelica.Constants\">Modelica.Constants</a>.</li>
+
+<li> <a href=\"modelica://ModelicaServices.System.exit\">System.exit</a> provides a function to terminate the execution of the Modelica environment. It is used in <a href=\"modelica://Modelica.Utilities.System.exit\">Modelica.Utilities.System.exit</a> via inheritance.</li>
 
 <li> <a href=\"modelica://ModelicaServices.Types.SolverMethod\">Types.SolverMethod</a>
      provides a string defining the integration method to solve differential equations in

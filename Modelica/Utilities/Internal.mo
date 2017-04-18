@@ -110,6 +110,20 @@ in package ModelicaServices. The interface is documented at
 </html>"));
     end PartialLoadResource;
   end ExternalReferences;
+
+  package System "System dependent functions"
+    extends Modelica.Icons.InternalPackage;
+    partial function exitBase "Interface for tool specific function to terminate the execution of the Modelica environment"
+      extends Modelica.Icons.Function;
+      input Integer status=0 "Result to be returned by environment (0 means success)";
+      annotation (Documentation(info="<html>
+<p>
+This partial function defines the function interface of a tool-specific implementation
+in package ModelicaServices.
+</p>
+</html>"));
+    end exitBase;
+  end System;
     annotation (Documentation(info="<html>
 
 <p>
