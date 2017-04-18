@@ -1099,17 +1099,13 @@ For parameters, connectors, as well as inputs and outputs of function automatic 
 
         annotation (Documentation(info="<html>
 
-<ol>
-<li> In the <strong>icon</strong> of a component the instance name is displayed
-     (text string <code>%name</code>) in <strong>blue color</strong>.
-     Parameter values, e.g., resistance, mass, gear ratio, are displayed
-     in the icon in <strong>black color</strong> in a smaller font size as the instance name.</li>
-<li> Comments and annotations should start with a capital letter, for example: <br>
+<h4>Comments and Annotations</h4>
+<p>
+Comments and annotations should start with a capital letter, for example:<br>
      <code><strong>parameter</strong> Real a = 1 \"Arbitrary factor\";</code>.<br>
      For Boolean parameters, the description string should start with \"= true: ..\", for example:<br>
-     <code><strong>parameter</strong> Boolean useHeatPort = false \"= true, if heatPort is enabled\";</code>.</li>
-</ol>
-
+     <code><strong>parameter</strong> Boolean useHeatPort = false \"= true, if heatPort is enabled\";</code>.
+</p>
 </html>"));
        end Format;
 
@@ -1145,7 +1141,8 @@ For parameters, connectors, as well as inputs and outputs of function automatic 
      <code>HeatPort_a</code>, <code>HeatPort_b</code>.</li>
 
 <li> A <strong>connector class</strong> has the instance
-     name definition in the diagram layer and not in the icon layer.</li>
+     name definition in the diagram layer and not in the 
+     <a href=\"modelica://Modelica.UsersGuide.Conventions.Icons\">icon</a> layer.</li>
 </ol>
 
 <h4>Variable names</h4>
@@ -1304,8 +1301,9 @@ For parameters, connectors, as well as inputs and outputs of function automatic 
       annotation (Documentation(info="<html>
 
 <p>In this section the
-<a href=\"modelica://Modelica.UsersGuide.Conventions.ModelicaCode.Naming\">naming conventions</a> of class and instance names, parameters and variables are specified. Additionally some
-<a href=\"modelica://Modelica.UsersGuide.Conventions.ModelicaCode.Format\">format UsersGuide</a> are stated.</p>
+<a href=\"modelica://Modelica.UsersGuide.Conventions.ModelicaCode.Naming\">naming conventions</a> of class and instance names, parameters and variables are specified. 
+Additional
+<a href=\"modelica://Modelica.UsersGuide.Conventions.ModelicaCode.Format\">format</a> guidelines are provided.</p>
 
 </html>"));
     end ModelicaCode;
@@ -1639,6 +1637,105 @@ This class summarizes contact information of the contributing persons.
 </ol>
 </html>"));
     end UsersGuide;
+
+    class Icons "Icon design"
+      extends Modelica.Icons.Information;
+      annotation (Documentation(info="<html>
+
+<p>The icon of a Modelica class shall consider the following the guidelines: </p>
+
+<h4>Color and Shapes</h4>
+
+
+<p>The main icon color of a component shall be the same for all components of one library.</p>
+
+<p>White fill areas of an icon shall not be used to hide parts of an icon, see 
+<a href=\"modelica://https://github.com/modelica/Modelica/issues/2031\">#2031</a>.</p>
+
+<h4>Icon size</h4>
+
+<p>The icon of a Modelica class shall not be significantly greater or smaller than the default Diagram limits of 200 units x 200 units. These default diagram limits are</p>
+<ul>
+<li>-100 units &le; horizontal coordinate &le; +100 units</li>
+<li>-100 units &le; vertical coordinate &le; +100 untis</li>
+</ul>
+<p>If possible, the icon shall be designed such way, that the icon name <code>%name</code> 
+and the most significant parameter can be displayed within the vertical Diagram range of the icon.</p>
+
+<p>
+(a) <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icon_name.png\">
+(b) <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icon_name_dimensions.png\"><br>
+Fig. 1: (a) Typical icon, (b) including dimensions
+</p>
+
+<h4>Component Name</h4>
+
+<p>The component name <code>%name</code> shall be in RGB (0,0,255) blue color.</p>
+<ul>
+<li>Text height: 40 units</li>
+<li>Text width: 300 units </li>
+</ul>
+<p>The text shall be located above the actual icon. If there is enough space, the upper text limit of the component name
+shall be 10 units below the upper icon boundary, see Fig. 1.</p>
+
+<p>If the icon is as big as the entire icon range of 200 units x 200 units, e.g. in blocks, 
+the component name shall be placed above the icon with vertical 10 units of space between icon and lower text box, see Fig. 2.</p>
+
+<p>
+<img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Block_name.png\"><br>
+Fig. 2: Block component name
+</p>
+
+<p>If there is a connector locoated at the top icon boundary and it is obvious that this connector influences the model 
+behavior compared to a similar model without such connector, then a line from the connector to the actual icon
+shall be avoided to keep the design straight, see Fig. 4. If it is required to use a line indicating the connector dependency, then
+the line shall be interrupted such that this line does not interfere with component name.</p>
+
+<p>
+<img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icon_name_connector_above.png\"><br>
+Fig. 3: Component name between actual icon and connector
+</p>
+
+<p>In some cases, if there is not alternative, the component name has to be placed below the actual icon, see. Fig. 4.</p>
+
+<p>
+<img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icon_name_below.png\"><br>
+Fig. 4: Component name below actual icon
+</p>
+
+<h4>Parameter Name</h4>
+
+<p>One significant parameter shall be placed below the icon, see Fig. 1 and 2. The parameter name shall be RGB (0,0,0) black color.</p>
+<ul>
+<li>Text height: 40 units (or 30 units, minimum 20 units, if required)</li>
+<li>Text width: 300 units </li>
+</ul>
+<p>The parameter text box shall be placed 10 units below the actual icon.  
+</p>
+
+<h4>Connector location</h4>
+
+<p>Physical connectors shall always be located on the icon boundary. Input and output connector shall be placed outside the icon, see Fig. 2 and 3. 
+Preferred connector locations are:</p>
+<ul>
+<li>at the four corners of the icon diagram, see Fig. 5</li>
+<li>at vertical or horizontal symmetry line of an icon, see Fig. 1-3</li>
+<li>alternative connection points shall be located in a raster of 20 units (or 10 units) if required, see Fig. 4</li>
+</ul>
+
+<p>
+<img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icon_connector_corner.png\"><br>
+Fig. 5: Connectors located at the four corners of the icon diagram
+</p>
+
+<h4>Diagram icons</h4>
+
+<p>Icons drawn in the Diagram layer shall be avoided. Particularly, icons of Diagram layer shall be avoided which are equal to the 
+icons of the Icon layer. Any graphical illustrations shall be moved to the HTML documentation instead.</p>
+
+
+</html>"));
+    end Icons;
     annotation (DocumentationClass=true,Documentation(info="<html>
 <p>A Modelica main package should be compliant with the UsersGuide stated in this documentation:</p>
 <ol>

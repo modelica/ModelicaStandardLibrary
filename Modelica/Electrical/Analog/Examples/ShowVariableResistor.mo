@@ -43,15 +43,14 @@ equation
           -20}}, color={0,0,255}));
   connect(Ground2.p, R5.n) annotation (Line(points={{70,-20},{70,-10},{40,
           -10}}, color={0,0,255}));
-  connect(SineVoltage1.p, Ground1.p)
-                                   annotation (Line(points={{-90,-40},{-90,-60}},
+  connect(SineVoltage1.p, Ground1.p) annotation (Line(points={{-90,-40},{-90,-60}},
         color={0,0,255}));
   connect(SineVoltage1.n, R1.p) annotation (Line(points={{-90,-20},{-90,50},
           {-60,50}}, color={0,0,255}));
   connect(SineVoltage1.n, R4.p) annotation (Line(points={{-90,-20},{-90,
           -10},{-60,-10}}, color={0,0,255}));
-  connect(Ramp1.y, VariableResistor.R) annotation (Line(points={{-10,9},
-          {-10,4.5},{-10,1}}, color={0,0,255}));
+  connect(Ramp1.y, VariableResistor.R) annotation (Line(points={{-10,9},{-10,2},{-10,2}},
+                                         color={0,0,255}));
 annotation (Documentation(info="<html>
 <p>It is a simple test circuit for the VariableResistor. The VariableResistor should be compared with R2.</p>
 <p>Simulate until T=1 s.</p>

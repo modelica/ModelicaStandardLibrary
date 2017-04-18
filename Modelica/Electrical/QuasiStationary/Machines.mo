@@ -1606,10 +1606,10 @@ This package contains transformers primary D connected / secondary d connected i
                   10,-100},{50,-100}}, color={85,170,255}));
           connect(r1.plug_p, Delta1.plug_p) annotation (Line(points={{-90,0},{-90,
                   -20},{-50,-20}}, color={85,170,255}));
-          connect(l1sigma.plug_n, core.plug_p1) annotation (Line(points={{-50,0},
-                  {-50,20},{-10,20},{-10,5},{-10,5}}, color={85,170,255}));
-          connect(Delta1.plug_n, core.plug_n1) annotation (Line(points={{-30,-20},
-                  {-10,-20},{-10,-5}}, color={85,170,255}));
+          connect(l1sigma.plug_n, core.plug_p1) annotation (Line(points={{-50,0},{-50,20},{-10,20},{-10,10},{-10,10}},
+                                                      color={85,170,255}));
+          connect(Delta1.plug_n, core.plug_n1) annotation (Line(points={{-30,-20},{-10,-20},{-10,-10}},
+                                       color={85,170,255}));
           connect(core.plug_p2, Rot21.plug_n)
             annotation (Line(points={{10,10},{30,10}}, color={85,170,255}));
           connect(core.plug_p3, Rot21.plug_p) annotation (Line(points={{10,-4},
@@ -1699,10 +1699,10 @@ Transformer Dz2
                   10,-100},{50,-100}}, color={85,170,255}));
           connect(r1.plug_p, Delta1.plug_p) annotation (Line(points={{-90,0},{-90,
                   -20},{-50,-20}}, color={85,170,255}));
-          connect(l1sigma.plug_n, core.plug_p1) annotation (Line(points={{-50,0},
-                  {-50,20},{-10,20},{-10,5}}, color={85,170,255}));
-          connect(Delta1.plug_n, core.plug_n1) annotation (Line(points={{-30,-20},
-                  {-10,-20},{-10,-5}}, color={85,170,255}));
+          connect(l1sigma.plug_n, core.plug_p1) annotation (Line(points={{-50,0},{-50,20},{-10,20},{-10,10}},
+                                              color={85,170,255}));
+          connect(Delta1.plug_n, core.plug_n1) annotation (Line(points={{-30,-20},{-10,-20},{-10,-10}},
+                                       color={85,170,255}));
           connect(core.plug_p2, Rot21.plug_n)
             annotation (Line(points={{10,10},{30,10}}, color={85,170,255}));
           connect(core.plug_p3, Rot21.plug_p) annotation (Line(points={{10,-4},
@@ -2038,9 +2038,9 @@ Copyright &copy; 1998-2016, Modelica Association and Anton Haumer.
         Modelica.SIunits.ComplexCurrent i3[m];
         Modelica.SIunits.ComplexCurrent im[m] "Magnetizing current";
         QuasiStationary.MultiPhase.Interfaces.PositivePlug plug_p1(final m=m)
-          annotation (Placement(transformation(extent={{-110,40},{-90,60}})));
+          annotation (Placement(transformation(extent={{-110,90},{-90,110}}), iconTransformation(extent={{-110,90},{-90,110}})));
         QuasiStationary.MultiPhase.Interfaces.NegativePlug plug_n1(final m=m)
-          annotation (Placement(transformation(extent={{-110,-60},{-90,-40}})));
+          annotation (Placement(transformation(extent={{-110,-110},{-90,-90}}), iconTransformation(extent={{-110,-110},{-90,-90}})));
         QuasiStationary.MultiPhase.Interfaces.PositivePlug plug_p2(final m=m)
           annotation (Placement(transformation(extent={{90,90},{110,110}})));
         QuasiStationary.MultiPhase.Interfaces.NegativePlug plug_n2(final m=m)
@@ -2079,40 +2079,119 @@ Copyright &copy; 1998-2016, Modelica Association and Anton Haumer.
         plug_p2.pin.i + plug_n2.pin.i = fill(Complex(0), m);
         plug_p3.pin.i + plug_n3.pin.i = fill(Complex(0), m);
         annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                  -100},{100,100}}), graphics={
+                  -100},{100,100}}), graphics={Text(
+                      extent={{-150,150},{150,110}},
+                      textString="%name",
+                      lineColor={0,0,255}), Line(points={{-90,100},{-30,100}},
+                      color={85,170,255}),
+                                       Line(points={{-90,-100},{-30,-100}},
+                                                                          color={85,170,255}),
+                                                     Line(points={{30,100},{90,100}},
+                      color={85,170,255}),
+                                       Line(points={{30,40},{92,40}}, color={85,170,255}),
+                                                     Line(points={{30,-40},{90,-40}},
+                       color={85,170,255}),
+                                        Line(points={{30,-100},{90,-100}},
+                                                                         color={85,170,255}),
+              Line(
+                points={{-10,-5},{-9,0},{-4,5},{4,5},{9,0},{10,-5}},
+                color={85,170,255},
+                smooth=Smooth.Bezier,
+                origin={25,90},
+                rotation=90),
+              Line(
+                points={{-10,-5},{-9,0},{-4,5},{4,5},{9,0},{10,-5}},
+                color={85,170,255},
+                smooth=Smooth.Bezier,
+                origin={25,70},
+                rotation=90),
+              Line(
+                points={{-10,-5},{-9,0},{-4,5},{4,5},{9,0},{10,-5}},
+                color={85,170,255},
+                smooth=Smooth.Bezier,
+                origin={25,50},
+                rotation=90),
+              Line(
+                points={{-10,-5},{-9,0},{-4,5},{4,5},{9,0},{10,-5}},
+                color={85,170,255},
+                smooth=Smooth.Bezier,
+                origin={25,-50},
+                rotation=90),
+              Line(
+                points={{-10,-5},{-9,0},{-4,5},{4,5},{9,0},{10,-5}},
+                color={85,170,255},
+                smooth=Smooth.Bezier,
+                origin={25,-70},
+                rotation=90),
+              Line(
+                points={{-10,-5},{-9,0},{-4,5},{4,5},{9,0},{10,-5}},
+                color={85,170,255},
+                smooth=Smooth.Bezier,
+                origin={25,-90},
+                rotation=90),
+              Line(
+                points={{-5,-10},{0,-9},{5,-4},{5,4},{0,9},{-5,10}},
+                color={85,170,255},
+                smooth=Smooth.Bezier,
+                origin={-25,90},
+                rotation=360),
+              Line(
+                points={{-5,-10},{0,-9},{5,-4},{5,4},{0,9},{-5,10}},
+                color={85,170,255},
+                smooth=Smooth.Bezier,
+                origin={-25,70},
+                rotation=360),
+              Line(
+                points={{-5,-10},{0,-9},{5,-4},{5,4},{0,9},{-5,10}},
+                color={85,170,255},
+                smooth=Smooth.Bezier,
+                origin={-25,50},
+                rotation=360),
+              Line(
+                points={{-5,-10},{0,-9},{5,-4},{5,4},{0,9},{-5,10}},
+                color={85,170,255},
+                smooth=Smooth.Bezier,
+                origin={-25,30},
+                rotation=360),
+              Line(
+                points={{-5,-10},{0,-9},{5,-4},{5,4},{0,9},{-5,10}},
+                color={85,170,255},
+                smooth=Smooth.Bezier,
+                origin={-25,10},
+                rotation=360),
+              Line(
+                points={{-5,-10},{0,-9},{5,-4},{5,4},{0,9},{-5,10}},
+                color={85,170,255},
+                smooth=Smooth.Bezier,
+                origin={-25,-10},
+                rotation=360),
+              Line(
+                points={{-5,-10},{0,-9},{5,-4},{5,4},{0,9},{-5,10}},
+                color={85,170,255},
+                smooth=Smooth.Bezier,
+                origin={-25,-30},
+                rotation=360),
+              Line(
+                points={{-5,-10},{0,-9},{5,-4},{5,4},{0,9},{-5,10}},
+                color={85,170,255},
+                smooth=Smooth.Bezier,
+                origin={-25,-50},
+                rotation=360),
+              Line(
+                points={{-5,-10},{0,-9},{5,-4},{5,4},{0,9},{-5,10}},
+                color={85,170,255},
+                smooth=Smooth.Bezier,
+                origin={-25,-70},
+                rotation=360),
+              Line(
+                points={{-5,-10},{0,-9},{5,-4},{5,4},{0,9},{-5,10}},
+                color={85,170,255},
+                smooth=Smooth.Bezier,
+                origin={-25,-90},
+                rotation=360),
               Text(
-                extent={{-100,130},{100,110}},
-                textString="%name",
-                lineColor={0,0,255}),
-              Ellipse(extent={{-45,-50},{-20,-25}}, lineColor={0,0,255}),
-              Ellipse(extent={{-45,-25},{-20,0}}, lineColor={0,0,255}),
-              Ellipse(extent={{-45,0},{-20,25}}, lineColor={0,0,255}),
-              Ellipse(extent={{-45,25},{-20,50}}, lineColor={0,0,255}),
-              Rectangle(
-                extent={{-46,-50},{-34,50}},
-                lineColor={255,255,255},
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid),
-              Line(points={{-90,50},{-32,50}}, color={0,0,255}),
-              Line(points={{-90,-50},{-32,-50}}, color={0,0,255}),
-              Ellipse(extent={{20,40},{45,65}}, lineColor={0,0,255}),
-              Ellipse(extent={{20,65},{45,90}}, lineColor={0,0,255}),
-              Rectangle(
-                extent={{36,40},{46,90}},
-                lineColor={255,255,255},
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid),
-              Line(points={{32,90},{90,90}}, color={0,0,255}),
-              Line(points={{34,40},{92,40}}, color={0,0,255}),
-              Ellipse(extent={{20,-90},{45,-65}}, lineColor={0,0,255}),
-              Ellipse(extent={{20,-65},{45,-40}}, lineColor={0,0,255}),
-              Rectangle(
-                extent={{36,-90},{46,-40}},
-                lineColor={255,255,255},
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid),
-              Line(points={{32,-40},{90,-40}}, color={0,0,255}),
-              Line(points={{34,-90},{92,-90}}, color={0,0,255})}),
+                extent={{-150,-110},{150,-150}},
+                textString="m=%m")}),
             Documentation(info="<html>
 Partial model of transformer core with 3 windings; saturation function flux versus magnetizing current has to be defined.
 </html>"));
@@ -2314,10 +2393,10 @@ This package contains components for modeling quasi stationary electrical induct
           points={{-20,80},{0,80}},
           color={191,0,0}));
       connect(r1.heatPort, internalThermalPort.heatPort1) annotation (Line(
-          points={{-80,10},{-80,60},{0,60},{0,80}},
+          points={{-80,10},{-80,60},{-0.4,60},{-0.4,80.8}},
           color={191,0,0}));
       connect(r2.heatPort, internalThermalPort.heatPort2) annotation (Line(
-          points={{80,10},{80,60},{0,60},{0,80}},
+          points={{80,10},{80,60},{-0.4,60},{-0.4,79.2}},
           color={191,0,0}));
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(

@@ -28,26 +28,9 @@ package Basic "Basic electrical components"
           Line(points={{-20,10},{20,10}}, color={0,0,255}),
           Line(points={{0,90},{0,50}}, color={0,0,255}),
           Text(
-            extent={{-144,-19},{156,-59}},
+            extent={{-150,-10},{150,-52}},
             textString="%name",
-            lineColor={0,0,255})}),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={Line(
-              points={{-60,50},{60,50}},
-              thickness=0.5,
-              color={0,0,255}),Line(
-              points={{-40,30},{40,30}},
-              thickness=0.5,
-              color={0,0,255}),Line(
-              points={{-20,10},{20,10}},
-              thickness=0.5,
-              color={0,0,255}),Line(
-              points={{0,96},{0,50}},
-              thickness=0.5,
-              color={0,0,255}),Text(
-              extent={{-24,-38},{22,-6}},
-              textString="p.v=0",
-              lineColor={0,0,255})}));
+            lineColor={0,0,255})}));
   end Ground;
 
   model Resistor "Ideal linear electrical resistor"
@@ -94,7 +77,7 @@ package Basic "Basic electrical components"
           Line(points={{-90,0},{-70,0}}, color={0,0,255}),
           Line(points={{70,0},{90,0}}, color={0,0,255}),
           Text(
-            extent={{-144,-40},{142,-72}},
+            extent={{-150,-40},{150,-80}},
             textString="R=%R"),
           Line(
             visible=useHeatPort,
@@ -102,13 +85,9 @@ package Basic "Basic electrical components"
             color={127,0,0},
             pattern=LinePattern.Dot),
           Text(
-            extent={{-152,87},{148,47}},
+            extent={{-150,90},{150,50}},
             textString="%name",
-            lineColor={0,0,255})}),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={Rectangle(extent={{-70,30},{70,-30}},
-            lineColor={0,0,255}),Line(points={{-96,0},{-70,0}}, color={0,0,255}),
-            Line(points={{70,0},{96,0}}, color={0,0,255})}));
+            lineColor={0,0,255})}));
   end Resistor;
 
   model HeatingResistor "Temperature dependent electrical resistor"
@@ -159,19 +138,8 @@ package Basic "Basic electrical components"
             lineColor={0,0,255},
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid),
-          Line(points={{-52,-50},{48,50}}, color={0,0,255}),
-          Polygon(
-            points={{40,52},{50,42},{54,56},{40,52}},
-            lineColor={0,0,255},
-            fillColor={0,0,255},
-            fillPattern=FillPattern.Solid),
-          Line(
-            visible=useHeatPort,
-            points={{0,-100},{0,-30}},
-            color={127,0,0},
-            pattern=LinePattern.Dot),
           Text(
-            extent={{-156,109},{144,69}},
+            extent={{-150,90},{150,50}},
             textString="%name",
             lineColor={0,0,255})}),
       Documentation(info="<html>
@@ -243,16 +211,12 @@ package Basic "Basic electrical components"
             color={127,0,0},
             pattern=LinePattern.Dot),
           Text(
-            extent={{-152,87},{148,47}},
-            textString="%name",
-            lineColor={0,0,255}),
+            extent={{-150,-40},{150,-80}},
+            textString="G=%G"),
           Text(
-            extent={{-144,-38},{142,-70}},
-            textString="G=%G")}),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={Line(points={{-96,0},{-70,0}}, color={0,0,
-            255}),Line(points={{70,0},{96,0}}, color={0,0,255}),Rectangle(
-            extent={{-70,30},{70,-30}}, lineColor={0,0,255})}));
+            extent={{-150,90},{150,50}},
+            textString="%name",
+            lineColor={0,0,255})}));
   end Conductor;
 
   model Capacitor "Ideal linear electrical capacitor"
@@ -279,21 +243,12 @@ package Basic "Basic electrical components"
           Line(points={{-90,0},{-6,0}}, color={0,0,255}),
           Line(points={{6,0},{90,0}}, color={0,0,255}),
           Text(
-            extent={{-136,-60},{136,-92}},
+            extent={{-150,-40},{150,-80}},
             textString="C=%C"),
           Text(
-            extent={{-150,85},{150,45}},
+            extent={{-150,90},{150,50}},
             textString="%name",
-            lineColor={0,0,255})}),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={Line(
-              points={{-20,40},{-20,-40}},
-              thickness=0.5,
-              color={0,0,255}),Line(
-              points={{20,40},{20,-40}},
-              thickness=0.5,
-              color={0,0,255}),Line(points={{-96,0},{-20,0}}, color={0,0,255}),
-            Line(points={{20,0},{96,0}}, color={0,0,255})}));
+            lineColor={0,0,255})}));
   end Capacitor;
 
   model Inductor "Ideal linear electrical inductor"
@@ -315,27 +270,31 @@ package Basic "Basic electrical components"
 </html>"),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
-   Line(points={{-60,0},{-60,6},{-51,15},{-45,15},{-39,15},{-30,6},{-30,0}}, color={0,0,255}, smooth=Smooth.Bezier),
-   Line(points={{-30,0},{-30,6},{-21,15},{-15,15},{-9,15},{0,6},{0,0}}, color={0,0,255}, smooth=Smooth.Bezier),
-   Line(points={{0,0},{0,6},{9,15},{15,15},{21,15},{30,6},{30,0}}, color={0,0,255}, smooth=Smooth.Bezier),
-   Line(points={{30,0},{30,6},{39,15},{45,15},{51,15},{60,6},{60,0}}, color={0,0,255}, smooth=Smooth.Bezier),
           Line(points={{60,0},{90,0}}, color={0,0,255}),
           Line(points={{-90,0},{-60,0}}, color={0,0,255}),
           Text(
-            extent={{-138,-60},{144,-94}},
+            extent={{-150,-40},{150,-80}},
             textString="L=%L"),
+          Line(
+            points={{-60,0},{-59,6},{-52,14},{-38,14},{-31,6},{-30,0}},
+            color={0,0,255},
+            smooth=Smooth.Bezier),
+          Line(
+            points={{-30,0},{-29,6},{-22,14},{-8,14},{-1,6},{0,0}},
+            color={0,0,255},
+            smooth=Smooth.Bezier),
+          Line(
+            points={{0,0},{1,6},{8,14},{22,14},{29,6},{30,0}},
+            color={0,0,255},
+            smooth=Smooth.Bezier),
+          Line(
+            points={{30,0},{31,6},{38,14},{52,14},{59,6},{60,0}},
+            color={0,0,255},
+            smooth=Smooth.Bezier),
           Text(
-            extent={{-152,79},{148,39}},
+            extent={{-150,90},{150,50}},
             textString="%name",
-            lineColor={0,0,255})}),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={
-     Line(points={{-60,0},{-60,6},{-51,15},{-45,15},{-39,15},{-30,6},{-30,0}}, color={0,0,255}, smooth=Smooth.Bezier),
-     Line(points={{-30,0},{-30,6},{-21,15},{-15,15},{-9,15},{0,6},{0,0}}, color={0,0,255}, smooth=Smooth.Bezier),
-     Line(points={{0,0},{0,6},{9,15},{15,15},{21,15},{30,6},{30,0}}, color={0,0,255}, smooth=Smooth.Bezier),
-     Line(points={{30,0},{30,6},{39,15},{45,15},{51,15},{60,6},{60,0}}, color={0,0,255}, smooth=Smooth.Bezier),
-     Line(points={{60,0},{96,0}}, color={0,0,255}),
-     Line(points={{-96,0},{-60,0}}, color={0,0,255})}));
+            lineColor={0,0,255})}));
   end Inductor;
 
   model SaturatingInductor "Simple model of an inductor with saturation"
@@ -365,10 +324,6 @@ package Basic "Basic electrical components"
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
-   Line(points={{-60,0},{-60,6},{-51,15},{-45,15},{-39,15},{-30,6},{-30,0}}, color={0,0,255}, smooth=Smooth.Bezier),
-   Line(points={{-30,0},{-30,6},{-21,15},{-15,15},{-9,15},{0,6},{0,0}}, color={0,0,255}, smooth=Smooth.Bezier),
-   Line(points={{0,0},{0,6},{9,15},{15,15},{21,15},{30,6},{30,0}}, color={0,0,255}, smooth=Smooth.Bezier),
-   Line(points={{30,0},{30,6},{39,15},{45,15},{51,15},{60,6},{60,0}}, color={0,0,255}, smooth=Smooth.Bezier),
           Line(points={{60,0},{90,0}}, color={0,0,255}),
           Line(points={{-90,0},{-60,0}}, color={0,0,255}),
           Rectangle(
@@ -376,10 +331,26 @@ package Basic "Basic electrical components"
             fillPattern=FillPattern.Sphere,
             fillColor={0,0,255}),
           Text(
-            extent={{-148,-50},{152,-80}},
+            extent={{-150,-40},{150,-80}},
             textString="Lnom=%Lnom"),
+          Line(
+            points={{-60,0},{-59,6},{-52,14},{-38,14},{-31,6},{-30,0}},
+            color={0,0,255},
+            smooth=Smooth.Bezier),
+          Line(
+            points={{-30,0},{-29,6},{-22,14},{-8,14},{-1,6},{0,0}},
+            color={0,0,255},
+            smooth=Smooth.Bezier),
+          Line(
+            points={{0,0},{1,6},{8,14},{22,14},{29,6},{30,0}},
+            color={0,0,255},
+            smooth=Smooth.Bezier),
+          Line(
+            points={{30,0},{31,6},{38,14},{52,14},{59,6},{60,0}},
+            color={0,0,255},
+            smooth=Smooth.Bezier),
           Text(
-            extent={{-148,91},{152,51}},
+            extent={{-150,90},{150,50}},
             textString="%name",
             lineColor={0,0,255})}),
       Documentation(info="<html>
@@ -402,19 +373,7 @@ package Basic "Basic electrical components"
   <dt><strong>Release Notes:</strong></dt>
   <dd>May 27, 2004: Implemented by Anton Haumer</dd>
  </dl>
-</html>"),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={
-     Line(points={{-60,0},{-60,6},{-51,15},{-45,15},{-39,15},{-30,6},{-30,0}}, color={0,0,255}, smooth=Smooth.Bezier),
-     Line(points={{-30,0},{-30,6},{-21,15},{-15,15},{-9,15},{0,6},{0,0}}, color={0,0,255}, smooth=Smooth.Bezier),
-     Line(points={{0,0},{0,6},{9,15},{15,15},{21,15},{30,6},{30,0}}, color={0,0,255}, smooth=Smooth.Bezier),
-     Line(points={{30,0},{30,6},{39,15},{45,15},{51,15},{60,6},{60,0}}, color={0,0,255}, smooth=Smooth.Bezier),
-     Line(points={{60,0},{96,0}}, color={0,0,255}),
-     Line(points={{-96,0},{-60,0}}, color={0,0,255}),
-            Rectangle(
-              extent={{-60,-10},{60,-20}},
-              fillPattern=FillPattern.Sphere,
-              fillColor={0,0,255})}));
+</html>"));
   end SaturatingInductor;
 
   model Transformer "Transformer with two ports"
@@ -451,45 +410,74 @@ package Basic "Basic electrical components"
 </html>"),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
-   Line(points={{-32,-50},{-27,-50},{-20,-43},{-20,-38},{-20,-33},{-27,-25},{-32,-25}}, color={0,0,255}, smooth=Smooth.Bezier),
-   Line(points={{-32,-25},{-27,-25},{-20,-18},{-20,-13},{-20,-8},{-27,0},{-32,0}}, color={0,0,255}, smooth=Smooth.Bezier),
-   Line(points={{-32,0},{-27,0},{-20,8},{-20,13},{-20,18},{-27,25},{-32,25}}, color={0,0,255}, smooth=Smooth.Bezier),
-   Line(points={{-32,25},{-27,25},{-20,33},{-20,38},{-20,43},{-27,50},{-32,50}}, color={0,0,255}, smooth=Smooth.Bezier),
-          Line(points={{-90,50},{-32,50}}, color={0,0,255}),
-          Line(points={{-90,-50},{-32,-50}}, color={0,0,255}),
-   Line(points={{32,-50},{27,-50},{20,-43},{20,-38},{20,-33},{27,-25},{32,-25}}, color={0,0,255}, smooth=Smooth.Bezier),
-   Line(points={{32,-25},{27,-25},{20,-18},{20,-13},{20,-8},{27,0},{32,0}}, color={0,0,255}, smooth=Smooth.Bezier),
-   Line(points={{32,0},{27,0},{20,8},{20,13},{20,18},{27,25},{32,25}}, color={0,0,255}, smooth=Smooth.Bezier),
-   Line(points={{32,25},{27,25},{20,33},{20,38},{20,43},{27,50},{32,50}}, color={0,0,255}, smooth=Smooth.Bezier),
-          Line(points={{32,50},{90,50}}, color={0,0,255}),
-          Line(points={{32,-50},{90,-50}}, color={0,0,255}),
           Text(
-            extent={{-103,16},{-60,-10}},
-            textString="L1"),
-          Text(
-            extent={{64,15},{105,-9}},
-            textString="L2"),
-          Text(
-            extent={{-27,-71},{33,-97}},
-            textString="M"),
-          Text(
-            extent={{-153,113},{147,73}},
+            extent={{-150,150},{150,110}},
             textString="%name",
-            lineColor={0,0,255})}),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-              100}}), graphics={
-     Line(points={{-32,-50},{-27,-50},{-20,-43},{-20,-38},{-20,-33},{-27,-25},{-32,-25}}, color={0,0,255}, smooth=Smooth.Bezier),
-     Line(points={{-32,-25},{-27,-25},{-20,-18},{-20,-13},{-20,-8},{-27,0},{-32,0}}, color={0,0,255}, smooth=Smooth.Bezier),
-     Line(points={{-32,0},{-27,0},{-20,8},{-20,13},{-20,18},{-27,25},{-32,25}}, color={0,0,255}, smooth=Smooth.Bezier),
-     Line(points={{-32,25},{-27,25},{-20,33},{-20,38},{-20,43},{-27,50},{-32,50}}, color={0,0,255}, smooth=Smooth.Bezier),
-     Line(points={{-90,50},{-32,50}}, color={0,0,255}),
-     Line(points={{-90,-50},{-32,-50}}, color={0,0,255}),
-     Line(points={{32,-50},{27,-50},{20,-43},{20,-38},{20,-33},{27,-25},{32,-25}}, color={0,0,255}, smooth=Smooth.Bezier),
-     Line(points={{32,-25},{27,-25},{20,-18},{20,-13},{20,-8},{27,0},{32,0}}, color={0,0,255}, smooth=Smooth.Bezier),
-     Line(points={{32,0},{27,0},{20,8},{20,13},{20,18},{27,25},{32,25}}, color={0,0,255}, smooth=Smooth.Bezier),
-     Line(points={{32,25},{27,25},{20,33},{20,38},{20,43},{27,50},{32,50}}, color={0,0,255}, smooth=Smooth.Bezier),
-     Line(points={{32,50},{90,50}}, color={0,0,255}),
-     Line(points={{32,-50},{90,-50}}, color={0,0,255})}));
+            lineColor={0,0,255}),
+          Text(
+            extent={{-20,-60},{20,-100}},
+            textString="M",
+            lineColor={0,0,255}),
+          Line(points={{-40,60},{-40,100},{-90,100}}, color={0,0,255}),
+          Line(points={{40,60},{40,100},{90,100}}, color={0,0,255}),
+          Line(points={{-40,-60},{-40,-100},{-90,-100}}, color={0,0,255}),
+          Line(points={{40,-60},{40,-100},{90,-100}}, color={0,0,255}),
+          Line(
+            points={{-15,-7},{-14,-1},{-7,7},{7,7},{14,-1},{15,-7}},
+            color={0,0,255},
+            smooth=Smooth.Bezier,
+            origin={-33,45},
+            rotation=270),
+          Line(
+            points={{-15,-7},{-14,-1},{-7,7},{7,7},{14,-1},{15,-7}},
+            color={0,0,255},
+            smooth=Smooth.Bezier,
+            origin={-33,15},
+            rotation=270),
+          Line(
+            points={{-15,-7},{-14,-1},{-7,7},{7,7},{14,-1},{15,-7}},
+            color={0,0,255},
+            smooth=Smooth.Bezier,
+            origin={-33,-15},
+            rotation=270),
+          Line(
+            points={{-15,-7},{-14,-1},{-7,7},{7,7},{14,-1},{15,-7}},
+            color={0,0,255},
+            smooth=Smooth.Bezier,
+            origin={-33,-45},
+            rotation=270),
+          Line(
+            points={{-15,-7},{-14,-1},{-7,7},{7,7},{14,-1},{15,-7}},
+            color={0,0,255},
+            smooth=Smooth.Bezier,
+            origin={33,45},
+            rotation=90),
+          Line(
+            points={{-15,-7},{-14,-1},{-7,7},{7,7},{14,-1},{15,-7}},
+            color={0,0,255},
+            smooth=Smooth.Bezier,
+            origin={33,15},
+            rotation=90),
+          Line(
+            points={{-15,-7},{-14,-1},{-7,7},{7,7},{14,-1},{15,-7}},
+            color={0,0,255},
+            smooth=Smooth.Bezier,
+            origin={33,-15},
+            rotation=90),
+          Line(
+            points={{-15,-7},{-14,-1},{-7,7},{7,7},{14,-1},{15,-7}},
+            color={0,0,255},
+            smooth=Smooth.Bezier,
+            origin={33,-45},
+            rotation=90),
+          Text(
+            extent={{-100,20},{-58,-20}},
+            textString="L1",
+            lineColor={0,0,255}),
+          Text(
+            extent={{60,20},{100,-20}},
+            textString="L2",
+            lineColor={0,0,255})}));
   end Transformer;
 
   model M_Transformer "Generic transformer with free number of inductors"
@@ -501,9 +489,9 @@ package Basic "Basic electrical components"
     parameter SI.Inductance L[dimL]={1,0.1,0.2,2,0.3,3}
       "Inductances and coupling inductances";
     Modelica.Electrical.Analog.Interfaces.PositivePin p[N] "Positive pin"
-      annotation (Placement(transformation(extent={{-80,-40},{-62,40}})));
+      annotation (Placement(transformation(extent={{-110,-60},{-90,60}})));
     Modelica.Electrical.Analog.Interfaces.NegativePin n[N] "Negative pin"
-      annotation (Placement(transformation(extent={{62,-40},{80,40}})));
+      annotation (Placement(transformation(extent={{90,-60},{110,60}})));
 
     SI.Voltage v[N] "Voltage drop over inductors";
     SI.Current i[N](each start=0, fixed=true)
@@ -531,32 +519,70 @@ package Basic "Basic electrical components"
 
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}), graphics={
-   Line(points={{-36,30},{-36,34},{-31,39},{-27,39},{-23,39},{-18,34},{-18,30}}, color={0,0,255}, smooth=Smooth.Bezier),
-   Line(points={{-18,30},{-18,34},{-13,39},{-9,39},{-5,39},{0,34},{0,30}}, color={0,0,255}, smooth=Smooth.Bezier),
-   Line(points={{0,30},{0,34},{5,39},{9,39},{13,39},{18,34},{18,30}}, color={0,0,255}, smooth=Smooth.Bezier),
-   Line(points={{18,30},{18,34},{23,39},{27,39},{31,39},{36,34},{36,30}}, color={0,0,255}, smooth=Smooth.Bezier),
-          Line(points={{-36,30},{-62,30}}, color={0,0,255}),
-          Line(points={{62,30},{36,30}}, color={0,0,255}),
-   Line(points={{-36,10},{-36,14},{-31,19},{-27,19},{-23,19},{-18,14},{-18,10}}, color={0,0,255}, smooth=Smooth.Bezier),
-   Line(points={{-18,10},{-18,14},{-13,19},{-9,19},{-5,19},{0,14},{0,10}}, color={0,0,255}, smooth=Smooth.Bezier),
-   Line(points={{0,10},{0,14},{5,19},{9,19},{13,19},{18,14},{18,10}}, color={0,0,255}, smooth=Smooth.Bezier),
-   Line(points={{18,10},{18,14},{23,19},{27,19},{31,19},{36,14},{36,10}}, color={0,0,255}, smooth=Smooth.Bezier),
-          Line(points={{-36,10},{-62,10}}, color={0,0,255}),
-          Line(points={{62,10},{36,10}}, color={0,0,255}),
-   Line(points={{-36,-30},{-36,-26},{-31,-21},{-27,-21},{-23,-21},{-18,-26},{-18,-30}}, color={0,0,255}, smooth=Smooth.Bezier),
-   Line(points={{-18,-30},{-18,-26},{-13,-21},{-9,-21},{-5,-21},{0,-26},{0,-30}}, color={0,0,255}, smooth=Smooth.Bezier),
-   Line(points={{0,-30},{0,-26},{5,-21},{9,-21},{13,-21},{18,-26},{18,-30}}, color={0,0,255}, smooth=Smooth.Bezier),
-   Line(points={{18,-30},{18,-26},{23,-21},{27,-21},{31,-21},{36,-26},{36,-30}}, color={0,0,255}, smooth=Smooth.Bezier),
-          Line(points={{-36,-30},{-62,-30}}, color={0,0,255}),
-          Line(points={{62,-30},{36,-30}}, color={0,0,255}),
-          Line(
-            points={{0,2},{0,-18}},
-            color={0,0,255},
-            pattern=LinePattern.Dot),
           Text(
-            extent={{-150,103},{150,63}},
+            extent={{-150,110},{150,70}},
             textString="%name",
-            lineColor={0,0,255})}), Documentation(info="<html>
+            lineColor={0,0,255}),
+          Line(points={{60,-40},{90,-40}},
+                                       color={0,0,255}),
+          Line(points={{-90,-40},{-60,-40}},
+                                         color={0,0,255}),
+          Line(
+            points={{-60,-40},{-59,-34},{-52,-26},{-38,-26},{-31,-34},{-30,-40}},
+            color={0,0,255},
+            smooth=Smooth.Bezier),
+          Line(
+            points={{-30,-40},{-29,-34},{-22,-26},{-8,-26},{-1,-34},{0,-40}},
+            color={0,0,255},
+            smooth=Smooth.Bezier),
+          Line(
+            points={{0,-40},{1,-34},{8,-26},{22,-26},{29,-34},{30,-40}},
+            color={0,0,255},
+            smooth=Smooth.Bezier),
+          Line(
+            points={{30,-40},{31,-34},{38,-26},{52,-26},{59,-34},{60,-40}},
+            color={0,0,255},
+            smooth=Smooth.Bezier),
+          Line(points={{60,10},{90,10}},
+                                       color={0,0,255}),
+          Line(points={{-90,10},{-60,10}},
+                                         color={0,0,255}),
+          Line(
+            points={{-60,10},{-59,16},{-52,24},{-38,24},{-31,16},{-30,10}},
+            color={0,0,255},
+            smooth=Smooth.Bezier),
+          Line(
+            points={{-30,10},{-29,16},{-22,24},{-8,24},{-1,16},{0,10}},
+            color={0,0,255},
+            smooth=Smooth.Bezier),
+          Line(
+            points={{0,10},{1,16},{8,24},{22,24},{29,16},{30,10}},
+            color={0,0,255},
+            smooth=Smooth.Bezier),
+          Line(
+            points={{30,10},{31,16},{38,24},{52,24},{59,16},{60,10}},
+            color={0,0,255},
+            smooth=Smooth.Bezier),
+          Line(points={{60,40},{90,40}},
+                                       color={0,0,255}),
+          Line(points={{-90,40},{-60,40}},
+                                         color={0,0,255}),
+          Line(
+            points={{-60,40},{-59,46},{-52,54},{-38,54},{-31,46},{-30,40}},
+            color={0,0,255},
+            smooth=Smooth.Bezier),
+          Line(
+            points={{-30,40},{-29,46},{-22,54},{-8,54},{-1,46},{0,40}},
+            color={0,0,255},
+            smooth=Smooth.Bezier),
+          Line(
+            points={{0,40},{1,46},{8,54},{22,54},{29,46},{30,40}},
+            color={0,0,255},
+            smooth=Smooth.Bezier),
+          Line(
+            points={{30,40},{31,46},{38,54},{52,54},{59,46},{60,40}},
+            color={0,0,255},
+            smooth=Smooth.Bezier)}),Documentation(info="<html>
 <p>The model <em>M_Transformer</em> is a model of a transformer with the possibility to choose the number of inductors. Inside the model, an inductance matrix is built based on the inductance of the inductors and the coupling inductances between the inductors given as a parameter vector from the user of the model.</p>
 
 <p>An example shows that approach:<br>
@@ -631,69 +657,51 @@ the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
           Rectangle(
-            extent={{-60,60},{60,-60}},
+            extent={{-80,80},{80,-80}},
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid,
             lineColor={0,0,255}),
-          Line(points={{-90,50},{-60,50}}, color={0,0,255}),
-          Line(points={{-90,-50},{-60,-50}}, color={0,0,255}),
-          Line(points={{60,50},{90,50}}, color={0,0,255}),
-          Line(points={{60,-50},{90,-50}}, color={0,0,255}),
           Line(points={{-40,30},{40,30}}, color={0,0,255}),
-          Line(points={{-20,-20},{20,-20}}, color={0,0,255}),
+          Line(points={{-20,-30},{20,-30}}, color={0,0,255}),
           Polygon(
             points={{30,34},{40,30},{30,26},{30,34}},
             fillColor={0,0,255},
             fillPattern=FillPattern.Solid,
             lineColor={0,0,255}),
-          Polygon(
-            points={{-26,-19},{-16,-15},{-16,-23},{-26,-19}},
-            fillColor={0,0,255},
-            fillPattern=FillPattern.Solid,
-            lineColor={0,0,255}),
           Line(points={{-5,10},{-10,-10}}),
           Line(points={{9,10},{4,-9}}),
-          Line(points={{-14,9},{16,10}}),
+          Line(points={{-12,10},{16,10}}),
           Text(
-            extent={{-29,59},{30,30}},
+            extent={{-29,69},{30,40}},
             textString="G1"),
           Text(
-            extent={{-29,-29},{29,-58}},
+            extent={{-29,-39},{29,-68}},
             textString="G2"),
           Text(
-            extent={{-156,117},{144,77}},
+            extent={{-150,151},{150,111}},
             textString="%name",
-            lineColor={0,0,255})}),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={Rectangle(extent={{-60,60},{60,-60}},
-            lineColor={0,0,255}),Line(points={{-96,50},{-60,50}}, color={0,0,
-            255}),Line(points={{-96,-50},{-60,-50}}, color={0,0,255}),Line(
-            points={{60,50},{96,50}}, color={0,0,255}),Line(points={{60,-50},{
-            96,-50}}, color={0,0,255}),Line(points={{-40,30},{40,30}}, color={0,
-            0,255}),Line(points={{-21,-22},{19,-22}}, color={0,0,255}),Polygon(
-              points={{30,34},{40,30},{30,26},{30,34}},
+            lineColor={0,0,255}),
+          Polygon(
+            points={{-10,-26},{-20,-30},{-10,-34},{-10,-26}},
               fillColor={0,0,255},
               fillPattern=FillPattern.Solid,
-              lineColor={0,0,255}),Polygon(
-              points={{-20,-30},{-10,-26},{-10,-34},{-20,-30}},
-              fillColor={0,0,255},
-              fillPattern=FillPattern.Solid,
-              lineColor={0,0,255}),Line(
-              points={{-4,5},{-6,-5}},
-              thickness=1,
-              color={0,0,255}),Line(
-              points={{3,5},{1,-5}},
-              thickness=1,
-              color={0,0,255}),Line(
-              points={{-8,5},{7,5}},
-              thickness=1,
-              color={0,0,255}),Text(
-              extent={{-20,50},{20,35}},
-              textString="G1",
-              lineColor={0,0,255}),Text(
-              extent={{-20,-35},{20,-50}},
-              textString="G2",
-              lineColor={0,0,255})}));
+            lineColor={0,0,255}),
+          Line(points={{-100,100},{-40,100},{-40,60}},color={0,0,255}),
+          Line(
+            points={{20,25},{-40,25},{-40,-15}},
+            color={0,0,255},
+            origin={80,75},
+            rotation=360),
+          Line(
+            points={{-35,-20},{25,-20},{25,20}},
+            color={0,0,255},
+            origin={-65,-80},
+            rotation=360),
+          Line(
+            points={{20,-25},{-40,-25},{-40,15}},
+            color={0,0,255},
+            origin={80,-75},
+            rotation=360)}));
   end Gyrator;
 
   model EMF "Electromotoric force (electric/mechanic transformer)"
@@ -749,7 +757,6 @@ the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N
             extent={{-85,10},{-36,-10}},
             fillPattern=FillPattern.HorizontalCylinder,
             fillColor={192,192,192}),
-          Line(points={{0,90},{0,40}}, color={0,0,255}),
           Rectangle(
             extent={{35,10},{100,-10}},
             fillPattern=FillPattern.HorizontalCylinder,
@@ -759,14 +766,12 @@ the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid,
             lineColor={0,0,255}),
-          Line(points={{0,-90},{0,-40}}, color={0,0,255}),
           Text(
-            extent={{0,-50},{199,-90}},
+            extent={{-150,90},{150,50}},
             textString="%name",
             lineColor={0,0,255}),
           Text(
-            extent={{0,80},{189,46}},
-            lineColor={160,160,164},
+            extent={{-150,-50},{150,-90}},
             textString="k=%k"),
           Line(
             visible=not useSupport,
@@ -782,7 +787,9 @@ the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N
             points={{-60,-50},{-40,-30}}),
           Line(
             visible=not useSupport,
-            points={{-70,-30},{-70,-10}})}),
+            points={{-70,-30},{-70,-10}}),
+          Line(points={{0,40},{0,50}}, color={0,0,255}),
+          Line(points={{0,-50},{0,-40}}, color={0,0,255})}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={Polygon(
               points={{-17,95},{-20,85},{-23,95},{-17,95}},
@@ -878,8 +885,7 @@ the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N
             fillColor={135,135,135},
             fillPattern=FillPattern.Solid),
           Text(
-            extent={{0,80},{148,44}},
-            lineColor={160,160,164},
+            extent={{40,-40},{200,-80}},
             textString="k=%k"),
           Line(points={{-30,49},{-30,80},{0,80},{0,91}}, color={0,0,255}),
           Line(points={{20,-49},{20,-80},{0,-80},{0,-89},{0,-90}}, color={0,0,
@@ -923,7 +929,7 @@ the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N
             visible=not useSupport,
             points={{-70,-70},{-70,-50}}),
           Text(
-            extent={{0,-50},{199,-90}},
+            extent={{20,80},{220,40}},
             textString="%name",
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
@@ -979,14 +985,13 @@ the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
           Rectangle(
-            extent={{-70,70},{70,-70}},
+            extent={{-80,80},{80,-80}},
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid,
             lineColor={0,0,255}),
-          Line(points={{-90,50},{-30,50}}, color={0,0,255}),
-          Line(points={{-30,-50},{-90,-50}}, color={0,0,255}),
-          Line(points={{100,50},{30,50},{30,-50},{100,-50}}, color={0,0,255}),
-          Ellipse(extent={{10,20},{50,-20}}, lineColor={0,0,255}),
+          Line(points={{90,100},{40,100},{40,-100},{100,-100}},
+                                                             color={0,0,255}),
+          Ellipse(extent={{20,20},{60,-20}}, lineColor={0,0,255}),
           Line(points={{-20,60},{20,60}}, color={0,0,255}),
           Polygon(
             points={{20,60},{10,63},{10,57},{20,60}},
@@ -994,20 +999,11 @@ the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N
             fillPattern=FillPattern.Solid,
             lineColor={0,0,255}),
           Text(
-            extent={{-148,-81},{152,-121}},
+            extent={{-150,151},{150,111}},
             textString="%name",
-            lineColor={0,0,255})}),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={Line(points={{-96,50},{-31,50}}, color={0,0,
-            255}),Line(points={{-30,-50},{-96,-50}}, color={0,0,255}),Line(
-            points={{96,50},{30,50},{30,-50},{96,-50}}, color={0,0,255}),
-            Ellipse(extent={{10,20},{50,-20}}, lineColor={0,0,255}),Rectangle(
-            extent={{-70,70},{70,-70}}, lineColor={0,0,255}),Line(points={{-20,
-            60},{20,60}}, color={0,0,255}),Polygon(
-              points={{20,60},{10,63},{10,57},{20,60}},
-              fillColor={0,0,255},
-              fillPattern=FillPattern.Solid,
-              lineColor={0,0,255})}));
+            lineColor={0,0,255}),
+          Line(points={{-90,100},{-40,100},{-40,62}}, color={0,0,255}),
+          Line(points={{-90,-100},{-40,-100},{-40,-60}}, color={0,0,255})}));
   end VCV;
 
   model VCC "Linear voltage-controlled current source"
@@ -1031,38 +1027,32 @@ the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
           Rectangle(
-            extent={{-70,70},{70,-70}},
+            extent={{-80,80},{80,-80}},
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid,
             lineColor={0,0,255}),
-          Line(points={{-90,50},{-30,50}}, color={0,0,255}),
-          Line(points={{-30,-50},{-90,-50}}, color={0,0,255}),
-          Ellipse(extent={{10,20},{50,-20}}, lineColor={0,0,255}),
+          Ellipse(extent={{20,20},{60,-20}}, lineColor={0,0,255}),
           Line(points={{-20,60},{20,60}}, color={0,0,255}),
           Polygon(
             points={{20,60},{10,63},{10,57},{20,60}},
             fillColor={0,0,255},
             fillPattern=FillPattern.Solid,
             lineColor={0,0,255}),
-          Line(points={{90,50},{30,50},{30,20}}, color={0,0,255}),
-          Line(points={{91,-50},{30,-50},{30,-20}}, color={0,0,255}),
-          Line(points={{10,0},{50,0}}, color={0,0,255}),
+          Line(points={{90,100},{40,100},{40,20}},
+                                                 color={0,0,255}),
+          Line(points={{90,-100},{40,-100},{40,-20}},
+                                                    color={0,0,255}),
+          Line(points={{20,0},{60,0}}, color={0,0,255}),
           Text(
-            extent={{-143,-82},{157,-122}},
+            extent={{-149,150},{151,110}},
             textString="%name",
-            lineColor={0,0,255})}),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={Line(points={{-96,50},{-30,50}}, color={0,0,
-            255}),Line(points={{-30,-50},{-96,-50}}, color={0,0,255}),Ellipse(
-            extent={{10,20},{50,-20}}, lineColor={0,0,255}),Rectangle(extent={{
-            -70,70},{70,-70}}, lineColor={0,0,255}),Line(points={{-20,60},{20,
-            60}}, color={0,0,255}),Polygon(
-              points={{20,60},{10,63},{10,57},{20,60}},
-              fillColor={0,0,255},
-              fillPattern=FillPattern.Solid,
-              lineColor={0,0,255}),Line(points={{96,50},{30,50},{30,20}}, color=
-             {0,0,255}),Line(points={{96,-50},{30,-50},{30,-20}}, color={0,0,
-            255}),Line(points={{10,0},{50,0}}, color={0,0,255})}));
+            lineColor={0,0,255}),
+          Line(points={{-90,100},{-40,100},{-40,60}}, color={0,0,255}),
+          Line(
+            points={{10,25},{-40,25},{-40,-15}},
+            color={0,0,255},
+            origin={-80,-75},
+            rotation=180)}));
   end VCC;
 
   model CCV "Linear current-controlled voltage source"
@@ -1088,34 +1078,25 @@ the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
           Rectangle(
-            extent={{-70,70},{70,-70}},
+            extent={{-80,80},{80,-80}},
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid,
             lineColor={0,0,255}),
-          Line(points={{100,50},{30,50},{30,-50},{100,-50}}, color={0,0,255}),
-          Ellipse(extent={{10,20},{50,-20}}, lineColor={0,0,255}),
+          Line(points={{90,100},{40,100},{40,-100},{90,-100}},
+                                                             color={0,0,255}),
+          Ellipse(extent={{20,20},{60,-20}}, lineColor={0,0,255}),
           Line(points={{-20,60},{20,60}}, color={0,0,255}),
           Polygon(
             points={{20,60},{10,63},{10,57},{20,60}},
             fillColor={0,0,255},
             fillPattern=FillPattern.Solid,
             lineColor={0,0,255}),
-          Line(points={{-90,50},{-20,50},{-20,-50},{-90,-50}}, color={0,0,255}),
+          Line(points={{-90,100},{-40,100},{-40,-100},{-90,-100}},
+                                                               color={0,0,255}),
           Text(
-            extent={{-140,-82},{160,-122}},
+            extent={{-170,150},{130,110}},
             textString="%name",
-            lineColor={0,0,255})}),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={Ellipse(extent={{10,20},{50,-20}},
-            lineColor={0,0,255}),Rectangle(extent={{-70,70},{70,-70}},
-            lineColor={0,0,255}),Line(points={{-20,60},{20,60}}, color={0,0,255}),
-            Polygon(
-              points={{20,60},{10,63},{10,57},{20,60}},
-              fillColor={0,0,255},
-              fillPattern=FillPattern.Solid,
-              lineColor={0,0,255}),Line(points={{96,50},{30,50},{30,-50},{96,-50}},
-            color={0,0,255}),Line(points={{-96,50},{-30,50},{-30,-50},{-96,-50}},
-            color={0,0,255})}));
+            lineColor={0,0,255})}));
   end CCV;
 
   model CCC "Linear current-controlled current source"
@@ -1140,37 +1121,28 @@ the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
           Rectangle(
-            extent={{-70,70},{70,-70}},
+            extent={{-80,80},{80,-80}},
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid,
             lineColor={0,0,255}),
-          Line(points={{-100,50},{-30,50},{-30,-50},{-100,-50}}, color={0,0,255}),
-          Ellipse(extent={{10,20},{50,-20}}, lineColor={0,0,255}),
+          Line(points={{-90,100},{-40,100},{-40,-100},{-90,-100}},
+                                                                 color={0,0,255}),
+          Ellipse(extent={{20,20},{60,-20}}, lineColor={0,0,255}),
           Line(points={{-20,60},{20,60}}, color={0,0,255}),
           Polygon(
             points={{20,60},{10,63},{10,57},{20,60}},
             fillColor={0,0,255},
             fillPattern=FillPattern.Solid,
             lineColor={0,0,255}),
-          Line(points={{90,50},{30,50},{30,20}}, color={0,0,255}),
-          Line(points={{91,-50},{30,-50},{30,-20}}, color={0,0,255}),
-          Line(points={{10,0},{50,0}}, color={0,0,255}),
+          Line(points={{90,100},{40,100},{40,20}},
+                                                 color={0,0,255}),
+          Line(points={{90,-100},{40,-100},{40,-20}},
+                                                    color={0,0,255}),
+          Line(points={{20,0},{60,0}}, color={0,0,255}),
           Text(
-            extent={{-146,-76},{154,-116}},
+            extent={{-150,150},{150,110}},
             textString="%name",
-            lineColor={0,0,255})}),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={Ellipse(extent={{10,20},{50,-20}},
-            lineColor={0,0,255}),Rectangle(extent={{-70,70},{70,-70}},
-            lineColor={0,0,255}),Line(points={{-20,60},{20,60}}, color={0,0,255}),
-            Polygon(
-              points={{20,60},{10,63},{10,57},{20,60}},
-              fillColor={0,0,255},
-              fillPattern=FillPattern.Solid,
-              lineColor={0,0,255}),Line(points={{96,50},{30,50},{30,20}}, color=
-             {0,0,255}),Line(points={{96,-50},{30,-50},{30,-20}}, color={0,0,
-            255}),Line(points={{10,0},{50,0}}, color={0,0,255}),Line(points={{-96,
-            50},{-30,50},{-30,-50},{-96,-50}}, color={0,0,255})}));
+            lineColor={0,0,255})}));
   end CCC;
 
   model OpAmp "Simple nonideal model of an OpAmp with limitation"
@@ -1178,18 +1150,18 @@ the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N
       "Slope of the out.v/vin characteristic at vin=0";
     Modelica.Electrical.Analog.Interfaces.PositivePin in_p
       "Positive pin of the input port" annotation (Placement(transformation(
-            extent={{-110,-60},{-90,-40}})));
+            extent={{-110,-70},{-90,-50}}), iconTransformation(extent={{-110,-70},{-90,-50}})));
     Modelica.Electrical.Analog.Interfaces.NegativePin in_n
       "Negative pin of the input port" annotation (Placement(transformation(
-            extent={{-90,40},{-110,60}})));
+            extent={{-90,50},{-110,70}}), iconTransformation(extent={{-90,50},{-110,70}})));
     Modelica.Electrical.Analog.Interfaces.PositivePin out "Output pin"
-      annotation (Placement(transformation(extent={{110,-10},{90,10}})));
+      annotation (Placement(transformation(extent={{110,-10},{90,10}}), iconTransformation(extent={{110,-10},{90,10}})));
     Modelica.Electrical.Analog.Interfaces.PositivePin VMax
       "Positive output voltage limitation" annotation (Placement(transformation(
-            extent={{-10,60},{10,80}})));
+            extent={{-10,90},{10,110}}), iconTransformation(extent={{-10,90},{10,110}})));
     Modelica.Electrical.Analog.Interfaces.NegativePin VMin
       "Negative output voltage limitation" annotation (Placement(transformation(
-            extent={{-10,-80},{10,-60}})));
+            extent={{-10,-110},{10,-90}}), iconTransformation(extent={{-10,-110},{10,-90}})));
     SI.Voltage vin "input voltage";
   protected
     Real f "auxiliary variable";
@@ -1217,55 +1189,24 @@ the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
           Polygon(
-            points={{60,0},{-60,70},{-60,-70},{60,0}},
+            points={{70,0},{-70,80},{-70,-80},{70,0}},
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid,
             lineColor={0,0,255}),
           Line(points={{-45,-10},{-20,-10},{-14,-9},{-11,-7},{-9,7},{-6,9},{0,
                 10},{20,10}}, color={0,0,255}),
-          Line(points={{0,35},{0,80}}, color={0,0,255}),
-          Line(points={{0,-35},{0,-80}}, color={0,0,255}),
-          Line(points={{-90,50},{-60,50}}, color={0,0,255}),
-          Line(points={{-90,-50},{-60,-50}}, color={0,0,255}),
-          Line(points={{60,0},{90,0}}, color={0,0,255}),
-          Line(points={{-48,32},{-28,32}}, color={0,0,255}),
-          Line(points={{-39,-20},{-39,-41}}, color={0,0,255}),
-          Line(points={{-50,-31},{-28,-31}}, color={0,0,255}),
+          Line(points={{0,40},{0,100}},color={0,0,255}),
+          Line(points={{0,-40},{0,-100}},color={0,0,255}),
+          Line(points={{-100,60},{-70,60}},color={0,0,255}),
+          Line(points={{-100,-60},{-70,-60}},color={0,0,255}),
+          Line(points={{70,0},{100,0}},color={0,0,255}),
+          Line(points={{-58,50},{-38,50}}, color={0,0,255}),
+          Line(points={{-49,-40},{-49,-61}}, color={0,0,255}),
+          Line(points={{-60,-51},{-38,-51}}, color={0,0,255}),
           Text(
-            extent={{-149,138},{151,98}},
+            extent={{-150,150},{150,110}},
             textString="%name",
-            lineColor={0,0,255})}),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={Polygon(
-              points={{60,0},{-60,70},{-60,-70},{60,0}},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid,
-              lineColor={0,0,255}),Line(points={{-45,-10},{-20,-10},{-14,-9},{-11,
-            -7},{-9,7},{-6,9},{0,10},{20,10}}, color={0,0,255}),Line(points={{0,
-            35},{0,70}}, color={0,0,255}),Line(points={{0,-35},{0,-70}}, color=
-            {0,0,255}),Line(points={{-96,50},{-60,50}}, color={0,0,255}),Line(
-            points={{-96,-50},{-60,-50}}, color={0,0,255}),Line(points={{60,0},
-            {96,0}}, color={0,0,255}),Line(points={{-55,50},{-45,50}}, color={0,
-            0,255}),Line(points={{-50,-45},{-50,-55}}, color={0,0,255}),Line(
-            points={{-55,-50},{-45,-50}}, color={0,0,255}),Text(
-              extent={{-112,-93},{-91,-73}},
-              lineColor={160,160,164},
-              textString="in_p.i=0"),Polygon(
-              points={{120,3},{110,0},{120,-3},{120,3}},
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={160,160,164}),Line(points={{111,0},{136,0}}, color={0,
-            0,0}),Text(
-              extent={{118,2},{135,17}},
-              textString="i2"),Text(
-              extent={{-111,60},{-85,80}},
-              lineColor={160,160,164},
-              textString="in_n.i=0"),Line(
-              points={{-100,-35},{-100,23},{-100,24}},
-              color={160,160,164},
-              arrow={Arrow.None,Arrow.Filled}),Text(
-              extent={{-97,-16},{-74,4}},
-              lineColor={160,160,164},
-              textString="vin")}));
+            lineColor={0,0,255})}));
   end OpAmp;
 
   model OpAmpDetailed "Detailed model of an operational amplifier"
@@ -1328,18 +1269,18 @@ the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N
 
     Modelica.Electrical.Analog.Interfaces.PositivePin p
       "Positive pin of the input port" annotation (Placement(transformation(
-            extent={{-111,-61},{-90,-40}})));
+            extent={{-110,-70},{-90,-50}}), iconTransformation(extent={{-110,-70},{-90,-50}})));
     Modelica.Electrical.Analog.Interfaces.NegativePin m
       "Negative pin of the input port" annotation (Placement(transformation(
-            extent={{-90,40},{-111,61}})));
+            extent={{-90,50},{-110,70}}), iconTransformation(extent={{-90,50},{-110,70}})));
     Modelica.Electrical.Analog.Interfaces.PositivePin outp "Output pin"
-      annotation (Placement(transformation(extent={{110,-10},{90,10}})));
+      annotation (Placement(transformation(extent={{110,-10},{90,10}}), iconTransformation(extent={{110,-10},{90,10}})));
     Modelica.Electrical.Analog.Interfaces.PositivePin p_supply
       "Positive output voltage limitation" annotation (Placement(transformation(
-            extent={{-8,65},{9,82}})));
+            extent={{-10,90},{10,110}}), iconTransformation(extent={{-10,90},{10,110}})));
     Modelica.Electrical.Analog.Interfaces.NegativePin m_supply
       "Negative output voltage limitation" annotation (Placement(transformation(
-            extent={{-9,-83},{9,-65}})));
+            extent={{-10,-110},{10,-90}}), iconTransformation(extent={{-10,-110},{10,-90}})));
 
     // power supply
     SI.Voltage v_pos;
@@ -1498,47 +1439,23 @@ the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N
 </html>"),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
+          Text(
+            extent={{-151,149},{149,109}},
+            textString="%name",
+            lineColor={0,0,255}),
           Polygon(
-            points={{60,0},{-60,70},{-60,-70},{60,0}},
+            points={{70,0},{-70,80},{-70,-80},{70,0}},
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid,
             lineColor={0,0,255}),
-          Line(points={{0,35},{0,80}}, color={0,0,255}),
-          Line(points={{0,-35},{0,-80}}, color={0,0,255}),
-          Line(points={{-90,50},{-60,50}}, color={0,0,255}),
-          Line(points={{-90,-50},{-60,-50}}, color={0,0,255}),
-          Line(points={{60,0},{90,0}}, color={0,0,255}),
-          Line(points={{-48,32},{-28,32}}, color={0,0,255}),
-          Line(points={{-39,-20},{-39,-41}}, color={0,0,255}),
-          Line(points={{-50,-31},{-28,-31}}, color={0,0,255}),
-          Text(
-            extent={{-151,141},{149,101}},
-            textString="%name",
-            lineColor={0,0,255})}),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={Polygon(
-              points={{60,0},{-60,70},{-60,-70},{60,0}},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid,
-              lineColor={0,0,255}),Line(points={{0,35},{0,70}}, color={0,0,255}),
-            Line(points={{0,-35},{0,-70}}, color={0,0,255}),Line(points={{-96,
-            50},{-60,50}}, color={0,0,255}),Line(points={{-96,-50},{-60,-50}},
-            color={0,0,255}),Line(points={{60,0},{96,0}}, color={0,0,255}),Line(
-            points={{-55,50},{-45,50}}, color={0,0,255}),Line(points={{-50,-45},
-            {-50,-55}}, color={0,0,255}),Line(points={{-55,-50},{-45,-50}},
-            color={0,0,255}),Polygon(
-              points={{120,3},{110,0},{120,-3},{120,3}},
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={160,160,164}),Line(points={{111,0},{136,0}}, color={0,
-            0,0}),Text(
-              extent={{114,2},{131,17}},
-              textString="i2"),Line(
-              points={{-100,-35},{-100,23},{-100,24}},
-              color={160,160,164},
-              arrow={Arrow.None,Arrow.Filled}),Text(
-              extent={{-97,-16},{-74,4}},
-              lineColor={160,160,164},
-              textString="vin")}));
+          Line(points={{0,40},{0,110}},color={0,0,255}),
+          Line(points={{0,-40},{0,-90}}, color={0,0,255}),
+          Line(points={{-90,60},{-70,60}}, color={0,0,255}),
+          Line(points={{-90,-60},{-70,-60}}, color={0,0,255}),
+          Line(points={{70,0},{90,0}}, color={0,0,255}),
+          Line(points={{-58,50},{-38,50}}, color={0,0,255}),
+          Line(points={{-60,-51},{-38,-51}}, color={0,0,255}),
+          Line(points={{-49,-40},{-49,-61}}, color={0,0,255})}));
   end OpAmpDetailed;
 
   model VariableResistor
@@ -1552,9 +1469,12 @@ the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N
       "Actual resistance = R*(1 + alpha*(T_heatPort - T_ref))";
     Modelica.Blocks.Interfaces.RealInput R(unit="Ohm") annotation (Placement(
           transformation(
-          origin={0,110},
+          origin={0,120},
           extent={{-20,-20},{20,20}},
-          rotation=270)));
+          rotation=270), iconTransformation(
+          extent={{-20,-20},{20,20}},
+          rotation=270,
+          origin={0,120})));
   equation
     assert((1 + alpha*(T_heatPort - T_ref)) >= Modelica.Constants.eps,
       "Temperature outside scope of model!");
@@ -1592,19 +1512,10 @@ the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid),
           Line(points={{70,0},{90,0}}, color={0,0,255}),
-          Line(points={{0,90},{0,30}}, color={0,0,255}),
           Text(
-            extent={{-148,-41},{152,-81}},
+            extent={{-150,90},{150,50}},
             textString="%name",
-            lineColor={0,0,255})}),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={Rectangle(
-              extent={{-70,30},{70,-30}},
-              lineColor={0,0,255},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),Line(points={{-96,0},{-70,0}},
-            color={0,0,255}),Line(points={{0,90},{0,30}}, color={0,0,255}),Line(
-            points={{70,0},{96,0}}, color={0,0,255})}));
+            lineColor={0,0,255})}));
   end VariableResistor;
 
   model VariableConductor
@@ -1618,7 +1529,7 @@ the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N
       "Actual conductance = G/(1 + alpha*(T_heatPort - T_ref))";
     Modelica.Blocks.Interfaces.RealInput G(unit="S") annotation (Placement(
           transformation(
-          origin={0,110},
+          origin={0,120},
           extent={{-20,-20},{20,20}},
           rotation=270)));
   equation
@@ -1656,19 +1567,10 @@ the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid),
           Line(points={{70,0},{90,0}}, color={0,0,255}),
-          Line(points={{0,90},{0,30}}, color={0,0,255}),
           Text(
-            extent={{-148,-41},{152,-81}},
+            extent={{-150,90},{150,50}},
             textString="%name",
-            lineColor={0,0,255})}),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={Line(points={{0,90},{0,30}}, color={0,0,255}),
-            Line(points={{-96,0},{-70,0}}, color={0,0,255}),Line(points={{70,0},
-            {96,0}}, color={0,0,255}),Rectangle(
-              extent={{-70,30},{70,-30}},
-              lineColor={0,0,255},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid)}));
+            lineColor={0,0,255})}));
   end VariableConductor;
 
   model VariableCapacitor
@@ -1676,7 +1578,7 @@ the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N
     extends Modelica.Electrical.Analog.Interfaces.OnePort;
     Modelica.Blocks.Interfaces.RealInput C(unit="F") annotation (Placement(
           transformation(
-          origin={0,110},
+          origin={0,120},
           extent={{-20,-20},{20,20}},
           rotation=270)));
     parameter SI.Capacitance Cmin=Modelica.Constants.eps
@@ -1717,23 +1619,12 @@ C = Cmin, if 0 &le; C &lt; Cmin, where Cmin is a parameter with default value Mo
               100}}),graphics={
           Line(points={{-90,0},{-6,0}}, color={0,0,255}),
           Line(points={{6,0},{90,0}}, color={0,0,255}),
-          Line(points={{0,90},{0,30}}, color={0,0,255}),
           Line(points={{-6,28},{-6,-28}}, color={0,0,255}),
           Line(points={{6,28},{6,-28}}, color={0,0,255}),
           Text(
-            extent={{-144,-43},{156,-83}},
+            extent={{-150,90},{150,50}},
             textString="%name",
-            lineColor={0,0,255})}),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={Line(points={{-96,0},{-14,0}}, color={0,0,
-            255}),Line(points={{14,0},{96,0}}, color={0,0,255}),Line(points={{0,
-            90},{0,30}}, color={0,0,255}),Line(
-              points={{-14,28},{-14,-28}},
-              thickness=0.5,
-              color={0,0,255}),Line(
-              points={{14,28},{14,-28}},
-              thickness=0.5,
-              color={0,0,255})}));
+            lineColor={0,0,255})}));
   end VariableCapacitor;
 
   model VariableInductor
@@ -1741,9 +1632,12 @@ C = Cmin, if 0 &le; C &lt; Cmin, where Cmin is a parameter with default value Mo
     extends Modelica.Electrical.Analog.Interfaces.OnePort;
     Modelica.Blocks.Interfaces.RealInput L(unit="H") annotation (Placement(
           transformation(
-          origin={0,108},
+          origin={0,120},
           extent={{-20,-20},{20,20}},
-          rotation=270)));
+          rotation=270), iconTransformation(
+          extent={{-20,-20},{20,20}},
+          rotation=270,
+          origin={0,120})));
     SI.MagneticFlux Psi;
     parameter SI.Inductance Lmin=Modelica.Constants.eps
       "lower bound for variable inductance";
@@ -1781,24 +1675,26 @@ It is required that L &ge; 0, otherwise an assertion is raised. To avoid a varia
               100}}),graphics={
           Line(points={{-90,0},{-60,0}}, color={0,0,255}),
           Line(points={{60,0},{90,0}}, color={0,0,255}),
-          Line(points={{0,90},{0,8}}, color={0,0,255}),
-   Line(points={{-60,0},{-60,6},{-51,15},{-45,15},{-39,15},{-30,6},{-30,0}}, color={0,0,255}, smooth=Smooth.Bezier),
-   Line(points={{-30,0},{-30,6},{-21,15},{-15,15},{-9,15},{0,6},{0,0}}, color={0,0,255}, smooth=Smooth.Bezier),
-   Line(points={{0,0},{0,6},{9,15},{15,15},{21,15},{30,6},{30,0}}, color={0,0,255}, smooth=Smooth.Bezier),
-   Line(points={{30,0},{30,6},{39,15},{45,15},{51,15},{60,6},{60,0}}, color={0,0,255}, smooth=Smooth.Bezier),
           Text(
-            extent={{-146,-47},{154,-87}},
+            extent={{-150,90},{150,50}},
             textString="%name",
-            lineColor={0,0,255})}),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={
-     Line(points={{-96,0},{-60,0}}, color={0,0,255}),
-     Line(points={{60,0},{96,0}}, color={0,0,255}),
-     Line(points={{0,90},{0,8}}, color={0,0,255}),
-     Line(points={{-60,0},{-60,6},{-51,15},{-45,15},{-39,15},{-30,6},{-30,0}}, color={0,0,255}, smooth=Smooth.Bezier),
-     Line(points={{-30,0},{-30,6},{-21,15},{-15,15},{-9,15},{0,6},{0,0}}, color={0,0,255}, smooth=Smooth.Bezier),
-     Line(points={{0,0},{0,6},{9,15},{15,15},{21,15},{30,6},{30,0}}, color={0,0,255}, smooth=Smooth.Bezier),
-     Line(points={{30,0},{30,6},{39,15},{45,15},{51,15},{60,6},{60,0}}, color={0,0,255}, smooth=Smooth.Bezier)}));
+            lineColor={0,0,255}),
+          Line(
+            points={{-60,0},{-59,6},{-52,14},{-38,14},{-31,6},{-30,0}},
+            color={0,0,255},
+            smooth=Smooth.Bezier),
+          Line(
+            points={{-30,0},{-29,6},{-22,14},{-8,14},{-1,6},{0,0}},
+            color={0,0,255},
+            smooth=Smooth.Bezier),
+          Line(
+            points={{0,0},{1,6},{8,14},{22,14},{29,6},{30,0}},
+            color={0,0,255},
+            smooth=Smooth.Bezier),
+          Line(
+            points={{30,0},{31,6},{38,14},{52,14},{59,6},{60,0}},
+            color={0,0,255},
+            smooth=Smooth.Bezier)}));
   end VariableInductor;
 
   model Potentiometer "Adjustable resistor"
@@ -1832,7 +1728,10 @@ It is required that L &ge; 0, otherwise an assertion is raised. To avoid a varia
           transformation(
           extent={{-20,-20},{20,20}},
           rotation=90,
-          origin={-100,-110})));
+          origin={-100,-120}), iconTransformation(
+          extent={{-20,-20},{20,20}},
+          rotation=90,
+          origin={-100,-120})));
   protected
     Modelica.Blocks.Sources.Constant rConst(final k=rConstant) if not useRinput
       annotation (Placement(transformation(
@@ -1849,7 +1748,7 @@ It is required that L &ge; 0, otherwise an assertion is raised. To avoid a varia
     pin_n.v - contact.v = Rn*pin_n.i;
     LossPower = (pin_p.v - contact.v)*pin_p.i + (pin_n.v - contact.v)*pin_n.i;
     connect(rInt, r) annotation (Line(
-        points={{-80,-80},{-100,-80},{-100,-110}},
+        points={{-80,-80},{-100,-80},{-100,-120}},
         color={0,0,127}));
     connect(rInt, rConst.y) annotation (Line(
         points={{-80,-80},{-90,-80},{-90,-61}},
@@ -1857,10 +1756,6 @@ It is required that L &ge; 0, otherwise an assertion is raised. To avoid a varia
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
               100}}), graphics={
-          Text(
-            extent={{-100,80},{100,60}},
-            lineColor={0,0,255},
-            textString="%name"),
           Rectangle(
             extent={{-70,30},{70,-30}},
             lineColor={0,0,255},
@@ -1894,7 +1789,11 @@ It is required that L &ge; 0, otherwise an assertion is raised. To avoid a varia
             points={{0,-30},{-4,-40},{4,-40},{0,-30}},
             lineColor={0,0,255},
             fillColor={0,0,255},
-            fillPattern=FillPattern.Solid)}),
+            fillPattern=FillPattern.Solid),
+          Text(
+            extent={{-150,90},{150,50}},
+            textString="%name",
+            lineColor={0,0,255})}),
       Documentation(info="<html>
                        <p>This models a potentiometer where the sliding contact is placed between pin_n (r = 0) and pin_p (r = 1), dependent on either the parameter rConstant or the signal input r.</p>
                        <p>The total resistance R is temperature dependent.</p>

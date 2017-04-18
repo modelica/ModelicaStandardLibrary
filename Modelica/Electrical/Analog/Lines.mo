@@ -49,7 +49,7 @@ package Lines
     parameter SI.Temperature T_ref=300.15;
     Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort if useHeatPort
       annotation (Placement(transformation(extent={{-10,-110},{10,-90}}),
-          iconTransformation(extent={{-80,-80},{-60,-60}})));
+          iconTransformation(extent={{-110,-110},{-90,-90}})));
   protected
     parameter Modelica.SIunits.Resistance rm[N + 1]=
     {if i==1 or i==N + 1 then r*length/(N*2) else r*length/N for i in 1:N+1};
@@ -127,28 +127,20 @@ package Lines
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
           Rectangle(
-            extent={{-60,60},{60,-60}},
+            extent={{-80,80},{80,-80}},
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid,
             lineColor={0,0,255}),
-          Line(points={{0,-60},{0,-90}}, color={0,0,255}),
-          Line(points={{60,0},{90,0}}, color={0,0,255}),
-          Line(points={{-60,0},{-90,0}}, color={0,0,255}),
-          Line(points={{30,30},{-30,30}}, color={0,0,255}),
-          Line(points={{-30,40},{-30,20}}, color={0,0,255}),
-          Line(points={{30,40},{30,20}}, color={0,0,255}),
+          Line(points={{0,-80},{0,-90}}, color={0,0,255}),
+          Line(points={{80,0},{90,0}}, color={0,0,255}),
+          Line(points={{-80,0},{-90,0}}, color={0,0,255}),
           Text(
-            extent={{-155,112},{145,72}},
+            extent={{-151,130},{149,90}},
             textString="%name",
-            lineColor={0,0,255})}),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}}), graphics={Rectangle(extent={{-60,60},{60,-60}},
-            lineColor={0,0,255}),Line(points={{0,-60},{0,-96}}, color={0,0,255}),
-            Line(points={{60,0},{96,0}}, color={0,0,255}),Line(points={{-60,0},
-            {-96,0}}, color={0,0,255}),Line(points={{30,30},{-30,30}}, color={0,
-            0,255}),Line(points={{-30,40},{-30,20}}, color={0,0,255}),Line(
-            points={{30,40},{30,20}}, color={0,0,255})}));
+            lineColor={0,0,255}),
+          Line(points={{40,30},{-40,30}}),
+          Line(points={{-40,40},{-40,20}}),
+          Line(points={{40,40},{40,20}})}));
   end OLine;
 
   model M_OLine "Multiple OLine"
@@ -192,17 +184,17 @@ package Lines
       annotation (Dialog(enable=not useHeatPort));
     parameter SI.Temperature T_ref=300.15;
     Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort if useHeatPort
-      annotation (Placement(transformation(extent={{-10,-110},{10,-90}}),
-          iconTransformation(extent={{-80,-80},{-60,-60}})));
+      annotation (Placement(transformation(extent={{-110,-110},{-90,-90}}),
+          iconTransformation(extent={{-110,-110},{-90,-90}})));
     model segment "Multiple line segment model"
 
       parameter Integer lines(final min=1) = 3 "Number of lines";
       parameter Integer dim_vector_lgc=div(lines*(lines + 1), 2)
         "Length of the vectors for l, g, c";
       Modelica.Electrical.Analog.Interfaces.PositivePin p[lines] "Positive pin"
-        annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
+        annotation (Placement(transformation(extent={{-110,-10},{-90,10}}), iconTransformation(extent={{-110,-10},{-90,10}})));
       Modelica.Electrical.Analog.Interfaces.NegativePin n[lines] "Negative pin"
-        annotation (Placement(transformation(extent={{40,-10},{60,10}})));
+        annotation (Placement(transformation(extent={{90,-10},{110,10}}), iconTransformation(extent={{90,-10},{110,10}})));
 
       parameter Real Cl[dim_vector_lgc]=fill(1, dim_vector_lgc)
         "Capacitance matrix";
@@ -227,7 +219,7 @@ package Lines
 
       Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort if
         useHeatPort annotation (Placement(transformation(extent={{-10,-110},{10,
-                -90}}), iconTransformation(extent={{-80,-80},{-60,-60}})));
+                -90}}), iconTransformation(extent={{-110,-110},{-90,-90}})));
 
       Modelica.Electrical.Analog.Basic.Capacitor C[dim_vector_lgc](C=Cl);
       Modelica.Electrical.Analog.Basic.Resistor R[lines](
@@ -294,6 +286,10 @@ package Lines
 
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={Rectangle(extent={{40,-40},{-40,40}},
+              lineColor={0,0,255}),
+            Text(
+              extent={{-150,90},{150,50}},
+              textString="%name",
               lineColor={0,0,255})}), Documentation(info="<html>
 <p>The segment model is part of the multiple line model. It describes one line segment as outlined in the M_OLine description. Using the loop possibilities of Modelica it is formulated by connecting components the number of which depends on the number of lines.</p>
 </html>"));
@@ -302,9 +298,9 @@ package Lines
     model segment_last "Multiple line last segment model"
 
       Modelica.Electrical.Analog.Interfaces.PositivePin p[lines] "Positive pin"
-        annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
+        annotation (Placement(transformation(extent={{-110,-10},{-90,10}}), iconTransformation(extent={{-110,-10},{-90,10}})));
       Modelica.Electrical.Analog.Interfaces.NegativePin n[lines] "Negative pin"
-        annotation (Placement(transformation(extent={{20,-10},{40,10}})));
+        annotation (Placement(transformation(extent={{90,-10},{110,10}}), iconTransformation(extent={{90,-10},{110,10}})));
       parameter Integer lines(final min=1) = 3 "Number of lines";
       parameter Integer dim_vector_lgc=div(lines*(lines + 1), 2)
         "Length of the vectors for l, g, c";
@@ -324,7 +320,7 @@ package Lines
       parameter SI.Temperature T_ref;
       Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort if
         useHeatPort annotation (Placement(transformation(extent={{-10,-110},{10,
-                -90}}), iconTransformation(extent={{-80,-80},{-60,-60}})));
+                -90}}), iconTransformation(extent={{-110,-110},{-90,-90}})));
       Modelica.Electrical.Analog.Basic.Resistor R[lines](
         R=Rl,
         T_ref=fill(T_ref, lines),
@@ -353,6 +349,10 @@ package Lines
       end if;
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={Rectangle(extent={{20,-40},{-20,40}},
+              lineColor={0,0,255}),
+            Text(
+              extent={{-150,90},{150,50}},
+              textString="%name",
               lineColor={0,0,255})}), Documentation(info="<html>
 <p>The segment_last model is part of the multiple line model. It describes the special  line segment which is used to get the line symmetrical as outlined in the M_OLine description. Using the loop possibilities of Modelica it is formulated by connecting components the number of which depends on the number of lines.</p>
 </html>"));
@@ -391,9 +391,9 @@ package Lines
       useHeatPort=useHeatPort,
       T=T);
     Modelica.Electrical.Analog.Interfaces.PositivePin p[lines] "Positive pin"
-      annotation (Placement(transformation(extent={{-100,-80},{-80,80}})));
+      annotation (Placement(transformation(extent={{-110,-60},{-90,60}})));
     Modelica.Electrical.Analog.Interfaces.NegativePin n[lines] "Negative pin"
-      annotation (Placement(transformation(extent={{80,-80},{100,80}})));
+      annotation (Placement(transformation(extent={{90,-60},{110,60}})));
 
   equation
     connect(p, s_first.p);
@@ -414,7 +414,7 @@ package Lines
     annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
               -100},{100,100}}), graphics={
           Rectangle(
-            extent={{60,80},{-60,-80}},
+            extent={{80,80},{-80,-80}},
             lineColor={0,0,255},
             fillPattern=FillPattern.Solid,
             fillColor={255,255,255}),
@@ -432,7 +432,7 @@ package Lines
             color={0,0,255},
             pattern=LinePattern.Dot),
           Text(
-            extent={{-146,135},{154,95}},
+            extent={{-150,130},{150,90}},
             textString="%name",
             lineColor={0,0,255})}), Documentation(info="<html>
 <p>The M_OLine is a multi line model which consists of several segments and several single lines. Each segment consists of resistors and inductors that are connected in series in each single line, and of capacitors and conductors both between the lines and to the ground. The inductors are coupled to each other like in the M_Transformer model. The following picture shows the schematic of a segment with four single lines (lines=4):</p>
@@ -551,7 +551,7 @@ package Lines
     parameter SI.Temperature T_ref=300.15;
     Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort if useHeatPort
       annotation (Placement(transformation(extent={{-10,-110},{10,-90}}),
-          iconTransformation(extent={{-80,-80},{-60,-60}})));
+          iconTransformation(extent={{-108,-110},{-88,-90}})));
   protected
      parameter Modelica.SIunits.Resistance rm[N + 1]=
     {if i==1 or i==N + 1 then r*length/(N*2) else r*length/N for i in 1:N+1};
@@ -612,29 +612,24 @@ The capacitances are calculated with: C=c*length/N.
       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
-          Rectangle(
-            extent={{-60,60},{60,-60}},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid,
-            lineColor={0,0,255}),
-          Line(points={{0,-60},{0,-90}}, color={0,0,255}),
-          Line(points={{60,0},{90,0}}, color={0,0,255}),
-          Line(points={{-60,0},{-90,0}}, color={0,0,255}),
-          Line(points={{30,30},{-30,30}}, color={0,0,255}),
-          Line(points={{-30,40},{-30,20}}, color={0,0,255}),
-          Line(points={{30,40},{30,20}}, color={0,0,255}),
           Text(
-            extent={{-154,117},{146,77}},
+            extent={{-150,130},{150,90}},
             textString="%name",
-            lineColor={0,0,255})}),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}}), graphics={Rectangle(extent={{-60,60},{60,-60}},
-            lineColor={0,0,255}),Line(points={{0,-60},{0,-96}}, color={0,0,255}),
-            Line(points={{60,0},{96,0}}, color={0,0,255}),Line(points={{-60,0},
-            {-96,0}}, color={0,0,255}),Line(points={{30,30},{-30,30}}, color={0,
-            0,255}),Line(points={{-30,40},{-30,20}}, color={0,0,255}),Line(
-            points={{30,40},{30,20}}, color={0,0,255})}));
+            lineColor={0,0,255}),
+          Rectangle(
+            extent={{-80,80},{80,-80}},
+            lineColor={0,0,255},
+            fillPattern=FillPattern.Solid,
+            fillColor={255,255,255}),
+          Line(points={{80,0},{100,0}},  color={0,0,255}),
+          Line(points={{-80,0},{-100,0}},  color={0,0,255}),
+          Line(points={{-40,40},{-40,20}}),
+          Line(points={{40,30},{-40,30}}),
+          Line(points={{40,40},{40,20}}),
+          Line(points={{0,-80},{0,-100}}, color={0,0,255}),
+          Text(
+            extent={{-70,-10},{70,-50}},
+            textString="ULine")}));
   end ULine;
 
   model TLine1
@@ -672,38 +667,34 @@ The capacitances are calculated with: C=c*length/N.
       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
+          Text(
+            extent={{-150,150},{150,110}},
+            textString="%name",
+            lineColor={0,0,255}),
           Rectangle(
-            extent={{-60,60},{60,-60}},
+            extent={{-80,80},{80,-80}},
             lineColor={0,0,255},
             fillPattern=FillPattern.Solid,
             fillColor={255,255,255}),
-          Line(points={{60,-50},{90,-50}}, color={0,0,255}),
-          Line(points={{60,50},{90,50}}, color={0,0,255}),
-          Line(points={{-60,50},{-90,50}}, color={0,0,255}),
-          Line(points={{-60,-50},{-90,-50}}, color={0,0,255}),
-          Line(points={{30,30},{-30,30}}, color={0,0,255}),
-          Line(points={{-30,40},{-30,20}}, color={0,0,255}),
-          Line(points={{30,40},{30,20}}, color={0,0,255}),
+          Line(points={{60,-100},{90,-100}}, color={0,0,255}),
+          Line(points={{60,100},{90,100}}, color={0,0,255}),
+          Line(points={{-60,100},{-90,100}}, color={0,0,255}),
+          Line(points={{-60,-100},{-90,-100}}, color={0,0,255}),
           Text(
-            extent={{-50,0},{50,-20}},
+            extent={{-70,-10},{70,-50}},
             textString="TLine1"),
-          Text(
-            extent={{-152,122},{148,82}},
-            textString="%name",
-            lineColor={0,0,255})}),
+          Line(points={{-40,40},{-40,20}}),
+          Line(points={{40,30},{-40,30}}),
+          Line(points={{40,40},{40,20}}),
+          Line(points={{-60,100},{-60,80}}, color={0,0,255}),
+          Line(points={{60,100},{60,80}}, color={0,0,255}),
+          Line(points={{60,-80},{60,-100}}, color={0,0,255}),
+          Line(points={{-60,-80},{-60,-100}}, color={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}}),graphics={Rectangle(extent={{-60,60},{60,-60}}, lineColor=
-             {0,0,255}),Line(points={{60,-50},{96,-50}}, color={0,0,255}),Line(
-            points={{60,50},{96,50}}, color={0,0,255}),Line(points={{-60,50},{-96,
-            50}}, color={0,0,255}),Line(points={{-60,-50},{-96,-50}}, color={0,
-            0,255}),Line(points={{30,30},{-30,30}}, color={0,0,255}),Line(
-            points={{-30,40},{-30,20}}, color={0,0,255}),Line(points={{30,40},{
-            30,20}}, color={0,0,255}),Text(
+          extent={{-100,-100},{100,100}}),graphics={
+                                      Text(
               extent={{-100,100},{100,70}},
-              textString="TLine1",
-              lineColor={0,0,255}),Text(
-              extent={{-30,0},{31,-31}},
               textString="TLine1",
               lineColor={0,0,255})}));
   end TLine1;
@@ -745,34 +736,33 @@ The capacitances are calculated with: C=c*length/N.
       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
+          Text(
+            extent={{-150,150},{150,110}},
+            textString="%name",
+            lineColor={0,0,255}),
           Rectangle(
-            extent={{-60,60},{60,-60}},
+            extent={{-80,80},{80,-80}},
             lineColor={0,0,255},
             fillPattern=FillPattern.Solid,
             fillColor={255,255,255}),
-          Line(points={{60,-50},{90,-50}}, color={0,0,255}),
-          Line(points={{60,50},{90,50}}, color={0,0,255}),
-          Line(points={{-60,50},{-90,50}}, color={0,0,255}),
-          Line(points={{-60,-50},{-90,-50}}, color={0,0,255}),
-          Line(points={{30,30},{-30,30}}, color={0,0,255}),
-          Line(points={{-30,40},{-30,20}}, color={0,0,255}),
-          Line(points={{30,40},{30,20}}, color={0,0,255}),
+          Line(points={{60,-100},{90,-100}}, color={0,0,255}),
+          Line(points={{60,100},{90,100}}, color={0,0,255}),
+          Line(points={{-60,100},{-90,100}}, color={0,0,255}),
+          Line(points={{-60,-100},{-90,-100}}, color={0,0,255}),
           Text(
-            extent={{-51,-10},{50,-31}},
+            extent={{-70,-10},{70,-50}},
             textString="TLine2"),
-          Text(
-            extent={{-148,119},{152,79}},
-            textString="%name",
-            lineColor={0,0,255})}),
+          Line(points={{-40,40},{-40,20}}),
+          Line(points={{40,30},{-40,30}}),
+          Line(points={{40,40},{40,20}}),
+          Line(points={{-60,100},{-60,80}}, color={0,0,255}),
+          Line(points={{60,100},{60,80}}, color={0,0,255}),
+          Line(points={{60,-80},{60,-100}}, color={0,0,255}),
+          Line(points={{-60,-80},{-60,-100}}, color={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}}), graphics={Rectangle(extent={{-60,60},{60,-60}},
-            lineColor={0,0,255}),Line(points={{60,-50},{96,-50}}, color={0,0,
-            255}),Line(points={{60,50},{96,50}}, color={0,0,255}),Line(points={
-            {-60,50},{-96,50}}, color={0,0,255}),Line(points={{-60,-50},{-96,-50}},
-            color={0,0,255}),Line(points={{30,30},{-30,30}}, color={0,0,255}),
-            Line(points={{-30,40},{-30,20}}, color={0,0,255}),Line(points={{30,
-            40},{30,20}}, color={0,0,255}),Text(
+          extent={{-100,-100},{100,100}}), graphics={
+                                           Text(
               extent={{-100,100},{100,70}},
               textString="TLine2",
               lineColor={0,0,255})}));
@@ -813,33 +803,32 @@ The capacitances are calculated with: C=c*length/N.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
           Rectangle(
-            extent={{-60,60},{60,-60}},
+            extent={{-80,80},{80,-80}},
             lineColor={0,0,255},
             fillPattern=FillPattern.Solid,
             fillColor={255,255,255}),
-          Line(points={{60,-50},{90,-50}}, color={0,0,255}),
-          Line(points={{60,50},{90,50}}, color={0,0,255}),
-          Line(points={{-60,50},{-90,50}}, color={0,0,255}),
-          Line(points={{-60,-50},{-90,-50}}, color={0,0,255}),
-          Line(points={{30,30},{-30,30}}, color={0,0,255}),
-          Line(points={{-30,40},{-30,20}}, color={0,0,255}),
-          Line(points={{30,40},{30,20}}, color={0,0,255}),
+          Line(points={{60,-100},{90,-100}}, color={0,0,255}),
+          Line(points={{60,100},{90,100}}, color={0,0,255}),
+          Line(points={{-60,100},{-90,100}}, color={0,0,255}),
+          Line(points={{-60,-100},{-90,-100}}, color={0,0,255}),
           Text(
-            extent={{-50,-10},{51,-30}},
+            extent={{-70,-10},{70,-50}},
             textString="TLine3"),
           Text(
-            extent={{-155,124},{145,84}},
+            extent={{-150,150},{150,110}},
             textString="%name",
-            lineColor={0,0,255})}),
+            lineColor={0,0,255}),
+          Line(points={{-40,40},{-40,20}}),
+          Line(points={{40,30},{-40,30}}),
+          Line(points={{40,40},{40,20}}),
+          Line(points={{-60,100},{-60,80}}, color={0,0,255}),
+          Line(points={{60,100},{60,80}}, color={0,0,255}),
+          Line(points={{60,-80},{60,-100}}, color={0,0,255}),
+          Line(points={{-60,-80},{-60,-100}}, color={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}}), graphics={Rectangle(extent={{-60,60},{60,-60}},
-            lineColor={0,0,255}),Line(points={{60,-50},{96,-50}}, color={0,0,
-            255}),Line(points={{60,50},{96,50}}, color={0,0,255}),Line(points={
-            {-60,50},{-96,50}}, color={0,0,255}),Line(points={{-60,-50},{-96,-50}},
-            color={0,0,255}),Line(points={{30,30},{-30,30}}, color={0,0,255}),
-            Line(points={{-30,40},{-30,20}}, color={0,0,255}),Line(points={{30,
-            40},{30,20}}, color={0,0,255}),Text(
+          extent={{-100,-100},{100,100}}), graphics={
+                                           Text(
               extent={{-100,100},{100,70}},
               textString="TLine3",
               lineColor={0,0,255})}));
