@@ -358,24 +358,6 @@ variables is explained in section \"Connector Equations\" below):
    <td valign=\"top\"><a href=\"modelica://Modelica.StateGraph.Interfaces\">Modelica.StateGraph.Interfaces</a>
      <br>Step_in, Step_out, Transition_in, Transition_out</td>
    <td valign=\"top\"><img src=\"modelica://Modelica/Resources/Images/UsersGuide/StateGraphPorts.png\"></td></tr>
-
-<tr><td colspan=\"5\">&nbsp;<br><strong>Connectors from other libraries</strong></td></tr>
-
-<tr><td valign=\"top\"><strong>hydraulic</strong></td>
-   <td valign=\"top\">pressure</td>
-   <td valign=\"top\">volume flow rate</td>
-   <td valign=\"top\"></td>
-   <td valign=\"top\">HyLibLight.Interfaces
-     <br>Port_A, Port_b</td>
-   <td valign=\"top\"><img src=\"modelica://Modelica/Resources/Images/UsersGuide/HydraulicPorts.png\"></td></tr>
-
-<tr><td valign=\"top\"><strong>pneumatic</strong></td>
-   <td valign=\"top\">pressure</td>
-   <td valign=\"top\">mass flow rate</td>
-   <td valign=\"top\"></td>
-   <td valign=\"top\">PneuLibLight.Interfaces
-     <br>Port_1, Port_2</td>
-   <td valign=\"top\"><img src=\"modelica://Modelica/Resources/Images/UsersGuide/PneumaticPorts.png\"></td></tr>
 </table>
 
 <p>
