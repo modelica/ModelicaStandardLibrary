@@ -8031,10 +8031,29 @@ User's Guides that can be accessed by the following links:
 </p>
 
 <table border=1 cellspacing=0 cellpadding=2>
+<tr>
+  <td valign=\"top\"><a href=\"modelica://Modelica.ComplexBlocks.UsersGuide\">ComplexBlocks</a></td>
+  <td valign=\"top\">Library of basic input/output control blocks with Complex signals</td>
+</tr>
+
 <tr><td valign=\"top\"><a href=\"modelica://Modelica.Electrical.Digital.UsersGuide\">Digital</a>
    </td>
    <td valign=\"top\">Library for digital electrical components based on the VHDL standard
    (2-,3-,4-,9-valued logic)</td>
+</tr>
+
+<tr>
+  <td valign=\"top\"><a href=\"modelica://Modelica.Fluid.Dissipation.UsersGuide\">Dissipation</a></td>
+  <td valign=\"top\">Library of functions for convective heat transfer and pressure loss characteristics</td>
+</tr>
+
+<tr><td valign=\"top\"><a href=\"modelica://Modelica.Fluid.UsersGuide\">Fluid</a></td>
+    <td valign=\"top\">Library of 1-dim. thermo-fluid flow models using the Modelica.Media media description</td>
+</tr>
+
+<tr>
+  <td valign=\"top\"><a href=\"modelica://Modelica.Thermal.FluidHeatFlow.UsersGuide\">FluidHeatFlow</a></td>
+  <td valign=\"top\">Library of simple components for 1-dimensional incompressible thermo-fluid flow models</td>
 </tr>
 
 <tr><td valign=\"top\"><a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide\">FluxTubes</a>
@@ -8042,9 +8061,44 @@ User's Guides that can be accessed by the following links:
    <td valign=\"top\">Library for modelling of electromagnetic devices with lumped magnetic networks</td>
 </tr>
 
+<tr>
+  <td valign=\"top\"><a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide\">FundamentalWave</a></td>
+  <td valign=\"top\">Library for magnetic fundamental wave effects in electric machines</td>
+</tr>
+
+<tr>
+  <td valign=\"top\"><a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.UsersGuide\">FundamentalWave</a></td>
+  <td valign=\"top\">Library for quasi static fundamental wave electric machines</td>
+</tr>
+
+<tr>
+  <td valign=\"top\"><a href=\"modelica://Modelica.Electrical.Machines.UsersGuide\">Machines</a></td>
+  <td valign=\"top\">Library for electric machines</td>
+</tr>
+
+<tr><td valign=\"top\"><a href=\"modelica://Modelica.Media.UsersGuide\">Media</a>
+    </td>
+   <td valign=\"top\">Library of media property models</td>
+</tr>
+
 <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.UsersGuide\">MultiBody</a>
     </td>
    <td valign=\"top\">Library to model 3-dimensional mechanical systems</td>
+</tr>
+
+<tr>
+  <td valign=\"top\"><a href=\"modelica://Modelica.Electrical.MultiPhase.UsersGuide\">MultiPhase</a></td>
+  <td valign=\"top\">Library for electrical components of one or more phases</td>
+</tr>
+
+<tr>
+  <td valign=\"top\"><a href=\"modelica://Modelica.Electrical.PowerConverters.UsersGuide\">PowerConverters</a></td>
+  <td valign=\"top\">Library for rectifiers, inverters and DC/DC converters</td>
+</tr>
+
+<tr>
+  <td valign=\"top\"><a href=\"modelica://Modelica.Electrical.QuasiStationary.UsersGuide\">QuasiStationary</a></td>
+  <td valign=\"top\">Library for quasi-stationary electrical singlephase and multiphase AC simulation</td>
 </tr>
 
 <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.Rotational.UsersGuide\">Rotational</a>
@@ -8052,25 +8106,23 @@ User's Guides that can be accessed by the following links:
    <td valign=\"top\">Library to model 1-dimensional, rotational mechanical systems</td>
 </tr>
 
-<tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.Translational.UsersGuide\">Translational</a>
-    </td>
-   <td valign=\"top\">Library to model 1-dimensional, translational mechanical systems</td>
-</tr>
-
-<tr><td valign=\"top\"><a href=\"modelica://Modelica.Fluid.UsersGuide\">Fluid</a></td>
-    <td valign=\"top\">Library of 1-dim. thermo-fluid flow models using the Modelica.Media media description</td>
-</tr>
-<tr><td valign=\"top\"><a href=\"modelica://Modelica.Media.UsersGuide\">Media</a>
-    </td>
-   <td valign=\"top\">Library of media property models</td>
-</tr>
 <tr><td valign=\"top\"><a href=\"modelica://Modelica.SIunits.UsersGuide\">SIunits</a> </td>
    <td valign=\"top\">Library of type definitions based on SI units according to ISO 31-1992</td>
+</tr>
+
+<tr>
+  <td valign=\"top\"><a href=\"modelica://Modelica.Electrical.Spice3.UsersGuide\">Spice3</a></td>
+  <td valign=\"top\">Library for components of the Berkeley SPICE3 simulator</td>
 </tr>
 
 <tr><td valign=\"top\"><a href=\"modelica://Modelica.StateGraph.UsersGuide\">StateGraph</a>
     </td>
    <td valign=\"top\">Library to model discrete event and reactive systems by hierarchical state machines</td>
+</tr>
+
+<tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.Translational.UsersGuide\">Translational</a>
+    </td>
+   <td valign=\"top\">Library to model 1-dimensional, translational mechanical systems</td>
 </tr>
 
 <tr><td valign=\"top\"><a href=\"modelica://Modelica.Utilities.UsersGuide\">Utilities</a>
