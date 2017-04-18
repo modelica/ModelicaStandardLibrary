@@ -503,7 +503,7 @@ model NPN "Simple BJT according to Ebers-Moll"
   Modelica.Electrical.Analog.Interfaces.Pin B "Base" annotation (Placement(
         transformation(extent={{-90,-10},{-110,10}})));
   Modelica.Electrical.Analog.Interfaces.Pin E "Emitter" annotation (Placement(
-        transformation(extent={{90,-40},{110,-60}})));
+        transformation(extent={{90,-50},{110,-70}}), iconTransformation(extent={{90,-50},{110,-70}})));
 initial equation
   if UIC then
     C.v = IC;
