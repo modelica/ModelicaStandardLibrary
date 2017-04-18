@@ -1632,7 +1632,7 @@ This class summarizes contact information of the contributing persons.
 <p>The main icon color of a component shall be the same for all components of one library.</p>
 
 <p>White fill areas of an icon shall not be used to hide parts of an icon, see
-<a href=\"modelica://https://github.com/modelica/Modelica/issues/2031\">#2031</a>.</p>
+<a href=\"https://github.com/modelica/Modelica/issues/2031\">#2031</a>.</p>
 
 <h4>Icon size</h4>
 
