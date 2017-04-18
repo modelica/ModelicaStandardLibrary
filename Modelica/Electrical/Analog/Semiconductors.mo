@@ -15,15 +15,14 @@ package Semiconductors
     extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(
        T=293.15);
   equation
-    i = smooth(1,(if (v/Vt > Maxexp) then Ids*(exp(Maxexp)*(1 + v/Vt - Maxexp) - 1) +
-      v/R else Ids*(exp(v/Vt) - 1) + v/R));
+    i = smooth(1, Ids*(exlin(v/Vt, Maxexp) - 1) + v/R);
     LossPower = v*i;
     annotation (
       Documentation(info="<html>
 <p>The simple diode is a one port. It consists of the diode itself and an parallel ohmic resistance <em>R</em>. The diode formula is:</p>
 <pre>                v/vt
   i  =  ids ( e      - 1).</pre>
-<p>If the exponent <em>v/vt</em> reaches the limit <em>maxex</em>, the diode characteristic is linearly continued to avoid overflow.</p><p><strong>Please note:</strong> In case of useHeatPort=true the temperature dependence of the electrical behavior is <strong>not </strong>modelled yet. The parameters are not temperature dependent.</p>
+<p>If the exponent <em>v/vt</em> reaches the limit <em>maxex</em>, the diode characteristic is linearly continued to avoid overflow.</p><p><strong>Please note:</strong> In case of useHeatPort=true the temperature dependence of the electrical behavior is <strong>not</strong> modelled yet. The parameters are not temperature dependent.</p>
 </html>",
    revisions="<html>
 <ul>
@@ -86,7 +85,7 @@ package Semiconductors
     parameter SI.Conductance Gp = 1e-6
       "Parallel conductance for numerical stability";
     SI.Voltage vd "Voltage across pure diode part";
-    SI.Current id "diode current";
+    SI.Current id "Diode current";
   protected
     SI.Voltage VdMax=Vf + (N*Vt_applied) "Linear continuation threshold";
     SI.Current iVdMax=Ids*(exp(VdMax/(N*Vt_applied)) - 1)
@@ -98,14 +97,14 @@ package Semiconductors
     Vt_applied = if useHeatPort then Modelica.Constants.R * T_heatPort/Modelica.Constants.F else Vt;
     id = smooth(1,
       if vd < -Bv / 2 then
+        //Lower half of reverse biased region including breakdown.
         -Ids * (exp(-(vd+Bv)/(N*Vt_applied)) + 1 - 2*exp(-Bv/(2*N*Vt_applied)))
       elseif vd < VdMax then
+        //Upper half of reverse biased region, and forward biased region before conduction.
         Ids * (exp(vd/(N*Vt_applied)) - 1)
       else
-        iVdMax + (vd - VdMax) * diVdMax);
-        //Lower half of reverse biased region including breakdown.
-        //Upper half of reverse biased region, and forward biased region before conduction.
         //Forward biased region after conduction
+        iVdMax + (vd - VdMax) * diVdMax);
 
     v = vd + id * Rs;
     i = id + v*Gp;
@@ -172,20 +171,18 @@ Stefan Vorkoetter - new model proposed.</li>
           Line(points={{30,40},{30,-40}}, color={0,0,255})}));
   end Diode2;
 
- model ZDiode "Zener diode with 3 working areas"
-   extends Modelica.Electrical.Analog.Interfaces.OnePort;
-   parameter SI.Current Ids=1.e-6 "Saturation current";
-   parameter SI.Voltage Vt=0.04 "Voltage equivalent of temperature (kT/qn)";
-   parameter Real Maxexp(final min=Modelica.Constants.small) = 30
+  model ZDiode "Zener diode with 3 working areas"
+    extends Modelica.Electrical.Analog.Interfaces.OnePort;
+    parameter SI.Current Ids=1.e-6 "Saturation current";
+    parameter SI.Voltage Vt=0.04 "Voltage equivalent of temperature (kT/qn)";
+    parameter Real Maxexp(final min=Modelica.Constants.small) = 30
       "Max. exponent for linear continuation";
-   parameter SI.Resistance R=1.e8 "Parallel ohmic resistance";
-   parameter SI.Voltage Bv=5.1 "Breakthrough voltage = Zener- or Z-voltage";
-   parameter SI.Current Ibv=0.7 "Breakthrough knee current";
-   parameter Real Nbv=0.74 "Breakthrough emission coefficient";
-   extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(
+    parameter SI.Resistance R=1.e8 "Parallel ohmic resistance";
+    parameter SI.Voltage Bv=5.1 "Breakthrough voltage = Zener- or Z-voltage";
+    parameter SI.Current Ibv=0.7 "Breakthrough knee current";
+    parameter Real Nbv=0.74 "Breakthrough emission coefficient";
+    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(
       T=293.15);
-
-   Real maxexp=exp(Maxexp);
  equation
     i = smooth(1, if (v>Maxexp*Vt) then
               Ids*( exp(Maxexp)*(1 + v/Vt - Maxexp)-1) + v/R else
@@ -200,7 +197,7 @@ Stefan Vorkoetter - new model proposed.</li>
   i  =  Ids ( e      - 1) - Ibv ( e                  ).</pre>
 <p>If the exponent in one of the two branches reaches the limit <em>Maxexp</em>, the diode characteristic is linearly continued to avoid overflow.</p>
 <p><br>The Zener diode model permits (in contrast to the simple diode model) current in reverse direction if the breakdown voltage Bv (also known Zener knee voltage) is exceeded.</p>
-<p>The thermal power is calculated by <em>i*v</em>.</p><p><strong>Please note:</strong> In case of useHeatPort=true the temperature dependence of the electrical behavior is <strong>not </strong>modelled yet. The parameters are not temperature dependent.</p>
+<p>The thermal power is calculated by <em>i*v</em>.</p><p><strong>Please note:</strong> In case of useHeatPort=true the temperature dependence of the electrical behavior is <strong>not</strong> modelled yet. The parameters are not temperature dependent.</p>
 </html>",  revisions="<html>
 <ul>
 <li><em> March 11, 2009   </em>
@@ -239,7 +236,7 @@ Stefan Vorkoetter - new model proposed.</li>
             fillColor={255,0,0}),
           Line(points={{-99,0},{96,0}}, color={0,0,255}),
           Line(points={{30,40},{30,-40}}, color={0,0,255})}));
- end ZDiode;
+  end ZDiode;
 
 model PMOS "Simple MOS Transistor"
 
@@ -274,8 +271,8 @@ model PMOS "Simple MOS Transistor"
   Real gds;
 
 equation
-  assert( L + dL > 0, "PMOS: Effective length must be positive");
-  assert( W + dW > 0, "PMOS: Effective width  must be positive");
+  assert(L + dL > 0, "PMOS: Effective length must be positive");
+  assert(W + dW > 0, "PMOS: Effective width  must be positive");
   gds = if (RDS < 1.e-20 and RDS > -1.e-20) then 1.e20 else 1/RDS;
   v = Beta*(W + dW)/(L + dL);
   ud = smooth(0,if (D.v > S.v) then S.v else D.v);
@@ -301,7 +298,7 @@ For more details please care for H. Spiro.
 The model does not consider capacitances. A high drain-source resistance RDS
 is included to avoid numerical difficulties.
 <br><br>
-<strong>Please note: </strong>
+<strong>Please note:</strong>
 In case of useHeatPort=true the temperature dependence of the electrical
 behavior is <strong>not</strong> modelled yet. The parameters are not temperature dependent.
 </P>
@@ -398,8 +395,8 @@ model NMOS "Simple MOS Transistor"
   parameter SI.Voltage Vt=0.8 "Zero bias threshold voltage";
   parameter Real K2=1.144 "Bulk threshold parameter";
   parameter Real K5=0.7311 "Reduction of pinch-off region";
-  parameter SI.Length dW=-2.5e-6 "narrowing of channel";
-  parameter SI.Length dL=-1.5e-6 "shortening of channel";
+  parameter SI.Length dW=-2.5e-6 "Narrowing of channel";
+  parameter SI.Length dL=-1.5e-6 "Shortening of channel";
   parameter SI.Resistance RDS=1.e+7 "Drain-Source-Resistance";
   extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=293.15);
   protected
@@ -413,8 +410,8 @@ model NMOS "Simple MOS Transistor"
   Real gds;
 
 equation
-  assert( L + dL > 0, "NMOS: Effective length must be positive");
-  assert( W + dW > 0, "NMOS: Effective width  must be positive");
+  assert(L + dL > 0, "NMOS: Effective length must be positive");
+  assert(W + dW > 0, "NMOS: Effective width  must be positive");
   gds = if (RDS < 1.e-20 and RDS > -1.e-20) then 1.e20 else 1/RDS;
   v = Beta*(W + dW)/(L + dL);
   ud = smooth(0,if (D.v < S.v) then S.v else D.v);
@@ -563,18 +560,8 @@ model NPN "Simple BJT according to Ebers-Moll"
   Real ibe;
   Real cbc;
   Real cbe;
-  Real ExMin;
-  Real ExMax;
   Real Capcje;
   Real Capcjc;
-  function pow "Just a helper function for x^y"
-    extends Modelica.Icons.Function;
-    input Real x;
-    input Real y;
-    output Real z;
-  algorithm
-    z:=x^y;
-  end pow;
   public
   Modelica.Electrical.Analog.Interfaces.Pin C "Collector" annotation (Placement(
         transformation(extent={{90,40},{110,60}})));
@@ -588,28 +575,16 @@ initial equation
   end if;
 
 equation
-  ExMin = exp(EMin);
-  ExMax = exp(EMax);
   vbc = B.v - C.v;
   vbe = B.v - E.v;
   qbk = 1 - vbc*Vak;
 
-  ibc = smooth(1,if (vbc/Vt < EMin) then Is*(ExMin*(vbc/Vt - EMin + 1) - 1) + vbc*Gbc else
-          if (vbc/Vt > EMax) then Is*(ExMax*(vbc/Vt - EMax + 1) - 1) + vbc*
-    Gbc else Is*(exp(vbc/Vt) - 1) + vbc*Gbc);
-  ibe = smooth(1,if (vbe/Vt < EMin) then Is*(ExMin*(vbe/Vt - EMin + 1) - 1) + vbe*Gbe else
-          if (vbe/Vt > EMax) then Is*(ExMax*(vbe/Vt - EMax + 1) - 1) + vbe*
-    Gbe else Is*(exp(vbe/Vt) - 1) + vbe*Gbe);
-  Capcjc = smooth(1,(if (vbc/Phic > 0) then Cjc*(1 + Mc*vbc/Phic) else Cjc*pow(1 - vbc
-    /Phic, -Mc)));
-  Capcje = smooth(1,(if (vbe/Phie > 0) then Cje*(1 + Me*vbe/Phie) else Cje*pow(1 - vbe
-    /Phie, -Me)));
-  cbc = smooth(1,(if (vbc/Vt < EMin) then Taur*Is/Vt*ExMin*(vbc/Vt - EMin + 1) +
-    Capcjc else if (vbc/Vt > EMax) then Taur*Is/Vt*ExMax*(vbc/Vt - EMax + 1)
-     + Capcjc else Taur*Is/Vt*exp(vbc/Vt) + Capcjc));
-  cbe = smooth(1,(if (vbe/Vt < EMin) then Tauf*Is/Vt*ExMin*(vbe/Vt - EMin + 1) +
-    Capcje else if (vbe/Vt > EMax) then Tauf*Is/Vt*ExMax*(vbe/Vt - EMax + 1)
-     + Capcje else Tauf*Is/Vt*exp(vbe/Vt) + Capcje));
+  ibc = smooth(1, Is*(exlin2(vbc/Vt, EMin, EMax) - 1) + vbc*Gbc);
+  ibe = smooth(1, Is*(exlin2(vbe/Vt, EMin, EMax) - 1) + vbe*Gbe);
+  Capcjc = smooth(1, Cjc*powlin(vbc/Phic, Mc));
+  Capcje = smooth(1, Cje*powlin(vbe/Phie, Me));
+  cbc = smooth(1, Taur*Is/Vt*exlin2(vbc/Vt, EMin, EMax) + Capcjc);
+  cbe = smooth(1, Tauf*Is/Vt*exlin2(vbe/Vt, EMin, EMax) + Capcje);
   C.i = (ibe - ibc)*qbk - ibc/Br - cbc*der(vbc) + Ccs*der(C.v);
   B.i = ibe/Bf + ibc/Br + cbc*der(vbc) + cbe*der(vbe);
   E.i = -B.i - C.i + Ccs*der(C.v);
@@ -720,18 +695,8 @@ model PNP "Simple BJT according to Ebers-Moll"
   Real ibe;
   Real cbc;
   Real cbe;
-  Real ExMin;
-  Real ExMax;
   Real Capcje;
   Real Capcjc;
-  function pow "Just a helper function for x^y"
-    extends Modelica.Icons.Function;
-    input Real x;
-    input Real y;
-    output Real z;
-  algorithm
-    z:=x^y;
-  end pow;
   public
   Modelica.Electrical.Analog.Interfaces.Pin C "Collector" annotation (Placement(
         transformation(extent={{90,40},{110,60}})));
@@ -740,30 +705,16 @@ model PNP "Simple BJT according to Ebers-Moll"
   Modelica.Electrical.Analog.Interfaces.Pin E "Emitter" annotation (Placement(
         transformation(extent={{90,-40},{110,-60}})));
 equation
-  ExMin = exp(EMin);
-  ExMax = exp(EMax);
   vbc = C.v - B.v;
   vbe = E.v - B.v;
   qbk = 1 - vbc*Vak;
 
-  ibc = smooth(1,(if (vbc/Vt < EMin) then Is*(ExMin*(vbc/Vt - EMin + 1) - 1) + vbc*Gbc else
-          if (vbc/Vt > EMax) then Is*(ExMax*(vbc/Vt - EMax + 1) - 1) + vbc*
-    Gbc else Is*(exp(vbc/Vt) - 1) + vbc*Gbc));
-
-  ibe = smooth(1,(if (vbe/Vt < EMin) then Is*(ExMin*(vbe/Vt - EMin + 1) - 1) + vbe*Gbe else
-          if (vbe/Vt > EMax) then Is*(ExMax*(vbe/Vt - EMax + 1) - 1) + vbe*
-    Gbe else Is*(exp(vbe/Vt) - 1) + vbe*Gbe));
-
-  Capcjc = smooth(1,(if (vbc/Phic > 0) then Cjc*(1 + Mc*vbc/Phic) else Cjc*pow(1 - vbc
-    /Phic, -Mc)));
-  Capcje = smooth(1,if (vbe/Phie > 0) then Cje*(1 + Me*vbe/Phie) else Cje*pow(1 - vbe
-    /Phie, -Me));
-  cbc = smooth(1,(if (vbc/Vt < EMin) then Taur*Is/Vt*ExMin*(vbc/Vt - EMin + 1) +
-    Capcjc else if (vbc/Vt > EMax) then Taur*Is/Vt*ExMax*(vbc/Vt - EMax + 1)
-     + Capcjc else Taur*Is/Vt*exp(vbc/Vt) + Capcjc));
-  cbe = smooth(1,(if (vbe/Vt < EMin) then Tauf*Is/Vt*ExMin*(vbe/Vt - EMin + 1) +
-    Capcje else if (vbe/Vt > EMax) then Tauf*Is/Vt*ExMax*(vbe/Vt - EMax + 1)
-     + Capcje else Tauf*Is/Vt*exp(vbe/Vt) + Capcje));
+  ibc = smooth(1, Is*(exlin2(vbc/Vt, EMin, EMax) - 1) + vbc*Gbc);
+  ibe = smooth(1, Is*(exlin2(vbe/Vt, EMin, EMax) - 1) + vbe*Gbe);
+  Capcjc = smooth(1, Cjc*powlin(vbc/Phic, Mc));
+  Capcje = smooth(1, Cje*powlin(vbe/Phie, Me));
+  cbc = smooth(1, Taur*Is/Vt*exlin2(vbc/Vt, EMin, EMax) + Capcjc);
+  cbe = smooth(1, Tauf*Is/Vt*exlin2(vbe/Vt, EMin, EMax) + Capcje);
   C.i = -((ibe - ibc)*qbk - ibc/Br - cbc*der(vbc) - Ccs*der(C.v));
   B.i = -(ibe/Bf + ibc/Br + cbe*der(vbe) + cbc*der(vbc));
   E.i = -B.i - C.i + Ccs*der(C.v);
@@ -850,7 +801,7 @@ model HeatingDiode "Simple diode with heating port"
   parameter Real Maxexp(final min=Modelica.Constants.small) = 15
       "Max. exponent for linear continuation";
   parameter SI.Resistance R=1.e8 "Parallel ohmic resistance";
-  parameter Real EG=1.11 "activation energy";
+  parameter Real EG=1.11 "Activation energy";
   parameter Real N=1 "Emission coefficient";
   parameter SI.Temperature TNOM=300.15
       "Parameter measurement temperature";
@@ -858,16 +809,15 @@ model HeatingDiode "Simple diode with heating port"
   extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(useHeatPort=true);
 
   SI.Temperature vt_t "Temperature voltage";
-  SI.Current id "diode current";
+  SI.Current id "Diode current";
   protected
   final constant SI.ElectricCharge q=Modelica.Constants.F/Modelica.Constants.N_A
       "Electron charge, [As]";
-  SI.Temperature htemp "auxiliary temperature";
+  SI.Temperature htemp "Auxiliary temperature";
   Real aux;
   Real auxp;
-  Real maxexp=exp(Maxexp);
 equation
-  assert( T_heatPort > 0,"temperature must be positive");
+  assert(T_heatPort > 0,"Temperature must be positive");
   htemp = T_heatPort;
   vt_t = k*htemp/q;
 
@@ -953,16 +903,14 @@ end HeatingDiode;
             annotation (Placement(transformation(extent={{90,-10},{110,10}})));
           parameter SI.Length W=20.e-6 "Width";
           parameter SI.Length L=6.e-6 "Length";
-          parameter SI.Transconductance Beta=0.041e-3
-      "Transconductance parameter";
+          parameter SI.Transconductance Beta=0.041e-3 "Transconductance parameter";
           parameter SI.Voltage Vt=0.8 "Zero bias threshold voltage";
           parameter Real K2=1.144 "Bulk threshold parameter";
           parameter Real K5=0.7311 "Reduction of pinch-off region";
           parameter SI.Length dW=-2.5e-6 "Narrowing of channel";
           parameter SI.Length dL=-1.5e-6 "Shortening of channel";
           parameter SI.Resistance RDS=1.e+7 "Drain-Source-Resistance";
-          parameter SI.Temperature Tnom=300.15
-      "Parameter measurement temperature";
+          parameter SI.Temperature Tnom=300.15 "Parameter measurement temperature";
           parameter Real kvt=-6.96e-3 "Fitting parameter for Vt";
           parameter Real kk2=6.0e-4 "Fitting parameter for K2";
           extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(
@@ -1099,16 +1047,14 @@ end HeatingDiode;
             annotation (Placement(transformation(extent={{90,-10},{110,10}})));
           parameter SI.Length W=20.0e-6 "Width";
           parameter SI.Length L=6.0e-6 "Length";
-          parameter SI.Transconductance Beta=0.0105e-3
-      "Transconductance parameter";
+          parameter SI.Transconductance Beta=0.0105e-3 "Transconductance parameter";
           parameter SI.Voltage Vt=-1.0 "Zero bias threshold voltage";
           parameter Real K2=0.41 "Bulk threshold parameter";
           parameter Real K5=0.839 "Reduction of pinch-off region";
           parameter SI.Length dW=-2.5e-6 "Narrowing of channel";
           parameter SI.Length dL=-2.1e-6 "Shortening of channel";
           parameter SI.Resistance RDS=1.e+7 "Drain-Source-Resistance";
-          parameter SI.Temperature Tnom=300.15
-      "Parameter measurement temperature";
+          parameter SI.Temperature Tnom=300.15 "Parameter measurement temperature";
           parameter Real kvt=-2.9e-3 "Fitting parameter for Vt";
           parameter Real kk2=6.2e-4 "Fitting parameter for K2";
           extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(
@@ -1128,7 +1074,7 @@ end HeatingDiode;
         equation
           assert(L + dL > 0, "HeatingPMOS: Effective length must be positive");
           assert(W + dW > 0, "HeatingPMOS: Effective width  must be positive");
-          assert( T_heatPort > 0,"HeatingPMOS: Temperature must be positive");
+          assert(T_heatPort > 0,"HeatingPMOS: Temperature must be positive");
           gds = if (RDS < 1.e-20 and RDS > -1.e-20) then 1.e20 else 1/RDS;
           v = beta_t*(W + dW)/(L + dL);
           ud = smooth(0,if (D.v > S.v) then S.v else D.v);
@@ -1222,32 +1168,25 @@ end HeatingDiode;
             lineColor={0,0,255})}));
         end HeatingPMOS;
 
-        model HeatingNPN
-    "Simple NPN BJT according to Ebers-Moll with heating port"
+        model HeatingNPN "Simple NPN BJT according to Ebers-Moll with heating port"
           parameter Real Bf=50 "Forward beta";
           parameter Real Br=0.1 "Reverse beta";
           parameter SI.Current Is=1.e-16 "Transport saturation current";
-          parameter SI.InversePotential Vak=0.02
-      "Early voltage (inverse), 1/Volt";
+          parameter SI.InversePotential Vak=0.02 "Early voltage (inverse), 1/Volt";
           parameter SI.Time Tauf=0.12e-9 "Ideal forward transit time";
           parameter SI.Time Taur=5e-9 "Ideal reverse transit time";
           parameter SI.Capacitance Ccs=1e-12 "Collector-substrate(ground) cap.";
-          parameter SI.Capacitance Cje=0.4e-12
-      "Base-emitter zero bias depletion cap.";
-          parameter SI.Capacitance Cjc=0.5e-12
-      "Base-coll. zero bias depletion cap.";
+          parameter SI.Capacitance Cje=0.4e-12 "Base-emitter zero bias depletion cap.";
+          parameter SI.Capacitance Cjc=0.5e-12 "Base-coll. zero bias depletion cap.";
           parameter SI.Voltage Phie=0.8 "Base-emitter diffusion voltage";
           parameter Real Me=0.4 "Base-emitter gradation exponent";
           parameter SI.Voltage Phic=0.8 "Base-collector diffusion voltage";
           parameter Real Mc=0.333 "Base-collector gradation exponent";
           parameter SI.Conductance Gbc=1e-15 "Base-collector conductance";
           parameter SI.Conductance Gbe=1e-15 "Base-emitter conductance";
-          parameter Real EMin=-100
-      "if x < EMin, the exp(x) function is linearized";
-          parameter Real EMax=40
-      "if x > EMax, the exp(x) function is linearized";
-          parameter SI.Temperature Tnom=300.15
-      "Parameter measurement temperature";
+          parameter Real EMin=-100 "if x < EMin, the exp(x) function is linearized";
+          parameter Real EMax=40 "if x > EMax, the exp(x) function is linearized";
+          parameter SI.Temperature Tnom=300.15 "Parameter measurement temperature";
           parameter Real XTI=3 "Temperature exponent for effect on Is";
           parameter Real XTB=0 "Forward and reverse beta temperature exponent";
           parameter Real EG=1.11 "Energy gap for temperature effect on Is";
@@ -1258,7 +1197,6 @@ end HeatingDiode;
   protected
           final constant SI.ElectricCharge q=Modelica.Constants.F/Modelica.Constants.N_A
       "Electron charge, [As]";
-  public
           Real vbc;
           Real vbe;
           Real qbk;
@@ -1266,8 +1204,6 @@ end HeatingDiode;
           Real ibe;
           Real cbc;
           Real cbe;
-          Real ExMin;
-          Real ExMax;
           Real Capcje;
           Real Capcjc;
           Real is_t;
@@ -1276,7 +1212,7 @@ end HeatingDiode;
           Real vt_t;
           Real hexp;
           Real htempexp;
-
+  public
           Modelica.Electrical.Analog.Interfaces.Pin C "Collector"
             annotation (Placement(transformation(extent={{90,40},{110,60}})));
           Modelica.Electrical.Analog.Interfaces.Pin B "Base"
@@ -1284,42 +1220,25 @@ end HeatingDiode;
           Modelica.Electrical.Analog.Interfaces.Pin E "Emitter"
             annotation (Placement(transformation(extent={{90,-40},{110,-60}})));
         equation
-          assert( T_heatPort > 0,"temperature must be positive");
-          ExMin = exp(EMin);
-          ExMax = exp(EMax);
+          assert(T_heatPort > 0,"Temperature must be positive");
           vbc = B.v - C.v;
           vbe = B.v - E.v;
           qbk = 1 - vbc*Vak;
 
           hexp = (T_heatPort/Tnom - 1)*EG/vt_t;
-          htempexp = smooth(1,if (hexp < EMin) then ExMin*(hexp - EMin + 1) else if (
-            hexp > EMax) then ExMax*(hexp - EMax + 1) else exp(hexp));
+          htempexp = smooth(1, exlin2(hexp, EMin, EMax));
 
           is_t = Is*pow((T_heatPort/Tnom), XTI)*htempexp;
           br_t = Br*pow((T_heatPort/Tnom), XTB);
           bf_t = Bf*pow((T_heatPort/Tnom), XTB);
           vt_t = (k/q)*T_heatPort;
 
-          ibc = smooth(1,(if (vbc/(NR*vt_t) < EMin) then is_t*(ExMin*(vbc/(NR*vt_t) -
-            EMin + 1) - 1) + vbc*Gbc else if (vbc/(NR*vt_t) > EMax) then is_t*(
-            ExMax*(vbc/(NR*vt_t) - EMax + 1) - 1) + vbc*Gbc else is_t*(exp(vbc/
-            (NR*vt_t)) - 1) + vbc*Gbc));
-          ibe = smooth(1,(if (vbe/(NF*vt_t) < EMin) then is_t*(ExMin*(vbe/(NF*vt_t) -
-            EMin + 1) - 1) + vbe*Gbe else if (vbe/(NF*vt_t) > EMax) then is_t*(
-            ExMax*(vbe/(NF*vt_t) - EMax + 1) - 1) + vbe*Gbe else is_t*(exp(vbe/
-            (NF*vt_t)) - 1) + vbe*Gbe));
-          Capcjc = smooth(1,(if (vbc/Phic > 0) then Cjc*(1 + Mc*vbc/Phic) else Cjc*pow(1
-             - vbc/Phic, -Mc)));
-          Capcje = smooth(1,(if (vbe/Phie > 0) then Cje*(1 + Me*vbe/Phie) else Cje*pow(1
-             - vbe/Phie, -Me)));
-          cbc = smooth(1,(if (vbc/(NR*vt_t) < EMin) then Taur*is_t/(NR*vt_t)*ExMin*(vbc/(
-            NR*vt_t) - EMin + 1) + Capcjc else if (vbc/(NR*vt_t) > EMax) then
-            Taur*is_t/(NR*vt_t)*ExMax*(vbc/(NR*vt_t) - EMax + 1) + Capcjc else
-            Taur*is_t/(NR*vt_t)*exp(vbc/(NR*vt_t)) + Capcjc));
-          cbe = smooth(1,(if (vbe/(NF*vt_t) < EMin) then Tauf*is_t/(NF*vt_t)*ExMin*(vbe/(
-            NF*vt_t) - EMin + 1) + Capcje else if (vbe/(NF*vt_t) > EMax) then
-            Tauf*is_t/(NF*vt_t)*ExMax*(vbe/(NF*vt_t) - EMax + 1) + Capcje else
-            Tauf*is_t/(NF*vt_t)*exp(vbe/(NF*vt_t)) + Capcje));
+          ibc = smooth(1, is_t*(exlin2(vbc/(NR*vt_t), EMin, EMax) - 1) + vbc*Gbc);
+          ibe = smooth(1, is_t*(exlin2(vbe/(NF*vt_t), EMin, EMax) - 1) + vbe*Gbe);
+          Capcjc = smooth(1, Cjc*powlin(vbc/Phic, Mc));
+          Capcje = smooth(1, Cje*powlin(vbe/Phie, Me));
+          cbc = smooth(1, Taur*is_t/(NR*vt_t)*exlin2(vbc/(NR*vt_t), EMin, EMax) + Capcjc);
+          cbe = smooth(1, Tauf*is_t/(NF*vt_t)*exlin2(vbe/(NF*vt_t), EMin, EMax) + Capcje);
           C.i = (ibe - ibc)*qbk - ibc/br_t - cbc*der(vbc) + Ccs*der(C.v);
           B.i = ibe/bf_t + ibc/br_t + cbc*der(vbc) + cbe*der(vbe);
           E.i = -B.i - C.i + Ccs*der(C.v);
@@ -1383,32 +1302,25 @@ end HeatingDiode;
             lineColor={0,0,255})}));
         end HeatingNPN;
 
-        model HeatingPNP
-    "Simple PNP BJT according to Ebers-Moll with heating port"
+        model HeatingPNP "Simple PNP BJT according to Ebers-Moll with heating port"
           parameter Real Bf=50 "Forward beta";
           parameter Real Br=0.1 "Reverse beta";
           parameter SI.Current Is=1.e-16 "Transport saturation current";
-          parameter SI.InversePotential Vak=0.02
-      "Early voltage (inverse), 1/Volt";
+          parameter SI.InversePotential Vak=0.02 "Early voltage (inverse), 1/Volt";
           parameter SI.Time Tauf=0.12e-9 "Ideal forward transit time";
           parameter SI.Time Taur=5e-9 "Ideal reverse transit time";
           parameter SI.Capacitance Ccs=1e-12 "Collector-substrate(ground) cap.";
-          parameter SI.Capacitance Cje=0.4e-12
-      "Base-emitter zero bias depletion cap.";
-          parameter SI.Capacitance Cjc=0.5e-12
-      "Base-coll. zero bias depletion cap.";
+          parameter SI.Capacitance Cje=0.4e-12 "Base-emitter zero bias depletion cap.";
+          parameter SI.Capacitance Cjc=0.5e-12 "Base-coll. zero bias depletion cap.";
           parameter SI.Voltage Phie=0.8 "Base-emitter diffusion voltage";
           parameter Real Me=0.4 "Base-emitter gradation exponent";
           parameter SI.Voltage Phic=0.8 "Base-collector diffusion voltage";
           parameter Real Mc=0.333 "Base-collector gradation exponent";
           parameter SI.Conductance Gbc=1e-15 "Base-collector conductance";
           parameter SI.Conductance Gbe=1e-15 "Base-emitter conductance";
-          parameter Real EMin=-100
-      "if x < EMin, the exp(x) function is linearized";
-          parameter Real EMax=40
-      "if x > EMax, the exp(x) function is linearized";
-          parameter SI.Temperature Tnom=300.15
-      "Parameter measurement temperature";
+          parameter Real EMin=-100 "if x < EMin, the exp(x) function is linearized";
+          parameter Real EMax=40 "if x > EMax, the exp(x) function is linearized";
+          parameter SI.Temperature Tnom=300.15 "Parameter measurement temperature";
           parameter Real XTI=3 "Temperature exponent for effect on Is";
           parameter Real XTB=0 "Forward and reverse beta temperature exponent";
           parameter Real EG=1.11 "Energy gap for temperature effect on Is";
@@ -1426,8 +1338,6 @@ end HeatingDiode;
           Real ieb;
           Real ccb;
           Real ceb;
-          Real ExMin;
-          Real ExMax;
           Real Capcje;
           Real Capcjc;
           Real is_t;
@@ -1444,44 +1354,25 @@ end HeatingDiode;
           Modelica.Electrical.Analog.Interfaces.Pin E "Emitter"
             annotation (Placement(transformation(extent={{90,-40},{110,-60}})));
         equation
-          assert( T_heatPort > 0,"temperature must be positive");
-          ExMin = exp(EMin);
-          ExMax = exp(EMax);
+          assert(T_heatPort > 0,"Temperature must be positive");
           vcb = C.v - B.v;
           veb = E.v - B.v;
           qbk = 1 - vcb*Vak;
 
           hexp = (T_heatPort/Tnom - 1)*EG/vt_t;
-          htempexp = smooth(1,if (hexp < EMin) then ExMin*(hexp - EMin + 1) else if (
-            hexp > EMax) then ExMax*(hexp - EMax + 1) else exp(hexp));
+          htempexp = smooth(1, exlin2(hexp, EMin, EMax));
 
           is_t = Is*pow((T_heatPort/Tnom), XTI)*htempexp;
           br_t = Br*pow((T_heatPort/Tnom), XTB);
           bf_t = Bf*pow((T_heatPort/Tnom), XTB);
           vt_t = (k/q)*T_heatPort;
 
-          icb = smooth(1,(if (vcb/(NR*vt_t) < EMin) then is_t*(ExMin*(vcb/(NR*vt_t) -
-            EMin + 1) - 1) + vcb*Gbc else if (vcb/(NR*vt_t) > EMax) then is_t*(
-            ExMax*(vcb/(NR*vt_t) - EMax + 1) - 1) + vcb*Gbc else is_t*(exp(vcb/
-            (NR*vt_t)) - 1) + vcb*Gbc));
-
-          ieb = smooth(1,(if (veb/(NF*vt_t) < EMin) then is_t*(ExMin*(veb/(NF*vt_t) -
-            EMin + 1) - 1) + veb*Gbe else if (veb/(NF*vt_t) > EMax) then is_t*(
-            ExMax*(veb/(NF*vt_t) - EMax + 1) - 1) + veb*Gbe else is_t*(exp(veb/
-            (NF*vt_t)) - 1) + veb*Gbe));
-
-          Capcjc = smooth(1,(if (vcb/Phic > 0) then Cjc*(1 + Mc*vcb/Phic) else Cjc*pow(1
-             - vcb/Phic, -Mc)));
-          Capcje = smooth(1,(if (veb/Phie > 0) then Cje*(1 + Me*veb/Phie) else Cje*pow(1
-             - veb/Phie, -Me)));
-          ccb = smooth(1,(if (vcb/(NR*vt_t) < EMin) then Taur*is_t/(NR*vt_t)*ExMin*(vcb/(
-            NR*vt_t) - EMin + 1) + Capcjc else if (vcb/(NR*vt_t) > EMax) then
-            Taur*is_t/(NR*vt_t)*ExMax*(vcb/(NR*vt_t) - EMax + 1) + Capcjc else
-            Taur*is_t/(NR*vt_t)*exp(vcb/(NR*vt_t)) + Capcjc));
-          ceb = smooth(1,(if (veb/(NF*vt_t) < EMin) then Tauf*is_t/(NF*vt_t)*ExMin*(veb/(
-            NF*vt_t) - EMin + 1) + Capcje else if (veb/(NF*vt_t) > EMax) then
-            Tauf*is_t/(NF*vt_t)*ExMax*(veb/(NF*vt_t) - EMax + 1) + Capcje else
-            Tauf*is_t/(NF*vt_t)*exp(veb/(NF*vt_t)) + Capcje));
+          icb = smooth(1, is_t*(exlin2(vcb/(NR*vt_t), EMin, EMax) - 1) + vcb*Gbc);
+          ieb = smooth(1, is_t*(exlin2(veb/(NF*vt_t), EMin, EMax) - 1) + veb*Gbe);
+          Capcjc = smooth(1, Cjc*powlin(vcb/Phic, Mc));
+          Capcje = smooth(1, Cje*powlin(veb/Phie, Me));
+          ccb = smooth(1, Taur*is_t/(NR*vt_t)*exlin2(vcb/(NR*vt_t), EMin, EMax) + Capcjc);
+          ceb = smooth(1, Tauf*is_t/(NF*vt_t)*exlin2(veb/(NF*vt_t), EMin, EMax) + Capcje);
           C.i = icb/br_t + ccb*der(vcb) + Ccs*der(C.v) + (icb - ieb)*qbk;
           B.i = -ieb/bf_t - icb/br_t - ceb*der(veb) - ccb*der(vcb);
           E.i = -B.i - C.i + Ccs*der(C.v);
@@ -1546,8 +1437,7 @@ end HeatingDiode;
         end HeatingPNP;
 
 protected
-        function pow
-    "Just a helper function for x^y in order that a symbolic engine can apply some transformations more easily"
+        function pow "Just a helper function for x^y in order that a symbolic engine can apply some transformations more easily"
           extends Modelica.Icons.Function;
           input Real x;
           input Real y;
@@ -1555,6 +1445,15 @@ protected
         algorithm
           z := x^y;
         end pow;
+
+        function powlin "Power function (1 - x)^(-y)linearly continued for x > 0 (provided y = const.)"
+          extends Modelica.Icons.Function;
+          input Real x;
+          input Real y;
+          output Real z;
+        algorithm
+          z := if x > 0 then 1 + y*x else pow(1 - x, -y);
+        end powlin;
 
         function exlin "Exponential function linearly continued for x > Maxexp"
           extends Modelica.Icons.Function;
@@ -1565,6 +1464,15 @@ protected
           z := if x > Maxexp then exp(Maxexp)*(1 + x - Maxexp) else exp(x);
         end exlin;
 
+        function exlin2 "Exponential function linearly continued for x < MinExp and x > Maxexp"
+          extends Modelica.Icons.Function;
+          input Real x;
+          input Real Minexp;
+          input Real Maxexp;
+          output Real z;
+        algorithm
+          z := if x < Minexp then exp(Minexp)*(1 + x - Minexp) else exlin(x, Maxexp);
+        end exlin2;
 public
   model Thyristor "Simple Thyristor Model"
     parameter SI.Voltage VDRM(final min=0) = 100
@@ -1585,9 +1493,9 @@ public
       "Voltage equivalent of temperature (kT/qn)";
     parameter Real Nbv=0.74 "Reverse Breakthrough emission coefficient";
    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort;
-    Real iGK "gate current";
-    Real vGK "voltage between gate and cathode";
-    Real vAK "voltage between anode and cathode";
+    Real iGK "Gate current";
+    Real vGK "Voltage between gate and cathode";
+    Real vAK "Voltage between anode and cathode";
     Real vControl(start=0);
     Real vContot;
     Real vConmain;
