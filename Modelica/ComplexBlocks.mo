@@ -604,8 +604,7 @@ result in the following equation:
                   extent={{-20,20},{20,-20}},
                   fillColor={235,235,235},
                   fillPattern=FillPattern.Solid,
-                  lineColor={0,0,255}),Line(points={{-60,0},{-20,0}}, color={0,
-              0,255}),Line(points={{20,0},{80,0}}, color={0,0,255}),Line(points=
+                  lineColor={0,0,255}),Line(points={{-60,0},{-20,0}}, color={0,0,255}),Line(points={{20,0},{80,0}}, color={0,0,255}),Line(points=
                {{0,-20},{0,-60}}, color={0,0,255}),Text(
                   extent={{-12,10},{84,-84}},
                   textString="-")}));
@@ -653,8 +652,7 @@ result in the following equation:
                   textString="%name",
                   lineColor={0,0,255}),Line(points={{-100,60},{-40,60},{-30,40}},
               color={0,0,255}),Ellipse(extent={{-50,50},{50,-50}}, lineColor={0,
-              0,255}),Line(points={{-100,-60},{-40,-60},{-30,-40}}, color={0,0,
-              255}),Line(points={{-15,-25.99},{15,25.99}}),
+              0,255}),Line(points={{-100,-60},{-40,-60},{-30,-40}}, color={0,0,255}),Line(points={{-15,-25.99},{15,25.99}}),
               Rectangle(
                   extent={{-100,-100},{100,100}},
                   lineColor={0,0,127},
@@ -681,8 +679,7 @@ result in the following equation:
                   extent={{-100,90},{5,50}},
                   textString="%k1"),Line(points={{-100,60},{-40,60},{-30,40}},
               color={0,0,255}),Ellipse(extent={{-50,50},{50,-50}}, lineColor={0,
-              0,255}),Line(points={{-100,-60},{-40,-60},{-30,-40}}, color={0,0,
-              255}),Line(points={{-15,-25.99},{15,25.99}}),
+              0,255}),Line(points={{-100,-60},{-40,-60},{-30,-40}}, color={0,0,255}),Line(points={{-15,-25.99},{15,25.99}}),
               Rectangle(
                   extent={{-100,-100},{100,100}},
                   lineColor={0,0,127},
@@ -829,8 +826,7 @@ the two inputs <code>u1</code> and <code>u2</code>. Optionally, either input <co
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid),Line(points={{-100,60},{-40,60},
               {-30,40}}, color={0,0,255}),Line(points={{-100,-60},{-40,-60},{-30,
-              -40}}, color={0,0,255}),Line(points={{50,0},{100,0}}, color={0,0,
-              255}),Line(points={{-30,0},{30,0}}),Line(points={{
+              -40}}, color={0,0,255}),Line(points={{50,0},{100,0}}, color={0,0,255}),Line(points={{-30,0},{30,0}}),Line(points={{
               -15,25.99},{15,-25.99}}),Line(points={{-15,-25.99},
               {15,25.99}}),Ellipse(extent={{-50,50},{50,-50}},
               lineColor={0,0,255})}));
@@ -861,8 +857,7 @@ the two inputs <code>u1</code> and <code>u2</code>. Optionally, either input <co
 
 </html>"),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-                100,100}}), graphics={Line(points={{50,0},{100,0}}, color={0,0,
-              127}),Line(points={{-30,0},{30,0}}),Ellipse(
+                100,100}}), graphics={Line(points={{50,0},{100,0}}, color={0,0,127}),Line(points={{-30,0},{30,0}}),Ellipse(
                   extent={{-5,20},{5,30}},
                   fillPattern=FillPattern.Solid),Ellipse(
                   extent={{-5,-20},{5,-30}},
@@ -1336,8 +1331,7 @@ Otherwise an error occurs.
               color={192,192,192}),Line(points={{-80,-80},{-52.7,-75.2},{-37.4,
               -69.7},{-26.9,-63},{-19.7,-55.2},{-14.1,-45.8},{-10.1,-36.4},{-6.03,
               -23.9},{-1.21,-5.06},{5.23,21},{9.25,34.1},{13.3,44.2},{18.1,52.9},
-              {24.5,60.8},{33.4,67.6},{47,73.6},{69.5,78.6},{80,80}}, color={0,
-              0,0}),Line(points={{-90,0},{68,0}}, color={192,192,192}),Polygon(
+              {24.5,60.8},{33.4,67.6},{47,73.6},{69.5,78.6},{80,80}}, color={0,0,0}),Line(points={{-90,0},{68,0}}, color={192,192,192}),Polygon(
                   points={{90,0},{68,8},{68,-8},{90,0}},
                   lineColor={192,192,192},
                   fillColor={192,192,192},

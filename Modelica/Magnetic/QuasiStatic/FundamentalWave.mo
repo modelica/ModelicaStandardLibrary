@@ -2193,8 +2193,7 @@ Simulate for 0.1 second and plot (versus time):
           connect(rotorDisplacementAngleQS.flange, smpmQS.flange)
             annotation (Line(points={{20,24},{20,24},{10,24}}));
           connect(angleSensorQS.flange, rotorDisplacementAngleQS.flange)
-            annotation (Line(points={{18,44},{18,44},{18,24},{20,24}}, color={0,
-                  0,0}));
+            annotation (Line(points={{18,44},{18,44},{18,24},{20,24}}, color={0,0,0}));
           connect(terminalBoxQS.plug_sp, rotorDisplacementAngleQS.plug_p)
             annotation (Line(points={{6,34},{15,34},{24,34}}, color={85,170,255}));
           connect(terminalBoxQS.plug_sn, rotorDisplacementAngleQS.plug_n)
@@ -4266,16 +4265,14 @@ Magnetic.FundamentalWave.BasicMachines.SM_ReluctanceRotor</a>,
           defaultComponentName="smee",
           Icon(graphics={
               Ellipse(extent={{-134,34},{-66,-34}}, lineColor={85,170,255}),
-              Line(points={{-100,50},{-100,20},{-130,20},{-130,-4}}, color={0,0,
-                    255}),
+              Line(points={{-100,50},{-100,20},{-130,20},{-130,-4}}, color={0,0,255}),
               Line(points={{-130,-4},{-129,1},{-125,5},{-120,6},{-115,5},{-111,
                     1},{-110,-4}}, color={0,0,255}),
               Line(points={{-110,-4},{-109,1},{-105,5},{-100,6},{-95,5},{-91,1},
                     {-90,-4}}, color={0,0,255}),
               Line(points={{-90,-4},{-89,1},{-85,5},{-80,6},{-75,5},{-71,1},{-70,
                     -4}}, color={0,0,255}),
-              Line(points={{-100,-50},{-100,-20},{-70,-20},{-70,-2}}, color={0,
-                    0,255})}),
+              Line(points={{-100,-50},{-100,-20},{-70,-20},{-70,-2}}, color={0,0,255})}),
           Documentation(info="<html>
 <p>
 Resistances and stray inductances of the machine refer to an <code>m</code> phase stator. The symmetry of the stator and the supply are assumed. For rotor asymmetries can be taken into account by different resistances and stray inductances in the d- and q-axis. The machine models take the following loss effects into account:
@@ -5988,8 +5985,7 @@ ConstantFlux</a>
               Text(
                   extent={{-140,120},{140,80}},
                   textString="%name",
-                  lineColor={0,0,255}),Line(points={{70,0},{90,0}}, color={0,0,
-              0}),Line(points={{0,-90},{0,-70}})}),
+                  lineColor={0,0,255}),Line(points={{70,0},{90,0}}, color={0,0,0}),Line(points={{0,-90},{0,-70}})}),
         Documentation(info="<html>
 <p>Sensor for magnetic flux.</p>
 
@@ -6671,8 +6667,7 @@ choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
               {-40,40}}, color={0,0,255}),Line(points={{100,-60},{-40,-60},{-40,
               -40}}, color={0,0,255}),Ellipse(extent={{-44,40},{-36,32}},
               lineColor={0,0,255}),Ellipse(extent={{-44,-32},{-36,-40}},
-              lineColor={0,0,255}),Line(points={{-80,40},{-42,-34}}, color={0,0,
-              255}),Line(points={{40,40},{40,42},{40,60}}, color={0,0,255}),
+              lineColor={0,0,255}),Line(points={{-80,40},{-42,-34}}, color={0,0,255}),Line(points={{40,40},{40,42},{40,60}}, color={0,0,255}),
               Line(points={{40,-40},{40,-60}}, color={0,0,255}),Line(points={{
               10,-80},{70,-80}}, color={0,0,255}),Line(points={{40,-60},{40,-80}},
               color={0,0,255}),Line(points={{20,-90},{60,-90}}, color={0,0,255}),

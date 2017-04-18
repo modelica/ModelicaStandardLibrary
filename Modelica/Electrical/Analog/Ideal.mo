@@ -309,8 +309,7 @@ behavior is <strong>not</strong> modelled. The parameters are not temperature de
               100,100}}), graphics={Ellipse(extent={{-4,24},{4,16}}, lineColor=
             {0,0,255}),Line(points={{-96,0},{-40,0}}, color={0,0,255}),Line(
             points={{-96,40},{-40,40}}, color={0,0,255}),Line(points={{-40,0},{40,40}},
-                     color={0,0,255}),Line(points={{-40,40},{40,0}}, color={0,0,
-            255}),Line(points={{40,40},{96,40}}, color={0,0,255}),Line(points={{0,94},{0,24}},
+                     color={0,0,255}),Line(points={{-40,40},{40,0}}, color={0,0,255}),Line(points={{40,40},{96,40}}, color={0,0,255}),Line(points={{0,94},{0,24}},
                             color={0,0,255}),Line(points={{40,0},{96,0}}, color=
              {0,0,255})}));
   end IdealIntermediateSwitch;

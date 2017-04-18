@@ -116,8 +116,7 @@ equation
             fillColor={0,0,127},
             fillPattern=FillPattern.Solid,
             lineColor={0,0,127}),
-          Line(points={{-72,2},{-60.1395,12.907},{-49.1395,12.907}}, color={0,0,
-                127}),
+          Line(points={{-72,2},{-60.1395,12.907},{-49.1395,12.907}}, color={0,0,127}),
           Line(points={{-73,4},{-59,40},{-49,40}}, color={0,0,127}),
           Line(points={{-113,0},{-76.0373,-0.0180176}}, color={0,0,127}),
           Ellipse(
@@ -201,8 +200,7 @@ equation
                 {-94.4104,1.90792}},
             lineColor={0,0,255},
             fillPattern=FillPattern.Solid),
-          Line(points={{-72,2},{-60.1395,12.907},{-49.1395,12.907}}, color={0,0,
-                255}),
+          Line(points={{-72,2},{-60.1395,12.907},{-49.1395,12.907}}, color={0,0,255}),
           Line(points={{-73,4},{-59,40},{-49,40}}, color={0,0,255}),
           Line(points={{-112,0},{-75.0373,-0.0180176}}, color={0,0,255}),
           Ellipse(
@@ -332,8 +330,7 @@ equation
                 -84.4104,1.9079}},
             lineColor={0,0,127},
             fillPattern=FillPattern.Solid),
-          Line(points={{-62,2},{-50.1395,12.907},{-39.1395,12.907}}, color={0,0,
-                127}),
+          Line(points={{-62,2},{-50.1395,12.907},{-39.1395,12.907}}, color={0,0,127}),
           Line(points={{-63,4},{-49,40},{-39,40}}, color={0,0,127}),
           Line(points={{-102,0},{-65.0373,-0.01802}}, color={0,0,127}),
           Ellipse(

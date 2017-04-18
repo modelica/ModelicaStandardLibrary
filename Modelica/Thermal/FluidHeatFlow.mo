@@ -636,8 +636,7 @@ Two prescribed heat sources dissipate their heat through thermal conductors to c
         annotation (Line(points={{10,0},{10,-5},{10,-10}}, color={191,0,
               0}));
       connect(innerGc.y, innerConvection.Gc)
-        annotation (Line(points={{-19,10},{-9.5,10},{-9.5,10},{0,10}}, color={0,
-              0,127}));
+        annotation (Line(points={{-19,10},{-9.5,10},{-9.5,10},{0,10}}, color={0,0,127}));
       connect(outerGc.y, outerConvection.Gc)
         annotation (Line(points={{-19,40},{0,40}}, color={0,0,127}));
       connect(outerVolumeFlow.y, outerPump.volumeFlow) annotation (Line(
@@ -1336,8 +1335,7 @@ the time behaviour depending on coolant flow.
                 {8,6}}, color={0,0,127}));
         connect(ramp2.y, add.u2) annotation (Line(points={{-9,-20},{0,-20},{0,
                 -6},{8,-6}}, color={0,0,127}));
-        connect(add.y, y) annotation (Line(points={{31,0},{110,0}}, color={0,0,
-                127}));
+        connect(add.y, y) annotation (Line(points={{31,0},{110,0}}, color={0,0,127}));
         annotation (
           Documentation(info="<html>
 Block generating the sum of two ramps.
@@ -2221,8 +2219,7 @@ See also sketch at diagram layer.
               Line(points={{0,80},{0,-80}}, color={0,0,255}),
               Line(points={{-40,-20},{40,20}}, color={0,0,255}),
               Line(points={{40,20},{60,40},{70,60},{74,80}}, color={0,0,255}),
-              Line(points={{-40,-20},{-60,-40},{-70,-60},{-74,-80}}, color={0,0,
-                    255}),
+              Line(points={{-40,-20},{-60,-40},{-70,-60},{-74,-80}}, color={0,0,255}),
               Line(points={{40,20},{40,0}}, color={0,0,255}),
               Line(points={{60,40},{60,0}}, color={0,0,255}),
               Line(points={{40,20},{0,20}}, color={0,0,255}),

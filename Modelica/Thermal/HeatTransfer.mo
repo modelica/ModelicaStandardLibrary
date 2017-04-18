@@ -231,8 +231,7 @@ An appropriate simulating time would be 10 seconds.
       connect(lossTable.y[1], windingLosses.Q_flow) annotation (Line(points={{-40,59},
               {-40,40},{-80,40},{-80,20}}, color={0,0,127}));
       connect(lossTable.y[2], coreLosses.Q_flow) annotation (Line(points={{-40,59},
-              {-40,40},{0,40},{0,20}}, color={0,0,
-              127}));
+              {-40,40},{0,40},{0,20}}, color={0,0,127}));
       annotation (Documentation(info="<html>
 <p>
 This example contains a simple second order thermal model of a motor.

@@ -46,8 +46,7 @@ equation
   connect(VIN2.n, Gnd5.p) annotation (Line(points={{-70,-40},{-70,-45}}, color={0,0,255}));
   connect(Nand.Vdd, VDD.p) annotation (Line(points={{0,55},{0,90},{50,90},{50,
           80}}, color={0,0,255}));
-  connect(VIN1.p, Nand.x1) annotation (Line(points={{-70,30},{-40,30}}, color={0,
-          0,255}));
+  connect(VIN1.p, Nand.x1) annotation (Line(points={{-70,30},{-40,30}}, color={0,0,255}));
   connect(VIN2.p, Nand.x2) annotation (Line(points={{-70,-20},{-40,-20}}, color=
           {0,0,255}));
   annotation (Documentation(info="<html>

@@ -1227,8 +1227,7 @@ Full steady state initialization is not supported, because the corresponding ini
       connect(TransitionWithSignal1.inPort, Parallel1.outPort) annotation (Line(
             points={{2,-150},{208,-150},{208,-50},{197.7,-50}}));
       connect(TransitionWithSignal1.outPort, InitialStep1.inPort[1]) annotation (Line(
-            points={{-3.5,-150},{-194,-150},{-194,100},{-181,100}}, color={0,0,
-              0}));
+            points={{-3.5,-150},{-194,-150},{-194,100},{-181,100}}, color={0,0,0}));
       connect(BooleanExpression1.y, TransitionWithSignal1.condition) annotation (Line(
             points={{-13.7,-132},{-2,-132},{-2,-138}}, color={255,0,255}));
       annotation (
@@ -1729,8 +1728,7 @@ end for;
             Text(
               extent={{-95,41},{95,21}},
               textString="level ="),
-            Line(points={{-100,100},{-100,-100},{100,-100},{100,100}}, color={0,
-                  0,0}),
+            Line(points={{-100,100},{-100,-100},{100,-100},{100,100}}, color={0,0,0}),
             Text(
               extent={{-95,-39},{95,-59}},
               textString=DynamicSelect("%level_start", String(

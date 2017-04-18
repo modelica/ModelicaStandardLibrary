@@ -719,8 +719,7 @@ behavior is <strong>not</strong> modelled. The parameters are not temperature de
             extent={{-150,90},{150,50}},
             textString="%name",
             lineColor={0,0,255})}),
-      Diagram(graphics={Line(points={{-60,60},{-60,-60},{60,-60}}, color={0,0,
-            255}),Line(points={{-60,-60},{-40,-60},{-40,-40},{-20,40},{40,40}}),Text(
+      Diagram(graphics={Line(points={{-60,60},{-60,-60},{60,-60}}, color={0,0,255}),Line(points={{-60,-60},{-40,-60},{-40,-40},{-20,40},{40,40}}),Text(
               extent={{30,-60},{50,-70}},
               textString="time"),Text(
               extent={{-60,60},{-20,50}},

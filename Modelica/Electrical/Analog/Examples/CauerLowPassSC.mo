@@ -308,8 +308,7 @@ equation
     annotation (Line(points={{-213,40},{-193,40}}, color={0,0,255}));
   connect(C1.n,n4)
     annotation (Line(points={{-173,40},{-161,40}}, color={0,0,255}));
-  connect(n4,Op1. out) annotation (Line(points={{-161,40},{-161,-30}}, color={0,
-          0,255}));
+  connect(n4,Op1. out) annotation (Line(points={{-161,40},{-161,-30}}, color={0,0,255}));
   connect(C5.p,Op1. out) annotation (Line(points={{-31,-90},{-161,-90},{-161,
           -30}}, color={0,0,255}));
   connect(n5,Op2. in_n) annotation (Line(points={{-113,-30},{-113,-20},{-101,
@@ -337,10 +336,8 @@ equation
         color={0,0,255}));
   connect(Op3.out,out1)
     annotation (Line(points={{45,-30},{45,-120}}, color={0,0,255}));
-  connect(p1,out1) annotation (Line(points={{-152,-120},{45,-120}}, color={0,0,
-          255}));
-  connect(out1,C8. p) annotation (Line(points={{45,-120},{159,-120}}, color={0,
-          0,255}));
+  connect(p1,out1) annotation (Line(points={{-152,-120},{45,-120}}, color={0,0,255}));
+  connect(out1,C8. p) annotation (Line(points={{45,-120},{159,-120}}, color={0,0,255}));
   connect(C4.p,p3) annotation (Line(points={{-31,60},{-41,60},{-41,80},{59,80}},
         color={0,0,255}));
   connect(n9,n10)

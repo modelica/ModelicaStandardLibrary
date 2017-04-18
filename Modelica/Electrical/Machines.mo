@@ -2604,8 +2604,7 @@ Default machine parameters of model <a href=\"modelica://Modelica.Electrical.Mac
         connect(starM.plug_p, voltageQuasiRMSSensor.plug_n) annotation (Line(
               points={{-50,-10},{-48,-10},{-40,-10}}, color={0,0,255}));
         connect(voltageQuasiRMSSensor.plug_p, currentQuasiRMSSensor.plug_n)
-          annotation (Line(points={{-20,-10},{-20,-10},{-10,-10}}, color={0,0,
-                255}));
+          annotation (Line(points={{-20,-10},{-20,-10},{-10,-10}}, color={0,0,255}));
         connect(smpm.flange, speedSensor.flange)
           annotation (Line(points={{0,-40},{40,-40},{40,-10}}));
         connect(terminalBox.starpoint, starM.pin_n) annotation (Line(points={{-19,-28},
@@ -6077,16 +6076,14 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
           Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                   100,100}}), graphics={
               Ellipse(extent={{-134,34},{-66,-34}}, lineColor={0,0,255}),
-              Line(points={{-100,50},{-100,20},{-130,20},{-130,-4}}, color={0,0,
-                    255}),
+              Line(points={{-100,50},{-100,20},{-130,20},{-130,-4}}, color={0,0,255}),
               Line(points={{-130,-4},{-129,1},{-125,5},{-120,6},{-115,5},{-111,
                     1},{-110,-4}}, color={0,0,255}),
               Line(points={{-110,-4},{-109,1},{-105,5},{-100,6},{-95,5},{-91,1},
                     {-90,-4}}, color={0,0,255}),
               Line(points={{-90,-4},{-89,1},{-85,5},{-80,6},{-75,5},{-71,1},{-70,
                     -4}}, color={0,0,255}),
-              Line(points={{-100,-50},{-100,-20},{-70,-20},{-70,-2}}, color={0,
-                    0,255})}),
+              Line(points={{-100,-50},{-100,-20},{-70,-20},{-70,-2}}, color={0,0,255})}),
           Documentation(info="<html>
 <p><strong>Model of a three phase electrical excited synchronous induction machine with damper cage.</strong><br>
 Resistance and stray inductance of stator is modeled directly in stator phases, then using space phasor transformation and a rotor-fixed <em>AirGap</em> model. Resistance and stray inductance of rotor's squirrel cage is modeled in two axis of the rotor-fixed coordinate system. Electrical excitation is modelled by converting excitation current and voltage to d-axis space phasors. The machine models take the following loss effects into account:
@@ -6900,10 +6897,8 @@ Armature resistance resp. inductance include resistance resp. inductance of comm
                     {-90,-4}}, color={0,0,255}),
               Line(points={{-90,-4},{-89,1},{-85,5},{-80,6},{-75,5},{-71,1},{-70,
                     -4}}, color={0,0,255}),
-              Line(points={{-100,-50},{-100,-20},{-70,-20},{-70,-2}}, color={0,
-                    0,255}),
-              Line(points={{-100,50},{-100,20},{-130,20},{-130,-4}}, color={0,0,
-                    255})}),
+              Line(points={{-100,-50},{-100,-20},{-70,-20},{-70,-2}}, color={0,0,255}),
+              Line(points={{-100,50},{-100,20},{-130,20},{-130,-4}}, color={0,0,255})}),
           Documentation(info="<html>
 <p><strong>Model of a DC Machine with electrical shunt or separate excitation.</strong><br>
 Armature resistance and inductance are modeled directly after the armature pins, then using a <em>AirGapDC</em> model.<br>
@@ -9454,8 +9449,7 @@ Material properties alpha of both axis are the same.
               Rectangle(extent={{20,90},{60,70}}, lineColor={0,0,255}),
               Line(points={{60,80},{80,80},{80,60}}, color={0,0,255}),
               Line(points={{-100,90},{-100,80},{-60,80}}, color={0,0,255}),
-              Line(points={{-100,90},{-100,80},{-80,80},{-80,60}}, color={0,0,
-                    255}),
+              Line(points={{-100,90},{-100,80},{-80,80},{-80,60}}, color={0,0,255}),
               Line(points={{0,80},{20,80}}, color={0,0,255}),
               Rectangle(extent={{-90,-20},{-70,-60}}, lineColor={0,0,255}),
               Line(points={{-100,-80},{-60,-80}}, color={0,0,255}),
@@ -9572,8 +9566,7 @@ Model of an electrical excitation, converting excitation to space phasor.
                       lineThickness=0.5,
                       fillColor={0,255,0},
                       fillPattern=FillPattern.Solid),Line(points={{-60,-40},{-60,
-                0}}, color={0,255,0}),Line(points={{60,-40},{60,0}}, color={0,
-                255,0}),Line(points={{0,100},{-70,100}}, color={0,0,255}),Line(
+                0}}, color={0,255,0}),Line(points={{60,-40},{60,0}}, color={0,255,0}),Line(points={{0,100},{-70,100}}, color={0,0,255}),Line(
                 points={{0,100},{0,60}}, color={255,0,0}),Text(
                       extent={{-150,-90},{150,-150}},
                       lineColor={0,0,255},
@@ -9807,8 +9800,7 @@ the connection to airgap has to be grounded at one point.
                   -100},{100,100}}), graphics={Line(points={{-90,100},{-30,100}},
                       color={0,0,255}),Line(points={{-90,-100},{-30,-100}}, color=
                  {0,0,255}), Line(points={{30,100},{90,100}},
-                      color={0,0,255}),Line(points={{30,40},{92,40}}, color={0,
-                0,255}), Line(points={{30,-40},{90,-40}},
+                      color={0,0,255}),Line(points={{30,40},{92,40}}, color={0,0,255}), Line(points={{30,-40},{90,-40}},
                        color={0,0,255}),Line(points={{30,-100},{90,-100}}, color=
                 {0,0,255}),
               Line(
@@ -10493,10 +10485,8 @@ This package contains sensors that are useful when modelling machines.
         ground.v = 0;
         annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                   -100},{100,100}}), graphics={
-              Line(points={{0,0},{80,80},{60,72},{72,60},{80,80}}, color={0,0,
-                    255}),
-              Line(points={{0,0},{80,-80},{72,-60},{60,-72},{80,-80}}, color={0,
-                    0,255}),
+              Line(points={{0,0},{80,80},{60,72},{72,60},{80,80}}, color={0,0,255}),
+              Line(points={{0,0},{80,-80},{72,-60},{60,-72},{80,-80}}, color={0,0,255}),
               Line(
                 points={{-80,0},{-73.33,10},{-66.67,17.32},{-60,20},{-53.33,
                     17.32},{-46.67,10},{-40,0},{-33.33,-10},{-26.67,-17.32},{-20,
@@ -11390,8 +11380,7 @@ If it is desired to neglect friction losses, set <code>frictionParameters.PRef =
                       lineColor={0,0,255},
                       fillColor={0,0,255},
                       fillPattern=FillPattern.Solid),Line(points={{-90,0},{-40,
-                0}}, color={0,0,255}),Line(points={{40,0},{90,0}}, color={0,0,
-                255}),Text(
+                0}}, color={0,0,255}),Line(points={{40,0},{90,0}}, color={0,0,255}),Text(
                       extent={{-100,70},{100,40}},
                       lineColor={0,0,255},
                       textString="%name")}), Documentation(info="<html>
@@ -11808,8 +11797,7 @@ If it is desired to neglect stray load losses, set <code>strayLoadParameters.PRe
                       fillColor={255,255,255},
                       fillPattern=FillPattern.Solid),Line(points={{70,0},{90,0}}),
                 Line(points={{-90,0},{-70,0}}),Line(points={{-70,10},{70,10}},
-                color={0,0,255}),Line(points={{-70,-30},{70,-30}}, color={0,0,
-                255}),Line(points={{-70,-10},{70,-10}}, color={0,0,255}),Text(
+                color={0,0,255}),Line(points={{-70,-30},{70,-30}}, color={0,0,255}),Line(points={{-70,-10},{70,-10}}, color={0,0,255}),Text(
                       extent={{-100,70},{100,40}},
                       lineColor={0,0,255},
                       textString="%name")}), Documentation(info="<html>
@@ -13738,8 +13726,7 @@ Interfaces and partial models for induction machines
         annotation (Line(points={{0,-80},{0,-100}}, color={191,0,0}));
       annotation (Documentation(info="<html>
 Partial model for DC machine models.
-</html>"), Icon(graphics={Line(points={{-40,70},{-60,70},{-60,90}}, color={0,0,
-                  255}), Line(points={{40,70},{60,70},{60,90}}, color={0,0,255})}));
+</html>"), Icon(graphics={Line(points={{-40,70},{-60,70},{-60,90}}, color={0,0,255}), Line(points={{40,70},{60,70},{60,90}}, color={0,0,255})}));
     end PartialBasicDCMachine;
 
     package DCMachines "Thermal ports of DC machines"

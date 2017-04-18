@@ -1987,8 +1987,7 @@ differentiable everywhere. The derivative at zero distance is 3/(2*s_small).
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={Text(
             extent={{-190,-70},{-74,-96}},
-            textString="force"), Line(points={{-80,-100},{-80,0}}, color={0,0,
-                127})}),
+            textString="force"), Line(points={{-80,-100},{-80,0}}, color={0,0,127})}),
       Documentation(info="<html>
 <p>
 The cut-force acting between the two frames to which this
@@ -2104,8 +2103,7 @@ with negative sign at frame_a.
       Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{100,
               100}}), graphics={Text(
             extent={{-180,-72},{-64,-98}},
-            textString="torque"), Line(points={{-80,-100},{-80,0}}, color={0,0,
-                127})}),
+            textString="torque"), Line(points={{-80,-100},{-80,0}}, color={0,0,127})}),
       Documentation(info="<html>
 <p>
 The cut-torque acting between the two frames to which this
@@ -3214,8 +3212,7 @@ with the blocks of package Modelica.Blocks.
          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Text(
               extent={{-190,-70},{-74,-96}},
-              textString="force"), Line(points={{-80,-100},{-80,0}}, color={0,0,
-                  127})}),
+              textString="force"), Line(points={{-80,-100},{-80,0}}, color={0,0,127})}),
         Documentation(info="<html>
 
 </html>"));
@@ -3256,8 +3253,7 @@ with the blocks of package Modelica.Blocks.
          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Text(
               extent={{-190,-70},{-74,-96}},
-              textString="torque"), Line(points={{-80,-100},{-80,0}}, color={0,
-                  0,127})}));
+              textString="torque"), Line(points={{-80,-100},{-80,0}}, color={0,0,127})}));
     end BasicCutTorque;
   end Internal;
 

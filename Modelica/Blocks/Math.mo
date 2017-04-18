@@ -904,8 +904,7 @@ Example:
               extent={{-20,20},{20,-20}},
               fillColor={235,235,235},
               fillPattern=FillPattern.Solid,
-              lineColor={0,0,255}),Line(points={{-60,0},{-20,0}}, color={0,0,
-            255}),Line(points={{20,0},{80,0}}, color={0,0,255}),Line(points={{0,
+              lineColor={0,0,255}),Line(points={{-60,0},{-20,0}}, color={0,0,255}),Line(points={{20,0},{80,0}}, color={0,0,255}),Line(points={{0,
             -20},{0,-60}}, color={0,0,255}),Text(
               extent={{-12,10},{84,-84}},
               textString="-")}));
@@ -961,8 +960,7 @@ Example:
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),Line(points={{50,0},{100,0}},
             color={0,0,255}),Line(points={{-100,60},{-74,24},{-44,24}}, color={
-            0,0,127}),Line(points={{-100,-60},{-74,-28},{-42,-28}}, color={0,0,
-            127}),Ellipse(extent={{-50,50},{50,-50}}, lineColor={0,0,127}),Line(
+            0,0,127}),Line(points={{-100,-60},{-74,-28},{-42,-28}}, color={0,0,127}),Ellipse(extent={{-50,50},{50,-50}}, lineColor={0,0,127}),Line(
             points={{50,0},{100,0}}, color={0,0,127}),Text(
               extent={{-36,38},{40,-30}},
               textString="+"),Text(
@@ -1125,8 +1123,7 @@ the two inputs <strong>u1</strong> and <strong>u2</strong>:
               extent={{-5,-20},{5,-30}},
               fillPattern=FillPattern.Solid),Ellipse(extent={{-50,50},{50,-50}},
             lineColor={0,0,255}),Line(points={{-100,60},{-66,60},{-40,30}},
-            color={0,0,255}),Line(points={{-100,-60},{0,-60},{0,-50}}, color={0,
-            0,255})}));
+            color={0,0,255}),Line(points={{-100,-60},{0,-60},{0,-50}}, color={0,0,255})}));
   end Division;
 
   block Abs "Output the absolute value of the input"
@@ -1485,8 +1482,7 @@ as <strong>sine</strong> of the input <strong>u</strong>:
             {-68.7,72.3},{-63.1,63},{-56.7,48.7},{-48.6,26.6},{-29.3,-32.5},{-22.1,
             -51.7},{-15.7,-65.3},{-10.1,-73.8},{-4.42,-78.8},{1.21,-79.9},{6.83,
             -77.1},{12.5,-70.6},{18.1,-60.6},{24.5,-45.7},{32.6,-23},{50.3,31.3},
-            {57.5,50.7},{63.9,64.6},{69.5,73.4},{75.2,78.6},{80,80}}, color={0,
-            0,0}),Text(
+            {57.5,50.7},{63.9,64.6},{69.5,73.4},{75.2,78.6},{80,80}}, color={0,0,0}),Text(
               extent={{74,-4},{98,-24}},
               lineColor={160,160,164},
               textString="u")}),

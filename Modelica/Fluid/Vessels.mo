@@ -122,8 +122,7 @@ initial equation
                  + 200*level/height)}}),
             fillColor={85,170,255},
             fillPattern=FillPattern.VerticalCylinder),
-          Line(points={{-100,100},{-100,-100},{100,-100},{100,100}}, color={0,0,
-                0}),
+          Line(points={{-100,100},{-100,-100},{100,-100},{100,100}}, color={0,0,0}),
           Text(
             extent={{-95,60},{95,40}},
             textString="level ="),

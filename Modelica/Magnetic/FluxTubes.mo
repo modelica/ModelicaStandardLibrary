@@ -1383,8 +1383,7 @@ Both force components are properly considered with a simple permeance model as s
                           extent={{-70,80},{72,-80}},
                           lineColor={255,128,0},
                           textString="c"),Line(points={{-90,60},{-80,60}},
-                  color={0,0,255}),Line(points={{-90,-60},{-80,-60}}, color={0,
-                  0,255}),Line(points={{80,0},{90,0}}, color={0,127,0}),Text(
+                  color={0,0,255}),Line(points={{-90,-60},{-80,-60}}, color={0,0,255}),Line(points={{80,0},{90,0}}, color={0,127,0}),Text(
                           extent={{0,160},{0,120}},
                           lineColor={0,0,255},
                           textString="%name")}), Documentation(info="<html>
@@ -2191,8 +2190,7 @@ The characteristic current drop during pull-in is due to both armature motion an
           connect(armature.flange_a, g_mAirWork.flange) annotation (Line(points=
                  {{64,0},{34,0},{34,52},{-30,52},{-30,40}}, color={0,127,0}));
           connect(g_mAirWork.flange, g_mLeakWork.flange) annotation (Line(
-                points={{-30,40},{-30,52},{34,52},{34,80},{-30,80}}, color={0,
-                  127,0}));
+                points={{-30,40},{-30,52},{34,52},{34,80},{-30,80}}, color={0,127,0}));
           connect(r.n, coil.p) annotation (Line(points={{-50,-20},{-6,-20},{-6,
                   10}}, color={0,0,255}));
           connect(coil.n, n) annotation (Line(points={{6,10},{6,-60},{-100,-60}},

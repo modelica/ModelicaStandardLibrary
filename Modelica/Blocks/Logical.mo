@@ -723,8 +723,7 @@ signal <strong>u</strong> exceeds the <strong>reference</strong> signal plus hal
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={Line(points={{-80,-20},{-60,-20},{-30,40},{
             8,40},{40,-20},{60,-20}}, color={0,0,255}),Line(points={{-90,-70},{
-            82,-70}}),Line(points={{-80,68},{-80,-80}}, color={0,
-            0,0}),Polygon(
+            82,-70}}),Line(points={{-80,68},{-80,-80}}, color={0,0,0}),Polygon(
               points={{90,-70},{68,-62},{68,-78},{90,-70}},
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),Polygon(
@@ -843,8 +842,7 @@ handled properly.</p>
         Line(points={{-80.0,0.0},{-62.0,0.0},{40.0,90.0},{40.0,0.0},{68.0,0.0}},
           color={0,0,127})}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={Line(points={{-90,-70},{82,-70}}, color={0,
-            0,0}),Line(points={{-80,68},{-80,-80}}),Polygon(
+              100,100}}), graphics={Line(points={{-90,-70},{82,-70}}, color={0,0,0}),Line(points={{-80,68},{-80,-80}}),Polygon(
               points={{90,-70},{68,-62},{68,-78},{90,-70}},
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),Polygon(

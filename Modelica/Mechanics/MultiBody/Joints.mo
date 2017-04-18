@@ -6307,8 +6307,7 @@ component).
           color={95,95,95},
           thickness=0.5));
       connect(jointUSR.axis, axis)
-        annotation (Line(points={{10,16},{86,16},{86,80},{100,80}}, color={0,0,
-              0}));
+        annotation (Line(points={{10,16},{86,16},{86,80},{100,80}}, color={0,0,0}));
       connect(jointUSR.bearing, bearing)
         annotation (Line(points={{10,8},{94,8},{94,40},{100,40}}));
       annotation (
@@ -6627,8 +6626,7 @@ are connected by rigid rods.
           color={95,95,95},
           thickness=0.5));
       connect(jointUSP.axis, axis)
-        annotation (Line(points={{10,16},{86,16},{86,80},{100,80}}, color={0,0,
-              0}));
+        annotation (Line(points={{10,16},{86,16},{86,80},{100,80}}, color={0,0,0}));
       connect(jointUSP.bearing, bearing)
         annotation (Line(points={{10,8},{94,8},{94,40},{100,40}}));
       annotation (

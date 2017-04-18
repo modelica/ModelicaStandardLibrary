@@ -2194,8 +2194,7 @@ Simulate for 1.5 seconds and plot (versus time):
         connect(terminalBoxM.plug_sp, smpmM.plug_sp)
           annotation (Line(points={{6,-10},{6,-10}}, color={0,0,255}));
         connect(terminalBoxM.plugSupply, currentRMSsensorM.plug_n) annotation (
-            Line(points={{0,-8},{0,-8},{0,6},{0,20}}, color={0,0,
-                255}));
+            Line(points={{0,-8},{0,-8},{0,6},{0,20}}, color={0,0,255}));
         connect(loadInertiaE.flange_b, torqueStepE.flange)
           annotation (Line(points={{70,-80},{80,-80}}));
         connect(rotorAngleE.plug_n, smpmE.plug_sn) annotation (Line(points={{36,
@@ -3090,8 +3089,7 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM.rotorDisplacementAngl
         connect(smeeM.flange, mechanicalPowerSensorM.flange_a)
           annotation (Line(points={{10,40},{10,40},{20,40}}));
         connect(mechanicalPowerSensorM.flange_b, constantSpeedM.flange)
-          annotation (Line(points={{40,40},{44,40},{46,40},{50,40}}, color={0,0,
-                0}));
+          annotation (Line(points={{40,40},{44,40},{46,40},{50,40}}, color={0,0,0}));
         connect(rampCurrentM.p, groundRM.p) annotation (Line(points={{-30,30},{
                 -30,30},{-20,30}}, color={0,0,255}));
         connect(rampCurrentM.p, smeeM.pin_en) annotation (Line(points={{-30,30},
@@ -3373,8 +3371,7 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM3.rotorDisplacementAng
         connect(terminalBoxM.plug_sn, smrM.plug_sn)
           annotation (Line(points={{-6,-10},{-6,-10}}, color={0,0,255}));
         connect(currentRMSsensorM.plug_n, terminalBoxM.plugSupply) annotation (
-            Line(points={{0,10},{0,-8}}, color={0,0,
-                255}));
+            Line(points={{0,10},{0,-8}}, color={0,0,255}));
         connect(signalVoltage.plug_p, currentRMSsensorM.plug_p) annotation (
             Line(points={{0,50},{0,45},{0,40},
                 {0,30}}, color={0,0,255}));
@@ -4517,8 +4514,7 @@ Resistances and stray inductances of the machine refer to an <code>m</code> phas
             color={255,128,0}));
         annotation (
           defaultComponentName="aims",
-          Icon(graphics={Line(points={{-100,50},{-100,20},{-60,20}}, color={0,0,
-                    255}), Line(points={{-100,-50},{-100,-20},{-60,-20}}, color=
+          Icon(graphics={Line(points={{-100,50},{-100,20},{-60,20}}, color={0,0,255}), Line(points={{-100,-50},{-100,-20},{-60,-20}}, color=
                    {0,0,255})}),
           Documentation(info="<html>
 <p>
@@ -4966,16 +4962,14 @@ Resistances and stray inductances of the machine refer to an <code>m</code> phas
           defaultComponentName="smee",
           Icon(graphics={
               Ellipse(extent={{-134,34},{-66,-34}}, lineColor={0,0,255}),
-              Line(points={{-100,50},{-100,20},{-130,20},{-130,-4}}, color={0,0,
-                    255}),
+              Line(points={{-100,50},{-100,20},{-130,20},{-130,-4}}, color={0,0,255}),
               Line(points={{-130,-4},{-129,1},{-125,5},{-120,6},{-115,5},{-111,
                     1},{-110,-4}}, color={0,0,255}),
               Line(points={{-110,-4},{-109,1},{-105,5},{-100,6},{-95,5},{-91,1},
                     {-90,-4}}, color={0,0,255}),
               Line(points={{-90,-4},{-89,1},{-85,5},{-80,6},{-75,5},{-71,1},{-70,
                     -4}}, color={0,0,255}),
-              Line(points={{-100,-50},{-100,-20},{-70,-20},{-70,-2}}, color={0,
-                    0,255})}),
+              Line(points={{-100,-50},{-100,-20},{-70,-20},{-70,-2}}, color={0,0,255})}),
           Documentation(info="<html>
 <p>
 The symmetry of the stator is assumed. For rotor asymmetries can be taken into account by different resistances and stray inductances in the d- and q-axis. The machine models take the following loss effects into account:
@@ -5436,8 +5430,7 @@ The single phase winding consists of a winding
         connect(resistor.plug_n, zeroInductor.plug_p) annotation (Line(points={{-20,60},
                 {-20,55},{-20,40},{-30,40}}, color={0,0,255}));
         connect(electroMagneticConverter.plug_n, plug_n) annotation (Line(
-              points={{-10,-40},{-10,-40},{-100,-40},{-100,-100}}, color={0,0,
-                255}));
+              points={{-10,-40},{-10,-40},{-100,-40},{-100,-100}}, color={0,0,255}));
         connect(electroMagneticConverter.port_p, port_p) annotation (Line(
               points={{10,-20},{10,100},{100,100}}, color={255,128,0}));
         connect(resistor.heatPort, heatPortWinding) annotation (Line(
@@ -6530,8 +6523,7 @@ Source of magnetic flux with complex signal input.
               Text(
                   extent={{-140,120},{140,80}},
                   textString="%name",
-                  lineColor={0,0,255}),Line(points={{70,0},{90,0}}, color={0,0,
-              0}),Line(points={{0,-90},{0,-70}})}), Documentation(info="<html>
+                  lineColor={0,0,255}),Line(points={{70,0},{90,0}}, color={0,0,0}),Line(points={{0,-90},{0,-70}})}), Documentation(info="<html>
 <p>Sensor for magnetic flux.</p>
 
 <h4>See also</h4>
