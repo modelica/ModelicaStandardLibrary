@@ -35,29 +35,21 @@ encapsulated model ChuaCircuit "Chua's circuit, ns, V, A"
 equation
   connect(L.n, Ro.p) annotation (Line(points={{-75,13},{-75,8}}));
   connect(C2.p, G.p) annotation (Line(
-      points={{-25,28},{-25,45.5},{-25,45.5},{-25,63}},
-      color={0,0,255}));
+      points={{-25,28},{-25,45.5},{-25,45.5},{-25,63}}, color={0,0,255}));
   connect(L.p, G.p) annotation (Line(
-      points={{-75,63},{-25,63}},
-      color={0,0,255}));
+      points={{-75,63},{-25,63}}, color={0,0,255}));
   connect(G.n, Nr.p) annotation (Line(
-      points={{25,63},{75,63},{75,28}},
-      color={0,0,255}));
+      points={{25,63},{75,63},{75,28}}, color={0,0,255}));
   connect(C1.p, G.n) annotation (Line(
-      points={{25,28},{25,45.5},{25,45.5},{25,63}},
-      color={0,0,255}));
+      points={{25,28},{25,45.5},{25,45.5},{25,63}}, color={0,0,255}));
   connect(Ro.n, Gnd.p) annotation (Line(
-      points={{-75,-42},{-75,-62},{0,-62}},
-      color={0,0,255}));
+      points={{-75,-42},{-75,-62},{0,-62}}, color={0,0,255}));
   connect(C2.n, Gnd.p) annotation (Line(
-      points={{-25,-22},{-24,-22},{-24,-62},{0,-62}},
-      color={0,0,255}));
+      points={{-25,-22},{-24,-22},{-24,-62},{0,-62}}, color={0,0,255}));
   connect(Gnd.p, C1.n) annotation (Line(
-      points={{0,-62},{25,-62},{25,-22}},
-      color={0,0,255}));
+      points={{0,-62},{25,-62},{25,-22}}, color={0,0,255}));
   connect(Gnd.p, Nr.n) annotation (Line(
-      points={{0,-62},{75,-62},{75,-22}},
-      color={0,0,255}));
+      points={{0,-62},{75,-62},{75,-22}}, color={0,0,255}));
   annotation (
     Documentation(info="<html>
 <p>Chua&#39;s circuit is the most simple nonlinear circuit which shows chaotic behaviour. The circuit consists of linear basic elements (capacitors, resistor, conductor, inductor), and one nonlinear element, which is called Chua&#39;s diode. The chaotic behaviour is simulated.</p>

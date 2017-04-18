@@ -259,7 +259,7 @@ load inertia.
     connect(axis4.flange, mechanics.axis4) annotation (Line(points={{-5,-5},{15,
             -5},{15,-3.5},{33.5,-3.5}}));
     connect(axis5.flange, mechanics.axis5)
-      annotation (Line(points={{-5,15},{10,15},{10,5.5},{33.5,5.5}}, color={0,0,0}));
+      annotation (Line(points={{-5,15},{10,15},{10,5.5},{33.5,5.5}}));
     connect(axis6.flange, mechanics.axis6) annotation (Line(points={{-5,35},{20,
             35},{20,14.5},{33.5,14.5}}));
     connect(controlBus, pathPlanning.controlBus)
@@ -1186,8 +1186,7 @@ Default values for all parameters are given for joint 4.
       connect(hall1.i, axisControlBus.current)
                                     annotation (Line(points={{6,-50},{-10,-50},
               {-10,-95},{80,-95},{80,-100}}, color={0,0,127}));
-      connect(hall1.i, convert1.u) annotation (Line(points={{6,-50},{-28.8,-50}},
-            color={0,0,127}));
+      connect(hall1.i, convert1.u) annotation (Line(points={{6,-50},{-28.8,-50}}, color={0,0,127}));
       connect(convert1.y, hall2.v) annotation (Line(points={{-42.6,-50},{-63,
               -50}}, color={0,0,127}));
       connect(convert2.u, axisControlBus.current_ref)
@@ -1243,31 +1242,28 @@ produced by the motor).
         annotation (Line(points={{-49,10},{-44,10}}, color={0,0,127}));
       connect(feedback1.y, P.u)
         annotation (Line(points={{-27,10},{-18,10}}, color={0,0,127}));
-      connect(P.y, add3.u2) annotation (Line(points={{5,10},{18,10}}, color={0,0,127}));
+      connect(P.y, add3.u2) annotation (Line(points={{5,10},{18,10}}, color={0,
+              0,127}));
       connect(gain2.y, add3.u1)
-        annotation (Line(points={{-39,50},{10,50},{10,18},{18,18}}, color={0,0,127}));
+        annotation (Line(points={{-39,50},{10,50},{10,18},{18,18}}, color={0,0,
+              127}));
       connect(add3.y, PI.u)
         annotation (Line(points={{41,10},{58,10}}, color={0,0,127}));
       connect(gain2.u, axisControlBus.speed_ref)
                                       annotation (Line(points={{-62,50},{-90,50},
-              {-90,-99.9},{0.1,-99.9}},
-                                    color={0,0,127}));
+              {-90,-99.9},{0.1,-99.9}}, color={0,0,127}));
       connect(gain1.u, axisControlBus.angle_ref)
                                       annotation (Line(points={{-72,10},{-80,10},
-              {-80,-99.9},{0.1,-99.9}},
-                                    color={0,0,127}));
+              {-80,-99.9},{0.1,-99.9}}, color={0,0,127}));
       connect(feedback1.u2, axisControlBus.motorAngle)
                                             annotation (Line(points={{-36,2},{
-              -36,-99.9},{0.1,-99.9}},
-                                   color={0,0,127}));
+              -36,-99.9},{0.1,-99.9}}, color={0,0,127}));
       connect(add3.u3, axisControlBus.motorSpeed)
                                        annotation (Line(points={{18,2},{0.1,2},
-              {0.1,-99.9}},
-                      color={0,0,127}));
+              {0.1,-99.9}}, color={0,0,127}));
       connect(PI.y, axisControlBus.current_ref)
                                      annotation (Line(points={{81,10},{90,10},{
-              90,-99.9},{0.1,-99.9}},
-                                  color={0,0,127}));
+              90,-99.9},{0.1,-99.9}}, color={0,0,127}));
       annotation (
         Icon(coordinateSystem(
             preserveAspectRatio=true,

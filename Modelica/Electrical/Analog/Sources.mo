@@ -57,8 +57,8 @@ package Sources "Time-dependent and controlled voltage and current sources"
               fillPattern=FillPattern.Solid),Text(
               extent={{91,45},{111,25}},
               lineColor={160,160,164},
-              textString="i"),Line(points={{-119,-5},{-119,5}}, color={160,160,
-            164}),Line(points={{-124,0},{-114,0}}, color={160,160,164}),Line(
+              textString="i"),Line(points={{-119,-5},{-119,5}}, color={160,160,164}),
+            Line(points={{-124,0},{-114,0}}, color={160,160,164}),Line(
             points={{116,0},{126,0}}, color={160,160,164})}),
       Documentation(revisions="<html>
 <ul>
@@ -118,8 +118,8 @@ package Sources "Time-dependent and controlled voltage and current sources"
               fillPattern=FillPattern.Solid),Line(points={{-80,68},{-80,-80}},
             color={192,192,192}),Line(
               points={{-80,-18},{0,-18},{0,50},{80,50}},
-              thickness=0.5),Line(points={{-90,-70},{82,-70}}, color={192,192,
-            192}),Polygon(
+              thickness=0.5),Line(points={{-90,-70},{82,-70}}, color={192,192,192}),
+            Polygon(
               points={{90,-70},{68,-62},{68,-78},{90,-70}},
               lineColor={192,192,192},
               fillColor={192,192,192},
@@ -191,8 +191,8 @@ package Sources "Time-dependent and controlled voltage and current sources"
               fillPattern=FillPattern.Solid),Line(points={{-80,68},{-80,-80}},
             color={192,192,192}),Line(
               points={{-80,-20},{-20,-20},{50,50}},
-              thickness=0.5),Line(points={{-90,-70},{82,-70}}, color={192,192,
-            192}),Polygon(
+              thickness=0.5),Line(points={{-90,-70},{82,-70}}, color={192,192,192}),
+            Polygon(
               points={{90,-70},{68,-62},{68,-78},{90,-70}},
               lineColor={192,192,192},
               fillColor={192,192,192},
@@ -664,8 +664,8 @@ package Sources "Time-dependent and controlled voltage and current sources"
               lineColor={192,192,192},
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid),Line(points={{-80,68},{-80,-80}},
-            color={192,192,192}),Line(points={{-90,-70},{82,-70}}, color={192,
-            192,192}),Polygon(
+            color={192,192,192}),Line(points={{-90,-70},{82,-70}}, color={192,192,192}),
+            Polygon(
               points={{90,-70},{68,-62},{68,-78},{90,-70}},
               lineColor={192,192,192},
               fillColor={192,192,192},
@@ -775,8 +775,8 @@ package Sources "Time-dependent and controlled voltage and current sources"
               lineColor={192,192,192},
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid),Line(points={{-80,68},{-80,-80}},
-            color={192,192,192}),Line(points={{-90,-70},{82,-70}}, color={192,
-            192,192}),Polygon(
+            color={192,192,192}),Line(points={{-90,-70},{82,-70}}, color={192,192,192}),
+            Polygon(
               points={{90,-70},{68,-62},{68,-78},{90,-70}},
               lineColor={192,192,192},
               fillColor={192,192,192},
@@ -883,8 +883,8 @@ package Sources "Time-dependent and controlled voltage and current sources"
               lineColor={192,192,192},
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid),Line(points={{-80,68},{-80,-80}},
-            color={192,192,192}),Line(points={{-90,-70},{82,-70}}, color={192,
-            192,192}),Polygon(
+            color={192,192,192}),Line(points={{-90,-70},{82,-70}}, color={192,192,192}),
+            Polygon(
               points={{90,-70},{68,-62},{68,-78},{90,-70}},
               lineColor={192,192,192},
               fillColor={192,192,192},
@@ -1018,8 +1018,8 @@ package Sources "Time-dependent and controlled voltage and current sources"
               lineColor={192,192,192},
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid),Line(points={{-80,68},{-80,-80}},
-            color={192,192,192}),Line(points={{-90,-70},{82,-70}}, color={192,
-            192,192}),Polygon(
+            color={192,192,192}),Line(points={{-90,-70},{82,-70}}, color={192,192,192}),
+            Polygon(
               points={{90,-70},{68,-62},{68,-78},{90,-70}},
               lineColor={192,192,192},
               fillColor={192,192,192},
@@ -1196,8 +1196,8 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               fillPattern=FillPattern.Solid),Line(points={{-80,68},{-80,-80}},
             color={192,192,192}),Line(
               points={{-80,-18},{0,-18},{0,50},{80,50}},
-              thickness=0.5),Line(points={{-90,-70},{82,-70}}, color={192,192,
-            192}),Polygon(
+              thickness=0.5),Line(points={{-90,-70},{82,-70}}, color={192,192,192}),
+            Polygon(
               points={{90,-70},{68,-62},{68,-78},{90,-70}},
               lineColor={192,192,192},
               fillColor={192,192,192},
@@ -1269,8 +1269,8 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               fillPattern=FillPattern.Solid),Line(points={{-80,68},{-80,-80}},
             color={192,192,192}),Line(
               points={{-80,-20},{-20,-20},{50,50}},
-              thickness=0.5),Line(points={{-90,-70},{82,-70}}, color={192,192,
-            192}),Polygon(
+              thickness=0.5),Line(points={{-90,-70},{82,-70}}, color={192,192,192}),
+            Polygon(
               points={{90,-70},{68,-62},{68,-78},{90,-70}},
               lineColor={192,192,192},
               fillColor={192,192,192},
@@ -1731,8 +1731,8 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               lineColor={192,192,192},
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid),Line(points={{-80,68},{-80,-80}},
-            color={192,192,192}),Line(points={{-90,-70},{82,-70}}, color={192,
-            192,192}),Polygon(
+            color={192,192,192}),Line(points={{-90,-70},{82,-70}}, color={192,192,192}),
+            Polygon(
               points={{90,-70},{68,-62},{68,-78},{90,-70}},
               lineColor={192,192,192},
               fillColor={192,192,192},
@@ -1843,8 +1843,8 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               lineColor={192,192,192},
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid),Line(points={{-80,68},{-80,-80}},
-            color={192,192,192}),Line(points={{-90,-70},{82,-70}}, color={192,
-            192,192}),Polygon(
+            color={192,192,192}),Line(points={{-90,-70},{82,-70}}, color={192,192,192}),
+            Polygon(
               points={{90,-70},{68,-62},{68,-78},{90,-70}},
               lineColor={192,192,192},
               fillColor={192,192,192},
@@ -1951,8 +1951,8 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               lineColor={192,192,192},
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid),Line(points={{-80,90},{-80,-80}},
-            color={192,192,192}),Line(points={{-90,-70},{90,-70}}, color={192,
-            192,192}),Polygon(
+            color={192,192,192}),Line(points={{-90,-70},{90,-70}}, color={192,192,192}),
+            Polygon(
               points={{90,-70},{68,-62},{68,-78},{90,-70}},
               lineColor={192,192,192},
               fillColor={192,192,192},
@@ -2086,8 +2086,8 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               lineColor={192,192,192},
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid),Line(points={{-80,68},{-80,-80}},
-            color={192,192,192}),Line(points={{-90,-70},{82,-70}}, color={192,
-            192,192}),Polygon(
+            color={192,192,192}),Line(points={{-90,-70},{82,-70}}, color={192,192,192}),
+            Polygon(
               points={{90,-70},{68,-62},{68,-78},{90,-70}},
               lineColor={192,192,192},
               fillColor={192,192,192},
@@ -2179,17 +2179,13 @@ If, e.g., time = 1.0, the current i =  0.0 (before event), 1.0 (after event)
           Vns) annotation (Placement(transformation(extent={{40,-10},{60,10}})));
   equation
     connect(pin_p, positiveSupply.p) annotation (Line(
-        points={{-100,0},{-60,0}},
-        color={0,0,255}));
+        points={{-100,0},{-60,0}}, color={0,0,255}));
     connect(negativeSupply.n, pin_n) annotation (Line(
-        points={{60,0},{100,0}},
-        color={0,0,255}));
+        points={{60,0},{100,0}}, color={0,0,255}));
     connect(positiveSupply.n, ground) annotation (Line(
-        points={{-40,0},{0,0}},
-        color={0,0,255}));
+        points={{-40,0},{0,0}}, color={0,0,255}));
     connect(ground, negativeSupply.p) annotation (Line(
-        points={{0,0},{40,0}},
-        color={0,0,255}));
+        points={{0,0},{40,0}}, color={0,0,255}));
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
               100}}), graphics={

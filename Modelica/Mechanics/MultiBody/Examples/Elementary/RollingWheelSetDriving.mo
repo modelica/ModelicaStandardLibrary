@@ -71,11 +71,9 @@ equation
   connect(wheelSet.support, torque2.flange_b) annotation (Line(
       points={{-10,-1.8},{-10,14},{4,14}}));
   connect(sine1.y, torque1.tau) annotation (Line(
-      points={{-59,30},{-30,30},{-30,18}},
-      color={0,0,127}));
+      points={{-59,30},{-30,30},{-30,18}}, color={0,0,127}));
   connect(sine2.y, torque2.tau) annotation (Line(
-      points={{39,30},{14,30},{14,18}},
-      color={0,0,127}));
+      points={{39,30},{14,30},{14,18}}, color={0,0,127}));
   connect(shape.frame_a, fixedTranslation.frame_b) annotation (Line(
       points={{40,90},{28,90},{28,66},{20,66}},
       color={95,95,95},

@@ -113,29 +113,22 @@ package ControlledTankSystem
     connect(tankController.valve2, valve2.open) annotation (Line(points={{-19,0},
             {-5,0},{26,0}}, color={255,0,255}));
     connect(tankController.valve3, valve3.open) annotation (Line(points={{-19,-12},
-            {-10,-12},{-10,-50},{35,-50},{35,-72}},
-                                                color={255,0,255}));
+            {-10,-12},{-10,-50},{35,-50},{35,-72}}, color={255,0,255}));
     connect(level2.y, tankController.level2) annotation (Line(points={{-31.15,
             -70},{-28,-70},{-28,-22}}, color={0,0,127}));
 
     connect(source.ports[1], valve1.port_a) annotation (Line(
-        points={{-30,70},{-20,70}},
-        color={0,127,255}));
+        points={{-30,70},{-20,70}}, color={0,127,255}));
     connect(valve3.port_b, ambient1.ports[1]) annotation (Line(
-        points={{25,-80},{10,-80}},
-        color={0,127,255}));
+        points={{25,-80},{10,-80}}, color={0,127,255}));
     connect(tank2.ports[2], valve3.port_a) annotation (Line(
-        points={{74,-60},{74,-80},{45,-80}},
-        color={0,127,255}));
+        points={{74,-60},{74,-80},{45,-80}}, color={0,127,255}));
     connect(valve2.port_b, tank2.ports[1]) annotation (Line(
-        points={{34,-10},{34,-20},{50,-20},{50,-60},{66,-60}},
-        color={0,127,255}));
+        points={{34,-10},{34,-20},{50,-20},{50,-60},{66,-60}}, color={0,127,255}));
     connect(valve1.port_b, tank1.ports[1]) annotation (Line(
-        points={{0,70},{10,70},{10,30},{26,30}},
-        color={0,127,255}));
+        points={{0,70},{10,70},{10,30},{26,30}}, color={0,127,255}));
     connect(tank1.ports[2], valve2.port_a) annotation (Line(
-        points={{34,30},{34,10}},
-        color={0,127,255}));
+        points={{34,30},{34,10}}, color={0,127,255}));
     annotation (
       experiment(StopTime=900),
       Documentation(info="<html>
@@ -317,8 +310,7 @@ This example is based on
                                      annotation (Line(points={{-23,-2.5},{-23,
               -20},{-60,-20},{-60,-50},{-51,-50}}));
       connect(level1, normal.level1) annotation (Line(points={{-60,-110},{
-              -60,-80},{-80,-80},{-80,20},{-30,20},{-30,24},{-22.6667,24}},
-            color={0,0,255}));
+              -60,-80},{-80,-80},{-80,20},{-30,20},{-30,24},{-22.6667,24}}, color={0,0,255}));
       connect(s2.outPort[1], T5.inPort) annotation (Line(points={{-29.5,-49.75},
               {-30,-49.75},{-30,-50},{0,-50}}));
       connect(s2.outPort[2], T4.inPort) annotation (Line(points={{-29.5,-50.25},

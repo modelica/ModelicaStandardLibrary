@@ -79,31 +79,23 @@ model InverseParameterization
 equation
   connect(orifice.port_b, sink.ports[1])
                                        annotation (Line(
-      points={{40,20},{64,20}},
-      color={0,127,255}));
+      points={{40,20},{64,20}}, color={0,127,255}));
   connect(source.ports[1], pump.port_a) annotation (Line(
-      points={{-64,20},{-40,20}},
-      color={0,127,255}));
+      points={{-64,20},{-40,20}}, color={0,127,255}));
   connect(pump.port_b, orifice.port_a)
                                     annotation (Line(
-      points={{-20,20},{20,20}},
-      color={0,127,255}));
+      points={{-20,20},{20,20}}, color={0,127,255}));
   connect(pipe1.port_b, sink1.ports[1]) annotation (Line(
-      points={{40,-20},{64,-20}},
-      color={0,127,255}));
+      points={{40,-20},{64,-20}}, color={0,127,255}));
   connect(pipe1.port_a, pump.port_b) annotation (Line(
-      points={{20,-20},{0,-20},{0,20},{-20,20}},
-      color={0,127,255}));
+      points={{20,-20},{0,-20},{0,20},{-20,20}}, color={0,127,255}));
   connect(p_set.y, pump.p_set) annotation (Line(
-      points={{-29,50},{-25,50},{-25,28.2}},
-      color={0,0,127}));
+      points={{-29,50},{-25,50},{-25,28.2}}, color={0,0,127}));
   connect(pipe2.port_b, sink2.ports[1]) annotation (Line(
-      points={{40,-60},{64,-60}},
-      color={0,127,255}));
+      points={{40,-60},{64,-60}}, color={0,127,255}));
 
   connect(pump.port_b, pipe2.port_a) annotation (Line(
-      points={{-20,20},{0,20},{0,-60},{20,-60}},
-      color={0,127,255}));
+      points={{-20,20},{0,20},{0,-60},{20,-60}}, color={0,127,255}));
   annotation (
     __Dymola_Commands(file(ensureSimulated=true)="modelica://Modelica/Resources/Scripts/Dymola/Fluid/InverseParameterization/plotResults.mos"
         "plotResults"),

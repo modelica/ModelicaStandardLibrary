@@ -309,7 +309,8 @@ behavior is <strong>not</strong> modelled. The parameters are not temperature de
               100,100}}), graphics={Ellipse(extent={{-4,24},{4,16}}, lineColor=
             {0,0,255}),Line(points={{-96,0},{-40,0}}, color={0,0,255}),Line(
             points={{-96,40},{-40,40}}, color={0,0,255}),Line(points={{-40,0},{40,40}},
-                     color={0,0,255}),Line(points={{-40,40},{40,0}}, color={0,0,255}),Line(points={{40,40},{96,40}}, color={0,0,255}),Line(points={{0,94},{0,24}},
+                     color={0,0,255}),Line(points={{-40,40},{40,0}}, color={0,0,255}),
+            Line(points={{40,40},{96,40}}, color={0,0,255}),Line(points={{0,94},{0,24}},
                             color={0,0,255}),Line(points={{40,0},{96,0}}, color=
              {0,0,255})}));
   end IdealIntermediateSwitch;
@@ -544,9 +545,9 @@ are possible (norator).
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid,
             lineColor={0,0,255}),
-          Line(points={{0,-40},{0,-100}},color={0,0,255}),
-          Line(points={{-100,60},{-70,60}},color={0,0,255}),
-          Line(points={{-100,-60},{-70,-60}},color={0,0,255}),
+          Line(points={{0,-40},{0,-100}}, color={0,0,255}),
+          Line(points={{-100,60},{-70,60}}, color={0,0,255}),
+          Line(points={{-100,-60},{-70,-60}}, color={0,0,255}),
           Line(points={{70,0},{100,0}}, color={0,0,255}),
           Line(points={{-60,50},{-40,50}}, color={0,0,255}),
           Line(points={{-60,-50},{-40,-50}}, color={0,0,255}),
@@ -593,8 +594,8 @@ are possible.
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid,
             lineColor={0,0,255}),
-          Line(points={{-100,60},{-70,60}},color={0,0,255}),
-          Line(points={{-100,-60},{-70,-60}},color={0,0,255}),
+          Line(points={{-100,60},{-70,60}}, color={0,0,255}),
+          Line(points={{-100,-60},{-70,-60}}, color={0,0,255}),
           Line(points={{70,0},{100,0}}, color={0,0,255}),
           Line(points={{-60,50},{-40,50}}, color={0,0,255}),
           Line(points={{-60,-50},{-40,-50}}, color={0,0,255}),
@@ -651,8 +652,8 @@ If the input voltage is vin larger than 0, the output voltage is out.v = VMax.
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid,
             lineColor={0,0,255}),
-          Line(points={{-100,60},{-70,60}},color={0,0,255}),
-          Line(points={{-100,-60},{-70,-60}},color={0,0,255}),
+          Line(points={{-100,60},{-70,60}}, color={0,0,255}),
+          Line(points={{-100,-60},{-70,-60}}, color={0,0,255}),
           Line(points={{-60,50},{-40,50}}, color={0,0,255}),
           Line(points={{-50,-40},{-50,-60}}, color={0,0,255}),
           Line(points={{-60,-50},{-40,-50}}, color={0,0,255}),
@@ -721,8 +722,8 @@ If the input voltage is vin larger than 0, the output voltage is out.v = VMax.
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid,
             lineColor={0,0,255}),
-          Line(points={{-100,60},{-70,60}},color={0,0,255}),
-          Line(points={{-100,-60},{-70,-60}},color={0,0,255}),
+          Line(points={{-100,60},{-70,60}}, color={0,0,255}),
+          Line(points={{-100,-60},{-70,-60}}, color={0,0,255}),
           Line(points={{-60,50},{-40,50}}, color={0,0,255}),
           Line(points={{-50,-40},{-50,-60}}, color={0,0,255}),
           Line(points={{-60,-50},{-40,-50}}, color={0,0,255}),
@@ -1347,32 +1348,23 @@ For details of the arc effect, see partial model <a href=\"modelica://Modelica.E
   equation
 
     connect(idealThyristor.n, capacitor.n) annotation (Line(
-        points={{0,32},{40,32},{40,0}},
-        color={0,0,255}));
+        points={{0,32},{40,32},{40,0}}, color={0,0,255}));
     connect(capacitor.n, idealThyristor1.p) annotation (Line(
-        points={{40,0},{40,-32},{0,-32}},
-        color={0,0,255}));
+        points={{40,0},{40,-32},{0,-32}}, color={0,0,255}));
     connect(idealThyristor1.n, resistor.p) annotation (Line(
-        points={{-20,-32},{-60,-32},{-60,0}},
-        color={0,0,255}));
+        points={{-20,-32},{-60,-32},{-60,0}}, color={0,0,255}));
     connect(resistor.p, idealThyristor.p) annotation (Line(
-        points={{-60,0},{-60,32},{-20,32}},
-        color={0,0,255}));
+        points={{-60,0},{-60,32},{-20,32}}, color={0,0,255}));
     connect(resistor.n, capacitor.p) annotation (Line(
-        points={{-40,0},{20,0}},
-        color={0,0,255}));
+        points={{-40,0},{20,0}}, color={0,0,255}));
     connect(idealThyristor1.fire, fire1) annotation (Line(
-        points={{-20,-44},{-20,-100},{-100,-100},{-100,-114},{-100,-114}},
-        color={255,0,255}));
+        points={{-20,-44},{-20,-100},{-100,-100},{-100,-114},{-100,-114}}, color={255,0,255}));
     connect(idealThyristor.fire, fire1) annotation (Line(
-        points={{0,44},{0,60},{-80,60},{-80,-100},{-100,-100},{-100,-114},{-100,-114}},
-        color={255,0,255}));
+        points={{0,44},{0,60},{-80,60},{-80,-100},{-100,-100},{-100,-114},{-100,-114}}, color={255,0,255}));
     connect(n, idealThyristor.p) annotation (Line(
-        points={{-100,0},{-90,0},{-90,40},{-20,40},{-20,32}},
-        color={0,0,255}));
+        points={{-100,0},{-90,0},{-90,40},{-20,40},{-20,32}}, color={0,0,255}));
     connect(idealThyristor1.p, p) annotation (Line(
-        points={{0,-32},{0,-40},{80,-40},{80,0},{104,0}},
-        color={0,0,255}));
+        points={{0,-32},{0,-40},{80,-40},{80,0},{104,0}}, color={0,0,255}));
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}), graphics={
           Polygon(

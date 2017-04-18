@@ -554,7 +554,6 @@ The design of the Animation.Shape component is from Hilding Elmqvist, Dassault S
           extent={{-100,-100},{100,100}}),
           graphics={Text(
             extent={{-150,-110},{150,-140}},
-            lineColor={0,0,0},
             textString="default")}), Documentation(info="<html>
 <p>
 The interface of this model is documented at

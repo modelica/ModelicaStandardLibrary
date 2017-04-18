@@ -70,14 +70,11 @@ equation
   connect(constantVoltage2.p,switch2. p) annotation (Line(points={{-20,-50},{
           -20,-40},{0,-40}}, color={0,0,255}));
   connect(sineVoltage.p, switch1.control) annotation (Line(
-      points={{-70,0},{-40,0},{-40,50},{10,50}},
-      color={0,0,255}));
+      points={{-70,0},{-40,0},{-40,50},{10,50}}, color={0,0,255}));
   connect(sineVoltage.p, switch2.control) annotation (Line(
-      points={{-70,0},{-40,0},{-40,-30},{10,-30}},
-      color={0,0,255}));
+      points={{-70,0},{-40,0},{-40,-30},{10,-30}}, color={0,0,255}));
   connect(sineVoltage.n, ground.p) annotation (Line(
-      points={{-70,-20},{-70,-40}},
-      color={0,0,255}));
+      points={{-70,-20},{-70,-40}}, color={0,0,255}));
   annotation (Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
             -100},{100,100}}), graphics={Text(
           extent={{-100,80},{100,60}},

@@ -48,11 +48,9 @@ equation
   connect(SaturatingInductance1.p, SineVoltage1.p) annotation (Line(points={{-20,10},
           {-20,20},{-60,20},{-60,4}}, color={0,0,255}));
   connect(Inductance1.p, SineVoltage1.p) annotation (Line(
-      points={{20,10},{20,20},{-60,20},{-60,4}},
-      color={0,0,255}));
+      points={{20,10},{20,20},{-60,20},{-60,4}}, color={0,0,255}));
   connect(Inductance1.n, SineVoltage1.n) annotation (Line(
-      points={{20,-10},{20,-16},{-60,-16}},
-      color={0,0,255}));
+      points={{20,-10},{20,-16},{-60,-16}}, color={0,0,255}));
   annotation (
     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
             100}}), graphics={Text(

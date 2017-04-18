@@ -266,26 +266,19 @@ equation
       color={0,127,255},
       thickness=0.5));
   connect(traceSubstance1.port, pipe1.port_b) annotation (Line(
-      points={{-80,80},{-58,80},{-58,64},{-60,64},{-60,64}},
-      color={0,127,255}));
+      points={{-80,80},{-58,80},{-58,64},{-60,64},{-60,64}}, color={0,127,255}));
   connect(pipe7.port_a, traceSubstance3.port) annotation (Line(
-      points={{-80,8},{-80,8},{-82,8},{-82,22},{-88,22}},
-      color={0,127,255}));
+      points={{-80,8},{-80,8},{-82,8},{-82,22},{-88,22}}, color={0,127,255}));
   connect(pipe3.port_b, traceSubstance2.port) annotation (Line(
-      points={{40,64},{42,64},{42,80}},
-      color={0,127,255}));
+      points={{40,64},{42,64},{42,80}}, color={0,127,255}));
   connect(traceSubstance4.port, pipe6.port_a) annotation (Line(
-      points={{12,22},{12,8},{20,8}},
-      color={0,127,255}));
+      points={{12,22},{12,8},{20,8}}, color={0,127,255}));
   connect(pipe7.port_b, multiPort.port_a) annotation (Line(
-      points={{-60,8},{-46,8}},
-      color={0,127,255}));
+      points={{-60,8},{-46,8}}, color={0,127,255}));
   connect(multiPort.ports_b[1], pipe5.port_a) annotation (Line(
-      points={{-38,10},{-32,10},{-32,20},{-30,20}},
-      color={0,127,255}));
+      points={{-38,10},{-32,10},{-32,20},{-30,20}}, color={0,127,255}));
   connect(multiPort.ports_b[2], pipe8.port_a) annotation (Line(
-      points={{-38,6},{-38,8},{-32,8},{-32,-2},{-30,-2}},
-      color={0,127,255}));
+      points={{-38,6},{-38,8},{-32,8},{-32,-2},{-30,-2}}, color={0,127,255}));
   annotation (                       experiment(StopTime=20, Tolerance=1e-005),
     Documentation(info="<html>
 Test of different dynamic pipe models with trace substances.

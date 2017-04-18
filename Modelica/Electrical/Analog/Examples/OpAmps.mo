@@ -41,29 +41,21 @@ package OpAmps
       annotation (Placement(transformation(extent={{20,10},{0,30}})));
   equation
     connect(r1.n, r2.n) annotation (Line(
-        points={{-20,20},{0,20}},
-        color={0,0,255}));
+        points={{-20,20},{0,20}}, color={0,0,255}));
     connect(r2.n, opAmp.in_n) annotation (Line(
-        points={{0,20},{-10,20},{-10,6},{0,6}},
-        color={0,0,255}));
+        points={{0,20},{-10,20},{-10,6},{0,6}}, color={0,0,255}));
     connect(r2.p, opAmp.out) annotation (Line(
-        points={{20,20},{30,20},{30,0},{20,0}},
-        color={0,0,255}));
+        points={{20,20},{30,20},{30,0},{20,0}}, color={0,0,255}));
     connect(ground.p, opAmp.in_p) annotation (Line(
-        points={{-10,-80},{-10,-6},{0,-6}},
-        color={0,0,255}));
+        points={{-10,-80},{-10,-6},{0,-6}}, color={0,0,255}));
     connect(vIn.p, r1.p) annotation (Line(
-        points={{-80,10},{-80,20},{-40,20}},
-        color={0,0,255}));
+        points={{-80,10},{-80,20},{-40,20}}, color={0,0,255}));
     connect(ground.p, vIn.n) annotation (Line(
-        points={{-10,-80},{-80,-80},{-80,-10}},
-        color={0,0,255}));
+        points={{-10,-80},{-80,-80},{-80,-10}}, color={0,0,255}));
     connect(ground.p, vOut.n) annotation (Line(
-        points={{-10,-80},{50,-80},{50,-30}},
-        color={0,0,255}));
+        points={{-10,-80},{50,-80},{50,-30}}, color={0,0,255}));
     connect(opAmp.out, vOut.p) annotation (Line(
-        points={{20,0},{50,0},{50,-10}},
-        color={0,0,255}));
+        points={{20,0},{50,0},{50,-10}}, color={0,0,255}));
     annotation (
       Documentation(info="<html>
                         <p>This is an inverting amplifier. Resistance R1 can be chosen, R2 is defined by the desired amplification k.</p>
@@ -121,29 +113,21 @@ package OpAmps
           origin={10,20})));
   equation
     connect(opAmp.out, r2.p) annotation (Line(
-        points={{20,0},{30,0},{30,20},{20,20}},
-        color={0,0,255}));
+        points={{20,0},{30,0},{30,20},{20,20}}, color={0,0,255}));
     connect(r1.n, ground.p) annotation (Line(
-        points={{20,40},{20,40},{80,40},{80,-80},{-10,-80}},
-        color={0,0,255}));
+        points={{20,40},{20,40},{80,40},{80,-80},{-10,-80}}, color={0,0,255}));
     connect(vIn.p, opAmp.in_p) annotation (Line(
-        points={{-80,10},{-20,10},{-20,-6},{0,-6}},
-        color={0,0,255}));
+        points={{-80,10},{-20,10},{-20,-6},{0,-6}}, color={0,0,255}));
     connect(r2.n, opAmp.in_n) annotation (Line(
-        points={{0,20},{-10,20},{-10,6},{0,6}},
-        color={0,0,255}));
+        points={{0,20},{-10,20},{-10,6},{0,6}}, color={0,0,255}));
     connect(r2.n, r1.p) annotation (Line(
-        points={{0,20},{-10,20},{-10,40},{0,40}},
-        color={0,0,255}));
+        points={{0,20},{-10,20},{-10,40},{0,40}}, color={0,0,255}));
     connect(ground.p, vIn.n) annotation (Line(
-        points={{-10,-80},{-80,-80},{-80,-10}},
-        color={0,0,255}));
+        points={{-10,-80},{-80,-80},{-80,-10}}, color={0,0,255}));
     connect(opAmp.out, vOut.p) annotation (Line(
-        points={{20,0},{50,0},{50,-10}},
-        color={0,0,255}));
+        points={{20,0},{50,0},{50,-10}}, color={0,0,255}));
     connect(ground.p, vOut.n) annotation (Line(
-        points={{-10,-80},{50,-80},{50,-30}},
-        color={0,0,255}));
+        points={{-10,-80},{50,-80},{50,-30}}, color={0,0,255}));
     annotation (Documentation(info=
                    "<html>
                          <p>This is a non inverting amplifier. Resistance R1 can be chosen, R2 is defined by the desired amplification k.</p>
@@ -198,29 +182,21 @@ package OpAmps
           origin={30,-18})));
   equation
     connect(ground.p, vIn.n) annotation (Line(
-        points={{-10,-80},{-80,-80},{-80,-10}},
-        color={0,0,255}));
+        points={{-10,-80},{-80,-80},{-80,-10}}, color={0,0,255}));
     connect(opAmp.out, vOut.p) annotation (Line(
-        points={{20,0},{50,0},{50,-10}},
-        color={0,0,255}));
+        points={{20,0},{50,0},{50,-10}}, color={0,0,255}));
     connect(ground.p, vOut.n) annotation (Line(
-        points={{-10,-80},{50,-80},{50,-30}},
-        color={0,0,255}));
+        points={{-10,-80},{50,-80},{50,-30}}, color={0,0,255}));
     connect(opAmp.out, opAmp.in_n) annotation (Line(
-        points={{20,0},{30,0},{30,20},{-10,20},{-10,6},{0,6}},
-        color={0,0,255}));
+        points={{20,0},{30,0},{30,20},{-10,20},{-10,6},{0,6}}, color={0,0,255}));
     connect(vIn.p, ri.p) annotation (Line(
-        points={{-80,10},{-60,10}},
-        color={0,0,255}));
+        points={{-80,10},{-60,10}}, color={0,0,255}));
     connect(ri.n, opAmp.in_p) annotation (Line(
-        points={{-40,10},{-20,10},{-20,-6},{0,-6}},
-        color={0,0,255}));
+        points={{-40,10},{-20,10},{-20,-6},{0,-6}}, color={0,0,255}));
     connect(opAmp.out, rl.p) annotation (Line(
-        points={{20,0},{30,0},{30,-8}},
-        color={0,0,255}));
+        points={{20,0},{30,0},{30,-8}}, color={0,0,255}));
     connect(ground.p, rl.n) annotation (Line(
-        points={{-10,-80},{30,-80},{30,-28}},
-        color={0,0,255}));
+        points={{-10,-80},{30,-80},{30,-28}}, color={0,0,255}));
     annotation (Documentation(info=
                    "<html>
     <p>This is a voltage follower. It reproduces the input voltage at the output without loading the input voltage source with a stiff output.</p>
@@ -270,29 +246,21 @@ package OpAmps
       annotation (Placement(transformation(extent={{-40,10},{-20,30}})));
   equation
     connect(r.n, c.n) annotation (Line(
-        points={{0,20},{-20,20}},
-        color={0,0,255}));
+        points={{0,20},{-20,20}}, color={0,0,255}));
     connect(vIn.p, c.p) annotation (Line(
-        points={{-80,10},{-80,20},{-40,20}},
-        color={0,0,255}));
+        points={{-80,10},{-80,20},{-40,20}}, color={0,0,255}));
     connect(vIn.n, ground.p) annotation (Line(
-        points={{-80,-10},{-80,-80},{-10,-80}},
-        color={0,0,255}));
+        points={{-80,-10},{-80,-80},{-10,-80}}, color={0,0,255}));
     connect(ground.p, opAmp.in_p) annotation (Line(
-        points={{-10,-80},{-10,-6},{0,-6}},
-        color={0,0,255}));
+        points={{-10,-80},{-10,-6},{0,-6}}, color={0,0,255}));
     connect(opAmp.in_n, r.n) annotation (Line(
-        points={{0,6},{-10,6},{-10,20},{0,20}},
-        color={0,0,255}));
+        points={{0,6},{-10,6},{-10,20},{0,20}}, color={0,0,255}));
     connect(r.p, opAmp.out) annotation (Line(
-        points={{20,20},{30,20},{30,0},{20,0}},
-        color={0,0,255}));
+        points={{20,20},{30,20},{30,0},{20,0}}, color={0,0,255}));
     connect(opAmp.out, vOut.p) annotation (Line(
-        points={{20,0},{50,0},{50,-10}},
-        color={0,0,255}));
+        points={{20,0},{50,0},{50,-10}}, color={0,0,255}));
     connect(vOut.n, ground.p) annotation (Line(
-        points={{50,-30},{50,-80},{-10,-80}},
-        color={0,0,255}));
+        points={{50,-30},{50,-80},{-10,-80}}, color={0,0,255}));
     annotation (Documentation(info=
                    "<html>
                         <p>This is a (inverting) differentiating amplifier. Resistance R can be chosen, capacitance C is defined by the desired time constant resp. frequency.</p>
@@ -345,29 +313,21 @@ package OpAmps
       annotation (Placement(transformation(extent={{20,10},{0,30}})));
   equation
     connect(c.n, r.n) annotation (Line(
-        points={{0,20},{-20,20}},
-        color={0,0,255}));
+        points={{0,20},{-20,20}}, color={0,0,255}));
     connect(c.p, opAmp.out) annotation (Line(
-        points={{20,20},{30,20},{30,0},{20,0}},
-        color={0,0,255}));
+        points={{20,20},{30,20},{30,0},{20,0}}, color={0,0,255}));
     connect(c.n, opAmp.in_n) annotation (Line(
-        points={{0,20},{-10,20},{-10,6},{0,6}},
-        color={0,0,255}));
+        points={{0,20},{-10,20},{-10,6},{0,6}}, color={0,0,255}));
     connect(ground.p, opAmp.in_p) annotation (Line(
-        points={{-10,-80},{-10,-6},{0,-6}},
-        color={0,0,255}));
+        points={{-10,-80},{-10,-6},{0,-6}}, color={0,0,255}));
     connect(vIn.p, r.p) annotation (Line(
-        points={{-80,10},{-80,20},{-40,20}},
-        color={0,0,255}));
+        points={{-80,10},{-80,20},{-40,20}}, color={0,0,255}));
     connect(ground.p, vIn.n) annotation (Line(
-        points={{-10,-80},{-80,-80},{-80,-10}},
-        color={0,0,255}));
+        points={{-10,-80},{-80,-80},{-80,-10}}, color={0,0,255}));
     connect(opAmp.out, vOut.p) annotation (Line(
-        points={{20,0},{50,0},{50,-10}},
-        color={0,0,255}));
+        points={{20,0},{50,0},{50,-10}}, color={0,0,255}));
     connect(ground.p, vOut.n) annotation (Line(
-        points={{-10,-80},{50,-80},{50,-30}},
-        color={0,0,255}));
+        points={{-10,-80},{50,-80},{50,-30}}, color={0,0,255}));
     annotation (Documentation(info=
                    "<html>
                         <p>This is an (inverting) integrating amplifier. Resistance R can be chosen, capacitance C is defined by the desired time constant resp. frequency.</p>
@@ -423,35 +383,25 @@ package OpAmps
       annotation (Placement(transformation(extent={{20,30},{0,50}})));
   equation
     connect(r1.n, r2.n) annotation (Line(
-        points={{-20,20},{0,20}},
-        color={0,0,255}));
+        points={{-20,20},{0,20}}, color={0,0,255}));
     connect(r2.n, opAmp.in_n) annotation (Line(
-        points={{0,20},{-10,20},{-10,6},{0,6}},
-        color={0,0,255}));
+        points={{0,20},{-10,20},{-10,6},{0,6}}, color={0,0,255}));
     connect(r2.p, opAmp.out) annotation (Line(
-        points={{20,20},{30,20},{30,0},{20,0}},
-        color={0,0,255}));
+        points={{20,20},{30,20},{30,0},{20,0}}, color={0,0,255}));
     connect(r2.p, c.p) annotation (Line(
-        points={{20,20},{30,20},{30,40},{20,40}},
-        color={0,0,255}));
+        points={{20,20},{30,20},{30,40},{20,40}}, color={0,0,255}));
     connect(c.n, r2.n) annotation (Line(
-        points={{0,40},{-10,40},{-10,20},{0,20}},
-        color={0,0,255}));
+        points={{0,40},{-10,40},{-10,20},{0,20}}, color={0,0,255}));
     connect(ground.p, opAmp.in_p) annotation (Line(
-        points={{-10,-80},{-10,-6},{0,-6}},
-        color={0,0,255}));
+        points={{-10,-80},{-10,-6},{0,-6}}, color={0,0,255}));
     connect(vIn.p, r1.p) annotation (Line(
-        points={{-80,10},{-80,20},{-40,20}},
-        color={0,0,255}));
+        points={{-80,10},{-80,20},{-40,20}}, color={0,0,255}));
     connect(ground.p, vIn.n) annotation (Line(
-        points={{-10,-80},{-80,-80},{-80,-10}},
-        color={0,0,255}));
+        points={{-10,-80},{-80,-80},{-80,-10}}, color={0,0,255}));
     connect(opAmp.out, vOut.p) annotation (Line(
-        points={{20,0},{50,0},{50,-10}},
-        color={0,0,255}));
+        points={{20,0},{50,0},{50,-10}}, color={0,0,255}));
     connect(ground.p, vOut.n) annotation (Line(
-        points={{-10,-80},{50,-80},{50,-30}},
-        color={0,0,255}));
+        points={{-10,-80},{50,-80},{50,-30}}, color={0,0,255}));
     annotation (Documentation(info=
                    "<html>
                          <p>This is a (inverting) low pass filter. Resistance R1 can be chosen, resistance R2 is defined by the desired amplification k, capacitance C is defined by the desired cut-off frequency.</p>
@@ -507,32 +457,23 @@ package OpAmps
       annotation (Placement(transformation(extent={{-70,10},{-50,30}})));
   equation
     connect(r1.n, r2.n) annotation (Line(
-        points={{-20,20},{0,20}},
-        color={0,0,255}));
+        points={{-20,20},{0,20}}, color={0,0,255}));
     connect(r2.n, opAmp.in_n) annotation (Line(
-        points={{0,20},{-10,20},{-10,6},{0,6}},
-        color={0,0,255}));
+        points={{0,20},{-10,20},{-10,6},{0,6}}, color={0,0,255}));
     connect(r2.p, opAmp.out) annotation (Line(
-        points={{20,20},{30,20},{30,0},{20,0}},
-        color={0,0,255}));
+        points={{20,20},{30,20},{30,0},{20,0}}, color={0,0,255}));
     connect(c.n, r1.p) annotation (Line(
-        points={{-50,20},{-40,20}},
-        color={0,0,255}));
+        points={{-50,20},{-40,20}}, color={0,0,255}));
     connect(ground.p, opAmp.in_p) annotation (Line(
-        points={{-10,-80},{-10,-6},{0,-6}},
-        color={0,0,255}));
+        points={{-10,-80},{-10,-6},{0,-6}}, color={0,0,255}));
     connect(vIn.p, c.p) annotation (Line(
-        points={{-80,10},{-80,20},{-70,20}},
-        color={0,0,255}));
+        points={{-80,10},{-80,20},{-70,20}}, color={0,0,255}));
     connect(ground.p, vIn.n) annotation (Line(
-        points={{-10,-80},{-80,-80},{-80,-10}},
-        color={0,0,255}));
+        points={{-10,-80},{-80,-80},{-80,-10}}, color={0,0,255}));
     connect(opAmp.out, vOut.p) annotation (Line(
-        points={{20,0},{50,0},{50,-10}},
-        color={0,0,255}));
+        points={{20,0},{50,0},{50,-10}}, color={0,0,255}));
     connect(ground.p, vOut.n) annotation (Line(
-        points={{-10,-80},{50,-80},{50,-30}},
-        color={0,0,255}));
+        points={{-10,-80},{50,-80},{50,-30}}, color={0,0,255}));
     annotation (Documentation(info=
                    "<html>
                          <p>This is a (inverting) high pass filter. Resistance R1 can be chosen, resistance R2 is defined by the desired amplification k, capacitance C is defined by the desired cut-off frequency.</p>
@@ -584,29 +525,21 @@ package OpAmps
           origin={-10,-50})));
   equation
     connect(vIn.p, opAmp.in_p) annotation (Line(
-        points={{-80,10},{-10,10},{-10,6},{0,6}},
-        color={0,0,255}));
+        points={{-80,10},{-10,10},{-10,6},{0,6}}, color={0,0,255}));
     connect(opAmp.out, vOut.p) annotation (Line(
-        points={{20,0},{50,0},{50,-10}},
-        color={0,0,255}));
+        points={{20,0},{50,0},{50,-10}}, color={0,0,255}));
     connect(ground.p, vOut.n) annotation (Line(
-        points={{-10,-80},{50,-80},{50,-30}},
-        color={0,0,255}));
+        points={{-10,-80},{50,-80},{50,-30}}, color={0,0,255}));
     connect(ground.p, vIn.n) annotation (Line(
-        points={{-10,-80},{-80,-80},{-80,-10}},
-        color={0,0,255}));
+        points={{-10,-80},{-80,-80},{-80,-10}}, color={0,0,255}));
     connect(potentiometer.contact, opAmp.in_n) annotation (Line(
-        points={{0,-20},{0,-6}},
-        color={0,0,255}));
+        points={{0,-20},{0,-6}}, color={0,0,255}));
     connect(potentiometer.pin_p, supplyVoltage.pin_p) annotation (Line(
-        points={{-20,-30},{-20,-50}},
-        color={0,0,255}));
+        points={{-20,-30},{-20,-50}}, color={0,0,255}));
     connect(potentiometer.pin_n, supplyVoltage.pin_n) annotation (Line(
-        points={{0,-30},{0,-50}},
-        color={0,0,255}));
+        points={{0,-30},{0,-50}}, color={0,0,255}));
     connect(ground.p, supplyVoltage.ground) annotation (Line(
-        points={{-10,-80},{-10,-50}},
-        color={0,0,255}));
+        points={{-10,-80},{-10,-50}}, color={0,0,255}));
     annotation (Documentation(info=
                    "<html>
                         <p>This is a comparator. Resistance R1 can be chosen, resistance R2 is defined by the desired reference voltage Vref (between Vn and Vp). The output switches between Vn for input voltage &lt; Vref and Vp for input voltage &gt; Vref.</p>
@@ -664,29 +597,21 @@ package OpAmps
           origin={30,-20})));
   equation
     connect(r2.n, r1.p) annotation (Line(
-        points={{30,-30},{30,-50}},
-        color={0,0,255}));
+        points={{30,-30},{30,-50}}, color={0,0,255}));
     connect(ground.p, r1.n) annotation (Line(
-        points={{-10,-80},{30,-80},{30,-80},{30,-80},{30,-70},{30,-70}},
-        color={0,0,255}));
+        points={{-10,-80},{30,-80},{30,-80},{30,-80},{30,-70},{30,-70}}, color={0,0,255}));
     connect(opAmp.out, r2.p) annotation (Line(
-        points={{20,0},{30,0},{30,-10}},
-        color={0,0,255}));
+        points={{20,0},{30,0},{30,-10}}, color={0,0,255}));
     connect(r2.n, opAmp.in_p) annotation (Line(
-        points={{30,-30},{30,-40},{-10,-40},{-10,-6},{0,-6}},
-        color={0,0,255}));
+        points={{30,-30},{30,-40},{-10,-40},{-10,-6},{0,-6}}, color={0,0,255}));
     connect(vIn.p, opAmp.in_n) annotation (Line(
-        points={{-80,10},{-20,10},{-20,6},{0,6}},
-        color={0,0,255}));
+        points={{-80,10},{-20,10},{-20,6},{0,6}}, color={0,0,255}));
     connect(ground.p, vIn.n) annotation (Line(
-        points={{-10,-80},{-80,-80},{-80,-10}},
-        color={0,0,255}));
+        points={{-10,-80},{-80,-80},{-80,-10}}, color={0,0,255}));
     connect(ground.p, vOut.n) annotation (Line(
-        points={{-10,-80},{50,-80},{50,-30}},
-        color={0,0,255}));
+        points={{-10,-80},{50,-80},{50,-30}}, color={0,0,255}));
     connect(opAmp.out, vOut.p) annotation (Line(
-        points={{20,0},{50,0},{50,-10}},
-        color={0,0,255}));
+        points={{20,0},{50,0},{50,-10}}, color={0,0,255}));
     annotation (Documentation(info=
                    "<html>
                         <p>This is a (inverting) Schmitt trigger. Resistance R1 can be chosen, resistance R2 is defined by the desired hysteresis. The output gets Vn for input voltage &gt; 0 + vHys and Vp for input voltage &lt; vHys*Vns/Vps.</p>
@@ -743,29 +668,21 @@ package OpAmps
           origin={10,20})));
   equation
     connect(ground.p, vIn.n) annotation (Line(
-        points={{-10,-80},{-80,-80},{-80,-10}},
-        color={0,0,255}));
+        points={{-10,-80},{-80,-80},{-80,-10}}, color={0,0,255}));
     connect(ground.p, vOut.n) annotation (Line(
-        points={{-10,-80},{50,-80},{50,-30}},
-        color={0,0,255}));
+        points={{-10,-80},{50,-80},{50,-30}}, color={0,0,255}));
     connect(opAmp.out, vOut.p) annotation (Line(
-        points={{20,0},{50,0},{50,-10}},
-        color={0,0,255}));
+        points={{20,0},{50,0},{50,-10}}, color={0,0,255}));
     connect(opAmp.in_n, ground.p) annotation (Line(
-        points={{0,-6},{-10,-6},{-10,-80}},
-        color={0,0,255}));
+        points={{0,-6},{-10,-6},{-10,-80}}, color={0,0,255}));
     connect(opAmp.out, r2.n) annotation (Line(
-        points={{20,0},{30,0},{30,20},{20,20}},
-        color={0,0,255}));
+        points={{20,0},{30,0},{30,20},{20,20}}, color={0,0,255}));
     connect(r2.p, opAmp.in_p) annotation (Line(
-        points={{0,20},{-10,20},{-10,6},{0,6}},
-        color={0,0,255}));
+        points={{0,20},{-10,20},{-10,6},{0,6}}, color={0,0,255}));
     connect(r2.p, r1.n) annotation (Line(
-        points={{0,20},{-20,20}},
-        color={0,0,255}));
+        points={{0,20},{-20,20}}, color={0,0,255}));
     connect(r1.p, vIn.p) annotation (Line(
-        points={{-40,20},{-80,20},{-80,10}},
-        color={0,0,255}));
+        points={{-40,20},{-80,20},{-80,10}}, color={0,0,255}));
     annotation (Documentation(info=
                    "<html>
                         <p>This is a (non-inverting) Schmitt trigger. Resistance R1 can be chosen, resistance R2 is defined by the desired hysteresis. The output gets Vp for input voltage &gt; vHys and Vn for input voltage &lt; vHys*Vns/Vps.</p>
@@ -813,35 +730,25 @@ package OpAmps
           origin={-30,-40})));
   equation
     connect(ground.p, r1.n) annotation (Line(
-        points={{-10,-60},{-10,-50}},
-        color={0,0,255}));
+        points={{-10,-60},{-10,-50}}, color={0,0,255}));
     connect(ground.p, vOut.n) annotation (Line(
-        points={{-10,-60},{50,-60},{50,-30}},
-        color={0,0,255}));
+        points={{-10,-60},{50,-60},{50,-30}}, color={0,0,255}));
     connect(opAmp.out, vOut.p) annotation (Line(
-        points={{20,0},{50,0},{50,-10}},
-        color={0,0,255}));
+        points={{20,0},{50,0},{50,-10}}, color={0,0,255}));
     connect(ground.p, c.n) annotation (Line(
-        points={{-10,-60},{-30,-60},{-30,-50}},
-        color={0,0,255}));
+        points={{-10,-60},{-30,-60},{-30,-50}}, color={0,0,255}));
     connect(opAmp.out, r.p) annotation (Line(
-        points={{20,0},{30,0},{30,20},{20,20}},
-        color={0,0,255}));
+        points={{20,0},{30,0},{30,20},{20,20}}, color={0,0,255}));
     connect(r.n, opAmp.in_n) annotation (Line(
-        points={{0,20},{-10,20},{-10,6},{0,6}},
-        color={0,0,255}));
+        points={{0,20},{-10,20},{-10,6},{0,6}}, color={0,0,255}));
     connect(opAmp.out, r2.p) annotation (Line(
-        points={{20,0},{30,0},{30,-20},{20,-20}},
-        color={0,0,255}));
+        points={{20,0},{30,0},{30,-20},{20,-20}}, color={0,0,255}));
     connect(r2.n, opAmp.in_p) annotation (Line(
-        points={{0,-20},{-10,-20},{-10,-6},{0,-6}},
-        color={0,0,255}));
+        points={{0,-20},{-10,-20},{-10,-6},{0,-6}}, color={0,0,255}));
     connect(opAmp.in_p, r1.p) annotation (Line(
-        points={{0,-6},{-10,-6},{-10,-30}},
-        color={0,0,255}));
+        points={{0,-6},{-10,-6},{-10,-30}}, color={0,0,255}));
     connect(r.n, c.p) annotation (Line(
-        points={{0,20},{-30,20},{-30,-30}},
-        color={0,0,255}));
+        points={{0,20},{-30,20},{-30,-30}}, color={0,0,255}));
     annotation (Documentation(info=
                    "<html>
                         <p>This is a Multivibrator with Schmitt trigger according to:</p>
@@ -900,47 +807,33 @@ package OpAmps
           origin={60,-18})));
   equation
     connect(opAmp1.out, r2.n) annotation (Line(
-        points={{-40,0},{-30,0},{-30,20},{-40,20}},
-        color={0,0,255}));
+        points={{-40,0},{-30,0},{-30,20},{-40,20}}, color={0,0,255}));
     connect(opAmp1.in_p, r2.p) annotation (Line(
-        points={{-60,6},{-70,6},{-70,20},{-60,20}},
-        color={0,0,255}));
+        points={{-60,6},{-70,6},{-70,20},{-60,20}}, color={0,0,255}));
     connect(opAmp1.in_n, ground.p) annotation (Line(
-        points={{-60,-6},{-70,-6},{-70,-40},{0,-40}},
-        color={0,0,255}));
+        points={{-60,-6},{-70,-6},{-70,-40},{0,-40}}, color={0,0,255}));
     connect(opAmp1.out, r.p) annotation (Line(
-        points={{-40,0},{-30,0},{-30,20},{-10,20}},
-        color={0,0,255}));
+        points={{-40,0},{-30,0},{-30,20},{-10,20}}, color={0,0,255}));
     connect(r.n, c.n) annotation (Line(
-        points={{10,20},{30,20}},
-        color={0,0,255}));
+        points={{10,20},{30,20}}, color={0,0,255}));
     connect(c.p, opAmp2.out) annotation (Line(
-        points={{50,20},{60,20},{60,0},{50,0}},
-        color={0,0,255}));
+        points={{50,20},{60,20},{60,0},{50,0}}, color={0,0,255}));
     connect(ground.p, opAmp2.in_p) annotation (Line(
-        points={{0,-40},{20,-40},{20,-6},{30,-6}},
-        color={0,0,255}));
+        points={{0,-40},{20,-40},{20,-6},{30,-6}}, color={0,0,255}));
     connect(c.n, opAmp2.in_n) annotation (Line(
-        points={{30,20},{20,20},{20,6},{30,6}},
-        color={0,0,255}));
+        points={{30,20},{20,20},{20,6},{30,6}}, color={0,0,255}));
     connect(r2.p, r1.p) annotation (Line(
-        points={{-60,20},{-70,20},{-70,40},{-60,40}},
-        color={0,0,255}));
+        points={{-60,20},{-70,20},{-70,40},{-60,40}}, color={0,0,255}));
     connect(opAmp2.out, r1.n) annotation (Line(
-        points={{50,0},{60,0},{60,40},{-40,40}},
-        color={0,0,255}));
+        points={{50,0},{60,0},{60,40},{-40,40}}, color={0,0,255}));
     connect(opAmp1.out, vOutRectangle.p) annotation (Line(
-        points={{-40,0},{-30,0},{-30,-10}},
-        color={0,0,255}));
+        points={{-40,0},{-30,0},{-30,-10}}, color={0,0,255}));
     connect(ground.p, vOutRectangle.n) annotation (Line(
-        points={{0,-40},{-30,-40},{-30,-30}},
-        color={0,0,255}));
+        points={{0,-40},{-30,-40},{-30,-30}}, color={0,0,255}));
     connect(opAmp2.out, vOutTriangle.p) annotation (Line(
-        points={{50,0},{60,0},{60,-8}},
-        color={0,0,255}));
+        points={{50,0},{60,0},{60,-8}}, color={0,0,255}));
     connect(ground.p, vOutTriangle.n) annotation (Line(
-        points={{0,-40},{60,-40},{60,-28}},
-        color={0,0,255}));
+        points={{0,-40},{60,-40},{60,-28}}, color={0,0,255}));
     annotation (Documentation(info=
                    "<html>
                         <p>This signal generator consists of a Schmitt trigger and an integrator. The output of the first OpAmp (Schmitt trigger) is a rectangular signal, the output of the second OpAmp (integrator) is a triangular signal. </p>
@@ -1000,41 +893,29 @@ package OpAmps
           origin={60,-20})));
   equation
     connect(opAmp.out, r.p) annotation (Line(
-        points={{-30,0},{-10,0}},
-        color={0,0,255}));
+        points={{-30,0},{-10,0}}, color={0,0,255}));
     connect(opAmp.out, r2.p) annotation (Line(
-        points={{-30,0},{-20,0},{-20,-10}},
-        color={0,0,255}));
+        points={{-30,0},{-20,0},{-20,-10}}, color={0,0,255}));
     connect(r2.n, r1.p) annotation (Line(
-        points={{-20,-30},{-20,-40},{-10,-40}},
-        color={0,0,255}));
+        points={{-20,-30},{-20,-40},{-10,-40}}, color={0,0,255}));
     connect(r2.n, opAmp.in_n) annotation (Line(
-        points={{-20,-30},{-20,-40},{-60,-40},{-60,-6},{-50,-6}},
-        color={0,0,255}));
+        points={{-20,-30},{-20,-40},{-60,-40},{-60,-6},{-50,-6}}, color={0,0,255}));
     connect(r1.n, ground.p) annotation (Line(
-        points={{10,-40},{20,-40}},
-        color={0,0,255}));
+        points={{10,-40},{20,-40}}, color={0,0,255}));
     connect(r.n, opAmp.in_p) annotation (Line(
-        points={{10,0},{20,0},{20,20},{-60,20},{-60,6},{-50,6}},
-        color={0,0,255}));
+        points={{10,0},{20,0},{20,20},{-60,20},{-60,6},{-50,6}}, color={0,0,255}));
     connect(l.n, ground.p) annotation (Line(
-        points={{20,-30},{20,-40}},
-        color={0,0,255}));
+        points={{20,-30},{20,-40}}, color={0,0,255}));
     connect(r.n, l.p) annotation (Line(
-        points={{10,0},{20,0},{20,-10}},
-        color={0,0,255}));
+        points={{10,0},{20,0},{20,-10}}, color={0,0,255}));
     connect(c.p, l.p) annotation (Line(
-        points={{40,-10},{20,-10}},
-        color={0,0,255}));
+        points={{40,-10},{20,-10}}, color={0,0,255}));
     connect(c.n, l.n) annotation (Line(
-        points={{40,-30},{20,-30}},
-        color={0,0,255}));
+        points={{40,-30},{20,-30}}, color={0,0,255}));
     connect(ground.p, vOut.n) annotation (Line(
-        points={{20,-40},{60,-40},{60,-30}},
-        color={0,0,255}));
+        points={{20,-40},{60,-40},{60,-30}}, color={0,0,255}));
     connect(r.n, vOut.p) annotation (Line(
-        points={{10,0},{60,0},{60,-10}},
-        color={0,0,255}));
+        points={{10,0},{60,0},{60,-10}}, color={0,0,255}));
     annotation (Documentation(info=
                    "<html>
                        <p>This is an LC oscillator according to:</p>

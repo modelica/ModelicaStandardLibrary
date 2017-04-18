@@ -217,17 +217,13 @@ is forced back to its limit after a transient phase.
 
   equation
     connect(step.y, CriticalDamping.u) annotation (Line(
-        points={{-39,50},{-22,50}},
-        color={0,0,127}));
+        points={{-39,50},{-22,50}}, color={0,0,127}));
     connect(step.y, Bessel.u) annotation (Line(
-        points={{-39,50},{-32,50},{-32,10},{-22,10}},
-        color={0,0,127}));
+        points={{-39,50},{-32,50},{-32,10},{-22,10}}, color={0,0,127}));
     connect(Butterworth.u, step.y) annotation (Line(
-        points={{-22,-30},{-32,-30},{-32,50},{-39,50}},
-        color={0,0,127}));
+        points={{-22,-30},{-32,-30},{-32,50},{-39,50}}, color={0,0,127}));
     connect(ChebyshevI.u, step.y) annotation (Line(
-        points={{-22,-70},{-32,-70},{-32,50},{-39,50}},
-        color={0,0,127}));
+        points={{-22,-70},{-32,-70},{-32,50},{-39,50}}, color={0,0,127}));
     annotation (
       experiment(StopTime=0.9),
       Documentation(info="<html>
@@ -271,17 +267,13 @@ The default setting uses low pass filters of order 3 with a cut-off frequency of
       annotation (Placement(transformation(extent={{62,40},{82,60}})));
   equation
     connect(step.y, Bessel.u) annotation (Line(
-        points={{-59,50},{-42,50}},
-        color={0,0,127}));
+        points={{-59,50},{-42,50}}, color={0,0,127}));
     connect(Bessel.y, der1.u) annotation (Line(
-        points={{-19,50},{-8,50}},
-        color={0,0,127}));
+        points={{-19,50},{-8,50}}, color={0,0,127}));
     connect(der1.y, der2.u) annotation (Line(
-        points={{15,50},{28,50}},
-        color={0,0,127}));
+        points={{15,50},{28,50}}, color={0,0,127}));
     connect(der2.y, der3.u) annotation (Line(
-        points={{51,50},{60,50}},
-        color={0,0,127}));
+        points={{51,50},{60,50}}, color={0,0,127}));
     annotation (
       experiment(StopTime=0.9),
       Documentation(info="<html>
@@ -314,14 +306,11 @@ discontinuous control signal.
       annotation (Placement(transformation(extent={{-20,62},{0,82}})));
   equation
     connect(step.y, filter_fac5.u) annotation (Line(
-        points={{-39,30},{-30,30},{-30,-10},{-22,-10}},
-        color={0,0,127}));
+        points={{-39,30},{-30,30},{-30,-10},{-22,-10}}, color={0,0,127}));
     connect(step.y, filter_fac4.u) annotation (Line(
-        points={{-39,30},{-22,30}},
-        color={0,0,127}));
+        points={{-39,30},{-22,30}}, color={0,0,127}));
     connect(step.y, filter_fac3.u) annotation (Line(
-        points={{-39,30},{-30,30},{-30,72},{-22,72}},
-        color={0,0,127}));
+        points={{-39,30},{-30,30},{-30,72},{-22,72}}, color={0,0,127}));
     annotation (experiment(StopTime=4), Documentation(info="<html>
 <p>
 Filters are usually parameterized with the cut-off frequency.
@@ -417,26 +406,19 @@ reached with different precisions. This is summarized in the following table:
       annotation (Placement(transformation(extent={{-40,20},{-20,40}})));
   equation
     connect(firstOrder1.y, inverseBlockConstraints.u2) annotation (Line(
-        points={{-1,30},{-6,30}},
-        color={0,0,127}));
+        points={{-1,30},{-6,30}}, color={0,0,127}));
     connect(inverseBlockConstraints.y2, firstOrder1.u) annotation (Line(
-        points={{27,30},{22,30}},
-        color={0,0,127}));
+        points={{27,30},{22,30}}, color={0,0,127}));
     connect(firstOrder2.y, feedback.u1) annotation (Line(
-        points={{-1,-10},{-42,-10}},
-        color={0,0,127}));
+        points={{-1,-10},{-42,-10}}, color={0,0,127}));
     connect(sine.y, criticalDamping.u) annotation (Line(
-        points={{-59,30},{-42,30}},
-        color={0,0,127}));
+        points={{-59,30},{-42,30}}, color={0,0,127}));
     connect(criticalDamping.y, inverseBlockConstraints.u1) annotation (Line(
-        points={{-19,30},{-12,30}},
-        color={0,0,127}));
+        points={{-19,30},{-12,30}}, color={0,0,127}));
     connect(sine.y, feedback.u2) annotation (Line(
-        points={{-59,30},{-50,30},{-50,-2}},
-        color={0,0,127}));
+        points={{-59,30},{-50,30},{-50,-2}}, color={0,0,127}));
     connect(inverseBlockConstraints.y1, firstOrder2.u) annotation (Line(
-        points={{31,30},{40,30},{40,-10},{22,-10}},
-        color={0,0,127}));
+        points={{31,30},{40,30},{40,-10},{22,-10}}, color={0,0,127}));
     annotation (Documentation(info="<html>
 <p>
 This example demonstrates how to construct an inverse model in Modelica
@@ -618,41 +600,29 @@ model RealNetwork1 "Demonstrates the usage of blocks from Modelica.Blocks.Math"
     annotation (Placement(transformation(extent={{58,-16},{78,4}})));
 equation
   connect(booleanPulse1.y, multiSwitch.u[1]) annotation (Line(
-      points={{9,-20},{18,-20},{18,-48},{28,-48},{28,-48.5}},
-      color={255,0,255}));
+      points={{9,-20},{18,-20},{18,-48},{28,-48},{28,-48.5}}, color={255,0,255}));
   connect(booleanPulse2.y, multiSwitch.u[2]) annotation (Line(
-      points={{9,-60},{18,-60},{18,-52},{28,-52},{28,-51.5}},
-      color={255,0,255}));
+      points={{9,-60},{18,-60},{18,-52},{28,-52},{28,-51.5}}, color={255,0,255}));
   connect(sine.y, add.u[1]) annotation (Line(
-      points={{-75,70},{-46.5,70},{-46.5,72.1},{-14,72.1}},
-      color={0,0,127}));
+      points={{-75,70},{-46.5,70},{-46.5,72.1},{-14,72.1}}, color={0,0,127}));
   connect(integerStep.y, add.u[2]) annotation (Line(
-      points={{-39,40},{-28,40},{-28,67.9},{-14,67.9}},
-      color={0,0,127}));
+      points={{-39,40},{-28,40},{-28,67.9},{-14,67.9}}, color={0,0,127}));
   connect(add.y, showValue.numberPort) annotation (Line(
-      points={{-0.98,70},{64.5,70}},
-      color={0,0,127}));
+      points={{-0.98,70},{64.5,70}}, color={0,0,127}));
   connect(integerStep.y, product.u[1]) annotation (Line(
-      points={{-39,40},{-20,40},{-20,32.1},{6,32.1}},
-      color={0,0,127}));
+      points={{-39,40},{-20,40},{-20,32.1},{6,32.1}}, color={0,0,127}));
   connect(integerConstant.y, product.u[2]) annotation (Line(
-      points={{-39,0},{-20,0},{-20,27.9},{6,27.9}},
-      color={0,0,127}));
+      points={{-39,0},{-20,0},{-20,27.9},{6,27.9}}, color={0,0,127}));
   connect(product.y, showValue1.numberPort) annotation (Line(
-      points={{19.02,30},{62.5,30}},
-      color={0,0,127}));
+      points={{19.02,30},{62.5,30}}, color={0,0,127}));
   connect(add.y, linearDependency1.u1) annotation (Line(
-      points={{-0.98,70},{20,70},{20,96},{38,96}},
-      color={0,0,127}));
+      points={{-0.98,70},{20,70},{20,96},{38,96}}, color={0,0,127}));
   connect(product.y, linearDependency1.u2) annotation (Line(
-      points={{19.02,30},{30,30},{30,84},{38,84}},
-      color={0,0,127}));
+      points={{19.02,30},{30,30},{30,84},{38,84}}, color={0,0,127}));
   connect(add.y, minMax.u[1]) annotation (Line(
-      points={{-0.98,70},{48,70},{48,-2.5},{58,-2.5}},
-      color={0,0,127}));
+      points={{-0.98,70},{48,70},{48,-2.5},{58,-2.5}}, color={0,0,127}));
   connect(product.y, minMax.u[2]) annotation (Line(
-      points={{19.02,30},{40,30},{40,-9.5},{58,-9.5}},
-      color={0,0,127}));
+      points={{19.02,30},{40,30},{40,-9.5},{58,-9.5}}, color={0,0,127}));
   annotation (
     experiment(StopTime=10),
     Documentation(info="<html>
@@ -716,44 +686,31 @@ end RealNetwork1;
       annotation (Placement(transformation(extent={{40,-84},{60,-64}})));
   equation
     connect(sine.y, realToInteger.u) annotation (Line(
-        points={{-79,70},{-62,70}},
-        color={0,0,127}));
+        points={{-79,70},{-62,70}}, color={0,0,127}));
     connect(realToInteger.y, sum.u[1]) annotation (Line(
-        points={{-39,70},{-32,70},{-32,72},{-14,72},{-14,72.8}},
-        color={255,127,0}));
+        points={{-39,70},{-32,70},{-32,72},{-14,72},{-14,72.8}}, color={255,127,0}));
     connect(integerStep.y, sum.u[2]) annotation (Line(
-        points={{-39,40},{-28,40},{-28,70},{-14,70}},
-        color={255,127,0}));
+        points={{-39,40},{-28,40},{-28,70},{-14,70}}, color={255,127,0}));
     connect(integerConstant.y, sum.u[3]) annotation (Line(
-        points={{-39,0},{-22,0},{-22,67.2},{-14,67.2}},
-        color={255,127,0}));
+        points={{-39,0},{-22,0},{-22,67.2},{-14,67.2}}, color={255,127,0}));
     connect(sum.y, showValue.numberPort) annotation (Line(
-        points={{-1.1,70},{38.5,70}},
-        color={255,127,0}));
+        points={{-1.1,70},{38.5,70}}, color={255,127,0}));
     connect(sum.y, product.u[1]) annotation (Line(
-        points={{-1.1,70},{4,70},{4,32.1},{16,32.1}},
-        color={255,127,0}));
+        points={{-1.1,70},{4,70},{4,32.1},{16,32.1}}, color={255,127,0}));
     connect(integerStep.y, product.u[2]) annotation (Line(
-        points={{-39,40},{-8,40},{-8,27.9},{16,27.9}},
-        color={255,127,0}));
+        points={{-39,40},{-8,40},{-8,27.9},{16,27.9}}, color={255,127,0}));
     connect(product.y, showValue1.numberPort) annotation (Line(
-        points={{28.9,30},{38.5,30}},
-        color={255,127,0}));
+        points={{28.9,30},{38.5,30}}, color={255,127,0}));
     connect(integerConstant.y, triggeredAdd.u) annotation (Line(
-        points={{-39,0},{13.6,0}},
-        color={255,127,0}));
+        points={{-39,0},{13.6,0}}, color={255,127,0}));
     connect(booleanPulse1.y, triggeredAdd.trigger) annotation (Line(
-        points={{9,-20},{18.4,-20},{18.4,-7.2}},
-        color={255,0,255}));
+        points={{9,-20},{18.4,-20},{18.4,-7.2}}, color={255,0,255}));
     connect(triggeredAdd.y, showValue2.numberPort) annotation (Line(
-        points={{29.2,0},{38.5,0}},
-        color={255,127,0}));
+        points={{29.2,0},{38.5,0}}, color={255,127,0}));
     connect(booleanPulse1.y, multiSwitch1.u[1]) annotation (Line(
-        points={{9,-20},{18,-20},{18,-48},{28,-48},{28,-48.5}},
-        color={255,0,255}));
+        points={{9,-20},{18,-20},{18,-48},{28,-48},{28,-48.5}}, color={255,0,255}));
     connect(booleanPulse2.y, multiSwitch1.u[2]) annotation (Line(
-        points={{9,-60},{18,-60},{18,-52},{28,-52},{28,-51.5}},
-        color={255,0,255}));
+        points={{9,-60},{18,-60},{18,-52},{28,-52},{28,-51.5}}, color={255,0,255}));
     annotation (experiment(StopTime=10), Documentation(info="<html>
 <p>
 This example demonstrates a network of Integer blocks.
@@ -837,92 +794,63 @@ Note, that
       annotation (Placement(transformation(extent={{40,-98},{54,-84}})));
   equation
     connect(booleanPulse1.y, and1.u[1]) annotation (Line(
-        points={{-79,70},{-68,70},{-68,72.8},{-58,72.8}},
-        color={255,0,255}));
+        points={{-79,70},{-68,70},{-68,72.8},{-58,72.8}}, color={255,0,255}));
     connect(booleanStep.y, and1.u[2]) annotation (Line(
-        points={{-79,38},{-64,38},{-64,70},{-58,70}},
-        color={255,0,255}));
+        points={{-79,38},{-64,38},{-64,70},{-58,70}}, color={255,0,255}));
     connect(booleanPulse2.y, and1.u[3]) annotation (Line(
-        points={{-79,6},{-62,6},{-62,67.2},{-58,67.2}},
-        color={255,0,255}));
+        points={{-79,6},{-62,6},{-62,67.2},{-58,67.2}}, color={255,0,255}));
     connect(and1.y, or1.u[1]) annotation (Line(
-        points={{-45.1,70},{-36.4,70},{-36.4,70.1},{-28,70.1}},
-        color={255,0,255}));
+        points={{-45.1,70},{-36.4,70},{-36.4,70.1},{-28,70.1}}, color={255,0,255}));
     connect(booleanPulse2.y, or1.u[2]) annotation (Line(
-        points={{-79,6},{-40,6},{-40,65.9},{-28,65.9}},
-        color={255,0,255}));
+        points={{-79,6},{-40,6},{-40,65.9},{-28,65.9}}, color={255,0,255}));
     connect(or1.y, xor1.u[1]) annotation (Line(
-        points={{-15.1,68},{-8,68},{-8,68.1},{-2,68.1}},
-        color={255,0,255}));
+        points={{-15.1,68},{-8,68},{-8,68.1},{-2,68.1}}, color={255,0,255}));
     connect(booleanPulse2.y, xor1.u[2]) annotation (Line(
-        points={{-79,6},{-12,6},{-12,63.9},{-2,63.9}},
-        color={255,0,255}));
+        points={{-79,6},{-12,6},{-12,63.9},{-2,63.9}}, color={255,0,255}));
     connect(and1.y, showValue.activePort) annotation (Line(
-        points={{-45.1,70},{-42,70},{-42,84},{-37.5,84}},
-        color={255,0,255}));
+        points={{-45.1,70},{-42,70},{-42,84},{-37.5,84}}, color={255,0,255}));
     connect(or1.y, showValue2.activePort) annotation (Line(
-        points={{-15.1,68},{-12,68},{-12,84},{-3.5,84}},
-        color={255,0,255}));
+        points={{-15.1,68},{-12,68},{-12,84},{-3.5,84}}, color={255,0,255}));
     connect(xor1.y, showValue3.activePort) annotation (Line(
-        points={{10.9,66},{22.5,66}},
-        color={255,0,255}));
+        points={{10.9,66},{22.5,66}}, color={255,0,255}));
     connect(xor1.y, nand1.u[1]) annotation (Line(
-        points={{10.9,66},{16,66},{16,48.1},{22,48.1}},
-        color={255,0,255}));
+        points={{10.9,66},{16,66},{16,48.1},{22,48.1}}, color={255,0,255}));
     connect(booleanPulse2.y, nand1.u[2]) annotation (Line(
-        points={{-79,6},{16,6},{16,44},{22,44},{22,43.9}},
-        color={255,0,255}));
+        points={{-79,6},{16,6},{16,44},{22,44},{22,43.9}}, color={255,0,255}));
     connect(nand1.y, or2.u[1]) annotation (Line(
-        points={{34.9,46},{46,46},{46,46.1}},
-        color={255,0,255}));
+        points={{34.9,46},{46,46},{46,46.1}}, color={255,0,255}));
     connect(booleanPulse2.y, or2.u[2]) annotation (Line(
-        points={{-79,6},{42,6},{42,41.9},{46,41.9}},
-        color={255,0,255}));
+        points={{-79,6},{42,6},{42,41.9},{46,41.9}}, color={255,0,255}));
     connect(or2.y, nor1.u) annotation (Line(
-        points={{58.9,44},{66.4,44}},
-        color={255,0,255}));
+        points={{58.9,44},{66.4,44}}, color={255,0,255}));
     connect(nor1.y, showValue4.activePort) annotation (Line(
-        points={{76.8,44},{88.5,44}},
-        color={255,0,255}));
+        points={{76.8,44},{88.5,44}}, color={255,0,255}));
     connect(booleanPulse2.y, rising.u) annotation (Line(
-        points={{-79,6},{-62,6},{-62,-11},{-57.6,-11}},
-        color={255,0,255}));
+        points={{-79,6},{-62,6},{-62,-11},{-57.6,-11}}, color={255,0,255}));
     connect(rising.y, set1.u[1]) annotation (Line(
-        points={{-47.2,-11},{-38.6,-11},{-38.6,-11.5},{-30,-11.5}},
-        color={255,0,255}));
+        points={{-47.2,-11},{-38.6,-11},{-38.6,-11.5},{-30,-11.5}}, color={255,0,255}));
     connect(falling.y, set1.u[2]) annotation (Line(
-        points={{-47.2,-28},{-40,-28},{-40,-14.5},{-30,-14.5}},
-        color={255,0,255}));
+        points={{-47.2,-28},{-40,-28},{-40,-14.5},{-30,-14.5}}, color={255,0,255}));
     connect(booleanPulse2.y, falling.u) annotation (Line(
-        points={{-79,6},{-62,6},{-62,-28},{-57.6,-28}},
-        color={255,0,255}));
+        points={{-79,6},{-62,6},{-62,-28},{-57.6,-28}}, color={255,0,255}));
     connect(booleanTable.y, onDelay.u) annotation (Line(
-        points={{-79,-90},{-57.6,-90}},
-        color={255,0,255}));
+        points={{-79,-90},{-57.6,-90}}, color={255,0,255}));
     connect(booleanPulse2.y, changing.u) annotation (Line(
-        points={{-79,6},{-62,6},{-62,-55},{-57.6,-55}},
-        color={255,0,255}));
+        points={{-79,6},{-62,6},{-62,-55},{-57.6,-55}}, color={255,0,255}));
     connect(integerConstant.y, triggeredAdd.u) annotation (Line(
-        points={{1,-50},{11.6,-50}},
-        color={255,127,0}));
+        points={{1,-50},{11.6,-50}}, color={255,127,0}));
     connect(changing.y, triggeredAdd.trigger) annotation (Line(
-        points={{-47.2,-55},{-30,-55},{-30,-74},{16.4,-74},{16.4,-57.2}},
-        color={255,0,255}));
+        points={{-47.2,-55},{-30,-55},{-30,-74},{16.4,-74},{16.4,-57.2}}, color={255,0,255}));
     connect(triggeredAdd.y, showValue1.numberPort) annotation (Line(
-        points={{27.2,-50},{38.5,-50}},
-        color={255,127,0}));
+        points={{27.2,-50},{38.5,-50}}, color={255,127,0}));
     connect(set1.y, showValue5.activePort) annotation (Line(
-        points={{11,-13},{22.5,-13}},
-        color={255,0,255}));
+        points={{11,-13},{22.5,-13}}, color={255,0,255}));
     connect(onDelay.y, showValue6.activePort) annotation (Line(
-        points={{-47.2,-90},{-33.5,-90}},
-        color={255,0,255}));
+        points={{-47.2,-90},{-33.5,-90}}, color={255,0,255}));
     connect(sampleTriggerSet.y, rSFlipFlop.S) annotation (Line(
-        points={{54.7,-69},{60,-69},{60,-74},{68,-74}},
-        color={255,0,255}));
+        points={{54.7,-69},{60,-69},{60,-74},{68,-74}}, color={255,0,255}));
     connect(sampleTriggerReset.y, rSFlipFlop.R) annotation (Line(
-        points={{54.7,-91},{60,-91},{60,-86},{68,-86}},
-        color={255,0,255}));
+        points={{54.7,-91},{60,-91},{60,-86},{68,-86}}, color={255,0,255}));
     annotation (experiment(StopTime=10), Documentation(info="<html>
 <p>
 This example demonstrates a network of Boolean blocks
@@ -969,14 +897,11 @@ Note, that
       annotation (Placement(transformation(extent={{48,64},{60,76}})));
   equation
     connect(integerTable.y, integerValue.numberPort) annotation (Line(
-        points={{-59,30},{-41.5,30}},
-        color={255,127,0}));
+        points={{-59,30},{-41.5,30}}, color={255,127,0}));
     connect(timeTable.y, realValue.numberPort) annotation (Line(
-        points={{-59,70},{-41.5,70}},
-        color={0,0,127}));
+        points={{-59,70},{-41.5,70}}, color={0,0,127}));
     connect(booleanTable.y, booleanValue.activePort) annotation (Line(
-        points={{-59,-10},{-41.5,-10}},
-        color={255,0,255}));
+        points={{-59,-10},{-41.5,-10}}, color={255,0,255}));
     annotation (experiment(StopTime=10), Documentation(info="<html>
 <p>
 This example demonstrates a network of blocks
@@ -1014,21 +939,17 @@ to show how diagram animations can be constructed.
   equation
 
     connect(sine.y, controlBus.realSignal1) annotation (Line(
-        points={{-39,50},{12,50},{12,14},{30,14},{30,10}},
-        color={0,0,127}));
+        points={{-39,50},{12,50},{12,14},{30,14},{30,10}}, color={0,0,127}));
     connect(booleanStep.y, controlBus.booleanSignal) annotation (Line(
-        points={{-37,10},{30,10}},
-        color={255,0,255}));
+        points={{-37,10},{30,10}}, color={255,0,255}));
     connect(integerStep.y, controlBus.integerSignal) annotation (Line(
-        points={{-39,-30},{0,-30},{0,6},{32,6},{32,10},{30,10}},
-        color={255,127,0}));
+        points={{-39,-30},{0,-30},{0,6},{32,6},{32,10},{30,10}}, color={255,127,0}));
     connect(part.subControlBus, controlBus.subControlBus) annotation (Line(
         points={{-40,-70},{30,-70},{30,10}},
         color={255,204,51},
         thickness=0.5));
     connect(gain.u, controlBus.realSignal1) annotation (Line(
-        points={{-38,80},{20,80},{20,18},{32,18},{32,10},{30,10}},
-        color={0,0,127}));
+        points={{-38,80},{20,80},{20,18},{32,18},{32,10},{30,10}}, color={0,0,127}));
     annotation (Documentation(info="<html>
 <p><strong>Signal bus concept</strong></p>
 <p>
@@ -1425,38 +1346,27 @@ truncated normal distriution has more values centered around the mean value 1.
         annotation (Placement(transformation(extent={{40,-60},{60,-80}})));
     equation
       connect(noise.y, mean.u) annotation (Line(
-          points={{-59,70},{-42,70}},
-          color={0,0,127}));
+          points={{-59,70},{-42,70}}, color={0,0,127}));
       connect(noise.y, variance.u) annotation (Line(
-          points={{-59,70},{-52,70},{-52,10},{-42,10}},
-          color={0,0,127}));
+          points={{-59,70},{-52,70},{-52,10},{-42,10}}, color={0,0,127}));
       connect(mean.y, meanError.u1) annotation (Line(
-          points={{-19,70},{42,70}},
-          color={0,0,127}));
+          points={{-19,70},{42,70}}, color={0,0,127}));
       connect(theoreticalMean.y, meanError.u2) annotation (Line(
-          points={{11,50},{50,50},{50,62}},
-          color={0,0,127}));
+          points={{11,50},{50,50},{50,62}}, color={0,0,127}));
       connect(theoreticalSigma.y, theoreticalVariance.u[1]) annotation (Line(
-          points={{11,-30},{24,-30},{24,-27.9},{28,-27.9}},
-          color={0,0,127}));
+          points={{11,-30},{24,-30},{24,-27.9},{28,-27.9}}, color={0,0,127}));
       connect(theoreticalSigma.y, theoreticalVariance.u[2]) annotation (Line(
-          points={{11,-30},{24,-30},{24,-32.1},{28,-32.1}},
-          color={0,0,127}));
+          points={{11,-30},{24,-30},{24,-32.1},{28,-32.1}}, color={0,0,127}));
       connect(variance.y, varianceError.u1) annotation (Line(
-          points={{-19,10},{42,10}},
-          color={0,0,127}));
+          points={{-19,10},{42,10}}, color={0,0,127}));
       connect(theoreticalVariance.y, varianceError.u2) annotation (Line(
-          points={{41.02,-30},{50,-30},{50,2}},
-          color={0,0,127}));
+          points={{41.02,-30},{50,-30},{50,2}}, color={0,0,127}));
       connect(noise.y, standardDeviation.u) annotation (Line(
-          points={{-59,70},{-52,70},{-52,-70},{-42,-70}},
-          color={0,0,127}));
+          points={{-59,70},{-52,70},{-52,-70},{-42,-70}}, color={0,0,127}));
       connect(standardDeviation.y, sigmaError.u1) annotation (Line(
-          points={{-19,-70},{42,-70}},
-          color={0,0,127}));
+          points={{-19,-70},{42,-70}}, color={0,0,127}));
       connect(theoreticalSigma.y, sigmaError.u2) annotation (Line(
-          points={{11,-30},{18,-30},{18,-42},{50,-42},{50,-62}},
-          color={0,0,127}));
+          points={{11,-30},{18,-30},{18,-42},{50,-42},{50,-62}}, color={0,0,127}));
      annotation (experiment(StopTime=20, Interval=0.4e-2, Tolerance=1e-009),
         Documentation(info="<html>
 <p>
@@ -1540,38 +1450,27 @@ distribution have good statistical properties.
         annotation (Placement(transformation(extent={{40,-60},{60,-80}})));
     equation
       connect(noise.y, mean.u) annotation (Line(
-          points={{-59,70},{-42,70}},
-          color={0,0,127}));
+          points={{-59,70},{-42,70}}, color={0,0,127}));
       connect(noise.y, variance.u) annotation (Line(
-          points={{-59,70},{-52,70},{-52,10},{-42,10}},
-          color={0,0,127}));
+          points={{-59,70},{-52,70},{-52,10},{-42,10}}, color={0,0,127}));
       connect(mean.y, meanError.u1) annotation (Line(
-          points={{-19,70},{42,70}},
-          color={0,0,127}));
+          points={{-19,70},{42,70}}, color={0,0,127}));
       connect(theoreticalMean.y, meanError.u2) annotation (Line(
-          points={{11,50},{50,50},{50,62}},
-          color={0,0,127}));
+          points={{11,50},{50,50},{50,62}}, color={0,0,127}));
       connect(theoreticalSigma.y, theoreticalVariance.u[1]) annotation (Line(
-          points={{11,-30},{24,-30},{24,-27.9},{28,-27.9}},
-          color={0,0,127}));
+          points={{11,-30},{24,-30},{24,-27.9},{28,-27.9}}, color={0,0,127}));
       connect(theoreticalSigma.y, theoreticalVariance.u[2]) annotation (Line(
-          points={{11,-30},{24,-30},{24,-32.1},{28,-32.1}},
-          color={0,0,127}));
+          points={{11,-30},{24,-30},{24,-32.1},{28,-32.1}}, color={0,0,127}));
       connect(variance.y, varianceError.u1) annotation (Line(
-          points={{-19,10},{42,10}},
-          color={0,0,127}));
+          points={{-19,10},{42,10}}, color={0,0,127}));
       connect(theoreticalVariance.y, varianceError.u2) annotation (Line(
-          points={{41.02,-30},{50,-30},{50,2}},
-          color={0,0,127}));
+          points={{41.02,-30},{50,-30},{50,2}}, color={0,0,127}));
       connect(noise.y, standardDeviation.u) annotation (Line(
-          points={{-59,70},{-52,70},{-52,-70},{-42,-70}},
-          color={0,0,127}));
+          points={{-59,70},{-52,70},{-52,-70},{-42,-70}}, color={0,0,127}));
       connect(standardDeviation.y, sigmaError.u1) annotation (Line(
-          points={{-19,-70},{42,-70}},
-          color={0,0,127}));
+          points={{-19,-70},{42,-70}}, color={0,0,127}));
       connect(theoreticalSigma.y, sigmaError.u2) annotation (Line(
-          points={{11,-30},{18,-30},{18,-42},{50,-42},{50,-62}},
-          color={0,0,127}));
+          points={{11,-30},{18,-30},{18,-42},{50,-42},{50,-62}}, color={0,0,127}));
      annotation (experiment(StopTime=20, Interval=0.4e-2, Tolerance=1e-009),
     Documentation(info="<html>
 <p>
@@ -1638,20 +1537,15 @@ distribution have good statistical properties.
         annotation (Placement(transformation(extent={{10,-40},{30,-20}})));
     equation
       connect(clock.y, add.u1) annotation (Line(
-      points={{-59,20},{-53.5,20},{-53.5,6},{-48,6}},
-      color={0,0,127}));
+      points={{-59,20},{-53.5,20},{-53.5,6},{-48,6}}, color={0,0,127}));
       connect(const.y, add.u2) annotation (Line(
-      points={{-59,-20},{-54,-20},{-54,-6},{-48,-6}},
-      color={0,0,127}));
+      points={{-59,-20},{-54,-20},{-54,-6},{-48,-6}}, color={0,0,127}));
       connect(add.y, uniformDensity.u) annotation (Line(
-      points={{-25,0},{-14,0},{-14,30},{8,30}},
-      color={0,0,127}));
+      points={{-25,0},{-14,0},{-14,30},{8,30}}, color={0,0,127}));
       connect(add.y, normalDensity.u) annotation (Line(
-      points={{-25,0},{8,0}},
-      color={0,0,127}));
+      points={{-25,0},{8,0}}, color={0,0,127}));
       connect(add.y, weibullDensity.u) annotation (Line(
-      points={{-25,0},{-14,0},{-14,-30},{8,-30}},
-      color={0,0,127}));
+      points={{-25,0},{-14,0},{-14,-30},{8,-30}}, color={0,0,127}));
      annotation (experiment(StopTime=20, Interval=2e-2),
         Documentation(info="<html>
 <p>
@@ -1768,33 +1662,25 @@ generator. Simulation results are shown in the next figure:
         annotation (Placement(transformation(extent={{60,60},{80,80}})));
     equation
       connect(controller.y1, motor.iq_rms1) annotation (Line(
-          points={{-81,50},{-94,50},{-94,6},{-88,6}},
-          color={0,0,127}));
+          points={{-81,50},{-94,50},{-94,6},{-88,6}}, color={0,0,127}));
       connect(motor.phi, controller.positionMeasured) annotation (Line(
-          points={{-71,8},{-66,8},{-66,20},{-50,20},{-50,44},{-58,44}},
-          color={0,0,127}));
+          points={{-71,8},{-66,8},{-66,20},{-50,20},{-50,44},{-58,44}}, color={0,0,127}));
       connect(motor.flange, gearbox.flange_a) annotation (Line(
           points={{-66,0},{-60,0}}));
       connect(gearbox.flange_b, idealGearR2T.flangeR) annotation (Line(
           points={{-40,0},{-32,0}}));
       connect(constantForce.flange, mass.flange_b) annotation (Line(
-          points={{76,0},{70,0}},
-          color={0,127,0}));
+          points={{76,0},{70,0}}, color={0,127,0}));
       connect(speed.y, slewRateLimiter.u) annotation (Line(
-          points={{-1,50},{-18,50}},
-          color={0,0,127}));
+          points={{-1,50},{-18,50}}, color={0,0,127}));
       connect(slewRateLimiter.y, controller.positionReference) annotation (Line(
-          points={{-41,50},{-50,50},{-50,56},{-58,56}},
-          color={0,0,127}));
+          points={{-41,50},{-50,50},{-50,56},{-58,56}}, color={0,0,127}));
       connect(rodMass.flange_a, idealGearR2T.flangeT) annotation (Line(
-          points={{-4,0},{-12,0}},
-          color={0,127,0}));
+          points={{-4,0},{-12,0}}, color={0,127,0}));
       connect(rodMass.flange_b, elastoGap.flange_a) annotation (Line(
-          points={{16,0},{22,0}},
-          color={0,127,0}));
+          points={{16,0},{22,0}}, color={0,127,0}));
       connect(elastoGap.flange_b, mass.flange_a) annotation (Line(
-          points={{42,0},{50,0}},
-          color={0,127,0}));
+          points={{42,0},{50,0}}, color={0,127,0}));
       annotation (
         experiment(StopTime=8, Interval = 0.01, Tolerance=1e-005),
         Documentation(info="<html>
@@ -1882,11 +1768,9 @@ enableNoise = false in the globalSeed component.
         annotation (Placement(transformation(extent={{40,60},{60,80}})));
     equation
       connect(whiteNoise.y, Hw.u) annotation (Line(
-          points={{-39,10},{-12,10}},
-          color={0,0,127}));
+          points={{-39,10},{-12,10}}, color={0,0,127}));
       connect(Hw.y, compareToSpeed.u) annotation (Line(
-          points={{11,10},{38,10}},
-          color={0,0,127}));
+          points={{11,10},{38,10}}, color={0,0,127}));
       annotation (experiment(StopTime=100),
      Documentation(info="<html>
 <p>
@@ -2360,71 +2244,54 @@ random number generator. This block is used in the example
           connect(rotorDisplacementAngle.plug_n, smpm.plug_sn) annotation (Line(
                 points={{26,-30},{26,-20},{-16,-20},{-16,-30}}, color={0,0,255}));
           connect(rotorDisplacementAngle.plug_p, smpm.plug_sp) annotation (Line(
-                points={{14,-30},{6,-30},{-4,-30}},
-                                            color={0,0,255}));
+                points={{14,-30},{6,-30},{-4,-30}}, color={0,0,255}));
           connect(terminalBox.plug_sn, smpm.plug_sn) annotation (Line(
-              points={{-16,-26},{-16,-30}},
-              color={0,0,255}));
+              points={{-16,-26},{-16,-30}}, color={0,0,255}));
           connect(terminalBox.plug_sp, smpm.plug_sp) annotation (Line(
-              points={{-4,-26},{-4,-30}},
-              color={0,0,255}));
+              points={{-4,-26},{-4,-30}}, color={0,0,255}));
           connect(smpm.flange, rotorDisplacementAngle.flange) annotation (Line(
               points={{0,-40},{6,-40},{10,-40}}));
           connect(signalCurrent.plug_p, star.plug_p) annotation (Line(
-              points={{-10,60},{-10,90}},
-              color={0,0,255}));
+              points={{-10,60},{-10,90}}, color={0,0,255}));
           connect(angleSensor.flange, rotorDisplacementAngle.flange) annotation (Line(
               points={{10,-10},{10,-40}}));
           connect(angleSensor.phi, currentController.phi) annotation (Line(
-              points={{10,11},{10,30},{-40,30},{-40,38}},
-              color={0,0,127}));
+              points={{10,11},{10,30},{-40,30},{-40,38}}, color={0,0,127}));
           connect(groundM.p, terminalBox.starpoint) annotation (Line(
-              points={{-70,-28},{-19,-28},{-19,-24}},
-              color={0,0,255}));
+              points={{-70,-28},{-19,-28},{-19,-24}}, color={0,0,255}));
           connect(smpm.flange, torqueSensor.flange_a) annotation (Line(
               points={{0,-40},{40,-40}}));
           connect(voltageQuasiRMSSensor.plug_p, terminalBox.plugSupply) annotation (
               Line(
-              points={{-20,-10},{-10,-10},{-10,-24}},
-              color={0,0,255}));
+              points={{-20,-10},{-10,-10},{-10,-24}}, color={0,0,255}));
           connect(starM.plug_p, voltageQuasiRMSSensor.plug_n) annotation (Line(
-              points={{-50,-10},{-40,-10}},
-              color={0,0,255}));
+              points={{-50,-10},{-40,-10}}, color={0,0,255}));
           connect(starM.pin_n, groundM.p) annotation (Line(
-              points={{-70,-10},{-70,-28}},
-              color={0,0,255}));
+              points={{-70,-10},{-70,-28}}, color={0,0,255}));
           connect(currentController.y, signalCurrent.i) annotation (Line(
-              points={{-29,50},{-24,50},{-17,50}},
-              color={0,0,127}));
+              points={{-29,50},{-24,50},{-17,50}}, color={0,0,127}));
           connect(speedSensor.flange, smpm.flange) annotation (Line(
               points={{30,-10},{30,-40},{0,-40}}));
           connect(torqueSensor.flange_b, inertiaLoad.flange_a) annotation (Line(
               points={{60,-40},{60,-40},{70,-40}}));
           connect(signalCurrent.plug_n, currentQuasiRMSSensor.plug_p) annotation (
              Line(
-              points={{-10,40},{-10,10}},
-              color={0,0,255}));
+              points={{-10,40},{-10,10}}, color={0,0,255}));
           connect(currentQuasiRMSSensor.plug_n, voltageQuasiRMSSensor.plug_p)
             annotation (Line(
-              points={{-10,-10},{-20,-10}},
-              color={0,0,255}));
+              points={{-10,-10},{-20,-10}}, color={0,0,255}));
           connect(id.y, currentController.id_rms) annotation (Line(
-              points={{-69,70},{-60,70},{-60,56},{-52,56}},
-              color={0,0,127}));
+              points={{-69,70},{-60,70},{-60,56},{-52,56}}, color={0,0,127}));
           connect(currentController.iq_rms, iq_rms1) annotation (Line(
-              points={{-52,44},{-100,44},{-100,60},{-120,60}},
-              color={0,0,127}));
+              points={{-52,44},{-100,44},{-100,60},{-120,60}}, color={0,0,127}));
           connect(inertiaLoad.flange_b, flange) annotation (Line(
               points={{90,-40},{90,-40},{90,0},{100,0}}));
           connect(angleSensor.phi, addNoise.u2) annotation (Line(
-              points={{10,11},{10,30},{50,30},{50,74},{58,74}},
-              color={0,0,127}));
+              points={{10,11},{10,30},{50,30},{50,74},{58,74}}, color={0,0,127}));
           connect(addNoise.y, phi) annotation (Line(
-              points={{81,80},{110,80}},
-              color={0,0,127}));
+              points={{81,80},{110,80}}, color={0,0,127}));
           connect(uniformNoise.y, addNoise.u1) annotation (Line(
-              points={{47,86},{58,86}},
-              color={0,0,127}));
+              points={{47,86},{58,86}}, color={0,0,127}));
           connect(speedSensor.w, w) annotation (Line(points={{30,11},{30,11},{30,10},{70,
                   10}}, color={0,0,127}));
           connect(angleSensor.phi, phi_motor) annotation (Line(points={{10,11},{10,11},{
@@ -2507,32 +2374,23 @@ actuator example
             annotation (Placement(transformation(extent={{68,-10},{88,10}})));
         equation
           connect(speedFeedback.y, speed_PI.u) annotation (Line(
-              points={{29,0},{36,0}},
-              color={0,0,127}));
+              points={{29,0},{36,0}}, color={0,0,127}));
           connect(positionFeedback.u2, positionToSpeed.u) annotation (Line(
-              points={{-80,52},{-80,-60},{-62,-60}},
-              color={0,0,127}));
+              points={{-80,52},{-80,-60},{-62,-60}}, color={0,0,127}));
           connect(positionReference, positionFeedback.u1) annotation (Line(
-              points={{-120,60},{-88,60}},
-              color={0,0,127}));
+              points={{-120,60},{-88,60}}, color={0,0,127}));
           connect(positionFeedback.y, position_PI.u) annotation (Line(
-              points={{-71,60},{-62,60}},
-              color={0,0,127}));
+              points={{-71,60},{-62,60}}, color={0,0,127}));
           connect(position_PI.y, speedFeedback.u1) annotation (Line(
-              points={{-39,60},{0,60},{0,0},{12,0}},
-              color={0,0,127}));
+              points={{-39,60},{0,60},{0,0},{12,0}}, color={0,0,127}));
           connect(speed_PI.y, busdelay.u) annotation (Line(
-              points={{59,0},{66,0}},
-              color={0,0,127}));
+              points={{59,0},{66,0}}, color={0,0,127}));
           connect(y1, busdelay.y) annotation (Line(
-              points={{110,0},{89,0}},
-              color={0,0,127}));
+              points={{110,0},{89,0}}, color={0,0,127}));
           connect(positionMeasured, positionToSpeed.u) annotation (Line(
-              points={{-120,-60},{-62,-60}},
-              color={0,0,127}));
+              points={{-120,-60},{-62,-60}}, color={0,0,127}));
           connect(positionToSpeed.y, speedFeedback.u2) annotation (Line(
-              points={{-39,-60},{20,-60},{20,-8}},
-              color={0,0,127}));
+              points={{-39,-60},{20,-60},{20,-8}}, color={0,0,127}));
           annotation (Icon(coordinateSystem(
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
                 Rectangle(extent={{-100,100},{100,-100}}, lineColor={0,0,255},
@@ -2730,12 +2588,10 @@ This package contains the bus definitions needed for the
           Placement(transformation(extent={{-6,-30},{20,-10}})));
     equation
       connect(realExpression.y, subControlBus.myRealSignal) annotation (Line(
-          points={{21.3,10},{88,10},{88,6},{98,6},{98,0},{100,0}},
-          color={0,0,127}));
+          points={{21.3,10},{88,10},{88,6},{98,6},{98,0},{100,0}}, color={0,0,127}));
       connect(booleanExpression.y, subControlBus.myBooleanSignal) annotation (
           Line(
-          points={{21.3,-20},{60,-20},{60,0},{100,0}},
-          color={255,0,255}));
+          points={{21.3,-20},{60,-20},{60,0},{100,0}}, color={255,0,255}));
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Rectangle(
               extent={{-100,60},{100,-60}},

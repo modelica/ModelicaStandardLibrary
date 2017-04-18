@@ -203,8 +203,7 @@ is much faster.
         color={95,95,95},
         thickness=0.5));
     connect(sine.y, torque.torque) annotation (Line(
-        points={{-59,70},{12,70},{12,52}},
-        color={0,0,127}));
+        points={{-59,70},{12,70},{12,52}}, color={0,0,127}));
     connect(fixed.frame_b, rotor1D.frame_a) annotation (Line(
         points={{-42,-80},{10,-80},{10,-40}},
         color={95,95,95},
@@ -218,8 +217,7 @@ is much faster.
         color={95,95,95},
         thickness=0.5));
     connect(sine[1].y, torque1.tau) annotation (Line(
-        points={{-59,70},{-50,70},{-50,40},{-72,40},{-72,-30},{-34,-30}},
-        color={0,0,127}));
+        points={{-59,70},{-50,70},{-50,40},{-72,40},{-72,-30},{-34,-30}}, color={0,0,127}));
     annotation (experiment(StopTime=1.1), Documentation(info="<html>
 <p>
 This example demonstrates how to utilize the
@@ -294,8 +292,7 @@ Note, the solution with Rotor1D is much more efficient.
         color={95,95,95},
         thickness=0.5));
     connect(sine1.y, torque.torque) annotation (Line(
-        points={{37,80},{54,80},{54,62}},
-        color={0,0,127}));
+        points={{37,80},{54,80},{54,62}}, color={0,0,127}));
     connect(torque1.flange, rotor1D.flange_a) annotation (Line(
         points={{38,-26},{50,-26}}));
     connect(mounting1D.flange_b, torque1.support) annotation (Line(
@@ -313,8 +310,7 @@ Note, the solution with Rotor1D is much more efficient.
         color={95,95,95},
         thickness=0.5));
     connect(sine2.y, position1.phi_ref) annotation (Line(
-        points={{-79,70},{-48,70}},
-        color={0,0,127}));
+        points={{-79,70},{-48,70}}, color={0,0,127}));
     connect(r1.frame_b, revolute.frame_a) annotation (Line(
         points={{-12,20},{16,20}},
         color={95,95,95},
@@ -340,8 +336,7 @@ Note, the solution with Rotor1D is much more efficient.
         color={95,95,95},
         thickness=0.5));
     connect(sine2.y, position2.phi_ref) annotation (Line(
-        points={{-79,70},{-70,70},{-70,46},{-92,46},{-92,-20},{-54,-20}},
-        color={0,0,127}));
+        points={{-79,70},{-70,70},{-70,46},{-92,46},{-92,-20},{-54,-20}}, color={0,0,127}));
     connect(r2.frame_b, rotor1D.frame_a) annotation (Line(
         points={{-18,-70},{60,-70},{60,-36}},
         color={95,95,95},
@@ -351,8 +346,7 @@ Note, the solution with Rotor1D is much more efficient.
         color={95,95,95},
         thickness=0.5));
     connect(sine1[1].y, torque1.tau) annotation (Line(
-        points={{37,80},{92,80},{92,-10},{0,-10},{0,-26},{16,-26}},
-        color={0,0,127}));
+        points={{37,80},{92,80},{92,-10},{0,-10},{0,-26},{16,-26}}, color={0,0,127}));
     annotation (experiment(StopTime=1.1),
       Documentation(info="<html>
 <p>
@@ -429,8 +423,7 @@ axes of the revolute joints.
         color={95,95,95},
         thickness=0.5));
     connect(sine.y, torque1.torque) annotation (Line(
-        points={{-79,70},{-22,70},{-22,62}},
-        color={0,0,127}));
+        points={{-79,70},{-22,70},{-22,62}}, color={0,0,127}));
     connect(inertia1.flange_b, idealGear.flange_a) annotation (Line(
         points={{0,-30},{12,-30}}));
     connect(idealGear.flange_b, inertia2.flange_a) annotation (Line(
@@ -438,8 +431,7 @@ axes of the revolute joints.
     connect(torque2.flange, inertia1.flange_a) annotation (Line(
         points={{-28,-30},{-20,-30}}));
     connect(sine[1].y, torque2.tau) annotation (Line(
-        points={{-79,70},{-72,70},{-72,-30},{-50,-30}},
-        color={0,0,127}));
+        points={{-79,70},{-72,70},{-72,-30},{-50,-30}}, color={0,0,127}));
     connect(mounting1D.flange_b, idealGear.support) annotation (Line(
         points={{0,-60},{22,-60},{22,-40}}));
     connect(mounting1D.flange_b, torque2.support) annotation (Line(
@@ -563,14 +555,11 @@ a one-dimensional model that is mounted with an
     connect(torque3.flange, revolute3.axis) annotation (Line(
         points={{52,-40},{56,-40},{56,-20}}));
     connect(sine1.y, torque1.tau) annotation (Line(
-        points={{-59.4,-40},{-53,-40}},
-        color={0,0,127}));
+        points={{-59.4,-40},{-53,-40}}, color={0,0,127}));
     connect(torque2.tau, sine2.y) annotation (Line(
-        points={{-5,-40},{-11.4,-40}},
-        color={0,0,127}));
+        points={{-5,-40},{-11.4,-40}}, color={0,0,127}));
     connect(torque3.tau, sine3.y) annotation (Line(
-        points={{41,-40},{36.6,-40}},
-        color={0,0,127}));
+        points={{41,-40},{36.6,-40}}, color={0,0,127}));
     connect(torque.flange, inertia1.flange_a) annotation (Line(
         points={{-38,70},{-30,70}}));
     connect(torque.support, mounting1D.flange_b) annotation (Line(
@@ -580,8 +569,7 @@ a one-dimensional model that is mounted with an
         color={95,95,95},
         thickness=0.5));
     connect(torque.tau, sine4.y) annotation (Line(
-        points={{-60,70},{-77.4,70}},
-        color={0,0,127}));
+        points={{-60,70},{-77.4,70}}, color={0,0,127}));
     connect(revolute3.frame_b, bodyBox.frame_a) annotation (Line(
         points={{66,-10},{76,-10}},
         color={95,95,95},

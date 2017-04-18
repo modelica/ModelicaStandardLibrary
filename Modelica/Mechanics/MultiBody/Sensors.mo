@@ -177,15 +177,13 @@ package Sensors "Sensors to measure variables"
         color={95,95,95},
         thickness=0.5));
     connect(absoluteAngles.angles, angles) annotation (Line(
-        points={{20,-71},{20,-90},{20,-90},{20,-110}},
-        color={0,0,127}));
+        points={{20,-71},{20,-90},{20,-90},{20,-110}}, color={0,0,127}));
     connect(angularVelocity.frame_a, frame_a) annotation (Line(
         points={{50,-50},{50,-40},{20,-40},{20,0},{-100,0}},
         color={95,95,95},
         thickness=0.5));
     connect(angularVelocity.w, w) annotation (Line(
-        points={{50,-71},{50,-94},{60,-94},{60,-110}},
-        color={0,0,127}));
+        points={{50,-71},{50,-94},{60,-94},{60,-110}}, color={0,0,127}));
     connect(frame_resolve, position.frame_resolve) annotation (Line(
         points={{100,0},{114,0},{114,-90},{-80,-90},{-80,-60},{-89.9,-60}},
         color={95,95,95},
@@ -208,14 +206,11 @@ package Sensors "Sensors to measure variables"
         color={95,95,95},
         pattern=LinePattern.Dot));
     connect(transformVector_a.r_out, a) annotation (Line(
-        points={{-20,-71},{-20,-110}},
-        color={0,0,127}));
+        points={{-20,-71},{-20,-110}}, color={0,0,127}));
     connect(der2.y, transformVector_z.r_in) annotation (Line(
-        points={{100,-52.6},{100,-58}},
-        color={0,0,127}));
+        points={{100,-52.6},{100,-58}}, color={0,0,127}));
     connect(transformVector_z.r_out, z) annotation (Line(
-        points={{100,-81},{100,-110}},
-        color={0,0,127}));
+        points={{100,-81},{100,-110}}, color={0,0,127}));
     connect(transformVector_z.frame_a, frame_a) annotation (Line(
         points={{90,-70},{80,-70},{80,-40},{20,-40},{20,0},{-100,0}},
         color={95,95,95},
@@ -233,8 +228,7 @@ package Sensors "Sensors to measure variables"
         color={95,95,95},
         thickness=0.5));
     connect(position.r, r) annotation (Line(
-        points={{-100,-71},{-100,-110}},
-        color={0,0,127}));
+        points={{-100,-71},{-100,-110}}, color={0,0,127}));
     connect(velocity.frame_a, frame_a) annotation (Line(
         points={{-60,-50},{-60,-40},{-80,-40},{-80,0},{-100,0}},
         color={95,95,95},
@@ -244,14 +238,11 @@ package Sensors "Sensors to measure variables"
         color={95,95,95},
         pattern=LinePattern.Dot));
     connect(velocity.v, v) annotation (Line(
-        points={{-60,-71},{-60,-110}},
-        color={0,0,127}));
+        points={{-60,-71},{-60,-110}}, color={0,0,127}));
     connect(der1.y, transformVector_a.r_in) annotation (Line(
-        points={{-20,-40.6},{-20,-48}},
-        color={0,0,127}));
+        points={{-20,-40.6},{-20,-48}}, color={0,0,127}));
     connect(absoluteVelocity.v, der1.u) annotation (Line(
-        points={{-20,-23},{-20,-26.8}},
-        color={0,0,127}));
+        points={{-20,-23},{-20,-26.8}}, color={0,0,127}));
     connect(absoluteVelocity.frame_a, frame_a) annotation (Line(
         points={{-20,-2},{-20,0},{-100,0}},
         color={95,95,95},
@@ -261,8 +252,7 @@ package Sensors "Sensors to measure variables"
         color={95,95,95},
         thickness=0.5));
     connect(absoluteAngularVelocity.w, der2.u) annotation (Line(
-        points={{61,0},{80,0},{80,-30},{100,-30},{100,-38.8}},
-        color={0,0,127}));
+        points={{61,0},{80,0},{80,-30},{100,-30},{100,-38.8}}, color={0,0,127}));
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={
           Line(
@@ -606,8 +596,7 @@ and sequence[2] &ne; sequence[3]. Often used values are:
         color={95,95,95},
         thickness=0.5));
     connect(relativePosition.r_rel, r_rel) annotation (Line(
-        points={{-70,-11},{-70,-15},{-80,-15},{-80,-80},{-100,-80},{-100,-110}},
-        color={0,0,127}));
+        points={{-70,-11},{-70,-15},{-80,-15},{-80,-80},{-100,-80},{-100,-110}}, color={0,0,127}));
     connect(zeroForce1.frame_a, frame_a)
                                     annotation (Line(
         points={{-81,50},{-90,50},{-90,0},{-100,0}},
@@ -619,11 +608,9 @@ and sequence[2] &ne; sequence[3]. Often used values are:
         color={95,95,95},
         thickness=0.5));
     connect(relativePosition.r_rel, der1.u) annotation (Line(
-        points={{-70,-11},{-70,-15},{-60,-15},{-60,-19}},
-        color={0,0,127}));
+        points={{-70,-11},{-70,-15},{-60,-15},{-60,-19}}, color={0,0,127}));
     connect(der2.u, der1.y) annotation (Line(
-        points={{-20,-39},{-20,-35},{-60,-35},{-60,-30.5}},
-        color={0,0,127}));
+        points={{-20,-39},{-20,-35},{-60,-35},{-60,-30.5}}, color={0,0,127}));
     connect(relativeAngles.frame_a, frame_a) annotation (Line(
         points={{10,-15},{0,-15},{0,30},{-90,30},{-90,0},{-100,0}},
         color={95,95,95},
@@ -633,8 +620,7 @@ and sequence[2] &ne; sequence[3]. Often used values are:
         color={95,95,95},
         thickness=0.5));
     connect(relativeAngles.angles, angles) annotation (Line(
-        points={{20,-26},{20,-110}},
-        color={0,0,127}));
+        points={{20,-26},{20,-110}}, color={0,0,127}));
     connect(relativeAngularVelocity.frame_b, frame_b) annotation (Line(
         points={{70,-30},{80,-30},{80,0},{100,0}},
         color={95,95,95},
@@ -644,19 +630,15 @@ and sequence[2] &ne; sequence[3]. Often used values are:
         color={95,95,95},
         thickness=0.5));
     connect(relativeAngularVelocity.w_rel, w_rel) annotation (Line(
-        points={{60,-41},{60,-110}},
-        color={0,0,127}));
+        points={{60,-41},{60,-110}}, color={0,0,127}));
     connect(relativeAngularVelocity.w_rel, der3.u) annotation (Line(
-        points={{60,-41},{60,-43},{100,-43},{100,-49}},
-        color={0,0,127}));
+        points={{60,-41},{60,-43},{100,-43},{100,-49}}, color={0,0,127}));
     connect(der1.y, transformVector_v_rel.r_in)
                                           annotation (Line(
-        points={{-60,-30.5},{-60,-42}},
-        color={0,0,127}));
+        points={{-60,-30.5},{-60,-42}}, color={0,0,127}));
     connect(transformVector_v_rel.r_out, v_rel)
                                           annotation (Line(
-        points={{-60,-65},{-60,-110}},
-        color={0,0,127}));
+        points={{-60,-65},{-60,-110}}, color={0,0,127}));
     connect(transformVector_v_rel.frame_a, frame_a)
                                               annotation (Line(
         points={{-70,-54},{-90,-54},{-90,0},{-100,0}},
@@ -686,8 +668,7 @@ and sequence[2] &ne; sequence[3]. Often used values are:
         color={95,95,95},
         pattern=LinePattern.Dot));
     connect(der2.y, transformVector_a_rel.r_in) annotation (Line(
-        points={{-20,-50.5},{-20,-58}},
-        color={0,0,127}));
+        points={{-20,-50.5},{-20,-58}}, color={0,0,127}));
     connect(transformVector_a_rel.frame_a, frame_a) annotation (Line(
         points={{-30,-70},{-90,-70},{-90,0},{-100,0}},
         color={95,95,95},
@@ -701,14 +682,11 @@ and sequence[2] &ne; sequence[3]. Often used values are:
         color={95,95,95},
         pattern=LinePattern.Dot));
     connect(transformVector_a_rel.r_out, a_rel) annotation (Line(
-        points={{-20,-81},{-20,-110}},
-        color={0,0,127}));
+        points={{-20,-81},{-20,-110}}, color={0,0,127}));
     connect(der3.y, transformVector_z_rel.r_in) annotation (Line(
-        points={{100,-60.5},{100,-73}},
-        color={0,0,127}));
+        points={{100,-60.5},{100,-73}}, color={0,0,127}));
     connect(transformVector_z_rel.r_out, z_rel) annotation (Line(
-        points={{100,-96},{100,-110}},
-        color={0,0,127}));
+        points={{100,-96},{100,-110}}, color={0,0,127}));
     connect(transformVector_z_rel.frame_a, frame_a) annotation (Line(
         points={{90,-85},{-90,-85},{-90,0},{-100,0}},
         color={95,95,95},
@@ -946,8 +924,7 @@ and sequence[2] &ne; sequence[3]. Often used values are:
         color={95,95,95},
         pattern=LinePattern.Dot));
     connect(position.r, r) annotation (Line(
-        points={{11,0},{110,0}},
-        color={0,0,127}));
+        points={{11,0},{110,0}}, color={0,0,127}));
     connect(position.frame_a, frame_a) annotation (Line(
         points={{-10,0},{-100,0}},
         color={95,95,95},
@@ -1057,18 +1034,15 @@ computed as:
       annotation (Placement(transformation(extent={{60,-60},{80,-40}})));
   equation
     connect(position.r, der1.u) annotation (Line(
-        points={{-39,0},{-12,0}},
-        color={0,0,127}));
+        points={{-39,0},{-12,0}}, color={0,0,127}));
     connect(position.frame_a, frame_a) annotation (Line(
         points={{-60,0},{-80,0},{-80,0},{-100,0}},
         color={95,95,95},
         thickness=0.5));
     connect(der1.y, tansformAbsoluteVector.r_in) annotation (Line(
-        points={{11,0},{38,0}},
-        color={0,0,127}));
+        points={{11,0},{38,0}}, color={0,0,127}));
     connect(tansformAbsoluteVector.r_out, v) annotation (Line(
-        points={{61,0},{110,0}},
-        color={0,0,127}));
+        points={{61,0},{110,0}}, color={0,0,127}));
     connect(zeroPosition.frame_resolve, position.frame_resolve) annotation (Line(
         points={{-60,-50},{-50,-50},{-50,-10}},
         color={95,95,95},
@@ -1276,8 +1250,7 @@ and sequence[2] &ne; sequence[3]. Often used values are:
         color={95,95,95},
         pattern=LinePattern.Dot));
     connect(angularVelocity.w, w) annotation (Line(
-        points={{11,0},{110,0}},
-        color={0,0,127}));
+        points={{11,0},{110,0}}, color={0,0,127}));
     connect(angularVelocity.frame_a, frame_a) annotation (Line(
         points={{-10,0},{-100,0}},
         color={95,95,95},
@@ -1393,8 +1366,7 @@ computed as:
         color={95,95,95},
         pattern=LinePattern.Dot));
     connect(relativePosition.r_rel, r_rel) annotation (Line(
-        points={{0,-11},{0,-110}},
-        color={0,0,127}));
+        points={{0,-11},{0,-110}}, color={0,0,127}));
     annotation (Icon(coordinateSystem(
             preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
           Line(
@@ -1499,14 +1471,11 @@ computed as:
         thickness=0.5));
     connect(relativePosition.r_rel, der_r_rel.u)
                                             annotation (Line(
-        points={{0,-11},{0,-18}},
-        color={0,0,127}));
+        points={{0,-11},{0,-18}}, color={0,0,127}));
     connect(der_r_rel.y, tansformRelativeVector.r_in) annotation (Line(
-        points={{0,-41},{0,-58}},
-        color={0,0,127}));
+        points={{0,-41},{0,-58}}, color={0,0,127}));
     connect(tansformRelativeVector.r_out, v_rel) annotation (Line(
-        points={{0,-81},{0,-110}},
-        color={0,0,127}));
+        points={{0,-81},{0,-110}}, color={0,0,127}));
     connect(tansformRelativeVector.frame_a, frame_a) annotation (Line(
         points={{-10,-70},{-70,-70},{-70,0},{-100,0}},
         color={95,95,95},
@@ -1740,8 +1709,7 @@ and sequence[2] &ne; sequence[3]. Often used values are:
         pattern=LinePattern.Dot));
     connect(relativeAngularVelocity.w_rel, w_rel)
                                            annotation (Line(
-        points={{0,-11},{0,-110}},
-        color={0,0,127}));
+        points={{0,-11},{0,-110}}, color={0,0,127}));
     annotation (Icon(coordinateSystem(
             preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
           Line(
@@ -1976,8 +1944,7 @@ differentiable everywhere. The derivative at zero distance is 3/(2*s_small).
         color={95,95,95},
         pattern=LinePattern.Dot));
     connect(cutForce.force, force) annotation (Line(
-        points={{-48,-11},{-48,-60},{-80,-60},{-80,-110}},
-        color={0,0,127}));
+        points={{-48,-11},{-48,-60},{-80,-60},{-80,-110}}, color={0,0,127}));
     connect(zeroPosition.frame_resolve, cutForce.frame_resolve) annotation (
         Line(
         points={{0,-30},{-32,-30},{-32,-10}},
@@ -1987,7 +1954,8 @@ differentiable everywhere. The derivative at zero distance is 3/(2*s_small).
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={Text(
             extent={{-190,-70},{-74,-96}},
-            textString="force"), Line(points={{-80,-100},{-80,0}}, color={0,0,127})}),
+            textString="force"), Line(points={{-80,-100},{-80,0}}, color={0,0,
+                127})}),
       Documentation(info="<html>
 <p>
 The cut-force acting between the two frames to which this
@@ -2089,8 +2057,7 @@ with negative sign at frame_a.
         color={95,95,95},
         thickness=0.5));
     connect(cutTorque.torque, torque) annotation (Line(
-        points={{-60,-11},{-60,-80},{-80,-80},{-80,-110}},
-        color={0,0,127}));
+        points={{-60,-11},{-60,-80},{-80,-80},{-80,-110}}, color={0,0,127}));
     connect(cutTorque.frame_resolve, frame_resolve) annotation (Line(
         points={{-44,-10},{-44,-74},{80,-74},{80,-100}},
         color={95,95,95},
@@ -2103,7 +2070,8 @@ with negative sign at frame_a.
       Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{100,
               100}}), graphics={Text(
             extent={{-180,-72},{-64,-98}},
-            textString="torque"), Line(points={{-80,-100},{-80,0}}, color={0,0,127})}),
+            textString="torque"), Line(points={{-80,-100},{-80,0}}, color={0,0,
+                127})}),
       Documentation(info="<html>
 <p>
 The cut-torque acting between the two frames to which this
@@ -2240,11 +2208,9 @@ with negative sign at frame_a.
         color={95,95,95},
         thickness=0.5));
     connect(cutForce.force, force) annotation (Line(
-        points={{-58,-11},{-58,-20},{-80,-20},{-80,-110}},
-        color={0,0,127}));
+        points={{-58,-11},{-58,-20},{-80,-20},{-80,-110}}, color={0,0,127}));
     connect(cutTorque.torque, torque) annotation (Line(
-        points={{0,-11},{0,-110}},
-        color={0,0,127}));
+        points={{0,-11},{0,-110}}, color={0,0,127}));
     connect(zeroPosition.frame_resolve, cutTorque.frame_resolve) annotation (Line(
         points={{60,40},{32,40},{32,-20},{16,-20},{16,-10}},
         color={95,95,95},
@@ -2419,11 +2385,9 @@ as output signal <strong>power</strong>.
         color={95,95,95},
         pattern=LinePattern.Dot));
     connect(basicTransformVector.r_out, r_out) annotation (Line(
-        points={{0,-11},{0,-110}},
-        color={0,0,127}));
+        points={{0,-11},{0,-110}}, color={0,0,127}));
     connect(basicTransformVector.r_in, r_in) annotation (Line(
-        points={{0,12},{0,120}},
-        color={0,0,127}));
+        points={{0,12},{0,120}}, color={0,0,127}));
     annotation (Icon(coordinateSystem(
             preserveAspectRatio=true,  extent={{-100,-100},{100,100}}),
           graphics={
@@ -2521,11 +2485,9 @@ transformed output vector as \"Real r_out[3]\";
         color={95,95,95},
         pattern=LinePattern.Dot));
     connect(basicTransformVector.r_out, r_out) annotation (Line(
-        points={{0,-11},{0,-110}},
-        color={0,0,127}));
+        points={{0,-11},{0,-110}}, color={0,0,127}));
     connect(basicTransformVector.r_in, r_in) annotation (Line(
-        points={{0,12},{0,120}},
-        color={0,0,127}));
+        points={{0,12},{0,120}}, color={0,0,127}));
     annotation (Icon(coordinateSystem(
             preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
           Line(
@@ -3212,7 +3174,8 @@ with the blocks of package Modelica.Blocks.
          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Text(
               extent={{-190,-70},{-74,-96}},
-              textString="force"), Line(points={{-80,-100},{-80,0}}, color={0,0,127})}),
+              textString="force"), Line(points={{-80,-100},{-80,0}}, color={0,0,
+                  127})}),
         Documentation(info="<html>
 
 </html>"));
@@ -3253,7 +3216,8 @@ with the blocks of package Modelica.Blocks.
          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Text(
               extent={{-190,-70},{-74,-96}},
-              textString="torque"), Line(points={{-80,-100},{-80,0}}, color={0,0,127})}));
+              textString="torque"), Line(points={{-80,-100},{-80,0}}, color={0,
+                  0,127})}));
     end BasicCutTorque;
   end Internal;
 

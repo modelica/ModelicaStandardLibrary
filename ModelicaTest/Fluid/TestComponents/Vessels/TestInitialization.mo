@@ -36,17 +36,13 @@ model TestInitialization
     annotation (Placement(transformation(extent={{-100,-100},{-80,-80}})));
 equation
   connect(sou1.ports[1], pipe1.port_a) annotation (Line(
-      points={{-70,20},{-50,20}},
-      color={0,127,255}));
+      points={{-70,20},{-50,20}}, color={0,127,255}));
   connect(pipe1.port_b, vol1.ports[1]) annotation (Line(
-      points={{-30,20},{-2,20}},
-      color={0,127,255}));
+      points={{-30,20},{-2,20}}, color={0,127,255}));
   connect(vol1.ports[2], pipe2.port_a) annotation (Line(
-      points={{2,20},{30,20}},
-      color={0,127,255}));
+      points={{2,20},{30,20}}, color={0,127,255}));
   connect(pipe2.port_b, sin1.ports[1]) annotation (Line(
-      points={{50,20},{70,20}},
-      color={0,127,255}));
+      points={{50,20},{70,20}}, color={0,127,255}));
 
   annotation (Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
             -100},{100,100}}), graphics={

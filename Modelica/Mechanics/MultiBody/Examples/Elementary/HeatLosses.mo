@@ -168,20 +168,15 @@ equation
       color={95,95,95},
       thickness=0.5));
   connect(const.y,convection. Gc) annotation (Line(
-      points={{13,-90},{36,-90},{36,-72}},
-      color={0,0,127}));
+      points={{13,-90},{36,-90},{36,-72}}, color={0,0,127}));
   connect(TAmbient.port,convection. fluid) annotation (Line(
-      points={{60,-62},{46,-62}},
-      color={191,0,0}));
+      points={{60,-62},{46,-62}}, color={191,0,0}));
   connect(damper1.heatPort, convection.solid) annotation (Line(
-      points={{-60,20},{-60,-62},{26,-62}},
-      color={191,0,0}));
+      points={{-60,20},{-60,-62},{26,-62}}, color={191,0,0}));
   connect(springDamper.heatPort, convection.solid) annotation (Line(
-      points={{16,20},{4,20},{4,-62},{26,-62}},
-      color={191,0,0}));
+      points={{16,20},{4,20},{4,-62},{26,-62}}, color={191,0,0}));
   connect(springDamperSeries.heatPort, convection.solid) annotation (Line(
-      points={{90,20},{96,20},{96,-46},{4,-46},{4,-62},{26,-62}},
-      color={191,0,0}));
+      points={{90,20},{96,20},{96,-46},{4,-46},{4,-62},{26,-62}}, color={191,0,0}));
   annotation (
     experiment(StopTime=3),
     Documentation(info="<html>

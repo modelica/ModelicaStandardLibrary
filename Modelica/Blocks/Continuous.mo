@@ -668,14 +668,12 @@ This is discussed in the description of package
     end if;
 
   equation
-    connect(u, P.u) annotation (Line(points={{-120,0},{-80,0},{-80,80},{-64,80}},
-          color={0,0,127}));
+    connect(u, P.u) annotation (Line(points={{-120,0},{-80,0},{-80,80},{-64,80}}, color={0,0,127}));
     connect(u, I.u)
       annotation (Line(points={{-120,0},{-64,0}}, color={0,0,127}));
     connect(u, D.u) annotation (Line(points={{-120,0},{-80,0},{-80,-80},{-64,
             -80}}, color={0,0,127}));
-    connect(P.y, Add.u1) annotation (Line(points={{-18,80},{0,80},{0,8},{18,8}},
-          color={0,0,127}));
+    connect(P.y, Add.u1) annotation (Line(points={{-18,80},{0,80},{0,8},{18,8}}, color={0,0,127}));
     connect(I.y, Add.u2)
       annotation (Line(points={{-18,0},{18,0}}, color={0,0,127}));
     connect(D.y, Add.u3) annotation (Line(points={{-18,-80},{0,-80},{0,-8},{18,
@@ -907,7 +905,8 @@ to compute u by an algebraic equation.
             -82,6}}, color={0,0,127}));
     connect(u_s, addI.u1) annotation (Line(points={{-120,0},{-96,0},{-96,-42},{
             -82,-42}}, color={0,0,127}));
-    connect(addP.y, P.u) annotation (Line(points={{-59,50},{-42,50}}, color={0,0,127}));
+    connect(addP.y, P.u) annotation (Line(points={{-59,50},{-42,50}}, color={0,
+            0,127}));
     connect(addD.y, D.u)
       annotation (Line(points={{-59,0},{-42,0}}, color={0,0,127}));
     connect(addI.y, I.u) annotation (Line(points={{-59,-50},{-42,-50}}, color={

@@ -55,23 +55,17 @@ model TestSuddenExpansion
     annotation (Placement(transformation(extent={{-100,80},{-80,100}})));
 equation
   connect(leftBoundary1.ports[1], suddenExpansion1.port_a) annotation (Line(
-      points={{-60,30},{-12,30}},
-      color={0,127,255}));
+      points={{-60,30},{-12,30}}, color={0,127,255}));
   connect(suddenExpansion1.port_b, rightBoundary1.ports[1]) annotation (Line(
-      points={{8,30},{60,30}},
-      color={0,127,255}));
+      points={{8,30},{60,30}}, color={0,127,255}));
   connect(leftAdapter.port_b, leftBoundary2.ports[1]) annotation (Line(
-      points={{-60,-30},{-70,-30}},
-      color={0,127,255}));
+      points={{-60,-30},{-70,-30}}, color={0,127,255}));
   connect(leftAdapter.port_a, suddenExpansion2.port_a) annotation (Line(
-      points={{-40,-30},{-10,-30}},
-      color={0,127,255}));
+      points={{-40,-30},{-10,-30}}, color={0,127,255}));
   connect(suddenExpansion2.port_b, rightAdapter.port_a) annotation (Line(
-      points={{10,-30},{40,-30}},
-      color={0,127,255}));
+      points={{10,-30},{40,-30}}, color={0,127,255}));
   connect(rightAdapter.port_b, rightBoundary2.ports[1]) annotation (Line(
-      points={{60,-30},{70,-30}},
-      color={0,127,255}));
+      points={{60,-30},{70,-30}}, color={0,127,255}));
   annotation (
     Documentation(info="<html>
 <p>

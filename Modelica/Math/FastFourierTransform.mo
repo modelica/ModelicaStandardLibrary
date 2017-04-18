@@ -847,5 +847,5 @@ resulting in:
         Line(points={{-60,20},{-60,-80}}, color={95,95,95}),
         Line(points={{-20,60},{-20,-80}}, color={95,95,95}),
         Line(points={{20,40},{20,-80}}, color={95,95,95}),
-        Line(points={{60,-20},{60,-80}},color={95,95,95})}));
+        Line(points={{60,-20},{60,-80}}, color={95,95,95})}));
 end FastFourierTransform;

@@ -77,39 +77,28 @@ package PowerConverters
           origin={-80,-4})));
   equation
     connect(meanCurrent.u, currentSensor.i) annotation (Line(
-        points={{68,-60},{0,-60},{0,-50}},
-        color={0,0,127}));
+        points={{68,-60},{0,-60},{0,-50}}, color={0,0,127}));
     connect(voltagesensor.v, meanVoltage.u) annotation (Line(
-        points={{60,10},{64,10},{64,40},{68,40}},
-        color={0,0,127}));
+        points={{60,10},{64,10},{64,40},{68,40}}, color={0,0,127}));
     connect(voltagesensor.v, rootMeanSquareVoltage.u) annotation (Line(
-        points={{60,10},{68,10}},
-        color={0,0,127}));
+        points={{60,10},{68,10}}, color={0,0,127}));
     connect(rectifier.dc_n, currentSensor.n) annotation (Line(
-        points={{-20,28},{-10,28},{-10,-40}},
-        color={0,0,255}));
+        points={{-20,28},{-10,28},{-10,-40}}, color={0,0,255}));
     connect(rectifier.dc_p, voltagesensor.p) annotation (Line(
-        points={{-20,40},{50,40},{50,20}},
-        color={0,0,255}));
+        points={{-20,40},{50,40},{50,20}}, color={0,0,255}));
     connect(currentSensor.p, voltagesensor.n) annotation (Line(
-        points={{10,-40},{50,-40},{50,0}},
-        color={0,0,255}));
+        points={{10,-40},{50,-40},{50,0}}, color={0,0,255}));
     connect(pulse2m.fire_p, rectifier.fire_p) annotation (Line(
-        points={{-36,11},{-36,22}},
-        color={255,0,255}));
+        points={{-36,11},{-36,22}}, color={255,0,255}));
     connect(sineVoltage.plug_n, multiStarResistance.plug) annotation (
         Line(
-        points={{-80,-40},{-80,-50}},
-        color={0,0,255}));
+        points={{-80,-40},{-80,-50}}, color={0,0,255}));
     connect(multiStarResistance.pin, ground.p) annotation (Line(
-        points={{-80,-70},{-80,-80}},
-        color={0,0,255}));
+        points={{-80,-70},{-80,-80}}, color={0,0,255}));
     connect(resistor.n, currentSensor.p) annotation (Line(
-        points={{30,20},{30,-40},{10,-40}},
-        color={0,0,255}));
+        points={{30,20},{30,-40},{10,-40}}, color={0,0,255}));
     connect(resistor.p, rectifier.dc_p) annotation (Line(
-        points={{30,40},{-20,40}},
-        color={0,0,255}));
+        points={{30,40},{-20,40}}, color={0,0,255}));
     connect(sineVoltage.plug_p, resistor1.plug_n) annotation (Line(points={{-80,
             -20},{-80,-20},{-80,-14}}, color={0,0,255}));
     connect(resistor1.plug_p, rectifier.ac) annotation (Line(points={{-80,6},{
@@ -229,36 +218,26 @@ package PowerConverters
             origin={-80,-4})));
     equation
       connect(meanCurrent.u, currentSensor.i) annotation (Line(
-          points={{68,-60},{0,-60},{0,-50}},
-          color={0,0,127}));
+          points={{68,-60},{0,-60},{0,-50}}, color={0,0,127}));
       connect(voltagesensor.v, meanVoltage.u) annotation (Line(
-          points={{60,10},{64,10},{64,40},{68,40}},
-          color={0,0,127}));
+          points={{60,10},{64,10},{64,40},{68,40}}, color={0,0,127}));
       connect(voltagesensor.v, rootMeanSquareVoltage.u) annotation (Line(
-          points={{60,10},{68,10}},
-          color={0,0,127}));
+          points={{60,10},{68,10}}, color={0,0,127}));
       connect(rectifier.dc_n, currentSensor.n) annotation (Line(
-          points={{-20,28},{-10,28},{-10,-40}},
-          color={0,0,255}));
+          points={{-20,28},{-10,28},{-10,-40}}, color={0,0,255}));
       connect(rectifier.dc_p, voltagesensor.p) annotation (Line(
-          points={{-20,40},{50,40},{50,20}},
-          color={0,0,255}));
+          points={{-20,40},{50,40},{50,20}}, color={0,0,255}));
       connect(currentSensor.p, voltagesensor.n) annotation (Line(
-          points={{10,-40},{50,-40},{50,0}},
-          color={0,0,255}));
+          points={{10,-40},{50,-40},{50,0}}, color={0,0,255}));
       connect(pulse2m.fire_p, rectifier.fire_p) annotation (Line(
-          points={{-36,11},{-36,22}},
-          color={255,0,255}));
+          points={{-36,11},{-36,22}}, color={255,0,255}));
       connect(pulse2m.fire_n, rectifier.fire_n) annotation (Line(
-          points={{-24,11},{-24,22}},
-          color={255,0,255}));
+          points={{-24,11},{-24,22}}, color={255,0,255}));
       connect(sineVoltage.plug_n, multiStarResistance.plug) annotation (
           Line(
-          points={{-80,-40},{-80,-50}},
-          color={0,0,255}));
+          points={{-80,-40},{-80,-50}}, color={0,0,255}));
       connect(multiStarResistance.pin, ground.p) annotation (Line(
-          points={{-80,-70},{-80,-80}},
-          color={0,0,255}));
+          points={{-80,-70},{-80,-80}}, color={0,0,255}));
       connect(pulse2m.ac, rectifier.ac) annotation (Line(points={{-40,0},{-60,0},
               {-60,20},{-80,20},{-80,34},{-40,34}}, color={0,0,255}));
       connect(sineVoltage.plug_p, innerResistor.plug_n) annotation (Line(points=

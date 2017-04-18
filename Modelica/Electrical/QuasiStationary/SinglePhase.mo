@@ -52,10 +52,8 @@ package SinglePhase "Single phase AC components"
             extent={{-10,-10},{10,10}},
             rotation=90)));
     equation
-      connect(f.y, voltageSource.f) annotation (Line(points={{-60,-39},{-60,-26},{-42,-26}},
-                          color={0,0,127}));
-      connect(polarToComplex.y, voltageSource.V) annotation (Line(points={{-60,-1},{-60,-14},{-42,-14}},
-                                        color={85,170,255}));
+      connect(f.y, voltageSource.f) annotation (Line(points={{-60,-39},{-60,-26},{-42,-26}}, color={0,0,127}));
+      connect(polarToComplex.y, voltageSource.V) annotation (Line(points={{-60,-1},{-60,-14},{-42,-14}}, color={85,170,255}));
       connect(ground.pin, voltageSource.pin_n) annotation (Line(points={{-30,-40},
               {-30,-35},{-30,-30}}, color={85,170,255}));
       connect(voltageSource.pin_p, currentSensor.pin_p) annotation (Line(points=
@@ -71,11 +69,9 @@ package SinglePhase "Single phase AC components"
       connect(phi.y, polarToComplex.phi) annotation (Line(points={{-80,39},{-80,
               30},{-66,30},{-66,22}}, color={0,0,127}));
       connect(V.y, polarToComplex.len) annotation (Line(
-          points={{-40,39},{-40,30},{-54,30},{-54,22}},
-          color={0,0,127}));
+          points={{-40,39},{-40,30},{-54,30},{-54,22}}, color={0,0,127}));
       connect(currentSensor.y, complexToPolar.u) annotation (Line(
-          points={{-10,11},{-10,18}},
-          color={85,170,255}));
+          points={{-10,11},{-10,18}}, color={85,170,255}));
       annotation (Documentation(info="<html>
 <p>
 The frequency of the voltage source is varied by a ramp.
@@ -158,18 +154,14 @@ Plot length and angle of the current phasor, i.e., complexToPolar.len and .phi, 
         annotation (Line(points={{30,10},{30,0},{-30,0}}, color={85,170,255}));
       connect(voltageSensor.pin_n, ground.pin)
         annotation (Line(points={{50,10},{50,0},{-30,0}}, color={85,170,255}));
-      connect(f.y, currentSource.f) annotation (Line(points={{-60,39},{-60,26},{-42,26}},
-                         color={0,0,127}));
-      connect(polarToComplex.y, currentSource.I) annotation (Line(points={{-60,1},{-60,14},{-42,14}},
-                                     color={85,170,255}));
+      connect(f.y, currentSource.f) annotation (Line(points={{-60,39},{-60,26},{-42,26}}, color={0,0,127}));
+      connect(polarToComplex.y, currentSource.I) annotation (Line(points={{-60,1},{-60,14},{-42,14}}, color={85,170,255}));
       connect(phi.y, polarToComplex.phi) annotation (Line(points={{-40,-39},{-40,
-              -32},{-54,-32},{-54,-22}},color={0,0,127}));
+              -32},{-54,-32},{-54,-22}}, color={0,0,127}));
       connect(I.y, polarToComplex.len) annotation (Line(
-          points={{-80,-39},{-80,-32},{-66,-32},{-66,-22}},
-          color={0,0,127}));
+          points={{-80,-39},{-80,-32},{-66,-32},{-66,-22}}, color={0,0,127}));
       connect(voltageSensor.y, complexToPolar.u) annotation (Line(
-          points={{61,20},{68,20}},
-          color={85,170,255}));
+          points={{61,20},{68,20}}, color={85,170,255}));
       annotation (Documentation(info="<html>
 <p>
 The frequency of the current source is varied by a ramp.
@@ -245,71 +237,49 @@ Plot length and angle of the voltage phasor, i.e., complexToPolar.len and .phi, 
         annotation (Placement(transformation(extent={{100,-10},{80,10}})));
     equation
       connect(voltageQS.pin_p, resistorQS.pin_p) annotation (Line(
-          points={{-80,60},{-72,60}},
-          color={85,170,255}));
+          points={{-80,60},{-72,60}}, color={85,170,255}));
       connect(voltageQS.pin_n, rectifierQS.pin_nQS) annotation (Line(
-          points={{-80,40},{-10,40}},
-          color={85,170,255}));
+          points={{-80,40},{-10,40}}, color={85,170,255}));
       connect(rectifierQS.pin_nQS, groundQS.pin) annotation (Line(
-          points={{-10,40},{-10,30}},
-          color={85,170,255}));
+          points={{-10,40},{-10,30}}, color={85,170,255}));
       connect(rectifierQS.pin_nDC, groundDC1.p) annotation (Line(
-          points={{10,40},{10,30}},
-          color={0,0,255}));
+          points={{10,40},{10,30}}, color={0,0,255}));
       connect(load1.n, rectifierQS.pin_nDC) annotation (Line(
-          points={{50,40},{10,40}},
-          color={0,0,255}));
+          points={{50,40},{10,40}}, color={0,0,255}));
       connect(voltageAC.p, resistorAC.p) annotation (Line(
-          points={{-80,-40},{-70,-40}},
-          color={0,0,255}));
+          points={{-80,-40},{-70,-40}}, color={0,0,255}));
       connect(voltageAC.n, rectifierAC.pin_nAC) annotation (Line(
-          points={{-80,-60},{-10,-60}},
-          color={0,0,255}));
+          points={{-80,-60},{-10,-60}}, color={0,0,255}));
       connect(rectifierAC.pin_nAC, groundAC.p) annotation (Line(
-          points={{-10,-60},{-10,-70}},
-          color={0,0,255}));
+          points={{-10,-60},{-10,-70}}, color={0,0,255}));
       connect(rectifierAC.pin_nDC, load2.n) annotation (Line(
-          points={{10,-60},{50,-60}},
-          color={0,0,255}));
+          points={{10,-60},{50,-60}}, color={0,0,255}));
       connect(ramp.y, load1.G) annotation (Line(
-          points={{79,0},{70,0},{70,50},{61,50}},
-          color={0,0,127}));
+          points={{79,0},{70,0},{70,50},{61,50}}, color={0,0,127}));
       connect(ramp.y, load2.G) annotation (Line(
-          points={{79,0},{70,0},{70,-50},{61,-50}},
-          color={0,0,127}));
+          points={{79,0},{70,0},{70,-50},{61,-50}}, color={0,0,127}));
       connect(resistorQS.pin_n, currentSensorQS.pin_p) annotation (Line(
-          points={{-52,60},{-40,60}},
-          color={85,170,255}));
+          points={{-52,60},{-40,60}}, color={85,170,255}));
       connect(currentSensorQS.pin_n, rectifierQS.pin_pQS) annotation (Line(
-          points={{-20,60},{-10,60}},
-          color={85,170,255}));
+          points={{-20,60},{-10,60}}, color={85,170,255}));
       connect(currentSensorQS.y, iQS.u) annotation (Line(
-          points={{-30,71},{-30,80},{-22,80}},
-          color={85,170,255}));
+          points={{-30,71},{-30,80},{-22,80}}, color={85,170,255}));
       connect(rectifierQS.pin_pDC, iDC1.p) annotation (Line(
-          points={{10,60},{20,60}},
-          color={0,0,255}));
+          points={{10,60},{20,60}}, color={0,0,255}));
       connect(iDC1.n, load1.p) annotation (Line(
-          points={{40,60},{50,60}},
-          color={0,0,255}));
+          points={{40,60},{50,60}}, color={0,0,255}));
       connect(resistorAC.n, currentSensorAC.p) annotation (Line(
-          points={{-50,-40},{-40,-40}},
-          color={0,0,255}));
+          points={{-50,-40},{-40,-40}}, color={0,0,255}));
       connect(currentSensorAC.n, rectifierAC.pin_pAC) annotation (Line(
-          points={{-20,-40},{-10,-40}},
-          color={0,0,255}));
+          points={{-20,-40},{-10,-40}}, color={0,0,255}));
       connect(currentSensorAC.i, iAC.u) annotation (Line(
-          points={{-30,-30},{-30,-20},{-22,-20}},
-          color={0,0,127}));
+          points={{-30,-30},{-30,-20},{-22,-20}}, color={0,0,127}));
       connect(currentSensorDC2.i, iDC2.u) annotation (Line(
-          points={{30,-30},{30,-20},{38,-20}},
-          color={0,0,127}));
+          points={{30,-30},{30,-20},{38,-20}}, color={0,0,127}));
       connect(currentSensorDC2.p, rectifierAC.pin_pDC) annotation (Line(
-          points={{20,-40},{10,-40}},
-          color={0,0,255}));
+          points={{20,-40},{10,-40}}, color={0,0,255}));
       connect(currentSensorDC2.n, load2.p) annotation (Line(
-          points={{40,-40},{50,-40}},
-          color={0,0,255}));
+          points={{40,-40},{50,-40}}, color={0,0,255}));
       annotation (Documentation(info="<html>
 <p>
 This example demonstrates coupling a quasi stationary circuit with a DC circuit.
@@ -377,16 +347,15 @@ whereas the transient model may have only one ground since AC side and DC side a
       Sensors.CurrentSensor i2 annotation (Placement(transformation(extent={{20,-20},{40,0}})));
       Sensors.CurrentSensor i1 annotation (Placement(transformation(extent={{-60,-20},{-40,0}})));
     equation
-      connect(voltageSource.pin_p, sensor0.currentP) annotation (Line(points={{-90,-20},{-90,-20},{-90,-10},{-80,-10}},color={85,170,255}));
-      connect(zk.pin_n, idealTransformer.pin_p1) annotation (Line(points={{-10,-10},{-10,-25}},color={85,170,255}));
+      connect(voltageSource.pin_p, sensor0.currentP) annotation (Line(points={{-90,-20},{-90,-20},{-90,-10},{-80,-10}}, color={85,170,255}));
+      connect(zk.pin_n, idealTransformer.pin_p1) annotation (Line(points={{-10,-10},{-10,-25}}, color={85,170,255}));
       connect(sensorL.voltageP, sensorL.currentP) annotation (Line(points={{60,0},{50,0},{50,-10}}, color={85,170,255}));
       connect(voltageSource.pin_n, ground1.pin) annotation (Line(points={{-90,-40},{-90,-40},{-90,-50}}, color={85,170,255}));
-      connect(ground1.pin, idealTransformer.pin_n1) annotation (Line(points={{-90,-50},{-10,-50},{-10,-35}},color={85,170,255}));
+      connect(ground1.pin, idealTransformer.pin_n1) annotation (Line(points={{-90,-50},{-10,-50},{-10,-35}}, color={85,170,255}));
       connect(sensor0.currentP, sensor0.voltageP) annotation (Line(points={{-80,-10},{-80,-10},{-80,0},{-70,0}}, color={85,170,255}));
-      connect(sensor0.voltageN, ground1.pin) annotation (Line(points={{-70,-20},{-70,-50},{-90,-50}},color={85,170,255}));
+      connect(sensor0.voltageN, ground1.pin) annotation (Line(points={{-70,-20},{-70,-50},{-90,-50}}, color={85,170,255}));
       connect(v2.pin_n, ground2.pin) annotation (Line(points={{40,-42},{40,-42},{40,-50}}, color={85,170,255}));
-      connect(const.y, polarToComplex.len) annotation (Line(points={{-13,80},{-4,80},{20,80},{20,68},{58,68}},
-                                                                                                    color={0,0,127}));
+      connect(const.y, polarToComplex.len) annotation (Line(points={{-13,80},{-4,80},{20,80},{20,68},{58,68}}, color={0,0,127}));
       connect(ramp.y, polarToComplex.phi) annotation (Line(points={{7,50},{20,50},{20,50},{20,56},{58,56}}, color={0,0,127}));
       connect(load.pin_p, sensorL.currentN) annotation (Line(points={{80,-20},{80,-20},{80,-12},{80,-10},{70,-10}}, color={85,170,255}));
       connect(sensorL.voltageN, ground2.pin) annotation (Line(points={{60,-20},{60,-20},{60,-44},{60,-50},{40,-50}}, color={85,170,255}));
@@ -605,8 +574,8 @@ A linear temperature dependency of the conductance is also taken into account.
             Line(
               points={{6,28},{6,-28}},
               color={85,170,255}),
-                                 Line(points={{-90,0},{-6,0}},  color={85,170,255}),
-                    Line(points={{6,0},{90,0}},  color={85,170,255})}),
+                                 Line(points={{-90,0},{-6,0}}, color={85,170,255}),
+                    Line(points={{6,0},{90,0}}, color={85,170,255})}),
           Documentation(info="<html>
 
 <p>
@@ -962,8 +931,8 @@ A linear temperature dependency of the conductance is also taken into account.
       i = j*omega*C*v;
       annotation (
         Icon(graphics={
-            Line(points={{-90,0},{-6,0}},  color={85,170,255}),
-            Line(points={{6,0},{90,0}},  color={85,170,255}),
+            Line(points={{-90,0},{-6,0}}, color={85,170,255}),
+            Line(points={{6,0},{90,0}}, color={85,170,255}),
             Text(
               extent={{-150,90},{150,50}},
               textString="%name",
@@ -1389,10 +1358,10 @@ This switch is only intended to be used for structural changes, not for fast swi
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Ellipse(extent={{-44,4},{-36,-4}}, lineColor={85,170,255}),
-            Line(points={{-100,0},{-44,0}},color={85,170,255}),
+            Line(points={{-100,0},{-44,0}}, color={85,170,255}),
             Line(points={{-37,2},{40,40}}, color={85,170,255}),
-            Line(points={{40,40},{100,40}},color={85,170,255}),
-            Line(points={{40,0},{100,0}},color={85,170,255}),
+            Line(points={{40,40},{100,40}}, color={85,170,255}),
+            Line(points={{40,0},{100,0}}, color={85,170,255}),
             Line(
               visible=useHeatPort,
               points={{0,-100},{0,25}},
@@ -1565,9 +1534,9 @@ This switch is only intended to be used for structural changes, not for fast swi
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Ellipse(extent={{-44,4},{-36,-4}}, lineColor={85,170,255}),
-            Line(points={{-100,0},{-44,0}},color={85,170,255}),
+            Line(points={{-100,0},{-44,0}}, color={85,170,255}),
             Line(points={{-37,2},{40,40}}, color={85,170,255}),
-            Line(points={{40,0},{100,0}},color={85,170,255}),
+            Line(points={{40,0},{100,0}}, color={85,170,255}),
             Line(points={{40,20},{40,0}}, color={85,170,255}),
             Line(
               visible=useHeatPort,
@@ -2705,29 +2674,21 @@ At the DC side, only the mean of voltage and current are taken into account.
             origin={40,-30})));
     equation
       connect(idealDiode1.p, idealDiode3.n) annotation (Line(
-          points={{-40,20},{-40,-20}},
-          color={0,0,255}));
+          points={{-40,20},{-40,-20}}, color={0,0,255}));
       connect(idealDiode2.p, idealDiode4.n) annotation (Line(
-          points={{40,20},{40,-20}},
-          color={0,0,255}));
+          points={{40,20},{40,-20}}, color={0,0,255}));
       connect(idealDiode3.p, idealDiode4.p) annotation (Line(
-          points={{-40,-40},{40,-40}},
-          color={0,0,255}));
+          points={{-40,-40},{40,-40}}, color={0,0,255}));
       connect(idealDiode1.n, idealDiode2.n) annotation (Line(
-          points={{-40,40},{40,40}},
-          color={0,0,255}));
+          points={{-40,40},{40,40}}, color={0,0,255}));
       connect(pin_pAC, idealDiode1.p) annotation (Line(
-          points={{-100,100},{-100,10},{-40,10},{-40,20}},
-          color={0,0,255}));
+          points={{-100,100},{-100,10},{-40,10},{-40,20}}, color={0,0,255}));
       connect(pin_nAC, idealDiode4.n) annotation (Line(
-          points={{-100,-100},{-100,-10},{40,-10},{40,-20}},
-          color={0,0,255}));
+          points={{-100,-100},{-100,-10},{40,-10},{40,-20}}, color={0,0,255}));
       connect(idealDiode2.n, pin_pDC) annotation (Line(
-          points={{40,40},{40,100},{100,100}},
-          color={0,0,255}));
+          points={{40,40},{40,100},{100,100}}, color={0,0,255}));
       connect(idealDiode4.p, pin_nDC) annotation (Line(
-          points={{40,-40},{40,-100},{100,-100}},
-          color={0,0,255}));
+          points={{40,-40},{40,-100},{100,-100}}, color={0,0,255}));
       annotation (Icon(graphics={
             Text(
               extent={{50,30},{100,0}},

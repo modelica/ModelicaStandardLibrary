@@ -135,13 +135,15 @@ equation
   connect(V1.p, R1.p)
                     annotation (Line(points={{-90,28},{-90,58}}, color={0,0,255}));
   connect(RI.n, V.p)
-                   annotation (Line(points={{80,68},{90,68},{90,48}}, color={0,0,255}));
+                   annotation (Line(points={{80,68},{90,68},{90,48}}, color={0,0,
+          255}));
   connect(Gnd.p, V.n)
                     annotation (Line(points={{90,20},{90,28}}, color={0,0,255}));
   connect(V2.p, R2.p)
   annotation (Line(points={{-50,-32},{-50,-12},{-36,-12}}, color={0,0,255}));
   connect(Gnd2.p, V2.n)
-                      annotation (Line(points={{-50,-62},{-50,-52}}, color={0,0,255}));
+                      annotation (Line(points={{-50,-62},{-50,-52}}, color={0,0,
+          255}));
   connect(Gnd7.p, C1.n)
                       annotation (Line(points={{-70,22},{-70,28}}, color={0,0,255}));
   connect(C2.p, RI.p)
@@ -157,11 +159,9 @@ equation
   connect(T1.B, R1.n)
   annotation (Line(points={{-20,58},{-70,58}}, color={0,0,255}));
   connect(T1.E, Gnd3.p)
-  annotation (Line(points={{0,53},{0,48.75},{0,44.5},{0,36}},
-                                           color={0,0,255}));
+  annotation (Line(points={{0,53},{0,48.75},{0,44.5},{0,36}}, color={0,0,255}));
   connect(RI.p, T1.C)
-                    annotation (Line(points={{60,68},{30,68},{30,63},{0,63}},
-        color={0,0,255}));
+                    annotation (Line(points={{60,68},{30,68},{30,63},{0,63}}, color={0,0,255}));
   connect(T2.B, R2.n)
   annotation (Line(points={{20,-12},{-16,-12}}, color={0,0,255}));
   connect(T2.E, Gnd4.p)

@@ -491,17 +491,13 @@ More details are given in the following sub-sections:
       connect(constant3.y, force3.f)
         annotation (Line(points={{39,-30},{22,-30}}, color={0,0,127}));
       connect(force1.flange, mass1.flange_a) annotation (Line(
-          points={{16,70},{40,70}},
-          color={0,127,0}));
+          points={{16,70},{40,70}}, color={0,127,0}));
       connect(force2.flange, mass2.flange_b) annotation (Line(
-          points={{16,30},{70,30},{70,10},{60,10}},
-          color={0,127,0}));
+          points={{16,30},{70,30},{70,10},{60,10}}, color={0,127,0}));
       connect(mass3.flange_b, force3.flange) annotation (Line(
-          points={{-20,-30},{0,-30}},
-          color={0,127,0}));
+          points={{-20,-30},{0,-30}}, color={0,127,0}));
       connect(fixed.flange, force3.support) annotation (Line(
-          points={{10,-50},{10,-40}},
-          color={0,127,0}));
+          points={{10,-50},{10,-40}}, color={0,127,0}));
       annotation (
         Documentation(info="<html>
 <p>
@@ -590,29 +586,21 @@ the two other examples).
             transformation(extent={{60,-70},{80,-50}})));
     equation
       connect(s2.flange_a, fixed2.flange) annotation (Line(
-          points={{-60,40},{-90,40}},
-          color={0,127,0}));
+          points={{-60,40},{-90,40}}, color={0,127,0}));
       connect(s1.flange_a, fixed1.flange) annotation (Line(
-          points={{-60,-60},{-90,-60}},
-          color={0,127,0}));
+          points={{-60,-60},{-90,-60}}, color={0,127,0}));
       connect(m1.flange_a, s1.flange_b) annotation (Line(
-          points={{-20,-60},{-40,-60}},
-          color={0,127,0}));
+          points={{-20,-60},{-40,-60}}, color={0,127,0}));
       connect(sd1.flange_a, m1.flange_b) annotation (Line(
-          points={{20,-60},{0,-60}},
-          color={0,127,0}));
+          points={{20,-60},{0,-60}}, color={0,127,0}));
       connect(m2.flange_a, sd1.flange_b) annotation (Line(
-          points={{60,-60},{40,-60}},
-          color={0,127,0}));
+          points={{60,-60},{40,-60}}, color={0,127,0}));
       connect(m4.flange_a, sd2.flange_b) annotation (Line(
-          points={{60,40},{40,40}},
-          color={0,127,0}));
+          points={{60,40},{40,40}}, color={0,127,0}));
       connect(sd2.flange_a, m3.flange_b) annotation (Line(
-          points={{20,40},{0,40}},
-          color={0,127,0}));
+          points={{20,40},{0,40}}, color={0,127,0}));
       connect(m3.flange_a, s2.flange_b) annotation (Line(
-          points={{-20,40},{-40,40}},
-          color={0,127,0}));
+          points={{-20,40},{-40,40}}, color={0,127,0}));
       annotation (
         Documentation(info="<html>
 <p>
@@ -800,29 +788,21 @@ combination). In this case the system is not at rest.
       connect(spring2.flange_b, inertia2.flange_b)
         annotation (Line(points={{50,-50},{60,-50}}, color={0,191,0}));
       connect(rod3.flange_b, positionSensor3.flange) annotation (Line(
-          points={{-50,68},{-60,68}},
-          color={0,127,0}));
+          points={{-50,68},{-60,68}}, color={0,127,0}));
       connect(rod1.flange_a, positionSensor1.flange) annotation (Line(
-          points={{-48,30},{-60,30}},
-          color={0,127,0}));
+          points={{-48,30},{-60,30}}, color={0,127,0}));
       connect(rod1.flange_b, fixed.flange) annotation (Line(
-          points={{-28,30},{-10,30}},
-          color={0,127,0}));
+          points={{-28,30},{-10,30}}, color={0,127,0}));
       connect(rod3.flange_a, fixed.flange) annotation (Line(
-          points={{-30,68},{-10,68},{-10,30}},
-          color={0,127,0}));
+          points={{-30,68},{-10,68},{-10,30}}, color={0,127,0}));
       connect(fixed.flange, rod2.flange_a) annotation (Line(
-          points={{-10,30},{20,30}},
-          color={0,127,0}));
+          points={{-10,30},{20,30}}, color={0,127,0}));
       connect(rod2.flange_b, positionSensor2.flange) annotation (Line(
-          points={{40,30},{60,30}},
-          color={0,127,0}));
+          points={{40,30},{60,30}}, color={0,127,0}));
       connect(fixed1.flange, spring1.flange_a) annotation (Line(
-          points={{-90,-50},{-80,-50}},
-          color={0,127,0}));
+          points={{-90,-50},{-80,-50}}, color={0,127,0}));
       connect(fixed2.flange, spring2.flange_a) annotation (Line(
-          points={{10,-50},{30,-50}},
-          color={0,127,0}));
+          points={{10,-50},{30,-50}}, color={0,127,0}));
       annotation (
         Documentation(info="<html>
 <p>
@@ -868,11 +848,9 @@ problems.
             transformation(extent={{-80,20},{-60,40}})));
     equation
       connect(accelerate.flange, mass.flange_a) annotation (Line(
-          points={{-20,30},{0,30}},
-          color={0,127,0}));
+          points={{-20,30},{0,30}}, color={0,127,0}));
       connect(constantAcc.y, accelerate.a_ref) annotation (Line(
-          points={{-59,30},{-42,30}},
-          color={0,0,127}));
+          points={{-59,30},{-42,30}}, color={0,0,127}));
       annotation (Documentation(info="<html>
 <p>
 Demonstrate usage of component Sources.Accelerate by moving a massing
@@ -928,14 +906,11 @@ with a predefined acceleration.
       connect(mass3.flange_b, springDamper3.flange_a)
         annotation (Line(points={{-60,-50},{-20,-50}}, color={0,191,0}));
       connect(damper1.flange_b, fixed1.flange) annotation (Line(
-          points={{0,70},{32,70}},
-          color={0,127,0}));
+          points={{0,70},{32,70}}, color={0,127,0}));
       connect(damper2.flange_b, fixed2.flange) annotation (Line(
-          points={{0,10},{30,10}},
-          color={0,127,0}));
+          points={{0,10},{30,10}}, color={0,127,0}));
       connect(springDamper3.flange_b, fixed3.flange) annotation (Line(
-          points={{0,-50},{30,-50}},
-          color={0,127,0}));
+          points={{0,-50},{30,-50}}, color={0,127,0}));
       annotation (Documentation(info="<html>
 <p>
 Demonstrate usage of damper components in different variants.
@@ -989,17 +964,13 @@ Demonstrate usage of damper components in different variants.
       connect(sine2.y, force2.f)
         annotation (Line(points={{-79,-50},{-62,-50}}, color={0,0,127}));
       connect(spring1.flange_b, fixed1.flange) annotation (Line(
-          points={{40,50},{70,50}},
-          color={0,127,0}));
+          points={{40,50},{70,50}}, color={0,127,0}));
       connect(force2.flange, mass2.flange_a) annotation (Line(
-          points={{-40,-50},{-20,-50}},
-          color={0,127,0}));
+          points={{-40,-50},{-20,-50}}, color={0,127,0}));
       connect(force1.flange, mass1.flange_a) annotation (Line(
-          points={{-40,50},{-20,50}},
-          color={0,127,0}));
+          points={{-40,50},{-20,50}}, color={0,127,0}));
       connect(spring2.flange_b, fixed2.flange) annotation (Line(
-          points={{40,-50},{70,-50}},
-          color={0,127,0}));
+          points={{40,-50},{70,-50}}, color={0,127,0}));
       annotation (Documentation(info="<html>
 <p>
 A spring - mass system is a mechanical oscillator. If no
@@ -1054,26 +1025,19 @@ If damping is added the amplitudes are bounded.
       connect(sineForce.y, force.f)
         annotation (Line(points={{-79,50},{-66,50}}, color={0,0,127}));
       connect(forceSensor.flange_a, force.flange) annotation (Line(
-          points={{-34,50},{-44,50}},
-          color={0,127,0}));
+          points={{-34,50},{-44,50}}, color={0,127,0}));
       connect(mass.flange_a, positionSensor1.flange) annotation (Line(
-          points={{20,50},{20,10},{40,10}},
-          color={0,127,0}));
+          points={{20,50},{20,10},{40,10}}, color={0,127,0}));
       connect(mass.flange_a, speedSensor1.flange) annotation (Line(
-          points={{20,50},{20,-30},{40,-30}},
-          color={0,127,0}));
+          points={{20,50},{20,-30},{40,-30}}, color={0,127,0}));
       connect(mass.flange_a, accSensor1.flange) annotation (Line(
-          points={{20,50},{20,-70},{40,-70}},
-          color={0,127,0}));
+          points={{20,50},{20,-70},{40,-70}}, color={0,127,0}));
       connect(mass.flange_b, positionSensor2.flange) annotation (Line(
-          points={{40,50},{60,50}},
-          color={0,127,0}));
+          points={{40,50},{60,50}}, color={0,127,0}));
       connect(forceSensor.flange_b, multiSensor.flange_a) annotation (Line(
-          points={{-14,50},{-8,50}},
-          color={0,127,0}));
+          points={{-14,50},{-8,50}}, color={0,127,0}));
       connect(multiSensor.flange_b, mass.flange_a) annotation (Line(
-          points={{12,50},{20,50}},
-          color={0,127,0}));
+          points={{12,50},{20,50}}, color={0,127,0}));
       annotation (Documentation(info="<html>
 <p>
 These sensors measure
@@ -1153,20 +1117,15 @@ to see the difference.
       connect(sineForce.y, force.f)
         annotation (Line(points={{-39,70},{-22,70}}, color={0,0,127}));
       connect(spring.flange_a, fixed2.flange) annotation (Line(
-          points={{2,-50},{-30,-50}},
-          color={0,127,0}));
+          points={{2,-50},{-30,-50}}, color={0,127,0}));
       connect(force.flange, stop1.flange_a) annotation (Line(
-          points={{0,70},{20,70}},
-          color={0,127,0}));
+          points={{0,70},{20,70}}, color={0,127,0}));
       connect(force2.flange, mass.flange_a) annotation (Line(
-          points={{-2,10},{10,10}},
-          color={0,127,0}));
+          points={{-2,10},{10,10}}, color={0,127,0}));
       connect(mass.flange_b, supportFriction.flange_a) annotation (Line(
-          points={{30,10},{40,10}},
-          color={0,127,0}));
+          points={{30,10},{40,10}}, color={0,127,0}));
       connect(sineForce.y, force2.f) annotation (Line(
-          points={{-39,70},{-30,70},{-30,10},{-24,10}},
-          color={0,0,127}));
+          points={{-39,70},{-30,70},{-30,10},{-24,10}}, color={0,0,127}));
       annotation (
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={Text(
@@ -1298,17 +1257,13 @@ to see the difference.
       connect(sineForce.y, force.f) annotation (Line(points={{-57,-20},{-46,-20},
               {-40,-20}}, color={0,0,127}));
       connect(force.flange, spool.flange_a) annotation (Line(
-          points={{-18,-20},{0,-20}},
-          color={0,127,0}));
+          points={{-18,-20},{0,-20}}, color={0,127,0}));
       connect(outerContactA.flange_a, fixedLe.flange) annotation (Line(
-          points={{-70,70},{-80,70},{-80,90}},
-          color={0,127,0}));
+          points={{-70,70},{-80,70},{-80,90}}, color={0,127,0}));
       connect(housing.flange_a, fixedLe.flange) annotation (Line(
-          points={{-10,90},{-80,90}},
-          color={0,127,0}));
+          points={{-10,90},{-80,90}}, color={0,127,0}));
       connect(friction.flange_a, fixedLe.flange) annotation (Line(
-          points={{-80,60},{-80,90}},
-          color={0,127,0}));
+          points={{-80,60},{-80,90}}, color={0,127,0}));
       annotation (
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={Text(
@@ -1397,35 +1352,25 @@ Spool position s as a function of working force f.
     equation
 
       connect(rod1.flange_b, fixed.flange) annotation (Line(
-          points={{-20,0},{0,0}},
-          color={0,127,0}));
+          points={{-20,0},{0,0}}, color={0,127,0}));
       connect(fixed.flange, rod2.flange_a) annotation (Line(
-          points={{0,0},{20,0}},
-          color={0,127,0}));
+          points={{0,0},{20,0}}, color={0,127,0}));
       connect(springDamper1.flange_a, rod1.flange_a) annotation (Line(
-          points={{-40,30},{-48,30},{-48,0},{-40,0}},
-          color={0,127,0}));
+          points={{-40,30},{-48,30},{-48,0},{-40,0}}, color={0,127,0}));
       connect(springDamper2.flange_b, rod2.flange_b) annotation (Line(
-          points={{40,30},{50,30},{50,0},{40,0}},
-          color={0,127,0}));
+          points={{40,30},{50,30},{50,0},{40,0}}, color={0,127,0}));
       connect(springDamper1.flange_b, mass1.flange_a) annotation (Line(
-          points={{-20,30},{-10,30}},
-          color={0,127,0}));
+          points={{-20,30},{-10,30}}, color={0,127,0}));
       connect(mass1.flange_b, springDamper2.flange_a) annotation (Line(
-          points={{10,30},{20,30}},
-          color={0,127,0}));
+          points={{10,30},{20,30}}, color={0,127,0}));
       connect(rod1.flange_a, elastoGap1.flange_a) annotation (Line(
-          points={{-40,0},{-48,0},{-48,-30},{-40,-30}},
-          color={0,127,0}));
+          points={{-40,0},{-48,0},{-48,-30},{-40,-30}}, color={0,127,0}));
       connect(rod2.flange_b, elastoGap2.flange_b) annotation (Line(
-          points={{40,0},{50,0},{50,-30},{40,-30}},
-          color={0,127,0}));
+          points={{40,0},{50,0},{50,-30},{40,-30}}, color={0,127,0}));
       connect(elastoGap1.flange_b, mass2.flange_a) annotation (Line(
-          points={{-20,-30},{-10,-30}},
-          color={0,127,0}));
+          points={{-20,-30},{-10,-30}}, color={0,127,0}));
       connect(mass2.flange_b, elastoGap2.flange_a) annotation (Line(
-          points={{10,-30},{20,-30}},
-          color={0,127,0}));
+          points={{10,-30},{20,-30}}, color={0,127,0}));
       annotation (Documentation(info="<html>
 <p>
 This model demonstrates the effect of ElastoGaps on eigenfrequency:<br>
@@ -1464,20 +1409,15 @@ mass2 moves freely as long as -0.5 m &lt; s &lt; +0.5 m.
         annotation (Placement(transformation(extent={{6,-80},{26,-60}})));
     equation
       connect(mass1.flange_b, brake.flange_a) annotation (Line(
-          points={{-14,30},{6,30}},
-          color={0,127,0}));
+          points={{-14,30},{6,30}}, color={0,127,0}));
       connect(step.y, brake.f_normalized) annotation (Line(
-          points={{-13,-10},{16,-10},{16,19}},
-          color={0,0,127}));
+          points={{-13,-10},{16,-10},{16,19}}, color={0,0,127}));
       connect(mass2.flange_b, brake1.flange_a) annotation (Line(
-          points={{-14,-50},{6,-50}},
-          color={0,127,0}));
+          points={{-14,-50},{6,-50}}, color={0,127,0}));
       connect(step.y, brake1.f_normalized) annotation (Line(
-          points={{-13,-10},{16,-10},{16,-39}},
-          color={0,0,127}));
+          points={{-13,-10},{16,-10},{16,-39}}, color={0,0,127}));
       connect(fixed.flange, brake1.support) annotation (Line(
-          points={{16,-70},{16,-60}},
-          color={0,127,0}));
+          points={{16,-70},{16,-60}}, color={0,127,0}));
       annotation (Documentation(info="<html>
 <p>
 This model consists of a mass with an initial velocity of 1 m/s.
@@ -1570,79 +1510,55 @@ one where the brake is implicitly grounded and one where it is explicitly ground
     equation
 
       connect(mass1.flange_b, springDamper.flange_a) annotation (Line(
-          points={{-40,30},{-30,30}},
-          color={0,127,0}));
+          points={{-40,30},{-30,30}}, color={0,127,0}));
       connect(sine1.y, force.f) annotation (Line(
-          points={{-99,30},{-92,30}},
-          color={0,0,127}));
+          points={{-99,30},{-92,30}}, color={0,0,127}));
       connect(force.flange, mass1.flange_a) annotation (Line(
-          points={{-70,30},{-60,30}},
-          color={0,127,0}));
+          points={{-70,30},{-60,30}}, color={0,127,0}));
       connect(mass1.flange_a, damper.flange_a) annotation (Line(
-          points={{-60,30},{-60,0}},
-          color={0,127,0}));
+          points={{-60,30},{-60,0}}, color={0,127,0}));
       connect(damper.flange_b, fixed1.flange) annotation (Line(
-          points={{-60,-20},{-60,-30}},
-          color={0,127,0}));
+          points={{-60,-20},{-60,-30}}, color={0,127,0}));
       connect(springDamper.flange_b, mass2.flange_a) annotation (Line(
-          points={{-10,30},{0,30}},
-          color={0,127,0}));
+          points={{-10,30},{0,30}}, color={0,127,0}));
       connect(mass2.flange_b, supportFriction.flange_a) annotation (Line(
-          points={{20,30},{30,30}},
-          color={0,127,0}));
+          points={{20,30},{30,30}}, color={0,127,0}));
       connect(supportFriction.flange_b, spring.flange_a) annotation (Line(
-          points={{50,30},{60,30}},
-          color={0,127,0}));
+          points={{50,30},{60,30}}, color={0,127,0}));
       connect(spring.flange_b, mass3.flange_a) annotation (Line(
-          points={{80,30},{90,30}},
-          color={0,127,0}));
+          points={{80,30},{90,30}}, color={0,127,0}));
       connect(mass3.flange_b, brake.flange_a) annotation (Line(
-          points={{110,30},{120,30}},
-          color={0,127,0}));
+          points={{110,30},{120,30}}, color={0,127,0}));
       connect(sine2.y, brake.f_normalized) annotation (Line(
-          points={{121,60},{130,60},{130,41}},
-          color={0,0,127}));
+          points={{121,60},{130,60},{130,41}}, color={0,0,127}));
       connect(elastoGap.flange_b, mass1.flange_a) annotation (Line(
-          points={{-70,0},{-60,0},{-60,30}},
-          color={0,127,0}));
+          points={{-70,0},{-60,0},{-60,30}}, color={0,127,0}));
       connect(const.y, convection.Gc) annotation (Line(
-          points={{-9,-80},{0,-80},{0,-60}},
-          color={0,0,127}));
+          points={{-9,-80},{0,-80},{0,-60}}, color={0,0,127}));
       connect(TAmbient.port, convection.fluid) annotation (Line(
-          points={{20,-50},{10,-50}},
-          color={191,0,0}));
+          points={{20,-50},{10,-50}}, color={191,0,0}));
       connect(elastoGap.flange_a, fixed2.flange) annotation (Line(
-          points={{-90,0},{-110,0}},
-          color={0,127,0}));
+          points={{-90,0},{-110,0}}, color={0,127,0}));
       connect(elastoGap.heatPort, convection.solid) annotation (Line(
-          points={{-90,-10},{-90,-50},{-10,-50}},
-          color={191,0,0}));
+          points={{-90,-10},{-90,-50},{-10,-50}}, color={191,0,0}));
       connect(damper.heatPort, convection.solid) annotation (Line(
-          points={{-50,0},{-50,-50},{-10,-50}},
-          color={191,0,0}));
+          points={{-50,0},{-50,-50},{-10,-50}}, color={191,0,0}));
       connect(springDamper.heatPort, convection.solid) annotation (Line(
-          points={{-30,20},{-30,-50},{-10,-50}},
-          color={191,0,0}));
+          points={{-30,20},{-30,-50},{-10,-50}}, color={191,0,0}));
       connect(supportFriction.heatPort, convection.solid) annotation (Line(
-          points={{30,20},{30,0},{-30,0},{-30,-50},{-10,-50}},
-          color={191,0,0}));
+          points={{30,20},{30,0},{-30,0},{-30,-50},{-10,-50}}, color={191,0,0}));
       connect(brake.heatPort, convection.solid) annotation (Line(
-          points={{120,20},{120,0},{-30,0},{-30,-50},{-10,-50}},
-          color={191,0,0}));
+          points={{120,20},{120,0},{-30,0},{-30,-50},{-10,-50}}, color={191,0,0}));
       connect(massWithStopAndFriction.heatPort, convection.solid) annotation (
           Line(
-          points={{180,20},{180,0},{-30,0},{-30,-50},{-10,-50}},
-          color={191,0,0}));
+          points={{180,20},{180,0},{-30,0},{-30,-50},{-10,-50}}, color={191,0,0}));
       connect(brake.flange_b, springDamper1.flange_a) annotation (Line(
-          points={{140,30},{150,30}},
-          color={0,127,0}));
+          points={{140,30},{150,30}}, color={0,127,0}));
       connect(springDamper1.flange_b, massWithStopAndFriction.flange_a)
         annotation (Line(
-          points={{170,30},{180,30}},
-          color={0,127,0}));
+          points={{170,30},{180,30}}, color={0,127,0}));
       connect(springDamper1.heatPort, convection.solid) annotation (Line(
-          points={{150,20},{150,0},{-30,0},{-30,-50},{-10,-50}},
-          color={191,0,0}));
+          points={{150,20},{150,0},{-30,0},{-30,-50},{-10,-50}}, color={191,0,0}));
       annotation (
         Documentation(info="<html>
 <p>
@@ -1821,7 +1737,8 @@ A negative force at flange flange_a moves the sliding mass to the negative direc
               extent={{-150,-45},{150,-75}},
               textString="m=%m")}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}), graphics={Line(points={{-100,0},{-55,0}}, color={0,127,0}),Line(points={{55,0},{100,0}}, color={0,127,0}),Rectangle(
+                {100,100}}), graphics={Line(points={{-100,0},{-55,0}}, color={0,127,0}),
+              Line(points={{55,0},{100,0}}, color={0,127,0}),Rectangle(
                   extent={{-55,-30},{55,30}},
                   fillPattern=FillPattern.Sphere,
                   fillColor={255,255,255}),Polygon(
@@ -1837,7 +1754,8 @@ A negative force at flange flange_a moves the sliding mass to the negative direc
                   fillPattern=FillPattern.Solid),Text(
                   extent={{-44,-41},{51,-57}},
                   textString="Length L",
-                  lineColor={0,0,255}),Line(points={{0,30},{0,53}}, color={0,0,0}),Line(points={{-72,40},{1,40}}),Polygon(
+                  lineColor={0,0,255}),Line(points={{0,30},{0,53}}),
+              Line(points={{-72,40},{1,40}}),Polygon(
                   points={{-7,42},{-7,38},{-1,40},{-7,42}},
                   fillPattern=FillPattern.Solid),Text(
                   extent={{-61,53},{-9,42}},
@@ -1858,7 +1776,8 @@ Rod <em>without inertia</em> and two rigidly connected flanges.
 
 </html>"),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-                100,100}}), graphics={Line(points={{-100,0},{-55,0}}, color={0,127,0}),Line(points={{53,0},{99,0}}, color={0,127,0}),Polygon(
+                100,100}}), graphics={Line(points={{-100,0},{-55,0}}, color={0,127,0}),
+              Line(points={{53,0},{99,0}}, color={0,127,0}),Polygon(
                   points={{50,-90},{20,-80},{20,-100},{50,-90}},
                   lineColor={128,128,128},
                   fillColor={128,128,128},
@@ -1873,7 +1792,8 @@ Rod <em>without inertia</em> and two rigidly connected flanges.
                   extent={{-150,-30},{150,-60}},
                   textString="L=%L")}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}), graphics={Line(points={{-100,0},{-55,0}}, color={0,127,0}),Line(points={{54,0},{100,0}}, color={0,127,0}),Polygon(
+                {100,100}}), graphics={Line(points={{-100,0},{-55,0}}, color={0,127,0}),
+              Line(points={{54,0},{100,0}}, color={0,127,0}),Polygon(
                   points={{50,-90},{20,-80},{20,-100},{50,-90}},
                   lineColor={128,128,128},
                   fillColor={128,128,128},
@@ -1882,7 +1802,8 @@ Rod <em>without inertia</em> and two rigidly connected flanges.
                   lineColor={160,160,164},
                   fillColor={192,192,192},
                   fillPattern=FillPattern.Solid),Line(points={{-100,-29},{-100,
-              -61}}),Line(points={{100,-61},{100,-28}}, color={0,0,0}),Line(points={{-98,-60},{98,-60}}),Polygon(
+              -61}}),Line(points={{100,-61},{100,-28}}),
+              Line(points={{-98,-60},{98,-60}}),Polygon(
                   points={{-101,-60},{-96,-59},{-96,-61},{-101,-60}},
                   fillPattern=FillPattern.Solid),Polygon(
                   points={{100,-60},{95,-61},{95,-59},{100,-60}},
@@ -1960,7 +1881,8 @@ between two sliding masses.
 
 </html>"),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-                100,100}}), graphics={Line(points={{-90,0},{-60,0}}, color={0,0,0}),Line(points={{-60,-30},{-60,30}}),Line(points=
+                100,100}}), graphics={Line(points={{-90,0},{-60,0}}),
+              Line(points={{-60,-30},{-60,30}}),Line(points=
               {{-60,-30},{60,-30}}),Line(points={{-60,30},{60,30}}),Rectangle(
                   extent={{-60,30},{30,-30}},
                   fillColor={192,192,192},
@@ -1979,7 +1901,8 @@ between two sliding masses.
                   color={191,0,0},
                   pattern=LinePattern.Dot)}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}), graphics={Line(points={{-90,0},{-60,0}}, color={0,0,0}),Line(points={{-60,-30},{-60,30}}),Line(
+                {100,100}}), graphics={Line(points={{-90,0},{-60,0}}),
+              Line(points={{-60,-30},{-60,30}}),Line(
               points={{-60,-30},{60,-30}}),Line(points={{-60,30},
               {60,30}}),Rectangle(
                   extent={{-60,30},{30,-30}},
@@ -2063,8 +1986,8 @@ to describe a coupling of the sliding mass with the housing via a spring/damper.
                 {100,100}}), graphics={Line(
                   points={{-80,32},{-58,32},{-43,2},{-13,62},{17,2},{47,62},{62,
                 32},{80,32}},
-                  thickness=0.5),Line(points={{-100,31},{-100,96}}, color={128,
-              128,128}),Line(points={{100,29},{100,94}}, color={128,128,128}),
+                  thickness=0.5),Line(points={{-100,31},{-100,96}}, color={128,128,128}),
+              Line(points={{100,29},{100,94}}, color={128,128,128}),
               Line(points={{-98,82},{100,82}}, color={128,128,128}),Polygon(
                   points={{90,85},{100,82},{90,79},{90,85}},
                   lineColor={128,128,128},
@@ -2221,7 +2144,8 @@ where the different effects are visualized:
 </p>
 </html>"),
         Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}), graphics={Line(points={{-100,0},{-50,0}}, color={0,127,0}),Line(
+                {100,100}}), graphics={Line(points={{-100,0},{-50,0}}, color={0,127,0}),
+              Line(
                   points={{-48,34},{-48,-46}},
                   thickness=1),Line(points={{8,40},{8,2}}),Line(
               points={{-2,0},{38,0},{38,44},{-2,44}}),Line(
@@ -2243,7 +2167,8 @@ where the different effects are visualized:
                   points={{100,-60},{95,-61},{95,-59},{100,-60}},
                   fillPattern=FillPattern.Solid)}),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-                100,100}}), graphics={Line(points={{-98,0},{-48,0}}, color={0,127,0}),Line(
+                100,100}}), graphics={Line(points={{-98,0},{-48,0}}, color={0,127,0}),
+              Line(
                   points={{-48,38},{-48,-38}},
                   thickness=1),Line(points={{8,-10},{8,-48}}),
               Line(points={{-2,-50},{38,-50},{38,-6},{-2,-6}}),
@@ -2267,7 +2192,8 @@ where the different effects are visualized:
                   extent={{-150,-125},{150,-95}},
                   textString="c=%c"),Text(
                   extent={{-150,-160},{150,-130}},
-                  textString="d=%d"),Line(points={{68,22},{72,22}}, color={0,0,0}),Line(
+                  textString="d=%d"),Line(points={{68,22},{72,22}}),
+              Line(
                   visible=useHeatPort,
                   points={{-100,-100},{-100,-44},{22,-44},{22,-28}},
                   color={191,0,0},
@@ -2794,14 +2720,11 @@ following references, especially (Armstrong and Canudas de Witt 1996):
       connect(set_flange_f.flange, flange) annotation (Line(
           points={{40,-90},{60,-90},{60,0},{100,0}}));
       connect(s_start, set_s_start.s_start) annotation (Line(
-          points={{-120,60},{-22,60}},
-          color={0,0,127}));
+          points={{-120,60},{-22,60}}, color={0,0,127}));
       connect(v_start, set_v_start.v_start) annotation (Line(
-          points={{-120,0},{-22,0}},
-          color={0,0,127}));
+          points={{-120,0},{-22,0}}, color={0,0,127}));
       connect(a_start, set_a_start.a_start) annotation (Line(
-          points={{-120,-60},{-22,-60}},
-          color={0,0,127}));
+          points={{-120,-60},{-22,-60}}, color={0,0,127}));
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-94,74},{68,46}},
@@ -3186,7 +3109,8 @@ between the stops.</em> </li>
                   lineColor={0,0,255}),Polygon(
                   points={{-5,61},{5,58},{-5,55},{-5,61}},
                   fillPattern=FillPattern.Solid),Line(points={{-100,-10},{-100,
-              -60}}),Line(points={{100,-10},{100,-60}}, color={0,0,0}),Polygon(
+              -60}}),Line(points={{100,-10},{100,-60}}),
+              Polygon(
                   points={{90,-47},{100,-50},{90,-53},{90,-47}},
                   fillPattern=FillPattern.Solid),Polygon(
                   points={{-90,-47},{-90,-53},{-100,-50},{-90,-47}},
@@ -3325,7 +3249,8 @@ Modelica.Blocks library).
 </p>
 
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}), graphics={Line(points={{-70,0},{-90,0}}, color={0,0,0}),Text(
+                {100,100}}), graphics={Line(points={{-70,0},{-90,0}}),
+              Text(
                   extent={{80,-28},{114,-62}},
                   textString="s")}));
     end PositionSensor;
@@ -3346,7 +3271,8 @@ Modelica.Blocks library).
 </p>
 
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}), graphics={Line(points={{-70,0},{-90,0}}, color={0,0,0}),Text(
+                {100,100}}), graphics={Line(points={{-70,0},{-90,0}}),
+              Text(
                   extent={{80,-28},{111,-61}},
                   textString="v")}));
     end SpeedSensor;
@@ -3370,7 +3296,8 @@ Modelica.Blocks library).
 </p>
 
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}), graphics={Line(points={{-70,0},{-90,0}}, color={0,0,0}),Text(
+                {100,100}}), graphics={Line(points={{-70,0},{-90,0}}),
+              Text(
                   extent={{80,-28},{115,-60}},
                   textString="a")}));
     end AccSensor;
@@ -3395,7 +3322,8 @@ Modelica.Blocks library).
 </p>
 
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}), graphics={Line(points={{-70,0},{-90,0}}, color={0,0,0}),Line(points={{70.4,0},{100,0}}, color={0,0,127}),Text(
+                {100,100}}), graphics={Line(points={{-70,0},{-90,0}}),
+              Line(points={{70.4,0},{100,0}}, color={0,0,127}),Text(
                   extent={{8,-68},{42,-102}},
                   textString="s"),Line(points={{0,-99},{0,-60}}, color={0,0,127})}));
     end RelPositionSensor;
@@ -3428,9 +3356,11 @@ Modelica.Blocks library).
 <li><em>First Version from August 26, 1999 by P. Beater</em> </li>
 </ul>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}), graphics={Line(points={{-70,0},{-90,0}}, color={0,0,0}),Line(points={{70.4,0},{100,0}}, color={0,0,127}),Text(
+                {100,100}}), graphics={Line(points={{-70,0},{-90,0}}),
+              Line(points={{70.4,0},{100,0}}, color={0,0,127}),Text(
                   extent={{8,-68},{42,-102}},
-                  textString="v"),Line(points={{0,-100},{0,-61}}, color={0,0,127})}));
+                  textString="v"),Line(points={{0,-100},{0,-61}}, color={0,0,
+              127})}));
     end RelSpeedSensor;
 
     model RelAccSensor "Ideal sensor to measure the relative acceleration"
@@ -3459,7 +3389,8 @@ Modelica.Blocks library).
 </p>
 
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}), graphics={Line(points={{-70,0},{-90,0}}, color={0,0,0}),Line(points={{70.4,0},{100,0}}, color={0,0,127}),Text(
+                {100,100}}), graphics={Line(points={{-70,0},{-90,0}}),
+              Line(points={{70.4,0},{100,0}}, color={0,0,127}),Text(
                   extent={{7,-68},{41,-102}},
                   textString="a"),Line(points={{0,-99},{0,-60}}, color={0,0,127})}));
     end RelAccSensor;
@@ -3511,7 +3442,8 @@ and provides the result as output signal <strong>power</strong>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={Text(
                   extent={{-75,-79},{67,-119}},
-                  textString="power"),Line(points={{-70,0},{-90,0}}, color={0,0,0}),Line(points={{70,0},{90,0}}),Line(points={{-80,
+                  textString="power"),Line(points={{-70,0},{-90,0}}),
+              Line(points={{70,0},{90,0}}),Line(points={{-80,
               -100},{-80,0}}, color={0,0,127})}));
     end PowerSensor;
 
@@ -3549,10 +3481,12 @@ ideal way and provides the results as output signals <strong>v</strong>, <strong
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={Text(
                   extent={{-146,-70},{-56,-100}},
-                  textString="power"),Line(points={{-70,0},{-90,0}}, color={0,0,0}),Line(points={{70,0},{90,0}}),Line(points={{-60,
+                  textString="power"),Line(points={{-70,0},{-90,0}}),
+              Line(points={{70,0},{90,0}}),Line(points={{-60,
               -100},{-60,-60}}, color={0,0,127}),Text(
                   extent={{-28,-71},{52,-101}},
-                  textString="f"),Line(points={{0,-100},{0,-60}}, color={0,0,127}),Line(points={{60,-100},{60,-60}}, color={0,0,127}),Text(
+                  textString="f"),Line(points={{0,-100},{0,-60}}, color={0,0,127}),
+              Line(points={{60,-100},{60,-60}}, color={0,0,127}),Text(
                   extent={{60,-70},{114,-101}},
                   textString="v")}));
     end MultiSensor;
@@ -3655,7 +3589,8 @@ blocks of the block library Modelica.Blocks.Sources.
                   fillPattern=FillPattern.Solid),Text(
                   extent={{150,60},{-150,100}},
                   textString="%name",
-                  lineColor={0,0,255}),Line(points={{0,52},{0,32}}, color={0,0,0}),Line(points={{-29,32},{30,32}}),Line(points={{
+                  lineColor={0,0,255}),Line(points={{0,52},{0,32}}),
+              Line(points={{-29,32},{30,32}}),Line(points={{
               -30,-32},{30,-32}}),Line(points={{0,-32},{0,-100}}),Line(points={{30,-42},{20,-52}}),
               Line(points={{30,-32},{10,-52}}),Line(points={{20,
               -32},{0,-52}}),Line(points={{10,-32},{-10,-52}}),Line(points={{0,-32},{-20,-52}}),
@@ -4450,8 +4385,7 @@ of several base components.
         annotation (Placement(transformation(extent={{10,-94},{30,-74}})));
     equation
       connect(fixed.flange, internalSupport) annotation (Line(
-          points={{20,-84},{20,-80},{0,-80}},
-          color={0,127,0}));
+          points={{20,-84},{20,-80},{0,-80}}, color={0,127,0}));
       connect(internalSupport, support)
         annotation (Line(points={{0,-80},{0,-100}}));
       annotation (
@@ -4515,8 +4449,7 @@ and instead the component is internally fixed to ground.
         annotation (Placement(transformation(extent={{10,-97},{30,-77}})));
     equation
       connect(fixed.flange, internalSupport) annotation (Line(
-          points={{20,-87},{20,-80},{0,-80}},
-          color={0,127,0}));
+          points={{20,-87},{20,-80},{0,-80}}, color={0,127,0}));
       connect(internalSupport, support)
         annotation (Line(points={{0,-80},{0,-100}}));
       annotation (
@@ -4705,11 +4638,9 @@ and c have more meaningful values for the user.
     equation
       s = flange.s - internalSupport.s;
       connect(internalSupport.flange, support) annotation (Line(
-          points={{0,-80},{0,-100}},
-          color={0,127,0}));
+          points={{0,-80},{0,-100}}, color={0,127,0}));
       connect(fixed.flange, internalSupport.flange) annotation (Line(
-          points={{20,-87},{20,-80},{0,-80}},
-          color={0,127,0}));
+          points={{20,-87},{20,-80},{0,-80}}, color={0,127,0}));
       annotation (
         Documentation(info="<html>
 <p>
@@ -4827,11 +4758,9 @@ and instead the component is internally fixed to ground.
       s_a = flange_a.s - internalSupport.s;
       s_b = flange_b.s - internalSupport.s;
       connect(internalSupport.flange, support) annotation (Line(
-          points={{0,-80},{0,-100}},
-          color={0,127,0}));
+          points={{0,-80},{0,-100}}, color={0,127,0}));
       connect(fixed.flange, internalSupport.flange) annotation (Line(
-          points={{20,-87},{20,-80},{0,-80}},
-          color={0,127,0}));
+          points={{20,-87},{20,-80},{0,-80}}, color={0,127,0}));
       annotation (
         Documentation(info="<html>
 <p>
@@ -4955,7 +4884,8 @@ connector is not connected).
                   fillPattern=FillPattern.Solid),Line(points={{0,-60},{0,-100}}),Text(
                   extent={{-150,140},{150,100}},
                   lineColor={0,0,255},
-                  textString="%name"),Line(points={{-78,80},{51,80}}, color={0,0,0}),Polygon(
+                  textString="%name"),Line(points={{-78,80},{51,80}}),
+              Polygon(
                   points={{81,80},{51,90},{51,70},{81,80}},
                   fillColor={128,128,128},
                   fillPattern=FillPattern.Solid),Line(points={{-52,-60},{77,-60}}),Polygon(
@@ -5038,7 +4968,8 @@ to provide the measured signal as output signal for further processing
 with the Modelica.Blocks blocks.
 </p>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}), graphics={Line(points={{-51,34},{29,34}}, color={0,0,0}),Polygon(
+                {100,100}}), graphics={Line(points={{-51,34},{29,34}}),
+              Polygon(
                   points={{59,34},{29,44},{29,24},{59,34}},
                   fillColor={128,128,128},
                   fillPattern=FillPattern.Solid),Line(points={{-70,0},{-90,0}}),Line(points={{70,0},{90,0}}),Text(

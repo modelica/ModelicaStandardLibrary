@@ -37,11 +37,9 @@ package CombiTable2D
       annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
   equation
     connect(clock.y, t_new.u1) annotation (Line(
-        points={{-59,30},{-52,30},{-52,16},{-42,16}},
-        color={0,0,127}));
+        points={{-59,30},{-52,30},{-52,16},{-42,16}}, color={0,0,127}));
     connect(const.y, t_new.u2) annotation (Line(
-        points={{-59,-10},{-52,-10},{-52,4},{-42,4}},
-        color={0,0,127}));
+        points={{-59,-10},{-52,-10},{-52,4},{-42,4}}, color={0,0,127}));
     annotation (experiment(StartTime=0, StopTime=60));
   end Test1;
 
@@ -62,11 +60,9 @@ package CombiTable2D
       annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
   equation
     connect(clock.y, t_new.u2) annotation (Line(
-        points={{-59,-10},{-52,-10},{-52,4},{-42,4}},
-        color={0,0,127}));
+        points={{-59,-10},{-52,-10},{-52,4},{-42,4}}, color={0,0,127}));
     connect(const.y, t_new.u1) annotation (Line(
-        points={{-59,30},{-50,30},{-50,16},{-42,16}},
-        color={0,0,127}));
+        points={{-59,30},{-50,30},{-50,16},{-42,16}}, color={0,0,127}));
     annotation (experiment(StartTime=0, StopTime=60));
   end Test2;
 
@@ -87,11 +83,9 @@ package CombiTable2D
       annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
   equation
     connect(clock1.y, t_new.u1) annotation (Line(
-        points={{-59,30},{-52,30},{-52,16},{-42,16}},
-        color={0,0,127}));
+        points={{-59,30},{-52,30},{-52,16},{-42,16}}, color={0,0,127}));
     connect(clock2.y, t_new.u2) annotation (Line(
-        points={{-59,-10},{-52,-10},{-52,4},{-42,4}},
-        color={0,0,127}));
+        points={{-59,-10},{-52,-10},{-52,4},{-42,4}}, color={0,0,127}));
     annotation (experiment(StartTime=0, StopTime=60));
   end Test3;
 
@@ -111,11 +105,9 @@ package CombiTable2D
       annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
   equation
     connect(clock.y, t_new.u1) annotation (Line(
-        points={{-59,30},{-50,30},{-50,16},{-42,16}},
-        color={0,0,127}));
+        points={{-59,30},{-50,30},{-50,16},{-42,16}}, color={0,0,127}));
     connect(const.y, t_new.u2) annotation (Line(
-        points={{-59,-10},{-50,-10},{-50,4},{-42,4}},
-        color={0,0,127}));
+        points={{-59,-10},{-50,-10},{-50,4},{-42,4}}, color={0,0,127}));
     annotation (experiment(StartTime=0, StopTime=60));
   end Test4;
 
@@ -135,11 +127,9 @@ package CombiTable2D
       annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
   equation
     connect(const.y, t_new.u1) annotation (Line(
-        points={{-59,30},{-52,30},{-52,16},{-42,16}},
-        color={0,0,127}));
+        points={{-59,30},{-52,30},{-52,16},{-42,16}}, color={0,0,127}));
     connect(clock.y, t_new.u2) annotation (Line(
-        points={{-59,-10},{-50.5,-10},{-50.5,4},{-42,4}},
-        color={0,0,127}));
+        points={{-59,-10},{-50.5,-10},{-50.5,4},{-42,4}}, color={0,0,127}));
     annotation (experiment(StartTime=0, StopTime=60));
   end Test5;
 
@@ -159,11 +149,9 @@ package CombiTable2D
       annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
   equation
     connect(clock2.y, t_new.u2) annotation (Line(
-        points={{-59,-10},{-52,-10},{-52,4},{-42,4}},
-        color={0,0,127}));
+        points={{-59,-10},{-52,-10},{-52,4},{-42,4}}, color={0,0,127}));
     connect(clock1.y, t_new.u1) annotation (Line(
-        points={{-59,30},{-52,30},{-52,16},{-42,16}},
-        color={0,0,127}));
+        points={{-59,30},{-52,30},{-52,16},{-42,16}}, color={0,0,127}));
     annotation (experiment(StartTime=0, StopTime=60));
   end Test6;
 
@@ -184,11 +172,9 @@ package CombiTable2D
       annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
   equation
     connect(clock.y, t_new.u1) annotation (Line(
-        points={{-59,30},{-50,30},{-50,16},{-42,16}},
-        color={0,0,127}));
+        points={{-59,30},{-50,30},{-50,16},{-42,16}}, color={0,0,127}));
     connect(const.y, t_new.u2) annotation (Line(
-        points={{-59,-10},{-50,-10},{-50,4},{-42,4}},
-        color={0,0,127}));
+        points={{-59,-10},{-50,-10},{-50,4},{-42,4}}, color={0,0,127}));
     annotation (experiment(StartTime=0, StopTime=60));
   end Test7;
 
@@ -209,11 +195,9 @@ package CombiTable2D
       annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
   equation
     connect(const.y, t_new.u1) annotation (Line(
-        points={{-59,30},{-52,30},{-52,16},{-42,16}},
-        color={0,0,127}));
+        points={{-59,30},{-52,30},{-52,16},{-42,16}}, color={0,0,127}));
     connect(clock.y, t_new.u2) annotation (Line(
-        points={{-59,-10},{-50,-10},{-50,4},{-42,4}},
-        color={0,0,127}));
+        points={{-59,-10},{-50,-10},{-50,4},{-42,4}}, color={0,0,127}));
     annotation (experiment(StartTime=0, StopTime=60));
   end Test8;
 
@@ -234,11 +218,9 @@ package CombiTable2D
       annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
   equation
     connect(clock1.y, t_new.u1) annotation (Line(
-        points={{-59,30},{-50,30},{-50,16},{-42,16}},
-        color={0,0,127}));
+        points={{-59,30},{-50,30},{-50,16},{-42,16}}, color={0,0,127}));
     connect(clock2.y, t_new.u2) annotation (Line(
-        points={{-59,-10},{-50,-10},{-50,4},{-42,4}},
-        color={0,0,127}));
+        points={{-59,-10},{-50,-10},{-50,4},{-42,4}}, color={0,0,127}));
     annotation (experiment(StartTime=0, StopTime=60));
   end Test9;
 
@@ -254,11 +236,9 @@ package CombiTable2D
       annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
   equation
     connect(clock1.y, t_new.u1) annotation (Line(
-        points={{-59,30},{-50,30},{-50,16},{-42,16}},
-        color={0,0,127}));
+        points={{-59,30},{-50,30},{-50,16},{-42,16}}, color={0,0,127}));
     connect(clock2.y, t_new.u2) annotation (Line(
-        points={{-59,-10},{-50,-10},{-50,4},{-42,4}},
-        color={0,0,127}));
+        points={{-59,-10},{-50,-10},{-50,4},{-42,4}}, color={0,0,127}));
     annotation (experiment(StartTime=0, StopTime=60));
   end Test10;
 
@@ -274,11 +254,9 @@ package CombiTable2D
       annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
   equation
     connect(clock1.y, t_new.u1) annotation (Line(
-        points={{-59,30},{-50,30},{-50,16},{-42,16}},
-        color={0,0,127}));
+        points={{-59,30},{-50,30},{-50,16},{-42,16}}, color={0,0,127}));
     connect(clock2.y, t_new.u2) annotation (Line(
-        points={{-59,-10},{-50,-10},{-50,4},{-42,4}},
-        color={0,0,127}));
+        points={{-59,-10},{-50,-10},{-50,4},{-42,4}}, color={0,0,127}));
     annotation (experiment(StartTime=0, StopTime=60));
   end Test11;
 
@@ -294,11 +272,9 @@ package CombiTable2D
       annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
   equation
     connect(clock1.y, t_new.u1) annotation (Line(
-        points={{-59,30},{-50,30},{-50,16},{-42,16}},
-        color={0,0,127}));
+        points={{-59,30},{-50,30},{-50,16},{-42,16}}, color={0,0,127}));
     connect(clock2.y, t_new.u2) annotation (Line(
-        points={{-59,-10},{-50,-10},{-50,4},{-42,4}},
-        color={0,0,127}));
+        points={{-59,-10},{-50,-10},{-50,4},{-42,4}}, color={0,0,127}));
     annotation (experiment(StartTime=0, StopTime=60));
   end Test12;
 
@@ -327,11 +303,9 @@ package CombiTable2D
       annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
   equation
     connect(clock1.y, t_new.u1) annotation (Line(
-        points={{-59,30},{-50,30},{-50,16},{-42,16}},
-        color={0,0,127}));
+        points={{-59,30},{-50,30},{-50,16},{-42,16}}, color={0,0,127}));
     connect(clock2.y, t_new.u2) annotation (Line(
-        points={{-59,-10},{-50,-10},{-50,4},{-42,4}},
-        color={0,0,127}));
+        points={{-59,-10},{-50,-10},{-50,4},{-42,4}}, color={0,0,127}));
     annotation (experiment(StartTime=0, StopTime=60));
   end Test14;
 
@@ -536,11 +510,9 @@ double mydummyfunc(double dummy_in) {
       annotation (Placement(transformation(extent={{-20,-40},{10,-20}})));
   equation
     connect(ramp1.y, t_new.u2) annotation (Line(
-        points={{-59,-10},{-50,-10},{-50,4},{-42,4}},
-        color={0,0,127}));
+        points={{-59,-10},{-50,-10},{-50,4},{-42,4}}, color={0,0,127}));
     connect(ramp.y, t_new.u1) annotation (Line(
-        points={{-59,30},{-52,30},{-52,16},{-42,16}},
-        color={0,0,127}));
+        points={{-59,30},{-52,30},{-52,16},{-42,16}}, color={0,0,127}));
     annotation (experiment(StartTime=0, StopTime=1.0));
   end Test18_usertab;
 
@@ -978,11 +950,9 @@ double mydummyfunc(double dummy_in) {
       annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
   equation
     connect(clock1.y, t_new.u1) annotation (Line(
-        points={{-59,30},{-50,30},{-50,16},{-42,16}},
-        color={0,0,127}));
+        points={{-59,30},{-50,30},{-50,16},{-42,16}}, color={0,0,127}));
     connect(clock2.y, t_new.u2) annotation (Line(
-        points={{-59,-10},{-50,-10},{-50,4},{-42,4}},
-        color={0,0,127}));
+        points={{-59,-10},{-50,-10},{-50,4},{-42,4}}, color={0,0,127}));
     annotation (experiment(StartTime=0, StopTime=1));
   end Test24;
 
@@ -997,11 +967,9 @@ double mydummyfunc(double dummy_in) {
       annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
   equation
     connect(clock1.y, t_new.u1) annotation (Line(
-        points={{-59,30},{-50,30},{-50,16},{-42,16}},
-        color={0,0,127}));
+        points={{-59,30},{-50,30},{-50,16},{-42,16}}, color={0,0,127}));
     connect(clock2.y, t_new.u2) annotation (Line(
-        points={{-59,-10},{-50,-10},{-50,4},{-42,4}},
-        color={0,0,127}));
+        points={{-59,-10},{-50,-10},{-50,4},{-42,4}}, color={0,0,127}));
     annotation (experiment(StartTime=0, StopTime=1));
   end Test25;
 
@@ -1016,11 +984,9 @@ double mydummyfunc(double dummy_in) {
       annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
   equation
     connect(clock1.y, t_new.u1) annotation (Line(
-        points={{-59,30},{-50,30},{-50,16},{-42,16}},
-        color={0,0,127}));
+        points={{-59,30},{-50,30},{-50,16},{-42,16}}, color={0,0,127}));
     connect(clock2.y, t_new.u2) annotation (Line(
-        points={{-59,-10},{-50,-10},{-50,4},{-42,4}},
-        color={0,0,127}));
+        points={{-59,-10},{-50,-10},{-50,4},{-42,4}}, color={0,0,127}));
     annotation (experiment(StartTime=0, StopTime=1));
   end Test26;
 
@@ -1035,11 +1001,9 @@ double mydummyfunc(double dummy_in) {
       annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
   equation
     connect(clock1.y, t_new.u1) annotation (Line(
-        points={{-59,30},{-50,30},{-50,16},{-42,16}},
-        color={0,0,127}));
+        points={{-59,30},{-50,30},{-50,16},{-42,16}}, color={0,0,127}));
     connect(clock2.y, t_new.u2) annotation (Line(
-        points={{-59,-10},{-50,-10},{-50,4},{-42,4}},
-        color={0,0,127}));
+        points={{-59,-10},{-50,-10},{-50,4},{-42,4}}, color={0,0,127}));
     annotation (experiment(StartTime=0, StopTime=1));
   end Test27;
 
@@ -1054,11 +1018,9 @@ double mydummyfunc(double dummy_in) {
       annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
   equation
     connect(clock1.y, t_new.u1) annotation (Line(
-        points={{-59,30},{-50,30},{-50,16},{-42,16}},
-        color={0,0,127}));
+        points={{-59,30},{-50,30},{-50,16},{-42,16}}, color={0,0,127}));
     connect(clock2.y, t_new.u2) annotation (Line(
-        points={{-59,-10},{-50,-10},{-50,4},{-42,4}},
-        color={0,0,127}));
+        points={{-59,-10},{-50,-10},{-50,4},{-42,4}}, color={0,0,127}));
     annotation (experiment(StartTime=0, StopTime=1));
   end Test28;
 
@@ -1073,11 +1035,9 @@ double mydummyfunc(double dummy_in) {
       annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
   equation
     connect(clock1.y, t_new.u1) annotation (Line(
-        points={{-59,30},{-50,30},{-50,16},{-42,16}},
-        color={0,0,127}));
+        points={{-59,30},{-50,30},{-50,16},{-42,16}}, color={0,0,127}));
     connect(clock2.y, t_new.u2) annotation (Line(
-        points={{-59,-10},{-50,-10},{-50,4},{-42,4}},
-        color={0,0,127}));
+        points={{-59,-10},{-50,-10},{-50,4},{-42,4}}, color={0,0,127}));
     annotation (experiment(StartTime=0, StopTime=1));
   end Test29;
 
@@ -1092,11 +1052,9 @@ double mydummyfunc(double dummy_in) {
       annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
   equation
     connect(clock1.y, t_new.u1) annotation (Line(
-        points={{-59,30},{-50,30},{-50,16},{-42,16}},
-        color={0,0,127}));
+        points={{-59,30},{-50,30},{-50,16},{-42,16}}, color={0,0,127}));
     connect(clock2.y, t_new.u2) annotation (Line(
-        points={{-59,-10},{-50,-10},{-50,4},{-42,4}},
-        color={0,0,127}));
+        points={{-59,-10},{-50,-10},{-50,4},{-42,4}}, color={0,0,127}));
     annotation (experiment(StartTime=0, StopTime=1));
   end Test30;
 end CombiTable2D;

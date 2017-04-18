@@ -114,63 +114,59 @@ model MulitSensorTest
 
 equation
   connect(groundA.p, sineVoltageA.n) annotation (Line(points={{-20,60},{-20,60},
-          {-10,60}},                                                                       color={0,0,255}));
-  connect(sineVoltageA.p, multiSensorA.pc) annotation (Line(points={{-10,80},{0,80},{10,80}},    color={0,0,255}));
+          {-10,60}}, color={0,0,255}));
+  connect(sineVoltageA.p, multiSensorA.pc) annotation (Line(points={{-10,80},{0,80},{10,80}}, color={0,0,255}));
   connect(multiSensorA.nc, resistorA.p) annotation (Line(points={{30,80},{35,80},{40,80}}, color={0,0,255}));
   connect(resistorA.n, inductorA.p) annotation (Line(points={{60,80},{60,80},{70,80}}, color={0,0,255}));
-  connect(sineVoltageA.n, inductorA.n) annotation (Line(points={{-10,60},{100,60},{100,80},{90,80}},
-                                                                                                   color={0,0,255}));
-  connect(multiSensorA.pv, multiSensorA.pc) annotation (Line(points={{20,90},{10,90},{10,80}},  color={0,0,255}));
-  connect(multiSensorA.nv, sineVoltageA.n) annotation (Line(points={{20,70},{20,60},{-10,60}},
-                                                                                             color={0,0,255}));
+  connect(sineVoltageA.n, inductorA.n) annotation (Line(points={{-10,60},{100,60},{100,80},{90,80}}, color={0,0,255}));
+  connect(multiSensorA.pv, multiSensorA.pc) annotation (Line(points={{20,90},{10,90},{10,80}}, color={0,0,255}));
+  connect(multiSensorA.nv, sineVoltageA.n) annotation (Line(points={{20,70},{20,60},{-10,60}}, color={0,0,255}));
   connect(starM.pin_n, groundM.p) annotation (Line(points={{-38,0},{-38,0},{-50,
-          0}},                                                                          color={0,0,255}));
+          0}}, color={0,0,255}));
   connect(starM.plug_p, sineVoltageM.plug_n) annotation (Line(points={{-18,0},{-20,
-          0},{-10,0}},                                                                             color={0,0,255}));
+          0},{-10,0}}, color={0,0,255}));
   connect(multiSensorM.pc,sineVoltageM. plug_p) annotation (Line(points={{10,20},
-          {-10,20}},                                                                         color={0,0,255}));
+          {-10,20}}, color={0,0,255}));
   connect(starM.plug_p, multiSensorM.nv) annotation (Line(points={{-18,0},{0,0},
-          {20,0},{20,10}},                                                                          color={0,0,255}));
+          {20,0},{20,10}}, color={0,0,255}));
   connect(multiSensorM.nv,inductorM. plug_n) annotation (Line(points={{20,10},{20,
-          10},{20,0},{100,0},{100,20},{90,20}},                                                                    color={0,0,255}));
+          10},{20,0},{100,0},{100,20},{90,20}}, color={0,0,255}));
   connect(multiSensorM.pc,multiSensorM. pv) annotation (Line(points={{10,20},{10,
-          30},{20,30}},                                                                         color={0,0,255}));
+          30},{20,30}}, color={0,0,255}));
   connect(multiSensorM.nc,resistorM. plug_p) annotation (Line(points={{30,20},{35,
-          20},{40,20}},                                                                         color={0,0,255}));
+          20},{40,20}}, color={0,0,255}));
   connect(resistorM.plug_n,inductorM. plug_p) annotation (Line(points={{60,20},{
-          65,20},{70,20}},                                                                       color={0,0,255}));
+          65,20},{70,20}}, color={0,0,255}));
   connect(multiSensorQS.pv, multiSensorQS.pc) annotation (Line(points={{20,-20},
-          {10,-20},{10,-30}},                                                                        color={0,0,255}));
+          {10,-20},{10,-30}}, color={0,0,255}));
   connect(sineVoltageQS.pin_p, multiSensorQS.pc) annotation (Line(points={{-10,-30},
-          {10,-30}},                                                                            color={85,170,255}));
+          {10,-30}}, color={85,170,255}));
   connect(multiSensorQS.nv, sineVoltageQS.pin_n) annotation (Line(points={{20,-40},
-          {20,-50},{-10,-50}},                                                                        color={85,170,255}));
+          {20,-50},{-10,-50}}, color={85,170,255}));
   connect(sineVoltageQS.pin_n, groundQS.pin) annotation (Line(points={{-10,-50},
-          {-20,-50}},                                                                       color={85,170,255}));
+          {-20,-50}}, color={85,170,255}));
   connect(resistorQS.pin_n, inductorQS.pin_p) annotation (Line(points={{60,-30},
-          {66,-30},{70,-30}},                                                              color={85,170,255}));
+          {66,-30},{70,-30}}, color={85,170,255}));
   connect(inductorQS.pin_n, sineVoltageQS.pin_n) annotation (Line(points={{90,-30},
-          {100,-30},{100,-50},{-10,-50}},                                                                        color={85,170,255}));
+          {100,-30},{100,-50},{-10,-50}}, color={85,170,255}));
   connect(multiSensorQS.nc, resistorQS.pin_p) annotation (Line(points={{30,-30},
-          {36,-30},{40,-30}},                                                                       color={85,170,255}));
-  connect(multiSensorQM.pc, sineVoltageQM.plug_p) annotation (Line(points={{10,-70},{10,-70},{2,-70},{-10,-70}},                         color={0,0,255}));
-  connect(multiSensorQM.pc, multiSensorQM.pv) annotation (Line(points={{10,-70},{10,-60},{20,-60}},  color={0,0,255}));
+          {36,-30},{40,-30}}, color={85,170,255}));
+  connect(multiSensorQM.pc, sineVoltageQM.plug_p) annotation (Line(points={{10,-70},{10,-70},{2,-70},{-10,-70}}, color={0,0,255}));
+  connect(multiSensorQM.pc, multiSensorQM.pv) annotation (Line(points={{10,-70},{10,-60},{20,-60}}, color={0,0,255}));
   connect(multiSensorQM.nc, resistorQM.plug_p) annotation (Line(points={{30,-70},{30,-70},{40,-70}}, color={0,0,255}));
   connect(resistorQM.plug_n, inductorQM.plug_p) annotation (Line(points={{60,-70},{60,-70},{70,-70}}, color={0,0,255}));
-  connect(inductorQM.plug_n, sineVoltageQM.plug_n) annotation (Line(points={{90,-70},{100,-70},{100,-90},{-10,-90}},
-                                                                                                                   color={85,170,255}));
-  connect(multiSensorQM.nv, sineVoltageQM.plug_n) annotation (Line(points={{20,-80},{20,-80},{20,-88},{20,-90},{-10,-90}},
-                                                                                                                       color={85,170,255}));
+  connect(inductorQM.plug_n, sineVoltageQM.plug_n) annotation (Line(points={{90,-70},{100,-70},{100,-90},{-10,-90}}, color={85,170,255}));
+  connect(multiSensorQM.nv, sineVoltageQM.plug_n) annotation (Line(points={{20,-80},{20,-80},{20,-88},{20,-90},{-10,-90}}, color={85,170,255}));
   connect(starQM.plug_p, sineVoltageQM.plug_n) annotation (Line(points={{-18,-90},{-14,-90},{-10,-90}}, color={85,170,255}));
   connect(starQM.pin_n, groundQM.pin) annotation (Line(points={{-38,-90},{-44,-90},{-50,-90}}, color={85,170,255}));
   connect(rmsvA.u, multiSensorA.v) annotation (Line(points={{-78,70},{-70,70},{-70,
-          40},{26,40},{26,69}},                                                                            color={0,0,127}));
+          40},{26,40},{26,69}}, color={0,0,127}));
   connect(rmsiA.u, multiSensorA.i) annotation (Line(points={{-78,40},{-68,40},{14,
-          40},{14,69}},                                                                                  color={0,0,127}));
+          40},{14,69}}, color={0,0,127}));
   connect(rmsvM.u, multiSensorM.v) annotation (Line(points={{-78,10},{-70,10},{-70,
-          -10},{26,-10},{26,9}},                                                                         color={0,0,127}));
+          -10},{26,-10},{26,9}}, color={0,0,127}));
   connect(rmsiM.u, multiSensorM.i) annotation (Line(points={{-78,-20},{-78,-20},
-          {-70,-20},{-70,-20},{-70,-10},{14,-10},{14,9}},                                                         color={0,0,127}));
+          {-70,-20},{-70,-20},{-70,-10},{14,-10},{14,9}}, color={0,0,127}));
   connect(multiSensorM.power, meanpowerM.u) annotation (Line(points={{9,14},{0,14},
           {0,30},{-28,30},{-28,20},{-38,20}}, color={0,0,127}));
   connect(multiSensorA.power, meanpowerA.u) annotation (Line(points={{9,74},{0,74},

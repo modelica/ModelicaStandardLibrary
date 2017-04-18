@@ -74,66 +74,46 @@ extends Modelica.Icons.ExamplesPackage;
             extent={{-100,20},{-80,40}})));
   equation
     connect(slidingMass.flange_b, rod.flange_a) annotation (Line(
-        points={{-50,70},{-30,70}},
-        color={0,127,0}));
+        points={{-50,70},{-30,70}}, color={0,127,0}));
     connect(rod.flange_b, spring.flange_a) annotation (Line(
-        points={{-10,70},{0,70}},
-        color={0,127,0}));
+        points={{-10,70},{0,70}}, color={0,127,0}));
     connect(spring.flange_b, damper.flange_a) annotation (Line(
-        points={{20,70},{30,70}},
-        color={0,127,0}));
+        points={{20,70},{30,70}}, color={0,127,0}));
     connect(damper.flange_b, slidingMass1.flange_a) annotation (Line(
-        points={{50,70},{60,70}},
-        color={0,127,0}));
+        points={{50,70},{60,70}}, color={0,127,0}));
     connect(slidingMass.flange_b, springDamper.flange_a) annotation (Line(
-        points={{-50,70},{-40,70},{-40,30},{-30,30}},
-        color={0,127,0}));
+        points={{-50,70},{-40,70},{-40,30},{-30,30}}, color={0,127,0}));
     connect(springDamper.flange_b, slidingMass2.flange_a) annotation (Line(
-        points={{-10,30},{0,30}},
-        color={0,127,0}));
+        points={{-10,30},{0,30}}, color={0,127,0}));
     connect(slidingMass2.flange_b, elastoGap.flange_a) annotation (Line(
-        points={{20,30},{30,30}},
-        color={0,127,0}));
+        points={{20,30},{30,30}}, color={0,127,0}));
     connect(elastoGap.flange_b, slidingMass3.flange_a) annotation (Line(
-        points={{50,30},{60,30}},
-        color={0,127,0}));
+        points={{50,30},{60,30}}, color={0,127,0}));
     connect(sine.y, position.s_ref) annotation (Line(
-        points={{-79,-10},{-72,-10}},
-        color={0,0,127}));
+        points={{-79,-10},{-72,-10}}, color={0,0,127}));
     connect(position.flange,   slidingMass4.flange_a) annotation (Line(
-        points={{-50,-10},{-40,-10}},
-        color={0,127,0}));
+        points={{-50,-10},{-40,-10}}, color={0,127,0}));
     connect(position1.flange,   slidingMass5.flange_a) annotation (Line(
-        points={{-50,-50},{-40,-50}},
-        color={0,127,0}));
+        points={{-50,-50},{-40,-50}}, color={0,127,0}));
     connect(position2.flange,   slidingMass6.flange_a) annotation (Line(
-        points={{-50,-90},{-40,-90}},
-        color={0,127,0}));
+        points={{-50,-90},{-40,-90}}, color={0,127,0}));
     connect(position3.flange,   slidingMass7.flange_a) annotation (Line(
-        points={{50,-10},{60,-10}},
-        color={0,127,0}));
+        points={{50,-10},{60,-10}}, color={0,127,0}));
     connect(sine1.y, position1.v_ref) annotation (Line(
-        points={{-79,-50},{-72,-50}},
-        color={0,0,127}));
+        points={{-79,-50},{-72,-50}}, color={0,0,127}));
     connect(sine2.y,position2.a_ref)
                                   annotation (Line(
-        points={{-79,-90},{-72,-90}},
-        color={0,0,127}));
+        points={{-79,-90},{-72,-90}}, color={0,0,127}));
     connect(sine3.y, position3.u) annotation (Line(
-        points={{21,-10},{28,-10}},
-        color={0,0,127}));
+        points={{21,-10},{28,-10}}, color={0,0,127}));
     connect(force.flange,   springDamper.flange_a) annotation (Line(
-        points={{-50,30},{-30,30}},
-        color={0,127,0}));
+        points={{-50,30},{-30,30}}, color={0,127,0}));
     connect(slidingMass.flange_b, relativeStates.flange_a) annotation (Line(
-        points={{-50,70},{-40,70},{-40,90},{-20,90}},
-        color={0,127,0}));
+        points={{-50,70},{-40,70},{-40,90},{-20,90}}, color={0,127,0}));
     connect(relativeStates.flange_b, damper.flange_a) annotation (Line(
-        points={{0,90},{30,90},{30,70}},
-        color={0,127,0}));
+        points={{0,90},{30,90},{30,70}}, color={0,127,0}));
     connect(sine4.y, force.f) annotation (Line(
-        points={{-79,30},{-72,30}},
-        color={0,0,127}));
+        points={{-79,30},{-72,30}}, color={0,0,127}));
     annotation (      experiment(StopTime=1.1));
   end AllComponents;
 

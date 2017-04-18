@@ -103,41 +103,29 @@ extends Modelica.Icons.Example;
 equation
   connect(source1.ports[1], valve_linear.port_a)
                                    annotation (Line(points={{-60,30},{-45,30},{
-          -30,30}},
-        color={0,127,255}));
+          -30,30}}, color={0,127,255}));
   connect(opening.y, valve_linear.opening) annotation (Line(
-      points={{-59,70},{-20,70},{-20,38}},
-      color={0,0,127}));
+      points={{-59,70},{-20,70},{-20,38}}, color={0,0,127}));
   connect(opening.y, valve_constant.opening) annotation (Line(
-      points={{-59,70},{-40,70},{-40,6},{-20,6},{-20,-2}},
-      color={0,0,127}));
+      points={{-59,70},{-40,70},{-40,6},{-20,6},{-20,-2}}, color={0,0,127}));
   connect(valve_linear.port_b, sink1.ports[1]) annotation (Line(
-      points={{-10,30},{22,30}},
-      color={0,127,255}));
+      points={{-10,30},{22,30}}, color={0,127,255}));
   connect(opening.y, valve_quadratic.opening) annotation (Line(
-      points={{-59,70},{-40,70},{-40,-36},{-20,-36},{-20,-42}},
-      color={0,0,127}));
+      points={{-59,70},{-40,70},{-40,-36},{-20,-36},{-20,-42}}, color={0,0,127}));
   connect(valve_constant.port_a, source2.ports[1]) annotation (Line(
-      points={{-30,-10},{-60,-10}},
-      color={0,127,255}));
+      points={{-30,-10},{-60,-10}}, color={0,127,255}));
   connect(valve_constant.port_b, sink2.ports[1]) annotation (Line(
-      points={{-10,-10},{20,-10}},
-      color={0,127,255}));
+      points={{-10,-10},{20,-10}}, color={0,127,255}));
   connect(source3.ports[1], valve_quadratic.port_a) annotation (Line(
-      points={{-60,-50},{-30,-50}},
-      color={0,127,255}));
+      points={{-60,-50},{-30,-50}}, color={0,127,255}));
   connect(sink3.ports[1], valve_quadratic.port_b) annotation (Line(
-      points={{20,-50},{-10,-50}},
-      color={0,127,255}));
+      points={{20,-50},{-10,-50}}, color={0,127,255}));
   connect(opening.y, valve_equalPercentage.opening) annotation (Line(
-      points={{-59,70},{-40,70},{-40,-76},{-20,-76},{-20,-82}},
-      color={0,0,127}));
+      points={{-59,70},{-40,70},{-40,-76},{-20,-76},{-20,-82}}, color={0,0,127}));
   connect(source4.ports[1], valve_equalPercentage.port_a) annotation (Line(
-      points={{-60,-90},{-30,-90}},
-      color={0,127,255}));
+      points={{-60,-90},{-30,-90}}, color={0,127,255}));
   connect(sink4.ports[1], valve_equalPercentage.port_b) annotation (Line(
-      points={{20,-90},{-10,-90}},
-      color={0,127,255}));
+      points={{20,-90},{-10,-90}}, color={0,127,255}));
   annotation (
  experiment(StopTime=1.2));
 end TestValveCharacteristics;

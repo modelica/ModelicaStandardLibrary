@@ -142,8 +142,7 @@ tankLevel = tank.level;
           {-10,40},{0,40}}, color={0,0,127}));
   connect(sensor_m_flow.port_b, heater.port_a)
                                             annotation (Line(points={{0,20},{0,
-          20},{30,20}},
-                    color={0,127,255}));
+          20},{30,20}}, color={0,127,255}));
   connect(T_ambient.port, wall.port_a) annotation (Line(
         points={{0,-20},{10,-20},{10,-40}}, color={191,0,0}));
   connect(sensor_T_forward.T, T_forward) annotation (Line(points={{67,40},{
@@ -154,38 +153,28 @@ tankLevel = tank.level;
                                             annotation (Line(points={{-30,-60},
           {-30,-70},{0,-70}}, color={0,127,255}));
   connect(tank.ports[2], pump.port_a) annotation (Line(
-      points={{-68,30},{-68,20},{-50,20}},
-      color={0,127,255}));
+      points={{-68,30},{-68,20},{-50,20}}, color={0,127,255}));
   connect(handle.y, valve.opening) annotation (Line(
-      points={{40.7,-20},{50,-20},{50,-62}},
-      color={0,0,127}));
+      points={{40.7,-20},{50,-20},{50,-62}}, color={0,0,127}));
   connect(pump.port_b, sensor_m_flow.port_a)
                                             annotation (Line(
-      points={{-30,20},{-20,20}},
-      color={0,127,255}));
+      points={{-30,20},{-20,20}}, color={0,127,255}));
   connect(sensor_T_return.T, T_return) annotation (Line(
-      points={{-37,-50},{-52,-50}},
-      color={0,0,127}));
+      points={{-37,-50},{-52,-50}}, color={0,0,127}));
   connect(burner.port, heater.heatPorts[1])
                                           annotation (Line(
-      points={{36,40},{40.1,40},{40.1,24.4}},
-      color={191,0,0}));
+      points={{36,40},{40.1,40},{40.1,24.4}}, color={191,0,0}));
   connect(wall.port_b, radiator.heatPorts[1]) annotation (Line(
-      points={{10,-56},{10,-65.6},{9.9,-65.6}},
-      color={191,0,0}));
+      points={{10,-56},{10,-65.6},{9.9,-65.6}}, color={191,0,0}));
   connect(sensor_T_forward.port, heater.port_b)
                                               annotation (Line(
-      points={{60,30},{60,20},{50,20}},
-      color={0,127,255}));
+      points={{60,30},{60,20},{50,20}}, color={0,127,255}));
   connect(heater.port_b, pipe.port_a) annotation (Line(
-      points={{50,20},{80,20},{80,-10}},
-      color={0,127,255}));
+      points={{50,20},{80,20},{80,-10}}, color={0,127,255}));
   connect(pipe.port_b, valve.port_a) annotation (Line(
-      points={{80,-30},{80,-70},{60,-70}},
-      color={0,127,255}));
+      points={{80,-30},{80,-70},{60,-70}}, color={0,127,255}));
   connect(radiator.port_b, tank.ports[1]) annotation (Line(
-      points={{0,-70},{-72,-70},{-72,30}},
-      color={0,127,255}));
+      points={{0,-70},{-72,-70},{-72,30}}, color={0,127,255}));
   annotation (Documentation(info="<html>
 <p>
 Simple heating system with a closed flow cycle.

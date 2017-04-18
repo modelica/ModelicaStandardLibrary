@@ -82,14 +82,11 @@ package Tanks "Library demonstrating the usage of the tank model"
     connect(pipe2.port_a, pipe3.port_a) annotation (Line(points={{0,-20},{0,-20},
             {0,-40},{60,-40},{60,-30}}, color={0,127,255}));
     connect(pipe3.port_b, tank3.ports[1])
-      annotation (Line(points={{60,-10},{60,-10},{60,10}},
-                                                color={0,127,255}));
+      annotation (Line(points={{60,-10},{60,-10},{60,10}}, color={0,127,255}));
     connect(pipe1.port_b, tank1.ports[1]) annotation (Line(points={{-60,0},{-60,
-            10},{-60,20}},
-                  color={0,127,255}));
+            10},{-60,20}}, color={0,127,255}));
     connect(pipe2.port_b, tank2.ports[1]) annotation (Line(
-        points={{0,0},{0,20}},
-        color={0,127,255}));
+        points={{0,0},{0,20}}, color={0,127,255}));
 
     annotation (experiment(StopTime=200),
       __Dymola_Commands(file=
@@ -174,38 +171,27 @@ package Tanks "Library demonstrating the usage of the tank model"
   equation
     connect(massFlowRate.ports[1], upperTank.ports[1])
                                                    annotation (Line(
-        points={{-40,-30},{-25.3333,-30},{-25.3333,20}},
-        color={0,127,255}));
+        points={{-40,-30},{-25.3333,-30},{-25.3333,20}}, color={0,127,255}));
     connect(pressure.p, hysteresis.u) annotation (Line(
-        points={{61,26},{70,26},{70,80},{-150,80},{-150,-20},{-142,-20}},
-        color={0,0,127}));
+        points={{61,26},{70,26},{70,80},{-150,80},{-150,-20},{-142,-20}}, color={0,0,127}));
     connect(hysteresis.y, switch1.u2) annotation (Line(
-        points={{-119,-20},{-102,-20}},
-        color={255,0,255}));
+        points={{-119,-20},{-102,-20}}, color={255,0,255}));
     connect(m_flow_off.y, switch1.u1) annotation (Line(
-        points={{-119,20},{-119,5},{-102,5},{-102,-12}},
-        color={0,0,127}));
+        points={{-119,20},{-119,5},{-102,5},{-102,-12}}, color={0,0,127}));
     connect(m_flow_on.y, switch1.u3) annotation (Line(
-        points={{-119,-50},{-110,-50},{-110,-28},{-102,-28}},
-        color={0,0,127}));
+        points={{-119,-50},{-110,-50},{-110,-28},{-102,-28}}, color={0,0,127}));
     connect(switch1.y, massFlowRate.m_flow_in) annotation (Line(
-        points={{-79,-20},{-70,-20},{-70,-22},{-60,-22}},
-        color={0,0,127}));
+        points={{-79,-20},{-70,-20},{-70,-22},{-60,-22}}, color={0,0,127}));
     connect(upperTank.ports[2], pipe.port_a) annotation (Line(
-        points={{-20,20},{-20,10},{0,10},{0,-20}},
-        color={0,127,255}));
+        points={{-20,20},{-20,10},{0,10},{0,-20}}, color={0,127,255}));
     connect(pipe.port_a, pressure.port) annotation (Line(
-        points={{0,-20},{0,10},{50,10},{50,16}},
-        color={0,127,255}));
+        points={{0,-20},{0,10},{50,10},{50,16}}, color={0,127,255}));
     connect(pipe.port_b, lowerTank.ports[1]) annotation (Line(
-        points={{0,-40},{0,-70},{56,-70},{56,-60}},
-        color={0,127,255}));
+        points={{0,-40},{0,-70},{56,-70},{56,-60}}, color={0,127,255}));
     connect(upperTank.ports[3], overflow.port_a) annotation (Line(
-        points={{-14.6667,20},{0,20},{0,40},{20,40},{20,0}},
-        color={0,127,255}));
+        points={{-14.6667,20},{0,20},{0,40},{20,40},{20,0}}, color={0,127,255}));
     connect(overflow.port_b, lowerTank.ports[2]) annotation (Line(
-        points={{20,-20},{20,-40},{40,-40},{40,-60},{64,-60}},
-        color={0,127,255}));
+        points={{20,-20},{20,-40},{40,-40},{40,-60},{64,-60}}, color={0,127,255}));
 
     annotation (experiment(StopTime=25000, Interval=5.0),
       __Dymola_Commands(file=
@@ -270,11 +256,9 @@ simulation accuracy could be increased in order to avoid errors.
             extent={{60,60},{80,80}})));
   equation
     connect(tank1.ports[1], pipe.port_a) annotation (Line(
-        points={{-20,20},{-20,5},{-20,-10},{-20,-10}},
-        color={0,127,255}));
+        points={{-20,20},{-20,5},{-20,-10},{-20,-10}}, color={0,127,255}));
     connect(pipe.port_b, tank2.ports[1]) annotation (Line(
-        points={{-20,-30},{-20,-60},{0,-60},{0,-80},{20,-80}},
-        color={0,127,255}));
+        points={{-20,-30},{-20,-60},{0,-60},{0,-80},{20,-80}}, color={0,127,255}));
 
     annotation (
       experiment(StopTime=50),

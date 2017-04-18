@@ -574,53 +574,38 @@ neglecting initial transient.
         annotation (Line(points={{-20,60},{-20,-60}}, color={0,0,255}));
 
       connect(resistor.plug_n, inductor.plug_p) annotation (Line(
-          points={{20,-20},{20,-30}},
-          color={0,0,255}));
+          points={{20,-20},{20,-30}}, color={0,0,255}));
       connect(inductor.plug_n, starLoad.plug_p) annotation (Line(
-          points={{20,-50},{20,-60}},
-          color={0,0,255}));
+          points={{20,-50},{20,-60}}, color={0,0,255}));
       connect(currentQuasiRMSSensor.I, feedbackI.u1) annotation (Line(
-          points={{30,70},{72,70}},
-          color={0,0,127}));
+          points={{30,70},{72,70}}, color={0,0,127}));
       connect(feedbackI.u2, constI.y) annotation (Line(
-          points={{80,62},{80,51}},
-          color={0,0,127}));
+          points={{80,62},{80,51}}, color={0,0,127}));
       connect(sineVoltage.plug_p, currentQuasiRMSSensor.plug_p) annotation (
           Line(
-          points={{-20,80},{-20,90},{20,90},{20,80}},
-          color={0,0,255}));
+          points={{-20,80},{-20,90},{20,90},{20,80}}, color={0,0,255}));
       connect(voltageQuasiRMSSensor.plug_n, sineVoltage.plug_n) annotation (
           Line(
-          points={{-50,60},{-20,60}},
-          color={0,0,255}));
+          points={{-50,60},{-20,60}}, color={0,0,255}));
       connect(voltageQuasiRMSSensor.plug_p, sineVoltage.plug_p) annotation (
           Line(
-          points={{-50,80},{-20,80}},
-          color={0,0,255}));
+          points={{-50,80},{-20,80}}, color={0,0,255}));
       connect(feedbackV.u1, voltageQuasiRMSSensor.V) annotation (Line(
-          points={{-72,70},{-60,70}},
-          color={0,0,127}));
+          points={{-72,70},{-60,70}}, color={0,0,127}));
       connect(constV.y, feedbackV.u2) annotation (Line(
-          points={{-80,51},{-80,62}},
-          color={0,0,127}));
+          points={{-80,51},{-80,62}}, color={0,0,127}));
       connect(powerSensor.nc, resistor.plug_p) annotation (Line(
-          points={{20,10},{20,0}},
-          color={0,0,255}));
+          points={{20,10},{20,0}}, color={0,0,255}));
       connect(currentQuasiRMSSensor.plug_n, powerSensor.pc) annotation (Line(
-          points={{20,60},{20,30}},
-          color={0,0,255}));
+          points={{20,60},{20,30}}, color={0,0,255}));
       connect(powerSensor.pc, powerSensor.pv) annotation (Line(
-          points={{20,30},{10,30},{10,20}},
-          color={0,0,255}));
+          points={{20,30},{10,30},{10,20}}, color={0,0,255}));
       connect(powerSensor.nv, starLoad.plug_p) annotation (Line(
-          points={{30,20},{30,-60},{20,-60}},
-          color={0,0,255}));
+          points={{30,20},{30,-60},{20,-60}}, color={0,0,255}));
       connect(powerSensor.power, feedbackP.u1) annotation (Line(
-          points={{31,28},{40,28},{40,20},{52,20}},
-          color={0,0,127}));
+          points={{31,28},{40,28},{40,20},{52,20}}, color={0,0,127}));
       connect(realExpression.y, feedbackP.u2) annotation (Line(
-          points={{60,1},{60,12}},
-          color={0,0,127}));
+          points={{60,1},{60,12}}, color={0,0,127}));
       annotation (experiment(StopTime=0.1, Interval=0.0001), Documentation(info=
              "<html>
 <p>
@@ -908,18 +893,14 @@ Delta (polygon) connection of a multi phase circuit consisting of multiple base 
             origin={100,0})));
     equation
       connect(plug, multiStar.plug_p) annotation (Line(
-          points={{-100,0},{-100,0},{-60,0},{-60,0}},
-          color={0,0,255}));
+          points={{-100,0},{-100,0},{-60,0},{-60,0}}, color={0,0,255}));
       connect(multiStar.starpoints, resistor.plug_p) annotation (Line(
-          points={{-40,0},{-40,0},{-10,0}},
-          color={0,0,255}));
+          points={{-40,0},{-40,0},{-10,0}}, color={0,0,255}));
       connect(resistor.plug_n, star.plug_p) annotation (Line(
-          points={{10,0},{10,0},{34,0},{34,0},{40,0},{40,0}},
-          color={0,0,255}));
+          points={{10,0},{10,0},{34,0},{34,0},{40,0},{40,0}}, color={0,0,255}));
       connect(star.pin_n, pin) annotation (Line(
           points={{60,0},{60,0},{98,0},{98,0},{100,0},{100,
-              0}},
-          color={0,0,255}));
+              0}}, color={0,0,255}));
       annotation (
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
@@ -1129,8 +1110,7 @@ Connects all pins of plug_n to the pin array pin_n.
       connect(resistor.n, plug_n.pin)
         annotation (Line(points={{10,0},{100,0}}, color={0,0,255}));
       connect(resistor.heatPort, heatPort) annotation (Line(
-          points={{0,-10},{0,-100}},
-          color={191,0,0}));
+          points={{0,-10},{0,-100}}, color={191,0,0}));
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
             Rectangle(
@@ -1176,8 +1156,7 @@ Contains m resistors (Modelica.Electrical.Analog.Basic.Resistor)
       connect(plug_n.pin, conductor.n)
         annotation (Line(points={{100,0},{10,0}}, color={0,0,255}));
       connect(conductor.heatPort, heatPort) annotation (Line(
-          points={{0,-10},{0,-100}},
-          color={191,0,0}));
+          points={{0,-10},{0,-100}}, color={191,0,0}));
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
             Rectangle(
@@ -1468,14 +1447,11 @@ Model of a multi phase zero sequence inductor.
                 10}})));
     equation
 
-      connect(plug_p1.pin, transformer.p1) annotation (Line(points={{-100,100},{-10,100},{-10,10}},
-                                  color={0,0,255}));
+      connect(plug_p1.pin, transformer.p1) annotation (Line(points={{-100,100},{-10,100},{-10,10}}, color={0,0,255}));
       connect(plug_p2.pin, transformer.p2)
-        annotation (Line(points={{100,100},{10,100},{10,10}},color={0,0,255}));
-      connect(plug_n1.pin, transformer.n1) annotation (Line(points={{-100,-100},{-10,-100},{-10,-10}},
-                                    color={0,0,255}));
-      connect(plug_n2.pin, transformer.n2) annotation (Line(points={{100,-100},{10,-100},{10,-10}},
-                                  color={0,0,255}));
+        annotation (Line(points={{100,100},{10,100},{10,10}}, color={0,0,255}));
+      connect(plug_n1.pin, transformer.n1) annotation (Line(points={{-100,-100},{-10,-100},{-10,-10}}, color={0,0,255}));
+      connect(plug_n2.pin, transformer.n2) annotation (Line(points={{100,-100},{10,-100},{10,-10}}, color={0,0,255}));
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
             Text(
@@ -1584,11 +1560,9 @@ Contains m transformers (Modelica.Electrical.Analog.Basic.Transformer)
       connect(variableResistor.n, plug_n.pin)
         annotation (Line(points={{10,0},{100,0}}, color={0,0,255}));
       connect(R, variableResistor.R)
-        annotation (Line(points={{0,120},{0,56},{0,12}},
-                                                  color={0,0,255}));
+        annotation (Line(points={{0,120},{0,56},{0,12}}, color={0,0,255}));
       connect(variableResistor.heatPort, heatPort) annotation (Line(
-          points={{0,-10},{0,-100}},
-          color={191,0,0}));
+          points={{0,-10},{0,-100}}, color={191,0,0}));
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
             Line(points={{-90,0},{-70,0}}, color={0,0,255}),
@@ -1645,11 +1619,9 @@ Contains m variable resistors (Modelica.Electrical.Analog.Basic.VariableResistor
       connect(variableConductor.n, plug_n.pin)
         annotation (Line(points={{10,0},{100,0}}, color={0,0,255}));
       connect(G, variableConductor.G)
-        annotation (Line(points={{0,120},{0,56},{0,12}},
-                                                  color={0,0,255}));
+        annotation (Line(points={{0,120},{0,56},{0,12}}, color={0,0,255}));
       connect(variableConductor.heatPort, heatPort) annotation (Line(
-          points={{0,-10},{0,-100}},
-          color={191,0,0}));
+          points={{0,-10},{0,-100}}, color={191,0,0}));
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
             Line(points={{-90,0},{-70,0}}, color={0,0,255}),
@@ -1696,12 +1668,11 @@ Contains m variable conductors (Modelica.Electrical.Analog.Basic.VariableConduct
       connect(variableCapacitor.n, plug_n.pin)
         annotation (Line(points={{10,0},{100,0}}, color={0,0,255}));
       connect(C, variableCapacitor.C)
-        annotation (Line(points={{0,120},{0,56},{0,12}},
-                                                  color={0,0,255}));
+        annotation (Line(points={{0,120},{0,56},{0,12}}, color={0,0,255}));
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
-            Line(points={{-90,0},{-6,0}},  color={0,0,255}),
-            Line(points={{6,0},{90,0}},  color={0,0,255}),
+            Line(points={{-90,0},{-6,0}}, color={0,0,255}),
+            Line(points={{6,0},{90,0}}, color={0,0,255}),
             Line(points={{-6,28},{-6,-28}}, color={0,0,255}),
             Line(points={{6,28},{6,-28}}, color={0,0,255}),
             Text(
@@ -1747,8 +1718,7 @@ Cmin is a parameter with default value Modelica.Constants.eps.
       connect(variableInductor.n, plug_n.pin)
         annotation (Line(points={{10,0},{100,0}}, color={0,0,255}));
       connect(L, variableInductor.L)
-        annotation (Line(points={{0,120},{0,56},{0,12}},
-                                                    color={0,0,255}));
+        annotation (Line(points={{0,120},{0,56},{0,12}}, color={0,0,255}));
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
             Line(points={{-90,0},{-60,0}}, color={0,0,255}),
@@ -1854,8 +1824,7 @@ This package contains basic analog electrical multiphase components.
       connect(idealDiode.n, plug_n.pin)
         annotation (Line(points={{10,0},{100,0}}, color={0,0,255}));
       connect(idealDiode.heatPort, heatPort) annotation (Line(
-          points={{0,-10},{0,-100}},
-          color={191,0,0}));
+          points={{0,-10},{0,-100}}, color={191,0,0}));
       annotation (
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
@@ -1906,15 +1875,12 @@ Contains m ideal diodes (Modelica.Electrical.Analog.Ideal.IdealDiode).
             transformation(extent={{-10,-10},{10,10}})));
     equation
       connect(plug_p.pin, idealThyristor.p) annotation (Line(points={{-100,0},{
-              -60,0},{-38,0},{-10,0}},
-                        color={0,0,255}));
+              -60,0},{-38,0},{-10,0}}, color={0,0,255}));
       connect(idealThyristor.n, plug_n.pin)
         annotation (Line(points={{10,0},{100,0}}, color={0,0,255}));
-      connect(fire, idealThyristor.fire) annotation (Line(points={{100,120},{100,80},{10,80},{10,12}},
-                                  color={255,0,255}));
+      connect(fire, idealThyristor.fire) annotation (Line(points={{100,120},{100,80},{10,80},{10,12}}, color={255,0,255}));
       connect(idealThyristor.heatPort, heatPort) annotation (Line(
-          points={{0,-10},{0,-100}},
-          color={191,0,0}));
+          points={{0,-10},{0,-100}}, color={191,0,0}));
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
             Line(points={{-90,0},{40,0}}, color={0,0,255}),
@@ -1967,11 +1933,9 @@ Contains m ideal thyristors (Modelica.Electrical.Analog.Ideal.IdealThyristor).
         annotation (Line(points={{-10,0},{-100,0}}, color={0,0,255}));
       connect(idealGTOThyristor.n, plug_n.pin)
         annotation (Line(points={{10,0},{100,0}}, color={0,0,255}));
-      connect(fire, idealGTOThyristor.fire) annotation (Line(points={{100,120},{100,80},{10,80},{10,12}},
-                                     color={255,0,255}));
+      connect(fire, idealGTOThyristor.fire) annotation (Line(points={{100,120},{100,80},{10,80},{10,12}}, color={255,0,255}));
       connect(idealGTOThyristor.heatPort, heatPort) annotation (Line(
-          points={{0,-10},{0,-100}},
-          color={191,0,0}));
+          points={{0,-10},{0,-100}}, color={191,0,0}));
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
             Line(points={{-90,0},{40,0}}, color={0,0,255}),
@@ -2032,11 +1996,9 @@ Contains m ideal GTO thyristors (Modelica.Electrical.Analog.Ideal.IdealGTOThyris
       connect(idealCommutingSwitch.n1, plug_n1.pin)
         annotation (Line(points={{10,4},{10,40},{100,40}}, color={0,0,255}));
       connect(control, idealCommutingSwitch.control)
-        annotation (Line(points={{0,120},{0,46},{0,12}},
-                                                color={255,0,255}));
+        annotation (Line(points={{0,120},{0,46},{0,12}}, color={255,0,255}));
       connect(idealCommutingSwitch.heatPort, heatPort) annotation (Line(
-          points={{0,-10},{0,-100}},
-          color={191,0,0}));
+          points={{0,-10},{0,-100}}, color={191,0,0}));
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
             Ellipse(extent={{-44,4},{-36,-4}}, lineColor={0,0,255}),
@@ -2092,16 +2054,13 @@ Contains m ideal commuting switches (Modelica.Electrical.Analog.Ideal.IdealCommu
         annotation (Line(points={{-100,0},{-10,0}}, color={0,0,255}));
       connect(idealIntermediateSwitch.n2, plug_n2.pin)
         annotation (Line(points={{10,0},{100,0}}, color={0,0,255}));
-      connect(idealIntermediateSwitch.p1, plug_p1.pin) annotation (Line(points={{-10,4},{-10,40},{-100,40}},
-                                            color={0,0,255}));
+      connect(idealIntermediateSwitch.p1, plug_p1.pin) annotation (Line(points={{-10,4},{-10,40},{-100,40}}, color={0,0,255}));
       connect(idealIntermediateSwitch.n1, plug_n1.pin)
         annotation (Line(points={{10,4},{10,40},{100,40}}, color={0,0,255}));
       connect(control, idealIntermediateSwitch.control)
-        annotation (Line(points={{0,120},{0,64},{0,12}},
-                                                color={255,0,255}));
+        annotation (Line(points={{0,120},{0,64},{0,12}}, color={255,0,255}));
       connect(idealIntermediateSwitch.heatPort, heatPort) annotation (Line(
-          points={{0,-10},{0,-100}},
-          color={191,0,0}));
+          points={{0,-10},{0,-100}}, color={191,0,0}));
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
             Ellipse(extent={{-4,24},{4,16}}, lineColor={0,0,255}),
@@ -2138,14 +2097,11 @@ Contains m ideal intermediate switches (Modelica.Electrical.Analog.Ideal.IdealIn
         final Lm1=Lm1) annotation (Placement(transformation(extent={{-10,-10},{
                 10,10}})));
     equation
-      connect(plug_p1.pin, idealTransformer.p1) annotation (Line(points={{-100,100},{-10,100},{-10,10}},
-                                       color={0,0,255}));
+      connect(plug_p1.pin, idealTransformer.p1) annotation (Line(points={{-100,100},{-10,100},{-10,10}}, color={0,0,255}));
       connect(plug_p2.pin, idealTransformer.p2)
-        annotation (Line(points={{100,100},{10,100},{10,10}},color={0,0,255}));
-      connect(plug_n1.pin, idealTransformer.n1) annotation (Line(points={{-100,-100},{-10,-100},{-10,-10}},
-                                          color={0,0,255}));
-      connect(plug_n2.pin, idealTransformer.n2) annotation (Line(points={{100,-100},{10,-100},{10,-10}},
-                                  color={0,0,255}));
+        annotation (Line(points={{100,100},{10,100},{10,10}}, color={0,0,255}));
+      connect(plug_n1.pin, idealTransformer.n1) annotation (Line(points={{-100,-100},{-10,-100},{-10,-10}}, color={0,0,255}));
+      connect(plug_n2.pin, idealTransformer.n2) annotation (Line(points={{100,-100},{10,-100},{10,-10}}, color={0,0,255}));
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
             Text(
@@ -2315,11 +2271,9 @@ Contains m short cuts (Modelica.Electrical.Analog.Ideal.Short)
       connect(idealOpeningSwitch.n, plug_n.pin)
         annotation (Line(points={{10,0},{100,0}}, color={0,0,255}));
       connect(control, idealOpeningSwitch.control)
-        annotation (Line(points={{0,120},{0,48},{0,12}},
-                                                color={255,0,255}));
+        annotation (Line(points={{0,120},{0,48},{0,12}}, color={255,0,255}));
       connect(idealOpeningSwitch.heatPort, heatPort) annotation (Line(
-          points={{0,-10},{0,-100}},
-          color={191,0,0}));
+          points={{0,-10},{0,-100}}, color={191,0,0}));
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
             Line(points={{-90,0},{-44,0}}, color={0,0,255}),
@@ -2366,11 +2320,9 @@ Contains m ideal opening switches (Modelica.Electrical.Analog.Ideal.IdealOpening
       connect(idealClosingSwitch.n, plug_n.pin)
         annotation (Line(points={{10,0},{100,0}}, color={0,0,255}));
       connect(control, idealClosingSwitch.control)
-        annotation (Line(points={{0,120},{0,48},{0,12}},
-                                                color={255,0,255}));
+        annotation (Line(points={{0,120},{0,48},{0,12}}, color={255,0,255}));
       connect(idealClosingSwitch.heatPort, heatPort) annotation (Line(
-          points={{0,-10},{0,-100}},
-          color={191,0,0}));
+          points={{0,-10},{0,-100}}, color={191,0,0}));
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
             Line(points={{-90,0},{-44,0}}, color={0,0,255}),
@@ -2425,11 +2377,9 @@ Contains m ideal closing switches (Modelica.Electrical.Analog.Ideal.IdealClosing
       connect(openerWithArc.n, plug_n.pin)
         annotation (Line(points={{10,0},{100,0}}, color={0,0,255}));
       connect(control, openerWithArc.control)
-        annotation (Line(points={{0,120},{0,40},{0,11}},
-                                                color={255,0,255}));
+        annotation (Line(points={{0,120},{0,40},{0,11}}, color={255,0,255}));
       connect(openerWithArc.heatPort, heatPort) annotation (Line(
-          points={{0,-10},{0,-100}},
-          color={191,0,0}));
+          points={{0,-10},{0,-100}}, color={191,0,0}));
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
             Line(points={{-90,0},{-44,0}}, color={0,0,255}),
@@ -2484,11 +2434,9 @@ Contains m ideal closing switches (Modelica.Electrical.Analog.Ideal.IdealClosing
       connect(closerWithArc.n, plug_n.pin)
         annotation (Line(points={{10,0},{100,0}}, color={0,0,255}));
       connect(control, closerWithArc.control)
-        annotation (Line(points={{0,120},{0,42},{0,11}},
-                                                color={255,0,255}));
+        annotation (Line(points={{0,120},{0,42},{0,11}}, color={255,0,255}));
       connect(closerWithArc.heatPort, heatPort) annotation (Line(
-          points={{0,-10},{0,-100}},
-          color={191,0,0}));
+          points={{0,-10},{0,-100}}, color={191,0,0}));
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
             Line(points={{-90,0},{-44,0}}, color={0,0,255}),
@@ -2887,8 +2835,7 @@ This function determines the indices of non-positive sequence of the symmetrical
       connect(potentialSensor.p, plug_p.pin)
         annotation (Line(points={{-10,0},{-100,0}}, color={0,0,255}));
       connect(potentialSensor.phi, phi) annotation (Line(
-          points={{11,0},{110,0}},
-          color={0,0,127}));
+          points={{11,0},{110,0}}, color={0,0,127}));
       annotation (Icon(graphics={Line(points={{70,0},{100,0}}, color={0,0,127}),
               Line(points={{-70,0},{-90,0}}),
             Text(
@@ -2926,8 +2873,7 @@ thus measuring the m potentials <em>phi[m]</em> of the m pins of plug_p.
       connect(voltageSensor.p, plug_p.pin)
         annotation (Line(points={{-10,0},{-100,0}}, color={0,0,255}));
       connect(voltageSensor.v, v) annotation (Line(
-          points={{0,-11},{0,-110}},
-          color={0,0,127}));
+          points={{0,-11},{0,-110}}, color={0,0,127}));
       annotation (Icon(graphics={Text(
                   extent={{-29,-11},{30,-70}},
                   textString="V"), Line(points={{-70,0},{-90,0}}),
@@ -2975,11 +2921,9 @@ thus measuring the m potential differences <em>v[m]</em> between the m pins of p
       connect(voltageSensor.plug_n, plug_n) annotation (Line(points={{10,0},{
               100,0},{100,0}}, color={0,0,255}));
       connect(voltageSensor.v, quasiRMS.u) annotation (Line(
-          points={{0,-11},{0,-38}},
-          color={0,0,127}));
+          points={{0,-11},{0,-38}}, color={0,0,127}));
       connect(quasiRMS.y, V) annotation (Line(
-          points={{0,-61},{0,-86},{0,-110},{-2,-110}},
-          color={0,0,127}));
+          points={{0,-61},{0,-86},{0,-110},{-2,-110}}, color={0,0,127}));
       annotation (Icon(graphics={Text(
                   extent={{-160,-70},{160,-100}},
                   textString="m=%m"),Line(points={{0,-70},{0,-100}}),
@@ -3020,8 +2964,7 @@ This sensor determines the continuous quasi <a href=\"Modelica://Modelica.Blocks
       connect(currentSensor.n, plug_n.pin)
         annotation (Line(points={{10,0},{100,0}}, color={0,0,255}));
       connect(currentSensor.i, i) annotation (Line(
-          points={{0,-11},{0,-110}},
-          color={0,0,127}));
+          points={{0,-11},{0,-110}}, color={0,0,127}));
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-29,-11},{30,-70}},
@@ -3070,11 +3013,9 @@ thus measuring the m currents <em>i[m]</em> flowing from the m pins of plug_p to
       connect(currentSensor.plug_n, plug_n) annotation (Line(points={{10,0},{
               100,0},{100,0}}, color={0,0,255}));
       connect(currentSensor.i, quasiRMS.u) annotation (Line(
-          points={{0,-11},{0,-38}},
-          color={0,0,127}));
+          points={{0,-11},{0,-38}}, color={0,0,127}));
       connect(quasiRMS.y, I) annotation (Line(
-          points={{0,-61},{0,-100}},
-          color={0,0,127}));
+          points={{0,-61},{0,-100}}, color={0,0,127}));
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={Line(points={{-90,0},{-70,0}},
               color={0,0,255}),Line(points={{0,-70},{0,-100}}),
@@ -3147,17 +3088,13 @@ This sensor determines the continuous quasi <a href=\"Modelica://Modelica.Blocks
       connect(voltageSensor.plug_n, nv) annotation (Line(points={{0,
               -30},{0,-30},{0,-100}}, color={0,0,255}));
       connect(voltageSensor.v, product.u1) annotation (Line(
-          points={{-11,-20},{-24,-20},{-24,-28}},
-          color={0,0,127}));
+          points={{-11,-20},{-24,-20},{-24,-28}}, color={0,0,127}));
       connect(currentSensor.i, product.u2) annotation (Line(
-          points={{-40,-11},{-40,-20},{-36,-20},{-36,-28}},
-          color={0,0,127}));
+          points={{-40,-11},{-40,-20},{-36,-20},{-36,-28}}, color={0,0,127}));
       connect(product.y, sum.u) annotation (Line(
-          points={{-30,-51},{-30,-58}},
-          color={0,0,127}));
+          points={{-30,-51},{-30,-58}}, color={0,0,127}));
       connect(sum.y, power) annotation (Line(
-          points={{-30,-81},{-30,-90},{-100,-90},{-100,-110}},
-          color={0,0,127}));
+          points={{-30,-81},{-30,-90},{-100,-90},{-100,-110}}, color={0,0,127}));
       annotation (Icon(graphics={Line(points={{0,100},{0,70}}, color={0,0,255}),
               Line(points={{0,-70},{0,-100}}, color={0,0,255}),
                                  Ellipse(fillPattern=FillPattern.Solid, extent=
@@ -3314,8 +3251,7 @@ This package contains multiphase potential, voltage, and current sensors.
       connect(signalVoltage.n, plug_n.pin)
         annotation (Line(points={{10,0},{100,0}}, color={0,0,255}));
       connect(v, signalVoltage.v)
-        annotation (Line(points={{0,120},{0,12}},
-                                                color={0,0,255}));
+        annotation (Line(points={{0,120},{0,12}}, color={0,0,255}));
       annotation (Icon(graphics={Line(points={{-90,0},{-50,0}}, color={0,0,255}),
               Line(points={{50,0},{90,0}}, color={0,0,255}),Ellipse(
                   extent={{-50,50},{50,-50}},
@@ -3508,8 +3444,7 @@ with a default phase shift determined by
       connect(signalCurrent.n, plug_n.pin)
         annotation (Line(points={{10,0},{100,0}}, color={0,0,255}));
       connect(i, signalCurrent.i)
-        annotation (Line(points={{0,120},{0,12}},
-                                                color={0,0,255}));
+        annotation (Line(points={{0,120},{0,12}}, color={0,0,255}));
       annotation (Icon(graphics={Line(points={{-90,0},{-50,0}}, color={0,0,255}),
               Line(points={{50,0},{90,0}}, color={0,0,255}),Ellipse(
                   extent={{-50,50},{50,-50}},

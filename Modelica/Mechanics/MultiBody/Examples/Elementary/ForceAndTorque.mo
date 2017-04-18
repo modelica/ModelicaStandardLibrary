@@ -66,11 +66,9 @@ equation
       color={95,95,95},
       pattern=LinePattern.Dot));
   connect(force.y, forceAndTorque.force) annotation (Line(
-      points={{80,1},{80,10},{58,10},{58,28}},
-      color={0,0,127}));
+      points={{80,1},{80,10},{58,10},{58,28}}, color={0,0,127}));
   connect(torque.y, forceAndTorque.torque) annotation (Line(
-      points={{40,1},{40,10},{50,10},{50,28}},
-      color={0,0,127}));
+      points={{40,1},{40,10},{50,10},{50,28}}, color={0,0,127}));
   annotation (
     Documentation(info="<html>
 <p>

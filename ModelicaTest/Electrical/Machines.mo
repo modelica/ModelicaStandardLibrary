@@ -148,37 +148,28 @@ package Machines
     connect(star.pin_n, ground.p)
       annotation (Line(points={{-70,90},{-80,90}}, color={0,0,255}));
     connect(terminalBox.plug_sn, smpm.plug_sn) annotation (Line(
-        points={{-16,-30},{-16,-30}},
-        color={0,0,255}));
+        points={{-16,-30},{-16,-30}}, color={0,0,255}));
     connect(terminalBox.plug_sp, smpm.plug_sp) annotation (Line(
-        points={{-4,-30},{-4,-30}},
-        color={0,0,255}));
+        points={{-4,-30},{-4,-30}}, color={0,0,255}));
     connect(quadraticSpeedDependentTorque.flange, inertiaLoad.flange_b)
       annotation (Line(
         points={{80,-40},{70,-40}}));
     connect(smpm.flange, angleSensor.flange) annotation (Line(
         points={{0,-40},{10,-40},{10,-10}}));
     connect(star.plug_p, signalVoltage.plug_n) annotation (Line(
-        points={{-50,90},{-10,90},{-10,60}},
-        color={0,0,255}));
+        points={{-50,90},{-10,90},{-10,60}}, color={0,0,255}));
     connect(currentSensor.plug_n, terminalBox.plugSupply) annotation (Line(
-        points={{-10,-10},{-10,-28}},
-        color={0,0,255}));
+        points={{-10,-10},{-10,-28}}, color={0,0,255}));
     connect(id.y, voltageController.id_rms) annotation (Line(
-        points={{-69,70},{-60,70},{-60,56},{-52,56}},
-        color={0,0,127}));
+        points={{-69,70},{-60,70},{-60,56},{-52,56}}, color={0,0,127}));
     connect(iq.y, voltageController.iq_rms) annotation (Line(
-        points={{-69,30},{-60,30},{-60,44},{-52,44}},
-        color={0,0,127}));
+        points={{-69,30},{-60,30},{-60,44},{-52,44}}, color={0,0,127}));
     connect(angleSensor.phi, voltageController.phi) annotation (Line(
-        points={{10,11},{10,34},{-34,34},{-34,38}},
-        color={0,0,127}));
+        points={{10,11},{10,34},{-34,34},{-34,38}}, color={0,0,127}));
     connect(voltageController.y, signalVoltage.v) annotation (Line(
-        points={{-29,50},{-17,50}},
-        color={0,0,127}));
+        points={{-29,50},{-17,50}}, color={0,0,127}));
     connect(currentSensor.i, voltageController.iActual) annotation (Line(
-        points={{-21,1.9984e-015},{-46,1.9984e-015},{-46,38}},
-        color={0,0,127}));
+        points={{-21,1.9984e-015},{-46,1.9984e-015},{-46,38}}, color={0,0,127}));
     connect(inertiaLoad.flange_a, torqueSensor.flange_b) annotation (Line(
         points={{50,-40},{50,-60}}));
     connect(torqueSensor.flange_a, smpm.flange) annotation (Line(
@@ -188,29 +179,22 @@ package Machines
     connect(rotorDisplacementAngle.flange, smpm.flange) annotation (Line(
         points={{10,-40},{0,-40}}));
     connect(rotorDisplacementAngle.plug_p, smpm.plug_sp) annotation (Line(
-        points={{14,-30},{-4,-30}},
-        color={0,0,255}));
+        points={{14,-30},{-4,-30}}, color={0,0,255}));
     connect(rotorDisplacementAngle.plug_n, smpm.plug_sn) annotation (Line(
-        points={{26,-30},{26,-20},{-16,-20},{-16,-30}},
-        color={0,0,255}));
+        points={{26,-30},{26,-20},{-16,-20},{-16,-30}}, color={0,0,255}));
     connect(voltageQuasiRMSSensor.plug_p, currentSensor.plug_n) annotation (
        Line(
-        points={{-20,-10},{-10,-10}},
-        color={0,0,255}));
+        points={{-20,-10},{-10,-10}}, color={0,0,255}));
     connect(starM.plug_p, voltageQuasiRMSSensor.plug_n) annotation (Line(
-        points={{-50,-10},{-40,-10}},
-        color={0,0,255}));
+        points={{-50,-10},{-40,-10}}, color={0,0,255}));
     connect(groundM.p, starM.pin_n) annotation (Line(
-        points={{-70,-28},{-70,-10}},
-        color={0,0,255}));
+        points={{-70,-28},{-70,-10}}, color={0,0,255}));
     connect(currentQuasiRMSSensor.plug_n, currentSensor.plug_p) annotation (
        Line(
-        points={{-10,10},{-10,10}},
-        color={0,0,255}));
+        points={{-10,10},{-10,10}}, color={0,0,255}));
     connect(signalVoltage.plug_p, currentQuasiRMSSensor.plug_p) annotation (
        Line(
-        points={{-10,40},{-10,30}},
-        color={0,0,255}));
+        points={{-10,40},{-10,30}}, color={0,0,255}));
     annotation (experiment(StopTime=2.0, Interval=0.001), Documentation(
           info="<html>
 <p>

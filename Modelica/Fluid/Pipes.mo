@@ -149,8 +149,7 @@ or other flow models without storage, are directly connected.
     end if;
 
     connect(heatPorts, heatTransfer.heatPorts)
-      annotation (Line(points={{0,55},{0,54},{-34,54},{-34,38.7}},
-                                               color={191,0,0}));
+      annotation (Line(points={{0,55},{0,54},{-34,54},{-34,38.7}}, color={191,0,0}));
     annotation (defaultComponentName="pipe",
   Documentation(info="<html>
 <p>Model of a straight pipe with distributed mass, energy and momentum balances. It provides the complete balance equations for one-dimensional fluid flow as formulated in <a href=\"modelica://Modelica.Fluid.UsersGuide.ComponentDefinition.BalanceEquations\">UsersGuide.ComponentDefinition.BalanceEquations</a>. </p>

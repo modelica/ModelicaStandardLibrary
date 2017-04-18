@@ -1408,14 +1408,11 @@ no mass or energy is stored in the pipe.
           annotation (Placement(transformation(extent={{-100,80},{-80,100}})));
       equation
         connect(fixedMassFlowRate.ports[1], volume.ports[1]) annotation (Line(
-            points={{-60,8},{-46,8},{-46,0},{-32,0}},
-            color={0,127,255}));
+            points={{-60,8},{-46,8},{-46,0},{-32,0}}, color={0,127,255}));
         connect(volume.ports[2], shortPipe.port_a) annotation (Line(
-            points={{-28,0},{-16,0},{-16,10},{0,10}},
-            color={0,127,255}));
+            points={{-28,0},{-16,0},{-16,10},{0,10}}, color={0,127,255}));
         connect(shortPipe.port_b, ambient.ports[1]) annotation (Line(
-            points={{20,10},{40,10}},
-            color={0,127,255}));
+            points={{20,10},{40,10}}, color={0,127,255}));
         annotation (Documentation(info="<html>
 
 </html>"));
@@ -1485,20 +1482,15 @@ no mass or energy is stored in the pipe.
                   20},{2,40}})));
       equation
         connect(fixedMassFlowRate.ports[1], volume.ports[1]) annotation (Line(
-            points={{-80,10},{-50,10},{-50,20},{-52,20}},
-            color={0,127,255}));
+            points={{-80,10},{-50,10},{-50,20},{-52,20}}, color={0,127,255}));
         connect(volume.ports[2], shortPipe.port_a) annotation (Line(
-            points={{-48,20},{-50,20},{-50,10},{-42,10}},
-            color={0,127,255}));
+            points={{-48,20},{-50,20},{-50,10},{-42,10}}, color={0,127,255}));
         connect(shortPipe1.port_a, volume1.ports[1]) annotation (Line(
-            points={{0,10},{-8,10},{-8,20},{-10,20}},
-            color={0,127,255}));
+            points={{0,10},{-8,10},{-8,20},{-10,20}}, color={0,127,255}));
         connect(shortPipe.port_b, volume1.ports[2]) annotation (Line(
-            points={{-22,10},{-8,10},{-8,20},{-6,20}},
-            color={0,127,255}));
+            points={{-22,10},{-8,10},{-8,20},{-6,20}}, color={0,127,255}));
         connect(shortPipe1.port_b, ambient.ports[1]) annotation (Line(
-            points={{20,10},{40,10}},
-            color={0,127,255}));
+            points={{20,10},{40,10}}, color={0,127,255}));
         annotation (Documentation(info="<html>
 
 </html>"));

@@ -2998,8 +2998,8 @@ with the blocks of package Modelica.Blocks.
             Diagram(coordinateSystem(
                 preserveAspectRatio=true,
                 extent={{-100,-100},{100,100}}),
-                graphics={Line(points={{-70,0},{-90,0}}, color={0,
-                      0,0}), Line(points={{70,0},{100,0}}, color={0,0,255})}));
+                graphics={Line(points={{-70,0},{-90,0}}),
+                       Line(points={{70,0},{100,0}}, color={0,0,255})}));
         end AbsoluteSensor;
 
         partial model RelativeSensor
@@ -3349,7 +3349,7 @@ from tables of the gear manufacturers.
         connect(elastoBacklash.flange_b, flange_b)
           annotation (Line(points={{70,0},{100,0}}));
         connect(gearEfficiency.bearing, adapter.flange_b) annotation (Line(points={{-20,-10},
-                {-20,-40},{0,-40},{0,-50}},           color={
+                {-20,-40},{0,-40},{0,-50}}, color={
                 0,0,0}));
         connect(bearingFriction.support, adapter.flange_b) annotation (Line(
             points={{20,-10},{20,-40},{0,-40},{0,-50}}));

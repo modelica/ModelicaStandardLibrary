@@ -49,10 +49,9 @@ model TestWaterPumpPowerCharacteristic
                                    annotation (Placement(transformation(extent={{64,-4},
             {84,16}})));
 equation
-  connect(Valve.port_b,Sink.ports[1])    annotation (Line(points={{2,36},{14,36}},
-        color={0,127,255}));
+  connect(Valve.port_b,Sink.ports[1])    annotation (Line(points={{2,36},{14,36}}, color={0,127,255}));
   connect(Valve.port_a,pump.port_b)      annotation (Line(points={{-16,36},{-26,
-          36},{-26,35},{-34,35}},           color={0,127,255}));
+          36},{-26,35},{-34,35}}, color={0,127,255}));
   connect(pump.port_a,Source.ports[1])
                                      annotation (Line(points={{-66,35},{-70,35},
           {-70,30},{-80,30}}, color={0,127,255}));
@@ -60,7 +59,6 @@ equation
                                 annotation (Line(points={{25,84},{58,84},{58,44},
           {36,44}}, color={0,0,127}));
   connect(valveOpening.y, Valve.opening) annotation (Line(
-      points={{-39,70},{-7,70},{-7,44}},
-      color={0,0,127}));
+      points={{-39,70},{-7,70},{-7,44}}, color={0,0,127}));
   annotation (experiment(StopTime=10));
 end TestWaterPumpPowerCharacteristic;

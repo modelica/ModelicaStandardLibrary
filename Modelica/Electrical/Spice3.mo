@@ -323,26 +323,21 @@ Zeunerstrasse 38<br />
             origin={40,-4})));
     equation
       connect(mn.D,mp. S) annotation (Line(
-          points={{-4,-14},{-4,8}},
-          color={0,0,255}));
+          points={{-4,-14},{-4,8}}, color={0,0,255}));
       connect(mp.G,mn. G) annotation (Line(
-          points={{-14,17.9},{-14,-24.1}},
-          color={0,0,255}));
+          points={{-14,17.9},{-14,-24.1}}, color={0,0,255}));
       connect(mn.S,mn. B) annotation (Line(
           points={{-4,-34},{6,-34},{6,-24}}));
       connect(mp.B,mp. D) annotation (Line(
-          points={{6,18},{6,28},{-4,28}},
-          color={0,0,255}));
+          points={{6,18},{6,28},{-4,28}}, color={0,0,255}));
       connect(mn.S, ground.p) annotation (Line(
           points={{-4,-34},{-4,-40}}));
       connect(v.p,mp. D) annotation (Line(
-          points={{40,6},{40,28},{-4,28}},
-          color={0,0,255}));
+          points={{40,6},{40,28},{-4,28}}, color={0,0,255}));
       connect(v.n, ground.p) annotation (Line(
           points={{40,-14},{40,-40},{-4,-40}}));
       connect(vin.p,mp. G) annotation (Line(
-          points={{-40,-6},{-40,17.9},{-14,17.9}},
-          color={0,0,255}));
+          points={{-40,-6},{-40,17.9},{-14,17.9}}, color={0,0,255}));
       connect(vin.n, ground.p) annotation (Line(
           points={{-40,-26},{-40,-40},{-4,-40}}));
       annotation (experiment(
@@ -411,25 +406,20 @@ Zeunerstrasse 38<br />
             origin={60,-32})));
     equation
       connect(mp1.B, mp1.D) annotation (Line(points={{-18,30},{-18,40},{-28,
-              40}},
-            color={0,0,255}));
+              40}}, color={0,0,255}));
       connect(mn1.S, ground.p)
         annotation (Line(points={{-28,-30},{-28,-60}}, color={0,0,255}));
       connect(mp1.S, mn1.D)
         annotation (Line(points={{-28,20},{-28,-10}}, color={0,0,255}));
-      connect(mn1.G, mp1.G) annotation (Line(points={{-38,-20.1},{-38,29.9}},
-            color={0,0,255}));
+      connect(mn1.G, mp1.G) annotation (Line(points={{-38,-20.1},{-38,29.9}}, color={0,0,255}));
       connect(mn1.B, mn1.S) annotation (Line(points={{-18,-20},{-18,-30},{-28,
-              -30}},
-            color={0,0,255}));
-      connect(mp2.B, mp2.D) annotation (Line(points={{22,30},{22,40},{12,40}},
-            color={0,0,255}));
+              -30}}, color={0,0,255}));
+      connect(mp2.B, mp2.D) annotation (Line(points={{22,30},{22,40},{12,40}}, color={0,0,255}));
       connect(mn2.S, ground.p) annotation (Line(points={{12,-30},{12,-60},{-28,
               -60}}, color={0,0,255}));
       connect(mp2.S, mn2.D)
         annotation (Line(points={{12,20},{12,-10}}, color={0,0,255}));
-      connect(mn2.G, mp2.G) annotation (Line(points={{2,-20.1},{2,29.9}},
-            color={0,0,255}));
+      connect(mn2.G, mp2.G) annotation (Line(points={{2,-20.1},{2,29.9}}, color={0,0,255}));
       connect(mn2.B, mn2.S) annotation (Line(points={{22,-20},{22,-30},{12,
               -30}}, color={0,0,255}));
       connect(mp2.G, mn1.D) annotation (Line(points={{2,29.9},{2,0},{-28,0},{
@@ -443,16 +433,13 @@ Zeunerstrasse 38<br />
       connect(c1.n, ground.p) annotation (Line(points={{-8,-40},{-8,-60},{-28,
               -60}}, color={0,0,255}));
       connect(mp1.G, vin.p) annotation (Line(
-          points={{-38,29.9},{-60,29.9},{-60,-22}},
-          color={0,0,255}));
+          points={{-38,29.9},{-60,29.9},{-60,-22}}, color={0,0,255}));
       connect(vin.n, ground.p) annotation (Line(
           points={{-60,-42},{-60,-60},{-28,-60}}));
       connect(v.p, mp2.D) annotation (Line(
-          points={{60,-22},{60,40},{12,40}},
-          color={0,0,255}));
+          points={{60,-22},{60,40},{12,40}}, color={0,0,255}));
       connect(mp1.D, mp2.D) annotation (Line(
-          points={{-28,40},{12,40}},
-          color={0,0,255}));
+          points={{-28,40},{12,40}}, color={0,0,255}));
       connect(v.n, ground.p) annotation (Line(
           points={{60,-42},{60,-60},{-28,-60}}));
       annotation (experiment(StopTime=5),
@@ -529,47 +516,35 @@ Zeunerstrasse 38<br />
             rotation=270,
             origin={56,-22})));
     equation
-      connect(mp1.B, mp1.D) annotation (Line(points={{-20,30},{-20,40},{-30,40}},
-            color={0,0,255}));
+      connect(mp1.B, mp1.D) annotation (Line(points={{-20,30},{-20,40},{-30,40}}, color={0,0,255}));
       connect(mn1.S, ground.p)
         annotation (Line(points={{-30,-30},{-30,-60}}, color={0,0,255}));
       connect(mp1.S, mn1.D)
         annotation (Line(points={{-30,20},{-30,-10}}, color={0,0,255}));
-      connect(mn1.G, mp1.G) annotation (Line(points={{-40,-20.1},{-40,29.9}},
-            color={0,0,255}));
-      connect(mn1.B, mn1.S) annotation (Line(points={{-20,-20},{-20,-30},{-30,-30}},
-            color={0,0,255}));
-      connect(mp2.B, mp2.D) annotation (Line(points={{20,30},{20,40},{10,40}},
-            color={0,0,255}));
-      connect(mn2.S, ground.p) annotation (Line(points={{10,-30},{10,-60},{-30,-60}},
-                     color={0,0,255}));
+      connect(mn1.G, mp1.G) annotation (Line(points={{-40,-20.1},{-40,29.9}}, color={0,0,255}));
+      connect(mn1.B, mn1.S) annotation (Line(points={{-20,-20},{-20,-30},{-30,-30}}, color={0,0,255}));
+      connect(mp2.B, mp2.D) annotation (Line(points={{20,30},{20,40},{10,40}}, color={0,0,255}));
+      connect(mn2.S, ground.p) annotation (Line(points={{10,-30},{10,-60},{-30,-60}}, color={0,0,255}));
       connect(mp2.S, mn2.D)
         annotation (Line(points={{10,20},{10,-10}}, color={0,0,255}));
-      connect(mn2.G, mp2.G) annotation (Line(points={{0,-20.1},{0,29.9}},
-            color={0,0,255}));
-      connect(mn2.B, mn2.S) annotation (Line(points={{20,-20},{20,-30},{10,-30}},
-                     color={0,0,255}));
-      connect(mp2.G, mn1.D) annotation (Line(points={{0,29.9},{0,0},{-30,0},{-30,-10}},
-                          color={0,0,255}));
+      connect(mn2.G, mp2.G) annotation (Line(points={{0,-20.1},{0,29.9}}, color={0,0,255}));
+      connect(mn2.B, mn2.S) annotation (Line(points={{20,-20},{20,-30},{10,-30}}, color={0,0,255}));
+      connect(mp2.G, mn1.D) annotation (Line(points={{0,29.9},{0,0},{-30,0},{-30,-10}}, color={0,0,255}));
       connect(c1.p, mn1.D) annotation (Line(points={{-10,-20},{-10,0},{-30,0},{
               -30,-10}}, color={0,0,255}));
-      connect(mn2.D, c2.p) annotation (Line(points={{10,-10},{10,0},{32,0},{32,-20}},
-                     color={0,0,255}));
+      connect(mn2.D, c2.p) annotation (Line(points={{10,-10},{10,0},{32,0},{32,-20}}, color={0,0,255}));
       connect(c2.n, ground.p) annotation (Line(points={{32,-40},{32,-60},{-30,
               -60}}, color={0,0,255}));
       connect(c1.n, ground.p) annotation (Line(points={{-10,-40},{-10,-60},{-30,
               -60}}, color={0,0,255}));
       connect(vin.p, mp1.G) annotation (Line(
-          points={{-60,-12},{-60,26},{-40,26},{-40,29.9}},
-          color={0,0,255}));
+          points={{-60,-12},{-60,26},{-40,26},{-40,29.9}}, color={0,0,255}));
       connect(vin.n, ground.p) annotation (Line(
           points={{-60,-32},{-60,-60},{-30,-60}}));
       connect(v.p, mp2.D) annotation (Line(
-          points={{56,-12},{56,40},{10,40}},
-          color={0,0,255}));
+          points={{56,-12},{56,40},{10,40}}, color={0,0,255}));
       connect(mp2.D, mp1.D) annotation (Line(
-          points={{10,40},{-30,40}},
-          color={0,0,255}));
+          points={{10,40},{-30,40}}, color={0,0,255}));
       connect(v.n, ground.p) annotation (Line(
           points={{56,-32},{56,-60},{-30,-60}}));
       annotation (experiment(StopTime=5),
@@ -657,35 +632,27 @@ Zeunerstrasse 38<br />
             origin={92,-48})));
     equation
       connect(mp1.B, mp1.D) annotation (Line(points={{-54,30},{-54,40},{-64,
-              40}},
-            color={0,0,255}));
+              40}}, color={0,0,255}));
       connect(mn1.S, ground.p)
         annotation (Line(points={{-64,-30},{-64,-60}}, color={0,0,255}));
       connect(mp1.S, mn1.D)
         annotation (Line(points={{-64,20},{-64,-10}}, color={0,0,255}));
-      connect(mn1.G, mp1.G) annotation (Line(points={{-74,-20.1},{-74,29.9}},
-            color={0,0,255}));
+      connect(mn1.G, mp1.G) annotation (Line(points={{-74,-20.1},{-74,29.9}}, color={0,0,255}));
       connect(mn1.B, mn1.S) annotation (Line(points={{-54,-20},{-54,-30},{-64,
-              -30}},
-            color={0,0,255}));
+              -30}}, color={0,0,255}));
       connect(mp2.B, mp2.D) annotation (Line(points={{-14,30},{-14,40},{-24,
-              40}},
-            color={0,0,255}));
+              40}}, color={0,0,255}));
       connect(mn2.S, ground.p) annotation (Line(points={{-24,-30},{-24,-60},{
-              -64,-60}},
-                     color={0,0,255}));
+              -64,-60}}, color={0,0,255}));
       connect(mp2.S, mn2.D)
-        annotation (Line(points={{-24,20},{-24,-10}},
-                                                    color={0,0,255}));
-      connect(mn2.G, mp2.G) annotation (Line(points={{-34,-20.1},{-34,29.9}},
-            color={0,0,255}));
+        annotation (Line(points={{-24,20},{-24,-10}}, color={0,0,255}));
+      connect(mn2.G, mp2.G) annotation (Line(points={{-34,-20.1},{-34,29.9}}, color={0,0,255}));
       connect(mn2.B, mn2.S) annotation (Line(points={{-14,-20},{-14,-30},{-24,
               -30}}, color={0,0,255}));
       connect(c1.p, mn1.D) annotation (Line(points={{-44,-20},{-44,0},{-64,0},
-              {-64,-10}},color={0,0,255}));
+              {-64,-10}}, color={0,0,255}));
       connect(mn2.D, c2.p) annotation (Line(points={{-24,-10},{-24,0},{-2,0},{
-              -2,-20}},
-                     color={0,0,255}));
+              -2,-20}}, color={0,0,255}));
       connect(c2.n, ground.p) annotation (Line(points={{-2,-40},{-2,-60},{-64,
               -60}}, color={0,0,255}));
       connect(c1.n, ground.p) annotation (Line(points={{-44,-40},{-44,-60},{-64,
@@ -698,10 +665,8 @@ Zeunerstrasse 38<br />
               -30}}, color={0,0,255}));
       connect(mn3.B, mn3.S) annotation (Line(points={{26,-20},{26,-30},{16,
               -30}}, color={0,0,255}));
-      connect(mp3.B, mp3.D) annotation (Line(points={{26,30},{26,40},{16,40}},
-            color={0,0,255}));
-      connect(mp4.B, mp4.D) annotation (Line(points={{66,30},{66,40},{56,40}},
-                    color={0,0,255}));
+      connect(mp3.B, mp3.D) annotation (Line(points={{26,30},{26,40},{16,40}}, color={0,0,255}));
+      connect(mp4.B, mp4.D) annotation (Line(points={{66,30},{66,40},{56,40}}, color={0,0,255}));
       connect(mp3.S, mn3.D)
         annotation (Line(points={{16,20},{16,-10}}, color={0,0,255}));
       connect(mp4.S, mn4.D)
@@ -716,33 +681,26 @@ Zeunerstrasse 38<br />
               -10}}, color={0,0,255}));
       connect(c2.p, mn3.G) annotation (Line(points={{-2,-20},{2,-20},{2,-20.1},
               {6,-20.1}}, color={0,0,255}));
-      connect(mn3.G, mp3.G) annotation (Line(points={{6,-20.1},{6,29.9}},
-            color={0,0,255}));
+      connect(mn3.G, mp3.G) annotation (Line(points={{6,-20.1},{6,29.9}}, color={0,0,255}));
       connect(c3.p, mn4.G) annotation (Line(points={{36,-20},{41,-20},{41,
               -20.1},{46,-20.1}}, color={0,0,255}));
-      connect(mn4.G, mp4.G) annotation (Line(points={{46,-20.1},{46,29.9}},
-            color={0,0,255}));
+      connect(mn4.G, mp4.G) annotation (Line(points={{46,-20.1},{46,29.9}}, color={0,0,255}));
       connect(c1.p, mn2.G) annotation (Line(points={{-44,-20},{-39,-20},{-39,
-              -20.1},{-34,-20.1}},color={0,0,255}));
+              -20.1},{-34,-20.1}}, color={0,0,255}));
       connect(vin.p, mn1.G) annotation (Line(
-          points={{-86,-32},{-86,0},{-74,0},{-74,-20.1}},
-          color={0,0,255}));
+          points={{-86,-32},{-86,0},{-74,0},{-74,-20.1}}, color={0,0,255}));
       connect(vin.n, ground.p) annotation (Line(
           points={{-86,-52},{-86,-60},{-64,-60}}));
       connect(v.p, mp4.D) annotation (Line(
-          points={{92,-38},{92,40},{56,40}},
-          color={0,0,255}));
+          points={{92,-38},{92,40},{56,40}}, color={0,0,255}));
       connect(v.n, ground.p) annotation (Line(
           points={{92,-58},{92,-60},{-64,-60}}));
       connect(mp3.D, mp4.D) annotation (Line(
-          points={{16,40},{56,40}},
-          color={0,0,255}));
+          points={{16,40},{56,40}}, color={0,0,255}));
       connect(mp2.D, mp3.D) annotation (Line(
-          points={{-24,40},{16,40}},
-          color={0,0,255}));
+          points={{-24,40},{16,40}}, color={0,0,255}));
       connect(mp1.D, mp2.D) annotation (Line(
-          points={{-64,40},{-24,40}},
-          color={0,0,255}));
+          points={{-64,40},{-24,40}}, color={0,0,255}));
       annotation (experiment(StopTime=5),
         Documentation(info="<html>
 <p>This circuit that contains four inverter was designed to show the functionality of the MOS transistor models. To see the behavior of the circuit the output voltages of each inverter should be displayed (mp1.NS.v, mp2.NS.v, mp3.NS.v, mp4.NS.v). The output voltages of the second an fourth inverter and the input voltage of the first inverter have the same potential. The output voltages of the first and third inverter have the opposite potential compared with inverter 2 and 4.</p>
@@ -806,36 +764,31 @@ Zeunerstrasse 38<br />
       connect(mp2.D, mp1.D)
         annotation (Line(points={{34,44},{-12,44}}, color={0,0,255}));
       connect(mp1.G, mn1.G) annotation (Line(points={{-22,33.9},{-22,
-              16},{-24,16},{-24,-0.1}},
-                      color={0,0,255}));
+              16},{-24,16},{-24,-0.1}}, color={0,0,255}));
       connect(mp1.G, vin1.p) annotation (Line(points={{-22,33.9},{-38,33.9},
               {-38,34},{-50,34}}, color={0,0,255}));
       connect(vin1.n, ground.p) annotation (Line(points={{-50,14},{-62,14},{
-              -62,-80},{30,-80}},color={0,0,255}));
+              -62,-80},{30,-80}}, color={0,0,255}));
       connect(mp2.G, mn2.G) annotation (Line(points={{24,33.9},{24,14},
-              {-32,14},{-32,-34.1},{-24,-34.1}},
-                                              color={0,0,255}));
+              {-32,14},{-32,-34.1},{-24,-34.1}}, color={0,0,255}));
       connect(mn2.G, vin2.p) annotation (Line(points={{-24,-34.1},{-38,
-              -34.1},{-38,-34},{-52,-34}},
-                                  color={0,0,255}));
+              -34.1},{-38,-34},{-52,-34}}, color={0,0,255}));
       connect(vin2.n, ground.p) annotation (Line(points={{-52,-54},{-52,-80},{
-              30,-80}},color={0,0,255}));
+              30,-80}}, color={0,0,255}));
       connect(mn2.S, ground.p) annotation (Line(points={{-14,-44},{-14,-80},
-              {30,-80}},color={0,0,255}));
+              {30,-80}}, color={0,0,255}));
       connect(mn1.B, mn2.B)
         annotation (Line(points={{-4,0},{-4,-34}}, color={0,0,255}));
       connect(mn2.B, mn2.S) annotation (Line(points={{-4,-34},{-4,-44},
               {-14,-44}}, color={0,0,255}));
       connect(mn1.S, mn2.D)
-        annotation (Line(points={{-14,-10},{-14,-24}},
-                                                    color={0,0,255}));
+        annotation (Line(points={{-14,-10},{-14,-24}}, color={0,0,255}));
       connect(mp1.S, mn1.D)
-        annotation (Line(points={{-12,24},{-12,18},{-14,18},{-14,10}},
-                                                     color={0,0,255}));
+        annotation (Line(points={{-12,24},{-12,18},{-14,18},{-14,10}}, color={0,0,255}));
       connect(mp2.S, mn1.D) annotation (Line(points={{34,24},{34,10},
               {-14,10}}, color={0,0,255}));
       connect(vconstant.n, ground.p) annotation (Line(points={{62,24},{62,-80},
-              {30,-80}},color={0,0,255}));
+              {30,-80}}, color={0,0,255}));
       annotation (Documentation(info="<html>
 <p>In nearly every electronic the basic circuit &quot;nand&quot; are used. A nand contains two PMOS and two NMOS. The faulty wiring can be seen in the graphical mode. If and only if the two input voltages have high potential, the output voltage has low potential, otherwise the output voltage has high potential.</p>
 <p>Nand truth table (1 means true, it is represented by the 5V voltage):</p>
@@ -948,39 +901,31 @@ Zeunerstrasse 38<br />
       connect(mn2.B, mn2.S) annotation (Line(points={{52,-34},{52,-44},
               {42,-44}}, color={0,0,255}));
       connect(mn2.S, ground.p) annotation (Line(points={{42,-44},{38,-44},
-              {38,-80}},
-                       color={0,0,255}));
+              {38,-80}}, color={0,0,255}));
       connect(mn1.S, ground.p) annotation (Line(points={{-6,-44},{-6,-80},{
               38,-80}}, color={0,0,255}));
       connect(vin2.p, mn1.G) annotation (Line(points={{-44,-34},{-29,
-              -34},{-29,-34.1},{-16,-34.1}},
-                                      color={0,0,255}));
+              -34},{-29,-34.1},{-16,-34.1}}, color={0,0,255}));
       connect(vin2.n, ground.p) annotation (Line(points={{-44,-54},{-44,-80},
-              {38,-80}},color={0,0,255}));
+              {38,-80}}, color={0,0,255}));
       connect(vin1.p, mp1.G) annotation (Line(points={{-42,34},{-29,34},
               {-29,33.9},{-16,33.9}}, color={0,0,255}));
       connect(vin1.n, ground.p) annotation (Line(points={{-42,14},{-64,14},{
-              -64,-80},{38,-80}},color={0,0,255}));
+              -64,-80},{38,-80}}, color={0,0,255}));
       connect(mp1.S, mp2.D)
         annotation (Line(points={{-6,24},{-6,14}}, color={0,0,255}));
-      connect(mp2.S, mn1.D) annotation (Line(points={{-6,-6},{-6,-24}},
-            color={0,0,255}));
-      connect(mn2.D, mn1.D) annotation (Line(points={{42,-24},{-6,-24}},
-            color={0,0,255}));
+      connect(mp2.S, mn1.D) annotation (Line(points={{-6,-6},{-6,-24}}, color={0,0,255}));
+      connect(mn2.D, mn1.D) annotation (Line(points={{42,-24},{-6,-24}}, color={0,0,255}));
       connect(vin2.p, mp2.G) annotation (Line(points={{-44,-34},{-44,4},
               {-16,4},{-16,3.9}}, color={0,0,255}));
       connect(vin1.p, mn2.G) annotation (Line(points={{-42,34},{-28,34},
-              {-28,-18},{32,-18},{32,-34.1}},
-                                         color={0,0,255}));
+              {-28,-18},{32,-18},{32,-34.1}}, color={0,0,255}));
       connect(mp1.B, mp1.D) annotation (Line(
-          points={{4,34},{4,44},{-6,44}},
-          color={0,0,255}));
+          points={{4,34},{4,44},{-6,44}}, color={0,0,255}));
       connect(mp2.B, mp1.B) annotation (Line(
-          points={{4,4},{4,34}},
-          color={0,0,255}));
+          points={{4,4},{4,34}}, color={0,0,255}));
       connect(v.p, mp1.D) annotation (Line(
-          points={{62,44},{-6,44}},
-          color={0,0,255}));
+          points={{62,44},{-6,44}}, color={0,0,255}));
       connect(v.n, ground.p) annotation (Line(
           points={{62,24},{62,-80},{38,-80}}));
       annotation (Documentation(info="<html>
@@ -1057,26 +1002,21 @@ Zeunerstrasse 38<br />
       connect(D1.n, D3.p) annotation (Line(
           points={{10,14},{20,14},{20,2}}));
       connect(D2.p, D1.p) annotation (Line(
-          points={{-20,2},{-20,14},{-10,14}},
-          color={0,0,255}));
+          points={{-20,2},{-20,14},{-10,14}}, color={0,0,255}));
       connect(D4.n, D3.n) annotation (Line(
           points={{11,-30},{20,-30},{20,-18}}));
       connect(D4.p, D2.n) annotation (Line(
-          points={{-9,-30},{-20,-30},{-20,-18}},
-          color={0,0,255}));
+          points={{-9,-30},{-20,-30},{-20,-18}}, color={0,0,255}));
       connect(D4.p, ground.p) annotation (Line(
-          points={{-9,-30},{-20,-30},{-20,-40}},
-          color={0,0,255}));
+          points={{-9,-30},{-20,-30},{-20,-40}}, color={0,0,255}));
       connect(vsin.n, ground.p) annotation (Line(
           points={{-44,-18},{-44,-40},{-20,-40}}));
       connect(D4.n, rout.p) annotation (Line(
           points={{11,-30},{42,-30},{42,-17}}));
       connect(rout.n, D1.p) annotation (Line(
-          points={{42,3},{42,26},{-20,26},{-20,14},{-10,14}},
-          color={0,0,255}));
+          points={{42,3},{42,26},{-20,26},{-20,14},{-10,14}}, color={0,0,255}));
       connect(D3.p, vsin.p) annotation (Line(
-          points={{20,2},{20,40},{-44,40},{-44,2}},
-          color={0,0,255}));
+          points={{20,2},{20,40},{-44,40},{-44,2}}, color={0,0,255}));
       annotation (
         experiment(StopTime=0.025),
         Documentation(info="<html>
@@ -1151,40 +1091,31 @@ Zeunerstrasse 38<br />
       connect(r2.n,r3. n) annotation (Line(
           points={{18,30},{50,30}}));
       connect(r.p,c. p) annotation (Line(
-          points={{-36,10},{-32,10}},
-          color={0,0,255}));
+          points={{-36,10},{-32,10}}, color={0,0,255}));
       connect(c.n,r1. p) annotation (Line(
           points={{-12,10},{-6,10}}));
       connect(r2.p,c1. p) annotation (Line(
-          points={{18,10},{24,10}},
-          color={0,0,255}));
+          points={{18,10},{24,10}}, color={0,0,255}));
       connect(c1.n,r3. p) annotation (Line(
           points={{44,10},{50,10}}));
       connect(r1.p, T2.B) annotation (Line(
-          points={{-6,10},{-6,-30},{30.4,-30}},
-          color={0,0,255}));
+          points={{-6,10},{-6,-30},{30.4,-30}}, color={0,0,255}));
       connect(r2.p, T1.B) annotation (Line(
-          points={{18,10},{18,-24},{-20.4,-24}},
-          color={0,0,255}));
+          points={{18,10},{18,-24},{-20.4,-24}}, color={0,0,255}));
       connect(T1.C, r.p) annotation (Line(
-          points={{-33,-34},{-48,-34},{-48,10},{-36,10}},
-          color={0,0,255}));
+          points={{-33,-34},{-48,-34},{-48,10},{-36,10}}, color={0,0,255}));
       connect(T1.E, ground1.p) annotation (Line(
           points={{-33,-14},{-68,-14}}));
       connect(T2.E, ground2.p) annotation (Line(
           points={{43,-40},{60,-40}}));
       connect(r3.p, T2.C) annotation (Line(
-          points={{50,10},{50,-20},{43,-20}},
-          color={0,0,255}));
+          points={{50,10},{50,-20},{43,-20}}, color={0,0,255}));
       connect(r3.p, r4.p) annotation (Line(
-          points={{50,10},{58,10},{58,8},{64,8}},
-          color={0,0,255}));
+          points={{50,10},{58,10},{58,8},{64,8}}, color={0,0,255}));
       connect(ground2.p, r4.n) annotation (Line(
-          points={{60,-40},{60,-12},{64,-12}},
-          color={0,0,255}));
+          points={{60,-40},{60,-12},{64,-12}}, color={0,0,255}));
       connect(v.p, r.n) annotation (Line(
-          points={{-68,30},{-36,30}},
-          color={0,0,255}));
+          points={{-68,30},{-36,30}}, color={0,0,255}));
       connect(v.n, ground1.p) annotation (Line(
           points={{-68,10},{-68,-14}}));
       annotation (
@@ -1266,71 +1197,49 @@ Zeunerstrasse 38<br />
             origin={6,10})));
     equation
       connect(sineVoltage.n, ground.p) annotation (Line(
-          points={{-90,10},{-90,-80}},
-          color={0,0,255}));
+          points={{-90,10},{-90,-80}}, color={0,0,255}));
       connect(R1.p, sineVoltage.p) annotation (Line(
-          points={{-80,80},{-90,80},{-90,30}},
-          color={0,0,255}));
+          points={{-80,80},{-90,80},{-90,30}}, color={0,0,255}));
       connect(R1.n, L1.p) annotation (Line(
-          points={{-60,80},{-40,80},{-40,50}},
-          color={0,0,255}));
+          points={{-60,80},{-40,80},{-40,50}}, color={0,0,255}));
       connect(L1.n, ground.p) annotation (Line(
-          points={{-40,30},{-40,-80},{-90,-80}},
-          color={0,0,255}));
+          points={{-40,30},{-40,-80},{-90,-80}}, color={0,0,255}));
       connect(C1.n, R3.n) annotation (Line(
-          points={{80,40},{60,40}},
-          color={0,0,255}));
+          points={{80,40},{60,40}}, color={0,0,255}));
       connect(L2.n, R3.n) annotation (Line(
-          points={{20,50},{20,40},{60,40}},
-          color={0,0,255}));
+          points={{20,50},{20,40},{60,40}}, color={0,0,255}));
       connect(C1.p, R2.p) annotation (Line(
-          points={{80,60},{80,80},{52,80}},
-          color={0,0,255}));
+          points={{80,60},{80,80},{52,80}}, color={0,0,255}));
       connect(R3.p, R2.p) annotation (Line(
-          points={{60,60},{60,80},{52,80}},
-          color={0,0,255}));
+          points={{60,60},{60,80},{52,80}}, color={0,0,255}));
       connect(R2.n, L2.p) annotation (Line(
-          points={{32,80},{20,80},{20,70}},
-          color={0,0,255}));
+          points={{32,80},{20,80},{20,70}}, color={0,0,255}));
       connect(C2.n, R5.n) annotation (Line(
-          points={{80,-60},{60,-60}},
-          color={0,0,255}));
+          points={{80,-60},{60,-60}}, color={0,0,255}));
       connect(L3.n, R5.n) annotation (Line(
-          points={{20,-50},{20,-60},{60,-60}},
-          color={0,0,255}));
+          points={{20,-50},{20,-60},{60,-60}}, color={0,0,255}));
       connect(C2.p, R4.p) annotation (Line(
-          points={{80,-40},{80,-20},{52,-20}},
-          color={0,0,255}));
+          points={{80,-40},{80,-20},{52,-20}}, color={0,0,255}));
       connect(R5.p, R4.p) annotation (Line(
-          points={{60,-40},{60,-20},{52,-20}},
-          color={0,0,255}));
+          points={{60,-40},{60,-20},{52,-20}}, color={0,0,255}));
       connect(R4.n, L3.p) annotation (Line(
-          points={{32,-20},{20,-20},{20,-30}},
-          color={0,0,255}));
+          points={{32,-20},{20,-20},{20,-30}}, color={0,0,255}));
       connect(C1.n, ground.p) annotation (Line(
-          points={{80,40},{90,40},{90,-80},{-90,-80}},
-          color={0,0,255}));
+          points={{80,40},{90,40},{90,-80},{-90,-80}}, color={0,0,255}));
       connect(C2.n, ground.p) annotation (Line(
-          points={{80,-60},{90,-60},{90,-80},{-90,-80}},
-          color={0,0,255}));
+          points={{80,-60},{90,-60},{90,-80},{-90,-80}}, color={0,0,255}));
       connect(L1.ICP, k2.inductiveCouplePin1) annotation (Line(
-          points={{-31.6,40},{-28,40},{-28,-40},{-20,-40}},
-          color={170,85,255}));
+          points={{-31.6,40},{-28,40},{-28,-40},{-20,-40}}, color={170,85,255}));
       connect(k2.inductiveCouplePin2, L3.ICP) annotation (Line(
-          points={{0,-40},{11.6,-40}},
-          color={170,85,255}));
+          points={{0,-40},{11.6,-40}}, color={170,85,255}));
       connect(L3.ICP, k3.inductiveCouplePin1) annotation (Line(
-          points={{11.6,-40},{6,-40},{6,0}},
-          color={170,85,255}));
+          points={{11.6,-40},{6,-40},{6,0}}, color={170,85,255}));
       connect(k3.inductiveCouplePin2, L2.ICP) annotation (Line(
-          points={{6,20},{6,60},{11.6,60}},
-          color={170,85,255}));
+          points={{6,20},{6,60},{11.6,60}}, color={170,85,255}));
       connect(L2.ICP, k1.inductiveCouplePin2) annotation (Line(
-          points={{11.6,60},{0,60}},
-          color={170,85,255}));
+          points={{11.6,60},{0,60}}, color={170,85,255}));
       connect(L1.ICP, k1.inductiveCouplePin1) annotation (Line(
-          points={{-31.6,40},{-28,40},{-28,60},{-20,60}},
-          color={170,85,255}));
+          points={{-31.6,40},{-28,40},{-28,60},{-20,60}}, color={170,85,255}));
       annotation (
         experiment(StopTime=0.2),
         Documentation(info="<html>
@@ -1367,32 +1276,23 @@ Zeunerstrasse 38<br />
             origin={-66,4})));
     equation
       connect(J2.D, J1.S) annotation (Line(
-          points={{-44,24},{-44,38}},
-          color={0,0,255}));
+          points={{-44,24},{-44,38}}, color={0,0,255}));
       connect(ground.p, J2.S) annotation (Line(
-          points={{-44,-6},{-44,4}},
-          color={0,0,255}));
+          points={{-44,-6},{-44,4}}, color={0,0,255}));
       connect(v_sin.p, J2.G) annotation (Line(
-          points={{-66,14},{-60,14},{-60,13.9},{-54,13.9}},
-          color={0,0,255}));
+          points={{-66,14},{-60,14},{-60,13.9},{-54,13.9}}, color={0,0,255}));
       connect(v_sin.n, ground.p) annotation (Line(
-          points={{-66,-6},{-44,-6}},
-          color={0,0,255}));
+          points={{-66,-6},{-44,-6}}, color={0,0,255}));
       connect(U0.p, J1.G) annotation (Line(
-          points={{-72,48},{-63,48},{-63,47.9},{-54,47.9}},
-          color={0,0,255}));
+          points={{-72,48},{-63,48},{-63,47.9},{-54,47.9}}, color={0,0,255}));
       connect(U0.n, ground.p) annotation (Line(
-          points={{-72,28},{-80,28},{-80,-6},{-44,-6}},
-          color={0,0,255}));
+          points={{-72,28},{-80,28},{-80,-6},{-44,-6}}, color={0,0,255}));
       connect(J1.D, RC.p) annotation (Line(
-          points={{-44,58},{-44,70}},
-          color={0,0,255}));
+          points={{-44,58},{-44,70}}, color={0,0,255}));
       connect(UDD.p, RC.n) annotation (Line(
-          points={{-10,70},{-24,70}},
-          color={0,0,255}));
+          points={{-10,70},{-24,70}}, color={0,0,255}));
       connect(UDD.n, ground.p) annotation (Line(
-          points={{-10,50},{-10,-6},{-44,-6}},
-          color={0,0,255}));
+          points={{-10,50},{-10,-6},{-44,-6}}, color={0,0,255}));
       annotation (Documentation(info="<html>
 <p>This model is a simple JFET cascode circuit. The J2 gate variation (v_sin.p.v) is transformed to the J2 drain variation (J2.D.v). </p>
 <p><br/>Simulate until 0.2s, and display the mentioned voltages.</p>
@@ -3366,7 +3266,7 @@ Christoph Clau&szlig;
              Line(points={{50,0},{90,0}}, color={0,0,255}),
                                    Line(points={{-40,-50},{-40,70},{60,70},{60,
                   -50},{-40,-50},{-40,-20},{60,-20},{60,10},{-40,10},{-40,40},{
-                  60,40},{60,70},{10,70},{10,-51}},color={192,192,192})}),
+                  60,40},{60,70},{10,70},{10,-51}}, color={192,192,192})}),
         Documentation(info="<html>
 <p>This model generates a voltage by <strong>linear interpolation</strong> in a given table. The time points and voltage values are stored in a matrix <strong>table[i,j]</strong>, where the first column table[:,1] contains the time points and the second column contains the voltage to be interpolated. The table interpolation has the following properties:</p>
 <ul>
@@ -3788,7 +3688,7 @@ If, e.g., time = 1.0, the current i =  0.0 (before event), 1.0 (after event)
              Line(points={{50,0},{90,0}}, color={0,0,255}),
              Line(points={{-92,0},{-52,0}},
                                           color={0,0,255}),
-             Line(points={{0,-50},{0,50}},color={0,0,255}),
+             Line(points={{0,-50},{0,50}}, color={0,0,255}),
                                   Polygon(
               points={{90,0},{60,10},{60,-10},{90,0}},
               lineColor={0,0,255},
@@ -5732,8 +5632,8 @@ on the model behaviour.
               points={{14,28},{14,-28}},
               color={0,0,255},
               thickness=0.5),
-            Line(points={{-90,0},{-14,0}},color={0,0,255}),
-            Line(points={{14,0},{90,0}},color={0,0,255}),
+            Line(points={{-90,0},{-14,0}}, color={0,0,255}),
+            Line(points={{14,0},{90,0}}, color={0,0,255}),
             Text(
               extent={{-130,-40},{134,-60}},
               textString="C=%C"),

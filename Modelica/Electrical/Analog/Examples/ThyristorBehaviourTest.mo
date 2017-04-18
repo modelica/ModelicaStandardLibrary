@@ -34,26 +34,19 @@ model ThyristorBehaviourTest "Thyristor demonstration example"
         origin={8,-4})));
 equation
   connect(sineVoltage.n, ground.p) annotation (Line(
-      points={{-72,-6},{-72,-20},{28,-20}},
-      color={0,0,255}));
+      points={{-72,-6},{-72,-20},{28,-20}}, color={0,0,255}));
   connect(sineVoltage.p, thyristor_v4_1.Anode) annotation (Line(
-      points={{-72,14},{-72,40},{-43,40}},
-      color={0,0,255}));
+      points={{-72,14},{-72,40},{-43,40}}, color={0,0,255}));
   connect(resistor.p, thyristor_v4_1.Cathode) annotation (Line(
-      points={{8,30},{8,40},{-25,40}},
-      color={0,0,255}));
+      points={{8,30},{8,40},{-25,40}}, color={0,0,255}));
   connect(pulseCurrent.n, thyristor_v4_1.Gate) annotation (Line(
-      points={{-18,70},{-26,70},{-26,49},{-27,49}},
-      color={0,0,255}));
+      points={{-18,70},{-26,70},{-26,49},{-27,49}}, color={0,0,255}));
   connect(resistor.p, pulseCurrent.p) annotation (Line(
-      points={{8,30},{8,70},{2,70}},
-      color={0,0,255}));
+      points={{8,30},{8,70},{2,70}}, color={0,0,255}));
   connect(resistor.n, inductor.p) annotation (Line(
-      points={{8,10},{8,8},{8,6},{8,6}},
-      color={0,0,255}));
+      points={{8,10},{8,8},{8,6},{8,6}}, color={0,0,255}));
   connect(inductor.n, ground.p) annotation (Line(
-      points={{8,-14},{8,-20},{28,-20}},
-      color={0,0,255}));
+      points={{8,-14},{8,-20},{28,-20}}, color={0,0,255}));
   annotation (experiment(StopTime=0.0002),
     Documentation(info="<html>
 <p>This is a simple test circuit, to test the behavior of the thyristor model.</p><p>Interesting values to plot are Cathode.v, Gate.v and sineVoltage.p.v. and in another plot window pulseCurrent.p.i</p><p>The simulation time should be from 0 seconds to 2e-4 seconds.</p>

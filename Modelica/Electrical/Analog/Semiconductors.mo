@@ -565,7 +565,7 @@ on page 317 ff.</DD>
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}}), graphics={
           Line(points={{-20,40},{-20,-40}}, color={0,0,255}),
-          Line(points={{-20,0},{-100,0}},color={0,0,255}),
+          Line(points={{-20,0},{-100,0}}, color={0,0,255}),
           Line(points={{90,60},{30,60}}, color={0,0,255}),
           Line(points={{30,60},{-20,10}}, color={0,0,255}),
           Line(points={{-20,-10},{20,-50}}, color={0,0,255}),
@@ -680,11 +680,11 @@ on page 317 ff.</DD>
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}}), graphics={
           Line(points={{-20,40},{-20,-40}}, color={0,0,255}),
-          Line(points={{-20,0},{-100,0}},color={0,0,255}),
+          Line(points={{-20,0},{-100,0}}, color={0,0,255}),
           Line(points={{91,60},{30,60}}, color={0,0,255}),
           Line(points={{30,60},{-20,10}}, color={0,0,255}),
           Line(points={{-20,-10},{30,-60}}, color={0,0,255}),
-          Line(points={{30,-60},{100,-60}},color={0,0,255}),
+          Line(points={{30,-60},{100,-60}}, color={0,0,255}),
           Polygon(
             points={{-20,-10},{-5,-17},{-13,-25},{-20,-10}},
             fillColor={0,0,255},
@@ -1117,7 +1117,7 @@ end HeatingDiode;
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
           Line(points={{-20,40},{-20,-40}}, color={0,0,255}),
-          Line(points={{-20,0},{-100,0}},color={0,0,255}),
+          Line(points={{-20,0},{-100,0}}, color={0,0,255}),
           Line(points={{91,60},{30,60}}, color={0,0,255}),
           Line(points={{30,60},{-20,10}}, color={0,0,255}),
           Line(points={{-20,-10},{30,-60}}, color={0,0,255}),
@@ -1231,7 +1231,7 @@ end HeatingDiode;
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
           Line(points={{-20,40},{-20,-40}}, color={0,0,255}),
-          Line(points={{-20,0},{-100,0}},color={0,0,255}),
+          Line(points={{-20,0},{-100,0}}, color={0,0,255}),
           Line(points={{91,60},{30,60}}, color={0,0,255}),
           Line(points={{30,60},{-20,10}}, color={0,0,255}),
           Line(points={{-20,-10},{30,-60}}, color={0,0,255}),
@@ -1508,29 +1508,21 @@ public
      connect(heatPort, thyristor1.heatPort);
    end if;
     connect(thyristor.Anode, n) annotation (Line(
-        points={{-19,40},{-18,40},{-18,48},{-70,48},{-70,0},{-100,0}},
-        color={0,0,255}));
+        points={{-19,40},{-18,40},{-18,48},{-70,48},{-70,0},{-100,0}}, color={0,0,255}));
     connect(thyristor1.Anode, p) annotation (Line(
-        points={{-3,-40},{-2,-40},{-2,-60},{80,-60},{80,0},{104,0}},
-        color={0,0,255}));
+        points={{-3,-40},{-2,-40},{-2,-60},{80,-60},{80,0},{104,0}}, color={0,0,255}));
     connect(thyristor1.Anode, thyristor.Cathode) annotation (Line(
-        points={{-3,-40},{-2,-40},{-2,40},{-1,40}},
-        color={0,0,255}));
+        points={{-3,-40},{-2,-40},{-2,40},{-1,40}}, color={0,0,255}));
     connect(thyristor1.Cathode, thyristor.Anode) annotation (Line(
-        points={{-21,-40},{-22,-40},{-22,40},{-19,40}},
-        color={0,0,255}));
+        points={{-21,-40},{-22,-40},{-22,40},{-19,40}}, color={0,0,255}));
     connect(thyristor.Gate, idealDiode.n) annotation (Line(
-        points={{0,50},{0,59.5},{-20,59.5},{-20,68}},
-        color={0,0,255}));
+        points={{0,50},{0,59.5},{-20,59.5},{-20,68}}, color={0,0,255}));
     connect(idealDiode.p, g) annotation (Line(
-        points={{-40,68},{-82,68},{-82,-98},{-100,-98}},
-        color={0,0,255}));
+        points={{-40,68},{-82,68},{-82,-98},{-100,-98}}, color={0,0,255}));
     connect(idealDiode1.n, thyristor1.Gate) annotation (Line(
-        points={{-20,-62},{-20,-50},{-22,-50}},
-        color={0,0,255}));
+        points={{-20,-62},{-20,-50},{-22,-50}}, color={0,0,255}));
     connect(idealDiode1.p, g) annotation (Line(
-        points={{-20,-82},{-42,-82},{-42,-98},{-100,-98}},
-        color={0,0,255}));
+        points={{-20,-82},{-42,-82},{-42,-98},{-100,-98}}, color={0,0,255}));
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={

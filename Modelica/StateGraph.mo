@@ -813,13 +813,12 @@ package Examples
 
     connect(initialStep.outPort[1], transition1.inPort)
       annotation (Line(points={{-27.5,10},{-14,10}}));
-
     connect(transition1.outPort, step.inPort[1])
       annotation (Line(points={{-8.5,10},{9,10}}));
     connect(step.outPort[1], transition2.inPort)
       annotation (Line(points={{30.5,10},{46,10}}));
     connect(transition2.outPort, initialStep.inPort[1]) annotation (Line(points=
-             {{51.5,10},{70,10},{70,32},{-62,32},{-62,10},{-49,10}}, color={0,0,0}));
+             {{51.5,10},{70,10},{70,32},{-62,32},{-62,10},{-49,10}}));
     annotation (experiment(StopTime=5));
   end FirstExample;
 
@@ -856,7 +855,7 @@ package Examples
     connect(greaterEqual.y, transition2.condition) annotation (Line(points={{57,
               -30},{62,-30},{62,-2}}, color={255,0,255}));
     connect(transition2.outPort, initialStep.inPort[1]) annotation (Line(points=
-             {{63.5,10},{82,10},{82,32},{-80,32},{-80,10},{-71,10}}, color={0,0,0}));
+             {{63.5,10},{82,10},{82,32},{-80,32},{-80,10},{-71,10}}));
     annotation (experiment(StopTime=5));
   end FirstExample_Variant2;
 
@@ -893,7 +892,7 @@ package Examples
     connect(step.outPort[1], transition2.inPort)
       annotation (Line(points={{6.5,10},{62,10}}));
     connect(transition2.outPort, initialStep.inPort[1]) annotation (Line(points=
-             {{67.5,10},{82,10},{82,32},{-80,32},{-80,10},{-71,10}}, color={0,0,0}));
+             {{67.5,10},{82,10},{82,32},{-80,32},{-80,10},{-71,10}}));
     connect(SetBoolean1.y, transition2.condition) annotation (Line(points={{
               61.6,-30},{66,-30},{66,-2}}, color={255,0,255}));
     annotation (experiment(StopTime=5));
@@ -979,8 +978,7 @@ package Examples
     connect(setCondition.y, transition7.condition) annotation (Line(points={{
               -16.1,-150},{-1,-150},{-1,-136}}, color={255,0,255}));
     connect(setReal.y, NumericValue1.Value) annotation (Line(
-          points={{42,-150},{59,-150}},
-          color={0,0,255}));
+          points={{42,-150},{59,-150}}, color={0,0,255}));
     connect(transition3.inPort, alternative.split[1]) annotation (Line(points={{-36,90},
               {-55.09,90}}));
     connect(transition4.inPort, alternative.split[2]) annotation (Line(points={{-36,50},
@@ -998,7 +996,7 @@ package Examples
     connect(alternative.outPort, step5.inPort[1])
       annotation (Line(points={{73.42,50},{79,50}}));
     connect(step2.inPort[1], Parallel1.split[1]) annotation (Line(points={{-99,
-              50},{-118,50},{-118,78},{-119.575,78},{-119.575,77.5}}, color={0,0,0}));
+              50},{-118,50},{-118,78},{-119.575,78},{-119.575,77.5}}));
     connect(step1.outPort[1], Parallel1.join[2]) annotation (Line(points={{10.5,
               -30},{118,-30},{118,-7.5},{117.575,-7.5}}));
     connect(step0.outPort[1], transition1.inPort) annotation (Line(points={{
@@ -1129,7 +1127,7 @@ is that the alternative paths are included in a \"CompositeStep\".
     connect(compositeStep.outPort, transition2.inPort)
       annotation (Line(points={{10.5,40},{26,40}}));
     connect(transition2.outPort, initialStep.inPort[1]) annotation (Line(points=
-             {{31.5,40},{46,40},{46,80},{-90,80},{-90,40},{-81,40}}, color={0,0,0}));
+             {{31.5,40},{46,40},{46,80},{-90,80},{-90,40},{-81,40}}));
     connect(compositeStep.suspend[1], transition3.inPort)
                                                   annotation (Line(points={{-12.5,
               24.5},{-12.5,10},{-60,10},{-60,-20},{-49,-20}}));
@@ -1349,8 +1347,7 @@ buttons:
         annotation (Line(points={{83,82.5},{90,82.5},{90,60},{105,60}}, color={
                 255,0,255}));
       connect(setValve2.y, valve2)
-        annotation (Line(points={{85.25,-78.5},{90,-78.5},{90,0},{105,0}},
-              color={255,0,255}));
+        annotation (Line(points={{85.25,-78.5},{90,-78.5},{90,0},{105,0}}, color={255,0,255}));
       connect(setValve3.y, valve3) annotation (Line(points={{85.3,-90},{95,-90},
                 {95,-60},{105,-60}}, color={255,0,255}));
       connect(makeProduct.suspend[1], T3.inPort)
@@ -1363,16 +1360,15 @@ buttons:
                                               annotation (Line(points={{10,0.5},
                 {10,15},{2.5,15},{2.5,24}}));
       connect(level1, makeProduct.level1) annotation (Line(points={{-60,-110},{
-                -60,-80},{-80,-80},{-80,20},{-30,20},{-30,28},{-22,28}}, color=
-                {0,0,255}));
+                -60,-80},{-80,-80},{-80,20},{-30,20},{-30,28},{-22,28}}, color={0,0,255}));
       connect(s2.outPort[1], T5.inPort) annotation (Line(points={{-29.5,-49.75},
                 {-30,-49.75},{-30,-50},{0,-50}}));
       connect(s2.outPort[2], T4.inPort) annotation (Line(points={{-29.5,-50.25},
                 {-29,-50},{-8,-50},{-8,-25},{10,-25},{10,-5}}));
       connect(T2.outPort, s1.inPort[1]) annotation (Line(points={{38.5,40},{70,
-                40},{70,70},{-84,70},{-84,40},{-73,40},{-73,40.5}}, color={0,0,0}));
+                40},{70,70},{-84,70},{-84,40},{-73,40},{-73,40.5}}));
       connect(T6.outPort, s1.inPort[2]) annotation (Line(points={{56.5,-50},{70,
-                -50},{70,70},{-84,70},{-84,40},{-74,40},{-73,39.5}}, color={0,0,0}));
+                -50},{70,70},{-84,70},{-84,40},{-74,40},{-73,39.5}}));
       annotation (
         Diagram(coordinateSystem(
               preserveAspectRatio=true,

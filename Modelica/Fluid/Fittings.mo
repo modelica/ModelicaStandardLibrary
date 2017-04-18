@@ -664,11 +664,9 @@ then ideal mixing would take place in the connection set, outside the volume. Th
 
   equation
     connect(port_1, port_2) annotation (Line(
-        points={{-100,0},{100,0}},
-        color={0,127,255}));
+        points={{-100,0},{100,0}}, color={0,127,255}));
     connect(port_1, port_3) annotation (Line(
-        points={{-100,0},{0,0},{0,100}},
-        color={0,127,255}));
+        points={{-100,0},{0,0},{0,100}}, color={0,127,255}));
     annotation(Documentation(info="<html>
   This model is the simplest implementation for a splitting/joining component for
   three flows. Its use is not required. It just formulates the balance

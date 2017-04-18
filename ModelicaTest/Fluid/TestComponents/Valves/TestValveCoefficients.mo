@@ -86,31 +86,24 @@ equation
   connect(Opening.y,V1. opening)
   annotation (Line(points={{-75,72},{-34,72},{-34,36}}, color={0,0,255}));
   connect(SourceP1.ports[1],V1.port_a)
-                                   annotation (Line(points={{-74,28},{-44,28}},
-        color={0,127,255}));
+                                   annotation (Line(points={{-74,28},{-44,28}}, color={0,127,255}));
   connect(V2.port_b,SinkP2.ports[1])
                                   annotation (Line(points={{-24,-8},{8,-8}}));
   connect(SourceP2.ports[1],V2.port_a)
-                                   annotation (Line(points={{-74,-8},{-44,-8}},
-        color={0,127,255}));
+                                   annotation (Line(points={{-74,-8},{-44,-8}}, color={0,127,255}));
   connect(V3.port_b,SinkP3.ports[1])
                                   annotation (Line(points={{-24,-46},{8,-46}}));
   connect(SourceP3.ports[1],V3.port_a)
-                                   annotation (Line(points={{-74,-46},{-44,-46}},
-        color={0,127,255}));
+                                   annotation (Line(points={{-74,-46},{-44,-46}}, color={0,127,255}));
   connect(V2.opening, Opening.y) annotation (Line(
-      points={{-34,0},{-34,8},{-62,8},{-62,72},{-75,72}},
-      color={0,0,127}));
+      points={{-34,0},{-34,8},{-62,8},{-62,72},{-75,72}}, color={0,0,127}));
   connect(V3.opening, Opening.y) annotation (Line(
-      points={{-34,-38},{-34,-26},{-62,-26},{-62,72},{-75,72}},
-      color={0,0,127}));
+      points={{-34,-38},{-34,-26},{-62,-26},{-62,72},{-75,72}}, color={0,0,127}));
   connect(V4.port_b,SinkP4.ports[1])
                                   annotation (Line(points={{-24,-78},{8,-78}}));
   connect(SourceP4.ports[1],V4.port_a)
-                                   annotation (Line(points={{-74,-78},{-44,-78}},
-        color={0,127,255}));
+                                   annotation (Line(points={{-74,-78},{-44,-78}}, color={0,127,255}));
   connect(V4.opening, Opening.y) annotation (Line(
-      points={{-34,-70},{-34,-58},{-62,-58},{-62,72},{-75,72}},
-      color={0,0,127}));
+      points={{-34,-70},{-34,-58},{-62,-58},{-62,72},{-75,72}}, color={0,0,127}));
   annotation ( experiment(StopTime=1.01));
 end TestValveCoefficients;

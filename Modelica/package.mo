@@ -1123,7 +1123,7 @@ Comments and annotations should start with a capital letter, for example:<br>
      <code>HeatPort_a</code>, <code>HeatPort_b</code>.</li>
 
 <li> A <strong>connector class</strong> has the instance
-     name definition in the diagram layer and not in the 
+     name definition in the diagram layer and not in the
      <a href=\"modelica://Modelica.UsersGuide.Conventions.Icons\">icon</a> layer.</li>
 </ol>
 
@@ -1283,7 +1283,7 @@ Comments and annotations should start with a capital letter, for example:<br>
       annotation (Documentation(info="<html>
 
 <p>In this section the
-<a href=\"modelica://Modelica.UsersGuide.Conventions.ModelicaCode.Naming\">naming conventions</a> of class and instance names, parameters and variables are specified. 
+<a href=\"modelica://Modelica.UsersGuide.Conventions.ModelicaCode.Naming\">naming conventions</a> of class and instance names, parameters and variables are specified.
 Additional
 <a href=\"modelica://Modelica.UsersGuide.Conventions.ModelicaCode.Format\">format</a> guidelines are provided.</p>
 
@@ -1631,7 +1631,7 @@ This class summarizes contact information of the contributing persons.
 
 <p>The main icon color of a component shall be the same for all components of one library.</p>
 
-<p>White fill areas of an icon shall not be used to hide parts of an icon, see 
+<p>White fill areas of an icon shall not be used to hide parts of an icon, see
 <a href=\"modelica://https://github.com/modelica/Modelica/issues/2031\">#2031</a>.</p>
 
 <h4>Icon size</h4>
@@ -1641,7 +1641,7 @@ This class summarizes contact information of the contributing persons.
 <li>-100 units &le; horizontal coordinate &le; +100 units</li>
 <li>-100 units &le; vertical coordinate &le; +100 untis</li>
 </ul>
-<p>If possible, the icon shall be designed such way, that the icon name <code>%name</code> 
+<p>If possible, the icon shall be designed such way, that the icon name <code>%name</code>
 and the most significant parameter can be displayed within the vertical Diagram range of the icon.</p>
 
 <p>
@@ -1660,7 +1660,7 @@ Fig. 1: (a) Typical icon, (b) including dimensions
 <p>The text shall be located above the actual icon. If there is enough space, the upper text limit of the component name
 shall be 10 units below the upper icon boundary, see Fig. 1.</p>
 
-<p>If the icon is as big as the entire icon range of 200 units x 200 units, e.g. in blocks, 
+<p>If the icon is as big as the entire icon range of 200 units x 200 units, e.g. in blocks,
 the component name shall be placed above the icon with vertical 10 units of space between icon and lower text box, see Fig. 2.</p>
 
 <p>
@@ -1668,7 +1668,7 @@ the component name shall be placed above the icon with vertical 10 units of spac
 Fig. 2: Block component name
 </p>
 
-<p>If there is a connector locoated at the top icon boundary and it is obvious that this connector influences the model 
+<p>If there is a connector locoated at the top icon boundary and it is obvious that this connector influences the model
 behavior compared to a similar model without such connector, then a line from the connector to the actual icon
 shall be avoided to keep the design straight, see Fig. 4. If it is required to use a line indicating the connector dependency, then
 the line shall be interrupted such that this line does not interfere with component name.</p>
@@ -1692,12 +1692,12 @@ Fig. 4: Component name below actual icon
 <li>Text height: 40 units (or 30 units, minimum 20 units, if required)</li>
 <li>Text width: 300 units </li>
 </ul>
-<p>The parameter text box shall be placed 10 units below the actual icon.  
+<p>The parameter text box shall be placed 10 units below the actual icon.
 </p>
 
 <h4>Connector location</h4>
 
-<p>Physical connectors shall always be located on the icon boundary. Input and output connector shall be placed outside the icon, see Fig. 2 and 3. 
+<p>Physical connectors shall always be located on the icon boundary. Input and output connector shall be placed outside the icon, see Fig. 2 and 3.
 Preferred connector locations are:</p>
 <ul>
 <li>at the four corners of the icon diagram, see Fig. 5</li>
@@ -1712,7 +1712,7 @@ Fig. 5: Connectors located at the four corners of the icon diagram
 
 <h4>Diagram icons</h4>
 
-<p>Icons drawn in the Diagram layer shall be avoided. Particularly, icons of Diagram layer shall be avoided which are equal to the 
+<p>Icons drawn in the Diagram layer shall be avoided. Particularly, icons of Diagram layer shall be avoided which are equal to the
 icons of the Icon layer. Any graphical illustrations shall be moved to the HTML documentation instead.</p>
 
 

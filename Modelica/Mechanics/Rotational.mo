@@ -1260,8 +1260,7 @@ as component LossyGear includes the functionality of component BearingFriction
       connect(Inertia2.flange_b, torque2.flange)
         annotation (Line(points={{40,10},{48,10}}));
       connect(step1.y, torque2.tau) annotation (Line(
-          points={{79,10},{74.5,10},{74.5,10},{70,10}},
-          color={0,0,127}));
+          points={{79,10},{74.5,10},{74.5,10},{70,10}}, color={0,0,127}));
       annotation (
         Diagram(coordinateSystem(extent = {{-110,-100},{110,100}})),
         Documentation(info="<html>
@@ -1450,12 +1449,10 @@ Furthermore, it shows the differences of the
       connect(inertia.flange_b, idealRollingWheel.flangeR) annotation (Line(
           points={{-20,0},{-10,0}}));
       connect(idealRollingWheel.flangeT, mass.flange_a) annotation (Line(
-          points={{10,0},{20,0}},
-          color={0,127,0}));
+          points={{10,0},{20,0}}, color={0,127,0}));
       connect(quadraticSpeedDependentForce.flange, mass.flange_b) annotation (
           Line(
-          points={{52,0},{40,0}},
-          color={0,127,0}));
+          points={{52,0},{40,0}}, color={0,127,0}));
       annotation (Documentation(info="<html>
 <p>
 This model demonstrates the coupling between rotational and translational components:<br>
@@ -1550,8 +1547,7 @@ Du to a speed dependent force (like driving resistance), we find an equilibrium 
     equation
 
       connect(sine.y, torque.tau) annotation (Line(
-          points={{-79,30},{-72,30}},
-          color={0,0,127}));
+          points={{-79,30},{-72,30}}, color={0,0,127}));
       connect(torque.flange, inertia1.flange_a) annotation (Line(
           points={{-50,30},{-40,30}}));
       connect(inertia1.flange_b, damper.flange_b) annotation (Line(
@@ -1559,33 +1555,27 @@ Du to a speed dependent force (like driving resistance), we find an equilibrium 
       connect(damper.flange_a, fixed.flange) annotation (Line(
           points={{-20,0},{-20,-5},{-20,-5},{-20,-10}}));
       connect(damper.heatPort, convection.solid) annotation (Line(
-          points={{-30,0},{-30,-30},{20,-30}},
-          color={191,0,0}));
+          points={{-30,0},{-30,-30},{20,-30}}, color={191,0,0}));
       connect(TAmbient.port, convection.fluid) annotation (Line(
-          points={{48,-30},{40,-30}},
-          color={191,0,0}));
+          points={{48,-30},{40,-30}}, color={191,0,0}));
       connect(const.y, convection.Gc) annotation (Line(
-          points={{21,-60},{30,-60},{30,-40}},
-          color={0,0,127}));
+          points={{21,-60},{30,-60},{30,-40}}, color={0,0,127}));
       connect(inertia1.flange_b, springDamper.flange_a) annotation (Line(
           points={{-20,30},{-10,30}}));
       connect(springDamper.heatPort, convection.solid) annotation (Line(
-          points={{-10,20},{-10,-30},{20,-30}},
-          color={191,0,0}));
+          points={{-10,20},{-10,-30},{20,-30}}, color={191,0,0}));
       connect(springDamper.flange_b, inertia2.flange_a) annotation (Line(
           points={{10,30},{20,30}}));
       connect(elastoBacklash.flange_a, inertia2.flange_b) annotation (Line(
           points={{50,30},{40,30}}));
       connect(elastoBacklash.heatPort, convection.solid) annotation (Line(
-          points={{50,20},{50,0},{-10,0},{-10,-30},{20,-30}},
-          color={191,0,0}));
+          points={{50,20},{50,0},{-10,0},{-10,-30},{20,-30}}, color={191,0,0}));
       connect(elastoBacklash.flange_b, inertia3.flange_a) annotation (Line(
           points={{70,30},{80,30}}));
       connect(inertia3.flange_b, bearingFriction.flange_a) annotation (Line(
           points={{100,30},{110,30}}));
       connect(convection.solid, bearingFriction.heatPort) annotation (Line(
-          points={{20,-30},{-10,-30},{-10,0},{110,0},{110,20}},
-          color={191,0,0}));
+          points={{20,-30},{-10,-30},{-10,0},{110,0},{110,20}}, color={191,0,0}));
       connect(spring3.flange_b, inertia4.flange_a) annotation (Line(
           points={{-50,80},{-40,80}}));
       connect(bearingFriction.flange_b, spring3.flange_a) annotation (Line(
@@ -1593,39 +1583,32 @@ Du to a speed dependent force (like driving resistance), we find an equilibrium 
       connect(inertia4.flange_b, lossyGear.flange_a) annotation (Line(
           points={{-20,80},{-10,80}}));
       connect(lossyGear.heatPort, convection.solid) annotation (Line(
-          points={{-10,70},{-10,60},{140,60},{140,0},{-10,0},{-10,-30},{20,-30}},
-          color={191,0,0}));
+          points={{-10,70},{-10,60},{140,60},{140,0},{-10,0},{-10,-30},{20,-30}}, color={191,0,0}));
 
       connect(lossyGear.flange_b, clutch.flange_a) annotation (Line(
           points={{10,80},{20,80}}));
       connect(clutch.heatPort, convection.solid) annotation (Line(
-          points={{20,70},{20,60},{140,60},{140,0},{-10,0},{-10,-30},{20,-30}},
-          color={191,0,0}));
+          points={{20,70},{20,60},{140,60},{140,0},{-10,0},{-10,-30},{20,-30}}, color={191,0,0}));
 
       connect(clutch.flange_b, inertia5.flange_a) annotation (Line(
           points={{40,80},{50,80}}));
       connect(sine2.y, clutch.f_normalized) annotation (Line(
-          points={{21,120},{30,120},{30,91}},
-          color={0,0,127}));
+          points={{21,120},{30,120},{30,91}}, color={0,0,127}));
       connect(inertia5.flange_b, oneWayClutch.flange_a) annotation (Line(
           points={{70,80},{80,80}}));
       connect(oneWayClutch.flange_b, inertia6.flange_a) annotation (Line(
           points={{100,80},{110,80}}));
       connect(sine2.y, oneWayClutch.f_normalized) annotation (Line(
-          points={{21,120},{90,120},{90,91}},
-          color={0,0,127}));
+          points={{21,120},{90,120},{90,91}}, color={0,0,127}));
       connect(inertia6.flange_b, brake.flange_a) annotation (Line(
           points={{130,80},{140,80}}));
       connect(sine2.y, brake.f_normalized) annotation (Line(
-          points={{21,120},{150,120},{150,91}},
-          color={0,0,127}));
+          points={{21,120},{150,120},{150,91}}, color={0,0,127}));
       connect(oneWayClutch.heatPort, convection.solid) annotation (Line(
-          points={{80,70},{80,60},{140,60},{140,0},{-10,0},{-10,-30},{20,-30}},
-          color={191,0,0}));
+          points={{80,70},{80,60},{140,60},{140,0},{-10,0},{-10,-30},{20,-30}}, color={191,0,0}));
 
       connect(brake.heatPort, convection.solid) annotation (Line(
-          points={{140,70},{140,0},{-10,0},{-10,-30},{20,-30}},
-          color={191,0,0}));
+          points={{140,70},{140,0},{-10,0},{-10,-30},{20,-30}}, color={191,0,0}));
 
       annotation (
         Documentation(info="<html>
@@ -1691,8 +1674,7 @@ is present in variable convection.fluid.
           Line(
           points={{60,-10},{50,-10}}));
       connect(feedback.y, brake.f_normalized) annotation (Line(
-          points={{9,60},{30,60},{30,31}},
-          color={0,0,127}));
+          points={{9,60},{30,60},{30,31}}, color={0,0,127}));
       connect(engine.flange_b, idealPlanetary.sun) annotation (Line(
           points={{-30,-10},{-10,-10}}));
       connect(idealPlanetary.sun, clutch.flange_a) annotation (Line(
@@ -1704,14 +1686,11 @@ is present in variable convection.fluid.
       connect(idealPlanetary.carrier, load.flange_a) annotation (Line(
           points={{-10,-14},{-20,-14},{-20,-30},{30,-30},{30,-10}}));
       connect(const1.y, feedback.u1) annotation (Line(
-          points={{-19,60},{-8,60}},
-          color={0,0,127}));
+          points={{-19,60},{-8,60}}, color={0,0,127}));
       connect(feedback.u2, clutch.f_normalized) annotation (Line(
-          points={{0,52},{0,31}},
-          color={0,0,127}));
+          points={{0,52},{0,31}}, color={0,0,127}));
       connect(ramp.y, clutch.f_normalized) annotation (Line(
-          points={{-39,40},{0,40},{0,31}},
-          color={0,0,127}));
+          points={{-39,40},{0,40},{0,31}}, color={0,0,127}));
       annotation (experiment(StopTime=5, Interval=0.01), Documentation(info="<html>
 <p>This model shows how an automatic gear shift is built up from a planetary gear, a brake and a clutch. </p>
 <ul>
@@ -1805,66 +1784,49 @@ A rotating inertia gets decelerated by an eddy current brake. The loss power is 
         annotation (Placement(transformation(extent={{60,-80},{40,-60}})));
     equation
       connect(sine1.y, directInertia.tauDrive) annotation (Line(
-          points={{-39,50},{-22,50}},
-          color={0,0,127}));
+          points={{-39,50},{-22,50}}, color={0,0,127}));
       connect(directInertia.phi, inverseInertia.phi) annotation (Line(
-          points={{1,58},{18,58}},
-          color={0,0,127}));
+          points={{1,58},{18,58}}, color={0,0,127}));
       connect(directInertia.w, inverseInertia.w) annotation (Line(
-          points={{1,53},{18,53}},
-          color={0,0,127}));
+          points={{1,53},{18,53}}, color={0,0,127}));
       connect(directInertia.a, inverseInertia.a) annotation (Line(
-          points={{1,47},{18,47}},
-          color={0,0,127}));
+          points={{1,47},{18,47}}, color={0,0,127}));
       connect(inverseInertia.tau, directInertia.tau) annotation (Line(
-          points={{19,42},{2,42}},
-          color={0,0,127}));
+          points={{19,42},{2,42}}, color={0,0,127}));
       connect(torque2.flange, inertia2a.flange_a) annotation (Line(
           points={{-48,-10},{-40,-10}}));
       connect(sine2.y, torque2.tau) annotation (Line(
-          points={{-79,-10},{-70,-10}},
-          color={0,0,127}));
+          points={{-79,-10},{-70,-10}}, color={0,0,127}));
       connect(inertia2a.flange_b, torqueToAngle2a.flange) annotation (Line(
           points={{-20,-10},{-12,-10}}));
       connect(torqueToAngle2a.phi, springDamper.phi1) annotation (Line(
-          points={{-7,-2},{8,-2}},
-          color={0,0,127}));
+          points={{-7,-2},{8,-2}}, color={0,0,127}));
       connect(torqueToAngle2a.w, springDamper.w1) annotation (Line(
-          points={{-7,-7},{8,-7}},
-          color={0,0,127}));
+          points={{-7,-7},{8,-7}}, color={0,0,127}));
       connect(springDamper.tau1, torqueToAngle2a.tau) annotation (Line(
-          points={{9,-18},{-6,-18}},
-          color={0,0,127}));
+          points={{9,-18},{-6,-18}}, color={0,0,127}));
       connect(torqueToAngle2b.phi, springDamper.phi2) annotation (Line(
-          points={{47,-2},{32,-2}},
-          color={0,0,127}));
+          points={{47,-2},{32,-2}}, color={0,0,127}));
       connect(torqueToAngle2b.w, springDamper.w2) annotation (Line(
-          points={{47,-7},{32,-7}},
-          color={0,0,127}));
+          points={{47,-7},{32,-7}}, color={0,0,127}));
       connect(springDamper.tau2, torqueToAngle2b.tau) annotation (Line(
-          points={{31,-18},{46,-18}},
-          color={0,0,127}));
+          points={{31,-18},{46,-18}}, color={0,0,127}));
       connect(inertia2b.flange_a, torqueToAngle2b.flange) annotation (Line(
           points={{60,-10},{52,-10}}));
       connect(torque3.flange, inertia3a.flange_a) annotation (Line(
           points={{-48,-70},{-40,-70}}));
       connect(sine3.y, torque3.tau) annotation (Line(
-          points={{-79,-70},{-70,-70}},
-          color={0,0,127}));
+          points={{-79,-70},{-70,-70}}, color={0,0,127}));
       connect(inertia3a.flange_b, torqueToAngle3a.flange) annotation (Line(
           points={{-20,-70},{-12,-70}}));
       connect(torqueToAngle3a.phi, spring.phi1) annotation (Line(
-          points={{-7,-62},{8,-62}},
-          color={0,0,127}));
+          points={{-7,-62},{8,-62}}, color={0,0,127}));
       connect(spring.tau1, torqueToAngle3a.tau) annotation (Line(
-          points={{9,-78},{-6,-78}},
-          color={0,0,127}));
+          points={{9,-78},{-6,-78}}, color={0,0,127}));
       connect(torqueToAngle3b.phi, spring.phi2) annotation (Line(
-          points={{47,-62},{32,-62}},
-          color={0,0,127}));
+          points={{47,-62},{32,-62}}, color={0,0,127}));
       connect(spring.tau2, torqueToAngle3b.tau) annotation (Line(
-          points={{31,-78},{46,-78}},
-          color={0,0,127}));
+          points={{31,-78},{46,-78}}, color={0,0,127}));
       connect(inertia3b.flange_a, torqueToAngle3b.flange) annotation (Line(
           points={{60,-70},{52,-70}}));
       annotation (experiment(StopTime=1, Interval=0.001), Documentation(info="<html>
@@ -1944,22 +1906,17 @@ force law in a target system between two inertias.
         connect(torque.flange, inertia.flange_a) annotation (Line(
             points={{-30,0},{-20,0}}));
         connect(torque.tau, tauDrive) annotation (Line(
-            points={{-52,0},{-120,0}},
-            color={0,0,127}));
+            points={{-52,0},{-120,0}}, color={0,0,127}));
         connect(inertia.flange_b, torqueToAngle.flange) annotation (Line(
             points={{0,0},{12,0}}));
         connect(torqueToAngle.phi, phi) annotation (Line(
-            points={{17,8},{60,8},{60,80},{110,80}},
-            color={0,0,127}));
+            points={{17,8},{60,8},{60,80},{110,80}}, color={0,0,127}));
         connect(torqueToAngle.w, w) annotation (Line(
-            points={{17,3},{66,3},{66,30},{110,30}},
-            color={0,0,127}));
+            points={{17,3},{66,3},{66,30},{110,30}}, color={0,0,127}));
         connect(torqueToAngle.tau, tau) annotation (Line(
-            points={{18,-8},{60,-8},{60,-80},{120,-80}},
-            color={0,0,127}));
+            points={{18,-8},{60,-8},{60,-80},{120,-80}}, color={0,0,127}));
         connect(torqueToAngle.a, a) annotation (Line(
-            points={{17,-3},{66,-3},{66,-30},{110,-30}},
-            color={0,0,127}));
+            points={{17,-3},{66,-3},{66,-30},{110,-30}}, color={0,0,127}));
         annotation (Icon(coordinateSystem(
                 preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
               graphics={Text(
@@ -2009,19 +1966,15 @@ force law in a target system between two inertias.
       equation
 
         connect(angleToTorque.phi, phi) annotation (Line(
-            points={{-30,8},{-84,8},{-84,80},{-120,80}},
-            color={0,0,127}));
+            points={{-30,8},{-84,8},{-84,80},{-120,80}}, color={0,0,127}));
         connect(angleToTorque.w, w) annotation (Line(
-            points={{-30,2.8},{-90,2.8},{-90,30},{-120,30}},
-            color={0,0,127}));
+            points={{-30,2.8},{-90,2.8},{-90,30},{-120,30}}, color={0,0,127}));
         connect(angleToTorque.a, a) annotation (Line(
-            points={{-30,-3.2},{-80,-3.2},{-80,-30},{-120,-30}},
-            color={0,0,127}));
+            points={{-30,-3.2},{-80,-3.2},{-80,-30},{-120,-30}}, color={0,0,127}));
         connect(angleToTorque.flange, inertia.flange_a) annotation (Line(
             points={{-24,0},{-12,0}}));
         connect(angleToTorque.tau, tau) annotation (Line(
-            points={{-29,-8},{-70,-8},{-70,-80},{-110,-80}},
-            color={0,0,127}));
+            points={{-29,-8},{-70,-8},{-70,-80},{-110,-80}}, color={0,0,127}));
         annotation (Icon(coordinateSystem(
                 preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
               graphics={Text(
@@ -2083,27 +2036,21 @@ force law in a target system between two inertias.
       equation
 
         connect(angleToTorque1.phi, phi1) annotation (Line(
-            points={{-24,8},{-84,8},{-84,80},{-120,80}},
-            color={0,0,127}));
+            points={{-24,8},{-84,8},{-84,80},{-120,80}}, color={0,0,127}));
         connect(angleToTorque1.w, w1) annotation (Line(
-            points={{-24,2.8},{-90,2.8},{-90,30},{-120,30}},
-            color={0,0,127}));
+            points={{-24,2.8},{-90,2.8},{-90,30},{-120,30}}, color={0,0,127}));
         connect(angleToTorque1.tau, tau1) annotation (Line(
-            points={{-23,-8},{-70,-8},{-70,-80},{-110,-80}},
-            color={0,0,127}));
+            points={{-23,-8},{-70,-8},{-70,-80},{-110,-80}}, color={0,0,127}));
         connect(angleToTorque1.flange, springDamper.flange_a) annotation (Line(
             points={{-18,0},{-6,0}}));
         connect(springDamper.flange_b, angleToTorque2.flange) annotation (Line(
             points={{14,0},{26,0}}));
         connect(phi2, angleToTorque2.phi) annotation (Line(
-            points={{120,80},{60,80},{60,8},{32,8}},
-            color={0,0,127}));
+            points={{120,80},{60,80},{60,8},{32,8}}, color={0,0,127}));
         connect(w2, angleToTorque2.w) annotation (Line(
-            points={{120,30},{70,30},{70,2.8},{32,2.8}},
-            color={0,0,127}));
+            points={{120,30},{70,30},{70,2.8},{32,2.8}}, color={0,0,127}));
         connect(angleToTorque2.tau, tau2) annotation (Line(
-            points={{31,-8},{60,-8},{60,-80},{110,-80}},
-            color={0,0,127}));
+            points={{31,-8},{60,-8},{60,-80},{110,-80}}, color={0,0,127}));
         annotation (Icon(coordinateSystem(
                 preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
               graphics={Text(
@@ -2160,21 +2107,17 @@ d=%d"),Bitmap(extent={{-72,-44},{84,46}}, fileName=
       equation
 
         connect(angleToTorque1.phi, phi1) annotation (Line(
-            points={{-24,8},{-84,8},{-84,80},{-120,80}},
-            color={0,0,127}));
+            points={{-24,8},{-84,8},{-84,80},{-120,80}}, color={0,0,127}));
         connect(angleToTorque1.tau, tau1) annotation (Line(
-            points={{-23,-8},{-70,-8},{-70,-80},{-110,-80}},
-            color={0,0,127}));
+            points={{-23,-8},{-70,-8},{-70,-80},{-110,-80}}, color={0,0,127}));
         connect(angleToTorque1.flange, spring.flange_a) annotation (Line(
             points={{-18,0},{-6,0}}));
         connect(spring.flange_b, angleToTorque2.flange) annotation (Line(
             points={{14,0},{26,0}}));
         connect(phi2, angleToTorque2.phi) annotation (Line(
-            points={{120,80},{60,80},{60,8},{32,8}},
-            color={0,0,127}));
+            points={{120,80},{60,80},{60,8},{32,8}}, color={0,0,127}));
         connect(angleToTorque2.tau, tau2) annotation (Line(
-            points={{31,-8},{60,-8},{60,-80},{110,-80}},
-            color={0,0,127}));
+            points={{31,-8},{60,-8},{60,-80},{110,-80}}, color={0,0,127}));
         annotation (Icon(coordinateSystem(
                 preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
               graphics={Text(
@@ -4758,11 +4701,9 @@ in the flanges, are along the axis vector displayed in the icon.
       connect(elastoBacklash.flange_b, flange_b) annotation (Line(points={{60,0},
               {70,0},{70,0},{80,0},{80,0},{100,0}}));
       connect(elastoBacklash.heatPort, internalHeatPort) annotation (Line(
-          points={{20,-20},{20,-60},{-100,-60},{-100,-80}},
-          color={191,0,0}));
+          points={{20,-20},{20,-60},{-100,-60},{-100,-80}}, color={191,0,0}));
       connect(lossyGear.heatPort, internalHeatPort) annotation (Line(
-          points={{-60,-20},{-60,-60},{-100,-60},{-100,-80}},
-          color={191,0,0}));
+          points={{-60,-20},{-60,-60},{-100,-60},{-100,-80}}, color={191,0,0}));
       connect(lossyGear.support, internalSupport) annotation (Line(
           points={{-40,-20},{-40,-40},{0,-40},{0,-80}}));
       annotation (Documentation(info="<html>
@@ -5060,18 +5001,15 @@ no rolling resistance. This component defines the kinematic constraint:
                {{96,-90},{76,-70}})));
     equation
       connect(set_phi_start.phi_start, phi_start) annotation (Line(
-          points={{-22,80},{-120,80}},
-          color={0,0,127}));
+          points={{-22,80},{-120,80}}, color={0,0,127}));
       connect(set_phi_start.flange, flange) annotation (Line(
           points={{0,80},{60,80},{60,0},{100,0}}));
       connect(set_w_start.flange, flange) annotation (Line(
           points={{0,0},{100,0}}));
       connect(set_w_start.w_start, w_start) annotation (Line(
-          points={{-22,0},{-120,0}},
-          color={0,0,127}));
+          points={{-22,0},{-120,0}}, color={0,0,127}));
       connect(set_a_start.a_start, a_start) annotation (Line(
-          points={{-22,-80},{-120,-80}},
-          color={0,0,127}));
+          points={{-22,-80},{-120,-80}}, color={0,0,127}));
       connect(set_a_start.flange, flange) annotation (Line(
           points={{0,-80},{60,-80},{60,0},{100,0}}));
       connect(set_flange_tau.flange, flange) annotation (Line(
@@ -5482,38 +5420,29 @@ blocks of the block library Modelica.Blocks.Sources.
       end Move_w;
     equation
       connect(multiplex3.y, move.u) annotation (Line(
-          points={{1,0},{8,0}},
-          color={0,0,127}));
+          points={{1,0},{8,0}}, color={0,0,127}));
       connect(phi, multiplex3.u1[1]) annotation (Line(
-          points={{-60,80},{-32,80},{-32,7},{-22,7}},
-          color={0,0,127}));
+          points={{-60,80},{-32,80},{-32,7},{-22,7}}, color={0,0,127}));
       connect(w, multiplex3.u2[1]) annotation (Line(
-          points={{-60,30},{-36,30},{-36,0},{-22,0}},
-          color={0,0,127}));
+          points={{-60,30},{-36,30},{-36,0},{-22,0}}, color={0,0,127}));
       connect(a, multiplex3.u3[1]) annotation (Line(
-          points={{-60,-30},{-32,-30},{-32,-7},{-22,-7}},
-          color={0,0,127}));
+          points={{-60,-30},{-32,-30},{-32,-7},{-22,-7}}, color={0,0,127}));
       connect(flange, torqueSensor.flange_b) annotation (Line(
           points={{66,0},{56,0}}));
       connect(move.flange, torqueSensor.flange_a) annotation (Line(
           points={{30,0},{36,0}}));
       connect(torqueSensor.tau, tau) annotation (Line(
-          points={{38,-11},{38,-80},{-50,-80}},
-          color={0,0,127}));
+          points={{38,-11},{38,-80},{-50,-80}}, color={0,0,127}));
       connect(multiplex2.y, move_w.u) annotation (Line(
-          points={{1,50},{8,50}},
-          color={0,0,127}));
+          points={{1,50},{8,50}}, color={0,0,127}));
       connect(phi, multiplex2.u1[1]) annotation (Line(
-          points={{-60,80},{-46,80},{-46,80},{-32,80},{-32,56},{-22,56}},
-          color={0,0,127}));
+          points={{-60,80},{-46,80},{-46,80},{-32,80},{-32,56},{-22,56}}, color={0,0,127}));
       connect(w, multiplex2.u2[1]) annotation (Line(
-          points={{-60,30},{-28,30},{-28,44},{-22,44}},
-          color={0,0,127}));
+          points={{-60,30},{-28,30},{-28,44},{-22,44}}, color={0,0,127}));
       connect(move_w.flange, torqueSensor.flange_a) annotation (Line(
           points={{30,50},{36,50},{36,0}}));
       connect(phi, move_phi.phi) annotation (Line(
-          points={{-60,80},{8,80}},
-          color={0,0,127}));
+          points={{-60,80},{8,80}}, color={0,0,127}));
       connect(move_phi.flange, torqueSensor.flange_a) annotation (Line(
           points={{30,80},{36,80},{36,0}}));
       annotation (
@@ -7375,11 +7304,9 @@ and instead the component is internally fixed to ground.
       connect(internalSupportR.flange, fixedR.flange) annotation (Line(
           points={{-100,-80},{-80,-80}}));
       connect(fixedT.flange, internalSupportT.flange) annotation (Line(
-          points={{80,-80},{100,-80}},
-          color={0,127,0}));
+          points={{80,-80},{100,-80}}, color={0,127,0}));
       connect(internalSupportT.flange, supportT) annotation (Line(
-          points={{100,-80},{100,-100}},
-          color={0,127,0}));
+          points={{100,-80},{100,-100}}, color={0,127,0}));
       annotation (Documentation(info="<html>
 
 <p>

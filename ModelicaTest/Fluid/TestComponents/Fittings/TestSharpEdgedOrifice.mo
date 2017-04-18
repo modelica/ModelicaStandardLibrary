@@ -56,8 +56,7 @@ equation
           {-52,58},{-42,58}}, color={0,0,127}));
   connect(ambient_p.ports[1], orifice1.port_a)
                                          annotation (Line(points={{-20,52},{-10,
-          52},{-10,50},{0,50}},
-                color={0,127,255}));
+          52},{-10,50},{0,50}}, color={0,127,255}));
   connect(orifice1.port_b, ambient_p1.ports[1])
                                             annotation (Line(points={{20,50},{
           40,50}}, color={0,127,255}));

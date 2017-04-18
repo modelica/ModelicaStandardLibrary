@@ -145,72 +145,51 @@ package Machines "Quasistationary machine models"
             origin={50,-50})));
     equation
       connect(starS.pin_n, groundS.pin) annotation (Line(
-          points={{-90,-40},{-90,-50}},
-          color={85,170,255}));
+          points={{-90,-40},{-90,-50}}, color={85,170,255}));
       connect(source.plug_n, starS.plug_p) annotation (Line(
-          points={{-90,-10},{-90,-20}},
-          color={85,170,255}));
+          points={{-90,-10},{-90,-20}}, color={85,170,255}));
       connect(starL.pin_n, groundL.pin) annotation (Line(
-          points={{90,-40},{90,-50}},
-          color={85,170,255}));
+          points={{90,-40},{90,-50}}, color={85,170,255}));
       connect(load.plug_n, starL.plug_p) annotation (Line(
-          points={{90,-10},{90,-20}},
-          color={85,170,255}));
+          points={{90,-10},{90,-20}}, color={85,170,255}));
       connect(source.plug_p, electricalPowerSensorS.currentP) annotation (Line(
-          points={{-90,10},{-90,20}},
-          color={85,170,255}));
+          points={{-90,10},{-90,20}}, color={85,170,255}));
       connect(electricalPowerSensorS.currentP, electricalPowerSensorS.voltageP)
         annotation (Line(
-          points={{-90,20},{-90,30},{-80,30}},
-          color={85,170,255}));
+          points={{-90,20},{-90,30},{-80,30}}, color={85,170,255}));
       connect(electricalPowerSensorS.currentN, currentSensorS.plug_p)
         annotation (Line(
-          points={{-70,20},{-60,20}},
-          color={85,170,255}));
+          points={{-70,20},{-60,20}}, color={85,170,255}));
       connect(currentSensorS.plug_n, transformer.plug1) annotation (Line(
-          points={{-40,20},{-20,20}},
-          color={85,170,255}));
+          points={{-40,20},{-20,20}}, color={85,170,255}));
       connect(transformer.plug2, currentSensorL.plug_p) annotation (Line(
-          points={{20,20},{40,20}},
-          color={85,170,255}));
+          points={{20,20},{40,20}}, color={85,170,255}));
       connect(currentSensorL.plug_n, electricalPowerSensorL.currentP)
         annotation (Line(
-          points={{60,20},{70,20}},
-          color={85,170,255}));
+          points={{60,20},{70,20}}, color={85,170,255}));
       connect(electricalPowerSensorL.currentP, electricalPowerSensorL.voltageP)
         annotation (Line(
-          points={{70,20},{70,30},{80,30}},
-          color={85,170,255}));
+          points={{70,20},{70,30},{80,30}}, color={85,170,255}));
       connect(electricalPowerSensorL.currentN, load.plug_p) annotation (Line(
-          points={{90,20},{90,10}},
-          color={85,170,255}));
+          points={{90,20},{90,10}}, color={85,170,255}));
       connect(electricalPowerSensorL.voltageN, starL.plug_p) annotation (Line(
-          points={{80,10},{80,-20},{90,-20}},
-          color={85,170,255}));
+          points={{80,10},{80,-20},{90,-20}}, color={85,170,255}));
       connect(electricalPowerSensorS.voltageN, starS.plug_p) annotation (Line(
-          points={{-80,10},{-80,-20},{-90,-20}},
-          color={85,170,255}));
+          points={{-80,10},{-80,-20},{-90,-20}}, color={85,170,255}));
       connect(earth.pin_n, groundT.pin) annotation (Line(
-          points={{0,-40},{0,-50}},
-          color={85,170,255}));
+          points={{0,-40},{0,-50}}, color={85,170,255}));
       connect(deltaS.plug_p, voltageSensorS.plug_n) annotation (Line(
-          points={{-60,0},{-60,-20}},
-          color={85,170,255}));
+          points={{-60,0},{-60,-20}}, color={85,170,255}));
       connect(deltaS.plug_n, voltageSensorS.plug_p) annotation (Line(
-          points={{-40,0},{-40,-20}},
-          color={85,170,255}));
+          points={{-40,0},{-40,-20}}, color={85,170,255}));
       connect(currentSensorS.plug_n, deltaS.plug_n) annotation (Line(
-          points={{-40,20},{-40,0}},
-          color={85,170,255}));
+          points={{-40,20},{-40,0}}, color={85,170,255}));
       connect(deltaL.plug_p, voltageSensorL.plug_n) annotation (Line(
-          points={{60,0},{60,-20}},
-          color={85,170,255}));
+          points={{60,0},{60,-20}}, color={85,170,255}));
       connect(deltaL.plug_n, voltageSensorL.plug_p) annotation (Line(
-          points={{40,0},{40,-20}},
-          color={85,170,255}));
+          points={{40,0},{40,-20}}, color={85,170,255}));
       connect(currentSensorL.plug_p, deltaL.plug_n) annotation (Line(
-          points={{40,20},{40,0}},
-          color={85,170,255}));
+          points={{40,20},{40,0}}, color={85,170,255}));
       connect(symmetricalComponentsIS.u, currentSensorS.y)
         annotation (Line(points={{-50,38},{-50,31}}, color={85,170,255}));
       connect(symmetricalComponentsIL.u, currentSensorL.y)
@@ -1606,10 +1585,8 @@ This package contains transformers primary D connected / secondary d connected i
                   10,-100},{50,-100}}, color={85,170,255}));
           connect(r1.plug_p, Delta1.plug_p) annotation (Line(points={{-90,0},{-90,
                   -20},{-50,-20}}, color={85,170,255}));
-          connect(l1sigma.plug_n, core.plug_p1) annotation (Line(points={{-50,0},{-50,20},{-10,20},{-10,10},{-10,10}},
-                                                      color={85,170,255}));
-          connect(Delta1.plug_n, core.plug_n1) annotation (Line(points={{-30,-20},{-10,-20},{-10,-10}},
-                                       color={85,170,255}));
+          connect(l1sigma.plug_n, core.plug_p1) annotation (Line(points={{-50,0},{-50,20},{-10,20},{-10,10},{-10,10}}, color={85,170,255}));
+          connect(Delta1.plug_n, core.plug_n1) annotation (Line(points={{-30,-20},{-10,-20},{-10,-10}}, color={85,170,255}));
           connect(core.plug_p2, Rot21.plug_n)
             annotation (Line(points={{10,10},{30,10}}, color={85,170,255}));
           connect(core.plug_p3, Rot21.plug_p) annotation (Line(points={{10,-4},
@@ -1699,10 +1676,8 @@ Transformer Dz2
                   10,-100},{50,-100}}, color={85,170,255}));
           connect(r1.plug_p, Delta1.plug_p) annotation (Line(points={{-90,0},{-90,
                   -20},{-50,-20}}, color={85,170,255}));
-          connect(l1sigma.plug_n, core.plug_p1) annotation (Line(points={{-50,0},{-50,20},{-10,20},{-10,10}},
-                                              color={85,170,255}));
-          connect(Delta1.plug_n, core.plug_n1) annotation (Line(points={{-30,-20},{-10,-20},{-10,-10}},
-                                       color={85,170,255}));
+          connect(l1sigma.plug_n, core.plug_p1) annotation (Line(points={{-50,0},{-50,20},{-10,20},{-10,10}}, color={85,170,255}));
+          connect(Delta1.plug_n, core.plug_n1) annotation (Line(points={{-30,-20},{-10,-20},{-10,-10}}, color={85,170,255}));
           connect(core.plug_p2, Rot21.plug_n)
             annotation (Line(points={{10,10},{30,10}}, color={85,170,255}));
           connect(core.plug_p3, Rot21.plug_p) annotation (Line(points={{10,-4},
@@ -2387,17 +2362,13 @@ This package contains components for modeling quasi stationary electrical induct
       connect(r2.plug_n, plug2)
         annotation (Line(points={{90,0},{100,0}}, color={85,170,255}));
       connect(thermalPort, internalThermalPort) annotation (Line(
-          points={{0,100},{0,80}},
-          color={191,0,0}));
+          points={{0,100},{0,80}}, color={191,0,0}));
       connect(thermalAmbient.thermalPort, internalThermalPort) annotation (Line(
-          points={{-20,80},{0,80}},
-          color={191,0,0}));
+          points={{-20,80},{0,80}}, color={191,0,0}));
       connect(r1.heatPort, internalThermalPort.heatPort1) annotation (Line(
-          points={{-80,10},{-80,60},{-0.4,60},{-0.4,80.8}},
-          color={191,0,0}));
+          points={{-80,10},{-80,60},{-0.4,60},{-0.4,80.8}}, color={191,0,0}));
       connect(r2.heatPort, internalThermalPort.heatPort2) annotation (Line(
-          points={{80,10},{80,60},{-0.4,60},{-0.4,79.2}},
-          color={191,0,0}));
+          points={{80,10},{80,60},{-0.4,60},{-0.4,79.2}}, color={191,0,0}));
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{0,-60},{0,-100}},
@@ -2516,8 +2487,7 @@ This package contains the quasi stationary space phasor connector and partial mo
         annotation (
           Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                   100,100}}), graphics={
-              Line(points={{0,0},{80,80},{60,72},{72,60},{80,80}}, color={85,
-                    170,255}),
+              Line(points={{0,0},{80,80},{60,72},{72,60},{80,80}}, color={85,170,255}),
               Line(points={{0,0},{80,-80},{72,-60},{60,-72},{80,-80}}, color={
                     85,170,255}),
               Line(

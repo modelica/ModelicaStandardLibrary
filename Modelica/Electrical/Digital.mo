@@ -194,32 +194,23 @@ the library and has the following content:
                 {-60,-62}})));
         equation
           connect(CLK.y, FF.clk) annotation (Line(
-              points={{-60,-46},{-36,-46},{-36,-52},{-20,-52}},
-              color={127,0,127}));
+              points={{-60,-46},{-36,-46},{-36,-52},{-20,-52}}, color={127,0,127}));
           connect(Enable.y, FF.k) annotation (Line(
-              points={{-60,-72},{-30,-72},{-30,-59},{-20,-59}},
-              color={127,0,127}));
+              points={{-60,-72},{-30,-72},{-30,-59},{-20,-59}}, color={127,0,127}));
           connect(Enable.y, FF.j) annotation (Line(
-              points={{-60,-72},{-30,-72},{-30,-45},{-20,-45}},
-              color={127,0,127}));
+              points={{-60,-72},{-30,-72},{-30,-45},{-20,-45}}, color={127,0,127}));
           connect(CLK.y, MUX.a0) annotation (Line(
-              points={{-60,-46},{-36,-46},{-36,22.4},{-10,22.4}},
-              color={127,0,127}));
+              points={{-60,-46},{-36,-46},{-36,22.4},{-10,22.4}}, color={127,0,127}));
           connect(D0.y, MUX.d0) annotation (Line(
-              points={{-60,68},{-10,68}},
-              color={127,0,127}));
+              points={{-60,68},{-10,68}}, color={127,0,127}));
           connect(D1.y, MUX.d1) annotation (Line(
-              points={{-60,42},{-54,42},{-54,57.6},{-10,57.6}},
-              color={127,0,127}));
+              points={{-60,42},{-54,42},{-54,57.6},{-10,57.6}}, color={127,0,127}));
           connect(D2.y, MUX.d2) annotation (Line(
-              points={{-60,16},{-50,16},{-50,47.2},{-10,47.2}},
-              color={127,0,127}));
+              points={{-60,16},{-50,16},{-50,47.2},{-10,47.2}}, color={127,0,127}));
           connect(D3.y, MUX.d3) annotation (Line(
-              points={{-60,-10},{-46,-10},{-46,36.8},{-10,36.8}},
-              color={127,0,127}));
+              points={{-60,-10},{-46,-10},{-46,36.8},{-10,36.8}}, color={127,0,127}));
           connect(FF.q, MUX.a1) annotation (Line(
-              points={{0,-45},{2,-45},{2,-22},{-20,-22},{-20,12},{-10,12}},
-              color={127,0,127}));
+              points={{0,-45},{2,-45},{2,-22},{-20,-22},{-20,12},{-10,12}}, color={127,0,127}));
           annotation (
             Documentation(info="<html>
 <p>The multiplexer converts a parallel 4 bit signal in a sequential 1 bit stream. The multiplexer component is composed by basic gates. It can be found in the Utilities subpackage. The example is designed to test and demonstrate the basic gate components.</p>
@@ -248,14 +239,11 @@ the library and has the following content:
                     -38},{-60,-18}})));
         equation
           connect(J.y, FF.j) annotation (Line(
-              points={{-60,28},{-10,28}},
-              color={127,0,127}));
+              points={{-60,28},{-10,28}}, color={127,0,127}));
           connect(CLK.y, FF.clk) annotation (Line(
-              points={{-60,0},{-10,0}},
-              color={127,0,127}));
+              points={{-60,0},{-10,0}}, color={127,0,127}));
           connect(K.y, FF.k) annotation (Line(
-              points={{-60,-28},{-10,-28}},
-              color={127,0,127}));
+              points={{-60,-28},{-10,-28}}, color={127,0,127}));
           annotation (
             Documentation(info="<html>
 <p>A pulse-triggered master-slave flip-flop is demonstrated. The flipflop component is composed by basic gates. It can be found in the Utilities subpackage. The example is designed to test and demonstrate the basic gate components.</p>
@@ -307,15 +295,11 @@ the library and has the following content:
                     -38},{80,-18}})));
         equation
           connect(b.y,Adder. b) annotation (Line(
-              points={{-60,-28},{-40,-28}},
-              color={127,0,127}));
+              points={{-60,-28},{-40,-28}}, color={127,0,127}));
           connect(a.y,Adder. a) annotation (Line(
-              points={{-60,28},{-40,28}},
-              color={127,0,127}));
-          connect(Adder.s, s.x[1]) annotation (Line(points={{40,28},{65,28}}, color=
-                 {127,0,127}));
-          connect(Adder.c, c.x[1]) annotation (Line(points={{40,-28},{65,-28}},
-                color={127,0,127}));
+              points={{-60,28},{-40,28}}, color={127,0,127}));
+          connect(Adder.s, s.x[1]) annotation (Line(points={{40,28},{65,28}}, color={127,0,127}));
+          connect(Adder.c, c.x[1]) annotation (Line(points={{40,-28},{65,-28}}, color={127,0,127}));
           annotation (
             Documentation(info="<html>
 <p>
@@ -383,8 +367,7 @@ The simulation stop time should be 5 seconds.
           connect(Adder1.c_out, c_out.x[1])
                                            annotation (Line(points={{60,-21},{68,
                   -21},{68,-22},{75,-22}}, color={127,0,127}));
-          connect(CLK.y, Counter.count) annotation (Line(points={{-70,-12},{-60,-12}},
-                color={127,0,127}));
+          connect(CLK.y, Counter.count) annotation (Line(points={{-70,-12},{-60,-12}}, color={127,0,127}));
           connect(Enable.y, Counter.enable) annotation (Line(points={{-70,16},{-60,
                   16}}, color={127,0,127}));
           connect(Counter.q2, Adder1.a) annotation (Line(points={{-20,16},{-10,16},
@@ -490,41 +473,29 @@ The simulation stop time should be 10 seconds.
                     {140,-80},{180,-40}})));
         equation
           connect(b1.y, Adder1.b) annotation (Line(
-              points={{-130,0},{-120,0},{-120,-54},{-100,-54}},
-              color={127,0,127}));
+              points={{-130,0},{-120,0},{-120,-54},{-100,-54}}, color={127,0,127}));
           connect(a1.y, Adder1.a) annotation (Line(
-              points={{-130,60},{-110,60},{-110,-46},{-100,-46}},
-              color={127,0,127}));
+              points={{-130,60},{-110,60},{-110,-46},{-100,-46}}, color={127,0,127}));
           connect(Set.y, Adder1.c_in) annotation (Line(
-              points={{-130,-74},{-100,-74}},
-              color={127,0,127}));
+              points={{-130,-74},{-100,-74}}, color={127,0,127}));
           connect(Adder1.c_out, Adder2.c_in) annotation (Line(
-              points={{-60,-74},{-20,-74}},
-              color={127,0,127}));
+              points={{-60,-74},{-20,-74}}, color={127,0,127}));
           connect(Adder2.c_out, Adder3.c_in) annotation (Line(
-              points={{20,-74},{60,-74}},
-              color={127,0,127}));
+              points={{20,-74},{60,-74}}, color={127,0,127}));
           connect(Adder3.c_out, Adder4.c_in) annotation (Line(
-              points={{100,-74},{140,-74}},
-              color={127,0,127}));
+              points={{100,-74},{140,-74}}, color={127,0,127}));
           connect(b2.y, Adder2.b) annotation (Line(
-              points={{-50,0},{-40,0},{-40,-54},{-20,-54}},
-              color={127,0,127}));
+              points={{-50,0},{-40,0},{-40,-54},{-20,-54}}, color={127,0,127}));
           connect(a2.y, Adder2.a) annotation (Line(
-              points={{-50,60},{-30,60},{-30,-46},{-20,-46}},
-              color={127,0,127}));
+              points={{-50,60},{-30,60},{-30,-46},{-20,-46}}, color={127,0,127}));
           connect(b3.y, Adder3.b) annotation (Line(
-              points={{30,0},{40,0},{40,-54},{60,-54}},
-              color={127,0,127}));
+              points={{30,0},{40,0},{40,-54},{60,-54}}, color={127,0,127}));
           connect(a3.y, Adder3.a) annotation (Line(
-              points={{30,60},{50,60},{50,-46},{60,-46}},
-              color={127,0,127}));
+              points={{30,60},{50,60},{50,-46},{60,-46}}, color={127,0,127}));
           connect(b4.y, Adder4.b) annotation (Line(
-              points={{110,0},{120,0},{120,-54},{140,-54}},
-              color={127,0,127}));
+              points={{110,0},{120,0},{120,-54},{140,-54}}, color={127,0,127}));
           connect(a4.y, Adder4.a) annotation (Line(
-              points={{110,60},{130,60},{130,-46},{140,-46}},
-              color={127,0,127}));
+              points={{110,60},{130,60},{130,-46},{140,-46}}, color={127,0,127}));
           annotation (
             Diagram(coordinateSystem(extent = {{-200,-100},{200,100}})),
             Documentation(info="<html>
@@ -577,11 +548,9 @@ The result can be seen in the output signals of the FullAdders according to:</p>
             annotation (Placement(transformation(extent={{-30,-40},{50,40}})));
         equation
           connect(Enable.y, Counter.enable) annotation (Line(
-              points={{-50,28},{-30,28}},
-              color={127,0,127}));
+              points={{-50,28},{-30,28}}, color={127,0,127}));
           connect(Clock.y, Counter.count) annotation (Line(
-              points={{-50,-28},{-30,-28}},
-              color={127,0,127}));
+              points={{-50,-28},{-30,-28}}, color={127,0,127}));
           annotation (
             Documentation(info="<html>
 <p>The three bit counter example is built up by components of the Utilities package which uses components of the Gates library.</p>
@@ -610,11 +579,9 @@ The result can be seen in the output signals of the FullAdders according to:</p>
                     {66,20},{86,40}})));
         equation
           connect(Enable.y, Counter.enable) annotation (Line(
-              points={{-50,28},{-30,28}},
-              color={127,0,127}));
+              points={{-50,28},{-30,28}}, color={127,0,127}));
           connect(Clock.y, Counter.count) annotation (Line(
-              points={{-50,-28},{-30,-28}},
-              color={127,0,127}));
+              points={{-50,-28},{-30,-28}}, color={127,0,127}));
           connect(Q0.x[1], Counter.q[1]) annotation (Line(points={{71,-30},{58,-30},
                   {58,-24},{50,-24}}, color={127,0,127}));
           connect(Q1.x[1], Counter.q[2]) annotation (Line(points={{71,-10},{60,-10},
@@ -649,14 +616,11 @@ The result can be seen in the output signals of the FullAdders according to:</p>
         equation
 
           connect(table.y, delay.x[1]) annotation (Line(
-              points={{-76,50},{-30.68,50},{-30.68,6.13667}},
-              color={127,0,127}));
+              points={{-76,50},{-30.68,50},{-30.68,6.13667}}, color={127,0,127}));
           connect(table1.y, delay.x[2]) annotation (Line(
-              points={{-76,10},{-30.68,10},{-30.68,9.81}},
-              color={127,0,127}));
+              points={{-76,10},{-30.68,10},{-30.68,9.81}}, color={127,0,127}));
           connect(table2.y, delay.x[3]) annotation (Line(
-              points={{-76,-40},{-30.68,-40},{-30.68,13.4833}},
-              color={127,0,127}));
+              points={{-76,-40},{-30.68,-40},{-30.68,13.4833}}, color={127,0,127}));
           annotation (Documentation(info="<html>
 <p>This example is a simple test of the vector valued sensitive delay component. The delay times are chosen different from each other. To examine the results plot both the input vector x and the output vector y.</p>
 </html>"),
@@ -685,17 +649,13 @@ The result can be seen in the output signals of the FullAdders according to:</p>
 
         equation
           connect(clock.y, dFFREG.clock) annotation (Line(
-              points={{-66,-22},{-46,-22},{-46,11.6},{-20.24,11.6}},
-              color={127,0,127}));
+              points={{-66,-22},{-46,-22},{-46,11.6},{-20.24,11.6}}, color={127,0,127}));
           connect(reset.y, dFFREG.reset) annotation (Line(
-              points={{-66,-60},{-20.24,-60},{-20.24,-7.2}},
-              color={127,0,127}));
+              points={{-66,-60},{-20.24,-60},{-20.24,-7.2}}, color={127,0,127}));
           connect(data_0.y, dFFREG.dataIn[1]) annotation (Line(
-              points={{-66,18},{-44,18},{-44,37.92},{-20.24,37.92}},
-              color={127,0,127}));
+              points={{-66,18},{-44,18},{-44,37.92},{-20.24,37.92}}, color={127,0,127}));
           connect(data_1.y, dFFREG.dataIn[2]) annotation (Line(
-              points={{-66,50},{-44,50},{-44,41.68},{-20.24,41.68}},
-              color={127,0,127}));
+              points={{-66,50},{-44,50},{-44,41.68},{-20.24,41.68}}, color={127,0,127}));
           annotation (experiment(StopTime=25),
         Documentation(info="<html>
 <p>This example is a simple test of the Registers.DFFREG component. The data width is set to two. After simulation plot both the dataIn and the dataOut vectors. To verify the results compare the truth table which is documented in the DFFREG component.</p>
@@ -723,17 +683,13 @@ The result can be seen in the output signals of the FullAdders according to:</p>
         equation
 
           connect(reset.y, dFFREGL.reset) annotation (Line(
-              points={{-66,-60},{-36.88,-60},{-36.88,-18.2}},
-              color={127,0,127}));
+              points={{-66,-60},{-36.88,-60},{-36.88,-18.2}}, color={127,0,127}));
           connect(clock.y, dFFREGL.clock) annotation (Line(
-              points={{-66,-20},{-62,-20},{-62,2.6},{-36.88,2.6}},
-              color={127,0,127}));
+              points={{-66,-20},{-62,-20},{-62,2.6},{-36.88,2.6}}, color={127,0,127}));
           connect(data_0.y, dFFREGL.dataIn[1]) annotation (Line(
-              points={{-68,20},{-52,20},{-52,31.72},{-36.88,31.72}},
-              color={127,0,127}));
+              points={{-68,20},{-52,20},{-52,31.72},{-36.88,31.72}}, color={127,0,127}));
           connect(data_1.y, dFFREGL.dataIn[2]) annotation (Line(
-              points={{-66,50},{-52,50},{-52,35.88},{-36.88,35.88}},
-              color={127,0,127}));
+              points={{-66,50},{-52,50},{-52,35.88},{-36.88,35.88}}, color={127,0,127}));
           annotation (experiment(StopTime=25),
         Documentation(info="<html>
 <p>This example is a simple test of the Registers.DFFREGL component. The data width is set to two. After simulation plot both the dataIn and the dataOut vectors. To verify the results compare the truth table which is documented in the DFFREGL component.</p>
@@ -763,20 +719,15 @@ The result can be seen in the output signals of the FullAdders according to:</p>
         equation
 
           connect(clock.y, dFFREGSRH.clock) annotation (Line(
-              points={{-66,-22},{-50,-22},{-50,6.2},{-29.72,6.2}},
-              color={127,0,127}));
+              points={{-66,-22},{-50,-22},{-50,6.2},{-29.72,6.2}}, color={127,0,127}));
           connect(set.y, dFFREGSRH.set) annotation (Line(
-              points={{-66,84},{-48,84},{-48,60.2},{-29.72,60.2}},
-              color={127,0,127}));
+              points={{-66,84},{-48,84},{-48,60.2},{-29.72,60.2}}, color={127,0,127}));
           connect(reset.y, dFFREGSRH.reset) annotation (Line(
-              points={{-66,-60},{-29.72,-60},{-29.72,-15.4}},
-              color={127,0,127}));
+              points={{-66,-60},{-29.72,-60},{-29.72,-15.4}}, color={127,0,127}));
           connect(data_0.y, dFFREGSRH.dataIn[1]) annotation (Line(
-              points={{-66,18},{-48,18},{-48,36.44},{-29.72,36.44}},
-              color={127,0,127}));
+              points={{-66,18},{-48,18},{-48,36.44},{-29.72,36.44}}, color={127,0,127}));
           connect(data_1.y, dFFREGSRH.dataIn[2]) annotation (Line(
-              points={{-66,50},{-48,50},{-48,40.76},{-29.72,40.76}},
-              color={127,0,127}));
+              points={{-66,50},{-48,50},{-48,40.76},{-29.72,40.76}}, color={127,0,127}));
           annotation (experiment(StopTime=15),
         Documentation(info="<html>
 <p>This example is a simple test of the Registers.DFFREGSRH component. The data width is set to two. After simulation plot both the dataIn and the dataOut vectors. To verify the results compare the truth table which is documented in the DFFREGSRH component.</p>
@@ -804,20 +755,15 @@ The result can be seen in the output signals of the FullAdders according to:</p>
             n=2) annotation (Placement(transformation(extent={{-45,-54},{81,72}})));
         equation
           connect(reset.y, dFFREGSRL.reset) annotation (Line(
-              points={{-66,-60},{-39.96,-60},{-39.96,-28.8}},
-              color={127,0,127}));
+              points={{-66,-60},{-39.96,-60},{-39.96,-28.8}}, color={127,0,127}));
           connect(clock.y, dFFREGSRL.clock) annotation (Line(
-              points={{-66,-22},{-56,-22},{-56,-3.6},{-39.96,-3.6}},
-              color={127,0,127}));
+              points={{-66,-22},{-56,-22},{-56,-3.6},{-39.96,-3.6}}, color={127,0,127}));
           connect(set.y, dFFREGSRL.set) annotation (Line(
-              points={{-66,84},{-39.96,84},{-39.96,59.4}},
-              color={127,0,127}));
+              points={{-66,84},{-39.96,84},{-39.96,59.4}}, color={127,0,127}));
           connect(data_0.y, dFFREGSRL.dataIn[1]) annotation (Line(
-              points={{-66,18},{-56,18},{-56,31.68},{-39.96,31.68}},
-              color={127,0,127}));
+              points={{-66,18},{-56,18},{-56,31.68},{-39.96,31.68}}, color={127,0,127}));
           connect(data_1.y, dFFREGSRL.dataIn[2]) annotation (Line(
-              points={{-66,50},{-56,50},{-56,36.72},{-39.96,36.72}},
-              color={127,0,127}));
+              points={{-66,50},{-56,50},{-56,36.72},{-39.96,36.72}}, color={127,0,127}));
           annotation (experiment(StopTime=15),
         Documentation(info="<html>
 <p>This example is a simple test of the Registers.DFFREGSRL component. The data width is set to two. After simulation plot both the dataIn and the dataOut vectors. To verify the results compare the truth table which is documented in the DFFREGSRL component.</p>
@@ -844,17 +790,13 @@ The result can be seen in the output signals of the FullAdders according to:</p>
         equation
 
           connect(reset.y, dLATREG.reset) annotation (Line(
-              points={{-66,-60},{-39.84,-60},{-39.84,-24.2}},
-              color={127,0,127}));
+              points={{-66,-60},{-39.84,-60},{-39.84,-24.2}}, color={127,0,127}));
           connect(enable.y, dLATREG.enable) annotation (Line(
-              points={{-66,-22},{-56,-22},{-56,1.6},{-39.84,1.6}},
-              color={127,0,127}));
+              points={{-66,-22},{-56,-22},{-56,1.6},{-39.84,1.6}}, color={127,0,127}));
           connect(data_0.y, dLATREG.dataIn[1]) annotation (Line(
-              points={{-66,18},{-56,18},{-56,37.72},{-39.84,37.72}},
-              color={127,0,127}));
+              points={{-66,18},{-56,18},{-56,37.72},{-39.84,37.72}}, color={127,0,127}));
           connect(data_1.y, dLATREG.dataIn[2]) annotation (Line(
-              points={{-66,50},{-56,50},{-56,42.88},{-39.84,42.88}},
-              color={127,0,127}));
+              points={{-66,50},{-56,50},{-56,42.88},{-39.84,42.88}}, color={127,0,127}));
           annotation (experiment(StopTime=25),
         Documentation(info="<html>
 <p>This example is a simple test of the Registers.DLATREG component. The data width is set to two. After simulation plot both the dataIn and the dataOut vectors. To verify the results compare the truth table which is documented in the DLATREG component.</p>
@@ -880,17 +822,13 @@ The result can be seen in the output signals of the FullAdders according to:</p>
         equation
 
           connect(reset.y, dLATREGL.reset) annotation (Line(
-              points={{-66,-60},{-39.84,-60},{-39.84,-24.2}},
-              color={127,0,127}));
+              points={{-66,-60},{-39.84,-60},{-39.84,-24.2}}, color={127,0,127}));
           connect(enable.y, dLATREGL.enable) annotation (Line(
-              points={{-66,-22},{-54,-22},{-54,1.6},{-39.84,1.6}},
-              color={127,0,127}));
+              points={{-66,-22},{-54,-22},{-54,1.6},{-39.84,1.6}}, color={127,0,127}));
           connect(data_0.y, dLATREGL.dataIn[1]) annotation (Line(
-              points={{-66,18},{-56,18},{-56,37.72},{-39.84,37.72}},
-              color={127,0,127}));
+              points={{-66,18},{-56,18},{-56,37.72},{-39.84,37.72}}, color={127,0,127}));
           connect(data_1.y, dLATREGL.dataIn[2]) annotation (Line(
-              points={{-66,50},{-56,50},{-56,42.88},{-39.84,42.88}},
-              color={127,0,127}));
+              points={{-66,50},{-56,50},{-56,42.88},{-39.84,42.88}}, color={127,0,127}));
           annotation (experiment(StopTime=25),
         Documentation(info="<html>
 <p>This example is a simple test of the Registers.DLATREGL component. The data width is set to two. After simulation plot both the dataIn and the dataOut vectors. To verify the results compare the truth table which is documented in the DLATREGL component.</p>
@@ -919,20 +857,15 @@ The result can be seen in the output signals of the FullAdders according to:</p>
         equation
 
           connect(reset.y, dLATREGSRH.reset) annotation (Line(
-              points={{-66,-60},{-40.44,-60},{-40.44,-19.4}},
-              color={127,0,127}));
+              points={{-66,-60},{-40.44,-60},{-40.44,-19.4}}, color={127,0,127}));
           connect(enable.y, dLATREGSRH.enable) annotation (Line(
-              points={{-66,-22},{-52,-22},{-52,3.2},{-40.44,3.2}},
-              color={127,0,127}));
+              points={{-66,-22},{-52,-22},{-52,3.2},{-40.44,3.2}}, color={127,0,127}));
           connect(data_0.y, dLATREGSRH.dataIn[1]) annotation (Line(
-              points={{-66,18},{-52,18},{-52,34.84},{-40.44,34.84}},
-              color={127,0,127}));
+              points={{-66,18},{-52,18},{-52,34.84},{-40.44,34.84}}, color={127,0,127}));
           connect(data_1.y, dLATREGSRH.dataIn[2]) annotation (Line(
-              points={{-66,50},{-52,50},{-52,39.36},{-40.44,39.36}},
-              color={127,0,127}));
+              points={{-66,50},{-52,50},{-52,39.36},{-40.44,39.36}}, color={127,0,127}));
           connect(set.y, dLATREGSRH.set) annotation (Line(
-              points={{-66,84},{-40.44,84},{-40.44,59.7}},
-              color={127,0,127}));
+              points={{-66,84},{-40.44,84},{-40.44,59.7}}, color={127,0,127}));
 
           annotation (experiment(StopTime=25),
         Documentation(info="<html>
@@ -962,20 +895,15 @@ The result can be seen in the output signals of the FullAdders according to:</p>
         equation
 
           connect(reset.y, dLATREGSRL.reset) annotation (Line(
-              points={{-66,-60},{-40.44,-60},{-40.44,-20.2}},
-              color={127,0,127}));
+              points={{-66,-60},{-40.44,-60},{-40.44,-20.2}}, color={127,0,127}));
           connect(enable.y, dLATREGSRL.enable) annotation (Line(
-              points={{-66,-22},{-56,-22},{-56,2.6},{-40.44,2.6}},
-              color={127,0,127}));
+              points={{-66,-22},{-56,-22},{-56,2.6},{-40.44,2.6}}, color={127,0,127}));
           connect(data_0.y, dLATREGSRL.dataIn[1]) annotation (Line(
-              points={{-66,18},{-56,18},{-56,34.52},{-40.44,34.52}},
-              color={127,0,127}));
+              points={{-66,18},{-56,18},{-56,34.52},{-40.44,34.52}}, color={127,0,127}));
           connect(data_1.y, dLATREGSRL.dataIn[2]) annotation (Line(
-              points={{-66,50},{-56,50},{-56,39.08},{-40.44,39.08}},
-              color={127,0,127}));
+              points={{-66,50},{-56,50},{-56,39.08},{-40.44,39.08}}, color={127,0,127}));
           connect(set.y, dLATREGSRL.set) annotation (Line(
-              points={{-66,84},{-40.44,84},{-40.44,59.6}},
-              color={127,0,127}));
+              points={{-66,84},{-40.44,84},{-40.44,59.6}}, color={127,0,127}));
           annotation (experiment(StopTime=25),
         Documentation(info="<html>
 <p>This example is a simple test of the Registers.DLATREGSRL component. The data width is set to two. After simulation plot both the dataIn and the dataOut vectors. To verify the results compare the truth table which is documented in the DLATREGSRL component.</p>
@@ -1001,11 +929,9 @@ The result can be seen in the output signals of the FullAdders according to:</p>
         equation
 
           connect(x_table.y, nXFERGATE.x) annotation (Line(
-              points={{-55,-10},{-45.2,-10},{-45.2,-10.15},{-35.4,-10.15}},
-              color={127,0,127}));
+              points={{-55,-10},{-45.2,-10},{-45.2,-10.15},{-35.4,-10.15}}, color={127,0,127}));
           connect(e_table.y, nXFERGATE.enable) annotation (Line(
-              points={{-55,40},{-35.4,40},{-35.4,27.05}},
-              color={127,0,127}));
+              points={{-55,40},{-35.4,40},{-35.4,27.05}}, color={127,0,127}));
           annotation (experiment(StopTime=12),
             Documentation(info="<html>
 <p>This example is a simple test of the Tristates.NXFERGATE component.</p>
@@ -1031,11 +957,9 @@ The result can be seen in the output signals of the FullAdders according to:</p>
             annotation (Placement(transformation(extent={{-40,-54},{58,44}})));
         equation
           connect(x_table.y, nRXFERGATE.x) annotation (Line(
-              points={{-55,-10},{-45.05,-10},{-45.05,-9.9},{-35.1,-9.9}},
-              color={127,0,127}));
+              points={{-55,-10},{-45.05,-10},{-45.05,-9.9},{-35.1,-9.9}}, color={127,0,127}));
           connect(e_table.y, nRXFERGATE.enable) annotation (Line(
-              points={{-55,40},{-35.1,40},{-35.1,29.3}},
-              color={127,0,127}));
+              points={{-55,40},{-35.1,40},{-35.1,29.3}}, color={127,0,127}));
           annotation (experiment(StopTime=12),
             Documentation(info="<html>
 <p>This example is a simple test of the Tristates.NRXFER component.  After simulation until 12 s plot x, enable, and y of the <code>nRXFERGATE </code>component. To verify the result compare to the truth table <code>NRXferTable</code>.</p>
@@ -1062,11 +986,9 @@ The result can be seen in the output signals of the FullAdders according to:</p>
             annotation (Placement(transformation(extent={{-40,-50},{48,38}})));
         equation
           connect(x_table.y, bUF3S.x) annotation (Line(
-              points={{-55,-10},{-35.6,-10.4}},
-              color={127,0,127}));
+              points={{-55,-10},{-35.6,-10.4}}, color={127,0,127}));
           connect(e_table.y, bUF3S.enable) annotation (Line(
-              points={{-55,40},{-35.6,40},{-35.6,24.8}},
-              color={127,0,127}));
+              points={{-55,40},{-35.6,40},{-35.6,24.8}}, color={127,0,127}));
           annotation (experiment(StopTime=12),
             Documentation(info="<html>
 <p>This example is a simple test of the Tristates.BUF3S component.  After simulation until 12 s plot x, enable, and y of the <code>bUF3S</code> component. To verify the result compare to the truth table Buf3sTable.</p>
@@ -1091,11 +1013,9 @@ The result can be seen in the output signals of the FullAdders according to:</p>
             annotation (Placement(transformation(extent={{-34,-44},{42,32}})));
         equation
           connect(x_table.y, iNV3S.x) annotation (Line(
-              points={{-55,-10},{-42.6,-10},{-42.6,-9.8},{-30.2,-9.8}},
-              color={127,0,127}));
+              points={{-55,-10},{-42.6,-10},{-42.6,-9.8},{-30.2,-9.8}}, color={127,0,127}));
           connect(e_table.y, iNV3S.enable) annotation (Line(
-              points={{-55,40},{-30.2,40},{-30.2,20.6}},
-              color={127,0,127}));
+              points={{-55,40},{-30.2,40},{-30.2,20.6}}, color={127,0,127}));
           annotation (experiment(StopTime=12),
             Documentation(info="<html>
 <p>This example is a simple test of the Tristates.INV3S component. After simulation until 12 s plot x, enable, and y of the <code>iNV3S</code> component. To verify the result compare to the truth table <code>T.UX01Table</code>.</p>
@@ -1139,23 +1059,17 @@ The result can be seen in the output signals of the FullAdders according to:</p>
             annotation (Placement(transformation(extent={{26,-38},{80,16}})));
         equation
           connect(x_table2.y, bUF3S2.x) annotation (Line(
-              points={{-65,28},{-44.8,27.8}},
-              color={127,0,127}));
+              points={{-65,28},{-44.8,27.8}}, color={127,0,127}));
           connect(e_table2.y, bUF3S2.enable) annotation (Line(
-              points={{-65,78},{-44.8,78},{-44.8,53.4}},
-              color={127,0,127}));
+              points={{-65,78},{-44.8,78},{-44.8,53.4}}, color={127,0,127}));
           connect(x_table1.y, bUF3S1.x) annotation (Line(
-              points={{-65,-64},{-48.7,-64.3}},
-              color={127,0,127}));
+              points={{-65,-64},{-48.7,-64.3}}, color={127,0,127}));
           connect(e_table1.y, bUF3S1.enable) annotation (Line(
-              points={{-65,-14},{-48.7,-14},{-48.7,-37.9}},
-              color={127,0,127}));
+              points={{-65,-14},{-48.7,-14},{-48.7,-37.9}}, color={127,0,127}));
           connect(bUF3S1.y, wiredX.x[1]) annotation (Line(
-              points={{10.7,-64.3},{24,-64.3},{24,-21.8},{36.8,-21.8}},
-              color={127,0,127}));
+              points={{10.7,-64.3},{24,-64.3},{24,-21.8},{36.8,-21.8}}, color={127,0,127}));
           connect(bUF3S2.y, wiredX.x[2]) annotation (Line(
-              points={{12.8,27.8},{26,27.8},{26,-0.2},{36.8,-0.2}},
-              color={127,0,127}));
+              points={{12.8,27.8},{26,27.8},{26,-0.2},{36.8,-0.2}}, color={127,0,127}));
           annotation (experiment(StopTime=12),
             Documentation(info="<html>
 <p>This example is a simple test of the Tristates.WiredX component. The input width is set to two. After simulation until 12 s plot x[1], x[2], and y of the WiredX component. To verify the result compare to the truth table  Tables.ResolutionTable.</p>
@@ -1185,14 +1099,11 @@ The result can be seen in the output signals of the FullAdders according to:</p>
             annotation (Placement(transformation(extent={{-90,-34},{-70,-14}})));
         equation
           connect(Select.y, Mux2x1.sel) annotation (Line(
-              points={{-70,68},{11,68},{11,43.2}},
-              color={127,0,127}));
+              points={{-70,68},{11,68},{11,43.2}}, color={127,0,127}));
           connect(Input0.y, Mux2x1.in0) annotation (Line(
-              points={{-70,-24},{-29.5,-24}},
-              color={127,0,127}));
+              points={{-70,-24},{-29.5,-24}}, color={127,0,127}));
           connect(Input1.y, Mux2x1.in1) annotation (Line(
-              points={{-70,24},{-29.5,24}},
-              color={127,0,127}));
+              points={{-70,24},{-29.5,24}}, color={127,0,127}));
           annotation (experiment(StopTime=15),
             Documentation(info="<html>
 <p>This example is a simple test of a single multiplexer component with 2 inputs prescribed by sources, one select input, and one output. After simulation until 15 s plot Mux2x1.in0, Mux2x1.in1, Mux2x1.sel, and Mux2x1.out. Compare the output signal with the input signals. If the select signal changes, the output switches to the other input.</p>
@@ -1245,23 +1156,17 @@ The result can be seen in the output signals of the FullAdders according to:</p>
 
         equation
           connect(RE.y,dLATRAM. RE) annotation (Line(
-              points={{-58,-28},{-28,-28},{-28,4.6},{-6.44,4.6}},
-              color={127,0,127}));
+              points={{-58,-28},{-28,-28},{-28,4.6},{-6.44,4.6}}, color={127,0,127}));
           connect(WE.y,dLATRAM. WE) annotation (Line(
-              points={{-58,-60},{-24,-60},{-24,-12.5},{-6.44,-12.5}},
-              color={127,0,127}));
+              points={{-58,-60},{-24,-60},{-24,-12.5},{-6.44,-12.5}}, color={127,0,127}));
           connect(addr_0.y,dLATRAM. addr[1]) annotation (Line(
-              points={{-58,58},{-34,58},{-34,47.35},{-5.3,47.35}},
-              color={127,0,127}));
+              points={{-58,58},{-34,58},{-34,47.35},{-5.3,47.35}}, color={127,0,127}));
           connect(addr_1.y,dLATRAM. addr[2]) annotation (Line(
-              points={{-58,86},{-32,86},{-32,53.05},{-5.3,53.05}},
-              color={127,0,127}));
+              points={{-58,86},{-32,86},{-32,53.05},{-5.3,53.05}}, color={127,0,127}));
           connect(data_1.y,dLATRAM. dataIn[2]) annotation (Line(
-              points={{-58,30},{-32,30},{-32,30.25},{-5.3,30.25}},
-              color={127,0,127}));
+              points={{-58,30},{-32,30},{-32,30.25},{-5.3,30.25}}, color={127,0,127}));
           connect(data_0.y,dLATRAM. dataIn[1]) annotation (Line(
-              points={{-58,2},{-34,2},{-34,24.55},{-5.3,24.55}},
-              color={127,0,127}));
+              points={{-58,2},{-34,2},{-34,24.55},{-5.3,24.55}}, color={127,0,127}));
           annotation (experiment(StopTime=400),
             Documentation(info="<html>
 <p>This example is a simple and uncomplete test of a single DLATRAM component . After simulation until 400 s plot dLATRAM.addr[1], dLATRAM.addr[2], and dLATRAM.dataOUT[1], dLATRAM.dataOut[2]. The address inputs are  prescribed with all possible combinations of logic values. It can be checked in which cases of address values the output is 'X' or '0'. </p>
@@ -1307,64 +1212,45 @@ The result can be seen in the output signals of the FullAdders according to:</p>
                       {-56,-60}})));
         equation
             connect(a0, Not1.x) annotation (Line(
-                points={{-100,-44},{-72,-44}},
-                color={127,0,127}));
+                points={{-100,-44},{-72,-44}}, color={127,0,127}));
             connect(a1, Not2.x) annotation (Line(
-                points={{-100,-70},{-72,-70}},
-                color={127,0,127}));
+                points={{-100,-70},{-72,-70}}, color={127,0,127}));
             connect(d0, And1.x[2]) annotation (Line(
-                points={{-100,70},{-58,70},{-58,70},{-16,70}},
-                color={127,0,127}));
+                points={{-100,70},{-58,70},{-58,70},{-16,70}}, color={127,0,127}));
             connect(d1, And2.x[2]) annotation (Line(
-                points={{-100,44},{-16,44}},
-                color={127,0,127}));
+                points={{-100,44},{-16,44}}, color={127,0,127}));
             connect(d2, And3.x[2]) annotation (Line(
-                points={{-100,18},{-16,18}},
-                color={127,0,127}));
+                points={{-100,18},{-16,18}}, color={127,0,127}));
             connect(d3, And4.x[2]) annotation (Line(
-                points={{-100,-8},{-58,-8},{-58,-8},{-16,-8}},
-                color={127,0,127}));
+                points={{-100,-8},{-58,-8},{-58,-8},{-16,-8}}, color={127,0,127}));
             connect(And4.y, Or1.x[1]) annotation (Line(
-                points={{0,-8},{40,-8},{40,24},{54,24}},
-                color={127,0,127}));
+                points={{0,-8},{40,-8},{40,24},{54,24}}, color={127,0,127}));
             connect(And3.y, Or1.x[2]) annotation (Line(
-                points={{0,18},{20,18},{20,28},{54,28}},
-                color={127,0,127}));
+                points={{0,18},{20,18},{20,28},{54,28}}, color={127,0,127}));
             connect(And2.y, Or1.x[3]) annotation (Line(
-                points={{0,44},{20,44},{20,32},{54,32}},
-                color={127,0,127}));
+                points={{0,44},{20,44},{20,32},{54,32}}, color={127,0,127}));
             connect(And1.y, Or1.x[4]) annotation (Line(
-                points={{0,70},{40,70},{40,36},{54,36}},
-                color={127,0,127}));
+                points={{0,70},{40,70},{40,36},{54,36}}, color={127,0,127}));
             connect(Or1.y, d) annotation (Line(
-                points={{70,30},{80,30},{80,0},{100,0}},
-                color={127,0,127}));
+                points={{70,30},{80,30},{80,0},{100,0}}, color={127,0,127}));
             connect(Not1.y, And1.x[3]) annotation (Line(
-                points={{-56,-44},{-50,-44},{-50,75.3333},{-16,75.3333}},
-                color={127,0,127}));
+                points={{-56,-44},{-50,-44},{-50,75.3333},{-16,75.3333}}, color={127,0,127}));
             connect(Not1.y, And3.x[3]) annotation (Line(
-                points={{-56,-44},{-50,-44},{-50,23.3333},{-16,23.3333}},
-                color={127,0,127}));
+                points={{-56,-44},{-50,-44},{-50,23.3333},{-16,23.3333}}, color={127,0,127}));
             connect(Not2.y, And1.x[1]) annotation (Line(
-                points={{-56,-70},{-40,-70},{-40,64.6667},{-16,64.6667}},
-                color={127,0,127}));
+                points={{-56,-70},{-40,-70},{-40,64.6667},{-16,64.6667}}, color={127,0,127}));
             connect(Not2.y, And2.x[1]) annotation (Line(
-                points={{-56,-70},{-40,-70},{-40,38.6667},{-16,38.6667}},
-                color={127,0,127}));
+                points={{-56,-70},{-40,-70},{-40,38.6667},{-16,38.6667}}, color={127,0,127}));
             connect(a0, And4.x[3]) annotation (Line(
-                points={{-100,-44},{-80,-44},{-80,-2.66667},{-16,-2.66667}},
-                color={127,0,127}));
+                points={{-100,-44},{-80,-44},{-80,-2.66667},{-16,-2.66667}}, color={127,0,127}));
             connect(a0, And2.x[3]) annotation (Line(
-                points={{-100,-44},{-80,-44},{-80,49.3333},{-16,49.3333}},
-                color={127,0,127}));
+                points={{-100,-44},{-80,-44},{-80,49.3333},{-16,49.3333}}, color={127,0,127}));
             connect(a1, And4.x[1]) annotation (Line(
                 points={{-100,-70},{-80,-70},{-80,-90},{-30,-90},{-30,-13.3333},
-                {-16,-13.3333}},
-                color={127,0,127}));
+                {-16,-13.3333}}, color={127,0,127}));
             connect(a1, And3.x[1]) annotation (Line(
                 points={{-100,-70},{-80,-70},{-80,-90},{-30,-90},{-30,12.6667},
-                {-16,12.6667}},
-                color={127,0,127}));
+                {-16,12.6667}}, color={127,0,127}));
           annotation (
             Documentation(info="<html>
 <p>MUX4 is a four bit multiplexer which is built up by And, Not, and Or gates according to the schematic.</p>
@@ -1433,20 +1319,15 @@ The result can be seen in the output signals of the FullAdders according to:</p>
           D.Delay.TransportDelay TD1(delayTime=delayTime,y0=q0)
               annotation (Placement(transformation(extent={{-60,-64},{-40,-44}})));
         equation
-          connect(s, Nor1.x[2]) annotation (Line(points={{-100,70},{-32,70}},
-                  color={127,0,127}));
-          connect(r, Nor2.x[1]) annotation (Line(points={{-100,-70},{-32,-70}},
-                  color={127,0,127}));
+          connect(s, Nor1.x[2]) annotation (Line(points={{-100,70},{-32,70}}, color={127,0,127}));
+          connect(r, Nor2.x[1]) annotation (Line(points={{-100,-70},{-32,-70}}, color={127,0,127}));
           connect(Nor2.y, Nor1.x[1]) annotation (Line(points={{0,-62},{20,-62},{
                     20,-20},{-70,20},{-70,54},{-32,54}}, color={127,0,127}));
           connect(Nor1.y,qn) annotation (Line(
-                points={{0,62},{50,62},{50,-70},{100,-70}},
-                color={127,0,127}));
+                points={{0,62},{50,62},{50,-70},{100,-70}}, color={127,0,127}));
           connect(Nor2.y,q) annotation (Line(
-                points={{0,-62},{70,-62},{70,70},{100,70}},
-                color={127,0,127}));
-          connect(TD1.y, Nor2.x[2]) annotation (Line(points={{-40,-54},{-32,-54}},
-                  color={127,0,127}));
+                points={{0,-62},{70,-62},{70,70},{100,70}}, color={127,0,127}));
+          connect(TD1.y, Nor2.x[2]) annotation (Line(points={{-40,-54},{-32,-54}}, color={127,0,127}));
           connect(TD1.x, Nor1.y) annotation (Line(points={{-56,-54},{-70,-54},{-70,
                     -20},{20,20},{20,62},{0,62}}, color={127,0,127}));
           annotation (
@@ -1512,30 +1393,22 @@ The result can be seen in the output signals of the FullAdders according to:</p>
         equation
           connect(And2.y, RS1.r)
                                 annotation (Line(
-                points={{-30,-28},{-10,-28}},
-                color={127,0,127}));
+                points={{-30,-28},{-10,-28}}, color={127,0,127}));
           connect(And1.y, RS1.s)
                                 annotation (Line(
-                points={{-30,28},{-10,28}},
-                color={127,0,127}));
+                points={{-30,28},{-10,28}}, color={127,0,127}));
           connect(s, And1.x[2]) annotation (Line(
-                points={{-100,70},{-70,70},{-70,36},{-62,36}},
-                color={127,0,127}));
+                points={{-100,70},{-70,70},{-70,36},{-62,36}}, color={127,0,127}));
           connect(clk, And1.x[1]) annotation (Line(
-                points={{-100,0},{-70,0},{-70,20},{-62,20}},
-                color={127,0,127}));
+                points={{-100,0},{-70,0},{-70,20},{-62,20}}, color={127,0,127}));
           connect(clk, And2.x[2]) annotation (Line(
-                points={{-100,0},{-70,0},{-70,-20},{-62,-20}},
-                color={127,0,127}));
+                points={{-100,0},{-70,0},{-70,-20},{-62,-20}}, color={127,0,127}));
           connect(r, And2.x[1]) annotation (Line(
-                points={{-100,-70},{-70,-70},{-70,-36},{-62,-36}},
-                color={127,0,127}));
+                points={{-100,-70},{-70,-70},{-70,-36},{-62,-36}}, color={127,0,127}));
           connect(RS1.q,q) annotation (Line(
-                points={{70,28},{80,28},{80,70},{100,70}},
-                color={127,0,127}));
+                points={{70,28},{80,28},{80,70},{100,70}}, color={127,0,127}));
           connect(RS1.qn,qn) annotation (Line(
-                points={{70,-28},{80,-28},{80,-70},{100,-70}},
-                color={127,0,127}));
+                points={{70,-28},{80,-28},{80,-70},{100,-70}}, color={127,0,127}));
           annotation (
             Documentation(info="<html>
 <p>Basing on the RS component RSFF is a RS (set-reset) flipflop composed according the schematic. Its parameter delayTime is the delay time of the RS component transport delay, q0 is the initial value of that delay.</p>
@@ -1595,25 +1468,19 @@ The result can be seen in the output signals of the FullAdders according to:</p>
         equation
           connect(RSFF1.q,q)
                            annotation (Line(
-                points={{70,28},{80,28},{80,70},{100,70}},
-                color={127,0,127}));
+                points={{70,28},{80,28},{80,70},{100,70}}, color={127,0,127}));
           connect(RSFF1.qn,qn)
                              annotation (Line(
-                points={{70,-28},{80,-28},{80,-70},{100,-70}},
-                color={127,0,127}));
+                points={{70,-28},{80,-28},{80,-70},{100,-70}}, color={127,0,127}));
           connect(Not1.y, RSFF1.r)
                                  annotation (Line(
-                points={{-30,-28},{-22,-28},{-10,-28}},
-                color={127,0,127}));
+                points={{-30,-28},{-22,-28},{-10,-28}}, color={127,0,127}));
           connect(d, Not1.x) annotation (Line(
-                points={{-100,70},{-80,70},{-80,-28},{-62,-28}},
-                color={127,0,127}));
+                points={{-100,70},{-80,70},{-80,-28},{-62,-28}}, color={127,0,127}));
           connect(d, RSFF1.s) annotation (Line(
-                points={{-100,70},{-80,70},{-80,28},{-10,28}},
-                color={127,0,127}));
+                points={{-100,70},{-80,70},{-80,28},{-10,28}}, color={127,0,127}));
         connect(clk, RSFF1.clk) annotation (Line(
-            points={{-100,0},{-10,0}},
-            color={127,0,127}));
+            points={{-100,0},{-10,0}}, color={127,0,127}));
           annotation (
             Documentation(info="<html>
 <p>Basing on the RS component DFF is a D  flipflop composed according the schematic. Its parameter delayTime is the delay time of the RS component transport delay, q0 is the initial value of that delay.</p>
@@ -1682,24 +1549,18 @@ The result can be seen in the output signals of the FullAdders according to:</p>
           D.Basic.Not Not1 annotation (Placement(transformation(extent={{-34,-66},
                     {-14,-46}})));
         equation
-            connect(And2.y, RS2.r) annotation (Line(points={{-50,-14},{-44,-14}},
-                  color={127,0,127}));
-            connect(And1.y, RS2.s) annotation (Line(points={{-50,14},{-44,14}},
-                  color={127,0,127}));
+            connect(And2.y, RS2.r) annotation (Line(points={{-50,-14},{-44,-14}}, color={127,0,127}));
+            connect(And1.y, RS2.s) annotation (Line(points={{-50,14},{-44,14}}, color={127,0,127}));
             connect(clk, And2.x[3]) annotation (Line(points={{-100,0},{-74,0},{
                 -74,-8.66667},{-66,-8.66667}}, color={127,0,127}));
             connect(clk, And1.x[1]) annotation (Line(points={{-100,0},{-74,0},{
                 -74,8.66667},{-66,8.66667}}, color={127,0,127}));
             connect(k, And2.x[2]) annotation (Line(points={{-100,-70},{-74,-70},{
                     -74,-14},{-66,-14}}, color={127,0,127}));
-            connect(And4.y, RS1.r) annotation (Line(points={{24,-18},{30,-18}},
-                  color={127,0,127}));
-            connect(And3.y, RS1.s) annotation (Line(points={{24,10},{30,10}}, color=
-                   {127,0,127}));
-            connect(RS2.qn, And4.x[2]) annotation (Line(points={{-4,-14},{8,-14}},
-                  color={127,0,127}));
-            connect(RS2.q, And3.x[2]) annotation (Line(points={{-4,14},{8,14}},
-                  color={127,0,127}));
+            connect(And4.y, RS1.r) annotation (Line(points={{24,-18},{30,-18}}, color={127,0,127}));
+            connect(And3.y, RS1.s) annotation (Line(points={{24,10},{30,10}}, color={127,0,127}));
+            connect(RS2.qn, And4.x[2]) annotation (Line(points={{-4,-14},{8,-14}}, color={127,0,127}));
+            connect(RS2.q, And3.x[2]) annotation (Line(points={{-4,14},{8,14}}, color={127,0,127}));
             connect(clk, Not1.x) annotation (Line(points={{-100,0},{-80,0},{-80,-56},
                     {-30,-56}}, color={127,0,127}));
             connect(Not1.y, And3.x[1]) annotation (Line(points={{-14,-56},{2,-56},{
@@ -1711,8 +1572,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
             connect(RS1.q, And2.x[1]) annotation (Line(points={{70,10},{80,10},
                 {80,-36},{-70,-36},{-70,-19.3333},{-66,-19.3333}}, color={127,0,127}));
             connect(RS1.qn, And1.x[3]) annotation (Line(points={{70,-18},{86,
-                -18},{86,36},{-70,36},{-70,19.3333},{-66,19.3333}},
-                                                                  color={127,0,127}));
+                -18},{86,36},{-70,36},{-70,19.3333},{-66,19.3333}}, color={127,0,127}));
           connect(RS1.qn, q) annotation (Line(points={{70,-18},{86,-18},{86,70},{
                     100,70}}, color={127,0,127}));
           connect(RS1.q, qn) annotation (Line(points={{70,10},{80,10},{80,-70},{100,
@@ -1784,14 +1644,12 @@ The result can be seen in the output signals of the FullAdders according to:</p>
                                    annotation (Line(points={{20,62},{60,62},{60,70},
                     {100,70}}, color={127,0,127}));
                     connect(b, AND.x[1])
-                                      annotation (Line(points={{-100,-70},{-12,-70}},
-                  color={127,0,127}));
+                                      annotation (Line(points={{-100,-70},{-12,-70}}, color={127,0,127}));
                     connect(b, XOR.x[1])
                                       annotation (Line(points={{-100,-70},{-30,-70},
                     {-30,54},{-12,54}}, color={127,0,127}));
                     connect(a, XOR.x[2])
-                                      annotation (Line(points={{-100,70},{-12,70}},
-                  color={127,0,127}));
+                                      annotation (Line(points={{-100,70},{-12,70}}, color={127,0,127}));
                     connect(a, AND.x[2])
                                       annotation (Line(points={{-100,70},{-40,70},{
                     -40,-54},{-12,-54}}, color={127,0,127}));
@@ -1897,20 +1755,16 @@ The result can be seen in the output signals of the FullAdders according to:</p>
         equation
 
           connect(c_out, OR.y) annotation (Line(
-                points={{100,-70},{50,-70}},
-                color={127,0,127}));
+                points={{100,-70},{50,-70}}, color={127,0,127}));
           connect(Adder2.c, OR.x[2])
                                    annotation (Line(
-                points={{50,42},{70,42},{70,-40},{10,-40},{10,-62},{18,-62}},
-                color={127,0,127}));
+                points={{50,42},{70,42},{70,-40},{10,-40},{10,-62},{18,-62}}, color={127,0,127}));
           connect(Adder2.s, s)
             annotation (Line(points={{50,70},{101,70}}, color={127,0,127}));
-            connect(Adder1.a, a) annotation (Line(points={{-60,70},{-100,70}},
-                  color={127,0,127}));
+            connect(Adder1.a, a) annotation (Line(points={{-60,70},{-100,70}}, color={127,0,127}));
             connect(b, Adder1.b) annotation (Line(points={{-100,30},{-70,30},{-70,
                     42},{-60,42}}, color={127,0,127}));
-            connect(Adder1.s, Adder2.a) annotation (Line(points={{-20,70},{10,70}},
-                  color={127,0,127}));
+            connect(Adder1.s, Adder2.a) annotation (Line(points={{-20,70},{10,70}}, color={127,0,127}));
             connect(Adder1.c, OR.x[1]) annotation (Line(points={{-20,42},{-10,42},{
                     -10,-78},{18,-78}}, color={127,0,127}));
             connect(c_in, Adder2.b) annotation (Line(points={{-100,-70},{0,-70},{0,
@@ -2114,35 +1968,25 @@ The result can be seen in the output signals of the FullAdders according to:</p>
                      {{90,-80},{110,-60}})));
         equation
           connect(enable, FF1.j) annotation (Line(
-                points={{-100,70},{-80,70},{-80,14},{-74,14}},
-                color={127,0,127}));
+                points={{-100,70},{-80,70},{-80,14},{-74,14}}, color={127,0,127}));
           connect(enable, FF1.k) annotation (Line(
-                points={{-100,70},{-80,70},{-80,-14},{-74,-14}},
-                color={127,0,127}));
+                points={{-100,70},{-80,70},{-80,-14},{-74,-14}}, color={127,0,127}));
           connect(count, FF1.clk) annotation (Line(
-                points={{-100,-70},{-86,-70},{-86,0},{-74,0}},
-                color={127,0,127}));
+                points={{-100,-70},{-86,-70},{-86,0},{-74,0}}, color={127,0,127}));
           connect(FF1.q, FF2.clk) annotation (Line(
-                points={{-34,14},{-30,14},{-30,0},{-20,0}},
-                color={127,0,127}));
+                points={{-34,14},{-30,14},{-30,0},{-20,0}}, color={127,0,127}));
           connect(FF2.q, FF3.clk) annotation (Line(
-                points={{20,14},{24,14},{24,0},{34,0}},
-                color={127,0,127}));
+                points={{20,14},{24,14},{24,0},{34,0}}, color={127,0,127}));
           connect(FF2.j, enable) annotation (Line(
-                points={{-20,14},{-26,14},{-26,70},{-100,70}},
-                color={127,0,127}));
+                points={{-20,14},{-26,14},{-26,70},{-100,70}}, color={127,0,127}));
           connect(FF2.k, FF2.j) annotation (Line(
-                points={{-20,-14},{-26,-14},{-26,14},{-20,14}},
-                color={127,0,127}));
+                points={{-20,-14},{-26,-14},{-26,14},{-20,14}}, color={127,0,127}));
           connect(FF3.k, FF3.j) annotation (Line(
-                points={{34,-14},{28,-14},{28,14},{34,14}},
-                color={127,0,127}));
+                points={{34,-14},{28,-14},{28,14},{34,14}}, color={127,0,127}));
           connect(FF3.j, enable) annotation (Line(
-                points={{34,14},{28,14},{28,70},{-100,70}},
-                color={127,0,127}));
+                points={{34,14},{28,14},{28,70},{-100,70}}, color={127,0,127}));
           connect(FF3.q, q2) annotation (Line(
-                points={{74,14},{80,14},{80,70},{100,70}},
-                color={127,0,127}));
+                points={{74,14},{80,14},{80,70},{100,70}}, color={127,0,127}));
           connect(FF1.q, q0) annotation (Line(points={{-34,14},{-30,14},{-30,-70},{
                     100,-70}}, color={127,0,127}));
           connect(FF2.q, q1) annotation (Line(points={{20,14},{24,14},{24,-50},{86,
@@ -4866,11 +4710,9 @@ Clock transition definitions:
               color={127,0,127},
               thickness=1));
           connect(clock, dFFR.clock) annotation (Line(
-              points={{-92,-20},{-68.4,-20},{-68.4,15.8}},
-              color={127,0,127}));
+              points={{-92,-20},{-68.4,-20},{-68.4,15.8}}, color={127,0,127}));
           connect(reset, dFFR.reset) annotation (Line(
-              points={{-92,-60},{-30,-60},{-30,-18.15}},
-              color={127,0,127}));
+              points={{-92,-60},{-30,-60},{-30,-18.15}}, color={127,0,127}));
           annotation (Icon(coordinateSystem(
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
             graphics={
@@ -5307,14 +5149,11 @@ Clock transition definitions:
               color={127,0,127},
               thickness=1));
           connect(set, dFFSR.set) annotation (Line(
-              points={{-92,80},{-30,80},{-30,70}},
-              color={127,0,127}));
+              points={{-92,80},{-30,80},{-30,70}}, color={127,0,127}));
           connect(reset, dFFSR.reset) annotation (Line(
-              points={{-92,-60},{-30,-60},{-30,-20}},
-              color={127,0,127}));
+              points={{-92,-60},{-30,-60},{-30,-20}}, color={127,0,127}));
           connect(clock, dFFSR.clock) annotation (Line(
-              points={{-92,-20},{-70,-20},{-70,15}},
-              color={127,0,127}));
+              points={{-92,-20},{-70,-20},{-70,15}}, color={127,0,127}));
           connect(dataIn, dFFSR.dataIn) annotation (Line(
               points={{-92,40},{-70,40}},
               color={127,0,127},
@@ -5724,11 +5563,9 @@ Clock transition definitions:
               color={127,0,127},
               thickness=1));
           connect(enable, dLATR.enable) annotation (Line(
-              points={{-92,-20},{-68.4,-20},{-68.4,15.8}},
-              color={127,0,127}));
+              points={{-92,-20},{-68.4,-20},{-68.4,15.8}}, color={127,0,127}));
           connect(reset, dLATR.reset) annotation (Line(
-              points={{-92,-60},{-30,-60},{-30,-18.15}},
-              color={127,0,127}));
+              points={{-92,-60},{-30,-60},{-30,-18.15}}, color={127,0,127}));
            annotation (
             Documentation(info="<html>
 <p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</p>
@@ -6166,14 +6003,11 @@ Clock transition definitions:
               color={127,0,127},
               thickness=1));
           connect(set, dLATSR.set) annotation (Line(
-              points={{-92,80},{-30,80},{-30,69.15}},
-              color={127,0,127}));
+              points={{-92,80},{-30,80},{-30,69.15}}, color={127,0,127}));
           connect(reset, dLATSR.reset) annotation (Line(
-              points={{-92,-60},{-30,-60},{-30,-18.15}},
-              color={127,0,127}));
+              points={{-92,-60},{-30,-60},{-30,-18.15}}, color={127,0,127}));
           connect(enable, dLATSR.enable) annotation (Line(
-              points={{-92,-20},{-68.4,-20},{-68.4,15.8}},
-              color={127,0,127}));
+              points={{-92,-20},{-68.4,-20},{-68.4,15.8}}, color={127,0,127}));
           connect(dataIn, dLATSR.dataIn) annotation (Line(
               points={{-92,40},{-80.2,40},{-80.2,40.05},{-68.4,40.05}},
               color={127,0,127},

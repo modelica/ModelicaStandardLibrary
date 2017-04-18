@@ -107,23 +107,20 @@ package DrumBoiler
     connect(massFlowRate.m_flow, qm_S)
       annotation (Line(points={{30,-9},{30,4},{106,4}}, color={0,0,127}));
     connect(evaporator.V, V_l)
-      annotation (Line(points={{-32,-9},{-32,16},{-4,16},{-4,80},{106,80}},
-          color={0,0,127}));
+      annotation (Line(points={{-32,-9},{-32,16},{-4,16},{-4,80},{106,80}}, color={0,0,127}));
     connect(MW2W.y,furnace.Q_flow) annotation (Line(points={{-43.5,-70},{-36,
             -70},{-36,-63}}, color={0,0,127}));
     connect(pressure.p, Pa2bar.u)
       annotation (Line(points={{31,28},{36,28}}, color={0,0,127}));
     connect(Pa2bar.y, p_S)
       annotation (Line(points={{47.5,28},{106,28}}, color={0,0,127}));
-    connect(K2degC.Celsius, T_S) annotation (Line(points={{48.5,54},{106,54}},
-          color={0,0,127}));
+    connect(K2degC.Celsius, T_S) annotation (Line(points={{48.5,54},{106,54}}, color={0,0,127}));
     connect(controller.y, limiter.u) annotation (Line(points={{-63.7,30},{-69.6,
             30}}, color={0,0,127}));
     connect(limiter.y, pump.m_flow_in) annotation (Line(points={{-85.7,30},{-90,
             30},{-90,-12},{-80,-12}}, color={0,0,127}));
     connect(temperature.T, K2degC.Kelvin) annotation (Line(points={{4,-1},{4,-1},
-            {8,-1},{8,54},{37,54}},
-                              color={0,0,127}));
+            {8,-1},{8,54},{37,54}}, color={0,0,127}));
     connect(pressure.port, massFlowRate.port_a) annotation (Line(points={{20,18},{
             20,-20}}, color={0,127,255}));
     connect(pump.ports[1], evaporator.port_a) annotation (Line(points={{-60,-20},
@@ -135,26 +132,19 @@ package DrumBoiler
     connect(evaporator.port_b, massFlowRate.port_a) annotation (Line(points={{
             -26,-20},{20,-20}}, color={0,127,255}));
     connect(temperature.port, massFlowRate.port_a) annotation (Line(
-        points={{-3,-11},{-3,-20},{20,-20}},
-        color={0,127,255}));
+        points={{-3,-11},{-3,-20},{20,-20}}, color={0,127,255}));
     connect(q_F_Tab.y, MW2W.u) annotation (Line(
-        points={{-69,-70},{-55,-70}},
-        color={0,0,127}));
+        points={{-69,-70},{-55,-70}}, color={0,0,127}));
     connect(Y_Valve_Tab.y, SteamValve.opening) annotation (Line(
-        points={{51,-70},{60,-70},{60,-28}},
-        color={0,0,127}));
+        points={{51,-70},{60,-70},{60,-28}}, color={0,0,127}));
     connect(q_F, MW2W.u) annotation (Line(
-        points={{-106,-50},{-62,-50},{-62,-70},{-55,-70}},
-        color={0,0,127}));
+        points={{-106,-50},{-62,-50},{-62,-70},{-55,-70}}, color={0,0,127}));
     connect(Y_Valve, SteamValve.opening) annotation (Line(
-        points={{-106,-90},{60,-90},{60,-28}},
-        color={0,0,127}));
+        points={{-106,-90},{60,-90},{60,-28}}, color={0,0,127}));
     connect(evaporator.V, feedback.u2) annotation (Line(
-        points={{-32,-9},{-32,22}},
-        color={0,0,127}));
+        points={{-32,-9},{-32,22}}, color={0,0,127}));
     connect(levelSetPoint.y, feedback.u1) annotation (Line(
-        points={{-23.3,55},{-16,55},{-16,30},{-24,30}},
-        color={0,0,127}));
+        points={{-23.3,55},{-16,55},{-16,30},{-24,30}}, color={0,0,127}));
     annotation (
       Icon(coordinateSystem(
           preserveAspectRatio=false,

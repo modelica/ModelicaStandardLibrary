@@ -531,8 +531,8 @@ u1, else it is set equal to u3.</p>
               lineColor={192,192,192},
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid),Line(points={{-65,67},{-65,-81}},
-            color={192,192,192}),Line(points={{-90,-70},{82,-70}}, color={192,
-            192,192}),Polygon(
+            color={192,192,192}),Line(points={{-90,-70},{82,-70}}, color={192,192,192}),
+            Polygon(
               points={{90,-70},{68,-62},{68,-78},{90,-70}},
               lineColor={192,192,192},
               fillColor={192,192,192},
@@ -723,7 +723,8 @@ signal <strong>u</strong> exceeds the <strong>reference</strong> signal plus hal
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={Line(points={{-80,-20},{-60,-20},{-30,40},{
             8,40},{40,-20},{60,-20}}, color={0,0,255}),Line(points={{-90,-70},{
-            82,-70}}),Line(points={{-80,68},{-80,-80}}, color={0,0,0}),Polygon(
+            82,-70}}),Line(points={{-80,68},{-80,-80}}),
+            Polygon(
               points={{90,-70},{68,-62},{68,-78},{90,-70}},
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),Polygon(
@@ -842,7 +843,8 @@ handled properly.</p>
         Line(points={{-80.0,0.0},{-62.0,0.0},{40.0,90.0},{40.0,0.0},{68.0,0.0}},
           color={0,0,127})}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={Line(points={{-90,-70},{82,-70}}, color={0,0,0}),Line(points={{-80,68},{-80,-80}}),Polygon(
+              100,100}}), graphics={Line(points={{-90,-70},{82,-70}}),
+            Line(points={{-80,68},{-80,-80}}),Polygon(
               points={{90,-70},{68,-62},{68,-78},{90,-70}},
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),Polygon(
@@ -893,14 +895,11 @@ input becomes false.
       annotation (Line(points={{1,30},{8,30}}, color={255,0,255}));
     connect(pre.y, nor1.u1) annotation (Line(points={{31,30},{40,30},{40,10},{-40,
             10},{-40,-10},{-22,-10}}, color={255,0,255}));
-    connect(pre.y, QI) annotation (Line(points={{31,30},{80,30},{80,-60},{110,-60}},
-          color={255,0,255}));
+    connect(pre.y, QI) annotation (Line(points={{31,30},{80,30},{80,-60},{110,-60}}, color={255,0,255}));
     connect(S, nor.u1) annotation (Line(
-        points={{-120,60},{-40,60},{-40,30},{-22,30}},
-        color={255,0,255}));
+        points={{-120,60},{-40,60},{-40,30},{-22,30}}, color={255,0,255}));
     connect(R, nor1.u2) annotation (Line(
-        points={{-120,-60},{-40,-60},{-40,-18},{-22,-18}},
-        color={255,0,255}));
+        points={{-120,-60},{-40,-60},{-40,-18},{-22,-18}}, color={255,0,255}));
   annotation (
     Icon(graphics={
         Text(

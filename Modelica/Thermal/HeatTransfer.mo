@@ -231,7 +231,8 @@ An appropriate simulating time would be 10 seconds.
       connect(lossTable.y[1], windingLosses.Q_flow) annotation (Line(points={{-40,59},
               {-40,40},{-80,40},{-80,20}}, color={0,0,127}));
       connect(lossTable.y[2], coreLosses.Q_flow) annotation (Line(points={{-40,59},
-              {-40,40},{0,40},{0,20}}, color={0,0,127}));
+              {-40,40},{0,40},{0,20}}, color={0,0,
+              127}));
       annotation (Documentation(info="<html>
 <p>
 This example contains a simple second order thermal model of a motor.
@@ -1273,17 +1274,13 @@ The output signal is positive, if the heat flows from port_a to port_b.
             origin={0,-100})));
     equation
       connect(heatFlowSensor.port_b, port_b) annotation (Line(
-          points={{10,0},{100,0}},
-          color={191,0,0}));
+          points={{10,0},{100,0}}, color={191,0,0}));
       connect(port_a, heatFlowSensor.port_a) annotation (Line(
-          points={{-100,0},{-10,0}},
-          color={191,0,0}));
+          points={{-100,0},{-10,0}}, color={191,0,0}));
       connect(fixedTemperature.port, heatFlowSensor.port_a) annotation (Line(
-          points={{-50,-20},{-50,0},{-10,0}},
-          color={191,0,0}));
+          points={{-50,-20},{-50,0},{-10,0}}, color={191,0,0}));
       connect(heatFlowSensor.Q_flow, Q_flow) annotation (Line(
-          points={{0,-10},{0,-70}},
-          color={0,0,127}));
+          points={{0,-10},{0,-70}}, color={0,0,127}));
       annotation (
         Icon(graphics={
           Rectangle(
@@ -2833,11 +2830,9 @@ Note, this partial model is used in cases, where heatPort.T (that is the device 
         annotation (Placement(transformation(extent={{-104,-84},{-96,-76}})));
     equation
       connect(heatPort, internalHeatPort) annotation (Line(
-          points={{-100,-100},{-100,-80}},
-          color={191,0,0}));
+          points={{-100,-100},{-100,-80}}, color={191,0,0}));
       connect(fixedTemperature.port, internalHeatPort) annotation (Line(
-          points={{-80,-80},{-100,-80}},
-          color={191,0,0}));
+          points={{-80,-80},{-100,-80}}, color={191,0,0}));
       annotation (Documentation(info="<html>
 <p>
 This partial model provides a conditional heat port for dissipating losses.

@@ -62,11 +62,9 @@ equation
       color={95,95,95},
       thickness=0.5));
   connect(position.flange, prismatic.axis) annotation (Line(
-      points={{-46,80},{-24,80},{-24,36},{-20,36}},
-      color={0,127,0}));
+      points={{-46,80},{-24,80},{-24,36},{-20,36}}, color={0,127,0}));
   connect(sine.y, position.s_ref) annotation (Line(
-      points={{-77,80},{-68,80}},
-      color={0,0,127}));
+      points={{-77,80},{-68,80}}, color={0,0,127}));
   connect(prismatic.frame_b, fixedTranslation1.frame_a)
                                                        annotation (Line(
       points={{-18,30},{-4,30}},

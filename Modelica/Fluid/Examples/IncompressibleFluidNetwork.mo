@@ -205,16 +205,13 @@ equation
   connect(pipe2.port_b, valve1.port_a) annotation (Line(points={{-50,30},{-50,
           40},{-46,40}}, color={0,127,255}));
   connect(valve2.port_b, pipe4.port_a) annotation (Line(points={{-26,-40},{-26,
-          -40},{-20,-40}},
-                 color={0,127,255}));
+          -40},{-20,-40}}, color={0,127,255}));
   connect(pipe3.port_b, valve2.port_a) annotation (Line(points={{-50,-30},{-50,
           -40},{-46,-40}}, color={0,127,255}));
   connect(valve1.port_b, pipe7.port_a) annotation (Line(points={{-26,40},{-26,
-          40},{-20,40}},
-                color={0,127,255}));
+          40},{-20,40}}, color={0,127,255}));
   connect(valve3.port_b, sink.ports[1]) annotation (Line(points={{100,10},{100,
-          10},{106,10}},
-        color={0,127,255}));
+          10},{106,10}}, color={0,127,255}));
   connect(valveOpening1.y, valve1.opening) annotation (Line(points={{-59,70},{
           -36,70},{-36,48}}, color={0,0,127}));
   connect(valveOpening2.y, valve2.opening) annotation (Line(points={{-59,-70},{
@@ -222,40 +219,29 @@ equation
   connect(valveOpening3.y, valve3.opening) annotation (Line(points={{81,70},{90,
           70},{90,18}}, color={0,0,127}));
   connect(pipe7.port_b, pipe9.port_a)
-    annotation (Line(points={{0,40},{0,40},{20,40}},
-                                              color={0,127,255}));
+    annotation (Line(points={{0,40},{0,40},{20,40}}, color={0,127,255}));
   connect(pipe7.port_b, pipe8.port_a) annotation (Line(points={{0,40},{10,40},{
           10,20}}, color={0,127,255}));
   connect(pipe8.port_b, pipe10.port_a) annotation (Line(points={{10,0},{10,-20},
-          {20,-20}},
-                   color={0,127,255}));
+          {20,-20}}, color={0,127,255}));
   connect(pipe4.port_b, pipe6.port_a) annotation (Line(
-      points={{0,-40},{20,-40}},
-      color={0,127,255}));
+      points={{0,-40},{20,-40}}, color={0,127,255}));
   connect(pipe8.port_b, pipe4.port_b) annotation (Line(
-      points={{10,0},{10,-40},{0,-40}},
-      color={0,127,255}));
+      points={{10,0},{10,-40},{0,-40}}, color={0,127,255}));
   connect(pipe5.port_a, pipe4.port_b) annotation (Line(
-      points={{20,-60},{10,-60},{10,-40},{0,-40}},
-      color={0,127,255}));
+      points={{20,-60},{10,-60},{10,-40},{0,-40}}, color={0,127,255}));
   connect(heat8.port, pipe8.heatPorts) annotation (Line(
-      points={{0,10},{6,10},{6,9.9},{5.6,9.9}},
-      color={191,0,0}));
+      points={{0,10},{6,10},{6,9.9},{5.6,9.9}}, color={191,0,0}));
   connect(pipe5.port_b, pipe6.port_b) annotation (Line(
-      points={{40,-60},{50,-60},{50,-40},{40,-40}},
-      color={0,127,255}));
+      points={{40,-60},{50,-60},{50,-40},{40,-40}}, color={0,127,255}));
   connect(pipe6.port_b, pipe10.port_b) annotation (Line(
-      points={{40,-40},{50,-40},{50,-20},{40,-20}},
-      color={0,127,255}));
+      points={{40,-40},{50,-40},{50,-20},{40,-20}}, color={0,127,255}));
   connect(pipe11.port_b, valve3.port_a) annotation (Line(
-      points={{74,10},{80,10}},
-      color={0,127,255}));
+      points={{74,10},{80,10}}, color={0,127,255}));
   connect(pipe9.port_b, pipe11.port_a) annotation (Line(
-      points={{40,40},{50,40},{50,10},{54,10}},
-      color={0,127,255}));
+      points={{40,40},{50,40},{50,10},{54,10}}, color={0,127,255}));
   connect(pipe10.port_b, pipe11.port_a) annotation (Line(
-      points={{40,-20},{50,-20},{50,10},{54,10}},
-      color={0,127,255}));
+      points={{40,-20},{50,-20},{50,10},{54,10}}, color={0,127,255}));
   annotation (Documentation(info="<html>
 <p>
 This example demonstrates two aspects: the treatment of multi-way connections

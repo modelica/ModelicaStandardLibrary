@@ -82,11 +82,9 @@ equation
                                          annotation (Line(points={{50,-30},{40,
           -30},{40,-60},{60,-60}}, color={191,0,0}));
   connect(Sin.p, H_NMOS.G) annotation (Line(
-      points={{-70,10},{-54,10},{-54,5},{-40,5}},
-      color={0,0,255}));
+      points={{-70,10},{-54,10},{-54,5},{-40,5}}, color={0,0,255}));
   connect(H_PMOS.G, Sin.p) annotation (Line(
-      points={{-40,45},{-48,45},{-48,44},{-54,44},{-54,10},{-70,10}},
-      color={0,0,255}));
+      points={{-40,45},{-48,45},{-48,44},{-54,44},{-54,10},{-70,10}}, color={0,0,255}));
 annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
             -100},{100,100}}), graphics={Text(
           extent={{-100,100},{-6,72}},

@@ -94,8 +94,7 @@ model PumpingSystem "Model of a pumping system for drinking water"
             {{60,-96},{80,-76}})));
 equation
   connect(userValve.port_b, sink.ports[1]) annotation (Line(points={{74,-30},
-          {77,-30},{77,-28},{80,-28}},
-                    color={0,127,255}));
+          {77,-30},{77,-28},{80,-28}}, color={0,127,255}));
   connect(source.ports[1], pumps.port_a) annotation (Line(points={{-80,-70},{
           -74,-70},{-68,-70}}, color={0,127,255}));
   connect(valveOpening.y, userValve.opening) annotation (Line(points={{77,10},{
@@ -118,15 +117,13 @@ equation
   connect(pipe.port_a, pumps.port_b) annotation (Line(points={{-30,-60},
           {-30,-70},{-48,-70}}, color={0,127,255}));
   connect(reservoir.ports[1], pipe.port_b) annotation (Line(
-      points={{-12.6667,-16},{-12.6667,-30},{-30,-30},{-30,-40}},
-      color={0,127,255}));
+      points={{-12.6667,-16},{-12.6667,-30},{-30,-30},{-30,-40}}, color={0,127,255}));
   connect(reservoir.ports[3], reservoirPressure.port_a) annotation (Line(
       points={{-7.33333,-16},{-7,-16},{-7,-22},{10,-22}},
       color={0,127,255},
       pattern=LinePattern.Dot));
   connect(reservoir.ports[2], userValve.port_a) annotation (Line(
-      points={{-10,-16},{-10,-30},{58,-30}},
-      color={0,127,255}));
+      points={{-10,-16},{-10,-30},{58,-30}}, color={0,127,255}));
   annotation (
     Documentation(info="<html>
 <p>

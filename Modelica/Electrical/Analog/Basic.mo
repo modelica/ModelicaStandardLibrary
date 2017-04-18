@@ -115,8 +115,8 @@ package Basic "Basic electrical components"
               lineColor={160,160,164},
               fillColor={160,160,164},
               fillPattern=FillPattern.Solid),Line(points={{90,20},{115,20}},
-            color={160,160,164}),Line(points={{-125,0},{-115,0}}, color={160,
-            160,164}),Line(points={{-120,-5},{-120,5}}, color={160,160,164}),
+            color={160,160,164}),Line(points={{-125,0},{-115,0}}, color={160,160,164}),
+            Line(points={{-120,-5},{-120,5}}, color={160,160,164}),
             Text(
               extent={{-110,25},{-90,45}},
               lineColor={160,160,164},
@@ -686,7 +686,7 @@ the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N
               fillColor={0,0,255},
               fillPattern=FillPattern.Solid,
             lineColor={0,0,255}),
-          Line(points={{-100,100},{-40,100},{-40,60}},color={0,0,255}),
+          Line(points={{-100,100},{-40,100},{-40,60}}, color={0,0,255}),
           Line(
             points={{20,25},{-40,25},{-40,-15}},
             color={0,0,255},
@@ -807,8 +807,8 @@ the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N
               fillPattern=FillPattern.Solid),Text(
               extent={{-40,-110},{-30,-90}},
               lineColor={160,160,164},
-              textString="i"),Line(points={{8,-79},{18,-79}}, color={192,192,
-            192}),Line(points={{14,80},{14,70}}, color={192,192,192})}),
+              textString="i"),Line(points={{8,-79},{18,-79}}, color={192,192,192}),
+            Line(points={{14,80},{14,70}}, color={192,192,192})}),
       Documentation(info="<html>
 <p>EMF transforms electrical energy into rotational mechanical energy. It is used as basic building block of an electrical motor. The mechanical connector flange can be connected to elements of the Modelica.Mechanics.Rotational library. flange.tau is the cut-torque, flange.phi is the angle at the rotational connection.</p>
 </html>", revisions="<html>
@@ -866,11 +866,9 @@ the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N
     k*vel = v;
     flange.f = -k*i;
     connect(internalSupport.flange, support) annotation (Line(
-        points={{-80,0},{-90,0},{-90,0},{-100,0}},
-        color={0,127,0}));
+        points={{-80,0},{-90,0},{-90,0},{-100,0}}, color={0,127,0}));
     connect(internalSupport.flange, fixed.flange) annotation (Line(
-        points={{-80,0},{-80,-10}},
-        color={0,127,0}));
+        points={{-80,0},{-80,-10}}, color={0,127,0}));
     annotation (
       defaultComponentName="emf",
       Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
@@ -948,8 +946,8 @@ the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N
               fillPattern=FillPattern.Solid),Text(
               extent={{-40,-110},{-30,-90}},
               lineColor={160,160,164},
-              textString="i"),Line(points={{8,-79},{18,-79}}, color={192,192,
-            192}),Line(points={{14,80},{14,70}}, color={192,192,192}),Polygon(
+              textString="i"),Line(points={{8,-79},{18,-79}}, color={192,192,192}),
+            Line(points={{14,80},{14,70}}, color={192,192,192}),Polygon(
               points={{140,3},{150,0},{140,-3},{140,3},{140,3}},
               fillPattern=FillPattern.Solid)}),
       Documentation(info="<html>
@@ -1194,11 +1192,11 @@ the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N
             lineColor={0,0,255}),
           Line(points={{-45,-10},{-20,-10},{-14,-9},{-11,-7},{-9,7},{-6,9},{0,
                 10},{20,10}}, color={0,0,255}),
-          Line(points={{0,40},{0,100}},color={0,0,255}),
-          Line(points={{0,-40},{0,-100}},color={0,0,255}),
-          Line(points={{-100,60},{-70,60}},color={0,0,255}),
-          Line(points={{-100,-60},{-70,-60}},color={0,0,255}),
-          Line(points={{70,0},{100,0}},color={0,0,255}),
+          Line(points={{0,40},{0,100}}, color={0,0,255}),
+          Line(points={{0,-40},{0,-100}}, color={0,0,255}),
+          Line(points={{-100,60},{-70,60}}, color={0,0,255}),
+          Line(points={{-100,-60},{-70,-60}}, color={0,0,255}),
+          Line(points={{70,0},{100,0}}, color={0,0,255}),
           Line(points={{-58,50},{-38,50}}, color={0,0,255}),
           Line(points={{-49,-40},{-49,-61}}, color={0,0,255}),
           Line(points={{-60,-51},{-38,-51}}, color={0,0,255}),
@@ -1447,7 +1445,7 @@ the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid,
             lineColor={0,0,255}),
-          Line(points={{0,40},{0,110}},color={0,0,255}),
+          Line(points={{0,40},{0,110}}, color={0,0,255}),
           Line(points={{0,-40},{0,-90}}, color={0,0,255}),
           Line(points={{-90,60},{-70,60}}, color={0,0,255}),
           Line(points={{-90,-60},{-70,-60}}, color={0,0,255}),
@@ -1747,11 +1745,9 @@ It is required that L &ge; 0, otherwise an assertion is raised. To avoid a varia
     pin_n.v - contact.v = Rn*pin_n.i;
     LossPower = (pin_p.v - contact.v)*pin_p.i + (pin_n.v - contact.v)*pin_n.i;
     connect(rInt, r) annotation (Line(
-        points={{-80,-80},{-100,-80},{-100,-120}},
-        color={0,0,127}));
+        points={{-80,-80},{-100,-80},{-100,-120}}, color={0,0,127}));
     connect(rInt, rConst.y) annotation (Line(
-        points={{-80,-80},{-90,-80},{-90,-61}},
-        color={0,0,127}));
+        points={{-80,-80},{-90,-80},{-90,-61}}, color={0,0,127}));
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
               100}}), graphics={

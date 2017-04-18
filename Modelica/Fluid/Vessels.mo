@@ -122,7 +122,7 @@ initial equation
                  + 200*level/height)}}),
             fillColor={85,170,255},
             fillPattern=FillPattern.VerticalCylinder),
-          Line(points={{-100,100},{-100,-100},{100,-100},{100,100}}, color={0,0,0}),
+          Line(points={{-100,100},{-100,-100},{100,-100},{100,100}}),
           Text(
             extent={{-95,60},{95,40}},
             textString="level ="),
@@ -403,8 +403,7 @@ of the modeller. Increase nPorts to add an additional port.
         end for;
 
         connect(heatPort, heatTransfer.heatPorts[1]) annotation (Line(
-            points={{-100,0},{-87,0},{-87,0},{-74,0}},
-            color={191,0,0}));
+            points={{-100,0},{-87,0},{-87,0},{-74,0}}, color={191,0,0}));
        annotation (
         Documentation(info="<html>
 <p>

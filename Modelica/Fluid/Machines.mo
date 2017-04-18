@@ -476,8 +476,7 @@ Then the model can be replaced with a Pump with rotational shaft or with a Presc
     port_b.C_outflow = C;
 
     connect(heatTransfer.heatPorts[1], heatPort) annotation (Line(
-        points={{40,-34},{40,-60}},
-        color={127,0,0}));
+        points={{40,-34},{40,-60}}, color={127,0,0}));
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{100,
                 100}}), graphics={

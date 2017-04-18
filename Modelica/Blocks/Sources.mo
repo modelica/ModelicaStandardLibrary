@@ -647,8 +647,8 @@ The Real output y is a sine signal:
                 78.2,80.1},{83.8,80.8}})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}}), graphics={Line(points={{-80,-90},{-80,84}}, color={95,95,
-            95}),Polygon(
+          extent={{-100,-100},{100,100}}), graphics={Line(points={{-80,-90},{-80,84}}, color={95,95,95}),
+            Polygon(
               points={{-80,97},{-84,81},{-76,81},{-80,97}},
               lineColor={95,95,95},
               fillColor={95,95,95},
@@ -662,8 +662,8 @@ The Real output y is a sine signal:
               color={0,0,255},
               thickness=0.5),Text(
               extent={{-87,12},{-40,0}},
-              textString="offset"),Line(points={{-41,-2},{-41,-40}}, color={95,
-            95,95}),Text(
+              textString="offset"),Line(points={{-41,-2},{-41,-40}}, color={95,95,95}),
+            Text(
               extent={{-60,-43},{-14,-54}},
               textString="startTime"),Text(
               extent={{75,-47},{100,-60}},
@@ -863,7 +863,7 @@ The Real output y is a sine signal with exponentially changing amplitude:
                 34.5},{-38.3,42.1},{-31.2,48.6},{-22.7,54.3},{-12.1,59.2},{-10,
                 60},{-7.88,47.5},{-5.05,32.7},{-2.22,19.8},{0.606,8.45},{4.14,-3.7},
                 {7.68,-14},{11.9,-24.2},{16.2,-32.6},{21.1,-40.5},{26.8,-47.4},
-                {33.1,-53.3},{40.9,-58.5},{50.8,-62.8},{60,-65.4}}, color={0,0,0}),
+                {33.1,-53.3},{40.9,-58.5},{50.8,-62.8},{60,-65.4}}),
           Polygon(
             points={{-80,90},{-88,68},{-72,68},{-80,90}},
             lineColor={192,192,192},
@@ -1191,7 +1191,7 @@ The Real output y is a pulse signal:
             extent={{-12,94},{34,85}},
             textString="period"),
           Line(points={{-44,60},{30,60}}, color={95,95,95}),
-          Line(points={{-34,47},{-34,-20}},color={95,95,95}),
+          Line(points={{-34,47},{-34,-20}}, color={95,95,95}),
           Text(
             extent={{-73,25},{-36,16}},
             textString="amplitude"),
@@ -3033,11 +3033,11 @@ The Integer output y is a constant signal:
               extent={{66,-78},{92,-88}},
               textString="time"),Text(
               extent={{-21,-76},{26,-88}},
-              textString="startTime"),Line(points={{0,-17},{0,-71}}, color={95,
-            95,95}),Text(
+              textString="startTime"),Line(points={{0,-17},{0,-71}}, color={95,95,95}),
+            Text(
               extent={{-60,-36},{-12,-48}},
-              textString="offset"),Line(points={{-13,50},{-13,-17}}, color={95,
-            95,95}),Polygon(
+              textString="offset"),Line(points={{-13,50},{-13,-17}}, color={95,95,95}),
+            Polygon(
               points={{2,50},{-19,50},{2,50}},
               lineColor={95,95,95},
               fillColor={95,95,95},

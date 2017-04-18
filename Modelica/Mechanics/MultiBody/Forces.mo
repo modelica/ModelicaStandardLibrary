@@ -57,8 +57,7 @@ package Forces "Components that exert forces and/or torques between frames"
         color={95,95,95},
         thickness=0.5));
     connect(basicWorldForce.force, force) annotation (Line(
-        points={{-12,0},{-120,0}},
-        color={0,0,127}));
+        points={{-12,0},{-120,0}}, color={0,0,127}));
     connect(basicWorldForce.frame_resolve, frame_resolve) annotation (Line(
         points={{0,-10},{0,-100}},
         color={95,95,95},
@@ -213,8 +212,7 @@ This leads to the following animation
         color={95,95,95},
         thickness=0.5));
     connect(basicWorldTorque.torque, torque) annotation (Line(
-        points={{-12,0},{-120,0}},
-        color={0,0,127}));
+        points={{-12,0},{-120,0}}, color={0,0,127}));
     connect(frame_resolve, basicWorldTorque.frame_resolve) annotation (Line(
         points={{0,100},{0,10}},
         color={95,95,95},
@@ -398,8 +396,7 @@ This leads to the following animation
         color={95,95,95},
         thickness=0.5));
     connect(basicWorldForce.force, force) annotation (Line(
-        points={{16,-60},{-120,-60}},
-        color={0,0,127}));
+        points={{16,-60},{-120,-60}}, color={0,0,127}));
     connect(basicWorldTorque.frame_b, frame_b)
                                       annotation (Line(
         points={{10,60},{60,60},{60,0},{100,0}},
@@ -407,8 +404,7 @@ This leads to the following animation
         thickness=0.5));
     connect(basicWorldTorque.torque, torque)
                                     annotation (Line(
-        points={{-12,60},{-120,60}},
-        color={0,0,127}));
+        points={{-12,60},{-120,60}}, color={0,0,127}));
     connect(basicWorldForce.frame_resolve, frame_resolve) annotation (Line(
         points={{28,-50},{28,80},{0,80},{0,100}},
         color={95,95,95},
@@ -612,8 +608,7 @@ This leads to the following animation
         color={95,95,95},
         thickness=0.5));
     connect(force, basicForce.force) annotation (Line(
-        points={{-60,120},{-60,40},{4,40},{4,12}},
-        color={0,0,127}));
+        points={{-60,120},{-60,40},{4,40},{4,12}}, color={0,0,127}));
     connect(basicForce.frame_resolve, frame_resolve) annotation (Line(
         points={{14,10},{14,40},{40,40},{40,100}},
         color={95,95,95},
@@ -800,8 +795,7 @@ clarity this is not shown in the animation):
         color={95,95,95},
         thickness=0.5));
     connect(basicTorque.torque, torque) annotation (Line(
-        points={{-4,12},{-4,60},{-60,60},{-60,120}},
-        color={0,0,127}));
+        points={{-4,12},{-4,60},{-60,60},{-60,120}}, color={0,0,127}));
     connect(basicTorque.frame_resolve, frame_resolve) annotation (Line(
         points={{6,10},{6,60},{40,60},{40,100}},
         color={95,95,95},
@@ -1027,11 +1021,9 @@ clarity this is not shown in the animation):
         color={95,95,95},
         thickness=0.5));
     connect(basicForce.force, force) annotation (Line(
-        points={{-80,12},{-80,120}},
-        color={0,0,127}));
+        points={{-80,12},{-80,120}}, color={0,0,127}));
     connect(basicTorque.torque, torque) annotation (Line(
-        points={{0,32},{0,120}},
-        color={0,0,127}));
+        points={{0,32},{0,120}}, color={0,0,127}));
     connect(basicTorque.frame_resolve, frame_resolve) annotation (Line(
         points={{10,30},{10,80},{80,80},{80,100}},
         color={95,95,95},

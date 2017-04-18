@@ -43,8 +43,7 @@ equation
         points={{-10,40},{-10,0},{-20,0}}, color={191,0,0}));
   connect(ThermalConductor1.port_b, HeatCapacitor1.port)
                                                        annotation (Line(points={{-20,-20},
-          {-20,-25.75},{-20,-40}},
-        color={191,0,0}));
+          {-20,-25.75},{-20,-40}}, color={191,0,0}));
   connect(R.p, Capacitor1.p)
   annotation (Line(points={{20,80},{20,50}}, color={0,0,255}));
   connect(R.n, Capacitor1.n)

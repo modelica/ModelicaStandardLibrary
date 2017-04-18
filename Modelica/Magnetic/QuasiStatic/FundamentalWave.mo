@@ -316,44 +316,31 @@ This is the library of quasi static fundamental wave models for multi phase elec
           annotation (Placement(transformation(extent={{10,-90},{30,-70}})));
       equation
         connect(star_e.pin_n, ground_e.pin) annotation (Line(
-            points={{-60,30},{-60,30}},
-            color={85,170,255}));
+            points={{-60,30},{-60,30}}, color={85,170,255}));
         connect(star_e.plug_p, voltageSource_e.plug_n) annotation (Line(
-            points={{-60,50},{-60,60}},
-            color={85,170,255}));
+            points={{-60,50},{-60,60}}, color={85,170,255}));
         connect(voltageSource_e.plug_n, inductor_e.plug_n) annotation (Line(
-            points={{-60,60},{0,60}},
-            color={85,170,255}));
+            points={{-60,60},{0,60}}, color={85,170,255}));
         connect(converter_m.port_p, reluctance_m.port_p) annotation (Line(
-            points={{20,-20},{60,-20}},
-            color={255,170,85}));
+            points={{20,-20},{60,-20}}, color={255,170,85}));
         connect(converter_m.port_n, reluctance_m.port_n) annotation (Line(
-            points={{20,-40},{60,-40}},
-            color={255,170,85}));
+            points={{20,-40},{60,-40}}, color={255,170,85}));
         connect(converter_m.port_n, groundM_m.port_p) annotation (Line(
-            points={{20,-40},{20,-70}},
-            color={255,170,85}));
+            points={{20,-40},{20,-70}}, color={255,170,85}));
         connect(voltageSource_m.plug_n, star_m.plug_p) annotation (Line(
-            points={{-60,-40},{-60,-50}},
-            color={85,170,255}));
+            points={{-60,-40},{-60,-50}}, color={85,170,255}));
         connect(star_m.pin_n, ground_m.pin) annotation (Line(
-            points={{-60,-70},{-60,-70}},
-            color={85,170,255}));
+            points={{-60,-70},{-60,-70}}, color={85,170,255}));
         connect(voltageSource_m.plug_n, converter_m.plug_n) annotation (Line(
-            points={{-60,-40},{0,-40}},
-            color={85,170,255}));
+            points={{-60,-40},{0,-40}}, color={85,170,255}));
         connect(voltageSource_e.plug_p, resistor_e.plug_p) annotation (Line(
-            points={{-60,80},{-40,80}},
-            color={85,170,255}));
+            points={{-60,80},{-40,80}}, color={85,170,255}));
         connect(resistor_e.plug_n, inductor_e.plug_p) annotation (Line(
-            points={{-20,80},{0,80}},
-            color={85,170,255}));
+            points={{-20,80},{0,80}}, color={85,170,255}));
         connect(voltageSource_m.plug_p, resistor_m.plug_p) annotation (Line(
-            points={{-60,-20},{-40,-20}},
-            color={85,170,255}));
+            points={{-60,-20},{-40,-20}}, color={85,170,255}));
         connect(resistor_m.plug_n, converter_m.plug_p) annotation (Line(
-            points={{-20,-20},{0,-20}},
-            color={85,170,255}));
+            points={{-20,-20},{0,-20}}, color={85,170,255}));
         annotation (experiment(StopTime=100,
               Interval=0.01));
       end MultiPhaseInductance;
@@ -457,80 +444,55 @@ This is the library of quasi static fundamental wave models for multi phase elec
           annotation (Placement(transformation(extent={{30,-90},{50,-70}})));
       equation
         connect(sineVoltage_e.plug_n, converter_e.plug_n) annotation (Line(
-            points={{-80,50},{20,50}},
-            color={85,170,255}));
+            points={{-80,50},{20,50}}, color={85,170,255}));
         connect(sineVoltage_e.plug_n, star_e.plug_p) annotation (Line(
-            points={{-80,50},{-80,40}},
-            color={85,170,255}));
+            points={{-80,50},{-80,40}}, color={85,170,255}));
         connect(converter_e.port_p, reluctance_e.port_p) annotation (Line(
-            points={{40,70},{80,70}},
-            color={255,170,85}));
+            points={{40,70},{80,70}}, color={255,170,85}));
         connect(converter_e.port_n, reluctance_e.port_n) annotation (Line(
-            points={{40,50},{80,50}},
-            color={255,170,85}));
+            points={{40,50},{80,50}}, color={255,170,85}));
         connect(converter_e.port_n, mground_e.port_p) annotation (Line(
-            points={{40,50},{40,20}},
-            color={255,170,85}));
+            points={{40,50},{40,20}}, color={255,170,85}));
         connect(resistor_e.plug_p, sineVoltage_e.plug_p) annotation (Line(
-            points={{-70,70},{-80,70}},
-            color={85,170,255}));
+            points={{-70,70},{-80,70}}, color={85,170,255}));
         connect(loss_e.plug_n, sineVoltage_e.plug_n) annotation (Line(
-            points={{0,50},{-80,50}},
-            color={85,170,255}));
+            points={{0,50},{-80,50}}, color={85,170,255}));
         connect(loss_e.plug_p, converter_e.plug_p) annotation (Line(
-            points={{0,70},{20,70}},
-            color={85,170,255}));
+            points={{0,70},{20,70}}, color={85,170,255}));
         connect(resistor_e.plug_n, powerb_e.currentP) annotation (Line(
-            points={{-50,70},{-40,70}},
-            color={85,170,255}));
+            points={{-50,70},{-40,70}}, color={85,170,255}));
         connect(powerb_e.currentN, converter_e.plug_p) annotation (Line(
-            points={{-20,70},{20,70}},
-            color={85,170,255}));
+            points={{-20,70},{20,70}}, color={85,170,255}));
         connect(star_e.pin_n, ground_e.pin) annotation (Line(
-            points={{-80,20},{-80,20}},
-            color={85,170,255}));
+            points={{-80,20},{-80,20}}, color={85,170,255}));
         connect(powerb_e.currentP, powerb_e.voltageP) annotation (Line(
-            points={{-40,70},{-40,80},{-30,80}},
-            color={85,170,255}));
+            points={{-40,70},{-40,80},{-30,80}}, color={85,170,255}));
         connect(powerb_e.voltageN, sineVoltage_e.plug_n) annotation (Line(
-            points={{-30,60},{-30,50},{-80,50}},
-            color={85,170,255}));
+            points={{-30,60},{-30,50},{-80,50}}, color={85,170,255}));
         connect(sineVoltage_m.plug_n, star_m.plug_p) annotation (Line(
-            points={{-80,-40},{-80,-50}},
-            color={85,170,255}));
+            points={{-80,-40},{-80,-50}}, color={85,170,255}));
         connect(sineVoltage_m.plug_n, converter_m.plug_n) annotation (Line(
-            points={{-80,-40},{20,-40}},
-            color={85,170,255}));
+            points={{-80,-40},{20,-40}}, color={85,170,255}));
         connect(converter_m.port_n, reluctance_m.port_n) annotation (Line(
-            points={{40,-40},{80,-40}},
-            color={255,170,85}));
+            points={{40,-40},{80,-40}}, color={255,170,85}));
         connect(converter_m.port_p, loss_m.port_p) annotation (Line(
-            points={{40,-20},{50,-20}},
-            color={255,170,85}));
+            points={{40,-20},{50,-20}}, color={255,170,85}));
         connect(loss_m.port_n, reluctance_m.port_p) annotation (Line(
-            points={{70,-20},{80,-20}},
-            color={255,170,85}));
+            points={{70,-20},{80,-20}}, color={255,170,85}));
         connect(converter_m.port_n, mground_m.port_p) annotation (Line(
-            points={{40,-40},{40,-70}},
-            color={255,170,85}));
+            points={{40,-40},{40,-70}}, color={255,170,85}));
         connect(sineVoltage_m.plug_p, resistor_m.plug_p) annotation (Line(
-            points={{-80,-20},{-70,-20}},
-            color={85,170,255}));
+            points={{-80,-20},{-70,-20}}, color={85,170,255}));
         connect(resistor_m.plug_n, powerb_m.currentP) annotation (Line(
-            points={{-50,-20},{-40,-20}},
-            color={85,170,255}));
+            points={{-50,-20},{-40,-20}}, color={85,170,255}));
         connect(powerb_m.currentN, converter_m.plug_p) annotation (Line(
-            points={{-20,-20},{20,-20}},
-            color={85,170,255}));
+            points={{-20,-20},{20,-20}}, color={85,170,255}));
         connect(star_m.pin_n, ground_m.pin) annotation (Line(
-            points={{-80,-70},{-80,-70}},
-            color={85,170,255}));
+            points={{-80,-70},{-80,-70}}, color={85,170,255}));
         connect(powerb_m.currentP, powerb_m.voltageP) annotation (Line(
-            points={{-40,-20},{-40,-10},{-30,-10}},
-            color={85,170,255}));
+            points={{-40,-20},{-40,-10},{-30,-10}}, color={85,170,255}));
         connect(powerb_m.voltageN, sineVoltage_m.plug_n) annotation (Line(
-            points={{-30,-30},{-30,-40},{-80,-40}},
-            color={85,170,255}));
+            points={{-30,-30},{-30,-40},{-80,-40}}, color={85,170,255}));
         annotation (
           experiment(StopTime=40, Interval=0.01),
           Documentation(info="<html>
@@ -733,8 +695,7 @@ In this example the eddy current losses are implemented in two different ways. C
           connect(powerSensorQS.voltageN, starQS.plug_p) annotation (Line(
                 points={{-50,70},{-50,20},{-60,20}}, color={85,170,255}));
           connect(booleanStepQS.y, idealCloserQS.control) annotation (Line(
-              points={{-75,70},{-67,70}},
-              color={255,0,255}));
+              points={{-75,70},{-67,70}}, color={255,0,255}));
           connect(star.pin_n, ground.p)
             annotation (Line(points={{-80,-80},{-80,-80}}, color={0,0,255}));
           connect(cosineVoltage.plug_n, star.plug_p)
@@ -748,22 +709,17 @@ In this example the eddy current losses are implemented in two different ways. C
           connect(terminalBoxM.plug_sp, imc.plug_sp)
             annotation (Line(points={{36,-60},{36,-60}}, color={0,0,255}));
           connect(booleanStep.y, idealCloser.control) annotation (Line(
-              points={{-75,-30},{-67,-30}},
-              color={255,0,255}));
+              points={{-75,-30},{-67,-30}}, color={255,0,255}));
           connect(idealCloser.plug_p, cosineVoltage.plug_p) annotation (Line(
-              points={{-60,-40},{-60,-50}},
-              color={0,0,255}));
+              points={{-60,-40},{-60,-50}}, color={0,0,255}));
           connect(idealCloserQS.plug_p, voltageSourceQS.plug_p) annotation (
               Line(
-              points={{-60,60},{-60,50}},
-              color={85,170,255}));
+              points={{-60,60},{-60,50}}, color={85,170,255}));
           connect(idealCloserQS.plug_n, powerSensorQS.currentP) annotation (
               Line(
-              points={{-60,80},{-60,80}},
-              color={85,170,255}));
+              points={{-60,80},{-60,80}}, color={85,170,255}));
           connect(idealCloser.plug_n, powerSensor.pc) annotation (Line(
-              points={{-60,-20},{-60,-20}},
-              color={0,0,255}));
+              points={{-60,-20},{-60,-20}}, color={0,0,255}));
           connect(powerSensor.nc, currentQuasiRMSSensor.plug_p)
             annotation (Line(points={{-40,-20},{-30,-20}}, color={0,0,255}));
           connect(currentQuasiRMSSensor.plug_n, terminalBoxM.plugSupply)
@@ -771,28 +727,22 @@ In this example the eddy current losses are implemented in two different ways. C
           connect(loadInertiaQS.flange_b, quadraticLoadTorqueQS.flange)
             annotation (Line(points={{70,30},{80,30}}));
           connect(powerSensor.pv, powerSensor.pc) annotation (Line(
-              points={{-50,-10},{-60,-10},{-60,-20}},
-              color={0,0,255}));
+              points={{-50,-10},{-60,-10},{-60,-20}}, color={0,0,255}));
           connect(powerSensor.nv, star.plug_p) annotation (Line(
-              points={{-50,-30},{-50,-80},{-60,-80}},
-              color={0,0,255}));
+              points={{-50,-30},{-50,-80},{-60,-80}}, color={0,0,255}));
           connect(imcQS.flange, loadInertiaQS.flange_a) annotation (Line(
               points={{40,30},{50,30}}));
           connect(terminalBoxQS.plug_sn, imcQS.plug_sn) annotation (Line(
-              points={{24,40},{24,40}},
-              color={85,170,255}));
+              points={{24,40},{24,40}}, color={85,170,255}));
           connect(terminalBoxQS.plug_sp, imcQS.plug_sp) annotation (Line(
-              points={{36,40},{36,40}},
-              color={85,170,255}));
+              points={{36,40},{36,40}}, color={85,170,255}));
           connect(starMachineQS.plug_p, terminalBoxQS.starpoint) annotation (
               Line(
-              points={{10,40},{10,42},{21,42}},
-              color={85,170,255}));
+              points={{10,40},{10,42},{21,42}}, color={85,170,255}));
           connect(currentQuasiRMSSensorQS.plug_n, terminalBoxQS.plugSupply)
             annotation (Line(points={{-10,80},{30,80},{30,42}}, color={85,170,255}));
           connect(starMachineQS.pin_n, groundMachineQS.pin) annotation (Line(
-              points={{10,20},{10,20}},
-              color={85,170,255}));
+              points={{10,20},{10,20}}, color={85,170,255}));
           annotation (Diagram(coordinateSystem(preserveAspectRatio=false,
                   extent={{-100,-100},{100,100}}), graphics={Rectangle(
                           extent={{-100,98},{100,4}},
@@ -992,70 +942,52 @@ Simulate for 1 second and plot (versus time):
           connect(loadTorqueStep.flange, loadInertia.flange_b)
             annotation (Line(points={{76,-80},{68,-80}}));
           connect(terminalBox.plug_sn, imc.plug_sn) annotation (Line(
-              points={{24,-70},{24,-70}},
-              color={0,0,255}));
+              points={{24,-70},{24,-70}}, color={0,0,255}));
           connect(terminalBox.plug_sp, imc.plug_sp) annotation (Line(
-              points={{36,-70},{36,-70}},
-              color={0,0,255}));
+              points={{36,-70},{36,-70}}, color={0,0,255}));
           connect(imc.flange, loadInertia.flange_a) annotation (Line(
               points={{40,-80},{48,-80}}));
           connect(signalVoltage.plug_n, currentQuasiRMSSensor.plug_p)
             annotation (Line(
-              points={{0,-50},{10,-50}},
-              color={0,0,255}));
+              points={{0,-50},{10,-50}}, color={0,0,255}));
           connect(currentQuasiRMSSensor.plug_n, terminalBox.plugSupply)
             annotation (Line(
-              points={{30,-50},{30,-68}},
-              color={0,0,255}));
+              points={{30,-50},{30,-68}}, color={0,0,255}));
           connect(ground.p, star.pin_n) annotation (Line(
-              points={{-50,-50},{-50,-50}},
-              color={0,0,255}));
+              points={{-50,-50},{-50,-50}}, color={0,0,255}));
           connect(star.plug_p, signalVoltage.plug_p) annotation (Line(
-              points={{-30,-50},{-20,-50}},
-              color={0,0,255}));
+              points={{-30,-50},{-20,-50}}, color={0,0,255}));
           connect(vfController.y, signalVoltage.v) annotation (Line(
-              points={{-17,-20},{-10,-20},{-10,-43}},
-              color={0,0,127}));
+              points={{-17,-20},{-10,-20},{-10,-43}}, color={0,0,127}));
           connect(loadTorqueStepQS.flange, loadInertiaQS.flange_b)
             annotation (Line(points={{76,20},{70,20}}));
           connect(imcQS.flange, loadInertiaQS.flange_a) annotation (Line(
               points={{40,20},{50,20}}));
           connect(terminalBox1.plug_sn, imcQS.plug_sn) annotation (Line(
-              points={{24,30},{24,30}},
-              color={85,170,255}));
+              points={{24,30},{24,30}}, color={85,170,255}));
           connect(terminalBox1.plug_sp, imcQS.plug_sp) annotation (Line(
-              points={{36,30},{36,30}},
-              color={85,170,255}));
+              points={{36,30},{36,30}}, color={85,170,255}));
           connect(currentQuasiRMSSensorQS.plug_n, terminalBox1.plugSupply)
             annotation (Line(
-              points={{30,50},{30,32}},
-              color={85,170,255}));
+              points={{30,50},{30,32}}, color={85,170,255}));
           connect(groundMachineQS.pin, starMachineQS.pin_n) annotation (Line(
-              points={{-20,30},{-10,30}},
-              color={85,170,255}));
+              points={{-20,30},{-10,30}}, color={85,170,255}));
           connect(starMachineQS.plug_p, terminalBox1.starpoint) annotation (
               Line(
-              points={{10,30},{10,32},{21,32}},
-              color={85,170,255}));
+              points={{10,30},{10,32},{21,32}}, color={85,170,255}));
           connect(groundQS.pin, starQS.pin_n) annotation (Line(
-              points={{-50,50},{-50,50}},
-              color={85,170,255}));
+              points={{-50,50},{-50,50}}, color={85,170,255}));
           connect(starQS.plug_p, signalVoltageQS.plug_n) annotation (Line(
-              points={{-30,50},{-20,50}},
-              color={85,170,255}));
+              points={{-30,50},{-20,50}}, color={85,170,255}));
           connect(signalVoltageQS.plug_p, currentQuasiRMSSensorQS.plug_p)
             annotation (Line(
-              points={{0,50},{10,50}},
-              color={85,170,255}));
+              points={{0,50},{10,50}}, color={85,170,255}));
           connect(vfControllerQS.y, signalVoltageQS.V) annotation (Line(
-              points={{-19,84},{-6,84},{-6,60}},
-              color={85,170,255}));
+              points={{-19,84},{-6,84},{-6,60}}, color={85,170,255}));
           connect(ramp.y, vfControllerQS.u) annotation (Line(
-              points={{-79,0},{-70,0},{-70,84},{-42,84}},
-              color={0,0,127}));
+              points={{-79,0},{-70,0},{-70,84},{-42,84}}, color={0,0,127}));
           connect(ramp.y, signalVoltageQS.f) annotation (Line(
-              points={{-79,0},{-70,0},{-70,70},{-14,70},{-14,60}},
-              color={0,0,127}));
+              points={{-79,0},{-70,0},{-70,70},{-14,70},{-14,60}}, color={0,0,127}));
           annotation (
             experiment(StopTime=1.5, Interval=0.001),
             Documentation(info="<html>
@@ -1325,20 +1257,15 @@ and accelerating inertias. At time <code>tStep</code> a load step is applied.<p>
           connect(currentQuasiRMSSensor.plug_n, terminalBoxM.plugSupply)
             annotation (Line(points={{-10,-18},{20,-18},{20,-58}}, color={0,0,255}));
           connect(rheostatM.plug_p, ims.plug_rp) annotation (Line(
-              points={{10,-64},{10,-64}},
-              color={0,0,255}));
+              points={{10,-64},{10,-64}}, color={0,0,255}));
           connect(rheostatM.plug_n, ims.plug_rn) annotation (Line(
-              points={{10,-76},{10,-76}},
-              color={0,0,255}));
+              points={{10,-76},{10,-76}}, color={0,0,255}));
           connect(idealCloser.plug_p, sineVoltage.plug_p) annotation (Line(
-              points={{-60,-38},{-60,-42}},
-              color={0,0,255}));
+              points={{-60,-38},{-60,-42}}, color={0,0,255}));
           connect(imsQS.plug_rp, rheostatE.plug_p) annotation (Line(
-              points={{10,36},{10,36}},
-              color={85,170,255}));
+              points={{10,36},{10,36}}, color={85,170,255}));
           connect(rheostatE.plug_n, imsQS.plug_rn) annotation (Line(
-              points={{10,24},{10,24}},
-              color={85,170,255}));
+              points={{10,24},{10,24}}, color={85,170,255}));
           connect(groundQS.pin, starQS.pin_n)
             annotation (Line(points={{-80,20},{-80,20}}, color={85,170,255}));
           connect(starQS.plug_p, voltageSourceQS.plug_n)
@@ -1350,36 +1277,28 @@ and accelerating inertias. At time <code>tStep</code> a load step is applied.<p>
           connect(powerSensorQS.voltageN, starQS.plug_p) annotation (Line(
                 points={{-50,74},{-50,20},{-60,20}}, color={85,170,255}));
           connect(booleanStepQS.y, idealCloserQS.control) annotation (Line(
-              points={{-75,64},{-67,64}},
-              color={255,0,255}));
+              points={{-75,64},{-67,64}}, color={255,0,255}));
           connect(idealCloserQS.plug_p, voltageSourceQS.plug_p) annotation (
               Line(
-              points={{-60,54},{-60,50}},
-              color={85,170,255}));
+              points={{-60,54},{-60,50}}, color={85,170,255}));
           connect(idealCloserQS.plug_n, powerSensorQS.currentP) annotation (
               Line(
-              points={{-60,74},{-60,84}},
-              color={85,170,255}));
+              points={{-60,74},{-60,84}}, color={85,170,255}));
           connect(idealCloser.plug_n, powerSensor.pc) annotation (Line(
-              points={{-60,-18},{-60,-18}},
-              color={0,0,255}));
+              points={{-60,-18},{-60,-18}}, color={0,0,255}));
           connect(powerSensor.pc, powerSensor.pv) annotation (Line(
-              points={{-60,-18},{-60,-8},{-50,-8}},
-              color={0,0,255}));
+              points={{-60,-18},{-60,-8},{-50,-8}}, color={0,0,255}));
           connect(powerSensor.nv, star.plug_p) annotation (Line(
-              points={{-50,-28},{-50,-70},{-60,-70}},
-              color={0,0,255}));
+              points={{-50,-28},{-50,-70},{-60,-70}}, color={0,0,255}));
           connect(powerSensor.nc, currentQuasiRMSSensor.plug_p)
             annotation (Line(points={{-40,-18},{-30,-18}}, color={0,0,255}));
           connect(currentQuasiRMSSensorQS.plug_n, terminalBoxQS.plugSupply)
             annotation (Line(points={{-10,84},{20,84},{20,42}}, color={85,170,255}));
           connect(starMachineQS.pin_n, groundMachineQS.pin) annotation (Line(
-              points={{-20,20},{-20,20}},
-              color={85,170,255}));
+              points={{-20,20},{-20,20}}, color={85,170,255}));
           connect(starMachineQS.plug_p, terminalBoxQS.starpoint) annotation (
               Line(
-              points={{-20,40},{-20,42},{11,42}},
-              color={85,170,255}));
+              points={{-20,40},{-20,42},{11,42}}, color={85,170,255}));
           annotation (
             experiment(
               StopTime=1.5,
@@ -1627,50 +1546,38 @@ Simulate for 1.5 seconds and plot (versus time):
           connect(loadInertiaMQS.flange_b, torqueStepMQS.flange)
             annotation (Line(points={{60,40},{70,40}}));
           connect(terminalBoxQS.plug_sn, smpmQS.plug_sn) annotation (Line(
-              points={{-6,50},{-6,50}},
-              color={85,170,255}));
+              points={{-6,50},{-6,50}}, color={85,170,255}));
           connect(terminalBoxQS.plug_sp, smpmQS.plug_sp) annotation (Line(
-              points={{6,50},{6,50}},
-              color={85,170,255}));
+              points={{6,50},{6,50}}, color={85,170,255}));
           connect(starMachineQS.plug_p, terminalBoxQS.starpoint) annotation (
               Line(
-              points={{-30,50},{-30,52},{-9,52}},
-              color={85,170,255}));
+              points={{-30,50},{-30,52},{-9,52}}, color={85,170,255}));
           connect(currentQuasiRMSSensorQS.plug_n, terminalBoxQS.plugSupply)
             annotation (Line(points={{0,80},{0,52}}, color={85,170,255}));
           connect(starMachineQS.pin_n, groundMachineQS.pin) annotation (Line(
-              points={{-30,30},{-30,22}},
-              color={85,170,255}));
+              points={{-30,30},{-30,22}}, color={85,170,255}));
           connect(loadInertiaM.flange_b, torqueStepM.flange)
             annotation (Line(points={{60,-60},{70,-60}}));
           connect(terminalBox.plug_sn, smpm.plug_sn) annotation (Line(
-              points={{-6,-50},{-6,-50}},
-              color={0,0,255}));
+              points={{-6,-50},{-6,-50}}, color={0,0,255}));
           connect(terminalBox.plug_sp, smpm.plug_sp) annotation (Line(
-              points={{6,-50},{6,-50}},
-              color={0,0,255}));
+              points={{6,-50},{6,-50}}, color={0,0,255}));
           connect(terminalBox.plugSupply, currentQuasiRMSSensor.plug_n)
             annotation (Line(points={{0,-48},{0,-20}}, color={0,0,255}));
           connect(currentQuasiRMSSensor.plug_p, powerSensor.nc)
             annotation (Line(points={{-20,-20},{-40,-20}}, color={0,0,255}));
           connect(powerSensor.pc, voltageSource.plug_p) annotation (Line(
-              points={{-60,-20},{-60,-40}},
-              color={0,0,255}));
+              points={{-60,-20},{-60,-40}}, color={0,0,255}));
           connect(powerSensor.pv, powerSensor.pc) annotation (Line(
-              points={{-50,-10},{-60,-10},{-60,-20}},
-              color={0,0,255}));
+              points={{-50,-10},{-60,-10},{-60,-20}}, color={0,0,255}));
           connect(voltageSource.plug_n, star.plug_p) annotation (Line(
-              points={{-60,-60},{-60,-70}},
-              color={0,0,255}));
+              points={{-60,-60},{-60,-70}}, color={0,0,255}));
           connect(star.pin_n, ground.p) annotation (Line(
-              points={{-60,-90},{-70,-90}},
-              color={0,0,255}));
+              points={{-60,-90},{-70,-90}}, color={0,0,255}));
           connect(groundMachine.p, terminalBox.starpoint) annotation (Line(
-              points={{-30,-78},{-30,-48},{-9,-48}},
-              color={0,0,255}));
+              points={{-30,-78},{-30,-48},{-9,-48}}, color={0,0,255}));
           connect(powerSensor.nv, star.plug_p) annotation (Line(
-              points={{-50,-30},{-50,-70},{-60,-70}},
-              color={0,0,255}));
+              points={{-50,-30},{-50,-70},{-60,-70}}, color={0,0,255}));
           connect(smpm.flange, rotorDisplacementAngle.flange) annotation (Line(
                 points={{10,-60},{14,-60},{18,-60}}));
           connect(rotorDisplacementAngle.flange, loadInertiaM.flange_a)
@@ -1827,33 +1734,25 @@ Simulate for 1 second and plot (versus time):
             annotation (Placement(transformation(extent={{-10,50},{10,70}})));
         equation
           connect(starQS.plug_p, smpmQS.plug_sn) annotation (Line(
-              points={{-10,50},{-10,40},{-6,40}},
-              color={85,170,255}));
+              points={{-10,50},{-10,40},{-6,40}}, color={85,170,255}));
           connect(groundQS.pin, starQS.pin_n) annotation (Line(
-              points={{-40,50},{-30,50}},
-              color={85,170,255}));
+              points={{-40,50},{-30,50}}, color={85,170,255}));
           connect(potentialSensorQS.plug_p, smpmQS.plug_sp) annotation (Line(
-              points={{10,50},{10,40},{6,40}},
-              color={85,170,255}));
+              points={{10,50},{10,40},{6,40}}, color={85,170,255}));
           connect(constantSpeed.flange, smpm.flange) annotation (Line(
               points={{60,0},{50,0},{50,-40},{10,-40}}));
           connect(constantSpeed.flange, smpmQS.flange) annotation (Line(
               points={{60,0},{50,0},{50,30},{10,30}}));
           connect(ground.p, star.pin_n) annotation (Line(
-              points={{-40,-20},{-30,-20}},
-              color={0,0,255}));
+              points={{-40,-20},{-30,-20}}, color={0,0,255}));
           connect(star.plug_p, smpm.plug_sn) annotation (Line(
-              points={{-10,-20},{-10,-30},{-6,-30}},
-              color={0,0,255}));
+              points={{-10,-20},{-10,-30},{-6,-30}}, color={0,0,255}));
           connect(potentialSensor.plug_p, smpm.plug_sp) annotation (Line(
-              points={{10,-20},{10,-30},{6,-30}},
-              color={0,0,255}));
+              points={{10,-20},{10,-30},{6,-30}}, color={0,0,255}));
           connect(resistorQS.plug_p, smpmQS.plug_sn) annotation (Line(
-              points={{-10,60},{-10,40},{-6,40}},
-              color={85,170,255}));
+              points={{-10,60},{-10,40},{-6,40}}, color={85,170,255}));
           connect(resistorQS.plug_n, smpmQS.plug_sp) annotation (Line(
-              points={{10,60},{10,40},{6,40}},
-              color={85,170,255}));
+              points={{10,60},{10,40},{6,40}}, color={85,170,255}));
           annotation (
             experiment(StopTime=0.1, Interval=0.001),
             Documentation(info="<html>
@@ -2085,55 +1984,42 @@ Simulate for 0.1 second and plot (versus time):
           connect(rotorDisplacementAngle.plug_p, smpm.plug_sp)
             annotation (Line(points={{24,-72},{6,-72}}, color={0,0,255}));
           connect(terminalBox.plug_sn, smpm.plug_sn) annotation (Line(
-              points={{-6,-72},{-6,-72}},
-              color={0,0,255}));
+              points={{-6,-72},{-6,-72}}, color={0,0,255}));
           connect(terminalBox.plug_sp, smpm.plug_sp) annotation (Line(
-              points={{6,-72},{6,-72}},
-              color={0,0,255}));
+              points={{6,-72},{6,-72}}, color={0,0,255}));
           connect(smpm.flange, rotorDisplacementAngle.flange) annotation (Line(
               points={{10,-82},{20,-82}}));
           connect(signalCurrent.plug_p, star.plug_p) annotation (Line(
-              points={{0,-8},{40,-8}},
-              color={0,0,255}));
+              points={{0,-8},{40,-8}}, color={0,0,255}));
           connect(angleSensor.flange, rotorDisplacementAngle.flange)
             annotation (Line(
               points={{20,-62},{20,-82}}));
           connect(angleSensor.phi, currentController.phi) annotation (Line(
-              points={{20,-41},{20,-36},{-40,-36},{-40,-30}},
-              color={0,0,127}));
+              points={{20,-41},{20,-36},{-40,-36},{-40,-30}}, color={0,0,127}));
           connect(id.y, currentController.id_rms) annotation (Line(
-              points={{-79,20},{-74,20},{-74,-12},{-52,-12}},
-              color={0,0,127}));
+              points={{-79,20},{-74,20},{-74,-12},{-52,-12}}, color={0,0,127}));
           connect(iq.y, currentController.iq_rms) annotation (Line(
-              points={{-79,-20},{-70,-20},{-70,-24},{-52,-24}},
-              color={0,0,127}));
+              points={{-79,-20},{-70,-20},{-70,-24},{-52,-24}}, color={0,0,127}));
           connect(groundM.p, terminalBox.starpoint) annotation (Line(
-              points={{-50,-70},{-9,-70}},
-              color={0,0,255}));
+              points={{-50,-70},{-9,-70}}, color={0,0,255}));
           connect(voltageQuasiRMSSensor.plug_p, terminalBox.plugSupply)
             annotation (Line(
-              points={{-10,-58},{0,-58},{0,-70}},
-              color={0,0,255}));
+              points={{-10,-58},{0,-58},{0,-70}}, color={0,0,255}));
           connect(starM.plug_p, voltageQuasiRMSSensor.plug_n) annotation (Line(
-              points={{-30,-58},{-30,-58}},
-              color={0,0,255}));
+              points={{-30,-58},{-30,-58}}, color={0,0,255}));
           connect(starM.pin_n, groundM.p) annotation (Line(
-              points={{-50,-58},{-50,-70}},
-              color={0,0,255}));
+              points={{-50,-58},{-50,-70}}, color={0,0,255}));
           connect(currentController.y, signalCurrent.i) annotation (Line(
-              points={{-29,-18},{-7,-18}},
-              color={0,0,127}));
+              points={{-29,-18},{-7,-18}}, color={0,0,127}));
           connect(quadraticSpeedDependentTorque.flange, inertiaLoad.flange_b)
             annotation (Line(
               points={{70,-82},{60,-82}}));
           connect(signalCurrent.plug_n, currentRMSsensor.plug_p) annotation (
               Line(
-              points={{0,-28},{0,-38}},
-              color={0,0,255}));
+              points={{0,-28},{0,-38}}, color={0,0,255}));
           connect(currentRMSsensor.plug_n, voltageQuasiRMSSensor.plug_p)
             annotation (Line(
-              points={{0,-58},{-10,-58}},
-              color={0,0,255}));
+              points={{0,-58},{-10,-58}}, color={0,0,255}));
           connect(smpm.flange, inertiaLoad.flange_a) annotation (Line(
               points={{10,-82},{10,-82},{20,-82},{40,-82}}));
           connect(quadraticSpeedDependentTorqueQS.flange, inertiaLoadQS.flange_b)
@@ -2141,59 +2027,45 @@ Simulate for 0.1 second and plot (versus time):
               points={{70,24},{60,24}}));
           connect(starMachineQS.plug_p, terminalBoxQS.starpoint) annotation (
               Line(
-              points={{-20,34},{-20,36},{-9,36}},
-              color={85,170,255}));
+              points={{-20,34},{-20,36},{-9,36}}, color={85,170,255}));
           connect(groundMQS.pin, starMachineQS.pin_n) annotation (Line(
-              points={{-40,34},{-40,34}},
-              color={85,170,255}));
+              points={{-40,34},{-40,34}}, color={85,170,255}));
           connect(terminalBoxQS.plug_sn, smpmQS.plug_sn) annotation (Line(
-              points={{-6,34},{-6,34}},
-              color={85,170,255}));
+              points={{-6,34},{-6,34}}, color={85,170,255}));
           connect(terminalBoxQS.plug_sp, smpmQS.plug_sp) annotation (Line(
-              points={{6,34},{6,34}},
-              color={85,170,255}));
+              points={{6,34},{6,34}}, color={85,170,255}));
           connect(angleSensorQS.phi, currentController1.phi) annotation (Line(
-              points={{18,65},{18,68},{-40,68},{-40,72}},
-              color={0,0,127}));
+              points={{18,65},{18,68},{-40,68},{-40,72}}, color={0,0,127}));
           connect(currentController1.I, referenceCurrentSource.I) annotation (
               Line(
-              points={{-29,88},{-10,88}},
-              color={85,170,255}));
+              points={{-29,88},{-10,88}}, color={85,170,255}));
           connect(referenceCurrentSource.plug_p, starQS.plug_p) annotation (
               Line(
-              points={{0,94},{10,94},{40,94}},
-              color={85,170,255}));
+              points={{0,94},{10,94},{40,94}}, color={85,170,255}));
           connect(starQS.pin_n, groundeQS.pin) annotation (Line(
-              points={{40,74},{40,74}},
-              color={85,170,255}));
+              points={{40,74},{40,74}}, color={85,170,255}));
           connect(currentController1.id_rms, id.y) annotation (Line(
-              points={{-52,90},{-74,90},{-74,20},{-79,20}},
-              color={0,0,127}));
+              points={{-52,90},{-74,90},{-74,20},{-79,20}}, color={0,0,127}));
           connect(iq.y, currentController1.iq_rms) annotation (Line(
-              points={{-79,-20},{-70,-20},{-70,78},{-52,78}},
-              color={0,0,127}));
+              points={{-79,-20},{-70,-20},{-70,78},{-52,78}}, color={0,0,127}));
           connect(angleSensorQS.flange, smpmQS.flange) annotation (Line(
               points={{18,44},{18,24},{10,24}}));
           connect(currentController1.gamma, referenceCurrentSource.gamma)
             annotation (Line(
-              points={{-29,80},{-10,80}},
-              color={0,0,127}));
+              points={{-29,80},{-10,80}}, color={0,0,127}));
           connect(referenceCurrentSource.plug_n, terminalBoxQS.plugSupply)
             annotation (Line(
-              points={{0,74},{0,36}},
-              color={85,170,255}));
+              points={{0,74},{0,36}}, color={85,170,255}));
           connect(referenceCurrentSource.plug_p, resistor.plug_p) annotation (
               Line(
-              points={{0,94},{6,94},{20,94}},
-              color={85,170,255}));
+              points={{0,94},{6,94},{20,94}}, color={85,170,255}));
           connect(resistor.plug_n, referenceCurrentSource.plug_n) annotation (
               Line(
-              points={{20,74},{0,74}},
-              color={85,170,255}));
+              points={{20,74},{0,74}}, color={85,170,255}));
           connect(rotorDisplacementAngleQS.flange, smpmQS.flange)
             annotation (Line(points={{20,24},{20,24},{10,24}}));
           connect(angleSensorQS.flange, rotorDisplacementAngleQS.flange)
-            annotation (Line(points={{18,44},{18,44},{18,24},{20,24}}, color={0,0,0}));
+            annotation (Line(points={{18,44},{18,44},{18,24},{20,24}}));
           connect(terminalBoxQS.plug_sp, rotorDisplacementAngleQS.plug_p)
             annotation (Line(points={{6,34},{15,34},{24,34}}, color={85,170,255}));
           connect(terminalBoxQS.plug_sn, rotorDisplacementAngleQS.plug_n)
@@ -2475,8 +2347,7 @@ Simulate for 2 seconds and plot (versus time):
           connect(mechanicalPowerSensor.flange_b, constantSpeed.flange)
             annotation (Line(points={{60,-70},{70,-70}}));
           connect(rampCurrent.p, groundr.p) annotation (Line(points={{-30,-80},
-                  {-36,-80},{-36,-88},{-38,-88},{-38,-88},{-40,-88},{-40,-88}},
-                color={0,0,255}));
+                  {-36,-80},{-36,-88},{-38,-88},{-38,-88},{-40,-88},{-40,-88}}, color={0,0,255}));
           connect(rampCurrent.p, smee.pin_en) annotation (Line(points={{-30,-80},
                   {-20,-80},{-20,-76},{-10,-76}}, color={0,0,255}));
           connect(rampCurrent.n, smee.pin_ep) annotation (Line(points={{-30,-60},
@@ -2490,8 +2361,7 @@ Simulate for 2 seconds and plot (versus time):
           connect(starQS.plug_p, voltageSourceQS.plug_n) annotation (Line(
                 points={{-50,80},{-50,80},{-40,80}}, color={85,170,255}));
           connect(voltageSourceQS.plug_p, powerSensorQS.currentP) annotation (
-              Line(points={{-20,80},{-20,80},{0,80},{0,76}},
-                color={85,170,255}));
+              Line(points={{-20,80},{-20,80},{0,80},{0,76}}, color={85,170,255}));
           connect(powerSensorQS.voltageP, powerSensorQS.currentP) annotation (
               Line(points={{10,66},{10,76},{0,76}}, color={85,170,255}));
           connect(powerSensorQS.voltageN, starQS.plug_p) annotation (Line(
@@ -2506,22 +2376,17 @@ Simulate for 2 seconds and plot (versus time):
           connect(powerSensor.nc, terminalBoxM.plugSupply)
             annotation (Line(points={{0,-44},{0,-58}}, color={0,0,255}));
           connect(terminalBoxQS.plug_sn, smeeQS.plug_sn) annotation (Line(
-              points={{-6,40},{-6,40}},
-              color={85,170,255}));
+              points={{-6,40},{-6,40}}, color={85,170,255}));
           connect(terminalBoxQS.plug_sp, smeeQS.plug_sp) annotation (Line(
-              points={{6,40},{6,40}},
-              color={85,170,255}));
+              points={{6,40},{6,40}}, color={85,170,255}));
           connect(powerSensorQS.currentN, terminalBoxQS.plugSupply) annotation (
              Line(
-              points={{0,56},{0,42}},
-              color={85,170,255}));
+              points={{0,56},{0,42}}, color={85,170,255}));
           connect(starMachineQS.pin_n, groundMachineQS.pin) annotation (Line(
-              points={{-30,50},{-40,50}},
-              color={85,170,255}));
+              points={{-30,50},{-40,50}}, color={85,170,255}));
           connect(starMachineQS.plug_p, terminalBoxQS.starpoint) annotation (
               Line(
-              points={{-10,50},{-10,42},{-9,42}},
-              color={85,170,255}));
+              points={{-10,50},{-10,42},{-9,42}}, color={85,170,255}));
           connect(rotorDisplacementAngleQS.plug_p, terminalBoxQS.plug_sp)
             annotation (Line(points={{22,40},{6,40}}, color={85,170,255}));
           connect(terminalBoxQS.plug_sn, rotorDisplacementAngleQS.plug_n)
@@ -2784,117 +2649,88 @@ Simulate for 30 seconds:
           connect(star.pin_n, ground.p)
             annotation (Line(points={{40,-28},{40,-28}}, color={0,0,255}));
           connect(signalCurrent.plug_p, star.plug_p) annotation (Line(
-              points={{0,-8},{40,-8}},
-              color={0,0,255}));
+              points={{0,-8},{40,-8}}, color={0,0,255}));
           connect(angleSensor.flange, rotorDisplacementAngle.flange)
             annotation (Line(
               points={{20,-62},{20,-82}}));
           connect(angleSensor.phi, currentController.phi) annotation (Line(
-              points={{20,-41},{20,-36},{-40,-36},{-40,-30}},
-              color={0,0,127}));
+              points={{20,-41},{20,-36},{-40,-36},{-40,-30}}, color={0,0,127}));
           connect(id.y, currentController.id_rms) annotation (Line(
-              points={{-79,20},{-74,20},{-74,-12},{-52,-12}},
-              color={0,0,127}));
+              points={{-79,20},{-74,20},{-74,-12},{-52,-12}}, color={0,0,127}));
           connect(iq.y, currentController.iq_rms) annotation (Line(
-              points={{-79,-20},{-70,-20},{-70,-24},{-52,-24}},
-              color={0,0,127}));
+              points={{-79,-20},{-70,-20},{-70,-24},{-52,-24}}, color={0,0,127}));
           connect(groundM.p, terminalBox.starpoint) annotation (Line(
-              points={{-50,-70},{-9,-70}},
-              color={0,0,255}));
+              points={{-50,-70},{-9,-70}}, color={0,0,255}));
           connect(voltageQuasiRMSSensor.plug_p, terminalBox.plugSupply)
             annotation (Line(
-              points={{-10,-58},{0,-58},{0,-70}},
-              color={0,0,255}));
+              points={{-10,-58},{0,-58},{0,-70}}, color={0,0,255}));
           connect(starM.plug_p, voltageQuasiRMSSensor.plug_n) annotation (Line(
-              points={{-30,-58},{-30,-58}},
-              color={0,0,255}));
+              points={{-30,-58},{-30,-58}}, color={0,0,255}));
           connect(starM.pin_n, groundM.p) annotation (Line(
-              points={{-50,-58},{-50,-70}},
-              color={0,0,255}));
+              points={{-50,-58},{-50,-70}}, color={0,0,255}));
           connect(currentController.y, signalCurrent.i) annotation (Line(
-              points={{-29,-18},{-7,-18}},
-              color={0,0,127}));
+              points={{-29,-18},{-7,-18}}, color={0,0,127}));
           connect(quadraticSpeedDependentTorque.flange, inertiaLoad.flange_b)
             annotation (Line(
               points={{70,-82},{64,-82}}));
           connect(signalCurrent.plug_n, currentRMSsensor.plug_p) annotation (
               Line(
-              points={{0,-28},{0,-38}},
-              color={0,0,255}));
+              points={{0,-28},{0,-38}}, color={0,0,255}));
           connect(currentRMSsensor.plug_n, voltageQuasiRMSSensor.plug_p)
             annotation (Line(
-              points={{0,-58},{-10,-58}},
-              color={0,0,255}));
+              points={{0,-58},{-10,-58}}, color={0,0,255}));
           connect(quadraticSpeedDependentTorqueQS.flange, inertiaLoadQS.flange_b)
             annotation (Line(
               points={{70,24},{60,24}}));
           connect(starMachineQS.plug_p, terminalBoxQS.starpoint) annotation (
               Line(
-              points={{-20,34},{-20,36},{-9,36}},
-              color={85,170,255}));
+              points={{-20,34},{-20,36},{-9,36}}, color={85,170,255}));
           connect(groundMQS.pin, starMachineQS.pin_n) annotation (Line(
-              points={{-40,34},{-40,34}},
-              color={85,170,255}));
+              points={{-40,34},{-40,34}}, color={85,170,255}));
           connect(angleSensorQS.phi, currentController1.phi) annotation (Line(
-              points={{20,65},{20,68},{-40,68},{-40,72}},
-              color={0,0,127}));
+              points={{20,65},{20,68},{-40,68},{-40,72}}, color={0,0,127}));
           connect(currentController1.I, referenceCurrentSource.I) annotation (
               Line(
-              points={{-29,88},{-10,88}},
-              color={85,170,255}));
+              points={{-29,88},{-10,88}}, color={85,170,255}));
           connect(referenceCurrentSource.plug_p, starQS.plug_p) annotation (
               Line(
-              points={{0,94},{10,94},{40,94}},
-              color={85,170,255}));
+              points={{0,94},{10,94},{40,94}}, color={85,170,255}));
           connect(starQS.pin_n, groundeQS.pin) annotation (Line(
-              points={{40,74},{40,74}},
-              color={85,170,255}));
+              points={{40,74},{40,74}}, color={85,170,255}));
           connect(currentController1.id_rms, id.y) annotation (Line(
-              points={{-52,90},{-74,90},{-74,20},{-79,20}},
-              color={0,0,127}));
+              points={{-52,90},{-74,90},{-74,20},{-79,20}}, color={0,0,127}));
           connect(iq.y, currentController1.iq_rms) annotation (Line(
-              points={{-79,-20},{-70,-20},{-70,78},{-52,78}},
-              color={0,0,127}));
+              points={{-79,-20},{-70,-20},{-70,78},{-52,78}}, color={0,0,127}));
           connect(currentController1.gamma, referenceCurrentSource.gamma)
             annotation (Line(
-              points={{-29,80},{-10,80}},
-              color={0,0,127}));
+              points={{-29,80},{-10,80}}, color={0,0,127}));
           connect(referenceCurrentSource.plug_n, terminalBoxQS.plugSupply)
             annotation (Line(
-              points={{0,74},{0,36}},
-              color={85,170,255}));
+              points={{0,74},{0,36}}, color={85,170,255}));
           connect(referenceCurrentSource.plug_p, resistor.plug_p) annotation (
               Line(
-              points={{0,94},{6,94},{20,94}},
-              color={85,170,255}));
+              points={{0,94},{6,94},{20,94}}, color={85,170,255}));
           connect(resistor.plug_n, referenceCurrentSource.plug_n) annotation (
               Line(
-              points={{20,74},{0,74}},
-              color={85,170,255}));
+              points={{20,74},{0,74}}, color={85,170,255}));
           connect(terminalBoxQS.plug_sn, smrQS.plug_sn) annotation (Line(
-              points={{-6,34},{-6,34}},
-              color={85,170,255}));
+              points={{-6,34},{-6,34}}, color={85,170,255}));
           connect(terminalBoxQS.plug_sp, smrQS.plug_sp) annotation (Line(
-              points={{6,34},{6,34}},
-              color={85,170,255}));
+              points={{6,34},{6,34}}, color={85,170,255}));
           connect(angleSensorQS.flange, smrQS.flange) annotation (Line(
               points={{20,44},{20,24},{10,24}}));
           connect(terminalBox.plug_sn, smr.plug_sn) annotation (Line(
-              points={{-6,-72},{-6,-72}},
-              color={0,0,255}));
+              points={{-6,-72},{-6,-72}}, color={0,0,255}));
           connect(terminalBox.plug_sp, smr.plug_sp) annotation (Line(
-              points={{6,-72},{6,-72}},
-              color={0,0,255}));
+              points={{6,-72},{6,-72}}, color={0,0,255}));
           connect(smr.flange, rotorDisplacementAngle.flange) annotation (Line(
               points={{10,-82},{20,-82}}));
           connect(rotorDisplacementAngle.plug_p, terminalBox.plug_sp)
             annotation (Line(
-              points={{24,-72},{6,-72}},
-              color={0,0,255}));
+              points={{24,-72},{6,-72}}, color={0,0,255}));
           connect(terminalBox.plug_sn, rotorDisplacementAngle.plug_n)
             annotation (Line(
-              points={{-6,-72},{-6,-66},{36,-66},{36,-72}},
-              color={0,0,255}));
+              points={{-6,-72},{-6,-66},{36,-66},{36,-72}}, color={0,0,255}));
           connect(rotorDisplacementAngle.flange, inertiaLoad.flange_a)
             annotation (Line(
               points={{20,-82},{44,-82}}));
@@ -2952,8 +2788,8 @@ Simulate for 2 seconds and plot (versus time):
       port_p.V_m = Complex(0, 0);
       annotation (
         Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}), graphics={Line(points={{0,100},{0,50}}, color={255,
-              170,85}),Line(points={{-60,50},{60,50}}, color={255,170,85}),Line(
+                {100,100}}), graphics={Line(points={{0,100},{0,50}}, color={255,170,85}),
+              Line(points={{-60,50},{60,50}}, color={255,170,85}),Line(
               points={{-40,30},{40,30}}, color={255,170,85}),Line(points={{-20,
               10},{20,10}}, color={255,170,85})}),
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
@@ -2989,8 +2825,8 @@ Grounding of the complex magnetic potential. Each magnetic circuit has to be gro
                   lineColor={255,170,85},
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid),Line(points={{-96,0},{-70,0}},
-              color={255,170,85}),Line(points={{70,0},{96,0}}, color={255,170,
-              85}),Text(
+              color={255,170,85}),Line(points={{70,0},{96,0}}, color={255,170,85}),
+              Text(
                   extent={{0,60},{0,100}},
                   lineColor={0,0,255},
                   textString="%name")}), Documentation(info="<html>
@@ -3072,8 +2908,8 @@ The salient permeance models the relationship between the complex magnetic poten
                   lineColor={255,170,85},
                   fillColor={255,170,85},
                   fillPattern=FillPattern.Solid),Line(points={{-96,0},{-70,0}},
-              color={255,170,85}),Line(points={{70,0},{96,0}}, color={255,170,
-              85}),Text(
+              color={255,170,85}),Line(points={{70,0},{96,0}}, color={255,170,85}),
+              Text(
                   extent={{0,60},{0,100}},
                   lineColor={0,0,255},
                   textString="%name"),Text(
@@ -3541,11 +3377,9 @@ This is a simple short cut branch.
         annotation (Placement(transformation(extent={{90,90},{110,110}})));
     equation
       connect(port_p1, port_p2) annotation (Line(
-          points={{-100,100},{-100,20},{0,20},{0,-20},{100,-20},{100,-100}},
-          color={255,170,85}));
+          points={{-100,100},{-100,20},{0,20},{0,-20},{100,-20},{100,-100}}, color={255,170,85}));
       connect(port_n2, port_n1) annotation (Line(
-          points={{100,100},{100,0},{-100,0},{-100,-100}},
-          color={255,170,85}));
+          points={{100,100},{100,0},{-100,0},{-100,-100}}, color={255,170,85}));
       annotation (
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={Text(
@@ -3650,14 +3484,11 @@ located at <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.
       equation
         connect(rotorCage.heatPortWinding, internalThermalPort.heatPortRotorWinding)
           annotation (Line(
-            points={{0,-40},{-40,-40},{-40,-90}},
-            color={191,0,0}));
+            points={{0,-40},{-40,-40},{-40,-90}}, color={191,0,0}));
         connect(airGap.port_rn, rotorCage.port_p) annotation (Line(
-            points={{-10,-10},{-10,-30}},
-            color={255,128,0}));
+            points={{-10,-10},{-10,-30}}, color={255,128,0}));
         connect(airGap.port_rp, rotorCage.port_n) annotation (Line(
-            points={{10,-10},{10,-30}},
-            color={255,128,0}));
+            points={{10,-10},{10,-30}}, color={255,128,0}));
         annotation (
           defaultComponentName="imc",
           Documentation(info="<html>
@@ -3816,25 +3647,20 @@ Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_Squirre
                 {-100,-60}}, color={85,170,255}));
         connect(rotor.heatPortCore, internalThermalPort.heatPortRotorCore)
           annotation (Line(
-            points={{10,-36},{20,-36},{20,-80},{-39.6,-80},{-39.6,-90.8}},
-            color={191,0,0}));
+            points={{10,-36},{20,-36},{20,-80},{-39.6,-80},{-39.6,-90.8}}, color={191,0,0}));
         connect(rotor.heatPortWinding, internalThermalPort.heatPortRotorWinding)
           annotation (Line(
-            points={{10,-44},{20,-44},{20,-80},{-40,-80},{-40,-90}},
-            color={191,0,0}));
+            points={{10,-44},{20,-44},{20,-80},{-40,-80},{-40,-90}}, color={191,0,0}));
         connect(plug_rp, rotor.plug_p) annotation (Line(
-            points={{-100,60},{-80,60},{-80,-50},{-10,-50}},
-            color={85,170,255}));
+            points={{-100,60},{-80,60},{-80,-50},{-10,-50}}, color={85,170,255}));
         connect(airGap.port_rn, rotor.port_p) annotation (Line(
-            points={{-10,-10},{-10,-30}},
-            color={255,128,0}));
+            points={{-10,-10},{-10,-30}}, color={255,128,0}));
         connect(airGap.port_rp, rotor.port_n) annotation (Line(
-            points={{10,-10},{10,-30}},
-            color={255,128,0}));
+            points={{10,-10},{10,-30}}, color={255,128,0}));
         annotation (
           defaultComponentName="ims",
-          Icon(graphics={Line(points={{-100,50},{-100,20},{-60,20}}, color={85,
-                    170,255}), Line(points={{-100,-50},{-100,-20},{-60,-20}},
+          Icon(graphics={Line(points={{-100,50},{-100,20},{-60,20}}, color={85,170,255}),
+                     Line(points={{-100,-50},{-100,-20},{-60,-20}},
                   color={85,170,255})}),
           Documentation(info="<html>
 <p>
@@ -3998,32 +3824,25 @@ Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_Squirre
           damperCageLossPower = 0;
         end if;
         connect(permanentMagnet.port_p, airGap.port_rn) annotation (Line(
-            points={{-10,-30},{-10,-10}},
-            color={255,128,0}));
+            points={{-10,-30},{-10,-10}}, color={255,128,0}));
         connect(permanentMagnet.support, airGap.support) annotation (Line(
             points={{-20,-40},{-50,-40},{-50,0},{-10,0}}));
         connect(permanentMagnet.heatPort, internalThermalPort.heatPortPermanentMagnet)
           annotation (Line(
-            points={{-20,-30},{-40,-30},{-40,-90}},
-            color={191,0,0}));
+            points={{-20,-30},{-40,-30},{-40,-90}}, color={191,0,0}));
         connect(permanentMagnet.flange, inertiaRotor.flange_b) annotation (Line(
             points={{0,-40},{0,-20},{90,-20},{90,0}}));
         connect(airGap.port_rp, rotorCage.port_n) annotation (Line(
-            points={{10,-10},{10,-30},{20,-30}},
-            color={255,128,0}));
+            points={{10,-10},{10,-30},{20,-30}}, color={255,128,0}));
         connect(short.port_n, airGap.port_rp) annotation (Line(
-            points={{10,-30},{10,-10}},
-            color={255,128,0}));
+            points={{10,-30},{10,-10}}, color={255,128,0}));
         connect(short.port_p, permanentMagnet.port_n) annotation (Line(
-            points={{10,-50},{-10,-50}},
-            color={255,128,0}));
+            points={{10,-50},{-10,-50}}, color={255,128,0}));
         connect(rotorCage.port_p, permanentMagnet.port_n) annotation (Line(
-            points={{20,-50},{-10,-50}},
-            color={255,128,0}));
+            points={{20,-50},{-10,-50}}, color={255,128,0}));
         connect(rotorCage.heatPortWinding, internalThermalPort.heatPortRotorWinding)
           annotation (Line(
-            points={{30,-40},{40,-40},{40,-80},{-40,-80},{-40,-90}},
-            color={191,0,0}));
+            points={{30,-40},{40,-40},{40,-80},{-40,-80},{-40,-90}}, color={191,0,0}));
         annotation (
           defaultComponentName="smpm",
           Icon(graphics={
@@ -4226,41 +4045,30 @@ Magnetic.FundamentalWave.BasicMachines.SM_ReluctanceRotor</a>,
           damperCageLossPower = 0;
         end if;
         connect(airGap.port_rn, excitation.port_p) annotation (Line(
-            points={{-10,-10},{-10,-30}},
-            color={255,128,0}));
+            points={{-10,-10},{-10,-30}}, color={255,128,0}));
         connect(excitation.heatPortWinding, internalThermalPort.heatPortExcitation)
           annotation (Line(
-            points={{-20,-50},{-20,-80},{-40,-80},{-40,-90}},
-            color={191,0,0}));
+            points={{-20,-50},{-20,-80},{-40,-80},{-40,-90}}, color={191,0,0}));
         connect(airGap.port_rp, rotorCage.port_n) annotation (Line(
-            points={{10,-10},{10,-30},{20,-30}},
-            color={255,128,0}));
+            points={{10,-10},{10,-30},{20,-30}}, color={255,128,0}));
         connect(short.port_n, airGap.port_rp) annotation (Line(
-            points={{10,-30},{10,-10}},
-            color={255,128,0}));
+            points={{10,-30},{10,-10}}, color={255,128,0}));
         connect(rotorCage.port_p, excitation.port_n) annotation (Line(
-            points={{20,-50},{-10,-50}},
-            color={255,128,0}));
+            points={{20,-50},{-10,-50}}, color={255,128,0}));
         connect(short.port_p, excitation.port_n) annotation (Line(
-            points={{10,-50},{-10,-50}},
-            color={255,128,0}));
+            points={{10,-50},{-10,-50}}, color={255,128,0}));
         connect(rotorCage.heatPortWinding, internalThermalPort.heatPortRotorWinding)
           annotation (Line(
-            points={{30,-40},{40,-40},{40,-80},{-40,-80},{-40,-90}},
-            color={191,0,0}));
+            points={{30,-40},{40,-40},{40,-80},{-40,-80},{-40,-90}}, color={191,0,0}));
         connect(pin_ep, brush.p) annotation (Line(
-            points={{-100,60},{-80,60},{-80,50}},
-            color={0,0,255}));
+            points={{-100,60},{-80,60},{-80,50}}, color={0,0,255}));
         connect(brush.heatPort, internalThermalPort.heatPortBrush) annotation (
             Line(
-            points={{-70,50},{-40,50},{-40,-90}},
-            color={191,0,0}));
+            points={{-70,50},{-40,50},{-40,-90}}, color={191,0,0}));
         connect(excitation.pin_n, pin_en) annotation (Line(
-            points={{-30,-50},{-80,-50},{-80,-60},{-100,-60}},
-            color={0,0,255}));
+            points={{-30,-50},{-80,-50},{-80,-60},{-100,-60}}, color={0,0,255}));
         connect(excitation.pin_p, brush.n) annotation (Line(
-            points={{-30,-30},{-80,-30},{-80,30}},
-            color={0,0,255}));
+            points={{-30,-30},{-80,-30},{-80,30}}, color={0,0,255}));
         annotation (
           defaultComponentName="smee",
           Icon(graphics={
@@ -4272,7 +4080,8 @@ Magnetic.FundamentalWave.BasicMachines.SM_ReluctanceRotor</a>,
                     {-90,-4}}, color={0,0,255}),
               Line(points={{-90,-4},{-89,1},{-85,5},{-80,6},{-75,5},{-71,1},{-70,
                     -4}}, color={0,0,255}),
-              Line(points={{-100,-50},{-100,-20},{-70,-20},{-70,-2}}, color={0,0,255})}),
+              Line(points={{-100,-50},{-100,-20},{-70,-20},{-70,-2}}, color={0,
+                    0,255})}),
           Documentation(info="<html>
 <p>
 Resistances and stray inductances of the machine refer to an <code>m</code> phase stator. The symmetry of the stator and the supply are assumed. For rotor asymmetries can be taken into account by different resistances and stray inductances in the d- and q-axis. The machine models take the following loss effects into account:
@@ -4410,21 +4219,16 @@ Magnetic.FundamentalWave.BasicMachines.SM_ReluctanceRotor</a>,
           damperCageLossPower = 0;
         end if;
         connect(rotorCage.port_n, airGap.port_rp) annotation (Line(
-            points={{20,-30},{10,-30},{10,-10}},
-            color={255,128,0}));
+            points={{20,-30},{10,-30},{10,-10}}, color={255,128,0}));
         connect(short.port_n, airGap.port_rp) annotation (Line(
-            points={{10,-30},{10,-10}},
-            color={255,128,0}));
+            points={{10,-30},{10,-10}}, color={255,128,0}));
         connect(rotorCage.port_p, airGap.port_rn) annotation (Line(
-            points={{20,-50},{-10,-50},{-10,-10}},
-            color={255,128,0}));
+            points={{20,-50},{-10,-50},{-10,-10}}, color={255,128,0}));
         connect(short.port_p, airGap.port_rn) annotation (Line(
-            points={{10,-50},{-10,-50},{-10,-10}},
-            color={255,128,0}));
+            points={{10,-50},{-10,-50},{-10,-10}}, color={255,128,0}));
         connect(rotorCage.heatPortWinding, internalThermalPort.heatPortRotorWinding)
           annotation (Line(
-            points={{30,-40},{40,-40},{40,-80},{-40,-80},{-40,-90}},
-            color={191,0,0}));
+            points={{30,-40},{40,-40},{40,-80},{-40,-80},{-40,-90}}, color={191,0,0}));
         annotation (
           defaultComponentName="smr",
           Icon(graphics={
@@ -4586,36 +4390,26 @@ Magnetic.FundamentalWave.BasicMachines.SM_ReluctanceRotor</a>,
               origin={80,30})));
       equation
         connect(resistor.heatPort, heatPortWinding) annotation (Line(
-            points={{-30,70},{-40,70},{-40,-100}},
-            color={191,0,0}));
+            points={{-30,70},{-40,70},{-40,-100}}, color={191,0,0}));
         connect(core.heatPort, heatPortCore) annotation (Line(
-            points={{40,-50},{40,-100}},
-            color={191,0,0}));
+            points={{40,-50},{40,-100}}, color={191,0,0}));
         connect(strayReluctance.port_n, core.port_n) annotation (Line(
-            points={{80,20},{80,-40},{60,-40}},
-            color={255,128,0}));
+            points={{80,20},{80,-40},{60,-40}}, color={255,128,0}));
         connect(electroMagneticConverter.plug_p, resistor.plug_n) annotation (
             Line(
-            points={{-10,-20},{-20,-20},{-20,60}},
-            color={85,170,255}));
+            points={{-10,-20},{-20,-20},{-20,60}}, color={85,170,255}));
         connect(plug_n, electroMagneticConverter.plug_n) annotation (Line(
-            points={{-100,-100},{-100,-40},{-10,-40}},
-            color={85,170,255}));
+            points={{-100,-100},{-100,-40},{-10,-40}}, color={85,170,255}));
         connect(plug_p, resistor.plug_p) annotation (Line(
-            points={{-100,100},{-20,100},{-20,80}},
-            color={85,170,255}));
+            points={{-100,100},{-20,100},{-20,80}}, color={85,170,255}));
         connect(port_p, electroMagneticConverter.port_p) annotation (Line(
-            points={{100,100},{10,100},{10,-20}},
-            color={255,170,85}));
+            points={{100,100},{10,100},{10,-20}}, color={255,170,85}));
         connect(strayReluctance.port_p, port_p) annotation (Line(
-            points={{80,40},{80,100},{100,100}},
-            color={255,170,85}));
+            points={{80,40},{80,100},{100,100}}, color={255,170,85}));
         connect(port_n, core.port_n) annotation (Line(
-            points={{100,-100},{100,-40},{60,-40}},
-            color={255,170,85}));
+            points={{100,-100},{100,-40},{60,-40}}, color={255,170,85}));
         connect(electroMagneticConverter.port_n, core.port_p) annotation (Line(
-            points={{10,-40},{40,-40}},
-            color={255,170,85}));
+            points={{10,-40},{40,-40}}, color={255,170,85}));
         annotation (
           Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                   {100,100}}), graphics={
@@ -4738,11 +4532,9 @@ Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding</a>
         connect(electroMagneticConverter.port_n, port_n) annotation (Line(
               points={{10,-10},{10,-100},{100,-100}}, color={255,128,0}));
         connect(heatPortWinding, resistor.heatPort) annotation (Line(
-            points={{0,-100},{0,-60},{-40,-60},{-40,70},{-20,70}},
-            color={191,0,0}));
+            points={{0,-100},{0,-60},{-40,-60},{-40,70},{-20,70}}, color={191,0,0}));
         connect(resistor.n, electroMagneticConverter.pin_p) annotation (Line(
-            points={{-10,60},{-10,10}},
-            color={0,0,255}));
+            points={{-10,60},{-10,10}}, color={0,0,255}));
         annotation (
           Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                   {100,100}}), graphics={
@@ -5010,30 +4802,22 @@ Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap</a>
           annotation (Placement(transformation(extent={{20,-30},{40,-10}})));
       equation
         connect(thermalCollector.port_a, resistor.heatPort) annotation (Line(
-            points={{-40,-70},{-40,-50},{-30,-50}},
-            color={191,0,0}));
+            points={{-40,-70},{-40,-50},{-30,-50}}, color={191,0,0}));
         connect(thermalCollector.port_b, heatPortWinding) annotation (Line(
-            points={{-40,-90},{-40,-100},{0,-100}},
-            color={191,0,0}));
+            points={{-40,-90},{-40,-100},{0,-100}}, color={191,0,0}));
         connect(port_p, electroMagneticConverter.port_p) annotation (Line(
-            points={{-100,0},{-10,0}},
-            color={255,170,85}));
+            points={{-100,0},{-10,0}}, color={255,170,85}));
         connect(electroMagneticConverter.port_n, port_n) annotation (Line(
-            points={{10,0},{100,0}},
-            color={255,170,85}));
+            points={{10,0},{100,0}}, color={255,170,85}));
         connect(star.pin_n, ground.pin) annotation (Line(
-            points={{70,-20},{76,-20},{80,-20}},
-            color={85,170,255}));
+            points={{70,-20},{76,-20},{80,-20}}, color={85,170,255}));
         connect(strayReluctance.port_p, port_p) annotation (Line(
-            points={{-10,20},{-30,20},{-30,0},{-100,0}},
-            color={255,170,85}));
+            points={{-10,20},{-30,20},{-30,0},{-100,0}}, color={255,170,85}));
         connect(strayReluctance.port_n, port_n) annotation (Line(
-            points={{10,20},{30,20},{30,0},{100,0}},
-            color={255,170,85}));
+            points={{10,20},{30,20},{30,0},{100,0}}, color={255,170,85}));
         connect(electroMagneticConverter.plug_p, resistor.plug_p) annotation (
             Line(
-            points={{-10,-20},{-20,-20},{-20,-40}},
-            color={85,170,255}));
+            points={{-10,-20},{-20,-20},{-20,-40}}, color={85,170,255}));
         connect(electroMagneticConverter.plug_n, mulitStar.plug_p) annotation (
             Line(points={{10,-20},{15,-20},{20,-20}}, color={85,170,255}));
         connect(mulitStar.starpoints, star.plug_p) annotation (Line(points={{40,
@@ -5160,26 +4944,19 @@ Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap</a>
               origin={0,20})));
       equation
         connect(thermalCollector.port_b, heatPortWinding) annotation (Line(
-            points={{-40,-90},{-40,-100},{0,-100}},
-            color={191,0,0}));
+            points={{-40,-90},{-40,-100},{0,-100}}, color={191,0,0}));
         connect(resistor.heatPort, thermalCollector.port_a) annotation (Line(
-            points={{-30,-50},{-40,-50},{-40,-70}},
-            color={191,0,0}));
+            points={{-30,-50},{-40,-50},{-40,-70}}, color={191,0,0}));
         connect(port_p, electroMagneticConverter.port_p) annotation (Line(
-            points={{-100,0},{-10,0}},
-            color={255,170,85}));
+            points={{-100,0},{-10,0}}, color={255,170,85}));
         connect(electroMagneticConverter.port_n, port_n) annotation (Line(
-            points={{10,0},{100,0}},
-            color={255,170,85}));
+            points={{10,0},{100,0}}, color={255,170,85}));
         connect(star.pin_n, ground.pin) annotation (Line(
-            points={{40,-20},{44,-20},{50,-20}},
-            color={85,170,255}));
+            points={{40,-20},{44,-20},{50,-20}}, color={85,170,255}));
         connect(strayReluctance.port_p, port_p) annotation (Line(
-            points={{-10,20},{-30,20},{-30,0},{-100,0}},
-            color={255,170,85}));
+            points={{-10,20},{-30,20},{-30,0},{-100,0}}, color={255,170,85}));
         connect(strayReluctance.port_n, port_n) annotation (Line(
-            points={{10,20},{30,20},{30,0},{100,0}},
-            color={255,170,85}));
+            points={{10,20},{30,20},{30,0},{100,0}}, color={255,170,85}));
         connect(electroMagneticConverter.plug_p, resistor.plug_p) annotation (
             Line(points={{-10,-20},{-20,-20},{-20,-40}}, color={85,170,255}));
         connect(electroMagneticConverter.plug_n, star.plug_p) annotation (Line(
@@ -5495,8 +5272,7 @@ Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap</a>
 
       equation
         connect(stator.plug_n, plug_sn) annotation (Line(
-            points={{-10,50},{-10,70},{-60,70},{-60,100}},
-            color={85,170,255}));
+            points={{-10,50},{-10,70},{-60,70},{-60,100}}, color={85,170,255}));
         connect(inertiaRotor.flange_b, flange)
           annotation (Line(points={{90,0},{100,0},{100,0}}));
         connect(internalSupport, inertiaStator.flange_a) annotation (Line(
@@ -5512,17 +5288,14 @@ Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap</a>
         connect(groundR.port_p, airGap.port_rn) annotation (Line(points={{-30,-10},
                 {-30,-10},{-10,-10}}, color={255,128,0}));
         connect(stator.plug_p, strayLoad.plug_n) annotation (Line(
-            points={{10,50},{10,70},{40,70}},
-            color={85,170,255}));
+            points={{10,50},{10,70},{40,70}}, color={85,170,255}));
         connect(plug_sp, strayLoad.plug_p) annotation (Line(
-            points={{60,100},{60,94},{60,94},{60,86},{60,86},{60,70}},
-            color={85,170,255}));
+            points={{60,100},{60,94},{60,94},{60,86},{60,86},{60,70}}, color={85,170,255}));
         connect(strayLoad.support, internalSupport) annotation (Line(
             points={{50,60},{50,50},{60,50},{60,-100}}));
         connect(strayLoad.heatPort, internalThermalPort.heatPortStrayLoad)
           annotation (Line(
-            points={{60,60},{60,50},{50,50},{50,-80},{-39.6,-80},{-39.6,-90}},
-            color={191,0,0}));
+            points={{60,60},{60,50},{50,50},{50,-80},{-39.6,-80},{-39.6,-90}}, color={191,0,0}));
         connect(friction.support, internalSupport) annotation (Line(
             points={{90,-40},{90,-70},{60,-70},{60,-100}}));
         connect(strayLoad.flange, inertiaRotor.flange_b) annotation (Line(
@@ -5531,25 +5304,19 @@ Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap</a>
             points={{90,-20},{90,0}}));
         connect(friction.heatPort, internalThermalPort.heatPortFriction)
           annotation (Line(
-            points={{80,-40},{50,-40},{50,-80},{-40,-80},{-40,-91.6}},
-            color={191,0,0}));
+            points={{80,-40},{50,-40},{50,-80},{-40,-80},{-40,-91.6}}, color={191,0,0}));
         connect(groundS.port_p, airGap.port_sp) annotation (Line(
-            points={{-28,10},{-10,10}},
-            color={255,128,0}));
+            points={{-28,10},{-10,10}}, color={255,128,0}));
         connect(stator.port_n, airGap.port_sp) annotation (Line(
-            points={{-10,30},{-10,10}},
-            color={255,128,0}));
+            points={{-10,30},{-10,10}}, color={255,128,0}));
         connect(stator.port_p, airGap.port_sn) annotation (Line(
-            points={{10,30},{10,10}},
-            color={255,128,0}));
+            points={{10,30},{10,10}}, color={255,128,0}));
         connect(stator.heatPortWinding, internalThermalPort.heatPortStatorWinding)
           annotation (Line(
-            points={{-10,44},{-40.4,44},{-40.4,-89.2}},
-            color={191,0,0}));
+            points={{-10,44},{-40.4,44},{-40.4,-89.2}}, color={191,0,0}));
         connect(stator.heatPortCore, internalThermalPort.heatPortStatorCore)
           annotation (Line(
-            points={{-10,36},{-39.6,36},{-39.6,-89.2}},
-            color={191,0,0}));
+            points={{-10,36},{-39.6,36},{-39.6,-89.2}}, color={191,0,0}));
         connect(thermalAmbient.thermalPort, internalThermalPort) annotation (
             Line(points={{-60,-90},{-50,-90},{-40,-90}}, color={191,0,0}));
         connect(internalThermalPort, thermalPort) annotation (Line(points={{-40,
@@ -5745,8 +5512,8 @@ If it is desired to neglect permanent magnet losses, set <code>strayLoadParamete
                   lineColor={255,127,0},
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid),Line(points={{100,0},{50,0}},
-              color={255,127,0}),Line(points={{-50,0},{-100,0}}, color={255,127,
-              0}),Line(points={{-50,0},{50,0}}, color={255,127,0}),Text(
+              color={255,127,0}),Line(points={{-50,0},{-100,0}}, color={255,127,0}),
+              Line(points={{-50,0},{50,0}}, color={255,127,0}),Text(
                   extent={{0,-120},{0,-80}},
                   textString="%name",
                   lineColor={0,0,255})}), Documentation(info="<html>
@@ -5801,8 +5568,8 @@ SignalFlux</a>
                   lineColor={255,170,85},
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid),Line(points={{100,0},{50,0}},
-              color={255,170,85}),Line(points={{-50,0},{-100,0}}, color={255,
-              128,0}),Line(points={{-50,0},{50,0}}, color={255,170,85}),Line(
+              color={255,170,85}),Line(points={{-50,0},{-100,0}}, color={255,128,0}),
+              Line(points={{-50,0},{50,0}}, color={255,170,85}),Line(
               points={{0,100},{0,50}}, color={255,170,85}),Text(
                   extent={{0,-120},{0,-80}},
                   textString="%name",
@@ -5859,8 +5626,8 @@ SignalFlux</a>
                   lineColor={255,127,0},
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid),Line(points={{100,0},{50,0}},
-              color={255,127,0}),Line(points={{-50,0},{-100,0}}, color={255,127,
-              0}),Line(points={{0,50},{0,-50}}, color={255,127,0}),Polygon(
+              color={255,127,0}),Line(points={{-50,0},{-100,0}}, color={255,127,0}),
+              Line(points={{0,50},{0,-50}}, color={255,127,0}),Polygon(
                   points={{80,0},{60,6},{60,-6},{80,0}},
                   lineColor={255,128,0},
                   fillColor={255,170,85},
@@ -5918,8 +5685,8 @@ SignalFlux</a>
                   lineColor={255,170,85},
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid),Line(points={{100,0},{50,0}},
-              color={255,170,85}),Line(points={{-50,0},{-100,0}}, color={255,
-              170,85}),Line(points={{0,50},{0,-50}}, color={255,170,85}),
+              color={255,170,85}),Line(points={{-50,0},{-100,0}}, color={255,170,85}),
+              Line(points={{0,50},{0,-50}}, color={255,170,85}),
               Polygon(
                   points={{80,0},{60,6},{60,-6},{80,0}},
                   lineColor={255,170,85},
@@ -5985,7 +5752,8 @@ ConstantFlux</a>
               Text(
                   extent={{-140,120},{140,80}},
                   textString="%name",
-                  lineColor={0,0,255}),Line(points={{70,0},{90,0}}, color={0,0,0}),Line(points={{0,-90},{0,-70}})}),
+                  lineColor={0,0,255}),Line(points={{70,0},{90,0}}),
+              Line(points={{0,-90},{0,-70}})}),
         Documentation(info="<html>
 <p>Sensor for magnetic flux.</p>
 
@@ -6135,11 +5903,9 @@ ConstantFlux</a>
       connect(relativeAngleSensor.flange_a, fixed.flange) annotation (Line(
           points={{40,80},{100,80}}));
       connect(relativeAngleSensor.phi_rel, add.u1) annotation (Line(
-          points={{30,69},{30,50},{-4,50},{-4,42}},
-          color={0,0,127}));
+          points={{30,69},{30,50},{-4,50},{-4,42}}, color={0,0,127}));
       connect(constant_.y, add.u2) annotation (Line(
-          points={{-29,50},{-16,50},{-16,42}},
-          color={0,0,127}));
+          points={{-29,50},{-16,50},{-16,42}}, color={0,0,127}));
       connect(plug_p, referenceSensor.plug_p) annotation (Line(points={{-100,60},
               {-100,60},{-90,60},{-90,20},{-80,20}}, color={85,170,255}));
       connect(voltageSensor.plug_p, plug_p) annotation (Line(points={{-90,-10},{
@@ -6501,20 +6267,15 @@ The output voltages may serve as inputs for complex voltage sources with phase i
               extent={{-100,-50},{-80,-30}})));
     equation
       connect(star.plug_p, plug_sn) annotation (Line(
-          points={{-60,-80},{-60,-60}},
-          color={85,170,255}));
+          points={{-60,-80},{-60,-60}}, color={85,170,255}));
       connect(delta.plug_n, plug_sn) annotation (Line(
-          points={{-40,-60},{-40,-60},{-60,-60}},
-          color={85,170,255}));
+          points={{-40,-60},{-40,-60},{-60,-60}}, color={85,170,255}));
       connect(delta.plug_p, plug_sp) annotation (Line(
-          points={{-20,-60},{60,-60},{60,-60}},
-          color={85,170,255}));
+          points={{-20,-60},{60,-60},{60,-60}}, color={85,170,255}));
       connect(plugSupply, plug_sp) annotation (Line(
-          points={{0,-40},{0,-60},{60,-60}},
-          color={85,170,255}));
+          points={{0,-40},{0,-60},{60,-60}}, color={85,170,255}));
       connect(star.pin_n, starpoint) annotation (Line(
-          points={{-80,-80},{-86,-80},{-86,-40},{-90,-40}},
-          color={85,170,255}));
+          points={{-80,-80},{-86,-80},{-86,-40},{-90,-40}}, color={85,170,255}));
       annotation (
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={Text(
@@ -6565,20 +6326,15 @@ choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
             iconTransformation(extent={{-100,-50},{-80,-30}})));
     equation
       connect(multiStar.plug_p, plug_sn) annotation (Line(
-          points={{-60,-80},{-60,-60}},
-          color={85,170,255}));
+          points={{-60,-80},{-60,-60}}, color={85,170,255}));
       connect(starpoint, multiStar.starpoints) annotation (Line(
-          points={{-90,-40},{-86,-40},{-86,-80},{-80,-80}},
-          color={85,170,255}));
+          points={{-90,-40},{-86,-40},{-86,-80},{-80,-80}}, color={85,170,255}));
       connect(multiDelta.plug_n, plug_sn) annotation (Line(
-          points={{-40,-60},{-40,-60},{-60,-60}},
-          color={85,170,255}));
+          points={{-40,-60},{-40,-60},{-60,-60}}, color={85,170,255}));
       connect(multiDelta.plug_p, plug_sp) annotation (Line(
-          points={{-20,-60},{60,-60},{60,-60}},
-          color={85,170,255}));
+          points={{-20,-60},{60,-60},{60,-60}}, color={85,170,255}));
       connect(plugSupply, plug_sp) annotation (Line(
-          points={{0,-40},{0,-60},{60,-60}},
-          color={85,170,255}));
+          points={{0,-40},{0,-60},{60,-60}}, color={85,170,255}));
       annotation (
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={Polygon(
@@ -6632,29 +6388,21 @@ choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
             transformation(extent={{-60,10},{-40,30}})));
     equation
       connect(booleanStep.y, idealCommutingSwitch.control) annotation (Line(
-          points={{-39,20},{32,20}},
-          color={255,0,255}));
+          points={{-39,20},{32,20}}, color={255,0,255}));
       connect(idealCommutingSwitch.plug_p, plug_p) annotation (Line(
-          points={{40,30},{40,60},{100,60}},
-          color={85,170,255}));
+          points={{40,30},{40,60},{100,60}}, color={85,170,255}));
       connect(idealCommutingSwitch.plug_n1, rheostat.plug_p) annotation (Line(
-          points={{35,10},{35,-20},{0,-20}},
-          color={85,170,255}));
+          points={{35,10},{35,-20},{0,-20}}, color={85,170,255}));
       connect(rheostat.plug_n, starRheostat.plug_p) annotation (Line(
-          points={{-20,-20},{-40,-20}},
-          color={85,170,255}));
+          points={{-20,-20},{-40,-20}}, color={85,170,255}));
       connect(starRheostat.pin_n, ground.pin) annotation (Line(
-          points={{-60,-20},{-60,-60},{-70,-60}},
-          color={85,170,255}));
+          points={{-60,-20},{-60,-60},{-70,-60}}, color={85,170,255}));
       connect(ground.pin, star.pin_n) annotation (Line(
-          points={{-70,-60},{-60,-60}},
-          color={85,170,255}));
+          points={{-70,-60},{-60,-60}}, color={85,170,255}));
       connect(star.plug_p, idealCommutingSwitch.plug_n2) annotation (Line(
-          points={{-40,-60},{40,-60},{40,10}},
-          color={85,170,255}));
+          points={{-40,-60},{40,-60},{40,10}}, color={85,170,255}));
       connect(plug_n, idealCommutingSwitch.plug_n2) annotation (Line(
-          points={{100,-60},{40,-60},{40,10}},
-          color={85,170,255}));
+          points={{100,-60},{40,-60},{40,10}}, color={85,170,255}));
       annotation (
         Icon(coordinateSystem(
             preserveAspectRatio=false,
@@ -6667,7 +6415,8 @@ choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
               {-40,40}}, color={0,0,255}),Line(points={{100,-60},{-40,-60},{-40,
               -40}}, color={0,0,255}),Ellipse(extent={{-44,40},{-36,32}},
               lineColor={0,0,255}),Ellipse(extent={{-44,-32},{-36,-40}},
-              lineColor={0,0,255}),Line(points={{-80,40},{-42,-34}}, color={0,0,255}),Line(points={{40,40},{40,42},{40,60}}, color={0,0,255}),
+              lineColor={0,0,255}),Line(points={{-80,40},{-42,-34}}, color={0,0,255}),
+              Line(points={{40,40},{40,42},{40,60}}, color={0,0,255}),
               Line(points={{40,-40},{40,-60}}, color={0,0,255}),Line(points={{
               10,-80},{70,-80}}, color={0,0,255}),Line(points={{40,-60},{40,-80}},
               color={0,0,255}),Line(points={{20,-90},{60,-90}}, color={0,0,255}),
@@ -6718,26 +6467,19 @@ choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
       connect(phi, toGamma.u)
         annotation (Line(points={{0,-120},{0,-82}}, color={0,0,127}));
       connect(singleToMultiPhase.y, I) annotation (Line(
-          points={{41,40},{110,40}},
-          color={85,170,255}));
+          points={{41,40},{110,40}}, color={85,170,255}));
       connect(toGamma.y, add.u1) annotation (Line(
-          points={{0,-59},{0,-34},{38,-34}},
-          color={0,0,127}));
+          points={{0,-59},{0,-34},{38,-34}}, color={0,0,127}));
       connect(const.y, add.u2) annotation (Line(
-          points={{30,-59},{30,-46},{38,-46}},
-          color={0,0,127}));
+          points={{30,-59},{30,-46},{38,-46}}, color={0,0,127}));
       connect(add.y, gamma) annotation (Line(
-          points={{61,-40},{110,-40}},
-          color={0,0,127}));
+          points={{61,-40},{110,-40}}, color={0,0,127}));
       connect(id_rms, realToComplex.re) annotation (Line(
-          points={{-120,60},{-60,60},{-60,46},{-42,46}},
-          color={0,0,127}));
+          points={{-120,60},{-60,60},{-60,46},{-42,46}}, color={0,0,127}));
       connect(iq_rms, realToComplex.im) annotation (Line(
-          points={{-120,-60},{-60,-60},{-60,34},{-42,34}},
-          color={0,0,127}));
+          points={{-120,-60},{-60,-60},{-60,34},{-42,34}}, color={0,0,127}));
       connect(realToComplex.y, singleToMultiPhase.u) annotation (Line(
-          points={{-19,40},{18,40}},
-          color={85,170,255}));
+          points={{-19,40},{18,40}}, color={85,170,255}));
       annotation (
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={Rectangle(

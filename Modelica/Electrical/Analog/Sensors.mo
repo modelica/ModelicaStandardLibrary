@@ -65,7 +65,7 @@ package Sensors "Potential, voltage, current, and power sensors"
             textString="V"),
           Line(points={{-70,0},{-90,0}}, color={0,0,255}),
           Line(points={{70,0},{90,0}}, color={0,0,255}),
-          Line(points={{0,-100},{0,-70}},color={0,0,127}),
+          Line(points={{0,-100},{0,-70}}, color={0,0,127}),
           Text(
             extent={{-150,80},{150,120}},
             textString="%name",
@@ -112,7 +112,7 @@ package Sensors "Potential, voltage, current, and power sensors"
             textString="%name",
             lineColor={0,0,255}),
           Line(points={{70,0},{90,0}}, color={0,0,255}),
-          Line(points={{0,-100},{0,-70}},color={0,0,127})}),
+          Line(points={{0,-100},{0,-70}}, color={0,0,127})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
@@ -168,20 +168,15 @@ model PowerSensor "Sensor to measure the power"
           rotation=270)));
 
 equation
-  connect(pv, voltageSensor.p) annotation (Line(points={{0,100},{0,-20}},
-                                color={0,0,255}));
-  connect(voltageSensor.n, nv) annotation (Line(points={{0,-40},{0,-63},{0,-100}},
-                                                  color={0,0,255}));
+  connect(pv, voltageSensor.p) annotation (Line(points={{0,100},{0,-20}}, color={0,0,255}));
+  connect(voltageSensor.n, nv) annotation (Line(points={{0,-40},{0,-63},{0,-100}}, color={0,0,255}));
   connect(pc, currentSensor.p)
     annotation (Line(points={{-100,0},{-50,0}}, color={0,0,255}));
   connect(currentSensor.n, nc)
     annotation (Line(points={{-30,0},{100,0}}, color={0,0,255}));
-  connect(currentSensor.i, product.u2) annotation (Line(points={{-40,-11},{-40,-30},{-36,-30},{-36,-38}},
-                                       color={0,0,127}));
-  connect(voltageSensor.v, product.u1) annotation (Line(points={{-11,-30},{-24,-30},{-24,-38}},
-                             color={0,0,127}));
-  connect(product.y, power) annotation (Line(points={{-30,-61},{-30,-80},{-100,-80},{-100,-110}},
-                              color={0,0,127}));
+  connect(currentSensor.i, product.u2) annotation (Line(points={{-40,-11},{-40,-30},{-36,-30},{-36,-38}}, color={0,0,127}));
+  connect(voltageSensor.v, product.u1) annotation (Line(points={{-11,-30},{-24,-30},{-24,-38}}, color={0,0,127}));
+  connect(product.y, power) annotation (Line(points={{-30,-61},{-30,-80},{-100,-80},{-100,-110}}, color={0,0,127}));
   annotation (
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
       Line(points = {{0,100},{0,70}}, color = {0,0,255}),

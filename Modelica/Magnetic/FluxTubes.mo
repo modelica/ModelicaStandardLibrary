@@ -776,13 +776,11 @@ This user's guide gives a short introduction to the underlying concept of <stron
     equation
       connect(source.p, r.p)
         annotation (Line(points={{-80,20},{-61,20}}, color={0,0,255}));
-      connect(r.n, coil.p) annotation (Line(points={{-41,20},{-30,20},{-30,16}},
-            color={0,0,255}));
+      connect(r.n, coil.p) annotation (Line(points={{-41,20},{-30,20},{-30,16}}, color={0,0,255}));
       connect(source.n, coil.n)
         annotation (Line(points={{-80,0},{-30,0},{-30,4}}, color={0,0,255}));
       connect(coil.port_p, r_mLeak.port_p) annotation (Line(points={{-10,16},{
-              -10,20},{10,20}},
-                            color={255,127,0}));
+              -10,20},{10,20}}, color={255,127,0}));
       connect(r_mLeak.port_p, r_mAirPar.port_p)
         annotation (Line(points={{10,20},{26,20}}, color={255,127,0}));
       connect(r_mAirPar.port_n, r_mFe.port_p)
@@ -792,11 +790,9 @@ This user's guide gives a short introduction to the underlying concept of <stron
       connect(r_mFe.port_n, coil.port_n)
         annotation (Line(points={{60,0},{-10,0},{-10,4}}, color={255,127,0}));
       connect(ground.p, source.n) annotation (Line(
-          points={{-80,-10},{-80,0}},
-          color={0,0,255}));
+          points={{-80,-10},{-80,0}}, color={0,0,255}));
       connect(ground_m.port, r_mFe.port_n) annotation (Line(
-          points={{60,-10},{60,0}},
-          color={255,127,0}));
+          points={{60,-10},{60,0}}, color={255,127,0}));
       annotation (experiment(StopTime=0.1, Tolerance=1e-007), Documentation(
             info="<html>
 <p>
@@ -1215,10 +1211,8 @@ Whereas the steady state current is the same in both models, the steady state ac
           L = coil.N^2*(g_ma.G_m + g_mLeak1.G_m + g_mLeak2.G_m);
 
           connect(armature.flange_b, flange) annotation (Line(
-              points={{80,0},{100,0}},
-              color={0,127,0}));
-          connect(r.p, p) annotation (Line(points={{-80,40},{-80,60},{-100,60}},
-                color={0,0,255}));
+              points={{80,0},{100,0}}, color={0,127,0}));
+          connect(r.p, p) annotation (Line(points={{-80,40},{-80,60},{-100,60}}, color={0,0,255}));
           connect(armature.flange_a, g_mb.flange)
             annotation (Line(points={{60,0},{40,0}}, color={0,127,0}));
           connect(g_mb.flange, g_ma.flange) annotation (Line(points={{40,0},{40,
@@ -1244,11 +1238,9 @@ Whereas the steady state current is the same in both models, the steady state ac
             annotation (Line(points={{10,10},{30,10}}, color={255,127,0}));
           connect(r.n, coil.p) annotation (Line(points={{-80,20},{-80,-30},{-6,
                   -30}}, color={0,0,255}));
-          connect(coil.n, n) annotation (Line(points={{6,-30},{6,-60},{-100,-60}},
-                color={0,0,255}));
+          connect(coil.n, n) annotation (Line(points={{6,-30},{6,-60},{-100,-60}}, color={0,0,255}));
           connect(ground.port, g_mb.port_n) annotation (Line(
-              points={{40,-18},{40,-10},{30,-10}},
-              color={255,127,0}));
+              points={{40,-18},{40,-10},{30,-10}}, color={255,127,0}));
           annotation (Documentation(info="<html>
 <p>
 In the <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.ConstantActuator\">ConstantActuator</a> model the force F is strictly proportional to the current i as indicated by the converter constant c. However, there is an additional non-linear force component in such an actuator that is due to the dependency of the coil inductance L on the armature position x. The inductance increases as the armature moves into the stator. The total force is
@@ -1383,7 +1375,8 @@ Both force components are properly considered with a simple permeance model as s
                           extent={{-70,80},{72,-80}},
                           lineColor={255,128,0},
                           textString="c"),Line(points={{-90,60},{-80,60}},
-                  color={0,0,255}),Line(points={{-90,-60},{-80,-60}}, color={0,0,255}),Line(points={{80,0},{90,0}}, color={0,127,0}),Text(
+                  color={0,0,255}),Line(points={{-90,-60},{-80,-60}}, color={0,0,255}),
+                  Line(points={{80,0},{90,0}}, color={0,127,0}),Text(
                           extent={{0,160},{0,120}},
                           lineColor={0,0,255},
                           textString="%name")}), Documentation(info="<html>
@@ -2190,11 +2183,11 @@ The characteristic current drop during pull-in is due to both armature motion an
           connect(armature.flange_a, g_mAirWork.flange) annotation (Line(points=
                  {{64,0},{34,0},{34,52},{-30,52},{-30,40}}, color={0,127,0}));
           connect(g_mAirWork.flange, g_mLeakWork.flange) annotation (Line(
-                points={{-30,40},{-30,52},{34,52},{34,80},{-30,80}}, color={0,127,0}));
+                points={{-30,40},{-30,52},{34,52},{34,80},{-30,80}}, color={0,
+                  127,0}));
           connect(r.n, coil.p) annotation (Line(points={{-50,-20},{-6,-20},{-6,
                   10}}, color={0,0,255}));
-          connect(coil.n, n) annotation (Line(points={{6,10},{6,-60},{-100,-60}},
-                color={0,0,255}));
+          connect(coil.n, n) annotation (Line(points={{6,10},{6,-60},{-100,-60}}, color={0,0,255}));
           connect(coil.port_p, g_mAirWork.port_p)
             annotation (Line(points={{-6,30},{-20,30}}, color={255,127,0}));
           connect(g_mAirWork.port_p, g_mLeakWork.port_p)
@@ -2224,8 +2217,7 @@ The characteristic current drop during pull-in is due to both armature motion an
           connect(g_mFeArm.port_n, coil.port_n) annotation (Line(points={{6,40},
                   {6,35},{6,30}}, color={255,127,0}));
           connect(ground.port, g_mLeak1.port_p) annotation (Line(
-              points={{60,30},{60,40}},
-              color={255,127,0}));
+              points={{60,30},{60,40}}, color={255,127,0}));
           annotation (Icon(coordinateSystem(
               preserveAspectRatio=true,
               extent={{-100,-100},{100,100}}), graphics={
@@ -2621,8 +2613,7 @@ During model-based actuator design, the radii and lengths of the flux tube eleme
           connect(r_1.n, coil1.p) annotation (Line(points={{-64,-20},{-52,-20},
                   {-52,10}}, color={0,0,255}));
           connect(ground.port, g_mLeak2.port_p) annotation (Line(
-              points={{52,22},{52,30},{46,30}},
-              color={255,127,0}));
+              points={{52,22},{52,30},{46,30}}, color={255,127,0}));
           annotation (Icon(coordinateSystem(
               preserveAspectRatio=false,
               extent={{-100,-100},{100,100}}), graphics={
@@ -2795,74 +2786,51 @@ The differences between these two models in static behaviour can be analysed and
           annotation (Placement(transformation(extent={{30,70},{50,90}})));
       equation
         connect(W1.port_n, magGnd1.port) annotation (Line(
-            points={{22,62},{22,58}},
-            color={255,127,0}));
+            points={{22,62},{22,58}}, color={255,127,0}));
         connect(R1.n, W1.p) annotation (Line(
-            points={{-2,78},{2,78},{2,74}},
-            color={0,0,255}));
+            points={{-2,78},{2,78},{2,74}}, color={0,0,255}));
         connect(W1.n, elGnd1.p) annotation (Line(
-            points={{2,62},{2,58},{-14,58}},
-            color={0,0,255}));
+            points={{2,62},{2,58},{-14,58}}, color={0,0,255}));
         connect(V1.p, R1.p) annotation (Line(
-            points={{-28,78},{-22,78}},
-            color={0,0,255}));
+            points={{-28,78},{-22,78}}, color={0,0,255}));
         connect(elGnd1.p, V1.n) annotation (Line(
-            points={{-14,58},{-28,58}},
-            color={0,0,255}));
+            points={{-14,58},{-28,58}}, color={0,0,255}));
         connect(W2.port_n, magGnd2.port) annotation (Line(
-            points={{22,12},{22,8}},
-            color={255,127,0}));
+            points={{22,12},{22,8}}, color={255,127,0}));
         connect(W2.port_p, TellinenTable.port_p) annotation (Line(
-            points={{22,24},{22,28},{30,28}},
-            color={255,127,0}));
+            points={{22,24},{22,28},{30,28}}, color={255,127,0}));
         connect(R2.n, W2.p) annotation (Line(
-            points={{-2,28},{2,28},{2,24}},
-            color={0,0,255}));
+            points={{-2,28},{2,28},{2,24}}, color={0,0,255}));
         connect(W2.n, elGnd2.p) annotation (Line(
-            points={{2,12},{2,8},{-12,8}},
-            color={0,0,255}));
+            points={{2,12},{2,8},{-12,8}}, color={0,0,255}));
         connect(V2.p, R2.p) annotation (Line(
-            points={{-28,28},{-22,28}},
-            color={0,0,255}));
+            points={{-28,28},{-22,28}}, color={0,0,255}));
         connect(elGnd2.p, V2.n) annotation (Line(
-            points={{-12,8},{-28,8}},
-            color={0,0,255}));
+            points={{-12,8},{-28,8}}, color={0,0,255}));
         connect(TellinenTable.port_n, magGnd2.port) annotation (Line(
-            points={{50,28},{54,28},{54,8},{22,8}},
-            color={255,127,0}));
+            points={{50,28},{54,28},{54,8},{22,8}}, color={255,127,0}));
         connect(V2.v, V1.v) annotation (Line(
-            points={{-35,18},{-44,18},{-44,68},{-35,68}},
-            color={0,0,127}));
+            points={{-35,18},{-44,18},{-44,68},{-35,68}}, color={0,0,127}));
         connect(W3.port_n, magGnd3.port) annotation (Line(
-            points={{22,-40},{22,-44}},
-            color={255,127,0}));
+            points={{22,-40},{22,-44}}, color={255,127,0}));
         connect(W3.port_p, PreisachEverett.port_p) annotation (Line(
-            points={{22,-28},{22,-24},{30,-24}},
-            color={255,127,0}));
+            points={{22,-28},{22,-24},{30,-24}}, color={255,127,0}));
         connect(R3.n, W3.p) annotation (Line(
-            points={{-2,-24},{2,-24},{2,-28}},
-            color={0,0,255}));
+            points={{-2,-24},{2,-24},{2,-28}}, color={0,0,255}));
         connect(W3.n, elGnd3.p) annotation (Line(
-            points={{2,-40},{2,-44},{-12,-44}},
-            color={0,0,255}));
+            points={{2,-40},{2,-44},{-12,-44}}, color={0,0,255}));
         connect(V3.p, R3.p) annotation (Line(
-            points={{-28,-24},{-22,-24}},
-            color={0,0,255}));
+            points={{-28,-24},{-22,-24}}, color={0,0,255}));
         connect(elGnd3.p, V3.n) annotation (Line(
-            points={{-12,-44},{-28,-44}},
-            color={0,0,255}));
+            points={{-12,-44},{-28,-44}}, color={0,0,255}));
         connect(PreisachEverett.port_n, magGnd3.port) annotation (Line(
-            points={{50,-24},{54,-24},{54,-44},{22,-44}},
-            color={255,127,0}));
+            points={{50,-24},{54,-24},{54,-44},{22,-44}}, color={255,127,0}));
         connect(V3.v, V1.v) annotation (Line(
-            points={{-35,-34},{-44,-34},{-44,68},{-35,68}},
-            color={0,0,127}));
+            points={{-35,-34},{-44,-34},{-44,68},{-35,68}}, color={0,0,127}));
         connect(timeTable.y, gain.u) annotation (Line(
-            points={{-75.4,68},{-69.2,68}},
-            color={0,0,127}));
+            points={{-75.4,68},{-69.2,68}}, color={0,0,127}));
         connect(gain.y, V1.v) annotation (Line(
-            points={{-55.4,68},{-35,68}},
-            color={0,0,127}));
+            points={{-55.4,68},{-35,68}}, color={0,0,127}));
         connect(W1.port_p, TellinenSoft.port_p) annotation (Line(points={{22,74},
                 {22,80},{30,80}}, color={255,127,0}));
         connect(magGnd1.port, TellinenSoft.port_n) annotation (Line(points={{22,
@@ -2925,20 +2893,15 @@ Compared to the complex Preisach hysteresis model the Tellinen model is very sim
           annotation (Placement(transformation(extent={{20,10},{40,30}})));
       equation
         connect(Winding.port_n, mag_ground.port) annotation (Line(
-            points={{10,8},{10,-12}},
-            color={255,127,0}));
+            points={{10,8},{10,-12}}, color={255,127,0}));
         connect(SineVoltage.p, R.p) annotation (Line(
-            points={{-38,14},{-38,20},{-34,20}},
-            color={0,0,255}));
+            points={{-38,14},{-38,20},{-34,20}}, color={0,0,255}));
         connect(SineVoltage.n, el_ground.p) annotation (Line(
-            points={{-38,-6},{-38,-12}},
-            color={0,0,255}));
+            points={{-38,-6},{-38,-12}}, color={0,0,255}));
         connect(Winding.n, el_ground.p) annotation (Line(
-            points={{-10,8},{-10,-12},{-38,-12}},
-            color={0,0,255}));
+            points={{-10,8},{-10,-12},{-38,-12}}, color={0,0,255}));
         connect(R.n, Winding.p) annotation (Line(
-            points={{-14,20},{-10,20}},
-            color={0,0,255}));
+            points={{-14,20},{-10,20}}, color={0,0,255}));
         connect(Winding.port_p, Core.port_p) annotation (Line(points={{10,20},{
                 15,20},{20,20}}, color={255,127,0}));
         connect(mag_ground.port, Core.port_n) annotation (Line(points={{10,-12},
@@ -2995,44 +2958,33 @@ This is a simple model of an inductor with a ferromagnetic core. The used Generi
       equation
         connect(WindingPrim.port_n, mag_ground.port)
                                                  annotation (Line(
-            points={{-12,20},{-12,0}},
-            color={255,127,0}));
+            points={{-12,20},{-12,0}}, color={255,127,0}));
         connect(SineVoltage.p, Rprim.p)
                                     annotation (Line(
-            points={{-60,26},{-60,32},{-56,32}},
-            color={0,0,255}));
+            points={{-60,26},{-60,32},{-56,32}}, color={0,0,255}));
         connect(SineVoltage.n, el_ground1.p)
                                             annotation (Line(
-            points={{-60,6},{-60,0}},
-            color={0,0,255}));
+            points={{-60,6},{-60,0}}, color={0,0,255}));
         connect(WindingPrim.n, el_ground1.p)
                                         annotation (Line(
-            points={{-32,20},{-32,0},{-60,0}},
-            color={0,0,255}));
+            points={{-32,20},{-32,0},{-60,0}}, color={0,0,255}));
         connect(Rprim.n, WindingPrim.p)
                                 annotation (Line(
-            points={{-36,32},{-32,32}},
-            color={0,0,255}));
+            points={{-36,32},{-32,32}}, color={0,0,255}));
         connect(WindingSec.port_n, mag_ground.port) annotation (Line(
-            points={{20,20},{20,0},{-12,0}},
-            color={255,127,0}));
+            points={{20,20},{20,0},{-12,0}}, color={255,127,0}));
         connect(WindingSec.p, Rsec.p)
                                     annotation (Line(
-            points={{40,32},{46,32}},
-            color={0,0,255}));
+            points={{40,32},{46,32}}, color={0,0,255}));
         connect(WindingSec.n, el_ground2.p) annotation (Line(
-            points={{40,20},{40,0}},
-            color={0,0,255}));
+            points={{40,20},{40,0}}, color={0,0,255}));
         connect(Rsec.n, el_ground2.p)
                                     annotation (Line(
-            points={{66,32},{70,32},{70,0},{40,0}},
-            color={0,0,255}));
+            points={{66,32},{70,32},{70,0},{40,0}}, color={0,0,255}));
         connect(WindingPrim.port_p, Core.port_p) annotation (Line(
-            points={{-12,32},{-6,32}},
-            color={255,127,0}));
+            points={{-12,32},{-6,32}}, color={255,127,0}));
         connect(Core.port_n, WindingSec.port_p) annotation (Line(
-            points={{14,32},{20,32}},
-            color={255,127,0}));
+            points={{14,32},{20,32}}, color={255,127,0}));
         annotation (experiment(StartTime=0, StopTime=0.02, Interval=4e-6, Tolerance=1e-006), Documentation(info="<html>
 <p>
 This simple model of an single phase transformer shows the inrush currents due to the remanence of the core material (M330-50A). For an accurate modelling of the core material the GenericHystTellinenTable hysteresis flux tube element is used. The initial magnetization MagRel of the Core component is set to 80%. Simulation settings:
@@ -3091,28 +3043,21 @@ Then plot the flux density of the Core Core.B over the magnetic field strength C
       equation
         connect(SineVoltage.p, Rprim.p)
                                     annotation (Line(
-            points={{-80,26},{-80,32},{-54,32}},
-            color={0,0,255}));
+            points={{-80,26},{-80,32},{-54,32}}, color={0,0,255}));
         connect(SineVoltage.n, el_ground1.p)
                                             annotation (Line(
-            points={{-80,6},{-80,0}},
-            color={0,0,255}));
+            points={{-80,6},{-80,0}}, color={0,0,255}));
         connect(Rsec.n, el_ground2.p)
                                     annotation (Line(
-            points={{40,32},{60,32},{60,0},{12,0}},
-            color={0,0,255}));
+            points={{40,32},{60,32},{60,0},{12,0}}, color={0,0,255}));
         connect(Rprim.n, tr.p_A) annotation (Line(
-            points={{-34,32},{-20,32}},
-            color={0,0,255}));
+            points={{-34,32},{-20,32}}, color={0,0,255}));
         connect(tr.p_N, el_ground1.p) annotation (Line(
-            points={{-16,22},{-28,22},{-28,0},{-80,0}},
-            color={0,0,255}));
+            points={{-16,22},{-28,22},{-28,0},{-80,0}}, color={0,0,255}));
         connect(tr.p_a, Rsec.p) annotation (Line(
-            points={{0,32},{20,32}},
-            color={0,0,255}));
+            points={{0,32},{20,32}}, color={0,0,255}));
         connect(tr.p_n, el_ground2.p) annotation (Line(
-            points={{-4,22},{12,22},{12,0}},
-            color={0,0,255}));
+            points={{-4,22},{12,22},{12,0}}, color={0,0,255}));
         annotation (experiment(StartTime=0, StopTime=0.1, Interval=2e-5, Tolerance=1e-004), Documentation(info="<html>
 <p>
 A simple model of an single phase transformer (similar to <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.Hysteresis.SinglePhaseTransformerWithHysteresis1\">SinglePhaseTransformerWithHysteresis1</a> but with separate transformer model: <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.Hysteresis.Components.Transformer1PhaseWithHysteresis\">Transformer1PhaseWithHysteresis</a>). Use the simulation settings:
@@ -3273,98 +3218,68 @@ The figure shows the magnetic hysteresis in the transformer core. In (a) the con
           annotation (Placement(transformation(extent={{-48,30},{-38,40}})));
       equation
         connect(VA.n, G1.p) annotation (Line(
-            points={{-131,-50},{-131,-71}},
-            color={0,0,255}));
+            points={{-131,-50},{-131,-71}}, color={0,0,255}));
         connect(VB.n, G1.p) annotation (Line(
-            points={{-110,-50},{-110,-71},{-131,-71}},
-            color={0,0,255}));
+            points={{-110,-50},{-110,-71},{-131,-71}}, color={0,0,255}));
         connect(VC.n, G1.p) annotation (Line(
-            points={{-90,-50},{-90,-71},{-131,-71}},
-            color={0,0,255}));
+            points={{-90,-50},{-90,-71},{-131,-71}}, color={0,0,255}));
         connect(RA.n, TR3PhaseYy.p_A)
                               annotation (Line(
-            points={{-61,9},{-51,9},{-51,0},{-41,0}},
-            color={0,0,255}));
+            points={{-61,9},{-51,9},{-51,0},{-41,0}}, color={0,0,255}));
         connect(RA.p, VA.p) annotation (Line(
-            points={{-81,9},{-131,9},{-131,-30}},
-            color={0,0,255}));
+            points={{-81,9},{-131,9},{-131,-30}}, color={0,0,255}));
         connect(RB.n, TR3PhaseYy.p_B)
                               annotation (Line(
-            points={{-61,-6},{-41,-6}},
-            color={0,0,255}));
+            points={{-61,-6},{-41,-6}}, color={0,0,255}));
         connect(RB.p, VB.p) annotation (Line(
-            points={{-81,-6},{-110,-6},{-110,-30}},
-            color={0,0,255}));
+            points={{-81,-6},{-110,-6},{-110,-30}}, color={0,0,255}));
         connect(VC.p, RC.p) annotation (Line(
-            points={{-90,-30},{-90,-21},{-81,-21}},
-            color={0,0,255}));
+            points={{-90,-30},{-90,-21},{-81,-21}}, color={0,0,255}));
         connect(RC.n, TR3PhaseYy.p_C)
                               annotation (Line(
-            points={{-61,-21},{-51,-21},{-51,-12},{-41,-12}},
-            color={0,0,255}));
+            points={{-61,-21},{-51,-21},{-51,-12},{-41,-12}}, color={0,0,255}));
         connect(D2.n, D1.p) annotation (Line(
-            points={{29,-21},{29,9}},
-            color={0,0,255}));
+            points={{29,-21},{29,9}}, color={0,0,255}));
         connect(D4.n, D3.p) annotation (Line(
-            points={{49,-21},{49,9}},
-            color={0,0,255}));
+            points={{49,-21},{49,9}}, color={0,0,255}));
         connect(D6.n, D5.p) annotation (Line(
-            points={{69,-21},{69,9}},
-            color={0,0,255}));
+            points={{69,-21},{69,9}}, color={0,0,255}));
         connect(D2.p, D4.p) annotation (Line(
-            points={{29,-41},{49,-41}},
-            color={0,0,255}));
+            points={{29,-41},{49,-41}}, color={0,0,255}));
         connect(D4.p, D6.p) annotation (Line(
-            points={{49,-41},{69,-41}},
-            color={0,0,255}));
+            points={{49,-41},{69,-41}}, color={0,0,255}));
         connect(D1.n, D3.n) annotation (Line(
-            points={{29,29},{49,29}},
-            color={0,0,255}));
+            points={{29,29},{49,29}}, color={0,0,255}));
         connect(D3.n, D5.n) annotation (Line(
-            points={{49,29},{69,29}},
-            color={0,0,255}));
+            points={{49,29},{69,29}}, color={0,0,255}));
         connect(D5.n, capacitor1.p) annotation (Line(
-            points={{69,29},{89,29}},
-            color={0,0,255}));
+            points={{69,29},{89,29}}, color={0,0,255}));
         connect(RL.p, capacitor1.p) annotation (Line(
-            points={{116,3},{116,29},{89,29}},
-            color={0,0,255}));
+            points={{116,3},{116,29},{89,29}}, color={0,0,255}));
         connect(TR3PhaseYy.p_a, inductor.p) annotation (Line(
-            points={{-21,0},{-11,0},{-11,9}},
-            color={0,0,255}));
+            points={{-21,0},{-11,0},{-11,9}}, color={0,0,255}));
         connect(TR3PhaseYy.p_b, inductor1.p) annotation (Line(
-            points={{-21,-6},{-11,-6}},
-            color={0,0,255}));
+            points={{-21,-6},{-11,-6}}, color={0,0,255}));
         connect(inductor1.n, D3.p) annotation (Line(
-            points={{9,-6},{49,-6},{49,9}},
-            color={0,0,255}));
+            points={{9,-6},{49,-6},{49,9}}, color={0,0,255}));
         connect(inductor2.p, TR3PhaseYy.p_c) annotation (Line(
-            points={{-10,-22},{-11,-22},{-11,-12},{-21,-12}},
-            color={0,0,255}));
+            points={{-10,-22},{-11,-22},{-11,-12},{-21,-12}}, color={0,0,255}));
         connect(inductor2.n, D6.n) annotation (Line(
-            points={{10,-22},{10,-11},{69,-11},{69,-21}},
-            color={0,0,255}));
+            points={{10,-22},{10,-11},{69,-11},{69,-21}}, color={0,0,255}));
         connect(capacitor2.n, D6.p) annotation (Line(
-            points={{89,-41},{69,-41}},
-            color={0,0,255}));
+            points={{89,-41},{69,-41}}, color={0,0,255}));
         connect(capacitor2.p, capacitor1.n) annotation (Line(
-            points={{89,-21},{89,9}},
-            color={0,0,255}));
+            points={{89,-21},{89,9}}, color={0,0,255}));
         connect(inductor.n, D1.p) annotation (Line(
-            points={{9,9},{9,-1},{29,-1},{29,9}},
-            color={0,0,255}));
+            points={{9,9},{9,-1},{29,-1},{29,9}}, color={0,0,255}));
         connect(RL.n, capacitor2.n) annotation (Line(
-            points={{116,-17},{116,-41},{89,-41}},
-            color={0,0,255}));
+            points={{116,-17},{116,-41},{89,-41}}, color={0,0,255}));
         connect(TR3PhaseYy.pN, G1.p) annotation (Line(
-            points={{-35,-16},{-35,-71},{-131,-71}},
-            color={0,0,255}));
+            points={{-35,-16},{-35,-71},{-131,-71}}, color={0,0,255}));
         connect(TR3PhaseYy.pn, G2.p) annotation (Line(
-            points={{-27,-16},{-27,-71}},
-            color={0,0,255}));
+            points={{-27,-16},{-27,-71}}, color={0,0,255}));
         connect(G2.p, capacitor2.p) annotation (Line(
-            points={{-27,-71},{102,-71},{102,-21},{89,-21}},
-            color={0,0,255}));
+            points={{-27,-71},{102,-71},{102,-21},{89,-21}}, color={0,0,255}));
         connect(rExp3.y, PdissCopAvg.u)
           annotation (Line(points={{-77.4,35},{-49,35}}, color={0,0,127}));
         connect(rExp2.y, PdissEddyAvg.u)
@@ -3583,35 +3498,25 @@ An example simulation shows the transformer inrush currents due to an initially 
           LossPower = LossPowerWinding + LossPowerEddy + LossPowerStat;
 
           connect(Wp.port_n, ground.port) annotation (Line(
-              points={{-40,-12},{-40,-26},{0,-26}},
-              color={255,127,0}));
+              points={{-40,-12},{-40,-26},{0,-26}}, color={255,127,0}));
           connect(Rp.n, Wp.p) annotation (Line(
-              points={{-70,0},{-60,0}},
-              color={0,0,255}));
+              points={{-70,0},{-60,0}}, color={0,0,255}));
           connect(Rp.p, p_A) annotation (Line(
-              points={{-90,0},{-100,0}},
-              color={0,0,255}));
+              points={{-90,0},{-100,0}}, color={0,0,255}));
           connect(Rs.n, p_a) annotation (Line(
-              points={{88,0},{100,0}},
-              color={0,0,255}));
+              points={{88,0},{100,0}}, color={0,0,255}));
           connect(Wp.n, p_N) annotation (Line(
-              points={{-60,-12},{-60,-100}},
-              color={0,0,255}));
+              points={{-60,-12},{-60,-100}}, color={0,0,255}));
           connect(Temp.port, Rp.heatPort) annotation (Line(
-              points={{-86,-40},{-80,-40},{-80,-10}},
-              color={191,0,0}));
+              points={{-86,-40},{-80,-40},{-80,-10}}, color={191,0,0}));
           connect(Rs.heatPort, Temp.port) annotation (Line(
-              points={{78,-10},{78,-40},{-86,-40}},
-              color={191,0,0}));
+              points={{78,-10},{78,-40},{-86,-40}}, color={191,0,0}));
           connect(Ws.port_n, ground.port) annotation (Line(
-              points={{40,-12},{40,-26},{0,-26}},
-              color={255,127,0}));
+              points={{40,-12},{40,-26},{0,-26}}, color={255,127,0}));
           connect(Ws.n, Rs.p) annotation (Line(
-              points={{60,-12},{68,-12},{68,0}},
-              color={0,0,255}));
+              points={{60,-12},{68,-12},{68,0}}, color={0,0,255}));
           connect(p_n, Ws.p) annotation (Line(
-              points={{60,-100},{52,-100},{52,4},{60,4},{60,0}},
-              color={0,0,255}));
+              points={{60,-100},{52,-100},{52,4},{60,4},{60,0}}, color={0,0,255}));
           connect(Core.port_p, Wp.port_p)
             annotation (Line(points={{-10,10},{-40,10},{-40,0}}, color={255,127,0}));
           connect(Core.port_n, Ws.port_p)
@@ -3994,117 +3899,80 @@ Simple model of a single phase transformer with a primary and a secondary windin
           LossPower = LossPowerWinding + LossPowerEddy + LossPowerStat;
 
           connect(WA.port_n, Wa.port_p) annotation (Line(
-              points={{-90,44},{-90,-4}},
-              color={255,127,0}));
+              points={{-90,44},{-90,-4}}, color={255,127,0}));
           connect(WA.p, RA.n) annotation (Line(
-              points={{-110,56},{-116,56},{-116,60},{-120,60}},
-              color={0,0,255}));
+              points={{-110,56},{-116,56},{-116,60},{-120,60}}, color={0,0,255}));
           connect(RA.p, p_A) annotation (Line(
-              points={{-140,60},{-160,60}},
-              color={0,0,255}));
+              points={{-140,60},{-160,60}}, color={0,0,255}));
           connect(WB.p, RB.n) annotation (Line(
-              points={{-10,56},{-16,56},{-16,60},{-20,60}},
-              color={0,0,255}));
+              points={{-10,56},{-16,56},{-16,60},{-20,60}}, color={0,0,255}));
           connect(WC.p, RC.n) annotation (Line(
-              points={{110,56},{104,56},{104,60},{100,60}},
-              color={0,0,255}));
+              points={{110,56},{104,56},{104,60},{100,60}}, color={0,0,255}));
           connect(WB.port_p, CoreB.port_n) annotation (Line(
-              points={{10,56},{10,82}},
-              color={255,127,0}));
+              points={{10,56},{10,82}}, color={255,127,0}));
           connect(WB.port_n, Wb.port_p) annotation (Line(
-              points={{10,44},{10,-4}},
-              color={255,127,0}));
+              points={{10,44},{10,-4}}, color={255,127,0}));
           connect(Wa.port_n, ground.port) annotation (Line(
-              points={{-90,-16},{-90,-60},{10,-60}},
-              color={255,127,0}));
+              points={{-90,-16},{-90,-60},{10,-60}}, color={255,127,0}));
           connect(ground.port, Wb.port_n) annotation (Line(
-              points={{10,-60},{10,-16}},
-              color={255,127,0}));
+              points={{10,-60},{10,-16}}, color={255,127,0}));
           connect(Wc.port_n, ground.port) annotation (Line(
-              points={{130,-16},{130,-60},{10,-60}},
-              color={255,127,0}));
+              points={{130,-16},{130,-60},{10,-60}}, color={255,127,0}));
           connect(Wc.port_p, WC.port_n) annotation (Line(
-              points={{130,-4},{130,44}},
-              color={255,127,0}));
+              points={{130,-4},{130,44}}, color={255,127,0}));
           connect(WC.port_p, CoreC.port_n) annotation (Line(
-              points={{130,56},{130,114},{90,114}},
-              color={255,127,0}));
+              points={{130,56},{130,114},{90,114}}, color={255,127,0}));
           connect(p_B, RB.p) annotation (Line(
-              points={{-60,60},{-40,60}},
-              color={0,0,255}));
+              points={{-60,60},{-40,60}}, color={0,0,255}));
           connect(p_C, RC.p) annotation (Line(
-              points={{60,60},{80,60}},
-              color={0,0,255}));
+              points={{60,60},{80,60}}, color={0,0,255}));
           connect(Temp.port, RA.heatPort) annotation (Line(
-              points={{-154,20},{-130,20},{-130,50}},
-              color={191,0,0}));
+              points={{-154,20},{-130,20},{-130,50}}, color={191,0,0}));
           connect(RB.heatPort, Temp.port) annotation (Line(
-              points={{-30,50},{-30,20},{-154,20}},
-              color={191,0,0}));
+              points={{-30,50},{-30,20},{-154,20}}, color={191,0,0}));
           connect(RC.heatPort, Temp.port) annotation (Line(
-              points={{90,50},{90,20},{-154,20}},
-              color={191,0,0}));
+              points={{90,50},{90,20},{-154,20}}, color={191,0,0}));
           connect(Rc.heatPort, Temp.port) annotation (Line(
-              points={{90,-10},{46,-10},{46,20},{-154,20}},
-              color={191,0,0}));
+              points={{90,-10},{46,-10},{46,20},{-154,20}}, color={191,0,0}));
           connect(Rb.heatPort, Temp.port) annotation (Line(
-              points={{-30,-10},{-80,-10},{-80,20},{-154,20}},
-              color={191,0,0}));
+              points={{-30,-10},{-80,-10},{-80,20},{-154,20}}, color={191,0,0}));
           connect(Ra.heatPort, Temp.port) annotation (Line(
-              points={{-130,-10},{-146,-10},{-146,20},{-154,20}},
-              color={191,0,0}));
+              points={{-130,-10},{-146,-10},{-146,20},{-154,20}}, color={191,0,0}));
           connect(Ra.p, Wa.p) annotation (Line(
-              points={{-120,0},{-110,0},{-110,-4}},
-              color={0,0,255}));
+              points={{-120,0},{-110,0},{-110,-4}}, color={0,0,255}));
           connect(Rb.p, Wb.p) annotation (Line(
-              points={{-20,0},{-10,0},{-10,-4}},
-              color={0,0,255}));
+              points={{-20,0},{-10,0},{-10,-4}}, color={0,0,255}));
           connect(Rc.p, Wc.p) annotation (Line(
-              points={{100,0},{110,0},{110,-4}},
-              color={0,0,255}));
+              points={{100,0},{110,0},{110,-4}}, color={0,0,255}));
           connect(Ra.n, p_a) annotation (Line(
-              points={{-140,0},{-160,0}},
-              color={0,0,255}));
+              points={{-140,0},{-160,0}}, color={0,0,255}));
           connect(Rb.n, p_b) annotation (Line(
-              points={{-40,0},{-60,0}},
-              color={0,0,255}));
+              points={{-40,0},{-60,0}}, color={0,0,255}));
           connect(Rc.n, p_c) annotation (Line(
-              points={{80,0},{60,0}},
-              color={0,0,255}));
+              points={{80,0},{60,0}}, color={0,0,255}));
           connect(Leakage.port_n, ground.port) annotation (Line(
-              points={{32,80},{32,-60},{10,-60}},
-              color={255,127,0}));
+              points={{32,80},{32,-60},{10,-60}}, color={255,127,0}));
           connect(WA.port_p, CoreA.port_n) annotation (Line(
-              points={{-90,56},{-90,114},{-50,114}},
-              color={255,127,0}));
+              points={{-90,56},{-90,114},{-50,114}}, color={255,127,0}));
           connect(CoreA.port_p, CoreB.port_p) annotation (Line(
-              points={{-30,114},{10,114},{10,102}},
-              color={255,127,0}));
+              points={{-30,114},{10,114},{10,102}}, color={255,127,0}));
           connect(CoreC.port_p, CoreA.port_p) annotation (Line(
-              points={{70,114},{-30,114}},
-              color={255,127,0}));
+              points={{70,114},{-30,114}}, color={255,127,0}));
           connect(Leakage.port_p, CoreC.port_p) annotation (Line(
-              points={{32,100},{32,114},{70,114}},
-              color={255,127,0}));
+              points={{32,100},{32,114},{70,114}}, color={255,127,0}));
 
           connect(WA.n, pN) annotation (Line(
-              points={{-110,44},{-110,30}},
-              color={0,0,255}));
+              points={{-110,44},{-110,30}}, color={0,0,255}));
           connect(pN, WC.n) annotation (Line(
-              points={{-110,30},{110,30},{110,44}},
-              color={0,0,255}));
+              points={{-110,30},{110,30},{110,44}}, color={0,0,255}));
           connect(pN, WB.n) annotation (Line(
-              points={{-110,30},{-10,30},{-10,44}},
-              color={0,0,255}));
+              points={{-110,30},{-10,30},{-10,44}}, color={0,0,255}));
           connect(Wa.n, pn) annotation (Line(
-              points={{-110,-16},{-110,-34}},
-              color={0,0,255}));
+              points={{-110,-16},{-110,-34}}, color={0,0,255}));
           connect(pn, Wb.n) annotation (Line(
-              points={{-110,-34},{-10,-34},{-10,-16}},
-              color={0,0,255}));
+              points={{-110,-34},{-10,-34},{-10,-16}}, color={0,0,255}));
           connect(Wc.n, pn) annotation (Line(
-              points={{110,-16},{110,-34},{-110,-34}},
-              color={0,0,255}));
+              points={{110,-16},{110,-34},{-110,-34}}, color={0,0,255}));
 
           annotation (defaultComponentName="T3PhaseYyHyst", Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-200,
                     -200},{200,200}}),
@@ -4552,8 +4420,8 @@ The magnetic potential at the magnetic ground node is zero. Every magnetic netwo
                   textString="i"),Text(
                   extent={{-150,63},{-133,78}},
                   lineColor={160,160,164},
-                  textString="i"),Line(points={{124,61},{149,61}}, color={160,
-              160,164}),Polygon(
+                  textString="i"),Line(points={{124,61},{149,61}}, color={160,160,164}),
+              Polygon(
                   points={{134,64},{124,61},{134,58},{134,64}},
                   lineColor={160,160,164},
                   fillColor={160,160,164},
@@ -5093,11 +4961,9 @@ This is a simple short cut branch.
 
     equation
       connect(port_p1, port_p2) annotation (Line(
-          points={{-100,100},{-100,20},{0,20},{0,-20},{100,-20},{100,-100}},
-          color={255,128,0}));
+          points={{-100,100},{-100,20},{0,20},{0,-20},{100,-20},{100,-100}}, color={255,128,0}));
       connect(port_n1, port_n2) annotation (Line(
-          points={{-100,-100},{-100,0},{100,0},{100,100}},
-          color={255,128,0}));
+          points={{-100,-100},{-100,0},{100,0},{100,100}}, color={255,128,0}));
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
             Text(
@@ -7902,13 +7768,13 @@ Please refer to the description of  the sub-package <a href=\"modelica://Modelic
               extent={{-140,40},{140,80}},
               textString="%name",
               lineColor={0,0,255}),
-            Line(points={{-70,0},{-100,0}},color={255,128,0}),
+            Line(points={{-70,0},{-100,0}}, color={255,128,0}),
             Rectangle(
               extent={{-70,30},{70,-30}},
               lineColor={255,128,0},
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
-            Line(points={{70,0},{100,0}},color={255,128,0})}),
+            Line(points={{70,0},{100,0}}, color={255,128,0})}),
                                      Documentation(info="<html>
 </html>"));
     end PartialGeneric;
@@ -8232,8 +8098,8 @@ In these cases, the magnetic potential difference or magnetomotive force imposed
           Line(points={{0,50},{0,-50}}, color={255,127,0})}),
         Diagram(coordinateSystem(
             preserveAspectRatio=false,
-            extent={{-100,-100},{100,100}}), graphics={Line(points={{-125,0},{-115,0}}, color={160,
-              160,164}),Line(points={{-120,-5},{-120,5}}, color={160,160,164}),
+            extent={{-100,-100},{100,100}}), graphics={Line(points={{-125,0},{-115,0}}, color={160,160,164}),
+              Line(points={{-120,-5},{-120,5}}, color={160,160,164}),
               Line(points={{115,0},{125,0}}, color={160,160,164})}),
         Documentation(info="<html>
 <p>
@@ -8331,8 +8197,8 @@ This package contains sources of a magnetic potential difference or a magnetic f
               textString="%name",
               lineColor={0,0,255})}), Diagram(coordinateSystem(
             preserveAspectRatio=false,
-            extent={{-100,-100},{100,100}}), graphics={Line(points={{-70,0},{-100,0}}, color={255,
-              128,0}),Line(points={{70,0},{100,0}}, color={255,128,0}),Line(
+            extent={{-100,-100},{100,100}}), graphics={Line(points={{-70,0},{-100,0}}, color={255,128,0}),
+              Line(points={{70,0},{100,0}}, color={255,128,0}),Line(
               points={{0,-100},{0,-70}})}));
     end MagneticPotentialDifferenceSensor;
 

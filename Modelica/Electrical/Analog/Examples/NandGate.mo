@@ -46,9 +46,9 @@ equation
   connect(VIN2.n, Gnd5.p) annotation (Line(points={{-70,-40},{-70,-45}}, color={0,0,255}));
   connect(Nand.Vdd, VDD.p) annotation (Line(points={{0,55},{0,90},{50,90},{50,
           80}}, color={0,0,255}));
-  connect(VIN1.p, Nand.x1) annotation (Line(points={{-70,30},{-40,30}}, color={0,0,255}));
-  connect(VIN2.p, Nand.x2) annotation (Line(points={{-70,-20},{-40,-20}}, color=
-          {0,0,255}));
+  connect(VIN1.p, Nand.x1) annotation (Line(points={{-70,30},{-40,30}}, color={0,
+          0,255}));
+  connect(VIN2.p, Nand.x2) annotation (Line(points={{-70,-20},{-40,-20}}, color={0,0,255}));
   annotation (Documentation(info="<html>
 <p>The nand gate is a basic CMOS building block. It consists of four CMOS transistors. The output voltage Nand.y.v is low if and only if the two input voltages at Nand.x1.v and Nand.x2.v are both high. In this way the nand functionality is realized.</p>
 <p>The simulation end time should be set to 1e-7. Please plot the input voltages Nand.x1.v, d Nand.x2.v, and the output voltage Nand.y.v.</p>

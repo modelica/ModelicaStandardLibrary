@@ -53,8 +53,7 @@ equation
   connect(Ground1.p, SineVoltage1.n)
   annotation (Line(points={{-40,-88},{-40,-72}}, color={0,0,255}));
   connect(SineVoltage1.p, IdealThyristor1.p)
-  annotation (Line(points={{-40,-52},{-40,40},{-20,40}},
-                                                       color={0,0,255}));
+  annotation (Line(points={{-40,-52},{-40,40},{-20,40}}, color={0,0,255}));
   connect(IdealGTOThyristor1.n, R1.p)
   annotation (Line(points={{0,10},{40,10}}, color={0,0,255}));
   connect(R3.n, R1.n)
@@ -62,36 +61,28 @@ equation
   connect(IdealGTOThyristor1.p, IdealThyristor1.p)
   annotation (Line(points={{-20,10},{-20,40}}, color={0,0,255}));
   connect(IdealGTOThyristor1.fire, IdealThyristor1.fire)
-  annotation (Line(points={{-3,21},{-3,27.5},{-2,27.5},{-2,35},{-3,35},{-3,51}},
-        color={255,0,255}));
+  annotation (Line(points={{-3,21},{-3,27.5},{-2,27.5},{-2,35},{-3,35},{-3,51}}, color={255,0,255}));
   connect(IdealThyristor1.fire, booleanStep1.y) annotation (Line(
-      points={{-3,51},{-3,54},{-47,54}},
-      color={255,0,255}));
+      points={{-3,51},{-3,54},{-47,54}}, color={255,0,255}));
   connect(IdealThyristor2.n,R2. p)
-  annotation (Line(points={{0,-42},{40,-42}},
-                                            color={0,0,255}));
+  annotation (Line(points={{0,-42},{40,-42}}, color={0,0,255}));
   connect(IdealGTOThyristor2.n,R4. p)
   annotation (Line(points={{0,-72},{40,-72}}, color={0,0,255}));
   connect(R2.n,R4. n)
-  annotation (Line(points={{60,-42},{60,-72}},color={0,0,255}));
+  annotation (Line(points={{60,-42},{60,-72}}, color={0,0,255}));
   connect(IdealGTOThyristor2.p,IdealThyristor2. p)
-  annotation (Line(points={{-20,-72},{-20,-42}},color={0,0,255}));
+  annotation (Line(points={{-20,-72},{-20,-42}}, color={0,0,255}));
   connect(IdealGTOThyristor2.fire,IdealThyristor2. fire)
   annotation (Line(points={{-3,-61},{-3,-54.5},{-2,-54.5},{-2,-47},{-3,-47},{-3,
-          -31}},
-        color={255,0,255}));
+          -31}}, color={255,0,255}));
   connect(R4.n, Ground1.p) annotation (Line(
-      points={{60,-72},{60,-88},{-40,-88}},
-      color={0,0,255}));
+      points={{60,-72},{60,-88},{-40,-88}}, color={0,0,255}));
   connect(R2.n, R1.n) annotation (Line(
-      points={{60,-42},{60,10}},
-      color={0,0,255}));
+      points={{60,-42},{60,10}}, color={0,0,255}));
   connect(SineVoltage1.p, IdealThyristor2.p) annotation (Line(
-      points={{-40,-52},{-40,-42},{-20,-42}},
-      color={0,0,255}));
+      points={{-40,-52},{-40,-42},{-20,-42}}, color={0,0,255}));
   connect(booleanPulse.y, IdealThyristor2.fire) annotation (Line(
-      points={{-47,-22},{-3,-22},{-3,-31}},
-      color={255,0,255}));
+      points={{-47,-22},{-3,-22},{-3,-31}}, color={255,0,255}));
 annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
             {100,100}}), graphics={Text(
           extent={{-96,100},{98,60}},

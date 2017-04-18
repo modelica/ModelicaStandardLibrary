@@ -64,11 +64,10 @@ package MultiPhase "Multi phase quasi static package"
     connect(const.y, variableResistor.R_ref) annotation (Line(points={{-29,60},{-20,60},{-20,41}}, color={0,0,127}));
     connect(const1.y, variableConductor.G_ref) annotation (Line(points={{1,80},{6,80},{10,80},{10,41}}, color={0,0,127}));
     connect(const2.y, variableCapacitor.C) annotation (Line(points={{49,80},{40,80},{40,41}}, color={0,0,127}));
-    connect(const3.y, variableInductor.L) annotation (Line(points={{79,60},{70,60},{70,41}},   color={0,0,127}));
-    connect(currentSource.plug_n, conductor.plug_p) annotation (Line(points={{-50,-10},{-50,-10},{-50,0},{-90,0}},
-                                                                                                    color={85,170,255}));
+    connect(const3.y, variableInductor.L) annotation (Line(points={{79,60},{70,60},{70,41}}, color={0,0,127}));
+    connect(currentSource.plug_n, conductor.plug_p) annotation (Line(points={{-50,-10},{-50,-10},{-50,0},{-90,0}}, color={85,170,255}));
     connect(conductor.plug_n, impedance.plug_p) annotation (Line(points={{-90,20},{-90,30}}, color={85,170,255}));
-    connect(impedance.plug_n, admittance.plug_p) annotation (Line(points={{-70,30},{-60,30}},          color={85,170,255}));
+    connect(impedance.plug_n, admittance.plug_p) annotation (Line(points={{-70,30},{-60,30}}, color={85,170,255}));
     connect(admittance.plug_n, variableResistor.plug_p) annotation (Line(points={{-40,30},{-40,30},{-30,30}}, color={85,170,255}));
     connect(variableResistor.plug_n, variableConductor.plug_p) annotation (Line(points={{-10,30},{-5,30},{0,30}}, color={85,170,255}));
     connect(variableConductor.plug_n, variableCapacitor.plug_p) annotation (Line(points={{20,30},{25,30},{30,30}}, color={85,170,255}));
@@ -81,7 +80,7 @@ package MultiPhase "Multi phase quasi static package"
     connect(const6.y, currentSource.I) annotation (Line(points={{-79,-50},{-70,-50},{-70,-24},{-60,-24}}, color={85,170,255}));
     connect(ramp.y, currentSource.f) annotation (Line(points={{-79,-20},{-74,-20},{-70,-20},{-70,-16},{-60,-16}}, color={0,0,127}));
     connect(currentSource.plug_p, variableAdmittance.plug_n) annotation (Line(points={{-50,-30},{-50,-40},{30,-40}}, color={85,170,255}));
-    connect(variableAdmittance.plug_n, voltageSensor.plug_n) annotation (Line(points={{30,-40},{8,-40},{-20,-40},{-20,-36},{-20,-30}},                   color={85,170,255}));
+    connect(variableAdmittance.plug_n, voltageSensor.plug_n) annotation (Line(points={{30,-40},{8,-40},{-20,-40},{-20,-36},{-20,-30}}, color={85,170,255}));
     connect(star.plug_p, currentSource.plug_p) annotation (Line(points={{-50,-50},{-50,-50},{-50,-30}}, color={85,170,255}));
     connect(star.pin_n, ground.pin) annotation (Line(points={{-50,-70},{-50,-70},{-50,-80}}, color={85,170,255}));
     annotation (      experiment(StopTime=1),
@@ -170,9 +169,9 @@ package MultiPhase "Multi phase quasi static package"
           origin={-90,-40})));
   equation
 
-    connect(voltageSource.plug_p, short.plug_p) annotation (Line(points={{-90,20},{-90,20},{-90,30},{-80,30}},     color={85,170,255}));
-    connect(short.plug_n, idle.plug_p) annotation (Line(points={{-60,30},{-50,30},{-50,20}},    color={85,170,255}));
-    connect(short.plug_n, idealOpeningSwitch.plug_p) annotation (Line(points={{-60,30},{-60,30},{-40,30}},    color={85,170,255}));
+    connect(voltageSource.plug_p, short.plug_p) annotation (Line(points={{-90,20},{-90,20},{-90,30},{-80,30}}, color={85,170,255}));
+    connect(short.plug_n, idle.plug_p) annotation (Line(points={{-60,30},{-50,30},{-50,20}}, color={85,170,255}));
+    connect(short.plug_n, idealOpeningSwitch.plug_p) annotation (Line(points={{-60,30},{-60,30},{-40,30}}, color={85,170,255}));
     connect(booleanStep2.y, idealCommutingSwitch.control) annotation (Line(points={{49,80},{49,80},{40,80},{40,38}}, color={255,0,255}));
     connect(booleanStep3.y, idealIntermediateSwitch.control) annotation (Line(points={{79,60},{70,60},{70,38}}, color={255,0,255}));
     connect(prescribedTemperature.port, admittance.heatPort) annotation (Line(points={{20,-90},{50,-90},{50,-30},{70,-30}}, color={191,0,0}));

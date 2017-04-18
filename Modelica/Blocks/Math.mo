@@ -904,7 +904,8 @@ Example:
               extent={{-20,20},{20,-20}},
               fillColor={235,235,235},
               fillPattern=FillPattern.Solid,
-              lineColor={0,0,255}),Line(points={{-60,0},{-20,0}}, color={0,0,255}),Line(points={{20,0},{80,0}}, color={0,0,255}),Line(points={{0,
+              lineColor={0,0,255}),Line(points={{-60,0},{-20,0}}, color={0,0,255}),
+            Line(points={{20,0},{80,0}}, color={0,0,255}),Line(points={{0,
             -20},{0,-60}}, color={0,0,255}),Text(
               extent={{-12,10},{84,-84}},
               textString="-")}));
@@ -960,7 +961,8 @@ Example:
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),Line(points={{50,0},{100,0}},
             color={0,0,255}),Line(points={{-100,60},{-74,24},{-44,24}}, color={
-            0,0,127}),Line(points={{-100,-60},{-74,-28},{-42,-28}}, color={0,0,127}),Ellipse(extent={{-50,50},{50,-50}}, lineColor={0,0,127}),Line(
+            0,0,127}),Line(points={{-100,-60},{-74,-28},{-42,-28}}, color={0,0,127}),
+            Ellipse(extent={{-50,50},{50,-50}}, lineColor={0,0,127}),Line(
             points={{50,0},{100,0}}, color={0,0,127}),Text(
               extent={{-36,38},{40,-30}},
               textString="+"),Text(
@@ -1123,7 +1125,8 @@ the two inputs <strong>u1</strong> and <strong>u2</strong>:
               extent={{-5,-20},{5,-30}},
               fillPattern=FillPattern.Solid),Ellipse(extent={{-50,50},{50,-50}},
             lineColor={0,0,255}),Line(points={{-100,60},{-66,60},{-40,30}},
-            color={0,0,255}),Line(points={{-100,-60},{0,-60},{0,-50}}, color={0,0,255})}));
+            color={0,0,255}),Line(points={{-100,-60},{0,-60},{0,-50}}, color={0,
+            0,255})}));
   end Division;
 
   block Abs "Output the absolute value of the input"
@@ -1156,8 +1159,8 @@ the two inputs <strong>u1</strong> and <strong>u2</strong>:
             textString="abs"),
           Line(points={{-88,0},{76,0}}, color={192,192,192})}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={Line(points={{-100,0},{76,0}}, color={192,
-            192,192}),Polygon(
+              100,100}}), graphics={Line(points={{-100,0},{76,0}}, color={192,192,192}),
+            Polygon(
               points={{92,0},{76,6},{76,-6},{92,0}},
               lineColor={192,192,192},
               fillColor={192,192,192},
@@ -1235,8 +1238,8 @@ The Boolean parameter generateEvent decides whether Events are generated at zero
             extent={{-2,2},{2,-4}},
             fillPattern=FillPattern.Solid)}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={Line(points={{-90,0},{68,0}}, color={192,
-            192,192}),Polygon(
+              100,100}}), graphics={Line(points={{-90,0},{68,0}}, color={192,192,192}),
+            Polygon(
               points={{90,0},{68,8},{68,-8},{90,0}},
               lineColor={192,192,192},
               fillColor={192,192,192},
@@ -1375,8 +1378,8 @@ Otherwise an error occurs.
             lineColor={192,192,192},
             textString="sin")}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={Line(points={{-80,80},{-88,80}}, color={192,
-            192,192}),Line(points={{-80,-80},{-88,-80}}, color={192,192,192}),
+              100,100}}), graphics={Line(points={{-80,80},{-88,80}}, color={192,192,192}),
+            Line(points={{-80,-80},{-88,-80}}, color={192,192,192}),
             Line(points={{-80,-90},{-80,84}}, color={192,192,192}),Text(
               extent={{-75,98},{-46,78}},
               lineColor={160,160,164},
@@ -1455,8 +1458,8 @@ as <strong>sine</strong> of the input <strong>u</strong>:
             lineColor={192,192,192},
             textString="cos")}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={Line(points={{-80,80},{-88,80}}, color={192,
-            192,192}),Line(points={{-80,-80},{-88,-80}}, color={192,192,192}),
+              100,100}}), graphics={Line(points={{-80,80},{-88,80}}, color={192,192,192}),
+            Line(points={{-80,-80},{-88,-80}}, color={192,192,192}),
             Line(points={{-80,-90},{-80,84}}, color={192,192,192}),Text(
               extent={{-75,102},{-48,82}},
               lineColor={160,160,164},
@@ -1473,8 +1476,8 @@ as <strong>sine</strong> of the input <strong>u</strong>:
               lineColor={0,0,255}),Text(
               extent={{70,25},{90,5}},
               textString="2*pi",
-              lineColor={0,0,255}),Line(points={{-100,0},{84,0}}, color={192,
-            192,192}),Polygon(
+              lineColor={0,0,255}),Line(points={{-100,0},{84,0}}, color={192,192,192}),
+            Polygon(
               points={{100,0},{84,6},{84,-6},{100,0}},
               lineColor={192,192,192},
               fillColor={192,192,192},
@@ -1482,7 +1485,8 @@ as <strong>sine</strong> of the input <strong>u</strong>:
             {-68.7,72.3},{-63.1,63},{-56.7,48.7},{-48.6,26.6},{-29.3,-32.5},{-22.1,
             -51.7},{-15.7,-65.3},{-10.1,-73.8},{-4.42,-78.8},{1.21,-79.9},{6.83,
             -77.1},{12.5,-70.6},{18.1,-60.6},{24.5,-45.7},{32.6,-23},{50.3,31.3},
-            {57.5,50.7},{63.9,64.6},{69.5,73.4},{75.2,78.6},{80,80}}, color={0,0,0}),Text(
+            {57.5,50.7},{63.9,64.6},{69.5,73.4},{75.2,78.6},{80,80}}),
+            Text(
               extent={{74,-4},{98,-24}},
               lineColor={160,160,164},
               textString="u")}),
@@ -1534,8 +1538,8 @@ as <strong>cos</strong> of the input <strong>u</strong>:
             lineColor={192,192,192},
             textString="tan")}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={Line(points={{0,80},{-8,80}}, color={192,
-            192,192}),Line(points={{0,-80},{-8,-80}}, color={192,192,192}),Line(
+              100,100}}), graphics={Line(points={{0,80},{-8,80}}, color={192,192,192}),
+            Line(points={{0,-80},{-8,-80}}, color={192,192,192}),Line(
             points={{0,-88},{0,86}}, color={192,192,192}),Text(
               extent={{11,100},{38,80}},
               lineColor={160,160,164},
@@ -1552,8 +1556,8 @@ as <strong>cos</strong> of the input <strong>u</strong>:
               lineColor={0,0,255}),Text(
               extent={{70,25},{90,5}},
               textString="1.4",
-              lineColor={0,0,255}),Line(points={{-100,0},{84,0}}, color={192,
-            192,192}),Polygon(
+              lineColor={0,0,255}),Line(points={{-100,0},{84,0}}, color={192,192,192}),
+            Polygon(
               points={{100,0},{84,6},{84,-6},{100,0}},
               lineColor={192,192,192},
               fillColor={192,192,192},
@@ -1612,8 +1616,8 @@ as <strong>tan</strong> of the input <strong>u</strong>:
             lineColor={192,192,192},
             textString="asin")}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={Line(points={{0,80},{-8,80}}, color={192,
-            192,192}),Line(points={{0,-80},{-8,-80}}, color={192,192,192}),Line(
+              100,100}}), graphics={Line(points={{0,80},{-8,80}}, color={192,192,192}),
+            Line(points={{0,-80},{-8,-80}}, color={192,192,192}),Line(
             points={{0,-90},{0,84}}, color={192,192,192}),Text(
               extent={{9,102},{36,82}},
               lineColor={160,160,164},
@@ -1633,8 +1637,8 @@ as <strong>tan</strong> of the input <strong>u</strong>:
               lineColor={0,0,255}),Text(
               extent={{-90,21},{-70,1}},
               textString="-1",
-              lineColor={0,0,255}),Line(points={{-100,0},{84,0}}, color={192,
-            192,192}),Polygon(
+              lineColor={0,0,255}),Line(points={{-100,0},{84,0}}, color={192,192,192}),
+            Polygon(
               points={{100,0},{84,6},{84,-6},{100,0}},
               lineColor={192,192,192},
               fillColor={192,192,192},
@@ -1695,8 +1699,8 @@ Otherwise an error occurs.
             lineColor={192,192,192},
             textString="acos")}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={Line(points={{0,80},{-8,80}}, color={192,
-            192,192}),Line(points={{0,-80},{-8,-80}}, color={192,192,192}),Line(
+              100,100}}), graphics={Line(points={{0,80},{-8,80}}, color={192,192,192}),
+            Line(points={{0,-80},{-8,-80}}, color={192,192,192}),Line(
             points={{0,-90},{0,84}}, color={192,192,192}),Text(
               extent={{13,100},{42,82}},
               lineColor={160,160,164},
@@ -1777,8 +1781,8 @@ Otherwise an error occurs.
             lineColor={192,192,192},
             textString="atan")}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={Line(points={{0,80},{-8,80}}, color={192,
-            192,192}),Line(points={{0,-80},{-8,-80}}, color={192,192,192}),Line(
+              100,100}}), graphics={Line(points={{0,80},{-8,80}}, color={192,192,192}),
+            Line(points={{0,-80},{-8,-80}}, color={192,192,192}),Line(
             points={{0,-90},{0,84}}, color={192,192,192}),Text(
               extent={{13,102},{42,82}},
               lineColor={160,160,164},
@@ -1868,8 +1872,8 @@ This blocks computes the output <strong>y</strong> as the
             lineColor={192,192,192},
             textString="atan2")}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={Line(points={{0,80},{-8,80}}, color={192,
-            192,192}),Line(points={{0,-80},{-8,-80}}, color={192,192,192}),Line(
+              100,100}}), graphics={Line(points={{0,80},{-8,80}}, color={192,192,192}),
+            Line(points={{0,-80},{-8,-80}}, color={192,192,192}),Line(
             points={{0,-90},{0,84}}, color={192,192,192}),Text(
               extent={{11,98},{42,78}},
               lineColor={160,160,164},
@@ -1896,8 +1900,8 @@ This blocks computes the output <strong>y</strong> as the
               lineColor={0,0,255}),Text(
               extent={{-30,49},{-10,30}},
               textString="pi/2",
-              lineColor={0,0,255}),Line(points={{0,40},{-8,40}}, color={192,192,
-            192}),Line(points={{0,-40},{-8,-40}}, color={192,192,192}),Text(
+              lineColor={0,0,255}),Line(points={{0,40},{-8,40}}, color={192,192,192}),
+            Line(points={{0,-40},{-8,-40}}, color={192,192,192}),Text(
               extent={{-30,-31},{-10,-50}},
               textString="-pi/2",
               lineColor={0,0,255}),Text(
@@ -1960,8 +1964,8 @@ block <strong>Atan</strong> gives a solution in the range
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid)}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={Line(points={{0,80},{-8,80}}, color={192,
-            192,192}),Line(points={{0,-80},{-8,-80}}, color={192,192,192}),Line(
+              100,100}}), graphics={Line(points={{0,80},{-8,80}}, color={192,192,192}),
+            Line(points={{0,-80},{-8,-80}}, color={192,192,192}),Line(
             points={{0,-90},{0,84}}, color={192,192,192}),Text(
               extent={{9,98},{34,78}},
               lineColor={160,160,164},
@@ -2042,8 +2046,8 @@ This blocks computes the output <strong>y</strong> as the
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid)}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={Line(points={{0,80},{-8,80}}, color={192,
-            192,192}),Line(points={{0,-80},{-8,-80}}, color={192,192,192}),Line(
+              100,100}}), graphics={Line(points={{0,80},{-8,80}}, color={192,192,192}),
+            Line(points={{0,-80},{-8,-80}}, color={192,192,192}),Line(
             points={{0,-90},{0,84}}, color={192,192,192}),Text(
               extent={{11,98},{38,78}},
               lineColor={160,160,164},
@@ -2121,8 +2125,8 @@ This blocks computes the output <strong>y</strong> as the
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid)}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={Line(points={{0,80},{-8,80}}, color={192,
-            192,192}),Line(points={{0,-80},{-8,-80}}, color={192,192,192}),Line(
+              100,100}}), graphics={Line(points={{0,80},{-8,80}}, color={192,192,192}),
+            Line(points={{0,-80},{-8,-80}}, color={192,192,192}),Line(
             points={{0,-90},{0,84}}, color={192,192,192}),Text(
               extent={{9,98},{42,80}},
               lineColor={160,160,164},
@@ -2203,8 +2207,8 @@ This blocks computes the output <strong>y</strong> as the
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid)}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={Line(points={{0,80},{-8,80}}, color={192,
-            192,192}),Line(points={{0,-80},{-8,-80}}, color={192,192,192}),Line(
+              100,100}}), graphics={Line(points={{0,80},{-8,80}}, color={192,192,192}),
+            Line(points={{0,-80},{-8,-80}}, color={192,192,192}),Line(
             points={{0,-90},{0,84}}, color={192,192,192}),Text(
               extent={{9,100},{40,80}},
               lineColor={160,160,164},
@@ -2284,8 +2288,8 @@ This blocks computes the output <strong>y</strong> as the
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid)}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={Line(points={{0,80},{-8,80}}, color={192,
-            192,192}),Line(points={{0,-80},{-8,-80}}, color={192,192,192}),Line(
+              100,100}}), graphics={Line(points={{0,80},{-8,80}}, color={192,192,192}),
+            Line(points={{0,-80},{-8,-80}}, color={192,192,192}),Line(
             points={{0,-90},{0,84}}, color={192,192,192}),Text(
               extent={{9,100},{40,80}},
               lineColor={160,160,164},
@@ -2358,8 +2362,8 @@ otherwise:
             lineColor={192,192,192},
             textString="log")}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={Line(points={{-80,80},{-88,80}}, color={192,
-            192,192}),Line(points={{-80,-80},{-88,-80}}, color={192,192,192}),
+              100,100}}), graphics={Line(points={{-80,80},{-88,80}}, color={192,192,192}),
+            Line(points={{-80,-80},{-88,-80}}, color={192,192,192}),
             Line(points={{-80,-90},{-80,84}}, color={192,192,192}),Text(
               extent={{-67,98},{-40,80}},
               lineColor={160,160,164},
@@ -2431,8 +2435,8 @@ zero or negative.
             lineColor={192,192,192},
             textString="log10")}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={Line(points={{-80,80},{-88,80}}, color={192,
-            192,192}),Line(points={{-80,-80},{-88,-80}}, color={192,192,192}),
+              100,100}}), graphics={Line(points={{-80,80},{-88,80}}, color={192,192,192}),
+            Line(points={{-80,-80},{-88,-80}}, color={192,192,192}),
             Line(points={{-80,-90},{-80,84}}, color={192,192,192}),Text(
               extent={{-65,96},{-38,78}},
               lineColor={160,160,164},
@@ -2508,8 +2512,8 @@ zero or negative.
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid)}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={Line(points={{-80,80},{-88,80}}, color={192,
-            192,192}),Line(points={{-80,-80},{-88,-80}}, color={192,192,192}),
+              100,100}}), graphics={Line(points={{-80,80},{-88,80}}, color={192,192,192}),
+            Line(points={{-80,-80},{-88,-80}}, color={192,192,192}),
             Line(points={{-80,-90},{-80,84}}, color={192,192,192}),Text(
               extent={{-65,96},{-38,78}},
               lineColor={160,160,164},
@@ -2919,14 +2923,11 @@ explicitly set to 0.0, if the mean value results in a negative value.
       annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
   equation
     connect(u, abs1.u) annotation (Line(
-        points={{-120,0},{-62,0}},
-        color={0,0,127}));
+        points={{-120,0},{-62,0}}, color={0,0,127}));
     connect(abs1.y, mean.u) annotation (Line(
-        points={{-39,0},{-2,0}},
-        color={0,0,127}));
+        points={{-39,0},{-2,0}}, color={0,0,127}));
     connect(mean.y, y) annotation (Line(
-        points={{21,0},{110,0}},
-        color={0,0,127}));
+        points={{21,0},{110,0}}, color={0,0,127}));
     annotation (Documentation(info="<html>
 <p>
 This block calculates the rectified mean of the input signal u over the given period 1/f, using the
@@ -3041,20 +3042,15 @@ This block is demonstrated in the examples
   equation
 
     connect(product.y, mean.u) annotation (Line(
-        points={{-18.3,0},{-2,0}},
-        color={0,0,127}));
+        points={{-18.3,0},{-2,0}}, color={0,0,127}));
     connect(mean.y, sqrt1.u) annotation (Line(
-        points={{21,0},{38,0}},
-        color={0,0,127}));
+        points={{21,0},{38,0}}, color={0,0,127}));
     connect(sqrt1.y, y) annotation (Line(
-        points={{61,0},{110,0}},
-        color={0,0,127}));
+        points={{61,0},{110,0}}, color={0,0,127}));
     connect(u, product.u[1]) annotation (Line(
-        points={{-120,0},{-60,0},{-60,3.5},{-40,3.5}},
-        color={0,0,127}));
+        points={{-120,0},{-60,0},{-60,3.5},{-40,3.5}}, color={0,0,127}));
     connect(u, product.u[2]) annotation (Line(
-        points={{-120,0},{-60,0},{-60,-3.5},{-40,-3.5}},
-        color={0,0,127}));
+        points={{-120,0},{-60,0},{-60,-3.5},{-40,-3.5}}, color={0,0,127}));
     annotation (Documentation(info="<html>
 <p>
 This block calculates the root mean square of the input signal u over the given period 1/f, using the
@@ -3178,14 +3174,11 @@ This block is demonstrated in the examples
       annotation (Placement(transformation(extent={{-20,-10},{0,10}})));
   equation
     connect(variance.u, u) annotation (Line(
-        points={{-62,0},{-120,0}},
-        color={0,0,127}));
+        points={{-62,0},{-120,0}}, color={0,0,127}));
     connect(sqrt1.u, variance.y) annotation (Line(
-        points={{-22,0},{-39,0}},
-        color={0,0,127}));
+        points={{-22,0},{-39,0}}, color={0,0,127}));
     connect(sqrt1.y, y) annotation (Line(
-        points={{1,0},{110,0}},
-        color={0,0,127}));
+        points={{1,0},{110,0}}, color={0,0,127}));
     annotation (Documentation(revisions="<html>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
@@ -3301,32 +3294,23 @@ This block is demonstrated in the examples
   equation
 
     connect(product2.y, mean2.u) annotation (Line(
-        points={{-38.3,-40},{-22,-40}},
-        color={0,0,127}));
+        points={{-38.3,-40},{-22,-40}}, color={0,0,127}));
     connect(product1.y, mean1.u) annotation (Line(
-        points={{-38.3,40},{-22,40}},
-        color={0,0,127}));
+        points={{-38.3,40},{-22,40}}, color={0,0,127}));
     connect(mean1.y, rectangularToPolar.u_re) annotation (Line(
-        points={{1,40},{20,40},{20,4},{38,4}},
-        color={0,0,127}));
+        points={{1,40},{20,40},{20,4},{38,4}}, color={0,0,127}));
     connect(mean2.y, rectangularToPolar.u_im) annotation (Line(
-        points={{1,-40},{20,-40},{20,-8},{38,-8}},
-        color={0,0,127}));
+        points={{1,-40},{20,-40},{20,-8},{38,-8}}, color={0,0,127}));
     connect(rectangularToPolar.y_abs, y_rms) annotation (Line(
-        points={{61,4},{80,4},{80,60},{110,60}},
-        color={0,0,127}));
+        points={{61,4},{80,4},{80,60},{110,60}}, color={0,0,127}));
     connect(sin1.y, product1.u[1]) annotation (Line(
-        points={{-80,59},{-80,59},{-80,43.5},{-60,43.5}},
-        color={0,0,127}));
+        points={{-80,59},{-80,59},{-80,43.5},{-60,43.5}}, color={0,0,127}));
     connect(u, product1.u[2]) annotation (Line(
-        points={{-120,0},{-80,0},{-80,36.5},{-60,36.5}},
-        color={0,0,127}));
+        points={{-120,0},{-80,0},{-80,36.5},{-60,36.5}}, color={0,0,127}));
     connect(u, product2.u[1]) annotation (Line(
-        points={{-120,0},{-80,0},{-80,-36.5},{-60,-36.5}},
-        color={0,0,127}));
+        points={{-120,0},{-80,0},{-80,-36.5},{-60,-36.5}}, color={0,0,127}));
     connect(sin2.y, product2.u[2]) annotation (Line(
-        points={{-80,-59},{-80,-43.5},{-60,-43.5}},
-        color={0,0,127}));
+        points={{-80,-59},{-80,-43.5},{-60,-43.5}}, color={0,0,127}));
     connect(rectangularToPolar.y_arg, gain.u)
       annotation (Line(points={{61,-8},{80,-8},{80,-18}}, color={0,0,127}));
     connect(gain.y, y_arg)

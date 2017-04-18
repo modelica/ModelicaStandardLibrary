@@ -97,14 +97,11 @@ Possible reasons:
     s = internalAxis.s;
 
     connect(fixed.flange, support) annotation (Line(
-        points={{-40,40},{-40,60}},
-        color={0,127,0}));
+        points={{-40,40},{-40,60}}, color={0,127,0}));
     connect(internalAxis.flange, axis) annotation (Line(
-        points={{80,40},{80,60}},
-        color={0,127,0}));
+        points={{80,40},{80,60}}, color={0,127,0}));
     connect(constantForce.flange, internalAxis.flange) annotation (Line(
-        points={{60,40},{80,40}},
-        color={0,127,0}));
+        points={{60,40},{80,40}}, color={0,127,0}));
     annotation (
       Icon(coordinateSystem(
           preserveAspectRatio=true,
@@ -2082,11 +2079,9 @@ frame_b of the joint.
     connect(derz[3].y, z_rel_b_3);
 
     connect(initPosition.r_rel_a, derv.u) annotation (Line(
-        points={{1,70},{18,70}},
-        color={0,0,127}));
+        points={{1,70},{18,70}}, color={0,0,127}));
     connect(derv.y, dera.u) annotation (Line(
-        points={{41,70},{58,70}},
-        color={0,0,127}));
+        points={{41,70},{58,70}}, color={0,0,127}));
     connect(initAngle.frame_a, frame_a) annotation (Line(
         points={{-60,0},{-100,0}},
         color={95,95,95},
@@ -2096,11 +2091,9 @@ frame_b of the joint.
         color={95,95,95},
         thickness=0.5));
     connect(initAngle.angle, derd.u) annotation (Line(
-        points={{-50,-11},{-50,-20},{-22,-20}},
-        color={0,0,127}));
+        points={{-50,-11},{-50,-20},{-22,-20}}, color={0,0,127}));
     connect(derd.y, derdd.u) annotation (Line(
-        points={{1,-20},{18,-20}},
-        color={0,0,127}));
+        points={{1,-20},{18,-20}}, color={0,0,127}));
     connect(zeroForceAndTorque1.frame_a, frame_a) annotation (Line(
         points={{-80,-40},{-88,-40},{-88,0},{-100,0}},
         color={95,95,95},
@@ -2110,15 +2103,13 @@ frame_b of the joint.
         color={95,95,95},
         thickness=0.5));
     connect(initAngularVelocity.w_rel_b, derz.u) annotation (Line(
-        points={{1,30},{18,30}},
-        color={0,0,127}));
+        points={{1,30},{18,30}}, color={0,0,127}));
     connect(frame_a, arrow.frame_a) annotation (Line(
         points={{-100,0},{-88,0},{-88,70},{-80,70}},
         color={95,95,95},
         thickness=0.5));
     connect(initPosition.r_rel_a, arrow.r_head) annotation (Line(
-        points={{1,70},{10,70},{10,52},{-70,52},{-70,58}},
-        color={0,0,127}));
+        points={{1,70},{10,70},{10,52},{-70,52},{-70,58}}, color={0,0,127}));
     annotation (
       Documentation(info="<html>
 <p>
@@ -4659,8 +4650,7 @@ component).
           color={95,95,95},
           pattern=LinePattern.Dot));
       connect(position_b.y, revolute.position_b) annotation (Line(
-          points={{1,-40},{20,-40},{20,-12},{31,-12}},
-          color={0,0,127}));
+          points={{1,-40},{20,-40},{20,-12},{31,-12}}, color={0,0,127}));
       connect(rod2.frame_b, frame_im) annotation (Line(
           points={{-25,0},{-40,0},{-40,80},{0,80},{0,100}},
           color={95,95,95},
@@ -4672,8 +4662,7 @@ component).
       connect(revolute.axis, axis) annotation (Line(points={{55,20},{55,60},{90,
               60},{90,80},{100,80}}));
       connect(relativePosition.r_rel, revolute.position_a) annotation (Line(
-          points={{50,-69},{50,-40},{90,-40},{90,-12},{79,-12}},
-          color={0,0,127}));
+          points={{50,-69},{50,-40},{90,-40},{90,-12},{79,-12}}, color={0,0,127}));
       connect(revolute.bearing, bearing) annotation (Line(
           points={{67,20},{67,40},{100,40}}));
       annotation (
@@ -5151,16 +5140,14 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
           color={95,95,95},
           thickness=0.5));
       connect(position_b.y, prismatic.position_b) annotation (Line(
-          points={{1,-50},{10,-50},{10,-12},{32,-12}},
-          color={0,0,127}));
+          points={{1,-50},{10,-50},{10,-12},{32,-12}}, color={0,0,127}));
       connect(prismatic.axis, axis) annotation (Line(points={{40,14},{40,56},{
               90,56},{90,80},{100,80}}, color={0,191,0}));
       connect(prismatic.bearing, bearing)
         annotation (Line(points={{64,14},{64,40},{100,40}}, color={0,191,0}));
       connect(relativePosition.r_rel, prismatic.position_a)
                                                           annotation (Line(
-          points={{40,-69},{40,-50},{90,-50},{90,-12},{80,-12}},
-          color={0,0,127}));
+          points={{40,-69},{40,-50},{90,-50},{90,-12},{80,-12}}, color={0,0,127}));
       annotation (
         Documentation(info="<html>
 <p>
@@ -5630,8 +5617,7 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
           color={95,95,95},
           pattern=LinePattern.Dot));
       connect(position_b.y, revolute.position_b) annotation (Line(
-          points={{1,-40},{20,-40},{20,-12},{31,-12}},
-          color={0,0,127}));
+          points={{1,-40},{20,-40},{20,-12},{31,-12}}, color={0,0,127}));
       connect(revolute.axis, axis) annotation (Line(points={{55,20},{55,60},{90,
               60},{90,80},{100,80}}));
       connect(rod2.frame_b, frame_im) annotation (Line(
@@ -5640,8 +5626,7 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
           thickness=0.5));
       connect(relativePosition.r_rel, revolute.position_a)
                                                          annotation (Line(
-          points={{50,-69},{50,-50},{90,-50},{90,-12},{79,-12}},
-          color={0,0,127}));
+          points={{50,-69},{50,-50},{90,-50},{90,-12},{79,-12}}, color={0,0,127}));
       connect(revolute.bearing, bearing) annotation (Line(
           points={{67,20},{67,40},{100,40}}));
       annotation (
@@ -5975,8 +5960,7 @@ component).
           color={95,95,95},
           pattern=LinePattern.Dot));
       connect(position_b.y, prismatic.position_b) annotation (Line(
-          points={{1,-40},{20,-40},{20,-12},{31,-12}},
-          color={0,0,127}));
+          points={{1,-40},{20,-40},{20,-12},{31,-12}}, color={0,0,127}));
       connect(prismatic.axis, axis) annotation (Line(points={{39,14},{40,14},{
               40,60},{90,60},{90,80},{100,80}}));
       connect(prismatic.bearing, bearing)
@@ -5987,8 +5971,7 @@ component).
           thickness=0.5));
       connect(relativePosition.r_rel, prismatic.position_a)
                                                           annotation (Line(
-          points={{50,-69},{50,-50},{90,-50},{90,-12},{79,-12}},
-          color={0,0,127}));
+          points={{50,-69},{50,-50},{90,-50},{90,-12},{79,-12}}, color={0,0,127}));
       annotation (
         Documentation(info="<html>
 <p>
@@ -6307,7 +6290,7 @@ component).
           color={95,95,95},
           thickness=0.5));
       connect(jointUSR.axis, axis)
-        annotation (Line(points={{10,16},{86,16},{86,80},{100,80}}, color={0,0,0}));
+        annotation (Line(points={{10,16},{86,16},{86,80},{100,80}}));
       connect(jointUSR.bearing, bearing)
         annotation (Line(points={{10,8},{94,8},{94,40},{100,40}}));
       annotation (
@@ -6626,7 +6609,7 @@ are connected by rigid rods.
           color={95,95,95},
           thickness=0.5));
       connect(jointUSP.axis, axis)
-        annotation (Line(points={{10,16},{86,16},{86,80},{100,80}}, color={0,0,0}));
+        annotation (Line(points={{10,16},{86,16},{86,80},{100,80}}));
       connect(jointUSP.bearing, bearing)
         annotation (Line(points={{10,8},{94,8},{94,40},{100,40}}));
       annotation (

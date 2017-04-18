@@ -11842,8 +11842,8 @@ package Icons "Icons for Math"
             textString="%name",
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={Line(points={{-80,80},{-88,80}}, color={95,
-            95,95}),Line(points={{-80,-80},{-88,-80}}, color={95,95,95}),Line(
+              100,100}}), graphics={Line(points={{-80,80},{-88,80}}, color={95,95,95}),
+            Line(points={{-80,-80},{-88,-80}}, color={95,95,95}),Line(
             points={{-80,-90},{-80,84}}, color={95,95,95}),Text(
                 extent={{-75,104},{-55,84}},
                 lineColor={95,95,95},
@@ -12238,8 +12238,8 @@ external "builtin" y = acos(u);
           textString="acos")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}}), graphics={Line(points={{-100,-80},{84,-80}}, color={95,95,
-          95}),Polygon(
+        extent={{-100,-100},{100,100}}), graphics={Line(points={{-100,-80},{84,-80}}, color={95,95,95}),
+          Polygon(
             points={{98,-80},{82,-74},{82,-86},{98,-80}},
             lineColor={95,95,95},
             fillColor={95,95,95},
@@ -12395,8 +12395,8 @@ external "builtin" y = atan2(u1, u2);
             lineColor={0,0,255}),Text(
             extent={{0,55},{20,42}},
             textString="pi/2",
-            lineColor={0,0,255}),Line(points={{0,40},{-8,40}}, color={192,192,
-          192}),Line(points={{0,-40},{-8,-40}}, color={192,192,192}),Text(
+            lineColor={0,0,255}),Line(points={{0,40},{-8,40}}, color={192,192,192}),
+          Line(points={{0,-40},{-8,-40}}, color={192,192,192}),Text(
             extent={{0,-23},{20,-42}},
             textString="-pi/2",
             lineColor={0,0,255}),Text(
@@ -12472,8 +12472,8 @@ algorithm
           textString="atan3")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}}), graphics={Line(points={{-100,-86},{84,-86}}, color={95,95,
-          95}),Polygon(
+        extent={{-100,-100},{100,100}}), graphics={Line(points={{-100,-86},{84,-86}}, color={95,95,95}),
+          Polygon(
             points={{98,-86},{82,-80},{82,-92},{98,-86}},
             lineColor={95,95,95},
             fillColor={95,95,95},
@@ -12496,8 +12496,8 @@ algorithm
             lineColor={0,0,255}),Text(
             extent={{-52,-72},{-10,-88}},
             textString="(2*N-3)*pi",
-            lineColor={0,0,255}),Line(points={{0,40},{-8,40}}, color={192,192,
-          192}),Line(points={{0,-40},{-8,-40}}, color={192,192,192}),Text(
+            lineColor={0,0,255}),Line(points={{0,40},{-8,40}}, color={192,192,192}),
+          Line(points={{0,-40},{-8,-40}}, color={192,192,192}),Text(
             extent={{38,-68},{78,-84}},
             lineColor={95,95,95},
             textString="u1, u2, y0"),Line(
@@ -12692,8 +12692,8 @@ external "builtin" y = tanh(u);
           textString="tanh")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}}), graphics={Line(points={{-100,0},{84,0}}, color={95,95,
-          95}),Polygon(
+        extent={{-100,-100},{100,100}}), graphics={Line(points={{-100,0},{84,0}}, color={95,95,95}),
+          Polygon(
             points={{96,0},{80,6},{80,-6},{96,0}},
             lineColor={95,95,95},
             fillColor={95,95,95},
@@ -12826,8 +12826,8 @@ algorithm
           textString="arcosh")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}}), graphics={Line(points={{-100,-70},{84,-70}}, color={95,95,
-          95}),Polygon(
+        extent={{-100,-100},{100,100}}), graphics={Line(points={{-100,-70},{84,-70}}, color={95,95,95}),
+          Polygon(
             points={{100,-70},{84,-64},{84,-76},{100,-70}},
             lineColor={95,95,95},
             fillColor={95,95,95},

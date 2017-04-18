@@ -95,17 +95,15 @@ package MultiPhase "Multiphase AC components"
       connect(currentSensor.plug_n, plugToPin_p2.plug_p)
         annotation (Line(points={{-20,10},{8,10}}, color={85,170,255}));
       connect(currentSensor.plug_n, plugToPin_p3.plug_p) annotation (Line(
-            points={{-20,10},{-20,10},{-10,10},{-10,-30},{8,-30}},
-                                                  color={85,170,255}));
+            points={{-20,10},{-20,10},{-10,10},{-10,-30},{8,-30}}, color={85,170,255}));
       connect(currentSensor.plug_n, plugToPin_p1.plug_p) annotation (Line(
-            points={{-20,10},{-20,10},{-10,10},{-10,50},{8,50}},
-                                                color={85,170,255}));
+            points={{-20,10},{-20,10},{-10,10},{-10,50},{8,50}}, color={85,170,255}));
       connect(plugToPin_p1.pin_p, inductor.pin_p)
-        annotation (Line(points={{12,50},{30,50}},color={85,170,255}));
+        annotation (Line(points={{12,50},{30,50}}, color={85,170,255}));
       connect(plugToPin_p2.pin_p, capacitor.pin_p)
-        annotation (Line(points={{12,10},{30,10}},color={85,170,255}));
+        annotation (Line(points={{12,10},{30,10}}, color={85,170,255}));
       connect(plugToPin_p3.pin_p, resistor.pin_p)
-        annotation (Line(points={{12,-30},{30,-30}},color={85,170,255}));
+        annotation (Line(points={{12,-30},{30,-30}}, color={85,170,255}));
       connect(inductor.pin_n, plugToPin_n1.pin_n)
         annotation (Line(points={{50,50},{68,50}}, color={85,170,255}));
       connect(capacitor.pin_n, plugToPin_n2.pin_n)
@@ -224,11 +222,9 @@ P.Vaske, Berechnung von Drehstromschaltungen (German, Calculation of polyphase c
       connect(currentSensor.plug_n, plugToPin_p2.plug_p)
         annotation (Line(points={{-20,10},{8,10}}, color={85,170,255}));
       connect(currentSensor.plug_n, plugToPin_p1.plug_p) annotation (Line(
-            points={{-20,10},{-10,10},{-10,80},{10,80}},
-                                                     color={85,170,255}));
+            points={{-20,10},{-10,10},{-10,80},{10,80}}, color={85,170,255}));
       connect(currentSensor.plug_n, plugToPin_p3.plug_p) annotation (Line(
-            points={{-20,10},{-10,10},{-10,-60},{8,-60}},
-                                                       color={85,170,255}));
+            points={{-20,10},{-10,10},{-10,-60},{8,-60}}, color={85,170,255}));
       connect(currentSensor12.pin_p, plugToPin_p1.pin_p) annotation (Line(
             points={{30,72},{30,80},{14,80}}, color={85,170,255}));
       connect(currentSensor12.pin_n, capacitor.pin_p)
@@ -248,8 +244,7 @@ P.Vaske, Berechnung von Drehstromschaltungen (German, Calculation of polyphase c
       connect(currentSensor31.pin_p, plugToPin_p3.pin_p) annotation (Line(
             points={{60,-20},{60,-60},{12,-60}}, color={85,170,255}));
       connect(currentSensor.y, complexToPolar.u) annotation (Line(
-          points={{-30,-1},{-30,-8}},
-          color={85,170,255}));
+          points={{-30,-1},{-30,-8}}, color={85,170,255}));
       annotation (Documentation(info="<html>
 <p>
 For the unsymmetrical load (resistor, capacitor and inductor) the parameters inductance L and capacitance C
@@ -472,8 +467,8 @@ Examples to demonstrate the usage of quasistationary electric components.
                   thickness=0.5),Line(
                   points={{0,0},{-38,-69}},
                   color={85,170,255},
-                  thickness=0.5), Line(points={{-90,0},{-40,0}}, color={85,
-              170,255}),Line(points={{80,0},{90,0}}, color={0,0,255}),
+                  thickness=0.5), Line(points={{-90,0},{-40,0}}, color={85,170,255}),
+              Line(points={{80,0},{90,0}}, color={0,0,255}),
             Text(
               extent={{-150,70},{150,110}},
               textString="%name",
@@ -520,8 +515,8 @@ Star (wye) connection of a multi phase circuit. The potentials at the star point
       annotation (Icon(graphics={Line(
                   points={{-40,68},{-40,-70},{79,0},{-40,68},{-40,67}},
                   color={85,170,255},
-                  thickness=0.5), Line(points={{-90,0},{-40,0}}, color={85,
-              170,255}),Line(points={{80,0},{90,0}}, color={85,170,255}),
+                  thickness=0.5), Line(points={{-90,0},{-40,0}}, color={85,170,255}),
+              Line(points={{80,0},{90,0}}, color={85,170,255}),
             Text(
               extent={{-150,70},{150,110}},
               textString="%name",
@@ -571,8 +566,7 @@ Delta (polygon) connection of a multi phase circuit.
       connect(plug_p, plugToPins_p.plug_p)
         annotation (Line(points={{-100,0},{-72,0}}, color={85,170,255}));
       connect(plugToPins_n.plug_n, starpoints) annotation (Line(
-          points={{72,0},{100,0}},
-          color={85,170,255}));
+          points={{72,0},{100,0}}, color={85,170,255}));
       annotation (
         Icon(graphics={Line(
                   points={{86,4},{6,4}},
@@ -583,8 +577,8 @@ Delta (polygon) connection of a multi phase circuit.
                   thickness=0.5),Line(
                   points={{6,4},{-32,-65}},
                   color={85,170,255},
-                  thickness=0.5), Line(points={{-90,0},{-40,0}}, color={85,
-              170,255}),Line(points={{80,0},{90,0}}, color={0,0,255}),Line(
+                  thickness=0.5), Line(points={{-90,0},{-40,0}}, color={85,170,255}),
+              Line(points={{80,0},{90,0}}, color={0,0,255}),Line(
                   points={{-6,-4},{-45,64}},
                   color={85,170,255},
                   thickness=0.5),Line(
@@ -651,8 +645,8 @@ Star (wye) connection of a multi phase circuit consisting of multiple base syste
       annotation (Icon(graphics={Line(
                   points={{-44,62},{-44,-76},{75,-6},{-44,62},{-44,61}},
                   color={85,170,255},
-                  thickness=0.5), Line(points={{-90,0},{-44,0}}, color={85,
-              170,255}),Line(points={{80,0},{90,0}}, color={85,170,255}),Line(
+                  thickness=0.5), Line(points={{-90,0},{-44,0}}, color={85,170,255}),
+              Line(points={{80,0},{90,0}}, color={85,170,255}),Line(
                   points={{-36,74},{-36,-64},{83,6},{-36,74},{-36,73}},
                   color={85,170,255},
                   thickness=0.5),
@@ -701,17 +695,13 @@ Delta (polygon) connection of a multi phase circuit consisting of multiple base 
             origin={100,0})));
     equation
       connect(plug, multiStar.plug_p) annotation (Line(
-          points={{-100,0},{-60,0}},
-          color={85,170,255}));
+          points={{-100,0},{-60,0}}, color={85,170,255}));
       connect(multiStar.starpoints, resistor.plug_p) annotation (Line(
-          points={{-40,0},{-10,0}},
-          color={85,170,255}));
+          points={{-40,0},{-10,0}}, color={85,170,255}));
       connect(resistor.plug_n, star.plug_p) annotation (Line(
-          points={{10,0},{40,0}},
-          color={85,170,255}));
+          points={{10,0},{40,0}}, color={85,170,255}));
       connect(star.pin_n, pin) annotation (Line(
-          points={{60,0},{100,0}},
-          color={85,170,255}));
+          points={{60,0},{100,0}}, color={85,170,255}));
       annotation (
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={Line(
@@ -942,8 +932,8 @@ Connects all <code>m</code> single phase (negative) pins of the multi phase (neg
         annotation (Line(points={{10,0},{39,0},{68,0}}, color={85,170,255}));
       connect(resistor.heatPort, heatPort) annotation (Line(points={{0,-10},{0,
               -32.5},{0,-55},{0,-100}}, color={191,0,0}));
-      annotation (Icon(graphics={Line(points={{60,0},{90,0}}, color={85,
-              170,255}),Line(points={{-90,0},{-60,0}}, color={85,170,255}),
+      annotation (Icon(graphics={Line(points={{60,0},{90,0}}, color={85,170,255}),
+              Line(points={{-90,0},{-60,0}}, color={85,170,255}),
               Rectangle(
                   extent={{-70,30},{70,-30}},
                   lineColor={85,170,255},
@@ -1012,8 +1002,8 @@ A linear temperature dependency of the resistances for enabled heat ports is als
               0},{39,0},{39,0},{68,0}}, color={85,170,255}));
       connect(conductor.heatPort, heatPort) annotation (Line(points={{0,-10},{0,
               -32.5},{0,-32.5},{0,-55},{0,-55},{0,-100}}, color={191,0,0}));
-      annotation (Icon(graphics={Line(points={{60,0},{90,0}}, color={85,
-              170,255}),Line(points={{-90,0},{-60,0}}, color={85,170,255}),
+      annotation (Icon(graphics={Line(points={{60,0},{90,0}}, color={85,170,255}),
+              Line(points={{-90,0},{-60,0}}, color={85,170,255}),
               Rectangle(
                   extent={{-70,30},{70,-30}},
                   lineColor={85,170,255},
@@ -1079,8 +1069,8 @@ A linear temperature dependency of the conductances for enabled heat ports is al
               color={0,128,255}),
             Line(
               points={{6,28},{6,-28}},
-              color={0,128,255}),Line(points={{-90,0},{-6,0}}, color={85,170,
-              255}),Line(points={{6,0},{90,0}}, color={85,170,255})}), Documentation(info="<html>
+              color={0,128,255}),Line(points={{-90,0},{-6,0}}, color={85,170,255}),
+              Line(points={{6,0},{90,0}}, color={85,170,255})}), Documentation(info="<html>
 <p>
 The linear capacitor connects the complex currents <code><u>i</u></code> with the complex
 voltages <code><u>v</u></code> by <code><u>v</u>*j*&omega;*C = <u>i</u></code>,
@@ -1119,8 +1109,8 @@ using <code>m</code> <a href=\"modelica://Modelica.Electrical.QuasiStationary.Si
       connect(inductor.pin_n, plugToPins_n.pin_n) annotation (Line(points={{10,
               0},{39,0},{39,0},{68,0}}, color={85,170,255}));
       annotation (Icon(graphics={Line(points={{60,0},{90,0}},
-              color={85,170,255}),Line(points={{-90,0},{-60,0}}, color={85,170,
-              255}),Text(
+              color={85,170,255}),Line(points={{-90,0},{-60,0}}, color={85,170,255}),
+              Text(
                   extent={{150,-80},{-150,-40}},
                   textString="m=%m"),
             Line(
@@ -1266,8 +1256,8 @@ Model of a multi phase inductor providing a mutual inductance matrix model.
       annotation (Icon(graphics={
                     Text(
                   extent={{150,-80},{-150,-40}},
-                  textString="m=%m"), Line(points={{60,0},{90,0}}, color={85,
-              170,255}),Line(points={{-90,0},{-60,0}}, color={85,170,255}),
+                  textString="m=%m"), Line(points={{60,0},{90,0}}, color={85,170,255}),
+              Line(points={{-90,0},{-60,0}}, color={85,170,255}),
               Rectangle(
                   extent={{-70,30},{70,-30}},
                   lineColor={85,170,255},
@@ -1334,8 +1324,8 @@ the actual operating temperature and the reference input resistances <code>real(
       annotation (Icon(graphics={
                     Text(
                   extent={{150,-80},{-150,-40}},
-                  textString="m=%m"), Line(points={{60,0},{90,0}}, color={85,
-              170,255}),Line(points={{-90,0},{-60,0}}, color={85,170,255}),
+                  textString="m=%m"), Line(points={{60,0},{90,0}}, color={85,170,255}),
+              Line(points={{-90,0},{-60,0}}, color={85,170,255}),
               Rectangle(
                   extent={{-70,30},{70,-30}},
                   lineColor={85,170,255},
@@ -1402,19 +1392,16 @@ the actual operating temperature and the reference input conductances <code>real
     equation
 
       connect(variableResistor.pin_p, plugToPins_p.pin_p) annotation (Line(
-            points={{-10,0},{-24.5,0},{-24.5,0},{-39,0},{-39,0},{-68,0}}, color=
-             {85,170,255}));
+            points={{-10,0},{-24.5,0},{-24.5,0},{-39,0},{-39,0},{-68,0}}, color={85,170,255}));
       connect(variableResistor.pin_n, plugToPins_n.pin_n) annotation (Line(
             points={{10,0},{39,0},{39,0},{68,0}}, color={85,170,255}));
       connect(variableResistor.heatPort, heatPort) annotation (Line(
-          points={{0,-10},{0,-10},{0,-100}},
-          color={191,0,0}));
+          points={{0,-10},{0,-10},{0,-100}}, color={191,0,0}));
       connect(R_ref, variableResistor.R_ref) annotation (Line(
-          points={{0,120},{0,12}},
-          color={0,0,127}));
+          points={{0,120},{0,12}}, color={0,0,127}));
       annotation (
-        Icon(graphics={Line(points={{60,0},{90,0}}, color={85,
-              170,255}),Line(points={{-90,0},{-60,0}}, color={85,170,255}),
+        Icon(graphics={Line(points={{60,0},{90,0}}, color={85,170,255}),
+              Line(points={{-90,0},{-60,0}}, color={85,170,255}),
               Rectangle(
                   extent={{-70,30},{70,-30}},
                   lineColor={85,170,255},
@@ -1484,16 +1471,15 @@ A linear temperature dependency of the resistances is also taken into account.
                 10}})));
     equation
       connect(variableResistor.pin_p, plugToPins_p.pin_p) annotation (Line(
-            points={{-10,0},{-24.5,0},{-24.5,0},{-39,0},{-39,0},{-68,0}}, color=
-             {85,170,255}));
+            points={{-10,0},{-24.5,0},{-24.5,0},{-39,0},{-39,0},{-68,0}}, color={85,170,255}));
       connect(variableResistor.pin_n, plugToPins_n.pin_n) annotation (Line(
             points={{10,0},{39,0},{39,0},{68,0}}, color={85,170,255}));
       connect(variableResistor.heatPort, heatPort) annotation (Line(points={{0,
               -10},{0,-32.5},{0,-32.5},{0,-55},{0,-55},{0,-100}}, color={191,0,0}));
       connect(G_ref, variableResistor.G_ref) annotation (Line(points={{0,120},{0,120},{0,12},{0,12}}, color={0,0,127}));
       annotation (
-        Icon(graphics={Line(points={{60,0},{90,0}}, color={85,
-              170,255}),Line(points={{-90,0},{-60,0}}, color={85,170,255}),
+        Icon(graphics={Line(points={{60,0},{90,0}}, color={85,170,255}),
+              Line(points={{-90,0},{-60,0}}, color={85,170,255}),
               Rectangle(
                   extent={{-70,30},{70,-30}},
                   lineColor={85,170,255},
@@ -1552,16 +1538,14 @@ A linear temperature dependency of the conductances is also taken into account.
         annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
     equation
       connect(variableCapacitor.pin_p, plugToPins_p.pin_p) annotation (Line(
-            points={{-10,0},{-24.5,0},{-24.5,0},{-39,0},{-39,0},{-68,0}}, color=
-             {85,170,255}));
+            points={{-10,0},{-24.5,0},{-24.5,0},{-39,0},{-39,0},{-68,0}}, color={85,170,255}));
       connect(variableCapacitor.pin_n, plugToPins_n.pin_n) annotation (Line(
             points={{10,0},{39,0},{39,0},{68,0}}, color={85,170,255}));
       connect(C, variableCapacitor.C) annotation (Line(
-          points={{0,120},{0,12}},
-          color={0,0,127}));
+          points={{0,120},{0,12}}, color={0,0,127}));
       annotation (
-        Icon(graphics={Line(points={{-90,0},{-6,0}},  color={85,170,
-              255}),Line(points={{6,0},{90,0}},  color={85,170,255}),
+        Icon(graphics={Line(points={{-90,0},{-6,0}}, color={85,170,255}),
+              Line(points={{6,0},{90,0}}, color={85,170,255}),
             Line(
               points={{-6,28},{-6,-28}},
               color={0,128,255}),
@@ -1615,16 +1599,13 @@ The capacitances <code>C</code> are given as <code>m</code> input signals.
         annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
     equation
       connect(variableInductor.pin_p, plugToPins_p.pin_p) annotation (Line(
-            points={{-10,0},{-24.5,0},{-24.5,0},{-39,0},{-39,0},{-68,0}}, color=
-             {85,170,255}));
+            points={{-10,0},{-24.5,0},{-24.5,0},{-39,0},{-39,0},{-68,0}}, color={85,170,255}));
       connect(variableInductor.pin_n, plugToPins_n.pin_n) annotation (Line(
             points={{10,0},{39,0},{39,0},{68,0}}, color={85,170,255}));
-      connect(variableInductor.L, L) annotation (Line(points={{0,12},{0,12},{0,120}},
-                                 color={0,0,127}));
+      connect(variableInductor.L, L) annotation (Line(points={{0,12},{0,12},{0,120}}, color={0,0,127}));
       annotation (
         Icon(graphics={Line(points={{60,0},{90,0}},
-              color={85,170,255}),Line(points={{-90,0},{-60,0}}, color={85,170,
-              255}),
+              color={85,170,255}),Line(points={{-90,0},{-60,0}}, color={85,170,255}),
             Line(
               points={{-60,0},{-59,6},{-52,14},{-38,14},{-31,6},{-30,0}},
               color={0,128,255},
@@ -1704,15 +1685,13 @@ The inductances <code>L</code> are given as <code>m</code> input signals.
       connect(variableImpedance.pin_n, plugToPins_n.pin_n)
         annotation (Line(points={{10,0},{39,0},{68,0}}, color={85,170,255}));
       connect(variableImpedance.heatPort, heatPort) annotation (Line(
-          points={{0,-10},{0,-100}},
-          color={191,0,0}));
+          points={{0,-10},{0,-100}}, color={191,0,0}));
       connect(variableImpedance.Z_ref, Z_ref) annotation (Line(
-          points={{0,12},{0,64},{0,120}},
-          color={85,170,255}));
+          points={{0,12},{0,64},{0,120}}, color={85,170,255}));
       annotation (
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-                100,100}}), graphics={Line(points={{60,0},{90,0}}, color={85,
-              170,255}),Line(points={{-90,0},{-60,0}}, color={85,170,255}),
+                100,100}}), graphics={Line(points={{60,0},{90,0}}, color={85,170,255}),
+              Line(points={{-90,0},{-60,0}}, color={85,170,255}),
               Rectangle(
                   extent={{-70,30},{70,-30}},
                   lineColor={85,170,255},
@@ -1797,14 +1776,12 @@ A linear temperature dependency of the resistances is also taken into account.
       connect(variableImpedance.pin_n, plugToPins_n.pin_n)
         annotation (Line(points={{10,0},{39,0},{68,0}}, color={85,170,255}));
       connect(variableImpedance.heatPort, heatPort) annotation (Line(
-          points={{0,-10},{0,-100}},
-          color={191,0,0}));
+          points={{0,-10},{0,-100}}, color={191,0,0}));
       connect(Y_ref, variableImpedance.Y_ref) annotation (Line(
-          points={{0,120},{0,120},{0,12}},
-          color={85,170,255}));
+          points={{0,120},{0,120},{0,12}}, color={85,170,255}));
       annotation (
-        Icon(graphics={Line(points={{60,0},{90,0}}, color={85,
-              170,255}),Line(points={{-90,0},{-60,0}}, color={85,170,255}),
+        Icon(graphics={Line(points={{60,0},{90,0}}, color={85,170,255}),
+              Line(points={{-90,0},{-60,0}}, color={85,170,255}),
               Rectangle(
                   extent={{-70,30},{70,-30}},
                   lineColor={85,170,255},
@@ -1896,8 +1873,8 @@ Quasi stationary theory can be found in the
                   lineColor={85,170,255},
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid),Line(points={{-90,0},{-41,0}},
-              color={85,170,255}),Line(points={{91,0},{40,0}}, color={85,170,
-              255}),Text(
+              color={85,170,255}),Line(points={{91,0},{40,0}}, color={85,170,255}),
+              Text(
                   extent={{-150,130},{150,90}},
                   textString="%name",
                   lineColor={0,0,255}),
@@ -1933,8 +1910,7 @@ it uses <em>m</em> <a href=\"modelica://Modelica.Electrical.QuasiStationary.Sing
                   lineColor={85,170,255},
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid),
-                                       Line(points={{91,0},{-90,0}}, color={85,
-              170,255}),
+                                       Line(points={{91,0},{-90,0}}, color={85,170,255}),
                     Text(
                   extent={{-150,130},{150,90}},
                   textString="%name",
@@ -1999,37 +1975,28 @@ it uses <em>m</em> <a href=\"modelica://Modelica.Electrical.QuasiStationary.Sing
             rotation=180)));
     equation
       connect(control, idealCommutingSwitch.control)
-        annotation (Line(points={{0,120},{0,48},{0,12}},
-                                                color={255,0,255}));
+        annotation (Line(points={{0,120},{0,48},{0,12}}, color={255,0,255}));
       connect(idealCommutingSwitch.heatPort, heatPort) annotation (Line(
-          points={{0,-10},{0,-100}},
-          color={191,0,0}));
+          points={{0,-10},{0,-100}}, color={191,0,0}));
       connect(plugToPins_n1.plug_n, plug_n1) annotation (Line(
-          points={{82,60},{92,60},{92,40},{100,40}},
-          color={85,170,255}));
+          points={{82,60},{92,60},{92,40},{100,40}}, color={85,170,255}));
       connect(plugToPins_n2.plug_n, plug_n2) annotation (Line(
-          points={{82,0},{90,0},{90,0},{100,0}},
-          color={85,170,255}));
+          points={{82,0},{90,0},{90,0},{100,0}}, color={85,170,255}));
       connect(plugToPins_n2.pin_n, idealCommutingSwitch.n2) annotation (Line(
-          points={{78,0},{44,0},{44,0},{10,0}},
-          color={85,170,255}));
+          points={{78,0},{44,0},{44,0},{10,0}}, color={85,170,255}));
       connect(idealCommutingSwitch.n1, plugToPins_n1.pin_n) annotation (Line(
-          points={{10,4},{10,60},{78,60}},
-          color={85,170,255}));
+          points={{10,4},{10,60},{78,60}}, color={85,170,255}));
       connect(plugToPins_p.plug_p, plug_p) annotation (Line(
-          points={{-82,0},{-100,0}},
-          color={85,170,255}));
+          points={{-82,0},{-100,0}}, color={85,170,255}));
       connect(idealCommutingSwitch.p, plugToPins_p.pin_p) annotation (Line(
-          points={{-10,0},{-78,0}},
-          color={85,170,255}));
+          points={{-10,0},{-78,0}}, color={85,170,255}));
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
                                    Ellipse(extent={{-44,4},{-36,-4}}, lineColor=
                {85,170,255}),Line(points={{-90,0},{-44,0}}, color={85,170,255}),
               Line(points={{-37,2},{40,40}}, color={85,170,255}),Line(points={{40,40},{90,40}},
                                color={85,170,255}),
-                                  Line(points={{40,0},{90,0}}, color={85,170,
-              255}),
+                                  Line(points={{40,0},{90,0}}, color={85,170,255}),
             Text(
               extent={{-150,90},{150,50}},
                   textString="%name",
@@ -2094,43 +2061,33 @@ This switch is only intended to be used for structural changes, not fast switchi
             rotation=180)));
     equation
       connect(control, idealIntermediateSwitch.control)
-        annotation (Line(points={{0,120},{0,12}},
-                                                color={255,0,255}));
+        annotation (Line(points={{0,120},{0,12}}, color={255,0,255}));
       connect(idealIntermediateSwitch.heatPort, heatPort) annotation (Line(
-          points={{0,-10},{0,-100}},
-          color={191,0,0}));
+          points={{0,-10},{0,-100}}, color={191,0,0}));
       connect(plug_p1, plugToPins_p1.plug_p) annotation (Line(
-          points={{-100,40},{-100,60},{-82,60}},
-          color={85,170,255}));
+          points={{-100,40},{-100,60},{-82,60}}, color={85,170,255}));
       connect(plug_p2, plugToPins_p2.plug_p) annotation (Line(
-          points={{-100,0},{-82,0}},
-          color={85,170,255}));
+          points={{-100,0},{-82,0}}, color={85,170,255}));
       connect(plugToPins_n1.plug_n, plug_n1) annotation (Line(
-          points={{82,60},{92,60},{92,40},{100,40}},
-          color={85,170,255}));
+          points={{82,60},{92,60},{92,40},{100,40}}, color={85,170,255}));
       connect(plugToPins_n2.plug_n, plug_n2) annotation (Line(
-          points={{82,0},{90,0},{90,0},{100,0}},
-          color={85,170,255}));
+          points={{82,0},{90,0},{90,0},{100,0}}, color={85,170,255}));
       connect(idealIntermediateSwitch.p2, plugToPins_p2.pin_p) annotation (Line(
-          points={{-10,0},{-78,0}},
-          color={85,170,255}));
+          points={{-10,0},{-78,0}}, color={85,170,255}));
       connect(idealIntermediateSwitch.n2, plugToPins_n2.pin_n) annotation (Line(
-          points={{10,0},{44,0},{44,0},{78,0}},
-          color={85,170,255}));
+          points={{10,0},{44,0},{44,0},{78,0}}, color={85,170,255}));
       connect(idealIntermediateSwitch.n1, plugToPins_n1.pin_n) annotation (Line(
-          points={{10,4},{10,60},{78,60}},
-          color={85,170,255}));
+          points={{10,4},{10,60},{78,60}}, color={85,170,255}));
       connect(idealIntermediateSwitch.p1, plugToPins_p1.pin_p) annotation (Line(
-          points={{-10,4},{-10,60},{-78,60}},
-          color={85,170,255}));
+          points={{-10,4},{-10,60},{-78,60}}, color={85,170,255}));
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
                                    Ellipse(extent={{-4,14},{4,6}},  lineColor={
               85,170,255}),Line(points={{-90,0},{-40,0}}, color={85,170,255}),
               Line(points={{-90,40},{-40,40}}, color={85,170,255}),Line(points={{-40,0},{40,40}},
                                  color={85,170,255}),Line(points={{-40,40},{40,0}},
-                   color={85,170,255}),Line(points={{40,40},{90,40}}, color={85,
-              170,255}), Line(
+                   color={85,170,255}),Line(points={{40,40},{90,40}}, color={85,170,255}),
+               Line(
               points={{40,0},{90,0}}, color={85,170,255}),
             Text(
               extent={{-150,90},{150,50}},
@@ -2172,26 +2129,21 @@ This switch is only intended to be used for structural changes, not fast switchi
             transformation(extent={{-10,-10},{10,10}})));
     equation
       connect(control, idealOpeningSwitch.control)
-        annotation (Line(points={{0,120},{0,46},{0,12}},
-                                                color={255,0,255}));
+        annotation (Line(points={{0,120},{0,46},{0,12}}, color={255,0,255}));
       connect(idealOpeningSwitch.heatPort, heatPort) annotation (Line(
-          points={{0,-10},{0,-100}},
-          color={191,0,0}));
+          points={{0,-10},{0,-100}}, color={191,0,0}));
       connect(idealOpeningSwitch.pin_n, plugToPins_n.pin_n) annotation (Line(
-          points={{10,0},{39,0},{39,0},{68,0}},
-          color={85,170,255}));
+          points={{10,0},{39,0},{39,0},{68,0}}, color={85,170,255}));
       connect(plugToPins_p.pin_p, idealOpeningSwitch.pin_p) annotation (Line(
-          points={{-68,0},{-10,0}},
-          color={85,170,255}));
+          points={{-68,0},{-10,0}}, color={85,170,255}));
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
-                                       Line(points={{-90,0},{-44,0}}, color={85,
-              170,255}),Ellipse(extent={{-44,4},{-36,-4}}, lineColor={85,170,
+                                       Line(points={{-90,0},{-44,0}}, color={85,170,255}),
+              Ellipse(extent={{-44,4},{-36,-4}}, lineColor={85,170,
               255}),Line(points={{-37,2},{40,40}}, color={85,170,255}),
                                                           Line(points={{40,0},{
               90,0}}, color={85,170,255}),
-                                   Line(points={{40,20},{40,0}}, color={85,170,
-              255}),
+                                   Line(points={{40,20},{40,0}}, color={85,170,255}),
             Text(
               extent={{-150,90},{150,50}},
                   textString="%name",
@@ -2231,21 +2183,17 @@ This switch is only intended to be used for structural changes, not fast switchi
             transformation(extent={{-10,-10},{10,10}})));
     equation
       connect(control, idealClosingSwitch.control)
-        annotation (Line(points={{0,120},{0,50},{0,12}},
-                                                color={255,0,255}));
+        annotation (Line(points={{0,120},{0,50},{0,12}}, color={255,0,255}));
       connect(idealClosingSwitch.heatPort, heatPort) annotation (Line(
-          points={{0,-10},{0,-100}},
-          color={191,0,0}));
+          points={{0,-10},{0,-100}}, color={191,0,0}));
       connect(idealClosingSwitch.pin_p, plugToPins_p.pin_p) annotation (Line(
-          points={{-10,0},{-68,0}},
-          color={85,170,255}));
+          points={{-10,0},{-68,0}}, color={85,170,255}));
       connect(idealClosingSwitch.pin_n, plugToPins_n.pin_n) annotation (Line(
-          points={{10,0},{39,0},{39,0},{68,0}},
-          color={85,170,255}));
+          points={{10,0},{39,0},{39,0},{68,0}}, color={85,170,255}));
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
-                                       Line(points={{-90,0},{-44,0}}, color={85,
-              170,255}),Ellipse(extent={{-44,4},{-36,-4}}, lineColor={85,170,
+                                       Line(points={{-90,0},{-44,0}}, color={85,170,255}),
+              Ellipse(extent={{-44,4},{-36,-4}}, lineColor={85,170,
               255}),Line(points={{-37,2},{40,40}}, color={85,170,255}),
                                                           Line(points={{40,0},{
               90,0}}, color={85,170,255}),
@@ -2556,10 +2504,8 @@ This function propagates the input phasor to m output phasors with <a href=\"mod
       annotation (
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
-            Line(points={{0,0},{80,80},{60,72},{72,60},{80,80}}, color={85,170,
-                  255}),
-            Line(points={{0,0},{80,-80},{72,-60},{60,-72},{80,-80}}, color={85,
-                  170,255}),
+            Line(points={{0,0},{80,80},{60,72},{72,60},{80,80}}, color={85,170,255}),
+            Line(points={{0,0},{80,-80},{72,-60},{60,-72},{80,-80}}, color={85,170,255}),
             Line(
               points={{-80,0},{-73.33,10},{-66.67,17.32},{-60,20},{-53.33,17.32},
                   {-46.67,10},{-40,0},{-33.33,-10},{-26.67,-17.32},{-20,-20},{-13.33,
@@ -2604,8 +2550,7 @@ Transformation of m phase values (voltages or currents) to space phasor.
       y = {Complex(u[1], u[2])*exp(-j*phi[k])/sqrt(2) for k in 1:m};
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={
-            Line(points={{0,0},{-80,80},{-60,72},{-72,60},{-80,80}}, color={85,
-                  170,255}),
+            Line(points={{0,0},{-80,80},{-60,72},{-72,60},{-80,80}}, color={85,170,255}),
             Line(points={{0,0},{-80,-80},{-72,-60},{-60,-72},{-80,-80}}, color=
                   {85,170,255}),
             Line(
@@ -2663,14 +2608,11 @@ Transformation of space phasor to m phase values (voltages or currents).
     equation
 
       connect(plug_p, plugToPin_p.plug_p) annotation (Line(
-          points={{-100,0},{-72,0}},
-          color={85,170,255}));
+          points={{-100,0},{-72,0}}, color={85,170,255}));
       connect(plugToPin_p.pin_p, frequencySensor.pin) annotation (Line(
-          points={{-68,0},{-10,0}},
-          color={85,170,255}));
+          points={{-68,0},{-10,0}}, color={85,170,255}));
       connect(frequencySensor.y, y) annotation (Line(
-          points={{11,0},{110,0}},
-          color={0,0,127}));
+          points={{11,0},{110,0}}, color={0,0,127}));
       annotation (Icon(graphics={Line(points={{70,0},{80,0},{90,0},{100,0}},
                 color={0,0,127}), Text(
               extent={{-29,-11},{30,-70}},
@@ -2708,11 +2650,9 @@ This sensor can be used to measure the frequency of the reference system, using 
       connect(potentialSensor.y, y) annotation (Line(points={{11,0},{35.75,0},{
               35.75,0},{60.5,0},{60.5,0},{110,0}}, color={85,170,255}));
       connect(plug_p, plugToPins_p.plug_p) annotation (Line(
-          points={{-100,0},{-72,0}},
-          color={85,170,255}));
+          points={{-100,0},{-72,0}}, color={85,170,255}));
       connect(plugToPins_p.pin_p, potentialSensor.pin) annotation (Line(
-          points={{-68,0},{-10,0}},
-          color={85,170,255}));
+          points={{-68,0},{-10,0}}, color={85,170,255}));
       annotation (Icon(graphics={Text(
               extent={{-29,-11},{30,-70}},
               textString="V")}), Documentation(info="<html>
@@ -2795,17 +2735,13 @@ This sensor can be used to measure <em>m</em> complex voltages, using <em>m</em>
             origin={0,-50})));
     equation
       connect(quasiRMS.y, V) annotation (Line(
-          points={{0,-61},{0,-100}},
-          color={0,0,127}));
+          points={{0,-61},{0,-100}}, color={0,0,127}));
       connect(plugToPins_p.pin_p, voltageSensor.pin_p) annotation (Line(
-          points={{-68,0},{-10,0}},
-          color={85,170,255}));
+          points={{-68,0},{-10,0}}, color={85,170,255}));
       connect(voltageSensor.pin_n, plugToPins_n.pin_n) annotation (Line(
-          points={{10,0},{68,0}},
-          color={85,170,255}));
+          points={{10,0},{68,0}}, color={85,170,255}));
       connect(voltageSensor.y, quasiRMS.u) annotation (Line(
-          points={{0,-11},{0,-38}},
-          color={85,170,255}));
+          points={{0,-11},{0,-38}}, color={85,170,255}));
       annotation (
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
@@ -2813,7 +2749,7 @@ This sensor can be used to measure <em>m</em> complex voltages, using <em>m</em>
               extent={{150,-100},{-150,-70}},
               textString="m=%m"),
             Line(points={{-90,0},{-70,0}}, color={0,0,255}),
-            Line(points={{0,-70},{0,-100}},color={85,170,255}),
+            Line(points={{0,-70},{0,-100}}, color={85,170,255}),
             Line(points={{70,0},{90,0}}, color={0,0,255}),
             Text(
               textColor={0,0,255},
@@ -2891,17 +2827,13 @@ This sensor can be used to measure <em>m</em> complex currents, using <em>m</em>
             origin={0,-50})));
     equation
       connect(quasiRMS.y, I) annotation (Line(
-          points={{0,-61},{0,-100}},
-          color={0,0,127}));
+          points={{0,-61},{0,-100}}, color={0,0,127}));
       connect(plugToPins_p.pin_p, currentSensor.pin_p) annotation (Line(
-          points={{-68,0},{-10,0}},
-          color={85,170,255}));
+          points={{-68,0},{-10,0}}, color={85,170,255}));
       connect(currentSensor.pin_n, plugToPins_n.pin_n) annotation (Line(
-          points={{10,0},{68,0}},
-          color={85,170,255}));
+          points={{10,0},{68,0}}, color={85,170,255}));
       connect(currentSensor.y, quasiRMS.u) annotation (Line(
-          points={{0,-11},{0,-38}},
-          color={85,170,255}));
+          points={{0,-11},{0,-38}}, color={85,170,255}));
       annotation (
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
@@ -2983,8 +2915,7 @@ This sensor determines the continuous quasi <a href=\"Modelica://Modelica.Blocks
       connect(plugToPinsVoltageN.plug_n, voltageN) annotation (Line(points={{0,
               -72},{0,-72},{0,-100}}, color={85,170,255}));
       connect(plugToPinsCurrentP.pin_p, powerSensor.currentP) annotation (Line(
-            points={{-68,0},{-53.5,0},{-53.5,0},{-39,0},{-39,0},{-10,0}}, color=
-             {85,170,255}));
+            points={{-68,0},{-53.5,0},{-53.5,0},{-39,0},{-39,0},{-10,0}}, color={85,170,255}));
       connect(powerSensor.currentN, plugToPinsCurrentN.pin_n) annotation (Line(
             points={{10,0},{24.5,0},{24.5,0},{39,0},{39,0},{68,0}}, color={85,
               170,255}));
@@ -2992,11 +2923,9 @@ This sensor determines the continuous quasi <a href=\"Modelica://Modelica.Blocks
             points={{0,10},{0,10},{0,68},{0,68}}, color={85,170,255}));
       connect(powerSensor.voltageN, plugToPinsVoltageN.pin_n) annotation (Line(
             points={{0,-10},{0,-10},{0,-68},{0,-68}}, color={85,170,255}));
-      connect(powerSensor.y, sum.u) annotation (Line(points={{-10,-11},{-10,-40},{-80,-40},{-80,-58}},
-                                    color={85,170,255}));
+      connect(powerSensor.y, sum.u) annotation (Line(points={{-10,-11},{-10,-40},{-80,-40},{-80,-58}}, color={85,170,255}));
       connect(sum.y, y)
-        annotation (Line(points={{-80,-81},{-80,-90},{-100,-90},{-100,-110}},
-                                                        color={85,170,255}));
+        annotation (Line(points={{-80,-81},{-80,-90},{-100,-90},{-100,-110}}, color={85,170,255}));
       annotation (
         Icon(graphics={
             Line(points={{0,100},{0,70}}, color={85,170,255}),

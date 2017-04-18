@@ -587,8 +587,7 @@ y=uMin is passed as output.
       port_b.h_outflow = inStream(port_a.h_outflow);
 
       connect(filter.y, opening_filtered) annotation (Line(
-          points={{48.7,51},{60,51},{60,50},{70,50}},
-          color={0,0,127}));
+          points={{48.7,51},{60,51},{60,50},{70,50}}, color={0,0,127}));
 
       if filteredOpening then
          connect(filter.y, opening_actual);
@@ -597,11 +596,9 @@ y=uMin is passed as output.
       end if;
 
       connect(minLimiter.y, filter.u) annotation (Line(
-          points={{24.7,51},{32.6,51}},
-          color={0,0,127}));
+          points={{24.7,51},{32.6,51}}, color={0,0,127}));
       connect(minLimiter.u, opening) annotation (Line(
-          points={{8.6,51},{0,51},{0,90}},
-          color={0,0,127}));
+          points={{8.6,51},{0,51},{0,90}}, color={0,0,127}));
       annotation (
         Icon(coordinateSystem(
             preserveAspectRatio=true,
