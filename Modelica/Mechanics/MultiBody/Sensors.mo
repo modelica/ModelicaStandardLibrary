@@ -1797,7 +1797,7 @@ computed as:
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
       "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(group="if animation = true", enable=animation));
-    input SI.Position s_small(min=sqrt(Modelica.Constants.small))=1.E-10
+    input SI.Position s_small(min=sqrt(Modelica.Constants.small))=1e-10
       "Prevent zero-division if distance between frame_a and frame_b is zero"
       annotation (Dialog(tab="Advanced"));
   protected

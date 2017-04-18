@@ -3490,9 +3490,9 @@ b has the same sign of the change of density.</p>
              show_Re "Reynolds number of pipe flow";
 
       protected
-        SI.DynamicViscosity mu_a = if not WallFriction.use_mu then 1.e-10 else
+        SI.DynamicViscosity mu_a = if not WallFriction.use_mu then 1e-10 else
                                     (if use_nominal then mu_nominal else Medium.dynamicViscosity(state_a));
-        SI.DynamicViscosity mu_b = if not WallFriction.use_mu then 1.e-10 else
+        SI.DynamicViscosity mu_b = if not WallFriction.use_mu then 1e-10 else
                                     (if use_nominal then mu_nominal else Medium.dynamicViscosity(state_b));
         SI.Density rho_a = if use_nominal then rho_nominal else Medium.density(state_a);
         SI.Density rho_b = if use_nominal then rho_nominal else Medium.density(state_b);

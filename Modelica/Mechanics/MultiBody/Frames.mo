@@ -658,7 +658,7 @@ Frames.planarRotation({0,1,0}, phi, der_phi)
 
     A := e2_1a*e3_1;
     B := cross(e1_1, e2_1a)*e3_1;
-    if abs(A) <= 1.e-12 and abs(B) <= 1.e-12 then
+    if abs(A) <= 1e-12 and abs(B) <= 1e-12 then
       angles[1] := guessAngle1;
     else
       angle_1a := Modelica.Math.atan2(A, -B);
@@ -755,7 +755,7 @@ and sequence[2] &ne; sequence[3]. Often used values are:
     output Orientation R "Orientation object to rotate frame 1 into frame 2";
   protected
     Real abs_n_x=sqrt(n_x*n_x);
-    Real e_x[3](each final unit="1")=if abs_n_x < 1.e-10 then {1,0,0} else n_x/abs_n_x;
+    Real e_x[3](each final unit="1")=if abs_n_x < 1e-10 then {1,0,0} else n_x/abs_n_x;
     Real n_z_aux[3](each final unit="1")=cross(e_x, n_y);
     Real n_y_aux[3](each final unit="1")=if n_z_aux*n_z_aux > 1.0e-6 then n_y else (if abs(e_x[1])
          > 1.0e-6 then {0,1,0} else {1,0,0});
@@ -795,7 +795,7 @@ arbitrarily such that e_x and e_y are orthogonal to each other.
     output Orientation R "Orientation object to rotate frame 1 into frame 2";
   protected
     Real abs_n_x=sqrt(n_x*n_x);
-    Real e_x[3](each final unit="1")=if abs_n_x < 1.e-10 then {1,0,0} else n_x/abs_n_x;
+    Real e_x[3](each final unit="1")=if abs_n_x < 1e-10 then {1,0,0} else n_x/abs_n_x;
     Real n_y_aux[3](each final unit="1")=cross(n_z, e_x);
     Real n_z_aux[3](each final unit="1")=if n_y_aux*n_y_aux > 1.0e-6 then n_z else (if abs(e_x[1])
          > 1.0e-6 then {0,0,1} else {1,0,0});
@@ -1907,7 +1907,7 @@ and/or a division by zero will occur.
 
       A := e2_1a*e3_1;
       B := cross(e1_1, e2_1a)*e3_1;
-      if abs(A) <= 1.e-12 and abs(B) <= 1.e-12 then
+      if abs(A) <= 1e-12 and abs(B) <= 1e-12 then
         angles[1] := guessAngle1;
       else
         angle_1a := Modelica.Math.atan2(A, -B);
@@ -2006,7 +2006,7 @@ and sequence[2] &ne; sequence[3]. Often used values are:
         "Orientation object to rotate frame 1 into frame 2";
     protected
       Real abs_n_x=sqrt(n_x*n_x);
-      Real e_x[3](each final unit="1")=if abs_n_x < 1.e-10 then {1,0,0} else n_x/abs_n_x;
+      Real e_x[3](each final unit="1")=if abs_n_x < 1e-10 then {1,0,0} else n_x/abs_n_x;
       Real n_z_aux[3](each final unit="1")=cross(e_x, n_y);
       Real n_y_aux[3](each final unit="1")=if n_z_aux*n_z_aux > 1.0e-6 then n_y else (if abs(e_x[1])
            > 1.0e-6 then {0,1,0} else {1,0,0});
@@ -2047,7 +2047,7 @@ arbitrarily such that e_x and e_y are orthogonal to each other.
         "Orientation object to rotate frame 1 into frame 2";
     protected
       Real abs_n_x=sqrt(n_x*n_x);
-      Real e_x[3](each final unit="1")=if abs_n_x < 1.e-10 then {1,0,0} else n_x/abs_n_x;
+      Real e_x[3](each final unit="1")=if abs_n_x < 1e-10 then {1,0,0} else n_x/abs_n_x;
       Real n_y_aux[3](each final unit="1")=cross(n_z, e_x);
       Real n_z_aux[3](each final unit="1")=if n_y_aux*n_y_aux > 1.0e-6 then n_z else (if abs(e_x[1])
            > 1.0e-6 then {0,0,1} else {1,0,0});

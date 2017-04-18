@@ -33,7 +33,7 @@ is negative. It must be positive.
 ");
     end for;
 
-    if nX > 0 and abs(sum(X_boundary) - 1.0) > 1.e-10 then
+    if nX > 0 and abs(sum(X_boundary) - 1.0) > 1e-10 then
        X_str :="";
        for i in 1:nX loop
           X_str :=X_str + "   X_boundary[" + String(i) + "] = " + String(X_boundary[

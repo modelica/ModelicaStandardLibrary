@@ -184,7 +184,7 @@ this system and plot the differences of the cut forces at both sides
 of the line force component (\"rod_f_diff\" and \"body_f_diff\").
 Both vectors should be zero
 (depending on the chosen relative tolerance of the integration,
-the difference is in the order of 1.e-10 ... 1.e-15).
+the difference is in the order of 1e-10 ... 1e-15).
 </p>
 <p>
 Note, that the implementation with the LineForceWithTwoMasses

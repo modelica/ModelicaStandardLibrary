@@ -1314,7 +1314,7 @@ with the blocks of package Modelica.Blocks.
             k1 = A*A + B*B;
             k1a = k1 - C*C;
 
-            assert(k1a > 1.e-10, "
+            assert(k1a > 1e-10, "
 Singular position of loop (either no or two analytic solutions;
 the mechanism has lost one-degree-of freedom in this position).
 Try first to use another Modelica.Mechanics.MultiBody.Joints.Assemblies.JointXXX component.
@@ -1611,7 +1611,7 @@ joints.</strong>
             C = rbra*rbra - length*length;
             k1 = B/2;
             k1a = k1*k1 - C;
-            assert(noEvent(k1a > 1.e-10), "
+            assert(noEvent(k1a > 1e-10), "
 Singular position of loop (either no or two analytic solutions;
 the mechanism has lost one-degree-of freedom in this position).
 Try first to use another Modelica.Mechanics.MultiBody.Joints.Assemblies.JointXXX component.

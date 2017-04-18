@@ -561,8 +561,8 @@ vector \"n\" defining the translation axis
     // check that revolute joint is used in planar loop
     ex_b = Frames.resolve2(R_rel, ex_a);
     ey_b = Frames.resolve2(R_rel, ey_a);
-    assert(noEvent(abs(e*r_rel_a) <= 1.e-10 and abs(e*ex_b) <= 1.e-10 and
-        abs(e*ey_b) <= 1.e-10), "
+    assert(noEvent(abs(e*r_rel_a) <= 1e-10 and abs(e*ex_b) <= 1e-10 and
+        abs(e*ey_b) <= 1e-10), "
 The MultiBody.Joints.RevolutePlanarLoopConstraint joint is used as cut-joint of a
 planar loop. However, the revolute joint is not part of a planar loop where the
 axis of the revolute joint (parameter n) is orthogonal to the possible movements.
@@ -2711,7 +2711,7 @@ that has this property.
     n2_a = cross(n1_a, eRod_a);
     length2_n2_a = n2_a*n2_a;
 
-    assert(length2_n2_a > 1.e-10, "
+    assert(length2_n2_a > 1e-10, "
 A Modelica.Mechanics.MultiBody.Joints.UniversalSpherical joint (consisting of
 a universal joint and a spherical joint connected together
 by a rigid rod) is in the singular configuration of the
@@ -3944,7 +3944,7 @@ initialization, the initial conditions are probably wrong.");
       eAxis_a = rAxis_a/axisLength;
       n2_a = cross(n1_a, eAxis_a);
       length2_n2_a = n2_a*n2_a;
-      assert(noEvent(length2_n2_a > 1.e-10), "
+      assert(noEvent(length2_n2_a > 1e-10), "
 A Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUPS joint (consisting of
 a universal, prismatic and spherical joint) is in the singular
 configuration of the universal joint. This means that axis 1 of
@@ -4599,8 +4599,8 @@ component).
         rod1.frame_a.R, rod1.frame_b.R);
       f_rod = (-revolute.tau - revolute.e*(frame_ib.t + frame_im.t + cross(
         rRod2_ib, frame_im.f) - cross(rRod2_ib, Frames.resolveRelative(rod1.
-        f_b_a1, rod1.frame_a.R, rod1.frame_b.R))))/noEvent(if abs(aux) < 1.e-10 then
-              1.e-10 else aux);
+        f_b_a1, rod1.frame_a.R, rod1.frame_b.R))))/noEvent(if abs(aux) < 1e-10 then
+              1e-10 else aux);
 
       // Measure power for test purposes
       if checkTotalPower then
@@ -5084,7 +5084,7 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
         rod1.frame_b.R);
       f_rod = (-prismatic.f - prismatic.e*(frame_ib.f + frame_im.f -
         Frames.resolveRelative(rod1.f_b_a1, rod1.frame_a.R, rod1.frame_b.R)))/
-        noEvent(if abs(aux) < 1.e-10 then 1.e-10 else aux);
+        noEvent(if abs(aux) < 1e-10 then 1e-10 else aux);
       // Measure power for test purposes
       if checkTotalPower then
         totalPower = frame_a.f*Frames.resolve2(frame_a.R, der(frame_a.r_0)) +
@@ -5567,8 +5567,8 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
         rod1.frame_a.R, rod1.frame_b.R);
       f_rod = (-revolute.tau - revolute.e*(frame_ib.t + frame_im.t + cross(
         rRod2_ib, frame_im.f) - cross(rRod2_ib, Frames.resolveRelative(rod1.
-        f_b_a1, rod1.frame_a.R, rod1.frame_b.R))))/noEvent(if abs(aux) < 1.e-10 then
-              1.e-10 else aux);
+        f_b_a1, rod1.frame_a.R, rod1.frame_b.R))))/noEvent(if abs(aux) < 1e-10 then
+              1e-10 else aux);
 
       // Measure power for test purposes
       if checkTotalPower then
@@ -5911,7 +5911,7 @@ component).
       aux = prismatic.e*Frames.resolveRelative(rod1.eRod_a, rod1.frame_a.R,
         rod1.frame_b.R);
       f_rod = (-prismatic.f - prismatic.e*(frame_ib.f + frame_im.f))/
-        noEvent(if abs(aux) < 1.e-10 then 1.e-10 else aux);
+        noEvent(if abs(aux) < 1e-10 then 1e-10 else aux);
 
       // Measure power for test purposes
       if checkTotalPower then
@@ -7741,7 +7741,7 @@ of this subpackage.
         C := r_a*r_a + r_b*r_b - L*L - 2*e_r_b*e_r_a;
         k1 := A*A + B*B;
         k1a :=k1 - C*C;
-        assert(k1a > 1.e-10, "
+        assert(k1a > 1e-10, "
 Singular position of loop (either no or two analytic solutions;
 the mechanism has lost one-degree-of freedom in this position).
 Try first to use another Modelica.Mechanics.MultiBody.Joints.Assemblies.JointXXX component.
@@ -7801,7 +7801,7 @@ position a degree of freedom is lost.
       k1 = A*A + B*B;
       k1a = k1 - C*C;
 
-      assert(k1a > 1.e-10, "
+      assert(k1a > 1e-10, "
 Singular position of loop (either no or two analytic solutions;
 the mechanism has lost one-degree-of freedom in this position).
 Try first to use another Modelica.Mechanics.MultiBody.Joints.Assemblies.JointXXX component.
@@ -8094,7 +8094,7 @@ menu of \"Joints.SphericalSpherical\" or \"Joints.UniversalSpherical\".
         C := rbra*rbra - L*L;
         k1 := B/2;
         k1a :=k1*k1 - C;
-      assert(noEvent(k1a > 1.e-10), "
+      assert(noEvent(k1a > 1e-10), "
 Singular position of loop (either no or two analytic solutions;
 the mechanism has lost one-degree-of freedom in this position).
 Try first to use another Modelica.Mechanics.MultiBody.Joints.Assemblies.JointXXX component.
@@ -8139,7 +8139,7 @@ degree of freedom is lost.
       C = rbra*rbra - length*length;
       k1 = B/2;
       k1a = k1*k1 - C;
-      assert(noEvent(k1a > 1.e-10), "
+      assert(noEvent(k1a > 1e-10), "
 Singular position of loop (either no or two analytic solutions;
 the mechanism has lost one-degree-of freedom in this position).
 Try first to use another Modelica.Mechanics.MultiBody.Joints.Assemblies.JointXXX component.

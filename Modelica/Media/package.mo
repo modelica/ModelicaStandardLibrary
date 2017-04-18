@@ -3518,9 +3518,9 @@ with exception of ambient pressure, do not have an effect.
         replaceable package Medium = Modelica.Media.Interfaces.PartialMedium
           "Medium model" annotation (choicesAllMatching=true);
 
-        parameter Medium.AbsolutePressure dp_nominal(min=1.e-10)
+        parameter Medium.AbsolutePressure dp_nominal(min=1e-10)
           "Nominal pressure drop";
-        parameter Medium.MassFlowRate m_flow_nominal(min=1.e-10)
+        parameter Medium.MassFlowRate m_flow_nominal(min=1e-10)
           "Nominal mass flow rate at nominal pressure drop";
 
         FluidPort_a port_a(redeclare package Medium = Medium) annotation (

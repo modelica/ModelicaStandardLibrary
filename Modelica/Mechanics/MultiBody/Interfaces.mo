@@ -494,7 +494,7 @@ to which this force element is connected.
 
   partial model LineForceBase "Base model for line force elements"
     extends PartialTwoFrames;
-    parameter SI.Distance s_small=1.E-10
+    parameter SI.Distance s_small=1e-10
       "Prevent zero-division if distance between frame_a and frame_b is zero"
       annotation (Dialog(tab="Advanced"));
     parameter Boolean fixedRotationAtFrame_a=false
