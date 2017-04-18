@@ -72,7 +72,7 @@ package Sources "Time-dependent and controlled voltage and current sources"
             points={{116,0},{126,0}}, color={160,160,164})}),
       Documentation(revisions="<html>
 <ul>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Martin Otter<br> initially implemented<br>
        </li>
 </ul>
@@ -113,7 +113,7 @@ package Sources "Time-dependent and controlled voltage and current sources"
             color={0,0,255})}),
       Documentation(revisions="<html>
 <ul>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -187,7 +187,7 @@ package Sources "Time-dependent and controlled voltage and current sources"
               textString="v = p.v - n.v")}),
       Documentation(revisions="<html>
 <ul>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -275,7 +275,7 @@ package Sources "Time-dependent and controlled voltage and current sources"
               color={192,192,192})}),
       Documentation(revisions="<html>
 <ul>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -357,7 +357,7 @@ package Sources "Time-dependent and controlled voltage and current sources"
               textString="v = p.v - n.v")}),
       Documentation(revisions="<html>
 <ul>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -551,7 +551,7 @@ package Sources "Time-dependent and controlled voltage and current sources"
               textString="v = p.v - n.v")}),
       Documentation(revisions="<html>
 <ul>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -652,7 +652,7 @@ package Sources "Time-dependent and controlled voltage and current sources"
               pattern=LinePattern.Dash)}),
       Documentation(revisions="<html>
 <ul>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -771,7 +771,7 @@ package Sources "Time-dependent and controlled voltage and current sources"
               textString="v = p.v - n.v")}),
       Documentation(revisions="<html>
 <ul>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -864,7 +864,7 @@ package Sources "Time-dependent and controlled voltage and current sources"
               textString="v = p.v - n.v")}),
       Documentation(revisions="<html>
 <ul>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -1013,7 +1013,7 @@ package Sources "Time-dependent and controlled voltage and current sources"
               textString="period")}),
       Documentation(revisions="<html>
 <ul>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -1084,14 +1084,14 @@ package Sources "Time-dependent and controlled voltage and current sources"
               textString="v = p.v - n.v")}),
       Documentation(info="<html>
 <p>This voltage source uses the corresponding signal source of the Modelica.Blocks.Sources package.  Furthermore, an offset parameter is introduced, which is added to the value calculated by the blocks source. The startTime parameter allows to shift the blocks source behavior on the time axis.</p>
-<p><br>This block generates a voltage source by <b>linear interpolation</b> in a table. The time points and voltage values are stored in a matrix <b>table[i,j]</b>, where the first column table[:,1] contains the time points and the second column contains the voltage to be interpolated. The table interpolation has the following properties:</p>
+<p><br>This block generates a voltage source by <strong>linear interpolation</strong> in a table. The time points and voltage values are stored in a matrix <strong>table[i,j]</strong>, where the first column table[:,1] contains the time points and the second column contains the voltage to be interpolated. The table interpolation has the following properties:</p>
 <ul>
-<li>The time points need to be <b>monotonically increasing</b>. </li>
-<li><b>Discontinuities</b> are allowed, by providing the same time point twice in the table. </li>
-<li>Values <b>outside</b> of the table range, are computed by <b>extrapolation</b> through the last or first two points of the table.</li>
-<li>If the table has only <b>one row</b>, no interpolation is performed and the voltage value is just returned independently of the actual time instant, i.e., this is a constant voltage source.</li>
-<li>Via parameters <b>startTime</b> and <b>offset</b> the curve defined by the table can be shifted both in time and in the voltage. </li>
-<li>The table is implemented in a numerically sound way by generating <b>time events</b> at interval boundaries.
+<li>The time points need to be <strong>monotonically increasing</strong>. </li>
+<li><strong>Discontinuities</strong> are allowed, by providing the same time point twice in the table. </li>
+<li>Values <strong>outside</strong> of the table range, are computed by <strong>extrapolation</strong> through the last or first two points of the table.</li>
+<li>If the table has only <strong>one row</strong>, no interpolation is performed and the voltage value is just returned independently of the actual time instant, i.e., this is a constant voltage source.</li>
+<li>Via parameters <strong>startTime</strong> and <strong>offset</strong> the curve defined by the table can be shifted both in time and in the voltage. </li>
+<li>The table is implemented in a numerically sound way by generating <strong>time events</strong> at interval boundaries.
     This generates continuously differentiable values for the integrator.</li>
 </ul>
 <p>Example:</p>
@@ -1108,7 +1108,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
 <p><br>  Furthermore, an offset parameter is introduced, which is added to the value calculated by the blocks source. The startTime parameter allows to shift the blocks source behavior on the time axis.</p>
 </html>", revisions="<html>
 <ul>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -1163,7 +1163,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
             points={{0,-50},{0,50}}, color={0,0,255})}),
       Documentation(revisions="<html>
 <ul>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Martin Otter<br> initially implemented<br>
        </li>
 </ul>
@@ -1207,7 +1207,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
             points={{0,-50},{0,50}}, color={0,0,255})}),
       Documentation(revisions="<html>
 <ul>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -1281,7 +1281,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               textString="i")}),
       Documentation(revisions="<html>
 <ul>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -1369,7 +1369,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               color={192,192,192})}),
       Documentation(revisions="<html>
 <ul>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -1451,7 +1451,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               textString="i")}),
       Documentation(revisions="<html>
 <ul>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -1647,7 +1647,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               textString="i")}),
       Documentation(revisions="<html>
 <ul>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -1735,7 +1735,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               textString="i")}),
       Documentation(revisions="<html>
 <ul>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -1855,7 +1855,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               textString="i")}),
       Documentation(revisions="<html>
 <ul>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -1948,7 +1948,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               textString="i")}),
       Documentation(revisions="<html>
 <ul>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -2097,7 +2097,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               textString="i")}),
       Documentation(revisions="<html>
 <ul>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -2168,14 +2168,14 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               textString="i")}),
       Documentation(info="<html>
 <p>This current source uses the corresponding signal source of the Modelica.Blocks.Sources package. Furthermore, an offset parameter is introduced, which is added to the value calculated by the blocks source. The startTime parameter allows to shift the blocks source behavior on the time axis.</p>
-<p><br>This block generates a current source by <b>linear interpolation</b> in a table. The time points and current values are stored in a matrix <b>table[i,j]</b>, where the first column table[:,1] contains the time points and the second column contains the current to be interpolated. The table interpolation has the following properties:</p>
+<p><br>This block generates a current source by <strong>linear interpolation</strong> in a table. The time points and current values are stored in a matrix <strong>table[i,j]</strong>, where the first column table[:,1] contains the time points and the second column contains the current to be interpolated. The table interpolation has the following properties:</p>
 <ul>
-<li>The time points need to be <b>monotonically increasing</b>. </li>
-<li><b>Discontinuities</b> are allowed, by providing the same time point twice in the table. </li>
-<li>Values <b>outside</b> of the table range, are computed by <b>extrapolation</b> through the last or first two points of the table.</li>
-<li>If the table has only <b>one row</b>, no interpolation is performed and the current value is just returned independently of the actual time instant, i.e., this is a constant current source.</li>
-<li>Via parameters <b>startTime</b> and <b>offset</b> the curve defined by the table can be shifted both in time and in the current. </li>
-<li>The table is implemented in a numerically sound way by generating <b>time events</b> at interval boundaries.
+<li>The time points need to be <strong>monotonically increasing</strong>. </li>
+<li><strong>Discontinuities</strong> are allowed, by providing the same time point twice in the table. </li>
+<li>Values <strong>outside</strong> of the table range, are computed by <strong>extrapolation</strong> through the last or first two points of the table.</li>
+<li>If the table has only <strong>one row</strong>, no interpolation is performed and the current value is just returned independently of the actual time instant, i.e., this is a constant current source.</li>
+<li>Via parameters <strong>startTime</strong> and <strong>offset</strong> the curve defined by the table can be shifted both in time and in the current. </li>
+<li>The table is implemented in a numerically sound way by generating <strong>time events</strong> at interval boundaries.
     This generates continuously differentiable values for the integrator.</li>
 </ul>
 <p>Example:</p>
@@ -2192,7 +2192,7 @@ If, e.g., time = 1.0, the current i =  0.0 (before event), 1.0 (after event)
 <p><br> Furthermore, an offset parameter is introduced, which is added to the value calculated by the blocks source. The startTime parameter allows to shift the blocks source behavior on the time axis.</p>
 </html>", revisions="<html>
 <ul>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -2274,11 +2274,11 @@ If, e.g., time = 1.0, the current i =  0.0 (before event), 1.0 (after event)
                        </html>"));
   end SupplyVoltage;
   annotation (Documentation(info="<html>
-<p>This package contains time-dependent and controlled voltage and current sources. Most of the sources use the behavior modeled in the Modelica.Blocks.Sources package. All sources are ideal in the sense that <b>no</b> internal resistances are included.</p>
+<p>This package contains time-dependent and controlled voltage and current sources. Most of the sources use the behavior modeled in the Modelica.Blocks.Sources package. All sources are ideal in the sense that <strong>no</strong> internal resistances are included.</p>
 </html>", revisions="<html>
 <dl>
 <dt>
-<b>Main Authors:</b>
+<strong>Main Authors:</strong>
 </dt>
 <dd>
 Christoph Clau&szlig;
@@ -2291,14 +2291,14 @@ Christoph Clau&szlig;
     D-01069 Dresden
 </dd>
 <dt>
-<b>Copyright:</b>
+<strong>Copyright:</strong>
 </dt>
 <dd>
 Copyright &copy; 1998-2016, Modelica Association and Fraunhofer-Gesellschaft.<br>
-<i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
-under the terms of the <b>Modelica license</b>, see the license conditions
-and the accompanying <b>disclaimer</b> in the documentation of package
-Modelica in file \"Modelica/package.mo\".</i>
+<em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
+under the terms of the <strong>Modelica license</strong>, see the license conditions
+and the accompanying <strong>disclaimer</strong> in the documentation of package
+Modelica in file \"Modelica/package.mo\".</em>
 </dd>
 </dl>
 </html>"));

@@ -20,20 +20,20 @@ package Semiconductors
     LossPower = v*i;
     annotation (
       Documentation(info="<html>
-<p>The simple diode is a one port. It consists of the diode itself and an parallel ohmic resistance <i>R</i>. The diode formula is:</p>
+<p>The simple diode is a one port. It consists of the diode itself and an parallel ohmic resistance <em>R</em>. The diode formula is:</p>
 <pre>                v/vt
   i  =  ids ( e      - 1).</pre>
-<p>If the exponent <i>v/vt</i> reaches the limit <i>maxex</i>, the diode characteristic is linearly continued to avoid overflow.</p><p><b>Please note:</b> In case of useHeatPort=true the temperature dependence of the electrical behavior is <b>not </b>modelled yet. The parameters are not temperature dependent.</p>
+<p>If the exponent <em>v/vt</em> reaches the limit <em>maxex</em>, the diode characteristic is linearly continued to avoid overflow.</p><p><strong>Please note:</strong> In case of useHeatPort=true the temperature dependence of the electrical behavior is <strong>not </strong>modelled yet. The parameters are not temperature dependent.</p>
 </html>",
    revisions="<html>
 <ul>
-<li><i> March 11, 2009   </i>
+<li><em> March 11, 2009   </em>
        by Christoph Clauss<br> conditional heat port added<br>
        </li>
-<li><i> November 15, 2005   </i>
+<li><em> November 15, 2005   </em>
        by Christoph Clauss<br> smooth function added<br>
        </li>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> implemented<br>
        </li>
 </ul>
@@ -131,13 +131,13 @@ package Semiconductors
 </html>",
    revisions="<html>
 <ul>
-<li><i>November 2015 </i>
+<li><em>November 2015 </em>
 by Stefan Vorkoetter <br>implemented dynamic temperature dependency</br></li>
-<li><i>November 2015</i>
+<li><em>November 2015</em>
 by Kristin Majetta <br> defined parameter Vt based on fixed temperature</br></li>
-<li><i>June 2014</i>
+<li><em>June 2014</em>
 by Stefan Vorkoetter, Kristin Majetta, and Christoph Clauss <br>implemented</br></li>
-<li><i>October 2011</i>
+<li><em>October 2011</em>
 Stefan Vorkoetter - new model proposed.</li>
 </ul>
 </html>"),
@@ -195,18 +195,18 @@ Stefan Vorkoetter - new model proposed.</li>
     LossPower = v*i;
           annotation (
             Documentation(info="<html>
-<p>The simple Zener diode is a one port. It consists of the diode itself and an parallel ohmic resistance <i>R</i>. The diode formula is:
+<p>The simple Zener diode is a one port. It consists of the diode itself and an parallel ohmic resistance <em>R</em>. The diode formula is:
 <pre>                v/Vt                -(v+Bv)/(Nbv*Vt)
   i  =  Ids ( e      - 1) - Ibv ( e                  ).</pre>
-<p>If the exponent in one of the two branches reaches the limit <i>Maxexp</i>, the diode characteristic is linearly continued to avoid overflow.</p>
+<p>If the exponent in one of the two branches reaches the limit <em>Maxexp</em>, the diode characteristic is linearly continued to avoid overflow.</p>
 <p><br>The Zener diode model permits (in contrast to the simple diode model) current in reverse direction if the breakdown voltage Bv (also known Zener knee voltage) is exceeded.</p>
-<p>The thermal power is calculated by <i>i*v</i>.</p><p><b>Please note:</b> In case of useHeatPort=true the temperature dependence of the electrical behavior is <b>not </b>modelled yet. The parameters are not temperature dependent.</p>
+<p>The thermal power is calculated by <em>i*v</em>.</p><p><strong>Please note:</strong> In case of useHeatPort=true the temperature dependence of the electrical behavior is <strong>not </strong>modelled yet. The parameters are not temperature dependent.</p>
 </html>",  revisions="<html>
 <ul>
-<li><i> March 11, 2009   </i>
+<li><em> March 11, 2009   </em>
        by Christoph Clauss<br> conditional heat port added<br>
        </li>
-<li><i>April 5, 2004   </i>
+<li><em>April 5, 2004   </em>
        by Christoph Clauss<br> implemented<br>
        </li>
 </ul>
@@ -301,12 +301,12 @@ For more details please care for H. Spiro.
 The model does not consider capacitances. A high drain-source resistance RDS
 is included to avoid numerical difficulties.
 <br><br>
-<b>Please note: </b>
+<strong>Please note: </strong>
 In case of useHeatPort=true the temperature dependence of the electrical
-behavior is <b>not</b> modelled yet. The parameters are not temperature dependent.
+behavior is <strong>not</strong> modelled yet. The parameters are not temperature dependent.
 </P>
 <DL>
-<DT><b>References:</b>
+<DT><strong>References:</strong>
 <DD>Spiro, H.: Simulation integrierter Schaltungen. R. Oldenbourg Verlag
   Muenchen Wien 1990.
 </DL>
@@ -328,13 +328,13 @@ Some typical parameter sets are:
 </html>",
  revisions="<html>
 <ul>
-<li><i> March 11, 2009   </i>
+<li><em> March 11, 2009   </em>
        by Christoph Clauss<br> conditional heat port added<br>
        </li>
-<li><i>December 7, 2005   </i>
+<li><em>December 7, 2005   </em>
        by Christoph Clauss<br>
        error in RDS calculation deleted</li>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -440,9 +440,9 @@ For more details please care for H. Spiro.
 The model does not consider capacitances. A high drain-source resistance RDS
 is included to avoid numerical difficulties.
 <br> <br>
-<b>Please note:</b>
+<strong>Please note:</strong>
 In case of useHeatPort=true the temperature dependence of the electrical
-behavior is <b>not</b> modelled yet. The parameters are not temperature dependent.
+behavior is <strong>not</strong> modelled yet. The parameters are not temperature dependent.
 </P>
 <PRE>
   W       L      Beta         Vt      K2     K5       DW       DL
@@ -468,20 +468,20 @@ behavior is <b>not</b> modelled yet. The parameters are not temperature dependen
 </PRE>
 
 <DL>
-<DT><b>References:</b></DT>
+<DT><strong>References:</strong></DT>
 <DD>Spiro, H.: Simulation integrierter Schaltungen. R. Oldenbourg Verlag
 Muenchen Wien 1990.</DD>
 </DL>
 </html>",
  revisions="<html>
 <ul>
-<li><i> March 11, 2009   </i>
+<li><em> March 11, 2009   </em>
        by Christoph Clauss<br> conditional heat port added<br>
        </li>
-<li><i>December 7, 2005   </i>
+<li><em>December 7, 2005   </em>
        by Christoph Clauss<br>
        error in RDS calculation deleted</li>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -621,9 +621,9 @@ equation
 This model is a simple model of a bipolar NPN junction transistor according
 to Ebers-Moll.
 <br> <br>
-<b>Please note:</b>
+<strong>Please note:</strong>
 In case of useHeatPort=true the temperature dependence of the electrical
-behavior is <b>not</b> modelled yet. The parameters are not temperature dependent.
+behavior is <strong>not</strong> modelled yet. The parameters are not temperature dependent.
 </P>
 <P>
 A typical parameter set is:
@@ -634,7 +634,7 @@ A typical parameter set is:
   50  0.1 1e-16  0.02 0.12e-9 5e-9  1e-12 0.4e-12 0.5e-12 0.8   0.4  0.8    0.333  1e-15  1e-15  0.02585
 </PRE>
 <DL>
-<DT><b>References:</b></DT>
+<DT><strong>References:</strong></DT>
 <DD>Vlach, J.; Singal, K.: Computer methods for circuit analysis and design.
 Van Nostrand Reinhold, New York 1983
 on page 317 ff.</DD>
@@ -642,11 +642,11 @@ on page 317 ff.</DD>
 </html>",
  revisions="<html>
 <ul>
-<li><i> March 11, 2009   </i>
+<li><em> March 11, 2009   </em>
        by Christoph Clauss<br> conditional heat port added<br>
        </li>
 
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -775,9 +775,9 @@ equation
 This model is a simple model of a bipolar PNP junction transistor according
 to Ebers-Moll.
 <br> <br>
-<b>Please note:</b>
+<strong>Please note:</strong>
 In case of useHeatPort=true the temperature dependence of the electrical
-behavior is <b>not</b> modelled yet. The parameters are not temperature dependent.
+behavior is <strong>not</strong> modelled yet. The parameters are not temperature dependent.
 <P>
 A typical parameter set is:
 </P>
@@ -787,7 +787,7 @@ A typical parameter set is:
   50  0.1 1e-16  0.02 0.12e-9 5e-9  1e-12 0.4e-12 0.5e-12 0.8   0.4  0.8    0.333  1e-15  1e-15  0.02585
 </PRE>
 <DL>
-<DT><b>References:</b></DT>
+<DT><strong>References:</strong></DT>
 <DD>Vlach, J.; Singal, K.: Computer methods for circuit analysis and design.
 Van Nostrand Reinhold, New York 1983
 on page 317 ff.</DD>
@@ -795,11 +795,11 @@ on page 317 ff.</DD>
 </html>",
  revisions="<html>
 <ul>
-<li><i> March 11, 2009   </i>
+<li><em> March 11, 2009   </em>
        by Christoph Clauss<br> conditional heat port added<br>
        </li>
 
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -884,7 +884,7 @@ equation
 <P>
 The simple diode is an electrical one port, where a heat port is added, which is
 defined in the Modelica.Thermal library. It consists of the diode itself and an parallel ohmic
-resistance <i>R</i>. The diode formula is:
+resistance <em>R</em>. The diode formula is:
 </P>
 <PRE>
                 v/vt_t
@@ -896,16 +896,16 @@ where vt_t depends on the temperature of the heat port:
   vt_t = k*temp/q
 </PRE>
 <P>
-If the exponent <i>v/vt_t</i> reaches the limit <i>maxex</i>, the diode characteristic is linearly
+If the exponent <em>v/vt_t</em> reaches the limit <em>maxex</em>, the diode characteristic is linearly
 continued to avoid overflow.<br>
-The thermal power is calculated by <i>i*v</i>.
+The thermal power is calculated by <em>i*v</em>.
 </P>
 </html>", revisions="<html>
 <ul>
-<li><i> March 11, 2009   </i>
+<li><em> March 11, 2009   </em>
        by Christoph Clauss<br> conditional heat port added<br>
        </li>
-<li><i>April 5, 2004   </i>
+<li><em>April 5, 2004   </em>
        by Christoph Clauss<br> implemented<br>
        </li>
 </ul>
@@ -1030,17 +1030,17 @@ end HeatingDiode;
   12.e-6  4.e-6  0.038e-3    -0.8     0.33   0.6      0        0           zero
   20.e-6  6.e-6  0.022e-3     0.8     1      0.66     0        0
 </PRE>
-<p><b>References:</b></p>
+<p><strong>References:</strong></p>
 <p>Spiro, H.: Simulation integrierter Schaltungen. R. Oldenbourg Verlag Muenchen Wien 1990.</p>
 </html>",  revisions="<html>
 <ul>
-<li><i> March 11, 2009   </i>
+<li><em> March 11, 2009   </em>
        by Christoph Clauss<br> conditional heat port added<br>
        </li>
-<li><i>December 7, 2005   </i>
+<li><em>December 7, 2005   </em>
        by Christoph Clauss<br>
        error in RDS calculation deleted</li>
-<li><i>March 31, 2004   </i>
+<li><em>March 31, 2004   </em>
        by Christoph Clauss<br> implemented<br>
        </li>
 </ul>
@@ -1153,7 +1153,7 @@ end HeatingDiode;
 <p>The PMOS model is a simple model of a p-channel metal-oxide semiconductor FET. It differs slightly from the device used in the SPICE simulator. For more details please care for H. Spiro.
 <br>A heating port is added for thermal electric simulation. The heating port is defined in the Modelica.Thermal library.
 <br>The model does not consider capacitances. A high drain-source resistance RDS is included to avoid numerical difficulties.</p>
-<dl><dt><b>References:</b> </dt>
+<dl><dt><strong>References:</strong> </dt>
 <dd>Spiro, H.: Simulation integrierter Schaltungen. R. Oldenbourg Verlag Muenchen Wien 1990. </dd>
 </dl><p>Some typical parameter sets are:</p>
 <PRE>
@@ -1169,13 +1169,13 @@ end HeatingDiode;
 </PRE>
 </html>",  revisions="<html>
 <ul>
-<li><i> March 11, 2009   </i>
+<li><em> March 11, 2009   </em>
        by Christoph Clauss<br> conditional heat port added<br>
        </li>
-<li><i>December 7, 2005   </i>
+<li><em>December 7, 2005   </em>
        by Christoph Clauss<br>
        error in RDS calculation deleted</li>
-<li><i>March 31, 2004   </i>
+<li><em>March 31, 2004   </em>
        by Christoph Clauss<br> implemented<br>
        </li>
 </ul>
@@ -1333,14 +1333,14 @@ end HeatingDiode;
 <pre>  Bf  Br  Is     Vak  Tauf    Taur  Ccs   Cje     Cjc     Phie  Me   PHic   Mc     Gbc    Gbe
   -   -   A      V    s       s     F     F       F       V     -    V      -      mS     mS
   50  0.1 1e-16  0.02 0.12e-9 5e-9  1e-12 0.4e-12 0.5e-12 0.8   0.4  0.8    0.333  1e-15  1e-15</pre>
-<p><b>References:</b></p>
+<p><strong>References:</strong></p>
 <p>Vlach, J.; Singal, K.: Computer methods for circuit analysis and design. Van Nostrand Reinhold, New York 1983 on page 317 ff.</p>
 </html>",  revisions="<html>
 <ul>
-<li><i> March 11, 2009   </i>
+<li><em> March 11, 2009   </em>
        by Christoph Clauss<br> conditional heat port added<br>
        </li>
-<li><i>March 20, 2004   </i>
+<li><em>March 20, 2004   </em>
        by Christoph Clauss<br> implemented<br>
        </li>
 </ul>
@@ -1495,14 +1495,14 @@ end HeatingDiode;
 <pre>  Bf  Br  Is     Vak  Tauf    Taur  Ccs   Cje     Cjc     Phie  Me   PHic   Mc     Gbc    Gbe
   -   -   A      V    s       s     F     F       F       V     -    V      -      mS     mS
   50  0.1 1e-16  0.02 0.12e-9 5e-9  1e-12 0.4e-12 0.5e-12 0.8   0.4  0.8    0.333  1e-15  1e-15</pre>
-<p><b>References:</b></p>
+<p><strong>References:</strong></p>
 <p>Vlach, J.; Singal, K.: Computer methods for circuit analysis and design. Van Nostrand Reinhold, New York 1983 on page 317 ff.</p>
 </html>",  revisions="<html>
 <ul>
-<li><i> March 11, 2009   </i>
+<li><em> March 11, 2009   </em>
        by Christoph Clauss<br> conditional heat port added<br>
        </li>
-<li><i>March 20, 2004   </i>
+<li><em>March 20, 2004   </em>
        by Christoph Clauss<br> implemented<br>
        </li>
 </ul>
@@ -1643,7 +1643,7 @@ public
     revisions=
       "<html>
 <ul>
-<li><i>May 12, 2009   </i>
+<li><em>May 12, 2009   </em>
        by Matthias Franke
        </li>
 </ul>
@@ -1845,11 +1845,11 @@ public
 <br>Two thyristors are contrarily connected in parallel, whereas each transistor is connected with a diode.
 <br>Further information regarding the electrical component TRIAC can be detected in documentation of the ideal TRIAC model.
 <br>As an additional information: this model is based on the Modelica.Electrical.Analog.Semiconductors.Thyristor.</p>
-<p><b>Attention:</b> The model seems to be very sensitive with respect to the choice of some parameters (e.g., VDRM, VRRM). This is caused by the thyristor model. Further investigations are necessary.</p>
+<p><strong>Attention:</strong> The model seems to be very sensitive with respect to the choice of some parameters (e.g., VDRM, VRRM). This is caused by the thyristor model. Further investigations are necessary.</p>
 </html>",
      revisions="<html>
 <ul>
-<li><i>November 25, 2009   </i> <br>
+<li><em>November 25, 2009   </em> <br>
 
        by Susann Wolf <br><br>
        </li>
@@ -1872,7 +1872,7 @@ public
    revisions="<html>
 <dl>
 <dt>
-<b>Main Authors:</b>
+<strong>Main Authors:</strong>
 </dt>
 <dd>
 Christoph Clau&szlig;

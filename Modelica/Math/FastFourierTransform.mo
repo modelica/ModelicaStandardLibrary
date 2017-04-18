@@ -245,7 +245,7 @@ with the only difference that just the amplitudes of the FFT are stored on file 
 <h4>Syntax</h4>
 
 <blockquote><p>
-<b>realFFTinfo</b>(f_max, f_resolution, f_max_factor=5);
+<strong>realFFTinfo</strong>(f_max, f_resolution, f_max_factor=5);
 </p></blockquote>
 
 <h4>Description</h4>
@@ -334,7 +334,7 @@ results in the following output:
 <h4>Syntax</h4>
 
 <blockquote><p>
-ns = <b>realFFTsamplePoints</b>(f_max, f_resolution, f_max_factor=5);
+ns = <strong>realFFTsamplePoints</strong>(f_max, f_resolution, f_max_factor=5);
 </p></blockquote>
 
 <h4>Description</h4>
@@ -363,19 +363,19 @@ used in this function
 
 <dl>
 <dt>Mark Borgerding (2010):</dt>
-<dd> <b>KissFFT, version 1.3.0</b>.
+<dd> <strong>KissFFT, version 1.3.0</strong>.
      <a href=\"http://sourceforge.net/projects/kissfft/\">http://sourceforge.net/projects/kissfft/</a>.
      <br>&nbsp;
      </dd>
 
 <dt>James W. Cooley, John W. Tukey (1965):</dt>
-<dd> <b>An algorithm for the machine calculation of complex Fourier series</b>.
+<dd> <strong>An algorithm for the machine calculation of complex Fourier series</strong>.
      Math. Comput. 19: 297-301. doi:10.2307/2003354.
      <br>&nbsp;
      </dd>
 
 <dt>Martin R. Kuhn, Martin Otter, Tim Giese (2015):</dt>
-<dd> <b>Model Based Specifications in Aircraft Systems Design</b>.
+<dd> <strong>Model Based Specifications in Aircraft Systems Design</strong>.
      Modelica 2015 Conference, Versailles, France,
      pp. 491-500, Sept.23-25, 2015.
      Download from:
@@ -458,16 +458,16 @@ results in the following output:
 <h4>Syntax</h4>
 
 <blockquote><p>
-(info, amplitudes, phases) = <b>realFFT</b>(u);
+(info, amplitudes, phases) = <strong>realFFT</strong>(u);
 </p></blockquote>
 
 <h4>Description</h4>
 <p>
-The input argument of this function is a Real vector u. size(u,1) <b>must</b> be even. An efficient computation
+The input argument of this function is a Real vector u. size(u,1) <strong>must</strong> be even. An efficient computation
 is performed, if size(u,1) = 2^a*3^b*5^c (a,b,c Integer &ge; 0).
 An appropriate length of vector u can be computed with function
 <a href=\"modelica://Modelica.Math.FastFourierTransform.realFFTsamplePoints\">realFFTsamplePoints</a>.
-Function <b>realFFT</b> computes a real FFT (Fast Fourier Transform) of u and returns the result
+Function <strong>realFFT</strong> computes a real FFT (Fast Fourier Transform) of u and returns the result
 in form of the outputs amplitudes and phases. Argument info provides additional information:
 </p>
 
@@ -493,19 +493,19 @@ amplitudes[i] is the amplitude of a sine-function at the i-th frequency.
 
 <dl>
 <dt>Mark Borgerding (2010):</dt>
-<dd> <b>KissFFT, version 1.3.0</b>.
+<dd> <strong>KissFFT, version 1.3.0</strong>.
      <a href=\"http://sourceforge.net/projects/kissfft/\">http://sourceforge.net/projects/kissfft/</a>.
      <br>&nbsp;
      </dd>
 
 <dt>James W. Cooley, John W. Tukey (1965):</dt>
-<dd> <b>An algorithm for the machine calculation of complex Fourier series</b>.
+<dd> <strong>An algorithm for the machine calculation of complex Fourier series</strong>.
      Math. Comput. 19: 297-301. doi:10.2307/2003354.
      <br>&nbsp;
      </dd>
 
 <dt>Martin R. Kuhn, Martin Otter, Tim Giese (2015):</dt>
-<dd> <b>Model Based Specifications in Aircraft Systems Design</b>.
+<dd> <strong>Model Based Specifications in Aircraft Systems Design</strong>.
      Modelica 2015 Conference, Versailles, France,
      pp. 491-500, Sept.23-25, 2015.
      Download from:
@@ -583,20 +583,20 @@ which is a complete example where an FFT is computed during simulation and store
 <h4>Syntax</h4>
 
 <blockquote><p>
-success = <b>realFFTwriteToFile</b>(t_computed, fileName, f_max, amplitudes, phases, format);
+success = <strong>realFFTwriteToFile</strong>(t_computed, fileName, f_max, amplitudes, phases, format);
 </p></blockquote>
 
 <h4>Description</h4>
 <p>
 This functions stores the result of an FFT computation on file, so that it can
-be easily plotted. <b>amplitudes</b> and <b>phases</b> are the vectors that hold the
+be easily plotted. <strong>amplitudes</strong> and <strong>phases</strong> are the vectors that hold the
 amplitudes and phases values of an FFT computation. If the size of the phases vector is zero,
 no phases will be stored on file. Otherwise, phases must have the same dimension as the amplitudes
 vector. The frequency vector f is constructed within the function from the dimension of the
-amplitudes vector and the information that amplitudes[end] is at frequency <b>f_max</b>.
-The <b>format</b> argument defines the file format (for details see
+amplitudes vector and the information that amplitudes[end] is at frequency <strong>f_max</strong>.
+The <strong>format</strong> argument defines the file format (for details see
 <a href=\"modelica://Modelica.Utilities.Streams.writeRealMatrix\">writeRealMatrix</a>).
-Argument <b>t_computed</b> is the actual time instant when the FFT was computed.
+Argument <strong>t_computed</strong> is the actual time instant when the FFT was computed.
 It is used in the print message after the result was stored on file.
 </p>
 
@@ -656,13 +656,13 @@ See detailed example model:
 <h4>Syntax</h4>
 
 <blockquote><p>
-(info, amplitudes, phases) = <b>rawRealFFT</b>(u);
+(info, amplitudes, phases) = <strong>rawRealFFT</strong>(u);
 </p></blockquote>
 
 <h4>Description</h4>
 <p>
 Raw interface to a function of the Kiss_FFT package to compute the FFT of a real, sampled signal.
-The input argument of this function is a Real vector u. size(u,1) <b>must</b> be even. An efficient computation
+The input argument of this function is a Real vector u. size(u,1) <strong>must</strong> be even. An efficient computation
 is performed, if size(u,1) = 2^a*3^b*5^c (a,b,c Integer &ge; 0).
 The function computes a real FFT (Fast Fourier Transform) of u and returns the result
 in form of the outputs amplitudes and phases. Argument info provides additional information:
@@ -686,19 +686,19 @@ used in this function.
 
 <dl>
 <dt>Mark Borgerding (2010):</dt>
-<dd> <b>KissFFT, version 1.3.0</b>.
+<dd> <strong>KissFFT, version 1.3.0</strong>.
      <a href=\"http://sourceforge.net/projects/kissfft/\">http://sourceforge.net/projects/kissfft/</a>.
      <br>&nbsp;
      </dd>
 
 <dt>James W. Cooley, John W. Tukey (1965):</dt>
-<dd> <b>An algorithm for the machine calculation of complex Fourier series</b>.
+<dd> <strong>An algorithm for the machine calculation of complex Fourier series</strong>.
      Math. Comput. 19: 297-301. doi:10.2307/2003354.
      <br>&nbsp;
      </dd>
 
 <dt>Martin R. Kuhn, Martin Otter, Tim Giese (2015):</dt>
-<dd> <b>Model Based Specifications in Aircraft Systems Design</b>.
+<dd> <strong>Model Based Specifications in Aircraft Systems Design</strong>.
      Modelica 2015 Conference, Versailles, France,
      pp. 491-500, Sept.23-25, 2015.
      Download from:
@@ -758,7 +758,7 @@ used in this function.
 <h4>Syntax</h4>
 
 <blockquote><p>
-(success, e2, e3, e5) = <b>prime235Factorization</b>(n);
+(success, e2, e3, e5) = <strong>prime235Factorization</strong>(n);
 </p></blockquote>
 
 <h4>Description</h4>
@@ -813,19 +813,19 @@ resulting in:
 
 <dl>
 <dt>Mark Borgerding (2010):</dt>
-<dd> <b>KissFFT, version 1.3.0</b>.
+<dd> <strong>KissFFT, version 1.3.0</strong>.
      <a href=\"http://sourceforge.net/projects/kissfft/\">http://sourceforge.net/projects/kissfft/</a>.
      <br>&nbsp;
      </dd>
 
 <dt>James W. Cooley, John W. Tukey (1965):</dt>
-<dd> <b>An algorithm for the machine calculation of complex Fourier series</b>.
+<dd> <strong>An algorithm for the machine calculation of complex Fourier series</strong>.
      Math. Comput. 19: 297-301. doi:10.2307/2003354.
      <br>&nbsp;
      </dd>
 
 <dt>Martin R. Kuhn, Martin Otter, Tim Giese (2015):</dt>
-<dd> <b>Model Based Specifications in Aircraft Systems Design</b>.
+<dd> <strong>Model Based Specifications in Aircraft Systems Design</strong>.
      Modelica 2015 Conference, Versailles, France,
      pp. 491-500, Sept.23-25, 2015.
      Download from:

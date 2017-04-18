@@ -492,13 +492,13 @@ printing and shipping costs may be recovered.</p>
 <li> Package icons adapted to the icons of package Modelica, version 3.2.</li>
 <li> ModelicaServices library on the Modelica subversion server provided in three versions:
      <ol>
-     <li> <b>Default/ModelicaServices</b><br>
+     <li> <strong>Default/ModelicaServices</strong><br>
           (for tools that do not support 3-dim. visualization).</li>
 
-     <li> <b>Dymola/ModelicaServices</b><br>
+     <li> <strong>Dymola/ModelicaServices</strong><br>
           (a Dymola-specific implementation).</li>
 
-     <li> <b>DymolaAndDLRVisualization/ModelicaServices</b><br>
+     <li> <strong>DymolaAndDLRVisualization/ModelicaServices</strong><br>
           (an implementation that uses the DLR Visualization library
            in combination with Dymola).</li>
      </ol>
@@ -532,7 +532,7 @@ First version of the ModelicaServices library.
 </tr>
 </table>
 
-<p><b>Acknowledgements:</b></p>
+<p><strong>Acknowledgements:</strong></p>
 
 <p>
 The design of the Animation.Shape component is from Hilding Elmqvist, Dassault Syst&egrave;mes AB.
@@ -631,7 +631,7 @@ but indirectly via the alias definition in
         choice="ImplicitTrapezoid" "Implicit trapezoid rule (order 2)"),
         Documentation(info="<html>
 <p>
-Type <b>SolverMethod</b> is a String type with menu choices to select the
+Type <strong>SolverMethod</strong> is a String type with menu choices to select the
 integration method to solve differential equations in a clocked discretized
 continuous-time partition. The choices are tool dependent.
 For details, see chapter 16.8.2 \"Solver Method\" in the Modelica Language
@@ -696,12 +696,12 @@ This ModelicaServices package provides only \"dummy\" models that do nothing.
 </p>
 
 <p>
-<b>Licensed by the Modelica Association under the Modelica License 2</b><br>
+<strong>Licensed by the Modelica Association under the Modelica License 2</strong><br>
 Copyright &copy; 2009-2016, DLR and Dassault Syst&egrave;mes AB.
 </p>
 
 <p>
-<i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
+<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</em>
 </p>
 
 </html>"));

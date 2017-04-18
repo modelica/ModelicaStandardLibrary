@@ -745,7 +745,7 @@ through the sensor is allowed.
       port.C_outflow = zeros(Medium.nC);
       annotation (Documentation(info="<html>
 <p>
-Partial component to model an <b>absolute sensor</b>. Can be used for pressure sensor models.
+Partial component to model an <strong>absolute sensor</strong>. Can be used for pressure sensor models.
 Use for other properties such as temperature or density is discouraged, because the enthalpy at the connector can have different meanings, depending on the connection topology. Use <code>PartialFlowSensor</code> instead.
 as signal.
 </p>
@@ -834,7 +834,7 @@ through the sensor is allowed.
       port_b.C_outflow = inStream(port_a.C_outflow);
       annotation (Documentation(info="<html>
 <p>
-Partial component to model a <b>sensor</b> that measures any intensive properties
+Partial component to model a <strong>sensor</strong> that measures any intensive properties
 of a flow, e.g., to get temperature or density in the flow
 between fluid connectors.<br>
 The model includes zero-volume balance equations. Sensor models inheriting from
@@ -846,7 +846,7 @@ this partial class should add a medium instance to calculate the measured proper
   end BaseClasses;
   annotation (preferredView="info", Documentation(info="<html>
 <p align = justify>
-Package <b>Sensors</b> consists of idealized sensor components that
+Package <strong>Sensors</strong> consists of idealized sensor components that
 provide variables of a medium model and/or fluid ports as
 output signals. These signals can be, e.g., further processed
 with components of the Modelica.Blocks library.
@@ -856,14 +856,14 @@ model the time constant of the sensor).
 </p>
 
 <p align = justify>For the thermodynamic state variables temperature, specific enthalpy, specific entropy and density
-the fluid library provides two different types of sensors: <b>regular one port</b> and <b>two port</b> sensors.</p>
+the fluid library provides two different types of sensors: <strong>regular one port</strong> and <strong>two port</strong> sensors.</p>
 
 <ul>
-<li>The <b>regular one port</b> sensors have the advantage of easy introduction and removal from a model, as no connections have to be broken.
+<li>The <strong>regular one port</strong> sensors have the advantage of easy introduction and removal from a model, as no connections have to be broken.
 A potential drawback is that the obtained value jumps as flow reverts.
 </li>
 
-<li>The <b>two port</b> sensors offer the advantages of an adjustable regularized step function around zero flow.
+<li>The <strong>two port</strong> sensors offer the advantages of an adjustable regularized step function around zero flow.
 Moreover the obtained result is restricted to the value flowing into port_a if allowFlowReversal is false.</li>
 </ul>
 
@@ -874,16 +874,16 @@ simple example.
 </p>
 </html>", revisions="<html>
 <ul>
-<li><i>22 Dec 2008</i>
+<li><em>22 Dec 2008</em>
     by R;uumldiger Franke<br>
     <ul>
     <li>flow sensors based on Interfaces.PartialTwoPort</li>
     <li>adapted docu to stream connectors, i.e., less need for two port sensors</li>
     </ul>
-<li><i>4 Dec 2008</i>
+<li><em>4 Dec 2008</em>
     by Michael Wetter<br>
        included sensors for trace substance</li>
-<li><i>31 Oct 2007</i>
+<li><em>31 Oct 2007</em>
     by Carsten Heinrich<br>
        updated sensor models, included one and two port sensors for thermodynamic state variables</li>
 </ul>

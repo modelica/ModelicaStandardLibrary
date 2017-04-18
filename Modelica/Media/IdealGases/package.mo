@@ -6,8 +6,8 @@ package IdealGases "Data and models of ideal gases (single, fixed and dynamic mi
 annotation (Documentation(info="<html>
 <p>This package contains data for the 1241 ideal gases from</p>
 <blockquote>
-  <p>McBride B.J., Zehe M.J., and Gordon S. (2002): <b>NASA Glenn Coefficients
-  for Calculating Thermodynamic Properties of Individual Species</b>. NASA
+  <p>McBride B.J., Zehe M.J., and Gordon S. (2002): <strong>NASA Glenn Coefficients
+  for Calculating Thermodynamic Properties of Individual Species</strong>. NASA
   report TP-2002-211556</p>
 </blockquote>
 <p>Medium models for some of these gases are available in package

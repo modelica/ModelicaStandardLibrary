@@ -232,12 +232,12 @@ package Interfaces
       Documentation(info="<html>
 <p>
 This partial model defines an interface for components with two ports.
-The treatment of the design flow direction and of flow reversal are predefined based on the parameter <code><b>allowFlowReversal</b></code>.
-The component may transport fluid and may have internal storage for a given fluid <code><b>Medium</b></code>.
+The treatment of the design flow direction and of flow reversal are predefined based on the parameter <code><strong>allowFlowReversal</strong></code>.
+The component may transport fluid and may have internal storage for a given fluid <code><strong>Medium</strong></code>.
 </p>
 <p>
 An extending model providing direct access to internal storage of mass or energy through port_a or port_b
-should redefine the protected parameters <code><b>port_a_exposesState</b></code> and <code><b>port_b_exposesState</b></code> appropriately.
+should redefine the protected parameters <code><strong>port_a_exposesState</strong></code> and <code><strong>port_b_exposesState</strong></code> appropriately.
 This will be visualized at the port icons, in order to improve the understanding of fluid model diagrams.
 </p>
 </html>"),
@@ -676,20 +676,20 @@ Interface and base class for an ideally mixed fluid volume with the ability to s
 The following boundary flow and source terms are part of the energy balance and must be specified in an extending class:
 </p>
 <ul>
-<li><code><b>Qb_flow</b></code>, e.g., convective or latent heat flow rate across segment boundary, and</li>
-<li><code><b>Wb_flow</b></code>, work term, e.g., p*der(fluidVolume) if the volume is not constant.</li>
+<li><code><strong>Qb_flow</strong></code>, e.g., convective or latent heat flow rate across segment boundary, and</li>
+<li><code><strong>Wb_flow</strong></code>, work term, e.g., p*der(fluidVolume) if the volume is not constant.</li>
 </ul>
 <p>
-The component volume <code><b>fluidVolume</b></code> is an input that needs to be set in the extending class to complete the model.
+The component volume <code><strong>fluidVolume</strong></code> is an input that needs to be set in the extending class to complete the model.
 </p>
 <p>
 Further source terms must be defined by an extending class for fluid flow across the segment boundary:
 </p>
 <ul>
-<li><code><b>Hb_flow</b></code>, enthalpy flow,</li>
-<li><code><b>mb_flow</b></code>, mass flow,</li>
-<li><code><b>mbXi_flow</b></code>, substance mass flow, and</li>
-<li><code><b>mbC_flow</b></code>, trace substance mass flow.</li>
+<li><code><strong>Hb_flow</strong></code>, enthalpy flow,</li>
+<li><code><strong>mb_flow</strong></code>, mass flow,</li>
+<li><code><strong>mbXi_flow</strong></code>, substance mass flow, and</li>
+<li><code><strong>mbC_flow</strong></code>, trace substance mass flow.</li>
 </ul>
 </html>"));
     end PartialLumpedVolume;
@@ -755,19 +755,19 @@ Further source terms must be defined by an extending class for fluid flow across
         annotation (
            Documentation(info="<html>
 <p>
-Interface and base class for a momentum balance, defining the mass flow rate <code><b>m_flow</b></code>
+Interface and base class for a momentum balance, defining the mass flow rate <code><strong>m_flow</strong></code>
 of a given <code>Medium</code> in a flow model.
 </p>
 <p>
 The following boundary flow and force terms are part of the momentum balance and must be specified in an extending model (to zero if not considered):
 </p>
 <ul>
-<li><code><b>Ib_flow</b></code>, the flow of momentum across model boundaries,</li>
-<li><code><b>F_p[m]</b></code>, pressure force, and</li>
-<li><code><b>F_fg[m]</b></code>, friction and gravity forces.</li>
+<li><code><strong>Ib_flow</strong></code>, the flow of momentum across model boundaries,</li>
+<li><code><strong>F_p[m]</strong></code>, pressure force, and</li>
+<li><code><strong>F_fg[m]</strong></code>, friction and gravity forces.</li>
 </ul>
 <p>
-The length of the flow path <code><b>pathLength</b></code> is an input that needs to be set in an extending class to complete the model.
+The length of the flow path <code><strong>pathLength</strong></code> is an input that needs to be set in an extending class to complete the model.
 </p>
 </html>"));
       end PartialLumpedFlow;
@@ -981,25 +981,25 @@ initial equation
 
    annotation (Documentation(info="<html>
 <p>
-Interface and base class for <code><b>n</b></code> ideally mixed fluid volumes with the ability to store mass and energy.
+Interface and base class for <code><strong>n</strong></code> ideally mixed fluid volumes with the ability to store mass and energy.
 It is intended to model a one-dimensional spatial discretization of fluid flow according to the finite volume method.
 The following boundary flow and source terms are part of the energy balance and must be specified in an extending class:
 </p>
 <ul>
-<li><code><b>Qb_flows[n]</b></code>, heat flow term, e.g., conductive heat flows across segment boundaries, and</li>
-<li><code><b>Wb_flows[n]</b></code>, work term.</li>
+<li><code><strong>Qb_flows[n]</strong></code>, heat flow term, e.g., conductive heat flows across segment boundaries, and</li>
+<li><code><strong>Wb_flows[n]</strong></code>, work term.</li>
 </ul>
 <p>
-The component volumes <code><b>fluidVolumes[n]</b></code> are an input that needs to be set in an extending class to complete the model.
+The component volumes <code><strong>fluidVolumes[n]</strong></code> are an input that needs to be set in an extending class to complete the model.
 </p>
 <p>
 Further source terms must be defined by an extending class for fluid flow across the segment boundary:
 </p>
 <ul>
-<li><code><b>Hb_flows[n]</b></code>, enthalpy flow,</li>
-<li><code><b>mb_flows[n]</b></code>, mass flow,</li>
-<li><code><b>mbXi_flows[n]</b></code>, substance mass flow, and</li>
-<li><code><b>mbC_flows[n]</b></code>, trace substance mass flow.</li>
+<li><code><strong>Hb_flows[n]</strong></code>, enthalpy flow,</li>
+<li><code><strong>mb_flows[n]</strong></code>, mass flow,</li>
+<li><code><strong>mbXi_flows[n]</strong></code>, substance mass flow, and</li>
+<li><code><strong>mbC_flows[n]</strong></code>, trace substance mass flow.</li>
 </ul>
 </html>"));
 end PartialDistributedVolume;
@@ -1068,19 +1068,19 @@ end PartialDistributedVolume;
         annotation (
            Documentation(info="<html>
 <p>
-Interface and base class for <code><b>m</b></code> momentum balances, defining the mass flow rates <code><b>m_flows[m]</b></code>
-of a given <code>Medium</code> in <code><b>m</b></code> flow segments.
+Interface and base class for <code><strong>m</strong></code> momentum balances, defining the mass flow rates <code><strong>m_flows[m]</strong></code>
+of a given <code>Medium</code> in <code><strong>m</strong></code> flow segments.
 </p>
 <p>
 The following boundary flow and force terms are part of the momentum balances and must be specified in an extending model (to zero if not considered):
 </p>
 <ul>
-<li><code><b>Ib_flows[m]</b></code>, the flows of momentum across segment boundaries,</li>
-<li><code><b>Fs_p[m]</b></code>, pressure forces, and</li>
-<li><code><b>Fs_fg[m]</b></code>, friction and gravity forces.</li>
+<li><code><strong>Ib_flows[m]</strong></code>, the flows of momentum across segment boundaries,</li>
+<li><code><strong>Fs_p[m]</strong></code>, pressure forces, and</li>
+<li><code><strong>Fs_fg[m]</strong></code>, friction and gravity forces.</li>
 </ul>
 <p>
-The lengths along the flow path <code><b>pathLengths[m]</b></code> are an input that needs to be set in an extending class to complete the model.
+The lengths along the flow path <code><strong>pathLengths[m]</strong></code> are an input that needs to be set in an extending class to complete the model.
 </p>
 </html>"));
       end PartialDistributedFlow;
@@ -1123,23 +1123,23 @@ The lengths along the flow path <code><b>pathLengths[m]</b></code> are an input 
 
 </html>", revisions="<html>
 <ul>
-<li><i>June 9th, 2008</i>
+<li><em>June 9th, 2008</em>
        by Michael Sielemann: Introduced stream keyword after decision at 57th Design Meeting (Lund).</li>
-<li><i>May 30, 2007</i>
+<li><em>May 30, 2007</em>
        by Christoph Richter: moved everything back to its original position in Modelica.Fluid.</li>
-<li><i>Apr. 20, 2007</i>
+<li><em>Apr. 20, 2007</em>
        by Christoph Richter: moved parts of the original package from Modelica.Fluid
        to the development branch of Modelica 2.2.2.</li>
-<li><i>Nov. 2, 2005</i>
+<li><em>Nov. 2, 2005</em>
        by Francesco Casella: restructured after 45th Design Meeting.</li>
-<li><i>Nov. 20-21, 2002</i>
+<li><em>Nov. 20-21, 2002</em>
        by Hilding Elmqvist, Mike Tiller, Allan Watson, John Batteh, Chuck Newman,
        Jonas Eborn: Improved at the 32nd Modelica Design Meeting.
-<li><i>Nov. 11, 2002</i>
+<li><em>Nov. 11, 2002</em>
        by Hilding Elmqvist, Martin Otter: improved version.</li>
-<li><i>Nov. 6, 2002</i>
+<li><em>Nov. 6, 2002</em>
        by Hilding Elmqvist: first version.</li>
-<li><i>Aug. 11, 2002</i>
+<li><em>Aug. 11, 2002</em>
        by Martin Otter: Improved according to discussion with Hilding
        Elmqvist and Hubertus Tummescheit.<br>
        The PortVicinity model is manually

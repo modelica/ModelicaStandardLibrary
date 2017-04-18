@@ -262,17 +262,17 @@ This example demonstrates two aspects: the treatment of multi-way connections
 and the usage of an incompressible medium model.
 </p><p>
 Eleven pipe models with nNodes=2 each introduce 22 temperature states and and 22 pressure states.
-When configuring <b>pipeModelStructure=a_v_b</b>, the flow models at the pipe ports constitute algebraic loops for the pressures.
+When configuring <strong>pipeModelStructure=a_v_b</strong>, the flow models at the pipe ports constitute algebraic loops for the pressures.
 A common work-around is to introduce \"mixing volumes\" in critical connections.
 </p><p>
-Here the problem is treated alternatively with the default <b>pipeModelStructure=av_vb</b> of the
+Here the problem is treated alternatively with the default <strong>pipeModelStructure=av_vb</strong> of the
 <a href=\"modelica://Modelica.Fluid.Pipes.DynamicPipe\">DynamicPipe</a> model.
 Each pipe exposes the states of the outer fluid segments to the respective fluid ports.
 Consequently the pressures of all connected pipe segments get lumped together into one mass balance spanning the whole connection set.
 Overall this treatment as high-index DAE results in the reduction to 9 pressure states, preventing algebraic loops in connections.
-This can be studied with a rigorous medium model like <b>StandardWaterOnePhase</b>.
+This can be studied with a rigorous medium model like <strong>StandardWaterOnePhase</strong>.
 </p><p>
-The pressure dynamics completely disappears with an incompressible medium model, like the used <b>Glycol47</b>.
+The pressure dynamics completely disappears with an incompressible medium model, like the used <strong>Glycol47</strong>.
 It appears reasonable to assume steady-state mass balances in this case
 (see parameter systemMassDynamics used in system.massDynamics, tab Assumptions).
 </p><p>

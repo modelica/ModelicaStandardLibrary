@@ -14,7 +14,7 @@ package Icons "Icons for MultiBody package"
             lineColor={0,0,255},
             textString="%name")}), Documentation(info="<html>
 <p>
-Model <b>Surface</b> defines a moveable, parametrized surface in 3-dim. space
+Model <strong>Surface</strong> defines a moveable, parametrized surface in 3-dim. space
 that is used for animation. This object is specified by:
 </p>
 
@@ -71,7 +71,7 @@ The direct usage of the Surface model, as well as of the Torus and the Voluminou
             extent={{30.0,-10.0},{90.0,10.0}})}),
       Documentation(info="<html>
 <p>
-Icon of an <b>electrical motor</b> model.
+Icon of an <strong>electrical motor</strong> model.
 </p>
 </html>"));
   end MotorIcon;

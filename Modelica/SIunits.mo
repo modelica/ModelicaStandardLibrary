@@ -13,19 +13,19 @@ package UsersGuide "User's Guide of SIunits Library"
 When implementing a Modelica model, every variable needs to
 be declared. Physical variables should be declared with a unit.
 The basic approach in Modelica is that the unit attribute of
-a variable is the <b>unit</b> in which the <b>equations</b> are <b>written</b>,
+a variable is the <strong>unit</strong> in which the <strong>equations</strong> are <strong>written</strong>,
 for example:
 </p>
 
-<pre>   <b>model</b> MassOnGround
-     <b>parameter</b> Real m(quantity=\"Mass\", unit=\"kg\") \"Mass\";
-     <b>parameter</b> Real f(quantity=\"Force\", unit=\"N\") \"Driving force\";
+<pre>   <strong>model</strong> MassOnGround
+     <strong>parameter</strong> Real m(quantity=\"Mass\", unit=\"kg\") \"Mass\";
+     <strong>parameter</strong> Real f(quantity=\"Force\", unit=\"N\") \"Driving force\";
      Real s(unit=\"m\") \"Position of mass\";
      Real v(unit=\"m/s\") \"Velocity of mass\";
-   <b>equation</b>
-     <b>der</b>(s) = v;
-     m*<b>der</b>(v) = f;
-   <b>end</b> MassOnGround;
+   <strong>equation</strong>
+     <strong>der</strong>(s) = v;
+     m*<strong>der</strong>(v) = f;
+   <strong>end</strong> MassOnGround;
 </pre>
 
 <p>
@@ -44,10 +44,10 @@ for a variable of type Real:
 </p>
 
 <ul>
-<li><b>quantity</b> to define the physical quantity (e.g., \"Length\", or \"Energy\").</li>
-<li><b>unit</b> to define the unit that has to be used
+<li><strong>quantity</strong> to define the physical quantity (e.g., \"Length\", or \"Energy\").</li>
+<li><strong>unit</strong> to define the unit that has to be used
     in order that the equations are correct (e.g., \"N.m\").</li>
-<li><b>displayUnit</b> to define the unit used in the graphical
+<li><strong>displayUnit</strong> to define the unit used in the graphical
     user interface as default display unit for input and/or output.</li>
 </ul>
 
@@ -79,20 +79,20 @@ a tool might ignore the \"displayUnit\" attribute.
 <p>
 In order to help the Modelica model developer, the Modelica.SIunits
 library provides about 450 predefined type names,
-together with values for the attributes <b>quantity</b>, <b>unit</b> and sometimes
-<b>displayUnit</b> and <b>min</b>. The unit is always selected as SI-unit according to the
+together with values for the attributes <strong>quantity</strong>, <strong>unit</strong> and sometimes
+<strong>displayUnit</strong> and <strong>min</strong>. The unit is always selected as SI-unit according to the
 ISO standard. The type and the quantity names are the
 quantity names used in the ISO standard. \"quantity\" and \"unit\" are defined
-as \"<b>final</b>\" in order that they cannot be modified. Attributes \"displayUnit\"
+as \"<strong>final</strong>\" in order that they cannot be modified. Attributes \"displayUnit\"
 and \"min\" can, however, be changed in a model via a modification. The example above,
 might therefore be alternatively also defined as:
 </p>
 
-<pre>   <b>model</b> MassOnGround
-     <b>parameter</b> Modelica.SIunits.Mass  m \"Mass\";
-     <b>parameter</b> Modelica.SIunits.Force f \"Driving force\";
+<pre>   <strong>model</strong> MassOnGround
+     <strong>parameter</strong> Modelica.SIunits.Mass  m \"Mass\";
+     <strong>parameter</strong> Modelica.SIunits.Force f \"Driving force\";
      ...
-   <b>end</b> MassOnGround;
+   <strong>end</strong> MassOnGround;
 </pre>
 
 <p>
@@ -100,12 +100,12 @@ or in a short hand notation as
 </p>
 
 <pre>
-   <b>model</b> MassOnGround
-     <b>import</b> SI = Modelica.SIunits;
-     <b>parameter</b> SI.Mass  m \"Mass\";
-     <b>parameter</b> SI.Force f \"Driving force\";
+   <strong>model</strong> MassOnGround
+     <strong>import</strong> SI = Modelica.SIunits;
+     <strong>parameter</strong> SI.Mass  m \"Mass\";
+     <strong>parameter</strong> SI.Force f \"Driving force\";
      ...
-   <b>end</b> MassOnGround;
+   <strong>end</strong> MassOnGround;
 </pre>
 
 <p>
@@ -117,14 +117,14 @@ in the declaration as in the example at the beginning.
 </p>
 
 <p>
-<b>Complex units</b> are also included in Modelica.SIunits. A complex unit is declared as:
+<strong>Complex units</strong> are also included in Modelica.SIunits. A complex unit is declared as:
 </p>
 <pre>
-  <b>model</b> QuasiStationaryMachine
-    <b>parameter</b> Modelica.SIunits.ComplexPower SNominal = Complex(10000,4400)
+  <strong>model</strong> QuasiStationaryMachine
+    <strong>parameter</strong> Modelica.SIunits.ComplexPower SNominal = Complex(10000,4400)
        \"Nominal complex power\";
    ...
-   <b>end</b> QuasiStationaryMachine;
+   <strong>end</strong> QuasiStationaryMachine;
 </pre>
 </html>"));
 
@@ -153,23 +153,23 @@ in the declaration as in the example at the beginning.
     Radius\" are defined as the same quantity (here: \"Length\").</li>
 <li>The ordering of the type declarations in this package follows ISO 31:
 <pre>
-  Chapter  1: <b>Space and Time</b>
-  Chapter  2: <b>Periodic and Related Phenomena</b>
-  Chapter  3: <b>Mechanics</b>
-  Chapter  4: <b>Heat</b>
-  Chapter  5: <b>Electricity and Magnetism</b>
-  Chapter  6: <b>Light and Related Electro-Magnetic Radiations</b>
-  Chapter  7: <b>Acoustics</b>
-  Chapter  8: <b>Physical Chemistry</b>
-  Chapter  9: <b>Atomic and Nuclear Physics</b>
-  Chapter 10: <b>Nuclear Reactions and Ionizing Radiations</b>
+  Chapter  1: <strong>Space and Time</strong>
+  Chapter  2: <strong>Periodic and Related Phenomena</strong>
+  Chapter  3: <strong>Mechanics</strong>
+  Chapter  4: <strong>Heat</strong>
+  Chapter  5: <strong>Electricity and Magnetism</strong>
+  Chapter  6: <strong>Light and Related Electro-Magnetic Radiations</strong>
+  Chapter  7: <strong>Acoustics</strong>
+  Chapter  8: <strong>Physical Chemistry</strong>
+  Chapter  9: <strong>Atomic and Nuclear Physics</strong>
+  Chapter 10: <strong>Nuclear Reactions and Ionizing Radiations</strong>
   Chapter 11: (not defined in ISO 31-1992)
-  Chapter 12: <b>Characteristic Numbers</b>
-  Chapter 13: <b>Solid State Physics</b>
+  Chapter 12: <strong>Characteristic Numbers</strong>
+  Chapter 13: <strong>Solid State Physics</strong>
 </pre>
 </li>
 <li>Conversion functions between SI and non-SI units are available in subpackage
-    <b>Conversions</b>.</li>
+    <strong>Conversions</strong>.</li>
 </ul>
 </html>"));
 
@@ -184,16 +184,16 @@ in the declaration as in the example at the beginning.
 
 <dl>
 <dt>ISO 31-1992:</dt>
-<dd> <b>General principles concerning
-    quantities, units and symbols</b>.<br>&nbsp;</dd>
+<dd> <strong>General principles concerning
+    quantities, units and symbols</strong>.<br>&nbsp;</dd>
 
 <dt>ISO 1000-1992:</dt>
-<dd> <b>SI units and recommendations for the use
-    of their multiples and of certain other units</b>.<br>&nbsp;</dd>
+<dd> <strong>SI units and recommendations for the use
+    of their multiples and of certain other units</strong>.<br>&nbsp;</dd>
 
 <dt>Cardarelli F.:</dt>
-<dd> <b>Scientific Unit Conversion - A Practical
-     Guide to Metrication</b>. Springer 1997.</dd>
+<dd> <strong>Scientific Unit Conversion - A Practical
+     Guide to Metrication</strong>. Springer 1997.</dd>
 </dl>
 
 </html>"));
@@ -204,7 +204,7 @@ in the declaration as in the example at the beginning.
 
     annotation (Documentation(info="<html>
 <dl>
-<dt><b>Main Author:</b>
+<dt><strong>Main Author:</strong>
 <dd><a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a><br>
     Deutsches Zentrum f&uuml;r Luft und Raumfahrt e.V. (DLR)<br>
     Institut f&uuml;r Robotik und Mechatronik<br>
@@ -215,7 +215,7 @@ in the declaration as in the example at the beginning.
     email: <A HREF=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</A><br>
 </dl>
 
-<p><b>Acknowledgements:</b></p>
+<p><strong>Acknowledgements:</strong></p>
 <ul>
 <li> Astrid Jaschinski, Hubertus Tummescheit and Christian Schweiger
      contributed to the implementation of this package.</li>
@@ -225,9 +225,9 @@ in the declaration as in the example at the beginning.
 
   annotation (DocumentationClass=true, Documentation(info="<html>
 <p>
-Library <b>SIunits</b> is a <b>free</b> Modelica package providing
-predefined types, such as <i>Mass</i>,
-<i>Length</i>, <i>Time</i>, based on the international standard
+Library <strong>SIunits</strong> is a <strong>free</strong> Modelica package providing
+predefined types, such as <em>Mass</em>,
+<em>Length</em>, <em>Time</em>, based on the international standard
 on units.</p>
 
 </html>"));
@@ -320,18 +320,18 @@ end UsersGuide;
 
       annotation (Documentation(info="<html>
 <p>
-This package provides predefined types, such as <b>Angle_deg</b> (angle in
-degree), <b>AngularVelocity_rpm</b> (angular velocity in revolutions per
-minute) or <b>Temperature_degF</b> (temperature in degree Fahrenheit),
+This package provides predefined types, such as <strong>Angle_deg</strong> (angle in
+degree), <strong>AngularVelocity_rpm</strong> (angular velocity in revolutions per
+minute) or <strong>Temperature_degF</strong> (temperature in degree Fahrenheit),
 which are in common use but are not part of the international standard on
 units according to ISO 31-1992 \"General principles concerning quantities,
 units and symbols\" and ISO 1000-1992 \"SI units and recommendations for
 the use of their multiples and of certain other units\".</p>
 <p>If possible, the types in this package should not be used. Use instead
 types of package Modelica.SIunits. For more information on units, see also
-the book of Francois Cardarelli <b>Scientific Unit Conversion - A
-Practical Guide to Metrication</b> (Springer 1997).</p>
-<p>Some units, such as <b>Temperature_degC/Temp_C</b> are both defined in
+the book of Francois Cardarelli <strong>Scientific Unit Conversion - A
+Practical Guide to Metrication</strong> (Springer 1997).</p>
+<p>Some units, such as <strong>Temperature_degC/Temp_C</strong> are both defined in
 Modelica.SIunits and in Modelica.Conversions.NonSIunits. The reason is that these
 definitions have been placed erroneously in Modelica.SIunits although they
 are not SIunits. For backward compatibility, these type definitions are
@@ -352,11 +352,11 @@ still kept in Modelica.SIunits.</p>
     annotation (Inline=true, Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-SIunits.Conversions.<b>to_unit1</b>(r);
+SIunits.Conversions.<strong>to_unit1</strong>(r);
 </pre></blockquote>
 <h4>Description</h4>
 <p>
-The function call \"<code>Conversions.<b>to_unit1</b>(r)</code>\" returns r with unit=\"1\".
+The function call \"<code>Conversions.<strong>to_unit1</strong>(r)</code>\" returns r with unit=\"1\".
 
 <h4>Example</h4>
 <blockquote><pre>
@@ -878,7 +878,7 @@ The function call \"<code>Conversions.<b>to_unit1</b>(r)</code>\" returns r with
               textString="%name",
               lineColor={0,0,255})}), Documentation(info="<html>
 <p>
-This icon of a <b>conversion symbol</b> will be removed in future versions of the library. Instead the icon <a href=\"modelica://Modelica.SIunits.Icons.Conversion\">Modelica.SIunits.Icons.Conversion</a> shall be used.
+This icon of a <strong>conversion symbol</strong> will be removed in future versions of the library. Instead the icon <a href=\"modelica://Modelica.SIunits.Icons.Conversion\">Modelica.SIunits.Icons.Conversion</a> shall be used.
 </p>
 </html>"));
     end ConversionIcon;
@@ -890,12 +890,12 @@ versa. It is recommended to use these functions in the following
 way (note, that all functions have one Real input and one Real output
 argument):</p>
 <pre>
-  <b>import</b> SI = Modelica.SIunits;
-  <b>import</b> Modelica.SIunits.Conversions.*;
+  <strong>import</strong> SI = Modelica.SIunits;
+  <strong>import</strong> Modelica.SIunits.Conversions.*;
      ...
-  <b>parameter</b> SI.Temperature     T   = from_degC(25);   // convert 25 degree Celsius to Kelvin
-  <b>parameter</b> SI.Angle           phi = from_deg(180);   // convert 180 degree to radian
-  <b>parameter</b> SI.AngularVelocity w   = from_rpm(3600);  // convert 3600 revolutions per minutes
+  <strong>parameter</strong> SI.Temperature     T   = from_degC(25);   // convert 25 degree Celsius to Kelvin
+  <strong>parameter</strong> SI.Angle           phi = from_deg(180);   // convert 180 degree to radian
+  <strong>parameter</strong> SI.AngularVelocity w   = from_rpm(3600);  // convert 3600 revolutions per minutes
                                                       // to radian per seconds
 </pre>
 
@@ -1825,7 +1825,7 @@ special record <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Types.Sali
 which is only valid in the rotor-fixed coordinate system.
 </p>
 <p>
-<b>Note:</b> To avoid confusion, no magnetic material properties should be defined as Complex units.
+<strong>Note:</strong> To avoid confusion, no magnetic material properties should be defined as Complex units.
 </p>
 </html>"));
   operator record ComplexImpedance =
@@ -1854,13 +1854,13 @@ which is only valid in the rotor-fixed coordinate system.
         fillPattern = FillPattern.Solid,
         points = {{87.5,30},{62.5,30},{62.5,30},{55,33.75},{36.25,35},{16.25,25},{7.5,6.25},{11.25,-7.5},{22.5,-12.5},{22.5,-12.5},{6.25,-22.5},{6.25,-35},{16.25,-38.75},{16.25,-38.75},{21.25,-41.25},{21.25,-41.25},{45,-48.75},{47.5,-61.25},{32.5,-70},{12.5,-65},{7.5,-51.25},{21.25,-41.25},{21.25,-41.25},{16.25,-38.75},{16.25,-38.75},{6.25,-41.25},{-6.25,-50},{-3.75,-68.75},{30,-76.25},{65,-62.5},{63.75,-35},{27.5,-26.25},{22.5,-20},{27.5,-15},{27.5,-15},{30,-7.5},{30,-7.5},{27.5,-2.5},{28.75,11.25},{36.25,27.5},{47.5,30},{53.75,22.5},{51.25,8.75},{45,-6.25},{35,-11.25},{30,-7.5},{30,-7.5},{27.5,-15},{27.5,-15},{43.75,-16.25},{65,-6.25},{72.5,10},{70,20},{70,20},{80,20}},
         smooth = Smooth.Bezier)}), Documentation(info="<html>
-<p>This package provides predefined types, such as <i>Mass</i>,
-<i>Angle</i>, <i>Time</i>, based on the international standard
+<p>This package provides predefined types, such as <em>Mass</em>,
+<em>Angle</em>, <em>Time</em>, based on the international standard
 on units, e.g.,
 </p>
 
-<pre>   <b>type</b> Angle = Real(<b>final</b> quantity = \"Angle\",
-                     <b>final</b> unit     = \"rad\",
+<pre>   <strong>type</strong> Angle = Real(<strong>final</strong> quantity = \"Angle\",
+                     <strong>final</strong> unit     = \"rad\",
                      displayUnit    = \"deg\");
 </pre>
 
@@ -1886,21 +1886,21 @@ with package SIunits, have a look at:
 Copyright &copy; 1998-2016, Modelica Association and DLR.
 </p>
 <p>
-<i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
+<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</em>
 </p>
 </html>", revisions="<html>
 <ul>
-<li><i>May 25, 2011</i> by Stefan Wischhusen:<br/>Added molar units for energy and enthalpy.</li>
-<li><i>Jan. 27, 2010</i> by Christian Kral:<br/>Added complex units.</li>
-<li><i>Dec. 14, 2005</i> by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br/>Add User&#39;s Guide and removed &quot;min&quot; values for Resistance and Conductance.</li>
-<li><i>October 21, 2002</i> by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a> and Christian Schweiger:<br/>Added new package <b>Conversions</b>. Corrected typo <i>Wavelenght</i>.</li>
-<li><i>June 6, 2000</i> by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br/>Introduced the following new types<br/>type Temperature = ThermodynamicTemperature;<br/>types DerDensityByEnthalpy, DerDensityByPressure, DerDensityByTemperature, DerEnthalpyByPressure, DerEnergyByDensity, DerEnergyByPressure<br/>Attribute &quot;final&quot; removed from min and max values in order that these values can still be changed to narrow the allowed range of values.<br/>Quantity=&quot;Stress&quot; removed from type &quot;Stress&quot;, in order that a type &quot;Stress&quot; can be connected to a type &quot;Pressure&quot;.</li>
-<li><i>Oct. 27, 1999</i> by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br/>New types due to electrical library: Transconductance, InversePotential, Damping.</li>
-<li><i>Sept. 18, 1999</i> by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br/>Renamed from SIunit to SIunits. Subpackages expanded, i.e., the SIunits package, does no longer contain subpackages.</li>
-<li><i>Aug 12, 1999</i> by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br/>Type &quot;Pressure&quot; renamed to &quot;AbsolutePressure&quot; and introduced a new type &quot;Pressure&quot; which does not contain a minimum of zero in order to allow convenient handling of relative pressure. Redefined BulkModulus as an alias to AbsolutePressure instead of Stress, since needed in hydraulics.</li>
-<li><i>June 29, 1999</i> by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br/>Bug-fix: Double definition of &quot;Compressibility&quot; removed and appropriate &quot;extends Heat&quot; clause introduced in package SolidStatePhysics to incorporate ThermodynamicTemperature.</li>
-<li><i>April 8, 1998</i> by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a> and Astrid Jaschinski:<br/>Complete ISO 31 chapters realized.</li>
-<li><i>Nov. 15, 1997</i> by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a> and Hubertus Tummescheit:<br/>Some chapters realized.</li>
+<li><em>May 25, 2011</em> by Stefan Wischhusen:<br/>Added molar units for energy and enthalpy.</li>
+<li><em>Jan. 27, 2010</em> by Christian Kral:<br/>Added complex units.</li>
+<li><em>Dec. 14, 2005</em> by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br/>Add User&#39;s Guide and removed &quot;min&quot; values for Resistance and Conductance.</li>
+<li><em>October 21, 2002</em> by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a> and Christian Schweiger:<br/>Added new package <strong>Conversions</strong>. Corrected typo <em>Wavelenght</em>.</li>
+<li><em>June 6, 2000</em> by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br/>Introduced the following new types<br/>type Temperature = ThermodynamicTemperature;<br/>types DerDensityByEnthalpy, DerDensityByPressure, DerDensityByTemperature, DerEnthalpyByPressure, DerEnergyByDensity, DerEnergyByPressure<br/>Attribute &quot;final&quot; removed from min and max values in order that these values can still be changed to narrow the allowed range of values.<br/>Quantity=&quot;Stress&quot; removed from type &quot;Stress&quot;, in order that a type &quot;Stress&quot; can be connected to a type &quot;Pressure&quot;.</li>
+<li><em>Oct. 27, 1999</em> by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br/>New types due to electrical library: Transconductance, InversePotential, Damping.</li>
+<li><em>Sept. 18, 1999</em> by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br/>Renamed from SIunit to SIunits. Subpackages expanded, i.e., the SIunits package, does no longer contain subpackages.</li>
+<li><em>Aug 12, 1999</em> by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br/>Type &quot;Pressure&quot; renamed to &quot;AbsolutePressure&quot; and introduced a new type &quot;Pressure&quot; which does not contain a minimum of zero in order to allow convenient handling of relative pressure. Redefined BulkModulus as an alias to AbsolutePressure instead of Stress, since needed in hydraulics.</li>
+<li><em>June 29, 1999</em> by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br/>Bug-fix: Double definition of &quot;Compressibility&quot; removed and appropriate &quot;extends Heat&quot; clause introduced in package SolidStatePhysics to incorporate ThermodynamicTemperature.</li>
+<li><em>April 8, 1998</em> by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a> and Astrid Jaschinski:<br/>Complete ISO 31 chapters realized.</li>
+<li><em>Nov. 15, 1997</em> by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a> and Hubertus Tummescheit:<br/>Some chapters realized.</li>
 </ul>
 </html>"));
 end SIunits;

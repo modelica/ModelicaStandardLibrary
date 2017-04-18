@@ -18,7 +18,7 @@ This package contains packages for analog electrical components:</p>
 </ul>
 <dl>
 <dt>
-<b>Main Authors:</b>
+<strong>Main Authors:</strong>
 </dt>
 <dd>
 Christoph Clau&szlig;

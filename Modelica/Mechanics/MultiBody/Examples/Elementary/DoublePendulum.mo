@@ -51,9 +51,9 @@ equation
 This example demonstrates that by using joint and body
 elements animation is automatically available. Also the revolute
 joints are animated. Note, that animation of every component
-can be switched of by setting the first parameter <b>animation</b>
-to <b>false</b> or by setting <b>enableAnimation</b> in the <b>world</b>
-object to <b>false</b> to switch off animation of all components.
+can be switched of by setting the first parameter <strong>animation</strong>
+to <strong>false</strong> or by setting <strong>enableAnimation</strong> in the <strong>world</strong>
+object to <strong>false</strong> to switch off animation of all components.
 </p>
 
 <table border=0 cellspacing=0 cellpadding=0><tr><td valign=\"top\">

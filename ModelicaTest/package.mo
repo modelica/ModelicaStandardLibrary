@@ -60,7 +60,7 @@ end testAllFunctions;
     Documentation(info="<html>
 <p>
 This library provides models and functions to test components of
-<b>package Modelica</b> (the Modelica Standard Library).
+<strong>package Modelica</strong> (the Modelica Standard Library).
 </p>
 
 <p>
@@ -77,7 +77,7 @@ way:
 <li> Models that are added to this library should have the annotation
      (with an appropriate StopTime):
      <pre>
-         <b>annotation</b>(experiment(StopTime=1.1));
+         <strong>annotation</strong>(experiment(StopTime=1.1));
      </pre>
      This gives the tool vendors the possibility to automatically identify
      the models that shall be simulated and, e.g., that shall be used in an automatic
@@ -88,7 +88,7 @@ way:
 Copyright &copy; 1998-2016, Modelica Association.
 </p>
 <p>
-<i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
+<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</em>
 </p>
 </html>"),
     Icon(graphics={Polygon(

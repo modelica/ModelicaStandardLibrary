@@ -70,8 +70,8 @@ the rotation angle of the pendulum, rev.phi, has the following values:
 </p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-<tr><td><b><i>latitude [deg]</i></b></td>
-    <td><b><i>rev.phi [rad]</i></b></td></tr>
+<tr><td><strong><em>latitude [deg]</em></strong></td>
+    <td><strong><em>rev.phi [rad]</em></strong></td></tr>
 <tr><td> = 0</td>
     <td>= -2.39 rad</td></tr>
 

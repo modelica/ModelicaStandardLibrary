@@ -1862,8 +1862,8 @@ Quasi stationary theory can be found in the
                   textString="%name",
                   lineColor={0,0,255})}), Documentation(info="<html>
 <p>
-This model describes <i>m</i> simple idle branches considering the complex currents <i><u>i</u></i> = 0;
-it uses <i>m</i> <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.Idle\">single phase idle branches</a>.
+This model describes <em>m</em> simple idle branches considering the complex currents <em><u>i</u></em> = 0;
+it uses <em>m</em> <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.Idle\">single phase idle branches</a>.
 </p>
 
 <h4>See also</h4>
@@ -1895,8 +1895,8 @@ it uses <i>m</i> <a href=\"modelica://Modelica.Electrical.QuasiStationary.Single
                   lineColor={0,0,255}),Line(points={{91,0},{-90,0}}, color={85,
               170,255})}), Documentation(info="<html>
 <p>
-This model describes <i>m</i> simple short branches considering the complex voltages <i><u>v</u></i> = 0;
-it uses <i>m</i> <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.Short\">single phase short branches</a>.
+This model describes <em>m</em> simple short branches considering the complex voltages <em><u>v</u></em> = 0;
+it uses <em>m</em> <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.Short\">single phase short branches</a>.
 </p>
 
 <h4>See also</h4>
@@ -1991,7 +1991,7 @@ it uses <i>m</i> <a href=\"modelica://Modelica.Electrical.QuasiStationary.Single
 Contains m singlephase ideal commuting switches (Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.IdealCommutingSwitch).
 </p>
 <p>
-<b>Use with care:</b>
+<strong>Use with care:</strong>
 This switch is only intended to be used for structural changes, not fast switching sequences, due to the quasistationary formulation.
 </p>
 </html>"));
@@ -2095,7 +2095,7 @@ This switch is only intended to be used for structural changes, not fast switchi
 Contains m ideal intermediate switches (Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.IdealIntermediateSwitch).
 </p>
 <p>
-<b>Use with care:</b>
+<strong>Use with care:</strong>
 This switch is only intended to be used for structural changes, not fast switching sequences, due to the quasistationary formulation.
 </p>
 </html>"));
@@ -2151,7 +2151,7 @@ This switch is only intended to be used for structural changes, not fast switchi
 Contains m ideal opening switches (Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.IdealOpeningSwitch).
 </p>
 <p>
-<b>Use with care:</b>
+<strong>Use with care:</strong>
 This switch is only intended to be used for structural changes, not fast switching sequences, due to the quasistationary formulation.
 </p>
 </html>"));
@@ -2206,7 +2206,7 @@ This switch is only intended to be used for structural changes, not fast switchi
 Contains m ideal closing switches (Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.IdealClosingSwitch).
 </p>
 <p>
-<b>Use with care:</b>
+<strong>Use with care:</strong>
 This switch is only intended to be used for structural changes, not fast switching sequences, due to the quasistationary formulation.
 </p>
 </html>"));
@@ -2623,7 +2623,7 @@ Transformation of space phasor to m phase values (voltages or currents).
               textString="f")}), Documentation(info="<html>
 
 <p>
-This sensor can be used to measure the frequency of the reference system, using <i>1</i>
+This sensor can be used to measure the frequency of the reference system, using <em>1</em>
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.FrequencySensor\">single phase FrequencySensor</a>.
 </p>
 
@@ -2664,7 +2664,7 @@ This sensor can be used to measure the frequency of the reference system, using 
               textString="V")}), Documentation(info="<html>
 
 <p>
-This sensor can be used to measure <i>m</i> complex potentials, using <i>m</i>
+This sensor can be used to measure <em>m</em> complex potentials, using <em>m</em>
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.PotentialSensor\">single phase PotentialSensors</a>.
 </p>
 
@@ -2702,7 +2702,7 @@ This sensor can be used to measure <i>m</i> complex potentials, using <i>m</i>
               textString="V")}), Documentation(info="<html>
 
 <p>
-This sensor can be used to measure <i>m</i> complex voltages, using <i>m</i>
+This sensor can be used to measure <em>m</em> complex voltages, using <em>m</em>
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.VoltageSensor\">single phase VoltageSensors</a>.
 </p>
 
@@ -2797,7 +2797,7 @@ This sensor determines the continuous quasi <a href=\"Modelica://Modelica.Blocks
               textString="I")}), Documentation(info="<html>
 
 <p>
-This sensor can be used to measure <i>m</i> complex currents, using <i>m</i>
+This sensor can be used to measure <em>m</em> complex currents, using <em>m</em>
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.CurrentSensor\">single phase CurrentSensors</a>.
 </p>
 
@@ -2953,7 +2953,7 @@ This sensor determines the continuous quasi <a href=\"Modelica://Modelica.Blocks
         Documentation(info="<html>
 
 <p>
-This sensor can be used to measure <i>m</i> complex apparent power values, using <i>m</i>
+This sensor can be used to measure <em>m</em> complex apparent power values, using <em>m</em>
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.PowerSensor\">single phase PowerSensors</a>.
 </p>
 
@@ -3070,7 +3070,7 @@ The plugs of the voltage paths are pv and nv, the plugs of the current paths are
 The internal resistance of each current path is zero, the internal resistance of each voltage path is infinite.</p>
 </html>",   revisions="<html>
 <ul>
-<li><i>20170306</i> first implementation by Anton Haumer</li>
+<li><em>20170306</em> first implementation by Anton Haumer</li>
 </ul>
 </html>"));
   end MultiSensor;
@@ -3113,10 +3113,10 @@ Quasi stationary theory can be found in the
         Documentation(info="<html>
 
 <p>
-This model describes <i>m</i> constant voltage sources, specifying the complex voltages by the RMS voltages and the phase shifts
+This model describes <em>m</em> constant voltage sources, specifying the complex voltages by the RMS voltages and the phase shifts
 (defaults are
 <a href=\"modelica://Modelica.Electrical.MultiPhase.Functions.symmetricOrientation\">-symmetricOrientation</a>).
-<i>m</i> <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sources.VoltageSource\">single phase VoltageSources</a> are used.
+<em>m</em> <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sources.VoltageSource\">single phase VoltageSources</a> are used.
 </p>
 
 <h4>See also</h4>
@@ -3155,10 +3155,10 @@ This model describes <i>m</i> constant voltage sources, specifying the complex v
                   textString="-")}), Documentation(info="<html>
 
 <p>
-This model describes <i>m</i> variable voltage sources, with <i>m</i> complex signal inputs,
+This model describes <em>m</em> variable voltage sources, with <em>m</em> complex signal inputs,
 specifying the complex voltages by the complex RMS voltage components.
 Additionally, the frequency of the voltage source is defined by a real signal input.
-<i>m</i> <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sources.VariableVoltageSource\">single phase VariableVoltageSources</a> are used.
+<em>m</em> <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sources.VariableVoltageSource\">single phase VariableVoltageSources</a> are used.
 </p>
 
 <h4>See also</h4>
@@ -3193,10 +3193,10 @@ Additionally, the frequency of the voltage source is defined by a real signal in
       annotation (Documentation(info="<html>
 
 <p>
-This model describes <i>m</i> variable current sources, with <i>m</i> complex signal inputs,
+This model describes <em>m</em> variable current sources, with <em>m</em> complex signal inputs,
 specifying the complex current by the complex RMS voltage components.
 Additionally, the frequency of the current source is defined by a real signal input.
-<i>m</i> <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sources.VariableCurrentSource\">single phase VariableCurrentSources</a> are used.
+<em>m</em> <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sources.VariableCurrentSource\">single phase VariableCurrentSources</a> are used.
 </p>
 
 <h4>See also</h4>
@@ -3231,10 +3231,10 @@ Additionally, the frequency of the current source is defined by a real signal in
                   fillPattern=FillPattern.Solid),Line(points={{0,-50},{0,50}})}), Documentation(info="<html>
 
 <p>
-This model describes <i>m</i> constant current sources, specifying the complex currents by the RMS currents and the phase shifts
+This model describes <em>m</em> constant current sources, specifying the complex currents by the RMS currents and the phase shifts
 (defaults are
 <a href=\"modelica://Modelica.Electrical.MultiPhase.Functions.symmetricOrientation\">-symmetricOrientation</a>).
-<i>m</i> <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sources.CurrentSource\">single phase CurrentSources</a> are used.
+<em>m</em> <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sources.CurrentSource\">single phase CurrentSources</a> are used.
 </p>
 
 <h4>See also</h4>
@@ -3271,10 +3271,10 @@ This model describes <i>m</i> constant current sources, specifying the complex c
                   fillPattern=FillPattern.Solid),Line(points={{0,-50},{0,50}})}), Documentation(info="<html>
 
 <p>
-This model describes <i>m</i> variable current sources, with <i>m</i> complex signal inputs,
+This model describes <em>m</em> variable current sources, with <em>m</em> complex signal inputs,
 specifying the complex current by the complex RMS voltage components.
 Additionally, the frequency of the current source is defined by a real signal input.
-<i>m</i> <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sources.VariableCurrentSource\">single phase VariableCurrentSources</a> are used.
+<em>m</em> <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sources.VariableCurrentSource\">single phase VariableCurrentSources</a> are used.
 </p>
 
 <h4>See also</h4>
@@ -3316,10 +3316,10 @@ Additionally, the frequency of the current source is defined by a real signal in
         Documentation(info="<html>
 
 <p>
-This model describes <i>m</i> variable current sources, with <i>m</i> complex signal inputs,
+This model describes <em>m</em> variable current sources, with <em>m</em> complex signal inputs,
 specifying the complex current by the complex RMS voltage components.
 Additionally, the frequency of the current source is defined by a real signal input.
-<i>m</i> <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sources.VariableCurrentSource\">single phase VariableCurrentSources</a> are used.
+<em>m</em> <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sources.VariableCurrentSource\">single phase VariableCurrentSources</a> are used.
 </p>
 
 <h4>See also</h4>
@@ -3353,7 +3353,7 @@ Quasi stationary theory can be found in the
       annotation (Documentation(info="<html>
 
 <p>
-This multiphase plug contains a vector of <i>m</i> <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.Pin\">single phase pins</a>.
+This multiphase plug contains a vector of <em>m</em> <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.Pin\">single phase pins</a>.
 The <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug\">positive</a> and
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.NegativePlug\">negative plug</a> are
 derived from this base connector.

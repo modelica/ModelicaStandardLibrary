@@ -33,7 +33,7 @@ package Fittings
 
       annotation (Documentation(info="<html>
 <p>
-This component models a <b>curved bend</b> in the overall flow regime for incompressible and single-phase fluid flow through circular cross sectional area considering surface roughness. It is expected that also compressible fluid flow can be handled up to about Ma = 0.3. It is assumed that neither mass nor energy is stored in this component.
+This component models a <strong>curved bend</strong> in the overall flow regime for incompressible and single-phase fluid flow through circular cross sectional area considering surface roughness. It is expected that also compressible fluid flow can be handled up to about Ma = 0.3. It is assumed that neither mass nor energy is stored in this component.
 In the model basically a function is called to compute the mass flow rate as a function
 of pressure loss for a curved bend. Also the inverse of this function is defined, and a tool
 might use this inverse function instead, in order to avoid the solution of a nonlinear equation.
@@ -82,7 +82,7 @@ The details of the model are described in the
 
       annotation (Documentation(info="<html>
 <p>
-This component models an <b>edged bend</b> in the overall flow regime for incompressible and single-phase fluid flow through circular cross sectional area considering surface roughness. It is expected that also compressible fluid flow can be handled up to about Ma = 0.3. It is assumed that neither mass nor energy is stored in this component.
+This component models an <strong>edged bend</strong> in the overall flow regime for incompressible and single-phase fluid flow through circular cross sectional area considering surface roughness. It is expected that also compressible fluid flow can be handled up to about Ma = 0.3. It is assumed that neither mass nor energy is stored in this component.
 In the model basically a function is called to compute the mass flow rate as a function
 of pressure loss for an edged bend. Also the inverse of this function is defined, and a tool
 might use this inverse function instead, in order to avoid the solution of a nonlinear equation.
@@ -147,7 +147,7 @@ The details of the model are described in the
 
       annotation (Documentation(info="<html>
 <p>
-This component models a <b>thick edged orifice</b> with sharp corners in the overall flow regime for incompressible and single-phase fluid flow through an arbitrary shaped cross sectional area (square, circular, etc.) considering  influence of surface roughness. It is expected that also compressible fluid flow can be handled up to about Ma = 0.3. It is assumed that neither mass nor energy is stored in this component.
+This component models a <strong>thick edged orifice</strong> with sharp corners in the overall flow regime for incompressible and single-phase fluid flow through an arbitrary shaped cross sectional area (square, circular, etc.) considering  influence of surface roughness. It is expected that also compressible fluid flow can be handled up to about Ma = 0.3. It is assumed that neither mass nor energy is stored in this component.
 In the model basically a function is called to compute the mass flow rate as a function
 of pressure loss for a thick edged orifice. Also the inverse of this function is defined, and a tool
 might use this inverse function instead, in order to avoid the solution of a nonlinear equation.
@@ -239,12 +239,12 @@ with
 </p>
 
 <table>
-<tr><td><b> a              </b></td><td> as quadratic coefficient [Pa*s^2/m^6],</td></tr>
-<tr><td><b> b              </b></td><td> as linear coefficient [Pa*s/m3],</td></tr>
-<tr><td><b> dp             </b></td><td> as pressure loss [Pa],</td></tr>
-<tr><td><b> m_flow         </b></td><td> as mass flow rate [kg/s],</td></tr>
-<tr><td><b> rho            </b></td><td> as density of fluid [kg/m3],</td></tr>
-<tr><td><b> V_flow         </b></td><td> as volume flow rate [m3/s].</td></tr>
+<tr><td><strong> a              </strong></td><td> as quadratic coefficient [Pa*s^2/m^6],</td></tr>
+<tr><td><strong> b              </strong></td><td> as linear coefficient [Pa*s/m3],</td></tr>
+<tr><td><strong> dp             </strong></td><td> as pressure loss [Pa],</td></tr>
+<tr><td><strong> m_flow         </strong></td><td> as mass flow rate [kg/s],</td></tr>
+<tr><td><strong> rho            </strong></td><td> as density of fluid [kg/m3],</td></tr>
+<tr><td><strong> V_flow         </strong></td><td> as volume flow rate [m3/s].</td></tr>
 </table>
 
 <p>
@@ -906,16 +906,16 @@ the approximation for Re &lt; 560/&Delta; is too bad.
 
 <p>
 The absolute roughness <font face=\"Symbol\">d</font> has usually to
-be estimated. In <i>[Idelchik 1994, pp. 105-109,
-Table 2-5; Miller 1990, p. 190, Table 8-1]</i> many examples are given.
+be estimated. In <em>[Idelchik 1994, pp. 105-109,
+Table 2-5; Miller 1990, p. 190, Table 8-1]</em> many examples are given.
 As a short summary:
 </p>
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td><b>Smooth pipes</b></td>
+  <tr><td><strong>Smooth pipes</strong></td>
       <td>Drawn brass, copper, aluminium, glass, etc.</td>
       <td><font face=\"Symbol\">d</font> = 0.0025 mm</td>
   </tr>
-  <tr><td rowspan=\"3\"><b>Steel pipes</b></td>
+  <tr><td rowspan=\"3\"><strong>Steel pipes</strong></td>
       <td>New smooth pipes</td>
       <td><font face=\"Symbol\">d</font> = 0.025 mm</td>
   </tr>
@@ -925,7 +925,7 @@ As a short summary:
   <tr><td>Heavy rust</td>
       <td><font face=\"Symbol\">d</font> = 1 mm</td>
   </tr>
-  <tr><td rowspan=\"3\"><b>Concrete pipes</b></td>
+  <tr><td rowspan=\"3\"><strong>Concrete pipes</strong></td>
       <td>Steel forms, first class workmanship</td>
       <td><font face=\"Symbol\">d</font> = 0.025 mm</td>
   </tr>
@@ -1162,11 +1162,11 @@ Loss factor for mass flow rate from port_b to port_a
 <p>
 This record defines the pressure loss factors of a pipe
 segment (orifice, bending etc.) with a minimum amount of data.
-If available, data should be provided for <b>both flow directions</b>,
+If available, data should be provided for <strong>both flow directions</strong>,
 i.e., flow from port_a to port_b and from port_b to port_a,
-as well as for the <b>laminar</b> and the <b>turbulent</b> region.
-It is also an option to provide the loss factor <b>only</b> for the
-<b>turbulent</b> region for a flow from port_a to port_b.
+as well as for the <strong>laminar</strong> and the <strong>turbulent</strong> region.
+It is also an option to provide the loss factor <strong>only</strong> for the
+<strong>turbulent</strong> region for a flow from port_a to port_b.
 </p>
 <p>
 The following equations are used:
@@ -1177,17 +1177,17 @@ The following equations are used:
         Re = |v|*D*&rho;/&mu;
 </pre>
 <table border=1 cellspacing=0 cellpadding=2>
-<tr><td><b>flow type</b></td>
-    <td><b>&zeta;</b> = </td>
-    <td><b>flow region</b></td></tr>
+<tr><td><strong>flow type</strong></td>
+    <td><strong>&zeta;</strong> = </td>
+    <td><strong>flow region</strong></td></tr>
 <tr><td>turbulent</td>
-    <td><b>zeta1</b> = const.</td>
+    <td><strong>zeta1</strong> = const.</td>
     <td>Re &ge;  Re_turbulent, v &ge; 0</td></tr>
 <tr><td></td>
-    <td><b>zeta2</b> = const.</td>
+    <td><strong>zeta2</strong> = const.</td>
     <td>Re &ge; Re_turbulent, v &lt; 0</td></tr>
 <tr><td>laminar</td>
-    <td><b>c0</b>/Re</td>
+    <td><strong>c0</strong>/Re</td>
     <td>both flow directions, Re small; c0 = const.</td></tr>
 </table>
 <p>
@@ -1249,8 +1249,8 @@ If no data for c0 is available, the derivative at Re = 0 is computed in such
 a way, that the second derivatives of the two polynomials
 are identical at Re = 0. The polynomials are constructed, such that
 they smoothly touch the characteristic curves in the turbulent
-regions. The whole characteristic is therefore <b>continuous</b>
-and has a <b>finite</b>, <b>continuous first derivative everywhere</b>.
+regions. The whole characteristic is therefore <strong>continuous</strong>
+and has a <strong>finite</strong>, <strong>continuous first derivative everywhere</strong>.
 In some cases, the constructed polynomials would \"vibrate\". This is
 avoided by reducing the derivative at Re=0 in such a way that
 the polynomials are guaranteed to be monotonically increasing.
@@ -1259,7 +1259,7 @@ The used sufficient criteria for monotonicity follows from:
 
 <dl>
 <dt> Fritsch F.N. and Carlson R.E. (1980):</dt>
-<dd> <b>Monotone piecewise cubic interpolation</b>.
+<dd> <strong>Monotone piecewise cubic interpolation</strong>.
      SIAM J. Numerc. Anal., Vol. 17, No. 2, April 1980, pp. 238-246</dd>
 </dl>
 </html>"));
@@ -1390,8 +1390,8 @@ If no data for c0 is available, the derivative at Re = 0 is computed in such
 a way, that the second derivatives of the two polynomials
 are identical at Re = 0. The polynomials are constructed, such that
 they smoothly touch the characteristic curves in the turbulent
-regions. The whole characteristic is therefore <b>continuous</b>
-and has a <b>finite</b>, <b>continuous first derivative everywhere</b>.
+regions. The whole characteristic is therefore <strong>continuous</strong>
+and has a <strong>finite</strong>, <strong>continuous first derivative everywhere</strong>.
 In some cases, the constructed polynomials would \"vibrate\". This is
 avoided by reducing the derivative at Re=0 in such a way that
 the polynomials are guaranteed to be monotonically increasing.
@@ -1400,7 +1400,7 @@ The used sufficient criteria for monotonicity follows from:
 
 <dl>
 <dt> Fritsch F.N. and Carlson R.E. (1980):</dt>
-<dd> <b>Monotone piecewise cubic interpolation</b>.
+<dd> <strong>Monotone piecewise cubic interpolation</strong>.
      SIAM J. Numerc. Anal., Vol. 17, No. 2, April 1980, pp. 238-246</dd>
 </dl>
 </html>"));
@@ -1528,8 +1528,8 @@ If no data for c0 is available, the derivative at Re = 0 is computed in such
 a way, that the second derivatives of the two polynomials
 are identical at Re = 0. The polynomials are constructed, such that
 they smoothly touch the characteristic curves in the turbulent
-regions. The whole characteristic is therefore <b>continuous</b>
-and has a <b>finite</b>, <b>continuous first derivative everywhere</b>.
+regions. The whole characteristic is therefore <strong>continuous</strong>
+and has a <strong>finite</strong>, <strong>continuous first derivative everywhere</strong>.
 In some cases, the constructed polynomials would \"vibrate\". This is
 avoided by reducing the derivative at Re=0 in such a way that
 the polynomials are guaranteed to be monotonically increasing.
@@ -1538,7 +1538,7 @@ The used sufficient criteria for monotonicity follows from:
 
 <dl>
 <dt> Fritsch F.N. and Carlson R.E. (1980):</dt>
-<dd> <b>Monotone piecewise cubic interpolation</b>.
+<dd> <strong>Monotone piecewise cubic interpolation</strong>.
      SIAM J. Numerc. Anal., Vol. 17, No. 2, April 1980, pp. 238-246</dd>
 </dl>
 </html>"));
@@ -1633,12 +1633,12 @@ The used sufficient criteria for monotonicity follows from:
 <p>
 This model computes the pressure loss of a pipe
 segment (orifice, bending etc.) with a minimum amount of data
-provided via parameter <b>data</b>.
-If available, data should be provided for <b>both flow directions</b>,
+provided via parameter <strong>data</strong>.
+If available, data should be provided for <strong>both flow directions</strong>,
 i.e., flow from port_a to port_b and from port_b to port_a,
-as well as for the <b>laminar</b> and the <b>turbulent</b> region.
-It is also an option to provide the loss factor <b>only</b> for the
-<b>turbulent</b> region for a flow from port_a to port_b.
+as well as for the <strong>laminar</strong> and the <strong>turbulent</strong> region.
+It is also an option to provide the loss factor <strong>only</strong> for the
+<strong>turbulent</strong> region for a flow from port_a to port_b.
 </p>
 <p>
 The following equations are used:
@@ -1648,17 +1648,17 @@ The following equations are used:
         Re = |v|*D*&rho;/&mu;
 </pre>
 <table border=1 cellspacing=0 cellpadding=2>
-<tr><td><b>flow type</b></td>
-    <td><b>&zeta;</b> = </td>
-    <td><b>flow region</b></td></tr>
+<tr><td><strong>flow type</strong></td>
+    <td><strong>&zeta;</strong> = </td>
+    <td><strong>flow region</strong></td></tr>
 <tr><td>turbulent</td>
-    <td><b>zeta1</b> = const.</td>
+    <td><strong>zeta1</strong> = const.</td>
     <td>Re &ge;  Re_turbulent, v &ge; 0</td></tr>
 <tr><td></td>
-    <td><b>zeta2</b> = const.</td>
+    <td><strong>zeta2</strong> = const.</td>
     <td>Re &ge; Re_turbulent, v &lt; 0</td></tr>
 <tr><td>laminar</td>
-    <td><b>c0</b>/Re</td>
+    <td><strong>c0</strong>/Re</td>
     <td>both flow directions, Re small; c0 = const.</td></tr>
 </table>
 <p>
@@ -1720,8 +1720,8 @@ If no data for c0 is available, the derivative at Re = 0 is computed in such
 a way, that the second derivatives of the two polynomials
 are identical at Re = 0. The polynomials are constructed, such that
 they smoothly touch the characteristic curves in the turbulent
-regions. The whole characteristic is therefore <b>continuous</b>
-and has a <b>finite</b>, <b>continuous first derivative everywhere</b>.
+regions. The whole characteristic is therefore <strong>continuous</strong>
+and has a <strong>finite</strong>, <strong>continuous first derivative everywhere</strong>.
 In some cases, the constructed polynomials would \"vibrate\". This is
 avoided by reducing the derivative at Re=0 in such a way that
 the polynomials are guaranteed to be monotonically increasing.
@@ -1730,7 +1730,7 @@ The used sufficient criteria for monotonicity follows from:
 
 <dl>
 <dt> Fritsch F.N. and Carlson R.E. (1980):</dt>
-<dd> <b>Monotone piecewise cubic interpolation</b>.
+<dd> <strong>Monotone piecewise cubic interpolation</strong>.
      SIAM J. Numerc. Anal., Vol. 17, No. 2, April 1980, pp. 238-246</dd>
 </dl>
 </html>"));
@@ -1887,12 +1887,12 @@ The used sufficient criteria for monotonicity follows from:
 <p>
 This model computes the pressure loss of a pipe
 segment (orifice, bending etc.) with a minimum amount of data
-provided via parameter <b>data</b>.
-If available, data should be provided for <b>both flow directions</b>,
+provided via parameter <strong>data</strong>.
+If available, data should be provided for <strong>both flow directions</strong>,
 i.e., flow from port_a to port_b and from port_b to port_a,
-as well as for the <b>laminar</b> and the <b>turbulent</b> region.
-It is also an option to provide the loss factor <b>only</b> for the
-<b>turbulent</b> region for a flow from port_a to port_b.
+as well as for the <strong>laminar</strong> and the <strong>turbulent</strong> region.
+It is also an option to provide the loss factor <strong>only</strong> for the
+<strong>turbulent</strong> region for a flow from port_a to port_b.
 </p>
 <p>
 The following equations are used:
@@ -1902,17 +1902,17 @@ The following equations are used:
         Re = |v|*D*&rho;/&mu;
 </pre>
 <table border=1 cellspacing=0 cellpadding=2>
-<tr><td><b>flow type</b></td>
-    <td><b>&zeta;</b> = </td>
-    <td><b>flow region</b></td></tr>
+<tr><td><strong>flow type</strong></td>
+    <td><strong>&zeta;</strong> = </td>
+    <td><strong>flow region</strong></td></tr>
 <tr><td>turbulent</td>
-    <td><b>zeta1</b> = const.</td>
+    <td><strong>zeta1</strong> = const.</td>
     <td>Re &ge;  Re_turbulent, v &ge; 0</td></tr>
 <tr><td></td>
-    <td><b>zeta2</b> = const.</td>
+    <td><strong>zeta2</strong> = const.</td>
     <td>Re &ge; Re_turbulent, v &lt; 0</td></tr>
 <tr><td>laminar</td>
-    <td><b>c0</b>/Re</td>
+    <td><strong>c0</strong>/Re</td>
     <td>both flow directions, Re small; c0 = const.</td></tr>
 </table>
 <p>
@@ -1975,8 +1975,8 @@ If no data for c0 is available, the derivative at Re = 0 is computed in such
 a way, that the second derivatives of the two polynomials
 are identical at Re = 0. The polynomials are constructed, such that
 they smoothly touch the characteristic curves in the turbulent
-regions. The whole characteristic is therefore <b>continuous</b>
-and has a <b>finite</b>, <b>continuous first derivative everywhere</b>.
+regions. The whole characteristic is therefore <strong>continuous</strong>
+and has a <strong>finite</strong>, <strong>continuous first derivative everywhere</strong>.
 In some cases, the constructed polynomials would \"vibrate\". This is
 avoided by reducing the derivative at Re=0 in such a way that
 the polynomials are guaranteed to be monotonically increasing.
@@ -1985,7 +1985,7 @@ The used sufficient criteria for monotonicity follows from:
 
 <dl>
 <dt> Fritsch F.N. and Carlson R.E. (1980):</dt>
-<dd> <b>Monotone piecewise cubic interpolation</b>.
+<dd> <strong>Monotone piecewise cubic interpolation</strong>.
      SIAM J. Numerc. Anal., Vol. 17, No. 2, April 1980, pp. 238-246</dd>
 </dl>
 </html>"));
@@ -2035,11 +2035,11 @@ a polynomial in order to have a finite derivative at zero mass flow rate.
 <p>
 This library provides pressure loss factors of a pipe
 segment (orifice, bending etc.) with a minimum amount of data.
-If available, data can be provided for <b>both flow directions</b>,
+If available, data can be provided for <strong>both flow directions</strong>,
 i.e., flow from port_a to port_b and from port_b to port_a,
-as well as for the <b>laminar</b> and the <b>turbulent</b> region.
-It is also an option to provide the loss factor <b>only</b> for the
-<b>turbulent</b> region for a flow from port_a to port_b.
+as well as for the <strong>laminar</strong> and the <strong>turbulent</strong> region.
+It is also an option to provide the loss factor <strong>only</strong> for the
+<strong>turbulent</strong> region for a flow from port_a to port_b.
 Basically, the pressure drop is defined by the following
 equation:
 </p>
@@ -2781,13 +2781,13 @@ polynomials. The monotonicity is guaranteed using results from:
 
 <dl>
 <dt> Fritsch F.N. and Carlson R.E. (1980):</dt>
-<dd> <b>Monotone piecewise cubic interpolation</b>.
+<dd> <strong>Monotone piecewise cubic interpolation</strong>.
      SIAM J. Numerc. Anal., Vol. 17, No. 2, April 1980, pp. 238-246</dd>
 </dl>
 
 </html>", revisions="<html>
 <ul>
-<li><i>Jan. 3, 2006</i>
+<li><em>Jan. 3, 2006</em>
     by <a href=\"mailto:Martin.Otter@DLR.de\">Martin Otter</a>:<br>
     New design and implementation based on previous iterations.</li>
 </ul>

@@ -33,7 +33,7 @@ package Sensors "Potential, voltage, current, and power sensors"
             Line(points={{100,0},{70,0}}, color={0,0,127})}),
       Documentation(revisions="<html>
 <ul>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -82,7 +82,7 @@ package Sensors "Potential, voltage, current, and power sensors"
           Line(points={{0,-90},{0,-70}}, color={0,0,255})}),
       Documentation(revisions="<html>
 <ul>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -135,7 +135,7 @@ package Sensors "Potential, voltage, current, and power sensors"
           Line(points={{0,-90},{0,-70}}, color={0,0,255})}),
       Documentation(revisions="<html>
 <ul>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -205,7 +205,7 @@ equation
 <p>This power sensor measures instantaneous electrical power of a singlephase system and has a separated voltage and current path. The pins of the voltage path are pv and nv, the pins of the current path are pc and nc. The internal resistance of the current path is zero, the internal resistance of the voltage path is infinite.</p>
 </html>", revisions="<html>
 <ul>
-<li><i>January 12, 2006</i> by Anton Haumer implemented</li>
+<li><em>January 12, 2006</em> by Anton Haumer implemented</li>
 </ul>
 </html>"));
 end PowerSensor;
@@ -282,7 +282,7 @@ The pins of the voltage path are pv and nv, the pins of the current path are pc 
 The internal resistance of the current path is zero, the internal resistance of the voltage path is infinite.</p>
 </html>", revisions="<html>
 <ul>
-<li><i>20170306</i> first implementation by Anton Haumer</li>
+<li><em>20170306</em> first implementation by Anton Haumer</li>
 </ul>
 </html>"));
 end MultiSensor;
@@ -293,7 +293,7 @@ end MultiSensor;
    revisions="<html>
 <dl>
 <dt>
-<b>Main Authors:</b>
+<strong>Main Authors:</strong>
 </dt>
 <dd>
 Christoph Clau&szlig;
@@ -306,14 +306,14 @@ Christoph Clau&szlig;
     D-01069 Dresden
 </dd>
 <dt>
-<b>Copyright:</b>
+<strong>Copyright:</strong>
 </dt>
 <dd>
 Copyright &copy; 1998-2016, Modelica Association and Fraunhofer-Gesellschaft.<br>
-<i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
-under the terms of the <b>Modelica license</b>, see the license conditions
-and the accompanying <b>disclaimer</b> in the documentation of package
-Modelica in file \"Modelica/package.mo\".</i>
+<em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
+under the terms of the <strong>Modelica license</strong>, see the license conditions
+and the accompanying <strong>disclaimer</strong> in the documentation of package
+Modelica in file \"Modelica/package.mo\".</em>
 </dd>
 </dl>
 </html>"));

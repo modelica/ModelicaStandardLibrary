@@ -144,8 +144,8 @@ connect(p_out, n2);
     annotation (Documentation(info="<html>
 <p>In SPICE3 we have a predefined model pool. Each model device has got a code letter (e.g., resistor - R). In analogy to the SPICE3 models the models of the Spice3 library also got the according code letter in their names. The following examples shows the relationship:</p>
 <p>A typical SPICE3 line could be:</p>
-<p><b>C</b>1 3 2 1pF</p>
-<p>The first letter is the code letter (here <b>C</b>). It specifies the type of the model component (here capacitance). To see the analogy to the SPICE3 models in the Spice3 library the transformed capacitance has got the name <b>C</b>_Capacitance. According to that naming rule the components of the Spice3 library have the following names (the first letter is the code letter that has to be used in SPICE3):</p>
+<p><strong>C</strong>1 3 2 1pF</p>
+<p>The first letter is the code letter (here <strong>C</strong>). It specifies the type of the model component (here capacitance). To see the analogy to the SPICE3 models in the Spice3 library the transformed capacitance has got the name <strong>C</strong>_Capacitance. According to that naming rule the components of the Spice3 library have the following names (the first letter is the code letter that has to be used in SPICE3):</p>
 <ul>
 <li>R_Resistor</li>
 <li>C_Capacitance</li>
@@ -164,7 +164,7 @@ connect(p_out, n2);
 <li>V_exp, I_exp</li>
 <li>V_pulse, I_pulse</li>
 <li>V_pwl, I_pwl</li>
-<li>V_sffm, I_sffm<br/><b><br/></b></li>
+<li>V_sffm, I_sffm<br/><strong><br/></strong></li>
 </ul>
 </html>"));
   end NamingPrinciple;
@@ -183,27 +183,27 @@ connect(p_out, n2);
     annotation (Documentation(info="<html>
 <table cellspacing=\"0\" cellpadding=\"2\" border=\"0\"><tr>
 <td valign=\"top\"><p>[B&ouml;hme2009]</p></td>
-<td valign=\"top\"><p>S. B&ouml;hme, K. Majetta, C. Clauss, P. Schneider, &quot;Spice3 Modelica Library,&quot; <i>7th Modelica Conference</i>, Como, Italy (2009)</p></td>
+<td valign=\"top\"><p>S. B&ouml;hme, K. Majetta, C. Clauss, P. Schneider, &quot;Spice3 Modelica Library,&quot; <em>7th Modelica Conference</em>, Como, Italy (2009)</p></td>
 <td></td>
 </tr>
 <tr>
 <td valign=\"top\"><p>[Antognetti1988]</p></td>
-<td valign=\"top\"><p>P. Antognetti, G. Massobrio, <i>Semiconductor Device Modeling with SPICE.</i>, McGraw-Hill Book Company, USA, 1988</p></td>
+<td valign=\"top\"><p>P. Antognetti, G. Massobrio, <em>Semiconductor Device Modeling with SPICE.</em>, McGraw-Hill Book Company, USA, 1988</p></td>
 <td></td>
 </tr>
 <tr>
 <td valign=\"top\"><p>[Connelly1992]</p></td>
-<td valign=\"top\"><p>A. Connelly, A, P. Choi, <i>Macromodeling with SPICE.</i>, Prentice-Hall, New Jersey, USA (1992)</p></td>
+<td valign=\"top\"><p>A. Connelly, A, P. Choi, <em>Macromodeling with SPICE.</em>, Prentice-Hall, New Jersey, USA (1992)</p></td>
 <td></td>
 </tr>
 <tr>
 <td valign=\"top\"><p>[Johnson1991]</p></td>
-<td valign=\"top\"><p>B. Johnson, T. Quarles, A.R. Newton, D. O. Pederson, A. Sangiovanni-Vincentelli, <i>SPICE3 Version 3f User's Manual.</i>, University of Berkeley, Department of Electrical Engineering and Computer Sciences, USA (1991): <a href=\"modelica://Modelica/Resources/Documentation/Electrical/Spice3/Spice_3f3_Users_Manual.pdf\">SPICE3 user's manual</a> (&copy; Regents of the University of California)</p></td>
+<td valign=\"top\"><p>B. Johnson, T. Quarles, A.R. Newton, D. O. Pederson, A. Sangiovanni-Vincentelli, <em>SPICE3 Version 3f User's Manual.</em>, University of Berkeley, Department of Electrical Engineering and Computer Sciences, USA (1991): <a href=\"modelica://Modelica/Resources/Documentation/Electrical/Spice3/Spice_3f3_Users_Manual.pdf\">SPICE3 user's manual</a> (&copy; Regents of the University of California)</p></td>
 <td></td>
 </tr>
 <tr>
 <td valign=\"top\"><p>[Kielkowski1994]</p></td>
-<td valign=\"top\"><p>R. Kielkowski, <i>Inside SPICE - Overcoming the obstacles of circuit simulation.</i>, McGraw-Hill, USA (1994)</p></td>
+<td valign=\"top\"><p>R. Kielkowski, <em>Inside SPICE - Overcoming the obstacles of circuit simulation.</em>, McGraw-Hill, USA (1994)</p></td>
 </tr>
 </table>
 </html>"));
@@ -219,24 +219,24 @@ connect(p_out, n2);
 </ul>
 </html>", revisions="<html>
 <ul>
-<li><i>15th March 2012 by Kristin Majetta</i><br/>SPICE3 benchmark RTL Inverter</li>
-<li><i>14th March 2012 by Kristin Majetta</i><br/>SPICE3 benchmark Mosfet characterisation</li>
-<li><i>14th March 2012 by Kristin Majetta</i><br/>SPICE3 benchmark Differential Pair added</li>
-<li><i>12th March 2012 by Kristin Majetta</i><br/>BJT model improved</li>
-<li><i>09th March 2012 by Kristin Majetta</i><br/>MOS Level 2 model added</li>
-<li><i>24th February 2012 by Kristin Majetta</i><br/>JFET model added</li>
-<li><i>23rd February 2012 by Kristin Majetta</i><br/>Semiconductor Capacitor added</li>
-<li><i>21st February 2012</i> by Kristin Majetta<br/>CoupledInductors (K) added</li>
-<li><i>March 2010</i> by Kristin Majetta<br/>Guidelines applied, User&apos;s Guide added</li>
-<li><i>February 2010</i> by Kristin Majetta<br/>Spice3 library added to MSL and examples revised</li>
-<li><i>September 2009 </i>by Kristin Majetta <br/>Bipolar transistor implemented</li>
-<li><i>August 2009 </i>by Jonathan Kress <br/>default values in sources improved</li>
-<li><i>August 2009 </i>by Kristin Majetta <br/>Bipolar transistor started</li>
-<li><i>April 2009 </i>by Kristin Majetta <br/>Semiconductor Resistor implemented</li>
-<li><i>March 2009 </i>by Kristin Majetta <br/>DIODE implemented</li>
-<li><i>25th February 2009 </i>by Kristin Majetta <br/>MOS Level 2 implemented</li>
-<li><i>15th October 2008 </i>by Kristin Majetta <br/>minor errors fixed in L_Inductor, I_Pulse and SpiceRoot</li>
-<li><i>April, 2008 </i>by Sandra Boehme <br/>initially implemented<br/></li>
+<li><em>15th March 2012 by Kristin Majetta</em><br/>SPICE3 benchmark RTL Inverter</li>
+<li><em>14th March 2012 by Kristin Majetta</em><br/>SPICE3 benchmark Mosfet characterisation</li>
+<li><em>14th March 2012 by Kristin Majetta</em><br/>SPICE3 benchmark Differential Pair added</li>
+<li><em>12th March 2012 by Kristin Majetta</em><br/>BJT model improved</li>
+<li><em>09th March 2012 by Kristin Majetta</em><br/>MOS Level 2 model added</li>
+<li><em>24th February 2012 by Kristin Majetta</em><br/>JFET model added</li>
+<li><em>23rd February 2012 by Kristin Majetta</em><br/>Semiconductor Capacitor added</li>
+<li><em>21st February 2012</em> by Kristin Majetta<br/>CoupledInductors (K) added</li>
+<li><em>March 2010</em> by Kristin Majetta<br/>Guidelines applied, User&apos;s Guide added</li>
+<li><em>February 2010</em> by Kristin Majetta<br/>Spice3 library added to MSL and examples revised</li>
+<li><em>September 2009 </em>by Kristin Majetta <br/>Bipolar transistor implemented</li>
+<li><em>August 2009 </em>by Jonathan Kress <br/>default values in sources improved</li>
+<li><em>August 2009 </em>by Kristin Majetta <br/>Bipolar transistor started</li>
+<li><em>April 2009 </em>by Kristin Majetta <br/>Semiconductor Resistor implemented</li>
+<li><em>March 2009 </em>by Kristin Majetta <br/>DIODE implemented</li>
+<li><em>25th February 2009 </em>by Kristin Majetta <br/>MOS Level 2 implemented</li>
+<li><em>15th October 2008 </em>by Kristin Majetta <br/>minor errors fixed in L_Inductor, I_Pulse and SpiceRoot</li>
+<li><em>April, 2008 </em>by Sandra Boehme <br/>initially implemented<br/></li>
 </ul>
 </html>"));
 
@@ -249,11 +249,11 @@ connect(p_out, n2);
 
 <h4>Main Authors:</h4>
 <dl>
-<dt><b>Kristin Majetta</b></dt>
+<dt><strong>Kristin Majetta</strong></dt>
 <dd>email: <a href=\"mailto:Kristin.Majetta@eas.iis.fraunhofer.de\">Kristin Majetta@eas.iis.fraunhofer.de</a></dd>
-<dt><b>Christoph Clauss</b></dt>
+<dt><strong>Christoph Clauss</strong></dt>
 <dd>email: <a href=\"mailto:Christoph.Clauss@eas.iis.fraunhofer.de\">Christoph.Clauss@eas.iis.fraunhofer.de</a></dd>
-<dt><b>Sandra Boehme</b></dt>
+<dt><strong>Sandra Boehme</strong></dt>
 <dd>email: <a href=\"mailto:Sandra.Boehme@eas.iis.fraunhofer.de\">Sandra.Boehme@eas.iis.fraunhofer.de</a></dd>
 </dl>
 
@@ -274,11 +274,11 @@ Zeunerstrasse 38<br />
   end Contact;
 
   annotation (DocumentationClass=true, Documentation(info="<html>
-<p>Package Spice3 is a <b>free</b> Modelica package</p>
-<p>This is a short <b>User's Guide</b> for the overall library.</p>
+<p>Package Spice3 is a <strong>free</strong> Modelica package</p>
+<p>This is a short <strong>User's Guide</strong> for the overall library.</p>
 </html>",   revisions="<html>
 <ul>
-<li><i>Feb 2010 </i>by Kristin Majetta initially written</li>
+<li><em>Feb 2010 </em>by Kristin Majetta initially written</li>
 </ul>
 </html>"));
   end UsersGuide;
@@ -354,7 +354,7 @@ Zeunerstrasse 38<br />
 <p>Simulate until 1.e-11 s. Display the input voltage Vin.p.v as well as the output voltage mp.S.v. It shows that the input voltage is inverted.</p>
 </html>", revisions="<html>
 <ul>
-<li><i>March 2009 </i>by Kristin Majetta initially implemented</li>
+<li><em>March 2009 </em>by Kristin Majetta initially implemented</li>
 </ul>
 </html>"));
     end Inverter;
@@ -457,7 +457,7 @@ Zeunerstrasse 38<br />
           points={{60,-42},{60,-60},{-28,-60}}));
       annotation (experiment(StopTime=5),
         Documentation(info="<html>
-<p>An inverter is an electrical circuit that consists of a PMOS and a NMOS. Its task is to turn the input voltage from high potential to low potential or the other way round. This circuit <i>InverterApartModel</i> contains two inverters. The input voltage of the first inverter is nearly equal to the output voltage of the second inverter. Capacities cause some differences.</p>
+<p>An inverter is an electrical circuit that consists of a PMOS and a NMOS. Its task is to turn the input voltage from high potential to low potential or the other way round. This circuit <em>InverterApartModel</em> contains two inverters. The input voltage of the first inverter is nearly equal to the output voltage of the second inverter. Capacities cause some differences.</p>
 <p>To see the typical behavior of the circuit the input voltages and the output voltages should be plotted. Besides that it can be interesting to watch the output voltage of the first inverter. Simulated until t=5s.</p>
 <p>Input voltages: vin.p.v and v.p.v</p>
 <p>Output voltage of the first inverter: mn1.ND.v</p>
@@ -465,7 +465,7 @@ Zeunerstrasse 38<br />
 <p>This example shows one possibility to make the record of the technology parameters available for more than one transistor. For each transistor in the circuit a record with the technology parameters is made available as an instance of the record modelcardMOS. In this circuit we need two different records for technology parameters, one for PMOS (MPmos) and one for NMOS (MNmos). This instances of the record for the technology parameters were made available for every transistor as one of theirs parameters (Spice3.Repository.MOS mn1(mtype=0, modelcard=MNmos).</p>
 </html>", revisions="<html>
 <ul>
-<li><i>April 2009 </i>by Kristin Majetta initially implemented</li>
+<li><em>April 2009 </em>by Kristin Majetta initially implemented</li>
 </ul>
 </html>"));
     end InvertersApartRecord;
@@ -484,7 +484,7 @@ Zeunerstrasse 38<br />
         parameter Semiconductors.ModelcardMOS M(GAMMA=0.37, CBD=0, CBS=0);
         extends Semiconductors.M_PMOS(modelcard=M);
         annotation (Documentation(info="<html>
-<p>This model MPmos is inherited by the model <i>InverterExtendedModel</i> to build an inverter circuit. For detailed information</p><p>please see <i>InverterExtendedModel</i>.</p>
+<p>This model MPmos is inherited by the model <em>InverterExtendedModel</em> to build an inverter circuit. For detailed information</p><p>please see <em>InverterExtendedModel</em>.</p>
 </html>"));
       end MPmos;
 
@@ -492,7 +492,7 @@ Zeunerstrasse 38<br />
         parameter Semiconductors.ModelcardMOS M(GAMMA=0.37, LAMBDA=0.02, CBD=0, CBS=0);
         extends Semiconductors.M_NMOS(modelcard=M);
         annotation (Documentation(info="<html>
-<p>This model MNmos is inherited by the model <i>InverterExtendedModel</i> to build an inverter circuit. For detailed information</p><p>please see <i>InverterExtendedModel</i>.</p>
+<p>This model MNmos is inherited by the model <em>InverterExtendedModel</em> to build an inverter circuit. For detailed information</p><p>please see <em>InverterExtendedModel</em>.</p>
 </html>"));
       end MNmos;
 
@@ -574,7 +574,7 @@ Zeunerstrasse 38<br />
           points={{56,-32},{56,-60},{-30,-60}}));
       annotation (experiment(StopTime=5),
         Documentation(info="<html>
-<p>An inverter is an electrical circuit that consists of a PMOS and a NMOS. Its task is to turn the input voltage from high potential to low potential or the other way round. This circuit <i>InverterExtendedModel</i> contains two inverters. The input voltage of the first inverter is nearly equal to the output voltage of the second inverter. Capacities cause some differences.</p>
+<p>An inverter is an electrical circuit that consists of a PMOS and a NMOS. Its task is to turn the input voltage from high potential to low potential or the other way round. This circuit <em>InverterExtendedModel</em> contains two inverters. The input voltage of the first inverter is nearly equal to the output voltage of the second inverter. Capacities cause some differences.</p>
 <p>To see the typical behavior of the circuit the input voltages and the output voltages should be plotted. Besides that it can be interesting to watch the output voltage of the first inverter. Simulated until t=5s.</p>
 <p>Input voltages: vin.p.v and v.p.v</p>
 <p>Output voltage of the first inverter: mn1.ND.v</p>
@@ -582,7 +582,7 @@ Zeunerstrasse 38<br />
 <p>This example shows one possibility to make the record of the technology parameters available for more than one transistor. For each set of technology parameters an apart model has to be defined (in this example: MPmos ans MNmos). Inside the model definition the technology parameters are appointed (Spice3.Semiconductors.modelcardMOS M(GAMMA=0.37, LAMBDA=0.02)). Every model extends a transistor. In this process the required technologyparameters are specified (extends Spice3.Repository.MOS(final mtype=1, modelcard=M). To make transistors available in the circuit instances of the defined models are applied (MPmos mp1; MNmos mn1; MPmos mp2; MNmos mn2;).</p>
 </html>", revisions="<html>
 <ul>
-<li><i>April 2009 </i>by Kristin Majetta initially implemented</li>
+<li><em>April 2009 </em>by Kristin Majetta initially implemented</li>
 </ul>
 </html>"));
     end InvertersExtendedModel;
@@ -749,7 +749,7 @@ Zeunerstrasse 38<br />
 <p>Simulate until t=5s. The output values should be: mp1.NS.v, mp2.NS.v, mp3.NS.v, mp4.NS.v and vgate.p.v</p>
 </html>", revisions="<html>
 <ul>
-<li><i>April 2009 </i>by Kristin Majetta initially implemented</li>
+<li><em>April 2009 </em>by Kristin Majetta initially implemented</li>
 </ul>
 </html>"));
     end FourInverters;
@@ -868,7 +868,7 @@ Zeunerstrasse 38<br />
 <p>Simulate until t=2e-7s. Display the two input voltages vin1.p.v and vin2.p.v and the output voltage mNMOS1.ND.v, which becomes zero only if both input values are high.</p>
 </html>", revisions="<html>
 <ul>
-<li><i>May 2009 </i>by Kristin Majetta initially implemented</li>
+<li><em>May 2009 </em>by Kristin Majetta initially implemented</li>
 </ul>
 </html>"),
         experiment(StopTime=2e-007));
@@ -1016,7 +1016,7 @@ Zeunerstrasse 38<br />
 <p>The output value in the example shows a behaviour &quot;near&quot; the one of the truth table, since the capacitances are huge. Therefore loading is not finished before the next input changes.</p>
 </html>", revisions="<html>
 <ul>
-<li><i>March 2009 </i>by Kristin Majetta initially implemented</li>
+<li><em>March 2009 </em>by Kristin Majetta initially implemented</li>
 </ul>
 </html>"),
         experiment(StopTime=5));
@@ -1084,7 +1084,7 @@ Zeunerstrasse 38<br />
 <p>Simulator until 0.025 s. Then display the input voltage vsin.p.v. The rout.p.v voltage is the rectified voltage result, which is pulsing mostly in the positive range.</p>
 </html>", revisions="<html>
 <ul>
-<li><i>Jan. 2010 </i>by Kristin Majetta initially implemented</li>
+<li><em>Jan. 2010 </em>by Kristin Majetta initially implemented</li>
 </ul>
 </html>"));
     end Graetz;
@@ -1194,7 +1194,7 @@ Zeunerstrasse 38<br />
 <p>Simulate until 0.025 s. Display v.p.v, which is rising until 5 V. Furthermore display r4.p.v, which starts oscillating.</p>
 </html>", revisions="<html>
 <ul>
-<li><i>Jan. 2010 </i>by Jonathan Gerbet initially implemented</li>
+<li><em>Jan. 2010 </em>by Jonathan Gerbet initially implemented</li>
 </ul>
 </html>"));
     end Oscillator;
@@ -1398,7 +1398,7 @@ Zeunerstrasse 38<br />
 <p><br/>Simulate until 0.2s, and display the mentioned voltages.</p>
 </html>", revisions="<html>
 <ul>
-<li><i>Aug. 2011 </i>by Kristin Majetta initially implemented</li>
+<li><em>Aug. 2011 </em>by Kristin Majetta initially implemented</li>
 </ul>
 </html>"),experiment(
           StopTime=0.2,
@@ -2228,7 +2228,7 @@ RC 3 4 1K<br/>
 <p>The Four Bit Binary Adder is built out of two two bit adders which respectively are built out of two one bit adders. One one bit adder is build out of nine NAND circuits. </p>
 <p>Please note, that the simulation time of the Four Bit Binary Adder can take several hours due to its immense size (e.g. 11387 equations).</p>
 <p>The user is recommended to simulate from t=0 to t=1e-6s and observe the eight inputs (X1_p1_v, ..., X1_p8_v) and the four outputs (X1_p9_v, ..., X1_p12_v) and the carryout output (X1_p14_v).</p>
-<p><b>The timing of the single transistors of the adder causes a delay which makes it hard to recognize the adder behaviour. Since the Four Bit Binary Adder is a SPICE3 benchmark, the circuit is not changed in order to see the adder behaviour in a better way.</b></p>
+<p><strong>The timing of the single transistors of the adder causes a delay which makes it hard to recognize the adder behaviour. Since the Four Bit Binary Adder is a SPICE3 benchmark, the circuit is not changed in order to see the adder behaviour in a better way.</strong></p>
 <p>Original SPICE3 netlist of the Four Bit Binary Adder:</p>
 <pre>
 ADDER - 4 BIT ALL-NAND-GATE BINARY ADDER
@@ -2380,9 +2380,9 @@ by this ground element.
       annotation (
         Documentation(info="<html>
 <P>
-The linear resistor connects the branch voltage <i>v</i> with the
-branch current <i>i</i> by <i>i*R = v</i>.
-The Resistance <i>R</i> is allowed to be positive, zero, or negative.
+The linear resistor connects the branch voltage <em>v</em> with the
+branch current <em>i</em> by <em>i*R = v</em>.
+The Resistance <em>R</em> is allowed to be positive, zero, or negative.
 </P>
 </html>"),
         Icon(coordinateSystem(
@@ -2417,9 +2417,9 @@ The Resistance <i>R</i> is allowed to be positive, zero, or negative.
       annotation (
         Documentation(info="<html>
 <p>
-The linear capacitor connects the branch voltage <i>v</i> with the
-branch current <i>i</i> by <i>i = C * dv/dt</i>.
-The Capacitance <i>C</i> is allowed to be positive, zero, or negative.
+The linear capacitor connects the branch voltage <em>v</em> with the
+branch current <em>i</em> by <em>i = C * dv/dt</em>.
+The Capacitance <em>C</em> is allowed to be positive, zero, or negative.
 </p>
 </html>"), Icon(coordinateSystem(
             preserveAspectRatio=false,
@@ -2469,7 +2469,7 @@ The Capacitance <i>C</i> is allowed to be positive, zero, or negative.
       ICP.di = der(iinternal);
       annotation (
         Documentation(info="<html>
-<p>The linear inductor connects the branch voltage <i>v</i> with the branch current <i>i</i> by <i>v = L * di/dt</i>. The inductance <i>L</i> is allowed to be positive, zero, or negative.</p>
+<p>The linear inductor connects the branch voltage <em>v</em> with the branch current <em>i</em> by <em>v = L * di/dt</em>. The inductance <em>L</em> is allowed to be positive, zero, or negative.</p>
 </html>"),
         Icon(coordinateSystem(
             preserveAspectRatio=false,
@@ -2755,12 +2755,12 @@ The corresponding SPICE description
 
     annotation(preferredView="info",
   Documentation(info="<html>
-<p>This Package contains the basic components of the SPICE3 models. The first letter of the</p><p>name of the component shows the SPICE name, e.g., <b>R</b>_Resistor: <b>R</b> is the SPICE-name of the component</p><p>resistor which is used in SPICE-Netlists.</p>
+<p>This Package contains the basic components of the SPICE3 models. The first letter of the</p><p>name of the component shows the SPICE name, e.g., <strong>R</strong>_Resistor: <strong>R</strong> is the SPICE-name of the component</p><p>resistor which is used in SPICE-Netlists.</p>
 </html>",
      revisions="<html>
 <dl>
 <dt>
-<b>Main Authors:</b>
+<strong>Main Authors:</strong>
 <dd>
 Christoph Clau&szlig;
     &lt;<a href=\"mailto:clauss@eas.iis.fhg.de\">clauss@eas.iis.fhg.de</a>&gt;<br>
@@ -2792,7 +2792,7 @@ Christoph Clau&szlig;
 <p>The package Semiconductors is for user access but not the package Repository.</p>
 </html>", revisions="<html>
 <ul>
-<li><i>March 2008 </i>by Kristin Majetta <br/>initially implemented</li>
+<li><em>March 2008 </em>by Kristin Majetta <br/>initially implemented</li>
 </ul>
 </html>"));
     end M_PMOS;
@@ -2812,7 +2812,7 @@ Christoph Clau&szlig;
 <p>The package Semiconductors is for user access but not the package Repository.</p>
 </html>", revisions="<html>
 <ul>
-<li><i>March 2008 </i>by Kristin Majetta <br/>initially implemented</li>
+<li><em>March 2008 </em>by Kristin Majetta <br/>initially implemented</li>
 </ul>
 </html>"));
     end M_NMOS;
@@ -2841,7 +2841,7 @@ Christoph Clau&szlig;
 <p>The package Semiconductors is for user access but not the package Internal.</p>
 </html>", revisions="<html>
 <ul>
-<li><i>March 2008 </i>by Kristin Majetta <br/>initially implemented</li>
+<li><em>March 2008 </em>by Kristin Majetta <br/>initially implemented</li>
 </ul>
 </html>"));
     end M_NMOS2;
@@ -2861,7 +2861,7 @@ Christoph Clau&szlig;
 <p>The package Semiconductors is for user access but not the package Internal.</p>
 </html>", revisions="<html>
 <ul>
-<li><i>March 2008 </i>by Kristin Majetta <br/>initially implemented</li>
+<li><em>March 2008 </em>by Kristin Majetta <br/>initially implemented</li>
 </ul>
 </html>"));
     end M_PMOS2;
@@ -2892,7 +2892,7 @@ Christoph Clau&szlig;
 <p>The package Semiconductors is for user access but not the package Internal.</p>
 </html>", revisions="<html>
 <ul>
-<li><i>August 2009 </i>by Kristin Majetta <br/>initially implemented</li>
+<li><em>August 2009 </em>by Kristin Majetta <br/>initially implemented</li>
 </ul>
 </html>"));
 
@@ -2915,7 +2915,7 @@ Christoph Clau&szlig;
 <p>The package Semiconductors is for user access but not the package Internal.</p>
 </html>", revisions="<html>
 <ul>
-<li><i>August 2009 </i>by Kristin Majetta <br/>initially implemented</li>
+<li><em>August 2009 </em>by Kristin Majetta <br/>initially implemented</li>
 </ul>
 </html>"));
 
@@ -2940,8 +2940,8 @@ Christoph Clau&szlig;
 <p>The models from the package Semiconductors accesses to the package Internal where all functions, records and data are stored and modeled that are needed for the semiconductor models. The package Semiconductors is for user access, but not the package Internal.</p>
 </html>", revisions="<html>
 <ul>
-<li><i>September 2011 </i>revised by Sandra B&ouml;hme</br/>
-<li><i>August 2009 </i>by Kristin Majetta <br/>initially implemented</li>
+<li><em>September 2011 </em>revised by Sandra B&ouml;hme</br/>
+<li><em>August 2009 </em>by Kristin Majetta <br/>initially implemented</li>
 </ul>
 </html>"),
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
@@ -2963,8 +2963,8 @@ Christoph Clau&szlig;
 <p>The models from the package Semiconductors accesses to the package Internal where all functions, records and data are stored and modeled that are needed for the semiconductor models. The package Semiconductors is for user access, but not the package Internal.</p>
 </html>", revisions="<html>
 <ul>
-<li><i>September 2011 </i>revised by Sandra B&ouml;hme</br/>
-<li><i>August 2009 </i>by Kristin Majetta <br/>initially implemented</li>
+<li><em>September 2011 </em>revised by Sandra B&ouml;hme</br/>
+<li><em>August 2009 </em>by Kristin Majetta <br/>initially implemented</li>
 </ul>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Polygon(
@@ -2996,7 +2996,7 @@ Christoph Clau&szlig;
 <p>The package Semiconductors is for user access but not the package Repository.</p>
 </html>", revisions="<html>
 <ul>
-<li><i>Nov. 2008 </i>by Kristin Majetta <br/>initially implemented</li>
+<li><em>Nov. 2008 </em>by Kristin Majetta <br/>initially implemented</li>
 </ul>
 </html>"));
 
@@ -3020,7 +3020,7 @@ Christoph Clau&szlig;
 <p>The package Semiconductors is for user access but not the package Repository.</p>
 </html>", revisions="<html>
 <ul>
-<li><i>April 2009 </i>by Kristin Majetta <br/>initially implemented</li>
+<li><em>April 2009 </em>by Kristin Majetta <br/>initially implemented</li>
 </ul>
 </html>"));
     end R_Resistor;
@@ -3044,8 +3044,8 @@ Christoph Clau&szlig;
 <p>The models from the package Semiconductors accesses to the package Repository where all functions, records and data are stored and modeled that are needed for the semiconductor models. The package Semiconductors is for user access, but not the package Repository.</p>
 </html>", revisions="<html>
 <ul>
-<li><i>September 2011 </i>revised by Sandra B&ouml;hme</br/>
-<li><i>April 2009 </i>by Kristin Majetta <br/>initially implemented</li>
+<li><em>September 2011 </em>revised by Sandra B&ouml;hme</br/>
+<li><em>April 2009 </em>by Kristin Majetta <br/>initially implemented</li>
 </ul>
 </html>"));
     end C_Capacitor;
@@ -3368,14 +3368,14 @@ Christoph Clau&szlig;
                   -50},{-40,-50},{-40,-20},{60,-20},{60,10},{-40,10},{-40,40},{
                   60,40},{60,70},{10,70},{10,-51}},color={192,192,192})}),
         Documentation(info="<html>
-<p>This model generates a voltage by <b>linear interpolation</b> in a given table. The time points and voltage values are stored in a matrix <b>table[i,j]</b>, where the first column table[:,1] contains the time points and the second column contains the voltage to be interpolated. The table interpolation has the following properties:</p>
+<p>This model generates a voltage by <strong>linear interpolation</strong> in a given table. The time points and voltage values are stored in a matrix <strong>table[i,j]</strong>, where the first column table[:,1] contains the time points and the second column contains the voltage to be interpolated. The table interpolation has the following properties:</p>
 <ul>
-<li>The time points need to be <b>monotonically increasing</b>. </li>
-<li><b>Discontinuities</b> are allowed, by providing the same time point twice in the table. </li>
-<li>Values <b>outside</b> of the table range, are computed by <b>extrapolation</b> through the last or first two points of the table.</li>
-<li>If the table has only <b>one row</b>, no interpolation is performed and the voltage value is just returned independently of the actual time instant, i.e., this is a constant voltage source.</li>
-<li>Via parameters <b>startTime</b> and <b>offset</b> the curve defined by the table can be shifted both in time and in the voltage. </li>
-<li>The table is implemented in a numerically sound way by generating <b>time events</b> at interval boundaries.
+<li>The time points need to be <strong>monotonically increasing</strong>. </li>
+<li><strong>Discontinuities</strong> are allowed, by providing the same time point twice in the table. </li>
+<li>Values <strong>outside</strong> of the table range, are computed by <strong>extrapolation</strong> through the last or first two points of the table.</li>
+<li>If the table has only <strong>one row</strong>, no interpolation is performed and the voltage value is just returned independently of the actual time instant, i.e., this is a constant voltage source.</li>
+<li>Via parameters <strong>startTime</strong> and <strong>offset</strong> the curve defined by the table can be shifted both in time and in the voltage. </li>
+<li>The table is implemented in a numerically sound way by generating <strong>time events</strong> at interval boundaries.
     This generates continuously differentiable values for the integrator.</li>
 </ul>
 <p>Example:</p>
@@ -3735,15 +3735,15 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               fillColor={0,0,255},
               fillPattern=FillPattern.Solid)}),
         Documentation(info="<html>
-<p>This model generates a current  by <b>linear interpolation</b> in a given table. The time points and current values are stored in a matrix <b>table[i,j]</b>, where the first column table[:,1] contains the time points and the second column contains the current to be interpolated. The table interpolation has the following properties:</p>
+<p>This model generates a current  by <strong>linear interpolation</strong> in a given table. The time points and current values are stored in a matrix <strong>table[i,j]</strong>, where the first column table[:,1] contains the time points and the second column contains the current to be interpolated. The table interpolation has the following properties:</p>
 
 <ul>
-<li>The time points need to be <b>monotonically increasing</b>. </li>
-<li><b>Discontinuities</b> are allowed, by providing the same time point twice in the table. </li>
-<li>Values <b>outside</b> of the table range, are computed by <b>extrapolation</b> through the last or first two points of the table.</li>
-<li>If the table has only <b>one row</b>, no interpolation is performed and the current value is just returned independently of the actual time instant, i.e., this is a constant current source.</li>
-<li>Via parameters <b>startTime</b> and <b>offset</b> the curve defined by the table can be shifted both in time and in the current. </li>
-<li>The table is implemented in a numerically sound way by generating <b>time events</b> at interval boundaries.
+<li>The time points need to be <strong>monotonically increasing</strong>. </li>
+<li><strong>Discontinuities</strong> are allowed, by providing the same time point twice in the table. </li>
+<li>Values <strong>outside</strong> of the table range, are computed by <strong>extrapolation</strong> through the last or first two points of the table.</li>
+<li>If the table has only <strong>one row</strong>, no interpolation is performed and the current value is just returned independently of the actual time instant, i.e., this is a constant current source.</li>
+<li>Via parameters <strong>startTime</strong> and <strong>offset</strong> the curve defined by the table can be shifted both in time and in the current. </li>
+<li>The table is implemented in a numerically sound way by generating <strong>time events</strong> at interval boundaries.
     This generates continuously differentiable values for the integrator.</li>
 </ul>
 
@@ -3811,11 +3811,11 @@ If, e.g., time = 1.0, the current i =  0.0 (before event), 1.0 (after event)
     annotation(preferredView="info", Documentation(info=
                    "<html>
 <p>This package contains the SPICE sources.</p>
-<p><b>Note:</b> There are differences between SPICE3 and Modelica concerning the default values of the parameter. Therefore it is recommended to specify <b>all</b> parameters of the source.</p>
+<p><strong>Note:</strong> There are differences between SPICE3 and Modelica concerning the default values of the parameter. Therefore it is recommended to specify <strong>all</strong> parameters of the source.</p>
 </html>", revisions="<html>
 <ul>
-<li><i>August 2009 </i>default values improved by Jonathan Kress<br/></li>
-<li><i>October 2008 </i>by Christoph Clauss initially implemented.</li>
+<li><em>August 2009 </em>default values improved by Jonathan Kress<br/></li>
+<li><em>October 2008 </em>by Christoph Clauss initially implemented.</li>
 </ul>
 </html>"));
   end Sources;
@@ -4018,7 +4018,7 @@ E2N -&gt; name.pc[N-1]
 P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})</pre>
 </html>", revisions="<html>
 <ul>
-<li><i>Sept 2008 </i>by Kristin Majetta <br/>initially implemented</li>
+<li><em>Sept 2008 </em>by Kristin Majetta <br/>initially implemented</li>
 </ul>
 </html>"));
     end E_VCV_POLY;
@@ -4113,7 +4113,7 @@ E2N -&gt; name.pc[N-1]
 P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...}) </pre>
 </html>", revisions="<html>
 <ul>
-<li><i>Sept 2008 </i>by Kristin Majetta <br/>initially implemented</li>
+<li><em>Sept 2008 </em>by Kristin Majetta <br/>initially implemented</li>
 </ul>
 </html>"));
     end G_VCC_POLY;
@@ -4215,7 +4215,7 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})
 </pre>
 </html>", revisions="<html>
 <ul>
-<li><i>Sept 2008 </i>by Kristin Majetta <br/>initially implemented</li>
+<li><em>Sept 2008 </em>by Kristin Majetta <br/>initially implemented</li>
 </ul>
 </html>"));
     end H_CCV_POLY;
@@ -4315,7 +4315,7 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})
 </pre>
 </html>", revisions="<html>
 <ul>
-<li><i>Sept 2008 </i>by Kristin Majetta <br/>initially implemented</li>
+<li><em>Sept 2008 </em>by Kristin Majetta <br/>initially implemented</li>
 </ul>
 </html>"));
     end F_CCC_POLY;
@@ -4403,7 +4403,7 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})
       end if;
       annotation (Documentation(revisions="<html>
 <ul>
-<li><i> February 17, 2009   </i>
+<li><em> February 17, 2009   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -4412,16 +4412,16 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})
 This partial model provides a conditional heating port for the connection to a thermal network.
 </p>
 <ul>
-<li> If <b>useHeatPort</b> is set to <b>false</b> (default), no heat port is available, and the thermal
-     loss power flows internally to the ground. In this case, the parameter <b>T</b> specifies
+<li> If <strong>useHeatPort</strong> is set to <strong>false</strong> (default), no heat port is available, and the thermal
+     loss power flows internally to the ground. In this case, the parameter <strong>T</strong> specifies
      the fixed device temperature (the default for T = 20<sup>o</sup>C).</li>
-<li> If <b>useHeatPort</b> is set to <b>true</b>, a heat port is available.</li>
+<li> If <strong>useHeatPort</strong> is set to <strong>true</strong>, a heat port is available.</li>
 </ul>
 
 <p>
 If this model is used, the loss power has to be provided by an equation in the model which inherits from
-ConditionalHeatingPort model (<b>lossPower = ...</b>). As device temperature
-<b>T_heatPort</b> can be used to describe the influence of the device temperature
+ConditionalHeatingPort model (<strong>lossPower = ...</strong>). As device temperature
+<strong>T_heatPort</strong> can be used to describe the influence of the device temperature
 on the model behaviour.
 </p>
 </html>"));
@@ -4584,7 +4584,7 @@ on the model behaviour.
 <p>The package Repository is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
 </html>", revisions="<html>
 <ul>
-<li><i>March 2008 </i>by Kristin Majetta <br/>initially implemented</li>
+<li><em>March 2008 </em>by Kristin Majetta <br/>initially implemented</li>
 </ul>
 </html>"),
         Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
@@ -4880,7 +4880,7 @@ on the model behaviour.
 <p>The package Repository is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
 </html>", revisions="<html>
 <ul>
-<li><i>January 2009 </i>by Kristin Majetta <br/>initially implemented</li>
+<li><em>January 2009 </em>by Kristin Majetta <br/>initially implemented</li>
 </ul>
 </html>"),
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
@@ -5052,7 +5052,7 @@ on the model behaviour.
 <p>The package Internal is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
 </html>",     revisions="<html>
 <ul>
-<li><i>August 2009 </i>by Kristin Majetta <br/>initially implemented</li>
+<li><em>August 2009 </em>by Kristin Majetta <br/>initially implemented</li>
 </ul>
 </html>"));
     end BJT2;
@@ -5252,7 +5252,7 @@ on the model behaviour.
 <p>The package Internal is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
 </html>",     revisions="<html>
 <ul>
-<li><i>August 2009 </i>by Kristin Majetta <br/>initially implemented</li>
+<li><em>August 2009 </em>by Kristin Majetta <br/>initially implemented</li>
 </ul>
 </html>"));
     end BJT;
@@ -5426,7 +5426,7 @@ on the model behaviour.
 <p>The package Internal is not for user access. There all function, records and data are stored, that are needed for modeling the semiconductor models of the package Semiconductors.</p>
 </html>", revisions="<html>
 <ul>
-<li><i>March 2008 </i>by Kristin Majetta <br/>initially implemented</li>
+<li><em>March 2008 </em>by Kristin Majetta <br/>initially implemented</li>
 </ul>
 </html>"),
         Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
@@ -5556,7 +5556,7 @@ on the model behaviour.
 <p>The package Repository is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
 </html>", revisions="<html>
 <ul>
-<li><i>Nov. 2008 </i>by Kristin Majetta <br/>initially implemented</li>
+<li><em>Nov. 2008 </em>by Kristin Majetta <br/>initially implemented</li>
 </ul>
 </html>"));
    end DIODE;
@@ -5643,7 +5643,7 @@ on the model behaviour.
               textString="%name",
               lineColor={0,0,255})}),Documentation(revisions="<html>
 <dl>
-<dt><i> April 2009 </i></dt>
+<dt><em> April 2009 </em></dt>
 <dd>by Kristin Majetta initially implemented</dd>
 </dl>
 </html>", info="<html>
@@ -5740,7 +5740,7 @@ on the model behaviour.
             Text(extent={{-138,42},{136,62}}, textString="%name")}),
                                      Documentation(revisions="<html>
 <ul>
-<li><i>April 2009</i> by Kristin Majetta
+<li><em>April 2009</em> by Kristin Majetta
     <br>initially implemented</li>
 </ul>
 </html>", info="<html>

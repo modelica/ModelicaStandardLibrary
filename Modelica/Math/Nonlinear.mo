@@ -593,8 +593,8 @@ to a function, see, .e.g.,
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-<b>quadratureLobatto</b>(function f(), a, b);
-<b>quadratureLobatto</b>(function f(), a, b, tolerance=100*Modelica.Constants.eps);
+<strong>quadratureLobatto</strong>(function f(), a, b);
+<strong>quadratureLobatto</strong>(function f(), a, b, tolerance=100*Modelica.Constants.eps);
 </pre></blockquote>
 
 <h4>Description</h4>
@@ -607,7 +607,7 @@ using the adaptive Lobatto rule according to:
 <blockquote>
 <dl>
 <dt>Walter Gander:</dt>
-<dd> <b>Adaptive Quadrature - Revisited</b>. 1998.
+<dd> <strong>Adaptive Quadrature - Revisited</strong>. 1998.
      <a href=\"ftp://ftp.inf.ethz.ch/doc/tech-reports/1998/306.ps\">ftp://ftp.inf.ethz.ch/doc/tech-reports/1998/306.ps</a>
      </dd>
 </dl>
@@ -748,15 +748,15 @@ See the examples in <a href=\"modelica://Modelica.Math.Nonlinear.Examples\">Mode
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-<b>solveOneNonlinearEquation</b>(function f(), u_min, u_max);
-<b>solveOneNonlinearEquation</b>(function f(), u_min, u_max, tolerance=100*Modelica.Constants.eps);
+<strong>solveOneNonlinearEquation</strong>(function f(), u_min, u_max);
+<strong>solveOneNonlinearEquation</strong>(function f(), u_min, u_max, tolerance=100*Modelica.Constants.eps);
 </pre></blockquote>
 
 <h4>Description</h4>
 
 <p>
-This function determines the solution of <b>one non-linear algebraic equation</b> \"y=f(u)\"
-in <b>one unknown</b> \"u\" in a reliable way. It is one of the best numerical
+This function determines the solution of <strong>one non-linear algebraic equation</strong> \"y=f(u)\"
+in <strong>one unknown</strong> \"u\" in a reliable way. It is one of the best numerical
 algorithms for this purpose. As input, the nonlinear function f(u)
 has to be given, as well as an interval u_min, u_max that
 contains the solution, i.e., \"f(u_min)\" and \"f(u_max)\" must
@@ -780,7 +780,7 @@ function. The solver function is a direct mapping of the Algol 60 procedure
 <blockquote>
 <dl>
 <dt> Brent R.P.:</dt>
-<dd> <b>Algorithms for Minimization without derivatives</b>.
+<dd> <strong>Algorithms for Minimization without derivatives</strong>.
      Prentice Hall, 1973, pp. 58-59.<br>
      Download: <a href=\"http://wwwmaths.anu.edu.au/~brent/pd/rpb011i.pdf\">http://wwwmaths.anu.edu.au/~brent/pd/rpb011i.pdf</a><br>
      Errata and new print: <a href=\"http://wwwmaths.anu.edu.au/~brent/pub/pub011.html\">http://wwwmaths.anu.edu.au/~brent/pub/pub011.html</a>
@@ -814,16 +814,16 @@ or the Modelica Language  Specification, Chapter 12.4.2.
 
 </html>", revisions="<html>
 <ul>
-<li><i>July 2010 </i> by Martin Otter (DLR-RM): <br>
+<li><em>July 2010 </em> by Martin Otter (DLR-RM): <br>
     Included in MSL3.2, adapted, and documentation improved</li>
 
-<li><i>March 2010 </i> by Andreas Pfeiffer (DLR-RM): <br>
+<li><em>March 2010 </em> by Andreas Pfeiffer (DLR-RM): <br>
     Adapted the quadrature function from Gerhard Schillhuber and
     the solution of one non-linear equation in one unknown from
     Modelica.Media.Common.OneNonLinearEquation so that
     function objects are used.</li>
 
-<li><i>June 2002 </i> by Gerhard Schillhuber (master thesis at DLR-RM):<br>
+<li><em>June 2002 </em> by Gerhard Schillhuber (master thesis at DLR-RM):<br>
        Adaptive quadrature to compute the curve length of a Spline.</li>
 </ul>
 </html>"), Icon(graphics={Polygon(points={{-44,-52},{-44,-26},{-17.1,

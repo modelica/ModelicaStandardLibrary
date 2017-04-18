@@ -559,7 +559,7 @@ Blocks.Discrete.
     annotation (Documentation(info="<html>
 <p>
 Block has one continuous input and one continuous output signal
-which are sampled due to the defined <b>samplePeriod</b> parameter.
+which are sampled due to the defined <strong>samplePeriod</strong> parameter.
 </p>
 </html>"));
   end DiscreteSISO;
@@ -579,7 +579,7 @@ which are sampled due to the defined <b>samplePeriod</b> parameter.
     annotation (Documentation(info="<html>
 <p>
 Block has a continuous input and a continuous output signal vector
-which are sampled due to the defined <b>samplePeriod</b> parameter.
+which are sampled due to the defined <strong>samplePeriod</strong> parameter.
 </p>
 </html>"));
   end DiscreteMIMO;
@@ -598,7 +598,7 @@ which are sampled due to the defined <b>samplePeriod</b> parameter.
 <p>
 Block has a continuous input and a continuous output signal vector
 where the signal sizes of the input and output vector are identical.
-These signals are sampled due to the defined <b>samplePeriod</b> parameter.
+These signals are sampled due to the defined <strong>samplePeriod</strong> parameter.
 </p>
 </html>"));
 
@@ -642,7 +642,7 @@ These signals are sampled due to the defined <b>samplePeriod</b> parameter.
 <p>
 Block has two continuous Real input signals and one
 continuous Real output signal
-that are sampled due to the defined <b>samplePeriod</b> parameter.
+that are sampled due to the defined <strong>samplePeriod</strong> parameter.
 The block is designed
 to be used as base class for a corresponding controller.
 </p>
@@ -692,7 +692,7 @@ to be used as base class for a corresponding controller.
 <p>
 Block has two continuous Real input signal vectors and one
 continuous Real output signal vector. The vector signals
-are sampled due to the defined <b>samplePeriod</b> parameter.
+are sampled due to the defined <strong>samplePeriod</strong> parameter.
 The block is designed
 to be used as base class for a corresponding controller.
 </p>
@@ -1758,18 +1758,18 @@ of noise blocks.
   annotation (Documentation(info="<html>
 <p>
 This package contains interface definitions for
-<b>continuous</b> input/output blocks with Real,
+<strong>continuous</strong> input/output blocks with Real,
 Integer and Boolean signals. Furthermore, it contains
 partial models for continuous and discrete blocks.
 </p>
 
 </html>", revisions="<html>
 <ul>
-<li><i>Oct. 21, 2002</i>
+<li><em>Oct. 21, 2002</em>
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>
        and Christian Schweiger:<br>
        Added several new interfaces.</li>
-<li><i>Oct. 24, 1999</i>
+<li><em>Oct. 24, 1999</em>
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
        RealInputSignal renamed to RealInput. RealOutputSignal renamed to
        output RealOutput. GraphBlock renamed to BlockIcon. SISOreal renamed to
@@ -1778,7 +1778,7 @@ partial models for continuous and discrete blocks.
        new models: MIMO, MIMOs, SVcontrol, MVcontrol, DiscreteBlockIcon,
        DiscreteBlock, DiscreteSISO, DiscreteMIMO, DiscreteMIMOs,
        BooleanBlockIcon, BooleanSISO, BooleanSignalSource, MI2BooleanMOs.</li>
-<li><i>June 30, 1999</i>
+<li><em>June 30, 1999</em>
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
        Realized a first version, based on an existing Dymola library
        of Dieter Moormann and Hilding Elmqvist.</li>

@@ -193,9 +193,9 @@ annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
 <br>T1.heatPort.Q_flow and T2.heatPort.Q_flow</p>
 </html>",
    revisions="<html>
-<p><b>Release Notes:</b></p>
+<p><strong>Release Notes:</strong></p>
 <ul>
-<li><i>Mai 6, 2004   </i>
+<li><em>Mai 6, 2004   </em>
        by Christoph Clauss<br> realized<br>
        </li>
 </ul>

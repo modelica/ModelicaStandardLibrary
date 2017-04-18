@@ -59,10 +59,10 @@ This equation is also illustrated in Fig. 1.
 </table>
 
 <p>
-From the above equation it is obvious that for <i>t</i> = 0
-the time domain voltage is <i>v</i> = cos(<i>&phi;<sub>v</sub></i>).
+From the above equation it is obvious that for <em>t</em> = 0
+the time domain voltage is <em>v</em> = cos(<em>&phi;<sub>v</sub></em>).
 The complex representation of the phasor corresponds with this instance, too, since
-the phasor is leading the real axis by the angle <i>&phi;<sub>v</sub></i>.
+the phasor is leading the real axis by the angle <em>&phi;<sub>v</sub></em>.
 </p>
 
 <p>
@@ -188,8 +188,8 @@ as illustrated in the phasor diagram of Fig. 2.
 
       annotation (Documentation(info="<html>
 
-<p>For periodic waveforms, the average value of the instantaneous power is <b>real power</b> <i>P</i>.
-<b>Reactive power</b> <i>Q</i> is a term
+<p>For periodic waveforms, the average value of the instantaneous power is <strong>real power</strong> <em>P</em>.
+<strong>Reactive power</strong> <em>Q</em> is a term
 associated with inductors and capacitors. For pure inductors and capacitors, real power is equal to zero.
 Yet, there is instantaneous power exchanged with connecting network.
 </p>
@@ -462,49 +462,49 @@ ideal AC DC converter</a>, which is used in the
     <tr>
       <td valign=\"top\">[Dorf1993]</td>
       <td valign=\"top\">R. C. Dorf
-        <i>The Electrical Engineering</i>,
+        <em>The Electrical Engineering</em>,
         VDE, 1993.</td>
     </tr>
 
     <tr>
       <td valign=\"top\">[Boas1966]</td>
       <td valign=\"top\">M. L. Boas
-        <i>Mathematical Methods in the Physical Sciences</i>,
+        <em>Mathematical Methods in the Physical Sciences</em>,
         J. Wiley &amp; Sons, New York, 1966.</td>
     </tr>
 
     <tr>
       <td valign=\"top\">[Burton1994]</td>
       <td valign=\"top\">T. Burton
-        <i>Introduction to Dynamic Systems Analysis</i>,
+        <em>Introduction to Dynamic Systems Analysis</em>,
         McGraw Hill, New York, 1994.</td>
     </tr>
 
     <tr>
       <td valign=\"top\">[Landolt1936]</td>
       <td valign=\"top\">M. Landolt
-        <i>Komplexe Zahlen und Zeiger in der Wechselstromlehre</i>,
+        <em>Komplexe Zahlen und Zeiger in der Wechselstromlehre</em>,
         Springer Verlag, Berlin, 1936</td>
     </tr>
 
     <tr>
       <td valign=\"top\">[Philippow1967]</td>
       <td valign=\"top\">E. Philippow
-        <i>Grundlagen der Elektrotechnik</i>,
+        <em>Grundlagen der Elektrotechnik</em>,
        Akademischer Verlag, Leipzig, 1967.</td>
     </tr>
 
     <tr>
       <td valign=\"top\">[Weyh1967]</td>
       <td valign=\"top\">Weyh and Benzinger
-        <i>Die Grundlagen der Wechselstromlehre</i>,
+        <em>Die Grundlagen der Wechselstromlehre</em>,
        R. Oldenbourg Verlag, 1967.</td>
     </tr>
 
     <tr>
       <td valign=\"top\">[Vaske1973]</td>
       <td valign=\"top\">P. Vaske
-        <i>Berechnung von Drehstromschaltungen</i>,
+        <em>Berechnung von Drehstromschaltungen</em>,
        B.G. Teubner Verlag, 1973.</td>
     </tr>
 

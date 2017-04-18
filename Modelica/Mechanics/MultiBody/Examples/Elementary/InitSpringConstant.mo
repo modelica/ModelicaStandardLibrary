@@ -66,7 +66,7 @@ such that this goal is reached.
 The pendulum has one degree of freedom, i.e., two states.
 Therefore, two additional equations have to be provided
 for initialization. However, parameter \"c\" of the spring
-component is defined with attribute \"fixed = <b>false</b>\", i.e.,
+component is defined with attribute \"fixed = <strong>false</strong>\", i.e.,
 the value of this parameter is computed during initialization.
 Therefore, there is one additional equation required during
 initialization. The 3 initial equations are the rotational

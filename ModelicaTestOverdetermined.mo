@@ -638,7 +638,7 @@ The initial equations are consistent however and a tool shall reduce them approp
     Documentation(info="<html>
 <p>
 This library provides models and functions to test components of
-<b>package Modelica</b> (the Modelica Standard Library).
+<strong>package Modelica</strong> (the Modelica Standard Library).
 All test models in this package define more equations during initialization,
 as necessary. These test models are especially provided for tool vendors
 to improve their tools so that models with consistently overdetermined initialization
@@ -652,7 +652,7 @@ fail during translation but give useful error messages.
 Copyright &copy; 1998-2016, Modelica Association.
 </p>
 <p>
-<i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
+<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</em>
 </p>
 </html>"));
 end ModelicaTestOverdetermined;

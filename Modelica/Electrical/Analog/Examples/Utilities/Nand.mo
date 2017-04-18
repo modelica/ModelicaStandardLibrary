@@ -120,13 +120,13 @@ equation
           textString="%name")}),
     Documentation(info="<html>
 <p>The nand gate is a basic CMOS building block. It consists of four CMOS transistors.</p>
-<p><b>Reference:</b></p>
+<p><strong>Reference:</strong></p>
 <p>Tietze, U.; Schenk, Ch.: Halbleiter-Schaltungstechnik. Springer-Verlag Berlin Heidelberg NewYork 1980, p. 157</p>
 </html>",
    revisions="<html>
 <dl>
 <dt>
-<b>Main Authors:</b>
+<strong>Main Authors:</strong>
 </dt>
 <dd>
 Christoph Clau&szlig;

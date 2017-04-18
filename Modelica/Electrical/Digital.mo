@@ -76,27 +76,27 @@ The Electrical.Digital library is based on the following references:
 </p>
 <dl>
 <dt>Ashenden, P. J.:</dt>
-<dd> <b>The Designer's Guide to VHDL.</b> San Francisco: Morgan Kaufmann, 1995, 688 p. ISBN 1-55860-270-4.
+<dd> <strong>The Designer's Guide to VHDL.</strong> San Francisco: Morgan Kaufmann, 1995, 688 p. ISBN 1-55860-270-4.
      <br>&nbsp;</dd>
 </dl>
 <dl>
 <dt>IEEE 1076-1993:</dt>
-<dd> <b>IEEE Standard VHDL Language Reference Manual (ANSI).</b> 288 p. ISBN 1-55937-376-8. IEEE Ref. SH16840-NYF.
+<dd> <strong>IEEE Standard VHDL Language Reference Manual (ANSI).</strong> 288 p. ISBN 1-55937-376-8. IEEE Ref. SH16840-NYF.
      <br>&nbsp;</dd>
 </dl>
 <dl>
 <dt>IEEE 1164-1993:</dt>
-<dd> <b>IEEE Standard Multivalue Logic System for VHDL Model Interoperability (Std_logic_1164).</b> 24 p. ISBN 1-55937-299-0. IEEE Ref. SH16097-NYF.
+<dd> <strong>IEEE Standard Multivalue Logic System for VHDL Model Interoperability (Std_logic_1164).</strong> 24 p. ISBN 1-55937-299-0. IEEE Ref. SH16097-NYF.
      <br>&nbsp;</dd>
 </dl>
 <dl>
 <dt>Lipsett, R.; Schaefer, C.; Ussery, C.:</dt>
-<dd> <b>VHDL: Hardware Description and Design.</b> Boston: Kluwer, 1989, 299 p. ISBN 079239030X.
+<dd> <strong>VHDL: Hardware Description and Design.</strong> Boston: Kluwer, 1989, 299 p. ISBN 079239030X.
      <br>&nbsp;</dd>
 </dl>
 <dl>
 <dt>Navabi, Z:</dt>
-<dd> <b>VHDL: Analysis and Modeling of Digital Systems.</b> New York: McGraw-Hill, 1993, 375 p. ISBN 0070464723.
+<dd> <strong>VHDL: Analysis and Modeling of Digital Systems.</strong> New York: McGraw-Hill, 1993, 375 p. ISBN 0070464723.
      <br>&nbsp;</dd>
 </dl>
 </html>"));
@@ -108,7 +108,7 @@ The Electrical.Digital library is based on the following references:
 
         annotation (Documentation(info="<html>
 <dl>
-<dt><b>Main Authors:</b></dt>
+<dt><strong>Main Authors:</strong></dt>
 <dd>Christoph Clau&szlig;
     &lt;<A HREF=\"mailto:Christoph.Clauss@eas.iis.fraunhofer.de\">Christoph.Clauss@eas.iis.fraunhofer.de</A>&gt;<br>
     Andr&eacute; Schneider
@@ -124,7 +124,7 @@ The Electrical.Digital library is based on the following references:
 <br>
 <br>
 <dl>
-<dt><b>Acknowledgements:</b></dt>
+<dt><strong>Acknowledgements:</strong></dt>
 <dd>
     We thank our students Teresa Schlegel and Enrico Weber for implementing
     and carefully testing many models and examples.<br>
@@ -136,10 +136,10 @@ The Electrical.Digital library is based on the following references:
 
       annotation (DocumentationClass=true, Documentation(info="<html>
 <p>
-Library <b>Electrical.Digital</b> is a <b>free</b> Modelica package providing
-components to model <b>digital</b> electronic
+Library <strong>Electrical.Digital</strong> is a <strong>free</strong> Modelica package providing
+components to model <strong>digital</strong> electronic
 systems based on combinational and sequential logic in a convenient
-way. This package contains the <b>User's Guide</b> for
+way. This package contains the <strong>User's Guide</strong> for
 the library and has the following content:
 </p>
 <ol>
@@ -329,21 +329,21 @@ And and to Xor in the final sum.</p>
 0 + 0 = 0
 <br>
 <br>
-<b>a</b> + <b>b</b> = <b>s</b>
-<br>(The carry of this adding is <b>c</b>.)
+<strong>a</strong> + <strong>b</strong> = <strong>s</strong>
+<br>(The carry of this adding is <strong>c</strong>.)
 <br>
 <br>and
 <br>
 <br>
-<b>a</b> * <b>b</b> = <b>s</b>
+<strong>a</strong> * <strong>b</strong> = <strong>s</strong>
 <br>  (It is an interconnection to And.)
 <br>
 <br>
-<b>a</b> * <b>b</b> + <b>a</b> * <b>b</b> = <b>a</b> Xor <b>b</b> = <b>c</b>
+<strong>a</strong> * <strong>b</strong> + <strong>a</strong> * <strong>b</strong> = <strong>a</strong> Xor <strong>b</strong> = <strong>c</strong>
 <br>(It is an interconnection to Xor.)
 <br>
 <pre>
-   <b>a</b>     <b>b</b>     <b>c</b>      <b>s</b>     <b>t</b>
+   <strong>a</strong>     <strong>b</strong>     <strong>c</strong>      <strong>s</strong>     <strong>t</strong>
 
    1     0     1      0     1
    0     1     1      0     2
@@ -351,7 +351,7 @@ And and to Xor in the final sum.</p>
    0     0     0      0     4
 </pre>
 <p>
-<b>t</b> is the pick-up instant of the next bit(s) in the simulation.
+<strong>t</strong> is the pick-up instant of the next bit(s) in the simulation.
 The simulation stop time should be 5 seconds.
 </p>
 </html>"),            experiment(StopTime=5));
@@ -399,13 +399,13 @@ The simulation stop time should be 5 seconds.
 <br>It is an adding circuit for binary numbers with input carry bit, which consists of two HalfAdders.
 <br>
 <br>
-<b>a</b>.y, <b>b</b>.y and <b>c</b>.y are the inputs of the FullAdder.
+<strong>a</strong>.y, <strong>b</strong>.y and <strong>c</strong>.y are the inputs of the FullAdder.
 <br>
-<b>c</b>out = <b>Or1</b>.y and <b>h</b>.s are the outputs of the FullAdder.
+<strong>c</strong>out = <strong>Or1</strong>.y and <strong>h</strong>.s are the outputs of the FullAdder.
 <br>
 <br>
-<b>t</b> is the pick-up instant of the next bit(s) in the simulation.</p>
-<pre>   <b>a</b>.y      <b>b</b>.y      <b>c</b>.y     <b>c</b>out        <b>h</b>.s        <b>t</b> </pre>
+<strong>t</strong> is the pick-up instant of the next bit(s) in the simulation.</p>
+<pre>   <strong>a</strong>.y      <strong>b</strong>.y      <strong>c</strong>.y     <strong>c</strong>out        <strong>h</strong>.s        <strong>t</strong> </pre>
 
 <pre>
      1        0        0        0          1        1
@@ -539,16 +539,16 @@ In dependence on time five additions are carried out:
 at t = 0                            at t = 1
  a       0 0 0 0                       a      1 1 1 0
  b    +  0 0 0 0                       b   +  1 0 1 1
- <b>s     0 0 0 0 0</b>                      <b>s     1 0 0 1 0</b>
+ <strong>s     0 0 0 0 0</strong>                      <strong>s     1 0 0 1 0</strong>
 at t = 2                             at t = 3
  a       0 1 1 0                       a      1 1 1 0
  b    +  0 0 1 1                       b   +  1 0 1 0
- <b>s     1 0 1 0 0</b>                      <b>s     0 0 0 1 1</b>
+ <strong>s     1 0 1 0 0</strong>                      <strong>s     0 0 0 1 1</strong>
 
 at t = 4
  a      1 1 0 0
  b   +  1 1 1 0
- <b>s    0 0 1 0 1</b>
+ <strong>s    0 0 1 0 1</strong>
  </pre>
 <p>
 To show the influence of delay a large delay time of 0.1s is chosen.
@@ -557,9 +557,9 @@ Please remember, that the nine logic values are coded by the numbers 1,...,9.
 The summands a and b can be found at the output signals of the taba and tabb sources.
 The result can be seen in the output signals of the FullAdders according to:</p>
 <pre>
-      a                       <b>a4</b>.y      <b>a3</b>.y      <b>a2</b>.y      <b>a1</b>.y
-      b                       <b>b4</b>.y      <b>b3</b>.y      <b>b2</b>.y      <b>b1</b>.y
-      sum   <b>Adder4</b>.c_out  <b>Adder4.s</b>  <b>Adder3.s</b>  <b>Adder2.s</b>  <b>Adder1.s</b>
+      a                       <strong>a4</strong>.y      <strong>a3</strong>.y      <strong>a2</strong>.y      <strong>a1</strong>.y
+      b                       <strong>b4</strong>.y      <strong>b3</strong>.y      <strong>b2</strong>.y      <strong>b1</strong>.y
+      sum   <strong>Adder4</strong>.c_out  <strong>Adder4.s</strong>  <strong>Adder3.s</strong>  <strong>Adder2.s</strong>  <strong>Adder1.s</strong>
 </pre>
 <p>The simulation stop time has to be 5s.</p>
 </html>"),            experiment(StopTime=5));
@@ -1372,7 +1372,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
           annotation (
             Documentation(info="<html>
 <p>MUX4 is a four bit multiplexer which is built up by And, Not, and Or gates according to the schematic.</p>
-<p>The parameters delayTime and q0 are prepared but <b>not</b> yet used in the component. The MUX4 component uses standard values in its components.</p>
+<p>The parameters delayTime and q0 are prepared but <strong>not</strong> yet used in the component. The MUX4 component uses standard values in its components.</p>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                   {100,100}}), graphics={
               Rectangle(
@@ -1825,7 +1825,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
                       Documentation(info="<html>
 <p>HalfAdder is a two bit adder which is composed by Gates components.</p>
 <p>Its logic behavior is like this:</p>
-<p><b>HalfAdder behavior</b></p>
+<p><strong>HalfAdder behavior</strong></p>
 <table cellspacing=\"0\" cellpadding=\"2\" border=\"1\"><tr>
 <td valign=\"top\"><h4>input a</h4></td>
 <td valign=\"top\"><h4>input b</h4></td>
@@ -1923,7 +1923,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
             Documentation(info="<html>
 <p>FullAdder is a two bit adder with additional carry in bit which is composed by Gates components.</p>
 <p>Its logic behavior is like this:</p>
-<p><b>FullAdder behavior</b></p>
+<p><strong>FullAdder behavior</strong></p>
 <table cellspacing=\"0\" cellpadding=\"2\" border=\"1\"><tr>
 <td valign=\"top\"><h4>input a</h4></td>
 <td valign=\"top\"><h4>input b</h4></td>
@@ -2277,11 +2277,11 @@ The result can be seen in the output signals of the FullAdders according to:</p>
         '-' "-  Do not care")
       "Logic values and their coding according to IEEE 1164 STD_ULOGIC type"
               annotation (Documentation(info="<html>
-<p><b>Code Table:</b></p>
+<p><strong>Code Table:</strong></p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td valign=\"top\"><b>Logic value</b></td>
-      <td valign=\"top\"><b>Meaning</b></td>
+  <tr><td valign=\"top\"><strong>Logic value</strong></td>
+      <td valign=\"top\"><strong>Meaning</strong></td>
   </tr>
 
   <tr><td valign=\"top\">'U'</td> <td valign=\"top\">Uninitialized</td></tr>
@@ -2303,11 +2303,11 @@ The result can be seen in the output signals of the FullAdders according to:</p>
         '0' "0  Forcing 0",
         '1' "1  Forcing 1") "4-valued subtype of IEEE 1164 STD_ULOGIC type"
           annotation (Documentation(info="<html>
-<p><b>Code Table:</b></p>
+<p><strong>Code Table:</strong></p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td valign=\"top\"><b>Logic value</b></td>
-      <td valign=\"top\"><b>Meaning</b></td>
+  <tr><td valign=\"top\"><strong>Logic value</strong></td>
+      <td valign=\"top\"><strong>Meaning</strong></td>
   </tr>
 
   <tr><td valign=\"top\">'U'</td> <td valign=\"top\">Uninitialized</td></tr>
@@ -2329,11 +2329,11 @@ The result can be seen in the output signals of the FullAdders according to:</p>
         'S_W0H',
         'S_WL1') "Output strengths of registers" annotation (Documentation(info="<html>
 
-<p><b>Strength Table:</b></p>
+<p><strong>Strength Table:</strong></p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td valign=\"top\"><b>Strength</b></td>
-      <td valign=\"top\"><b>Output conversion to</b></td>
+  <tr><td valign=\"top\"><strong>Strength</strong></td>
+      <td valign=\"top\"><strong>Output conversion to</strong></td>
   </tr>
 
   <tr><td valign=\"top\">'S_X01'</td> <td valign=\"top\">Forcing X, 0, 1</td></tr>
@@ -2418,7 +2418,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
               fillPattern=FillPattern.Solid), Line(points={{50,0},{92,0}},
                 color={127,0,127})}),
             Documentation(info="<html>
-<p>SISO is a partial model for the connection pattern with <b>s</b>ingle (scalar) digital <b>i</b>nput and <b>s</b>ingle (scalar) digital <b>o</b>utput. Besides the connectors it provides a rectangle for the icon which can be filled in by the component which inherits the SISO model.</p>
+<p>SISO is a partial model for the connection pattern with <strong>s</strong>ingle (scalar) digital <strong>i</strong>nput and <strong>s</strong>ingle (scalar) digital <strong>o</strong>utput. Besides the connectors it provides a rectangle for the icon which can be filled in by the component which inherits the SISO model.</p>
 </html>"));
         end SISO;
 
@@ -2441,7 +2441,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
               fillPattern=FillPattern.Solid), Line(points={{50,0},{90,0}},
                 color={127,0,127})}),
             Documentation(info="<html>
-<p>MISO is a partial model for the connection pattern with <b>m</b>ultiple (vector) digital <b>i</b>nput and <b>s</b>ingle (scalar) digital <b>o</b>utput. Besides the connectors it provides a rectangle for the icon which can be filled in by the component which inherits the MISO model.</p>
+<p>MISO is a partial model for the connection pattern with <strong>m</strong>ultiple (vector) digital <strong>i</strong>nput and <strong>s</strong>ingle (scalar) digital <strong>o</strong>utput. Besides the connectors it provides a rectangle for the icon which can be filled in by the component which inherits the MISO model.</p>
 </html>"));
         end MISO;
 
@@ -2472,7 +2472,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid)}),
             Documentation(info="<html>
-<p>MIMO is a partial model for the connection pattern with <b>m</b>ultiple (vector) digital <b>i</b>nput and <b>m</b>ultiple  (vector) digital <b>o</b>utput. Besides the connectors it provides a rectangle for the icon which can be filled in by the component which inherits the MISO model.</p>
+<p>MIMO is a partial model for the connection pattern with <strong>m</strong>ultiple (vector) digital <strong>i</strong>nput and <strong>m</strong>ultiple  (vector) digital <strong>o</strong>utput. Besides the connectors it provides a rectangle for the icon which can be filled in by the component which inherits the MISO model.</p>
 </html>"));
         end MIMO;
 
@@ -2708,13 +2708,13 @@ The result can be seen in the output signals of the FullAdders according to:</p>
                      pre(x);
           annotation (Documentation(info="<html>
 <P>
-Provide the input as output exactly delayed by <i>Tdel</i>.
-If time less than <i>Tdel</i> the initial value <i>initout</i> holds.
+Provide the input as output exactly delayed by <em>Tdel</em>.
+If time less than <em>Tdel</em> the initial value <em>initout</em> holds.
 </P>
 </html>",       revisions=
                  "<html>
 <dl>
-<dt><i>August 11, 2003</i></dt>
+<dt><em>August 11, 2003</em></dt>
 <dd>by Christoph Clauss initially modelled.</dd>
 </dl>
 </html>"),
@@ -2763,15 +2763,15 @@ If time less than <i>Tdel</i> the initial value <i>initout</i> holds.
           annotation (
             Documentation(info="<html>
 <P>
-Provides the input as output delayed by <i>delayTime</i> if the input holds its value for a longer time than <i>delayTime</i>.
-If time is less than <i>delayTime</i> the initial value <i>y0</i> holds.
+Provides the input as output delayed by <em>delayTime</em> if the input holds its value for a longer time than <em>delayTime</em>.
+If time is less than <em>delayTime</em> the initial value <em>y0</em> holds.
 </P>
 </html>",       revisions=
                  "<html>
 <dl>
-<dt><i>August 12, 2003</i></dt>
+<dt><em>August 12, 2003</em></dt>
 <dd>by Christoph Clauss revised</dd>
-<dt><i>March 19, 2003</i></dt>
+<dt><em>March 19, 2003</em></dt>
 <dd>by Martin Otter initially modelled.</dd>
 </dl>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
@@ -2830,33 +2830,33 @@ If time is less than <i>delayTime</i> the initial value <i>y0</i> holds.
           annotation (
             Documentation(info="<html>
 <P>
-Provides the input as output delayed by <i>Tdel</i> if the input holds its value for a longer time than <i>Tdel</i>.
-If the time is less than <i>Tdel</i> the initial value <i>y0</i> holds.<br>
-The delay <i>Tdel</i> depends on the values of the signal change. To calculate <i>Tdel</i>, the DelayTable specified in
-Digital.Tables is used. If the corresponding value is 1, then <i>tLH</i> is used, if it is -1, then <i>tHL</i>
+Provides the input as output delayed by <em>Tdel</em> if the input holds its value for a longer time than <em>Tdel</em>.
+If the time is less than <em>Tdel</em> the initial value <em>y0</em> holds.<br>
+The delay <em>Tdel</em> depends on the values of the signal change. To calculate <em>Tdel</em>, the DelayTable specified in
+Digital.Tables is used. If the corresponding value is 1, then <em>tLH</em> is used, if it is -1, then <em>tHL</em>
 is used, if it is zero, the input is not delayed.
 </P>
 </html>",         revisions="<html>
 <ul>
-<li><i>January 24, 2013  </i> Initial value for y set to y0
+<li><em>January 24, 2013  </em> Initial value for y set to y0
        by Kristin Majetta and Christoph Clauss<br>
        </li>
-<li><i>September 8, 2009  </i> pre(y) and x are used to select <i>tHL</i> or <i>tLH</i>
+<li><em>September 8, 2009  </em> pre(y) and x are used to select <em>tHL</em> or <em>tLH</em>
        by Ulrich Donath<br>
        </li>
-<li><i>January 13, 2005  </i> improved when-conditions and declaration of delayTable
+<li><em>January 13, 2005  </em> improved when-conditions and declaration of delayTable
        by Dynasim<br>
        </li>
-<li><i>September 15, 2004  </i> color changed, names changed
+<li><em>September 15, 2004  </em> color changed, names changed
        by Christoph Clauss<br>
        </li>
-<li><i>May 12, 2004  </i> test <i>if Tdel=0</i> replaced
+<li><em>May 12, 2004  </em> test <em>if Tdel=0</em> replaced
        by Christoph Clauss<br>
        </li>
-<li><i>February 5, 2004 </i> handling of <i>tHL=0</i> or <i>tLH=0</i> revised
+<li><em>February 5, 2004 </em> handling of <em>tHL=0</em> or <em>tLH=0</em> revised
        by Christoph Clauss<br>
        </li>
-<li><i>October 12, 2003   </i>
+<li><em>October 12, 2003   </em>
        by Christoph Clauss<br>
        initially modelled</li>
 </ul>
@@ -2937,12 +2937,12 @@ is used, if it is zero, the input is not delayed.
               textString="sensitive")}), Documentation(info="<html>
 
 <p>
-The delay element <b>Inertial Delay Sensitive</b> is applied to a vector of n signals.
-The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
+The delay element <strong>Inertial Delay Sensitive</strong> is applied to a vector of n signals.
+The parameters <em>tLH</em> and <em>tHL</em> are valid for each of the n signals.
 </p>
 </html>",     revisions="<html>
 <ul>
-<li><i>September 11, 2009 </i> created by Ulrich Donath<br>
+<li><em>September 11, 2009 </em> created by Ulrich Donath<br>
        </li>
 </ul>
 </html>"));
@@ -2972,7 +2972,7 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
 </html>",  revisions=
                  "<html>
 <dl>
-<dt><i>August 14, 2003</i></dt>
+<dt><em>August 14, 2003</em></dt>
 <dd>by Teresa Schlegel initially modelled.</dd>
 </dl>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
@@ -3014,10 +3014,10 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
 </html>",  revisions=
                  "<html>
 <ul>
-<li><i>September 15, 2004</i> vector approach used for all fixed numbers of inputs
+<li><em>September 15, 2004</em> vector approach used for all fixed numbers of inputs
        by Christoph Clauss<br>
        </li>
-<li><i>October 22, 2003</i>
+<li><em>October 22, 2003</em>
        by  Teresa Schlegel<br>
        initially modelled.</li>
 </ul>
@@ -3053,10 +3053,10 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
 </html>",  revisions=
                  "<html>
 <ul>
-<li><i>September 15, 2004</i> vector approach used for all fixed numbers of inputs
+<li><em>September 15, 2004</em> vector approach used for all fixed numbers of inputs
        by Christoph Clauss<br>
        </li>
-<li><i>October 22, 2003</i>
+<li><em>October 22, 2003</em>
        by  Teresa Schlegel<br>
        initially modelled.</li>
 </ul>
@@ -3099,10 +3099,10 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
 </html>",  revisions=
                  "<html>
 <ul>
-<li><i>September 15, 2004</i> vector approach used for all fixed numbers of inputs
+<li><em>September 15, 2004</em> vector approach used for all fixed numbers of inputs
        by Christoph Clauss<br>
        </li>
-<li><i>October 22, 2003</i>
+<li><em>October 22, 2003</em>
        by  Teresa Schlegel<br>
        initially modelled.</li>
 </ul>
@@ -3139,10 +3139,10 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
 </html>",  revisions=
                  "<html>
 <ul>
-<li><i>September 15, 2004</i> vector approach used for all fixed numbers of inputs
+<li><em>September 15, 2004</em> vector approach used for all fixed numbers of inputs
        by Christoph Clauss<br>
        </li>
-<li><i>October 22, 2003</i>
+<li><em>October 22, 2003</em>
        by Liane Jacobi<br>
        initially modelled.</li>
 </ul>
@@ -3185,10 +3185,10 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
 </html>",  revisions=
                  "<html>
 <ul>
-<li><i>September 15, 2004</i> vector approach used for all fixed numbers of inputs
+<li><em>September 15, 2004</em> vector approach used for all fixed numbers of inputs
        by Christoph Clauss<br>
        </li>
-<li><i>October 22, 2003</i>
+<li><em>October 22, 2003</em>
        by Liane Jacobi<br>
        initially modelled.</li>
 </ul>
@@ -3224,10 +3224,10 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
 </html>",  revisions=
                  "<html>
 <ul>
-<li><i>September 15, 2004</i> vector approach used for all fixed numbers of inputs
+<li><em>September 15, 2004</em> vector approach used for all fixed numbers of inputs
        by Christoph Clauss<br>
        </li>
-<li><i>October 22, 2003</i>
+<li><em>October 22, 2003</em>
        by Liane Jacobi<br>
        initially modelled.</li>
 </ul>
@@ -3269,7 +3269,7 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
 </html>", revisions=
                  "<html>
 <dl>
-<dt><i>August 14, 2003</i></dt>
+<dt><em>August 14, 2003</em></dt>
 <dd>by Teresa Schlegel initially modelled.</dd>
 </dl>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
@@ -3319,10 +3319,10 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
 </html>", revisions=
                  "<html>
 <ul>
-<li><i>September 15, 2004</i> vector approach used for all fixed numbers of inputs
+<li><em>September 15, 2004</em> vector approach used for all fixed numbers of inputs
        by Christoph Clauss<br>
        </li>
-<li><i>October 22, 2003</i>
+<li><em>October 22, 2003</em>
        by Teresa Schlegel<br>
        initially modelled.</li>
 </ul>
@@ -3386,10 +3386,10 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
               fillPattern=FillPattern.Solid)}),
             Documentation(revisions="<html>
 <ul>
-<li><i>September 15, 2004</i> vector approach used for all fixed numbers of inputs
+<li><em>September 15, 2004</em> vector approach used for all fixed numbers of inputs
        by Christoph Clauss<br>
        </li>
-<li><i>October 22, 2003</i>
+<li><em>October 22, 2003</em>
        by Teresa Schlegel<br>
        initially modelled.</li>
 </ul>
@@ -3421,10 +3421,10 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
 </html>", revisions=
                  "<html>
 <ul>
-<li><i>September 15, 2004</i> vector approach used for all fixed numbers of inputs
+<li><em>September 15, 2004</em> vector approach used for all fixed numbers of inputs
        by Christoph Clauss<br>
        </li>
-<li><i>October 22, 2003</i>
+<li><em>October 22, 2003</em>
        by Teresa Schlegel<br>
        initially modelled.</li>
 </ul>
@@ -3470,10 +3470,10 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
 </html>", revisions=
                  "<html>
 <ul>
-<li><i>September 15, 2004</i> vector approach used for all fixed numbers of inputs
+<li><em>September 15, 2004</em> vector approach used for all fixed numbers of inputs
        by Christoph Clauss<br>
        </li>
-<li><i>October 22, 2003</i>
+<li><em>October 22, 2003</em>
        by Liane Jacobi<br>
        initially modelled.</li>
 </ul>
@@ -3524,10 +3524,10 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
 </html>", revisions=
                  "<html>
 <ul>
-<li><i>September 15, 2004</i> vector approach used for all fixed numbers of inputs
+<li><em>September 15, 2004</em> vector approach used for all fixed numbers of inputs
        by Christoph Clauss<br>
        </li>
-<li><i>October 22, 2003</i>
+<li><em>October 22, 2003</em>
        by Liane Jacobi<br>
        initially modelled.</li>
 </ul>
@@ -3573,10 +3573,10 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
 </html>", revisions=
                  "<html>
 <ul>
-<li><i>September 15, 2004</i> vector approach used for all fixed numbers of inputs
+<li><em>September 15, 2004</em> vector approach used for all fixed numbers of inputs
        by Christoph Clauss<br>
        </li>
-<li><i>October 22, 2003</i>
+<li><em>October 22, 2003</em>
        by Liane Jacobi<br>
        initially modelled.</li>
 </ul>
@@ -3617,7 +3617,7 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
 </html>", revisions=
                  "<html>
 <dl>
-<dt><i>September 21, 2004</i></dt>
+<dt><em>September 21, 2004</em></dt>
 <dd>by Andre Schneider initially modelled.</dd>
 </dl>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
@@ -3657,17 +3657,17 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
           y := x;
           annotation (Documentation(info="<html>
 <P>
-Sets a nine valued digital signal, which is specified by the <i>setval</i> parameter.
+Sets a nine valued digital signal, which is specified by the <em>setval</em> parameter.
 </P>
 <P>
-To specify <i>setval</i>, the integer code has to be used.
+To specify <em>setval</em>, the integer code has to be used.
 </P>
-<p><b>Code Table</b></p>
+<p><strong>Code Table</strong></p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td valign=\"top\"><b>Logic value</b></td>
-      <td valign=\"top\"><b>Integer code</b></td>
-      <td valign=\"top\"><b>Meaning</b></td>
+  <tr><td valign=\"top\"><strong>Logic value</strong></td>
+      <td valign=\"top\"><strong>Integer code</strong></td>
+      <td valign=\"top\"><strong>Meaning</strong></td>
   </tr>
 
   <tr><td valign=\"top\">'U'</td> <td valign=\"top\">1</td> <td valign=\"top\">Uninitialized</td></tr>
@@ -3682,13 +3682,13 @@ To specify <i>setval</i>, the integer code has to be used.
 </table>
 
 <P>
-If the logic values are imported by <br><b>import L = Digital.Interfaces.Logic;</b><br>
-they can be used to specify the parameter, e.g., <b>L.'0'</b> for forcing 0.
+If the logic values are imported by <br><strong>import L = Digital.Interfaces.Logic;</strong><br>
+they can be used to specify the parameter, e.g., <strong>L.'0'</strong> for forcing 0.
 </P>
 </html>",       revisions=
                  "<html>
 <dl>
-<dt><i>August 20, 2003</i></dt>
+<dt><em>August 20, 2003</em></dt>
 <dd>by Teresa Schlegel initially modelled.</dd>
 </dl>
 </html>"),
@@ -3731,17 +3731,17 @@ they can be used to specify the parameter, e.g., <b>L.'0'</b> for forcing 0.
           annotation (
             Documentation(info="<html>
 <P>
-The step source output signal steps from the value <i>before</i> to the value <i>after</i>
-at the time <i>stepTime</i>.
+The step source output signal steps from the value <em>before</em> to the value <em>after</em>
+at the time <em>stepTime</em>.
 </P>
 <P>
 To specify the logic value parameters, the integer code has to be used.
 </P>
-<p><b>Code Table</b></p>
+<p><strong>Code Table</strong></p>
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td valign=\"top\"><b>Logic value</b></td>
-      <td valign=\"top\"><b>Integer code</b></td>
-      <td valign=\"top\"><b>Meaning</b></td>
+  <tr><td valign=\"top\"><strong>Logic value</strong></td>
+      <td valign=\"top\"><strong>Integer code</strong></td>
+      <td valign=\"top\"><strong>Meaning</strong></td>
   </tr>
 
   <tr><td valign=\"top\">'U'</td> <td valign=\"top\">1</td> <td valign=\"top\">Uninitialized</td></tr>
@@ -3755,13 +3755,13 @@ To specify the logic value parameters, the integer code has to be used.
   <tr><td valign=\"top\">'-'</td> <td valign=\"top\">9</td> <td valign=\"top\">Do not care</td></tr>
 </table>
 <P>
-If the logic values are imported by <br><b>import L = Digital.Interfaces.Logic;</b><br>
-they can be used to specify the parameter, e.g., <b>L.'0'</b> for forcing 0.
+If the logic values are imported by <br><strong>import L = Digital.Interfaces.Logic;</strong><br>
+they can be used to specify the parameter, e.g., <strong>L.'0'</strong> for forcing 0.
 </P>
 </html>",       revisions=
                  "<html>
 <dl>
-<dt><i>August 20, 2003</i></dt>
+<dt><em>August 20, 2003</em></dt>
 <dd>by Teresa Schlegel initially modelled.</dd>
 </dl>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
@@ -3807,17 +3807,17 @@ they can be used to specify the parameter, e.g., <b>L.'0'</b> for forcing 0.
           annotation (
             Documentation(info="<html>
 <P>
-The table source output signal <i>y</i> steps to the values of the  <i>x</i> table at the corresponding
-timepoints in the <i>t</i> table. <br>The initial value is specified by <i>y0</i>.
+The table source output signal <em>y</em> steps to the values of the  <em>x</em> table at the corresponding
+timepoints in the <em>t</em> table. <br>The initial value is specified by <em>y0</em>.
 </P>
 <P>
 To specify the logic value parameters, the integer code has to be used.
 </P>
-<p><b>Code Table</b></p>
+<p><strong>Code Table</strong></p>
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td valign=\"top\"><b>Logic value</b></td>
-      <td valign=\"top\"><b>Integer code</b></td>
-      <td valign=\"top\"><b>Meaning</b></td>
+  <tr><td valign=\"top\"><strong>Logic value</strong></td>
+      <td valign=\"top\"><strong>Integer code</strong></td>
+      <td valign=\"top\"><strong>Meaning</strong></td>
   </tr>
 
   <tr><td valign=\"top\">'U'</td> <td valign=\"top\">1</td> <td valign=\"top\">Uninitialized</td></tr>
@@ -3831,12 +3831,12 @@ To specify the logic value parameters, the integer code has to be used.
   <tr><td valign=\"top\">'-'</td> <td valign=\"top\">9</td> <td valign=\"top\">Do not care</td></tr>
 </table>
 <P>
-If the logic values are imported by <br><b>import L = Digital.Interfaces.Logic;</b><br>
-they can be used to specify the parameter, e.g., <b>L.'0'</b> for forcing 0.
+If the logic values are imported by <br><strong>import L = Digital.Interfaces.Logic;</strong><br>
+they can be used to specify the parameter, e.g., <strong>L.'0'</strong> for forcing 0.
 </P>
 </html>",         revisions="<html>
 <dl>
-<dt><i>August 20, 2003</i></dt>
+<dt><em>August 20, 2003</em></dt>
 <dd>by Teresa Schlegel initially modelled.</dd>
 </dl>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
@@ -3902,19 +3902,19 @@ they can be used to specify the parameter, e.g., <b>L.'0'</b> for forcing 0.
           end if;
           annotation (Documentation(info="<html>
 <P>
-The pulse source forms pulses between the  <i>quiet</i> value and the <i>pulse</i> value.
-The pulse length <i>width</i> is specified in percent of the period length <i>period</i>.
-The number of periods is specified by <i>nperiod</i>. If <i>nperiod</i> is less than zero,
+The pulse source forms pulses between the  <em>quiet</em> value and the <em>pulse</em> value.
+The pulse length <em>width</em> is specified in percent of the period length <em>period</em>.
+The number of periods is specified by <em>nperiod</em>. If <em>nperiod</em> is less than zero,
 the number of periods is unlimited.
 </P>
 <P>
 To specify the logic value parameters, the integer code has to be used.
 </P>
-<p><b>Code Table</b></p>
+<p><strong>Code Table</strong></p>
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td valign=\"top\"><b>Logic value</b></td>
-      <td valign=\"top\"><b>Integer code</b></td>
-      <td valign=\"top\"><b>Meaning</b></td>
+  <tr><td valign=\"top\"><strong>Logic value</strong></td>
+      <td valign=\"top\"><strong>Integer code</strong></td>
+      <td valign=\"top\"><strong>Meaning</strong></td>
   </tr>
 
   <tr><td valign=\"top\">'U'</td> <td valign=\"top\">1</td> <td valign=\"top\">Uninitialized</td></tr>
@@ -3928,13 +3928,13 @@ To specify the logic value parameters, the integer code has to be used.
   <tr><td valign=\"top\">'-'</td> <td valign=\"top\">9</td> <td valign=\"top\">Do not care</td></tr>
 </table>
 <P>
-If the logic values are imported by <br><b>import L = Digital.Interfaces.Logic;</b><br>
-they can be used to specify the parameter, e.g., <b>L.'0'</b> for forcing 0.
+If the logic values are imported by <br><strong>import L = Digital.Interfaces.Logic;</strong><br>
+they can be used to specify the parameter, e.g., <strong>L.'0'</strong> for forcing 0.
 </P>
 </html>",         revisions=
                  "<html>
 <dl>
-<dt><i>September 2, 2003</i></dt>
+<dt><em>September 2, 2003</em></dt>
 <dd>by Christoph Clauss initially modelled.</dd>
 </dl>
 </html>"),
@@ -3979,15 +3979,15 @@ they can be used to specify the parameter, e.g., <b>L.'0'</b> for forcing 0.
           y =  if (not time>=startTime) or time >= t_i + t_width then L.'0' else L.'1';
           annotation (Documentation(info="<html>
 <P>
-The clock source forms pulses between the  <i>'0'</i> value (forcing 0) and the <i>'1'</i> value (forcing 1).
-The pulse length <i>width</i> is specified in percent of the period length <i>period</i>.
+The clock source forms pulses between the  <em>'0'</em> value (forcing 0) and the <em>'1'</em> value (forcing 1).
+The pulse length <em>width</em> is specified in percent of the period length <em>period</em>.
 The number of periods is unlimited. The first pulse starts at startTime.
 </P>
 <P> The clock source is a special but often used variant of the pulse source.
 </P>
 </html>",         revisions="<html>
 <dl>
-<dt><i>September 18, 2004</i></dt>
+<dt><em>September 18, 2004</em></dt>
 <dd>by Andre Schneider initially modelled.</dd>
 </dl>
 </html>"),
@@ -4034,7 +4034,7 @@ The number of periods is unlimited. The first pulse starts at startTime.
 Conversion of a nine valued digital input into a X01 digital output without
 any delay according to IEEE 1164 To_X01 function.
 </p>
-<p><b>Conversion Table:</b></p>
+<p><strong>Conversion Table:</strong></p>
 <pre>
   input                  output
   'U' (coded by 1)       'X'  (coded by 2)
@@ -4052,10 +4052,10 @@ If the signal width is greater than 1 this conversion is done for each signal.
 </p>
 </html>",         revisions="<html>
 <ul>
-<li><i>September 15, 2004   </i>
+<li><em>September 15, 2004   </em>
        by Christoph Clauss name converted from cvt_to_x01 into LogicToX01<br>
        </li>
-<li><i>November 5, 2003</i>
+<li><em>November 5, 2003</em>
        by Christoph Clauss<br>
        initially modelled.</li>
 </ul>
@@ -4104,7 +4104,7 @@ If the signal width is greater than 1 this conversion is done for each signal.
 Conversion of a nine valued digital input into a X01Z digital output without
 any delay according to IEEE 1164 To_X01Z function.
 </P>
-<p><b>Conversion Table:</b></p>
+<p><strong>Conversion Table:</strong></p>
 <pre>
  input                  output
  'U' (coded by 1)       'X'  (coded by 2)
@@ -4122,10 +4122,10 @@ If the signal width is greater than 1 this conversion is done for each signal.
 </P>
 </html>",         revisions="<html>
 <ul>
-<li><i>September 15, 2004   </i>
+<li><em>September 15, 2004   </em>
        by Christoph Clauss name converted from cvt_to_x01z into LogicToX01Z<br>
        </li>
-<li><i>November 5, 2003</i>
+<li><em>November 5, 2003</em>
        by Christoph Clauss<br>
        initially modelled.</li>
 </ul>
@@ -4174,7 +4174,7 @@ If the signal width is greater than 1 this conversion is done for each signal.
 Conversion of a nine valued digital input into a UX01 digital output without
 any delay according to IEEE 1164 To_UX01 function.
 </P>
-<p><b>Conversion Table:</b></p>
+<p><strong>Conversion Table:</strong></p>
 <pre>
  input                  output
  'U' (coded by 1)       'U'  (coded by 1)
@@ -4192,10 +4192,10 @@ If the signal width is greater than 1 this conversion is done for each signal.
 </P>
 </html>",         revisions="<html>
 <ul>
-<li><i>September 15, 2004   </i>
+<li><em>September 15, 2004   </em>
        by Christoph Clauss name converted from cvt_to_ux01 into LogicToUX01<br>
        </li>
-<li><i>November 5, 2003</i>
+<li><em>November 5, 2003</em>
        by Christoph Clauss<br>
        initially modelled.</li>
 </ul>
@@ -4250,10 +4250,10 @@ If the signal width is greater than 1 this conversion is done for each signal.
 </P>
 </html>",         revisions="<html>
 <ul>
-<li><i>September 15, 2004   </i>
+<li><em>September 15, 2004   </em>
        by Christoph Clauss colors changed<br>
        </li>
-<li><i>November 4, 2003</i>
+<li><em>November 4, 2003</em>
        by Christoph Clauss<br>
        initially modelled.</li>
 </ul>
@@ -4310,10 +4310,10 @@ If the signal width is greater than 1 this conversion is done for each signal.
 </P>
 </html>",         revisions="<html>
 <ul>
-<li><i>September 15, 2004   </i>
+<li><em>September 15, 2004   </em>
        by Christoph Clauss colors changed<br>
        </li>
-<li><i>November 4, 2003</i>
+<li><em>November 4, 2003</em>
        by Christoph Clauss<br>
        initially modelled.</li>
 </ul>
@@ -4372,10 +4372,10 @@ If the signal width is greater than 1 this conversion is done for each signal.
 </P>
 </html>",         revisions="<html>
 <ul>
-<li><i>September 15, 2004   </i>
+<li><em>September 15, 2004   </em>
        by Christoph Clauss colors changed<br>
        </li>
-<li><i>November 5, 2003</i>
+<li><em>November 5, 2003</em>
        by Christoph Clauss<br>
        initially modelled.</li>
 </ul>
@@ -4449,10 +4449,10 @@ The values val... are given by parameters.</P>
 </P>
 </html>",         revisions="<html>
 <ul>
-<li><i>September 15, 2004   </i>
+<li><em>September 15, 2004   </em>
        by Christoph Clauss colors changed<br>
        </li>
-<li><i>November 5, 2003</i>
+<li><em>November 5, 2003</em>
        by Christoph Clauss<br>
        initially modelled.</li>
 </ul>
@@ -4500,7 +4500,7 @@ The values val... are given by parameters.</P>
 Conversion of a nine valued digital input into a X01 digital output without
 any delay according to IEEE 1164 To_X01 function.
 </p>
-<p><b>Conversion Table:</b></p>
+<p><strong>Conversion Table:</strong></p>
 <pre>
   input                  output
   'U' (coded by 1)       'X'  (coded by 2)
@@ -4518,10 +4518,10 @@ If the signal width is greater than 1 this conversion is done for each signal.
 </P>
 </html>",         revisions="<html>
 <ul>
-<li><i>September 15, 2004   </i>
+<li><em>September 15, 2004   </em>
        by Christoph Clauss name converted from cvt_to_x01 into LogicToX01<br>
        </li>
-<li><i>November 5, 2003</i>
+<li><em>November 5, 2003</em>
        by Christoph Clauss<br>
        initially modelled.</li>
 </ul>
@@ -4575,7 +4575,7 @@ If the signal width is greater than 1 this conversion is done for each signal.
 Conversion of a nine valued digital input into a X01Z digital output without
 any delay according to IEEE 1164 To_X01Z function.
 </P>
-<p><b>Conversion Table:</b></p>
+<p><strong>Conversion Table:</strong></p>
 <pre>
  input                  output
  'U' (coded by 1)       'X'  (coded by 2)
@@ -4593,10 +4593,10 @@ If the signal width is greater than 1 this conversion is done for each signal.
 </P>
 </html>",         revisions="<html>
 <ul>
-<li><i>September 15, 2004   </i>
+<li><em>September 15, 2004   </em>
        by Christoph Clauss name converted from cvt_to_x01z into LogicToX01Z<br>
        </li>
-<li><i>November 5, 2003</i>
+<li><em>November 5, 2003</em>
        by Christoph Clauss<br>
        initially modelled.</li>
 </ul>
@@ -4759,13 +4759,13 @@ If the signal width is greater than 1 this conversion is done for each signal.
               textString="reset")}),
             Documentation(info="<html>
 <p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities</p>
-<p><b>Truth Table for high active reset:</b></p>
+<p><strong>Truth Table for high active reset:</strong></p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td valign=\"top\"><b>DataIn</b></td>
-      <td valign=\"top\"><b>Clock</b></td>
-      <td valign=\"top\"><b>Reset</b></td>
-      <td valign=\"top\"><b>DataOut</b></td>
+  <tr><td valign=\"top\"><strong>DataIn</strong></td>
+      <td valign=\"top\"><strong>Clock</strong></td>
+      <td valign=\"top\"><strong>Reset</strong></td>
+      <td valign=\"top\"><strong>DataOut</strong></td>
       <td valign=\"top\">Map</td>
   </tr>
 
@@ -4777,13 +4777,13 @@ If the signal width is greater than 1 this conversion is done for each signal.
   <tr><td valign=\"top\">*</td> <td valign=\"top\">*</td> <td valign=\"top\">X</td> <td valign=\"top\">X or U or 0 or NC</td> <td valign=\"top\">4</td> </tr>
 </table>
 
-<p><b>Truth Table for low active reset:</b></p>
+<p><strong>Truth Table for low active reset:</strong></p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td valign=\"top\"><b>DataIn</b></td>
-      <td valign=\"top\"><b>Clock</b></td>
-      <td valign=\"top\"><b>Reset</b></td>
-      <td valign=\"top\"><b>DataOut</b></td>
+  <tr><td valign=\"top\"><strong>DataIn</strong></td>
+      <td valign=\"top\"><strong>Clock</strong></td>
+      <td valign=\"top\"><strong>Reset</strong></td>
+      <td valign=\"top\"><strong>DataOut</strong></td>
       <td valign=\"top\">Map</td>
   </tr>
 
@@ -4811,7 +4811,7 @@ Clock transition definitions:
 </PRE>
 </html>",         revisions="<html>
 <ul>
-<li><i>September 11, 2009 </i> created by Ulrich Donath<br>
+<li><em>September 11, 2009 </em> created by Ulrich Donath<br>
        </li>
 </ul>
 </html>"));
@@ -4919,13 +4919,13 @@ Clock transition definitions:
               textString="high active")}),
             Documentation(info="<html>
 <p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</p>
-<p><b>Truth Table</b></p>
+<p><strong>Truth Table</strong></p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td valign=\"top\"><b>DataIn</b></td>
-      <td valign=\"top\"><b>Clock</b></td>
-      <td valign=\"top\"><b>Reset</b></td>
-      <td valign=\"top\"><b>DataOut</b></td>
+  <tr><td valign=\"top\"><strong>DataIn</strong></td>
+      <td valign=\"top\"><strong>Clock</strong></td>
+      <td valign=\"top\"><strong>Reset</strong></td>
+      <td valign=\"top\"><strong>DataOut</strong></td>
   </tr>
 
   <tr><td valign=\"top\">*</td> <td valign=\"top\">*</td> <td valign=\"top\">U</td > <td valign=\"top\">U</td> </tr>
@@ -4951,7 +4951,7 @@ Clock transition definitions:
 </PRE>
 </html>",         revisions="<html>
 <ul>
-<li><i>September 11, 2009 </i> created by Ulrich Donath<br>
+<li><em>September 11, 2009 </em> created by Ulrich Donath<br>
        </li>
 </ul>
 </html>"));
@@ -4966,13 +4966,13 @@ Clock transition definitions:
               // 4: output := U-0X;
           annotation (Documentation(info="<html>
 <p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</p>
-<p><b>Truth Table</b></p>
+<p><strong>Truth Table</strong></p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td valign=\"top\"><b>DataIn</b></td>
-      <td valign=\"top\"><b>Clock</b></td>
-      <td valign=\"top\"><b>Reset</b></td>
-      <td valign=\"top\"><b>DataOut</b></td>
+  <tr><td valign=\"top\"><strong>DataIn</strong></td>
+      <td valign=\"top\"><strong>Clock</strong></td>
+      <td valign=\"top\"><strong>Reset</strong></td>
+      <td valign=\"top\"><strong>DataOut</strong></td>
   </tr>
 
   <tr><td valign=\"top\">*</td> <td valign=\"top\">*</td> <td valign=\"top\">U</td > <td valign=\"top\">U</td> </tr>
@@ -4998,7 +4998,7 @@ Clock transition definitions:
 </PRE>
 </html>",         revisions="<html>
 <ul>
-<li><i>September 11, 2009 </i> created by Ulrich Donath<br>
+<li><em>September 11, 2009 </em> created by Ulrich Donath<br>
        </li>
 </ul>
 </html>"), Icon(graphics={Rectangle(
@@ -5186,14 +5186,14 @@ Clock transition definitions:
               textString="set")}),
             Documentation(info="<html>
 <p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</p>
-<p><b>Truth Table for high active set and reset</b></p>
+<p><strong>Truth Table for high active set and reset</strong></p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td valign=\"top\"><b>DataIn</b></td>
-      <td valign=\"top\"><b>Clock</b></td>
-      <td valign=\"top\"><b>Reset</b></td>
-      <td valign=\"top\"><b>Set</b></td>
-      <td valign=\"top\"><b>DataOut</b></td>
+  <tr><td valign=\"top\"><strong>DataIn</strong></td>
+      <td valign=\"top\"><strong>Clock</strong></td>
+      <td valign=\"top\"><strong>Reset</strong></td>
+      <td valign=\"top\"><strong>Set</strong></td>
+      <td valign=\"top\"><strong>DataOut</strong></td>
       <td valign=\"top\">Map</td>
   </tr>
 
@@ -5211,14 +5211,14 @@ Clock transition definitions:
 
 </table>
 
-<p><b>Truth Table for low active set and reset </b></p>
+<p><strong>Truth Table for low active set and reset </strong></p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td valign=\"top\"><b>DataIn</b></td>
-      <td valign=\"top\"><b>Clock</b></td>
-      <td valign=\"top\"><b>Reset</b></td>
-      <td valign=\"top\"><b>Set</b></td>
-      <td valign=\"top\"><b>DataOut</b></td>
+  <tr><td valign=\"top\"><strong>DataIn</strong></td>
+      <td valign=\"top\"><strong>Clock</strong></td>
+      <td valign=\"top\"><strong>Reset</strong></td>
+      <td valign=\"top\"><strong>Set</strong></td>
+      <td valign=\"top\"><strong>DataOut</strong></td>
       <td valign=\"top\">Map</td>
   </tr>
 
@@ -5251,7 +5251,7 @@ Clock transition definitions:
 </PRE>
 </html>",         revisions="<html>
 <ul>
-<li><i>September 11, 2009 </i> created by Ulrich Donath<br>
+<li><em>September 11, 2009 </em> created by Ulrich Donath<br>
        </li>
 </ul>
 </html>"));
@@ -5378,14 +5378,14 @@ Clock transition definitions:
               textString="high active")}),
             Documentation(info="<html>
 <p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</p>
-<p><b>Truth Table</b></p>
+<p><strong>Truth Table</strong></p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td valign=\"top\"><b>DataIn</b></td>
-      <td valign=\"top\"><b>Clock</b></td>
-      <td valign=\"top\"><b>Reset</b></td>
-      <td valign=\"top\"><b>Set</b></td>
-      <td valign=\"top\"><b>DataOut</b></td>
+  <tr><td valign=\"top\"><strong>DataIn</strong></td>
+      <td valign=\"top\"><strong>Clock</strong></td>
+      <td valign=\"top\"><strong>Reset</strong></td>
+      <td valign=\"top\"><strong>Set</strong></td>
+      <td valign=\"top\"><strong>DataOut</strong></td>
   </tr>
 
   <tr><td valign=\"top\">*</td> <td valign=\"top\">*</td> <td valign=\"top\">*</td>  <td valign=\"top\">U</td> <td valign=\"top\">U</td> </tr>
@@ -5417,7 +5417,7 @@ Clock transition definitions:
 </PRE>
 </html>",     revisions="<html>
 <ul>
-<li><i>September 11, 2009 </i> created by Ulrich Donath<br>
+<li><em>September 11, 2009 </em> created by Ulrich Donath<br>
        </li>
 </ul>
 </html>"));
@@ -5440,14 +5440,14 @@ Clock transition definitions:
               textString="low active")}), Documentation(info="<html>
 <p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</p>
 
-<p><b>Truth Table</b></p>
+<p><strong>Truth Table</strong></p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td valign=\"top\"><b>DataIn</b></td>
-      <td valign=\"top\"><b>Clock</b></td>
-      <td valign=\"top\"><b>Reset</b></td>
-      <td valign=\"top\"><b>Set</b></td>
-      <td valign=\"top\"><b>DataOut</b></td>
+  <tr><td valign=\"top\"><strong>DataIn</strong></td>
+      <td valign=\"top\"><strong>Clock</strong></td>
+      <td valign=\"top\"><strong>Reset</strong></td>
+      <td valign=\"top\"><strong>Set</strong></td>
+      <td valign=\"top\"><strong>DataOut</strong></td>
   </tr>
 
   <tr><td valign=\"top\">*</td> <td valign=\"top\">*</td> <td valign=\"top\">*</td>  <td valign=\"top\">U</td> <td valign=\"top\">U</td> </tr>
@@ -5479,7 +5479,7 @@ Clock transition definitions:
 </PRE>
 </html>",     revisions="<html>
 <ul>
-<li><i>September 11, 2009 </i> created by Ulrich Donath<br>
+<li><em>September 11, 2009 </em> created by Ulrich Donath<br>
        </li>
 </ul>
 </html>"));
@@ -5581,13 +5581,13 @@ Clock transition definitions:
             Documentation(info="<html>
 
 <p> Description in VHDL is given by <a href=\"http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd\">http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</a></p>
-<p><b>Truth Table for high active reset:</b></p>
+<p><strong>Truth Table for high active reset:</strong></p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td valign=\"top\"><b>DataIn</b></td>
-      <td valign=\"top\"><b>Enable</b></td>
-      <td valign=\"top\"><b>Reset</b></td>
-      <td valign=\"top\"><b>DataOut</b></td>
+  <tr><td valign=\"top\"><strong>DataIn</strong></td>
+      <td valign=\"top\"><strong>Enable</strong></td>
+      <td valign=\"top\"><strong>Reset</strong></td>
+      <td valign=\"top\"><strong>DataOut</strong></td>
       <td valign=\"top\">Map</td>
   </tr>
 
@@ -5600,13 +5600,13 @@ Clock transition definitions:
   <tr><td valign=\"top\">*</td> <td valign=\"top\">~U</td> <td valign=\"top\">X</td> <td valign=\"top\">X or U or 0 or NC</td> <td valign=\"top\">4</td> </tr>
 </table>
 
-<p><b>Truth Table for low active reset:</b></p>
+<p><strong>Truth Table for low active reset:</strong></p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td valign=\"top\"><b>DataIn</b></td>
-      <td valign=\"top\"><b>Enable</b></td>
-      <td valign=\"top\"><b>Reset</b></td>
-      <td valign=\"top\"><b>DataOut</b></td>
+  <tr><td valign=\"top\"><strong>DataIn</strong></td>
+      <td valign=\"top\"><strong>Enable</strong></td>
+      <td valign=\"top\"><strong>Reset</strong></td>
+      <td valign=\"top\"><strong>DataOut</strong></td>
       <td valign=\"top\">Map</td>
   </tr>
 
@@ -5631,7 +5631,7 @@ Clock transition definitions:
 </PRE>
 </html>", revisions="<html>
 <ul>
-<li><i>September 11, 2009 </i> created by Ulrich Donath<br>
+<li><em>September 11, 2009 </em> created by Ulrich Donath<br>
        </li>
 </ul>
 </html>"), Icon(coordinateSystem(
@@ -5736,13 +5736,13 @@ Clock transition definitions:
            annotation (
             Documentation(info="<html>
 <p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</p>
-<p><b>Truth Table</b></p>
+<p><strong>Truth Table</strong></p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td valign=\"top\"><b>DataIn</b></td>
-      <td valign=\"top\"><b>Enable</b></td>
-      <td valign=\"top\"><b>Reset</b></td>
-      <td valign=\"top\"><b>DataOut</b></td>
+  <tr><td valign=\"top\"><strong>DataIn</strong></td>
+      <td valign=\"top\"><strong>Enable</strong></td>
+      <td valign=\"top\"><strong>Reset</strong></td>
+      <td valign=\"top\"><strong>DataOut</strong></td>
   </tr>
 
   <tr><td valign=\"top\">*</td> <td valign=\"top\">*</td> <td valign=\"top\">U</td > <td valign=\"top\">U</td> </tr>
@@ -5765,7 +5765,7 @@ Clock transition definitions:
 </PRE>
 </html>", revisions="<html>
 <ul>
-<li><i>September 11, 2009 </i> created by Ulrich Donath<br>
+<li><em>September 11, 2009 </em> created by Ulrich Donath<br>
        </li>
 </ul>
 </html>"), Icon(coordinateSystem(
@@ -5824,13 +5824,13 @@ Clock transition definitions:
            annotation (
             Documentation(info="<html>
 <p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</p>
-<p><b>Truth Table</b></p>
+<p><strong>Truth Table</strong></p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td valign=\"top\"><b>DataIn</b></td>
-      <td valign=\"top\"><b>Enable</b></td>
-      <td valign=\"top\"><b>Reset</b></td>
-      <td valign=\"top\"><b>DataOut</b></td>
+  <tr><td valign=\"top\"><strong>DataIn</strong></td>
+      <td valign=\"top\"><strong>Enable</strong></td>
+      <td valign=\"top\"><strong>Reset</strong></td>
+      <td valign=\"top\"><strong>DataOut</strong></td>
   </tr>
 
   <tr><td valign=\"top\">*</td> <td valign=\"top\">*</td> <td valign=\"top\">U</td> <td valign=\"top\">U</td> </tr>
@@ -5853,7 +5853,7 @@ Clock transition definitions:
 </PRE>
 </html>", revisions="<html>
 <ul>
-<li><i>September 11, 2009 </i> created by Ulrich Donath<br>
+<li><em>September 11, 2009 </em> created by Ulrich Donath<br>
        </li>
 </ul>
 </html>"), Icon(graphics={Rectangle(
@@ -6003,14 +6003,14 @@ Clock transition definitions:
            annotation (
             Documentation(info="<html>
 <p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</p>
-<p><b>Truth Table for high active set and reset</b></p>
+<p><strong>Truth Table for high active set and reset</strong></p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td valign=\"top\"><b>DataIn</b></td>
-      <td valign=\"top\"><b>Enable</b></td>
-      <td valign=\"top\"><b>Reset</b></td>
-      <td valign=\"top\"><b>Set</b></td>
-      <td valign=\"top\"><b>DataOut</b></td>
+  <tr><td valign=\"top\"><strong>DataIn</strong></td>
+      <td valign=\"top\"><strong>Enable</strong></td>
+      <td valign=\"top\"><strong>Reset</strong></td>
+      <td valign=\"top\"><strong>Set</strong></td>
+      <td valign=\"top\"><strong>DataOut</strong></td>
       <td valign=\"top\">Map</td>
   </tr>
 
@@ -6029,14 +6029,14 @@ Clock transition definitions:
 
 </table>
 
-<p><b>Truth Table for low active set and reset </b></p>
+<p><strong>Truth Table for low active set and reset </strong></p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td valign=\"top\"><b>DataIn</b></td>
-      <td valign=\"top\"><b>Enable</b></td>
-      <td valign=\"top\"><b>Reset</b></td>
-      <td valign=\"top\"><b>Set</b></td>
-      <td valign=\"top\"><b>DataOut</b></td>
+  <tr><td valign=\"top\"><strong>DataIn</strong></td>
+      <td valign=\"top\"><strong>Enable</strong></td>
+      <td valign=\"top\"><strong>Reset</strong></td>
+      <td valign=\"top\"><strong>Set</strong></td>
+      <td valign=\"top\"><strong>DataOut</strong></td>
       <td valign=\"top\">Map</td>
   </tr>
 
@@ -6066,7 +6066,7 @@ Clock transition definitions:
 </PRE>
 </html>", revisions="<html>
 <ul>
-<li><i>September 11, 2009 </i> created by Ulrich Donath<br>
+<li><em>September 11, 2009 </em> created by Ulrich Donath<br>
        </li>
 </ul>
 </html>"), Icon(coordinateSystem(
@@ -6189,14 +6189,14 @@ Clock transition definitions:
            annotation (
             Documentation(info="<html>
 <p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</p>
-<p><b>Truth Table:</b></p>
+<p><strong>Truth Table:</strong></p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td valign=\"top\"><b>DataIn</b></td>
-      <td valign=\"top\"><b>Enable</b></td>
-      <td valign=\"top\"><b>Reset</b></td>
-      <td valign=\"top\"><b>Set</b></td>
-      <td valign=\"top\"><b>DataOut</b></td>
+  <tr><td valign=\"top\"><strong>DataIn</strong></td>
+      <td valign=\"top\"><strong>Enable</strong></td>
+      <td valign=\"top\"><strong>Reset</strong></td>
+      <td valign=\"top\"><strong>Set</strong></td>
+      <td valign=\"top\"><strong>DataOut</strong></td>
   </tr>
 
   <tr><td valign=\"top\">*</td> <td valign=\"top\">*</td> <td valign=\"top\">*</td>  <td valign=\"top\">U</td> <td valign=\"top\">U</td> </tr>
@@ -6225,7 +6225,7 @@ Clock transition definitions:
 </PRE>
 </html>", revisions="<html>
 <ul>
-<li><i>September 11, 2009 </i> created by Ulrich Donath<br>
+<li><em>September 11, 2009 </em> created by Ulrich Donath<br>
        </li>
 </ul>
 </html>"), Icon(coordinateSystem(
@@ -6290,14 +6290,14 @@ Clock transition definitions:
            annotation (
             Documentation(info="<html>
 <p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</p>
-<p><b>Truth Table</b></p>
+<p><strong>Truth Table</strong></p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td valign=\"top\"><b>DataIn</b></td>
-      <td valign=\"top\"><b>Enable</b></td>
-      <td valign=\"top\"><b>Reset</b></td>
-      <td valign=\"top\"><b>Set</b></td>
-      <td valign=\"top\"><b>DataOut</b></td>
+  <tr><td valign=\"top\"><strong>DataIn</strong></td>
+      <td valign=\"top\"><strong>Enable</strong></td>
+      <td valign=\"top\"><strong>Reset</strong></td>
+      <td valign=\"top\"><strong>Set</strong></td>
+      <td valign=\"top\"><strong>DataOut</strong></td>
   </tr>
 
   <tr><td valign=\"top\">*</td> <td valign=\"top\">*</td> <td valign=\"top\">*</td>  <td valign=\"top\">U</td> <td valign=\"top\">U</td> </tr>
@@ -6325,7 +6325,7 @@ Clock transition definitions:
 </PRE>
 </html>", revisions="<html>
 <ul>
-<li><i>September 11, 2009 </i> created by Ulrich Donath<br>
+<li><em>September 11, 2009 </em> created by Ulrich Donath<br>
        </li>
 </ul>
 </html>"), Icon(graphics={Rectangle(
@@ -6403,16 +6403,16 @@ Clock transition definitions:
               textString="%name")}),
         Documentation(revisions="<html>
 <ul>
-<li><i>January 15, 2010 </i> created by Ulrich Donath<br>
+<li><em>January 15, 2010 </em> created by Ulrich Donath<br>
        </li>
 </ul>
 </html>", info="<html>
 <p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</p>
-<p><b>Truth Table</b></p>
+<p><strong>Truth Table</strong></p>
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td valign=\"top\"><b>DataIn</b></td>
-      <td valign=\"top\"><b>Enable</b></td>
-      <td valign=\"top\"><b>DataOut</b></td>
+  <tr><td valign=\"top\"><strong>DataIn</strong></td>
+      <td valign=\"top\"><strong>Enable</strong></td>
+      <td valign=\"top\"><strong>DataOut</strong></td>
   </tr>
 
   <tr><td valign=\"top\">*</td> <td valign=\"top\">U</td> <td valign=\"top\">U</td></tr>
@@ -6485,16 +6485,16 @@ Clock transition definitions:
               textString="%name")}),
         Documentation(revisions="<html>
 <ul>
-<li><i>January 15, 2010 </i> created by Ulrich Donath<br>
+<li><em>January 15, 2010 </em> created by Ulrich Donath<br>
        </li>
 </ul>
 </html>", info="<html>
 <p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</p>
-<p><b>Truth Table</b></p>
+<p><strong>Truth Table</strong></p>
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td valign=\"top\"><b>DataIn</b></td>
-      <td valign=\"top\"><b>Enable</b></td>
-      <td valign=\"top\"><b>DataOut</b></td>
+  <tr><td valign=\"top\"><strong>DataIn</strong></td>
+      <td valign=\"top\"><strong>Enable</strong></td>
+      <td valign=\"top\"><strong>DataOut</strong></td>
   </tr>
 
   <tr><td valign=\"top\">*</td> <td valign=\"top\">U</td> <td valign=\"top\">U</td></tr>
@@ -6567,16 +6567,16 @@ Clock transition definitions:
               textString="%name")}),
         Documentation(revisions="<html>
 <ul>
-<li><i>January 15, 2010 </i> created by Ulrich Donath<br>
+<li><em>January 15, 2010 </em> created by Ulrich Donath<br>
        </li>
 </ul>
 </html>", info="<html>
 <p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</p>
-<p><b>Truth Table</b></p>
+<p><strong>Truth Table</strong></p>
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td valign=\"top\"><b>DataIn</b></td>
-      <td valign=\"top\"><b>Enable</b></td>
-      <td valign=\"top\"><b>DataOut</b></td>
+  <tr><td valign=\"top\"><strong>DataIn</strong></td>
+      <td valign=\"top\"><strong>Enable</strong></td>
+      <td valign=\"top\"><strong>DataOut</strong></td>
   </tr>
 
   <tr><td valign=\"top\">*</td> <td valign=\"top\">U</td> <td valign=\"top\">U</td></tr>
@@ -6649,16 +6649,16 @@ Clock transition definitions:
               textString="%name")}),
         Documentation(revisions="<html>
 <ul>
-<li><i>January 15, 2010 </i> created by Ulrich Donath<br>
+<li><em>January 15, 2010 </em> created by Ulrich Donath<br>
        </li>
 </ul>
 </html>", info="<html>
 <p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</p>
-<p><b>Truth Table</b></p>
+<p><strong>Truth Table</strong></p>
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td valign=\"top\"><b>DataIn</b></td>
-      <td valign=\"top\"><b>Enable</b></td>
-      <td valign=\"top\"><b>DataOut</b></td>
+  <tr><td valign=\"top\"><strong>DataIn</strong></td>
+      <td valign=\"top\"><strong>Enable</strong></td>
+      <td valign=\"top\"><strong>DataOut</strong></td>
   </tr>
 
   <tr><td valign=\"top\">*</td> <td valign=\"top\">U</td> <td valign=\"top\">U</td></tr>
@@ -6726,17 +6726,17 @@ Clock transition definitions:
               textString="%name")}),
         Documentation(revisions="<html>
 <ul>
-<li><i>January 22, 2010 </i> created by Ulrich Donath<br>
+<li><em>January 22, 2010 </em> created by Ulrich Donath<br>
        </li>
 </ul>
 </html>", info="<html>
 <p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</p>
 <p>and for tristate table http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_misc.vhd</p>
-<p><b>Truth Table</b></p>
+<p><strong>Truth Table</strong></p>
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td valign=\"top\"><b>DataIn</b></td>
-      <td valign=\"top\"><b>Enable</b></td>
-      <td valign=\"top\"><b>DataOut*</b></td>
+  <tr><td valign=\"top\"><strong>DataIn</strong></td>
+      <td valign=\"top\"><strong>Enable</strong></td>
+      <td valign=\"top\"><strong>DataOut*</strong></td>
   </tr>
 
   <tr><td valign=\"top\">*</td> <td valign=\"top\">U</td> <td valign=\"top\">U</td></tr>
@@ -6805,17 +6805,17 @@ Clock transition definitions:
               textString="%name")}),
         Documentation(revisions="<html>
 <ul>
-<li><i>January 22, 2010 </i> created by Ulrich Donath<br>
+<li><em>January 22, 2010 </em> created by Ulrich Donath<br>
        </li>
 </ul>
 </html>", info="<html>
 <p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</p>
 <p>and for tristate table http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_misc.vhd</p>
-<p><b>Truth Table</b></p>
+<p><strong>Truth Table</strong></p>
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td valign=\"top\"><b>DataIn</b></td>
-      <td valign=\"top\"><b>Enable</b></td>
-      <td valign=\"top\"><b>DataOut*</b></td>
+  <tr><td valign=\"top\"><strong>DataIn</strong></td>
+      <td valign=\"top\"><strong>Enable</strong></td>
+      <td valign=\"top\"><strong>DataOut*</strong></td>
   </tr>
 
   <tr><td valign=\"top\">*</td> <td valign=\"top\">U</td> <td valign=\"top\">U</td></tr>
@@ -6889,17 +6889,17 @@ Clock transition definitions:
               textString="%name")}),
         Documentation(revisions="<html>
 <ul>
-<li><i>January 22, 2010 </i> created by Ulrich Donath<br>
+<li><em>January 22, 2010 </em> created by Ulrich Donath<br>
        </li>
 </ul>
 </html>", info="<html>
 <p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</p>
 <p>and for tristate table http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_misc.vhd</p>
-<p><b>Truth Table</b></p>
+<p><strong>Truth Table</strong></p>
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td valign=\"top\"><b>DataIn</b></td>
-      <td valign=\"top\"><b>Enable</b></td>
-      <td valign=\"top\"><b>DataOut*</b></td>
+  <tr><td valign=\"top\"><strong>DataIn</strong></td>
+      <td valign=\"top\"><strong>Enable</strong></td>
+      <td valign=\"top\"><strong>DataOut*</strong></td>
   </tr>
 
   <tr><td valign=\"top\">*</td> <td valign=\"top\">U</td> <td valign=\"top\">U</td></tr>
@@ -6973,17 +6973,17 @@ Clock transition definitions:
               textString="%name")}),
         Documentation(revisions="<html>
 <ul>
-<li><i>January 22, 2010 </i> created by Ulrich Donath<br>
+<li><em>January 22, 2010 </em> created by Ulrich Donath<br>
        </li>
 </ul>
 </html>", info="<html>
 <p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</p>
 <p>and for tristate table http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_misc.vhd</p>
-<p><b>Truth Table</b></p>
+<p><strong>Truth Table</strong></p>
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td valign=\"top\"><b>DataIn</b></td>
-      <td valign=\"top\"><b>Enable</b></td>
-      <td valign=\"top\"><b>DataOut*</b></td>
+  <tr><td valign=\"top\"><strong>DataIn</strong></td>
+      <td valign=\"top\"><strong>Enable</strong></td>
+      <td valign=\"top\"><strong>DataOut*</strong></td>
   </tr>
 
   <tr><td valign=\"top\">*</td> <td valign=\"top\">U</td> <td valign=\"top\">U</td></tr>
@@ -7023,7 +7023,7 @@ Wires n input signals in one output signal, without delay.
 </html>", revisions=
           "<html>
 <ul>
-<li><i>January 22, 2010 </i> created by Ulrich Donath<br>
+<li><em>January 22, 2010 </em> created by Ulrich Donath<br>
        </li>
 </ul>
 </html>"),
@@ -7208,22 +7208,22 @@ end if;
 Description in VHDL is given by <a href=\"http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd\">http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</a>
 </p>
 
-<p><b>Truth Table for high active read enable RE:</b></p>
+<p><strong>Truth Table for high active read enable RE:</strong></p>
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td valign=\"top\"><b>RE</b></td>
-      <td valign=\"top\"><b>Addr</b></td>
-      <td valign=\"top\"><b>DataOut</b></td>
+  <tr><td valign=\"top\"><strong>RE</strong></td>
+      <td valign=\"top\"><strong>Addr</strong></td>
+      <td valign=\"top\"><strong>DataOut</strong></td>
   </tr>
   <tr><td valign=\"top\">0</td>  <td valign=\"top\">*</td>              <td valign=\"top\">Z over all</td>  </tr>
   <tr><td valign=\"top\">1</td>  <td valign=\"top\">  no X in Addr</td> <td valign=\"top\">DataOut=m(Addr)</td>     </tr>
   <tr><td valign=\"top\">1</td>  <td valign=\"top\">X in Addr</td>      <td valign=\"top\">X over all</td>  </tr>
   <tr><td valign=\"top\">X</td>  <td valign=\"top\">*</td>              <td valign=\"top\">X over all</td>  </tr>
 </table>
-<p><b>Truth Table for high active write enable WE:</b></p>
+<p><strong>Truth Table for high active write enable WE:</strong></p>
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td valign=\"top\"><b>WE</b></td>
-      <td valign=\"top\"><b>Addr</b></td>
-      <td valign=\"top\"><b>Memory</b></td>
+  <tr><td valign=\"top\"><strong>WE</strong></td>
+      <td valign=\"top\"><strong>Addr</strong></td>
+      <td valign=\"top\"><strong>Memory</strong></td>
   </tr>
   <tr><td valign=\"top\">0</td>  <td valign=\"top\">*</td>              <td valign=\"top\">no write</td>           </tr>
   <tr><td valign=\"top\">1</td>  <td valign=\"top\">no X in Addr</td>   <td valign=\"top\">m(Addr)=DataIn</td>     </tr>
@@ -7241,11 +7241,11 @@ Description in VHDL is given by <a href=\"http://www.cs.sfu.ca/~ggbaker/referenc
   Z  = L.'Z'
 </PRE>
 
-<p><b>Simultaneous read/write operations are allowed.
-Firstly Write is carried out, then Read.</b></p>
+<p><strong>Simultaneous read/write operations are allowed.
+Firstly Write is carried out, then Read.</strong></p>
 </html>",     revisions="<html>
 <dl>
-<dt><i>November 9, 2010 </i></dt>
+<dt><em>November 9, 2010 </em></dt>
 <dd>created by Ulrich Donath</dd>
 </dl>
 </html>"),
@@ -7409,12 +7409,12 @@ Firstly Write is carried out, then Read.</b></p>
 <p>
 Description in VHDL is given by <a href=\"http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd\">http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</a>
 </p>
-<p><b>Truth Table for high active read enable RE:</b></p>
+<p><strong>Truth Table for high active read enable RE:</strong></p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td valign=\"top\"><b>RE</b></td>
-      <td valign=\"top\"><b>Addr</b></td>
-      <td valign=\"top\"><b>DataOut</b></td>
+  <tr><td valign=\"top\"><strong>RE</strong></td>
+      <td valign=\"top\"><strong>Addr</strong></td>
+      <td valign=\"top\"><strong>DataOut</strong></td>
   </tr>
 
   <tr><td valign=\"top\">0</td> <td valign=\"top\">*</td> <td valign=\"top\">Z over all</td>  </tr>
@@ -7434,7 +7434,7 @@ Description in VHDL is given by <a href=\"http://www.cs.sfu.ca/~ggbaker/referenc
 
 </html>",     revisions="<html>
 <dl>
-<dt><i>October 19, 2010</i></dt>
+<dt><em>October 19, 2010</em></dt>
 <dd>created by Ulrich Donath</dd>
 </dl>
 </html>"),
@@ -7597,7 +7597,7 @@ Description in VHDL is given by <a href=\"http://www.cs.sfu.ca/~ggbaker/referenc
   U  = L.&apos;U&apos; </pre>
 </html>",     revisions="<html>
 <dl>
-<dt><i>January 24, 2011</i></dt>
+<dt><em>January 24, 2011</em></dt>
 <dd>created by Christian G&uuml;nther</dd>
 </dl>
 </html>"));
@@ -7633,12 +7633,12 @@ The logic values are coded by integer values. The following code table is necess
 for both setting of input and interpreting the output values.
 </p>
 
-<p><b>Code Table:</b></p>
+<p><strong>Code Table:</strong></p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td valign=\"top\"><b>Logic value</b></td>
-      <td valign=\"top\"><b>Integer code</b></td>
-      <td valign=\"top\"><b>Meaning</b></td>
+  <tr><td valign=\"top\"><strong>Logic value</strong></td>
+      <td valign=\"top\"><strong>Integer code</strong></td>
+      <td valign=\"top\"><strong>Meaning</strong></td>
   </tr>
 
   <tr><td valign=\"top\">'U'</td> <td valign=\"top\">1</td> <td valign=\"top\">Uninitialized</td></tr>
@@ -7663,7 +7663,7 @@ Copyright &copy; 1998-2016, Modelica Association and Fraunhofer-Gesellschaft.
 </p>
 
 <p>
-<i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
+<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</em>
 </p>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=false,
                 extent={{-100,-100},{100,100}}), graphics={

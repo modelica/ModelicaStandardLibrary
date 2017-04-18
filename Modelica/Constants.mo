@@ -59,7 +59,7 @@ dependent constants and constants from nature. The latter constants
 
 <dl>
 <dt>Peter J. Mohr, David B. Newell, and Barry N. Taylor:</dt>
-<dd><b>CODATA Recommended Values of the Fundamental Physical Constants: 2014</b>.
+<dd><strong>CODATA Recommended Values of the Fundamental Physical Constants: 2014</strong>.
 <a href= \"http://dx.doi.org/10.5281/zenodo.22826\">http://dx.doi.org/10.5281/zenodo.22826</a>, 2015. See also <a href=
 \"http://physics.nist.gov/cuu/Constants/index.html\">http://physics.nist.gov/cuu/Constants/index.html</a></dd>
 </dl>
@@ -67,7 +67,7 @@ dependent constants and constants from nature. The latter constants
 <p>CODATA is the Committee on Data for Science and Technology.</p>
 
 <dl>
-<dt><b>Main Author:</b></dt>
+<dt><strong>Main Author:</strong></dt>
 <dd><a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a><br>
     Deutsches Zentrum f&uuml;r Luft und Raumfahrt e. V. (DLR)<br>
     Oberpfaffenhofen<br>
@@ -80,25 +80,25 @@ dependent constants and constants from nature. The latter constants
 Copyright &copy; 1998-2016, Modelica Association and DLR.
 </p>
 <p>
-<i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
+<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</em>
 </p>
 </html>", revisions="<html>
 <ul>
-<li><i>Nov 4, 2015</i>
+<li><em>Nov 4, 2015</em>
        by Thomas Beutlich:<br>
        Constants updated according to 2014 CODATA values.</li>
-<li><i>Nov 8, 2004</i>
+<li><em>Nov 8, 2004</em>
        by Christian Schweiger:<br>
        Constants updated according to 2002 CODATA values.</li>
-<li><i>Dec 9, 1999</i>
+<li><em>Dec 9, 1999</em>
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
        Constants updated according to 1998 CODATA values. Using names, values
        and description text from this source. Included magnetic and
        electric constant.</li>
-<li><i>Sep 18, 1999</i>
+<li><em>Sep 18, 1999</em>
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
        Constants eps, inf, small introduced.</li>
-<li><i>Nov 15, 1997</i>
+<li><em>Nov 15, 1997</em>
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
        Realized.</li>
 </ul>

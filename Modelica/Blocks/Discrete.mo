@@ -48,7 +48,7 @@ package Discrete
       Documentation(info="<html>
 <p>
 Samples the continues input signal with a sampling rate defined
-via parameter <b>samplePeriod</b>.
+via parameter <strong>samplePeriod</strong>.
 </p>
 </html>"));
   end Sampler;
@@ -221,7 +221,7 @@ the output y is identical to parameter yStart.
 */
     annotation (
       Documentation(info="<html>
-<p>The <b>discrete transfer function</b> block defines the
+<p>The <strong>discrete transfer function</strong> block defines the
 transfer function between the input signal u and the output
 signal y. The numerator has the order nb-1, the denominator
 has the order na-1.</p>
@@ -230,9 +230,9 @@ has the order na-1.</p>
    y(z) = -------------------------------------------- * u(z)
           a(1)*z^(na-1) + a(2)*z^(na-2) + ... + a(na)
 </pre>
-<p>State variables <b>x</b> are defined according to
-<b>controller canonical</b> form. Initial values of the
-states can be set as start values of <b>x</b>.</p>
+<p>State variables <strong>x</strong> are defined according to
+<strong>controller canonical</strong> form. Initial values of the
+states can be set as start values of <strong>x</strong>.</p>
 <p>Example:</p>
 <pre>     Blocks.Discrete.TransferFunction g(b = {2,4}, a = {1,3});
 </pre>
@@ -243,13 +243,13 @@ states can be set as start values of <b>x</b>.</p>
 </pre>
 
 </html>", revisions="<html>
-<p><b>Release Notes:</b></p>
+<p><strong>Release Notes:</strong></p>
 <ul>
-<li><i>November 15, 2000</i>
+<li><em>November 15, 2000</em>
     by <a href=\"http://www.dynasim.se\">Hans Olsson</a>:<br>
     Converted to when-semantics of Modelica 1.4 with special
     care to avoid unnecessary algebraic loops.</li>
-<li><i>June 18, 2000</i>
+<li><em>June 18, 2000</em>
     by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
     Realized based on a corresponding model of Dieter Moormann
     and Hilding Elmqvist.</li>
@@ -303,7 +303,7 @@ states can be set as start values of <b>x</b>.</p>
     annotation (
       Documentation(info="<html>
 <p>
-The <b>discrete state space</b> block defines the relation
+The <strong>discrete state space</strong> block defines the relation
 between the input u and the output y in state space form:
 </p>
 <pre>
@@ -437,10 +437,10 @@ results in the following equations:
       Documentation(info="<html>
 <p>
 Samples the continuous input signal whenever the trigger input
-signal is rising (i.e., trigger changes from <b>false</b> to
-<b>true</b>) and provides the sampled input signal as output.
+signal is rising (i.e., trigger changes from <strong>false</strong> to
+<strong>true</strong>) and provides the sampled input signal as output.
 Before the first sampling, the output signal is equal to
-the initial value defined via parameter <b>y0</b>.
+the initial value defined via parameter <strong>y0</strong>.
 </p>
 </html>"));
   end TriggeredSampler;
@@ -509,38 +509,38 @@ the initial value defined via parameter <b>y0</b>.
       Documentation(info="<html>
 <p>
 Samples the continuous input signal whenever the trigger input
-signal is rising (i.e., trigger changes from <b>false</b> to
-<b>true</b>). The maximum, absolute value of the input signal
+signal is rising (i.e., trigger changes from <strong>false</strong> to
+<strong>true</strong>). The maximum, absolute value of the input signal
 at the sampling point is provided as output signal.
 </p>
 </html>"));
   end TriggeredMax;
   annotation (Documentation(info="<html>
 <p>
-This package contains <b>discrete control blocks</b>
-with <b>fixed sample period</b>.
+This package contains <strong>discrete control blocks</strong>
+with <strong>fixed sample period</strong>.
 Every component of this package is structured in the following way:
 </p>
 <ol>
-<li> A component has <b>continuous real</b> input and output signals.</li>
-<li> The <b>input</b> signals are <b>sampled</b> by the given sample period
-     defined via parameter <b>samplePeriod</b>.
-     The first sample instant is defined by parameter <b>startTime</b>.</li>
-<li> The <b>output</b> signals are computed from the sampled input signals.</li>
+<li> A component has <strong>continuous real</strong> input and output signals.</li>
+<li> The <strong>input</strong> signals are <strong>sampled</strong> by the given sample period
+     defined via parameter <strong>samplePeriod</strong>.
+     The first sample instant is defined by parameter <strong>startTime</strong>.</li>
+<li> The <strong>output</strong> signals are computed from the sampled input signals.</li>
 </ol>
 <p>
-A <b>sampled data system</b> may consist of components of package <b>Discrete</b>
-and of every other purely <b>algebraic</b> input/output block, such
-as the components of packages <b>Modelica.Blocks.Math</b>,
-<b>Modelica.Blocks.Nonlinear</b> or <b>Modelica.Blocks.Sources</b>.
+A <strong>sampled data system</strong> may consist of components of package <strong>Discrete</strong>
+and of every other purely <strong>algebraic</strong> input/output block, such
+as the components of packages <strong>Modelica.Blocks.Math</strong>,
+<strong>Modelica.Blocks.Nonlinear</strong> or <strong>Modelica.Blocks.Sources</strong>.
 </p>
 
 </html>", revisions="<html>
 <ul>
-<li><i>October 21, 2002</i>
+<li><em>October 21, 2002</em>
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
        New components TriggeredSampler and TriggeredMax added.</li>
-<li><i>June 18, 2000</i>
+<li><em>June 18, 2000</em>
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
        Realized based on a corresponding library of Dieter Moormann and
        Hilding Elmqvist.</li>

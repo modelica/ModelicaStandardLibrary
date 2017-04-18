@@ -243,13 +243,13 @@ This library provides simple components for 1-dimensional incompressible thermo-
 1st test example: SimpleCooling
 </p>
 A prescribed heat source dissipates its heat through a thermal conductor to a coolant flow. The coolant flow is taken from an ambient and driven by a pump with prescribed mass flow.<br>
-<b>Results</b>:<br>
+<strong>Results</strong>:<br>
 <table>
 <tr>
-<td valign=\"top\"><b>output</b></td>
-<td valign=\"top\"><b>explanation</b></td>
-<td valign=\"top\"><b>formula</b></td>
-<td valign=\"top\"><b>actual steady-state value</b></td>
+<td valign=\"top\"><strong>output</strong></td>
+<td valign=\"top\"><strong>explanation</strong></td>
+<td valign=\"top\"><strong>formula</strong></td>
+<td valign=\"top\"><strong>actual steady-state value</strong></td>
 </tr>
 <tr>
 <td valign=\"top\">dTSource</td>
@@ -430,13 +430,13 @@ A prescribed heat source dissipates its heat through a thermal conductor to a co
 2nd test example: ParallelCooling
 </p>
 Two prescribed heat sources dissipate their heat through thermal conductors to coolant flows. The coolant flow is taken from an ambient and driven by a pump with prescribed mass flow, then split into two coolant flows connected to the two heat sources, and afterwards merged. Splitting of coolant flows is determined by pressure drop characteristic of the two pipes.<br>
-<b>Results</b>:<br>
+<strong>Results</strong>:<br>
 <table>
 <tr>
-<td valign=\"top\"><b>output</b></td>
-<td valign=\"top\"><b>explanation</b></td>
-<td valign=\"top\"><b>formula</b></td>
-<td valign=\"top\"><b>actual steady-state value</b></td>
+<td valign=\"top\"><strong>output</strong></td>
+<td valign=\"top\"><strong>explanation</strong></td>
+<td valign=\"top\"><strong>formula</strong></td>
+<td valign=\"top\"><strong>actual steady-state value</strong></td>
 </tr>
 <tr>
 <td valign=\"top\">dTSource1</td>
@@ -652,13 +652,13 @@ Two prescribed heat sources dissipate their heat through thermal conductors to c
 </p>
 A prescribed heat sources dissipates its heat through a thermal conductor to the inner coolant cycle. It is necessary to define the pressure level of the inner coolant cycle. The inner coolant cycle is coupled to the outer coolant flow through a thermal conductor.<br>
 Inner coolant's temperature rise near the source is the same as temperature drop near the cooler.<br>
-<b>Results</b>:<br>
+<strong>Results</strong>:<br>
 <table>
 <tr>
-<td valign=\"top\"><b>output</b></td>
-<td valign=\"top\"><b>explanation</b></td>
-<td valign=\"top\"><b>formula</b></td>
-<td valign=\"top\"><b>actual steady-state value</b></td>
+<td valign=\"top\"><strong>output</strong></td>
+<td valign=\"top\"><strong>explanation</strong></td>
+<td valign=\"top\"><strong>formula</strong></td>
+<td valign=\"top\"><strong>actual steady-state value</strong></td>
 </tr>
 <tr>
 <td valign=\"top\">dTSource</td>
@@ -1360,7 +1360,7 @@ Block generating the sum of two ramps.
       annotation (Documentation(info="<html>
 This package contains utility components used for the test examples.<br>
 <dl>
-  <dt><b>Main Authors:</b></dt>
+  <dt><strong>Main Authors:</strong></dt>
   <dd>
   <p>
   <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
@@ -1381,7 +1381,7 @@ Copyright &copy; 1998-2016, Modelica Association, Anton Haumer and Austrian Inst
 </p>
 
 <p>
-<i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
+<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</em>
 </p>
 </html>", revisions="<html>
   <ul>
@@ -1409,14 +1409,14 @@ Copyright &copy; 1998-2016, Modelica Association, Anton Haumer and Austrian Inst
   <li> v1.00 2005/02/01 Anton Haumer<br>
        first stable official release</li>
   <li> v1.31 Beta 2005/06/04 Anton Haumer<br>
-       <i>new example: PumpAndValve</i><br>
-       <i>new example: PumpDropOut</i></li>
+       <em>new example: PumpAndValve</em><br>
+       <em>new example: PumpDropOut</em></li>
   <li> v1.42 Beta 2005/06/18 Anton Haumer<br>
-       <i>new test example: ParallelPumpDropOut</i></li>
+       <em>new test example: ParallelPumpDropOut</em></li>
   <li> v1.43 Beta 2005/06/20 Anton Haumer<br>
        Test of mixing / semiLinear<br>
-       <i>new test example: OneMass</i><br>
-       <i>new test example: TwoMass</i></li>
+       <em>new test example: OneMass</em><br>
+       <em>new test example: TwoMass</em></li>
   </ul>
 </html>"));
   end Examples;
@@ -1439,7 +1439,7 @@ Copyright &copy; 1998-2016, Modelica Association, Anton Haumer and Austrian Inst
     annotation (Documentation(info="<html>
 Pipe without heat exchange.<br>
 Thermodynamic equations are defined by Partials.TwoPortMass(Q_flow = 0).<br>
-<b>Note:</b> Setting parameter m (mass of medium within pipe) to zero
+<strong>Note:</strong> Setting parameter m (mass of medium within pipe) to zero
 leads to neglection of temperature transient cv*m*der(T).
 </html>"),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
@@ -1471,9 +1471,9 @@ leads to neglection of temperature transient cv*m*der(T).
 Pipe with heat exchange.<br>
 Thermodynamic equations are defined by Partials.TwoPort.<br>
 Q_flow is defined by heatPort.Q_flow.<br>
-<b>Note:</b> Setting parameter m (mass of medium within pipe) to zero
+<strong>Note:</strong> Setting parameter m (mass of medium within pipe) to zero
 leads to neglection of temperature transient cv*m*der(T).<br>
-<b>Note:</b> Injecting heat into a pipe with zero mass flow causes
+<strong>Note:</strong> Injecting heat into a pipe with zero mass flow causes
 temperature rise defined by storing heat in medium's mass.
 </html>"),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
@@ -1539,7 +1539,7 @@ temperature rise defined by storing heat in medium's mass.
     annotation (Documentation(info="<html>
 <p>Simple controlled valve.</p>
 <p>
-Standard characteristic Kv=<i>f </i>(y) is given at standard conditions (dp0, rho0),
+Standard characteristic Kv=<em>f </em>(y) is given at standard conditions (dp0, rho0),
 </p>
 <ul>
 <li>either linear :<code> Kv/Kv1 = Kv0/Kv1 + (1-Kv0/Kv1) * y/Y1</code></li>
@@ -1589,7 +1589,7 @@ Thermodynamic equations are defined in partial models (package Partials).</p>
        first stable official release</li>
   <li> v1.20 Beta 2005/02/18 Anton Haumer<br>
        introduced geodetic height in Components.Pipes<br>
-       <i>new models: Components.Valve</i></li>
+       <em>new models: Components.Valve</em></li>
   <li> v1.30 Beta 2005/06/02 Anton Haumer<br>
        friction losses are fed to medium</li>
   </ul>
@@ -1740,7 +1740,7 @@ Thermodynamic equations are defined by Partials.RelativeSensor.
     annotation (Documentation(info="<html>
 dTSensor measures the temperature difference between flowPort_a and flowPort_b.<br>
 Thermodynamic equations are defined by Partials.RelativeSensor.<br>
-<b>Note:</b> Connected flowPorts have the same temperature (mixing temperature)!<br>
+<strong>Note:</strong> Connected flowPorts have the same temperature (mixing temperature)!<br>
 Since mixing my occur, the outlet temperature of a component may be different from the connector's temperature.<br>
 Outlet temperature is defined by variable T of the corresponding component.
 </html>"),
@@ -2076,7 +2076,7 @@ All fans / pumps are considered without losses, they do not change enthalpy flow
   <li> v1.00 2005/02/01 Anton Haumer<br>
        first stable official release</li>
   <li> v1.20 Beta 2005/02/18 Anton Haumer<br>
-       <i>new model: IdealPump</i></li>
+       <em>new model: IdealPump</em></li>
   </ul>
 </html>"));
   end Sources;
@@ -2093,7 +2093,7 @@ All fans / pumps are considered without losses, they do not change enthalpy flow
       flow Modelica.SIunits.EnthalpyFlowRate H_flow;
     annotation (Documentation(info="<html>
 Basic definition of the connector.<br>
-<b>Variables:</b>
+<strong>Variables:</strong>
 <ul>
 <li>Pressure p</li>
 <li>flow MassFlowRate m_flow</li>
@@ -2503,7 +2503,7 @@ Pressure, mass flow, temperature and enthalpy flow of medium are not affected, b
 <li>Sensors: various sensors for pressure, temperature, volume and enthalpy flow</li>
 <li>Sources: various flow sources</li>
 </ul>
-<b>Variables used in connectors:</b>
+<strong>Variables used in connectors:</strong>
 <ul>
 <li>Pressure p</li>
 <li>flow MassFlowRate m_flow</li>
@@ -2511,7 +2511,7 @@ Pressure, mass flow, temperature and enthalpy flow of medium are not affected, b
 <li>flow EnthalpyFlowRate H_flow</li>
 </ul>
 <p>EnthalpyFlowRate means the Enthalpy = cp<sub>constant</sub> * m * T that is carried by the medium's flow.</p>
-<b>Limitations and assumptions:</b>
+<strong>Limitations and assumptions:</strong>
 <ul>
 <li>Splitting and mixing of coolant flows (media with the same cp) is possible.</li>
 <li>Reversing the direction of flow is possible.</li>
@@ -2521,11 +2521,11 @@ Pressure, mass flow, temperature and enthalpy flow of medium are not affected, b
 <li>Medium properties are kept constant.</li>
 <li>Pressure changes are only due to pressure drop and geodetic height difference rho*g*h (if h > 0).</li>
 <li>A user-defined part (0..1) of the friction losses (V_flow*dp) are fed to the medium.</li>
-<li><b>Note:</b> Connected flowPorts have the same temperature (mixing temperature)!<br>
+<li><strong>Note:</strong> Connected flowPorts have the same temperature (mixing temperature)!<br>
 Since mixing may occur, the outlet temperature may be different from the connector's temperature.<br>
 Outlet temperature is defined by variable T of the corresponding component.</li>
 </ul>
-<b>Further development:</b>
+<strong>Further development:</strong>
 <ul>
 <li>Additional components like tanks (if needed)</li>
 </ul>
@@ -2534,7 +2534,7 @@ Outlet temperature is defined by variable T of the corresponding component.</li>
 Copyright &copy; 1998-2016, Modelica Association, Anton Haumer, Christian Kral and AIT.
 </p>
 <p>
-<i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
+<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</em>
 </p>
 </html>", revisions="<html>
 

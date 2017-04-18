@@ -136,11 +136,11 @@ in order to demonstrate the movement of the engine.
 </p>
 <p>
 The engine is modeled solely by revolute and prismatic joints.
-Since this results in a <b>planar</b> loop there is the well known
+Since this results in a <strong>planar</strong> loop there is the well known
 difficulty that the cut-forces perpendicular to the loop cannot be
 uniquely computed, as well as the cut-torques within the plane.
-This ambiguity is resolved by using the option <b>planarCutJoint</b>
-in the <b>Advanced</b> menu of one revolute joint in every planar loop
+This ambiguity is resolved by using the option <strong>planarCutJoint</strong>
+in the <strong>Advanced</strong> menu of one revolute joint in every planar loop
 (here: joint B1). This option sets the cut-force in direction of the
 axis of rotation, as well as the cut-torques perpendicular to the axis
 of rotation at this joint to zero and makes the problem mathematically

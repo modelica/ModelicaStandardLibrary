@@ -174,8 +174,8 @@ extends Modelica.Icons.ExamplesPackage;
     annotation (
       experiment(StopTime=10),
       Documentation(info="<html>
-<p>This example demonstrates the functionality of <b>constraint</b> representing <b>prismatic joint</b>. Each of two bodies is at one of its end connected by spring to the world. The other end is also connected to the world either by two serial coupled prismatic joints or by appropriate constraint. Therefore, the body can only perform translation in two directions specified in the two joints depending on working forces.</p>
-<p><b>Simulation results</b> </p>
+<p>This example demonstrates the functionality of <strong>constraint</strong> representing <strong>prismatic joint</strong>. Each of two bodies is at one of its end connected by spring to the world. The other end is also connected to the world either by two serial coupled prismatic joints or by appropriate constraint. Therefore, the body can only perform translation in two directions specified in the two joints depending on working forces.</p>
+<p><strong>Simulation results</strong> </p>
 <p>After simulating the model, see the animation of the multibody system and compare movement of body connected by joint (blue colored) with movement of that one connected by constraint (of green color). Additionally, the outputs from <code>sensorConstraintRelative</code> depict both position and angle deviations in the constraining element.</p>
 </html>"));
   end PrismaticConstraint;
@@ -337,8 +337,8 @@ extends Modelica.Icons.ExamplesPackage;
     annotation (
       experiment(StopTime=10),
       Documentation(info="<html>
-<p>This example demonstrates the functionality of <b>constraint</b> representing <b>revolute joint</b>. Each of two bodies is at one of its end connected by spring to the world. The other end is also connected to the world either by revolute joint or by appropriate constraint. Therefore, the body can only perform rotation about the revolute axis depending on working forces.</p>
-<p><b>Simulation results</b> </p>
+<p>This example demonstrates the functionality of <strong>constraint</strong> representing <strong>revolute joint</strong>. Each of two bodies is at one of its end connected by spring to the world. The other end is also connected to the world either by revolute joint or by appropriate constraint. Therefore, the body can only perform rotation about the revolute axis depending on working forces.</p>
+<p><strong>Simulation results</strong> </p>
 <p>After simulating the model, see the animation of the multibody system and compare movement of body connected by joint (blue colored) with movement of that one connected by constraint (of green color). Additionally, the outputs from <code>sensorConstraintRelative</code> depict both position and angle deviations in the constraining element.</p>
 </html>"));
   end RevoluteConstraint;
@@ -504,8 +504,8 @@ extends Modelica.Icons.ExamplesPackage;
     annotation (
       experiment(StopTime=10),
       Documentation(info="<html>
-<p>This example demonstrates the functionality of <b>constraint</b> representing <b>spherical joint</b>. Each of two bodies is at one of its end connected by spring to the world. The other end is also connected to the world either by spherical joint or by appropriate constraint. Therefore, the body can only perform spherical movement depending on working forces.</p>
-<p><b>Simulation results</b> </p>
+<p>This example demonstrates the functionality of <strong>constraint</strong> representing <strong>spherical joint</strong>. Each of two bodies is at one of its end connected by spring to the world. The other end is also connected to the world either by spherical joint or by appropriate constraint. Therefore, the body can only perform spherical movement depending on working forces.</p>
+<p><strong>Simulation results</strong> </p>
 <p>After simulating the model, see the animation of the multibody system and compare movement of body connected by joint (blue colored) with movement of that one connected by constraint (of green color). Additionally, the outputs from <code>sensorConstraintRelative</code> depict position deviations in the constraining element.</p>
 </html>"));
   end SphericalConstraint;
@@ -689,8 +689,8 @@ extends Modelica.Icons.ExamplesPackage;
     annotation (
       experiment(StopTime=10),
       Documentation(info="<html>
-<p>This example demonstrates the functionality of <b>constraint</b> representing <b>universal joint</b>. Each of two bodies is at one of its end connected by spring to the world. The other end is also connected to the world either by universal joint or by appropriate constraint. Therefore, the body can only perform rotation about two revolute axes depending on working forces.</p>
-<p><b>Simulation results</b> </p>
+<p>This example demonstrates the functionality of <strong>constraint</strong> representing <strong>universal joint</strong>. Each of two bodies is at one of its end connected by spring to the world. The other end is also connected to the world either by universal joint or by appropriate constraint. Therefore, the body can only perform rotation about two revolute axes depending on working forces.</p>
+<p><strong>Simulation results</strong> </p>
 <p>After simulating the model, see the animation of the multibody system and compare movement of body connected by joint (blue colored) with movement of that one connected by constraint (of green color). Additionally, the outputs from <code>sensorConstraintRelative</code> depict position deviations in the constraining element.</p>
 </html>"));
   end UniversalConstraint;

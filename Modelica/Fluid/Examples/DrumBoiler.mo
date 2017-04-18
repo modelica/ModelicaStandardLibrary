@@ -390,13 +390,13 @@ package DrumBoiler
               fillPattern=FillPattern.Solid)}),
         Documentation(revisions="<html>
 <ul>
-<li><i>Dec 2008</i>
+<li><em>Dec 2008</em>
     by R&uuml;diger Franke:<br>
      Adapt initialization to new Types.Dynamics</li>
-<li><i>2 Nov 2005</i>
+<li><em>2 Nov 2005</em>
     by <a href=\"mailto:francesco.casella@polimi.it\">Francesco Casella</a>:<br>
      Initialization options fixed</li>
-<li><i>6 Sep 2005</i><br>
+<li><em>6 Sep 2005</em><br>
     Model by Ruediger Franke<br>
     See Franke, Rode, Krueger: On-line Optimization of Drum Boiler Startup, 3rd International Modelica Conference, Linkoping, 2003.<br>
     Modified after the 45th Design Meeting</li>

@@ -17,16 +17,16 @@ The diode is locking if current &lt; Vknee/Goff.
 </p>
 </html>", revisions="<html>
 <ul>
-<li><i>February 7, 2016   </i>
+<li><em>February 7, 2016   </em>
        by Anton Haumer<br> extending from partial IdealSemiconductor<br>
        </li>
-<li><i> March 11, 2009   </i>
+<li><em> March 11, 2009   </em>
        by Christoph Clauss<br> conditional heat port added<br>
        </li>
-<li><i>Mai 7, 2004   </i>
+<li><em>Mai 7, 2004   </em>
        by Christoph Clauss and Anton Haumer<br> Vknee added<br>
        </li>
-<li><i>some years ago   </i>
+<li><em>some years ago   </em>
        by Christoph Clauss<br> realized<br>
        </li>
 </ul>
@@ -50,16 +50,16 @@ The thyristor is conducting if voltage &gt; Vknee AND fire = true.<br>
 If fire gets false, the current has to fall below Vknee*Goff, then the tyhristor gets locking.
 </html>", revisions="<html>
 <ul>
-<li><i>February 7, 2016   </i>
+<li><em>February 7, 2016   </em>
        by Anton Haumer<br> extending from partial IdealSemiconductor<br>
        </li>
-<li><i> March 11, 2009   </i>
+<li><em> March 11, 2009   </em>
        by Christoph Clauss<br> conditional heat port added<br>
        </li>
-<li><i>Mai 7, 2004   </i>
+<li><em>Mai 7, 2004   </em>
        by Christoph Clauss and Anton Haumer<br> Vknee added<br>
        </li>
-<li><i>some years ago   </i>
+<li><em>some years ago   </em>
        by Christoph Clauss<br> realized<br>
        </li>
 </ul>
@@ -98,16 +98,16 @@ Otherwise, the GTO thyristor is locking.
 </p>
 </html>", revisions="<html>
 <ul>
-<li><i>February 7, 2016   </i>
+<li><em>February 7, 2016   </em>
        by Anton Haumer<br> extending from partial IdealSemiconductor<br>
        </li>
-<li><i> March 11, 2009   </i>
+<li><em> March 11, 2009   </em>
        by Christoph Clauss<br> conditional heat port added<br>
        </li>
-<li><i>Mai 7, 2004   </i>
+<li><em>Mai 7, 2004   </em>
        by Christoph Clauss and Anton Haumer<br> Vknee added<br>
        </li>
-<li><i>some years ago   </i>
+<li><em>some years ago   </em>
        by Christoph Clauss<br> realized<br>
        </li>
 </ul>
@@ -189,16 +189,16 @@ closed switch could be exactly zero and the conductance Goff of the
 open switch could be also exactly zero. Note, there are circuits,
 where a description with zero Ron or zero Goff is not possible.
 <br> <br>
-<b>Please note:</b>
+<strong>Please note:</strong>
 In case of useHeatPort=true the temperature dependence of the electrical
-behavior is <b>not</b> modelled. The parameters are not temperature dependent.
+behavior is <strong>not</strong> modelled. The parameters are not temperature dependent.
 </P>
 </html>", revisions="<html>
 <ul>
-<li><i> March 11, 2009   </i>
+<li><em> March 11, 2009   </em>
        by Christoph Clauss<br> conditional heat port added<br>
        </li>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -300,13 +300,13 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
 </p>
 
 <p>The limiting case is also allowed, i.e., the resistance Ron of the closed switch could be exactly zero and the conductance Goff of the open switch could be also exactly zero. Note, there are circuits, where a description with zero Ron or zero Goff is not possible. </p>
-<p><b>Please note:</b> In case of useHeatPort=true the temperature dependence of the electrical behavior is <b>not </b>modelled. The parameters are not temperature dependent. </p>
+<p><strong>Please note:</strong> In case of useHeatPort=true the temperature dependence of the electrical behavior is <strong>not </strong>modelled. The parameters are not temperature dependent. </p>
 </html>", revisions="<html>
 <ul>
-<li><i> March 11, 2009   </i>
+<li><em> March 11, 2009   </em>
        by Christoph Clauss<br> conditional heat port added<br>
        </li>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -402,16 +402,16 @@ closed switch could be exactly zero and the conductance Goff of the
 open switch could be also exactly zero. Note, there are circuits,
 where a description with zero Ron or zero Goff is not possible.
 <br> <br>
-<b>Please note:</b>
+<strong>Please note:</strong>
 In case of useHeatPort=true the temperature dependence of the electrical
-behavior is <b>not</b> modelled. The parameters are not temperature dependent.
+behavior is <strong>not</strong> modelled. The parameters are not temperature dependent.
 </P>
 </html>", revisions="<html>
 <ul>
-<li><i> March 11, 2009   </i>
+<li><em> March 11, 2009   </em>
        by Christoph Clauss<br> conditional heat port added<br>
        </li>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -521,13 +521,13 @@ In order to prevent singularities during switching, the opened switch has a (ver
 
 <p>
 The limiting case is also allowed, i.e., the resistance Ron of the closed switch could be exactly zero and the conductance Goff of the open switch could be also exactly zero. Note, there are circuits, where a description with zero Ron or zero Goff is not possible. </p>
-<p><br><b>Please note:</b> In case of useHeatPort=true the temperature dependence of the electrical behavior is <b>not </b>modelled. The parameters are not temperature dependent. </p>
+<p><br><strong>Please note:</strong> In case of useHeatPort=true the temperature dependence of the electrical behavior is <strong>not </strong>modelled. The parameters are not temperature dependent. </p>
 </html>", revisions="<html>
 <ul>
-<li><i> March 11, 2009   </i>
+<li><em> March 11, 2009   </em>
        by Christoph Clauss<br> conditional heat port added<br>
        </li>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -605,13 +605,13 @@ The limiting case is also allowed, i.e., the resistance Ron of the closed switch
     annotation (
       Documentation(info="<html>
 <P>
-The ideal OpAmp is a two-port. The left port is fixed to <i>v1=0</i> and <i>i1=0</i>
-(nullator). At the right port both any voltage <i>v2</i> and any current <i>i2</i>
+The ideal OpAmp is a two-port. The left port is fixed to <em>v1=0</em> and <em>i1=0</em>
+(nullator). At the right port both any voltage <em>v2</em> and any current <em>i2</em>
 are possible (norator).
 </P>
 </html>", revisions="<html>
 <ul>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -684,12 +684,12 @@ are possible (norator).
 The ideal OpAmp with three pins is of exactly the same behaviour as the ideal
 OpAmp with four pins. Only the negative output pin is left out.
 Both the input voltage and current are fixed to zero (nullator).
-At the output pin both any voltage <i>v2</i> and any current <i>i2</i>
+At the output pin both any voltage <em>v2</em> and any current <em>i2</em>
 are possible.
 </P>
 </html>", revisions="<html>
 <ul>
-<li><i> 2002   </i>
+<li><em> 2002   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -772,7 +772,7 @@ If the input voltage is vin larger than 0, the output voltage is out.v = VMax.
 </P>
 </html>", revisions="<html>
 <ul>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -964,10 +964,10 @@ For the backward conversion, one has to decide about the partitioning of the lea
 </p>
 </html>", revisions="<html>
 <ul>
-<li><i>June 3, 2009   </i>
+<li><em>June 3, 2009   </em>
        magnetisation current added by Anton Haumer<br>
        </li>
-<li><i>1998   </i>
+<li><em>1998   </em>
        initially implemented by Christoph Clauss<br>
        </li>
 </ul>
@@ -1037,11 +1037,11 @@ A gyrator is an ideal two-port element defined by the following equations:
     i2 = -G * v1<br>
 </code>
 <br>
-where the constant <i>G</i> is called the gyration conductance.
+where the constant <em>G</em> is called the gyration conductance.
 </P>
 </html>", revisions="<html>
 <ul>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -1084,7 +1084,7 @@ where the constant <i>G</i> is called the gyration conductance.
 <p>The model Idle is a simple idle running branch. That means between both pins no current is running. This ideal device is of no influence on the circuit. Therefore, it can be neglected in each case. For purposes of completeness this component is part of the MSL, as an opposite of the short cut.</p>
 </html>", revisions="<html>
 <ul>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -1117,7 +1117,7 @@ where the constant <i>G</i> is called the gyration conductance.
 <p>The model Short is a simple short cut branch. That means the voltage drop between both pins is zero. This device could be neglected if both pins are combined to one node. Besides connecting the nodes of both pins this device has no further function.</p>
 </html>", revisions="<html>
 <ul>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -1161,13 +1161,13 @@ For further details, see partial model <a href=\"modelica://Modelica.Electrical.
 </P>
 </html>", revisions="<html>
 <ul>
-<li><i>February 7, 2016   </i>
+<li><em>February 7, 2016   </em>
        by Anton Haumer<br> extending from partial IdealSwitch<br>
        </li>
-<li><i> March 11, 2009   </i>
+<li><em> March 11, 2009   </em>
        by Christoph Clauss<br> conditional heat port added<br>
        </li>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -1201,13 +1201,13 @@ For further details, see partial model <a href=\"modelica://Modelica.Electrical.
 </P>
 </html>", revisions="<html>
 <ul>
-<li><i>February 7, 2016   </i>
+<li><em>February 7, 2016   </em>
        by Anton Haumer<br> extending from partial IdealSwitch<br>
        </li>
-<li><i> March 11, 2009   </i>
+<li><em> March 11, 2009   </em>
        by Christoph Clauss<br> conditional heat port added<br>
        </li>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -1242,13 +1242,13 @@ For further details, see partial model <a href=\"modelica://Modelica.Electrical.
 </P>
 </html>", revisions="<html>
 <ul>
-<li><i>February 7, 2016   </i>
+<li><em>February 7, 2016   </em>
        by Anton Haumer<br> extending from partial IdealSwitch<br>
        </li>
-<li><i> March 11, 2009   </i>
+<li><em> March 11, 2009   </em>
        by Christoph Clauss<br> conditional heat port added<br>
        </li>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -1285,13 +1285,13 @@ For further details, see partial model <a href=\"modelica://Modelica.Electrical.
 
 </html>", revisions="<html>
 <ul>
-<li><i>February 7, 2016   </i>
+<li><em>February 7, 2016   </em>
        by Anton Haumer<br> extending from partial IdealSwitch<br>
        </li>
-<li><i> March 11, 2009   </i>
+<li><em> March 11, 2009   </em>
        by Christoph Clauss<br> conditional heat port added<br>
        </li>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -1331,13 +1331,13 @@ For details of the arc effect, see partial model <a href=\"modelica://Modelica.E
 </p>
 </html>", revisions="<html>
 <ul>
-<li><i>February 7, 2016   </i>
+<li><em>February 7, 2016   </em>
        by Anton Haumer<br> extending from partial IdealSwitchWithArc<br>
        </li>
-<li><i>June, 2009   </i>
+<li><em>June, 2009   </em>
        by Christoph Clauss<br> adapted to OpenerWithArc<br>
        </li>
-<li><i>May, 2009   </i>
+<li><em>May, 2009   </em>
        by Anton Haumer<br> CloserWithArc initially implemented<br>
        </li>
 </ul>
@@ -1368,10 +1368,10 @@ For details of the arc effect, see partial model <a href=\"modelica://Modelica.E
 </p>
 </html>", revisions="<html>
 <ul>
-<li><i>February 7, 2016   </i>
+<li><em>February 7, 2016   </em>
        by Anton Haumer<br> extending from partial IdealSwitchWithArc<br>
        </li>
-<li><i>May, 2009   </i>
+<li><em>May, 2009   </em>
        by Anton Haumer<br> initially implemented<br>
        </li>
 </ul>
@@ -1401,10 +1401,10 @@ For details of the arc effect, see partial model <a href=\"modelica://Modelica.E
 </p>
 </html>", revisions="<html>
 <ul>
-<li><i>February 7, 2016   </i>
+<li><em>February 7, 2016   </em>
        by Anton Haumer<br> extending from partial IdealSwitchWithArc<br>
        </li>
-<li><i>May, 2009   </i>
+<li><em>May, 2009   </em>
        by Anton Haumer<br> initially implemented<br>
        </li>
 </ul>
@@ -1439,10 +1439,10 @@ For details of the arc effect, see partial model <a href=\"modelica://Modelica.E
 </p>
 </html>", revisions="<html>
 <ul>
-<li><i>February 7, 2016   </i>
+<li><em>February 7, 2016   </em>
        by Anton Haumer<br> extending from partial IdealSwitchWithArc<br>
        </li>
-<li><i>May, 2009   </i>
+<li><em>May, 2009   </em>
        by Anton Haumer<br> initially implemented<br>
        </li>
 </ul>
@@ -1563,7 +1563,7 @@ For details of the arc effect, see partial model <a href=\"modelica://Modelica.E
 <p>As an additional information: this model is based on the Modelica.Electrical.Analog.Ideal.IdealThyristor.</p>
 </html>", revisions="<html>
 <ul>
-<li><i>November 25, 2009   </i> <br>
+<li><em>November 25, 2009   </em> <br>
 
        by Susann Wolf <br><br>
        </li>
@@ -1641,7 +1641,7 @@ Hence the output will change instantaneously when the trigger signal rises.
 
 </html>", revisions="<html>
 <ul>
-<li><i> October 13, 2009   </i>
+<li><em> October 13, 2009   </em>
        by Matthias Franke
        </li>
 </ul>
@@ -1711,7 +1711,7 @@ Hence the output will change instantaneously when the trigger signal rises.
 <p>This is an abstract model of a DAC. Hence, it can not cover the dynamic behaviour of the converter. Therefore the output will change instantaneously when the trigger signal rises.</p>
 </html>", revisions="<html>
 <ul>
-<li><i> October 13, 2009   </i>
+<li><em> October 13, 2009   </em>
        by Matthias Franke
        </li>
 </ul>
@@ -1737,7 +1737,7 @@ Hence the output will change instantaneously when the trigger signal rises.
 </html>", revisions="<html>
 <dl>
 <dt>
-<b>Main Authors:</b>
+<strong>Main Authors:</strong>
 </dt>
 <dd>
 Christoph Clau&szlig;
@@ -1750,14 +1750,14 @@ Christoph Clau&szlig;
     D-01069 Dresden
 </dd>
 <dt>
-<b>Copyright:</b>
+<strong>Copyright:</strong>
 </dt>
 <dd>
 Copyright &copy; 1998-2016, Modelica Association and Fraunhofer-Gesellschaft.<br>
-<i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
-under the terms of the <b>Modelica license</b>, see the license conditions
-and the accompanying <b>disclaimer</b> in the documentation of package
-Modelica in file \"Modelica/package.mo\".</i>
+<em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
+under the terms of the <strong>Modelica license</strong>, see the license conditions
+and the accompanying <strong>disclaimer</strong> in the documentation of package
+Modelica in file \"Modelica/package.mo\".</em>
 </dd>
 </dl>
 </html>"), Icon(graphics={

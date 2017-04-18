@@ -118,7 +118,7 @@ and 4 bars that is often used as basic constructing unit in mechanisms.
 This example demonstrates that usually no particular knowledge
 of the user is needed to handle kinematic loops.
 Just connect the joints and bodies together according
-to the real system. In particular <b>no</b> cut-joints or a spanning tree has
+to the real system. In particular <strong>no</strong> cut-joints or a spanning tree has
 to be determined. In this case, the initial condition of the angular velocity
 of revolute joint j1 is set to 300 deg/s in order to drive this loop.
 </p>

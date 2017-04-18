@@ -5,12 +5,12 @@ extends Modelica.Icons.ExamplesPackage;
 
 annotation (Documentation(info="<html>
 <p>
-This package contains complete <b>system models</b> where components
+This package contains complete <strong>system models</strong> where components
 from different domains are used, including 3-dimensional mechanics.
 </p>
 <h4>Content</h4>
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><th><b><i>Model</i></b></th><th><b><i>Description</i></b></th></tr>
+  <tr><th><strong><em>Model</em></strong></th><th><strong><em>Description</em></strong></th></tr>
   <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3\">RobotR3</a><br>
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.oneAxis\">RobotR3.oneAxis</a><br>
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.fullRobot\">RobotR3.fullRobot</a></td>

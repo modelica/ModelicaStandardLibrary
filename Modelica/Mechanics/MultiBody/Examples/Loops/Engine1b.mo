@@ -90,7 +90,7 @@ The difference is that a simple
 model for the gas force in the cylinder is added and that the
 model is restructured in such a way, that the central part of
 the planar kinematic loop can be easily replaced by the
-assembly joint \"Modelica.Mechanics.MultiBody.Joints.Assemblies.<b>JointRRP</b>\".
+assembly joint \"Modelica.Mechanics.MultiBody.Joints.Assemblies.<strong>JointRRP</strong>\".
 This exchange of the kinematic loop is shown in
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Examples.Loops.Engine1b_analytic#diagram\">Loops.Engine1b_analytic</a>.
 The advantage of using JointRRP is, that the

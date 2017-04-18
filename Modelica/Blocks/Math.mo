@@ -553,9 +553,9 @@ instances:
     annotation (
       Documentation(info="<html>
 <p>
-This block computes output <i>y</i> as
-<i>product</i> of gain <i>k</i> with the
-input <i>u</i>:
+This block computes output <em>y</em> as
+<em>product</em> of gain <em>k</em> with the
+input <em>u</em>:
 </p>
 <pre>
     y = k * u;
@@ -598,17 +598,17 @@ input <i>u</i>:
     annotation (
       Documentation(info="<html>
 <p>
-This blocks computes output vector <b>y</b> as <i>product</i> of the
-gain matrix <b>K</b> with the input signal vector <b>u</b>:
+This blocks computes output vector <strong>y</strong> as <em>product</em> of the
+gain matrix <strong>K</strong> with the input signal vector <strong>u</strong>:
 </p>
 <pre>
-    <b>y</b> = <b>K</b> * <b>u</b>;
+    <strong>y</strong> = <strong>K</strong> * <strong>u</strong>;
 </pre>
 <p>
 Example:
 </p>
 <pre>
-   parameter: <b>K</b> = [0.12 2; 3 1.5]
+   parameter: <strong>K</strong> = [0.12 2; 3 1.5]
 
    results in the following equations:
 
@@ -786,7 +786,7 @@ false, y is set to parameter \"y_default\".
 <blockquote><pre>
   // Conceptual equation (not valid Modelica)
   i = 'first element of u[:] that is true';
-  y = <b>if</b> i==0 <b>then</b> y_default <b>else</b> expr[i];
+  y = <strong>if</strong> i==0 <strong>then</strong> y_default <strong>else</strong> expr[i];
 </pre></blockquote>
 
 <p>
@@ -814,12 +814,12 @@ The usage is demonstrated, e.g., in example
       defaultComponentName="sum1",
       Documentation(info="<html>
 <p>
-This blocks computes output <b>y</b> as
-<i>sum</i> of the elements of the input signal vector
-<b>u</b>:
+This blocks computes output <strong>y</strong> as
+<em>sum</em> of the elements of the input signal vector
+<strong>u</strong>:
 </p>
 <pre>
-    <b>y</b> = <b>u</b>[1] + <b>u</b>[2] + ...;
+    <strong>y</strong> = <strong>u</strong>[1] + <strong>u</strong>[2] + ...;
 </pre>
 <p>
 Example:
@@ -864,12 +864,12 @@ Example:
     annotation (
       Documentation(info="<html>
 <p>
-This blocks computes output <b>y</b> as <i>difference</i> of the
-commanded input <b>u1</b> and the feedback
-input <b>u2</b>:
+This blocks computes output <strong>y</strong> as <em>difference</em> of the
+commanded input <strong>u1</strong> and the feedback
+input <strong>u2</strong>:
 </p>
 <pre>
-    <b>y</b> = <b>u1</b> - <b>u2</b>;
+    <strong>y</strong> = <strong>u1</strong> - <strong>u2</strong>;
 </pre>
 <p>
 Example:
@@ -922,11 +922,11 @@ Example:
     annotation (
       Documentation(info="<html>
 <p>
-This blocks computes output <b>y</b> as <i>sum</i> of the
-two input signals <b>u1</b> and <b>u2</b>:
+This blocks computes output <strong>y</strong> as <em>sum</em> of the
+two input signals <strong>u1</strong> and <strong>u2</strong>:
 </p>
 <pre>
-    <b>y</b> = k1*<b>u1</b> + k2*<b>u2</b>;
+    <strong>y</strong> = k1*<strong>u1</strong> + k2*<strong>u2</strong>;
 </pre>
 <p>
 Example:
@@ -992,11 +992,11 @@ Example:
     annotation (
       Documentation(info="<html>
 <p>
-This blocks computes output <b>y</b> as <i>sum</i> of the
-three input signals <b>u1</b>, <b>u2</b> and <b>u3</b>:
+This blocks computes output <strong>y</strong> as <em>sum</em> of the
+three input signals <strong>u1</strong>, <strong>u2</strong> and <strong>u3</strong>:
 </p>
 <pre>
-    <b>y</b> = k1*<b>u1</b> + k2*<b>u2</b> + k3*<b>u3</b>;
+    <strong>y</strong> = k1*<strong>u1</strong> + k2*<strong>u2</strong> + k3*<strong>u3</strong>;
 </pre>
 <p>
 Example:
@@ -1048,9 +1048,9 @@ Example:
     annotation (
       Documentation(info="<html>
 <p>
-This blocks computes the output <b>y</b> (element-wise)
-as <i>product</i> of the corresponding elements of
-the two inputs <b>u1</b> and <b>u2</b>:
+This blocks computes the output <strong>y</strong> (element-wise)
+as <em>product</em> of the corresponding elements of
+the two inputs <strong>u1</strong> and <strong>u2</strong>:
 </p>
 <pre>
     y = u1 * u2;
@@ -1089,9 +1089,9 @@ the two inputs <b>u1</b> and <b>u2</b>:
     annotation (
       Documentation(info="<html>
 <p>
-This block computes the output <b>y</b> (element-wise)
-by <i>dividing</i> the corresponding elements of
-the two inputs <b>u1</b> and <b>u2</b>:
+This block computes the output <strong>y</strong> (element-wise)
+by <em>dividing</em> the corresponding elements of
+the two inputs <strong>u1</strong> and <strong>u2</strong>:
 </p>
 <pre>
     y = u1 / u2;
@@ -1192,11 +1192,11 @@ the two inputs <b>u1</b> and <b>u2</b>:
               lineColor={0,0,255})}),
       Documentation(info="<html>
 <p>
-This blocks computes the output <b>y</b>
-as <i>absolute value</i> of the input <b>u</b>:
+This blocks computes the output <strong>y</strong>
+as <em>absolute value</em> of the input <strong>u</strong>:
 </p>
 <pre>
-    y = <b>abs</b>( u );
+    y = <strong>abs</strong>( u );
 </pre>
 <p>
 The Boolean parameter generateEvent decides whether Events are generated at zero crossing (Modelica specification before 3) or not.
@@ -1266,13 +1266,13 @@ The Boolean parameter generateEvent decides whether Events are generated at zero
               lineColor={0,0,255})}),
       Documentation(info="<html>
 <p>
-This blocks computes the output <b>y</b>
-as <b>sign</b> of the input <b>u</b>:
+This blocks computes the output <strong>y</strong>
+as <strong>sign</strong> of the input <strong>u</strong>:
 </p>
 <pre>
-         1  <b>if</b> u &gt; 0
-    y =  0  <b>if</b> u == 0
-        -1  <b>if</b> u &lt; 0
+         1  <strong>if</strong> u &gt; 0
+    y =  0  <strong>if</strong> u == 0
+        -1  <strong>if</strong> u &lt; 0
 </pre>
 <p>
 The Boolean parameter generateEvent decides whether Events are generated at zero crossing (Modelica specification before 3) or not.
@@ -1333,11 +1333,11 @@ The Boolean parameter generateEvent decides whether Events are generated at zero
               textString="u")}),
       Documentation(info="<html>
 <p>
-This blocks computes the output <b>y</b>
-as <i>square root</i> of the input <b>u</b>:
+This blocks computes the output <strong>y</strong>
+as <em>square root</em> of the input <strong>u</strong>:
 </p>
 <pre>
-    y = <b>sqrt</b>( u );
+    y = <strong>sqrt</strong>( u );
 </pre>
 <p>
 All elements of the input vector shall be zero or positive.
@@ -1411,11 +1411,11 @@ Otherwise an error occurs.
               textString="u")}),
       Documentation(info="<html>
 <p>
-This blocks computes the output <b>y</b>
-as <b>sine</b> of the input <b>u</b>:
+This blocks computes the output <strong>y</strong>
+as <strong>sine</strong> of the input <strong>u</strong>:
 </p>
 <pre>
-    y = <b>sin</b>( u );
+    y = <strong>sin</strong>( u );
 </pre>
 
 <p>
@@ -1492,11 +1492,11 @@ as <b>sine</b> of the input <b>u</b>:
               textString="u")}),
       Documentation(info="<html>
 <p>
-This blocks computes the output <b>y</b>
-as <b>cos</b> of the input <b>u</b>:
+This blocks computes the output <strong>y</strong>
+as <strong>cos</strong> of the input <strong>u</strong>:
 </p>
 <pre>
-    y = <b>cos</b>( u );
+    y = <strong>cos</strong>( u );
 </pre>
 
 <p>
@@ -1571,11 +1571,11 @@ as <b>cos</b> of the input <b>u</b>:
               textString="u")}),
       Documentation(info="<html>
 <p>
-This blocks computes the output <b>y</b>
-as <b>tan</b> of the input <b>u</b>:
+This blocks computes the output <strong>y</strong>
+as <strong>tan</strong> of the input <strong>u</strong>:
 </p>
 <pre>
-    y = <b>tan</b>( u );
+    y = <strong>tan</strong>( u );
 </pre>
 
 <p>
@@ -1650,15 +1650,15 @@ as <b>tan</b> of the input <b>u</b>:
               textString="u")}),
       Documentation(info="<html>
 <p>
-This blocks computes the output <b>y</b> as the
-<i>sine-inverse</i> of the input <b>u</b>:
+This blocks computes the output <strong>y</strong> as the
+<em>sine-inverse</em> of the input <strong>u</strong>:
 </p>
 <pre>
-    y = <b>asin</b>( u );
+    y = <strong>asin</strong>( u );
 </pre>
 <p>
-The absolute values of the elements of the input <b>u</b> need to
-be less or equal to one (<b>abs</b>( u ) <= 1).
+The absolute values of the elements of the input <strong>u</strong> need to
+be less or equal to one (<strong>abs</strong>( u ) <= 1).
 Otherwise an error occurs.
 </p>
 
@@ -1731,15 +1731,15 @@ Otherwise an error occurs.
               textString="u")}),
       Documentation(info="<html>
 <p>
-This blocks computes the output <b>y</b> as the
-<i>cosine-inverse</i> of the input <b>u</b>:
+This blocks computes the output <strong>y</strong> as the
+<em>cosine-inverse</em> of the input <strong>u</strong>:
 </p>
 <pre>
-    y = <b>acos</b>( u );
+    y = <strong>acos</strong>( u );
 </pre>
 <p>
-The absolute values of the elements of the input <b>u</b> need to
-be less or equal to one (<b>abs</b>( u ) <= 1).
+The absolute values of the elements of the input <strong>u</strong> need to
+be less or equal to one (<strong>abs</strong>( u ) <= 1).
 Otherwise an error occurs.
 </p>
 
@@ -1816,11 +1816,11 @@ Otherwise an error occurs.
               textString="u")}),
       Documentation(info="<html>
 <p>
-This blocks computes the output <b>y</b> as the
-<i>tangent-inverse</i> of the input <b>u</b>:
+This blocks computes the output <strong>y</strong> as the
+<em>tangent-inverse</em> of the input <strong>u</strong>:
 </p>
 <pre>
-    y= <b>atan</b>( u );
+    y= <strong>atan</strong>( u );
 </pre>
 
 <p>
@@ -1910,18 +1910,18 @@ This blocks computes the output <b>y</b> as the
               textString="u1 / u2")}),
       Documentation(info="<html>
 <p>
-This blocks computes the output <b>y</b> as the
-<i>tangent-inverse</i> of the input <b>u1</b> divided by
-input <b>u2</b>:
+This blocks computes the output <strong>y</strong> as the
+<em>tangent-inverse</em> of the input <strong>u1</strong> divided by
+input <strong>u2</strong>:
 </p>
 <pre>
-    y = <b>atan2</b>( u1, u2 );
+    y = <strong>atan2</strong>( u1, u2 );
 </pre>
 <p>
 u1 and u2 shall not be zero at the same time instant.
-<b>Atan2</b> uses the sign of u1 and u2 in order to construct
+<strong>Atan2</strong> uses the sign of u1 and u2 in order to construct
 the solution in the range -180 deg &le; y &le; 180 deg, whereas
-block <b>Atan</b> gives a solution in the range
+block <strong>Atan</strong> gives a solution in the range
 -90 deg &le; y &le; 90 deg.
 </p>
 
@@ -1999,11 +1999,11 @@ block <b>Atan</b> gives a solution in the range
               textString="u")}),
       Documentation(info="<html>
 <p>
-This blocks computes the output <b>y</b> as the
-<i>hyperbolic sine</i> of the input <b>u</b>:
+This blocks computes the output <strong>y</strong> as the
+<em>hyperbolic sine</em> of the input <strong>u</strong>:
 </p>
 <pre>
-    y = <b>sinh</b>( u );
+    y = <strong>sinh</strong>( u );
 </pre>
 
 <p>
@@ -2080,11 +2080,11 @@ This blocks computes the output <b>y</b> as the
               textString="u")}),
       Documentation(info="<html>
 <p>
-This blocks computes the output <b>y</b> as the
-<i>hyperbolic cosine</i> of the input <b>u</b>:
+This blocks computes the output <strong>y</strong> as the
+<em>hyperbolic cosine</em> of the input <strong>u</strong>:
 </p>
 <pre>
-    y = <b>cosh</b>( u );
+    y = <strong>cosh</strong>( u );
 </pre>
 
 <p>
@@ -2161,11 +2161,11 @@ This blocks computes the output <b>y</b> as the
               textString="u")}),
       Documentation(info="<html>
 <p>
-This blocks computes the output <b>y</b> as the
-<i>hyperbolic tangent</i> of the input <b>u</b>:
+This blocks computes the output <strong>y</strong> as the
+<em>hyperbolic tangent</em> of the input <strong>u</strong>:
 </p>
 <pre>
-    y = <b>tanh</b>( u );
+    y = <strong>tanh</strong>( u );
 </pre>
 
 <p>
@@ -2241,11 +2241,11 @@ This blocks computes the output <b>y</b> as the
               textString="u")}),
       Documentation(info="<html>
 <p>
-This blocks computes the output <b>y</b> as the
-<i>exponential</i> (of base e) of the input <b>u</b>:
+This blocks computes the output <strong>y</strong> as the
+<em>exponential</em> (of base e) of the input <strong>u</strong>:
 </p>
 <pre>
-    y = <b>exp</b>( u );
+    y = <strong>exp</strong>( u );
 </pre>
 
 <p>
@@ -2311,18 +2311,18 @@ This blocks computes the output <b>y</b> as the
               textString="u")}),
       Documentation(info="<html>
 <p>
-This blocks computes the output <b>y</b> as the
-power to the parameter <i>base</i> of the input <b>u</b>.
-If the boolean parameter <b>useExp</b> is true, the output is determined by:
+This blocks computes the output <strong>y</strong> as the
+power to the parameter <em>base</em> of the input <strong>u</strong>.
+If the boolean parameter <strong>useExp</strong> is true, the output is determined by:
 </p>
 <pre>
-    y = <b>exp</b> ( u * <b>log</b> (base) )
+    y = <strong>exp</strong> ( u * <strong>log</strong> (base) )
 </pre>
 <p>
 otherwise:
 </p>
 <pre>
-    y = base <b>^</b> u;
+    y = base <strong>^</strong> u;
 </pre>
 
 
@@ -2386,14 +2386,14 @@ otherwise:
               textString="u")}),
       Documentation(info="<html>
 <p>
-This blocks computes the output <b>y</b> as the
-<i>logarithm</i> to the parameter <i>base</i> of the input <b>u</b>:
+This blocks computes the output <strong>y</strong> as the
+<em>logarithm</em> to the parameter <em>base</em> of the input <strong>u</strong>:
 </p>
 <pre>
-    y = <b>log</b>( u ) / <b>log</b>( base );
+    y = <strong>log</strong>( u ) / <strong>log</strong>( base );
 </pre>
 <p>
-An error occurs if the elements of the input <b>u</b> are
+An error occurs if the elements of the input <strong>u</strong> are
 zero or negative.
 </p>
 
@@ -2470,14 +2470,14 @@ zero or negative.
               textString="u")}),
       Documentation(info="<html>
 <p>
-This blocks computes the output <b>y</b> as the
-<i>base 10 logarithm</i> of the input <b>u</b>:
+This blocks computes the output <strong>y</strong> as the
+<em>base 10 logarithm</em> of the input <strong>u</strong>:
 </p>
 <pre>
-    y = <b>log10</b>( u );
+    y = <strong>log10</strong>( u );
 </pre>
 <p>
-An error occurs if the elements of the input <b>u</b> are
+An error occurs if the elements of the input <strong>u</strong> are
 zero or negative.
 </p>
 
@@ -2580,11 +2580,11 @@ This blocks wraps the input angle into the interval ]-pi,pi].
             points={{50.0,0.0},{30.0,20.0},{30.0,10.0},{0.0,10.0},{0.0,-10.0},{
                 30.0,-10.0},{30.0,-20.0},{50.0,0.0}})}), Documentation(info="<html>
 <p>
-This block computes the output <b>y</b>
-as <i>nearest integer value</i> of the input <b>u</b>:
+This block computes the output <strong>y</strong>
+as <em>nearest integer value</em> of the input <strong>u</strong>:
 </p>
-<pre>    y = <b>integer</b>( <b>floor</b>( u + 0.5 ) )  for  u &gt; 0;
-    y = <b>integer</b>( <b>ceil </b>( u - 0.5 ) )  for  u &lt; 0;
+<pre>    y = <strong>integer</strong>( <strong>floor</strong>( u + 0.5 ) )  for  u &gt; 0;
+    y = <strong>integer</strong>( <strong>ceil </strong>( u - 0.5 ) )  for  u &lt; 0;
 </pre>
 </html>"));
   end RealToInteger;
@@ -2615,12 +2615,12 @@ as <i>nearest integer value</i> of the input <b>u</b>:
             points={{10.0,0.0},{-10.0,20.0},{-10.0,10.0},{-40.0,10.0},{-40.0,-10.0},
                 {-10.0,-10.0},{-10.0,-20.0},{10.0,0.0}})}), Documentation(info="<html>
 <p>
-This block computes the output <b>y</b>
-as <i>Real equivalent</i> of the Integer input <b>u</b>:
+This block computes the output <strong>y</strong>
+as <em>Real equivalent</em> of the Integer input <strong>u</strong>:
 </p>
 <pre>    y = u;
 </pre>
-<p>where <b>u</b> is of Integer and <b>y</b> of Real type.</p>
+<p>where <strong>u</strong> is of Integer and <strong>y</strong> of Real type.</p>
 </html>"));
   end IntegerToReal;
 
@@ -2636,13 +2636,13 @@ as <i>Real equivalent</i> of the Integer input <b>u</b>:
     y = if u then realTrue else realFalse;
     annotation (Documentation(info="<html>
 <p>
-This block computes the output <b>y</b>
-as <i>Real equivalent</i> of the Boolean input <b>u</b>:
+This block computes the output <strong>y</strong>
+as <em>Real equivalent</em> of the Boolean input <strong>u</strong>:
 </p>
-<pre>    y = <b>if</b> u <b>then</b> realTrue <b>else</b> realFalse;
+<pre>    y = <strong>if</strong> u <strong>then</strong> realTrue <strong>else</strong> realFalse;
 </pre>
-<p>where <b>u</b> is of Boolean and <b>y</b> of Real type,
-and <b>realTrue</b> and <b>realFalse</b> are parameters.
+<p>where <strong>u</strong> is of Boolean and <strong>y</strong> of Real type,
+and <strong>realTrue</strong> and <strong>realFalse</strong> are parameters.
 </p>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}), graphics={
@@ -2674,13 +2674,13 @@ and <b>realTrue</b> and <b>realFalse</b> are parameters.
     y = if u then integerTrue else integerFalse;
     annotation (Documentation(info="<html>
 <p>
-This block computes the output <b>y</b>
-as <i>Integer equivalent</i> of the Boolean input <b>u</b>:
+This block computes the output <strong>y</strong>
+as <em>Integer equivalent</em> of the Boolean input <strong>u</strong>:
 </p>
-<pre>    y = <b>if</b> u <b>then</b> integerTrue <b>else</b> integerFalse;
+<pre>    y = <strong>if</strong> u <strong>then</strong> integerTrue <strong>else</strong> integerFalse;
 </pre>
-<p>where <b>u</b> is of Boolean and <b>y</b> of Integer type,
-and <b>integerTrue</b> and <b>integerFalse</b> are parameters.
+<p>where <strong>u</strong> is of Boolean and <strong>y</strong> of Integer type,
+and <strong>integerTrue</strong> and <strong>integerFalse</strong> are parameters.
 </p>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}), graphics={
@@ -2712,15 +2712,15 @@ and <b>integerTrue</b> and <b>integerFalse</b> are parameters.
     y = u >= threshold;
     annotation (Documentation(info="<html>
 <p>
-This block computes the Boolean output <b>y</b>
-from the Real input <b>u</b> by the equation:
+This block computes the Boolean output <strong>y</strong>
+from the Real input <strong>u</strong> by the equation:
 </p>
 
 <pre>    y = u &ge; threshold;
 </pre>
 
 <p>
-where <b>threshold</b> is a parameter.
+where <strong>threshold</strong> is a parameter.
 </p>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}), graphics={
@@ -2752,15 +2752,15 @@ where <b>threshold</b> is a parameter.
     y = u >= threshold;
     annotation (Documentation(info="<html>
 <p>
-This block computes the Boolean output <b>y</b>
-from the Integer input <b>u</b> by the equation:
+This block computes the Boolean output <strong>y</strong>
+from the Integer input <strong>u</strong> by the equation:
 </p>
 
 <pre>    y = u &ge; threshold;
 </pre>
 
 <p>
-where <b>threshold</b> is a parameter.
+where <strong>threshold</strong> is a parameter.
 </p>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}), graphics={
@@ -2900,7 +2900,7 @@ Note: The output is updated after each period defined by 1/f.
 </p>
 
 <p>
-If parameter <b>yGreaterOrEqualZero</b> in the Advanced tab is <b>true</b> (default = <b>false</b>),
+If parameter <strong>yGreaterOrEqualZero</strong> in the Advanced tab is <strong>true</strong> (default = <strong>false</strong>),
 then the modeller provides the information that the mean of the input signal is guaranteed
 to be &ge; 0 for the exact solution. However, due to inaccuracies in the numerical integration scheme,
 the output might be slightly negative. If this parameter is set to true, then the output is
@@ -3337,7 +3337,7 @@ This block is demonstrated in the examples
       annotation (Line(points={{80,-41},{80,-60},{110,-60}}, color={0,0,127}));
     annotation (Documentation(info="<html>
 <p>
-This block calculates the root mean square and the phase angle of a single harmonic <i>k</i> of the input signal u over the given period 1/f, using the
+This block calculates the root mean square and the phase angle of a single harmonic <em>k</em> of the input signal u over the given period 1/f, using the
 <a href=\"modelica://Modelica.Blocks.Math.Mean\">mean block</a>.
 </p>
 <p>
@@ -3424,10 +3424,10 @@ so one can plot the result directly as frequency lines.
             lineColor={160,160,164},
             textString="max()")}), Documentation(info="<html>
 <p>
-This block computes the output <b>y</b> as <i>maximum</i>
-of the two Real inputs <b>u1</b> and <b>u2</b>:
+This block computes the output <strong>y</strong> as <em>maximum</em>
+of the two Real inputs <strong>u1</strong> and <strong>u2</strong>:
 </p>
-<pre>    y = <b>max</b> ( u1 , u2 );
+<pre>    y = <strong>max</strong> ( u1 , u2 );
 </pre>
 </html>"));
   end Max;
@@ -3442,10 +3442,10 @@ of the two Real inputs <b>u1</b> and <b>u2</b>:
             lineColor={160,160,164},
             textString="min()")}), Documentation(info="<html>
 <p>
-This block computes the output <b>y</b> as <i>minimum</i> of
-the two Real inputs <b>u1</b> and <b>u2</b>:
+This block computes the output <strong>y</strong> as <em>minimum</em> of
+the two Real inputs <strong>u1</strong> and <strong>u2</strong>:
 </p>
-<pre>    y = <b>min</b> ( u1 , u2 );
+<pre>    y = <strong>min</strong> ( u1 , u2 );
 </pre>
 </html>"));
   end Min;
@@ -3499,7 +3499,7 @@ provide both values as output.
             extent={{-94,26},{8,-30}},
             textString="%y0")}), Documentation(info="<html>
 <p>Determine the linear combination of the two inputs: <code>y = y0*(1 + k1*u1 + k2*u2)</code> </p>
-<p><b>Note</b>, for y0=0 the output is always zero. </p>
+<p><strong>Note</strong>, for y0=0 the output is always zero. </p>
 <p>To improve the implementation, the formula will be changed (non-backwards compatible) in the future: <code>y = y0 + k1*u1 + k2*u2</code> </p>
 </html>"));
   end LinearDependency;
@@ -3514,10 +3514,10 @@ provide both values as output.
             lineColor={160,160,164},
             textString="edge()")}), Documentation(info="<html>
 <p>
-This block sets the Boolean output <b>y</b> to true,
-when the Boolean input <b>u</b> shows a <i>rising edge</i>:
+This block sets the Boolean output <strong>y</strong> to true,
+when the Boolean input <strong>u</strong> shows a <em>rising edge</em>:
 </p>
-<pre>    y = <b>edge</b>( u );
+<pre>    y = <strong>edge</strong>( u );
 </pre>
 </html>"));
   end Edge;
@@ -3532,11 +3532,11 @@ when the Boolean input <b>u</b> shows a <i>rising edge</i>:
             lineColor={160,160,164},
             textString="change()")}), Documentation(info="<html>
 <p>
-This block sets the Boolean output <b>y</b> to true, when the
-Boolean input <b>u</b> shows a <i>rising or falling edge</i>,
+This block sets the Boolean output <strong>y</strong> to true, when the
+Boolean input <strong>u</strong> shows a <em>rising or falling edge</em>,
 i.e., when the signal changes:
 </p>
-<pre>    y = <b>change</b>( u );
+<pre>    y = <strong>change</strong>( u );
 </pre>
 </html>"));
   end BooleanChange;
@@ -3551,31 +3551,31 @@ i.e., when the signal changes:
             lineColor={160,160,164},
             textString="change()")}), Documentation(info="<html>
 <p>
-This block sets the Boolean output <b>y</b> to true, when the
-Integer input <b>u</b> changes:
+This block sets the Boolean output <strong>y</strong> to true, when the
+Integer input <strong>u</strong> changes:
 </p>
-<pre>    y = <b>change</b>( u );
+<pre>    y = <strong>change</strong>( u );
 </pre>
 </html>"));
   end IntegerChange;
 
   annotation (Documentation(info="<html>
 <p>
-This package contains basic <b>mathematical operations</b>,
-such as summation and multiplication, and basic <b>mathematical
-functions</b>, such as <b>sqrt</b> and <b>sin</b>, as
+This package contains basic <strong>mathematical operations</strong>,
+such as summation and multiplication, and basic <strong>mathematical
+functions</strong>, such as <strong>sqrt</strong> and <strong>sin</strong>, as
 input/output blocks. All blocks of this library can be either
 connected with continuous blocks or with sampled-data blocks.
 </p>
 </html>", revisions="<html>
 <ul>
-<li><i>August 24, 2016</i>
+<li><em>August 24, 2016</em>
        by Christian Kral: added WrapAngle</li>
-<li><i>October 21, 2002</i>
+<li><em>October 21, 2002</em>
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>
        and Christian Schweiger:<br>
        New blocks added: RealToInteger, IntegerToReal, Max, Min, Edge, BooleanChange, IntegerChange.</li>
-<li><i>August 7, 1999</i>
+<li><em>August 7, 1999</em>
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
        Realized (partly based on an existing Dymola library
        of Dieter Moormann and Hilding Elmqvist).

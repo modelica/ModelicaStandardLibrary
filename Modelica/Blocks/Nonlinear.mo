@@ -571,11 +571,11 @@ also the default setting of this block. The setting
 </p>
 
 <p>
-It is strongly recommended to always set parameter <b>balance</b> = true,
+It is strongly recommended to always set parameter <strong>balance</strong> = true,
 in order to arrive at a much better reliable numerical computation.
 This is not the default, in order to be backwards compatible, so you have
 to explicitly set it. Besides better numerics, also all states are initialized
-with <b>balance</b> = true (in steady-state, so der(x)=0). Longer explanation:
+with <strong>balance</strong> = true (in steady-state, so der(x)=0). Longer explanation:
 </p>
 
 <p>
@@ -585,7 +585,7 @@ the order of 1 up to the order of O(1/delayTime)^n. For already modest values
 of delayTime and n, this gives largely varying coefficients (for example delayTime=0.001 and n=4
 results in coefficients between 1 and 1e12). In turn, this results
 in a large norm of the system matrix [A,B;C,D] and therefore in unreliable
-numerical computations. When setting parameter <b>balance</b> = true, a state
+numerical computations. When setting parameter <strong>balance</strong> = true, a state
 transformation is performed that considerably reduces the norm of the system matrix.
 This is performed without introducing round-off errors. For details see
 function <a href=\"modelica://Modelica.Math.Matrices.balanceABC\">balanceABC</a>.
@@ -793,15 +793,15 @@ the following relationship:
       annotation (
         Documentation(info="<html>
 <p>
-This package contains <b>discontinuous</b> and
-<b>non-differentiable, algebraic</b> input/output blocks.
+This package contains <strong>discontinuous</strong> and
+<strong>non-differentiable, algebraic</strong> input/output blocks.
 </p>
 </html>", revisions="<html>
 <ul>
-<li><i>October 21, 2002</i>
+<li><em>October 21, 2002</em>
        by Christian Schweiger:<br>
        New block VariableLimiter added.</li>
-<li><i>August 22, 1999</i>
+<li><em>August 22, 1999</em>
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
        Realized, based on an existing Dymola library
        of Dieter Moormann and Hilding Elmqvist.

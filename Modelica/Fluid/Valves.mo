@@ -76,7 +76,7 @@ If <code>checkValve</code> is false, the valve supports reverse flow, with a sym
 </p>
 
 <p>
-The treatment of parameters <b>Kv</b> and <b>Cv</b> is
+The treatment of parameters <strong>Kv</strong> and <strong>Cv</strong> is
 explained in detail in the
 <a href=\"modelica://Modelica.Fluid.UsersGuide.ComponentDefinition.ValveCharacteristics\">User's Guide</a>.
 </p>
@@ -84,7 +84,7 @@ explained in detail in the
 </html>",
       revisions="<html>
 <ul>
-<li><i>2 Nov 2005</i>
+<li><em>2 Nov 2005</em>
     by <a href=\"mailto:francesco.casella@polimi.it\">Francesco Casella</a>:<br>
        Adapted from the ThermoPower library.</li>
 </ul>
@@ -173,7 +173,7 @@ The parameters of this model are explained in detail in
 <p>If <code>checkValve</code> is false, the valve supports reverse flow, with a symmetric flow characteristic curve. Otherwise, reverse flow is stopped (check valve behaviour).</p>
 
 <p>
-The treatment of parameters <b>Kv</b> and <b>Cv</b> is
+The treatment of parameters <strong>Kv</strong> and <strong>Cv</strong> is
 explained in detail in the
 <a href=\"modelica://Modelica.Fluid.UsersGuide.ComponentDefinition.ValveCharacteristics\">User's Guide</a>.
 </p>
@@ -181,7 +181,7 @@ explained in detail in the
 </html>",
         revisions="<html>
 <ul>
-<li><i>2 Nov 2005</i>
+<li><em>2 Nov 2005</em>
     by <a href=\"mailto:francesco.casella@polimi.it\">Francesco Casella</a>:<br>
        Adapted from the ThermoPower library.</li>
 </ul>
@@ -282,7 +282,7 @@ The parameters of this model are explained in detail in
 <p>If <code>checkValve</code> is false, the valve supports reverse flow, with a symmetric flow characteristic curve. Otherwise, reverse flow is stopped (check valve behaviour).</p>
 
 <p>
-The treatment of parameters <b>Kv</b> and <b>Cv</b> is
+The treatment of parameters <strong>Kv</strong> and <strong>Cv</strong> is
 explained in detail in the
 <a href=\"modelica://Modelica.Fluid.UsersGuide.ComponentDefinition.ValveCharacteristics\">User's Guide</a>.
 </p>
@@ -290,7 +290,7 @@ explained in detail in the
 </html>",
       revisions="<html>
 <ul>
-<li><i>2 Nov 2005</i>
+<li><em>2 Nov 2005</em>
     by <a href=\"mailto:francesco.casella@polimi.it\">Francesco Casella</a>:<br>
        Adapted from the ThermoPower library.</li>
 </ul>
@@ -352,7 +352,7 @@ a simple model of a variable pressure loss is needed.</p>
 </html>",
       revisions="<html>
 <ul>
-<li><i>2 Nov 2005</i>
+<li><em>2 Nov 2005</em>
     by <a href=\"mailto:francesco.casella@polimi.it\">Francesco Casella</a>:<br>
        Adapted from the ThermoPower library.</li>
 </ul>
@@ -397,7 +397,7 @@ a simple model of a variable pressure loss is needed.</p>
             fillPattern=FillPattern.Solid)}),
     Documentation(info="<html>
 <p>
-This very simple model provides a (small) pressure drop which is proportional to the flowrate if the Boolean open signal is <b>true</b>. Otherwise, the mass flow rate is zero. If opening_min > 0, a small leakage mass flow rate occurs when open = <b>false</b>.
+This very simple model provides a (small) pressure drop which is proportional to the flowrate if the Boolean open signal is <strong>true</strong>. Otherwise, the mass flow rate is zero. If opening_min > 0, a small leakage mass flow rate occurs when open = <strong>false</strong>.
 </p>
 <p>This model can be used for simplified modelling of on-off valves, when it is not important to accurately describe the pressure loss when the valve is open. Although the medium model is not used to determine the pressure loss, it must be nevertheless be specified, so that the fluid ports can be connected to other components using the same medium model.</p>
 <p>The model is adiabatic (no heat losses to the ambient) and neglects changes in kinetic energy from the inlet to the outlet.</p>
@@ -408,7 +408,7 @@ it is open.
 </html>",
       revisions="<html>
 <ul>
-<li><i>Nov 2005</i>
+<li><em>Nov 2005</em>
     by Katja Poschlad (based on ValveLinear).</li>
 </ul>
 </html>"));
@@ -640,7 +640,7 @@ y=uMin is passed as output.
 <p>The model optionally supports reverse flow conditions (assuming symmetrical behaviour) or check valve operation, and has been suitably regularized, compared to the equations in the standard, in order to avoid numerical singularities around zero pressure drop operating conditions.</p>
 <p>The model assumes adiabatic operation (no heat losses to the ambient); changes in kinetic energy
 from inlet to outlet are neglected in the energy balance.</p>
-<p><b>Modelling options</b></p>
+<p><strong>Modelling options</strong></p>
 <p>The following options are available to specify the valve flow coefficient in fully open conditions:
 <ul><li><code>CvData = Modelica.Fluid.Types.CvTypes.Av</code>: the flow coefficient is given by the metric <code>Av</code> coefficient (m^2).
 <li><code>CvData = Modelica.Fluid.Types.CvTypes.Kv</code>: the flow coefficient is given by the metric <code>Kv</code> coefficient (m^3/h).
@@ -660,14 +660,14 @@ from inlet to outlet are neglected in the energy balance.</p>
 </blockquote>
 
 <p>
-The treatment of parameters <b>Kv</b> and <b>Cv</b> is
+The treatment of parameters <strong>Kv</strong> and <strong>Cv</strong> is
 explained in detail in the
 <a href=\"modelica://Modelica.Fluid.UsersGuide.ComponentDefinition.ValveCharacteristics\">User's Guide</a>.
 </p>
 
 <p>
 With the optional parameter \"filteredOpening\", the opening can be filtered with a
-<b>second order, criticalDamping</b> filter so that the
+<strong>second order, criticalDamping</strong> filter so that the
 opening demand is delayed by parameter \"riseTime\". The filtered opening is then available
 via the output signal \"opening_filtered\" and is used to control the valve equations.
 This approach approximates the driving device of a valve. The \"riseTime\" parameter
@@ -683,8 +683,8 @@ a step input of opening. The icon of a valve changes in the following way
 </blockquote>
 
 <p>
-If \"filteredOpening = <b>true</b>\", the input signal \"opening\" is limited
-by parameter <b>leakageOpening</b>, i.e., if \"opening\" becomes smaller as
+If \"filteredOpening = <strong>true</strong>\", the input signal \"opening\" is limited
+by parameter <strong>leakageOpening</strong>, i.e., if \"opening\" becomes smaller as
 \"leakageOpening\", then \"leakageOpening\" is used instead of \"opening\" as input
 for the filter. The reason is that \"opening=0\" might structurally change the equations of the
 fluid network leading to a singularity. If a small leakage flow is introduced
@@ -693,7 +693,7 @@ fluid network leading to a singularity. If a small leakage flow is introduced
 
 <p>
 In the next figure, \"opening\" and \"filtered_opening\" are shown in the case that
-filteredOpening = <b>true</b>, riseTime = 1 s, and leakageOpening = 0.02.
+filteredOpening = <strong>true</strong>, riseTime = 1 s, and leakageOpening = 0.02.
 </p>
 
 <blockquote>
@@ -703,12 +703,12 @@ filteredOpening = <b>true</b>, riseTime = 1 s, and leakageOpening = 0.02.
 
 </html>", revisions="<html>
 <ul>
-<li><i>Sept. 5, 2010</i>
+<li><em>Sept. 5, 2010</em>
     by <a href=\"mailto:martin.otter@dlr.de\">Martin Otter</a>:<br>
     Optional filtering of opening introduced, based on a proposal
     from Mike Barth (Universitaet der Bundeswehr Hamburg) +
     Documentation improved.</li>
-<li><i>2 Nov 2005</i>
+<li><em>2 Nov 2005</em>
     by <a href=\"mailto:francesco.casella@polimi.it\">Francesco Casella</a>:<br>
        Adapted from the ThermoPower library.</li>
 </ul>

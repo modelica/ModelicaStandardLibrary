@@ -464,7 +464,7 @@ The design flow direction with positive m_flow variables is counterflow.</p>
               textString="%name")}),
                                 Documentation(revisions="<html>
 <ul>
-<li><i>04 Mar 2006</i>
+<li><em>04 Mar 2006</em>
     by Katrin Pr&ouml;l&szlig;:<br>
        Model added to the Fluid library</li>
 </ul>

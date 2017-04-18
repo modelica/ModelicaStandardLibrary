@@ -73,8 +73,8 @@ equation
           Line(points={{60,0},{60,-4}}, color={85,255,85}),
           Line(points={{60,-16},{60,-20},{80,-20}}, color={85,255,85})}),
       Documentation(info="<html>
-<p>This model is a <b>negative</b> resistor without thermal behavior which is described as a switched capacitor model (care for the schematic).</p>
-<p>The clock source is inside the model, its frequency can be chosen by parameter. Also the resistance is a parameter, it has to be <b>positive</b>. The internal (switched) capacitor is parametrized in such a way that the total resistance is independently from the frequency equal to the negative value of the <b>negative</b> resistance parameter.</p>
+<p>This model is a <strong>negative</strong> resistor without thermal behavior which is described as a switched capacitor model (care for the schematic).</p>
+<p>The clock source is inside the model, its frequency can be chosen by parameter. Also the resistance is a parameter, it has to be <strong>positive</strong>. The internal (switched) capacitor is parametrized in such a way that the total resistance is independently from the frequency equal to the negative value of the <strong>negative</strong> resistance parameter.</p>
 </html>"));
 end Rn;
 
@@ -149,8 +149,8 @@ equation
             lineColor={0,0,255},
             textString="%name")}),
       Documentation(info="<html>
-<p>This model is a <b>positive</b> resistor without thermal behavior which is described as a switched capacitor model (care for the schematic).</p>
-<p>The clock source is inside the model, its frequency can be chosen by parameter. Also the resistance is a parameter, it has to be <b>positive</b>. The internal (switched) capacitor is parametrized in such a way that the total resistance is independently from the frequency equal to the resistance parameter.</p>
+<p>This model is a <strong>positive</strong> resistor without thermal behavior which is described as a switched capacitor model (care for the schematic).</p>
+<p>The clock source is inside the model, its frequency can be chosen by parameter. Also the resistance is a parameter, it has to be <strong>positive</strong>. The internal (switched) capacitor is parametrized in such a way that the total resistance is independently from the frequency equal to the resistance parameter.</p>
 </html>"));
 end Rp;
 
@@ -451,10 +451,10 @@ equation
     experiment(StopTime=60, Interval=0.04),
     Documentation(revisions="<html>
 <ul>
-<li><i>January 13, 2006</i>
+<li><em>January 13, 2006</em>
        by Christoph Clauss<br>
        included into Modelica Standard Library</li>
-<li><i>September 15, 2005</i>
+<li><em>September 15, 2005</em>
        by by Peter Trappe designed and by Teresa Schlegel<br>
        initially modelled.</li>
 </ul>

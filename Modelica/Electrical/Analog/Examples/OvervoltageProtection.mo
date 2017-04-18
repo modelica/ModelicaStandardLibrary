@@ -65,10 +65,10 @@ equation
 <p>The simulation end time should be set to 0.4. To get the typical behaviour please plot sineVoltage.p.v, RL.p.v, zDiode_2.n.v and zDiode_1.n.i.</p>
 </html>",revisions="<html>
 <ul>
-<li><i>February 02, 2009</i>
+<li><em>February 02, 2009</em>
        by Kristin Majetta<br>
        documentation added</li>
-<li><i> January 08, 2009   </i>
+<li><em> January 08, 2009   </em>
         by Matthias Franke <br>initially implemented
        </li>
 </ul>

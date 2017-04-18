@@ -486,7 +486,7 @@ of this example:
 <p>
 Here the first order block \"firstOrder1\" shall be inverted. This is performed
 by connecting its inputs and outputs with an instance of block
-Modelica.Blocks.Math.<b>InverseBlockConstraints</b>. By this connection,
+Modelica.Blocks.Math.<strong>InverseBlockConstraints</strong>. By this connection,
 the inputs and outputs are exchanged. The goal is to compute the input of the
 \"firstOrder1\" block so that its output follows a given sine signal.
 For this, the sine signal \"sin\" is first filtered with a \"CriticalDamping\"
@@ -572,8 +572,8 @@ model.
 This example demonstrates a network of logical blocks. Note, that
 the Boolean values of the input and output signals are visualized
 in the diagram animation, by the small \"circles\" close to the connectors.
-If a \"circle\" is \"white\", the signal is <b>false</b>. It a
-\"circle\" is \"green\", the signal is <b>true</b>.
+If a \"circle\" is \"white\", the signal is <strong>false</strong>. It a
+\"circle\" is \"green\", the signal is <strong>true</strong>.
 </p>
 </html>"));
   end LogicalNetwork1;
@@ -669,8 +669,8 @@ Note, that
 
 <li> the Boolean values of the input and output signals are visualized
      in the diagram animation, by the small \"circles\" close to the connectors.
-     If a \"circle\" is \"white\", the signal is <b>false</b>. If a
-     \"circle\" is \"green\", the signal is <b>true</b>.</li>
+     If a \"circle\" is \"white\", the signal is <strong>false</strong>. If a
+     \"circle\" is \"green\", the signal is <strong>true</strong>.</li>
 </ul>
 
 </html>"));
@@ -768,8 +768,8 @@ Note, that
 
 <li> the Boolean values of the input and output signals are visualized
      in the diagram animation, by the small \"circles\" close to the connectors.
-     If a \"circle\" is \"white\", the signal is <b>false</b>. If a
-     \"circle\" is \"green\", the signal is <b>true</b>.</li>
+     If a \"circle\" is \"white\", the signal is <strong>false</strong>. If a
+     \"circle\" is \"green\", the signal is <strong>true</strong>.</li>
 
 </ul>
 
@@ -937,8 +937,8 @@ Note, that
 
 <li> the Boolean values of the input and output signals are visualized
      in the diagram animation, by the small \"circles\" close to the connectors.
-     If a \"circle\" is \"white\", the signal is <b>false</b>. If a
-     \"circle\" is \"green\", the signal is <b>true</b>.</li>
+     If a \"circle\" is \"white\", the signal is <strong>false</strong>. If a
+     \"circle\" is \"green\", the signal is <strong>true</strong>.</li>
 
 </ul>
 
@@ -1030,7 +1030,7 @@ to show how diagram animations can be constructed.
         points={{-38,80},{20,80},{20,18},{32,18},{32,10},{30,10}},
         color={0,0,127}));
     annotation (Documentation(info="<html>
-<p><b>Signal bus concept</b></p>
+<p><strong>Signal bus concept</strong></p>
 <p>
 In technical systems, such as vehicles, robots or satellites, many signals
 are exchanged between components. In a simulation system, these signals
@@ -1053,7 +1053,7 @@ at hand of this model (Modelica.Blocks.Examples.BusUsage):
 <ul>
 <li> Connector instance \"controlBus\" is a hierarchical connector that is
      used to exchange signals between different components. It is
-     defined as \"expandable connector\" in order that <b>no</b> central definition
+     defined as \"expandable connector\" in order that <strong>no</strong> central definition
      of the connector is needed but is automatically constructed by the
      signals connected to it (see also Modelica specification 2.2.1).</li>
 <li> Input/output signals can be directly connected to the \"controlBus\".</li>
@@ -1066,14 +1066,14 @@ at hand of this model (Modelica.Blocks.Examples.BusUsage):
 The control and sub-control bus icons are provided within Modelica.Icons.
 In <a href=\"modelica://Modelica.Blocks.Examples.BusUsage_Utilities.Interfaces\">Modelica.Blocks.Examples.BusUsage_Utilities.Interfaces</a>
 the buses for this example are defined. Both the \"ControlBus\" and the \"SubControlBus\" are
-<b>expandable</b> connectors that do not define any variable. For example,
+<strong>expandable</strong> connectors that do not define any variable. For example,
 <a href=\"modelica://Modelica.Blocks.Examples.BusUsage_Utilities.Interfaces.ControlBus#text\">Interfaces.ControlBus</a>
 is defined as:
 </p>
-<pre>  <b>expandable connector</b> ControlBus
-      <b>extends</b> Modelica.Icons.ControlBus;
-      <b>annotation</b> ();
-  <b>end</b> ControlBus;
+<pre>  <strong>expandable connector</strong> ControlBus
+      <strong>extends</strong> Modelica.Icons.ControlBus;
+      <strong>annotation</strong> ();
+  <strong>end</strong> ControlBus;
 </pre>
 <p>
 Note, the \"annotation\" in the connector is important since the color
@@ -1086,7 +1086,7 @@ the color of the \"ControlBus\" with double width (due to \"thickness=0.5\").
 </p>
 
 <p>
-An <b>expandable</b> connector is a connector where the content of the connector
+An <strong>expandable</strong> connector is a connector where the content of the connector
 is constructed by the variables connected to instances of this connector.
 For example, if \"sine.y\" is connected to the \"controlBus\", the following
 menu pops-up in Dymola:
@@ -1100,7 +1100,7 @@ The \"Add variable/New name\" field allows the user to define the name of the si
 the \"controlBus\". When typing \"realSignal1\" as \"New name\", a connection of the form:
 </p>
 
-<pre>     <b>connect</b>(sine.y, controlBus.realSignal1)
+<pre>     <strong>connect</strong>(sine.y, controlBus.realSignal1)
 </pre>
 
 <p>
@@ -1113,16 +1113,16 @@ the expected implementation of the \"ControlBus\" and of the \"SubControlBus\" a
 For example \"Internal.ControlBus\" is defined as:
 </p>
 
-<pre>  <b>expandable connector</b> StandardControlBus
-    <b>extends</b> BusUsage_Utilities.Interfaces.ControlBus;
+<pre>  <strong>expandable connector</strong> StandardControlBus
+    <strong>extends</strong> BusUsage_Utilities.Interfaces.ControlBus;
 
-    <b>import</b> SI = Modelica.SIunits;
+    <strong>import</strong> SI = Modelica.SIunits;
     SI.AngularVelocity    realSignal1   \"First Real signal\";
     SI.Velocity           realSignal2   \"Second Real signal\";
     Integer               integerSignal \"Integer signal\";
     Boolean               booleanSignal \"Boolean signal\";
     StandardSubControlBus subControlBus \"Combined signal\";
-  <b>end</b> StandardControlBus;
+  <strong>end</strong> StandardControlBus;
 </pre>
 
 <p>
@@ -1169,12 +1169,12 @@ block:
 </p>
 
 <ul>
-<li> <b>globalSeed</b> is the <a href=\"modelica://Modelica.Blocks.Noise.GlobalSeed\">Noise.GlobalSeed</a>
+<li> <strong>globalSeed</strong> is the <a href=\"modelica://Modelica.Blocks.Noise.GlobalSeed\">Noise.GlobalSeed</a>
      block with default options (just dragged from sublibrary Noise).</li>
-<li> <b>uniformNoise1</b> is an instance of
+<li> <strong>uniformNoise1</strong> is an instance of
      <a href=\"modelica://Modelica.Blocks.Noise.UniformNoise\">Noise.UniformNoise</a> with
      samplePeriod = 0.02 s and a Uniform distribution with limits y_min=-1, y_max=3.</li>
-<li> <b>uniformNoise2</b> is identical to uniformNoise1 with the exception that
+<li> <strong>uniformNoise2</strong> is identical to uniformNoise1 with the exception that
       useAutomaticLocalSeed=false and fixedLocalSeed=10.</li>
 </ul>
 
@@ -1462,7 +1462,7 @@ truncated normal distriution has more values centered around the mean value 1.
 <p>
 This example demonstrates statistical properties of the
 <a href=\"modelica://Modelica.Blocks.Noise.UniformNoise\">Blocks.Noise.UniformNoise</a> block
-using a <b>uniform</b> random number distribution.
+using a <strong>uniform</strong> random number distribution.
 Block &quot;noise&quot; defines a band of 0 .. 6 and from the generated noise the mean and the variance
 is computed with blocks of package <a href=\"modelica://Modelica.Blocks.Math\">Blocks.Math</a>.
 Simulation results are shown in the next diagram:
@@ -1577,7 +1577,7 @@ distribution have good statistical properties.
 <p>
 This example demonstrates statistical properties of the
 <a href=\"modelica://Modelica.Blocks.Noise.NormalNoise\">Blocks.Noise.NormalNoise</a> block
-using a <b>normal</b> random number distribution with mu=3, sigma=1.
+using a <strong>normal</strong> random number distribution with mu=3, sigma=1.
 From the generated noise the mean and the variance
 is computed with blocks of package <a href=\"modelica://Modelica.Blocks.Math\">Blocks.Math</a>.
 Simulation results are shown in the next diagram:
@@ -2852,7 +2852,7 @@ This library contains input/output blocks to build up block diagrams.
 </p>
 
 <dl>
-<dt><b>Main Author:</b></dt>
+<dt><strong>Main Author:</strong></dt>
 <dd><a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a><br>
     Deutsches Zentrum f&uuml;r Luft und Raumfahrt e. V. (DLR)<br>
     Oberpfaffenhofen<br>
@@ -2864,11 +2864,11 @@ This library contains input/output blocks to build up block diagrams.
 Copyright &copy; 1998-2016, Modelica Association and DLR.
 </p>
 <p>
-<i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
+<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</em>
 </p>
 </html>", revisions="<html>
 <ul>
-<li><i>June 23, 2004</i>
+<li><em>June 23, 2004</em>
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
        Introduced new block connectors and adapted all blocks to the new connectors.
        Included subpackages Continuous, Discrete, Logical, Nonlinear from
@@ -2877,12 +2877,12 @@ Copyright &copy; 1998-2016, Modelica Association and DLR.
        and in the new package Modelica.Blocks.Tables.
        Added new blocks to Blocks.Sources and Blocks.Logical.
        </li>
-<li><i>October 21, 2002</i>
+<li><em>October 21, 2002</em>
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>
        and Christian Schweiger:<br>
        New subpackage Examples, additional components.
        </li>
-<li><i>June 20, 2000</i>
+<li><em>June 20, 2000</em>
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a> and
        Michael Tiller:<br>
        Introduced a replaceable signal type into
@@ -2896,12 +2896,12 @@ Copyright &copy; 1998-2016, Modelica Association and DLR.
    Sine sin1(outPort(redeclare type SignalType=Modelica.SIunits.Torque))
 </pre>
       </li>
-<li><i>Sept. 18, 1999</i>
+<li><em>Sept. 18, 1999</em>
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
        Renamed to Blocks. New subpackages Math, Nonlinear.
        Additional components in subpackages Interfaces, Continuous
        and Sources. </li>
-<li><i>June 30, 1999</i>
+<li><em>June 30, 1999</em>
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
        Realized a first version, based on an existing Dymola library
        of Dieter Moormann and Hilding Elmqvist.</li>

@@ -60,13 +60,13 @@ The regularization can be changed for the PressureLoss model.
 </p>
 </html>", revisions="<html>
 <ul>
-<li><i>8 Dec 2008</i>
+<li><em>8 Dec 2008</em>
     by Ruediger Franke:<br>
        Introduce small nominal pressure loss for regularization</li>
-<li><i>31 Oct 2007</i>
+<li><em>31 Oct 2007</em>
     by <a href=\"mailto:jonas@modelon.se\">Jonas Eborn</a>:<br>
        Changed to flow-direction dependent density</li>
-<li><i>2 Nov 2005</i>
+<li><em>2 Nov 2005</em>
     by <a href=\"mailto:francesco.casella@polimi.it\">Francesco Casella</a>:<br>
        Added to Modelica.Fluid</li>
 </ul>

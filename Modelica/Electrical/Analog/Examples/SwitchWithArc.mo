@@ -86,7 +86,7 @@ equation
 </html>",
         revisions="<html>
 <ul>
-<li><i>May, 2009   </i>
+<li><em>May, 2009   </em>
        by Anton Haumer<br> initially realized<br>
        </li>
 </ul>

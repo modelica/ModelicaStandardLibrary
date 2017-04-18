@@ -98,9 +98,9 @@ This is a second version of the \"four-bar\" mechanism, see figure:
 <p>
 In this case
 the three revolute joints on the left top-side and the two revolute
-joints on the right top side have been replaced by the joint <b>UniversalSpherical</b>
+joints on the right top side have been replaced by the joint <strong>UniversalSpherical</strong>
 that is a rod connecting a spherical and a universal joint. This joint is defined
-by <b>1 constraint</b> stating that the distance between the two spherical joints is
+by <strong>1 constraint</strong> stating that the distance between the two spherical joints is
 constant. Using this joint in a kinematic loop reduces the sizes of
 non-linear algebraic equations. For this loop, only one non-linear
 algebraic system of equations of order 1 remains.
@@ -113,12 +113,12 @@ system on the right in blue color).
 </p>
 <p>
 Another feature is that the length of the connecting rod can be
-automatically calculated during <b>initialization</b>. In order to do this,
+automatically calculated during <strong>initialization</strong>. In order to do this,
 another initialization condition has to be given. In this example, the
 initial value of the distance of the prismatic joint j2 has been fixed
 (via the \"Initialization\" menu) and the rod length of joint
 \"UniversalSpherical\" is computed during initialization since parameter
-<b>computeLength</b> = <b>true</b> is set in the joint parameter
+<strong>computeLength</strong> = <strong>true</strong> is set in the joint parameter
 menu. The main advantage is that during initialization no non-linear
 system of equation is solved and therefore initialization always works.
 To be precise, the following trivial non-linear equation is actually solved

@@ -41,8 +41,8 @@ This example demonstrates the thermal response of two masses connected by
 a conducting element. The two masses have the same heat capacity but different
 initial temperatures (T1=100 [degC], T2= 0 [degC]). The mass with the higher
 temperature will cool off while the mass with the lower temperature heats up.
-They will each asymptotically approach the calculated temperature <b>T_final_K</b>
-(<b>T_final_degC</b>) that results from dividing the total initial energy in the system by the sum
+They will each asymptotically approach the calculated temperature <strong>T_final_K</strong>
+(<strong>T_final_degC</strong>) that results from dividing the total initial energy in the system by the sum
 of the heat capacities of each element.
 </p>
 <p>
@@ -360,22 +360,22 @@ Furthermore, it is assumed that the heat capacity
 is constant (independent of temperature).
 </p>
 <p>
-The temperature T [Kelvin] of this component is a <b>state</b>.
+The temperature T [Kelvin] of this component is a <strong>state</strong>.
 A default of T = 25 degree Celsius (= SIunits.Conversions.from_degC(25))
 is used as start value for initialization.
 This usually means that at start of integration the temperature of this
 component is 25 degrees Celsius. You may, of course, define a different
 temperature as start value for initialization. Alternatively, it is possible
-to set parameter <b>steadyStateStart</b> to <b>true</b>. In this case
-the additional equation '<b>der</b>(T) = 0' is used during
+to set parameter <strong>steadyStateStart</strong> to <strong>true</strong>. In this case
+the additional equation '<strong>der</strong>(T) = 0' is used during
 initialization, i.e., the temperature T is computed in such a way that
-the component starts in <b>steady state</b>. This is useful in cases,
+the component starts in <strong>steady state</strong>. This is useful in cases,
 where one would like to start simulation in a suitable operating
 point without being forced to integrate for a long time to arrive
 at this point.
 </p>
 <p>
-Note, that parameter <b>steadyStateStart</b> is not available in
+Note, that parameter <strong>steadyStateStart</strong> is not available in
 the parameter menu of the simulation window, because its value
 is utilized during translation to generate quite different
 equations depending on its setting. Therefore, the value of this
@@ -384,9 +384,9 @@ parameter can only be changed before translating the model.
 <p>
 This component may be used for complicated geometries where
 the heat capacity C is determined my measurements. If the component
-consists mainly of one type of material, the <b>mass m</b> of the
+consists mainly of one type of material, the <strong>mass m</strong> of the
 component may be measured or calculated and multiplied with the
-<b>specific heat capacity cp</b> of the component material to
+<strong>specific heat capacity cp</strong> of the component material to
 compute C:
 </p>
 <pre>
@@ -459,7 +459,7 @@ e.g., with one of the following equations:
 </p>
 <ul>
 <li><p>
-    Conductance for a <b>box</b> geometry under the assumption
+    Conductance for a <strong>box</strong> geometry under the assumption
     that heat flows along the box length:</p>
     <pre>
     G = k*A/L
@@ -469,7 +469,7 @@ e.g., with one of the following equations:
     </pre>
     </li>
 <li><p>
-    Conductance for a <b>cylindrical</b> geometry under the assumption
+    Conductance for a <strong>cylindrical</strong> geometry under the assumption
     that heat flows from the inside to the outside radius
     of the cylinder:</p>
     <pre>
@@ -623,7 +623,7 @@ convective thermal conductance Gc by measurements. The basic constitutive equati
 Gc = G.signal[1] is an input signal to the component, since Gc is
 nearly never constant in practice. For example, Gc may be a function
 of the speed of a cooling fan. For simple situations,
-Gc may be <i>calculated</i> according to
+Gc may be <em>calculated</em> according to
 </p>
 <pre>
    Gc = A*h
@@ -635,7 +635,7 @@ where the heat transfer coefficient h is calculated
 from properties of the fluid flowing over the solid. Examples:
 </p>
 <p>
-<b>Machines cooled by air</b> (empirical, very rough approximation according
+<strong>Machines cooled by air</strong> (empirical, very rough approximation according
 to R. Fischer: Elektrische Maschinen, 10th edition, Hanser-Verlag 1999,
 p. 378):
 </p>
@@ -645,8 +645,8 @@ p. 378):
     where
       v: Air velocity in [m/s]
 </pre>
-<p><b>Laminar</b> flow with constant velocity of a fluid along a
-<b>flat plate</b> where the heat flow rate from the plate
+<p><strong>Laminar</strong> flow with constant velocity of a fluid along a
+<strong>flat plate</strong> where the heat flow rate from the plate
 to the fluid (= solid.Q_flow) is kept constant
 (according to J.P.Holman: Heat Transfer, 8th edition,
 McGraw-Hill, 1997, p.270):
@@ -875,9 +875,9 @@ Epsilon=0, if the body reflects all radiation and does not absorb any.
    silver, polished       0.02
    wood                   0.85..0.9
 </pre>
-<p><b>Analytical Equations for Gr</b></p>
+<p><strong>Analytical Equations for Gr</strong></p>
 <p>
-<b>Small convex object in large enclosure</b>
+<strong>Small convex object in large enclosure</strong>
 (e.g., a hot machine in a room):
 </p>
 <pre>
@@ -887,7 +887,7 @@ Epsilon=0, if the body reflects all radiation and does not absorb any.
        A: Surface area of object where radiation
           heat transfer takes place
 </pre>
-<p><b>Two parallel plates</b>:</p>
+<p><strong>Two parallel plates</strong>:</p>
 <pre>
     Gr = A/(1/e1 + 1/e2 - 1)
     where
@@ -895,7 +895,7 @@ Epsilon=0, if the body reflects all radiation and does not absorb any.
        e2: Emission value of plate2 (0..1)
        A : Area of plate1 (= area of plate2)
 </pre>
-<p><b>Two long cylinders in each other</b>, where radiation takes
+<p><strong>Two long cylinders in each other</strong>, where radiation takes
 place from the inner to the outer cylinder):
 </p>
 <pre>
@@ -979,7 +979,7 @@ place from the inner to the outer cylinder):
               color={181,0,0})}),
         Documentation(info="<html>
 <p>
-This is a model to collect the heat flows from <i>m</i> heatports to one single heatport.
+This is a model to collect the heat flows from <em>m</em> heatports to one single heatport.
 </p>
 </html>"));
     end ThermalCollector;
@@ -1420,7 +1420,7 @@ i.e., it defines a fixed temperature as a boundary condition.
         Documentation(info="<html>
 <p>
 This model represents a variable temperature boundary condition.
-The temperature in [K] is given as input signal <b>T</b>
+The temperature in [K] is given as input signal <strong>T</strong>
 to the model. The effect is that an instance of this model acts as
 an infinite reservoir able to absorb or generate as much energy
 as required to keep the temperature at the specified value.
@@ -1960,7 +1960,7 @@ of units at all places where Kelvin is required as parameter.
 Example:
 </p>
 <pre>
-    <b>import</b> SIunits.Conversions.*;
+    <strong>import</strong> SIunits.Conversions.*;
     Modelica.Thermal.HeatTransfer.HeatCapacitor C(T0 = from_degC(20));
 </pre>
 </html>"));
@@ -2294,7 +2294,7 @@ of units at all places where Kelvin is required as parameter.
 Example:
 </p>
 <pre>
-    <b>import</b> SIunits.Conversions.*;
+    <strong>import</strong> SIunits.Conversions.*;
     Modelica.Thermal.HeatTransfer.HeatCapacitor C(T0 = from_degF(70));
 </pre>
 </html>"));
@@ -2628,7 +2628,7 @@ of units at all places where Kelvin is required as parameter.
 Example:
 </p>
 <pre>
-    <b>import</b> SIunits.Conversions.*;
+    <strong>import</strong> SIunits.Conversions.*;
     Modelica.Thermal.HeatTransfer.HeatCapacitor C(T0 = from_degRk(500));
 </pre>
 </html>"));
@@ -2660,13 +2660,13 @@ The variables in the connector are:</p>
    T       Temperature in [Kelvin].
    Q_flow  Heat flow rate in [Watt].
 </pre>
-<p>According to the Modelica sign convention, a <b>positive</b> heat flow
-rate <b>Q_flow</b> is considered to flow <b>into</b> a component. This
+<p>According to the Modelica sign convention, a <strong>positive</strong> heat flow
+rate <strong>Q_flow</strong> is considered to flow <strong>into</strong> a component. This
 convention has to be used whenever this connector is used in a model
 class.</p>
-<p>Note, that the two connector classes <b>HeatPort_a</b> and
-<b>HeatPort_b</b> are identical with the only exception of the different
-<b>icon layout</b>.</p></html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+<p>Note, that the two connector classes <strong>HeatPort_a</strong> and
+<strong>HeatPort_b</strong> are identical with the only exception of the different
+<strong>icon layout</strong>.</p></html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Rectangle(
               extent={{-100,100},{100,-100}},
               lineColor={191,0,0},
@@ -2696,13 +2696,13 @@ The variables in the connector are:</p>
    T       Temperature in [Kelvin].
    Q_flow  Heat flow rate in [Watt].
 </pre>
-<p>According to the Modelica sign convention, a <b>positive</b> heat flow
-rate <b>Q_flow</b> is considered to flow <b>into</b> a component. This
+<p>According to the Modelica sign convention, a <strong>positive</strong> heat flow
+rate <strong>Q_flow</strong> is considered to flow <strong>into</strong> a component. This
 convention has to be used whenever this connector is used in a model
 class.</p>
-<p>Note, that the two connector classes <b>HeatPort_a</b> and
-<b>HeatPort_b</b> are identical with the only exception of the different
-<b>icon layout</b>.</p></html>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+<p>Note, that the two connector classes <strong>HeatPort_a</strong> and
+<strong>HeatPort_b</strong> are identical with the only exception of the different
+<strong>icon layout</strong>.</p></html>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={Rectangle(
               extent={{-50,50},{50,-50}},
               lineColor={191,0,0},
@@ -2737,10 +2737,10 @@ class.</p>
       annotation (Documentation(info="<html>
 <p>
 This partial model contains the basic connectors and variables to
-allow heat transfer models to be created that <b>do not store energy</b>,
+allow heat transfer models to be created that <strong>do not store energy</strong>,
 This model defines and includes equations for the temperature
-drop across the element, <b>dT</b>, and the heat flow rate
-through the element from port_a to port_b, <b>Q_flow</b>.
+drop across the element, <strong>dT</strong>, and the heat flow rate
+through the element from port_a to port_b, <strong>Q_flow</strong>.
 </p>
 <p>
 By extending this model, it is possible to write simple
@@ -2774,13 +2774,13 @@ constitutive equations for many types of heat transfer components.
 This partial model provides a conditional heat port for dissipating losses.
 </p>
 <ul>
-<li>If <b>useHeatPort</b> is set to <b>false</b> (default), no heat port is available, and the thermal loss power is dissipated internally.
-In this case, the parameter <b>T</b> specifies the fixed device temperature (the default for T = 20&deg;C) </li>
-<li>If <b>useHeatPort</b> is set to <b>true</b>, the heat port is available. </li>
+<li>If <strong>useHeatPort</strong> is set to <strong>false</strong> (default), no heat port is available, and the thermal loss power is dissipated internally.
+In this case, the parameter <strong>T</strong> specifies the fixed device temperature (the default for T = 20&deg;C) </li>
+<li>If <strong>useHeatPort</strong> is set to <strong>true</strong>, the heat port is available. </li>
 </ul>
 <p>
 If this model is used, the loss power has to be provided by an equation in the model which inherits from PartialElementaryConditionalHeatPort model
-(<b>lossPower = ...</b>). The device temperature <b>TheatPort</b> can be used to describe the influence of the device temperature on the model behaviour.
+(<strong>lossPower = ...</strong>). The device temperature <strong>TheatPort</strong> can be used to describe the influence of the device temperature on the model behaviour.
 </p>
 </html>"));
     end PartialElementaryConditionalHeatPort;
@@ -2801,12 +2801,12 @@ If this model is used, the loss power has to be provided by an equation in the m
 This partial model provides a conditional heat port for dissipating losses.
 </p>
 <ul>
-<li>If <b>useHeatPort</b> is set to <b>false</b> (default), no heat port is available, and the thermal loss power is dissipated internally.
-<li>If <b>useHeatPort</b> is set to <b>true</b>, the heat port is available and must be connected from the outside.</li>
+<li>If <strong>useHeatPort</strong> is set to <strong>false</strong> (default), no heat port is available, and the thermal loss power is dissipated internally.
+<li>If <strong>useHeatPort</strong> is set to <strong>true</strong>, the heat port is available and must be connected from the outside.</li>
 </ul>
 <p>
 If this model is used, the loss power has to be provided by an equation in the model which inherits from the PartialElementaryConditionalHeatPortWithoutT model
-(<b>lossPower = ...</b>).
+(<strong>lossPower = ...</strong>).
 </p>
 
 <p>
@@ -2844,13 +2844,13 @@ Note, this partial model is used in cases, where heatPort.T (that is the device 
 This partial model provides a conditional heat port for dissipating losses.
 </p>
 <ul>
-<li>If <b>useHeatPort</b> is set to <b>false</b> (default), no heat port is available, and the thermal loss power is dissipated internally.
-In this case, the parameter <b>T</b> specifies the fixed device temperature (the default for T = 20&deg;C) </li>
-<li>If <b>useHeatPort</b> is set to <b>true</b>, the heat port is available. </li>
+<li>If <strong>useHeatPort</strong> is set to <strong>false</strong> (default), no heat port is available, and the thermal loss power is dissipated internally.
+In this case, the parameter <strong>T</strong> specifies the fixed device temperature (the default for T = 20&deg;C) </li>
+<li>If <strong>useHeatPort</strong> is set to <strong>true</strong>, the heat port is available. </li>
 </ul>
 <p>
-If this model is used, the <b>internalHeatPort</b> has to be connected in the model which inherits from PartialElementaryConditionalHeatPort model.
-The device temperature <b>internalHeatPort.T</b> can be used to describe the influence of the device temperature on the model behaviour.
+If this model is used, the <strong>internalHeatPort</strong> has to be connected in the model which inherits from PartialElementaryConditionalHeatPort model.
+The device temperature <strong>internalHeatPort.T</strong> can be used to describe the influence of the device temperature on the model behaviour.
 </p>
 </html>"));
     end PartialConditionalHeatPort;
@@ -2906,7 +2906,7 @@ The device temperature <b>internalHeatPort.T</b> can be used to describe the inf
         points = {{-17,-46},{-17,-34},{-40,-40},{-17,-46}})}),
                             Documentation(info="<html>
 <p>
-This package contains components to model <b>1-dimensional heat transfer</b>
+This package contains components to model <strong>1-dimensional heat transfer</strong>
 with lumped elements. This allows especially to model heat transfer in
 machines provided the parameters of the lumped elements, such as
 the heat capacity of a part, can be determined by measurements
@@ -2915,13 +2915,13 @@ calculating the lumped element parameters from some basic analytic
 formulas is usually not possible).
 </p>
 <p>
-Example models how to use this library are given in subpackage <b>Examples</b>.<br>
-For a first simple example, see <b>Examples.TwoMasses</b> where two masses
+Example models how to use this library are given in subpackage <strong>Examples</strong>.<br>
+For a first simple example, see <strong>Examples.TwoMasses</strong> where two masses
 with different initial temperatures are getting in contact to each
 other and arriving after some time at a common temperature.<br>
-<b>Examples.ControlledTemperature</b> shows how to hold a temperature
+<strong>Examples.ControlledTemperature</strong> shows how to hold a temperature
 within desired limits by switching on and off an electric resistor.<br>
-A more realistic example is provided in <b>Examples.Motor</b> where the
+A more realistic example is provided in <strong>Examples.Motor</strong> where the
 heating of an electrical motor is modelled, see the following screen shot
 of this example:
 </p>
@@ -2931,11 +2931,11 @@ of this example:
 </p>
 
 <p>
-The <b>filled</b> and <b>non-filled red squares</b> at the left and
-right side of a component represent <b>thermal ports</b> (connector HeatPort).
+The <strong>filled</strong> and <strong>non-filled red squares</strong> at the left and
+right side of a component represent <strong>thermal ports</strong> (connector HeatPort).
 Drawing a line between such squares means that they are thermally connected.
-The variables of a HeatPort connector are the temperature <b>T</b> at the port
-and the heat flow rate <b>Q_flow</b> flowing into the component (if Q_flow is positive,
+The variables of a HeatPort connector are the temperature <strong>T</strong> at the port
+and the heat flow rate <strong>Q_flow</strong> flowing into the component (if Q_flow is positive,
 the heat flows into the element, otherwise it flows out of the element):
 </p>
 <pre>   Modelica.SIunits.Temperature  T  \"absolute temperature at port in Kelvin\";
@@ -2943,17 +2943,17 @@ the heat flows into the element, otherwise it flows out of the element):
 </pre>
 <p>
 Note, that all temperatures of this package, including initial conditions,
-are given in Kelvin. For convenience, in subpackages <b>HeatTransfer.Celsius</b>,
- <b>HeatTransfer.Fahrenheit</b> and <b>HeatTransfer.Rankine</b> components are provided such that source and
+are given in Kelvin. For convenience, in subpackages <strong>HeatTransfer.Celsius</strong>,
+ <strong>HeatTransfer.Fahrenheit</strong> and <strong>HeatTransfer.Rankine</strong> components are provided such that source and
 sensor information is available in degree Celsius, degree Fahrenheit, or degree Rankine,
-respectively. Additionally, in package <b>SIunits.Conversions</b> conversion
+respectively. Additionally, in package <strong>SIunits.Conversions</strong> conversion
 functions between the units Kelvin and Celsius, Fahrenheit, Rankine are
 provided. These functions may be used in the following way:
 </p>
-<pre>  <b>import</b> SI=Modelica.SIunits;
-  <b>import</b> Modelica.SIunits.Conversions.*;
+<pre>  <strong>import</strong> SI=Modelica.SIunits;
+  <strong>import</strong> Modelica.SIunits.Conversions.*;
      ...
-  <b>parameter</b> SI.Temperature T = from_degC(25);  // convert 25 degree Celsius to Kelvin
+  <strong>parameter</strong> SI.Temperature T = from_degC(25);  // convert 25 degree Celsius to Kelvin
 </pre>
 
 <p>
@@ -2964,12 +2964,12 @@ the Modelica design group is discussing a general scheme to describe material pr
 </p>
 <p>
 For technical details in the design of this library, see the following reference:<br>
-<b>Michael Tiller (2001)</b>: <a href=\"http://www.amazon.de\">
+<strong>Michael Tiller (2001)</strong>: <a href=\"http://www.amazon.de\">
 Introduction to Physical Modeling with Modelica</a>.
 Kluwer Academic Publishers Boston.
 </p>
 <p>
-<b>Acknowledgements:</b><br>
+<strong>Acknowledgements:</strong><br>
 Several helpful remarks from the following persons are acknowledged:
 John Batteh, Ford Motors, Dearborn, U.S.A;
 <a href=\"http://www.haumer.at/\">Anton Haumer</a>, Technical Consulting &amp; Electrical Engineering, Austria;
@@ -2978,7 +2978,7 @@ Hans Olsson, Dassault Syst&egrave;mes AB, Sweden;
 Hubertus Tummescheit, Lund Institute of Technology, Lund, Sweden.
 </p>
 <dl>
-  <dt><b>Main Authors:</b></dt>
+  <dt><strong>Main Authors:</strong></dt>
   <dd>
   <p>
   <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
@@ -2988,19 +2988,19 @@ Hubertus Tummescheit, Lund Institute of Technology, Lund, Sweden.
 </p>
   </dd>
 </dl>
-<p><b>Copyright &copy; 2001-2016, Modelica Association, Michael Tiller and DLR.</b></p>
+<p><strong>Copyright &copy; 2001-2016, Modelica Association, Michael Tiller and DLR.</strong></p>
 
 <p>
-<i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
+<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</em>
 </p>
 </html>", revisions="<html>
 <ul>
-<li><i>July 15, 2002</i>
+<li><em>July 15, 2002</em>
        by Michael Tiller, <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>
        and Nikolaus Sch&uuml;rmann:<br>
        Implemented.
 </li>
-<li><i>June 13, 2005</i>
+<li><em>June 13, 2005</em>
        by <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
        Refined placing of connectors (cosmetic).<br>
        Refined all Examples; removed Examples.FrequencyInverter, introducing Examples.Motor<br>

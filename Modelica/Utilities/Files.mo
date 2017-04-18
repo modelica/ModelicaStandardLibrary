@@ -120,7 +120,7 @@ algorithm
 Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-Files.<b>list</b>(name);
+Files.<strong>list</strong>(name);
 </pre></blockquote>
 <h4>Description</h4>
 <p>
@@ -221,20 +221,20 @@ algorithm
 Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-Files.<b>copy</b>(oldName, newName);
-Files.<b>copy</b>(oldName, newName, replace = true);
+Files.<strong>copy</strong>(oldName, newName);
+Files.<strong>copy</strong>(oldName, newName, replace = true);
 </pre></blockquote>
 <h4>Description</h4>
 <p>
-Function <b>copy</b>(..) copies a file or a directory
-to a new location. Via the optional argument <b>replace</b>
+Function <strong>copy</strong>(..) copies a file or a directory
+to a new location. Via the optional argument <strong>replace</strong>
 it can be defined whether an already existing file may
 be replaced by the required copy.
 </p>
 <p>
 If oldName/newName are directories, then the newName
 directory may exist. In such a case the content of oldName
-is copied into directory newName. If replace = <b>false</b>
+is copied into directory newName. If replace = <strong>false</strong>
 it is required that the existing files
 in newName are different from the existing files in
 oldName.
@@ -276,20 +276,20 @@ algorithm
 Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-Files.<b>move</b>(oldName, newName);
-Files.<b>move</b>(oldName, newName, replace = true);
+Files.<strong>move</strong>(oldName, newName);
+Files.<strong>move</strong>(oldName, newName, replace = true);
 </pre></blockquote>
 <h4>Description</h4>
 <p>
-Function <b>move</b>(..) moves a file or a directory
-to a new location. Via the optional argument <b>replace</b>
+Function <strong>move</strong>(..) moves a file or a directory
+to a new location. Via the optional argument <strong>replace</strong>
 it can be defined whether an already existing file may
 be replaced.
 </p>
 <p>
 If oldName/newName are directories, then the newName
 directory may exist. In such a case the content of oldName
-is moved into directory newName. If replace = <b>false</b>
+is moved into directory newName. If replace = <strong>false</strong>
 it is required that the existing files
 in newName are different from the existing files in
 oldName.
@@ -356,7 +356,7 @@ algorithm
 Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-Files.<b>remove</b>(name);
+Files.<strong>remove</strong>(name);
 </pre></blockquote>
 <h4>Description</h4>
 <p>
@@ -394,7 +394,7 @@ algorithm
 Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-Files.<b>removeFile</b>(fileName);
+Files.<strong>removeFile</strong>(fileName);
 </pre></blockquote>
 <h4>Description</h4>
 <p>
@@ -510,7 +510,7 @@ algorithm
 Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-Files.<b>createDirectory</b>(directoryName);
+Files.<strong>createDirectory</strong>(directoryName);
 </pre></blockquote>
 <h4>Description</h4>
 <p>
@@ -542,7 +542,7 @@ algorithm
 Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-result = Files.<b>exist</b>(name);
+result = Files.<strong>exist</strong>(name);
 </pre></blockquote>
 <h4>Description</h4>
 <p>
@@ -573,8 +573,8 @@ algorithm
 Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-Files.<b>assertNew</b>(name);
-Files.<b>assertNew</b>(name, message=\"This is not allowed\");
+Files.<strong>assertNew</strong>(name);
+Files.<strong>assertNew</strong>(name, message=\"This is not allowed\");
 </pre></blockquote>
 <h4>Description</h4>
 <p>
@@ -598,7 +598,7 @@ external "C" fullName = ModelicaInternal_fullPathName(name) annotation(Library="
 Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-fullName = Files.<b>fullPathName</b>(name);
+fullName = Files.<strong>fullPathName</strong>(name);
 </pre></blockquote>
 <h4>Description</h4>
 <p>
@@ -663,11 +663,11 @@ algorithm
 Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-(directory, name, extension) = Files.<b>splitPathName</b>(pathName);
+(directory, name, extension) = Files.<strong>splitPathName</strong>(pathName);
 </pre></blockquote>
 <h4>Description</h4>
 <p>
-Function <b>splitPathName</b>(..) splits a path name into its parts.
+Function <strong>splitPathName</strong>(..) splits a path name into its parts.
 </p>
 <h4>Example</h4>
 <pre>
@@ -690,7 +690,7 @@ function temporaryFileName
 Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-fileName = Files.<b>temporaryFileName</b>();
+fileName = Files.<strong>temporaryFileName</strong>();
 </pre></blockquote>
 <h4>Description</h4>
 <p>
@@ -711,12 +711,12 @@ end temporaryFileName;
                    "<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-fileReference = FileSystem.<b>loadResource</b>(uri);
+fileReference = FileSystem.<strong>loadResource</strong>(uri);
 </pre></blockquote>
 <h4>Description</h4>
 <p>
-The function call \"<code>FileSystem.<b>loadResource</b>(uri)</code>\" returns the
-<b>absolute path name</b> of the file that is either defined by an URI or by a local
+The function call \"<code>FileSystem.<strong>loadResource</strong>(uri)</code>\" returns the
+<strong>absolute path name</strong> of the file that is either defined by an URI or by a local
 path name. With the returned file name it is possible to
 access the file with function calls of the C standard library.
 If the data or file is stored in a data-base,
@@ -759,7 +759,7 @@ character is also the escape character in Modelica and C Strings.
 In the table below an example call to every function is given:
 </p>
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><th><b><i>Function/type</i></b></th><th><b><i>Description</i></b></th></tr>
+  <tr><th><strong><em>Function/type</em></strong></th><th><strong><em>Description</em></strong></th></tr>
   <tr><td valign=\"top\"><a href=\"modelica://Modelica.Utilities.Files.list\">list</a>(name)</td>
       <td valign=\"top\"> List content of file or of directory.</td>
   </tr>

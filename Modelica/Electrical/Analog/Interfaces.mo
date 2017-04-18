@@ -34,12 +34,12 @@ The reason could be that
             textString="%name")}),
       Documentation(revisions="<html>
 <ul>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
 </html>", info="<html>
-<p>Pin is the basic electric connector. It includes the voltage which consists between the pin and the ground node. The ground node is the node of (any) ground device (Modelica.Electrical.Basic.Ground). Furthermore, the pin includes the current, which is considered to be <b>positive</b> if it is flowing at the pin <b>into the device</b>.</p>
+<p>Pin is the basic electric connector. It includes the voltage which consists between the pin and the ground node. The ground node is the node of (any) ground device (Modelica.Electrical.Basic.Ground). Furthermore, the pin includes the current, which is considered to be <strong>positive</strong> if it is flowing at the pin <strong>into the device</strong>.</p>
 </html>"));
   end Pin;
 
@@ -61,7 +61,7 @@ The reason could be that
 <p>Connectors PositivePin and NegativePin are nearly identical. The only difference is that the icons are different in order to identify more easily the pins of a component. Usually, connector PositivePin is used for the positive and connector NegativePin for the negative pin of an electrical component.</p>
 </html>",               revisions="<html>
 <ul>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -101,7 +101,7 @@ The reason could be that
 <p>Connectors PositivePin and NegativePin are nearly identical. The only difference is that the icons are different in order to identify more easily the pins of a component. Usually, connector PositivePin is used for the positive and connector NegativePin for the negative pin of an electrical component.</p>
 </html>", revisions="<html>
 <dl>
-<dt><i>1998</i></dt>
+<dt><em>1998</em></dt>
 <dd>by Christoph Clauss initially implemented
 </dd>
 </dl>
@@ -158,7 +158,7 @@ The reason could be that
             textString="n.i")}),
       Documentation(revisions="<html>
 <ul>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -183,11 +183,11 @@ The reason could be that
     i = p.i;
     annotation (
       Documentation(info="<html>
-<p>Superclass of elements which have <b>two</b> electrical pins: the positive pin connector <i>p</i>, and the negative pin connector <i>n</i>. It is assumed that the current flowing into pin p is identical to the current flowing out of pin n. This current is provided explicitly as current i.</p>
+<p>Superclass of elements which have <strong>two</strong> electrical pins: the positive pin connector <em>p</em>, and the negative pin connector <em>n</em>. It is assumed that the current flowing into pin p is identical to the current flowing out of pin n. This current is provided explicitly as current i.</p>
 </html>",
    revisions="<html>
 <ul>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -287,7 +287,7 @@ The reason could be that
             textString="i1")}),
       Documentation(revisions="<html>
 <ul>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -316,7 +316,7 @@ The reason could be that
 
     annotation (Documentation(revisions="<html>
 <ul>
-<li><i> February 17, 2009   </i>
+<li><em> February 17, 2009   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -325,16 +325,16 @@ The reason could be that
 This partial model provides a conditional heating port for the connection to a thermal network.
 </p>
 <ul>
-<li> If <b>useHeatPort</b> is set to <b>false</b> (default), no heat port is available, and the thermal
-     loss power flows internally to the ground. In this case, the parameter <b>T</b> specifies
+<li> If <strong>useHeatPort</strong> is set to <strong>false</strong> (default), no heat port is available, and the thermal
+     loss power flows internally to the ground. In this case, the parameter <strong>T</strong> specifies
      the fixed device temperature (the default for T = 20<sup>o</sup>C).</li>
-<li> If <b>useHeatPort</b> is set to <b>true</b>, a heat port is available.</li>
+<li> If <strong>useHeatPort</strong> is set to <strong>true</strong>, a heat port is available.</li>
 </ul>
 
 <p>
 If this model is used, the loss power has to be provided by an equation in the model which inherits from
-ConditionalHeatingPort model (<b>lossPower = ...</b>). As device temperature
-<b>T_heatPort</b> can be used to describe the influence of the device temperature
+ConditionalHeatingPort model (<strong>lossPower = ...</strong>). As device temperature
+<strong>T_heatPort</strong> can be used to describe the influence of the device temperature
 on the model behaviour.
 </p>
 </html>"));
@@ -365,7 +365,7 @@ on the model behaviour.
             Line(points={{70,0},{100,0}}, color={0,0,255})}),
       Documentation(revisions="<html>
 <ul>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -408,7 +408,7 @@ on the model behaviour.
           Line(points={{70,0},{96,0}})}),
       Documentation(revisions="<html>
 <ul>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -451,7 +451,7 @@ on the model behaviour.
             textString="-")}),
       Documentation(revisions="<html>
 <ul>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -492,7 +492,7 @@ on the model behaviour.
             fillPattern=FillPattern.Solid)}),
       Documentation(revisions="<html>
 <ul>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -527,33 +527,33 @@ on the model behaviour.
       Documentation(info="<html>
 <P>
 This is an ideal semiconductor which is<br><br>
-<b>open </b>(off), if it is reversed biased (voltage drop less than 0)<br>
-<b>closed</b> (on), if it is conducting (current > 0).<br>
+<strong>open </strong>(off), if it is reversed biased (voltage drop less than 0)<br>
+<strong>closed</strong> (on), if it is conducting (current > 0).<br>
 <br/>
 This is the behaviour if all parameters are exactly zero.<br><br>
 Note, there are circuits, where this ideal description
 with zero resistance and zero conductance is not possible.
 In order to prevent singularities during switching, the opened
-semiconductor has a small conductance <i>Gon</i>
-and the closed semiconductor has a low resistance <i>Roff</i> which is default.
+semiconductor has a small conductance <em>Gon</em>
+and the closed semiconductor has a low resistance <em>Roff</em> which is default.
 </P>
 <P>
-The parameter <i>Vknee</i> which is the forward threshold voltage, allows to displace
-the knee point <br> along  the <i>Gon</i>-characteristic until <i>v = Vknee</i>.
+The parameter <em>Vknee</em> which is the forward threshold voltage, allows to displace
+the knee point <br> along  the <em>Gon</em>-characteristic until <em>v = Vknee</em>.
 <br> <br>
-<b>Please note:</b>
+<strong>Please note:</strong>
 In case of useHeatPort=true the temperature dependence of the electrical
-behavior is <b>not</b> modelled.
+behavior is <strong>not</strong> modelled.
 </p>
 </html>", revisions="<html>
 <ul>
-<li><i> March 11, 2009   </i>
+<li><em> March 11, 2009   </em>
        by Christoph Clauss<br> conditional heat port added<br>
        </li>
-<li><i>Mai 7, 2004   </i>
+<li><em>Mai 7, 2004   </em>
        by Christoph Clauss and Anton Haumer<br> Vknee added<br>
        </li>
-<li><i>some years ago   </i>
+<li><em>some years ago   </em>
        by Christoph Clauss<br> realized<br>
        </li>
 </ul>
@@ -644,16 +644,16 @@ closed switch could be exactly zero and the conductance Goff of the
 open switch could be also exactly zero. Note, there are circuits,
 where a description with zero Ron or zero Goff is not possible.
 <br> <br>
-<b>Please note:</b>
+<strong>Please note:</strong>
 In case of useHeatPort=true the temperature dependence of the electrical
-behavior is <b>not</b> modelled. The parameters are not temperature dependent.
+behavior is <strong>not</strong> modelled. The parameters are not temperature dependent.
 </P>
 </html>", revisions="<html>
 <ul>
-<li><i> March 11, 2009   </i>
+<li><em> March 11, 2009   </em>
        by Christoph Clauss<br> conditional heat port added<br>
        </li>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -769,16 +769,16 @@ i.e., the equation for the on-state is activated <code>v=Ron*i</code>.
 Please note: In an AC circuit, at least the arc quenches when the next natural zero-crossing of the current occurs.
 In a DC circuit, the arc will not quench if the arc voltage is not sufficient that a zero-crossing of the current occurs.
 <br> <br>
-<b>Please note:</b>
+<strong>Please note:</strong>
 In case of useHeatPort=true the temperature dependence of the electrical
-behavior is <b>not</b> modelled. The parameters are not temperature dependent.
+behavior is <strong>not</strong> modelled. The parameters are not temperature dependent.
 </p>
 </html>", revisions="<html>
 <ul>
-<li><i>June, 2009   </i>
+<li><em>June, 2009   </em>
        by Christoph Clauss<br> adapted to OpenerWithArc<br>
        </li>
-<li><i>May, 2009   </i>
+<li><em>May, 2009   </em>
        by Anton Haumer<br> CloserWithArc initially implemented<br>
        </li>
 </ul>
@@ -790,7 +790,7 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
    revisions="<html>
 <dl>
 <dt>
-<b>Main Authors:</b>
+<strong>Main Authors:</strong>
 </dt>
 <dd>
 Christoph Clau&szlig;
@@ -803,19 +803,19 @@ Christoph Clau&szlig;
     D-01069 Dresden
 </dd>
 <dt>
-<b>Copyright:</b>
+<strong>Copyright:</strong>
 </dt>
 <dd>
 Copyright &copy; 1998-2016, Modelica Association and Fraunhofer-Gesellschaft.<br>
-<i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
-under the terms of the <b>Modelica license</b>, see the license conditions
-and the accompanying <b>disclaimer</b> in the documentation of package
-Modelica in file \"Modelica/package.mo\".</i>
+<em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
+under the terms of the <strong>Modelica license</strong>, see the license conditions
+and the accompanying <strong>disclaimer</strong> in the documentation of package
+Modelica in file \"Modelica/package.mo\".</em>
 </dd>
 </dl>
 
 <ul>
-<li><i> 1998</i>
+<li><em> 1998</em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>

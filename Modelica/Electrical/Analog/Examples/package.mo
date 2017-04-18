@@ -9,7 +9,7 @@ annotation (Documentation(info="<html>
 </html>", revisions="<html>
 <dl>
 <dt>
-<b>Main Authors:</b>
+<strong>Main Authors:</strong>
 </dt>
 <dd>
 Christoph Clau&szlig;

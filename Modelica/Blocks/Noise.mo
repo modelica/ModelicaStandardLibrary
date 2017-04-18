@@ -82,7 +82,7 @@ must be dragged resulting in a declaration
 </p>
 
 <pre>
-   <b>inner</b> Modelica.Blocks.Noise.GlobalSeed globalSeed;
+   <strong>inner</strong> Modelica.Blocks.Noise.GlobalSeed globalSeed;
 </pre>
 
 <p>
@@ -97,7 +97,7 @@ hierarchical level. The following options can be selected:
     <th>Description</th></tr>
 
 <tr><td> <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/GlobalSeed_FixedSeed.png\"> </td>
-    <td> <b>useAutomaticSeed=false</b> (= default):<br>
+    <td> <strong>useAutomaticSeed=false</strong> (= default):<br>
          A fixed global seed is defined with Integer parameter fixedSeed. The value of fixedSeed
          is displayed in the icon. By default all Noise blocks use fixedSeed for initialization of their
          pseudo random number generators, in combination with a local seed defined for every instance
@@ -110,7 +110,7 @@ hierarchical level. The following options can be selected:
          produce different noise at every simulation run.</td></tr>
 
 <tr><td> <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/GlobalSeed_AutomaticSeed.png\"> </td>
-    <td> <b>useAutomaticSeed=true</b>:<br>
+    <td> <strong>useAutomaticSeed=true</strong>:<br>
          An automatic global seed is computed by using the ID of the process in which the
          simulation takes place and the current local time. As a result, the global seed
          is changed automatically for every new simulation, including parallelized
@@ -120,7 +120,7 @@ hierarchical level. The following options can be selected:
 
 
 <tr><td> <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/GlobalSeed_NoNoise.png\"> </td>
-    <td> <b>enableNoise=false</b>:<br>
+    <td> <strong>enableNoise=false</strong>:<br>
          The noise in all Noise instances is switched off and the blocks output a constant
          signal all the time (usually zero). This option is useful, if a model shall be
          tested without noise and the noise shall be quickly turned off or on.</td></tr>
@@ -133,7 +133,7 @@ Additionally, the globalSeed instance calls function
 to initialize the impure random number generators
 (<a href=\"modelica://Modelica.Math.Random.Utilities.impureRandom\">impureRandom</a> and
 <a href=\"modelica://Modelica.Math.Random.Utilities.impureRandomInteger\">impureRandomInteger</a>).
-The return value of this function is stored in parameter <b>id_impure</b>. Whenever one of the impure
+The return value of this function is stored in parameter <strong>id_impure</strong>. Whenever one of the impure
 random number generators need to be called, \"globalSeed.id_impure\" has to be given as input argument.
 </p>
 
@@ -412,9 +412,9 @@ parameters:
 </p>
 
 <ul>
-<li> The <b>samplePeriod</b> of the block should be much faster (say by a factor of 100)
+<li> The <strong>samplePeriod</strong> of the block should be much faster (say by a factor of 100)
      than the fastest dynamics of the system fed by the block&apos;s outputs. </li>
-<li> The <b>noisePower</b> of the signal should be set to the expected power per frequency
+<li> The <strong>noisePower</strong> of the signal should be set to the expected power per frequency
      of the white noise. Since many system models assume a noise power of 1,
      this preset may be a reasonable first choice (= default).</li>
 </ul>
@@ -465,7 +465,7 @@ demonstrates how to utilize this block to model wind gust.
       points={{-84,0},{-54,0},{-54,40},{-24,40},{-24,-70},{6,-70},{6,80},
           {36,80},{36,-20},{66,-20},{66,60}})}), Documentation(info="<html>
 <p>
-This sublibrary contains blocks that generate <b>reproducible noise</b> with pseudo random
+This sublibrary contains blocks that generate <strong>reproducible noise</strong> with pseudo random
 numbers. Reproducibility is important when designing control systems,
 either manually or with optimization methods (for example when changing a parameter or a component
 of a control system and re-simulating, it is important that the noise does not change, because
@@ -485,7 +485,7 @@ must be dragged resulting in a declaration
 </p>
 
 <pre>
-   <b>inner</b> Modelica.Blocks.Noise.GlobalSeed globalSeed;
+   <strong>inner</strong> Modelica.Blocks.Noise.GlobalSeed globalSeed;
 </pre>
 
 <p>
@@ -536,7 +536,7 @@ y_min=-1, y_max=3:
 
 <h4>Advanced tab: General settings</h4>
 <p>
-In the <b>Advanced</b> tab of the parameter menu, further options can be set in the noise blocks
+In the <strong>Advanced</strong> tab of the parameter menu, further options can be set in the noise blocks
 as shown in the next table:
 </p>
 
@@ -594,7 +594,7 @@ the desired situation. For this purpose the following parameters can be defined:
          generator for a specific block instance. Instances using the same local seed
          produce exactly the same random number values (so the same noise, if the other settings
          of the instances are the same).<br>
-         If <b>useAutomaticLocalSeed = true</b>, the
+         If <strong>useAutomaticLocalSeed = true</strong>, the
          local seed is determined automatically from an impure random number generator that
          produces Integer random values (<a href=\"modelica://Modelica.Math.Random.Utilities.impureRandomInteger\">impureRandomInteger</a>). This is the default.
          Note, this means that the noise might change if function randomInteger() is called
@@ -603,7 +603,7 @@ the desired situation. For this purpose the following parameters can be defined:
          in a future version of package Modelica, once Modelica Language 3.3 language elements
          can be used (by using a hash value of the instance name of the model that is
          inquired with the Modelica Language 3.3 function getInstanceName()).<br>
-         If <b>useAutomaticLocalSeed = false</b>, the local seed is defined
+         If <strong>useAutomaticLocalSeed = false</strong>, the local seed is defined
          explicitly by parameter fixedLocalSeed. It is then guaranteed that the generated noise
          remains always the same (provided the other parameter values are the same).</td></tr>
 
@@ -652,8 +652,8 @@ generators are described in the documentation of package
 
 <p>
 The uniform random numbers in the range 0.0 .. 1.0 are transformed to a desired
-random number distribution by selecting an appropriate <b>distribution</b> or
-<b>truncated distribution</b>. For an example of a truncated distribution, see the following
+random number distribution by selecting an appropriate <strong>distribution</strong> or
+<strong>truncated distribution</strong>. For an example of a truncated distribution, see the following
 diagram of the probability density function of a normal distribution
 compared with its truncated version:
 </p>

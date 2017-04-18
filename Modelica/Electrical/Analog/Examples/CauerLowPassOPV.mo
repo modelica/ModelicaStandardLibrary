@@ -285,10 +285,10 @@ equation
     experiment(StopTime=60),
     Documentation(revisions="<html>
 <ul>
-<li><i>January 13, 2006</i>
+<li><em>January 13, 2006</em>
        by Christoph Clauss<br>
        included into Modelica Standard Library</li>
-<li><i>September 15, 2005</i>
+<li><em>September 15, 2005</em>
        by by Peter Trappe designed and by Teresa Schlegel<br>
        initially modelled.</li>
 </ul>

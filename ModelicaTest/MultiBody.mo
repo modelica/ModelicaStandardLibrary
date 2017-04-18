@@ -260,9 +260,9 @@ in the situation at hand.
 This example demonstrates that by using joint and body
 elements animation is automatically available. Also the revolute
 joints are animated. Note, that animation of every component
-can be switched of by setting the first parameter <b>animation</b>
-to <b>false</b> or by setting <b>enableAnimation</b> in the <b>world</b>
-object to <b>false</b> to switch off animation of all components.
+can be switched of by setting the first parameter <strong>animation</strong>
+to <strong>false</strong> or by setting <strong>enableAnimation</strong> in the <strong>world</strong>
+object to <strong>false</strong> to switch off animation of all components.
 </p>
 <P>
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/DoublePendulum.png\"
@@ -362,9 +362,9 @@ This is a second version of the \"four-bar\" mechanism, see figure:
 <p>
 In this case
 the three revolute joints on the left top-side and the two revolute
-joints on the right top side have been replaced by the joint <b>UniversalSpherical</b>
+joints on the right top side have been replaced by the joint <strong>UniversalSpherical</strong>
 that is a rod connecting a spherical and a universal joint. This joint is defined
-by <b>1 constraint</b> stating that the distance between the two spherical joints is
+by <strong>1 constraint</strong> stating that the distance between the two spherical joints is
 constant. Using this joint in a kinematic loop reduces the sizes of
 non-linear algebraic equations. For this loop, only one non-linear
 algebraic system of equations of order 1 remains.
@@ -377,12 +377,12 @@ system on the right in blue color).
 </p>
 <p>
 Another feature is that the length of the connecting rod can be
-automatically calculated during <b>initialization</b>. In order to do this,
+automatically calculated during <strong>initialization</strong>. In order to do this,
 another initialization condition has to be given. In this example, the
 initial value of the distance of the prismatic joint j2 has been fixed
 (via the \"Initialization\" menu) and the rod length of joint
 \"UniversalSpherical\" is computed during initialization since parameter
-<b>computeLength</b> = <b>true</b> is set in the joint parameter
+<strong>computeLength</strong> = <strong>true</strong> is set in the joint parameter
 menu. The main advantage is that during initialization no non-linear
 system of equation is solved and therefore initialization always works.
 To be precise, the following trivial non-linear equation is actually solved
@@ -467,9 +467,9 @@ for rodLength:
 <p>
 This is a third version of the \"four-bar\" mechanism. In this case
 the three revolute joints on the left top-side and the two revolute
-joints on the right top side have been replaced by the joint <b>SphericalSpherical</b>
+joints on the right top side have been replaced by the joint <strong>SphericalSpherical</strong>
 that is a rod with two spherical joints on each side. This joint is defined
-by <b>1 constraint</b> stating that the distance between the two spherical joints is
+by <strong>1 constraint</strong> stating that the distance between the two spherical joints is
 constant. Using this joint in a kinematic loop reduces the sizes of
 non-linear algebraic equations. For this loop, only one non-linear
 algebraic system of equations of order 1 remains.
@@ -480,13 +480,13 @@ the middle of the rod to approximate in an convenient way the rod
 mass properties.
 </p>
 <p>
-Another nice feature is that the <b>length</b> of the connecting rod can be
-automatically calculated during <b>initialization</b>. In order to do this,
+Another nice feature is that the <strong>length</strong> of the connecting rod can be
+automatically calculated during <strong>initialization</strong>. In order to do this,
 another initialization condition has to be given. In this example, the
 initial value of the distance of the prismatic joint j2 has been fixed
 (via the \"Initialization\" menu) and the length parameter of joint
 \"SphericalSpherical\" is computed during initialization since parameter
-<b>computeLength</b> = <b>true</b> is set in the joint parameter
+<strong>computeLength</strong> = <strong>true</strong> is set in the joint parameter
 menu (this sets \"fixed=false\" on parameter \"length\").
 </p>
 </html>"));
@@ -575,9 +575,9 @@ menu (this sets \"fixed=false\" on parameter \"length\").
 <p>
 This is a fourth version of the \"four-bar\" mechanism. In this case
 the three revolute joints on the left top-side and the two revolute
-joints on the right top side have been replaced by the joint <b>UniversalSpherical</b>
+joints on the right top side have been replaced by the joint <strong>UniversalSpherical</strong>
 that is a rod with a spherical and a universal joint on two sides. This joint is defined
-by <b>1 constraint</b> stating that the distance between the two spherical joints is
+by <strong>1 constraint</strong> stating that the distance between the two spherical joints is
 constant. Using this joint in a kinematic loop reduces the sizes of
 non-linear algebraic equations. For this loop, only one non-linear
 algebraic system of equations of order 1 remains.
@@ -589,17 +589,17 @@ of one of the spherical joints (i.e., replacing it by a universal joint).
 Usually, the eigenrotation of the connecting rod is of no technical
 interest and by this approximation it is constrained to move in a
 somewhat arbitrary way. This allows to have an additional connector,
-<b>frame_ia</b>, to be fixed on the rod, where other objects can be attached.
+<strong>frame_ia</strong>, to be fixed on the rod, where other objects can be attached.
 In this example, the coordinate system of frame_ia is visualized.
 </p>
 <p>
-Another nice feature is that the <b>length</b> of the connecting rod can be
-automatically calculated during <b>initialization</b>. In order to do this,
+Another nice feature is that the <strong>length</strong> of the connecting rod can be
+automatically calculated during <strong>initialization</strong>. In order to do this,
 another initialization condition has to be given. In this example, the
 initial value of the distance of the prismatic joint j2 has been fixed
 (via the \"Initialization\" menu) and the length parameter of joint
 \"UniversalSpherical\" is computed during initialization since parameter
-<b>computeLength</b> = <b>true</b> is set in the joint parameter
+<strong>computeLength</strong> = <strong>true</strong> is set in the joint parameter
 menu (this sets \"fixed=false\" on parameter \"length\").
 </p>
 </html>"));
@@ -716,9 +716,9 @@ menu (this sets \"fixed=false\" on parameter \"length\").
 <p>
 This is a fourth version of the \"four-bar\" mechanism. In this case
 the three revolute joints on the left top-side and the two revolute
-joints on the right top side have been replaced by the joint <b>UniversalSpherical</b>
+joints on the right top side have been replaced by the joint <strong>UniversalSpherical</strong>
 that is a rod with a spherical and a universal joint on two sides. This joint is defined
-by <b>1 constraint</b> stating that the distance between the two spherical joints is
+by <strong>1 constraint</strong> stating that the distance between the two spherical joints is
 constant. Using this joint in a kinematic loop reduces the sizes of
 non-linear algebraic equations. For this loop, only one non-linear
 algebraic system of equations of order 1 remains.
@@ -730,17 +730,17 @@ of one of the spherical joints (i.e., replacing it by a universal joint).
 Usually, the eigenrotation of the connecting rod is of no technical
 interest and by this approximation it is constrained to move in a
 somewhat arbitrary way. This allows to have an additional connector,
-<b>frame_ia</b>, to be fixed on the rod, where other objects can be attached.
+<strong>frame_ia</strong>, to be fixed on the rod, where other objects can be attached.
 In this example, the coordinate system of frame_ia is visualized.
 </p>
 <p>
-Another nice feature is that the <b>length</b> of the connecting rod can be
-automatically calculated during <b>initialization</b>. In order to do this,
+Another nice feature is that the <strong>length</strong> of the connecting rod can be
+automatically calculated during <strong>initialization</strong>. In order to do this,
 another initialization condition has to be given. In this example, the
 initial value of the distance of the prismatic joint j2 has been fixed
 (via the \"Initialization\" menu) and the length parameter of joint
 \"UniversalSpherical\" is computed during initialization since parameter
-<b>computeLength</b> = <b>true</b> is set in the joint parameter
+<strong>computeLength</strong> = <strong>true</strong> is set in the joint parameter
 menu (this sets \"fixed=false\" on parameter \"length\").
 </p>
 </html>"));
@@ -838,9 +838,9 @@ menu (this sets \"fixed=false\" on parameter \"length\").
 <p>
 This is a fourth version of the \"four-bar\" mechanism. In this case
 the three revolute joints on the left top-side and the two revolute
-joints on the right top side have been replaced by the joint <b>UniversalSpherical</b>
+joints on the right top side have been replaced by the joint <strong>UniversalSpherical</strong>
 that is a rod with a spherical and a universal joint on two sides. This joint is defined
-by <b>1 constraint</b> stating that the distance between the two spherical joints is
+by <strong>1 constraint</strong> stating that the distance between the two spherical joints is
 constant. Using this joint in a kinematic loop reduces the sizes of
 non-linear algebraic equations. For this loop, only one non-linear
 algebraic system of equations of order 1 remains.
@@ -852,17 +852,17 @@ of one of the spherical joints (i.e., replacing it by a universal joint).
 Usually, the eigenrotation of the connecting rod is of no technical
 interest and by this approximation it is constrained to move in a
 somewhat arbitrary way. This allows to have an additional connector,
-<b>frame_ia</b>, to be fixed on the rod, where other objects can be attached.
+<strong>frame_ia</strong>, to be fixed on the rod, where other objects can be attached.
 In this example, the coordinate system of frame_ia is visualized.
 </p>
 <p>
-Another nice feature is that the <b>length</b> of the connecting rod can be
-automatically calculated during <b>initialization</b>. In order to do this,
+Another nice feature is that the <strong>length</strong> of the connecting rod can be
+automatically calculated during <strong>initialization</strong>. In order to do this,
 another initialization condition has to be given. In this example, the
 initial value of the distance of the prismatic joint j2 has been fixed
 (via the \"Initialization\" menu) and the length parameter of joint
 \"UniversalSpherical\" is computed during initialization since parameter
-<b>computeLength</b> = <b>true</b> is set in the joint parameter
+<strong>computeLength</strong> = <strong>true</strong> is set in the joint parameter
 menu (this sets \"fixed=false\" on parameter \"length\").
 </p>
 </html>"));
@@ -6682,10 +6682,10 @@ a linear damper is connected here.
       annotation (experiment(StopTime=10), Documentation(info="<html>
 <p>
 This is the same example as \"FreeBody\". The only difference
-is that with the <b>FreeMotion</b> joint explicitly 6 degrees of
-freedom are introduced. The advantage is that <b>no non-linear system
-of equations</b> occurs any more, because the FreeMotion joint is
-described by a set of <b>non-redundant</b> variables. The disadvantage is
+is that with the <strong>FreeMotion</strong> joint explicitly 6 degrees of
+freedom are introduced. The advantage is that <strong>no non-linear system
+of equations</strong> occurs any more, because the FreeMotion joint is
+described by a set of <strong>non-redundant</strong> variables. The disadvantage is
 that there is an orientation for which this description is singular
 (see description of FreeMotion joint). In technical systems it is
 often possible to use the FreeMotion joint such that the singularity

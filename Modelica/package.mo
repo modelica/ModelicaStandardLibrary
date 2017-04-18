@@ -193,7 +193,7 @@ class Connectors "Connectors"
 
 <p>
 The Modelica standard library defines the most important
-<b>elementary connectors</b> in various domains. If any possible,
+<strong>elementary connectors</strong> in various domains. If any possible,
 a user should utilize these connectors in order that components
 from the Modelica Standard Library and from other libraries
 can be combined without problems.
@@ -203,14 +203,14 @@ variables is explained in section \"Connector Equations\" below):
 </p>
 
 <table border=1 cellspacing=0 cellpadding=1>
-<tr><td valign=\"top\"><b>domain</b></td>
-   <td valign=\"top\"><b>potential<br>variables</b></td>
-   <td valign=\"top\"><b>flow<br>variables</b></td>
-   <td valign=\"top\"><b>stream<br>variables</b></td>
-   <td valign=\"top\"><b>connector definition</b></td>
-   <td valign=\"top\"><b>icons</b></td></tr>
+<tr><td valign=\"top\"><strong>domain</strong></td>
+   <td valign=\"top\"><strong>potential<br>variables</strong></td>
+   <td valign=\"top\"><strong>flow<br>variables</strong></td>
+   <td valign=\"top\"><strong>stream<br>variables</strong></td>
+   <td valign=\"top\"><strong>connector definition</strong></td>
+   <td valign=\"top\"><strong>icons</strong></td></tr>
 
-<tr><td valign=\"top\"><b>electrical<br>analog</b></td>
+<tr><td valign=\"top\"><strong>electrical<br>analog</strong></td>
    <td valign=\"top\">electrical potential</td>
    <td valign=\"top\">electrical current</td>
    <td valign=\"top\"></td>
@@ -218,13 +218,13 @@ variables is explained in section \"Connector Equations\" below):
      <br>Pin, PositivePin, NegativePin</td>
    <td valign=\"top\"><img src=\"modelica://Modelica/Resources/Images/UsersGuide/ElectricalPins.png\"></td></tr>
 
-<tr><td valign=\"top\"><b>electrical<br>multi-phase</b></td>
+<tr><td valign=\"top\"><strong>electrical<br>multi-phase</strong></td>
    <td colspan=\"3\">vector of electrical pins</td>
    <td valign=\"top\"><a href=\"modelica://Modelica.Electrical.MultiPhase.Interfaces\">Modelica.Electrical.MultiPhase.Interfaces</a>
      <br>Plug, PositivePlug, NegativePlug</td>
    <td valign=\"top\"><img src=\"modelica://Modelica/Resources/Images/UsersGuide/ElectricalPlugs.png\"></td></tr>
 
-<tr><td valign=\"top\"><b>electrical <br>space phasor</b></td>
+<tr><td valign=\"top\"><strong>electrical <br>space phasor</strong></td>
    <td valign=\"top\">2 electrical potentials</td>
    <td valign=\"top\">2 electrical currents</td>
    <td valign=\"top\"></td>
@@ -232,7 +232,7 @@ variables is explained in section \"Connector Equations\" below):
      <br>SpacePhasor</td>
    <td valign=\"top\"><img src=\"modelica://Modelica/Resources/Images/UsersGuide/SpacePhasor.png\"></td></tr>
 
-<tr><td valign=\"top\"><b>quasi<br>stationary<br>single phase</b></td>
+<tr><td valign=\"top\"><strong>quasi<br>stationary<br>single phase</strong></td>
    <td valign=\"top\">complex electrical potential</td>
    <td valign=\"top\">complex electrical current</td>
    <td valign=\"top\"></td>
@@ -241,13 +241,13 @@ variables is explained in section \"Connector Equations\" below):
      <br>Pin, PositivePin, NegativePin</td>
    <td valign=\"top\"><img src=\"modelica://Modelica/Resources/Images/UsersGuide/QuasiStationarySinglePhasePins.png\"></td></tr>
 
-<tr><td valign=\"top\"><b>quasi<br>stationary<br>multi-phase</b></td>
+<tr><td valign=\"top\"><strong>quasi<br>stationary<br>multi-phase</strong></td>
    <td colspan=\"3\">vector of quasi stationary single phase pins</td>
    <td valign=\"top\"><a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces\">Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces</a>
      <br>Plug, PositivePlug, NegativePlug</td>
    <td valign=\"top\"><img src=\"modelica://Modelica/Resources/Images/UsersGuide/QuasiStationaryMultiPhasePlugs.png\"></td></tr>
 
-<tr><td valign=\"top\"><b>electrical <br>digital</b></td>
+<tr><td valign=\"top\"><strong>electrical <br>digital</strong></td>
    <td valign=\"top\">Integer (1..9)</td>
    <td valign=\"top\"></td>
    <td valign=\"top\"></td>
@@ -255,7 +255,7 @@ variables is explained in section \"Connector Equations\" below):
      <br>DigitalSignal, DigitalInput, DigitalOutput</td>
    <td valign=\"top\"><img src=\"modelica://Modelica/Resources/Images/UsersGuide/Digital.png\"></td></tr>
 
-<tr><td valign=\"top\"><b>magnetic<br>flux tubes</b></td>
+<tr><td valign=\"top\"><strong>magnetic<br>flux tubes</strong></td>
    <td valign=\"top\">magnetic potential</td>
    <td valign=\"top\">magnetic flux</td>
    <td valign=\"top\"></td>
@@ -264,7 +264,7 @@ variables is explained in section \"Connector Equations\" below):
      <br>MagneticPort, PositiveMagneticPort, <br>NegativeMagneticPort</td>
    <td valign=\"top\"><img src=\"modelica://Modelica/Resources/Images/UsersGuide/MagneticPorts.png\"></td></tr>
 
-<tr><td valign=\"top\"><b>magnetic<br>fundamental<br>wave</b></td>
+<tr><td valign=\"top\"><strong>magnetic<br>fundamental<br>wave</strong></td>
    <td valign=\"top\">complex magnetic potential</td>
    <td valign=\"top\">complex magnetic flux</td>
    <td valign=\"top\"></td>
@@ -273,7 +273,7 @@ variables is explained in section \"Connector Equations\" below):
      <br>MagneticPort, PositiveMagneticPort, <br>NegativeMagneticPort</td>
    <td valign=\"top\"><img src=\"modelica://Modelica/Resources/Images/UsersGuide/FundamentalWavePorts.png\"></td></tr>
 
-<tr><td valign=\"top\"><b>translational</b></td>
+<tr><td valign=\"top\"><strong>translational</strong></td>
    <td valign=\"top\">distance</td>
    <td valign=\"top\">cut-force</td>
    <td valign=\"top\"></td>
@@ -281,7 +281,7 @@ variables is explained in section \"Connector Equations\" below):
      <br>Flange_a, Flange_b</td>
    <td valign=\"top\"><img src=\"modelica://Modelica/Resources/Images/UsersGuide/TranslationalFlanges.png\"></td></tr>
 
-<tr><td valign=\"top\"><b>rotational</b></td>
+<tr><td valign=\"top\"><strong>rotational</strong></td>
    <td valign=\"top\">angle</td>
    <td valign=\"top\">cut-torque</td>
    <td valign=\"top\"></td>
@@ -289,7 +289,7 @@ variables is explained in section \"Connector Equations\" below):
      <br>Flange_a, Flange_b</td>
    <td valign=\"top\"><img src=\"modelica://Modelica/Resources/Images/UsersGuide/RotationalFlanges.png\"></td></tr>
 
-<tr><td valign=\"top\"><b>3-dim.<br>mechanics</b></td>
+<tr><td valign=\"top\"><strong>3-dim.<br>mechanics</strong></td>
    <td valign=\"top\">position vector<br>
     orientation object</td>
    <td valign=\"top\">cut-force vector<br>
@@ -299,7 +299,7 @@ variables is explained in section \"Connector Equations\" below):
      <br>Frame, Frame_a, Frame_b, Frame_resolve</td>
    <td valign=\"top\"><img src=\"modelica://Modelica/Resources/Images/UsersGuide/MultiBodyFrames.png\"></td></tr>
 
-<tr><td valign=\"top\"><b>simple<br>fluid flow</b></td>
+<tr><td valign=\"top\"><strong>simple<br>fluid flow</strong></td>
    <td valign=\"top\">pressure<br>
     specific enthalpy</td>
    <td valign=\"top\">mass flow rate<br>
@@ -309,7 +309,7 @@ variables is explained in section \"Connector Equations\" below):
      <br>FlowPort, FlowPort_a, FlowPort_b</td>
    <td valign=\"top\"><img src=\"modelica://Modelica/Resources/Images/UsersGuide/FluidHeatFlowPorts.png\"></td></tr>
 
-<tr><td valign=\"top\"><b>thermo<br>fluid flow</b></td>
+<tr><td valign=\"top\"><strong>thermo<br>fluid flow</strong></td>
    <td valign=\"top\">pressure</td>
    <td valign=\"top\">mass flow rate</td>
    <td valign=\"top\">specific enthalpy<br>mass fractions</td>
@@ -318,7 +318,7 @@ variables is explained in section \"Connector Equations\" below):
      <br>FluidPort, FluidPort_a, FluidPort_b</td>
    <td valign=\"top\"><img src=\"modelica://Modelica/Resources/Images/UsersGuide/FluidPorts.png\"></td></tr>
 
-<tr><td valign=\"top\"><b>heat<br>transfer</b></td>
+<tr><td valign=\"top\"><strong>heat<br>transfer</strong></td>
    <td valign=\"top\">temperature</td>
    <td valign=\"top\">heat flow rate</td>
    <td valign=\"top\"></td>
@@ -326,7 +326,7 @@ variables is explained in section \"Connector Equations\" below):
      <br>HeatPort, HeatPort_a, HeatPort_b</td>
    <td valign=\"top\"><img src=\"modelica://Modelica/Resources/Images/UsersGuide/ThermalHeatPorts.png\"></td></tr>
 
-<tr><td valign=\"top\"><b>blocks</b></td>
+<tr><td valign=\"top\"><strong>blocks</strong></td>
    <td valign=\"top\">
     Real variable<br>
     Integer variable<br>
@@ -340,7 +340,7 @@ variables is explained in section \"Connector Equations\" below):
       BooleanSignal, BooleanInput, BooleanOutput</td>
    <td valign=\"top\"><img src=\"modelica://Modelica/Resources/Images/UsersGuide/Signals.png\"></td></tr>
 
-<tr><td valign=\"top\"><b>complex<br>blocks</b></td>
+<tr><td valign=\"top\"><strong>complex<br>blocks</strong></td>
    <td valign=\"top\">
     Complex variable</td>
    <td valign=\"top\"></td>
@@ -349,7 +349,7 @@ variables is explained in section \"Connector Equations\" below):
      <br>ComplexSignal, ComplexInput, ComplexOutput</td>
    <td valign=\"top\"><img src=\"modelica://Modelica/Resources/Images/UsersGuide/ComplexSignals.png\"></td></tr>
 
-<tr><td valign=\"top\"><b>state<br>machine</b></td>
+<tr><td valign=\"top\"><strong>state<br>machine</strong></td>
    <td valign=\"top\">Boolean variables<br>
     (occupied, set, <br>
      available, reset)</td>
@@ -359,9 +359,9 @@ variables is explained in section \"Connector Equations\" below):
      <br>Step_in, Step_out, Transition_in, Transition_out</td>
    <td valign=\"top\"><img src=\"modelica://Modelica/Resources/Images/UsersGuide/StateGraphPorts.png\"></td></tr>
 
-<tr><td colspan=\"5\">&nbsp;<br><b>Connectors from other libraries</b></td></tr>
+<tr><td colspan=\"5\">&nbsp;<br><strong>Connectors from other libraries</strong></td></tr>
 
-<tr><td valign=\"top\"><b>hydraulic</b></td>
+<tr><td valign=\"top\"><strong>hydraulic</strong></td>
    <td valign=\"top\">pressure</td>
    <td valign=\"top\">volume flow rate</td>
    <td valign=\"top\"></td>
@@ -369,7 +369,7 @@ variables is explained in section \"Connector Equations\" below):
      <br>Port_A, Port_b</td>
    <td valign=\"top\"><img src=\"modelica://Modelica/Resources/Images/UsersGuide/HydraulicPorts.png\"></td></tr>
 
-<tr><td valign=\"top\"><b>pneumatic</b></td>
+<tr><td valign=\"top\"><strong>pneumatic</strong></td>
    <td valign=\"top\">pressure</td>
    <td valign=\"top\">mass flow rate</td>
    <td valign=\"top\"></td>
@@ -380,7 +380,7 @@ variables is explained in section \"Connector Equations\" below):
 
 <p>
 In all domains, usually 2 connectors are defined. The variable declarations
-are <b>identical</b>, only the icons are different in order that it is easy
+are <strong>identical</strong>, only the icons are different in order that it is easy
 to distinguish connectors of the same domain that are attached at the same
 component.
 </p>
@@ -394,11 +394,11 @@ For example, an electrical plug consisting of two electrical pins can be defined
 
 <blockquote>
 <pre>
-<b>connector</b> Plug
-   <b>import</b> Modelica.Electrical.Analog.Interfaces;
+<strong>connector</strong> Plug
+   <strong>import</strong> Modelica.Electrical.Analog.Interfaces;
    Interfaces.PositivePin phase;
    Interfaces.NegativePin ground;
-<b>end</b> Plug;
+<strong>end</strong> Plug;
 </pre>
 </blockquote>
 
@@ -429,7 +429,7 @@ with the following strategy:
 <li> Use the variables needed for the balance equations
      and boundary conditions of (2)
      in the connector and select appropriate Modelica
-     <b>prefixes</b>, so that these equations
+     <strong>prefixes</strong>, so that these equations
      are generated by the Modelica connection semantics.
 </li>
 </ol>
@@ -440,11 +440,11 @@ of an example: Three connectors c1, c2, c3 with the definition
 </p>
 
 <pre>
-<b>connector</b> Demo
+<strong>connector</strong> Demo
   Real        p;  // potential variable
-  <b>flow</b>   Real f;  // flow variable
-  <b>stream</b> Real s;  // stream variable
-<b>end</b> Demo;
+  <strong>flow</strong>   Real f;  // flow variable
+  <strong>stream</strong> Real s;  // stream variable
+<strong>end</strong> Demo;
 </pre>
 
 <p>
@@ -452,8 +452,8 @@ are connected together with
 </p>
 
 <pre>
-   <b>connect</b>(c1,c2);
-   <b>connect</b>(c1,c3);
+   <strong>connect</strong>(c1,c2);
+   <strong>connect</strong>(c1,c3);
 </pre>
 
 <p>
@@ -473,13 +473,13 @@ then this leads to the following equations:
      the \"&lt;undefined&gt;\" parts are defined in such a way that
      inStream(..) is continuous).
   */
-  0 = c1.f*(<b>if</b> c1.f > 0 <b>then</b> s_mix <b>else</b> c1.s) +
-      c2.f*(<b>if</b> c2.f > 0 <b>then</b> s_mix <b>else</b> c2.s) +
-      c3.f*(<b>if</b> c3.f > 0 <b>then</b> s_mix <b>else</b> c3.s);
+  0 = c1.f*(<strong>if</strong> c1.f > 0 <strong>then</strong> s_mix <strong>else</strong> c1.s) +
+      c2.f*(<strong>if</strong> c2.f > 0 <strong>then</strong> s_mix <strong>else</strong> c2.s) +
+      c3.f*(<strong>if</strong> c3.f > 0 <strong>then</strong> s_mix <strong>else</strong> c3.s);
 
-  <b>inStream</b>(c1.s) = <b>if</b> c1.f > 0 <b>then</b> s_mix <b>else</b> &lt;undefined&gt;;
-  <b>inStream</b>(c2.s) = <b>if</b> c2.f > 0 <b>then</b> s_mix <b>else</b> &lt;undefined&gt;;
-  <b>inStream</b>(c3.s) = <b>if</b> c3.f > 0 <b>then</b> s_mix <b>else</b> &lt;undefined&gt;;
+  <strong>inStream</strong>(c1.s) = <strong>if</strong> c1.f > 0 <strong>then</strong> s_mix <strong>else</strong> &lt;undefined&gt;;
+  <strong>inStream</strong>(c2.s) = <strong>if</strong> c2.f > 0 <strong>then</strong> s_mix <strong>else</strong> &lt;undefined&gt;;
+  <strong>inStream</strong>(c3.s) = <strong>if</strong> c3.f > 0 <strong>then</strong> s_mix <strong>else</strong> &lt;undefined&gt;;
 </pre>
 
 </html>"));
@@ -583,7 +583,7 @@ Modelica code in the HTML documentation.
 <ol>
 <li> For constants, parameters and variables in code segments <code>&lt;code&gt;</code> and <code>&lt;/code&gt;</code>
      should to be used, e.g., <br>
-     <code><b>parameter</b> Modelica.SIunits.Time tStart \"Start time\"</code></li>
+     <code><strong>parameter</strong> Modelica.SIunits.Time tStart \"Start time\"</code></li>
 <li> Write multi or single line code segments using <code>&lt;pre&gt;</code> and <code>&lt;/pre&gt;</code>.</li>
 <li> Multi line or single line code shall not be indented.</li>
 <li> Inline code segments may be typeset with <code>&lt;code&gt;</code> and <code>&lt;/code&gt;</code>.</li>
@@ -603,10 +603,10 @@ Modelica code in the HTML documentation.
 <p>appears as</p>
 
 <pre>
-<b>connector</b> Frame
+<strong>connector</strong> Frame
    ...
-   <b>flow</b> SI.Force f[Woehrnschimmel1998] <b>annotation</b>(unassignedMessage=\"...\");
-<b>end</b> Frame;
+   <strong>flow</strong> SI.Force f[Woehrnschimmel1998] <strong>annotation</strong>(unassignedMessage=\"...\");
+<strong>end</strong> Frame;
 </pre>
 
 <h5>Example 2</h5>
@@ -620,7 +620,7 @@ Modelica code in the HTML documentation.
 <p>appears as</p>
 
 <pre>
-<b>parameter</b> Modelica.SIunits.Conductance G=1 &quot;Conductance&quot;;
+<strong>parameter</strong> Modelica.SIunits.Conductance G=1 &quot;Conductance&quot;;
 </pre>
 </html>"));
         end Code;
@@ -663,7 +663,7 @@ Vector and array indices should be typeset as subscripts using the &lt;sub&gt; a
 </p>
 
 <p> Examples for such variables and parameters are:
-<i>&phi;</i>, <i>&phi;</i><sub>ref</sub>, <i>v<sub>2</sub></i>, <code>useDamperCage</code>.
+<em>&phi;</em>, <em>&phi;</em><sub>ref</sub>, <em>v<sub>2</sub></em>, <code>useDamperCage</code>.
 </p>
 
 <h4>Numbered equations</h4>
@@ -911,8 +911,8 @@ Lists have to be placed <strong>outside</strong> of paragraphs to be HTML compli
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <caption align=\"bottom\">Caption starts with a capital letter</caption>
   <tr>
-    <th><b>Head 1</b></th>
-    <th><b>Head 2</b></th>
+    <th><strong>Head 1</strong></th>
+    <th><strong>Head 2</strong></th>
   </tr>
   <tr>
     <td>Entry 1</td>
@@ -928,7 +928,7 @@ Lists have to be placed <strong>outside</strong> of paragraphs to be HTML compli
 
 <p>In this case of table captions, the table name (Tab.) including the table enumeration (1,2,...)
 has to be displayed bold using <code>&lt;b&gt;</code> and <code>&lt;/b&gt;</code>. The table name
-and enumeration should look like this: <b>Tab. 1:</b> Tables have to be enumerated manually.</p>
+and enumeration should look like this: <strong>Tab. 1:</strong> Tables have to be enumerated manually.</p>
 
 <pre>
 &lt;table border=\"1\" cellspacing=\"0\" cellpadding=\"2\"&gt;
@@ -949,7 +949,7 @@ and enumeration should look like this: <b>Tab. 1:</b> Tables have to be enumerat
 </pre>
 <p>appears as</p>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-  <caption align=\"bottom\"><b>Tab. 2: </b>Caption starts with a capital letter</caption>
+  <caption align=\"bottom\"><strong>Tab. 2: </strong>Caption starts with a capital letter</caption>
   <tr>
     <th>Head 1</th>
     <th>Head 2</th>
@@ -1028,14 +1028,14 @@ The following parts should be added to the documentation of each component:
 
 <ol>
 <li> General information without additional subsection explains how the class works</li>
-<li> <b>Syntax</b> (for functions only): shows syntax of function call with minimum and full input parameters</li>
-<li> <b>Implementation</b> (optional): explains how the implementation is made </li>
-<li> <b>Limitations</b> (optional): explains the limitations of the component</li>
-<li> <b>Notes</b> (optional): if required/useful </li>
-<li> <b>Examples</b> (optional): if required/useful </li>
-<li> <b>Acknowledgments</b> (optional): if required </li>
-<li> <b>See also</b>: shows hyperlinks to related models </li>
-<li> <b>Revision history</b> (optional): if required/intended for a package/model, the revision history
+<li> <strong>Syntax</strong> (for functions only): shows syntax of function call with minimum and full input parameters</li>
+<li> <strong>Implementation</strong> (optional): explains how the implementation is made </li>
+<li> <strong>Limitations</strong> (optional): explains the limitations of the component</li>
+<li> <strong>Notes</strong> (optional): if required/useful </li>
+<li> <strong>Examples</strong> (optional): if required/useful </li>
+<li> <strong>Acknowledgments</strong> (optional): if required </li>
+<li> <strong>See also</strong>: shows hyperlinks to related models </li>
+<li> <strong>Revision history</strong> (optional): if required/intended for a package/model, the revision history
         should be placed in <code>annotation(Documentation(revisions=&quot;...&quot;));</code></li>
 </ol>
 
@@ -1100,14 +1100,14 @@ For parameters, connectors, as well as inputs and outputs of function automatic 
         annotation (Documentation(info="<html>
 
 <ol>
-<li> In the <b>icon</b> of a component the instance name is displayed
-     (text string <code>%name</code>) in <b>blue color</b>.
+<li> In the <strong>icon</strong> of a component the instance name is displayed
+     (text string <code>%name</code>) in <strong>blue color</strong>.
      Parameter values, e.g., resistance, mass, gear ratio, are displayed
-     in the icon in <b>black color</b> in a smaller font size as the instance name.</li>
+     in the icon in <strong>black color</strong> in a smaller font size as the instance name.</li>
 <li> Comments and annotations should start with a capital letter, for example: <br>
-     <code><b>parameter</b> Real a = 1 \"Arbitrary factor\";</code>.<br>
+     <code><strong>parameter</strong> Real a = 1 \"Arbitrary factor\";</code>.<br>
      For Boolean parameters, the description string should start with \"= true: ..\", for example:<br>
-     <code><b>parameter</b> Boolean useHeatPort = false \"= true, if heatPort is enabled\";</code>.</li>
+     <code><strong>parameter</strong> Boolean useHeatPort = false \"= true, if heatPort is enabled\";</code>.</li>
 </ol>
 
 </html>"));
@@ -1119,32 +1119,32 @@ For parameters, connectors, as well as inputs and outputs of function automatic 
         annotation (Documentation(info="<html>
 
 <ol>
-<li> <b>Class and instance names</b> are usually written in upper and lower case
+<li> <strong>Class and instance names</strong> are usually written in upper and lower case
      letters, e.g., \"ElectricCurrent\". An underscore may be used in names.
      However, it has to be taken into account that the last underscore in a
      name might indicate that the following characters are rendered as a subscript.
      Example: \"pin_a\" may be rendered as \"pin<sub>a</sub>\".</li>
 
-<li> <b>Class names</b> start always with an upper case letter,
+<li> <strong>Class names</strong> start always with an upper case letter,
      with the exception of functions, that start with a lower case letter.</li>
 
-<li> <b>Instance names</b>, i.e., names of component instances and
+<li> <strong>Instance names</strong>, i.e., names of component instances and
      of variables (with the exception of constants),
      start usually with a lower case letter with only
      a few exceptions if this is common sense
      (such as <code>T</code> for a temperature variable).</li>
 
-<li> <b>Constant names</b>, i.e., names of variables declared with the
+<li> <strong>Constant names</strong>, i.e., names of variables declared with the
      \"constant\" prefix, follow the usual naming conventions
      (= upper and lower case letters) and start usually with an
      upper case letter, e.g., UniformGravity, SteadyState.</li>
 
-<li> The two <b>connectors</b> of a domain that have identical declarations
+<li> The two <strong>connectors</strong> of a domain that have identical declarations
      and different icons are usually distinguished by <code>_a</code>, <code>_b</code>
      or <code>_p</code>, <code>_n</code>, e.g., <code>Flange_a</code>, <code>Flange_b</code>,
      <code>HeatPort_a</code>, <code>HeatPort_b</code>.</li>
 
-<li> A <b>connector class</b> has the instance
+<li> A <strong>connector class</strong> has the instance
      name definition in the diagram layer and not in the icon layer.</li>
 </ol>
 
@@ -1404,13 +1404,13 @@ This class summarizes general information about the implementation which is not 
         &quot;A sensorless  rotor temperature estimator for induction
                  machines based on a current harmonic spectral
                  estimation scheme,&quot;
-        <i>IEEE Transactions on Industrial Electronics</i>,
+        <em>IEEE Transactions on Industrial Electronics</em>,
         vol. 55, no. 1, pp. 407-416, Jan. 2008.</td>
     </tr>
     <tr>
       <td valign=\"top\">[Andronov1973]</td>
       <td valign=\"top\">A. Andronov, E. Leontovich, I. Gordon, and A. Maier,
-        <i>Theory of  Bifurcations of Dynamic Systems on a plane</i>,
+        <em>Theory of  Bifurcations of Dynamic Systems on a plane</em>,
         1st ed. New York: J. Wiley &amp; Sons, 1973.</td>
     </tr>
     <tr>
@@ -1647,12 +1647,12 @@ This class summarizes contact information of the contributing persons.
 <li> Structure to be provided by a main package
 <ul>
      <li> <a href=\"modelica://Modelica.UsersGuide.Conventions.UsersGuide\">User's Guide</a></li>
-     <li> <b>Examples</b> containing models demonstrating the usage of the library.</li>
-     <li> <b>Components</b> -- in case of a complex library a more detailed structure can be established.</li>
-     <li> <b>Sensors</b></li>
-     <li> <b>Sources</b></li>
-     <li> <b>Interfaces</b> containing connectors and partial models.</li>
-     <li> <b>Types</b> containing type, enumeration and choice definitions.</li>
+     <li> <strong>Examples</strong> containing models demonstrating the usage of the library.</li>
+     <li> <strong>Components</strong> -- in case of a complex library a more detailed structure can be established.</li>
+     <li> <strong>Sensors</strong></li>
+     <li> <strong>Sources</strong></li>
+     <li> <strong>Interfaces</strong> containing connectors and partial models.</li>
+     <li> <strong>Types</strong> containing type, enumeration and choice definitions.</li>
 </ul></li>
 <li> These packages should appear in the listed order.</li>
 </ol>
@@ -1677,12 +1677,12 @@ Example:
 
 <blockquote>
 <pre>
-<b>model</b> SpringDamper
-<b>parameter</b> Real c(final unit=\"N.m/rad\")    = 1e5 \"Spring constant\";
-<b>parameter</b> Real d(final unit=\"N.m.s/rad\")  = 0   \"Damping constant\";
-<b>parameter</b> Modelica.SIunits.Angle phi_rel0 = 0   \"Unstretched spring angle\";
+<strong>model</strong> SpringDamper
+<strong>parameter</strong> Real c(final unit=\"N.m/rad\")    = 1e5 \"Spring constant\";
+<strong>parameter</strong> Real d(final unit=\"N.m.s/rad\")  = 0   \"Damping constant\";
+<strong>parameter</strong> Modelica.SIunits.Angle phi_rel0 = 0   \"Unstretched spring angle\";
 ...
-<b>end</b> SpringDamper;
+<strong>end</strong> SpringDamper;
 </pre>
 </blockquote>
 
@@ -1730,12 +1730,12 @@ following example:
 
 <blockquote>
 <pre>
-<b>model</b> SpringDamper
-<b>parameter</b> Real c(final unit=\"N.m/rad\"  , start=1e5) \"Spring constant\";
-<b>parameter</b> Real d(final unit=\"N.m.s/rad\", start=  0) \"Damping constant\";
-<b>parameter</b> Modelica.SIunits.Angle phi_rel0 = 0       \"Unstretched spring angle\";
+<strong>model</strong> SpringDamper
+<strong>parameter</strong> Real c(final unit=\"N.m/rad\"  , start=1e5) \"Spring constant\";
+<strong>parameter</strong> Real d(final unit=\"N.m.s/rad\", start=  0) \"Damping constant\";
+<strong>parameter</strong> Modelica.SIunits.Angle phi_rel0 = 0       \"Unstretched spring angle\";
 ...
-<b>end</b> SpringDamper;
+<strong>end</strong> SpringDamper;
 
 SpringDamper sp1;              // warning for \"c\" and \"d\"
 SpringDamper sp2(c=1e4, d=0);  // fine, no warning
@@ -1746,7 +1746,7 @@ SpringDamper sp2(c=1e4, d=0);  // fine, no warning
 Both definition forms, using a \"start\" value (for \"c\" and \"d\") and providing
 a declaration equation (for \"phi_rel0\"), are valid Modelica and define the value
 of the parameter. By convention, it is expected that Modelica translators will
-trigger a warning message for parameters that are <b>not</b> defined by a declaration
+trigger a warning message for parameters that are <strong>not</strong> defined by a declaration
 equation, by a modifier equation or in an initial equation/algorithm section.
 A Modelica translator might have options to change this behavior, especially,
 that no messages are printed in such cases and/or that an error is triggered
@@ -2312,7 +2312,7 @@ more of the following changes.
 <li> Correcting attributes quantity/unit/defaultUnit in a declaration.</li>
 <li> Improving/fixing the documentation.</li>
 <li> Introducing a new name in the public section of a class
-         (model, package, ...) or in any section of a partial class is <b>not</b> allowed.
+         (model, package, ...) or in any section of a partial class is <strong>not</strong> allowed.
          Since otherwise, a user might use this new name and when storing its model
          and loading it with an older build-version, an error would occur.</li>
 <li> Introducing a new name in the protected section of a non-partial
@@ -2337,17 +2337,17 @@ Modelica.Fluid.Pipes.BaseClasses.WallFriction.PartialWallFriction, see details b
 </p>
 
 <ul>
-<li> This version of the Modelica package is <b>fully compatible</b> to
-     Modelica Specification <b>3.2 revision 2</b>.<br>&nbsp;
+<li> This version of the Modelica package is <strong>fully compatible</strong> to
+     Modelica Specification <strong>3.2 revision 2</strong>.<br>&nbsp;
      </li>
 
-<li> About <b>240</b> tickets have been fixed in this release and the previous maintenance releases:
+<li> About <strong>240</strong> tickets have been fixed in this release and the previous maintenance releases:
      <ul>
-     <li> <b>Version 3.2.1 Build.3</b> (July 30, 2015) with respect to 3.2.1 Build.2 (August 14, 2013):<br>
+     <li> <strong>Version 3.2.1 Build.3</strong> (July 30, 2015) with respect to 3.2.1 Build.2 (August 14, 2013):<br>
           About <a href=\"modelica://Modelica/Resources/Documentation/Version-3.2.1/ResolvedTracTickets-build-3.html\">103 tickets</a>
           have been fixed for this maintenance release.<br>&nbsp; </li>
 
-     <li> <b>Version 3.2.1 Build.4</b> (September 30, 2015) with respect to 3.2.1 Build.3 (July 30, 2015):
+     <li> <strong>Version 3.2.1 Build.4</strong> (September 30, 2015) with respect to 3.2.1 Build.3 (July 30, 2015):
           <ul>
             <li> About <a href=\"modelica://Modelica/Resources/Documentation/Version-3.2.1/ResolvedTracTickets-build-4.html\">10 tickets</a>
                  have been fixed for this maintenance release. Critical tickets:</li>
@@ -2389,17 +2389,17 @@ Modelica.Fluid.Pipes.BaseClasses.WallFriction.PartialWallFriction, see details b
                 </li>
           </ul>
      </li>
-     <li> <b>Version 3.2.2 Build.2</b> (March 16, 2016) with respect to 3.2.1 Build.4 (September 30, 2015):<br>
+     <li> <strong>Version 3.2.2 Build.2</strong> (March 16, 2016) with respect to 3.2.1 Build.4 (September 30, 2015):<br>
           About <a href=\"modelica://Modelica/Resources/Documentation/Version-3.2.2/ResolvedTracTickets.html\">130 tickets</a>
           have been fixed for this release.<br>
           The ModelicaStandardTables object library (.lib, .dll, .a, .so, depending on tool) has
-          been split into the libraries <b>ModelicaStandardTables</b>, <b>ModelicaMatIO</b>, <b>zlib</b> and the new
-          object library <b>ModelicaIO</b> has been added.<br>
-          For a <b>tool vendor</b> this can be a non-backwards compatible change if the same object libraries have been used in the past
+          been split into the libraries <strong>ModelicaStandardTables</strong>, <strong>ModelicaMatIO</strong>, <strong>zlib</strong> and the new
+          object library <strong>ModelicaIO</strong> has been added.<br>
+          For a <strong>tool vendor</strong> this can be a non-backwards compatible change if the same object libraries have been used in the past
           for different releases of package Modelica.
           In <a href=\"modelica://Modelica/Resources/C-sources/_readme.txt\">Resources/C-sources/_readme.txt</a>
           the issue is explained in detail and how to resolve it.
-          For a <b>user</b> this might be a non-backwards compatible change if he/she implemented an
+          For a <strong>user</strong> this might be a non-backwards compatible change if he/she implemented an
           own external C interface function to one of the functions in the ModelicaStandardTables,
           ModelicaMatIO or zlib libraries. In this case, the library annotations to these functions need to be
           adapted.<br>&nbsp;</li>
@@ -2438,7 +2438,7 @@ see <a href=\"https://trac.modelica.org/Modelica/ticket/1867\">#1867</a>):
 </p>
 
 <ul>
-<li> <b>Dymola 2017 Beta.1</b> (Windows 64 bit, \"Check\" with pedantic flag, that is checking strict
+<li> <strong>Dymola 2017 Beta.1</strong> (Windows 64 bit, \"Check\" with pedantic flag, that is checking strict
      Modelica compliance, and \"Check with Simulation\").<br>
      <a href=\"https://trac.modelica.org/Modelica/ticket/1924\">#1924</a>:
      Regression testing of 3.2.2+build.0-beta.2 using Dymola 2017 Dev 4 with respect to
@@ -2446,10 +2446,10 @@ see <a href=\"https://trac.modelica.org/Modelica/ticket/1867\">#1867</a>):
      <a href=\"https://trac.modelica.org/Modelica/ticket/1949\">#1949</a>:
      Regression testing of 3.2.2+build.0-beta.3 using Dymola 2017 Beta 1 with respect to
      3.2.1+build.4 reference files</li>
-<li> <b>LMS Imagine.Lab Amesim 14.2</b> and <b>LMS Imagine.Lab Amesim 15 (development build)</b>.
+<li> <strong>LMS Imagine.Lab Amesim 14.2</strong> and <strong>LMS Imagine.Lab Amesim 15 (development build)</strong>.
      No previously unreported regressions have been detected.</li>
-<li> <b>Maplesim Parser</b></li>
-<li> <b>OpenModelica 1.9.4 Beta.2</b> (Windows, Linux, Mac)<br>
+<li> <strong>Maplesim Parser</strong></li>
+<li> <strong>OpenModelica 1.9.4 Beta.2</strong> (Windows, Linux, Mac)<br>
      <a href=\"https://test.openmodelica.org/hudson/job/MSL_trunk_Compilation/\">Compilation</a> of models of 3.2.2.<br>
      <a href=\"https://test.openmodelica.org/hudson/job/MSL_trunk_cpp_Simulation/\">Simulation</a> of models of 3.2.2.<br>
      <a href=\"https://test.openmodelica.org/libraries/MSL_trunk/BuildModelRecursive.html\">Regression testing</a> of 3.2.2 using OpenModelica 1.9.4 with respect
@@ -2490,7 +2490,7 @@ The following Modelica packages have been tested that they work together with th
 
 
 <p><br>
-The following <b style=\"color:blue\">new libraries</b> have been added:
+The following <font color=\"blue\"><strong>new libraries</strong></font> have been added:
 </p>
 
 <table border=\"1\" cellspacing=0 cellpadding=2>
@@ -2530,7 +2530,7 @@ The following <b style=\"color:blue\">new libraries</b> have been added:
      The partial financial support by the European Union for this development is highly appreciated.).
     </td></tr>
 
-<tr><td valign=\"top\">Sublibraries for <b>noise</b> modeling</td>
+<tr><td valign=\"top\">Sublibraries for <strong>noise</strong> modeling</td>
     <td valign=\"top\">
    Several new sublibraries have been added allowing the modeling of reproducible noise.
    The most important new sublibraries are (for more details see below):
@@ -2544,7 +2544,7 @@ The following <b style=\"color:blue\">new libraries</b> have been added:
   DLR Institute of System Dynamics and Control).
     </td></tr>
 
-<tr><td valign=\"top\"><a href=\"modelica://Modelica.Utilities\">Modelica.Utilities</a> functions for <b>matrix read/write</b></td>
+<tr><td valign=\"top\"><a href=\"modelica://Modelica.Utilities\">Modelica.Utilities</a> functions for <strong>matrix read/write</strong></td>
     <td valign=\"top\">
    New functions are provided in the <a href=\"modelica://Modelica.Utilities.Streams\">Modelica.Utilities.Streams</a>
    sublibrary to write matrices in MATLAB MAT format on file and read matrices in this format from file.
@@ -2555,7 +2555,7 @@ The following <b style=\"color:blue\">new libraries</b> have been added:
    (These extensions have been developed by Thomas Beutlich from ITI GmbH).
     </td></tr>
 
-<tr><td valign=\"top\"><a href=\"modelica://Modelica.Math\">Modelica.Math</a> sublibrary for <b>FFT</b></td>
+<tr><td valign=\"top\"><a href=\"modelica://Modelica.Math\">Modelica.Math</a> sublibrary for <strong>FFT</strong></td>
     <td valign=\"top\">
    The new sublibrary <a href=\"modelica://Modelica.Math.FastFourierTransform\">FastFourierTransform</a>
    provides utility and convenience functions to compute the Fast Fourier Transform (FFT).
@@ -2567,21 +2567,21 @@ The following <b style=\"color:blue\">new libraries</b> have been added:
 </table>
 
 <p><br>
-The following <b style=\"color:blue\">new components</b> have been added
-to <b style=\"color:blue\">existing</b> libraries:<br>
+The following <font color=\"blue\"><strong>new components</strong></font> have been added
+to <font color=\"blue\"><strong>existing</strong></font> libraries:<br>
 </p>
 
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
-<tr><td colspan=\"2\"><b>Modelica.Blocks.Examples</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Blocks.Examples</strong></td></tr>
 <tr><td valign=\"top\" width=\"150\">NoiseExamples</td>
     <td valign=\"top\"> Several examples to demonstrate the usage of the blocks in the
                       new sublibrary Blocks.Noise.</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Blocks.Interfaces</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Blocks.Interfaces</strong></td></tr>
 <tr><td valign=\"top\" width=\"150\">PartialNoise</td>
     <td valign=\"top\"> Partial noise generator (base class of the noise generators in Blocks.Noise)</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Blocks.Math</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Blocks.Math</strong></td></tr>
 <tr><td valign=\"top\" width=\"150\">ContinuousMean</td>
     <td valign=\"top\"> Calculates the empirical expectation (mean) value of its input signal</td></tr>
 <tr><td valign=\"top\" width=\"150\">Variance</td>
@@ -2589,7 +2589,7 @@ to <b style=\"color:blue\">existing</b> libraries:<br>
 <tr><td valign=\"top\" width=\"150\">StandardDeviation</td>
     <td valign=\"top\"> Calculates the empirical standard deviation of its input signal</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Blocks.Noise</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Blocks.Noise</strong></td></tr>
 <tr><td valign=\"top\" width=\"150\">GlobalSeed</td>
     <td valign=\"top\"> Defines global settings for the blocks of sublibrary Noise,
                       especially a global seed value is defined</td></tr>
@@ -2602,43 +2602,43 @@ to <b style=\"color:blue\">existing</b> libraries:<br>
 <tr><td valign=\"top\" width=\"150\">BandLimitedWhiteNoise</td>
     <td valign=\"top\"> Noise generator to produce band-limited white noise with normal distribution</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.ComplexBlocks.Examples</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.ComplexBlocks.Examples</strong></td></tr>
 <tr><td valign=\"top\" width=\"150\">ShowTransferFunction</td>
     <td valign=\"top\"> Example to demonstrate the usage of the block TransferFunction.</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.ComplexBlocks.ComplexMath</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.ComplexBlocks.ComplexMath</strong></td></tr>
 <tr><td valign=\"top\" width=\"150\">TransferFunction</td>
     <td valign=\"top\"> This block allows to define a complex transfer function (depending on frequency input w) to obtain the complex output y.</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.ComplexBlocks.Sources</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.ComplexBlocks.Sources</strong></td></tr>
 <tr><td valign=\"top\" width=\"150\">LogFrequencySweep</td>
     <td valign=\"top\"> The logarithm of w performs a linear ramp from log10(wMin) to log10(wMax), the output is the decimal power of this logarithmic ramp.</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Mechanics.Rotational.Examples.Utilities.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Mechanics.Rotational.Examples.Utilities.</strong></td></tr>
 <tr><td valign=\"top\" width=\"150\">SpringDamperNoRelativeStates</td>
     <td valign=\"top\">Introduced to fix ticket <a href=\"https://trac.modelica.org/Modelica/ticket/1375\">1375</a></td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Mechanics.Rotational.Components.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Mechanics.Rotational.Components.</strong></td></tr>
 <tr><td valign=\"top\" width=\"150\">ElastoBacklash2</td>
     <td valign=\"top\">Alternative model of backlash. The difference to the existing ElastoBacklash
     component is that an event is generated when contact occurs and that the contact torque
     changes discontinuously in this case. For some user models, this variant of a backlash model
     leads to significantly faster simulations.</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Fluid.Examples.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Fluid.Examples.</strong></td></tr>
 <tr><td valign=\"top\" width=\"150\">NonCircularPipes</td>
     <td valign=\"top\">Introduced to check the fix of ticket <a href=\"https://trac.modelica.org/Modelica/ticket/1601\">1681</a></td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Media.Examples.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Media.Examples.</strong></td></tr>
 <tr><td valign=\"top\" width=\"150\">PsychrometricData</td>
     <td valign=\"top\">Introduced to fix ticket <a href=\"https://trac.modelica.org/Modelica/ticket/1679\">1679</a></td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Math.Matrices.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Math.Matrices.</strong></td></tr>
 <tr><td valign=\"top\" width=\"150\">balanceABC</td>
     <td valign=\"top\"> Return a balanced form of a system [A,B;C,0]
                       to improve its condition by a state transformation</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Math.Random.Generators.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Math.Random.Generators.</strong></td></tr>
 <tr><td valign=\"top\" width=\"150\">Xorshift64star</td>
     <td valign=\"top\"> Random number generator xorshift64*</td></tr>
 <tr><td valign=\"top\" width=\"150\">Xorshift128plus </td>
@@ -2646,7 +2646,7 @@ to <b style=\"color:blue\">existing</b> libraries:<br>
 <tr><td valign=\"top\" width=\"150\">Xorshift1024star</td>
     <td valign=\"top\"> Random number generator xorshift1024*</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Math.Random.Utilities.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Math.Random.Utilities.</strong></td></tr>
 <tr><td valign=\"top\" width=\"150\">initialStateWithXorshift64star</td>
     <td valign=\"top\"> Return an initial state vector for a random number generator (based on xorshift64star algorithm)</td></tr>
 <tr><td valign=\"top\" width=\"150\">automaticGlobalSeed </td>
@@ -2658,7 +2658,7 @@ to <b style=\"color:blue\">existing</b> libraries:<br>
 <tr><td valign=\"top\" width=\"150\">impureRandomInteger </td>
     <td valign=\"top\"> Impure random number generator for integer values (with hidden state vector)</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Math.Distributions.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Math.Distributions.</strong></td></tr>
 <tr><td valign=\"top\" width=\"150\">Uniform</td>
     <td valign=\"top\"> Library of uniform distribution functions (functions: density, cumulative, quantile)</td></tr>
 <tr><td valign=\"top\" width=\"150\">Normal</td>
@@ -2670,7 +2670,7 @@ to <b style=\"color:blue\">existing</b> libraries:<br>
 <tr><td valign=\"top\" width=\"150\">TruncatedWeibull </td>
     <td valign=\"top\"> Library of truncated Weibull distribution functions (functions: density, cumulative, quantile)</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Math.Special.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Math.Special.</strong></td></tr>
 <tr><td valign=\"top\" width=\"150\">erf</td>
     <td valign=\"top\">Error function erf(u) = 2/sqrt(pi)*Integral_0_u exp(-t^2)*d</td></tr>
 <tr><td valign=\"top\" width=\"150\">erfc</td>
@@ -2682,7 +2682,7 @@ to <b style=\"color:blue\">existing</b> libraries:<br>
 <tr><td valign=\"top\" width=\"150\">sinc </td>
     <td valign=\"top\">Unnormalized sinc function: sinc(u) = sin(u)/u</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Math.FastFourierTransform.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Math.FastFourierTransform.</strong></td></tr>
 <tr><td valign=\"top\" width=\"150\">realFFTinfo </td>
     <td valign=\"top\">Print information about real FFT for given f_max and f_resolution</td></tr>
 <tr><td valign=\"top\" width=\"150\">realFFTsamplePoints </td>
@@ -2690,7 +2690,7 @@ to <b style=\"color:blue\">existing</b> libraries:<br>
 <tr><td valign=\"top\" width=\"150\">realFFT</td>
     <td valign=\"top\">Return amplitude and phase vectors for a real FFT</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Utilities.Streams.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Utilities.Streams.</strong></td></tr>
 <tr><td valign=\"top\" width=\"150\">readMatrixSize</td>
     <td valign=\"top\">Read dimensions of a Real matrix from a MATLAB MAT file</td></tr>
 <tr><td valign=\"top\" width=\"150\">readRealMatrix</td>
@@ -2698,11 +2698,11 @@ to <b style=\"color:blue\">existing</b> libraries:<br>
 <tr><td valign=\"top\" width=\"150\">writeRealMatrix</td>
     <td valign=\"top\">Write Real matrix to a MATLAB MAT file</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Utilities.Strings.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Utilities.Strings.</strong></td></tr>
 <tr><td valign=\"top\" width=\"150\">hashString</td>
     <td valign=\"top\">Creates a hash value of a String</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Utilities.System.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Utilities.System.</strong></td></tr>
 <tr><td valign=\"top\" width=\"150\">getTime</td>
     <td valign=\"top\">Retrieves the local time (in the local time zone)</td></tr>
 <tr><td valign=\"top\" width=\"150\">getPid</td>
@@ -2710,11 +2710,11 @@ to <b style=\"color:blue\">existing</b> libraries:<br>
 </table>
 
 <p><br>
-The following <b style=\"color:blue\">existing components</b> have been <b style=\"color:blue\">changed</b> in a <b style=\"color:blue\">non-backward compatible</b> way:
+The following <font color=\"blue\"><strong>existing components</strong></font> have been <font color=\"blue\"><strong>changed</strong></font> in a <font color=\"blue\"><strong>non-backward compatible</strong></font> way:
 </p>
 
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
-<tr><td colspan=\"2\"><b>Electrical.Analog.Semiconductors.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Electrical.Analog.Semiconductors.</strong></td></tr>
 <tr><td valign=\"top\"> HeatingDiode </td>
           <td valign=\"top\"> Removed protected variable k \"Boltzmann's constant\".<br>
                             Calculate protected constant q \"Electron charge\" from already known constants instead of defining a protected variable q.</td></tr>
@@ -2745,8 +2745,8 @@ and will interpret it in the same way. Short Overview:
 </p>
 
 <ul>
-<li> This version of the Modelica package is <b>fully compatible</b> to
-     Modelica Specification <b>3.2 revision 2</b>.<br>
+<li> This version of the Modelica package is <strong>fully compatible</strong> to
+     Modelica Specification <strong>3.2 revision 2</strong>.<br>
      (Especially, some operators used in package Modelica,
      such as \"rooted\", have been standardized in 3.2 rev. 2,
      as well as vendor specific annotations. Furthermore,
@@ -2762,7 +2762,7 @@ and will interpret it in the same way. Short Overview:
      especially all compliance issues and all relevant defect issues.
      </li>
 
-<li> An open source implementation of the <b>table blocks</b> has been provided
+<li> An open source implementation of the <strong>table blocks</strong> has been provided
      by <a href=\"http://www.itisim.com\">ITI GmbH</a>. This work has been
      <a href=\"https://www.modelica.org/news_items/call-texts-to-improve-modelica-2012/2012-12-20-Call-for-quotation-for-MSL-tables.pdf/at_download/file\">paid by Modelica Association</a>.
      As a result, all parts of package Modelica are now available
@@ -2776,16 +2776,16 @@ and will interpret it in the same way. Short Overview:
      <li>Support of tables provided in the C-Code (usertab.c, for realtime systems without file system)</li>
      </ul></li>
 
-<li> <b>Icons</b> have been re-designed by Wolfram Research to provide a more modern view.</li>
+<li> <strong>Icons</strong> have been re-designed by Wolfram Research to provide a more modern view.</li>
 
-<li> The <b>Modelica.Media.Air.MoistAir</b> media model has been improved so that it
+<li> The <strong>Modelica.Media.Air.MoistAir</strong> media model has been improved so that it
      can be used in a temperature range of 190 ... 647 K (previously: 240 ... 400 K).</li>
 
-<li> New media models for air (<b>ReferenceAir</b> with a large operating range: 30 ... 2000 K,
-     0 ... 2000 MPa), for moist air (<b>ReferenceMoistAir</b> with a large operating range:
+<li> New media models for air (<strong>ReferenceAir</strong> with a large operating range: 30 ... 2000 K,
+     0 ... 2000 MPa), for moist air (<strong>ReferenceMoistAir</strong> with a large operating range:
      143.15 ... 2000 K, 0 .. 10 MPa;  but 1-2 orders of magnitude slower as
      Modelica.Media.Air.MoistAir),
-     and the refrigerant <b>R134a</b> are included in the Modelica.Media library in order to
+     and the refrigerant <strong>R134a</strong> are included in the Modelica.Media library in order to
      improve the modeling of air conditioning systems especially in aircraft.
      These models have been developed by
      <a href=\"http://www.xrg-simulation.de/\">XRG Simulation GmbH</a>
@@ -2794,7 +2794,7 @@ and will interpret it in the same way. Short Overview:
      The partial financial support by the European Union for this development
      is highly appreciated.</li>
 
-<li> <b>60</b> models and blocks and <b>90</b> functions are newly included, for details see below.</li>
+<li> <strong>60</strong> models and blocks and <strong>90</strong> functions are newly included, for details see below.</li>
 
 </ul>
 
@@ -2877,58 +2877,58 @@ summarized in a
 </p>
 
 <p>
-About <b>400</b> trac tickets have been fixed for this release. An overview is given
+About <strong>400</strong> trac tickets have been fixed for this release. An overview is given
 <a href=\"modelica://Modelica/Resources/Documentation/Version-3.2.1/ResolvedTracTickets.html\">here</a>.
 Clicking on a ticket gives all information about it.
 </p>
 
 
 <p><br>
-The following <b style=\"color:blue\">new components</b> have been added
-to <b style=\"color:blue\">existing</b> libraries:
+The following <font color=\"blue\"><strong>new components</strong></font> have been added
+to <font color=\"blue\"><strong>existing</strong></font> libraries:
 </p>
 
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
-<tr><td colspan=\"2\"><b>Modelica.Blocks.Logical.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Blocks.Logical.</strong></td></tr>
 <tr><td valign=\"top\" width=\"150\"> RSFlipFlop</td>
     <td valign=\"top\"> Basic RS flip flop</td></tr>
-<tr><td colspan=\"2\"><b>Modelica.Blocks.Math.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Blocks.Math.</strong></td></tr>
 <tr><td valign=\"top\" width=\"150\"> MinMax</td>
     <td valign=\"top\">Output the minimum and the maximum element of the input vector </td></tr>
 <tr><td valign=\"top\" width=\"150\"> LinearDependency </td>
     <td valign=\"top\">Output a linear combination of the two inputs </td></tr>
-<tr><td colspan=\"2\"><b>Modelica.Blocks.Nonlinear.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Blocks.Nonlinear.</strong></td></tr>
 <tr><td valign=\"top\" width=\"150\"> SlewRateLimiter</td>
     <td valign=\"top\"> Limit the slew rate of a signal </td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Electrical.Digital.Memories</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Digital.Memories</strong></td></tr>
 <tr><td valign=\"top\" width=\"150\"> DLATRAM</td>
     <td valign=\"top\"> Level sensitive Random Access Memory </td></tr>
 <tr><td valign=\"top\" width=\"150\"> DLATROM</td>
     <td valign=\"top\"> Level sensitive Read Only Memory </td></tr>
-<tr><td colspan=\"2\"><b>Modelica.Electrical.Digital.Multiplexers</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Digital.Multiplexers</strong></td></tr>
 <tr><td valign=\"top\" width=\"150\"> MUX2x1</td>
     <td valign=\"top\"> A two inputs MULTIPLEXER for multiple value logic (2 data inputs, 1 select input, 1 output) </td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Electrical.Machines.Examples.AsynchronousInductionMachines.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Machines.Examples.AsynchronousInductionMachines.</strong></td></tr>
 <tr><td valign=\"top\" width=\"150\"> AIMC_Initialize </td>
     <td valign=\"top\"> Steady-State Initialization example of AsynchronousInductionMachineSquirrelCage </td></tr>
-<tr><td colspan=\"2\"><b>Modelica.Electrical.Machines.Examples.SynchronousInductionMachines.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Machines.Examples.SynchronousInductionMachines.</strong></td></tr>
 <tr><td valign=\"top\" width=\"150\"> SMPM_VoltageSource </td>
     <td valign=\"top\"> PermanentMagnetSynchronousInductionMachine example fed by FOC </td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Electrical.MultiPhase.Examples.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.MultiPhase.Examples.</strong></td></tr>
 <tr><td valign=\"top\" width=\"150\"> TestSensors </td>
     <td valign=\"top\"> Example for multiphase quasiRMS sensors: A sinusoidal source feeds a load consisting of resistor and inductor </td></tr>
-<tr><td colspan=\"2\"><b>Modelica.Electrical.MultiPhase.Sensors.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.MultiPhase.Sensors.</strong></td></tr>
 <tr><td valign=\"top\" width=\"150\"> VoltageQuasiRMSSensor </td>
     <td valign=\"top\"> Continuous quasi voltage RMS sensor for multi phase system </td></tr>
 <tr><td valign=\"top\" width=\"150\"> CurrentQuasiRMSSensor </td>
     <td valign=\"top\"> Continuous quasi current RMS sensor for multi phase system </td></tr>
-<tr><td colspan=\"2\"><b>Modelica.Electrical.MultiPhase.Blocks.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.MultiPhase.Blocks.</strong></td></tr>
 <tr><td valign=\"top\" width=\"150\"> QuasiRMS </td>
     <td valign=\"top\"> Determine quasi RMS value of a multi-phase system </td></tr>
-<tr><td colspan=\"2\"><b>Modelica.Electrical.MultiPhase.Functions.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.MultiPhase.Functions.</strong></td></tr>
 <tr><td valign=\"top\" width=\"150\"> quasiRMS </td>
     <td valign=\"top\"> Calculate continuous quasi RMS value of input </td></tr>
 <tr><td valign=\"top\" width=\"150\"> activePower </td>
@@ -2936,7 +2936,7 @@ to <b style=\"color:blue\">existing</b> libraries:
 <tr><td valign=\"top\" width=\"150\"> symmetricOrientation </td>
     <td valign=\"top\"> Orientations of the resulting fundamental wave field phasors </td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Electrical.Spice3.Examples.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Spice3.Examples.</strong></td></tr>
 <tr><td valign=\"top\" width=\"150\"> CoupledInductors<br>
                                       CascodeCircuit<br>
                                       Spice3BenchmarkDifferentialPair<br>
@@ -2944,10 +2944,10 @@ to <b style=\"color:blue\">existing</b> libraries:
                                       Spice3BenchmarkRtlInverter<br>
                                       Spice3BenchmarkFourBitBinaryAdder</td>
     <td valign=\"top\"> Spice3 examples and benchmarks from the SPICE3 Version e3 User's Manual </td></tr>
-<tr><td colspan=\"2\"><b>Modelica.Electrical.Spice3.Basic.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Spice3.Basic.</strong></td></tr>
 <tr><td valign=\"top\" width=\"150\"> K_CoupledInductors</td>
     <td valign=\"top\"> Inductive coupling via coupling factor K </td></tr>
-<tr><td colspan=\"2\"><b>Modelica.Electrical.Spice3.Semiconductors.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Spice3.Semiconductors.</strong></td></tr>
 <tr><td valign=\"top\" width=\"150\"> M_NMOS2 <br>
                                       M_PMOS2 <br>
                                       ModelcardMOS2</td>
@@ -2960,7 +2960,7 @@ to <b style=\"color:blue\">existing</b> libraries:
                                       ModelcardCAPACITOR</td>
     <td valign=\"top\">  Semiconductor capacitor model </td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.</strong></td></tr>
 <tr><td valign=\"top\" width=\"150\"> AIMC_DOL_MultiPhase<br>
                                       AIMS_Start_MultiPhase<br>
                                       SMPM_Inverter_MultiPhase<br>
@@ -2968,17 +2968,17 @@ to <b style=\"color:blue\">existing</b> libraries:
                                       SMR_Inverter_MultiPhase</td>
     <td valign=\"top\"> Multi-phase machine examples </td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Fluid.Sensors.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Fluid.Sensors.</strong></td></tr>
 <tr><td valign=\"top\" width=\"150\"> MassFractions<br>
                                       MassFractionsTwoPort</td>
     <td valign=\"top\"> Ideal mass fraction sensors </td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Media.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Media.</strong></td></tr>
 <tr><td valign=\"top\" width=\"150\">R134a</td>
     <td valign=\"top\"> R134a (Tetrafluoroethane) medium model in the range (0.0039 bar .. 700 bar,
     169.85 K .. 455 K)</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Media.Air.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Media.Air.</strong></td></tr>
 <tr><td valign=\"top\" width=\"150\"> ReferenceAir</td>
     <td valign=\"top\"> Detailed dry air model with a large operating range (130 ... 2000 K, 0 ... 2000 MPa)
                         based on Helmholtz equations of state</td></tr>
@@ -2987,7 +2987,7 @@ to <b style=\"color:blue\">existing</b> libraries:
 <tr><td valign=\"top\" width=\"150\"> MoistAir</td>
     <td valign=\"top\"> Temperature range of functions of MoistAir medium enlarged from
                         240 - 400 K to  190 - 647 K.</td></tr>
-<tr><td colspan=\"2\"><b>Modelica.Media.Air.MoistAir.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Media.Air.MoistAir.</strong></td></tr>
 <tr><td valign=\"top\" width=\"150\"> velocityOfSound<br>
                                       isobaricExpansionCoefficient<br>
                                       isothermalCompressibility<br>
@@ -3004,20 +3004,20 @@ to <b style=\"color:blue\">existing</b> libraries:
                                       isentropicEnthalpy</td>
     <td valign=\"top\"> Functions returning additional properties of the moist air medium model</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Thermal.HeatTransfer.Components.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Thermal.HeatTransfer.Components.</strong></td></tr>
 <tr><td valign=\"top\" width=\"150\"> ThermalResistor</td>
     <td valign=\"top\"> Lumped thermal element transporting heat without storing it (dT = R*Q_flow) </td></tr>
 <tr><td valign=\"top\" width=\"150\"> ConvectiveResistor</td>
     <td valign=\"top\"> Lumped thermal element for heat convection (dT = Rc*Q_flow) </td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.MultiBody.Examples.Constraints.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.MultiBody.Examples.Constraints.</strong></td></tr>
 <tr><td valign=\"top\" width=\"150\"> PrismaticConstraint <br>
                         RevoluteConstraint<br>
                         SphericalConstraint<br>
                         UniversalConstraint</td>
     <td valign=\"top\"> Demonstrates the use of the new Joints.Constraints joints by comparing
                         them with the standard joints.</td></tr>
-<tr><td colspan=\"2\"><b>Modelica.MultiBody.Joints.Constraints.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.MultiBody.Joints.Constraints.</strong></td></tr>
 <tr><td valign=\"top\" width=\"150\"> Prismatic <br>
                         Revolute<br>
                         Spherical<br>
@@ -3026,21 +3026,21 @@ to <b style=\"color:blue\">existing</b> libraries:
                         designed to break kinematic loops and result usually in numerically more
                         efficient and reliable loop handling as the (standard) automatic handling.</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Mechanics.Rotational.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Mechanics.Rotational.</strong></td></tr>
 <tr><td valign=\"top\" width=\"150\"> MultiSensor</td>
     <td valign=\"top\"> Ideal sensor to measure the torque and power between two flanges and the absolute angular velocity </td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Mechanics.Translational.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Mechanics.Translational.</strong></td></tr>
 <tr><td valign=\"top\" width=\"150\"> MultiSensor</td>
     <td valign=\"top\"> Ideal sensor to measure the absolute velocity, force and power between two flanges </td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Math.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Math.</strong></td></tr>
 <tr><td valign=\"top\" width=\"150\"> isPowerOf2</td>
     <td valign=\"top\"> Determine if the integer input is a power of 2 </td></tr>
-<tr><td colspan=\"2\"><b>Modelica.Math.Vectors.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Math.Vectors.</strong></td></tr>
 <tr><td valign=\"top\" width=\"150\"> normalizedWithAssert</td>
     <td valign=\"top\"> Return normalized vector such that length = 1 (trigger an assert for zero vector) </td></tr>
-<tr><td colspan=\"2\"><b>Modelica.Math.BooleanVectors.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Math.BooleanVectors.</strong></td></tr>
 <tr><td valign=\"top\" width=\"150\"> countTrue</td>
     <td valign=\"top\"> Returns the number of true entries in a Boolean vector  </td></tr>
 <tr><td valign=\"top\" width=\"150\"> enumerate</td>
@@ -3048,11 +3048,11 @@ to <b style=\"color:blue\">existing</b> libraries:
 <tr><td valign=\"top\" width=\"150\"> index</td>
     <td valign=\"top\"> Returns the indices of the true entries of a Boolean vector</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Utilities.Files.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Utilities.Files.</strong></td></tr>
 <tr><td valign=\"top\" width=\"150\"> loadResource</td>
     <td valign=\"top\"> Return the absolute path name of a URI or local file name  </td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.SIunits.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.SIunits.</strong></td></tr>
 <tr><td valign=\"top\" width=\"150\"> PressureDifference<br>
                         MolarDensity<br>
                         MolarEnergy<br>
@@ -3079,9 +3079,9 @@ This version is a major improvement:
 </p>
 
 <ul>
-<li> <b>357</b> models and blocks and <b>295</b> functions are newly included.</li>
+<li> <strong>357</strong> models and blocks and <strong>295</strong> functions are newly included.</li>
 
-<li><b>7</b> new libraries are included.</li>
+<li><strong>7</strong> new libraries are included.</li>
 
 <li> The icons of the library are newly designed to provide a modern, unified view,
      see <a href=\"modelica://Modelica.Icons\">Modelica.Icons</a>.</li>
@@ -3134,7 +3134,7 @@ We highly appreciate this funding.
 </p>
 
 <p>
-The following <b style=\"color:blue\">new libraries</b> have been added:
+The following <font color=\"blue\"><strong>new libraries</strong></font> have been added:
 </p>
 
 <table border=\"1\" cellspacing=0 cellpadding=2>
@@ -3223,17 +3223,17 @@ The following <b style=\"color:blue\">new libraries</b> have been added:
 </table>
 
 <p><br>
-The following <b style=\"color:blue\">new components</b> have been added
-to <b style=\"color:blue\">existing</b> libraries:
+The following <font color=\"blue\"><strong>new components</strong></font> have been added
+to <font color=\"blue\"><strong>existing</strong></font> libraries:
 </p>
 
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
-<tr><td colspan=\"2\"><b>Modelica.UsersGuide</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.UsersGuide</strong></td></tr>
 <tr><td valign=\"top\"> Conventions
                       </td>
     <td valign=\"top\"> Considerably improved 'Conventions' for the Modelica Standard Library.</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Blocks.Examples</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Blocks.Examples</strong></td></tr>
 <tr><td valign=\"top\"> Filter<br>
                       FilterWithDifferentation<br>
                       FilterWithRiseTime<br>
@@ -3244,18 +3244,18 @@ to <b style=\"color:blue\">existing</b> libraries:
                       </td>
     <td valign=\"top\"> Examples for the newly introduced block components.</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Blocks.Continuous</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Blocks.Continuous</strong></td></tr>
 <tr><td valign=\"top\"> Filter </td>
     <td valign=\"top\"> Continuous low pass, high pass, band pass and band stop
                       IIR-filter of type CriticalDamping, Bessel, Butterworth and Chebyshev I.</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Blocks.Interaction.Show</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Blocks.Interaction.Show</strong></td></tr>
 <tr><td valign=\"top\"> RealValue<br>
                       IntegerValue<br>
                       BooleanValue</td>
     <td valign=\"top\"> Blocks to show the values of variables in a diagram animation.</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Blocks.Interfaces</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Blocks.Interfaces</strong></td></tr>
 <tr><td valign=\"top\"> RealVectorInput<br>
                       IntegerVectorInput<br>
                       BooleanVectorInput<br>
@@ -3267,7 +3267,7 @@ to <b style=\"color:blue\">existing</b> libraries:
                       </td>
     <td valign=\"top\"> Interfaces and partial blocks for the new block components.</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Blocks.Math</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Blocks.Math</strong></td></tr>
 <tr><td valign=\"top\"> MultiSum<br>
                       MultiProduct<br>
                       MultiSwitch </td>
@@ -3275,14 +3275,14 @@ to <b style=\"color:blue\">existing</b> libraries:
                       (based on connectorSizing annotation to handle vectors of
                        connectors in a convenient way).</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Blocks.MathInteger</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Blocks.MathInteger</strong></td></tr>
 <tr><td valign=\"top\"> MultiSwitch<br>
                       Sum<br>
                       Product<br>
                       TriggeredAdd</td>
     <td valign=\"top\"> Mathematical blocks for Integer signals.</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Blocks.Boolean</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Blocks.Boolean</strong></td></tr>
 <tr><td valign=\"top\"> MultiSwitch<br>
                       And<br>
                       Or<br>
@@ -3304,30 +3304,30 @@ to <b style=\"color:blue\">existing</b> libraries:
                       Additionally, the icons are smaller so that the diagram area is
                       better utilized</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Blocks.Sources</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Blocks.Sources</strong></td></tr>
 <tr><td valign=\"top\"> RadioButtonSource</td>
     <td valign=\"top\"> Boolean signal source that mimics a radio button.</td></tr>
 <tr><td valign=\"top\"> IntegerTable</td>
     <td valign=\"top\"> Generate an Integer output signal based on a table matrix
                       with [time, yi] values.</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Electrical.Analog.Examples</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Analog.Examples</strong></td></tr>
 <tr><td valign=\"top\"> SimpleTriacCircuit,<br>
                       IdealTriacCircuit,<br>
                       AD_DA_conversion </td>
     <td valign=\"top\"> Examples for the newly introduced Analog components.</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Electrical.Analog.Ideal</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Analog.Ideal</strong></td></tr>
 <tr><td valign=\"top\"> IdealTriac,<br>
                       AD_Converter,<br>
                       DA_Converter </td>
     <td valign=\"top\"> AD and DA converter, ideal triac (based on ideal thyristor).</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Electrical.Analog.Semiconductors</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Analog.Semiconductors</strong></td></tr>
 <tr><td valign=\"top\"> SimpleTriac </td>
     <td valign=\"top\"> Simple triac based on semiconductor thyristor model.</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Electrical.Digital.Examples</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Digital.Examples</strong></td></tr>
 <tr><td valign=\"top\">  Delay_example,<br>
                        DFFREG_example,<br>
                        DFFREGL_example,<br>
@@ -3344,13 +3344,13 @@ to <b style=\"color:blue\">existing</b> libraries:
                        WiredX_example </td>
     <td valign=\"top\"> Examples for the newly introduced Digital components.</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Electrical.Digital.Interfaces</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Digital.Interfaces</strong></td></tr>
 <tr><td valign=\"top\"> UX01,<br>
                       Strength,<br>
                       MIMO </td>
     <td valign=\"top\"> Interfaces for the newly introduced Digital components.</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Electrical.Digital.Tables</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Digital.Tables</strong></td></tr>
 <tr><td valign=\"top\"> ResolutionTable,<br>
                       StrengthMap,<br>
                       NXferTable,<br>
@@ -3361,11 +3361,11 @@ to <b style=\"color:blue\">existing</b> libraries:
                       Buf3slTable </td>
     <td valign=\"top\"> New Digital table components.</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Electrical.Digital.Delay</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Digital.Delay</strong></td></tr>
 <tr><td valign=\"top\"> InertialDelaySensitiveVector </td>
     <td valign=\"top\"> New Digital delay component.</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Electrical.Digital.Registers</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Digital.Registers</strong></td></tr>
 <tr><td valign=\"top\"> DFFR,<br>
                       DFFREG,<br>
                       DFFREGL,<br>
@@ -3381,7 +3381,7 @@ to <b style=\"color:blue\">existing</b> libraries:
     <td valign=\"top\"> Various register components (collection of flipflops and latches)
                       according to the VHDL standard.</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Electrical.Digital.Tristates</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Digital.Tristates</strong></td></tr>
 <tr><td valign=\"top\"> NXFERGATE,<br>
                       NRXFERGATE,<br>
                       PXFERGATE,<br>
@@ -3393,13 +3393,13 @@ to <b style=\"color:blue\">existing</b> libraries:
                       WiredX </td>
     <td valign=\"top\"> Transfer gates, buffers, inverters and wired node.</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Electrical.MultiPhase.Basic</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.MultiPhase.Basic</strong></td></tr>
 <tr><td valign=\"top\"> MutualInductor </td>
     <td valign=\"top\"> Multi phase inductor providing a mutual inductance matrix model.</td></tr>
 <tr><td valign=\"top\"> ZeroInductor </td>
     <td valign=\"top\"> Multi phase zero sequence inductor.</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Electrical.Machines</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Machines</strong></td></tr>
 <tr><td valign=\"top\"> Examples </td>
     <td valign=\"top\"> Structured according to machine types:<br>
                       AsynchronousInductionMachines<br>
@@ -3418,7 +3418,7 @@ to <b style=\"color:blue\">existing</b> libraries:
 <tr><td valign=\"top\"> Icons.* </td>
     <td valign=\"top\"> Icons for transient and quasistationary electrical machines and transformers.</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Electrical.Machines.Examples.AsynchronousInductionMachines.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Machines.Examples.AsynchronousInductionMachines.</strong></td></tr>
 <tr><td valign=\"top\"> AIMC_withLosses </td>
     <td valign=\"top\"> Asynchronous induction machine with squirrel cage with losses </td></tr>
 <tr><td valign=\"top\"> AIMC_Transformer </td>
@@ -3426,13 +3426,13 @@ to <b style=\"color:blue\">existing</b> libraries:
 <tr><td valign=\"top\"> AIMC_withLosses </td>
     <td valign=\"top\"> Test example of an asynchronous induction machine with squirrel cage with losses </td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Electrical.Machines.Examples.SynchronousInductionMachines.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Machines.Examples.SynchronousInductionMachines.</strong></td></tr>
 <tr><td valign=\"top\"> SMPM_CurrentSource </td>
     <td valign=\"top\"> Permanent magnet synchronous induction machine fed by a current source </td></tr>
 <tr><td valign=\"top\"> SMEE_LoadDump </td>
     <td valign=\"top\"> Electrical excited synchronous induction machine with voltage controller </td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Electrical.Machines.Examples.DCMachines.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Machines.Examples.DCMachines.</strong></td></tr>
 <tr><td valign=\"top\"> DCSE_SinglePhase </td>
     <td valign=\"top\"> Series excited DC machine, fed by sinusoidal voltage </td></tr>
 <tr><td valign=\"top\"> DCPM_Temperature </td>
@@ -3444,22 +3444,22 @@ to <b style=\"color:blue\">existing</b> libraries:
 <tr><td valign=\"top\"> DCPM_Losses </td>
     <td valign=\"top\"> Permanent magnet DC machine, comparison between model with and without losses </td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Electrical.Machines.BasicMachines.QuasiStationaryDCMachines.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Machines.BasicMachines.QuasiStationaryDCMachines.</strong></td></tr>
 <tr><td valign=\"top\"> DC_PermanentMagnet <br>
                       DC_ElectricalExcited <br>
                       DC_SeriesExcited </td>
     <td valign=\"top\"> QuasiStationary DC machines, i.e., neglecting electrical transients </td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Electrical.Machines.BasicMachines.Components.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Machines.BasicMachines.Components.</strong></td></tr>
 <tr><td valign=\"top\"> InductorDC </td>
     <td valign=\"top\"> Inductor model which neglects der(i) if Boolean parameter quasiStationary = true </td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Electrical.Machines.Interfaces.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Machines.Interfaces.</strong></td></tr>
 <tr><td valign=\"top\">  ThermalPortTransformer <br>
                        PowerBalanceTransformer </td>
     <td valign=\"top\"> Thermal ports and power balances for electrical machines and transformers.</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Electrical.Machines.Utilities</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Machines.Utilities</strong></td></tr>
 <tr><td valign=\"top\"> SwitchedRheostat </td>
     <td valign=\"top\"> Switched rheostat, used for starting asynchronous induction motors with slipring rotor.</td></tr>
 <tr><td valign=\"top\"> RampedRheostat </td>
@@ -3469,7 +3469,7 @@ to <b style=\"color:blue\">existing</b> libraries:
                       from parameters normally given in a technical description,
                       according to the standard EN 60034-4:2008 Appendix C.</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Mechanics.MultiBody.Examples.Elementary.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Mechanics.MultiBody.Examples.Elementary.</strong></td></tr>
 <tr><td valign=\"top\"> HeatLosses </td>
     <td valign=\"top\"> Demonstrate the modeling of heat losses.</td></tr>
 <tr><td valign=\"top\"> UserDefinedGravityField </td>
@@ -3478,7 +3478,7 @@ to <b style=\"color:blue\">existing</b> libraries:
     <td valign=\"top\"> Demonstrate the visualization of a sine surface,<br>
                       as well as a torus and a wheel constructed from a surface.</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Mechanics.MultiBody.Joints.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Mechanics.MultiBody.Joints.</strong></td></tr>
 <tr><td valign=\"top\"> FreeMotionScalarInit </td>
     <td valign=\"top\"> Free motion joint that allows initialization and state selection<br>
                       of single elements of the relevant vectors<br>
@@ -3486,7 +3486,7 @@ to <b style=\"color:blue\">existing</b> libraries:
                       this new component fixes ticket
                       <a href=\"https://trac.modelica.org/Modelica/ticket/274\">#274</a>) </td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Mechanics.MultiBody.Visualizers.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Mechanics.MultiBody.Visualizers.</strong></td></tr>
 <tr><td valign=\"top\"> Torus </td>
     <td valign=\"top\"> Visualizing a torus.</td></tr>
 <tr><td valign=\"top\"> VoluminousWheel </td>
@@ -3494,7 +3494,7 @@ to <b style=\"color:blue\">existing</b> libraries:
 <tr><td valign=\"top\"> PipeWithScalarField </td>
     <td valign=\"top\"> Visualizing a pipe with scalar field quantities along the pipe axis.</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Mechanics.MultiBody.Visualizers.ColorMaps.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Mechanics.MultiBody.Visualizers.ColorMaps.</strong></td></tr>
 <tr><td valign=\"top\"> jet<br>
                       hot<br>
                       gray<br>
@@ -3504,13 +3504,13 @@ to <b style=\"color:blue\">existing</b> libraries:
                       winter </td>
     <td valign=\"top\"> Functions returning different color maps.</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Mechanics.MultiBody.Visualizers.Colors.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Mechanics.MultiBody.Visualizers.Colors.</strong></td></tr>
 <tr><td valign=\"top\"> colorMapToSvg </td>
     <td valign=\"top\"> Save a color map on file in svg (scalable vector graphics) format.</td></tr>
 <tr><td valign=\"top\"> scalarToColor </td>
     <td valign=\"top\"> Map a scalar to a color using a color map.</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Mechanics.MultiBody.Visualizers.Advanced.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Mechanics.MultiBody.Visualizers.Advanced.</strong></td></tr>
 <tr><td valign=\"top\"> Surface </td>
     <td valign=\"top\"> Visualizing a moveable, parameterized surface;<br>
                       the surface characteristic is provided by a function<br>
@@ -3519,39 +3519,39 @@ to <b style=\"color:blue\">existing</b> libraries:
 <tr><td valign=\"top\"> PipeWithScalarField </td>
     <td valign=\"top\"> Visualizing a pipe with a scalar field.</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Mechanics.MultiBody.Visualizers.Advanced.SurfaceCharacteristics.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Mechanics.MultiBody.Visualizers.Advanced.SurfaceCharacteristics.</strong></td></tr>
 <tr><td valign=\"top\"> torus </td>
     <td valign=\"top\"> Function defining the surface characteristic of a torus.</td></tr>
 <tr><td valign=\"top\"> pipeWithScalarField </td>
     <td valign=\"top\"> Function defining the surface characteristic of a pipe<br>
                       where a scalar field value is displayed with color along the pipe axis.</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Mechanics.Rotational.Examples.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Mechanics.Rotational.Examples.</strong></td></tr>
 <tr><td valign=\"top\"> HeatLosses </td>
     <td valign=\"top\"> Demonstrate the modeling of heat losses.</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Mechanics.Translational.Examples.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Mechanics.Translational.Examples.</strong></td></tr>
 <tr><td valign=\"top\"> HeatLosses </td>
     <td valign=\"top\"> Demonstrate the modeling of heat losses.</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Fluid.Fittings.Bends</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Fluid.Fittings.Bends</strong></td></tr>
 <tr><td valign=\"top\"> CurvedBend<br>
                       EdgedBend</td>
     <td valign=\"top\"> New fitting (pressure loss) components.</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Fluid.Fittings.Orifices.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Fluid.Fittings.Orifices.</strong></td></tr>
 <tr><td valign=\"top\"> ThickEdgedOrifice</td>
     <td valign=\"top\"> New fitting (pressure loss) component.</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Fluid.Fittings.GenericResistances.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Fluid.Fittings.GenericResistances.</strong></td></tr>
 <tr><td valign=\"top\"> VolumeFlowRate</td>
     <td valign=\"top\"> New fitting (pressure loss) component.</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Math</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Math</strong></td></tr>
 <tr><td valign=\"top\"> isEqual </td>
     <td valign=\"top\"> Determine if two Real scalars are numerically identical.</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Math.Vectors</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Math.Vectors</strong></td></tr>
 <tr><td valign=\"top\"> find </td>
     <td valign=\"top\"> Find element in vector.</td></tr>
 <tr><td valign=\"top\"> toString </td>
@@ -3561,14 +3561,14 @@ to <b style=\"color:blue\">existing</b> libraries:
 <tr><td valign=\"top\"> relNodePositions </td>
     <td valign=\"top\"> Return vector of relative node positions (0..1).</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Math.Vectors.Utilities</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Math.Vectors.Utilities</strong></td></tr>
 <tr><td valign=\"top\"> householderVector<br>
                       householderReflection<br>
                       roots </td>
     <td valign=\"top\"> Utility functions for vectors that are used by the newly introduced functions,
                       but are only of interest for a specialist.</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Math.Matrices</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Math.Matrices</strong></td></tr>
 <tr><td valign=\"top\"> continuousRiccati<br>
                       discreteRiccati </td>
     <td valign=\"top\"> Return solution of continuous-time and discrete-time
@@ -3603,7 +3603,7 @@ to <b style=\"color:blue\">existing</b> libraries:
     <td valign=\"top\"> Computes the real Schur form of a matrix.</td></tr>
 <tr><td valign=\"top\"> frobeniusNorm </td>
     <td valign=\"top\"> Return the Frobenius norm of a matrix.</td></tr>
-<tr><td colspan=\"2\"><b>Modelica.Math.Matrices.LAPACK.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Math.Matrices.LAPACK.</strong></td></tr>
 <tr><td valign=\"top\"> dtrevc<br>
                       dpotrf<br>
                       dtrsm<br>
@@ -3626,7 +3626,7 @@ to <b style=\"color:blue\">existing</b> libraries:
     <td valign=\"top\"> New interface functions for LAPACK
                       (should usually not directly be used but only indirectly via
                       Modelica.Math.Matrices).</td></tr>
-<tr><td colspan=\"2\"><b>Modelica.Math.Matrices.Utilities.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Math.Matrices.Utilities.</strong></td></tr>
 <tr><td valign=\"top\"> reorderRSF<br>
                       continuousRiccatiIterative<br>
                       discreteRiccatiIterative<br>
@@ -3638,14 +3638,14 @@ to <b style=\"color:blue\">existing</b> libraries:
     <td valign=\"top\"> Utility functions for matrices that are used by the newly introduced functions,
                       but are only of interest for a specialist.</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Math.Nonlinear</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Math.Nonlinear</strong></td></tr>
 <tr><td valign=\"top\"> quadratureLobatto </td>
     <td valign=\"top\"> Return the integral of an integrand function using an adaptive Lobatto rule.</td></tr>
 <tr><td valign=\"top\"> solveOneNonlinearEquation </td>
     <td valign=\"top\"> Solve f(u) = 0 in a very reliable and efficient way
                       (f(u_min) and f(u_max) must have different signs).</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Math.Nonlinear.Examples.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Math.Nonlinear.Examples.</strong></td></tr>
 <tr><td valign=\"top\"> quadratureLobatto1<br>
                       quadratureLobatto2<br>
                       solveNonlinearEquations1<br>
@@ -3653,7 +3653,7 @@ to <b style=\"color:blue\">existing</b> libraries:
     <td valign=\"top\"> Examples that demonstrate the usage of the Modelica.Math.Nonlinear functions
                       to integrate over functions and to solve scalar nonlinear equations.</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Math.BooleanVectors.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Math.BooleanVectors.</strong></td></tr>
 <tr><td valign=\"top\"> allTrue </td>
     <td valign=\"top\"> Returns true, if all elements of the Boolean input vector are true.</td></tr>
 <tr><td valign=\"top\"> anyTrue </td>
@@ -3664,7 +3664,7 @@ to <b style=\"color:blue\">existing</b> libraries:
     <td valign=\"top\"> Returns the index of the first element of the Boolean vector that
                       is true and returns 0, if no element is true </td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Icons.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Icons.</strong></td></tr>
 <tr><td valign=\"top\"> Information<br>
                       Contact<br>
                       ReleaseNotes<br>
@@ -3682,7 +3682,7 @@ to <b style=\"color:blue\">existing</b> libraries:
     <td valign=\"top\"> New icons to get a unified view on different categories
                       of packages.</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.SIunits.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.SIunits.</strong></td></tr>
 <tr><td valign=\"top\"> ComplexCurrent<br>
                       ComplexCurrentSlope<br>
                       ComplexCurrentDensity<br>
@@ -3712,19 +3712,19 @@ to <b style=\"color:blue\">existing</b> libraries:
 </table>
 
 <p><br>
-The following <b style=\"color:blue\">existing components</b>
-have been <b style=\"color:blue\">improved</b> in a
-<b style=\"color:blue\">backward compatible</b> way:
+The following <font color=\"blue\"><strong>existing components</strong></font>
+have been <font color=\"blue\"><strong>improved</strong></font> in a
+<font color=\"blue\"><strong>backward compatible</strong></font> way:
 </p>
 
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
-<tr><td colspan=\"2\"><b>Modelica.Blocks.Sources.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Blocks.Sources.</strong></td></tr>
 <tr><td valign=\"top\"> Pulse<br>
                       SawTooth </td>
     <td valign=\"top\"> New parameter \"nperiod\" introduced to define the number of periods
                       for the signal type. Default is \"infinite number of periods
                       (nperiods=-1).</td></tr>
-<tr><td colspan=\"2\"><b>Modelica.Electrical.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.</strong></td></tr>
 <tr><td valign=\"top\"> MultiPhase.*</td>
     <td valign=\"top\"> All dissipative components have now an optional heatPort connector
                       to which the dissipated losses are transported in form of heat.
@@ -3746,7 +3746,7 @@ have been <b style=\"color:blue\">improved</b> in a
                       To all electric machines (asynchronous and synchronous induction machines, DC machines)
                       a \"powerBalance\" result record has been added, summarizing converted power and losses.
                        </td></tr>
-<tr><td colspan=\"2\"><b>Modelica.Mechanics.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Mechanics.</strong></td></tr>
 <tr><td valign=\"top\"> MultiBody.*<br>
                       Rotational.*<br>
                       Translational.*</td>
@@ -3758,13 +3758,13 @@ have been <b style=\"color:blue\">improved</b> in a
                       \"%name\": width: -150 .. 150, height: 40, color: blue<br>
                       other text: height: 30, color: black
                        </td></tr>
-<tr><td colspan=\"2\"><b>Modelica.Mechanics.MultiBody.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Mechanics.MultiBody.</strong></td></tr>
 <tr><td valign=\"top\"> World </td>
     <td valign=\"top\"> Function gravityAcceleration is made replaceable, so that redeclaration
                       yields user-defined gravity fields.
                        </td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Fluid.Valves.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Fluid.Valves.</strong></td></tr>
 <tr><td valign=\"top\"> ValveIncompressible<br>
                       ValveVaporizing<br>
                       ValveCompressible</td>
@@ -3777,7 +3777,7 @@ have been <b style=\"color:blue\">improved</b> in a
                       instead of continuous (smooth=0).</td>
                       </tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Fluid.Sources.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Fluid.Sources.</strong></td></tr>
 <tr><td valign=\"top\"> FixedBoundary<br>
                       Boundary_pT<br>
                       Boundary_ph</td>
@@ -3791,7 +3791,7 @@ have been <b style=\"color:blue\">improved</b> in a
                       not visible.</td>
                       </tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Media.Interfaces.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Media.Interfaces.</strong></td></tr>
 <tr><td valign=\"top\"> PartialMedium </td>
     <td valign=\"top\"> The min/max values of types SpecificEnthalpy, SpecificEntropy,
                       SpecificHeatCapacity increased, due to reported user problems.<br>
@@ -3801,7 +3801,7 @@ have been <b style=\"color:blue\">improved</b> in a
                       <a href=\"https://trac.modelica.org/Modelica/ticket/393\">#393</a>).</td>
                       </tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Thermal.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Thermal.</strong></td></tr>
 <tr><td valign=\"top\"> HeatTransfer.*</td>
     <td valign=\"top\"> All icons are unified according to the
                       Modelica.Blocks library:<br>
@@ -3809,25 +3809,25 @@ have been <b style=\"color:blue\">improved</b> in a
                       other text: height: 30, color: black
                        </td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Math.Matrices</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Math.Matrices</strong></td></tr>
 <tr><td valign=\"top\"> QR </td>
     <td valign=\"top\"> A Boolean input \"pivoting\" has been added (now QR(A, pivoting)) to provide QR-decomposition without pivoting (QR(A, false)). Default is pivoting=true.</td></tr>
 </table>
 
 <p><br>
-The following <b style=\"color:red\">critical errors</b> have been fixed (i.e., errors
+The following <font color=\"red\"><strong>critical errors</strong></font> have been fixed (i.e., errors
 that can lead to wrong simulation results):
 </p>
 
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
-<tr><td colspan=\"2\"><b>Modelica.Electrical.Digital.Delay.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Digital.Delay.</strong></td></tr>
 <tr><td valign=\"top\"> InertialDelaySensitive </td>
     <td valign=\"top\"> In order to decide whether the rising delay (tLH) or
                       the falling delay (tHL) is used, the \"previous\" value of the
                       output y has to be used and not the \"previous\" value of the
                       input x (delayType = delayTable[y_old, x] and not
                       delayType = delayTable[x_old, x]). This has been corrected.</td></tr>
-<tr><td colspan=\"2\"><b>Modelica.Mechanics.MultiBody.Parts.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Mechanics.MultiBody.Parts.</strong></td></tr>
 <tr><td valign=\"top\"> BodyBox<br>
                       BodyCylinder </td>
     <td valign=\"top\"> Fixes ticket
@@ -3844,7 +3844,7 @@ that can lead to wrong simulation results):
                       <a href=\"https://trac.modelica.org/Modelica/ticket/300\">#300</a>:
                       If parameter enforceStates=true, an error occurred.
                       This has been fixed.</td></tr>
-<tr><td colspan=\"2\"><b>Modelica.Mechanics.Rotational.Components.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Mechanics.Rotational.Components.</strong></td></tr>
 <tr><td valign=\"top\"> LossyGear</td>
     <td valign=\"top\"> In cases where the driving flange is not obvious, the component could
                       lead to a non-convergent event iteration. This has been fixed
@@ -3859,33 +3859,33 @@ that can lead to wrong simulation results):
                       model was connected to the (disabled) support connector. As a result, the
                       LossyGear was \"free floating\". This has been corrected.</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Fluid.Pipes.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Fluid.Pipes.</strong></td></tr>
 <tr><td valign=\"top\"> DynamicPipe</td>
     <td valign=\"top\"> Bug fix for dynamic mass, energy and momentum balances
                       for pipes with nParallel&gt;1.</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.</strong></td></tr>
 <tr><td valign=\"top\"> PartialPipeFlowHeatTransfer</td>
     <td valign=\"top\"> Calculation of Reynolds numbers for the heat transfer through
                       walls corrected, if nParallel&gt;1.
                       This partial model is used by LocalPipeFlowHeatTransfer
                       for laminar and turbulent forced convection in pipes.</td></tr>
-<tr><td colspan=\"2\"><b>Modelica.Media.Interfaces.PartialLinearFluid</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Media.Interfaces.PartialLinearFluid</strong></td></tr>
 <tr><td valign=\"top\"> setState_psX</td>
     <td valign=\"top\"> Sign error fixed.</td></tr>
-<tr><td colspan=\"2\"><b>Modelica.Media.CompressibleLiquids.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Media.CompressibleLiquids.</strong></td></tr>
 <tr><td valign=\"top\"> LinearColdWater</td>
     <td valign=\"top\"> Fixed wrong values for thermal conductivity and viscosity.</td></tr>
 
 </table>
 
 <p><br>
-The following <b style=\"color:red\">uncritical errors</b> have been fixed (i.e., errors
-that do <b style=\"color:red\">not</b> lead to wrong simulation results, but, e.g.,
+The following <font color=\"red\"><strong>uncritical errors</strong></font> have been fixed (i.e., errors
+that do <font color=\"red\"><strong>not</strong></font> lead to wrong simulation results, but, e.g.,
 units are wrong or errors in documentation):
 </p>
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
-<tr><td colspan=\"2\"><b>Modelica.Math.Matrices.LAPACK</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Math.Matrices.LAPACK</strong></td></tr>
 <tr><td valign=\"top\"> dgesv_vec<br>
                         dgesv<br>
                         dgetrs<br>
@@ -3908,7 +3908,7 @@ have been fixed:
 </p>
 
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
-<tr><td colspan=\"2\"><b>Modelica</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica</strong></td></tr>
 <tr><td valign=\"top\">
     <a href=\"https://trac.modelica.org/Modelica/ticket/155\">#155</a></td>
     <td valign=\"top\">Wrong usage of \"fillColor\" and \"fillPattern\" annotations for lines</td>
@@ -3963,7 +3963,7 @@ have been fixed:
     <td valign=\"top\">Non-standard annotations</td>
 </tr>
 
-<tr><td colspan=\"2\"><br><b>Modelica.Blocks</b></td></tr>
+<tr><td colspan=\"2\"><br><strong>Modelica.Blocks</strong></td></tr>
 
 <tr><td valign=\"top\">
     <a href=\"https://trac.modelica.org/Modelica/ticket/227\">#227</a></td>
@@ -3980,13 +3980,13 @@ have been fixed:
     <td valign=\"top\">Parameter with no value at all in Modelica.Blocks.Continuous.TransferFunction</td>
 </tr>
 
-<tr><td colspan=\"2\"><br><b>Modelica.Constants</b></td></tr>
+<tr><td colspan=\"2\"><br><strong>Modelica.Constants</strong></td></tr>
 <tr><td valign=\"top\">
     <a href=\"https://trac.modelica.org/Modelica/ticket/356\">#356</a></td>
     <td valign=\"top\">Add Euler-Mascheroni constant to Modelica.Constants</td>
 </tr>
 
-<tr><td colspan=\"2\"><br><b>Modelica.Electrical.Analog</b></td></tr>
+<tr><td colspan=\"2\"><br><strong>Modelica.Electrical.Analog</strong></td></tr>
 
 <tr><td valign=\"top\">
     <a href=\"https://trac.modelica.org/Modelica/ticket/346\">#346</a></td>
@@ -4008,7 +4008,7 @@ have been fixed:
     <td valign=\"top\">Bug in Modelica.Electrical.Analog.Ideal.ControlledIdealIntermediateSwitch</td>
 </tr>
 
-<tr><td colspan=\"2\"><br><b>Modelica.Machines</b></td></tr>
+<tr><td colspan=\"2\"><br><strong>Modelica.Machines</strong></td></tr>
 
 <tr><td valign=\"top\">
     <a href=\"https://trac.modelica.org/Modelica/ticket/276\">#276</a></td>
@@ -4040,7 +4040,7 @@ have been fixed:
     <td valign=\"top\">Strangeness with final parameters with no value but a start value</td>
 </tr>
 
-<tr><td colspan=\"2\"><br><b>Modelica.Electrical.MultiPhase</b></td></tr>
+<tr><td colspan=\"2\"><br><strong>Modelica.Electrical.MultiPhase</strong></td></tr>
 <tr><td valign=\"top\">
     <a href=\"https://trac.modelica.org/Modelica/ticket/173\">#173</a></td>
     <td valign=\"top\">m-phase mutual inductor</td>
@@ -4061,7 +4061,7 @@ have been fixed:
     <td valign=\"top\">Odd annotation in Modelica.Electrical.MultiPhase.Sources.SignalVoltage</td>
 </tr>
 
-<tr><td colspan=\"2\"><br><b>Modelica.Fluid</b></td></tr>
+<tr><td colspan=\"2\"><br><strong>Modelica.Fluid</strong></td></tr>
 
 <tr><td valign=\"top\">
     <a href=\"https://trac.modelica.org/Modelica/ticket/215\">#215</a></td>
@@ -4073,7 +4073,7 @@ have been fixed:
     <td valign=\"top\">Fluid.Examples.HeatExchanger: Heat transfer is switched off and cannot be enabled</td>
 </tr>
 
-<tr><td colspan=\"2\"><br><b>Modelica.Math</b></td></tr>
+<tr><td colspan=\"2\"><br><strong>Modelica.Math</strong></td></tr>
 
 <tr><td valign=\"top\">
     <a href=\"https://trac.modelica.org/Modelica/ticket/348\">#348</a></td>
@@ -4085,7 +4085,7 @@ have been fixed:
     <td valign=\"top\">Modelica.Math functions declared as \"C\" not \"builtin\"\"</td>
 </tr>
 
-<tr><td colspan=\"2\"><br><b>Modelica.Mechanics.MultiBody</b></td></tr>
+<tr><td colspan=\"2\"><br><strong>Modelica.Mechanics.MultiBody</strong></td></tr>
 
 <tr><td valign=\"top\">
     <a href=\"https://trac.modelica.org/Modelica/ticket/50\">#50</a></td>
@@ -4167,7 +4167,7 @@ have been fixed:
     <td valign=\"top\">Shape.rxvisobj wrongly referenced in Arrow/DoubleArrow</td>
 </tr>
 
-<tr><td colspan=\"2\"><br><b>Modelica.Mechanics.Rotational</b></td></tr>
+<tr><td colspan=\"2\"><br><strong>Modelica.Mechanics.Rotational</strong></td></tr>
 
 <tr><td valign=\"top\">
     <a href=\"https://trac.modelica.org/Modelica/ticket/108\">#108</a></td>
@@ -4184,7 +4184,7 @@ have been fixed:
     <td valign=\"top\">Bug in Modelica.Mechanics.Rotational.Gearbox</td>
 </tr>
 
-<tr><td colspan=\"2\"><br><b>Modelica.Mechanics.Translational</b></td></tr>
+<tr><td colspan=\"2\"><br><strong>Modelica.Mechanics.Translational</strong></td></tr>
 
 <tr><td valign=\"top\">
     <a href=\"https://trac.modelica.org/Modelica/ticket/279\">#279</a></td>
@@ -4196,7 +4196,7 @@ have been fixed:
     <td valign=\"top\">Erroneous image links in `Modelica.Mechanics.Translational`</td>
 </tr>
 
-<tr><td colspan=\"2\"><br><b>Modelica.Media</b></td></tr>
+<tr><td colspan=\"2\"><br><strong>Modelica.Media</strong></td></tr>
 <tr><td valign=\"top\">
     <a href=\"https://trac.modelica.org/Modelica/ticket/72\">#72</a></td>
     <td valign=\"top\">PartialMedium functions not provided for all media in  Modelica.Media</td>
@@ -4218,7 +4218,7 @@ have been fixed:
                      value and avoid wrong numerical results</td>
 </tr>
 
-<tr><td colspan=\"2\"><br><b>Modelica.StateGraph</b></td></tr>
+<tr><td colspan=\"2\"><br><strong>Modelica.StateGraph</strong></td></tr>
 
 <tr><td valign=\"top\">
     <a href=\"https://trac.modelica.org/Modelica/ticket/206\">#206</a></td>
@@ -4235,21 +4235,21 @@ have been fixed:
     <td valign=\"top\">Bad annotation in Modelica.StateGraph.Temporary.NumericValue</td>
 </tr>
 
-<tr><td colspan=\"2\"><br><b>Modelica.Thermal.FluidHeatFlow</b></td></tr>
+<tr><td colspan=\"2\"><br><strong>Modelica.Thermal.FluidHeatFlow</strong></td></tr>
 
 <tr><td valign=\"top\">
     <a href=\"https://trac.modelica.org/Modelica/ticket/280\">#280</a></td>
     <td valign=\"top\">Improve/fix documentation of Modelica.Thermal.FluidHeatFlow</td>
 </tr>
 
-<tr><td colspan=\"2\"><br><b>Modelica.Thermal.HeatTransfer</b></td></tr>
+<tr><td colspan=\"2\"><br><strong>Modelica.Thermal.HeatTransfer</strong></td></tr>
 
 <tr><td valign=\"top\">
     <a href=\"https://trac.modelica.org/Modelica/ticket/281\">#281</a></td>
     <td valign=\"top\">Improve/fix documentation of Modelica.Thermal.HeatTransfer</td>
 </tr>
 
-<tr><td colspan=\"2\"><br><b>Modelica.UsersGuide</b></td></tr>
+<tr><td colspan=\"2\"><br><strong>Modelica.UsersGuide</strong></td></tr>
 
 <tr><td valign=\"top\">
     <a href=\"https://trac.modelica.org/Modelica/ticket/198\">#198</a></td>
@@ -4276,14 +4276,14 @@ have been fixed:
     <td valign=\"top\">SVN keyword expansion messed up the User's guide section on version management</td>
 </tr>
 
-<tr><td colspan=\"2\"><br><b>Modelica.Utilities</b></td></tr>
+<tr><td colspan=\"2\"><br><strong>Modelica.Utilities</strong></td></tr>
 
 <tr><td valign=\"top\">
     <a href=\"https://trac.modelica.org/Modelica/ticket/249\">#249</a></td>
     <td valign=\"top\">Documentation error in ModelicaUtilities.h</td>
 </tr>
 
-<tr><td colspan=\"2\"><br><b>ModelicaServices</b></td></tr>
+<tr><td colspan=\"2\"><br><strong>ModelicaServices</strong></td></tr>
 
 <tr><td valign=\"top\">
     <a href=\"https://trac.modelica.org/Modelica/ticket/248\">#248</a></td>
@@ -4344,7 +4344,7 @@ the following new language elements (compared to Modelica Specification 3.0):
 </ul>
 
 <p>
-The following <b style=\"color:blue\">new libraries</b> have been added:
+The following <font color=\"blue\"><strong>new libraries</strong></font> have been added:
 </p>
 <table border=\"1\" cellspacing=0 cellpadding=2>
 <tr><td valign=\"top\"><a href=\"modelica://Modelica.Fluid\">Modelica.Fluid</a></td>
@@ -4377,32 +4377,32 @@ The following <b style=\"color:blue\">new libraries</b> have been added:
 </table>
 
 <p><br>
-The following <b style=\"color:blue\">new components</b> have been added
-to <b style=\"color:blue\">existing</b> libraries:
+The following <font color=\"blue\"><strong>new components</strong></font> have been added
+to <font color=\"blue\"><strong>existing</strong></font> libraries:
 </p>
 
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
-<tr><td colspan=\"2\"><b>Modelica.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.</strong></td></tr>
 <tr><td valign=\"top\"> versionBuild<br>versionDate<br>dateModified<br>revisionId </td>
     <td valign=\"top\"> New annotations from Modelica 3.1 for version handling added.</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.UsersGuide.ReleaseNotes.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.UsersGuide.ReleaseNotes.</strong></td></tr>
 <tr><td valign=\"top\"> VersionManagement </td>
     <td valign=\"top\"> Copied from info layer of previous ReleaseNotes (to make it more
                       visible) and adapted it to the new possibilities in
                       Modelica Specification 3.1.</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Blocks.Math.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Blocks.Math.</strong></td></tr>
 <tr><td valign=\"top\"> RectangularToPolar<br>
                       PolarToRectangular </td>
     <td valign=\"top\"> New blocks to convert between rectangular and polar form
                       of space phasors.</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Blocks.Routing.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Blocks.Routing.</strong></td></tr>
 <tr><td valign=\"top\"> Replicator </td>
     <td valign=\"top\"> New block to replicate an input signal to many output signals.</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Electrical.Analog.Examples.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Analog.Examples.</strong></td></tr>
 <tr><td valign=\"top\"> AmplifierWithOpAmpDetailed<br>
                       HeatingResistor<br>
                       CompareTransformers<br>
@@ -4412,7 +4412,7 @@ to <b style=\"color:blue\">existing</b> libraries:
                       ThyristorBehaviourTest</td>
     <td valign=\"top\"> New examples to demonstrate the usage of new components.</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Electrical.Analog.Basic.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Analog.Basic.</strong></td></tr>
 <tr><td valign=\"top\"> OpAmpDetailed<br>
                       TranslationalEMF<br>
                       M_Transformer</td>
@@ -4420,96 +4420,96 @@ to <b style=\"color:blue\">existing</b> libraries:
                       New electromotoric force from electrical energy into mechanical translational energy.<br>
                       Generic transformer with choosable number of inductors</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Electrical.Analog.Ideal.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Analog.Ideal.</strong></td></tr>
 <tr><td valign=\"top\"> OpenerWithArc<br>
                       CloserWithArc<br>
                       ControlledOpenerWithArc<br>
                       ControlledCloserWithArc</td>
     <td valign=\"top\"> New switches with simple arc model.</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Electrical.Analog.Interfaces.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Analog.Interfaces.</strong></td></tr>
 <tr><td valign=\"top\"> ConditionalHeatPort</td>
     <td valign=\"top\"> New partial model to add a conditional HeatPort to
                       an electrical component.</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Electrical.Analog.Lines.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Analog.Lines.</strong></td></tr>
 <tr><td valign=\"top\"> M_Oline</td>
     <td valign=\"top\"> New multiple line model, both the number of lines and the number of segments choosable.</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Electrical.Analog.Semiconductors.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Analog.Semiconductors.</strong></td></tr>
 <tr><td valign=\"top\"> ZDiode<br>Thyristor</td>
     <td valign=\"top\"> Zener Diode with 3 working areas and simple thyristor model.</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Electrical.MultiPhase.Ideal.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.MultiPhase.Ideal.</strong></td></tr>
 <tr><td valign=\"top\"> OpenerWithArc<br>CloserWithArc</td>
     <td valign=\"top\"> New switches with simple arc model (as in Modelica.Electrical.Analog.Ideal.</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Mechanics.MultiBody.Examples.Elementary.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Mechanics.MultiBody.Examples.Elementary.</strong></td></tr>
 <tr><td valign=\"top\"> RollingWheel<br>
                       RollingWheelSetDriving<br>
                       RollingWheelSetPulling</td>
     <td valign=\"top\"> New examples to demonstrate the usage of new components.</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Mechanics.MultiBody.Joints.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Mechanics.MultiBody.Joints.</strong></td></tr>
 <tr><td valign=\"top\"> RollingWheel<br>
                       RollingWheelSet</td>
     <td valign=\"top\"> New joints (no mass, no inertia) that describe an
                       ideal rolling wheel and a ideal rolling wheel set consisting
                       of two wheels rolling on the plane z=0.</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Mechanics.MultiBody.Parts.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Mechanics.MultiBody.Parts.</strong></td></tr>
 <tr><td valign=\"top\"> RollingWheel<br>
                       RollingWheelSet</td>
     <td valign=\"top\"> New ideal rolling wheel and ideal rolling wheel set consisting
                       of two wheels rolling on the plane z=0.</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Mechanics.MultiBody.Visualizers.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Mechanics.MultiBody.Visualizers.</strong></td></tr>
 <tr><td valign=\"top\"> Ground</td>
     <td valign=\"top\"> New model to visualize the ground (box at z=0).</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Mechanics.Rotational.Interfaces.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Mechanics.Rotational.Interfaces.</strong></td></tr>
 <tr><td valign=\"top\"> PartialElementaryOneFlangeAndSupport2<br>
                       PartialElementaryTwoFlangesAndSupport2</td>
     <td valign=\"top\"> New partial model with one and two flanges and the support flange
                       with a much simpler implementation as previously.</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Mechanics.Translational.Interfaces.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Mechanics.Translational.Interfaces.</strong></td></tr>
 <tr><td valign=\"top\"> PartialElementaryOneFlangeAndSupport2<br>
                       PartialElementaryTwoFlangesAndSupport2</td>
     <td valign=\"top\"> New partial model with one and two flanges and the support flange
                       with a much simpler implementation as previously.</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Media.IdealGases.Common.MixtureGasNasa.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Media.IdealGases.Common.MixtureGasNasa.</strong></td></tr>
 <tr><td valign=\"top\"> setSmoothState</td>
     <td valign=\"top\"> Return thermodynamic state so that it smoothly approximates:
                       if x &gt; 0 then state_a else state_b.</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Utilities.Internal.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Utilities.Internal.</strong></td></tr>
 <tr><td valign=\"top\"> PartialModelicaServices</td>
     <td valign=\"top\"> New package containing the interface description of
                       models and functions that require a tool dependent
                       implementation (currently only \"Shape\" for 3-dim. animation,
                       but will be extended in the future)</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Thermal.HeatTransfer.Components.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Thermal.HeatTransfer.Components.</strong></td></tr>
 <tr><td valign=\"top\"> ThermalCollector</td>
     <td valign=\"top\"> New auxiliary model to collect the heat flows
                       from m heatports to a single heatport;
                       useful for multiphase resistors (with heatports)
                       as a junction of the m heatports.</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Icons.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Icons.</strong></td></tr>
 <tr><td valign=\"top\"> VariantLibrary<br>
                       BaseClassLibrary<br>
                       ObsoleteModel</td>
     <td valign=\"top\"> New icons (VariantLibrary and BaseClassLibrary have been moved
                       from Modelica_Fluid.Icons to this place).</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.SIunits.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.SIunits.</strong></td></tr>
 <tr><td valign=\"top\"> ElectricalForceConstant </td>
     <td valign=\"top\"> New type added (#190).</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.SIunits.Conversions.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.SIunits.Conversions.</strong></td></tr>
 <tr><td valign=\"top\"> from_Hz<br>
                       to_Hz</td>
     <td valign=\"top\"> New functions to convert between frequency [Hz] and
@@ -4518,46 +4518,46 @@ to <b style=\"color:blue\">existing</b> libraries:
 </table>
 
 <p><br>
-The following <b style=\"color:blue\">existing components</b>
-have been <b style=\"color:blue\">improved</b> in a
-<b style=\"color:blue\">backward compatible</b> way:
+The following <font color=\"blue\"><strong>existing components</strong></font>
+have been <font color=\"blue\"><strong>improved</strong></font> in a
+<font color=\"blue\"><strong>backward compatible</strong></font> way:
 </p>
 
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
-<tr><td colspan=\"2\"><b>Modelica.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.</strong></td></tr>
 <tr><td valign=\"top\"> Blocks<br>Mechanics<br>StateGraph </td>
     <td valign=\"top\"> Provided missing parameter values for examples
                       (these parameters had only start values)</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Electrical.Analog.Basic</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Analog.Basic</strong></td></tr>
 <tr><td valign=\"top\"> Resistor, Conductor, VariableResistor, VariableConductor</td>
     <td valign=\"top\"> Conditional heatport added for coupling to thermal network.</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Electrical.Analog.Ideal</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Analog.Ideal</strong></td></tr>
 <tr><td valign=\"top\"> Thyristors, Switches, IdealDiode</td>
     <td valign=\"top\"> Conditional heatport added for coupling to thermal network.</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Electrical.Analog.Semiconductors</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Analog.Semiconductors</strong></td></tr>
 <tr><td valign=\"top\"> Diode, ZDiode, PMOS, NMOS, NPN, PNP</td>
     <td valign=\"top\"> Conditional heatport added for coupling to thermal network.</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Electrical.MultiPhase.Basic</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.MultiPhase.Basic</strong></td></tr>
 <tr><td valign=\"top\"> Resistor, Conductor, VariableResistor, VariableConductor</td>
     <td valign=\"top\"> Conditional heatport added for coupling to thermal network (as in Modelica.Electrical.Analog).</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Electrical.MultiPhase.Ideal</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.MultiPhase.Ideal</strong></td></tr>
 <tr><td valign=\"top\"> Thyristors, Switches, IdealDiode</td>
     <td valign=\"top\"> Conditional heatport added for coupling to thermal network (as in Modelica.Electrical.Analog).</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Mechanics.MultiBody.Visualizers.Advanced.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Mechanics.MultiBody.Visualizers.Advanced.</strong></td></tr>
 <tr><td valign=\"top\"> Shape </td>
     <td valign=\"top\"> New implementation by inheriting from ModelicaServices. This allows a
                       tool vendor to provide its own implementation of Shape.</td></tr>
-<tr><td colspan=\"2\"><b>Modelica.StateGraph.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.StateGraph.</strong></td></tr>
 <tr><td valign=\"top\"> Examples </td>
     <td valign=\"top\"> Introduced \"StateGraphRoot\" on the top level of all example models.</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.StateGraph.Interfaces.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.StateGraph.Interfaces.</strong></td></tr>
 <tr><td valign=\"top\"> StateGraphRoot<br>PartialCompositeStep<br>CompositeStepState </td>
     <td valign=\"top\"> Replaced the wrong Modelica code \"flow output Real xxx\"
                       by \"Real dummy; flow Real xxx;\".
@@ -4567,29 +4567,29 @@ have been <b style=\"color:blue\">improved</b> in a
                       Otherwise, there might be differences in the sign of the flow variable
                       in Modelica 3.0 and 3.1.</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Utilities.Examples.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Utilities.Examples.</strong></td></tr>
 <tr><td valign=\"top\"> expression </td>
     <td valign=\"top\"> Changed local variable \"operator\" to \"opString\" since \"operator\"
                       is a reserved keyword in Modelica 3.1 </td></tr>
 </table>
 
 <p><br>
-The following <b style=\"color:red\">uncritical errors</b> have been fixed (i.e., errors
-that do <b style=\"color:red\">not</b> lead to wrong simulation results, but, e.g.,
+The following <font color=\"red\"><strong>uncritical errors</strong></font> have been fixed (i.e., errors
+that do <font color=\"red\"><strong>not</strong></font> lead to wrong simulation results, but, e.g.,
 units are wrong or errors in documentation):
 </p>
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
-<tr><td colspan=\"2\"><b>Modelica.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.</strong></td></tr>
 <tr><td valign=\"top\"> Many models</td>
     <td valign=\"top\"> Removed wrong usages of annotations fillColor and fillPattern
                       in text annotations (#155, #185).</td></tr>
-<tr><td colspan=\"2\"><b>Modelica.Electrical.Machines</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Machines</strong></td></tr>
 <tr><td valign=\"top\"> All machine models</td>
     <td valign=\"top\"> The conditional heatports of the instantiated resistors
                         (which are new in Modelica.Electrical.Analog and Modelica.Electrical.MultiPhase)
                         are finally switched off until a thermal connector design for machines is implemented.</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Media.Air.MoistAir</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Media.Air.MoistAir</strong></td></tr>
 <tr><td valign=\"top\"> saturationPressureLiquid<br>
                       sublimationPressureIce<br>
                       saturationPressure</td>
@@ -4597,7 +4597,7 @@ units are wrong or errors in documentation):
                             this bug was minor, as a Modelica tool was allowed to compute derivatives automatically via
                             the <code>smoothOrder</code> annotation.</td>
 </tr>
-<tr><td colspan=\"2\"><b>Modelica.Math.Matrices.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Math.Matrices.</strong></td></tr>
 <tr><td valign=\"top\"> eigenValues</td>
     <td valign=\"top\"> Wrong documentation corrected (#162)</td></tr>
 </table>
@@ -4648,27 +4648,27 @@ Modelica License 2. In case of a conflict, the language of the license shall pre
 </ol>
 
 <p><br>
-The following <b style=\"color:blue\">new components</b> have been added
-to <b style=\"color:blue\">existing</b> libraries:
+The following <font color=\"blue\"><strong>new components</strong></font> have been added
+to <font color=\"blue\"><strong>existing</strong></font> libraries:
 </p>
 
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
-<tr><td colspan=\"2\"><b>Electrical.Analog.Basic.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Electrical.Analog.Basic.</strong></td></tr>
 <tr><td valign=\"top\">M_Transformer</td>
           <td valign=\"top\"> Transformer, with the possibility to
         choose the number of inductors. The inductances and the coupled inductances
         can be chosen arbitrarily.</td></tr>
 
-<tr><td colspan=\"2\"><b>Electrical.Analog.Lines.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Electrical.Analog.Lines.</strong></td></tr>
 <tr><td valign=\"top\">M_OLine</td>
           <td valign=\"top\"> Segmented line model that enables the use of
         multiple lines, that means, the number of segments and the number of
         single lines can be chosen by the user. The model allows to investigate
         phenomena at multiple lines like mutual magnetic or capacitive influence.</td></tr>
-<tr><td colspan=\"2\"><b>Mechanics.Translational.Components.Examples.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Mechanics.Translational.Components.Examples.</strong></td></tr>
 <tr><td valign=\"top\">Brake</td>
           <td valign=\"top\"> Demonstrates the usage of the translational brake component.</td></tr>
-<tr><td colspan=\"2\"><b>Media.Interfaces.PartialMedium.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Media.Interfaces.PartialMedium.</strong></td></tr>
 <tr><td valign=\"top\">ThermoStates</td>
           <td valign=\"top\"> Enumeration type for independent variables to identify the independent
                                                 variables of the medium (pT, ph, phX, pTX, dTX).<br>
@@ -4682,14 +4682,14 @@ to <b style=\"color:blue\">existing</b> libraries:
                                                  where the upstream density and/or viscosity has to be computed
                                                  and these properties should be smooth a zero mass flow rate)<br>
                                                 An implementation of this function is provided for every medium.</td></tr>
-<tr><td colspan=\"2\"><b>Media.Common.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Media.Common.</strong></td></tr>
 <tr><td valign=\"top\">smoothStep</td>
           <td valign=\"top\"> Approximation of a general step, such that the characteristic
                                                 is continuous and differentiable.</td></tr>
-<tr><td colspan=\"2\"><b>Media.UsersGuide.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Media.UsersGuide.</strong></td></tr>
 <tr><td valign=\"top\">Future</td>
           <td valign=\"top\"> Short description of goals and changes of upcoming release of Modelica.Media.</td></tr>
-<tr><td colspan=\"2\"><b>Media.Media.Air.MoistAir.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Media.Media.Air.MoistAir.</strong></td></tr>
 <tr><td valign=\"top\">isentropicExponent</td>
           <td valign=\"top\"> Implemented Missing Function from interface.</td></tr>
 <tr><td valign=\"top\">isentropicEnthalpyApproximation</td>
@@ -4698,36 +4698,36 @@ This is only correct as long as there is no liquid in the stream.</td></tr>
 </table>
 
 <p><br>
-The following <b style=\"color:blue\">existing components</b>
-have been <b style=\"color:blue\">changed</b> (in a
-<b style=\"color:blue\">backward compatible</b> way):
+The following <font color=\"blue\"><strong>existing components</strong></font>
+have been <font color=\"blue\"><strong>changed</strong></font> (in a
+<font color=\"blue\"><strong>backward compatible</strong></font> way):
 </p>
 
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
-<tr><td colspan=\"2\"><b>Mechanics.Rotational.Interfaces.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Mechanics.Rotational.Interfaces.</strong></td></tr>
 <tr><td valign=\"top\"> PartialFriction </td>
           <td valign=\"top\"> Improvement of friction model so that in certain situations
                                                 the number of iterations is much smaller.</td>
 </tr>
 
-<tr><td colspan=\"2\"><b>Mechanics.Translational.Components.Examples.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Mechanics.Translational.Components.Examples.</strong></td></tr>
 <tr><td valign=\"top\"> Friction </td>
           <td valign=\"top\"> Added a third variant, where friction is modelled with
                                                 the SupportFriction component.</td></tr>
 
-<tr><td colspan=\"2\"><b>Mechanics.Translational.Components.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Mechanics.Translational.Components.</strong></td></tr>
 <tr><td valign=\"top\"> MassWithStopAndFriction </td>
           <td valign=\"top\"> Improvement of friction model so that in certain situations
                                                 the number of iterations is much smaller.</td>
 </tr>
 
-<tr><td colspan=\"2\"><b>Mechanics.Translational.Interfaces.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Mechanics.Translational.Interfaces.</strong></td></tr>
 <tr><td valign=\"top\"> PartialFriction </td>
           <td valign=\"top\"> Improvement of friction model so that in certain situations
                                                 the number of iterations is much smaller.</td>
 </tr>
 
-<tr><td colspan=\"2\"><b>Media.Examples.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Media.Examples.</strong></td></tr>
 <tr><td valign=\"top\"> SimpleLiquidWater <br>
                                                 IdealGasH20 <br>
                                                 WaterIF97 <br>
@@ -4736,18 +4736,18 @@ have been <b style=\"color:blue\">changed</b> (in a
           <td valign=\"top\"> Added equations to test the new setSmoothState(..) functions
                                                 including the analytic derivatives of these functions.</td></tr>
 
-<tr><td colspan=\"2\"><b>Media.Interfaces.PartialLinearFluid.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Media.Interfaces.PartialLinearFluid.</strong></td></tr>
 <tr><td valign=\"top\"> setState_pTX <br>
                                                 setState_phX <br>
                                                 setState_psX <br>
                                                 setState_dTX </td>
           <td valign=\"top\"> Rewritten function in one statement so that it is usually inlined.</td></tr>
 
-<tr><td colspan=\"2\"><b>Media.Interfaces.PartialLinearFluid.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Media.Interfaces.PartialLinearFluid.</strong></td></tr>
 <tr><td valign=\"top\"> consistent use of reference_d instead of density(state </td>
           <td valign=\"top\"> Change was done to achieve consistency with analytic inverse functions.</td></tr>
 
-<tr><td colspan=\"2\"><b>Media.Air.MoistAir.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Media.Air.MoistAir.</strong></td></tr>
 <tr><td valign=\"top\"> T_phX </td>
           <td valign=\"top\"> Interval of nonlinear solver to compute T from p,h,X changed
                                                 from 200..6000 to 240 ..400 K.</td></tr>
@@ -4755,12 +4755,12 @@ have been <b style=\"color:blue\">changed</b> (in a
 </table>
 
 <p><br>
-The following <b style=\"color:red\">critical errors</b> have been fixed (i.e., errors
+The following <font color=\"red\"><strong>critical errors</strong></font> have been fixed (i.e., errors
 that can lead to wrong simulation results):
 </p>
 
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
-<tr><td colspan=\"2\"><b>Mechanics.MultiBody.Forces</b></td></tr>
+<tr><td colspan=\"2\"><strong>Mechanics.MultiBody.Forces</strong></td></tr>
 <tr><td valign=\"top\"> WorldTorque </td>
           <td valign=\"top\"> Parameter \"ResolveInFrame\" was not propagated and therefore
                                                 always the default (resolved in world frame) was used, independently
@@ -4774,7 +4774,7 @@ that can lead to wrong simulation results):
                                                 Internal.BasicWorldTorque and therefore the visualization of
                                                 worldTorque was performed twice.</td>
 </tr>
-<tr><td colspan=\"2\"><b>Mechanics.MultiBody.Sensors</b></td></tr>
+<tr><td colspan=\"2\"><strong>Mechanics.MultiBody.Sensors</strong></td></tr>
 <tr><td valign=\"top\"> AbsoluteSensor </td>
           <td valign=\"top\"> Velocity, acceleration and angular acceleration were computed
                                                   by differentiating in the resolveInFrame frame. This has been corrected, by
@@ -4805,7 +4805,7 @@ that can lead to wrong simulation results):
                                                 have not been propagated to the submodel that performs the transformation.
                                                 This has been corrected.</td>
 </tr>
-<tr><td colspan=\"2\"><b>Mechanics.Translational.Components.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Mechanics.Translational.Components.</strong></td></tr>
 <tr><td valign=\"top\"> SupportFriction<br>
                                                 Brake </td>
           <td valign=\"top\"> The sign of the friction force was wrong and therefore friction accelerated
@@ -4815,7 +4815,7 @@ that can lead to wrong simulation results):
           <td valign=\"top\"> The component was only correct for fixed support.
                                                 This was corrected.</td>
 </tr>
-<tr><td colspan=\"2\"><b>Media.Interfaces.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Media.Interfaces.</strong></td></tr>
 <tr><td valign=\"top\"> PartialSimpleMedium<br>
                                                 PartialSimpleIdealGasMedium </td>
           <td valign=\"top\"> BaseProperties.p was not defined as preferred state and BaseProperties.T was
@@ -4831,43 +4831,43 @@ that can lead to wrong simulation results):
 </table>
 
 <p><br>
-The following <b style=\"color:red\">uncritical errors</b> have been fixed (i.e., errors
-that do <b style=\"color:red\">not</b> lead to wrong simulation results, but, e.g.,
+The following <font color=\"red\"><strong>uncritical errors</strong></font> have been fixed (i.e., errors
+that do <font color=\"red\"><strong>not</strong></font> lead to wrong simulation results, but, e.g.,
 units are wrong or errors in documentation):
 </p>
 
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
-<tr><td colspan=\"2\"><b>Blocks.Math.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Blocks.Math.</strong></td></tr>
 <tr><td valign=\"top\"> InverseBlockConstraint </td>
           <td valign=\"top\"> Changed annotation preserveAspectRatio from true to false.</td>
 </tr>
 
-<tr><td colspan=\"2\"><b>Blocks.Sources.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Blocks.Sources.</strong></td></tr>
 <tr><td valign=\"top\"> RealExpression<br>
                                                 IntegerExpression<br>
                                                 BooleanExpression </td>
           <td valign=\"top\"> Changed annotation preserveAspectRatio from true to false.</td>
 </tr>
 
-<tr><td colspan=\"2\"><b>Electrical.Analog.Basic.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Electrical.Analog.Basic.</strong></td></tr>
 <tr><td valign=\"top\"> SaturatingInductor</td>
           <td valign=\"top\"> Replaced non-standard \"arctan\" by \"atan\" function.</td>
 </tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Electrical.Digital.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Digital.</strong></td></tr>
 <tr><td valign=\"top\"> UsersGuide</td>
           <td valign=\"top\"> Removed empty documentation placeholders and added the missing
                                                   release comment for version 1.0.7</td>
 </tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Mechanics.Translational.Components.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Mechanics.Translational.Components.</strong></td></tr>
 <tr><td valign=\"top\"> MassWithStopAndFriction </td>
           <td valign=\"top\"> Changed usage of reinit(..), in order that it appears
                                                 only once for one variable according to the language specification
                                                 (if a tool could simulate the model, there is no difference).</td>
 </tr>
 
-<tr><td colspan=\"2\"><b>Media.Interfaces.PartialSimpleMedium</b></td></tr>
+<tr><td colspan=\"2\"><strong>Media.Interfaces.PartialSimpleMedium</strong></td></tr>
 <tr><td valign=\"top\"> pressure<br>
                                                 temperature<br>
                                                 density<br>
@@ -4885,7 +4885,7 @@ class Version_3_0 "Version 3.0 (March 1, 2008)"
 
    annotation (Documentation(info="<html>
 <p>
-Version 3.0 is <b>not</b> backward compatible to previous versions.
+Version 3.0 is <strong>not</strong> backward compatible to previous versions.
 A conversion script is provided to transform models and libraries
 of previous versions to the new version. Therefore, conversion
 should be automatic.
@@ -4929,8 +4929,8 @@ The following changes are present for the whole library:
 <li> All emulated enumerations (defined via packages and constants) have been
          replaced by \"real\" enumerations. User models are automatically correctly
          converted, provided the user models used the package constants previously.
-         <b>Existing models that use directly literal values for enumerations, might give in
-         some cases wrong results</b> (if the first constant of the emulated enumeration
+         <strong>Existing models that use directly literal values for enumerations, might give in
+         some cases wrong results</strong> (if the first constant of the emulated enumeration
          had value zero, whereas the first value of an enumeration is one).<br>&nbsp; </li>
 
 <li> The operator \"cardinality\" will be removed in one of the next versions of the
@@ -4949,10 +4949,10 @@ The following changes are present for the whole library:
          compatible. This is the reason for the changes of the
          Rotational and Translational library (see below).<br>&nbsp;</li>
 
-<li> The design of the <b>Rotational</b> and <b>Translational</b> libraries have been changed
+<li> The design of the <strong>Rotational</strong> and <strong>Translational</strong> libraries have been changed
          (especially to remove the cardinality(..) operator, see above):
          <ul>
-         <li> Components have a <b>useSupport</b> flag to enable or disable a support flange.
+         <li> Components have a <strong>useSupport</strong> flag to enable or disable a support flange.
                   If the support flange is enabled, it must be connected. If it is disabled, it must
                   not be connected and the component is then internally grounded. The grounding
                   is visualized in the icon.</li>
@@ -4986,7 +4986,7 @@ The following changes are present for the whole library:
 
 <li> Nearly all parameters defined in the Modelica Standard Library had been
          defined with a default equation, e.g.,
-         <pre>   <b>parameter</b> Modelica.SIunits.Resistance R=1; </pre>
+         <pre>   <strong>parameter</strong> Modelica.SIunits.Resistance R=1; </pre>
          Physical parameters, such as a resistance, mass, gear ratio, do not have a meaningful
          default and in nearly all cases, the user of the corresponding component has to
          provide values for such parameters. If the user forgets this, a tool
@@ -4996,7 +4996,7 @@ The following changes are present for the whole library:
          parameter declarations in the Modelica Standard Library have been changed, so
          that the previous default becomes a start value. For example, the above
          declaration is changed to:
-         <pre>   <b>parameter</b> Modelica.SIunits.Resistance R(start=1);  </pre>
+         <pre>   <strong>parameter</strong> Modelica.SIunits.Resistance R(start=1);  </pre>
          This is a backward compatible change and completely equivalent from the perspective
          of the Modelica language. It is, however, advised that tools will print a warning
          or optionally an error message, if the start value of a parameter is defined, but
@@ -5007,27 +5007,27 @@ The following changes are present for the whole library:
 </ul>
 
 <p><br>
-The following <b style=\"color:blue\">new components</b> have been added
-to <b style=\"color:blue\">existing</b> libraries (note, the names in parentheses
+The following <font color=\"blue\"><strong>new components</strong></font> have been added
+to <font color=\"blue\"><strong>existing</strong></font> libraries (note, the names in parentheses
 are the new sublibrary names that are introduced in version 3.0):
 </p>
 
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
-<tr><td colspan=\"2\"><b>Blocks.Examples.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Blocks.Examples.</strong></td></tr>
 <tr><td valign=\"top\">InverseModel</td>
           <td valign=\"top\"> Demonstrates the construction of an inverse model.</td></tr>
 
-<tr><td colspan=\"2\"><b>Blocks.Math.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Blocks.Math.</strong></td></tr>
 <tr><td valign=\"top\">InverseBlockConstraints</td>
           <td valign=\"top\"> Construct inverse model by requiring that two inputs
                                                 and two outputs are identical (replaces the previously,
                                                 unbalanced, TwoInputs and TwoOutputs blocks).</td></tr>
 
-<tr><td colspan=\"2\"><b>Electrical.Machines.Utilities</b></td></tr>
+<tr><td colspan=\"2\"><strong>Electrical.Machines.Utilities</strong></td></tr>
 <tr><td valign=\"top\">TransformerData</td>
           <td valign=\"top\"> A record that calculates required impedances (parameters) from nominal data of transformers.</td></tr>
 
-<tr><td colspan=\"2\"><b>Mechanics.MultiBody.Examples.Rotational3DEffects</b></td></tr>
+<tr><td colspan=\"2\"><strong>Mechanics.MultiBody.Examples.Rotational3DEffects</strong></td></tr>
 <tr><td valign=\"top\"> GyroscopicEffects<br>
                                                 ActuatedDrive<br>
                                                 MovingActuatedDrive<br>
@@ -5036,7 +5036,7 @@ are the new sublibrary names that are introduced in version 3.0):
                                                 in combination with multi-body components.</td>
 </tr>
 
-<tr><td colspan=\"2\"><b>Mechanics.MultiBody.Sensors</b></td></tr>
+<tr><td colspan=\"2\"><strong>Mechanics.MultiBody.Sensors</strong></td></tr>
 <tr><td valign=\"top\"> AbsolutePosition<br>
                                                 AbsoluteVelocity<br>
                                                 AbsoluteAngles<br>
@@ -5052,24 +5052,24 @@ are the new sublibrary names that are introduced in version 3.0):
           <td valign=\"top\"> Transform absolute and/or relative vector into another frame.</td>
 </tr>
 
-<tr><td colspan=\"2\"><b>Mechanics.Rotational.(Components)</b></td></tr>
+<tr><td colspan=\"2\"><strong>Mechanics.Rotational.(Components)</strong></td></tr>
 <tr><td valign=\"top\"> Disc </td>
           <td valign=\"top\"> Right flange is rotated by a fixed angle with respect to left flange</td></tr>
 <tr><td valign=\"top\"> IdealRollingWheel </td>
           <td valign=\"top\"> Simple 1-dim. model of an ideal rolling wheel without inertia</td></tr>
 
-<tr><td colspan=\"2\"><b>Mechanics.Translational.Sensors</b></td></tr>
+<tr><td colspan=\"2\"><strong>Mechanics.Translational.Sensors</strong></td></tr>
 <tr><td valign=\"top\">RelPositionSensor<br>RelSpeedSensor<br>RelAccSensor<br>PowerSensor</td>
           <td valign=\"top\"> Relative position sensor, i.e., distance between two flanges<br>
                                                 Relative speed sensor<br>
                                                 Relative acceleration sensor<br>
                                                 Ideal power sensor</td></tr>
-<tr><td colspan=\"2\"><b>Mechanics.Translational(.Components)</b></td></tr>
+<tr><td colspan=\"2\"><strong>Mechanics.Translational(.Components)</strong></td></tr>
 <tr><td valign=\"top\">SupportFriction<br>Brake<br>InitializeFlange</td>
           <td valign=\"top\"> Model of friction due to support<br>
                                                 Model of a brake, base on Coulomb friction<br>
                                                 Initializes a flange with pre-defined position, speed and acceleration .</td></tr>
-<tr><td colspan=\"2\"><b>Mechanics.Translational(.Sources)</b></td></tr>
+<tr><td colspan=\"2\"><strong>Mechanics.Translational(.Sources)</strong></td></tr>
 <tr><td valign=\"top\">Force2<br>LinearSpeedDependentForce<br>QuadraticSpeedDependentForce<br>
                                            ConstantForce<br>ConstantSpeed<br>ForceStep</td>
           <td valign=\"top\"> Force acting on 2 flanges<br>
@@ -5081,16 +5081,16 @@ are the new sublibrary names that are introduced in version 3.0):
 </table>
 
 <p><br>
-The following <b style=\"color:blue\">existing components</b>
-have been <b style=\"color:blue\">changed</b> in a
-<b style=\"color:blue\">non-backward compatible</b> way
+The following <font color=\"blue\"><strong>existing components</strong></font>
+have been <font color=\"blue\"><strong>changed</strong></font> in a
+<font color=\"blue\"><strong>non-backward compatible</strong></font> way
 (the conversion script transforms models and libraries
 of previous versions to the new version. Therefore, conversion
 should be automatic):
 </p>
 
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
-<tr><td colspan=\"2\"><b>Blocks.Continuous.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Blocks.Continuous.</strong></td></tr>
 <tr><td valign=\"top\"> CriticalDamping </td>
           <td valign=\"top\"> New parameter \"normalized\" to define whether filter is provided
                                                 in normalized or non-normalized form. Default is \"normalized = true\".
@@ -5098,7 +5098,7 @@ should be automatic):
                                                 The conversion script automatically introduces the modifier
                                                 \"normalized=false\" for existing models.</td></tr>
 
-<tr><td colspan=\"2\"><b>Blocks.Interfaces.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Blocks.Interfaces.</strong></td></tr>
 <tr><td valign=\"top\"> RealInput<br>
                                                 RealOutput</td>
           <td valign=\"top\"> Removed \"SignalType\", since extending from a replaceable class
@@ -5112,7 +5112,7 @@ should be automatic):
                                                 are no longer allowed in Modelica 3<br>
                                                 (prefixes input and/or output are required).</td></tr>
 
-<tr><td colspan=\"2\"><b>Blocks.Interfaces.Adaptors.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Blocks.Interfaces.Adaptors.</strong></td></tr>
 <tr><td valign=\"top\"> AdaptorReal<br>
                                                 AdaptorBoolean<br>
                                                 AdaptorInteger</td>
@@ -5121,30 +5121,30 @@ should be automatic):
                                                 signal connectors of version 1.6 and version &ge; 2.1 of the Modelica
                                                 Standard Library.</td></tr>
 
-<tr><td colspan=\"2\"><b>Blocks.Math.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Blocks.Math.</strong></td></tr>
 <tr><td valign=\"top\"> ConvertAllUnits</td>
           <td valign=\"top\"> Moved to library ObsoleteModelica3, since extending from a replaceable class
                                                 and this is not allowed in Modelica 3.<br> It would be possible to rewrite this
                                                 model to use a replaceable component. However, the information about the
                                                 conversion<br> cannot be visualized in the icon in this case.</td></tr>
 
-<tr><td colspan=\"2\"><b>Blocks.Math.UnitConversions.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Blocks.Math.UnitConversions.</strong></td></tr>
 <tr><td valign=\"top\"> TwoInputs<br>
                                                 TwoOutputs</td>
           <td valign=\"top\"> Moved to library ObsoleteModelica3, since the models are not \"balanced\".
                                                 A new component<br>\"InverseBlockConstraints\"
                                                 is provided instead that has the same feature, but is \"balanced\".</td></tr>
 
-<tr><td colspan=\"2\"><b>Electrical.Analog.Baisc.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Electrical.Analog.Baisc.</strong></td></tr>
 <tr><td valign=\"top\"> HeatingResistor</td>
           <td valign=\"top\"> The heatPort has to be connected; otherwise the component Resistor (without heatPort) has to be used.<br>
                                                 cardinality() is only used to check whether the heatPort is connected.</td></tr>
 
-<tr><td colspan=\"2\"><b>Electrical.MultiPhase.Examples.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Electrical.MultiPhase.Examples.</strong></td></tr>
 <tr><td valign=\"top\"> </td>
           <td valign=\"top\"> Changed the instance names of components used in the examples to more up-to-date style.</td></tr>
 
-<tr><td colspan=\"2\"><b>Electrical.Machines.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Electrical.Machines.</strong></td></tr>
 <tr><td valign=\"top\"> </td>
           <td valign=\"top\"> Moved package <code>Machines.Examples.Utilities</code> to <code>Machines.Utilities</code></td></tr>
 <tr><td valign=\"top\"> </td>
@@ -5180,21 +5180,21 @@ should be automatic):
                                                 The rotational support connector is only present with <code>useSupport = true;</code><br>
                                                 otherwise the stator is fixed internally.</td></tr>
 
-<tr><td colspan=\"2\"><b>Electrical.Machines.Examples.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Electrical.Machines.Examples.</strong></td></tr>
 <tr><td valign=\"top\"> </td>
           <td valign=\"top\"> Changed the names of the examples to more meaningful names.<br>
                                                 Changed the instance names of components used in the examples to more up-to-date style.</td></tr>
 <tr><td valign=\"top\">SMEE_Generator</td>
           <td valign=\"top\"> Initialization of <code>smee.phiMechanical</code> with <code>fixed=true</code></td></tr>
 
-<tr><td colspan=\"2\"><b>Mechanics.MultiBody.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Mechanics.MultiBody.</strong></td></tr>
 <tr><td valign=\"top\"> World</td>
           <td valign=\"top\"> Changed default value of parameter driveTrainMechanics3D from false to true.<br>
                                                 3-dim. effects in Rotor1D, Mounting1D and BevelGear1D are therefore taken<br>
                                                 into account by default (previously this was only the case, if
                                                 world.driveTrainMechanics3D was explicitly set).</td></tr>
 
-<tr><td colspan=\"2\"><b>Mechanics.MultiBody.Forces.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Mechanics.MultiBody.Forces.</strong></td></tr>
 <tr><td valign=\"top\"> FrameForce<br>
                                                 FrameTorque<br>
                                                 FrameForceAndTorque</td>
@@ -5209,13 +5209,13 @@ should be automatic):
                                                 Forces and torques and be resolved in all meaningful frames defined
                                                 by enumeration resolveInFrame.</td></tr>
 
-<tr><td colspan=\"2\"><b>Mechanics.MultiBody.Frames.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Mechanics.MultiBody.Frames.</strong></td></tr>
 <tr><td valign=\"top\"> length<br>
                                                 normalize</td>
           <td valign=\"top\"> Removed functions, since available also in Modelica.Math.Vectors
                                                 <br>The conversion script changes the references correspondingly.</td></tr>
 
-<tr><td colspan=\"2\"><b>Mechanics.MultiBody.Joints.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Mechanics.MultiBody.Joints.</strong></td></tr>
 <tr><td valign=\"top\"> Prismatic<br>
                                                 ActuatedPrismatic<br>
                                                 Revolute<br>
@@ -5254,7 +5254,7 @@ should be automatic):
                                                 annotation \"structurallyIncomplete\" <br>could be removed
                                                 (all Assembly joint models are now \"balanced\").</td></tr>
 
-<tr><td colspan=\"2\"><b>Mechanics.MultiBody.Joints.Internal</b></td></tr>
+<tr><td colspan=\"2\"><strong>Mechanics.MultiBody.Joints.Internal</strong></td></tr>
 <tr><td valign=\"top\"> RevoluteWithLengthConstraint<br>
                                                 PrismaticWithLengthConstraint</td>
           <td valign=\"top\"> These joints should not be used by a user of the MultiBody library.
@@ -5262,14 +5262,14 @@ should be automatic):
                                                 MultiBody.Joints.Assemblies.JointXYZ joints.
                                                 These two joints have been changed in a slightly not backward compatible
                                                 way, in order that the usage in the Assemblies.JointXYZ joints results in
-                                                balanced models (<b>no conversion is provided for this change since the
+                                                balanced models (<strong>no conversion is provided for this change since the
                                                 user should not have used these joints and the conversion would be too
-                                                complicated</b>):
+                                                complicated</strong>):
                                                 In releases before version 3.0 of the Modelica Standard Library,
                                                 it was possible to activate the torque/force projection equation
                                                 (= cut-torque/-force projected to the rotation/translation
                                                 axis must be identical to
-                                                the drive torque/force of flange axis) via parameter <b>axisTorqueBalance</b>.
+                                                the drive torque/force of flange axis) via parameter <strong>axisTorqueBalance</strong>.
                                                 This is no longer possible, since otherwise this model would not be
                                                 \"balanced\" (= same number of unknowns as equations). Instead, when
                                                 using this model in version 3.0 and later versions, the torque/force
@@ -5277,7 +5277,7 @@ should be automatic):
                                                 Joints.SphericalSpherical and Joints.UniversalSpherical
                                                 via the new parameter \"constraintResidue\".</td></tr>
 
-<tr><td colspan=\"2\"><b>Mechanics.MultiBody.Parts.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Mechanics.MultiBody.Parts.</strong></td></tr>
 <tr><td valign=\"top\"> BodyBox<br>
                                                 BodyCylinder</td>
           <td valign=\"top\"> Changed unit of parameter density from g/cm3 to the SI unit kg/m3
@@ -5297,7 +5297,7 @@ should be automatic):
                                                 user and the implementation is much simpler.<br>The conversion script automatically
                                                 transforms from the \"old\" to the \"new\" form of initialization.</td></tr>
 
-<tr><td colspan=\"2\"><b>Mechanics.MultiBody.Sensors.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Mechanics.MultiBody.Sensors.</strong></td></tr>
 <tr><td valign=\"top\"> AbsoluteSensor<br>
                                                 RelativeSensor<br>
                                                 CutForceAndTorque</td>
@@ -5312,7 +5312,7 @@ should be automatic):
                                                 resolved in world, frame_a, or frame_resolved.<br>
                                                 Existing models are automatically converted.</td></tr>
 
-<tr><td colspan=\"2\"><b>Mechanics.Rotational.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Mechanics.Rotational.</strong></td></tr>
 <tr><td valign=\"top\"> </td>
           <td valign=\"top\"> Moved components to structured sub-packages (Sources, Components)</td></tr>
 <tr><td valign=\"top\"> Inertia<br>
@@ -5347,7 +5347,7 @@ should be automatic):
                                                 completely defined in a user model,<br> since the default
                                                 initialization heuristic may give different initial values.</td></tr>
 
-<tr><td colspan=\"2\"><b>Mechanics.Translational.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Mechanics.Translational.</strong></td></tr>
 <tr><td valign=\"top\"> </td>
           <td valign=\"top\"> Moved components to structured sub-packages (Sources, Components)</td></tr>
 <tr><td valign=\"top\"> </td>
@@ -5357,14 +5357,14 @@ should be automatic):
                                                 MassWithStopAndFriction is not available with a support connector, <br>
                                                 since the reaction force can't be modeled in a meaningful way due to reinit of velocity v.<br>
                                                 Until a sound implementation of a hard stop is available, the old model may be used.</td></tr>
-<tr><td colspan=\"2\"><b>Media.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Media.</strong></td></tr>
 <tr><td valign=\"top\"> constant nX <br>
                                                 constant nXi <br>
                                                 constant reference_X<br>
                                                 BaseProperties</td>
           <td valign=\"top\"> The package constant nX = nS, now always, even for single species media. This also allows to define mixtures with only 1 element. The package constant nXi=if fixedX then 0 else if reducedX or nS==1 then nS - 1 else nS. This required that all BaseProperties for single species media get an additional equation to define the composition X as {1.0} (or reference_X, which is {1.0} for single species). This will also mean that all user defined single species media need to be updated by that equation.</td></tr>
 
-<tr><td colspan=\"2\"><b>SIunits.</b></td></tr>
+<tr><td colspan=\"2\"><strong>SIunits.</strong></td></tr>
 <tr><td valign=\"top\"> CelsiusTemperature </td>
           <td valign=\"top\"> Removed, since no SI unit. The conversion script changes references to
                                                 SIunits.Conversions.NonSIunits.Temperature_degC </td></tr>
@@ -5375,7 +5375,7 @@ should be automatic):
                                                 (the unit checker needs to know for a unit that has an offset,
                                                 whether it is used as absolute or as a relative number)</td></tr>
 
-<tr><td colspan=\"2\"><b>SIunits.Conversions.NonSIunits.</b></td></tr>
+<tr><td colspan=\"2\"><strong>SIunits.Conversions.NonSIunits.</strong></td></tr>
 <tr><td valign=\"top\"> Temperature_degC<br>
                                                 Temperature_degF<br>
                                                 Temperature_degRk </td>
@@ -5384,7 +5384,7 @@ should be automatic):
                                                 (the unit checker needs to know for a unit that has an offset,
                                                 whether it is used as absolute or as a relative number)</td></tr>
 
-<tr><td colspan=\"2\"><b>StateGraph.Examples.</b></td></tr>
+<tr><td colspan=\"2\"><strong>StateGraph.Examples.</strong></td></tr>
 <tr><td valign=\"top\"> ControlledTanks </td>
           <td valign=\"top\"> The connectors of the ControlledTanks did not fulfill the new
                                                 restrictions of Modelica 3. This has been fixed.</td></tr>
@@ -5396,14 +5396,14 @@ should be automatic):
                                                 too difficult and since the non-backward compatible change is in
                                                 an example.</td></tr>
 
-<tr><td colspan=\"2\"><b>Thermal.FluidHeatFlow.Sensors.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Thermal.FluidHeatFlow.Sensors.</strong></td></tr>
 <tr><td valign=\"top\"> <br>
                                                 pSensor<br>TSensor<br>dpSensor<br>dTSensor<br>m_flowSensor<br>V_flowSensor<br>H_flowSensor</td>
           <td valign=\"top\"> renamed to:<br>
                                                 PressureSensor<br>TemperatureSensor<br>RelPressureSensor<br>RelTemperatureSensor<br>MassFlowSensor<br>VolumeFlowSensor<br>EnthalpyFlowSensor
                                                 </td></tr>
 
-<tr><td colspan=\"2\"><b>Thermal.FluidHeatFlow.Sources.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Thermal.FluidHeatFlow.Sources.</strong></td></tr>
 <tr><td valign=\"top\"> Ambient<br>PrescribedAmbient</td>
           <td valign=\"top\"> available as one combined component Ambient<br>
                                                 Boolean parameters usePressureInput and useTemperatureInput decide
@@ -5417,11 +5417,11 @@ should be automatic):
                                                 Boolean parameter usePressureIncreaseInput decides
                                                 whether pressure increase is constant or prescribed</td></tr>
 
-<tr><td colspan=\"2\"><b>Thermal.FluidHeatFlow.Examples.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Thermal.FluidHeatFlow.Examples.</strong></td></tr>
 <tr><td valign=\"top\"> </td>
           <td valign=\"top\"> Changed the instance names of components used in the examples to more up-to-date style.</td></tr>
 
-<tr><td colspan=\"2\"><b>Thermal.HeatTransfer.(Components)</b></td></tr>
+<tr><td colspan=\"2\"><strong>Thermal.HeatTransfer.(Components)</strong></td></tr>
 <tr><td valign=\"top\"> HeatCapacitor</td>
           <td valign=\"top\"> Initialization changed: SteadyStateStart removed. Instead
                                                 start/fixed values for T and der_T<br>(initial temperature and its derivative).</td></tr>
@@ -5435,24 +5435,24 @@ should be automatic):
                                                 Sources.FixedTemperature<br>Sources.PrescribedTemperature<br>Sources.FixedHeatFlow<br>Sources.PrescribedHeatFlow
                                                 </td></tr>
 
-<tr><td colspan=\"2\"><b>Thermal.FluidHeatFlow.Examples.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Thermal.FluidHeatFlow.Examples.</strong></td></tr>
 <tr><td valign=\"top\"> </td>
           <td valign=\"top\"> Changed the instance names of components used in the examples to more up-to-date style.</td></tr>
 </table>
 
 <p><br>
-The following <b style=\"color:blue\">existing components</b>
-have been <b style=\"color:blue\">improved</b> in a
-<b style=\"color:blue\">backward compatible</b> way:
+The following <font color=\"blue\"><strong>existing components</strong></font>
+have been <font color=\"blue\"><strong>improved</strong></font> in a
+<font color=\"blue\"><strong>backward compatible</strong></font> way:
 </p>
 
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
-<tr><td valign=\"top\"> <b>Modelica.*</b> </td>
+<tr><td valign=\"top\"> <strong>Modelica.*</strong> </td>
           <td valign=\"top\"> Parameter declarations, input and output function arguments without description
                                                 strings improved<br> by providing meaningful description texts.
                                                 </td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Blocks.Continuous.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Blocks.Continuous.</strong></td></tr>
 <tr><td valign=\"top\"> TransferFunction </td>
           <td valign=\"top\"> Internal scaling of the controller canonical states introduced
                                                 in order to enlarge the range of transfer functions where the default
@@ -5462,24 +5462,24 @@ have been <b style=\"color:blue\">improved</b> in a
 <tr><td valign=\"top\"> Butterworth<br>CriticalDamping </td>
           <td valign=\"top\"> Documentation improved and plots of the filter characteristics added.</td></tr>
 
-<tr><td colspan=\"2\"><b>Electrical.Analog.Basic.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Electrical.Analog.Basic.</strong></td></tr>
 <tr><td valign=\"top\"> EMF </td>
           <td valign=\"top\"> New parameter \"useSupport\" to optionally enable a support connector.</td></tr>
 
-<tr><td colspan=\"2\"><b>Icons.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Icons.</strong></td></tr>
 <tr><td valign=\"top\"> TranslationalSensor<br>
                                                 RotationalSensor</td>
           <td valign=\"top\"> Removed drawing from the diagram layer (kept drawing only in
                                                 icon layer),<br> in order that this icon can be used in situations
                                                 where components are dragged in the diagram layer.</td></tr>
 
-<tr><td colspan=\"2\"><b>Math.Vectors.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Math.Vectors.</strong></td></tr>
 <tr><td valign=\"top\"> normalize</td>
           <td valign=\"top\"> Implementation changed, so that the result is awalys continuous<br>
                                                 (previously, this was not the case for small vectors: normalize(eps,eps)).
                                                 </td></tr>
 
-<tr><td colspan=\"2\"><b>Mechanics.MultiBody.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Mechanics.MultiBody.</strong></td></tr>
 <tr><td valign=\"top\"> </td>
           <td valign=\"top\"> Renamed non-standard keywords defineBranch, defineRoot, definePotentialRoot,
                                                 isRooted to the standard names:<br>
@@ -5487,7 +5487,7 @@ have been <b style=\"color:blue\">improved</b> in a
 <tr><td valign=\"top\"> Frames </td>
           <td valign=\"top\"> Added annotation \"Inline=true\" to all one-line functions
                                                 (which should be all inlined).</td></tr>
-<tr><td colspan=\"2\"><b>Mechanics.MultiBody.Parts.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Mechanics.MultiBody.Parts.</strong></td></tr>
 <tr><td valign=\"top\"> Mounting1D<br>
                                                 Rotor1D<br>
                                                 BevelGear1D</td>
@@ -5495,17 +5495,17 @@ have been <b style=\"color:blue\">improved</b> in a
                                                 variables are used,<br>because this violates the restrictions on
                                                 \"balanced models\" of Modelica 3.</td></tr>
 
-<tr><td colspan=\"2\"><b>Mechanics.Rotational.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Mechanics.Rotational.</strong></td></tr>
 <tr><td valign=\"top\"> InitializeFlange</td>
           <td valign=\"top\"> Changed implementation so that counting unknowns and
                                                 equations is possible without actual values of parameters.</td></tr>
 
-<tr><td colspan=\"2\"><b>Thermal.FluidHeatFlow.Interfaces.Partials.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Thermal.FluidHeatFlow.Interfaces.Partials.</strong></td></tr>
 <tr><td valign=\"top\">TwoPort</td>
           <td valign=\"top\"> Introduced <code>parameter Real tapT(final min=0, final max=1)=1</code> <br> that defines the temperature of the heatPort
                                                 between inlet and outlet.</td></tr>
 
-<tr><td colspan=\"2\"><b>StateGraph.</b></td></tr>
+<tr><td colspan=\"2\"><strong>StateGraph.</strong></td></tr>
 <tr><td valign=\"top\"> InitialStep<br>
                                                 InitialStepWithSignal<br>
                                                 Step<br>
@@ -5517,18 +5517,18 @@ have been <b style=\"color:blue\">improved</b> in a
 </table>
 
 <p><br>
-The following <b style=\"color:red\">critical errors</b> have been fixed (i.e., errors
+The following <font color=\"red\"><strong>critical errors</strong></font> have been fixed (i.e., errors
 that can lead to wrong simulation results):
 </p>
 
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
-<tr><td colspan=\"2\"><b>Electrical.Analog.Examples.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Electrical.Analog.Examples.</strong></td></tr>
 <tr><td valign=\"top\"> CauerLowPassSC </td>
           <td valign=\"top\"> Wrong calculation of Capacitor1 both in Rn and Rp corrected
                                                 (C=clock/R instead of C=clock*R) </td>
 </tr>
 
-<tr><td colspan=\"2\"><b>Mechanics.MultiBody.Parts.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Mechanics.MultiBody.Parts.</strong></td></tr>
 <tr><td valign=\"top\"> Rotor1D </td>
           <td valign=\"top\"> The 3D reaction torque was not completely correct and gave in
                                                 some situations a wrong result. This bug should not influence the
@@ -5536,7 +5536,7 @@ that can lead to wrong simulation results):
                                                 are sometimes not correct.</td>
 </tr>
 
-<tr><td colspan=\"2\"><b>Mechanics.Rotational.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Mechanics.Rotational.</strong></td></tr>
 <tr><td valign=\"top\"> ElastoBacklash </td>
           <td valign=\"top\"> If the damping torque was too large, the reaction torque
                                                 could \"pull\" which is unphysical. The component was
@@ -5557,36 +5557,36 @@ that can lead to wrong simulation results):
                                                 The conversion script performs the necessary conversion of
                                                 existing models automatically.</td>
 </tr>
-<tr><td colspan=\"2\"><b>Media.Interfaces.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Media.Interfaces.</strong></td></tr>
 <tr><td valign=\"top\"> PartialSimpleIdealGasMedium </td>
           <td valign=\"top\"> Inconsistency in reference temperature corrected. This may give
                                                 different results for functions:<br>
                                                 specificEnthalpy, specificInternalEnergy, specificGibbsEnergy,
                                                 specificHelmholtzEnergy.</td>
 </tr>
-<tr><td colspan=\"2\"><b>Media.Air.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Media.Air.</strong></td></tr>
 <tr><td valign=\"top\"> specificEntropy </td>
           <td valign=\"top\"> Small bug in entropy computation of ideal gas mixtures corrected.</td>
 </tr>
-<tr><td colspan=\"2\"><b>Media.IdealGases.Common.MixtureGasNasa</b></td></tr>
+<tr><td colspan=\"2\"><strong>Media.IdealGases.Common.MixtureGasNasa</strong></td></tr>
 <tr><td valign=\"top\"> specificEntropy </td>
           <td valign=\"top\"> Small bug in entropy computation of ideal gas mixtures corrected.</td>
 </tr>
 </table>
 
 <p><br>
-The following <b style=\"color:red\">uncritical errors</b> have been fixed (i.e., errors
-that do <b style=\"color:red\">not</b> lead to wrong simulation results, but, e.g.,
+The following <font color=\"red\"><strong>uncritical errors</strong></font> have been fixed (i.e., errors
+that do <font color=\"red\"><strong>not</strong></font> lead to wrong simulation results, but, e.g.,
 units are wrong or errors in documentation):
 </p>
 
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
-<tr><td colspan=\"2\"><b>Blocks.Tables.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Blocks.Tables.</strong></td></tr>
 <tr><td valign=\"top\"> CombiTable2D</td>
           <td valign=\"top\"> Documentation improved.</td>
 </tr>
 
-<tr><td colspan=\"2\"><b>Electrica.Digital.Gates</b></td></tr>
+<tr><td colspan=\"2\"><strong>Electrica.Digital.Gates</strong></td></tr>
 <tr><td valign=\"top\"> AndGate<br>
                                                 NandGate<br>
                                                 OrGate<br>
@@ -5599,13 +5599,13 @@ units are wrong or errors in documentation):
                                                 of inputs was changed (and not the default used).</td>
 </tr>
 
-<tr><td colspan=\"2\"><b>Electrica.Digital.Sources</b></td></tr>
+<tr><td colspan=\"2\"><strong>Electrica.Digital.Sources</strong></td></tr>
 <tr><td valign=\"top\"> Pulse </td>
           <td valign=\"top\"> Model differently implemented, so that
                                                 warning message about \"cannot properly initialize\" is gone.</td>
 </tr>
 
-<tr><td colspan=\"2\"><b>Mechanics.Rotational.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Mechanics.Rotational.</strong></td></tr>
 <tr><td valign=\"top\"> BearingFriction<br>
                                                 Clutch<br>
                                                 OneWayClutch<br>
@@ -5615,16 +5615,16 @@ units are wrong or errors in documentation):
                                                 table[:,:] to table[:,2].</td>
 </tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.</strong></td></tr>
 <tr><td valign=\"top\"> GasForce </td>
           <td valign=\"top\"> Unit of variable \"press\" corrected (from Pa to bar)</td>
 </tr>
 
-<tr><td colspan=\"2\"><b>StateGraph.Examples.</b></td></tr>
+<tr><td colspan=\"2\"><strong>StateGraph.Examples.</strong></td></tr>
 <tr><td valign=\"top\">SimpleFriction</td>
           <td valign=\"top\"> The internal parameter k is defined and calculated with the appropriate unit.</td></tr>
 
-<tr><td colspan=\"2\"><b>Thermal.FluidHeatFlow.Interfaces.Partials.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Thermal.FluidHeatFlow.Interfaces.Partials.</strong></td></tr>
 <tr><td valign=\"top\">SimpleFriction</td>
           <td valign=\"top\"> The internal parameter k is defined and calculated with the appropriate unit.</td></tr>
 
@@ -5663,22 +5663,22 @@ ModelManagement.compare function.
 </p>
 
 <p>
-In this version, <b>no</b> new libraries have been added. The <b>documentation</b>
+In this version, <strong>no</strong> new libraries have been added. The <strong>documentation</strong>
 of the whole library was improved.
 </p>
 
 <p><br>
-The following <b style=\"color:blue\">new components</b> have been added
-to <b style=\"color:blue\">existing</b> libraries:
+The following <font color=\"blue\"><strong>new components</strong></font> have been added
+to <font color=\"blue\"><strong>existing</strong></font> libraries:
 </p>
 
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
-<tr><td colspan=\"2\"><b>Blocks.Logical.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Blocks.Logical.</strong></td></tr>
 <tr><td valign=\"top\"> TerminateSimulation</td>
           <td valign=\"top\"> Terminate a simulation by a given condition.</td>
 </tr>
 
-<tr><td colspan=\"2\"><b>Blocks.Routing.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Blocks.Routing.</strong></td></tr>
 <tr><td valign=\"top\"> RealPassThrough<br>
                    IntegerPassThrough<br>
                    BooleanPassThrough</td>
@@ -5687,13 +5687,13 @@ to <b style=\"color:blue\">existing</b> libraries:
                    of expandable connectors).</td>
 </tr>
 
-<tr><td colspan=\"2\"><b>Blocks.Sources.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Blocks.Sources.</strong></td></tr>
 <tr><td valign=\"top\"> KinematicPTP2 </td>
           <td valign=\"top\"> Directly gives q,qd,qdd as output (and not just qdd as KinematicPTP).
           </td>
 </tr>
 
-<tr><td colspan=\"2\"><b>Electrical.Machines.Examples.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Electrical.Machines.Examples.</strong></td></tr>
 <tr><td valign=\"top\"> TransformerTestbench </td>
           <td valign=\"top\"> Transformer Testbench
           </td></tr>
@@ -5710,7 +5710,7 @@ to <b style=\"color:blue\">existing</b> libraries:
           </td>
 </tr>
 
-<tr><td colspan=\"2\"><b>Electrical.Machines.BasicMachines.Components.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Electrical.Machines.BasicMachines.Components.</strong></td></tr>
 <tr><td valign=\"top\"> BasicAIM </td>
           <td valign=\"top\"> Partial model for asynchronous induction machine
           </td></tr>
@@ -5737,18 +5737,18 @@ to <b style=\"color:blue\">existing</b> libraries:
           </td>
 </tr>
 
-<tr><td colspan=\"2\"><b>Electrical.Machines.BasicMachines.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Electrical.Machines.BasicMachines.</strong></td></tr>
 <tr><td valign=\"top\"> Transformers </td>
           <td valign=\"top\"> Sub-Library for technical 3phase transformers
           </td>
 </tr>
 
-<tr><td colspan=\"2\"><b>Electrical.Machines.Interfaces.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Electrical.Machines.Interfaces.</strong></td></tr>
 <tr><td valign=\"top\"> Adapter </td>
           <td valign=\"top\"> Adapter to model housing of electrical machine
           </td>
 </tr>
-<tr><td colspan=\"2\"><b>Math.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Math.</strong></td></tr>
 <tr><td valign=\"top\"> Vectors </td>
           <td valign=\"top\"> New library of functions operating on vectors
           </td>
@@ -5766,7 +5766,7 @@ to <b style=\"color:blue\">existing</b> libraries:
           </td>
 </tr>
 
-<tr><td colspan=\"2\"><b>Math.Vectors</b></td></tr>
+<tr><td colspan=\"2\"><strong>Math.Vectors</strong></td></tr>
 <tr><td valign=\"top\"> isEqual </td>
           <td valign=\"top\"> Determine if two Real vectors are numerically identical
           </td>
@@ -5787,7 +5787,7 @@ to <b style=\"color:blue\">existing</b> libraries:
           <td valign=\"top\"> Sort elements of vector in ascending or descending order
           </td></tr>
 
-<tr><td colspan=\"2\"><b>Math.Matrices</b></td></tr>
+<tr><td colspan=\"2\"><strong>Math.Matrices</strong></td></tr>
 <tr><td valign=\"top\"> solve2 </td>
           <td valign=\"top\"> Solve real system of linear equations A*X=B with a B matrix
                    (Gaussian elimination with partial pivoting)
@@ -5798,20 +5798,20 @@ to <b style=\"color:blue\">existing</b> libraries:
                    and an LU decomposition (from LU(..))
           </td></tr>
 
-<tr><td colspan=\"2\"><b>Mechanics.Rotational.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Mechanics.Rotational.</strong></td></tr>
 <tr><td valign=\"top\"> InitializeFlange </td>
           <td valign=\"top\"> Initialize a flange according to given signals
                    (useful if initialization signals are provided by a signal bus).
           </td>
 </tr>
 
-<tr><td colspan=\"2\"><b>Media.Interfaces.PartialMedium.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Media.Interfaces.PartialMedium.</strong></td></tr>
 <tr><td valign=\"top\"> density_pTX </td>
           <td valign=\"top\"> Return density from p, T, and X or Xi
           </td>
 </tr>
 
-<tr><td colspan=\"2\"><b>Media.Interfaces.PartialTwoPhaseMedium.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Media.Interfaces.PartialTwoPhaseMedium.</strong></td></tr>
 <tr><td valign=\"top\"> BaseProperties </td>
           <td valign=\"top\"> Base properties (p, d, T, h, u, R, MM, x) of a two phase medium
           </td>
@@ -5842,14 +5842,14 @@ to <b style=\"color:blue\">existing</b> libraries:
           </td>
 </tr>
 
-<tr><td colspan=\"2\"><b>Media.Interfaces.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Media.Interfaces.</strong></td></tr>
 <tr><td valign=\"top\"> PartialLinearFluid </td>
           <td valign=\"top\"> Generic pure liquid model with constant cp,
                    compressibility and thermal expansion coefficients
           </td>
 </tr>
 
-<tr><td colspan=\"2\"><b>Media.Air.MoistAir.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Media.Air.MoistAir.</strong></td></tr>
 <tr><td valign=\"top\"> massFraction_pTphi </td>
           <td valign=\"top\"> Return the steam mass fraction from relative humidity and T
           </td>
@@ -5872,7 +5872,7 @@ to <b style=\"color:blue\">existing</b> libraries:
           <td valign=\"top\"> Model to generate plot data for psychrometric chart
           </td>
 </tr>
-<tr><td colspan=\"2\"><b>Media.CompressibleLiquids.</b><br>
+<tr><td colspan=\"2\"><strong>Media.CompressibleLiquids.</strong><br>
           New sub-library for simple compressible liquid models</td></tr>
 <tr><td valign=\"top\"> LinearColdWater </td>
           <td valign=\"top\"> Cold water model with linear compressibility
@@ -5883,7 +5883,7 @@ to <b style=\"color:blue\">existing</b> libraries:
                    and 25 degree Celsius
           </td>
 </tr>
-<tr><td colspan=\"2\"><b>SIunits.</b></td></tr>
+<tr><td colspan=\"2\"><strong>SIunits.</strong></td></tr>
 <tr><td valign=\"top\"> TemperatureDifference </td>
           <td valign=\"top\"> Type for temperature difference
           </td>
@@ -5891,17 +5891,17 @@ to <b style=\"color:blue\">existing</b> libraries:
 </table>
 
 <p><br>
-The following <b style=\"color:blue\">existing components</b>
-have been <b style=\"color:blue\">improved</b>:
+The following <font color=\"blue\"><strong>existing components</strong></font>
+have been <font color=\"blue\"><strong>improved</strong></font>:
 </p>
 
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
-<tr><td colspan=\"2\"><b>Blocks.Examples.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Blocks.Examples.</strong></td></tr>
 <tr><td valign=\"top\"> BusUsage</td>
           <td valign=\"top\"> Example changed from the \"old\" to the \"new\" bus concept with
                    expandable connectors.</td></tr>
 
-<tr><td colspan=\"2\"><b>Blocks.Discrete.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Blocks.Discrete.</strong></td></tr>
 <tr><td valign=\"top\"> ZeroOrderHold</td>
           <td valign=\"top\"> Sample output ySample moved from \"protected\" to \"public\"
                    section with new attributes (start=0, fixed=true).
@@ -5912,25 +5912,25 @@ have been <b style=\"color:blue\">improved</b>:
           </td>
 </tr>
 
-<tr><td colspan=\"2\"><b>Electrical.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Electrical.</strong></td></tr>
 <tr><td valign=\"top\"> Analog<br>MultiPhase</td>
           <td valign=\"top\"> Improved some icons.
           </td>
 </tr>
 
-<tr><td colspan=\"2\"><b>Electrical.Digital.Interfaces.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Electrical.Digital.Interfaces.</strong></td></tr>
 <tr><td valign=\"top\"> MISO</td>
           <td valign=\"top\"> Removed \"algorithm\" from this partial block.
           </td>
 </tr>
 
-<tr><td colspan=\"2\"><b>Electrical.Digital.Delay.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Electrical.Digital.Delay.</strong></td></tr>
 <tr><td valign=\"top\"> DelayParams</td>
           <td valign=\"top\"> Removed \"algorithm\" from this partial block.
           </td>
 </tr>
 
-<tr><td colspan=\"2\"><b>Electrical.Digital.Delay.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Electrical.Digital.Delay.</strong></td></tr>
 <tr><td valign=\"top\"> DelayParams</td>
           <td valign=\"top\"> Removed \"algorithm\" from this partial block.
           </td>
@@ -5941,7 +5941,7 @@ have been <b style=\"color:blue\">improved</b>:
           </td>
 </tr>
 
-<tr><td colspan=\"2\"><b>Electrical.Digital.Sources.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Electrical.Digital.Sources.</strong></td></tr>
 <tr><td valign=\"top\"> Clock<br>Step</td>
           <td valign=\"top\"> Changed if-conditions from \"xxx < time\" to \"time >= xxx\"
                    (according to the Modelica specification, in the second case
@@ -5950,7 +5950,7 @@ have been <b style=\"color:blue\">improved</b>:
           </td>
 </tr>
 
-<tr><td colspan=\"2\"><b>Electrical.Digital.Converters.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Electrical.Digital.Converters.</strong></td></tr>
 <tr><td valign=\"top\"> BooleanToLogic<br>
                    LogicToBoolean<br>
                    RealToLogic<br>
@@ -5960,35 +5960,35 @@ have been <b style=\"color:blue\">improved</b>:
           </td>
 </tr>
 
-<tr><td colspan=\"2\"><b>Electrical.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Electrical.</strong></td></tr>
 <tr><td valign=\"top\"> Machines</td>
           <td valign=\"top\"> Slightly improved documentation, typos in
                    documentation corrected
           </td>
 </tr>
 
-<tr><td colspan=\"2\"><b>Electrical.Machines.Examples.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Electrical.Machines.Examples.</strong></td></tr>
 <tr><td valign=\"top\"> AIMS_start</td>
           <td valign=\"top\"> Changed QuadraticLoadTorque1(TorqueDirection=true) to
                    QuadraticLoadTorque1(TorqueDirection=false) since more realistic
           </td>
 </tr>
 
-<tr><td colspan=\"2\"><b>Electrical.Machines.Interfaces.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Electrical.Machines.Interfaces.</strong></td></tr>
 <tr><td valign=\"top\"> PartialBasicMachine</td>
           <td valign=\"top\"> Introduced support flange to model the
                    reaction torque to the housing
           </td>
 </tr>
 
-<tr><td colspan=\"2\"><b>Electrical.Machines.Sensors.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Electrical.Machines.Sensors.</strong></td></tr>
 <tr><td valign=\"top\"> Rotorangle</td>
           <td valign=\"top\"> Introduced support flange to model the
                    reaction torque to the housing
           </td>
 </tr>
 
-<tr><td colspan=\"2\"><b>Mechanics.MultiBody.Examples.Elementary.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Mechanics.MultiBody.Examples.Elementary.</strong></td></tr>
 <tr><td valign=\"top\"> PointMassesWithGravity</td>
           <td valign=\"top\"> Added two point masses connected by a line force to demonstrate
                    additionally how this works. Connections of point masses
@@ -6000,7 +6000,7 @@ have been <b style=\"color:blue\">improved</b>:
                    determined by these elements.</td>
 </tr>
 
-<tr><td colspan=\"2\"><b>Mechanics.MultiBody.Examples.Systems.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Mechanics.MultiBody.Examples.Systems.</strong></td></tr>
 <tr><td valign=\"top\"> RobotR3</td>
           <td valign=\"top\"> Changed from the \"old\" to the \"new\" bus concept with expandable connectors.
                    Replaced the non-standard Modelica function \"constrain()\" by
@@ -6008,7 +6008,7 @@ have been <b style=\"color:blue\">improved</b>:
                    constrain() is no longer used in the Modelica Standard Library.</td>
 </tr>
 
-<tr><td colspan=\"2\"><b>Mechanics.MultiBody.Frames.Orientation.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Mechanics.MultiBody.Frames.Orientation.</strong></td></tr>
 <tr><td valign=\"top\"> equalityConstraint</td>
           <td valign=\"top\"> Use a better residual for the equalityConstraint function.
                    As a result, the non-linear equation system of a kinematic
@@ -6017,14 +6017,14 @@ have been <b style=\"color:blue\">improved</b>:
                    system of equations becomes much larger).</td>
 </tr>
 
-<tr><td colspan=\"2\"><b>Mechanics.MultiBody.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Mechanics.MultiBody.</strong></td></tr>
 <tr><td valign=\"top\"> Visualizers.</td>
           <td valign=\"top\"> Removed (misleading) annotation \"structurallyIncomplete\"
                    in the models of this sub-library
           </td>
 </tr>
 
-<tr><td colspan=\"2\"><b>Mechanics.Rotational.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Mechanics.Rotational.</strong></td></tr>
 <tr><td valign=\"top\"> Examples</td>
           <td valign=\"top\"> For all models in this sub-library:
                    <ul>
@@ -6038,33 +6038,33 @@ have been <b style=\"color:blue\">improved</b>:
           </td>
 </tr>
 
-<tr><td colspan=\"2\"><b>Mechanics.Rotational.Interfaces.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Mechanics.Rotational.Interfaces.</strong></td></tr>
 <tr><td valign=\"top\"> FrictionBase</td>
           <td valign=\"top\"> Introduced \"fixed=true\" for Boolean variables startForward,
                    startBackward, mode.
           </td>
 </tr>
 
-<tr><td colspan=\"2\"><b>Mechanics.Translational.Interfaces.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Mechanics.Translational.Interfaces.</strong></td></tr>
 <tr><td valign=\"top\"> FrictionBase</td>
           <td valign=\"top\"> Introduced \"fixed=true\" for Boolean variables startForward,
                    startBackward, mode.
           </td>
 </tr>
 
-<tr><td colspan=\"2\"><b>Media.UsersGuide.MediumUsage.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Media.UsersGuide.MediumUsage.</strong></td></tr>
 <tr><td valign=\"top\"> TwoPhase</td>
           <td valign=\"top\"> Improved documentation and demonstrating the newly introduced functions
           </td>
 </tr>
 
-<tr><td colspan=\"2\"><b>Media.Examples.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Media.Examples.</strong></td></tr>
 <tr><td valign=\"top\"> WaterIF97</td>
           <td valign=\"top\"> Provided (missing) units for variables V, dV, H_flow_ext, m, U.
           </td>
 </tr>
 
-<tr><td colspan=\"2\"><b> Media.Interfaces.</b></td></tr>
+<tr><td colspan=\"2\"><strong> Media.Interfaces.</strong></td></tr>
 <tr><td valign=\"top\"> PartialMedium</td>
           <td valign=\"top\"> Final modifiers are removed from nX and nXi, to allow
                    customized medium models such as mixtures of refrigerants with oil, etc.
@@ -6077,7 +6077,7 @@ have been <b style=\"color:blue\">improved</b>:
           </td>
 </tr>
 
-<tr><td colspan=\"2\"><b> Media.Interfaces.PartialMedium.</b></td></tr>
+<tr><td colspan=\"2\"><strong> Media.Interfaces.PartialMedium.</strong></td></tr>
 <tr><td valign=\"top\"> BaseProperties</td>
           <td valign=\"top\"> New Boolean parameter \"standardOrderComponents\".
                    If true, last element vector X is computed from 1-sum(Xi) (= default)
@@ -6102,7 +6102,7 @@ have been <b style=\"color:blue\">improved</b>:
           </td>
 </tr>
 
-<tr><td colspan=\"2\"><b> Media.Interfaces.PartialSimpleMedium.</b></td></tr>
+<tr><td colspan=\"2\"><strong> Media.Interfaces.PartialSimpleMedium.</strong></td></tr>
 <tr><td valign=\"top\"> setState_pTX<br>
                    setState_phX<br>
                    setState_psX<br>
@@ -6111,7 +6111,7 @@ have been <b style=\"color:blue\">improved</b>:
           </td>
 </tr>
 
-<tr><td colspan=\"2\"><b> Media.Interfaces.PartialSimpleIdealGasMedium.</b></td></tr>
+<tr><td colspan=\"2\"><strong> Media.Interfaces.PartialSimpleIdealGasMedium.</strong></td></tr>
 <tr><td valign=\"top\"> setState_pTX<br>
                    setState_phX<br>
                    setState_psX<br>
@@ -6120,7 +6120,7 @@ have been <b style=\"color:blue\">improved</b>:
           </td>
 </tr>
 
-<tr><td colspan=\"2\"><b> Media.Air.MoistAir.</b></td></tr>
+<tr><td colspan=\"2\"><strong> Media.Air.MoistAir.</strong></td></tr>
 <tr><td valign=\"top\"> setState_pTX<br>
                    setState_phX<br>
                    setState_dTX</td>
@@ -6128,7 +6128,7 @@ have been <b style=\"color:blue\">improved</b>:
           </td>
 </tr>
 
-<tr><td colspan=\"2\"><b> Media.IdealGases.Common.SingleGasNasa.</b></td></tr>
+<tr><td colspan=\"2\"><strong> Media.IdealGases.Common.SingleGasNasa.</strong></td></tr>
 <tr><td valign=\"top\"> setState_pTX<br>
                    setState_phX<br>
                    setState_psX<br>
@@ -6137,7 +6137,7 @@ have been <b style=\"color:blue\">improved</b>:
           </td>
 </tr>
 
-<tr><td colspan=\"2\"><b> Media.IdealGases.Common.MixtureGasNasa.</b></td></tr>
+<tr><td colspan=\"2\"><strong> Media.IdealGases.Common.MixtureGasNasa.</strong></td></tr>
 <tr><td valign=\"top\"> setState_pTX<br>
                    setState_phX<br>
                    setState_psX<br>
@@ -6147,7 +6147,7 @@ have been <b style=\"color:blue\">improved</b>:
           </td>
 </tr>
 
-<tr><td colspan=\"2\"><b> Media.Common.</b></td></tr>
+<tr><td colspan=\"2\"><strong> Media.Common.</strong></td></tr>
 <tr><td valign=\"top\"> IF97PhaseBoundaryProperties<br>
                    gibbsToBridgmansTables </td>
           <td valign=\"top\"> Introduced unit for variables vt, vp.
@@ -6162,7 +6162,7 @@ have been <b style=\"color:blue\">improved</b>:
           </td>
 </tr>
 
-<tr><td colspan=\"2\"><b> Media.Common.ThermoFluidSpecial.</b></td></tr>
+<tr><td colspan=\"2\"><strong> Media.Common.ThermoFluidSpecial.</strong></td></tr>
 <tr><td valign=\"top\"> gibbsToProps_ph<br>
                    gibbsToProps_ph  <br>
                    gibbsToBoundaryProps<br>
@@ -6175,26 +6175,26 @@ have been <b style=\"color:blue\">improved</b>:
           </td>
 </tr>
 
-<tr><td colspan=\"2\"><b> Media.</b></td></tr>
+<tr><td colspan=\"2\"><strong> Media.</strong></td></tr>
 <tr><td valign=\"top\"> MoistAir</td>
           <td valign=\"top\"> Documentation of moist air model significantly improved.
           </td>
 </tr>
 
-<tr><td colspan=\"2\"><b> Media.MoistAir.</b></td></tr>
+<tr><td colspan=\"2\"><strong> Media.MoistAir.</strong></td></tr>
 <tr><td valign=\"top\"> enthalpyOfVaporization</td>
           <td valign=\"top\"> Replaced by linear correlation since simpler and more
                    accurate in the entire region.
           </td>
 </tr>
 
-<tr><td colspan=\"2\"><b> Media.Water.IF97_Utilities.BaseIF97.Regions.</b></td></tr>
+<tr><td colspan=\"2\"><strong> Media.Water.IF97_Utilities.BaseIF97.Regions.</strong></td></tr>
 <tr><td valign=\"top\"> drhovl_dp</td>
           <td valign=\"top\"> Introduced unit for variable dd_dp.
           </td>
 </tr>
 
-<tr><td colspan=\"2\"><b> Thermal.</b></td></tr>
+<tr><td colspan=\"2\"><strong> Thermal.</strong></td></tr>
 <tr><td valign=\"top\"> FluidHeatFlow</td>
           <td valign=\"top\"> Introduced new parameter tapT (0..1) to define the
                    temperature of the HeatPort as linear combination of the
@@ -6204,12 +6204,12 @@ have been <b style=\"color:blue\">improved</b>:
 </table>
 
 <p><br>
-The following <b style=\"color:red\">critical errors</b> have been fixed (i.e., errors
+The following <font color=\"red\"><strong>critical errors</strong></font> have been fixed (i.e., errors
 that can lead to wrong simulation results):
 </p>
 
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
-<tr><td colspan=\"2\"><b>Electrical.Machines.BasicMachines.Components.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Electrical.Machines.BasicMachines.Components.</strong></td></tr>
 <tr><td valign=\"top\"> ElectricalExcitation</td>
           <td valign=\"top\"> Excitation voltage ve is calculated as
                    \"spacePhasor_r.v_[1]*TurnsRatio*3/2\" instead of
@@ -6217,7 +6217,7 @@ that can lead to wrong simulation results):
            </td>
 </tr>
 
-<tr><td colspan=\"2\"><b>Mechanics.MultiBody.Parts.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Mechanics.MultiBody.Parts.</strong></td></tr>
 <tr><td valign=\"top\"> FixedRotation</td>
           <td valign=\"top\"> Bug corrected that the torque balance was wrong in the
                    following cases (since vector r was not transformed
@@ -6239,7 +6239,7 @@ that can lead to wrong simulation results):
            </td>
 </tr>
 
-<tr><td colspan=\"2\"><b>Media.Interfaces.PartialPureSubstance.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Media.Interfaces.PartialPureSubstance.</strong></td></tr>
 <tr><td valign=\"top\"> pressure_dT<br>
                    specificEnthalpy_dT
           </td>
@@ -6247,7 +6247,7 @@ that can lead to wrong simulation results):
            </td>
 </tr>
 
-<tr><td colspan=\"2\"><b>Media.Interfaces.PartialTwoPhaseMedium.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Media.Interfaces.PartialTwoPhaseMedium.</strong></td></tr>
 <tr><td valign=\"top\"> pressure_dT<br>
                    specificEnthalpy_dT
           </td>
@@ -6255,7 +6255,7 @@ that can lead to wrong simulation results):
            </td>
 </tr>
 
-<tr><td colspan=\"2\"><b>Media.Common.ThermoFluidSpecial.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Media.Common.ThermoFluidSpecial.</strong></td></tr>
 <tr><td valign=\"top\"> gibbsToProps_dT<br>
                    helmholtzToProps_ph<br>
                    helmholtzToProps_pT<br>
@@ -6263,18 +6263,18 @@ that can lead to wrong simulation results):
           <td valign=\"top\"> Bugs in equations corrected </td>
 </tr>
 
-<tr><td colspan=\"2\"><b>Media.Common.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Media.Common.</strong></td></tr>
 <tr><td valign=\"top\"> helmholtzToBridgmansTables<br>
                    helmholtzToExtraDerivs</td>
           <td valign=\"top\"> Bugs in equations corrected </td>
 </tr>
 
-<tr><td colspan=\"2\"><b>Media.IdealGases.Common.SingleGasNasa.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Media.IdealGases.Common.SingleGasNasa.</strong></td></tr>
 <tr><td valign=\"top\"> density_derp_T</td>
           <td valign=\"top\"> Bug in equation of partial derivative corrected </td>
 </tr>
 
-<tr><td colspan=\"2\"><b>Media.Water.IF97_Utilities.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Media.Water.IF97_Utilities.</strong></td></tr>
 <tr><td valign=\"top\"> BaseIF97.Inverses.dtofps3<br>
                    isentropicExponent_props_ph<br>
                    isentropicExponent_props_pT<br>
@@ -6282,7 +6282,7 @@ that can lead to wrong simulation results):
           <td valign=\"top\"> Bugs in equations corrected </td>
 </tr>
 
-<tr><td colspan=\"2\"><b>Media.Air.MoistAir.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Media.Air.MoistAir.</strong></td></tr>
 <tr><td valign=\"top\"> h_pTX</td>
           <td valign=\"top\"> Bug in setState_phX due to wrong vector size in h_pTX corrected.
                    Furthermore, syntactical errors corrected:
@@ -6293,13 +6293,13 @@ that can lead to wrong simulation results):
           </td>
 </tr>
 
-<tr><td colspan=\"2\"><b>Media.Water.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Media.Water.</strong></td></tr>
 <tr><td valign=\"top\"> waterConstants</td>
           <td valign=\"top\"> Bug in equation of criticalMolarVolume corrected.
           </td>
 </tr>
 
-<tr><td colspan=\"2\"><b>Media.Water.IF97_Utilities.BaseIF97.Regions.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Media.Water.IF97_Utilities.BaseIF97.Regions.</strong></td></tr>
 <tr><td valign=\"top\"> region_ph<br>
                    region_ps</td>
           <td valign=\"top\"> Bug in region determination corrected.
@@ -6314,37 +6314,37 @@ that can lead to wrong simulation results):
 </table>
 
 <p><br>
-The following <b style=\"color:red\">uncritical errors</b> have been fixed (i.e., errors
-that do <b style=\"color:red\">not</b> lead to wrong simulation results, but, e.g.,
+The following <font color=\"red\"><strong>uncritical errors</strong></font></font> have been fixed (i.e., errors
+that do <font color=\"red\"><strong>not</strong></font> lead to wrong simulation results, but, e.g.,
 units are wrong or errors in documentation):
 </p>
 
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
-<tr><td colspan=\"2\"><b>Blocks.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Blocks.</strong></td></tr>
 <tr><td valign=\"top\"> Examples</td>
           <td valign=\"top\"> Corrected typos in description texts of bus example models.
            </td>
 </tr>
 
-<tr><td colspan=\"2\"><b>Blocks.Continuous.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Blocks.Continuous.</strong></td></tr>
 <tr><td valign=\"top\"> LimIntegrator</td>
           <td valign=\"top\"> removed incorrect smooth(0,..) because expression might be discontinuous.
            </td>
 </tr>
 
-<tr><td colspan=\"2\"><b>Blocks.Math.UnitConversions.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Blocks.Math.UnitConversions.</strong></td></tr>
 <tr><td valign=\"top\"> block_To_kWh<br>block_From_kWh</td>
           <td valign=\"top\"> Corrected unit from \"kWh\" to (syntactically correct) \"kW.h\".
            </td>
 </tr>
 
-<tr><td colspan=\"2\"><b>Electrical.Analog.Examples.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Electrical.Analog.Examples.</strong></td></tr>
 <tr><td valign=\"top\"> HeatingNPN_OrGate</td>
           <td valign=\"top\"> Included start values, so that initialization is
                                                 successful </td>
 </tr>
 
-<tr><td colspan=\"2\"><b>Electrical.Analog.Lines.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Electrical.Analog.Lines.</strong></td></tr>
 <tr><td valign=\"top\"> OLine</td>
           <td valign=\"top\"> Corrected unit from \"Siemens/m\" to \"S/m\".
            </td></tr>
@@ -6354,49 +6354,49 @@ units are wrong or errors in documentation):
            </td>
 </tr>
 
-<tr><td colspan=\"2\"><b>Electrical.Digital.Delay.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Electrical.Digital.Delay.</strong></td></tr>
 <tr><td valign=\"top\"> TransportDelay</td>
           <td valign=\"top\"> Syntax error corrected
                    (\":=\" in equation section is converted by Dymola silently to \"=\").
            </td>
 </tr>
 
-<tr><td colspan=\"2\"><b>Electrical.Digital</b></td></tr>
+<tr><td colspan=\"2\"><strong>Electrical.Digital</strong></td></tr>
 <tr><td valign=\"top\"> Converters</td>
           <td valign=\"top\"> Syntax error corrected
                    (\":=\" in equation section is converted by Dymola silently to \"=\").
            </td>
 </tr>
 
-<tr><td colspan=\"2\"><b>Electrical.MultiPhase.Basic.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Electrical.MultiPhase.Basic.</strong></td></tr>
 <tr><td valign=\"top\"> Conductor</td>
           <td valign=\"top\"> Changed wrong type of parameter G from SIunits.Resistance to
                    SIunits.Conductance.
            </td>
 </tr>
 
-<tr><td colspan=\"2\"><b>Electrical.MultiPhase.Interfaces.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Electrical.MultiPhase.Interfaces.</strong></td></tr>
 <tr><td valign=\"top\"> Plug<br></td>
           <td valign=\"top\"> Made used \"pin\" connectors non-graphical (otherwise,
                    there are difficulties to connect to Plug).
            </td>
 </tr>
 
-<tr><td colspan=\"2\"><b>Electrical.MultiPhase.Sources.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Electrical.MultiPhase.Sources.</strong></td></tr>
 <tr><td valign=\"top\"> SineCurrent</td>
           <td valign=\"top\"> Changed wrong type of parameter offset from SIunits.Voltage to
                    SIunits.Current.
            </td>
 </tr>
 
-<tr><td colspan=\"2\"><b>Mechanics.MultiBody.Examples.Loops.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Mechanics.MultiBody.Examples.Loops.</strong></td></tr>
 <tr><td valign=\"top\"> EngineV6</td>
           <td valign=\"top\"> Corrected wrong crankAngleOffset of some cylinders
                    and improved the example.
            </td>
 </tr>
 
-<tr><td colspan=\"2\"><b>Mechanics.MultiBody.Examples.Loops.Utilities.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Mechanics.MultiBody.Examples.Loops.Utilities.</strong></td></tr>
 <tr><td valign=\"top\"> GasForce</td>
           <td valign=\"top\"> Wrong units corrected:
                    \"SIunitsPosition x,y\" to \"Real x,y\";
@@ -6412,7 +6412,7 @@ units are wrong or errors in documentation):
            </td>
 </tr>
 
-<tr><td colspan=\"2\"><b>Mechanics.MultiBody.Interfaces.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Mechanics.MultiBody.Interfaces.</strong></td></tr>
 <tr><td valign=\"top\"> PartialLineForce</td>
           <td valign=\"top\"> Corrected wrong unit: \"SIunits.Position eRod_a\" to \"Real eRod_a\";
            </td>
@@ -6425,7 +6425,7 @@ units are wrong or errors in documentation):
                    is conditionally removed in this case.</td>
 </tr>
 
-<tr><td colspan=\"2\"><b>Mechanics.MultiBody.Forces.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Mechanics.MultiBody.Forces.</strong></td></tr>
 <tr><td valign=\"top\"> ForceAndTorque</td>
           <td valign=\"top\"> Corrected wrong unit: \"SIunits.Force t_b_0\" to \"SIunits.Torque t_b_0\".
            </td>
@@ -6435,20 +6435,20 @@ units are wrong or errors in documentation):
            </td>
 </tr>
 
-<tr><td colspan=\"2\"><b>Mechanics.MultiBody.Frames.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Mechanics.MultiBody.Frames.</strong></td></tr>
 <tr><td valign=\"top\"> axisRotation</td>
           <td valign=\"top\"> Corrected wrong unit: \"SIunits.Angle der_angle\" to
                         \"SIunits.AngularVelocity der_angle\".
            </td>
 </tr>
 
-<tr><td colspan=\"2\"><b>Mechanics.MultiBody.Joints.Assemblies.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Mechanics.MultiBody.Joints.Assemblies.</strong></td></tr>
 <tr><td valign=\"top\"> JointUSP<br>JointSSP</td>
           <td valign=\"top\"> Corrected wrong unit: \"SIunits.Position aux\"  to \"Real\"
            </td>
 </tr>
 
-<tr><td colspan=\"2\"><b>Mechanics.MultiBody.Sensors.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Mechanics.MultiBody.Sensors.</strong></td></tr>
 <tr><td valign=\"top\"> AbsoluteSensor</td>
           <td valign=\"top\"> Corrected wrong units: \"SIunits.Acceleration angles\" to
                    \"SIunits.Angle angles\" and
@@ -6466,7 +6466,7 @@ units are wrong or errors in documentation):
            </td>
 </tr>
 
-<tr><td colspan=\"2\"><b>Mechanics.MultiBody.Visualizers.Advanced.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Mechanics.MultiBody.Visualizers.Advanced.</strong></td></tr>
 <tr><td valign=\"top\"> Shape</td>
           <td valign=\"top\"> Changed \"MultiBody.Types.Color color\" to \"Real color[3]\", since
                    \"Types.Color\" is \"Integer color[3]\" and there have been backward
@@ -6475,7 +6475,7 @@ units are wrong or errors in documentation):
            </td>
 </tr>
 
-<tr><td colspan=\"2\"><b>Mechanics.Rotational.Interfaces.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Mechanics.Rotational.Interfaces.</strong></td></tr>
 <tr><td valign=\"top\"> FrictionBase</td>
           <td valign=\"top\"> Rewrote equations with new variables \"unitAngularAcceleration\" and
                    \"unitTorque\" in order that the equations are correct with respect
@@ -6484,7 +6484,7 @@ units are wrong or errors in documentation):
            </td>
 </tr>
 
-<tr><td colspan=\"2\"><b>Mechanics.Rotational.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Mechanics.Rotational.</strong></td></tr>
 <tr><td valign=\"top\"> OneWayClutch<br>LossyGear</td>
           <td valign=\"top\"> Rewrote equations with new variables \"unitAngularAcceleration\" and
                    \"unitTorque\" in order that the equations are correct with respect
@@ -6493,7 +6493,7 @@ units are wrong or errors in documentation):
            </td>
 </tr>
 
-<tr><td colspan=\"2\"><b>Mechanics.Translational.Interfaces.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Mechanics.Translational.Interfaces.</strong></td></tr>
 <tr><td valign=\"top\"> FrictionBase</td>
           <td valign=\"top\"> Rewrote equations with new variables \"unitAngularAcceleration\" and
                    \"unitTorque\" in order that the equations are correct with respect
@@ -6502,19 +6502,19 @@ units are wrong or errors in documentation):
            </td>
 </tr>
 
-<tr><td colspan=\"2\"><b>Mechanics.Translational.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Mechanics.Translational.</strong></td></tr>
 <tr><td valign=\"top\"> Speed</td>
           <td valign=\"top\"> Corrected unit of v_ref from SIunits.Position to SIunits.Velocity
            </td>
 </tr>
 
-<tr><td colspan=\"2\"><b>Media.Examples.Tests.Components.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Media.Examples.Tests.Components.</strong></td></tr>
 <tr><td valign=\"top\"> PartialTestModel<br>PartialTestModel2</td>
           <td valign=\"top\"> Corrected unit of h_start from \"SIunits.Density\" to \"SIunits.SpecificEnthalpy\"
            </td>
 </tr>
 
-<tr><td colspan=\"2\"><b>Media.Examples.SolveOneNonlinearEquation.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Media.Examples.SolveOneNonlinearEquation.</strong></td></tr>
 <tr><td valign=\"top\"> Inverse_sh_T
                    InverseIncompressible_sh_T<br>
                    Inverse_sh_TX</td>
@@ -6522,20 +6522,20 @@ units are wrong or errors in documentation):
            </td>
 </tr>
 
-<tr><td colspan=\"2\"><b>Media.Incompressible.Examples.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Media.Incompressible.Examples.</strong></td></tr>
 <tr><td valign=\"top\"> TestGlycol</td>
           <td valign=\"top\"> Rewrote equations so that dimensional (unit) analysis is correct\"
            </td>
 </tr>
 
-<tr><td colspan=\"2\"><b>Media.Interfaces.PartialTwoPhaseMedium.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Media.Interfaces.PartialTwoPhaseMedium.</strong></td></tr>
 <tr><td valign=\"top\"> dBubbleDensity_dPressure<br>dDewDensity_dPressure</td>
           <td valign=\"top\"> Changed wrong type of ddldp from \"DerDensityByEnthalpy\"
                    to \"DerDensityByPressure\".
            </td>
 </tr>
 
-<tr><td colspan=\"2\"><b>Media.Common.ThermoFluidSpecial.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Media.Common.ThermoFluidSpecial.</strong></td></tr>
 <tr><td valign=\"top\"> ThermoProperties</td>
           <td valign=\"top\"> Changed wrong units:
                    \"SIunits.DerEnergyByPressure dupT\" to \"Real dupT\" and
@@ -6555,13 +6555,13 @@ units are wrong or errors in documentation):
            </td>
 </tr>
 
-<tr><td colspan=\"2\"><b>Media.IdealGases.Common.SingleGasNasa.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Media.IdealGases.Common.SingleGasNasa.</strong></td></tr>
 <tr><td valign=\"top\"> cp_Tlow_der</td>
           <td valign=\"top\"> Changed wrong unit from \"SIunits.Temperature dT\" to \"Real dT\".
            </td>
 </tr>
 
-<tr><td colspan=\"2\"><b>Media.Water.IF97_Utilities.BaseIF97.Basic.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Media.Water.IF97_Utilities.BaseIF97.Basic.</strong></td></tr>
 <tr><td valign=\"top\"> p1_hs<br>
                    h2ab_s<br>
                    p2a_hs<br>
@@ -6582,7 +6582,7 @@ units are wrong or errors in documentation):
            </td>
 </tr>
 
-<tr><td colspan=\"2\"><b>Media.Water.IF97_Utilities.BaseIF97.Transport.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Media.Water.IF97_Utilities.BaseIF97.Transport.</strong></td></tr>
 <tr><td valign=\"top\"> cond_dTp</td>
           <td valign=\"top\"> Changed wrong unit of TREL, rhoREL, lambdaREL from
                    \"SIunits.Temperature\", \"SIunit.Density\", \"SIunits.ThermalConductivity\"
@@ -6590,20 +6590,20 @@ units are wrong or errors in documentation):
            </td>
 </tr>
 
-<tr><td colspan=\"2\"><b>Media.Water.IF97_Utilities.BaseIF97.Inverses.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Media.Water.IF97_Utilities.BaseIF97.Inverses.</strong></td></tr>
 <tr><td valign=\"top\"> tofps5<br>tofpst5</td>
           <td valign=\"top\"> Changed wrong unit of pros from \"SIunits.SpecificEnthalpy\" to
                    \"SIunits.SpecificEntropy\".
            </td>
 </tr>
 
-<tr><td colspan=\"2\"><b>Media.Water.IF97_Utilities.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Media.Water.IF97_Utilities.</strong></td></tr>
 <tr><td valign=\"top\"> waterBaseProp_ph</td>
           <td valign=\"top\"> Improved calculation at the limits of the validity.
            </td>
 </tr>
 
-        <tr><td colspan=\"2\"><b>Thermal.</b></td></tr>
+        <tr><td colspan=\"2\"><strong>Thermal.</strong></td></tr>
 <tr><td valign=\"top\"> FluidHeatFlow<br>HeatTransfer</td>
           <td valign=\"top\"> Corrected wrong unit \"SIunits.Temperature\" of difference temperature
                         variables with \"SIunits.TemperatureDifference\".
@@ -6625,12 +6625,12 @@ Version 2.2.1 is backward compatible to version 2.2.
 </p>
 
 <p>
-In this version, <b>no</b> new libraries have been added.
+In this version, <strong>no</strong> new libraries have been added.
 The following major improvements have been made:
 </p>
 
 <ul>
-<li> The <b>Documentation</b> of the Modelica standard library was
+<li> The <strong>Documentation</strong> of the Modelica standard library was
          considerably improved:<br>
          In Dymola 6, the new feature was introduced to automatically add tables
          for class content and component interface definitions (parameters and
@@ -6645,14 +6645,14 @@ The following major improvements have been made:
          Rotational and SIunits have been added and the User's Guide on top
          level (Modelica.UsersGuide) has been improved.<br>&nbsp;</li>
 
-<li> Initialization options have been added to the Modelica.Blocks.<b>Continuous</b>
+<li> Initialization options have been added to the Modelica.Blocks.<strong>Continuous</strong>
          blocks (NoInit, SteadyState, InitialState, InitialOutput). If InitialOutput
          is selected, the block output is provided as initial condition. The states
          of the block are then initialized as close as possible to steady state.
          Furthermore, the Continuous.LimPID block has been significantly
          improved and much better documented.<br>&nbsp;</li>
 
-<li> The Modelica.<b>Media</b> library has been significantly improved:<br>
+<li> The Modelica.<strong>Media</strong> library has been significantly improved:<br>
          New functions setState_pTX, setState_phX, setState_psX, setState_dTX
          have been added to PartialMedium to compute the independent medium variables
          (= state of medium) from p,T,X, or from p,h,X or from p,s,X or from
@@ -6663,23 +6663,23 @@ The following major improvements have been made:
 </ul>
 
 <p>
-The following <b>new components</b> have been added to <b>existing</b> libraries:
+The following <strong>new components</strong> have been added to <strong>existing</strong> libraries:
 </p>
 
 <table border=\"1\" cellspacing=0 cellpadding=2>
-<tr><td colspan=\"2\"><b>Modelica.Blocks.Examples.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Blocks.Examples.</strong></td></tr>
 <tr><td valign=\"top\"> PID_Controller</td>
           <td valign=\"top\"> Example to demonstrate the usage of the
                    Blocks.Continuous.LimPID block.</td></tr>
-<tr><td colspan=\"2\"><b>Modelica.Blocks.Math.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Blocks.Math.</strong></td></tr>
 <tr><td valign=\"top\"> UnitConversions.*</td>
           <td valign=\"top\"> New package that provides blocks for unit conversions.
                    UnitConversions.ConvertAllBlocks allows to select all
                    available conversions from a menu.</td></tr>
-<tr><td colspan=\"2\"><b>Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.</strong></td></tr>
 <tr><td valign=\"top\"> SM_ElectricalExcitedDamperCage</td>
           <td valign=\"top\"> Electrical excited synchronous induction machine with damper cage</td></tr>
-<tr><td colspan=\"2\"><b>Modelica.Electrical.Machines.BasicMachines.Components.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Machines.BasicMachines.Components.</strong></td></tr>
 <tr><td valign=\"top\"> ElectricalExcitation </td>
           <td valign=\"top\"> Electrical excitation for electrical excited synchronous
                    induction machines</td></tr>
@@ -6689,7 +6689,7 @@ The following <b>new components</b> have been added to <b>existing</b> libraries
                    resistance and stray inductance in d-axis; if he omits the
                    parameters of the q-axis, the same values as for the d.axis
                    are used, assuming a symmetrical damper.</td></tr>
-<tr><td colspan=\"2\"><b>Modelica.Electrical.Machines.Examples.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Machines.Examples.</strong></td></tr>
 <tr><td valign=\"top\"> SMEE_Gen </td>
           <td valign=\"top\"> Test example 7: ElectricalExcitedSynchronousInductionMachine
                    as Generator</td></tr>
@@ -6697,12 +6697,12 @@ The following <b>new components</b> have been added to <b>existing</b> libraries
           <td valign=\"top\"> Terminal box for three-phase induction machines to choose
                    either star (wye) ? or delta ? connection</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Math.Matrices.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Math.Matrices.</strong></td></tr>
 <tr><td valign=\"top\"> equalityLeastSquares</td>
           <td valign=\"top\"> Solve a linear equality constrained least squares problem:<br>
                   min|A*x-a|^2 subject to B*x=b</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Mechanics.MultiBody.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Mechanics.MultiBody.</strong></td></tr>
 <tr><td valign=\"top\"> Parts.PointMass</td>
           <td valign=\"top\"> Point mass, i.e., body where inertia tensor is neglected.</td></tr>
 <tr><td valign=\"top\"> Interfaces.FlangeWithBearing</td>
@@ -6717,11 +6717,11 @@ The following <b>new components</b> have been added to <b>existing</b> libraries
           <td valign=\"top\"> New type to define the extra data for visual shape objects and to
                    have a central place for the documentation of this data.</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Mechanics.MultiBody.Examples.Elementary</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Mechanics.MultiBody.Examples.Elementary</strong></td></tr>
 <tr><td valign=\"top\"> PointGravityWithPointMasses</td>
           <td valign=\"top\"> Example of two point masses in a central gravity field.</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Mechanics.Rotational.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Mechanics.Rotational.</strong></td></tr>
 <tr><td valign=\"top\">UsersGuide</td>
           <td valign=\"top\"> A User's Guide has been added by using the documentation previously
                    present in the package documentation of Rotational.</td></tr>
@@ -6729,12 +6729,12 @@ The following <b>new components</b> have been added to <b>existing</b> libraries
           <td valign=\"top\"> New component to measure the energy flow between two connectors
                    of the Rotational library.</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Mechanics.Translational.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Mechanics.Translational.</strong></td></tr>
 <tr><td valign=\"top\">Speed</td>
           <td valign=\"top\"> New component to move a translational flange
                    according to a reference speed</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Media.Interfaces.PartialMedium.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Media.Interfaces.PartialMedium.</strong></td></tr>
 <tr><td valign=\"top\">specificEnthalpy_pTX</td>
           <td valign=\"top\"> New function to compute specific enthalpy from pressure, temperature
                    and mass fractions.</td></tr>
@@ -6742,20 +6742,20 @@ The following <b>new components</b> have been added to <b>existing</b> libraries
           <td valign=\"top\"> New function to compute temperature from pressure, specific enthalpy,
                    and mass fractions.</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Icons.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Icons.</strong></td></tr>
 <tr><td valign=\"top\"> SignalBus</td>
           <td valign=\"top\"> Icon for signal bus</td></tr>
 <tr><td valign=\"top\"> SignalSubBus</td>
           <td valign=\"top\"> Icon for signal sub-bus</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.SIunits.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.SIunits.</strong></td></tr>
 <tr><td valign=\"top\">UsersGuide</td>
           <td valign=\"top\"> A User's Guide has been added that describes unit handling.</td></tr>
 <tr><td valign=\"top\"> Resistance<br>
                    Conductance</td>
           <td valign=\"top\"> Attribute 'min=0' removed from these types.</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Thermal.FluidHeatFlow.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Thermal.FluidHeatFlow.</strong></td></tr>
 <tr><td valign=\"top\"> Components.Valve</td>
           <td valign=\"top\"> Simple controlled valve with either linear or
                    exponential characteristic.</td></tr>
@@ -6777,14 +6777,14 @@ The following <b>new components</b> have been added to <b>existing</b> libraries
 </table>
 
 <p>
-The following <b>components</b> have been improved:
+The following <strong>components</strong> have been improved:
 </p>
 
 <table border=\"1\" cellspacing=0 cellpadding=2>
-<tr><td colspan=\"2\"><b>Modelica.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.</strong></td></tr>
 <tr><td valign=\"top\"> UsersGuide</td>
           <td valign=\"top\"> User's Guide and package description of Modelica Standard Library improved.</td></tr>
-<tr><td colspan=\"2\"><b>Modelica.Blocks.Interfaces.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Blocks.Interfaces.</strong></td></tr>
 <tr><td valign=\"top\"> RealInput<br>
                    BooleanInput<br>
                    IntegerInput</td>
@@ -6793,7 +6793,7 @@ The following <b>components</b> have been improved:
                    these connectors have been dragged and then manually enlarged
                    by a factor of 2 in the Modelica standard library.</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Blocks.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Blocks.</strong></td></tr>
 <tr><td valign=\"top\"> Continuous.*</td>
           <td valign=\"top\"> Initialization options added to all blocks
                    (NoInit, SteadyState, InitialState, InitialOutput).
@@ -6808,38 +6808,38 @@ The following <b>components</b> have been improved:
           <td valign=\"top\"> New parameter limitsAtInit/deadZoneAtInit to switch off the limits
                    or the dead zone during initialization</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Electrical.Analog. </b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Analog. </strong></td></tr>
 <tr><td valign=\"top\"> Sources</td>
           <td valign=\"top\"> Icon improved (+/- added to voltage sources, arrow added to
                    current sources).</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Electrical.Analog.Semiconductors. </b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Analog.Semiconductors. </strong></td></tr>
 <tr><td valign=\"top\"> Diode</td>
           <td valign=\"top\"> smooth() operator included to improve numerics.</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines. </b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines. </strong></td></tr>
 <tr><td valign=\"top\"> SM_PermanentMagnetDamperCage<br>
                    SM_ElectricalExcitedDamperCage<br>
                    SM_ReluctanceRotorDamperCage</td>
           <td valign=\"top\"> The user can choose \"DamperCage = false\" (default: true)
                    to remove all equations for the damper cage from the model.</td></tr>
-<tr><td colspan=\"2\"><b>Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines. </b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines. </strong></td></tr>
 <tr><td valign=\"top\"> AIM_SlipRing</td>
           <td valign=\"top\"> Easier parameterization: if the user selects \"useTurnsRatio = false\"
                    (default: true, this is the same behavior as before),
                         parameter TurnsRatio is calculated internally from
                         Nominal stator voltage and Locked-rotor voltage.</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Math.Matrices.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Math.Matrices.</strong></td></tr>
 <tr><td valign=\"top\">leastSquares</td>
           <td valign=\"top\">The A matrix in the least squares problem might be rank deficient.
                   Previously, it was required that A has full rank.</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Mechanics.MultiBody.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Mechanics.MultiBody.</strong></td></tr>
 <tr><td valign=\"top\">all models</td>
           <td valign=\"top\"> <ul>
                    <li> All components with animation information have a new variable
-                                <b>specularCoefficient</b> to define the reflection of ambient light.
+                                <strong>specularCoefficient</strong> to define the reflection of ambient light.
                                 The default value is world.defaultSpecularCoefficient which has
                                 a default of 0.7. By changing world.defaultSpecularCoefficient, the
                                 specularCoefficient of all components is changed that are not
@@ -6849,9 +6849,9 @@ The following <b>components</b> have been improved:
                                 parameter menus.<br>
                                 Previously, a constant specularCoefficient of 0.7 was used
                                 for all components.</li>
-                   <li> Variable <b>color</b> of all components is no longer a parameter
-                                but an input variable. Also all parameters in package <b>Visualizers</b>,
-                                with the exception of <b>shapeType</b> are no longer parameters but
+                   <li> Variable <strong>color</strong> of all components is no longer a parameter
+                                but an input variable. Also all parameters in package <strong>Visualizers</strong>,
+                                with the exception of <strong>shapeType</strong> are no longer parameters but
                                 defined as input variables with annotation(Dialog). As a result,
                                 all these variables appear still in parameter menus, but they can
                                 be changed during simulation (e.g., color might be used to
@@ -6899,7 +6899,7 @@ The following <b>components</b> have been improved:
           <td valign=\"top\"> All types have a corresponding icon now to visualize the content
                    in the package browser (previously, the types did not have an icon).</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Mechanics.Rotational.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Mechanics.Rotational.</strong></td></tr>
 <tr><td valign=\"top\"> Inertia</td>
           <td valign=\"top\"> Initialization and state selection added.</td></tr>
 <tr><td valign=\"top\"> SpringDamper</td>
@@ -6908,21 +6908,21 @@ The following <b>components</b> have been improved:
           <td valign=\"top\"> New implementation based solely on Modelica 2.2 language
                    (previously, the Dymola specific constrain(..) function was used).</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Mechanics.Translational.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Mechanics.Translational.</strong></td></tr>
 <tr><td valign=\"top\"> Move</td>
           <td valign=\"top\"> New implementation based solely on Modelica 2.2 language
                    (previously, the Dymola specific constrain(..) function was used).</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.</strong></td></tr>
 <tr><td valign=\"top\"> SimpleFriction</td>
           <td valign=\"top\"> Calculates friction losses from pressure drop and volume flow.</td></tr>
-<tr><td colspan=\"2\"><b>Modelica.Thermal.FluidHeatFlow.Components.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Thermal.FluidHeatFlow.Components.</strong></td></tr>
 <tr><td valign=\"top\"> IsolatedPipe <br>
                    HeatedPipe</td>
           <td valign=\"top\"> Added geodetic height as a source of pressure change;
                    feeds friction losses as calculated by simple friction to
                    the energy balance of the medium.</td></tr>
-<tr><td colspan=\"2\"><b>Modelica.Media.Interfaces.PartialMedium.FluidConstants.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Media.Interfaces.PartialMedium.FluidConstants.</strong></td></tr>
 <tr><td valign=\"top\">HCRIT0</td><td valign=\"top\">Critical specific enthalpy of the fundamental
                   equation (base formulation of the fluid medium model).</td></tr>
 <tr><td valign=\"top\">SCRIT0</td><td valign=\"top\">Critical specific entropy of the fundamental
@@ -6940,11 +6940,11 @@ The following <b>components</b> have been improved:
 <tr><td valign=\"top\">X_default</td><td valign=\"top\">Default value for mass fractions of medium (for initialization)</td></tr>
 </table>
 <p>
-The following <b>errors</b> have been fixed:
+The following <strong>errors</strong> have been fixed:
 </p>
 
 <table border=\"1\" cellspacing=0 cellpadding=2>
-<tr><td colspan=\"2\"><b>Modelica.Blocks.Tables.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Blocks.Tables.</strong></td></tr>
 <tr><td valign=\"top\">CombiTable1D<br>
                   CombiTable1Ds<br>
                   CombiTable2D</td>
@@ -6958,12 +6958,12 @@ The following <b>errors</b> have been fixed:
                    once and then the table is unnecessarily read several times
                    (and occupies also more memory).</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Blocks.Sources.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Blocks.Sources.</strong></td></tr>
 <tr><td valign=\"top\">CombiTimeTable</td>
           <td valign=\"top\"> Same bug fix/improvement as for the tables from Modelica.Blocks.Tables
                    as outlined above.</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Electrical.Analog.Semiconductors. </b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Analog.Semiconductors. </strong></td></tr>
 <tr><td valign=\"top\"> PMOS<br>
                    NMOS<br>
                    HeatingPMOS<br>
@@ -6977,12 +6977,12 @@ The following <b>errors</b> have been fixed:
                    wrong value 1e12, although it should have the value 1e7. The effect
                    was that this resistance had practically no effect.</td></tr>
 
-<tr><td colspan=\"2\"> <b>Modelica.Media.IdealGases.Common.SingleGasNasa.</b></td></tr>
+<tr><td colspan=\"2\"> <strong>Modelica.Media.IdealGases.Common.SingleGasNasa.</strong></td></tr>
 <tr><td valign=\"top\"> dynamicViscosityLowPressure</td>
           <td valign=\"top\"> Viscosity and thermal conductivity (which needs viscosity as input)
                    were computed wrong for polar gases and gas mixtures
                    (i.e., if dipole moment not 0.0). This has been fixed in version 2.2.1.</td></tr>
-<tr><td colspan=\"2\"><b>Modelica.Utilities.Streams.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Utilities.Streams.</strong></td></tr>
 <tr><td valign=\"top\">readLine</td>
           <td valign=\"top\"> Depending on the C-implementation, the stream was not correctly closed.
                    This has been corrected by adding a \"Streams.close(..)\"
@@ -7002,7 +7002,7 @@ Version 2.2 is backward compatible to version 2.1.
 </p>
 
 <p>
-The following <b>new libraries</b> have been added:
+The following <strong>new libraries</strong> have been added:
 </p>
 
 <table border=\"1\" cellspacing=0 cellpadding=2>
@@ -7039,14 +7039,14 @@ The following <b>new libraries</b> have been added:
 </td></tr>
 </table>
 <p>
-The following <b>changes</b> have been performed in the
-<b>Modelica.Mechanics.MultiBody</b> library:
+The following <strong>changes</strong> have been performed in the
+<strong>Modelica.Mechanics.MultiBody</strong> library:
 </p>
 <ul>
 <li> Component MultiBody.World has a new parameter
-         <b>driveTrainMechanics3D</b>. If set to <b>true</b>, 3D mechanical effects
+         <strong>driveTrainMechanics3D</strong>. If set to <strong>true</strong>, 3D mechanical effects
          of MultiBody.Parts.Mounting1D/Rotor1D/BevelGear1D are taken into account. If set to
-         <b>false</b> (= default), 3D mechanical effects in these elements
+         <strong>false</strong> (= default), 3D mechanical effects in these elements
          are not taken into account and the
          frame connectors to connect to 3D parts are disabled (all
          connections to such a disabled connector are also disabled, due to the
@@ -7065,17 +7065,17 @@ class Version_2_1 "Version 2.1 (Nov. 11, 2004)"
    annotation (Documentation(info="<html>
 
 <p> This is a major change with respect to previous versions of the
-        Modelica Standard Library, because <b>many new libraries</b> and components
+        Modelica Standard Library, because <strong>many new libraries</strong> and components
         are included and because the input/output blocks (Modelica.Blocks)
         have been considerably simplified:
 </p>
 <ul>
-<li> An input/output connector is defined <b>without</b> a hierarchy (this is possible
+<li> An input/output connector is defined <strong>without</strong> a hierarchy (this is possible
          due to new features of the Modelica language). For example, the input
          signal of a block \"FirstOrder\" was previously accessed as \"FirstOrder.inPort.signal[1]\".
          Now it is accessed as \"FirstOrder.u\". This simplifies the understanding and usage
          especially for beginners.</li>
-<li> De-vectorized the <b>Modelica.Blocks</b> library. All blocks in the
+<li> De-vectorized the <strong>Modelica.Blocks</strong> library. All blocks in the
          Modelica.Blocks library are now scalar blocks. As a result,
          the parameters of the Blocks are scalars and no vectors any
          more. For example, a parameter \"amplitude\" that might had
@@ -7092,14 +7092,14 @@ class Version_2_1 "Version 2.1 (Nov. 11, 2004)"
 
 <p>
 The discussed changes of Modelica.Blocks are not backward compatible.
-A script to <b>automatically</b> convert models to this new version is
+A script to <strong>automatically</strong> convert models to this new version is
 provided. There might be rare cases, where this script does not convert.
 In this case models have to be manually converted.
 In any case you should make a back-up copy of your model
 before automatic conversion is performed.
 </p>
 <p>
-The following <b>new libraries</b> have been added:
+The following <strong>new libraries</strong> have been added:
 </p>
 <table border=\"1\" cellspacing=0 cellpadding=2>
 <tr><td valign=\"top\"><a href=\"modelica://Modelica.Electrical.Digital\">Modelica.Electrical.Digital</a></td>
@@ -7111,8 +7111,8 @@ The following <b>new libraries</b> have been added:
           <td valign=\"top\">Functions operating on matrices such as solve() (A*x=b), leastSquares(),<br>
                   norm(), LU(), QR(),  eigenValues(), singularValues(), exp(), ...</td></tr>
 <tr><td valign=\"top\"><a href=\"modelica://Modelica.StateGraph\">Modelica.StateGraph</a></td>
-          <td valign=\"top\"> Modeling of <b>discrete event</b> and <b>reactive</b> systems in a convenient way using<br>
-                   <b>hierarchical state machines</b> and <b>Modelica</b> as <b>action language</b>. <br>
+          <td valign=\"top\"> Modeling of <strong>discrete event</strong> and <strong>reactive</strong> systems in a convenient way using<br>
+                   <strong>hierarchical state machines</strong> and <strong>Modelica</strong> as <strong>action language</strong>. <br>
                    It is based on JGrafchart and Grafcet and  has a similar modeling power as <br>
                    StateCharts. It avoids deficiencies of usually used action languages. <br>
                    This library makes the ModelicaAdditions.PetriNets library obsolete.</td></tr>
@@ -7127,7 +7127,7 @@ The following <b>new libraries</b> have been added:
 </table>
 <p>
 The following existing libraries outside of the Modelica standard library
-have been improved and added as <b>new libraries</b>
+have been improved and added as <strong>new libraries</strong>
 (models using the previous libraries are automatically converted
 to the new sublibraries inside package Modelica):
 </p>
@@ -7160,10 +7160,10 @@ are either included in the Modelica library or are replaced by much more
 powerful libraries (MultiBody, StateGraph).
 </p>
 <p>
-The following <b>new components</b> have been added to <b>existing</b> libraries.
+The following <strong>new components</strong> have been added to <strong>existing</strong> libraries.
 </p>
 <table border=\"1\" cellspacing=0 cellpadding=2>
-<tr><td colspan=\"2\"><b>Modelica.Blocks.Logical.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Blocks.Logical.</strong></td></tr>
 <tr><td valign=\"top\">Pre</td>
           <td valign=\"top\">y = pre(u): Breaks algebraic loops by an infinitesimal small <br>
                   time delay (event iteration continues until u = pre(u))</td></tr>
@@ -7182,7 +7182,7 @@ The following <b>new components</b> have been added to <b>existing</b> libraries
 <tr><td valign=\"top\">Timer</td>
           <td valign=\"top\">Timer measuring the time from the time instant where the <br>
                   Boolean input became true </td></tr>
-<tr><td colspan=\"2\"><b>Modelica.Blocks.Math.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Blocks.Math.</strong></td></tr>
 <tr><td valign=\"top\">BooleanToReal</td>
           <td valign=\"top\">Convert Boolean to Real signal</td></tr>
 <tr><td valign=\"top\">BooleanToInteger</td>
@@ -7191,7 +7191,7 @@ The following <b>new components</b> have been added to <b>existing</b> libraries
           <td valign=\"top\">Convert Real to Boolean signal</td></tr>
 <tr><td valign=\"top\">IntegerToBoolean</td>
           <td valign=\"top\">Convert Integer to Boolean signal</td></tr>
-<tr><td colspan=\"2\"><b>Modelica.Blocks.Sources.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Blocks.Sources.</strong></td></tr>
 <tr><td valign=\"top\">RealExpression</td>
           <td valign=\"top\">Set output signal to a time varying Real expression</td></tr>
 <tr><td valign=\"top\">IntegerExpression</td>
@@ -7200,10 +7200,10 @@ The following <b>new components</b> have been added to <b>existing</b> libraries
           <td valign=\"top\">Set output signal to a time varying Boolean expression</td></tr>
 <tr><td valign=\"top\">BooleanTable</td>
           <td valign=\"top\">Generate a Boolean output signal based on a vector of time instants</td></tr>
-<tr><td colspan=\"2\"><b>Modelica.Mechanics.MultiBody.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Mechanics.MultiBody.</strong></td></tr>
 <tr><td valign=\"top\">Frames.from_T2</td>
           <td valign=\"top\">Return orientation object R from transformation matrix T and its derivative der(T)</td></tr>
-<tr><td colspan=\"2\"><b>Modelica.Mechanics.Rotational.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Mechanics.Rotational.</strong></td></tr>
 <tr><td valign=\"top\">LinearSpeedDependentTorque</td>
           <td valign=\"top\">Linear dependency of torque versus speed (acts as load torque)</td></tr>
 <tr><td valign=\"top\">QuadraticSpeedDependentTorque</td>
@@ -7216,17 +7216,17 @@ The following <b>new components</b> have been added to <b>existing</b> libraries
           <td valign=\"top\">Constant torque, not dependent on speed (acts as load torque)</td></tr>
 </table>
 <p>
-The following <b>bugs</b> have been <b>corrected</b>:
+The following <strong>bugs</strong> have been <strong>corrected</strong>:
 </p>
 <table border=\"1\" cellspacing=0 cellpadding=2>
-<tr><td colspan=\"2\"><b>Modelica.Mechanics.MultiBody.Forces.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Mechanics.MultiBody.Forces.</strong></td></tr>
 <tr><td valign=\"top\">LineForceWithMass<br>
                   Spring</td>
           <td valign=\"top\">If mass of the line force or spring component is not zero, the<br>
                   mass was (implicitly) treated as \"mass*mass\" instead of as \"mass\"</td></tr>
-<tr><td colspan=\"2\"><b>Modelica.Mechanics.Rotational.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Mechanics.Rotational.</strong></td></tr>
 <tr><td valign=\"top\">Speed</td>
-          <td valign=\"top\">If parameter exact=<b>false</b>, the filter was wrong<br>
+          <td valign=\"top\">If parameter exact=<strong>false</strong>, the filter was wrong<br>
                   (position was filtered and not the speed input signal)</td></tr>
 </table>
 <p>
@@ -7265,10 +7265,10 @@ class Version_1_6 "Version 1.6 (June 21, 2004)"
         in more detail:
 </p>
 <p>
-<b>New components</b>
+<strong>New components</strong>
 </p>
 <table border=\"1\" cellspacing=0 cellpadding=2>
-<tr><td colspan=\"2\"><b>Modelica.Electrical.Analog.Basic.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Analog.Basic.</strong></td></tr>
 <tr><td valign=\"top\">SaturatingInductor</td>
           <td valign=\"top\">Simple model of an inductor with saturation</td></tr>
 <tr><td valign=\"top\">VariableResistor</td>
@@ -7279,7 +7279,7 @@ class Version_1_6 "Version 1.6 (June 21, 2004)"
           <td valign=\"top\">Ideal linear electrical capacitor with variable capacitance</td></tr>
 <tr><td valign=\"top\">VariableInductor</td>
           <td valign=\"top\">Ideal linear electrical inductor with variable inductance</td></tr>
-<tr><td colspan=\"2\"><b>Modelica.Electrical.Analog.Semiconductors.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Analog.Semiconductors.</strong></td></tr>
 <tr><td valign=\"top\">HeatingDiode</td>
           <td valign=\"top\">Simple diode with heating port</td></tr>
 <tr><td valign=\"top\">HeatingNMOS</td>
@@ -7290,11 +7290,11 @@ class Version_1_6 "Version 1.6 (June 21, 2004)"
           <td valign=\"top\">Simple NPN BJT according to Ebers-Moll with heating port</td></tr>
 <tr><td valign=\"top\">HeatingPNP</td>
           <td valign=\"top\">Simple PNP BJT according to Ebers-Moll with heating port</td></tr>
-<tr><td colspan=\"2\"><b>Modelica.Electrical.MultiPhase</b><br>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.MultiPhase</strong><br>
           A new library for multi-phase electrical circuits</td></tr>
 </table>
 <p>
-<b>New examples</b>
+<strong>New examples</strong>
 </p>
 <p>
 The following new examples have been added to
@@ -7311,7 +7311,7 @@ ShowSaturatingInductor
 ShowVariableResistor
 </p>
 <p>
-<b>Improved existing components</b>
+<strong>Improved existing components</strong>
 </p>
 <p>In the library Modelica.Electrical.Analog.Ideal,
 a knee voltage has been introduced for the components
@@ -7337,21 +7337,21 @@ class Version_1_5 "Version 1.5 (Dec. 16, 2002)"
    annotation (Documentation(info="<html>
 
 <p> Added 55 new components. In particular, added new package
-        <b>Thermal.HeatTransfer</b> for modeling of lumped
-        heat transfer, added model <b>LossyGear</b> in Mechanics.Rotational
+        <strong>Thermal.HeatTransfer</strong> for modeling of lumped
+        heat transfer, added model <strong>LossyGear</strong> in Mechanics.Rotational
         to model gear efficiency and bearing friction according to a new
         theory in a robust way, added 10 new models in Electrical.Analog and
         added several other new models and improved existing models.
 </p>
 <p>
-<b>New components</b>
+<strong>New components</strong>
 </p>
 <table border=\"1\" cellspacing=0 cellpadding=2>
-<tr><td colspan=\"2\"><b>Modelica.Blocks.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Blocks.</strong></td></tr>
 <tr><td valign=\"top\">Continuous.Der</td><td valign=\"top\">Derivative of input (= analytic differentiations)</td></tr>
-<tr><td valign=\"top\"><b><i>Examples</i></b></td><td valign=\"top\">Demonstration examples of the components of this package</td></tr>
+<tr><td valign=\"top\"><strong><em>Examples</em></strong></td><td valign=\"top\">Demonstration examples of the components of this package</td></tr>
 <tr><td valign=\"top\">Nonlinear.VariableLimiter</td><td valign=\"top\">Limit the range of a signal with variable limits</td></tr>
-<tr><td colspan=\"2\"><b>Modelica.Blocks.Interfaces.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Blocks.Interfaces.</strong></td></tr>
 <tr><td valign=\"top\">RealPort</td><td valign=\"top\">Real port (both input/output possible)</td></tr>
 <tr><td valign=\"top\">IntegerPort</td><td valign=\"top\">Integer port (both input/output possible)</td></tr>
 <tr><td valign=\"top\">BooleanPort</td><td valign=\"top\">Boolean port (both input/output possible)</td></tr>
@@ -7361,8 +7361,8 @@ class Version_1_5 "Version 1.5 (Dec. 16, 2002)"
 <tr><td valign=\"top\">IntegerSignalSource</td><td valign=\"top\">Base class for continuous Integer signal source</td></tr>
 <tr><td valign=\"top\">IntegerMIBooleanMOs</td><td valign=\"top\">Multiple Integer Input Multiple Boolean Output continuous control block with same number of inputs and outputs</td></tr>
 <tr><td valign=\"top\">BooleanMIMOs</td><td valign=\"top\">Multiple Input Multiple Output continuous control block with same number of inputs and outputs of Boolean type</td></tr>
-<tr><td valign=\"top\"><b><i>BusAdaptors</i></b></td><td valign=\"top\">Components to send signals to the bus or receive signals from the bus</td></tr>
-<tr><td colspan=\"2\"><b>Modelica.Blocks.Math.</b></td></tr>
+<tr><td valign=\"top\"><strong><em>BusAdaptors</em></strong></td><td valign=\"top\">Components to send signals to the bus or receive signals from the bus</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Blocks.Math.</strong></td></tr>
 <tr><td valign=\"top\">RealToInteger</td><td valign=\"top\">Convert real to integer signals</td></tr>
 <tr><td valign=\"top\">IntegerToReal</td><td valign=\"top\">Convert integer to real signals</td></tr>
 <tr><td valign=\"top\">Max</td><td valign=\"top\">Pass through the largest signal</td></tr>
@@ -7370,13 +7370,13 @@ class Version_1_5 "Version 1.5 (Dec. 16, 2002)"
 <tr><td valign=\"top\">Edge</td><td valign=\"top\">Indicates rising edge of Boolean signal</td></tr>
 <tr><td valign=\"top\">BooleanChange</td><td valign=\"top\">Indicates Boolean signal changing</td></tr>
 <tr><td valign=\"top\">IntegerChange</td><td valign=\"top\">Indicates integer signal changing</td></tr>
-<tr><td colspan=\"2\"><b>Modelica.Blocks.Sources.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Blocks.Sources.</strong></td></tr>
 <tr><td valign=\"top\">IntegerConstant</td><td valign=\"top\">Generate constant signals of type Integer</td></tr>
 <tr><td valign=\"top\">IntegerStep</td><td valign=\"top\">Generate step signals of type Integer</td></tr>
-<tr><td colspan=\"2\"><b>Modelica.Electrical.Analog.Basic.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Analog.Basic.</strong></td></tr>
 <tr><td valign=\"top\">HeatingResistor</td><td valign=\"top\">Temperature dependent electrical resistor</td></tr>
 <tr><td valign=\"top\">OpAmp</td><td valign=\"top\">Simple nonideal model of an OpAmp with limitation</td></tr>
-<tr><td colspan=\"2\"><b>Modelica.Electrical.Analog.Ideal.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Analog.Ideal.</strong></td></tr>
 <tr><td valign=\"top\">IdealCommutingSwitch</td><td valign=\"top\">Ideal commuting switch</td></tr>
 <tr><td valign=\"top\">IdealIntermediateSwitch</td><td valign=\"top\">Ideal intermediate switch</td></tr>
 <tr><td valign=\"top\">ControlledIdealCommutingSwitch</td><td valign=\"top\">Controlled ideal commuting switch</td></tr>
@@ -7387,48 +7387,48 @@ class Version_1_5 "Version 1.5 (Dec. 16, 2002)"
 <tr><td valign=\"top\">ControlledIdealOpeningSwitch</td><td valign=\"top\">Controlled ideal opener</td></tr>
 <tr><td valign=\"top\">ControlledIdealClosingSwitch</td><td valign=\"top\">Controlled ideal closer</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Electrical.Analog.Lines.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Analog.Lines.</strong></td></tr>
 <tr><td valign=\"top\">TLine1</td><td valign=\"top\">Lossless transmission line (Z0, TD)</td></tr>
 <tr><td valign=\"top\">TLine2</td><td valign=\"top\">Lossless transmission line (Z0, F, NL)</td></tr>
 <tr><td valign=\"top\">TLine2</td><td valign=\"top\">Lossless transmission line (Z0, F)</td></tr>
-<tr><td colspan=\"2\"><b>Modelica.Icons.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Icons.</strong></td></tr>
 <tr><td valign=\"top\">Function</td><td valign=\"top\">Icon for a function</td></tr>
 <tr><td valign=\"top\">Record</td><td valign=\"top\">Icon for a record</td></tr>
 <tr><td valign=\"top\">Enumeration</td><td valign=\"top\">Icon for an enumeration</td></tr>
-<tr><td colspan=\"2\"><b>Modelica.Math.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Math.</strong></td></tr>
 <tr><td valign=\"top\">tempInterpol2</td><td valign=\"top\">temporary routine for vectorized linear interpolation (will be removed)</td></tr>
-<tr><td colspan=\"2\"><b>Modelica.Mechanics.Rotational.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Mechanics.Rotational.</strong></td></tr>
 <tr><td valign=\"top\">Examples.LossyGearDemo1</td><td valign=\"top\">Example to show that gear efficiency may lead to stuck motion</td></tr>
 <tr><td valign=\"top\">Examples.LossyGearDemo2</td><td valign=\"top\">Example to show combination of LossyGear and BearingFriction</td></tr>
 <tr><td valign=\"top\">LossyGear</td><td valign=\"top\">Gear with mesh efficiency and bearing friction (stuck/rolling possible)</td></tr>
 <tr><td valign=\"top\">Gear2</td><td valign=\"top\">Realistic model of a gearbox (based on LossyGear)</td></tr>
-<tr><td colspan=\"2\"><b>Modelica.SIunits.</b></td></tr>
-<tr><td valign=\"top\"><b><i>Conversions</i></b></td><td valign=\"top\">Conversion functions to/from non SI units and type definitions of non SI units</td></tr>
-<tr><td valign=\"top\">EnergyFlowRate</td><td valign=\"top\">Same definition as <i>Power</i></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.SIunits.</strong></td></tr>
+<tr><td valign=\"top\"><strong><em>Conversions</em></strong></td><td valign=\"top\">Conversion functions to/from non SI units and type definitions of non SI units</td></tr>
+<tr><td valign=\"top\">EnergyFlowRate</td><td valign=\"top\">Same definition as <em>Power</em></td></tr>
 <tr><td valign=\"top\">EnthalpyFlowRate</td><td valign=\"top\"><code>Real (final quantity=\"EnthalpyFlowRate\", final unit=\"W\")</code></td></tr>
-<tr><td colspan=\"2\"><b>Modelica.</b></td></tr>
-<tr><td valign=\"top\"><b><i>Thermal.HeatTransfer</i></b></td><td valign=\"top\">1-dimensional heat transfer with lumped elements</td></tr>
-<tr><td colspan=\"2\"><b>ModelicaAdditions.Blocks.Discrete.</b></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.</strong></td></tr>
+<tr><td valign=\"top\"><strong><em>Thermal.HeatTransfer</em></strong></td><td valign=\"top\">1-dimensional heat transfer with lumped elements</td></tr>
+<tr><td colspan=\"2\"><strong>ModelicaAdditions.Blocks.Discrete.</strong></td></tr>
 <tr><td valign=\"top\">TriggeredSampler</td><td valign=\"top\">Triggered sampling of continuous signals</td></tr>
 <tr><td valign=\"top\">TriggeredMax</td><td valign=\"top\">Compute maximum, absolute value of continuous signal at trigger instants</td></tr>
-<tr><td colspan=\"2\"><b>ModelicaAdditions.Blocks.Logical.Interfaces.</b></td></tr>
+<tr><td colspan=\"2\"><strong>ModelicaAdditions.Blocks.Logical.Interfaces.</strong></td></tr>
 <tr><td valign=\"top\">BooleanMIRealMOs</td><td valign=\"top\">Multiple Boolean Input Multiple Real Output continuous control block with same number of inputs and outputs</td></tr>
 <tr><td valign=\"top\">RealMIBooleanMOs</td><td valign=\"top\">Multiple Real Input Multiple Boolean Output continuous control block with same number of inputs and outputs</td></tr>
-<tr><td colspan=\"2\"><b>ModelicaAdditions.Blocks.Logical.</b></td></tr>
+<tr><td colspan=\"2\"><strong>ModelicaAdditions.Blocks.Logical.</strong></td></tr>
 <tr><td valign=\"top\">TriggeredTrapezoid</td><td valign=\"top\">Triggered trapezoid generator</td></tr>
 <tr><td valign=\"top\">Hysteresis</td><td valign=\"top\">Transform Real to Boolean with Hysteresis</td></tr>
 <tr><td valign=\"top\">OnOffController</td><td valign=\"top\">On-off controller</td></tr>
 <tr><td valign=\"top\">Compare</td><td valign=\"top\">True, if signal of inPort1 is larger than signal of inPort2</td></tr>
 <tr><td valign=\"top\">ZeroCrossing</td><td valign=\"top\">Trigger zero crossing of input signal</td></tr>
-<tr><td colspan=\"2\"><b>ModelicaAdditions.</b></td></tr>
+<tr><td colspan=\"2\"><strong>ModelicaAdditions.</strong></td></tr>
 <tr><td valign=\"top\">Blocks.Multiplexer.Extractor</td><td valign=\"top\">Extract scalar signal out of signal vector dependent on IntegerRealInput index</td></tr>
 <tr><td valign=\"top\">Tables.CombiTable1Ds</td><td valign=\"top\">Table look-up in one dimension (matrix/file) with only single input</td></tr>
 </table>
 <p>
-<b>Package-specific Changes</b>
+<strong>Package-specific Changes</strong>
 </p>
 <ul>
-<li>All example models made <b>encapsulated</b></li>
+<li>All example models made <strong>encapsulated</strong></li>
 <li>Upper case constants changed to lower case (cf. Modelica.Constants)</li>
 <li>Introduced Modelica.SIunits.Wavelength due to typo \"Wavelenght\"</li>
 <li>Introduced ModelicaAdditions.Blocks.Logical.Interfaces.Comparison due to typo \"Comparision\"</li>
@@ -7436,58 +7436,58 @@ class Version_1_5 "Version 1.5 (Dec. 16, 2002)"
 <li>Changed *.Interfaces.RelativeSensor to <code>partial</code> models</li>
 </ul>
 <p>
-<b>Class-specific Changes</b>
+<strong>Class-specific Changes</strong>
 </p>
 <p>
-<i>Modelica.SIunits</i>
+<em>Modelica.SIunits</em>
 </p>
-<p>Removed <code>final</code> from quantity attribute for <i>Mass</i> and <i>MassFlowRate</i>.</p>
+<p>Removed <code>final</code> from quantity attribute for <em>Mass</em> and <em>MassFlowRate</em>.</p>
 <p>
-<i>Modelica.Blocks.Math.Sum</i>
+<em>Modelica.Blocks.Math.Sum</em>
 </p>
 <p>Implemented avoiding algorithm section, which would lead to expensive function calls.</p>
-<p><i>Modelica.Blocks.Sources.Step</i></p>
+<p><em>Modelica.Blocks.Sources.Step</em></p>
 <pre>
 block Step \"Generate step signals of type Real\"
         parameter Real height[:]={1} \"Heights of steps\";
-<b> // parameter Real offset[:]={0} \"Offsets of output signals\";
+<strong> // parameter Real offset[:]={0} \"Offsets of output signals\";
 // parameter SIunits.Time startTime[:]={0} \"Output = offset for time < startTime\";
 // extends Interfaces.MO          (final nout=max([size(height, 1); size(offset, 1); size(startTime, 1)]));
-        extends Interfaces.SignalSource(final nout=max([size(height, 1); size(offset, 1); size(startTime, 1)]));</b>
+        extends Interfaces.SignalSource(final nout=max([size(height, 1); size(offset, 1); size(startTime, 1)]));</strong>
 </pre>
-<p><i>Modelica.Blocks.Sources.Exponentials</i></p>
+<p><em>Modelica.Blocks.Sources.Exponentials</em></p>
 <p>Replaced usage of built-in function <code>exp</code> by Modelica.Math.exp.</p>
-<p><i>Modelica.Blocks.Sources.TimeTable</i></p>
+<p><em>Modelica.Blocks.Sources.TimeTable</em></p>
 <p>Interface definition changed from</p>
 <pre>    parameter Real table[:, :]=[0, 0; 1, 1; 2, 4] \"Table matrix (time = first column)\";
 </pre>
 <p>to</p>
-<pre>    parameter Real table[:, <b>2</b>]=[0, 0; 1, 1; 2, 4] \"Table matrix (time = first column)\";
+<pre>    parameter Real table[:, <strong>2</strong>]=[0, 0; 1, 1; 2, 4] \"Table matrix (time = first column)\";
 </pre>
-<p>Did the same for subfunction <i>getInterpolationCoefficients</i>.</p>
-<p>Bug in <i>getInterpolationCoefficients</i> for startTime <> 0 fixed:</p>
+<p>Did the same for subfunction <em>getInterpolationCoefficients</em>.</p>
+<p>Bug in <em>getInterpolationCoefficients</em> for startTime <> 0 fixed:</p>
 <pre>        ...
                 end if;
           end if;
-          <b>// Take into account startTime \"a*(time - startTime) + b\"
-          b := b - a*startTime;</b>
+          <strong>// Take into account startTime \"a*(time - startTime) + b\"
+          b := b - a*startTime;</strong>
         end getInterpolationCoefficients;
 </pre>
-<p><i>Modelica.Blocks.Sources.BooleanStep</i></p>
+<p><em>Modelica.Blocks.Sources.BooleanStep</em></p>
 <pre>
 block BooleanStep \"Generate step signals of type Boolean\"
         parameter SIunits.Time startTime[:]={0} \"Time instants of steps\";
-        <b>parameter Boolean startValue[size(startTime, 1)]=fill(false, size(startTime, 1)) \"Output before startTime\";</b>
+        <strong>parameter Boolean startValue[size(startTime, 1)]=fill(false, size(startTime, 1)) \"Output before startTime\";</strong>
         extends Interfaces.BooleanSignalSource(final nout=size(startTime, 1));
 equation
         for i in 1:nout loop
-<b>//   outPort.signal[i] = time >= startTime[i];
-          outPort.signal[i] = if time >= startTime[i] then not startValue[i] else startValue[i];</b>
+<strong>//   outPort.signal[i] = time >= startTime[i];
+          outPort.signal[i] = if time >= startTime[i] then not startValue[i] else startValue[i];</strong>
         end for;
 end BooleanStep;
 </pre>
 <p>
-<i>Modelica.Electrical.Analog</i></p>
+<em>Modelica.Electrical.Analog</em></p>
 <p>Corrected table of values and default for Beta by dividing them by 1000
 (consistent with the values used in the NAND-example model):
 </p>
@@ -7508,30 +7508,30 @@ Models not specifying parameter values did not generate trapezoids previously.
 <li>Ideal.Short</li>
 </ul>
 <p>Basic.Transformer: Replaced invalid escape characters '\\ ' and '\\[newline]' in documentation by '|'.</p>
-<p><i>Modelica.Mechanics.Rotational</i></p>
+<p><em>Modelica.Mechanics.Rotational</em></p>
 <p>Removed arrows and names documentation from flanges in diagram layer</p>
-<p><i>Modelica.Mechanics.Rotational.Interfaces.FrictionBase</i></p>
-<p><i>Modelica.Mechanics.Rotational.Position</i></p>
+<p><em>Modelica.Mechanics.Rotational.Interfaces.FrictionBase</em></p>
+<p><em>Modelica.Mechanics.Rotational.Position</em></p>
 <p>Replaced <code>reinit</code> by <code>initial equation</code></p>
-<p><i>Modelica.Mechanics.Rotational.RelativeStates</i></p>
+<p><em>Modelica.Mechanics.Rotational.RelativeStates</em></p>
 <p>Bug corrected by using modifier <code>stateSelect = StateSelect.prefer</code> as implementation</p>
-<p><i>Modelica.Mechanics.Translational.Interfaces.flange_b</i></p>
-<p>Attribute <b>fillColor=7</b> added to Rectangle on Icon layer, i.e., it is now
+<p><em>Modelica.Mechanics.Translational.Interfaces.flange_b</em></p>
+<p>Attribute <strong>fillColor=7</strong> added to Rectangle on Icon layer, i.e., it is now
 filled with white and not transparent any more.</p>
-<p><i>Modelica.Mechanics.Translational.Position</i></p>
+<p><em>Modelica.Mechanics.Translational.Position</em></p>
 <p>Replaced <code>reinit</code> by <code>initial equation</code></p>
-<p><i>Modelica.Mechanics.Translational.RelativeStates</i></p>
+<p><em>Modelica.Mechanics.Translational.RelativeStates</em></p>
 <p>Bug corrected by using modifier <code>stateSelect = StateSelect.prefer</code> as implementation</p>
-<p><i>Modelica.Mechanics.Translational.Stop</i></p>
+<p><em>Modelica.Mechanics.Translational.Stop</em></p>
 <p>Use <code>stateSelect = StateSelect.prefer</code>.</p>
-<p><i>Modelica.Mechanics.Translational.Examples.PreLoad</i></p>
+<p><em>Modelica.Mechanics.Translational.Examples.PreLoad</em></p>
 <p>Improved documentation and coordinate system used for example.</p>
-<p><i>ModelicaAdditions.Blocks.Nonlinear.PadeDelay</i></p>
+<p><em>ModelicaAdditions.Blocks.Nonlinear.PadeDelay</em></p>
 <p>Replaced <code>reinit</code> by <code>initial equation</code></p>
-<p><i>ModelicaAdditions.HeatFlow1D.Interfaces</i></p>
-<p>Definition of connectors <i>Surface_a</i> and <i>Surface_b</i>:<br>
+<p><em>ModelicaAdditions.HeatFlow1D.Interfaces</em></p>
+<p>Definition of connectors <em>Surface_a</em> and <em>Surface_b</em>:<br>
 <code>flow SIunits.HeatFlux q;</code> changed to <code>flow SIunits.HeatFlowRate q;</code></p>
-<p><i>MultiBody.Parts.InertialSystem</i></p>
+<p><em>MultiBody.Parts.InertialSystem</em></p>
 <p>Icon corrected.</p>
 </html>"));
 end Version_1_5;
@@ -7557,8 +7557,8 @@ annotation (Documentation(info="<html>
 <hr>
 <h4>Version 1.3.2beta2 (June 20, 2000)</h4>
 <ul>
-        <li>New subpackage Modelica.Mechanics.<b>Translational</b></li>
-        <li>Changes to Modelica.Mechanics.<b>Rotational</b>:<br>
+        <li>New subpackage Modelica.Mechanics.<strong>Translational</strong></li>
+        <li>Changes to Modelica.Mechanics.<strong>Rotational</strong>:<br>
            New elements:
 <pre>
 IdealGearR2T    Ideal gear transforming rotational in translational motion.
@@ -7567,7 +7567,7 @@ Position        Forced movement of a flange with a reference angle
 RelativeStates  Definition of relative state variables
 </pre>
 </li>
-        <li>Changes to Modelica.<b>SIunits</b>:<br>
+        <li>Changes to Modelica.<strong>SIunits</strong>:<br>
           Introduced new types:<br>
           type Temperature = ThermodynamicTemperature;<br>
           types DerDensityByEnthalpy, DerDensityByPressure,
@@ -7578,9 +7578,9 @@ RelativeStates  Definition of relative state variables
           the allowed range of values.<br>
           Quantity=\"Stress\" removed from type \"Stress\", in order
           that a type \"Stress\" can be connected to a type \"Pressure\".</li>
-        <li>Changes to Modelica.<b>Icons</b>:<br>
+        <li>Changes to Modelica.<strong>Icons</strong>:<br>
            New icons for motors and gearboxes.</li>
-        <li>Changes to Modelica.<b>Blocks.Interfaces</b>:<br>
+        <li>Changes to Modelica.<strong>Blocks.Interfaces</strong>:<br>
            Introduced a replaceable signal type into
            Blocks.Interfaces.RealInput/RealOutput:
 <pre>
@@ -7647,12 +7647,12 @@ class Contact "Contact"
 <dd>Germany</dd>
 <dd>email: <a href=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</a></dd>
 </dl>
-<p>Since end of 2007, the development of the sublibraries of package Modelica is organized by personal and/or organizational <b>library officers</b> assigned by the Modelica Association. They are responsible for the maintenance and for the further organization of the development. Other persons may also contribute, but the final decision for library improvements and/or changes is performed by the responsible library officer(s). In order that a new sublibrary or a new version of a sublibrary is ready to be released, the responsible library officers report the changes to the members of the Modelica Association and the library is made available for beta testing to interested parties before a final decision. A new release of a sublibrary is formally decided by voting of the Modelica Association members.</p>
+<p>Since end of 2007, the development of the sublibraries of package Modelica is organized by personal and/or organizational <strong>library officers</strong> assigned by the Modelica Association. They are responsible for the maintenance and for the further organization of the development. Other persons may also contribute, but the final decision for library improvements and/or changes is performed by the responsible library officer(s). In order that a new sublibrary or a new version of a sublibrary is ready to be released, the responsible library officers report the changes to the members of the Modelica Association and the library is made available for beta testing to interested parties before a final decision. A new release of a sublibrary is formally decided by voting of the Modelica Association members.</p>
 <p>The following library officers are currently assigned:</p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-<tr><td valign=\"top\"><b>Sublibraries</b> </td>
-   <td valign=\"top\"><b>Library officers</b></td>
+<tr><td valign=\"top\"><strong>Sublibraries</strong> </td>
+   <td valign=\"top\"><strong>Library officers</strong></td>
 </tr>
 
 <tr><td valign=\"top\"> Complex </td>
@@ -7781,7 +7781,7 @@ of the Modelica package (many more people have contributed to the design):
 </p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-<tr><td valign=\"top\"><b>Marcus Baur</b> </td>
+<tr><td valign=\"top\"><strong>Marcus Baur</strong> </td>
    <td valign=\"top\"> Institute of System Dynamics and Control<br>
      DLR, German Aerospace Center, <br>
      Oberpfaffenhofen, Germany</td>
@@ -7790,48 +7790,48 @@ of the Modelica package (many more people have contributed to the design):
                      Modelica.Math.Matrices</td>
 </tr>
 
-<tr><td valign=\"top\"><b>Peter Beater</b> </td>
+<tr><td valign=\"top\"><strong>Peter Beater</strong> </td>
    <td valign=\"top\"> University of Paderborn, Germany</td>
    <td valign=\"top\"> Modelica.Mechanics.Translational </td>
 </tr>
 
 
 
-<tr><td valign=\"top\"><b>Thomas Beutlich</b> </td>
+<tr><td valign=\"top\"><strong>Thomas Beutlich</strong> </td>
    <td valign=\"top\"> ITI GmbH, Germany</td>
    <td valign=\"top\"> Modelica.Blocks.Sources.CombiTimeTable<br>
                        Modelica.Blocks.Tables </td>
 </tr>
 
-<tr><td valign=\"top\"><b>Thomas B&ouml;drich</b> </td>
+<tr><td valign=\"top\"><strong>Thomas B&ouml;drich</strong> </td>
    <td valign=\"top\"> Dresden University of Technology, Germany</td>
    <td valign=\"top\"> Modelica.Magnetic.FluxTubes </td>
 </tr>
 
-<tr><td valign=\"top\"><b>Dag Br&uuml;ck</b> </td>
+<tr><td valign=\"top\"><strong>Dag Br&uuml;ck</strong> </td>
    <td valign=\"top\"> Dassault Syst&egrave;mes AB, Lund, Sweden</td>
    <td valign=\"top\"> Modelica.Utilities</td>
 </tr>
 
-<tr><td valign=\"top\"><b>Francesco Casella</b> </td>
+<tr><td valign=\"top\"><strong>Francesco Casella</strong> </td>
    <td valign=\"top\"> Politecnico di Milano, Milano, Italy</td>
    <td valign=\"top\"> Modelica.Fluid<br>
                             Modelica.Media</td>
 </tr>
 
-<tr><td valign=\"top\"><b>Christoph Clauss</b> </td>
+<tr><td valign=\"top\"><strong>Christoph Clauss</strong> </td>
    <td valign=\"top\"> Fraunhofer Institute for Integrated Circuits,<br> Dresden, Germany</td>
    <td valign=\"top\"> Modelica.Electrical.Analog<br>
      Modelica.Electrical.Digital<br>
      Modelica.Electrical.Spice3</td>
 </tr>
 
-<tr><td valign=\"top\"><b>Jonas Eborn</b> </td>
+<tr><td valign=\"top\"><strong>Jonas Eborn</strong> </td>
    <td valign=\"top\"> Modelon AB, Lund, Sweden</td>
    <td valign=\"top\"> Modelica.Media</td>
 </tr>
 
-<tr><td valign=\"top\"><b>Hilding Elmqvist</b> </td>
+<tr><td valign=\"top\"><strong>Hilding Elmqvist</strong> </td>
    <td valign=\"top\"> Dassault Syst&egrave;mes AB, Lund, Sweden</td>
    <td valign=\"top\"> Modelica.Mechanics.MultiBody<br>
                    Modelica.Fluid<br>
@@ -7841,20 +7841,20 @@ of the Modelica package (many more people have contributed to the design):
      Conversion from 1.6 to 2.0</td>
 </tr>
 
-<tr><td valign=\"top\"><b>R&uuml;diger Franke</b> </td>
+<tr><td valign=\"top\"><strong>R&uuml;diger Franke</strong> </td>
    <td valign=\"top\"> ABB Corporate Research,<br>Ladenburg, German</td>
    <td valign=\"top\"> Modelica.Fluid<br>
                             Modelica.Media</td>
 </tr>
 
-<tr><td valign=\"top\"><b>Manuel Gr&auml;ber</b> </td>
+<tr><td valign=\"top\"><strong>Manuel Gr&auml;ber</strong> </td>
    <td valign=\"top\"> Institut f&uuml;r Thermodynamik, <br>
      Technische Universit&auml;t Braunschweig, <br>
      Germany</td>
    <td valign=\"top\"> Modelica.Fluid</td>
 </tr>
 
-<tr><td valign=\"top\"><b>Anton Haumer</b> </td>
+<tr><td valign=\"top\"><strong>Anton Haumer</strong> </td>
    <td valign=\"top\"> Consultant, St.Andrae-Woerdern,<br>Austria</td>
    <td valign=\"top\"> Modelica.ComplexBlocks<br>
      Modelica.Electrical.Machines<br>
@@ -7870,14 +7870,14 @@ of the Modelica package (many more people have contributed to the design):
      Conversion from 2.2 to 3.0</td>
 </tr>
 
-<tr><td valign=\"top\"><b>Hans-Dieter Joos</b> </td>
+<tr><td valign=\"top\"><strong>Hans-Dieter Joos</strong> </td>
    <td valign=\"top\"> Institute of System Dynamics and Control<br>
      DLR, German Aerospace Center, <br>
      Oberpfaffenhofen, Germany</td>
    <td valign=\"top\"> Modelica.Math.Matrices</td>
 </tr>
 
-<tr><td valign=\"top\"><b>Christian Kral</b> </td>
+<tr><td valign=\"top\"><strong>Christian Kral</strong> </td>
    <td valign=\"top\"> Modeling and Simulation of Electric Machines, Drives and Mechatronic Systems, Vienna, Austria</td>
    <td valign=\"top\"> Modelica.ComplexBlocks<br>
      Modelica.Electrical.Machines<br>
@@ -7892,11 +7892,11 @@ of the Modelica package (many more people have contributed to the design):
      </td>
 </tr>
 
-<tr><td valign=\"top\"><b>Sven Erik Mattsson</b> </td>
+<tr><td valign=\"top\"><strong>Sven Erik Mattsson</strong> </td>
    <td valign=\"top\"> Dassault Syst&egrave;mes AB, Lund, Sweden</td>
    <td valign=\"top\"> Modelica.Mechanics.MultiBody</td>
 </tr>
-<tr><td valign=\"top\"><b>Hans Olsson</b> </td>
+<tr><td valign=\"top\"><strong>Hans Olsson</strong> </td>
    <td valign=\"top\"> Dassault Syst&egrave;mes AB, Lund, Sweden</td>
    <td valign=\"top\"> Modelica.Blocks<br>
      Modelica.Math.Matrices<br>
@@ -7905,7 +7905,7 @@ of the Modelica package (many more people have contributed to the design):
      Conversion from 2.2 to 3.0</td>
 </tr>
 
-<tr><td valign=\"top\"><b>Martin Otter</b> </td>
+<tr><td valign=\"top\"><strong>Martin Otter</strong> </td>
    <td valign=\"top\"> Institute of System Dynamics and Control<br>
      DLR, German Aerospace Center, <br>
      Oberpfaffenhofen, Germany</td>
@@ -7927,7 +7927,7 @@ of the Modelica package (many more people have contributed to the design):
      Conversion from 2.2 to 3.0</td>
 </tr>
 
-<tr><td valign=\"top\"><b>Katrin Pr&ouml;l&szlig;</b> </td>
+<tr><td valign=\"top\"><strong>Katrin Pr&ouml;l&szlig;</strong> </td>
    <td valign=\"top\"> Modelon AB, Lund, Sweden<br>
                             until 2008:<br>
                             Department of Technical Thermodynamics,<br>
@@ -7936,7 +7936,7 @@ of the Modelica package (many more people have contributed to the design):
                             Modelica.Media</td>
 </tr>
 
-<tr><td valign=\"top\"><b>Christoph C. Richter</b> </td>
+<tr><td valign=\"top\"><strong>Christoph C. Richter</strong> </td>
    <td valign=\"top\"> until 2009:<br>
      Institut f&uuml;r Thermodynamik, <br>
      Technische Universit&auml;t Braunschweig, <br>
@@ -7945,12 +7945,12 @@ of the Modelica package (many more people have contributed to the design):
                             Modelica.Media</td>
 </tr>
 
-<tr><td valign=\"top\"><b>Andr&eacute; Schneider</b> </td>
+<tr><td valign=\"top\"><strong>Andr&eacute; Schneider</strong> </td>
    <td valign=\"top\"> Fraunhofer Institute for Integrated Circuits,<br> Dresden, Germany</td>
    <td valign=\"top\"> Modelica.Electrical.Analog<br>
      Modelica.Electrical.Digital</td>
 </tr>
-<tr><td valign=\"top\"><b>Christian Schweiger</b> </td>
+<tr><td valign=\"top\"><strong>Christian Schweiger</strong> </td>
    <td valign=\"top\"> Until 2006:<br>
      Institute of System Dynamics and Control,<br>
      DLR, German Aerospace Center,<br>
@@ -7960,7 +7960,7 @@ of the Modelica package (many more people have contributed to the design):
      Conversion from 1.6 to 2.0</td>
 </tr>
 
-<tr><td valign=\"top\"><b>Michael Sielemann</b> </td>
+<tr><td valign=\"top\"><strong>Michael Sielemann</strong> </td>
    <td valign=\"top\"> Institute of System Dynamics and Control<br>
      DLR, German Aerospace Center, <br>
      Oberpfaffenhofen, Germany</td>
@@ -7968,42 +7968,42 @@ of the Modelica package (many more people have contributed to the design):
                        Modelica.Media</td>
 </tr>
 
-<tr><td valign=\"top\"><b>Michael Tiller</b> </td>
+<tr><td valign=\"top\"><strong>Michael Tiller</strong> </td>
    <td valign=\"top\"> Emmeskay, Inc., Dearborn, MI, U.S.A, <br>
      (previously Ford Motor Company, Dearborn) </td>
    <td valign=\"top\"> Modelica.Media<br>
      Modelica.Thermal.HeatTransfer</td>
 </tr>
-<tr><td valign=\"top\"><b>Hubertus Tummescheit</b> </td>
+<tr><td valign=\"top\"><strong>Hubertus Tummescheit</strong> </td>
    <td valign=\"top\"> Modelon AB, Lund, Sweden </td>
    <td valign=\"top\"> Modelica.Media<br>
      Modelica.Thermal.HeatTransfer</td>
 </tr>
 
-<tr><td valign=\"top\"><b>Thorsten Vahlenkamp</b> </td>
+<tr><td valign=\"top\"><strong>Thorsten Vahlenkamp</strong> </td>
    <td valign=\"top\"> until 2010:<br>
                      XRG Simulation GmbH, Hamburg, Germany</td>
    <td valign=\"top\"> Modelica.Fluid.Dissipation</td>
 </tr>
 
-<tr><td valign=\"top\"><b>Nico Walter</b> </td>
+<tr><td valign=\"top\"><strong>Nico Walter</strong> </td>
    <td valign=\"top\"> Master thesis at HTWK Leipzig<br>
      (Prof. R. M&uuml;ller) and<br>
      DLR Oberpfaffenhofen, Germany</td>
    <td valign=\"top\"> Modelica.Math.Matrices</td>
 </tr>
 
-<tr><td valign=\"top\"><b>Michael Wetter</b> </td>
+<tr><td valign=\"top\"><strong>Michael Wetter</strong> </td>
    <td valign=\"top\"> Lawrence Berkeley National Laboratory; U.S.A.</td>
    <td valign=\"top\"> Modelica.Fluid</td>
 </tr>
 
-<tr><td valign=\"top\"><b>Hans-J&uuml;rg Wiesmann</b> </td>
+<tr><td valign=\"top\"><strong>Hans-J&uuml;rg Wiesmann</strong> </td>
    <td valign=\"top\"> Switzerland</td>
    <td valign=\"top\"> Modelica.ComplexMath</td>
 </tr>
 
-<tr><td valign=\"top\"><b>Stefan Wischhusen</b> </td>
+<tr><td valign=\"top\"><strong>Stefan Wischhusen</strong> </td>
    <td valign=\"top\"> XRG Simulation GmbH, Hamburg, Germany</td>
    <td valign=\"top\"> Modelica.Fluid.Dissipation<br>
                        Modelica.Media</td>
@@ -8016,16 +8016,16 @@ end Contact;
 
 annotation (DocumentationClass=true, Documentation(info="<html>
 <p>
-Package <b>Modelica</b> is a <b>standardized</b> and <b>pre-defined</b> package
+Package <strong>Modelica</strong> is a <strong>standardized</strong> and <strong>pre-defined</strong> package
 that is developed together with the Modelica language from the
 Modelica Association, see
 <a href=\"https://www.Modelica.org\">https://www.Modelica.org</a>.
-It is also called <b>Modelica Standard Library</b>.
+It is also called <strong>Modelica Standard Library</strong>.
 It provides constants, types, connectors, partial models and model
 components in various disciplines.
 </p>
 <p>
-This is a short <b>User's Guide</b> for
+This is a short <strong>User's Guide</strong> for
 the overall library. Some of the main sublibraries have their own
 User's Guides that can be accessed by the following links:
 </p>
@@ -8116,11 +8116,11 @@ Icon(coordinateSystem(extent={{-100.0,-100.0},{100.0,100.0}}), graphics={
     extent={{-17.8562,-17.8563},{17.8563,17.8562}})}),
 Documentation(info="<html>
 <p>
-Package <b>Modelica&reg;</b> is a <b>standardized</b> and <b>free</b> package
+Package <strong>Modelica&reg;</strong> is a <strong>standardized</strong> and <strong>free</strong> package
 that is developed together with the Modelica&reg; language from the
 Modelica Association, see
 <a href=\"https://www.Modelica.org\">https://www.Modelica.org</a>.
-It is also called <b>Modelica Standard Library</b>.
+It is also called <strong>Modelica Standard Library</strong>.
 It provides model components in many domains that are based on
 standardized interface definitions. Some typical examples are shown
 in the next figure:
@@ -8141,7 +8141,7 @@ For an introduction, have especially a look at:
  summarizes the changes of new versions of this package.</li>
 <li> <a href=\"modelica://Modelica.UsersGuide.Contact\">Contact</a>
   lists the contributors of the Modelica Standard Library.</li>
-<li> The <b>Examples</b> packages in the various libraries, demonstrate
+<li> The <strong>Examples</strong> packages in the various libraries, demonstrate
   how to use the components of the corresponding sublibrary.</li>
 </ul>
 
@@ -8149,8 +8149,8 @@ For an introduction, have especially a look at:
 This version of the Modelica Standard Library consists of
 </p>
 <ul>
-<li><b>1600</b> models and blocks, and</li>
-<li><b>1350</b> functions</li>
+<li><strong>1600</strong> models and blocks, and</li>
+<li><strong>1350</strong> functions</li>
 </ul>
 <p>
 that are directly usable (= number of public, non-partial classes). It is fully compliant
@@ -8159,17 +8159,17 @@ and it has been tested with Modelica tools from different vendors.
 </p>
 
 <p>
-<b>Licensed by the Modelica Association under the Modelica License 2</b><br>
+<strong>Licensed by the Modelica Association under the Modelica License 2</strong><br>
 Copyright &copy; 1998-2016, ABB, AIT, T.&nbsp;B&ouml;drich, DLR, Dassault Syst&egrave;mes AB, ESI ITI, Fraunhofer,
 A.&nbsp;Haumer, C.&nbsp;Kral, Modelon, TU Hamburg-Harburg, Politecnico di Milano, XRG Simulation.
 </p>
 
 <p>
-<i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
+<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</em>
 </p>
 
 <p>
-<b>Modelica&reg;</b> is a registered trademark of the Modelica Association.
+<strong>Modelica&reg;</strong> is a registered trademark of the Modelica Association.
 </p>
 </html>"));
 end Modelica;

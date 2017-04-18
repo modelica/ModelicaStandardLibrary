@@ -316,7 +316,7 @@ This example demonstrates coupling a quasi stationary circuit with a DC circuit.
 The QS voltage is rectified (using an
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Utilities.IdealACDCConverter\">
 ideal AC DC converter</a>), loaded by a variable load conductor.
-The <i>conversionFactor = DC voltage / AC rms voltage</i> in this case is the root mean square of a rectified sine, i.e., 1.
+The <em>conversionFactor = DC voltage / AC rms voltage</em> in this case is the root mean square of a rectified sine, i.e., 1.
 You may compare the quasi stationary results with that of a fully transient model (using a
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Utilities.GraetzRectifier\">
 Graetz rectifier</a>), plotting:
@@ -1286,7 +1286,7 @@ Quasi stationary theory for single phase circuits can be found in the
               textString="%name",
               lineColor={0,0,255})}), Documentation(info="<html>
 <p>
-This model is a simple idle branch considering the complex current <i><u>i</u></i> = 0.
+This model is a simple idle branch considering the complex current <em><u>i</u></em> = 0.
 </p>
 
 <h4>See also</h4>
@@ -1312,7 +1312,7 @@ This model is a simple idle branch considering the complex current <i><u>i</u></
               textString="%name",
               lineColor={0,0,255})}), Documentation(info="<html>
 <p>
-This model is a simple short cut branch considering the complex voltage <i><u>v</u></i> = 0.
+This model is a simple short cut branch considering the complex voltage <em><u>v</u></em> = 0.
 </p>
 
 <h4>See also</h4>
@@ -1377,12 +1377,12 @@ closed switch could be exactly zero and the conductance Goff of the
 open switch could be also exactly zero. Note, there are circuits,
 where a description with zero Ron or zero Goff is not possible.
 <br> <br>
-<b>Please note:</b>
+<strong>Please note:</strong>
 In case of useHeatPort=true the temperature dependence of the electrical
-behavior is <b>not</b> modelled. The parameters are not temperature dependent.
+behavior is <strong>not</strong> modelled. The parameters are not temperature dependent.
 </P>
 <p>
-<b>Use with care:</b>
+<strong>Use with care:</strong>
 This switch is only intended to be used for structural changes, not for fast switching sequences, due to the quasistationary formulation.
 </p>
 </html>"),
@@ -1508,12 +1508,12 @@ closed switch could be exactly zero and the conductance Goff of the
 open switch could be also exactly zero. Note, there are circuits,
 where a description with zero Ron or zero Goff is not possible.
 <br> <br>
-<b>Please note:</b>
+<strong>Please note:</strong>
 In case of useHeatPort=true the temperature dependence of the electrical
-behavior is <b>not</b> modelled. The parameters are not temperature dependent.
+behavior is <strong>not</strong> modelled. The parameters are not temperature dependent.
 </P>
 <p>
-<b>Use with care:</b>
+<strong>Use with care:</strong>
 This switch is only intended to be used for structural changes, not for fast switching sequences, due to the quasistationary formulation.
 </p>
 </html>"),
@@ -1606,12 +1606,12 @@ closed switch could be exactly zero and the conductance Goff of the
 open switch could be also exactly zero. Note, there are circuits,
 where a description with zero Ron or zero Goff is not possible.
 <br> <br>
-<b>Please note:</b>
+<strong>Please note:</strong>
 In case of useHeatPort=true the temperature dependence of the electrical
-behavior is <b>not</b> modelled. The parameters are not temperature dependent.
+behavior is <strong>not</strong> modelled. The parameters are not temperature dependent.
 </P>
 <p>
-<b>Use with care:</b>
+<strong>Use with care:</strong>
 This switch is only intended to be used for structural changes, not for fast switching sequences, due to the quasistationary formulation.
 </p>
 </html>"),
@@ -1693,12 +1693,12 @@ closed switch could be exactly zero and the conductance Goff of the
 open switch could be also exactly zero. Note, there are circuits,
 where a description with zero Ron or zero Goff is not possible.
 <br> <br>
-<b>Please note:</b>
+<strong>Please note:</strong>
 In case of useHeatPort=true the temperature dependence of the electrical
-behavior is <b>not</b> modelled. The parameters are not temperature dependent.
+behavior is <strong>not</strong> modelled. The parameters are not temperature dependent.
 </P>
 <p>
-<b>Use with care:</b>
+<strong>Use with care:</strong>
 This switch is only intended to be used for structural changes, not for fast switching sequences, due to the quasistationary formulation.
 </p>
 </html>"),
@@ -2191,7 +2191,7 @@ The pins of the voltage path are pv and nv, the pins of the current path are pc 
 The internal resistance of the current path is zero, the internal resistance of the voltage path is infinite.</p>
 </html>",   revisions="<html>
 <ul>
-<li><i>20170306</i> first implementation by Anton Haumer</li>
+<li><em>20170306</em> first implementation by Anton Haumer</li>
 </ul>
 </html>"));
   end MultiSensor;
@@ -2707,7 +2707,7 @@ The source partial model relies on the
               textString="%conversionFactor")}), Documentation(info="<html>
 <p>
 This is an ideal AC DC converter, based on a power balance between QS circuit and DC side.
-The parameter <i>conversionFactor</i> defines the ratio between averaged DC voltage and QS rms voltage.
+The parameter <em>conversionFactor</em> defines the ratio between averaged DC voltage and QS rms voltage.
 Furthermore, reactive power at the QS side is set to 0.
 </p>
 <h4>Note:</h4>

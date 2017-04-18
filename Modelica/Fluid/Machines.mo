@@ -90,7 +90,7 @@ package Machines
 </html>",
         revisions="<html>
 <ul>
-<li><i>29 Oct 2007</i>
+<li><em>29 Oct 2007</em>
     by Carsten Heinrich:<br>
        Model added to the Fluid library</li>
 </ul>
@@ -120,7 +120,7 @@ package Machines
  </html>",
        revisions="<html>
 <ul>
-<li><i>31 Oct 2005</i>
+<li><em>31 Oct 2005</em>
     by <a href=\"mailto:francesco.casella@polimi.it\">Francesco Casella</a>:<br>
        Model added to the Fluid library</li>
 </ul>
@@ -225,7 +225,7 @@ Then the model can be replaced with a Pump with rotational shaft or with a Presc
 </html>",
         revisions="<html>
 <ul>
-<li><i>15 Dec 2008</i>
+<li><em>15 Dec 2008</em>
     by Ruediger Franke:<br />
        Model added to the Fluid library</li>
 </ul>
@@ -275,7 +275,7 @@ Then the model can be replaced with a Pump with rotational shaft or with a Presc
 </html>",
         revisions="<html>
 <ul>
-<li><i>31 Oct 2005</i>
+<li><em>31 Oct 2005</em>
     by <a href=\"mailto:francesco.casella@polimi.it\">Francesco Casella</a>:<br>
        Model added to the Fluid library</li>
 </ul>
@@ -503,7 +503,7 @@ Then the model can be replaced with a Pump with rotational shaft or with a Presc
 <p>This is the base model for pumps.
 <p>The model describes a centrifugal pump, or a group of <code>nParallel</code> identical pumps. The pump model is based on the theory of kinematic similarity: the pump characteristics are given for nominal operating conditions (rotational speed and fluid density), and then adapted to actual operating condition, according to the similarity equations.
 
-<p><b>Pump characteristics</b></p>
+<p><strong>Pump characteristics</strong></p>
 <p> The nominal hydraulic characteristic (head vs. volume flow rate) is given by the replaceable function <code>flowCharacteristic</code>.
 <p> The pump energy balance can be specified in two alternative ways:
 <ul>
@@ -521,20 +521,20 @@ this is recommended to avoid singularities in the computation of the outlet enth
 If zero flow rate conditions are always avoided, this dynamic effect can be neglected by leaving the default value <code>V = 0</code>, thus avoiding fast state variables in the model.
 </p>
 
-<p><b>Dynamics options</b></p>
+<p><strong>Dynamics options</strong></p>
 <p>
 Steady-state mass and energy balances are assumed per default, neglecting the holdup of fluid in the pump; this configuration works well if the flow rate is always positive.
 Dynamic mass and energy balance can be used by setting the corresponding dynamic parameters. This is recommended to avoid singularities at zero or reversing mass flow rate. If the initial conditions imply non-zero mass flow rate, it is possible to use the <code>SteadyStateInitial</code> condition, otherwise it is recommended to use <code>FixedInitial</code> in order to avoid undetermined initial conditions.
 </p>
 
-<p><b>Heat transfer</b></p>
+<p><strong>Heat transfer</strong></p>
 <p>
 The Boolean parameter <code>use_HeatTransfer</code> can be set to true if heat exchanged with the environment
 should be taken into account or to model a housing. This might be desirable if a pump with realistic
 <code>powerCharacteristic</code> for zero flow operates while a valve prevents fluid flow.
 </p>
 
-<p><b>Diagnostics of Cavitation</b></p>
+<p><strong>Diagnostics of Cavitation</strong></p>
 <p>The replaceable Monitoring submodel can be configured to PumpMonitoringNPSH,
 in order to compute the Net Positive Suction Head available and check for cavitation,
 provided a two-phase medium model is used (see Advanced tab).
@@ -542,17 +542,17 @@ provided a two-phase medium model is used (see Advanced tab).
 </html>",
         revisions="<html>
 <ul>
-<li><i>8 Jan 2013</i>
+<li><em>8 Jan 2013</em>
     by R&uuml;diger Franke:<br>
     moved NPSH diagnostics from PartialPump to replaceable sub-model PumpMonitoring.PumpMonitoringNPSH (see ticket #646)</li>
-<li><i>Dec 2008</i>
+<li><em>Dec 2008</em>
     by R&uuml;diger Franke:<br>
     <ul>
     <li>Replaced simplified mass and energy balances with rigorous formulation (base class PartialLumpedVolume)</li>
     <li>Introduced optional HeatTransfer model defining Qb_flow</li>
     <li>Enabled events when the checkValve is operating to support the opening of a discrete valve before port_a</li>
     </ul></li>
-<li><i>31 Oct 2005</i>
+<li><em>31 Oct 2005</em>
     by <a href=\"mailto:francesco.casella@polimi.it\">Francesco Casella</a>:<br>
        Model added to the Fluid library</li>
 </ul>
@@ -637,7 +637,7 @@ provided a two-phase medium model is used (see Advanced tab).
 
       annotation(Documentation(revisions="<html>
 <ul>
-<li><i>Jan 2013</i>
+<li><em>Jan 2013</em>
     by R&uuml;diger Franke:<br>
     Extended with linear extrapolation outside specified points</li>
 </ul>
@@ -697,7 +697,7 @@ provided a two-phase medium model is used (see Advanced tab).
 
       annotation(Documentation(revisions="<html>
 <ul>
-<li><i>Jan 2013</i>
+<li><em>Jan 2013</em>
     by R&uuml;diger Franke:<br>
     Extended with linear extrapolation outside specified points and reformulated polynomial evaluation</li>
 </ul>

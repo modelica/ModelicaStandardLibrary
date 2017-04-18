@@ -1110,8 +1110,8 @@ is given to compare the approximation.
                       extent={{-130,-108},{144,-150}},
                       textString="V=%V")}), Documentation(info="<html>
 <p>
-This component models the <b>volume</b> of <b>fixed size</b> that is
-associated with the <b>fluid port</b> to which it is connected.
+This component models the <strong>volume</strong> of <strong>fixed size</strong> that is
+associated with the <strong>fluid port</strong> to which it is connected.
 This means that all medium properties inside the volume, are identical
 to the port medium properties. In particular, the specific enthalpy
 inside the volume (= medium.h) is always identical to the specific enthalpy
@@ -1274,7 +1274,7 @@ transport.
                       textString="%name",
                       lineColor={0,0,255})}), Documentation(info="<html>
 <p>
-Model <b>FixedAmbient_pt</b> defines constant values for ambient conditions:
+Model <strong>FixedAmbient_pt</strong> defines constant values for ambient conditions:
 </p>
 <ul>
 <li> Ambient pressure.</li>
@@ -1348,7 +1348,7 @@ with exception of ambient pressure, do not have an effect.
                       textString="k=%m_flow_nominal/%dp_nominal")}),
             Documentation(info="<html>
 <p>
-Model <b>ShortPipe</b> defines a simple pipe model
+Model <strong>ShortPipe</strong> defines a simple pipe model
 with pressure loss due to friction. It is assumed that
 no mass or energy is stored in the pipe.
 </p>

@@ -114,8 +114,8 @@ in package ModelicaServices. The interface is documented at
 
 <p>
 This package contains interfaces of a set of functions and models used in the
-Modelica Standard Library that requires a <b>tool specific implementation</b>.
-There is an associated package called <b>ModelicaServices</b>. A tool vendor
+Modelica Standard Library that requires a <strong>tool specific implementation</strong>.
+There is an associated package called <strong>ModelicaServices</strong>. A tool vendor
 should provide a proper implementation of this library for the corresponding
 tool. The default implementation is \"do nothing\".
 In the Modelica Standard Library, the models and functions of ModelicaServices
@@ -200,7 +200,7 @@ end getNumberOfFiles;
   annotation (
 Documentation(info="<html>
 <p>
-Package <b>Internal.FileSystem</b> is an internal package that contains
+Package <strong>Internal.FileSystem</strong> is an internal package that contains
 low level functions as interface to the file system.
 These functions should not be called directly in a scripting
 environment since more convenient functions are provided

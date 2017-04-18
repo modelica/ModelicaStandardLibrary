@@ -85,9 +85,9 @@ This package provides a few examples of how to construct medium models for
 incompressible fluids. The package contains:
 </p>
 <ul>
-<li><b>Glycol47</b>, a model of 47% glycol water mixture, based on tables of
+<li><strong>Glycol47</strong>, a model of 47% glycol water mixture, based on tables of
 density and heat capacity as functions of temperature.</li>
-<li><b>Essotherm650</b>, a medium model for thermal oil, also based on tables.</li>
+<li><strong>Essotherm650</strong>, a medium model for thermal oil, also based on tables.</li>
 </ul>
 
 </html>"));
@@ -770,25 +770,25 @@ of a polynomial and to use a polynomial to fit a given set
 of data points.
 </p>
 
-<p><b>Copyright &copy; 2004-2016, Modelica Association and DLR.</b></p>
+<p><strong>Copyright &copy; 2004-2016, Modelica Association and DLR.</strong></p>
 
-<p><i>
-This package is <b>free</b> software. It can be redistributed and/or modified
-under the terms of the <b>Modelica license</b>, see the license conditions
-and the accompanying <b>disclaimer</b> in the documentation of package
+<p><em>
+This package is <strong>free</strong> software. It can be redistributed and/or modified
+under the terms of the <strong>Modelica license</strong>, see the license conditions
+and the accompanying <strong>disclaimer</strong> in the documentation of package
 Modelica in file \"Modelica/package.mo\".
-</i>
+</em>
 </p>
 
 </html>",     revisions="<html>
 <ul>
-<li><i>Oct. 22, 2004</i> by Martin Otter (DLR):<br>
+<li><em>Oct. 22, 2004</em> by Martin Otter (DLR):<br>
        Renamed functions to not have abbreviations.<br>
        Based fitting on LAPACK<br>
        New function to return the polynomial of an indefinite integral</li>
-<li><i>Sept. 3, 2004</i> by Jonas Eborn (Scynamics):<br>
+<li><em>Sept. 3, 2004</em> by Jonas Eborn (Scynamics):<br>
        polyderval, polyintval added</li>
-<li><i>March 1, 2004</i> by Martin Otter (DLR):<br>
+<li><em>March 1, 2004</em> by Martin Otter (DLR):<br>
        first version implemented</li>
 </ul>
 </html>"));
@@ -809,7 +809,7 @@ it is set to Choices.independentVariables.pT.</p>
 
 <h4>Using the package TableBased</h4>
 <p>
-To implement a new medium model, create a package that <b>extends</b> TableBased
+To implement a new medium model, create a package that <strong>extends</strong> TableBased
 and provides one or more of the constant tables:
 </p>
 
@@ -822,7 +822,7 @@ tableVaporPressure  = [T, pVap];
 </pre>
 
 <p>
-The table data is used to fit constant polynomials of order <b>npol</b>, the
+The table data is used to fit constant polynomials of order <strong>npol</strong>, the
 temperature data points do not need to be same for different properties. Properties
 like enthalpy, inner energy and entropy are calculated consistently from integrals
 and derivatives of d(T) and Cp(T). The minimal
@@ -858,9 +858,9 @@ water, the equivalent change of temperature to increasing pressure 1 bar is
 Two Boolean flags are used to choose how enthalpy and inner energy is calculated:
 </p>
 <ul>
-<li><b>enthalpyOfT</b>=true, means assuming that enthalpy is only a function
+<li><strong>enthalpyOfT</strong>=true, means assuming that enthalpy is only a function
 of temperature, neglecting the pressure dependent term.</li>
-<li><b>singleState</b>=true, means also neglect the pressure influence on inner
+<li><strong>singleState</strong>=true, means also neglect the pressure influence on inner
 energy, which makes all medium properties pure functions of temperature.</li>
 </ul>
 <p>

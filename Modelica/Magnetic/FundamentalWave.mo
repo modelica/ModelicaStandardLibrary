@@ -15,7 +15,7 @@ The exact magnetic field in the air gap of an electric machine is usually determ
 </p>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
-  <caption align=\"bottom\"><b>Fig. 1:</b> Field lines of a four pole induction machine</caption>
+  <caption align=\"bottom\"><strong>Fig. 1:</strong> Field lines of a four pole induction machine</caption>
   <tr>
     <td>
       <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Concept/aimc_fem.png\">
@@ -27,7 +27,7 @@ The exact magnetic field in the air gap of an electric machine is usually determ
 In the fundamental wave theory only a pure sinusoidal distribution of magnetic quantities is assumed. It is thus assumed that all other harmonic wave effects are not taken into account.</p>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
-  <caption align=\"bottom\"><b>Fig. 2:</b> Magnetic potential difference of a four pole machine, where <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/varphi.png\"> is the angle of the spatial domain with respect to one pole pair</caption>
+  <caption align=\"bottom\"><strong>Fig. 2:</strong> Magnetic potential difference of a four pole machine, where <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/varphi.png\"> is the angle of the spatial domain with respect to one pole pair</caption>
   <tr>
     <td>
       <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Concept/four_pole_V_m.png\">
@@ -43,10 +43,10 @@ The waveforms of the magnetic field quantities, e.g., the magnetic potential dif
 &nbsp;&nbsp;<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/V_m_real_complex.png\">
 </p>
 
-<p>It is important to note that the magnetic potential used in this library <b>always</b> refers to an equivalent two pole machine.</p>
+<p>It is important to note that the magnetic potential used in this library <strong>always</strong> refers to an equivalent two pole machine.</p>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
-  <caption align=\"bottom\"><b>Fig. 3:</b> Spatial distribution of the magnetic potential difference (red shade = positive sine wave, blue shade = negative sine wave) including complex phasor representing this spatial distribution</caption>
+  <caption align=\"bottom\"><strong>Fig. 3:</strong> Spatial distribution of the magnetic potential difference (red shade = positive sine wave, blue shade = negative sine wave) including complex phasor representing this spatial distribution</caption>
   <tr>
     <td>
       <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Concept/electrical_reference_V_m.png\">
@@ -99,7 +99,7 @@ The machine models of the FundamentalWave library are currently based on the fol
 <h4>Note</h4>
 
 <p>
-The term <b>fundamental wave</b> refers to spatial waves of the electro magnetic quantities. This library has no limitations with respect to the waveforms of the time domain signals of any voltages, currents, etc.
+The term <strong>fundamental wave</strong> refers to spatial waves of the electro magnetic quantities. This library has no limitations with respect to the waveforms of the time domain signals of any voltages, currents, etc.
 </p>
 </html>"));
     end Concept;
@@ -559,14 +559,14 @@ model from R to G</li>
       <td valign=\"top\">M. Beuschel,
         &quot;<a href=\"https://www.modelica.org/events/workshop2000/proceedings/Beuschel.pdf\">
         A uniform approach for modelling electrical machines</a>,&quot;
-        <i>Modelica Workshop</i>,
+        <em>Modelica Workshop</em>,
         pp. 101-108, October 23-24, 2000.</td>
     </tr>
 
     <tr>
       <td valign=\"top\">[Eckhardt82]</td>
       <td valign=\"top\">H. Eckhardt,
-        <i>Grundz&uuml;ge der elektrischen Maschinen</i> (in German),
+        <em>Grundz&uuml;ge der elektrischen Maschinen</em> (in German),
         B. G. Teubner Verlag, Stuttgart, 1982.</td>
     </tr>
 
@@ -575,13 +575,13 @@ model from R to G</li>
       <td valign=\"top\">A. Haumer, and C. Kral,
         &quot;<a href=\"https://www.modelica.org/events/modelica2009/Proceedings/memorystick/pages/papers/0103/0103.pdf\">The
         AdvancedMachines Library: Loss Models for Electric Machines</a>,&quot;
-        <i>Modelica Conference</i>, 2009.</td>
+        <em>Modelica Conference</em>, 2009.</td>
     </tr>
 
     <tr>
       <td valign=\"top\">[Lang84]</td>
       <td valign=\"top\">W. Lang,
-        <i>&Uuml;ber die Bemessung verlustarmer Asynchronmotoren mit K&auml;figl&auml;ufer f&uuml;r Pulsumrichterspeisung</i>
+        <em>&Uuml;ber die Bemessung verlustarmer Asynchronmotoren mit K&auml;figl&auml;ufer f&uuml;r Pulsumrichterspeisung</em>
        (in German),
        Doctoral Thesis, Technical University of Vienna, 1984.</td>
     </tr>
@@ -589,7 +589,7 @@ model from R to G</li>
     <tr>
       <td valign=\"top\">[Laughton02]</td>
       <td valign=\"top\">M.A. Laughton, D.F. Warne
-        <i>Electrical Engineer's Reference Book</i>
+        <em>Electrical Engineer's Reference Book</em>
         Butterworth Heinemann, 16th edition, ISBN 978-0750646376, 2002</td>
     </tr>
 
@@ -598,21 +598,21 @@ model from R to G</li>
       <td valign=\"top\">Y. Li, Z. Q. Zhu, D. Howe, and C. M. Bingham,
         &quot;Modeling of Cross-Coupling Magnetic Saturation in Signal-Injection-Based
         Sensorless Control of Permanent-Magnet Brushless AC Motors,&quot;
-        <i>IEEE Transactions on Magnetics</i>,
+        <em>IEEE Transactions on Magnetics</em>,
         vol. 43, no. 6, pp. 2552-2554, June 2007.</td>
     </tr>
 
     <tr>
       <td valign=\"top\">[Mueller70]</td>
       <td valign=\"top\">G, M&uuml;ller,
-        <i>Elektrische Maschinen -- Grundlagen, Aufbau und Wirkungsweise</i> (in German),
+        <em>Elektrische Maschinen -- Grundlagen, Aufbau und Wirkungsweise</em> (in German),
         VEB Verlag Technik Berlin, 4th edition, 1970.</td>
     </tr>
 
     <tr>
       <td valign=\"top\">[Spaeth73]</td>
       <td valign=\"top\">H. Sp&auml;th,
-        <i>Elektrische Maschinen -- Eine Einf&uuml;hrung in die Theorie des Betriebsverhaltens</i> (in German),
+        <em>Elektrische Maschinen -- Eine Einf&uuml;hrung in die Theorie des Betriebsverhaltens</em> (in German),
         Springer-Verlag, Berlin, Heidelberg, New York, 1973.</td>
     </tr>
 
@@ -4151,7 +4151,7 @@ The voltages <img src=\"modelica://Modelica/Resources/Images/Magnetic/Fundamenta
 <p>for <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/k_in_1_m.png\"> and is also illustrated by the following figure:</p>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
-  <caption align=\"bottom\"><b>Fig:</b> Orientation of winding and location of complex magnetic flux</caption>
+  <caption align=\"bottom\"><strong>Fig:</strong> Orientation of winding and location of complex magnetic flux</caption>
   <tr>
     <td>
       <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/Components/coupling.png\">
@@ -5640,7 +5640,7 @@ The air gap model has two magnetic stator and two magnetic rotor
 according to the following figure.
 </p>
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
-  <caption align=\"bottom\"><b>Fig:</b> Magnetic equivalent circuit of the air gap model</caption>
+  <caption align=\"bottom\"><strong>Fig:</strong> Magnetic equivalent circuit of the air gap model</caption>
   <tr>
     <td>
       <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/Machines/Components/airgap_phasors.png\">
@@ -7308,13 +7308,13 @@ Definition of saliency with respect to the orthogonal d- and q-axis. Saliency, h
 <p>A detailed list of changes is summarized in the <a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.ReleaseNotes\">release notes</a>.</p>
 
 </html>", info="<html>
-  <p><b>For a discrimination of various machine models, see <a href=\"modelica://Modelica.Electrical.Machines.UsersGuide.Discrimination\">discrimination</a></b>.</p>
+  <p><strong>For a discrimination of various machine models, see <a href=\"modelica://Modelica.Electrical.Machines.UsersGuide.Discrimination\">discrimination</a></strong>.</p>
 <p>
 Copyright &copy; 2009-2016, Modelica Association, <a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.Contact\">Christian Kral</a>,
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.Contact\">Anton Haumer</a> and AIT
 </p>
 <p>
-<i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
+<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</em>
 </p>
 </html>"));
 end FundamentalWave;

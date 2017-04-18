@@ -94,9 +94,9 @@ equation
     experiment(StopTime=10),
     Documentation(info="<html>
 <p>
-This example demonstrates that <b>3-dimensional line force</b> elements
+This example demonstrates that <strong>3-dimensional line force</strong> elements
 (here: Modelica.Mechanics.MultiBody.Forces.Spring elements) can be connected together
-in <b>series</b> without having a body with mass at the
+in <strong>series</strong> without having a body with mass at the
 connection point (as usually required by multi-body programs).
 This is advantageous since stiff systems can be avoided, say, due to
 a stiff spring and a small mass at the connection point.

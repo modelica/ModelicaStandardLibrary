@@ -632,7 +632,7 @@ angular velocity of the support frame):
     import SI=Modelica.SIunits;
     SI.Power           bevelGearPower;
     SI.AngularVelocity ws[3] = Frames.angularVelocity2(bevelGear.frame_a.R);
-  <b>equation</b>
+  <strong>equation</strong>
     bevelGearPower = (ws + der(bevelGear.flange_a.phi)*na)*bevelGear.flange_a.tau*na +
                      (ws + der(bevelGear.flange_b.phi)*nb)*bevelGear.flange_b.tau*nb +
                      ws*bevelGear.frame_a.t;

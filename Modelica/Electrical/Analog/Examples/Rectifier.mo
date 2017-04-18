@@ -193,9 +193,9 @@ DC capacitors start at ideal no-load voltage, thus making easier initial transie
 <br>Try different load currents iDC = 0..approximately 500 A. You may watch losses (of the whole diode bridge) trying different diode parameters.</p>
 </html>",
    revisions="<html>
-<p><b>Release Notes:</b></p>
+<p><strong>Release Notes:</strong></p>
 <ul>
-<li><i>Mai 7, 2004   </i>
+<li><em>Mai 7, 2004   </em>
        by Anton Haumer<br> realized<br>
        </li>
 </ul>

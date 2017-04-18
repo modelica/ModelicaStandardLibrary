@@ -17,7 +17,7 @@ package FluxTubes
       annotation (Documentation(info="<html>
 <h4>Overview of the Concept of Magnetic Flux Tubes</h4>
 <p>
-Following below, the concept of magnetic flux tubes is outlined in short. For a detailed description of flux tube elements, please have a look at the listed literature. Magnetic flux tubes enable for modeling of magnetic fields with lumped networks. The figure below and the following equations illustrate the transition from the original magnetic field quantities described by <i>Maxwell</i>'s equations to network elements with a flow variable and an across variable:
+Following below, the concept of magnetic flux tubes is outlined in short. For a detailed description of flux tube elements, please have a look at the listed literature. Magnetic flux tubes enable for modeling of magnetic fields with lumped networks. The figure below and the following equations illustrate the transition from the original magnetic field quantities described by <em>Maxwell</em>'s equations to network elements with a flow variable and an across variable:
 </p>
 
 <p>
@@ -27,35 +27,35 @@ Following below, the concept of magnetic flux tubes is outlined in short. For a 
 
 
 <p>
-For a region with an approximately homogeneous distribution of the magnetic field strength <b>H</b> and the magnetic flux density <b>B</b> through cross sectional area <i>A</i> at each length coordinate <i>s</i>  (<i>A</i> perpendicular to the direction of the magnetic field lines), a magnetic reluctance <i>R<sub>m</sub></i> can be defined:</p>
+For a region with an approximately homogeneous distribution of the magnetic field strength <strong>H</strong> and the magnetic flux density <strong>B</strong> through cross sectional area <em>A</em> at each length coordinate <em>s</em>  (<em>A</em> perpendicular to the direction of the magnetic field lines), a magnetic reluctance <em>R<sub>m</sub></em> can be defined:</p>
 
 <p>
 <IMG src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/FluxTubeConcept/eq_transition_reluctance_flowAcross_IntegralQuantities.png\" ALT=\"Transition from field quantities to flow- and across variables\">
 </p>
 
 <p>
-With the definition of the magnetic potential difference <i>V<sub>m</sub></i> as an across variable and the magnetic flux <i>&Phi;</i> as flow variable, a reluctance element <i>R<sub>m</sub></i> can be defined similar to resistive network elements in other physical domains. Using <i>Maxwell</i>'s constitutive equation
+With the definition of the magnetic potential difference <em>V<sub>m</sub></em> as an across variable and the magnetic flux <em>&Phi;</em> as flow variable, a reluctance element <em>R<sub>m</sub></em> can be defined similar to resistive network elements in other physical domains. Using <em>Maxwell</em>'s constitutive equation
 </p>
 
 <p>
 <IMG src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/FluxTubeConcept/eq_MaxwellConstitutive.png\" ALT=\"Maxwell's constitutive equation\">
 </p>
 
-<p>the general formula for the calculation of a magnetic reluctance <i>R<sub>m</sub></i> from its geometric and material properties is:</p>
+<p>the general formula for the calculation of a magnetic reluctance <em>R<sub>m</sub></em> from its geometric and material properties is:</p>
 
 <p>
 <IMG src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/FluxTubeConcept/eq_reluctance_general.png\" ALT=\"General formula for calculation of a magnetic reluctance\">
 </p>
 
 <p>
-For a prismatic or cylindrical volume of length <i>l</i> and cross sectional area <i>A</i> with the magnetic flux entering and leaving the region through its end planes, the above equation simplifies to:</p>
+For a prismatic or cylindrical volume of length <em>l</em> and cross sectional area <em>A</em> with the magnetic flux entering and leaving the region through its end planes, the above equation simplifies to:</p>
 
 <p>
 <IMG src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/FluxTubeConcept/eq_reluctance_prismatic.png\" ALT=\"Magnetic reluctance of a prismatic or cylindrical volume\">
 </p>
 
 <p>
-Similar equations can be derived for other geometries. In cases where a direct integration is not possible, the reluctance can be calculated on base of average length, average cross sectional area and volume <i>V</i> respectively:
+Similar equations can be derived for other geometries. In cases where a direct integration is not possible, the reluctance can be calculated on base of average length, average cross sectional area and volume <em>V</em> respectively:
 </p>
 
 <p>
@@ -76,7 +76,7 @@ Network elements for sources of a magnetic potential difference or magnetomotive
 <h4>Calculation of reluctance forces from lumped magnetic network models</h4>
 
 <p>
-Generally, the thrust <i>F</i> developed by a translatory electro-magneto-mechanical actuator (similar for the rotational case with torque and angular position) is equal to the change of magnetic co-energy <i>W<sub>m</sub><sup>*</sup></i> with armature position <i>x</i> according to
+Generally, the thrust <em>F</em> developed by a translatory electro-magneto-mechanical actuator (similar for the rotational case with torque and angular position) is equal to the change of magnetic co-energy <em>W<sub>m</sub><sup>*</sup></em> with armature position <em>x</em> according to
 </p>
 
 <p>
@@ -84,7 +84,7 @@ Generally, the thrust <i>F</i> developed by a translatory electro-magneto-mechan
 </p>
 
 <p>
-(<i>&Psi;</i> flux linkage, <i>i</i> actuator current). In lumped magnetic network models, the above equation simplifies to
+(<em>&Psi;</em> flux linkage, <em>i</em> actuator current). In lumped magnetic network models, the above equation simplifies to
 </p>
 
 <p>
@@ -92,17 +92,17 @@ Generally, the thrust <i>F</i> developed by a translatory electro-magneto-mechan
 </p>
 
 <p>
-where <i>n<sub>linear</sub></i> is the number of flux tube elements with constant relative permeability that change its permeance <i>G<sub>m i</sub></i> with armature position (index <i>i</i>), <i>V<sub>m i</sub></i> the magnetic voltage across each respective flux tube and <i>dG<sub>m i</sub>/dx</i> the derivative of the respective permeances with respect to armature position. Transition from the general formula based on magnetic co-energy to the latter one is outlined in <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Literature\">[KEQ+12]</a> for the reciprocal of the permeance, i.e., for the magnetic reluctance <i>R<sub>m</sub></i>. Note that
+where <em>n<sub>linear</sub></em> is the number of flux tube elements with constant relative permeability that change its permeance <em>G<sub>m i</sub></em> with armature position (index <em>i</em>), <em>V<sub>m i</sub></em> the magnetic voltage across each respective flux tube and <em>dG<sub>m i</sub>/dx</em> the derivative of the respective permeances with respect to armature position. Transition from the general formula based on magnetic co-energy to the latter one is outlined in <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Literature\">[KEQ+12]</a> for the reciprocal of the permeance, i.e., for the magnetic reluctance <em>R<sub>m</sub></em>. Note that
 </p>
 
 <p>
 <IMG src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/ReluctanceForceCalculation/eq_transition_forceReluctancePermeance.png\" ALT=\"Transition from force calculation based on reluctance to calculation based on permeance\">
 </p>
 
-<p>with <i>&Phi;<sub>i</sub></i> being the magnetic flux through each respective flux tube element.</p>
+<p>with <em>&Phi;<sub>i</sub></em> being the magnetic flux through each respective flux tube element.</p>
 
 <p>
-Flux tube elements with <i>non-linear</i> material characteristics <i>&mu;<sub>r</sub></i>(<i>B</i>) in magnetic network models do not restrict the usability of the above equation. However, it is required that these nonlinear flux tube elements do not change its shape with armature motion (e.g., portion of a solenoid plunger where the magnetic flux passes through in axial direction). This limitation is not a strong one, since the permeance of nonlinear, but highly permeable ferromagnetic flux tube elements and its change with armature position compared to that of air gap flux tubes can be neglected in most cases. Because of this constraint, the dimensions of possibly nonlinear flux tube elements in sub-package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.FixedShape\">Shapes.FixedShape</a> are fixed, whereas the dimension in direction of motion of the linear flux tube elements in sub-package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.Force\">Shapes.Force</a> can vary during simulation. For the flux tubes defined in this package with their rather simple shapes, the derivative <i>dG<sub>m</sub>/dx</i> is given analytically. For more complex shapes and variations of dimensions with armature motion, it must be provided analytically during model development, preferably by extending the partial model <a href=\"modelica://Modelica.Magnetic.FluxTubes.Interfaces.PartialForce\">Interfaces.PartialForce</a>.
+Flux tube elements with <em>non-linear</em> material characteristics <em>&mu;<sub>r</sub></em>(<em>B</em>) in magnetic network models do not restrict the usability of the above equation. However, it is required that these nonlinear flux tube elements do not change its shape with armature motion (e.g., portion of a solenoid plunger where the magnetic flux passes through in axial direction). This limitation is not a strong one, since the permeance of nonlinear, but highly permeable ferromagnetic flux tube elements and its change with armature position compared to that of air gap flux tubes can be neglected in most cases. Because of this constraint, the dimensions of possibly nonlinear flux tube elements in sub-package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.FixedShape\">Shapes.FixedShape</a> are fixed, whereas the dimension in direction of motion of the linear flux tube elements in sub-package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.Force\">Shapes.Force</a> can vary during simulation. For the flux tubes defined in this package with their rather simple shapes, the derivative <em>dG<sub>m</sub>/dx</em> is given analytically. For more complex shapes and variations of dimensions with armature motion, it must be provided analytically during model development, preferably by extending the partial model <a href=\"modelica://Modelica.Magnetic.FluxTubes.Interfaces.PartialForce\">Interfaces.PartialForce</a>.
 </p>
 
 <p>
@@ -135,7 +135,7 @@ The Tellinen hysteresis model is described in more detail in <a href=\"modelica:
 Therein, S<sub>U</sub>(H) and S<sub>L</sub>(H) are the derivatives of limiting branches of the hysteresis loop with respect to the magnetic field strength H, as illustrated in Fig 1.
 </p>
 <p>
-<b>Fig. 1:</b> Upper B<sub>U</sub>(H) and lower B<sub>L</sub>(H) branches of the hysteresis envelope curve, their corresponding slope functions S<sub>UH</sub>(H) and S<sub>LH</sub>(H) and the actual operating point H(t), B(t). </p>
+<strong>Fig. 1:</strong> Upper B<sub>U</sub>(H) and lower B<sub>L</sub>(H) branches of the hysteresis envelope curve, their corresponding slope functions S<sub>UH</sub>(H) and S<sub>LH</sub>(H) and the actual operating point H(t), B(t). </p>
 
 <table cellspacing=\"0\" cellpadding=\"2\" border=\"0\"><tr>
 <td><p><img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/StaticHysteresis/Tellinen/TellinenDesc1.png\"/> </p></td>
@@ -155,7 +155,7 @@ This section gives an very brief overview of the Preisach hysteresis model, whic
 </p>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
-  <caption align=\"bottom\"><b>Fig. 1: </b>Characteristics of an elementary hysteresis operator.</caption>
+  <caption align=\"bottom\"><strong>Fig. 1: </strong>Characteristics of an elementary hysteresis operator.</caption>
   <tr>
     <td>
       <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/StaticHysteresis/Preisach/preisach_elementaryOperator.png\">
@@ -168,7 +168,7 @@ Due to &alpha;&ge;&beta;, the switching limits &alpha; and &beta; span a right t
 </p>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
-  <caption align=\"bottom\"><b>Fig. 2:</b> Preisach Plane (a) and exemplary plot of the Preisach distribution function P(&alpha;,&beta;) (b)</caption>
+  <caption align=\"bottom\"><strong>Fig. 2:</strong> Preisach Plane (a) and exemplary plot of the Preisach distribution function P(&alpha;,&beta;) (b)</caption>
   <tr>
     <td>
       <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/StaticHysteresis/Preisach/preisach_PlaneAndDist.png\">
@@ -207,7 +207,7 @@ The Everett function returns the change in magnetization which results whenn all
 </p>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
-  <caption align=\"bottom\"><b>Fig. 3:</b> Preisach plane and region R over which P(&alpha;,&beta;) is integrated to obtain E(H1,H2)</caption>
+  <caption align=\"bottom\"><strong>Fig. 3:</strong> Preisach plane and region R over which P(&alpha;,&beta;) is integrated to obtain E(H1,H2)</caption>
   <tr>
     <td>
       <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/StaticHysteresis/Preisach/EverettRegion.png\">
@@ -266,7 +266,7 @@ Where <code>&sigma;</code> is the electrical conductivity and <code>d</code> the
 </p>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
-<caption align=\"bottom\"><b>Fig. 1:</b> Static and dynamic portion of the hysteresis B(H)</caption>
+<caption align=\"bottom\"><strong>Fig. 1:</strong> Static and dynamic portion of the hysteresis B(H)</caption>
   <tr>
     <td>
       <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/DynamicHysteresis/Eddy_BHBHstatBHeddy.png\">
@@ -280,7 +280,7 @@ The following two figures show a comparison between measured and simulated dynam
 
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
-<caption align=\"bottom\"><b>Fig. 2:</b> Dynamic hysteresis measurements with an 25 cm Epstein frame according to DIN EN 60404-2 (Material: M330-50A, 4 Sheets)</caption>
+<caption align=\"bottom\"><strong>Fig. 2:</strong> Dynamic hysteresis measurements with an 25 cm Epstein frame according to DIN EN 60404-2 (Material: M330-50A, 4 Sheets)</caption>
   <tr>
     <td>
       <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/DynamicHysteresis/EddyCurrent_Epstein_Meas.png\">
@@ -289,7 +289,7 @@ The following two figures show a comparison between measured and simulated dynam
 </table>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
-<caption align=\"bottom\"><b>Fig. 3:</b> Simulation results of a 25 cm Epstein frame model according to the measurement setup of Fig. 1</caption>
+<caption align=\"bottom\"><strong>Fig. 3:</strong> Simulation results of a 25 cm Epstein frame model according to the measurement setup of Fig. 1</caption>
   <tr>
     <td>
       <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/DynamicHysteresis/EddyCurrent_Epstein_Sim.png\">
@@ -342,7 +342,7 @@ Where <code>&sigma;<sub>cl</sub></code> is the classical eddy current factor (se
 
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
-  <caption align=\"bottom\"><b>Fig. 1:</b> Diagram of a simple transformer with ferromagnetic core (model available at <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.Hysteresis.SinglePhaseTransformerWithHysteresis1\">Examples.Hysteresis.SinglePhaseTransformerWithHysteresis1</a>)</caption>
+  <caption align=\"bottom\"><strong>Fig. 1:</strong> Diagram of a simple transformer with ferromagnetic core (model available at <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.Hysteresis.SinglePhaseTransformerWithHysteresis1\">Examples.Hysteresis.SinglePhaseTransformerWithHysteresis1</a>)</caption>
   <tr>
     <td>
       <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/HysteresisLosses/PowerLoss_Hysteresis01.png\">
@@ -351,7 +351,7 @@ Where <code>&sigma;<sub>cl</sub></code> is the classical eddy current factor (se
 </table>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
-  <caption align=\"bottom\"><b>Fig. 2:</b> Simulated total dynamic hysteres loop with its static and eddy current fractions</caption>
+  <caption align=\"bottom\"><strong>Fig. 2:</strong> Simulated total dynamic hysteres loop with its static and eddy current fractions</caption>
   <tr>
     <td>
       <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/HysteresisLosses/PowerLoss_Hysteresis02.png\">
@@ -360,7 +360,7 @@ Where <code>&sigma;<sub>cl</sub></code> is the classical eddy current factor (se
 </table>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
-  <caption align=\"bottom\"><b>Fig. 3:</b> Simulated outputs of the <code>Core</code> component of Fig. 1</caption>
+  <caption align=\"bottom\"><strong>Fig. 3:</strong> Simulated outputs of the <code>Core</code> component of Fig. 1</caption>
   <tr>
     <td>
       <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/HysteresisLosses/PowerLoss_Hysteresis03.png\">
@@ -379,7 +379,7 @@ The elements provided in the package Shapes.HysteresisAndMagnets allow for consi
 </p>
 
 <table cellspacing=\"0\" cellpadding=\"2\" border=\"0\">
-  <caption align=\"bottom\"><b>Fig. 1:</b> Inductor with ferromagnetic core and hysteresis effects; (a) diagram of the network model; (b) simulated hysteresis characteristics of the core for different excitation frequencies of 0, 10 and 100 Hz (the example model can be found at: <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.Hysteresis.InductorWithHysteresis\">Examples.Hystersis.InductorWithHysteresis</a>)</caption>
+  <caption align=\"bottom\"><strong>Fig. 1:</strong> Inductor with ferromagnetic core and hysteresis effects; (a) diagram of the network model; (b) simulated hysteresis characteristics of the core for different excitation frequencies of 0, 10 and 100 Hz (the example model can be found at: <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.Hysteresis.InductorWithHysteresis\">Examples.Hystersis.InductorWithHysteresis</a>)</caption>
   <tr>
     <td>
       <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/InductorWithHysteresis_DiagramAndSim.png\">
@@ -468,110 +468,110 @@ Several models to describe the static hysteresis behavior of ferromagnetic mater
       annotation (Documentation(info="<html>
 <h4>Literature</h4>
 <ul>
-<li><b> Usage of the Modelica Magnetic library is described in:</b>
+<li><strong> Usage of the Modelica Magnetic library is described in:</strong>
 
 <br><table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
     <tr>
       <td valign=\"top\">[B&ouml;08]</td>
       <td valign=\"top\">B&ouml;drich, T.:
-        <i>Electromagnetic Actuator Modelling with the Extended Modelica Magnetic Library</i>,
+        <em>Electromagnetic Actuator Modelling with the Extended Modelica Magnetic Library</em>,
         Modelica 2008 Conference, Bielefeld, Germany,pp. 221-227, March 3-4, 2008. Download from: <a href=\"https://www.modelica.org/events/modelica2008/Proceedings/sessions/session2d2.pdf\">https://www.modelica.org/events/modelica2008/&shy;Proceedings/sessions/session2d2.pdf</a>
     </tr>
 </table><br>
 
 </li>
-<li><b>The method of magnetic flux tubes as well as derivation of the permeance of many flux tube shapes is explained in detail in:</b>
+<li><strong>The method of magnetic flux tubes as well as derivation of the permeance of many flux tube shapes is explained in detail in:</strong>
 
 <br><table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
     <tr>
       <td valign=\"top\">[Ro41]</td>
       <td valign=\"top\">Roters, H.:
-        <i>Electromagnetic Devices</i>,
+        <em>Electromagnetic Devices</em>,
         New York: John Wiley &amp; Sons 1941 (8th Printing 1961)
     </tr>
 </table><br>
 </li>
 
-<li><b>Structure, properties, applications and design of electromagnetic (reluctance type) actuators are thoroughly described in:</b>
+<li><strong>Structure, properties, applications and design of electromagnetic (reluctance type) actuators are thoroughly described in:</strong>
 
 <br><table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
     <tr>
       <td valign=\"top\">[KEQ+12]</td>
       <td valign=\"top\">Kallenbach, E.; Eick, R.; Quendt, P.; Str&ouml;hla, T.; Feindt, K.; Kallenbach, M.; Radler, O.:
-        <i>Elektromagnete: Grundlagen, Berechnung, Entwurf und Anwendung</i>,
+        <em>Elektromagnete: Grundlagen, Berechnung, Entwurf und Anwendung</em>,
         3rd ed., Wiesbaden: Vieweg Teubner 2008 (in German).
     </tr>
 
     <tr>
       <td valign=\"top\">[Ro00]</td>
       <td valign=\"top\">Roschke, T.:
-        <i>Entwurf geregelter elektromagnetischer Antriebe f&uuml;r Luftsch&uuml;tze</i>,
+        <em>Entwurf geregelter elektromagnetischer Antriebe f&uuml;r Luftsch&uuml;tze</em>,
         Fortschritt-Berichte VDI, Reihe 21, Nr. 293, D&uuml;sseldorf: VDI-Verlag 2000 (in German).
     </tr>
 </table><br>
 </li>
 
-<li><b> Application of the method of magnetic flux tubes to the design of rotational electrical machines is explained for example in:</b>
+<li><strong> Application of the method of magnetic flux tubes to the design of rotational electrical machines is explained for example in:</strong>
 
 <br><table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
     <tr>
       <td valign=\"top\">[HM94]</td>
       <td valign=\"top\">Hendershot, J.R. Jr.; Miller, T.J.E.:
-        <i>Design of Brushless Permanent-Magnet Motors</i>,
+        <em>Design of Brushless Permanent-Magnet Motors</em>,
         Magna Physics Publishing and Oxford University Press 1994.
     </tr>
 </table><br>
 </li>
 
-<li><b>Information related to the implemented hysteresis models can be found in:</b>
+<li><strong>Information related to the implemented hysteresis models can be found in:</strong>
 
 <br><table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
     <tr>
       <td valign=\"top\">[BE01]</td>
       <td valign=\"top\">Bergqvist, A. J.; Engdahl, S. G.:
-        <i>A Homogenization Procedure of Field Quantities in Laminated Electric Steel</i>,
+        <em>A Homogenization Procedure of Field Quantities in Laminated Electric Steel</em>,
         IEEE Transactions on Magnetics, vol.37, no.5, pp.3329-3331, 2001.</td>
     </tr>
     <tr>
       <td valign=\"top\">[Te98]</td>
       <td valign=\"top\">Tellinen, J:
-        <i>A simple scalar model for magnetic hysteresis</i>,
+        <em>A simple scalar model for magnetic hysteresis</em>,
         IEEE Translation Journal on Magnetics in Japan, vol.4, no.6, pp.353-359, 1989.</td>
     </tr>
     <tr>
       <td valign=\"top\">[Pr35]</td>
       <td valign=\"top\">Preisach, F.:
-        <i>&Uuml;ber die magnetische Nachwirkung</i>,
+        <em>&Uuml;ber die magnetische Nachwirkung</em>,
         Zeitschrift f&uuml;r Physik A Hadrons and Nuclei, vol. 94, pp. 277-302, 1935.</td>
     </tr>
     <tr>
       <td valign=\"top\">[Ma03]</td>
       <td valign=\"top\">Mayergoyz, I.:
-        <i>Mathematical Models of Hysteresis and their Application</i>,
+        <em>Mathematical Models of Hysteresis and their Application</em>,
         Elsevier, 2003.</td>
     </tr>
     <tr>
       <td valign=\"top\">[Va01]</td>
       <td valign=\"top\">VAC Vacuumschmelze:
-        <i>Soft Magnetic Cobalt-Iron-Alloys</i>, 2001.
+        <em>Soft Magnetic Cobalt-Iron-Alloys</em>, 2001.
         Download from: <a  href=\"http://www.vacuumschmelze.com/fileadmin/docroot/medialib/documents/broschueren/htbrosch/Pht-004_e.pdf\">http://www.vacuumschmelze.com/fileadmin/&shy;docroot/medialib/documents/&shy;broschueren/htbrosch/Pht-004_e.pdf</a></td>
     </tr>
     <tr>
       <td valign=\"top\">[YUY89]</td>
       <td valign=\"top\">Yamaguchi, T.; Ueda, F.; Yamamoto, E.:
-        <i>Simulation of Hysteresis Characteristics of Core Materials Using the Everett Function</i>,
+        <em>Simulation of Hysteresis Characteristics of Core Materials Using the Everett Function</em>,
         IEEE Translation Journal on Magnetics in Japan, vol.4, no.6, pp.353-359, 1989.</td>
     </tr>
     <tr>
       <td valign=\"top\">[ZB12]</td>
       <td valign=\"top\">Ziske, J.; B&ouml;drich, T.:
-        <i>Magnetic Hysteresis Models for Modelica</i>,
+        <em>Magnetic Hysteresis Models for Modelica</em>,
         Proc. of the 9th Modelica Conference, Munich, Germany, pp. 151-158, September 3-5, 2012. Download from: <a  href=\"http://www.ep.liu.se/ecp/076/014/ecp12076014.pdf\">http://www.ep.liu.se/ecp/&shy;076/014/ecp12076014.pdf</a></td>
     </tr>
     <tr>
       <td valign=\"top\">[ZB14]</td>
       <td valign=\"top\">Ziske, J.; B&ouml;drich, T.:
-        <i>http://www.ep.liu.se/ecp/096/017/ecp14096017.pdf</i>,
+        <em>http://www.ep.liu.se/ecp/096/017/ecp14096017.pdf</em>,
         Proc. of the 10th Modelica Conference, Lund, Sweden, pp. 165-172, March 10-12, 2014. Download from: <a  href=\"http://www.ep.liu.se/ecp/096/017/ecp14096017.pdf\">http://www.ep.liu.se/ecp/&shy;096/017/ecp14096017.pdf</a></td>
     </tr>
 
@@ -671,7 +671,7 @@ Several models to describe the static hysteresis behavior of ferromagnetic mater
 <h4>Contact</h4>
 
 <dl>
-<dt><b>Main Authors:</b></dt>
+<dt><strong>Main Authors:</strong></dt>
 <dd>
     <a href=\"http://www.ifte.de/mitarbeiter/boedrich.html\">Thomas B&ouml;drich</a><br>
     Dresden University of Technology<br>
@@ -692,7 +692,7 @@ Several models to describe the static hysteresis behavior of ferromagnetic mater
 </dd>
 </dl>
 
-<p><b>Acknowledgements:</b></p>
+<p><strong>Acknowledgements:</strong></p>
 <ul>
 <li> The magnetisation characteristics of the included soft magnetic materials were compiled and measured respectively by Thomas Roschke, now with Johnson Electric. Provision of this data is highly appreciated. He also formulated the approximation function used for description of the magnetisation characteristics of these materials.
 </li>
@@ -709,10 +709,10 @@ Several models to describe the static hysteresis behavior of ferromagnetic mater
 
     annotation (DocumentationClass=true, Documentation(info="<html>
 <p>
-This library contains components for modelling of electromagnetic devices with lumped magnetic networks. Those models are suited for both rough design of the magnetic subsystem of a device as well as for efficient dynamic simulation at system level together with neighbouring subsystems. At present, components and examples for modelling of <i>translatory</i> electromagnetic and electrodynamic actuators are provided. If needed, these components can be adapted to network modelling of <i>rotational</i> electrical machines.
+This library contains components for modelling of electromagnetic devices with lumped magnetic networks. Those models are suited for both rough design of the magnetic subsystem of a device as well as for efficient dynamic simulation at system level together with neighbouring subsystems. At present, components and examples for modelling of <em>translatory</em> electromagnetic and electrodynamic actuators are provided. If needed, these components can be adapted to network modelling of <em>rotational</em> electrical machines.
 </p>
 <p>
-This user's guide gives a short introduction to the underlying concept of <b>magnetic flux tubes</b>, summarizes the calculation of magnetic <b>reluctance forces</b> from lumped magnetic network models and lists <b>reference literature</b>.
+This user's guide gives a short introduction to the underlying concept of <strong>magnetic flux tubes</strong>, summarizes the calculation of magnetic <strong>reluctance forces</strong> from lumped magnetic network models and lists <strong>reference literature</strong>.
 </p>
 <p>
 <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples\">Examples</a> illustrates the usage of magnetic network models with simple models from different fields of application.</p>
@@ -800,7 +800,7 @@ This user's guide gives a short introduction to the underlying concept of <b>mag
       annotation (experiment(StopTime=0.1, Tolerance=1e-007), Documentation(
             info="<html>
 <p>
-This model demonstrates the effects of non-linear magnetisation characteristics of soft magnetic materials (hysteresis neglected). A sinusoidal voltage is applied to an inductor with a closed ferromagnetic core of rectangular shape. Set the <b>tolerance</b> to <b>1e-7</b>, <b>simulate for 0.1 s</b> and plot for example:
+This model demonstrates the effects of non-linear magnetisation characteristics of soft magnetic materials (hysteresis neglected). A sinusoidal voltage is applied to an inductor with a closed ferromagnetic core of rectangular shape. Set the <strong>tolerance</strong> to <strong>1e-7</strong>, <strong>simulate for 0.1 s</strong> and plot for example:
 </p>
 
 <pre>
@@ -909,7 +909,7 @@ If the supply voltage has a zero-crossing when applied to the inductor at time t
 Have a look at <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.ConstantActuator\">ConstantActuator</a> and at <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.PermeanceActuator\">PermeanceActuator</a> for an explanation of both converter models. <br>
 </p>
 <p>
-Simulation of the force-current characteristics of both converter models with the armature blocked at mid-position x=0 reveals the difference between the two models. In the <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.ConstantActuator\">ConstantActuator</a>, force is proportional to current. In the simple <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.PermeanceActuator\">PermeanceActuator</a> there is an additional non-linear force component that is due to the dependency of the inductance on the armature position. Comparison with FEA results validates the higher accuracy of the <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.PermeanceActuator\">PermeanceActuator</a>. In the FEA model, the relative permeability of the stator iron was set to mu_rFe=const.=1000 in order to avoid additional non-linear force components due to saturation. <b>Simulate for 6 s</b> and <b>plot vs. current (e.g., iSensor.i)</b></p>
+Simulation of the force-current characteristics of both converter models with the armature blocked at mid-position x=0 reveals the difference between the two models. In the <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.ConstantActuator\">ConstantActuator</a>, force is proportional to current. In the simple <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.PermeanceActuator\">PermeanceActuator</a> there is an additional non-linear force component that is due to the dependency of the inductance on the armature position. Comparison with FEA results validates the higher accuracy of the <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.PermeanceActuator\">PermeanceActuator</a>. In the FEA model, the relative permeability of the stator iron was set to mu_rFe=const.=1000 in order to avoid additional non-linear force components due to saturation. <strong>Simulate for 6 s</strong> and <strong>plot vs. current (e.g., iSensor.i)</strong></p>
 <pre>
     pmFixedPos.flange_b.f       // force of permeance model
     cFixedPos.flange_b.f        // force of converter constant model
@@ -974,7 +974,7 @@ Simulation of the force-current characteristics of both converter models with th
 Have a look at <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.ConstantActuator\">ConstantActuator</a> and at <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.PermeanceActuator\">PermeanceActuator</a> for an explanation of both converter models. <br>
 </p>
 <p>
-Simulation of the force-stroke characteristic of the <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.PermeanceActuator\">PermeanceActuator</a> with a constant current I=3A and a forced armature movement (similar to measurements in reality) shows the dependency of both force-generating permeances G_ma and G_mb as well as inductance L on armature position x. <b>Simulate for 8 s</b> and <b>plot vs.</b> armature position <b>feedX.flange_b.s</b> (same physical quantities together in a common diagram for comparison):</p>
+Simulation of the force-stroke characteristic of the <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.PermeanceActuator\">PermeanceActuator</a> with a constant current I=3A and a forced armature movement (similar to measurements in reality) shows the dependency of both force-generating permeances G_ma and G_mb as well as inductance L on armature position x. <strong>Simulate for 8 s</strong> and <strong>plot vs.</strong> armature position <strong>feedX.flange_b.s</strong> (same physical quantities together in a common diagram for comparison):</p>
 <pre>
     feedX.flange_b.f            // force of permeance model (permeance of stator iron neglected in this model)
     comparisonWithFEA.y[1]      // force of FEA model with non-linear stator iron 1.0718
@@ -1062,7 +1062,7 @@ Have a look at <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.MovingC
 for an explanation of both actuator models.</p>
 
 <p>
-A voltage step at time t=0 is applied to both actuator models. In each model, the armature and an attached load mass perform a stroke between the two stoppers included in cActuator.armature and pmActuator.armature respectively. <b>Simulate for 0.05 s</b> and plot vs. time (same physical quantities together in a common diagram for comparison):
+A voltage step at time t=0 is applied to both actuator models. In each model, the armature and an attached load mass perform a stroke between the two stoppers included in cActuator.armature and pmActuator.armature respectively. <strong>Simulate for 0.05 s</strong> and plot vs. time (same physical quantities together in a common diagram for comparison):
 </p>
 <pre>
     cActuator.p.i                     // input current to converter constant model
@@ -1398,7 +1398,7 @@ Similar to rotational DC-Motors, the electro-mechanical energy conversion of tra
 </pre>
 
 <p>
-with electrodynamic or <i>Lorentz</i> force F, converter constant c, current i, induced back-emf V_i and armature velocity v. The model is very similar to the well-known behavioural model of a rotational one-phase DC-Machine, except that it is for translatory motion. For a moving coil actuator with a coil inside an air gap with flux density B and a total wire length l inside the magnetic field, the converter constant becomes
+with electrodynamic or <em>Lorentz</em> force F, converter constant c, current i, induced back-emf V_i and armature velocity v. The model is very similar to the well-known behavioural model of a rotational one-phase DC-Machine, except that it is for translatory motion. For a moving coil actuator with a coil inside an air gap with flux density B and a total wire length l inside the magnetic field, the converter constant becomes
 </p>
 
 <pre>
@@ -1514,7 +1514,7 @@ Similar to static force-stroke measurements on real actuators, the armatures of 
 </p>
 
 <p>
-Set the <b>tolerance</b> to <b>1e-7</b> and <b>simulate for 10 s</b>. Plot in one common window the electromagnetic force of the two magnetic network models and the FEA reference <b>vs. armature position x_set.y</b>:
+Set the <strong>tolerance</strong> to <strong>1e-7</strong> and <strong>simulate for 10 s</strong>. Plot in one common window the electromagnetic force of the two magnetic network models and the FEA reference <strong>vs. armature position x_set.y</strong>:
 </p>
 
 <pre>
@@ -1966,7 +1966,7 @@ A voltage step is applied to both solenoid models at time t=0. The armatures of 
 </p>
 
 <p>
-Set the <b>tolerance</b> to <b>1e-7</b> and <b>simulate for 0.05 s</b>. Plot actuator current, force and position of the two magnetic network models and the FEA-based reference <b>vs. time</b> (each quantity in one common plot window):
+Set the <strong>tolerance</strong> to <strong>1e-7</strong> and <strong>simulate for 0.05 s</strong>. Plot actuator current, force and position of the two magnetic network models and the FEA-based reference <strong>vs. time</strong> (each quantity in one common plot window):
 </p>
 
 <pre>
@@ -2286,7 +2286,7 @@ The characteristic current drop during pull-in is due to both armature motion an
                 lineColor={0,0,255},
                 textString="%name")}), Documentation(info="<html>
 <p>
-Please refer to the <b>Parameters</b> section for a schematic drawing of this axisymmetric lifting magnet.
+Please refer to the <strong>Parameters</strong> section for a schematic drawing of this axisymmetric lifting magnet.
 In the half-section below, the flux tube elements of the actuator's magnetic circuit are superimposed on a field plot obtained with FEA. The magnetomotive force imposed by the coil is modelled as one lumped element. As a result, the radial leakage flux between armature and yoke that occurs especially at large working air gaps can not be considered properly. This leads to a a higher total reluctance and lower inductance respectively compared to FEA for large working air gaps (i.e., armature close to x_max). Please have a look at the comments associated with the individual model components for a short explanation of their purpose in the model.
 </p>
 
@@ -2891,7 +2891,7 @@ Compared to the complex Preisach hysteresis model the Tellinen model is very sim
 </p>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
-  <caption align=\"bottom\"><b>Fig. 1: </b>Simulated magnetic flux densities B of different hysteresis models (b) due to an applied mangetic field strength shown in (a). Corresponding B(H) loops of the hysteresis models GenericHystTellinenSoft (c), GenericHystTellinenTable (d) and GenericHystPreisachEverett (e).</caption>
+  <caption align=\"bottom\"><strong>Fig. 1: </strong>Simulated magnetic flux densities B of different hysteresis models (b) due to an applied mangetic field strength shown in (a). Corresponding B(H) loops of the hysteresis models GenericHystTellinenSoft (c), GenericHystTellinenTable (d) and GenericHystPreisachEverett (e).</caption>
   <tr>
     <td>
       <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Examples/Hysteresis/HysteresisModelComparison/plot1.png\">
@@ -2950,7 +2950,7 @@ Compared to the complex Preisach hysteresis model the Tellinen model is very sim
 This is a simple model of an inductor with a ferromagnetic core. The used GenericHystTellinenEverett model considers the ferromagnetic hysteresis, eddy currents and remanence of the core material. For example you can simulate the model for 0.02s and plot Core.B vs. Core.H to visualize the resulting hysteresis loops.
 </p>
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
-  <caption align=\"bottom\"><b>Fig. 1: </b>Results Core.B(t) and Core.B(H) of the magnetic Core.</caption>
+  <caption align=\"bottom\"><strong>Fig. 1: </strong>Results Core.B(t) and Core.B(H) of the magnetic Core.</caption>
   <tr>
     <td>
       <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Examples/Hysteresis/InductorWithHysteresis/plot1.png\">
@@ -3392,7 +3392,7 @@ An example simulation shows the transformer inrush currents due to an initially 
 </p>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
-<caption align=\"bottom\"><b>Fig. 1:</b> Transformer inrush currents due to initial magnetization of the magnetic core; (a) transformer primary currents; (b)  transformer secondary currents; (c) flux densities of the transformer legs; (d) B(H) hysteresis loops of transformer leg one.; (e) instantaneous static hysteresis, eddy current and copper losses of the transformer; (f) approximated average static hysteresis, eddy current and copper losses of the transformer</caption>
+<caption align=\"bottom\"><strong>Fig. 1:</strong> Transformer inrush currents due to initial magnetization of the magnetic core; (a) transformer primary currents; (b)  transformer secondary currents; (c) flux densities of the transformer legs; (d) B(H) hysteresis loops of transformer leg one.; (e) instantaneous static hysteresis, eddy current and copper losses of the transformer; (f) approximated average static hysteresis, eddy current and copper losses of the transformer</caption>
   <tr>
     <td>
       <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Examples/Hysteresis/ThreePhaseTransformerWithRectifier/plot01.png\" Hspace=\"10\" Vspace=\"10\">
@@ -3659,7 +3659,7 @@ Simple model of a single phase transformer with a primary and a secondary windin
 </p>
 
 <table cellspacing=\"0\" cellpadding=\"2\" border=\"0\">
-  <caption align=\"bottom\"><b>Fig. 1:</b> Sketch of the modelled transformer with magnetic core, primary and secondary winding</caption>
+  <caption align=\"bottom\"><strong>Fig. 1:</strong> Sketch of the modelled transformer with magnetic core, primary and secondary winding</caption>
   <tr>
     <td>
       <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Examples/Hysteresis/Components/Transformer1PhaseWithHysteresis/Core_SinglePhase.png\">
@@ -4187,7 +4187,7 @@ Simple model of a three phase transformer with primary and a secondary windings 
 </p>
 
 <table cellspacing=\"0\" cellpadding=\"2\" border=\"0\">
-  <caption align=\"bottom\"><b>Fig. 1:</b> Sketch of the modelled transformer with magnetic core, primary and secondary winding</caption>
+  <caption align=\"bottom\"><strong>Fig. 1:</strong> Sketch of the modelled transformer with magnetic core, primary and secondary winding</caption>
   <tr>
     <td>
       <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Examples/Hysteresis/Components/Transformer3PhaseYyWithHysteresis/Core_ThreePhase1.png\">
@@ -4632,7 +4632,7 @@ The magnetic potential at the magnetic ground node is zero. Every magnetic netwo
             fillPattern=FillPattern.Solid)}),
         Documentation(info="<html>
 <p>
-The electro-magnetic energy conversion is given by <i>Ampere</i>'s law and <i>Faraday</i>'s law respectively:
+The electro-magnetic energy conversion is given by <em>Ampere</em>'s law and <em>Faraday</em>'s law respectively:
 </p>
 
 <pre>
@@ -4641,7 +4641,7 @@ The electro-magnetic energy conversion is given by <i>Ampere</i>'s law and <i>Fa
 </pre>
 
 <p>
-V_m is the magnetomotive force that is supplied to the connected magnetic circuit, &Phi; is the magnetic flux through the associated branch of this magnetic circuit. The negative sign of the induced voltage v is due to <i>Lenz</i>'s law.
+V_m is the magnetomotive force that is supplied to the connected magnetic circuit, &Phi; is the magnetic flux through the associated branch of this magnetic circuit. The negative sign of the induced voltage v is due to <em>Lenz</em>'s law.
 </p>
 
 <p>
@@ -4934,13 +4934,13 @@ This constant permeance is provided for test purposes and simple magnetic networ
       annotation (Documentation(info="<html>
 <p>
 Differently from the flux tube elements of package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.Leakage\">Shapes.Leakage</a>
-that are calculated from their geometry, this leakage reluctance is calculated with reference to the total reluctance of a useful flux path. Please refer to the <b>Parameters</b> section for an illustration of the resulting magnetic network. Exploiting <i>Kirchhoff</i>'s generalized current law, the leakage reluctance is calculated by means of a coupling coefficient c_usefulFlux.
+that are calculated from their geometry, this leakage reluctance is calculated with reference to the total reluctance of a useful flux path. Please refer to the <strong>Parameters</strong> section for an illustration of the resulting magnetic network. Exploiting <em>Kirchhoff</em>'s generalized current law, the leakage reluctance is calculated by means of a coupling coefficient c_usefulFlux.
 </p>
 
 <h4>Attention:</h4>
 
 <p>
-This element must <b>not</b> be used <b>for dynamic simulation of</b> electro-magneto-mechanical <b>actuators</b>, where the shape of at least one flux tube element with reluctance force generation in the useful flux path changes with armature motion (e.g., air gap). This change results in a non-zero derivative dG_m/dx of those elements permeance G_m with respect to armature position x, which in turn will lead to a non-zero derivative of the leakage permeance with respect to armature position. This would generate a reluctance force in the leakage element that is not accounted for properly. <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.Force.LeakageAroundPoles\">Shapes.Force.LeakageAroundPoles</a> provides a simple leakage reluctance with force generation.
+This element must <strong>not</strong> be used <strong>for dynamic simulation of</strong> electro-magneto-mechanical <strong>actuators</strong>, where the shape of at least one flux tube element with reluctance force generation in the useful flux path changes with armature motion (e.g., air gap). This change results in a non-zero derivative dG_m/dx of those elements permeance G_m with respect to armature position x, which in turn will lead to a non-zero derivative of the leakage permeance with respect to armature position. This would generate a reluctance force in the leakage element that is not accounted for properly. <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.Force.LeakageAroundPoles\">Shapes.Force.LeakageAroundPoles</a> provides a simple leakage reluctance with force generation.
 </p>
 </html>"));
     end LeakageWithCoefficient;
@@ -5695,7 +5695,7 @@ All dimensions are defined as parameters. As a result, the shape of these elemen
         annotation (defaultComponentName="Core", Documentation(info="<html>
 <p>Flux tube element for modeling soft magnetic materials with ferromagnetic and dynamic hysteresis (eddy currents). The ferromagnetic hysteresis behavior is defined by the <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Hysteresis.StaticHysteresis.Tellinen\">Tellinen hysteresis model</a>. The shape of the limiting hysteresis loop (see Fig. 1) is described by simple hyperbolic tangent functions with 4 parameters. Therefore, the hysteresis shape variety is limited but the parameterization of the model is very simple and the model is relatively fast and robust. The rising (hyst<sub>R</sub>) and falling (hyst<sub>F</sub>) branches of the limiting hysteresis loop are defined by the following equations.</p>
 <table cellspacing=\"2\" cellpadding=\"0\" border=\"0\"><tr>
-<td><p><img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Shapes/HysteresisAndMagnets/GenericHystTellinenSoft/Eqn_ShapeFunctionsTellinen.png\"/> </p><p><br><b>Fig. 1:</b> Hyperbolic tangent functions define the shape of the ferromagnetic (static) hysteresis </p><p><img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Shapes/HysteresisAndMagnets/GenericHystTellinenSoft/SoftMagneticHysteresis1.png\"/> </p>
+<td><p><img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Shapes/HysteresisAndMagnets/GenericHystTellinenSoft/Eqn_ShapeFunctionsTellinen.png\"/> </p><p><br><strong>Fig. 1:</strong> Hyperbolic tangent functions define the shape of the ferromagnetic (static) hysteresis </p><p><img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Shapes/HysteresisAndMagnets/GenericHystTellinenSoft/SoftMagneticHysteresis1.png\"/> </p>
 <p><br>An overview over of available hysteresis and permanent magnet elements of the package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets\">HysteresisAndMagnets</a> can be found in <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Hysteresis\">UsersGuide.Hysteresis</a>. </p>
 </td>
 </tr>
@@ -5769,7 +5769,7 @@ All dimensions are defined as parameters. As a result, the shape of these elemen
 </p>
 
 <table cellspacing=\"0\" cellpadding=\"2\" border=\"0\">
-  <caption align=\"bottom\"><b>Fig. 1:</b> Hyperbolic tangent functions define the shape of the ferromagnetic (static) hysteresis</caption>
+  <caption align=\"bottom\"><strong>Fig. 1:</strong> Hyperbolic tangent functions define the shape of the ferromagnetic (static) hysteresis</caption>
   <tr>
     <td>
       <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Shapes/HysteresisAndMagnets/GenericHystTellinenHard/HardMagneticHysteresis.png\">
@@ -6481,7 +6481,7 @@ Please refer to the description of  the enclosing package <a href=\"modelica://M
 Please refer to the description of  the enclosing package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Material.SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package.
 </p>
 <p>
-Source of B(H) characteristics: Product catalogue <i>Magnequench</i>, 2000
+Source of B(H) characteristics: Product catalogue <em>Magnequench</em>, 2000
 </p>
 </html>"));
         end RFe80;
@@ -6499,7 +6499,7 @@ Please refer to the description of  the enclosing package <a href=\"modelica://M
 </p>
 <dl>
 <dt>Source of B(H) characteristics:</dt>
-    <dd><p><i>Boll, R.</i>: Weichmagnetische Werkstoffe: Einf&uuml;hrung in den Magnetismus, VAC-Werkstoffe und ihre Anwendungen. 4th ed. Berlin, M&uuml;nchen: Siemens Aktiengesellschaft 1990</p>
+    <dd><p><em>Boll, R.</em>: Weichmagnetische Werkstoffe: Einf&uuml;hrung in den Magnetismus, VAC-Werkstoffe und ihre Anwendungen. 4th ed. Berlin, M&uuml;nchen: Siemens Aktiengesellschaft 1990</p>
     </dd>
 </dl>
 </html>"));
@@ -6545,7 +6545,7 @@ Please refer to the description of  the enclosing package <a href=\"modelica://M
 Source of B(H) characteristics:
 </p>
 <ul>
-<li><i>Boll, R.</i>: Weichmagnetische Werkstoffe: Einf&uuml;hrung in den Magnetismus, VAC-Werkstoffe und ihre Anwendungen. 4th ed. Berlin, M&uuml;nchen: Siemens Aktiengesellschaft 1990</li>
+<li><em>Boll, R.</em>: Weichmagnetische Werkstoffe: Einf&uuml;hrung in den Magnetismus, VAC-Werkstoffe und ihre Anwendungen. 4th ed. Berlin, M&uuml;nchen: Siemens Aktiengesellschaft 1990</li>
 </ul>
 </html>"));
         end MuMetall;
@@ -6565,7 +6565,7 @@ Please refer to the description of  the enclosing package <a href=\"modelica://M
 Source of B(H) characteristics:
 </p>
 <ul>
-<li><i>Boll, R.</i>: Weichmagnetische Werkstoffe: Einf&uuml;hrung in den Magnetismus, VAC-Werkstoffe und ihre Anwendungen. 4th ed. Berlin, M&uuml;nchen: Siemens Aktiengesellschaft 1990</li>
+<li><em>Boll, R.</em>: Weichmagnetische Werkstoffe: Einf&uuml;hrung in den Magnetismus, VAC-Werkstoffe und ihre Anwendungen. 4th ed. Berlin, M&uuml;nchen: Siemens Aktiengesellschaft 1990</li>
 </ul>
 </html>"));
         end Permenorm3601K3;
@@ -7590,7 +7590,7 @@ Fig. 1 and Fig. 2 show library entries based on own measurements of several stee
 </p>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
-<caption align=\"bottom\"><b>Fig. 1:</b> Static hysteresis envelope curves of several steel sheets</caption>
+<caption align=\"bottom\"><strong>Fig. 1:</strong> Static hysteresis envelope curves of several steel sheets</caption>
   <tr>
     <td>
       <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Material/HysteresisTableData/StaticLoops01.png\">
@@ -7599,7 +7599,7 @@ Fig. 1 and Fig. 2 show library entries based on own measurements of several stee
 </table>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
-<caption align=\"bottom\"><b>Fig. 2:</b> Static hysteresis envelope curves of several steel sheets</caption>
+<caption align=\"bottom\"><strong>Fig. 2:</strong> Static hysteresis envelope curves of several steel sheets</caption>
   <tr>
     <td>
       <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Material/HysteresisTableData/StaticLoops02.png\">
@@ -7612,7 +7612,7 @@ Fig. 3 shows the static hysteresis loop library entries for soft magnetic cobalt
 </p>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
-<caption align=\"bottom\"><b>Fig. 3:</b> Soft magnetic cobalt iron library entries <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Literature\">[Va01]</a></caption>
+<caption align=\"bottom\"><strong>Fig. 3:</strong> Soft magnetic cobalt iron library entries <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Literature\">[Va01]</a></caption>
   <tr>
     <td>
       <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Material/HysteresisTableData/StaticLoops03.png\">
@@ -7935,7 +7935,7 @@ Please refer to the description of  the sub-package <a href=\"modelica://Modelic
 
       annotation (Documentation(revisions="<html>
 <ul>
-<li><i> February 17, 2009   </i>
+<li><em> February 17, 2009   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -7944,16 +7944,16 @@ Please refer to the description of  the sub-package <a href=\"modelica://Modelic
 This partial model provides a conditional heating port for the connection to a thermal network.
 </p>
 <ul>
-<li> If <b>useHeatPort</b> is set to <b>false</b> (default), no heat port is available, and the thermal
-     loss power flows internally to the ground. In this case, the parameter <b>T</b> specifies
+<li> If <strong>useHeatPort</strong> is set to <strong>false</strong> (default), no heat port is available, and the thermal
+     loss power flows internally to the ground. In this case, the parameter <strong>T</strong> specifies
      the fixed device temperature (the default for T = 20<sup>o</sup>C).</li>
-<li> If <b>useHeatPort</b> is set to <b>true</b>, a heat port is available.</li>
+<li> If <strong>useHeatPort</strong> is set to <strong>true</strong>, a heat port is available.</li>
 </ul>
 
 <p>
 If this model is used, the loss power has to be provided by an equation in the model which inherits from
-ConditionalHeatingPort model (<b>lossPower = ...</b>). As device temperature
-<b>T_heatPort</b> can be used to describe the influence of the device temperature
+ConditionalHeatingPort model (<strong>lossPower = ...</strong>). As device temperature
+<strong>T_heatPort</strong> can be used to describe the influence of the device temperature
 on the model behaviour.
 </p>
 </html>"));
@@ -8072,7 +8072,7 @@ der(b) = dhF/diffHyst * der(hystF);
 <td><p><img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/StaticHysteresis/Tellinen/TellinenDesc1.png\"/> </p></td>
 </tr>
 </table>
-<b>Fig. 1:</b> Description of the Tellinen hysteresis model.
+<strong>Fig. 1:</strong> Description of the Tellinen hysteresis model.
 </html>"));
     end PartialGenericHysteresisTellinen;
     annotation (Documentation(info="<html>
@@ -8130,7 +8130,7 @@ Magnetic circuits under steady-state conditions, i.e., with stationary magnetic 
 </p>
 <ul>
 <li>coils with stationary current (di / dt = 0) and </li>
-<li>permanent magnets modelled with <i>Th&eacute;venin</i>'s equivalent magnetic circuit. </li>
+<li>permanent magnets modelled with <em>Th&eacute;venin</em>'s equivalent magnetic circuit. </li>
 </ul>
 <p>
 For modelling of reluctance actuators with this source component it is assumed that the armature is fixed so that no motion-induced flux change d&Phi;/dt can occur.
@@ -8182,7 +8182,7 @@ For modelling of reluctance actuators with this source component it is assumed t
           Line(points={{-50,0},{50,0}}, color={255,127,0})}),
         Documentation(info="<html>
 <p>
-In electromagnetic devices, a change of a coil's magnetic flux linkage &Psi; reacts on the electrical subsystem in that a voltage v is induced due to <i>Faraday</i>'s law:
+In electromagnetic devices, a change of a coil's magnetic flux linkage &Psi; reacts on the electrical subsystem in that a voltage v is induced due to <em>Faraday</em>'s law:
 </p>
 <pre>
     v = - d&Psi;/dt
@@ -8239,7 +8239,7 @@ In these cases, the magnetic potential difference or magnetomotive force imposed
               Line(points={{115,0},{125,0}}, color={160,160,164})}),
         Documentation(info="<html>
 <p>
-Sources of a constant magnetic flux are useful for modelling of permanent magnets with <i>Norton</i>'s magnetic equivalent circuit.
+Sources of a constant magnetic flux are useful for modelling of permanent magnets with <em>Norton</em>'s magnetic equivalent circuit.
 </p>
 </html>"));
     end ConstantMagneticFlux;
@@ -8443,10 +8443,10 @@ For analysis of magnetic networks, only magnetic potential differences and magne
   end Utilities;
   annotation (Documentation(info="<html>
 <p>
-This library contains components for modelling of electromagnetic devices with lumped magnetic networks. Those models are suited for both rough design of the magnetic subsystem of a device as well as for efficient dynamic simulation at system level together with neighbouring subsystems. At present, components and examples for modelling of <i>translatory</i> electromagnetic and electrodynamic actuators are provided. If needed, these components can be adapted to network modelling of <i>rotational</i> electrical machines.
+This library contains components for modelling of electromagnetic devices with lumped magnetic networks. Those models are suited for both rough design of the magnetic subsystem of a device as well as for efficient dynamic simulation at system level together with neighbouring subsystems. At present, components and examples for modelling of <em>translatory</em> electromagnetic and electrodynamic actuators are provided. If needed, these components can be adapted to network modelling of <em>rotational</em> electrical machines.
 </p>
 <p>
-<a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide\">User's Guide</a> gives a short introduction to the underlying concept of <b>magnetic flux tubes</b>, summarizes the calculation of magnetic <b>reluctance forces</b> from lumped magnetic network models and lists <b>reference literature</b>.
+<a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide\">User's Guide</a> gives a short introduction to the underlying concept of <strong>magnetic flux tubes</strong>, summarizes the calculation of magnetic <strong>reluctance forces</strong> from lumped magnetic network models and lists <strong>reference literature</strong>.
 </p>
 <p>
 <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples\">Examples</a> illustrates the usage of magnetic network models with simple models from different fields of application.
@@ -8456,7 +8456,7 @@ This library contains components for modelling of electromagnetic devices with l
 Copyright &copy; 2005-2016, Modelica Association and Thomas B&ouml;drich.
 </p>
 <p>
-<i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
+<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</em>
 </p>
 </html>", revisions="<html>
 <p>

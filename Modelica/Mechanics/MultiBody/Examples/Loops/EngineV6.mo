@@ -163,8 +163,8 @@ An animation of the engine is shown in the figure below.
 </p>
 
 <p>
-Simulate for 3 s with about 50000 output intervals, and plot the variables <b>engineSpeed_rpm</b>,
-<b>engineTorque</b>, and <b>filteredEngineTorque</b>. Note, the result file has
+Simulate for 3 s with about 50000 output intervals, and plot the variables <strong>engineSpeed_rpm</strong>,
+<strong>engineTorque</strong>, and <strong>filteredEngineTorque</strong>. Note, the result file has
 a size of about 300 Mbyte in this case. The default setting of StopTime = 1.01 s (with the default setting of the tool for the number of output points), in order that (automatic) regression testing does not have to cope with a large result file.
 </p>
 </html>"), experiment(StopTime=1.01), Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-140,-100},{140,

@@ -68,7 +68,7 @@ end setEnvironmentVariable;
 Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-(ms, sec, min, hour, day, mon, year) = System.<b>getTime</b>();
+(ms, sec, min, hour, day, mon, year) = System.<strong>getTime</strong>();
 </pre></blockquote>
 <h4>Description</h4>
 <p>
@@ -141,7 +141,7 @@ All returned values are of type Integer and have the following meaning:
 Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-pid = System.<b>getPid</b>();
+pid = System.<strong>getPid</strong>();
 </pre></blockquote>
 <h4>Description</h4>
 <p>

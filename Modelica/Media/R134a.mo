@@ -308,7 +308,7 @@ Example:
 
      Medium.Density rho;
 
-     <b>equation</b>
+     <strong>equation</strong>
 
      rho = Medium.density(setState_phX(p, h, fill(0, Medium.nX)));
 </pre>
@@ -357,7 +357,7 @@ Example:
 
      Medium.SpecficEntropy s;
 
-     <b>equation</b>
+     <strong>equation</strong>
 
      s = Medium.specificEntropy(setState_dTX(d, T, fill(0, Medium.nX)));
 </pre>
@@ -406,7 +406,7 @@ Example:
 
      Medium.SpecficEnthalpy h;
 
-     <b>equation</b>
+     <strong>equation</strong>
 
      h = Medium.specificEnthalpy(setState_psX(p, s, fill(0, Medium.nX)));
 </pre>
@@ -440,7 +440,7 @@ Example:
 
      Medium.Density rho;
 
-     <b>equation</b>
+     <strong>equation</strong>
 
      rho = Medium.density(setState_pTX(p, T, fill(0, Medium.nX)));
 </pre>
@@ -1354,7 +1354,7 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
         f.delta*f.fdelta + f.delta*f.delta*f.fdeltadelta));
 
       annotation (Documentation(info="<html>
-<p> This function calculates the specific heat capacity of R134a at <b>constant pressure</b> from the state record (e.g., use setState_phX function for input). The specific heat capacity is modelled by the fundamental equation of state of Tillner-Roth and Baehr (1994). </p>
+<p> This function calculates the specific heat capacity of R134a at <strong>constant pressure</strong> from the state record (e.g., use setState_phX function for input). The specific heat capacity is modelled by the fundamental equation of state of Tillner-Roth and Baehr (1994). </p>
 <h4> Restrictions</h4>
 <p>This property is only defined in one-phase region.
 </p>
@@ -1393,7 +1393,7 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
       end if;
 
       annotation (Documentation(info="<html>
-<p> This function calculates the specific heat capacity of R134a at <b>constant volume</b> from the state record (e.g., use setState_phX function for input). The specific heat capacity is modelled by the fundamental equation of state of Tillner-Roth and Baehr (1994). </p>
+<p> This function calculates the specific heat capacity of R134a at <strong>constant volume</strong> from the state record (e.g., use setState_phX function for input). The specific heat capacity is modelled by the fundamental equation of state of Tillner-Roth and Baehr (1994). </p>
 <p>
 Please note, that the function can also be called in the two-phase region, but the output is not continuous for a phase transition (see Tillner-Roth and Baehr, 1994). Values in two-phase region are considerably higher than in one-phase domain. The following figure just shows one-phase properties.
 </p>
@@ -1457,7 +1457,7 @@ Please note, that the function can also be called in the two-phase region, but t
 </p>
 <h4>References</h4>
 <dl><dt>Klein, McLinden and Laesecke: </dt>
-<dd><b>An improved extended corresponding states method for estimation of viscosity of pure refrigerants and mixtures</b>.
+<dd><strong>An improved extended corresponding states method for estimation of viscosity of pure refrigerants and mixtures</strong>.
 Int. J. Refrig., Vol. 20, No.3, pp. 208-217, 1997.</dd>
 </dl>
 <p><img src=\"modelica://Modelica/Resources/Images/Media/R134a/log(p)eta-Diagram-R134a.png\"/> </p>
@@ -1542,8 +1542,8 @@ Int. J. Refrig., Vol. 20, No.3, pp. 208-217, 1997.</dd>
 </p>
 <h4>References</h4>
 <dl><dt>McLinden, Klein. and Perkins: </dt>
-<dd><b>An extended corresponding states model for the thermal conductivity
-of refrigerants and refrigerant mixtures</b>.
+<dd><strong>An extended corresponding states model for the thermal conductivity
+of refrigerants and refrigerant mixtures</strong>.
 Int. J. Refrig., 23 (2000) 43-63.</dd>
 </dl>
 <p><img src=\"modelica://Modelica/Resources/Images/Media/R134a/log(p)lambda-Diagram-R134a.png\"/> </p>
@@ -1577,7 +1577,7 @@ Int. J. Refrig., 23 (2000) 43-63.</dd>
 </p>
 <h4>References</h4>
 <dl><dt>Okada and Higashi: </dt>
-<dd><b>Surface tension correlation of HFC-134a and HCFC-123</b>.
+<dd><strong>Surface tension correlation of HFC-134a and HCFC-123</strong>.
 Proceedings of the Joint Meeting of IIR Commissions B1, B2, E1, and E2, Padua, Italy, pp. 541-548, 1994.</dd>
 </dl>
 <p><img src=\"modelica://Modelica/Resources/Images/Media/R134a/Tsigma-Diagram-R134a.png\"/> </p>
@@ -2598,32 +2598,32 @@ The functions provided by this package shall be used inside of the restricted li
 </p>
 <ul>
  <li>
-      <b> 0.0039 bar &le; p &le; 700 bar </b>
+      <strong> 0.0039 bar &le; p &le; 700 bar </strong>
  </li>
  <li>
-      <b> 169.85 Kelvin &le; T &le; 455 Kelvin  </b>
+      <strong> 169.85 Kelvin &le; T &le; 455 Kelvin  </strong>
  </li>
  <li>
-      <b> explicit for pressure and specific enthalpy </b>
+      <strong> explicit for pressure and specific enthalpy </strong>
  </li>
 </ul>
 
-<p><b>References</b> </p>
+<p><strong>References</strong> </p>
 <dl><dt>Baehr, H.D. and Tillner-Roth, R.: </dt>
-<dd><b>Thermodynamic Properties of Environmentally Acceptable Refrigerants -
-Equations of State and Tables for Ammonia, R22, R134a, R152a, and R123</b>. Springer-Verlag, Berlin (Germany), 1994.</dd>
+<dd><strong>Thermodynamic Properties of Environmentally Acceptable Refrigerants -
+Equations of State and Tables for Ammonia, R22, R134a, R152a, and R123</strong>. Springer-Verlag, Berlin (Germany), 1994.</dd>
 </dl>
 <dl><dt>Klein, McLinden and Laesecke: </dt>
-<dd><b>An improved extended corresponding states method for estimation of viscosity of pure refrigerants and mixtures</b>.
+<dd><strong>An improved extended corresponding states method for estimation of viscosity of pure refrigerants and mixtures</strong>.
 Int. J. Refrig., Vol. 20, No.3, pp. 208-217, 1997.</dd>
 </dl>
 <dl><dt>McLinden, Klein. and Perkins: </dt>
-<dd><b>An extended corresponding states model for the thermal conductivity
-of refrigerants and refrigerant mixtures</b>.
+<dd><strong>An extended corresponding states model for the thermal conductivity
+of refrigerants and refrigerant mixtures</strong>.
 Int. J. Refrig., 23 (2000) 43-63.</dd>
 </dl>
 <dl><dt>Okada and Higashi: </dt>
-<dd><b>Surface tension correlation of HFC-134a and HCFC-123</b>.
+<dd><strong>Surface tension correlation of HFC-134a and HCFC-123</strong>.
 Proceedings of the Joint Meeting of IIR Commissions B1, B2, E1, and E2, Padua, Italy, pp. 541-548, 1994.</dd>
 </dl>
 </html>"));
@@ -9379,32 +9379,32 @@ The functions provided by this package shall be used inside of the restricted li
 </p>
 <ul>
  <li>
-      <b> 0.0039 bar &le; p &le; 700 bar </b>
+      <strong> 0.0039 bar &le; p &le; 700 bar </strong>
  </li>
  <li>
-      <b> 169.85 Kelvin &le; T &le; 455 Kelvin  </b>
+      <strong> 169.85 Kelvin &le; T &le; 455 Kelvin  </strong>
  </li>
  <li>
-      <b> explicit for pressure and specific enthalpy </b>
+      <strong> explicit for pressure and specific enthalpy </strong>
  </li>
 </ul>
 
-<p><b>References</b> </p>
+<p><strong>References</strong> </p>
 <dl><dt>Baehr, H.D. and Tillner-Roth, R.: </dt>
-<dd><b>Thermodynamic Properties of Environmentally Acceptable Refrigerants -
-Equations of State and Tables for Ammonia, R22, R134a, R152a, and R123</b>. Springer-Verlag, Berlin (Germany), 1994.</dd>
+<dd><strong>Thermodynamic Properties of Environmentally Acceptable Refrigerants -
+Equations of State and Tables for Ammonia, R22, R134a, R152a, and R123</strong>. Springer-Verlag, Berlin (Germany), 1994.</dd>
 </dl>
 <dl><dt>Klein, McLinden and Laesecke: </dt>
-<dd><b>An improved extended corresponding states method for estimation of viscosity of pure refrigerants and mixtures</b>.
+<dd><strong>An improved extended corresponding states method for estimation of viscosity of pure refrigerants and mixtures</strong>.
 Int. J. Refrig., Vol. 20, No.3, pp. 208-217, 1997.</dd>
 </dl>
 <dl><dt>McLinden, Klein. and Perkins: </dt>
-<dd><b>An extended corresponding states model for the thermal conductivity
-of refrigerants and refrigerant mixtures</b>.
+<dd><strong>An extended corresponding states model for the thermal conductivity
+of refrigerants and refrigerant mixtures</strong>.
 Int. J. Refrig., 23 (2000) 43-63.</dd>
 </dl>
 <dl><dt>Okada and Higashi: </dt>
-<dd><b>Surface tension correlation of HFC-134a and HCFC-123</b>.
+<dd><strong>Surface tension correlation of HFC-134a and HCFC-123</strong>.
 Proceedings of the Joint Meeting of IIR Commissions B1, B2, E1, and E2, Padua, Italy, pp. 541-548, 1994.</dd>
 </dl>
 

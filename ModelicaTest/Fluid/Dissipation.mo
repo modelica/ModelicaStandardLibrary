@@ -6810,11 +6810,11 @@ extends Modelica.Icons.ExamplesPackage;
         annotation (
           Documentation(info="<html>
 <p>
-Switch to the diagram or equation layer to see the model of a <b> Modelica.Fluid bend </b> using <b> Fluid.Dissipation pressure loss calculations </b>.
+Switch to the diagram or equation layer to see the model of a <strong> Modelica.Fluid bend </strong> using <strong> Fluid.Dissipation pressure loss calculations </strong>.
 </p>
 
 <p>
-This model executes pressure loss calculations out of the <b> Fluid.Dissipation </b> library for a bend of an incompressible and single-phase fluid flow considering surface roughness. Both the <b> compressible </b> case, where the mass flow rate (M_FLOW) is calculated in dependence of a known pressure loss (dp) and the <b> incompressible </b> case, where the pressure loss (DP) is calculated in dependence of a known mass flow rate (m_flow) are modelled.
+This model executes pressure loss calculations out of the <strong> Fluid.Dissipation </strong> library for a bend of an incompressible and single-phase fluid flow considering surface roughness. Both the <strong> compressible </strong> case, where the mass flow rate (M_FLOW) is calculated in dependence of a known pressure loss (dp) and the <strong> incompressible </strong> case, where the pressure loss (DP) is calculated in dependence of a known mass flow rate (m_flow) are modelled.
 </p>
 </html>"),       experiment(StopTime=1.01, Interval=2e-4),
           Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
@@ -6922,11 +6922,11 @@ This model executes pressure loss calculations out of the <b> Fluid.Dissipation 
         annotation (
           Documentation(info="<html>
 <p>
-Switch to the diagram or equation layer to see the model of a <b> Modelica.Fluid bend </b> using <b> Fluid.Dissipation pressure loss calculations </b>.
+Switch to the diagram or equation layer to see the model of a <strong> Modelica.Fluid bend </strong> using <strong> Fluid.Dissipation pressure loss calculations </strong>.
 </p>
 
 <p>
-This model executes pressure loss calculations out of the <b> Fluid.Dissipation </b> library for a bend of an incompressible and single-phase fluid flow considering surface roughness. Both the <b> compressible </b> case, where the mass flow rate (M_FLOW) is calculated in dependence of a known pressure loss (dp) and the <b> incompressible </b> case, where the pressure loss (DP) is calculated in dependence of a known mass flow rate (m_flow) are modelled.
+This model executes pressure loss calculations out of the <strong> Fluid.Dissipation </strong> library for a bend of an incompressible and single-phase fluid flow considering surface roughness. Both the <strong> compressible </strong> case, where the mass flow rate (M_FLOW) is calculated in dependence of a known pressure loss (dp) and the <strong> incompressible </strong> case, where the pressure loss (DP) is calculated in dependence of a known mass flow rate (m_flow) are modelled.
 </p>
 </html>"),       experiment(StopTime=1.01, Interval=2e-4),
           Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
@@ -7194,11 +7194,11 @@ This model executes pressure loss calculations out of the <b> Fluid.Dissipation 
         annotation (
           Documentation(info="<html>
 <p>
-Switch to the diagram or equation layer to see the model of a <b> Modelica.Fluid bend </b> using <b> Fluid.Dissipation pressure loss calculations </b>.
+Switch to the diagram or equation layer to see the model of a <strong> Modelica.Fluid bend </strong> using <strong> Fluid.Dissipation pressure loss calculations </strong>.
 </p>
 
 <p>
-This model executes pressure loss calculations out of the <b> Fluid.Dissipation </b> library for a bend of an incompressible and single-phase fluid flow considering surface roughness. Both the <b> compressible </b> case, where the mass flow rate (M_FLOW) is calculated in dependence of a known pressure loss (dp) and the <b> incompressible </b> case, where the pressure loss (DP) is calculated in dependence of a known mass flow rate (m_flow) are modelled.
+This model executes pressure loss calculations out of the <strong> Fluid.Dissipation </strong> library for a bend of an incompressible and single-phase fluid flow considering surface roughness. Both the <strong> compressible </strong> case, where the mass flow rate (M_FLOW) is calculated in dependence of a known pressure loss (dp) and the <strong> incompressible </strong> case, where the pressure loss (DP) is calculated in dependence of a known mass flow rate (m_flow) are modelled.
 </p>
 </html>"),       experiment(StopTime=1.01, Interval=2e-4),
           Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-200,-200},{200,

@@ -171,7 +171,7 @@ The two frames coincide when the relative distance \"s = 0\".
 Optionally, two additional 1-dimensional mechanical flanges
 (flange \"axis\" represents the driving flange and
 flange \"support\" represents the bearing) can be enabled via
-parameter <b>useAxisFlange</b>. The enabled axis flange can be
+parameter <strong>useAxisFlange</strong>. The enabled axis flange can be
 driven with elements of the
 <a href=\"modelica://Modelica.Mechanics.Translational\">Modelica.Mechanics.Translational</a>
 library.
@@ -179,7 +179,7 @@ library.
 </p>
 
 <p>
-In the \"Advanced\" menu it can be defined via parameter <b>stateSelect</b>
+In the \"Advanced\" menu it can be defined via parameter <strong>stateSelect</strong>
 that the relative distance \"s\" and its derivative shall be definitely
 used as states by setting stateSelect=StateSelect.always.
 Default is StateSelect.prefer to use the relative distance and its
@@ -426,7 +426,7 @@ The two frames coincide when the rotation angle \"phi = 0\".
 Optionally, two additional 1-dimensional mechanical flanges
 (flange \"axis\" represents the driving flange and
 flange \"support\" represents the bearing) can be enabled via
-parameter <b>useAxisFlange</b>. The enabled axis flange can be
+parameter <strong>useAxisFlange</strong>. The enabled axis flange can be
 driven with elements of the
 <a href=\"modelica://Modelica.Mechanics.Rotational\">Modelica.Mechanics.Rotational</a>
 library.
@@ -434,7 +434,7 @@ library.
 </p>
 
 <p>
-In the \"Advanced\" menu it can be defined via parameter <b>stateSelect</b>
+In the \"Advanced\" menu it can be defined via parameter <strong>stateSelect</strong>
 that the rotation angle \"phi\" and its derivative shall be definitely
 used as states by setting stateSelect=StateSelect.always.
 Default is StateSelect.prefer to use the joint angle and its
@@ -443,7 +443,7 @@ In certain situations, especially when closed kinematic loops are present,
 it might be slightly more efficient, when using the StateSelect.always setting.
 </p>
 <p>
-If a <b>planar loop</b> is present, e.g., consisting of 4 revolute joints
+If a <strong>planar loop</strong> is present, e.g., consisting of 4 revolute joints
 where the joint axes are all parallel to each other, then there is no
 longer a unique mathematical solution and the symbolic algorithms will
 fail. Usually, an error message will be printed pointing out this
@@ -650,14 +650,14 @@ on position level.
 </p>
 
 <p>
-If a <b>planar loop</b> is present, e.g., consisting of 4 revolute joints
+If a <strong>planar loop</strong> is present, e.g., consisting of 4 revolute joints
 where the joint axes are all parallel to each other, then there is no
 unique mathematical solution if all revolute joints are modelled with
 Joints.Revolute and the symbolic algorithms will
 fail. The reason is that, e.g., the cut-forces in the revolute joints perpendicular
 to the planar loop are not uniquely defined when 3-dim. descriptions of revolute
 joints are used. Usually, an error message will be printed pointing out this
-situation. In this case, <b>one</b> revolute joint in the loop has to be replaced by
+situation. In this case, <strong>one</strong> revolute joint in the loop has to be replaced by
 model Joints.RevolutePlanarLoopCutJoint. The
 effect is that from the 5 constraints of a 3-dim. revolute joint,
 3 constraints are removed and replaced by appropriate known
@@ -764,8 +764,8 @@ has the following potential states;
 </ul>
 <p>
 They are used as candidates for automatic selection of states
-from the tool. This may be enforced by setting \"stateSelect=StateSelect.<b>always</b>\"
-in the <b>Advanced</b> menu. The states are usually selected automatically.
+from the tool. This may be enforced by setting \"stateSelect=StateSelect.<strong>always</strong>\"
+in the <strong>Advanced</strong> menu. The states are usually selected automatically.
 In certain situations, especially when closed kinematic loops are present,
 it might be slightly more efficient, when using the \"StateSelect.always\" setting.
 </p>
@@ -909,8 +909,8 @@ has the following potential states;
 </ul>
 <p>
 They are used as candidates for automatic selection of states
-from the tool. This may be enforced by setting \"stateSelect=StateSelect.<b>always</b>\"
-in the <b>Advanced</b> menu. The states are usually selected automatically.
+from the tool. This may be enforced by setting \"stateSelect=StateSelect.<strong>always</strong>\"
+in the <strong>Advanced</strong> menu. The states are usually selected automatically.
 In certain situations, especially when closed kinematic loops are present,
 it might be slightly more efficient, when using the \"StateSelect.always\" setting.
 </p>
@@ -1141,8 +1141,8 @@ potential states:
 </ul>
 <p>
 They are used as candidates for automatic selection of states
-from the tool. This may be enforced by setting \"stateSelect=StateSelect.<b>always</b>\"
-in the <b>Advanced</b> menu. The states are usually selected automatically.
+from the tool. This may be enforced by setting \"stateSelect=StateSelect.<strong>always</strong>\"
+in the <strong>Advanced</strong> menu. The states are usually selected automatically.
 In certain situations, especially when closed kinematic loops are present,
 it might be slightly more efficient, when using the \"StateSelect.always\" setting.
 </p>
@@ -1380,12 +1380,12 @@ s_y.start = 0.5, phi.start = 45<sup>o</sup>).
     annotation (
       Documentation(info="<html>
 <p>
-Joint with <b>3 constraints</b> that define that the origin of
+Joint with <strong>3 constraints</strong> that define that the origin of
 frame_a and the origin of frame_b coincide. By default this joint
 defines only the 3 constraints without any potential states.
-If parameter <b>enforceStates</b> is set to <b>true</b>
+If parameter <strong>enforceStates</strong> is set to <strong>true</strong>
 in the \"Advanced\" menu, three states are introduced.
-Depending on parameter <b>useQuaternions</b> these are either
+Depending on parameter <strong>useQuaternions</strong> these are either
 quaternions and the relative angular velocity or 3 angles
 and the angle derivatives. In the latter case the orientation
 of frame_b is computed by rotating frame_a along the axes defined
@@ -1398,15 +1398,15 @@ as states there is the slight disadvantage that
 a singular configuration is present leading to a division by zero.
 </p>
 <p>
-If this joint is used in a <b>chain</b> structure, a Modelica translator
+If this joint is used in a <strong>chain</strong> structure, a Modelica translator
 has to select orientation coordinates of a body as states, if the
 default setting is used. It is usually better to use relative coordinates
 in the spherical joint as states, and therefore in this situation
-parameter enforceStates might be set to <b>true</b>.
+parameter enforceStates might be set to <strong>true</strong>.
 </p>
 <p>
-If this joint is used in a <b>loop</b> structure, the default
-setting results in a <b>cut-joint</b> that
+If this joint is used in a <strong>loop</strong> structure, the default
+setting results in a <strong>cut-joint</strong> that
 breaks the loop in independent kinematic pieces, hold together
 by the constraints of this joint. As a result, a Modelica translator
 will first try to select 3 generalized coordinates in the joints of
@@ -1691,15 +1691,15 @@ frame_b of the joint.
       Documentation(info="<html>
 <p>
 Joint which does not constrain the motion between frame_a and frame_b.
-Such a joint is only meaningful if the <b>relative</b> distance and orientation
+Such a joint is only meaningful if the <strong>relative</strong> distance and orientation
 between frame_a and frame_b, and their derivatives, shall be used
-as <b>states</b>.
+as <strong>states</strong>.
 </p>
 <p>
-Note, that <b>bodies</b> such as Parts.Body, Parts.BodyShape,
+Note, that <strong>bodies</strong> such as Parts.Body, Parts.BodyShape,
 have potential states describing the distance
-and orientation, and their derivatives, between the <b>world frame</b> and
-a <b>body fixed frame</b>.
+and orientation, and their derivatives, between the <strong>world frame</strong> and
+a <strong>body fixed frame</strong>.
 Therefore, if these potential state variables are suited,
 a FreeMotion joint is not needed.
 </p>
@@ -1707,18 +1707,18 @@ a FreeMotion joint is not needed.
 The states of the FreeMotion object are:
 </p>
 <ul>
-<li> The <b>relative position vector</b> r_rel_a from the origin of
+<li> The <strong>relative position vector</strong> r_rel_a from the origin of
      frame_a to the origin of frame_b, resolved in
-     frame_a and the <b>relative velocity</b> v_rel_a of the origin of
+     frame_a and the <strong>relative velocity</strong> v_rel_a of the origin of
      frame_b with respect to the origin of frame_a, resolved in frame_a
      (= der(r_rel_a)).
 </li>
-<li> If parameter <b>useQuaternions</b> in the \"Advanced\" menu
-     is <b>true</b> (this is the default), then <b>4 quaternions</b>
+<li> If parameter <strong>useQuaternions</strong> in the \"Advanced\" menu
+     is <strong>true</strong> (this is the default), then <strong>4 quaternions</strong>
      are states. Additionally, the coordinates of the
      relative angular velocity vector are 3 potential states.<br>
-     If <b>useQuaternions</b> in the \"Advanced\" menu
-     is <b>false</b>, then <b>3 angles</b> and the derivatives of
+     If <strong>useQuaternions</strong> in the \"Advanced\" menu
+     is <strong>false</strong>, then <strong>3 angles</strong> and the derivatives of
      these angles are potential states. The orientation of frame_b
      is computed by rotating frame_a along the axes defined
      in parameter vector \"sequence_angleStates\" (default = {1,2,3}, i.e.,
@@ -1738,7 +1738,7 @@ disadvantage that there is a singular configuration in which a
 division by zero will occur. If it is possible to determine in advance
 for an application class that this singular configuration is outside
 of the operating region, the 3 angles might be used as
-states by setting <b>useQuaternions</b> = <b>false</b>.
+states by setting <strong>useQuaternions</strong> = <strong>false</strong>.
 </p>
 <p>
 In text books about 3-dimensional mechanics often 3 angles and the
@@ -1754,7 +1754,7 @@ velocity.
 </p>
 <p>
 If parameter
-<b>enforceStates</b> is set to <b>true</b> (= the default)
+<strong>enforceStates</strong> is set to <strong>true</strong> (= the default)
 in the \"Advanced\" menu,
 then FreeMotion variables are forced to be used as states according
 to the setting of parameters \"useQuaternions\" and
@@ -2123,13 +2123,13 @@ frame_b of the joint.
       Documentation(info="<html>
 <p>
 Joint which does not constrain the motion between frame_a and frame_b.
-Such a joint is meaningful if the <b>relative</b> distance and orientation
+Such a joint is meaningful if the <strong>relative</strong> distance and orientation
 between frame_a and frame_b, and their derivatives, shall be used
-as <b>states</b> or shall be used for non-standard
-<b>initialization</b>. This joint allows to <b>initialize</b>
-every <b>scalar</b> element of the relative quantities, as well
-as to define <b>StateSelect</b> attributes for every
-<b>scalar</b> element separately.
+as <strong>states</strong> or shall be used for non-standard
+<strong>initialization</strong>. This joint allows to <strong>initialize</strong>
+every <strong>scalar</strong> element of the relative quantities, as well
+as to define <strong>StateSelect</strong> attributes for every
+<strong>scalar</strong> element separately.
 </p>
 
 <p>
@@ -2496,7 +2496,7 @@ and the point mass in the middle of the rod by a light blue sphere:
 </p>
 
 <p>
-This joint introduces <b>one constraint</b> defining that the distance between
+This joint introduces <strong>one constraint</strong> defining that the distance between
 the origin of frame_a and the origin of frame_b is constant (= rodLength).
 It is highly recommended to use this joint in loops
 whenever possible, because this enhances the efficiency
@@ -2504,11 +2504,11 @@ considerably due to smaller systems of non-linear algebraic
 equations.
 </p>
 <p>
-It is sometimes desirable to <b>compute</b> the <b>rodLength</b>
+It is sometimes desirable to <strong>compute</strong> the <strong>rodLength</strong>
 of the connecting rod during initialization. For this, parameter
-<b>computeLength</b> has to be set to <b>true</b> and instead <b>one</b> other,
+<strong>computeLength</strong> has to be set to <strong>true</strong> and instead <strong>one</strong> other,
 easier to determine, position variable in the same loop
-needs to have a fixed attribute of <b>true</b>. For example,
+needs to have a fixed attribute of <strong>true</strong>. For example,
 if a loop consists of one Revolute joint, one Prismatic joint and
 a SphericalSpherical joint, one may fix the start values of the revolute
 joint angle and of the relative distance of the prismatic joint
@@ -2517,7 +2517,7 @@ in order to compute the rodLength of the rod.
 <p>
 It is not possible to connect other components, such as a body with mass
 properties or a special visual shape object to the rod connecting
-the two spherical joints. If this is needed, use instead joint Joints.<b>UniversalSpherical</b>
+the two spherical joints. If this is needed, use instead joint Joints.<strong>UniversalSpherical</strong>
 that has this property.
 </p>
 </html>"));
@@ -2835,9 +2835,9 @@ singular configuration.
     annotation (
       Documentation(info="<html>
 <p>
-This component consists of a <b>universal joint</b> at frame_a and
-a <b>spherical joint</b> at frame_b that are connected together with
-a <b>rigid rod</b>, see default animation figure (the arrows are not
+This component consists of a <strong>universal joint</strong> at frame_a and
+a <strong>spherical joint</strong> at frame_b that are connected together with
+a <strong>rigid rod</strong>, see default animation figure (the arrows are not
 part of the default animation):
 </p>
 
@@ -2852,9 +2852,9 @@ that the distance between the origin of frame_a and the origin of frame_b is con
 </p>
 
 <ul>
-<li> The rotation <b>axis</b> of revolute joint <b>1</b> is along parameter
+<li> The rotation <strong>axis</strong> of revolute joint <strong>1</strong> is along parameter
      vector n1_a which is fixed in frame_a.</li>
-<li> The rotation <b>axis</b> of revolute joint <b>2</b> is perpendicular to
+<li> The rotation <strong>axis</strong> of revolute joint <strong>2</strong> is perpendicular to
      axis 1 and to the line connecting the universal and the spherical joint.</li>
 </ul>
 <p>
@@ -2865,28 +2865,28 @@ complicated and the number of operations is considerably higher,
 if axis 2 is not orthogonal to axis 1 and to the connecting rod.
 </p>
 <p>
-Note, there is a <b>singularity</b> when axis 1 and the connecting rod are parallel
+Note, there is a <strong>singularity</strong> when axis 1 and the connecting rod are parallel
 to other. Therefore, if possible n1_a should be selected in such a way that it
 is perpendicular to rRod_ia in the initial configuration (i.e., the
 distance to the singularity is as large as possible).
 </p>
 <p>
-An additional <b>frame_ia</b> is present. It is <b>fixed</b> in the connecting
-<b>rod</b> at the origin of <b>frame_a</b>. The placement of frame_ia on the rod
+An additional <strong>frame_ia</strong> is present. It is <strong>fixed</strong> in the connecting
+<strong>rod</strong> at the origin of <strong>frame_a</strong>. The placement of frame_ia on the rod
 is implicitly defined by the universal joint (frame_a and frame_ia coincide
 when the angles of the two revolute joints of the universal joint are zero)
-and by parameter vector <b>rRod_ia</b>, the position vector
-from the origin of frame_a to the origin of frame_b, resolved in frame_<b>ia</b>.
+and by parameter vector <strong>rRod_ia</strong>, the position vector
+from the origin of frame_a to the origin of frame_b, resolved in frame_<strong>ia</strong>.
 </p>
 <p>
 The easiest way to define the parameters of this joint is by moving the
-MultiBody system in a <b>reference configuration</b> where <b>all frames</b>
-of all components are <b>parallel</b> to other (alternatively,
+MultiBody system in a <strong>reference configuration</strong> where <strong>all frames</strong>
+of all components are <strong>parallel</strong> to other (alternatively,
 at least frame_a and frame_ia of the UniversalSpherical joint
 should be parallel to other when defining an instance of this
 component). Since frame_a and frame_ia are parallel to other,
-vector <b>rRod_ia</b> from frame_a to frame_b resolved in frame_<b>ia</b> can be resolved
-in frame_<b>a</b> (or the <b>world frame</b>, if all frames are parallel to other).
+vector <strong>rRod_ia</strong> from frame_a to frame_b resolved in frame_<strong>ia</strong> can be resolved
+in frame_<strong>a</strong> (or the <strong>world frame</strong>, if all frames are parallel to other).
 </p>
 <p>
 This joint aggregation can be used in cases where
@@ -2903,12 +2903,12 @@ has the advantage that it does not have a singular configuration.
 </p>
 <p>
 In the public interface of the UniversalSpherical joint, the following
-(final) <b>parameters</b> are provided:
+(final) <strong>parameters</strong> are provided:
 </p>
 <pre>
-  <b>parameter</b> Real rodLength(unit=\"m\")  \"Length of rod\";
-  <b>parameter</b> Real eRod_ia[3] \"Unit vector along rod, resolved in frame_ia\";
-  <b>parameter</b> Real e2_ia  [3] \"Unit vector along axis 2, resolved in frame_ia\";
+  <strong>parameter</strong> Real rodLength(unit=\"m\")  \"Length of rod\";
+  <strong>parameter</strong> Real eRod_ia[3] \"Unit vector along rod, resolved in frame_ia\";
+  <strong>parameter</strong> Real e2_ia  [3] \"Unit vector along axis 2, resolved in frame_ia\";
 </pre>
 <p>
 This allows a more convenient definition of data which is related to the rod.
@@ -2922,8 +2922,8 @@ the origin of frame_a to the middle of the rod, this might be defined as:
                                               widthDirection  = jointUS.e2_ia,
                                               length          = jointUS.rodLength/2,
                                               width           = jointUS.rodLength/10);
-  <b>equation</b>
-    <b>connect</b>(jointUS.frame_ia, shape.frame_a);
+  <strong>equation</strong>
+    <strong>connect</strong>(jointUS.frame_ia, shape.frame_a);
 </pre>
 </html>"), Icon(coordinateSystem(
           preserveAspectRatio=true,
@@ -3393,12 +3393,12 @@ the origin of frame_a to the middle of the rod, this might be defined as:
 <p>This ideal massless joint provides a gear constraint between
 frames <code>frame_a</code> and <code>frame_b</code>. The axes of rotation
 of <code>frame_a</code> and <code>frame_b</code> may be arbitrary.</p>
-<p><b>Reference</b><br>
+<p><strong>Reference</strong><br>
 <span style=\"font-variant:small-caps\">Schweiger</span>, Christian ;
 <span style=\"font-variant:small-caps\">Otter</span>, Martin:
 <a href=\"https://www.modelica.org/events/Conference2003/papers/h06_Schweiger_powertrains_v5.pdf\">Modelling
-3D Mechanical Effects of 1-dim. Powertrains</a>. In: <i>Proceedings of the 3rd International
-Modelica Conference</i>. Link&ouml;ping : The Modelica Association and Link&ouml;ping University,
+3D Mechanical Effects of 1-dim. Powertrains</a>. In: <em>Proceedings of the 3rd International
+Modelica Conference</em>. Link&ouml;ping : The Modelica Association and Link&ouml;ping University,
 November 3-4, 2003, pp. 149-158</p>
 </html>"));
   end GearConstraint;
@@ -4068,8 +4068,8 @@ origin of frame_b. You may try to use another \"n1_a\" vector.
       annotation (
         Documentation(info="<html>
 <p>
-This component consists of a <b>universal</b> joint at frame_a,
-a <b>spherical</b> joint at frame_b and a <b>prismatic</b> joint along the
+This component consists of a <strong>universal</strong> joint at frame_a,
+a <strong>spherical</strong> joint at frame_b and a <strong>prismatic</strong> joint along the
 line connecting the origin of frame_a and the origin of frame_b,
 see the default animation in the following figure (the axes vectors
 are not part of the default animation):
@@ -4090,9 +4090,9 @@ into account.
 The universal joint is defined in the following way:
 </p>
 <ul>
-<li> The rotation <b>axis</b> of revolute joint <b>1</b> is along parameter
+<li> The rotation <strong>axis</strong> of revolute joint <strong>1</strong> is along parameter
      vector n1_a which is fixed in frame_a.</li>
-<li> The rotation <b>axis</b> of revolute joint <b>2</b> is perpendicular to
+<li> The rotation <strong>axis</strong> of revolute joint <strong>2</strong> is perpendicular to
      axis 1 and to the line connecting the universal and the spherical joint.</li>
 </ul>
 <p>
@@ -4103,26 +4103,26 @@ complicated and the number of operations is considerably higher,
 if axis 2 is not orthogonal to axis 1 and to the connecting rod.
 </p>
 <p>
-Note, there is a <b>singularity</b> when axis 1 and the connecting line are parallel
+Note, there is a <strong>singularity</strong> when axis 1 and the connecting line are parallel
 to each other. Therefore, if possible n1_a should be selected in such a way that it
 is perpendicular to nAxis_ia in the initial configuration (i.e., the
 distance to the singularity is as large as possible).
 </p>
 <p>
-An additional <b>frame_ia</b> is present. It is <b>fixed</b> on the line
+An additional <strong>frame_ia</strong> is present. It is <strong>fixed</strong> on the line
 connecting the universal and the spherical joint at the
-origin of <b>frame_a</b>. The placement of frame_ia on this line
+origin of <strong>frame_a</strong>. The placement of frame_ia on this line
 is implicitly defined by the universal joint (frame_a and frame_ia coincide
 when the angles of the two revolute joints of the universal joint are zero)
-and by parameter vector <b>nAxis_ia</b>, an axis vector directed
+and by parameter vector <strong>nAxis_ia</strong>, an axis vector directed
 along the line from the origin of frame_a to the spherical joint,
-resolved in frame_<b>ia</b>.
+resolved in frame_<strong>ia</strong>.
 </p>
 <p>
-An additional <b>frame_ib</b> is present. It is <b>fixed</b> in the line
+An additional <strong>frame_ib</strong> is present. It is <strong>fixed</strong> in the line
 connecting the prismatic and the spherical joint at the
-origin of <b>frame_b</b>.
-It is always parallel to <b>frame_ia</b>.
+origin of <strong>frame_b</strong>.
+It is always parallel to <strong>frame_ia</strong>.
 </p>
 <p>
 Note, this joint aggregation can be used in cases where
@@ -4134,8 +4134,8 @@ of the spherical joints by a universal joint.
 </p>
 <p>
 The easiest way to define the parameters of this joint is by moving the
-MultiBody system in a <b>reference configuration</b> where <b>all frames</b>
-of all components are <b>parallel</b> to each other (alternatively,
+MultiBody system in a <strong>reference configuration</strong> where <strong>all frames</strong>
+of all components are <strong>parallel</strong> to each other (alternatively,
 at least frame_a, frame_ia and frame_ib of the JointUSP joint
 should be parallel to each other when defining an instance of this
 component).
@@ -4679,9 +4679,9 @@ component).
       annotation (
         Documentation(info="<html>
 <p>
-This component consists of a <b>universal</b> joint at frame_a, a <b>revolute</b>
-joint at frame_b and a <b>spherical</b> joint which is connected via <b>rod1</b>
-to the universal and via <b>rod2</b> to the revolute joint, see the default
+This component consists of a <strong>universal</strong> joint at frame_a, a <strong>revolute</strong>
+joint at frame_b and a <strong>spherical</strong> joint which is connected via <strong>rod1</strong>
+to the universal and via <strong>rod2</strong> to the revolute joint, see the default
 animation in the following figure (the axes vectors are not part of the
 default animation):
 </p>
@@ -4695,16 +4695,16 @@ This joint aggregation has no mass and no inertia and
 introduces neither constraints nor potential state variables.
 It should be used in kinematic loops whenever possible since
 the non-linear system of equations introduced by this joint aggregation
-is solved <b>analytically</b> (i.e., a solution is always computed, if a
+is solved <strong>analytically</strong> (i.e., a solution is always computed, if a
 unique solution exists).
 </p>
 <p>
 The universal joint is defined in the following way:
 </p>
 <ul>
-<li> The rotation <b>axis</b> of revolute joint <b>1</b> is along parameter
+<li> The rotation <strong>axis</strong> of revolute joint <strong>1</strong> is along parameter
      vector n1_a which is fixed in frame_a.</li>
-<li> The rotation <b>axis</b> of revolute joint <b>2</b> is perpendicular to
+<li> The rotation <strong>axis</strong> of revolute joint <strong>2</strong> is perpendicular to
      axis 1 and to the line connecting the universal and the spherical joint
      (= rod 1).</li>
 </ul>
@@ -4716,7 +4716,7 @@ complicated and the number of operations is considerably higher,
 if axis 2 is not orthogonal to axis 1 and to the connecting rod.
 </p>
 <p>
-Note, there is a <b>singularity</b> when axis 1 and the connecting rod are parallel
+Note, there is a <strong>singularity</strong> when axis 1 and the connecting rod are parallel
 to each other. Therefore, if possible n1_a should be selected in such a way that it
 is perpendicular to rRod1_ia in the initial configuration (i.e., the
 distance to the singularity is as large as possible).
@@ -4726,57 +4726,57 @@ The rest of this joint aggregation is defined by the following parameters:
 </p>
 <ul>
 <li> The position of the spherical joint with respect to the universal
-     joint is defined by vector <b>rRod1_ia</b>. This vector is directed from
+     joint is defined by vector <strong>rRod1_ia</strong>. This vector is directed from
      frame_a to the spherical joint and is resolved in frame_ia
      (it is most simple to select frame_ia such that it is parallel to
      frame_a in the reference or initial configuration).</li>
 <li> The position of the spherical joint with respect to the revolute
-     joint is defined by vector <b>rRod2_ib</b>. This vector is directed from
+     joint is defined by vector <strong>rRod2_ib</strong>. This vector is directed from
      the inner frame of the revolute joint (frame_ib or revolute.frame_a)
      to the spherical joint and is resolved in frame_ib (note, that frame_ib
      and frame_b are parallel to each other).</li>
 <li> The axis of rotation of the revolute joint is defined by axis
-     vector <b>n_b</b>. It is fixed and resolved in frame_b.</li>
-<li> When specifying this joint aggregation with the definitions above, <b>two</b>
-     different <b>configurations</b> are possible. Via parameter <b>phi_guess</b>
+     vector <strong>n_b</strong>. It is fixed and resolved in frame_b.</li>
+<li> When specifying this joint aggregation with the definitions above, <strong>two</strong>
+     different <strong>configurations</strong> are possible. Via parameter <strong>phi_guess</strong>
      a guess value for revolute.phi(t0) at the initial time t0 is given. The configuration is selected that is closest to phi_guess (|revolute.phi - phi_guess| is minimal).</li>
 </ul>
 <p>
-An additional <b>frame_ia</b> is present. It is <b>fixed</b> in the rod
+An additional <strong>frame_ia</strong> is present. It is <strong>fixed</strong> in the rod
 connecting the universal and the spherical joint at the
-origin of <b>frame_a</b>. The placement of frame_ia on the rod
+origin of <strong>frame_a</strong>. The placement of frame_ia on the rod
 is implicitly defined by the universal joint (frame_a and frame_ia coincide
 when the angles of the two revolute joints of the universal joint are zero)
-and by parameter vector <b>rRod1_ia</b>, the position vector
-from the origin of frame_a to the spherical joint, resolved in frame_<b>ia</b>.
+and by parameter vector <strong>rRod1_ia</strong>, the position vector
+from the origin of frame_a to the spherical joint, resolved in frame_<strong>ia</strong>.
 </p>
 <p>
-An additional <b>frame_ib</b> is present. It is <b>fixed</b> in the rod
+An additional <strong>frame_ib</strong> is present. It is <strong>fixed</strong> in the rod
 connecting the revolute and the spherical joint at the side of the revolute
 joint that is connected to this rod (= rod2.frame_a = revolute.frame_a).
 </p>
 <p>
-An additional <b>frame_im</b> is present. It is <b>fixed</b> in the rod
+An additional <strong>frame_im</strong> is present. It is <strong>fixed</strong> in the rod
 connecting the revolute and the spherical joint at the side of the spherical
 joint that is connected to this rod (= rod2.frame_b).
-It is always parallel to <b>frame_ib</b>.
+It is always parallel to <strong>frame_ib</strong>.
 </p>
 <p>
 The easiest way to define the parameters of this joint is by moving the
-MultiBody system in a <b>reference configuration</b> where <b>all frames</b>
-of all components are <b>parallel</b> to each other (alternatively,
+MultiBody system in a <strong>reference configuration</strong> where <strong>all frames</strong>
+of all components are <strong>parallel</strong> to each other (alternatively,
 at least frame_a and frame_ia of the JointUSR joint
 should be parallel to each other when defining an instance of this
 component).
 </p>
 <p>
 In the public interface of the JointUSR joint, the following
-(final) <b>parameters</b> are provided:
+(final) <strong>parameters</strong> are provided:
 </p>
 <pre>
-  <b>parameter</b> Real rod1Length(unit=\"m\")  \"Length of rod 1\";
-  <b>parameter</b> Real eRod1_ia[3] \"Unit vector along rod 1, resolved in frame_ia\";
-  <b>parameter</b> Real e2_ia  [3]  \"Unit vector along axis 2, resolved in frame_ia\";
+  <strong>parameter</strong> Real rod1Length(unit=\"m\")  \"Length of rod 1\";
+  <strong>parameter</strong> Real eRod1_ia[3] \"Unit vector along rod 1, resolved in frame_ia\";
+  <strong>parameter</strong> Real e2_ia  [3]  \"Unit vector along axis 2, resolved in frame_ia\";
 </pre>
 <p>
 This allows a more convenient definition of data which is related to rod 1.
@@ -4790,8 +4790,8 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
                                                widthDirection  = jointUSR.e2_ia,
                                                length          = jointUSR.rod1Length/2,
                                                width           = jointUSR.rod1Length/10);
-  <b>equation</b>
-    <b>connect</b>(jointUSP.frame_ia, shape.frame_a);
+  <strong>equation</strong>
+    <strong>connect</strong>(jointUSP.frame_ia, shape.frame_a);
 </pre>
 </html>"),
         Icon(coordinateSystem(
@@ -5164,9 +5164,9 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
       annotation (
         Documentation(info="<html>
 <p>
-This component consists of a <b>universal</b> joint at frame_a, a <b>prismatic</b>
-joint at frame_b and a <b>spherical</b> joint which is connected via <b>rod1</b>
-to the universal and via <b>rod2</b> to the prismatic joint, see the default
+This component consists of a <strong>universal</strong> joint at frame_a, a <strong>prismatic</strong>
+joint at frame_b and a <strong>spherical</strong> joint which is connected via <strong>rod1</strong>
+to the universal and via <strong>rod2</strong> to the prismatic joint, see the default
 animation in the following figure (the axes vectors are not part of the
 default animation):
 </p>
@@ -5180,16 +5180,16 @@ This joint aggregation has no mass and no inertia and
 introduces neither constraints nor potential state variables.
 It should be used in kinematic loops whenever possible since
 the non-linear system of equations introduced by this joint aggregation
-is solved <b>analytically</b> (i.e., a solution is always computed, if a
+is solved <strong>analytically</strong> (i.e., a solution is always computed, if a
 unique solution exists).
 </p>
 <p>
 The universal joint is defined in the following way:
 </p>
 <ul>
-<li> The rotation <b>axis</b> of revolute joint <b>1</b> is along parameter
+<li> The rotation <strong>axis</strong> of revolute joint <strong>1</strong> is along parameter
      vector n1_a which is fixed in frame_a.</li>
-<li> The rotation <b>axis</b> of revolute joint <b>2</b> is perpendicular to
+<li> The rotation <strong>axis</strong> of revolute joint <strong>2</strong> is perpendicular to
      axis 1 and to the line connecting the universal and the spherical joint
      (= rod 1).</li>
 </ul>
@@ -5201,7 +5201,7 @@ complicated and the number of operations is considerably higher,
 if axis 2 is not orthogonal to axis 1 and to the connecting rod.
 </p>
 <p>
-Note, there is a <b>singularity</b> when axis 1 and the connecting rod are parallel
+Note, there is a <strong>singularity</strong> when axis 1 and the connecting rod are parallel
 to each other. Therefore, if possible n1_a should be selected in such a way that it
 is perpendicular to rRod1_ia in the initial configuration (i.e., the
 distance to the singularity is as large as possible).
@@ -5211,65 +5211,65 @@ The rest of this joint aggregation is defined by the following parameters:
 </p>
 <ul>
 <li> The position of the spherical joint with respect to the universal
-     joint is defined by vector <b>rRod1_ia</b>. This vector is directed from
+     joint is defined by vector <strong>rRod1_ia</strong>. This vector is directed from
      frame_a to the spherical joint and is resolved in frame_ia
      (it is most simple to select frame_ia such that it is parallel to
      frame_a in the reference or initial configuration).</li>
 <li> The position of the spherical joint with respect to the prismatic
-     joint is defined by vector <b>rRod2_ib</b>. This vector is directed from
+     joint is defined by vector <strong>rRod2_ib</strong>. This vector is directed from
      the inner frame of the prismatic joint (frame_ib or prismatic.frame_a)
      to the spherical joint and is resolved in frame_ib (note, that frame_ib
      and frame_b are parallel to each other).</li>
 <li> The axis of translation of the prismatic joint is defined by axis
-     vector <b>n_b</b>. It is fixed and resolved in frame_b.</li>
+     vector <strong>n_b</strong>. It is fixed and resolved in frame_b.</li>
 <li> The two frames of the prismatic joint, i.e., frame_b and frame_ib,
      are parallel to each other.
      The distance between the origins of these two frames along axis n_b
      is equal to \"prismatic.s(t) + s_offset\", where \"prismatic.s(t)\" is
      a time varying variable and \"s_offset\" is a fixed, constant offset
      parameter.</li>
-<li> When specifying this joint aggregation with the definitions above, <b>two</b>
-     different <b>configurations</b> are possible. Via parameter <b>s_guess</b>
+<li> When specifying this joint aggregation with the definitions above, <strong>two</strong>
+     different <strong>configurations</strong> are possible. Via parameter <strong>s_guess</strong>
      a guess value for prismatic.s(t0) at the initial time t0 is given. The configuration
      is selected that is closest to s_guess (|prismatic.s - s_guess| is minimal).</li>
 </ul>
 <p>
-An additional <b>frame_ia</b> is present. It is <b>fixed</b> in the rod
+An additional <strong>frame_ia</strong> is present. It is <strong>fixed</strong> in the rod
 connecting the universal and the spherical joint at the
-origin of <b>frame_a</b>. The placement of frame_ia on the rod
+origin of <strong>frame_a</strong>. The placement of frame_ia on the rod
 is implicitly defined by the universal joint (frame_a and frame_ia coincide
 when the angles of the two revolute joints of the universal joint are zero)
-and by parameter vector <b>rRod1_ia</b>, the position vector
-from the origin of frame_a to the spherical joint, resolved in frame_<b>ia</b>.
+and by parameter vector <strong>rRod1_ia</strong>, the position vector
+from the origin of frame_a to the spherical joint, resolved in frame_<strong>ia</strong>.
 </p>
 <p>
-An additional <b>frame_ib</b> is present. It is <b>fixed</b> in the rod
+An additional <strong>frame_ib</strong> is present. It is <strong>fixed</strong> in the rod
 connecting the prismatic and the spherical joint at the side of the prismatic
 joint that is connected to this rod (= rod2.frame_a = prismatic.frame_a).
-It is always parallel to <b>frame_b</b>.
+It is always parallel to <strong>frame_b</strong>.
 </p>
 <p>
-An additional <b>frame_im</b> is present. It is <b>fixed</b> in the rod
+An additional <strong>frame_im</strong> is present. It is <strong>fixed</strong> in the rod
 connecting the prismatic and the spherical joint at the side of the spherical
 joint that is connected to this rod (= rod2.frame_b).
-It is always parallel to <b>frame_b</b>.
+It is always parallel to <strong>frame_b</strong>.
 </p>
 <p>
 The easiest way to define the parameters of this joint is by moving the
-MultiBody system in a <b>reference configuration</b> where <b>all frames</b>
-of all components are <b>parallel</b> to each other (alternatively,
+MultiBody system in a <strong>reference configuration</strong> where <strong>all frames</strong>
+of all components are <strong>parallel</strong> to each other (alternatively,
 at least frame_a and frame_ia of the JointUSP joint
 should be parallel to each other when defining an instance of this
 component).
 </p>
 <p>
 In the public interface of the JointUSP joint, the following
-(final) <b>parameters</b> are provided:
+(final) <strong>parameters</strong> are provided:
 </p>
 <pre>
-  <b>parameter</b> Real rod1Length(unit=\"m\")  \"Length of rod 1\";
-  <b>parameter</b> Real eRod1_ia[3] \"Unit vector along rod 1, resolved in frame_ia\";
-  <b>parameter</b> Real e2_ia  [3]  \"Unit vector along axis 2, resolved in frame_ia\";
+  <strong>parameter</strong> Real rod1Length(unit=\"m\")  \"Length of rod 1\";
+  <strong>parameter</strong> Real eRod1_ia[3] \"Unit vector along rod 1, resolved in frame_ia\";
+  <strong>parameter</strong> Real e2_ia  [3]  \"Unit vector along axis 2, resolved in frame_ia\";
 </pre>
 <p>
 This allows a more convenient definition of data which is related to rod 1.
@@ -5283,8 +5283,8 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
                                                widthDirection  = jointUSP.e2_ia,
                                                length          = jointUSP.rod1Length/2,
                                                width           = jointUSP.rod1Length/10);
-  <b>equation</b>
-    <b>connect</b>(jointUSP.frame_ia, shape.frame_a);
+  <strong>equation</strong>
+    <strong>connect</strong>(jointUSP.frame_ia, shape.frame_a);
 </pre>
 </html>"),
         Icon(coordinateSystem(
@@ -5647,8 +5647,8 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
       annotation (
         Documentation(info="<html>
 <p>
-This component consists of a <b>spherical</b> joint 1 at frame_a, a <b>revolute</b>
-joint at frame_b and a <b>spherical</b> joint 2 which is connected via rod 1
+This component consists of a <strong>spherical</strong> joint 1 at frame_a, a <strong>revolute</strong>
+joint at frame_b and a <strong>spherical</strong> joint 2 which is connected via rod 1
 to the spherical joint 1 and via rod 2 to the revolute joint, see the default
 animation in the following figure (the axes vectors are not part of the
 default animation):
@@ -5664,24 +5664,24 @@ this joint aggregation has no mass and no inertia,
 and introduces neither constraints nor potential state variables.
 It should be used in kinematic loops whenever possible since
 the non-linear system of equations introduced by this joint aggregation
-is solved <b>analytically</b> (i.e., a solution is always computed, if a
+is solved <strong>analytically</strong> (i.e., a solution is always computed, if a
 unique solution exists).
 </p>
 <p>
-An additional <b>frame_ib</b> is present. It is <b>fixed</b> in rod 2
+An additional <strong>frame_ib</strong> is present. It is <strong>fixed</strong> in rod 2
 connecting the revolute and the spherical joint at the side of the revolute
 joint that is connected to this rod (= rod2.frame_a = revolute.frame_a).
 </p>
 <p>
-An additional <b>frame_im</b> is present. It is <b>fixed</b> in rod 2
+An additional <strong>frame_im</strong> is present. It is <strong>fixed</strong> in rod 2
 connecting the revolute and the spherical joint at the side of spherical
 joint 2 that is connected to this rod (= rod2.frame_b).
-It is always parallel to <b>frame_ib</b>.
+It is always parallel to <strong>frame_ib</strong>.
 </p>
 <p>
 The easiest way to define the parameters of this joint is by moving the
-MultiBody system in a <b>reference configuration</b> where <b>all frames</b>
-of all components are <b>parallel</b> to each other (alternatively,
+MultiBody system in a <strong>reference configuration</strong> where <strong>all frames</strong>
+of all components are <strong>parallel</strong> to each other (alternatively,
 at least frame_b and frame_ib of the JointSSR joint
 should be parallel to each other when defining an instance of this
 component).
@@ -5992,8 +5992,8 @@ component).
       annotation (
         Documentation(info="<html>
 <p>
-This component consists of a <b>spherical</b> joint 1 at frame_a, a <b>prismatic</b>
-joint at frame_b and a <b>spherical</b> joint 2 which is connected via rod 1
+This component consists of a <strong>spherical</strong> joint 1 at frame_a, a <strong>prismatic</strong>
+joint at frame_b and a <strong>spherical</strong> joint 2 which is connected via rod 1
 to the spherical joint 1 and via rod 2 to the prismatic joint, see the default
 animation in the following figure (the axes vectors are not part of the
 default animation):
@@ -6009,24 +6009,24 @@ this joint aggregation has no mass and no inertia,
 and introduces neither constraints nor potential state variables.
 It should be used in kinematic loops whenever possible since
 the non-linear system of equations introduced by this joint aggregation
-is solved <b>analytically</b> (i.e., a solution is always computed, if a
+is solved <strong>analytically</strong> (i.e., a solution is always computed, if a
 unique solution exists).
 </p>
 <p>
-An additional <b>frame_ib</b> is present. It is <b>fixed</b> in rod 2
+An additional <strong>frame_ib</strong> is present. It is <strong>fixed</strong> in rod 2
 connecting the prismatic and the spherical joint at the side of the prismatic
 joint that is connected to this rod (= rod2.frame_a = prismatic.frame_a).
 </p>
 <p>
-An additional <b>frame_im</b> is present. It is <b>fixed</b> in rod 2
+An additional <strong>frame_im</strong> is present. It is <strong>fixed</strong> in rod 2
 connecting the prismatic and the spherical joint at the side of spherical
 joint 2 that is connected to this rod (= rod2.frame_b).
-It is always parallel to <b>frame_ib</b>.
+It is always parallel to <strong>frame_ib</strong>.
 </p>
 <p>
 The easiest way to define the parameters of this joint is by moving the
-MultiBody system in a <b>reference configuration</b> where <b>all frames</b>
-of all components are <b>parallel</b> to each other (alternatively,
+MultiBody system in a <strong>reference configuration</strong> where <strong>all frames</strong>
+of all components are <strong>parallel</strong> to each other (alternatively,
 at least frame_b and frame_ib of the JointSSP joint
 should be parallel to each other when defining an instance of this
 component).
@@ -6314,7 +6314,7 @@ component).
       annotation (
         Documentation(info="<html>
 <p>
-This component consists of <b>3 revolute</b> joints with parallel
+This component consists of <strong>3 revolute</strong> joints with parallel
 axes of rotation that are connected together by two rods, see the default
 animation in the following figure (the axes vectors are not part of the
 default animation):
@@ -6328,23 +6328,23 @@ default animation):
 This joint aggregation introduces neither constraints nor state variables and
 should therefore be used in kinematic loops whenever possible to
 avoid non-linear systems of equations. It is only meaningful to
-use this component in <b>planar loops</b>. Basically, the position
+use this component in <strong>planar loops</strong>. Basically, the position
 and orientation of the 3 revolute joints as well as of frame_ia, frame_ib, and
 frame_im are calculated by solving analytically a non-linear equation,
 given the position and orientation at frame_a and at frame_b.
 </p>
 <p>
-Connector <b>frame_a</b> is the \"left\" side of the first revolute joint
-whereas <b>frame_ia</b> is the \"right side of this revolute joint, fixed in rod 1.
-Connector <b>frame_b</b> is the \"right\" side of the third revolute joint
-whereas <b>frame_ib</b> is the \"left\" side of this revolute joint, fixed in rod 2.
-Finally, connector <b>frame_im</b> is the connector at the \"right\" side
+Connector <strong>frame_a</strong> is the \"left\" side of the first revolute joint
+whereas <strong>frame_ia</strong> is the \"right side of this revolute joint, fixed in rod 1.
+Connector <strong>frame_b</strong> is the \"right\" side of the third revolute joint
+whereas <strong>frame_ib</strong> is the \"left\" side of this revolute joint, fixed in rod 2.
+Finally, connector <strong>frame_im</strong> is the connector at the \"right\" side
 of the revolute joint in the middle, fixed in rod 2.
 </p>
 <p>
 The easiest way to define the parameters of this joint is by moving the
-MultiBody system in a <b>reference configuration</b> where <b>all frames</b>
-of all components are <b>parallel</b> to each other (alternatively,
+MultiBody system in a <strong>reference configuration</strong> where <strong>all frames</strong>
+of all components are <strong>parallel</strong> to each other (alternatively,
 at least frame_a, frame_ia, frame_im, frame_ib, frame_b of the JointRRR joint
 should be parallel to each other when defining an instance of this
 component).
@@ -6634,8 +6634,8 @@ are connected by rigid rods.
       annotation (
         Documentation(info="<html>
 <p>
-This component consists of <b>2 revolute</b> joints with parallel
-axes of rotation that and a <b>prismatic</b> joint with a translational
+This component consists of <strong>2 revolute</strong> joints with parallel
+axes of rotation that and a <strong>prismatic</strong> joint with a translational
 axis that is orthogonal to the revolute joint axes, see the default
 animation in the following figure (the axes vectors are not part of the
 default animation):
@@ -6649,24 +6649,24 @@ default animation):
 This joint aggregation introduces neither constraints nor state variables and
 should therefore be used in kinematic loops whenever possible to
 avoid non-linear systems of equations. It is only meaningful to
-use this component in <b>planar loops</b>. Basically, the position
+use this component in <strong>planar loops</strong>. Basically, the position
 and orientation of the 3 joints as well as of frame_ia, frame_ib, and
 frame_im are calculated by solving analytically a non-linear equation,
 given the position and orientation at frame_a and at frame_b.
 </p>
 <p>
-Connector <b>frame_a</b> is the \"left\" side of the first revolute joint
-whereas <b>frame_ia</b> is the \"right side of this revolute joint, fixed in rod 1.
-Connector <b>frame_b</b> is the \"right\" side of the prismatic joint
-whereas <b>frame_ib</b> is the \"left\" side of this prismatic joint, fixed in rod 2.
-Finally, connector <b>frame_im</b> is the connector at the \"right\" side
+Connector <strong>frame_a</strong> is the \"left\" side of the first revolute joint
+whereas <strong>frame_ia</strong> is the \"right side of this revolute joint, fixed in rod 1.
+Connector <strong>frame_b</strong> is the \"right\" side of the prismatic joint
+whereas <strong>frame_ib</strong> is the \"left\" side of this prismatic joint, fixed in rod 2.
+Finally, connector <strong>frame_im</strong> is the connector at the \"right\" side
 of the revolute joint in the middle, fixed in rod 2. The frames
 frame_b, frame_ib, frame_im are always parallel to each other.
 </p>
 <p>
 The easiest way to define the parameters of this joint is by moving the
-MultiBody system in a <b>reference configuration</b> where <b>all frames</b>
-of all components are <b>parallel</b> to each other (alternatively,
+MultiBody system in a <strong>reference configuration</strong> where <strong>all frames</strong>
+of all components are <strong>parallel</strong> to each other (alternatively,
 at least frame_a, frame_ia, frame_im, frame_ib, frame_b of the JointRRP joint
 should be parallel to each other when defining an instance of this
 component).
@@ -6768,27 +6768,27 @@ and 1 prismatic joint are connected by rigid rods.
     annotation (Documentation(info="<html>
 <p>
 The joints in this package are mainly designed to be used
-in <b>kinematic loop</b> structures. Every component consists of
-<b>3 elementary joints</b>. These joints are combined in such a
+in <strong>kinematic loop</strong> structures. Every component consists of
+<strong>3 elementary joints</strong>. These joints are combined in such a
 way that the kinematics of the 3 joints between frame_a and
 frame_b are computed from the movement of frame_a and frame_b,
-i.e., there are <b>no constraints</b> between frame_a and frame_b.
-This requires to solve a <b>non-linear system of equations</b> which
-is performed <b>analytically</b> (i.e., when a mathematical
+i.e., there are <strong>no constraints</strong> between frame_a and frame_b.
+This requires to solve a <strong>non-linear system of equations</strong> which
+is performed <strong>analytically</strong> (i.e., when a mathematical
 solution exists, it is computed efficiently and reliably).
 A detailed description how to use these joints is provided in
 <a href=\"modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling\">MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling</a>.
 </p>
 <p>
-The assembly joints in this package are named <b>JointXYZ</b> where
-<b>XYZ</b> are the first letters of the elementary joints used in the
+The assembly joints in this package are named <strong>JointXYZ</strong> where
+<strong>XYZ</strong> are the first letters of the elementary joints used in the
 component, in particular:
 </p>
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td valign=\"top\"><b>P</b></td><td valign=\"top\">Prismatic joint</td></tr>
-  <tr><td valign=\"top\"><b>R</b></td><td valign=\"top\">Revolute joint</td></tr>
-  <tr><td valign=\"top\"><b>S</b></td><td valign=\"top\">Spherical joint</td></tr>
-  <tr><td valign=\"top\"><b>U</b></td><td valign=\"top\">Universal joint</td></tr>
+  <tr><td valign=\"top\"><strong>P</strong></td><td valign=\"top\">Prismatic joint</td></tr>
+  <tr><td valign=\"top\"><strong>R</strong></td><td valign=\"top\">Revolute joint</td></tr>
+  <tr><td valign=\"top\"><strong>S</strong></td><td valign=\"top\">Spherical joint</td></tr>
+  <tr><td valign=\"top\"><strong>U</strong></td><td valign=\"top\">Universal joint</td></tr>
 </table>
 <p>
 For example, JointUSR is an assembly joint consisting
@@ -6798,7 +6798,7 @@ of a universal, a spherical and a revolute joint.
 </p>
 <h4>Content</h4>
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><th><b><i>Model</i></b></th><th><b><i>Description</i></b></th></tr>
+  <tr><th><strong><em>Model</em></strong></th><th><strong><em>Description</em></strong></th></tr>
   <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUPS\">JointUPS</a></td>
       <td valign=\"top\"> Universal - prismatic - spherical joint aggregation<br>
      <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/JointUPS.png\">
@@ -6851,7 +6851,7 @@ joints of package Modelica.Mechanics.MultiBody.Joints would be used directly.
 </p>
 <p>
 The analytic handling of kinematic loops by using joint aggregations
-with 6 degrees of freedom as provided in this package, is a <b>new</b>
+with 6 degrees of freedom as provided in this package, is a <strong>new</strong>
 methodology. It is based on a more general method for solving
 non-linear equations of kinematic loops developed by Woernle and
 Hiller. An automatic application of this more general method
@@ -6863,15 +6863,15 @@ pair of joints\" from Woernle and Hiller is described in:
 </p>
 <dl>
 <dt>Woernle C.:</dt>
-<dd><b>Ein systematisches Verfahren zur Aufstellung der geometrischen
+<dd><strong>Ein systematisches Verfahren zur Aufstellung der geometrischen
     Schliessbedingungen in kinematischen Schleifen mit Anwendung
     bei der R&uuml;ckw&auml;rtstransformation f&uuml;r
-    Industrieroboter.</b><br>
+    Industrieroboter.</strong><br>
     Fortschritt-Berichte VDI, Reihe 18, Nr. 59, Duesseldorf: VDI-Verlag 1988,
     ISBN 3-18-145918-6.<br>&nbsp;</dd>
 <dt>Hiller M., and Woernle C.:</dt>
-<dd><b>A Systematic Approach for Solving the Inverse Kinematic
-    Problem of Robot Manipulators</b>.<br>
+<dd><strong>A Systematic Approach for Solving the Inverse Kinematic
+    Problem of Robot Manipulators</strong>.<br>
     Proceedings 7th World Congress Th. Mach. Mech., Sevilla 1987. </dd>
 </dl>
 </html>"));
@@ -7585,9 +7585,9 @@ pair of joints\" from Woernle and Hiller is described in:
 
     annotation (Documentation(info="<html>
 <p>
-This package contains <b>constraint components</b>, that is, idealized, massless elements that
+This package contains <strong>constraint components</strong>, that is, idealized, massless elements that
 constrain the motion between frames by means of kinematic constraints. The constraint
-elements are especially aimed to be used for multibody models which contain <b>kinematic loops</b>.
+elements are especially aimed to be used for multibody models which contain <strong>kinematic loops</strong>.
 Usually, kinematic loops are automatically handled. However, the performance might be improved
 by either solving certain kinds of loops analytically with the help of the components of
 subpackage  <a href=\"Modelica://Modelica.Mechanics.MultiBody.Joints.Assemblies\">Assemblies</a>, or
@@ -7952,16 +7952,16 @@ angle of the revolute joint, phi, is computed such that the
 length constraint is fulfilled.
 </p>
 <p>
-<b>Usually, this joint should not be used by a user of the MultiBody
+<strong>Usually, this joint should not be used by a user of the MultiBody
 library. It is only provided to built-up the Modelica.Mechanics.MultiBody.Joints.Assemblies.JointXYZ
-joints.</b>
+joints.</strong>
 </p>
 
 <p>
 In releases before version 3.0 of the Modelica Standard Library, it was possible
 to activate the torque projection equation (= cut-torque projected to the rotation
 axis must be identical to the drive torque of flange axis) via parameter
-<b>axisTorqueBalance</b>. This is no longer possible, since otherwise this
+<strong>axisTorqueBalance</strong>. This is no longer possible, since otherwise this
 model would not be \"balanced\" (= same number of unknowns as equations).
 Instead, when using this model in version 3.0 and later versions,
 the force in the length constraint component (Joints.SphericalSpherical or
@@ -8313,16 +8313,16 @@ relative distance \"s\" of the joint is computed such that the
 length constraint is fulfilled.
 </p>
 <p>
-<b>Usually, this joint should not be used by a user of the MultiBody
+<strong>Usually, this joint should not be used by a user of the MultiBody
 library. It is only provided to built-up the Modelica.Mechanics.MultiBody.Joints.Assemblies.JointXYZ
-joints.</b>
+joints.</strong>
 </p>
 
 <p>
 In releases before version 3.0 of the Modelica Standard Library, it was possible
 to activate the force projection equation (= cut-force projected to the translation
 axis must be identical to the driving force of flange axis) via parameter
-<b>axisForceBalance</b>. This is no longer possible, since otherwise this
+<strong>axisForceBalance</strong>. This is no longer possible, since otherwise this
 model would not be \"balanced\" (= same number of unknowns as equations).
 Instead, when using this model in version 3.0 and later versions,
 the force in the length constraint component (Joints.SphericalSpherical or
@@ -8545,9 +8545,9 @@ Don't use the models of this package.
 
   annotation (Documentation(info="<html>
 <p>
-This package contains <b>joint components</b>,
+This package contains <strong>joint components</strong>,
 that is, idealized, massless elements that constrain
-the motion between frames. In subpackage <b>Assemblies</b>
+the motion between frames. In subpackage <strong>Assemblies</strong>
 aggregation joint components are provided to handle
 kinematic loops analytically (this means that non-linear systems
 of equations occurring in these joint aggregations are analytically
@@ -8555,7 +8555,7 @@ solved, i.e., robustly and efficiently).
 </p>
 <h4>Content</h4>
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><th><b><i>Model</i></b></th><th><b><i>Description</i></b></th></tr>
+  <tr><th><strong><em>Model</em></strong></th><th><strong><em>Description</em></strong></th></tr>
   <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Joints.Prismatic\">Prismatic</a>
       <td valign=\"top\">Prismatic joint and actuated prismatic joint
           (1 translational degree-of-freedom, 2 potential states)<br>
@@ -8610,11 +8610,11 @@ solved, i.e., robustly and efficiently).
       </td>
   </tr>
   <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Joints.Assemblies\">MultiBody.Joints.Assemblies</a></td>
-      <td valign=\"top\"><b>Package</b> of joint aggregations for analytic loop handling.
+      <td valign=\"top\"><strong>Package</strong> of joint aggregations for analytic loop handling.
       </td>
   </tr>
   <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Joints.Constraints\">MultiBody.Joints.Constraints</a></td>
-      <td valign=\"top\"><b>Package</b> of components that define joints by constraints
+      <td valign=\"top\"><strong>Package</strong> of components that define joints by constraints
       </td>
   </tr>
 </table>

@@ -17,7 +17,7 @@ of this library is given.
 </p>
 <h4>Steps and Transitions</h4>
 <p>
-A <b>StateGraph</b> is an enhanced finite state machine.
+A <strong>StateGraph</strong> is an enhanced finite state machine.
 It is based on the JGrafchart method and
 takes advantage of Modelica features for
 the \"action\" language. JGrafchart is a further development of
@@ -27,7 +27,7 @@ library has a similar modeling power as StateCharts but avoids
 some deficiencies of StateCharts.
 </p>
 <p>
-The basic elements of StateGraphs are <b>steps</b> and <b>transitions</b>:
+The basic elements of StateGraphs are <strong>steps</strong> and <strong>transitions</strong>:
 </p>
 
 <p>
@@ -35,16 +35,16 @@ The basic elements of StateGraphs are <b>steps</b> and <b>transitions</b>:
 </p>
 
 <p>
-<b>Steps</b> represent the possible states a StateGraph can have.
-If a step is active the Boolean variable <b>active</b> of
-the step is <b>true</b>. If it is deactivated,
-<b>active</b> = <b>false</b>. At the initial time, all \"usual\"
-steps are deactivated. The <b>InitialStep</b> objects are steps
+<strong>Steps</strong> represent the possible states a StateGraph can have.
+If a step is active the Boolean variable <strong>active</strong> of
+the step is <strong>true</strong>. If it is deactivated,
+<strong>active</strong> = <strong>false</strong>. At the initial time, all \"usual\"
+steps are deactivated. The <strong>InitialStep</strong> objects are steps
 that are activated at the initial time. They are characterized
 by a double box (see figure above).
 </p>
 <p>
-<b>Transitions</b> are used to change the state of a StateGraph.
+<strong>Transitions</strong> are used to change the state of a StateGraph.
 When the step connected to the input of a transition is active,
 the step connected to the output of this transition is deactivated
 and the transition condition becomes true, then the
@@ -53,7 +53,7 @@ transition is deactivated and the step connected to the output
 of the transition is activated.
 </p>
 <p>
-The transition <b>condition</b> is defined via the parameter menu
+The transition <strong>condition</strong> is defined via the parameter menu
 of the transition object. Clicking on object \"transition1\" in
 the above figure, results in the following menu:
 </p>
@@ -63,22 +63,22 @@ the above figure, results in the following menu:
 </p>
 
 <p>
-In the input field \"<b>condition</b>\", any type of time varying
+In the input field \"<strong>condition</strong>\", any type of time varying
 Boolean expression can be given (in Modelica notation, this is
-a modification of the time varying variable <b>condition</b>).
+a modification of the time varying variable <strong>condition</strong>).
 Whenever this condition is true, the transition can fire.
 Additionally, it is possible to activate a timer, via
-<b>enableTimer</b> (see menu above) and provide a
-<b>waitTime</b>. In this case the firing of the transition
+<strong>enableTimer</strong> (see menu above) and provide a
+<strong>waitTime</strong>. In this case the firing of the transition
 is delayed according to the provided waitTime. The transition
 condition and the waitTime are displayed in the transition icon.
 </p>
 <p>
-In the above example, the simulation starts at <b>initialStep</b>.
-After 1 second, <b>transition1</b> fires and <b>step1</b> becomes
-active. After another second <b>transition2</b> fires and
-<b>initialStep</b> becomes again active. After a further
-second <b>step1</b> becomes again active, and so on.
+In the above example, the simulation starts at <strong>initialStep</strong>.
+After 1 second, <strong>transition1</strong> fires and <strong>step1</strong> becomes
+active. After another second <strong>transition2</strong> fires and
+<strong>initialStep</strong> becomes again active. After a further
+second <strong>step1</strong> becomes again active, and so on.
 </p>
 <p>
 In JGrafcharts, Grafcet and Sequential Function Charts, the
@@ -92,7 +92,7 @@ labels on the icons.
 </p>
 <h4>Conditions and Actions</h4>
 <p>
-With the block <b>TransitionWithSignal</b>, the firing condition
+With the block <strong>TransitionWithSignal</strong>, the firing condition
 can be provided as Boolean input signal, instead as entry in the
 menu of the transition. An example is given in the next
 figure:
@@ -132,42 +132,42 @@ form, as shown in the next figure:
 </p>
 
 <p>
-With the block \"<b>SetBoolean</b>\", a time varying expression
-can be provided as modification to the output signal <b>y</b>
+With the block \"<strong>SetBoolean</strong>\", a time varying expression
+can be provided as modification to the output signal <strong>y</strong>
 (see block with icon text \"timer.y > 1\" in the figure above).
 The output signal can be in turn connected to the condition
 input of a TransitionWithSignal block.
 </p>
 <p>
-The \"<b>SetBoolean</b>\" block can also be used to
+The \"<strong>SetBoolean</strong>\" block can also be used to
 compute a Boolean signal depending on the active step.
 In the figure above, the output of the block with the
 icon text \"step.active\" is
 true, when \"step\" is active, otherwise it is false
 (note, the icon text of \"SetBoolean\" displays the modification
 of the output signal \"y\").
-This signal can then be used to compute desired <b>actions</b>
-in the physical systems model. For example, if a <b>valve</b>
+This signal can then be used to compute desired <strong>actions</strong>
+in the physical systems model. For example, if a <strong>valve</strong>
 shall be open, when the StateGraph is in \"step1\" or
 in \"step4\", a \"SetBoolean\" block may be connected to the
 valve model using the following condition:
 </p>
 <pre>
-    valve = step1.active <b>or</b> step2.active
+    valve = step1.active <strong>or</strong> step2.active
 </pre>
 <p>
-Via the Modelica operators <b>edge</b>(..) and <b>change</b>(..),
+Via the Modelica operators <strong>edge</strong>(..) and <strong>change</strong>(..),
 conditions depending on rising and falling edges of
 Boolean expressions can be used when needed.
 </p>
 <p>
 In JGrafcharts, Grafcet, Sequential Function Charts and StateCharts,
-<b>actions</b> are formulated <b>within a step</b>. Such actions are
-distinguished as <b>entry</b>, <b>normal</b>, <b>exit</b> and
-<b>abort</b> actions. For example, a valve might be opened by
+<strong>actions</strong> are formulated <strong>within a step</strong>. Such actions are
+distinguished as <strong>entry</strong>, <strong>normal</strong>, <strong>exit</strong> and
+<strong>abort</strong> actions. For example, a valve might be opened by
 an entry action of a step and might be closed by an exit
 action of the same step. In StateGraphs, this is (fortunately)
-<b>not possible</b>
+<strong>not possible</strong>
 due to Modelica's \"single assignment rule\" that requires that every
 variable is defined by exactly one equation. Instead, the
 approach explained above is used. For example, via the
@@ -175,9 +175,9 @@ approach explained above is used. For example, via the
 when the StateGraph is in particular steps.
 </p>
 <p>
-This feature of a StateGraph is <b>very useful</b>, since it allows
-a Modelica translator to <b>guarantee</b> that a given StateGraph
-has always <b>deterministic</b> behaviour without conflicts.
+This feature of a StateGraph is <strong>very useful</strong>, since it allows
+a Modelica translator to <strong>guarantee</strong> that a given StateGraph
+has always <strong>deterministic</strong> behaviour without conflicts.
 In the other methodologies this is much more cumbersome. For example,
 if two steps are executed in parallel and both step actions
 modify the same variable, the result is either non-deterministic
@@ -190,12 +190,12 @@ approach are:
 <ul>
 <li> A JGrafchart or a StateChart need to potentially access
      variables in a step that are defined in
-     higher hierarchical levels of a model. Therefore, mostly <b>global
-     variables</b> are used in the whole network, even if the
+     higher hierarchical levels of a model. Therefore, mostly <strong>global
+     variables</strong> are used in the whole network, even if the
      network is structured hierarchically. In StateGraphs this
      is not necessary, since the physical systems outside
      of a StateGraph might access the step or transition state
-     via a hierarchical name. This means that <b>no global variables</b>
+     via a hierarchical name. This means that <strong>no global variables</strong>
      are needed, because the local variables in the StateGraph
      are accessed from local variables outside of the StateGraph.
      </li>
@@ -245,7 +245,7 @@ essentially the new values of the steps. If conflicts occur,
 e.g., if there are more equations as variables, of if there
 are algebraic loops between Boolean variables, an exception
 is raised. Once all equations have been processed, the
-<b>active</b> variable of all steps are updated to the newly
+<strong>active</strong> variable of all steps are updated to the newly
 calculated values. Afterwards, the equations are again
 evaluated. The iteration stops, once no step changes
 its state anymore, i.e., once no transition fires anymore.
@@ -261,8 +261,8 @@ library, this might be more directly supported.
 <h4>Parallel and Alternative Execution</h4>
 <p>
 Parallel activities can be defined by
-component <b>Parallel</b> and alternative activities
-can be defined by component <b>Alternative</b>.
+component <strong>Parallel</strong> and alternative activities
+can be defined by component <strong>Alternative</strong>.
 An example for both components is given in the next figure.
 </p>
 
@@ -277,7 +277,7 @@ branch component can only fire if the final steps
 in all parallel branches are active simultaneously.
 The figure above is a screen-shot from the animation of the
 StateGraph: Whenever a step is active or a transition can fire,
-the corresponding component is marked in <b>green</b> color.
+the corresponding component is marked in <strong>green</strong> color.
 </p>
 <p>
 The three branches within \"step2\" to \"step5\" are
@@ -313,8 +313,8 @@ the vector index to which the component shall be connected:
 
 <h4>CompositeSteps, Suspend and Resume Port</h4>
 <p>
-A StateGraph can be hierarchically structured by using a <b>CompositeStep</b>.
-This is a component that inherits from <b>PartialCompositeStep</b>.
+A StateGraph can be hierarchically structured by using a <strong>CompositeStep</strong>.
+This is a component that inherits from <strong>PartialCompositeStep</strong>.
 An example is given in the next figure (from Examples.ControlledTanks):
 </p>
 
@@ -327,17 +327,17 @@ The CompositeStep component contains a local StateGraph that is
 entered by one or more input transitions and that is left
 by one or more output transitions. Also, other needed signals
 may enter a CompositeStep. The CompositeStep has similar properties
-as a \"usual\" step: The CompositeStep is <b>active</b> once at least
-one step within the CompositeStep is active. Variable <b>active</b>
+as a \"usual\" step: The CompositeStep is <strong>active</strong> once at least
+one step within the CompositeStep is active. Variable <strong>active</strong>
 defines the state of the CompositeStep.
 </p>
 <p>
-Additionally, a CompositeStep has a <b>suspend</b> port. Whenever the
+Additionally, a CompositeStep has a <strong>suspend</strong> port. Whenever the
 transition connected to this port fires, the CompositeStep is left
 at once. When leaving the CompositeStep via the suspend port, the internal
 state of the CompositeStep is saved, i.e., the active flags of all
 steps within the CompositeStep. The CompositeStep might be entered via
-its <b>resume</b> port. In this case the internal state from the
+its <strong>resume</strong> port. In this case the internal state from the
 suspend transition is reconstructed and the CompositeStep continues
 the execution that it had before the suspend transition fired
 (this corresponds to the history ports of StateCharts or JGrafcharts).
@@ -385,20 +385,20 @@ This model is available as StateGraph.Examples.ControlledTanks.
 <p>
 In the right part of the figure, two tanks are shown. At the top part,
 a large fluid source is present from which fluid can be filled in
-<b>tank1</b> when <b>valve1</b> is open. Tank1 can be emptied via
-<b>valve2</b> that is located in the bottom of tank2 and
-fills a second <b>tank2</b> which in turn is emptied via
-<b>valve3</b>. The actual levels of the tanks are measured
-and are provided as signals <b>level1</b> and <b>level2</b>
-to the <b>tankController</b>.
+<strong>tank1</strong> when <strong>valve1</strong> is open. Tank1 can be emptied via
+<strong>valve2</strong> that is located in the bottom of tank2 and
+fills a second <strong>tank2</strong> which in turn is emptied via
+<strong>valve3</strong>. The actual levels of the tanks are measured
+and are provided as signals <strong>level1</strong> and <strong>level2</strong>
+to the <strong>tankController</strong>.
 </p>
 <p>
-The <b>tankController</b> is controlled by three buttons,
-<b>start</b>, <b>stop</b> and <b>shut</b> (for shutdown)
+The <strong>tankController</strong> is controlled by three buttons,
+<strong>start</strong>, <strong>stop</strong> and <strong>shut</strong> (for shutdown)
 that are mutually exclusive. This means that whenever one button is
-pressed (i.e., its state is <b>true</b>) then the other two
-buttons are not pressed (i.e., their states are <b>false</b>).
-When button <b>start</b> is pressed, the \"normal\" operation
+pressed (i.e., its state is <strong>true</strong>) then the other two
+buttons are not pressed (i.e., their states are <strong>false</strong>).
+When button <strong>start</strong> is pressed, the \"normal\" operation
 to fill and to empty the two tanks is processed:
 </p>
 <ol>
@@ -417,20 +417,20 @@ The above \"normal\" process can be influenced by the following
 buttons:
 </p>
 <ul>
-<li> Button <b>start</b> starts the above process.
+<li> Button <strong>start</strong> starts the above process.
      When this button is pressed after a \"stop\" or
      \"shut\" operation, the process operation continues.
      </li>
-<li> Button <b>stop</b> stops the above process by
+<li> Button <strong>stop</strong> stops the above process by
      closing all valves. Then, the controller waits for
      further input (either \"start\" or \"shut\" operation).</li>
-<li> Button <b>shut</b> is used to shutdown the process,
+<li> Button <strong>shut</strong> is used to shutdown the process,
      by emptying at once both tanks. When this is achieved,
      the process goes back to its start configuration.
      Clicking on \"start\", restarts the process.</li>
 </ul>
 <p>
-The implementation of the <b>tankController</b> is shown in
+The implementation of the <strong>tankController</strong> is shown in
 the next figure:
 </p>
 
@@ -439,26 +439,26 @@ the next figure:
 </p>
 
 <p>
-When the \"<b>start</b>\" button is pressed, the stateGraph is
-within the CompositeStep \"<b>makeProduct</b>\". During normal
+When the \"<strong>start</strong>\" button is pressed, the stateGraph is
+within the CompositeStep \"<strong>makeProduct</strong>\". During normal
 operation this CompositeStep is only left, once tank2 is empty.
 Afterwards, the CompositeStep is at once re-entered.
 </p>
 <p>
-When the \"<b>stop</b>\" button is pressed, the \"makeProduct\"
-CompositeStep is at once terminated via the \"<b>suspend</b>\" port
-and the stateGraph waits in step \"<b>s2</b>\" for further
-commands. When the \"<b>start</b>\" button is pressed, the CompositeStep
-is re-entered via its <b>resume</b> port and the \"normal\"
+When the \"<strong>stop</strong>\" button is pressed, the \"makeProduct\"
+CompositeStep is at once terminated via the \"<strong>suspend</strong>\" port
+and the stateGraph waits in step \"<strong>s2</strong>\" for further
+commands. When the \"<strong>start</strong>\" button is pressed, the CompositeStep
+is re-entered via its <strong>resume</strong> port and the \"normal\"
 operation continues at the state where it was aborted by the
-suspend transition. If the \"<b>shut</b>\" button is pressed,
-the stateGraph waits in the \"<b>emptyTanks</b>\" step, until
+suspend transition. If the \"<strong>shut</strong>\" button is pressed,
+the stateGraph waits in the \"<strong>emptyTanks</strong>\" step, until
 both tanks are empty and then waits at the initial step
-\"<b>s1</b>\" for further input.
+\"<strong>s1</strong>\" for further input.
 </p>
 <p>
-The opening and closing of valves is <b>not</b> directly
-defined in the stateGraph. Instead via the \"<b>setValveX</b>\"
+The opening and closing of valves is <strong>not</strong> directly
+defined in the stateGraph. Instead via the \"<strong>setValveX</strong>\"
 components, the Boolean state of the valves are computed.
 For example, the output y of \"setValve2\" is computed as:
 </p>
@@ -500,14 +500,14 @@ library:
 </p>
 
 <ul>
-<li> <b>3 Basic Components (Step, Transition, Parallel)</b><br>
+<li> <strong>3 Basic Components (Step, Transition, Parallel)</strong><br>
      All multiple versions of a component are
      combined in only one version (e.g., one step and not 4 step components).
      This is easier to understand and more convenient to use.
      The \"Parallel\" component is both used as \"composite step\" (so only one branch),
      as well as \"parallel step\" (so several execution branches).<br>&nbsp;</li>
 
-<li> <b>Conveniently connecting components</b><br>
+<li> <strong>Conveniently connecting components</strong><br>
      Connecting components of a state machine in Modelica means to provide
      new vector dimensions and to provide a vector index to connect to.
      In StateGraph2, the new \"connectorSizing\" annotation is used and
@@ -515,7 +515,7 @@ library:
      of view, these actions are hidden; this is not the case in
      StateGraph1 and makes the usage of the StateGraph1 library clumsy).<br>&nbsp;</li>
 
-<li> <b>Safer state machines</b><br>
+<li> <strong>Safer state machines</strong><br>
      It is no longer possible to construct a wrong state machine in the sense that properties
      of the graph are violated (e.g., two initial steps, or branching wrongly out of a parallel
      component). Contrary to StateGraph2, in StateGraph1 such wrong graphs do not lead to an
@@ -523,7 +523,7 @@ library:
      of a state machine,  such as \"no deadlock\" or \"lifeliness\" or \"every step reachable\",
      are not (yet) guaranteed with the current StateGraph2. <br>&nbsp;</li>
 
-<li> <b>Composite, autonomous, synchronized, preempted subgraphs</b><br>
+<li> <strong>Composite, autonomous, synchronized, preempted subgraphs</strong><br>
      Composite steps and parallel steps are described in a much better and more powerful
      way as in StateGraph1: Either by component \"Parallel\" or
      by inheriting from \"PartialParallel\". The first alternative has the advantage that it
@@ -539,7 +539,7 @@ library:
           the suspend ports and can continue execution via the resume ports).</li>
      </ol>
      This is achieved by enabling/disabling the different ports.<br>&nbsp;</li>
-<li> <b>No infinite looping</b>:<br>
+<li> <strong>No infinite looping</strong>:<br>
      As in StateGraph1, there are two types of transitions: immediate transitions (during event
      iteration all immediate transitions fire until no transition condition is true anymore) and
      delayed transitions (a transition fires only after a delay). Contrary to StateGraph1,
@@ -552,7 +552,7 @@ library:
      in the actions associated with a StateGraph2 (e.g., \"i = pre(i) + 1\" in the equation section
      outside of a when-clause will give an event iteration that never stops).<br>
      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;It is possible to switch off this feature, by setting parameter
-     \"loopCheck = <b>false</b>\" in one transition of a loop, instead of using a \"delayed transition\"
+     \"loopCheck = <strong>false</strong>\" in one transition of a loop, instead of using a \"delayed transition\"
      at this place (in cases where immediate transitions are
      important and the transition conditions are in a form that they cannot fire at the
      same time instant).</li>
@@ -573,7 +573,7 @@ based on the following references:
      I3S Laboratory, UMR 6070 University of Nice-Sophia Antipolis / CNRS.<br>&nbsp;</dd>
 
 <dt>&Aring;rz&eacute;n K.-E. (2004):</dt>
-<dd> <b>JGrafchart User Manual. Version 1.5</b>.
+<dd> <strong>JGrafchart User Manual. Version 1.5</strong>.
      Department of Automatic Control, Lund Institute of Technology,
      Lund, Sweden, Feb. 13, 2004.<br>&nbsp;</dd>
 
@@ -585,7 +585,7 @@ based on the following references:
      Lund, Sweden, March 30, 2004.<br>&nbsp;</dd>
 
 <dt>Elmqvist H., Mattsson S.E., Otter M. (2001):</dt>
-<dd> <b>Object-Oriented and Hybrid Modeling in Modelica</b>.
+<dd> <strong>Object-Oriented and Hybrid Modeling in Modelica</strong>.
      Journal Europeen des systemes automatises (JESA),
      Volume 35 - n. 1, 2001.<br>&nbsp;</dd>
 
@@ -699,21 +699,21 @@ The StateGraph library is based on the following references:
 </p>
 <dl>
 <dt>&Aring;rz&eacute;n K.-E. (2004):</dt>
-<dd> <b>JGrafchart User Manual. Version 1.5</b>.
+<dd> <strong>JGrafchart User Manual. Version 1.5</strong>.
      Department of Automatic Control, Lund Institute of Technology,
      Lund, Sweden, Feb. 13<br>&nbsp;</dd>
 <dt>Dressler I. (2004):</dt>
-<dd> <b>Code Generation From JGrafchart to Modelica</b>.
+<dd> <strong>Code Generation From JGrafchart to Modelica</strong>.
      Master thesis, supervisor: Karl-Erik &Aring;rz&eacute;n,
      Department of Automatic Control, Lund Institute of Technology,
      Lund, Sweden, March 30<br>&nbsp;</dd>
 <dt>Elmqvist H., Mattsson S.E., Otter M. (2001):</dt>
-<dd> <b>Object-Oriented and Hybrid Modeling in Modelica</b>.
+<dd> <strong>Object-Oriented and Hybrid Modeling in Modelica</strong>.
      Journal Europeen des systemes automatises (JESA),
      Volume 35 - n. 1.<br>&nbsp;</dd>
 <dt>Mosterman P., Otter M., Elmqvist H. (1998):</dt>
-<dd> <b>Modeling Petri Nets as Local Constraint Equations for
-     Hybrid Systems using Modelica</b>.
+<dd> <strong>Modeling Petri Nets as Local Constraint Equations for
+     Hybrid Systems using Modelica</strong>.
      SCSC'98, Reno, Nevada, USA,
      Society for Computer Simulation International, pp. 314-319.
      </dd>
@@ -727,7 +727,7 @@ The StateGraph library is based on the following references:
 
     annotation (Documentation(info="<html>
 <dl>
-<dt><b>Main Author:</b>
+<dt><strong>Main Author:</strong>
 <dd><a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a><br>
     Deutsches Zentrum f&uuml;r Luft und Raumfahrt e.V. (DLR)<br>
     Institut f&uuml;r Robotik und Mechatronik<br>
@@ -737,7 +737,7 @@ The StateGraph library is based on the following references:
     Germany<br>
     email: <A HREF=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</A><br>
 </dl>
-<p><b>Acknowledgements:</b></p>
+<p><strong>Acknowledgements:</strong></p>
 <ul>
 <li> The development of this library was strongly motivated by the
      master thesis of Isolde Dressler
@@ -765,10 +765,10 @@ The StateGraph library is based on the following references:
 
   annotation (DocumentationClass=true, Documentation(info="<html>
 <p>
-Library <b>StateGraph</b> is a <b>free</b> Modelica package providing
-components to model <b>discrete event</b> and <b>reactive</b>
+Library <strong>StateGraph</strong> is a <strong>free</strong> Modelica package providing
+components to model <strong>discrete event</strong> and <strong>reactive</strong>
 systems in a convenient
-way. This package contains the <b>User's Guide</b> for
+way. This package contains the <strong>User's Guide</strong> for
 the library and has the following content:
 </p>
 <ol>
@@ -1020,7 +1020,7 @@ package Examples
     annotation (
       Documentation(info="<html>
 <p>
-This is an example to demonstrate in which way <b>parallel</b> activities
+This is an example to demonstrate in which way <strong>parallel</strong> activities
 can be modelled by a StateGraph. When transition1 fires
 (after 1 second), two branches are executed in parallel.
 After 6 seconds the two branches are synchronized in order to arrive
@@ -1254,14 +1254,14 @@ The above \"normal\" process can be influenced by three
 buttons:
 </p>
 <ul>
-<li> Button <b>start</b> starts the above process.
+<li> Button <strong>start</strong> starts the above process.
      When this button is pressed after a \"stop\" or
      \"shut\" operation, the process operation continues.
      </li>
-<li> Button <b>stop</b> stops the above process by
+<li> Button <strong>stop</strong> stops the above process by
      closing all valves. Then, the controller waits for
      further input (either \"start\" or \"shut\" operation).</li>
-<li> Button <b>shut</b> is used to shutdown the process,
+<li> Button <strong>shut</strong> is used to shutdown the process,
      by emptying at once both tanks. When this is achieved,
      the process goes back to its start configuration.
      Clicking on \"start\", restarts the process.</li>
@@ -2814,9 +2814,9 @@ type SetRealParameter = Real "Define Real parameter (GUI not yet satisfactory)"
             textString="%value")}),
   Documentation(info="<html>
 <p>
-This is an <b>experimental component</b> to define a
-<b>Real parameter</b>
-in the <b>diagram layer</b>. The idea is to drag the icon from the
+This is an <strong>experimental component</strong> to define a
+<strong>Real parameter</strong>
+in the <strong>diagram layer</strong>. The idea is to drag the icon from the
 package browser into the diagram layer. Then a window pops
 up in which the properties of this parameter can be defined
 (such as the default value). The name and default value of the
@@ -2833,8 +2833,8 @@ go into the text layer and add an annotation with the
 component size, resulting for example in:
 </p>
 <pre>
-  <b>parameter</b> StateGraph.SetRealParameter name = 2
-                       <b>annotation</b>(extent=[-10,-10; 10,10]);
+  <strong>parameter</strong> StateGraph.SetRealParameter name = 2
+                       <strong>annotation</strong>(extent=[-10,-10; 10,10]);
 </pre>
 <p>
 This change makes the parameter icon visible in the
@@ -2977,8 +2977,8 @@ of Modelica.StateGraph.
 </p>
 
 <p>
-Library <b>StateGraph</b> is a <b>free</b> Modelica package providing
-components to model <b>discrete event</b> and <b>reactive</b>
+Library <strong>StateGraph</strong> is a <strong>free</strong> Modelica package providing
+components to model <strong>discrete event</strong> and <strong>reactive</strong>
 systems in a convenient
 way. It is based on the JGrafchart method and
 takes advantage of Modelica features for
@@ -3029,7 +3029,7 @@ are nearly always needed).
 Copyright &copy; 1998-2016, Modelica Association and DLR
 </p>
 <p>
-<i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
+<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</em>
 </p>
 </html>"), Icon(coordinateSystem(extent={{-100.0,-100.0},{100.0,100.0}}), graphics={
       Rectangle(

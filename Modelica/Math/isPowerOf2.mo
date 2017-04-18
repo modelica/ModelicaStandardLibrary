@@ -9,13 +9,13 @@ algorithm
   annotation (Inline=true, Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-Math.<b>isPowerOf2</b>(i);
+Math.<strong>isPowerOf2</strong>(i);
 </pre></blockquote>
 <h4>Description</h4>
 <p>
-The function call \"<code>Math.isPowerOf2(i)</code>\" returns <b>true</b>,
+The function call \"<code>Math.isPowerOf2(i)</code>\" returns <strong>true</strong>,
 if the Integer input i is a power of 2. Otherwise the function
-returns <b>false</b>. The Integer input has to be &gt;=1.
+returns <strong>false</strong>. The Integer input has to be &gt;=1.
 </p>
 <h4>Example</h4>
 <blockquote><pre>
@@ -23,10 +23,10 @@ returns <b>false</b>. The Integer input has to be &gt;=1.
   Integer i2 = 4;
   Integer i3 = 9;
   Boolean result;
-<b>algorithm</b>
-  result := Math.isPowerOf2(i1);     // = <b>true</b> 2^0
-  result := Math.isPowerOf2(i2);     // = <b>true</b> 2^2
-  result := Math.isPowerOf2(i3);     // = <b>false</b>
+<strong>algorithm</strong>
+  result := Math.isPowerOf2(i1);     // = <strong>true</strong> 2^0
+  result := Math.isPowerOf2(i2);     // = <strong>true</strong> 2^2
+  result := Math.isPowerOf2(i3);     // = <strong>false</strong>
 </pre></blockquote>
 </html>"));
 end isPowerOf2;

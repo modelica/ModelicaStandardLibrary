@@ -48,10 +48,10 @@ The number to be visualized can be defined in the following ways:
 </p>
 
 <ul>
-<li> If useNumberPort = <b>true</b> (which is the default), a Real
+<li> If useNumberPort = <strong>true</strong> (which is the default), a Real
      input is present and this input variable is shown.</li>
 
-<li> If useNumberPort = <b>false</b> no input connector is present.
+<li> If useNumberPort = <strong>false</strong> no input connector is present.
      Instead, a Real input field is activated in the parameter menu
      and the Real expression from this input menu is shown.</li>
 </ul>
@@ -112,10 +112,10 @@ The number to be visualized can be defined in the following ways:
 </p>
 
 <ul>
-<li> If useNumberPort = <b>true</b> (which is the default), an Integer
+<li> If useNumberPort = <strong>true</strong> (which is the default), an Integer
      input is present and this input variable is shown.</li>
 
-<li> If useNumberPort = <b>false</b> no input connector is present.
+<li> If useNumberPort = <strong>false</strong> no input connector is present.
      Instead, an Integer input field is activated in the parameter menu
      and the Integer expression from this input menu is shown.</li>
 </ul>
@@ -174,16 +174,16 @@ The Boolean variable to be visualized can be defined in the following ways:
 </p>
 
 <ul>
-<li> If useActivePort = <b>true</b> (which is the default), a Boolean
+<li> If useActivePort = <strong>true</strong> (which is the default), a Boolean
      input is present and this input variable is shown.</li>
 
-<li> If useActivePort = <b>false</b> no input connector is present.
+<li> If useActivePort = <strong>false</strong> no input connector is present.
      Instead, a Boolean input field is activated in the parameter menu
      and the Boolean expression from this input menu is shown.</li>
 </ul>
 
 <p>
-If the Boolean variable is <b>false</b> the block is \"grey\", otherwise, it is \"green\".
+If the Boolean variable is <strong>false</strong> the block is \"grey\", otherwise, it is \"green\".
 The two versions of the block are shown in the following image (in the right variant, the
 name of the variable value that is displayed is also shown below the icon):
 </p>

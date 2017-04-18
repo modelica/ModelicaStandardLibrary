@@ -108,7 +108,7 @@ package Sources "Define fixed or prescribed boundary conditions"
             lineColor={0,0,255})}),
       Documentation(info="<html>
 <p>
-Model <b>FixedBoundary</b> defines constant values for boundary conditions:
+Model <strong>FixedBoundary</strong> defines constant values for boundary conditions:
 </p>
 <ul>
 <li> Boundary pressure or boundary density.</li>
@@ -772,7 +772,7 @@ of the modeller. Increase nPorts to add an additional port.
 
     annotation (defaultComponentName="boundary", Documentation(info="<html>
 <p>
-Partial component to model the <b>volume interface</b> of a <b>source</b>
+Partial component to model the <strong>volume interface</strong> of a <strong>source</strong>
 component, such as a mass flow source. The essential
 features are:
 </p>
@@ -826,7 +826,7 @@ of the modeller. Increase nPorts to add an additional port.
 
     annotation (defaultComponentName="boundary", Documentation(info="<html>
 <p>
-Partial component to model the <b>volume interface</b> of a <b>source</b>
+Partial component to model the <strong>volume interface</strong> of a <strong>source</strong>
 component, such as a mass flow source. The essential
 features are:
 </p>
@@ -841,7 +841,7 @@ features are:
   end BaseClasses;
   annotation (Documentation(info="<html>
 <p>
-Package <b>Sources</b> contains generic sources for fluid connectors
+Package <strong>Sources</strong> contains generic sources for fluid connectors
 to define fixed or prescribed ambient conditions.
 </p>
 </html>"));

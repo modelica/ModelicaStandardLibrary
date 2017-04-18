@@ -424,13 +424,13 @@ needed and if this connector should be connected for a correct model.
       "Connector frame_b of joint object is not connected");
     annotation (Documentation(info="<html>
 <p>
-All <b>elementary joints</b> should inherit from this base model, i.e.,
+All <strong>elementary joints</strong> should inherit from this base model, i.e.,
 joints that are directly defined by equations, provided they compute
 either the rotation object of frame_b from the rotation object of frame_a
 and from relative quantities (or vice versa), or there is a constraint
 equation between the rotation objects of the two frames.
 In other cases, a joint object should inherit from
-<b>Interfaces.PartialTwoFrames</b> (e.g., joint Spherical, because there
+<strong>Interfaces.PartialTwoFrames</strong> (e.g., joint Spherical, because there
 is no constraint between the rotation objects of frame_a and frame_b
 or joint Cylindrical because it is not an elementary joint).
 </p>
@@ -456,7 +456,7 @@ object and an assert to check that both frame connectors are connected.
     zeros(3) = frame_a.t + Frames.resolveRelative(frame_b.t + cross(r_rel_b, frame_b.f), frame_b.R, frame_a.R);
     annotation (Documentation(info="<html>
 <p>
-All <b>3-dimensional force</b> and <b>torque elements</b>
+All <strong>3-dimensional force</strong> and <strong>torque elements</strong>
 should be based on this superclass.
 This model defines frame_a and frame_b, computes the relative
 translation and rotation between the two frames and calculates
@@ -477,12 +477,12 @@ to which this force element is attached at frame_b, then
 the definition should be:
 </p>
 <pre>
-   <b>model</b> Constant_x_Force
+   <strong>model</strong> Constant_x_Force
       extends Modelica.Mechanics.MultiBody.Interfaces.PartialForce;
-   <b>equation</b>
+   <strong>equation</strong>
       frame_b.f = {-100, 0, 0};
       frame_b.t = zeros(3);
-   <b>end</b> Constant_x_Force;
+   <strong>end</strong> Constant_x_Force;
 </pre>
 <p>
 Note, that frame_b.f and frame_b.t are flow variables and therefore
@@ -555,9 +555,9 @@ for this situation:
 
     annotation (Documentation(info="<html>
 <p>
-All <b>line force</b> elements should be based on this base model.
+All <strong>line force</strong> elements should be based on this base model.
 This model defines frame_a and frame_b and computes the (guarded) relative
-distance <b>s</b>. An assertion is raised if the relative
+distance <strong>s</strong>. An assertion is raised if the relative
 distance <strong>length</strong> became smaller as parameter <strong>s_small</strong>.
 </p>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
@@ -594,23 +594,23 @@ distance <strong>length</strong> became smaller as parameter <strong>s_small</st
 
     annotation (Documentation(info="<html>
 <p>
-All massless <b>line force</b> elements should be based on this base model.
+All massless <strong>line force</strong> elements should be based on this base model.
 This model defines frame_a and frame_b, computes the (guarded) relative
-distance <b>s</b> and provides the force and torque
+distance <strong>s</strong> and provides the force and torque
 balance of the cut-forces and cut-torques at frame_a and
-frame_b, respectively. In sub-models, only the line force <b>f</b>,
+frame_b, respectively. In sub-models, only the line force <strong>f</strong>,
 acting at frame_b on the line from frame_a to frame_b, as a function
-of the relative distance <b>s</b> and its derivative <b>der</b>(<b>s</b>)
+of the relative distance <strong>s</strong> and its derivative <strong>der</strong>(<strong>s</strong>)
 has to be defined. Example:
 </p>
 <pre>
-   <b>model</b> Spring
-      <b>parameter</b> Real c \"spring constant\",
-      <b>parameter</b> Real s_unstretched \"unstretched spring length\";
-      <b>extends</b> Modelica.Mechanics.MultiBody.Interfaces.PartialLineForce;
-   <b>equation</b>
+   <strong>model</strong> Spring
+      <strong>parameter</strong> Real c \"spring constant\",
+      <strong>parameter</strong> Real s_unstretched \"unstretched spring length\";
+      <strong>extends</strong> Modelica.Mechanics.MultiBody.Interfaces.PartialLineForce;
+   <strong>equation</strong>
       f = c*(s-s_unstretched);
-   <b>end</b> Spring;
+   <strong>end</strong> Spring;
 </pre>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}), graphics={

@@ -28,13 +28,13 @@ package Sources
             lineColor={0,0,255})}), Documentation(info="<html>
 <p>
 The (time varying) Real output signal of this block can be defined in its
-parameter menu via variable <b>y</b>. The purpose is to support the
+parameter menu via variable <strong>y</strong>. The purpose is to support the
 easy definition of Real expressions in a block diagram. For example,
 in the y-menu the definition \"if time &lt; 1 then 0 else 1\" can be given in order
 to define that the output signal is one, if time &ge; 1 and otherwise
 it is zero. Note, that \"time\" is a built-in variable that is always
 accessible and represents the \"model time\" and that
-variable <b>y</b> is both a variable and a connector.
+variable <strong>y</strong> is both a variable and a connector.
 </p>
 </html>"));
 
@@ -64,13 +64,13 @@ variable <b>y</b> is both a variable and a connector.
             lineColor={0,0,255})}), Documentation(info="<html>
 <p>
 The (time varying) Integer output signal of this block can be defined in its
-parameter menu via variable <b>y</b>. The purpose is to support the
+parameter menu via variable <strong>y</strong>. The purpose is to support the
 easy definition of Integer expressions in a block diagram. For example,
 in the y-menu the definition \"if time &lt; 1 then 0 else 1\" can be given in order
 to define that the output signal is one, if time &ge; 1 and otherwise
 it is zero. Note, that \"time\" is a built-in variable that is always
 accessible and represents the \"model time\" and that
-variable <b>y</b> is both a variable and a connector.
+variable <strong>y</strong> is both a variable and a connector.
 </p>
 </html>"));
 
@@ -107,14 +107,14 @@ variable <b>y</b> is both a variable and a connector.
             fillPattern=FillPattern.Solid)}), Documentation(info="<html>
 <p>
 The (time varying) Boolean output signal of this block can be defined in its
-parameter menu via variable <b>y</b>. The purpose is to support the
+parameter menu via variable <strong>y</strong>. The purpose is to support the
 easy definition of Boolean expressions in a block diagram. For example,
 in the y-menu the definition \"time &gt;= 1 and time &lt;= 2\" can be given in order
-to define that the output signal is <b>true</b> in the time interval
-1 &le; time &le; 2 and otherwise it is <b>false</b>.
+to define that the output signal is <strong>true</strong> in the time interval
+1 &le; time &le; 2 and otherwise it is <strong>false</strong>.
 Note, that \"time\" is a built-in variable that is always
 accessible and represents the \"model time\" and that
-variable <b>y</b> is both a variable and a connector.
+variable <strong>y</strong> is both a variable and a connector.
 </p>
 </html>"));
 
@@ -1546,11 +1546,11 @@ The Real output y is a trapezoid signal:
             textString="time")}),
           Documentation(info="<html>
 <p>
-The goal is to move as <b>fast</b> as possible along a distance
-<b>deltaq</b>
-under given <b>kinematical constraints</b>. The distance can be a positional or
-angular range. In robotics such a movement is called <b>PTP</b> (Point-To-Point).
-This source block generates the <b>acceleration</b> qdd of this signal
+The goal is to move as <strong>fast</strong> as possible along a distance
+<strong>deltaq</strong>
+under given <strong>kinematical constraints</strong>. The distance can be a positional or
+angular range. In robotics such a movement is called <strong>PTP</strong> (Point-To-Point).
+This source block generates the <strong>acceleration</strong> qdd of this signal
 as output:
 </p>
 
@@ -1562,8 +1562,8 @@ as output:
 <p>
 After integrating the output two times, the position q is
 obtained. The signal is constructed in such a way that it is not possible
-to move faster, given the <b>maximally</b> allowed <b>velocity</b> qd_max and
-the <b>maximally</b> allowed <b>acceleration</b> qdd_max.
+to move faster, given the <strong>maximally</strong> allowed <strong>velocity</strong> qd_max and
+the <strong>maximally</strong> allowed <strong>acceleration</strong> qdd_max.
 </p>
 <p>
 If several distances are given (vector deltaq has more than 1 element),
@@ -1577,20 +1577,20 @@ that the end point is reached at the same time instant.
 <p>
 This element is useful to generate a reference signal for a controller
 which controls a drive train or in combination with model
-Modelica.Mechanics.Rotational.<b>Accelerate</b> to drive
+Modelica.Mechanics.Rotational.<strong>Accelerate</strong> to drive
 a flange according to a given acceleration.
 </p>
 
 </html>", revisions="<html>
-<p><b>Release Notes:</b></p>
+<p><strong>Release Notes:</strong></p>
 <ul>
-<li><i>June 27, 2001</i>
+<li><em>June 27, 2001</em>
        by Bernhard Bachmann.<br>
        Bug fixed that element is also correct if startTime is not zero.</li>
-<li><i>Nov. 3, 1999</i>
+<li><em>Nov. 3, 1999</em>
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
        Vectorized and moved from Rotational to Blocks.Sources.</li>
-<li><i>June 29, 1999</i>
+<li><em>June 29, 1999</em>
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
        realized.</li>
 </ul>
@@ -1800,15 +1800,15 @@ a flange according to a given acceleration.
             textString="time")}),
       Documentation(info="<html>
 <p>
-The goal is to move as <b>fast</b> as possible from start position <b>q_begin</b>
-to end position <b>q_end</b>
-under given <b>kinematical constraints</b>. The positions can be translational or
-rotational definitions (i.e., q_begin/q_end is given). In robotics such a movement is called <b>PTP</b> (Point-To-Point).
-This source block generates the <b>position</b> q(t), the
-<b>speed</b> qd(t) = der(q), and the <b>acceleration</b> qdd = der(qd)
+The goal is to move as <strong>fast</strong> as possible from start position <strong>q_begin</strong>
+to end position <strong>q_end</strong>
+under given <strong>kinematical constraints</strong>. The positions can be translational or
+rotational definitions (i.e., q_begin/q_end is given). In robotics such a movement is called <strong>PTP</strong> (Point-To-Point).
+This source block generates the <strong>position</strong> q(t), the
+<strong>speed</strong> qd(t) = der(q), and the <strong>acceleration</strong> qdd = der(qd)
 as output. The signals are constructed in such a way that it is not possible
-to move faster, given the <b>maximally</b> allowed <b>velocity</b> qd_max and
-the <b>maximally</b> allowed <b>acceleration</b> qdd_max:
+to move faster, given the <strong>maximally</strong> allowed <strong>velocity</strong> qd_max and
+the <strong>maximally</strong> allowed <strong>acceleration</strong> qdd_max:
 </p>
 
 <p>
@@ -1833,18 +1833,18 @@ a flange according to a given acceleration.
 
 </html>", revisions="<html>
 <ul>
-<li><i>March 24, 2007</i>
+<li><em>March 24, 2007</em>
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
        Non-standard Modelica function \"constrain(..)\" replaced by standard
        Modelica implementation (via internal function position()).<br>
        New output signal \"moving\" added.</li>
-<li><i>June 27, 2001</i>
+<li><em>June 27, 2001</em>
        by Bernhard Bachmann.<br>
        Bug fixed that element is also correct if startTime is not zero.</li>
-<li><i>Nov. 3, 1999</i>
+<li><em>Nov. 3, 1999</em>
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
        Vectorized and moved from Rotational to Blocks.Sources.</li>
-<li><i>June 29, 1999</i>
+<li><em>June 29, 1999</em>
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
        realized.</li>
 </ul>
@@ -2731,9 +2731,9 @@ The Boolean output y is a pulse signal:
             thickness=0.5)}),
         Documentation(info="<html>
 <p>
-The Boolean output y is a trigger signal where the output y is only <b>true</b>
-at sample times (defined by parameter <b>period</b>) and is otherwise
-<b>false</b>.
+The Boolean output y is a trigger signal where the output y is only <strong>true</strong>
+at sample times (defined by parameter <strong>period</strong>) and is otherwise
+<strong>false</strong>.
 </p>
 
 <p>
@@ -2816,7 +2816,7 @@ at sample times (defined by parameter <b>period</b>) and is otherwise
                 40},{32,40},{32,70},{32,70},{32,-51}})}),
       Documentation(info="<html>
 <p>
-The Boolean output y is a signal defined by parameter vector <b>table</b>.
+The Boolean output y is a signal defined by parameter vector <strong>table</strong>.
 In the vector time points are stored.
 The table interpolation has the following properties:
 </p>
@@ -2853,15 +2853,15 @@ The precise semantics is:
 </p>
 
 <pre>
-  <b>if</b> size(table,1) == 0 <b>then</b>
+  <strong>if</strong> size(table,1) == 0 <strong>then</strong>
      y = startValue;
-  <b>else</b>
+  <strong>else</strong>
      //            time &lt; table[1]: y = startValue
      // table[1] &le; time &lt; table[2]: y = not startValue
      // table[2] &le; time &lt; table[3]: y = startValue
      // table[3] &le; time &lt; table[4]: y = not startValue
      // ...
-  <b>end if</b>;
+  <strong>end if</strong>;
 </pre>
 </html>"));
   end BooleanTable;
@@ -3165,7 +3165,7 @@ The Integer output y is a step signal:
 <p>
 This block generates an Integer output signal by using a table.
 The time points and y-values are stored in a matrix
-<b>table[i,j]</b>, where the first column table[:,1] contains the
+<strong>table[i,j]</strong>, where the first column table[:,1] contains the
 Real time points and the second column contains the Integer value of the
 output y at this time point.
 The table interpolation has the following properties:
@@ -3218,7 +3218,7 @@ results in the following output:
   end IntegerTable;
   annotation (Documentation(info="<html>
 <p>
-This package contains <b>source</b> components, i.e., blocks which
+This package contains <strong>source</strong> components, i.e., blocks which
 have only output signals. These blocks are used as signal generators
 for Real, Integer and Boolean signals.
 </p>
@@ -3229,34 +3229,34 @@ have at least the following two parameters:
 </p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td valign=\"top\"><b>offset</b></td>
+  <tr><td valign=\"top\"><strong>offset</strong></td>
       <td valign=\"top\">Value which is added to the signal</td>
   </tr>
-  <tr><td valign=\"top\"><b>startTime</b></td>
+  <tr><td valign=\"top\"><strong>startTime</strong></td>
       <td valign=\"top\">Start time of signal. For time &lt; startTime,
                 the output y is set to offset.</td>
   </tr>
 </table>
 
 <p>
-The <b>offset</b> parameter is especially useful in order to shift
+The <strong>offset</strong> parameter is especially useful in order to shift
 the corresponding source, such that at initial time the system
 is stationary. To determine the corresponding value of offset,
 usually requires a trimming calculation.
 </p>
 </html>", revisions="<html>
 <ul>
-<li><i>October 21, 2002</i>
+<li><em>October 21, 2002</em>
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>
        and Christian Schweiger:<br>
        Integer sources added. Step, TimeTable and BooleanStep slightly changed.</li>
-<li><i>Nov. 8, 1999</i>
+<li><em>Nov. 8, 1999</em>
        by <a href=\"mailto:clauss@eas.iis.fhg.de\">Christoph Clau&szlig;</a>,
        <a href=\"mailto:Andre.Schneider@eas.iis.fraunhofer.de\">Andre.Schneider@eas.iis.fraunhofer.de</a>,
        <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
        New sources: Exponentials, TimeTable. Trapezoid slightly enhanced
        (nperiod=-1 is an infinite number of periods).</li>
-<li><i>Oct. 31, 1999</i>
+<li><em>Oct. 31, 1999</em>
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
        <a href=\"mailto:clauss@eas.iis.fhg.de\">Christoph Clau&szlig;</a>,
        <a href=\"mailto:Andre.Schneider@eas.iis.fraunhofer.de\">Andre.Schneider@eas.iis.fraunhofer.de</a>,
@@ -3264,7 +3264,7 @@ usually requires a trimming calculation.
        BooleanConstant, BooleanStep, BooleanPulse, SampleTrigger.
        Improved documentation, especially detailed description of
        signals in diagram layer.</li>
-<li><i>June 29, 1999</i>
+<li><em>June 29, 1999</em>
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
        Realized a first version, based on an existing Dymola library
        of Dieter Moormann and Hilding Elmqvist.</li>

@@ -19,7 +19,7 @@ package Examples
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-result = <b>calculator</b>(expression);
+result = <strong>calculator</strong>(expression);
 </pre></blockquote>
 <h4>Description</h4>
 <p>
@@ -178,12 +178,12 @@ The following operations are supported (pi=3.14.. is a predefined constant):
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-             result = <b>expression</b>(string);
-(result, nextIndex) = <b>expression</b>(string, startIndex=1, message=\"\");
+             result = <strong>expression</strong>(string);
+(result, nextIndex) = <strong>expression</strong>(string, startIndex=1, message=\"\");
 </pre></blockquote>
 <h4>Description</h4>
 <p>
-This function is nearly the same as Examples.<b>calculator</b>.
+This function is nearly the same as Examples.<strong>calculator</strong>.
 The essential difference is that function \"expression\" might be
 used in other parsing operations: After the expression is
 parsed and evaluated, the function returns with the value
@@ -305,7 +305,7 @@ function can be used as part of another scan operation.
                    "<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-result = <b>readRealParameter</b>(fileName, name);
+result = <strong>readRealParameter</strong>(fileName, name);
 </pre></blockquote>
 <h4>Description</h4>
 <p>

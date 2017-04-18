@@ -149,7 +149,7 @@ equation
     experiment(StopTime=50, Interval=0.001),
     Documentation(revisions="<html>
 <dl>
-<dt><i>2009</i></dt>
+<dt><em>2009</em></dt>
 <dd>by Anton Haumer<br> initially implemented</dd>
 </dl>
 </html>",

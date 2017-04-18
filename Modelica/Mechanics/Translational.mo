@@ -13,27 +13,27 @@ package Translational
       annotation (DocumentationClass=true, Documentation(info="<html>
 
 <p>
-This package contains components to model <b>1-dimensional translational
-mechanical</b> systems, including different types of masses,
+This package contains components to model <strong>1-dimensional translational
+mechanical</strong> systems, including different types of masses,
 external forces, spring/damper elements,
 frictional elements, elastogaps, elements to measure position, velocity,
 acceleration and the cut-force of a flange. In sublibrary
-<b>Examples</b> several examples are present to demonstrate the usage of
+<strong>Examples</strong> several examples are present to demonstrate the usage of
 the elements. Just open the corresponding example model and simulate
 the model according to the provided description.
 </p>
 <p>
-A unique feature of this library is the <b>component-oriented</b>
-modeling of <b>Coulomb friction</b> elements, such as support friction.
+A unique feature of this library is the <strong>component-oriented</strong>
+modeling of <strong>Coulomb friction</strong> elements, such as support friction.
 Even (dynamically) coupled friction elements can be handled
-<b>without</b> introducing stiffness which leads to fast simulations.
+<strong>without</strong> introducing stiffness which leads to fast simulations.
 The underlying theory is new and is based on the solution of mixed
 continuous/discrete systems of equations, i.e., equations where the
-<b>unknowns</b> are of type <b>Real</b>, <b>Integer</b> or <b>Boolean</b>.
+<strong>unknowns</strong> are of type <strong>Real</strong>, <strong>Integer</strong> or <strong>Boolean</strong>.
 Provided appropriate numerical algorithms for the solution of such types of
 systems are available in the simulation tool, the simulation of
 (dynamically) coupled friction elements of this library is
-<b>efficient</b> and <b>reliable</b>.
+<strong>efficient</strong> and <strong>reliable</strong>.
 </p>
 
 <p>
@@ -45,16 +45,16 @@ A simple example of the usage of this library is given in the
 figure above. This drive consists of a shaft with mass m1=1 which
 is connected via a spring to a second shaft with mass m2=5.
 The left shaft is driven via an external, sinusoidal force.
-The <b>filled</b> and <b>non-filled green squares</b> at the left and
-right side of a component represent <b>mechanical flanges</b>.
+The <strong>filled</strong> and <strong>non-filled green squares</strong> at the left and
+right side of a component represent <strong>mechanical flanges</strong>.
 Drawing a line between such squares means that the corresponding
-flanges are <b>rigidly attached</b> to each other.
+flanges are <strong>rigidly attached</strong> to each other.
 By convention in this library, the connector characterized as a
-<b>filled</b> green square is called <b>flange_a</b> and placed at the
+<strong>filled</strong> green square is called <strong>flange_a</strong> and placed at the
 left side of the component in the \"design view\" and the connector
-characterized as a <b>non-filled</b> green square is called <b>flange_b</b>
+characterized as a <strong>non-filled</strong> green square is called <strong>flange_b</strong>
 and placed at the right side of the component in the \"design view\".
-The two connectors are completely <b>identical</b>, with the only
+The two connectors are completely <strong>identical</strong>, with the only
 exception that the graphical layout is a little bit different in order
 to distinguish them for easier access of the connector variables.
 For example, <code>m1.flange_a.f</code> is the cut-force in the connector
@@ -62,7 +62,7 @@ For example, <code>m1.flange_a.f</code> is the cut-force in the connector
 </p>
 <p>
 The components of this
-library can be <b>connected</b> together in an <b>arbitrary</b> way. E.g., it is
+library can be <strong>connected</strong> together in an <strong>arbitrary</strong> way. E.g., it is
 possible to connect two springs or two shafts with mass directly
 together, see figure below.
 </p>
@@ -82,15 +82,15 @@ together, see figure below.
       annotation (DocumentationClass=true, Documentation(info="<html>
 <p>
 A flange is described by the connector class
-Interfaces.<b>Flange_a</b>
-or Interfaces.<b>Flange_b</b>. As already noted, the two connector
+Interfaces.<strong>Flange_a</strong>
+or Interfaces.<strong>Flange_b</strong>. As already noted, the two connector
 classes are completely identical. There is only a difference in the icons,
 in order to easier identify a flange variable in a diagram.
 Both connector classes contain the following variables:
 </p>
 <pre>
    Modelica.SIunits.Position   s \"Absolute position of flange\";
-   <b>flow</b> Modelica.SIunits.Force f \"Cut-force in the flange\";
+   <strong>flow</strong> Modelica.SIunits.Force f \"Cut-force in the flange\";
 </pre>
 <p>
 If needed, the velocity <code>v</code> and the
@@ -98,7 +98,7 @@ acceleration <code>a</code> of a flange connector can be
 determined by differentiation of the flange position <code>s</code>:
 </p>
 <pre>
-     v = <b>der</b>(s);    a = <b>der</b>(v);
+     v = <strong>der</strong>(s);    a = <strong>der</strong>(v);
 </pre>
 </html>"));
 
@@ -112,7 +112,7 @@ determined by differentiation of the flange position <code>s</code>:
 <p>The following figure shows examples of components equipped with
 a support flange (framed flange in the lower center), which can be used
 to fix components on the ground or on other moving elements or to combine
-them with force elements. Via Boolean parameter <b>useSupport</b>, the
+them with force elements. Via Boolean parameter <strong>useSupport</strong>, the
 support flange is enabled or disabled. If it is enabled, it must be connected.
 If it is disabled, it must not be connected.
 </p>
@@ -122,7 +122,7 @@ If it is disabled, it must not be connected.
 </p>
 
 <p>
-Depending on the setting of <b>useSupport</b>, the icon of the corresponding
+Depending on the setting of <strong>useSupport</strong>, the icon of the corresponding
 component is changing, to either show the support flange or a ground mounting.
 For example, the two implementations in the following figure give
 identical results.
@@ -144,7 +144,7 @@ identical results.
 <p>
 The variables of a component of this library can be accessed in the
 usual way. However, since most of these variables are basically elements
-of <b>vectors</b>, i.e., have a direction, the question arises how the
+of <strong>vectors</strong>, i.e., have a direction, the question arises how the
 signs of variables shall be interpreted. The basic idea is explained
 at hand of the following figure:
 </p>
@@ -155,7 +155,7 @@ at hand of the following figure:
 
 <p>
 First, one has to define
-a <b>positive</b> direction of this line, called <b>axis of movement</b>.
+a <strong>positive</strong> direction of this line, called <strong>axis of movement</strong>.
 In the top part of the figure this is characterized by an arrow
 defined as <code>axis of movement</code>. The simple rule is now:
 If a variable of a component is positive and can be interpreted as
@@ -254,15 +254,15 @@ which are defined in sublibrary Interfaces:
 The difference between these base classes are the auxiliary
 variables defined in the model and the relations between
 the flange variables already defined in the base class.
-For example, in model <b>PartialCompliant</b> there is no
+For example, in model <strong>PartialCompliant</strong> there is no
 support flange, whereas in model
-<b>PartialElementaryTwoFlangesAndSupport2</b>
+<strong>PartialElementaryTwoFlangesAndSupport2</strong>
 there is a support flange.
 </p>
 <p>
 The equations of a mechanical component are vector equations, i.e.,
 they need to be expressed in a common coordinate system.
-Therefore, for a component a <b>local axis of movement</b> has to be
+Therefore, for a component a <strong>local axis of movement</strong> has to be
 defined. All vector quantities, such as cut-forces or
 velocities have to be expressed according to this definition.
 Examples for such a definition are given in the following figure
@@ -289,7 +289,7 @@ component. But this is not the case, as shown in the next figure:
 </p>
 
 <p>
-In the figure the <b>local</b> axes of rotation of the components
+In the figure the <strong>local</strong> axes of rotation of the components
 are shown. The connection of two masses in the left and in the
 right part of the figure are completely equivalent, i.e., the right
 part is just a different drawing of the left part. This is due to the
@@ -405,7 +405,7 @@ drive.
 
       annotation (Documentation(info="<html>
 <dl>
-<dt><b>Library Officer</b></dt>
+<dt><strong>Library Officer</strong></dt>
 <dd><a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a> <br>
     Deutsches Zentrum f&uuml;r Luft und Raumfahrt e.V. (DLR)<br>
     Institut f&uuml;r Robotik und Mechatronik (DLR-RM)<br>
@@ -417,7 +417,7 @@ drive.
 </dl>
 
 <p>
-<b>Contributors to this library:</b>
+<strong>Contributors to this library:</strong>
 </p>
 
 <ul>
@@ -432,7 +432,7 @@ drive.
     end Contact;
 
     annotation (DocumentationClass=true, Documentation(info="<html>
-<p>Library <b>Translational</b> is a <b>free</b> Modelica package providing 1-dimensional, translational mechanical components to model in a convenient way translational mechanical systems.
+<p>Library <strong>Translational</strong> is a <strong>free</strong> Modelica package providing 1-dimensional, translational mechanical components to model in a convenient way translational mechanical systems.
 More details are given in the following sub-sections:
 </p>
 
@@ -1191,7 +1191,7 @@ to see the difference.
      The simulation results of stop1 and of model mass are therefore identical.</li>
 <li> Model stop2 gives an example for a hard stop. However there
      can arise some problems with the used modeling approach (use of
-     <b>reinit</b>(..), convergence problems). In this case use the ElastoGap
+     <strong>reinit</strong>(..), convergence problems). In this case use the ElastoGap
      to model a stop (see example Preload).</li>
 </ol>
 </html>"),
@@ -1760,8 +1760,8 @@ simulate them according to the provided description in the models.
               textString="%name",
               lineColor={0,0,255})}), Documentation(info="<html>
 <p>
-The <i>flange</i> of a 1D translational mechanical system <i>fixed</i>
-at an position s0 in the <i>housing</i>. May be used:
+The <em>flange</em> of a 1D translational mechanical system <em>fixed</em>
+at an position s0 in the <em>housing</em>. May be used:
 </p>
 <ul>
 <li> to connect a compliant element, such as a spring or a damper,
@@ -1790,7 +1790,7 @@ at an position s0 in the <i>housing</i>. May be used:
       annotation (
         Documentation(info="<html>
 <p>
-Sliding mass with <i>inertia, without friction</i> and two rigidly connected flanges.
+Sliding mass with <em>inertia, without friction</em> and two rigidly connected flanges.
 </p>
 <p>
 The sliding mass has the length L, the position coordinate s is in the middle.
@@ -1855,7 +1855,7 @@ A negative force at flange flange_a moves the sliding mass to the negative direc
       annotation (
         Documentation(info="<html>
 <p>
-Rod <i>without inertia</i> and two rigidly connected flanges.
+Rod <em>without inertia</em> and two rigidly connected flanges.
 </p>
 
 </html>"),
@@ -1908,7 +1908,7 @@ Rod <i>without inertia</i> and two rigidly connected flanges.
       annotation (
         Documentation(info="<html>
 <p>
-A <i>linear 1D translational spring</i>. The component can be connected either
+A <em>linear 1D translational spring</em>. The component can be connected either
 between two sliding masses, or between
 a sliding mass and the housing (model Fixed), to describe
 a coupling of the sliding mass with the housing via a spring.
@@ -1958,7 +1958,7 @@ a coupling of the sliding mass with the housing via a spring.
       annotation (
         Documentation(info="<html>
 <p>
-<i>Linear, velocity dependent damper</i> element. It can be either connected
+<em>Linear, velocity dependent damper</em> element. It can be either connected
 between a sliding mass and the housing (model Fixed), or
 between two sliding masses.
 </p>
@@ -2022,7 +2022,7 @@ between two sliding masses.
       annotation (
         Documentation(info="<html>
 <p>
-A <i>spring and damper element connected in parallel</i>.
+A <em>spring and damper element connected in parallel</em>.
 The component can be
 connected either between two sliding masses to describe the elasticity
 and damping, or between a sliding mass and the housing (model Fixed),
@@ -2141,7 +2141,7 @@ a nonlinear spring force can be modeled:
 </p>
 
 <pre>
-   desiredContactForce = c*|s_rel - s_rel0|^n + d*<b>der</b>(s_rel)
+   desiredContactForce = c*|s_rel - s_rel0|^n + d*<strong>der</strong>(s_rel)
 </pre>
 
 <p>
@@ -2178,12 +2178,12 @@ Analysis in Multibody Systems, Nonlinear Dynamics 5, pp. 193-207, 1994,
 </p>
 
 <pre>
-   f = c*s_rel^n + (d*s_rel^n)*<b>der</b>(s_rel)
+   f = c*s_rel^n + (d*s_rel^n)*<strong>der</strong>(s_rel)
 </pre>
 
 <p>
 However, this and other models proposed in literature violate
-issue (1), i.e., unphysical pulling forces can occur (if d*<b>der</b>(s_rel)
+issue (1), i.e., unphysical pulling forces can occur (if d*<strong>der</strong>(s_rel)
 becomes large enough). Note, if the force law is of the form \"f = f_c + f_d\", then a
 necessary condition is that |f_d| &le; |f_c|, otherwise (1) and (2) are violated.
 For this reason, the most simplest approach is used in the ElastoGap model
@@ -2192,15 +2192,15 @@ If s_rel0 = 0, the equations are:
 </p>
 
 <pre>
-    <b>if</b> s_rel &ge; 0 <b>then</b>
+    <strong>if</strong> s_rel &ge; 0 <strong>then</strong>
        f = 0;    // contact force
-    <b>else</b>
+    <strong>else</strong>
        f_c  = -c*|s_rel|^n;          // contact spring force (Hertzian contact force)
-       f_d2 = d*<b>der</b>(s_rel);         // linear contact damper force
-       f_d  = <b>if</b> f_d2 &lt;  f_c <b>then</b>  f_c <b>else</b>
-              <b>if</b> f_d2 &gt; -f_c <b>then</b> -f_c <b>else</b> f_d2;  // bounded damper force
+       f_d2 = d*<strong>der</strong>(s_rel);         // linear contact damper force
+       f_d  = <strong>if</strong> f_d2 &lt;  f_c <strong>then</strong>  f_c <strong>else</strong>
+              <strong>if</strong> f_d2 &gt; -f_c <strong>then</strong> -f_c <strong>else</strong> f_d2;  // bounded damper force
        f    = f_c + f_d;            // contact force
-    <b>end if</b>;
+    <strong>end if</strong>;
 </pre>
 
 <p>
@@ -2347,7 +2347,7 @@ where the different effects are visualized:
       lossPower = f*v_relfric;
       annotation (Documentation(info="<html>
 <p>
-This element describes <b>Coulomb friction</b> in <b>support</b>,
+This element describes <strong>Coulomb friction</strong> in <strong>support</strong>,
 i.e., a frictional force acting between a flange and the housing.
 The positive sliding friction force \"f\" has to be defined
 by table \"f_pos\" as function of the absolute velocity \"v\".
@@ -2391,7 +2391,7 @@ to slide when the friction force exceeds a threshold value,
 called the maximum static friction force, computed via:
 </p>
 <pre>
-   maximum_static_friction = <b>peak</b> * sliding_friction(v=0)  (<b>peak</b> >= 1)
+   maximum_static_friction = <strong>peak</strong> * sliding_friction(v=0)  (<strong>peak</strong> >= 1)
 </pre>
 <p>
 This procedure is implemented in a \"clean\" way by state events and
@@ -2402,8 +2402,8 @@ numerical methods. The method is described in
 </p>
 <dl>
 <dt>Otter M., Elmqvist H., and Mattsson S.E. (1999):</dt>
-<dd><b>Hybrid Modeling in Modelica based on the Synchronous
-    Data Flow Principle</b>. CACSD'99, Aug. 22.-26, Hawaii.</dd>
+<dd><strong>Hybrid Modeling in Modelica based on the Synchronous
+    Data Flow Principle</strong>. CACSD'99, Aug. 22.-26, Hawaii.</dd>
 </dl>
 <p>
 More precise friction models take into account the elasticity of the
@@ -2417,14 +2417,14 @@ following references, especially (Armstrong and Canudas de Witt 1996):
 </p>
 <dl>
 <dt>Armstrong B. (1991):</dt>
-<dd><b>Control of Machines with Friction</b>. Kluwer Academic
+<dd><strong>Control of Machines with Friction</strong>. Kluwer Academic
     Press, Boston MA.<br><br></dd>
 <dt>Armstrong B., and Canudas de Wit C. (1996):</dt>
-<dd><b>Friction Modeling and Compensation.</b>
+<dd><strong>Friction Modeling and Compensation.</strong>
     The Control Handbook, edited by W.S.Levine, CRC Press,
     pp. 1369-1382.<br><br></dd>
 <dt>Canudas de Wit C., Olsson H., Astroem K.J., and Lischinsky P. (1995):</dt>
-<dd><b>A new model for control of systems with friction.</b>
+<dd><strong>A new model for control of systems with friction.</strong>
     IEEE Transactions on Automatic Control, Vol. 40, No. 3, pp. 419-425.<br><br></dd>
 </dl>
 
@@ -2560,7 +2560,7 @@ following references, especially (Armstrong and Canudas de Witt 1996):
       lossPower = f*v_relfric;
       annotation (Documentation(info="<html>
 <p>
-This component models a <b>brake</b>, i.e., a component where a frictional
+This component models a <strong>brake</strong>, i.e., a component where a frictional
 force is acting between the housing and a flange and a controlled normal
 force presses the flange to the housing in order to increase friction.
 The normal force fn has to be provided as input signal f_normalized in a normalized form
@@ -2576,17 +2576,17 @@ account the geometry of the device and the assumptions on the friction
 distributions:
 </p>
 <pre>
-        frictional_force = <b>cgeo</b> * <b>mue</b>(v) * <b>fn</b>
+        frictional_force = <strong>cgeo</strong> * <strong>mue</strong>(v) * <strong>fn</strong>
 </pre>
 <p>
    Typical values of coefficients of friction:
 </p>
 <pre>
-      dry operation   :  <b>mue</b> = 0.2 .. 0.4
-      operating in oil:  <b>mue</b> = 0.05 .. 0.1
+      dry operation   :  <strong>mue</strong> = 0.2 .. 0.4
+      operating in oil:  <strong>mue</strong> = 0.05 .. 0.1
 </pre>
 <p>
-    The positive part of the friction characteristic <b>mue</b>(v),
+    The positive part of the friction characteristic <strong>mue</strong>(v),
     v >= 0, is defined via table mue_pos (first column = v,
     second column = mue). Currently, only linear interpolation in
     the table is supported.
@@ -2601,7 +2601,7 @@ distributions:
    called the  maximum static friction force, computed via:
 </p>
 <pre>
-       frictional_force = <b>peak</b> * <b>cgeo</b> * <b>mue</b>(w=0) * <b>fn</b>   (<b>peak</b> >= 1)
+       frictional_force = <strong>peak</strong> * <strong>cgeo</strong> * <strong>mue</strong>(w=0) * <strong>fn</strong>   (<strong>peak</strong> >= 1)
 </pre>
 <p>
 This procedure is implemented in a \"clean\" way by state events and
@@ -2610,8 +2610,8 @@ are dynamically coupled. The method is described in:
 </p>
 <dl>
 <dt>Otter M., Elmqvist H., and Mattsson S.E. (1999):</dt>
-<dd><b>Hybrid Modeling in Modelica based on the Synchronous
-    Data Flow Principle</b>. CACSD'99, Aug. 22.-26, Hawaii.</dd>
+<dd><strong>Hybrid Modeling in Modelica based on the Synchronous
+    Data Flow Principle</strong>. CACSD'99, Aug. 22.-26, Hawaii.</dd>
 </dl>
 <p>
 More precise friction models take into account the elasticity of the
@@ -2625,14 +2625,14 @@ following references, especially (Armstrong and Canudas de Witt 1996):
 </p>
 <dl>
 <dt>Armstrong B. (1991):</dt>
-<dd><b>Control of Machines with Friction</b>. Kluwer Academic
+<dd><strong>Control of Machines with Friction</strong>. Kluwer Academic
     Press, Boston MA.<br><br></dd>
 <dt>Armstrong B., and Canudas de Wit C. (1996):</dt>
-<dd><b>Friction Modeling and Compensation.</b>
+<dd><strong>Friction Modeling and Compensation.</strong>
     The Control Handbook, edited by W.S.Levine, CRC Press,
     pp. 1369-1382.<br><br></dd>
 <dt>Canudas de Wit C., Olsson H., Astroem K.J., and Lischinsky P. (1995):</dt>
-<dd><b>A new model for control of systems with friction.</b>
+<dd><strong>A new model for control of systems with friction.</strong>
     IEEE Transactions on Automatic Control, Vol. 40, No. 3, pp. 419-425.<br><br></dd>
 </dl>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
@@ -3033,9 +3033,9 @@ Version 2:
 */
       annotation (
         Documentation(info="<html>
-<p>This element describes the <i>Stribeck friction characteristics</i> of a sliding mass,
+<p>This element describes the <em>Stribeck friction characteristics</em> of a sliding mass,
 i. e. the frictional force acting between the sliding mass and the support. Included is a
-<i>hard stop</i> for the position. </p>
+<em>hard stop</em> for the position. </p>
 <p>
 The surface is fixed and there is friction between sliding mass and surface.
 The frictional force f is given for positive velocity v by:
@@ -3054,7 +3054,7 @@ The position of the center of gravity, coordinate s, is in the middle between
 the two flanges.</p>
 <p>
 There are hard stops at smax and smin, i. e. if
-<i><code>flange_a.s &gt;= smin</code></i> and <i><code>flange_b.s &lt;= xmax </code></i> the sliding mass can move freely.</p>
+<em><code>flange_a.s &gt;= smin</code></em> and <em><code>flange_b.s &lt;= xmax </code></em> the sliding mass can move freely.</p>
 <p>When the absolute velocity becomes zero, the sliding mass becomes stuck, i.e., the absolute position remains constant. In this phase the
 friction force is calculated from a force balance due to the requirement that the
 absolute acceleration shall be zero. The elements begin to slide when the friction
@@ -3063,7 +3063,7 @@ force exceeds a threshold value, called the maximum static friction force, compu
    maximum_static_friction =  F_Coulomb + F_Stribeck
 </pre></blockquote>
 <p>
-<font color=\"#ff0000\"> <b>This requires the states Stop.s and Stop.v</b> </font>. If these states are eliminated during the index reduction
+<font color=\"#ff0000\"> <strong>This requires the states Stop.s and Stop.v</strong> </font>. If these states are eliminated during the index reduction
 the model will not work. To avoid this any inertias should be connected via springs
 to the Stop element, other sliding masses, dampers or hydraulic chambers must be avoided.</p>
 <p>For more details of the used friction model see the following reference: </p>
@@ -3082,7 +3082,7 @@ numerical methods. The method is described in
 
 <dl>
 <dt>Otter M., Elmqvist H., and Mattsson S.E. (1999):</dt>
-<dd><i>Hybrid Modeling in Modelica based on the Synchronous Data Flow Principle</i>.
+<dd><em>Hybrid Modeling in Modelica based on the Synchronous Data Flow Principle</em>.
     CACSD'99, Aug. 22.-26, Hawaii. </dd>
 </dl>
 
@@ -3096,13 +3096,13 @@ sophisticated identification. For more details, see the following references, es
 <dl>
 <dt>
 Armstrong B. (1991):</dt>
-<dd><i>Control of Machines with Friction</i>. Kluwer Academic Press, Boston MA.<br>
+<dd><em>Control of Machines with Friction</em>. Kluwer Academic Press, Boston MA.<br>
 </dd>
 <dt>Armstrong B., and Canudas de Wit C. (1996): </dt>
-<dd><i>Friction Modeling and Compensation.</i> The Control Handbook, edited by W.S.Levine, CRC Press, pp. 1369-1382.<br>
+<dd><em>Friction Modeling and Compensation.</em> The Control Handbook, edited by W.S.Levine, CRC Press, pp. 1369-1382.<br>
 </dd>
 <dt>Canudas de Wit C., Olsson H., Astroem K.J., and Lischinsky P. (1995): </dt>
-<dd><i>A new model for control of systems with friction.</i> IEEE Transactions on Automatic Control, Vol. 40, No. 3, pp. 419-425.<br>
+<dd><em>A new model for control of systems with friction.</em> IEEE Transactions on Automatic Control, Vol. 40, No. 3, pp. 419-425.<br>
 </dd>
 </dl>
 
@@ -3120,12 +3120,12 @@ in the lossPower due to the discontinuously changing kinetic energy of the mass
 </html>", revisions="<html>
 <h4>Release Notes:</h4>
 <ul>
-<li><i>First Version from December 7, 1999 by P. Beater (based on Rotational.BearingFriction)</i> </li>
-<li><i>July 14, 2001 by P. Beater, assert on initialization added, diagram modified</i> </li>
-<li><i>October 11, 2001, by Hans Olsson, Dassault Syst&egrave;mes AB, modified assert to handle start at stops,
+<li><em>First Version from December 7, 1999 by P. Beater (based on Rotational.BearingFriction)</em> </li>
+<li><em>July 14, 2001 by P. Beater, assert on initialization added, diagram modified</em> </li>
+<li><em>October 11, 2001, by Hans Olsson, Dassault Syst&egrave;mes AB, modified assert to handle start at stops,
 modified event logic such if you have friction parameters equal to zero you do not get events
-between the stops.</i> </li>
-<li><i>June 10, 2002 by P. Beater, StateSelect.always for variables s and v (instead of fixed=true). </i> </li>
+between the stops.</em> </li>
+<li><em>June 10, 2002 by P. Beater, StateSelect.always for variables s and v (instead of fixed=true). </em> </li>
 </ul>
 </html>"),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
@@ -3230,13 +3230,13 @@ Usually, the absolute position and the absolute velocity of
 Modelica.Mechanics.Translational.Inertia models are used as state variables.
 In some circumstances, relative quantities are better suited, e.g.,
 because it may be easier to supply initial values.
-In such cases, model <b>RelativeStates</b> allows the definition of state variables
+In such cases, model <strong>RelativeStates</strong> allows the definition of state variables
 in the following way:
 </p>
 <ul>
 <li> Connect an instance of this model between two flange connectors.</li>
-<li> The <b>relative position</b> and the <b>relative velocity</b>
-     between the two connectors are used as <b>state variables</b>.</li>
+<li> The <strong>relative position</strong> and the <strong>relative velocity</strong>
+     between the two connectors are used as <strong>state variables</strong>.</li>
 </ul>
 <p>
 An example is given in the next figure
@@ -3330,7 +3330,7 @@ This package contains basic components 1D mechanical translational drive trains.
       s = flange.s;
       annotation (Documentation(info="<html>
 <p>
-Measures the <i>absolute position s</i> of a flange in an ideal way and provides the result as
+Measures the <em>absolute position s</em> of a flange in an ideal way and provides the result as
 output signals (to be further processed with blocks of the
 Modelica.Blocks library).
 </p>
@@ -3352,7 +3352,7 @@ Modelica.Blocks library).
       v = der(flange.s);
       annotation (Documentation(info="<html>
 <p>
-Measures the <i>absolute velocity v</i> of a flange in an ideal way and provides the result as
+Measures the <em>absolute velocity v</em> of a flange in an ideal way and provides the result as
 output signals (to be further processed with blocks of the
 Modelica.Blocks library).
 </p>
@@ -3376,7 +3376,7 @@ Modelica.Blocks library).
       a = der(v);
       annotation (Documentation(info="<html>
 <p>
-Measures the <i>absolute acceleration a</i>
+Measures the <em>absolute acceleration a</em>
 of a flange in an ideal way and provides the result as
 output signals (to be further processed with blocks of the
 Modelica.Blocks library).
@@ -3403,7 +3403,7 @@ Modelica.Blocks library).
       0 = flange_a.f;
       annotation (Documentation(info="<html>
 <p>
-Measures the <i>relative position s</i> of a flange in an ideal way and provides the result as
+Measures the <em>relative position s</em> of a flange in an ideal way and provides the result as
 output signals (to be further processed with blocks of the
 Modelica.Blocks library).
 </p>
@@ -3432,15 +3432,15 @@ Modelica.Blocks library).
       0 = flange_a.f;
       annotation (Documentation(info="<html>
 <p>
-Measures the <i>relative speed v</i> of a flange in an ideal way and provides the result as
+Measures the <em>relative speed v</em> of a flange in an ideal way and provides the result as
 output signals (to be further processed with blocks of the
 Modelica.Blocks library).
 </p>
 
 </html>", revisions="<html>
-<p><b>Release Notes:</b></p>
+<p><strong>Release Notes:</strong></p>
 <ul>
-<li><i>First Version from August 26, 1999 by P. Beater</i> </li>
+<li><em>First Version from August 26, 1999 by P. Beater</em> </li>
 </ul>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={Line(points={{-70,0},{-90,0}}, color={0,
@@ -3470,7 +3470,7 @@ Modelica.Blocks library).
       0 = flange_a.f;
       annotation (Documentation(info="<html>
 <p>
-Measures the <i>relative acceleration a</i> of a flange in an ideal way and provides the result as
+Measures the <em>relative acceleration a</em> of a flange in an ideal way and provides the result as
 output signals (to be further processed with blocks of the
 Modelica.Blocks library).
 </p>
@@ -3495,7 +3495,7 @@ Modelica.Blocks library).
       flange_a.f = f;
       annotation (Documentation(info="<html>
 <p>
-Measures the <i>cut-force between two flanges</i> in an ideal way
+Measures the <em>cut-force between two flanges</em> in an ideal way
 and provides the result as output signal (to be further processed
 with blocks of the Modelica.Blocks library).
 </p>
@@ -3522,8 +3522,8 @@ with blocks of the Modelica.Blocks library).
       power = flange_a.f*der(flange_a.s);
       annotation (Documentation(info="<html>
 <p>
-Measures the <b>power between two flanges</b> in an ideal way
-and provides the result as output signal <b>power</b>
+Measures the <strong>power between two flanges</strong> in an ideal way
+and provides the result as output signal <strong>power</strong>
 (to be further processed with blocks of the Modelica.Blocks library).
 </p>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
@@ -3563,8 +3563,8 @@ and provides the result as output signal <b>power</b>
 
       annotation (Documentation(info="<html>
 <p>
-Measures the <b>absolute velocity</b> of a flange_a, the <b>cut-force</b> and <b>power</b> between two flanges in an
-ideal way and provides the results as output signals <b>v</b>, <b>f</b> and <b>power</b>, respectively. </p>
+Measures the <strong>absolute velocity</strong> of a flange_a, the <strong>cut-force</strong> and <strong>power</strong> between two flanges in an
+ideal way and provides the results as output signals <strong>v</strong>, <strong>f</strong> and <strong>power</strong>, respectively. </p>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={Text(
                   extent={{-146,-70},{-56,-100}},
@@ -3638,26 +3638,26 @@ Modelica.Blocks library.
       end if;
       annotation (Documentation(info="<html>
 <p>
-The input signal <b>s_ref</b> defines the <b>reference
-position</b> in [m]. Flange <b>flange</b> is <b>forced</b>
+The input signal <strong>s_ref</strong> defines the <strong>reference
+position</strong> in [m]. Flange <strong>flange</strong> is <strong>forced</strong>
 to move relative to the support connector according to this reference motion. According to parameter
-<b>exact</b> (default = <b>false</b>), this is done in the following way:
+<strong>exact</strong> (default = <strong>false</strong>), this is done in the following way:
 </p>
 <ol>
-<li><b>exact=true</b><br>
-    The reference position is treated <b>exactly</b>. This is only possible, if
+<li><strong>exact=true</strong><br>
+    The reference position is treated <strong>exactly</strong>. This is only possible, if
     the input signal is defined by an analytical function which can be
     differentiated at least twice. If this prerequisite is fulfilled,
     the Modelica translator will differentiate the input signal twice
     in order to compute the reference acceleration of the flange.</li>
-<li><b>exact=false</b><br>
-    The reference position is <b>filtered</b> and the second derivative
+<li><strong>exact=false</strong><br>
+    The reference position is <strong>filtered</strong> and the second derivative
     of the filtered curve is used to compute the reference acceleration
-    of the flange. This second derivative is <b>not</b> computed by
+    of the flange. This second derivative is <strong>not</strong> computed by
     numerical differentiation but by an appropriate realization of the
     filter. For filtering, a second order Bessel filter is used.
     The critical frequency (also called cut-off frequency) of the
-    filter is defined via parameter <b>f_crit</b> in [Hz]. This value
+    filter is defined via parameter <strong>f_crit</strong> in [Hz]. This value
     should be selected in such a way that it is higher as the essential
     low frequencies in the signal.</li>
 </ol>
@@ -3728,26 +3728,26 @@ blocks of the block library Modelica.Blocks.Sources.
       end if;
       annotation (Documentation(info="<html>
 <p>
-The input signal <b>v_ref</b> defines the <b>reference
-speed</b> in [m/s]. Flange <b>flange</b> is <b>forced</b>
+The input signal <strong>v_ref</strong> defines the <strong>reference
+speed</strong> in [m/s]. Flange <strong>flange</strong> is <strong>forced</strong>
 to move relative to the support connector  according to this reference motion. According to parameter
-<b>exact</b> (default = <b>false</b>), this is done in the following way:
+<strong>exact</strong> (default = <strong>false</strong>), this is done in the following way:
 </p>
 <ol>
-<li><b>exact=true</b><br>
-    The reference speed is treated <b>exactly</b>. This is only possible, if
+<li><strong>exact=true</strong><br>
+    The reference speed is treated <strong>exactly</strong>. This is only possible, if
     the input signal is defined by an analytical function which can be
     differentiated at least once. If this prerequisite is fulfilled,
     the Modelica translator will differentiate the input signal once
     in order to compute the reference acceleration of the flange.</li>
-<li><b>exact=false</b><br>
-    The reference speed is <b>filtered</b> and the first derivative
+<li><strong>exact=false</strong><br>
+    The reference speed is <strong>filtered</strong> and the first derivative
     of the filtered curve is used to compute the reference acceleration
-    of the flange. This first derivative is <b>not</b> computed by
+    of the flange. This first derivative is <strong>not</strong> computed by
     numerical differentiation but by an appropriate realization of the
     filter. For filtering, a first order filter is used.
     The critical frequency (also called cut-off frequency) of the
-    filter is defined via parameter <b>f_crit</b> in [Hz]. This value
+    filter is defined via parameter <strong>f_crit</strong> in [Hz]. This value
     should be selected in such a way that it is higher as the essential
     low frequencies in the signal.</li>
 </ol>
@@ -3813,9 +3813,9 @@ blocks of the block library Modelica.Blocks.Sources.
       a = a_ref;
       annotation (Documentation(info="<html>
 <p>
-The input signal <b>a</b> in [m/s2] moves the 1D translational flange
-connector flange with a predefined <i>acceleration</i>, i.e., the flange
-is <i>forced</i> to move relative to the support connector  with this acceleration. The velocity and the
+The input signal <strong>a</strong> in [m/s2] moves the 1D translational flange
+connector flange with a predefined <em>acceleration</em>, i.e., the flange
+is <em>forced</em> to move relative to the support connector  with this acceleration. The velocity and the
 position of the flange are also predefined and are determined by
 integration of the acceleration.
 </p>
@@ -3901,7 +3901,7 @@ blocks of the block library Modelica.Blocks.Source.
       s = position(u, time);
       annotation (Documentation(info="<html>
 <p>
-Flange <b>flange_b</b> is <b>forced</b> to move relative to the support connector with a predefined motion
+Flange <strong>flange_b</strong> is <strong>forced</strong> to move relative to the support connector with a predefined motion
 according to the input signals:
 </p>
 <pre>
@@ -3962,8 +3962,8 @@ blocks of the block library Modelica.Blocks.Sources.
       flange.f = -f;
       annotation (Documentation(info="<html>
 <p>
-The input signal \"f\" in [N] characterizes an <i>external
-force</i> which acts (with positive sign) at a flange,
+The input signal \"f\" in [N] characterizes an <em>external
+force</em> which acts (with positive sign) at a flange,
 i.e., the component connected to the flange is driven by force f.
 </p>
 <p>
@@ -4006,8 +4006,8 @@ blocks of Modelica.Blocks.Source.
       flange_b.f = -f;
       annotation (Documentation(info="<html>
 <p>
-The input signal \"f\" in [N] characterizes an <i>external
-force</i> which acts (with positive sign) at both flanges,
+The input signal \"f\" in [N] characterizes an <em>external
+force</em> which acts (with positive sign) at both flanges,
 i.e., the components connected to these flanges are driven by force f.
 </p>
 <p>
@@ -4161,7 +4161,7 @@ Negative force brakes in both directions of movement.</p>
                   extent={{-120,60},{124,36}},
                   textString="%v_fixed")}), Documentation(info="<html>
 <p>
-Model of <b>fixed</b> velocity of flange, not dependent on force.
+Model of <strong>fixed</strong> velocity of flange, not dependent on force.
 </p>
 </html>"));
     end ConstantSpeed;
@@ -4221,8 +4221,8 @@ Positive force acts accelerating.
               color={95,95,95},
               origin={-40,-30},
               rotation=180)}), Documentation(info="<HTML>
-<p>This is a simple model of a translational <b>eddy current brake</b>. The force versus speed characteristic is defined by Kloss' equation.</p>
-<p><b>Thermal behaviour:</b><br>
+<p>This is a simple model of a translational <strong>eddy current brake</strong>. The force versus speed characteristic is defined by Kloss' equation.</p>
+<p><strong>Thermal behaviour:</strong><br>
 The resistance of the braking fin is influenced by the actual temperature Theatport, which in turn shifts the speed v_nominal at which the (unchanged) maximum torque occurs.<br>
 If the heatPort is not used (useHeatPort = false), the operational temperature remains at the given temperature T.<br>
 However, the speed v_nominal at which the maximum torque occurs is adapted from reference temperature TRef to the operational temperature.</p>
@@ -4404,14 +4404,14 @@ defined textually:
 </p>
 
 <ul>
-<li> If <i>useSupport = true</i>, the flange has to be connected to the conditional
+<li> If <em>useSupport = true</em>, the flange has to be connected to the conditional
      support connector.</li>
-<li> If <i>useSupport = false</i>, the flange has to be connected to the conditional
+<li> If <em>useSupport = false</em>, the flange has to be connected to the conditional
      fixed model.</li>
 </ul>
 
 <p>
-Variable <b>f</b> is defined as <b>input</b> and must be provided when using
+Variable <strong>f</strong> is defined as <strong>input</strong> and must be provided when using
 this component as a modifier (computed via a force balance in
 the model where InternalSupport is used). Usually, model InternalSupport is
 utilized via the partial models:
@@ -4485,9 +4485,9 @@ of several components.
 </p>
 
 <p>
-If <i>useSupport=true</i>, the support connector is conditionally enabled
+If <em>useSupport=true</em>, the support connector is conditionally enabled
 and needs to be connected.<br>
-If <i>useSupport=false</i>, the support connector is conditionally disabled
+If <em>useSupport=false</em>, the support connector is conditionally disabled
 and instead the component is internally fixed to ground.
 </p>
 
@@ -4550,9 +4550,9 @@ of several components.
 </p>
 
 <p>
-If <i>useSupport=true</i>, the support connector is conditionally enabled
+If <em>useSupport=true</em>, the support connector is conditionally enabled
 and needs to be connected.<br>
-If <i>useSupport=false</i>, the support connector is conditionally disabled
+If <em>useSupport=false</em>, the support connector is conditionally disabled
 and instead the component is internally fixed to ground.
 </p>
 
@@ -4594,7 +4594,7 @@ and instead the component is internally fixed to ground.
       flange_b.s = s + L/2;
       annotation (Documentation(info="<html>
 <p>
-This is a 1-dim. translational component with two <i>rigidly</i> connected flanges.
+This is a 1-dim. translational component with two <em>rigidly</em> connected flanges.
 The fixed distance between the left and the right flange is defined by parameter \"L\".
 The forces at the right and left flange can be different.
 It is used e.g., to built up sliding masses.
@@ -4622,7 +4622,7 @@ It is used e.g., to built up sliding masses.
       flange_a.f = -f;
       annotation (Documentation(info="<html>
 <p>
-This is a 1D translational component with a <i>compliant</i> connection of two
+This is a 1D translational component with a <em>compliant</em> connection of two
 translational 1D flanges where inertial effects between the two
 flanges are not included. The absolute value of the force at the left and the right
 flange is the same. It is used to built up springs, dampers etc.
@@ -4741,9 +4741,9 @@ equations in the text layer.
 </p>
 
 <p>
-If <i>useSupport=true</i>, the support connector is conditionally enabled
+If <em>useSupport=true</em>, the support connector is conditionally enabled
 and needs to be connected.<br>
-If <i>useSupport=false</i>, the support connector is conditionally disabled
+If <em>useSupport=false</em>, the support connector is conditionally disabled
 and instead the component is internally fixed to ground.
 </p>
 
@@ -4800,9 +4800,9 @@ equations in the text layer.
 </p>
 
 <p>
-If <i>useSupport=true</i>, the support connector is conditionally enabled
+If <em>useSupport=true</em>, the support connector is conditionally enabled
 and needs to be connected.<br>
-If <i>useSupport=false</i>, the support connector is conditionally disabled
+If <em>useSupport=false</em>, the support connector is conditionally disabled
 and instead the component is internally fixed to ground.
 </p>
 
@@ -4955,10 +4955,10 @@ connector is not connected).
 <li>one translational support/housing </li>
 </ul>
 <p>This model is used to build up elementary components of a drive train transforming rotational into translational motion with equations in the text layer.</p>
-<p>If <i>useSupportR=true</i>, the rotational support connector is conditionally enabled and needs to be connected.</p>
-<p>If <i>useSupportR=false</i>, the rotational support connector is conditionally disabled and instead the rotational part is internally fixed to ground.</p>
-<p>If <i>useSupportT=true</i>, the translational support connector is conditionally enabled and needs to be connected.</p>
-<p>If <i>useSupportT=false</i>, the translational support connector is conditionally disabled and instead the translational part is internally fixed to ground.</p>
+<p>If <em>useSupportR=true</em>, the rotational support connector is conditionally enabled and needs to be connected.</p>
+<p>If <em>useSupportR=false</em>, the rotational support connector is conditionally disabled and instead the rotational part is internally fixed to ground.</p>
+<p>If <em>useSupportT=true</em>, the translational support connector is conditionally enabled and needs to be connected.</p>
+<p>If <em>useSupportT=false</em>, the translational support connector is conditionally disabled and instead the translational part is internally fixed to ground.</p>
 </html>"));
     end PartialElementaryRotationalToTranslational;
 
@@ -5000,9 +5000,9 @@ Partial model of force that accelerates the flange.
 </p>
 
 <p>
-If <i>useSupport=true</i>, the support connector is conditionally enabled
+If <em>useSupport=true</em>, the support connector is conditionally enabled
 and needs to be connected.<br>
-If <i>useSupport=false</i>, the support connector is conditionally disabled
+If <em>useSupport=false</em>, the support connector is conditionally disabled
 and instead the component is internally fixed to ground.
 </p>
 </html>"));
@@ -5155,8 +5155,8 @@ numerical methods. The method is described in
 </p>
 <dl>
 <dt>Otter M., Elmqvist H., and Mattsson S.E. (1999):</dt>
-<dd><b>Hybrid Modeling in Modelica based on the Synchronous
-    Data Flow Principle</b>. CACSD'99, Aug. 22.-26, Hawaii.</dd>
+<dd><strong>Hybrid Modeling in Modelica based on the Synchronous
+    Data Flow Principle</strong>. CACSD'99, Aug. 22.-26, Hawaii.</dd>
 </dl>
 </html>"));
     end PartialFriction;
@@ -5191,19 +5191,19 @@ only be used as basic building elements for models.
         Line(origin={14,53}, points={{39,-73},{14,-93}}),
         Line(origin={14,53}, points={{63,-73},{38,-93}})}), Documentation(info="<html>
 <p>
-This package contains components to model <i>1-dimensional translational
-mechanical</i> systems.
+This package contains components to model <em>1-dimensional translational
+mechanical</em> systems.
 </p>
 <p>
-The <i>filled</i> and <i>non-filled green squares</i> at the left and
-right side of a component represent <i>mechanical flanges</i>.
+The <em>filled</em> and <em>non-filled green squares</em> at the left and
+right side of a component represent <em>mechanical flanges</em>.
 Drawing a line between such squares means that the corresponding
-flanges are <i>rigidly attached</i> to each other. The components of this
+flanges are <em>rigidly attached</em> to each other. The components of this
 library can be usually connected together in an arbitrary way. E.g. it is
 possible to connect two springs or two sliding masses with inertia directly
 together.
 </p>
-<p> The only <i>connection restriction</i> is that the Coulomb friction
+<p> The only <em>connection restriction</em> is that the Coulomb friction
 elements (e.g., MassWithStopAndFriction) should be only connected
 together provided a compliant element, such as a spring, is in between.
 The reason is that otherwise the frictional force is not uniquely
@@ -5217,16 +5217,16 @@ stuck mode.
 </p>
 <p> Another restriction arises if the hard stops in model MassWithStopAndFriction are used, i. e.
 the movement of the mass is limited by a stop at smax or smin.
-<font color=\"#ff0000\"> <b>This requires the states Stop.s and Stop.v</b> </font>. If these states are eliminated during the index reduction
+<font color=\"#ff0000\"> <strong>This requires the states Stop.s and Stop.v</strong> </font>. If these states are eliminated during the index reduction
 the model will not work. To avoid this any inertias should be connected via springs
 to the Stop element, other sliding masses, dampers or hydraulic chambers must be avoided.</p>
 <p>
-In the <i>icon</i> of every component an <i>arrow</i> is displayed in grey
+In the <em>icon</em> of every component an <em>arrow</em> is displayed in grey
 color. This arrow characterizes the coordinate system in which the vectors
 of the component are resolved. It is directed into the positive
 translational direction (in the mathematical sense).
 In the flanges of a component, a coordinate system is rigidly attached
-to the flange. It is called <i>flange frame</i> and is directed in parallel
+to the flange. It is called <em>flange frame</em> and is directed in parallel
 to the component coordinate system. As a result, e.g., the positive
 cut-force of a \"left\" flange (flange_a) is directed into the flange, whereas
 the positive cut-force of a \"right\" flange (flange_b) is directed out of the
@@ -5235,7 +5235,7 @@ the following variables:
 </p>
 <pre>
    Modelica.SIunits.Position s    \"Absolute position of flange\";
-   <b>flow</b> Modelica.SIunits.Force f  \"Cut-force in the flange\";
+   <strong>flow</strong> Modelica.SIunits.Force f  \"Cut-force in the flange\";
 </pre>
 
 <p>
@@ -5243,7 +5243,7 @@ This library is designed in a fully object oriented way in order that
 components can be connected together in every meaningful combination
 (e.g., direct connection of two springs or two shafts with inertia).
 As a consequence, most models lead to a system of
-differential-algebraic equations of <i>index 3</i> (= constraint
+differential-algebraic equations of <em>index 3</em> (= constraint
 equations have to be differentiated twice in order to arrive at
 a state space representation) and the Modelica translator or
 the simulator has to cope with this system representation.
@@ -5255,19 +5255,19 @@ numerical DAE integrators can cope at most with index 2 DAEs).
 </p>
 
 <p>
-In version 3.2 of the Modelica Standard Library, all <b>dissipative</b> components
-of the Translational library got an optional <b>heatPort</b> connector to which the
+In version 3.2 of the Modelica Standard Library, all <strong>dissipative</strong> components
+of the Translational library got an optional <strong>heatPort</strong> connector to which the
 dissipated energy is transported in form of heat. This connector is enabled
 via parameter \"useHeatPort\". If the heatPort connector is enabled,
 it must be connected, and if it is not enabled, it must not be connected.
 Independently, whether the heatPort is enabled or not,
-the dissipated power is available from the new variable \"<b>lossPower</b>\" (which is
+the dissipated power is available from the new variable \"<strong>lossPower</strong>\" (which is
 positive if heat is flowing out of the heatPort). For an example, see
 <a href=\"modelica://Modelica.Mechanics.Translational.Examples.HeatLosses\">Examples.HeatLosses</a>.
 </p>
 
 <dl>
-<dt><b>Library Officer</b></dt>
+<dt><strong>Library Officer</strong></dt>
 <dd><a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a> <br>
     Deutsches Zentrum f&uuml;r Luft und Raumfahrt e.V. (DLR)<br>
     Institut f&uuml;r Robotik und Mechatronik (DLR-RM)<br>
@@ -5279,7 +5279,7 @@ positive if heat is flowing out of the heatPort). For an example, see
 </dl>
 
 <p>
-<b>Contributors to this library:</b>
+<strong>Contributors to this library:</strong>
 </p>
 
 <ul>
@@ -5305,28 +5305,28 @@ positive if heat is flowing out of the heatPort). For an example, see
 Copyright &copy; 1998-2016, Modelica Association, Anton Haumer and Universit&auml;t Paderborn, FB 12.
 </p>
 <p>
-<i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
+<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</em>
 </p>
 </html>", revisions="<html>
 <ul>
-<li><i>Version 1.2.0 2010-07-22</i>
+<li><em>Version 1.2.0 2010-07-22</em>
        by Anton Haumer and Martin Otter<br>
        heatPort introduced for all dissipative elements, and
        text in icons improved.
        <br></li>
 
-<li><i>Version 1.1.0 2007-11-16</i>
+<li><em>Version 1.1.0 2007-11-16</em>
        by Anton Haumer<br>
        Redesign for Modelica 3.0-compliance<br>
        Added new components according to Mechanics.Rotational library
        <br></li>
 
-<li><i>Version 1.01 (July 18, 2001)</i>
+<li><em>Version 1.01 (July 18, 2001)</em>
        by Peter Beater <br>
        Assert statement added to \"Stop\", small bug fixes in examples.
        <br></li>
 
-<li><i>Version 1.0 (January 5, 2000)</i>
+<li><em>Version 1.0 (January 5, 2000)</em>
        by Peter Beater <br>
        Realized a first version based on Modelica library Mechanics.Rotational
        by Martin Otter and an existing Dymola library onedof.lib by Peter Beater.</li>

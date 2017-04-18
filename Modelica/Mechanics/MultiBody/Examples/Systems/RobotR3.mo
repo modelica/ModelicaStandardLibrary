@@ -371,7 +371,7 @@ to plot variables.
               lineThickness=0.5)}),
         Documentation(info="<html>
 <p>
-Signal bus that is used to communicate all signals for <b>one</b> axis.
+Signal bus that is used to communicate all signals for <strong>one</strong> axis.
 This is an expandable connector which has a \"default\" set of
 signals. Note, the input/output causalities of the signals are
 determined from the connections to this bus.
@@ -403,7 +403,7 @@ determined from the connections to this bus.
               lineThickness=0.5)}),
         Documentation(info="<html>
 <p>
-Signal bus that is used to communicate <b>all signals</b> of the robot.
+Signal bus that is used to communicate <strong>all signals</strong> of the robot.
 This is an expandable connector which has a \"default\" set of
 signals. Note, the input/output causalities of the signals are
 determined from the connections to this bus.
@@ -1452,8 +1452,8 @@ a model of the electrical motor and a continuous-time cascade controller.
       annotation (
         Documentation(info="<html>
 <p>
-The axis model consists of the <b>controller</b>, the <b>motor</b> including current
-controller and the <b>gearbox</b> including gear elasticity and bearing friction.
+The axis model consists of the <strong>controller</strong>, the <strong>motor</strong> including current
+controller and the <strong>gearbox</strong> including gear elasticity and bearing friction.
 The only difference to the axis model of joints 4,5,6 (= model axisType2) is
 that elasticity and damping in the gear boxes are not neglected.
 </p>
@@ -1842,8 +1842,8 @@ ALT=\"model Examples.Systems.RobotR3\">
 The following models are available:
 </p>
 <pre>
-   <b>oneAxis</b>   Test one axis (controller, motor, gearbox).
-   <b>fullRobot</b> Test complete robot model.
+   <strong>oneAxis</strong>   Test one axis (controller, motor, gearbox).
+   <strong>fullRobot</strong> Test complete robot model.
 </pre>
 <p>
 The r3 robot is no longer manufactured. In fact the company

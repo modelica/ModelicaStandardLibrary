@@ -889,7 +889,7 @@ partial package WaterIF97_base
   annotation (Documentation(info="<html>
 <p>
 This model calculates medium properties
-for water in the <b>liquid</b>, <b>gas</b> and <b>two phase</b> regions
+for water in the <strong>liquid</strong>, <strong>gas</strong> and <strong>two phase</strong> regions
 according to the IAPWS/IF97 standard, i.e., the accepted industrial standard
 and best compromise between accuracy and computation time.
 For more details see <a href=\"modelica://Modelica.Media.Water.IF97_Utilities\">
@@ -897,17 +897,17 @@ Modelica.Media.Water.IF97_Utilities</a>. Three variable pairs can be the
 independent variables of the model:
 </p>
 <ol>
-<li>Pressure <b>p</b> and specific enthalpy <b>h</b> are the most natural choice for general applications. This is the recommended choice for most general purpose applications, in particular for power plants.</li>
-<li>Pressure <b>p</b> and temperature <b>T</b> are the most natural choice for applications where water is always in the same phase, both for liquid water and steam.</li>
-<li>Density <b>d</b> and temperature <b>T</b> are explicit variables of the Helmholtz function in the near-critical region and can be the best choice for applications with super-critical or near-critical states.</li>
+<li>Pressure <strong>p</strong> and specific enthalpy <strong>h</strong> are the most natural choice for general applications. This is the recommended choice for most general purpose applications, in particular for power plants.</li>
+<li>Pressure <strong>p</strong> and temperature <strong>T</strong> are the most natural choice for applications where water is always in the same phase, both for liquid water and steam.</li>
+<li>Density <strong>d</strong> and temperature <strong>T</strong> are explicit variables of the Helmholtz function in the near-critical region and can be the best choice for applications with super-critical or near-critical states.</li>
 </ol>
 <p>
 The following quantities are always computed:
 </p>
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td valign=\"top\"><b>Variable</b></td>
-      <td valign=\"top\"><b>Unit</b></td>
-      <td valign=\"top\"><b>Description</b></td></tr>
+  <tr><td valign=\"top\"><strong>Variable</strong></td>
+      <td valign=\"top\"><strong>Unit</strong></td>
+      <td valign=\"top\"><strong>Description</strong></td></tr>
   <tr><td valign=\"top\">T</td>
       <td valign=\"top\">K</td>
       <td valign=\"top\">temperature</td></tr>
@@ -1053,21 +1053,21 @@ end WaterIF97_R3ph;
 annotation (Documentation(info="<html>
 <p>This package contains different medium models for water:</p>
 <ul>
-<li><b>ConstantPropertyLiquidWater</b><br>
+<li><strong>ConstantPropertyLiquidWater</strong><br>
     Simple liquid water medium (incompressible, constant data).</li>
-<li><b>IdealSteam</b><br>
+<li><strong>IdealSteam</strong><br>
     Steam water medium as ideal gas from Media.IdealGases.SingleGases.H2O</li>
-<li><b>WaterIF97 derived models</b><br>
+<li><strong>WaterIF97 derived models</strong><br>
     High precision water model according to the IAPWS/IF97 standard
     (liquid, steam, two phase region). Models with different independent
     variables are provided as well as models valid only
-    for particular regions. The <b>WaterIF97_ph</b> model is valid
+    for particular regions. The <strong>WaterIF97_ph</strong> model is valid
     in all regions and is the recommended one to use.</li>
 </ul>
 <h4>Overview of WaterIF97 derived water models</h4>
 <p>
 The WaterIF97 models calculate medium properties
-for water in the <b>liquid</b>, <b>gas</b> and <b>two phase</b> regions
+for water in the <strong>liquid</strong>, <strong>gas</strong> and <strong>two phase</strong> regions
 according to the IAPWS/IF97 standard, i.e., the accepted industrial standard
 and best compromise between accuracy and computation time.
 It has been part of the ThermoFluid Modelica library and been extended,
@@ -1080,14 +1080,14 @@ from different functions if one of the functions is called often but can be opti
 <p>Three variable pairs can be the independent variables of the model:
 </p>
 <ol>
-<li>Pressure <b>p</b> and specific enthalpy <b>h</b> are
+<li>Pressure <strong>p</strong> and specific enthalpy <strong>h</strong> are
     the most natural choice for general applications.
     This is the recommended choice for most general purpose
     applications, in particular for power plants.</li>
-<li>Pressure <b>p</b> and temperature <b>T</b> are the most natural
+<li>Pressure <strong>p</strong> and temperature <strong>T</strong> are the most natural
     choice for applications where water is always in the same phase,
     both for liquid water and steam.</li>
-<li>Density <b>d</b> and temperature <b>T</b> are explicit
+<li>Density <strong>d</strong> and temperature <strong>T</strong> are explicit
     variables of the Helmholtz function in the near-critical
     region and can be the best choice for applications with
     super-critical or near-critical states.</li>
@@ -1096,9 +1096,9 @@ from different functions if one of the functions is called often but can be opti
 The following quantities are always computed in Medium.BaseProperties:
 </p>
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td valign=\"top\"><b>Variable</b></td>
-      <td valign=\"top\"><b>Unit</b></td>
-      <td valign=\"top\"><b>Description</b></td></tr>
+  <tr><td valign=\"top\"><strong>Variable</strong></td>
+      <td valign=\"top\"><strong>Unit</strong></td>
+      <td valign=\"top\"><strong>Description</strong></td></tr>
   <tr><td valign=\"top\">T</td>
       <td valign=\"top\">K</td>
       <td valign=\"top\">temperature</td></tr>
@@ -1121,9 +1121,9 @@ A component that needs these optional properties has to call
 one of the following functions:
 </p>
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td valign=\"top\"><b>Function call</b></td>
-      <td valign=\"top\"><b>Unit</b></td>
-      <td valign=\"top\"><b>Description</b></td></tr>
+  <tr><td valign=\"top\"><strong>Function call</strong></td>
+      <td valign=\"top\"><strong>Unit</strong></td>
+      <td valign=\"top\"><strong>Description</strong></td></tr>
   <tr><td valign=\"top\">Medium.dynamicViscosity(medium.state)</td>
       <td valign=\"top\">Pa.s</td>
       <td valign=\"top\">dynamic viscosity</td></tr>
@@ -1188,9 +1188,9 @@ With reference to a model defining a pressure p, a temperature T, and a
 SaturationProperties record sat, the following functions are provided:
 </p>
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td valign=\"top\"><b>Function call</b></td>
-      <td valign=\"top\"><b>Unit</b></td>
-      <td valign=\"top\"><b>Description</b></td></tr>
+  <tr><td valign=\"top\"><strong>Function call</strong></td>
+      <td valign=\"top\"><strong>Unit</strong></td>
+      <td valign=\"top\"><strong>Description</strong></td></tr>
   <tr><td valign=\"top\">Medium.saturationPressure(T)</td>
       <td valign=\"top\">Pa</td>
       <td valign=\"top\">Saturation pressure at temperature T</td></tr>

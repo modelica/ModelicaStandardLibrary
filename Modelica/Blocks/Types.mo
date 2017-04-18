@@ -231,7 +231,7 @@ initialization definition.
   end ExternalCombiTable2D;
   annotation (Documentation(info="<html>
 <p>
-In this package <b>types</b>, <b>constants</b> and <b>external objects</b> are defined that are used
+In this package <strong>types</strong>, <strong>constants</strong> and <strong>external objects</strong> are defined that are used
 in library Modelica.Blocks. The types have additional annotation choices
 definitions that define the menus to be built up in the graphical
 user interface when the type is used as parameter in a declaration.

@@ -230,7 +230,7 @@ package Machines "Quasistationary machine models"
       annotation (Documentation(info="<html>
 Transformer testbench:<br>
 You may choose different connections as well as vary the load (even not symmetrical).<br>
-<b>Please pay attention</b> to proper grounding of the primary and secondary part of the whole circuit.<br>
+<strong>Please pay attention</strong> to proper grounding of the primary and secondary part of the whole circuit.<br>
 The primary and secondary starpoint are available as connectors, if the connection is not delta (D or d).<br>
 In some cases it may be necessary to ground the transformer's starpoint
 even though the source's or load's starpoint are grounded; you may use a reasonable high earthing resistance.
@@ -509,19 +509,19 @@ Transformer Yy10
 This package contains transformers primary Y connected / secondary y connected in all possible vector groups.
 </html>", revisions="<html>
 <dl>
-  <dt><b>Main Authors:</b></dt>
+  <dt><strong>Main Authors:</strong></dt>
   <dd>
   <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
   Technical Consulting &amp; Electrical Engineering<br>
   A-3423 St.Andrae-Woerdern<br>Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
-  <dt><b>Copyright:</b></dt>
+  <dt><strong>Copyright:</strong></dt>
   <dd>Copyright &copy; 1998-2016, Modelica Association and Anton Haumer.<br>
-  <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
-  under the terms of the <b>Modelica license</b>, see the license conditions
-  and the accompanying <b>disclaimer</b> in the documentation of package
-  Modelica in file \"Modelica/package.mo\".</i></dd>
+  <em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
+  under the terms of the <strong>Modelica license</strong>, see the license conditions
+  and the accompanying <strong>disclaimer</strong> in the documentation of package
+  Modelica in file \"Modelica/package.mo\".</em></dd>
 </dl>
   <ul>
   <li> v1.0.0 2006/11/19 Anton Haumer</li>
@@ -753,19 +753,19 @@ Transformer Yd11
 This package contains transformers primary Y connected / secondary d connected in all possible vector groups.
 </html>", revisions="<html>
 <dl>
-  <dt><b>Main Authors:</b></dt>
+  <dt><strong>Main Authors:</strong></dt>
   <dd>
   <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
   Technical Consulting &amp; Electrical Engineering<br>
   A-3423 St.Andrae-Woerdern<br>Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
-  <dt><b>Copyright:</b></dt>
+  <dt><strong>Copyright:</strong></dt>
   <dd>Copyright &copy; 1998-2016, Modelica Association and Anton Haumer.<br>
-  <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
-  under the terms of the <b>Modelica license</b>, see the license conditions
-  and the accompanying <b>disclaimer</b> in the documentation of package
-  Modelica in file \"Modelica/package.mo\".</i></dd>
+  <em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
+  under the terms of the <strong>Modelica license</strong>, see the license conditions
+  and the accompanying <strong>disclaimer</strong> in the documentation of package
+  Modelica in file \"Modelica/package.mo\".</em></dd>
 </dl>
   <ul>
   <li> v1.0.0 2006/11/19 Anton Haumer</li>
@@ -1089,19 +1089,19 @@ Transformer Yz11
 This package contains transformers primary Y connected / secondary zig-zag connected in all possible vector groups.
 </html>", revisions="<html>
 <dl>
-  <dt><b>Main Authors:</b></dt>
+  <dt><strong>Main Authors:</strong></dt>
   <dd>
   <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
   Technical Consulting &amp; Electrical Engineering<br>
   A-3423 St.Andrae-Woerdern<br>Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
-  <dt><b>Copyright:</b></dt>
+  <dt><strong>Copyright:</strong></dt>
   <dd>Copyright &copy; 1998-2016, Modelica Association and Anton Haumer.<br>
-  <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
-  under the terms of the <b>Modelica license</b>, see the license conditions
-  and the accompanying <b>disclaimer</b> in the documentation of package
-  Modelica in file \"Modelica/package.mo\".</i></dd>
+  <em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
+  under the terms of the <strong>Modelica license</strong>, see the license conditions
+  and the accompanying <strong>disclaimer</strong> in the documentation of package
+  Modelica in file \"Modelica/package.mo\".</em></dd>
 </dl>
   <ul>
   <li> v1.0.0 2006/11/19 Anton Haumer</li>
@@ -1341,19 +1341,19 @@ Transformer Dy11
 This package contains transformers primary D connected / secondary y connected in all possible vector groups.
 </html>", revisions="<html>
 <dl>
-  <dt><b>Main Authors:</b></dt>
+  <dt><strong>Main Authors:</strong></dt>
   <dd>
   <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
   Technical Consulting &amp; Electrical Engineering<br>
   A-3423 St.Andrae-Woerdern<br>Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
-  <dt><b>Copyright:</b></dt>
+  <dt><strong>Copyright:</strong></dt>
   <dd>Copyright &copy; 1998-2016, Modelica Association and Anton Haumer.<br>
-  <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
-  under the terms of the <b>Modelica license</b>, see the license conditions
-  and the accompanying <b>disclaimer</b> in the documentation of package
-  Modelica in file \"Modelica/package.mo\".</i></dd>
+  <em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
+  under the terms of the <strong>Modelica license</strong>, see the license conditions
+  and the accompanying <strong>disclaimer</strong> in the documentation of package
+  Modelica in file \"Modelica/package.mo\".</em></dd>
 </dl>
   <ul>
   <li> v1.0.0 2006/11/19 Anton Haumer</li>
@@ -1555,19 +1555,19 @@ Transformer Dd10
 This package contains transformers primary D connected / secondary d connected in all possible vector groups.
 </html>", revisions="<html>
 <dl>
-  <dt><b>Main Authors:</b></dt>
+  <dt><strong>Main Authors:</strong></dt>
   <dd>
   <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
   Technical Consulting &amp; Electrical Engineering<br>
   A-3423 St.Andrae-Woerdern<br>Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
-  <dt><b>Copyright:</b></dt>
+  <dt><strong>Copyright:</strong></dt>
   <dd>Copyright &copy; 1998-2016, Modelica Association and Anton Haumer.<br>
-  <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
-  under the terms of the <b>Modelica license</b>, see the license conditions
-  and the accompanying <b>disclaimer</b> in the documentation of package
-  Modelica in file \"Modelica/package.mo\".</i></dd>
+  <em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
+  under the terms of the <strong>Modelica license</strong>, see the license conditions
+  and the accompanying <strong>disclaimer</strong> in the documentation of package
+  Modelica in file \"Modelica/package.mo\".</em></dd>
 </dl>
   <ul>
   <li> v1.0.0 2006/11/19 Anton Haumer</li>
@@ -1861,19 +1861,19 @@ Transformer Dz10
 This package contains transformers primary D connected / secondary d connected in all possible vector groups.
 </html>", revisions="<html>
 <dl>
-  <dt><b>Main Authors:</b></dt>
+  <dt><strong>Main Authors:</strong></dt>
   <dd>
   <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
   Technical Consulting &amp; Electrical Engineering<br>
   A-3423 St.Andrae-Woerdern<br>Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
-  <dt><b>Copyright:</b></dt>
+  <dt><strong>Copyright:</strong></dt>
   <dd>Copyright &copy; 1998-2016, Modelica Association and Anton Haumer.<br>
-  <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
-  under the terms of the <b>Modelica license</b>, see the license conditions
-  and the accompanying <b>disclaimer</b> in the documentation of package
-  Modelica in file \"Modelica/package.mo\".</i></dd>
+  <em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
+  under the terms of the <strong>Modelica license</strong>, see the license conditions
+  and the accompanying <strong>disclaimer</strong> in the documentation of package
+  Modelica in file \"Modelica/package.mo\".</em></dd>
 </dl>
   <ul>
   <li> v1.0.0 2006/11/19 Anton Haumer</li>
@@ -1894,11 +1894,11 @@ This package contains components to model technical three-phase transformers:
 </ul>
 <p>
 Transformers are modeled by an ideal transformer, adding primary and secondary winding resistances and stray inductances.<br>
-All transformers extend from the base model <i>PartialTransformer</i>, adding the primary and secondary connection.<br>
-<b>VectorGroup</b> defines the phase shift between primary and secondary voltages, expressed by a number phase shift/30 degree
+All transformers extend from the base model <em>PartialTransformer</em>, adding the primary and secondary connection.<br>
+<strong>VectorGroup</strong> defines the phase shift between primary and secondary voltages, expressed by a number phase shift/30 degree
 (i.e., the hour on a clock face). Therefore each transformer is identified by two characters and a two-digit number,
 e.g., Yd11 ... primary connection Y (star), secondary connection d (delta), vector group 11 (phase shift 330 degree)<br>
-With the \"supermodel\" <i>Transformer</i> the user may choose primary and secondary connection as well as the vector group.<br>
+With the \"supermodel\" <em>Transformer</em> the user may choose primary and secondary connection as well as the vector group.<br>
 It calculates winding ratio as well as primary and secondary winding resistances and stray inductances,
 distributing them equally to primary and secondary winding, from the following parameters:
 </p>
@@ -1910,15 +1910,15 @@ distributing them equally to primary and secondary winding, from the following p
 <li>impedance voltage drop</li>
 <li>short-circuit copper losses</li>
 </ul>
-The <b>impedance voltage drop</b> indicates the (absolute value of the) voltage drop at nominal load (current) as well as
+The <strong>impedance voltage drop</strong> indicates the (absolute value of the) voltage drop at nominal load (current) as well as
 the voltage we have to apply to the primary winding to achieve nominal current in the short-circuited secondary winding.
 <p>
-<b>Please pay attention</b> to proper grounding of the primary and secondary part of the whole circuit.<br>
+<strong>Please pay attention</strong> to proper grounding of the primary and secondary part of the whole circuit.<br>
 The primary and secondary starpoint are available as connectors, if the connection is not delta (D or d).<br>
-<b>In some cases (Yy or Yz) it may be necessary to ground one of the transformer's starpoints
-even though the source's and/or load's starpoint are grounded; you may use a reasonable high earthing resistance.</b>
+<strong>In some cases (Yy or Yz) it may be necessary to ground one of the transformer's starpoints
+even though the source's and/or load's starpoint are grounded; you may use a reasonable high earthing resistance.</strong>
 </p>
-<b>Limitations and assumptions:</b><br>
+<strong>Limitations and assumptions:</strong><br>
 <ul>
 <li>number of phases is limited to 3, therefore definition as a constant m=3</li>
 <li>symmetry of the 3 phases resp. limbs</li>
@@ -1927,13 +1927,13 @@ even though the source's and/or load's starpoint are grounded; you may use a rea
 <li>magnetizing losses are neglected</li>
 <li>additional (stray) losses are neglected</li>
 </ul>
-<b>Further development:</b>
+<strong>Further development:</strong>
 <ul>
 <li>modeling magnetizing current, including saturation</li>
 <li>temperature dependency of winding resistances</li>
 </ul>
 <dl>
-  <dt><b>Main Authors:</b></dt>
+  <dt><strong>Main Authors:</strong></dt>
   <dd>
   <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
   Technical Consulting &amp; Electrical Engineering<br>
@@ -1945,7 +1945,7 @@ even though the source's and/or load's starpoint are grounded; you may use a rea
 Copyright &copy; 1998-2016, Modelica Association and Anton Haumer.
 </p>
 <p>
-<i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
+<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</em>
 </p>
 </html>", revisions="<html>
   <ul>
@@ -2328,7 +2328,7 @@ This package contains components for modeling quasi stationary electrical induct
               textString="%name")}), Documentation(info="<html>
 Partial model of a three-phase transformer, containing primary and secondary resistances and stray inductances, as well as the iron core.
 Circuit layout (vector group) of primary and secondary windings have to be defined.
-<br><b>Default values for transformer's parameters (a realistic example) are:</b><br>
+<br><strong>Default values for transformer's parameters (a realistic example) are:</strong><br>
 <table>
 <tr>
 <td valign=\"top\">turns ratio n</td>
@@ -2540,7 +2540,7 @@ Transformation of space phasor and zero sequence value to quasi stationary multi
           fillPattern=FillPattern.Solid,
           points={{-70,-90},{-60,-90},{-30,-20},{20,-20},{50,-90},{60,-90},{60,
               -100},{-70,-100},{-70,-90}})}), preferredView="info", Documentation(info="<html>
-<p><b>For a discrimination of various machine models, see <a href=\"modelica://Modelica.Electrical.Machines.UsersGuide.Discrimination\">discrimination</a></b>.</p>
+<p><strong>For a discrimination of various machine models, see <a href=\"modelica://Modelica.Electrical.Machines.UsersGuide.Discrimination\">discrimination</a></strong>.</p>
 <p>This package hosts models for quasi stationary induction machines and transformers.
 </p>
 <h4>Please note</h4>

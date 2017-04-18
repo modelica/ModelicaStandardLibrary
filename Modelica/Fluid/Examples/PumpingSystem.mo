@@ -146,13 +146,13 @@ If using Dymola, turn off \"Equidistant time grid\" to avoid numerical errors.
      alt=\"PumpingSystem.png\">
 </html>", revisions="<html>
 <ul>
-<li><i>Jan 2009</i>
+<li><em>Jan 2009</em>
     by R&uuml;diger Franke:<br>
        Reduce diameters of pipe and reservoir ports; use separate port for measurement of reservoirPressure, avoiding disturbances due to pressure losses.</li>
-<li><i>1 Oct 2007</i>
+<li><em>1 Oct 2007</em>
     by <a href=\"mailto:francesco.casella@polimi.it\">Francesco Casella</a>:<br>
        Parameters updated.</li>
-<li><i>2 Nov 2005</i>
+<li><em>2 Nov 2005</em>
     by <a href=\"mailto:francesco.casella@polimi.it\">Francesco Casella</a>:<br>
        Created.</li>
 </ul>

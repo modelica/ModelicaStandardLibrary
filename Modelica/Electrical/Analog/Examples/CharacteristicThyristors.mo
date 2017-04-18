@@ -97,18 +97,18 @@ annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-1
           extent={{-96,100},{98,60}},
           textString="Characteristic Thyristors",
           lineColor={0,0,255})}), Documentation(info="<html>
-<p>This example compares the behavior of the <b>ideal thyristor</b> and the <b>ideal GTO thyristor</b> with <i>Vknee=1</i> both. The thyristors IdealThyristor1 and IdealGTOThyristor1 are controlled by an unregular Boolean fire signal. The aim is to show several cases for the fire signal in combination with the state (s&lt;0 or s&gt;0)of the thyristors. Please simulate until 6 seconds and compare IdealThyristor1.v with IdealGTOThyristor1.v, the same with IdealThyristor1.s and IdealGTOThyristor1.s (attention: s is a protected variable in each thyristor). Also compare IdealThyristor1.off and IdealGTOThyristor1.off and have a look at the fire signal (e.g. IdealThyristor1.fire). It can be seen that the IdealGTOThyristor1 reacts on switching off the fire signal whereas the IdealThyristor1 does not show this behavior.</p>
+<p>This example compares the behavior of the <strong>ideal thyristor</strong> and the <strong>ideal GTO thyristor</strong> with <em>Vknee=1</em> both. The thyristors IdealThyristor1 and IdealGTOThyristor1 are controlled by an unregular Boolean fire signal. The aim is to show several cases for the fire signal in combination with the state (s&lt;0 or s&gt;0)of the thyristors. Please simulate until 6 seconds and compare IdealThyristor1.v with IdealGTOThyristor1.v, the same with IdealThyristor1.s and IdealGTOThyristor1.s (attention: s is a protected variable in each thyristor). Also compare IdealThyristor1.off and IdealGTOThyristor1.off and have a look at the fire signal (e.g. IdealThyristor1.fire). It can be seen that the IdealGTOThyristor1 reacts on switching off the fire signal whereas the IdealThyristor1 does not show this behavior.</p>
 <p>The other thyristors IdealThyristor2 and IdealGTOThyristor2 are controlled by an periodic Boolean fire signal to show a typical use case. Please compare IdealThyristor2.v with IdealGTOThyristor2.v</p>
 </html>",
    revisions="<html>
-<p><b>Release Notes:</b></p>
+<p><strong>Release Notes:</strong></p>
 <ul>
-<li><i>Jan 23, 2013   </i>
+<li><em>Jan 23, 2013   </em>
        by Kristin Majetta and Christoph Clauss<br> revised<br>
        </li>
 </ul>
 <ul>
-<li><i>Mai 7, 2004   </i>
+<li><em>Mai 7, 2004   </em>
        by Christoph Clauss<br> realized<br>
        </li>
 </ul>

@@ -96,9 +96,9 @@ annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
 <p>Simulate until T=5 s. Plot in separate windows:<br> Sin.p.v and Capacitor1.p.v<br>HeatCapacitor1.port.T and H_PMOS.heatPort.T and H_NMOS.heatPort.T<br>H_PMOS.heatPort.Q_flow and H_NMOS.heatPort.Q_flow</p>
 </html>",
    revisions="<html>
-<p><b>Release Notes:</b></p>
+<p><strong>Release Notes:</strong></p>
 <ul>
-<li><i>Mai 6, 2004   </i>
+<li><em>Mai 6, 2004   </em>
        by Christoph Clauss<br> realized<br>
        </li>
 </ul>

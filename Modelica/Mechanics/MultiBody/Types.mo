@@ -60,7 +60,7 @@ For an example see parameter \"n\" in model
         choice={255,255,255} "{255,255,255} \"white\""),
     Documentation(info="<html>
 <p>
-Type <b>Color</b> is an Integer vector with 3 elements,
+Type <strong>Color</strong> is an Integer vector with 3 elements,
 {r, g, b}, and specifies the color of a shape.
 {r,g,b} are the \"red\", \"green\" and \"blue\" color parts.
 Note, r g, b are given in the range 0 .. 255.
@@ -89,7 +89,7 @@ Note, r g, b are given in the range 0 .. 255.
         choice={255,255,255} "{255,255,255} \"white\""),
     Documentation(info="<html>
 <p>
-Type <b>RealColor</b> is a Real vector with 3 elements,
+Type <strong>RealColor</strong> is a Real vector with 3 elements,
 {r, g, b}, and specifies the color of a shape.
 {r,g,b} are the \"red\", \"green\" and \"blue\" color parts.
 Note, r g, b are given in the range 0 .. 255.
@@ -103,7 +103,7 @@ Note, r g, b are given in the range 0 .. 255.
          choice=1 "1.0 \"glossy\""),
     Documentation(info="<html>
 <p>
-Type <b>SpecularCoefficient</b> defines the reflection of
+Type <strong>SpecularCoefficient</strong> defines the reflection of
 ambient light on shape surfaces. If value = 0, the light
 is completely absorbed. Often, 0.7 is a reasonable value.
 It might be that from some viewing directions, a body is no
@@ -131,7 +131,7 @@ are shown for a cylinder:
       choice="modelica://PackageName/PathName.dxf"),
     Documentation(info="<html>
 <p>
-Type <b>ShapeType</b> is used to define the shape of the
+Type <strong>ShapeType</strong> is used to define the shape of the
 visual object as parameter String. Usually, \"shapeType\" is used
 as instance name. The following
 values for shapeType are possible, e.g., shapeType=\"box\":
@@ -143,8 +143,8 @@ values for shapeType are possible, e.g., shapeType=\"box\":
 
 <p>
 The dark blue arrows in the figure above are directed along
-variable <b>lengthDirection</b>. The light blue arrows are directed
-along variable <b>widthDirection</b>. The <b>coordinate systems</b>
+variable <strong>lengthDirection</strong>. The light blue arrows are directed
+along variable <strong>widthDirection</strong>. The <strong>coordinate systems</strong>
 in the figure represent frame_a of the Shape component.
 </p>
 
@@ -153,19 +153,19 @@ Additionally, external shapes can be specified as (not all options might be supp
 </p>
 
 <ul>
-<li> <b>\"1\", \"2\", ...</b><br>
+<li> <strong>\"1\", \"2\", ...</strong><br>
      define external shapes specified in DXF format in files \"1.dxf\", \"2.dxf\", ...
      The DXF-files must be found either in the current directory or in the directory where
      the Shape instance is stored that references the DXF file.
      This (very limited) option should not be used for new models. Example:<br>
     shapeType=\"1\".<br></li>
 
-<li> \"<b>modelica:</b>//&lt;Modelica-name&gt;/&lt;relative-path-file-name&gt;\"<br>
+<li> \"<strong>modelica:</strong>//&lt;Modelica-name&gt;/&lt;relative-path-file-name&gt;\"<br>
      characterizes the file that is stored under the location of the
      &lt;Modelica-name&gt; library path with the given relative file name.
      Example:<br> shapeType = \"modelica://Modelica/Resources/Data/Shapes/Engine/piston.dxf\".<br></li>
 
-<li> \"<b>file:</b>//&lt;absolute-file-name&gt;\"<br>
+<li> \"<strong>file:</strong>//&lt;absolute-file-name&gt;\"<br>
      characterizes an absolute file name in the file system. Example:<br>
      shapeType=\"file://C:/users/myname/shapes/piston.dxf\".</li>
 </ul>
@@ -185,11 +185,11 @@ information in the model is usually ignored.
 <p>
 This type is used in shapes of visual objects to define
 extra data depending on the shape type. Usually, input
-variable <b>extra</b> is used as instance name:
+variable <strong>extra</strong> is used as instance name:
 </p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-<tr><th><b>shapeType</b></th><th>Meaning of parameter <b>extra</b></th></tr>
+<tr><th><strong>shapeType</strong></th><th>Meaning of parameter <strong>extra</strong></th></tr>
 <tr>
   <td valign=\"top\">\"cylinder\"</td>
   <td valign=\"top\">if extra &gt; 0, a black line is included in the
@@ -217,7 +217,7 @@ width = height = 2*radiusOfGearWheel.</td>
 <tr>
   <td valign=\"top\">\"spring\"</td>
   <td valign=\"top\">extra is the number of windings of the spring.
-      Additionally, \"height\" is <b>not</b> the \"height\" but
+      Additionally, \"height\" is <strong>not</strong> the \"height\" but
       2*coil-width.</td>
 </tr>
 <tr>
@@ -239,7 +239,7 @@ width = height = 2*radiusOfGearWheel.</td>
     "Enumeration to define the frame in which an absolute vector is resolved (world, frame_a, frame_resolve)"
                                                annotation (Documentation(info="<html>
 <table border=1 cellspacing=0 cellpadding=2>
-<tr><th><b>Types.ResolveInFrameA.</b></th><th><b>Meaning</b></th></tr>
+<tr><th><strong>Types.ResolveInFrameA.</strong></th><th><strong>Meaning</strong></th></tr>
 <tr><td valign=\"top\">world</td>
     <td valign=\"top\">Resolve vector in world frame</td></tr>
 
@@ -258,7 +258,7 @@ width = height = 2*radiusOfGearWheel.</td>
     "Enumeration to define the frame in which an absolute vector is resolved (world, frame_b, frame_resolve)"
                                                annotation (Documentation(info="<html>
 <table border=1 cellspacing=0 cellpadding=2>
-<tr><th><b>Types.ResolveInFrameB.</b></th><th><b>Meaning</b></th></tr>
+<tr><th><strong>Types.ResolveInFrameB.</strong></th><th><strong>Meaning</strong></th></tr>
 <tr><td valign=\"top\">world</td>
     <td valign=\"top\">Resolve vector in world frame</td></tr>
 
@@ -278,7 +278,7 @@ width = height = 2*radiusOfGearWheel.</td>
     "Enumeration to define the frame in which a relative vector is resolved (world, frame_a, frame_b, frame_resolve)"
                                                annotation (Documentation(info="<html>
 <table border=1 cellspacing=0 cellpadding=2>
-<tr><th><b>Types.ResolveInFrameAB.</b></th><th><b>Meaning</b></th></tr>
+<tr><th><strong>Types.ResolveInFrameAB.</strong></th><th><strong>Meaning</strong></th></tr>
 <tr><td valign=\"top\">world</td>
     <td valign=\"top\">Resolve vector in world frame</td></tr>
 
@@ -301,7 +301,7 @@ width = height = 2*radiusOfGearWheel.</td>
       annotation (
         Documentation(Evaluate=true, info="<html>
 <table border=1 cellspacing=0 cellpadding=2>
-<tr><th><b>Types.RotationTypes.</b></th><th><b>Meaning</b></th></tr>
+<tr><th><strong>Types.RotationTypes.</strong></th><th><strong>Meaning</strong></th></tr>
 <tr><td valign=\"top\">RotationAxis</td>
     <td valign=\"top\">frame_b is defined by rotating the coordinate system along
         an axis fixed in frame_a and with a fixed angle.</td></tr>
@@ -323,7 +323,7 @@ width = height = 2*radiusOfGearWheel.</td>
     "Enumeration defining the type of the gravity field"
       annotation (Documentation(info="<html>
 <table border=1 cellspacing=0 cellpadding=2>
-<tr><th><b>Types.GravityTypes.</b></th><th><b>Meaning</b></th></tr>
+<tr><th><strong>Types.GravityTypes.</strong></th><th><strong>Meaning</strong></th></tr>
 <tr><td valign=\"top\">NoGravity</td>
     <td valign=\"top\">No gravity field</td></tr>
 
@@ -403,7 +403,7 @@ in the MultiBody library.
 
   annotation (Documentation(info="<html>
 <p>
-In this package <b>types</b> and <b>constants</b> are defined that are used in the
+In this package <strong>types</strong> and <strong>constants</strong> are defined that are used in the
 MultiBody library. The types have additional annotation choices
 definitions that define the menus to be built up in the graphical
 user interface when the type is used as parameter in a declaration.

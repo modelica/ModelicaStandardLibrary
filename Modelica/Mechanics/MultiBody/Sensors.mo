@@ -328,7 +328,7 @@ package Sensors "Sensors to measure variables"
 <p>
 Absolute kinematic quantities of frame_a are
 determined and provided at the conditional output signal connectors.
-For example, if parameter \"get_r = <b>true</b>\", the connector
+For example, if parameter \"get_r = <strong>true</strong>\", the connector
 \"r\" is enabled and contains the absolute vector from the world frame
 to the origin of frame_a. The following quantities can be provided
 as output signals:
@@ -344,12 +344,12 @@ as output signals:
 </ol>
 
 <p>
-Via parameter <b>resolveInFrame</b> it is defined, in which frame
+Via parameter <strong>resolveInFrame</strong> it is defined, in which frame
 a vector is resolved:
 </p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-<tr><th><b>resolveInFrame =<br>Types.ResolveInFrameA.</b></th><th><b>Meaning</b></th></tr>
+<tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameA.</strong></th><th><strong>Meaning</strong></th></tr>
 <tr><td valign=\"top\">world</td>
     <td valign=\"top\">Resolve vectors in world frame</td></tr>
 
@@ -380,13 +380,13 @@ frame_a and the yellow arrow is the animated sensor.
 <p>
 Velocity, acceleration, angular velocity and angular acceleration are
 determined by differentiating them in the world frame and then transforming
-them in to the frame defined by <b>resolveInFrame</b>.
+them in to the frame defined by <strong>resolveInFrame</strong>.
 </p>
 <p>
-For example, if resolveInFrame = <b>Types.ResolveInFrameA.frame_a</b>, then
+For example, if resolveInFrame = <strong>Types.ResolveInFrameA.frame_a</strong>, then
 </p>
 <pre>
-   v0 = <b>der</b>(frame_a.r0);
+   v0 = <strong>der</strong>(frame_a.r0);
    v  = resolve2(frame_a.R, v0);
 </pre>
 <p>
@@ -400,8 +400,8 @@ always zero, whether frame_resolve is connected or not.
 </p>
 
 <p>
-If <b>get_angles</b> = <b>true</b>, the 3 angles to rotate the world
-frame into frame_a along the axes defined by parameter <b>sequence</b>
+If <strong>get_angles</strong> = <strong>true</strong>, the 3 angles to rotate the world
+frame into frame_a along the axes defined by parameter <strong>sequence</strong>
 are returned. For example, if sequence = {3,1,2} then the world frame is
 rotated around angles[1] along the z-axis, afterwards it is rotated
 around angles[2] along the x-axis, and finally it is rotated around
@@ -412,8 +412,8 @@ The 3 angles are returned in the range
     -<font face=\"Symbol\">p</font> &lt;= angles[i] &lt;= <font face=\"Symbol\">p</font>
 </pre>
 <p>
-There are <b>two solutions</b> for \"angles[1]\" in this range.
-Via parameter <b>guessAngle1</b> (default = 0) the
+There are <strong>two solutions</strong> for \"angles[1]\" in this range.
+Via parameter <strong>guessAngle1</strong> (default = 0) the
 returned solution is selected such that |angles[1] - guessAngle1| is
 minimal. The absolute transformation matrix of frame_a
 may be in a singular configuration with respect to \"sequence\", i.e.,
@@ -423,14 +423,14 @@ selected by setting angles[1] = guessAngle1. Then angles[2]
 and angles[3] can be uniquely determined in the above range.
 </p>
 <p>
-The parameter <b>sequence</b> has the restriction that
+The parameter <strong>sequence</strong> has the restriction that
 only values 1,2,3 can be used and that sequence[1] &ne; sequence[2]
 and sequence[2] &ne; sequence[3]. Often used values are:
 </p>
 <pre>
-  sequence = <b>{1,2,3}</b>  // Cardan or Tait-Bryan angle sequence
-           = <b>{3,1,3}</b>  // Euler angle sequence
-           = <b>{3,2,1}</b>
+  sequence = <strong>{1,2,3}</strong>  // Cardan or Tait-Bryan angle sequence
+           = <strong>{3,1,3}</strong>  // Euler angle sequence
+           = <strong>{3,2,1}</strong>
 </pre>
 </html>"));
   end AbsoluteSensor;
@@ -779,7 +779,7 @@ and sequence[2] &ne; sequence[3]. Often used values are:
 <p>
 Relative kinematic quantities between frame_a and frame_b are
 determined and provided at the conditional output signal connectors.
-For example, if parameter \"get_r_rel = <b>true</b>\", the connector
+For example, if parameter \"get_r_rel = <strong>true</strong>\", the connector
 \"r_rel\" is enabled and contains the relative vector from
 frame_a to frame_b. The following quantities can be provided
 as output signals:
@@ -795,12 +795,12 @@ as output signals:
 </ol>
 
 <p>
-Via parameter <b>resolveInFrame</b> it is defined, in which frame
+Via parameter <strong>resolveInFrame</strong> it is defined, in which frame
 a vector is resolved (before differentiation):
 </p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-<tr><th><b>resolveInFrame =<br>Types.ResolveInFrameAB.</b></th><th><b>Meaning</b></th></tr>
+<tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameAB.</strong></th><th><strong>Meaning</strong></th></tr>
 <tr><td valign=\"top\">world</td>
     <td valign=\"top\">Resolve vectors in world frame</td></tr>
 
@@ -837,29 +837,29 @@ Note, derivatives
 of relative kinematic quantities are always performed with
 respect to the frame, in which the vector to be differentiated
 is resolved. After differentiation, it is possible via parameter
-<b>resolveInFrameAfterDifferentiation</b> (in the \"Advanced\" menu)
+<strong>resolveInFrameAfterDifferentiation</strong> (in the \"Advanced\" menu)
 to resolve the differentiated
 vector in another frame.
 </p>
 <p>
-For example, if resolveInFrame = <b>Types.ResolveInFrameAB.frame_b</b>, then
+For example, if resolveInFrame = <strong>Types.ResolveInFrameAB.frame_b</strong>, then
 </p>
 
 <pre>
    r_rel = resolve2(frame_b.R, frame_b.r_0 - frame_a.r0);
-   v_rel = <b>der</b>(r_rel);
+   v_rel = <strong>der</strong>(r_rel);
 </pre>
 
 <p>
 is returned (r_rel = resolve2(frame_b.R, frame_b.r_0 - frame_a.r0)), i.e.,
 the derivative of the relative distance from frame_a to frame_b,
 resolved in frame_b. If
-<b>resolveInFrameAfterDifferentiation</b> = Types.ResolveInFrameAB.world, then
+<strong>resolveInFrameAfterDifferentiation</strong> = Types.ResolveInFrameAB.world, then
 v_rel is additionally transformed to:
 </p>
 
 <pre>
-   v_rel = resolve1(frame_b.R, <b>der</b>(r_rel))
+   v_rel = resolve1(frame_b.R, <strong>der</strong>(r_rel))
 </pre>
 
 <p>
@@ -868,8 +868,8 @@ always zero, whether frame_resolve is connected or not.
 </p>
 
 <p>
-If <b>get_angles</b> = <b>true</b>, the 3 angles to rotate frame_a
-into frame_b along the axes defined by parameter <b>sequence</b>
+If <strong>get_angles</strong> = <strong>true</strong>, the 3 angles to rotate frame_a
+into frame_b along the axes defined by parameter <strong>sequence</strong>
 are returned. For example, if sequence = {3,1,2} then frame_a is
 rotated around angles[1] along the z-axis, afterwards it is rotated
 around angles[2] along the x-axis, and finally it is rotated around
@@ -880,8 +880,8 @@ The 3 angles are returned in the range
     -<font face=\"Symbol\">p</font> &lt;= angles[i] &lt;= <font face=\"Symbol\">p</font>
 </pre>
 <p>
-There are <b>two solutions</b> for \"angles[1]\" in this range.
-Via parameter <b>guessAngle1</b> (default = 0) the
+There are <strong>two solutions</strong> for \"angles[1]\" in this range.
+Via parameter <strong>guessAngle1</strong> (default = 0) the
 returned solution is selected such that |angles[1] - guessAngle1| is
 minimal. The relative transformation matrix between frame_a and
 frame_b may be in a singular configuration with respect to \"sequence\", i.e.,
@@ -891,14 +891,14 @@ selected by setting angles[1] = guessAngle1. Then angles[2]
 and angles[3] can be uniquely determined in the above range.
 </p>
 <p>
-The parameter <b>sequence</b> has the restriction that
+The parameter <strong>sequence</strong> has the restriction that
 only values 1,2,3 can be used and that sequence[1] &ne; sequence[2]
 and sequence[2] &ne; sequence[3]. Often used values are:
 </p>
 <pre>
-  sequence = <b>{1,2,3}</b>  // Cardan or Tait-Bryan angle sequence
-           = <b>{3,1,3}</b>  // Euler angle sequence
-           = <b>{3,2,1}</b>
+  sequence = <strong>{1,2,3}</strong>  // Cardan or Tait-Bryan angle sequence
+           = <strong>{3,1,3}</strong>  // Euler angle sequence
+           = <strong>{3,2,1}</strong>
 </pre>
 </html>"));
   end RelativeSensor;
@@ -974,16 +974,16 @@ and sequence[2] &ne; sequence[3]. Often used values are:
       Documentation(info="<html>
 <p>
 The absolute position vector of the origin of frame_a is
-determined and provided at the output signal connector <b>r</b>.
+determined and provided at the output signal connector <strong>r</strong>.
 </p>
 
 <p>
-Via parameter <b>resolveInFrame</b> it is defined, in which frame
+Via parameter <strong>resolveInFrame</strong> it is defined, in which frame
 the position vector is resolved:
 </p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-<tr><th><b>resolveInFrame =<br>Types.ResolveInFrameA.</b></th><th><b>Meaning</b></th></tr>
+<tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameA.</strong></th><th><strong>Meaning</strong></th></tr>
 <tr><td valign=\"top\">world</td>
     <td valign=\"top\">Resolve vector in world frame</td></tr>
 
@@ -1109,16 +1109,16 @@ computed as:
       Documentation(info="<html>
 <p>
 The absolute velocity vector of the origin of frame_a is
-determined and provided at the output signal connector <b>v</b>.
+determined and provided at the output signal connector <strong>v</strong>.
 </p>
 
 <p>
-Via parameter <b>resolveInFrame</b> it is defined, in which frame
+Via parameter <strong>resolveInFrame</strong> it is defined, in which frame
 the velocity vector is resolved:
 </p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-<tr><th><b>resolveInFrame =<br>Types.ResolveInFrameA.</b></th><th><b>Meaning</b></th></tr>
+<tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameA.</strong></th><th><strong>Meaning</strong></th></tr>
 <tr><td valign=\"top\">world</td>
     <td valign=\"top\">Resolve vector in world frame</td></tr>
 
@@ -1199,7 +1199,7 @@ computed as:
             textString="angles")}), Documentation(info="<html>
 <p>
 This model determines the 3 angles to rotate the world frame
-into frame_a along the axes defined by parameter <b>sequence</b>.
+into frame_a along the axes defined by parameter <strong>sequence</strong>.
 For example, if sequence = {3,1,2} then the world frame is
 rotated around angles[1] along the z-axis, afterwards it is rotated
 around angles[2] along the x-axis, and finally it is rotated around
@@ -1210,8 +1210,8 @@ The 3 angles are returned in the range
     -<font face=\"Symbol\">p</font> &lt;= angles[i] &lt;= <font face=\"Symbol\">p</font>
 </pre>
 <p>
-There are <b>two solutions</b> for \"angles[1]\" in this range.
-Via parameter <b>guessAngle1</b> (default = 0) the
+There are <strong>two solutions</strong> for \"angles[1]\" in this range.
+Via parameter <strong>guessAngle1</strong> (default = 0) the
 returned solution is selected such that |angles[1] - guessAngle1| is
 minimal. The transformation matrix between the world frame and
 frame_a may be in a singular configuration with respect to \"sequence\", i.e.,
@@ -1221,14 +1221,14 @@ selected by setting angles[1] = guessAngle1. Then angles[2]
 and angles[3] can be uniquely determined in the above range.
 </p>
 <p>
-The parameter <b>sequence</b> has the restriction that
+The parameter <strong>sequence</strong> has the restriction that
 only values 1,2,3 can be used and that sequence[1] &ne; sequence[2]
 and sequence[2] &ne; sequence[3]. Often used values are:
 </p>
 <pre>
-  sequence = <b>{1,2,3}</b>  // Cardan or Tait-Bryan angle sequence
-           = <b>{3,1,3}</b>  // Euler angle sequence
-           = <b>{3,2,1}</b>
+  sequence = <strong>{1,2,3}</strong>  // Cardan or Tait-Bryan angle sequence
+           = <strong>{3,1,3}</strong>  // Euler angle sequence
+           = <strong>{3,2,1}</strong>
 </pre>
 </html>"));
   end AbsoluteAngles;
@@ -1306,16 +1306,16 @@ and sequence[2] &ne; sequence[3]. Often used values are:
 <p>
 The absolute angular velocity of frame_a with respect to the
 world frame is
-determined and provided at the output signal connector <b>w</b>.
+determined and provided at the output signal connector <strong>w</strong>.
 </p>
 
 <p>
-Via parameter <b>resolveInFrame</b> it is defined, in which frame
+Via parameter <strong>resolveInFrame</strong> it is defined, in which frame
 the angular velocity is resolved:
 </p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-<tr><th><b>resolveInFrame =<br>Types.ResolveInFrameAB.</b></th><th><b>Meaning</b></th></tr>
+<tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameAB.</strong></th><th><strong>Meaning</strong></th></tr>
 <tr><td valign=\"top\">world</td>
     <td valign=\"top\">Resolve vector in world frame</td></tr>
 
@@ -1410,16 +1410,16 @@ computed as:
       Documentation(info="<html>
 <p>
 The relative position vector between the origins of frame_a and frame_b are
-determined and provided at the output signal connector <b>r_rel</b>.
+determined and provided at the output signal connector <strong>r_rel</strong>.
 </p>
 
 <p>
-Via parameter <b>resolveInFrame</b> it is defined, in which frame
+Via parameter <strong>resolveInFrame</strong> it is defined, in which frame
 the position vector is resolved:
 </p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-<tr><th><b>resolveInFrame =<br>Types.ResolveInFrameAB.</b></th><th><b>Meaning</b></th></tr>
+<tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameAB.</strong></th><th><strong>Meaning</strong></th></tr>
 <tr><td valign=\"top\">world</td>
     <td valign=\"top\">Resolve vector in world frame</td></tr>
 
@@ -1539,22 +1539,22 @@ computed as:
       Documentation(info="<html>
 <p>
 The relative velocity vector between the origins of frame_a and of frame_b are
-determined and provided at the output signal connector <b>v_rel</b>.
+determined and provided at the output signal connector <strong>v_rel</strong>.
 This vector is defined as:
 </p>
 
 <pre>
     r_rel = MultiBody.Frames.resolve2(frame_a.R, frame_b.r_0 - frame_a.r_0);
-    v_rel = <b>der</b>(r_rel);
+    v_rel = <strong>der</strong>(r_rel);
 </pre>
 
 <p>
-Via parameter <b>resolveInFrame</b> it is defined, in which frame
+Via parameter <strong>resolveInFrame</strong> it is defined, in which frame
 the velocity vector is resolved:
 </p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-<tr><th><b>resolveInFrame =<br>Types.ResolveInFrameAB.</b></th><th><b>Meaning</b></th></tr>
+<tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameAB.</strong></th><th><strong>Meaning</strong></th></tr>
 <tr><td valign=\"top\">world</td>
     <td valign=\"top\">Resolve vector in world frame</td></tr>
 
@@ -1582,7 +1582,7 @@ computed as:
 
 <pre>
     r_rel   = MultiBody.Frames.resolve2(frame_a.R, frame_b.r_0 - frame_a.r_0);
-    v_rel_a = <b>der</b>(r_rel);
+    v_rel_a = <strong>der</strong>(r_rel);
     v_rel   = MultiBody.Frames.resolveRelative(frame_a.R, frame_b.R, v_rel_a);
 </pre>
 
@@ -1653,7 +1653,7 @@ computed as:
             textString="angles")}), Documentation(info="<html>
 <p>
 This model determines the 3 angles to rotate frame_a
-into frame_b along the axes defined by parameter <b>sequence</b>.
+into frame_b along the axes defined by parameter <strong>sequence</strong>.
 For example, if sequence = {3,1,2} then frame_a is
 rotated around angles[1] along the z-axis, afterwards it is rotated
 around angles[2] along the x-axis, and finally it is rotated around
@@ -1664,8 +1664,8 @@ The 3 angles are returned in the range
     -<font face=\"Symbol\">p</font> &lt;= angles[i] &lt;= <font face=\"Symbol\">p</font>
 </pre>
 <p>
-There are <b>two solutions</b> for \"angles[1]\" in this range.
-Via parameter <b>guessAngle1</b> (default = 0) the
+There are <strong>two solutions</strong> for \"angles[1]\" in this range.
+Via parameter <strong>guessAngle1</strong> (default = 0) the
 returned solution is selected such that |angles[1] - guessAngle1| is
 minimal. The relative transformation matrix between frame_a and
 frame_b may be in a singular configuration with respect to \"sequence\", i.e.,
@@ -1675,14 +1675,14 @@ selected by setting angles[1] = guessAngle1. Then angles[2]
 and angles[3] can be uniquely determined in the above range.
 </p>
 <p>
-The parameter <b>sequence</b> has the restriction that
+The parameter <strong>sequence</strong> has the restriction that
 only values 1,2,3 can be used and that sequence[1] &ne; sequence[2]
 and sequence[2] &ne; sequence[3]. Often used values are:
 </p>
 <pre>
-  sequence = <b>{1,2,3}</b>  // Cardan or Tait-Bryan angle sequence
-           = <b>{3,1,3}</b>  // Euler angle sequence
-           = <b>{3,2,1}</b>
+  sequence = <strong>{1,2,3}</strong>  // Cardan or Tait-Bryan angle sequence
+           = <strong>{3,1,3}</strong>  // Euler angle sequence
+           = <strong>{3,2,1}</strong>
 </pre>
 </html>"));
   end RelativeAngles;
@@ -1757,16 +1757,16 @@ and sequence[2] &ne; sequence[3]. Often used values are:
       Documentation(info="<html>
 <p>
 The relative angular velocity between frame_a and frame_b is
-determined and provided at the output signal connector <b>w_rel</b>.
+determined and provided at the output signal connector <strong>w_rel</strong>.
 </p>
 
 <p>
-Via parameter <b>resolveInFrame</b> it is defined, in which frame
+Via parameter <strong>resolveInFrame</strong> it is defined, in which frame
 the angular velocity is resolved:
 </p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-<tr><th><b>resolveInFrame =<br>Types.ResolveInFrameAB.</b></th><th><b>Meaning</b></th></tr>
+<tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameAB.</strong></th><th><strong>Meaning</strong></th></tr>
 <tr><td valign=\"top\">world</td>
     <td valign=\"top\">Resolve vector in world frame</td></tr>
 
@@ -1879,10 +1879,10 @@ computed as:
             fillPattern=FillPattern.Solid)}),
       Documentation(info="<html>
 <p>
-The <b>distance</b> between the origins of frame_a
+The <strong>distance</strong> between the origins of frame_a
 and of frame_b are determined and provided at the
-output signal connector <b>distance</b>. This
-distance is always positive. <b>Derivatives</b> of this
+output signal connector <strong>distance</strong>. This
+distance is always positive. <strong>Derivatives</strong> of this
 signal can be easily obtained by connecting the
 block
 <a href=\"modelica://Modelica.Blocks.Continuous.Der\">Modelica.Blocks.Continuous.Der</a>
@@ -1901,7 +1901,7 @@ the yellow arrow is the animated sensor.
 </p>
 
 <p>
-If the distance is smaller as parameter <b>s_small</b> (in the \"advanced\" menu),
+If the distance is smaller as parameter <strong>s_small</strong> (in the \"advanced\" menu),
 it is approximated such that its derivative is
 finite for zero distance. Without such an approximation, the derivative would
 be infinite and a division by zero would occur. The approximation is performed
@@ -1993,16 +1993,16 @@ differentiable everywhere. The derivative at zero distance is 3/(2*s_small).
 <p>
 The cut-force acting between the two frames to which this
 model is connected, is determined and provided at the output signal connector
-<b>force</b> (= frame_a.f). If parameter <b>positiveSign</b> =
-<b>false</b>, the negative cut-force is provided (= frame_b.f).
+<strong>force</strong> (= frame_a.f). If parameter <strong>positiveSign</strong> =
+<strong>false</strong>, the negative cut-force is provided (= frame_b.f).
 </p>
 <p>
-Via parameter <b>resolveInFrame</b> it is defined, in which frame
+Via parameter <strong>resolveInFrame</strong> it is defined, in which frame
 the force vector is resolved:
 </p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-<tr><th><b>resolveInFrame =<br>Types.ResolveInFrameAB.</b></th><th><b>Meaning</b></th></tr>
+<tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameAB.</strong></th><th><strong>Meaning</strong></th></tr>
 <tr><td valign=\"top\">world</td>
     <td valign=\"top\">Resolve vector in world frame</td></tr>
 
@@ -2110,17 +2110,17 @@ with negative sign at frame_a.
 <p>
 The cut-torque acting between the two frames to which this
 model is connected, is determined and provided at the output signal connector
-<b>torque</b> (= frame_a.t). If parameter <b>positiveSign</b> =
-<b>false</b>, the negative cut-torque is provided (= frame_b.t).
+<strong>torque</strong> (= frame_a.t). If parameter <strong>positiveSign</strong> =
+<strong>false</strong>, the negative cut-torque is provided (= frame_b.t).
 </p>
 
 <p>
-Via parameter <b>resolveInFrame</b> it is defined, in which frame
+Via parameter <strong>resolveInFrame</strong> it is defined, in which frame
 the torque vector is resolved:
 </p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-<tr><th><b>resolveInFrame =<br>Types.ResolveInFrameAB.</b></th><th><b>Meaning</b></th></tr>
+<tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameAB.</strong></th><th><strong>Meaning</strong></th></tr>
 <tr><td valign=\"top\">world</td>
     <td valign=\"top\">Resolve vector in world frame</td></tr>
 
@@ -2278,18 +2278,18 @@ with negative sign at frame_a.
 <p>
 The cut-force and cut-torque acting between the two frames to which this
 model is connected, are determined and provided at the output signal connectors
-<b>force</b> (= frame_a.f) and <b>torque</b> (= frame_a.t).
-If parameter <b>positiveSign</b> =
-<b>false</b>, the negative cut-force and cut-torque is provided
+<strong>force</strong> (= frame_a.f) and <strong>torque</strong> (= frame_a.t).
+If parameter <strong>positiveSign</strong> =
+<strong>false</strong>, the negative cut-force and cut-torque is provided
 (= frame_b.f, frame_b.t).
 </p>
 <p>
-Via parameter <b>resolveInFrame</b> it is defined, in which frame
+Via parameter <strong>resolveInFrame</strong> it is defined, in which frame
 the two vectors are resolved:
 </p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-<tr><th><b>resolveInFrame =<br>Types.ResolveInFrameAB.</b></th><th><b>Meaning</b></th></tr>
+<tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameAB.</strong></th><th><strong>Meaning</strong></th></tr>
 <tr><td valign=\"top\">world</td>
     <td valign=\"top\">Resolve vectors in world frame</td></tr>
 
@@ -2359,7 +2359,7 @@ with negative sign at frame_a.
       Documentation(info="<html>
 <p>
 This component provides the power flowing from frame_a to frame_b
-as output signal <b>power</b>.
+as output signal <strong>power</strong>.
 </p>
 </html>"));
   end Power;
@@ -3275,7 +3275,7 @@ with the blocks of package Modelica.Blocks.
 
   annotation (Documentation(info="<html>
 <p>
-Package <b>Sensors</b> contains <b>ideal measurement</b>
+Package <strong>Sensors</strong> contains <strong>ideal measurement</strong>
 components to determine absolute and relative kinematic
 quantities, as well as cut-forces, cut-torques and power. All
 measured quantities can be provided in every desired

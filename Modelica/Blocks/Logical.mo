@@ -14,8 +14,8 @@ package Logical "Library of components with Boolean input and output signals"
             textString="and")}),
       Documentation(info="<html>
 <p>
-The output is <b>true</b> if all inputs are <b>true</b>, otherwise
-the output is <b>false</b>.
+The output is <strong>true</strong> if all inputs are <strong>true</strong>, otherwise
+the output is <strong>false</strong>.
 </p>
 </html>"));
   end And;
@@ -32,8 +32,8 @@ the output is <b>false</b>.
             textString="or")}),
       Documentation(info="<html>
 <p>
-The output is <b>true</b> if at least one input is <b>true</b>, otherwise
-the output is <b>false</b>.
+The output is <strong>true</strong> if at least one input is <strong>true</strong>, otherwise
+the output is <strong>false</strong>.
 </p>
 </html>"));
   end Or;
@@ -47,8 +47,8 @@ the output is <b>false</b>.
             extent={{-90,40},{90,-40}},
             textString="xor")}), Documentation(info="<html>
 <p>
-The output is <b>true</b> if exactly one input is <b>true</b>, otherwise
-the output is <b>false</b>.
+The output is <strong>true</strong> if exactly one input is <strong>true</strong>, otherwise
+the output is <strong>false</strong>.
 </p>
 </html>"));
   end Xor;
@@ -62,8 +62,8 @@ the output is <b>false</b>.
             extent={{-90,40},{90,-40}},
             textString="nor")}), Documentation(info="<html>
 <p>
-The output is <b>true</b> if none of the inputs is <b>true</b>, otherwise
-the output is <b>false</b>.
+The output is <strong>true</strong> if none of the inputs is <strong>true</strong>, otherwise
+the output is <strong>false</strong>.
 </p>
 </html>"));
   end Nor;
@@ -77,8 +77,8 @@ the output is <b>false</b>.
             extent={{-90,40},{90,-40}},
             textString="nand")}), Documentation(info="<html>
 <p>
-The output is <b>true</b> if at least one input is <b>false</b>, otherwise
-the output is <b>false</b>.
+The output is <strong>true</strong> if at least one input is <strong>false</strong>, otherwise
+the output is <strong>false</strong>.
 </p>
 </html>"));
   end Nand;
@@ -96,8 +96,8 @@ the output is <b>false</b>.
             textString="not")}),
       Documentation(info="<html>
 <p>
-The output is <b>true</b> if the input is <b>false</b>, otherwise
-the output is <b>false</b>.
+The output is <strong>true</strong> if the input is <strong>false</strong>, otherwise
+the output is <strong>false</strong>.
 </p>
 </html>"));
   end Not;
@@ -151,9 +151,9 @@ values are identical (u = pre(u)).
             textString="edge")}),
       Documentation(info="<html>
 <p>
-The output is <b>true</b> if the Boolean input has a rising edge
-from <b>false</b> to <b>true</b>, otherwise
-the output is <b>false</b>.
+The output is <strong>true</strong> if the Boolean input has a rising edge
+from <strong>false</strong> to <strong>true</strong>, otherwise
+the output is <strong>false</strong>.
 </p>
 </html>"));
   end Edge;
@@ -175,9 +175,9 @@ the output is <b>false</b>.
             extent={{-90,40},{90,-40}},
             textString="falling")}), Documentation(info="<html>
 <p>
-The output is <b>true</b> if the Boolean input has a falling edge
-from <b>true</b> to <b>false</b>, otherwise
-the output is <b>false</b>.
+The output is <strong>true</strong> if the Boolean input has a falling edge
+from <strong>true</strong> to <strong>false</strong>, otherwise
+the output is <strong>false</strong>.
 </p>
 </html>"));
   end FallingEdge;
@@ -200,10 +200,10 @@ the output is <b>false</b>.
             textString="change")}),
       Documentation(info="<html>
 <p>
-The output is <b>true</b> if the Boolean input has either a rising edge
-from <b>false</b> to <b>true</b> or a falling edge from
-<b>true</b> to <b>false</b>, otherwise
-the output is <b>false</b>.
+The output is <strong>true</strong> if the Boolean input has either a rising edge
+from <strong>false</strong> to <strong>true</strong> or a falling edge from
+<strong>true</strong> to <strong>false</strong>, otherwise
+the output is <strong>false</strong>.
 </p>
 </html>"));
   end Change;
@@ -218,9 +218,9 @@ the output is <b>false</b>.
             extent={{-90,-40},{60,40}},
             textString=">")}), Documentation(info="<html>
 <p>
-The output is <b>true</b> if the Real input is greater than
-parameter <b>threshold</b>, otherwise
-the output is <b>false</b>.
+The output is <strong>true</strong> if the Real input is greater than
+parameter <strong>threshold</strong>, otherwise
+the output is <strong>false</strong>.
 </p>
 </html>"));
   end GreaterThreshold;
@@ -236,9 +236,9 @@ the output is <b>false</b>.
             extent={{-90,-40},{60,40}},
             textString=">=")}), Documentation(info="<html>
 <p>
-The output is <b>true</b> if the Real input is greater than or equal to
-parameter <b>threshold</b>, otherwise
-the output is <b>false</b>.
+The output is <strong>true</strong> if the Real input is greater than or equal to
+parameter <strong>threshold</strong>, otherwise
+the output is <strong>false</strong>.
 </p>
 </html>"));
   end GreaterEqualThreshold;
@@ -253,9 +253,9 @@ the output is <b>false</b>.
             extent={{-90,-40},{60,40}},
             textString="<")}), Documentation(info="<html>
 <p>
-The output is <b>true</b> if the Real input is less than
-parameter <b>threshold</b>, otherwise
-the output is <b>false</b>.
+The output is <strong>true</strong> if the Real input is less than
+parameter <strong>threshold</strong>, otherwise
+the output is <strong>false</strong>.
 </p>
 </html>"));
   end LessThreshold;
@@ -270,9 +270,9 @@ the output is <b>false</b>.
             extent={{-90,-40},{60,40}},
             textString="<=")}), Documentation(info="<html>
 <p>
-The output is <b>true</b> if the Real input is less than or equal to
-parameter <b>threshold</b>, otherwise
-the output is <b>false</b>.
+The output is <strong>true</strong> if the Real input is less than or equal to
+parameter <strong>threshold</strong>, otherwise
+the output is <strong>false</strong>.
 </p>
 </html>"));
   end LessEqualThreshold;
@@ -290,8 +290,8 @@ the output is <b>false</b>.
             points={{-54,22},{-8,2},{-54,-18}},
             thickness=0.5)}), Documentation(info="<html>
 <p>
-The output is <b>true</b> if Real input u1 is greater than
-Real input u2, otherwise the output is <b>false</b>.
+The output is <strong>true</strong> if Real input u1 is greater than
+Real input u2, otherwise the output is <strong>false</strong>.
 </p>
 </html>"));
   end Greater;
@@ -313,8 +313,8 @@ Real input u2, otherwise the output is <b>false</b>.
             points={{-52,-36},{-6,-14}},
             thickness=0.5)}), Documentation(info="<html>
 <p>
-The output is <b>true</b> if Real input u1 is greater than or equal to
-Real input u2, otherwise the output is <b>false</b>.
+The output is <strong>true</strong> if Real input u1 is greater than or equal to
+Real input u2, otherwise the output is <strong>false</strong>.
 </p>
 </html>"));
   end GreaterEqual;
@@ -332,8 +332,8 @@ Real input u2, otherwise the output is <b>false</b>.
             points={{-6,18},{-50,-2},{-6,-20}},
             thickness=0.5)}), Documentation(info="<html>
 <p>
-The output is <b>true</b> if Real input u1 is less than
-Real input u2, otherwise the output is <b>false</b>.
+The output is <strong>true</strong> if Real input u1 is less than
+Real input u2, otherwise the output is <strong>false</strong>.
 </p>
 </html>"));
   end Less;
@@ -354,8 +354,8 @@ Real input u2, otherwise the output is <b>false</b>.
             points={{-54,-18},{-14,-34}},
             thickness=0.5)}), Documentation(info="<html>
 <p>
-The output is <b>true</b> if Real input u1 is less than or equal to
-Real input u2, otherwise the output is <b>false</b>.
+The output is <strong>true</strong> if Real input u1 is less than or equal to
+Real input u2, otherwise the output is <strong>false</strong>.
 </p>
 </html>"));
   end LessEqual;
@@ -383,20 +383,20 @@ Real input u2, otherwise the output is <b>false</b>.
     y = change(u_pos) and not edge(enable) and not edge(disable);
     annotation (Documentation(info="<html>
 <p>
-The output \"y\" is <b>true</b> at the
+The output \"y\" is <strong>true</strong> at the
 time instant when the input \"u\" becomes
 zero, provided the input \"enable\" is
-<b>true</b>. At all other time instants, the output \"y\" is <b>false</b>.
+<strong>true</strong>. At all other time instants, the output \"y\" is <strong>false</strong>.
 If the input \"u\" is zero at a time instant when the \"enable\"
-input changes its value, then the output y is <b>false</b>.
+input changes its value, then the output y is <strong>false</strong>.
 </p>
 <p>
 Note, that in the plot window of a Modelica simulator, the output of
-this block is usually identically to <b>false</b>, because the output
-may only be <b>true</b> at an event instant, but not during
+this block is usually identically to <strong>false</strong>, because the output
+may only be <strong>true</strong> at an event instant, but not during
 continuous integration. In order to check that this component is
 actually working as expected, one should connect its output to, e.g.,
-component <i><a href=\"modelica://Modelica.Blocks.Discrete.TriggeredSampler\">Modelica.Blocks.Discrete.TriggeredSampler</a></i>.
+component <em><a href=\"modelica://Modelica.Blocks.Discrete.TriggeredSampler\">Modelica.Blocks.Discrete.TriggeredSampler</a></em>.
 </p>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}), graphics={
@@ -482,7 +482,7 @@ u1, else it is set equal to u3.</p>
 logical connector u2 (the middle connector)
 between the two possible input signals
 u1 (upper connector) and u3 (lower connector).</p>
-<p>If u2 is <b>true</b>, the output signal y is set equal to
+<p>If u2 is <strong>true</strong>, the output signal y is set equal to
 u1, else it is set equal to u3.</p>
 </html>"),
       Icon(coordinateSystem(
@@ -606,21 +606,21 @@ u1, else it is set equal to u3.</p>
           Line(points={{41,-29},{41,-49}}, color={192,192,192})}),
       Documentation(info="<html>
 <p>
-This block transforms a <b>Real</b> input signal into a <b>Boolean</b>
+This block transforms a <strong>Real</strong> input signal into a <strong>Boolean</strong>
 output signal:
 </p>
 <ul>
-<li> When the output was <b>false</b> and the input becomes
-     <b>greater</b> than parameter <b>uHigh</b>, the output
-     switches to <b>true</b>.</li>
-<li> When the output was <b>true</b> and the input becomes
-     <b>less</b> than parameter <b>uLow</b>, the output
-     switches to <b>false</b>.</li>
+<li> When the output was <strong>false</strong> and the input becomes
+     <strong>greater</strong> than parameter <strong>uHigh</strong>, the output
+     switches to <strong>true</strong>.</li>
+<li> When the output was <strong>true</strong> and the input becomes
+     <strong>less</strong> than parameter <strong>uLow</strong>, the output
+     switches to <strong>false</strong>.</li>
 </ul>
 <p>
 The start value of the output is defined via parameter
-<b>pre_y_start</b> (= value of pre(y) at initial time).
-The default value of this parameter is <b>false</b>.
+<strong>pre_y_start</strong> (= value of pre(y) at initial time).
+The default value of this parameter is <strong>false</strong>.
 </p>
 </html>"));
   end Hysteresis;
@@ -661,10 +661,10 @@ The default value of this parameter is <b>false</b>.
           Line(points={{-78.0,-16.0},{-6.0,4.0},{82.0,-26.0}}),
           Line(points={{-82.0,-18.0},{-56.0,-18.0},{-56.0,-40.0},{64.0,-40.0},{64.0,-20.0},{90.0,-20.0}},
             color={255,0,255})}), Documentation(info="<html>
-<p>The block OnOffController sets the output signal <b>y</b> to <b>true</b> when
-the input signal <b>u</b> falls below the <b>reference</b> signal minus half of
-the bandwidth and sets the output signal <b>y</b> to <b>false</b> when the input
-signal <b>u</b> exceeds the <b>reference</b> signal plus half of the bandwidth.</p>
+<p>The block OnOffController sets the output signal <strong>y</strong> to <strong>true</strong> when
+the input signal <strong>u</strong> falls below the <strong>reference</strong> signal minus half of
+the bandwidth and sets the output signal <strong>y</strong> to <strong>false</strong> when the input
+signal <strong>u</strong> exceeds the <strong>reference</strong> signal plus half of the bandwidth.</p>
 </html>"));
   end OnOffController;
 
@@ -786,17 +786,17 @@ signal <b>u</b> exceeds the <b>reference</b> signal plus half of the bandwidth.<
               textString="u")}),
       Documentation(info="<html>
 <p>The block TriggeredTrapezoid has a Boolean input and a real
-output signal and requires the parameters <i>amplitude</i>,
-<i>rising</i>, <i>falling</i> and <i>offset</i>. The
-output signal <b>y</b> represents a trapezoidal signal dependent on the
-input signal <b>u</b>.
+output signal and requires the parameters <em>amplitude</em>,
+<em>rising</em>, <em>falling</em> and <em>offset</em>. The
+output signal <strong>y</strong> represents a trapezoidal signal dependent on the
+input signal <strong>u</strong>.
 </p>
 <p>The behaviour is as follows: Assume the initial input to be false. In this
-case, the output will be <i>offset</i>. After a rising edge (i.e., the input
-changes from false to true), the output is rising during <i>rising</i> to the
-sum of <i>offset</i> and <i>amplitude</i>. In contrast, after a falling
+case, the output will be <em>offset</em>. After a rising edge (i.e., the input
+changes from false to true), the output is rising during <em>rising</em> to the
+sum of <em>offset</em> and <em>amplitude</em>. In contrast, after a falling
 edge (i.e., the input changes from true to false), the output is falling
-during <i>falling</i> to a value of <i>offset</i>.
+during <em>falling</em> to a value of <em>offset</em>.
 </p>
 <p>Note, that the case of edges before expiration of rising or falling is
 handled properly.</p>
@@ -861,7 +861,7 @@ handled properly.</p>
               extent={{-88,-36},{-54,-46}},
               textString="u")}),
       Documentation(info="<html>
-<p> When the Boolean input \"u\" becomes <b>true</b>, the timer is started
+<p> When the Boolean input \"u\" becomes <strong>true</strong>, the timer is started
 and the output \"y\" is the time from the time instant where u became true.
 The timer is stopped and the output is reset to zero, once the
 input becomes false.
@@ -984,11 +984,11 @@ The output <code>Q</code> is set by the input <code>S</code> and reset by the in
           extent={{-200.0,22.0},{200.0,46.0}},
           textString="%name")}), Documentation(info="<html>
 <p>
-In the parameter menu, a <b>time varying</b> expression can be defined
-via variable <b>condition</b>, for example \"condition = x &lt; 0\",
+In the parameter menu, a <strong>time varying</strong> expression can be defined
+via variable <strong>condition</strong>, for example \"condition = x &lt; 0\",
 where \"x\" is a variable that is declared in the model in which the
 \"TerminateSimulation\" block is present.
-If this expression becomes <b>true</b>,
+If this expression becomes <strong>true</strong>,
 the simulation is (successfully) terminated. A termination message
 explaining the reason for the termination can be given via
 parameter \"terminationText\".
@@ -1011,7 +1011,7 @@ network built with package Logical is shown in the next figure:
 <p>
 The actual value of Boolean input and/or output signals is displayed
 in the respective block icon as \"circle\", where \"white\" color means
-value <b>false</b> and \"green\" color means value <b>true</b>. These
+value <strong>false</strong> and \"green\" color means value <strong>true</strong>. These
 values are visualized in a diagram animation.
 </p>
 </html>"), Icon(graphics={Line(

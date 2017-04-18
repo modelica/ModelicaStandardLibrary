@@ -10,7 +10,7 @@ package Strings "Operations on strings"
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-Strings.<b>length</b>(string);
+Strings.<strong>length</strong>(string);
 </pre></blockquote>
 <h4>Description</h4>
 <p>
@@ -33,7 +33,7 @@ Returns the number of characters of \"string\".
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-string2 = Strings.<b>substring</b>(string, startIndex, endIndex);
+string2 = Strings.<strong>substring</strong>(string, startIndex, endIndex);
 </pre></blockquote>
 <h4>Description</h4>
 <p>
@@ -67,8 +67,8 @@ if endIndex &gt; length(string), an assert is triggered.
   Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-string2 = Strings.<b>repeat</b>(n);
-string2 = Strings.<b>repeat</b>(n, string=\" \");
+string2 = Strings.<strong>repeat</strong>(n);
+string2 = Strings.<strong>repeat</strong>(n, string=\" \");
 </pre></blockquote>
 <h4>Description</h4>
 <p>
@@ -91,8 +91,8 @@ defined by the optional argument \"string\".
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-result = Strings.<b>compare</b>(string1, string2);
-result = Strings.<b>compare</b>(string1, string2, caseSensitive=true);
+result = Strings.<strong>compare</strong>(string1, string2);
+result = Strings.<strong>compare</strong>(string1, string2, caseSensitive=true);
 </pre></blockquote>
 <h4>Description</h4>
 <p>
@@ -125,8 +125,8 @@ e.g., \"a\" &lt; \"b\";
   Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-Strings.<b>isEqual</b>(string1, string2);
-Strings.<b>isEqual</b>(string1, string2, caseSensitive=true);
+Strings.<strong>isEqual</strong>(string1, string2);
+Strings.<strong>isEqual</strong>(string1, string2, caseSensitive=true);
 </pre></blockquote>
 <h4>Description</h4>
 <p>
@@ -156,7 +156,7 @@ optionally ignoring case.
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-Strings.<b>isEmpty</b>(string);
+Strings.<strong>isEmpty</strong>(string);
 </pre></blockquote>
 <h4>Description</h4>
 <p>
@@ -198,8 +198,8 @@ only of white space characters. Otherwise, false is returned.
   Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-Strings.<b>count</b>(string, searchString)
-Strings.<b>count</b>(string, searchString, startIndex=1,
+Strings.<strong>count</strong>(string, searchString)
+Strings.<strong>count</strong>(string, searchString, startIndex=1,
                      caseSensitive=true)
 </pre></blockquote>
 <h4>Description</h4>
@@ -242,8 +242,8 @@ or lower case.
   Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-index = Strings.<b>find</b>(string, searchString);
-index = Strings.<b>find</b>(string, searchString, startIndex=1,
+index = Strings.<strong>find</strong>(string, searchString);
+index = Strings.<strong>find</strong>(string, searchString, startIndex=1,
                      caseSensitive=true);
 </pre></blockquote>
 <h4>Description</h4>
@@ -289,8 +289,8 @@ If \"searchString\" is not found, a value of \"0\" is returned.
   Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-index = Strings.<b>findLast</b>(string, searchString);
-index = Strings.<b>findLast</b>(string, searchString,
+index = Strings.<strong>findLast</strong>(string, searchString);
+index = Strings.<strong>findLast</strong>(string, searchString,
                          startIndex=length(string), caseSensitive=true,
 </pre></blockquote>
 <h4>Description</h4>
@@ -352,8 +352,8 @@ If \"searchString\" is not found, a value of \"0\" is returned.
   Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-Strings.<b>replace</b>(string, searchString, replaceString);
-Strings.<b>replace</b>(string, searchString, replaceString,
+Strings.<strong>replace</strong>(string, searchString, replaceString);
+Strings.<strong>replace</strong>(string, searchString, replaceString,
                 startIndex=1, replaceAll=true, caseSensitive=true);
 </pre></blockquote>
 <h4>Description</h4>
@@ -365,13 +365,13 @@ substring by \"replaceString\".
 <li> The search starts at the first character of \"string\",
      or at character position \"startIndex\",
      if this optional argument is provided.</li>
-<li> If the optional argument \"replaceAll\" is <b>true</b> (default),
+<li> If the optional argument \"replaceAll\" is <strong>true</strong> (default),
      all occurrences of \"searchString\" are replaced.
-     If the argument is <b>false</b>, only the first occurrence
+     If the argument is <strong>false</strong>, only the first occurrence
      is replaced. </li>
 <li> The search for \"searchString\" distinguishes upper and lower
      case letters. If the optional argument \"caseSensitive\" is
-     <b>false</b>,
+     <strong>false</strong>,
      the search ignores whether letters are upper
      or lower case. </li>
 </ul>
@@ -432,14 +432,14 @@ performed replacements.
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-stringVector2 = Streams.<b>sort</b>(stringVector1);
-stringVector2 = Streams.<b>sort</b>(stringVector1, caseSensitive=true);
+stringVector2 = Streams.<strong>sort</strong>(stringVector1);
+stringVector2 = Streams.<strong>sort</strong>(stringVector1, caseSensitive=true);
 </pre></blockquote>
 <h4>Description</h4>
 <p>
-Function <b>sort</b>(..) sorts a string vector stringVector1
+Function <strong>sort</strong>(..) sorts a string vector stringVector1
 in lexicographical order and returns the result in stringVector2.
-If the optional argument \"caseSensitive\" is <b>false</b>, lower
+If the optional argument \"caseSensitive\" is <strong>false</strong>, lower
 and upper case letters are not distinguished.
 </p>
 <h4>Example</h4>
@@ -460,7 +460,7 @@ and upper case letters are not distinguished.
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-hash = Strings.<b>hashString</b>(string);
+hash = Strings.<strong>hashString</strong>(string);
 </pre></blockquote>
 <h4>Description</h4>
 <p>
@@ -563,11 +563,11 @@ Returns an Integer hash value of the provided string
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-(token, nextIndex) = Strings.<b>scanToken</b>(string, startIndex, unsigned=false);
+(token, nextIndex) = Strings.<strong>scanToken</strong>(string, startIndex, unsigned=false);
 </pre></blockquote>
 <h4>Description</h4>
 <p>
-Function <b>scanToken</b> scans the string starting at index
+Function <strong>scanToken</strong> scans the string starting at index
 \"startIndex\" and returns the next token, as well as the
 index directly after the token. The returned token is a record
 that holds the type of the token and the value of the token:
@@ -620,17 +620,17 @@ is not allowed to start with a \"+\" or \"-\" sign.
   import Modelica.Utilities.Strings;
   import T = Modelica.Utilities.Types.TokenType;
   (token, index) := Strings.scanToken(string);
-  <b>if</b> token.tokenType == T.RealToken <b>then</b>
+  <strong>if</strong> token.tokenType == T.RealToken <strong>then</strong>
      realValue := token.real;
-  <b>elseif</b> token.tokenType == T.IntegerToken <b>then</b>
+  <strong>elseif</strong> token.tokenType == T.IntegerToken <strong>then</strong>
      integerValue := token.integer;
-  <b>elseif</b> token.tokenType == T.BooleanToken <b>then</b>
+  <strong>elseif</strong> token.tokenType == T.BooleanToken <strong>then</strong>
      booleanValue := token.boolean;
-  <b>elseif</b> token.tokenType == T.Identifier <b>then</b>
+  <strong>elseif</strong> token.tokenType == T.Identifier <strong>then</strong>
      name := token.string;
-  <b>else</b>
+  <strong>else</strong>
      Strings.syntaxError(string,index,\"Expected Real, Integer, Boolean or identifier token\");
-  <b>end if</b>;
+  <strong>end if</strong>;
 </pre></blockquote>
 </html>"));
   end scanToken;
@@ -660,8 +660,8 @@ is not allowed to start with a \"+\" or \"-\" sign.
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-             number = Strings.<b>scanReal</b>(string);
-(number, nextIndex) = Strings.<b>scanReal</b>(string, startIndex=1,
+             number = Strings.<strong>scanReal</strong>(string);
+(number, nextIndex) = Strings.<strong>scanReal</strong>(string, startIndex=1,
                                             unsigned=false, message=\"\");
 </pre></blockquote>
 <h4>Description</h4>
@@ -675,7 +675,7 @@ scans the string starting at index
 \"startIndex\", checks whether the next token is a Real literal
 and returns its value as a Real number, as well as the
 index directly after the Real number.
-If the optional argument \"unsigned\" is <b>true</b>,
+If the optional argument \"unsigned\" is <strong>true</strong>,
 the real number shall not have a leading \"+\" or \"-\" sign.
 </p>
 <p>
@@ -710,13 +710,13 @@ is not present in \"string\", an assert is triggered.
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-             number = Strings.<b>scanInteger</b>(string);
-(number, nextIndex) = Strings.<b>scanInteger</b>(string, startIndex=1,
+             number = Strings.<strong>scanInteger</strong>(string);
+(number, nextIndex) = Strings.<strong>scanInteger</strong>(string, startIndex=1,
                                                unsigned=false, message=\"\");
 </pre></blockquote>
 <h4>Description</h4>
 <p>
-Function <b>scanInteger</b> scans the string starting at index
+Function <strong>scanInteger</strong> scans the string starting at index
 \"startIndex\", checks whether the next token is an Integer literal
 and returns its value as an Integer number, as well as the
 index directly after the Integer number. An assert is triggered,
@@ -759,12 +759,12 @@ leading white space.
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-             number = Strings.<b>scanBoolean</b>(string);
-(number, nextIndex) = Strings.<b>scanBoolean</b>(string, startIndex=1, message=\"\");
+             number = Strings.<strong>scanBoolean</strong>(string);
+(number, nextIndex) = Strings.<strong>scanBoolean</strong>(string, startIndex=1, message=\"\");
 </pre></blockquote>
 <h4>Description</h4>
 <p>
-Function <b>scanBoolean</b> scans the string starting at index
+Function <strong>scanBoolean</strong> scans the string starting at index
 \"startIndex\", checks whether the next token is a Boolean literal
 (i.e., is either the string \"false\" or \"true\", if converted to lower case letters)
 and returns its value as a Boolean number, as well as the
@@ -794,12 +794,12 @@ leading white space.
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-             string2 = Strings.<b>scanString</b>(string);
-(string2, nextIndex) = Strings.<b>scanString</b>(string, startIndex=1, message=\"\");
+             string2 = Strings.<strong>scanString</strong>(string);
+(string2, nextIndex) = Strings.<strong>scanString</strong>(string, startIndex=1, message=\"\");
 </pre></blockquote>
 <h4>Description</h4>
 <p>
-Function <b>scanString</b> scans the string starting at index
+Function <strong>scanString</strong> scans the string starting at index
 \"startIndex\", checks whether the next token is a String literal
 and returns its value as a String, as well as the
 index directly after the String. An assert is triggered,
@@ -828,12 +828,12 @@ leading white space.
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-             identifier = Strings.<b>scanIdentifier</b>(string);
-(identifier, nextIndex) = Strings.<b>scanIdentifier</b>(string, startIndex=1, message=\"\");
+             identifier = Strings.<strong>scanIdentifier</strong>(string);
+(identifier, nextIndex) = Strings.<strong>scanIdentifier</strong>(string, startIndex=1, message=\"\");
 </pre></blockquote>
 <h4>Description</h4>
 <p>
-Function <b>scanIdentifier</b> scans the string starting at index
+Function <strong>scanIdentifier</strong> scans the string starting at index
 \"startIndex\", checks whether the next token is an Identifier
 and returns its value as a string, as well as the
 index directly after the Identifier. An assert is triggered,
@@ -912,13 +912,13 @@ leading white space.
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-             delimiter = Strings.<b>scanDelimiter</b>(string);
-(delimiter, nextIndex) = Strings.<b>scanDelimiter</b>(string, startIndex=1,
+             delimiter = Strings.<strong>scanDelimiter</strong>(string);
+(delimiter, nextIndex) = Strings.<strong>scanDelimiter</strong>(string, startIndex=1,
                                  requiredDelimiters={\",\"}, message=\"\");
 </pre></blockquote>
 <h4>Description</h4>
 <p>
-Function <b>scanDelimiter</b> scans the string starting at index
+Function <strong>scanDelimiter</strong> scans the string starting at index
 \"startIndex\", checks whether the next token is a delimiter string
 and returns its value as a string, as well as the
 index directly after the delimiter. An assert is triggered,
@@ -949,11 +949,11 @@ is the index of the first non white space character.
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-Strings.<b>scanNoToken</b>(string, startIndex=1, message=\"\");
+Strings.<strong>scanNoToken</strong>(string, startIndex=1, message=\"\");
 </pre></blockquote>
 <h4>Description</h4>
 <p>
-Function <b>scanNoToken</b> scans the string starting at index
+Function <strong>scanNoToken</strong> scans the string starting at index
 \"startIndex\" and checks whether there is no more token in the
 string. An assert is triggered if this is not the case,
 using the \"message\" argument as additional explanation in
@@ -996,11 +996,11 @@ the error text.
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-Strings.<b>syntaxError</b>(string, index, message);
+Strings.<strong>syntaxError</strong>(string, index, message);
 </pre></blockquote>
 <h4>Description</h4>
 <p>
-Function <b>syntaxError</b> prints an error message in the
+Function <strong>syntaxError</strong> prints an error message in the
 following form:
 </p>
 <pre>
@@ -1036,7 +1036,7 @@ part of the string is printed.
       annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-(nextIndex, realNumber) = <b>scanReal</b>(string, startIndex=1, unsigned=false);
+(nextIndex, realNumber) = <strong>scanReal</strong>(string, startIndex=1, unsigned=false);
 </pre></blockquote>
 <h4>Description</h4>
 <p>
@@ -1062,8 +1062,8 @@ If not successful, on return nextIndex = startIndex and
 the second output argument is zero.
 </p>
 <p>
-If the optional argument \"unsigned\" is <b>true</b>, the number
-shall not start with '+' or '-'. The default of \"unsigned\" is <b>false</b>.
+If the optional argument \"unsigned\" is <strong>true</strong>, the number
+shall not start with '+' or '-'. The default of \"unsigned\" is <strong>false</strong>.
 </p>
 <h4>See also</h4>
 <a href=\"modelica://Modelica.Utilities.Strings.Advanced\">Strings.Advanced</a>.
@@ -1083,7 +1083,7 @@ shall not start with '+' or '-'. The default of \"unsigned\" is <b>false</b>.
       annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-(nextIndex, integerNumber) = <b>scanInteger</b>(string, startIndex=1, unsigned=false);
+(nextIndex, integerNumber) = <strong>scanInteger</strong>(string, startIndex=1, unsigned=false);
 </pre></blockquote>
 <h4>Description</h4>
 <p>
@@ -1108,8 +1108,8 @@ as an Integer number and scanInteger will return
 nextIndex = startIndex in this case.
 </p>
 <p>
-If the optional argument \"unsigned\" is <b>true</b>, the number
-shall not start with '+' or '-'. The default of \"unsigned\" is <b>false</b>.
+If the optional argument \"unsigned\" is <strong>true</strong>, the number
+shall not start with '+' or '-'. The default of \"unsigned\" is <strong>false</strong>.
 </p>
 <h4>See also</h4>
 <a href=\"modelica://Modelica.Utilities.Strings.Advanced\">Strings.Advanced</a>.
@@ -1127,7 +1127,7 @@ shall not start with '+' or '-'. The default of \"unsigned\" is <b>false</b>.
       annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-(nextIndex, string2) = <b>scanString</b>(string, startIndex=1);
+(nextIndex, string2) = <strong>scanString</strong>(string, startIndex=1);
 </pre></blockquote>
 <h4>Description</h4>
 <p>
@@ -1162,7 +1162,7 @@ the second output argument is an empty string.
       annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-(nextIndex, identifier) = <b>scanIdentifier</b>(string, startIndex=1);
+(nextIndex, identifier) = <strong>scanIdentifier</strong>(string, startIndex=1);
 </pre></blockquote>
 <h4>Description</h4>
 <p>
@@ -1195,7 +1195,7 @@ the second output argument is an empty string.
       annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-nextIndex = <b>skipWhiteSpace</b>(string, startIndex);
+nextIndex = <strong>skipWhiteSpace</strong>(string, startIndex);
 </pre></blockquote>
 <h4>Description</h4>
 <p>
@@ -1251,7 +1251,7 @@ of the first non white space character.
       annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-nextIndex = <b>skipLineComments</b>(string, startIndex);
+nextIndex = <strong>skipLineComments</strong>(string, startIndex);
 </pre></blockquote>
 <h4>Description</h4>
 <p>
@@ -1278,8 +1278,8 @@ If not successful, on return nextIndex = startIndex.
     annotation (Documentation(info="<html>
 <h4>Library content</h4>
 <p>
-Package <b>Strings.Advanced</b> contains basic scanning
-functions. These functions should be <b>not called</b> directly, because
+Package <strong>Strings.Advanced</strong> contains basic scanning
+functions. These functions should be <strong>not called</strong> directly, because
 it is much simpler to utilize the higher level functions \"Strings.scanXXX\".
 The functions of the \"Strings.Advanced\" library provide
 the basic interface in order to implement the higher level
@@ -1343,14 +1343,14 @@ The following additional rules apply for the scanning:
     Documentation(info="<html>
 <h4>Library content</h4>
 <p>
-Package <b>Strings</b> contains functions to manipulate strings.
+Package <strong>Strings</strong> contains functions to manipulate strings.
 </p>
 <p>
 In the table below an example
-call to every function is given using the <b>default</b> options.
+call to every function is given using the <strong>default</strong> options.
 </p>
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><th><b><i>Function</i></b></th><th><b><i>Description</i></b></th></tr>
+  <tr><th><strong><em>Function</em></strong></th><th><strong><em>Description</em></strong></th></tr>
   <tr><td valign=\"top\">len = <a href=\"modelica://Modelica.Utilities.Strings.length\">length</a>(string)</td>
       <td valign=\"top\">Returns length of string</td></tr>
   <tr><td valign=\"top\">string2 = <a href=\"modelica://Modelica.Utilities.Strings.substring\">substring</a>(string1,startIndex,endIndex)
@@ -1402,8 +1402,8 @@ call to every function is given using the <b>default</b> options.
 <p>
 The functions \"compare\", \"isEqual\", \"count\", \"find\", \"findLast\", \"replace\", \"sort\"
 have the optional
-input argument <b>caseSensitive</b> with default <b>true</b>.
-If <b>false</b>, the operation is carried out without taking
+input argument <strong>caseSensitive</strong> with default <strong>true</strong>.
+If <strong>false</strong>, the operation is carried out without taking
 into account whether a character is upper or lower case.
 </p>
 </html>"));

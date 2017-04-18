@@ -111,14 +111,14 @@ package Lines
 <br><p>The user has the possibility to enable a conditional heatport. If so, the OLine can be connected to a thermal network. When the parameter alpha is set to an value greater than zero, the OLine becomes temperature sensitive</p><p>due to their resistors which resistances are calculated by <code>R = R_ref*(1 + alpha*(heatPort.T - T_ref))</code> and conductors calculated by <code> (G_actual = G_ref/(1 + alpha*(T_heatPort - T_ref)).</code> </p>
 <p>Note, this is different to the lumped line model of SPICE.</p>
 
-<dl><dt><b>References:</b> </dt>
+<dl><dt><strong>References:</strong> </dt>
 <dd>Johnson, B.; Quarles, T.; Newton, A. R.; Pederson, D. O.; Sangiovanni-Vincentelli, A.: SPICE3 Version 3e User&#39;s Manual (April 1, 1991). Department of Electrical Engineering and Computer Sciences, University of California, Berkley p. 12, p. 106 - 107 </dd>
 </dl></html>", revisions="<html>
 <ul>
-<li><i> 2016   </i>
+<li><em> 2016   </em>
        by Christoph Clauss<br> resistance and inductance calculation revised<br>
        </li>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -451,15 +451,15 @@ package Lines
      alt=\"segment_last.png\">
 </blockquote>
 
-<p>The number of the capacitors and conductors depends on the number of single lines that are used, because each line is connected to every other line by both a capacitor and a conductor. One line consists of <b>at least two segments</b>. Inside the model M_OLine the model <i>segment</i> is used. This model represents one segment which is build as described above. For modelling the inductances and their mutual couplings the model M_Transformer is used. To fill the resistance vector, resistance values as many as lines are needed, e.g., if there are four lines, four resistances are needed. For example for a microelectronic line of 0.1m length, a sensible resistance-vector would be R=[4.76e5, 1.72e5, 1.72e5, 1.72e5].</p>
-<p>Filling the matrices of the inductances, capacitances and conductances is a bit more complicated, because those components occur also between two lines and not only (like the resistor) in one line. The entries of the matrices are given by the user in form of a vector. The vector length dim_vector_lgc is calculated by <b>dim_vector_lgc = lines*(lines+1)/2</b>. Inside the model a symmetric inductance matrix, a symmetric capacitance matrix and a symmetric conductance matrix are built out of the entries of the vectors given by the user. The way of building is the same for each matrix, so the approach for filling one of the matrices will be shown at an example:</p>
+<p>The number of the capacitors and conductors depends on the number of single lines that are used, because each line is connected to every other line by both a capacitor and a conductor. One line consists of <strong>at least two segments</strong>. Inside the model M_OLine the model <em>segment</em> is used. This model represents one segment which is build as described above. For modelling the inductances and their mutual couplings the model M_Transformer is used. To fill the resistance vector, resistance values as many as lines are needed, e.g., if there are four lines, four resistances are needed. For example for a microelectronic line of 0.1m length, a sensible resistance-vector would be R=[4.76e5, 1.72e5, 1.72e5, 1.72e5].</p>
+<p>Filling the matrices of the inductances, capacitances and conductances is a bit more complicated, because those components occur also between two lines and not only (like the resistor) in one line. The entries of the matrices are given by the user in form of a vector. The vector length dim_vector_lgc is calculated by <strong>dim_vector_lgc = lines*(lines+1)/2</strong>. Inside the model a symmetric inductance matrix, a symmetric capacitance matrix and a symmetric conductance matrix are built out of the entries of the vectors given by the user. The way of building is the same for each matrix, so the approach for filling one of the matrices will be shown at an example:</p>
 <p>The number of lines is assumed to be four. To build the matrix, the model needs the values from the main diagonal and from the positions that are below the main diagonal. To get the following matrix</p>
 
 <blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/Lines/M_OLine-eqMatrix.png\" alt=\"Matrix\"/>
 </blockquote>
 
-<p>the vector with dim_vector_lgc=4*5/2=10 has to appear in the following way: vector = [<b>1</b>, 0.1, 0.2, 0.4, <b>2</b>, 0.3 0.5, <b>3</b>, 0.6, <b>4</b>] </p>
+<p>the vector with dim_vector_lgc=4*5/2=10 has to appear in the following way: vector = [<strong>1</strong>, 0.1, 0.2, 0.4, <strong>2</strong>, 0.3 0.5, <strong>3</strong>, 0.6, <strong>4</strong>] </p>
 
 <p>For the example of a microelectronic line of 0.1m length, which is used as default example for the M_OLine model, a sensible inductance-matrix would be </p>
 
@@ -598,14 +598,14 @@ The capacitances are calculated with: C=c*length/N.
 <br>For all capacitors and resistors the values of each segment are the same except for the first and last resistor, that only has the half of the above calculated value.<p>The user has the possibility to enable a conditional heatport. If so, the ULine can be connected to a thermal network. When the parameter alpha is set to an value greater than zero, the ULine becomes temperature sensitive</p>
 <p>due to their resistors which resistances are calculated by <code>R = R_ref*(1 + alpha*(heatPort.T - T_ref)).</code> </p>
 <p>Note, this is different compared with the lumped line model of SPICE.</p>
-<p><b>References</b></p>
+<p><strong>References</strong></p>
 <dl><dt>Johnson, B.; Quarles, T.; Newton, A. R.; Pederson, D. O.; Sangiovanni-Vincentelli, A.</dt>
 <dd>SPICE3 Version 3e User&#39;s Manual (April 1, 1991). Department of Electrical Engineering and Computer Sciences, University of California, Berkley p. 22, p. 124 </dd>
 </dl></html>", revisions="<html>
 <dl>
-<dt><i>2016</i></dt>
+<dt><em>2016</em></dt>
 <dd>by Christoph Clauss resistance calculation revised</dd>
-<dt><i>1998</i></dt>
+<dt><em>1998</em></dt>
 <dd>by Christoph Clauss initially implemented</dd>
 </dl>
 </html>"),
@@ -657,14 +657,14 @@ The capacitances are calculated with: C=c*length/N.
     annotation (
       Documentation(info="<html>
 <p>Lossless transmission line with characteristic impedance Z0 and transmission delay TD The lossless transmission line TLine1 is a two Port. Both port branches consist of a resistor with characteristic impedance Z0 and a controlled voltage source that takes into consideration the transmission delay TD. For further details see Branin&#39;s article below. The model parameters can be derived from inductance and capacitance per length (L&#39; resp. C&#39;), i. e. Z0 = sqrt(L&#39;/C&#39;) and TD = sqrt(L&#39;*C&#39;)*length_of_line. Resistance R&#39; and conductance C&#39; per meter are assumed to be zero.</p>
-<p><b>References:</b></p>
+<p><strong>References:</strong></p>
 <dl><dt>Branin Jr., F. H.</dt>
 <dd>Transient Analysis of Lossless Transmission Lines. Proceedings of the IEEE 55(1967), 2012 - 2013</dd>
 <dt>Hoefer, E. E. E.; Nielinger, H.</dt>
 <dd>SPICE : Analyseprogramm fuer elektronische Schaltungen. Springer-Verlag, Berlin, Heidelberg, New York, Tokyo, 1985. </dd>
 </dl></html>", revisions="<html>
 <ul>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Joachim Haase<br> initially implemented<br>
        </li>
 </ul>
@@ -731,14 +731,14 @@ The capacitances are calculated with: C=c*length/N.
     annotation (
       Documentation(info="<html>
 <p>Lossless transmission line with characteristic impedance Z0, frequency F and normalized length NL The lossless transmission line TLine2 is a two Port. Both port branches consist of a resistor with the value of the characteristic impedance Z0 and a controlled voltage source that takes into consideration the transmission delay. For further details see Branin&#39;s article below. Resistance R&#39; and conductance C&#39; per meter are assumed to be zero. The characteristic impedance Z0 can be derived from inductance and capacitance per length (L&#39; resp. C&#39;), i. e. Z0 = sqrt(L&#39;/C&#39;). The normalized length NL is equal to the length of the line divided by the wavelength corresponding to the frequency F, i. e. the transmission delay TD is the quotient of NL and F.</p>
-<p><b>References:</b></p>
+<p><strong>References:</strong></p>
 <dl><dt>Branin Jr., F. H.</dt>
 <dd>Transient Analysis of Lossless Transmission Lines. Proceedings of the IEEE 55(1967), 2012 - 2013</dd>
 <dt>Hoefer, E. E. E.; Nielinger, H.</dt>
 <dd>SPICE : Analyseprogramm fuer elektronische Schaltungen. Springer-Verlag, Berlin, Heidelberg, New York, Tokyo, 1985. </dd>
 </dl></html>", revisions="<html>
 <dl>
-<dt><i>1998</i></dt>
+<dt><em>1998</em></dt>
 <dd>by Joachim Haase initially implemented</dd>
 </dl>
 </html>"),
@@ -797,14 +797,14 @@ The capacitances are calculated with: C=c*length/N.
     annotation (
       Documentation(info="<html>
 <p>Lossless transmission line with characteristic impedance Z0 and frequency F The lossless transmission line TLine3 is a two Port. Both port branches consist of a resistor with value of the characteristic impedance Z0 and a controlled voltage source that takes into consideration the transmission delay. For further details see Branin&#39;s article below. Resistance R&#39; and conductance C&#39; per meter are assumed to be zero. The characteristic impedance Z0 can be derived from inductance and capacitance per length (L&#39; resp. C&#39;), i. e. Z0 = sqrt(L&#39;/C&#39;). The length of the line is equal to a quarter of the wavelength corresponding to the frequency F, i. e. the transmission delay is the quotient of 4 and F. In this case, the characteristic impedance is called natural impedance.</p>
-<p><b>References:</b></p>
+<p><strong>References:</strong></p>
 <dl><dt>Branin Jr., F. H.</dt>
 <dd>Transient Analysis of Lossless Transmission Lines. Proceedings of the IEEE 55(1967), 2012 - 2013</dd>
 <dt>Hoefer, E. E. E.; Nielinger, H.</dt>
 <dd>SPICE : Analyseprogramm fuer elektronische Schaltungen. Springer-Verlag, Berlin, Heidelberg, New York, Tokyo, 1985. </dd>
 </dl></html>", revisions="<html>
 <ul>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Joachim Haase<br> initially implemented<br>
        </li>
 </ul>
@@ -850,7 +850,7 @@ The capacitances are calculated with: C=c*length/N.
 </html>", revisions="<html>
 <dl>
 <dt>
-<b>Main Authors:</b>
+<strong>Main Authors:</strong>
 </dt>
 <dd>
 Christoph Clau&szlig;
@@ -865,14 +865,14 @@ Christoph Clau&szlig;
     D-01069 Dresden
 </dd>
 <dt>
-<b>Copyright:</b>
+<strong>Copyright:</strong>
 </dt>
 <dd>
 Copyright &copy; 1998-2016, Modelica Association and Fraunhofer-Gesellschaft.<br>
-<i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
-under the terms of the <b>Modelica license</b>, see the license conditions
-and the accompanying <b>disclaimer</b> in the documentation of package
-Modelica in file \"Modelica/package.mo\".</i>
+<em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
+under the terms of the <strong>Modelica license</strong>, see the license conditions
+and the accompanying <strong>disclaimer</strong> in the documentation of package
+Modelica in file \"Modelica/package.mo\".</em>
 </dd>
 </dl>
 </html>"), Icon(graphics={

@@ -85,7 +85,7 @@ This is a third version of the \"four-bar\" mechanism, see figure:
 In this case
 the three revolute joints on the left top-side and the two revolute
 joints on the right top side have been replaced by the assembly joint
-<b>Joints.Assemblies.JointSSP</b>
+<strong>Joints.Assemblies.JointSSP</strong>
 which consists of two spherical joints and one prismatic joint.
 Since JointSSP solves the non-linear constraint equation internally
 analytically, no non-linear equation appears any more and a Modelica

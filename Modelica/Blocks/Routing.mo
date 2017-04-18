@@ -413,7 +413,7 @@ end Extractor;
     annotation (
       Documentation(info="<html>
 <p>
-The output connector is the <b>concatenation</b> of the two input connectors.
+The output connector is the <strong>concatenation</strong> of the two input connectors.
 Note, that the dimensions of the input connector signals have to be
 explicitly defined via parameters n1 and n2.
 </p>
@@ -464,7 +464,7 @@ explicitly defined via parameters n1 and n2.
     annotation (
       Documentation(info="<html>
 <p>
-The output connector is the <b>concatenation</b> of the three input connectors.
+The output connector is the <strong>concatenation</strong> of the three input connectors.
 Note, that the dimensions of the input connector signals have to be
 explicitly defined via parameters n1, n2 and n3.
 </html>"), Icon(coordinateSystem(
@@ -520,7 +520,7 @@ explicitly defined via parameters n1, n2 and n3.
     annotation (
       Documentation(info="<html>
 <p>
-The output connector is the <b>concatenation</b> of the four input connectors.
+The output connector is the <strong>concatenation</strong> of the four input connectors.
 Note, that the dimensions of the input connector signals have to be
 explicitly defined via parameters n1, n2, n3 and n4.
 </p>
@@ -583,7 +583,7 @@ explicitly defined via parameters n1, n2, n3 and n4.
     annotation (
       Documentation(info="<html>
 <p>
-The output connector is the <b>concatenation</b> of the five input connectors.
+The output connector is the <strong>concatenation</strong> of the five input connectors.
 Note, that the dimensions of the input connector signals have to be
 explicitly defined via parameters n1, n2, n3, n4 and n5.
 </p>
@@ -653,7 +653,7 @@ explicitly defined via parameters n1, n2, n3, n4 and n5.
     annotation (
       Documentation(info="<html>
 <p>
-The output connector is the <b>concatenation</b> of the six input connectors.
+The output connector is the <strong>concatenation</strong> of the six input connectors.
 Note, that the dimensions of the input connector signals have to be
 explicitly defined via parameters n1, n2, n3, n4, n5 and n6.
 </p>
@@ -708,7 +708,7 @@ explicitly defined via parameters n1, n2, n3, n4, n5 and n6.
     annotation (
       Documentation(info="<html>
 <p>
-The input connector is <b>split</b> up into two output connectors.
+The input connector is <strong>split</strong> up into two output connectors.
 Note, that the dimensions of the output connector signals have to be
 explicitly defined via parameters n1 and n2.
 </p>
@@ -760,7 +760,7 @@ explicitly defined via parameters n1 and n2.
     annotation (
       Documentation(info="<html>
 <p>
-The input connector is <b>split</b> into three output connectors.
+The input connector is <strong>split</strong> into three output connectors.
 Note, that the dimensions of the output connector signals have to be
 explicitly defined via parameters n1, n2 and n3.
 </p>
@@ -818,7 +818,7 @@ explicitly defined via parameters n1, n2 and n3.
     annotation (
       Documentation(info="<html>
 <p>
-The input connector is <b>split</b> into four output connectors.
+The input connector is <strong>split</strong> into four output connectors.
 Note, that the dimensions of the output connector signals have to be
 explicitly defined via parameters n1, n2, n3 and n4.
 </html>"), Icon(coordinateSystem(
@@ -881,7 +881,7 @@ explicitly defined via parameters n1, n2, n3 and n4.
     annotation (
       Documentation(info="<html>
 <p>
-The input connector is <b>split</b> into five output connectors.
+The input connector is <strong>split</strong> into five output connectors.
 Note, that the dimensions of the output connector signals have to be
 explicitly defined via parameters n1, n2, n3, n4 and n5.
 </html>"), Icon(coordinateSystem(
@@ -949,7 +949,7 @@ explicitly defined via parameters n1, n2, n3, n4 and n5.
     annotation (
       Documentation(info="<html>
 <p>
-The input connector is <b>split</b> into six output connectors.
+The input connector is <strong>split</strong> into six output connectors.
 Note, that the dimensions of the output connector signals have to be
 explicitly defined via parameters n1, n2, n3, n4, n5 and n6.
 </html>"), Icon(coordinateSystem(

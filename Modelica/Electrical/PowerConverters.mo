@@ -153,21 +153,21 @@ email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
       <td valign=\"top\">[Skvarenina01]</td>
       <td valign=\"top\">Timothy L. Skvarenina,
         <a href=\"http://www.crcpress.com/product/isbn/9780849373367\">
-        <i>The Power Electronics Handbook</i></a>,
+        <em>The Power Electronics Handbook</em></a>,
         CRC Press 2001, ISBN 9780849373367</td>
     </tr>
 
     <tr>
       <td valign=\"top\">[Luo05]</td>
       <td valign=\"top\">Fang Lin Luo, Hong Ye and Muhammad H. Rashid,
-        <a href=\"http://store.elsevier.com/product.jsp?isbn=9780120887576&amp;_requestid=1725\"><i>Digital Power Electronics and Applications</i></a>,
+        <a href=\"http://store.elsevier.com/product.jsp?isbn=9780120887576&amp;_requestid=1725\"><em>Digital Power Electronics and Applications</em></a>,
         Elsevier Academic Press, 2005, ISBN 978-0120887576</td>
     </tr>
 
     <tr>
       <td valign=\"top\">[Williams2006]</td>
       <td valign=\"top\"><a href=\"http://www.freescience.info/go.php?pagename=books&amp;id=1732\">
-<i>Principles and Elements of Power Electronics: Devices, Drivers, Applications, and Passive Components</i></a>, available at <a href=\"http://www.freescience.info/go.php?pagename=books&amp;id=1732\">FreeScience</a>, ISBN 978-0-9553384-0-3</td>
+<em>Principles and Elements of Power Electronics: Devices, Drivers, Applications, and Passive Components</em></a>, available at <a href=\"http://www.freescience.info/go.php?pagename=books&amp;id=1732\">FreeScience</a>, ISBN 978-0-9553384-0-3</td>
     </tr>
 </table>
 </html>"));
@@ -3721,10 +3721,10 @@ The DC output voltage is equal to <code>2 * (dutyCycle - 0.5)</code> times the i
 
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr>
-    <th><b>start time (s)</b></th>
-    <th><b>machine speed</b></th>
-    <th><b>machine torque</b></th>
-    <th><b>mode</b></th>
+    <th><strong>start time (s)</strong></th>
+    <th><strong>machine speed</strong></th>
+    <th><strong>machine torque</strong></th>
+    <th><strong>mode</strong></th>
   </tr>
   <tr>
     <td>0</td> <td>zero</td> <td>zero</td> <td></td>
@@ -6471,7 +6471,7 @@ to the switching period. The output firing signal is strictly determined by the 
 </p>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
-  <caption align=\"bottom\"><b>Fig. 1:</b> Firing (<code>fire</code>) and inverse firing (<code>notFire</code>) signal of PWM control; <code>d</code> = duty cycle; <code>f</code> = switching frequency </caption>
+  <caption align=\"bottom\"><strong>Fig. 1:</strong> Firing (<code>fire</code>) and inverse firing (<code>notFire</code>) signal of PWM control; <code>d</code> = duty cycle; <code>f</code> = switching frequency </caption>
   <tr>
     <td>
       <img src=\"modelica://Modelica/Resources/Images/Electrical/PowerConverters/dutyCycle.png\">
@@ -6790,7 +6790,7 @@ This is a conventional step down chopper model. It consists of a transistor and 
 The H bridge is a four quadrant DC/DC converter. It consists of two single phase DC/AC converters which are controlled differently; see Fig.&nbsp;1.</p>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
-  <caption align=\"bottom\"><b>Fig. 1:</b> H bridge</caption>
+  <caption align=\"bottom\"><strong>Fig. 1:</strong> H bridge</caption>
   <tr>
     <td>
       <img src=\"modelica://Modelica/Resources/Images/Electrical/PowerConverters/Hbridge.png\">
@@ -7240,7 +7240,7 @@ Copyright &copy; 2013-2016, <a href=\"modelica://Modelica.Electrical.PowerConver
 <a href=\"modelica://Modelica.Electrical.PowerConverters.UsersGuide.Contact\">Anton Haumer</a>
 </p>
 <p>
-<i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
+<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</em>
 </p>
 </html>"),
     Icon(graphics={

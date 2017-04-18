@@ -163,14 +163,14 @@ The above \"normal\" process can be influenced by three
 buttons:
 </p>
 <ul>
-<li> Button <b>start</b> starts the above process.
+<li> Button <strong>start</strong> starts the above process.
      When this button is pressed after a \"stop\" or
      \"shut\" operation, the process operation continues.
      </li>
-<li> Button <b>stop</b> stops the above process by
+<li> Button <strong>stop</strong> stops the above process by
      closing all valves. Then, the controller waits for
      further input (either \"start\" or \"shut\" operation).</li>
-<li> Button <b>shut</b> is used to shutdown the process,
+<li> Button <strong>shut</strong> is used to shutdown the process,
      by emptying at once both tanks by opening valve 2 and
      valve 3. When this is achieved,
      the process goes back to its start configuration
@@ -183,11 +183,11 @@ The demo-run uses the following button presses:
 </p>
 
 <ul>
-<li> Button <b>start</b> pressed at 20 s.</li>
-<li> Button <b>stop</b> pressed at 220 s </li>
-<li> Button <b>start</b> pressed at 280 s </li>
-<li> Button <b>stop</b> pressed at 650 s </li>
-<li> Button <b>shut</b> pressed at 700 s </li>
+<li> Button <strong>start</strong> pressed at 20 s.</li>
+<li> Button <strong>stop</strong> pressed at 220 s </li>
+<li> Button <strong>start</strong> pressed at 280 s </li>
+<li> Button <strong>stop</strong> pressed at 650 s </li>
+<li> Button <strong>shut</strong> pressed at 700 s </li>
 <li> Simulate for 900 s</li>
 </ul>
 
@@ -197,7 +197,7 @@ This example is based on
 
 <dl>
 <dt>Dressler I. (2004):</dt>
-<dd> <b>Code Generation From JGrafchart to Modelica</b>.
+<dd> <strong>Code Generation From JGrafchart to Modelica</strong>.
      Master thesis, supervisor: Karl-Erik &Aring;rz&eacute;n,
      Department of Automatic Control, Lund Institute of Technology,
      Lund, Sweden, March 30, 2004<br>&nbsp;</dd>

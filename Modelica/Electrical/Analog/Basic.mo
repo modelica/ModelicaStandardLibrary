@@ -16,7 +16,7 @@ package Basic "Basic electrical components"
 <p>Ground of an electrical circuit. The potential at the ground node is zero. Every electrical circuit has to contain at least one ground object.</p>
 </html>", revisions="<html>
 <ul>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -70,16 +70,16 @@ package Basic "Basic electrical components"
     LossPower = v*i;
     annotation (
       Documentation(info="<html>
-<p>The linear resistor connects the branch voltage <i>v</i> with the branch current <i>i</i> by <i>i*R = v</i>. The Resistance <i>R</i> is allowed to be positive, zero, or negative.</p>
+<p>The linear resistor connects the branch voltage <em>v</em> with the branch current <em>i</em> by <em>i*R = v</em>. The Resistance <em>R</em> is allowed to be positive, zero, or negative.</p>
 </html>", revisions="<html>
 <ul>
-<li><i> August 07, 2009   </i>
+<li><em> August 07, 2009   </em>
        by Anton Haumer<br> temperature dependency of resistance added<br>
        </li>
-<li><i> March 11, 2009   </i>
+<li><em> March 11, 2009   </em>
        by Christoph Clauss<br> conditional heat port added<br>
        </li>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -175,19 +175,19 @@ package Basic "Basic electrical components"
             textString="%name",
             lineColor={0,0,255})}),
       Documentation(info="<html>
-<p>This is a model for an electrical resistor where the generated heat is dissipated to the environment via connector <b>heatPort</b> and where the resistance R is temperature dependent according to the following equation:</p>
+<p>This is a model for an electrical resistor where the generated heat is dissipated to the environment via connector <strong>heatPort</strong> and where the resistance R is temperature dependent according to the following equation:</p>
 <pre>    R = R_ref*(1 + alpha*(heatPort.T - T_ref))</pre>
-<p><b>alpha</b> is the <b>temperature coefficient of resistance</b>, which is often abbreviated as <b>TCR</b>. In resistor catalogues, it is usually defined as <b>X [ppm/K]</b> (parts per million, similarly to percentage) meaning <b>X*1.e-6 [1/K]</b>. Resistors are available for 1 .. 7000 ppm/K, i.e., alpha = 1e-6 .. 7e-3 1/K;</p>
-<p>Via parameter <b>useHeatPort</b> the heatPort connector can be enabled and disabled (default = enabled). If it is disabled, the generated heat is transported implicitly to an internal temperature source with a fixed temperature of T_ref.</p><p>If the heatPort connector is enabled, it must be connected.</p>
+<p><strong>alpha</strong> is the <strong>temperature coefficient of resistance</strong>, which is often abbreviated as <strong>TCR</strong>. In resistor catalogues, it is usually defined as <strong>X [ppm/K]</strong> (parts per million, similarly to percentage) meaning <strong>X*1.e-6 [1/K]</strong>. Resistors are available for 1 .. 7000 ppm/K, i.e., alpha = 1e-6 .. 7e-3 1/K;</p>
+<p>Via parameter <strong>useHeatPort</strong> the heatPort connector can be enabled and disabled (default = enabled). If it is disabled, the generated heat is transported implicitly to an internal temperature source with a fixed temperature of T_ref.</p><p>If the heatPort connector is enabled, it must be connected.</p>
 </html>", revisions="<html>
 <ul>
-<li><i> August 07, 2009   </i>
+<li><em> August 07, 2009   </em>
        by Anton Haumer<br> temperature dependency of resistance added<br>
        </li>
-<li><i> March 11, 2009   </i>
+<li><em> March 11, 2009   </em>
        by Christoph Clauss<br> conditional heat port added<br>
        </li>
-<li><i> 2002   </i>
+<li><em> 2002   </em>
        by Anton Haumer<br> initially implemented<br>
        </li>
 </ul>
@@ -213,16 +213,16 @@ package Basic "Basic electrical components"
     LossPower = v*i;
     annotation (
       Documentation(info="<html>
-<p>The linear conductor connects the branch voltage <i>v</i> with the branch current <i>i</i> by <i>i = v*G</i>. The Conductance <i>G</i> is allowed to be positive, zero, or negative.</p>
+<p>The linear conductor connects the branch voltage <em>v</em> with the branch current <em>i</em> by <em>i = v*G</em>. The Conductance <em>G</em> is allowed to be positive, zero, or negative.</p>
 </html>", revisions="<html>
 <ul>
-<li><i> August 07, 2009   </i>
+<li><em> August 07, 2009   </em>
        by Anton Haumer<br> temperature dependency of conductance added<br>
        </li>
-<li><i> March 11, 2009   </i>
+<li><em> March 11, 2009   </em>
        by Christoph Clauss<br> conditional heat port added<br>
        </li>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -263,11 +263,11 @@ package Basic "Basic electrical components"
     i = C*der(v);
     annotation (
       Documentation(info="<html>
-<p>The linear capacitor connects the branch voltage <i>v</i> with the branch current <i>i</i> by <i>i = C * dv/dt</i>. The Capacitance <i>C</i> is allowed to be positive or zero.</p>
+<p>The linear capacitor connects the branch voltage <em>v</em> with the branch current <em>i</em> by <em>i = C * dv/dt</em>. The Capacitance <em>C</em> is allowed to be positive or zero.</p>
 
 </html>", revisions="<html>
 <ul>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -304,11 +304,11 @@ package Basic "Basic electrical components"
     L*der(i) = v;
     annotation (
       Documentation(info="<html>
-<p>The linear inductor connects the branch voltage <i>v</i> with the branch current <i>i</i> by <i>v = L * di/dt</i>. The Inductance <i>L</i> is allowed to be positive, or zero.</p>
+<p>The linear inductor connects the branch voltage <em>v</em> with the branch current <em>i</em> by <em>v = L * di/dt</em>. The Inductance <em>L</em> is allowed to be positive, or zero.</p>
 
 </html>", revisions="<html>
 <ul>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -392,14 +392,14 @@ package Basic "Basic electrical components"
 </ul>
 </html>", revisions="<html>
 <dl>
-  <dt><b>Main Author:</b></dt>
+  <dt><strong>Main Author:</strong></dt>
   <dd>
   <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
   Technical Consulting &amp; Electrical Engineering<br>
   A-3423 St.Andrae-Woerdern<br>Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
-  <dt><b>Release Notes:</b></dt>
+  <dt><strong>Release Notes:</strong></dt>
   <dd>May 27, 2004: Implemented by Anton Haumer</dd>
  </dl>
 </html>"),
@@ -437,14 +437,14 @@ package Basic "Basic electrical components"
 
     annotation (
       Documentation(info="<html>
-<p>The transformer is a two port. The left port voltage <i>v1</i>, left port current <i>i1</i>, right port voltage <i>v2</i> and right port current <i>i2</i> are connected by the following relation:</p>
+<p>The transformer is a two port. The left port voltage <em>v1</em>, left port current <em>i1</em>, right port voltage <em>v2</em> and right port current <em>i2</em> are connected by the following relation:</p>
 <pre>         | v1 |         | L1   M  |  | i1&#39; |
          |    |    =    |         |  |     |
          | v2 |         | M    L2 |  | i2&#39; |</pre>
-<p><i>L1</i>, <i>L2</i>, and <i>M</i> are the primary, secondary, and coupling inductances respectively.</p>
+<p><em>L1</em>, <em>L2</em>, and <em>M</em> are the primary, secondary, and coupling inductances respectively.</p>
 </html>", revisions="<html>
 <ul>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -557,12 +557,12 @@ package Basic "Basic electrical components"
             extent={{-150,103},{150,63}},
             textString="%name",
             lineColor={0,0,255})}), Documentation(info="<html>
-<p>The model <i>M_Transformer</i> is a model of a transformer with the possibility to choose the number of inductors. Inside the model, an inductance matrix is built based on the inductance of the inductors and the coupling inductances between the inductors given as a parameter vector from the user of the model.</p>
+<p>The model <em>M_Transformer</em> is a model of a transformer with the possibility to choose the number of inductors. Inside the model, an inductance matrix is built based on the inductance of the inductors and the coupling inductances between the inductors given as a parameter vector from the user of the model.</p>
 
 <p>An example shows that approach:<br>
-The user chooses a model with <b>three</b> inductors, that means the parameter <i><b>N</b></i> has to be <b>3</b>. Then he has to specify the inductances of the three inductors and the three coupling inductances. The coupling inductances are no real existing devices, but effects that occur between two inductors. The inductivities (main diagonal of the inductance matrix) and the coupling inductivities have to be specified in the parameter vector <i>L</i>. The length <i>dimL</i> of the parameter vector is calculated as follows: <i><b>dimL=(N*(N+1))/2</b></i></p>
+The user chooses a model with <strong>three</strong> inductors, that means the parameter <em><strong>N</strong></em> has to be <strong>3</strong>. Then he has to specify the inductances of the three inductors and the three coupling inductances. The coupling inductances are no real existing devices, but effects that occur between two inductors. The inductivities (main diagonal of the inductance matrix) and the coupling inductivities have to be specified in the parameter vector <em>L</em>. The length <em>dimL</em> of the parameter vector is calculated as follows: <em><strong>dimL=(N*(N+1))/2</strong></em></p>
 
-<p>The following example shows how the parameter vector is used to fill in the inductance matrix. To specify the inductance matrix of a three inductances transformer (<i>N=3</i>):
+<p>The following example shows how the parameter vector is used to fill in the inductance matrix. To specify the inductance matrix of a three inductances transformer (<em>N=3</em>):
 </p>
 
 <p>
@@ -572,7 +572,7 @@ The user chooses a model with <b>three</b> inductors, that means the parameter <
 </p>
 
 <p>
-the user has to allocate the parameter vector <i>L[6] </i>, since <i>Nv=(N*(N+1))/2=(3*(3+1))/2=6</i>. The parameter vector must be filled like this: <i>L=[1,0.1,0.2,2,0.3,3] </i>.</p>
+the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N+1))/2=(3*(3+1))/2=6</em>. The parameter vector must be filled like this: <em>L=[1,0.1,0.2,2,0.3,3] </em>.</p>
 <p>Inside the model, two loops are used to fill the inductance matrix to guarantee that it is filled in a symmetric way.</p>
 </html>", revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
@@ -620,10 +620,10 @@ the user has to allocate the parameter vector <i>L[6] </i>, since <i>Nv=(N*(N+1)
 <p>A gyrator is a two-port element defined by the following equations:</p>
 <pre>    i1 =  G2 * v2
     i2 = -G1 * v1</pre>
-<p>where the constants <i>G1</i>, <i>G2</i> are called the gyration conductance.</p>
+<p>where the constants <em>G1</em>, <em>G2</em> are called the gyration conductance.</p>
 </html>", revisions="<html>
 <ul>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -806,7 +806,7 @@ the user has to allocate the parameter vector <i>L[6] </i>, since <i>Nv=(N*(N+1)
 <p>EMF transforms electrical energy into rotational mechanical energy. It is used as basic building block of an electrical motor. The mechanical connector flange can be connected to elements of the Modelica.Mechanics.Rotational library. flange.tau is the cut-torque, flange.phi is the angle at the rotational connection.</p>
 </html>", revisions="<html>
 <ul>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Martin Otter<br> initially implemented<br>
        </li>
 </ul>
@@ -971,7 +971,7 @@ the user has to allocate the parameter vector <i>L[6] </i>, since <i>Nv=(N*(N+1)
 <p>The left port current is zero. Any voltage gain can be chosen.</p>
 </html>", revisions="<html>
 <ul>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -1023,7 +1023,7 @@ the user has to allocate the parameter vector <i>L[6] </i>, since <i>Nv=(N*(N+1)
 <p>The left port current is zero. Any transConductance can be chosen.</p>
 </html>", revisions="<html>
 <ul>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -1080,7 +1080,7 @@ the user has to allocate the parameter vector <i>L[6] </i>, since <i>Nv=(N*(N+1)
 <p>The left port voltage is zero. Any transResistance can be chosen.</p>
 </html>", revisions="<html>
 <ul>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -1132,7 +1132,7 @@ the user has to allocate the parameter vector <i>L[6] </i>, since <i>Nv=(N*(N+1)
 <p>The left port voltage is zero. Any current gain can be chosen.</p>
 </html>", revisions="<html>
 <ul>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -1209,7 +1209,7 @@ the user has to allocate the parameter vector <i>L[6] </i>, since <i>Nv=(N*(N+1)
 <p>The OpAmp is a simple nonideal model with a smooth out.v = f(vin) characteristic, where &quot;vin = in_p.v - in_n.v&quot;. The characteristic is limited by VMax.v and VMin.v. Its slope at vin=0 is the parameter Slope, which must be positive. (Therefore, the absolute value of Slope is taken into calculation.)</p>
 </html>", revisions="<html>
 <ul>
-<li><i> 2000   </i>
+<li><em> 2000   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -1486,13 +1486,13 @@ the user has to allocate the parameter vector <i>L[6] </i>, since <i>Nv=(N*(N+1)
 
     annotation (
       Documentation(info="<html>
-<p>The OpAmpDetailed model is a general operational amplifier model. The emphasis is on separating each important data sheet parameter into a sub-circuit independent of the other parameters. The model is broken down into five functional stages <b>input</b>, <b>frequency response</b>, <b>gain</b>, <b>slew rate</b> and an <b>output</b> stage. Each stage contains data sheet parameters to be modeled. This partitioning and the modelling of the separate submodels are based on the description in <b>[CP92]</b>.</p>
-<p>Using <b>[CP92]</b> Joachim Haase (Fraunhofer Institute for Integrated Circuits, Design Automation Division) transferred 2001 operational amplifier models into VHDL-AMS. Now one of these models, the model &quot;amp(macro)&quot; was transferred into Modelica.</p>
-<dl><dt><b>Reference:</b> </dt>
-<dd><b>[CP92]</b> Conelly, J.A.; Choi, P.: Macromodelling with SPICE. Englewood Cliffs: Prentice-Hall, 1992 </dd>
+<p>The OpAmpDetailed model is a general operational amplifier model. The emphasis is on separating each important data sheet parameter into a sub-circuit independent of the other parameters. The model is broken down into five functional stages <strong>input</strong>, <strong>frequency response</strong>, <strong>gain</strong>, <strong>slew rate</strong> and an <strong>output</strong> stage. Each stage contains data sheet parameters to be modeled. This partitioning and the modelling of the separate submodels are based on the description in <strong>[CP92]</strong>.</p>
+<p>Using <strong>[CP92]</strong> Joachim Haase (Fraunhofer Institute for Integrated Circuits, Design Automation Division) transferred 2001 operational amplifier models into VHDL-AMS. Now one of these models, the model &quot;amp(macro)&quot; was transferred into Modelica.</p>
+<dl><dt><strong>Reference:</strong> </dt>
+<dd><strong>[CP92]</strong> Conelly, J.A.; Choi, P.: Macromodelling with SPICE. Englewood Cliffs: Prentice-Hall, 1992 </dd>
 </dl></html>", revisions="<html>
 <dl>
-<dt><i>June 17, 2009</i></dt>
+<dt><em>June 17, 2009</em></dt>
 <dd>by Susann Wolf initially implemented</dd>
 </dl>
 </html>"),
@@ -1563,22 +1563,22 @@ the user has to allocate the parameter vector <i>L[6] </i>, since <i>Nv=(N*(N+1)
     LossPower = v*i;
     annotation (
       Documentation(info="<html>
-<p>The linear resistor connects the branch voltage <i>v</i> with the branch current <i>i</i> by
-<br><i><b>i*R = v</b></i>
-<br>The Resistance <i>R</i> is given as input signal.
-<br><br><b>Attention!!!</b><br>It is recommended that the R signal should not cross the zero value. Otherwise depending on the surrounding circuit the probability of singularities is high.</p>
+<p>The linear resistor connects the branch voltage <em>v</em> with the branch current <em>i</em> by
+<br><em><strong>i*R = v</strong></em>
+<br>The Resistance <em>R</em> is given as input signal.
+<br><br><strong>Attention!!!</strong><br>It is recommended that the R signal should not cross the zero value. Otherwise depending on the surrounding circuit the probability of singularities is high.</p>
 </html>", revisions="<html>
 <ul>
-<li><i> August 07, 2009   </i>
+<li><em> August 07, 2009   </em>
        by Anton Haumer<br> temperature dependency of resistance added<br>
        </li>
-<li><i> March 11, 2009   </i>
+<li><em> March 11, 2009   </em>
        by Christoph Clauss<br> conditional heat port added<br>
        </li>
-<li><i>June 7, 2004   </i>
+<li><em>June 7, 2004   </em>
        by Christoph Clauss<br>changed, docu added<br>
        </li>
-<li><i>April 30, 2004</i>
+<li><em>April 30, 2004</em>
        by Anton Haumer<br>implemented.
        </li>
 </ul>
@@ -1629,20 +1629,20 @@ the user has to allocate the parameter vector <i>L[6] </i>, since <i>Nv=(N*(N+1)
     LossPower = v*i;
     annotation (
       Documentation(info="<html>
-<p>The linear conductor connects the branch voltage <i>v</i> with the branch current <i>i</i> by
-<br><i><b>i = G*v</b></i>
-<br>The Conductance <i>G</i> is given as input signal.
-<br><br><b>Attention!!!</b>
+<p>The linear conductor connects the branch voltage <em>v</em> with the branch current <em>i</em> by
+<br><em><strong>i = G*v</strong></em>
+<br>The Conductance <em>G</em> is given as input signal.
+<br><br><strong>Attention!!!</strong>
 <br>It is recommended that the G signal should not cross the zero value. Otherwise depending on the surrounding circuit the probability of singularities is high.</p>
 </html>", revisions="<html>
 <ul>
-<li><i> August 07, 2009   </i>
+<li><em> August 07, 2009   </em>
        by Anton Haumer<br> temperature dependency of conductance added<br>
        </li>
-<li><i> March 11, 2009   </i>
+<li><em> March 11, 2009   </em>
        by Christoph Clauss<br> conditional heat port added<br>
        </li>
-<li><i>June 7, 2004   </i>
+<li><em>June 7, 2004   </em>
        by Christoph Clauss<br> implemented<br>
        </li>
 </ul>
@@ -1695,9 +1695,9 @@ the user has to allocate the parameter vector <i>L[6] </i>, since <i>Nv=(N*(N+1)
     i = der(Q);
     annotation (
       Documentation(info="<html>
-<p>The linear capacitor connects the branch voltage <i>v</i> with the branch current <i>i</i> by
-<br><i><b>i = dQ/dt</b></i> with <i><b>Q = C * v</b></i>.
-<br>The capacitance <i>C</i> is given as input signal.
+<p>The linear capacitor connects the branch voltage <em>v</em> with the branch current <em>i</em> by
+<br><em><strong>i = dQ/dt</strong></em> with <em><strong>Q = C * v</strong></em>.
+<br>The capacitance <em>C</em> is given as input signal.
 It is required that C &ge; 0, otherwise an assertion is raised. To avoid a variable index system,
 C = Cmin, if 0 &le; C &lt; Cmin, where Cmin is a parameter with default value Modelica.Constants.eps.</p>
 <p><br/>Besides the Cmin parameter the capacitor model has got the two parameters IC and UIC that belong together. With the IC parameter the user can specify an initial value of the voltage over the capacitor, which is defined from positive pin p to negative pin n (v=p.v - n.v).</p>
@@ -1705,10 +1705,10 @@ C = Cmin, if 0 &le; C &lt; Cmin, where Cmin is a parameter with default value Mo
 <p><br/>the IC value at the initial calculation by adding the equation v= IC. If UIC is false, the IC value can be used (but it does not need to!) to calculate the initial values in order to simplify the numerical algorithms of initial calculation.</p>
 </html>", revisions="<html>
 <ul>
-<li><i>June 7, 2004   </i>
+<li><em>June 7, 2004   </em>
        by Christoph Clauss<br>changed, docu added<br>
        </li>
-<li><i>April 30, 2004</i>
+<li><em>April 30, 2004</em>
        by Anton Haumer<br>implemented.
        </li>
 </ul>
@@ -1760,19 +1760,19 @@ C = Cmin, if 0 &le; C &lt; Cmin, where Cmin is a parameter with default value Mo
     v = der(Psi);
     annotation (
       Documentation(info="<html>
-<p>The linear inductor connects the branch voltage <i>v</i> with the branch current <i>i</i> by
-<br><i><b>v = d Psi/dt </b></i>with <i><b>Psi = L * i </b></i>.
-<br>The inductance <i>L</i> is as input signal.
+<p>The linear inductor connects the branch voltage <em>v</em> with the branch current <em>i</em> by
+<br><em><strong>v = d Psi/dt </strong></em>with <em><strong>Psi = L * i </strong></em>.
+<br>The inductance <em>L</em> is as input signal.
 It is required that L &ge; 0, otherwise an assertion is raised. To avoid a variable index system, L = Lmin, if 0 &le; L &lt; Lmin, where Lmin is a parameter with default value Modelica.Constants.eps.</p>
 <p>Besides the Lmin parameter the inductor model has got the two parameters IC and UIC that belong together. With the IC parameter the user can specify an initial value of the current that flows through the inductor.</p>
 <p><br/>Hence the inductor has an initial current at the beginning of the simulation. The other parameter UIC is of type Boolean. If UIC is true, the simulation tool uses</p>
 <p><br/>the IC value at the initial calculation by adding the equation i= IC. If UIC is false, the IC value can be used (but it does not need to!) to calculate the initial values in order to simplify the numerical algorithms of initial calculation.</p>
 </html>", revisions="<html>
 <ul>
-<li><i>June 7, 2004   </i>
+<li><em>June 7, 2004   </em>
        by Christoph Clauss<br>changed, docu added<br>
        </li>
-<li><i>April 30, 2004</i>
+<li><em>April 30, 2004</em>
        by Anton Haumer<br>implemented.
        </li>
 </ul>
@@ -1905,7 +1905,7 @@ It is required that L &ge; 0, otherwise an assertion is raised. To avoid a varia
 </html>", revisions="<html>
 <dl>
 <dt>
-<b>Main Authors:</b>
+<strong>Main Authors:</strong>
 </dt>
 <dd>
 Christoph Clau&szlig;

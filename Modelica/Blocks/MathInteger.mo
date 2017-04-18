@@ -65,15 +65,15 @@ equation
 This block has a vector of Boolean input signals u[nu] and a vector of
 (time varying) Integer expressions expr[nu]. The output signal y is
 set to expr[i], if i is the first element in the input vector u that is true. If all input signals are
-false, y is set to parameter \"y_default\" or the last value is kept, if use_pre_as_default = <b>true</b>.
+false, y is set to parameter \"y_default\" or the last value is kept, if use_pre_as_default = <strong>true</strong>.
 </p>
 
 <blockquote><pre>
   // Conceptual equation (not valid Modelica)
   i = 'first element of u[:] that is true';
-  y = <b>if</b> i==0 <b>then</b> (<b>if</b> use_pre_as_default <b>then</b> pre(y)
-                                          <b>else</b> y_default)
-      <b>else</b> expr[i];
+  y = <strong>if</strong> i==0 <strong>then</strong> (<strong>if</strong> use_pre_as_default <strong>then</strong> pre(y)
+                                          <strong>else</strong> y_default)
+      <strong>else</strong> expr[i];
 </pre></blockquote>
 
 <p>
@@ -279,8 +279,8 @@ The usage is demonstrated, e.g., in example
   end TriggeredAdd;
   annotation (Documentation(info="<html>
 <p>
-This package contains basic <b>mathematical operations</b>
-on <b>Integer</b> signals.
+This package contains basic <strong>mathematical operations</strong>
+on <strong>Integer</strong> signals.
 </p>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
             {100,100}}), graphics={Line(

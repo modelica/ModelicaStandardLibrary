@@ -58,7 +58,7 @@ package Special "Library of special mathematical functions"
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-Special.<b>erf</b>(u);
+Special.<strong>erf</strong>(u);
 </pre></blockquote>
 
 <h4>Description</h4>
@@ -140,7 +140,7 @@ For more details, see <a href=\"http://en.wikipedia.org/wiki/Error_function\">Wi
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-Special.<b>erfc</b>(u);
+Special.<strong>erfc</strong>(u);
 </pre></blockquote>
 
 <h4>Description</h4>
@@ -217,7 +217,7 @@ see <a href=\"http://en.wikipedia.org/wiki/Error_function\">Wikipedia</a>.
     annotation (smoothOrder=1, Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-Special.<b>erfInv</b>(u);
+Special.<strong>erfInv</strong>(u);
 </pre></blockquote>
 
 <h4>Description</h4>
@@ -307,7 +307,7 @@ For more details, see <a href=\"http://en.wikipedia.org/wiki/Error_function\">Wi
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-Special.<b>erfInv</b>(u);
+Special.<strong>erfInv</strong>(u);
 </pre></blockquote>
 
 <h4>Description</h4>
@@ -401,7 +401,7 @@ For more details, see <a href=\"http://en.wikipedia.org/wiki/Error_function\">Wi
 </html>",   info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-Special.<b>sinc</b>(u);
+Special.<strong>sinc</strong>(u);
 </pre></blockquote>
 
 <h4>Description</h4>

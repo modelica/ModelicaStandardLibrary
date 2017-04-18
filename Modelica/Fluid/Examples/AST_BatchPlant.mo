@@ -1438,7 +1438,7 @@ Integer type that can have the following values
 </p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-<tr><th><b>Types.Init.</b></th><th><b>Meaning</b></th></tr>
+<tr><th><strong>Types.Init.</strong></th><th><strong>Meaning</strong></th></tr>
 <tr><td>GuessValues</td>
     <td>GuessValues -- Guess values (not fixed) for p, T or h, X, C</td></tr>
 
@@ -1746,14 +1746,14 @@ assumed to have uniform temperature and mass fractions.
 </p>
 
 <p>
-At the top of the tank over the maximal fill level <b>height</b>
-a vector of FluidPorts, called <b>topPorts</b>, is present.
+At the top of the tank over the maximal fill level <strong>height</strong>
+a vector of FluidPorts, called <strong>topPorts</strong>, is present.
 The assumption is made that fluid flows always in to the tank via these
 ports (and never back in to the connector).
 </p>
 
 <p>
-The vector of connectors <b>ports</b> are fluid ports at the bottom
+The vector of connectors <strong>ports</strong> are fluid ports at the bottom
 and side of the tank at a definable height. Fluid can flow either out
 of or in to this port. The fluid level of the tank may be below
 one of these ports. This case is approximated by introducing a
@@ -1770,19 +1770,19 @@ assertion is triggered.
 When the diagram layer is open in the plot environment, the
 level of the tank is dynamically visualized. Note, the speed
 of the diagram animation in Dymola can be set via command
-<b>animationSpeed</b>(), e.g., animationSpeed(speed = 10)
+<strong>animationSpeed</strong>(), e.g., animationSpeed(speed = 10)
 </p>
 </html>",   revisions="<html>
 <ul>
-<li><i>Dec. 12, 2008</i> by Ruediger Franke: replace energy and mass balances with
+<li><em>Dec. 12, 2008</em> by Ruediger Franke: replace energy and mass balances with
    common definition in BaseClasses.PartialLumpedVolume</li>
-<li><i>Dec. 8, 2008</i> by Michael Wetter (LBNL):<br>
+<li><em>Dec. 8, 2008</em> by Michael Wetter (LBNL):<br>
 Implemented trace substances and missing equation for outflow of multi substance media at top port.</li>
-<li><i>Jul. 29, 2006</i> by Martin Otter (DLR):<br>
+<li><em>Jul. 29, 2006</em> by Martin Otter (DLR):<br>
    Improved handling of ports that are above the fluid level and
    simpler implementation.</li>
 
-<li><i>Jan. 6, 2006</i> by Katja Poschlad, Manuel Remelhe (AST Uni Dortmund),
+<li><em>Jan. 6, 2006</em> by Katja Poschlad, Manuel Remelhe (AST Uni Dortmund),
    Martin Otter (DLR):<br>
    Implementation based on former tank model but with several improvements
    (top, bottom, side ports; correctly treating kinetic energy for outlet
