@@ -1446,7 +1446,7 @@ protected
           z := x^y;
         end pow;
 
-        function powlin "Power function (1 - x)^(-y)linearly continued for x > 0 (provided y = const.)"
+        function powlin "Power function (1 - x)^(-y) linearly continued for x > 0 (provided y = const.)"
           extends Modelica.Icons.Function;
           input Real x;
           input Real y;
