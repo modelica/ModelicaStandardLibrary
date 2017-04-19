@@ -8834,7 +8834,7 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
         Real ueff;
         Real dsdvgs;
         Real dsdvbs;
-        Real dbsrdb;
+        Real dbsrdb = 0.0;
         Real gdbdvs = 0.0;
         Real dldvgs;
         Real dldvds;
@@ -8874,7 +8874,7 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
         Real[4] sig2;
         Real[4] a4;
         Real[4] b4;
-        Real[8] x4;
+        Real[8] x4 = fill(0.0, 8);
         Real[8] poly4;
         Real delta4;
         Integer j;
@@ -8919,7 +8919,7 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
         Real expg;
 
       algorithm
-         out_c := in_c;
+        out_c := in_c;
 
         vt := Spice3.Internal.SpiceConstants.CONSTKoverQ*Spice3.Internal.SpiceConstants.REFTEMP;
 
@@ -9384,7 +9384,7 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
         Real ueff;
         Real dsdvgs;
         Real dsdvbs;
-        Real dbsrdb;
+        Real dbsrdb = 0.0;
         Real gdbdvs = 0.0;
         Real dldvgs;
         Real dldvds;
@@ -9424,7 +9424,7 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
         Real[4] sig2;
         Real[4] a4;
         Real[4] b4;
-        Real[8] x4;
+        Real[8] x4 = fill(0.0, 8);
         Real[8] poly4;
         Real delta4;
         Integer j;
@@ -9469,7 +9469,7 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
         Real expg;
 
       algorithm
-         out_c := in_c;
+        out_c := in_c;
 
         vt := in_C.CONSTKoverQ * in_C.REFTEMP;
 
