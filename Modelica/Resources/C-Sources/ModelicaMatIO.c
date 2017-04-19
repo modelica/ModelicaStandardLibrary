@@ -75,7 +75,7 @@
 #define MATIO_PRIVATE_H
 
 /* Extended sparse matrix data types */
-#define EXTENDED_SPARSE 1
+/* #undef EXTENDED_SPARSE */
 
 /* Define to 1 if you have the `asprintf' function. */
 #if defined(__CYGWIN__) || defined(__gnu_linux__)
