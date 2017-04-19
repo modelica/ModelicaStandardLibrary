@@ -7079,7 +7079,7 @@ Firstly Write is carried out, then Read.</strong></p>
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
         graphics={
           Text(
-            extent={{-46,102},{46,-2}},
+            extent={{-50,70},{50,30}},
             lineColor={127,33,107},
             textString="DLATRAM"),
           Line(
@@ -7163,7 +7163,7 @@ Description in VHDL is given by <a href=\"http://www.cs.sfu.ca/~ggbaker/referenc
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
         graphics={
           Text(
-            extent={{-46,102},{46,-2}},
+            extent={{-50,70},{50,30}},
             lineColor={127,33,107},
             textString="DLATROM")}));
     end DLATROM;
