@@ -2158,16 +2158,16 @@ The result can be seen in the output signals of the FullAdders according to:</p>
 </table>
 </html>"));
         type Strength = enumeration(
-        'S_X01',
-        'S_X0H',
-        'S_XL1',
-        'S_X0Z',
-        'S_XZ1',
-        'S_WLH',
-        'S_WLZ',
-        'S_WZH',
-        'S_W0H',
-        'S_WL1') "Output strengths of registers" annotation (Documentation(info="<html>
+        'S_X01' "S_X01  Forcing X, 0 and 1",
+        'S_X0H' "S_X0H  Forcing X, 0 and Weak 1",
+        'S_XL1' "S_XL1  Forcing X, 1 and Weak 0",
+        'S_X0Z' "S_X0Z  Forcing X, 0 and High Impedance",
+        'S_XZ1' "S_XZ1  Forcing X, 1 and High Impedance",
+        'S_WLH' "S_WLH  Weak X, 0 and 1",
+        'S_WLZ' "S_WLZ  Weak X, 0 and High Impedance",
+        'S_WZH' "S_WZH  Weak X, 1 and High Impedance",
+        'S_W0H' "S_W0H  Weak X, 1 and Forcing 0",
+        'S_WL1' "S_WL1  Weak X, 0 and Forcing 1") "Output strengths of registers" annotation (Documentation(info="<html>
 
 <p><strong>Strength Table:</strong></p>
 
