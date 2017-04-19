@@ -38,8 +38,8 @@ extends Modelica.Icons.Package;
 <p>Within the semiconductor devices SPICE3 differentiates between technology parameters and device parameters. Device parameters can be chosen for every single model instance, e.g., the channel length of a transistor. Technology parameters which are specified in a model card (.model) are adjustable for more than one element simultaneously, e.g. the type of transistors. As usually done in Modelica the parameters of the modelcard can be set in a parameter list.</p>
 <p>To parametrize more than one model two ways are possible:</p>
 <ol>
-<li>Apart record:<br>For each transistor in the circuit a record with the technologyparameters is made available as an instance of the record modelcardMOS. In the example<br>&quot;inverterApartRecord&quot; this way is explained more in detail.</li>
-<li>Extended model:<br>For each set of technologyparameters a apart model has to be defined. In the example &quot;inverterExtendedModel&quot; this way is explained more in detail.</li>
+<li>Apart record:<br>For each transistor in the circuit a record with the technology parameters is made available as an instance of the record modelcardMOS. In the example<br>&quot;inverterApartRecord&quot; this way is explained more in detail.</li>
+<li>Extended model:<br>For each set of technology parameters a apart model has to be defined. In the example &quot;inverterExtendedModel&quot; this way is explained more in detail.</li>
 </ol>
 </html>"));
 
@@ -229,14 +229,14 @@ connect(p_out, n2);
 <li><em>21st February 2012</em> by Kristin Majetta<br/>CoupledInductors (K) added</li>
 <li><em>March 2010</em> by Kristin Majetta<br/>Guidelines applied, User&apos;s Guide added</li>
 <li><em>February 2010</em> by Kristin Majetta<br/>Spice3 library added to MSL and examples revised</li>
-<li><em>September 2009 </em>by Kristin Majetta <br/>Bipolar transistor implemented</li>
-<li><em>August 2009 </em>by Jonathan Kress <br/>default values in sources improved</li>
-<li><em>August 2009 </em>by Kristin Majetta <br/>Bipolar transistor started</li>
-<li><em>April 2009 </em>by Kristin Majetta <br/>Semiconductor Resistor implemented</li>
-<li><em>March 2009 </em>by Kristin Majetta <br/>DIODE implemented</li>
-<li><em>25th February 2009 </em>by Kristin Majetta <br/>MOS Level 2 implemented</li>
-<li><em>15th October 2008 </em>by Kristin Majetta <br/>minor errors fixed in L_Inductor, I_Pulse and SpiceRoot</li>
-<li><em>April, 2008 </em>by Sandra Boehme <br/>initially implemented<br/></li>
+<li><em>September 2009</em> by Kristin Majetta <br/>Bipolar transistor implemented</li>
+<li><em>August 2009</em> by Jonathan Kress <br/>default values in sources improved</li>
+<li><em>August 2009</em> by Kristin Majetta <br/>Bipolar transistor started</li>
+<li><em>April 2009</em> by Kristin Majetta <br/>Semiconductor Resistor implemented</li>
+<li><em>March 2009</em> by Kristin Majetta <br/>DIODE implemented</li>
+<li><em>25th February 2009</em> by Kristin Majetta <br/>MOS Level 2 implemented</li>
+<li><em>15th October 2008</em> by Kristin Majetta <br/>minor errors fixed in L_Inductor, I_Pulse and SpiceRoot</li>
+<li><em>April, 2008</em> by Sandra Boehme <br/>initially implemented<br/></li>
 </ul>
 </html>"));
 
@@ -278,7 +278,7 @@ Zeunerstrasse 38<br />
 <p>This is a short <strong>User's Guide</strong> for the overall library.</p>
 </html>",   revisions="<html>
 <ul>
-<li><em>Feb 2010 </em>by Kristin Majetta initially written</li>
+<li><em>Feb 2010</em> by Kristin Majetta initially written</li>
 </ul>
 </html>"));
   end UsersGuide;
@@ -349,7 +349,7 @@ Zeunerstrasse 38<br />
 <p>Simulate until 1e-11 s. Display the input voltage vin.p.v as well as the output voltage mp.S.v. It shows that the input voltage is inverted.</p>
 </html>", revisions="<html>
 <ul>
-<li><em>March 2009 </em>by Kristin Majetta initially implemented</li>
+<li><em>March 2009</em> by Kristin Majetta initially implemented</li>
 </ul>
 </html>"));
     end Inverter;
@@ -361,7 +361,7 @@ Zeunerstrasse 38<br />
       Basic.Ground ground annotation (Placement(transformation(extent={{-38,-80},
                 {-18,-60}})));
     //--------------------------------------------------------------------------------------------------------------
-    /*apart record: For each transistor in the circuit a record with the technologyparameters is made available
+    /*apart record: For each transistor in the circuit a record with the technology parameters is made available
   as an instance of the record modelcardMOS */
       parameter Semiconductors.ModelcardMOS MPmos(GAMMA=0.37, CBD=0, CBS=0)
         "Specified modelcardMOS for MPmos"; //instance of record modelcardMOS
@@ -452,7 +452,7 @@ Zeunerstrasse 38<br />
 <p>This example shows one possibility to make the record of the technology parameters available for more than one transistor. For each transistor in the circuit a record with the technology parameters is made available as an instance of the record modelcardMOS. In this circuit we need two different records for technology parameters, one for PMOS (MPmos) and one for NMOS (MNmos). This instances of the record for the technology parameters were made available for every transistor as one of theirs parameters (Spice3.Repository.MOS mn1(mtype=0, modelcard=MNmos).</p>
 </html>", revisions="<html>
 <ul>
-<li><em>April 2009 </em>by Kristin Majetta initially implemented</li>
+<li><em>April 2009</em> by Kristin Majetta initially implemented</li>
 </ul>
 </html>"));
     end InvertersApartRecord;
@@ -554,10 +554,10 @@ Zeunerstrasse 38<br />
 <p>Input voltages: vin.p.v and v.p.v</p>
 <p>Output voltage of the first inverter: mn1.D.v</p>
 <p>Output voltage of the second Inverter: mn2.D.v</p>
-<p>This example shows one possibility to make the record of the technology parameters available for more than one transistor. For each set of technology parameters an apart model has to be defined (in this example: MPmos ans MNmos). Inside the model definition the technology parameters are appointed (Spice3.Semiconductors.modelcardMOS M(GAMMA=0.37, LAMBDA=0.02)). Every model extends a transistor. In this process the required technologyparameters are specified (extends Spice3.Repository.MOS(final mtype=1, modelcard=M). To make transistors available in the circuit instances of the defined models are applied (MPmos mp1; MNmos mn1; MPmos mp2; MNmos mn2;).</p>
+<p>This example shows one possibility to make the record of the technology parameters available for more than one transistor. For each set of technology parameters an apart model has to be defined (in this example: MPmos ans MNmos). Inside the model definition the technology parameters are appointed (Spice3.Semiconductors.modelcardMOS M(GAMMA=0.37, LAMBDA=0.02)). Every model extends a transistor. In this process the required technology parameters are specified (extends Spice3.Repository.MOS(final mtype=1, modelcard=M). To make transistors available in the circuit instances of the defined models are applied (MPmos mp1; MNmos mn1; MPmos mp2; MNmos mn2;).</p>
 </html>", revisions="<html>
 <ul>
-<li><em>April 2009 </em>by Kristin Majetta initially implemented</li>
+<li><em>April 2009</em> by Kristin Majetta initially implemented</li>
 </ul>
 </html>"));
     end InvertersExtendedModel;
@@ -707,7 +707,7 @@ Zeunerstrasse 38<br />
 <p>Simulate until t=5s. The output values should be: mp1.S.v, mp2.S.v, mp3.S.v and mp4.S.v</p>
 </html>", revisions="<html>
 <ul>
-<li><em>April 2009 </em>by Kristin Majetta initially implemented</li>
+<li><em>April 2009</em> by Kristin Majetta initially implemented</li>
 </ul>
 </html>"));
     end FourInverters;
@@ -821,7 +821,7 @@ Zeunerstrasse 38<br />
 <p>Simulate until t=2e-7s. Display the two input voltages vin1.p.v and vin2.p.v and the output voltage mn1.D.v, which becomes zero only if both input values are high.</p>
 </html>", revisions="<html>
 <ul>
-<li><em>May 2009 </em>by Kristin Majetta initially implemented</li>
+<li><em>May 2009</em> by Kristin Majetta initially implemented</li>
 </ul>
 </html>"),
         experiment(StopTime=2e-007));
@@ -961,7 +961,7 @@ Zeunerstrasse 38<br />
 <p>The output value in the example shows a behaviour &quot;near&quot; the one of the truth table, since the capacitances are huge. Therefore loading is not finished before the next input changes.</p>
 </html>", revisions="<html>
 <ul>
-<li><em>March 2009 </em>by Kristin Majetta initially implemented</li>
+<li><em>March 2009</em> by Kristin Majetta initially implemented</li>
 </ul>
 </html>"),
         experiment(StopTime=5));
@@ -1024,7 +1024,7 @@ Zeunerstrasse 38<br />
 <p>Simulator until 0.025 s. Then display the input voltage vsin.p.v. The rout.p.v voltage is the rectified voltage result, which is pulsing mostly in the positive range.</p>
 </html>", revisions="<html>
 <ul>
-<li><em>Jan. 2010 </em>by Kristin Majetta initially implemented</li>
+<li><em>Jan. 2010</em> by Kristin Majetta initially implemented</li>
 </ul>
 </html>"));
     end Graetz;
@@ -1125,7 +1125,7 @@ Zeunerstrasse 38<br />
 <p>Simulate until 0.025 s. Display v.p.v, which is rising until 5 V. Furthermore display r4.p.v, which starts oscillating.</p>
 </html>", revisions="<html>
 <ul>
-<li><em>Jan. 2010 </em>by Jonathan Gerbet initially implemented</li>
+<li><em>Jan. 2010</em> by Jonathan Gerbet initially implemented</li>
 </ul>
 </html>"));
     end Oscillator;
@@ -1298,7 +1298,7 @@ Zeunerstrasse 38<br />
 <p><br/>Simulate until 0.2s, and display the mentioned voltages.</p>
 </html>", revisions="<html>
 <ul>
-<li><em>Aug. 2011 </em>by Kristin Majetta initially implemented</li>
+<li><em>Aug. 2011</em> by Kristin Majetta initially implemented</li>
 </ul>
 </html>"),experiment(
           StopTime=0.2,
@@ -2692,7 +2692,7 @@ Christoph Clau&szlig;
 <p>The package Semiconductors is for user access but not the package Repository.</p>
 </html>", revisions="<html>
 <ul>
-<li><em>March 2008 </em>by Kristin Majetta <br/>initially implemented</li>
+<li><em>March 2008</em> by Kristin Majetta <br/>initially implemented</li>
 </ul>
 </html>"));
     end M_PMOS;
@@ -2712,7 +2712,7 @@ Christoph Clau&szlig;
 <p>The package Semiconductors is for user access but not the package Repository.</p>
 </html>", revisions="<html>
 <ul>
-<li><em>March 2008 </em>by Kristin Majetta <br/>initially implemented</li>
+<li><em>March 2008</em> by Kristin Majetta <br/>initially implemented</li>
 </ul>
 </html>"));
     end M_NMOS;
@@ -2741,7 +2741,7 @@ Christoph Clau&szlig;
 <p>The package Semiconductors is for user access but not the package Internal.</p>
 </html>", revisions="<html>
 <ul>
-<li><em>March 2008 </em>by Kristin Majetta <br/>initially implemented</li>
+<li><em>March 2008</em> by Kristin Majetta <br/>initially implemented</li>
 </ul>
 </html>"));
     end M_NMOS2;
@@ -2761,7 +2761,7 @@ Christoph Clau&szlig;
 <p>The package Semiconductors is for user access but not the package Internal.</p>
 </html>", revisions="<html>
 <ul>
-<li><em>March 2008 </em>by Kristin Majetta <br/>initially implemented</li>
+<li><em>March 2008</em> by Kristin Majetta <br/>initially implemented</li>
 </ul>
 </html>"));
     end M_PMOS2;
@@ -2792,7 +2792,7 @@ Christoph Clau&szlig;
 <p>The package Semiconductors is for user access but not the package Internal.</p>
 </html>", revisions="<html>
 <ul>
-<li><em>August 2009 </em>by Kristin Majetta <br/>initially implemented</li>
+<li><em>August 2009</em> by Kristin Majetta <br/>initially implemented</li>
 </ul>
 </html>"));
 
@@ -2815,7 +2815,7 @@ Christoph Clau&szlig;
 <p>The package Semiconductors is for user access but not the package Internal.</p>
 </html>", revisions="<html>
 <ul>
-<li><em>August 2009 </em>by Kristin Majetta <br/>initially implemented</li>
+<li><em>August 2009</em> by Kristin Majetta <br/>initially implemented</li>
 </ul>
 </html>"));
 
@@ -2841,7 +2841,7 @@ Christoph Clau&szlig;
 </html>", revisions="<html>
 <ul>
 <li><em>September 2011 </em>revised by Sandra B&ouml;hme</br/>
-<li><em>August 2009 </em>by Kristin Majetta <br/>initially implemented</li>
+<li><em>August 2009</em> by Kristin Majetta <br/>initially implemented</li>
 </ul>
 </html>"),
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
@@ -2864,7 +2864,7 @@ Christoph Clau&szlig;
 </html>", revisions="<html>
 <ul>
 <li><em>September 2011 </em>revised by Sandra B&ouml;hme</br/>
-<li><em>August 2009 </em>by Kristin Majetta <br/>initially implemented</li>
+<li><em>August 2009</em> by Kristin Majetta <br/>initially implemented</li>
 </ul>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Polygon(
@@ -2896,7 +2896,7 @@ Christoph Clau&szlig;
 <p>The package Semiconductors is for user access but not the package Repository.</p>
 </html>", revisions="<html>
 <ul>
-<li><em>Nov. 2008 </em>by Kristin Majetta <br/>initially implemented</li>
+<li><em>Nov. 2008</em> by Kristin Majetta <br/>initially implemented</li>
 </ul>
 </html>"));
 
@@ -2920,7 +2920,7 @@ Christoph Clau&szlig;
 <p>The package Semiconductors is for user access but not the package Repository.</p>
 </html>", revisions="<html>
 <ul>
-<li><em>April 2009 </em>by Kristin Majetta <br/>initially implemented</li>
+<li><em>April 2009</em> by Kristin Majetta <br/>initially implemented</li>
 </ul>
 </html>"));
     end R_Resistor;
@@ -2945,7 +2945,7 @@ Christoph Clau&szlig;
 </html>", revisions="<html>
 <ul>
 <li><em>September 2011 </em>revised by Sandra B&ouml;hme</br/>
-<li><em>April 2009 </em>by Kristin Majetta <br/>initially implemented</li>
+<li><em>April 2009</em> by Kristin Majetta <br/>initially implemented</li>
 </ul>
 </html>"));
     end C_Capacitor;
@@ -3715,7 +3715,7 @@ If, e.g., time = 1.0, the current i =  0.0 (before event), 1.0 (after event)
 </html>", revisions="<html>
 <ul>
 <li><em>August 2009 </em>default values improved by Jonathan Kress<br/></li>
-<li><em>October 2008 </em>by Christoph Clauss initially implemented.</li>
+<li><em>October 2008</em> by Christoph Clauss initially implemented.</li>
 </ul>
 </html>"));
   end Sources;
@@ -3918,7 +3918,7 @@ E2N -&gt; name.pc[N-1]
 P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})</pre>
 </html>", revisions="<html>
 <ul>
-<li><em>Sept 2008 </em>by Kristin Majetta <br/>initially implemented</li>
+<li><em>Sept 2008</em> by Kristin Majetta <br/>initially implemented</li>
 </ul>
 </html>"));
     end E_VCV_POLY;
@@ -4013,7 +4013,7 @@ E2N -&gt; name.pc[N-1]
 P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...}) </pre>
 </html>", revisions="<html>
 <ul>
-<li><em>Sept 2008 </em>by Kristin Majetta <br/>initially implemented</li>
+<li><em>Sept 2008</em> by Kristin Majetta <br/>initially implemented</li>
 </ul>
 </html>"));
     end G_VCC_POLY;
@@ -4115,7 +4115,7 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})
 </pre>
 </html>", revisions="<html>
 <ul>
-<li><em>Sept 2008 </em>by Kristin Majetta <br/>initially implemented</li>
+<li><em>Sept 2008</em> by Kristin Majetta <br/>initially implemented</li>
 </ul>
 </html>"));
     end H_CCV_POLY;
@@ -4215,7 +4215,7 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})
 </pre>
 </html>", revisions="<html>
 <ul>
-<li><em>Sept 2008 </em>by Kristin Majetta <br/>initially implemented</li>
+<li><em>Sept 2008</em> by Kristin Majetta <br/>initially implemented</li>
 </ul>
 </html>"));
     end F_CCC_POLY;
@@ -4484,7 +4484,7 @@ on the model behaviour.
 <p>The package Repository is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
 </html>", revisions="<html>
 <ul>
-<li><em>March 2008 </em>by Kristin Majetta <br/>initially implemented</li>
+<li><em>March 2008</em> by Kristin Majetta <br/>initially implemented</li>
 </ul>
 </html>"),
         Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
@@ -4500,7 +4500,7 @@ on the model behaviour.
               textString="%name")}));
   end MOS;
 
-     record ModelcardMOS "Record with technological parameters (.model)"
+     record ModelcardMOS "Record with technology parameters (.model)"
      extends Modelica.Icons.Record;
        parameter SI.Voltage VTO=-1e40 "Zero-bias threshold voltage, default 0";
        parameter SI.Transconductance KP=-1e40
@@ -4780,7 +4780,7 @@ on the model behaviour.
 <p>The package Repository is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
 </html>", revisions="<html>
 <ul>
-<li><em>January 2009 </em>by Kristin Majetta <br/>initially implemented</li>
+<li><em>January 2009</em> by Kristin Majetta <br/>initially implemented</li>
 </ul>
 </html>"),
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
@@ -4796,7 +4796,7 @@ on the model behaviour.
               textString="%name")}));
   end MOS2;
 
-     record ModelcardMOS2 "Record with technological parameters (.model)"
+     record ModelcardMOS2 "Record with technology parameters (.model)"
        extends Modelica.Icons.Record;
      extends Spice3.Internal.ModelcardMOS(MJSW=0.33);
 
@@ -4952,12 +4952,12 @@ on the model behaviour.
 <p>The package Internal is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
 </html>",     revisions="<html>
 <ul>
-<li><em>August 2009 </em>by Kristin Majetta <br/>initially implemented</li>
+<li><em>August 2009</em> by Kristin Majetta <br/>initially implemented</li>
 </ul>
 </html>"));
     end BJT2;
 
-    record ModelcardBJT2 "Record with technological parameters (.model)"
+    record ModelcardBJT2 "Record with technology parameters (.model)"
     extends Modelica.Icons.Record;
       parameter SI.Temp_C TNOM = 27 "Parameter measurement temperature";
       parameter SI.Current IS = 1e-16 "Transport saturation current";
@@ -5152,13 +5152,13 @@ on the model behaviour.
 <p>The package Internal is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
 </html>",     revisions="<html>
 <ul>
-<li><em>August 2009 </em>by Kristin Majetta <br/>initially implemented</li>
+<li><em>August 2009</em> by Kristin Majetta <br/>initially implemented</li>
 </ul>
 </html>"));
     end BJT;
 
     record ModelcardBJT
-      "Record with technological parameters (.model), obsolete model, please use ModelcardBJT2"
+      "Record with technology parameters (.model), obsolete model, please use ModelcardBJT2"
      extends Modelica.Icons.Record;
      extends Modelica.Icons.ObsoleteModel;
       parameter SI.Temp_C TNOM = -1e40
@@ -5326,7 +5326,7 @@ on the model behaviour.
 <p>The package Internal is not for user access. There all function, records and data are stored, that are needed for modeling the semiconductor models of the package Semiconductors.</p>
 </html>", revisions="<html>
 <ul>
-<li><em>March 2008 </em>by Kristin Majetta <br/>initially implemented</li>
+<li><em>March 2008</em> by Kristin Majetta <br/>initially implemented</li>
 </ul>
 </html>"),
         Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
@@ -5341,7 +5341,7 @@ on the model behaviour.
               textString="%name")}));
   end JFET;
 
-    record ModelcardJFET "Record with technological parameters (.model)"
+    record ModelcardJFET "Record with technology parameters (.model)"
     extends Modelica.Icons.Record;
       parameter SI.Capacitance CGS=-1e40
         "Zero-bias G-S junction capacitance, default 0";
@@ -5456,12 +5456,12 @@ on the model behaviour.
 <p>The package Repository is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
 </html>", revisions="<html>
 <ul>
-<li><em>Nov. 2008 </em>by Kristin Majetta <br/>initially implemented</li>
+<li><em>Nov. 2008</em> by Kristin Majetta <br/>initially implemented</li>
 </ul>
 </html>"));
    end DIODE;
 
-   record ModelcardDIODE "Record with technological parameters (.model)"
+   record ModelcardDIODE "Record with technology parameters (.model)"
      extends Modelica.Icons.Record;
     parameter SI.Current IS=1e-14 "Saturation Current";
     parameter SI.Resistance RS=0.0 "Ohmic resistance";
@@ -5552,7 +5552,7 @@ on the model behaviour.
 </html>"));
     end R_SEMI;
 
-    record ModelcardR "Record with technological parameters (.model)"
+    record ModelcardR "Record with technology parameters (.model)"
       extends Modelica.Icons.Record;
      parameter SI.Conversions.NonSIunits.FirstOrderTemperaturCoefficient TC1 =        0.0
         "First order temperature coefficient";
@@ -5649,7 +5649,7 @@ on the model behaviour.
 </html>"));
     end C_SEMI;
 
-    record ModelcardC "Record with technological parameters (.model)"
+    record ModelcardC "Record with technology parameters (.model)"
     extends Modelica.Icons.Record;
       parameter SI.CapacitancePerArea CJ = 0.0
         "Junction bottom capacitance     F/meters2";
@@ -8411,7 +8411,7 @@ on the model behaviour.
 
       function mos1RenameParameters "Parameter renaming to internal names"
       extends Modelica.Icons.Function;
-        input ModelcardMOS ex "Modelcard with technologyparameters";
+        input ModelcardMOS ex "Modelcard with technology parameters";
         input SpiceConstants con "Spice constants";
 
         output Mos.MosModelLineParams intern
@@ -12765,7 +12765,7 @@ to the internal parameters (e.g., m_satCur). It also does the analysis of the Is
         function jfetRenameParameters "Parameter renaming to internal names"
         extends Modelica.Icons.Function;
           input Modelica.Electrical.Spice3.Internal.ModelcardJFET ex
-          "Modelcard with technologyparameters";
+          "Modelcard with technology parameters";
 
           output JfetModelLine intern "Output record model line parameters";
 
