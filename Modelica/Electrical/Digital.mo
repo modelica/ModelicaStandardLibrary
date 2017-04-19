@@ -2214,7 +2214,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
             fillColor={127,0,127},
             fillPattern=FillPattern.Solid)}),
           Documentation(info="<html>
-<p>DigitalInput is the  digital input connector definition. DigitalInput is of type Logic. It can have the logic values (U, X, 0, 1, ...) which are internally coded by integer values by using the enumeration (c.f. the definition of type Logic).</p>
+<p>DigitalInput is the digital input connector definition. DigitalInput is of type Logic. It can have the logic values (U, X, 0, 1, ...) which are internally coded by integer values by using the enumeration (c.f. the definition of type Logic).</p>
 </html>"));
 
         connector DigitalOutput = output DigitalSignal
@@ -2238,7 +2238,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
             textString="%name")}),
           Documentation(info=
                          "<html>
-<p>DigitalOutput is the  digital output connector definition. DigitalOutput  is of type Logic. It can have the logic values (U, X, 0, 1, ...) which are internally coded by integer values by using the enumeration (c.f. the definition of type Logic). The arrow shape symbolizes the signal flow direction.</p>
+<p>DigitalOutput is the digital output connector definition. DigitalOutput is of type Logic. It can have the logic values (U, X, 0, 1, ...) which are internally coded by integer values by using the enumeration (c.f. the definition of type Logic). The arrow shape symbolizes the signal flow direction.</p>
 </html>"));
 
         partial block SISO "Single input, single output"
@@ -2656,8 +2656,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
 Provide the input as output exactly delayed by <em>Tdel</em>.
 If time less than <em>Tdel</em> the initial value <em>initout</em> holds.
 </P>
-</html>",       revisions=
-                 "<html>
+</html>", revisions="<html>
 <dl>
 <dt><em>August 11, 2003</em></dt>
 <dd>by Christoph Clauss initially modelled.</dd>
@@ -2711,8 +2710,7 @@ If time less than <em>Tdel</em> the initial value <em>initout</em> holds.
 Provides the input as output delayed by <em>delayTime</em> if the input holds its value for a longer time than <em>delayTime</em>.
 If time is less than <em>delayTime</em> the initial value <em>y0</em> holds.
 </P>
-</html>",       revisions=
-                 "<html>
+</html>", revisions="<html>
 <dl>
 <dt><em>August 12, 2003</em></dt>
 <dd>by Christoph Clauss revised</dd>
@@ -2781,27 +2779,27 @@ The delay <em>Tdel</em> depends on the values of the signal change. To calculate
 Digital.Tables is used. If the corresponding value is 1, then <em>tLH</em> is used, if it is -1, then <em>tHL</em>
 is used, if it is zero, the input is not delayed.
 </P>
-</html>",         revisions="<html>
+</html>", revisions="<html>
 <ul>
-<li><em>January 24, 2013  </em> Initial value for y set to y0
+<li><em>January 24, 2013</em> Initial value for y set to y0
        by Kristin Majetta and Christoph Clauss<br>
        </li>
-<li><em>September 8, 2009  </em> pre(y) and x are used to select <em>tHL</em> or <em>tLH</em>
+<li><em>September 8, 2009</em> pre(y) and x are used to select <em>tHL</em> or <em>tLH</em>
        by Ulrich Donath<br>
        </li>
-<li><em>January 13, 2005  </em> improved when-conditions and declaration of delayTable
+<li><em>January 13, 2005</em> improved when-conditions and declaration of delayTable
        by Dynasim<br>
        </li>
-<li><em>September 15, 2004  </em> color changed, names changed
+<li><em>September 15, 2004</em> color changed, names changed
        by Christoph Clauss<br>
        </li>
-<li><em>May 12, 2004  </em> test <em>if Tdel=0</em> replaced
+<li><em>May 12, 2004</em> test <em>if Tdel=0</em> replaced
        by Christoph Clauss<br>
        </li>
-<li><em>February 5, 2004 </em> handling of <em>tHL=0</em> or <em>tLH=0</em> revised
+<li><em>February 5, 2004</em> handling of <em>tHL=0</em> or <em>tLH=0</em> revised
        by Christoph Clauss<br>
        </li>
-<li><em>October 12, 2003   </em>
+<li><em>October 12, 2003</em>
        by Christoph Clauss<br>
        initially modelled</li>
 </ul>
@@ -2885,9 +2883,9 @@ is used, if it is zero, the input is not delayed.
 The delay element <strong>Inertial Delay Sensitive</strong> is applied to a vector of n signals.
 The parameters <em>tLH</em> and <em>tHL</em> are valid for each of the n signals.
 </p>
-</html>",     revisions="<html>
+</html>", revisions="<html>
 <ul>
-<li><em>September 11, 2009 </em> created by Ulrich Donath<br>
+<li><em>September 11, 2009</em> created by Ulrich Donath<br>
        </li>
 </ul>
 </html>"));
@@ -2914,8 +2912,7 @@ The parameters <em>tLH</em> and <em>tHL</em> are valid for each of the n signals
 <p>Not component with 1 input value, without delay.</p>
 <p>According to the standard logic not table (Tables.NotTable) the output value is calculated.</p>
 <p>To avoid loops in the numerical treatment, the pre operator is applied to the output.</p>
-</html>",  revisions=
-                 "<html>
+</html>", revisions="<html>
 <dl>
 <dt><em>August 14, 2003</em></dt>
 <dd>by Teresa Schlegel initially modelled.</dd>
@@ -2956,8 +2953,7 @@ The parameters <em>tLH</em> and <em>tHL</em> are valid for each of the n signals
 <p>And component with multiple input values and one output.</p>
 <p>According to the standard logic and table (Tables.AndTable) the output value is calculated.</p>
 <p>To avoid loops in the numerical treatment, the pre operator is applied to the output.</p>
-</html>",  revisions=
-                 "<html>
+</html>", revisions="<html>
 <ul>
 <li><em>September 15, 2004</em> vector approach used for all fixed numbers of inputs
        by Christoph Clauss<br>
@@ -2995,8 +2991,7 @@ The parameters <em>tLH</em> and <em>tHL</em> are valid for each of the n signals
 <p>Nand component with multiple input values and one output.</p>
 <p>According to the standard logic and table (Tables.AndTable) an intermediate value is calculated, to which the not table (Tables.NotTable) is applied.</p>
 <p>To avoid loops in the numerical treatment, the pre operator is applied to the output.</p>
-</html>",  revisions=
-                 "<html>
+</html>", revisions="<html>
 <ul>
 <li><em>September 15, 2004</em> vector approach used for all fixed numbers of inputs
        by Christoph Clauss<br>
@@ -3041,8 +3036,7 @@ The parameters <em>tLH</em> and <em>tHL</em> are valid for each of the n signals
 <p>Or component with multiple input values and one output.</p>
 <p>According to the standard logic or table (Tables.OrTable) the output value is calculated.</p>
 <p>To avoid loops in the numerical treatment, the pre operator is applied to the output.</p>
-</html>",  revisions=
-                 "<html>
+</html>", revisions="<html>
 <ul>
 <li><em>September 15, 2004</em> vector approach used for all fixed numbers of inputs
        by Christoph Clauss<br>
@@ -3081,8 +3075,7 @@ The parameters <em>tLH</em> and <em>tHL</em> are valid for each of the n signals
 <p>Nor component with multiple input values and one output.</p>
 <p>According to the standard logic or table (Tables.OrTable) an intermediate value is calculated, to which the not table (Tables.NotTable) is applied.</p>
 <p>To avoid loops in the numerical treatment, the pre operator is applied to the output.</p>
-</html>",  revisions=
-                 "<html>
+</html>", revisions="<html>
 <ul>
 <li><em>September 15, 2004</em> vector approach used for all fixed numbers of inputs
        by Christoph Clauss<br>
@@ -3127,8 +3120,7 @@ The parameters <em>tLH</em> and <em>tHL</em> are valid for each of the n signals
 <p>Xor component with multiple input values and one output.</p>
 <p>According to the standard logic xor table (Tables.XorTable) the output value is calculated.</p>
 <p>To avoid loops in the numerical treatment, the pre operator is applied to the output.</p>
-</html>",  revisions=
-                 "<html>
+</html>", revisions="<html>
 <ul>
 <li><em>September 15, 2004</em> vector approach used for all fixed numbers of inputs
        by Christoph Clauss<br>
@@ -3166,8 +3158,7 @@ The parameters <em>tLH</em> and <em>tHL</em> are valid for each of the n signals
 <p>Xnor component with multiple input values and one output.</p>
 <p>According to the standard logic xor table (Tables.XorTable)an intermediate value is calculated, to which the not table (Tables.NotTable) is applied.</p>
 <p>To avoid loops in the numerical treatment, the pre operator is applied to the output.</p>
-</html>",  revisions=
-                 "<html>
+</html>", revisions="<html>
 <ul>
 <li><em>September 15, 2004</em> vector approach used for all fixed numbers of inputs
        by Christoph Clauss<br>
@@ -3211,8 +3202,7 @@ The parameters <em>tLH</em> and <em>tHL</em> are valid for each of the n signals
           annotation (
             Documentation(info="<html>
 <p>The InvGate model has a single valued input, and a single valued output. It is composed by a Basic Not and an InertialDelaySensitive. Its parameters are the delay parameters (rise and fall inertial delay time, and initial value).</p>
-</html>", revisions=
-                 "<html>
+</html>", revisions="<html>
 <dl>
 <dt><em>August 14, 2003</em></dt>
 <dd>by Teresa Schlegel initially modelled.</dd>
@@ -3261,8 +3251,7 @@ The parameters <em>tLH</em> and <em>tHL</em> are valid for each of the n signals
           annotation (
             Documentation(info="<html>
 <p>The AndGate model has a multiple valued (n) input vector, and a single valued output. It is composed by a Basic And and an InertialDelaySensitive. Its parameters are the delay parameters (rise and fall inertial delay time, and initial value).</p>
-</html>", revisions=
-                 "<html>
+</html>", revisions="<html>
 <ul>
 <li><em>September 15, 2004</em> vector approach used for all fixed numbers of inputs
        by Christoph Clauss<br>
@@ -3363,8 +3352,7 @@ The parameters <em>tLH</em> and <em>tHL</em> are valid for each of the n signals
           annotation (
             Documentation(info="<html>
 <p>The OrGate model has a multiple valued (n) input vector, and a single valued output. It is composed by a Basic Or and an InertialDelaySensitive. Its parameters are the delay parameters (rise and fall inertial delay time, and initial value).</p>
-</html>", revisions=
-                 "<html>
+</html>", revisions="<html>
 <ul>
 <li><em>September 15, 2004</em> vector approach used for all fixed numbers of inputs
        by Christoph Clauss<br>
@@ -3412,8 +3400,7 @@ The parameters <em>tLH</em> and <em>tHL</em> are valid for each of the n signals
           annotation (
             Documentation(info="<html>
 <p>The NorGate model has a multiple valued (n) input vector, and a single valued output. It is composed by a Basic Nor and an InertialDelaySensitive. Its parameters are the delay parameters (rise and fall inertial delay time, and initial value).</p>
-</html>", revisions=
-                 "<html>
+</html>", revisions="<html>
 <ul>
 <li><em>September 15, 2004</em> vector approach used for all fixed numbers of inputs
        by Christoph Clauss<br>
@@ -3466,8 +3453,7 @@ The parameters <em>tLH</em> and <em>tHL</em> are valid for each of the n signals
           annotation (
             Documentation(info="<html>
 <p>The XorGate model has a multiple valued (n) input vector, and a single valued output. It is composed by a Basic Xor and an InertialDelaySensitive. Its parameters are the delay parameters (rise and fall inertial delay time, and initial value).</p>
-</html>", revisions=
-                 "<html>
+</html>", revisions="<html>
 <ul>
 <li><em>September 15, 2004</em> vector approach used for all fixed numbers of inputs
        by Christoph Clauss<br>
@@ -3515,8 +3501,7 @@ The parameters <em>tLH</em> and <em>tHL</em> are valid for each of the n signals
           annotation (
             Documentation(info="<html>
 <p>The XnorGate model has a multiple valued (n) input vector, and a single valued output. It is composed by a Basic Xnor and an InertialDelaySensitive. Its parameters are the delay parameters (rise and fall inertial delay time, and initial value).</p>
-</html>", revisions=
-                 "<html>
+</html>", revisions="<html>
 <ul>
 <li><em>September 15, 2004</em> vector approach used for all fixed numbers of inputs
        by Christoph Clauss<br>
@@ -3559,8 +3544,7 @@ The parameters <em>tLH</em> and <em>tHL</em> are valid for each of the n signals
           annotation (
             Documentation(info="<html>
 <p>The BufGate model has a single valued input, and a single valued output. It consists of an InertialDelaySensitive only. Its parameters are the delay parameters (rise and fall inertial delay time, and initial value).</p>
-</html>", revisions=
-                 "<html>
+</html>", revisions="<html>
 <dl>
 <dt><em>September 21, 2004</em></dt>
 <dd>by Andre Schneider initially modelled.</dd>
@@ -3630,8 +3614,7 @@ To specify <em>setval</em>, the integer code has to be used.
 If the logic values are imported by <br><strong>import L = Digital.Interfaces.Logic;</strong><br>
 they can be used to specify the parameter, e.g., <strong>L.'0'</strong> for forcing 0.
 </P>
-</html>",       revisions=
-                 "<html>
+</html>", revisions="<html>
 <dl>
 <dt><em>August 20, 2003</em></dt>
 <dd>by Teresa Schlegel initially modelled.</dd>
@@ -3703,8 +3686,7 @@ To specify the logic value parameters, the integer code has to be used.
 If the logic values are imported by <br><strong>import L = Digital.Interfaces.Logic;</strong><br>
 they can be used to specify the parameter, e.g., <strong>L.'0'</strong> for forcing 0.
 </P>
-</html>",       revisions=
-                 "<html>
+</html>", revisions="<html>
 <dl>
 <dt><em>August 20, 2003</em></dt>
 <dd>by Teresa Schlegel initially modelled.</dd>
@@ -3779,7 +3761,7 @@ To specify the logic value parameters, the integer code has to be used.
 If the logic values are imported by <br><strong>import L = Digital.Interfaces.Logic;</strong><br>
 they can be used to specify the parameter, e.g., <strong>L.'0'</strong> for forcing 0.
 </P>
-</html>",         revisions="<html>
+</html>", revisions="<html>
 <dl>
 <dt><em>August 20, 2003</em></dt>
 <dd>by Teresa Schlegel initially modelled.</dd>
@@ -3876,8 +3858,7 @@ To specify the logic value parameters, the integer code has to be used.
 If the logic values are imported by <br><strong>import L = Digital.Interfaces.Logic;</strong><br>
 they can be used to specify the parameter, e.g., <strong>L.'0'</strong> for forcing 0.
 </P>
-</html>",         revisions=
-                 "<html>
+</html>", revisions="<html>
 <dl>
 <dt><em>September 2, 2003</em></dt>
 <dd>by Christoph Clauss initially modelled.</dd>
@@ -3930,7 +3911,7 @@ The number of periods is unlimited. The first pulse starts at startTime.
 </P>
 <P> The clock source is a special but often used variant of the pulse source.
 </P>
-</html>",         revisions="<html>
+</html>", revisions="<html>
 <dl>
 <dt><em>September 18, 2004</em></dt>
 <dd>by Andre Schneider initially modelled.</dd>
@@ -3995,9 +3976,9 @@ any delay according to IEEE 1164 To_X01 function.
 <p>
 If the signal width is greater than 1 this conversion is done for each signal.
 </p>
-</html>",         revisions="<html>
+</html>", revisions="<html>
 <ul>
-<li><em>September 15, 2004   </em>
+<li><em>September 15, 2004</em>
        by Christoph Clauss name converted from cvt_to_x01 into LogicToX01<br>
        </li>
 <li><em>November 5, 2003</em>
@@ -4065,9 +4046,9 @@ any delay according to IEEE 1164 To_X01Z function.
 <P>
 If the signal width is greater than 1 this conversion is done for each signal.
 </P>
-</html>",         revisions="<html>
+</html>", revisions="<html>
 <ul>
-<li><em>September 15, 2004   </em>
+<li><em>September 15, 2004</em>
        by Christoph Clauss name converted from cvt_to_x01z into LogicToX01Z<br>
        </li>
 <li><em>November 5, 2003</em>
@@ -4135,9 +4116,9 @@ any delay according to IEEE 1164 To_UX01 function.
 <P>
 If the signal width is greater than 1 this conversion is done for each signal.
 </P>
-</html>",         revisions="<html>
+</html>", revisions="<html>
 <ul>
-<li><em>September 15, 2004   </em>
+<li><em>September 15, 2004</em>
        by Christoph Clauss name converted from cvt_to_ux01 into LogicToUX01<br>
        </li>
 <li><em>November 5, 2003</em>
@@ -4193,9 +4174,9 @@ Conversion of a Boolean input into a digital output without any delay according 
 <P>
 If the signal width is greater than 1 this conversion is done for each signal.
 </P>
-</html>",         revisions="<html>
+</html>", revisions="<html>
 <ul>
-<li><em>September 15, 2004   </em>
+<li><em>September 15, 2004</em>
        by Christoph Clauss colors changed<br>
        </li>
 <li><em>November 4, 2003</em>
@@ -4253,9 +4234,9 @@ Conversion of a digital input into a Boolean output without any delay according 
 <P>
 If the signal width is greater than 1 this conversion is done for each signal.
 </P>
-</html>",         revisions="<html>
+</html>", revisions="<html>
 <ul>
-<li><em>September 15, 2004   </em>
+<li><em>September 15, 2004</em>
        by Christoph Clauss colors changed<br>
        </li>
 <li><em>November 4, 2003</em>
@@ -4315,9 +4296,9 @@ Conversion of a real input into a digital output without any delay according to:
 <P>
 If the signal width is greater than 1 this conversion is done for each signal.
 </P>
-</html>",         revisions="<html>
+</html>", revisions="<html>
 <ul>
-<li><em>September 15, 2004   </em>
+<li><em>September 15, 2004</em>
        by Christoph Clauss colors changed<br>
        </li>
 <li><em>November 5, 2003</em>
@@ -4392,9 +4373,9 @@ Conversion of a digital input into a Real output without any delay according to:
 The values val... are given by parameters.</P>
 <P>If the signal width is greater than 1 this conversion is done for each signal.
 </P>
-</html>",         revisions="<html>
+</html>", revisions="<html>
 <ul>
-<li><em>September 15, 2004   </em>
+<li><em>September 15, 2004</em>
        by Christoph Clauss colors changed<br>
        </li>
 <li><em>November 5, 2003</em>
@@ -4461,9 +4442,9 @@ any delay according to IEEE 1164 To_X01 function.
 <P>
 If the signal width is greater than 1 this conversion is done for each signal.
 </P>
-</html>",         revisions="<html>
+</html>", revisions="<html>
 <ul>
-<li><em>September 15, 2004   </em>
+<li><em>September 15, 2004</em>
        by Christoph Clauss name converted from cvt_to_x01 into LogicToX01<br>
        </li>
 <li><em>November 5, 2003</em>
@@ -4536,9 +4517,9 @@ any delay according to IEEE 1164 To_X01Z function.
 <P>
 If the signal width is greater than 1 this conversion is done for each signal.
 </P>
-</html>",         revisions="<html>
+</html>", revisions="<html>
 <ul>
-<li><em>September 15, 2004   </em>
+<li><em>September 15, 2004</em>
        by Christoph Clauss name converted from cvt_to_x01z into LogicToX01Z<br>
        </li>
 <li><em>November 5, 2003</em>
@@ -4754,9 +4735,9 @@ Clock transition definitions:
   0-Trns: ~ -> 0 or 1 -> * or X -> X|U or U -> X|U
   X-Trns: 0 -> X|U or X|U -> 1
 </PRE>
-</html>",         revisions="<html>
+</html>", revisions="<html>
 <ul>
-<li><em>September 11, 2009 </em> created by Ulrich Donath<br>
+<li><em>September 11, 2009</em> created by Ulrich Donath<br>
        </li>
 </ul>
 </html>"));
@@ -4892,9 +4873,9 @@ Clock transition definitions:
   0-Trns: ~ -> 0 or 1 -> * or X -> X|U or U -> X|U
   X-Trns: 0 -> X|U or X|U -> 1
 </PRE>
-</html>",         revisions="<html>
+</html>", revisions="<html>
 <ul>
-<li><em>September 11, 2009 </em> created by Ulrich Donath<br>
+<li><em>September 11, 2009</em> created by Ulrich Donath<br>
        </li>
 </ul>
 </html>"));
@@ -4939,9 +4920,9 @@ Clock transition definitions:
   0-Trns: ~ -> 0 or 1 -> * or X -> X|U or U -> X|U
   X-Trns: 0 -> X|U or X|U -> 1
 </PRE>
-</html>",         revisions="<html>
+</html>", revisions="<html>
 <ul>
-<li><em>September 11, 2009 </em> created by Ulrich Donath<br>
+<li><em>September 11, 2009</em> created by Ulrich Donath<br>
        </li>
 </ul>
 </html>"), Icon(graphics={Rectangle(
@@ -5192,9 +5173,9 @@ Clock transition definitions:
   0-Trns: ~ -> 0 or 1 -> * or X -> X|U or U -> X|U
   X-Trns: 0 -> X|U or X|U -> 1
 </PRE>
-</html>",         revisions="<html>
+</html>", revisions="<html>
 <ul>
-<li><em>September 11, 2009 </em> created by Ulrich Donath<br>
+<li><em>September 11, 2009</em> created by Ulrich Donath<br>
        </li>
 </ul>
 </html>"));
@@ -5355,9 +5336,9 @@ Clock transition definitions:
   0-Trns: ~ -> 0 or 1 -> * or X -> X|U or U -> X|U
   X-Trns: 0 -> X|U or X|U -> 1
 </PRE>
-</html>",     revisions="<html>
+</html>", revisions="<html>
 <ul>
-<li><em>September 11, 2009 </em> created by Ulrich Donath<br>
+<li><em>September 11, 2009</em> created by Ulrich Donath<br>
        </li>
 </ul>
 </html>"));
@@ -5417,9 +5398,9 @@ Clock transition definitions:
   0-Trns: ~ -> 0 or 1 -> * or X -> X|U or U -> X|U
   X-Trns: 0 -> X|U or X|U -> 1
 </PRE>
-</html>",     revisions="<html>
+</html>", revisions="<html>
 <ul>
-<li><em>September 11, 2009 </em> created by Ulrich Donath<br>
+<li><em>September 11, 2009</em> created by Ulrich Donath<br>
        </li>
 </ul>
 </html>"));
@@ -5571,7 +5552,7 @@ Clock transition definitions:
 </PRE>
 </html>", revisions="<html>
 <ul>
-<li><em>September 11, 2009 </em> created by Ulrich Donath<br>
+<li><em>September 11, 2009</em> created by Ulrich Donath<br>
        </li>
 </ul>
 </html>"), Icon(coordinateSystem(
@@ -5703,7 +5684,7 @@ Clock transition definitions:
 </PRE>
 </html>", revisions="<html>
 <ul>
-<li><em>September 11, 2009 </em> created by Ulrich Donath<br>
+<li><em>September 11, 2009</em> created by Ulrich Donath<br>
        </li>
 </ul>
 </html>"), Icon(coordinateSystem(
@@ -5791,7 +5772,7 @@ Clock transition definitions:
 </PRE>
 </html>", revisions="<html>
 <ul>
-<li><em>September 11, 2009 </em> created by Ulrich Donath<br>
+<li><em>September 11, 2009</em> created by Ulrich Donath<br>
        </li>
 </ul>
 </html>"), Icon(graphics={Rectangle(
@@ -6004,7 +5985,7 @@ Clock transition definitions:
 </PRE>
 </html>", revisions="<html>
 <ul>
-<li><em>September 11, 2009 </em> created by Ulrich Donath<br>
+<li><em>September 11, 2009</em> created by Ulrich Donath<br>
        </li>
 </ul>
 </html>"), Icon(coordinateSystem(
@@ -6160,7 +6141,7 @@ Clock transition definitions:
 </PRE>
 </html>", revisions="<html>
 <ul>
-<li><em>September 11, 2009 </em> created by Ulrich Donath<br>
+<li><em>September 11, 2009</em> created by Ulrich Donath<br>
        </li>
 </ul>
 </html>"), Icon(coordinateSystem(
@@ -6260,7 +6241,7 @@ Clock transition definitions:
 </PRE>
 </html>", revisions="<html>
 <ul>
-<li><em>September 11, 2009 </em> created by Ulrich Donath<br>
+<li><em>September 11, 2009</em> created by Ulrich Donath<br>
        </li>
 </ul>
 </html>"), Icon(graphics={Rectangle(
@@ -6338,7 +6319,7 @@ Clock transition definitions:
               textString="%name")}),
         Documentation(revisions="<html>
 <ul>
-<li><em>January 15, 2010 </em> created by Ulrich Donath<br>
+<li><em>January 15, 2010</em> created by Ulrich Donath<br>
        </li>
 </ul>
 </html>", info="<html>
@@ -6420,7 +6401,7 @@ Clock transition definitions:
               textString="%name")}),
         Documentation(revisions="<html>
 <ul>
-<li><em>January 15, 2010 </em> created by Ulrich Donath<br>
+<li><em>January 15, 2010</em> created by Ulrich Donath<br>
        </li>
 </ul>
 </html>", info="<html>
@@ -6502,7 +6483,7 @@ Clock transition definitions:
               textString="%name")}),
         Documentation(revisions="<html>
 <ul>
-<li><em>January 15, 2010 </em> created by Ulrich Donath<br>
+<li><em>January 15, 2010</em> created by Ulrich Donath<br>
        </li>
 </ul>
 </html>", info="<html>
@@ -6584,7 +6565,7 @@ Clock transition definitions:
               textString="%name")}),
         Documentation(revisions="<html>
 <ul>
-<li><em>January 15, 2010 </em> created by Ulrich Donath<br>
+<li><em>January 15, 2010</em> created by Ulrich Donath<br>
        </li>
 </ul>
 </html>", info="<html>
@@ -6661,7 +6642,7 @@ Clock transition definitions:
               textString="%name")}),
         Documentation(revisions="<html>
 <ul>
-<li><em>January 22, 2010 </em> created by Ulrich Donath<br>
+<li><em>January 22, 2010</em> created by Ulrich Donath<br>
        </li>
 </ul>
 </html>", info="<html>
@@ -6740,7 +6721,7 @@ Clock transition definitions:
               textString="%name")}),
         Documentation(revisions="<html>
 <ul>
-<li><em>January 22, 2010 </em> created by Ulrich Donath<br>
+<li><em>January 22, 2010</em> created by Ulrich Donath<br>
        </li>
 </ul>
 </html>", info="<html>
@@ -6824,7 +6805,7 @@ Clock transition definitions:
               textString="%name")}),
         Documentation(revisions="<html>
 <ul>
-<li><em>January 22, 2010 </em> created by Ulrich Donath<br>
+<li><em>January 22, 2010</em> created by Ulrich Donath<br>
        </li>
 </ul>
 </html>", info="<html>
@@ -6908,7 +6889,7 @@ Clock transition definitions:
               textString="%name")}),
         Documentation(revisions="<html>
 <ul>
-<li><em>January 22, 2010 </em> created by Ulrich Donath<br>
+<li><em>January 22, 2010</em> created by Ulrich Donath<br>
        </li>
 </ul>
 </html>", info="<html>
@@ -6955,10 +6936,9 @@ Clock transition definitions:
 Wires n input signals in one output signal, without delay.
 </P>
 <p>Resolution table is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_misc.vhd</p>
-</html>", revisions=
-          "<html>
+</html>", revisions="<html>
 <ul>
-<li><em>January 22, 2010 </em> created by Ulrich Donath<br>
+<li><em>January 22, 2010</em> created by Ulrich Donath<br>
        </li>
 </ul>
 </html>"),
@@ -7072,7 +7052,7 @@ Description in VHDL is given by <a href=\"http://www.cs.sfu.ca/~ggbaker/referenc
 Firstly Write is carried out, then Read.</strong></p>
 </html>", revisions="<html>
 <dl>
-<dt><em>November 9, 2010 </em></dt>
+<dt><em>November 9, 2010</em></dt>
 <dd>created by Ulrich Donath</dd>
 </dl>
 </html>"),
@@ -7295,7 +7275,7 @@ Description in VHDL is given by <a href=\"http://www.cs.sfu.ca/~ggbaker/referenc
   1  = L.&apos;1&apos; or L.&apos;H&apos;
   X  = L.&apos;X&apos; or L.&apos;W&apos; or L.&apos;Z&apos; or L.&apos;-&apos;
   U  = L.&apos;U&apos; </pre>
-</html>",     revisions="<html>
+</html>", revisions="<html>
 <dl>
 <dt><em>January 24, 2011</em></dt>
 <dd>created by Christian G&uuml;nther</dd>
