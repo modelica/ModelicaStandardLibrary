@@ -2316,8 +2316,113 @@ The result can be seen in the output signals of the FullAdders according to:</p>
 </html>"));
         end MIMO;
 
+    partial model MemoryBase "Base model for memory elements"
+      import D = Modelica.Electrical.Digital;
+      import L = Modelica.Electrical.Digital.Interfaces.Logic;
+      import S = Modelica.Electrical.Digital.Interfaces.Strength;
+      import T = Modelica.Electrical.Digital.Tables;
+
+      parameter SI.Time tHL=0 "High->Low delay";
+      parameter SI.Time tLH=0 "Low->High delay";
+      parameter S strength = S.'S_X01' "Output strength";
+      parameter Integer n_addr(min=1) = 2 "Addr width";
+      parameter Integer n_data(min=1) = 2 "Data width";
+      parameter String fileName = Modelica.Utilities.Files.loadResource("modelica://Modelica/Resources/Data/Electrical/Digital/Memory_Matrix.txt")
+        "File where matrix for memory is stored"
+        annotation(Dialog(group="Table data definition", loadSelector(filter="Text files (*.txt)", caption="Open file in which table is present")));
+
+      DigitalInput RE "Read enable" annotation (Placement(transformation(
+        extent={{-100,-30},{-84,-14}}), iconTransformation(extent={{-100,-30},{-84,-14}})));
+      DigitalInput addr[n_addr] "Address" annotation (Placement(transformation(
+        extent={{-100,50},{-80,70}}), iconTransformation(extent={{-100,50},{-80,70}})));
+      DigitalOutput dataOut[n_data] "Data output" annotation (Placement(transformation(
+        extent={{80,10},{100,30}}), iconTransformation(extent={{80,10},{100,30}})));
+
+      function getMemory "Get Memory"
+        extends Modelica.Icons.Function;
+        input String filename;
+        input Integer n_addr "addr width";
+        input Integer n_data "data width";
+        output L m[integer(2^n_addr),n_data] "Memory with data, lowest bit on left side";
+        output String data;
+        output Integer bit;
+      algorithm
+        for i in 1:(2^n_addr) loop
+          data := Modelica.Utilities.Streams.readLine(filename, integer(i));
+          for j in 1:n_data loop
+            bit := Modelica.Utilities.Strings.scanInteger(data, (2*j-1));
+            if bit == 1 then
+              m[integer(i),j] := L.'1';
+            elseif bit == 0 then
+              m[integer(i),j] := L.'0';
+            else
+              m[integer(i),j] := L.'X';
+            end if;
+          end for;
+        end for;
+      end getMemory;
+
+    protected
+      L nextstate[n_data](start=fill(L.'U',n_data));
+      L mem_word[n_data](start=fill(L.'U',n_data));
+      Integer int_addr;
+      DigitalOutput yy[n_data](start=fill(L.'U',n_data));
+      D.Delay.InertialDelaySensitive inertialDelaySensitive[n_data](each tLH=tLH, each tHL=tHL);
+
+      function address "Compute memory address"
+        extends Modelica.Icons.Function;
+        input Integer n_addr;
+        input L addr[n_addr];
+        output Integer int_addr;
+      protected
+        L addr_bit;
+      algorithm
+        int_addr := 1;
+        for i in 1:n_addr loop
+          addr_bit := T.X01Table[addr[i]];
+          if addr_bit == L.'1' then
+             int_addr := int_addr + integer(2^(i-1));
+          elseif addr_bit == L.'X' then
+             int_addr := 0;
+             break;
+          end if;
+        end for;
+      end address;
+
+    equation
+      for i in 1:n_data loop
+        connect(yy[i], inertialDelaySensitive[i].x);
+        connect(inertialDelaySensitive[i].y, dataOut[i]);
+      end for;
+
+    annotation(Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
+      graphics={
+        Rectangle(
+          extent={{-60,80},{60,-80}},
+          lineColor={127,0,127},
+          lineThickness=0.5),
+        Line(
+          points={{-84,60},{-60,60}},
+          color={127,0,127},
+          thickness=1),
+        Line(
+          points={{60,20},{84,20}},
+          color={127,0,127},
+          thickness=1),
+        Line(
+          points={{-84,-20},{-60,-20}},
+          color={127,0,127}),
+        Line(
+          points={{-60,-10},{-46,-20},{-60,-30}},
+          color={127,0,127}),
+        Text(
+          extent={{-41,-5},{-24,-34}},
+          lineColor={127,33,107},
+          textString="RE")}));
+    end MemoryBase;
+
         annotation (Documentation(info="<html>
-<p>This package contains basic definitions: Type definitions of Logic and Strength,  interface definitions (connectors) for digital electrical components, and partial models for connection patterns which are often used.</p>
+<p>This package contains basic definitions: Type definitions of Logic and Strength, interface definitions (connectors) for digital electrical components, and partial models for connection patterns which are often used.</p>
 </html>"));
       end Interfaces;
 
@@ -6871,173 +6976,65 @@ Wires n input signals in one output signal, without delay.
     extends Modelica.Icons.Package;
 
     model DLATRAM "Level sensitive Random Access Memory"
-
-      import D = Modelica.Electrical.Digital;
       import L = Modelica.Electrical.Digital.Interfaces.Logic;
-      import S = Modelica.Electrical.Digital.Interfaces.Strength;
       import T = Modelica.Electrical.Digital.Tables;
+      extends Interfaces.MemoryBase;
 
-      parameter SI.Time tHL=0 "High->Low delay";
-      parameter SI.Time tLH=0 "Low->High delay";
-      parameter D.Interfaces.Strength strength = S.'S_X01' "output strength";
-      parameter Integer n_addr(min=1) = 2 "addr width";
-      parameter Integer n_data(min=1) = 2 "data width";
-      parameter String fileName = Modelica.Utilities.Files.loadResource(
-            "modelica://Modelica/Resources/Data/Electrical/Digital/Memory_Matrix.txt")
-        "File where matrix for memory is stored"
-        annotation(Dialog(group="table data definition",
-                             loadSelector(filter="Text files (*.txt)",
-                             caption="Open file in which table is present")));
+      Interfaces.DigitalInput WE "Write enable" annotation (Placement(transformation(
+        extent={{-100,-60},{-84,-44}}), iconTransformation(extent={{-100,-60},{-84,-44}})));
+      Interfaces.DigitalInput dataIn[n_data] "Data input" annotation (Placement(transformation(
+        extent={{-100,10},{-80,30}}), iconTransformation(extent={{-100,10},{-80,30}})));
+      L mem[integer(2^n_addr),n_data](start=fill(L.'U',integer(2^n_addr),n_data)) "Memory with data, lowest bit on left side";
 
-      D.Interfaces.DigitalInput RE "read enable" annotation (Placement(transformation(
-              extent={{-100,-30},{-84,-14}}),
-                                            iconTransformation(extent={{-100,-28},{
-                -84,-12}})));
-      D.Interfaces.DigitalInput WE "write enable" annotation (Placement(transformation(
-              extent={{-100,-60},{-84,-44}}),
-                                       iconTransformation(extent={{-100,-58},{-84,
-                -42}})));
-      D.Interfaces.DigitalInput addr[n_addr] "address"
-                                             annotation (Placement(transformation(
-              extent={{-100,50},{-80,70}}), iconTransformation(extent={{-100,50},
-                {-80,70}})));
-      D.Interfaces.DigitalInput dataIn[n_data] "data input"
-        annotation (Placement(transformation(extent={{-100,10},{-80,30}})));
-      D.Interfaces.DigitalOutput dataOut[n_data] "data output"
-                                          annotation (Placement(
-            transformation(extent={{80,10},{100,30}}), iconTransformation(
-              extent={{80,10},{100,30}})));
-
-    function getMemory
-      extends Modelica.Icons.Function;
-      input String filename;
-      input Integer n_addr "addr width";
-      input Integer n_data "data width";
-      output D.Interfaces.Logic m[integer(2^n_addr),n_data]
-          "memory with data, lowest bit on left side";
-      output String data;
-      output Integer bit;
     algorithm
-      for i in 1:(2^n_addr) loop
-        data :=Modelica.Utilities.Streams.readLine(filename,
-          integer(i));
-        for j in 1:n_data loop
-          bit := Modelica.Utilities.Strings.scanInteger( data,
-              (2*j-1));
-          if bit == 1 then
-            m[integer(i),j]:=L.'1';
-          elseif bit == 0 then
-            m[integer(i),j]:=L.'0';
-          else
-            m[integer(i),j]:=L.'X';
-          end if;
+      if initial() then
+        mem := getMemory(fileName, n_addr, n_data);
+      end if;
 
-           end for;
-      end for;
-    end getMemory;
-
-    public
-      D.Interfaces.Logic mem[integer(2^n_addr),n_data](start=fill(L.'U',integer(2^n_addr),n_data));
-    protected
-      D.Interfaces.Logic nextstate[n_data](start=fill(L.'U',n_data));
-      D.Interfaces.Logic mem_word[n_data](start=fill(L.'U',n_data));
-      Integer int_addr;
-      // Boolean addr_change;
-
-      D.Interfaces.DigitalOutput yy[n_data](start=fill(L.'U',n_data));
-      D.Delay.InertialDelaySensitive inertialDelaySensitive[n_data](each tLH=tLH, each tHL=tHL);
-
-    function address
-      // compute memory address
-      extends Modelica.Icons.Function;
-      input Integer n_addr;
-      input L addr[n_addr];
-      output Integer int_addr;
-      protected
-      L addr_bit;
-    algorithm
-      int_addr := 1;
-      for i in 1:n_addr loop
-        addr_bit := T.X01Table[addr[i]];
-        if addr_bit == L.'1' then
-           int_addr := int_addr + integer(2^(i-1));
-        elseif addr_bit == L.'X' then
-           int_addr := 0;
-           break;
+      /* write into memory */
+      if WE == L.'1' or WE == L.'H' then
+        // write data
+        int_addr := address(n_addr, addr);
+        //assert(int_addr > 0, "Attempted write to bad RAM address");
+        if int_addr > 0 then
+          for i in 1:n_data loop
+            mem_word[i] := T.X01Table[dataIn[i]];
+          end for;
+          mem[int_addr,1:n_data] := mem_word;
         end if;
-      end for;
-    end address;
-
-    algorithm
-    if initial() then
-      mem := getMemory(fileName, n_addr, n_data);
-    end if;
-
-    /* assert: no address change during write
-addr_change := false;
-for i in 1:n_addr loop
-    if change(addr[i]) then
-      addr_change := true;
-    end if;
-end for;
-
-if WE == L.'1' or WE == L.'H' then
-  assert(not addr_change, "Address lines changed while RAM is Write Enabled");
-end if;
-*/
-
-    /* write into memory */
-    if WE == L.'1' or WE == L.'H' then
-      // write data
-      int_addr := address(n_addr, addr);
-      //assert(int_addr > 0, "Attempted write to bad RAM address");
-      if int_addr > 0 then
-        for i in 1:n_data loop
-          mem_word[i] := T.X01Table[dataIn[i]];
-        end for;
-        mem[int_addr,1:n_data] := mem_word;
+      elseif WE == L.'X' or WE == L.'W' or WE == L.'Z' or WE == L.'U' or WE == L.'-' then
+        // write X
+        int_addr := address(n_addr, addr);
+        //assert(int_addr > 0, "Attempted write to bad RAM address");
+        if int_addr > 0 then
+          mem_word :=fill(L.'X',n_data);
+          mem[int_addr,1:n_data] := mem_word;
+        end if;
       end if;
-    elseif WE == L.'X' or WE == L.'W' or WE == L.'Z' or WE == L.'U' or WE == L.'-' then
-      // write X
-      int_addr := address(n_addr, addr);
-      //assert(int_addr > 0, "Attempted write to bad RAM address");
-      if int_addr > 0 then
-        mem_word :=fill(L.'X',n_data);
-        mem[int_addr,1:n_data] := mem_word;
-      end if;
-    end if;
 
-    /* read from memory */
-    if RE == L.'0' or RE == L.'L' then
-      nextstate := fill(L.'Z',n_data);
-    elseif RE == L.'1' or RE == L.'H' then
-      int_addr := address(n_addr, addr);
-      // read data
-      if int_addr > 0 then
-        mem_word := mem[int_addr,1:n_data];
-        for i in 1:n_data loop
-          nextstate[i] := T.StrengthMap[mem_word[i], strength];
-        end for;
+      /* read from memory */
+      if RE == L.'0' or RE == L.'L' then
+        nextstate := fill(L.'Z',n_data);
+      elseif RE == L.'1' or RE == L.'H' then
+        int_addr := address(n_addr, addr);
+        // read data
+        if int_addr > 0 then
+          mem_word := mem[int_addr,1:n_data];
+          for i in 1:n_data loop
+            nextstate[i] := T.StrengthMap[mem_word[i], strength];
+          end for;
+        else
+          nextstate := fill(T.StrengthMap[L.'X', strength],n_data);
+        end if;
       else
         nextstate := fill(T.StrengthMap[L.'X', strength],n_data);
       end if;
-    else
-      nextstate := fill(T.StrengthMap[L.'X', strength],n_data);
-    end if;
-    yy := nextstate;
+      yy := nextstate;
 
-    equation
-      for i in 1:n_data loop
-        connect(yy[i], inertialDelaySensitive[i].x);
-        connect(inertialDelaySensitive[i].y, dataOut[i]);
-      end for;
-
-       annotation (
-        Documentation(info="<html>
+    annotation(Documentation(info="<html>
 <p>
 Description in VHDL is given by <a href=\"http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd\">http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</a>
 </p>
-
 <p><strong>Truth Table for high active read enable RE:</strong></p>
 <table border=1 cellspacing=0 cellpadding=2>
   <tr><td valign=\"top\"><strong>RE</strong></td>
@@ -7073,180 +7070,75 @@ Description in VHDL is given by <a href=\"http://www.cs.sfu.ca/~ggbaker/referenc
 
 <p><strong>Simultaneous read/write operations are allowed.
 Firstly Write is carried out, then Read.</strong></p>
-</html>",     revisions="<html>
+</html>", revisions="<html>
 <dl>
 <dt><em>November 9, 2010 </em></dt>
 <dd>created by Ulrich Donath</dd>
 </dl>
 </html>"),
-        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-                100,100}}), graphics={
-            Rectangle(
-              extent={{-60,80},{60,-80}},
-              lineColor={127,0,127},
-              lineThickness=0.5),
-            Text(
-              extent={{-46,102},{46,-2}},
-              lineColor={127,33,107},
-              textString="DLATRAM"),
-            Line(
-              points={{-84,60},{-60,60}},
-              color={127,0,127},
-              thickness=1),
-            Line(
-              points={{60,20},{84,20}},
-              color={127,0,127},
-              thickness=1),
-            Line(
-              points={{-84,-20},{-60,-20}},
-              color={127,0,127}),
-            Line(
-              points={{-60,-10},{-46,-20},{-60,-30}},
-              color={127,0,127}),
-            Text(
-              extent={{-41,-5},{-24,-34}},
-              lineColor={127,33,107},
-              textString="RE"),
-            Line(
-              points={{-60,-40},{-46,-50},{-60,-60}},
-              color={127,0,127}),
-            Text(
-              extent={{-41,-35},{-24,-62}},
-              lineColor={127,33,107},
-              textString="WE"),
-            Line(
-              points={{-84,-50},{-60,-50}},
-              color={127,0,127}),
-            Line(
-              points={{-80,20},{-60,20}},
-              color={127,0,127},
-              thickness=1)}));
+      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
+        graphics={
+          Text(
+            extent={{-46,102},{46,-2}},
+            lineColor={127,33,107},
+            textString="DLATRAM"),
+          Line(
+            points={{-60,-40},{-46,-50},{-60,-60}},
+            color={127,0,127}),
+          Text(
+            extent={{-41,-35},{-24,-62}},
+            lineColor={127,33,107},
+            textString="WE"),
+          Line(
+            points={{-84,-50},{-60,-50}},
+            color={127,0,127}),
+          Line(
+            points={{-80,20},{-60,20}},
+            color={127,0,127},
+            thickness=1)}));
     end DLATRAM;
 
     model DLATROM "Level sensitive Read Only Memory"
-
-      import D = Modelica.Electrical.Digital;
       import L = Modelica.Electrical.Digital.Interfaces.Logic;
-      import S = Modelica.Electrical.Digital.Interfaces.Strength;
       import T = Modelica.Electrical.Digital.Tables;
-
-      parameter SI.Time tHL=0 "High->Low delay";
-      parameter SI.Time tLH=0 "Low->High delay";
-      parameter D.Interfaces.Strength strength = S.'S_X01' "output strength";
-      parameter Integer n_addr(min=1) = 2 "addr width";
-      parameter Integer n_data(min=1) = 2 "data width";
-      parameter String fileName = Modelica.Utilities.Files.loadResource(
-            "modelica://Modelica/Resources/Data/Electrical/Digital/Memory_Matrix.txt")
-        "File where matrix for memory is stored"
-        annotation(Dialog(group="table data definition",
-                             loadSelector(filter="Text files (*.txt)",
-                             caption="Open file in which table is present")));
-
-      D.Interfaces.DigitalInput RE "read enable" annotation (Placement(transformation(
-              extent={{-100,-30},{-80,-10}}),
-                                            iconTransformation(extent={{-100,
-                -27},{-86,-13}})));
-      D.Interfaces.DigitalInput addr[n_addr] "address" annotation (Placement(transformation(
-              extent={{-100,50},{-80,70}}), iconTransformation(extent={{-100,52},{
-                -84,68}})));
-      D.Interfaces.DigitalOutput dataOut[n_data] "data output"
-                                            annotation (Placement(
-            transformation(extent={{80,8},{100,28}}),  iconTransformation(
-              extent={{84,12},{100,29}})));
-
-    function getMemory
-      extends Modelica.Icons.Function;
-      input String filename;
-      input Integer n_addr "addr width";
-      input Integer n_data "data width";
-      output D.Interfaces.Logic m[integer(2^n_addr),n_data]
-          "memory with data, lowest bit on left side";
-      output String data;
-      output Integer bit;
-    algorithm
-      for i in 1:(2^n_addr) loop
-        data :=Modelica.Utilities.Streams.readLine(filename,
-          integer(i));
-        for j in 1:n_data loop
-          bit := Modelica.Utilities.Strings.scanInteger( data,
-              (2*j-1));
-          if bit == 1 then
-            m[integer(i),j]:=L.'1';
-          elseif bit == 0 then
-            m[integer(i),j]:=L.'0';
-          else
-            m[integer(i),j]:=L.'X';
-          end if;
-
-           end for;
-      end for;
-    end getMemory;
+      extends Interfaces.MemoryBase;
 
     protected
-      D.Interfaces.Logic m[integer(2^n_addr),n_data](start=fill(L.'U',integer(2^n_addr),n_data))
-        "memory with data, lowest bit on left side";
-      D.Interfaces.Logic nextstate[n_data](start=fill(L.'U',n_data));
-      //D.Interfaces.Logic mem[integer(2^n_addr),n_data](start=fill(L.'U',integer(2^n_addr),n_data));
-      D.Interfaces.Logic mem_word[n_data](start=fill(L.'U',n_data));
-      D.Interfaces.Logic addr_bit;
-      Integer int_addr;
-
-      D.Interfaces.DigitalOutput yy[n_data](start=fill(L.'U',n_data));
-      D.Delay.InertialDelaySensitive inertialDelaySensitive[n_data](each tLH=tLH, each tHL=tHL);
+      L m[integer(2^n_addr),n_data](start=fill(L.'U',integer(2^n_addr),n_data)) "Memory with data, lowest bit on left side";
 
     algorithm
-    if initial() then
-      m := getMemory(fileName, n_addr, n_data);
-    end if;
-
-    if RE == L.'0' or RE == L.'L' then
-      nextstate := fill(L.'Z',n_data);
-    elseif RE == L.'1' or RE == L.'H' then
-      // compute memory address
-      int_addr := 1;
-      for i in 1:n_addr loop
-        addr_bit :=T.X01Table[addr[i]];
-        if addr_bit == L.'1' then
-           int_addr := int_addr + integer(2^(i-1));
-        elseif addr_bit == L.'X' then
-           int_addr := 0;
-           break;
-        end if;
-      end for;
-      // read data
-      if int_addr > 0 then
-         mem_word := m[int_addr,1:n_data];
-         for i in 1:n_data loop
-            nextstate[i] := T.StrengthMap[mem_word[i], strength];
-         end for;
-      else
-         nextstate := fill(T.StrengthMap[L.'X', strength],n_data);
+      if initial() then
+        m := getMemory(fileName, n_addr, n_data);
       end if;
-    else
-      nextstate := fill(T.StrengthMap[L.'X', strength],n_data);
-    end if;
-    yy := nextstate;
 
-    equation
+      if RE == L.'0' or RE == L.'L' then
+        nextstate := fill(L.'Z',n_data);
+      elseif RE == L.'1' or RE == L.'H' then
+        int_addr := address(n_addr, addr);
+        // read data
+        if int_addr > 0 then
+           mem_word := m[int_addr,1:n_data];
+           for i in 1:n_data loop
+              nextstate[i] := T.StrengthMap[mem_word[i], strength];
+           end for;
+        else
+           nextstate := fill(T.StrengthMap[L.'X', strength],n_data);
+        end if;
+      else
+        nextstate := fill(T.StrengthMap[L.'X', strength],n_data);
+      end if;
+      yy := nextstate;
 
-      for i in 1:n_data loop
-        connect(yy[i], inertialDelaySensitive[i].x);
-        connect(inertialDelaySensitive[i].y, dataOut[i]);
-      end for;
-
-       annotation (
-        Documentation(info="<html>
+    annotation(Documentation(info="<html>
 <p>
 Description in VHDL is given by <a href=\"http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd\">http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</a>
 </p>
 <p><strong>Truth Table for high active read enable RE:</strong></p>
-
 <table border=1 cellspacing=0 cellpadding=2>
   <tr><td valign=\"top\"><strong>RE</strong></td>
       <td valign=\"top\"><strong>Addr</strong></td>
       <td valign=\"top\"><strong>DataOut</strong></td>
   </tr>
-
   <tr><td valign=\"top\">0</td> <td valign=\"top\">*</td> <td valign=\"top\">Z over all</td>  </tr>
   <tr><td valign=\"top\">1</td> <td valign=\"top\">  no X in Addr</td> <td valign=\"top\">DataOut=m(Addr)</td>  </tr>
   <tr><td valign=\"top\">1</td> <td valign=\"top\">X in Addr</td> <td valign=\"top\">X over all</td> </tr>
@@ -7262,40 +7154,18 @@ Description in VHDL is given by <a href=\"http://www.cs.sfu.ca/~ggbaker/referenc
   Z  = L.'Z'
 </PRE>
 
-</html>",     revisions="<html>
+</html>", revisions="<html>
 <dl>
 <dt><em>October 19, 2010</em></dt>
 <dd>created by Ulrich Donath</dd>
 </dl>
 </html>"),
-        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
-                            graphics={
-            Rectangle(
-              extent={{-60,80},{60,-80}},
-              lineColor={127,0,127},
-              lineThickness=0.5),
-            Text(
-              extent={{-46,102},{46,-2}},
-              lineColor={127,33,107},
-              textString="DLATROM"),
-            Line(
-              points={{-84,60},{-60,60}},
-              color={127,0,127},
-              thickness=1),
-            Line(
-              points={{60,20},{84,20}},
-              color={127,0,127},
-              thickness=1),
-            Line(
-              points={{-88,-20},{-60,-20}},
-              color={127,0,127}),
-            Line(
-              points={{-60,-10},{-46,-20},{-60,-30}},
-              color={127,0,127}),
-            Text(
-              extent={{-41,-5},{-24,-34}},
-              lineColor={127,33,107},
-              textString="RE")}));
+      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
+        graphics={
+          Text(
+            extent={{-46,102},{46,-2}},
+            lineColor={127,33,107},
+            textString="DLATROM")}));
     end DLATROM;
   end Memories;
 
