@@ -309,7 +309,7 @@ The reason could be that
     annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
     parameter SI.Temperature T=293.15
       "Fixed device temperature if useHeatPort = false" annotation(Dialog(enable=not useHeatPort));
-    Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort(T(start=T)=T_heatPort, Q_flow=-LossPower) if useHeatPort
+    Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort(T=T_heatPort, Q_flow=-LossPower) if useHeatPort
       "Conditional heat port"
       annotation (Placement(transformation(extent={{-10,-110},{10,-90}}),
           iconTransformation(extent={{-10,-110},{10,-90}})));
@@ -322,11 +322,11 @@ The reason could be that
 
     annotation (Documentation(revisions="<html>
 <ul>
-<li><em> February 17, 2009   </em>
+<li><em>February 17, 2009</em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
-</html>",   info="<html>
+</html>", info="<html>
 <p>
 This partial model provides a conditional heating port for the connection to a thermal network.
 </p>
