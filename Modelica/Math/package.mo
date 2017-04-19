@@ -4077,9 +4077,9 @@ for more information.
 
   public
     output Real X[size(A, 1), size(A, 2)] "stabilizing solution of CARE";
-    output Real alphaReal[size(H, 1)]
+    output Real alphaReal[2*size(A, 1)]
       "Real parts of eigenvalue=alphaReal+i*alphaImag";
-    output Real alphaImag[size(H, 1)]
+    output Real alphaImag[2*size(A, 1)]
       "Imaginary parts of eigenvalue=alphaReal+i*alphaImag";
   algorithm
     if n > 1 then
@@ -4658,9 +4658,9 @@ The Boolean inputs \"AisHess\" and \"BTisSchur\" indicate to omit one or both of
   public
     output Real X[size(A, 1), size(A, 2)]
       "orthogonal matrix of the Schur vectors associated to ordered rsf";
-    output Real alphaReal[size(H, 1)]
+    output Real alphaReal[2*size(A, 1)]
       "Real part of eigenvalue=alphaReal+i*alphaImag";
-    output Real alphaImag[size(H, 1)]
+    output Real alphaImag[2*size(A, 1)]
       "Imaginary part of eigenvalue=alphaReal+i*alphaImag";
   algorithm
     (LU,p) := Modelica.Math.Matrices.LU(AT);
