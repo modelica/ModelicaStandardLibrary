@@ -346,7 +346,7 @@ Zeunerstrasse 38<br />
           Tolerance=1e-7),
         Documentation(info="<html>
 <p>An inverter is an electrical circuit that consists of a PMOS and a NMOS transistor. Its task is to turn the input voltage from high potential to low potential or the other way round.</p>
-<p>Simulate until 1e-11 s. Display the input voltage Vin.p.v as well as the output voltage mp.S.v. It shows that the input voltage is inverted.</p>
+<p>Simulate until 1e-11 s. Display the input voltage vin.p.v as well as the output voltage mp.S.v. It shows that the input voltage is inverted.</p>
 </html>", revisions="<html>
 <ul>
 <li><em>March 2009 </em>by Kristin Majetta initially implemented</li>
@@ -447,8 +447,8 @@ Zeunerstrasse 38<br />
 <p>An inverter is an electrical circuit that consists of a PMOS and a NMOS. Its task is to turn the input voltage from high potential to low potential or the other way round. This circuit <em>InverterApartModel</em> contains two inverters. The input voltage of the first inverter is nearly equal to the output voltage of the second inverter. Capacities cause some differences.</p>
 <p>To see the typical behavior of the circuit the input voltages and the output voltages should be plotted. Besides that it can be interesting to watch the output voltage of the first inverter. Simulated until t=5s.</p>
 <p>Input voltages: vin.p.v and v.p.v</p>
-<p>Output voltage of the first inverter: mn1.ND.v</p>
-<p>Output voltage of the second Inverter: mn2.ND.v</p>
+<p>Output voltage of the first inverter: mn1.D.v</p>
+<p>Output voltage of the second Inverter: mn2.D.v</p>
 <p>This example shows one possibility to make the record of the technology parameters available for more than one transistor. For each transistor in the circuit a record with the technology parameters is made available as an instance of the record modelcardMOS. In this circuit we need two different records for technology parameters, one for PMOS (MPmos) and one for NMOS (MNmos). This instances of the record for the technology parameters were made available for every transistor as one of theirs parameters (Spice3.Repository.MOS mn1(mtype=0, modelcard=MNmos).</p>
 </html>", revisions="<html>
 <ul>
@@ -552,8 +552,8 @@ Zeunerstrasse 38<br />
 <p>An inverter is an electrical circuit that consists of a PMOS and a NMOS. Its task is to turn the input voltage from high potential to low potential or the other way round. This circuit <em>InverterExtendedModel</em> contains two inverters. The input voltage of the first inverter is nearly equal to the output voltage of the second inverter. Capacities cause some differences.</p>
 <p>To see the typical behavior of the circuit the input voltages and the output voltages should be plotted. Besides that it can be interesting to watch the output voltage of the first inverter. Simulated until t=5s.</p>
 <p>Input voltages: vin.p.v and v.p.v</p>
-<p>Output voltage of the first inverter: mn1.ND.v</p>
-<p>Output voltage of the second Inverter: mn2.ND.v</p>
+<p>Output voltage of the first inverter: mn1.D.v</p>
+<p>Output voltage of the second Inverter: mn2.D.v</p>
 <p>This example shows one possibility to make the record of the technology parameters available for more than one transistor. For each set of technology parameters an apart model has to be defined (in this example: MPmos ans MNmos). Inside the model definition the technology parameters are appointed (Spice3.Semiconductors.modelcardMOS M(GAMMA=0.37, LAMBDA=0.02)). Every model extends a transistor. In this process the required technologyparameters are specified (extends Spice3.Repository.MOS(final mtype=1, modelcard=M). To make transistors available in the circuit instances of the defined models are applied (MPmos mp1; MNmos mn1; MPmos mp2; MNmos mn2;).</p>
 </html>", revisions="<html>
 <ul>
@@ -570,9 +570,9 @@ Zeunerstrasse 38<br />
                 {-54,-60}})));
 
       parameter Semiconductors.ModelcardMOS modp(CBD=0, CBS=0)
-        "private PMOS modelcard";
+        "Private PMOS modelcard";
       parameter Semiconductors.ModelcardMOS modn(CBD=0, CBS=0)
-        "private NMOS modelcard";
+        "Private NMOS modelcard";
 
       Semiconductors.M_PMOS mp1(modelcard=modp, IC=-1e40)
                 annotation (Placement(transformation(extent={{-74,20},{-54,40}})));
@@ -584,10 +584,10 @@ Zeunerstrasse 38<br />
                 annotation (Placement(transformation(extent={{-34,-30},{-14,-10}})));
       Semiconductors.M_PMOS mp3(modelcard=modp, IC=-1e40)
                 annotation (Placement(transformation(extent={{6,20},{26,40}})));
-      Semiconductors.M_PMOS mp4(modelcard=modn, IC=-1e40)
-                annotation (Placement(transformation(extent={{46,20},{66,40}})));
       Semiconductors.M_NMOS mn3(modelcard=modp, IC=-1e40)
                 annotation (Placement(transformation(extent={{6,-30},{26,-10}})));
+      Semiconductors.M_PMOS mp4(modelcard=modn, IC=-1e40)
+                annotation (Placement(transformation(extent={{46,20},{66,40}})));
       Semiconductors.M_NMOS mn4(modelcard=modn, IC=-1e40)
                 annotation (Placement(transformation(extent={{46,-30},{66,-10}})));
       Basic.C_Capacitor c1(C=10e-6,
@@ -703,8 +703,8 @@ Zeunerstrasse 38<br />
           points={{-64,40},{-24,40}}, color={0,0,255}));
       annotation (experiment(StopTime=5),
         Documentation(info="<html>
-<p>This circuit that contains four inverter was designed to show the functionality of the MOS transistor models. To see the behavior of the circuit the output voltages of each inverter should be displayed (mp1.NS.v, mp2.NS.v, mp3.NS.v, mp4.NS.v). The output voltages of the second an fourth inverter and the input voltage of the first inverter have the same potential. The output voltages of the first and third inverter have the opposite potential compared with inverter 2 and 4.</p>
-<p>Simulate until t=5s. The output values should be: mp1.NS.v, mp2.NS.v, mp3.NS.v, mp4.NS.v and vgate.p.v</p>
+<p>This circuit that contains four inverter was designed to show the functionality of the MOS transistor models. To see the behavior of the circuit the output voltages of each inverter should be displayed (mp1.S.v, mp2.S.v, mp3.S.v, mp4.S.v). The output voltages of the second an fourth inverter and the input voltage of the first inverter have the same potential. The output voltages of the first and third inverter have the opposite potential compared with inverter 2 and 4.</p>
+<p>Simulate until t=5s. The output values should be: mp1.S.v, mp2.S.v, mp3.S.v and mp4.S.v</p>
 </html>", revisions="<html>
 <ul>
 <li><em>April 2009 </em>by Kristin Majetta initially implemented</li>
@@ -795,7 +795,7 @@ Zeunerstrasse 38<br />
 <table cellspacing=\"2\" cellpadding=\"0\" border=\"1\"><tr>
 <td><p>input voltage vin1</p></td>
 <td><p>input voltage vin2</p></td>
-<td><p>output voltage mNMOS1.NS</p></td>
+<td><p>output voltage mn1.D</p></td>
 </tr>
 <tr>
 <td><p>0</p></td>
@@ -818,7 +818,7 @@ Zeunerstrasse 38<br />
 <td><p>0</p></td>
 </tr>
 </table>
-<p>Simulate until t=2e-7s. Display the two input voltages vin1.p.v and vin2.p.v and the output voltage mNMOS1.ND.v, which becomes zero only if both input values are high.</p>
+<p>Simulate until t=2e-7s. Display the two input voltages vin1.p.v and vin2.p.v and the output voltage mn1.D.v, which becomes zero only if both input values are high.</p>
 </html>", revisions="<html>
 <ul>
 <li><em>May 2009 </em>by Kristin Majetta initially implemented</li>
@@ -934,7 +934,7 @@ Zeunerstrasse 38<br />
 <table cellspacing=\"2\" cellpadding=\"0\" border=\"1\"><tr>
 <td><p>input voltage vin1</p></td>
 <td><p>input voltage vin2</p></td>
-<td><p>output voltage m_PMOS1.NS</p></td>
+<td><p>output voltage mp1.S</p></td>
 </tr>
 <tr>
 <td><p>0</p></td>
@@ -957,7 +957,7 @@ Zeunerstrasse 38<br />
 <td><p>0</p></td>
 </tr>
 </table>
-<p>Simulate until t=5s. Display the two input voltages vin1.p.v and vin2.p.v and the output voltage mPMOS1.NS.v.</p>
+<p>Simulate until t=5s. Display the two input voltages vin1.p.v and vin2.p.v and the output voltage mp1.S.v.</p>
 <p>The output value in the example shows a behaviour &quot;near&quot; the one of the truth table, since the capacitances are huge. Therefore loading is not finished before the next input changes.</p>
 </html>", revisions="<html>
 <ul>
