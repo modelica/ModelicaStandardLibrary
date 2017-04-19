@@ -508,7 +508,7 @@ j</span> and its derivative as states and then all positional variables can be
 computed in a forwards sequence. It is now understandable that a Modelica
 translator can
 transform the equations of the four bar mechanism to a recursive sequence of
-statements that has no non-linear algebraic loops anymore(remember,
+statements that has no non-linear algebraic loops anymore (remember,
 the previous \"straightforward\" solution with 6 revolute joints and 1
 prismatic joint has a nonlinear system of equations of order 5).
 </p>
