@@ -765,13 +765,13 @@ package OpAmps
     extends Modelica.Icons.Example;
     import Modelica.Constants.pi;
     parameter SI.Voltage Vps=+15 "Positive supply";
-    parameter SI.Voltage Vns=-15 "Negative supply";
-    parameter SI.Voltage VAmp=10 "Amplitude of output";
-    parameter SI.Resistance R1=1000;
-    parameter SI.Resistance R2=R1*Vps/VAmp;
+    parameter SI.Voltage Vns=-Vps "Negative supply";
+    parameter SI.Voltage VAmp=10 "Desired amplitude of output";
+    parameter SI.Resistance R1=1000 "Arbitrary resistance for Schmitt trigger part";
+    parameter SI.Resistance R2=R1*Vps/VAmp "Calculated resistance for Schmitt trigger to reach VAmp";
     parameter SI.Frequency f=10 "Desired frequency";
-    parameter SI.Resistance R=1000;
-    parameter SI.Capacitance C=Vps/VAmp/(4*f*R);
+    parameter SI.Resistance R=1000 "Arbitrary resistance of integrator part";
+    parameter SI.Capacitance C=Vps/VAmp/(4*f*R) "Calculated capacitance of integrator part to reach f";
     Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimted opAmp1(Vps=Vps, Vns=
           Vns)
       annotation (Placement(transformation(extent={{-60,10},{-40,-10}})));
@@ -836,8 +836,9 @@ package OpAmps
         points={{0,-40},{60,-40},{60,-28}}, color={0,0,255}));
     annotation (Documentation(info=
                    "<html>
-                        <p>This signal generator consists of a Schmitt trigger and an integrator. The output of the first OpAmp (Schmitt trigger) is a rectangular signal, the output of the second OpAmp (integrator) is a triangular signal. </p>
-                        <p>The switching level of the comparator defines the amplitude of the triangle, the frequency is defined by: f = Vps/VAmp/(4*R*C) according to:</p>
+                        <p>This signal generator consists of a Schmitt trigger and an integrator. The output of the Schmitt trigger part opamp (opAmp1) is a rectangular signal with the amplitude VAmp and the frequency f. 
+						The output of the integrator part opamp (opAmp2) is a triangular signal of also the amplitude Vamp and the frequency f. </p>
+						<p>Source:</p>
                         <p>U. Tietze and C. Schenk, Halbleiter-Schaltungstechnik (German), 11th edition, Springer 1999, Chapter 14.5.2</p>
                         </html>"),
       experiment(
