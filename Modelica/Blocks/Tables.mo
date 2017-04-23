@@ -565,6 +565,9 @@ MATLAB is a registered trademark of The MathWorks, Inc.
     parameter Modelica.Blocks.Types.Smoothness smoothness=Modelica.Blocks.Types.Smoothness.LinearSegments
       "Smoothness of table interpolation"
       annotation (Dialog(group="Table data interpretation"));
+    parameter Modelica.Blocks.Types.Extrapolation extrapolation=Modelica.Blocks.Types.Extrapolation.LastTwoPoints
+      "Extrapolation of data outside the definition range"
+      annotation (Dialog(group="Table data interpretation", enable=false));
   protected
     parameter Modelica.Blocks.Types.ExternalCombiTable2D tableID=
         Modelica.Blocks.Types.ExternalCombiTable2D(
@@ -572,6 +575,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
           if tableOnFile and fileName <> "NoName" and not Modelica.Utilities.Strings.isEmpty(fileName) then fileName else "NoName",
           table,
           smoothness,
+          extrapolation,
           if tableOnFile then verboseRead else false) "External table object";
 
   equation

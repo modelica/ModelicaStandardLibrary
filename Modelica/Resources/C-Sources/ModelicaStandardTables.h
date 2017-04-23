@@ -315,6 +315,7 @@ MODELICA_EXPORT void* ModelicaStandardTables_CombiTable2D_init2(_In_z_ const cha
                                                 _In_z_ const char* tableName,
                                                 _In_ double* table, size_t nRow,
                                                 size_t nColumn, int smoothness,
+                                                int extrapolation,
                                                 int verbose) MODELICA_NONNULLATTR;
   /* Initialize 2-dim. table defined by matrix, where first column
      is x-axis, first row is y-axis and the matrix elements are the
@@ -335,6 +336,11 @@ MODELICA_EXPORT void* ModelicaStandardTables_CombiTable2D_init2(_In_z_ const cha
                     = 1: bilinear
                     = 2: continuous first derivative (by bivariate Akima splines)
                     = 3: bivariate constant
+     -> extrapolation: Extrapolation type
+                       = 1: hold first/last value
+                       = 2: linear
+                       = 3: periodic
+                       = 4: no
      -> verbose: Print message that file is loading
      <- RETURN: Pointer to internal memory of table structure
   */

@@ -209,6 +209,7 @@ initialization definition.
       input String fileName "File name";
       input Real table[:, :];
       input Modelica.Blocks.Types.Smoothness smoothness;
+      input Modelica.Blocks.Types.Extrapolation extrapolation;
       input Boolean verboseRead=true "= true: Print info message; = false: No info message";
       output ExternalCombiTable2D externalCombiTable2D;
     external"C" externalCombiTable2D = ModelicaStandardTables_CombiTable2D_init2(
@@ -218,6 +219,7 @@ initialization definition.
             size(table, 1),
             size(table, 2),
             smoothness,
+            extrapolation,
             verboseRead) annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
     end constructor;
 

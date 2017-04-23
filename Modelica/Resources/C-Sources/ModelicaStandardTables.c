@@ -268,6 +268,7 @@ typedef struct CombiTable2D {
     size_t last1; /* Last accessed row index of table */
     size_t last2; /* Last accessed column index of table */
     enum Smoothness smoothness; /* Smoothness kind */
+    enum Extrapolation extrapolation; /* Extrapolation kind */
     enum TableSource source; /* Source kind */
     CubicHermite2D* spline; /* Pre-calculated cubic Hermite spline coefficients,
         only used if smoothness is AKIMA_C1 */
@@ -2138,13 +2139,14 @@ void* ModelicaStandardTables_CombiTable2D_init(_In_z_ const char* tableName,
                                                _In_ double* table, size_t nRow,
                                                size_t nColumn, int smoothness) {
     return ModelicaStandardTables_CombiTable2D_init2(fileName, tableName,
-        table, nRow, nColumn, smoothness, 1 /* verbose */);
+        table, nRow, nColumn, smoothness, LAST_TWO_POINTS, 1 /* verbose */);
 }
 
 void* ModelicaStandardTables_CombiTable2D_init2(_In_z_ const char* fileName,
                                                 _In_z_ const char* tableName,
                                                 _In_ double* table, size_t nRow,
                                                 size_t nColumn, int smoothness,
+                                                int extrapolation,
                                                 int verbose) {
     CombiTable2D* tableID;
 #if defined(TABLE_SHARE)
@@ -2204,6 +2206,7 @@ void* ModelicaStandardTables_CombiTable2D_init2(_In_z_ const char* fileName,
     }
 
     tableID->smoothness = (enum Smoothness)smoothness;
+    tableID->extrapolation = (enum Extrapolation)extrapolation;
     tableID->source = source;
 
     switch (tableID->source) {
