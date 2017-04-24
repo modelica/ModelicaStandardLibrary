@@ -3075,6 +3075,10 @@ void ModelicaStandardTables_CombiTable2D_minimumAbscissa(void* _tableID,
         uMin[0] = TABLE_COL0(1);
         uMin[1] = TABLE_ROW0(1);
     }
+    else {
+        uMin[0] = 0.;
+        uMin[1] = 0.;
+    }
 }
 
 void ModelicaStandardTables_CombiTable2D_maximumAbscissa(void* _tableID,
@@ -3086,6 +3090,10 @@ void ModelicaStandardTables_CombiTable2D_maximumAbscissa(void* _tableID,
         const size_t nCol = tableID->nCol;
         uMax[0] = TABLE_COL0(nRow - 1);
         uMax[1] = TABLE_ROW0(nCol - 1);
+    }
+    else {
+        uMax[0] = 0.;
+        uMax[1] = 0.;
     }
 }
 
