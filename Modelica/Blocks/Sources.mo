@@ -2153,6 +2153,9 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
     parameter Modelica.Blocks.Types.TimeEvents timeEvents=Modelica.Blocks.Types.TimeEvents.Always
       "Time event handling of table interpolation"
       annotation (Dialog(group="Table data interpretation", enable=smoothness == Modelica.Blocks.Types.Smoothness.LinearSegments));
+    parameter Boolean verboseExtrapolation=false
+      "= true, if warning messages are to be printed if time is outside the table definition range"
+      annotation (Dialog(group="Table data interpretation", enable=extrapolation == Modelica.Blocks.Types.Extrapolation.LastTwoPoints or extrapolation == Modelica.Blocks.Types.Extrapolation.HoldLastPoint));
     final parameter Modelica.SIunits.Time t_min=t_minScaled*timeScale
       "Minimum abscissa value defined in table";
     final parameter Modelica.SIunits.Time t_max=t_maxScaled*timeScale
@@ -2190,6 +2193,20 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
       assert(size(table, 1) > 0 and size(table, 2) > 0,
         "tableOnFile = false and parameter table is an empty matrix");
     end if;
+
+    if verboseExtrapolation and (
+      extrapolation == Modelica.Blocks.Types.Extrapolation.LastTwoPoints or
+      extrapolation == Modelica.Blocks.Types.Extrapolation.HoldLastPoint) then
+      assert(noEvent(time >= t_min), "
+Extrapolation warning: Time (=" + String(time) + ") must be greater or equal
+than the minimum abscissa value t_min (=" + String(t_min) + ") defined in the table.
+", level=AssertionLevel.warning);
+      assert(noEvent(time <= t_max), "
+Extrapolation warning: Time (=" + String(time) + ") must be less or equal
+than the maximum abscissa value t_max (=" + String(t_max) + ") defined in the table.
+", level=AssertionLevel.warning);
+    end if;
+
     timeScaled = time/timeScale;
     when {time >= pre(nextTimeEvent), initial()} then
       nextTimeEventScaled = Internal.getNextTimeEvent(tableID, timeScaled);

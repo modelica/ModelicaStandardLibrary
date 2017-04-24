@@ -348,6 +348,14 @@ MODELICA_EXPORT void* ModelicaStandardTables_CombiTable2D_init2(_In_z_ const cha
 MODELICA_EXPORT void ModelicaStandardTables_CombiTable2D_close(void* tableID);
   /* Close table and free allocated memory */
 
+MODELICA_EXPORT void ModelicaStandardTables_CombiTable2D_minimumAbscissa(void* tableID,
+                                                         _Inout_ double* uMin);
+  /* Get minimum abscissa defined in table (= table[2,1] and table[end,1]) */
+
+MODELICA_EXPORT void ModelicaStandardTables_CombiTable2D_maximumAbscissa(void* tableID,
+                                                         _Inout_ double* uMax);
+  /* Get maximum abscissa defined in table (= table[1,2] and table[1,end]) */
+
 MODELICA_EXPORT double ModelicaStandardTables_CombiTable2D_getValue(void* tableID, double u1,
                                                     double u2);
   /* Interpolate in table

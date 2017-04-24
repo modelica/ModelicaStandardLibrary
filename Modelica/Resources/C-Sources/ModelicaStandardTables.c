@@ -1009,7 +1009,14 @@ double ModelicaStandardTables_CombiTimeTable_getValue(void* _tableID, int iCol,
                             break;
 
                         case NO_EXTRAPOLATION:
-                            ModelicaError("Extrapolation error\n");
+                            ModelicaFormatError("Extrapolation error: Time "
+                                "(=%lf) must be %s or equal\nthan the %s abscissa "
+                                "value %s (=%lf) defined in the table.\n", tOld,
+                                (extrapolate == LEFT) ? "greater" : "less",
+                                (extrapolate == LEFT) ? "minimum" : "maximum",
+                                (extrapolate == LEFT) ? "t_min" : "t_max",
+                                (extrapolate == LEFT) ?
+                                TABLE_ROW0(0) : TABLE_COL0(tableID->nRow - 1));
                             return y;
 
                         case PERIODIC:
@@ -1259,7 +1266,14 @@ double ModelicaStandardTables_CombiTimeTable_getDerValue(void* _tableID, int iCo
                             break;
 
                         case NO_EXTRAPOLATION:
-                            ModelicaError("Extrapolation error\n");
+                            ModelicaFormatError("Extrapolation error: Time "
+                                "(=%lf) must be %s or equal\nthan the %s abscissa "
+                                "value %s (=%lf) defined in the table.\n", tOld,
+                                (extrapolate == LEFT) ? "greater" : "less",
+                                (extrapolate == LEFT) ? "minimum" : "maximum",
+                                (extrapolate == LEFT) ? "t_min" : "t_max",
+                                (extrapolate == LEFT) ?
+                                TABLE_ROW0(0) : TABLE_COL0(tableID->nRow - 1));
                             return der_y;
 
                         case PERIODIC:
@@ -1469,9 +1483,9 @@ double ModelicaStandardTables_CombiTimeTable_nextTimeEvent(void* _tableID,
                             int isEq = isNearlyEqual(t0, t1);
                             if ((tableID->timeEvents == ALWAYS && !isEq) ||
                                 (tableID->timeEvents == AT_DISCONT && isEq)) {
-	                            nextTimeEvent = t0;
-	                            break;
-	                        }
+                                nextTimeEvent = t0;
+                                break;
+                            }
                         }
                     }
 
@@ -1961,7 +1975,14 @@ double ModelicaStandardTables_CombiTable1D_getValue(void* _tableID, int iCol,
                         break;
 
                     case NO_EXTRAPOLATION:
-                        ModelicaError("Extrapolation error\n");
+                        ModelicaFormatError("Extrapolation error: The value u "
+                            "(=%lf) must be %s or equal\nthan the %s abscissa "
+                            "value %s (=%lf) defined in the table.\n", u,
+                            (extrapolate == LEFT) ? "greater" : "less",
+                            (extrapolate == LEFT) ? "minimum" : "maximum",
+                            (extrapolate == LEFT) ? "u_min" : "u_max",
+                            (extrapolate == LEFT) ?
+                            TABLE_ROW0(0) : TABLE_COL0(tableID->nRow - 1));
                         return y;
 
                     case PERIODIC:
@@ -2095,7 +2116,14 @@ double ModelicaStandardTables_CombiTable1D_getDerValue(void* _tableID, int iCol,
                         break;
 
                     case NO_EXTRAPOLATION:
-                        ModelicaError("Extrapolation error\n");
+                        ModelicaFormatError("Extrapolation error: The value u "
+                            "(=%lf) must be %s or equal\nthan the %s abscissa "
+                            "value %s (=%lf) defined in the table.\n", u,
+                            (extrapolate == LEFT) ? "greater" : "less",
+                            (extrapolate == LEFT) ? "minimum" : "maximum",
+                            (extrapolate == LEFT) ? "u_min" : "u_max",
+                            (extrapolate == LEFT) ?
+                            TABLE_ROW0(0) : TABLE_COL0(tableID->nRow - 1));
                         return der_y;
 
                     case PERIODIC:
@@ -3036,6 +3064,29 @@ double ModelicaStandardTables_CombiTable2D_getDerValue(void* _tableID, double u1
         }
     }
     return der_y;
+}
+
+void ModelicaStandardTables_CombiTable2D_minimumAbscissa(void* _tableID,
+                                                         _Inout_ double* uMin) {
+    CombiTable2D* tableID = (CombiTable2D*)_tableID;
+    if (NULL != tableID && NULL != tableID->table) {
+        const double* table = tableID->table;
+        const size_t nCol = tableID->nCol;
+        uMin[0] = TABLE_COL0(1);
+        uMin[1] = TABLE_ROW0(1);
+    }
+}
+
+void ModelicaStandardTables_CombiTable2D_maximumAbscissa(void* _tableID,
+                                                         _Inout_ double* uMax) {
+    CombiTable2D* tableID = (CombiTable2D*)_tableID;
+    if (NULL != tableID && NULL != tableID->table) {
+        const double* table = tableID->table;
+        const size_t nRow = tableID->nRow;
+        const size_t nCol = tableID->nCol;
+        uMax[0] = TABLE_COL0(nRow - 1);
+        uMax[1] = TABLE_ROW0(nCol - 1);
+    }
 }
 
 double ModelicaStandardTables_CombiTable2D_read(void* _tableID, int force,

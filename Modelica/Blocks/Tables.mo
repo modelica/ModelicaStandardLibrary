@@ -32,6 +32,9 @@ package Tables
     parameter Modelica.Blocks.Types.Extrapolation extrapolation=Modelica.Blocks.Types.Extrapolation.LastTwoPoints
       "Extrapolation of data outside the definition range"
       annotation (Dialog(group="Table data interpretation"));
+    parameter Boolean verboseExtrapolation=false
+      "= true, if warning messages are to be printed if table input is outside the definition range"
+      annotation (Dialog(group="Table data interpretation", enable=extrapolation == Modelica.Blocks.Types.Extrapolation.LastTwoPoints or extrapolation == Modelica.Blocks.Types.Extrapolation.HoldLastPoint));
     final parameter Real u_min=Internal.getTable1DAbscissaUmin(tableID)
       "Minimum abscissa value defined in table";
     final parameter Real u_max=Internal.getTable1DAbscissaUmax(tableID)
@@ -55,6 +58,22 @@ package Tables
       assert(size(table, 1) > 0 and size(table, 2) > 0,
         "tableOnFile = false and parameter table is an empty matrix");
     end if;
+
+    if verboseExtrapolation and (
+      extrapolation == Modelica.Blocks.Types.Extrapolation.LastTwoPoints or
+      extrapolation == Modelica.Blocks.Types.Extrapolation.HoldLastPoint) then
+      for i in 1:n loop
+        assert(noEvent(u[i] >= u_min), "
+Extrapolation warning: The value u[" + String(i) +"] (=" + String(u[i]) + ") must be greater or equal
+than the minimum abscissa value u_min (=" + String(u_min) + ") defined in the table.
+", level=AssertionLevel.warning);
+        assert(noEvent(u[i] <= u_max), "
+Extrapolation warning: The value u[" + String(i) +"] (=" + String(u[i]) + ") must be less or equal
+than the maximum abscissa value u_max (=" + String(u_max) + ") defined in the table.
+", level=AssertionLevel.warning);
+      end for;
+    end if;
+
     if smoothness == Modelica.Blocks.Types.Smoothness.ConstantSegments then
       for i in 1:n loop
         y[i] = Internal.getTable1DValueNoDer(tableID, i, u[i]);
@@ -302,6 +321,9 @@ MATLAB is a registered trademark of The MathWorks, Inc.
     parameter Modelica.Blocks.Types.Extrapolation extrapolation=Modelica.Blocks.Types.Extrapolation.LastTwoPoints
       "Extrapolation of data outside the definition range"
       annotation (Dialog(group="Table data interpretation"));
+    parameter Boolean verboseExtrapolation=false
+      "= true, if warning messages are to be printed if table input is outside the definition range"
+      annotation (Dialog(group="Table data interpretation", enable=extrapolation == Modelica.Blocks.Types.Extrapolation.LastTwoPoints or extrapolation == Modelica.Blocks.Types.Extrapolation.HoldLastPoint));
     final parameter Real u_min=Internal.getTable1DAbscissaUmin(tableID)
       "Minimum abscissa value defined in table";
     final parameter Real u_max=Internal.getTable1DAbscissaUmax(tableID)
@@ -325,6 +347,20 @@ MATLAB is a registered trademark of The MathWorks, Inc.
       assert(size(table, 1) > 0 and size(table, 2) > 0,
         "tableOnFile = false and parameter table is an empty matrix");
     end if;
+
+    if verboseExtrapolation and (
+      extrapolation == Modelica.Blocks.Types.Extrapolation.LastTwoPoints or
+      extrapolation == Modelica.Blocks.Types.Extrapolation.HoldLastPoint) then
+      assert(noEvent(u >= u_min), "
+Extrapolation warning: The value u (=" + String(u) + ") must be greater or equal
+than the minimum abscissa value u_min (=" + String(u_min) + ") defined in the table.
+", level=AssertionLevel.warning);
+      assert(noEvent(u <= u_max), "
+Extrapolation warning: The value u (=" + String(u) + ") must be less or equal
+than the maximum abscissa value u_max (=" + String(u_max) + ") defined in the table.
+", level=AssertionLevel.warning);
+    end if;
+
     if smoothness == Modelica.Blocks.Types.Smoothness.ConstantSegments then
       for i in 1:nout loop
         y[i] = Internal.getTable1DValueNoDer(tableID, i, u);
@@ -568,6 +604,13 @@ MATLAB is a registered trademark of The MathWorks, Inc.
     parameter Modelica.Blocks.Types.Extrapolation extrapolation=Modelica.Blocks.Types.Extrapolation.LastTwoPoints
       "Extrapolation of data outside the definition range"
       annotation (Dialog(group="Table data interpretation", enable=false));
+    parameter Boolean verboseExtrapolation=false
+      "= true, if warning messages are to be printed if table input is outside the definition range"
+      annotation (Dialog(group="Table data interpretation", enable=extrapolation == Modelica.Blocks.Types.Extrapolation.LastTwoPoints or extrapolation == Modelica.Blocks.Types.Extrapolation.HoldLastPoint));
+    final parameter Real u_min[2]=Internal.getTable2DAbscissaUmin(tableID)
+      "Minimum abscissa value defined in table";
+    final parameter Real u_max[2]=Internal.getTable2DAbscissaUmax(tableID)
+      "Maximum abscissa value defined in table";
   protected
     parameter Modelica.Blocks.Types.ExternalCombiTable2D tableID=
         Modelica.Blocks.Types.ExternalCombiTable2D(
@@ -586,6 +629,28 @@ MATLAB is a registered trademark of The MathWorks, Inc.
       assert(size(table, 1) > 0 and size(table, 2) > 0,
         "tableOnFile = false and parameter table is an empty matrix");
     end if;
+
+    if verboseExtrapolation and (
+      extrapolation == Modelica.Blocks.Types.Extrapolation.LastTwoPoints or
+      extrapolation == Modelica.Blocks.Types.Extrapolation.HoldLastPoint) then
+      assert(noEvent(u1 >= u_min[1]), "
+Extrapolation warning: The value u1 (=" + String(u1) + ") must be greater or equal
+than the minimum abscissa value u_min[1] (=" + String(u_min[1]) + ") defined in the table.
+", level=AssertionLevel.warning);
+      assert(noEvent(u1 <= u_max[1]), "
+Extrapolation warning: The value u1 (=" + String(u1) + ") must be less or equal
+than the maximum abscissa value u_max[1] (=" + String(u_max[1]) + ") defined in the table.
+", level=AssertionLevel.warning);
+      assert(noEvent(u2 >= u_min[2]), "
+Extrapolation warning: The value u2 (=" + String(u2) + ") must be greater or equal
+than the minimum abscissa value u_min[2] (=" + String(u_min[2]) + ") defined in the table.
+", level=AssertionLevel.warning);
+      assert(noEvent(u2 <= u_max[2]), "
+Extrapolation warning: The value u2 (=" + String(u2) + ") must be less or equal
+than the maximum abscissa value u_max[2] (=" + String(u_max[2]) + ") defined in the table.
+", level=AssertionLevel.warning);
+    end if;
+
     if smoothness == Modelica.Blocks.Types.Smoothness.ConstantSegments then
       y = Internal.getTable2DValueNoDer(tableID, u1, u2);
     else
@@ -970,6 +1035,24 @@ MATLAB is a registered trademark of The MathWorks, Inc.
       external"C" der_y = ModelicaStandardTables_CombiTable2D_getDerValue(tableID, u1, u2, der_u1, der_u2)
         annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
     end getDerTable2DValue;
+
+    function getTable2DAbscissaUmin
+      "Return minimum abscissa value of 2-dim. table defined by matrix"
+      extends Modelica.Icons.Function;
+      input Modelica.Blocks.Types.ExternalCombiTable1D tableID;
+      output Real uMin[2] "Minimum abscissa value in table";
+      external"C" ModelicaStandardTables_CombiTable2D_minimumAbscissa(tableID, uMin)
+        annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
+    end getTable2DAbscissaUmin;
+
+    function getTable2DAbscissaUmax
+      "Return maximum abscissa value of 2-dim. table defined by matrix"
+      extends Modelica.Icons.Function;
+      input Modelica.Blocks.Types.ExternalCombiTable1D tableID;
+      output Real uMax[2] "Maximum abscissa value in table";
+      external"C" ModelicaStandardTables_CombiTable2D_maximumAbscissa(tableID, uMax)
+        annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
+    end getTable2DAbscissaUmax;
   end Internal;
   annotation (Documentation(info="<html>
 <p>This package contains blocks for one- and two-dimensional interpolation in tables.</p>
