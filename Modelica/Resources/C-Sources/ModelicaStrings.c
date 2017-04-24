@@ -113,8 +113,8 @@ _Ret_z_ const char* ModelicaStrings_substring(_In_z_ const char* string,
 
     /* Allocate memory and copy string */
     len2 = endIndex - startIndex + 1;
-    substring = ModelicaAllocateString(len2);
-    strncpy(substring, &string[startIndex-1], len2);
+    substring = ModelicaAllocateString((size_t)len2);
+    strncpy(substring, &string[startIndex-1], (size_t)len2);
     substring[len2] = '\0';
     return substring;
 }
@@ -124,7 +124,7 @@ int ModelicaStrings_length(_In_z_ const char* string) {
     return (int) strlen(string);
 }
 
-int ModelicaStrings_compare(const char* string1, const char* string2, int caseSensitive) {
+int ModelicaStrings_compare(_In_z_ const char* string1, _In_z_ const char* string2, int caseSensitive) {
     /* Compare two strings, optionally ignoring case */
     int result;
     if (string1 == 0 || string2 == 0) {
@@ -242,8 +242,8 @@ void ModelicaStrings_scanIdentifier(_In_z_ const char* string,
         }
 
         {
-            char* s = ModelicaAllocateString(token_length);
-            strncpy(s, string+token_start-1, token_length);
+            char* s = ModelicaAllocateString((size_t)token_length);
+            strncpy(s, string+token_start-1, (size_t)token_length);
             s[token_length] = '\0';
             *nextIndex = token_start + token_length;
             *identifier = s;
@@ -294,7 +294,7 @@ void ModelicaStrings_scanInteger(_In_z_ const char* string,
                 int x;
                 /* For receiving the result. */
 
-                strncpy(buf, string+token_start-1, sign + number_length);
+                strncpy(buf, string+token_start-1, (size_t)(sign + number_length));
                 buf[sign + number_length] = '\0';
 #if !defined(NO_LOCALE) && (defined(_MSC_VER) && _MSC_VER >= 1400)
                 x = (int)_strtol_l(buf, &endptr, 10, loc);
@@ -406,7 +406,7 @@ void ModelicaStrings_scanReal(_In_z_ const char* string, int startIndex,
         double x;
         /* For receiving the result. */
 
-        strncpy(buf, string+token_start-1, total_length);
+        strncpy(buf, string+token_start-1, (size_t)total_length);
         buf[total_length] = '\0';
 #if !defined(NO_LOCALE) && (defined(_MSC_VER) && _MSC_VER >= 1400)
         x = _strtod_l(buf, &endptr, loc);
@@ -472,8 +472,8 @@ void ModelicaStrings_scanString(_In_z_ const char* string, int startIndex,
     token_length = past_token-token_start-2;
 
     if (token_length > 0) {
-        char* s = ModelicaAllocateString(token_length);
-        strncpy(s, string+token_start, token_length);
+        char* s = ModelicaAllocateString((size_t)token_length);
+        strncpy(s, string+token_start, (size_t)token_length);
         s[token_length] = '\0';
         *result = s;
         *nextIndex = past_token;

@@ -118,6 +118,7 @@
   #define _POSIX_ 1
 #endif
 
+MODELICA_NORETURN static void ModelicaNotExistError(const char* name) MODELICA_NORETURNATTR;
 static void ModelicaNotExistError(const char* name) {
   /* Print error message if a function is not implemented */
     ModelicaFormatError("C-Function \"%s\" is called\n"
@@ -293,7 +294,7 @@ void ModelicaInternal_rmdir(_In_z_ const char* directoryName) {
 #endif
 }
 
-int ModelicaInternal_stat(_In_z_ const char* name) {
+static ModelicaFileType Internal_stat(_In_z_ const char* name) {
     /* Inquire type of file */
     ModelicaFileType type = FileType_NoFile;
 #if defined(_WIN32)
@@ -356,7 +357,15 @@ int ModelicaInternal_stat(_In_z_ const char* name) {
     else {
         type = FileType_SpecialFile;
     }
+#endif
+    return type;
+}
+
+int ModelicaInternal_stat(_In_z_ const char* name) {
+#if defined(_WIN32) || defined(_POSIX_) || defined(__GNUC__)
+    ModelicaFileType type = Internal_stat(name);
 #else
+    ModelicaFileType type = FileType_NoFile;
     ModelicaNotExistError("ModelicaInternal_stat");
 #endif
     return type;
@@ -395,7 +404,7 @@ void ModelicaInternal_copyFile(_In_z_ const char* oldFile,
     int c;
 
     /* Check file existence */
-    type = (ModelicaFileType) ModelicaInternal_stat(oldFile);
+    type = Internal_stat(oldFile);
     if ( type == FileType_NoFile ) {
         ModelicaFormatError("\"%s\" cannot be copied\nbecause it does not exist", oldFile);
         return;
@@ -409,7 +418,7 @@ void ModelicaInternal_copyFile(_In_z_ const char* oldFile,
             "because it is not a regular file", oldFile);
         return;
     }
-    type = (ModelicaFileType) ModelicaInternal_stat(newFile);
+    type = Internal_stat(newFile);
     if ( type != FileType_NoFile ) {
         ModelicaFormatError("\"%s\" cannot be copied\nbecause the target "
             "\"%s\" exists", oldFile, newFile);
@@ -1275,7 +1284,7 @@ void ModelicaInternal_getTime(_Out_ int* ms, _Out_ int* sec, _Out_ int* min, _Ou
     {
         struct timeval tv;
         gettimeofday(&tv, NULL);
-        ms0 = tv.tv_usec/1000; /* Convert microseconds to milliseconds */
+        ms0 = (int)(tv.tv_usec/1000); /* Convert microseconds to milliseconds */
     }
 #endif
 

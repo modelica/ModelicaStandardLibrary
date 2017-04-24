@@ -76,6 +76,7 @@
 #include "ModelicaUtilities.h"
 
 #ifdef NO_FILE_SYSTEM
+MODELICA_NORETURN static void ModelicaNotExistError(const char* name) MODELICA_NORETURNATTR;
 static void ModelicaNotExistError(const char* name) {
   /* Print error message if a function is not implemented */
     ModelicaFormatError("C-Function \"%s\" is called "
