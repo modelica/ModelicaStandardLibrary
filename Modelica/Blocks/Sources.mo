@@ -2275,9 +2275,9 @@ The table interpolation has the following properties:
   timeEvents = 1: Always generate time events at interval boundaries
              = 2: Generate time events at discontinuities (defined by duplicated sample points)
              = 3: No time events at interval boundaries
-</pre></li>
+</pre>
     For interpolation by constant segments time events are always generated at interval boundaries.
-    For smooth interpolation by cubic Hermite splines no time events are generated at interval boundaries.
+    For smooth interpolation by cubic Hermite splines no time events are generated at interval boundaries.</li>
 <li>Via parameter <strong>timeScale</strong> the first column of the table array can
     be scaled, e.g., if the table array is given in hours (instead of seconds)
     <strong>timeScale</strong> shall be set to 3600.</li>
