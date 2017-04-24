@@ -932,7 +932,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
       extends Modelica.Icons.Function;
       input Modelica.Blocks.Types.ExternalCombiTable1D tableID;
       output Real uMax "Maximum abscissa value in table";
-      external"C" uMax = ModelicaStandardTables_CombiTimeTable_maximumTime(tableID)
+      external"C" uMax = ModelicaStandardTables_CombiTable1D_maximumAbscissa(tableID)
         annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
     end getTable1DAbscissaUmax;
 
