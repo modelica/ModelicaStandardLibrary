@@ -350,11 +350,11 @@ MODELICA_EXPORT void ModelicaStandardTables_CombiTable2D_close(void* tableID);
 
 MODELICA_EXPORT void ModelicaStandardTables_CombiTable2D_minimumAbscissa(void* tableID,
                                                          _Inout_ double* uMin);
-  /* Get minimum abscissa defined in table (= table[2,1] and table[end,1]) */
+  /* Get minimum abscissa defined in table (= table[2,1] and table[1,2]) */
 
 MODELICA_EXPORT void ModelicaStandardTables_CombiTable2D_maximumAbscissa(void* tableID,
                                                          _Inout_ double* uMax);
-  /* Get maximum abscissa defined in table (= table[1,2] and table[1,end]) */
+  /* Get maximum abscissa defined in table (= table[end,1] and table[1,end]) */
 
 MODELICA_EXPORT double ModelicaStandardTables_CombiTable2D_getValue(void* tableID, double u1,
                                                     double u2);
