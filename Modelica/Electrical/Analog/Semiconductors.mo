@@ -101,9 +101,9 @@ package Semiconductors
     i = id + v*Gp;
     LossPower=i*v;
 
-    assert(Bv>0, "Bv must be greater than zero", AssertionLevel.error);
-    assert(Vf>0, "Vf must be greater than zero", AssertionLevel.error);
-    assert(Vt>0, "Vt must be greater than zero", AssertionLevel.error);
+    assert(Bv>0, "Bv must be greater than zero");
+    assert(Vf>0, "Vf must be greater than zero");
+    assert(Vt>0, "Vt must be greater than zero");
     annotation (
       Documentation(info="<html>
 <p>This diode model is an improved version of the <a href=\"modelica://Modelica.Electrical.Analog.Semiconductors.Diode\">simple diode</a> model. It includes a series resistance, parallel conductance, and also models reverse breakdown. The model is divided into three parts:</p>
