@@ -10482,7 +10482,7 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
 </html>"));
       end ResistorParams;
 
-      record ResistorModelLineParams "Record for Diode model line parameters"
+      record ResistorModelLineParams "Record for resistor model line parameters"
       extends Modelica.Icons.Record;
           SI.Conversions.NonSIunits.FirstOrderTemperaturCoefficient
           m_dTC1 "First order temp, coefficient";
@@ -10499,7 +10499,7 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
 </html>"));
       end ResistorModelLineParams;
 
-      record ResistorVariables "Variables for the diode model"
+      record ResistorVariables "Variables for the resistor model"
         extends Modelica.Icons.Record;
        SI.Length m_dWidth;
        SI.Length m_dLength;
