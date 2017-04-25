@@ -34,6 +34,10 @@
       Modelica.Blocks.Tables.CombiTable2D
 
    Release Notes:
+      Apr. 24, 2017: by Thomas Beutlich, ESI ITI GmbH
+                     Added functions to retrieve minimum and maximum abscissa
+                     values of CombiTable2D (ticket #2244)
+
       Apr. 15, 2017: by Thomas Beutlich, ESI ITI GmbH
                      Added support for time event generation (independent of
                      smoothness) in CombiTimeTable (ticket #2080)
@@ -60,7 +64,7 @@
                      in function readTable (ticket #2097)
 
       Feb. 25, 2017: by Thomas Beutlich, ESI ITI GmbH
-                     Added support of extrapolation for CombiTable1D (ticket #1839)
+                     Added support for extrapolation in CombiTable1D (ticket #1839)
                      Added functions to retrieve minimum and maximum abscissa
                      values of CombiTable1D (ticket #2120)
 

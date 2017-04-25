@@ -39,6 +39,10 @@
    DUMMY_FUNCTION_USERTAB: Use a dummy function "usertab"
 
    Release Notes:
+      Apr. 24, 2017: by Thomas Beutlich, ESI ITI GmbH
+                     Added functions to retrieve minimum and maximum abscissa
+                     values of CombiTable2D (ticket #2244)
+
       Apr. 15, 2017: by Thomas Beutlich, ESI ITI GmbH
                      Added support for time event generation (independent of
                      smoothness) in CombiTimeTable (ticket #2080)
@@ -54,10 +58,9 @@
                      in CombiTimeTable (ticket #1771)
 
       Feb. 25, 2017: by Thomas Beutlich, ESI ITI GmbH
-                     Added support for extrapolation in CombiTable1D
-                     Added functions to retrieve minimum and maximum
-                     abscissa values of CombiTable1D
-                     (ticket #2120)
+                     Added support for extrapolation in CombiTable1D (ticket #1839)
+                     Added functions to retrieve minimum and maximum abscissa
+                     values of CombiTable1D (ticket #2120)
 
       Oct. 27, 2015: by Thomas Beutlich, ITI GmbH
                      Added nonnull attribute/annotations (ticket #1436)
