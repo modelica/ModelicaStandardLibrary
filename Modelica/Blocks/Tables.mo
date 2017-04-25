@@ -1039,7 +1039,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
     function getTable2DAbscissaUmin
       "Return minimum abscissa value of 2-dim. table defined by matrix"
       extends Modelica.Icons.Function;
-      input Modelica.Blocks.Types.ExternalCombiTable1D tableID;
+      input Modelica.Blocks.Types.ExternalCombiTable2D tableID;
       output Real uMin[2] "Minimum abscissa value in table";
       external"C" ModelicaStandardTables_CombiTable2D_minimumAbscissa(tableID, uMin)
         annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
@@ -1048,7 +1048,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
     function getTable2DAbscissaUmax
       "Return maximum abscissa value of 2-dim. table defined by matrix"
       extends Modelica.Icons.Function;
-      input Modelica.Blocks.Types.ExternalCombiTable1D tableID;
+      input Modelica.Blocks.Types.ExternalCombiTable2D tableID;
       output Real uMax[2] "Maximum abscissa value in table";
       external"C" ModelicaStandardTables_CombiTable2D_maximumAbscissa(tableID, uMax)
         annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
