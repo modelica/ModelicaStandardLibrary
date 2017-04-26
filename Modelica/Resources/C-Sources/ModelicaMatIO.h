@@ -63,9 +63,15 @@
 
 /* Have MAT int64 / uint64 */
 #if defined(_WIN32)
-#if defined(_MSC_VER) || defined(__WATCOMC__) || defined(__MINGW32__) || defined(__CYGWIN__)
+#if defined(__WATCOMC__) || defined(__MINGW32__) || defined(__CYGWIN__)
 #define HAVE_MATIO_INT64_T 1
 #define HAVE_MATIO_UINT64_T 1
+#elif defined(_MSC_VER) && _MSC_VER > 1300
+#define HAVE_MATIO_INT64_T 1
+#define HAVE_MATIO_UINT64_T 1
+#elif defined(_MSC_VER)
+#define HAVE_MATIO_INT64_T 1
+#undef HAVE_MATIO_UINT64_T
 #else
 #undef HAVE_MATIO_INT64_T
 #undef HAVE_MATIO_UINT64_T
