@@ -530,7 +530,7 @@ to a function, see, .e.g.,
         Numerically evaluate integral using adaptive
         Lobatto rule.
         see Walter Gander: Adaptive Quadrature - Revisited, 1998
-                        ftp.inf.ethz.ch in doc/tech-reports/1998/306.ps
+                        ftp.inf.ethz.ch in pub/publications/tech-reports/3xx/306.ps
 
         x[:] are the nodes
         y[:] = f(x[:]) are function values at the nodes
@@ -608,7 +608,7 @@ using the adaptive Lobatto rule according to:
 <dl>
 <dt>Walter Gander:</dt>
 <dd> <strong>Adaptive Quadrature - Revisited</strong>. 1998.
-     <a href=\"ftp://ftp.inf.ethz.ch/doc/tech-reports/1998/306.ps\">ftp://ftp.inf.ethz.ch/doc/tech-reports/1998/306.ps</a>
+     <a href=\"ftp://ftp.inf.ethz.ch/pub/publications/tech-reports/3xx/306.ps\">ftp://ftp.inf.ethz.ch/pub/publications/tech-reports/3xx/306.ps</a>
      </dd>
 </dl>
 </blockquote>
