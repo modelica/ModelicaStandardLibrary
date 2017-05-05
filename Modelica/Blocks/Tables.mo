@@ -250,7 +250,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
           Line(points={{60,0},{100,0}}, color={0,0,255}),
           Text(
             extent={{-100,100},{100,64}},
-            textString="1 dimensional linear table interpolation",
+            textString="Univariate constant, linear or cubic Hermite spline table interpolation",
             lineColor={0,0,255}),
           Line(points={{-54,40},{-54,-40},{54,-40},{54,40},{28,40},{28,-40},{-28,
                 -40},{-28,40},{-54,40},{-54,20},{54,20},{54,0},{-54,0},{-54,-20},
@@ -537,7 +537,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
           Line(points={{60,0},{100,0}}, color={0,0,255}),
           Text(
             extent={{-100,100},{100,64}},
-            textString="1 dimensional linear table interpolation",
+            textString="Univariate constant, linear or cubic Hermite spline table interpolation",
             lineColor={0,0,255}),
           Line(points={{-54,40},{-54,-40},{54,-40},{54,40},{28,40},{28,-40},{-28,
                 -40},{-28,40},{-54,40},{-54,20},{54,20},{54,0},{-54,0},{-54,-20},
@@ -829,7 +829,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
           Line(points={{60,0},{100,0}}, color={0,0,255}),
           Text(
             extent={{-100,100},{100,64}},
-            textString="2 dimensional linear table interpolation",
+            textString="Bivariate constant, bilinear or bivariate Akima table interpolation",
             lineColor={0,0,255}),
           Line(points={{-54,40},{-54,-40},{54,-40},{54,40},{28,40},{28,-40},{-28,
                 -40},{-28,40},{-54,40},{-54,20},{54,20},{54,0},{-54,0},{-54,-20},
