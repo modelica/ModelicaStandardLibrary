@@ -86,7 +86,7 @@ than the maximum abscissa value u_max (=" + String(u_max) + ") defined in the ta
     annotation (
       Documentation(info="<html>
 <p>
-<strong>Constant</strong>, <strong>linear</strong> or <strong>cubic Hermite
+<strong>Univariate constant</strong>, <strong>linear</strong> or <strong>cubic Hermite
 spline interpolation</strong> in <strong>one</strong> dimension of a
 <strong>table</strong>.
 Via parameter <strong>columns</strong> it can be defined how many columns of the
@@ -373,7 +373,7 @@ than the maximum abscissa value u_max (=" + String(u_max) + ") defined in the ta
     annotation (
       Documentation(info="<html>
 <p>
-<strong>Constant</strong>, <strong>linear</strong> or <strong>cubic Hermite
+<strong>Univariate constant</strong>, <strong>linear</strong> or <strong>cubic Hermite
 spline interpolation</strong> in <strong>one</strong> dimension of a
 <strong>table</strong>.
 Via parameter <strong>columns</strong> it can be defined how many columns of the
