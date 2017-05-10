@@ -2294,7 +2294,7 @@ This block determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.
 
     block SymmetricalComponents
       "Creates symmetrical components from signals representing quasi static phasors"
-      extends Modelica.ComplexBlocks.Interfaces.ComplexMIMOs(final n=m);
+      extends Modelica.ComplexBlocks.Interfaces.ComplexMIMOs(final n=m,final useConjugateInput=fill(false,m));
       import Modelica.ComplexMath.'abs';
       import Modelica.ComplexMath.arg;
       parameter Integer m=3 "Number of phases";
@@ -2370,7 +2370,7 @@ Calculates the symmetric components according to Charles L. Fortescue from the t
 
     block FromSymmetricalComponents
       "Creates quasi static phasors from symmetrical components"
-      extends Modelica.ComplexBlocks.Interfaces.ComplexMIMOs(final n=m);
+      extends Modelica.ComplexBlocks.Interfaces.ComplexMIMOs(final n=m,final useConjugateInput=fill(false,m));
       import Modelica.ComplexMath.'abs';
       import Modelica.ComplexMath.arg;
       parameter Integer m=3 "Number of phases";
@@ -2446,7 +2446,7 @@ Calculates the time phasors from the symmetric components according to Charles L
 
     block SingleToMultiPhase
       "Extends complex phase signal to complex multi phase signals using symmetricOrientation"
-      extends Modelica.ComplexBlocks.Interfaces.ComplexSIMO(final nout=m);
+      extends Modelica.ComplexBlocks.Interfaces.ComplexSIMO(final nout=m,final useConjugateInput=false);
       parameter Integer m=3 "Number of phases";
     equation
       y = u*Modelica.ComplexMath.fromPolar(fill(1, m), -
