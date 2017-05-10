@@ -425,8 +425,15 @@ ideal AC DC converter</a>, which is used in the
     extends Modelica.Icons.ReleaseNotes;
 
     annotation (Documentation(info="<html>
-<h5>Version 3.2.2, 2017-03-22</h5>
+<h5>Version 3.2.2, 2017-05-10</h5>
 <ul>
+<li>Fixed missing <code>final useConjugateInput = false</code> reported in 
+    <a href=\"https://github.com/modelica/Modelica/issues/2251\">#2251</a>:</li>
+    <ul>
+    <li><a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Blocks.SymmetricalComponents\">MultiPhase.Blocks.SymmetricalComponents</li>
+    <li><a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Blocks.FromSymmetricalComponents\">MultiPhase.Blocks.FromSymmetricalComponents</li>
+    <li><a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Blocks.SingleToMultiPhase\">MultiPhase.Blocks.SingleToMultiPhase</li>
+    </ul> 
 <li>Updated icons of inductors and transformer models, see #2210</li>
 <li>Added polar and power quantities in ideal quasi stationary transformer model, see #2173</li>
 <li>Removed redundant (and not identical) parameter m from
