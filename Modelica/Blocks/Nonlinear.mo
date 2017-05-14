@@ -202,21 +202,31 @@ is passed as output.
   block SlewRateLimiter "Limits the slew rate of a signal"
     extends Modelica.Blocks.Interfaces.SISO;
     import Modelica.Constants.small;
-    parameter Modelica.SIunits.DampingCoefficient Rising( min= small) = 1
-      "Maximum rising slew rate [+small..+inf)";
-    parameter Modelica.SIunits.DampingCoefficient Falling(max=-small) = -Rising
-      "Maximum falling slew rate (-inf..-small]";
+    parameter Real Rising( min= small) = 1
+      "Maximum rising slew rate [+small..+inf) [1/s]";
+    parameter Real Falling(max=-small) = -Rising
+      "Maximum falling slew rate (-inf..-small] [1/s]";
     parameter Modelica.SIunits.Time Td(min=small) = 0.001
       "Derivative time constant";
+    parameter Modelica.Blocks.Types.Init initType=Modelica.Blocks.Types.Init.SteadyState
+      "Type of initialization (SteadyState implies y = u)"
+      annotation (Evaluate=true, Dialog(group="Initialization"));
+    parameter Real y_start=0 "Initial or guess value of output (= state)"
+      annotation (Dialog(group="Initialization"));
     parameter Boolean strict=false "= true, if strict limits with noEvent(..)"
       annotation (Evaluate=true, choices(checkBox=true), Dialog(tab="Advanced"));
   protected
     Real val=(u-y)/Td;
   initial equation
+    if initType == Modelica.Blocks.Types.Init.SteadyState then
       y = u;
+    elseif initType == Modelica.Blocks.Types.Init.InitialState
+        or initType == Modelica.Blocks.Types.Init.InitialOutput then
+      y = y_start;
+    end if;
   equation
     if strict then
-      der(y) = smooth(1,noEvent(if val<Falling then Falling else if val>Rising then Rising else val));
+      der(y) = smooth(1, (if noEvent(val<Falling) then Falling else if noEvent(val>Rising) then Rising else val));
     else
       der(y) = if val<Falling then Falling else if val>Rising then Rising else val;
     end if;
