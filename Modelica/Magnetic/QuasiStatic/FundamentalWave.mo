@@ -758,8 +758,7 @@ In this example the eddy current losses are implemented in two different ways. C
                           extent={{20,-6},{100,-14}},
                           textStyle={TextStyle.Bold},
                           textString="%m phase transient
-"), Text(
-                  extent={{20,14},{100,6}},
+"),Text(          extent={{20,14},{100,6}},
                           textStyle={TextStyle.Bold},
                           textString="%m phase QS
 ")}),           experiment(StopTime=1.5, Interval=0.001),
@@ -1021,8 +1020,7 @@ and accelerating inertias. At time <code>tStep</code> a load step is applied.<p>
                           extent={{20,-6},{100,-14}},
                           textStyle={TextStyle.Bold},
                           textString="%m phase transient
-"), Text(
-                  extent={{-66,10},{14,2}},
+"),Text(          extent={{-66,10},{14,2}},
                           textStyle={TextStyle.Bold},
                           textString="%m phase QS
 ")}));
@@ -1337,8 +1335,7 @@ Simulate for 1.5 seconds and plot (versus time):
                           extent={{20,12},{100,4}},
                           textStyle={TextStyle.Bold},
                           textString="%m phase QS
-"), Text(
-                  extent={{20,-4},{100,-12}},
+"),Text(          extent={{20,-4},{100,-12}},
                           textStyle={TextStyle.Bold},
                           textString="%m phase transient
 ")}));
@@ -2442,8 +2439,7 @@ Simulate for 30 seconds:
                           extent={{20,10},{100,2}},
                           textStyle={TextStyle.Bold},
                           textString="%m phase QS
-"), Text(
-                  extent={{20,-10},{100,-18}},
+"),Text(          extent={{20,-10},{100,-18}},
                           textStyle={TextStyle.Bold},
                           textString="%m phase transient
 ")}));
@@ -6511,5 +6507,27 @@ Copyright &copy; 2013-2016, <a href=\"modelica://Modelica.Magnetic.FundamentalWa
 <p>
 <em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</em>
 </p>
-</html>"));
+</html>"),
+    Icon(graphics={
+        Rectangle(
+          extent={{-40,60},{-60,-60}},
+          fillPattern=FillPattern.HorizontalCylinder,
+          fillColor={128,128,128}),
+        Rectangle(
+          extent={{-40,70},{40,50}},
+          lineColor={95,95,95},
+          fillColor={95,95,95},
+          fillPattern=FillPattern.Solid),
+        Rectangle(
+          extent={{-40,60},{80,-60}},
+          fillPattern=FillPattern.HorizontalCylinder,
+          fillColor={255,206,120}),
+        Rectangle(
+          extent={{80,10},{100,-10}},
+          fillPattern=FillPattern.HorizontalCylinder,
+          fillColor={95,95,95}),
+        Polygon(
+          points={{-50,-90},{-40,-90},{-10,-20},{40,-20},{70,-90},{80,-90},
+              {80,-100},{-50,-100},{-50,-90}},
+          fillPattern=FillPattern.Solid)}));
 end FundamentalWave;

@@ -2428,8 +2428,7 @@ and accelerate the inertias. Two equivalent machines with different numbers of p
                       extent={{40,-54},{100,-62}},
                       textStyle={TextStyle.Bold},
                       textString="3 phase machine
-"), Text(
-                extent={{40,-44},{100,-52}},
+"),Text(        extent={{40,-44},{100,-52}},
                       textStyle={TextStyle.Bold},
                       textString="%m phase machine
 ")}));
@@ -3068,12 +3067,10 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM3.rotorDisplacementAng
                       extent={{10,16},{70,8}},
                       textStyle={TextStyle.Bold},
                       textString="%m phase machine
-"), Text(
-                extent={{10,-52},{70,-60}},
+"),Text(        extent={{10,-52},{70,-60}},
                       textStyle={TextStyle.Bold},
                       textString="3 phase machine
-"), Rectangle(
-                extent={{-50,-60},{100,-100}},
+"),Rectangle(   extent={{-50,-60},{100,-100}},
                       fillColor={255,255,170},
                       fillPattern=FillPattern.Solid,
                       pattern=LinePattern.Dash)}));
@@ -3557,12 +3554,10 @@ Simulate for 1.5 seconds and plot (versus time):
                       extent={{40,-44},{100,-52}},
                       textStyle={TextStyle.Bold},
                       textString="%m phase machine
-"), Text(
-                extent={{40,-54},{100,-62}},
+"),Text(        extent={{40,-54},{100,-62}},
                       textStyle={TextStyle.Bold},
                       textString="3 phase machine
-"), Rectangle(
-                extent={{-20,-60},{100,-100}},
+"),Rectangle(   extent={{-20,-60},{100,-100}},
                       fillColor={255,255,170},
                       fillPattern=FillPattern.Solid,
                       pattern=LinePattern.Dash)}));
@@ -7113,5 +7108,27 @@ Copyright &copy; 2009-2016, Modelica Association, <a href=\"modelica://Modelica.
 <p>
 <em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</em>
 </p>
-</html>"));
+</html>"),
+    Icon(graphics={
+        Rectangle(
+          extent={{-40,60},{-60,-60}},
+          fillPattern=FillPattern.HorizontalCylinder,
+          fillColor={128,128,128}),
+        Rectangle(
+          extent={{-40,70},{40,50}},
+          lineColor={95,95,95},
+          fillColor={95,95,95},
+          fillPattern=FillPattern.Solid),
+        Rectangle(
+          extent={{-40,60},{80,-60}},
+          fillPattern=FillPattern.HorizontalCylinder,
+          fillColor={255,128,0}),
+        Rectangle(
+          extent={{80,10},{100,-10}},
+          fillPattern=FillPattern.HorizontalCylinder,
+          fillColor={95,95,95}),
+        Polygon(
+          points={{-50,-90},{-40,-90},{-10,-20},{40,-20},{70,-90},{80,-90},
+              {80,-100},{-50,-100},{-50,-90}},
+          fillPattern=FillPattern.Solid)}));
 end FundamentalWave;
