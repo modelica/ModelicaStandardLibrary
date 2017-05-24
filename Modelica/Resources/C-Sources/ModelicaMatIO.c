@@ -349,25 +349,25 @@ struct matvar_internal {
 
 /* snprintf.c */
 #if !HAVE_VSNPRINTF
-int rpl_vsnprintf(char *, size_t, const char *, va_list);
+static int rpl_vsnprintf(char *, size_t, const char *, va_list);
 #define mat_vsnprintf rpl_vsnprintf
 #else
 #define mat_vsnprintf vsnprintf
 #endif /* !HAVE_VSNPRINTF */
 #if !HAVE_SNPRINTF
-int rpl_snprintf(char *, size_t, const char *, ...);
+static int rpl_snprintf(char *, size_t, const char *, ...);
 #define mat_snprintf rpl_snprintf
 #else
 #define mat_snprintf snprintf
 #endif /* !HAVE_SNPRINTF */
 #if !HAVE_VASPRINTF
-int rpl_vasprintf(char **, const char *, va_list);
+static int rpl_vasprintf(char **, const char *, va_list);
 #define mat_vasprintf rpl_vasprintf
 #else
 #define mat_vasprintf vasprintf
 #endif /* !HAVE_VASPRINTF */
 #if !HAVE_ASPRINTF
-int rpl_asprintf(char **, const char *, ...);
+static int rpl_asprintf(char **, const char *, ...);
 #define mat_asprintf rpl_asprintf
 #else
 #define mat_asprintf asprintf
@@ -5487,7 +5487,7 @@ static UINTMAX_T cast(LDOUBLE);
 static UINTMAX_T myround(LDOUBLE);
 static LDOUBLE mypow10(int);
 
-int
+static int
 rpl_vsnprintf(char *str, size_t size, const char *format, va_list args)
 {
     LDOUBLE fvalue;
@@ -6447,7 +6447,7 @@ mymemcpy(void *dst, void *src, size_t len)
 }
 #endif  /* NEED_MYMEMCPY */
 
-int
+static int
 rpl_vasprintf(char **ret, const char *format, va_list ap)
 {
     size_t size;
@@ -6473,10 +6473,10 @@ rpl_vasprintf(char **ret, const char *format, va_list ap)
 
 #if !HAVE_SNPRINTF
 #if HAVE_STDARG_H
-int
+static int
 rpl_snprintf(char *str, size_t size, const char *format, ...)
 #else
-int
+static int
 rpl_snprintf(va_alist) va_dcl
 #endif  /* HAVE_STDARG_H */
 {
@@ -6504,10 +6504,10 @@ rpl_snprintf(va_alist) va_dcl
 
 #if !HAVE_ASPRINTF
 #if HAVE_STDARG_H
-int
+static int
 rpl_asprintf(char **ret, const char *format, ...)
 #else
-int
+static int
 rpl_asprintf(va_alist) va_dcl
 #endif  /* HAVE_STDARG_H */
 {
