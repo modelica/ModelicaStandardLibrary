@@ -3423,7 +3423,7 @@ An example simulation shows the transformer inrush currents due to an initially 
           parameter SI.Conductivity sigma = mat.sigma
             "Conductivity of core material" annotation (Dialog(tab="Losses and Heat", group="Eddy Currents", enable=EddyCurrents));
           parameter SI.Length t(displayUnit="mm") = 0.5e-3
-            "Tickness of lamination" annotation (Dialog(tab="Losses and Heat", group="Eddy Currents", enable=EddyCurrents));
+            "Thickness of lamination" annotation (Dialog(tab="Losses and Heat", group="Eddy Currents", enable=EddyCurrents));
           parameter SI.Length L_lp=10e-3 "Length of leakage of primary Winding" annotation (Dialog(tab="Leakage"));
           parameter SI.Area A_lp=10e-6
             "Cross section of leakage of primary Winding" annotation (Dialog(tab="Leakage"));
@@ -3670,7 +3670,7 @@ Simple model of a single phase transformer with a primary and a secondary windin
           parameter SI.Conductivity sigma = mat.sigma
             "Conductivity of core material" annotation (Dialog(tab="Losses and Heat", group="Eddy Currents", enable=EddyCurrents));
           parameter SI.Length t(displayUnit="mm") = 0.5e-3
-            "Tickness of lamination" annotation (Dialog(tab="Losses and Heat", group="Eddy Currents", enable=EddyCurrents));
+            "Thickness of lamination" annotation (Dialog(tab="Losses and Heat", group="Eddy Currents", enable=EddyCurrents));
 
           parameter SI.Length L_lp=10e-3 "Length of leakage of primary Winding" annotation (Dialog(tab="Leakage"));
           parameter SI.Area A_lp=10e-6
@@ -7832,7 +7832,7 @@ on the model behaviour.
       annotation(Dialog(tab="Losses and Heat", group="Eddy Currents"), Evaluate=true, HideResult=true, choices(checkBox=true));
 
       parameter SI.Conductivity sigma=10e6 "Conductivity of core material" annotation (Dialog(tab="Losses and Heat", group="Eddy Currents", enable=includeEddyCurrents));
-      parameter SI.Length d = 0.5e-3 "Tickness of lamination" annotation (Dialog(tab="Losses and Heat", group="Eddy Currents", enable=includeEddyCurrents));
+      parameter SI.Length d = 0.5e-3 "Thickness of lamination" annotation (Dialog(tab="Losses and Heat", group="Eddy Currents", enable=includeEddyCurrents));
 
       output SI.MagneticFieldStrength H(start=0) "Magnetic field strength";
       output SI.MagneticFieldStrength Hstat
