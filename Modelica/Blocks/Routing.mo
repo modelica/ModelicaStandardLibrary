@@ -391,6 +391,55 @@ value of the additional u index:</p>
 </html>"));
 end Extractor;
 
+  block Multiplex "Multiplexer block for arbitrary number of input connectors"
+    extends Modelica.Blocks.Icons.Block;
+    parameter Integer n(min=0)=0 "dimension of input signal connector" annotation(Dialog(connectorSizing=true), HideResult=true);
+    Modelica.Blocks.Interfaces.RealVectorInput u[n]
+      "Connector of Real input signals" annotation(Placement(transformation(extent={{-120,70},{-80,-70}})));
+    Modelica.Blocks.Interfaces.RealOutput y[size(u,1)]
+      "Connector of Real output signals" annotation(Placement(transformation(extent={{100,-10},{120,10}})));
+
+    equation
+      y = u;
+    annotation(
+      defaultComponentName="mux",
+      Documentation(info="<html>
+<p>
+The output connector is the <strong>concatenation</strong> of the input connectors.
+</p>
+</html>"),
+      Icon(
+        coordinateSystem(
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}}),
+        graphics={
+          Line(points={{8,0},{102,0}}, color={0,0,127}),
+          Line(points={{-100,70},{-60,70},{-4,6}}, color={0,0,127}),
+          Line(points={{-100,0},{-12,0}}, color={0,0,127}),
+          Line(points={{-100,-70},{-62,-70},{-4,-4}}, color={0,0,127}),
+          Ellipse(
+            extent={{-14,16},{16,-14}},
+            fillColor={0,0,127},
+            fillPattern=FillPattern.Solid,
+            lineColor={0,0,127}),
+          Line(points={{-100,0},{-6,0}}, color={0,0,127}),
+          Text(
+            extent={{-140,-90},{150,-50}},
+            textString="n=%n")}),
+      Diagram(
+        coordinateSystem(
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}}),
+        graphics={
+          Line(points={{8,0},{102,0}}, color={0,0,255}),
+          Ellipse(
+            extent={{-14,16},{16,-14}},
+            fillColor={0,0,255},
+            fillPattern=FillPattern.Solid,
+            lineColor={0,0,255}),
+          Line(points={{-100,0},{-6,0}},color={0,0,255})}));
+  end Multiplex;
+
   block Multiplex2 "Multiplexer block for two input connectors"
     extends Modelica.Blocks.Icons.Block;
     parameter Integer n1=1 "dimension of input signal connector 1";
@@ -685,6 +734,55 @@ explicitly defined via parameters n1, n2, n3, n4, n5 and n6.
           Line(points={{-101,17},{-60,17},{-9,2}}, color={0,0,255}),
           Line(points={{-100,-18},{-60,-18},{-11,-4}}, color={0,0,255})}));
   end Multiplex6;
+
+  block DeMultiplex "DeMultiplexer block for arbitrary number of output connectors"
+    extends Modelica.Blocks.Icons.Block;
+    parameter Integer n(min=0)=0 "dimension of output signal connector" annotation(Dialog(connectorSizing=true), HideResult=true);
+    Modelica.Blocks.Interfaces.RealInput u[size(y,1)]
+      "Connector of Real input signals" annotation(Placement(transformation(extent={{-140,-20},{-100,20}})));
+    Modelica.Blocks.Interfaces.RealVectorOutput y[n]
+      "Connector of Real output signals"annotation(Placement(transformation(extent={{80,70},{120,-70}})));
+
+    equation
+      y = u;
+    annotation(
+      defaultComponentName="demux",
+      Documentation(info="<html>
+<p>
+The input connector is <strong>split</strong> up into output connectors.
+</p>
+</html>"),
+      Icon(
+        coordinateSystem(
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}}),
+        graphics={
+          Line(points={{8,0},{102,0}}, color={0,0,127}),
+          Ellipse(
+            extent={{-14,16},{16,-14}},
+            fillColor={0,0,127},
+            fillPattern=FillPattern.Solid,
+            lineColor={0,0,127}),
+          Line(points={{-100,0},{-6,0}}, color={0,0,127}),
+          Line(points={{100,70},{60,70},{4,5}}, color={0,0,127}),
+          Line(points={{0,0},{101,0}}, color={0,0,127}),
+          Line(points={{100,-70},{61,-70},{5,-5}}, color={0,0,127}),
+          Text(
+            extent={{-140,-90},{150,-50}},
+            textString="n=%n")}),
+      Diagram(
+        coordinateSystem(
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}}),
+        graphics={
+          Line(points={{8,0},{102,0}}, color={0,0,255}),
+          Ellipse(
+            extent={{-14,16},{16,-14}},
+            fillColor={0,0,255},
+            fillPattern=FillPattern.Solid,
+            lineColor={0,0,255}),
+          Line(points={{-100,0},{-6,0}},color={0,0,255})}));
+  end DeMultiplex;
 
   block DeMultiplex2 "DeMultiplexer block for two output connectors"
     extends Modelica.Blocks.Icons.Block;
