@@ -944,7 +944,7 @@ input becomes false.
           fillPattern=FillPattern.Solid)}),
       Documentation(info="<html>
 <p>
-The output <code>Q</code> is set by the input <code>S</code> and reset by the input <code>R</code>, and keeps its value in between. <code>QI</code> is the inverse of <code>Q</code>.
+The output <code>Q</code> is set by the input <code>S</code>, is reset by the input <code>R</code>, and keeps its value in between. <code>QI</code> is the inverse of <code>Q</code>.
 </p>
 </html>"));
   end RSFlipFlop;
