@@ -396,7 +396,7 @@ end Extractor;
     parameter Integer n(min=0)=0 "dimension of input signal connector" annotation(Dialog(connectorSizing=true), HideResult=true);
     Modelica.Blocks.Interfaces.RealVectorInput u[n]
       "Connector of Real input signals" annotation(Placement(transformation(extent={{-120,70},{-80,-70}})));
-    Modelica.Blocks.Interfaces.RealOutput y[size(u,1)]
+    Modelica.Blocks.Interfaces.RealOutput y[n+0]
       "Connector of Real output signals" annotation(Placement(transformation(extent={{100,-10},{120,10}})));
 
     equation
@@ -738,7 +738,7 @@ explicitly defined via parameters n1, n2, n3, n4, n5 and n6.
   block DeMultiplex "DeMultiplexer block for arbitrary number of output connectors"
     extends Modelica.Blocks.Icons.Block;
     parameter Integer n(min=0)=0 "dimension of output signal connector" annotation(Dialog(connectorSizing=true), HideResult=true);
-    Modelica.Blocks.Interfaces.RealInput u[size(y,1)]
+    Modelica.Blocks.Interfaces.RealInput u[n+0]
       "Connector of Real input signals" annotation(Placement(transformation(extent={{-140,-20},{-100,20}})));
     Modelica.Blocks.Interfaces.RealVectorOutput y[n]
       "Connector of Real output signals"annotation(Placement(transformation(extent={{80,70},{120,-70}})));
