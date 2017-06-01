@@ -1464,4 +1464,70 @@ This shows the improvements in the numerics when balance=true is set.
       annotation (Line(points={{-15.1,0},{10.2,0}}, color={0,0,127}));
     annotation ( experiment(StopTime=3));
   end Hysteresis;
+
+  model MuxDemux "Test model for the Mux and Demux blocks"
+    extends Modelica.Icons.Example;
+    Modelica.Blocks.Sources.Clock clock annotation (Placement(
+          transformation(extent={{-100,-10},{-80,10}})));
+    Modelica.Blocks.Routing.Multiplex mux5(n=5) annotation (Placement(
+          transformation(extent={{-30,-10},{-10,10}})));
+    Modelica.Blocks.Routing.DeMultiplex demux5(n=5)
+      annotation (Placement(transformation(extent={{12,-10},{32,10}})));
+    Modelica.Blocks.Routing.Multiplex mux3(n=3) annotation (Placement(
+          transformation(extent={{-60,-30},{-40,-10}})));
+    Modelica.Blocks.Routing.Multiplex mux2(n=2) annotation (Placement(
+          transformation(extent={{-60,10},{-40,30}})));
+    Modelica.Blocks.Routing.DeMultiplex demux2(n=2)
+      annotation (Placement(transformation(extent={{60,20},{80,40}})));
+    Modelica.Blocks.Interfaces.RealOutput y1 annotation (Placement(
+          transformation(extent={{100,30},{120,50}})));
+    Modelica.Blocks.Interfaces.RealOutput y2 annotation (Placement(
+          transformation(extent={{100,10},{120,30}})));
+    Modelica.Blocks.Interfaces.RealOutput y3 annotation (Placement(
+          transformation(extent={{100,-30},{120,-10}})));
+    Modelica.Blocks.Interfaces.RealOutput y4 annotation (Placement(
+          transformation(extent={{100,-50},{120,-30}})));
+    Modelica.Blocks.Interfaces.RealOutput y5 annotation (Placement(
+          transformation(extent={{100,-70},{120,-50}})));
+    Modelica.Blocks.Routing.DeMultiplex demux3(n=3) annotation (
+        Placement(transformation(extent={{60,-50},{80,-30}})));
+  equation
+    connect(clock.y, mux2.u[1]) annotation (Line(points={{-79,0},{-70,0},
+            {-70,23.5},{-60,23.5}}, color={0,0,127}));
+    connect(clock.y, mux2.u[2]) annotation (Line(points={{-79,0},{-70,0},
+            {-70,16.5},{-60,16.5}}, color={0,0,127}));
+    connect(clock.y, mux3.u[1]) annotation (Line(points={{-79,0},{-70,
+            0},{-70,-15.3333},{-60,-15.3333}},
+                                            color={0,0,127}));
+    connect(clock.y, mux3.u[2]) annotation (Line(points={{-79,0},{-70,0},
+            {-70,-20},{-60,-20}}, color={0,0,127}));
+    connect(clock.y, mux3.u[3]) annotation (Line(points={{-79,0},{-70,
+            0},{-70,-24.6667},{-60,-24.6667}},
+                                            color={0,0,127}));
+    connect(mux2.y, mux5.u[1:2]) annotation (Line(points={{-39,20},{-34,
+            20},{-34,2.8},{-30,2.8}}, color={0,0,127}));
+    connect(mux3.y, mux5.u[3:5]) annotation (Line(points={{-39,-20},{-34,
+            -20},{-34,-5.6},{-30,-5.6}}, color={0,0,127}));
+    connect(mux5.y, demux5.u)
+      annotation (Line(points={{-9,0},{10,0}}, color={0,0,127}));
+    connect(demux2.y[1], y1) annotation (Line(points={{80,33.5},{91,33.5},
+            {91,40},{110,40}}, color={0,0,127}));
+    connect(demux2.y[2], y2) annotation (Line(points={{80,26.5},{92,26.5},
+            {92,20},{110,20}}, color={0,0,127}));
+    connect(demux2.u, demux5.y[1:2]) annotation (Line(points={{58,30},
+            {46,30},{46,4},{32,4},{32,2.8}},
+                                    color={0,0,127}));
+    connect(y3, demux3.y[1]) annotation (Line(points={{110,-20},{96,
+            -20},{96,-35.3333},{80,-35.3333}},
+                                          color={0,0,127}));
+    connect(y4, demux3.y[2]) annotation (Line(points={{110,-40},{96,-40},
+            {96,-40},{80,-40}}, color={0,0,127}));
+    connect(y5, demux3.y[3]) annotation (Line(points={{110,-60},{96,
+            -60},{96,-44.6667},{80,-44.6667}},
+                                          color={0,0,127}));
+    connect(demux3.u, demux5.y[3:5]) annotation (Line(points={{58,-40},
+            {46,-40},{46,-4},{32,-4},{32,-5.6},{32,-5.6}},
+                                          color={0,0,127}));
+    annotation (experiment(StopTime=2));
+  end MuxDemux;
 end Blocks;
