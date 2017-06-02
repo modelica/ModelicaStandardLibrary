@@ -1254,6 +1254,36 @@ extends Modelica.Icons.ExamplesPackage;
       annotation (experiment(StopTime=0));
     end TestTruncatedDistributions;
 
+    model TestRandomIntegers
+      parameter Integer id(fixed=false);
+      Integer y;
+      parameter Integer n=3;
+      Integer cnt[n](each start=0, each fixed=true);
+      parameter Real nrSigma=3;
+      Real avg=samples/(n);
+      Real lowBound=avg-nrSigma*sqrt(avg);
+      Real highBound=avg+nrSigma*sqrt(avg);
+      Integer samples(start=0, fixed=true);
+    initial algorithm 
+      id := Modelica.Math.Random.Utilities.initializeImpureRandom(123456789);
+    equation 
+      when sample(0, 0.001) then
+        y = Modelica.Math.Random.Utilities.impureRandomInteger(id, 1, n);
+        cnt=pre(cnt)+{if i==y then 1 else 0 for i in 1:n};
+        samples=pre(samples)+1;
+      end when;
+      when terminal() then
+        for i in 1:n loop
+          assert(cnt[i]>lowBound,
+          "Number of generated "+String(i)+" is "+String(cnt[i])+" but should be "+String(avg)+"+/-"+String(sqrt(avg)));
+          assert(cnt[i]<highBound,
+          "Number of generated "+String(i)+" is "+String(cnt[i])+" but should be "+String(avg)+"+/-"+String(sqrt(avg)));
+        end for;
+      end when;
+      // Note: This test is probabilistic and should sometimes (but rarely) fail if given different random number sequences
+      annotation (experiment(StopTime=1));
+    end TestRandomIntegers;
+
     package Internal
       "Internal utility functions that should not be directly utilized by the user"
       function erfSimple

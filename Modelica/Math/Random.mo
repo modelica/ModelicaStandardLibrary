@@ -1176,8 +1176,7 @@ is returned, so the function is impure.
       Real r "Impure Real random number";
     algorithm
       r  := impureRandom(id=id);
-      y  := integer(r*imax) + integer((1-r)*imin);
-      y  := min(imax, max(imin, y));
+      y  := min(imax, integer(r*(imax-imin+1))+imin); 
 
       annotation (__ModelicaAssociation_Impure=true,
         Documentation(info=
@@ -1209,7 +1208,7 @@ is returned, so the function is impure.
 </html>", revisions="<html>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
-
+<tr><td>June 2, 2017</td><td>Correct probabilities - especially for small ranges, by Hans Olsson, <a href=\"www.3ds.com\">Dassault Systemes</a></td></tr>
 <tr><td valign=\"top\"> June 22, 2015 </td>
     <td valign=\"top\">
 
