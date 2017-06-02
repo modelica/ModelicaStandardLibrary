@@ -862,8 +862,8 @@ handled properly.</p>
               textString="u")}),
       Documentation(info="<html>
 <p>When the Boolean input \"u\" becomes <strong>true</strong>, the timer starts
-and the output \"y\" is the time that has elapsed since \"u\" became true.
-When the input becomes false, the timer stops and the output is reset to zero.
+and the output \"y\" is the time that has elapsed since \"u\" became <strong>true</strong>.
+When the input becomes <strong>false</strong>, the timer stops and the output is reset to zero.
 </p>
 </html>"));
   end Timer;
