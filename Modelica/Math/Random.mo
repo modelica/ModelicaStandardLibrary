@@ -1208,7 +1208,7 @@ is returned, so the function is impure.
 </html>", revisions="<html>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
-<tr><td>June 2, 2017</td><td>Correct probabilities - especially for small ranges, by Hans Olsson, <a href=\"www.3ds.com\">Dassault Systemes</a></td></tr>
+<tr><td>June 2, 2017</td><td>Correct probabilities - especially for small ranges, by Hans Olsson, <a href=\"https://www.3ds.com\">Dassault Syst&egrave;mes</a></td></tr>
 <tr><td valign=\"top\"> June 22, 2015 </td>
     <td valign=\"top\">
 
