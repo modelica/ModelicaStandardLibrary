@@ -861,10 +861,9 @@ handled properly.</p>
               extent={{-88,-36},{-54,-46}},
               textString="u")}),
       Documentation(info="<html>
-<p> When the Boolean input \"u\" becomes <strong>true</strong>, the timer is started
-and the output \"y\" is the time from the time instant where u became true.
-The timer is stopped and the output is reset to zero, once the
-input becomes false.
+<p>When the Boolean input \"u\" becomes <strong>true</strong>, the timer starts
+and the output \"y\" is the time that has elapsed since \"u\" became true.
+When the input becomes false, the timer stops and the output is reset to zero.
 </p>
 </html>"));
   end Timer;
