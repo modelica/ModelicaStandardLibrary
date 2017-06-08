@@ -2801,9 +2801,9 @@ points, e.g., when an isentropic reference state is computed.
 
     equation
       // Define specific enthalpy and specific entropy
-      h1 = if time < 0 then h_min else if time > 1 then h_max else h_min + time
+      h1 = if time < 0 then h_min else if time >= 1 then h_max else h_min + time
         /timeUnit*(h_max - h_min);
-      s1 = if time < 0 then s_min else if time > 1 then s_max else s_min + time
+      s1 = if time < 0 then s_min else if time >= 1 then s_max else s_min + time
         /timeUnit*(s_max - s_min);
 
       // Solve for temperature
@@ -2881,9 +2881,9 @@ points, e.g., when an isentropic reference state is computed.
 
     equation
       // Define specific enthalpy
-      h1 = if time < 0 then h_min else if time > 1 then h_max else h_min + time
+      h1 = if time < 0 then h_min else if time >= 1 then h_max else h_min + time
         /timeUnit*(h_max - h_min);
-      s1 = if time < 0 then s_min else if time > 1 then s_max else s_min + time
+      s1 = if time < 0 then s_min else if time >= 1 then s_max else s_min + time
         /timeUnit*(s_max - s_min);
 
       // Solve for temperature

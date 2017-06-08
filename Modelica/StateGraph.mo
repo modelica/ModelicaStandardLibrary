@@ -940,7 +940,7 @@ package Examples
                 -160},{41,-140}})));
     TransitionWithSignal transition7 annotation (Placement(transformation(
               extent={{9,-134},{-11,-114}})));
-    Modelica.Blocks.Sources.BooleanExpression setCondition(y=time > 7)
+    Modelica.Blocks.Sources.BooleanExpression setCondition(y=time >= 7)
       annotation (Placement(transformation(extent={{-77,-160},{-19,-140}})));
     Transition transition4a(enableTimer=true, waitTime=1)
       annotation (Placement(
@@ -1054,7 +1054,7 @@ has a higher priority to fire as alternative.split[2]).
               extent={{10,-70},{-10,-50}})));
     Parallel Parallel1 annotation (Placement(transformation(extent={{-30,-40},{
                 36,40}})));
-    Modelica.Blocks.Sources.BooleanExpression setCondition(y=time > 7)
+    Modelica.Blocks.Sources.BooleanExpression setCondition(y=time >= 7)
       annotation (Placement(transformation(extent={{-40,-90},{-10,-70}})));
       inner StateGraphRoot stateGraphRoot
         annotation (Placement(transformation(extent={{-90,50},{-70,70}})));
@@ -1698,7 +1698,7 @@ buttons:
       Transition transition1(
         enableTimer=false,
         waitTime=0,
-        condition=time > 8)
+        condition=time >= 8)
         annotation (Placement(
               transformation(extent={{-60,20},{-40,40}})));
       Step initStep annotation (Placement(transformation(extent={{-140,-10},{
@@ -1712,7 +1712,7 @@ buttons:
                                            annotation (Placement(transformation(
                 extent={{-20,-45},{10,-15}})));
       Transition transition2(
-        condition=time > 4,
+        condition=time >= 4,
         enableTimer=false,
         waitTime=0)
         annotation (Placement(
