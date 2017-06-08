@@ -1048,9 +1048,8 @@ Example:
     annotation (
       Documentation(info="<html>
 <p>
-This blocks computes the output <strong>y</strong> (element-wise)
-as <em>product</em> of the corresponding elements of
-the two inputs <strong>u1</strong> and <strong>u2</strong>:
+This blocks computes the output <strong>y</strong>
+as <em>product</em> of the two inputs <strong>u1</strong> and <strong>u2</strong>:
 </p>
 <pre>
     y = u1 * u2;
@@ -1089,9 +1088,8 @@ the two inputs <strong>u1</strong> and <strong>u2</strong>:
     annotation (
       Documentation(info="<html>
 <p>
-This block computes the output <strong>y</strong> (element-wise)
-by <em>dividing</em> the corresponding elements of
-the two inputs <strong>u1</strong> and <strong>u2</strong>:
+This block computes the output <strong>y</strong>
+by <em>dividing</em> the two inputs <strong>u1</strong> and <strong>u2</strong>:
 </p>
 <pre>
     y = u1 / u2;
@@ -1340,7 +1338,7 @@ as <em>square root</em> of the input <strong>u</strong>:
     y = <strong>sqrt</strong>( u );
 </pre>
 <p>
-All elements of the input vector shall be zero or positive.
+The input shall be zero or positive.
 Otherwise an error occurs.
 </p>
 
@@ -1657,7 +1655,7 @@ This blocks computes the output <strong>y</strong> as the
     y = <strong>asin</strong>( u );
 </pre>
 <p>
-The absolute values of the elements of the input <strong>u</strong> need to
+The absolute value of the input <strong>u</strong> need to
 be less or equal to one (<strong>abs</strong>( u ) <= 1).
 Otherwise an error occurs.
 </p>
@@ -1738,7 +1736,7 @@ This blocks computes the output <strong>y</strong> as the
     y = <strong>acos</strong>( u );
 </pre>
 <p>
-The absolute values of the elements of the input <strong>u</strong> need to
+The absolute value of the input <strong>u</strong> need to
 be less or equal to one (<strong>abs</strong>( u ) <= 1).
 Otherwise an error occurs.
 </p>
@@ -2393,7 +2391,7 @@ This blocks computes the output <strong>y</strong> as the
     y = <strong>log</strong>( u ) / <strong>log</strong>( base );
 </pre>
 <p>
-An error occurs if the elements of the input <strong>u</strong> are
+An error occurs if the input <strong>u</strong> is
 zero or negative.
 </p>
 
@@ -2477,7 +2475,7 @@ This blocks computes the output <strong>y</strong> as the
     y = <strong>log10</strong>( u );
 </pre>
 <p>
-An error occurs if the elements of the input <strong>u</strong> are
+An error occurs if the input <strong>u</strong> is
 zero or negative.
 </p>
 
