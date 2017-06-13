@@ -1738,7 +1738,7 @@ a flange according to a given acceleration.
     endTime = Tes;
 
     // report when axis is moving
-    motion_ref = time <= endTime;
+    motion_ref = time < endTime;
     for i in 1:nout loop
       moving[i] = if abs(q_begin[i] - q_end[i]) > eps then motion_ref else
         false;
