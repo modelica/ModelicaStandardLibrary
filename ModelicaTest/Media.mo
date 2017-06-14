@@ -90,22 +90,22 @@ package Media "Test models for Modelica.Media"
 
       // When iterating at the initial time the asserts below could be violated.
       // To avoid an error, the check is only performed shortly after initialization.
-      if time > t_min then
+      if time >= t_min then
         assert(err_T <= eps, "Error: abs(medium.T - T) > eps " + "(err_T = "
            + String(err_T) + ", eps = " + String(eps) + ")");
       end if;
 
-      if time > t_min then
+      if time >= t_min then
         assert(err_d <= eps, "Error: abs(medium.d - d) > eps " + "(err_d = " +
           String(err_d) + ", eps = " + String(eps) + ")");
       end if;
 
-      if time > t_min then
+      if time >= t_min then
         assert(err_u <= eps, "Error: abs(medium.u - u) > eps " + "(err_u = " +
           String(err_u) + ", eps = " + String(eps) + ")");
       end if;
 
-      if time > t_min then
+      if time >= t_min then
         assert(err_h_is <= eps_h_is,
           "Error: entropy not constant for isentropicEnthalpy " + "(err_h_is = "
            + String(err_h_is) + ", eps = " + String(eps_h_is) + ")");
@@ -232,22 +232,22 @@ package Media "Test models for Modelica.Media"
 
       // When iterating at the initial time the asserts below could be violated.
       // To avoid an error, the check is only performed shortly after initialization.
-      if time > t_min then
+      if time >= t_min then
         assert(err_T <= eps, "Error: abs(medium.T - T) > eps " + "(err_T = "
            + String(err_T) + ", eps = " + String(eps) + ")");
       end if;
 
-      if time > t_min then
+      if time >= t_min then
         assert(err_d <= eps, "Error: abs(medium.d - d) > eps " + "(err_d = " +
           String(err_d) + ", eps = " + String(eps) + ")");
       end if;
 
-      if time > t_min then
+      if time >= t_min then
         assert(err_u <= eps, "Error: abs(medium.u - u) > eps " + "(err_u = " +
           String(err_u) + ", eps = " + String(eps) + ")");
       end if;
 
-      if time > t_min then
+      if time >= t_min then
       assert(err_h_is <= eps_h_is,
         "Error: entropy not constant for isentropicEnthalpy " + "(err_h_is = "
          + String(err_h_is) + ", eps = " + String(eps_h_is) + ")");
