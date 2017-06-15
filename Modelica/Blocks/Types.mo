@@ -209,7 +209,7 @@ initialization definition.
       input String fileName "File name";
       input Real table[:, :];
       input Modelica.Blocks.Types.Smoothness smoothness;
-      input Modelica.Blocks.Types.Extrapolation extrapolation;
+      input Modelica.Blocks.Types.Extrapolation extrapolation=Modelica.Blocks.Types.Extrapolation.LastTwoPoints;
       input Boolean verboseRead=true "= true: Print info message; = false: No info message";
       output ExternalCombiTable2D externalCombiTable2D;
     external"C" externalCombiTable2D = ModelicaStandardTables_CombiTable2D_init2(
