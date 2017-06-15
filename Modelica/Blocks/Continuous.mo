@@ -31,7 +31,7 @@ package Continuous "Library of continuous control blocks with internal states"
     annotation (
       Documentation(info="<html>
 <p>
-This blocks computes output <strong>y</strong> (element-wise) as
+This blocks computes output <strong>y</strong> as
 <em>integral</em> of the input <strong>u</strong> multiplied with
 the gain <em>k</em>:
 </p>
@@ -132,7 +132,7 @@ This is discussed in the description of package
     annotation (
       Documentation(info="<html>
 <p>
-This blocks computes <strong>y</strong> (element-wise) as <em>integral</em>
+This blocks computes <strong>y</strong> as <em>integral</em>
 of the input <strong>u</strong> multiplied with the gain <em>k</em>. If the
 integral reaches a given upper or lower <em>limit</em> and the
 input will drive the integral outside of this bound, the
@@ -240,7 +240,7 @@ to use <strong>limitAtInit</strong> = <strong>false</strong>.
 <p>
 This blocks defines the transfer function between the
 input u and the output y
-(element-wise) as <em>approximated derivative</em>:
+as <em>approximated derivative</em>:
 </p>
 <pre>
              k * s
@@ -322,7 +322,7 @@ If k=0, the block reduces to y=0.
       Documentation(info="<html>
 <p>
 This blocks defines the transfer function between the input u
-and the output y (element-wise) as <em>first order</em> system:
+and the output y as <em>first order</em> system:
 </p>
 <pre>
                k
@@ -417,7 +417,7 @@ Example:
       Documentation(info="<html>
 <p>
 This blocks defines the transfer function between the input u and
-the output y (element-wise) as <em>second order</em> system:
+the output y as <em>second order</em> system:
 </p>
 <pre>
                              k
@@ -538,7 +538,7 @@ Example:
       Documentation(info="<html>
 <p>
 This blocks defines the transfer function between the input u and
-the output y (element-wise) as <em>PI</em> system:
+the output y as <em>PI</em> system:
 </p>
 <pre>
                  1
