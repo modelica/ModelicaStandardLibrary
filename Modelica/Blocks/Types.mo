@@ -174,7 +174,7 @@ initialization definition.
       input Real table[:, :];
       input Integer columns[:];
       input Modelica.Blocks.Types.Smoothness smoothness;
-      input Modelica.Blocks.Types.Extrapolation extrapolation;
+      input Modelica.Blocks.Types.Extrapolation extrapolation=Modelica.Blocks.Types.Extrapolation.LastTwoPoints;
       input Boolean verboseRead=true "= true: Print info message; = false: No info message";
       output ExternalCombiTable1D externalCombiTable1D;
     external"C" externalCombiTable1D = ModelicaStandardTables_CombiTable1D_init2(
