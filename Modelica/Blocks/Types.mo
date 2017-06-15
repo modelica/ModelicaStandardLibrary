@@ -134,8 +134,8 @@ initialization definition.
       input Integer columns[:];
       input Modelica.Blocks.Types.Smoothness smoothness;
       input Modelica.Blocks.Types.Extrapolation extrapolation;
-      input Modelica.SIunits.Time shiftTime;
-      input Modelica.Blocks.Types.TimeEvents timeEvents;
+      input Modelica.SIunits.Time shiftTime=0.0;
+      input Modelica.Blocks.Types.TimeEvents timeEvents=Modelica.Blocks.Types.TimeEvents.Always;
       input Boolean verboseRead=true "= true: Print info message; = false: No info message";
       output ExternalCombiTimeTable externalCombiTimeTable;
     external"C" externalCombiTimeTable = ModelicaStandardTables_CombiTimeTable_init2(
