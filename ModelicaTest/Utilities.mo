@@ -132,78 +132,78 @@ extends Modelica.Icons.ExamplesPackage;
     // Strings.scanToken
     (token,i) := Strings.scanToken("  -123.47e-2", 1);
     assert(i == 13 and token.tokenType == Types.TokenType.RealToken and token.real
-       == -123.47e-2, "String.scanToken 1 failed");
+       == -123.47e-2, "Strings.scanToken 1 failed");
 
     (token,i) := Strings.scanToken("  -123", 1);
     assert(i == 7 and token.tokenType == Types.TokenType.IntegerToken and token.integer
-       == -123, "String.scanToken 2 failed");
+       == -123, "Strings.scanToken 2 failed");
 
     (token,i) := Strings.scanToken(
         "  123",
         1,
         unsigned=true);
     assert(i == 6 and token.tokenType == Types.TokenType.IntegerToken and token.integer
-       == 123, "String.scanToken 3 failed");
+       == 123, "Strings.scanToken 3 failed");
 
     (token,i) := Strings.scanToken("  true x", 1);
     assert(i == 7 and token.tokenType == Types.TokenType.BooleanToken and token.boolean,
-      "String.scanToken 4 failed");
+      "Strings.scanToken 4 failed");
 
     (token,i) := Strings.scanToken("  false x", 1);
     assert(i == 8 and token.tokenType == Types.TokenType.BooleanToken and not
-      token.boolean, "String.scanToken 5 failed");
+      token.boolean, "Strings.scanToken 5 failed");
 
     (token,i) := Strings.scanToken(" \"string text\" x=3", 1);
     assert(i == 15 and token.tokenType == Types.TokenType.StringToken and token.string
-       == "string text", "String.scanToken 6 failed");
+       == "string text", "Strings.scanToken 6 failed");
 
     (token,i) := Strings.scanToken(" x_12=2;", 1);
     assert(i == 6 and token.tokenType == Types.TokenType.IdentifierToken and
-      token.string == "x_12", "String.scanToken 7 failed");
+      token.string == "x_12", "Strings.scanToken 7 failed");
 
     (token,i) := Strings.scanToken("  abc = 3;   ", 11);
     assert(i == 14 and token.tokenType == Types.TokenType.NoToken,
-      "String.scanToken 8 failed");
+      "Strings.scanToken 8 failed");
 
     // Strings.scanXXX
     (r,i) := Strings.scanReal(
         "  123 ",
         1,
         unsigned=true);
-    assert(i == 6 and r == 123, "String.scanRequiredReal 2 failed");
+    assert(i == 6 and r == 123, "Strings.scanRequiredReal 2 failed");
 
     (j,i) := Strings.scanInteger("  -123", 1);
-    assert(i == 7 and j == -123, "String.scanRequiredInteger 1 failed");
+    assert(i == 7 and j == -123, "Strings.scanRequiredInteger 1 failed");
 
     (j,i) := Strings.scanInteger(
         "  123",
         1,
         unsigned=true);
-    assert(i == 6 and j == 123, "String.scanRequiredInteger 2 failed");
+    assert(i == 6 and j == 123, "Strings.scanRequiredInteger 2 failed");
 
     (b,i) := Strings.scanBoolean("  true x", 1);
-    assert(i == 7 and b, "String.scanRequiredBoolean 1 failed");
+    assert(i == 7 and b, "Strings.scanRequiredBoolean 1 failed");
 
     (b,i) := Strings.scanBoolean("  false x", 1);
-    assert(i == 8 and not b, "String.scanRequiredBoolean 2 failed");
+    assert(i == 8 and not b, "Strings.scanRequiredBoolean 2 failed");
 
     (s,i) := Strings.scanString(" \"string text\" x=3", 1);
-    assert(i == 15 and s == "string text", "String.scanRequiredString failed");
+    assert(i == 15 and s == "string text", "Strings.scanRequiredString failed");
 
     (s,i) := Strings.scanIdentifier(" x_12=2;", 1);
-    assert(i == 6 and s == "x_12", "String.scanRequiredIdentifier failed");
+    assert(i == 6 and s == "x_12", "Strings.scanRequiredIdentifier failed");
 
     (s,i) := Strings.scanDelimiter(
         "  &,",
         1,
         {"&",","});
-    assert(i == 4 and s == "&", "String.scanRequiredDelimiter 1 failed");
+    assert(i == 4 and s == "&", "Strings.scanRequiredDelimiter 1 failed");
 
     (s,i) := Strings.scanDelimiter(
         "  /*,",
         1,
         {"&","/*"});
-    assert(i == 5 and s == "/*", "String.scanRequiredDelimiter 2 failed");
+    assert(i == 5 and s == "/*", "Strings.scanRequiredDelimiter 2 failed");
 
     Strings.scanNoToken("  abc = 3;   ", 11);
 
