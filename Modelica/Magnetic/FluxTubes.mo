@@ -5834,7 +5834,7 @@ An overview of all available hysteresis and permanent magnet elements of the pac
         hmax=mat.Hsat;
 
       equation
-        init2 = time > 1.5*t1;
+        init2 = time >= 1.5*t1;
         init3 = edge(init2);
 
         der(x) = 0;
@@ -5874,7 +5874,7 @@ An overview of all available hysteresis and permanent magnet elements of the pac
         delDesc = (alpha < pre(bSav[1]));
         del = delAsc or delDesc or evInit;
 
-        init = (abs(alpha) >= pre(hmax)) and time>2*t1;
+        init = (abs(alpha) >= pre(hmax)) and time>=2*t1;
 
         evInit = init and not pre(init);
 

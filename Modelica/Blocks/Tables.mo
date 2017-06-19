@@ -111,8 +111,8 @@ other columns contain the data to be interpolated. Example:
        e.g., the input u =-1.0, the output y = -1.0 (i.e., extrapolation).
 </pre>
 <ul>
-<li>The interpolation is <strong>efficient</strong>, because a search for a new interpolation
-    starts at the interval used in the last call.</li>
+<li>The interpolation interval is found by a binary search where the interval used in the
+    last call is used as start interval.</li>
 <li>Via parameter <strong>smoothness</strong> it is defined how the data is interpolated:
 <pre>
   smoothness = 1: Linear interpolation
@@ -398,8 +398,8 @@ other columns contain the data to be interpolated. Example:
        e.g., the input u =-1.0, the output y = -1.0 (i.e., extrapolation).
 </pre>
 <ul>
-<li>The interpolation is <strong>efficient</strong>, because a search for a new interpolation
-    starts at the interval used in the last call.</li>
+<li>The interpolation interval is found by a binary search where the interval used in the
+    last call is used as start interval.</li>
 <li>Via parameter <strong>smoothness</strong> it is defined how the data is interpolated:
 <pre>
   smoothness = 1: Linear interpolation
@@ -689,8 +689,8 @@ Example:
        e.g., the input u is [2.0;1.5], the output y is 3.0.
 </pre>
 <ul>
-<li>The interpolation is <strong>efficient</strong>, because a search for a new
-    interpolation starts at the interval used in the last call.</li>
+<li>The interpolation interval is found by a binary search where the interval used in the
+    last call is used as start interval.</li>
 <li>Via parameter <strong>smoothness</strong> it is defined how the data is interpolated:
 <pre>
   smoothness = 1: Bilinear interpolation

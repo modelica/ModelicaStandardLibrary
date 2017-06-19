@@ -134,8 +134,8 @@ initialization definition.
       input Integer columns[:];
       input Modelica.Blocks.Types.Smoothness smoothness;
       input Modelica.Blocks.Types.Extrapolation extrapolation;
-      input Modelica.SIunits.Time shiftTime;
-      input Modelica.Blocks.Types.TimeEvents timeEvents;
+      input Modelica.SIunits.Time shiftTime=0.0;
+      input Modelica.Blocks.Types.TimeEvents timeEvents=Modelica.Blocks.Types.TimeEvents.Always;
       input Boolean verboseRead=true "= true: Print info message; = false: No info message";
       output ExternalCombiTimeTable externalCombiTimeTable;
     external"C" externalCombiTimeTable = ModelicaStandardTables_CombiTimeTable_init2(
@@ -174,7 +174,7 @@ initialization definition.
       input Real table[:, :];
       input Integer columns[:];
       input Modelica.Blocks.Types.Smoothness smoothness;
-      input Modelica.Blocks.Types.Extrapolation extrapolation;
+      input Modelica.Blocks.Types.Extrapolation extrapolation=Modelica.Blocks.Types.Extrapolation.LastTwoPoints;
       input Boolean verboseRead=true "= true: Print info message; = false: No info message";
       output ExternalCombiTable1D externalCombiTable1D;
     external"C" externalCombiTable1D = ModelicaStandardTables_CombiTable1D_init2(
@@ -209,7 +209,7 @@ initialization definition.
       input String fileName "File name";
       input Real table[:, :];
       input Modelica.Blocks.Types.Smoothness smoothness;
-      input Modelica.Blocks.Types.Extrapolation extrapolation;
+      input Modelica.Blocks.Types.Extrapolation extrapolation=Modelica.Blocks.Types.Extrapolation.LastTwoPoints;
       input Boolean verboseRead=true "= true: Print info message; = false: No info message";
       output ExternalCombiTable2D externalCombiTable2D;
     external"C" externalCombiTable2D = ModelicaStandardTables_CombiTable2D_init2(

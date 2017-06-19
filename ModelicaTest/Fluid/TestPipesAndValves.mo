@@ -90,12 +90,12 @@ extends Modelica.Icons.ExamplesPackage;
       annotation (Placement(transformation(extent={{-80,60},{-60,80}})));
     discrete Modelica.SIunits.MassFlowRate m_flow_initial;
   equation
-    when time > 0.1 then
+    when time >= 0.1 then
       m_flow_initial = valve.port_a.m_flow;
     end when;
     if pipe.energyDynamics >= Modelica.Fluid.Types.Dynamics.SteadyStateInitial and
        pipe.massDynamics >= Modelica.Fluid.Types.Dynamics.SteadyStateInitial then
-      when time > 1 then
+      when time >= 1 then
         assert(abs(valve.port_a.m_flow - m_flow_initial) < 1e-3, "!!!THE SIMULATION DID NOT START IN STEADY-STATE!!!");
       end when;
     end if;
@@ -1403,12 +1403,12 @@ Simulation starts with both valves open. At t=1, valve 1 closes; between t=3 and
       annotation (Placement(transformation(extent={{-80,60},{-60,80}})));
     discrete Modelica.SIunits.MassFlowRate m_flow_initial;
   equation
-    when time > 0.1 then
+    when time >= 0.1 then
       m_flow_initial = valve.port_a.m_flow;
     end when;
     if pipe.energyDynamics >= Modelica.Fluid.Types.Dynamics.SteadyStateInitial and
        pipe.massDynamics >= Modelica.Fluid.Types.Dynamics.SteadyStateInitial then
-      when time > 1 then
+      when time >= 1 then
         assert(abs(valve.port_a.m_flow - m_flow_initial) < 1e-3, "!!!THE SIMULATION DID NOT START IN STEADY-STATE!!!");
       end when;
     end if;

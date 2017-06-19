@@ -1230,11 +1230,6 @@ This blocks computes the output <code>y</code> as the
 <pre>
     y = <strong>asin</strong>(uInternal);
 </pre>
-<p>
-The absolute values of the elements of the input <code>u</code> need to
-be less or equal to one (<strong>abs</strong>( u ) <= 1).
-Otherwise an error occurs.
-</p>
 
 <p>
 <img src=\"modelica://Modelica/Resources/Images/Math/asin.png\"
@@ -1306,11 +1301,6 @@ This blocks computes the output <code>y</code> as the
 <pre>
     y = <strong>acos</strong>(uInternal);
 </pre>
-<p>
-The absolute values of the elements of the input <code>u</code> need to
-be less or equal to one (<strong>abs</strong>( u ) <= 1).
-Otherwise an error occurs.
-</p>
 
 <p>
 <img src=\"modelica://Modelica/Resources/Images/Math/acos.png\"
@@ -1761,8 +1751,7 @@ This blocks computes the output <code>y</code> as the
     y = <strong>log</strong>(uInternal);
 </pre>
 <p>
-An error occurs if the elements of the input <code>u</code> are
-zero or negative.
+An error occurs if the elements of the input <code>u</code> is zero.
 </p>
 
 <p>

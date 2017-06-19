@@ -2645,7 +2645,7 @@ This package contains the bus definitions needed for the
             rotation=270)));
       Sources.RealExpression realExpression(y=time) annotation (Placement(
             transformation(extent={{-6,0},{20,20}})));
-      Sources.BooleanExpression booleanExpression(y=time > 0.5) annotation (
+      Sources.BooleanExpression booleanExpression(y=time >= 0.5) annotation (
           Placement(transformation(extent={{-6,-30},{20,-10}})));
     equation
       connect(realExpression.y, subControlBus.myRealSignal) annotation (Line(

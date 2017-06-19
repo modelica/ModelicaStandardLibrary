@@ -1738,7 +1738,7 @@ a flange according to a given acceleration.
     endTime = Tes;
 
     // report when axis is moving
-    motion_ref = time <= endTime;
+    motion_ref = time < endTime;
     for i in 1:nout loop
       moving[i] = if abs(q_begin[i] - q_end[i]) > eps then motion_ref else
         false;
@@ -2041,6 +2041,8 @@ time points and the second column contains the data to be interpolated.
 The table interpolation has the following properties:
 </p>
 <ul>
+<li>The interpolation interval is found by a linear search where the interval used in the
+    last call is used as start interval.</li>
 <li>The time points need to be <strong>monotonically increasing</strong>.</li>
 <li><strong>Discontinuities</strong> are allowed, by providing the same
     time point twice in the table.</li>
@@ -2245,6 +2247,8 @@ by interpolation of column 4 of the table matrix.
 The table interpolation has the following properties:
 </p>
 <ul>
+<li>The interpolation interval is found by a binary search where the interval used in the
+    last call is used as start interval.</li>
 <li>The time points need to be <strong>strictly increasing</strong> for cubic Hermite
     spline interpolation, otherwise <strong>monotonically increasing</strong>.</li>
 <li><strong>Discontinuities</strong> are allowed for (constant or) linear interpolation,
