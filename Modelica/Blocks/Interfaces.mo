@@ -542,7 +542,7 @@ to be used as base class for a corresponding controller.
     annotation (Documentation(info="<html>
 <p>
 Basic definitions of a discrete block of library
-Blocks.Discrete. 
+Blocks.Discrete.
 </p>
 </html>"));
   end DiscreteBlock;
