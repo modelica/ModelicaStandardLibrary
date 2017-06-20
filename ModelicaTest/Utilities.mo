@@ -207,13 +207,10 @@ extends Modelica.Icons.ExamplesPackage;
 
     Strings.scanNoToken("  abc = 3;   ", 11);
 
-    /*
-  Streams.print("\n... Demonstrate how to compute a hash value from a string:");
-  hash1 :=Modelica.Utilities.Strings.hashString("this is a test");
-  hash2 :=Modelica.Utilities.Strings.hashString("Controller.noise1");
-  Streams.print("    hash1 = " + String(hash1));
-  Streams.print("    hash2 = " + String(hash2));
-  */
+    hash1 := Strings.hashString("this is a test");
+    assert(hash1 == 1827717433, "Strings.hashString 1 failed");
+    hash2 := Strings.hashString("Controller.noise1");
+    assert(hash2 == -1025762750, "Strings.hashString 2 failed");
 
     ok := true;
   end Strings;

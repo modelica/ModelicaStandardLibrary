@@ -26,6 +26,10 @@
 */
 
 /* Release Notes:
+      Jun. 16, 2017: by Thomas Beutlich, ESI ITI GmbH
+                     Utilize hash macros of uthash.h for ModelicaStrings_hashString
+                     (ticket #2250)
+
       Nov. 23, 2016: by Martin Sjoelund, SICS East Swedish ICT AB
                      Added NO_LOCALE define flag, in case the OS does
                      not have this (for example when using GCC compiler,
@@ -79,6 +83,9 @@
 #endif
 
 #include "ModelicaUtilities.h"
+#define HASH_FUNCTION HASH_AP
+#include "uthash.h"
+#undef uthash_fatal /* Ensure that nowhere in this file uses uthash_fatal by accident */
 
 _Ret_z_ const char* ModelicaStrings_substring(_In_z_ const char* string,
                                       int startIndex, int endIndex) {
@@ -486,35 +493,50 @@ Modelica_ERROR:
     return;
 }
 
-int ModelicaStrings_hashString(_In_z_ const char* inStr) {
-    /* Compute an unsigned int hash code from a character string
-     *
-     * Author: Arash Partow - 2002                                            *
-     * URL: http://www.partow.net                                             *
-     * URL: http://www.partow.net/programming/hashfunctions/index.html        *
-     *                                                                        *
-     * Copyright notice:                                                      *
-     * Free use of the General Purpose Hash Function Algorithms Library is    *
-     * permitted under the guidelines and in accordance with the most current *
-     * version of the Common Public License.                                  *
-     * http://www.opensource.org/licenses/cpl1.0.php                          *
-     */
-    unsigned int hash = 0xAAAAAAAA;
-    unsigned int i    = 0;
-    unsigned int len  = (unsigned int)strlen(inStr);
-    const unsigned char *str = (const unsigned char*)(inStr);
-    /* Use unsigned char to be independent of compiler settings */
+/* AP hash function macro variant of the one listed at
+   http://www.partow.net/programming/hashfunctions/index.html#APHashFunction
 
+   Copyright (C) 2002, Arash Partow
+
+   Permission is hereby granted, free of charge, to any person obtaining a copy
+   of this software and associated documentation files (the "Software"), to deal
+   in the Software without restriction, including without limitation the rights
+   to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+   copies of the Software, and to permit persons to whom the Software is
+   furnished to do so, subject to the following conditions:
+
+   The above copyright notice and this permission notice shall be included in all
+   copies or substantial portions of the Software.
+
+   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+   IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+   FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+   AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+   LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+   SOFTWARE.
+*/
+#define HASH_AP(key, keylen, hash) \
+do { \
+    unsigned _hb_keylen = (unsigned)keylen; \
+    const unsigned char *_hb_key = (const unsigned char*)(key); \
+    unsigned int i; \
+    hash = 0xAAAAAAAA; \
+    for (i = 0; i < _hb_keylen; _hb_key++, i++) { \
+        hash ^= ((i & 1) == 0) ? (  (hash <<  7) ^ (*_hb_key) * (hash >> 3)) : \
+                                 (~((hash << 11) + ((*_hb_key) ^ (hash >> 5)))); \
+    } \
+} while (0)
+
+int ModelicaStrings_hashString(_In_z_ const char* str) {
+    /* Compute an unsigned int hash code from a character string */
+    size_t len = strlen(str);
     union hash_tag {
         unsigned int iu;
         int          is;
     } h;
 
-    for(i = 0; i < len; str++, i++) {
-        hash ^= ((i & 1) == 0) ? (  (hash <<  7) ^  (*str) * (hash >> 3)) :
-                                 (~((hash << 11) + ((*str) ^ (hash >> 5))));
-    }
+    HASH_VALUE(str, len, h.iu);
 
-    h.iu = hash;
     return h.is;
 }
