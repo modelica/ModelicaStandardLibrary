@@ -543,6 +543,18 @@ to be used as base class for a corresponding controller.
 <p>
 Basic definitions of a discrete block of library
 Blocks.Discrete.
+The output(s) will only change at events, but are not formally a discrete variable(s) in Modelica.
+The input(s) swill be sampled, and can thus be continuous variable(s).
+</p>
+
+<p>
+<strong>Important</strong>: If you connect several discrete blocks you should normally ensure that <strong>samplePeriod (and startTime) 
+are exactly identical</strong> for all blocks, since otherwise the output from one block will be transformed into a continuous signal
+and sampled, which can cause a variable delay of up to one sample period leading to unexpected results.
+</p>
+
+<p>
+Modelica 3.3 introduced synchronous operators that avoid the need to manually propagate samplePeriod to each block.
 </p>
 </html>"));
   end DiscreteBlock;
@@ -560,8 +572,7 @@ Blocks.Discrete.
 <p>
 Block has one input and one output signal
 which are sampled due to the defined <strong>samplePeriod</strong> parameter.
-The output will only change at events, but is not formally a discrete variable in Modelica.
-The input will be sampled, and can thus be a continuous variable.
+See the base-class <a href=\"modelica://Modelica.Blocks.Interfaces.DiscreteBlock\">DiscreteBlock</a> for more information.
 </p>
 </html>"));
   end DiscreteSISO;
@@ -582,8 +593,7 @@ The input will be sampled, and can thus be a continuous variable.
 <p>
 Block has a input and a output signal vector
 which are sampled due to the defined <strong>samplePeriod</strong> parameter.
-The outputs will only change at events, but are not formally discrete variables in Modelica.
-The inputs will be sampled, and can thus be continuous variables.
+See the base-class <a href=\"modelica://Modelica.Blocks.Interfaces.DiscreteBlock\">DiscreteBlock</a> for more information.
 </p>
 </html>"));
   end DiscreteMIMO;
@@ -603,8 +613,7 @@ The inputs will be sampled, and can thus be continuous variables.
 Block has a input and a output signal vector
 where the signal sizes of the input and output vector are identical.
 These signals are sampled due to the defined <strong>samplePeriod</strong> parameter.
-The outputs will only change at events, but are not formally discrete variables in Modelica.
-The inputs will be sampled, and can thus be continuous variables.
+See the base-class <a href=\"modelica://Modelica.Blocks.Interfaces.DiscreteBlock\">DiscreteBlock</a> for more information.
 </p>
 </html>"));
 
@@ -651,8 +660,7 @@ Real output signal
 that are sampled due to the defined <strong>samplePeriod</strong> parameter.
 The block is designed
 to be used as base class for a corresponding controller.
-The output will only change at events, but is not formally a discrete variable in Modelica.
-The input will be sampled, and can thus be continuous variables.
+See the base-class <a href=\"modelica://Modelica.Blocks.Interfaces.DiscreteBlock\">DiscreteBlock</a> for more information.
 </p>
 </html>"));
   end SVdiscrete;
@@ -703,8 +711,7 @@ Real output signal vector. The vector signals
 are sampled due to the defined <strong>samplePeriod</strong> parameter.
 The block is designed
 to be used as base class for a corresponding controller.
-The outputs will only change at events, but are not formally discrete variables in Modelica.
-The inputs will be sampled, and can thus be continuous variables.
+See the base-class <a href=\"modelica://Modelica.Blocks.Interfaces.DiscreteBlock\">DiscreteBlock</a> for more information.
 </p>
 </html>"));
   end MVdiscrete;
