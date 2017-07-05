@@ -2645,9 +2645,11 @@ The result can be seen in the output signals of the FullAdders according to:</p>
           constant D.Interfaces.Logic LogicValues[:]=L.'U':L.'-';
     protected
           D.Interfaces.Logic x_delayed;
+		  Real xr "Auxiliary variable of type Real to use in delay()";
 
         equation
-          x_delayed = LogicValues[integer(delay(Integer(pre(x)), delayTime))];
+		  xr = Integer(pre(x));
+          x_delayed = LogicValues[integer(delay(xr, delayTime))];
           y = if delayTime > 0 then
                    (if time >= delayTime then x_delayed else y0) else
                      pre(x);
