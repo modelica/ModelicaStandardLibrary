@@ -1593,7 +1593,7 @@ Simulate for 1.5 seconds and plot (versus time):
         connect(aimsE.flange, loadInertiaE.flange_a)
           annotation (Line(points={{10,-80},{50,-80}}));
         connect(booleanStep.y, idealCloser.control)
-          annotation (Line(points={{-39,60},{-7,60}}, color={255,0,255}));
+          annotation (Line(points={{-39,60},{-12,60}},color={255,0,255}));
         connect(terminalBoxE.plug_sn, aimsE.plug_sn)
           annotation (Line(points={{-6,-70},{-6,-70}}, color={0,0,255}));
         connect(terminalBoxE.plug_sp, aimsE.plug_sp)
@@ -1869,7 +1869,7 @@ Simulate for 1.5 seconds and plot (versus time):
         connect(idealCloserM.plug_n, currentRMSsensorM.plug_p) annotation (Line(
             points={{-10,72},{0,72}}, color={0,0,255}));
         connect(booleanStepM.y, idealCloserM.control) annotation (Line(
-            points={{-29,40},{-20,40},{-20,65}}, color={255,0,255}));
+            points={{-29,40},{-20,40},{-20,60}}, color={255,0,255}));
         connect(star3.pin_n, ground3.p)
           annotation (Line(points={{-90,-30},{-90,-42}}, color={0,0,255}));
         connect(sineVoltage3.plug_n, star3.plug_p) annotation (Line(points={{-60,
@@ -1879,9 +1879,9 @@ Simulate for 1.5 seconds and plot (versus time):
         connect(idealCloser3.plug_n, currentRMSsensor3.plug_p) annotation (Line(
             points={{-10,-30},{0,-30}}, color={0,0,255}));
         connect(booleanStep3.y, idealCloser3.control) annotation (Line(
-            points={{-29,-60},{-20,-60},{-20,-37}}, color={255,0,255}));
+            points={{-29,-60},{-20,-60},{-20,-42}}, color={255,0,255}));
         connect(currentRMSsensorM.I, gain.u) annotation (Line(
-            points={{10,82},{10,90},{38,90}}, color={0,0,127}));
+            points={{10,83},{10,90},{38,90}}, color={0,0,127}));
         connect(currentRMSsensor3.plug_n, terminalBox3.plugSupply) annotation (
             Line(
             points={{20,-30},{30,-30},{30,-48}}, color={0,0,255}));
@@ -2014,7 +2014,7 @@ Simulate for 1.5 seconds and plot (versus time):
           permanentMagnetLossParameters=smpmData.permanentMagnetLossParameters,
           TsOperational=293.15,
           TrOperational=293.15,
-          ir(fixed=true)) annotation (Placement(transformation(extent={{-10,-30},
+          ir(each fixed=true)) annotation (Placement(transformation(extent={{-10,-30},
                   {10,-10}})));
 
         Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet
@@ -2045,7 +2045,7 @@ Simulate for 1.5 seconds and plot (versus time):
           alpha20r(displayUnit="1/K") = smpmData.alpha20r,
           permanentMagnetLossParameters=smpmData.permanentMagnetLossParameters,
           TsOperational=293.15,
-          ir(fixed=true),
+          ir(each fixed=true),
           TrOperational=293.15) annotation (Placement(transformation(extent={{-10,
                   -90},{10,-70}})));
 
@@ -2091,7 +2091,7 @@ Simulate for 1.5 seconds and plot (versus time):
         connect(ramp.y, vfController.u)
           annotation (Line(points={{-59,60},{-42,60}}, color={0,0,255}));
         connect(vfController.y, signalVoltage.v)
-          annotation (Line(points={{-19,60},{-7,60}}, color={0,0,255}));
+          annotation (Line(points={{-19,60},{-12,60}},color={0,0,255}));
         connect(loadInertiaM.flange_b, torqueStepM.flange)
           annotation (Line(points={{70,-20},{80,-20}}));
         connect(signalVoltage.plug_p, currentRMSsensorM.plug_p)
@@ -2238,7 +2238,7 @@ and accelerate the inertias.</p>
           Lmq=smpmData.Lmq*m/3,
           TsOperational=293.15,
           TrOperational=293.15,
-          ir(fixed=true)) annotation (Placement(transformation(extent={{-10,-30},
+          ir(each fixed=true)) annotation (Placement(transformation(extent={{-10,-30},
                   {10,-10}})));
 
         Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet
@@ -2271,7 +2271,7 @@ and accelerate the inertias.</p>
           m=m3,
           TsOperational=293.15,
           TrOperational=293.15,
-          ir(fixed=true)) annotation (Placement(transformation(extent={{-10,-90},
+          ir(each fixed=true)) annotation (Placement(transformation(extent={{-10,-90},
                   {10,-70}})));
 
         Modelica.Electrical.Machines.Sensors.RotorDisplacementAngle rotorAngle3(
@@ -2343,7 +2343,7 @@ and accelerate the inertias.</p>
         connect(ramp.y, vfController3.u)
           annotation (Line(points={{-59,70},{-42,70}}, color={0,0,255}));
         connect(vfController3.y, signalVoltage3.v)
-          annotation (Line(points={{-19,70},{-7,70}}, color={0,0,255}));
+          annotation (Line(points={{-19,70},{-12,70}},color={0,0,255}));
         connect(loadInertiaM.flange_b, torqueStepM.flange)
           annotation (Line(points={{70,-20},{80,-20}}));
         connect(smpmM.flange, loadInertiaM.flange_a)
@@ -2378,7 +2378,7 @@ and accelerate the inertias.</p>
         connect(starM.pin_n, groundM.p) annotation (Line(
             points={{70,90},{80,90}}, color={0,0,255}));
         connect(vfController.y, signalVoltageM.v) annotation (Line(
-            points={{-19,50},{23,50}}, color={0,0,127}));
+            points={{-19,50},{18,50}}, color={0,0,127}));
         connect(vfController.u, ramp.y) annotation (Line(
             points={{-42,50},{-50,50},{-50,70},{-59,70}}, color={0,0,127}));
         connect(signalVoltageM.plug_p, currentRMSsensorM.plug_p) annotation (
@@ -2389,7 +2389,7 @@ and accelerate the inertias.</p>
         connect(gain.y, feedback.u2) annotation (Line(
             points={{-41,20},{-50,20},{-50,8}}, color={0,0,127}));
         connect(gain.u, currentRMSsensorM.I) annotation (Line(
-            points={{-18,20},{20,20}}, color={0,0,127}));
+            points={{-18,20},{19,20}}, color={0,0,127}));
         annotation (
           experiment(
             StopTime=1.5,
@@ -2428,7 +2428,8 @@ and accelerate the inertias. Two equivalent machines with different numbers of p
                       extent={{40,-54},{100,-62}},
                       textStyle={TextStyle.Bold},
                       textString="3 phase machine
-"),Text(        extent={{40,-44},{100,-52}},
+"),           Text(
+                extent={{40,-44},{100,-52}},
                       textStyle={TextStyle.Bold},
                       textString="%m phase machine
 ")}));
@@ -2821,7 +2822,7 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM.rotorDisplacementAngl
           TsOperational=293.15,
           TrOperational=293.15,
           TeOperational=293.15,
-          ir(fixed=true)) annotation (Placement(transformation(extent={{-10,30},
+          ir(each fixed=true)) annotation (Placement(transformation(extent={{-10,30},
                   {10,50}})));
 
         Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcited
@@ -2858,7 +2859,7 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM.rotorDisplacementAngl
           TsOperational=293.15,
           TrOperational=293.15,
           TeOperational=293.15,
-          ir(fixed=true)) annotation (Placement(transformation(extent={{-10,-90},
+          ir(each fixed=true)) annotation (Placement(transformation(extent={{-10,-90},
                   {10,-70}})));
 
         Modelica.Electrical.Analog.Basic.Ground groundRM annotation (Placement(
@@ -3018,7 +3019,7 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM.rotorDisplacementAngl
             Line(
             points={{0,52},{0,60},{40,60},{40,80}}, color={0,0,255}));
         connect(currentRMSsensorM.I, gain.u) annotation (Line(
-            points={{30,90},{30,100},{90,100},{90,42}}, color={0,0,127}));
+            points={{30,91},{30,100},{90,100},{90,42}}, color={0,0,127}));
         connect(starM.pin_n, groundM.p) annotation (Line(points={{-70,80},{-75,
                 80},{-80,80}}, color={0,0,255}));
         connect(starM.plug_p, sineVoltageM.plug_n) annotation (Line(points={{-50,
@@ -3067,10 +3068,12 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM3.rotorDisplacementAng
                       extent={{10,16},{70,8}},
                       textStyle={TextStyle.Bold},
                       textString="%m phase machine
-"),Text(        extent={{10,-52},{70,-60}},
+"),           Text(
+                extent={{10,-52},{70,-60}},
                       textStyle={TextStyle.Bold},
                       textString="3 phase machine
-"),Rectangle(   extent={{-50,-60},{100,-100}},
+"),           Rectangle(
+                extent={{-50,-60},{100,-100}},
                       fillColor={255,255,170},
                       fillPattern=FillPattern.Solid,
                       pattern=LinePattern.Dash)}));
@@ -3151,7 +3154,7 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM3.rotorDisplacementAng
           alpha20r(displayUnit="1/K") = smrData.alpha20r,
           TsOperational=293.15,
           TrOperational=293.15,
-          ir(fixed=true)) annotation (Placement(transformation(extent={{-10,-30},
+          ir(each fixed=true)) annotation (Placement(transformation(extent={{-10,-30},
                   {10,-10}})));
         Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotor
           smrE(
@@ -3179,7 +3182,7 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM3.rotorDisplacementAng
           TrRef=smrData.TrRef,
           alpha20r(displayUnit="1/K") = smrData.alpha20r,
           TsOperational=293.15,
-          ir(fixed=true),
+          ir(each fixed=true),
           TrOperational=293.15) annotation (Placement(transformation(extent={{-10,
                   -90},{10,-70}})));
         Modelica.Electrical.Machines.Sensors.RotorDisplacementAngle rotorAngleM(
@@ -3226,7 +3229,7 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM3.rotorDisplacementAng
         connect(ramp.y, vfController.u)
           annotation (Line(points={{-59,60},{-42,60}}, color={0,0,255}));
         connect(vfController.y, signalVoltage.v)
-          annotation (Line(points={{-19,60},{-7,60}}, color={0,0,255}));
+          annotation (Line(points={{-19,60},{-12,60}},color={0,0,255}));
         connect(loadInertiaE.flange_b, torqueStepE.flange)
           annotation (Line(points={{70,-80},{80,-80}}));
         connect(smrE.plug_sn, rotorAngleE.plug_n) annotation (Line(points={{-6,
@@ -3339,7 +3342,7 @@ Simulate for 1.5 seconds and plot (versus time):
           m=m,
           TsOperational=293.15,
           TrOperational=293.15,
-          ir(fixed=true)) annotation (Placement(transformation(extent={{-10,-30},
+          ir(each fixed=true)) annotation (Placement(transformation(extent={{-10,-30},
                   {10,-10}})));
         Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotor
           smr3(
@@ -3369,7 +3372,7 @@ Simulate for 1.5 seconds and plot (versus time):
           m=m3,
           TsOperational=293.15,
           TrOperational=293.15,
-          ir(fixed=true)) annotation (Placement(transformation(extent={{-10,-90},
+          ir(each fixed=true)) annotation (Placement(transformation(extent={{-10,-90},
                   {10,-70}})));
         Modelica.Electrical.Machines.Sensors.RotorDisplacementAngle rotorAngle3(
            p=smr3.p) annotation (Placement(transformation(
@@ -3494,7 +3497,7 @@ Simulate for 1.5 seconds and plot (versus time):
         connect(ramp.y, vfController3.u)
           annotation (Line(points={{-59,70},{-42,70}}, color={0,0,255}));
         connect(vfController3.y, signalVoltage3.v)
-          annotation (Line(points={{-19,70},{-7,70}}, color={0,0,255}));
+          annotation (Line(points={{-19,70},{-12,70}},color={0,0,255}));
         connect(terminalBoxM.plugSupply, currentRMSsensorM.plug_n) annotation (
             Line(points={{0,-8},{0,-8},{0,10},{30,10}}, color={0,0,255}));
         connect(signalVoltage3.plug_p, currentRMSsensor3.plug_p) annotation (
@@ -3505,7 +3508,7 @@ Simulate for 1.5 seconds and plot (versus time):
         connect(starM.pin_n, groundM.p) annotation (Line(
             points={{70,90},{80,90}}, color={0,0,255}));
         connect(vfControllerM.y, signalVoltageM.v) annotation (Line(
-            points={{-19,50},{23,50}}, color={0,0,127}));
+            points={{-19,50},{18,50}}, color={0,0,127}));
         connect(vfControllerM.u, ramp.y) annotation (Line(
             points={{-42,50},{-50,50},{-50,70},{-59,70}}, color={0,0,127}));
         connect(signalVoltageM.plug_p, currentRMSsensorM.plug_p) annotation (
@@ -3514,7 +3517,7 @@ Simulate for 1.5 seconds and plot (versus time):
         connect(gain.y, feedback.u2) annotation (Line(
             points={{-41,20},{-50,20},{-50,8}}, color={0,0,127}));
         connect(gain.u, currentRMSsensorM.I) annotation (Line(
-            points={{-18,20},{20,20}}, color={0,0,127}));
+            points={{-18,20},{19,20}}, color={0,0,127}));
         connect(currentRMSsensor3.plug_n, terminalBox3.plugSupply) annotation (
             Line(points={{-80,-10},{-80,-60},{0,-60},{0,-68}}, color={0,0,255}));
         connect(currentRMSsensor3.I, feedback.u1) annotation (Line(
@@ -3554,10 +3557,12 @@ Simulate for 1.5 seconds and plot (versus time):
                       extent={{40,-44},{100,-52}},
                       textStyle={TextStyle.Bold},
                       textString="%m phase machine
-"),Text(        extent={{40,-54},{100,-62}},
+"),           Text(
+                extent={{40,-54},{100,-62}},
                       textStyle={TextStyle.Bold},
                       textString="3 phase machine
-"),Rectangle(   extent={{-20,-60},{100,-100}},
+"),           Rectangle(
+                extent={{-20,-60},{100,-100}},
                       fillColor={255,255,170},
                       fillPattern=FillPattern.Solid,
                       pattern=LinePattern.Dash)}));
