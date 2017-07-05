@@ -2535,7 +2535,7 @@ and accelerate the inertias. Two equivalent machines with different numbers of p
                       fillPattern=FillPattern.Solid,
                       textStyle={TextStyle.Bold},
                       textString="3 phase machine
-                extent={{40,-44},{100,-52}},
+"),           Text(
                       textStyle={TextStyle.Bold},
                       textString="%m phase machine
 ")}));
@@ -3694,7 +3694,7 @@ Simulate for 1.5 seconds and plot (versus time):
                       fillPattern=FillPattern.Solid,
                       textStyle={TextStyle.Bold},
                       textString="%m phase machine
-"),           Text(
+                extent={{40,-54},{100,-62}},
                       textStyle={TextStyle.Bold},
                       textString="3 phase machine
                 extent={{-20,-60},{100,-100}},
