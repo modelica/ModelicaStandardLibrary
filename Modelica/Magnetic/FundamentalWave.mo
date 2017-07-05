@@ -4687,9 +4687,6 @@ Resistances and stray inductances of the machine always refer to either stator o
           each final quantity="ElectricCurrent",
           each final unit="A") if useDamperCage "Damper cage currents"
           annotation (Dialog(showStartAttribute=true));
-        Modelica.Magnetic.FundamentalWave.Components.Ground groundR
-          "Ground of rotor magnetic circuit" annotation (Placement(
-              transformation(extent={{-40,-30},{-20,-10}})));
         Modelica.Magnetic.FundamentalWave.Components.Short short if not
           useDamperCage
           "Magnetic connection in case the damper cage is not present"
@@ -5122,9 +5119,6 @@ The symmetry of the stator is assumed. For rotor asymmetries can be taken into a
           each final quantity="ElectricCurrent",
           each final unit="A") if useDamperCage "Damper cage currents"
           annotation (Dialog(showStartAttribute=true));
-        Modelica.Magnetic.FundamentalWave.Components.Ground groundR
-          "Ground of rotor magnetic circuit" annotation (Placement(
-              transformation(extent={{-40,-30},{-20,-10}})));
         Modelica.Magnetic.FundamentalWave.Components.Short short if not
           useDamperCage
           "Magnetic connection in case the damper cage is not present"
