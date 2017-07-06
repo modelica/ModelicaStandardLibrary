@@ -8,8 +8,8 @@ package OpAmps
     parameter SI.Voltage Vin=5 "Amplitude of input voltage";
     parameter SI.Frequency f=10 "Frequency of input voltage";
     parameter Real k=2 "Desired amplification";
-    parameter SI.Resistance R1=1000;
-    parameter SI.Resistance R2=k*R1;
+    parameter SI.Resistance R1=1000 "Arbitrary resistance";
+    parameter SI.Resistance R2=k*R1 "Calculated resistance to reach desired amplification k";
     Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimted opAmp(
       Vps=Vps,
       Vns=Vns,
@@ -74,8 +74,8 @@ package OpAmps
     parameter SI.Voltage Vin=5 "Amplitude of input voltage";
     parameter SI.Frequency f=10 "Frequency of input voltage";
     parameter Real k=2 "Desired amplification";
-    parameter SI.Resistance R1=1000;
-    parameter SI.Resistance R2=(k - 1)*R1;
+    parameter SI.Resistance R1=1000 "Arbitrary resistance";
+    parameter SI.Resistance R2=(k - 1)*R1 "Calculated resistance to reach desired amplification k";
     Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimted opAmp(
       Vps=Vps,
       Vns=Vns,
@@ -216,8 +216,8 @@ package OpAmps
     parameter SI.Voltage Vin=5 "Amplitude of input voltage";
     parameter SI.Frequency f=10 "Frequency of input voltage";
     parameter Real k=2 "Desired amplification";
-    parameter SI.Resistance R=1000;
-    parameter SI.Capacitance C=k/(2*pi*f*R);
+    parameter SI.Resistance R=1000 "Arbitrary resistance";
+    parameter SI.Capacitance C=k/(2*pi*f*R) "Calculated resistance to reach desired amplification k";
     Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimted opAmp(Vps=Vps, Vns=
           Vns) annotation (Placement(transformation(extent={{0,-10},{20,10}})));
     Modelica.Electrical.Analog.Basic.Ground ground
@@ -280,8 +280,8 @@ package OpAmps
     parameter SI.Voltage Vin=5 "Amplitude of input voltage";
     parameter SI.Frequency f=10 "Frequency of input voltage";
     parameter Real k=2 "Desired amplification";
-    parameter SI.Resistance R=1000;
-    parameter SI.Capacitance C=1/k/(2*pi*f*R);
+    parameter SI.Resistance R=1000 "Arbitrary resistance";
+    parameter SI.Capacitance C=1/k/(2*pi*f*R) "Calculated resistance to reach desired amplification k";
     Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimted opAmp(
       Vps=Vps,
       Vns=Vns,
@@ -347,10 +347,10 @@ package OpAmps
     parameter SI.Voltage Vin=5 "Amplitude of input voltage";
     parameter SI.Frequency f=10 "Frequency of input voltage";
     parameter Real k=1 "Desired amplification";
-    parameter SI.Resistance R1=1000;
-    parameter SI.Resistance R2=k*R1;
-    parameter SI.Frequency fG=f/10;
-    parameter SI.Capacitance C=1/(2*pi*fG*R2);
+    parameter SI.Resistance R1=1000 "Arbitrary resistance";
+    parameter SI.Resistance R2=k*R1 "Calculated resistance to reach k";
+    parameter SI.Frequency fG=f/10 "Limiting frequency, as an example coupled to f";
+    parameter SI.Capacitance C=1/(2*pi*fG*R2) "Calculated capacitance to reach fG";
     Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimted opAmp(
       Vps=Vps,
       Vns=Vns,
@@ -405,6 +405,7 @@ package OpAmps
     annotation (Documentation(info=
                    "<html>
                          <p>This is a (inverting) low pass filter. Resistance R1 can be chosen, resistance R2 is defined by the desired amplification k, capacitance C is defined by the desired cut-off frequency.</p>
+						 <p>The example it taken from: U. Tietze and C. Schenk, Halbleiter-Schaltungstechnik (German), 11th edition, Springer 1999, Chapter 13.3</p>
                          </html>"),
       experiment(
         StartTime=0,
@@ -421,10 +422,10 @@ package OpAmps
     parameter SI.Voltage Vin=5 "Amplitude of input voltage";
     parameter SI.Frequency f=10 "Frequency of input voltage";
     parameter Real k=1 "Desired amplification";
-    parameter SI.Resistance R1=1000;
-    parameter SI.Resistance R2=k*R1;
-    parameter SI.Frequency fG=f/10;
-    parameter SI.Capacitance C=1/(2*pi*fG*R1);
+    parameter SI.Resistance R1=1000 "Arbitrary resistance";
+    parameter SI.Resistance R2=k*R1 "Calculated resistance to reach k";
+    parameter SI.Frequency fG=f/10 "Limiting frequency, as an example coupled to f";
+    parameter SI.Capacitance C=1/(2*pi*fG*R1) "Calculated capacitance to reach fG";
     Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimted opAmp(
       Vps=Vps,
       Vns=Vns,
@@ -477,6 +478,7 @@ package OpAmps
     annotation (Documentation(info=
                    "<html>
                          <p>This is a (inverting) high pass filter. Resistance R1 can be chosen, resistance R2 is defined by the desired amplification k, capacitance C is defined by the desired cut-off frequency.</p>
+						 <p>The example it taken from: U. Tietze and C. Schenk, Halbleiter-Schaltungstechnik (German), 11th edition, Springer 1999, Chapter 13.3</p>
                          </html>"),
       experiment(
         StartTime=0,
@@ -492,8 +494,8 @@ package OpAmps
     parameter SI.Voltage Vin=5 "Amplitude of input voltage";
     parameter SI.Frequency f=10 "Frequency of input voltage";
     parameter SI.Voltage Vref=0 "Reference voltage";
-    parameter Real k=(Vref - Vns)/(Vps - Vns);
-    parameter SI.Resistance R=1000;
+    parameter Real k=(Vref - Vns)/(Vps - Vns) "Calculated potentiometer ratio to reach Vref";
+    parameter SI.Resistance R=1000 "Resistance of potentiometer";
     Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimted opAmp(Vps=Vps, Vns=
           Vns) annotation (Placement(transformation(extent={{0,10},{20,-10}})));
     Modelica.Electrical.Analog.Basic.Ground ground
@@ -558,9 +560,9 @@ package OpAmps
     parameter SI.Voltage Vin=5 "Amplitude of input voltage";
     parameter SI.Frequency f=10 "Frequency of input voltage";
     parameter SI.Voltage vHys=1 "(positive) hysteresis voltage";
-    parameter Real k=vHys/Vps;
-    parameter SI.Resistance R1=1000;
-    parameter SI.Resistance R2=(1 - k)/k*R1;
+    parameter Real k=vHys/Vps "Auxiliary calculated parameter to be used in R2 calculation";
+    parameter SI.Resistance R1=1000 "Arbitrary resistance";
+    parameter SI.Resistance R2=(1 - k)/k*R1 "Calculated resistance to reach hysteresis voltage";
     Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimted opAmp(
       Vps=Vps,
       Vns=Vns,
@@ -615,7 +617,8 @@ package OpAmps
     annotation (Documentation(info=
                    "<html>
                         <p>This is a (inverting) Schmitt trigger. Resistance R1 can be chosen, resistance R2 is defined by the desired hysteresis. The output gets Vn for input voltage &gt; 0 + vHys and Vp for input voltage &lt; vHys*Vns/Vps.</p>
-                        </html>"),
+                        <p>The example it taken from: U. Tietze and C. Schenk, Halbleiter-Schaltungstechnik (German), 11th edition, Springer 1999, Chapter 6.5.2</p>
+						</html>"),
       experiment(
         StartTime=0,
         StopTime=1,
@@ -630,9 +633,9 @@ package OpAmps
     parameter SI.Voltage Vin=5 "Amplitude of input voltage";
     parameter SI.Frequency f=10 "Frequency of input voltage";
     parameter SI.Voltage vHys=1 "(positive) hysteresis voltage";
-    parameter Real k=vHys/Vps;
-    parameter SI.Resistance R1=1000;
-    parameter SI.Resistance R2=R1/k;
+    parameter Real k=vHys/Vps "Auxiliary calculated parameter to be used in R2 calculation";
+    parameter SI.Resistance R1=1000 "Arbitrary resistance";
+    parameter SI.Resistance R2=R1/k "Calculated resistance to reach hysteresis voltage";
     Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimted opAmp(
       Vps=Vps,
       Vns=Vns,
@@ -686,7 +689,8 @@ package OpAmps
     annotation (Documentation(info=
                    "<html>
                         <p>This is a (non-inverting) Schmitt trigger. Resistance R1 can be chosen, resistance R2 is defined by the desired hysteresis. The output gets Vp for input voltage &gt; vHys and Vn for input voltage &lt; vHys*Vns/Vps.</p>
-                        </html>"),
+                        <p>The example it taken from: U. Tietze and C. Schenk, Halbleiter-Schaltungstechnik (German), 11th edition, Springer 1999, Chapter 6.5.2</p>
+						</html>"),
       experiment(
         StartTime=0,
         StopTime=1,
@@ -699,10 +703,10 @@ package OpAmps
     parameter SI.Voltage Vps=+15 "Positive supply";
     parameter SI.Voltage Vns=-15 "Negative supply";
     parameter SI.Frequency f=10 "Desired frequency";
-    parameter SI.Resistance R1=1000;
-    parameter SI.Resistance R2=1000;
-    parameter SI.Resistance R=1000;
-    parameter SI.Capacitance C=1/f/(2*R*log(1 + 2*R1/R2));
+    parameter SI.Resistance R1=1000 "Resistance 1 for adjusting the Schmitt trigger voltge level";
+    parameter SI.Resistance R2=1000	"Resistance 1 for adjusting the Schmitt trigger voltge level";
+    parameter SI.Resistance R=1000 "Arbitrary resistance";
+    parameter SI.Capacitance C=1/f/(2*R*log(1 + 2*R1/R2)) "Calculated capacitance to teacht the desired frequency f";
     Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimted opAmp(Vps=Vps, Vns=
           Vns) annotation (Placement(transformation(extent={{0,-10},{20,10}})));
     Modelica.Electrical.Analog.Basic.Ground ground
@@ -853,13 +857,13 @@ package OpAmps
     import Modelica.Constants.pi;
     parameter SI.Voltage VAmp=10 "Amplitude of output";
     parameter SI.Frequency f=1000 "Desired frequency";
-    parameter Real A=1.001;
-    parameter SI.Inductance L=0.001;
-    parameter SI.Capacitance C=1/((2*pi*f)^2*L);
-    parameter SI.Resistance R=10000.0;
-    parameter SI.Resistance R1=10000.0;
-    parameter SI.Resistance R2=(A - 1)*R1;
-    parameter Real gamma=(1 - A)/(2*R*C);
+    parameter Real A=1.001 "Amplification constant: A > 1 amplification, A = 1 pure sinusoidal oscillation, A < 0 damping";
+    parameter SI.Inductance L=0.001 "Arbitrary inductance > 0";
+    parameter SI.Capacitance C=1/((2*pi*f)^2*L) "Calculated capacitance to reach frequency f";
+    parameter SI.Resistance R=10000.0 "Damping resistance";
+    parameter SI.Resistance R1=10000.0 "Arbitrary high resistance";
+    parameter SI.Resistance R2=(A - 1)*R1 "Calculated resistance to reach amplification A";
+    parameter Real gamma=(1 - A)/(2*R*C) "Calculated characteristical parameter";
     Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
           transformation(
           origin={20,-50},
