@@ -1,5 +1,5 @@
 within Modelica.Electrical.Analog.Examples;
-package OpAmps
+package OpAmps "Examples with operational amplifiers"
   extends Modelica.Icons.ExamplesPackage;
   model InvertingAmp "Inverting amplifier"
     extends Modelica.Icons.Example;
