@@ -758,7 +758,7 @@ In this example the eddy current losses are implemented in two different ways. C
                           extent={{20,-6},{100,-14}},
                           textStyle={TextStyle.Bold},
                           textString="%m phase transient
-"),Text(          extent={{20,14},{100,6}},
+"),Text(                  extent={{20,14},{100,6}},
                           textStyle={TextStyle.Bold},
                           textString="%m phase QS
 ")}),           experiment(StopTime=1.5, Interval=0.001),
@@ -1020,7 +1020,7 @@ and accelerating inertias. At time <code>tStep</code> a load step is applied.<p>
                           extent={{20,-6},{100,-14}},
                           textStyle={TextStyle.Bold},
                           textString="%m phase transient
-"),Text(          extent={{-66,10},{14,2}},
+"),Text(                  extent={{-66,10},{14,2}},
                           textStyle={TextStyle.Bold},
                           textString="%m phase QS
 ")}));
@@ -1335,7 +1335,7 @@ Simulate for 1.5 seconds and plot (versus time):
                           extent={{20,12},{100,4}},
                           textStyle={TextStyle.Bold},
                           textString="%m phase QS
-"),Text(          extent={{20,-4},{100,-12}},
+"),Text(                  extent={{20,-4},{100,-12}},
                           textStyle={TextStyle.Bold},
                           textString="%m phase transient
 ")}));
@@ -2439,7 +2439,7 @@ Simulate for 30 seconds:
                           extent={{20,10},{100,2}},
                           textStyle={TextStyle.Bold},
                           textString="%m phase QS
-"),Text(          extent={{20,-10},{100,-18}},
+"),Text(                  extent={{20,-10},{100,-18}},
                           textStyle={TextStyle.Bold},
                           textString="%m phase transient
 ")}));
@@ -3774,7 +3774,8 @@ Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_Squirre
                 fsNominal/p)) "Permanent magnet loss parameter record"
           annotation (Dialog(tab="Losses"));
         Modelica.ComplexBlocks.Interfaces.ComplexOutput ir[2] if useDamperCage
-          "Damper cage currents";
+          "Damper cage currents"
+        annotation (Placement(visible=false));
         FundamentalWave.Components.Short short if not useDamperCage
           "Magnetic connection in case the damper cage is not present"
           annotation (Placement(transformation(
@@ -3986,7 +3987,8 @@ Magnetic.FundamentalWave.BasicMachines.SM_ReluctanceRotor</a>,
           "Excitation voltage";
         output Modelica.SIunits.Current ie=pin_ep.i "Excitation current";
         Modelica.ComplexBlocks.Interfaces.ComplexOutput ir[2] if useDamperCage
-          "Damper cage currents";
+          "Damper cage currents"
+        annotation (Placement(visible=false));
         FundamentalWave.Components.Short short if not useDamperCage
           "Magnetic connection in case the damper cage is not present"
           annotation (Placement(transformation(
@@ -4184,7 +4186,8 @@ Magnetic.FundamentalWave.BasicMachines.SM_ReluctanceRotor</a>,
             group="DamperCage",
             enable=useDamperCage));
         Modelica.ComplexBlocks.Interfaces.ComplexOutput ir[2] if useDamperCage
-          "Damper cage currents";
+          "Damper cage currents"
+        annotation (Placement(visible=false));
         FundamentalWave.Components.Short short if not useDamperCage
           "Magnetic connection in case the damper cage is not present"
           annotation (Placement(transformation(

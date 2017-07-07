@@ -5347,12 +5347,13 @@ These models use package SpacePhasors.
           start=zeros(2),
           each final quantity="ElectricCurrent",
           each final unit="A") if useDamperCage "Damper cage currents"
-          annotation (Dialog(showStartAttribute=true));
+          annotation (Placement(visible=false),Dialog(showStartAttribute=true));
         Modelica.Blocks.Interfaces.RealOutput idq_dr[2](
           each stateSelect=StateSelect.prefer,
           each final quantity="ElectricCurrent",
           each final unit="A") if useDamperCage
-          "Damper space phasor current / rotor fixed frame";
+          "Damper space phasor current / rotor fixed frame"
+          annotation (Placement(visible=false));
         Machines.BasicMachines.Components.AirGapR airGapR(
           final p=p,
           final Lmd=Lmd,
@@ -5666,12 +5667,13 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
           start=zeros(2),
           each final quantity="ElectricCurrent",
           each final unit="A") if useDamperCage "Damper cage currents"
-          annotation (Dialog(showStartAttribute=true));
+          annotation (Placement(visible=false),Dialog(showStartAttribute=true));
         Modelica.Blocks.Interfaces.RealOutput idq_dr[2](
           each stateSelect=StateSelect.prefer,
           each final quantity="ElectricCurrent",
           each final unit="A") if useDamperCage
-          "Damper space phasor current / rotor fixed frame";
+          "Damper space phasor current / rotor fixed frame"
+          annotation (Placement(visible=false));
         Machines.BasicMachines.Components.AirGapR airGapR(
           final p=p,
           final Lmd=Lmd,
@@ -6068,12 +6070,13 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
           start=zeros(2),
           each final quantity="ElectricCurrent",
           each final unit="A") if useDamperCage "Damper cage currents"
-          annotation (Dialog(showStartAttribute=true));
+          annotation (Placement(visible=false),Dialog(showStartAttribute=true));
         Modelica.Blocks.Interfaces.RealOutput idq_dr[2](
           each stateSelect=StateSelect.prefer,
           each final quantity="ElectricCurrent",
           each final unit="A") if useDamperCage
-          "Damper space phasor current / rotor fixed frame";
+          "Damper space phasor current / rotor fixed frame"
+          annotation (Placement(visible=false));
         Machines.BasicMachines.Components.AirGapR airGapR(
           final p=p,
           final Lmd=Lmd,
@@ -11106,8 +11109,7 @@ If it is desired to neglect friction losses, set <code>frictionParameters.PRef =
                       fillColor={0,0,255},
                       fillPattern=FillPattern.Solid),Line(points={{-90,0},{-40,
                 0}}, color={0,0,255}),Line(points={{40,0},{90,0}}, color={0,0,255}),
-                Text(
-                      extent={{-100,70},{100,40}},
+                Text( extent={{-100,70},{100,40}},
                       lineColor={0,0,255},
                       textString="%name")}), Documentation(info="<html>
 <p>
