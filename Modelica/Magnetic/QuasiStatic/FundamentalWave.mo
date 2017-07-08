@@ -112,6 +112,8 @@ email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
 
 <h5>Version 3.x.x, 2017-07-08</h5>
 <ul>
+<li>Fixed wrong initial conditions of 
+    <a href=\"https://github.com/modelica/Modelica/issues/2277\">#2277</a></li>
 <li>Added more examples from 
     <a href=\"modelica://Modelica.Electrical.Machines.Examples\">Machines.Examples</a>, see 
     <a href=\"https://github.com/modelica/Modelica/issues/2276\">#2276</a></li>
@@ -730,7 +732,7 @@ In this example the eddy current losses are implemented in two different ways. C
             annotation (Placement(transformation(extent={{20,36},{40,56}})));
         initial equation
           imc.is[1:2] = zeros(2);
-          imc.rotorCage.electroMagneticConverter.Phi = Complex(0, 0);
+          imc.rotorCage.electroMagneticConverter.V_m = Complex(0, 0);
 
         equation
           connect(groundQS.pin, starQS.pin_n)
