@@ -769,8 +769,7 @@ In this example the eddy current losses are implemented in two different ways. C
                           extent={{20,-6},{100,-14}},
                           textStyle={TextStyle.Bold},
                           textString="%m phase transient
-"),
-                Text(
+"),             Text(
                   extent={{20,14},{100,6}},
                           textStyle={TextStyle.Bold},
                           textString="%m phase QS
@@ -1334,8 +1333,7 @@ and accelerating inertias. At time <code>tStep</code> a load step is applied.<p>
                           extent={{20,-6},{100,-14}},
                           textStyle={TextStyle.Bold},
                           textString="%m phase transient
-"),
-                Text(
+"),             Text(
                   extent={{-66,10},{14,2}},
                           textStyle={TextStyle.Bold},
                           textString="%m phase QS
@@ -1651,8 +1649,7 @@ Simulate for 1.5 seconds and plot (versus time):
                           extent={{20,12},{100,4}},
                           textStyle={TextStyle.Bold},
                           textString="%m phase QS
-"),
-                Text(
+"),             Text(
                   extent={{20,-4},{100,-12}},
                           textStyle={TextStyle.Bold},
                           textString="%m phase transient
@@ -1719,7 +1716,8 @@ Simulate for 1.5 seconds and plot (versus time):
                 origin={-90,90},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
-          Utilities.TerminalBox terminalBox(terminalConnection="Y", m=m)
+          Utilities.MultiTerminalBox
+                                terminalBox(terminalConnection="Y", m=m)
                                                                     annotation (Placement(transformation(extent={{-20,-34},{0,-14}})));
           parameter Electrical.Machines.Utilities.ParameterRecords.AIM_SquirrelCageData aimcData annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
           Blocks.Math.Gain gain(k=fNominal/unitFrequency)
@@ -1731,6 +1729,17 @@ Simulate for 1.5 seconds and plot (versus time):
           Mechanics.Translational.Sources.SignForce signForce(                           v0(
                 displayUnit="m/s") = 0.01*wNominal*r, f_nominal=-TLoad/r)
             annotation (Placement(transformation(extent={{90,-50},{70,-30}})));
+          Electrical.QuasiStationary.SinglePhase.Basic.Ground
+            groundMachineQS annotation (Placement(transformation(
+                extent={{-10,-10},{10,10}},
+                rotation=270,
+                origin={-90,-28})));
+          Electrical.QuasiStationary.MultiPhase.Basic.Star
+            starMachineQS(m=Modelica.Electrical.MultiPhase.Functions.numberOfSymmetricBaseSystems(m))
+            annotation (Placement(transformation(
+                extent={{-10,10},{10,-10}},
+                rotation=180,
+                origin={-60,-28})));
         equation
           connect(signalVoltage.plug_n, star.plug_p)
             annotation (Line(points={{0,70},{0,90},{-50,90}}, color={85,170,255}));
@@ -1757,6 +1766,10 @@ Simulate for 1.5 seconds and plot (versus time):
             annotation (Line(points={{60,-40},{66,-40},{70,-40}}, color={0,127,0}));
           connect(gain.y, signalVoltage.f) annotation (Line(points={{-49,60},{-46,60},{-46,80},{-16,80},{-16,66},{-12,66},{-12,66}}, color={0,0,127}));
           connect(vfController.y, signalVoltage.V) annotation (Line(points={{-19,60},{-16,60},{-16,54},{-12,54}}, color={85,170,255}));
+          connect(groundMachineQS.pin,starMachineQS. pin_n) annotation (Line(
+              points={{-80,-28},{-70,-28}},
+                                          color={85,170,255}));
+          connect(starMachineQS.plug_p, terminalBox.starpoint) annotation (Line(points={{-50,-28},{-19,-28}}, color={85,170,255}));
           annotation (experiment(StopTime=20, Interval=0.001, Tolerance=1e-06), Documentation(
                 info="<html>
 <strong>Test example: Asynchronous induction machine with squirrel cage fed by an ideal inverter</strong><br>
@@ -1845,7 +1858,7 @@ Default machine parameters of model <em>AIM_SquirrelCage</em> are used.
             Rr=aimcData.Rr*m/3,
             m=m,
             alpha20r=aimcData.alpha20r) annotation (Placement(transformation(extent={{-40,0},{-20,20}})));
-          Utilities.TerminalBox                     terminalBox(terminalConnection="D") annotation (Placement(transformation(extent={{-40,16},{-20,36}})));
+          Utilities.MultiTerminalBox                terminalBox(terminalConnection="D") annotation (Placement(transformation(extent={{-40,16},{-20,36}})));
           Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.MultiSensor
                                                             electricalPowerSensor annotation (Placement(transformation(
                 extent={{-10,-10},{10,10}},
@@ -1948,6 +1961,7 @@ Default machine parameters of model <em>AIM_SquirrelCage</em> are used.
           connect(electricalPowerSensor.nc, terminalBox.plugSupply) annotation (Line(points={{-30,30},{-30,22}}, color={85,170,255}));
           connect(electricalPowerSensor.pc, electricalPowerSensor.pv) annotation (Line(points={{-30,50},{-20,50},{-20,40}}, color={85,170,255}));
           connect(electricalPowerSensor.nv, star.plug_p) annotation (Line(points={{-40,40},{-70,40}}, color={85,170,255}));
+          connect(star.plug_p, terminalBox.starpoint) annotation (Line(points={{-70,40},{-50,40},{-50,22},{-39,22}}, color={85,170,255}));
           annotation (
             experiment(StopTime=5.0, Interval=0.001, Tolerance=1e-06),
             Documentation(info="<html>
