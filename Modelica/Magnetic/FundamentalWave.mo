@@ -347,9 +347,13 @@ no. 829420.
       extends Modelica.Icons.ReleaseNotes;
       annotation (Documentation(info="<html>
 
-<h5>Version 3.2.2, 2017-07-08</h5>
+<h5>Version 3.2.2, 2017-07-18</h5>
 
 <ul>
+  <li>Unified communication interval, see 
+      <a href=\"https://github.com/modelica/Modelica/issues/2279\">#2279</a></li>
+  <li>Unified simulation tolerances, see 
+      <a href=\"https://github.com/modelica/Modelica/issues/2278\">#2278</a></li>
 <li>Added more examples from 
     <a href=\"modelica://Modelica.Electrical.Machines.Examples\">Machines.Examples</a>, see 
     <a href=\"https://github.com/modelica/Modelica/issues/2276\">#2276</a></li>
@@ -1227,7 +1231,7 @@ In this example the eddy current losses are implemented in two different ways. C
             color={0,0,255}));
         annotation (experiment(
             StopTime=1.5,
-            Interval=0.0002,
+            Interval=1E-4,
             Tolerance=1e-06), Documentation(info="<html>
 <h4>Direct on line (DOL) starting of an asynchronous induction machine with squirrel cage</h4>
 <p>
@@ -1469,7 +1473,7 @@ Simulate for 1.5 seconds and plot (versus time):
         annotation (
           experiment(
             StopTime=1.5,
-            Interval=0.0002,
+            Interval=1E-4,
             Tolerance=1e-06),
           Documentation(info="<html>
 <h4>Direct on line (DOL) starting of an asynchronous induction machine with squirrel cage</h4>
@@ -1619,7 +1623,7 @@ Simulate for 1.5 seconds and plot (versus time):
             points={{0,-40},{40,-40}}));
         annotation (experiment(
             StopTime=2.5,
-            Interval=0.001,
+            Interval=1E-4,
             Tolerance=1e-06),                                 Documentation(
               info="<html>
 <strong>Test example: Asynchronous induction machine with squirrel cage - Y-D starting</strong><br>
@@ -1796,7 +1800,7 @@ Default machine parameters of model <em>AIM_SquirrelCage</em> are used.
         connect(idealCloser.plug_n, idealCommutingSwitch.plug_n2) annotation (
             Line(
             points={{0,40},{0,10}}, color={0,0,255}));
-        annotation (experiment(StopTime=2.5, Interval=0.001, Tolerance=1e-06), Documentation(
+        annotation (experiment(StopTime=2.5, Interval=1E-4, Tolerance=1e-06), Documentation(
               info="<html>
 <strong>Test example: Asynchronous induction machine with squirrel cage - transformer starting</strong><br>
 At start time tStart1 three phase voltage is supplied to the asynchronous induction machine with squirrel cage via the transformer;
@@ -2015,7 +2019,7 @@ Default machine parameters of model <em>AIM_SquirrelCage</em> are used.
             color={0,0,255}));
         annotation (experiment(
             StopTime=1.5,
-            Interval=0.001,
+            Interval=1E-4,
             Tolerance=1e-06), Documentation(info="<html>
 <h4>Starting of an asynchronous induction machine with slipring rotor resistance starting</h4>
 <p>
@@ -2294,7 +2298,7 @@ Simulate for 1.5 seconds and plot (versus time):
         annotation (
           experiment(
             StopTime=1.5,
-            Interval=0.001,
+            Interval=1E-4,
             Tolerance=1e-06),
           Documentation(info="<html>
 <h4>Starting of an asynchronous induction machine with slipring rotor resistance starting</h4>
@@ -2429,7 +2433,7 @@ Simulate for 1.5 seconds and plot (versus time):
             points={{-4,-30},{-4,-30}}, color={0,0,255}));
         connect(aimc.flange, loadInertia.flange_a) annotation (Line(
             points={{0,-40},{40,-40}}));
-        annotation (experiment(StopTime=1.5, Interval=0.001, Tolerance=1e-06), Documentation(
+        annotation (experiment(StopTime=1.5, Interval=1E-4, Tolerance=1e-06), Documentation(
               info="<html>
 <strong>Test example: Asynchronous induction machine with squirrel cage fed by an ideal inverter</strong><br>
 An ideal frequency inverter is modeled by using a VfController and a three-phase SignalVoltage.<br>
@@ -2545,7 +2549,7 @@ Default machine parameters of model <em>AIM_SquirrelCage</em> are used.
           annotation (Line(points={{32,-40},{36,-40},{40,-40}}, color={0,127,0}));
         connect(mass.flange_b, signForce.flange)
           annotation (Line(points={{60,-40},{66,-40},{70,-40}}, color={0,127,0}));
-        annotation (experiment(StopTime=20, Interval=0.001, Tolerance=1e-06), Documentation(
+        annotation (experiment(StopTime=20, Interval=1E-4, Tolerance=1e-06), Documentation(
               info="<html>
 <strong>Test example: Asynchronous induction machine with squirrel cage fed by an ideal inverter</strong><br>
 An ideal frequency inverter is modeled by using a VfController and a three-phase SignalVoltage.<br>
@@ -2725,7 +2729,7 @@ Default machine parameters of model <em>AIM_SquirrelCage</em> are used.
         connect(currentQuasiRMSSensor.plug_n, TerminalBox1.plugSupply)
           annotation (Line(
             points={{-10,-20},{-10,-28}}, color={0,0,255}));
-        annotation (experiment(StopTime=1.5, Interval=0.001, Tolerance=1e-06), Documentation(
+        annotation (experiment(StopTime=1.5, Interval=1E-4, Tolerance=1e-06), Documentation(
               info="<html>
 <strong>Asynchronous induction machine with squirrel cage - Steinmetz-connection</strong><br>
 At start time tStart single phase voltage is supplied to the asynchronous induction machine with squirrel cage;
@@ -2917,7 +2921,7 @@ Default machine parameters of model <em>AIM_SquirrelCage</em> are used.
         connect(powerSensor.power, combiTable1Ds.u) annotation (Line(
             points={{-8,-1},{-8,-20},{18,-20}}, color={0,0,127}));
         annotation (
-          experiment(StopTime=5.0, Interval=0.001, Tolerance=1e-06),
+          experiment(StopTime=5.0, Interval=1E-4, Tolerance=1e-06),
           Documentation(info="<html>
 <p>Test example: Asynchronous induction machine with squirrel cage - characteristics with losses</p>
 <ul>
@@ -3068,7 +3072,7 @@ Modelica 2009, 7<sup>th</sup> International Modelica Conference</p>
         connect(sineVoltage.plug_p, currentQuasiRMSSensor.plug_p) annotation (
             Line(
             points={{-70,20},{-10,20},{-10,10}}, color={0,0,255}));
-        annotation (experiment(StopTime=1.5, Interval=0.001, Tolerance=1e-06), Documentation(
+        annotation (experiment(StopTime=1.5, Interval=1E-4, Tolerance=1e-06), Documentation(
               info="<html>
 <strong>Test example: Steady-State Initialization of Asynchronous induction machine with squirrel cage</strong><br>
 The asynchronous induction machine with squirrel cage is initialized in steady-state at no-load;
@@ -3280,7 +3284,7 @@ Default machine parameters of model <em>AIM_SquirrelCage</em> are used.
             color={0,0,255}));
         annotation (experiment(
             StopTime=1.5,
-            Interval=0.0005,
+            Interval=1E-4,
             Tolerance=1e-006), Documentation(info="<html>
 <h4>Permanent magnet synchronous induction machine fed by an ideal inverter</h4>
 <p>
@@ -3550,7 +3554,7 @@ and accelerate the inertias.</p>
         annotation (
           experiment(
             StopTime=1.5,
-            Interval=0.0005,
+            Interval=1E-4,
             Tolerance=1e-006),
           Documentation(info="<html>
 <h4>Permanent magnet synchronous induction machine fed by an ideal inverter</h4>
@@ -3876,7 +3880,7 @@ and accelerate the inertias. Two equivalent machines with different numbers of p
             color={0,0,255}));
         annotation (experiment(
             StopTime=30,
-            Interval=0.005,
+            Interval=0.001,
             Tolerance=1e-06), Documentation(info="<html>
 <h4>Electrical excited synchronous induction machine as generator</h4>
 <p>
@@ -4222,7 +4226,7 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM.rotorDisplacementAngl
         annotation (
           experiment(
             StopTime=30,
-            Interval=0.005,
+            Interval=0.001,
             Tolerance=1e-06),
           Documentation(info="<html>
 <h4>Electrical excited synchronous induction machine as generator</h4>
@@ -4460,7 +4464,7 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM3.rotorDisplacementAng
             Line(points={{0,50},{0,50},{0,30},{-60,30}}, color={0,0,255}));
         annotation (experiment(
             StopTime=1.5,
-            Interval=0.001,
+            Interval=1E-4,
             Tolerance=1e-06), Documentation(info="<html>
 <h4>Synchronous induction machine with reluctance rotor fed by an ideal inverter</h4>
 <p>
@@ -4726,7 +4730,7 @@ Simulate for 1.5 seconds and plot (versus time):
         annotation (
           experiment(
             StopTime=1.5,
-            Interval=0.001,
+            Interval=1E-4,
             Tolerance=1e-06),
           Documentation(info="<html>
 <h4>Synchronous induction machine with reluctance rotor fed by an ideal inverter</h4>
@@ -4928,7 +4932,7 @@ Simulate for 1.5 seconds and plot (versus time):
         connect(currentQuasiRMSSensor.plug_n, voltageQuasiRMSSensor.plug_p)
           annotation (Line(
             points={{-10,-10},{-20,-10}}, color={0,0,255}));
-        annotation (experiment(StopTime=2.0, Interval=0.001, Tolerance=1e-06), Documentation(
+        annotation (experiment(StopTime=2.0, Interval=1E-4, Tolerance=1e-06), Documentation(
               info="<html>
 <p>A synchronous induction machine with permanent magnets accelerates a quadratic speed dependent load from standstill.
 The rms values of d- and q-current in rotor fixed coordinate system are converted to three-phase currents,
@@ -5113,7 +5117,7 @@ Default machine parameters of model <a href=\"modelica://Modelica.Electrical.Mac
         connect(signalVoltage.plug_p, currentQuasiRMSSensor.plug_p) annotation (
            Line(
             points={{-10,40},{-10,30}}, color={0,0,255}));
-        annotation (experiment(StopTime=2.0, Interval=0.001, Tolerance=1e-06), Documentation(
+        annotation (experiment(StopTime=2.0, Interval=1E-4, Tolerance=1e-06), Documentation(
               info="<html>
 <p>
 A synchronous induction machine with permanent magnets accelerates a quadratic speed dependent load from standstill.
@@ -5260,7 +5264,7 @@ Default machine parameters of model <a href=\"modelica://Modelica.Electrical.Mac
           annotation (Line(points={{-70,60},{-70,60},{-70,40}}, color={0,0,255}));
         connect(starM.pin_n, grounding.p)
           annotation (Line(points={{-70,-10},{-70,5},{-70,20}}, color={0,0,255}));
-        annotation (experiment(StopTime=0.8, Interval=0.001, Tolerance=1e-06), Documentation(
+        annotation (experiment(StopTime=0.8, Interval=1E-4, Tolerance=1e-06), Documentation(
               info="<html>
 <p>
 A synchronous induction machine with permanent magnets starts braking from nominal speed by feeding a diode bridge, which in turn feeds a braking resistor.<br>
@@ -5472,7 +5476,7 @@ Default machine parameters of model <a href=\"modelica://Modelica.Electrical.Mac
             points={{-19,80},{-10,80},{-10,62}}, color={255,0,255}));
         connect(star.pin_n, ground.p) annotation (Line(
             points={{-90,20},{-90,10}}, color={0,0,255}));
-        annotation (experiment(StopTime=10, Interval=0.001, Tolerance=1e-06), Documentation(info=
+        annotation (experiment(StopTime=10, Interval=1E-4, Tolerance=1e-06), Documentation(info=
                "<html>
 <strong>Test example: Electrical excited synchronous induction machine with voltage controller</strong><br>
 An electrically excited synchronous generator is started with a speed ramp, then driven with constant speed.
@@ -5715,7 +5719,7 @@ One could try to optimize the controller parameters.
             points={{-80,50},{-80,30},{-40,30}}, color={0,0,255}));
         connect(voltageSensor.p, capacitor1.p) annotation (Line(
             points={{-80,70},{-80,90},{-40,90}}, color={0,0,255}));
-        annotation (experiment(StopTime=1.1, Interval=0.0001, Tolerance=1e-06), Documentation(
+        annotation (experiment(StopTime=1.1, Interval=1E-4, Tolerance=1e-06), Documentation(
               info="<html>
 <p><strong>Test example: Electrical excited synchronous induction machine with voltage controller</strong></p><p>An electrically excited synchronous generator is driven with constant speed. Voltage is controlled, the set point depends on speed. The generator is loaded with a rectifier.</p>
 <p>Default machine parameters of model <em>SM_ElectricalExcited</em> are used. </p>

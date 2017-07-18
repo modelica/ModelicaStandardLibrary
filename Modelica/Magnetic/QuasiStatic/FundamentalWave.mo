@@ -110,8 +110,12 @@ email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
       extends Modelica.Icons.ReleaseNotes;
       annotation (Documentation(info="<html>
 
-<h5>Version 3.x.x, 2017-07-08</h5>
+<h5>Version 3.x.x, 2017-07-18</h5>
 <ul>
+  <li>Unified communication interval, see 
+      <a href=\"https://github.com/modelica/Modelica/issues/2279\">#2279</a></li>
+  <li>Unified simulation tolerances, see 
+      <a href=\"https://github.com/modelica/Modelica/issues/2278\">#2278</a></li>
 <li>Fixed wrong initial conditions of 
     <a href=\"https://github.com/modelica/Modelica/issues/2277\">#2277</a></li>
 <li>Added more examples from 
@@ -2451,9 +2455,26 @@ Default machine parameters of model <em>AIM_SquirrelCage</em> are used.
               points={{-30,-78},{-30,-48},{-9,-48}},
               color={0,0,255}));
           connect(powerSensor.nv, star.plug_p) annotation (Line(
-              points={{-50,-30},{-50,-70},{-60,-70}},
-              color={0,0,255}));
-          annotation (Diagram(coordinateSystem(preserveAspectRatio=false,
+              points={{-50,-30},{-50,-70},{-60,-70}}, color={0,0,255}));
+          connect(smpm.flange, rotorDisplacementAngle.flange) annotation (Line(
+                points={{10,-60},{14,-60},{18,-60}}));
+          connect(rotorDisplacementAngle.flange, loadInertiaM.flange_a)
+            annotation (Line(points={{18,-60},{40,-60}}));
+          connect(terminalBox.plug_sp, rotorDisplacementAngle.plug_p)
+            annotation (Line(points={{6,-50},{14,-50},{22,-50}}, color={0,0,255}));
+          connect(terminalBox.plug_sn, rotorDisplacementAngle.plug_n)
+            annotation (Line(points={{-6,-50},{-6,-50},{-6,-42},{34,-42},{34,
+                  -50}}, color={0,0,255}));
+          connect(smpmQS.flange, rotorDisplacementAngleQS.flange)
+            annotation (Line(points={{10,40},{14,40},{18,40}}));
+          connect(rotorDisplacementAngleQS.flange, loadInertiaMQS.flange_a)
+            annotation (Line(points={{18,40},{30,40},{40,40}}));
+          connect(rotorDisplacementAngleQS.plug_p, terminalBoxQS.plug_sp)
+            annotation (Line(points={{22,50},{14,50},{6,50}}, color={85,170,255}));
+          connect(terminalBoxQS.plug_sn, rotorDisplacementAngleQS.plug_n)
+            annotation (Line(points={{-6,50},{-6,58},{34,58},{34,50}}, color={
+                  85,170,255}));
+          annotation (experiment(StopTime=1, Interval=1E-4, Tolerance=1E-6),Diagram(coordinateSystem(preserveAspectRatio=false,
                   extent={{-100,-100},{100,100}}), graphics={Rectangle(
                           extent={{-90,-2},{90,-100}},
                           lineColor={0,0,0},
@@ -2464,8 +2485,7 @@ Default machine parameters of model <em>AIM_SquirrelCage</em> are used.
                           lineColor={0,0,0},
                           pattern=LinePattern.Dash,
                           fillColor={255,255,170},
-                          fillPattern=FillPattern.Solid)}), experiment(StopTime=
-                 1, Interval=2E-4),
+                          fillPattern=FillPattern.Solid)}),
             Documentation(info="<html>
 <h4>Mains operated permanent magnet synchronous machine loaded with step torque</h4>
 
@@ -2621,7 +2641,7 @@ Simulate for 1 second and plot (versus time):
               points={{10,60},{10,40},{6,40}},
               color={85,170,255}));
           annotation (
-            experiment(StopTime=0.1, Interval=0.001),
+            experiment(StopTime=0.1, Interval=1E-4, Tolerance=1E-6),
             Documentation(info="<html>
 <h4>Open circuit test of permanent magnet synchronous machine</h4>
 
@@ -2962,7 +2982,7 @@ Simulate for 0.1 second and plot (versus time):
           connect(rotorDisplacementAngleQS.flange, inertiaLoadQS.flange_a)
             annotation (Line(points={{20,24},{40,24}}));
           annotation (
-            experiment(StopTime=2.0, Interval=0.001),
+            experiment(StopTime=2.0, Interval=1E-4, Tolerance=1E-6),
             Documentation(info="<html>
 <h4>Simple field oriented control of permanent magnet synchronous machine</h4>
 
@@ -3280,7 +3300,7 @@ Simulate for 2 seconds and plot (versus time):
           annotation (
             experiment(
               StopTime=30,
-              Interval=0.005,
+              Interval=0.001,
               Tolerance=1e-06),
             Documentation(info="<html>
 <h4>Electrically excited synchronous machine as generator</h4>
@@ -3318,7 +3338,8 @@ Simulate for 30 seconds:
                           fillPattern=FillPattern.Solid,
                           textStyle={TextStyle.Bold},
                           textString="%m phase QS
-"),Text(                  extent={{20,-10},{100,-18}},
+"),             Text(
+                  extent={{20,-10},{100,-18}},
                           textStyle={TextStyle.Bold},
                           textString="%m phase transient
 ")}));
@@ -3634,9 +3655,8 @@ Simulate for 30 seconds:
             annotation (Line(
               points={{20,-82},{44,-82}}));
           annotation (
-            experiment(StopTime=2.0, Interval=0.001),
-            Documentation(info="<html>
-<html>
+            experiment(StopTime=2.0, Interval=1E-4, Tolerance=1E-6),
+            Documentation(info="<html><html>
 <h4>Simple field oriented control of synchronous reluctance machine</h4>
 
 <p>
