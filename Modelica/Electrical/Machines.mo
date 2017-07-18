@@ -113,8 +113,12 @@ email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
       extends Modelica.Icons.ReleaseNotes;
       annotation (preferredView="info",Documentation(info="<html>
 
-<h5>Version 3.2.2, 2017-03-22 (Anton Haumer, Christian Kral)</h5>
+<h5>Version 3.2.2, 2017-07-18 (Anton Haumer, Christian Kral)</h5>
 <ul>
+  <li>Unified communication interval, see 
+      <a href=\"https://github.com/modelica/Modelica/issues/2279\">#2279</a></li>
+  <li>Unified simulation tolerances, see 
+      <a href=\"https://github.com/modelica/Modelica/issues/2278\">#2278</a></li>
   <li>Fixed icons of Modelica.Electrical.Machines.BasicMachines.Components, see #2031</li>
   <li>Updated blocks and functions towards multi phase systems greater or equal to three</li>
   <li>Added standard blocks and functions</li>
@@ -504,7 +508,7 @@ This is the library of electric machine models.
             points={{60,-40},{70,-40}}));
         connect(aimc.flange, loadInertia.flange_a) annotation (Line(
             points={{0,-40},{40,-40}}));
-        annotation (experiment(StopTime=1.5, Interval=0.001, Tolerance=1e-06), Documentation(
+        annotation (experiment(StopTime=1.5, Interval=1E-4, Tolerance=1e-06), Documentation(
               info="<html>
 <strong>Test example: Asynchronous induction machine with squirrel cage - direct on line starting</strong><br>
 At start time tStart three phase voltage is supplied to the asynchronous induction machine with squirrel cage;
@@ -628,7 +632,7 @@ Default machine parameters of model <em>AIM_SquirrelCage</em> are used.
             points={{-10,-10},{0,-10}}, color={0,0,255}));
         connect(aimc.flange, loadInertia.flange_a) annotation (Line(
             points={{0,-40},{40,-40}}));
-        annotation (experiment(StopTime=2.5, Interval=0.001, Tolerance=1e-06), Documentation(
+        annotation (experiment(StopTime=2.5, Interval=1E-4, Tolerance=1e-06), Documentation(
               info="<html>
 <strong>Test example: Asynchronous induction machine with squirrel cage - Y-D starting</strong><br>
 At start time tStart three phase voltage is supplied to the asynchronous induction machine with squirrel cage, first star-connected, then delta-connected; the machine starts from standstill, accelerating inertias against load torque quadratic dependent on speed, finally reaching nominal speed.<br>
@@ -810,7 +814,7 @@ Default machine parameters of model <em>AIM_SquirrelCage</em> are used.
         connect(idealCloser.plug_n, idealCommutingSwitch.plug_n2) annotation (
             Line(
             points={{0,40},{0,10}}, color={0,0,255}));
-        annotation (experiment(StopTime=2.5, Interval=0.001, Tolerance=1e-06), Documentation(
+        annotation (experiment(StopTime=2.5, Interval=1E-4, Tolerance=1e-06), Documentation(
               info="<html>
 <strong>Test example: Asynchronous induction machine with squirrel cage - transformer starting</strong><br>
 At start time tStart1 three phase voltage is supplied to the asynchronous induction machine with squirrel cage via the transformer;
@@ -946,7 +950,7 @@ Default machine parameters of model <em>AIM_SquirrelCage</em> are used.
             points={{-30,-34},{-20,-34}}, color={0,0,255}));
         connect(switchedRheostat.plug_n, aims.plug_rn) annotation (Line(
             points={{-30,-46},{-20,-46}}, color={0,0,255}));
-        annotation (experiment(StopTime=1.5, Interval=0.001, Tolerance=1e-06), Documentation(
+        annotation (experiment(StopTime=1.5, Interval=1E-4, Tolerance=1e-06), Documentation(
               info="<html>
 <strong>Test example: Asynchronous induction machine with slipring rotor - resistance starting</strong><br>
 At start time tStart1 three phase voltage is supplied to the asynchronous induction machine with sliprings;
@@ -1059,7 +1063,7 @@ Default machine parameters of model <em>AIM_SlipRing</em> are used.
             points={{-4,-30},{-4,-30}}, color={0,0,255}));
         connect(aimc.flange, loadInertia.flange_a) annotation (Line(
             points={{0,-40},{40,-40}}));
-        annotation (experiment(StopTime=1.5, Interval=0.001, Tolerance=1e-06), Documentation(
+        annotation (experiment(StopTime=1.5, Interval=1E-4, Tolerance=1e-06), Documentation(
               info="<html>
 <strong>Test example: Asynchronous induction machine with squirrel cage fed by an ideal inverter</strong><br>
 An ideal frequency inverter is modeled by using a VfController and a three-phase SignalVoltage.<br>
@@ -1183,7 +1187,7 @@ Default machine parameters of model <em>AIM_SquirrelCage</em> are used.
           annotation (Line(points={{32,-40},{36,-40},{40,-40}}, color={0,127,0}));
         connect(mass.flange_b, signForce.flange)
           annotation (Line(points={{60,-40},{66,-40},{70,-40}}, color={0,127,0}));
-        annotation (experiment(StopTime=20, Interval=0.001, Tolerance=1e-06), Documentation(
+        annotation (experiment(StopTime=20, Interval=1E-4, Tolerance=1e-06), Documentation(
               info="<html>
 <strong>Test example: Asynchronous induction machine with squirrel cage fed by an ideal inverter</strong><br>
 An ideal frequency inverter is modeled by using a VfController and a three-phase SignalVoltage.<br>
@@ -1367,7 +1371,7 @@ Default machine parameters of model <em>AIM_SquirrelCage</em> are used.
         connect(currentQuasiRMSSensor.plug_n, TerminalBox1.plugSupply)
           annotation (Line(
             points={{-10,-20},{-10,-28}}, color={0,0,255}));
-        annotation (experiment(StopTime=1.5, Interval=0.001, Tolerance=1e-06), Documentation(
+        annotation (experiment(StopTime=1.5, Interval=1E-4, Tolerance=1e-06), Documentation(
               info="<html>
 <strong>Asynchronous induction machine with squirrel cage - Steinmetz-connection</strong><br>
 At start time tStart single phase voltage is supplied to the asynchronous induction machine with squirrel cage;
@@ -1564,7 +1568,7 @@ Default machine parameters of model <em>AIM_SquirrelCage</em> are used.
         connect(powerSensor.power, combiTable1Ds.u) annotation (Line(
             points={{-8,-1},{-8,-20},{18,-20}}, color={0,0,127}));
         annotation (
-          experiment(StopTime=5.0, Interval=0.001, Tolerance=1e-06),
+          experiment(StopTime=5.0, Interval=1E-4, Tolerance=1e-06),
           Documentation(info="<html>
 <p>Test example: Asynchronous induction machine with squirrel cage - characteristics with losses</p>
 <ul>
@@ -1719,7 +1723,7 @@ Modelica 2009, 7<sup>th</sup> International Modelica Conference</p>
         connect(sineVoltage.plug_p, currentQuasiRMSSensor.plug_p) annotation (
             Line(
             points={{-70,20},{-10,20},{-10,10}}, color={0,0,255}));
-        annotation (experiment(StopTime=1.5, Interval=0.001, Tolerance=1e-06), Documentation(
+        annotation (experiment(StopTime=1.5, Interval=1E-4, Tolerance=1e-06), Documentation(
               info="<html>
 <strong>Test example: Steady-State Initialization of Asynchronous induction machine with squirrel cage</strong><br>
 The asynchronous induction machine with squirrel cage is initialized in steady-state at no-load;
@@ -1855,7 +1859,7 @@ This package contains test examples of asynchronous induction machines.
             points={{0,-40},{10,-40}}));
         connect(smr.flange, loadInertia.flange_a) annotation (Line(
             points={{0,-40},{40,-40}}));
-        annotation (experiment(StopTime=1.5, Interval=0.001, Tolerance=1e-06), Documentation(
+        annotation (experiment(StopTime=1.5, Interval=1E-4, Tolerance=1e-06), Documentation(
               info="<html>
 <strong>Test example: Synchronous induction machine with reluctance rotor fed by an ideal inverter</strong><br>
 An ideal frequency inverter is modeled by using a VfController and a three-phase SignalVoltage.<br>
@@ -1990,7 +1994,7 @@ Default machine parameters of model <em>SM_ReluctanceRotor</em> are used.
             points={{0,-40},{10,-40}}));
         connect(smpm.flange, loadInertia.flange_a) annotation (Line(
             points={{0,-40},{40,-40}}));
-        annotation (experiment(StopTime=1.5, Interval=0.001, Tolerance=1e-06), Documentation(
+        annotation (experiment(StopTime=1.5, Interval=1E-4, Tolerance=1e-06), Documentation(
               info="<html>
 <strong>Test example: Permanent magnet synchronous induction machine fed by an ideal inverter</strong><br>
 An ideal frequency inverter is modeled by using a VfController and a three-phase SignalVoltage.<br>
@@ -2171,7 +2175,7 @@ Default machine parameters of model <em>SM_PermanentMagnet</em> are used.
         connect(currentQuasiRMSSensor.plug_n, voltageQuasiRMSSensor.plug_p)
           annotation (Line(
             points={{-10,-10},{-20,-10}}, color={0,0,255}));
-        annotation (experiment(StopTime=2.0, Interval=0.001, Tolerance=1e-06), Documentation(
+        annotation (experiment(StopTime=2.0, Interval=1E-4, Tolerance=1e-06), Documentation(
               info="<html>
 <p>A synchronous induction machine with permanent magnets accelerates a quadratic speed dependent load from standstill.
 The rms values of d- and q-current in rotor fixed coordinate system are converted to three-phase currents,
@@ -2366,7 +2370,7 @@ Default machine parameters of model <a href=\"modelica://Modelica.Electrical.Mac
         connect(signalVoltage.plug_p, currentQuasiRMSSensor.plug_p) annotation (
            Line(
             points={{-10,40},{-10,30}}, color={0,0,255}));
-        annotation (experiment(StopTime=2.0, Interval=0.001, Tolerance=1e-06), Documentation(
+        annotation (experiment(StopTime=2.0, Interval=1E-4, Tolerance=1e-06), Documentation(
               info="<html>
 <p>
 A synchronous induction machine with permanent magnets accelerates a quadratic speed dependent load from standstill.
@@ -2524,7 +2528,7 @@ Default machine parameters of model <a href=\"modelica://Modelica.Electrical.Mac
           annotation (Line(points={{-70,60},{-70,60},{-70,40}}, color={0,0,255}));
         connect(starM.pin_n, grounding.p)
           annotation (Line(points={{-70,-10},{-70,5},{-70,20}}, color={0,0,255}));
-        annotation (experiment(StopTime=0.8, Interval=0.001, Tolerance=1e-06), Documentation(
+        annotation (experiment(StopTime=0.8, Interval=1E-4, Tolerance=1e-06), Documentation(
               info="<html>
 <p>
 A synchronous induction machine with permanent magnets starts braking from nominal speed by feeding a diode bridge, which in turn feeds a braking resistor.<br>
@@ -2692,7 +2696,7 @@ Default machine parameters of model <a href=\"modelica://Modelica.Electrical.Mac
             points={{0,-40},{10,-40}}));
         connect(smee.flange, mechanicalPowerSensor.flange_a) annotation (Line(
             points={{0,-40},{40,-40}}));
-        annotation (experiment(StopTime=30, Interval=0.005, Tolerance=1e-06), Documentation(info=
+        annotation (experiment(StopTime=30, Interval=0.001, Tolerance=1e-06), Documentation(info=
                "<html>
 <strong>Test example: Electrical excited synchronous induction machine as generator</strong><br>
 An electrically excited synchronous generator is connected to the grid and driven with constant speed.
@@ -2919,7 +2923,7 @@ Default machine parameters of model <em>SM_ElectricalExcited</em> are used.
             points={{-19,80},{-10,80},{-10,62}}, color={255,0,255}));
         connect(star.pin_n, ground.p) annotation (Line(
             points={{-90,20},{-90,10}}, color={0,0,255}));
-        annotation (experiment(StopTime=10, Interval=0.001, Tolerance=1e-06), Documentation(info=
+        annotation (experiment(StopTime=10, Interval=1E-4, Tolerance=1e-06), Documentation(info=
                "<html>
 <strong>Test example: Electrical excited synchronous induction machine with voltage controller</strong><br>
 An electrically excited synchronous generator is started with a speed ramp, then driven with constant speed.
@@ -3165,7 +3169,7 @@ One could try to optimize the controller parameters.
             points={{-80,50},{-80,30},{-40,30}}, color={0,0,255}));
         connect(voltageSensor.p, capacitor1.p) annotation (Line(
             points={{-80,70},{-80,90},{-40,90}}, color={0,0,255}));
-        annotation (experiment(StopTime=1.1, Interval=0.0001, Tolerance=1e-06), Documentation(
+        annotation (experiment(StopTime=1.1, Interval=1E-4, Tolerance=1e-06), Documentation(
               info="<html>
 <p><strong>Test example: Electrical excited synchronous induction machine with voltage controller</strong></p><p>An electrically excited synchronous generator is driven with constant speed. Voltage is controlled, the set point depends on speed. The generator is loaded with a rectifier.</p>
 <p>Default machine parameters of model <em>SM_ElectricalExcited</em> are used. </p>
@@ -3233,8 +3237,8 @@ This package contains test examples of synchronous induction machines.
         parameter Utilities.ParameterRecords.DcPermanentMagnetData dcpmData
           annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
       equation
-        connect(ramp.y, signalVoltage.v) annotation (Line(points={{-59,70},{-10,
-                70},{-10,47}}, color={0,0,255}));
+        connect(ramp.y, signalVoltage.v) annotation (Line(points={{-59,70},{-10,70},{-10,52}},
+                               color={0,0,255}));
         connect(signalVoltage.p, dcpm.pin_ap) annotation (Line(points={{0,40},{
                 0,-20},{-4,-20},{-4,-30}}, color={0,0,255}));
         connect(signalVoltage.n, ground.p)
@@ -3245,7 +3249,7 @@ This package contains test examples of synchronous induction machines.
           annotation (Line(points={{60,-40},{70,-40}}));
         connect(dcpm.flange, loadInertia.flange_a) annotation (Line(
             points={{0,-40},{40,-40}}));
-        annotation (experiment(StopTime=2.0, Interval=0.001), Documentation(
+        annotation (experiment(StopTime=2.0, Interval=1E-4, Tolerance=1E-6), Documentation(
               info="<html>
 <strong>Test example: Permanent magnet DC machine started with an armature voltage ramp</strong><br>
 A voltage ramp is applied to the armature, causing the DC machine to start,
@@ -3334,8 +3338,8 @@ Default machine parameters of model <em>DC_PermanentMagnet</em> are used.
         parameter Utilities.ParameterRecords.DcElectricalExcitedData dceeData
           annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
       equation
-        connect(ramp.y, signalVoltage.v) annotation (Line(points={{-59,70},{-10,
-                70},{-10,47}}, color={0,0,255}));
+        connect(ramp.y, signalVoltage.v) annotation (Line(points={{-59,70},{-10,70},{-10,52}},
+                               color={0,0,255}));
         connect(signalVoltage.p, dcee.pin_ap) annotation (Line(points={{0,40},{
                 0,-20},{-4,-20},{-4,-30}}, color={0,0,255}));
         connect(signalVoltage.n, ground.p)
@@ -3352,7 +3356,7 @@ Default machine parameters of model <em>DC_PermanentMagnet</em> are used.
           annotation (Line(points={{60,-40},{70,-40}}));
         connect(dcee.flange, loadInertia.flange_a) annotation (Line(
             points={{0,-40},{40,-40}}));
-        annotation (experiment(StopTime=2.0, Interval=0.001), Documentation(
+        annotation (experiment(StopTime=2.0, Interval=1E-4, Tolerance=1E-6), Documentation(
               info="<html>
 <strong>Test example: Electrically separate excited DC machine started with an armature voltage ramp</strong><br>
 A voltage ramp is applied to the armature, causing the DC machine to start,
@@ -3451,8 +3455,8 @@ Default machine parameters of model <em>DC_ElectricalExcited</em> are used.
         connect(variableResistor.n, dcse.pin_ap) annotation (Line(
             points={{0,0},{0,-20},{-4,-20},{-4,-30}}, color={0,0,255}));
         connect(ramp.y, variableResistor.R) annotation (Line(
-            points={{39,10},{11,10}}, color={0,0,127}));
-        annotation (experiment(StopTime=2.0, Interval=0.001), Documentation(
+            points={{39,10},{12,10}}, color={0,0,127}));
+        annotation (experiment(StopTime=2.0, Interval=1E-4, Tolerance=1E-6), Documentation(
               info="<html>
 <strong>Test example: Series excited DC machine started with a series resistor</strong><br>
 At constant source voltage, a series resistor limiting the armature current, is reduced according to a ramp, causing the DC machine to start,
@@ -3551,8 +3555,8 @@ Default machine parameters of model <em>DC_SeriesExcited</em> are used.
         connect(variableResistor.n, dcse.pin_ap) annotation (Line(
             points={{0,0},{0,-20},{-4,-20},{-4,-30}}, color={0,0,255}));
         connect(ramp.y, variableResistor.R) annotation (Line(
-            points={{39,10},{11,10}}, color={0,0,127}));
-        annotation (experiment(StopTime=2.0, Interval=0.0005), Documentation(
+            points={{39,10},{12,10}}, color={0,0,127}));
+        annotation (experiment(StopTime=2.0, Interval=1E-4, Tolerance=1E-6), Documentation(
               info="<html>
 <strong>Test example: Series excited DC machine at singlephase AC voltage started with a series resistor</strong><br>
 At sinusoidal source voltage, a series resistor limiting the armature current, is reduced according to a ramp, causing the DC machine to start,
@@ -3730,12 +3734,12 @@ Default machine parameters are used.
         connect(armatureVoltage.n, dcpm.pin_an) annotation (Line(
             points={{-80,60},{-16,60},{-16,10}}, color={0,0,255}));
         connect(exponential.y, thermalAmbientDCPM.TArmature) annotation (Line(
-            points={{-39,-50},{-18,-50},{-18,-40}}, color={0,0,127}));
+            points={{-39,-50},{-20,-50},{-20,-42}}, color={0,0,127}));
         connect(const.y, thermalAmbientDCPM.TPermanentMagnet) annotation (Line(
-            points={{19,-50},{-10,-50},{-10,-40}}, color={0,0,127}));
+            points={{19,-50},{-10,-50},{-10,-42}}, color={0,0,127}));
         connect(dcpm.thermalPort, thermalAmbientDCPM.thermalPort) annotation (
             Line(points={{-10,-10},{-10,-15},{-10,-20}}, color={191,0,0}));
-        annotation (experiment(StopTime=3.0, Interval=0.001), Documentation(
+        annotation (experiment(StopTime=3.0, Interval=1E-4, Tolerance=1E-6), Documentation(
               info="<html>
 <strong>Test example: Investigate influence of armature temperature on a DCPM motor</strong><br>
 The motor starts at no-load speed, then a load step is applied.<br>
@@ -3921,7 +3925,7 @@ So the machine is at the beginning in cold condition, ending in warm condition
             points={{22,0},{6,0},{6,-0.8},{-10.4,-0.8}}, color={191,0,0}));
         connect(dcpm.thermalPort, thermalPort) annotation (Line(points={{-10,20},
                 {-10,10},{-10,0}}, color={191,0,0}));
-        annotation (experiment(StopTime=25, Interval=0.001), Documentation(info=
+        annotation (experiment(StopTime=25, Interval=1E-4, Tolerance=1E-6), Documentation(info=
                "<html>
 <strong>Test example: Demonstrate cooling of a DCPM motor</strong><br>
 The motor starts at no-load speed, then load pulses are applied.<br>
@@ -4058,7 +4062,7 @@ Default machine parameters are used, but:
             points={{-80,60},{-40,60},{-40,0},{-4,0},{-4,-20}}, color={0,0,255}));
         connect(armatureVoltage.n, dcpm2.pin_an) annotation (Line(
             points={{-80,40},{-60,40},{-60,-20},{-16,-20}}, color={0,0,255}));
-        annotation (experiment(StopTime=2.0, Interval=0.001), Documentation(
+        annotation (experiment(StopTime=2.0, Interval=1E-4, Tolerance=1E-6), Documentation(
               info="<html>
 <strong>Test example: Compare DCPM motors transient and quasistationary</strong><br>
 The motors start at no-load speed, then load pulses are applied.<br>
@@ -4181,7 +4185,7 @@ Simulate for 2 seconds and plot (versus time):
 
       equation
         connect(ramp.y, signalVoltage.v)
-          annotation (Line(points={{-59,70},{-47,70}}, color={0,0,255}));
+          annotation (Line(points={{-59,70},{-52,70}}, color={0,0,255}));
         connect(signalVoltage.n, ground.p) annotation (Line(points={{-40,60},{-40,
                 60},{-40,40},{-60,40}}, color={0,0,255}));
         connect(loadInertia1.flange_b, loadTorque1.flange)
@@ -4200,7 +4204,7 @@ Simulate for 2 seconds and plot (versus time):
             points={{-40,60},{-40,20},{4,20}}, color={0,0,255}));
         connect(signalVoltage.n, dcpm2.pin_an) annotation (Line(
             points={{-40,60},{-40,-40},{4,-40}}, color={0,0,255}));
-        annotation (experiment(StopTime=2.0, Interval=0.001), Documentation(
+        annotation (experiment(StopTime=2.0, Interval=1E-4, Tolerance=1E-6), Documentation(
               info="<html>
 <strong>Test example: Investigate influence of losses on DCPM motor performance</strong><br>
 Both motors are started with a voltage ramp applied to the armature, causing the DC machines to start,
@@ -4399,7 +4403,7 @@ In some cases it may be necessary to ground the transformer's starpoint even tho
 <li>Dd ... No grounding necessary.</li>
 <li>Dz ... No grounding necessary.</li>
 </ul>
-</html>"), experiment(StopTime=0.1, Interval=0.001));
+</html>"), experiment(StopTime=0.1, Interval=1E-4, Tolerance=1E-6));
       end TransformerTestbench;
 
       model AsymmetricalLoad "AsymmetricalLoad"
@@ -4504,7 +4508,7 @@ In some cases it may be necessary to ground the transformer's starpoint even tho
 <li>Dy ... Load current in two   primary phases.</li>
 <li>Dz ... Load current in three primary phases.</li>
 </ul>
-</html>"), experiment(StopTime=0.1, Interval=0.001));
+</html>"), experiment(StopTime=0.1, Interval=1E-4, Tolerance=1E-6));
       end AsymmetricalLoad;
 
       model Rectifier6pulse "6-pulse rectifier with 1 transformer"
@@ -4641,7 +4645,7 @@ Test example with multiphase components:<br>
 Star-connected voltage source feeds via a transformer a diode bridge rectifier with a DC burden.<br>
 Using f=50 Hz, simulate for 0.1 seconds (5 periods) and compare voltages and currents of source and DC burden,
 neglecting initial transient.
-</html>"), experiment(StopTime=0.1, Interval=0.0001));
+</html>"), experiment(StopTime=0.1, Interval=1E-4, Tolerance=1E-6));
       end Rectifier6pulse;
 
       model Rectifier12pulse "12-pulse rectifier with 2 transformers"
@@ -4718,14 +4722,14 @@ Test example with multiphase components:<br>
 Star-connected voltage source feeds via two transformers (Dd0 and Dy1) two diode bridge rectifiers with a single DC burden.<br>
 Using f=50 Hz, simulate for 0.1 seconds (5 periods) and compare voltages and currents of source and DC burden,
 neglecting initial transient.
-</html>"), experiment(StopTime=0.1, Interval=0.0001));
+</html>"), experiment(StopTime=0.1, Interval=1E-4, Tolerance=1E-6));
       end Rectifier12pulse;
 
       model AIMC_Transformer
         "Test example: AsynchronousInductionMachineSquirrelCage transformer starting"
         extends
           Machines.Examples.AsynchronousInductionMachines.AIMC_Transformer;
-        annotation (experiment(StopTime=2.5, Interval=0.001), Documentation(
+        annotation (experiment(StopTime=2.5, Interval=1E-4, Tolerance=1E-6), Documentation(
               info="<html>
 <strong>Test example: Asynchronous induction machine with squirrel cage - transformer starting</strong><br>
 At start time tStart1 three phase voltage is supplied to the asynchronous induction machine with squirrel cage via the transformer;

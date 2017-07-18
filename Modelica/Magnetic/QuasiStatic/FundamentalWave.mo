@@ -110,8 +110,12 @@ email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
       extends Modelica.Icons.ReleaseNotes;
       annotation (Documentation(info="<html>
 
-<h5>Version 3.x.x, 2017-07-08</h5>
+<h5>Version 3.x.x, 2017-07-18</h5>
 <ul>
+  <li>Unified communication interval, see 
+      <a href=\"https://github.com/modelica/Modelica/issues/2279\">#2279</a></li>
+  <li>Unified simulation tolerances, see 
+      <a href=\"https://github.com/modelica/Modelica/issues/2278\">#2278</a></li>
 <li>Fixed wrong initial conditions of 
     <a href=\"https://github.com/modelica/Modelica/issues/2277\">#2277</a></li>
 <li>Added more examples from 
@@ -2382,7 +2386,7 @@ Default machine parameters of model <em>AIM_SquirrelCage</em> are used.
           connect(terminalBoxQS.plug_sn, rotorDisplacementAngleQS.plug_n)
             annotation (Line(points={{-6,50},{-6,58},{34,58},{34,50}}, color={
                   85,170,255}));
-          annotation (Diagram(coordinateSystem(preserveAspectRatio=false,
+          annotation (experiment(StopTime=1, Interval=1E-4, Tolerance=1E-6),Diagram(coordinateSystem(preserveAspectRatio=false,
                   extent={{-100,-100},{100,100}}), graphics={Rectangle(
                           extent={{-90,-2},{100,-100}},
                           pattern=LinePattern.Dash,
@@ -2391,8 +2395,7 @@ Default machine parameters of model <em>AIM_SquirrelCage</em> are used.
                           extent={{-90,100},{100,0}},
                           pattern=LinePattern.Dash,
                           fillColor={255,255,170},
-                          fillPattern=FillPattern.Solid)}), experiment(StopTime=
-                 1, Interval=2E-4),
+                          fillPattern=FillPattern.Solid)}),
             Documentation(info="<html>
 <h4>Mains operated permanent magnet synchronous machine loaded with step torque</h4>
 
@@ -2540,7 +2543,7 @@ Simulate for 1 second and plot (versus time):
           connect(resistorQS.plug_n, smpmQS.plug_sp) annotation (Line(
               points={{10,60},{10,40},{6,40}}, color={85,170,255}));
           annotation (
-            experiment(StopTime=0.1, Interval=0.001),
+            experiment(StopTime=0.1, Interval=1E-4, Tolerance=1E-6),
             Documentation(info="<html>
 <h4>Open circuit test of permanent magnet synchronous machine</h4>
 
@@ -2860,7 +2863,7 @@ Simulate for 0.1 second and plot (versus time):
           connect(rotorDisplacementAngleQS.flange, inertiaLoadQS.flange_a)
             annotation (Line(points={{20,24},{40,24}}));
           annotation (
-            experiment(StopTime=2.0, Interval=0.001),
+            experiment(StopTime=2.0, Interval=1E-4, Tolerance=1E-6),
             Documentation(info="<html>
 <h4>Simple field oriented control of permanent magnet synchronous machine</h4>
 
@@ -3193,7 +3196,7 @@ Simulate for 2 seconds and plot (versus time):
           annotation (
             experiment(
               StopTime=30,
-              Interval=0.005,
+              Interval=0.001,
               Tolerance=1e-06),
             Documentation(info="<html>
 <h4>Electrically excited synchronous machine as generator</h4>
@@ -3228,7 +3231,8 @@ Simulate for 30 seconds:
                           extent={{20,10},{100,2}},
                           textStyle={TextStyle.Bold},
                           textString="%m phase QS
-"),Text(                  extent={{20,-10},{100,-18}},
+"),             Text(
+                  extent={{20,-10},{100,-18}},
                           textStyle={TextStyle.Bold},
                           textString="%m phase transient
 ")}));
@@ -3530,7 +3534,7 @@ Simulate for 30 seconds:
           connect(rotorDisplacementAngleQS.plug_n, smrQS.plug_sn) annotation (
               Line(points={{36,34},{36,40},{-6,40},{-6,34}}, color={85,170,255}));
           annotation (
-            experiment(StopTime=2.0, Interval=0.001),
+            experiment(StopTime=2.0, Interval=1E-4, Tolerance=1E-6),
             Documentation(info="<html><html>
 <h4>Simple field oriented control of synchronous reluctance machine</h4>
 
