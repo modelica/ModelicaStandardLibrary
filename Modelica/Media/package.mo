@@ -5773,7 +5773,7 @@ to the above list of assumptions</li>
 
   partial package PartialTwoPhaseMedium
     "Base class for two phase medium of one substance"
-    extends PartialPureSubstance(redeclare record FluidConstants =
+    extends PartialPureSubstance(redeclare replaceable record FluidConstants =
           Modelica.Media.Interfaces.Types.TwoPhase.FluidConstants);
     constant Boolean smoothModel=false
       "True if the (derived) model should not generate state events";
