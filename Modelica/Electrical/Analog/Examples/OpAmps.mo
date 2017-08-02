@@ -405,7 +405,7 @@ package OpAmps "Examples with operational amplifiers"
     annotation (Documentation(info=
                    "<html>
                          <p>This is a (inverting) low pass filter. Resistance R1 can be chosen, resistance R2 is defined by the desired amplification k, capacitance C is defined by the desired cut-off frequency.</p>
-						 <p>The example it taken from: U. Tietze and C. Schenk, Halbleiter-Schaltungstechnik (German), 11th edition, Springer 1999, Chapter 13.3</p>
+                         <p>The example is taken from: U. Tietze and C. Schenk, Halbleiter-Schaltungstechnik (German), 11th edition, Springer 1999, Chapter 13.3</p>
                          </html>"),
       experiment(
         StartTime=0,
@@ -478,7 +478,7 @@ package OpAmps "Examples with operational amplifiers"
     annotation (Documentation(info=
                    "<html>
                          <p>This is a (inverting) high pass filter. Resistance R1 can be chosen, resistance R2 is defined by the desired amplification k, capacitance C is defined by the desired cut-off frequency.</p>
-						 <p>The example it taken from: U. Tietze and C. Schenk, Halbleiter-Schaltungstechnik (German), 11th edition, Springer 1999, Chapter 13.3</p>
+                         <p>The example is taken from: U. Tietze and C. Schenk, Halbleiter-Schaltungstechnik (German), 11th edition, Springer 1999, Chapter 13.3</p>
                          </html>"),
       experiment(
         StartTime=0,
@@ -617,8 +617,8 @@ package OpAmps "Examples with operational amplifiers"
     annotation (Documentation(info=
                    "<html>
                         <p>This is a (inverting) Schmitt trigger. Resistance R1 can be chosen, resistance R2 is defined by the desired hysteresis. The output gets Vn for input voltage &gt; 0 + vHys and Vp for input voltage &lt; vHys*Vns/Vps.</p>
-                        <p>The example it taken from: U. Tietze and C. Schenk, Halbleiter-Schaltungstechnik (German), 11th edition, Springer 1999, Chapter 6.5.2</p>
-						</html>"),
+                        <p>The example is taken from: U. Tietze and C. Schenk, Halbleiter-Schaltungstechnik (German), 11th edition, Springer 1999, Chapter 6.5.2</p>
+                        </html>"),
       experiment(
         StartTime=0,
         StopTime=1,
@@ -689,8 +689,8 @@ package OpAmps "Examples with operational amplifiers"
     annotation (Documentation(info=
                    "<html>
                         <p>This is a (non-inverting) Schmitt trigger. Resistance R1 can be chosen, resistance R2 is defined by the desired hysteresis. The output gets Vp for input voltage &gt; vHys and Vn for input voltage &lt; vHys*Vns/Vps.</p>
-                        <p>The example it taken from: U. Tietze and C. Schenk, Halbleiter-Schaltungstechnik (German), 11th edition, Springer 1999, Chapter 6.5.2</p>
-						</html>"),
+                        <p>The example is taken from: U. Tietze and C. Schenk, Halbleiter-Schaltungstechnik (German), 11th edition, Springer 1999, Chapter 6.5.2</p>
+                        </html>"),
       experiment(
         StartTime=0,
         StopTime=1,
@@ -703,10 +703,10 @@ package OpAmps "Examples with operational amplifiers"
     parameter SI.Voltage Vps=+15 "Positive supply";
     parameter SI.Voltage Vns=-15 "Negative supply";
     parameter SI.Frequency f=10 "Desired frequency";
-    parameter SI.Resistance R1=1000 "Resistance 1 for adjusting the Schmitt trigger voltge level";
-    parameter SI.Resistance R2=1000	"Resistance 1 for adjusting the Schmitt trigger voltge level";
+    parameter SI.Resistance R1=1000 "Resistance 1 for adjusting the Schmitt trigger voltage level";
+    parameter SI.Resistance R2=1000 "Resistance 2 for adjusting the Schmitt trigger voltage level";
     parameter SI.Resistance R=1000 "Arbitrary resistance";
-    parameter SI.Capacitance C=1/f/(2*R*log(1 + 2*R1/R2)) "Calculated capacitance to teacht the desired frequency f";
+    parameter SI.Capacitance C=1/f/(2*R*log(1 + 2*R1/R2)) "Calculated capacitance to reach the desired frequency f";
     Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimted opAmp(Vps=Vps, Vns=
           Vns) annotation (Placement(transformation(extent={{0,-10},{20,10}})));
     Modelica.Electrical.Analog.Basic.Ground ground
@@ -841,8 +841,8 @@ package OpAmps "Examples with operational amplifiers"
     annotation (Documentation(info=
                    "<html>
                         <p>This signal generator consists of a Schmitt trigger and an integrator. The output of the Schmitt trigger part opamp (opAmp1) is a rectangular signal with the amplitude VAmp and the frequency f. 
-						The output of the integrator part opamp (opAmp2) is a triangular signal of also the amplitude Vamp and the frequency f. </p>
-						<p>Source:</p>
+                        The output of the integrator part opamp (opAmp2) is a triangular signal of also the amplitude Vamp and the frequency f. </p>
+                        <p>Source:</p>
                         <p>U. Tietze and C. Schenk, Halbleiter-Schaltungstechnik (German), 11th edition, Springer 1999, Chapter 14.5.2</p>
                         </html>"),
       experiment(
