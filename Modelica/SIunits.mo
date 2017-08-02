@@ -306,10 +306,10 @@ end UsersGuide;
 
       type FirstOrderTemperaturCoefficient =
                               Real (final quantity="FirstOrderTemperatureCoefficient",
-            final unit="Ohm/degC") "First Order Temperature Coefficient" annotation(absoluteValue=true);
+            final unit="Ohm/degC") "Obsolete type, use LinearTemperatureCoefficientResistance instead!" annotation(absoluteValue=true);
       type SecondOrderTemperaturCoefficient =
                               Real (final quantity="SecondOrderTemperatureCoefficient",
-            final unit="Ohm/degC2") "Second Order Temperature Coefficient" annotation(absoluteValue=true);
+            final unit="Ohm/degC2") "Obsolete type, use QuadraticTemperatureCoefficientResistance instead!" annotation(absoluteValue=true);
       type Area_cm =   Real (final quantity="Area", final unit="cm2")
         "Area in cm";
       type PerArea_cm =Real (final quantity="PerArea", final unit="1/cm2")
@@ -1264,6 +1264,12 @@ argument):</p>
   type ApparentPower = Real (final quantity="Power", final unit="VA");
   type ReactivePower = Real (final quantity="Power", final unit="var");
   type PowerFactor = Real (final quantity="PowerFactor", final unit="1");
+  type LinearTemperatureCoefficientResistance = Real (
+    final quantity="LinearTemperatureCoefficientResistance",
+    final unit="Ohm/K") "First Order Temperature Coefficient";
+  type QuadraticTemperatureCoefficientResistance = Real (
+    final quantity="QuadraticTemperatureCoefficientResistance",
+    final unit="Ohm/K2") "Second Order Temperature Coefficient";
 
   // added to ISO-chapter 5
   type Transconductance = Real (final quantity="Transconductance", final unit=
