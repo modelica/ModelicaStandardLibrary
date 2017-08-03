@@ -261,7 +261,7 @@ connect(p_out, n2);
 <dt>Address</dt>
 <dd>Fraunhofer Institute Integrated Circuits<br />
 Design Automation Division<br />
-Zeunerstrasse 38<br />
+Zeunerstra&szlig;e 38<br />
 01069 Dresden, Germany</dd>
 </dl>
 
