@@ -13277,7 +13277,7 @@ Copyright &copy; 2007-2016, XRG Simulation GmbH.
 <h4>  Contact </h4>
 
 XRG Simulation GmbH<br>
-Harburger Schlossstrasse 6-12<br>
+Harburger Schlossstra&szlig;e 6-12<br>
 21079 Hamburg<br>
 Germany<br>
 <br>
