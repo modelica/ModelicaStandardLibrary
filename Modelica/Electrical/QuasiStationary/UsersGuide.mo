@@ -434,12 +434,12 @@ ideal AC DC converter</a>, which is used in the
     <li><a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Blocks.FromSymmetricalComponents\">MultiPhase.Blocks.FromSymmetricalComponents</a></li>
     <li><a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Blocks.SingleToMultiPhase\">MultiPhase.Blocks.SingleToMultiPhase</a></li>
     </ul></li>
-<li>Updated icons of inductors and transformer models, see #2210</li>
-<li>Added polar and power quantities in ideal quasi stationary transformer model, see #2173</li>
+<li>Updated icons of inductors and transformer models, see <a href=\"https://github.com/modelica/Modelica/issues/2210\">#2210</a></li>
+<li>Added polar and power quantities in ideal quasi stationary transformer model, see <a href=\"https://github.com/modelica/Modelica/issues/2173\">#2173</a></li>
 <li>Removed redundant (and not identical) parameter m from
     <a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.MutualInductor\">MutualInductor</a>,
-    see #2202</li>
-<li>Added linear multi phase mutual inductor model, see #2200</li>
+    see <a href=\"https://github.com/modelica/Modelica/issues/2202\">#2202</a></li>
+<li>Added linear multi phase mutual inductor model, see <a href=\"https://github.com/modelica/Modelica/issues/2200\">#2200</a></li>
 <li>Added complex impedance and admittance models of single phase and multi phase package, see ticket
     <a href=\"https://trac.modelica.org/Modelica/ticket/1870\">#1870</a></li>
 <li>Added magnitude and argument of complex voltages and currents in interface and sensor models, see ticket
