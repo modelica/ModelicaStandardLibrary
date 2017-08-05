@@ -396,7 +396,7 @@ from the relative orientation object R_rel that describes the orientation to rot
     input Modelica.SIunits.AngularVelocity der_angle "= der(angle)";
     output Orientation R "Orientation object to rotate frame 1 into frame 2";
   algorithm
-    R := Orientation(T=[e]*transpose([e]) + (identity(3) - [e]*transpose([e]))*
+    R := Orientation(T=outerProduct(e,e) + (identity(3) - outerProduct(e,e))*
       Math.cos(angle) - skew(e)*Math.sin(angle),w= e*der_angle);
 
     annotation(Inline=true, Documentation(info="<html>
@@ -732,7 +732,7 @@ and sequence[2] &ne; sequence[3]. Often used values are:
       "The rotation angles around x-, y-, and z-axis of frame 1 to rotate frame 1 into frame 2 for a small rotation + optionally 3 residues that should be zero";
   algorithm
     /* Planar rotation:
-       Trel = [e]*transpose([e]) + (identity(3) - [e]*transpose([e]))*cos(angle) - skew(e)*sin(angle)
+       Trel = outerProduct(e,e) + (identity(3) - outerProduct(e,e))*cos(angle) - skew(e)*sin(angle)
             = identity(3) - skew(e)*angle, for small angles
             = identity(3) - skew(e*angle)
                define phi = e*angle, then
@@ -884,7 +884,7 @@ is not possible or too difficult to compute, use function from_T2(..).
     output Orientation R "Orientation object to rotate frame 1 into frame 2";
   algorithm
     /*
-  T := (2*Q[4]*Q[4] - 1)*identity(3) + 2*([Q[1:3]]*transpose([Q[1:3]]) - Q[4]*
+  T := (2*Q[4]*Q[4] - 1)*identity(3) + 2*(outerProduct([Q[1:3],[Q[1:3]) - Q[4]*
     skew(Q[1:3]));
 */
     R := Orientation([2*(Q[1]*Q[1] + Q[4]*Q[4]) - 1, 2*(Q[1]*Q[2] + Q[3]*Q[4]),
@@ -1093,7 +1093,7 @@ confused with Modelica \"parameters\".
       input Real v2[3, :] "Vectors in frame 2";
       output Real v1[3, size(v2, 2)] "Vectors in frame 1";
     algorithm
-      v1 := ((2*Q[4]*Q[4] - 1)*identity(3) + 2*([Q[1:3]]*transpose([Q[1:3]]) +
+      v1 := ((2*Q[4]*Q[4] - 1)*identity(3) + 2*(outerProduct(Q[1:3],Q[1:3]) +
         Q[4]*skew(Q[1:3])))*v2;
       annotation(Inline=true);
     end multipleResolve1;
@@ -1106,7 +1106,7 @@ confused with Modelica \"parameters\".
       input Real v1[3, :] "Vectors in frame 1";
       output Real v2[3, size(v1, 2)] "Vectors in frame 2";
     algorithm
-      v2 := ((2*Q[4]*Q[4] - 1)*identity(3) + 2*([Q[1:3]]*transpose([Q[1:3]]) -
+      v2 := ((2*Q[4]*Q[4] - 1)*identity(3) + 2*(outerProduct(Q[1:3],Q[1:3]) -
         Q[4]*skew(Q[1:3])))*v1;
       annotation(Inline=true);
     end multipleResolve2;
@@ -1287,7 +1287,7 @@ confused with Modelica \"parameters\".
         "Transformation matrix to transform vector from frame 1 to frame 2 (v2=T*v1)";
     algorithm
       /*
-  T := (2*Q[4]*Q[4] - 1)*identity(3) + 2*([Q[1:3]]*transpose([Q[1:3]]) - Q[4]*
+  T := (2*Q[4]*Q[4] - 1)*identity(3) + 2*(outerProduct(Q[1:3],Q[1:3]) - Q[4]*
     skew(Q[1:3]));
 */
       T := [2*(Q[1]*Q[1] + Q[4]*Q[4]) - 1, 2*(Q[1]*Q[2] + Q[3]*Q[4]), 2*(Q[1]*Q[
@@ -1307,7 +1307,7 @@ confused with Modelica \"parameters\".
         "Transformation matrix to transform vector from frame 2 to frame 1 (v1=T*v2)";
     algorithm
       /*
-  T_inv := (2*Q[4]*Q[4] - 1)*identity(3) + 2*([Q[1:3]]*transpose([Q[1:3]]) + Q[
+  T_inv := (2*Q[4]*Q[4] - 1)*identity(3) + 2*(outerProduct(Q[1:3],Q[1:3]) + Q[
     4]*skew(Q[1:3]));
 */
       T_inv := [2*(Q[1]*Q[1] + Q[4]*Q[4]) - 1, 2*(Q[2]*Q[1] - Q[3]*Q[4]), 2*(Q[
@@ -1700,7 +1700,7 @@ Rotation can be defined by adapting this package correspondingly.
       output TransformationMatrices.Orientation T
         "Orientation object to rotate frame 1 into frame 2";
     algorithm
-      T := [e]*transpose([e]) + (identity(3) - [e]*transpose([e]))*Math.cos(
+      T := outerProduct(e,e) + (identity(3) - outerProduct(e,e))*Math.cos(
         angle) - skew(e)*Math.sin(angle);
       annotation(Inline=true);
     end planarRotation;
@@ -1982,7 +1982,7 @@ and sequence[2] &ne; sequence[3]. Often used values are:
         "The rotation angles around x-, y-, and z-axis of frame 1 to rotate frame 1 into frame 2 for a small rotation + optionally 3 residues that should be zero";
     algorithm
       /* Planar rotation:
-       Trel = [e]*transpose([e]) + (identity(3) - [e]*transpose([e]))*cos(angle) - skew(e)*sin(angle)
+       Trel = outerProduct(e,e) + (identity(3) - outerProduct(e,e))*cos(angle) - skew(e)*sin(angle)
             = identity(3) - skew(e)*angle, for small angles
             = identity(3) - skew(e*angle)
                define phi = e*angle, then
@@ -2112,7 +2112,7 @@ arbitrarily such that n_x and e_z are orthogonal to each other.
         "Orientation object to rotate frame 1 into frame 2";
     algorithm
       /*
-  T := (2*Q[4]*Q[4] - 1)*identity(3) + 2*([Q[1:3]]*transpose([Q[1:3]]) - Q[4]*
+  T := (2*Q[4]*Q[4] - 1)*identity(3) + 2*(outerProduct(Q[1:3],Q[1:3]) - Q[4]*
     skew(Q[1:3]));
 */
       T := [2*(Q[1]*Q[1] + Q[4]*Q[4]) - 1, 2*(Q[1]*Q[2] + Q[3]*Q[4]), 2*(Q[1]*Q[
