@@ -1097,7 +1097,6 @@ MODELICA_EXPORT void ModelicaInternal_getenv(const char* name, int convertToSlas
     errno_t err = _dupenv_s(&value, &len, name);
     if (err) {
         value = NULL;
-        ModelicaFormatError("Not possible to get environment variable:\n%s", strerror(err));
     }
 #else
     char* value = getenv(name);
