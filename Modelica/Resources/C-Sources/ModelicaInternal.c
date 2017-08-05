@@ -1060,7 +1060,6 @@ void ModelicaInternal_getenv(_In_z_ const char* name, int convertToSlash,
     errno_t err = _dupenv_s(&value, &len, name);
     if (err) {
         value = NULL;
-        ModelicaFormatError("Not possible to get environment variable:\n%s", strerror(err));
     }
 #else
     char* value = getenv(name);
