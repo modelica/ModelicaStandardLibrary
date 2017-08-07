@@ -8447,7 +8447,7 @@ This test model was proposed in ticket <a href=\"https://trac.modelica.org/Model
 </html>"));
       end GearConstraint4;
 
-      model Beveal1d
+      model Bevel1D
         extends Modelica.Icons.Example;
         parameter Real tol=1e-3;
 
@@ -8524,7 +8524,7 @@ This test model was proposed in ticket <a href=\"https://trac.modelica.org/Model
             color={95,95,95},
             thickness=0.5));
         annotation (experiment(StopTime=5));
-      end Beveal1d;
+      end Bevel1D;
     end Rotor1D;
   end Parts;
 
