@@ -232,7 +232,7 @@ variables is explained in section \"Connector Equations\" below):
      <br>SpacePhasor</td>
    <td valign=\"top\"><img src=\"modelica://Modelica/Resources/Images/UsersGuide/SpacePhasor.png\"></td></tr>
 
-<tr><td valign=\"top\"><strong>quasi<br>stationary<br>single phase</strong></td>
+<tr><td valign=\"top\"><strong>quasi<br>stationary<br>single-phase</strong></td>
    <td valign=\"top\">complex electrical potential</td>
    <td valign=\"top\">complex electrical current</td>
    <td valign=\"top\"></td>
@@ -242,7 +242,7 @@ variables is explained in section \"Connector Equations\" below):
    <td valign=\"top\"><img src=\"modelica://Modelica/Resources/Images/UsersGuide/QuasiStationarySinglePhasePins.png\"></td></tr>
 
 <tr><td valign=\"top\"><strong>quasi<br>stationary<br>multi-phase</strong></td>
-   <td colspan=\"3\">vector of quasi stationary single phase pins</td>
+   <td colspan=\"3\">vector of quasi stationary single-phase pins</td>
    <td valign=\"top\"><a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces\">Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces</a>
      <br>Plug, PositivePlug, NegativePlug</td>
    <td valign=\"top\"><img src=\"modelica://Modelica/Resources/Images/UsersGuide/QuasiStationaryMultiPhasePlugs.png\"></td></tr>
@@ -2592,7 +2592,7 @@ The following <font color=\"blue\"><strong>new libraries</strong></font> have be
 
 <tr><td valign=\"top\"><a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave\">Modelica.Magnetic.QuasiStatic.FundamentalWave</a></td>
     <td valign=\"top\">
-    This library provides quasi-static models of multiphase machines (induction machines, synchronous machines) in parallel (with the same parameters but different electric connectors)
+    This library provides quasi-static models of multi-phase machines (induction machines, synchronous machines) in parallel (with the same parameters but different electric connectors)
     to the transient models in <a href=\"modelica://Modelica.Magnetic.FundamentalWave\">Modelica.Magnetic.FundamentalWave</a>.<br>
     Quasistatic means that electric transients are neglected, voltages and currents are supposed to be sinusoidal. Mechanical and thermal transients are taken into account.<br>
     This library is especially useful in combination with the <a href=\"modelica://Modelica.Electrical.QuasiStationary\">Modelica.Electrical.QuasiStationary</a>
@@ -3009,12 +3009,12 @@ to <font color=\"blue\"><strong>existing</strong></font> libraries:
 
 <tr><td colspan=\"2\"><strong>Modelica.Electrical.MultiPhase.Examples.</strong></td></tr>
 <tr><td valign=\"top\" width=\"150\"> TestSensors </td>
-    <td valign=\"top\"> Example for multiphase quasiRMS sensors: A sinusoidal source feeds a load consisting of resistor and inductor </td></tr>
+    <td valign=\"top\"> Example for multi-phase quasiRMS sensors: A sinusoidal source feeds a load consisting of resistor and inductor </td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Electrical.MultiPhase.Sensors.</strong></td></tr>
 <tr><td valign=\"top\" width=\"150\"> VoltageQuasiRMSSensor </td>
-    <td valign=\"top\"> Continuous quasi voltage RMS sensor for multi phase system </td></tr>
+    <td valign=\"top\"> Continuous quasi voltage RMS sensor for multi-phase system </td></tr>
 <tr><td valign=\"top\" width=\"150\"> CurrentQuasiRMSSensor </td>
-    <td valign=\"top\"> Continuous quasi current RMS sensor for multi phase system </td></tr>
+    <td valign=\"top\"> Continuous quasi current RMS sensor for multi-phase system </td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Electrical.MultiPhase.Blocks.</strong></td></tr>
 <tr><td valign=\"top\" width=\"150\"> QuasiRMS </td>
     <td valign=\"top\"> Determine quasi RMS value of a multi-phase system </td></tr>
@@ -3255,7 +3255,7 @@ The following <font color=\"blue\"><strong>new libraries</strong></font> have be
 
 <tr><td valign=\"top\"><a href=\"modelica://Modelica.Electrical.QuasiStationary\">Modelica.Electrical.QuasiStationary</a></td>
     <td valign=\"top\">
-    Library for quasi-stationary electrical singlephase and multiphase AC simulation.<br>
+    Library for quasi-stationary electrical single-phase and multi-phase AC simulation.<br>
     This library allows very fast simulations of electrical circuits with sinusoidal
     currents and voltages by only taking into account the quasi-stationary, periodic part
     and neglecting non-periodic transients.<br>
@@ -3284,7 +3284,7 @@ The following <font color=\"blue\"><strong>new libraries</strong></font> have be
 <tr><td valign=\"top\"><a href=\"modelica://Modelica.Magnetic.FundamentalWave\">Modelica.Magnetic.FundamentalWave</a></td>
     <td valign=\"top\">
      Library for magnetic fundamental wave effects in electric machines for the
-     application in three phase electric machines.
+     application in three-phase electric machines.
      The library is an alternative approach to the Modelica.Electrical.Machines library.
      A great advantage of this library is the strict object orientation of the
      electrical and magnetic components that the electric machines models are composed of.
@@ -4585,7 +4585,7 @@ to <font color=\"blue\"><strong>existing</strong></font> libraries:
 <tr><td valign=\"top\"> ThermalCollector</td>
     <td valign=\"top\"> New auxiliary model to collect the heat flows
                       from m heatports to a single heatport;
-                      useful for multiphase resistors (with heatports)
+                      useful for multi-phase resistors (with heatports)
                       as a junction of the m heatports.</td></tr>
 
 <tr><td colspan=\"2\"><strong>Modelica.Icons.</strong></td></tr>
@@ -5817,7 +5817,7 @@ to <font color=\"blue\"><strong>existing</strong></font> libraries:
           <td valign=\"top\"> Partial airgap model of a DC machine
           </td></tr>
 <tr><td valign=\"top\"> BasicTransformer </td>
-          <td valign=\"top\"> Partial model of threephase transformer
+          <td valign=\"top\"> Partial model of three-phase transformer
           </td></tr>
 <tr><td valign=\"top\"> PartialCore </td>
           <td valign=\"top\"> Partial model of transformer core with 3 windings
@@ -8188,7 +8188,7 @@ User's Guides that can be accessed by the following links:
 
 <tr>
   <td valign=\"top\"><a href=\"modelica://Modelica.Electrical.QuasiStationary.UsersGuide\">QuasiStationary</a></td>
-  <td valign=\"top\">Library for quasi-stationary electrical singlephase and multiphase AC simulation</td>
+  <td valign=\"top\">Library for quasi-stationary electrical single-phase and multi-phase AC simulation</td>
 </tr>
 
 <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.Rotational.UsersGuide\">Rotational</a>

@@ -188,7 +188,7 @@ equation
       Text(extent = {{-29,-70},{30,-11}},
             textString="P")}),
     Documentation(info="<html>
-<p>This power sensor measures instantaneous electrical power of a singlephase system and has a separated voltage and current path. The pins of the voltage path are pv and nv, the pins of the current path are pc and nc. The internal resistance of the current path is zero, the internal resistance of the voltage path is infinite.</p>
+<p>This power sensor measures instantaneous electrical power of a single-phase system and has a separated voltage and current path. The pins of the voltage path are pv and nv, the pins of the current path are pc and nc. The internal resistance of the current path is zero, the internal resistance of the voltage path is infinite.</p>
 </html>", revisions="<html>
 <ul>
 <li><em>January 12, 2006</em> by Anton Haumer implemented</li>
@@ -257,7 +257,7 @@ equation
           textString="v"),
       Text(lineColor = {0,0,255}, extent = {{-150,120},{150,160}}, textString = "%name")}),
     Documentation(info="<html>
-<p>This multi sensor measures current, voltage and instantaneous electrical power of a singlephase system and has a separated voltage and current path.
+<p>This multi sensor measures current, voltage and instantaneous electrical power of a single-phase system and has a separated voltage and current path.
 The pins of the voltage path are pv and nv, the pins of the current path are pc and nc.
 The internal resistance of the current path is zero, the internal resistance of the voltage path is infinite.</p>
 </html>", revisions="<html>

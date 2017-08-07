@@ -11,23 +11,23 @@ package MultiPhase "Library for electrical components of one or more phases"
         DocumentationClass=true,
         Documentation(info="<html>
 <p>
-<strong>In multiphase systems, the angular displacement of voltages and currents of the phases as well as the spatial displacement of machine windings have to follow the same rules, i.e., they are based on the same
+<strong>In multi-phase systems, the angular displacement of voltages and currents of the phases as well as the spatial displacement of machine windings have to follow the same rules, i.e., they are based on the same
 <a href=\"modelica://Modelica.Electrical.MultiPhase.Functions.symmetricOrientation\">orientation function</a>.</strong>
 </p>
-<h4>Symmetrical three phase system</h4>
+<h4>Symmetrical three-phase system</h4>
 <p>
-A symmetrical three phases system consists of three sinusoidal sine waves with with an angular displacement of 2 &pi; / 3.
+A symmetrical three-phases system consists of three sinusoidal sine waves with with an angular displacement of 2 &pi; / 3.
 </p>
-<h4>Symmetrical multi phase system</h4>
+<h4>Symmetrical multi-phase system</h4>
 <p>
-In symmetrical multi phase systems odd and even phase numbers have to be distinguished.
+In symmetrical multi-phase systems odd and even phase numbers have to be distinguished.
 </p>
 <h5>Odd number of phases</h5>
 <p>
-For a symmetrical multi phase system with m phases the displacement of the sinewaves is 2 &pi; / m.
+For a symmetrical multi-phase system with m phases the displacement of the sinewaves is 2 &pi; / m.
 </p>
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
-  <caption align=\"bottom\"><strong>Fig. 1: </strong>Symmetrical (a) three phase and (b) five phase current system</caption>
+  <caption align=\"bottom\"><strong>Fig. 1: </strong>Symmetrical (a) three-phase and (b) five phase current system</caption>
   <tr>
     <td>
       <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/phase35.png\"
@@ -77,7 +77,7 @@ This set of symmterical components is repeated for each of the n<sub>Base</sub> 
 </p>
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.MultiPhase\">User's guide</a> on multi phase winding.
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.MultiPhase\">User's guide</a> on multi-phase winding.
 </p>
 </html>"));
     end PhaseOrientation;
@@ -182,10 +182,10 @@ email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
       DocumentationClass=true,
       Documentation(info="<html>
 <p>
-This library contains components for modelling of multiphase electrical circuits.
+This library contains components for modelling of multi-phase electrical circuits.
 The number of phases m is not restricted to three.
-The connector (named plug) contains an array of m singlephase <a href=\"modelica://Modelica.Electrical.Analog.Interfaces.Pin\">pins</a>.
-Most of the components use an array of singlephase components from <a href=\"modelica://Modelica.Electrical.Analog\">Modelica.Electrical.Analog</a>.
+The connector (named plug) contains an array of m single-phase <a href=\"modelica://Modelica.Electrical.Analog.Interfaces.Pin\">pins</a>.
+Most of the components use an array of single-phase components from <a href=\"modelica://Modelica.Electrical.Analog\">Modelica.Electrical.Analog</a>.
 </p>
 <h4>Note</h4>
 <p>
@@ -194,10 +194,10 @@ For the orientation of an arbitrary number of phases m &gt; 3, see the <a href=\
 </html>"));
   end UsersGuide;
 
-  package Examples "Multiphase test examples"
+  package Examples "Multi-phase test examples"
     extends Modelica.Icons.ExamplesPackage;
 
-    model TransformerYY "Test example with multiphase components"
+    model TransformerYY "Test example with multi-phase components"
       extends Modelica.Icons.Example;
       parameter Integer m=3 "Number of phases";
       parameter Modelica.SIunits.Voltage V=1 "Amplitude of Star-Voltage";
@@ -276,7 +276,7 @@ For the orientation of an arbitrary number of phases m &gt; 3, see the <a href=\
         annotation (Line(points={{90,20},{90,-52}}, color={0,0,255}));
       annotation (Documentation(info="<html>
 <p>
-Test example with multiphase components:<br>
+Test example with multi-phase components:<br>
 Star-connected voltage source feeds via a Y-Y-transformer with internal impedance (RT, LT) a load resistor RT.<br>
 Using f=5 Hz LT=3mH defines nominal voltage drop of approximately 10 %.<br>
 Simulate for 1 second (2 periods) and compare voltages and currents of source, transformer and load.
@@ -284,7 +284,7 @@ Simulate for 1 second (2 periods) and compare voltages and currents of source, t
 </html>"), experiment(StopTime=1.0, Interval=0.001));
     end TransformerYY;
 
-    model TransformerYD "Test example with multiphase components"
+    model TransformerYD "Test example with multi-phase components"
       extends Modelica.Icons.Example;
       parameter Integer m=3 "Number of phases";
       parameter Modelica.SIunits.Voltage V=1 "Amplitude of Star-Voltage";
@@ -367,7 +367,7 @@ Simulate for 1 second (2 periods) and compare voltages and currents of source, t
         annotation (Line(points={{90,-72},{90,-80}}, color={0,0,255}));
       annotation (Documentation(info="<html>
 <p>
-Test example with multiphase components:<br>
+Test example with multi-phase components:<br>
 Star-connected voltage source feeds via a Y-D-transformer with internal impedance (RT, LT) a load resistor RT.<br>
 Using f=5 Hz LT=3mH defines nominal voltage drop of approximately 10 %.<br>
 Simulate for 1 second (2 periods) and compare voltages and currents of source, transformer and load.
@@ -375,7 +375,7 @@ Simulate for 1 second (2 periods) and compare voltages and currents of source, t
 </html>"), experiment(StopTime=1.0, Interval=0.001));
     end TransformerYD;
 
-    model Rectifier "Test example with multiphase components"
+    model Rectifier "Test example with multi-phase components"
       extends Modelica.Icons.Example;
       parameter Integer m=3 "Number of phases";
       parameter Modelica.SIunits.Voltage V=1 "Amplitude of Star-Voltage";
@@ -473,7 +473,7 @@ Simulate for 1 second (2 periods) and compare voltages and currents of source, t
         annotation (Line(points={{10,60},{70,60},{70,40}}, color={0,0,255}));
       annotation (Documentation(info="<html>
 <p>
-Test example with multiphase components:<br>
+Test example with multi-phase components:<br>
 Star-connected voltage source feeds via a line reactor a diode bridge rectifier with a DC burden.<br>
 Using f=5 Hz, simulate for 1 second (2 periods) and compare voltages and currents of source and DC burden,
 neglecting initial transient.
@@ -609,13 +609,13 @@ neglecting initial transient.
       annotation (experiment(StopTime=0.1, Interval=0.0001), Documentation(info=
              "<html>
 <p>
-Test multiphase quasiRMS sensors: A sinusoidal source feeds a load consisting of resistor and inductor.
+Test multi-phase quasiRMS sensors: A sinusoidal source feeds a load consisting of resistor and inductor.
 </p>
 </html>"));
     end TestSensors;
     annotation (Documentation(info="<html>
 <p>
-This package contains test examples of analog electrical multiphase circuits.
+This package contains test examples of analog electrical multi-phase circuits.
 </p>
 
 </html>", revisions="<html>
@@ -643,7 +643,7 @@ This package contains test examples of analog electrical multiphase circuits.
 </html>"));
   end Examples;
 
-  package Basic "Basic components for electrical multiphase models"
+  package Basic "Basic components for electrical multi-phase models"
     extends Modelica.Icons.Package;
 
     model Star "Star-connection"
@@ -745,7 +745,7 @@ when used in parallel to another component.
     end Delta;
 
     model MultiStar
-      "Star connection of multi phase systems consisting of multiple base systems"
+      "Star connection of multi-phase systems consisting of multiple base systems"
       parameter Integer m(final min=1) = 3 "Number of phases";
       final parameter Integer mSystems=
           Modelica.Electrical.MultiPhase.Functions.numberOfSymmetricBaseSystems(
@@ -801,8 +801,8 @@ when used in parallel to another component.
               lineColor={0,0,255})}),
         Documentation(info="<html>
 <p>
-Star (wye) connection of a multi phase circuit consisting of multiple base systems (see
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.MultiPhase\">multi phase guidelines</a>). The potentials at the star points are all equal.
+Star (wye) connection of a multi-phase circuit consisting of multiple base systems (see
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.MultiPhase\">multi-phase guidelines</a>). The potentials at the star points are all equal.
 </p>
 <h4>See also</h4>
 <p>
@@ -813,7 +813,7 @@ Star (wye) connection of a multi phase circuit consisting of multiple base syste
     end MultiStar;
 
     model MultiDelta
-      "Delta (polygon) connection of multi phase systems consisting of multiple base systems"
+      "Delta (polygon) connection of multi-phase systems consisting of multiple base systems"
       parameter Integer m(final min=2) = 3 "Number of phases";
       final parameter Integer mSystems=
           Modelica.Electrical.MultiPhase.Functions.numberOfSymmetricBaseSystems(
@@ -854,8 +854,8 @@ Star (wye) connection of a multi phase circuit consisting of multiple base syste
               lineColor={0,0,255})}),
                                   Documentation(info="<html>
 <p>
-Delta (polygon) connection of a multi phase circuit consisting of multiple base systems (see
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.MultiPhase\">multi phase guidelines</a>).
+Delta (polygon) connection of a multi-phase circuit consisting of multiple base systems (see
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.MultiPhase\">multi-phase guidelines</a>).
 </p>
 <h4>See also</h4>
 <p>
@@ -927,8 +927,8 @@ Delta (polygon) connection of a multi phase circuit consisting of multiple base 
               lineColor={0,0,255})}),
         Documentation(info="<html>
 <p>
-Multi star points are connected by resistors. This model is required to operate multi phase systems with even phase numbers to avoid ideal connections of start points of base systems; see
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.MultiPhase\">multi phase guidelines</a>.
+Multi star points are connected by resistors. This model is required to operate multi-phase systems with even phase numbers to avoid ideal connections of start points of base systems; see
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.MultiPhase\">multi-phase guidelines</a>.
 </p>
 </html>"));
     end MultiStarResistance;
@@ -1333,7 +1333,7 @@ Each element of the array of saturatingInductors is only dependent on the curren
       end for;
       annotation (Documentation(info="<html>
 <p>
-Model of a multi phase inductor providing a mutual inductance matrix model.
+Model of a multi-phase inductor providing a mutual inductance matrix model.
 </p>
 <H4>Implementation</H4>
 <pre>
@@ -1410,7 +1410,7 @@ Model of a multi phase inductor providing a mutual inductance matrix model.
       v = fill(v0, m);
       annotation (Documentation(info="<html>
 <p>
-Model of a multi phase zero sequence inductor.
+Model of a multi-phase zero sequence inductor.
 </p>
 <H4>Implementation</H4>
 <pre>
@@ -1432,7 +1432,7 @@ Model of a multi phase zero sequence inductor.
               textString="m=%m")}));
     end ZeroInductor;
 
-    model Transformer "Multiphase Transformer"
+    model Transformer "Multi-phase Transformer"
       extends Interfaces.FourPlug;
       parameter Modelica.SIunits.Inductance L1[m](start=fill(1, m))
         "Primary inductance";
@@ -1759,7 +1759,7 @@ Lmin is a parameter with default value Modelica.Constants.eps.
     end VariableInductor;
     annotation (Documentation(info="<html>
 <p>
-This package contains basic analog electrical multiphase components.
+This package contains basic analog electrical multi-phase components.
 </p>
 
 </html>", revisions="<html>
@@ -1799,10 +1799,10 @@ This package contains basic analog electrical multiphase components.
           Line(points={{-88.374,0},{-68.374,0}}, color={0,0,255})}));
   end Basic;
 
-  package Ideal "Multiphase components with idealized behaviour"
+  package Ideal "Multi-phase components with idealized behaviour"
     extends Modelica.Icons.Package;
 
-    model IdealDiode "Multiphase ideal diode"
+    model IdealDiode "Multi-phase ideal diode"
       extends Interfaces.TwoPlug;
       parameter Modelica.SIunits.Resistance Ron[m](final min=zeros(m), start=
             fill(1e-5, m)) "Closed diode resistance";
@@ -1848,7 +1848,7 @@ Contains m ideal diodes (Modelica.Electrical.Analog.Ideal.IdealDiode).
 </html>"));
     end IdealDiode;
 
-    model IdealThyristor "Multiphase ideal thyristor"
+    model IdealThyristor "Multi-phase ideal thyristor"
       extends Interfaces.TwoPlug;
       parameter Modelica.SIunits.Resistance Ron[m](final min=zeros(m), start=
             fill(1e-5, m)) "Closed thyristor resistance";
@@ -1907,7 +1907,7 @@ Contains m ideal thyristors (Modelica.Electrical.Analog.Ideal.IdealThyristor).
 </html>"));
     end IdealThyristor;
 
-    model IdealGTOThyristor "Multiphase ideal GTO thyristor"
+    model IdealGTOThyristor "Multi-phase ideal GTO thyristor"
       extends Interfaces.TwoPlug;
       parameter Modelica.SIunits.Resistance Ron[m](final min=zeros(m), start=
             fill(1e-5, m)) "Closed thyristor resistance";
@@ -1962,7 +1962,7 @@ Contains m ideal GTO thyristors (Modelica.Electrical.Analog.Ideal.IdealGTOThyris
 </html>"));
     end IdealGTOThyristor;
 
-    model IdealCommutingSwitch "Multiphase ideal commuting switch"
+    model IdealCommutingSwitch "Multi-phase ideal commuting switch"
       parameter Integer m(final min=1) = 3 "Number of phases";
       parameter Modelica.SIunits.Resistance Ron[m](final min=zeros(m), start=
             fill(1e-5, m)) "Closed switch resistance";
@@ -2021,7 +2021,7 @@ Contains m ideal commuting switches (Modelica.Electrical.Analog.Ideal.IdealCommu
 </html>"));
     end IdealCommutingSwitch;
 
-    model IdealIntermediateSwitch "Multiphase ideal intermediate switch"
+    model IdealIntermediateSwitch "Multi-phase ideal intermediate switch"
       parameter Integer m(final min=1) = 3 "Number of phases";
       parameter Modelica.SIunits.Resistance Ron[m](final min=zeros(m), start=
             fill(1e-5, m)) "Closed switch resistance";
@@ -2084,7 +2084,7 @@ Contains m ideal intermediate switches (Modelica.Electrical.Analog.Ideal.IdealIn
 </html>"));
     end IdealIntermediateSwitch;
 
-    model IdealTransformer "Multiphase ideal transformer"
+    model IdealTransformer "Multi-phase ideal transformer"
       extends Interfaces.FourPlug;
       parameter Real n[m](start=fill(1, m)) "Turns ratio primary:secondary voltage";
       parameter Boolean considerMagnetization=false
@@ -2181,7 +2181,7 @@ Contains m ideal transformers (Modelica.Electrical.Analog.Ideal.IdealTransformer
 </html>"));
     end IdealTransformer;
 
-    model Idle "Multiphase idle branch"
+    model Idle "Multi-phase idle branch"
       extends Interfaces.TwoPlug;
       Modelica.Electrical.Analog.Ideal.Idle idle[m] annotation (Placement(
             transformation(extent={{-10,-10},{10,10}})));
@@ -2214,7 +2214,7 @@ Contains m idles (Modelica.Electrical.Analog.Ideal.Idle)
 </html>"));
     end Idle;
 
-    model Short "Multiphase short cut branch"
+    model Short "Multi-phase short cut branch"
       extends Interfaces.TwoPlug;
       Modelica.Electrical.Analog.Ideal.Short short[m] annotation (Placement(
             transformation(extent={{-10,-10},{10,10}})));
@@ -2246,7 +2246,7 @@ Contains m short cuts (Modelica.Electrical.Analog.Ideal.Short)
 </html>"));
     end Short;
 
-    model IdealOpeningSwitch "Multiphase ideal opener"
+    model IdealOpeningSwitch "Multi-phase ideal opener"
       extends Interfaces.TwoPlug;
       parameter Modelica.SIunits.Resistance Ron[m](final min=zeros(m), start=
             fill(1e-5, m)) "Closed switch resistance";
@@ -2295,7 +2295,7 @@ Contains m ideal opening switches (Modelica.Electrical.Analog.Ideal.IdealOpening
 </html>"));
     end IdealOpeningSwitch;
 
-    model IdealClosingSwitch "Multiphase ideal closer"
+    model IdealClosingSwitch "Multi-phase ideal closer"
       extends Interfaces.TwoPlug;
       parameter Modelica.SIunits.Resistance Ron[m](final min=zeros(m), start=
             fill(1e-5, m)) "Closed switch resistance";
@@ -2343,7 +2343,7 @@ Contains m ideal closing switches (Modelica.Electrical.Analog.Ideal.IdealClosing
 </html>"));
     end IdealClosingSwitch;
 
-    model OpenerWithArc "Multiphase opener with arc"
+    model OpenerWithArc "Multi-phase opener with arc"
       extends Interfaces.TwoPlug;
       parameter Modelica.SIunits.Resistance Ron[m](final min=zeros(m), start=
             fill(1e-5, m)) "Closed switch resistance";
@@ -2400,7 +2400,7 @@ Contains m ideal closing switches (Modelica.Electrical.Analog.Ideal.IdealClosing
 </html>"));
     end OpenerWithArc;
 
-    model CloserWithArc "Multiphase closer with arc"
+    model CloserWithArc "Multi-phase closer with arc"
       extends Interfaces.TwoPlug;
       parameter Modelica.SIunits.Resistance Ron[m](final min=zeros(m), start=
             fill(1e-5, m)) "Closed switch resistance";
@@ -2457,7 +2457,7 @@ Contains m ideal closing switches (Modelica.Electrical.Analog.Ideal.IdealClosing
     end CloserWithArc;
     annotation (Documentation(info="<html>
 <p>
-This package contains analog electrical multiphase components with idealized behaviour,
+This package contains analog electrical multi-phase components with idealized behaviour,
 like thyristor, diode, switch, transformer.
 </p>
 
@@ -2499,7 +2499,7 @@ like thyristor, diode, switch, transformer.
             color={0,0,255})}));
   end Ideal;
 
-  package Blocks "Blocks for multi phase systems"
+  package Blocks "Blocks for multi-phase systems"
     extends Modelica.Icons.Package;
     block QuasiRMS
       extends Modelica.Blocks.Interfaces.SO;
@@ -2511,7 +2511,7 @@ like thyristor, diode, switch, transformer.
 
       annotation (Documentation(info="<html>
 <p>
-This block determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.Math.RootMeanSquare\">RMS</a> value of a multi phase system, representing an equivalent RMS vector or phasor. If the waveform of the input deviates from a sine curve, the output of the sensor will not be exactly the average RMS value.
+This block determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.Math.RootMeanSquare\">RMS</a> value of a multi-phase system, representing an equivalent RMS vector or phasor. If the waveform of the input deviates from a sine curve, the output of the sensor will not be exactly the average RMS value.
 </p>
 <pre>
  y = sqrt(sum(u[k]^2 for k in 1:m)/m)
@@ -2520,7 +2520,7 @@ This block determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.
     end QuasiRMS;
   end Blocks;
 
-  package Functions "Functions for multi phase systems"
+  package Functions "Functions for multi-phase systems"
     extends Modelica.Icons.FunctionsPackage;
 
     function quasiRMS "Calculate continuous quasi RMS value of input"
@@ -2531,7 +2531,7 @@ This block determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.
       y := sqrt(sum(x .^ 2/size(x, 1)));
       annotation (Inline=true, Documentation(info="<html>
 <p>
-This function determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.Math.RootMeanSquare\">RMS</a> value of a multi phase system, representing an equivalent RMS vector or phasor. If the waveform of the input deviates from a sine curve, the output of the sensor will not be exactly the average RMS value.
+This function determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.Math.RootMeanSquare\">RMS</a> value of a multi-phase system, representing an equivalent RMS vector or phasor. If the waveform of the input deviates from a sine curve, the output of the sensor will not be exactly the average RMS value.
 </p>
 <pre>
  y = sqrt(sum(u[k]^2 for k in 1:m)/m)
@@ -2548,7 +2548,7 @@ This function determines the continuous quasi <a href=\"Modelica://Modelica.Bloc
       p := sum(v .* i);
       annotation (Inline=true, Documentation(info="<html>
 <p>
-Calculates instantaneous power from multiphase voltages and currents.
+Calculates instantaneous power from multi-phase voltages and currents.
 In quasistationary operation, instantaneous power equals active power;
 </p>
 </html>"));
@@ -2818,10 +2818,10 @@ This function determines the indices of non-positive sequence of the symmetrical
     end indexNonPositiveSequence;
   end Functions;
 
-  package Sensors "Multiphase potential, voltage and current Sensors"
+  package Sensors "Multi-phase potential, voltage and current Sensors"
     extends Modelica.Icons.SensorsPackage;
 
-    model PotentialSensor "Multiphase potential sensor"
+    model PotentialSensor "Multi-phase potential sensor"
       extends Modelica.Icons.RotationalSensor;
       parameter Integer m(final min=1) = 3 "Number of phases";
       Interfaces.PositivePlug plug_p(final m=m) annotation (Placement(
@@ -2852,7 +2852,7 @@ thus measuring the m potentials <em>phi[m]</em> of the m pins of plug_p.
 </html>"));
     end PotentialSensor;
 
-    model VoltageSensor "Multiphase voltage sensor"
+    model VoltageSensor "Multi-phase voltage sensor"
       extends Modelica.Icons.RotationalSensor;
       parameter Integer m(final min=1) = 3 "Number of phases";
       Interfaces.PositivePlug plug_p(final m=m) annotation (Placement(
@@ -2894,7 +2894,7 @@ thus measuring the m potential differences <em>v[m]</em> between the m pins of p
     end VoltageSensor;
 
     model VoltageQuasiRMSSensor
-      "Continuous quasi voltage RMS sensor for multi phase system"
+      "Continuous quasi voltage RMS sensor for multi-phase system"
       import Modelica;
       extends Modelica.Icons.RotationalSensor;
       extends Modelica.Electrical.MultiPhase.Interfaces.TwoPlug;
@@ -2935,7 +2935,7 @@ thus measuring the m potential differences <em>v[m]</em> between the m pins of p
               lineColor={0,0,255})}), Documentation(revisions="<html>
 </html>", info="<html>
 <p>
-This sensor determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.Math.RootMeanSquare\">RMS</a> value of a multi phase voltage system, representing an equivalent RMS voltage <code>V</code> vector or phasor. If the voltage waveform deviates from a sine curve, the output of the sensor will not be exactly the average RMS value.
+This sensor determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.Math.RootMeanSquare\">RMS</a> value of a multi-phase voltage system, representing an equivalent RMS voltage <code>V</code> vector or phasor. If the voltage waveform deviates from a sine curve, the output of the sensor will not be exactly the average RMS value.
 </p>
 <pre>
  V = sqrt(sum(v[k]^2 for k in 1:m)/m)
@@ -2943,7 +2943,7 @@ This sensor determines the continuous quasi <a href=\"Modelica://Modelica.Blocks
 </html>"));
     end VoltageQuasiRMSSensor;
 
-    model CurrentSensor "Multiphase current sensor"
+    model CurrentSensor "Multi-phase current sensor"
       extends Modelica.Icons.RotationalSensor;
       parameter Integer m(final min=1) = 3 "Number of phases";
       Interfaces.PositivePlug plug_p(final m=m) annotation (Placement(
@@ -2986,7 +2986,7 @@ thus measuring the m currents <em>i[m]</em> flowing from the m pins of plug_p to
     end CurrentSensor;
 
     model CurrentQuasiRMSSensor
-      "Continuous quasi current RMS sensor for multi phase system"
+      "Continuous quasi current RMS sensor for multi-phase system"
       import Modelica;
       extends Modelica.Icons.RotationalSensor;
       extends Modelica.Electrical.MultiPhase.Interfaces.TwoPlug;
@@ -3030,7 +3030,7 @@ thus measuring the m currents <em>i[m]</em> flowing from the m pins of plug_p to
           Documentation(revisions="<html>
 </html>", info="<html>
 <p>
-This sensor determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.Math.RootMeanSquare\">RMS</a> value of a multi phase current system, representing an equivalent RMS current vector <code>I</code> or phasor. If the current waveform deviates from a sine curve, the output of the sensor will not be exactly the average RMS value.
+This sensor determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.Math.RootMeanSquare\">RMS</a> value of a multi-phase current system, representing an equivalent RMS current vector <code>I</code> or phasor. If the current waveform deviates from a sine curve, the output of the sensor will not be exactly the average RMS value.
 </p>
 <pre>
  I = sqrt(sum(i[k]^2 for k in 1:m)/m)
@@ -3038,7 +3038,7 @@ This sensor determines the continuous quasi <a href=\"Modelica://Modelica.Blocks
 </html>"));
     end CurrentQuasiRMSSensor;
 
-    model PowerSensor "Multiphase instantaneous power sensor"
+    model PowerSensor "Multi-phase instantaneous power sensor"
       extends Modelica.Icons.RotationalSensor;
       parameter Integer m(min=1) = 3 "Number of phases";
       MultiPhase.Interfaces.PositivePlug pc(final m=m)
@@ -3110,11 +3110,11 @@ This sensor determines the continuous quasi <a href=\"Modelica://Modelica.Blocks
           Line(points={{-100,-100},{-100,-80},{-58,-38}}, color = {0,0,127})}),
                                                                   Documentation(
             info="<html><p>
-This power sensor measures instantaneous electrical power of a multiphase system and has a separated voltage and current path. The plugs of the voltage path are <code>pv</code> and <code>nv</code>, the plugs of the current path are <code>pc</code> and <code>nc</code>. The internal resistance of each current path is zero, the internal resistance of each voltage path is infinite.
+This power sensor measures instantaneous electrical power of a multi-phase system and has a separated voltage and current path. The plugs of the voltage path are <code>pv</code> and <code>nv</code>, the plugs of the current path are <code>pc</code> and <code>nc</code>. The internal resistance of each current path is zero, the internal resistance of each voltage path is infinite.
 </p></html>"));
     end PowerSensor;
 
-  model MultiSensor "Multiphase sensor to measure current, voltage and power"
+  model MultiSensor "Multi-phase sensor to measure current, voltage and power"
     extends Modelica.Icons.RotationalSensor;
     parameter Integer m(min=1) = 3 "Number of phases";
     Modelica.Electrical.MultiPhase.Interfaces.PositivePlug pc(final m=m)
@@ -3185,7 +3185,7 @@ This power sensor measures instantaneous electrical power of a multiphase system
             textString="%name",
             lineColor={0,0,255})}),
       Documentation(info="<html>
-<p>This multi sensor measures currents, voltages and instantaneous electrical power of a multiphase system and has separated voltage and current paths.
+<p>This multi sensor measures currents, voltages and instantaneous electrical power of a multi-phase system and has separated voltage and current paths.
 The plugs of the voltage paths are pv and nv, the plugs of the current paths are pc and nc.
 The internal resistance of each current path is zero, the internal resistance of each voltage path is infinite.</p>
 </html>",   revisions="<html>
@@ -3196,7 +3196,7 @@ The internal resistance of each current path is zero, the internal resistance of
   end MultiSensor;
     annotation (Documentation(info="<html>
 <p>
-This package contains multiphase potential, voltage, and current sensors.
+This package contains multi-phase potential, voltage, and current sensors.
 </p>
 
 </html>", revisions="<html>
@@ -3226,10 +3226,10 @@ This package contains multiphase potential, voltage, and current sensors.
 </html>"));
   end Sensors;
 
-  package Sources "Multiphase voltage and current sources"
+  package Sources "Multi-phase voltage and current sources"
     extends Modelica.Icons.SourcesPackage;
 
-    model SignalVoltage "Multiphase signal voltage source"
+    model SignalVoltage "Multi-phase signal voltage source"
       parameter Integer m(min=1) = 3 "Number of phases";
       Modelica.SIunits.Current i[m]=plug_p.pin.i
         "Currents flowing into positive plugs";
@@ -3275,7 +3275,7 @@ Contains m signal controlled voltage sources (Modelica.Electrical.Analog.Sources
 </html>"));
     end SignalVoltage;
 
-    model ConstantVoltage "Multiphase constant voltage source"
+    model ConstantVoltage "Multi-phase constant voltage source"
       extends Interfaces.TwoPlug;
       parameter Modelica.SIunits.Voltage V[m](start=fill(1, m))
         "Values of constant voltages";
@@ -3310,7 +3310,7 @@ Contains m constant voltage sources (Modelica.Electrical.Analog.Sources.Constant
 </html>"));
     end ConstantVoltage;
 
-    model SineVoltage "Multiphase sine voltage source"
+    model SineVoltage "Multi-phase sine voltage source"
       extends Interfaces.TwoPlug;
       parameter Modelica.SIunits.Voltage V[m](start=fill(1, m))
         "Amplitudes of sine waves";
@@ -3364,7 +3364,7 @@ with a default phase shift determined by
 </html>"));
     end SineVoltage;
 
-    model CosineVoltage "Multiphase cosine voltage source"
+    model CosineVoltage "Multi-phase cosine voltage source"
       extends Interfaces.TwoPlug;
       parameter Modelica.SIunits.Voltage V[m](start=fill(1, m))
         "Amplitudes of cosine waves";
@@ -3422,7 +3422,7 @@ with a default phase shift determined by
 </html>"));
     end CosineVoltage;
 
-    model SignalCurrent "Multiphase signal current source"
+    model SignalCurrent "Multi-phase signal current source"
       parameter Integer m(min=1) = 3 "Number of phases";
       Modelica.SIunits.Voltage v[m]=plug_p.pin.v - plug_n.pin.v
         "Voltage drops between the two plugs";
@@ -3469,7 +3469,7 @@ Contains m signal controlled current sources (Modelica.Electrical.Analog.Sources
 </html>"));
     end SignalCurrent;
 
-    model ConstantCurrent "Multiphase constant current source"
+    model ConstantCurrent "Multi-phase constant current source"
       extends Interfaces.TwoPlug;
       parameter Modelica.SIunits.Current I[m](start=fill(1, m))
         "Values of constant currents";
@@ -3505,7 +3505,7 @@ Contains m constant current sources (Modelica.Electrical.Analog.Sources.Constant
 </html>"));
     end ConstantCurrent;
 
-    model SineCurrent "Multiphase sine current source"
+    model SineCurrent "Multi-phase sine current source"
       extends Interfaces.TwoPlug;
       parameter Modelica.SIunits.Current I[m](start=fill(1, m))
         "Amplitudes of sine waves";
@@ -3561,7 +3561,7 @@ with a default phase shift determined by
 </html>"));
     end SineCurrent;
 
-    model CosineCurrent "Multiphase cosine current source"
+    model CosineCurrent "Multi-phase cosine current source"
       extends Interfaces.TwoPlug;
       parameter Modelica.SIunits.Current I[m](start=fill(1, m))
         "Amplitudes of cosine waves";
@@ -3616,17 +3616,17 @@ with a default phase shift determined by
     end CosineCurrent;
     annotation (Documentation(info="<html>
 <p>
-This package contains time-dependent and controlled multiphase voltage and current sources:
+This package contains time-dependent and controlled multi-phase voltage and current sources:
 </p>
 <ul>
 <li>SignalVoltage: fed by Modelica.Blocks.Sources arbitrary waveforms of voltages are possible</li>
-<li>ConstantVoltage: constant multi phase voltages</li>
+<li>ConstantVoltage: constant multi-phase voltages</li>
 <li>SineVoltage : phase shift between consecutive voltages by default given by
 <a href=\"modelica://Modelica.Electrical.MultiPhase.Functions.symmetricOrientation\">symmetricOrientation</a></li>
 <li>CosineVoltage : phase shift between consecutive voltages by default given by
 <a href=\"modelica://Modelica.Electrical.MultiPhase.Functions.symmetricOrientation\">symmetricOrientation</a></li>
 <li>SignalCurrent: fed by Modelica.Blocks.Sources arbitrary waveforms of currents are possible</li>
-<li>ConstantCurrent: constant multi phase currents</li>
+<li>ConstantCurrent: constant multi-phase currents</li>
 <li>SineCurrent : phase shift between consecutive currents by default given by
 <a href=\"modelica://Modelica.Electrical.MultiPhase.Functions.symmetricOrientation\">symmetricOrientation</a></li>
 <li>CosineCurrent : phase shift between consecutive currents by default given by
@@ -3657,7 +3657,7 @@ This package contains time-dependent and controlled multiphase voltage and curre
 </html>"));
   end Sources;
 
-  package Interfaces "Interfaces for electrical multiphase models"
+  package Interfaces "Interfaces for electrical multi-phase models"
     extends Modelica.Icons.InterfacesPackage;
 
     connector Plug "Plug with m pins for an electric component"
@@ -3848,7 +3848,7 @@ and that the currents flowing into plug_p2 are identical to the currents flowing
     annotation (Documentation(info="<html>
 <p>
 This package contains connectors and interfaces (partial models) for
-electrical multiphase components, based on Modelica.Electrical.Analog.
+electrical multi-phase components, based on Modelica.Electrical.Analog.
 </p>
 
 </html>", revisions="<html>
