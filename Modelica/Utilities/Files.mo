@@ -684,7 +684,7 @@ function temporaryFileName
     "Return arbitrary name of a file that does not exist and is in a directory where access rights allow to write to this file (useful for temporary output of files)"
   extends Modelica.Icons.Function;
   output String fileName "Full path name of temporary file";
-  external "C" fileName=ModelicaInternal_temporaryFileName(0) annotation(Library="ModelicaExternalC");
+  external "C" fileName=ModelicaInternal_temporaryFileName() annotation(Library="ModelicaExternalC");
 
   annotation (__ModelicaAssociation_Impure=true,
 Documentation(info="<html>
