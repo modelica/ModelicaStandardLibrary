@@ -608,7 +608,7 @@ _Ret_z_ const char* ModelicaInternal_fullPathName(_In_z_ const char* name) {
 }
 
 _Ret_z_ const char* ModelicaInternal_temporaryFileName(void) {
-    /* Get full path name of a temporary */
+    /* Get full path name of a temporary file name which does not exist */
     char* fullName;
 
     char* tempName = tmpnam(NULL);
