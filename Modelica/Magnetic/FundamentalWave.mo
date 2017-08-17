@@ -5599,7 +5599,7 @@ One could try to optimize the controller parameters.
             Line(points={{-40,30},{40,30}}, color={255,128,0}),
             Line(points={{-20,10},{20,10}}, color={255,128,0}),
             Text(
-              extent={{-144,-9},{156,-49}},
+              extent={{-150,-11},{150,-51}},
               textString="%name",
               lineColor={0,0,255})}),
         Documentation(info="<html>
