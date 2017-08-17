@@ -1854,8 +1854,8 @@ Simulate for 1.5 seconds and plot (versus time):
             annotation (Line(points={{32,-40},{36,-40},{40,-40}}, color={0,127,0}));
           connect(mass.flange_b, signForce.flange)
             annotation (Line(points={{60,-40},{66,-40},{70,-40}}, color={0,127,0}));
-          connect(gain.y, signalVoltage.f) annotation (Line(points={{-49,60},{-46,60},{-46,80},{-16,80},{-16,66},{-12,66},{-12,66}}, color={0,0,127}));
-          connect(vfController.y, signalVoltage.V) annotation (Line(points={{-19,60},{-16,60},{-16,54},{-12,54}}, color={85,170,255}));
+          connect(gain.y, signalVoltage.f) annotation (Line(points={{-49,60},{-46,60},{-46,80},{-16,80},{-16,66},{-10,66},{-10,64}}, color={0,0,127}));
+          connect(vfController.y, signalVoltage.V) annotation (Line(points={{-19,60},{-16,60},{-16,56},{-10,56}}, color={85,170,255}));
           connect(groundMachineQS.pin,starMachineQS. pin_n) annotation (Line(
               points={{-80,-28},{-70,-28}},
                                           color={85,170,255}));
@@ -1895,8 +1895,8 @@ Default machine parameters of model <em>AIM_SquirrelCage</em> are used.
             "Nominal torque";
           parameter Modelica.SIunits.Temperature TempNominal=from_degC(90)
             "Nominal temperature";
-          Modelica.SIunits.Power Pel=electricalPowerSensor.apparentPowerTotal.re;
-          Modelica.SIunits.ReactivePower Qel=electricalPowerSensor.apparentPowerTotal.im;
+          Modelica.SIunits.Power Pel=electricalPowerSensor.y.re;
+          Modelica.SIunits.ReactivePower Qel=electricalPowerSensor.y.im;
           Modelica.SIunits.ApparentPower Sel=sqrt(Pel^2 + Qel^2);
           parameter Real Ptable[:]={1E-6,1845,3549,5325,7521,9372,11010,12930,
               14950,16360,18500,18560,20180,22170};
@@ -1949,7 +1949,7 @@ Default machine parameters of model <em>AIM_SquirrelCage</em> are used.
             m=m,
             alpha20r=aimcData.alpha20r) annotation (Placement(transformation(extent={{-40,0},{-20,20}})));
           Utilities.MultiTerminalBox                terminalBox(terminalConnection="D") annotation (Placement(transformation(extent={{-40,16},{-20,36}})));
-          Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.MultiSensor
+          Electrical.QuasiStationary.MultiPhase.Sensors.PowerSensor
                                                             electricalPowerSensor annotation (Placement(transformation(
                 extent={{-10,-10},{10,10}},
                 rotation=270,
@@ -2047,11 +2047,11 @@ Default machine parameters of model <em>AIM_SquirrelCage</em> are used.
               points={{-19,-50},{-8,-50}}, color={0,0,127}));
           connect(powerSensor.power, combiTable1Ds.u) annotation (Line(
               points={{-8,-1},{-8,-20},{18,-20}}, color={0,0,127}));
-          connect(electricalPowerSensor.pc, currentQuasiRMSSensor.plug_n) annotation (Line(points={{-30,50},{-30,60}}, color={85,170,255}));
-          connect(electricalPowerSensor.nc, terminalBox.plugSupply) annotation (Line(points={{-30,30},{-30,22}}, color={85,170,255}));
-          connect(electricalPowerSensor.pc, electricalPowerSensor.pv) annotation (Line(points={{-30,50},{-20,50},{-20,40}}, color={85,170,255}));
-          connect(electricalPowerSensor.nv, star.plug_p) annotation (Line(points={{-40,40},{-70,40}}, color={85,170,255}));
           connect(star.plug_p, terminalBox.starpoint) annotation (Line(points={{-70,40},{-50,40},{-50,22},{-39,22}}, color={85,170,255}));
+          connect(currentQuasiRMSSensor.plug_n, electricalPowerSensor.currentP) annotation (Line(points={{-30,60},{-30,50}}, color={85,170,255}));
+          connect(electricalPowerSensor.currentN, terminalBox.plugSupply) annotation (Line(points={{-30,30},{-30,22}}, color={85,170,255}));
+          connect(electricalPowerSensor.currentP, electricalPowerSensor.voltageP) annotation (Line(points={{-30,50},{-20,50},{-20,40}}, color={85,170,255}));
+          connect(electricalPowerSensor.voltageN, star.plug_p) annotation (Line(points={{-40,40},{-70,40},{-70,40}}, color={85,170,255}));
           annotation (
             experiment(StopTime=5.0, Interval=0.001, Tolerance=1e-06),
             Documentation(info="<html>
@@ -2456,24 +2456,6 @@ Default machine parameters of model <em>AIM_SquirrelCage</em> are used.
               color={0,0,255}));
           connect(powerSensor.nv, star.plug_p) annotation (Line(
               points={{-50,-30},{-50,-70},{-60,-70}}, color={0,0,255}));
-          connect(smpm.flange, rotorDisplacementAngle.flange) annotation (Line(
-                points={{10,-60},{14,-60},{18,-60}}));
-          connect(rotorDisplacementAngle.flange, loadInertiaM.flange_a)
-            annotation (Line(points={{18,-60},{40,-60}}));
-          connect(terminalBox.plug_sp, rotorDisplacementAngle.plug_p)
-            annotation (Line(points={{6,-50},{14,-50},{22,-50}}, color={0,0,255}));
-          connect(terminalBox.plug_sn, rotorDisplacementAngle.plug_n)
-            annotation (Line(points={{-6,-50},{-6,-50},{-6,-42},{34,-42},{34,
-                  -50}}, color={0,0,255}));
-          connect(smpmQS.flange, rotorDisplacementAngleQS.flange)
-            annotation (Line(points={{10,40},{14,40},{18,40}}));
-          connect(rotorDisplacementAngleQS.flange, loadInertiaMQS.flange_a)
-            annotation (Line(points={{18,40},{30,40},{40,40}}));
-          connect(rotorDisplacementAngleQS.plug_p, terminalBoxQS.plug_sp)
-            annotation (Line(points={{22,50},{14,50},{6,50}}, color={85,170,255}));
-          connect(terminalBoxQS.plug_sn, rotorDisplacementAngleQS.plug_n)
-            annotation (Line(points={{-6,50},{-6,58},{34,58},{34,50}}, color={
-                  85,170,255}));
           annotation (experiment(StopTime=1, Interval=1E-4, Tolerance=1E-6),Diagram(coordinateSystem(preserveAspectRatio=false,
                   extent={{-100,-100},{100,100}}), graphics={Rectangle(
                           extent={{-90,-2},{90,-100}},
@@ -2903,7 +2885,7 @@ Simulate for 0.1 second and plot (versus time):
               points={{-50,-58},{-50,-70}},
               color={0,0,255}));
           connect(currentController.y, signalCurrent.i) annotation (Line(
-              points={{-29,-18},{-12,-18}},color={0,0,127}));
+              points={{-29,-18},{-7,-18}}, color={0,0,127}));
           connect(quadraticSpeedDependentTorque.flange, inertiaLoad.flange_b)
             annotation (Line(
               points={{70,-82},{60,-82}}));
@@ -2940,7 +2922,7 @@ Simulate for 0.1 second and plot (versus time):
               color={0,0,127}));
           connect(currentController1.I, referenceCurrentSource.I) annotation (
               Line(
-              points={{-29,88},{-20,88},{-20,90},{-12,90}},
+              points={{-29,88},{-20,88},{-20,88},{-10,88}},
                                           color={85,170,255}));
           connect(referenceCurrentSource.plug_p, starQS.plug_p) annotation (
               Line(
@@ -2959,7 +2941,7 @@ Simulate for 0.1 second and plot (versus time):
               points={{20,44},{20,34},{10,34}}));
           connect(currentController1.gamma, referenceCurrentSource.gamma)
             annotation (Line(
-              points={{-29,80},{-20,80},{-20,78},{-12,78}},
+              points={{-29,80},{-20,80},{-20,80},{-10,80}},
                                           color={0,0,127}));
           connect(referenceCurrentSource.plug_n, terminalBoxQS.plugSupply)
             annotation (Line(
@@ -2972,15 +2954,6 @@ Simulate for 0.1 second and plot (versus time):
           connect(resistor.plug_n, referenceCurrentSource.plug_n) annotation (
               Line(
               points={{20,74},{0,74}}, color={85,170,255}));
-          connect(rotorDisplacementAngleQS.flange, smpmQS.flange)
-            annotation (Line(points={{20,24},{10,24}}));
-          connect(terminalBoxQS.plug_sp, rotorDisplacementAngleQS.plug_p)
-            annotation (Line(points={{6,34},{24,34}},         color={85,170,255}));
-          connect(terminalBoxQS.plug_sn, rotorDisplacementAngleQS.plug_n)
-            annotation (Line(points={{-6,34},{-6,40},{36,40},{36,34}}, color={
-                  85,170,255}));
-          connect(rotorDisplacementAngleQS.flange, inertiaLoadQS.flange_a)
-            annotation (Line(points={{20,24},{40,24}}));
           annotation (
             experiment(StopTime=2.0, Interval=1E-4, Tolerance=1E-6),
             Documentation(info="<html>
@@ -3567,7 +3540,7 @@ Simulate for 30 seconds:
               points={{-50,-58},{-50,-70}},
               color={0,0,255}));
           connect(currentController.y, signalCurrent.i) annotation (Line(
-              points={{-29,-18},{-12,-18}},color={0,0,127}));
+              points={{-29,-18},{-7,-18}}, color={0,0,127}));
           connect(quadraticSpeedDependentTorque.flange, inertiaLoad.flange_b)
             annotation (Line(
               points={{70,-82},{64,-82}}));
@@ -3594,7 +3567,7 @@ Simulate for 30 seconds:
               color={0,0,127}));
           connect(currentController1.I, referenceCurrentSource.I) annotation (
               Line(
-              points={{-29,88},{-20,88},{-20,90},{-12,90}},
+              points={{-29,88},{-20,88},{-20,88},{-10,88}},
                                           color={85,170,255}));
           connect(referenceCurrentSource.plug_p, starQS.plug_p) annotation (
               Line(
@@ -3611,7 +3584,7 @@ Simulate for 30 seconds:
               color={0,0,127}));
           connect(currentController1.gamma, referenceCurrentSource.gamma)
             annotation (Line(
-              points={{-29,80},{-20,80},{-20,78},{-12,78}},
+              points={{-29,80},{-20,80},{-20,80},{-10,80}},
                                           color={0,0,127}));
           connect(referenceCurrentSource.plug_n, terminalBoxQS.plugSupply)
             annotation (Line(
