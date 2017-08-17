@@ -4322,7 +4322,7 @@ The magnetic potential at the magnetic ground node is zero. Every magnetic netwo
           Line(points={{-20,10},{20,10}}, color={255,127,0}),
           Line(points={{0,90},{0,50}}, color={255,127,0}),
           Text(
-            extent={{-150,-40},{150,0}},
+            extent={{-150,-50},{150,-10}},
             lineColor={0,0,255},
             textString="%name")}),
         Diagram(coordinateSystem(
@@ -4735,10 +4735,10 @@ Same as <a href=\"FluxTubes.Basic.ElectroMagneticConverter\">ElectroMagneticConv
             fillPattern=FillPattern.Solid),
           Line(points={{-70,0},{-90,0}}, color={255,128,0}),
           Line(points={{70,0},{90,0}}, color={255,128,0}),
-          Text(
-            extent={{-100,-100},{100,-62}},
-            textString="%name",
-            lineColor={0,0,255})}), Documentation(info="<html>
+            Text(
+              extent={{-150,50},{150,90}},
+              lineColor={0,0,255},
+              textString="%name")}),Documentation(info="<html>
 <p>
 This constant reluctance is provided for test purposes and simple magnetic network models. The reluctance is not calculated from geometry and permeability of a flux tube, but is provided as parameter.
 </p>
@@ -4764,10 +4764,10 @@ This constant reluctance is provided for test purposes and simple magnetic netwo
             fillPattern=FillPattern.Solid),
           Line(points={{-70,0},{-90,0}}, color={255,128,0}),
           Line(points={{70,0},{90,0}}, color={255,128,0}),
-          Text(
-            extent={{-100,-100},{100,-62}},
-            textString="%name",
-            lineColor={0,0,255})}), Documentation(info="<html>
+            Text(
+              extent={{-150,50},{150,90}},
+              lineColor={0,0,255},
+              textString="%name")}),Documentation(info="<html>
 <p>
 This constant permeance is provided for test purposes and simple magnetic network models. The permeance is not calculated from geometry and permeability of a flux tube, but is provided as parameter.
 </p>
@@ -4856,7 +4856,7 @@ This element must <strong>not</strong> be used <strong>for dynamic simulation of
             fillColor={255,128,0},
             fillPattern=FillPattern.Solid),
           Text(
-            extent={{-100,-98},{100,-60}},
+            extent={{-150,50},{150,90}},
             textString="%name",
             lineColor={0,0,255})}), Documentation(info="<html>
 <p>
@@ -4882,14 +4882,9 @@ Partitioning of a solid conductive cylinder or prism into several hollow cylinde
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
             Text(
-              extent={{0,60},{0,100}},
+              extent={{-150,50},{150,90}},
               lineColor={0,0,255},
               textString="%name"),
-            Rectangle(
-              extent={{-100,40},{100,-40}},
-              lineColor={255,255,255},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
             Line(points={{-100,0},{-40,0}}, color={255,128,0}),
             Line(points={{40,0},{100,0}}, color={255,128,0})}),
         Documentation(info="<html>
@@ -4920,16 +4915,11 @@ This is a simple idle running branch.
               100,0}}, color={255,128,0}));
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
+            Line(points={{-100,0},{100,0}}, color={255,128,0}),
             Text(
-              extent={{0,60},{0,100}},
+              extent={{-150,50},{150,90}},
               lineColor={0,0,255},
-              textString="%name"),
-            Rectangle(
-              extent={{-100,40},{100,-40}},
-              lineColor={255,255,255},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Line(points={{-100,0},{100,0}}, color={255,128,0})}), Documentation(
+              textString="%name")}),                              Documentation(
             info="<html>
 <p>
 This is a simple short cut branch.
@@ -4966,21 +4956,16 @@ This is a simple short cut branch.
           points={{-100,-100},{-100,0},{100,0},{100,100}}, color={255,128,0}));
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
-            Text(
-              extent={{0,60},{0,100}},
-              lineColor={0,0,255},
-              textString="%name"),
-            Rectangle(
-              extent={{-100,40},{100,-40}},
-              lineColor={255,255,255},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
           Line(
               points={{100,100},{100,40},{-100,-40},{-100,-100}},
               color={255,128,0}),
           Line(
               points={{-100,100},{-100,40},{100,-40},{100,-100}},
-              color={255,128,0})}), Documentation(
+              color={255,128,0}),
+            Text(
+              extent={{-150,50},{150,90}},
+              lineColor={0,0,255},
+              textString="%name")}),Documentation(
             info="<html>
 <p>
 This is a simple crossing of two branches. The ports <code>port_p1</code> and <code>port_p2</code> are connected, as well as <code>port_n1</code> and <code>port_n2</code>.
@@ -7634,7 +7619,7 @@ This magnetic flux is provided explicitly as flux Phi.
           Line(points={{-70,0},{-90,0}}, color={255,128,0}),
           Line(points={{70,0},{90,0}}, color={255,128,0}),
           Text(
-            extent={{-150,-100},{150,-60}},
+            extent={{-150,50},{150,90}},
             textString="%name",
             lineColor={0,0,255})}), Documentation(info="<html>
 <p>
@@ -7743,7 +7728,7 @@ Please refer to the description of  the sub-package <a href=\"modelica://Modelic
           Line(points={{-70,0},{-90,0}}, color={255,128,0}),
           Line(points={{70,0},{90,0}}, color={255,128,0}),
           Text(
-            extent={{-150,-100},{150,-60}},
+            extent={{-150,50},{150,90}},
             textString="%name",
             lineColor={0,0,255})}), Documentation(info="<html>
 <p>
@@ -7765,7 +7750,7 @@ Please refer to the description of  the sub-package <a href=\"modelica://Modelic
       annotation (Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
                 -100},{100,100}}), graphics={
             Text(
-              extent={{-140,40},{140,80}},
+              extent={{-150,50},{150,90}},
               textString="%name",
               lineColor={0,0,255}),
             Line(points={{-70,0},{-100,0}}, color={255,128,0}),
@@ -7976,18 +7961,13 @@ This package contains connectors for the magnetic domain and partial models for 
           Line(points={{100,0},{50,0}}, color={255,127,0}),
           Line(points={{-50,0},{-100,0}}, color={255,127,0}),
           Text(
-            extent={{-80,-20},{-80,-40}},
-            lineColor={255,128,0},
-            textString="+"),
-          Text(
-            extent={{80,-20},{80,-40}},
-            lineColor={255,128,0},
-            textString="-"),
-          Text(
-            extent={{-150,-110},{150,-70}},
+            extent={{-150,60},{150,100}},
             textString="%name",
             lineColor={0,0,255}),
-          Line(points={{-50,0},{50,0}}, color={255,127,0})}),
+          Line(points={{-50,0},{50,0}}, color={255,127,0}),
+            Line(points={{-70,30},{-70,10}}, color={255,128,0}),
+            Line(points={{-80,20},{-60,20}}, color={255,128,0}),
+            Line(points={{60,20},{80,20}}, color={255,128,0})}),
         Documentation(info="<html>
 <p>
 Magnetic circuits under steady-state conditions, i.e., with stationary magnetic fields (change of magnetic flux  d&Phi;/dt = 0) can be described with constant sources of a magnetic potential difference or magnetomotive force (mmf). Constant magnetic potential differences are imposed by
@@ -8011,7 +7991,10 @@ For modelling of reluctance actuators with this source component it is assumed t
         annotation (Placement(transformation(
             origin={0,90},
             extent={{10,-10},{-10,10}},
-            rotation=90)));
+            rotation=90), iconTransformation(
+            extent={{10,-10},{-10,10}},
+            rotation=90,
+            origin={0,110})));
       SI.MagneticFlux Phi "Magnetic flux from port_p to port_n";
 
     equation
@@ -8026,16 +8009,7 @@ For modelling of reluctance actuators with this source component it is assumed t
           Line(points={{-100,0},{-50,0}}, color={255,127,0}),
           Line(points={{50,0},{100,0}}, color={255,127,0}),
           Text(
-            extent={{-80,-20},{-80,-40}},
-            lineColor={255,128,0},
-            textString="+"),
-          Text(
-            extent={{80,-20},{80,-40}},
-            lineColor={255,128,0},
-            textString="-"),
-          Line(points={{0,100},{0,50}}, color={255,127,0}),
-          Text(
-            extent={{-150,-110},{150,-70}},
+            extent={{-150,50},{150,90}},
             textString="%name",
             lineColor={0,0,255}),
           Ellipse(
@@ -8043,7 +8017,10 @@ For modelling of reluctance actuators with this source component it is assumed t
             lineColor={255,127,0},
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid),
-          Line(points={{-50,0},{50,0}}, color={255,127,0})}),
+          Line(points={{-50,0},{50,0}}, color={255,127,0}),
+            Line(points={{-70,30},{-70,10}}, color={255,128,0}),
+            Line(points={{-80,20},{-60,20}}, color={255,128,0}),
+            Line(points={{60,20},{80,20}}, color={255,128,0})}),
         Documentation(info="<html>
 <p>
 In electromagnetic devices, a change of a coil's magnetic flux linkage &Psi; reacts on the electrical subsystem in that a voltage v is induced due to <em>Faraday</em>'s law:
@@ -8080,7 +8057,7 @@ In these cases, the magnetic potential difference or magnetomotive force imposed
           preserveAspectRatio=false,
           extent={{-100,-100},{100,100}}), graphics={
           Text(
-            extent={{-150,-110},{150,-70}},
+            extent={{-150,60},{150,100}},
             textString="%name",
             lineColor={0,0,255}),
           Polygon(
@@ -8113,9 +8090,12 @@ Sources of a constant magnetic flux are useful for modelling of permanent magnet
       extends FluxTubes.Interfaces.PartialTwoPortsElementary;
       Modelica.Blocks.Interfaces.RealInput Phi(unit="Wb") "Magnetic flux" annotation (
           Placement(transformation(
-            origin={0,90},
+            origin={0,110},
             extent={{10,-10},{-10,10}},
-            rotation=90)));
+            rotation=90), iconTransformation(
+            extent={{10,-10},{-10,10}},
+            rotation=90,
+            origin={0,110})));
       SI.MagneticPotentialDifference V_m
         "Magnetic potential difference between both ports";
 
@@ -8134,12 +8114,11 @@ Sources of a constant magnetic flux are useful for modelling of permanent magnet
             fillColor={255,128,0},
             fillPattern=FillPattern.Solid),
           Text(
-            extent={{-150,-110},{150,-70}},
+            extent={{-150,50},{150,90}},
             textString="%name",
             lineColor={0,0,255}),
           Line(points={{-100,0},{-50,0}}, color={255,127,0}),
           Line(points={{50,0},{100,0}}, color={255,127,0}),
-          Line(points={{0,100},{0,50}}, color={255,127,0}),
           Ellipse(
             extent={{-50,-50},{50,50}},
             lineColor={255,127,0},
@@ -8189,8 +8168,8 @@ This package contains sources of a magnetic potential difference or a magnetic f
             Text(
               extent={{-52,1},{48,-57}},
               textString="V_m"),
-            Line(points={{-70,0},{-90,0}}),
-            Line(points={{70,0},{90,0}}),
+            Line(points={{-70,0},{-90,0}}, color={255,128,0}),
+            Line(points={{70,0},{90,0}}, color={255,128,0}),
             Line(points={{0,-90},{0,-70}}),
             Text(
               extent={{-150,120},{150,80}},
@@ -8219,8 +8198,10 @@ This package contains sources of a magnetic potential difference or a magnetic f
       0 = port_p.Phi + port_n.Phi;
 
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}), graphics={Line(points={{0,-100},{0,-70}}),Line(points={{-70,0},{-90,0}}),Line(
-              points={{70,0},{90,0}}),Text(extent={{-29,-11},{30,
+                -100},{100,100}}), graphics={Line(points={{0,-100},{0,-70}}),Line(points={{-70,0},{-90,0}}, color={255,128,0}),
+                                                                                                            Line(
+              points={{70,0},{90,0}}, color={255,128,0}),
+                                      Text(extent={{-29,-11},{30,
               -70}}, textString="Phi"),Text(
                   extent={{-150,120},{150,80}},
                   textString="%name",
