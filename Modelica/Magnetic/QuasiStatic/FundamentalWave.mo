@@ -1333,7 +1333,7 @@ Default machine parameters of model <em>AIM_SquirrelCage</em> are used.
               points={{-30,-50},{-20,-50}},
               color={0,0,255}));
           connect(vfController.y, signalVoltage.v) annotation (Line(
-              points={{-17,-20},{-10,-20},{-10,-38}}, color={0,0,127}));
+              points={{-17,-20},{-10,-20},{-10,-38}}, color={85,170,255}));
           connect(loadTorqueStepQS.flange, loadInertiaQS.flange_b)
             annotation (Line(points={{76,20},{70,20}}));
           connect(imcQS.flange, loadInertiaQS.flange_a) annotation (Line(
@@ -1369,9 +1369,9 @@ Default machine parameters of model <em>AIM_SquirrelCage</em> are used.
               points={{-19,84},{-4,84},{-4,62}}, color={85,170,255}));
           connect(ramp.y, vfControllerQS.u) annotation (Line(
               points={{-79,0},{-70,0},{-70,84},{-42,84}},
-              color={0,0,127}));
+              color={85,170,255}));
           connect(ramp.y, signalVoltageQS.f) annotation (Line(
-              points={{-79,0},{-70,0},{-70,70},{-16,70},{-16,62}}, color={0,0,127}));
+              points={{-79,0},{-70,0},{-70,70},{-16,70},{-16,62}}, color={85,170,255}));
           annotation (
             experiment(StopTime=1.5, Interval=0.001),
             Documentation(info="<html>
@@ -1845,16 +1845,16 @@ Simulate for 1.5 seconds and plot (versus time):
           connect(terminalBox.plug_sp, aimc.plug_sp) annotation (Line(
               points={{-4,-30},{-4,-30}}, color={85,170,255}));
           connect(vfController.u, gain.y)
-            annotation (Line(points={{-42,60},{-49,60}}, color={0,0,127}));
+            annotation (Line(points={{-42,60},{-49,60}}, color={85,170,255}));
           connect(dutyCycle.y[1], gain.u)
-            annotation (Line(points={{-79,60},{-72,60}}, color={0,0,127}));
+            annotation (Line(points={{-79,60},{-72,60}}, color={85,170,255}));
           connect(aimc.flange, idealGearR2T.flangeR)
             annotation (Line(points={{0,-40},{12,-40}}));
           connect(idealGearR2T.flangeT, mass.flange_a)
             annotation (Line(points={{32,-40},{36,-40},{40,-40}}, color={0,127,0}));
           connect(mass.flange_b, signForce.flange)
             annotation (Line(points={{60,-40},{66,-40},{70,-40}}, color={0,127,0}));
-          connect(gain.y, signalVoltage.f) annotation (Line(points={{-49,60},{-46,60},{-46,80},{-16,80},{-16,66},{-10,66},{-10,64}}, color={0,0,127}));
+          connect(gain.y, signalVoltage.f) annotation (Line(points={{-49,60},{-46,60},{-46,80},{-16,80},{-16,66},{-10,66},{-10,64}}, color={85,170,255}));
           connect(vfController.y, signalVoltage.V) annotation (Line(points={{-19,60},{-16,60},{-16,56},{-10,56}}, color={85,170,255}));
           connect(groundMachineQS.pin,starMachineQS. pin_n) annotation (Line(
               points={{-80,-28},{-70,-28}},
@@ -2033,20 +2033,20 @@ Default machine parameters of model <em>AIM_SquirrelCage</em> are used.
           connect(torque.flange, loadInertia.flange_b) annotation (Line(
               points={{50,10},{40,10}}));
           connect(gain.y, torque.tau) annotation (Line(
-              points={{71,-50},{80,-50},{80,10},{72,10}}, color={0,0,127}));
+              points={{71,-50},{80,-50},{80,10},{72,10}}, color={85,170,255}));
           connect(sineVoltage.plug_p, currentQuasiRMSSensor.plug_p) annotation (
               Line(
               points={{-70,80},{-30,80}}, color={85,170,255}));
           connect(powerSensor.power, feedback.u2) annotation (Line(
-              points={{-8,-1},{-8,-20},{0,-20},{0,-42}}, color={0,0,127}));
+              points={{-8,-1},{-8,-20},{0,-20},{0,-42}}, color={85,170,255}));
           connect(feedback.y, PI.u) annotation (Line(
-              points={{9,-50},{18,-50}}, color={0,0,127}));
+              points={{9,-50},{18,-50}}, color={85,170,255}));
           connect(PI.y, gain.u) annotation (Line(
-              points={{41,-50},{48,-50}}, color={0,0,127}));
+              points={{41,-50},{48,-50}}, color={85,170,255}));
           connect(ramp.y, feedback.u1) annotation (Line(
-              points={{-19,-50},{-8,-50}}, color={0,0,127}));
+              points={{-19,-50},{-8,-50}}, color={85,170,255}));
           connect(powerSensor.power, combiTable1Ds.u) annotation (Line(
-              points={{-8,-1},{-8,-20},{18,-20}}, color={0,0,127}));
+              points={{-8,-1},{-8,-20},{18,-20}}, color={85,170,255}));
           connect(star.plug_p, terminalBox.starpoint) annotation (Line(points={{-70,40},{-50,40},{-50,22},{-39,22}}, color={85,170,255}));
           connect(currentQuasiRMSSensor.plug_n, electricalPowerSensor.currentP) annotation (Line(points={{-30,60},{-30,50}}, color={85,170,255}));
           connect(electricalPowerSensor.currentN, terminalBox.plugSupply) annotation (Line(points={{-30,30},{-30,22}}, color={85,170,255}));
@@ -2864,13 +2864,13 @@ Simulate for 0.1 second and plot (versus time):
               points={{20,-62},{20,-82}}));
           connect(angleSensor.phi, currentController.phi) annotation (Line(
               points={{20,-41},{20,-36},{-40,-36},{-40,-30}},
-              color={0,0,127}));
+              color={85,170,255}));
           connect(id.y, currentController.id_rms) annotation (Line(
               points={{-79,20},{-74,20},{-74,-12},{-52,-12}},
-              color={0,0,127}));
+              color={85,170,255}));
           connect(iq.y, currentController.iq_rms) annotation (Line(
               points={{-79,-20},{-70,-20},{-70,-24},{-52,-24}},
-              color={0,0,127}));
+              color={85,170,255}));
           connect(groundM.p, terminalBox.starpoint) annotation (Line(
               points={{-50,-70},{-9,-70}},
               color={0,0,255}));
@@ -2885,7 +2885,7 @@ Simulate for 0.1 second and plot (versus time):
               points={{-50,-58},{-50,-70}},
               color={0,0,255}));
           connect(currentController.y, signalCurrent.i) annotation (Line(
-              points={{-29,-18},{-7,-18}}, color={0,0,127}));
+              points={{-29,-18},{-7,-18}}, color={85,170,255}));
           connect(quadraticSpeedDependentTorque.flange, inertiaLoad.flange_b)
             annotation (Line(
               points={{70,-82},{60,-82}}));
@@ -2919,7 +2919,7 @@ Simulate for 0.1 second and plot (versus time):
               color={85,170,255}));
           connect(angleSensorQS.phi, currentController1.phi) annotation (Line(
               points={{20,65},{20,68},{-40,68},{-40,72}},
-              color={0,0,127}));
+              color={85,170,255}));
           connect(currentController1.I, referenceCurrentSource.I) annotation (
               Line(
               points={{-29,88},{-20,88},{-20,88},{-10,88}},
@@ -2933,16 +2933,16 @@ Simulate for 0.1 second and plot (versus time):
               color={85,170,255}));
           connect(currentController1.id_rms, id.y) annotation (Line(
               points={{-52,90},{-74,90},{-74,20},{-79,20}},
-              color={0,0,127}));
+              color={85,170,255}));
           connect(iq.y, currentController1.iq_rms) annotation (Line(
               points={{-79,-20},{-70,-20},{-70,78},{-52,78}},
-              color={0,0,127}));
+              color={85,170,255}));
           connect(angleSensorQS.flange, smpmQS.flange) annotation (Line(
               points={{20,44},{20,34},{10,34}}));
           connect(currentController1.gamma, referenceCurrentSource.gamma)
             annotation (Line(
               points={{-29,80},{-20,80},{-20,80},{-10,80}},
-                                          color={0,0,127}));
+                                          color={85,170,255}));
           connect(referenceCurrentSource.plug_n, terminalBoxQS.plugSupply)
             annotation (Line(
               points={{0,74},{0,46}},
@@ -3519,13 +3519,13 @@ Simulate for 30 seconds:
               points={{20,-62},{20,-82}}));
           connect(angleSensor.phi, currentController.phi) annotation (Line(
               points={{20,-41},{20,-36},{-40,-36},{-40,-30}},
-              color={0,0,127}));
+              color={85,170,255}));
           connect(id.y, currentController.id_rms) annotation (Line(
               points={{-79,20},{-74,20},{-74,-12},{-52,-12}},
-              color={0,0,127}));
+              color={85,170,255}));
           connect(iq.y, currentController.iq_rms) annotation (Line(
               points={{-79,-20},{-70,-20},{-70,-24},{-52,-24}},
-              color={0,0,127}));
+              color={85,170,255}));
           connect(groundM.p, terminalBox.starpoint) annotation (Line(
               points={{-50,-70},{-9,-70}},
               color={0,0,255}));
@@ -3540,7 +3540,7 @@ Simulate for 30 seconds:
               points={{-50,-58},{-50,-70}},
               color={0,0,255}));
           connect(currentController.y, signalCurrent.i) annotation (Line(
-              points={{-29,-18},{-7,-18}}, color={0,0,127}));
+              points={{-29,-18},{-7,-18}}, color={85,170,255}));
           connect(quadraticSpeedDependentTorque.flange, inertiaLoad.flange_b)
             annotation (Line(
               points={{70,-82},{64,-82}}));
@@ -3564,7 +3564,7 @@ Simulate for 30 seconds:
               color={85,170,255}));
           connect(angleSensorQS.phi, currentController1.phi) annotation (Line(
               points={{20,65},{20,68},{-40,68},{-40,72}},
-              color={0,0,127}));
+              color={85,170,255}));
           connect(currentController1.I, referenceCurrentSource.I) annotation (
               Line(
               points={{-29,88},{-20,88},{-20,88},{-10,88}},
@@ -3578,14 +3578,14 @@ Simulate for 30 seconds:
               color={85,170,255}));
           connect(currentController1.id_rms, id.y) annotation (Line(
               points={{-52,90},{-74,90},{-74,20},{-79,20}},
-              color={0,0,127}));
+              color={85,170,255}));
           connect(iq.y, currentController1.iq_rms) annotation (Line(
               points={{-79,-20},{-70,-20},{-70,78},{-52,78}},
-              color={0,0,127}));
+              color={85,170,255}));
           connect(currentController1.gamma, referenceCurrentSource.gamma)
             annotation (Line(
               points={{-29,80},{-20,80},{-20,80},{-10,80}},
-                                          color={0,0,127}));
+                                          color={85,170,255}));
           connect(referenceCurrentSource.plug_n, terminalBoxQS.plugSupply)
             annotation (Line(
               points={{0,74},{0,46}},
@@ -7324,25 +7324,25 @@ choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
             origin={30,-70})));
     equation
       connect(phi, toGamma.u)
-        annotation (Line(points={{0,-120},{0,-82}}, color={0,0,127}));
+        annotation (Line(points={{0,-120},{0,-82}}, color={85,170,255}));
       connect(singleToMultiPhase.y, I) annotation (Line(
           points={{41,40},{110,40}},
           color={85,170,255}));
       connect(toGamma.y, add.u1) annotation (Line(
           points={{0,-59},{0,-34},{38,-34}},
-          color={0,0,127}));
+          color={85,170,255}));
       connect(const.y, add.u2) annotation (Line(
           points={{30,-59},{30,-46},{38,-46}},
-          color={0,0,127}));
+          color={85,170,255}));
       connect(add.y, gamma) annotation (Line(
           points={{61,-40},{110,-40}},
-          color={0,0,127}));
+          color={85,170,255}));
       connect(id_rms, realToComplex.re) annotation (Line(
           points={{-120,60},{-60,60},{-60,46},{-42,46}},
-          color={0,0,127}));
+          color={85,170,255}));
       connect(iq_rms, realToComplex.im) annotation (Line(
           points={{-120,-60},{-60,-60},{-60,34},{-42,34}},
-          color={0,0,127}));
+          color={85,170,255}));
       connect(realToComplex.y, singleToMultiPhase.u) annotation (Line(
           points={{-19,40},{18,40}},
           color={85,170,255}));
