@@ -1835,11 +1835,9 @@ zero or negative.
                   fillColor={85,170,255},
                   fillPattern=FillPattern.Solid),Text(
                   extent={{20,60},{100,-60}},
-                  lineColor={0,128,255},
-                  fillColor={85,170,255},
-                  fillPattern=FillPattern.Solid,
-                  textString="C")}), Documentation(info="<html>
-<p>Converts the Real inputs <i>re</i> (real part) and <i>im</i> (imaginary part) to the Complex output <i>y</i>.</p>
+                  lineColor={85,170,255},
+              textString="C")}),     Documentation(info="<html>
+<p>Converts the Real inputs <em>re</em> (real part) and <em>im</em> (imaginary part) to the Complex output <em>y</em>.</p>
 </html>"));
     end RealToComplex;
 
@@ -1870,11 +1868,9 @@ zero or negative.
                   fillColor={85,170,255},
                   fillPattern=FillPattern.Solid),Text(
                   extent={{20,60},{100,-60}},
-                  lineColor={0,128,255},
-                  fillColor={85,170,255},
-                  fillPattern=FillPattern.Solid,
-                  textString="C")}), Documentation(info="<html>
-<p>Converts the Real inputs <i>len</i> (length, absolute) and <i>phi</i> (angle, argument) to the Complex output <i>y</i>.</p>
+                  lineColor={85,170,255},
+              textString="C")}),     Documentation(info="<html>
+<p>Converts the Real inputs <em>len</em> (length, absolute) and <em>phi</em> (angle, argument) to the Complex output <em>y</em>.</p>
 </html>"));
     end PolarToComplex;
 
@@ -1910,11 +1906,11 @@ zero or negative.
                   fillColor={85,170,255},
                   fillPattern=FillPattern.Solid),Text(
                   extent={{-100,60},{-20,-60}},
-                  lineColor={0,128,255},
-                  fillColor={85,170,255},
-                  fillPattern=FillPattern.Solid,
-                  textString="C")}), Documentation(info="<html>
-<p>Converts the Complex input <i>u</i> to the Real outputs <i>re</i> (real part) and <i>im</i> (imaginary part).</p>
+                  lineColor={85,170,255},
+              fillColor={85,170,255},
+              fillPattern=FillPattern.Solid,
+              textString="C")}),     Documentation(info="<html>
+<p>Converts the Complex input <em>u</em> to the Real outputs <em>re</em> (real part) and <em>im</em> (imaginary part).</p>
 </html>"));
     end ComplexToReal;
 
@@ -1952,11 +1948,9 @@ zero or negative.
                   fillColor={85,170,255},
                   fillPattern=FillPattern.Solid),Text(
                   extent={{-100,60},{-20,-60}},
-                  lineColor={0,128,255},
-                  fillColor={85,170,255},
-                  fillPattern=FillPattern.Solid,
-                  textString="C")}), Documentation(info="<html>
-<p>Converts the Complex input <i>u</i> to the Real outputs <i>len</i> (length, absolute) and <i>phi</i> (angle, argument).</p>
+                  lineColor={85,170,255},
+              textString="C")}),     Documentation(info="<html>
+<p>Converts the Complex input <em>u</em> to the Real outputs <em>len</em> (length, absolute) and <em>phi</em> (angle, argument).</p>
 </html>"));
     end ComplexToPolar;
 

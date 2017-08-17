@@ -28,7 +28,7 @@ package Basic "Basic electrical components"
           Line(points={{-20,10},{20,10}}, color={0,0,255}),
           Line(points={{0,90},{0,50}}, color={0,0,255}),
           Text(
-            extent={{-144,-19},{156,-59}},
+            extent={{-150,-10},{150,-50}},
             textString="%name",
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{

@@ -3708,12 +3708,12 @@ Simulate for 2 seconds and plot (versus time):
               10},{20,10}}, color={255,170,85})}),
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
-            Line(points={{0,100},{0,50}}, color={255,128,0}),
-            Line(points={{-60,50},{60,50}}, color={255,128,0}),
-            Line(points={{-40,30},{40,30}}, color={255,128,0}),
-            Line(points={{-20,10},{20,10}}, color={255,128,0}),
+            Line(points={{0,100},{0,50}}, color={255,170,85}),
+            Line(points={{-60,50},{60,50}}, color={255,170,85}),
+            Line(points={{-40,30},{40,30}}, color={255,170,85}),
+            Line(points={{-20,10},{20,10}}, color={255,170,85}),
             Text(
-              extent={{-144,-19},{156,-59}},
+              extent={{-150,-10},{150,-50}},
               textString="%name",
               lineColor={0,0,255})}),
         Documentation(info="<html>
@@ -4171,7 +4171,7 @@ QuasiStaticAnalogElectroMagneticConverter</a>
                   fillPattern=FillPattern.Solid),Line(points={{100,-100},{94,-100},
               {84,-98},{76,-94},{64,-86},{50,-72},{42,-58},{36,-40},{30,-18},{
               30,0},{30,18},{34,36},{46,66},{62,84},{78,96},{90,100},{100,100}},
-              color={255,128,0}),Line(points={{0,60},{-100,60},{-100,100}},
+              color={255,170,85}),Line(points={{0,60},{-100,60},{-100,100}},
               color={0,0,255}),Line(points={{0,-60},{-100,-60},{-100,-98}},
               color={0,0,255}),Text(
                   extent={{0,160},{0,120}},
@@ -4244,8 +4244,8 @@ This is a simple idle running branch.
 </html>"),
         Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                 {100,100}}), graphics={Line(points={{-100,0},{-60,0}}, color={
-              255,128,0}),Line(points={{60,0},{100,0}}, color={255,128,0}),Line(
-              points={{-60,0},{-40,2},{-18,6},{0,14},{12,26}}, color={255,128,0}),
+              255,128,0}),Line(points={{60,0},{100,0}}, color={255,170,85}),Line(
+              points={{-60,0},{-40,2},{-18,6},{0,14},{12,26}}, color={255,170,85}),
               Line(points={{60,0},{40,-2},{18,-6},{0,-14},{-12,-26}}, color={
               255,128,0})}));
     end Idle;
@@ -4254,18 +4254,13 @@ This is a simple idle running branch.
       extends Interfaces.PartialTwoPort;
     equation
       connect(port_p, port_n) annotation (Line(points={{-100,0},{-1,0},{-1,0},{
-              100,0}}, color={255,128,0}));
+              100,0}}, color={255,170,85}));
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
             Text(
               extent={{0,60},{0,100}},
               lineColor={0,0,255},
               textString="%name"),
-            Rectangle(
-              extent={{-100,40},{100,-40}},
-              lineColor={255,255,255},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
             Line(points={{-100,0},{100,0}}, color={255,170,85})}),
           Documentation(info="<html>
 <p>
@@ -4306,11 +4301,7 @@ This is a simple short cut branch.
                 100,100}}), graphics={Text(
                   extent={{0,60},{0,100}},
                   lineColor={0,0,255},
-                  textString="%name"),Rectangle(
-                  extent={{-100,40},{100,-40}},
-                  lineColor={255,255,255},
-                  fillColor={255,255,255},
-                  fillPattern=FillPattern.Solid),Line(
+                  textString="%name"),           Line(
                   points={{-100,100},{-100,40},{100,-40},{100,-100}},
                   color={255,170,85}),Line(
                   points={{100,100},{100,40},{-100,-40},{-100,-100}},
@@ -4408,11 +4399,9 @@ located at <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.
             points={{0,-40},{-40,-40},{-40,-90}},
             color={191,0,0}));
         connect(airGap.port_rn, rotorCage.port_p) annotation (Line(
-            points={{-10,-10},{-10,-30}},
-            color={255,128,0}));
+            points={{-10,-10},{-10,-30}}, color={255,170,85}));
         connect(airGap.port_rp, rotorCage.port_n) annotation (Line(
-            points={{10,-10},{10,-30}},
-            color={255,128,0}));
+            points={{10,-10},{10,-30}}, color={255,170,85}));
         annotation (
           defaultComponentName="imc",
           Documentation(info="<html>
@@ -4581,11 +4570,9 @@ Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_Squirre
             points={{-100,60},{-80,60},{-80,-50},{-10,-50}},
             color={85,170,255}));
         connect(airGap.port_rn, rotor.port_p) annotation (Line(
-            points={{-10,-10},{-10,-30}},
-            color={255,128,0}));
+            points={{-10,-10},{-10,-30}}, color={255,170,85}));
         connect(airGap.port_rp, rotor.port_n) annotation (Line(
-            points={{10,-10},{10,-30}},
-            color={255,128,0}));
+            points={{10,-10},{10,-30}}, color={255,170,85}));
         annotation (
           defaultComponentName="ims",
           Icon(graphics={Line(points={{-100,50},{-100,20},{-60,20}}, color={85,
@@ -4754,8 +4741,7 @@ Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_Squirre
           damperCageLossPower = 0;
         end if;
         connect(permanentMagnet.port_p, airGap.port_rn) annotation (Line(
-            points={{-10,-30},{-10,-10}},
-            color={255,128,0}));
+            points={{-10,-30},{-10,-10}}, color={255,170,85}));
         connect(permanentMagnet.support, airGap.support) annotation (Line(
             points={{-20,-40},{-50,-40},{-50,0},{-10,0}}));
         connect(permanentMagnet.heatPort, internalThermalPort.heatPortPermanentMagnet)
@@ -4765,17 +4751,13 @@ Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_Squirre
         connect(permanentMagnet.flange, inertiaRotor.flange_b) annotation (Line(
             points={{0,-40},{0,-20},{90,-20},{90,0}}));
         connect(airGap.port_rp, rotorCage.port_n) annotation (Line(
-            points={{10,-10},{10,-30},{20,-30}},
-            color={255,128,0}));
+            points={{10,-10},{10,-30},{20,-30}}, color={255,170,85}));
         connect(short.port_n, airGap.port_rp) annotation (Line(
-            points={{10,-30},{10,-10}},
-            color={255,128,0}));
+            points={{10,-30},{10,-10}}, color={255,170,85}));
         connect(short.port_p, permanentMagnet.port_n) annotation (Line(
-            points={{10,-50},{-10,-50}},
-            color={255,128,0}));
+            points={{10,-50},{-10,-50}}, color={255,170,85}));
         connect(rotorCage.port_p, permanentMagnet.port_n) annotation (Line(
-            points={{20,-50},{-10,-50}},
-            color={255,128,0}));
+            points={{20,-50},{-10,-50}}, color={255,170,85}));
         connect(rotorCage.heatPortWinding, internalThermalPort.heatPortRotorWinding)
           annotation (Line(
             points={{30,-40},{40,-40},{40,-80},{-40,-80},{-40,-90}},
@@ -4985,24 +4967,19 @@ Magnetic.FundamentalWave.BasicMachines.SM_ReluctanceRotor</a>,
           damperCageLossPower = 0;
         end if;
         connect(airGap.port_rn, excitation.port_p) annotation (Line(
-            points={{-10,-10},{-10,-30}},
-            color={255,128,0}));
+            points={{-10,-10},{-10,-30}}, color={255,170,85}));
         connect(excitation.heatPortWinding, internalThermalPort.heatPortExcitation)
           annotation (Line(
             points={{-20,-50},{-20,-80},{-40,-80},{-40,-90}},
             color={191,0,0}));
         connect(airGap.port_rp, rotorCage.port_n) annotation (Line(
-            points={{10,-10},{10,-30},{20,-30}},
-            color={255,128,0}));
+            points={{10,-10},{10,-30},{20,-30}}, color={255,170,85}));
         connect(short.port_n, airGap.port_rp) annotation (Line(
-            points={{10,-30},{10,-10}},
-            color={255,128,0}));
+            points={{10,-30},{10,-10}}, color={255,170,85}));
         connect(rotorCage.port_p, excitation.port_n) annotation (Line(
-            points={{20,-50},{-10,-50}},
-            color={255,128,0}));
+            points={{20,-50},{-10,-50}}, color={255,170,85}));
         connect(short.port_p, excitation.port_n) annotation (Line(
-            points={{10,-50},{-10,-50}},
-            color={255,128,0}));
+            points={{10,-50},{-10,-50}}, color={255,170,85}));
         connect(rotorCage.heatPortWinding, internalThermalPort.heatPortRotorWinding)
           annotation (Line(
             points={{30,-40},{40,-40},{40,-80},{-40,-80},{-40,-90}},
@@ -5172,17 +5149,13 @@ Magnetic.FundamentalWave.BasicMachines.SM_ReluctanceRotor</a>,
           damperCageLossPower = 0;
         end if;
         connect(rotorCage.port_n, airGap.port_rp) annotation (Line(
-            points={{20,-30},{10,-30},{10,-10}},
-            color={255,128,0}));
+            points={{20,-30},{10,-30},{10,-10}}, color={255,170,85}));
         connect(short.port_n, airGap.port_rp) annotation (Line(
-            points={{10,-30},{10,-10}},
-            color={255,128,0}));
+            points={{10,-30},{10,-10}}, color={255,170,85}));
         connect(rotorCage.port_p, airGap.port_rn) annotation (Line(
-            points={{20,-50},{-10,-50},{-10,-10}},
-            color={255,128,0}));
+            points={{20,-50},{-10,-50},{-10,-10}}, color={255,170,85}));
         connect(short.port_p, airGap.port_rn) annotation (Line(
-            points={{10,-50},{-10,-50},{-10,-10}},
-            color={255,128,0}));
+            points={{10,-50},{-10,-50},{-10,-10}}, color={255,170,85}));
         connect(rotorCage.heatPortWinding, internalThermalPort.heatPortRotorWinding)
           annotation (Line(
             points={{30,-40},{40,-40},{40,-80},{-40,-80},{-40,-90}},
@@ -5355,8 +5328,7 @@ Magnetic.FundamentalWave.BasicMachines.SM_ReluctanceRotor</a>,
             points={{40,-50},{40,-100}},
             color={191,0,0}));
         connect(strayReluctance.port_n, core.port_n) annotation (Line(
-            points={{80,20},{80,-40},{60,-40}},
-            color={255,128,0}));
+            points={{80,20},{80,-40},{60,-40}}, color={255,170,85}));
         connect(electroMagneticConverter.plug_p, resistor.plug_n) annotation (
             Line(
             points={{-10,-20},{-18,-20},{-18,60}},
@@ -5390,7 +5362,7 @@ Magnetic.FundamentalWave.BasicMachines.SM_ReluctanceRotor</a>,
                 fillPattern=FillPattern.Solid),
               Line(points={{100,-100},{94,-100},{84,-98},{76,-94},{64,-86},{50,
                     -72},{42,-58},{36,-40},{30,-18},{30,0},{30,18},{34,36},{46,
-                    66},{62,84},{78,96},{90,100},{100,100}}, color={255,128,0}),
+                    66},{62,84},{78,96},{90,100},{100,100}}, color={255,170,85}),
               Line(points={{40,60},{-100,60},{-100,100}}, color={85,170,255}),
               Line(points={{40,-60},{-100,-60},{-100,-98}}, color={85,170,255}),
               Line(points={{40,60},{100,20},{40,-20},{0,-20},{-40,0},{0,20},{40,
@@ -5499,9 +5471,9 @@ Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding</a>
         connect(electroMagneticConverter.pin_n, pin_n) annotation (Line(points=
                 {{-10,-10},{-10,-100},{-100,-100}}, color={0,0,255}));
         connect(electroMagneticConverter.port_p, port_p) annotation (Line(
-              points={{10,10},{10,100},{100,100}}, color={255,128,0}));
+              points={{10,10},{10,100},{100,100}}, color={255,170,85}));
         connect(electroMagneticConverter.port_n, port_n) annotation (Line(
-              points={{10,-10},{10,-100},{100,-100}}, color={255,128,0}));
+              points={{10,-10},{10,-100},{100,-100}}, color={255,170,85}));
         connect(heatPortWinding, resistor.heatPort) annotation (Line(
             points={{0,-100},{0,-60},{-40,-60},{-40,70},{-20,70}},
             color={191,0,0}));
@@ -5519,7 +5491,7 @@ Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding</a>
                 fillPattern=FillPattern.Solid),
               Line(points={{100,-100},{94,-100},{84,-98},{76,-94},{64,-86},{50,
                     -72},{42,-58},{36,-40},{30,-18},{30,0},{30,18},{34,36},{46,
-                    66},{62,84},{78,96},{90,100},{100,100}}, color={255,128,0}),
+                    66},{62,84},{78,96},{90,100},{100,100}}, color={255,170,85}),
               Line(points={{40,60},{-100,60},{-100,100}}, color={0,0,255}),
               Line(points={{40,-60},{-100,-60},{-100,-98}}, color={0,0,255}),
               Line(points={{40,60},{100,20},{40,-20},{0,-20},{-40,0},{0,20},{40,
@@ -5655,10 +5627,10 @@ Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding</a>
                 lineColor={0,0,0},
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid),
-              Line(points={{-100,90},{-100,60},{-80,60}}, color={255,128,0}),
-              Line(points={{-100,-90},{-100,-60},{-80,-60}}, color={255,128,0}),
-              Line(points={{40,60},{100,60},{100,90}}, color={255,128,0}),
-              Line(points={{40,-60},{100,-60},{100,-90}}, color={255,128,0}),
+              Line(points={{-100,90},{-100,60},{-80,60}}, color={255,170,85}),
+              Line(points={{-100,-90},{-100,-60},{-80,-60}}, color={255,170,85}),
+              Line(points={{40,60},{100,60},{100,90}}, color={255,170,85}),
+              Line(points={{40,-60},{100,-60},{100,-90}}, color={255,170,85}),
               Ellipse(
                 extent={{-60,80},{60,-80}},
                 lineColor={0,0,0},
@@ -5840,7 +5812,7 @@ Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap</a>
                       lineColor={0,0,0},
                       fillColor={255,255,255},
                       fillPattern=FillPattern.Solid),Line(points={{-80,0},{-100,
-                0}}, color={255,128,0}),Line(points={{100,0},{80,0}}, color={
+                0}}, color={255,170,85}),Line(points={{100,0},{80,0}}, color={
                 255,128,0}),Text(
                       extent={{0,100},{0,140}},
                       lineColor={0,0,255},
@@ -6000,8 +5972,8 @@ Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap</a>
                 lineColor={0,0,0},
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid),
-              Line(points={{-80,0},{-100,0}}, color={255,128,0}),
-              Line(points={{100,0},{80,0}}, color={255,128,0}),
+              Line(points={{-80,0},{-100,0}}, color={255,170,85}),
+              Line(points={{100,0},{80,0}}, color={255,170,85}),
               Text(
                 extent={{0,100},{0,140}},
                 lineColor={0,0,255},
@@ -6293,7 +6265,7 @@ Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap</a>
         connect(airGap.support, internalSupport) annotation (Line(
             points={{-10,0},{-50,0},{-50,-70},{60,-70},{60,-100}}));
         connect(groundR.port_p, airGap.port_rn) annotation (Line(points={{-30,-10},
-                {-30,-10},{-10,-10}}, color={255,128,0}));
+                {-30,-10},{-10,-10}}, color={255,170,85}));
         connect(stator.plug_p, strayLoad.plug_n) annotation (Line(
             points={{10,50},{10,70},{40,70}},
             color={85,170,255}));
@@ -6317,14 +6289,11 @@ Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap</a>
             points={{80,-40},{50,-40},{50,-80},{-40,-80},{-40,-91.6}},
             color={191,0,0}));
         connect(groundS.port_p, airGap.port_sp) annotation (Line(
-            points={{-28,10},{-10,10}},
-            color={255,128,0}));
+            points={{-28,10},{-10,10}}, color={255,170,85}));
         connect(stator.port_n, airGap.port_sp) annotation (Line(
-            points={{-10,30},{-10,10}},
-            color={255,128,0}));
+            points={{-10,30},{-10,10}}, color={255,170,85}));
         connect(stator.port_p, airGap.port_sn) annotation (Line(
-            points={{10,30},{10,10}},
-            color={255,128,0}));
+            points={{10,30},{10,10}}, color={255,170,85}));
         connect(stator.heatPortWinding, internalThermalPort.heatPortStatorWinding)
           annotation (Line(
             points={{-10,44},{-40.4,44},{-40.4,-89.2}},
@@ -6591,8 +6560,8 @@ SignalFlux</a>
                   lineColor={255,170,85},
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid),Line(points={{100,0},{50,0}},
-              color={255,170,85}),Line(points={{-50,0},{-100,0}}, color={255,
-              128,0}),Line(points={{-50,0},{50,0}}, color={255,170,85}),Line(
+              color={255,170,85}),Line(points={{-50,0},{-100,0}}, color={255,170,85}),
+              Line(points={{-50,0},{50,0}}, color={255,170,85}),Line(
               points={{0,100},{0,50}}, color={255,170,85}),Text(
                   extent={{0,-120},{0,-80}},
                   textString="%name",
@@ -6652,7 +6621,7 @@ SignalFlux</a>
               color={255,127,0}),Line(points={{-50,0},{-100,0}}, color={255,127,
               0}),Line(points={{0,50},{0,-50}}, color={255,127,0}),Polygon(
                   points={{80,0},{60,6},{60,-6},{80,0}},
-                  lineColor={255,128,0},
+                  lineColor={255,170,85},
                   fillColor={255,170,85},
                   fillPattern=FillPattern.Solid),Text(
                   extent={{0,-120},{0,-80}},
