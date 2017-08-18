@@ -6564,7 +6564,7 @@ This package contains ideal sources to drive 1D mechanical rotational drive trai
     extends Modelica.Icons.InterfacesPackage;
 
     connector Flange_a
-      "1-dim. rotational flange of a shaft (filled square icon)"
+      "One-dimensional rotational flange of a shaft (filled circle icon)"
       SI.Angle phi "Absolute rotation angle of flange";
       flow SI.Torque tau "Cut torque in the flange";
       annotation (
@@ -6619,7 +6619,7 @@ differentiation of the flange angle phi:
     end Flange_a;
 
     connector Flange_b
-      "1-dim. rotational flange of a shaft (non-filled square icon)"
+      "One-dimensional rotational flange of a shaft  (non-filled circle icon)"
       SI.Angle phi "Absolute rotation angle of flange";
       flow SI.Torque tau "Cut torque in the flange";
       annotation (
