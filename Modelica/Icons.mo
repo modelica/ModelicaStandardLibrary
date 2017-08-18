@@ -411,6 +411,33 @@ directly utilized by a user.
 </html>"));
   end MaterialPropertiesPackage;
 
+  partial package RecordsPackage "Icon for package containing records"
+    extends Modelica.Icons.Package;
+    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+              -100},{100,100}}), graphics={
+          Rectangle(
+            origin={0,-20},
+            lineColor={64,64,64},
+            fillColor={255,215,136},
+            fillPattern=FillPattern.Solid,
+            extent={{-80,-60},{80,60}},
+            radius=25.0),
+          Line(
+            points={{-80,0},{80,0}},
+            color={64,64,64}),
+          Line(
+            origin={0,-40},
+            points={{-80,0},{80,0}},
+            color={64,64,64}),
+          Line(
+            origin={0,-5},
+            points={{0,45},{0,-75}},
+            color={64,64,64})}),
+                              Documentation(info="<html>
+<p>This icon indicates a package that contains properties</p>
+</html>"));
+  end RecordsPackage;
+
   partial class MaterialProperty "Icon for property classes"
 
     annotation (Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{100,100}}), graphics={
