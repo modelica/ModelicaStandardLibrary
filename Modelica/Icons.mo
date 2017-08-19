@@ -434,7 +434,7 @@ directly utilized by a user.
             points={{0,45},{0,-75}},
             color={64,64,64})}),
                               Documentation(info="<html>
-<p>This icon indicates a package that contains properties</p>
+<p>This icon indicates a package that contains records</p>
 </html>"));
   end RecordsPackage;
 
