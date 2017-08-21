@@ -6619,7 +6619,7 @@ differentiation of the flange angle phi:
     end Flange_a;
 
     connector Flange_b
-      "One-dimensional rotational flange of a shaft  (non-filled circle icon)"
+      "One-dimensional rotational flange of a shaft (non-filled circle icon)"
       SI.Angle phi "Absolute rotation angle of flange";
       flow SI.Torque tau "Cut torque in the flange";
       annotation (
