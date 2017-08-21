@@ -576,10 +576,10 @@ Modelica code in the HTML documentation.
 
 <pre>
 &lt;pre&gt;
-&lt;b&gt;connector&lt;/b&gt; Frame
+&lt;strong&gt;connector&lt;/strong&gt; Frame
    ...
-   &lt;b&gt;flow&lt;/b&gt; SI.Force f[3] &lt;b&gt;annotation&lt;/b&gt;(unassignedMessage=\"...\");
-&lt;b&gt;end&lt;/b&gt; Frame;
+   &lt;strong&gt;flow&lt;/strong&gt; SI.Force f[3] &lt;strong&gt;annotation&lt;/strong&gt;(unassignedMessage=\"...\");
+&lt;strong&gt;end&lt;/strong&gt; Frame;
 &lt;/pre&gt;</pre>
 
 <p>appears as</p>
@@ -595,7 +595,7 @@ Modelica code in the HTML documentation.
 
 <pre>
 &lt;pre&gt;
-&lt;b&gt;parameter&lt;/b&gt; Modelica.SIunits.Conductance G=1 &quot;Conductance&quot;;
+&lt;strong&gt;parameter&lt;/strong&gt; Modelica.SIunits.Conductance G=1 &quot;Conductance&quot;;
 &lt;/pre&gt;
 </pre>
 
@@ -909,12 +909,12 @@ Lists have to be placed <strong>outside</strong> of paragraphs to be HTML compli
 <h5>Example 2</h5>
 
 <p>In this case of table captions, the table name (Tab.) including the table enumeration (1,2,...)
-has to be displayed bold using <code>&lt;b&gt;</code> and <code>&lt;/b&gt;</code>. The table name
+has to be displayed bold using <code>&lt;strong&gt;</code> and <code>&lt;/strong&gt;</code>. The table name
 and enumeration should look like this: <strong>Tab. 1:</strong> Tables have to be enumerated manually.</p>
 
 <pre>
 &lt;table border=\"1\" cellspacing=\"0\" cellpadding=\"2\"&gt;
-  &lt;caption align=\"bottom\"&gt;&lt;b&gt;Tab 2: &lt;/b&gt;Caption starts with a capital letter&lt;/caption&gt;
+  &lt;caption align=\"bottom\"&gt;&lt;strong&gt;Tab 2: &lt;/strong&gt;Caption starts with a capital letter&lt;/caption&gt;
   &lt;tr&gt;
     &lt;th&gt;Head 1&lt;/th&gt;
     &lt;th&gt;Head 2&lt;/th&gt;
@@ -1340,13 +1340,13 @@ This class summarizes general information about the implementation which is not 
         &quot;A sensorless rotor temperature estimator for induction
                  machines based on a current harmonic spectral
                  estimation scheme,&quot;
-        &lt;i&gt;IEEE Transactions on Industrial Electronics&lt;/i&gt;,
+        &lt;em&gt;IEEE Transactions on Industrial Electronics&lt;/em&gt;,
         vol. 55, no. 1, pp. 407-416, Jan. 2008.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td valign=\"top\"&gt;[Andronov1973]&lt;/td&gt;
       &lt;td valign=\"top\"&gt;A. Andronov, E. Leontovich, I. Gordon, and A. Maier,
-        &lt;i&gt;Theory of  Bifurcations of Dynamic Systems on a plane&lt;/i&gt;,
+        &lt;em&gt;Theory of  Bifurcations of Dynamic Systems on a plane&lt;em&gt;,
         1st ed. New York: J. Wiley &amp; Sons, 1973.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
