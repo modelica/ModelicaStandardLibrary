@@ -2432,12 +2432,15 @@ package ReferenceMoistAir
 
       protected
         record MyComplex "Complex number with function"
+          extends Modelica.Icons.Record;
           Real re "Real part of complex number" annotation (Dialog);
           Real im "Imaginary part of complex number" annotation (Dialog);
         end MyComplex;
 
         package MyComplexF
+          extends Modelica.Icons.FunctionsPackage;
           function toReal "Extract Real part from Complex number"
+            extends Modelica.Icons.Function;
             input MyComplex c "Complex number";
             output Real result=c.re "Real number";
           algorithm
@@ -2448,6 +2451,7 @@ package ReferenceMoistAir
           end toReal;
 
           function '-' "Subtract two complex numbers"
+            extends Modelica.Icons.Function;
             input MyComplex c1 "Complex number 1";
             input MyComplex c2 "Complex number 2";
             output MyComplex c3 "= c1 - c2";
@@ -2459,6 +2463,7 @@ package ReferenceMoistAir
           end '-';
 
           function '*' "Multiplication"
+            extends Modelica.Icons.Function;
             input MyComplex c1 "Complex number 1";
             input MyComplex c2 "Complex number 2";
             output MyComplex c3 "= c1*c2";
@@ -2471,6 +2476,7 @@ package ReferenceMoistAir
           end '*';
 
           function '+' "Add two complex numbers"
+            extends Modelica.Icons.Function;
             input MyComplex c1 "Complex number 1";
             input MyComplex c2 "Complex number 2";
             output MyComplex c3 "= c1 + c2";
@@ -2482,6 +2488,7 @@ package ReferenceMoistAir
           end '+';
 
           function '/' "Divide two complex numbers"
+            extends Modelica.Icons.Function;
             input MyComplex c1 "Complex number 1";
             input MyComplex c2 "Complex number 2";
             output MyComplex c3 "= c1/c2";
@@ -2494,6 +2501,7 @@ package ReferenceMoistAir
           end '/';
 
           function '^' "Complex power of complex number"
+            extends Modelica.Icons.Function;
             input MyComplex c1 "Complex number";
             input MyComplex c2 "Complex exponent";
             output MyComplex c3 "= c1^c2";
@@ -2510,6 +2518,7 @@ package ReferenceMoistAir
           end '^';
 
           function 'log' "Logarithm of complex number"
+            extends Modelica.Icons.Function;
             import Modelica.Math.atan3;
             input MyComplex c1 "Complex number";
             output MyComplex c2 "= log(c1)";
