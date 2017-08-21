@@ -190,7 +190,7 @@ package IF97_Utilities
     package Regions
       "Functions to find the current region for given pairs of input variables"
 
-      extends Modelica.Icons.Package;
+      extends Modelica.Icons.FunctionsPackage;
 
       //===================================================================
       //                      "Public" functions
@@ -1620,7 +1620,7 @@ package IF97_Utilities
 
     package Basic "Base functions as described in IAWPS/IF97"
 
-      extends Modelica.Icons.Package;
+      extends Modelica.Icons.FunctionsPackage;
 
       function g1 "Gibbs function for region 1: g(p,T)"
         extends Modelica.Icons.Function;
@@ -3727,7 +3727,7 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
 
     package IceBoundaries
       "The melting line and sublimation line curves from IAPWS"
-      extends Modelica.Icons.Package;
+      extends Modelica.Icons.FunctionsPackage;
       function pmIceI_T
         "Melting pressure of ice I (temperature range from 273.16 to 251.165 K)"
         extends Modelica.Icons.Function;
@@ -3841,7 +3841,7 @@ Ordinary Water Substance<br>
 
     package Transport "Transport properties for water according to IAPWS/IF97"
 
-      extends Modelica.Icons.Package;
+      extends Modelica.Icons.FunctionsPackage;
 
       function visc_dTp "Dynamic viscosity eta(d,T,p), industrial formulation"
         extends Modelica.Icons.Function;
@@ -4197,7 +4197,7 @@ Ordinary Water Substance<br>
     package Isentropic
       "Functions for calculating the isentropic enthalpy from pressure p and specific entropy s"
 
-      extends Modelica.Icons.Package;
+      extends Modelica.Icons.FunctionsPackage;
 
       function hofpT1
         "Intermediate function for isentropic specific enthalpy in region 1"
@@ -4834,7 +4834,7 @@ Ordinary Water Substance<br>
     //work needed: (Pr,lam,eta) = f(d,T,p, region?)
     package Inverses "Efficient inverses for selected pairs of variables"
 
-      extends Modelica.Icons.Package;
+      extends Modelica.Icons.FunctionsPackage;
 
       //===================================================================
       //            Iterative version for some pairs/regions
@@ -5467,7 +5467,7 @@ Ordinary Water Substance<br>
 
     package ByRegion "Simple explicit functions for one region only"
 
-      extends Modelica.Icons.Package;
+      extends Modelica.Icons.FunctionsPackage;
       function waterR1_pT "Standard properties for region 1, (p,T) as inputs"
 
         extends Modelica.Icons.Function;
@@ -5562,7 +5562,7 @@ Ordinary Water Substance<br>
     package TwoPhase
       "Steam properties in the two-phase region and on the phase boundaries"
 
-      extends Modelica.Icons.Package;
+      extends Modelica.Icons.FunctionsPackage;
 
       function waterLiq_p "Properties on the liquid phase boundary of region 4"
 
@@ -8072,6 +8072,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
 
 protected
   package ThermoFluidSpecial
+    extends Modelica.Icons.FunctionsPackage;
     function water_ph
       "Calculate the property record for dynamic simulation properties using p,h as states"
       extends Modelica.Icons.Function;

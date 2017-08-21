@@ -2036,7 +2036,7 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
 
     protected
       package ThermoFluidSpecial
-
+        extends Modelica.Icons.FunctionsPackage;
         function air_ph
           "Calculate the property record for dynamic simulation properties using p,h as states"
           extends Modelica.Icons.Function;

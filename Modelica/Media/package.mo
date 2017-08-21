@@ -7414,7 +7414,7 @@ package Common "Data structures and fundamental functions for fluid properties"
   constant SI.Volume VNOM=1.0e-3 "Nominal init volume";
 
   package ThermoFluidSpecial "Property records used by the ThermoFluid library"
-
+    extends Modelica.Icons.Package;
     record FixedIGProperties "Constant properties for ideal gases"
       extends Modelica.Icons.Record;
       parameter Integer nspecies(min=1) "Number of components";
