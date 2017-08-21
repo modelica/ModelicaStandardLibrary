@@ -1351,7 +1351,7 @@ This class summarizes general information about the implementation which is not 
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td valign=\"top\"&gt;[Woehrnschimmel1998]&lt;/td&gt;
-      &lt;td valign=\"top\"&gt;R. W&ouml;hrnschimmel,
+      &lt;td valign=\"top\"&gt;R. W&amp;ouml;hrnschimmel,
         &quot;Simulation, modeling and fault detection for vector
               controlled induction machines,&quot;
         Master&#39;s thesis, Vienna University of Technology,
@@ -1363,7 +1363,7 @@ This class summarizes general information about the implementation which is not 
         &quot;Computational Fluid dynamics analysis for rotating
               electrical machinery,&quot;
         Ph.D. dissertation, University of Leoben,
-        Department  of Applied Mathematics, Leoben, Austria, 1999.&lt;/td&gt;
+        Department of Applied Mathematics, Leoben, Austria, 1999.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td valign=\"top\"&gt;[Marlino2005]&lt;/td&gt;
@@ -1463,6 +1463,17 @@ This class summarizes contact information of the contributing persons.
         Austria
       &lt;/td&gt;
     &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td valign=\"top\"&gt;Contributor&lt;/td&gt;
+      &lt;td valign=\"top\"&gt;
+        &lt;a href=\"http://www.linkedin.com/in/dietmarw\"&gt;C. Kral&lt;/a&gt;
+      &lt;/td&gt;
+      &lt;td valign=\"top\"&gt;
+        &lt;a href=\"http://christiankral.net\"&gt;Electric Machines, Drives and Systems&lt;/a&gt;&lt;br&gt;
+        1060 Vienna&lt;br&gt;
+        Austria
+      &lt;/td&gt;
+    &lt;/tr&gt;
   &lt;/table&gt;</pre>
 
 <p>appears as</p>
@@ -1494,6 +1505,15 @@ This class summarizes contact information of the contributing persons.
         <a href=\"http://christiankral.net\">Electric Machines, Drives and Systems</a><br>
         1060 Vienna<br>
         Austria
+      </td>
+    </tr>
+    <tr>
+      <td valign=\"top\">Contributor</td>
+      <td valign=\"top\">
+        <a href=\"http://www.linkedin.com/in/dietmarw\">D. Winkler</a>
+      </td>
+      <td valign=\"top\">
+        DWE, Norway
       </td>
     </tr>
   </table>
