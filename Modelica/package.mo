@@ -578,7 +578,7 @@ Modelica code in the HTML documentation.
 &lt;pre&gt;
 &lt;b&gt;connector&lt;/b&gt; Frame
    ...
-   &lt;b&gt;flow&lt;/b&gt; SI.Force f[Woehrnschimmel1998] &lt;b&gt;annotation&lt;/b&gt;(unassignedMessage=\"...\");
+   &lt;b&gt;flow&lt;/b&gt; SI.Force f[3] &lt;b&gt;annotation&lt;/b&gt;(unassignedMessage=\"...\");
 &lt;b&gt;end&lt;/b&gt; Frame;
 &lt;/pre&gt;</pre>
 
@@ -587,7 +587,7 @@ Modelica code in the HTML documentation.
 <pre>
 <strong>connector</strong> Frame
    ...
-   <strong>flow</strong> SI.Force f[Woehrnschimmel1998] <strong>annotation</strong>(unassignedMessage=\"...\");
+   <strong>flow</strong> SI.Force f[3] <strong>annotation</strong>(unassignedMessage=\"...\");
 <strong>end</strong> Frame;
 </pre>
 
