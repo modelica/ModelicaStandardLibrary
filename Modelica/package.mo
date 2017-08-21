@@ -1337,7 +1337,7 @@ This class summarizes general information about the implementation which is not 
     &lt;tr&gt;
       &lt;td valign=\"top\"&gt;[Gao2008]&lt;/td&gt;
       &lt;td valign=\"top\"&gt;Z. Gao, T. G. Habetler, R. G. Harley, and R. S. Colby,
-        &quot;A sensorless  rotor temperature estimator for induction
+        &quot;A sensorless rotor temperature estimator for induction
                  machines based on a current harmonic spectral
                  estimation scheme,&quot;
         &lt;i&gt;IEEE Transactions on Industrial Electronics&lt;/i&gt;,
@@ -1381,7 +1381,7 @@ This class summarizes general information about the implementation which is not 
     <tr>
       <td valign=\"top\">[Gao08]</td>
       <td valign=\"top\">Z. Gao, T. G. Habetler, R. G. Harley, and R. S. Colby,
-        &quot;A sensorless  rotor temperature estimator for induction
+        &quot;A sensorless rotor temperature estimator for induction
                  machines based on a current harmonic spectral
                  estimation scheme,&quot;
         <em>IEEE Transactions on Industrial Electronics</em>,
@@ -1407,7 +1407,7 @@ This class summarizes general information about the implementation which is not 
         &quot;Computational Fluid dynamics analysis for rotating
               electrical machinery,&quot;
         Ph.D. dissertation, University of Leoben,
-        Department  of Applied Mathematics, Leoben, Austria, 1999.</td>
+        Department of Applied Mathematics, Leoben, Austria, 1999.</td>
     </tr>
     <tr>
       <td valign=\"top\">[Marlino2005]</td>
