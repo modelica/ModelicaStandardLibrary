@@ -1466,12 +1466,10 @@ This class summarizes contact information of the contributing persons.
     &lt;tr&gt;
       &lt;td valign=\"top\"&gt;Contributor&lt;/td&gt;
       &lt;td valign=\"top\"&gt;
-        &lt;a href=\"http://www.linkedin.com/in/dietmarw\"&gt;C. Kral&lt;/a&gt;
+        &lt;a href=\"http://www.linkedin.com/in/dietmarw\"&gt;D. Winkler&lt;/a&gt;
       &lt;/td&gt;
       &lt;td valign=\"top\"&gt;
-        &lt;a href=\"http://christiankral.net\"&gt;Electric Machines, Drives and Systems&lt;/a&gt;&lt;br&gt;
-        1060 Vienna&lt;br&gt;
-        Austria
+        DWE, Norway
       &lt;/td&gt;
     &lt;/tr&gt;
   &lt;/table&gt;</pre>
