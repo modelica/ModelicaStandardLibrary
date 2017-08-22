@@ -1381,7 +1381,7 @@ double ModelicaStandardTables_CombiTimeTable_nextTimeEvent(void* _tableID,
                     double t0 = TABLE_COL0(i);
                     double t1 = TABLE_COL0(i + 1);
                     if (tableID->timeEvents == ALWAYS) {
-                        if (t1 > tEvent && !isNearlyEqual(t1, tMax)) {
+                        if (t1 > tEvent) {
                             if (!isNearlyEqual(t0, t1)) {
                                 tEvent = t1;
                                 tableID->intervals[eventInterval][0] = i;
@@ -1397,7 +1397,7 @@ double ModelicaStandardTables_CombiTimeTable_nextTimeEvent(void* _tableID,
                         }
                     }
                     else if (tableID->timeEvents == AT_DISCONT) {
-                        if (t1 > tEvent && !isNearlyEqual(t1, tMax)) {
+                        if (t1 > tEvent) {
                             if (isNearlyEqual(t0, t1)) {
                                 tEvent = t1;
                                 tableID->intervals[eventInterval][1] = i;
@@ -1415,6 +1415,9 @@ double ModelicaStandardTables_CombiTimeTable_nextTimeEvent(void* _tableID,
                         }
                     }
                 }
+            }
+            else {
+                tableID->intervals[0][1] = nRow - 1;
             }
         }
 
