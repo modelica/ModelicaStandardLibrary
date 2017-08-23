@@ -19,7 +19,7 @@ annotation (
 </p>
 <p>
   Dr. Christian Kral<br>
-  <a href=\"http://christiankral.net/\">Electric Machines, Drives and Systems</a><br>
+  <a href=\"https://christiankral.net/\">Electric Machines, Drives and Systems</a><br>
   A-1060 Vienna, Austria<br>
   email: <a href=\"mailto:dr.christian.kral@gmail.com\">dr.christian.kral@gmail.com</a> or <a href=\"mailto:mail@christiankral.net\">mail@christiankral.net</a>
 </p>

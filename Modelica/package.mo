@@ -1458,7 +1458,7 @@ This class summarizes contact information of the contributing persons.
         &lt;a href=\"mailto:dr.christian.kral@gmail.com\"&gt;C. Kral&lt;/a&gt;
       &lt;/td&gt;
       &lt;td valign=\"top\"&gt;
-        &lt;a href=\"http://christiankral.net\"&gt;Electric Machines, Drives and Systems&lt;/a&gt;&lt;br&gt;
+        &lt;a href=\"https://christiankral.net\"&gt;Electric Machines, Drives and Systems&lt;/a&gt;&lt;br&gt;
         1060 Vienna&lt;br&gt;
         Austria
       &lt;/td&gt;
@@ -1500,7 +1500,7 @@ This class summarizes contact information of the contributing persons.
         <a href=\"mailto:dr.christian.kral@gmail.com\">C. Kral</a>
       </td>
       <td valign=\"top\">
-        <a href=\"http://christiankral.net\">Electric Machines, Drives and Systems</a><br>
+        <a href=\"https://christiankral.net\">Electric Machines, Drives and Systems</a><br>
         1060 Vienna<br>
         Austria
       </td>

@@ -961,7 +961,7 @@ This icon of an <strong>electrical motor</strong> model will be removed in futur
     <dd>email: <a href=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</a></dd>
 <dt>Christian Kral</dt>
 
-    <dd>  <a href=\"http://christiankral.net/\">Electric Machines, Drives and Systems</a><br>
+    <dd>  <a href=\"https://christiankral.net/\">Electric Machines, Drives and Systems</a><br>
 </dd>
     <dd>1060 Vienna, Austria</dd>
     <dd>email: <a href=\"mailto:dr.christian.kral@gmail.com\">dr.christian.kral@gmail.com</a></dd>

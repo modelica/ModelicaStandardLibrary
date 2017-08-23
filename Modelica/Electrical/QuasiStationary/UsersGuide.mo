@@ -550,7 +550,7 @@ ideal AC DC converter</a>, which is used in the
         <a href=\"mailto:dr.christian.kral@gmail.com\">Christian Kral</a>
       </td>
       <td valign=\"top\">
-        <a href=\"http://christiankral.net\">Electric Machines, Drives and Systems</a><br>
+        <a href=\"https://christiankral.net\">Electric Machines, Drives and Systems</a><br>
         1060 Vienna<br>
         Austria
       </td>
