@@ -725,7 +725,7 @@ the user has to allocate the parameter vector <i>L[6] </i>, since <i>Nv=(N*(N+1)
       "Angle of shaft flange with respect to support (= flange.phi - support.phi)";
     SI.AngularVelocity w "Angular velocity of flange relative to support";
     SI.Torque tau "Torque of flange";
-    SI.Torque tauElectrical "Electrical tourque";
+    SI.Torque tauElectrical "Electrical torque";
     Interfaces.PositivePin p "Positive electrical pin" annotation (Placement(transformation(
           origin={0,100},
           extent={{-10,-10},{10,10}},
