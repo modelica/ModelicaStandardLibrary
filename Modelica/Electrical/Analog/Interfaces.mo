@@ -126,8 +126,7 @@ The reason could be that
   partial model TwoPin "Component with two electrical pins"
     SI.Voltage v "Voltage drop between the two pins (= p.v - n.v)";
     PositivePin p
-      "Positive pin Positive pin (potential p.v > n.v for positive voltage drop v)"
-                                                                                    annotation (Placement(
+      "Positive pin (potential p.v > n.v for positive voltage drop v)" annotation (Placement(
           transformation(extent={{-110,-10},{-90,10}})));
     NegativePin n "Negative pin" annotation (Placement(transformation(extent={{
               90,-10},{110,10}})));
@@ -223,22 +222,20 @@ The reason could be that
 
   partial model TwoPort
     "Component with two electrical ports, including current"
-    SI.Voltage v1 "Voltage drop over the left port";
-    SI.Voltage v2 "Voltage drop over the right port";
-    SI.Current i1 "Current flowing from pos. to neg. pin of the left port";
-    SI.Current i2 "Current flowing from pos. to neg. pin of the right port";
+    SI.Voltage v1 "Voltage drop over port 1";
+    SI.Voltage v2 "Voltage drop over port 2";
+    SI.Current i1 "Current flowing from pos. to neg. pin of port 1";
+    SI.Current i2 "Current flowing from pos. to neg. pin of port 2";
     PositivePin p1
-      "Positive pin of the left port (potential p1.v > n1.v for positive voltage drop v1)"
-                                                                                           annotation (Placement(
-          transformation(extent={{-110,40},{-90,60}})));
-    NegativePin n1 "Negative pin of the left port" annotation (Placement(
-          transformation(extent={{-90,-60},{-110,-40}})));
+      "Positive pin of port 1 (potential p1.v > n1.v for positive voltage drop v1)" annotation (Placement(
+          transformation(extent={{-110,90},{-90,110}}), iconTransformation(extent={{-110,90},{-90,110}})));
+    NegativePin n1 "Negative pin of port 1" annotation (Placement(
+          transformation(extent={{-90,-110},{-110,-90}}), iconTransformation(extent={{-90,-110},{-110,-90}})));
     PositivePin p2
-      "Positive pin of the right port (potential p2.v > n2.v for positive voltage drop v2)"
-                                                                                            annotation (Placement(
-          transformation(extent={{110,40},{90,60}})));
-    NegativePin n2 "Negative pin of the right port" annotation (Placement(
-          transformation(extent={{90,-60},{110,-40}})));
+      "Positive pin of port 2 (potential p2.v > n2.v for positive voltage drop v2)" annotation (Placement(
+          transformation(extent={{110,90},{90,110}}), iconTransformation(extent={{110,90},{90,110}})));
+    NegativePin n2 "Negative pin of port 2" annotation (Placement(
+          transformation(extent={{90,-110},{110,-90}}), iconTransformation(extent={{90,-110},{110,-90}})));
   equation
     v1 = p1.v - n1.v;
     v2 = p2.v - n2.v;

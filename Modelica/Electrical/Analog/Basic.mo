@@ -726,15 +726,15 @@ the user has to allocate the parameter vector <i>L[6] </i>, since <i>Nv=(N*(N+1)
     SI.AngularVelocity w "Angular velocity of flange relative to support";
     SI.Torque tau "Torque of flange";
     SI.Torque tauElectrical "Electrical tourque";
-    Interfaces.PositivePin p annotation (Placement(transformation(
+    Interfaces.PositivePin p "Positive electrical pin" annotation (Placement(transformation(
           origin={0,100},
           extent={{-10,-10},{10,10}},
           rotation=90)));
-    Interfaces.NegativePin n annotation (Placement(transformation(
+    Interfaces.NegativePin n "Negative electrical pin" annotation (Placement(transformation(
           origin={0,-100},
           extent={{-10,-10},{10,10}},
           rotation=90)));
-    Modelica.Mechanics.Rotational.Interfaces.Flange_b flange annotation (
+    Modelica.Mechanics.Rotational.Interfaces.Flange_b flange "Flange" annotation (
         Placement(transformation(extent={{90,-10},{110,10}})));
     Mechanics.Rotational.Interfaces.Support support if useSupport
       "Support/housing of emf shaft"
@@ -742,7 +742,7 @@ the user has to allocate the parameter vector <i>L[6] </i>, since <i>Nv=(N*(N+1)
   protected
     Mechanics.Rotational.Components.Fixed fixed if not useSupport
       annotation (Placement(transformation(extent={{-90,-20},{-70,0}})));
-    Mechanics.Rotational.Interfaces.InternalSupport internalSupport(tau=-tau)
+    Mechanics.Rotational.Interfaces.InternalSupport internalSupport(tau=-tau) "Internal support"
       annotation (Placement(transformation(extent={{-90,-10},{-70,10}})));
   equation
     v = p.v - n.v;
@@ -851,17 +851,17 @@ the user has to allocate the parameter vector <i>L[6] </i>, since <i>Nv=(N*(N+1)
     SI.Force f "Force of flange";
     SI.Force fElectrical "Electrical force";
 
-    Modelica.Electrical.Analog.Interfaces.PositivePin p annotation (Placement(
+    Modelica.Electrical.Analog.Interfaces.PositivePin p "Positive electrical pin" annotation (Placement(
           transformation(
           origin={0,100},
           extent={{-10,-10},{10,10}},
           rotation=90)));
-    Modelica.Electrical.Analog.Interfaces.NegativePin n annotation (Placement(
+    Modelica.Electrical.Analog.Interfaces.NegativePin n "Negative electrical pin" annotation (Placement(
           transformation(
           origin={0,-100},
           extent={{-10,-10},{10,10}},
           rotation=90)));
-    Modelica.Mechanics.Translational.Interfaces.Flange_b flange annotation (
+    Modelica.Mechanics.Translational.Interfaces.Flange_b flange "Flange" annotation (
         Placement(transformation(extent={{90,-10},{110,10}})));
     Modelica.Mechanics.Translational.Interfaces.Support support if useSupport
       "Support/housing"
@@ -869,8 +869,7 @@ the user has to allocate the parameter vector <i>L[6] </i>, since <i>Nv=(N*(N+1)
   protected
     Modelica.Mechanics.Translational.Components.Fixed fixed if not useSupport
       annotation (Placement(transformation(extent={{-90,-20},{-70,0}})));
-    Modelica.Mechanics.Translational.Interfaces.InternalSupport internalSupport(
-        f=-f)
+    Modelica.Mechanics.Translational.Interfaces.InternalSupport internalSupport(f=-f) "Internal support"
       annotation (Placement(transformation(extent={{-90,-10},{-70,10}})));
   equation
     v = p.v - n.v;

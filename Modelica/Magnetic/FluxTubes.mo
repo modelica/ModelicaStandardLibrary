@@ -4451,10 +4451,10 @@ The magnetic potential at the magnetic ground node is zero. Every magnetic netwo
         annotation (Placement(transformation(extent={{90,90},{110,110}}), iconTransformation(extent={{90,90},{110,110}})));
       FluxTubes.Interfaces.NegativeMagneticPort port_n "Negative magnetic port"
         annotation (Placement(transformation(extent={{110,-110},{90,-90}}), iconTransformation(extent={{110,-110},{90,-90}})));
-      Modelica.Electrical.Analog.Interfaces.PositivePin p
-        "Positive electric pin" annotation (Placement(transformation(extent={{-90,90},{-110,110}}), iconTransformation(extent={{-90,90},{-110,110}})));
-      Modelica.Electrical.Analog.Interfaces.NegativePin n
-        "Negative electric pin" annotation (Placement(transformation(extent={{-110,-110},{-90,-90}}), iconTransformation(extent={{-110,-110},{-90,-90}})));
+      Modelica.Electrical.Analog.Interfaces.PositivePin p "Positive electrical pin"
+        annotation (Placement(transformation(extent={{-90,90},{-110,110}}), iconTransformation(extent={{-90,90},{-110,110}})));
+      Modelica.Electrical.Analog.Interfaces.NegativePin n "Negative electrical pin"
+        annotation (Placement(transformation(extent={{-110,-110},{-90,-90}}), iconTransformation(extent={{-110,-110},{-90,-90}})));
       SI.Voltage v "Voltage";
       SI.Current i(start=0, stateSelect=StateSelect.prefer) "Current";
       SI.MagneticPotentialDifference V_m "Magnetic potential difference";
@@ -4462,9 +4462,9 @@ The magnetic potential at the magnetic ground node is zero. Every magnetic netwo
 
       parameter Real N=1 "Number of turns";
 
-      //for information only:
-      SI.MagneticFlux Psi "Flux linkage for information only";
-      SI.Inductance L_stat "Static inductance abs(Psi/i) for information only";
+      // For information only:
+      SI.MagneticFlux Psi "Flux linkage";
+      SI.Inductance L_stat "Static inductance abs(Psi/i)";
 
     protected
       Real eps=100*Modelica.Constants.eps;
@@ -4477,15 +4477,13 @@ The magnetic potential at the magnetic ground node is zero. Every magnetic netwo
       0 = port_p.Phi + port_n.Phi;
       Phi = port_p.Phi;
 
-      //converter equations:
-      V_m = i*N;
-      // Ampere's law
-      N*der(Phi) = -v;
-      // Faraday's law
+      // Converter equations
+      V_m = i*N "Ampere's law";
+      N*der(Phi) = -v "Faraday's law";
 
-      //for information only:
+      // For information only
       Psi = N*Phi;
-      //use of abs() for positive results; due to Modelica sign conventions for flow into connectors:
+      // Use of abs() for positive results; due to Modelica sign conventions for flow into connectors
       L_stat = noEvent(if abs(i) > eps then abs(Psi/i) else abs(Psi/eps));
 
       annotation (
@@ -4636,14 +4634,14 @@ The flux linkage &Psi; and the static inductance L_stat = |&Psi;/i| are calculat
     model ElectroMagneticConverterWithLeakageInductance
       "Electro-magnetic energy conversion with a leakage inductance"
 
-      Modelica.Magnetic.FluxTubes.Interfaces.PositiveMagneticPort port_p
-        "Positive magnetic port" annotation (Placement(transformation(extent={{90,90},{110,110}}), iconTransformation(extent={{90,90},{110,110}})));
-      Modelica.Magnetic.FluxTubes.Interfaces.NegativeMagneticPort port_n
-        "Negative magnetic port" annotation (Placement(transformation(extent={{110,-110},{90,-90}}), iconTransformation(extent={{110,-110},{90,-90}})));
-      Modelica.Electrical.Analog.Interfaces.PositivePin p
-        "Positive electric pin" annotation (Placement(transformation(extent={{-90,90},{-110,110}}), iconTransformation(extent={{-90,90},{-110,110}})));
-      Modelica.Electrical.Analog.Interfaces.NegativePin n
-        "Negative electric pin" annotation (Placement(transformation(extent={{-110,-108},{-90,-88}}), iconTransformation(extent={{-110,-108},{-90,-88}})));
+      Modelica.Magnetic.FluxTubes.Interfaces.PositiveMagneticPort port_p "Positive magnetic port"
+        annotation (Placement(transformation(extent={{90,90},{110,110}}), iconTransformation(extent={{90,90},{110,110}})));
+      Modelica.Magnetic.FluxTubes.Interfaces.NegativeMagneticPort port_n "Negative magnetic port"
+        annotation (Placement(transformation(extent={{110,-110},{90,-90}}), iconTransformation(extent={{110,-110},{90,-90}})));
+      Modelica.Electrical.Analog.Interfaces.PositivePin p "Positive electrical pin"
+        annotation (Placement(transformation(extent={{-90,90},{-110,110}}), iconTransformation(extent={{-90,90},{-110,110}})));
+      Modelica.Electrical.Analog.Interfaces.NegativePin n "Negative electrical pin"
+        annotation (Placement(transformation(extent={{-110,-108},{-90,-88}}), iconTransformation(extent={{-110,-108},{-90,-88}})));
       SI.Voltage v "Voltage";
       SI.Current i(start=0, stateSelect=StateSelect.prefer) "Current";
       SI.MagneticPotentialDifference V_m "Magnetic potential difference";
@@ -4659,16 +4657,15 @@ The flux linkage &Psi; and the static inductance L_stat = |&Psi;/i| are calculat
         annotation (Dialog(tab="LeakageInductance"));
       parameter SI.Area A=10e-6 "Area of cross-section"
         annotation (Dialog(tab="LeakageInductance"));
-      parameter SI.RelativePermeability mu_rel(min=Modelica.Constants.eps)=
-           1
+      parameter SI.RelativePermeability mu_rel(min=Modelica.Constants.eps) = 1
         "Constant relative permeability of leakage inductance (> 0 required)"
         annotation (Dialog(tab="LeakageInductance"));
-      final parameter SI.Permeance G_m=Modelica.Constants.mue_0*
-          mu_rel*A/L "Magnetic permeance of leakage inductance";
+      final parameter SI.Permeance G_m=Modelica.Constants.mue_0*mu_rel*A/L
+        "Magnetic permeance of leakage inductance";
 
-      //for information only:
-      SI.MagneticFlux Psi "Flux linkage for information only";
-      SI.Inductance L_stat "Static inductance abs(Psi/i) for information only";
+      // For information only
+      SI.MagneticFlux Psi "Flux linkage";
+      SI.Inductance L_stat "Static inductance abs(Psi/i)";
 
     protected
       constant Real eps=100*Modelica.Constants.eps;
@@ -4681,17 +4678,17 @@ The flux linkage &Psi; and the static inductance L_stat = |&Psi;/i| are calculat
       0 = port_p.Phi + port_n.Phi;
       Phi = port_p.Phi;
 
-      //converter equations:
+      // Converter equations
       V_m = i*N "Ampere's law";
       N*der(Phi_ind) = -v "Faraday's law";
 
-      // leakage equations
+      // Leakage equations
       Phi_leak = G_m*V_m;
       Phi = Phi_ind + Phi_leak;
 
-      //for information only:
+      // For information only
       Psi = N*Phi_ind;
-      //use of abs() for positive results; due to Modelica sign conventions for flow into connectors:
+      //use of abs() for positive results; due to Modelica sign conventions for flow into connectors
       L_stat = noEvent(if abs(i) > eps then abs(Psi/i) else abs(Psi/eps));
 
       annotation (
