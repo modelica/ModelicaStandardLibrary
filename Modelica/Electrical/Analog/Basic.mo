@@ -724,6 +724,8 @@ the user has to allocate the parameter vector <i>L[6] </i>, since <i>Nv=(N*(N+1)
     SI.Angle phi
       "Angle of shaft flange with respect to support (= flange.phi - support.phi)";
     SI.AngularVelocity w "Angular velocity of flange relative to support";
+    SI.Torque tau "Torque of flange";
+    SI.Torque tauElectrical "Electrical tourque";
     Interfaces.PositivePin p annotation (Placement(transformation(
           origin={0,100},
           extent={{-10,-10},{10,10}},
@@ -740,7 +742,7 @@ the user has to allocate the parameter vector <i>L[6] </i>, since <i>Nv=(N*(N+1)
   protected
     Mechanics.Rotational.Components.Fixed fixed if not useSupport
       annotation (Placement(transformation(extent={{-90,-20},{-70,0}})));
-    Mechanics.Rotational.Interfaces.InternalSupport internalSupport(tau=-flange.tau)
+    Mechanics.Rotational.Interfaces.InternalSupport internalSupport(tau=-tau)
       annotation (Placement(transformation(extent={{-90,-10},{-70,10}})));
   equation
     v = p.v - n.v;
@@ -750,7 +752,10 @@ the user has to allocate the parameter vector <i>L[6] </i>, since <i>Nv=(N*(N+1)
     phi = flange.phi - internalSupport.phi;
     w = der(phi);
     k*w = v;
-    flange.tau = -k*i;
+    tau = -k*i;
+    tauElectrical = -tau;
+    tau = flange.tau;
+
     connect(internalSupport.flange, support) annotation (Line(
         points={{-80,0},{-100,0}}));
     connect(internalSupport.flange, fixed.flange) annotation (Line(
@@ -843,6 +848,8 @@ the user has to allocate the parameter vector <i>L[6] </i>, since <i>Nv=(N*(N+1)
     SI.Current i "Current flowing from positive to negative pin";
     SI.Position s "Position of flange relative to support";
     SI.Velocity vel "Velocity of flange relative to support";
+    SI.Force f "Force of flange";
+    SI.Force fElectrical "Electrical force";
 
     Modelica.Electrical.Analog.Interfaces.PositivePin p annotation (Placement(
           transformation(
@@ -863,7 +870,7 @@ the user has to allocate the parameter vector <i>L[6] </i>, since <i>Nv=(N*(N+1)
     Modelica.Mechanics.Translational.Components.Fixed fixed if not useSupport
       annotation (Placement(transformation(extent={{-90,-20},{-70,0}})));
     Modelica.Mechanics.Translational.Interfaces.InternalSupport internalSupport(
-        f=-flange.f)
+        f=-f)
       annotation (Placement(transformation(extent={{-90,-10},{-70,10}})));
   equation
     v = p.v - n.v;
@@ -873,7 +880,10 @@ the user has to allocate the parameter vector <i>L[6] </i>, since <i>Nv=(N*(N+1)
     s = flange.s - internalSupport.s;
     vel = der(s);
     k*vel = v;
-    flange.f = -k*i;
+    f = -k*i;
+    fElectrical = -f;
+    f = flange.f;
+
     connect(internalSupport.flange, support) annotation (Line(
         points={{-80,0},{-90,0},{-90,0},{-100,0}},
         color={0,127,0}));
