@@ -5694,8 +5694,7 @@ The salient permeance models the relationship between the complex magnetic poten
       parameter Modelica.SIunits.Conductance G(min=0)
         "Equivalent symmetric loss conductance";
       extends
-        Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(
-          final T=273.15);
+        Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(final T=273.15);
     equation
       lossPower = (pi/2)*(V_m.re*der(Phi.re) + V_m.im*der(Phi.im));
       if G > 0 then

@@ -3678,8 +3678,7 @@ The salient permeance models the relationship between the complex magnetic poten
       parameter Modelica.SIunits.Conductance G(min=0)
         "Equivalent symmetric loss conductance";
       extends
-        Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(
-          final T=273.15);
+        Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(final T=273.15);
       Modelica.SIunits.AngularVelocity omega=der(port_p.reference.gamma)
         "Angular velocity";
     equation
@@ -6134,8 +6133,7 @@ Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap</a>
       parameter Modelica.Electrical.Machines.Losses.StrayLoadParameters
         strayLoadParameters "Stray load loss parameters";
       extends
-        Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT(
-          useHeatPort=false);
+        Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT(final useHeatPort=false);
       Modelica.SIunits.Current iRMS=quasiRMS(i);
     equation
       v = {Complex(0, 0) for k in 1:m};
@@ -6194,8 +6192,7 @@ If it is desired to neglect stray load losses, set <code>strayLoadParameters.PRe
         Modelica.Electrical.Machines.Losses.PermanentMagnetLossParameters
         permanentMagnetLossParameters "Permanent magnet loss parameters";
       extends
-        Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT(
-          useHeatPort=false);
+        Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT(final useHeatPort=false);
       input Modelica.SIunits.ComplexCurrent is[m]
         "Instantaneous stator currents";
       Modelica.SIunits.Current iRMS=quasiRMS(is);

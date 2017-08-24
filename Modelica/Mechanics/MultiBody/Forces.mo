@@ -2031,8 +2031,7 @@ ALT=\"model Examples.Elementary.SpringWithMass\">
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     extends Interfaces.PartialLineForce;
     extends
-      Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(
-       final T=293.15);
+      Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(final T=293.15);
   protected
     SI.Position r0_b[3]=e_a*noEvent(min(length_a, s));
     Visualizers.Advanced.Shape shape_a(
@@ -2168,8 +2167,7 @@ where a mass is hanging on a damper.
       annotation (Dialog(colorSelector=true, tab="Animation", group="if animation = true", enable=animation));
     extends Interfaces.PartialLineForce;
     extends
-      Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(
-       final T=293.15);
+      Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(final T=293.15);
 
   protected
     Modelica.SIunits.Force f_d "Damping force";
@@ -2331,8 +2329,7 @@ and der(s) is the time derivative of s.
       annotation (Dialog(colorSelector=true, tab="Animation", group="if animation = true", enable=animation));
     extends Interfaces.PartialLineForce;
     extends
-      Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(
-       final T=293.15);
+      Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(final T=293.15);
 
   protected
     Visualizers.Advanced.Shape shape_a(

@@ -917,7 +917,7 @@ Connects all <code>m</code> single phase (negative) pins of the multi phase (neg
           zeros(m)
         "Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
       extends Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort(
-          final mh=m, T=T_ref);
+          final mh=m, final T=T_ref);
       QuasiStationary.SinglePhase.Basic.Resistor resistor[m](
         final R_ref=R_ref,
         final T_ref=T_ref,
@@ -986,7 +986,7 @@ A linear temperature dependency of the resistances for enabled heat ports is als
           zeros(m)
         "Temperature coefficient of conductance (G_actual = G_ref/(1 + alpha_ref*(heatPort.T - T_ref))";
       extends Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort(
-          final mh=m, T=T_ref);
+          final mh=m, final T=T_ref);
       QuasiStationary.SinglePhase.Basic.Conductor conductor[m](
         final G_ref=G_ref,
         final T_ref=T_ref,
@@ -1241,7 +1241,7 @@ Model of a multi phase inductor providing a mutual inductance matrix model.
           zeros(m)
         "Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
       extends Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort(
-          final mh=m, T=T_ref);
+          final mh=m, final T=T_ref);
       Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Impedance impedance[m](
         final Z_ref=Z_ref,
         final T_ref=T_ref,
@@ -1309,7 +1309,7 @@ the actual operating temperature and the reference input resistances <code>real(
           zeros(m)
         "Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
       extends Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort(
-          final mh=m, T=T_ref);
+          final mh=m, final T=T_ref);
       Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Admittance admittance[m](
         final Y_ref=Y_ref,
         final T_ref=T_ref,
@@ -1374,7 +1374,7 @@ the actual operating temperature and the reference input conductances <code>real
           zeros(m)
         "Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
       extends Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort(
-          final mh=m, T=T_ref);
+          final mh=m, final T=T_ref);
       Modelica.Blocks.Interfaces.RealInput R_ref[m](each unit="Ohm")
         "Variable resistance" annotation (Placement(transformation(
             origin={0,120},
@@ -1454,7 +1454,7 @@ A linear temperature dependency of the resistances is also taken into account.
           zeros(m)
         "Temperature coefficient of resistance (G_actual = G_ref/(1 + alpha_ref*(heatPort.T - T_ref))";
       extends Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort(
-          final mh=m, T=T_ref);
+          final mh=m, final T=T_ref);
       Modelica.Blocks.Interfaces.RealInput G_ref[m](each unit="S")
         "Variable conductance" annotation (Placement(transformation(
             origin={0,120},
@@ -1663,7 +1663,7 @@ The inductances <code>L</code> are given as <code>m</code> input signals.
           zeros(m)
         "Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
       extends Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort(
-          final mh=m, T=T_ref);
+          final mh=m, final T=T_ref);
       ComplexBlocks.Interfaces.ComplexInput Z_ref[m]
         "Variable complex impedances" annotation (Placement(transformation(
             origin={0,120},
@@ -1754,7 +1754,7 @@ A linear temperature dependency of the resistances is also taken into account.
           zeros(m)
         "Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
       extends Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort(
-          final mh=m, T=T_ref);
+          final mh=m, final T=T_ref);
       ComplexBlocks.Interfaces.ComplexInput Y_ref[m]
         "Variable complex admittances" annotation (Placement(transformation(
             origin={0,120},

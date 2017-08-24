@@ -151,8 +151,7 @@ Otherwise, the GTO thyristor is locking.
     parameter SI.Resistance Ron(final min=0) = 1e-5 "Closed switch resistance";
     parameter SI.Conductance Goff(final min=0) = 1e-5
       "Opened switch conductance";
-    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
-          293.15);
+    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=293.15);
     Interfaces.PositivePin p annotation (Placement(transformation(extent={{-110,
               -10},{-90,10}})));
     Interfaces.NegativePin n2 annotation (Placement(transformation(extent={{90,
@@ -233,8 +232,7 @@ behavior is <strong>not</strong> modelled. The parameters are not temperature de
     parameter SI.Resistance Ron(final min=0) = 1e-5 "Closed switch resistance";
     parameter SI.Conductance Goff(final min=0) = 1e-5
       "Opened switch conductance";
-    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
-          293.15);
+    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=293.15);
     Interfaces.PositivePin p1 annotation (Placement(transformation(extent={{-110,30},{-90,50}}), iconTransformation(extent={{-110,30},{-90,50}})));
     Interfaces.PositivePin p2 annotation (Placement(transformation(extent={{-110,-10},{-90,10}}), iconTransformation(extent={{-110,-10},{-90,10}})));
     Interfaces.NegativePin n1 annotation (Placement(transformation(extent={{90,30},{110,50}}), iconTransformation(extent={{90,30},{110,50}})));
@@ -320,8 +318,7 @@ behavior is <strong>not</strong> modelled. The parameters are not temperature de
     parameter SI.Resistance Ron(final min=0) = 1e-5 "Closed switch resistance";
     parameter SI.Conductance Goff(final min=0) = 1e-5
       "Opened switch conductance";
-    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
-          293.15);
+    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=293.15);
     Interfaces.PositivePin p annotation (Placement(transformation(extent={{-110,
               -10},{-90,10}})));
     Interfaces.NegativePin n2 annotation (Placement(transformation(extent={{90,
@@ -403,8 +400,7 @@ behavior is <strong>not</strong> modelled. The parameters are not temperature de
     parameter SI.Resistance Ron(final min=0) = 1e-5 "Closed switch resistance";
     parameter SI.Conductance Goff(final min=0) = 1e-5
       "Opened switch conductance";
-    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
-          293.15);
+    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=293.15);
     Interfaces.PositivePin p1 annotation (Placement(transformation(extent={{-110,30},{-90,50}}), iconTransformation(extent={{-110,30},{-90,50}})));
     Interfaces.PositivePin p2 annotation (Placement(transformation(extent={{-110,
               -10},{-90,10}})));
