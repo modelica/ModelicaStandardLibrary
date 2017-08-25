@@ -603,7 +603,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
       annotation (Dialog(group="Table data interpretation"));
     parameter Modelica.Blocks.Types.Extrapolation extrapolation=Modelica.Blocks.Types.Extrapolation.LastTwoPoints
       "Extrapolation of data outside the definition range"
-      annotation (Dialog(group="Table data interpretation", enable=false));
+      annotation (Dialog(group="Table data interpretation"));
     parameter Boolean verboseExtrapolation=false
       "= true, if warning messages are to be printed if table input is outside the definition range"
       annotation (Dialog(group="Table data interpretation", enable=extrapolation == Modelica.Blocks.Types.Extrapolation.LastTwoPoints or extrapolation == Modelica.Blocks.Types.Extrapolation.HoldLastPoint));
@@ -699,6 +699,19 @@ Example:
              = 3: Constant segments
              = 4: Fritsch-Butland interpolation: Not supported
              = 5: Steffen interpolation: Not supported
+</pre></li>
+<li>Values <strong>outside</strong> of the table range, are computed by
+    extrapolation according to the setting of parameter <strong>extrapolation</strong>:
+<pre>
+  extrapolation = 1: Hold the first or last values of the table,
+                     if outside of the table scope.
+                = 2: Extrapolate by using the derivative at the first/last table
+                     points if outside of the table scope.
+                     (If smoothness is LinearSegments or ConstantSegments
+                     this means to extrapolate linearly through the first/last
+                     two table points.).
+                = 3: Periodically repeat the table data (periodical function).
+                = 4: No extrapolation, i.e. extrapolation triggers an error
 </pre></li>
 <li>If the table has only <strong>one element</strong>, the table value is returned,
     independent of the value of the input signal.</li>
