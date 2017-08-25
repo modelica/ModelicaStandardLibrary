@@ -108,7 +108,7 @@ double* ModelicaIO_readRealTable(_In_z_ const char* fileName,
 #endif
 #include "ModelicaMatIO.h"
 
-/* The standard way to detect posix is to check _POSIX_VERSION,
+/* The standard way to detect POSIX is to check _POSIX_VERSION,
  * which is defined in <unistd.h>
  */
 #if defined(__unix__) || defined(__linux__) || defined(__APPLE_CC__)

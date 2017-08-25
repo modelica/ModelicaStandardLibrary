@@ -27,6 +27,7 @@
 
 /* The following #define's are available.
 
+   NO_MUTEX       : Pthread mutex is not present (e.g. on dSPACE)
    MODELICA_EXPORT: Prefix used for function calls. If not defined, blank is used
                     Useful definition:
                     - "__declspec(dllexport)" if included in a DLL and the

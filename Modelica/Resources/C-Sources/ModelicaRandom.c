@@ -97,7 +97,7 @@
 #include "ModelicaUtilities.h"
 #include "gconstructor.h"
 
-/* The standard way to detect posix is to check _POSIX_VERSION,
+/* The standard way to detect POSIX is to check _POSIX_VERSION,
  * which is defined in <unistd.h>
  */
 #if defined(__unix__) || defined(__linux__) || defined(__APPLE_CC__)
@@ -107,8 +107,8 @@
   #define _POSIX_ 1
 #endif
 
-/* On Posix systems define a mutex using the single static variable "m" */
-#if defined(_POSIX_)
+/* On POSIX systems define a mutex using the single static variable "m" */
+#if defined(_POSIX_) && !defined(NO_MUTEX)
 #include <pthread.h>
 static pthread_mutex_t m = PTHREAD_MUTEX_INITIALIZER;
 #define MUTEX_LOCK() pthread_mutex_lock(&m)

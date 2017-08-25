@@ -150,7 +150,7 @@
 #include <string.h>
 
 #if !defined(NO_FILE_SYSTEM)
-/* The standard way to detect posix is to check _POSIX_VERSION,
+/* The standard way to detect POSIX is to check _POSIX_VERSION,
  * which is defined in <unistd.h>
  */
 #if defined(__unix__) || defined(__linux__) || defined(__APPLE_CC__)
@@ -435,7 +435,6 @@ static enum TableSource getTableSource(_In_z_ const char* fileName,
 static void transpose(_Inout_ double* table, size_t nRow, size_t nCol) MODELICA_NONNULLATTR;
   /* Cycle-based in-place array transposition */
 
-#if !defined(NO_FILE_SYSTEM)
 #if defined(TABLE_SHARE)
 #define READ_RESULT TableShare*
 #else
@@ -449,7 +448,6 @@ static READ_RESULT readTable(_In_z_ const char* fileName, _In_z_ const char* tab
      <- RETURN: Pointer to TableShare structure or
         pointer to array (row-wise storage) of table values
   */
-#endif /* #if !defined(NO_FILE_SYSTEM) */
 
 static CubicHermite1D* akimaSpline1DInit(_In_ const double* table, size_t nRow,
                                          size_t nCol, _In_ const int* cols,
@@ -4151,10 +4149,10 @@ static void transpose(_Inout_ double* table, size_t nRow, size_t nCol) {
 
 /* ----- Internal I/O functions ----- */
 
-#if !defined(NO_FILE_SYSTEM)
 static READ_RESULT readTable(_In_z_ const char* fileName, _In_z_ const char* tableName,
                              _Inout_ size_t* nRow, _Inout_ size_t* nCol, int verbose,
                              int force) {
+#if !defined(NO_FILE_SYSTEM)
 #if defined(TABLE_SHARE)
 #define uthash_fatal(msg) do { \
     MUTEX_UNLOCK(); \
@@ -4255,8 +4253,10 @@ static READ_RESULT readTable(_In_z_ const char* fileName, _In_z_ const char* tab
 #else
     return table;
 #endif
-}
+#else
+    return NULL;
 #endif /* #if !defined(NO_FILE_SYSTEM) */
+}
 
 #if defined(DUMMY_FUNCTION_USERTAB)
 int usertab(char* tableName, int nipo, int dim[], int* colWise,
