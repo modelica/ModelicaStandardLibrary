@@ -7329,27 +7329,22 @@ heat <a href=\"modelica://Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a\">
         parameter Modelica.Magnetic.FundamentalWave.Types.SalientInductance L0(
             d(start=1), q(start=1))
           "Salient inductance of a single unchorded coil w.r.t. the fundamental wave";
-        final parameter
-          Modelica.Magnetic.FundamentalWave.Types.SalientReluctance R_m(d=1/L0.d,
-            q=1/L0.q) "Reluctance of the air gap model";
+        final parameter Modelica.Magnetic.FundamentalWave.Types.SalientReluctance R_m(
+          d=1/L0.d,q=1/L0.q) "Reluctance of the air gap model";
         // Complex phasors of magnetic potential differences
         Modelica.SIunits.ComplexMagneticPotentialDifference V_mss
-          "Complex magnetic potential difference of stator w.r.t. stator reference frame";
+          "Complex magnetic potential difference of stator w.r.t. stator fixed frame";
         Modelica.SIunits.ComplexMagneticPotentialDifference V_msr
-          "Complex magnetic potential difference of stator w.r.t. rotor reference frame";
+          "Complex magnetic potential difference of stator w.r.t. rotor fixed frame";
         Modelica.SIunits.ComplexMagneticPotentialDifference V_mrr
-          "Complex magnetic potential difference of rotor w.r.t. rotor reference frame";
-        // Modelica.SIunits.ComplexMagneticPotentialDifference V_mrs
-        //   "Complex magnetic potential difference of rotor w.r.t. stator reference frame";
+          "Complex magnetic potential difference of rotor w.r.t. rotor fixed frame";
         // Complex phasors of magnetic fluxes
         Modelica.SIunits.ComplexMagneticFlux Phi_ss
-          "Complex magnetic flux of stator w.r.t. stator reference frame";
+          "Complex magnetic flux of stator w.r.t. stator fixed frame";
         Modelica.SIunits.ComplexMagneticFlux Phi_sr
-          "Complex magnetic flux of stator w.r.t. rotor reference frame";
+          "Complex magnetic flux of stator w.r.t. rotor fixed frame";
         Modelica.SIunits.ComplexMagneticFlux Phi_rr
-          "Complex magnetic flux of rotor w.r.t. rotor reference frame";
-        // Modelica.SIunits.ComplexMagneticFlux Phi_rs
-        //   "Complex magnetic flux of rotor w.r.t. stator reference frame";
+          "Complex magnetic flux of rotor w.r.t. rotor fixed frame";
         // Electrical torque and mechanical angle
         Modelica.SIunits.Torque tauElectrical "Electrical torque";
         // Modelica.SIunits.Torque tauTemp "Electrical torque";
@@ -7357,43 +7352,17 @@ heat <a href=\"modelica://Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a\">
           "Electrical angle between rotor and stator";
         Complex rotator "Equivalent vector representation of orientation";
       equation
-        // Stator flux into positive stator port
-        port_sp.Phi = Phi_ss;
-        // Balance of stator flux
-        port_sp.Phi + port_sn.Phi = Complex(0, 0);
-        // Rotor flux into positive rotor port
-        port_rp.Phi = Phi_rr;
-        // Balance of rotor flux
-        port_rp.Phi + port_rn.Phi = Complex(0, 0);
-        // Magneto motive force of stator
-        port_sp.V_m - port_sn.V_m = V_mss;
-        // Magneto motive force of stator
-        port_rp.V_m - port_rn.V_m = V_mrr;
-        // Transformation of fluxes between stator and rotor fixed frame, if wanted
-        // Phi_rs.re = + Phi_rr.re * cos(gamma) - Phi_rr.im * sin(gamma);
-        // Phi_rs.im = + Phi_rr.re * sin(gamma) + Phi_rr.im * cos(gamma);
-        // Alternative transformation
-        // Phi_rr.re = + Phi_rs.re * cos(gamma) + Phi_rs.im * sin(gamma);
-        // Phi_rr.im = - Phi_rs.re * sin(gamma) + Phi_rs.im * cos(gamma);
-        // Transformed stator flux is not needed
-        // Phi_sr.re = + Phi_ss.re * cos(gamma) + Phi_ss.im * sin(gamma);
-        // Phi_sr.im = - Phi_ss.re * sin(gamma) + Phi_ss.im * cos(gamma);
-        Phi_sr = Phi_ss*Modelica.ComplexMath.conj(rotator);
-        // Alternative transformation
-        // Phi_ss.re = + Phi_sr.re * cos(gamma) - Phi_sr.im * sin(gamma);
-        // Phi_ss.im = + Phi_sr.re * sin(gamma) + Phi_sr.im * cos(gamma);
-        // Stator flux w.r.t. the rotor fixed frame and rotor flux are equal
-        Phi_sr = Phi_rr;
-        // Transformation of magnetic potential difference between stator and rotor fixed frame
-        // V_mrs.re = + V_mrr.re * cos(gamma) - V_mrr.im * sin(gamma);
-        // V_mrs.im = + V_mrr.re * sin(gamma) + V_mrr.im * cos(gamma);
-        // V_mrr.re = + V_mrs.re * cos(gamma) + V_mrs.im * sin(gamma);
-        // V_mrr.im = - V_mrs.re * sin(gamma) + V_mrs.im * cos(gamma);
-        // V_msr.re = + V_mss.re * cos(gamma) + V_mss.im * sin(gamma);
-        // V_msr.im = - V_mss.re * sin(gamma) + V_mss.im * cos(gamma);
+        port_sp.Phi = Phi_ss "Stator flux into positive stator port";
+        port_sp.Phi + port_sn.Phi = Complex(0, 0) "Balance of stator flux";
+        port_rp.Phi = Phi_rr "Rotor flux into positive rotor port";
+        port_rp.Phi + port_rn.Phi = Complex(0, 0) "Balance of rotor flux";
+        port_sp.V_m - port_sn.V_m = V_mss "Magneto motive force of stator";
+        port_rp.V_m - port_rn.V_m = V_mrr "Magneto motive force of stator";
+        // Transformations between stator and rotor fixed frame
         V_msr = V_mss*Modelica.ComplexMath.conj(rotator);
-        // V_msr.re = + V_mss.re * cos(gamma) + V_mss.im * sin(gamma);
-        // V_msr.im = - V_mss.re * sin(gamma) + V_mss.im * cos(gamma);
+        Phi_sr = Phi_ss*Modelica.ComplexMath.conj(rotator);
+        // Stator flux and rotor flux are equal
+        Phi_sr = Phi_rr;
         // Local balance of magneto motive force
         (pi/2.0)*(V_mrr.re + V_msr.re) = Phi_rr.re*R_m.d;
         (pi/2.0)*(V_mrr.im + V_msr.im) = Phi_rr.im*R_m.q;
