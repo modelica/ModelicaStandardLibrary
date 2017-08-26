@@ -450,15 +450,15 @@ static int isValidName(_In_z_ const char* name) MODELICA_NONNULLATTR;
   /* Check, whether a file or table name is valid */
 
 static int isValidCombiTimeTable(CombiTimeTable* tableID,
-                                 _In_z_ const char* tableName);
+                                 _In_z_ const char* tableName, int cleanUp);
   /* Check, whether a CombiTimeTable is well parameterized */
 
 static int isValidCombiTable1D(CombiTable1D* tableID,
-                               _In_z_ const char* tableName);
+                               _In_z_ const char* tableName, int cleanUp);
   /* Check, whether a CombiTable1D is well parameterized */
 
 static int isValidCombiTable2D(CombiTable2D* tableID,
-                               _In_z_ const char* tableName);
+                               _In_z_ const char* tableName, int cleanUp);
   /* Check, whether a CombiTable2D is well parameterized */
 
 static enum TableSource getTableSource(_In_z_ const char* fileName,
@@ -702,8 +702,9 @@ void* ModelicaStandardTables_CombiTimeTable_init2(_In_z_ const char* fileName,
         }
     }
 
-    if (isValidCombiTimeTable(tableID, tableName) == 0) {
-        ModelicaStandardTables_CombiTimeTable_close(tableID);
+    if (isValidCombiTimeTable(tableID, tableName,
+        1 /* Clean up if called from constructor */) == 0) {
+        /* ModelicaStandardTables_CombiTimeTable_close(tableID); */
         return NULL;
     }
 
@@ -1625,6 +1626,92 @@ double ModelicaStandardTables_CombiTimeTable_nextTimeEvent(void* _tableID,
 
 double ModelicaStandardTables_CombiTimeTable_read(void* _tableID, int force,
                                                   int verbose) {
+#if !defined(NO_FILE_SYSTEM)
+    CombiTimeTable* tableID = (CombiTimeTable*)_tableID;
+    if (NULL != tableID && tableID->source == TABLESOURCE_FILE) {
+        if (force || NULL == tableID->table) {
+            char* fileName = NULL;
+            const char* tableName;
+#if defined(TABLE_SHARE)
+            TableShare* file;
+#endif
+            tableName = strchr(tableID->key, '|');
+            if (NULL != tableName) {
+                fileName = (char*)malloc((tableName - tableID->key + 1)*sizeof(char));
+                if (NULL != fileName) {
+                    memcpy(fileName, tableID->key, tableName - tableID->key);
+                    fileName[tableName - tableID->key] = '\0';
+                }
+                else {
+                    return 0.; /* Error */
+                }
+                tableName++;
+            }
+            /* This will leak heap allocated memory of fileName in case
+               readTable fails with ModelicaError.
+            */
+#if defined(TABLE_SHARE)
+            file = readTable(fileName, tableName, &tableID->nRow,
+                &tableID->nCol, verbose, force);
+            free(fileName);
+            if (NULL != file) {
+                tableID->table = file->table;
+            }
+            else {
+                return 0.; /* Error */
+            }
+#else
+            if (NULL != tableID->table) {
+                free(tableID->table);
+            }
+            tableID->table = readTable(fileName, tableName, &tableID->nRow,
+                &tableID->nCol, verbose, force);
+            free(fileName);
+#endif
+            if (NULL == tableID->table) {
+                return 0.; /* Error */
+            }
+            if (isValidCombiTimeTable(tableID, tableName,
+                0 /* No clean up */) == 0) {
+                return 0.; /* Error */
+            }
+            if (tableID->nRow <= 2) {
+                if (tableID->smoothness == AKIMA_C1 ||
+                    tableID->smoothness == FRITSCH_BUTLAND_MONOTONE_C1 ||
+                    tableID->smoothness == STEFFEN_MONOTONE_C1) {
+                    tableID->smoothness = LINEAR_SEGMENTS;
+                }
+            }
+            /* Reinitialization of the cubic Hermite spline coefficients */
+            if (tableID->smoothness == AKIMA_C1) {
+                spline1DClose(&tableID->spline);
+                tableID->spline = akimaSpline1DInit(
+                    (const double*)tableID->table, tableID->nRow,
+                    tableID->nCol, (const int*)tableID->cols, tableID->nCols);
+            }
+            else if (tableID->smoothness == FRITSCH_BUTLAND_MONOTONE_C1) {
+                spline1DClose(&tableID->spline);
+                tableID->spline = fritschButlandSpline1DInit(
+                    (const double*)tableID->table, tableID->nRow,
+                    tableID->nCol, (const int*)tableID->cols, tableID->nCols);
+            }
+            else if (tableID->smoothness == STEFFEN_MONOTONE_C1) {
+                spline1DClose(&tableID->spline);
+                tableID->spline = steffenSpline1DInit(
+                    (const double*)tableID->table, tableID->nRow,
+                    tableID->nCol, (const int*)tableID->cols, tableID->nCols);
+            }
+            if (tableID->smoothness == AKIMA_C1 ||
+                tableID->smoothness == FRITSCH_BUTLAND_MONOTONE_C1 ||
+                tableID->smoothness == STEFFEN_MONOTONE_C1) {
+                if (NULL == tableID->spline) {
+                    ModelicaError("Memory allocation error\n");
+                    return 0.; /* Error */
+                }
+            }
+        }
+    }
+#endif
     return 1.; /* Success */
 }
 
@@ -1791,8 +1878,9 @@ void* ModelicaStandardTables_CombiTable1D_init2(_In_z_ const char* fileName,
         }
     }
 
-    if (isValidCombiTable1D(tableID, tableName) == 0) {
-        ModelicaStandardTables_CombiTable1D_close(tableID);
+    if (isValidCombiTable1D(tableID, tableName,
+        1 /* Clean up if called from constructor */) == 0) {
+        /* ModelicaStandardTables_CombiTable1D_close(tableID); */
         return NULL;
     }
 
@@ -2190,6 +2278,92 @@ double ModelicaStandardTables_CombiTable1D_maximumAbscissa(void* _tableID) {
 
 double ModelicaStandardTables_CombiTable1D_read(void* _tableID, int force,
                                                 int verbose) {
+#if !defined(NO_FILE_SYSTEM)
+    CombiTable1D* tableID = (CombiTable1D*)_tableID;
+    if (NULL != tableID && tableID->source == TABLESOURCE_FILE) {
+        if (force || NULL == tableID->table) {
+            char* fileName = NULL;
+            const char* tableName;
+#if defined(TABLE_SHARE)
+            TableShare* file;
+#endif
+            tableName = strchr(tableID->key, '|');
+            if (NULL != tableName) {
+                fileName = (char*)malloc((tableName - tableID->key + 1)*sizeof(char));
+                if (NULL != fileName) {
+                    memcpy(fileName, tableID->key, tableName - tableID->key);
+                    fileName[tableName - tableID->key] = '\0';
+                }
+                else {
+                    return 0.; /* Error */
+                }
+                tableName++;
+            }
+            /* This will leak heap allocated memory of fileName in case
+               readTable fails with ModelicaError.
+            */
+#if defined(TABLE_SHARE)
+            file = readTable(fileName, tableName, &tableID->nRow,
+                &tableID->nCol, verbose, force);
+            free(fileName);
+            if (NULL != file) {
+                tableID->table = file->table;
+            }
+            else {
+                return 0.; /* Error */
+            }
+#else
+            if (NULL != tableID->table) {
+                free(tableID->table);
+            }
+            tableID->table = readTable(fileName, tableName, &tableID->nRow,
+                &tableID->nCol, verbose, force);
+            free(fileName);
+#endif
+            if (NULL == tableID->table) {
+                return 0.; /* Error */
+            }
+            if (isValidCombiTable1D(tableID, tableName,
+                0 /* No clean up */) == 0) {
+                return 0.; /* Error */
+            }
+            if (tableID->nRow <= 2) {
+                if (tableID->smoothness == AKIMA_C1 ||
+                    tableID->smoothness == FRITSCH_BUTLAND_MONOTONE_C1 ||
+                    tableID->smoothness == STEFFEN_MONOTONE_C1) {
+                    tableID->smoothness = LINEAR_SEGMENTS;
+                }
+            }
+            /* Reinitialization of the cubic Hermite spline coefficients */
+            if (tableID->smoothness == AKIMA_C1) {
+                spline1DClose(&tableID->spline);
+                tableID->spline = akimaSpline1DInit(
+                    (const double*)tableID->table, tableID->nRow,
+                    tableID->nCol, (const int*)tableID->cols, tableID->nCols);
+            }
+            else if (tableID->smoothness == FRITSCH_BUTLAND_MONOTONE_C1) {
+                spline1DClose(&tableID->spline);
+                tableID->spline = fritschButlandSpline1DInit(
+                    (const double*)tableID->table, tableID->nRow,
+                    tableID->nCol, (const int*)tableID->cols, tableID->nCols);
+            }
+            else if (tableID->smoothness == STEFFEN_MONOTONE_C1) {
+                spline1DClose(&tableID->spline);
+                tableID->spline = steffenSpline1DInit(
+                    (const double*)tableID->table, tableID->nRow,
+                    tableID->nCol, (const int*)tableID->cols, tableID->nCols);
+            }
+            if (tableID->smoothness == AKIMA_C1 ||
+                tableID->smoothness == FRITSCH_BUTLAND_MONOTONE_C1 ||
+                tableID->smoothness == STEFFEN_MONOTONE_C1) {
+                if (NULL == tableID->spline) {
+                    ModelicaError("Memory allocation error\n");
+                    return 0.; /* Error */
+                }
+            }
+        }
+    }
+#endif
     return 1.; /* Success */
 }
 
@@ -2338,8 +2512,9 @@ void* ModelicaStandardTables_CombiTable2D_init2(_In_z_ const char* fileName,
             return NULL;
     }
 
-    if (isValidCombiTable2D(tableID, tableName) == 0) {
-        ModelicaStandardTables_CombiTable2D_close(tableID);
+    if (isValidCombiTable2D(tableID, tableName,
+        1 /* Clean up if called from constructor */) == 0) {
+        /* ModelicaStandardTables_CombiTable2D_close(tableID); */
         return NULL;
     }
 
@@ -4297,6 +4472,72 @@ void ModelicaStandardTables_CombiTable2D_maximumAbscissa(void* _tableID,
 
 double ModelicaStandardTables_CombiTable2D_read(void* _tableID, int force,
                                                 int verbose) {
+#if !defined(NO_FILE_SYSTEM)
+    CombiTable2D* tableID = (CombiTable2D*)_tableID;
+    if (NULL != tableID && tableID->source == TABLESOURCE_FILE) {
+        if (force || NULL == tableID->table) {
+            char* fileName = NULL;
+            const char* tableName;
+#if defined(TABLE_SHARE)
+            TableShare* file;
+#endif
+            tableName = strchr(tableID->key, '|');
+            if (NULL != tableName) {
+                fileName = (char*)malloc((tableName - tableID->key + 1)*sizeof(char));
+                if (NULL != fileName) {
+                    memcpy(fileName, tableID->key, tableName - tableID->key);
+                    fileName[tableName - tableID->key] = '\0';
+                }
+                else {
+                    return 0.; /* Error */
+                }
+                tableName++;
+            }
+            /* This will leak heap allocated memory of fileName in case
+               readTable fails with ModelicaError.
+            */
+#if defined(TABLE_SHARE)
+            file = readTable(fileName, tableName, &tableID->nRow,
+                &tableID->nCol, verbose, force);
+            free(fileName);
+            if (NULL != file) {
+                tableID->table = file->table;
+            }
+            else {
+                return 0.; /* Error */
+            }
+#else
+            if (NULL != tableID->table) {
+                free(tableID->table);
+            }
+            tableID->table = readTable(fileName, tableName, &tableID->nRow,
+                &tableID->nCol, verbose, force);
+            free(fileName);
+#endif
+            if (NULL == tableID->table) {
+                return 0.; /* Error */
+            }
+            if (isValidCombiTable2D(tableID, tableName,
+                0 /* No clean up */) == 0) {
+                return 0.; /* Error */
+            }
+            if (tableID->smoothness == AKIMA_C1 &&
+                tableID->nRow <= 3 && tableID->nCol <= 3) {
+                tableID->smoothness = LINEAR_SEGMENTS;
+            }
+            /* Reinitialization of the Akima-spline coefficients */
+            if (tableID->smoothness == AKIMA_C1) {
+                spline2DClose(&tableID->spline);
+                tableID->spline = spline2DInit((const double*)tableID->table,
+                    tableID->nRow,tableID->nCol);
+                if (NULL == tableID->spline) {
+                    ModelicaError("Memory allocation error\n");
+                    return 0.; /* Error */
+                }
+            }
+        }
+    }
+#endif
     return 1.; /* Success */
 }
 
@@ -4387,7 +4628,7 @@ static int isValidName(_In_z_ const char* name) {
 }
 
 static int isValidCombiTimeTable(CombiTimeTable* tableID,
-                                 _In_z_ const char* _tableName) {
+                                 _In_z_ const char* _tableName, int cleanUp) {
     int isValid = 1;
     if (NULL != tableID) {
         const size_t nRow = tableID->nRow;
@@ -4398,7 +4639,9 @@ static int isValidCombiTimeTable(CombiTimeTable* tableID,
 
         /* Check dimensions */
         if (nRow < 1 || nCol < 2) {
-            ModelicaStandardTables_CombiTimeTable_close(tableID);
+            if (1 == cleanUp) {
+                ModelicaStandardTables_CombiTimeTable_close(tableID);
+            }
             ModelicaFormatError(
                 "Table matrix \"%s(%lu,%lu)\" does not have appropriate "
                 "dimensions for time interpolation.\n", tableName,
@@ -4411,7 +4654,9 @@ static int isValidCombiTimeTable(CombiTimeTable* tableID,
         for (iCol = 0; iCol < tableID->nCols; ++iCol) {
             const size_t col = (size_t)tableID->cols[iCol];
             if (col < 1 || col > tableID->nCol) {
-                ModelicaStandardTables_CombiTimeTable_close(tableID);
+                if (1 == cleanUp) {
+                    ModelicaStandardTables_CombiTimeTable_close(tableID);
+                }
                 ModelicaFormatError("The column index %d is out of range "
                     "for table matrix \"%s(%lu,%lu)\".\n", tableID->cols[iCol],
                     tableName, (unsigned long)nRow, (unsigned long)nCol);
@@ -4426,7 +4671,9 @@ static int isValidCombiTimeTable(CombiTimeTable* tableID,
                 const double tMax = TABLE_COL0(nRow - 1);
                 const double T = tMax - tMin;
                 if (T <= 0) {
-                    ModelicaStandardTables_CombiTimeTable_close(tableID);
+                    if (1 == cleanUp) {
+                        ModelicaStandardTables_CombiTimeTable_close(tableID);
+                    }
                     ModelicaFormatError(
                         "Table matrix \"%s\" does not have a positive period/cylce "
                         "time for time interpolation with periodic "
@@ -4446,7 +4693,9 @@ static int isValidCombiTimeTable(CombiTimeTable* tableID,
                     double t0 = TABLE_COL0(i);
                     double t1 = TABLE_COL0(i + 1);
                     if (t0 >= t1) {
-                        ModelicaStandardTables_CombiTimeTable_close(tableID);
+                        if (1 == cleanUp) {
+                            ModelicaStandardTables_CombiTimeTable_close(tableID);
+                        }
                         ModelicaFormatError(
                             "The values of the first column of table \"%s(%lu,%lu)\" "
                             "are not strictly increasing because %s(%lu,1) (=%lf) "
@@ -4464,7 +4713,9 @@ static int isValidCombiTimeTable(CombiTimeTable* tableID,
                     double t0 = TABLE_COL0(i);
                     double t1 = TABLE_COL0(i + 1);
                     if (t0 > t1) {
-                        ModelicaStandardTables_CombiTimeTable_close(tableID);
+                        if (1 == cleanUp) {
+                            ModelicaStandardTables_CombiTimeTable_close(tableID);
+                        }
                         ModelicaFormatError(
                             "The values of the first column of table \"%s(%lu,%lu)\" "
                             "are not monotonically increasing because %s(%lu,1) "
@@ -4484,7 +4735,7 @@ static int isValidCombiTimeTable(CombiTimeTable* tableID,
 }
 
 static int isValidCombiTable1D(CombiTable1D* tableID,
-                               _In_z_ const char* _tableName) {
+                               _In_z_ const char* _tableName, int cleanUp) {
     int isValid = 1;
     if (NULL != tableID) {
         const size_t nRow = tableID->nRow;
@@ -4495,7 +4746,9 @@ static int isValidCombiTable1D(CombiTable1D* tableID,
 
         /* Check dimensions */
         if (nRow < 1 || nCol < 2) {
-            ModelicaStandardTables_CombiTable1D_close(tableID);
+            if (1 == cleanUp) {
+                ModelicaStandardTables_CombiTable1D_close(tableID);
+            }
             ModelicaFormatError(
                 "Table matrix \"%s(%lu,%lu)\" does not have appropriate "
                 "dimensions for 1D-interpolation.\n", tableName,
@@ -4508,7 +4761,9 @@ static int isValidCombiTable1D(CombiTable1D* tableID,
         for (iCol = 0; iCol < tableID->nCols; ++iCol) {
             const size_t col = (size_t)tableID->cols[iCol];
             if (col < 1 || col > tableID->nCol) {
-                ModelicaStandardTables_CombiTable1D_close(tableID);
+                if (1 == cleanUp) {
+                    ModelicaStandardTables_CombiTable1D_close(tableID);
+                }
                 ModelicaFormatError("The column index %d is out of range "
                     "for table matrix \"%s(%lu,%lu)\".\n", tableID->cols[iCol],
                     tableName, (unsigned long)nRow, (unsigned long)nCol);
@@ -4523,7 +4778,9 @@ static int isValidCombiTable1D(CombiTable1D* tableID,
                 double x0 = TABLE_COL0(i);
                 double x1 = TABLE_COL0(i + 1);
                 if (x0 >= x1) {
-                    ModelicaStandardTables_CombiTable1D_close(tableID);
+                    if (1 == cleanUp) {
+                        ModelicaStandardTables_CombiTable1D_close(tableID);
+                    }
                     ModelicaFormatError(
                         "The values of the first column of table \"%s(%lu,%lu)\" are "
                         "not strictly increasing because %s(%lu,1) (=%lf) >= "
@@ -4541,7 +4798,7 @@ static int isValidCombiTable1D(CombiTable1D* tableID,
 }
 
 static int isValidCombiTable2D(CombiTable2D* tableID,
-                               _In_z_ const char* _tableName) {
+                               _In_z_ const char* _tableName, int cleanUp) {
     int isValid = 1;
     if (NULL != tableID) {
         const size_t nRow = tableID->nRow;
@@ -4551,7 +4808,9 @@ static int isValidCombiTable2D(CombiTable2D* tableID,
 
         /* Check dimensions */
         if (nRow < 2 || nCol < 2) {
-            ModelicaStandardTables_CombiTable2D_close(tableID);
+            if (1 == cleanUp) {
+                ModelicaStandardTables_CombiTable2D_close(tableID);
+            }
             ModelicaFormatError(
                 "Table matrix \"%s(%lu,%lu)\" does not have appropriate "
                 "dimensions for 2D-interpolation.\n", tableName,
@@ -4568,7 +4827,9 @@ static int isValidCombiTable2D(CombiTable2D* tableID,
                 double x0 = TABLE_COL0(i);
                 double x1 = TABLE_COL0(i + 1);
                 if (x0 >= x1) {
-                    ModelicaStandardTables_CombiTable2D_close(tableID);
+                    if (1 == cleanUp) {
+                        ModelicaStandardTables_CombiTable2D_close(tableID);
+                    }
                     ModelicaFormatError(
                         "The values of the first column of table \"%s(%lu,%lu)\" are "
                         "not strictly increasing because %s(%lu,1) (=%lf) >= "
@@ -4585,7 +4846,9 @@ static int isValidCombiTable2D(CombiTable2D* tableID,
                 double y0 = TABLE_ROW0(i);
                 double y1 = TABLE_ROW0(i + 1);
                 if (y0 >= y1) {
-                    ModelicaStandardTables_CombiTable2D_close(tableID);
+                    if (1 == cleanUp) {
+                        ModelicaStandardTables_CombiTable2D_close(tableID);
+                    }
                     ModelicaFormatError(
                         "The values of the first row of table \"%s(%lu,%lu)\" are "
                         "not strictly increasing because %s(1,%lu) (=%lf) >= "

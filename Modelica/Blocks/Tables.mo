@@ -49,7 +49,8 @@ package Tables
           smoothness,
           extrapolation,
           if tableOnFile then verboseRead else false) "External table object";
-
+    function readTableData = // No longer used, but kept for backward compatibility
+      Modelica.Blocks.Tables.Internal.readTable1DData "Read table data from ASCII text or MATLAB MAT-file";
   equation
     if tableOnFile then
       assert(tableName <> "NoName",
@@ -338,7 +339,8 @@ MATLAB is a registered trademark of The MathWorks, Inc.
           smoothness,
           extrapolation,
           if tableOnFile then verboseRead else false) "External table object";
-
+    function readTableData = // No longer used, but kept for backward compatibility
+      Modelica.Blocks.Tables.Internal.readTable1DData "Read table data from ASCII text or MATLAB MAT-file";
   equation
     if tableOnFile then
       assert(tableName <> "NoName",
@@ -620,7 +622,8 @@ MATLAB is a registered trademark of The MathWorks, Inc.
           smoothness,
           extrapolation,
           if tableOnFile then verboseRead else false) "External table object";
-
+    function readTableData = // No longer used, but kept for backward compatibility
+      Modelica.Blocks.Tables.Internal.readTable2DData "Read table data from ASCII text or MATLAB MAT-file";
   equation
     if tableOnFile then
       assert(tableName <> "NoName",
@@ -891,6 +894,19 @@ MATLAB is a registered trademark of The MathWorks, Inc.
 
   package Internal "Internal external object definitions for table functions that should not be directly utilized by the user"
     extends Modelica.Icons.InternalPackage;
+    function readTimeTableData "Read table data from ASCII text or MATLAB MAT-file"
+      extends Modelica.Icons.Function;
+      input Modelica.Blocks.Types.ExternalCombiTimeTable tableID;
+      input Boolean forceRead = false
+        "= true: Force reading of table data; = false: Only read, if not yet read.";
+      output Real readSuccess "Table read success";
+      input Boolean verboseRead = true
+        "= true: Print info message; = false: No info message";
+      external"C" readSuccess = ModelicaStandardTables_CombiTimeTable_read(tableID, forceRead, verboseRead)
+        annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
+      annotation(__ModelicaAssociation_Impure=true);
+    end readTimeTableData;
+
     function getTimeTableValue
       "Interpolate 1-dim. table where first column is time"
       extends Modelica.Icons.Function;
@@ -951,6 +967,19 @@ MATLAB is a registered trademark of The MathWorks, Inc.
       external"C" timeMax = ModelicaStandardTables_CombiTimeTable_maximumTime(tableID)
         annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
     end getTimeTableTmax;
+
+    function readTable1DData "Read table data from ASCII text or MATLAB MAT-file"
+      extends Modelica.Icons.Function;
+      input Modelica.Blocks.Types.ExternalCombiTable1D tableID;
+      input Boolean forceRead = false
+        "= true: Force reading of table data; = false: Only read, if not yet read.";
+      input Boolean verboseRead = true
+        "= true: Print info message; = false: No info message";
+      output Real readSuccess "Table read success";
+      external"C" readSuccess = ModelicaStandardTables_CombiTable1D_read(tableID, forceRead, verboseRead)
+        annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
+      annotation(__ModelicaAssociation_Impure=true);
+    end readTable1DData;
 
     function getNextTimeEvent
       "Return next time event value of 1-dim. table where first column is time"
@@ -1013,6 +1042,19 @@ MATLAB is a registered trademark of The MathWorks, Inc.
       external"C" uMax = ModelicaStandardTables_CombiTable1D_maximumAbscissa(tableID)
         annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
     end getTable1DAbscissaUmax;
+
+    function readTable2DData "Read table data from ASCII text or MATLAB MAT-file"
+      extends Modelica.Icons.Function;
+      input Modelica.Blocks.Types.ExternalCombiTable2D tableID;
+      input Boolean forceRead = false
+        "= true: Force reading of table data; = false: Only read, if not yet read.";
+      input Boolean verboseRead = true
+        "= true: Print info message; = false: No info message";
+      output Real readSuccess "Table read success";
+      external"C" readSuccess = ModelicaStandardTables_CombiTable2D_read(tableID, forceRead, verboseRead)
+        annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
+      annotation(__ModelicaAssociation_Impure=true);
+    end readTable2DData;
 
     function getTable2DValue "Interpolate 2-dim. table defined by matrix"
       extends Modelica.Icons.Function;
