@@ -4114,7 +4114,8 @@ enabling signal is taken from the optional signal input <code>enable</code>.
         "Diode forward threshold voltage";
       extends Modelica.Electrical.PowerConverters.Interfaces.ACDC.ACtwoPin;
       extends Modelica.Electrical.PowerConverters.Interfaces.ACDC.DCtwoPin;
-      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=293.15);
+      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
+           293.15);
       Modelica.Electrical.Analog.Ideal.IdealDiode diode_p1(
         final Goff=GoffDiode,
         final Vknee=VkneeDiode,
@@ -4245,7 +4246,8 @@ This is a two pulse Graetz diode rectifier bridge. The circuit topology is the s
         annotation (choices(checkBox=true));
       extends Modelica.Electrical.PowerConverters.Interfaces.ACDC.ACtwoPin;
       extends Modelica.Electrical.PowerConverters.Interfaces.ACDC.DCtwoPin;
-      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=293.15);
+      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
+           293.15);
       extends Interfaces.Enable.Enable2;
       Modelica.Electrical.Analog.Ideal.IdealThyristor thyristor_p1(
         final Ron=RonThyristor,
@@ -4396,7 +4398,8 @@ with thyristor <code>thyristor_p2</code> and <code>thyristor_n1</code>. See exam
         annotation (choices(checkBox=true));
       extends Modelica.Electrical.PowerConverters.Interfaces.ACDC.ACtwoPin;
       extends Modelica.Electrical.PowerConverters.Interfaces.ACDC.DCtwoPin;
-      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=293.15);
+      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
+           293.15);
       extends Interfaces.Enable.Enable2;
       Modelica.Electrical.Analog.Ideal.IdealThyristor thyristor_p1(
         final Ron=RonThyristor,
@@ -4539,7 +4542,8 @@ The circuit topology is the same as in
         "Diode forward threshold voltage";
       extends Modelica.Electrical.PowerConverters.Interfaces.ACDC.ACtwoPin;
       extends Modelica.Electrical.PowerConverters.Interfaces.ACDC.DCpin;
-      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=293.15);
+      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
+           293.15);
       Modelica.Electrical.Analog.Ideal.IdealDiode diode_p(
         final Ron=RonDiode,
         final Goff=GoffDiode,
@@ -4633,7 +4637,8 @@ This is a two pulse diode rectifier with center tap. In order to operate this re
         annotation (choices(checkBox=true));
       extends Modelica.Electrical.PowerConverters.Interfaces.ACDC.ACtwoPin;
       extends Modelica.Electrical.PowerConverters.Interfaces.ACDC.DCpin;
-      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=293.15);
+      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
+           293.15);
       extends Interfaces.Enable.Enable2;
       Modelica.Electrical.Analog.Ideal.IdealThyristor thyristor_p(
         final Ron=RonThyristor,
@@ -4730,7 +4735,8 @@ General information about AC/DC converters can be found at the
         "Diode forward threshold voltage";
       extends Modelica.Electrical.PowerConverters.Interfaces.ACDC.ACplug;
       extends Modelica.Electrical.PowerConverters.Interfaces.ACDC.DCpin;
-      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=293.15);
+      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
+           293.15);
       Modelica.Electrical.MultiPhase.Ideal.IdealDiode diode(
         final m=m,
         final Ron=fill(RonDiode, m),
@@ -4819,7 +4825,8 @@ The circuit topology is the same as in
         annotation (choices(checkBox=true));
       extends Modelica.Electrical.PowerConverters.Interfaces.ACDC.ACplug;
       extends Modelica.Electrical.PowerConverters.Interfaces.ACDC.DCpin;
-      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=293.15);
+      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
+           293.15);
       extends Interfaces.Enable.Enable1m;
       Modelica.Electrical.MultiPhase.Ideal.IdealThyristor thyristor(
         final m=m,
@@ -4910,7 +4917,8 @@ See example
         "Diode forward threshold voltage";
       extends Modelica.Electrical.PowerConverters.Interfaces.ACDC.ACplug;
       extends Modelica.Electrical.PowerConverters.Interfaces.ACDC.DCtwoPin;
-      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=293.15);
+      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
+           293.15);
       Modelica.Electrical.MultiPhase.Ideal.IdealDiode diode_p(
         final m=m,
         final Ron=fill(RonDiode, m),
@@ -5155,7 +5163,8 @@ See example
         annotation (choices(checkBox=true));
       extends Modelica.Electrical.PowerConverters.Interfaces.ACDC.ACplug;
       extends Modelica.Electrical.PowerConverters.Interfaces.ACDC.DCtwoPin;
-      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=293.15);
+      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
+           293.15);
       extends Interfaces.Enable.Enable1m;
       Modelica.Electrical.MultiPhase.Basic.Star star_p(final m=m)
         annotation (Placement(transformation(extent={{70,70},{90,50}})));
@@ -5286,7 +5295,8 @@ This is a 2*m pulse half controlled rectifier bridge. In order to operate this r
         "Diode forward threshold voltage";
       extends Modelica.Electrical.PowerConverters.Interfaces.ACDC.ACtwoPlug;
       extends Modelica.Electrical.PowerConverters.Interfaces.ACDC.DCpin;
-      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=293.15);
+      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
+           293.15);
       Modelica.Electrical.MultiPhase.Ideal.IdealDiode diode_p(
         final m=m,
         final Ron=fill(RonDiode, m),
@@ -5395,7 +5405,8 @@ This is a 2*m pulse diode rectifier with center tap. In order to operate this re
         annotation (choices(checkBox=true));
       extends Modelica.Electrical.PowerConverters.Interfaces.ACDC.ACtwoPlug;
       extends Modelica.Electrical.PowerConverters.Interfaces.ACDC.DCpin;
-      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=293.15);
+      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
+           293.15);
       extends Interfaces.Enable.Enable2m;
       Modelica.Electrical.MultiPhase.Ideal.IdealThyristor thyristor_p(
         final m=m,
@@ -5520,7 +5531,8 @@ General information about AC/DC converters can be found at the
       // parameter Boolean useEnable "Enables enable signal connector";
       extends Modelica.Electrical.PowerConverters.Interfaces.DCAC.DCtwoPin;
       extends Modelica.Electrical.PowerConverters.Interfaces.DCAC.ACpin;
-      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=293.15);
+      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
+           293.15);
       extends Interfaces.Enable.Enable2;
       Modelica.Electrical.Analog.Ideal.IdealGTOThyristor transistor_p(
         final Ron=RonTransistor,
@@ -5662,7 +5674,8 @@ An example of a single phase inverter with PWM voltage control is included in
       // parameter Boolean useEnable "Enables enable signal connector";
       extends Modelica.Electrical.PowerConverters.Interfaces.DCAC.DCtwoPin;
       extends Modelica.Electrical.PowerConverters.Interfaces.DCAC.ACplug;
-      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=293.15);
+      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
+           293.15);
       Modelica.Electrical.MultiPhase.Ideal.IdealGTOThyristor transistor_p(
         final m=m,
         final Ron=fill(RonTransistor, m),
@@ -6003,7 +6016,8 @@ Currently there is only one PWM method provided in this library.
         "Diode forward threshold voltage";
       extends Modelica.Electrical.PowerConverters.Interfaces.DCDC.DCtwoPin1;
       extends Modelica.Electrical.PowerConverters.Interfaces.DCDC.DCtwoPin2;
-      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=293.15);
+      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
+           293.15);
       extends Interfaces.Enable.Enable1;
       Modelica.Electrical.Analog.Ideal.IdealGTOThyristor transistor(
         useHeatPort=useHeatPort,
@@ -6100,7 +6114,8 @@ This is a conventional step down chopper model. It consists of a transistor and 
       extends Icons.Converter;
       extends Modelica.Electrical.PowerConverters.Interfaces.DCDC.DCtwoPin1;
       extends Modelica.Electrical.PowerConverters.Interfaces.DCDC.DCtwoPin2;
-      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=293.15);
+      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
+           293.15);
       parameter Modelica.SIunits.Resistance RonTransistor=1e-05
         "Transistor closed resistance";
       parameter Modelica.SIunits.Conductance GoffTransistor=1e-05

@@ -105,7 +105,7 @@ package Sources "Time-dependent and controlled voltage and current sources"
   model StepVoltage "Step voltage source"
     parameter SI.Voltage V(start=1) "Height of step";
     extends Interfaces.VoltageSource(redeclare Modelica.Blocks.Sources.Step
-        signalSource(final height=V));
+        signalSource(height=V));
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={Line(points={{-70,-70},{0,-70},{0,70},{69,70}},
@@ -270,9 +270,9 @@ package Sources "Time-dependent and controlled voltage and current sources"
     parameter SI.Frequency freqHz(start=1) "Frequency of sine wave";
     extends Interfaces.VoltageSource(redeclare Modelica.Blocks.Sources.Sine
         signalSource(
-        final amplitude=V,
-        final freqHz=freqHz,
-        final phase=phase));
+        amplitude=V,
+        freqHz=freqHz,
+        phase=phase));
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
               100}}), graphics={Line(points={{-66,0},{-56.2,29.9},{-49.8,46.5},
@@ -353,9 +353,9 @@ package Sources "Time-dependent and controlled voltage and current sources"
     parameter SI.Frequency freqHz(start=1) "Frequency of cosine wave";
     extends Interfaces.VoltageSource(redeclare Modelica.Blocks.Sources.Cosine
         signalSource(
-        final amplitude=V,
-        final freqHz=freqHz,
-        final phase=phase));
+        amplitude=V,
+        freqHz=freqHz,
+        phase=phase));
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
               100}}), graphics={Line(
@@ -440,10 +440,10 @@ package Sources "Time-dependent and controlled voltage and current sources"
     parameter SI.Damping damping(start=1) "Damping coefficient of sine wave";
     extends Interfaces.VoltageSource(redeclare Modelica.Blocks.Sources.ExpSine
         signalSource(
-        final amplitude=V,
-        final freqHz=freqHz,
-        final phase=phase,
-        final damping=damping));
+        amplitude=V,
+        freqHz=freqHz,
+        phase=phase,
+        damping=damping));
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={Line(points={{-64,-14},{-59.2,18.3},{-56,36.3},
@@ -549,10 +549,10 @@ package Sources "Time-dependent and controlled voltage and current sources"
           riseTimeConst) "Fall time constant";
     extends Interfaces.VoltageSource(redeclare
         Modelica.Blocks.Sources.Exponentials signalSource(
-        final outMax=vMax,
-        final riseTime=riseTime,
-        final riseTimeConst=riseTimeConst,
-        final fallTimeConst=fallTimeConst));
+        outMax=vMax,
+        riseTime=riseTime,
+        riseTimeConst=riseTimeConst,
+        fallTimeConst=fallTimeConst));
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={Line(points={{-76,-59},{-73.2,-44.3},{-70.3,-31.1},
@@ -651,9 +651,9 @@ package Sources "Time-dependent and controlled voltage and current sources"
       "Time for one period";
     extends Interfaces.VoltageSource(redeclare Modelica.Blocks.Sources.Pulse
         signalSource(
-        final amplitude=V,
-        final width=width,
-        final period=period));
+        amplitude=V,
+        width=width,
+        period=period));
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={Line(points={{-70,-70},{-40,-70},{-40,70},{0,70},
@@ -764,7 +764,7 @@ package Sources "Time-dependent and controlled voltage and current sources"
     parameter SI.Voltage V(start=1) "Amplitude of saw tooth";
     parameter SI.Time period(start=1) "Time for one period";
     extends Interfaces.VoltageSource(redeclare Modelica.Blocks.Sources.SawTooth
-        signalSource(final amplitude=V, final period=period));
+        signalSource(amplitude=V, period=period));
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={Line(points={{-85,-70},{-65,-70},{-5,71},{-5,-70},
@@ -867,12 +867,12 @@ package Sources "Time-dependent and controlled voltage and current sources"
       "Number of periods (< 0 means infinite number of periods)";
     extends Interfaces.VoltageSource(redeclare
         Modelica.Blocks.Sources.Trapezoid signalSource(
-        final amplitude=V,
-        final rising=rising,
-        final width=width,
-        final falling=falling,
-        final period=period,
-        final nperiod=nperiod));
+        amplitude=V,
+        rising=rising,
+        width=width,
+        falling=falling,
+        period=period,
+        nperiod=nperiod));
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={Line(points={{-81,-70},{-60,-70},{-30,70},{1,70},
@@ -1006,7 +1006,7 @@ package Sources "Time-dependent and controlled voltage and current sources"
     parameter Real table[:, :]=[0, 0; 1, 1; 2, 4]
       "Table matrix (time = first column, voltage = second column)";
     extends Interfaces.VoltageSource(redeclare
-        Modelica.Blocks.Sources.TimeTable signalSource(final table=table));
+        Modelica.Blocks.Sources.TimeTable signalSource(table=table));
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={Line(points={{-58,-36},{-58,84},{42,84},{42,-36},
@@ -1183,7 +1183,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
   model StepCurrent "Step current source"
     parameter SI.Current I(start=1) "Height of step";
     extends Interfaces.CurrentSource(redeclare Modelica.Blocks.Sources.Step
-        signalSource(final height=I));
+        signalSource(height=I));
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={Line(points={{-86,-70},{-14,-70},{-14,70},{57,
@@ -1348,9 +1348,9 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
     parameter SI.Frequency freqHz(start=1) "Frequency of sine wave";
     extends Interfaces.CurrentSource(redeclare Modelica.Blocks.Sources.Sine
         signalSource(
-        final amplitude=I,
-        final freqHz=freqHz,
-        final phase=phase));
+        amplitude=I,
+        freqHz=freqHz,
+        phase=phase));
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={Line(points={{-70,0},{-60.2,29.9},{-53.8,46.5},
@@ -1431,9 +1431,9 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
     parameter SI.Frequency freqHz(start=1) "Frequency of cosine wave";
     extends Interfaces.CurrentSource(redeclare Modelica.Blocks.Sources.Cosine
         signalSource(
-        final amplitude=I,
-        final freqHz=freqHz,
-        final phase=phase));
+        amplitude=I,
+        freqHz=freqHz,
+        phase=phase));
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={Line(
@@ -1520,10 +1520,10 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
     parameter SI.Damping damping(start=1) "Damping coefficient of sine wave";
     extends Interfaces.CurrentSource(redeclare Modelica.Blocks.Sources.ExpSine
         signalSource(
-        final amplitude=I,
-        final freqHz=freqHz,
-        final phase=phase,
-        final damping=damping));
+        amplitude=I,
+        freqHz=freqHz,
+        phase=phase,
+        damping=damping));
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={Line(points={{-80,-14},{-75.2,18.3},{-72,36.3},
@@ -1629,10 +1629,10 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
           riseTimeConst) "Fall time constant";
     extends Interfaces.CurrentSource(redeclare
         Modelica.Blocks.Sources.Exponentials signalSource(
-        final outMax=iMax,
-        final riseTime=riseTime,
-        final riseTimeConst=riseTimeConst,
-        final fallTimeConst=fallTimeConst));
+        outMax=iMax,
+        riseTime=riseTime,
+        riseTimeConst=riseTimeConst,
+        fallTimeConst=fallTimeConst));
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={Line(points={{-76,-59},{-73.2,-44.3},{-70.3,-31.1},
@@ -1718,9 +1718,9 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
       "Time for one period";
     extends Interfaces.CurrentSource(redeclare Modelica.Blocks.Sources.Pulse
         signalSource(
-        final amplitude=I,
-        final width=width,
-        final period=period));
+        amplitude=I,
+        width=width,
+        period=period));
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={Line(points={{-80,-67},{-50,-67},{-50,73},{-10,
@@ -1832,7 +1832,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
     parameter SI.Current I(start=1) "Amplitude of saw tooth";
     parameter SI.Time period(start=1) "Time for one period";
     extends Interfaces.CurrentSource(redeclare Modelica.Blocks.Sources.SawTooth
-        signalSource(final amplitude=I, final period=period));
+        signalSource(amplitude=I, period=period));
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={Line(points={{-70,-71},{-50,-71},{10,70},{10,-71},
@@ -1935,12 +1935,12 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
       "Number of periods (< 0 means infinite number of periods)";
     extends Interfaces.CurrentSource(redeclare
         Modelica.Blocks.Sources.Trapezoid signalSource(
-        final amplitude=I,
-        final rising=rising,
-        final width=width,
-        final falling=falling,
-        final period=period,
-        final nperiod=nperiod));
+        amplitude=I,
+        rising=rising,
+        width=width,
+        falling=falling,
+        period=period,
+        nperiod=nperiod));
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={Line(points={{-81,-66},{-60,-66},{-30,74},{1,74},
@@ -2074,7 +2074,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
     parameter Real table[:, :]=[0, 0; 1, 1; 2, 4]
       "Table matrix (time = first column, current = second column)";
     extends Interfaces.CurrentSource(redeclare
-        Modelica.Blocks.Sources.TimeTable signalSource(final table=table));
+        Modelica.Blocks.Sources.TimeTable signalSource(table=table));
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={Line(points={{-66,-36},{-66,84},{34,84},{34,-36},

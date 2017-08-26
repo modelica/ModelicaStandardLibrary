@@ -9089,7 +9089,8 @@ This is a model of an inductor, described with space phasors.
           "Reference temperature";
         parameter Modelica.SIunits.LinearTemperatureCoefficient alpha=0
           "Temperature coefficient of resistance at T_ref";
-        extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=T_ref);
+        extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=
+              T_ref);
         Modelica.SIunits.Resistance Rr_actual
           "Actual resistance = Rr*(1 + alpha*(T_heatPort - T_ref))";
         Machines.Interfaces.SpacePhasor spacePhasor_r annotation (Placement(
@@ -9163,7 +9164,8 @@ Material properties alpha of both axis are the same.
           "Reference temperature of both resistances in d- and q-axis";
         parameter Modelica.SIunits.LinearTemperatureCoefficient alpha=0
           "Temperature coefficient of both resistances in d- and q-axis at T_ref";
-        extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=T_ref);
+        extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=
+              T_ref);
         Modelica.SIunits.Resistance Rrd_actual
           "Actual resistance = Rrd*(1 + alpha*(T_heatPort - T_ref))";
         Modelica.SIunits.Resistance Rrq_actual
@@ -10964,7 +10966,8 @@ Parameter record for <a href=\"modelica://Modelica.Electrical.Machines.Losses.In
       parameter FrictionParameters frictionParameters
         "Friction loss parameters";
       extends
-        Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT(final useHeatPort=false);
+        Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT(
+          useHeatPort=false);
     equation
       if (frictionParameters.PRef <= 0) then
         tau = 0;
@@ -11087,7 +11090,8 @@ If it is desired to neglect friction losses, set <code>frictionParameters.PRef =
         parameter Machines.Losses.BrushParameters brushParameters
           "Brush loss parameters";
         extends
-          Modelica.Thermal.HeatTransfer.Interfaces.PartialConditionalHeatPort(final useHeatPort=false,final T=293.15);
+          Modelica.Thermal.HeatTransfer.Interfaces.PartialConditionalHeatPort(
+            useHeatPort=false,final T=293.15);
         DCMachines.Brush brush[3](each final brushParameters=brushParameters,
             each final useHeatPort=true)
           annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
@@ -11127,7 +11131,8 @@ Model of voltage drop and losses of carbon brushes. This three-phase model uses 
         parameter Machines.Losses.StrayLoadParameters strayLoadParameters
           "Stray load loss parameters";
         extends
-          Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT(final useHeatPort=false);
+          Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT(
+            useHeatPort=false);
         Modelica.SIunits.Current iRMS=quasiRMS(i);
       equation
         v = zeros(m);
@@ -11189,7 +11194,8 @@ If it is desired to neglect stray load losses, set <code>strayLoadParameters.PRe
         parameter Machines.Losses.PermanentMagnetLossParameters
           permanentMagnetLossParameters "Permanent magnet loss parameters";
         extends
-          Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT(final useHeatPort=false);
+          Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT(
+            useHeatPort=false);
         input Modelica.SIunits.Current is[m] "Instantaneous stator currents";
         Modelica.SIunits.Current iRMS=quasiRMS(is);
       equation
@@ -11238,7 +11244,8 @@ If it is desired to neglect permanent magnet losses, set <code>strayLoadParamete
         parameter Real turnsRatio(final min=Modelica.Constants.small)
           "Effective number of stator turns / effective number of rotor turns (if used as rotor core)";
         extends
-          Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT(final useHeatPort=false);
+          Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT(
+            useHeatPort=false);
         Machines.Interfaces.SpacePhasor spacePhasor annotation (Placement(
               transformation(extent={{-110,-10},{-90,10}}),
               iconTransformation(extent={{-110,-10},{-90,10}})));
@@ -11365,7 +11372,8 @@ This package contains loss models used for induction machine models.
         parameter Machines.Losses.BrushParameters brushParameters
           "Brush loss parameters";
         extends
-          Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT(final useHeatPort=false);
+          Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT(
+            useHeatPort=false);
       equation
         if (brushParameters.V <= 0) then
           v = 0;
@@ -11449,7 +11457,8 @@ e.g., used for initial equations.
         parameter Machines.Losses.StrayLoadParameters strayLoadParameters
           "Stray load loss parameters";
         extends
-          Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT(final useHeatPort=false);
+          Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT(
+            useHeatPort=false);
       equation
         v = 0;
         if (strayLoadParameters.PRef <= 0) then
@@ -11496,7 +11505,8 @@ If it is desired to neglect stray load losses, set <code>strayLoadParameters.PRe
         parameter Machines.Losses.CoreParameters coreParameters
           "Armature core losses";
         extends
-          Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT(final useHeatPort=false);
+          Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT(
+            useHeatPort=false);
         input Modelica.SIunits.AngularVelocity w
           "Remagnetization angular velocity" annotation (Dialog(group="Losses"));
         Modelica.SIunits.Conductance Gc "Variable core loss conductance";

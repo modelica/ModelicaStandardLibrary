@@ -4884,7 +4884,8 @@ This element must <strong>not</strong> be used <strong>for dynamic simulation of
       "For modelling of eddy current in a conductive magnetic flux tube"
 
       extends FluxTubes.Interfaces.PartialTwoPorts;
-      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=273.15);
+      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(
+        final T=273.15);
 
       parameter Boolean useConductance = false
         "Use conductance instead of geometry data and rho"
