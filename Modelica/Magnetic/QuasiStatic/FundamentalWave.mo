@@ -5498,54 +5498,46 @@ Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding</a>
         parameter Modelica.Magnetic.FundamentalWave.Types.SalientInductance L0(
             d(start=1), q(start=1))
           "Salient inductance of a single unchorded coil w.r.t. the fundamental wave";
-        final parameter
-          Modelica.Magnetic.FundamentalWave.Types.SalientReluctance R_m(d=1/L0.d,
-            q=1/L0.q) "Reluctance of the air gap model";
+        final parameter Modelica.Magnetic.FundamentalWave.Types.SalientReluctance R_m(
+          d=1/L0.d,q=1/L0.q) "Reluctance of the air gap model";
         // Complex phasors of magnetic potential differences
         Modelica.SIunits.ComplexMagneticPotentialDifference V_ms
-          "Complex magnetic potential difference of stator w.r.t. stator reference frame";
+          "Complex magnetic potential difference of stator w.r.t. stator fixed frame";
         Modelica.SIunits.ComplexMagneticPotentialDifference V_msr=V_ms*
             Modelica.ComplexMath.fromPolar(1, gammar)
-          "Complex magnetic potential difference of stator w.r.t. rotor fixed reference frame";
+          "Complex magnetic potential difference of stator w.r.t. rotor fixed fixed frame";
         Modelica.SIunits.ComplexMagneticPotentialDifference V_mr
-          "Complex magnetic potential difference of rotor w.r.t. rotor reference frame";
+          "Complex magnetic potential difference of rotor w.r.t. rotor fixed frame";
         Modelica.SIunits.ComplexMagneticPotentialDifference V_mrr=V_mr*
             Modelica.ComplexMath.fromPolar(1, gammar)
-          "Complex magnetic potential difference of rotor w.r.t. rotor fixed reference frame";
+          "Complex magnetic potential difference of rotor w.r.t. rotor fixed fixed frame";
         // Complex phasors of magnetic fluxes
         Modelica.SIunits.ComplexMagneticFlux Phi_s
-          "Complex magnetic flux of stator w.r.t. stator reference frame";
+          "Complex magnetic flux of stator w.r.t. stator fixed frame";
         Modelica.SIunits.ComplexMagneticFlux Phi_sr=Phi_s*
             Modelica.ComplexMath.fromPolar(1, gammar)
-          "Complex magnetic flux of stator w.r.t. rotor fixed reference frame";
+          "Complex magnetic flux of stator w.r.t. rotor fixed fixed frame";
         Modelica.SIunits.ComplexMagneticFlux Phi_r
-          "Complex magnetic flux of rotor w.r.t. rotor reference frame";
+          "Complex magnetic flux of rotor w.r.t. rotor fixed frame";
         Modelica.SIunits.ComplexMagneticFlux Phi_rr=Phi_r*
             Modelica.ComplexMath.fromPolar(1, gammar)
-          "Complex magnetic flux of rotor w.r.t. rotor fixed reference frame";
+          "Complex magnetic flux of rotor w.r.t. rotor fixed fixed frame";
         // Electrical torque and mechanical angle
         Modelica.SIunits.Torque tauElectrical "Electrical torque";
-        // Modelica.SIunits.Torque tauTemp "Electrical torque";
         Modelica.SIunits.Angle gamma=p*(flange_a.phi - support.phi)
           "Electrical angle between rotor and stator";
         Modelica.SIunits.Angle gammas=port_sp.reference.gamma
-          "Angle electrical quantities in stator reference frame";
+          "Angle electrical quantities in stator fixed frame";
         Modelica.SIunits.Angle gammar=port_rp.reference.gamma
-          "Angle electrical quantities in rotor reference frame";
+          "Angle electrical quantities in rotor fixedframe";
       equation
-        // Stator flux into positive stator port
-        port_sp.Phi = Phi_s;
-        // Balance of stator flux
-        port_sp.Phi + port_sn.Phi = Complex(0, 0);
-        // Rotor flux into positive rotor port
-        port_rp.Phi = Phi_r;
-        // Balance of rotor flux
-        port_rp.Phi + port_rn.Phi = Complex(0, 0);
-        // Magneto motive force of stator
-        port_sp.V_m - port_sn.V_m = V_ms;
-        // Magneto motive force of stator
-        port_rp.V_m - port_rn.V_m = V_mr;
-        // Stator and rotor flux are equal with respect to different reference frames
+        port_sp.Phi = Phi_s "Stator flux into positive stator port";
+        port_sp.Phi + port_sn.Phi = Complex(0, 0) "Balance of stator flux";
+        port_rp.Phi = Phi_r "Rotor flux into positive rotor port";
+        port_rp.Phi + port_rn.Phi = Complex(0, 0) "Balance of rotor flux";
+        port_sp.V_m - port_sn.V_m = V_ms "Magneto motive force of stator";
+        port_rp.V_m - port_rn.V_m = V_mr "Magneto motive force of rotor";
+        // Stator flux and rotor flux are equal
         Phi_s = Phi_r;
         // Local balance of magneto motive force
         (pi/2.0)*(V_mrr.re + V_msr.re) = Phi_rr.re*R_m.d;
@@ -5577,7 +5569,6 @@ Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding</a>
                   {100,100}}), graphics={
               Ellipse(
                 extent={{-100,100},{100,-100}},
-                lineColor={0,0,0},
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid),
               Line(points={{-100,90},{-100,60},{-80,60}}, color={255,170,85}),
@@ -5586,7 +5577,6 @@ Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding</a>
               Line(points={{40,-60},{100,-60},{100,-90}}, color={255,170,85}),
               Ellipse(
                 extent={{-60,80},{60,-80}},
-                lineColor={0,0,0},
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid),
               Line(points={{0,80},{0,90}})}),

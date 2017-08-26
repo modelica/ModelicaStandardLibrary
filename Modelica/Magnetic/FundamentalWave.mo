@@ -7556,7 +7556,6 @@ heat <a href=\"modelica://Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a\">
           "Complex magnetic flux of rotor w.r.t. rotor fixed frame";
         // Electrical torque and mechanical angle
         Modelica.SIunits.Torque tauElectrical "Electrical torque";
-        // Modelica.SIunits.Torque tauTemp "Electrical torque";
         Modelica.SIunits.Angle gamma
           "Electrical angle between rotor and stator";
         Complex rotator "Equivalent vector representation of orientation";
@@ -7566,7 +7565,7 @@ heat <a href=\"modelica://Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a\">
         port_rp.Phi = Phi_rr "Rotor flux into positive rotor port";
         port_rp.Phi + port_rn.Phi = Complex(0, 0) "Balance of rotor flux";
         port_sp.V_m - port_sn.V_m = V_mss "Magneto motive force of stator";
-        port_rp.V_m - port_rn.V_m = V_mrr "Magneto motive force of stator";
+        port_rp.V_m - port_rn.V_m = V_mrr "Magneto motive force of rotor";
         // Transformations between stator and rotor fixed frame
         V_msr = V_mss*Modelica.ComplexMath.conj(rotator);
         Phi_sr = Phi_ss*Modelica.ComplexMath.conj(rotator);
@@ -7586,7 +7585,6 @@ heat <a href=\"modelica://Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a\">
                   -100},{100,100}}), graphics={
               Ellipse(
                 extent={{-100,100},{100,-100}},
-                lineColor={0,0,0},
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid),
               Line(points={{-100,90},{-100,60},{-80,60}}, color={255,128,0}),
@@ -7595,7 +7593,6 @@ heat <a href=\"modelica://Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a\">
               Line(points={{40,-60},{100,-60},{100,-90}}, color={255,128,0}),
               Ellipse(
                 extent={{-60,80},{60,-80}},
-                lineColor={0,0,0},
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid),
               Line(points={{0,80},{0,90}})}), Documentation(info="<html>
@@ -7621,7 +7618,7 @@ The air gap model has two magnetic stator and two magnetic rotor
 according to the following figure.
 </p>
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
-  <caption align=\"bottom\"><b>Fig:</b> Magnetic equivalent circuit of the air gap model</caption>
+  <caption align=\"bottom\"><strong>Fig:</strong> Magnetic equivalent circuit of the air gap model</caption>
   <tr>
     <td>
       <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/Machines/Components/airgap_phasors.png\">
