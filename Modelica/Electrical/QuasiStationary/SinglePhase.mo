@@ -446,7 +446,7 @@ Every electrical circuit, e.g., a series resonance
       parameter Modelica.SIunits.Resistance R_ref(start=1) "Reference resistance at T_ref";
       parameter Modelica.SIunits.Temperature T_ref=293.15 "Reference temperature";
       parameter Modelica.SIunits.LinearTemperatureCoefficient alpha_ref=0 "Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
-      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=T_ref);
+      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=T_ref);
       Modelica.SIunits.Resistance R_actual "Resistance = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
     equation
       assert((1 + alpha_ref*(T_heatPort - T_ref)) >= Modelica.Constants.eps,
@@ -504,7 +504,7 @@ A linear temperature dependency of the resistance is also taken into account.
       parameter Modelica.SIunits.Conductance G_ref(start=1) "Reference conductance at T_ref";
       parameter Modelica.SIunits.Temperature T_ref=293.15 "Reference temperature";
       parameter Modelica.SIunits.LinearTemperatureCoefficient alpha_ref=0 "Temperature coefficient of conductance (G_actual = G_ref/(1 + alpha_ref*(heatPort.T - T_ref))";
-      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=T_ref);
+      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=T_ref);
       Modelica.SIunits.Conductance G_actual "Conductance = G_ref/(1 + alpha_ref*(heatPort.T - T_ref))";
     equation
       assert((1 + alpha_ref*(T_heatPort - T_ref)) >= Modelica.Constants.eps,
@@ -665,7 +665,7 @@ The Inductance <code>L</code> is allowed to be positive, zero, or negative.
       parameter Modelica.SIunits.ComplexImpedance Z_ref(re(start=1),im(start=0)) "Complex impedance R_ref + j*X_ref";
       parameter Modelica.SIunits.Temperature T_ref=293.15 "Reference temperature";
       parameter Modelica.SIunits.LinearTemperatureCoefficient alpha_ref=0 "Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
-      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=T_ref);
+      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=T_ref);
       Modelica.SIunits.Resistance R_actual "Resistance = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
       final parameter Modelica.SIunits.Resistance R_ref=real(Z_ref) "Resistive component of impedance";
       final parameter Modelica.SIunits.Reactance X_ref=imag(Z_ref) "Reactive component of impedance";
@@ -727,7 +727,7 @@ the actual operating temperature and the reference input resistance <code>real(<
       parameter Modelica.SIunits.ComplexAdmittance Y_ref(re(start=1),im(start=0)) "Complex admittance G_ref + j*B_ref";
       parameter Modelica.SIunits.Temperature T_ref=293.15 "Reference temperature";
       parameter Modelica.SIunits.LinearTemperatureCoefficient alpha_ref=0 "Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
-      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=T_ref);
+      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=T_ref);
       Modelica.SIunits.Conductance G_actual "Resistance = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
       final parameter Modelica.SIunits.Conductance G_ref=real(Y_ref) "Resistive component of conductance";
       final parameter Modelica.SIunits.Susceptance B_ref=imag(Y_ref) "Reactive component of susceptance";
@@ -785,7 +785,7 @@ the actual operating temperature and the reference input conductance <code>real(
       import Modelica.ComplexMath.conj;
       parameter Modelica.SIunits.Temperature T_ref=293.15 "Reference temperature";
       parameter Modelica.SIunits.LinearTemperatureCoefficient alpha_ref=0 "Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
-      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=T_ref);
+      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=T_ref);
       Modelica.SIunits.Resistance R_actual "Resistance = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
       Modelica.Blocks.Interfaces.RealInput R_ref(unit="Ohm") "Variable resistance"
                               annotation (Placement(transformation(
@@ -856,7 +856,7 @@ A zero crossing of the R signal could cause singularities due to the actual stru
       import Modelica.ComplexMath.conj;
       parameter Modelica.SIunits.Temperature T_ref=293.15 "Reference temperature";
       parameter Modelica.SIunits.LinearTemperatureCoefficient alpha_ref=0 "Temperature coefficient of conductance (G_actual = G_ref/(1 + alpha_ref*(heatPort.T - T_ref))";
-      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=T_ref);
+      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=T_ref);
       Modelica.SIunits.Conductance G_actual "Conductance = G_ref/(1 + alpha_ref*(heatPort.T - T_ref))";
       Modelica.Blocks.Interfaces.RealInput G_ref(unit="S") "Variable conductance"
                                annotation (Placement(transformation(
@@ -1056,7 +1056,7 @@ The abstraction of a variable inductor at quasi stationary operation assumes:
       import Modelica.ComplexMath.conj;
       parameter Modelica.SIunits.Temperature T_ref=293.15 "Reference temperature";
       parameter Modelica.SIunits.LinearTemperatureCoefficient alpha_ref=0 "Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
-      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=T_ref);
+      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=T_ref);
       Modelica.SIunits.Resistance R_actual "Resistance = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
       Modelica.ComplexBlocks.Interfaces.ComplexInput Z_ref "Variable complex impedance"
                                       annotation (Placement(transformation(
@@ -1139,7 +1139,7 @@ singularities due to the actual structure of the connected network.
       import Modelica.ComplexMath.conj;
       parameter Modelica.SIunits.Temperature T_ref=293.15 "Reference temperature";
       parameter Modelica.SIunits.LinearTemperatureCoefficient alpha_ref=0 "Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
-      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=T_ref);
+      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=T_ref);
       Modelica.SIunits.Conductance G_actual "Resistance = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
       Modelica.ComplexBlocks.Interfaces.ComplexInput Y_ref "Variable complex admittance"
                                       annotation (Placement(transformation(

@@ -309,7 +309,7 @@ The reason could be that
     annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
     parameter SI.Temperature T=293.15
       "Fixed device temperature if useHeatPort = false" annotation(Dialog(enable=not useHeatPort));
-    Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort(T=T_heatPort, Q_flow=-LossPower) if useHeatPort
+    Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort(final T=T_heatPort, final Q_flow=-LossPower) if useHeatPort
       "Conditional heat port"
       annotation (Placement(transformation(extent={{-10,-110},{10,-90}}),
           iconTransformation(extent={{-10,-110},{10,-90}})));
