@@ -1907,12 +1907,10 @@ matrix A was interchanged with row pivots[i].
   algorithm
     if size(A, 1) > 0 then
       if onlyEigenvalues then
-        (eigenvalues[:, 1],eigenvalues[:, 2],info) := LAPACK.dgeev_eigenValues(
-          A);
+        (eigenvalues[:, 1],eigenvalues[:, 2],info) := LAPACK.dgeev_eigenValues(A);
         eigenvectors := zeros(size(A, 1), size(A, 1));
       else
-        (eigenvalues[:, 1],eigenvalues[:, 2],eigenvectors,info) := LAPACK.dgeev(
-          A);
+        (eigenvalues[:, 1],eigenvalues[:, 2],eigenvectors,info) := LAPACK.dgeev(A);
       end if;
       assert(info == 0, "Calculating the eigen values with function
 \"Matrices.eigenvalues\" is not possible, since the
