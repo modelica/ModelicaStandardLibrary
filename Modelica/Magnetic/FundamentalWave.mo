@@ -65,8 +65,8 @@ The specific arrangement of windings in electric machines with <img src=\"modeli
 </p>
 
 <p>
-The main components of an electric machine model based on the FundamentalWave library are <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding\">multi phase</a> and <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SinglePhaseWinding\">single phase windings</a>, <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap\">air gap</a> as well as <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding\">symmetric</a> or <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SaliencyCageWinding\">salient cage</a> models.
-The electric machine models provided in this library are based on symmetrical windings in the stator and equivalent two or three phase windings in squirrel cage rotors. Slip ring induction machines may have different phase numbers in the stator and rotor.
+The main components of an electric machine model based on the FundamentalWave library are <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding\">multi-phase</a> and <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SinglePhaseWinding\">single-phase windings</a>, <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap\">air gap</a> as well as <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding\">symmetric</a> or <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SaliencyCageWinding\">salient cage</a> models.
+The electric machine models provided in this library are based on symmetrical windings in the stator and equivalent two or three-phase windings in squirrel cage rotors. Slip ring induction machines may have different phase numbers in the stator and rotor.
 </p>
 
 <h4>Assumptions</h4>
@@ -104,13 +104,13 @@ The term <strong>fundamental wave</strong> refers to spatial waves of the electr
 </html>"));
     end Concept;
 
-    class MultiPhase "Multi phase windings"
+    class MultiPhase "Multi-phase windings"
       extends Modelica.Icons.Information;
       annotation (Documentation(info="<html>
-<h4>Symmetrical three phase system</h4>
+<h4>Symmetrical three-phase system</h4>
 
 <p>
-Symmetrical three phases systems of currents (or voltages) consists of three sinusoidal
+Symmetrical three-phases systems of currents (or voltages) consists of three sinusoidal
 sine waves with with an angular displacement of
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/2pi_3.png\"/>.
 </p>
@@ -120,14 +120,14 @@ sine waves with with an angular displacement of
 </p>
 
 <p>
-Electrical three phase machines have (usually) symmetrical three phase windings which
+Electrical three-phase machines have (usually) symmetrical three-phase windings which
 excite spatial magnetic potential with a spacial displacement of
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/2pi_3.png\"/>
 - with respect to the fundamental wave,
 see [<a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.References\">Laughton02</a>].
-Such a symmetrical three phase system of currents (or voltages) can be represented by
+Such a symmetrical three-phase system of currents (or voltages) can be represented by
 <a href=\"http://en.wikipedia.org/wiki/Phasor\">phasors</a>, as depicted in Fig. 1(a).
-The associated three phase winding is depicted in Fig. 2(a). The winding axis are displaced by
+The associated three-phase winding is depicted in Fig. 2(a). The winding axis are displaced by
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/2pi_3.png\"/>:
 </p>
 
@@ -137,11 +137,11 @@ The associated three phase winding is depicted in Fig. 2(a). The winding axis ar
 
 <p>
 So there is is a strong coherence between angular displacement in the time and
-spatial domain which also applies to multi phase systems.
+spatial domain which also applies to multi-phase systems.
 </p>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
-  <caption align=\"bottom\"><strong>Fig. 1: </strong>Symmetrical (a) three phase and (b) five phase current system</caption>
+  <caption align=\"bottom\"><strong>Fig. 1: </strong>Symmetrical (a) three-phase and (b) five phase current system</caption>
   <tr>
     <td>
       <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/phase35.png\"
@@ -151,7 +151,7 @@ spatial domain which also applies to multi phase systems.
 </table>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
-  <caption align=\"bottom\"><strong>Fig. 2: </strong>Symmetrical (a) three phase and (b) five phase winding</caption>
+  <caption align=\"bottom\"><strong>Fig. 2: </strong>Symmetrical (a) three-phase and (b) five phase winding</caption>
   <tr>
     <td>
       <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/winding35.png\"
@@ -160,16 +160,16 @@ spatial domain which also applies to multi phase systems.
   </tr>
 </table>
 
-<h4>Symmetrical multi phase system</h4>
+<h4>Symmetrical multi-phase system</h4>
 
 <p>
-In symmetrical multi phase systems odd and even phase numbers have to be distinguished.
+In symmetrical multi-phase systems odd and even phase numbers have to be distinguished.
 </p>
 
 <h5>Odd number of phases</h5>
 
 <p>
-For a symmetrical multi phase system with <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/m.png\"/>
+For a symmetrical multi-phase system with <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/m.png\"/>
 phases the displacement in the time and spatial domain is
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/2pi_m.png\"/>,
 as depicted in Fig. 1 and 2.
@@ -191,7 +191,7 @@ The orientation of the winding axis of such winding is given by:
 
 <p>
 In the current implementation of the FundamentalWave library, phase numbers equal
-to the power of two are not supported. However, any other multi phase system with even
+to the power of two are not supported. However, any other multi-phase system with even
 an phase number, <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/m.png\"/>,
 can be recursively split into various symmetrical systems with odd phase numbers, as depicted in Fig. 3 and 4.
 The displacement between the two symmetrical systems is
@@ -248,14 +248,14 @@ by:</p>
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Parameters/Lm_m_Lss.png\">
 </p>
 
-<h4>Parameters of equivalent multi phase induction machines models</h4>
+<h4>Parameters of equivalent multi-phase induction machines models</h4>
 
 <p>Assume a set parameters,
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Parameters/Rs_3.png\">,
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Parameters/Lssigma_3.png\">,
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Parameters/L0_3.png\">,
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Parameters/Lm_3.png\">,
-of a three phase induction machine and a set of parameters,
+of a three-phase induction machine and a set of parameters,
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Parameters/Rs_m.png\">,
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Parameters/Lssigma_m.png\">,
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Parameters/L0_m.png\">,
@@ -289,7 +289,7 @@ slip ring induction machine</a>, where the phase number
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Parameters/m.png\">
 is simply replaced by
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Parameters/mr.png\">
-for transforming equivalent three phase to
+for transforming equivalent three-phase to
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Parameters/mr.png\">
 phase winding parameters -- at the same nominal rotor voltage and frequency.
 </p>
@@ -396,7 +396,7 @@ this also includes the removal of the rotor cage heat sensor which previously ha
 <li>Fixed missing default parameter TpmOperational in ambient of PM synchronous machine, see ticket 
 <a href=\"https://github.com/modelica/Modelica/issues/1216\">#1216</a>#1216</li>
 <li>Added voltages, currents, complex flux and magnetic potential difference as global variables in
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.MultiPhaseElectroMagneticConverter\">multi phase converter</a></li>
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.MultiPhaseElectroMagneticConverter\">multi-phase converter</a></li>
 <li>Added two more component examples, showing the equivalent nature of electrical and magnetic domain</li>
 </ul>
 
@@ -443,7 +443,7 @@ Translational.Interfaces</a></li>
 <h5>Version 1.7.0, 2010-05-31</h5>
 
 <ul>
-<li>Changed <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding\">symmetric multi phase winding</a> model
+<li>Changed <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding\">symmetric multi-phase winding</a> model
   <ul>
       <li>Added zero sequence inductance based on
           <a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.ZeroInductor\">zero inductor</a></li>
@@ -454,7 +454,7 @@ Translational.Interfaces</a></li>
           and <a href=\"modelica://Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a\">heat port</a></li>
   </ul></li>
   <li>Added rotor core loss parameters in asynchronous induction machine with slip rings</li>
-  <li>Renamed heat ports of <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SinglePhaseWinding\">single phase winding</a> and <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding\">symmetric multi phase winding</a>
+  <li>Renamed heat ports of <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SinglePhaseWinding\">single-phase winding</a> and <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding\">symmetric multi-phase winding</a>
      </li>
   <li>Relocated core losses between zero inductor and stray reluctance model in the magnetic domain</li>
   <li>Renamed instances of stator and rotor (winding) models in each machines</li>
@@ -465,7 +465,7 @@ Translational.Interfaces</a></li>
   <li>Added machine specific output records to summarize power and loss balance</li>
   <li>Updated images of Users Guide</li>
   <li>Improved performance due to <code>annotation(Evaluate=true)</code> added to the parameters of the
-      <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SinglePhaseWinding\">single phase winding</a>
+      <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SinglePhaseWinding\">single-phase winding</a>
   <li>Reduced number of states in <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseCageWinding\">symmetric cage</a> model by introducing an additional non-grounded star connection</li>
 </ul>
 
@@ -641,7 +641,7 @@ model from R to G</li>
     annotation (DocumentationClass=true, Documentation(info="<html>
 <p>
 This library contains components for modelling of electromagnetic fundamental wave
-models for the application in multi phase phase
+models for the application in multi-phase
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines\">electric machines</a>.
 The number of phases is not restricted to three. DC machines are (currently) not included
 in this library. The FundamentalWave library is an alternative approach to the
@@ -661,7 +661,7 @@ For more details see the <a href=\"modelica://Modelica.Magnetic.FundamentalWave.
 <ul>
 <li>All the machine models provided in this library are equivalent two pole machines.
 The magnetic potential difference of the connector therefore also refers to an equivalent two pole machine</li>
-<li>In machines with <strong>more than three phases</strong> only effects of currents and voltages on the magnetic <strong>fundamental waves</strong> are considered. Other magnetic effects due to higher harmonic are not taken into account.</li>
+<li>In machines with <strong>more than three-phases</strong> only effects of currents and voltages on the magnetic <strong>fundamental waves</strong> are considered. Other magnetic effects due to higher harmonic are not taken into account.</li>
 </ul>
 
 
@@ -822,7 +822,7 @@ In this example the eddy current losses are implemented in two different ways. C
 </html>"));
       end EddyCurrentLosses;
 
-      model SinglePhaseInductance "Single phase inductance"
+      model SinglePhaseInductance "Single-phase inductance"
         extends Modelica.Icons.Example;
         parameter Modelica.SIunits.Frequency f=1 "Supply frequency";
         parameter Modelica.SIunits.Voltage VRMS=100 "RMS supply voltage";
@@ -897,7 +897,7 @@ In this example the eddy current losses are implemented in two different ways. C
         annotation (experiment(StopTime=100, Interval=0.01));
       end SinglePhaseInductance;
 
-      model MultiPhaseInductance "Multi phase inductance"
+      model MultiPhaseInductance "Multi-phase inductance"
         extends Modelica.Icons.Example;
         parameter Integer m=3 "Number of phases";
         parameter Modelica.SIunits.Frequency f=1 "Supply frequency";
@@ -1181,7 +1181,7 @@ In this example the eddy current losses are implemented in two different ways. C
             Tolerance=1e-06), Documentation(info="<html>
 <h4>Direct on line (DOL) starting of an asynchronous induction machine with squirrel cage</h4>
 <p>
-At start time tStart three phase voltage is supplied to the
+At start time tStart three-phase voltage is supplied to the
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage\">asynchronous induction machine with squirrel cage</a>.
 The machine starts from standstill, accelerating
 inertias against load torque quadratic dependent on speed, finally reaching nominal speed.</p>
@@ -1199,9 +1199,9 @@ Simulate for 1.5 seconds and plot (versus time):
       end AIMC_DOL;
 
       model AIMC_DOL_MultiPhase
-        "Direct on line start of multi phase asynchronous induction machine with squirrel cage"
+        "Direct on line start of multi-phase asynchronous induction machine with squirrel cage"
         extends Modelica.Icons.Example;
-        constant Integer m3=3 "Number of stator phases of threephase system";
+        constant Integer m3=3 "Number of stator phases of three-phase system";
         parameter Integer m=5 "Number of stator phases";
         parameter Modelica.SIunits.Voltage VsNominal=100
           "Nominal RMS voltage per phase";
@@ -1418,7 +1418,7 @@ Simulate for 1.5 seconds and plot (versus time):
 <h4>Direct on line (DOL) starting of an asynchronous induction machine with squirrel cage</h4>
 <p>
 At start time tStart voltages are supplied to the
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage\">multi phase asynchronous induction machines with squirrel cage</a>.
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage\">multi-phase asynchronous induction machines with squirrel cage</a>.
 The machines starts from standstill, accelerating
 inertias against load torque quadratic dependent on speed, finally reaching nominal speed. Two equivalent machines with different numbers of phases are compared and their equal behavior is demonstrated.</p>
 
@@ -1429,7 +1429,7 @@ Simulate for 1.5 seconds and plot (versus time):
 <ul>
 <li><code>aimcM|M3.tauElectrical</code>: machine torque</li>
 <li><code>aimsM/M3.wMechanical</code>: machine speed</li>
-<li><code>feedback.y</code>: zero since difference of three phase current phasor and scaled multi phase current phasor are equal</li>
+<li><code>feedback.y</code>: zero since difference of three-phase current phasor and scaled multi-phase current phasor are equal</li>
 </ul>
 </html>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                   -100},{100,100}}),
@@ -1560,7 +1560,7 @@ Simulate for 1.5 seconds and plot (versus time):
             Tolerance=1e-06),                                 Documentation(
               info="<html>
 <strong>Test example: Asynchronous induction machine with squirrel cage - Y-D starting</strong><br>
-At start time tStart three phase voltage is supplied to the asynchronous induction machine with squirrel cage, first star-connected, then delta-connected; the machine starts from standstill, accelerating inertias against load torque quadratic dependent on speed, finally reaching nominal speed.<br>
+At start time tStart three-phase voltage is supplied to the asynchronous induction machine with squirrel cage, first star-connected, then delta-connected; the machine starts from standstill, accelerating inertias against load torque quadratic dependent on speed, finally reaching nominal speed.<br>
 Simulate for 2.5 seconds and plot (versus time):
 <ul>
 <li>currentQuasiRMSSensor.I: stator current RMS</li>
@@ -1736,7 +1736,7 @@ Default machine parameters of model <em>AIM_SquirrelCage</em> are used.
         annotation (experiment(StopTime=2.5, Interval=1E-4, Tolerance=1e-06), Documentation(
               info="<html>
 <strong>Test example: Asynchronous induction machine with squirrel cage - transformer starting</strong><br>
-At start time tStart1 three phase voltage is supplied to the asynchronous induction machine with squirrel cage via the transformer;
+At start time tStart1 three-phase voltage is supplied to the asynchronous induction machine with squirrel cage via the transformer;
 the machine starts from standstill, accelerating inertias against load torque quadratic dependent on speed;
 at start time tStart2 the machine is fed directly from the voltage source, finally reaching nominal speed.<br>
 Simulate for 2.5 seconds and plot (versus time):
@@ -1949,7 +1949,7 @@ Default machine parameters of model <em>AIM_SquirrelCage</em> are used.
             Tolerance=1e-06), Documentation(info="<html>
 <h4>Starting of an asynchronous induction machine with slipring rotor resistance starting</h4>
 <p>
-At start time <code>tOn</code> three phase voltage is supplied to the
+At start time <code>tOn</code> three-phase voltage is supplied to the
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing\">asynchronous induction machine with sliprings</a>.
 The machine starts from standstill, accelerating inertias against load torque quadratic dependent on speed,
 using a starting resistance. At time tRheostat external rotor resistance is shortened, finally reaching nominal speed.</p>
@@ -1967,10 +1967,10 @@ Simulate for 1.5 seconds and plot (versus time):
       end AIMS_Start;
 
       model AIMS_Start_MultiPhase
-        "Starting of multi phase asynchronous induction machine with slip rings"
+        "Starting of multi-phase asynchronous induction machine with slip rings"
 
         extends Modelica.Icons.Example;
-        constant Integer m3=3 "Number of stator phases of threephase system";
+        constant Integer m3=3 "Number of stator phases of three-phase system";
         parameter Integer m=5 "Number of stator phases";
         parameter Integer mr=5 "Number of rotor phases";
         parameter Modelica.SIunits.Voltage VsNominal=100
@@ -2228,7 +2228,7 @@ Simulate for 1.5 seconds and plot (versus time):
 <ul>
 <li><code>aimcM|M3.tauElectrical</code>: machine torque</li>
 <li><code>aimsM|M3.wMechanical</code>: machine speed</li>
-<li><code>feedback.y</code>: zero since difference of three phase current phasor and scaled multi phase current phasor are equal</li>
+<li><code>feedback.y</code>: zero since difference of three-phase current phasor and scaled multi-phase current phasor are equal</li>
 </ul>
 
 </html>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
@@ -2639,7 +2639,7 @@ Default machine parameters of model <em>AIM_SquirrelCage</em> are used.
         annotation (experiment(StopTime=1.5, Interval=1E-4, Tolerance=1e-06), Documentation(
               info="<html>
 <strong>Asynchronous induction machine with squirrel cage - Steinmetz-connection</strong><br>
-At start time tStart single phase voltage is supplied to the asynchronous induction machine with squirrel cage;
+At start time tStart single-phase voltage is supplied to the asynchronous induction machine with squirrel cage;
 the machine starts from standstill, accelerating inertias against load torque quadratic dependent on speed, finally reaching nominal speed.<br>
 Default machine parameters of model <em>AIM_SquirrelCage</em> are used.
 </html>"));
@@ -3214,10 +3214,10 @@ and accelerate the inertias.</p>
       end SMPM_Inverter;
 
       model SMPM_Inverter_MultiPhase
-        "Starting of multi phase permanent magnet synchronous machine with inverter"
+        "Starting of multi-phase permanent magnet synchronous machine with inverter"
 
         extends Modelica.Icons.Example;
-        constant Integer m3=3 "Number of stator phases of threephase system";
+        constant Integer m3=3 "Number of stator phases of three-phase system";
         parameter Integer m=5 "Number of stator phases";
         parameter Modelica.SIunits.Voltage VsNominal=100
           "Nominal RMS voltage per phase";
@@ -3469,7 +3469,7 @@ and accelerate the inertias. Two equivalent machines with different numbers of p
 <ul>
 <li><code>aimcM|M3.tauElectrical</code>: machine torque</li>
 <li><code>aimsM|M3.wMechanical</code>: machine speed</li>
-<li><code>feedback.y</code>: zero since difference of three phase current phasor and scaled multi phase current phasor are equal</li>
+<li><code>feedback.y</code>: zero since difference of three-phase current phasor and scaled multi-phase current phasor are equal</li>
 </ul>
 
 </html>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
@@ -3518,13 +3518,13 @@ and accelerate the inertias. Two equivalent machines with different numbers of p
             fsNominal) "Main field inductance in q-axis";
         parameter Modelica.SIunits.Inductance Lrsigmad=0.05/(2*Modelica.Constants.pi
             *fsNominal)
-          "Damper stray inductance (equivalent three phase winding) d-axis";
+          "Damper stray inductance (equivalent three-phase winding) d-axis";
         parameter Modelica.SIunits.Inductance Lrsigmaq=Lrsigmad
-          "Damper stray inductance (equivalent three phase winding) q-axis";
+          "Damper stray inductance (equivalent three-phase winding) q-axis";
         parameter Modelica.SIunits.Resistance Rrd=0.04
-          "Warm damper resistance (equivalent three phase winding) d-axis";
+          "Warm damper resistance (equivalent three-phase winding) d-axis";
         parameter Modelica.SIunits.Resistance Rrq=Rrd
-          "Warm damper resistance (equivalent three phase winding) q-axis";
+          "Warm damper resistance (equivalent three-phase winding) q-axis";
         Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) annotation (
             Placement(transformation(extent={{-50,80},{-70,100}})));
         Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
@@ -3785,11 +3785,11 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM.rotorDisplacementAngl
       end SMEE_Generator;
 
       model SMEE_Generator_MultiPhase
-        "Electrical excited multi phase synchronous machine operating as generator"
+        "Electrical excited multi-phase synchronous machine operating as generator"
 
         extends Modelica.Icons.Example;
         import Modelica.Constants.pi;
-        constant Integer m3=3 "Number of stator phases of threephase system";
+        constant Integer m3=3 "Number of stator phases of three-phase system";
         parameter Integer m=5 "Number of stator phases";
         parameter Modelica.SIunits.Voltage VsNominal=100
           "Nominal RMS voltage per phase";
@@ -3811,13 +3811,13 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM.rotorDisplacementAngl
             fsNominal) "Main field inductance in q-axis";
         parameter Modelica.SIunits.Inductance Lrsigmad=0.05/(2*Modelica.Constants.pi
             *fsNominal)
-          "Damper stray inductance (equivalent three phase winding) d-axis";
+          "Damper stray inductance (equivalent three-phase winding) d-axis";
         parameter Modelica.SIunits.Inductance Lrsigmaq=Lrsigmad
-          "Damper stray inductance (equivalent three phase winding) q-axis";
+          "Damper stray inductance (equivalent three-phase winding) q-axis";
         parameter Modelica.SIunits.Resistance Rrd=0.04
-          "Warm damper resistance (equivalent three phase winding) d-axis";
+          "Warm damper resistance (equivalent three-phase winding) d-axis";
         parameter Modelica.SIunits.Resistance Rrq=Rrd
-          "Warm damper resistance (equivalent three phase winding) q-axis";
+          "Warm damper resistance (equivalent three-phase winding) q-axis";
         Modelica.Electrical.MultiPhase.Basic.Star star3(final m=m3) annotation (
            Placement(transformation(extent={{-50,-30},{-70,-10}})));
         Modelica.Electrical.Analog.Basic.Ground ground3 annotation (Placement(
@@ -4114,7 +4114,7 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM3.rotorDisplacementAng
 <ul>
 <li><code>aimcM|M3.tauElectrical</code>: machine torque</li>
 <li><code>aimsM|M3.wMechanical</code>: machine speed</li>
-<li><code>feedback.y</code>: zero since difference of three phase current phasor and scaled multi phase current phasor are equal</li>
+<li><code>feedback.y</code>: zero since difference of three-phase current phasor and scaled multi-phase current phasor are equal</li>
 </ul>
 
 </html>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
@@ -4352,10 +4352,10 @@ Simulate for 1.5 seconds and plot (versus time):
       end SMR_Inverter;
 
       model SMR_Inverter_MultiPhase
-        "Starting of multi phase synchronous reluctance machine with inverter"
+        "Starting of multi-phase synchronous reluctance machine with inverter"
 
         extends Modelica.Icons.Example;
-        constant Integer m3=3 "Number of stator phases of threephase system";
+        constant Integer m3=3 "Number of stator phases of three-phase system";
         parameter Integer m=5 "Number of stator phases";
         parameter Modelica.SIunits.Voltage VsNominal=100
           "Nominal RMS voltage per phase";
@@ -4603,7 +4603,7 @@ Simulate for 1.5 seconds and plot (versus time):
 <ul>
 <li><code>aimcM|M3.tauElectrical</code>: machine torque</li>
 <li><code>aimsM|M3.wMechanical</code>: machine speed</li>
-<li><code>feedback.y</code>: zero since difference of three phase current phasor and scaled multi phase current phasor are equal</li>
+<li><code>feedback.y</code>: zero since difference of three-phase current phasor and scaled multi-phase current phasor are equal</li>
 </ul>
 
 </html>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
@@ -5788,7 +5788,7 @@ relationship of the voltage and current space phasor.
     end EddyCurrent;
 
     model SinglePhaseElectroMagneticConverter
-      "Single phase electro magnetic converter"
+      "Single-phase electro magnetic converter"
       import Modelica.Constants.pi;
       Modelica.Electrical.Analog.Interfaces.PositivePin pin_p "Positive pin"
         annotation (Placement(transformation(
@@ -5809,7 +5809,7 @@ relationship of the voltage and current space phasor.
       parameter Modelica.SIunits.Angle orientation
         "Orientation of the resulting fundamental wave V_m phasor"
         annotation (Evaluate=true);
-      // Local electric single phase quantities
+      // Local electric single-phase quantities
       Modelica.SIunits.Voltage v "Voltage";
       Modelica.SIunits.Current i "Current";
 
@@ -5880,11 +5880,11 @@ relationship of the voltage and current space phasor.
               rotation=270)}),
         Documentation(info="<html>
 <p>
-The single phase winding has an effective number of turns, <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/effectiveTurns.png\"> and a respective orientation of the winding, <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/orientation.png\">. The current in winding is <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/i.png\">.
+The single-phase winding has an effective number of turns, <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/effectiveTurns.png\"> and a respective orientation of the winding, <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/orientation.png\">. The current in winding is <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/i.png\">.
 </p>
 
 <p>
-The total complex magnetic potential difference of the single phase winding is determined by:
+The total complex magnetic potential difference of the single-phase winding is determined by:
 </p>
 
 <p>
@@ -5902,7 +5902,7 @@ The voltage <img src=\"modelica://Modelica/Resources/Images/Magnetic/Fundamental
 &nbsp;&nbsp;<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/Components/singlephaseconverter_phi.png\">
 </p>
 
-<p>The single phase electromagnetic converter is a special case of the
+<p>The single-phase electromagnetic converter is a special case of the
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.MultiPhaseElectroMagneticConverter\">MultiPhaseElectroMagneticConverter</a>
 </p>
 
@@ -6004,7 +6004,7 @@ Each phase <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalW
 </p>
 
 <p>
-The total complex magnetic potential difference of the multi phase winding is determined by:
+The total complex magnetic potential difference of the multi-phase winding is determined by:
 </p>
 
 <p>
@@ -7108,9 +7108,9 @@ The symmetry of the stator is assumed. For rotor asymmetries can be taken into a
                       lineColor={0,0,255},
                       textString="%name")}), Documentation(info="<html>
 <p>
-The single phase winding consists of a winding
+The single-phase winding consists of a winding
 <a href=\"modelica://Modelica.Electrical.Analog.Basic.Resistor\">resistor</a>, a
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.SinglePhaseElectroMagneticConverter\">single phase electromagnetic coupling</a> and a <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.Reluctance\">stray reluctance</a>.
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.SinglePhaseElectroMagneticConverter\">single-phase electromagnetic coupling</a> and a <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.Reluctance\">stray reluctance</a>.
 </p>
 
 <h4>See also</h4>
@@ -7287,10 +7287,10 @@ The single phase winding consists of a winding
                 lineColor={0,0,255},
                 textString="%name")}), Documentation(info="<html>
 <p>
-The symmetrical multi phase winding consists of a symmetrical winding
+The symmetrical multi-phase winding consists of a symmetrical winding
 <a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.Resistor\">resistor</a>, a
 <a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.ZeroInductor\">zero inductor</a> as well as a symmetrical
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.MultiPhaseElectroMagneticConverter\">multi phase electromagnetic coupling</a> and a
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.MultiPhaseElectroMagneticConverter\">multi-phase electromagnetic coupling</a> and a
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.Reluctance\">stray reluctance</a> and a
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.EddyCurrent\">core loss</a> model including
 heat <a href=\"modelica://Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a\">port</a>.
@@ -7829,7 +7829,7 @@ The permanent magnet is modeled by a magnetic potential difference. The internal
             points={{-40,-90},{-40,-100},{0,-100}}, color={191,0,0}));
         connect(resistor.plug_n, starAuxiliary.plug_p) annotation (Line(
             points={{-20,-80},{30,-80}}, color={0,0,255}));
-        annotation (obsolete="Wrong structure of multi phase cage, see #1536",
+        annotation (obsolete="Wrong structure of multi-phase cage, see #1536",
           Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                   {100,100}}), graphics={Ellipse(
                       extent={{-80,80},{80,-80}},

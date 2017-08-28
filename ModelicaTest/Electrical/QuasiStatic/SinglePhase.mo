@@ -1,10 +1,10 @@
 within ModelicaTest.Electrical.QuasiStatic;
-package SinglePhase "Single phase quasi static package"
+package SinglePhase "Single-phase quasi static package"
   extends Modelica.Icons.ExamplesPackage;
   model SerialConnection "Example of serial connections"
     extends Modelica.Icons.Example;
     output Modelica.SIunits.ComplexVoltage v = voltageSensor.y "Total voltage";
-    Modelica.Electrical.QuasiStationary.SinglePhase.Sources.VariableCurrentSource currentSource(gamma(fixed=true, start=0))                                                  annotation (Placement(transformation(
+    Modelica.Electrical.QuasiStationary.SinglePhase.Sources.VariableCurrentSource currentSource(gamma(fixed=true, start=0)) annotation (Placement(transformation(
           extent={{-10,-10},{10,10}},
           rotation=90,
           origin={-50,-20})));
@@ -37,7 +37,7 @@ package SinglePhase "Single phase quasi static package"
           extent={{-10,10},{10,-10}},
           rotation=270,
           origin={-20,-20})));
-    Modelica.ComplexBlocks.Sources.ComplexConstant const6(k(re=1, im=0))       annotation (Placement(transformation(extent={{-100,-60},{-80,-40}})));
+    Modelica.ComplexBlocks.Sources.ComplexConstant const6(k(re=1, im=0)) annotation (Placement(transformation(extent={{-100,-60},{-80,-40}})));
     Modelica.Blocks.Sources.Ramp ramp(
       height=80,
       duration=1,
@@ -68,7 +68,7 @@ package SinglePhase "Single phase quasi static package"
     connect(ramp.y, currentSource.f) annotation (Line(points={{-79,-20},{-74,-20},{-70,-20},{-70,-16},{-60,-16}}, color={0,0,127}));
     annotation (      experiment(StopTime=1),
       Documentation(info="<html>
-<p>Serial connection of different single phase basic components</p>
+<p>Serial connection of different single-phase basic components</p>
 </html>"));
   end SerialConnection;
 
@@ -154,7 +154,7 @@ package SinglePhase "Single phase quasi static package"
     connect(currentSensor.pin_p, variableAdmittance.pin_n) annotation (Line(points={{-60,-20},{-35,-20},{-10,-20}}, color={85,170,255}));
     connect(currentSensor.pin_n, voltageSource.pin_n) annotation (Line(points={{-80,-20},{-90,-20},{-90,0}}, color={85,170,255}));
     annotation (experiment(StopTime=1),      Documentation(info="<html>
-<p>Serial connection of different single phase ideal components and temperature dependent basic components</p>
+<p>Serial connection of different single-phase ideal components and temperature dependent basic components</p>
 </html>"));
   end Ideal;
 end SinglePhase;

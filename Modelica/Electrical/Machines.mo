@@ -120,7 +120,7 @@ email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
   <li>Unified simulation tolerances, see 
       <a href=\"https://github.com/modelica/Modelica/issues/2278\">#2278</a></li>
   <li>Fixed icons of Modelica.Electrical.Machines.BasicMachines.Components, see #2031</li>
-  <li>Updated blocks and functions towards multi phase systems greater or equal to three</li>
+  <li>Updated blocks and functions towards multi-phase systems greater or equal to three</li>
   <li>Added standard blocks and functions</li>
   <li>Improved documentation</li>
   <li>Added alias for rotor current in squirrel cage model</li>
@@ -511,7 +511,7 @@ This is the library of electric machine models.
         annotation (experiment(StopTime=1.5, Interval=1E-4, Tolerance=1e-06), Documentation(
               info="<html>
 <strong>Test example: Asynchronous induction machine with squirrel cage - direct on line starting</strong><br>
-At start time tStart three phase voltage is supplied to the asynchronous induction machine with squirrel cage;
+At start time tStart three-phase voltage is supplied to the asynchronous induction machine with squirrel cage;
 the machine starts from standstill, accelerating inertias against load torque quadratic dependent on speed, finally reaching nominal speed.<br>
 Simulate for 1.5 seconds and plot (versus time):
 <ul>
@@ -635,7 +635,7 @@ Default machine parameters of model <em>AIM_SquirrelCage</em> are used.
         annotation (experiment(StopTime=2.5, Interval=1E-4, Tolerance=1e-06), Documentation(
               info="<html>
 <strong>Test example: Asynchronous induction machine with squirrel cage - Y-D starting</strong><br>
-At start time tStart three phase voltage is supplied to the asynchronous induction machine with squirrel cage, first star-connected, then delta-connected; the machine starts from standstill, accelerating inertias against load torque quadratic dependent on speed, finally reaching nominal speed.<br>
+At start time tStart three-phase voltage is supplied to the asynchronous induction machine with squirrel cage, first star-connected, then delta-connected; the machine starts from standstill, accelerating inertias against load torque quadratic dependent on speed, finally reaching nominal speed.<br>
 Simulate for 2.5 seconds and plot (versus time):
 <ul>
 <li>currentQuasiRMSSensor.I: stator current RMS</li>
@@ -817,7 +817,7 @@ Default machine parameters of model <em>AIM_SquirrelCage</em> are used.
         annotation (experiment(StopTime=2.5, Interval=1E-4, Tolerance=1e-06), Documentation(
               info="<html>
 <strong>Test example: Asynchronous induction machine with squirrel cage - transformer starting</strong><br>
-At start time tStart1 three phase voltage is supplied to the asynchronous induction machine with squirrel cage via the transformer;
+At start time tStart1 three-phase voltage is supplied to the asynchronous induction machine with squirrel cage via the transformer;
 the machine starts from standstill, accelerating inertias against load torque quadratic dependent on speed;
 at start time tStart2 the machine is fed directly from the voltage source, finally reaching nominal speed.<br>
 Simulate for 2.5 seconds and plot (versus time):
@@ -953,7 +953,7 @@ Default machine parameters of model <em>AIM_SquirrelCage</em> are used.
         annotation (experiment(StopTime=1.5, Interval=1E-4, Tolerance=1e-06), Documentation(
               info="<html>
 <strong>Test example: Asynchronous induction machine with slipring rotor - resistance starting</strong><br>
-At start time tStart1 three phase voltage is supplied to the asynchronous induction machine with sliprings;
+At start time tStart1 three-phase voltage is supplied to the asynchronous induction machine with sliprings;
 the machine starts from standstill, accelerating inertias against load torque quadratic dependent on speed,
 using a starting resistance. At time tStart2 external rotor resistance is shortened, finally reaching nominal speed.<br>
 Simulate for 1.5 seconds and plot (versus time):
@@ -1374,7 +1374,7 @@ Default machine parameters of model <em>AIM_SquirrelCage</em> are used.
         annotation (experiment(StopTime=1.5, Interval=1E-4, Tolerance=1e-06), Documentation(
               info="<html>
 <strong>Asynchronous induction machine with squirrel cage - Steinmetz-connection</strong><br>
-At start time tStart single phase voltage is supplied to the asynchronous induction machine with squirrel cage;
+At start time tStart single-phase voltage is supplied to the asynchronous induction machine with squirrel cage;
 the machine starts from standstill, accelerating inertias against load torque quadratic dependent on speed, finally reaching nominal speed.<br>
 Default machine parameters of model <em>AIM_SquirrelCage</em> are used.
 </html>"));
@@ -3558,7 +3558,7 @@ Default machine parameters of model <em>DC_SeriesExcited</em> are used.
             points={{39,10},{12,10}}, color={0,0,127}));
         annotation (experiment(StopTime=2.0, Interval=1E-4, Tolerance=1E-6), Documentation(
               info="<html>
-<strong>Test example: Series excited DC machine at singlephase AC voltage started with a series resistor</strong><br>
+<strong>Test example: Series excited DC machine at single-phase AC voltage started with a series resistor</strong><br>
 At sinusoidal source voltage, a series resistor limiting the armature current, is reduced according to a ramp, causing the DC machine to start,
 and accelerating inertias against load torque quadratic dependent on speed, finally reaching nominal speed.<br>
 Simulate for 2 seconds and plot (versus time):
@@ -4490,7 +4490,7 @@ In some cases it may be necessary to ground the transformer's starpoint even tho
         connect(earth.n, groundT.p) annotation (Line(points={{-10,-50},{-10,-50},
                 {-10,-60}}, color={0,0,255}));
         annotation (Documentation(info="<html>
-<h4>Asymmetrical (singlephase) load:</h4>
+<h4>Asymmetrical (single-phase) load:</h4>
 <p>
 You may choose different connections.
 </p>
@@ -4641,7 +4641,7 @@ In some cases it may be necessary to ground the transformer's starpoint even tho
         connect(transformer1.plug2, diode1.plug_p) annotation (Line(
             points={{-30,40},{-20,40},{-20,50}}, color={0,0,255}));
         annotation (Documentation(info="<html>
-Test example with multiphase components:<br>
+Test example with multi-phase components:<br>
 Star-connected voltage source feeds via a transformer a diode bridge rectifier with a DC burden.<br>
 Using f=50 Hz, simulate for 0.1 seconds (5 periods) and compare voltages and currents of source and DC burden,
 neglecting initial transient.
@@ -4718,7 +4718,7 @@ neglecting initial transient.
         connect(transformer2.plug1, currentSensor.plug_n) annotation (Line(
             points={{-50,-40},{-60,-40},{-60,0}}, color={0,0,255}));
         annotation (Documentation(info="<html>
-Test example with multiphase components:<br>
+Test example with multi-phase components:<br>
 Star-connected voltage source feeds via two transformers (Dd0 and Dy1) two diode bridge rectifiers with a single DC burden.<br>
 Using f=50 Hz, simulate for 0.1 seconds (5 periods) and compare voltages and currents of source and DC burden,
 neglecting initial transient.
@@ -4732,7 +4732,7 @@ neglecting initial transient.
         annotation (experiment(StopTime=2.5, Interval=1E-4, Tolerance=1E-6), Documentation(
               info="<html>
 <strong>Test example: Asynchronous induction machine with squirrel cage - transformer starting</strong><br>
-At start time tStart1 three phase voltage is supplied to the asynchronous induction machine with squirrel cage via the transformer;
+At start time tStart1 three-phase voltage is supplied to the asynchronous induction machine with squirrel cage via the transformer;
 the machine starts from standstill, accelerating inertias against load torque quadratic dependent on speed;
 at start time tStart2 the machine is fed directly from the voltage source, finally reaching nominal speed.<br>
 Simulate for 2.5 seconds and plot (versus time):
@@ -4827,10 +4827,10 @@ This package contains test examples of electric machines.
           annotation (Dialog(tab="Nominal resistances and inductances"));
         parameter Modelica.SIunits.Inductance Lrsigma(start=3*(1 - sqrt(1 -
               0.0667))/(2*pi*fsNominal))
-          "Rotor stray inductance per phase (equivalent three phase winding)"
+          "Rotor stray inductance per phase (equivalent three-phase winding)"
           annotation (Dialog(tab="Nominal resistances and inductances"));
         parameter Modelica.SIunits.Resistance Rr(start=0.04)
-          "Rotor resistance per phase (equivalent three phase winding) at TRef"
+          "Rotor resistance per phase (equivalent three-phase winding) at TRef"
           annotation (Dialog(tab="Nominal resistances and inductances"));
         parameter Modelica.SIunits.Temperature TrRef(start=293.15)
           "Reference temperature of rotor resistance"
@@ -4865,7 +4865,7 @@ This package contains test examples of electric machines.
         connect(airGapS.support, internalSupport) annotation (Line(
             points={{-10,0},{-40,0},{-40,-90},{60,-90},{60,-100}}));
         annotation (defaultComponentName="aimc", Documentation(info="<html>
-<p><strong>Model of a three phase asynchronous induction machine with squirrel cage.</strong><br>
+<p><strong>Model of a three-phase asynchronous induction machine with squirrel cage.</strong><br>
 Resistance and stray inductance of stator is modeled directly in stator phases, then using space phasor transformation. Resistance and stray inductance of rotor's squirrel cage is modeled in two axis of the rotor-fixed coordinate system. Both together connected via a stator-fixed <em>AirGap</em> model. The machine models take the following loss effects into account:
 </p>
 
@@ -5142,7 +5142,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
         annotation (
           defaultComponentName="aims",
           Documentation(info="<html>
-<p><strong>Model of a three phase asynchronous induction machine with slipring rotor.</strong><br>
+<p><strong>Model of a three-phase asynchronous induction machine with slipring rotor.</strong><br>
 Resistance and stray inductance of stator and rotor are modeled directly in stator respectively rotor phases, then using space phasor transformation and a stator-fixed <em>AirGap</em> model. The machine models take the following loss effects into account:
 </p>
 
@@ -5489,7 +5489,7 @@ These models use package SpacePhasors.
                 fillPattern=FillPattern.Solid),
               Ellipse(extent={{-134,34},{-66,-34}}, lineColor={0,0,255})}),
           Documentation(info="<html>
-<p><strong>Model of a three phase permanent magnet synchronous induction machine.</strong><br>
+<p><strong>Model of a three-phase permanent magnet synchronous induction machine.</strong><br>
 Resistance and stray inductance of stator is modeled directly in stator phases, then using space phasor transformation and a rotor-fixed <em>AirGap</em> model. Resistance and stray inductance of rotor's squirrel cage is modeled in two axis of the rotor-fixed coordinate system. Permanent magnet excitation is modelled by a constant equivalent excitation current feeding the d-axis. The machine models take the following loss effects into account:
 </p>
 
@@ -5863,7 +5863,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
               Line(points={{-100,-50},{-100,-20},{-70,-20},{-70,-2}}, color={0,
                     0,255})}),
           Documentation(info="<html>
-<p><strong>Model of a three phase electrical excited synchronous induction machine with damper cage.</strong><br>
+<p><strong>Model of a three-phase electrical excited synchronous induction machine with damper cage.</strong><br>
 Resistance and stray inductance of stator is modeled directly in stator phases, then using space phasor transformation and a rotor-fixed <em>AirGap</em> model. Resistance and stray inductance of rotor's squirrel cage is modeled in two axis of the rotor-fixed coordinate system. Electrical excitation is modelled by converting excitation current and voltage to d-axis space phasors. The machine models take the following loss effects into account:
 </p>
 
@@ -6183,7 +6183,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
                 fillPattern=FillPattern.Solid),
               Ellipse(extent={{-134,34},{-66,-34}}, lineColor={0,0,255})}),
           Documentation(info="<html>
-<p><strong>Model of a three phase synchronous induction machine with reluctance rotor and damper cage.</strong><br>
+<p><strong>Model of a three-phase synchronous induction machine with reluctance rotor and damper cage.</strong><br>
 Resistance and stray inductance of stator is modeled directly in stator phases, then using space phasor transformation. Resistance and stray inductance of rotor's squirrel cage is modeled in two axis of the rotor-fixed coordinate system. Both together connected via a rotor-fixed <em>AirGap</em> model. The machine models take the following loss effects into account:
 </p>
 
@@ -9725,10 +9725,10 @@ These models use package SpacePhasors.
     annotation (Documentation(info="<html>
 This package contains components for modeling electrical machines, specially three-phase induction machines, based on space phasor theory:
 <ul>
-<li>package AsynchronousInductionMachines: models of three phase asynchronous induction machines</li>
-<li>package SynchronousInductionMachines: models of three phase synchronous induction machines</li>
+<li>package AsynchronousInductionMachines: models of three-phase asynchronous induction machines</li>
+<li>package SynchronousInductionMachines: models of three-phase synchronous induction machines</li>
 <li>package DCMachines: models of DC machines with different excitation</li>
-<li>package Transformers: Threephase transformers (see detailed documentation in subpackage)</li>
+<li>package Transformers: Three-phase transformers (see detailed documentation in subpackage)</li>
 <li>package Components: components for modeling machines and transformers</li>
 </ul>
 The induction machine models use package SpacePhasors.
@@ -10188,7 +10188,7 @@ This package contains sensors that are useful when modelling machines.
     package Components "Basic space phasor models"
       extends Modelica.Icons.Package;
       model SpacePhasor
-        "Physical transformation: three phase <-> space phasors"
+        "Physical transformation: three-phase <-> space phasors"
         import Modelica.Constants.pi;
         constant Integer m=3 "Number of phases";
         parameter Real turnsRatio=1 "Turns ratio";
@@ -10256,12 +10256,12 @@ This package contains sensors that are useful when modelling machines.
               Line(points={{50,-90},{50,-110}}, color={0,0,255}),
               Line(points={{40,-96},{40,-104}}, color={0,0,255})}),
             Documentation(info="<html>
-Physical transformation of voltages and currents: three phases &lt;-&gt; space phasors:<br>
+Physical transformation of voltages and currents: three-phases &lt;-&gt; space phasors:<br>
 x[k] = X0 + {cos(-(k - 1)/m*2*pi),-sin(-(k - 1)/m*2*pi)}*X[Re,Im]<br>
 and vice versa:<br>
 X0 = sum(x[k])/m<br>
 X[Re,Im] = sum(2/m*{cos((k - 1)/m*2*pi),sin((k - 1)/m*2*pi)}*x[k])<br>
-were x designates three phase values, X[Re,Im] designates the space phasor and X0 designates the zero sequence system.<br>
+were x designates three-phase values, X[Re,Im] designates the space phasor and X0 designates the zero sequence system.<br>
 <em>Physical transformation</em> means that both voltages and currents are transformed in both directions.<br>
 Zero-sequence voltage and current are present at pin zero. An additional zero-sequence impedance could be connected between pin zero and pin ground.
 </html>"));
@@ -10400,7 +10400,7 @@ Rotates a space phasor (voltage or current) input <code>u</code> by the <code>an
       end Rotator;
 
       block ToSpacePhasor
-        "Conversion of multi phase instantaneous values to space phasors"
+        "Conversion of multi-phase instantaneous values to space phasors"
         extends Modelica.Blocks.Interfaces.MIMO(final nin=m, final nout=2);
         parameter Integer m(min=1) = 3 "Number of phases";
       protected
@@ -10439,12 +10439,12 @@ Rotates a space phasor (voltage or current) input <code>u</code> by the <code>an
                       extent={{-12,-74},{64,-86}},
                       textString="zero")}),
           Documentation(info="<html>
-Transformation of multi phase values (of voltages or currents) to space phasor and zero sequence value.
+Transformation of multi-phase values (of voltages or currents) to space phasor and zero sequence value.
 </html>"));
       end ToSpacePhasor;
 
       block FromSpacePhasor
-        "Conversion of space phasors to multi phase instantaneous values"
+        "Conversion of space phasors to multi-phase instantaneous values"
         extends Modelica.Blocks.Interfaces.MIMO(final nin=2, final nout=m);
         parameter Integer m(min=1) = 3 "Number of phases";
       protected
@@ -10481,7 +10481,7 @@ Transformation of multi phase values (of voltages or currents) to space phasor a
                       smooth=Smooth.Bezier),Text(
                       extent={{-62,-74},{14,-86}},
                       textString="zero")}), Documentation(info="<html>
-Transformation of space phasor and zero sequence value to multi phase values (of voltages or currents).
+Transformation of space phasor and zero sequence value to multi-phase values (of voltages or currents).
 </html>"));
       end FromSpacePhasor;
 
@@ -10573,8 +10573,8 @@ This model determines the RMS value of the input space phasor <code>u</code>.</p
       annotation (Documentation(info="<html>
 This package contains space phasor transformation blocks for use in controllers:
 <ul>
-<li>ToSpacePhasor: transforms a set of multi phase values to space phasor and zero sequence system</li>
-<li>FromSpacePhasor: transforms a space phasor and zero sequence system to a set of multi phase values</li>
+<li>ToSpacePhasor: transforms a set of multi-phase values to space phasor and zero sequence system</li>
+<li>FromSpacePhasor: transforms a space phasor and zero sequence system to a set of multi-phase values</li>
 <li>Rotator: rotates a space phasor (from one coordinate system into another)</li>
 <li>ToPolar: Converts a space phasor from rectangular coordinates to polar coordinates</li>
 <li>FromPolar: Converts a space phasor from polar coordinates to rectangular coordinates</li>
@@ -10612,10 +10612,10 @@ the first element representing the real part and the second element representing
     package Functions "Functions for space phasor transformation"
       extends Modelica.Icons.FunctionsPackage;
       function ToSpacePhasor
-        "Conversion from multi phase input to space phasor and zero sequence component"
+        "Conversion from multi-phase input to space phasor and zero sequence component"
         import Modelica.Constants.pi;
         extends Modelica.Icons.Function;
-        input Real x[:] "Multi phase (voltage or current) input";
+        input Real x[:] "Multi-phase (voltage or current) input";
         output Real y[2] "Space phasor";
         output Real y0 "Zero sequence component (of voltage or current)";
       protected
@@ -10629,18 +10629,18 @@ the first element representing the real part and the second element representing
         y := TransformationMatrix*x;
         y0 := 1/m*sum(x);
         annotation (Inline=true, Documentation(info="<html>
-Transformation of multi phase values (of voltages or currents) to space phasor and zero sequence value.
+Transformation of multi-phase values (of voltages or currents) to space phasor and zero sequence value.
 </html>"));
       end ToSpacePhasor;
 
       function FromSpacePhasor
-        "Conversion from space phasor and zero sequence component to multi phase"
+        "Conversion from space phasor and zero sequence component to multi-phase"
         import Modelica.Constants.pi;
         extends Modelica.Icons.Function;
         input Real x[2] "Space phasor";
         input Real x0 "Zero sequence component";
         input Integer m "Number of phases";
-        output Real y[m] "Multi phase output";
+        output Real y[m] "Multi-phase output";
       protected
         parameter Modelica.SIunits.Angle phi[m]=
             Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m);
@@ -10652,7 +10652,7 @@ Transformation of multi phase values (of voltages or currents) to space phasor a
         y := fill(x0, m) + InverseTransformation*x;
 
         annotation (Inline=true, Documentation(info="<html>
-Transformation of space phasor and zero sequence value to multi phase values (of voltages or currents).
+Transformation of space phasor and zero sequence value to multi-phase values (of voltages or currents).
 </html>"));
       end FromSpacePhasor;
 
@@ -10758,7 +10758,7 @@ Converts a space phasor from polar coordinates to rectangular coordinates.
         end for;
         p := m/2*(+v_[1]*i_[1] + v_[2]*i_[2]);
         annotation (Inline=true, Documentation(info="<html>
-Transformation of three phase voltages and currents to space phasors and calculate active power.
+Transformation of three-phase voltages and currents to space phasors and calculate active power.
 </html>"));
       end activePower;
       annotation (Documentation(info="<html>
@@ -14272,10 +14272,10 @@ The icons can be utilized by inheriting them in the desired class using \"extend
           annotation (Dialog(tab="Nominal resistances and inductances"));
         parameter Modelica.SIunits.Inductance Lrsigma=3*(1 - sqrt(1 - 0.0667))/
             (2*pi*fsNominal)
-          "Rotor stray inductance per phase (equivalent three phase winding)"
+          "Rotor stray inductance per phase (equivalent three-phase winding)"
           annotation (Dialog(tab="Nominal resistances and inductances"));
         parameter Modelica.SIunits.Resistance Rr=0.04
-          "Rotor resistance per phase (equivalent three phase winding) at TRef"
+          "Rotor resistance per phase (equivalent three-phase winding) at TRef"
           annotation (Dialog(tab="Nominal resistances and inductances"));
         parameter Modelica.SIunits.Temperature TrRef=293.15
           "Reference temperature of rotor resistance"
@@ -14706,7 +14706,7 @@ Phase shifts between sine-waves may be chosen by the user; default values are <e
           points={{11,0},{110,0}}, color={0,0,127}));
       annotation (Documentation(info="<html>
 <p>
-The multi phase input values <code>u[m]</code> are transformed to the corresponding space phasor which is rotated to the rotor fixed reference system,
+The multi-phase input values <code>u[m]</code> are transformed to the corresponding space phasor which is rotated to the rotor fixed reference system,
 using the provided mechanical rotor angle phi. The output are the resulting d and q components of the space phasor arranged in one vector <code>y[2]</code>.
 </p>
 
@@ -14755,7 +14755,7 @@ using the provided mechanical rotor angle phi. The output are the resulting d an
       annotation (Documentation(info="<html>
 <p>
 The d and q components of a space phasor <code>u[2]</code> are rotated back to the stator fixed reference system,
-using the provided mechanical rotor angle phi. The output are the instantaneous multi phase values <code>y[m]</code>.
+using the provided mechanical rotor angle phi. The output are the instantaneous multi-phase values <code>y[m]</code>.
 </p>
 
 <h4>See also></h4>
@@ -14948,8 +14948,8 @@ Simple Voltage-Controller
 </p>
 <p>
 The desired rms values of d- and q-component of the space phasor current in rotor fixed coordinate system are given by inputs \"id_rms\" and \"iq_rms\".
-Using the given rotor position (input \"phi\"), the actual threephase currents are measured and transformed to the d-q coordinate system.
-Two PI-controller determine the necessary d- and q- voltages, which are transformed back to threephase (output \"y[3]\").
+Using the given rotor position (input \"phi\"), the actual three-phase currents are measured and transformed to the d-q coordinate system.
+Two PI-controller determine the necessary d- and q- voltages, which are transformed back to three-phase (output \"y[3]\").
 They can be used to feed a voltage source which in turn feeds a permanent magnet synchronous machine.
 </p>
 <p>

@@ -1,11 +1,11 @@
 within ModelicaTest.Electrical.QuasiStatic;
-package MultiPhase "Multi phase quasi static package"
+package MultiPhase "Multi-phase quasi static package"
   extends Modelica.Icons.ExamplesPackage;
   model SerialConnection "Example of serial connections"
     extends Modelica.Icons.Example;
     parameter Integer m = 3 "Number of phases";
     output Modelica.SIunits.ComplexVoltage v[m] = voltageSensor.y "Total voltage";
-    Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VariableCurrentSource currentSource(gamma(fixed=true, start=0), m=m)                                             annotation (Placement(transformation(
+    Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VariableCurrentSource currentSource(gamma(fixed=true, start=0), m=m) annotation (Placement(transformation(
           extent={{-10,-10},{10,10}},
           rotation=90,
           origin={-50,-20})));
@@ -85,7 +85,7 @@ package MultiPhase "Multi phase quasi static package"
     connect(star.pin_n, ground.pin) annotation (Line(points={{-50,-70},{-50,-70},{-50,-80}}, color={85,170,255}));
     annotation (      experiment(StopTime=1),
       Documentation(info="<html>
-<p>Serial connection of different multi phase basic components</p>
+<p>Serial connection of different multi-phase basic components</p>
 </html>"));
   end SerialConnection;
 
@@ -198,7 +198,7 @@ package MultiPhase "Multi phase quasi static package"
     connect(idealIntermediateSwitch.plug_n2, impedance.plug_p) annotation (Line(points={{80,30},{90,30},{90,0},{80,0}}, color={85,170,255}));
     connect(idealIntermediateSwitch.plug_n1, admittance.plug_p) annotation (Line(points={{80,35},{100,35},{100,-20},{80,-20}}, color={85,170,255}));
     annotation (experiment(StopTime=1),      Documentation(info="<html>
-<p>Serial connection of different multi phase ideal components and temperature dependent basic components</p>
+<p>Serial connection of different multi-phase ideal components and temperature dependent basic components</p>
 </html>"));
   end Ideal;
 end MultiPhase;

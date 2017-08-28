@@ -1,5 +1,5 @@
 within Modelica.Electrical;
-package QuasiStationary "Library for quasi-stationary electrical singlephase and multiphase AC simulation"
+package QuasiStationary "Library for quasi-stationary electrical single-phase and multi-phase AC simulation"
 
 
 extends Modelica.Icons.Package;

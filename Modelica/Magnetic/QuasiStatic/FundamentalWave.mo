@@ -155,7 +155,7 @@ email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
 <h5>Version 0.4.1, 2013-12-18</h5>
 <ul>
 <li>Renamed base magnetic port to MagneticPort</li>
-<li>Bug fix of single to multi phase converter</li>
+<li>Bug fix of single to multi-phase converter</li>
 <li>Bug fix of phase number propagation in SaliencyCageWinding fixed</li>
 <li>Improved documentation of library</li>
 <li>Added current controlled SMR example and indicated SMR inverter example as obsolete</li>
@@ -245,7 +245,7 @@ email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
     end References;
     annotation (Documentation(info="<html>
 <p>
-This is the library of quasi static fundamental wave models for multi phase electric machines. This is complementary library with the transient machine models of
+This is the library of quasi static fundamental wave models for multi-phase electric machines. This is complementary library with the transient machine models of
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave\">FundamentalWave</a>.
 </p>
 </html>"));
@@ -264,7 +264,7 @@ This is the library of quasi static fundamental wave models for multi phase elec
         parameter Modelica.SIunits.Resistance R=1E-5 "Resistance";
         parameter Modelica.SIunits.Inductance L=1 "Load inductance";
         parameter Real effectiveTurns=5 "Effective number of turns";
-        // Symmetrical multi phase magnetic reluctance
+        // Symmetrical multi-phase magnetic reluctance
         final parameter Modelica.SIunits.Reluctance R_m=m*effectiveTurns^2/2/L
           "Equivalent magnetic reluctance";
         output Modelica.SIunits.ComplexCurrent Ie=resistor_e.i[1]
@@ -783,7 +783,7 @@ In this example the eddy current losses are implemented in two different ways. C
             Documentation(info="<html>
 <h4>Direct on line (DOL) starting of an induction machine with squirrel cage</h4>
 <p>
-This example compares a time transient and a quasi static model of a multi phase induction machine. At start time <code>tOn</code> a transient and a quasi static multi phase voltage source are connected to an induction machine. The machine starts from standstill, accelerating inertias against load torque quadratic dependent on speed, finally reaching nominal speed.</p>
+This example compares a time transient and a quasi static model of a multi-phase induction machine. At start time <code>tOn</code> a transient and a quasi static multi-phase voltage source are connected to an induction machine. The machine starts from standstill, accelerating inertias against load torque quadratic dependent on speed, finally reaching nominal speed.</p>
 
 <p>
 Simulate for 1 second and plot (versus time):
@@ -904,7 +904,7 @@ Simulate for 1 second and plot (versus time):
               Tolerance=1e-06),                                 Documentation(
                 info="<html>
 <strong>Test example: Asynchronous induction machine with squirrel cage - Y-D starting</strong><br>
-At start time tStart three phase voltage is supplied to the asynchronous induction machine with squirrel cage, first star-connected, then delta-connected; the machine starts from standstill, accelerating inertias against load torque quadratic dependent on speed, finally reaching nominal speed.<br>
+At start time tStart three-phase voltage is supplied to the asynchronous induction machine with squirrel cage, first star-connected, then delta-connected; the machine starts from standstill, accelerating inertias against load torque quadratic dependent on speed, finally reaching nominal speed.<br>
 Simulate for 2.5 seconds and plot (versus time):
 <ul>
 <li>currentQuasiRMSSensor.I: stator current RMS</li>
@@ -1085,7 +1085,7 @@ Default machine parameters of model <em>AIM_SquirrelCage</em> are used.
           annotation (experiment(StopTime=2.5, Interval=0.001, Tolerance=1e-06), Documentation(
                 info="<html>
 <strong>Test example: Asynchronous induction machine with squirrel cage - transformer starting</strong><br>
-At start time tStart1 three phase voltage is supplied to the asynchronous induction machine with squirrel cage via the transformer;
+At start time tStart1 three-phase voltage is supplied to the asynchronous induction machine with squirrel cage via the transformer;
 the machine starts from standstill, accelerating inertias against load torque quadratic dependent on speed;
 at start time tStart2 the machine is fed directly from the voltage source, finally reaching nominal speed.<br>
 Simulate for 2.5 seconds and plot (versus time):
@@ -1311,8 +1311,8 @@ Default machine parameters of model <em>AIM_SquirrelCage</em> are used.
             Documentation(info="<html>
 <h4>Induction machine with squirrel cage fed by an ideal inverter</h4>
 
-<p>This example compares a time transient and a quasi static model of a multi phase induction machine.
-An ideal frequency inverter is modeled by using a <code>VfController</code> and a multi phase <code>SignalVoltage</code>.
+<p>This example compares a time transient and a quasi static model of a multi-phase induction machine.
+An ideal frequency inverter is modeled by using a <code>VfController</code> and a multi-phase <code>SignalVoltage</code>.
 Frequency is raised by a ramp, causing the induction machine with squirrel cage to start,
 and accelerating inertias. At time <code>tStep</code> a load step is applied.<p>
 
@@ -1626,8 +1626,8 @@ and accelerating inertias. At time <code>tStep</code> a load step is applied.<p>
 <h4>Starting of an induction machine with slipring rotor resistance starting</h4>
 
 <p>
-This example compares a time transient and a quasi static model of a multi phase induction machine.
-At start time <code>tOn</code> a transient and a quasi static multi phase voltage source are connected to induction machine with sliprings. The machine starts from standstill, accelerating inertias against load torque quadratic dependent on speed,
+This example compares a time transient and a quasi static model of a multi-phase induction machine.
+At start time <code>tOn</code> a transient and a quasi static multi-phase voltage source are connected to induction machine with sliprings. The machine starts from standstill, accelerating inertias against load torque quadratic dependent on speed,
 using a starting resistance. At time <code>tRheostat</code> external rotor resistance is shortened, finally reaching nominal speed.</p>
 
 <p>
@@ -3797,7 +3797,7 @@ relationship of the voltage and current space phasor.
       parameter Real effectiveTurns "Effective number of turns";
       constant Modelica.SIunits.Angle orientation=0
         "Orientation of the first winding axis";
-      // Local electric multi phase quantities
+      // Local electric multi-phase quantities
       Modelica.SIunits.ComplexVoltage v[m] "Complex voltage";
       Modelica.SIunits.Voltage abs_v[m]=Modelica.ComplexMath.'abs'(v)
         "Magnitude of complex voltage";
@@ -3928,7 +3928,7 @@ Each phase <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalW
 </p>
 
 <p>
-The total complex magnetic potential difference of the multi phase winding is determined by:
+The total complex magnetic potential difference of the multi-phase winding is determined by:
 </p>
 
 <p>
@@ -3984,7 +3984,7 @@ QuasiStaticAnalogElectroMagneticConverter</a>
         annotation (Placement(transformation(extent={{90,-110},{110,-90}})));
       parameter Real effectiveTurns "Effective number of turns"
         annotation (Evaluate=true);
-      // Local electric single phase quantities
+      // Local electric single-phase quantities
       Modelica.SIunits.Voltage v "Voltage drop";
       Modelica.SIunits.Current i "Current";
 
@@ -4053,11 +4053,11 @@ QuasiStaticAnalogElectroMagneticConverter</a>
               rotation=270)}),
         Documentation(info="<html>
 <p>
-The analog single phase winding has an effective number of turns, <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/effectiveTurns.png\"> and a respective orientation of the winding, <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/orientation.png\">. The current in the winding is <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/i.png\">.
+The analog single-phase winding has an effective number of turns, <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/effectiveTurns.png\"> and a respective orientation of the winding, <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/orientation.png\">. The current in the winding is <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/i.png\">.
 </p>
 
 <p>
-The total complex magnetic potential difference of the single phase winding is determined by:
+The total complex magnetic potential difference of the single-phase winding is determined by:
 </p>
 
 <p>
@@ -5207,10 +5207,10 @@ Magnetic.FundamentalWave.BasicMachines.SM_ReluctanceRotor</a>,
                 textString="%name")}),
           Documentation(info="<html>
 <p>
-The symmetrical multi phase winding consists of a symmetrical winding
+The symmetrical multi-phase winding consists of a symmetrical winding
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Resistor\">resistor</a>, a
 <a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Components.Reluctance\">stray reluctance</a>, a symmetrical
-<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Components.MultiPhaseElectroMagneticConverter\">multi phase electromagnetic coupling</a> and a
+<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Components.MultiPhaseElectroMagneticConverter\">multi-phase electromagnetic coupling</a> and a
 <a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Components.EddyCurrent\">core loss</a> model including
 heat <a href=\"modelica://Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a\">port</a>.
 </p>
@@ -5228,7 +5228,7 @@ Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding</a>
       end SymmetricMultiPhaseWinding;
 
       model QuasiStaticAnalogWinding
-        "Quasi static single phase winding neglecting induced voltage"
+        "Quasi static single-phase winding neglecting induced voltage"
 
         Modelica.Electrical.Analog.Interfaces.PositivePin pin_p "Positive pin"
           annotation (Placement(transformation(
@@ -5326,9 +5326,9 @@ Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding</a>
                 textString="%name")}),
           Documentation(info="<html>
 <p>
-The single phase winding consists of a
+The single-phase winding consists of a
 <a href=\"modelica://Modelica.Electrical.Analog.Basic.Resistor\">resistor</a>,  and a
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.SinglePhaseElectroMagneticConverter\">single phase electromagnetic coupling</a>.
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.SinglePhaseElectroMagneticConverter\">single-phase electromagnetic coupling</a>.
 </p>
 
 <h4>See also</h4>
@@ -5831,7 +5831,7 @@ Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap</a>
       extends Modelica.Icons.BasesPackage;
 
       partial model PartialBasicMachine
-        "Partial model for quasi static multi phase machines"
+        "Partial model for quasi static multi-phase machines"
         constant Modelica.SIunits.Angle pi = Modelica.Constants.pi;
         extends Electrical.Machines.Icons.QuasiStaticFundamentalWaveMachine;
         parameter Integer m(min=3) = 3 "Number of stator phases";

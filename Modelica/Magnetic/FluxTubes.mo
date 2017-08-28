@@ -3008,7 +3008,7 @@ This is a simple model of an inductor with a ferromagnetic core. The used Generi
                                       color={255,127,0}));
         annotation (experiment(StartTime=0, StopTime=0.02, Interval=4e-6, Tolerance=1e-006), Documentation(info="<html>
 <p>
-This simple model of an single phase transformer shows the inrush currents due to the remanence of the core material (M330-50A). For an accurate modelling of the core material the GenericHystTellinenTable hysteresis flux tube element is used. The initial magnetization MagRel of the Core component is set to 80%. Simulation settings:
+This simple model of an single-phase transformer shows the inrush currents due to the remanence of the core material (M330-50A). For an accurate modelling of the core material the GenericHystTellinenTable hysteresis flux tube element is used. The initial magnetization MagRel of the Core component is set to 80%. Simulation settings:
 </p>
 <ul>
   <li>Stop time: 0.02 s</li>
@@ -3085,7 +3085,7 @@ Then plot the flux density of the Core Core.B over the magnetic field strength C
                                              color={0,0,255}));
         annotation (experiment(StartTime=0, StopTime=0.1, Interval=2e-5, Tolerance=1e-004), Documentation(info="<html>
 <p>
-A simple model of an single phase transformer (similar to <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.Hysteresis.SinglePhaseTransformerWithHysteresis1\">SinglePhaseTransformerWithHysteresis1</a> but with separate transformer model: <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.Hysteresis.Components.Transformer1PhaseWithHysteresis\">Transformer1PhaseWithHysteresis</a>). Use the simulation settings:
+A simple model of an single-phase transformer (similar to <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.Hysteresis.SinglePhaseTransformerWithHysteresis1\">SinglePhaseTransformerWithHysteresis1</a> but with separate transformer model: <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.Hysteresis.Components.Transformer1PhaseWithHysteresis\">Transformer1PhaseWithHysteresis</a>). Use the simulation settings:
 </p>
 <ul>
   <li>Stop time: 0.1 s</li>
@@ -3600,7 +3600,7 @@ An example simulation shows the transformer inrush currents due to an initially 
                 Line(points={{100,90},{100,20},{62,20}}, color={0,0,255})}),
             Documentation(info="<html>
 <p>
-Simple model of a single phase transformer with a primary and a secondary winding and a magnetic core. The core is modeled with <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystTellinenEverett\">GenericHystTellinenEverett</a> flux tube elements. Thus, this element considers static and dynamic hysteresis.
+Simple model of a single-phase transformer with a primary and a secondary winding and a magnetic core. The core is modeled with <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystTellinenEverett\">GenericHystTellinenEverett</a> flux tube elements. Thus, this element considers static and dynamic hysteresis.
 </p>
 
 <table cellspacing=\"0\" cellpadding=\"2\" border=\"0\">
@@ -3616,7 +3616,7 @@ Simple model of a single phase transformer with a primary and a secondary windin
         end Transformer1PhaseWithHysteresis;
 
         model Transformer3PhaseYyWithHysteresis
-          "Three phase transfomer in Yy configuration"
+          "Three-phase transfomer in Yy configuration"
 
           Modelica.Thermal.HeatTransfer.Sources.PrescribedTemperature Temp
             annotation (Placement(transformation(extent={{-166,14},{-154,26}})));
@@ -4097,7 +4097,7 @@ Simple model of a single phase transformer with a primary and a secondary windin
                   fillColor={0,128,255})}),
             Documentation(info="<html>
 <p>
-Simple model of a three phase transformer with primary and a secondary windings and a magnetic E-I shaped core. The core is modeled with <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystTellinenEverett\">GenericHystTellinenEverett</a> flux tube elements. Thus, this model considers static and dynamic hysteresis as well as initial flux.
+Simple model of a three-phase transformer with primary and a secondary windings and a magnetic E-I shaped core. The core is modeled with <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystTellinenEverett\">GenericHystTellinenEverett</a> flux tube elements. Thus, this model considers static and dynamic hysteresis as well as initial flux.
 </p>
 
 <table cellspacing=\"0\" cellpadding=\"2\" border=\"0\">
