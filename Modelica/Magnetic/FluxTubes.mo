@@ -7840,7 +7840,7 @@ Please refer to the description of  the sub-package <a href=\"modelica://Modelic
       annotation(Evaluate=true, HideResult=true, choices(checkBox=true), Dialog(tab="Losses and Heat", group="HeatPort"));
       parameter Modelica.SIunits.Temperature T=293.15
         "Fixed device temperature if useHeatPort = false" annotation(Dialog(tab="Losses and Heat", group="HeatPort", enable=not useHeatPort));
-      Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort(T(start=T)=T_heatPort, Q_flow=-LossPower) if useHeatPort
+      Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort(T=T_heatPort, Q_flow=-LossPower) if useHeatPort
         annotation (Placement(transformation(extent={{-10,-110},{10,-90}}),
             iconTransformation(extent={{-10,-110},{10,-90}})));
       Modelica.SIunits.Power LossPower
@@ -7853,11 +7853,11 @@ Please refer to the description of  the sub-package <a href=\"modelica://Modelic
 
       annotation (Documentation(revisions="<html>
 <ul>
-<li><em> February 17, 2009   </em>
+<li><em>February 17, 2009</em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
-</html>",     info="<html>
+</html>", info="<html>
 <p>
 This partial model provides a conditional heating port for the connection to a thermal network.
 </p>
