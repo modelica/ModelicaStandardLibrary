@@ -4019,7 +4019,6 @@ b2_k = 1/(beta_k^2 + gamma_k^2) b1_k = -2*beta_k/(beta_k^2 + gamma_k^2)
           "Compute correction factor of low pass filter such that amplitude at cut-off frequency is -3db (=10^(-3/20) = 0.70794...)"
           extends Modelica.Icons.Function;
 
-          import Modelica;
           import Modelica.Utilities.Streams;
 
           input Real c1[:]

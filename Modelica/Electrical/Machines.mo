@@ -11865,7 +11865,6 @@ Thermal parts for asynchronous induction machines
       extends Modelica.Icons.VariantsPackage;
       model ThermalAmbientSMPM
         "Thermal ambient for synchronous induction machine with permanent magnets"
-        import Modelica;
         parameter Boolean useDamperCage(start=true)
           "Enable / disable damper cage" annotation (Evaluate=true);
         extends
@@ -12100,7 +12099,6 @@ Thermal parts for synchronous induction machines
       extends Modelica.Icons.VariantsPackage;
       model ThermalAmbientDCPM
         "Thermal ambient for DC machine with permanent magnets"
-        import Modelica;
         extends Machines.Interfaces.DCMachines.PartialThermalAmbientDCMachines(
             redeclare final Machines.Interfaces.DCMachines.ThermalPortDCPM
             thermalPort);

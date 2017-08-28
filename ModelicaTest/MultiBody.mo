@@ -154,7 +154,6 @@ in the situation at hand.
 
   model SphericalDoublePendulum
     "Double pendulum with two spherical joints and two bodies"
-    import Modelica;
     extends Modelica.Icons.Example;
     inner Modelica.Mechanics.MultiBody.World world annotation (Placement(
           transformation(extent={{-88,0},{-68,20}})));
@@ -394,7 +393,6 @@ for rodLength:
 
     model SphericalSpherical
       "One kinematic loop with four bars (with SphericalSpherical joint)"
-      import Modelica;
       import SI = Modelica.SIunits;
       extends Modelica.Icons.Example;
 
@@ -492,7 +490,6 @@ menu (this sets \"fixed=false\" on parameter \"length\").
 
     model UniversalSpherical
       "One kinematic loop with four bars (with UniversalSpherical joint)"
-      import Modelica;
       import SI = Modelica.SIunits;
       extends Modelica.Icons.Example;
 
@@ -604,7 +601,6 @@ menu (this sets \"fixed=false\" on parameter \"length\").
     end UniversalSpherical;
 
     model JointUSR "One kinematic loop with four bars (using JointUSR joint)"
-      import Modelica;
       import SI = Modelica.SIunits;
       extends Modelica.Icons.Example;
 
@@ -745,7 +741,6 @@ menu (this sets \"fixed=false\" on parameter \"length\").
     end JointUSR;
 
     model JointSSR "One kinematic loop with four bars (using JointSSR joint)"
-      import Modelica;
       import SI = Modelica.SIunits;
       extends Modelica.Icons.Example;
       parameter Modelica.SIunits.Distance L=Modelica.Math.Vectors.length({-1,
@@ -867,7 +862,6 @@ menu (this sets \"fixed=false\" on parameter \"length\").
     end JointSSR;
 
     model JointUSP "One kinematic loop with four bars (using JointUSP joint)"
-      import Modelica;
       import SI = Modelica.SIunits;
       extends Modelica.Icons.Example;
 
@@ -6510,7 +6504,6 @@ a linear damper is connected here.
 
     model BodyShape "Simple spring/damper/mass system"
       import Modelica.Icons;
-      import Modelica;
       extends Icons.Example;
       parameter Boolean animation=true "= true, if animation shall be enabled";
       inner Modelica.Mechanics.MultiBody.World world annotation (Placement(
@@ -8532,7 +8525,6 @@ This test model was proposed in ticket <a href=\"https://trac.modelica.org/Model
     extends Modelica.Icons.ExamplesPackage;
 
     model AbsoluteSensor "Simple pendulum with one revolute joint and one body"
-      import Modelica;
       extends Modelica.Icons.Example;
       parameter Real tol=1e-3;
       inner Modelica.Mechanics.MultiBody.World world(gravityType=Modelica.Mechanics.MultiBody.Types.GravityTypes.UniformGravity)
@@ -9741,7 +9733,6 @@ This test model was proposed in ticket <a href=\"https://trac.modelica.org/Model
 
     model Shapes "Test and show models Visualizers.FixedShape"
       import Modelica.Icons;
-      import Modelica;
       extends Icons.Example;
       Modelica.Mechanics.MultiBody.Parts.Fixed fixed(animation=false)
         annotation (Placement(transformation(extent={{-100,40},{-80,60}})));
@@ -9878,7 +9869,6 @@ This test model was proposed in ticket <a href=\"https://trac.modelica.org/Model
 
     model Arrow "Test and show models Visualizers.FixedShape"
       import Modelica.Icons;
-      import Modelica;
       extends Icons.Example;
       Modelica.Mechanics.MultiBody.Parts.Fixed fixed3(animation=false, r={0.2,-0.6,
             0}) annotation (Placement(transformation(

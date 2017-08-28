@@ -2895,7 +2895,6 @@ thus measuring the m potential differences <em>v[m]</em> between the m pins of p
 
     model VoltageQuasiRMSSensor
       "Continuous quasi voltage RMS sensor for multi phase system"
-      import Modelica;
       extends Modelica.Icons.RotationalSensor;
       extends Modelica.Electrical.MultiPhase.Interfaces.TwoPlug;
       parameter Integer m(min=1) = 3 "Number of phases";
@@ -2987,7 +2986,6 @@ thus measuring the m currents <em>i[m]</em> flowing from the m pins of plug_p to
 
     model CurrentQuasiRMSSensor
       "Continuous quasi current RMS sensor for multi phase system"
-      import Modelica;
       extends Modelica.Icons.RotationalSensor;
       extends Modelica.Electrical.MultiPhase.Interfaces.TwoPlug;
       parameter Integer m(min=1) = 3 "Number of phases";

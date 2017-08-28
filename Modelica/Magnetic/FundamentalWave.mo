@@ -7431,7 +7431,6 @@ according to the following figure.
 
       model SymmetricMultiPhaseCageWinding "Symmetrical rotor cage"
         import Modelica.Constants.pi;
-        import Modelica;
         extends
           Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPortExtended;
         parameter Integer m=3 "Number of phases";
@@ -7584,7 +7583,6 @@ The symmetric rotor cage model of this library does not consist of rotor bars an
       end SymmetricMultiPhaseCageWinding;
 
       model SaliencyCageWinding "Rotor cage with saliency in d- and q-axis"
-        import Modelica;
         extends
           Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPortExtended;
         parameter Boolean useHeatPort=false

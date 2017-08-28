@@ -1080,7 +1080,6 @@ extends Modelica.Icons.ExamplesPackage;
        extends Modelica.Icons.Function;
        import Modelica.Utilities.Streams.print;
        import Modelica.Math.Distributions;
-       import Modelica;
        input Integer nPoints = 1000;
        input Real erfRange = 3.0;
        output Boolean ok;

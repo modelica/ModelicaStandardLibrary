@@ -996,8 +996,6 @@ If damping is added the amplitudes are bounded.
     end Oscillator;
 
     model Sensors "Sensors for translational systems."
-      import Modelica;
-
       extends Modelica.Icons.Example;
 
       Translational.Sensors.ForceSensor forceSensor annotation (Placement(

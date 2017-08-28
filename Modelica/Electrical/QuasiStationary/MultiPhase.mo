@@ -538,7 +538,6 @@ Delta (polygon) connection of a multi phase circuit.
 
     model MultiStar
       "Star connection of multi phase systems consisting of multiple base systems"
-      import Modelica;
       parameter Integer m(final min=1) = 3 "Number of phases";
       final parameter Integer mSystems=
           Modelica.Electrical.MultiPhase.Functions.numberOfSymmetricBaseSystems(
@@ -610,7 +609,6 @@ Star (wye) connection of a multi phase circuit consisting of multiple base syste
 
     model MultiDelta
       "Delta (polygon) connection of multi phase systems consisting of multiple base systems"
-      import Modelica;
       parameter Integer m(final min=2) = 3 "Number of phases";
       final parameter Integer mSystems=
           Modelica.Electrical.MultiPhase.Functions.numberOfSymmetricBaseSystems(

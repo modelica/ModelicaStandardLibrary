@@ -1192,7 +1192,6 @@ The result of a simulation is shown in the next diagram:
 
     model AutomaticSeed
       "Demonstrates noise with startTime and automatic local seed for UniformNoise"
-      import Modelica;
        extends Modelica.Icons.Example;
        parameter Modelica.SIunits.Time startTime = 0.5 "Start time of noise";
        parameter Real y_off = -1.0 "Output of block before startTime";

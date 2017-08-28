@@ -6150,7 +6150,6 @@ Calculation of pressure loss for a valve with different geometries at overall fl
       extends Modelica.Icons.Information;
 
       package HeatTransfer
-        import Modelica;
         extends Modelica.Icons.Information;
 
         package Channel

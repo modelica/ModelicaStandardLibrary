@@ -851,7 +851,6 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
         extends Modelica.Icons.ExamplesPackage;
         model DiodeCenterTap2Pulse
           "Two pulse diode rectifier with center tap with resistive load"
-          import Modelica;
           extends Modelica.Icons.Example;
           import Modelica.Constants.pi;
           parameter Modelica.SIunits.Voltage Vrms=110 "RMS supply voltage";
@@ -1120,7 +1119,6 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
         extends Modelica.Icons.ExamplesPackage;
         model DiodeCenterTapmPulse
           "2*m pulse diode rectifier with center tap with resistive load"
-          import Modelica;
           extends Modelica.Icons.Example;
           import Modelica.Constants.pi;
           parameter Integer m(final min=3) = 3 "Number of phases";
@@ -1389,7 +1387,6 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
         extends Modelica.Icons.ExamplesPackage;
         model DiodeBridge2mPulse
           "2*m pulse diode rectifier bridge with resistive load"
-          import Modelica;
           extends Modelica.Icons.Example;
           import Modelica.Constants.pi;
           parameter Integer m(final min=3) = 3 "Number of phases";
@@ -1769,7 +1766,6 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
 
         model ThyristorBridge2mPulse_DC_Drive
           "2*m pulse thyristor bridge feeding a DC drive"
-          import Modelica;
           extends Modelica.Icons.Example;
           import Modelica.Constants.pi;
           parameter Integer m(final min=3) = 3 "Number of phases";
@@ -1961,7 +1957,6 @@ In this example a PM excited DC machine is started with nominal torque at nomina
         extends Modelica.Icons.ExamplesPackage;
         model DiodeCenterTap2mPulse
           "2*m pulse diode center tap rectifier with resistive load"
-          import Modelica;
           extends Modelica.Icons.Example;
           import Modelica.Constants.pi;
           parameter Integer m(final min=3) = 3 "Number of phases";
@@ -2242,7 +2237,6 @@ In this example a PM excited DC machine is started with nominal torque at nomina
 
       package ExampleTemplates "Templates of examples"
         partial model Thyristor1Pulse "Template of single pulse rectifier"
-          import Modelica;
           extends Icons.ExampleTemplate;
           import Modelica.Constants.pi;
           parameter Modelica.SIunits.Voltage Vrms=110 "RMS supply voltage";
@@ -2320,7 +2314,6 @@ single pulse rectifiers</a>; load is not yet included.</p>
         extends Modelica.Icons.Package;
         partial model ThyristorBridge2Pulse
           "Template of two pulse Graetz thyristor bridge"
-          import Modelica;
           extends Icons.ExampleTemplate;
           import Modelica.Constants.pi;
           parameter Modelica.SIunits.Voltage Vrms=110 "RMS supply voltage";
@@ -2402,7 +2395,6 @@ two pulse bridge rectifiers</a>; load is not yet included.</p>
 
         model ThyristorCenterTap2Pulse
           "Template of two pulse thyristor rectifier with center tap"
-          import Modelica;
           extends Icons.ExampleTemplate;
           import Modelica.Constants.pi;
           parameter Modelica.SIunits.Voltage Vrms=110 "RMS supply voltage";
@@ -2491,7 +2483,6 @@ center tap two pulse rectifiers</a>; load is not yet included.</p>
 
         partial model ThyristorCenterTapmPulse
           "Template of 2*m pulse rectifier with center tap"
-          import Modelica;
           extends Icons.ExampleTemplate;
           import Modelica.Constants.pi;
           parameter Integer m(final min=3) = 3 "Number of phases";
@@ -2581,7 +2572,6 @@ center tap <code>m</code> pulse rectifiers</a>, where <code>m</code> is the numb
 
         partial model ThyristorBridge2mPulse
           "Template of 2*m pulse bridge thyristor rectifier"
-          import Modelica;
           extends Icons.ExampleTemplate;
           import Modelica.Constants.pi;
           parameter Integer m(final min=3) = 3 "Number of phases";
@@ -2673,7 +2663,6 @@ center tap <code>m</code> pulse rectifiers</a>, where <code>m</code> is the numb
 
         partial model ThyristorCenterTap2mPulse
           "Template of 2*m pulse thyristor rectifier with center tap"
-          import Modelica;
           extends Icons.ExampleTemplate;
           import Modelica.Constants.pi;
           parameter Integer m(final min=3) = 3 "Number of phases";
@@ -3101,7 +3090,6 @@ center tap <code>2*m</code> pulse rectifiers</a>, where <code>m</code> is the nu
         extends Modelica.Icons.Package;
         partial model SinglePhaseTwoLevel
           "Single phase two level inverter including control"
-          import Modelica;
           extends Icons.ExampleTemplate;
           parameter Modelica.SIunits.Frequency f=1000 "Switching frequency";
           Modelica.Electrical.Analog.Sources.ConstantVoltage constantVoltage_n(
@@ -3425,7 +3413,6 @@ Plot machine current <code>dcpm.ia</code>, averaged current <code>meanCurrent.y<
       package ExampleTemplates "Templates of examples"
         extends Modelica.Icons.Package;
         partial model ChopperStepDown "Step down chopper including control"
-          import Modelica;
           extends Icons.ExampleTemplate;
           parameter Modelica.SIunits.Frequency f=1000 "Switching frequency";
           Modelica.Electrical.Analog.Sources.ConstantVoltage constantVoltage(V=
@@ -3484,7 +3471,6 @@ Plot machine current <code>dcpm.ia</code>, averaged current <code>meanCurrent.y<
         end ChopperStepDown;
 
         partial model HBridge "H bridge DC/DC converter"
-          import Modelica;
           extends Icons.ExampleTemplate;
           parameter Modelica.SIunits.Frequency f=1000 "Switching frequency";
           Modelica.Electrical.PowerConverters.DCDC.HBridge hbridge(useHeatPort=
@@ -6294,7 +6280,6 @@ For <code>useConstantEnable = false</code> the internal signal
   end Enable;
 
   package Interfaces "Interfaces"
-    import Modelica;
     extends Modelica.Icons.InterfacesPackage;
     package ACDC "AC to DC converter interfaces"
       partial model ACtwoPin "Positive and negative AC pin"

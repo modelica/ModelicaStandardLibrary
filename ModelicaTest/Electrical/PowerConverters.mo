@@ -155,7 +155,6 @@ package PowerConverters
   package ExampleTemplates
     partial model ThyristorBridge2mPulse
       "Template of 2*m pulse bridge thyristor rectifier"
-      import Modelica;
       extends Modelica.Electrical.PowerConverters.Icons.ExampleTemplate;
       import Modelica.Constants.pi;
       parameter Integer m(final min=3) = 3 "Number of phases";

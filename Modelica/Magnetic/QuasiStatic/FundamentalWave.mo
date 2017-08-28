@@ -2030,7 +2030,6 @@ Modelica 2009, 7<sup>th</sup> International Modelica Conference</p>
         end IMC_withLosses;
 
         model IMC_Initialize "Test example: Steady-State Initialization of AsynchronousInductionMachineSquirrelCage"
-          import Modelica;
           extends Modelica.Icons.Example;
           import Modelica.Constants.pi;
           parameter Integer m=3 "Number of phases";
@@ -5781,7 +5780,6 @@ Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap</a>
 
       model PermanentMagnet
         "Permanent magnet model without intrinsic reluctance, represented by magnetic potential difference"
-        import Modelica;
         extends FundamentalWave.Losses.PermanentMagnetLosses;
         extends
           Modelica.Magnetic.QuasiStatic.FundamentalWave.Interfaces.PartialTwoPort;

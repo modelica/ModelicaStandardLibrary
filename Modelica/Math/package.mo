@@ -2200,7 +2200,6 @@ called as: <code>(,R,p) = QR(A)</code>.
 
   function hessenberg "Return upper Hessenberg form of a matrix"
     extends Modelica.Icons.Function;
-    import Modelica;
     import Modelica.Math.Matrices;
 
     input Real A[:, size(A, 1)] "Square matrix A";
@@ -11204,7 +11203,6 @@ Householder reflection is widely used in numerical linear algebra, e.g., to perf
       "Perform the similarity transformation S*A*S of matrix A with symmetric householder matrix S = I - 2u*u'"
       extends Modelica.Icons.Function;
 
-      import Modelica;
       import Modelica.Math.Vectors;
 
       input Real A[:, size(A, 1)] "Square matrix A";
@@ -13083,7 +13081,6 @@ end log10;
 
 partial function baseIcon1
   "This icon will be removed in future Modelica versions, use Modelica.Math.Icons.AxisLeft instead."
-  import Modelica;
   // extends Modelica.Icons.ObsoleteModel;
 
   annotation (
@@ -13124,7 +13121,6 @@ end baseIcon1;
 
 partial function baseIcon2
   "This icon will be removed in future Modelica versions, use Modelica.Math.Icons.AxisCenter instead."
-  import Modelica;
   // extends Modelica.Icons.ObsoleteModel;
 
   annotation (
