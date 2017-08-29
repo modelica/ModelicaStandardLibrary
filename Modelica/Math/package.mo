@@ -3576,7 +3576,7 @@ signal u is constant between the sampling instants. Zero-order-hold sampling
 is described in
 </p>
 <dl>
-<dt>K. J. Astroem, B. Wittenmark:</dt>
+<dt>K. J. &Aring;str&ouml;m, B. Wittenmark:</dt>
 <dd><strong>Computer Controlled Systems - Theory and Design</strong><br>
     Third Edition, p. 32</dd>
 </dl>
@@ -3667,7 +3667,7 @@ is, e.g., described in
 </p>
 
 <dl>
-<dt>K. J. Astroem, B. Wittenmark:</dt>
+<dt>K. J. &Aring;str&ouml;m, B. Wittenmark:</dt>
 <dd><strong>Computer Controlled Systems - Theory and Design</strong><br>
     Third Edition, p. 256</dd>
 </dl>

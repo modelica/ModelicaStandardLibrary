@@ -171,7 +171,7 @@ package DrumBoiler
     extends Modelica.Icons.BasesPackage;
 
     model EquilibriumDrumBoiler
-      "Simple Evaporator with two states, see Astroem, Bell: Drum-boiler dynamics, Automatica 36, 2000, pp.363-378"
+      "Simple Evaporator with two states, see Åström, Bell: Drum-boiler dynamics, Automatica 36, 2000, pp.363-378"
       extends Modelica.Fluid.Interfaces.PartialTwoPort(
         final port_a_exposesState=true,
         final port_b_exposesState=true,
@@ -395,7 +395,7 @@ package DrumBoiler
 <p>
 Model of a simple evaporator with two states. The model assumes two-phase equilibrium inside the component; saturated steam goes out of the steam outlet.</p>
 <p>
-References: Astroem, Bell: Drum-boiler dynamics, Automatica 36, 2000, pp.363-378</p>
+References: &Aring;str&ouml;m, Bell: Drum-boiler dynamics, Automatica 36, 2000, pp.363-378</p>
 </html>"));
     end EquilibriumDrumBoiler;
   end BaseClasses;

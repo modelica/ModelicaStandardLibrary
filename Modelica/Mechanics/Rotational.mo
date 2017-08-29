@@ -3334,7 +3334,7 @@ following references, especially (Armstrong and Canudas de Wit 1996):
 <dd><strong>Friction Modeling and Compensation.</strong>
     The Control Handbook, edited by W.S.Levine, CRC Press,
     pp. 1369-1382.<br></dd>
-<dt>Canudas de Wit C., Olsson H., Astroem K.J., and Lischinsky P. (1995):</dt>
+<dt>Canudas de Wit C., Olsson H., &Aring;str&ouml;m K.J., and Lischinsky P. (1995):</dt>
 <dd><strong>A new model for control of systems with friction.</strong>
     IEEE Transactions on Automatic Control, Vol. 40, No. 3, pp. 419-425.</dd>
 </dl>
@@ -3579,7 +3579,7 @@ following references, especially (Armstrong and Canudas de Wit 1996):
 <dd><strong>Friction Modeling and Compensation.</strong>
     The Control Handbook, edited by W.S.Levine, CRC Press,
     pp. 1369-1382.<br></dd>
-<dt>Canudas de Wit C., Olsson H., Astroem K.J., and Lischinsky P. (1995):</dt>
+<dt>Canudas de Wit C., Olsson H., &Aring;str&ouml;m K.J., and Lischinsky P. (1995):</dt>
 <dd><strong>A new model for control of systems with friction.</strong>
     IEEE Transactions on Automatic Control, Vol. 40, No. 3, pp. 419-425.</dd>
 </dl>
@@ -3736,7 +3736,7 @@ following references, especially (Armstrong and Canudas de Wit 1996):
 <dd><strong>Friction Modeling and Compensation.</strong>
     The Control Handbook, edited by W.S.Levine, CRC Press,
     pp. 1369-1382.<br></dd>
-<dt>Canudas de Wit C., Olsson H., Astroem K.J., and Lischinsky P. (1995):</dt>
+<dt>Canudas de Wit C., Olsson H., &Aring;str&ouml;m K.J., and Lischinsky P. (1995):</dt>
 <dd><strong>A new model for control of systems with friction.</strong>
     IEEE Transactions on Automatic Control, Vol. 40, No. 3, pp. 419-425.</dd>
 </dl>
