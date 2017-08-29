@@ -2327,7 +2327,7 @@ be completely described by a differential equation without events. The
 drawback is that the system becomes stiff (about 10-20 times slower
 simulation) and that more material constants have to be supplied which
 requires more sophisticated identification. For more details, see the
-following references, especially (Armstrong and Canudas de Witt 1996):
+following references, especially (Armstrong and Canudas de Wit 1996):
 </p>
 <dl>
 <dt>Armstrong B. (1991):</dt>
@@ -2535,7 +2535,7 @@ be completely described by a differential equation without events. The
 drawback is that the system becomes stiff (about 10-20 times slower
 simulation) and that more material constants have to be supplied which
 requires more sophisticated identification. For more details, see the
-following references, especially (Armstrong and Canudas de Witt 1996):
+following references, especially (Armstrong and Canudas de Wit 1996):
 </p>
 <dl>
 <dt>Armstrong B. (1991):</dt>
@@ -3003,7 +3003,7 @@ the advantage that the friction element can be completely described by a differe
 equation without events. The drawback is that the system becomes stiff (about 10-20 times
 slower simulation) and that more material constants have to be supplied which requires more
 sophisticated identification. For more details, see the following references, especially
-(Armstrong and Canudas de Witt 1996): </p>
+(Armstrong and Canudas de Wit 1996): </p>
 <dl>
 <dt>
 Armstrong B. (1991):</dt>
