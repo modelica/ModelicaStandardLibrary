@@ -1930,7 +1930,11 @@ Quasi stationary theory for single phase circuits can be found in the
               lineColor={0,0,0},
               fillColor={0,0,0},
               fillPattern=FillPattern.Solid,
-              textString="ref")}));
+              textString="ref")}), Documentation(info="<html>
+<p>
+This sensor can be used to measure the reference angle.
+</p>
+</html>"));
     end ReferenceSensor;
 
     model FrequencySensor "Frequency sensor"
