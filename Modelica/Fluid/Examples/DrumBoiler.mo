@@ -387,7 +387,7 @@ package DrumBoiler
     by <a href=\"mailto:francesco.casella@polimi.it\">Francesco Casella</a>:<br>
      Initialization options fixed</li>
 <li><em>6 Sep 2005</em><br>
-    Model by Ruediger Franke<br>
+    Model by R&uuml;diger Franke<br>
     See Franke, Rode, Krueger: On-line Optimization of Drum Boiler Startup, 3rd International Modelica Conference, Linkoping, 2003.<br>
     Modified after the 45th Design Meeting</li>
 </ul>

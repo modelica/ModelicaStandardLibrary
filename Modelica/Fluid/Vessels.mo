@@ -160,7 +160,7 @@ Heights of ports as well as kinetic and potential energy of fluid entering or le
 </p>
 </html>", revisions="<html>
 <ul>
-<li><em>Dec. 12, 2008</em> by Ruediger Franke: move port definitions
+<li><em>Dec. 12, 2008</em> by R&uuml;diger Franke: move port definitions
    to BaseClasses.PartialLumpedVessel; also use energy and mass balance from common base class</li>
 <li><em>Dec. 8, 2008</em> by Michael Wetter (LBNL):<br>
 Implemented trace substances.</li>

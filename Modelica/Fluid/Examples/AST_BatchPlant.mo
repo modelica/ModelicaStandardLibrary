@@ -1730,7 +1730,7 @@ of the diagram animation in Dymola can be set via command
 </p>
 </html>",   revisions="<html>
 <ul>
-<li><em>Dec. 12, 2008</em> by Ruediger Franke: replace energy and mass balances with
+<li><em>Dec. 12, 2008</em> by R&uuml;diger Franke: replace energy and mass balances with
    common definition in BaseClasses.PartialLumpedVolume</li>
 <li><em>Dec. 8, 2008</em> by Michael Wetter (LBNL):<br>
 Implemented trace substances and missing equation for outflow of multi substance media at top port.</li>

@@ -61,7 +61,7 @@ The regularization can be changed for the PressureLoss model.
 </html>", revisions="<html>
 <ul>
 <li><em>8 Dec 2008</em>
-    by Ruediger Franke:<br>
+    by R&uuml;diger Franke:<br>
        Introduce small nominal pressure loss for regularization</li>
 <li><em>31 Oct 2007</em>
     by <a href=\"mailto:jonas@modelon.se\">Jonas Eborn</a>:<br>

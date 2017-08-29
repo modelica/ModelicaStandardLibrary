@@ -1405,7 +1405,7 @@ and can be related to <code>m_flow_small</code> and <code>dp_small</code>.
 </html>", revisions="<html>
 <ul>
 <li><em>6 Dec 2008</em>
-    by Ruediger Franke:<br />
+    by R&uuml;diger Franke:<br />
        Model added to the Fluid library</li>
 </ul>
 </html>"));
