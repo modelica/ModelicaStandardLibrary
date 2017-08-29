@@ -1629,7 +1629,7 @@ class Contact "Contact"
     PTSP-E22<br>
     Kallstadter Str. 1<br>
     D-68163, Germany<br>
-    email: <A HREF=\"mailto:R&uuml;diger.franke@de.abb.com\">R&uuml;diger.franke@de.abb.com</A><br>&nbsp;
+    email: <A HREF=\"mailto:ruediger.franke@de.abb.com\">ruediger.franke@de.abb.com</A><br>&nbsp;
 </td>
 </tr>
 </table>
