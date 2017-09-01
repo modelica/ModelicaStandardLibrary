@@ -113,8 +113,11 @@ email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
       extends Modelica.Icons.ReleaseNotes;
       annotation (preferredView="info",Documentation(info="<html>
 
-<h5>Version 3.2.2, 2017-07-18 (Anton Haumer, Christian Kral)</h5>
+<h5>Version 3.2.2, 2017-09-01 (Anton Haumer, Christian Kral)</h5>
 <ul>
+  <li>Fixed bug of wrong smooth order in 
+      <a href=\"modelica://Modelica.Electrical.Machines.Losses.DCMachines.Brush\">Brush</a>, see
+      <a href=\"https://github.com/modelica/Modelica/issues/2315\">#2315</a></li>
   <li>Unified communication interval, see 
       <a href=\"https://github.com/modelica/Modelica/issues/2279\">#2279</a></li>
   <li>Unified simulation tolerances, see 
@@ -11648,7 +11651,7 @@ This package contains loss models used for induction machine models.
         if (brushParameters.V <= 0) then
           v = 0;
         else
-          v = smooth(1, if (i > +brushParameters.ILinear) then +brushParameters.V
+          v = smooth(0, if (i > +brushParameters.ILinear) then +brushParameters.V
              else if (i < -brushParameters.ILinear) then -brushParameters.V
              else brushParameters.V*i/brushParameters.ILinear);
         end if;
