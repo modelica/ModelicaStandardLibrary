@@ -393,7 +393,7 @@ end Extractor;
 
   block Multiplex "Multiplexer block for arbitrary number of input connectors"
     extends Modelica.Blocks.Icons.Block;
-    parameter Integer n(min=0)=0 "dimension of input signal connector" annotation(Dialog(connectorSizing=true), HideResult=true);
+    parameter Integer n(min=0)=0 "Dimension of input signal connector" annotation(Dialog(connectorSizing=true), HideResult=true);
     Modelica.Blocks.Interfaces.RealVectorInput u[n]
       "Connector of Real input signals" annotation(Placement(transformation(extent={{-120,70},{-80,-70}})));
     Modelica.Blocks.Interfaces.RealOutput y[n+0]
@@ -442,8 +442,8 @@ The output connector is the <strong>concatenation</strong> of the input connecto
 
   block Multiplex2 "Multiplexer block for two input connectors"
     extends Modelica.Blocks.Icons.Block;
-    parameter Integer n1=1 "dimension of input signal connector 1";
-    parameter Integer n2=1 "dimension of input signal connector 2";
+    parameter Integer n1=1 "Dimension of input signal connector 1";
+    parameter Integer n2=1 "Dimension of input signal connector 2";
     Modelica.Blocks.Interfaces.RealInput u1[n1]
       "Connector of Real input signals 1" annotation (Placement(transformation(
             extent={{-140,40},{-100,80}})));
@@ -489,9 +489,9 @@ explicitly defined via parameters n1 and n2.
 
   block Multiplex3 "Multiplexer block for three input connectors"
     extends Modelica.Blocks.Icons.Block;
-    parameter Integer n1=1 "dimension of input signal connector 1";
-    parameter Integer n2=1 "dimension of input signal connector 2";
-    parameter Integer n3=1 "dimension of input signal connector 3";
+    parameter Integer n1=1 "Dimension of input signal connector 1";
+    parameter Integer n2=1 "Dimension of input signal connector 2";
+    parameter Integer n3=1 "Dimension of input signal connector 3";
     Modelica.Blocks.Interfaces.RealInput u1[n1]
       "Connector of Real input signals 1" annotation (Placement(transformation(
             extent={{-140,50},{-100,90}})));
@@ -541,10 +541,10 @@ explicitly defined via parameters n1, n2 and n3.
 
   block Multiplex4 "Multiplexer block for four input connectors"
     extends Modelica.Blocks.Icons.Block;
-    parameter Integer n1=1 "dimension of input signal connector 1";
-    parameter Integer n2=1 "dimension of input signal connector 2";
-    parameter Integer n3=1 "dimension of input signal connector 3";
-    parameter Integer n4=1 "dimension of input signal connector 4";
+    parameter Integer n1=1 "Dimension of input signal connector 1";
+    parameter Integer n2=1 "Dimension of input signal connector 2";
+    parameter Integer n3=1 "Dimension of input signal connector 3";
+    parameter Integer n4=1 "Dimension of input signal connector 4";
     Modelica.Blocks.Interfaces.RealInput u1[n1]
       "Connector of Real input signals 1" annotation (Placement(transformation(
             extent={{-140,70},{-100,110}})));
@@ -600,11 +600,11 @@ explicitly defined via parameters n1, n2, n3 and n4.
 
   block Multiplex5 "Multiplexer block for five input connectors"
     extends Modelica.Blocks.Icons.Block;
-    parameter Integer n1=1 "dimension of input signal connector 1";
-    parameter Integer n2=1 "dimension of input signal connector 2";
-    parameter Integer n3=1 "dimension of input signal connector 3";
-    parameter Integer n4=1 "dimension of input signal connector 4";
-    parameter Integer n5=1 "dimension of input signal connector 5";
+    parameter Integer n1=1 "Dimension of input signal connector 1";
+    parameter Integer n2=1 "Dimension of input signal connector 2";
+    parameter Integer n3=1 "Dimension of input signal connector 3";
+    parameter Integer n4=1 "Dimension of input signal connector 4";
+    parameter Integer n5=1 "Dimension of input signal connector 5";
     Modelica.Blocks.Interfaces.RealInput u1[n1]
       "Connector of Real input signals 1" annotation (Placement(transformation(
             extent={{-140,80},{-100,120}})));
@@ -665,12 +665,12 @@ explicitly defined via parameters n1, n2, n3, n4 and n5.
 
   block Multiplex6 "Multiplexer block for six input connectors"
     extends Modelica.Blocks.Icons.Block;
-    parameter Integer n1=1 "dimension of input signal connector 1";
-    parameter Integer n2=1 "dimension of input signal connector 2";
-    parameter Integer n3=1 "dimension of input signal connector 3";
-    parameter Integer n4=1 "dimension of input signal connector 4";
-    parameter Integer n5=1 "dimension of input signal connector 5";
-    parameter Integer n6=1 "dimension of input signal connector 6";
+    parameter Integer n1=1 "Dimension of input signal connector 1";
+    parameter Integer n2=1 "Dimension of input signal connector 2";
+    parameter Integer n3=1 "Dimension of input signal connector 3";
+    parameter Integer n4=1 "Dimension of input signal connector 4";
+    parameter Integer n5=1 "Dimension of input signal connector 5";
+    parameter Integer n6=1 "Dimension of input signal connector 6";
     Modelica.Blocks.Interfaces.RealInput u1[n1]
       "Connector of Real input signals 1" annotation (Placement(transformation(
             extent={{-124,73},{-100,97}})));
@@ -737,7 +737,7 @@ explicitly defined via parameters n1, n2, n3, n4, n5 and n6.
 
   block DeMultiplex "DeMultiplexer block for arbitrary number of output connectors"
     extends Modelica.Blocks.Icons.Block;
-    parameter Integer n(min=0)=0 "dimension of output signal connector" annotation(Dialog(connectorSizing=true), HideResult=true);
+    parameter Integer n(min=0)=0 "Dimension of output signal connector" annotation(Dialog(connectorSizing=true), HideResult=true);
     Modelica.Blocks.Interfaces.RealInput u[n+0]
       "Connector of Real input signals" annotation(Placement(transformation(extent={{-140,-20},{-100,20}})));
     Modelica.Blocks.Interfaces.RealVectorOutput y[n]
@@ -786,8 +786,8 @@ The input connector is <strong>split</strong> up into output connectors.
 
   block DeMultiplex2 "DeMultiplexer block for two output connectors"
     extends Modelica.Blocks.Icons.Block;
-    parameter Integer n1=1 "dimension of output signal connector 1";
-    parameter Integer n2=1 "dimension of output signal connector 2";
+    parameter Integer n1=1 "Dimension of output signal connector 1";
+    parameter Integer n2=1 "Dimension of output signal connector 2";
     Modelica.Blocks.Interfaces.RealInput u[n1 + n2]
       "Connector of Real input signals" annotation (Placement(transformation(
             extent={{-140,-20},{-100,20}})));
@@ -834,9 +834,9 @@ explicitly defined via parameters n1 and n2.
 
   block DeMultiplex3 "DeMultiplexer block for three output connectors"
     extends Modelica.Blocks.Icons.Block;
-    parameter Integer n1=1 "dimension of output signal connector 1";
-    parameter Integer n2=1 "dimension of output signal connector 2";
-    parameter Integer n3=1 "dimension of output signal connector 3";
+    parameter Integer n1=1 "Dimension of output signal connector 1";
+    parameter Integer n2=1 "Dimension of output signal connector 2";
+    parameter Integer n3=1 "Dimension of output signal connector 3";
     Modelica.Blocks.Interfaces.RealInput u[n1 + n2 + n3]
       "Connector of Real input signals" annotation (Placement(transformation(
             extent={{-140,-20},{-100,20}})));
@@ -888,10 +888,10 @@ explicitly defined via parameters n1, n2 and n3.
   block DeMultiplex4 "DeMultiplexer block for four output connectors"
 
     extends Modelica.Blocks.Icons.Block;
-    parameter Integer n1=1 "dimension of output signal connector 1";
-    parameter Integer n2=1 "dimension of output signal connector 2";
-    parameter Integer n3=1 "dimension of output signal connector 3";
-    parameter Integer n4=1 "dimension of output signal connector 4";
+    parameter Integer n1=1 "Dimension of output signal connector 1";
+    parameter Integer n2=1 "Dimension of output signal connector 2";
+    parameter Integer n3=1 "Dimension of output signal connector 3";
+    parameter Integer n4=1 "Dimension of output signal connector 4";
     Modelica.Blocks.Interfaces.RealInput u[n1 + n2 + n3 + n4]
       "Connector of Real input signals" annotation (Placement(transformation(
             extent={{-140,-20},{-100,20}})));
@@ -947,11 +947,11 @@ explicitly defined via parameters n1, n2, n3 and n4.
   block DeMultiplex5 "DeMultiplexer block for five output connectors"
 
     extends Modelica.Blocks.Icons.Block;
-    parameter Integer n1=1 "dimension of output signal connector 1";
-    parameter Integer n2=1 "dimension of output signal connector 2";
-    parameter Integer n3=1 "dimension of output signal connector 3";
-    parameter Integer n4=1 "dimension of output signal connector 4";
-    parameter Integer n5=1 "dimension of output signal connector 5";
+    parameter Integer n1=1 "Dimension of output signal connector 1";
+    parameter Integer n2=1 "Dimension of output signal connector 2";
+    parameter Integer n3=1 "Dimension of output signal connector 3";
+    parameter Integer n4=1 "Dimension of output signal connector 4";
+    parameter Integer n5=1 "Dimension of output signal connector 5";
     Modelica.Blocks.Interfaces.RealInput u[n1 + n2 + n3 + n4 + n5]
       "Connector of Real input signals" annotation (Placement(transformation(
             extent={{-140,-20},{-100,20}})));
@@ -1011,12 +1011,12 @@ explicitly defined via parameters n1, n2, n3, n4 and n5.
 
   block DeMultiplex6 "DeMultiplexer block for six output connectors"
     extends Modelica.Blocks.Icons.Block;
-    parameter Integer n1=1 "dimension of output signal connector 1";
-    parameter Integer n2=1 "dimension of output signal connector 2";
-    parameter Integer n3=1 "dimension of output signal connector 3";
-    parameter Integer n4=1 "dimension of output signal connector 4";
-    parameter Integer n5=1 "dimension of output signal connector 5";
-    parameter Integer n6=1 "dimension of output signal connector 6";
+    parameter Integer n1=1 "Dimension of output signal connector 1";
+    parameter Integer n2=1 "Dimension of output signal connector 2";
+    parameter Integer n3=1 "Dimension of output signal connector 3";
+    parameter Integer n4=1 "Dimension of output signal connector 4";
+    parameter Integer n5=1 "Dimension of output signal connector 5";
+    parameter Integer n6=1 "Dimension of output signal connector 6";
     Modelica.Blocks.Interfaces.RealInput u[n1 + n2 + n3 + n4 + n5 + n6]
       "Connector of Real input signals" annotation (Placement(transformation(
             extent={{-140,-20},{-100,20}})));
