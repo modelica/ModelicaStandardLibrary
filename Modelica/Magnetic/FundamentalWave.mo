@@ -350,20 +350,19 @@ no. 829420.
 <h5>Version 3.2.2, 2017-07-18</h5>
 
 <ul>
-  <li>Unified communication interval, see 
+  <li>Unified communication interval, see
       <a href=\"https://github.com/modelica/Modelica/issues/2279\">#2279</a></li>
-  <li>Unified simulation tolerances, see 
+  <li>Unified simulation tolerances, see
       <a href=\"https://github.com/modelica/Modelica/issues/2278\">#2278</a></li>
-<li>Added more examples from 
-    <a href=\"modelica://Modelica.Electrical.Machines.Examples\">Machines.Examples</a>, see 
+<li>Added more examples from
+    <a href=\"modelica://Modelica.Electrical.Machines.Examples\">Machines.Examples</a>, see
     <a href=\"https://github.com/modelica/Modelica/issues/2276\">#2276</a></li>
-<li>Replace wrong permeance image in documentation according to  
+<li>Replace wrong permeance image in documentation according to
     <a href=\"https://github.com/modelica/Modelica/issues/2208\">#2208</a></li>
 <li>Added obsolete annotation to
     <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseCageWinding_obsolete\">SymmetricMultiPhaseCageWinding_obsolete</a> and
     <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SaliencyCageWinding_obsolete\">SaliencyCageWinding_obsolete</a>,
-    see  
-    <a href=\"https://github.com/modelica/Modelica/issues/1536\">#1536</a></li>
+    see <a href=\"https://github.com/modelica/Modelica/issues/1536\">#1536</a></li>
 <li>Updated documentation of
     <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.Short\">Short</a>,
     <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.Idle\">Idle</a> and
@@ -378,22 +377,22 @@ no. 829420.
 <li>Restructured cage models with reluctance instead of inductance model according to ticket
     <a href=\"https://github.com/modelica/Modelica/issues/1536\">#1536</a>;
 the re-structuring of the model required to change the initial conditions of the included examples, since the number of rotor states is reduced by new implementation</li>
-<li>Some more bug fixes according to 
+<li>Some more bug fixes according to
 <a href=\"https://github.com/modelica/Modelica/issues/1226\">#1226</a>,
 since not all reference orientations have been correct</li>
-<li>Added variables for magnitude and argument of complex magnetic potential difference and flux, see 
+<li>Added variables for magnitude and argument of complex magnetic potential difference and flux, see
 <a href=\"https://github.com/modelica/Modelica/issues/1405\">#1405</a></li>
 </ul>
 
 <h5>Version 3.2.1, 2013-07-31</h5>
 
 <ul>
-<li>Bug fix of wrong orientation of squirrel and damper cage models, see ticket 
-<a href=\"https://github.com/modelica/Modelica/issues/1226\">#1226</a>; 
+<li>Bug fix of wrong orientation of squirrel and damper cage models, see ticket
+<a href=\"https://github.com/modelica/Modelica/issues/1226\">#1226</a>;
 this also includes the removal of the rotor cage heat sensor which previously has been used</li>
-<li>Bug fix of conditional initialization of examples, see ticket 
+<li>Bug fix of conditional initialization of examples, see ticket
 <a href=\"https://github.com/modelica/Modelica/issues/1223\">#1223</a></li>
-<li>Fixed missing default parameter TpmOperational in ambient of PM synchronous machine, see ticket 
+<li>Fixed missing default parameter TpmOperational in ambient of PM synchronous machine, see ticket
 <a href=\"https://github.com/modelica/Modelica/issues/1216\">#1216</a>#1216</li>
 <li>Added voltages, currents, complex flux and magnetic potential difference as global variables in
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.MultiPhaseElectroMagneticConverter\">multi phase converter</a></li>
@@ -403,9 +402,9 @@ this also includes the removal of the rotor cage heat sensor which previously ha
 <h5>Version 2.0.0, 2013-03-10</h5>
 
 <ul>
-<li>Corrected wrong parameter descriptions, see ticket 
+<li>Corrected wrong parameter descriptions, see ticket
 <a href=\"https://github.com/modelica/Modelica/issues/1003\">#1003</a></li>
-<li>Extended machine models towards phase numbers to greater or equal than three, see ticket 
+<li>Extended machine models towards phase numbers to greater or equal than three, see ticket
 <a href=\"https://github.com/modelica/Modelica/issues/990\">#990</a></li>
 </ul>
 
@@ -7827,7 +7826,7 @@ The permanent magnet is modeled by a magnetic potential difference. The internal
             points={{-40,-90},{-40,-100},{0,-100}}, color={191,0,0}));
         connect(resistor.plug_n, starAuxiliary.plug_p) annotation (Line(
             points={{-20,-80},{30,-80}}, color={0,0,255}));
-        annotation (obsolete="Wrong structure of multi phase cage, see #1536",
+        annotation (obsolete="Wrong structure of multi phase cage, see #1536 (https://github.com/modelica/Modelica/issues/1536)",
           Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                   {100,100}}), graphics={Ellipse(
                       extent={{-80,80},{80,-80}},
@@ -7964,7 +7963,7 @@ The symmetric rotor cage model of this library does not consist of rotor bars an
             points={{-40,-90},{-40,-100},{0,-100}}, color={191,0,0}));
         connect(resistor.heatPort, thermalCollector.port_a) annotation (Line(
             points={{-30,-70},{-40,-70}}, color={191,0,0}));
-        annotation (obsolete="Wrong structure of saliency cage, see #1536",
+        annotation (obsolete="Wrong structure of saliency cage, see #1536 (https://github.com/modelica/Modelica/issues/1536)",
           Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                   -100},{100,100}}), graphics={Ellipse(
                       extent={{-80,80},{80,-80}},
