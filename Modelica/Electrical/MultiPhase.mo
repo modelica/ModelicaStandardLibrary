@@ -1101,9 +1101,8 @@ Connects all pins of plug_n to the pin array pin_n.
         final R=R,
         final T_ref=T_ref,
         final alpha=alpha,
-        each final useHeatPort=useHeatPort,
-        final T=T) annotation (Placement(transformation(extent={{-10,-10},{10,
-                10}})));
+        each final useHeatPort=useHeatPort) annotation (Placement(
+            transformation(extent={{-10,-10},{10,10}})));
     equation
       connect(resistor.p, plug_p.pin)
         annotation (Line(points={{-10,0},{-100,0}}, color={0,0,255}));
@@ -1147,9 +1146,8 @@ Contains m resistors (Modelica.Electrical.Analog.Basic.Resistor)
         final G=G,
         final T_ref=T_ref,
         final alpha=alpha,
-        each final useHeatPort=useHeatPort,
-        final T=T) annotation (Placement(transformation(extent={{-10,-10},{10,
-                10}})));
+        each final useHeatPort=useHeatPort) annotation (Placement(
+            transformation(extent={{-10,-10},{10,10}})));
     equation
       connect(plug_p.pin, conductor.p)
         annotation (Line(points={{-100,0},{-10,0}}, color={0,0,255}));
@@ -1551,9 +1549,8 @@ Contains m transformers (Modelica.Electrical.Analog.Basic.Transformer)
       Modelica.Electrical.Analog.Basic.VariableResistor variableResistor[m](
         final T_ref=T_ref,
         final alpha=alpha,
-        each final useHeatPort=useHeatPort,
-        final T=T) annotation (Placement(transformation(extent={{-10,-10},{10,
-                10}})));
+        each final useHeatPort=useHeatPort) annotation (Placement(
+            transformation(extent={{-10,-10},{10,10}})));
     equation
       connect(variableResistor.p, plug_p.pin)
         annotation (Line(points={{-10,0},{-100,0}}, color={0,0,255}));
@@ -1610,9 +1607,8 @@ Contains m variable resistors (Modelica.Electrical.Analog.Basic.VariableResistor
       Modelica.Electrical.Analog.Basic.VariableConductor variableConductor[m](
         final T_ref=T_ref,
         final alpha=alpha,
-        each final useHeatPort=useHeatPort,
-        final T=T) annotation (Placement(transformation(extent={{-10,-10},{10,
-                10}})));
+        each final useHeatPort=useHeatPort) annotation (Placement(
+            transformation(extent={{-10,-10},{10,10}})));
     equation
       connect(variableConductor.p, plug_p.pin)
         annotation (Line(points={{-10,0},{-100,0}}, color={0,0,255}));
@@ -1982,8 +1978,7 @@ Contains m ideal GTO thyristors (Modelica.Electrical.Analog.Ideal.IdealGTOThyris
             transformation(extent={{90,-10},{110,10}})));
       Interfaces.NegativePlug plug_n1(final m=m) annotation (Placement(
             transformation(extent={{90,30},{110,50}}), iconTransformation(extent={{90,30},{110,50}})));
-      Modelica.Electrical.Analog.Ideal.IdealCommutingSwitch
-        idealCommutingSwitch[m](
+      Modelica.Electrical.Analog.Ideal.IdealCommutingSwitch idealCommutingSwitch[m](
         final Ron=Ron,
         final Goff=Goff,
         each final useHeatPort=useHeatPort) annotation (Placement(
@@ -2043,8 +2038,7 @@ Contains m ideal commuting switches (Modelica.Electrical.Analog.Ideal.IdealCommu
             transformation(extent={{90,-10},{110,10}})));
       Interfaces.NegativePlug plug_n1(final m=m) annotation (Placement(
             transformation(extent={{90,30},{110,50}}), iconTransformation(extent={{90,30},{110,50}})));
-      Modelica.Electrical.Analog.Ideal.IdealIntermediateSwitch
-        idealIntermediateSwitch[m](
+      Modelica.Electrical.Analog.Ideal.IdealIntermediateSwitch idealIntermediateSwitch[m](
         final Ron=Ron,
         final Goff=Goff,
         each final useHeatPort=useHeatPort) annotation (Placement(
