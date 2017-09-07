@@ -182,7 +182,7 @@ the output is set to zero: y=0.
           annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
     parameter Boolean use_set = false
       "=true, if set port enabled and used as default value when reset"
-          annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
+          annotation(Dialog(enable=use_reset), Evaluate=true, HideResult=true, choices(checkBox=true));
     parameter Integer y_start = 0
       "Initial and reset value of y if set port is not used";
 
