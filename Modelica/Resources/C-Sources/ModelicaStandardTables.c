@@ -144,6 +144,7 @@
 #include "ModelicaIO.h"
 #include "ModelicaUtilities.h"
 #if defined(TABLE_SHARE) && !defined(NO_FILE_SYSTEM)
+#define uthash_strlen(s) key_strlen(s)
 #include "uthash.h"
 #undef uthash_fatal /* Ensure that nowhere in this file uses uthash_fatal by accident */
 #include "gconstructor.h"
@@ -216,9 +217,7 @@ typedef double CubicHermite2D[15];
 typedef size_t Interval[2];
 
 typedef struct CombiTimeTable {
-#if defined(TABLE_SHARE)
-    const char* key; /* Key consisting of concatenated names of file and table */
-#endif
+    char* key; /* Key consisting of concatenated names of file and table */
     double* table; /* Table values */
     size_t nRow; /* Number of rows of table */
     size_t nCol; /* Number of columns of table */
@@ -248,9 +247,7 @@ typedef struct CombiTimeTable {
 } CombiTimeTable;
 
 typedef struct CombiTable1D {
-#if defined(TABLE_SHARE)
-    const char* key; /* Key consisting of concatenated names of file and table */
-#endif
+    char* key; /* Key consisting of concatenated names of file and table */
     double* table; /* Table values */
     size_t nRow; /* Number of rows of table */
     size_t nCol; /* Number of columns of table */
@@ -266,9 +263,7 @@ typedef struct CombiTable1D {
 } CombiTable1D;
 
 typedef struct CombiTable2D {
-#if defined(TABLE_SHARE)
-    const char* key; /* Key consisting of concatenated names of file and table */
-#endif
+    char* key; /* Key consisting of concatenated names of file and table */
     double* table; /* Table values */
     size_t nRow; /* Number of rows of table */
     size_t nCol; /* Number of columns of table */
@@ -470,6 +465,11 @@ static enum TableSource getTableSource(_In_z_ const char* fileName,
 static void transpose(_Inout_ double* table, size_t nRow, size_t nCol) MODELICA_NONNULLATTR;
   /* Cycle-based in-place array transposition */
 
+#if defined(TABLE_SHARE) && !defined(NO_FILE_SYSTEM)
+static size_t key_strlen(_In_z_ const char *s);
+  /* Special strlen for key consisting of concatenated names of file and table */
+#endif
+
 #if defined(TABLE_SHARE)
 #define READ_RESULT TableShare*
 #else
@@ -624,6 +624,15 @@ void* ModelicaStandardTables_CombiTimeTable_init2(_In_z_ const char* fileName,
         case TABLESOURCE_FILE:
 #if defined(TABLE_SHARE)
             tableID->key = keyFile;
+#else
+            {
+                size_t lenFileName = strlen(fileName);
+                tableID->key = (char*)malloc((lenFileName + strlen(tableName) + 2)*sizeof(char));
+                if (NULL != tableID->key) {
+                    strcpy(tableID->key, fileName);
+                    strcpy(tableID->key + lenFileName + 1, tableName);
+                }
+            }
 #endif
             tableID->nRow = nRowFile;
             tableID->nCol = nColFile;
@@ -771,6 +780,9 @@ void ModelicaStandardTables_CombiTimeTable_close(void* _tableID) {
             free(tableID->table);
         }
 #else
+        if (NULL != tableID->key) {
+            free(tableID->key);
+        }
         free(tableID->table);
 #endif
     }
@@ -1630,30 +1642,11 @@ double ModelicaStandardTables_CombiTimeTable_read(void* _tableID, int force,
     CombiTimeTable* tableID = (CombiTimeTable*)_tableID;
     if (NULL != tableID && tableID->source == TABLESOURCE_FILE) {
         if (force || NULL == tableID->table) {
-            char* fileName = NULL;
-            const char* tableName;
+            const char* fileName = tableID->key;
+            const char* tableName = tableID->key + strlen(fileName) + 1;
 #if defined(TABLE_SHARE)
-            TableShare* file;
-#endif
-            tableName = strchr(tableID->key, '|');
-            if (NULL != tableName) {
-                fileName = (char*)malloc((tableName - tableID->key + 1)*sizeof(char));
-                if (NULL != fileName) {
-                    memcpy(fileName, tableID->key, tableName - tableID->key);
-                    fileName[tableName - tableID->key] = '\0';
-                }
-                else {
-                    return 0.; /* Error */
-                }
-                tableName++;
-            }
-            /* This will leak heap allocated memory of fileName in case
-               readTable fails with ModelicaError.
-            */
-#if defined(TABLE_SHARE)
-            file = readTable(fileName, tableName, &tableID->nRow,
+            TableShare* file = readTable(fileName, tableName, &tableID->nRow,
                 &tableID->nCol, verbose, force);
-            free(fileName);
             if (NULL != file) {
                 tableID->table = file->table;
             }
@@ -1666,7 +1659,6 @@ double ModelicaStandardTables_CombiTimeTable_read(void* _tableID, int force,
             }
             tableID->table = readTable(fileName, tableName, &tableID->nRow,
                 &tableID->nCol, verbose, force);
-            free(fileName);
 #endif
             if (NULL == tableID->table) {
                 return 0.; /* Error */
@@ -1800,6 +1792,15 @@ void* ModelicaStandardTables_CombiTable1D_init2(_In_z_ const char* fileName,
         case TABLESOURCE_FILE:
 #if defined(TABLE_SHARE)
             tableID->key = keyFile;
+#else
+            {
+                size_t lenFileName = strlen(fileName);
+                tableID->key = (char*)malloc((lenFileName + strlen(tableName) + 2)*sizeof(char));
+                if (NULL != tableID->key) {
+                    strcpy(tableID->key, fileName);
+                    strcpy(tableID->key + lenFileName + 1, tableName);
+                }
+            }
 #endif
             tableID->nRow = nRowFile;
             tableID->nCol = nColFile;
@@ -1947,6 +1948,9 @@ void ModelicaStandardTables_CombiTable1D_close(void* _tableID) {
             free(tableID->table);
         }
 #else
+        if (NULL != tableID->key) {
+            free(tableID->key);
+        }
         free(tableID->table);
 #endif
     }
@@ -2282,30 +2286,11 @@ double ModelicaStandardTables_CombiTable1D_read(void* _tableID, int force,
     CombiTable1D* tableID = (CombiTable1D*)_tableID;
     if (NULL != tableID && tableID->source == TABLESOURCE_FILE) {
         if (force || NULL == tableID->table) {
-            char* fileName = NULL;
-            const char* tableName;
+            const char* fileName = tableID->key;
+            const char* tableName = tableID->key + strlen(fileName) + 1;
 #if defined(TABLE_SHARE)
-            TableShare* file;
-#endif
-            tableName = strchr(tableID->key, '|');
-            if (NULL != tableName) {
-                fileName = (char*)malloc((tableName - tableID->key + 1)*sizeof(char));
-                if (NULL != fileName) {
-                    memcpy(fileName, tableID->key, tableName - tableID->key);
-                    fileName[tableName - tableID->key] = '\0';
-                }
-                else {
-                    return 0.; /* Error */
-                }
-                tableName++;
-            }
-            /* This will leak heap allocated memory of fileName in case
-               readTable fails with ModelicaError.
-            */
-#if defined(TABLE_SHARE)
-            file = readTable(fileName, tableName, &tableID->nRow,
+            TableShare* file = readTable(fileName, tableName, &tableID->nRow,
                 &tableID->nCol, verbose, force);
-            free(fileName);
             if (NULL != file) {
                 tableID->table = file->table;
             }
@@ -2318,7 +2303,6 @@ double ModelicaStandardTables_CombiTable1D_read(void* _tableID, int force,
             }
             tableID->table = readTable(fileName, tableName, &tableID->nRow,
                 &tableID->nCol, verbose, force);
-            free(fileName);
 #endif
             if (NULL == tableID->table) {
                 return 0.; /* Error */
@@ -2446,6 +2430,15 @@ void* ModelicaStandardTables_CombiTable2D_init2(_In_z_ const char* fileName,
         case TABLESOURCE_FILE:
 #if defined(TABLE_SHARE)
             tableID->key = keyFile;
+#else
+            {
+                size_t lenFileName = strlen(fileName);
+                tableID->key = (char*)malloc((lenFileName + strlen(tableName) + 2)*sizeof(char));
+                if (NULL != tableID->key) {
+                    strcpy(tableID->key, fileName);
+                    strcpy(tableID->key + lenFileName + 1, tableName);
+                }
+            }
 #endif
             tableID->nRow = nRowFile;
             tableID->nCol = nColFile;
@@ -2563,6 +2556,9 @@ void ModelicaStandardTables_CombiTable2D_close(void* _tableID) {
             free(tableID->table);
         }
 #else
+        if (NULL != tableID->key) {
+            free(tableID->key);
+        }
         free(tableID->table);
 #endif
     }
@@ -4476,30 +4472,11 @@ double ModelicaStandardTables_CombiTable2D_read(void* _tableID, int force,
     CombiTable2D* tableID = (CombiTable2D*)_tableID;
     if (NULL != tableID && tableID->source == TABLESOURCE_FILE) {
         if (force || NULL == tableID->table) {
-            char* fileName = NULL;
-            const char* tableName;
+            const char* fileName = tableID->key;
+            const char* tableName = tableID->key + strlen(fileName) + 1;
 #if defined(TABLE_SHARE)
-            TableShare* file;
-#endif
-            tableName = strchr(tableID->key, '|');
-            if (NULL != tableName) {
-                fileName = (char*)malloc((tableName - tableID->key + 1)*sizeof(char));
-                if (NULL != fileName) {
-                    memcpy(fileName, tableID->key, tableName - tableID->key);
-                    fileName[tableName - tableID->key] = '\0';
-                }
-                else {
-                    return 0.; /* Error */
-                }
-                tableName++;
-            }
-            /* This will leak heap allocated memory of fileName in case
-               readTable fails with ModelicaError.
-            */
-#if defined(TABLE_SHARE)
-            file = readTable(fileName, tableName, &tableID->nRow,
+            TableShare* file = readTable(fileName, tableName, &tableID->nRow,
                 &tableID->nCol, verbose, force);
-            free(fileName);
             if (NULL != file) {
                 tableID->table = file->table;
             }
@@ -4512,7 +4489,6 @@ double ModelicaStandardTables_CombiTable2D_read(void* _tableID, int force,
             }
             tableID->table = readTable(fileName, tableName, &tableID->nRow,
                 &tableID->nCol, verbose, force);
-            free(fileName);
 #endif
             if (NULL == tableID->table) {
                 return 0.; /* Error */
@@ -5605,6 +5581,14 @@ static void transpose(_Inout_ double* table, size_t nRow, size_t nCol) {
 
 /* ----- Internal I/O functions ----- */
 
+#if defined(TABLE_SHARE) && !defined(NO_FILE_SYSTEM)
+static size_t key_strlen(_In_z_ const char *s) {
+    size_t len = strlen(s) + 1;
+    len += strlen(s + len);
+    return len;
+}
+#endif
+
 static READ_RESULT readTable(_In_z_ const char* fileName, _In_z_ const char* tableName,
                              _Inout_ size_t* nRow, _Inout_ size_t* nCol, int verbose,
                              int force) {
@@ -5621,13 +5605,12 @@ static READ_RESULT readTable(_In_z_ const char* fileName, _In_z_ const char* tab
     double* table = NULL;
     if (NULL != tableName && NULL != fileName && NULL != nRow && NULL != nCol) {
 #if defined(TABLE_SHARE)
-        char* key = (char*)malloc((strlen(fileName) +
-            strlen(tableName) + 2)*sizeof(char));
+        size_t lenFileName = strlen(fileName);
+        char* key = (char*)malloc((lenFileName + strlen(tableName) + 2)*sizeof(char));
         if (NULL != key) {
             int updateError = 0;
             strcpy(key, fileName);
-            strcat(key, "|");
-            strcat(key, tableName);
+            strcpy(key + lenFileName + 1, tableName);
             MUTEX_LOCK();
             HASH_FIND_STR(tableShare, key, file);
             if (NULL == file || force) {
@@ -5655,12 +5638,13 @@ static READ_RESULT readTable(_In_z_ const char* fileName, _In_z_ const char* tab
                 /* Share miss -> Insert new table */
                 file = (TableShare*)malloc(sizeof(TableShare));
                 if (NULL != file) {
+                    size_t lenKey = key_strlen(key);
                     file->key = key;
                     file->refCount = 1;
                     file->nRow = *nRow;
                     file->nCol = *nCol;
                     file->table = table;
-                    HASH_ADD_KEYPTR(hh, tableShare, key, strlen(key), file);
+                    HASH_ADD_KEYPTR(hh, tableShare, key, lenKey, file);
                 }
                 else {
                     free(key);
