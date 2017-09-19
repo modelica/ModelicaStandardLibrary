@@ -495,7 +495,7 @@ This is the library of electric machine models.
           annotation (Line(points={{0,70},{0,90},{-50,90}}, color={0,0,255}));
         connect(sineVoltage.plug_p, idealCloser.plug_p) annotation (Line(points=
                {{0,50},{0,48},{0,46},{0,40}}, color={0,0,255}));
-        connect(booleanStep.y, idealCloser.control) annotation (Line(points={{-59,40},{-20,40},{-20,30},{-12,30}},
+        connect(booleanStep.y, idealCloser.control) annotation (Line(points={{-59,40},{-20,40},{-20,30},{-7,30}},
                                                 color={255,0,255}));
         connect(idealCloser.plug_n, currentQuasiRMSSensor.plug_p)
           annotation (Line(points={{0,20},{0,17},{0,10}}, color={0,0,255}));
@@ -950,7 +950,7 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
                {{0,50},{0,48},{0,46},{0,40}}, color={0,0,255}));
         connect(loadInertia.flange_b, quadraticLoadTorque.flange)
           annotation (Line(points={{60,-40},{70,-40}}));
-        connect(booleanStep.y, idealCloser.control) annotation (Line(points={{-59,40},{-20,40},{-20,30},{-12,30}},
+        connect(booleanStep.y, idealCloser.control) annotation (Line(points={{-59,40},{-20,40},{-20,30},{-7,30}},
                                                 color={255,0,255}));
         connect(idealCloser.plug_n, currentQuasiRMSSensor.plug_p)
           annotation (Line(points={{0,20},{0,16},{0,10}}, color={0,0,255}));
@@ -1070,7 +1070,7 @@ Default machine parameters of model <i>AIM_SlipRing</i> are used.
         connect(ramp.y, vfController.u)
           annotation (Line(points={{-59,60},{-42,60}}, color={0,0,255}));
         connect(vfController.y, signalVoltage.v)
-          annotation (Line(points={{-19,60},{-12,60}},color={0,0,255}));
+          annotation (Line(points={{-19,60},{-7,60}}, color={0,0,255}));
         connect(loadTorqueStep.flange, loadInertia.flange_b)
           annotation (Line(points={{70,-40},{60,-40}}));
         connect(signalVoltage.plug_p, currentQuasiRMSSensor.plug_p)
@@ -1191,7 +1191,7 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
         connect(star.pin_n, ground.p)
           annotation (Line(points={{-70,90},{-80,90}}, color={0,0,255}));
         connect(vfController.y, signalVoltage.v)
-          annotation (Line(points={{-19,60},{-12,60}},color={0,0,255}));
+          annotation (Line(points={{-19,60},{-7,60}}, color={0,0,255}));
         connect(signalVoltage.plug_p, currentQuasiRMSSensor.plug_p)
           annotation (Line(points={{0,50},{0,40},{0,10}}, color={0,0,255}));
         connect(terminalBox.plugSupply, currentQuasiRMSSensor.plug_n)
@@ -1216,17 +1216,16 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
           annotation (Line(points={{60,-40},{66,-40},{70,-40}}, color={0,127,0}));
         annotation (experiment(StopTime=20, Interval=1E-4, Tolerance=1e-06), Documentation(
               info="<html>
-<b>Test example: Asynchronous induction machine with squirrel cage fed by an ideal inverter</b><br>
-An ideal frequency inverter is modeled by using a VfController and a three-phase SignalVoltage.<br>
-Frequency is driven by a load cycle of acceleration, constant speed, deceleration and standstill.<br>
-The mechanical load is a constant torque like a conveyor (with regularization around zero speed).<br>
+<p>An ideal frequency inverter is modeled by using a VfController and a three-phase SignalVoltage.
+Frequency is driven by a load cycle of acceleration, constant speed, deceleration and standstill.
+The mechanical load is a constant torque like a conveyor (with regularization around zero speed).</p>
 Simulate for 20 seconds and plot (versus time):
 <ul>
 <li>currentQuasiRMSSensor.I: stator current RMS</li>
 <li>aimc.wMechanical: motor's speed</li>
 <li>aimc.tauElectrical: motor's torque</li>
 </ul>
-Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
+<p>Default machine parameters are used.</p>
 </html>"));
       end AIMC_Conveyor;
 
@@ -1356,7 +1355,7 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
           annotation (Line(points={{-80,90},{-70,90}}, color={0,0,255}));
         connect(sineVoltage.p, idealCloser.p)
           annotation (Line(points={{-50,90},{-30,90}}, color={0,0,255}));
-        connect(booleanStep.y, idealCloser.control) annotation (Line(points={{-29,70},{-20,70},{-20,78}},
+        connect(booleanStep.y, idealCloser.control) annotation (Line(points={{-29,70},{-20,70},{-20,83}},
                                         color={255,0,255}));
         connect(plugToPin_p3.pin_p, sineVoltage.n) annotation (Line(points={{-30,
                 20},{-70,20},{-70,90}}, color={0,0,255}));
@@ -1375,7 +1374,7 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
         connect(idealOpener.p, idealCloser.n) annotation (Line(points={{30,90},
                 {30,90},{-10,90}}, color={0,0,255}));
         connect(greaterThreshold.y, idealOpener.control) annotation (Line(
-              points={{50,61},{50,80},{42,80}}, color={255,0,255}));
+              points={{50,61},{50,80},{37,80}}, color={255,0,255}));
         connect(TerminalBox1.plug_sn, aimc.plug_sn) annotation (Line(
             points={{-16,-30},{-16,-30}},
             color={0,0,255}));
@@ -1406,10 +1405,9 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
             points={{-10,-20},{-10,-28}}, color={0,0,255}));
         annotation (experiment(StopTime=1.5, Interval=1E-4, Tolerance=1e-06), Documentation(
               info="<html>
-<b>Asynchronous induction machine with squirrel cage - Steinmetz-connection</b><br>
-At start time tStart single phase voltage is supplied to the asynchronous induction machine with squirrel cage;
-the machine starts from standstill, accelerating inertias against load torque quadratic dependent on speed, finally reaching nominal speed.<br>
-Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
+<p>At start time tStart single phase voltage is supplied to the asynchronous induction machine with squirrel cage;
+the machine starts from standstill, accelerating inertias against load torque quadratic dependent on speed, finally reaching nominal speed.
+Default machine parameters of model <i>AIM_SquirrelCage</i> are used.</P>
 </html>"));
       end AIMC_Steinmetz;
 

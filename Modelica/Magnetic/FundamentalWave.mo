@@ -347,9 +347,11 @@ no. 829420.
       extends Modelica.Icons.ReleaseNotes;
       annotation (Documentation(info="<html>
 
-<h5>Version 3.2.2, 2017-07-18</h5>
+<h5>Version 3.2.2, 2017-09-19</h5>
 
 <ul>
+  <li>Unification of documentation, see 
+      <a href=\"https://github.com/modelica/Modelica/issues/2276\">#2276</a></li> 
   <li>Unified communication interval, see 
       <a href=\"https://github.com/modelica/Modelica/issues/2279\">#2279</a></li>
   <li>Unified simulation tolerances, see 
@@ -1053,7 +1055,7 @@ In this example the eddy current losses are implemented in two different ways. C
     package BasicMachines "Examples of machines of the FundamentalWave library"
       extends Modelica.Icons.ExamplesPackage;
       model AIMC_DOL
-        "Direct on line start of asynchronous induction machine with squirrel cage"
+        "Direct on line (DOL) start of asynchronous induction machine with squirrel cage"
         extends Modelica.Icons.Example;
         constant Integer m=3 "Number of stator phases";
         parameter Modelica.SIunits.Voltage VsNominal=100
@@ -1217,7 +1219,7 @@ In this example the eddy current losses are implemented in two different ways. C
                 40}},
             color={0,0,255}));
         connect(booleanStep.y, idealCloser.control) annotation (Line(
-            points={{-39,60},{-12,60}},color={255,0,255}));
+            points={{-39,60},{-7,60}}, color={255,0,255}));
         connect(currentRMSsensorE.plug_p, idealCloser.plug_n) annotation (Line(
             points={{-60,40},{0,40},{0,50}},
             color={0,0,255}));
@@ -1233,7 +1235,6 @@ In this example the eddy current losses are implemented in two different ways. C
             StopTime=1.5,
             Interval=1E-4,
             Tolerance=1e-06), Documentation(info="<html>
-<h4>Direct on line (DOL) starting of an asynchronous induction machine with squirrel cage</h4>
 <p>
 At start time tStart three phase voltage is supplied to the
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage\">asynchronous induction machine with squirrel cage</a>.
@@ -1432,7 +1433,7 @@ Simulate for 1.5 seconds and plot (versus time):
             points={{-10,72},{0,72}},
             color={0,0,255}));
         connect(booleanStepM.y, idealCloserM.control) annotation (Line(
-            points={{-20,51},{-20,60}}, color={255,0,255}));
+            points={{-20,51},{-20,65}}, color={255,0,255}));
         connect(star3.pin_n, ground3.p)
           annotation (Line(points={{-90,-30},{-90,-42}}, color={0,0,255}));
         connect(sineVoltage3.plug_n, star3.plug_p) annotation (Line(points={{-60,
@@ -1454,9 +1455,9 @@ Simulate for 1.5 seconds and plot (versus time):
             points={{-10,-30},{0,-30}},
             color={0,0,255}));
         connect(booleanStep3.y, idealCloser3.control) annotation (Line(
-            points={{-20,-51},{-20,-42}}, color={255,0,255}));
+            points={{-20,-51},{-20,-37}}, color={255,0,255}));
         connect(currentRMSsensorM.I, gain.u) annotation (Line(
-            points={{10,61},{10,44}}, color={0,0,127}));
+            points={{10,62},{10,44}}, color={0,0,127}));
         connect(loadInertiaM.flange_b, quadraticLoadTorqueM.flange) annotation (
            Line(
             points={{70,50},{80,50}}));
@@ -1476,7 +1477,6 @@ Simulate for 1.5 seconds and plot (versus time):
             Interval=1E-4,
             Tolerance=1e-06),
           Documentation(info="<html>
-<h4>Direct on line (DOL) starting of an asynchronous induction machine with squirrel cage</h4>
 <p>
 At start time tStart voltages are supplied to the
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage\">multi phase asynchronous induction machines with squirrel cage</a>.
@@ -1519,7 +1519,7 @@ Simulate for 1.5 seconds and plot (versus time):
                       textStyle={TextStyle.Bold})}));
       end AIMC_DOL_MultiPhase;
 
-      model AIMC_YD "Test example: AsynchronousInductionMachineSquirrelCage Y-D"
+      model AIMC_YD "Asynchronous induction machine with squirrel cage starting Y-D"
 
         extends Modelica.Icons.Example;
         constant Integer m=3 "Number of phases";
@@ -1554,15 +1554,16 @@ Simulate for 1.5 seconds and plot (versus time):
           Lrsigma=aimcData.Lrsigma*m/3,
           Rr=aimcData.Rr*m/3,
           alpha20r=aimcData.alpha20r,
-          TrOperational=293.15) annotation (Placement(transformation(extent={{-20,-50},{0,-30}})));
-        Electrical.Machines.Sensors.CurrentQuasiRMSSensor currentQuasiRMSSensor annotation (Placement(transformation(extent={{-10,10},{10,-10}}, rotation=270)));
+          TrOperational=293.15) annotation (Placement(transformation(extent={{20,10},{40,30}})));
+        Electrical.Machines.Sensors.CurrentQuasiRMSSensor currentQuasiRMSSensor annotation (Placement(transformation(extent={{-10,10},{10,-10}}, rotation=270,
+              origin={30,70})));
         Modelica.Electrical.MultiPhase.Sources.SineVoltage sineVoltage(
           final m=m,
           freqHz=fill(fNominal, m),
           V=fill(sqrt(2/3)*VNominal, m)) annotation (Placement(transformation(
-              origin={0,60},
-              extent={{10,-10},{-10,10}},
-              rotation=270)));
+              origin={-30,90},
+              extent={{10,10},{-10,-10}},
+              rotation=0)));
         Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) annotation (
             Placement(transformation(extent={{-50,80},{-70,100}})));
         Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
@@ -1571,29 +1572,26 @@ Simulate for 1.5 seconds and plot (versus time):
               extent={{-10,-10},{10,10}},
               rotation=270)));
         Modelica.Blocks.Sources.BooleanStep booleanStep[m](each startTime=
-              tStart1) annotation (Placement(transformation(extent={{-80,30},{-60,
-                  50}})));
+              tStart1) annotation (Placement(transformation(extent={{-80,50},{-60,70}})));
         Modelica.Electrical.MultiPhase.Ideal.IdealClosingSwitch idealCloser(
           final m=m,
           Ron=fill(1e-5, m),
           Goff=fill(1e-5, m)) annotation (Placement(transformation(
-              origin={0,30},
+              origin={0,90},
               extent={{-10,10},{10,-10}},
-              rotation=270)));
-        Electrical.Machines.Utilities.SwitchYD switchYD(m=m) annotation (Placement(transformation(extent={{-20,-30},{0,-10}})));
+              rotation=0)));
+        Electrical.Machines.Utilities.SwitchYD switchYD(m=m) annotation (Placement(transformation(extent={{20,30},{40,50}})));
         Modelica.Blocks.Sources.BooleanStep booleanStepYD[m](each startTime=
-              tStart2) annotation (Placement(transformation(extent={{-80,-30},{
-                  -60,-10}})));
+              tStart2) annotation (Placement(transformation(extent={{-40,30},{-20,50}})));
         Modelica.Mechanics.Rotational.Components.Inertia loadInertia(J=JLoad)
-          annotation (Placement(transformation(extent={{40,-50},{60,-30}})));
+          annotation (Placement(transformation(extent={{50,10},{70,30}})));
         Modelica.Mechanics.Rotational.Sources.QuadraticSpeedDependentTorque
           quadraticLoadTorque(
           w_nominal=wLoad,
           TorqueDirection=false,
           tau_nominal=-TLoad,
-          useSupport=false) annotation (Placement(transformation(extent={{90,-50},
-                  {70,-30}})));
-        parameter Electrical.Machines.Utilities.ParameterRecords.AIM_SquirrelCageData aimcData annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
+          useSupport=false) annotation (Placement(transformation(extent={{100,10},{80,30}})));
+        parameter Electrical.Machines.Utilities.ParameterRecords.AIM_SquirrelCageData aimcData annotation (Placement(transformation(extent={{70,72},{90,92}})));
       initial equation
         aimc.is = zeros(3);
         aimc.rotorCage.electroMagneticConverter.V_m = Complex(0, 0);
@@ -1601,44 +1599,50 @@ Simulate for 1.5 seconds and plot (versus time):
         connect(star.pin_n, ground.p)
           annotation (Line(points={{-70,90},{-80,90}}, color={0,0,255}));
         connect(sineVoltage.plug_n, star.plug_p)
-          annotation (Line(points={{0,70},{0,90},{-50,90}}, color={0,0,255}));
-        connect(sineVoltage.plug_p, idealCloser.plug_p) annotation (Line(points=
-               {{0,50},{0,48},{0,46},{0,40}}, color={0,0,255}));
+          annotation (Line(points={{-40,90},{-50,90}},      color={0,0,255}));
+        connect(sineVoltage.plug_p, idealCloser.plug_p) annotation (Line(points={{-20,90},{-20,90},{-10,90},{-10,90}},
+                                              color={0,0,255}));
         connect(loadInertia.flange_b, quadraticLoadTorque.flange)
-          annotation (Line(points={{60,-40},{70,-40}}));
-        connect(booleanStep.y, idealCloser.control) annotation (Line(points={{-59,40},{-20,40},{-20,30},{-12,30}},
+          annotation (Line(points={{70,20},{80,20}}));
+        connect(booleanStep.y, idealCloser.control) annotation (Line(points={{-59,60},{0,60},{0,83}},
                                                 color={255,0,255}));
         connect(booleanStepYD.y, switchYD.control)
-          annotation (Line(points={{-59,-20},{-21,-20}}, color={255,0,255}));
+          annotation (Line(points={{-19,40},{19,40}},    color={255,0,255}));
         connect(idealCloser.plug_n, currentQuasiRMSSensor.plug_p)
-          annotation (Line(points={{0,20},{0,18},{0,10}}, color={0,0,255}));
+          annotation (Line(points={{10,90},{30,90},{30,90},{30,90},{30,80},{30,80}},
+                                                          color={0,0,255}));
         connect(switchYD.plug_sn, aimc.plug_sn) annotation (Line(
-            points={{-16,-30},{-16,-30}}, color={0,0,255}));
+            points={{24,30},{24,30}},     color={0,0,255}));
         connect(switchYD.plug_sp, aimc.plug_sp) annotation (Line(
-            points={{-4,-30},{-4,-30}}, color={0,0,255}));
+            points={{36,30},{36,30}},   color={0,0,255}));
         connect(switchYD.plugSupply, currentQuasiRMSSensor.plug_n) annotation (
             Line(
-            points={{-10,-10},{0,-10}}, color={0,0,255}));
+            points={{30,50},{30,50},{30,56},{30,56},{30,60}},
+                                        color={0,0,255}));
         connect(aimc.flange, loadInertia.flange_a) annotation (Line(
-            points={{0,-40},{40,-40}}));
+            points={{40,20},{50,20}}));
         annotation (experiment(
             StopTime=2.5,
             Interval=1E-4,
             Tolerance=1e-06),                                 Documentation(
               info="<html>
-<strong>Test example: Asynchronous induction machine with squirrel cage - Y-D starting</strong><br>
-At start time tStart three phase voltage is supplied to the asynchronous induction machine with squirrel cage, first star-connected, then delta-connected; the machine starts from standstill, accelerating inertias against load torque quadratic dependent on speed, finally reaching nominal speed.<br>
-Simulate for 2.5 seconds and plot (versus time):
+<p>At start time tStart three phase voltage is supplied to the asynchronous induction machine with squirrel cage, 
+first star-connected, then delta-connected; the machine starts from standstill, 
+accelerating inertias against load torque quadratic dependent on speed, finally reaching nominal speed.</p>
+
+<p>Simulate for 2.5 seconds and plot (versus time):</p>
+
 <ul>
 <li>currentQuasiRMSSensor.I: stator current RMS</li>
 <li>aimc.wMechanical: motor's speed</li>
 <li>aimc.tauElectrical: motor's torque</li>
 </ul>
-Default machine parameters of model <em>AIM_SquirrelCage</em> are used.
+
+<p>Default machine parameters are used.</p>
 </html>"));
       end AIMC_YD;
 
-      model AIMC_Transformer "Test example: AsynchronousInductionMachineSquirrelCage transformer starting"
+      model AIMC_Transformer "Asynchronous induction machine with squirrel cage starting with transformer"
 
         extends Modelica.Icons.Example;
         constant Integer m=3 "Number of phases";
@@ -1674,24 +1678,26 @@ Default machine parameters of model <em>AIM_SquirrelCage</em> are used.
           Lrsigma=aimcData.Lrsigma*m/3,
           Rr=aimcData.Rr*m/3,
           alpha20r=aimcData.alpha20r,
-          TrOperational=293.15) annotation (Placement(transformation(extent={{-20,-50},{0,-30}})));
+          TrOperational=293.15) annotation (Placement(transformation(extent={{80,10},{60,30}})));
         Electrical.Machines.Sensors.CurrentQuasiRMSSensor currentQuasiRMSSensor annotation (Placement(transformation(
-              origin={0,80},
+              origin={-40,80},
               extent={{-10,10},{10,-10}},
-              rotation=270)));
+              rotation=0)));
         Modelica.Electrical.MultiPhase.Sources.SineVoltage sineVoltage(
           final m=m,
           freqHz=fill(fNominal, m),
           V=fill(sqrt(2/3)*VNominal, m)) annotation (Placement(transformation(
-              origin={-30,90},
+              origin={-70,80},
               extent={{10,10},{-10,-10}})));
         Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) annotation (
-            Placement(transformation(extent={{-50,80},{-70,100}})));
+            Placement(transformation(extent={{10,-10},{-10,10}},
+              rotation=90,
+              origin={-80,50})));
         Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
               transformation(
-              origin={-90,90},
+              origin={-80,20},
               extent={{-10,-10},{10,10}},
-              rotation=270)));
+              rotation=0)));
         Modelica.Blocks.Sources.BooleanStep booleanStep1[m](each startTime=
               tStart1) annotation (Placement(transformation(extent={{-60,40},{-40,
                   60}})));
@@ -1699,9 +1705,9 @@ Default machine parameters of model <em>AIM_SquirrelCage</em> are used.
           final m=m,
           Ron=fill(1e-5, m),
           Goff=fill(1e-5, m)) annotation (Placement(transformation(
-              origin={0,50},
+              origin={-10,80},
               extent={{-10,10},{10,-10}},
-              rotation=270)));
+              rotation=0)));
         Electrical.Machines.BasicMachines.Transformers.Yy.Yy00 transformer(
           n=transformerData.n,
           R1=transformerData.R1,
@@ -1715,14 +1721,14 @@ Default machine parameters of model <em>AIM_SquirrelCage</em> are used.
           T1Operational=293.15,
           T2Operational=293.15) annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
-              rotation=270,
-              origin={-20,30})));
+              rotation=0,
+              origin={20,80})));
 
         Modelica.Electrical.Analog.Basic.Ground ground2 annotation (Placement(
               transformation(
-              origin={-50,20},
+              origin={20,50},
               extent={{-10,-10},{10,10}},
-              rotation=270)));
+              rotation=0)));
         parameter Electrical.Machines.Utilities.TransformerData transformerData(
           f=fNominal,
           V1=VNominal,
@@ -1737,82 +1743,89 @@ Default machine parameters of model <em>AIM_SquirrelCage</em> are used.
               2),
           SNominal=50E3,
           v_sc=0.06,
-          P_sc=500) annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
+          P_sc=500) annotation (Placement(transformation(extent={{80,80},{100,100}})));
         Modelica.Blocks.Sources.BooleanStep booleanStep2[m](each startTime=
-              tStart2) annotation (Placement(transformation(extent={{-60,-10},{
-                  -40,10}})));
+              tStart2) annotation (Placement(transformation(extent={{-60,10},{-40,30}})));
         Modelica.Electrical.MultiPhase.Ideal.IdealCommutingSwitch
           idealCommutingSwitch(
           final m=m,
           Ron=fill(1e-5, m),
           Goff=fill(50E-5, m)) annotation (Placement(transformation(
-              extent={{10,10},{-10,-10}},
-              rotation=270)));
+              extent={{60,90},{40,70}},
+              rotation=0)));
         Modelica.Mechanics.Rotational.Components.Inertia loadInertia(J=JLoad)
-          annotation (Placement(transformation(extent={{40,-50},{60,-30}})));
+          annotation (Placement(transformation(extent={{50,10},{30,30}})));
         Modelica.Mechanics.Rotational.Sources.QuadraticSpeedDependentTorque
           quadraticLoadTorque(
           w_nominal=wLoad,
           TorqueDirection=false,
           tau_nominal=-TLoad,
-          useSupport=false) annotation (Placement(transformation(extent={{90,-50},
-                  {70,-30}})));
-        Electrical.Machines.Utilities.TerminalBox terminalBox(terminalConnection="D") annotation (Placement(transformation(extent={{-20,-34},{0,-14}})));
-        parameter Electrical.Machines.Utilities.ParameterRecords.AIM_SquirrelCageData aimcData annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
+          useSupport=false) annotation (Placement(transformation(extent={{0,10},{20,30}})));
+        Electrical.Machines.Utilities.TerminalBox terminalBox(terminalConnection="D") annotation (Placement(transformation(extent={{80,26},{60,46}})));
+        parameter Electrical.Machines.Utilities.ParameterRecords.AIM_SquirrelCageData aimcData annotation (Placement(transformation(extent={{80,52},{100,72}})));
       initial equation
         aimc.is = zeros(3);
         aimc.rotorCage.electroMagneticConverter.V_m = Complex(0, 0);
         transformer.i1[1:2] = zeros(2);
       equation
         connect(star.pin_n, ground.p)
-          annotation (Line(points={{-70,90},{-80,90}}, color={0,0,255}));
+          annotation (Line(points={{-80,40},{-80,40},{-80,34},{-80,34},{-80,30},{-80,30}},
+                                                       color={0,0,255}));
         connect(terminalBox.plug_sn, aimc.plug_sn) annotation (Line(
-            points={{-16,-30},{-16,-30}}, color={0,0,255}));
+            points={{76,30},{76,30}},     color={0,0,255}));
         connect(terminalBox.plug_sp, aimc.plug_sp) annotation (Line(
-            points={{-4,-30},{-4,-30}}, color={0,0,255}));
+            points={{64,30},{64,30}},   color={0,0,255}));
         connect(loadInertia.flange_b, quadraticLoadTorque.flange) annotation (
             Line(
-            points={{60,-40},{70,-40}}));
+            points={{30,20},{20,20}}));
         connect(aimc.flange, loadInertia.flange_a) annotation (Line(
-            points={{0,-40},{40,-40}}));
+            points={{60,20},{50,20}}));
         connect(star.plug_p, sineVoltage.plug_n) annotation (Line(
-            points={{-50,90},{-40,90}}, color={0,0,255}));
+            points={{-80,60},{-80,80}}, color={0,0,255}));
         connect(booleanStep2.y, idealCommutingSwitch.control) annotation (Line(
-            points={{-39,0},{-12,0}},color={255,0,255}));
+            points={{-39,20},{-10,20},{-10,40},{50,40},{50,72}},
+                                     color={255,0,255}));
         connect(transformer.starpoint2, ground2.p) annotation (Line(
-            points={{-30,25},{-30,20},{-40,20}}, color={0,0,255}));
+            points={{25,70},{25,60},{20,60}},    color={0,0,255}));
         connect(idealCommutingSwitch.plug_p, terminalBox.plugSupply)
           annotation (Line(
-            points={{0,-10},{-10,-10},{-10,-28}}, color={0,0,255}));
+            points={{60,80},{60,80},{68,80},{68,80},{70,80},{70,32},{70,32}},
+                                                  color={0,0,255}));
         connect(transformer.plug2, idealCommutingSwitch.plug_n1) annotation (
             Line(
-            points={{-20,20},{-4,20},{-4,10}}, color={0,0,255}));
+            points={{30,80},{40,80},{40,75}},  color={0,0,255}));
         connect(sineVoltage.plug_p, currentQuasiRMSSensor.plug_p) annotation (
             Line(
-            points={{-20,90},{0,90}}, color={0,0,255}));
+            points={{-60,80},{-50,80}},
+                                      color={0,0,255}));
         connect(booleanStep1.y, idealCloser.control) annotation (Line(
-            points={{-39,50},{-12,50}},color={255,0,255}));
+            points={{-39,50},{-20,50},{-20,73},{-10,73}},
+                                       color={255,0,255}));
         connect(currentQuasiRMSSensor.plug_n, idealCloser.plug_p) annotation (
             Line(
-            points={{0,70},{0,60}}, color={0,0,255}));
+            points={{-30,80},{-20,80}},
+                                    color={0,0,255}));
         connect(transformer.plug1, idealCloser.plug_n) annotation (Line(
-            points={{-20,40},{0,40}}, color={0,0,255}));
+            points={{10,80},{0,80}},  color={0,0,255}));
         connect(idealCloser.plug_n, idealCommutingSwitch.plug_n2) annotation (
             Line(
-            points={{0,40},{0,10}}, color={0,0,255}));
+            points={{0,80},{0,80},{0,100},{40,100},{40,80}},
+                                    color={0,0,255}));
         annotation (experiment(StopTime=2.5, Interval=1E-4, Tolerance=1e-06), Documentation(
               info="<html>
-<strong>Test example: Asynchronous induction machine with squirrel cage - transformer starting</strong><br>
-At start time tStart1 three phase voltage is supplied to the asynchronous induction machine with squirrel cage via the transformer;
+<p>At start time tStart1 three phase voltage is supplied to the asynchronous induction machine with squirrel cage via the transformer;
 the machine starts from standstill, accelerating inertias against load torque quadratic dependent on speed;
-at start time tStart2 the machine is fed directly from the voltage source, finally reaching nominal speed.<br>
-Simulate for 2.5 seconds and plot (versus time):
+at start time tStart2 the machine is fed directly from the voltage source, finally reaching nominal speed.</p>
+
+<p>Simulate for 2.5 seconds and plot (versus time):</p>
+
 <ul>
 <li>currentQuasiRMSSensor.I: stator current RMS</li>
 <li>aimc.wMechanical: motor's speed</li>
 <li>aimc.tauElectrical: motor's torque</li>
 </ul>
-Default machine parameters of model <em>AIM_SquirrelCage</em> are used.
+
+<p>Default machine parameters are used.</p>
 </html>"));
       end AIMC_Transformer;
 
@@ -2021,7 +2034,6 @@ Default machine parameters of model <em>AIM_SquirrelCage</em> are used.
             StopTime=1.5,
             Interval=1E-4,
             Tolerance=1e-06), Documentation(info="<html>
-<h4>Starting of an asynchronous induction machine with slipring rotor resistance starting</h4>
 <p>
 At start time <code>tOn</code> three phase voltage is supplied to the
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing\">asynchronous induction machine with sliprings</a>.
@@ -2301,7 +2313,6 @@ Simulate for 1.5 seconds and plot (versus time):
             Interval=1E-4,
             Tolerance=1e-06),
           Documentation(info="<html>
-<h4>Starting of an asynchronous induction machine with slipring rotor resistance starting</h4>
 <p>
 At start time <code>tOn</code> voltages are supplied to the
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing\">asynchronous induction machines with sliprings</a>.
@@ -2345,7 +2356,7 @@ Simulate for 1.5 seconds and plot (versus time):
                       textStyle={TextStyle.Bold})}));
       end AIMS_Start_MultiPhase;
 
-      model AIMC_Inverter "Test example: AsynchronousInductionMachineSquirrelCage with inverter"
+      model AIMC_Inverter "Asynchronous induction machine with squirrel cage and inverter"
         extends Modelica.Icons.Example;
         constant Integer m=3 "Number of phases";
         parameter Modelica.SIunits.Voltage VNominal=100
@@ -2419,7 +2430,7 @@ Simulate for 1.5 seconds and plot (versus time):
         connect(ramp.y, vfController.u)
           annotation (Line(points={{-59,60},{-42,60}}, color={0,0,255}));
         connect(vfController.y, signalVoltage.v)
-          annotation (Line(points={{-19,60},{-12,60}},color={0,0,255}));
+          annotation (Line(points={{-19,60},{-7,60}}, color={0,0,255}));
         connect(loadTorqueStep.flange, loadInertia.flange_b)
           annotation (Line(points={{70,-40},{60,-40}}));
         connect(signalVoltage.plug_p, currentQuasiRMSSensor.plug_p)
@@ -2435,21 +2446,22 @@ Simulate for 1.5 seconds and plot (versus time):
             points={{0,-40},{40,-40}}));
         annotation (experiment(StopTime=1.5, Interval=1E-4, Tolerance=1e-06), Documentation(
               info="<html>
-<strong>Test example: Asynchronous induction machine with squirrel cage fed by an ideal inverter</strong><br>
-An ideal frequency inverter is modeled by using a VfController and a three-phase SignalVoltage.<br>
+<p>An ideal frequency inverter is modeled by using a VfController and a three-phase SignalVoltage.
 Frequency is raised by a ramp, causing the asynchronous induction machine with squirrel cage to start,
-and accelerating inertias.<br>At time tStep a load step is applied.<br>
-Simulate for 1.5 seconds and plot (versus time):
+and accelerating inertias. At time tStep a load step is applied.</p>
+
+<p>Simulate for 1.5 seconds and plot (versus time):</p>
+
 <ul>
 <li>currentQuasiRMSSensor.I: stator current RMS</li>
 <li>aimc.wMechanical: motor's speed</li>
 <li>aimc.tauElectrical: motor's torque</li>
 </ul>
-Default machine parameters of model <em>AIM_SquirrelCage</em> are used.
+Default machine parameters are used.
 </html>"));
       end AIMC_Inverter;
 
-      model AIMC_Conveyor "Test example: AsynchronousInductionMachineSquirrelCage with inverter driving a conveyor"
+      model AIMC_Conveyor "Asynchronous induction machine with squirrel cage and inverter driving a conveyor"
         extends Modelica.Icons.Example;
         import Modelica.Constants.pi;
         constant Integer m=3 "Number of phases";
@@ -2486,86 +2498,88 @@ Default machine parameters of model <em>AIM_SquirrelCage</em> are used.
           Lrsigma=aimcData.Lrsigma*m/3,
           Rr=aimcData.Rr*m/3,
           alpha20r=aimcData.alpha20r,
-          TrOperational=293.15) annotation (Placement(transformation(extent={{-20,-50},{0,-30}})));
-        Electrical.Machines.Sensors.CurrentQuasiRMSSensor currentQuasiRMSSensor annotation (Placement(transformation(extent={{-10,10},{10,-10}}, rotation=270)));
+          TrOperational=293.15) annotation (Placement(transformation(extent={{60,10},{40,30}})));
+        Electrical.Machines.Sensors.CurrentQuasiRMSSensor currentQuasiRMSSensor annotation (Placement(transformation(extent={{20,100},{40,80}},  rotation=0)));
         Blocks.Sources.CombiTimeTable
                                  dutyCycle(table=[0,0; 1,1; 4,1; 5,0; 10,0; 11,
               -1; 14,-1; 15,0; 20,0], extrapolation=Modelica.Blocks.Types.Extrapolation.Periodic)
-          annotation (Placement(transformation(extent={{-100,50},{-80,70}})));
+          annotation (Placement(transformation(extent={{-100,40},{-80,60}})));
         Electrical.Machines.Utilities.VfController vfController(
           final m=m,
           VNominal=VNominal,
-          fNominal=fNominal) annotation (Placement(transformation(extent={{-40,50},{-20,70}})));
+          fNominal=fNominal) annotation (Placement(transformation(extent={{-30,40},{-10,60}})));
         Modelica.Electrical.MultiPhase.Sources.SignalVoltage signalVoltage(
             final m=m) annotation (Placement(transformation(
-              origin={0,60},
+              origin={0,90},
               extent={{10,10},{-10,-10}},
-              rotation=270)));
+              rotation=0)));
         Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) annotation (
-            Placement(transformation(extent={{-50,80},{-70,100}})));
+            Placement(transformation(extent={{-40,80},{-60,100}})));
         Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
               transformation(
-              origin={-90,90},
+              origin={-70,70},
               extent={{-10,-10},{10,10}},
-              rotation=270)));
-        Electrical.Machines.Utilities.TerminalBox terminalBox(terminalConnection="Y") annotation (Placement(transformation(extent={{-20,-34},{0,-14}})));
-        parameter Electrical.Machines.Utilities.ParameterRecords.AIM_SquirrelCageData aimcData annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
+              rotation=0)));
+        Electrical.Machines.Utilities.TerminalBox terminalBox(terminalConnection="Y") annotation (Placement(transformation(extent={{60,26},{40,46}})));
+        parameter Electrical.Machines.Utilities.ParameterRecords.AIM_SquirrelCageData aimcData annotation (Placement(transformation(extent={{70,72},{90,92}})));
         Blocks.Math.Gain gain(k=fNominal/unitFrequency)
-          annotation (Placement(transformation(extent={{-70,50},{-50,70}})));
+          annotation (Placement(transformation(extent={{-60,40},{-40,60}})));
         Mechanics.Translational.Components.IdealGearR2T idealGearR2T(ratio=1/r)
-          annotation (Placement(transformation(extent={{12,-50},{32,-30}})));
+          annotation (Placement(transformation(extent={{32,10},{12,30}})));
         Mechanics.Translational.Components.Mass mass(m=JLoad/r^2)
-          annotation (Placement(transformation(extent={{40,-50},{60,-30}})));
+          annotation (Placement(transformation(extent={{0,10},{-20,30}})));
         Mechanics.Translational.Sources.SignForce signForce(                           v0(
               displayUnit="m/s") = 0.01*wNominal*r, f_nominal=-TLoad/r)
-          annotation (Placement(transformation(extent={{90,-50},{70,-30}})));
+          annotation (Placement(transformation(extent={{-50,10},{-30,30}})));
       initial equation
         aimc.is[1:2] = zeros(2);
         aimc.rotorCage.electroMagneticConverter.V_m = Complex(0, 0);
-
       equation
         connect(signalVoltage.plug_n, star.plug_p)
-          annotation (Line(points={{0,70},{0,90},{-50,90}}, color={0,0,255}));
+          annotation (Line(points={{-10,90},{-40,90}},      color={0,0,255}));
         connect(star.pin_n, ground.p)
-          annotation (Line(points={{-70,90},{-80,90}}, color={0,0,255}));
+          annotation (Line(points={{-60,90},{-70,90},{-70,80}},
+                                                       color={0,0,255}));
         connect(vfController.y, signalVoltage.v)
-          annotation (Line(points={{-19,60},{-12,60}},color={0,0,255}));
+          annotation (Line(points={{-9,50},{0,50},{0,83}},
+                                                      color={0,0,255}));
         connect(signalVoltage.plug_p, currentQuasiRMSSensor.plug_p)
-          annotation (Line(points={{0,50},{0,40},{0,10}}, color={0,0,255}));
+          annotation (Line(points={{10,90},{20,90}},      color={0,0,255}));
         connect(terminalBox.plugSupply, currentQuasiRMSSensor.plug_n)
           annotation (Line(
-            points={{-10,-28},{-10,-20},{0,-20},{0,-10}}, color={0,0,255}));
+            points={{50,32},{50,90},{40,90}},             color={0,0,255}));
         connect(terminalBox.plug_sn, aimc.plug_sn) annotation (Line(
-            points={{-16,-30},{-16,-30}}, color={0,0,255}));
+            points={{56,30},{56,30}},     color={0,0,255}));
         connect(terminalBox.plug_sp, aimc.plug_sp) annotation (Line(
-            points={{-4,-30},{-4,-30}}, color={0,0,255}));
+            points={{44,30},{44,30}},   color={0,0,255}));
         connect(vfController.u, gain.y)
-          annotation (Line(points={{-42,60},{-49,60}}, color={0,0,127}));
+          annotation (Line(points={{-32,50},{-39,50}}, color={0,0,127}));
         connect(dutyCycle.y[1], gain.u)
-          annotation (Line(points={{-79,60},{-72,60}}, color={0,0,127}));
+          annotation (Line(points={{-79,50},{-62,50}}, color={0,0,127}));
         connect(aimc.flange, idealGearR2T.flangeR)
-          annotation (Line(points={{0,-40},{12,-40}}));
+          annotation (Line(points={{40,20},{32,20}}));
         connect(idealGearR2T.flangeT, mass.flange_a)
-          annotation (Line(points={{32,-40},{36,-40},{40,-40}}, color={0,127,0}));
+          annotation (Line(points={{12,20},{0,20}},             color={0,127,0}));
         connect(mass.flange_b, signForce.flange)
-          annotation (Line(points={{60,-40},{66,-40},{70,-40}}, color={0,127,0}));
+          annotation (Line(points={{-20,20},{-30,20}},          color={0,127,0}));
         annotation (experiment(StopTime=20, Interval=1E-4, Tolerance=1e-06), Documentation(
               info="<html>
-<strong>Test example: Asynchronous induction machine with squirrel cage fed by an ideal inverter</strong><br>
-An ideal frequency inverter is modeled by using a VfController and a three-phase SignalVoltage.<br>
-Frequency is driven by a load cycle of acceleration, constant speed, deceleration and standstill.<br>
-The mechanical load is a constant torque like a conveyor (with regularization around zero speed).<br>
-Simulate for 20 seconds and plot (versus time):
+<p>An ideal frequency inverter is modeled by using a VfController and a three-phase SignalVoltage.
+Frequency is driven by a load cycle of acceleration, constant speed, deceleration and standstill.
+The mechanical load is a constant torque like a conveyor (with regularization around zero speed).</p>
+
+<p>Simulate for 20 seconds and plot (versus time):</p>
+
 <ul>
 <li>currentQuasiRMSSensor.I: stator current RMS</li>
 <li>aimc.wMechanical: motor's speed</li>
 <li>aimc.tauElectrical: motor's torque</li>
 </ul>
-Default machine parameters of model <em>AIM_SquirrelCage</em> are used.
+<p>Default machine parameters are used.</p>
 </html>"));
       end AIMC_Conveyor;
 
-      model AIMC_Steinmetz "AsynchronousInductionMachineSquirrelCage Steinmetz-connection"
+      model AIMC_Steinmetz "Asynchronous induction machine with squirrel cage and Steinmetz-connection"
 
         extends Modelica.Icons.Example;
         constant Integer m=3 "Number of phases";
@@ -2687,7 +2701,7 @@ Default machine parameters of model <em>AIM_SquirrelCage</em> are used.
           annotation (Line(points={{-80,90},{-70,90}}, color={0,0,255}));
         connect(sineVoltage.p, idealCloser.p)
           annotation (Line(points={{-50,90},{-30,90}}, color={0,0,255}));
-        connect(booleanStep.y, idealCloser.control) annotation (Line(points={{-29,70},{-20,70},{-20,78}},
+        connect(booleanStep.y, idealCloser.control) annotation (Line(points={{-29,70},{-20,70},{-20,83}},
                                         color={255,0,255}));
         connect(plugToPin_p3.pin_p, sineVoltage.n) annotation (Line(points={{-30,
                 20},{-70,20},{-70,90}}, color={0,0,255}));
@@ -2706,7 +2720,7 @@ Default machine parameters of model <em>AIM_SquirrelCage</em> are used.
         connect(idealOpener.p, idealCloser.n) annotation (Line(points={{30,90},
                 {30,90},{-10,90}}, color={0,0,255}));
         connect(greaterThreshold.y, idealOpener.control) annotation (Line(
-              points={{50,61},{50,80},{42,80}}, color={255,0,255}));
+              points={{50,61},{50,80},{37,80}}, color={255,0,255}));
         connect(TerminalBox1.plug_sn, aimc.plug_sn) annotation (Line(
             points={{-16,-30},{-16,-30}}, color={0,0,255}));
         connect(TerminalBox1.plug_sp, aimc.plug_sp) annotation (Line(
@@ -2731,14 +2745,15 @@ Default machine parameters of model <em>AIM_SquirrelCage</em> are used.
             points={{-10,-20},{-10,-28}}, color={0,0,255}));
         annotation (experiment(StopTime=1.5, Interval=1E-4, Tolerance=1e-06), Documentation(
               info="<html>
-<strong>Asynchronous induction machine with squirrel cage - Steinmetz-connection</strong><br>
-At start time tStart single phase voltage is supplied to the asynchronous induction machine with squirrel cage;
-the machine starts from standstill, accelerating inertias against load torque quadratic dependent on speed, finally reaching nominal speed.<br>
-Default machine parameters of model <em>AIM_SquirrelCage</em> are used.
+<p>At start time tStart single phase voltage is supplied to the asynchronous induction machine with squirrel cage;
+the machine starts from standstill, accelerating inertias against load torque quadratic dependent on speed, 
+finally reaching nominal speed.</p>
+
+<p>Default machine parameters are used.</p>
 </html>"));
       end AIMC_Steinmetz;
 
-      model AIMC_withLosses "Test example: AsynchronousInductionMachineSquirrelCage with losses"
+      model AIMC_withLosses "Asynchronous induction machine with squirrel cage and losses"
         extends Modelica.Icons.Example;
         constant Integer m=3 "Number of phases";
         import Modelica.Constants.pi;
@@ -2808,57 +2823,57 @@ Default machine parameters of model <em>AIM_SquirrelCage</em> are used.
           Lm=aimcData.Lm*m/3,
           Lrsigma=aimcData.Lrsigma*m/3,
           Rr=aimcData.Rr*m/3,
-          alpha20r=aimcData.alpha20r) annotation (Placement(transformation(extent={{-40,0},{-20,20}})));
-        Electrical.Machines.Utilities.TerminalBox terminalBox(terminalConnection="D") annotation (Placement(transformation(extent={{-40,16},{-20,36}})));
+          alpha20r=aimcData.alpha20r) annotation (Placement(transformation(extent={{-20,60},{0,80}})));
+        Electrical.Machines.Utilities.TerminalBox terminalBox(terminalConnection="D") annotation (Placement(transformation(extent={{-20,76},{0,96}})));
         Electrical.Machines.Sensors.ElectricalPowerSensor electricalPowerSensor annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
-              rotation=270,
-              origin={-30,40})));
+              rotation=0,
+              origin={-40,90})));
         Electrical.Machines.Sensors.CurrentQuasiRMSSensor currentQuasiRMSSensor annotation (Placement(transformation(
-              origin={-30,70},
+              origin={-70,90},
               extent={{-10,10},{10,-10}},
-              rotation=270)));
+              rotation=0)));
         Modelica.Electrical.MultiPhase.Sources.SineVoltage sineVoltage(
           final m=m,
           freqHz=fill(fNominal, m),
           V=fill(sqrt(2/3)*VNominal, m)) annotation (Placement(transformation(
-              origin={-70,70},
+              origin={-90,70},
               extent={{-10,-10},{10,10}},
               rotation=270)));
         Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) annotation (
             Placement(transformation(
               extent={{10,-10},{-10,10}},
               rotation=90,
-              origin={-70,30})));
+              origin={-90,40})));
         Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
               transformation(
-              origin={-70,0},
+              origin={-90,10},
               extent={{-10,-10},{10,10}})));
         Modelica.Mechanics.Rotational.Sensors.PowerSensor powerSensor
-          annotation (Placement(transformation(extent={{-10,0},{10,20}})));
+          annotation (Placement(transformation(extent={{10,60},{30,80}})));
         Modelica.Mechanics.Rotational.Components.Inertia loadInertia(J=aimcData.Jr)
-          annotation (Placement(transformation(extent={{20,0},{40,20}})));
+          annotation (Placement(transformation(extent={{40,60},{60,80}})));
         Modelica.Mechanics.Rotational.Sources.Torque torque
-          annotation (Placement(transformation(extent={{70,0},{50,20}})));
+          annotation (Placement(transformation(extent={{90,60},{70,80}})));
         Modelica.Blocks.Math.Gain gain(k=-1)
-          annotation (Placement(transformation(extent={{50,-60},{70,-40}})));
+          annotation (Placement(transformation(extent={{70,0},{90,20}})));
         Modelica.Blocks.Continuous.PI PI(
           k=0.01,
           T=0.01,
           initType=Modelica.Blocks.Types.Init.InitialState)
-          annotation (Placement(transformation(extent={{20,-60},{40,-40}})));
+          annotation (Placement(transformation(extent={{40,0},{60,20}})));
         Modelica.Blocks.Math.Feedback feedback
-          annotation (Placement(transformation(extent={{-10,-40},{10,-60}})));
+          annotation (Placement(transformation(extent={{10,20},{30,0}})));
         Modelica.Blocks.Sources.Ramp ramp(
           height=1.2*PNominal,
           offset=0,
           startTime=4.5,
           duration=5.5)
-          annotation (Placement(transformation(extent={{-40,-60},{-20,-40}})));
+          annotation (Placement(transformation(extent={{-20,0},{0,20}})));
         Modelica.Blocks.Tables.CombiTable1Ds combiTable1Ds(table={{Ptable[j],
               Itable[j],ntable[j],ctable[j],etable[j]} for j in 1:size(Ptable,
               1)}, smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative)
-          annotation (Placement(transformation(extent={{20,-30},{40,-10}})));
+          annotation (Placement(transformation(extent={{40,30},{60,50}})));
         parameter Electrical.Machines.Utilities.ParameterRecords.AIM_SquirrelCageData aimcData(
           statorCoreParameters(PRef=410, VRef=387.9),
           Jr=0.12,
@@ -2873,7 +2888,7 @@ Default machine parameters of model <em>AIM_SquirrelCage</em> are used.
           Lm=66.4/(2*pi*fNominal),
           Lrsigma=2.31/(2*pi*fNominal),
           Rr=0.42,
-          alpha20r(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Aluminium) annotation (Placement(transformation(extent={{-40,-30},{-20,-10}})));
+          alpha20r(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Aluminium) annotation (Placement(transformation(extent={{-60,12},{-40,32}})));
 
       initial equation
         sum(aimc.is) = 0;
@@ -2883,47 +2898,49 @@ Default machine parameters of model <em>AIM_SquirrelCage</em> are used.
         der(aimc.airGap.V_mrr.im) = 0;
       equation
         connect(star.pin_n, ground.p)
-          annotation (Line(points={{-70,20},{-70,10}}, color={0,0,255}));
+          annotation (Line(points={{-90,30},{-90,20}}, color={0,0,255}));
         connect(sineVoltage.plug_n, star.plug_p)
-          annotation (Line(points={{-70,60},{-70,40}}, color={0,0,255}));
+          annotation (Line(points={{-90,60},{-90,50}}, color={0,0,255}));
         connect(terminalBox.plug_sn, aimc.plug_sn) annotation (Line(
-            points={{-36,20},{-36,20}}, color={0,0,255}));
+            points={{-16,80},{-16,80}}, color={0,0,255}));
         connect(terminalBox.plug_sp, aimc.plug_sp) annotation (Line(
-            points={{-24,20},{-24,20}}, color={0,0,255}));
+            points={{-4,80},{-4,80}},   color={0,0,255}));
         connect(currentQuasiRMSSensor.plug_n, electricalPowerSensor.plug_p)
           annotation (Line(
-            points={{-30,60},{-30,57.5},{-30,57.5},{-30,55},{-30,50},{-30,50}}, color={0,0,255}));
+            points={{-60,90},{-60,90},{-54,90},{-54,90},{-50,90},{-50,90}},     color={0,0,255}));
 
         connect(electricalPowerSensor.plug_nv, star.plug_p) annotation (Line(
-            points={{-40,40},{-70,40}}, color={0,0,255}));
+            points={{-40,80},{-40,80},{-40,50},{-90,50}},
+                                        color={0,0,255}));
         connect(electricalPowerSensor.plug_ni, terminalBox.plugSupply)
           annotation (Line(
-            points={{-30,30},{-30,22}}, color={0,0,255}));
+            points={{-30,90},{-30,90},{-10,90},{-10,90},{-10,90},{-10,82}},
+                                        color={0,0,255}));
         connect(aimc.flange, powerSensor.flange_a) annotation (Line(
-            points={{-20,10},{-10,10}}));
+            points={{0,70},{10,70}}));
         connect(powerSensor.flange_b, loadInertia.flange_a) annotation (Line(
-            points={{10,10},{20,10}}));
+            points={{30,70},{40,70}}));
         connect(torque.flange, loadInertia.flange_b) annotation (Line(
-            points={{50,10},{40,10}}));
+            points={{70,70},{60,70}}));
         connect(gain.y, torque.tau) annotation (Line(
-            points={{71,-50},{80,-50},{80,10},{72,10}}, color={0,0,127}));
+            points={{91,10},{100,10},{100,70},{92,70}}, color={0,0,127}));
         connect(sineVoltage.plug_p, currentQuasiRMSSensor.plug_p) annotation (
             Line(
-            points={{-70,80},{-30,80}}, color={0,0,255}));
+            points={{-90,80},{-90,80},{-90,90},{-88,90},{-88,90},{-80,90}},
+                                        color={0,0,255}));
         connect(powerSensor.power, feedback.u2) annotation (Line(
-            points={{-8,-1},{-8,-20},{0,-20},{0,-42}}, color={0,0,127}));
+            points={{12,59},{12,40},{20,40},{20,18}},  color={0,0,127}));
         connect(feedback.y, PI.u) annotation (Line(
-            points={{9,-50},{18,-50}}, color={0,0,127}));
+            points={{29,10},{38,10}},  color={0,0,127}));
         connect(PI.y, gain.u) annotation (Line(
-            points={{41,-50},{48,-50}}, color={0,0,127}));
+            points={{61,10},{68,10}},   color={0,0,127}));
         connect(ramp.y, feedback.u1) annotation (Line(
-            points={{-19,-50},{-8,-50}}, color={0,0,127}));
+            points={{1,10},{12,10}},     color={0,0,127}));
         connect(powerSensor.power, combiTable1Ds.u) annotation (Line(
-            points={{-8,-1},{-8,-20},{18,-20}}, color={0,0,127}));
+            points={{12,59},{12,40},{38,40}},   color={0,0,127}));
         annotation (
           experiment(StopTime=5.0, Interval=1E-4, Tolerance=1e-06),
           Documentation(info="<html>
-<p>Test example: Asynchronous induction machine with squirrel cage - characteristics with losses</p>
 <ul>
 <li>Simulate for 5 seconds: The machine is started at nominal speed, flux is build up in the machine.</li>
 <li>Continue the simulation for additional 5 seconds: Subsequently a load ramp is applied.</li>
@@ -2971,17 +2988,17 @@ The AdvancedMachines Library: Loss Models for Electric Machines</a><br>
 Modelica 2009, 7<sup>th</sup> International Modelica Conference</p>
 </html>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                   {100,100}}), graphics={Text(
-                      extent={{-72,100},{68,80}},
+                      extent={{-100,-40},{100,-50}},
                       lineColor={0,0,255},
                       textString=
                   "Simulate for 5 seconds for starting the machine."),Text(
-                      extent={{-100,-80},{100,-100}},
+                      extent={{-100,-60},{100,-80}},
                       lineColor={0,0,255},
                       textString=
                   "Continue the simulation for additional 5 seconds: a load ramp is applied.")}));
       end AIMC_withLosses;
 
-      model AIMC_Initialize "Test example: Steady-State Initialization of AsynchronousInductionMachineSquirrelCage"
+      model AIMC_Initialize "Steady-state initialization of asynchronous induction machine with squirrel cage"
         extends Modelica.Icons.Example;
         import Modelica.Constants.pi;
         constant Integer m=3 "Number of phases";
@@ -3015,37 +3032,36 @@ Modelica 2009, 7<sup>th</sup> International Modelica Conference</p>
           Lrsigma=aimcData.Lrsigma*m/3,
           Rr=aimcData.Rr*m/3,
           alpha20r=aimcData.alpha20r,
-          TrOperational=293.15) annotation (Placement(transformation(extent={{-20,-50},{0,-30}})));
+          TrOperational=293.15) annotation (Placement(transformation(extent={{-20,40},{0,60}})));
         Electrical.Machines.Sensors.CurrentQuasiRMSSensor currentQuasiRMSSensor annotation (Placement(transformation(
-              origin={-10,0},
+              origin={-40,80},
               extent={{-10,10},{10,-10}},
-              rotation=270)));
+              rotation=0)));
         Modelica.Electrical.MultiPhase.Sources.SineVoltage sineVoltage(
           final m=m,
           freqHz=fill(fNominal, m),
           V=fill(sqrt(2/3)*VNominal, m)) annotation (Placement(transformation(
-              origin={-70,10},
+              origin={-70,70},
               extent={{-10,-10},{10,10}},
               rotation=270)));
         Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) annotation (
             Placement(transformation(
               extent={{10,-10},{-10,10}},
               rotation=90,
-              origin={-70,-20})));
+              origin={-70,40})));
         Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
               transformation(
-              origin={-70,-50},
+              origin={-70,10},
               extent={{-10,-10},{10,10}})));
         Modelica.Mechanics.Rotational.Components.Inertia loadInertia(J=JLoad)
-          annotation (Placement(transformation(extent={{40,-50},{60,-30}})));
+          annotation (Placement(transformation(extent={{10,40},{30,60}})));
         Mechanics.Rotational.Sources.TorqueStep torqueStep(
           useSupport=false,
           startTime=tStart,
           stepTorque=-TLoad,
-          offsetTorque=0) annotation (Placement(transformation(extent={{90,-50},
-                  {70,-30}})));
-        Electrical.Machines.Utilities.TerminalBox terminalBox(terminalConnection="D") annotation (Placement(transformation(extent={{-20,-34},{0,-14}})));
-        parameter Electrical.Machines.Utilities.ParameterRecords.AIM_SquirrelCageData aimcData annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
+          offsetTorque=0) annotation (Placement(transformation(extent={{60,40},{40,60}})));
+        Electrical.Machines.Utilities.TerminalBox terminalBox(terminalConnection="D") annotation (Placement(transformation(extent={{-20,56},{0,76}})));
+        parameter Electrical.Machines.Utilities.ParameterRecords.AIM_SquirrelCageData aimcData annotation (Placement(transformation(extent={{70,72},{90,92}})));
       initial equation
         aimc.wMechanical = wSync;
         sum(aimc.is) = 0;
@@ -3054,36 +3070,40 @@ Modelica 2009, 7<sup>th</sup> International Modelica Conference</p>
         der(aimc.airGap.V_mrr.re) = 0;
         der(aimc.airGap.V_mrr.im) = 0;
       equation
-        connect(star.pin_n, ground.p) annotation (Line(points={{-70,-30},{-70,-30},
-                {-70,-40}}, color={0,0,255}));
+        connect(star.pin_n, ground.p) annotation (Line(points={{-70,30},{-70,20}},
+                            color={0,0,255}));
         connect(sineVoltage.plug_n, star.plug_p)
-          annotation (Line(points={{-70,0},{-70,-10}}, color={0,0,255}));
+          annotation (Line(points={{-70,60},{-70,50}}, color={0,0,255}));
         connect(terminalBox.plug_sn, aimc.plug_sn) annotation (Line(
-            points={{-16,-30},{-16,-30}}, color={0,0,255}));
+            points={{-16,60},{-16,60}},   color={0,0,255}));
         connect(terminalBox.plug_sp, aimc.plug_sp) annotation (Line(
-            points={{-4,-30},{-4,-30}}, color={0,0,255}));
+            points={{-4,60},{-4,60}},   color={0,0,255}));
         connect(terminalBox.plugSupply, currentQuasiRMSSensor.plug_n)
           annotation (Line(
-            points={{-10,-28},{-10,-10}}, color={0,0,255}));
+            points={{-10,62},{-10,80},{-30,80}},
+                                          color={0,0,255}));
         connect(loadInertia.flange_b, torqueStep.flange) annotation (Line(
-            points={{60,-40},{70,-40}}));
+            points={{30,50},{40,50}}));
         connect(aimc.flange, loadInertia.flange_a) annotation (Line(
-            points={{0,-40},{40,-40}}));
+            points={{0,50},{10,50}}));
         connect(sineVoltage.plug_p, currentQuasiRMSSensor.plug_p) annotation (
             Line(
-            points={{-70,20},{-10,20},{-10,10}}, color={0,0,255}));
+            points={{-70,80},{-50,80}},          color={0,0,255}));
         annotation (experiment(StopTime=1.5, Interval=1E-4, Tolerance=1e-06), Documentation(
               info="<html>
-<strong>Test example: Steady-State Initialization of Asynchronous induction machine with squirrel cage</strong><br>
+<p>
 The asynchronous induction machine with squirrel cage is initialized in steady-state at no-load;
-at time tStart a load torque step is applied.<br>
-Simulate for 1.5 seconds and plot (versus time):
+at time tStart a load torque step is applied.</p>
+
+<p>Simulate for 1.5 seconds and plot (versus time):</p>
+
 <ul>
 <li>currentQuasiRMSSensor.I: stator current RMS</li>
 <li>aimc.wMechanical: motor's speed</li>
 <li>aimc.tauElectrical: motor's torque</li>
 </ul>
-Default machine parameters of model <em>AIM_SquirrelCage</em> are used.
+
+<p>Default machine parameters are used.</p>
 </html>"));
       end AIMC_Initialize;
 
@@ -4918,7 +4938,7 @@ Simulate for 1.5 seconds and plot (versus time):
         connect(starM.pin_n, groundM.p) annotation (Line(
             points={{-70,-10},{-70,-28}}, color={0,0,255}));
         connect(currentController.y, signalCurrent.i) annotation (Line(
-            points={{-29,50},{-22,50}}, color={0,0,127}));
+            points={{-29,50},{-17,50}}, color={0,0,127}));
         connect(speedSensor.flange, smpm.flange) annotation (Line(
             points={{30,-10},{30,-40},{0,-40}}));
         connect(quadraticSpeedDependentTorque.flange, inertiaLoad.flange_b)
@@ -4938,9 +4958,8 @@ Simulate for 1.5 seconds and plot (versus time):
 The rms values of d- and q-current in rotor fixed coordinate system are converted to three-phase currents,
 and fed to the machine. The result shows that the torque is influenced by the q-current,
 whereas the stator voltage is influenced by the d-current.</p>
-<p>
-Default machine parameters of model <a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet\">SM_PermanentMagnet</a> are used.
-</p>
+
+<p>Default machine parameters are used.</p>
 </html>"));
       end SMPM_CurrentSource;
 
@@ -5089,7 +5108,7 @@ Default machine parameters of model <a href=\"modelica://Modelica.Electrical.Mac
         connect(angleSensor.phi, voltageController.phi) annotation (Line(
             points={{10,11},{10,34},{-34,34},{-34,38}}, color={0,0,127}));
         connect(voltageController.y, signalVoltage.v) annotation (Line(
-            points={{-29,50},{-22,50}}, color={0,0,127}));
+            points={{-29,50},{-17,50}}, color={0,0,127}));
         connect(currentSensor.i, voltageController.iActual) annotation (Line(
             points={{-21,1.9984e-015},{-46,1.9984e-015},{-46,38}}, color={0,0,127}));
         connect(inertiaLoad.flange_a, torqueSensor.flange_b) annotation (Line(
@@ -5124,9 +5143,8 @@ A synchronous induction machine with permanent magnets accelerates a quadratic s
 The rms values of d- and q-current in rotor fixed coordinate system are controlled by the voltageController,
 and the output voltages fed to the machine. The result shows that the torque is influenced by the q-current,
 whereas the stator voltage is influenced by the d-current.</p>
-<p>
-Default machine parameters of model <a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet\">SM_PermanentMagnet</a> are used.
-</p>
+
+<p>Default machine parameters are used</p>
 </html>"));
       end SMPM_VoltageSource;
 
@@ -5248,7 +5266,7 @@ Default machine parameters of model <a href=\"modelica://Modelica.Electrical.Mac
         connect(limiter.y, ac2dc.u)
           annotation (Line(points={{40,71},{40,80},{22,80}}, color={0,0,127}));
         connect(ac2dc.y, variableResistor.R)
-          annotation (Line(points={{-1,80},{-10,80},{-10,72}}, color={0,0,127}));
+          annotation (Line(points={{-1,80},{-10,80},{-10,71}}, color={0,0,127}));
         connect(starM.plug_p, voltageQuasiRMSSensor.plug_n) annotation (Line(
               points={{-50,-10},{-48,-10},{-40,-10}}, color={0,0,255}));
         connect(voltageQuasiRMSSensor.plug_p, currentQuasiRMSSensor.plug_n)
@@ -5267,11 +5285,12 @@ Default machine parameters of model <a href=\"modelica://Modelica.Electrical.Mac
         annotation (experiment(StopTime=0.8, Interval=1E-4, Tolerance=1e-06), Documentation(
               info="<html>
 <p>
-A synchronous induction machine with permanent magnets starts braking from nominal speed by feeding a diode bridge, which in turn feeds a braking resistor.<br>
-Since induced voltage is reduced proportional to falling speed, the braking resistance is set proportional to speed to achieve constant current and torque.</p>
-<p>
-Default machine parameters of model <a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet\">SM_PermanentMagnet</a> are used.
-</p>
+A synchronous induction machine with permanent magnets starts braking from nominal speed by feeding a diode bridge, 
+which in turn feeds a braking resistor.
+Since induced voltage is reduced proportional to falling speed, the braking resistance is set proportional 
+to speed to achieve constant current and torque.</p>
+
+<p>Default machine parameters are used</p>
 </html>"));
       end SMPM_Braking;
 
@@ -5459,7 +5478,7 @@ Default machine parameters of model <a href=\"modelica://Modelica.Electrical.Mac
             Line(
             points={{-11,0},{-60,0},{-60,-18}}, color={0,0,127}));
         connect(voltageController.y, excitationVoltage.v) annotation (Line(
-            points={{-49,-30},{-42,-30}}, color={0,0,127}));
+            points={{-49,-30},{-37,-30}}, color={0,0,127}));
         connect(loadInductor.plug_p, loadResistor.plug_n) annotation (Line(
             points={{-60,50},{-50,50}}, color={0,0,255}));
         connect(loadResistor.plug_p, switch.plug_n) annotation (Line(
@@ -5469,26 +5488,26 @@ Default machine parameters of model <a href=\"modelica://Modelica.Electrical.Mac
         connect(star.plug_p, loadInductor.plug_n) annotation (Line(
             points={{-90,40},{-90,50},{-80,50}}, color={0,0,255}));
         connect(loadControl.y, switch.control[1]) annotation (Line(
-            points={{-19,80},{-10,80},{-10,62}}, color={255,0,255}));
+            points={{-19,80},{-10,80},{-10,57}}, color={255,0,255}));
         connect(loadControl.y, switch.control[2]) annotation (Line(
-            points={{-19,80},{-10,80},{-10,62}}, color={255,0,255}));
+            points={{-19,80},{-10,80},{-10,57}}, color={255,0,255}));
         connect(loadControl.y, switch.control[3]) annotation (Line(
-            points={{-19,80},{-10,80},{-10,62}}, color={255,0,255}));
+            points={{-19,80},{-10,80},{-10,57}}, color={255,0,255}));
         connect(star.pin_n, ground.p) annotation (Line(
             points={{-90,20},{-90,10}}, color={0,0,255}));
-        annotation (experiment(StopTime=10, Interval=1E-4, Tolerance=1e-06), Documentation(info=
-               "<html>
-<strong>Test example: Electrical excited synchronous induction machine with voltage controller</strong><br>
-An electrically excited synchronous generator is started with a speed ramp, then driven with constant speed.
-Voltage is controlled, the set point depends on speed. After start-up the generator is loaded, the load is rejected.
-Simulate for 10 seconds and plot:
+        annotation (experiment(StopTime=10, Interval=1E-4, Tolerance=1e-06), Documentation(info="<html>
+<p>An electrically excited synchronous generator is started with a speed ramp, then driven with constant speed.
+Voltage is controlled, the set point depends on speed. After start-up the generator is loaded, the load is rejected.</p>
+
+<p>Simulate for 10 seconds and plot:</p>
+
 <ul>
 <li>voltageQuasiRMSSensor.V</li>
 <li>smee.tauElectrical</li>
 <li>smee.ie</li>
 </ul>
-Default machine parameters of model <em>SM_ElectricalExcited</em> are used.
-One could try to optimize the controller parameters.
+
+<p>Default machine parameters are used</p>
 </html>"));
       end SMEE_LoadDump;
 
@@ -5690,7 +5709,7 @@ One could try to optimize the controller parameters.
         connect(speedSensor.w, setPointGain.u) annotation (Line(
             points={{30,-61},{30,-80},{-48,-80}}, color={0,0,127}));
         connect(voltageController.y, excitationVoltage.v) annotation (Line(
-            points={{-49,-30},{-42,-30}}, color={0,0,127}));
+            points={{-49,-30},{-37,-30}}, color={0,0,127}));
         connect(idealDiode1.plug_p, idealDiode2.plug_n) annotation (Line(
             points={{0,70},{0,50}}, color={0,0,255}));
         connect(idealDiode2.plug_p, star2.plug_p) annotation (Line(
@@ -5708,7 +5727,7 @@ One could try to optimize the controller parameters.
         connect(filter.y, voltageController.u_m) annotation (Line(
             points={{-60,-11},{-60,-18}}, color={0,0,127}));
         connect(voltageSensor.v, filter.u) annotation (Line(
-            points={{-69,60},{-60,60},{-60,12}}, color={0,0,127}));
+            points={{-70,60},{-60,60},{-60,12}}, color={0,0,127}));
         connect(terminalBox.plugSupply, idealDiode2.plug_n) annotation (Line(
             points={{10,-18},{10,60},{0,60},{0,50}}, color={0,0,255}));
         connect(resistor.p, capacitor1.p) annotation (Line(
@@ -5721,8 +5740,11 @@ One could try to optimize the controller parameters.
             points={{-80,70},{-80,90},{-40,90}}, color={0,0,255}));
         annotation (experiment(StopTime=1.1, Interval=1E-4, Tolerance=1e-06), Documentation(
               info="<html>
-<p><strong>Test example: Electrical excited synchronous induction machine with voltage controller</strong></p><p>An electrically excited synchronous generator is driven with constant speed. Voltage is controlled, the set point depends on speed. The generator is loaded with a rectifier.</p>
-<p>Default machine parameters of model <em>SM_ElectricalExcited</em> are used. </p>
+<p>An electrically excited synchronous generator is driven with constant speed. 
+Voltage is controlled, the set point depends on speed. The generator is loaded with a rectifier.</p>
+
+<p>Default machine parameters are used</p>
+
 </html>"));
       end SMEE_Rectifier;
     end BasicMachines;
