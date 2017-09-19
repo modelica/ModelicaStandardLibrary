@@ -15250,7 +15250,7 @@ They can be used to feed a current source which in turn feeds an induction machi
 
     model VoltageController "Voltage controller"
       import Modelica.Constants.pi;
-      parameter Integer m=5 "Number of phases";
+      parameter Integer m=3 "Number of phases";
       parameter Integer p "Number of pole pairs";
       parameter Modelica.SIunits.Frequency fsNominal "Nominal frequency";
       parameter Modelica.SIunits.Voltage VsOpenCircuit
