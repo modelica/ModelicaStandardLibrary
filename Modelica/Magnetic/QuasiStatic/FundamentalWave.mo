@@ -2895,8 +2895,8 @@ Modelica 2009, 7<sup>th</sup> International Modelica Conference</p>
           connect(sineVoltage.plug_p,currentQuasiRMSSensor. plug_p) annotation (
               Line(
               points={{-70,-20},{-50,-20}},        color={0,0,255}));
-          connect(starMachineQS.plug_p, terminalBoxQS.starpoint) annotation (Line(points={{-40,48},{-40,62},{-20,62}}, color={85,170,255}));
-          connect(terminalBox.starpoint, starMachine.plug_p) annotation (Line(points={{-20,-38},{-40,-38},{-40,-52}}, color={0,0,255}));
+          connect(starMachineQS.plug_p, terminalBoxQS.starpoint) annotation (Line(points={{-40,48},{-40,62},{-19,62}}, color={85,170,255}));
+          connect(terminalBox.starpoint, starMachine.plug_p) annotation (Line(points={{-19,-38},{-40,-38},{-40,-52}}, color={0,0,255}));
           connect(starMachine.pin_n, ground.p) annotation (Line(points={{-40,-72},{-40,-80},{-70,-80}}, color={0,0,255}));
           connect(starMachineQS.pin_n, groundQS.pin) annotation (Line(points={{-40,28},{-40,20},{-70,20}}, color={85,170,255}));
           annotation (experiment(StopTime=1.5, Interval=0.001, Tolerance=1e-06), Documentation(
@@ -3087,13 +3087,15 @@ Simulate for 0.1 second and plot (versus time):
                 Text(
                   extent={{-100,8},{-20,0}},
                           textStyle={TextStyle.Bold},
-                  textString="%m phase quasi static",        lineColor={0,0,0}),               Text(
+                  textString="%m phase quasi static
+",                lineColor={0,0,0}),               Text(
                           extent={{-100,-92},{-20,-100}},
                           lineColor={0,0,0},
                           fillColor={255,255,170},
                           fillPattern=FillPattern.Solid,
                           textStyle={TextStyle.Bold},
-                          textString="%m phase transient")}));
+                          textString="%m phase transient
+")}));
         end SMPM_OpenCircuit;
 
         model SMPM_Mains
@@ -3330,7 +3332,7 @@ Simulate for 0.1 second and plot (versus time):
               color={0,0,255}));
           connect(powerSensor.nv, star.plug_p) annotation (Line(
               points={{-30,-30},{-30,-60},{-60,-60}}, color={0,0,255}));
-          connect(terminalBox.starpoint, starMachine.plug_p) annotation (Line(points={{20,-48},{-10,-48},{-10,-50},{-10,-50}}, color={0,0,255}));
+          connect(terminalBox.starpoint, starMachine.plug_p) annotation (Line(points={{21,-48},{-10,-48},{-10,-50},{-10,-50}}, color={0,0,255}));
           connect(starMachine.pin_n, groundMachine.p) annotation (Line(points={{-10,-70},{-10,-80}}, color={0,0,255}));
           annotation (experiment(StopTime=1, Interval=1E-4, Tolerance=1E-6),Diagram(coordinateSystem(preserveAspectRatio=false,
                   extent={{-100,-100},{100,100}}), graphics={
@@ -3646,7 +3648,7 @@ Simulate for 1 second and plot (versus time):
           connect(voltageQuasiRMSSensorQS.plug_n, currentRMSSensorQS.plug_n) annotation (Line(points={{-20,50},{0,50}}, color={85,170,255}));
           connect(starMQS.pin_n, starMachineQS.pin_n) annotation (Line(points={{-50,30},{-50,20},{-40,20}}, color={85,170,255}));
           connect(starMQS.plug_p, voltageQuasiRMSSensorQS.plug_p) annotation (Line(points={{-50,50},{-40,50}}, color={85,170,255}));
-          connect(starMachine.plug_p, terminalBox.starpoint) annotation (Line(points={{-20,-80},{-20,-68},{-10,-68}},color={0,0,255}));
+          connect(starMachine.plug_p, terminalBox.starpoint) annotation (Line(points={{-20,-80},{-20,-68},{-9,-68}}, color={0,0,255}));
           connect(starMachine.pin_n, groundM.p) annotation (Line(points={{-40,-80},{-60,-80}}, color={0,0,255}));
           annotation (
             experiment(StopTime=2.0, Interval=1E-4, Tolerance=1E-6),
@@ -3897,7 +3899,7 @@ to numerically stabilize the simulation.</p>
           Sensors.RotorDisplacementAngle rotorAngleQS(m=m, p=smeeQS.p) annotation (Placement(transformation(
                 extent={{10,-10},{-10,10}},
                 rotation=90,
-                origin={32,30})));
+                origin={30,30})));
           Electrical.Analog.Basic.Ground          groundMachine annotation (
               Placement(transformation(
                 extent={{-10,-10},{10,10}},
@@ -3979,12 +3981,12 @@ to numerically stabilize the simulation.</p>
           connect(smee.flange, rotorAngle.flange) annotation (Line(points={{10,-70},{20,-70}}, color={0,0,0}));
           connect(rotorAngle.plug_p, smee.plug_sp) annotation (Line(points={{24,-60},{6,-60}}, color={0,0,255}));
           connect(smee.plug_sn, rotorAngle.plug_n) annotation (Line(points={{-6,-60},{-6,-54},{36,-54},{36,-60}}, color={0,0,255}));
-          connect(terminalBoxQS.plug_sp, rotorAngleQS.plug_p) annotation (Line(points={{6,40},{26,40}}, color={85,170,255}));
-          connect(rotorAngleQS.plug_n, terminalBoxQS.plug_sn) annotation (Line(points={{38,40},{38,46},{-6,46},{-6,40}}, color={85,170,255}));
-          connect(smeeQS.flange, rotorAngleQS.flange) annotation (Line(points={{10,30},{22,30}}, color={0,0,0}));
+          connect(terminalBoxQS.plug_sp, rotorAngleQS.plug_p) annotation (Line(points={{6,40},{24,40}}, color={85,170,255}));
+          connect(rotorAngleQS.plug_n, terminalBoxQS.plug_sn) annotation (Line(points={{36,40},{36,46},{-6,46},{-6,40}}, color={85,170,255}));
+          connect(smeeQS.flange, rotorAngleQS.flange) annotation (Line(points={{10,30},{20,30}}, color={0,0,0}));
           connect(smeeQS.flange, mechanicalPowerSensorQS.flange_a) annotation (Line(points={{10,30},{50,30}}, color={0,0,0}));
           connect(starMachine.pin_n,groundMachine. p) annotation (Line(points={{-30,-50},{-40,-50}}, color={0,0,255}));
-          connect(starMachine.plug_p, terminalBoxM.starpoint) annotation (Line(points={{-10,-50},{-10,-54},{-10,-58},{-10,-58}},color={0,0,255}));
+          connect(starMachine.plug_p, terminalBoxM.starpoint) annotation (Line(points={{-10,-50},{-10,-54},{-10,-58},{-9,-58}}, color={0,0,255}));
           annotation (
             experiment(
               StopTime=30,
@@ -4025,7 +4027,7 @@ Simulate for 30 seconds and plot versus <code>rotorAngle|rotorAngleQS.rotorDispl
           "Test example: Synchronous reluctance machine fed by current source"
           extends Modelica.Icons.Example;
           import Modelica.Constants.pi;
-          parameter Integer m=3 "Number of phases";
+          parameter Integer m=6 "Number of phases";
           parameter Modelica.SIunits.Voltage VNominal=100
             "Nominal RMS voltage per phase";
           parameter Modelica.SIunits.Frequency fNominal=50 "Nominal frequency";
@@ -4268,7 +4270,8 @@ Simulate for 30 seconds and plot versus <code>rotorAngle|rotorAngleQS.rotorDispl
           connect(groundMQS.pin, starMachineQS.pin_n) annotation (Line(
               points={{-60,20},{-40,20}},
               color={85,170,255}));
-          connect(currentControllerQS.I, referenceCurrentSource.I) annotation (Line(points={{-29,94},{-10,94}}, color={85,170,255}));
+          connect(currentControllerQS.I, referenceCurrentSource.I) annotation (Line(points={{-29,94},{-20,94},{-20,96},{-12,96}},
+                                                                                                                color={85,170,255}));
           connect(referenceCurrentSource.plug_p, starQS.plug_p) annotation (
               Line(
               points={{0,100},{50,100}},
@@ -4316,14 +4319,15 @@ Simulate for 30 seconds and plot versus <code>rotorAngle|rotorAngleQS.rotorDispl
           connect(iq.y, currentControllerQS.iq_rms) annotation (Line(points={{-79,-10},{-70,-10},{-70,84},{-52,84}}, color={0,0,127}));
           connect(iq.y, currentController.iq_rms) annotation (Line(points={{-79,-10},{-70,-10},{-70,-16},{-52,-16}}, color={0,0,127}));
           connect(angleSensor.phi, currentController.phi) annotation (Line(points={{30,-29},{30,-26},{-40,-26},{-40,-22}}, color={0,0,127}));
-          connect(currentController.y, signalCurrent.i) annotation (Line(points={{-29,-10},{-7,-10}}, color={0,0,127}));
-          connect(currentControllerQS.gamma, referenceCurrentSource.gamma) annotation (Line(points={{-29,86},{-10,86}}, color={0,0,127}));
+          connect(currentController.y, signalCurrent.i) annotation (Line(points={{-29,-10},{-12,-10}},color={0,0,127}));
+          connect(currentControllerQS.gamma, referenceCurrentSource.gamma) annotation (Line(points={{-29,86},{-20,86},{-20,84},{-12,84}},
+                                                                                                                        color={0,0,127}));
           connect(angleSensorQS.phi, currentControllerQS.phi) annotation (Line(points={{30,71},{30,74},{-40,74},{-40,78}}, color={0,0,127}));
           connect(starMQS.plug_p, voltageQuasiRMSSensorQS.plug_p) annotation (Line(points={{-50,50},{-40,50}}, color={85,170,255}));
           connect(voltageQuasiRMSSensorQS.plug_n, currentRMSSensorQS.plug_n) annotation (Line(points={{-20,50},{-6.66134e-16,50}}, color={85,170,255}));
           connect(starMQS.pin_n, groundMQS.pin) annotation (Line(points={{-50,30},{-50,20},{-60,20}}, color={85,170,255}));
           connect(starMachine.pin_n, groundM.p) annotation (Line(points={{-40,-80},{-60,-80}}, color={0,0,255}));
-          connect(starMachine.plug_p, terminalBox.starpoint) annotation (Line(points={{-20,-80},{-20,-68},{-10,-68}},color={0,0,255}));
+          connect(starMachine.plug_p, terminalBox.starpoint) annotation (Line(points={{-20,-80},{-20,-68},{-9,-68}}, color={0,0,255}));
           annotation (
             experiment(StopTime=2.0, Interval=1E-4, Tolerance=1E-6),
             Documentation(info="<html><html>

@@ -15218,11 +15218,9 @@ using the provided mechanical rotor angle phi. The output are the instantaneous 
           points={{-62,60},{-120,60}},
           color={0,0,127}));
       connect(toPeak_d.y, rotator.u[1]) annotation (Line(
-          points={{-39,60},{-30,60},{-30,0},{-12,0}},
-          color={0,0,127}));
+          points={{-39,60},{-30,60},{-30,0},{-12,0}},   color={0,0,127}));
       connect(toPeak_q.y, rotator.u[2]) annotation (Line(
-          points={{-39,-60},{-30,-60},{-30,0},{-12,0}},
-          color={0,0,127}));
+          points={{-39,-60},{-30,-60},{-30,0},{-12,0}}, color={0,0,127}));
       connect(i0.y, fromSpacePhasor.zero) annotation (Line(
           points={{11,40},{20,40},{20,8},{38,8}},
           color={0,0,127}));
@@ -15284,7 +15282,7 @@ They can be used to feed a current source which in turn feeds an induction machi
       Machines.Utilities.FromDQ fromDQ(final p=p, final m=m)
         annotation (Placement(transformation(extent={{70,-10},{90,10}})));
       Machines.Utilities.ToDQ toDQ(final p=p, final m=m)
-        annotation (Placement(
+                                              annotation (Placement(
             transformation(
             extent={{-10,-10},{10,10}},
             rotation=90,
@@ -15351,12 +15349,10 @@ They can be used to feed a current source which in turn feeds an induction machi
           points={{-21,0},{-12,0}},
           color={0,0,127}));
       connect(toDQ.y[1], feedback_d.u2) annotation (Line(
-          points={{-60,-69},{-60,-60},{-50,-60},{-50,40},{-28,40},{-28,52}},
-          color={0,0,127}));
+          points={{-60,-69},{-60,-60},{-50,-60},{-50,40},{-28,40},{-28,52}},     color={0,0,127}));
 
       connect(toDQ.y[2], feedback_q.u2) annotation (Line(
-          points={{-60,-69},{-60,-60},{-50,-60},{-50,-20},{-30,-20},{-30,-8}},
-          color={0,0,127}));
+          points={{-60,-69},{-60,-60},{-50,-60},{-50,-20},{-30,-20},{-30,-8}},     color={0,0,127}));
 
       connect(add.y, fromDQ.u) annotation (Line(
           points={{53,0},{68,0}},
