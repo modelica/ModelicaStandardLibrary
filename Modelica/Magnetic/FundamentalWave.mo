@@ -1442,17 +1442,7 @@ Simulate for 1.5 seconds and plot (versus time):
 </ul>
 </html>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                   -100},{100,100}}),
-                               graphics={Rectangle(
-                      extent={{-100,100},{100,20}},
-                      lineColor={0,0,255},
-                      fillColor={255,255,170},
-                      fillPattern=FillPattern.Solid,
-                      pattern=LinePattern.Dash),Rectangle(
-                      extent={{-100,-10},{100,-80}},
-                      lineColor={0,0,255},
-                      fillColor={255,255,170},
-                      fillPattern=FillPattern.Solid,
-                      pattern=LinePattern.Dash),Text(
+                               graphics={       Text(
                       extent={{20,88},{100,80}},
                       lineColor={0,0,0},
                       fillColor={255,255,170},
@@ -1921,7 +1911,7 @@ at start time tStart2 the machine is fed directly from the voltage source, final
         parameter
           Electrical.Machines.Utilities.ParameterRecords.AIM_SlipRingData
           aimsData
-          annotation (Placement(transformation(extent={{-60,-100},{-40,-80}})));
+          annotation (Placement(transformation(extent={{70,72},{90,92}})));
       initial equation
         aimsE.is = zeros(3);
         aimsE.ir = zeros(3);
@@ -2279,17 +2269,7 @@ Simulate for 1.5 seconds and plot (versus time):
 
 </html>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                   -100},{100,100}}),
-                               graphics={Rectangle(
-                      extent={{-100,100},{100,20}},
-                      lineColor={0,0,255},
-                      fillColor={255,255,170},
-                      fillPattern=FillPattern.Solid,
-                      pattern=LinePattern.Dash),Rectangle(
-                      extent={{-100,-10},{100,-80}},
-                      lineColor={0,0,255},
-                      fillColor={255,255,170},
-                      fillPattern=FillPattern.Solid,
-                      pattern=LinePattern.Dash),Text(
+                               graphics={       Text(
                       extent={{40,68},{100,60}},
                       lineColor={0,0,0},
                       fillColor={255,255,170},
