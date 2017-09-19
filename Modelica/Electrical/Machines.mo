@@ -4993,7 +4993,6 @@ This package contains test examples of electric machines.
           final Rr=Rr,
           final useHeatPort=true,
           final T_ref=TrRef,
-          final T=TrRef,
           final alpha=Machines.Thermal.convertAlpha(alpha20r, TrRef))
           annotation (Placement(transformation(
               origin={0,-40},
@@ -5584,7 +5583,6 @@ These models use package SpacePhasors.
           final Rrq=Rrq,
           final T_ref=TrRef,
           final alpha=Machines.Thermal.convertAlpha(alpha20r, TrRef),
-          final T=TrRef,
           final useHeatPort=true) if useDamperCage annotation (Placement(
               transformation(
               origin={0,-40},
@@ -5913,7 +5911,6 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
           final Rrq=Rrq,
           final T_ref=TrRef,
           final alpha=Machines.Thermal.convertAlpha(alpha20r, TrRef),
-          final T=TrRef,
           final useHeatPort=true) if useDamperCage annotation (Placement(
               transformation(
               origin={0,-40},
@@ -5929,8 +5926,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
           final R=Re,
           final T_ref=TeRef,
           final alpha=Machines.Thermal.convertAlpha(alpha20e, TeRef),
-          final useHeatPort=true,
-          final T=TeRef) annotation (Placement(transformation(
+          final useHeatPort=true) annotation (Placement(transformation(
               origin={-80,10},
               extent={{-10,10},{10,-10}},
               rotation=270)));
@@ -6289,7 +6285,6 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
           final Rrq=Rrq,
           final T_ref=TrRef,
           final alpha=Machines.Thermal.convertAlpha(alpha20r, TrRef),
-          final T=TrRef,
           final useHeatPort=true) if useDamperCage annotation (Placement(
               transformation(
               origin={0,-40},
@@ -6748,8 +6743,7 @@ Armature resistance resp. inductance include resistance resp. inductance of comm
           final R=Re,
           final T_ref=TeRef,
           final alpha=Machines.Thermal.convertAlpha(alpha20e, TeRef),
-          final useHeatPort=true,
-          final T=TeRef) annotation (Placement(transformation(
+          final useHeatPort=true) annotation (Placement(transformation(
               origin={-80,50},
               extent={{10,-10},{-10,10}},
               rotation=90)));
@@ -6998,8 +6992,7 @@ Armature current does not cover excitation current of a shunt excitation; in thi
           final R=Re,
           final T_ref=TeRef,
           final alpha=Machines.Thermal.convertAlpha(alpha20e, TeRef),
-          final useHeatPort=true,
-          final T=TeRef) annotation (Placement(transformation(
+          final useHeatPort=true) annotation (Placement(transformation(
               origin={-80,50},
               extent={{-10,10},{10,-10}},
               rotation=270)));
@@ -13447,8 +13440,7 @@ Interfaces and partial models for induction machines
         final R=Ra,
         final T_ref=TaRef,
         final alpha=Machines.Thermal.convertAlpha(alpha20a, TaRef),
-        final useHeatPort=true,
-        final T=TaRef) annotation (Placement(transformation(extent={{60,50},{40,
+        final useHeatPort=true) annotation (Placement(transformation(extent={{60,50},{40,
                 70}})));
       Machines.BasicMachines.Components.InductorDC la(final L=La, final
           quasiStationary=quasiStationary) annotation (Placement(transformation(
