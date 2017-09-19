@@ -10135,7 +10135,7 @@ output is length of the space phasor divided by sqrt(2), thus giving in sinusoid
           points={{0,-1},{0,-18}},
           color={0,0,127}));
       connect(ToPolar1.y[1], Gain1.u) annotation (Line(
-          points={{-0.5,-41},{-0.5,-50.5},{0,-50.5},{0,-58}},
+          points={{-1.9984e-15,-41},{-1.9984e-15,-50.5},{0,-50.5},{0,-58}},
           color={0,0,127}));
       connect(Gain1.y, I) annotation (Line(
           points={{0,-81},{0,-110}},
@@ -15177,7 +15177,7 @@ using the provided mechanical rotor angle phi. The output are the instantaneous 
     end FromDQ;
 
     model CurrentController "Current controller"
-      constant Integer m=3 "Number of phases";
+      parameter Integer m=3 "Number of phases";
       parameter Integer p "Number of pole pairs";
       extends Modelica.Blocks.Interfaces.MO(final nout=m);
       Modelica.Blocks.Interfaces.RealInput id_rms annotation (Placement(
@@ -15202,7 +15202,8 @@ using the provided mechanical rotor angle phi. The output are the instantaneous 
             transformation(extent={{-10,-10},{10,10}})));
       Modelica.Blocks.Sources.Constant i0(k=0) annotation (Placement(
             transformation(extent={{-10,50},{10,30}})));
-      Machines.SpacePhasors.Blocks.FromSpacePhasor fromSpacePhasor annotation (
+      Machines.SpacePhasors.Blocks.FromSpacePhasor fromSpacePhasor(final m=m)
+                                                                   annotation (
           Placement(transformation(extent={{40,10},{60,-10}})));
     equation
       connect(iq_rms, toPeak_q.u)
@@ -15217,10 +15218,10 @@ using the provided mechanical rotor angle phi. The output are the instantaneous 
           points={{-62,60},{-120,60}},
           color={0,0,127}));
       connect(toPeak_d.y, rotator.u[1]) annotation (Line(
-          points={{-39,60},{-30,60},{-30,-1},{-12,-1}},
+          points={{-39,60},{-30,60},{-30,0},{-12,0}},
           color={0,0,127}));
       connect(toPeak_q.y, rotator.u[2]) annotation (Line(
-          points={{-39,-60},{-30,-60},{-30,1},{-12,1}},
+          points={{-39,-60},{-30,-60},{-30,0},{-12,0}},
           color={0,0,127}));
       connect(i0.y, fromSpacePhasor.zero) annotation (Line(
           points={{11,40},{20,40},{20,8},{38,8}},
@@ -15249,7 +15250,7 @@ They can be used to feed a current source which in turn feeds an induction machi
 
     model VoltageController "Voltage controller"
       import Modelica.Constants.pi;
-      constant Integer m=3 "Number of phases";
+      parameter Integer m=5 "Number of phases";
       parameter Integer p "Number of pole pairs";
       parameter Modelica.SIunits.Frequency fsNominal "Nominal frequency";
       parameter Modelica.SIunits.Voltage VsOpenCircuit
@@ -15275,14 +15276,15 @@ They can be used to feed a current source which in turn feeds an induction machi
             origin={60,-120},
             extent={{20,-20},{-20,20}},
             rotation=270)));
-      Modelica.Blocks.Interfaces.RealInput iActual[3] annotation (Placement(
+      Modelica.Blocks.Interfaces.RealInput iActual[m] annotation (Placement(
             transformation(
             origin={-60,-120},
             extent={{20,-20},{-20,20}},
             rotation=270)));
-      Machines.Utilities.FromDQ fromDQ(final p=p)
+      Machines.Utilities.FromDQ fromDQ(final p=p, final m=m)
         annotation (Placement(transformation(extent={{70,-10},{90,10}})));
-      Machines.Utilities.ToDQ toDQ(final p=p) annotation (Placement(
+      Machines.Utilities.ToDQ toDQ(final p=p, final m=m)
+        annotation (Placement(
             transformation(
             extent={{-10,-10},{10,10}},
             rotation=90,
@@ -15349,11 +15351,11 @@ They can be used to feed a current source which in turn feeds an induction machi
           points={{-21,0},{-12,0}},
           color={0,0,127}));
       connect(toDQ.y[1], feedback_d.u2) annotation (Line(
-          points={{-59.5,-69},{-59.5,-60},{-50,-60},{-50,40},{-28,40},{-28,52}},
+          points={{-60,-69},{-60,-60},{-50,-60},{-50,40},{-28,40},{-28,52}},
           color={0,0,127}));
 
       connect(toDQ.y[2], feedback_q.u2) annotation (Line(
-          points={{-60.5,-69},{-60.5,-60},{-50,-60},{-50,-20},{-30,-20},{-30,-8}},
+          points={{-60,-69},{-60,-60},{-50,-60},{-50,-20},{-30,-20},{-30,-8}},
           color={0,0,127}));
 
       connect(add.y, fromDQ.u) annotation (Line(
