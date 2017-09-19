@@ -516,16 +516,17 @@ This is the library of electric machine models.
             points={{0,-40},{40,-40}}));
         annotation (experiment(StopTime=1.5, Interval=1E-4, Tolerance=1e-06), Documentation(
               info="<html>
-<b>Test example: Asynchronous induction machine with squirrel cage - direct on line starting</b><br>
-At start time tStart three phase voltage is supplied to the asynchronous induction machine with squirrel cage;
-the machine starts from standstill, accelerating inertias against load torque quadratic dependent on speed, finally reaching nominal speed.<br>
-Simulate for 1.5 seconds and plot (versus time):
+<p>At start time tStart three phase voltage is supplied to the asynchronous induction machine with squirrel cage;
+the machine starts from standstill, accelerating inertias against load torque quadratic dependent on speed, 
+finally reaching nominal speed.</p>
+
+<p>Simulate for 1.5 seconds and plot (versus time):</p<
 <ul>
 <li>currentQuasiRMSSensor.I: stator current RMS</li>
 <li>aimc.wMechanical: motor's speed</li>
 <li>aimc.tauElectrical: motor's torque</li>
 </ul>
-Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
+<p>Default machine parameters are used.</p>
 </html>"));
       end AIMC_DOL;
 
@@ -643,15 +644,19 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
             points={{0,-40},{40,-40}}));
         annotation (experiment(StopTime=2.5, Interval=1E-4, Tolerance=1e-06), Documentation(
               info="<html>
-<b>Test example: Asynchronous induction machine with squirrel cage - Y-D starting</b><br>
-At start time tStart three phase voltage is supplied to the asynchronous induction machine with squirrel cage, first star-connected, then delta-connected; the machine starts from standstill, accelerating inertias against load torque quadratic dependent on speed, finally reaching nominal speed.<br>
-Simulate for 2.5 seconds and plot (versus time):
+<p>At start time tStart three phase voltage is supplied to the asynchronous induction machine with squirrel cage, 
+first star-connected, then delta-connected; the machine starts from standstill, accelerating inertias against 
+load torque quadratic dependent on speed, finally reaching nominal speed.</p>
+
+<p>Simulate for 2.5 seconds and plot (versus time):</p>
+
 <ul>
 <li>currentQuasiRMSSensor.I: stator current RMS</li>
 <li>aimc.wMechanical: motor's speed</li>
 <li>aimc.tauElectrical: motor's torque</li>
 </ul>
-Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
+
+<p>Default machine parameters are used.</p>
 </html>"));
       end AIMC_YD;
 
@@ -833,17 +838,20 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
             points={{0,40},{0,10}}, color={0,0,255}));
         annotation (experiment(StopTime=2.5, Interval=1E-4, Tolerance=1e-06), Documentation(
               info="<html>
-<b>Test example: Asynchronous induction machine with squirrel cage - transformer starting</b><br>
+<p>
 At start time tStart1 three phase voltage is supplied to the asynchronous induction machine with squirrel cage via the transformer;
 the machine starts from standstill, accelerating inertias against load torque quadratic dependent on speed;
-at start time tStart2 the machine is fed directly from the voltage source, finally reaching nominal speed.<br>
-Simulate for 2.5 seconds and plot (versus time):
+at start time tStart2 the machine is fed directly from the voltage source, finally reaching nominal speed.</p>
+
+<p>Simulate for 2.5 seconds and plot (versus time):</p>
+
 <ul>
 <li>currentQuasiRMSSensor.I: stator current RMS</li>
 <li>aimc.wMechanical: motor's speed</li>
 <li>aimc.tauElectrical: motor's torque</li>
 </ul>
-Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
+
+<p>Default machine parameters are used.</p>
 </html>"));
       end AIMC_Transformer;
 
@@ -973,17 +981,19 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
             points={{-30,-46},{-20,-46}}, color={0,0,255}));
         annotation (experiment(StopTime=1.5, Interval=1E-4, Tolerance=1e-06), Documentation(
               info="<html>
-<b>Test example: Asynchronous induction machine with slipring rotor - resistance starting</b><br>
-At start time tStart1 three phase voltage is supplied to the asynchronous induction machine with sliprings;
+<p>At start time tStart1 three phase voltage is supplied to the asynchronous induction machine with sliprings;
 the machine starts from standstill, accelerating inertias against load torque quadratic dependent on speed,
-using a starting resistance. At time tStart2 external rotor resistance is shortened, finally reaching nominal speed.<br>
-Simulate for 1.5 seconds and plot (versus time):
+using a starting resistance. At time tStart2 external rotor resistance is shortened, finally reaching nominal speed.</p>
+
+<p>Simulate for 1.5 seconds and plot (versus time):</p>
+
 <ul>
 <li>currentQuasiRMSSensor.I: stator current RMS</li>
 <li>aims.wMechanical: motor's speed</li>
 <li>aims.tauElectrical: motor's torque</li>
 </ul>
-Default machine parameters of model <i>AIM_SlipRing</i> are used.
+
+<p>Default machine parameters are used.</p>
 </html>"));
       end AIMS_Start;
 
@@ -1089,17 +1099,20 @@ Default machine parameters of model <i>AIM_SlipRing</i> are used.
             points={{0,-40},{40,-40}}));
         annotation (experiment(StopTime=1.5, Interval=1E-4, Tolerance=1e-06), Documentation(
               info="<html>
-<b>Test example: Asynchronous induction machine with squirrel cage fed by an ideal inverter</b><br>
-An ideal frequency inverter is modeled by using a VfController and a three-phase SignalVoltage.<br>
+<p>
+An ideal frequency inverter is modeled by using a VfController and a three-phase SignalVoltage.
 Frequency is raised by a ramp, causing the asynchronous induction machine with squirrel cage to start,
-and accelerating inertias.<br>At time tStep a load step is applied.<br>
-Simulate for 1.5 seconds and plot (versus time):
+and accelerating inertias.<br>At time tStep a load step is applied.</p>
+
+<p>Simulate for 1.5 seconds and plot (versus time):</p>
+
 <ul>
 <li>currentQuasiRMSSensor.I: stator current RMS</li>
 <li>aimc.wMechanical: motor's speed</li>
 <li>aimc.tauElectrical: motor's torque</li>
 </ul>
-Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
+
+<p>Default machine parameters are used.</p>
 </html>"));
       end AIMC_Inverter;
 
@@ -1219,12 +1232,15 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
 <p>An ideal frequency inverter is modeled by using a VfController and a three-phase SignalVoltage.
 Frequency is driven by a load cycle of acceleration, constant speed, deceleration and standstill.
 The mechanical load is a constant torque like a conveyor (with regularization around zero speed).</p>
-Simulate for 20 seconds and plot (versus time):
+
+<p>Simulate for 20 seconds and plot (versus time):</p>
+
 <ul>
 <li>currentQuasiRMSSensor.I: stator current RMS</li>
 <li>aimc.wMechanical: motor's speed</li>
 <li>aimc.tauElectrical: motor's torque</li>
 </ul>
+
 <p>Default machine parameters are used.</p>
 </html>"));
       end AIMC_Conveyor;
@@ -1406,8 +1422,9 @@ Simulate for 20 seconds and plot (versus time):
         annotation (experiment(StopTime=1.5, Interval=1E-4, Tolerance=1e-06), Documentation(
               info="<html>
 <p>At start time tStart single phase voltage is supplied to the asynchronous induction machine with squirrel cage;
-the machine starts from standstill, accelerating inertias against load torque quadratic dependent on speed, finally reaching nominal speed.
-Default machine parameters of model <i>AIM_SquirrelCage</i> are used.</P>
+the machine starts from standstill, accelerating inertias against load torque quadratic dependent on speed, finally reaching nominal speed.</p<
+
+<p>Default machine parameters are used.</p>
 </html>"));
       end AIMC_Steinmetz;
 
@@ -1613,7 +1630,6 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.</P>
         annotation (
           experiment(StopTime=5.0, Interval=1E-4, Tolerance=1e-06),
           Documentation(info="<html>
-<p>Test example: Asynchronous induction machine with squirrel cage - characteristics with losses</p>
 <ul>
 <li>Simulate for 5 seconds: The machine is started at nominal speed, flux is build up in the machine.</li>
 <li>Continue the simulation for additional 5 seconds: Subsequently a load ramp is applied.</li>
@@ -1771,16 +1787,18 @@ Modelica 2009, 7<sup>th</sup> International Modelica Conference</p>
             points={{-70,20},{-10,20},{-10,10}}, color={0,0,255}));
         annotation (experiment(StopTime=1.5, Interval=1E-4, Tolerance=1e-06), Documentation(
               info="<html>
-<b>Test example: Steady-State Initialization of Asynchronous induction machine with squirrel cage</b><br>
-The asynchronous induction machine with squirrel cage is initialized in steady-state at no-load;
-at time tStart a load torque step is applied.<br>
-Simulate for 1.5 seconds and plot (versus time):
+<p>The asynchronous induction machine with squirrel cage is initialized in steady-state at no-load;
+at time tStart a load torque step is applied.</p>
+
+<p>Simulate for 1.5 seconds and plot (versus time):</p>
+
 <ul>
 <li>currentQuasiRMSSensor.I: stator current RMS</li>
 <li>aimc.wMechanical: motor's speed</li>
 <li>aimc.tauElectrical: motor's torque</li>
 </ul>
-Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
+
+<p>Default machine parameters are used.</p>
 </html>"));
       end AIMC_Initialize;
       annotation (Documentation(info="<html>
@@ -1910,18 +1928,20 @@ This package contains test examples of asynchronous induction machines.
             points={{0,-40},{40,-40}}));
         annotation (experiment(StopTime=1.5, Interval=1E-4, Tolerance=1e-06), Documentation(
               info="<html>
-<b>Test example: Synchronous induction machine with reluctance rotor fed by an ideal inverter</b><br>
-An ideal frequency inverter is modeled by using a VfController and a three-phase SignalVoltage.<br>
+<p>An ideal frequency inverter is modeled by using a VfController and a three-phase SignalVoltage.
 Frequency is raised by a ramp, causing the reluctance machine to start,
-and accelerating inertias.<br>At time tStep a load step is applied.<br>
-Simulate for 1.5 seconds and plot (versus time):
+and accelerating inertias. At time tStep a load step is applied.</p>
+
+<p>Simulate for 1.5 seconds and plot (versus time):</p>
+
 <ul>
 <li>currentQuasiRMSSensor.I: stator current RMS</li>
 <li>smr.wMechanical: motor's speed</li>
 <li>smr.tauElectrical: motor's torque</li>
 <li>rotorDisplacementAngle.rotorDisplacementAngle: rotor displacement angle</li>
 </ul>
-Default machine parameters of model <i>SM_ReluctanceRotor</i> are used.
+
+<p>Default machine parameters are used.</p>
 </html>"));
       end SMR_Inverter;
 
@@ -2048,21 +2068,23 @@ Default machine parameters of model <i>SM_ReluctanceRotor</i> are used.
             points={{0,-40},{40,-40}}));
         annotation (experiment(StopTime=1.5, Interval=1E-4, Tolerance=1e-06), Documentation(
               info="<html>
-<b>Test example: Permanent magnet synchronous induction machine fed by an ideal inverter</b><br>
-An ideal frequency inverter is modeled by using a VfController and a three-phase SignalVoltage.<br>
+<p>An ideal frequency inverter is modeled by using a VfController and a three-phase SignalVoltage.
 Frequency is raised by a ramp, causing the permanent magnet synchronous induction machine to start,
-and accelerating inertias.<br>At time tStep a load step is applied.<br>
-Simulate for 1.5 seconds and plot (versus time):
+and accelerating inertias. At time tStep a load step is applied.</p>
+
+<p<Simulate for 1.5 seconds and plot (versus time):</p>
+
 <ul>
 <li>currentQuasiRMSSensor.I: stator current RMS</li>
 <li>smpm.wMechanical: motor's speed</li>
 <li>smpm.tauElectrical: motor's torque</li>
 <li>rotorDisplacementAngle.rotorDisplacementAngle: rotor displacement angle</li>
 </ul>
-Default machine parameters of model <i>SM_PermanentMagnet</i> are used.
+
+<p>Default machine parameters are used.</p>
+
 <p>
-<b>In practice it is nearly impossible to drive a PMSMD without current controller.</b>
-</p>
+In practice it is nearly impossible to drive a PMSMD without current controller.</p>
 </html>"));
       end SMPM_Inverter;
 
@@ -2244,9 +2266,8 @@ Default machine parameters of model <i>SM_PermanentMagnet</i> are used.
 The rms values of d- and q-current in rotor fixed coordinate system are converted to three-phase currents,
 and fed to the machine. The result shows that the torque is influenced by the q-current,
 whereas the stator voltage is influenced by the d-current.</p>
-<p>
-Default machine parameters of model <a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet\">SM_PermanentMagnet</a> are used.
-</p>
+
+<p>Default machine parameters are used.</p>
 </html>"));
       end SMPM_CurrentSource;
 
@@ -2454,9 +2475,8 @@ A synchronous induction machine with permanent magnets accelerates a quadratic s
 The rms values of d- and q-current in rotor fixed coordinate system are controlled by the voltageController,
 and the output voltages fed to the machine. The result shows that the torque is influenced by the q-current,
 whereas the stator voltage is influenced by the d-current.</p>
-<p>
-Default machine parameters of model <a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet\">SM_PermanentMagnet</a> are used.
-</p>
+
+<p>Default machine parameters are used.</p>
 </html>"));
       end SMPM_VoltageSource;
 
@@ -2612,11 +2632,12 @@ Default machine parameters of model <a href=\"modelica://Modelica.Electrical.Mac
         annotation (experiment(StopTime=0.8, Interval=1E-4, Tolerance=1e-06), Documentation(
               info="<html>
 <p>
-A synchronous induction machine with permanent magnets starts braking from nominal speed by feeding a diode bridge, which in turn feeds a braking resistor.<br>
-Since induced voltage is reduced proportional to falling speed, the braking resistance is set proportional to speed to achieve constant current and torque.</p>
-<p>
-Default machine parameters of model <a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet\">SM_PermanentMagnet</a> are used.
-</p>
+A synchronous induction machine with permanent magnets starts braking from nominal speed by feeding a diode bridge, 
+which in turn feeds a braking resistor.
+Since induced voltage is reduced proportional to falling speed, the braking resistance is set proportional to speed to
+achieve constant current and torque.</p>
+
+<p>Default machine parameters are used.</p>
 </html>"));
       end SMPM_Braking;
 
@@ -2780,13 +2801,13 @@ Default machine parameters of model <a href=\"modelica://Modelica.Electrical.Mac
             points={{0,-40},{10,-40}}));
         connect(smee.flange, mechanicalPowerSensor.flange_a) annotation (Line(
             points={{0,-40},{40,-40}}));
-        annotation (experiment(StopTime=30, Interval=0.001, Tolerance=1e-06), Documentation(info=
-               "<html>
-<b>Test example: Electrical excited synchronous induction machine as generator</b><br>
-An electrically excited synchronous generator is connected to the grid and driven with constant speed.
+        annotation (experiment(StopTime=30, Interval=0.001, Tolerance=1e-06), Documentation(info="<html>
+<p>An electrically excited synchronous generator is connected to the grid and driven with constant speed.
 Since speed is slightly smaller than synchronous speed corresponding to mains frequency,
-rotor angle is very slowly increased. This allows to see several characteristics dependent on rotor angle.
-Simulate for 30 seconds and plot (versus rotorDisplacementAngle.rotorDisplacementAngle):
+rotor angle is very slowly increased. This allows to see several characteristics dependent on rotor angle.</p>
+
+<p>Simulate for 30 seconds and plot (versus rotorDisplacementAngle.rotorDisplacementAngle):</p>
+
 <ul>
 <li>smee.tauElectrical</li>
 <li>currentQuasiRMSSensor.I</li>
@@ -2794,7 +2815,8 @@ Simulate for 30 seconds and plot (versus rotorDisplacementAngle.rotorDisplacemen
 <li>electricalPowerSensor.Q</li>
 <li>mechanicalPowerSensor.P</li>
 </ul>
-Default machine parameters of model <i>SM_ElectricalExcited</i> are used.
+
+<p>Default machine parameters are used.</p>
 </html>"));
       end SMEE_Generator;
 
@@ -3023,19 +3045,22 @@ Default machine parameters of model <i>SM_ElectricalExcited</i> are used.
             points={{-19,80},{-10,80},{-10,62}}, color={255,0,255}));
         connect(star.pin_n, ground.p) annotation (Line(
             points={{-90,20},{-90,10}}, color={0,0,255}));
-        annotation (experiment(StopTime=10, Interval=1E-4, Tolerance=1e-06), Documentation(info=
-               "<html>
-<b>Test example: Electrical excited synchronous induction machine with voltage controller</b><br>
+        annotation (experiment(StopTime=10, Interval=1E-4, Tolerance=1e-06), Documentation(info="<html>
+<p>
 An electrically excited synchronous generator is started with a speed ramp, then driven with constant speed.
-Voltage is controlled, the set point depends on speed. After start-up the generator is loaded, the load is rejected.
-Simulate for 10 seconds and plot:
+Voltage is controlled, the set point depends on speed. After start-up the generator is loaded, the load is rejected.</p>
+
+<p>Simulate for 10 seconds and plot:</p>
+
 <ul>
 <li>voltageQuasiRMSSensor.V</li>
 <li>smee.tauElectrical</li>
 <li>smee.ie</li>
 </ul>
-Default machine parameters of model <i>SM_ElectricalExcited</i> are used.
-One could try to optimize the controller parameters.
+
+<p>Default machine parameters are used.</p>
+
+<p>One could try to optimize the controller parameters.</p>
 </html>"));
       end SMEE_LoadDump;
 
@@ -3291,8 +3316,10 @@ One could try to optimize the controller parameters.
             points={{-80,70},{-80,90},{-40,90}}, color={0,0,255}));
         annotation (experiment(StopTime=1.1, Interval=1E-4, Tolerance=1e-06), Documentation(
               info="<html>
-<p><b>Test example: Electrical excited synchronous induction machine with voltage controller</b></p><p>An electrically excited synchronous generator is driven with constant speed. Voltage is controlled, the set point depends on speed. The generator is loaded with a rectifier.</p>
-<p>Default machine parameters of model <i>SM_ElectricalExcited</i> are used. </p>
+<p>An electrically excited synchronous generator is driven with constant speed. Voltage is controlled, 
+the set point depends on speed. The generator is loaded with a rectifier.</p>
+
+<p>Default machine parameters are used.</p>
 </html>"));
       end SMEE_Rectifier;
       annotation (Documentation(info="<html>

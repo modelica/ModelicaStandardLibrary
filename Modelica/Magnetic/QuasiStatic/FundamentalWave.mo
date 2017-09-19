@@ -111,6 +111,7 @@ email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
       annotation (Documentation(info="<html>
 
 <h5>Version 3.x.x, 2017-09-26</h5>
+<h5>Version 3.x.x, 2017-09-19</h5>
 <ul>
   <li>Unified communication interval, see 
       <a href=\"https://github.com/modelica/Modelica/issues/2279\">#2279</a></li>
@@ -123,7 +124,7 @@ email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
     <a href=\"https://github.com/modelica/Modelica/issues/2276\">#2276</a></li>
 <li>Added
 <a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Sensors.RotorDisplacementAngle\">RotorDisplacementAngle</a>, see
-    <a href=\"https://github.com/modelica/Modelica/issues/2050\">#2050</a></li>
+    <a href=\"https://github.com/modelica/Modelica/issues/2050\">#2050</a></li></li>
 </ul>
 
 <h5>Version 3.2.2, 2015-02-02</h5>
@@ -772,7 +773,7 @@ Simulate for 1 second and plot (versus imcQS.wMechanical or perUnitSpeed):
           Modelica.Electrical.MultiPhase.Sensors.CurrentQuasiRMSSensor currentQuasiRMSSensor(final m=m)
             annotation (Placement(transformation(origin={0,-20},   extent={{-10,-10},{10,
                     10}})));
-          Electrical.Machines.Utilities.MultiTerminalBox     terminalBox(m=m, terminalConnection="Y") annotation (Placement(transformation(extent={{20,-54},{40,-34}})));
+          Modelica.Electrical.Machines.Utilities.TerminalBox terminalBox(m=m, terminalConnection="Y") annotation (Placement(transformation(extent={{20,-54},{40,-34}})));
           Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage
             imc(
             Jr=imcData.Jr,
@@ -855,14 +856,6 @@ Simulate for 1 second and plot (versus imcQS.wMechanical or perUnitSpeed):
                 origin={-10,30})));
           Utilities.MultiTerminalBox terminalBoxQS(m=m, terminalConnection="Y")
             annotation (Placement(transformation(extent={{20,46},{40,66}})));
-          Modelica.Electrical.MultiPhase.Basic.Star starMachine(final m=Electrical.MultiPhase.Functions.numberOfSymmetricBaseSystems(m)) annotation (Placement(transformation(
-                extent={{10,-10},{-10,10}},
-                rotation=90,
-                origin={-12,-70})));
-          Modelica.Electrical.Analog.Basic.Ground groundMachine annotation (Placement(transformation(
-                origin={-12,-90},
-                extent={{-10,-10},{10,10}},
-                rotation=0)));
         initial equation
           sum(imc.is) = 0;
           imc.is[1:2] = zeros(2);
@@ -880,7 +873,7 @@ Simulate for 1 second and plot (versus imcQS.wMechanical or perUnitSpeed):
           connect(powerSensorQS.voltageN, starQS.plug_p) annotation (Line(
                 points={{-30,70},{-30,20},{-60,20}}, color={85,170,255}));
           connect(booleanStepQS.y, idealCloserQS.control) annotation (Line(
-              points={{-79,70},{-67,70}}, color={255,0,255}));
+              points={{-79,70},{-72,70}}, color={255,0,255}));
           connect(star.pin_n, ground.p)
             annotation (Line(points={{-80,-80},{-80,-80}}, color={0,0,255}));
           connect(cosineVoltage.plug_n, star.plug_p)
@@ -891,7 +884,7 @@ Simulate for 1 second and plot (versus imcQS.wMechanical or perUnitSpeed):
           connect(terminalBox.plug_sn, imc.plug_sn) annotation (Line(points={{24,-50},{24,-50}}, color={0,0,255}));
           connect(terminalBox.plug_sp, imc.plug_sp) annotation (Line(points={{36,-50},{36,-50}}, color={0,0,255}));
           connect(booleanStep.y, idealCloser.control) annotation (Line(
-              points={{-79,-30},{-67,-30}}, color={255,0,255}));
+              points={{-79,-30},{-72,-30}}, color={255,0,255}));
           connect(idealCloser.plug_p, cosineVoltage.plug_p) annotation (Line(
               points={{-60,-40},{-60,-50}},
               color={0,0,255}));
@@ -927,15 +920,13 @@ Simulate for 1 second and plot (versus imcQS.wMechanical or perUnitSpeed):
               color={85,170,255}));
           connect(starMachineQS.plug_p, terminalBoxQS.starpoint) annotation (
               Line(
-              points={{-10,40},{-10,52},{20,52}},
+              points={{-10,40},{-10,52},{21,52}},
               color={85,170,255}));
           connect(currentQuasiRMSSensorQS.plug_n, terminalBoxQS.plugSupply)
             annotation (Line(points={{10,80},{30,80},{30,52}},  color={85,170,255}));
           connect(starMachineQS.pin_n, groundMachineQS.pin) annotation (Line(
               points={{-10,20},{-10,20}},
               color={85,170,255}));
-          connect(starMachine.plug_p, terminalBox.starpoint) annotation (Line(points={{-12,-60},{-12,-48},{21,-48}}, color={0,0,255}));
-          connect(groundMachine.p, starMachine.pin_n) annotation (Line(points={{-12,-80},{-12,-80}}, color={0,0,255}));
           annotation (Diagram(coordinateSystem(preserveAspectRatio=false,
                   extent={{-100,-100},{100,100}}), graphics={
                                                     Text(
@@ -944,11 +935,13 @@ Simulate for 1 second and plot (versus imcQS.wMechanical or perUnitSpeed):
                           fillColor={255,255,170},
                           fillPattern=FillPattern.Solid,
                           textStyle={TextStyle.Bold},
-                          textString="%m phase transient"),     Text(
+                          textString="%m phase transient
+"),             Text(
                   extent={{20,8},{100,0}},
                           textStyle={TextStyle.Bold},
-                  textString="%m phase quasi static",        lineColor={0,0,0})}),
-                experiment(StopTime=1.5, Interval=0.001, Tolerance=1E-6),
+                  textString="%m phase quasi static
+",                lineColor={0,0,0})}),
+                experiment(StopTime=1.5, Interval=0.001),
             Documentation(info="<html>
 <p>
 This example compares a time transient and a quasi static model of a multi phase induction machine. 
@@ -1060,7 +1053,9 @@ Simulate for 1 second and plot (versus time):
             Rr=imcData.Rr*m/3,
             TsOperational=293.15,
             alpha20r=imcData.alpha20r,
-            TrOperational=293.15) annotation (Placement(transformation(extent={{20,-90},{40,-70}})));
+            TrOperational=293.15,
+            stator(zeroInductor(i0(start=0,fixed=true))))
+                                  annotation (Placement(transformation(extent={{20,-90},{40,-70}})));
           Modelica.Electrical.Machines.Sensors.CurrentQuasiRMSSensor
                                                             currentQuasiRMSSensor annotation (Placement(transformation(extent={{-10,10},{10,-10}}, rotation=270,
                 origin={30,-30})));
@@ -1100,7 +1095,6 @@ Simulate for 1 second and plot (versus time):
             tau_nominal=-TLoad,
             useSupport=false) annotation (Placement(transformation(extent={{100,-90},{80,-70}})));
         initial equation
-          sum(imc.is) = 0;
           imc.is[1:2] = zeros(2);
           imc.rotorCage.electroMagneticConverter.V_m = Complex(0, 0);
         equation
@@ -1158,14 +1152,15 @@ Default machine parameters are used.</p>
                 Text(
                   extent={{-60,20},{20,12}},
                           textStyle={TextStyle.Bold},
-                  textString="%m phase quasi static",
-                          lineColor={0,0,0}), Text(
+                  textString="%m phase quasi static
+",                lineColor={0,0,0}),               Text(
                           extent={{-60,-80},{20,-88}},
                           lineColor={0,0,0},
                           fillColor={255,255,170},
                           fillPattern=FillPattern.Solid,
                           textStyle={TextStyle.Bold},
-                          textString="%m phase transient")}));
+                          textString="%m phase transient
+")}));
         end IMC_YD;
 
         model IMC_Transformer "Induction machine with squirrel cage starting with transformer"
@@ -1441,15 +1436,15 @@ Simulate for 2.5 seconds and plot (versus time):</p>
                 Text(
                   extent={{80,8},{160,0}},
                           textStyle={TextStyle.Bold},
-                  lineColor={0,0,0},
-                  textString="%m phase quasi static"),
-                                                    Text(
+                  textString="%m phase quasi static
+",                lineColor={0,0,0}),               Text(
                           extent={{80,-80},{160,-88}},
                           lineColor={0,0,0},
                           fillColor={255,255,170},
                           fillPattern=FillPattern.Solid,
                           textStyle={TextStyle.Bold},
-                  textString="%m phase transient")}));
+                          textString="%m phase transient
+")}));
         end IMC_Transformer;
 
         model IMC_Inverter
@@ -1603,14 +1598,6 @@ Simulate for 2.5 seconds and plot (versus time):</p>
             fNominal=fNominal,
             BasePhase=+Modelica.Constants.pi/2) annotation (Placement(
                 transformation(extent={{-60,70},{-40,90}})));
-          Electrical.MultiPhase.Basic.Star starMachine(final m=Electrical.MultiPhase.Functions.numberOfSymmetricBaseSystems(m)) annotation (Placement(transformation(
-                extent={{10,-10},{-10,10}},
-                rotation=0,
-                origin={0,-74})));
-          Electrical.Analog.Basic.Ground groundMachine annotation (Placement(transformation(
-                origin={-30,-74},
-                extent={{-10,-10},{10,10}},
-                rotation=270)));
         initial equation
           sum(imc.is) = 0;
           imc.is[1:2] = zeros(2);
@@ -1651,7 +1638,7 @@ Simulate for 2.5 seconds and plot (versus time):</p>
           connect(groundMachineQS.pin, starMachineQS.pin_n) annotation (Line(
               points={{-20,26},{-10,26}},
               color={85,170,255}));
-          connect(starMachineQS.plug_p, terminalBoxQS.starpoint) annotation (Line(points={{10,26},{10,32},{20,32}}, color={85,170,255}));
+          connect(starMachineQS.plug_p, terminalBoxQS.starpoint) annotation (Line(points={{10,26},{10,32},{21,32}}, color={85,170,255}));
           connect(groundQS.pin, starQS.pin_n) annotation (Line(
               points={{-50,50},{-50,50}},
               color={85,170,255}));
@@ -1668,8 +1655,6 @@ Simulate for 2.5 seconds and plot (versus time):</p>
           connect(ramp.y, signalVoltageQS.f) annotation (Line(points={{-79,0},{-70,0},{-70,66},{-14,66},{-14,60}}, color={0,0,127}));
           connect(ramp.y, vfController.u) annotation (Line(points={{-79,0},{-70,0},{-70,-20},{-62,-20}}, color={0,0,127}));
           connect(vfController.y, signalVoltage.v) annotation (Line(points={{-39,-20},{-10,-20},{-10,-43}}, color={0,0,127}));
-          connect(starMachine.plug_p, terminalBox.starpoint) annotation (Line(points={{10,-74},{10,-68},{21,-68}},   color={0,0,255}));
-          connect(groundMachine.p,starMachine. pin_n) annotation (Line(points={{-20,-74},{-10,-74}}, color={0,0,255}));
           annotation (
             experiment(StopTime=1.5, Interval=0.001, Tolerance=1E-6),
             Documentation(info="<html>
@@ -1695,12 +1680,12 @@ and accelerating inertias. At time <code>tStep</code> a load step is applied.</p
                           fillColor={255,255,170},
                           fillPattern=FillPattern.Solid,
                           textStyle={TextStyle.Bold},
-                  textString="%m phase transient"),
-                Text(
+                          textString="%m phase transient
+"),             Text(
                   extent={{-60,8},{20,0}},
                           textStyle={TextStyle.Bold},
-                  lineColor={0,0,0},
-                  textString="%m phase quasi static")}));
+                  textString="%m phase quasi static
+",                lineColor={0,0,0})}));
         end IMC_Inverter;
 
         model IMS_Characteristics "Characteristic curves of induction machine with slip rings"
@@ -2045,14 +2030,6 @@ Simulate for 1 second and plot (versus imsQS.wMechanical or perUnitSpeed):
             groundMachineQS annotation (Placement(transformation(
                 extent={{-10,-10},{10,10}},
                 origin={-10,10})));
-          Electrical.MultiPhase.Basic.Star          starMachine(final m=Electrical.MultiPhase.Functions.numberOfSymmetricBaseSystems(m)) annotation (Placement(transformation(
-                extent={{10,-10},{-10,10}},
-                rotation=90,
-                origin={-12,-70})));
-          Electrical.Analog.Basic.Ground          groundMachine annotation (Placement(transformation(
-                origin={-12,-90},
-                extent={{-10,-10},{10,10}},
-                rotation=0)));
         initial equation
           sum(ims.is) = 0;
           ims.is[1:2] = zeros(2);
@@ -2130,10 +2107,8 @@ Simulate for 1 second and plot (versus imsQS.wMechanical or perUnitSpeed):
               color={85,170,255}));
           connect(starMachineQS.plug_p, terminalBoxQS.starpoint) annotation (
               Line(
-              points={{-10,40},{-10,52},{20,52}},
+              points={{-10,40},{-10,52},{21,52}},
               color={85,170,255}));
-          connect(groundMachine.p,starMachine. pin_n) annotation (Line(points={{-12,-80},{-12,-80}}, color={0,0,255}));
-          connect(terminalBoxM.starpoint, starMachine.plug_p) annotation (Line(points={{21,-48},{-12,-48},{-12,-60}}, color={0,0,255}));
           annotation (
             experiment(
               StopTime=1.5,
@@ -2164,8 +2139,8 @@ Simulate for 1.5 seconds and plot (versus time):
                           fillColor={255,255,170},
                           fillPattern=FillPattern.Solid,
                           textStyle={TextStyle.Bold},
-                  textString="%m phase quasi static"),
-                Text(
+                  textString="%m phase quasi static
+"),             Text(
                   extent={{20,-92},{100,-100}},
                           textStyle={TextStyle.Bold},
                   textString="%m phase transient",
@@ -2264,13 +2239,11 @@ Simulate for 1.5 seconds and plot (versus time):
             Lm=imcData.Lm*m/3,
             Lrsigma=imcData.Lrsigma*m/3,
             Rr=imcData.Rr*m/3,
-            m=m,
             TsOperational=293.15,
             alpha20r=imcData.alpha20r,
             TrOperational=293.15) annotation (Placement(transformation(extent={{60,-90},{40,-70}})));
-          Electrical.MultiPhase.Sensors.CurrentQuasiRMSSensor
-                                                            currentQuasiRMSSensor(m=m)
-                                                                                  annotation (Placement(transformation(extent={{20,0},{40,-20}},   rotation=0)));
+          Modelica.Electrical.Machines.Sensors.CurrentQuasiRMSSensor
+                                                            currentQuasiRMSSensor annotation (Placement(transformation(extent={{20,0},{40,-20}},   rotation=0)));
           Modelica.Electrical.Machines.Utilities.VfController
                                                      vfController(
             final m=m,
@@ -2288,9 +2261,8 @@ Simulate for 1.5 seconds and plot (versus time):
                 origin={-70,-30},
                 extent={{-10,-10},{10,10}},
                 rotation=0)));
-          Electrical.Machines.Utilities.MultiTerminalBox
-                                                    terminalBox(terminalConnection="Y", m=m)
-                                                                                        annotation (Placement(transformation(extent={{60,-74},{40,-54}})));
+          Modelica.Electrical.Machines.Utilities.TerminalBox
+                                                    terminalBox(terminalConnection="Y") annotation (Placement(transformation(extent={{60,-74},{40,-54}})));
           Modelica.Blocks.Math.Gain
                            gain(k=fNominal/unitFrequency)
             annotation (Placement(transformation(extent={{-60,-60},{-40,-40}})));
@@ -2304,16 +2276,7 @@ Simulate for 1.5 seconds and plot (versus time):
                                                     signForce(                           v0(
                 displayUnit="m/s") = 0.01*wNominal*r, f_nominal=-TLoad/r)
             annotation (Placement(transformation(extent={{-50,-90},{-30,-70}})));
-          Electrical.MultiPhase.Basic.Star          starMachine(final m=Electrical.MultiPhase.Functions.numberOfSymmetricBaseSystems(m)) annotation (Placement(transformation(
-                extent={{10,-10},{-10,10}},
-                rotation=180,
-                origin={80,-68})));
-          Electrical.Analog.Basic.Ground          groundMachine annotation (Placement(transformation(
-                origin={90,-90},
-                extent={{-10,-10},{10,10}},
-                rotation=0)));
         initial equation
-          sum(imc.is) = 0;
           imc.is[1:2] = zeros(2);
           imc.rotorCage.electroMagneticConverter.V_m = Complex(0, 0);
         equation
@@ -2329,7 +2292,7 @@ Simulate for 1.5 seconds and plot (versus time):
           connect(vfControllerQS.y, signalVoltageQS.V) annotation (Line(points={{1,50},{4,50},{4,80}}, color={85,170,255}));
           connect(groundMachineQS.pin,starMachineQS. pin_n) annotation (Line(
               points={{90,20},{90,32}},   color={85,170,255}));
-          connect(starMachineQS.plug_p, terminalBoxQS.starpoint) annotation (Line(points={{70,32},{60,32}}, color={85,170,255}));
+          connect(starMachineQS.plug_p, terminalBoxQS.starpoint) annotation (Line(points={{70,32},{59,32}}, color={85,170,255}));
           connect(dutyCycle.y[1], gainQS.u) annotation (Line(points={{-79,50},{-72,50},{-72,50},{-62,50}}, color={0,0,127}));
           connect(gainQS.y, signalVoltageQS.f) annotation (Line(points={{-39,50},{-30,50},{-30,70},{-4,70},{-4,80}}, color={0,0,127}));
           connect(gainQS.y, vfControllerQS.u) annotation (Line(points={{-39,50},{-22,50}}, color={0,0,127}));
@@ -2357,8 +2320,6 @@ Simulate for 1.5 seconds and plot (versus time):
           connect(mass.flange_b,signForce. flange)
             annotation (Line(points={{-20,-80},{-30,-80}},        color={0,127,0}));
           connect(dutyCycle.y[1], gain.u) annotation (Line(points={{-79,50},{-70,50},{-70,20},{-90,20},{-90,-50},{-62,-50}}, color={0,0,127}));
-          connect(groundMachine.p,starMachine. pin_n) annotation (Line(points={{90,-80},{90,-68}},   color={0,0,255}));
-          connect(terminalBox.starpoint, starMachine.plug_p) annotation (Line(points={{59,-68},{70,-68}}, color={0,0,255}));
           annotation (experiment(StopTime=20, Interval=0.001, Tolerance=1e-06), Documentation(
                 info="<html>
 <p>
@@ -2377,15 +2338,15 @@ The mechanical load is a constant torque like a conveyor (with regularization ar
                 Text(
                   extent={{20,60},{100,52}},
                           textStyle={TextStyle.Bold},
-                  lineColor={0,0,0},
-                  textString="%m phase quasi static"),
-                                                    Text(
+                  textString="%m phase quasi static
+",                lineColor={0,0,0}),               Text(
                           extent={{20,-40},{100,-48}},
                           lineColor={0,0,0},
                           fillColor={255,255,170},
                           fillPattern=FillPattern.Solid,
                           textStyle={TextStyle.Bold},
-                  textString="%m phase transient")}));
+                          textString="%m phase transient
+")}));
         end IMC_Conveyor;
 
         model IMC_withLosses "Induction machine with squirrel cage and losses"
@@ -2473,15 +2434,12 @@ The mechanical load is a constant torque like a conveyor (with regularization ar
             Rr=imcData.Rr*m/3,
             m=m,
             alpha20r=imcData.alpha20r) annotation (Placement(transformation(extent={{-20,60},{0,80}})));
-          Utilities.MultiTerminalBox terminalBoxQS(terminalConnection="D", m=m)
-                                                                           annotation (Placement(transformation(extent={{-20,76},{0,96}})));
-          Electrical.QuasiStationary.MultiPhase.Sensors.PowerSensor electricalPowerSensorQS(m=m)
-                                                                                            annotation (Placement(transformation(
+          Utilities.MultiTerminalBox terminalBoxQS(terminalConnection="D") annotation (Placement(transformation(extent={{-20,76},{0,96}})));
+          Electrical.QuasiStationary.MultiPhase.Sensors.PowerSensor electricalPowerSensorQS annotation (Placement(transformation(
                 extent={{-10,-10},{10,10}},
                 rotation=0,
                 origin={-40,90})));
-          Electrical.QuasiStationary.MultiPhase.Sensors.CurrentQuasiRMSSensor currentQuasiRMSSensorQS(m=m)
-                                                                                                      annotation (Placement(transformation(
+          Electrical.QuasiStationary.MultiPhase.Sensors.CurrentQuasiRMSSensor currentQuasiRMSSensorQS annotation (Placement(transformation(
                 origin={-70,90},
                 extent={{-10,10},{10,-10}},
                 rotation=0)));
@@ -2549,20 +2507,17 @@ The mechanical load is a constant torque like a conveyor (with regularization ar
             Lm=imcData.Lm*m/3,
             Lrsigma=imcData.Lrsigma*m/3,
             Rr=imcData.Rr*m/3,
-            m=m,
-            alpha20r=imcData.alpha20r)                    annotation (Placement(transformation(extent={{-20,-40},{0,-20}})));
-          Electrical.Machines.Utilities.MultiTerminalBox
-                                                    terminalBox(terminalConnection="D", m=m)
-                                                                                        annotation (Placement(transformation(extent={{-20,-24},{0,-4}})));
+            alpha20r=imcData.alpha20r,
+            stator(zeroInductor(i0(start=0,fixed=true)))) annotation (Placement(transformation(extent={{-20,-40},{0,-20}})));
+          Modelica.Electrical.Machines.Utilities.TerminalBox
+                                                    terminalBox(terminalConnection="D") annotation (Placement(transformation(extent={{-20,-24},{0,-4}})));
           Modelica.Electrical.Machines.Sensors.ElectricalPowerSensor
-                                                            electricalPowerSensor(m=m)
-                                                                                  annotation (Placement(transformation(
+                                                            electricalPowerSensor annotation (Placement(transformation(
                 extent={{-10,-10},{10,10}},
                 rotation=0,
                 origin={-40,-10})));
-          Electrical.MultiPhase.Sensors.CurrentQuasiRMSSensor
-                                                            currentQuasiRMSSensor(m=m)
-                                                                                  annotation (Placement(transformation(
+          Modelica.Electrical.Machines.Sensors.CurrentQuasiRMSSensor
+                                                            currentQuasiRMSSensor annotation (Placement(transformation(
                 origin={-70,-10},
                 extent={{-10,10},{10,-10}},
                 rotation=0)));
@@ -2608,7 +2563,6 @@ The mechanical load is a constant torque like a conveyor (with regularization ar
                 1)}, smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative)
             annotation (Placement(transformation(extent={{40,-70},{60,-50}})));
         initial equation
-          sum(imc.is) = 0;
           imc.is[1:2] = zeros(2);
           imc.rotorCage.electroMagneticConverter.V_m = Complex(0, 0);
         equation
@@ -2622,6 +2576,7 @@ The mechanical load is a constant torque like a conveyor (with regularization ar
           connect(torqueQS.flange, loadInertiaQS.flange_b) annotation (Line(points={{70,70},{64,70},{64,70},{68,70},{68,70},{60,70}}));
           connect(sineVoltageQS.plug_p, currentQuasiRMSSensorQS.plug_p) annotation (Line(points={{-90,80},{-90,90},{-80,90}}, color={85,170,255}));
           connect(PIQS.y, gainQS.u) annotation (Line(points={{61,10},{68,10}}, color={85,170,255}));
+          connect(starQS.plug_p, terminalBoxQS.starpoint) annotation (Line(points={{-90,50},{-30,50},{-30,82},{-19,82}}, color={85,170,255}));
           connect(currentQuasiRMSSensorQS.plug_n, electricalPowerSensorQS.currentP) annotation (Line(points={{-60,90},{-50,90}}, color={85,170,255}));
           connect(electricalPowerSensorQS.currentN, terminalBoxQS.plugSupply) annotation (Line(points={{-30,90},{-10,90},{-10,82}}, color={85,170,255}));
           connect(electricalPowerSensorQS.currentP, electricalPowerSensorQS.voltageP) annotation (Line(points={{-50,90},{-50,90},{-50,98},{-50,98},{-50,100},{-40,100},{-40,100}}, color={85,170,255}));
@@ -2725,15 +2680,15 @@ Modelica 2009, 7<sup>th</sup> International Modelica Conference</p>
                 Text(
                   extent={{-80,40},{0,32}},
                           textStyle={TextStyle.Bold},
-                  lineColor={0,0,0},
-                  textString="%m phase quasi static"),
-                                                    Text(
+                  textString="%m phase quasi static
+",                lineColor={0,0,0}),               Text(
                           extent={{-80,-60},{0,-68}},
                           lineColor={0,0,0},
                           fillColor={255,255,170},
                           fillPattern=FillPattern.Solid,
                           textStyle={TextStyle.Bold},
-                  textString="%m phase transient")}));
+                          textString="%m phase transient
+")}));
         end IMC_withLosses;
 
         model IMC_Initialize "Steady-state initialization of induction machine with squirrel cage"
@@ -2779,9 +2734,8 @@ Modelica 2009, 7<sup>th</sup> International Modelica Conference</p>
                 rotation=0)));
           Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VoltageSource sineVoltageQS(
             final m=m,
-            f=fNominal,
-            V=fill(VNominal, m))
-                        annotation (Placement(transformation(
+            V=fill(VNominal/sqrt(3), m),
+            f=fNominal) annotation (Placement(transformation(
                 origin={-70,70},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
@@ -2796,9 +2750,7 @@ Modelica 2009, 7<sup>th</sup> International Modelica Conference</p>
             startTime=tStart,
             stepTorque=-TLoad,
             offsetTorque=0) annotation (Placement(transformation(extent={{60,40},{40,60}})));
-          Utilities.MultiTerminalBox
-                                terminalBoxQS(m=m, terminalConnection="Y")
-                                                                      annotation (Placement(transformation(extent={{-20,56},{0,76}})));
+          Utilities.TerminalBox terminalBoxQS(terminalConnection="D") annotation (Placement(transformation(extent={{-20,56},{0,76}})));
           parameter Electrical.Machines.Utilities.ParameterRecords.AIM_SquirrelCageData imcData annotation (Placement(transformation(extent={{70,72},{90,92}})));
 
           Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage imc(
@@ -2819,12 +2771,11 @@ Modelica 2009, 7<sup>th</sup> International Modelica Conference</p>
             Lm=imcData.Lm*m/3,
             Lrsigma=imcData.Lrsigma*m/3,
             Rr=imcData.Rr*m/3,
-            m=m,
             TsOperational=293.15,
             alpha20r=imcData.alpha20r,
             TrOperational=293.15) annotation (Placement(transformation(extent={{-20,-60},{0,-40}})));
 
-          Electrical.MultiPhase.Sensors.CurrentQuasiRMSSensor        currentQuasiRMSSensor(m=m)
+          Modelica.Electrical.Machines.Sensors.CurrentQuasiRMSSensor currentQuasiRMSSensor
             annotation (Placement(transformation(
                 origin={-40,-20},
                 extent={{-10,10},{10,-10}},
@@ -2832,7 +2783,7 @@ Modelica 2009, 7<sup>th</sup> International Modelica Conference</p>
           Modelica.Electrical.MultiPhase.Sources.SineVoltage sineVoltage(
             final m=m,
             freqHz=fill(fNominal, m),
-            V=fill(sqrt(2)*VNominal, m))   annotation (Placement(transformation(
+            V=fill(sqrt(2/3)*VNominal, m)) annotation (Placement(transformation(
                 origin={-70,-30},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
@@ -2852,16 +2803,7 @@ Modelica 2009, 7<sup>th</sup> International Modelica Conference</p>
             startTime=tStart,
             stepTorque=-TLoad,
             offsetTorque=0) annotation (Placement(transformation(extent={{60,-60},{40,-40}})));
-          Electrical.Machines.Utilities.MultiTerminalBox     terminalBox(m=m, terminalConnection="Y")
-                                                                                                 annotation (Placement(transformation(extent={{-20,-44},{0,-24}})));
-          Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Star starMachineQS(final m=Modelica.Electrical.MultiPhase.Functions.numberOfSymmetricBaseSystems(m)) annotation (Placement(transformation(
-                extent={{10,-10},{-10,10}},
-                rotation=90,
-                origin={-40,38})));
-          Modelica.Electrical.MultiPhase.Basic.Star starMachine(final m=Modelica.Electrical.MultiPhase.Functions.numberOfSymmetricBaseSystems(m)) annotation (Placement(transformation(
-                extent={{10,-10},{-10,10}},
-                rotation=90,
-                origin={-40,-62})));
+          Modelica.Electrical.Machines.Utilities.TerminalBox terminalBox(terminalConnection="D") annotation (Placement(transformation(extent={{-20,-44},{0,-24}})));
         initial equation
           imc.wMechanical = wSync;
           sum(imc.is) = 0;
@@ -2895,10 +2837,6 @@ Modelica 2009, 7<sup>th</sup> International Modelica Conference</p>
           connect(sineVoltage.plug_p,currentQuasiRMSSensor. plug_p) annotation (
               Line(
               points={{-70,-20},{-50,-20}},        color={0,0,255}));
-          connect(starMachineQS.plug_p, terminalBoxQS.starpoint) annotation (Line(points={{-40,48},{-40,62},{-19,62}}, color={85,170,255}));
-          connect(terminalBox.starpoint, starMachine.plug_p) annotation (Line(points={{-19,-38},{-40,-38},{-40,-52}}, color={0,0,255}));
-          connect(starMachine.pin_n, ground.p) annotation (Line(points={{-40,-72},{-40,-80},{-70,-80}}, color={0,0,255}));
-          connect(starMachineQS.pin_n, groundQS.pin) annotation (Line(points={{-40,28},{-40,20},{-70,20}}, color={85,170,255}));
           annotation (experiment(StopTime=1.5, Interval=0.001, Tolerance=1e-06), Documentation(
                 info="<html>
 <strong>Test example: Steady-State Initialization of Asynchronous induction machine with squirrel cage</strong><br>
@@ -2915,15 +2853,15 @@ Default machine parameters of model <em>AIM_SquirrelCage</em> are used.
                 Text(
                   extent={{20,8},{100,0}},
                           textStyle={TextStyle.Bold},
-                  lineColor={0,0,0},
-                  textString="%m phase quasi static"),
-                                                    Text(
+                  textString="%m phase quasi static
+",                lineColor={0,0,0}),               Text(
                           extent={{20,-92},{100,-100}},
                           lineColor={0,0,0},
                           fillColor={255,255,170},
                           fillPattern=FillPattern.Solid,
                           textStyle={TextStyle.Bold},
-                  textString="%m phase transient")}));
+                          textString="%m phase transient
+")}));
         end IMC_Initialize;
       end InductionMachines;
 
@@ -3259,13 +3197,9 @@ Simulate for 0.1 second and plot (versus time):
               Placement(transformation(
                 extent={{-10,-10},{10,10}},
                 origin={-10,-90})));
-          Electrical.Machines.Utilities.MultiTerminalBox     terminalBox(m=m,
+          Modelica.Electrical.Machines.Utilities.TerminalBox terminalBox(m=m,
               terminalConnection="Y") annotation (Placement(transformation(
                   extent={{20,-54},{40,-34}})));
-          Electrical.MultiPhase.Basic.Star          starMachine(final m=Modelica.Electrical.MultiPhase.Functions.numberOfSymmetricBaseSystems(m)) annotation (Placement(transformation(
-                extent={{10,-10},{-10,10}},
-                rotation=90,
-                origin={-10,-60})));
         initial equation
           sum(smpm.is)=0;
           smpm.is[1:2]=zeros(2);
@@ -3295,7 +3229,7 @@ Simulate for 0.1 second and plot (versus time):
               color={85,170,255}));
           connect(starMachineQS.plug_p, terminalBoxQS.starpoint) annotation (
               Line(
-              points={{-10,50},{-10,52},{20,52}},
+              points={{-10,50},{-10,52},{21,52}},
               color={85,170,255}));
           connect(currentQuasiRMSSensorQS.plug_n, terminalBoxQS.plugSupply)
             annotation (Line(points={{10,80},{10,80},{30,80},{30,78},{30,78},{30,52},{30,52}},
@@ -3330,23 +3264,25 @@ Simulate for 0.1 second and plot (versus time):
           connect(star.pin_n, ground.p) annotation (Line(
               points={{-60,-80},{-60,-80}},
               color={0,0,255}));
+          connect(groundMachine.p, terminalBox.starpoint) annotation (Line(
+              points={{-10,-80},{-10,-48},{21,-48}},
+              color={0,0,255}));
           connect(powerSensor.nv, star.plug_p) annotation (Line(
               points={{-30,-30},{-30,-60},{-60,-60}}, color={0,0,255}));
-          connect(terminalBox.starpoint, starMachine.plug_p) annotation (Line(points={{21,-48},{-10,-48},{-10,-50},{-10,-50}}, color={0,0,255}));
-          connect(starMachine.pin_n, groundMachine.p) annotation (Line(points={{-10,-70},{-10,-80}}, color={0,0,255}));
           annotation (experiment(StopTime=1, Interval=1E-4, Tolerance=1E-6),Diagram(coordinateSystem(preserveAspectRatio=false,
                   extent={{-100,-100},{100,100}}), graphics={
                 Text(
                   extent={{20,8},{100,0}},
                           textStyle={TextStyle.Bold},
-                  textString="%m phase quasi static",        lineColor={0,0,0}),               Text(
+                  textString="%m phase quasi static
+",                lineColor={0,0,0}),               Text(
                           extent={{20,-92},{100,-100}},
                           lineColor={0,0,0},
                           fillColor={255,255,170},
                           fillPattern=FillPattern.Solid,
                           textStyle={TextStyle.Bold},
-                          textString="%m phase transient")}),
-            Documentation(info="<html>
+                          textString="%m phase transient
+")}),       Documentation(info="<html>
 
 <p>
 This example compares a time transient and a quasi static model of a permanent magnet synchronous machine. The machines start with zero load and synchronous speed. At time <code>tStep</code> the machines are loaded with nominal torque. </p>
@@ -3362,6 +3298,175 @@ Simulate for 1 second and plot (versus time):
 </ul>
 </html>"));
         end SMPM_Mains;
+
+        model SMPM_OpenCircuit
+          "Test example: PermanentMagnetSynchronousMachine with inverter"
+          extends Modelica.Icons.Example;
+          import Modelica.Constants.pi;
+          parameter Integer m=3 "Number of phases";
+          output Modelica.SIunits.Voltage Vtr=potentialSensor.phi[1]
+            "Transient voltage";
+          output Modelica.SIunits.Voltage Vqs=potentialSensorQS.abs_y[1]
+            "QS voltage";
+          FundamentalWave.BasicMachines.SynchronousMachines.SM_PermanentMagnet
+            smpmQS(
+            p=smpmData.p,
+            fsNominal=smpmData.fsNominal,
+            TsRef=smpmData.TsRef,
+            Jr=smpmData.Jr,
+            Js=smpmData.Js,
+            frictionParameters=smpmData.frictionParameters,
+            statorCoreParameters=smpmData.statorCoreParameters,
+            strayLoadParameters=smpmData.strayLoadParameters,
+            VsOpenCircuit=smpmData.VsOpenCircuit,
+            useDamperCage=smpmData.useDamperCage,
+            Lrsigmad=smpmData.Lrsigmad,
+            Lrsigmaq=smpmData.Lrsigmaq,
+            Rrd=smpmData.Rrd,
+            Rrq=smpmData.Rrq,
+            TrRef=smpmData.TrRef,
+            permanentMagnetLossParameters=smpmData.permanentMagnetLossParameters,
+            phiMechanical(start=0),
+            m=m,
+            TsOperational=293.15,
+            Rs=smpmData.Rs*m/3,
+            alpha20s=smpmData.alpha20s,
+            Lssigma=smpmData.Lssigma*m/3,
+            Lmd=smpmData.Lmd*m/3,
+            Lmq=smpmData.Lmq*m/3,
+            alpha20r=smpmData.alpha20r,
+            TrOperational=293.15) annotation (Placement(transformation(extent={
+                    {-10,20},{10,40}})));
+
+          Modelica.Mechanics.Rotational.Sources.ConstantSpeed constantSpeed(
+            useSupport=false,
+            w_fixed(displayUnit="rad/s") = 2*pi*smpmData.fsNominal/smpmData.p,
+            phi(start=0, fixed=true)) annotation (Placement(transformation(
+                  extent={{80,-10},{60,10}})));
+          parameter
+            Modelica.Electrical.Machines.Utilities.ParameterRecords.SM_PermanentMagnetData
+            smpmData(useDamperCage=false) "Machine data"
+            annotation (Placement(transformation(extent={{70,72},{90,92}})));
+          Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Star starQS(m=m)
+            annotation (Placement(transformation(
+                extent={{-10,-10},{10,10}},
+                rotation=180,
+                origin={-20,50})));
+          Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Ground groundQS
+            annotation (Placement(transformation(
+                extent={{-10,-10},{10,10}},
+                rotation=270,
+                origin={-50,50})));
+          Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.PotentialSensor
+            potentialSensorQS(m=m)
+            annotation (Placement(transformation(extent={{10,40},{30,60}})));
+          Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet
+            smpm(
+            p=smpmData.p,
+            fsNominal=smpmData.fsNominal,
+            TsRef=smpmData.TsRef,
+            Jr=smpmData.Jr,
+            Js=smpmData.Js,
+            frictionParameters=smpmData.frictionParameters,
+            statorCoreParameters=smpmData.statorCoreParameters,
+            strayLoadParameters=smpmData.strayLoadParameters,
+            VsOpenCircuit=smpmData.VsOpenCircuit,
+            useDamperCage=smpmData.useDamperCage,
+            Lrsigmad=smpmData.Lrsigmad,
+            Lrsigmaq=smpmData.Lrsigmaq,
+            Rrd=smpmData.Rrd,
+            Rrq=smpmData.Rrq,
+            TrRef=smpmData.TrRef,
+            permanentMagnetLossParameters=smpmData.permanentMagnetLossParameters,
+            m=m,
+            TsOperational=293.15,
+            Rs=smpmData.Rs*m/3,
+            alpha20s=smpmData.alpha20s,
+            Lssigma=smpmData.Lssigma*m/3,
+            Lszero=smpmData.Lszero*m/3,
+            Lmd=smpmData.Lmd*m/3,
+            Lmq=smpmData.Lmq*m/3,
+            alpha20r=smpmData.alpha20r,
+            TrOperational=293.15) annotation (Placement(transformation(extent={
+                    {-10,-50},{10,-30}})));
+
+          Modelica.Electrical.MultiPhase.Basic.Star star(m=m) annotation (
+              Placement(transformation(
+                extent={{-10,-10},{10,10}},
+                rotation=180,
+                origin={-20,-20})));
+          Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
+                transformation(
+                extent={{-10,-10},{10,10}},
+                rotation=270,
+                origin={-50,-20})));
+          Modelica.Electrical.MultiPhase.Sensors.PotentialSensor
+            potentialSensor(m=m)
+            annotation (Placement(transformation(extent={{10,-30},{30,-10}})));
+          Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Resistor
+            resistorQS(m=m, R_ref=fill(1e6*m/3, m))
+            annotation (Placement(transformation(extent={{-10,50},{10,70}})));
+        equation
+          connect(starQS.plug_p, smpmQS.plug_sn) annotation (Line(
+              points={{-10,50},{-10,40},{-6,40}},
+              color={85,170,255}));
+          connect(groundQS.pin, starQS.pin_n) annotation (Line(
+              points={{-40,50},{-30,50}},
+              color={85,170,255}));
+          connect(potentialSensorQS.plug_p, smpmQS.plug_sp) annotation (Line(
+              points={{10,50},{10,40},{6,40}},
+              color={85,170,255}));
+          connect(constantSpeed.flange, smpm.flange) annotation (Line(
+              points={{60,0},{50,0},{50,-40},{10,-40}}));
+          connect(constantSpeed.flange, smpmQS.flange) annotation (Line(
+              points={{60,0},{50,0},{50,30},{10,30}}));
+          connect(ground.p, star.pin_n) annotation (Line(
+              points={{-40,-20},{-30,-20}},
+              color={0,0,255}));
+          connect(star.plug_p, smpm.plug_sn) annotation (Line(
+              points={{-10,-20},{-10,-30},{-6,-30}},
+              color={0,0,255}));
+          connect(potentialSensor.plug_p, smpm.plug_sp) annotation (Line(
+              points={{10,-20},{10,-30},{6,-30}},
+              color={0,0,255}));
+          connect(resistorQS.plug_p, smpmQS.plug_sn) annotation (Line(
+              points={{-10,60},{-10,40},{-6,40}},
+              color={85,170,255}));
+          connect(resistorQS.plug_n, smpmQS.plug_sp) annotation (Line(
+              points={{10,60},{10,40},{6,40}},
+              color={85,170,255}));
+          annotation (
+            experiment(StopTime=0.1, Interval=1E-4, Tolerance=1E-6),
+            Documentation(info="<html>
+<p>
+This example compares a time transient and a quasi static model of a permanent magnet synchronous machine. 
+The machines are operated at constant mechanical angular velocity.</p>
+
+<p>
+Simulate for 0.1 second and plot (versus time):
+</p>
+
+<ul>
+<li><code>potentialSenor.phi|potentialSensorQS.abs_y[1]</code>: potential of terminal</li>
+</ul>
+
+<h5>Note</h5>
+<p>The resistors connected to the terminals of the windings of the quasi static machine model are necessary to numerically stabilize the simulation.</p>
+</html>"),  Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                    {100,100}}), graphics={
+                Text(
+                  extent={{-100,8},{-20,0}},
+                          textStyle={TextStyle.Bold},
+                  textString="%m phase quasi static
+",                lineColor={0,0,0}),               Text(
+                          extent={{-100,-92},{-20,-100}},
+                          lineColor={0,0,0},
+                          fillColor={255,255,170},
+                          fillPattern=FillPattern.Solid,
+                          textStyle={TextStyle.Bold},
+                          textString="%m phase transient
+")}));
+        end SMPM_OpenCircuit;
 
         model SMPM_CurrentSource
           "Test example: PermanentMagnetSynchronousMachine fed by current source"
@@ -3406,7 +3511,7 @@ Simulate for 1 second and plot (versus time):
             TsOperational=293.15,
             alpha20s=smpmData.alpha20s,
             alpha20r=smpmData.alpha20r,
-            TrOperational=293.15)
+            permanentMagnetLossParameters=smpmData.permanentMagnetLossParameters)
             annotation (Placement(transformation(extent={{-10,-90},{10,-70}})));
           Modelica.Electrical.MultiPhase.Sources.SignalCurrent signalCurrent(
               final m=m) annotation (Placement(transformation(
@@ -3423,12 +3528,11 @@ Simulate for 1 second and plot (versus time):
                 origin={50,-30},
                 extent={{-10,-10},{10,10}})));
           Modelica.Electrical.Machines.Utilities.CurrentController
-            currentController(p=smpm.p, m=m)
+            currentController(p=smpm.p)
             annotation (Placement(transformation(extent={{-50,-20},{-30,0}})));
-          Modelica.Blocks.Sources.Constant iq(k=84.6*3/m)
-                                                      annotation (Placement(
+          Modelica.Blocks.Sources.Constant iq(k=84.6) annotation (Placement(
                 transformation(extent={{-100,-20},{-80,0}})));
-          Modelica.Blocks.Sources.Constant id(k=-53.5*3/m)
+          Modelica.Blocks.Sources.Constant id(k=-53.5)
             annotation (Placement(transformation(extent={{-100,20},{-80,40}})));
           Modelica.Electrical.MultiPhase.Sensors.VoltageQuasiRMSSensor
             voltageQuasiRMSSensor(m=m)
@@ -3439,13 +3543,13 @@ Simulate for 1 second and plot (versus time):
           Modelica.Electrical.MultiPhase.Basic.Star starM(final m=m)
             annotation (Placement(transformation(
                 extent={{-10,-10},{10,10}},
-                rotation=270,
-                origin={-60,-60})));
+                rotation=180,
+                origin={-50,-50})));
           Modelica.Electrical.Analog.Basic.Ground groundM annotation (Placement(
                 transformation(
                 origin={-60,-90},
                 extent={{-10,-10},{10,10}})));
-          Electrical.Machines.Utilities.MultiTerminalBox     terminalBox(
+          Electrical.Machines.Utilities.TerminalBox          terminalBox(
               terminalConnection="Y", m=m)
                                       annotation (Placement(transformation(
                   extent={{-10,-74},{10,-54}})));
@@ -3468,7 +3572,7 @@ Simulate for 1 second and plot (versus time):
             Modelica.Electrical.Machines.Utilities.ParameterRecords.SM_PermanentMagnetData
             smpmData(useDamperCage=false) "Machine data"
             annotation (Placement(transformation(extent={{70,72},{90,92}})));
-          Modelica.Electrical.MultiPhase.Sensors.CurrentQuasiRMSSensor currentRMSsensor(m=m)
+          Modelica.Electrical.MultiPhase.Sensors.CurrentQuasiRMSSensor currentRMSsensor
             annotation (Placement(transformation(
                 origin={0,-40},
                 extent={{-10,-10},{10,10}},
@@ -3530,8 +3634,7 @@ Simulate for 1 second and plot (versus time):
                 extent={{-10,-10},{10,10}},
                 rotation=90,
                 origin={30,60})));
-          Electrical.QuasiStationary.MultiPhase.Sources.ReferenceCurrentSource referenceCurrentSourceQS(m=m)
-                                                                                                        annotation (Placement(transformation(
+          Electrical.QuasiStationary.MultiPhase.Sources.ReferenceCurrentSource referenceCurrentSourceQS annotation (Placement(transformation(
                 extent={{10,-10},{-10,10}},
                 rotation=90,
                 origin={0,90})));
@@ -3561,10 +3664,6 @@ Simulate for 1 second and plot (versus time):
                 extent={{-10,10},{10,-10}},
                 rotation=270,
                 origin={-50,40})));
-          Electrical.MultiPhase.Basic.Star          starMachine(final m=Modelica.Electrical.MultiPhase.Functions.numberOfSymmetricBaseSystems(m)) annotation (Placement(transformation(
-                extent={{10,-10},{-10,10}},
-                rotation=0,
-                origin={-30,-80})));
         equation
           connect(star.pin_n, ground.p)
             annotation (Line(points={{50,-20},{50,-20}}, color={0,0,255}));
@@ -3586,10 +3685,10 @@ Simulate for 1 second and plot (versus time):
               points={{-20,-50},{0,-50},{0,-68}},
               color={0,0,255}));
           connect(starM.plug_p, voltageQuasiRMSSensor.plug_n) annotation (Line(
-              points={{-60,-50},{-40,-50}},
+              points={{-40,-50},{-40,-50}},
               color={0,0,255}));
           connect(starM.pin_n, groundM.p) annotation (Line(
-              points={{-60,-70},{-60,-80}},
+              points={{-60,-50},{-60,-80}},
               color={0,0,255}));
           connect(quadraticSpeedDependentTorque.flange, inertiaLoad.flange_b)
             annotation (Line(
@@ -3609,7 +3708,7 @@ Simulate for 1 second and plot (versus time):
               points={{80,20},{70,20}}));
           connect(starMachineQS.plug_p, terminalBoxQS.starpoint) annotation (
               Line(
-              points={{-20,20},{-20,32},{-10,32}},
+              points={{-20,20},{-20,32},{-9,32}},
               color={85,170,255}));
           connect(groundMQS.pin, starMachineQS.pin_n) annotation (Line(
               points={{-60,20},{-40,20}},
@@ -3620,8 +3719,7 @@ Simulate for 1 second and plot (versus time):
           connect(terminalBoxQS.plug_sp, smpmQS.plug_sp) annotation (Line(
               points={{6,30},{6,30}},
               color={85,170,255}));
-          connect(currentControllerQS.I, referenceCurrentSourceQS.I) annotation (Line(points={{-29,94},{-20,94},{-20,96},{-12,96}},
-                                                                                                                  color={85,170,255}));
+          connect(currentControllerQS.I, referenceCurrentSourceQS.I) annotation (Line(points={{-29,94},{-10,94}}, color={85,170,255}));
           connect(referenceCurrentSourceQS.plug_p, starQS.plug_p) annotation (Line(points={{4.44089e-16,100},{50,100}}, color={85,170,255}));
           connect(starQS.pin_n, groundeQS.pin) annotation (Line(
               points={{50,80},{50,80}},
@@ -3634,22 +3732,20 @@ Simulate for 1 second and plot (versus time):
           connect(id.y, currentController.id_rms) annotation (Line(points={{-79,30},{-74,30},{-74,-4},{-52,-4}}, color={0,0,127}));
           connect(iq.y, currentControllerQS.iq_rms) annotation (Line(points={{-79,-10},{-70,-10},{-70,84},{-52,84}}, color={0,0,127}));
           connect(iq.y, currentController.iq_rms) annotation (Line(points={{-79,-10},{-70,-10},{-70,-16},{-52,-16}}, color={0,0,127}));
-          connect(currentController.y, signalCurrent.i) annotation (Line(points={{-29,-10},{-12,-10}}, color={0,0,127}));
-          connect(currentControllerQS.gamma, referenceCurrentSourceQS.gamma) annotation (Line(points={{-29,86},{-20,86},{-20,84},{-12,84}},
-                                                                                                                          color={0,0,127}));
+          connect(currentController.y, signalCurrent.i) annotation (Line(points={{-29,-10},{-7,-10}},  color={0,0,127}));
+          connect(currentControllerQS.gamma, referenceCurrentSourceQS.gamma) annotation (Line(points={{-29,86},{-10,86}}, color={0,0,127}));
           connect(angleSensorQS.phi, currentControllerQS.phi) annotation (Line(points={{30,71},{30,74},{-40,74},{-40,78}}, color={0,0,127}));
           connect(angleSensor.phi, currentController.phi) annotation (Line(points={{30,-29},{30,-26},{-40,-26},{-40,-22}}, color={0,0,127}));
           connect(smpmQS.flange, rotorAngleQS.flange) annotation (Line(points={{10,20},{20,20}}, color={0,0,0}));
           connect(terminalBoxQS.plug_sp, rotorAngleQS.plug_p) annotation (Line(points={{6,30},{24,30}}, color={85,170,255}));
           connect(terminalBoxQS.plugSupply, currentRMSSensorQS.plug_n) annotation (Line(points={{0,32},{0,50}},     color={85,170,255}));
           connect(currentRMSSensorQS.plug_p, referenceCurrentSourceQS.plug_n) annotation (Line(points={{0,70},{0,80}}, color={85,170,255}));
+          connect(terminalBox.starpoint, groundM.p) annotation (Line(points={{-9,-68},{-20,-68},{-20,-80},{-30,-80},{-30,-80},{-60,-80},{-60,-80}}, color={0,0,255}));
           connect(inertiaLoadQS.flange_a, smpmQS.flange) annotation (Line(points={{50,20},{10,20}}, color={0,0,0}));
           connect(rotorAngleQS.plug_n, terminalBoxQS.plug_sn) annotation (Line(points={{36,30},{36,36},{-6,36},{-6,30}}, color={85,170,255}));
           connect(voltageQuasiRMSSensorQS.plug_n, currentRMSSensorQS.plug_n) annotation (Line(points={{-20,50},{0,50}}, color={85,170,255}));
           connect(starMQS.pin_n, starMachineQS.pin_n) annotation (Line(points={{-50,30},{-50,20},{-40,20}}, color={85,170,255}));
           connect(starMQS.plug_p, voltageQuasiRMSSensorQS.plug_p) annotation (Line(points={{-50,50},{-40,50}}, color={85,170,255}));
-          connect(starMachine.plug_p, terminalBox.starpoint) annotation (Line(points={{-20,-80},{-20,-68},{-9,-68}}, color={0,0,255}));
-          connect(starMachine.pin_n, groundM.p) annotation (Line(points={{-40,-80},{-60,-80}}, color={0,0,255}));
           annotation (
             experiment(StopTime=2.0, Interval=1E-4, Tolerance=1E-6),
             Documentation(info="<html>
@@ -3673,13 +3769,15 @@ to numerically stabilize the simulation.</p>
                 Text(
                   extent={{30,48},{110,40}},
                           textStyle={TextStyle.Bold},
-                  textString="%m phase quasi static",        lineColor={0,0,0}),               Text(
+                  textString="%m phase quasi static
+",                lineColor={0,0,0}),               Text(
                           extent={{30,-52},{110,-60}},
                           lineColor={0,0,0},
                           fillColor={255,255,170},
                           fillPattern=FillPattern.Solid,
                           textStyle={TextStyle.Bold},
-                          textString="%m phase transient")}));
+                          textString="%m phase transient
+")}));
         end SMPM_CurrentSource;
 
         model SMEE_Generator
@@ -3899,16 +3997,7 @@ to numerically stabilize the simulation.</p>
           Sensors.RotorDisplacementAngle rotorAngleQS(m=m, p=smeeQS.p) annotation (Placement(transformation(
                 extent={{10,-10},{-10,10}},
                 rotation=90,
-                origin={30,30})));
-          Electrical.Analog.Basic.Ground          groundMachine annotation (
-              Placement(transformation(
-                extent={{-10,-10},{10,10}},
-                origin={-50,-50},
-                rotation=270)));
-          Electrical.MultiPhase.Basic.Star          starMachine(final m=Modelica.Electrical.MultiPhase.Functions.numberOfSymmetricBaseSystems(m)) annotation (Placement(transformation(
-                extent={{10,-10},{-10,10}},
-                rotation=0,
-                origin={-20,-50})));
+                origin={32,30})));
         initial equation
           sum(smee.is) = 0;
           smee.is[1:2] = zeros(2);
@@ -3976,17 +4065,15 @@ to numerically stabilize the simulation.</p>
               color={85,170,255}));
           connect(starMachineQS.plug_p, terminalBoxQS.starpoint) annotation (
               Line(
-              points={{-10,50},{-10,42},{-10,42}},
+              points={{-10,50},{-10,42},{-9,42}},
               color={85,170,255}));
           connect(smee.flange, rotorAngle.flange) annotation (Line(points={{10,-70},{20,-70}}, color={0,0,0}));
           connect(rotorAngle.plug_p, smee.plug_sp) annotation (Line(points={{24,-60},{6,-60}}, color={0,0,255}));
           connect(smee.plug_sn, rotorAngle.plug_n) annotation (Line(points={{-6,-60},{-6,-54},{36,-54},{36,-60}}, color={0,0,255}));
-          connect(terminalBoxQS.plug_sp, rotorAngleQS.plug_p) annotation (Line(points={{6,40},{24,40}}, color={85,170,255}));
-          connect(rotorAngleQS.plug_n, terminalBoxQS.plug_sn) annotation (Line(points={{36,40},{36,46},{-6,46},{-6,40}}, color={85,170,255}));
-          connect(smeeQS.flange, rotorAngleQS.flange) annotation (Line(points={{10,30},{20,30}}, color={0,0,0}));
+          connect(terminalBoxQS.plug_sp, rotorAngleQS.plug_p) annotation (Line(points={{6,40},{26,40}}, color={85,170,255}));
+          connect(rotorAngleQS.plug_n, terminalBoxQS.plug_sn) annotation (Line(points={{38,40},{38,46},{-6,46},{-6,40}}, color={85,170,255}));
+          connect(smeeQS.flange, rotorAngleQS.flange) annotation (Line(points={{10,30},{22,30}}, color={0,0,0}));
           connect(smeeQS.flange, mechanicalPowerSensorQS.flange_a) annotation (Line(points={{10,30},{50,30}}, color={0,0,0}));
-          connect(starMachine.pin_n,groundMachine. p) annotation (Line(points={{-30,-50},{-40,-50}}, color={0,0,255}));
-          connect(starMachine.plug_p, terminalBoxM.starpoint) annotation (Line(points={{-10,-50},{-10,-54},{-10,-58},{-9,-58}}, color={0,0,255}));
           annotation (
             experiment(
               StopTime=30,
@@ -4017,7 +4104,8 @@ Simulate for 30 seconds and plot versus <code>rotorAngle|rotorAngleQS.rotorDispl
                           fillColor={255,255,170},
                           fillPattern=FillPattern.Solid,
                           textStyle={TextStyle.Bold},
-                  textString="%m phase quasi static"),     Text(
+                  textString="%m phase quasi static
+"),             Text(
                   extent={{20,-92},{100,-100}},
                           textStyle={TextStyle.Bold},
                           textString="%m phase transient")}));
@@ -4052,12 +4140,11 @@ Simulate for 30 seconds and plot versus <code>rotorAngle|rotorAngleQS.rotorDispl
                 origin={50,-30},
                 extent={{-10,-10},{10,10}})));
           Modelica.Electrical.Machines.Utilities.CurrentController
-            currentController(p=smr.p, m=m)
+            currentController(p=smr.p)
             annotation (Placement(transformation(extent={{-50,-20},{-30,0}})));
-          Modelica.Blocks.Sources.Constant iq(k=84.6*3/m)
-                                                      annotation (Placement(
+          Modelica.Blocks.Sources.Constant iq(k=84.6) annotation (Placement(
                 transformation(extent={{-100,-20},{-80,0}})));
-          Modelica.Blocks.Sources.Constant id(k=53.5*3/m)
+          Modelica.Blocks.Sources.Constant id(k=53.5)
             annotation (Placement(transformation(extent={{-100,20},{-80,40}})));
           Modelica.Electrical.MultiPhase.Sensors.VoltageQuasiRMSSensor
             voltageQuasiRMSSensor(m=m)
@@ -4074,9 +4161,8 @@ Simulate for 30 seconds and plot versus <code>rotorAngle|rotorAngleQS.rotorDispl
                 transformation(
                 origin={-60,-90},
                 extent={{-10,-10},{10,10}})));
-          Electrical.Machines.Utilities.MultiTerminalBox     terminalBox(
-              terminalConnection="Y", m=m)
-                                      annotation (Placement(transformation(
+          Modelica.Electrical.Machines.Utilities.TerminalBox terminalBox(
+              terminalConnection="Y") annotation (Placement(transformation(
                   extent={{-10,-74},{10,-54}})));
           Modelica.Electrical.Machines.Sensors.RotorDisplacementAngle
             rotorDisplacementAngle(p=smr.p, m=m)
@@ -4098,7 +4184,7 @@ Simulate for 30 seconds and plot versus <code>rotorAngle|rotorAngleQS.rotorDispl
             w_nominal(displayUnit="rpm") = 157.07963267949,
             TorqueDirection=false)
             annotation (Placement(transformation(extent={{100,-90},{80,-70}})));
-          Modelica.Electrical.MultiPhase.Sensors.CurrentQuasiRMSSensor currentRMSsensor(m=m)
+          Modelica.Electrical.MultiPhase.Sensors.CurrentQuasiRMSSensor currentRMSsensor
             annotation (Placement(transformation(
                 origin={0,-40},
                 extent={{-10,-10},{10,10}},
@@ -4226,10 +4312,6 @@ Simulate for 30 seconds and plot versus <code>rotorAngle|rotorAngleQS.rotorDispl
                 extent={{-10,10},{10,-10}},
                 rotation=270,
                 origin={-50,40})));
-          Electrical.MultiPhase.Basic.Star          starMachine(final m=Modelica.Electrical.MultiPhase.Functions.numberOfSymmetricBaseSystems(m)) annotation (Placement(transformation(
-                extent={{10,-10},{-10,10}},
-                rotation=0,
-                origin={-30,-80})));
         equation
           connect(star.pin_n, ground.p)
             annotation (Line(points={{50,-20},{50,-20}}, color={0,0,255}));
@@ -4239,6 +4321,9 @@ Simulate for 30 seconds and plot versus <code>rotorAngle|rotorAngleQS.rotorDispl
           connect(angleSensor.flange, rotorDisplacementAngle.flange)
             annotation (Line(
               points={{30,-50},{30,-56},{30,-56},{30,-60},{20,-60},{20,-80}}));
+          connect(groundM.p, terminalBox.starpoint) annotation (Line(
+              points={{-60,-80},{-60,-80},{-32,-80},{-32,-80},{-20,-80},{-20,-68},{-9,-68}},
+              color={0,0,255}));
           connect(voltageQuasiRMSSensor.plug_p, terminalBox.plugSupply)
             annotation (Line(
               points={{-20,-50},{0,-50},{0,-68}},
@@ -4265,13 +4350,12 @@ Simulate for 30 seconds and plot versus <code>rotorAngle|rotorAngleQS.rotorDispl
               points={{80,20},{70,20}}));
           connect(starMachineQS.plug_p, terminalBoxQS.starpoint) annotation (
               Line(
-              points={{-20,20},{-20,32},{-10,32}},
+              points={{-20,20},{-20,32},{-9,32}},
               color={85,170,255}));
           connect(groundMQS.pin, starMachineQS.pin_n) annotation (Line(
               points={{-60,20},{-40,20}},
               color={85,170,255}));
-          connect(currentControllerQS.I, referenceCurrentSource.I) annotation (Line(points={{-29,94},{-20,94},{-20,96},{-12,96}},
-                                                                                                                color={85,170,255}));
+          connect(currentControllerQS.I, referenceCurrentSource.I) annotation (Line(points={{-29,94},{-10,94}}, color={85,170,255}));
           connect(referenceCurrentSource.plug_p, starQS.plug_p) annotation (
               Line(
               points={{0,100},{50,100}},
@@ -4319,15 +4403,12 @@ Simulate for 30 seconds and plot versus <code>rotorAngle|rotorAngleQS.rotorDispl
           connect(iq.y, currentControllerQS.iq_rms) annotation (Line(points={{-79,-10},{-70,-10},{-70,84},{-52,84}}, color={0,0,127}));
           connect(iq.y, currentController.iq_rms) annotation (Line(points={{-79,-10},{-70,-10},{-70,-16},{-52,-16}}, color={0,0,127}));
           connect(angleSensor.phi, currentController.phi) annotation (Line(points={{30,-29},{30,-26},{-40,-26},{-40,-22}}, color={0,0,127}));
-          connect(currentController.y, signalCurrent.i) annotation (Line(points={{-29,-10},{-12,-10}},color={0,0,127}));
-          connect(currentControllerQS.gamma, referenceCurrentSource.gamma) annotation (Line(points={{-29,86},{-20,86},{-20,84},{-12,84}},
-                                                                                                                        color={0,0,127}));
+          connect(currentController.y, signalCurrent.i) annotation (Line(points={{-29,-10},{-7,-10}}, color={0,0,127}));
+          connect(currentControllerQS.gamma, referenceCurrentSource.gamma) annotation (Line(points={{-29,86},{-10,86}}, color={0,0,127}));
           connect(angleSensorQS.phi, currentControllerQS.phi) annotation (Line(points={{30,71},{30,74},{-40,74},{-40,78}}, color={0,0,127}));
           connect(starMQS.plug_p, voltageQuasiRMSSensorQS.plug_p) annotation (Line(points={{-50,50},{-40,50}}, color={85,170,255}));
           connect(voltageQuasiRMSSensorQS.plug_n, currentRMSSensorQS.plug_n) annotation (Line(points={{-20,50},{-6.66134e-16,50}}, color={85,170,255}));
           connect(starMQS.pin_n, groundMQS.pin) annotation (Line(points={{-50,30},{-50,20},{-60,20}}, color={85,170,255}));
-          connect(starMachine.pin_n, groundM.p) annotation (Line(points={{-40,-80},{-60,-80}}, color={0,0,255}));
-          connect(starMachine.plug_p, terminalBox.starpoint) annotation (Line(points={{-20,-80},{-20,-68},{-9,-68}}, color={0,0,255}));
           annotation (
             experiment(StopTime=2.0, Interval=1E-4, Tolerance=1E-6),
             Documentation(info="<html><html>
@@ -4350,13 +4431,15 @@ Simulate for 2 seconds and plot (versus time):
                 Text(
                   extent={{30,48},{110,40}},
                           textStyle={TextStyle.Bold},
-                  textString="%m phase quasi static",        lineColor={0,0,0}),               Text(
+                  textString="%m phase quasi static
+",                lineColor={0,0,0}),               Text(
                           extent={{30,-52},{110,-60}},
                           lineColor={0,0,0},
                           fillColor={255,255,170},
                           fillPattern=FillPattern.Solid,
                           textStyle={TextStyle.Bold},
-                          textString="%m phase transient")}));
+                          textString="%m phase transient
+")}));
         end SMR_CurrentSource;
       end SynchronousMachines;
     end BasicMachines;
