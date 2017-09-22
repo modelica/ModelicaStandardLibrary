@@ -252,6 +252,7 @@ package Annotations "Annotations"
     annotation (Documentation(info="<html>
 <p>
 A simple type or component of a simple type may have the annotation <code>absoluteValue</code>.
+Note that this is only relevant for components of a few specific types.
 </p>
 <p>
 If <code>false</code>, then the variable defines a relative quantity, and if <code>true</code> an absolute quantity.
