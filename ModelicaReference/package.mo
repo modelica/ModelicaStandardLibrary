@@ -4190,6 +4190,10 @@ unknowns during one iteration. Again, it is a quality of
 implementation to solve these systems more efficiently, e.g.,
 by applying the fix point iteration scheme to a subset of the
 model equations.]</em></p>
+<p><em>Note that <strong>pre</strong>(v) requires the argument to be a variable and a discrete-time expression, 
+this formulation was chosen to allow using <strong>pre</strong>(v) both for discrete-time variables and 
+for continuous-time variables inside when-clauses.
+</em></p>
 <h4>Examples</h4>
 <pre><strong>model</strong> Hysteresis
   Real u;
