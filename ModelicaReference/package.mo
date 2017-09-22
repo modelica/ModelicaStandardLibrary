@@ -1002,6 +1002,50 @@ If true, the model developer proposes to inline the function after the function 
 </html>"));
   end InlineAfterIndexReduction;
 
+    class inverse "inverse"
+    extends ModelicaReference.Icons.Information;
+    annotation (Documentation(info="<html>
+<p>Every function with one output argument may have one or more &quot;<code>inverse</code>&quot; annotations to define inverses of this function. </p>
+<h4>Syntax</h4>
+<blockquote>
+<pre><strong>function</strong> f1
+  <strong>input</strong> A1 u1;
+  ...
+  <strong>input</strong> T1 uk;
+  ...
+  <strong>input</strong> Am um = am;
+  ...
+  <strong>input</strong> An un;
+  <strong>output</strong> T2 y;
+  <strong>annotation</strong>(<strong>inverse</strong>(uk = f2(..., y, ....), ui = f3(..., y, ...), ...));
+<strong>algorithm</strong>
+  ...
+<strong>end</strong> f1;</pre></blockquote>
+<h4>Description</h4>
+<p>The meaning is that function &quot;<code>f2</code>&quot; is one inverse to function &quot;<code>f1</code>&quot; where the previous output &quot;<code>y</code>&quot; is now an input and the previous input &quot;<code>uk</code>&quot; is now an output. More than one inverse can be defined within the same inverse annotation. Several inverses are separated by commas. <em>(The inverse requires that for all valid values of the input arguments of <code>f2(...,y, ...)</code> and <code>uk</code> being calculated as <code>uk := f2(..., y, ...)</code> implies the equality <code>y = f1(..., uk, ...,) </code>up to a certain precision.)</em></p>
+<p>Function &quot;<code>f1</code>&quot; can have any number and types of arguments with and without default value. The restriction is that the number of unknown variables in the output argument of both &quot;<code>f1</code>&quot; and &quot;<code>f2</code>&quot; must be the same and that &quot;<code>f2</code>&quot; must have exactly the same arguments as &quot;<code>f1</code>&quot; (with the same defaults, if an argument um has a default), but the order of the arguments may be permuted.</p>
+<h4>Examples</h4>
+<pre><strong>function</strong> h_pTX
+  <strong>input</strong> Real p    &quot;pressure&quot;;
+  <strong>input</strong> Real T    &quot;temperature&quot;;
+  <strong>input</strong> Real X[:] &quot;mass fractions&quot;;
+  <strong>output</strong> Real h   &quot;specific enthalpy&quot;;
+  <strong>annotation</strong>(<strong>inverse</strong>(T = T_phX(p,h,X)));
+<strong>algorithm</strong>
+  ...
+<strong>end</strong> h_pTX;
+
+<strong>function</strong> T_phX
+  <strong>input</strong> Real  p    &quot;pressure&quot;;
+  <strong>input</strong> Real  h    &quot;specific enthalpy&quot;;
+  <strong>input</strong> Real  X[:] &quot;mass fractions&quot;;
+  <strong>output</strong> Real T    &quot;temperature&quot;;
+<strong>algorithm</strong>
+  ...
+<strong>end</strong> T_phX;</pre>
+</html>"));
+  end inverse;
+  
   class LateInline "LateInline"
     extends ModelicaReference.Icons.Information;
 
@@ -3821,50 +3865,6 @@ when the return value changes discontinuously.]</em></p>
  = {-4, 3}</pre>
 </html>"));
   end 'integer()';
-
-  class 'inverse()' "inverse()"
-    extends ModelicaReference.Icons.Information;
-    annotation (Documentation(info="<html>
-<p>Every function with one output argument may have one or more &quot;<code>inverse</code>&quot; annotations to define inverses of this function. </p>
-<h4>Syntax</h4>
-<blockquote>
-<pre><strong>function</strong> f1
-  <strong>input</strong> A1 u1;
-  ...
-  <strong>input</strong> T1 uk;
-  ...
-  <strong>input</strong> Am um = am;
-  ...
-  <strong>input</strong> An un;
-  <strong>output</strong> T2 y;
-  <strong>annotation</strong>(<strong>inverse</strong>(uk = f2(..., y, ....), ui = f3(..., y, ...), ...));
-<strong>algorithm</strong>
-  ...
-<strong>end</strong> f1;</pre></blockquote>
-<h4>Description</h4>
-<p>The meaning is that function &quot;<code>f2</code>&quot; is one inverse to function &quot;<code>f1</code>&quot; where the previous output &quot;<code>y</code>&quot; is now an input and the previous input &quot;<code>uk</code>&quot; is now an output. More than one inverse can be defined within the same inverse annotation. Several inverses are separated by commas. <em>(The inverse requires that for all valid values of the input arguments of <code>f2(...,y, ...)</code> and <code>uk</code> being calculated as <code>uk := f2(..., y, ...)</code> implies the equality <code>y = f1(..., uk, ...,) </code>up to a certain precision.)</em></p>
-<p>Function &quot;<code>f1</code>&quot; can have any number and types of arguments with and without default value. The restriction is that the number of unknown variables in the output argument of both &quot;<code>f1</code>&quot; and &quot;<code>f2</code>&quot; must be the same and that &quot;<code>f2</code>&quot; must have exactly the same arguments as &quot;<code>f1</code>&quot; (with the same defaults, if an argument um has a default), but the order of the arguments may be permuted.</p>
-<h4>Examples</h4>
-<pre><strong>function</strong> h_pTX
-  <strong>input</strong> Real p    &quot;pressure&quot;;
-  <strong>input</strong> Real T    &quot;temperature&quot;;
-  <strong>input</strong> Real X[:] &quot;mass fractions&quot;;
-  <strong>output</strong> Real h   &quot;specific enthalpy&quot;;
-  <strong>annotation</strong>(<strong>inverse</strong>(T = T_phX(p,h,X)));
-<strong>algorithm</strong>
-  ...
-<strong>end</strong> h_pTX;
-
-<strong>function</strong> T_phX
-  <strong>input</strong> Real  p    &quot;pressure&quot;;
-  <strong>input</strong> Real  h    &quot;specific enthalpy&quot;;
-  <strong>input</strong> Real  X[:] &quot;mass fractions&quot;;
-  <strong>output</strong> Real T    &quot;temperature&quot;;
-<strong>algorithm</strong>
-  ...
-<strong>end</strong> T_phX;</pre>
-</html>"));
-  end 'inverse()';
 
   class 'linspace()' "linspace()"
     extends ModelicaReference.Icons.Information;
@@ -6967,7 +6967,18 @@ It is based on the
       <th>Author</th>
       <th>Comment</th>
     </tr>
-
+    <tr>
+      <td valign=\"top\"></td>
+      <td valign=\"top\">2017-09-22</td>
+      <td valign=\"top\"><a href=\"https://github.com/HansOlsson\">Hans Olsson</a></td>
+      <td valign=\"top\">
+      <ul>
+      <li>Changed grammar to have colon emphasized as well, since it may otherwise look like a dot after 't' due to lack of kerning.</li>
+      <li>Annotation inverse moved to annotations.</li>
+      <li>The operator sign does not generate events, <a href=\"https://github.com/modelica/Modelica/issues/2324\">#2324</a></li>
+      <li>Some stylistic improvements of the English text</li>
+      </ul>
+      </td>
      <tr>
       <td valign=\"top\"></td>
       <td valign=\"top\">2013-07-26</td>
