@@ -410,7 +410,7 @@ Default name when dragging component
 
 <p>
 When creating a component of the given class, the recommended component name is the
-giving string.
+given string.
 </p>
 
 </html>"));
