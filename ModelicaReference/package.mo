@@ -2678,14 +2678,14 @@ evaluates to false different actions are taken depending on the level input:
      or explicitly with terminate(), but the evaluation with
      terminal()=true triggers an assert, the analysis failed. </li>
 <li> level = AssertionLevel.warning:<br>
-     The current evaluation is not aborted. message indicates
+     The current evaluation is not aborted, message indicates
      the cause of the warning [It is recommended to report the
      warning only once when the condition becomes false, and it is
      reported that the condition is no longer violated when the
      condition returns to true. The assert(..) statement shall
      have no influence on the behavior of the model.
      For example, by evaluating the condition and reporting the
-     message only after accepted integrator steps. condition
+     message only after accepted integrator steps. The condition
      needs to be implicitly treated with noEvent(..) since
      otherwise events might be triggered that can lead to slightly
      changed simulation results].</li>
