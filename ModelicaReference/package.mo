@@ -4486,8 +4486,7 @@ Sign function of a Real or Integer number
 <h4>Description</h4>
 <p>Is expanded into &quot;noEvent(<strong>if</strong> v &gt; 0 <strong>then</strong> 1 <strong>else
 if</strong> v &lt; 0 <strong>then</strong> -1 <strong>else</strong> 0)&quot;. Argument v
-needs to be an Integer or Real expression. <em>[Note, outside of a
-when clause state events are triggered.]</em></p>
+needs to be an Integer or Real expression. </p>
 <h4>Examples</h4>
 <pre><strong>sign</strong>({-3, 0, 3})
  = {-1, 0, 1}</pre>
