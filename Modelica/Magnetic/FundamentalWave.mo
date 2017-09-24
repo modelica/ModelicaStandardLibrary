@@ -6082,7 +6082,7 @@ The voltage <img src=\"modelica://Modelica/Resources/Images/Magnetic/Fundamental
       connect(singlePhaseElectroMagneticConverter[m].port_n, port_n)
         annotation (Line(
           points={{12,-10},{12,-100},{100,-100}}, color={255,128,0}));
-      annotation (
+      annotation (defaultComponentName="converter",
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={           Line(points={{100,-100},{94,-100},{84,-98},{76,-94},{64,-86},{50,-72},{42,-58},{36,-40},{30,-18},{30,0},{30,18},{34,36},{46,66},{62,84},{78,96},{90,100},{100,100}},
               color={255,128,0}),Line(points={{-20,60},{-20,100},{-100,100}},
@@ -7200,7 +7200,7 @@ The symmetry of the stator is assumed. For rotor asymmetries can be taken into a
         connect(electroMagneticConverter.port_n, reluctance.port_n) annotation (
            Line(
             points={{10,-10},{30,-10}}, color={255,128,0}));
-        annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+        annotation (defaultComponentName="winding", Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                   -100},{100,100}}), graphics={      Line(points={{100,-100},{
                 94,-100},{84,-98},{76,-94},{64,-86},{50,-72},{42,-58},{36,-40},
                 {30,-18},{30,0},{30,18},{34,36},{46,66},{62,84},{78,96},{90,100},
@@ -7378,7 +7378,7 @@ The single phase winding consists of a winding
           annotation (Line(points={{-20,60},{-20,40},{-10,40}}, color={0,0,255}));
         connect(electroMagneticConverter.plug_p, short.plug_n) annotation (Line(
               points={{-10,-20},{-20,-20},{-20,20},{-10,20}}, color={0,0,255}));
-        annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+        annotation (defaultComponentName="winding", Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                   -100},{100,100}}), graphics={
               Line(points={{100,-100},{94,-100},{84,-98},{76,-94},{64,-86},{50,
                     -72},{42,-58},{36,-40},{30,-18},{30,0},{30,18},{34,36},{46,
@@ -7478,7 +7478,7 @@ heat <a href=\"modelica://Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a\">
         // Electrical angle between stator and rotor
         gamma = p*(flange_a.phi - support.phi);
         rotator = Modelica.ComplexMath.exp(Complex(0, gamma));
-        annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+        annotation (defaultComponentName="airGap", Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                   -100},{100,100}}), graphics={
               Ellipse(
                 extent={{-100,100},{100,-100}},
@@ -7631,7 +7631,7 @@ according to the following figure.
           annotation (Line(points={{40,-20},{45,-20},{50,-20}}, color={0,0,255}));
         connect(resistor.plug_n, multiStar.plug_p)
           annotation (Line(points={{-20,-60},{20,-60},{20,-20}}, color={0,0,255}));
-        annotation (
+        annotation (defaultComponentName="cage",
           Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                   {100,100}}), graphics={
               Ellipse(
@@ -7780,7 +7780,7 @@ The symmetric rotor cage model of this library does not consist of rotor bars an
             points={{-10,20},{-30,20},{-30,0},{-100,0}}, color={255,128,0}));
         connect(strayReluctance.port_n, port_n) annotation (Line(
             points={{10,20},{30,20},{30,0},{100,0}}, color={255,128,0}));
-        annotation (
+        annotation (defaultComponentName="cage",
           Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                   {100,100}}), graphics={Ellipse(
                       extent={{-80,80},{80,-80}},
@@ -7831,7 +7831,7 @@ The salient cage model is a two axis model with two phases. The electromagnetic 
           Modelica.Magnetic.FundamentalWave.Sources.ConstantMagneticPotentialDifference;
         extends
           Modelica.Electrical.Machines.Losses.InductionMachines.PermanentMagnetLosses;
-        annotation (Documentation(info="<html>
+        annotation (defaultComponentName="magnet", Documentation(info="<html>
 <p>
 Simple model of a permanent magnet, containing:
 </p>
@@ -7932,7 +7932,7 @@ The permanent magnet is modeled by a magnetic potential difference. The internal
             points={{-40,-90},{-40,-100},{0,-100}}, color={191,0,0}));
         connect(resistor.plug_n, starAuxiliary.plug_p) annotation (Line(
             points={{-20,-80},{30,-80}}, color={0,0,255}));
-        annotation (obsolete="Wrong structure of multi phase cage, see #1536 (https://github.com/modelica/Modelica/issues/1536)",
+        annotation (defaultComponentName="cage", obsolete="Wrong structure of multi phase cage, see #1536 (https://github.com/modelica/Modelica/issues/1536)",
           Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                   {100,100}}), graphics={Ellipse(
                       extent={{-80,80},{80,-80}},
@@ -8069,7 +8069,7 @@ The symmetric rotor cage model of this library does not consist of rotor bars an
             points={{-40,-90},{-40,-100},{0,-100}}, color={191,0,0}));
         connect(resistor.heatPort, thermalCollector.port_a) annotation (Line(
             points={{-30,-70},{-40,-70}}, color={191,0,0}));
-        annotation (obsolete="Wrong structure of saliency cage, see #1536 (https://github.com/modelica/Modelica/issues/1536)",
+        annotation (defaultComponentName="cage", obsolete="Wrong structure of saliency cage, see #1536 (https://github.com/modelica/Modelica/issues/1536)",
           Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                   -100},{100,100}}), graphics={Ellipse(
                       extent={{-80,80},{80,-80}},
@@ -8147,7 +8147,7 @@ for electric machines.
       port_p.Phi = Phi;
       // Local flux balance
       port_p.Phi + port_n.Phi = Complex(0, 0);
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (defaultComponentName="vmSource", Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-80,-20},{-80,-40}},
                   lineColor={255,128,0},
@@ -8204,7 +8204,7 @@ Source of constant magneto motive force.
       port_p.Phi = Phi;
       // Local flux balance
       port_p.Phi + port_n.Phi = Complex(0, 0);
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (defaultComponentName="vmSource", Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{80,-20},{80,-40}},
                   lineColor={255,128,0},
@@ -8256,7 +8256,7 @@ Source of magneto motive force with complex signal input.
       port_p.Phi = Phi;
       // Local flux balance
       port_p.Phi + port_n.Phi = Complex(0, 0);
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (defaultComponentName="phiSource", Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={Ellipse(
                   extent={{-50,-50},{50,50}},
                   lineColor={255,128,0},
@@ -8315,7 +8315,7 @@ Source of constant magnetic flux.
       port_p.Phi = Phi;
       // Local flux balance
       port_p.Phi + port_n.Phi = Complex(0, 0);
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (defaultComponentName="phiSource", Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={Ellipse(
                   extent={{-50,-50},{50,50}},
                   lineColor={255,128,0},
@@ -8373,7 +8373,7 @@ Source of magnetic flux with complex signal input.
       port_p.Phi + port_n.Phi = Complex(0, 0);
       // No magnetic potential difference at sensor
       V_m = Complex(0, 0);
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (defaultComponentName="phiSensor", Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-29,-11},{30,-70}},
                   textString="Phi"),Line(points={{-72,0},{-90,0}}),
@@ -8411,7 +8411,7 @@ Source of magnetic flux with complex signal input.
       port_p.Phi + port_n.Phi = Complex(0, 0);
       // No magnetic flux through sensor
       Phi = Complex(0, 0);
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (defaultComponentName="vmSensor", Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-52,1},{48,-57}},
                   textString="V_m"),Line(points={{-70,0},{-90,0}}),
@@ -8443,7 +8443,7 @@ Source of magnetic flux with complex signal input.
       port_p.Phi = Complex(0, 0);
       // Magnetic potential
       V_m = port_p.V_m;
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (defaultComponentName="vmSensor", Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-52,1},{48,-57}},
                   textString="V_m"),Line(points={{-70,0},{-90,0}}),
