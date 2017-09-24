@@ -21,7 +21,7 @@ package Sources "Time-dependent and controlled voltage and current sources"
     v = p.v - n.v;
     0 = p.i + n.i;
     i = p.i;
-    annotation (
+    annotation (defaultComponentName="vSource",
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
           Ellipse(
@@ -77,7 +77,7 @@ package Sources "Time-dependent and controlled voltage and current sources"
 
   equation
     v = V;
-    annotation (
+    annotation (defaultComponentName="vSource",
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
           Line(points={{-90,0},{-10,0}}, color={0,0,255}),
@@ -106,7 +106,7 @@ package Sources "Time-dependent and controlled voltage and current sources"
     parameter SI.Voltage V(start=1) "Height of step";
     extends Interfaces.VoltageSource(redeclare Modelica.Blocks.Sources.Step
         signalSource(final height=V));
-    annotation (
+    annotation (defaultComponentName="vSource",
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={Line(points={{-70,-70},{0,-70},{0,70},{69,70}},
               color={192,192,192})}),
@@ -182,7 +182,7 @@ package Sources "Time-dependent and controlled voltage and current sources"
       "Duration of ramp";
     extends Interfaces.VoltageSource(redeclare Modelica.Blocks.Sources.Ramp
         signalSource(final height=V, final duration=duration));
-    annotation (
+    annotation (defaultComponentName="vSource",
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={Polygon(
               points={{-80,90},{-88,68},{-72,68},{-80,90}},
@@ -273,7 +273,7 @@ package Sources "Time-dependent and controlled voltage and current sources"
         final amplitude=V,
         final freqHz=freqHz,
         final phase=phase));
-    annotation (
+    annotation (defaultComponentName="vSource",
       Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
               100}}), graphics={Line(points={{-66,0},{-56.2,29.9},{-49.8,46.5},
                 {-44.2,58.1},{-39.3,65.2},{-34.3,69.2},{-29.4,69.8},{-24.5,67},
@@ -356,7 +356,7 @@ package Sources "Time-dependent and controlled voltage and current sources"
         final amplitude=V,
         final freqHz=freqHz,
         final phase=phase));
-    annotation (
+    annotation (defaultComponentName="vSource",
       Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
               100}}), graphics={Line(
             points={{-71,70},{-68.4,69.8},{-63.5,67},{-58.6,61},{-53.6,52},{-48,
@@ -444,7 +444,7 @@ package Sources "Time-dependent and controlled voltage and current sources"
         final freqHz=freqHz,
         final phase=phase,
         final damping=damping));
-    annotation (
+    annotation (defaultComponentName="vSource",
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={Line(points={{-64,-14},{-59.2,18.3},{-56,36.3},
                 {-52.7,50.5},{-49.5,60.2},{-46.3,65.3},{-43.1,65.6},{-39.9,61.3},
@@ -553,7 +553,7 @@ package Sources "Time-dependent and controlled voltage and current sources"
         final riseTime=riseTime,
         final riseTimeConst=riseTimeConst,
         final fallTimeConst=fallTimeConst));
-    annotation (
+    annotation (defaultComponentName="vSource",
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={Line(points={{-76,-59},{-73.2,-44.3},{-70.3,-31.1},
                 {-66.8,-16.6},{-63.3,-4},{-59.7,6.92},{-55.5,18.18},{-51.3,27.7},
@@ -654,7 +654,7 @@ package Sources "Time-dependent and controlled voltage and current sources"
         final amplitude=V,
         final width=width,
         final period=period));
-    annotation (
+    annotation (defaultComponentName="vSource",
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={Line(points={{-70,-70},{-40,-70},{-40,70},{0,70},
                 {0,-70},{40,-70},{40,70},{80,70}}, color={192,192,192})}),
@@ -765,7 +765,7 @@ package Sources "Time-dependent and controlled voltage and current sources"
     parameter SI.Time period(start=1) "Time for one period";
     extends Interfaces.VoltageSource(redeclare Modelica.Blocks.Sources.SawTooth
         signalSource(final amplitude=V, final period=period));
-    annotation (
+    annotation (defaultComponentName="vSource",
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={Line(points={{-85,-70},{-65,-70},{-5,71},{-5,-70},
                 {55,71},{55,-70}}, color={192,192,192})}),
@@ -873,7 +873,7 @@ package Sources "Time-dependent and controlled voltage and current sources"
         final falling=falling,
         final period=period,
         final nperiod=nperiod));
-    annotation (
+    annotation (defaultComponentName="vSource",
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={Line(points={{-81,-70},{-60,-70},{-30,70},{1,70},
                 {30,-70},{51,-70},{80,70}}, color={192,192,192})}),
@@ -1007,7 +1007,7 @@ package Sources "Time-dependent and controlled voltage and current sources"
       "Table matrix (time = first column, voltage = second column)";
     extends Interfaces.VoltageSource(redeclare
         Modelica.Blocks.Sources.TimeTable signalSource(final table=table));
-    annotation (
+    annotation (defaultComponentName="vSource",
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={Line(points={{-58,-36},{-58,84},{42,84},{42,-36},
                 {-58,-36},{-58,-6},{42,-6},{42,24},{-58,24},{-58,54},{42,54},{
@@ -1113,7 +1113,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
     v = p.v - n.v;
     0 = p.i + n.i;
     i = p.i;
-    annotation (
+    annotation (defaultComponentName="iSource",
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
           Ellipse(
@@ -1149,7 +1149,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
     extends Interfaces.OnePort;
   equation
     i = I;
-    annotation (
+    annotation (defaultComponentName="iSource",
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
           Ellipse(
@@ -1184,7 +1184,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
     parameter SI.Current I(start=1) "Height of step";
     extends Interfaces.CurrentSource(redeclare Modelica.Blocks.Sources.Step
         signalSource(final height=I));
-    annotation (
+    annotation (defaultComponentName="iSource",
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={Line(points={{-86,-70},{-14,-70},{-14,70},{57,
                 70}}, color={192,192,192})}),
@@ -1260,7 +1260,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
       "Duration of ramp";
     extends Interfaces.CurrentSource(redeclare Modelica.Blocks.Sources.Ramp
         signalSource(final height=I, final duration=duration));
-    annotation (
+    annotation (defaultComponentName="iSource",
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={Polygon(
               points={{-80,90},{-88,68},{-72,68},{-80,90}},
@@ -1351,7 +1351,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
         final amplitude=I,
         final freqHz=freqHz,
         final phase=phase));
-    annotation (
+    annotation (defaultComponentName="iSource",
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={Line(points={{-70,0},{-60.2,29.9},{-53.8,46.5},
                 {-48.2,58.1},{-43.3,65.2},{-38.3,69.2},{-33.4,69.8},{-28.5,67},
@@ -1434,7 +1434,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
         final amplitude=I,
         final freqHz=freqHz,
         final phase=phase));
-    annotation (
+    annotation (defaultComponentName="iSource",
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={Line(
             points={{-71,70},{-68.4,69.8},{-63.5,67},{-58.6,61},{-53.6,52},{-48,
@@ -1524,7 +1524,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
         final freqHz=freqHz,
         final phase=phase,
         final damping=damping));
-    annotation (
+    annotation (defaultComponentName="iSource",
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={Line(points={{-80,-14},{-75.2,18.3},{-72,36.3},
                 {-68.7,50.5},{-65.5,60.2},{-62.3,65.3},{-59.1,65.6},{-55.9,61.3},
@@ -1633,7 +1633,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
         final riseTime=riseTime,
         final riseTimeConst=riseTimeConst,
         final fallTimeConst=fallTimeConst));
-    annotation (
+    annotation (defaultComponentName="iSource",
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={Line(points={{-76,-59},{-73.2,-44.3},{-70.3,-31.1},
                 {-66.8,-16.6},{-63.3,-4},{-59.7,6.92},{-55.5,18.18},{-51.3,27.7},
@@ -1721,7 +1721,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
         final amplitude=I,
         final width=width,
         final period=period));
-    annotation (
+    annotation (defaultComponentName="iSource",
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={Line(points={{-80,-67},{-50,-67},{-50,73},{-10,
                 73},{-10,-67},{30,-67},{30,73},{70,73}}, color={192,192,192})}),
@@ -1833,7 +1833,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
     parameter SI.Time period(start=1) "Time for one period";
     extends Interfaces.CurrentSource(redeclare Modelica.Blocks.Sources.SawTooth
         signalSource(final amplitude=I, final period=period));
-    annotation (
+    annotation (defaultComponentName="iSource",
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={Line(points={{-70,-71},{-50,-71},{10,70},{10,-71},
                 {70,70},{70,-71}}, color={192,192,192})}),
@@ -1941,7 +1941,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
         final falling=falling,
         final period=period,
         final nperiod=nperiod));
-    annotation (
+    annotation (defaultComponentName="iSource",
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={Line(points={{-81,-66},{-60,-66},{-30,74},{1,74},
                 {30,-66},{51,-66},{80,74}}, color={192,192,192})}),
@@ -2075,7 +2075,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
       "Table matrix (time = first column, current = second column)";
     extends Interfaces.CurrentSource(redeclare
         Modelica.Blocks.Sources.TimeTable signalSource(final table=table));
-    annotation (
+    annotation (defaultComponentName="iSource",
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={Line(points={{-66,-36},{-66,84},{34,84},{34,-36},
                 {-66,-36},{-66,-6},{34,-6},{34,24},{-66,24},{-66,54},{34,54},{
@@ -2186,7 +2186,7 @@ If, e.g., time = 1.0, the current i =  0.0 (before event), 1.0 (after event)
         points={{-40,0},{0,0}}, color={0,0,255}));
     connect(ground, negativeSupply.p) annotation (Line(
         points={{0,0},{40,0}}, color={0,0,255}));
-    annotation (
+    annotation (defaultComponentName="iSource",
       Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
               100}}), graphics={
           Line(

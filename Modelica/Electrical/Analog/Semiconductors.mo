@@ -17,7 +17,7 @@ package Semiconductors
   equation
     i = smooth(1, Ids*(exlin(v/Vt, Maxexp) - 1) + v/R);
     LossPower = v*i;
-    annotation (
+    annotation (defaultComponentName="diode",
       Documentation(info="<html>
 <p>The simple diode is a one port. It consists of the diode itself and an parallel ohmic resistance <em>R</em>. The diode formula is:</p>
 <pre>                v/vt
@@ -88,14 +88,14 @@ package Semiconductors
     Vt_applied = if useHeatPort then Modelica.Constants.R * T_heatPort/Modelica.Constants.F else Vt;
     id = smooth(1,
       if vd < -Bv / 2 then
-        //Lower half of reverse biased region including breakdown.
         -Ids * (exp(-(vd+Bv)/(N*Vt_applied)) + 1 - 2*exp(-Bv/(2*N*Vt_applied)))
       elseif vd < VdMax then
-        //Upper half of reverse biased region, and forward biased region before conduction.
         Ids * (exp(vd/(N*Vt_applied)) - 1)
       else
-        //Forward biased region after conduction
         iVdMax + (vd - VdMax) * diVdMax);
+        //Lower half of reverse biased region including breakdown.
+        //Upper half of reverse biased region, and forward biased region before conduction.
+        //Forward biased region after conduction
 
     v = vd + id * Rs;
     i = id + v*Gp;
@@ -104,7 +104,7 @@ package Semiconductors
     assert(Bv>0, "Bv must be greater than zero");
     assert(Vf>0, "Vf must be greater than zero");
     assert(Vt>0, "Vt must be greater than zero");
-    annotation (
+    annotation (defaultComponentName="diode",
       Documentation(info="<html>
 <p>This diode model is an improved version of the <a href=\"modelica://Modelica.Electrical.Analog.Semiconductors.Diode\">simple diode</a> model. It includes a series resistance, parallel conductance, and also models reverse breakdown. The model is divided into three parts:</p>
 <ul>
@@ -165,14 +165,14 @@ Stefan Vorkoetter - new model proposed.</li>
     parameter Real Nbv=0.74 "Breakthrough emission coefficient";
     extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(
       final T=293.15);
- equation
+  equation
     i = smooth(1, if (v>Maxexp*Vt) then
               Ids*( exp(Maxexp)*(1 + v/Vt - Maxexp)-1) + v/R else
            if ( (v+Bv)<-Maxexp*(Nbv*Vt)) then
               -Ids -Ibv* exp(Maxexp)*(1 - (v+Bv)/(Nbv*Vt) - Maxexp) +v/R else
               Ids*(exp(v/Vt)-1) - Ibv*exp(-(v+Bv)/(Nbv*Vt)) + v/R);
     LossPower = v*i;
-          annotation (
+          annotation (defaultComponentName="diode",
             Documentation(info="<html>
 <p>The simple Zener diode is a one port. It consists of the diode itself and an parallel ohmic resistance <em>R</em>. The diode formula is:
 <pre>                v/Vt                -(v+Bv)/(Nbv*Vt)
@@ -736,7 +736,7 @@ equation
   i = Ids*id*pow(htemp/TNOM, XTI/N)*auxp + v/R;
 
   LossPower = i*v;
-  annotation (
+  annotation (defaultComponentName="diode",
     Documentation(info="<html>
 <P>
 The simple diode is an electrical one port, where a heat port is added, which is
@@ -843,7 +843,7 @@ end HeatingDiode;
           S.i = smooth(0,if (D.v < S.v) then id else -id);
           B.i = 0;
           LossPower = D.i*(D.v - S.v);
-          annotation (
+          annotation (defaultComponentName="nMOS",
             Documentation(info="<html>
 <p>The NMOS model is a simple model of a n-channel metal-oxide semiconductor FET. It differs slightly from the device used in the SPICE simulator. For more details please care for H. Spiro.
 <br> A heating port is added for thermal electric simulation. The heating port is defined in the Modelica.Thermal library.
@@ -901,8 +901,7 @@ end HeatingDiode;
             fillColor={0,0,255},
             fillPattern=FillPattern.Solid,
             lineColor={0,0,255}),
-          Text(
-                    extent={{-150,130},{150,90}},
+          Text(     extent={{-150,130},{150,90}},
             textString="%name",
                     lineColor={0,0,255})}));
         end HeatingNMOS;
@@ -966,7 +965,7 @@ end HeatingDiode;
           S.i = smooth(0,if (D.v > S.v) then id else -id);
           B.i = 0;
           LossPower = D.i*(D.v - S.v);
-          annotation (
+          annotation (defaultComponentName="pMOS",
             Documentation(info="<html>
 <p>The PMOS model is a simple model of a p-channel metal-oxide semiconductor FET. It differs slightly from the device used in the SPICE simulator. For more details please care for H. Spiro.
 <br>A heating port is added for thermal electric simulation. The heating port is defined in the Modelica.Thermal library.
@@ -1013,8 +1012,7 @@ end HeatingDiode;
             fillColor={0,0,255},
             fillPattern=FillPattern.Solid,
             lineColor={0,0,255}),
-          Text(
-                    extent={{-150,130},{150,90}},
+          Text(     extent={{-150,130},{150,90}},
             textString="%name",
                     lineColor={0,0,255})}));
         end HeatingPMOS;
@@ -1094,7 +1092,7 @@ end HeatingDiode;
           E.i = -B.i - C.i + Ccs*der(C.v);
 
           LossPower = (vbc*ibc/br_t + vbe*ibe/bf_t + (ibe - ibc)*qbk*(C.v - E.v));
-          annotation (
+          annotation (defaultComponentName="npn",
             Documentation(info="<html>
 <p>This model is a simple model of a bipolar NPN junction transistor according to Ebers-Moll.
 <br>A heating port is added for thermal electric simulation. The heating port is defined in the Modelica.Thermal library.
@@ -1127,8 +1125,7 @@ end HeatingDiode;
             fillColor={0,0,255},
             fillPattern=FillPattern.Solid,
             lineColor={0,0,255}),
-          Text(
-                    extent={{-150,130},{150,90}},
+          Text(     extent={{-150,130},{150,90}},
             textString="%name",
                     lineColor={0,0,255})}));
         end HeatingNPN;
@@ -1208,7 +1205,7 @@ end HeatingDiode;
           E.i = -B.i - C.i + Ccs*der(C.v);
 
           LossPower = (vcb*icb/br_t + veb*ieb/bf_t + (icb - ieb)*qbk*(C.v- E.v));
-          annotation (
+          annotation (defaultComponentName="pnp",
             Documentation(info="<html>
 <p>This model is a simple model of a bipolar PNP junction transistor according to Ebers-Moll.
 <br>A heating port is added for thermal electric simulation. The heating port is defined in the Modelica.Thermal library.
@@ -1241,8 +1238,7 @@ end HeatingDiode;
             fillColor={0,0,255},
             fillPattern=FillPattern.Solid,
             lineColor={0,0,255}),
-          Text(
-                    extent={{-150,130},{150,90}},
+          Text(     extent={{-150,130},{150,90}},
             textString="%name",
                     lineColor={0,0,255})}));
         end HeatingPNP;
@@ -1285,6 +1281,7 @@ protected
           z := if x < Minexp then exp(Minexp)*(1 + x - Minexp) else exlin(x, Maxexp);
         end exlin2;
 public
+
   model Thyristor "Simple Thyristor Model"
     parameter SI.Voltage VDRM(final min=0) = 100
       "Forward breakthrough voltage";
@@ -1523,7 +1520,7 @@ public
         points={{-20,-62},{-20,-50},{-22,-50}}, color={0,0,255}));
     connect(idealDiode1.p, g) annotation (Line(
         points={{-20,-82},{-42,-82},{-42,-98},{-100,-98}}, color={0,0,255}));
-    annotation (
+    annotation (defaultComponentName="triac",
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
           Polygon(

@@ -61,7 +61,7 @@ package Lines
       T=fill(T, N + 1));
     parameter Modelica.SIunits.Inductance lm[N + 1]=
     {if i==1 or i==N + 1 then l*length/(N*2) else l*length/N for i in 1:N+1};
-	Modelica.Electrical.Analog.Basic.Inductor L[N + 1](L=lm);
+    Modelica.Electrical.Analog.Basic.Inductor L[N + 1](L=lm);
     Modelica.Electrical.Analog.Basic.Capacitor C[N](C=fill(c*length/(N), N));
     Modelica.Electrical.Analog.Basic.Conductor G[N](
       G=fill(g*length/(N), N),
@@ -93,7 +93,7 @@ package Lines
         connect(heatPort, G[i].heatPort);
       end for;
     end if;
-    annotation (
+    annotation (defaultComponentName="line",
       Documentation(info="<html>
 <p>Like in the picture below, the lossy transmission line OLine is a single-conductor lossy transmission line which consists of segments of lumped resistors and inductors in series and conductor and capacitors that are connected with the reference pin p3. The precision of the model depends on the number N of lumped segments.</p>
 <p>To get a symmetric line model, the first resistor and inductor are cut into two parts (R1 and R_Nplus1, L1 and L_Nplus1). These two new resistors and inductors have the half of the resistance respectively inductance the original resistor respectively inductor.</p>
@@ -284,7 +284,7 @@ package Lines
         connect(heatPort, G[dim_vector_lgc].heatPort);
       end if;
 
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (defaultComponentName="segment", Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={Rectangle(extent={{40,-40},{-40,40}},
               lineColor={0,0,255}),
             Text(
@@ -347,7 +347,7 @@ package Lines
         end for;
         connect(heatPort, R[lines].heatPort);
       end if;
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (defaultComponentName="segment", Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={Rectangle(extent={{20,-40},{-20,40}},
               lineColor={0,0,255}),
             Text(
@@ -411,7 +411,7 @@ package Lines
       connect(heatPort, s_last.heatPort);
     end if;
 
-    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+    annotation (defaultComponentName="line", Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
               -100},{100,100}}), graphics={
           Rectangle(
             extent={{80,80},{-80,-80}},
@@ -583,7 +583,7 @@ package Lines
         connect(heatPort, R[i].heatPort);
       end for;
     end if;
-    annotation (
+    annotation (defaultComponentName="line",
       Documentation(info="<html>
 <p>As can be seen in the picture below, the lossy RC line ULine is a single conductor lossy transmission line which consists of segments of lumped series resistors and capacitors that are connected with the reference pin p3. The precision of the model depends on the number N of lumped segments.
 <br>To get a symmetric line model, the first resistor is cut into two parts (R1 and R_Nplus1). These two new resistors have the half of the resistance of the original resistor.
@@ -649,7 +649,7 @@ The capacitances are calculated with: C=c*length/N.
     i2 = (v2 - er)/Z0;
     es = 2*delay(v2, TD) - delay(er, TD);
     er = 2*delay(v1, TD) - delay(es, TD);
-    annotation (
+    annotation (defaultComponentName="line",
       Documentation(info="<html>
 <p>Lossless transmission line with characteristic impedance Z0 and transmission delay TD The lossless transmission line TLine1 is a two Port. Both port branches consist of a resistor with characteristic impedance Z0 and a controlled voltage source that takes into consideration the transmission delay TD. For further details see Branin&#39;s article below. The model parameters can be derived from inductance and capacitance per length (L&#39; resp. C&#39;), i. e. Z0 = sqrt(L&#39;/C&#39;) and TD = sqrt(L&#39;*C&#39;)*length_of_line. Resistance R&#39; and conductance C&#39; per meter are assumed to be zero.</p>
 <p><strong>References:</strong></p>
@@ -719,7 +719,7 @@ The capacitances are calculated with: C=c*length/N.
     i2 = (v2 - er)/Z0;
     es = 2*delay(v2, TD) - delay(er, TD);
     er = 2*delay(v1, TD) - delay(es, TD);
-    annotation (
+    annotation (defaultComponentName="line",
       Documentation(info="<html>
 <p>Lossless transmission line with characteristic impedance Z0, frequency F and normalized length NL The lossless transmission line TLine2 is a two Port. Both port branches consist of a resistor with the value of the characteristic impedance Z0 and a controlled voltage source that takes into consideration the transmission delay. For further details see Branin&#39;s article below. Resistance R&#39; and conductance C&#39; per meter are assumed to be zero. The characteristic impedance Z0 can be derived from inductance and capacitance per length (L&#39; resp. C&#39;), i. e. Z0 = sqrt(L&#39;/C&#39;). The normalized length NL is equal to the length of the line divided by the wavelength corresponding to the frequency F, i. e. the transmission delay TD is the quotient of NL and F.</p>
 <p><strong>References:</strong></p>
@@ -784,7 +784,7 @@ The capacitances are calculated with: C=c*length/N.
     i2 = (v2 - er)/Z0;
     es = 2*delay(v2, TD) - delay(er, TD);
     er = 2*delay(v1, TD) - delay(es, TD);
-    annotation (
+    annotation (defaultComponentName="line",
       Documentation(info="<html>
 <p>Lossless transmission line with characteristic impedance Z0 and frequency F The lossless transmission line TLine3 is a two Port. Both port branches consist of a resistor with value of the characteristic impedance Z0 and a controlled voltage source that takes into consideration the transmission delay. For further details see Branin&#39;s article below. Resistance R&#39; and conductance C&#39; per meter are assumed to be zero. The characteristic impedance Z0 can be derived from inductance and capacitance per length (L&#39; resp. C&#39;), i. e. Z0 = sqrt(L&#39;/C&#39;). The length of the line is equal to a quarter of the wavelength corresponding to the frequency F, i. e. the transmission delay is the quotient of 4 and F. In this case, the characteristic impedance is called natural impedance.</p>
 <p><strong>References:</strong></p>
