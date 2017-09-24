@@ -234,7 +234,7 @@ equation
   i = pc.i;
   v = pv.v - nv.v;
   power = v*i;
-  annotation (defaultComponentName="pSensor",
+  annotation (defaultComponentName="Sensor",
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
       Line(points = {{0,100},{0,70}}, color = {0,0,255}),
       Line(points = {{0,-70},{0,-100}}, color = {0,0,255}),
