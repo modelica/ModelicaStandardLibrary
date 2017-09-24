@@ -5704,7 +5704,7 @@ Voltage is controlled, the set point depends on speed. The generator is loaded w
             Line(points={{-40,30},{40,30}}, color={255,128,0}),
             Line(points={{-20,10},{20,10}}, color={255,128,0}),
             Text(
-              extent={{-150,-11},{150,-51}},
+              extent={{-150,-10},{150,-50}},
               textString="%name",
               lineColor={0,0,255})}),
         Documentation(info="<html>
@@ -5733,7 +5733,7 @@ Grounding of the complex magnetic potential. Each magnetic circuit has to be gro
                   fillPattern=FillPattern.Solid),Line(points={{-96,0},{-70,0}},
               color={255,128,0}),Line(points={{70,0},{96,0}}, color={255,128,0}),
               Text(
-                  extent={{0,60},{0,100}},
+                  extent={{-150,50},{150,90}},
                   lineColor={0,0,255},
                   textString="%name")}), Documentation(info="<html>
 <p>
@@ -5773,7 +5773,7 @@ The salient reluctance models the relationship between the complex magnetic pote
                   fillPattern=FillPattern.Solid),Line(points={{-96,0},{-70,0}},
               color={255,128,0}),Line(points={{70,0},{96,0}}, color={255,128,0}),
               Text(
-                  extent={{0,60},{0,100}},
+                  extent={{-150,50},{150,90}},
                   lineColor={0,0,255},
                   textString="%name")}), Documentation(info="<html>
 <p>
@@ -5817,12 +5817,13 @@ The salient permeance models the relationship between the complex magnetic poten
                   fillColor={255,128,0},
                   fillPattern=FillPattern.Solid),Line(points={{-96,0},{-70,0}},
               color={255,128,0}),Line(points={{70,0},{96,0}}, color={255,128,0}),
-              Text(
-                  extent={{0,60},{0,100}},
-                  lineColor={0,0,255},
-                  textString="%name"),Text(
+                                      Text(
                   extent={{0,-40},{0,-80}},
-                  textString="G=%G")}), Documentation(info="<html>
+                  textString="G=%G"),
+              Text(
+                  extent={{-150,50},{150,90}},
+                  lineColor={0,0,255},
+                  textString="%name")}),Documentation(info="<html>
 <p>
 The eddy current loss model with respect to fundamental wave effects is designed in accordance to
 <a href=\"modelica://Modelica.Magnetic.FluxTubes.Basic.EddyCurrent\">FluxTubes.Basic.EddyCurrent</a>.
@@ -5963,12 +5964,7 @@ relationship of the voltage and current space phasor.
                 100,100}}), graphics={           Line(points={{100,-100},{94,-100},
               {84,-98},{76,-94},{64,-86},{50,-72},{42,-58},{36,-40},{30,-18},{
               30,0},{30,18},{34,36},{46,66},{62,84},{78,96},{90,100},{100,100}},
-              color={255,128,0}),
-                               Text(
-                  extent={{0,160},{0,120}},
-                  lineColor={0,0,255},
-                  textString="%name"),
-                                 Line(points={{-20,60},{-20,100},{-100,100}},
+              color={255,128,0}),Line(points={{-20,60},{-20,100},{-100,100}},
               color={0,0,255}),Line(points={{-20,-60},{-20,-100},{-100,-100}},
               color={0,0,255}),
             Line(
@@ -5982,7 +5978,11 @@ relationship of the voltage and current space phasor.
               color={0,0,255},
               smooth=Smooth.Bezier,
               origin={-13,-15},
-              rotation=270)}),
+              rotation=270),
+              Text(
+                  extent={{-150,120},{150,160}},
+                  lineColor={0,0,255},
+                  textString="%name")}),
         Documentation(info="<html>
 <p>
 The single phase winding has an effective number of turns, <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/effectiveTurns.png\"> and a respective orientation of the winding, <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/orientation.png\">. The current in winding is <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/i.png\">.
@@ -6087,10 +6087,7 @@ The voltage <img src=\"modelica://Modelica/Resources/Images/Magnetic/Fundamental
                 100,100}}), graphics={           Line(points={{100,-100},{94,-100},{84,-98},{76,-94},{64,-86},{50,-72},{42,-58},{36,-40},{30,-18},{30,0},{30,18},{34,36},{46,66},{62,84},{78,96},{90,100},{100,100}},
               color={255,128,0}),Line(points={{-20,60},{-20,100},{-100,100}},
               color={0,0,255}),Line(points={{-20,-60},{-20,-100},{-100,-100}},
-              color={0,0,255}),Text(
-                  extent={{0,160},{0,120}},
-                  lineColor={0,0,255},
-                  textString="%name"),
+              color={0,0,255}),
             Line(
               points={{-15,-7},{-9,43},{5,73},{25,73},{41,43},{45,-7}},
               color={0,0,255},
@@ -6102,7 +6099,11 @@ The voltage <img src=\"modelica://Modelica/Resources/Images/Magnetic/Fundamental
               color={0,0,255},
               smooth=Smooth.Bezier,
               origin={-13,-15},
-              rotation=270)}),
+              rotation=270),
+              Text(
+                  extent={{-150,120},{150,160}},
+                  lineColor={0,0,255},
+                  textString="%name")}),
         Documentation(info="<html>
 <p>
 Each phase <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/k.png\"> of an <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/m.png\"> phase winding has an effective number of turns, <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/effectiveTurns_k.png\"> and an respective winging angle <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/orientation_k.png\"> and a phase current <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/i_k.png\">.
@@ -6153,11 +6154,12 @@ The voltages <img src=\"modelica://Modelica/Resources/Images/Magnetic/Fundamenta
       Phi = Complex(0, 0);
       annotation (
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-                100,100}}), graphics={Text(
-                  extent={{0,60},{0,100}},
+                100,100}}), graphics={           Line(points={{-100,0},{-40,0}},
+              color={255,128,0}),Line(points={{40,0},{100,0}}, color={255,128,0}),
+              Text(
+                  extent={{-150,20},{150,60}},
                   lineColor={0,0,255},
-                  textString="%name"),           Line(points={{-100,0},{-40,0}},
-              color={255,128,0}),Line(points={{40,0},{100,0}}, color={255,128,0})}),
+                  textString="%name")}),
         Documentation(info="<html>
 <p>
 This is a simple idle running branch.
@@ -6184,11 +6186,13 @@ This is a simple idle running branch.
       connect(port_p, port_n) annotation (Line(points={{-100,0},{-1,0},{-1,0},{
               100,0}}, color={255,128,0}));
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}), graphics={Text(
-                  extent={{0,60},{0,100}},
+                -100},{100,100}}), graphics={    Line(points={{-100,0},{100,0}},
+              color={255,128,0}),
+              Text(
+                  extent={{-150,20},{150,60}},
                   lineColor={0,0,255},
-                  textString="%name"),           Line(points={{-100,0},{100,0}},
-              color={255,128,0})}), Documentation(info="<html>
+                  textString="%name")}),
+                                    Documentation(info="<html>
 <p>
 This is a simple short cut branch.
 </p>
@@ -7208,10 +7212,11 @@ The symmetry of the stator is assumed. For rotor asymmetries can be taken into a
                 -100,100}}, color={0,0,255}),Line(points={{40,-60},{-100,-60},{
                 -100,-98}}, color={0,0,255}),Line(points={{40,60},{100,20},{40,
                 -20},{0,-20},{-40,0},{0,20},{40,20},{100,-20},{40,-60}}, color=
-                {0,0,255}),Text(
-                      extent={{0,160},{0,120}},
-                      lineColor={0,0,255},
-                      textString="%name")}), Documentation(info="<html>
+                {0,0,255}),
+                Text(
+                    extent={{-150,120},{150,160}},
+                    lineColor={0,0,255},
+                    textString="%name")}),   Documentation(info="<html>
 <p>
 The single phase winding consists of a winding
 <a href=\"modelica://Modelica.Electrical.Analog.Basic.Resistor\">resistor</a>, a
@@ -7387,10 +7392,11 @@ The single phase winding consists of a winding
               Line(points={{40,-60},{-100,-60},{-100,-98}}, color={0,0,255}),
               Line(points={{40,60},{100,20},{40,-20},{0,-20},{-40,0},{0,20},{40,
                     20},{100,-20},{40,-60}}, color={0,0,255}),
-              Text(
-                extent={{0,160},{0,120}},
-                lineColor={0,0,255},
-                textString="%name")}), Documentation(info="<html>
+                Text(
+                    extent={{-150,120},{150,160}},
+                    lineColor={0,0,255},
+                    textString="%name")}),
+                                       Documentation(info="<html>
 <p>
 The symmetrical multi phase winding consists of a symmetrical winding
 <a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.Resistor\">resistor</a>, a
@@ -7664,10 +7670,10 @@ according to the following figure.
                 fillPattern=FillPattern.Solid),
               Line(points={{-80,0},{-100,0}}, color={255,128,0}),
               Line(points={{100,0},{80,0}}, color={255,128,0}),
-              Text(
-                extent={{0,100},{0,140}},
-                lineColor={0,0,255},
-                textString="%name")}),
+                Text(
+                    extent={{-150,100},{150,140}},
+                    lineColor={0,0,255},
+                    textString="%name")}),
           Documentation(info="<html>
 <p>
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/Machines/Components/rotorcage.png\">
@@ -7805,10 +7811,11 @@ The symmetric rotor cage model of this library does not consist of rotor bars an
                       fillColor={255,255,255},
                       fillPattern=FillPattern.Solid),Line(points={{-80,0},{-100,
                 0}}, color={255,128,0}),Line(points={{100,0},{80,0}}, color={
-                255,128,0}),Text(
-                      extent={{0,100},{0,140}},
-                      lineColor={0,0,255},
-                      textString="%name")}),
+                255,128,0}),
+                Text(
+                    extent={{-150,100},{150,140}},
+                    lineColor={0,0,255},
+                    textString="%name")}),
           Documentation(info="<html>
 
 <p>
@@ -7831,7 +7838,7 @@ The salient cage model is a two axis model with two phases. The electromagnetic 
           Modelica.Magnetic.FundamentalWave.Sources.ConstantMagneticPotentialDifference;
         extends
           Modelica.Electrical.Machines.Losses.InductionMachines.PermanentMagnetLosses;
-        annotation (defaultComponentName="magnet", Documentation(info="<html>
+        annotation (defaultComponentName="pm", Documentation(info="<html>
 <p>
 Simple model of a permanent magnet, containing:
 </p>
@@ -8148,22 +8155,22 @@ for electric machines.
       // Local flux balance
       port_p.Phi + port_n.Phi = Complex(0, 0);
       annotation (defaultComponentName="vmSource", Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}), graphics={Text(
-                  extent={{-80,-20},{-80,-40}},
-                  lineColor={255,128,0},
-                  textString="+"),Text(
-                  extent={{80,-20},{80,-40}},
-                  lineColor={255,128,0},
-                  textString="-"),Ellipse(
+                -100},{100,100}}), graphics={
+                                  Ellipse(
                   extent={{-50,-50},{50,50}},
                   lineColor={255,128,0},
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid),Line(points={{100,0},{50,0}},
               color={255,128,0}),Line(points={{-50,0},{-100,0}}, color={255,128,0}),
-              Line(points={{-50,0},{50,0}}, color={255,128,0}),Text(
-                  extent={{0,-120},{0,-80}},
-                  textString="%name",
-                  lineColor={0,0,255})}), Documentation(info="<html>
+              Line(points={{-50,0},{50,0}}, color={255,128,0}),
+              Text(
+                  extent={{-150,70},{150,110}},
+                  lineColor={0,0,255},
+                  textString="%name"),
+            Line(points={{-80,20},{-60,20}}, color={255,128,0}),
+            Line(points={{-70,30},{-70,10}}, color={255,128,0}),
+            Line(points={{60,20},{80,20}}, color={255,128,0})}),
+                                          Documentation(info="<html>
 <p>
 Source of constant magneto motive force.
 </p>
@@ -8205,20 +8212,23 @@ Source of constant magneto motive force.
       // Local flux balance
       port_p.Phi + port_n.Phi = Complex(0, 0);
       annotation (defaultComponentName="vmSource", Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}), graphics={Text(
-                  extent={{80,-20},{80,-40}},
-                  lineColor={255,128,0},
-                  textString="-"),Ellipse(
+                -100},{100,100}}), graphics={
+                                  Ellipse(
                   extent={{-50,-50},{50,50}},
                   lineColor={255,128,0},
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid),Line(points={{100,0},{50,0}},
               color={255,128,0}),Line(points={{-50,0},{-100,0}}, color={255,128,0}),
               Line(points={{-50,0},{50,0}}, color={255,128,0}),Line(points=
-              {{0,100},{0,50}}, color={255,128,0}),Text(
-                  extent={{0,-120},{0,-80}},
-                  textString="%name",
-                  lineColor={0,0,255})}), Documentation(info="<html>
+              {{0,100},{0,50}}, color={255,128,0}),
+              Text(
+                  extent={{-150,-100},{150,-60}},
+                  lineColor={0,0,255},
+                  textString="%name"),
+            Line(points={{-80,20},{-60,20}}, color={255,128,0}),
+            Line(points={{-70,30},{-70,10}}, color={255,128,0}),
+            Line(points={{60,20},{80,20}}, color={255,128,0})}),
+                                          Documentation(info="<html>
 <p>
 Source of magneto motive force with complex signal input.
 </p>
@@ -8267,10 +8277,11 @@ Source of magneto motive force with complex signal input.
                   points={{80,0},{60,6},{60,-6},{80,0}},
                   lineColor={255,128,0},
                   fillColor={255,128,0},
-                  fillPattern=FillPattern.Solid),Text(
-                  extent={{0,-120},{0,-80}},
-                  textString="%name",
-                  lineColor={0,0,255})}), Documentation(info="<html>
+                  fillPattern=FillPattern.Solid),
+              Text(
+                  extent={{-150,70},{150,110}},
+                  lineColor={0,0,255},
+                  textString="%name")}),  Documentation(info="<html>
 <p>
 Source of constant magnetic flux.
 </p>
@@ -8327,10 +8338,11 @@ Source of constant magnetic flux.
                   lineColor={255,128,0},
                   fillColor={255,128,0},
                   fillPattern=FillPattern.Solid),Line(points={{0,100},{0,50}},
-              color={255,128,0}),Text(
-                  extent={{0,-120},{0,-80}},
-                  textString="%name",
-                  lineColor={0,0,255})}), Documentation(info="<html>
+              color={255,128,0}),
+              Text(
+                  extent={{-150,-100},{150,-60}},
+                  lineColor={0,0,255},
+                  textString="%name")}),  Documentation(info="<html>
 <p>
 Source of magnetic flux with complex signal input.
 </p>
