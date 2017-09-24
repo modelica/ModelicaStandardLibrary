@@ -1096,7 +1096,7 @@ Connects all pins of plug_n to the pin array pin_n.
       parameter Modelica.SIunits.LinearTemperatureCoefficient alpha[m]=zeros(m)
         "Temperature coefficients of resistances at reference temperatures";
       extends Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort(
-          final mh=m, final T=T_ref);
+          final mh=m, T=T_ref);
       Modelica.Electrical.Analog.Basic.Resistor resistor[m](
         final R=R,
         final T_ref=T_ref,
@@ -1141,7 +1141,7 @@ Contains m resistors (Modelica.Electrical.Analog.Basic.Resistor)
       parameter Modelica.SIunits.LinearTemperatureCoefficient alpha[m]=zeros(m)
         "Temperature coefficients of conductances at reference temperatures";
       extends Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort(
-          final mh=m, final T=T_ref);
+          final mh=m, T=T_ref);
       Modelica.Electrical.Analog.Basic.Conductor conductor[m](
         final G=G,
         final T_ref=T_ref,
@@ -1537,7 +1537,7 @@ Contains m transformers (Modelica.Electrical.Analog.Basic.Transformer)
       parameter Modelica.SIunits.LinearTemperatureCoefficient alpha[m]=zeros(m)
         "Temperature coefficients of resistances at reference temperatures";
       extends Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort(
-          final mh=m, final T=T_ref);
+          final mh=m, T=T_ref);
       Modelica.Blocks.Interfaces.RealInput R[m](each unit="Ohm") annotation (
           Placement(transformation(
             origin={0,120},
@@ -1595,7 +1595,7 @@ Contains m variable resistors (Modelica.Electrical.Analog.Basic.VariableResistor
       parameter Modelica.SIunits.LinearTemperatureCoefficient alpha[m]=zeros(m)
         "Temperature coefficients of conductances at reference temperatures";
       extends Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort(
-          final mh=m, final T=T_ref);
+          final mh=m, T=T_ref);
       Modelica.Blocks.Interfaces.RealInput G[m](each unit="S") annotation (
           Placement(transformation(
             origin={0,120},

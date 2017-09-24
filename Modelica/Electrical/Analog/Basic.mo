@@ -41,7 +41,7 @@ package Basic "Basic electrical components"
       "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(T_heatPort - T_ref))";
 
     extends Modelica.Electrical.Analog.Interfaces.OnePort;
-    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=T_ref);
+    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=T_ref);
     SI.Resistance R_actual
       "Actual resistance = R*(1 + alpha*(T_heatPort - T_ref))";
 
@@ -97,7 +97,7 @@ package Basic "Basic electrical components"
     parameter SI.LinearTemperatureCoefficient alpha=0
       "Temperature coefficient of resistance (R = R_ref*(1 + alpha*(heatPort.T - T_ref))";
     extends Modelica.Electrical.Analog.Interfaces.OnePort;
-    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=T_ref,
+    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=T_ref,
         useHeatPort=true);
     SI.Resistance R
       "Resistance = R_ref*(1 + alpha*(T_heatPort - T_ref))";
@@ -169,7 +169,7 @@ package Basic "Basic electrical components"
     parameter SI.LinearTemperatureCoefficient alpha=0
       "Temperature coefficient of conductance (G_actual = G_ref/(1 + alpha*(T_heatPort - T_ref))";
     extends Modelica.Electrical.Analog.Interfaces.OnePort;
-    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=T_ref);
+    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=T_ref);
     SI.Conductance G_actual
       "Actual conductance = G_ref/(1 + alpha*(T_heatPort - T_ref))";
 
@@ -1470,7 +1470,7 @@ the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N
     parameter SI.LinearTemperatureCoefficient alpha=0
       "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(T_heatPort - T_ref))";
     extends Modelica.Electrical.Analog.Interfaces.OnePort;
-    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=T_ref);
+    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=T_ref);
     SI.Resistance R_actual
       "Actual resistance = R*(1 + alpha*(T_heatPort - T_ref))";
     Modelica.Blocks.Interfaces.RealInput R(unit="Ohm") annotation (Placement(
@@ -1530,7 +1530,7 @@ the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N
     parameter SI.LinearTemperatureCoefficient alpha=0
       "Temperature coefficient of conductance (G_actual = G/(1 + alpha*(T_heatPort - T_ref))";
     extends Modelica.Electrical.Analog.Interfaces.OnePort;
-    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=T_ref);
+    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=T_ref);
     SI.Conductance G_actual
       "Actual conductance = G/(1 + alpha*(T_heatPort - T_ref))";
     Modelica.Blocks.Interfaces.RealInput G(unit="S") annotation (Placement(
@@ -1709,7 +1709,7 @@ It is required that L &ge; 0, otherwise an assertion is raised. To avoid a varia
     parameter SI.Temperature T_ref=293.15 "Reference temperature";
     parameter SI.LinearTemperatureCoefficient alpha=0
       "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(T_heatPort - T_ref))";
-    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=T_ref);
+    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=T_ref);
     parameter Boolean useRinput=false "use input for 0<r<1 (else constant)"
       annotation (
       Evaluate=true,
