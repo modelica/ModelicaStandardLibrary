@@ -801,7 +801,7 @@ the actual operating temperature and the reference input conductance <code>real(
       R_actual = R_ref*(1 + alpha_ref*(T_heatPort - T_ref));
       v = R_actual*i;
       LossPower = real(v*conj(i));
-      annotation (
+      annotation (defaultComponentName="resistor",
         Icon(graphics={
             Line(points={{60,0},{90,0}}, color={85,170,255}),
             Line(points={{-90,0},{-60,0}}, color={85,170,255}),
@@ -872,7 +872,7 @@ A zero crossing of the R signal could cause singularities due to the actual stru
       G_actual = G_ref/(1 + alpha_ref*(T_heatPort - T_ref));
       i = G_actual*v;
       LossPower = real(v*conj(i));
-      annotation (
+      annotation (defaultComponentName="conductor",
         Icon(graphics={
             Line(points={{60,0},{90,0}}, color={85,170,255}),
             Line(points={{-90,0},{-60,0}}, color={85,170,255}),
@@ -929,7 +929,7 @@ A linear temperature dependency of the conductance is also taken into account.
             origin={0,120})));
     equation
       i = j*omega*C*v;
-      annotation (
+      annotation (defaultComponentName="capacitor",
         Icon(graphics={
             Line(points={{-90,0},{-6,0}}, color={85,170,255}),
             Line(points={{6,0},{90,0}}, color={85,170,255}),
@@ -991,7 +991,7 @@ The abstraction of a variable capacitor at quasi stationary operation assumes:
             origin={0,120})));
     equation
       v = j*omega*L*i;
-      annotation (
+      annotation (defaultComponentName="inductor",
         Icon(graphics={
             Line(points={{60,0},{90,0}}, color={85,170,255}),
             Line(points={{-90,0},{-60,0}}, color={85,170,255}),
@@ -1074,7 +1074,7 @@ The abstraction of a variable inductor at quasi stationary operation assumes:
       R_actual = R_ref*(1 + alpha_ref*(T_heatPort - T_ref));
       v = Complex(R_actual, X_ref)*i;
       LossPower = real(v*conj(i));
-      annotation (
+      annotation (defaultComponentName="impedance",
         Icon(graphics={
             Line(points={{60,0},{90,0}}, color={85,170,255}),
             Line(points={{-90,0},{-60,0}}, color={85,170,255}),
@@ -1157,7 +1157,7 @@ singularities due to the actual structure of the connected network.
       G_actual = G_ref/(1 + alpha_ref*(T_heatPort - T_ref));
       i = Complex(G_actual, B_ref)*v;
       LossPower = real(v*conj(i));
-      annotation (
+      annotation (defaultComponentName="admittance",
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
             Line(points={{60,0},{90,0}}, color={85,170,255}),
@@ -1329,7 +1329,7 @@ This model is a simple short cut branch considering the complex voltage <em><u>v
       n2.i = -(s2*unitVoltage)*(if (control) then 1 else Goff);
       LossPower = real(p.v*conj(p.i)) + real(n1.v*conj(n1.i)) + real(n2.v*conj(
         n2.i));
-      annotation (
+      annotation (defaultComponentName="switch",
         Documentation(info="<html>
 <P>
 The commuting switch has a positive pin p and two negative pins n1 and n2.
@@ -1426,7 +1426,7 @@ This switch is only intended to be used for structural changes, not for fast swi
 
       LossPower = real(p1.v*conj(p1.i)) + real(p2.v*conj(p2.i)) + real(n1.v*
         conj(n1.i)) + real(n2.v*conj(n2.i));
-      annotation (
+      annotation (defaultComponentName="switch",
         Documentation(info="<html>
 <P>
 The intermediate switch has four switching contact pins p1, p2, n1, and n2.
@@ -1504,7 +1504,7 @@ This switch is only intended to be used for structural changes, not for fast swi
       i = (s*unitVoltage)*(if control then Goff else 1);
 
       LossPower = real(v*conj(i));
-      annotation (
+      annotation (defaultComponentName="switch",
         Documentation(info="<html>
 <P>
 The ideal opening switch has a positive pin p and a negative pin n.
@@ -1579,7 +1579,7 @@ This switch is only intended to be used for structural changes, not for fast swi
       i = (s*unitVoltage)*(if control then 1 else Goff);
 
       LossPower = real(v*conj(i));
-      annotation (
+      annotation (defaultComponentName="switch",
         Documentation(info="<html>
 <P>
 The ideal closing switch has a positive pin p and a negative pin n.
@@ -1685,7 +1685,7 @@ This switch is only intended to be used for structural changes, not for fast swi
       pin_p2.reference.gamma = pin_n2.reference.gamma;
       Connections.branch(pin_p1.reference, pin_p2.reference);
       pin_p1.reference.gamma = pin_p2.reference.gamma;
-      annotation (
+      annotation (defaultComponentName="transformer",
         Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                 {100,100}}), graphics={
             Text(
@@ -1846,7 +1846,7 @@ Quasi stationary theory for single phase circuits can be found in the
           Placement(transformation(extent={{100,-10},{120,10}})));
     equation
       y = pin.reference.gamma;
-      annotation (Icon(graphics={Text(
+      annotation (defaultComponentName="refSensor", Icon(graphics={Text(
               extent={{60,-60},{-60,-30}},
               textString="ref")}), Documentation(info="<html>
 
@@ -1875,7 +1875,7 @@ This sensor can be used to measure the reference angle.
               extent={{100,-10},{120,10}})));
     equation
       2*pi*y = omega;
-      annotation (Icon(graphics={Text(
+      annotation (defaultComponentName="fSensor", Icon(graphics={Text(
               extent={{-29,-11},{30,-70}},
               textString="f")}), Documentation(info="<html>
 
@@ -1905,7 +1905,7 @@ This sensor can be used to measure the frequency of the reference system.
       Modelica.SIunits.Angle arg_y=Modelica.ComplexMath.arg(y) "Argument of complex potential";
     equation
       y = pin.v;
-      annotation (Icon(graphics={Text(
+      annotation (defaultComponentName="vSensor", Icon(graphics={Text(
               extent={{-29,-11},{30,-70}},
               textString="V")}), Documentation(info="<html>
 
@@ -1935,7 +1935,7 @@ This sensor can be used to measure the complex potential.
     equation
       i = Complex(0);
       y = v;
-      annotation (Icon(graphics={Text(
+      annotation (defaultComponentName="vSensor", Icon(graphics={Text(
               extent={{-29,-11},{30,-70}},
               textString="V")}), Documentation(info="<html>
 <p>
@@ -1963,7 +1963,7 @@ This sensor can be used to measure the complex voltage.
     equation
       v = Complex(0);
       y = i;
-      annotation (Icon(graphics={Text(
+      annotation (defaultComponentName="iSensor", Icon(graphics={Text(
               extent={{-29,-11},{30,-70}},
               textString="I")}), Documentation(info="<html>
 <p>
@@ -2023,7 +2023,7 @@ This sensor can be used to measure the complex current.
       v = voltageP.v - voltageN.v;
       //P + j*Q = v * conj(i);
       y = v*conj(i);
-      annotation (Icon(graphics={
+      annotation (defaultComponentName="pSensor", Icon(graphics={
             Line(points={{0,100},{0,70}}, color={85,170,255}),
             Line(points={{0,-70},{0,-100}}, color={85,170,255}),
             Text(extent={{-29,-70},{30,-11}}, textString="P"),
@@ -2118,7 +2118,7 @@ This sensor can be used to measure the complex apparent power.
     i = pc.i;
     v = pv.v - nv.v;
     apparentPower = v*conj(i);
-    annotation (
+    annotation (defaultComponentName="sensor",
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
         Line(points = {{0,100},{0,70}}, color={85,170,255}),
         Line(points = {{0,-70},{0,-100}}, color={85,170,255}),
@@ -2187,7 +2187,7 @@ Quasi stationary theory for single phase circuits can be found in the
     equation
       omega = 2*Modelica.Constants.pi*f;
       v = Complex(V*cos(phi), V*sin(phi));
-      annotation (Icon(graphics={
+      annotation (defaultComponentName="vSource", Icon(graphics={
             Line(points={{-50,0},{50,0}}, color={85,170,255}),
             Line(points={{-70,30},{-70,10}}, color={85,170,255}),
             Line(points={{-80,20},{-60,20}}, color={85,170,255}),
@@ -2223,7 +2223,7 @@ This is a constant voltage source, specifying the complex voltage by the RMS vol
     equation
       omega = 2*Modelica.Constants.pi*f;
       v = V;
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (defaultComponentName="vSource", Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
             Line(points={{-50,0},{50,0}}, color={85,170,255}),
             Line(points={{-70,30},{-70,10}}, color={85,170,255}),
@@ -2254,7 +2254,7 @@ Additionally, the frequency of the voltage source is defined by a real signal in
     equation
       omega = 2*Modelica.Constants.pi*f;
       i = Complex(I*cos(phi), I*sin(phi));
-      annotation (Icon(graphics={
+      annotation (defaultComponentName="iSource", Icon(graphics={
             Polygon(
               points={{90,0},{60,10},{60,-10},{90,0}},
               lineColor={85,170,255},
@@ -2291,7 +2291,7 @@ This is a constant current source, specifying the complex current by the RMS cur
     equation
       omega = 2*Modelica.Constants.pi*f;
       i = I;
-      annotation (Icon(graphics={Line(points={{0,50},{0,-50}}, color={85,170,255}),
+      annotation (defaultComponentName="iSource", Icon(graphics={Line(points={{0,50},{0,-50}}, color={85,170,255}),
             Polygon(
               points={{90,0},{60,10},{60,-10},{90,0}},
               lineColor={85,170,255},
@@ -2640,7 +2640,7 @@ The source partial model relies on the
       pQS + pDC = 0;
       //define reactive power
       qQS = 0;
-      annotation (Icon(graphics={
+      annotation (defaultComponentName="rectifier", Icon(graphics={
             Line(
               points={{2,40},{70,40},{2,40},{70,-50},{2,-50},{2,40},{2,-50}},
               color={0,0,255}),
@@ -2732,7 +2732,7 @@ At the DC side, only the mean of voltage and current are taken into account.
           points={{40,40},{40,100},{100,100}}, color={0,0,255}));
       connect(idealDiode4.p, pin_nDC) annotation (Line(
           points={{40,-40},{40,-100},{100,-100}}, color={0,0,255}));
-      annotation (Icon(graphics={
+      annotation (defaultComponentName="rectifier", Icon(graphics={
             Text(
               extent={{50,30},{100,0}},
               lineColor={0,0,255},
