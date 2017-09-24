@@ -3092,7 +3092,7 @@ This sensor can be used to measure <em>m</em> complex apparent power values, usi
     i = pc.pin.i;
     v = pv.pin.v - nv.pin.v;
     apparentPower = v.*conj(i);
-    apparentPowerTotal = 'sum'(apparentPower);
+    apparentPowerTotal = Complex(sum(apparentPower.re),sum(apparentPower.im));
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
         Line(points = {{0,100},{0,70}}, color={85,170,255}),
