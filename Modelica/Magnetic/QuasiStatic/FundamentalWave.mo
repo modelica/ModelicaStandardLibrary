@@ -6024,7 +6024,7 @@ Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap</a>
           final useHeatPort=useHeatPort,
           final m=m,
           final T_ref=fill(TRef, m),
-          final T=fill(TRef, m),
+          final T=fill(TOperational, m),
           R_ref=fill(RRef, m),
           alpha_ref=fill(alphaRef, m)) annotation (Placement(transformation(
               origin={-20,-50},

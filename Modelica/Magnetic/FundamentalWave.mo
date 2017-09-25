@@ -7585,7 +7585,7 @@ according to the following figure.
           final R=fill(RRef, m),
           final T_ref=fill(TRef, m),
           final alpha=fill(alphaRef, m),
-          final T=fill(TRef, m)) annotation (Placement(transformation(
+          final T=fill(TOperational, m)) annotation (Placement(transformation(
               origin={-20,-50},
               extent={{10,10},{-10,-10}},
               rotation=90)));
@@ -7900,7 +7900,7 @@ The permanent magnet is modeled by a magnetic potential difference. The internal
           final R=fill(RRef, m),
           final T_ref=fill(TRef, m),
           final alpha=fill(alphaRef, m),
-          final T=fill(TRef, m)) annotation (Placement(transformation(
+          final T=fill(TOperational, m)) annotation (Placement(transformation(
               origin={-20,-70},
               extent={{10,10},{-10,-10}},
               rotation=90)));
