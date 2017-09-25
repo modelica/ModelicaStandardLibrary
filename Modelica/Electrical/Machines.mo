@@ -9223,8 +9223,7 @@ This is a model of an inductor, described with space phasors.
           "Reference temperature";
         parameter Modelica.SIunits.LinearTemperatureCoefficient alpha=0
           "Temperature coefficient of resistance at T_ref";
-        extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
-              T_ref);
+        extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=T_ref);
         Modelica.SIunits.Resistance Rr_actual
           "Actual resistance = Rr*(1 + alpha*(T_heatPort - T_ref))";
         Machines.Interfaces.SpacePhasor spacePhasor_r annotation (Placement(
@@ -9298,8 +9297,7 @@ Material properties alpha of both axis are the same.
           "Reference temperature of both resistances in d- and q-axis";
         parameter Modelica.SIunits.LinearTemperatureCoefficient alpha=0
           "Temperature coefficient of both resistances in d- and q-axis at T_ref";
-        extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
-              T_ref);
+        extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=T_ref);
         Modelica.SIunits.Resistance Rrd_actual
           "Actual resistance = Rrd*(1 + alpha*(T_heatPort - T_ref))";
         Modelica.SIunits.Resistance Rrq_actual
