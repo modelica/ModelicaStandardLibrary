@@ -12,8 +12,7 @@ package Semiconductors
     parameter Real Maxexp(final min=Modelica.Constants.small) = 15
       "Max. exponent for linear continuation";
     parameter SI.Resistance R=1e8 "Parallel ohmic resistance";
-    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(
-       final T=293.15);
+    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=293.15);
   equation
     i = smooth(1, Ids*(exlin(v/Vt, Maxexp) - 1) + v/R);
     LossPower = v*i;
@@ -64,8 +63,7 @@ package Semiconductors
 
   model Diode2 "Improved diode model"
     extends Modelica.Electrical.Analog.Interfaces.OnePort;
-    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(
-     final T=293.15);
+    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=293.15);
     parameter SI.Voltage Vf = 0.7 "Forward voltage";
     parameter SI.Current Ids = 1e-13 "Reverse saturation current";
     parameter SI.Resistance Rs = 16 "Ohmic resistance";
@@ -163,8 +161,7 @@ Stefan Vorkoetter - new model proposed.</li>
     parameter SI.Voltage Bv=5.1 "Breakthrough voltage = Zener- or Z-voltage";
     parameter SI.Current Ibv=0.7 "Breakthrough knee current";
     parameter Real Nbv=0.74 "Breakthrough emission coefficient";
-    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(
-      final T=293.15);
+    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=293.15);
   equation
     i = smooth(1, if (v>Maxexp*Vt) then
               Ids*( exp(Maxexp)*(1 + v/Vt - Maxexp)-1) + v/R else
@@ -228,8 +225,7 @@ model PMOS "Simple MOS Transistor"
   parameter SI.Length dW=-2.5e-6 "Narrowing of channel";
   parameter SI.Length dL=-2.1e-6 "Shortening of channel";
   parameter SI.Resistance RDS=1e7 "Drain-Source-Resistance";
-  extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(
-     final T=293.15);
+  extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=293.15);
   protected
   Real v;
   Real uds;
@@ -349,7 +345,7 @@ model NMOS "Simple MOS Transistor"
   parameter SI.Length dW=-2.5e-6 "Narrowing of channel";
   parameter SI.Length dL=-1.5e-6 "Shortening of channel";
   parameter SI.Resistance RDS=1e7 "Drain-Source-Resistance";
-  extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=293.15);
+  extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=293.15);
   protected
   Real v;
   Real uds;
@@ -485,8 +481,7 @@ model NPN "Simple BJT according to Ebers-Moll"
   parameter SI.Voltage IC=0 "Initial Value";
   parameter Boolean UIC = false;
 
-  extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(
-     final T=293.15);
+  extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=293.15);
   protected
   Real vbc;
   Real vbe;
@@ -607,7 +602,7 @@ model PNP "Simple BJT according to Ebers-Moll"
   parameter SI.Voltage Vt=0.02585 "Voltage equivalent of temperature";
   parameter Real EMin=-100 "if x < EMin, the exp(x) function is linearized";
   parameter Real EMax=40 "if x > EMax, the exp(x) function is linearized";
-  extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=293.15);
+  extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=293.15);
   protected
   Real vbc;
   Real vbe;
