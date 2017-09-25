@@ -1280,8 +1280,8 @@ protected
         algorithm
           z := if x < Minexp then exp(Minexp)*(1 + x - Minexp) else exlin(x, Maxexp);
         end exlin2;
-public
 
+public
   model Thyristor "Simple Thyristor Model"
     parameter SI.Voltage VDRM(final min=0) = 100
       "Forward breakthrough voltage";

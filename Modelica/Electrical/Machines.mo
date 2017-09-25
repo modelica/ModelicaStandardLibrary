@@ -627,7 +627,7 @@ finally reaching nominal speed.</p>
         connect(booleanStep.y, idealCloser.control) annotation (Line(points={{-59,40},{-20,40},{-20,30},{-12,30}},
                                                 color={255,0,255}));
         connect(booleanStepYD.y, switchYD.control)
-          annotation (Line(points={{-59,-20},{-21,-20}}, color={255,0,255}));
+          annotation (Line(points={{-59,-20},{-22,-20}}, color={255,0,255}));
         connect(idealCloser.plug_n, currentQuasiRMSSensor.plug_p)
           annotation (Line(points={{0,20},{0,18},{0,10}}, color={0,0,255}));
         connect(switchYD.plug_sn, aimc.plug_sn) annotation (Line(
@@ -7308,10 +7308,10 @@ where e.g., <code>L*der(i)</code> is replaced by <code>j*omega*L*(I_re+j*I_im)</
                   -10,-100},{-50,-100}}, color={0,0,255}));
           connect(star2.pin_n, starpoint2) annotation (Line(points={{10,-90},{
                   10,-100},{50,-100}}, color={0,0,255}));
-          connect(l1sigma.plug_n, core.plug_p1) annotation (Line(points={{-50,0},
-                  {-50,20},{-10,20},{-10,5}}, color={0,0,255}));
-          connect(core.plug_n1, star1.plug_p) annotation (Line(points={{-10,-5},
-                  {-10,-37.5},{-10,-70},{-10,-70}}, color={0,0,255}));
+          connect(l1sigma.plug_n, core.plug_p1) annotation (Line(points={{-50,0},{-50,20},{-10,20},{-10,10}},
+                                              color={0,0,255}));
+          connect(core.plug_n1, star1.plug_p) annotation (Line(points={{-10,-10},{-10,-10},{-10,-70},{-10,-70}},
+                                                    color={0,0,255}));
           connect(core.plug_n2, core.plug_p3)
             annotation (Line(points={{10,4},{10,-4}}, color={0,0,255}));
           connect(core.plug_p2, l2sigma.plug_n) annotation (Line(points={{10,10},
@@ -9107,7 +9107,7 @@ equation
                 fillPattern=FillPattern.VerticalCylinder,
                 fillColor={128,128,128}),
               Text(
-                extent={{-150,-90},{150,-150}},
+                extent={{-150,-110},{150,-150}},
                 lineColor={0,0,255},
                 textString="%name")}), Documentation(info="<html>
 Partial model of the airgap, using only equations.
@@ -9134,10 +9134,7 @@ Partial model of the airgap, using only equations.
           Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                   100,100}}), graphics={Text(
                 extent={{-80,40},{0,-40}},
-                textString="S"), Text(
-                extent={{-150,-90},{150,-150}},
-                lineColor={0,0,255},
-                textString="%name")}),
+                textString="S")}),
           Documentation(info="<html>
 Model of the airgap in stator-fixed coordinate system, using only equations.
 </html>"));
@@ -9166,10 +9163,7 @@ Model of the airgap in stator-fixed coordinate system, using only equations.
           Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                   100,100}}), graphics={Text(
                 extent={{0,40},{80,-40}},
-                textString="R"), Text(
-                extent={{-150,-90},{150,-150}},
-                lineColor={0,0,255},
-                textString="%name")}),
+                textString="R")}),
           Documentation(info="<html>
 Model of the airgap in rotor-fixed coordinate system, using only equations.
 </html>"));
@@ -9199,7 +9193,7 @@ This is a model of an inductor, described with space phasors.
                 points={{90,0},{60,0}},
                 color={0,0,255}),
               Text(
-                extent={{-100,100},{100,60}},
+                extent={{-150,40},{150,80}},
                 lineColor={0,0,255},
                 textString="%name"),
               Line(
@@ -9258,7 +9252,7 @@ This is a model of an inductor, described with space phasors.
                 -60}}, color={0,0,255}),Line(points={{60,-60},{100,-60}}, color=
                  {0,0,255}),Line(points={{70,-80},{90,-80}}, color={0,0,255}),
                 Line(points={{66,-70},{94,-70}}, color={0,0,255}),Text(
-                      extent={{-150,-90},{150,-150}},
+                      extent={{-150,-148},{150,-110}},
                       lineColor={0,0,255},
                       textString="%name"),Line(points={{-100,90},{-100,60}},
                 color={0,0,255}),
@@ -9335,10 +9329,6 @@ Material properties alpha of both axis are the same.
               Line(points={{60,60},{100,60}}, color={0,0,255}),
               Line(points={{70,40},{90,40}}, color={0,0,255}),
               Line(points={{66,50},{94,50}}, color={0,0,255}),
-              Text(
-                extent={{-150,-90},{150,-150}},
-                lineColor={0,0,255},
-                textString="%name"),
               Line(points={{-80,0},{-80,-20}}, color={0,0,255}),
               Rectangle(extent={{20,90},{60,70}}, lineColor={0,0,255}),
               Line(points={{60,80},{80,80},{80,60}}, color={0,0,255}),
@@ -9379,7 +9369,11 @@ Material properties alpha of both axis are the same.
                 color={0,0,255},
                 smooth=Smooth.Bezier,
                 origin={-85,10},
-                rotation=90)}), Documentation(info="<html>
+                rotation=90),                                     Text(
+                      extent={{-150,-148},{150,-110}},
+                      lineColor={0,0,255},
+                      textString="%name")}),
+                                Documentation(info="<html>
 <p>
 Model of an asymmetrical damper cage in two axis.
 </p>
@@ -9411,10 +9405,8 @@ although reference temperature for both resistances is the same.
         spacePhasor_r.i_ = {-ie*turnsRatio,0};
         ve = spacePhasor_r.v_[1]*turnsRatio*3/2;
         annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                  -100},{100,100}}), graphics={Text(
-                      extent={{-150,-90},{150,-150}},
-                      lineColor={0,0,255},
-                      textString="%name"),Polygon(
+                  -100},{100,100}}), graphics={
+                                          Polygon(
                       points={{-90,100},{-70,106},{-70,94},{-90,100}},
                       lineColor={0,0,255},
                       fillColor={0,0,255},
@@ -9425,7 +9417,10 @@ although reference temperature for both resistances is the same.
                 {-50,-20},{-44,-26},{-54,-32}}, color={0,0,255}),Line(points={{
                 -54,32},{-54,100},{-70,100}}, color={0,0,255}),Line(points={{90,
                 100},{30,100},{30,40}}, color={0,0,255}),Line(points={{30,-40},
-                {30,-100},{90,-100}}, color={0,0,255})}), Documentation(info="<html>
+                {30,-100},{90,-100}}, color={0,0,255}),           Text(
+                      extent={{-150,-148},{150,-110}},
+                      lineColor={0,0,255},
+                      textString="%name")}),              Documentation(info="<html>
 Model of an electrical excitation, converting excitation to space phasor.
 </html>"));
       end ElectricalExcitation;
@@ -9462,8 +9457,8 @@ Model of an electrical excitation, converting excitation to space phasor.
                       fillPattern=FillPattern.Solid),Line(points={{-60,-40},{-60,
                 0}}, color={0,255,0}),Line(points={{60,-40},{60,0}}, color={0,255,0}),
                 Line(points={{0,100},{-70,100}}, color={0,0,255}),Line(
-                points={{0,100},{0,60}}, color={255,0,0}),Text(
-                      extent={{-150,-90},{150,-150}},
+                points={{0,100},{0,60}}, color={255,0,0}),        Text(
+                      extent={{-150,-160},{150,-120}},
                       lineColor={0,0,255},
                       textString="%name")}), Documentation(info="<html>
 Model of a permanent magnet excitation, characterized by an equivalent excitation current.
@@ -9498,9 +9493,9 @@ If <code>quasiStationary == false</code>, the electrical transients are neglecte
                       fillColor={255,255,255},
                       fillPattern=FillPattern.Solid),Line(points={{60,0},{90,0}},
                 color={0,0,255}),Line(points={{-90,0},{-60,0}}, color={0,0,255}),
-                Text( extent={{-138,-60},{144,-94}},
+                Text( extent={{-150,-80},{150,-40}},
                       textString="L=%L"),Text(
-                      extent={{-152,79},{148,39}},
+                      extent={{-150,50},{150,90}},
                       textString="%name",
                       lineColor={0,0,255}),Rectangle(
                       visible=quasiStationary,
@@ -9570,7 +9565,7 @@ If <code>quasiStationary == false</code>, the electrical transients are neglecte
                       fillColor={128,128,128}),Text(
                       extent={{0,40},{80,-40}},
                       textString="E"),Text(
-                      extent={{-150,-100},{150,-160}},
+                      extent={{-150,-160},{150,-120}},
                       lineColor={0,0,255},
                       textString="%name"),Text(
                       extent={{-80,40},{0,-40}},
@@ -9596,10 +9591,7 @@ Induced armature voltage is calculated from flux times angular velocity.
         annotation (
           defaultComponentName="airGap",
           Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-                  100,100}}), graphics={Text(
-                      extent={{-150,-100},{150,-160}},
-                      lineColor={0,0,255},
-                      textString="%name")}),
+                  100,100}})),
           Documentation(info="<html>
 Linear model of the airgap (without saturation effects) of a DC machine, using only equations.<br>
 Induced excitation voltage is calculated from der(flux), where flux is defined by excitation inductance times excitation current.<br>
@@ -9992,7 +9984,8 @@ The induction machine models use package SpacePhasors.
       connect(ToSpacePhasor1.y, ToPolar1.u) annotation (Line(
           points={{0,-1},{0,-18}}, color={0,0,127}));
       connect(ToPolar1.y[1], Gain1.u) annotation (Line(
-          points={{-0.5,-41},{-0.5,-49.5},{0,-49.5},{0,-58}}, color={0,0,127}));
+          points={{-1.9984e-15,-41},{-1.9984e-15,-49.5},{0,-49.5},{0,-58}},
+                                                              color={0,0,127}));
       connect(Gain1.y, V) annotation (Line(
           points={{0,-81},{0,-110}}, color={0,0,127}));
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
@@ -10001,7 +9994,12 @@ The induction machine models use package SpacePhasors.
               Line(points={{0,-70},{0,-100}}, color={0,0,127}),Text(
                   lineColor={0,0,255},
                   extent={{-40,-60},{40,-20}},
-                  textString="V RMS")}), Documentation(info="<html>
+                  textString="V RMS"),
+                                  Text(
+                    extent={{-150,120},{150,80}},
+                    textString="%name",
+                    lineColor={0,0,255})}),
+                                         Documentation(info="<html>
 Measured 3-phase instantaneous voltages are transformed to the corresponding space phasor; <br>
 output is length of the space phasor divided by sqrt(2), thus giving in sinusoidal stationary state RMS voltage.
 </html>"));
@@ -10047,7 +10045,8 @@ output is length of the space phasor divided by sqrt(2), thus giving in sinusoid
       connect(ToSpacePhasor1.y, ToPolar1.u) annotation (Line(
           points={{0,-1},{0,-18}}, color={0,0,127}));
       connect(ToPolar1.y[1], Gain1.u) annotation (Line(
-          points={{-0.5,-41},{-0.5,-50.5},{0,-50.5},{0,-58}}, color={0,0,127}));
+          points={{-1.9984e-15,-41},{-1.9984e-15,-50.5},{0,-50.5},{0,-58}},
+                                                              color={0,0,127}));
       connect(Gain1.y, I) annotation (Line(
           points={{0,-81},{0,-110}}, color={0,0,127}));
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
@@ -10056,7 +10055,12 @@ output is length of the space phasor divided by sqrt(2), thus giving in sinusoid
               Line(points={{0,-70},{0,-100}}, color={0,0,127}),Text(
                   lineColor={0,0,255},
                   extent={{-40,-60},{40,-20}},
-                  textString="A RMS")}), Documentation(info="<html>
+                  textString="A RMS"),
+                                  Text(
+                    extent={{-150,120},{150,80}},
+                    textString="%name",
+                    lineColor={0,0,255})}),
+                                         Documentation(info="<html>
 Measured 3-phase instantaneous currents are transformed to the corresponding space phasor; <br>
 output is length of the space phasor divided by sqrt(2), thus giving in sinusoidal stationary state RMS current.
 </html>"));
@@ -10235,7 +10239,7 @@ Calculates (mechanical) power from torque times angular speed.
       connect(add.y, rotatorVS2R.angle) annotation (Line(
           points={{-10,19},{-10,12}}, color={0,0,127}));
       connect(ToPolarVSR.y[2], rotorDisplacementAngle) annotation (Line(
-          points={{41,0.5},{80,0.5},{80,0},{110,0}}, color={0,0,127}));
+          points={{41,0},{80,0},{80,0},{110,0}},     color={0,0,127}));
       annotation (
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Ellipse(
@@ -10384,7 +10388,7 @@ This package contains sensors that are useful when modelling machines.
                 color={0,0,255},
                 smooth=Smooth.Bezier),
               Text(
-                extent={{-150,-100},{150,-160}},
+                extent={{-150,-120},{150,-160}},
                 lineColor={0,0,255},
                 textString="%name"),
               Text(
@@ -10429,29 +10433,18 @@ Zero-sequence voltage and current are present at pin zero. An additional zero-se
         spacePhasor_b.i_ + RotationMatrix*spacePhasor_a.i_ = zeros(2);
         //spacePhasor_a.i_ + InverseRotator*spacePhasor_b.i_ = zeros(2);
         annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                  -100},{100,100}}), graphics={Rectangle(
-                      extent={{50,-2},{-2,-50}},
-                      pattern=LinePattern.None,
-                      fillColor={255,255,255},
-                      fillPattern=FillPattern.Solid,
-                      lineColor={0,0,255}),Line(points={{0,0},{80,0},{60,10},{
+                  -100},{100,100}}), graphics={
+                                           Line(points={{0,0},{80,0},{60,10},{
                 60,-10},{80,0}}, color={0,0,255}),Line(points={{0,0},{0,80},{-10,
                 60},{10,60},{0,80}}, color={0,0,255}),Polygon(
                       points={{50,0},{42,14},{54,16},{50,0}},
                       lineColor={0,0,255},
                       fillColor={0,0,255},
-                      fillPattern=FillPattern.Solid),Ellipse(extent={{-50,50},{
-                50,-50}}, lineColor={0,0,255}),Rectangle(
-                      extent={{-51,51},{-1,-51}},
-                      pattern=LinePattern.None,
-                      fillColor={255,255,255},
-                      fillPattern=FillPattern.Solid,
-                      lineColor={0,0,255}),Rectangle(
-                      extent={{51,-1},{-1,-51}},
-                      pattern=LinePattern.None,
-                      fillColor={255,255,255},
-                      fillPattern=FillPattern.Solid,
-                      lineColor={0,0,255})}), Documentation(info="<html>
+                      fillPattern=FillPattern.Solid),
+              Line(
+                points={{0,50},{18,48},{32,40},{42,28},{48,16},{50,0}},
+                color={0,0,255},
+                smooth=Smooth.Bezier)}),      Documentation(info="<html>
 Rotates space phasors of left connector to right connector by the angle provided by the input signal \"angle\" from one coordinate system into another.
 </html>"));
       end Rotator;
@@ -10507,24 +10500,18 @@ a ground has to be used where necessary for currents flowing back.
         annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                   -100},{100,100}}), graphics={Line(points={{0,0},{0,80},{-10,
                 60},{10,60},{0,80}}, color={0,0,255}),Line(points={{0,0},{80,0},
-                {60,10},{60,-10},{80,0}}, color={0,0,255}),Ellipse(extent={{-50,
-                50},{50,-50}}, lineColor={0,0,255}),Rectangle(
-                      extent={{-51,51},{-1,-51}},
-                      pattern=LinePattern.None,
-                      fillColor={255,255,255},
-                      fillPattern=FillPattern.Solid,
-                      lineColor={0,0,255}),Rectangle(
-                      extent={{51,-1},{-1,-51}},
-                      pattern=LinePattern.None,
-                      fillColor={255,255,255},
-                      fillPattern=FillPattern.Solid,
-                      lineColor={0,0,255}),Polygon(
+                {60,10},{60,-10},{80,0}}, color={0,0,255}),
+                                           Polygon(
                       points={{50,0},{42,14},{54,16},{50,0}},
                       lineColor={0,0,255},
                       fillColor={0,0,255},
                       fillPattern=FillPattern.Solid),Text(
                       extent={{-88,-72},{84,-92}},
-                      textString="angle")}), Documentation(info="<html>
+                      textString="angle"),
+              Line(
+                points={{0,50},{18,48},{32,40},{42,28},{48,16},{50,0}},
+                color={0,0,255},
+                smooth=Smooth.Bezier)}),     Documentation(info="<html>
 Rotates a space phasor (voltage or current) input <code>u</code> by the <code>angle</code> in negative mathematical direction. This block represents the transformation of one space phasor <code>u</code> from one rotating reference (coordinate) frame into another where the space phasor is <code>y</code>. The output reference frame leads the input reference frame by angle <code>angle</code>.
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
@@ -10697,7 +10684,7 @@ Converts a space phasor from polar coordinates to rectangular coordinates.
         connect(u, toPolar.u) annotation (Line(
             points={{-120,0},{-42,0}}, color={0,0,127}));
         connect(toPolar.y[1], gain.u) annotation (Line(
-            points={{-19,-0.5},{0,-0.5},{0,0},{18,0}}, color={0,0,127}));
+            points={{-19,0},{0,0},{0,0},{18,0}},       color={0,0,127}));
         connect(gain.y, y) annotation (Line(
             points={{41,0},{110,0}}, color={0,0,127}));
         annotation (
@@ -11169,7 +11156,7 @@ Parameter record for <a href=\"modelica://Modelica.Electrical.Machines.Losses.In
               points={{0,-60},{0,-90}},
               color={95,95,95}),
             Text(
-              extent={{-100,90},{100,60}},
+              extent={{-150,90},{150,60}},
               lineColor={0,0,255},
               textString="%name")}), Documentation(info="<html>
 <p>
@@ -11253,7 +11240,7 @@ If it is desired to neglect friction losses, set <code>frictionParameters.PRef =
                       fillColor={0,0,255},
                       fillPattern=FillPattern.Solid),Line(points={{-90,0},{-40,
                 0}}, color={0,0,255}),Line(points={{40,0},{90,0}}, color={0,0,255}),
-                Text( extent={{-100,70},{100,40}},
+                Text( extent={{-150,80},{150,40}},
                       lineColor={0,0,255},
                       textString="%name")}), Documentation(info="<html>
 <p>
@@ -11290,7 +11277,7 @@ Model of voltage drop and losses of carbon brushes. This three-phase model uses 
                 lineColor={0,0,255},
                 pattern=LinePattern.Dot),
               Text(
-                extent={{-100,70},{100,40}},
+                extent={{-150,90},{150,50}},
                 lineColor={0,0,255},
                 textString="%name")}), Documentation(info="<html>
 <p>
@@ -11428,7 +11415,7 @@ If it is desired to neglect permanent magnet losses, set <code>strayLoadParamete
                 points={{100,8},{100,-8}},
                 color={0,0,255}),
               Text(
-                extent={{-100,70},{100,40}},
+                extent={{-150,90},{150,50}},
                 lineColor={0,0,255},
                 textString="%name")}), Documentation(info="<html>
 <p>
@@ -11536,7 +11523,7 @@ This package contains loss models used for induction machine models.
               Line(points={{-90,0},{-40,0}}, color={0,0,255}),
               Line(points={{40,0},{90,0}}, color={0,0,255}),
               Text(
-                extent={{-100,70},{100,40}},
+                extent={{-150,80},{150,40}},
                 lineColor={0,0,255},
                 textString="%name")}), Documentation(info="<html>
 <p>
@@ -11613,7 +11600,7 @@ e.g., used for initial equations.
                       extent={{-70,30},{70,-30}},
                       lineColor={0,0,255},
                       pattern=LinePattern.Dot),Text(
-                      extent={{-100,70},{100,40}},
+                      extent={{-150,90},{150,50}},
                       lineColor={0,0,255},
                       textString="%name")}), Documentation(info="<html>
 <p>
@@ -11671,7 +11658,7 @@ If it is desired to neglect stray load losses, set <code>strayLoadParameters.PRe
                 Line(points={{-90,0},{-70,0}}),Line(points={{-70,10},{70,10}},
                 color={0,0,255}),Line(points={{-70,-30},{70,-30}}, color={0,0,255}),
                 Line(points={{-70,-10},{70,-10}}, color={0,0,255}),Text(
-                      extent={{-100,70},{100,40}},
+                      extent={{-150,90},{150,50}},
                       lineColor={0,0,255},
                       textString="%name")}), Documentation(info="<html>
 <p>
@@ -15119,7 +15106,7 @@ Note: No care is taken for current or voltage limiting, as well as for field wea
         Goff=fill(1e-5, m)) annotation (Placement(transformation(extent={{-10,-70},
                 {10,-50}})));
       Modelica.Blocks.Interfaces.BooleanInput control[m] annotation (Placement(
-            transformation(extent={{-120,-10},{-100,10}})));
+            transformation(extent={{-120,0},{-100,20}}), iconTransformation(extent={{-140,-20},{-100,20}})));
     equation
       connect(delta.plug_p, plugSupply) annotation (Line(points={{40,-70},{60,-70},
               {60,100},{0,100}}, color={0,0,255}));
@@ -15128,27 +15115,49 @@ Note: No care is taken for current or voltage limiting, as well as for field wea
       connect(idealCommutingSwitch.plug_n2, delta.plug_n) annotation (Line(
             points={{10,-60},{10,-70},{20,-70}}, color={0,0,255}));
       connect(idealCommutingSwitch.plug_n1, star.plug_p) annotation (Line(
-            points={{10,-55},{10,-40},{20,-40}}, color={0,0,255}));
+            points={{10,-56},{10,-40},{20,-40}}, color={0,0,255}));
       connect(idealCommutingSwitch.plug_p, plug_sn) annotation (Line(points={{-10,
               -60},{-60,-60},{-60,-100}}, color={0,0,255}));
       connect(control, idealCommutingSwitch.control)
-        annotation (Line(points={{-110,0},{0,0},{0,-52}}, color={255,0,255}));
+        annotation (Line(points={{-110,10},{0,10},{0,-48}},
+                                                          color={255,0,255}));
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={
-            Polygon(
-              points={{-100,-60},{-60,-100},{58,-100},{100,-60},{100,60},{60,
-                  100},{-60,100},{-100,60},{-100,-60}},
-              lineColor={175,175,175},
-              fillColor={215,215,215},
+            Rectangle(
+              extent={{-100,100},{100,-100}},
+              lineColor={0,0,255},
+              fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
             Line(
-              points={{-80,52},{-40,0},{-2,52},{-40,0},{-40,-52}},
-              color={0,0,255},
-              thickness=0.5),
+              points={{20,22},{40,12},{60,22},{40,12},{40,-10}},
+              color={0,0,255}),
+            Ellipse(
+              extent={{-64,-16},{-56,-24}},
+              lineColor={0,0,255},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Ellipse(
+              extent={{-4,4},{4,-4}},
+              lineColor={0,0,255},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Ellipse(
+              extent={{-4,-36},{4,-44}},
+              lineColor={0,0,255},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-2,-20},{-56,-20}}, color={0,0,255}),
+            Line(points={{40,-62},{20,-30},{60,-30},{40,-62}}, color={0,0,255}),
+            Line(points={{0,90},{0,88},{0,80},{80,80},{80,78},{80,-40},{60,-40}}, color={0,0,255}),
+            Line(points={{4,0},{20,0}}, color={0,0,255}),
+            Line(points={{4,-40},{20,-40}}, color={0,0,255}),
+            Line(points={{-60,-24},{-60,-90}}, color={0,0,255}),
             Line(
-              points={{0,40},{0,-40},{80,0},{0,40}},
-              color={0,0,255},
-              thickness=0.5)}), Documentation(info="<html>
+              points={{-100,0},{-30,0},{-30,-20}},
+              color={255,0,255},
+              pattern=LinePattern.Dash),
+            Line(points={{60,-90},{60,-40}}, color={0,0,255})}),
+                                Documentation(info="<html>
 Simple Star-Delta-switch.<br>
 If <em>control</em> is false, plug_sp and plug_sn are star connected and plug_sp connected to the supply plug.<br>
 If <em>control</em> is true, plug_sp and plug_sn are delta connected and they are connected to the supply plug.
@@ -15181,9 +15190,8 @@ If <em>control</em> is true, plug_sp and plug_sn are delta connected and they ar
                 {10,-50}}), iconTransformation(extent={{-10,-30},{
                 10,-50}})));
       Modelica.Electrical.Analog.Interfaces.NegativePin starpoint if (
-        terminalConnection <> "D") annotation (Placement(transformation(extent={{-100,
-                -50},{-80,-30}}), iconTransformation(extent=
-                {{-100,-50},{-80,-30}})));
+        terminalConnection <> "D") annotation (Placement(transformation(extent={{-110,-50},{-90,-30}}),
+                                  iconTransformation(extent={{-110,-50},{-90,-30}})));
     equation
       connect(plug_sn, star.plug_p)
         annotation (Line(points={{-60,-60},{-60,-80}}, color={0,0,255}));
@@ -15194,11 +15202,10 @@ If <em>control</em> is true, plug_sp and plug_sn are delta connected and they ar
       connect(plug_sp, plugSupply) annotation (Line(points={{60,-60},{0,-60},{0,
               -40}}, color={0,0,255}));
       connect(star.pin_n, starpoint)
-        annotation (Line(points={{-80,-80},{-86,-80},{-86,-40},{-90,-40}}, color={0,0,255}));
+        annotation (Line(points={{-80,-80},{-86,-80},{-86,-40},{-100,-40}},color={0,0,255}));
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Polygon(
-              points={{-80,-40},{-80,-44},{-80,-80},{-40,-100},{40,-100},{80,
-                  -70},{80,-44},{76,-40},{-80,-40}},
+              points={{-76,-40},{-80,-44},{-80,-80},{-40,-100},{40,-100},{80,-70},{80,-44},{76,-40},{-76,-40}},
               lineColor={95,95,95},
               fillColor={135,135,135},
               fillPattern=FillPattern.Solid), Text(
@@ -15239,8 +15246,8 @@ choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
                 10,-50}})));
       Modelica.Electrical.MultiPhase.Interfaces.NegativePlug starpoint(final m=
             mSystems) if (terminalConnection <> "D") annotation (Placement(
-            transformation(extent={{-100,-50},{-80,-30}}),
-            iconTransformation(extent={{-100,-50},{-80,-30}})));
+            transformation(extent={{-110,-50},{-90,-30}}),
+            iconTransformation(extent={{-110,-50},{-90,-30}})));
     equation
       connect(plug_sn, multiStar.plug_p)
         annotation (Line(points={{-60,-60},{-60,-80}}, color={0,0,255}));
@@ -15251,12 +15258,11 @@ choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
       connect(plug_sp, plugSupply) annotation (Line(points={{60,-60},{0,-60},{0,
               -40}}, color={0,0,255}));
       connect(starpoint, multiStar.starpoints) annotation (Line(
-          points={{-90,-40},{-86,-40},{-86,-80},{-80,-80}}, color={0,0,255}));
+          points={{-100,-40},{-86,-40},{-86,-80},{-80,-80}},color={0,0,255}));
       annotation (
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={Polygon(
-              points={{-74,-40},{-80,-46},{-80,-80},{-40,-100},{40,-100},{80,
-                  -70},{80,-44},{76,-40},{-74,-40}},
+              points={{-74,-40},{-80,-46},{-80,-80},{-40,-100},{40,-100},{80,-70},{80,-44},{76,-40},{-74,-40}},
               lineColor={95,95,95},
               fillColor={135,135,135},
               fillPattern=FillPattern.CrossDiag), Text(
@@ -15308,7 +15314,7 @@ choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
       connect(idealCommutingSwitch.plug_n2, plug_n) annotation (Line(
           points={{40,10},{40,-60},{100,-60}}, color={0,0,255}));
       connect(rheostat.plug_p, idealCommutingSwitch.plug_n1) annotation (Line(
-          points={{0,-20},{35,-20},{35,10}}, color={0,0,255}));
+          points={{0,-20},{36,-20},{36,10}}, color={0,0,255}));
       connect(idealCommutingSwitch.plug_n2, star.plug_p) annotation (Line(
           points={{40,10},{40,-60},{-40,-60}}, color={0,0,255}));
       connect(rheostat.plug_n, starRheostat.plug_p) annotation (Line(
@@ -15318,7 +15324,7 @@ choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
       connect(star.pin_n, ground.p) annotation (Line(
           points={{-60,-60},{-70,-60}}, color={0,0,255}));
       connect(booleanStep.y, idealCommutingSwitch.control) annotation (Line(
-          points={{-39,20},{32,20}}, color={255,0,255}));
+          points={{-39,20},{28,20}}, color={255,0,255}));
       annotation (Icon(graphics={
             Rectangle(
               extent={{26,40},{54,-40}},
@@ -15378,7 +15384,7 @@ choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
       connect(rheostat.plug_n, plug_n) annotation (Line(
           points={{60,-10},{60,-60},{100,-60}}, color={0,0,255}));
       connect(rheostat.R, ramp.y) annotation (Line(
-          points={{50,0},{26,0},{26,0},{1,0}}, color={0,0,127}));
+          points={{48,0},{26,0},{26,0},{1,0}}, color={0,0,127}));
       connect(rheostat.plug_n, star.plug_p) annotation (Line(
           points={{60,-10},{60,-60},{-20,-60}}, color={0,0,255}));
       connect(star.pin_n, ground.p) annotation (Line(

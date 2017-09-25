@@ -919,10 +919,10 @@ Delta (polygon) connection of a multi phase circuit consisting of multiple base 
               origin={60,0},
               rotation=90),
             Text(
-              extent={{-150,-110},{150,-70}},
+              extent={{-150,-90},{150,-50}},
               textString="R=%R"),
             Text(
-              extent={{-150,70},{150,110}},
+              extent={{-150,60},{150,100}},
               textString="%name",
               lineColor={0,0,255})}),
         Documentation(info="<html>
@@ -951,7 +951,7 @@ Multi star points are connected by resistors. This model is required to operate 
       annotation (defaultComponentName="plugToPin", Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
             Text(
-              extent={{-150,-40},{150,-80}},
+              extent={{-150,-30},{150,-70}},
               textString="k = %k"),
             Line(points={{-20,20},{40,20},{40,-20},{-20,-20}}),
             Rectangle(
@@ -966,7 +966,7 @@ Multi star points are connected by resistors. This model is required to operate 
               fillPattern=FillPattern.Solid),
             Line(points={{-20,20},{40,20},{40,-20},{-20,-20}}),
             Text(
-              extent={{-150,50},{150,90}},
+              extent={{-150,40},{150,80}},
               textString="%name",
               lineColor={0,0,255})}),
           Documentation(info="<html>
@@ -1006,11 +1006,11 @@ Connects pin <em>k</em> of plug_p to pin_p, leaving the other pins of plug_p unc
               fillPattern=FillPattern.Solid),
             Line(points={{-20,20},{40,20},{40,-20},{-20,-20}}),
             Text(
-              extent={{-150,50},{150,90}},
+              extent={{-150,40},{150,80}},
               textString="%name",
               lineColor={0,0,255}),
             Text(
-              extent={{-150,-40},{150,-80}},
+              extent={{-150,-30},{150,-70}},
               textString="k = %k")}),
           Documentation(info="<html>
 <p>
@@ -1034,16 +1034,17 @@ Connects pin <em>k</em> of plug_n to pin_n, leaving the other pins of plug_n unc
             Rectangle(
               extent={{-20,20},{40,-20}},
               pattern=LinePattern.None,
-              fillColor={170,255,255},
+              fillColor={170,213,255},
               fillPattern=FillPattern.Solid,
               lineColor={0,0,255}),
             Ellipse(
               extent={{-40,20},{0,-20}},
-              fillColor={170,255,255},
-              fillPattern=FillPattern.Solid),
+              fillColor={170,213,255},
+              fillPattern=FillPattern.Solid,
+              lineColor={0,0,0}),
             Line(points={{-20,20},{40,20},{40,-20},{-20,-20}}),
             Text(
-              extent={{-150,50},{150,90}},
+              extent={{-150,40},{150,80}},
               textString="%name",
               lineColor={0,0,255})}),
           Documentation(info="<html>
@@ -1068,16 +1069,17 @@ Connects all pins of plug_p to the pin array pin_p.
             Rectangle(
               extent={{-20,20},{40,-20}},
               pattern=LinePattern.None,
-              fillColor={170,255,255},
+              fillColor={170,213,255},
               fillPattern=FillPattern.Solid,
               lineColor={0,0,255}),
             Ellipse(
               extent={{-40,20},{0,-20}},
-              fillColor={170,255,255},
-              fillPattern=FillPattern.Solid),
+              fillColor={170,213,255},
+              fillPattern=FillPattern.Solid,
+              lineColor={0,0,0}),
             Line(points={{-20,20},{40,20},{40,-20},{-20,-20}}),
             Text(
-              extent={{-150,50},{150,90}},
+              extent={{-150,40},{150,80}},
               textString="%name",
               lineColor={0,0,255})}),
           Documentation(info="<html>

@@ -252,10 +252,10 @@ Examples to demonstrate the usage of quasistationary electric components.
                   -10,-100},{-50,-100}}, color={85,170,255}));
           connect(star2.pin_n, starpoint2) annotation (Line(points={{10,-90},{
                   10,-100},{50,-100}}, color={85,170,255}));
-          connect(l1sigma.plug_n, core.plug_p1) annotation (Line(points={{-50,0},
-                  {-50,20},{-10,20},{-10,5}}, color={85,170,255}));
-          connect(core.plug_n1, star1.plug_p) annotation (Line(points={{-10,-5},
-                  {-10,-37.5},{-10,-70},{-10,-70}}, color={85,170,255}));
+          connect(l1sigma.plug_n, core.plug_p1) annotation (Line(points={{-50,0},{-50,20},{-10,20},{-10,10}},
+                                              color={85,170,255}));
+          connect(core.plug_n1, star1.plug_p) annotation (Line(points={{-10,-10},{-10,-10},{-10,-70},{-10,-70}},
+                                                    color={85,170,255}));
           connect(core.plug_n2, core.plug_p3)
             annotation (Line(points={{10,4},{10,-4}}, color={85,170,255}));
           connect(core.plug_p2, l2sigma.plug_p) annotation (Line(points={{10,10},
@@ -380,10 +380,10 @@ Transformer Yy4
                   -10,-100},{-50,-100}}, color={85,170,255}));
           connect(star2.pin_n, starpoint2) annotation (Line(points={{10,-90},{
                   10,-100},{50,-100}}, color={85,170,255}));
-          connect(l1sigma.plug_n, core.plug_p1) annotation (Line(points={{-50,0},
-                  {-50,20},{-10,20},{-10,5}}, color={85,170,255}));
-          connect(core.plug_n1, star1.plug_p) annotation (Line(points={{-10,-5},
-                  {-10,-37.5},{-10,-70},{-10,-70}}, color={85,170,255}));
+          connect(l1sigma.plug_n, core.plug_p1) annotation (Line(points={{-50,0},{-50,20},{-10,20},{-10,10}},
+                                              color={85,170,255}));
+          connect(core.plug_n1, star1.plug_p) annotation (Line(points={{-10,-10},{-10,-10},{-10,-70},{-10,-70}},
+                                                    color={85,170,255}));
           connect(core.plug_n2, core.plug_p3)
             annotation (Line(points={{10,4},{10,-4}}, color={85,170,255}));
           connect(l2sigma.plug_p, core.plug_n3) annotation (Line(points={{50,0},
@@ -2371,9 +2371,9 @@ This package contains components for modeling quasi stationary electrical induct
           points={{80,10},{80,60},{-0.4,60},{-0.4,79.2}}, color={191,0,0}));
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
-              extent={{0,-60},{0,-100}},
+              extent={{150,-60},{-150,-100}},
               textString="%VectorGroup"), Text(
-              extent={{0,100},{0,60}},
+              extent={{150,100},{-150,60}},
               lineColor={0,0,255},
               textString="%name")}), Documentation(info="<html>
 Partial model of a three-phase transformer, containing primary and secondary resistances and stray inductances, as well as the iron core.

@@ -713,7 +713,7 @@ In this example the eddy current losses are implemented in two different ways. C
           connect(powerSensorQS.voltageN, starQS.plug_p) annotation (Line(
                 points={{-30,70},{-30,20},{-60,20}}, color={85,170,255}));
           connect(booleanStepQS.y, idealCloserQS.control) annotation (Line(
-              points={{-79,70},{-67,70}}, color={255,0,255}));
+              points={{-79,70},{-72,70}}, color={255,0,255}));
           connect(star.pin_n, ground.p)
             annotation (Line(points={{-80,-80},{-80,-80}}, color={0,0,255}));
           connect(cosineVoltage.plug_n, star.plug_p)
@@ -724,7 +724,7 @@ In this example the eddy current losses are implemented in two different ways. C
           connect(terminalBox.plug_sn, imc.plug_sn) annotation (Line(points={{24,-50},{24,-50}}, color={0,0,255}));
           connect(terminalBox.plug_sp, imc.plug_sp) annotation (Line(points={{36,-50},{36,-50}}, color={0,0,255}));
           connect(booleanStep.y, idealCloser.control) annotation (Line(
-              points={{-79,-30},{-67,-30}}, color={255,0,255}));
+              points={{-79,-30},{-72,-30}}, color={255,0,255}));
           connect(idealCloser.plug_p, cosineVoltage.plug_p) annotation (Line(
               points={{-60,-40},{-60,-50}},
               color={0,0,255}));
@@ -767,7 +767,7 @@ In this example the eddy current losses are implemented in two different ways. C
           connect(starMachineQS.pin_n, groundMachineQS.pin) annotation (Line(
               points={{-10,20},{-10,20}},
               color={85,170,255}));
-          connect(starMachine.plug_p, terminalBox.starpoint) annotation (Line(points={{-12,-60},{-12,-48},{21,-48}}, color={0,0,255}));
+          connect(starMachine.plug_p, terminalBox.starpoint) annotation (Line(points={{-12,-60},{-12,-48},{20,-48}}, color={0,0,255}));
           connect(groundMachine.p, starMachine.pin_n) annotation (Line(points={{-12,-80},{-12,-80}}, color={0,0,255}));
           annotation (Diagram(coordinateSystem(preserveAspectRatio=false,
                   extent={{-100,-100},{100,100}}), graphics={
@@ -943,8 +943,8 @@ Simulate for 1 second and plot (versus time):
           connect(sineVoltageQS.plug_n, starQS.plug_p) annotation (Line(points={{-40,90},{-50,90}}, color={85,170,255}));
           connect(sineVoltageQS.plug_p, idealCloserQS.plug_p) annotation (Line(points={{-20,90},{-10,90}}, color={85,170,255}));
           connect(loadInertiaQS.flange_b, quadraticLoadTorqueQS.flange) annotation (Line(points={{70,20},{80,20}}));
-          connect(booleanStepQS.y, idealCloserQS.control) annotation (Line(points={{-59,60},{0,60},{0,83}}, color={255,0,255}));
-          connect(booleanStepYDQS.y, switchYDQS.control) annotation (Line(points={{-19,40},{19,40}}, color={255,0,255}));
+          connect(booleanStepQS.y, idealCloserQS.control) annotation (Line(points={{-59,60},{0,60},{0,78}}, color={255,0,255}));
+          connect(booleanStepYDQS.y, switchYDQS.control) annotation (Line(points={{-19,40},{18,40}}, color={255,0,255}));
           connect(idealCloserQS.plug_n, currentQuasiRMSSensorQS.plug_p) annotation (Line(points={{10,90},{10,90},{28,90},{28,90},{30,90},{30,80},{30,80}}, color={85,170,255}));
           connect(switchYDQS.plug_sn, imcQS.plug_sn) annotation (Line(points={{24,30},{24,30}}, color={85,170,255}));
           connect(switchYDQS.plug_sp, imcQS.plug_sp) annotation (Line(points={{36,30},{36,30}}, color={85,170,255}));
@@ -959,10 +959,10 @@ Simulate for 1 second and plot (versus time):
                                                 color={0,0,255}));
           connect(loadInertia.flange_b,quadraticLoadTorque. flange)
             annotation (Line(points={{70,-80},{80,-80}}));
-          connect(booleanStep.y,idealCloser. control) annotation (Line(points={{-59,-40},{0,-40},{0,-17}},
+          connect(booleanStep.y,idealCloser. control) annotation (Line(points={{-59,-40},{0,-40},{0,-22}},
                                                   color={255,0,255}));
           connect(booleanStepYD.y,switchYD. control)
-            annotation (Line(points={{-19,-60},{19,-60}},  color={255,0,255}));
+            annotation (Line(points={{-19,-60},{18,-60}},  color={255,0,255}));
           connect(idealCloser.plug_n,currentQuasiRMSSensor. plug_p)
             annotation (Line(points={{10,-10},{30,-10},{30,-20}},
                                                             color={0,0,255}));
@@ -1215,12 +1215,12 @@ Default machine parameters are used.</p>
           connect(loadInertiaQS.flange_b, quadraticLoadTorqueQS.flange) annotation (Line(points={{30,20},{20,20}}));
           connect(imcQS.flange, loadInertiaQS.flange_a) annotation (Line(points={{60,20},{50,20}}));
           connect(starQS.plug_p, sineVoltageQS.plug_n) annotation (Line(points={{-80,60},{-80,80}}, color={85,170,255}));
-          connect(booleanStep2QS.y, idealCommutingSwitchQS.control) annotation (Line(points={{-39,20},{-20,20},{-20,40},{50,40},{50,72}}, color={255,0,255}));
+          connect(booleanStep2QS.y, idealCommutingSwitchQS.control) annotation (Line(points={{-39,20},{-20,20},{-20,40},{50,40},{50,68}}, color={255,0,255}));
           connect(transformerQS.starpoint2, ground2QS.pin) annotation (Line(points={{25,70},{24,70},{24,60},{20,60}}, color={85,170,255}));
           connect(idealCommutingSwitchQS.plug_p, terminalBoxQS.plugSupply) annotation (Line(points={{60,80},{70,80},{70,32}}, color={85,170,255}));
-          connect(transformerQS.plug2, idealCommutingSwitchQS.plug_n1) annotation (Line(points={{30,80},{36,80},{36,75},{40,75}}, color={85,170,255}));
+          connect(transformerQS.plug2, idealCommutingSwitchQS.plug_n1) annotation (Line(points={{30,80},{36,80},{36,76},{40,76}}, color={85,170,255}));
           connect(sineVoltageQS.plug_p, currentQuasiRMSSensorQS.plug_p) annotation (Line(points={{-60,80},{-50,80}}, color={85,170,255}));
-          connect(booleanStep1QS.y, idealCloserQS.control) annotation (Line(points={{-39,50},{-10,50},{-10,73}}, color={255,0,255}));
+          connect(booleanStep1QS.y, idealCloserQS.control) annotation (Line(points={{-39,50},{-10,50},{-10,68}}, color={255,0,255}));
           connect(currentQuasiRMSSensorQS.plug_n, idealCloserQS.plug_p) annotation (Line(points={{-30,80},{-20,80}}, color={85,170,255}));
           connect(transformerQS.plug1, idealCloserQS.plug_n) annotation (Line(points={{10,80},{0,80}}, color={85,170,255}));
           connect(idealCloserQS.plug_n, idealCommutingSwitchQS.plug_n2) annotation (Line(points={{0,80},{0,100},{40,100},{40,80}}, color={85,170,255}));
@@ -1236,18 +1236,18 @@ Default machine parameters are used.</p>
               points={{-80,-40},{-80,-20}},
                                           color={0,0,255}));
           connect(booleanStep2.y,idealCommutingSwitch. control) annotation (Line(
-              points={{-39,-80},{-10,-80},{-10,-60},{50,-60},{50,-28}},
+              points={{-39,-80},{-10,-80},{-10,-60},{50,-60},{50,-32}},
                                        color={255,0,255}));
           connect(transformer.starpoint2,ground2. p) annotation (Line(
               points={{25,-30},{25,-40},{20,-40}}, color={0,0,255}));
           connect(idealCommutingSwitch.plug_p, terminalBox.plugSupply) annotation (Line(points={{60,-20},{70,-20},{70,-68}}, color={0,0,255}));
-          connect(transformer.plug2,idealCommutingSwitch. plug_n1) annotation (Line(points={{30,-20},{36,-20},{36,-25},{40,-25}}, color={0,0,255}));
+          connect(transformer.plug2,idealCommutingSwitch. plug_n1) annotation (Line(points={{30,-20},{36,-20},{36,-24},{40,-24}}, color={0,0,255}));
           connect(sineVoltage.plug_p,currentQuasiRMSSensor. plug_p) annotation (
               Line(
               points={{-60,-20},{-50,-20}},
                                         color={0,0,255}));
           connect(booleanStep1.y,idealCloser. control) annotation (Line(
-              points={{-39,-50},{-20,-50},{-20,-27},{-10,-27}},
+              points={{-39,-50},{-20,-50},{-20,-32},{-10,-32}},
                                          color={255,0,255}));
           connect(currentQuasiRMSSensor.plug_n,idealCloser. plug_p) annotation (
               Line(
@@ -1499,12 +1499,12 @@ Simulate for 2.5 seconds and plot (versus time):</p>
               points={{0,50},{10,50}},
               color={85,170,255}));
           connect(vfControllerQS.y, signalVoltageQS.V) annotation (Line(
-              points={{-39,80},{-6,80},{-6,60}}, color={85,170,255}));
+              points={{-39,80},{-4,80},{-4,62}}, color={85,170,255}));
           connect(ramp.y, vfControllerQS.u) annotation (Line(points={{-79,0},{-70,0},{-70,80},{-62,80}}, color={0,0,127}));
-          connect(ramp.y, signalVoltageQS.f) annotation (Line(points={{-79,0},{-70,0},{-70,66},{-14,66},{-14,60}}, color={0,0,127}));
+          connect(ramp.y, signalVoltageQS.f) annotation (Line(points={{-79,0},{-70,0},{-70,66},{-16,66},{-16,62}}, color={0,0,127}));
           connect(ramp.y, vfController.u) annotation (Line(points={{-79,0},{-70,0},{-70,-20},{-62,-20}}, color={0,0,127}));
-          connect(vfController.y, signalVoltage.v) annotation (Line(points={{-39,-20},{-10,-20},{-10,-43}}, color={0,0,127}));
-          connect(starMachine.plug_p, terminalBox.starpoint) annotation (Line(points={{10,-74},{10,-68},{21,-68}},   color={0,0,255}));
+          connect(vfController.y, signalVoltage.v) annotation (Line(points={{-39,-20},{-10,-20},{-10,-38}}, color={0,0,127}));
+          connect(starMachine.plug_p, terminalBox.starpoint) annotation (Line(points={{10,-74},{10,-68},{20,-68}},   color={0,0,255}));
           connect(groundMachine.p,starMachine. pin_n) annotation (Line(points={{-20,-74},{-10,-74}}, color={0,0,255}));
           annotation (
             experiment(StopTime=1.5, Interval=0.001),
@@ -1750,7 +1750,7 @@ and accelerating inertias. At time <code>tStep</code> a load step is applied.</p
             annotation (Line(points={{-60,-70},{-60,-80}}, color={0,0,255}));
           connect(loadInertiaQS.flange_b, quadraticLoadTorqueQS.flange) annotation (Line(points={{70,40},{80,40}}));
           connect(imsQS.flange, loadInertiaQS.flange_a) annotation (Line(points={{40,40},{50,40}}));
-          connect(booleanStep.y, idealCloser.control) annotation (Line(points={{-79,-30},{-67,-30}},
+          connect(booleanStep.y, idealCloser.control) annotation (Line(points={{-79,-30},{-72,-30}},
                                                   color={255,0,255}));
           connect(terminalBoxQS.plug_sn, imsQS.plug_sn)
             annotation (Line(points={{24,50},{24,50}}, color={0,0,255}));
@@ -1787,7 +1787,7 @@ and accelerating inertias. At time <code>tStep</code> a load step is applied.</p
           connect(powerSensorQS.voltageN, starQS.plug_p) annotation (Line(
                 points={{-30,70},{-30,20},{-60,20}}, color={85,170,255}));
           connect(booleanStepQS.y, idealCloserQS.control) annotation (Line(
-              points={{-79,70},{-67,70}}, color={255,0,255}));
+              points={{-79,70},{-72,70}}, color={255,0,255}));
           connect(idealCloserQS.plug_p, voltageSourceQS.plug_p) annotation (
               Line(
               points={{-60,60},{-60,50}},
@@ -1817,7 +1817,7 @@ and accelerating inertias. At time <code>tStep</code> a load step is applied.</p
               points={{-10,40},{-10,52},{21,52}},
               color={85,170,255}));
           connect(groundMachine.p,starMachine. pin_n) annotation (Line(points={{-12,-80},{-12,-80}}, color={0,0,255}));
-          connect(terminalBoxM.starpoint, starMachine.plug_p) annotation (Line(points={{21,-48},{-12,-48},{-12,-60}}, color={0,0,255}));
+          connect(terminalBoxM.starpoint, starMachine.plug_p) annotation (Line(points={{20,-48},{-12,-48},{-12,-60}}, color={0,0,255}));
           annotation (
             experiment(
               StopTime=1.5,
@@ -2010,12 +2010,12 @@ Simulate for 1.5 seconds and plot (versus time):
           connect(imcQS.flange, idealGearR2TQS.flangeR) annotation (Line(points={{40,20},{32,20}}));
           connect(idealGearR2TQS.flangeT, massQS.flange_a) annotation (Line(points={{12,20},{0,20}}, color={0,127,0}));
           connect(massQS.flange_b, signForceQS.flange) annotation (Line(points={{-20,20},{-30,20}}, color={0,127,0}));
-          connect(vfControllerQS.y, signalVoltageQS.V) annotation (Line(points={{1,50},{4,50},{4,80}}, color={85,170,255}));
+          connect(vfControllerQS.y, signalVoltageQS.V) annotation (Line(points={{1,50},{6,50},{6,78}}, color={85,170,255}));
           connect(groundMachineQS.pin,starMachineQS. pin_n) annotation (Line(
               points={{90,20},{90,32}},   color={85,170,255}));
           connect(starMachineQS.plug_p, terminalBoxQS.starpoint) annotation (Line(points={{70,32},{59,32}}, color={85,170,255}));
           connect(dutyCycle.y[1], gainQS.u) annotation (Line(points={{-79,50},{-72,50},{-72,50},{-62,50}}, color={0,0,127}));
-          connect(gainQS.y, signalVoltageQS.f) annotation (Line(points={{-39,50},{-30,50},{-30,70},{-4,70},{-4,80}}, color={0,0,127}));
+          connect(gainQS.y, signalVoltageQS.f) annotation (Line(points={{-39,50},{-30,50},{-30,70},{-6,70},{-6,78}}, color={0,0,127}));
           connect(gainQS.y, vfControllerQS.u) annotation (Line(points={{-39,50},{-22,50}}, color={0,0,127}));
           connect(signalVoltage.plug_n,star. plug_p)
             annotation (Line(points={{-10,-10},{-40,-10}},    color={0,0,255}));
@@ -2023,7 +2023,7 @@ Simulate for 1.5 seconds and plot (versus time):
             annotation (Line(points={{-60,-10},{-70,-10},{-70,-20}},
                                                          color={0,0,255}));
           connect(vfController.y,signalVoltage. v)
-            annotation (Line(points={{-9,-50},{0,-50},{0,-17}},
+            annotation (Line(points={{-9,-50},{0,-50},{0,-22}},
                                                         color={0,0,255}));
           connect(signalVoltage.plug_p,currentQuasiRMSSensor. plug_p)
             annotation (Line(points={{10,-10},{20,-10}},    color={0,0,255}));
@@ -2042,7 +2042,7 @@ Simulate for 1.5 seconds and plot (versus time):
             annotation (Line(points={{-20,-80},{-30,-80}},        color={0,127,0}));
           connect(dutyCycle.y[1], gain.u) annotation (Line(points={{-79,50},{-70,50},{-70,20},{-90,20},{-90,-50},{-62,-50}}, color={0,0,127}));
           connect(groundMachine.p,starMachine. pin_n) annotation (Line(points={{90,-80},{90,-68}},   color={0,0,255}));
-          connect(terminalBox.starpoint, starMachine.plug_p) annotation (Line(points={{59,-68},{70,-68}}, color={0,0,255}));
+          connect(terminalBox.starpoint, starMachine.plug_p) annotation (Line(points={{60,-68},{70,-68}}, color={0,0,255}));
           annotation (experiment(StopTime=20, Interval=0.001, Tolerance=1e-06), Documentation(
                 info="<html>
 <p>
@@ -2580,7 +2580,7 @@ Modelica 2009, 7<sup>th</sup> International Modelica Conference</p>
               Line(
               points={{-70,-20},{-50,-20}},        color={0,0,255}));
           connect(starMachineQS.plug_p, terminalBoxQS.starpoint) annotation (Line(points={{-40,48},{-40,62},{-19,62}}, color={85,170,255}));
-          connect(terminalBox.starpoint, starMachine.plug_p) annotation (Line(points={{-19,-38},{-40,-38},{-40,-52}}, color={0,0,255}));
+          connect(terminalBox.starpoint, starMachine.plug_p) annotation (Line(points={{-20,-38},{-40,-38},{-40,-52}}, color={0,0,255}));
           connect(starMachine.pin_n, ground.p) annotation (Line(points={{-40,-72},{-40,-80},{-70,-80}}, color={0,0,255}));
           connect(starMachineQS.pin_n, groundQS.pin) annotation (Line(points={{-40,28},{-40,20},{-70,20}}, color={85,170,255}));
           annotation (experiment(StopTime=1.5, Interval=0.001, Tolerance=1e-06), Documentation(
@@ -6588,7 +6588,7 @@ Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap</a>
               Line(points={{-50,100},{-20,100},{-20,70}}, color={85,170,255}),
               Line(points={{50,100},{20,100},{20,70}}, color={85,170,255}),
               Text(
-                extent={{-150,-120},{150,-180}},
+                extent={{-150,-120},{150,-160}},
                 lineColor={0,0,255},
                 textString="%name"),
               Line(
@@ -7780,7 +7780,7 @@ The model output can be used to feed a quasi static current source with phase in
         Goff=fill(1e-5, m)) annotation (Placement(transformation(extent={{-10,-70},
                 {10,-50}})));
       Modelica.Blocks.Interfaces.BooleanInput control[m] annotation (Placement(
-            transformation(extent={{-120,-10},{-100,10}})));
+            transformation(extent={{-120,0},{-100,20}}), iconTransformation(extent={{-140,-20},{-100,20}})));
     equation
       connect(delta.plug_p, plugSupply) annotation (Line(points={{40,-70},{60,-70},
               {60,100},{0,100}}, color={85,170,255}));
@@ -7793,23 +7793,45 @@ The model output can be used to feed a quasi static current source with phase in
       connect(idealCommutingSwitch.plug_p, plug_sn) annotation (Line(points={{-10,
               -60},{-60,-60},{-60,-100}}, color={85,170,255}));
       connect(control, idealCommutingSwitch.control)
-        annotation (Line(points={{-110,0},{0,0},{0,-48}}, color={255,0,255}));
+        annotation (Line(points={{-110,10},{0,10},{0,-48}},
+                                                          color={255,0,255}));
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={
-            Polygon(
-              points={{-100,-60},{-60,-100},{58,-100},{100,-60},{100,60},{60,
-                  100},{-60,100},{-100,60},{-100,-60}},
-              lineColor={175,175,175},
-              fillColor={215,215,215},
+            Rectangle(
+              extent={{-100,100},{100,-100}},
+              lineColor={85,170,255},
+              fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
             Line(
-              points={{-80,52},{-40,0},{-2,52},{-40,0},{-40,-52}},
-              color={85,170,255},
-              thickness=0.5),
+              points={{20,22},{40,12},{60,22},{40,12},{40,-10}},
+              color={85,170,255}),
+            Ellipse(
+              extent={{-64,-16},{-56,-24}},
+              lineColor={85,170,255},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Ellipse(
+              extent={{-4,4},{4,-4}},
+              lineColor={85,170,255},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Ellipse(
+              extent={{-4,-36},{4,-44}},
+              lineColor={85,170,255},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-2,-20},{-56,-20}}, color={85,170,255}),
+            Line(points={{40,-62},{20,-30},{60,-30},{40,-62}}, color={85,170,255}),
+            Line(points={{0,90},{0,88},{0,80},{80,80},{80,78},{80,-40},{60,-40}}, color={85,170,255}),
+            Line(points={{4,0},{20,0}}, color={85,170,255}),
+            Line(points={{4,-40},{20,-40}}, color={85,170,255}),
+            Line(points={{-60,-24},{-60,-90}}, color={85,170,255}),
             Line(
-              points={{0,40},{0,-40},{80,0},{0,40}},
-              color={85,170,255},
-              thickness=0.5)}), Documentation(info="<html>
+              points={{-100,0},{-30,0},{-30,-20}},
+              color={255,0,255},
+              pattern=LinePattern.Dash),
+            Line(points={{60,-90},{60,-40}}, color={85,170,255})}),
+                                Documentation(info="<html>
 Simple Star-Delta-switch.<br>
 If <em>control</em> is false, plug_sp and plug_sn are star connected and plug_sp connected to the supply plug.<br>
 If <em>control</em> is true, plug_sp and plug_sn are delta connected and they are connected to the supply plug.
