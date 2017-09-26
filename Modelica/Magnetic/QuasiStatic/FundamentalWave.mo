@@ -110,7 +110,7 @@ email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
       extends Modelica.Icons.ReleaseNotes;
       annotation (Documentation(info="<html>
 
-<h5>Version 3.x.x, 2017-09-19</h5>
+<h5>Version 3.x.x, 2017-09-26</h5>
 <ul>
   <li>Unified communication interval, see 
       <a href=\"https://github.com/modelica/Modelica/issues/2279\">#2279</a></li>
@@ -3087,15 +3087,13 @@ Simulate for 0.1 second and plot (versus time):
                 Text(
                   extent={{-100,8},{-20,0}},
                           textStyle={TextStyle.Bold},
-                  textString="%m phase quasi static
-",                lineColor={0,0,0}),               Text(
+                  textString="%m phase quasi static",        lineColor={0,0,0}),               Text(
                           extent={{-100,-92},{-20,-100}},
                           lineColor={0,0,0},
                           fillColor={255,255,170},
                           fillPattern=FillPattern.Solid,
                           textStyle={TextStyle.Bold},
-                          textString="%m phase transient
-")}));
+                          textString="%m phase transient")}));
         end SMPM_OpenCircuit;
 
         model SMPM_Mains
@@ -3295,7 +3293,7 @@ Simulate for 0.1 second and plot (versus time):
               color={85,170,255}));
           connect(starMachineQS.plug_p, terminalBoxQS.starpoint) annotation (
               Line(
-              points={{-10,50},{-10,52},{21,52}},
+              points={{-10,50},{-10,52},{20,52}},
               color={85,170,255}));
           connect(currentQuasiRMSSensorQS.plug_n, terminalBoxQS.plugSupply)
             annotation (Line(points={{10,80},{10,80},{30,80},{30,78},{30,78},{30,52},{30,52}},
@@ -3332,22 +3330,21 @@ Simulate for 0.1 second and plot (versus time):
               color={0,0,255}));
           connect(powerSensor.nv, star.plug_p) annotation (Line(
               points={{-30,-30},{-30,-60},{-60,-60}}, color={0,0,255}));
-          connect(terminalBox.starpoint, starMachine.plug_p) annotation (Line(points={{21,-48},{-10,-48},{-10,-50},{-10,-50}}, color={0,0,255}));
+          connect(terminalBox.starpoint, starMachine.plug_p) annotation (Line(points={{20,-48},{-10,-48},{-10,-50},{-10,-50}}, color={0,0,255}));
           connect(starMachine.pin_n, groundMachine.p) annotation (Line(points={{-10,-70},{-10,-80}}, color={0,0,255}));
           annotation (experiment(StopTime=1, Interval=1E-4, Tolerance=1E-6),Diagram(coordinateSystem(preserveAspectRatio=false,
                   extent={{-100,-100},{100,100}}), graphics={
                 Text(
                   extent={{20,8},{100,0}},
                           textStyle={TextStyle.Bold},
-                  textString="%m phase quasi static
-",                lineColor={0,0,0}),               Text(
+                  textString="%m phase quasi static",        lineColor={0,0,0}),               Text(
                           extent={{20,-92},{100,-100}},
                           lineColor={0,0,0},
                           fillColor={255,255,170},
                           fillPattern=FillPattern.Solid,
                           textStyle={TextStyle.Bold},
-                          textString="%m phase transient
-")}),       Documentation(info="<html>
+                          textString="%m phase transient")}),
+            Documentation(info="<html>
 
 <p>
 This example compares a time transient and a quasi static model of a permanent magnet synchronous machine. The machines start with zero load and synchronous speed. At time <code>tStep</code> the machines are loaded with nominal torque. </p>
@@ -3610,7 +3607,7 @@ Simulate for 1 second and plot (versus time):
               points={{80,20},{70,20}}));
           connect(starMachineQS.plug_p, terminalBoxQS.starpoint) annotation (
               Line(
-              points={{-20,20},{-20,32},{-9,32}},
+              points={{-20,20},{-20,32},{-10,32}},
               color={85,170,255}));
           connect(groundMQS.pin, starMachineQS.pin_n) annotation (Line(
               points={{-60,20},{-40,20}},
@@ -3621,7 +3618,8 @@ Simulate for 1 second and plot (versus time):
           connect(terminalBoxQS.plug_sp, smpmQS.plug_sp) annotation (Line(
               points={{6,30},{6,30}},
               color={85,170,255}));
-          connect(currentControllerQS.I, referenceCurrentSourceQS.I) annotation (Line(points={{-29,94},{-10,94}}, color={85,170,255}));
+          connect(currentControllerQS.I, referenceCurrentSourceQS.I) annotation (Line(points={{-29,94},{-20,94},{-20,96},{-12,96}},
+                                                                                                                  color={85,170,255}));
           connect(referenceCurrentSourceQS.plug_p, starQS.plug_p) annotation (Line(points={{4.44089e-16,100},{50,100}}, color={85,170,255}));
           connect(starQS.pin_n, groundeQS.pin) annotation (Line(
               points={{50,80},{50,80}},
@@ -3634,8 +3632,9 @@ Simulate for 1 second and plot (versus time):
           connect(id.y, currentController.id_rms) annotation (Line(points={{-79,30},{-74,30},{-74,-4},{-52,-4}}, color={0,0,127}));
           connect(iq.y, currentControllerQS.iq_rms) annotation (Line(points={{-79,-10},{-70,-10},{-70,84},{-52,84}}, color={0,0,127}));
           connect(iq.y, currentController.iq_rms) annotation (Line(points={{-79,-10},{-70,-10},{-70,-16},{-52,-16}}, color={0,0,127}));
-          connect(currentController.y, signalCurrent.i) annotation (Line(points={{-29,-10},{-7,-10}},  color={0,0,127}));
-          connect(currentControllerQS.gamma, referenceCurrentSourceQS.gamma) annotation (Line(points={{-29,86},{-10,86}}, color={0,0,127}));
+          connect(currentController.y, signalCurrent.i) annotation (Line(points={{-29,-10},{-12,-10}}, color={0,0,127}));
+          connect(currentControllerQS.gamma, referenceCurrentSourceQS.gamma) annotation (Line(points={{-29,86},{-20,86},{-20,84},{-12,84}},
+                                                                                                                          color={0,0,127}));
           connect(angleSensorQS.phi, currentControllerQS.phi) annotation (Line(points={{30,71},{30,74},{-40,74},{-40,78}}, color={0,0,127}));
           connect(angleSensor.phi, currentController.phi) annotation (Line(points={{30,-29},{30,-26},{-40,-26},{-40,-22}}, color={0,0,127}));
           connect(smpmQS.flange, rotorAngleQS.flange) annotation (Line(points={{10,20},{20,20}}, color={0,0,0}));
@@ -3647,7 +3646,7 @@ Simulate for 1 second and plot (versus time):
           connect(voltageQuasiRMSSensorQS.plug_n, currentRMSSensorQS.plug_n) annotation (Line(points={{-20,50},{0,50}}, color={85,170,255}));
           connect(starMQS.pin_n, starMachineQS.pin_n) annotation (Line(points={{-50,30},{-50,20},{-40,20}}, color={85,170,255}));
           connect(starMQS.plug_p, voltageQuasiRMSSensorQS.plug_p) annotation (Line(points={{-50,50},{-40,50}}, color={85,170,255}));
-          connect(starMachine.plug_p, terminalBox.starpoint) annotation (Line(points={{-20,-80},{-20,-68},{-9,-68}}, color={0,0,255}));
+          connect(starMachine.plug_p, terminalBox.starpoint) annotation (Line(points={{-20,-80},{-20,-68},{-10,-68}},color={0,0,255}));
           connect(starMachine.pin_n, groundM.p) annotation (Line(points={{-40,-80},{-60,-80}}, color={0,0,255}));
           annotation (
             experiment(StopTime=2.0, Interval=1E-4, Tolerance=1E-6),
@@ -3672,15 +3671,13 @@ to numerically stabilize the simulation.</p>
                 Text(
                   extent={{30,48},{110,40}},
                           textStyle={TextStyle.Bold},
-                  textString="%m phase quasi static
-",                lineColor={0,0,0}),               Text(
+                  textString="%m phase quasi static",        lineColor={0,0,0}),               Text(
                           extent={{30,-52},{110,-60}},
                           lineColor={0,0,0},
                           fillColor={255,255,170},
                           fillPattern=FillPattern.Solid,
                           textStyle={TextStyle.Bold},
-                          textString="%m phase transient
-")}));
+                          textString="%m phase transient")}));
         end SMPM_CurrentSource;
 
         model SMEE_Generator
@@ -3977,7 +3974,7 @@ to numerically stabilize the simulation.</p>
               color={85,170,255}));
           connect(starMachineQS.plug_p, terminalBoxQS.starpoint) annotation (
               Line(
-              points={{-10,50},{-10,42},{-9,42}},
+              points={{-10,50},{-10,42},{-10,42}},
               color={85,170,255}));
           connect(smee.flange, rotorAngle.flange) annotation (Line(points={{10,-70},{20,-70}}, color={0,0,0}));
           connect(rotorAngle.plug_p, smee.plug_sp) annotation (Line(points={{24,-60},{6,-60}}, color={0,0,255}));
@@ -3987,7 +3984,7 @@ to numerically stabilize the simulation.</p>
           connect(smeeQS.flange, rotorAngleQS.flange) annotation (Line(points={{10,30},{22,30}}, color={0,0,0}));
           connect(smeeQS.flange, mechanicalPowerSensorQS.flange_a) annotation (Line(points={{10,30},{50,30}}, color={0,0,0}));
           connect(starMachine.pin_n,groundMachine. p) annotation (Line(points={{-30,-50},{-40,-50}}, color={0,0,255}));
-          connect(starMachine.plug_p, terminalBoxM.starpoint) annotation (Line(points={{-10,-50},{-10,-54},{-10,-58},{-9,-58}}, color={0,0,255}));
+          connect(starMachine.plug_p, terminalBoxM.starpoint) annotation (Line(points={{-10,-50},{-10,-54},{-10,-58},{-10,-58}},color={0,0,255}));
           annotation (
             experiment(
               StopTime=30,
@@ -4018,19 +4015,17 @@ Simulate for 30 seconds and plot versus <code>rotorAngle|rotorAngleQS.rotorDispl
                           fillColor={255,255,170},
                           fillPattern=FillPattern.Solid,
                           textStyle={TextStyle.Bold},
-                  textString="%m phase quasi static
-"),             Text(
+                  textString="%m phase quasi static"),     Text(
                   extent={{20,-92},{100,-100}},
                           textStyle={TextStyle.Bold},
-                          textString="%m phase transient
-")}));
+                          textString="%m phase transient")}));
         end SMEE_Generator;
 
         model SMR_CurrentSource
           "Test example: Synchronous reluctance machine fed by current source"
           extends Modelica.Icons.Example;
           import Modelica.Constants.pi;
-          parameter Integer m=6 "Number of phases";
+          parameter Integer m=3 "Number of phases";
           parameter Modelica.SIunits.Voltage VNominal=100
             "Nominal RMS voltage per phase";
           parameter Modelica.SIunits.Frequency fNominal=50 "Nominal frequency";
@@ -4268,7 +4263,7 @@ Simulate for 30 seconds and plot versus <code>rotorAngle|rotorAngleQS.rotorDispl
               points={{80,20},{70,20}}));
           connect(starMachineQS.plug_p, terminalBoxQS.starpoint) annotation (
               Line(
-              points={{-20,20},{-20,32},{-9,32}},
+              points={{-20,20},{-20,32},{-10,32}},
               color={85,170,255}));
           connect(groundMQS.pin, starMachineQS.pin_n) annotation (Line(
               points={{-60,20},{-40,20}},
@@ -4328,7 +4323,7 @@ Simulate for 30 seconds and plot versus <code>rotorAngle|rotorAngleQS.rotorDispl
           connect(voltageQuasiRMSSensorQS.plug_n, currentRMSSensorQS.plug_n) annotation (Line(points={{-20,50},{-6.66134e-16,50}}, color={85,170,255}));
           connect(starMQS.pin_n, groundMQS.pin) annotation (Line(points={{-50,30},{-50,20},{-60,20}}, color={85,170,255}));
           connect(starMachine.pin_n, groundM.p) annotation (Line(points={{-40,-80},{-60,-80}}, color={0,0,255}));
-          connect(starMachine.plug_p, terminalBox.starpoint) annotation (Line(points={{-20,-80},{-20,-68},{-9,-68}}, color={0,0,255}));
+          connect(starMachine.plug_p, terminalBox.starpoint) annotation (Line(points={{-20,-80},{-20,-68},{-10,-68}},color={0,0,255}));
           annotation (
             experiment(StopTime=2.0, Interval=1E-4, Tolerance=1E-6),
             Documentation(info="<html><html>
@@ -4351,15 +4346,13 @@ Simulate for 2 seconds and plot (versus time):
                 Text(
                   extent={{30,48},{110,40}},
                           textStyle={TextStyle.Bold},
-                  textString="%m phase quasi static
-",                lineColor={0,0,0}),               Text(
+                  textString="%m phase quasi static",        lineColor={0,0,0}),               Text(
                           extent={{30,-52},{110,-60}},
                           lineColor={0,0,0},
                           fillColor={255,255,170},
                           fillPattern=FillPattern.Solid,
                           textStyle={TextStyle.Bold},
-                          textString="%m phase transient
-")}));
+                          textString="%m phase transient")}));
         end SMR_CurrentSource;
       end SynchronousMachines;
     end BasicMachines;
