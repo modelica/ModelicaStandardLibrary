@@ -769,80 +769,55 @@ The magnetic potential difference of the connector therefore also refers to an e
         reluctance_m.Phi = Complex(0, 0);
       equation
         connect(sineVoltage_e.plug_n, converter_e.plug_n) annotation (Line(
-            points={{-80,50},{20,50}},
-            color={0,0,255}));
+            points={{-80,50},{20,50}}, color={0,0,255}));
         connect(sineVoltage_e.plug_n, star_e.plug_p) annotation (Line(
-            points={{-80,50},{-80,40}},
-            color={0,0,255}));
+            points={{-80,50},{-80,40}}, color={0,0,255}));
         connect(sineVoltage_m.plug_n, star_m.plug_p) annotation (Line(
-            points={{-80,-40},{-80,-50}},
-            color={0,0,255}));
+            points={{-80,-40},{-80,-50}}, color={0,0,255}));
         connect(star_e.pin_n, ground_e.p) annotation (Line(
-            points={{-80,20},{-80,20}},
-            color={0,0,255}));
+            points={{-80,20},{-80,20}}, color={0,0,255}));
         connect(star_m.pin_n, ground_m.p) annotation (Line(
-            points={{-80,-70},{-80,-70}},
-            color={0,0,255}));
+            points={{-80,-70},{-80,-70}}, color={0,0,255}));
         connect(sineVoltage_m.plug_n, converter_m.plug_n) annotation (Line(
-            points={{-80,-40},{20,-40}},
-            color={0,0,255}));
+            points={{-80,-40},{20,-40}}, color={0,0,255}));
         connect(converter_e.port_p, reluctance_e.port_p) annotation (Line(
-            points={{40,70},{80,70}},
-            color={255,128,0}));
+            points={{40,70},{80,70}}, color={255,128,0}));
         connect(converter_e.port_n, reluctance_e.port_n) annotation (Line(
-            points={{40,50},{80,50}},
-            color={255,128,0}));
+            points={{40,50},{80,50}}, color={255,128,0}));
         connect(converter_e.port_n, mground_e.port_p) annotation (Line(
-            points={{40,50},{40,20}},
-            color={255,128,0}));
+            points={{40,50},{40,20}}, color={255,128,0}));
         connect(converter_m.port_n, reluctance_m.port_n) annotation (Line(
-            points={{40,-40},{80,-40}},
-            color={255,128,0}));
+            points={{40,-40},{80,-40}}, color={255,128,0}));
         connect(converter_m.port_p, loss_m.port_p) annotation (Line(
-            points={{40,-20},{50,-20}},
-            color={255,128,0}));
+            points={{40,-20},{50,-20}}, color={255,128,0}));
         connect(loss_m.port_n, reluctance_m.port_p) annotation (Line(
-            points={{70,-20},{80,-20}},
-            color={255,128,0}));
+            points={{70,-20},{80,-20}}, color={255,128,0}));
         connect(converter_m.port_n, mground_m.port_p) annotation (Line(
-            points={{40,-40},{40,-70}},
-            color={255,128,0}));
+            points={{40,-40},{40,-70}}, color={255,128,0}));
         connect(resistor_e.plug_p, sineVoltage_e.plug_p) annotation (Line(
-            points={{-70,70},{-80,70}},
-            color={0,0,255}));
+            points={{-70,70},{-80,70}}, color={0,0,255}));
         connect(sineVoltage_m.plug_p, resistor_m.plug_p) annotation (Line(
-            points={{-80,-20},{-70,-20}},
-            color={0,0,255}));
+            points={{-80,-20},{-70,-20}}, color={0,0,255}));
         connect(resistor_e.plug_n, powerb_e.pc) annotation (Line(
-            points={{-50,70},{-40,70}},
-            color={0,0,255}));
+            points={{-50,70},{-40,70}}, color={0,0,255}));
         connect(powerb_e.pv, powerb_e.pc) annotation (Line(
-            points={{-30,80},{-40,80},{-40,70}},
-            color={0,0,255}));
+            points={{-30,80},{-40,80},{-40,70}}, color={0,0,255}));
         connect(powerb_e.nc, loss_e.plug_p) annotation (Line(
-            points={{-20,70},{-10,70}},
-            color={0,0,255}));
+            points={{-20,70},{-10,70}}, color={0,0,255}));
         connect(powerb_e.nv, sineVoltage_e.plug_n) annotation (Line(
-            points={{-30,60},{-30,50},{-80,50}},
-            color={0,0,255}));
+            points={{-30,60},{-30,50},{-80,50}}, color={0,0,255}));
         connect(resistor_m.plug_n, powerb_m.pc) annotation (Line(
-            points={{-50,-20},{-40,-20}},
-            color={0,0,255}));
+            points={{-50,-20},{-40,-20}}, color={0,0,255}));
         connect(powerb_m.pc, powerb_m.pv) annotation (Line(
-            points={{-40,-20},{-40,-10},{-30,-10}},
-            color={0,0,255}));
+            points={{-40,-20},{-40,-10},{-30,-10}}, color={0,0,255}));
         connect(powerb_m.nc, converter_m.plug_p) annotation (Line(
-            points={{-20,-20},{20,-20}},
-            color={0,0,255}));
+            points={{-20,-20},{20,-20}}, color={0,0,255}));
         connect(powerb_m.nv, sineVoltage_m.plug_n) annotation (Line(
-            points={{-30,-30},{-30,-40},{-80,-40}},
-            color={0,0,255}));
+            points={{-30,-30},{-30,-40},{-80,-40}}, color={0,0,255}));
         connect(loss_e.plug_n, sineVoltage_e.plug_n) annotation (Line(
-            points={{-10,50},{-80,50}},
-            color={0,0,255}));
+            points={{-10,50},{-80,50}}, color={0,0,255}));
         connect(loss_e.plug_p, converter_e.plug_p) annotation (Line(
-            points={{-10,70},{20,70}},
-            color={0,0,255}));
+            points={{-10,70},{20,70}}, color={0,0,255}));
         annotation (experiment(StopTime=40, Interval=0.01), Documentation(info="<html>
 <p>
 In this example the eddy current losses are implemented in two different ways. Compare the loss dissipation <code>powerb_e.power</code> and <code>powerb_m.power</code> of the two models indicated by power meters.</p>
@@ -900,38 +875,27 @@ In this example the eddy current losses are implemented in two different ways. C
         resistor_m.i = 0;
       equation
         connect(converter_m.port_p, reluctance_m.port_p) annotation (Line(
-            points={{20,-20},{60,-20}},
-            color={255,128,0}));
+            points={{20,-20},{60,-20}}, color={255,128,0}));
         connect(converter_m.port_n, reluctance_m.port_n) annotation (Line(
-            points={{20,-40},{60,-40}},
-            color={255,128,0}));
+            points={{20,-40},{60,-40}}, color={255,128,0}));
         connect(converter_m.port_n, groundM_m.port_p) annotation (Line(
-            points={{20,-40},{20,-60}},
-            color={255,128,0}));
+            points={{20,-40},{20,-60}}, color={255,128,0}));
         connect(voltageSource_e.n, inductor_e.n) annotation (Line(
-            points={{-60,60},{0,60}},
-            color={0,0,255}));
+            points={{-60,60},{0,60}}, color={0,0,255}));
         connect(voltageSource_e.n, ground_e.p) annotation (Line(
-            points={{-60,60},{-60,40}},
-            color={0,0,255}));
+            points={{-60,60},{-60,40}}, color={0,0,255}));
         connect(voltageSource_m.n, converter_m.pin_n) annotation (Line(
-            points={{-60,-40},{0,-40}},
-            color={0,0,255}));
+            points={{-60,-40},{0,-40}}, color={0,0,255}));
         connect(voltageSource_m.n, ground_m.p) annotation (Line(
-            points={{-60,-40},{-60,-60}},
-            color={0,0,255}));
+            points={{-60,-40},{-60,-60}}, color={0,0,255}));
         connect(voltageSource_e.p, resistor_e.p) annotation (Line(
-            points={{-60,80},{-40,80}},
-            color={0,0,255}));
+            points={{-60,80},{-40,80}}, color={0,0,255}));
         connect(resistor_e.n, inductor_e.p) annotation (Line(
-            points={{-20,80},{0,80}},
-            color={0,0,255}));
+            points={{-20,80},{0,80}}, color={0,0,255}));
         connect(voltageSource_m.p, resistor_m.p) annotation (Line(
-            points={{-60,-20},{-40,-20}},
-            color={0,0,255}));
+            points={{-60,-20},{-40,-20}}, color={0,0,255}));
         connect(resistor_m.n, converter_m.pin_p) annotation (Line(
-            points={{-20,-20},{0,-20}},
-            color={0,0,255}));
+            points={{-20,-20},{0,-20}}, color={0,0,255}));
         annotation (experiment(StopTime=100, Interval=0.01));
       end SinglePhaseInductance;
 
@@ -1010,44 +974,31 @@ In this example the eddy current losses are implemented in two different ways. C
         resistor_m.i[1:2] = zeros(2);
       equation
         connect(star_e.plug_p, voltageSource_e.plug_n) annotation (Line(
-            points={{-60,50},{-60,60}},
-            color={0,0,255}));
+            points={{-60,50},{-60,60}}, color={0,0,255}));
         connect(voltageSource_e.plug_n, inductor_e.plug_n) annotation (Line(
-            points={{-60,60},{0,60}},
-            color={0,0,255}));
+            points={{-60,60},{0,60}}, color={0,0,255}));
         connect(converter_m.port_p, reluctance_m.port_p) annotation (Line(
-            points={{20,-20},{60,-20}},
-            color={255,128,0}));
+            points={{20,-20},{60,-20}}, color={255,128,0}));
         connect(converter_m.port_n, reluctance_m.port_n) annotation (Line(
-            points={{20,-40},{60,-40}},
-            color={255,128,0}));
+            points={{20,-40},{60,-40}}, color={255,128,0}));
         connect(converter_m.port_n, groundM_m.port_p) annotation (Line(
-            points={{20,-40},{20,-70}},
-            color={255,128,0}));
+            points={{20,-40},{20,-70}}, color={255,128,0}));
         connect(voltageSource_m.plug_n, star_m.plug_p) annotation (Line(
-            points={{-60,-40},{-60,-50}},
-            color={0,0,255}));
+            points={{-60,-40},{-60,-50}}, color={0,0,255}));
         connect(voltageSource_m.plug_n, converter_m.plug_n) annotation (Line(
-            points={{-60,-40},{0,-40}},
-            color={0,0,255}));
+            points={{-60,-40},{0,-40}}, color={0,0,255}));
         connect(voltageSource_e.plug_p, resistor_e.plug_p) annotation (Line(
-            points={{-60,80},{-40,80}},
-            color={0,0,255}));
+            points={{-60,80},{-40,80}}, color={0,0,255}));
         connect(resistor_e.plug_n, inductor_e.plug_p) annotation (Line(
-            points={{-20,80},{0,80}},
-            color={0,0,255}));
+            points={{-20,80},{0,80}}, color={0,0,255}));
         connect(voltageSource_m.plug_p, resistor_m.plug_p) annotation (Line(
-            points={{-60,-20},{-40,-20}},
-            color={0,0,255}));
+            points={{-60,-20},{-40,-20}}, color={0,0,255}));
         connect(resistor_m.plug_n, converter_m.plug_p) annotation (Line(
-            points={{-20,-20},{0,-20}},
-            color={0,0,255}));
+            points={{-20,-20},{0,-20}}, color={0,0,255}));
         connect(star_e.pin_n, ground_e.p) annotation (Line(
-            points={{-60,30},{-60,30}},
-            color={0,0,255}));
+            points={{-60,30},{-60,30}}, color={0,0,255}));
         connect(star_m.pin_n, ground_m.p) annotation (Line(
-            points={{-60,-70},{-60,-70}},
-            color={0,0,255}));
+            points={{-60,-70},{-60,-70}}, color={0,0,255}));
         annotation (experiment(StopTime=100, Interval=0.01));
       end MultiPhaseInductance;
     end Components;
@@ -1433,7 +1384,7 @@ Simulate for 1.5 seconds and plot (versus time):
             points={{-10,72},{0,72}},
             color={0,0,255}));
         connect(booleanStepM.y, idealCloserM.control) annotation (Line(
-            points={{-20,51},{-20,65}}, color={255,0,255}));
+            points={{-20,51},{-20,60}}, color={255,0,255}));
         connect(star3.pin_n, ground3.p)
           annotation (Line(points={{-90,-30},{-90,-42}}, color={0,0,255}));
         connect(sineVoltage3.plug_n, star3.plug_p) annotation (Line(points={{-60,
@@ -1455,9 +1406,9 @@ Simulate for 1.5 seconds and plot (versus time):
             points={{-10,-30},{0,-30}},
             color={0,0,255}));
         connect(booleanStep3.y, idealCloser3.control) annotation (Line(
-            points={{-20,-51},{-20,-37}}, color={255,0,255}));
+            points={{-20,-51},{-20,-42}}, color={255,0,255}));
         connect(currentRMSsensorM.I, gain.u) annotation (Line(
-            points={{10,62},{10,44}}, color={0,0,127}));
+            points={{10,61},{10,44}}, color={0,0,127}));
         connect(loadInertiaM.flange_b, quadraticLoadTorqueM.flange) annotation (
            Line(
             points={{70,50},{80,50}}));
@@ -1495,16 +1446,6 @@ Simulate for 1.5 seconds and plot (versus time):
 </html>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                   -100},{100,100}}),
                                graphics={       Text(
-                      extent={{20,88},{100,80}},
-                      lineColor={0,0,0},
-                      fillColor={255,255,170},
-                      fillPattern=FillPattern.Solid,
-                      pattern=LinePattern.Dash),Rectangle(
-                      extent={{-100,-10},{100,-80}},
-                      lineColor={0,0,255},
-                      fillColor={255,255,170},
-                      fillPattern=FillPattern.Solid,
-                      pattern=LinePattern.Dash),Text(
                       extent={{20,88},{100,80}},
                       lineColor={0,0,0},
                       fillColor={255,255,170},
@@ -1604,10 +1545,10 @@ Simulate for 1.5 seconds and plot (versus time):
                                               color={0,0,255}));
         connect(loadInertia.flange_b, quadraticLoadTorque.flange)
           annotation (Line(points={{70,20},{80,20}}));
-        connect(booleanStep.y, idealCloser.control) annotation (Line(points={{-59,60},{0,60},{0,83}},
+        connect(booleanStep.y, idealCloser.control) annotation (Line(points={{-59,60},{0,60},{0,78}},
                                                 color={255,0,255}));
         connect(booleanStepYD.y, switchYD.control)
-          annotation (Line(points={{-19,40},{19,40}},    color={255,0,255}));
+          annotation (Line(points={{-19,40},{18,40}},    color={255,0,255}));
         connect(idealCloser.plug_n, currentQuasiRMSSensor.plug_p)
           annotation (Line(points={{10,90},{30,90},{30,90},{30,90},{30,80},{30,80}},
                                                           color={0,0,255}));
@@ -1783,7 +1724,7 @@ accelerating inertias against load torque quadratic dependent on speed, finally 
         connect(star.plug_p, sineVoltage.plug_n) annotation (Line(
             points={{-80,60},{-80,80}}, color={0,0,255}));
         connect(booleanStep2.y, idealCommutingSwitch.control) annotation (Line(
-            points={{-39,20},{-10,20},{-10,40},{50,40},{50,72}},
+            points={{-39,20},{-10,20},{-10,40},{50,40},{50,68}},
                                      color={255,0,255}));
         connect(transformer.starpoint2, ground2.p) annotation (Line(
             points={{25,70},{25,60},{20,60}},    color={0,0,255}));
@@ -1793,13 +1734,13 @@ accelerating inertias against load torque quadratic dependent on speed, finally 
                                                   color={0,0,255}));
         connect(transformer.plug2, idealCommutingSwitch.plug_n1) annotation (
             Line(
-            points={{30,80},{40,80},{40,75}},  color={0,0,255}));
+            points={{30,80},{40,80},{40,76}},  color={0,0,255}));
         connect(sineVoltage.plug_p, currentQuasiRMSSensor.plug_p) annotation (
             Line(
             points={{-60,80},{-50,80}},
                                       color={0,0,255}));
         connect(booleanStep1.y, idealCloser.control) annotation (Line(
-            points={{-39,50},{-20,50},{-20,73},{-10,73}},
+            points={{-39,50},{-20,50},{-20,68},{-10,68}},
                                        color={255,0,255}));
         connect(currentQuasiRMSSensor.plug_n, idealCloser.plug_p) annotation (
             Line(
@@ -1989,7 +1930,7 @@ at start time tStart2 the machine is fed directly from the voltage source, final
         connect(aimsE.flange, loadInertiaE.flange_a)
           annotation (Line(points={{10,-80},{50,-80}}));
         connect(booleanStep.y, idealCloser.control)
-          annotation (Line(points={{-39,60},{-7,60}}, color={255,0,255}));
+          annotation (Line(points={{-39,60},{-12,60}},color={255,0,255}));
         connect(terminalBoxE.plug_sn, aimsE.plug_sn)
           annotation (Line(points={{-6,-70},{-6,-70}}, color={0,0,255}));
         connect(terminalBoxE.plug_sp, aimsE.plug_sp)
@@ -2275,7 +2216,7 @@ Simulate for 1.5 seconds and plot (versus time):
             points={{-10,72},{0,72}},
             color={0,0,255}));
         connect(booleanStepM.y, idealCloserM.control) annotation (Line(
-            points={{-29,40},{-20,40},{-20,65}},
+            points={{-29,40},{-20,40},{-20,60}},
             color={255,0,255}));
         connect(star3.pin_n, ground3.p)
           annotation (Line(points={{-90,-30},{-90,-42}}, color={0,0,255}));
@@ -2288,10 +2229,10 @@ Simulate for 1.5 seconds and plot (versus time):
             points={{-10,-30},{0,-30}},
             color={0,0,255}));
         connect(booleanStep3.y, idealCloser3.control) annotation (Line(
-            points={{-29,-60},{-20,-60},{-20,-37}},
+            points={{-29,-60},{-20,-60},{-20,-42}},
             color={255,0,255}));
         connect(currentRMSsensorM.I, gain.u) annotation (Line(
-            points={{10,82},{10,90},{38,90}},
+            points={{10,83},{10,90},{38,90}},
             color={0,0,127}));
         connect(currentRMSsensor3.plug_n, terminalBox3.plugSupply) annotation (
             Line(
@@ -2332,16 +2273,6 @@ Simulate for 1.5 seconds and plot (versus time):
 </html>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                   -100},{100,100}}),
                                graphics={       Text(
-                      extent={{40,68},{100,60}},
-                      lineColor={0,0,0},
-                      fillColor={255,255,170},
-                      fillPattern=FillPattern.Solid,
-                      pattern=LinePattern.Dash),Rectangle(
-                      extent={{-100,-10},{100,-80}},
-                      lineColor={0,0,255},
-                      fillColor={255,255,170},
-                      fillPattern=FillPattern.Solid,
-                      pattern=LinePattern.Dash),Text(
                       extent={{40,68},{100,60}},
                       lineColor={0,0,0},
                       fillColor={255,255,170},
@@ -2430,7 +2361,7 @@ Simulate for 1.5 seconds and plot (versus time):
         connect(ramp.y, vfController.u)
           annotation (Line(points={{-59,60},{-42,60}}, color={0,0,255}));
         connect(vfController.y, signalVoltage.v)
-          annotation (Line(points={{-19,60},{-7,60}}, color={0,0,255}));
+          annotation (Line(points={{-19,60},{-12,60}},color={0,0,255}));
         connect(loadTorqueStep.flange, loadInertia.flange_b)
           annotation (Line(points={{70,-40},{60,-40}}));
         connect(signalVoltage.plug_p, currentQuasiRMSSensor.plug_p)
@@ -2541,7 +2472,7 @@ Default machine parameters are used.
           annotation (Line(points={{-60,90},{-70,90},{-70,80}},
                                                        color={0,0,255}));
         connect(vfController.y, signalVoltage.v)
-          annotation (Line(points={{-9,50},{0,50},{0,83}},
+          annotation (Line(points={{-9,50},{0,50},{0,78}},
                                                       color={0,0,255}));
         connect(signalVoltage.plug_p, currentQuasiRMSSensor.plug_p)
           annotation (Line(points={{10,90},{20,90}},      color={0,0,255}));
@@ -2701,7 +2632,7 @@ The mechanical load is a constant torque like a conveyor (with regularization ar
           annotation (Line(points={{-80,90},{-70,90}}, color={0,0,255}));
         connect(sineVoltage.p, idealCloser.p)
           annotation (Line(points={{-50,90},{-30,90}}, color={0,0,255}));
-        connect(booleanStep.y, idealCloser.control) annotation (Line(points={{-29,70},{-20,70},{-20,83}},
+        connect(booleanStep.y, idealCloser.control) annotation (Line(points={{-29,70},{-20,70},{-20,78}},
                                         color={255,0,255}));
         connect(plugToPin_p3.pin_p, sineVoltage.n) annotation (Line(points={{-30,
                 20},{-70,20},{-70,90}}, color={0,0,255}));
@@ -2720,7 +2651,7 @@ The mechanical load is a constant torque like a conveyor (with regularization ar
         connect(idealOpener.p, idealCloser.n) annotation (Line(points={{30,90},
                 {30,90},{-10,90}}, color={0,0,255}));
         connect(greaterThreshold.y, idealOpener.control) annotation (Line(
-              points={{50,61},{50,80},{37,80}}, color={255,0,255}));
+              points={{50,61},{50,80},{42,80}}, color={255,0,255}));
         connect(TerminalBox1.plug_sn, aimc.plug_sn) annotation (Line(
             points={{-16,-30},{-16,-30}}, color={0,0,255}));
         connect(TerminalBox1.plug_sp, aimc.plug_sp) annotation (Line(
@@ -3262,7 +3193,7 @@ at time tStart a load torque step is applied.</p>
         connect(ramp.y, vfController.u)
           annotation (Line(points={{-59,60},{-42,60}}, color={0,0,255}));
         connect(vfController.y, signalVoltage.v)
-          annotation (Line(points={{-19,60},{-7,60}}, color={0,0,255}));
+          annotation (Line(points={{-19,60},{-12,60}},color={0,0,255}));
         connect(loadInertiaM.flange_b, torqueStepM.flange)
           annotation (Line(points={{70,-20},{80,-20}}));
         connect(signalVoltage.plug_p, currentRMSsensorM.plug_p)
@@ -3515,7 +3446,7 @@ and accelerate the inertias.</p>
         connect(ramp.y, vfController3.u)
           annotation (Line(points={{-59,70},{-42,70}}, color={0,0,255}));
         connect(vfController3.y, signalVoltage3.v)
-          annotation (Line(points={{-19,70},{-7,70}}, color={0,0,255}));
+          annotation (Line(points={{-19,70},{-12,70}},color={0,0,255}));
         connect(loadInertiaM.flange_b, torqueStepM.flange)
           annotation (Line(points={{70,-20},{80,-20}}));
         connect(smpmM.flange, loadInertiaM.flange_a)
@@ -3553,7 +3484,7 @@ and accelerate the inertias.</p>
             points={{70,90},{80,90}},
             color={0,0,255}));
         connect(vfController.y, signalVoltageM.v) annotation (Line(
-            points={{-19,50},{23,50}},
+            points={{-19,50},{18,50}},
             color={0,0,127}));
         connect(vfController.u, ramp.y) annotation (Line(
             points={{-42,50},{-50,50},{-50,70},{-59,70}},
@@ -3569,7 +3500,7 @@ and accelerate the inertias.</p>
             points={{-41,20},{-50,20},{-50,8}},
             color={0,0,127}));
         connect(gain.u, currentRMSsensorM.I) annotation (Line(
-            points={{-18,20},{20,20}},
+            points={{-18,20},{19,20}},
             color={0,0,127}));
         annotation (
           experiment(
@@ -4222,7 +4153,7 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM.rotorDisplacementAngl
             points={{0,52},{0,60},{40,60},{40,80}},
             color={0,0,255}));
         connect(currentRMSsensorM.I, gain.u) annotation (Line(
-            points={{30,90},{30,100},{90,100},{90,42}},
+            points={{30,91},{30,100},{90,100},{90,42}},
             color={0,0,127}));
         connect(starM.pin_n, groundM.p) annotation (Line(points={{-70,80},{-75,
                 80},{-80,80}}, color={0,0,255}));
@@ -4445,7 +4376,7 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM3.rotorDisplacementAng
         connect(ramp.y, vfController.u)
           annotation (Line(points={{-59,60},{-42,60}}, color={0,0,255}));
         connect(vfController.y, signalVoltage.v)
-          annotation (Line(points={{-19,60},{-7,60}}, color={0,0,255}));
+          annotation (Line(points={{-19,60},{-12,60}},color={0,0,255}));
         connect(loadInertiaE.flange_b, torqueStepE.flange)
           annotation (Line(points={{70,-80},{80,-80}}));
         connect(smrE.plug_sn, rotorAngleE.plug_n) annotation (Line(points={{-6,
@@ -5266,7 +5197,7 @@ whereas the stator voltage is influenced by the d-current.</p>
         connect(limiter.y, ac2dc.u)
           annotation (Line(points={{40,71},{40,80},{22,80}}, color={0,0,127}));
         connect(ac2dc.y, variableResistor.R)
-          annotation (Line(points={{-1,80},{-10,80},{-10,71}}, color={0,0,127}));
+          annotation (Line(points={{-1,80},{-10,80},{-10,72}}, color={0,0,127}));
         connect(starM.plug_p, voltageQuasiRMSSensor.plug_n) annotation (Line(
               points={{-50,-10},{-48,-10},{-40,-10}}, color={0,0,255}));
         connect(voltageQuasiRMSSensor.plug_p, currentQuasiRMSSensor.plug_n)
@@ -5274,8 +5205,8 @@ whereas the stator voltage is influenced by the d-current.</p>
                 255}));
         connect(smpm.flange, speedSensor.flange)
           annotation (Line(points={{0,-40},{40,-40},{40,-10}}));
-        connect(terminalBox.starpoint, starM.pin_n) annotation (Line(points={{-19,-28},
-                {-44,-28},{-70,-28},{-70,-10}}, color={0,0,255}));
+        connect(terminalBox.starpoint, starM.pin_n) annotation (Line(points={{-20,-28},{-20,-28},{-70,-28},{-70,-10}},
+                                                color={0,0,255}));
         connect(ground.p, variableResistor.n)
           annotation (Line(points={{-70,60},{-46,60},{-20,60}}, color={0,0,255}));
         connect(ground.p, grounding.n)
@@ -5478,7 +5409,7 @@ to speed to achieve constant current and torque.</p>
             Line(
             points={{-11,0},{-60,0},{-60,-18}}, color={0,0,127}));
         connect(voltageController.y, excitationVoltage.v) annotation (Line(
-            points={{-49,-30},{-37,-30}}, color={0,0,127}));
+            points={{-49,-30},{-42,-30}}, color={0,0,127}));
         connect(loadInductor.plug_p, loadResistor.plug_n) annotation (Line(
             points={{-60,50},{-50,50}}, color={0,0,255}));
         connect(loadResistor.plug_p, switch.plug_n) annotation (Line(
@@ -5488,11 +5419,11 @@ to speed to achieve constant current and torque.</p>
         connect(star.plug_p, loadInductor.plug_n) annotation (Line(
             points={{-90,40},{-90,50},{-80,50}}, color={0,0,255}));
         connect(loadControl.y, switch.control[1]) annotation (Line(
-            points={{-19,80},{-10,80},{-10,57}}, color={255,0,255}));
+            points={{-19,80},{-10,80},{-10,62}}, color={255,0,255}));
         connect(loadControl.y, switch.control[2]) annotation (Line(
-            points={{-19,80},{-10,80},{-10,57}}, color={255,0,255}));
+            points={{-19,80},{-10,80},{-10,62}}, color={255,0,255}));
         connect(loadControl.y, switch.control[3]) annotation (Line(
-            points={{-19,80},{-10,80},{-10,57}}, color={255,0,255}));
+            points={{-19,80},{-10,80},{-10,62}}, color={255,0,255}));
         connect(star.pin_n, ground.p) annotation (Line(
             points={{-90,20},{-90,10}}, color={0,0,255}));
         annotation (experiment(StopTime=10, Interval=1E-4, Tolerance=1e-06), Documentation(info="<html>
@@ -5709,7 +5640,7 @@ Voltage is controlled, the set point depends on speed. After start-up the genera
         connect(speedSensor.w, setPointGain.u) annotation (Line(
             points={{30,-61},{30,-80},{-48,-80}}, color={0,0,127}));
         connect(voltageController.y, excitationVoltage.v) annotation (Line(
-            points={{-49,-30},{-37,-30}}, color={0,0,127}));
+            points={{-49,-30},{-42,-30}}, color={0,0,127}));
         connect(idealDiode1.plug_p, idealDiode2.plug_n) annotation (Line(
             points={{0,70},{0,50}}, color={0,0,255}));
         connect(idealDiode2.plug_p, star2.plug_p) annotation (Line(
@@ -5727,7 +5658,7 @@ Voltage is controlled, the set point depends on speed. After start-up the genera
         connect(filter.y, voltageController.u_m) annotation (Line(
             points={{-60,-11},{-60,-18}}, color={0,0,127}));
         connect(voltageSensor.v, filter.u) annotation (Line(
-            points={{-70,60},{-60,60},{-60,12}}, color={0,0,127}));
+            points={{-69,60},{-60,60},{-60,12}}, color={0,0,127}));
         connect(terminalBox.plugSupply, idealDiode2.plug_n) annotation (Line(
             points={{10,-18},{10,60},{0,60},{0,50}}, color={0,0,255}));
         connect(resistor.p, capacitor1.p) annotation (Line(
