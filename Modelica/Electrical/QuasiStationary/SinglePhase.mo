@@ -1219,7 +1219,7 @@ singularities due to the actual structure of the connected network.
           Line(origin={10,40}, points={{-100,-40},{-80,-40}}),
           Line(origin={10,40}, points={{60,-40},{80,-40}}),
           Rectangle(
-            lineColor={0,0,255},
+            lineColor={85,170,255},
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid,
             extent={{-70,-30},{70,30}})}, coordinateSystem(extent={{-100,-100},
