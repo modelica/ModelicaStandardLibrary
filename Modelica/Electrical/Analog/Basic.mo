@@ -37,11 +37,12 @@ package Basic "Basic electrical components"
     parameter SI.Resistance R(start=1)
       "Resistance at temperature T_ref";
     parameter SI.Temperature T_ref=300.15 "Reference temperature";
+    parameter SI.Temperature T_operational=T_ref "Operational temperature if useHeatPort = false" annotation(Dialog(enable=not useHeatPort));
     parameter SI.LinearTemperatureCoefficient alpha=0
       "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(T_heatPort - T_ref))";
 
     extends Modelica.Electrical.Analog.Interfaces.OnePort;
-    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=T_ref);
+    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=T_operational);
     SI.Resistance R_actual
       "Actual resistance = R*(1 + alpha*(T_heatPort - T_ref))";
 
@@ -53,9 +54,12 @@ package Basic "Basic electrical components"
     LossPower = v*i;
     annotation (
       Documentation(info="<html>
-<p>The linear resistor connects the branch voltage <em>v</em> with the branch current <em>i</em> by <em>i*R = v</em>. The Resistance <em>R</em> is allowed to be positive, zero, or negative.</p>
+<p>The linear resistor connects the branch voltage <em>v</em> with the branch current <em>i</em> by <em>i*R = v</em>. The resistance <em>R</em> is allowed to be positive, zero, or negative.</p>
 </html>", revisions="<html>
 <ul>
+<li><em> September 27, 2017</em>
+       by Thomas Beutlich<br> fixed operational temperature parameter added (for clean separation of the reference temperature and the operational temperature)<br>
+       </li>
 <li><em> August 07, 2009   </em>
        by Anton Haumer<br> temperature dependency of resistance added<br>
        </li>
@@ -94,10 +98,11 @@ package Basic "Basic electrical components"
     parameter SI.Resistance R_ref(start=1)
       "Resistance at temperature T_ref";
     parameter SI.Temperature T_ref=300.15 "Reference temperature";
+    parameter SI.Temperature T_operational=T_ref "Operational temperature if useHeatPort = false" annotation(Dialog(enable=not useHeatPort));
     parameter SI.LinearTemperatureCoefficient alpha=0
       "Temperature coefficient of resistance (R = R_ref*(1 + alpha*(heatPort.T - T_ref))";
     extends Modelica.Electrical.Analog.Interfaces.OnePort;
-    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=T_ref,
+    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=T_operational,
         useHeatPort=true);
     SI.Resistance R
       "Resistance = R_ref*(1 + alpha*(T_heatPort - T_ref))";
@@ -146,9 +151,12 @@ package Basic "Basic electrical components"
 <p>This is a model for an electrical resistor where the generated heat is dissipated to the environment via connector <strong>heatPort</strong> and where the resistance R is temperature dependent according to the following equation:</p>
 <pre>    R = R_ref*(1 + alpha*(heatPort.T - T_ref))</pre>
 <p><strong>alpha</strong> is the <strong>temperature coefficient of resistance</strong>, which is often abbreviated as <strong>TCR</strong>. In resistor catalogues, it is usually defined as <strong>X [ppm/K]</strong> (parts per million, similarly to percentage) meaning <strong>X*1e-6 [1/K]</strong>. Resistors are available for 1 .. 7000 ppm/K, i.e., alpha = 1e-6 .. 7e-3 1/K;</p>
-<p>Via parameter <strong>useHeatPort</strong> the heatPort connector can be enabled and disabled (default = enabled). If it is disabled, the generated heat is transported implicitly to an internal temperature source with a fixed temperature of T_ref.</p><p>If the heatPort connector is enabled, it must be connected.</p>
+<p>Via parameter <strong>useHeatPort</strong> the heatPort connector can be enabled and disabled (default = enabled). If it is disabled, the generated heat is transported implicitly to an internal temperature source with a fixed temperature of T_operational.</p><p>If the heatPort connector is enabled, it must be connected.</p>
 </html>", revisions="<html>
 <ul>
+<li><em> September 27, 2017</em>
+       by Thomas Beutlich<br> fixed operational temperature parameter added (for clean separation of the reference temperature and the operational temperature)<br>
+       </li>
 <li><em> August 07, 2009   </em>
        by Anton Haumer<br> temperature dependency of resistance added<br>
        </li>
@@ -166,10 +174,11 @@ package Basic "Basic electrical components"
     parameter SI.Conductance G(start=1)
       "Conductance at temperature T_ref";
     parameter SI.Temperature T_ref=300.15 "Reference temperature";
+    parameter SI.Temperature T_operational=T_ref "Operational temperature if useHeatPort = false" annotation(Dialog(enable=not useHeatPort));
     parameter SI.LinearTemperatureCoefficient alpha=0
       "Temperature coefficient of conductance (G_actual = G_ref/(1 + alpha*(T_heatPort - T_ref))";
     extends Modelica.Electrical.Analog.Interfaces.OnePort;
-    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=T_ref);
+    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=T_operational);
     SI.Conductance G_actual
       "Actual conductance = G_ref/(1 + alpha*(T_heatPort - T_ref))";
 
@@ -184,6 +193,9 @@ package Basic "Basic electrical components"
 <p>The linear conductor connects the branch voltage <em>v</em> with the branch current <em>i</em> by <em>i = v*G</em>. The Conductance <em>G</em> is allowed to be positive, zero, or negative.</p>
 </html>", revisions="<html>
 <ul>
+<li><em> September 27, 2017</em>
+       by Thomas Beutlich<br> fixed operational temperature parameter added (for clean separation of the reference temperature and the operational temperature)<br>
+       </li>
 <li><em> August 07, 2009   </em>
        by Anton Haumer<br> temperature dependency of conductance added<br>
        </li>
@@ -1467,10 +1479,11 @@ the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N
   model VariableResistor
     "Ideal linear electrical resistor with variable resistance"
     parameter SI.Temperature T_ref=300.15 "Reference temperature";
+    parameter SI.Temperature T_operational=T_ref "Operational temperature if useHeatPort = false" annotation(Dialog(enable=not useHeatPort));
     parameter SI.LinearTemperatureCoefficient alpha=0
       "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(T_heatPort - T_ref))";
     extends Modelica.Electrical.Analog.Interfaces.OnePort;
-    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=T_ref);
+    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=T_operational);
     SI.Resistance R_actual
       "Actual resistance = R*(1 + alpha*(T_heatPort - T_ref))";
     Modelica.Blocks.Interfaces.RealInput R(unit="Ohm") annotation (Placement(
@@ -1491,10 +1504,13 @@ the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N
       Documentation(info="<html>
 <p>The linear resistor connects the branch voltage <em>v</em> with the branch current <em>i</em> by
 <br><em><strong>i*R = v</strong></em>
-<br>The Resistance <em>R</em> is given as input signal.
+<br>The resistance <em>R</em> is given as input signal.
 <br><br><strong>Attention!!!</strong><br>It is recommended that the R signal should not cross the zero value. Otherwise depending on the surrounding circuit the probability of singularities is high.</p>
 </html>", revisions="<html>
 <ul>
+<li><em> September 27, 2017</em>
+       by Thomas Beutlich<br> fixed operational temperature parameter added (for clean separation of the reference temperature and the operational temperature)<br>
+       </li>
 <li><em> August 07, 2009   </em>
        by Anton Haumer<br> temperature dependency of resistance added<br>
        </li>
@@ -1527,10 +1543,11 @@ the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N
   model VariableConductor
     "Ideal linear electrical conductor with variable conductance"
     parameter SI.Temperature T_ref=300.15 "Reference temperature";
+    parameter SI.Temperature T_operational=T_ref "Operational temperature if useHeatPort = false" annotation(Dialog(enable=not useHeatPort));
     parameter SI.LinearTemperatureCoefficient alpha=0
       "Temperature coefficient of conductance (G_actual = G/(1 + alpha*(T_heatPort - T_ref))";
     extends Modelica.Electrical.Analog.Interfaces.OnePort;
-    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=T_ref);
+    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=T_operational);
     SI.Conductance G_actual
       "Actual conductance = G/(1 + alpha*(T_heatPort - T_ref))";
     Modelica.Blocks.Interfaces.RealInput G(unit="S") annotation (Placement(
@@ -1553,6 +1570,9 @@ the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N
 <br>It is recommended that the G signal should not cross the zero value. Otherwise depending on the surrounding circuit the probability of singularities is high.</p>
 </html>", revisions="<html>
 <ul>
+<li><em> September 27, 2017</em>
+       by Thomas Beutlich<br> fixed operational temperature parameter added (for clean separation of the reference temperature and the operational temperature)<br>
+       </li>
 <li><em> August 07, 2009   </em>
        by Anton Haumer<br> temperature dependency of conductance added<br>
        </li>
@@ -1707,9 +1727,10 @@ It is required that L &ge; 0, otherwise an assertion is raised. To avoid a varia
     parameter SI.Resistance R(start=1)
       "Resistance at temperature T_ref";
     parameter SI.Temperature T_ref=293.15 "Reference temperature";
+    parameter SI.Temperature T_operational=T_ref "Operational temperature if useHeatPort = false" annotation(Dialog(enable=not useHeatPort));
     parameter SI.LinearTemperatureCoefficient alpha=0
       "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(T_heatPort - T_ref))";
-    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=T_ref);
+    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=T_operational);
     parameter Boolean useRinput=false "use input for 0<r<1 (else constant)"
       annotation (
       Evaluate=true,
@@ -1801,7 +1822,13 @@ It is required that L &ge; 0, otherwise an assertion is raised. To avoid a varia
       Documentation(info="<html>
                        <p>This models a potentiometer where the sliding contact is placed between pin_n (r = 0) and pin_p (r = 1), dependent on either the parameter rConstant or the signal input r.</p>
                        <p>The total resistance R is temperature dependent.</p>
-                       </html>"));
+                       </html>", revisions="<html>
+<ul>
+<li><em> September 27, 2017</em>
+       by Thomas Beutlich<br> fixed operational temperature parameter added (for clean separation of the reference temperature and the operational temperature)<br>
+       </li>
+</ul>
+</html>"));
   end Potentiometer;
   annotation (Documentation(info="<html>
 <p>This package contains very basic analog electrical components such as resistor, conductor, condensator, inductor, and the ground (which is needed in each electrical circuit description. Furthermore, controlled sources, coupling components, and some improved (but nevertheless basic) are in this package.</p>
