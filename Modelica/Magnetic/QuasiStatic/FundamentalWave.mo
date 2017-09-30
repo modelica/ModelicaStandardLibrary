@@ -1099,10 +1099,9 @@ Simulate for 1 second and plot (versus time):
               Line(
               points={{30,-50},{30,-40}}, color={0,0,255}));
           connect(imc.flange, loadInertia.flange_a) annotation (Line(points={{40,-80},{50,-80}}));
-          annotation (experiment(
-              StopTime=2.5,
-              Interval=0.0001,
-              Tolerance=1e-06),                                 Documentation(
+          annotation (experiment(StopTime=2.5,Interval=0.0001,Tolerance=1e-06),
+            __OpenModelica_simulationFlags(jacobian = "", nls = "newton", s = "dassl", lv = "LOG_STATS"),
+            Documentation(
                 info="<html>
 <p>
 At start time tStart three phase voltage is supplied to the asynchronous induction machine with squirrel cage, first star-connected, then delta-connected; the machine starts from standstill, accelerating inertias against load torque quadratic dependent on speed, finally reaching nominal speed.</p>
