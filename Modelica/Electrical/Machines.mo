@@ -15121,11 +15121,6 @@ Note: No care is taken for current or voltage limiting, as well as for field wea
                                                           color={255,0,255}));
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={
-            Rectangle(
-              extent={{-100,100},{100,-100}},
-              lineColor={0,0,255},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
             Line(
               points={{20,22},{40,12},{60,22},{40,12},{40,-10}},
               color={0,0,255}),
