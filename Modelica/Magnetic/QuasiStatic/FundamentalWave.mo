@@ -8184,12 +8184,6 @@ The model output can be used to feed a quasi static current source with phase in
         annotation (Line(points={{-110,0},{0,0},{0,-52}}, color={255,0,255}));
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={
-            Polygon(
-              points={{-100,-60},{-60,-100},{58,-100},{100,-60},{100,60},{60,
-                  100},{-60,100},{-100,60},{-100,-60}},
-              lineColor={175,175,175},
-              fillColor={215,215,215},
-              fillPattern=FillPattern.Solid),
             Line(
               points={{-80,52},{-40,0},{-2,52},{-40,0},{-40,-52}},
               color={85,170,255},
