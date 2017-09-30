@@ -911,7 +911,7 @@ Simulate for 1 second and plot (versus imcQS.wMechanical or perUnitSpeed):
                   extent={{20,8},{100,0}},
                           textStyle={TextStyle.Bold},
                   textString="%m phase quasi static",        lineColor={0,0,0})}),
-                experiment(StopTime=1.5, Interval=0.001, Tolerance=1E-6),
+                experiment(StopTime=1, Interval=0.0001, Tolerance=1E-6),
             Documentation(info="<html>
 <p>
 This example compares a time transient and a quasi static model of a multi phase induction machine. 
@@ -1102,7 +1102,7 @@ Simulate for 1 second and plot (versus time):
           connect(imc.flange, loadInertia.flange_a) annotation (Line(points={{40,-80},{50,-80}}));
           annotation (experiment(
               StopTime=2.5,
-              Interval=0.001,
+              Interval=0.0001,
               Tolerance=1e-06),                                 Documentation(
                 info="<html>
 <p>
@@ -1386,7 +1386,7 @@ Default machine parameters are used.</p>
               Line(
               points={{0,-20},{0,0},{40,0},{40,-20}},
                                       color={0,0,255}));
-          annotation (experiment(StopTime=2.5, Interval=0.001, Tolerance=1e-06), Documentation(
+          annotation (experiment(StopTime=2.5, Interval=0.0001, Tolerance=1e-06), Documentation(
                 info="<html>
 <p>At start time tStart1 three phase voltage is supplied to the asynchronous induction machine with squirrel cage via the transformer;
 the machine starts from standstill, accelerating inertias against load torque quadratic dependent on speed;
@@ -1634,7 +1634,7 @@ Simulate for 2.5 seconds and plot (versus time):</p>
           connect(starMachine.plug_p, terminalBox.starpoint) annotation (Line(points={{10,-74},{10,-68},{20,-68}},   color={0,0,255}));
           connect(groundMachine.p,starMachine. pin_n) annotation (Line(points={{-20,-74},{-10,-74}}, color={0,0,255}));
           annotation (
-            experiment(StopTime=1.5, Interval=0.001, Tolerance=1E-6),
+            experiment(StopTime=1.5, Interval=0.0001, Tolerance=1E-6),
             Documentation(info="<html>
 
 <p>This example compares a time transient and a quasi static model of a multi phase induction machine.
@@ -2100,7 +2100,7 @@ Simulate for 1 second and plot (versus imsQS.wMechanical or perUnitSpeed):
           annotation (
             experiment(
               StopTime=1.5,
-              Interval=0.001,
+              Interval=0.0001,
               Tolerance=1e-06),
             Documentation(info="<html>
 
@@ -2322,7 +2322,7 @@ Simulate for 1.5 seconds and plot (versus time):
           connect(dutyCycle.y[1], gain.u) annotation (Line(points={{-79,50},{-70,50},{-70,20},{-90,20},{-90,-50},{-62,-50}}, color={0,0,127}));
           connect(groundMachine.p,starMachine. pin_n) annotation (Line(points={{90,-80},{90,-68}},   color={0,0,255}));
           connect(terminalBox.starpoint, starMachine.plug_p) annotation (Line(points={{60,-68},{70,-68}}, color={0,0,255}));
-          annotation (experiment(StopTime=20, Interval=0.001, Tolerance=1e-06), Documentation(
+          annotation (experiment(StopTime=20, Interval=0.0001, Tolerance=1e-06), Documentation(
                 info="<html>
 <p>
 An ideal frequency inverter is modeled by using a VfController and a three-phase SignalVoltage.
@@ -2636,7 +2636,7 @@ The mechanical load is a constant torque like a conveyor (with regularization ar
           connect(powerSensor.power,combiTable1Ds. u) annotation (Line(
               points={{12,-41},{12,-60},{38,-60}},color={0,0,127}));
           annotation (
-            experiment(StopTime=5.0, Interval=0.001, Tolerance=1e-06),
+            experiment(StopTime=5.0, Interval=0.0001, Tolerance=1e-06),
             Documentation(info="<html>
 <ul>
 <li>Simulate for 5 seconds: The machine is started at nominal speed, flux is build up in the machine.</li>
@@ -2862,7 +2862,7 @@ Modelica 2009, 7<sup>th</sup> International Modelica Conference</p>
           connect(terminalBox.starpoint, starMachine.plug_p) annotation (Line(points={{-20,-38},{-40,-38},{-40,-52}}, color={0,0,255}));
           connect(starMachine.pin_n, ground.p) annotation (Line(points={{-40,-72},{-40,-80},{-70,-80}}, color={0,0,255}));
           connect(starMachineQS.pin_n, groundQS.pin) annotation (Line(points={{-40,28},{-40,20},{-70,20}}, color={85,170,255}));
-          annotation (experiment(StopTime=1.5, Interval=0.001, Tolerance=1e-06), Documentation(
+          annotation (experiment(StopTime=1.5, Interval=0.00001, Tolerance=1e-06), Documentation(
                 info="<html>
 <strong>Test example: Steady-State Initialization of Asynchronous induction machine with squirrel cage</strong><br>
 The asynchronous induction machine with squirrel cage is initialized in steady-state at no-load;
@@ -3951,7 +3951,7 @@ to numerically stabilize the simulation.</p>
           annotation (
             experiment(
               StopTime=30,
-              Interval=0.001,
+              Interval=1E-3,
               Tolerance=1e-06),
             Documentation(info="<html>
 <p>
