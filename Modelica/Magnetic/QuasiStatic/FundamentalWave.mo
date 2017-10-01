@@ -1167,7 +1167,7 @@ Default machine parameters are used.</p>
             TsOperational=293.15,
             alpha20r=imcData.alpha20r,
             TrOperational=293.15) annotation (Placement(transformation(extent={{80,10},{60,30}})));
-          Electrical.QuasiStationary.MultiPhase.Sensors.CurrentQuasiRMSSensor currentQuasiRMSSensorQS annotation (Placement(transformation(
+          Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.CurrentQuasiRMSSensor iSensorQS(m=m) annotation (Placement(transformation(
                 origin={-40,80},
                 extent={{-10,10},{10,-10}},
                 rotation=0)));
@@ -1211,7 +1211,7 @@ Default machine parameters are used.</p>
                 origin={20,50},
                 extent={{-10,-10},{10,10}},
                 rotation=0)));
-          parameter Electrical.Machines.Utilities.TransformerData transformerData(
+          parameter Modelica.Electrical.Machines.Utilities.TransformerData transformerData(
             f=fNominal,
             V1=VNominal,
             C1=Modelica.Utilities.Strings.substring(
@@ -1240,8 +1240,9 @@ Default machine parameters are used.</p>
             TorqueDirection=false,
             tau_nominal=-TLoad,
             useSupport=false) annotation (Placement(transformation(extent={{0,10},{20,30}})));
-          Modelica.Magnetic.QuasiStatic.FundamentalWave.Utilities.TerminalBox terminalBoxQS(terminalConnection="D") annotation (Placement(transformation(extent={{80,26},{60,46}})));
-          parameter Electrical.Machines.Utilities.ParameterRecords.AIM_SquirrelCageData imcData annotation (Placement(transformation(extent={{80,52},{100,72}})));
+          Modelica.Magnetic.QuasiStatic.FundamentalWave.Utilities.TerminalBox terminalBoxQS(terminalConnection="D", m=m)
+                                                                                                                    annotation (Placement(transformation(extent={{80,26},{60,46}})));
+          parameter Modelica.Electrical.Machines.Utilities.ParameterRecords.AIM_SquirrelCageData imcData annotation (Placement(transformation(extent={{80,52},{100,72}})));
           Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage imc(
             p=imcData.p,
             fsNominal=imcData.fsNominal,
@@ -1264,8 +1265,7 @@ Default machine parameters are used.</p>
             TsOperational=293.15,
             alpha20r=imcData.alpha20r,
             TrOperational=293.15) annotation (Placement(transformation(extent={{80,-90},{60,-70}})));
-          Modelica.Electrical.Machines.Sensors.CurrentQuasiRMSSensor
-                                                            currentQuasiRMSSensor annotation (Placement(transformation(
+          Modelica.Electrical.MultiPhase.Sensors.CurrentQuasiRMSSensor iSensor(m=m) annotation (Placement(transformation(
                 origin={-40,-20},
                 extent={{-10,10},{10,-10}},
                 rotation=0)));
@@ -1332,6 +1332,8 @@ Default machine parameters are used.</p>
             useSupport=false) annotation (Placement(transformation(extent={{0,-90},{20,-70}})));
           Modelica.Electrical.Machines.Utilities.TerminalBox terminalBox(terminalConnection="D") annotation (Placement(transformation(extent={{80,-74},{60,-54}})));
         initial equation
+          sum(imc.is) = 0;
+          imc.is[1:2] = zeros(2);
           imc.rotorCage.electroMagneticConverter.V_m = Complex(0, 0);
           transformer.i2[1:2] = zeros(2);
         equation
@@ -1345,9 +1347,9 @@ Default machine parameters are used.</p>
           connect(transformerQS.starpoint2, ground2QS.pin) annotation (Line(points={{25,70},{24,70},{24,60},{20,60}}, color={85,170,255}));
           connect(idealCommutingSwitchQS.plug_p, terminalBoxQS.plugSupply) annotation (Line(points={{60,80},{70,80},{70,32}}, color={85,170,255}));
           connect(transformerQS.plug2, idealCommutingSwitchQS.plug_n1) annotation (Line(points={{30,80},{36,80},{36,76},{40,76}}, color={85,170,255}));
-          connect(sineVoltageQS.plug_p, currentQuasiRMSSensorQS.plug_p) annotation (Line(points={{-60,80},{-50,80}}, color={85,170,255}));
+          connect(sineVoltageQS.plug_p, iSensorQS.plug_p) annotation (Line(points={{-60,80},{-50,80}}, color={85,170,255}));
           connect(booleanStep1QS.y, idealCloserQS.control) annotation (Line(points={{-39,50},{-10,50},{-10,68}}, color={255,0,255}));
-          connect(currentQuasiRMSSensorQS.plug_n, idealCloserQS.plug_p) annotation (Line(points={{-30,80},{-20,80}}, color={85,170,255}));
+          connect(iSensorQS.plug_n, idealCloserQS.plug_p) annotation (Line(points={{-30,80},{-20,80}}, color={85,170,255}));
           connect(transformerQS.plug1, idealCloserQS.plug_n) annotation (Line(points={{10,80},{0,80}}, color={85,170,255}));
           connect(idealCloserQS.plug_n, idealCommutingSwitchQS.plug_n2) annotation (Line(points={{0,80},{0,100},{40,100},{40,80}}, color={85,170,255}));
           connect(star.pin_n,ground. p)
@@ -1368,23 +1370,18 @@ Default machine parameters are used.</p>
               points={{25,-30},{25,-40},{20,-40}}, color={0,0,255}));
           connect(idealCommutingSwitch.plug_p, terminalBox.plugSupply) annotation (Line(points={{60,-20},{70,-20},{70,-68}}, color={0,0,255}));
           connect(transformer.plug2,idealCommutingSwitch. plug_n1) annotation (Line(points={{30,-20},{36,-20},{36,-24},{40,-24}}, color={0,0,255}));
-          connect(sineVoltage.plug_p,currentQuasiRMSSensor. plug_p) annotation (
-              Line(
-              points={{-60,-20},{-50,-20}},
-                                        color={0,0,255}));
+          connect(sineVoltage.plug_p, iSensor.plug_p) annotation (Line(points={{-60,-20},{-50,-20}}, color={0,0,255}));
           connect(booleanStep1.y,idealCloser. control) annotation (Line(
               points={{-39,-50},{-20,-50},{-20,-32},{-10,-32}},
                                          color={255,0,255}));
-          connect(currentQuasiRMSSensor.plug_n,idealCloser. plug_p) annotation (
-              Line(
-              points={{-30,-20},{-20,-20}},
-                                      color={0,0,255}));
+          connect(iSensor.plug_n, idealCloser.plug_p) annotation (Line(points={{-30,-20},{-20,-20}}, color={0,0,255}));
           connect(transformer.plug1,idealCloser. plug_n) annotation (Line(
               points={{10,-20},{0,-20}},color={0,0,255}));
           connect(idealCloser.plug_n,idealCommutingSwitch. plug_n2) annotation (
               Line(
               points={{0,-20},{0,0},{40,0},{40,-20}},
                                       color={0,0,255}));
+          connect(terminalBox.plug_sn, imc.plug_sn) annotation (Line(points={{76,-70},{76,-70}}, color={0,0,255}));
           annotation (experiment(StopTime=2.5, Interval=0.0001, Tolerance=1e-06), Documentation(
                 info="<html>
 <p>At start time tStart1 three phase voltage is supplied to the asynchronous induction machine with squirrel cage via the transformer;
