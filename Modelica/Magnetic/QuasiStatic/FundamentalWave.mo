@@ -1100,7 +1100,6 @@ Simulate for 1 second and plot (versus time):
               points={{30,-50},{30,-40}}, color={0,0,255}));
           connect(imc.flange, loadInertia.flange_a) annotation (Line(points={{40,-80},{50,-80}}));
           annotation (experiment(StopTime=2.5,Interval=0.0001,Tolerance=1e-06),
-            __OpenModelica_simulationFlags(jacobian = "", nls = "newton", s = "dassl", lv = "LOG_STATS"),
             Documentation(
                 info="<html>
 <p>
@@ -1371,7 +1370,7 @@ Default machine parameters are used.</p>
           connect(transformer.plug2,idealCommutingSwitch. plug_n1) annotation (Line(points={{30,-20},{36,-20},{36,-24},{40,-24}}, color={0,0,255}));
           connect(sineVoltage.plug_p, iSensor.plug_p) annotation (Line(points={{-60,-20},{-50,-20}}, color={0,0,255}));
           connect(booleanStep1.y,idealCloser. control) annotation (Line(
-              points={{-39,-50},{-20,-50},{-20,-32},{-10,-32}},
+              points={{-39,-50},{-10,-50},{-10,-32},{-10,-32}},
                                          color={255,0,255}));
           connect(iSensor.plug_n, idealCloser.plug_p) annotation (Line(points={{-30,-20},{-20,-20}}, color={0,0,255}));
           connect(transformer.plug1,idealCloser. plug_n) annotation (Line(
@@ -1402,7 +1401,7 @@ Simulate for 2.5 seconds and plot (versus time):</p>
                   lineColor={0,0,0},
                   textString="%m phase quasi static"),
                                                     Text(
-                          extent={{80,-80},{160,-88}},
+                          extent={{80,-92},{160,-100}},
                           lineColor={0,0,0},
                           fillColor={255,255,170},
                           fillPattern=FillPattern.Solid,
@@ -1417,8 +1416,9 @@ Simulate for 2.5 seconds and plot (versus time):</p>
           parameter Integer m=3 "Number of phases";
           parameter Modelica.SIunits.Voltage VNominal=100
             "Nominal RMS voltage per phase";
-          parameter Modelica.SIunits.Frequency fNominal=50 "Nominal frequency";
-          parameter Modelica.SIunits.Frequency f=50 "Actual frequency";
+          parameter Modelica.SIunits.Frequency fNominal=imcData.fsNominal "Nominal frequency";
+          parameter Modelica.SIunits.Frequency f=fNominal "Maximum operational frequency";
+          Modelica.SIunits.Frequency fQS=vfControllerQS.u "Actual quasi statsic frequency";
           parameter Modelica.SIunits.Time tRamp=1 "Frequency ramp";
           parameter Modelica.SIunits.Torque TLoad=161.4 "Nominal load torque";
           parameter Modelica.SIunits.Time tStep=1.2 "Time of load torque step";
@@ -1453,7 +1453,7 @@ Simulate for 2.5 seconds and plot (versus time):</p>
             alpha20r=imcData.alpha20r,
             TrOperational=293.15) annotation (Placement(transformation(extent={
                     {20,-90},{40,-70}})));
-          Modelica.Blocks.Sources.Ramp ramp(height=f, duration=tRamp)
+          Modelica.Blocks.Sources.Ramp ramp(          duration=tRamp, height=f)
             annotation (Placement(transformation(extent={{-100,-10},{-80,10}})));
           Modelica.Electrical.Machines.Utilities.VfController vfController(
             final m=m,
