@@ -661,7 +661,7 @@ Simulate for 1 second and plot (versus imcQS.wMechanical or perUnitSpeed):
           parameter Integer m=3 "Number of phases";
           parameter Modelica.SIunits.Voltage VsNominal=100
             "Nominal RMS voltage per phase";
-          parameter Modelica.SIunits.Frequency fNominal=50 "Nominal frequency";
+          parameter Modelica.SIunits.Frequency fNominal=imc.fsNominal "Nominal frequency";
           parameter Modelica.SIunits.Time tOn=0.1 "Start time of machine";
           parameter Modelica.SIunits.Torque T_Load=161.4 "Nominal load torque";
           parameter Modelica.SIunits.AngularVelocity w_Load(displayUnit="rev/min")=
@@ -685,7 +685,7 @@ Simulate for 1 second and plot (versus imcQS.wMechanical or perUnitSpeed):
           Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Star starQS(m=m)
             annotation (Placement(transformation(
                 origin={-70,20},
-                extent={{-10,-10},{10,10}},
+                extent={{-10,10},{10,-10}},
                 rotation=180)));
           Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Ground groundQS
             annotation (Placement(transformation(
@@ -720,7 +720,7 @@ Simulate for 1 second and plot (versus imcQS.wMechanical or perUnitSpeed):
             V=fill(sqrt(2.0)*VsNominal, m)) annotation (Placement(
                 transformation(
                 origin={-60,-60},
-                extent={{10,-10},{-10,10}},
+                extent={{10,10},{-10,-10}},
                 rotation=90)));
           Modelica.Electrical.MultiPhase.Ideal.IdealClosingSwitch idealCloser(
             final m=m,
@@ -937,7 +937,7 @@ Simulate for 1 second and plot (versus time):
           constant Integer m=3 "Number of phases";
           parameter Modelica.SIunits.Voltage VNominal=100
             "Nominal RMS voltage per phase";
-          parameter Modelica.SIunits.Frequency fNominal=50 "Nominal frequency";
+          parameter Modelica.SIunits.Frequency fNominal=imc.fsNominal "Nominal frequency";
           parameter Modelica.SIunits.Time tStart1=0.1 "Start time";
           parameter Modelica.SIunits.Time tStart2=2.0 "Start time from Y to D";
           parameter Modelica.SIunits.Torque TLoad=161.4 "Nominal load torque";
@@ -1135,7 +1135,7 @@ Default machine parameters are used.</p>
           constant Integer m=3 "Number of phases";
           parameter Modelica.SIunits.Voltage VNominal=100
             "Nominal RMS voltage per phase";
-          parameter Modelica.SIunits.Frequency fNominal=50 "Nominal frequency";
+          parameter Modelica.SIunits.Frequency fNominal=imc.fsNominal "Nominal frequency";
           parameter Modelica.SIunits.Time tStart1=0.1 "Start time";
           parameter Modelica.SIunits.Time tStart2=2.0
             "Start time of bypass transformer";
@@ -1342,7 +1342,7 @@ Default machine parameters are used.</p>
           connect(loadInertiaQS.flange_b, quadraticLoadTorqueQS.flange) annotation (Line(points={{30,20},{20,20}}));
           connect(imcQS.flange, loadInertiaQS.flange_a) annotation (Line(points={{60,20},{50,20}}));
           connect(starQS.plug_p, sineVoltageQS.plug_n) annotation (Line(points={{-80,60},{-80,80}}, color={85,170,255}));
-          connect(booleanStep2QS.y, idealCommutingSwitchQS.control) annotation (Line(points={{-39,20},{-20,20},{-20,40},{50,40},{50,68}}, color={255,0,255}));
+          connect(booleanStep2QS.y, idealCommutingSwitchQS.control) annotation (Line(points={{-39,20},{-10,20},{-10,40},{50,40},{50,68}}, color={255,0,255}));
           connect(transformerQS.starpoint2, ground2QS.pin) annotation (Line(points={{25,70},{24,70},{24,60},{20,60}}, color={85,170,255}));
           connect(idealCommutingSwitchQS.plug_p, terminalBoxQS.plugSupply) annotation (Line(points={{60,80},{70,80},{70,32}}, color={85,170,255}));
           connect(transformerQS.plug2, idealCommutingSwitchQS.plug_n1) annotation (Line(points={{30,80},{36,80},{36,76},{40,76}}, color={85,170,255}));
@@ -1821,7 +1821,7 @@ Simulate for 1 second and plot (versus imsQS.wMechanical or perUnitSpeed):
           parameter Integer mr=3 "Number of rotor phases";
           parameter Modelica.SIunits.Voltage VsNominal=100
             "Nominal RMS voltage per phase";
-          parameter Modelica.SIunits.Frequency fNominal=50 "Nominal frequency";
+          parameter Modelica.SIunits.Frequency fNominal=ims.fsNominal "Nominal frequency";
           parameter Modelica.SIunits.Time tOn=0.1 "Start time of machine";
           parameter Modelica.SIunits.Resistance RStart=0.16/imsData.turnsRatio^
               2 "Starting resistance";
@@ -2359,7 +2359,7 @@ The mechanical load is a constant torque like a conveyor (with regularization ar
           parameter Modelica.SIunits.Voltage VNominal=400 "Nominal RMS voltage";
           parameter Modelica.SIunits.Current INominal=32.85 "Nominal RMS current";
           parameter Real pfNominal=0.898 "Nominal power factor";
-          parameter Modelica.SIunits.Frequency fNominal=50 "Nominal frequency";
+          parameter Modelica.SIunits.Frequency fNominal=imc.fsNominal "Nominal frequency";
           parameter Modelica.SIunits.AngularVelocity wNominal=from_rpm(1462.5)
             "Nominal speed";
           parameter Modelica.SIunits.Torque TNominal=PNominal/wNominal
@@ -2701,7 +2701,7 @@ Modelica 2009, 7<sup>th</sup> International Modelica Conference</p>
           parameter Integer m=3 "Number of phases";
           parameter Modelica.SIunits.Voltage VNominal=100
             "Nominal RMS voltage per phase";
-          parameter Modelica.SIunits.Frequency fNominal=50 "Nominal frequency";
+          parameter Modelica.SIunits.Frequency fNominal=imc.fsNominal "Nominal frequency";
           parameter Modelica.SIunits.AngularVelocity wSync=2*pi*fNominal/imcData.p;
           parameter Modelica.SIunits.Time tStart=0.5 "Start time";
           parameter Modelica.SIunits.Torque TLoad=161.4 "Nominal load torque";
@@ -3327,7 +3327,7 @@ Simulate for 1 second and plot (versus time):
           parameter Integer m=3 "Number of phases";
           parameter Modelica.SIunits.Voltage VNominal=100
             "Nominal RMS voltage per phase";
-          parameter Modelica.SIunits.Frequency fNominal=50 "Nominal frequency";
+          parameter Modelica.SIunits.Frequency fNominal=smpmData.fsNominal "Nominal frequency";
           parameter Modelica.SIunits.Frequency f=50 "Actual frequency";
           parameter Modelica.SIunits.Time tRamp=1 "Frequency ramp";
           parameter Modelica.SIunits.Torque TLoad=181.4 "Nominal load torque";
@@ -3646,7 +3646,7 @@ to numerically stabilize the simulation.</p>
           parameter Integer m=3 "Number of stator phases";
           parameter Modelica.SIunits.Voltage VsNominal=100
             "Nominal RMS voltage per phase";
-          parameter Modelica.SIunits.Frequency fsNominal=50 "Nominal frequency";
+          parameter Modelica.SIunits.Frequency fsNominal=smeeData.fsNominal "Nominal frequency";
           parameter Modelica.SIunits.AngularVelocity w=
               Modelica.SIunits.Conversions.from_rpm(1499) "Nominal speed";
           parameter Modelica.SIunits.Current Ie=19 "Excitation current";
@@ -3987,7 +3987,7 @@ Simulate for 30 seconds and plot versus <code>rotorAngle|rotorAngleQS.rotorDispl
           parameter Integer m=3 "Number of phases";
           parameter Modelica.SIunits.Voltage VNominal=100
             "Nominal RMS voltage per phase";
-          parameter Modelica.SIunits.Frequency fNominal=50 "Nominal frequency";
+          parameter Modelica.SIunits.Frequency fNominal=smrData.fsNominal "Nominal frequency";
           parameter Modelica.SIunits.Frequency f=50 "Actual frequency";
           parameter Modelica.SIunits.Time tRamp=1 "Frequency ramp";
           parameter Modelica.SIunits.Torque TLoad=181.4 "Nominal load torque";
