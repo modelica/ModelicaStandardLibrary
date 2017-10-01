@@ -2292,8 +2292,9 @@ Simulate for 1.5 seconds and plot (versus time):
         constant Integer m=3 "Number of phases";
         parameter Modelica.SIunits.Voltage VNominal=100
           "Nominal RMS voltage per phase";
-        parameter Modelica.SIunits.Frequency fNominal=50 "Nominal frequency";
-        parameter Modelica.SIunits.Frequency f=50 "Actual frequency";
+        parameter Modelica.SIunits.Frequency fNominal=aimcData.fsNominal "Nominal frequency";
+        parameter Modelica.SIunits.Frequency f=fNominal "Maximum operational frequency";
+        Modelica.SIunits.Frequency fActual=ramp.y "Actual frequency";
         parameter Modelica.SIunits.Time tRamp=1 "Frequency ramp";
         parameter Modelica.SIunits.Torque TLoad=161.4 "Nominal load torque";
         parameter Modelica.SIunits.Time tStep=1.2 "Time of load torque step";
