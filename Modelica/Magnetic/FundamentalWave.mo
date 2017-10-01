@@ -1008,7 +1008,7 @@ In this example the eddy current losses are implemented in two different ways. C
         constant Integer m=3 "Number of stator phases";
         parameter Modelica.SIunits.Voltage VsNominal=100
           "Nominal RMS voltage per phase";
-        parameter Modelica.SIunits.Frequency fNominal=50 "Nominal frequency";
+        parameter Modelica.SIunits.Frequency fNominal=aimcData.fsNominal "Nominal frequency";
         parameter Modelica.SIunits.Time tOn=0.1 "Start time of machine";
         parameter Modelica.SIunits.Torque T_Load=161.4 "Nominal load torque";
         parameter Modelica.SIunits.AngularVelocity w_Load(displayUnit="rev/min")=
@@ -1208,7 +1208,7 @@ Simulate for 1.5 seconds and plot (versus time):
         parameter Integer m=5 "Number of stator phases";
         parameter Modelica.SIunits.Voltage VsNominal=100
           "Nominal RMS voltage per phase";
-        parameter Modelica.SIunits.Frequency fNominal=50 "Nominal frequency";
+        parameter Modelica.SIunits.Frequency fNominal=aimcData.fsNominal "Nominal frequency";
         parameter Modelica.SIunits.Time tOn=0.1 "Start time of machine";
         parameter Modelica.SIunits.Torque T_Load=161.4 "Nominal load torque";
         parameter Modelica.SIunits.AngularVelocity w_Load(displayUnit="rev/min")=
@@ -1463,7 +1463,7 @@ Simulate for 1.5 seconds and plot (versus time):
         constant Integer m=3 "Number of phases";
         parameter Modelica.SIunits.Voltage VNominal=100
           "Nominal RMS voltage per phase";
-        parameter Modelica.SIunits.Frequency fNominal=50 "Nominal frequency";
+        parameter Modelica.SIunits.Frequency fNominal=aimcData.fsNominal "Nominal frequency";
         parameter Modelica.SIunits.Time tStart1=0.1 "Start time";
         parameter Modelica.SIunits.Time tStart2=2.0 "Start time from Y to D";
         parameter Modelica.SIunits.Torque TLoad=161.4 "Nominal load torque";
@@ -1586,7 +1586,7 @@ accelerating inertias against load torque quadratic dependent on speed, finally 
         constant Integer m=3 "Number of phases";
         parameter Modelica.SIunits.Voltage VNominal=100
           "Nominal RMS voltage per phase";
-        parameter Modelica.SIunits.Frequency fNominal=50 "Nominal frequency";
+        parameter Modelica.SIunits.Frequency fNominal=aimcData.fsNominal "Nominal frequency";
         parameter Modelica.SIunits.Time tStart1=0.1 "Start time";
         parameter Modelica.SIunits.Time tStart2=2.0
           "Start time of bypass transformer";
@@ -1721,7 +1721,7 @@ accelerating inertias against load torque quadratic dependent on speed, finally 
         connect(star.plug_p, sineVoltage.plug_n) annotation (Line(
             points={{-80,60},{-80,80}}, color={0,0,255}));
         connect(booleanStep2.y, idealCommutingSwitch.control) annotation (Line(
-            points={{-39,20},{-10,20},{-10,40},{50,40},{50,68}},
+            points={{-39,20},{-30,20},{-30,20},{-10,20},{-10,40},{50,40},{50,68}},
                                      color={255,0,255}));
         connect(transformer.starpoint2, ground2.p) annotation (Line(
             points={{25,70},{25,60},{20,60}},    color={0,0,255}));
@@ -1737,7 +1737,7 @@ accelerating inertias against load torque quadratic dependent on speed, finally 
             points={{-60,80},{-50,80}},
                                       color={0,0,255}));
         connect(booleanStep1.y, idealCloser.control) annotation (Line(
-            points={{-39,50},{-20,50},{-20,68},{-10,68}},
+            points={{-39,50},{-10,50},{-10,68},{-10,68}},
                                        color={255,0,255}));
         connect(currentQuasiRMSSensor.plug_n, idealCloser.plug_p) annotation (
             Line(
@@ -1773,7 +1773,7 @@ at start time tStart2 the machine is fed directly from the voltage source, final
         constant Integer m=3 "Number of phases";
         parameter Modelica.SIunits.Voltage VsNominal=100
           "Nominal RMS voltage per phase";
-        parameter Modelica.SIunits.Frequency fNominal=50 "Nominal frequency";
+        parameter Modelica.SIunits.Frequency fNominal=aimsData.fsNominal "Nominal frequency";
         parameter Modelica.SIunits.Time tOn=0.1 "Start time of machine";
         parameter Modelica.SIunits.Resistance RStart=0.16/aimsData.turnsRatio^2
           "Starting resistance";
@@ -1999,7 +1999,7 @@ Simulate for 1.5 seconds and plot (versus time):
         parameter Integer mr=5 "Number of rotor phases";
         parameter Modelica.SIunits.Voltage VsNominal=100
           "Nominal RMS voltage per phase";
-        parameter Modelica.SIunits.Frequency fNominal=50 "Nominal frequency";
+        parameter Modelica.SIunits.Frequency fNominal=aimsData.fsNominal "Nominal frequency";
         parameter Modelica.SIunits.Time tOn=0.1 "Start time of machine";
         parameter Modelica.SIunits.Resistance RStart=0.16/aimsData.turnsRatio^2
           "Starting resistance";
@@ -2514,7 +2514,7 @@ The mechanical load is a constant torque like a conveyor (with regularization ar
         constant Integer m=3 "Number of phases";
         parameter Modelica.SIunits.Voltage VNominal=100
           "Nominal RMS voltage per phase";
-        parameter Modelica.SIunits.Frequency fNominal=50 "Nominal frequency";
+        parameter Modelica.SIunits.Frequency fNominal=aimcData.fsNominal "Nominal frequency";
         parameter Modelica.SIunits.Time tStart1=0.1 "Start time";
         parameter Modelica.SIunits.Capacitance Cr=0.0035
           "Motor's running capacitor";
@@ -2694,7 +2694,7 @@ finally reaching nominal speed.</p>
         parameter Modelica.SIunits.Voltage VNominal=400 "Nominal RMS voltage";
         parameter Modelica.SIunits.Current INominal=32.85 "Nominal RMS current";
         parameter Real pfNominal=0.898 "Nominal power factor";
-        parameter Modelica.SIunits.Frequency fNominal=50 "Nominal frequency";
+        parameter Modelica.SIunits.Frequency fNominal=aimcData.fsNominal "Nominal frequency";
         parameter Modelica.SIunits.AngularVelocity wNominal=from_rpm(1462.5)
           "Nominal speed";
         parameter Modelica.SIunits.Torque TNominal=PNominal/wNominal
@@ -2933,7 +2933,7 @@ Modelica 2009, 7<sup>th</sup> International Modelica Conference</p>
         constant Integer m=3 "Number of phases";
         parameter Modelica.SIunits.Voltage VNominal=100
           "Nominal RMS voltage per phase";
-        parameter Modelica.SIunits.Frequency fNominal=50 "Nominal frequency";
+        parameter Modelica.SIunits.Frequency fNominal=aimcData.fsNominal "Nominal frequency";
         parameter Modelica.SIunits.AngularVelocity wSync=2*pi*fNominal/aimc.p;
         parameter Modelica.SIunits.Time tStart=0.5 "Start time";
         parameter Modelica.SIunits.Torque TLoad=161.4 "Nominal load torque";
@@ -3042,7 +3042,7 @@ at time tStart a load torque step is applied.</p>
         constant Integer m=3 "Number of phases";
         parameter Modelica.SIunits.Voltage VsNominal=100
           "Nominal RMS voltage per phase";
-        parameter Modelica.SIunits.Frequency fsNominal=50 "Nominal frequency";
+        parameter Modelica.SIunits.Frequency fsNominal=smpmData.fsNominal "Nominal frequency";
         parameter Modelica.SIunits.Frequency fKnee=50
           "Knee frequency of V/f curve";
         parameter Modelica.SIunits.Time tRamp=1 "Frequency ramp";
@@ -3264,7 +3264,7 @@ and accelerate the inertias.</p>
         parameter Integer m=5 "Number of stator phases";
         parameter Modelica.SIunits.Voltage VsNominal=100
           "Nominal RMS voltage per phase";
-        parameter Modelica.SIunits.Frequency fsNominal=50 "Nominal frequency";
+        parameter Modelica.SIunits.Frequency fsNominal=smpmData.fsNominal "Nominal frequency";
         parameter Modelica.SIunits.Frequency fKnee=50
           "Knee frequency of V/f curve";
         parameter Modelica.SIunits.Time tRamp=1 "Frequency ramp";
@@ -3560,7 +3560,7 @@ and accelerate the inertias. Two equivalent machines with different numbers of p
         constant Integer m=3 "Number of stator phases";
         parameter Modelica.SIunits.Voltage VsNominal=100
           "Nominal RMS voltage per phase";
-        parameter Modelica.SIunits.Frequency fsNominal=50 "Nominal frequency";
+        parameter Modelica.SIunits.Frequency fsNominal=smeeData.fsNominal "Nominal frequency";
         parameter Modelica.SIunits.AngularVelocity w=
             Modelica.SIunits.Conversions.from_rpm(1499) "Nominal speed";
         parameter Modelica.SIunits.Current Ie=19 "Excitation current";
@@ -3859,7 +3859,7 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM.rotorDisplacementAngl
         parameter Integer m=5 "Number of stator phases";
         parameter Modelica.SIunits.Voltage VsNominal=100
           "Nominal RMS voltage per phase";
-        parameter Modelica.SIunits.Frequency fsNominal=50 "Nominal frequency";
+        parameter Modelica.SIunits.Frequency fsNominal=smeeData.fsNominal "Nominal frequency";
         parameter Modelica.SIunits.AngularVelocity w=
             Modelica.SIunits.Conversions.from_rpm(1499) "Nominal speed";
         parameter Modelica.SIunits.Current Ie=19 "Excitation current";
@@ -4230,7 +4230,7 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM3.rotorDisplacementAng
         constant Integer m=3 "Number of stator phases";
         parameter Modelica.SIunits.Voltage VsNominal=100
           "Nominal RMS voltage per phase";
-        parameter Modelica.SIunits.Frequency fsNominal=50 "Nominal frequency";
+        parameter Modelica.SIunits.Frequency fsNominal=smrData.fsNominal "Nominal frequency";
         parameter Modelica.SIunits.Frequency fKnee=50
           "Knee frequency of V/f curve";
         parameter Modelica.SIunits.Time tRamp=1 "Frequency ramp";
@@ -4446,7 +4446,7 @@ Simulate for 1.5 seconds and plot (versus time):
         parameter Integer m=5 "Number of stator phases";
         parameter Modelica.SIunits.Voltage VsNominal=100
           "Nominal RMS voltage per phase";
-        parameter Modelica.SIunits.Frequency fsNominal=50 "Nominal frequency";
+        parameter Modelica.SIunits.Frequency fsNominal=smrData.fsNominal "Nominal frequency";
         parameter Modelica.SIunits.Frequency fKnee=50
           "Knee frequency of V/f curve";
         parameter Modelica.SIunits.Time tRamp=1 "Frequency ramp";
@@ -4642,7 +4642,7 @@ Simulate for 1.5 seconds and plot (versus time):
         connect(ramp.y, vfController3.u)
           annotation (Line(points={{-59,70},{-42,70}}, color={0,0,255}));
         connect(vfController3.y, signalVoltage3.v)
-          annotation (Line(points={{-19,70},{-7,70}}, color={0,0,255}));
+          annotation (Line(points={{-19,70},{-12,70}},color={0,0,255}));
         connect(terminalBoxM.plugSupply, currentRMSsensorM.plug_n) annotation (
             Line(points={{0,-8},{0,-8},{0,10},{30,10}},        color={0,0,255}));
         connect(signalVoltage3.plug_p, currentRMSsensor3.plug_p) annotation (
@@ -4656,7 +4656,7 @@ Simulate for 1.5 seconds and plot (versus time):
             points={{70,90},{80,90}},
             color={0,0,255}));
         connect(vfControllerM.y, signalVoltageM.v) annotation (Line(
-            points={{-19,50},{23,50}},
+            points={{-19,50},{18,50}},
             color={0,0,127}));
         connect(vfControllerM.u, ramp.y) annotation (Line(
             points={{-42,50},{-50,50},{-50,70},{-59,70}},
@@ -4669,7 +4669,7 @@ Simulate for 1.5 seconds and plot (versus time):
             points={{-41,20},{-50,20},{-50,8}},
             color={0,0,127}));
         connect(gain.u, currentRMSsensorM.I) annotation (Line(
-            points={{-18,20},{20,20}},
+            points={{-18,20},{19,20}},
             color={0,0,127}));
         connect(currentRMSsensor3.plug_n, terminalBox3.plugSupply) annotation (
             Line(points={{-80,-10},{-80,-60},{0,-60},{0,-68}}, color={0,0,255}));
@@ -4856,7 +4856,7 @@ Simulate for 1.5 seconds and plot (versus time):
         connect(iq.y, currentController.iq_rms) annotation (Line(
             points={{-69,30},{-60,30},{-60,44},{-52,44}}, color={0,0,127}));
         connect(groundM.p, terminalBox.starpoint) annotation (Line(
-            points={{-70,-28},{-19,-28}}, color={0,0,255}));
+            points={{-70,-28},{-20,-28}}, color={0,0,255}));
         connect(smpm.flange, torqueSensor.flange_a) annotation (Line(
             points={{0,-40},{30,-40},{30,-60}}));
         connect(voltageQuasiRMSSensor.plug_p, terminalBox.plugSupply)
@@ -4867,7 +4867,7 @@ Simulate for 1.5 seconds and plot (versus time):
         connect(starM.pin_n, groundM.p) annotation (Line(
             points={{-70,-10},{-70,-28}}, color={0,0,255}));
         connect(currentController.y, signalCurrent.i) annotation (Line(
-            points={{-29,50},{-17,50}}, color={0,0,127}));
+            points={{-29,50},{-22,50}}, color={0,0,127}));
         connect(speedSensor.flange, smpm.flange) annotation (Line(
             points={{30,-10},{30,-40},{0,-40}}));
         connect(quadraticSpeedDependentTorque.flange, inertiaLoad.flange_b)
@@ -5037,7 +5037,7 @@ whereas the stator voltage is influenced by the d-current.</p>
         connect(angleSensor.phi, voltageController.phi) annotation (Line(
             points={{10,11},{10,34},{-34,34},{-34,38}}, color={0,0,127}));
         connect(voltageController.y, signalVoltage.v) annotation (Line(
-            points={{-29,50},{-17,50}}, color={0,0,127}));
+            points={{-29,50},{-22,50}}, color={0,0,127}));
         connect(currentSensor.i, voltageController.iActual) annotation (Line(
             points={{-21,1.9984e-015},{-46,1.9984e-015},{-46,38}}, color={0,0,127}));
         connect(inertiaLoad.flange_a, torqueSensor.flange_b) annotation (Line(
