@@ -451,8 +451,6 @@ on <strong>Boolean</strong> signals.
 </p>
 
 <p>
-Package MathBoolean is a new design that shall replace in the future the
-<a href=\"modelica://Modelica.Blocks.Logical\">Logical</a> package.
 The new features are:
 </p>
 
