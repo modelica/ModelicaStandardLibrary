@@ -281,7 +281,7 @@ Wischhusen.
 <p>
 The development of the Modelica.Fluid.Dissipation library was founded within the ITEA research
 project EuroSysLib-D by German Federal Ministry of Education and Research (promotional
-reference 01IS07022B). The project is started in October 2007 and ended in June 2010.
+reference 01IS07022B). The project was started in October 2007 and ended in June 2010.
 </p>
 </html>"));
   end Contact;
@@ -13048,9 +13048,9 @@ J&ouml;rg Eiden, Ole Engel, Nina Peci, Sven Rutkowski, Thorben Vahlenkamp, Stefa
 Wischhusen.
 
 <p>
-The development of the Fluid.Dissipation library is founded within the ITEA research
+The development of the Fluid.Dissipation library was founded within the ITEA research
 project EuroSysLib-D by German Federal Ministry of Education and Research (promotional
-reference 01IS07022B). The project is started in October 2007 and will end in March 2010.
+reference 01IS07022B). The project was started in October 2007 and ended in June 2010.
 </p>
 
 <h4>  License condition </h4>
