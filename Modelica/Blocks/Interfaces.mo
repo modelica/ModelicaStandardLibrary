@@ -543,6 +543,18 @@ to be used as base class for a corresponding controller.
 <p>
 Basic definitions of a discrete block of library
 Blocks.Discrete.
+The output(s) will only change at events, but are not formally a discrete variable(s) in Modelica.
+The input(s) swill be sampled, and can thus be continuous variable(s).
+</p>
+
+<p>
+<strong>Important</strong>: If you connect several discrete blocks you should normally ensure that <strong>samplePeriod (and startTime) 
+are exactly identical</strong> for all blocks, since otherwise the output from one block will be transformed into a continuous signal
+and sampled, which can cause a variable delay of up to one sample period leading to unexpected results.
+</p>
+
+<p>
+Modelica 3.3 introduced synchronous operators that avoid the need to manually propagate samplePeriod to each block.
 </p>
 </html>"));
   end DiscreteBlock;
@@ -552,14 +564,15 @@ Blocks.Discrete.
 
     extends DiscreteBlock;
 
-    Modelica.Blocks.Interfaces.RealInput u "Continuous input signal"
+    Modelica.Blocks.Interfaces.RealInput u "Connector of Real input signal"
       annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
-    Modelica.Blocks.Interfaces.RealOutput y "Continuous output signal"
+    Modelica.Blocks.Interfaces.RealOutput y "Connector of Real output signal"
       annotation (Placement(transformation(extent={{100,-10},{120,10}})));
     annotation (Documentation(info="<html>
 <p>
-Block has one continuous input and one continuous output signal
+Block has one input and one output signal
 which are sampled due to the defined <strong>samplePeriod</strong> parameter.
+See the base-class <a href=\"modelica://Modelica.Blocks.Interfaces.DiscreteBlock\">DiscreteBlock</a> for more information.
 </p>
 </html>"));
   end DiscreteSISO;
@@ -571,15 +584,16 @@ which are sampled due to the defined <strong>samplePeriod</strong> parameter.
     parameter Integer nin=1 "Number of inputs";
     parameter Integer nout=1 "Number of outputs";
 
-    Modelica.Blocks.Interfaces.RealInput u[nin] "Continuous input signals"
+    Modelica.Blocks.Interfaces.RealInput u[nin] "Connector of Real input signals"
       annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
-    Modelica.Blocks.Interfaces.RealOutput y[nout] "Continuous output signals"
+    Modelica.Blocks.Interfaces.RealOutput y[nout] "Connector of Real output signals"
       annotation (Placement(transformation(extent={{100,-10},{120,10}})));
 
     annotation (Documentation(info="<html>
 <p>
-Block has a continuous input and a continuous output signal vector
+Block has a input and a output signal vector
 which are sampled due to the defined <strong>samplePeriod</strong> parameter.
+See the base-class <a href=\"modelica://Modelica.Blocks.Interfaces.DiscreteBlock\">DiscreteBlock</a> for more information.
 </p>
 </html>"));
   end DiscreteMIMO;
@@ -589,16 +603,17 @@ which are sampled due to the defined <strong>samplePeriod</strong> parameter.
     parameter Integer n=1 "Number of inputs (= number of outputs)";
     extends DiscreteBlock;
 
-    Modelica.Blocks.Interfaces.RealInput u[n] "Continuous input signals"
+    Modelica.Blocks.Interfaces.RealInput u[n] "Connector of Real input signals"
       annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
-    Modelica.Blocks.Interfaces.RealOutput y[n] "Continuous output signals"
+    Modelica.Blocks.Interfaces.RealOutput y[n] "Connector of Real output signals"
       annotation (Placement(transformation(extent={{100,-10},{120,10}})));
 
     annotation (Documentation(info="<html>
 <p>
-Block has a continuous input and a continuous output signal vector
+Block has a input and a output signal vector
 where the signal sizes of the input and output vector are identical.
 These signals are sampled due to the defined <strong>samplePeriod</strong> parameter.
+See the base-class <a href=\"modelica://Modelica.Blocks.Interfaces.DiscreteBlock\">DiscreteBlock</a> for more information.
 </p>
 </html>"));
 
@@ -616,16 +631,16 @@ These signals are sampled due to the defined <strong>samplePeriod</strong> param
           extent={{-10,-10},{10,10}},
           rotation=90)));
     Modelica.Blocks.Interfaces.RealInput u_s
-      "Continuous scalar setpoint input signal" annotation (Placement(
+      "Scalar setpoint input signal" annotation (Placement(
           transformation(extent={{-140,-20},{-100,20}})));
     Modelica.Blocks.Interfaces.RealInput u_m
-      "Continuous scalar measurement input signal" annotation (Placement(
+      "Scalar measurement input signal" annotation (Placement(
           transformation(
           origin={0,-120},
           extent={{20,-20},{-20,20}},
           rotation=270)));
     Modelica.Blocks.Interfaces.RealOutput y
-      "Continuous scalar actuator output signal" annotation (Placement(
+      "Scalar actuator output signal" annotation (Placement(
           transformation(extent={{100,-10},{120,10}})));
   equation
     connect(u_s, sampler_s.u) annotation (Line(points={{-120,0},{-102,0}}));
@@ -640,11 +655,12 @@ These signals are sampled due to the defined <strong>samplePeriod</strong> param
               extent={{-70,-112},{-20,-102}},
               textString=" (measurement)")}), Documentation(info="<html>
 <p>
-Block has two continuous Real input signals and one
-continuous Real output signal
+Block has two Real input signals and one
+Real output signal
 that are sampled due to the defined <strong>samplePeriod</strong> parameter.
 The block is designed
 to be used as base class for a corresponding controller.
+See the base-class <a href=\"modelica://Modelica.Blocks.Interfaces.DiscreteBlock\">DiscreteBlock</a> for more information.
 </p>
 </html>"));
   end SVdiscrete;
@@ -663,16 +679,16 @@ to be used as base class for a corresponding controller.
           extent={{-10,-10},{10,10}},
           rotation=90)));
     Modelica.Blocks.Interfaces.RealInput u_s[nu_s]
-      "Continuous setpoint input signals" annotation (Placement(transformation(
+      "Setpoint input signals" annotation (Placement(transformation(
             extent={{-140,-20},{-100,20}})));
     Modelica.Blocks.Interfaces.RealInput u_m[nu_m]
-      "Continuous measurement input signals" annotation (Placement(
+      "Measurement input signals" annotation (Placement(
           transformation(
           origin={0,-120},
           extent={{20,-20},{-20,20}},
           rotation=270)));
     Modelica.Blocks.Interfaces.RealOutput y[ny]
-      "Continuous actuator output signals" annotation (Placement(transformation(
+      "Actuator output signals" annotation (Placement(transformation(
             extent={{100,-10},{120,10}})));
   equation
     connect(u_s, sampler_s.u) annotation (Line(points={{-120,0},{-92,0}}));
@@ -690,11 +706,12 @@ to be used as base class for a corresponding controller.
               extent={{-62,-110},{-12,-100}},
               textString=" (measurement)")}), Documentation(info="<html>
 <p>
-Block has two continuous Real input signal vectors and one
-continuous Real output signal vector. The vector signals
+Block has two Real input signal vectors and one
+Real output signal vector. The vector signals
 are sampled due to the defined <strong>samplePeriod</strong> parameter.
 The block is designed
 to be used as base class for a corresponding controller.
+See the base-class <a href=\"modelica://Modelica.Blocks.Interfaces.DiscreteBlock\">DiscreteBlock</a> for more information.
 </p>
 </html>"));
   end MVdiscrete;
