@@ -521,8 +521,6 @@ can be determined. For planar loops, combinations of 1, 2 or 3 revolute joints
 with parallel axes and of 2 or 1 prismatic joint with axes that are orthogonal
 to the revolute joints can be treated analytically. The currently supported
 combinations are listed in the table below.
-The missing combinations (such as JointSUP
-or JointRPP) will be added in one of the next releases.
 </p>
 <div align=\"left\">
     <table border=\"1\" cellspacing=\"0\" cellpadding=\"0\">
