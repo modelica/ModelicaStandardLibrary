@@ -2036,7 +2036,6 @@ RC 3 4 1K<br/>
       Modelica.Electrical.Spice3.Basic.R_Resistor RBIT2(R=1000);
       Modelica.Electrical.Spice3.Basic.R_Resistor RBIT3(R=1000);
       Modelica.Electrical.Spice3.Basic.R_Resistor RCOUT(R=1000);
-      // *** (FOR THOSE WITH MONEY (AND MEMORY) TO BURN)
       Modelica.Electrical.Spice3.Basic.Ground g;
 
     protected
