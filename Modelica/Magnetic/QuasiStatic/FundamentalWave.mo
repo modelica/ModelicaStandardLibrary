@@ -2353,12 +2353,11 @@ The mechanical load is a constant torque like a conveyor (with regularization ar
           import Modelica.SIunits.Conversions.to_rpm;
           import Modelica.SIunits.Conversions.from_degC;
           constant Integer m=3 "Number of phases";
-        protected
           parameter Modelica.SIunits.Power PNominal=18500 "Nominal output";
           parameter Modelica.SIunits.Voltage VNominal=400 "Nominal RMS voltage";
           parameter Modelica.SIunits.Current INominal=32.85 "Nominal RMS current";
           parameter Real pfNominal=0.898 "Nominal power factor";
-          parameter Modelica.SIunits.Frequency fNominal=imcData.fsNominal "Nominal frequency";
+          parameter Modelica.SIunits.Frequency fNominal=50 "Nominal frequency";
           parameter Modelica.SIunits.AngularVelocity wNominal=from_rpm(1462.5)
             "Nominal speed";
           parameter Modelica.SIunits.Torque TNominal=PNominal/wNominal
@@ -2368,12 +2367,13 @@ The mechanical load is a constant torque like a conveyor (with regularization ar
           Modelica.SIunits.Power PelQS=electricalPowerSensorQS.y.re;
           Modelica.SIunits.ReactivePower QelQS=electricalPowerSensorQS.y.im;
           Modelica.SIunits.ApparentPower SelQS=sqrt(PelQS^2 + QelQS^2);
+        protected
           parameter Real Ptable[:]={1E-6,1845,3549,5325,7521,9372,11010,12930,
               14950,16360,18500,18560,20180,22170};
           parameter Real Itable[:]={11.0,11.20,12.27,13.87,16.41,18.78,21.07,
               23.92,27.05,29.40,32.85,32.95,35.92,39.35};
-          parameter Real ntable[:]={1500,1496,1493,1490,1486,1482,1479,1475,1471,
-              1467,1462,1462,1458,1453};
+          parameter Real wtable[:]=from_rpm({1500,1496,1493,1490,1486,1482,1479,1475,1471,
+              1467,1462,1462,1458,1453});
           parameter Real ctable[:]={0.085,0.327,0.506,0.636,0.741,0.797,0.831,
               0.857,0.875,0.887,0.896,0.896,0.902,0.906};
           parameter Real etable[:]={0,0.7250,0.8268,0.8698,0.8929,0.9028,0.9064,
@@ -2383,7 +2383,7 @@ The mechanical load is a constant torque like a conveyor (with regularization ar
           output Modelica.SIunits.Current I_simQS=currentQuasiRMSSensorQS.I "Simulated current";
           output Modelica.SIunits.Current I_measQS=combiTable1DsQS.y[1] "Measured current";
           output Modelica.SIunits.AngularVelocity w_simQS(displayUnit="rev/min") = imcQS.wMechanical "Simulated speed";
-          output Modelica.SIunits.AngularVelocity w_measQS=combiTable1DsQS.y[2] "Measured speed";
+          output Modelica.SIunits.AngularVelocity w_measQS(displayUnit="rev/min")=combiTable1DsQS.y[2] "Measured speed";
           output Real pf_simQS=if noEvent(SelQS > Modelica.Constants.small) then PelQS/
               SelQS else 0 "Simulated power factor";
           output Real pf_measQS=combiTable1DsQS.y[3] "Measured power factor";
@@ -2452,7 +2452,7 @@ The mechanical load is a constant torque like a conveyor (with regularization ar
             offset=0,
             startTime=4.5,
             duration=5.5) annotation (Placement(transformation(extent={{-20,0},{0,20}})));
-          Modelica.Blocks.Tables.CombiTable1Ds combiTable1DsQS(table={{Ptable[j],Itable[j],ntable[j],ctable[j],etable[j]} for j in 1:size(Ptable, 1)}, smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative) annotation (Placement(transformation(extent={{40,30},{60,50}})));
+          Modelica.Blocks.Tables.CombiTable1Ds combiTable1DsQS(table={{Ptable[j],Itable[j],wtable[j],ctable[j],etable[j]} for j in 1:size(Ptable, 1)}, smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative) annotation (Placement(transformation(extent={{40,30},{60,50}})));
           parameter Electrical.Machines.Utilities.ParameterRecords.AIM_SquirrelCageData imcData(
             statorCoreParameters(PRef=410, VRef=387.9),
             Jr=0.12,
@@ -2489,11 +2489,13 @@ The mechanical load is a constant torque like a conveyor (with regularization ar
           connect(rampQS.y, feedbackQS.u1) annotation (Line(points={{1,10},{12,10}}, color={0,0,127}));
           connect(feedbackQS.y, PIQS.u) annotation (Line(points={{29,10},{38,10}}, color={0,0,127}));
           annotation (
-            experiment(StopTime=5.0, Interval=0.0001, Tolerance=1e-06),
+            experiment(
+              StopTime=10,
+              Interval=0.0001,
+              Tolerance=1e-06),
             Documentation(info="<html>
 <ul>
-<li>Simulate for 5 seconds: The machine is started at nominal speed, flux is build up in the machine.</li>
-<li>Continue the simulation for additional 5 seconds: Subsequently a load ramp is applied.</li>
+<li>Simulate for 10 seconds: The machine is started at nominal speed, subsequently a load ramp is applied.</li>
 <li>Compare by plotting versus PmechQS:</li>
 </ul>
 <table>

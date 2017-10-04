@@ -2708,8 +2708,8 @@ finally reaching nominal speed.</p>
             14950,16360,18500,18560,20180,22170};
         parameter Real Itable[:]={11.0,11.20,12.27,13.87,16.41,18.78,21.07,
             23.92,27.05,29.40,32.85,32.95,35.92,39.35};
-        parameter Real ntable[:]={1500,1496,1493,1490,1486,1482,1479,1475,1471,
-            1467,1462,1462,1458,1453};
+        parameter Real wtable[:]=from_rpm({1500,1496,1493,1490,1486,1482,1479,1475,1471,
+            1467,1462,1462,1458,1453});
         parameter Real ctable[:]={0.085,0.327,0.506,0.636,0.741,0.797,0.831,
             0.857,0.875,0.887,0.896,0.896,0.902,0.906};
         parameter Real etable[:]={0,0.7250,0.8268,0.8698,0.8929,0.9028,0.9064,
@@ -2723,7 +2723,7 @@ finally reaching nominal speed.</p>
           "Measured current";
         output Modelica.SIunits.AngularVelocity w_sim(displayUnit="rev/min")=
           aimc.wMechanical "Simulated speed";
-        output Modelica.SIunits.AngularVelocity w_meas=combiTable1Ds.y[2]
+        output Modelica.SIunits.AngularVelocity w_meas(displayUnit="rev/min")=combiTable1Ds.y[2]
           "Measured speed";
         output Real pf_sim=if noEvent(Sel > Modelica.Constants.small) then Pel/
             Sel else 0 "Simulated power factor";
@@ -2800,7 +2800,7 @@ finally reaching nominal speed.</p>
           duration=5.5)
           annotation (Placement(transformation(extent={{-20,0},{0,20}})));
         Modelica.Blocks.Tables.CombiTable1Ds combiTable1Ds(table={{Ptable[j],
-              Itable[j],ntable[j],ctable[j],etable[j]} for j in 1:size(Ptable,
+              Itable[j],wtable[j],ctable[j],etable[j]} for j in 1:size(Ptable,
               1)}, smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative)
           annotation (Placement(transformation(extent={{40,30},{60,50}})));
         parameter Electrical.Machines.Utilities.ParameterRecords.AIM_SquirrelCageData aimcData(
