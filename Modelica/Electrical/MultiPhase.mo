@@ -2704,20 +2704,7 @@ The back transformation matrix can be used to determine the time phasors from th
       input Integer m=3 "Number of phases";
       output Integer n "Number of symmetric base systems";
     algorithm
-      // Init number of base systmes
-      n := 1;
-      if mod(m, 2) == 0 then
-        // Even number of phases
-        if m == 2 then
-          // Special case two phase machine
-          n := 1;
-        else
-          n := n*2*numberOfSymmetricBaseSystems(integer(m/2));
-        end if;
-      else
-        // Odd number of phases
-        n := 1;
-      end if;
+      n := if mod(m, 2) == 0 then product(if mod(m, i) == 0 then 2 else 1 for i in {2^j for j in 1:integer(log(m/2)/log(2))}) else 1;
       annotation (Documentation(info="<html>
 <p>
 This function determines the number of base systems of the symmetrical winding with m phases.
@@ -2735,9 +2722,7 @@ This function determines the number of base systems of the symmetrical winding w
       input Integer m=3 "Number of phases";
       output Real y "Factor Y to D";
     protected
-      parameter Integer mBasic=integer(m/
-          Modelica.Electrical.MultiPhase.Functions.numberOfSymmetricBaseSystems(
-          m));
+      parameter Integer mBasic=integer(m/numberOfSymmetricBaseSystems(m));
     algorithm
       y := 2*sin(pi/mBasic);
     end factorY2D;
@@ -2748,9 +2733,7 @@ This function determines the number of base systems of the symmetrical winding w
       input Integer m=3 "Number of phases";
       output Real y "Factor Yrms to DC";
     protected
-      parameter Integer mBasic=integer(m/
-          Modelica.Electrical.MultiPhase.Functions.numberOfSymmetricBaseSystems(
-          m));
+      parameter Integer mBasic=integer(m/numberOfSymmetricBaseSystems(m));
     algorithm
       y := sqrt(2)*2*sin((mBasic - 1)/mBasic*pi/2)*sin(pi/(2*m))/(pi/(2*m));
     end factorY2DC;
