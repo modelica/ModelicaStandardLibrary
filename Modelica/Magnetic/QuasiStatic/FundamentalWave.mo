@@ -2359,7 +2359,7 @@ The mechanical load is a constant torque like a conveyor (with regularization ar
           parameter Modelica.SIunits.Voltage VNominal=400 "Nominal RMS voltage";
           parameter Modelica.SIunits.Current INominal=32.85 "Nominal RMS current";
           parameter Real pfNominal=0.898 "Nominal power factor";
-          parameter Modelica.SIunits.Frequency fNominal=imc.fsNominal "Nominal frequency";
+          parameter Modelica.SIunits.Frequency fNominal=imcData.fsNominal "Nominal frequency";
           parameter Modelica.SIunits.AngularVelocity wNominal=from_rpm(1462.5)
             "Nominal speed";
           parameter Modelica.SIunits.Torque TNominal=PNominal/wNominal
@@ -2369,9 +2369,6 @@ The mechanical load is a constant torque like a conveyor (with regularization ar
           Modelica.SIunits.Power PelQS=electricalPowerSensorQS.y.re;
           Modelica.SIunits.ReactivePower QelQS=electricalPowerSensorQS.y.im;
           Modelica.SIunits.ApparentPower SelQS=sqrt(PelQS^2 + QelQS^2);
-          Modelica.SIunits.Power Pel=electricalPowerSensor.P;
-          Modelica.SIunits.ReactivePower Qel=electricalPowerSensor.Q;
-          Modelica.SIunits.ApparentPower Sel=sqrt(Pel^2 + Qel^2);
           parameter Real Ptable[:]={1E-6,1845,3549,5325,7521,9372,11010,12930,
               14950,16360,18500,18560,20180,22170};
           parameter Real Itable[:]={11.0,11.20,12.27,13.87,16.41,18.78,21.07,
@@ -2394,21 +2391,7 @@ The mechanical load is a constant torque like a conveyor (with regularization ar
           output Real eff_simQS=if noEvent(abs(PelQS) > Modelica.Constants.small)
                then PmechQS/PelQS else 0 "Simulated efficiency";
           output Real eff_measQS=combiTable1DsQS.y[4] "Measured efficiency";
-          output Modelica.SIunits.Power Pmech=powerSensor.power
-            "Mechanical output";
-          output Modelica.SIunits.Current I_sim=currentQuasiRMSSensor.I
-            "Simulated current";
-          output Modelica.SIunits.Current I_meas=combiTable1Ds.y[1]
-            "Measured current";
-          output Modelica.SIunits.AngularVelocity w_sim(displayUnit="rev/min") = imc.wMechanical "Simulated speed";
-          output Modelica.SIunits.AngularVelocity w_meas=combiTable1Ds.y[2]
-            "Measured speed";
-          output Real pf_sim=if noEvent(Sel > Modelica.Constants.small) then Pel/
-              Sel else 0 "Simulated power factor";
-          output Real pf_meas=combiTable1Ds.y[3] "Measured power factor";
-          output Real eff_sim=if noEvent(abs(Pel) > Modelica.Constants.small)
-               then Pmech/Pel else 0 "Simulated efficiency";
-          output Real eff_meas=combiTable1Ds.y[4] "Measured efficiency";
+
           Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.InductionMachines.IM_SquirrelCage imcQS(
             p=imcData.p,
             fsNominal=imcData.fsNominal,
@@ -2486,90 +2469,6 @@ The mechanical load is a constant torque like a conveyor (with regularization ar
             Lrsigma=2.31/(2*pi*fNominal),
             Rr=0.42,
             alpha20r(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Aluminium) annotation (Placement(transformation(extent={{-60,12},{-40,32}})));
-
-          Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage imc(
-            p=imcData.p,
-            fsNominal=imcData.fsNominal,
-            TsRef=imcData.TsRef,
-            alpha20s(displayUnit="1/K") = imcData.alpha20s,
-            Jr=imcData.Jr,
-            Js=imcData.Js,
-            frictionParameters=imcData.frictionParameters,
-            phiMechanical(fixed=true),
-            statorCoreParameters=imcData.statorCoreParameters,
-            strayLoadParameters=imcData.strayLoadParameters,
-            TrRef=imcData.TrRef,
-            TsOperational=TempNominal,
-            TrOperational=TempNominal,
-            wMechanical(fixed=true, start=2*pi*imcData.fsNominal/imcData.p),
-            Rs=imcData.Rs*m/3,
-            Lssigma=imcData.Lssigma*m/3,
-            Lszero=imcData.Lszero*m/3,
-            Lm=imcData.Lm*m/3,
-            Lrsigma=imcData.Lrsigma*m/3,
-            Rr=imcData.Rr*m/3,
-            m=m,
-            alpha20r=imcData.alpha20r)                    annotation (Placement(transformation(extent={{-20,-40},{0,-20}})));
-          Electrical.Machines.Utilities.MultiTerminalBox
-                                                    terminalBox(terminalConnection="D", m=m)
-                                                                                        annotation (Placement(transformation(extent={{-20,-24},{0,-4}})));
-          Modelica.Electrical.Machines.Sensors.ElectricalPowerSensor
-                                                            electricalPowerSensor(m=m)
-                                                                                  annotation (Placement(transformation(
-                extent={{-10,-10},{10,10}},
-                rotation=0,
-                origin={-40,-10})));
-          Electrical.MultiPhase.Sensors.CurrentQuasiRMSSensor
-                                                            currentQuasiRMSSensor(m=m)
-                                                                                  annotation (Placement(transformation(
-                origin={-70,-10},
-                extent={{-10,10},{10,-10}},
-                rotation=0)));
-          Modelica.Electrical.MultiPhase.Sources.SineVoltage sineVoltage(
-            final m=m,
-            freqHz=fill(fNominal, m),
-            V=fill(sqrt(2/3)*VNominal, m)) annotation (Placement(transformation(
-                origin={-90,-30},
-                extent={{-10,-10},{10,10}},
-                rotation=270)));
-          Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) annotation (
-              Placement(transformation(
-                extent={{10,-10},{-10,10}},
-                rotation=90,
-                origin={-90,-60})));
-          Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
-                transformation(
-                origin={-90,-90},
-                extent={{-10,-10},{10,10}})));
-          Modelica.Mechanics.Rotational.Sensors.PowerSensor powerSensor
-            annotation (Placement(transformation(extent={{10,-40},{30,-20}})));
-          Modelica.Mechanics.Rotational.Components.Inertia loadInertia(J=imcData.Jr)
-            annotation (Placement(transformation(extent={{40,-40},{60,-20}})));
-          Modelica.Mechanics.Rotational.Sources.Torque torque
-            annotation (Placement(transformation(extent={{90,-40},{70,-20}})));
-          Modelica.Blocks.Math.Gain gain(k=-1)
-            annotation (Placement(transformation(extent={{70,-100},{90,-80}})));
-          Modelica.Blocks.Continuous.PI PI(
-            k=0.01,
-            T=0.01,
-            initType=Modelica.Blocks.Types.Init.InitialState)
-            annotation (Placement(transformation(extent={{40,-100},{60,-80}})));
-          Modelica.Blocks.Math.Feedback feedback
-            annotation (Placement(transformation(extent={{10,-80},{30,-100}})));
-          Modelica.Blocks.Sources.Ramp ramp(
-            height=1.2*PNominal,
-            offset=0,
-            startTime=4.5,
-            duration=5.5)
-            annotation (Placement(transformation(extent={{-20,-100},{0,-80}})));
-          Modelica.Blocks.Tables.CombiTable1Ds combiTable1Ds(table={{Ptable[j],
-                Itable[j],ntable[j],ctable[j],etable[j]} for j in 1:size(Ptable,
-                1)}, smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative)
-            annotation (Placement(transformation(extent={{40,-70},{60,-50}})));
-        initial equation
-          sum(imc.is) = 0;
-          imc.is[1:2] = zeros(2);
-          imc.rotorCage.electroMagneticConverter.V_m = Complex(0, 0);
         equation
           connect(starQS.pin_n, groundQS.pin) annotation (Line(points={{-90,30},{-90,20}}, color={85,170,255}));
           connect(sineVoltageQS.plug_n, starQS.plug_p) annotation (Line(points={{-90,60},{-90,50}}, color={85,170,255}));
@@ -2590,60 +2489,19 @@ The mechanical load is a constant torque like a conveyor (with regularization ar
           connect(gainQS.y, torqueQS.tau) annotation (Line(points={{91,10},{100,10},{100,70},{92,70}}, color={0,0,127}));
           connect(rampQS.y, feedbackQS.u1) annotation (Line(points={{1,10},{12,10}}, color={0,0,127}));
           connect(feedbackQS.y, PIQS.u) annotation (Line(points={{29,10},{38,10}}, color={0,0,127}));
-          connect(star.pin_n,ground. p)
-            annotation (Line(points={{-90,-70},{-90,-80}},
-                                                         color={0,0,255}));
-          connect(sineVoltage.plug_n,star. plug_p)
-            annotation (Line(points={{-90,-40},{-90,-50}},
-                                                         color={0,0,255}));
-          connect(terminalBox.plug_sn, imc.plug_sn) annotation (Line(points={{-16,-20},{-16,-20}}, color={0,0,255}));
-          connect(terminalBox.plug_sp, imc.plug_sp) annotation (Line(points={{-4,-20},{-4,-20}}, color={0,0,255}));
-          connect(currentQuasiRMSSensor.plug_n,electricalPowerSensor. plug_p)
-            annotation (Line(
-              points={{-60,-10},{-50,-10}},                                       color={0,0,255}));
-          connect(electricalPowerSensor.plug_nv,star. plug_p) annotation (Line(
-              points={{-40,-20},{-40,-50},{-90,-50}},
-                                          color={0,0,255}));
-          connect(electricalPowerSensor.plug_ni,terminalBox. plugSupply)
-            annotation (Line(
-              points={{-30,-10},{-10,-10},{-10,-18}},
-                                          color={0,0,255}));
-          connect(imc.flange, powerSensor.flange_a) annotation (Line(points={{0,-30},{10,-30}}));
-          connect(powerSensor.flange_b,loadInertia. flange_a) annotation (Line(
-              points={{30,-30},{40,-30}}));
-          connect(torque.flange,loadInertia. flange_b) annotation (Line(
-              points={{70,-30},{60,-30}}));
-          connect(gain.y,torque. tau) annotation (Line(
-              points={{91,-90},{100,-90},{100,-30},{92,-30}},
-                                                          color={0,0,127}));
-          connect(sineVoltage.plug_p,currentQuasiRMSSensor. plug_p) annotation (
-              Line(
-              points={{-90,-20},{-90,-10},{-80,-10}},
-                                          color={0,0,255}));
-          connect(powerSensor.power,feedback. u2) annotation (Line(
-              points={{12,-41},{12,-60},{20,-60},{20,-82}},
-                                                         color={0,0,127}));
-          connect(feedback.y,PI. u) annotation (Line(
-              points={{29,-90},{38,-90}},color={0,0,127}));
-          connect(PI.y,gain. u) annotation (Line(
-              points={{61,-90},{68,-90}}, color={0,0,127}));
-          connect(ramp.y,feedback. u1) annotation (Line(
-              points={{1,-90},{12,-90}},   color={0,0,127}));
-          connect(powerSensor.power,combiTable1Ds. u) annotation (Line(
-              points={{12,-41},{12,-60},{38,-60}},color={0,0,127}));
           annotation (
             experiment(StopTime=5.0, Interval=0.0001, Tolerance=1e-06),
             Documentation(info="<html>
 <ul>
 <li>Simulate for 5 seconds: The machine is started at nominal speed, flux is build up in the machine.</li>
 <li>Continue the simulation for additional 5 seconds: Subsequently a load ramp is applied.</li>
-<li>Compare by plotting versus Pmech|PmechQS:</li>
+<li>Compare by plotting versus PmechQS:</li>
 </ul>
 <table>
-<tr><td>Current      </td><td>I_sim|I_simQS   </td><td>I_meas|I_measQS  </td></tr>
-<tr><td>Speed        </td><td>w_sim|w_simQS   </td><td>w_meas|w_measQS  </td></tr>
-<tr><td>Power factor </td><td>pf_sim|pf_simQS  </td><td>pf_meas|pf_measQS </td></tr>
-<tr><td>Efficiency   </td><td>eff_sim|eff_simQS </td><td>eff_meas|eff_measQS</td></tr>
+<tr><td>Current      </td><td>I_simQS   </td><td>I_measQS  </td></tr>
+<tr><td>Speed        </td><td>w_simQS   </td><td>w_measQS  </td></tr>
+<tr><td>Power factor </td><td>pf_simQS  </td><td>pf_measQS </td></tr>
+<tr><td>Efficiency   </td><td>eff_simQS </td><td>eff_measQS</td></tr>
 </table>
 <p>Machine parameters are taken from a standard 18.5 kW 400 V 50 Hz motor, simulation results are compared with measurements.</p>
 <table>
@@ -2685,14 +2543,7 @@ Modelica 2009, 7<sup>th</sup> International Modelica Conference</p>
                   extent={{-80,40},{0,32}},
                           textStyle={TextStyle.Bold},
                   lineColor={0,0,0},
-                  textString="%m phase quasi static"),
-                                                    Text(
-                          extent={{-80,-60},{0,-68}},
-                          lineColor={0,0,0},
-                          fillColor={255,255,170},
-                          fillPattern=FillPattern.Solid,
-                          textStyle={TextStyle.Bold},
-                  textString="%m phase transient")}));
+                  textString="%m phase quasi static")}));
         end IMC_withLosses;
 
         model IMC_Initialize "Steady-state initialization of induction machine with squirrel cage"
