@@ -110,7 +110,7 @@ The Electrical.Digital library is based on the following references:
 <dl>
 <dt><strong>Main Authors:</strong></dt>
 <dd>Christoph Clau&szlig;
-    &lt;<A HREF=\"mailto:Christoph.Clauss@eas.iis.fraunhofer.de\">Christoph.Clauss@eas.iis.fraunhofer.de</A>&gt;<br>
+    &lt;<A HREF=\"mailto:christoph@clauss-it.com\">christoph@clauss-it.com</A>&gt;<br>
     Andr&eacute; Schneider
     &lt;<A HREF=\"mailto:Andre.Schneider@eas.iis.fraunhofer.de\">Andre.Schneider@eas.iis.fraunhofer.de</A>&gt;<br>
     Ulrich Donath

@@ -252,7 +252,7 @@ connect(p_out, n2);
 <dt><strong>Kristin Majetta</strong></dt>
 <dd>email: <a href=\"mailto:Kristin.Majetta@eas.iis.fraunhofer.de\">Kristin Majetta@eas.iis.fraunhofer.de</a></dd>
 <dt><strong>Christoph Clauss</strong></dt>
-<dd>email: <a href=\"mailto:Christoph.Clauss@eas.iis.fraunhofer.de\">Christoph.Clauss@eas.iis.fraunhofer.de</a></dd>
+<dd>email: <a href=\"mailto:christoph@clauss-it.com\">christoph@clauss-it.com</a></dd>
 <dt><strong>Sandra Boehme</strong></dt>
 <dd>email: <a href=\"mailto:Sandra.Boehme@eas.iis.fraunhofer.de\">Sandra.Boehme@eas.iis.fraunhofer.de</a></dd>
 </dl>
@@ -2663,7 +2663,7 @@ The corresponding SPICE description
 <strong>Main Authors:</strong>
 <dd>
 Christoph Clau&szlig;
-    &lt;<a href=\"mailto:clauss@eas.iis.fhg.de\">clauss@eas.iis.fhg.de</a>&gt;<br>
+    &lt;<a href=\"mailto:christoph@clauss-it.com\">christoph@clauss-it.com</a>&gt;<br>
 
     Fraunhofer Institute for Integrated Circuits<br>
     Design Automation Department<br>
