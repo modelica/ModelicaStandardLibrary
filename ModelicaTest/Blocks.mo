@@ -180,6 +180,26 @@ package Blocks "Test models for Modelica.Blocks"
     annotation (experiment(StopTime=1.1));
   end Continuous_InitialOutput;
 
+  model SelfResettingIntegrator
+    extends Modelica.Icons.Example;
+    Modelica.Blocks.Continuous.Integrator integrator(
+      k=1.0,
+      use_reset=true) annotation(Placement(transformation(extent={{-20,60},{0,80}})));
+    Modelica.Blocks.Sources.Constant const(k=1.0) annotation(Placement(transformation(extent={{-60,60},{-40,80}})));
+    Modelica.Blocks.Logical.GreaterEqualThreshold greaterEqualThreshold(threshold=1.0) annotation(Placement(transformation(extent={{20,60},{40,80}})));
+    equation
+      connect(const.y, integrator.u) annotation(Line(
+        points={{-39,70},{-34,70},{-27,70},{-22,70}},
+        color={0,0,127}));
+      connect(integrator.y, greaterEqualThreshold.u) annotation(Line(
+        points={{1,70},{6,70},{13,70},{18,70}},
+        color={0,0,127}));
+      connect(greaterEqualThreshold.y, integrator.reset) annotation(Line(
+        points={{41,70},{46,70},{46,53},{-4,53},{-4,58}},
+        color={255,0,255}));
+    annotation(experiment(StopTime=5));
+  end SelfResettingIntegrator;
+
   model Limiters
     extends Modelica.Icons.Example;
     Modelica.Blocks.Nonlinear.Limiter limiter(limitsAtInit=false, uMax=1)
