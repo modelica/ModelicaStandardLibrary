@@ -1040,6 +1040,7 @@ end HeatingDiode;
              useHeatPort=true);
   protected
           final constant SI.ElectricCharge q=Modelica.Constants.F/Modelica.Constants.N_A "Electron charge, [As]";
+  public
           Real vbc;
           Real vbe;
           Real qbk;
@@ -1055,7 +1056,7 @@ end HeatingDiode;
           Real vt_t;
           Real hexp;
           Real htempexp;
-  public
+
           Modelica.Electrical.Analog.Interfaces.Pin C "Collector"
             annotation (Placement(transformation(extent={{90,50},{110,70}}), iconTransformation(extent={{90,50},{110,70}})));
           Modelica.Electrical.Analog.Interfaces.Pin B "Base"
