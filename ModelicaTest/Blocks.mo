@@ -200,6 +200,39 @@ package Blocks "Test models for Modelica.Blocks"
     annotation(experiment(StopTime=5));
   end SelfResettingIntegrator;
 
+  model ResetHoldIntegrator
+    extends Modelica.Icons.Example;
+    Modelica.Blocks.Continuous.Integrator integrator(
+      k=2.0,
+      use_reset=true) annotation(Placement(transformation(extent={{40,20},{60,40}})));
+    Modelica.Blocks.Sources.Constant const1(k=1.0) annotation(Placement(transformation(extent={{-40,40},{-20,60}})));
+    Modelica.Blocks.Logical.Switch switch annotation(Placement(transformation(extent={{0,20},{20,40}})));
+    Modelica.Blocks.Sources.Constant const0(k=0.0) annotation(Placement(transformation(extent={{-40,0},{-20,20}})));
+    Modelica.Blocks.Sources.BooleanPulse booleanPulse(
+      period=1.0) annotation(Placement(transformation(extent={{-80,20},{-60,40}})));
+    Modelica.Blocks.Logical.FallingEdge fallingEdge annotation(Placement(transformation(extent={{0,-20},{20,0}})));
+    equation 
+      connect(switch.y, integrator.u) annotation(Line(
+        points={{21,30},{38,30}},
+        color={0,0,127}));
+      connect(integrator.reset, fallingEdge.y) annotation(Line(
+        points={{56,18},{56,-10},{21,-10}},
+        color={255,0,255}));
+      connect(const1.y, switch.u1) annotation(Line(
+         points={{-19,50},{-10,50},{-10,38},{-2,38}},
+         color={0,0,127}));
+      connect(const0.y, switch.u3) annotation(Line(
+        points={{-19,10},{-12,10},{-12,22},{-2,22}},
+        color={0,0,127}));
+      connect(booleanPulse.y, switch.u2) annotation(Line(
+        points={{-59,30},{-2,30}},
+        color={255,0,255}));
+      connect(fallingEdge.u, booleanPulse.y) annotation(Line(
+        points={{-2,-10},{-50,-10},{-50,30},{-59,30}},
+        color={255,0,255}));
+    annotation(experiment(StopTime=5));
+  end ResetHoldIntegrator;
+
   model Limiters
     extends Modelica.Icons.Example;
     Modelica.Blocks.Nonlinear.Limiter limiter(limitsAtInit=false, uMax=1)
