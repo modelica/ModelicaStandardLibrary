@@ -215,7 +215,8 @@ The Real output y is a clock signal:
   end Clock;
 
   block Constant "Generate constant signal of type Real"
-    parameter Real k(start=1) "Constant output value";
+    parameter Real k(start=1) "Constant output value"
+    annotation(Dialog(groupImage="modelica://Modelica/Resources/Images/Blocks/Sources/Constant.png"));
     extends Interfaces.SO;
 
   equation
@@ -282,7 +283,8 @@ The Real output y is a constant signal:
   end Constant;
 
   block Step "Generate step signal of type Real"
-    parameter Real height=1 "Height of step";
+    parameter Real height=1 "Height of step"
+    annotation(Dialog(groupImage="modelica://Modelica/Resources/Images/Blocks/Sources/Step.png"));
     extends Interfaces.SignalSource;
 
   equation
@@ -383,7 +385,8 @@ The Real output y is a step signal:
   end Step;
 
   block Ramp "Generate ramp signal"
-    parameter Real height=1 "Height of ramps";
+    parameter Real height=1 "Height of ramps"
+      annotation(Dialog(groupImage="modelica://Modelica/Resources/Images/Blocks/Sources/Ramp.png"));
     parameter Modelica.SIunits.Time duration(min=0.0, start=2)
       "Duration of ramp (= 0.0 gives a Step)";
     extends Interfaces.SignalSource;
@@ -511,7 +514,8 @@ If parameter duration is set to 0.0, the limiting case of a Step signal is achie
 
   block Sine "Generate sine signal"
     import Modelica.Constants.pi;
-    parameter Real amplitude=1 "Amplitude of sine wave";
+    parameter Real amplitude=1 "Amplitude of sine wave"
+    annotation(Dialog(groupImage="modelica://Modelica/Resources/Images/Blocks/Sources/Sine.png"));
     parameter SIunits.Frequency freqHz(start=1) "Frequency of sine wave";
     parameter SIunits.Angle phase=0 "Phase of sine wave";
     extends Interfaces.SignalSource;
@@ -613,7 +617,8 @@ The Real output y is a sine signal:
 
   block Cosine "Generate cosine signal"
     import Modelica.Constants.pi;
-    parameter Real amplitude=1 "Amplitude of cosine wave";
+    parameter Real amplitude=1 "Amplitude of cosine wave"
+    annotation(Dialog(groupImage="modelica://Modelica/Resources/Images/Blocks/Sources/Cosine.png"));
     parameter SIunits.Frequency freqHz(start=1) "Frequency of cosine wave";
     parameter SIunits.Angle phase=0 "Phase of cosine wave";
     extends Interfaces.SignalSource;
@@ -707,7 +712,8 @@ The Real output y is a cosine signal:
 
   block ExpSine "Generate exponentially damped sine signal"
     import Modelica.Constants.pi;
-    parameter Real amplitude=1 "Amplitude of sine wave";
+    parameter Real amplitude=1 "Amplitude of sine wave"
+    annotation(Dialog(groupImage="modelica://Modelica/Resources/Images/Blocks/Sources/ExpSine.png"));
     parameter SIunits.Frequency freqHz(start=2) "Frequency of sine wave";
     parameter SIunits.Angle phase=0 "Phase of sine wave";
     parameter SIunits.Damping damping(start=1)
@@ -831,7 +837,8 @@ The Real output y is a sine signal with exponentially changing amplitude:
 
   block Exponentials "Generate a rising and falling exponential signal"
 
-    parameter Real outMax=1 "Height of output for infinite riseTime";
+    parameter Real outMax=1 "Height of output for infinite riseTime"
+    annotation(Dialog(groupImage="modelica://Modelica/Resources/Images/Blocks/Sources/Exponentials.png"));
     parameter SIunits.Time riseTime(min=0,start=0.5) "Rise time";
     parameter SIunits.Time riseTimeConst(min=Modelica.Constants.small) = 0.1
       "Rise time constant; rising is defined as outMax*(1-exp(-riseTime/riseTimeConst))";
@@ -954,7 +961,8 @@ by a falling exponential signal:
   end Exponentials;
 
   block Pulse "Generate pulse signal of type Real"
-    parameter Real amplitude=1 "Amplitude of pulse";
+    parameter Real amplitude=1 "Amplitude of pulse"
+    annotation(Dialog(groupImage="modelica://Modelica/Resources/Images/Blocks/Sources/Pulse.png"));
     parameter Real width(
       final min=Modelica.Constants.small,
       final max=100) = 50 "Width of pulse in % of period";
@@ -1106,7 +1114,8 @@ The Real output y is a pulse signal:
   end Pulse;
 
   block SawTooth "Generate saw tooth signal"
-    parameter Real amplitude=1 "Amplitude of saw tooth";
+    parameter Real amplitude=1 "Amplitude of saw tooth"
+    annotation(Dialog(groupImage="modelica://Modelica/Resources/Images/Blocks/Sources/SawTooth.png"));
     parameter SIunits.Time period(final min=Modelica.Constants.small,start=1)
       "Time for one period";
     parameter Integer nperiod=-1
@@ -1232,7 +1241,8 @@ The Real output y is a saw tooth signal:
   end SawTooth;
 
   block Trapezoid "Generate trapezoidal signal of type Real"
-    parameter Real amplitude=1 "Amplitude of trapezoid";
+    parameter Real amplitude=1 "Amplitude of trapezoid"
+    annotation(Dialog(groupImage="modelica://Modelica/Resources/Images/Blocks/Sources/Trapezoid.png"));
     parameter SIunits.Time rising(final min=0) = 0
       "Rising duration of trapezoid";
     parameter SIunits.Time width(final min=0) = 0.5
@@ -1441,7 +1451,8 @@ The Real output y is a trapezoid signal:
   block KinematicPTP
     "Move as fast as possible along a distance within given kinematic constraints"
 
-    parameter Real deltaq[:]={1} "Distance to move";
+    parameter Real deltaq[:]={1} "Distance to move"
+    annotation(Dialog(groupImage="modelica://Modelica/Resources/Images/Blocks/Sources/KinematicPTP.png"));
     parameter Real qd_max[:](each final min=Modelica.Constants.small) = {1}
       "Maximum velocities der(q)";
     parameter Real qdd_max[:](each final min=Modelica.Constants.small) = {1}
@@ -1599,7 +1610,8 @@ a flange according to a given acceleration.
   block KinematicPTP2
     "Move as fast as possible from start to end position within given kinematic constraints with output signals q, qd=der(q), qdd=der(qd)"
 
-    parameter Real q_begin[:]={0} "Start position";
+    parameter Real q_begin[:]={0} "Start position"
+    annotation(Dialog(groupImage="modelica://Modelica/Resources/Images/Blocks/Sources/KinematicPTP2.png"));
     parameter Real q_end[:]={1} "End position";
     parameter Real qd_max[:](each final min=Modelica.Constants.small) = {1}
       "Maximum velocities der(q)";
@@ -1854,7 +1866,8 @@ a flange according to a given acceleration.
     "Generate a (possibly discontinuous) signal by linear interpolation in a table"
 
     parameter Real table[:, 2] = fill(0.0, 0, 2)
-      "Table matrix (time = first column; e.g., table=[0, 0; 1, 1; 2, 4])";
+      "Table matrix (time = first column; e.g., table=[0, 0; 1, 1; 2, 4])"
+      annotation(Dialog(groupImage="modelica://Modelica/Resources/Images/Blocks/Sources/TimeTable.png"));
     parameter Modelica.SIunits.Time timeScale(
       min=Modelica.Constants.eps)=1 "Time scale of first table column"
       annotation (Evaluate=true);
@@ -2134,7 +2147,8 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
       annotation (Dialog(group="Table data definition",enable=tableOnFile));
     parameter Integer columns[:]=2:size(table, 2)
       "Columns of table to be interpolated"
-      annotation (Dialog(group="Table data interpretation"));
+      annotation (Dialog(group="Table data interpretation",
+      groupImage="modelica://Modelica/Resources/Images/Blocks/Sources/CombiTimeTable.png"));
     parameter Modelica.Blocks.Types.Smoothness smoothness=Modelica.Blocks.Types.Smoothness.LinearSegments
       "Smoothness of table interpolation"
       annotation (Dialog(group="Table data interpretation"));
@@ -2504,7 +2518,8 @@ MATLAB is a registered trademark of The MathWorks, Inc.
   end CombiTimeTable;
 
   block BooleanConstant "Generate constant signal of type Boolean"
-    parameter Boolean k=true "Constant output value";
+    parameter Boolean k=true "Constant output value"
+    annotation(Dialog(groupImage="modelica://Modelica/Resources/Images/Blocks/Sources/BooleanConstant.png"));
     extends Interfaces.partialBooleanSource;
 
   equation
@@ -2545,7 +2560,8 @@ The Boolean output y is a constant signal:
   end BooleanConstant;
 
   block BooleanStep "Generate step signal of type Boolean"
-    parameter Modelica.SIunits.Time startTime=0 "Time instant of step start";
+    parameter Modelica.SIunits.Time startTime=0 "Time instant of step start"
+     annotation(Dialog(groupImage="modelica://Modelica/Resources/Images/Blocks/Sources/BooleanStep.png"));
     parameter Boolean startValue=false "Output before startTime";
 
     extends Interfaces.partialBooleanSource;
@@ -2594,7 +2610,8 @@ The Boolean output y is a step signal:
 
     parameter Real width(
       final min=Modelica.Constants.small,
-      final max=100) = 50 "Width of pulse in % of period";
+      final max=100) = 50 "Width of pulse in % of period"
+      annotation(Dialog(groupImage="modelica://Modelica/Resources/Images/Blocks/Sources/BooleanPulse.png"));
     parameter Modelica.SIunits.Time period(final min=Modelica.Constants.small,
         start=1) "Time for one period";
     parameter Modelica.SIunits.Time startTime=0 "Time instant of first pulse";
@@ -2682,7 +2699,8 @@ The Boolean output y is a pulse signal:
 
   block SampleTrigger "Generate sample trigger signal"
     parameter Modelica.SIunits.Time period(final min=Modelica.Constants.small,
-        start=0.01) "Sample period";
+        start=0.01) "Sample period"
+      annotation(Dialog(groupImage="modelica://Modelica/Resources/Images/Blocks/Sources/SampleTrigger.png"));
     parameter Modelica.SIunits.Time startTime=0
       "Time instant of first sample trigger";
     extends Interfaces.partialBooleanSource;
@@ -2765,7 +2783,8 @@ at sample times (defined by parameter <strong>period</strong>) and is otherwise
     parameter Modelica.SIunits.Time table[:]={0,1}
       "Vector of time points. At every time point, the output y gets its opposite value (e.g., table={0,1})" annotation(Dialog(group="Table data definition"));
     parameter Boolean startValue=false
-      "Start value of y. At time = table[1], y changes to 'not startValue'" annotation(Dialog(group="Table data interpretation"));
+      "Start value of y. At time = table[1], y changes to 'not startValue'" annotation(Dialog(group="Table data interpretation",
+      groupImage="modelica://Modelica/Resources/Images/Blocks/Sources/BooleanTable.png"));
     parameter Modelica.Blocks.Types.Extrapolation extrapolation=Modelica.Blocks.Types.Extrapolation.HoldLastPoint
       "Extrapolation of data outside the definition range" annotation(Dialog(group="Table data interpretation"));
     parameter Modelica.SIunits.Time startTime=-Modelica.Constants.inf
