@@ -1372,9 +1372,7 @@ definition of a fluid library:
 Medium has to be defined. Connectors can only be connected together, if the
 corresponding attributes are either not defined or have identical values. Since
 mediumName is part of the quantity attribute of MassFlowRate, it is not
-possible to connect connectors with different media models together. In Dymola
-this is already checked when models are connected together in the diagram layer
-of the graphical user interface.</p>
+possible to connect connectors with different media models together.</p>
 </html>"));
     end BasicStructure;
 
