@@ -135,9 +135,6 @@ The water controller is a simple on-off controller, regulating on the gauge pres
 <p>
 Simulate for 2000 s. When the valve is opened at time t=200, the pump starts turning on and off to keep the reservoir level around 2 meters, which roughly corresponds to a gauge pressure of 200 mbar.
 </p>
-<p>
-If using Dymola, turn off \"Equidistant time grid\" to avoid numerical errors.
-</p>
 
 <img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/PumpingSystem.png\" border=\"1\"
      alt=\"PumpingSystem.png\">
