@@ -2553,17 +2553,17 @@ The mechanical load is a constant torque like a conveyor (with regularization ar
           TrOperational=293.15) annotation (Placement(transformation(extent={{-20,-50},{0,-30}})));
         Modelica.Electrical.Analog.Sources.SineVoltage sineVoltage(freqHz=
               fNominal, V=sqrt(2)*VNominal) annotation (Placement(
-              transformation(extent={{-50,100},{-70,80}})));
+              transformation(extent={{-50,90},{-70,70}})));
         Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
               transformation(
-              origin={-90,90},
+              origin={-90,80},
               extent={{-10,-10},{10,10}},
               rotation=270)));
         Modelica.Blocks.Sources.BooleanStep booleanStep(startTime=tStart1)
-          annotation (Placement(transformation(extent={{-50,60},{-30,80}})));
+          annotation (Placement(transformation(extent={{-50,40},{-30,60}})));
         Modelica.Electrical.Analog.Ideal.IdealClosingSwitch idealCloser
           annotation (Placement(transformation(
-              origin={-20,90},
+              origin={-20,80},
               extent={{10,-10},{-10,10}},
               rotation=180)));
         Modelica.Mechanics.Rotational.Components.Inertia loadInertia(J=JLoad)
@@ -2573,8 +2573,7 @@ The mechanical load is a constant torque like a conveyor (with regularization ar
           w_nominal=wLoad,
           TorqueDirection=false,
           tau_nominal=-TLoad,
-          useSupport=false) annotation (Placement(transformation(extent={{90,-50},
-                  {70,-30}})));
+          useSupport=false) annotation (Placement(transformation(extent={{90,-50},{70,-30}})));
         Electrical.Machines.Utilities.TerminalBox TerminalBox1(terminalConnection="D") annotation (Placement(transformation(extent={{-20,-34},{0,-14}})));
         Modelica.Electrical.MultiPhase.Basic.PlugToPin_p plugToPin_p3(m=m, k=3)
           annotation (Placement(transformation(
@@ -2593,28 +2592,28 @@ The mechanical load is a constant torque like a conveyor (with regularization ar
               rotation=90)));
         Modelica.Electrical.Analog.Basic.Capacitor cRun(C=Cr) annotation (
             Placement(transformation(
-              origin={10,50},
+              origin={10,40},
               extent={{-10,-10},{10,10}},
               rotation=270)));
         Modelica.Electrical.Analog.Basic.Capacitor cStart(C=Cs) annotation (
             Placement(transformation(
-              origin={30,50},
+              origin={30,40},
               extent={{-10,-10},{10,10}},
               rotation=270)));
         Modelica.Electrical.Analog.Ideal.IdealOpeningSwitch idealOpener
           annotation (Placement(transformation(
-              origin={30,80},
+              origin={30,70},
               extent={{-10,-10},{10,10}},
               rotation=270)));
         Modelica.Blocks.Logical.GreaterThreshold greaterThreshold(threshold=
               wSwitch) annotation (Placement(transformation(
-              origin={50,50},
+              origin={60,40},
               extent={{-10,-10},{10,10}},
               rotation=90)));
         Mechanics.Rotational.Sensors.SpeedSensor relSpeedSensor annotation (
             Placement(transformation(
               extent={{-10,-10},{10,10}},
-              origin={30,-30})));
+              origin={30,-20})));
         parameter Electrical.Machines.Utilities.ParameterRecords.AIM_SquirrelCageData aimcData annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
         Electrical.Machines.Sensors.CurrentQuasiRMSSensor currentQuasiRMSSensor annotation (Placement(transformation(
               origin={-10,-10},
@@ -2627,29 +2626,29 @@ The mechanical load is a constant torque like a conveyor (with regularization ar
         cRun.v = 0;
       equation
         connect(ground.p, sineVoltage.n)
-          annotation (Line(points={{-80,90},{-70,90}}, color={0,0,255}));
+          annotation (Line(points={{-80,80},{-70,80}}, color={0,0,255}));
         connect(sineVoltage.p, idealCloser.p)
-          annotation (Line(points={{-50,90},{-30,90}}, color={0,0,255}));
-        connect(booleanStep.y, idealCloser.control) annotation (Line(points={{-29,70},{-20,70},{-20,78}},
+          annotation (Line(points={{-50,80},{-30,80}}, color={0,0,255}));
+        connect(booleanStep.y, idealCloser.control) annotation (Line(points={{-29,50},{-20,50},{-20,68}},
                                         color={255,0,255}));
-        connect(plugToPin_p3.pin_p, sineVoltage.n) annotation (Line(points={{-30,
-                20},{-70,20},{-70,90}}, color={0,0,255}));
+        connect(plugToPin_p3.pin_p, sineVoltage.n) annotation (Line(points={{-30,20},{-70,20},{-70,80}},
+                                        color={0,0,255}));
         connect(idealCloser.n, plugToPin_p2.pin_p)
-          annotation (Line(points={{-10,90},{-10,20}}, color={0,0,255}));
+          annotation (Line(points={{-10,80},{-10,20}}, color={0,0,255}));
         connect(cRun.n, plugToPin_p1.pin_p)
-          annotation (Line(points={{10,40},{10,20}}, color={0,0,255}));
+          annotation (Line(points={{10,30},{10,20}}, color={0,0,255}));
         connect(loadInertia.flange_b, quadraticLoadTorque.flange)
           annotation (Line(points={{60,-40},{70,-40}}));
-        connect(cRun.p, idealCloser.n) annotation (Line(points={{10,60},{10,90},
-                {-10,90}}, color={0,0,255}));
+        connect(cRun.p, idealCloser.n) annotation (Line(points={{10,50},{10,80},{-10,80}},
+                           color={0,0,255}));
         connect(plugToPin_p1.pin_p, cStart.n)
-          annotation (Line(points={{10,20},{30,20},{30,40}}, color={0,0,255}));
-        connect(idealOpener.n, cStart.p) annotation (Line(points={{30,70},{30,
-                67.5},{30,65},{30,60}}, color={0,0,255}));
-        connect(idealOpener.p, idealCloser.n) annotation (Line(points={{30,90},
-                {30,90},{-10,90}}, color={0,0,255}));
+          annotation (Line(points={{10,20},{30,20},{30,30}}, color={0,0,255}));
+        connect(idealOpener.n, cStart.p) annotation (Line(points={{30,60},{30,50}},
+                                        color={0,0,255}));
+        connect(idealOpener.p, idealCloser.n) annotation (Line(points={{30,80},{-10,80}},
+                                   color={0,0,255}));
         connect(greaterThreshold.y, idealOpener.control) annotation (Line(
-              points={{50,61},{50,80},{42,80}}, color={255,0,255}));
+              points={{60,51},{60,70},{42,70}}, color={255,0,255}));
         connect(TerminalBox1.plug_sn, aimc.plug_sn) annotation (Line(
             points={{-16,-30},{-16,-30}}, color={0,0,255}));
         connect(TerminalBox1.plug_sp, aimc.plug_sp) annotation (Line(
@@ -2657,15 +2656,15 @@ The mechanical load is a constant torque like a conveyor (with regularization ar
         connect(aimc.flange, loadInertia.flange_a) annotation (Line(
             points={{0,-40},{40,-40}}));
         connect(relSpeedSensor.flange, aimc.flange) annotation (Line(
-            points={{20,-30},{20,-40},{0,-40}}));
+            points={{20,-20},{20,-40},{0,-40}}));
         connect(relSpeedSensor.w, greaterThreshold.u) annotation (Line(
-            points={{41,-30},{50,-30},{50,38}}, color={0,0,127}));
+            points={{41,-20},{60,-20},{60,28}}, color={0,0,127}));
         connect(plugToPin_p3.plug_p, currentQuasiRMSSensor.plug_p) annotation (
             Line(
             points={{-30,16},{-30,0},{-10,0}}, color={0,0,255}));
         connect(plugToPin_p2.plug_p, currentQuasiRMSSensor.plug_p) annotation (
             Line(
-            points={{-10,16},{-10,0},{-10,0}}, color={0,0,255}));
+            points={{-10,16},{-10,0}},         color={0,0,255}));
         connect(plugToPin_p1.plug_p, currentQuasiRMSSensor.plug_p) annotation (
             Line(
             points={{10,16},{10,0},{-10,0}}, color={0,0,255}));
