@@ -27,15 +27,16 @@ package Constants
 
   // Constants of nature
   // (name, value, description from http://www.bipm.org/utils/common/pdf/si-brochure-draft-2016b.pdf, data from 2016)
-  // The values for c, e_charge, h, k, N_A are exact and part of the basis of the SI-system
+  // The values for c, q, h, k, N_A are exact and part of the basis of the SI-system
+  // Note that the elementary charge uses the common alternate name q since e was taken.
   // The values for F, R, sigma, mue_0, epsilson_0, T_zero are also exact.
   final constant SI.Velocity c=299792458 "Speed of light in vacuum";
   final constant SI.Acceleration g_n=9.80665
     "Standard acceleration of gravity on earth";
   final constant Real G(final unit="m3/(kg.s2)") = 6.67408e-11
     "Newtonian constant of gravitation (previous value: 6.6742e-11)";
-  final constant SI.Charge e_charge = 1.6021766208e-19 "elementary charge";
-  final constant SI.FaradayConstant F = e_charge*N_A
+  final constant SI.ElectricCharge q = 1.6021766208e-19 "elementary charge";
+  final constant SI.FaradayConstant F = q*N_A
     "Faraday constant, C/mol (previous value: 9.64853399e4)";
   final constant Real h(final unit="J.s") = 6.626070040e-34
     "Planck constant (previous value: 6.6260693e-34)";
