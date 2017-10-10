@@ -1645,7 +1645,7 @@ the machine starts from standstill, accelerating inertias against load torque qu
 <table>
 <tr><td>Nominal stator current            </td><td>     32.85  </td><td>A      </td></tr>
 <tr><td>Power factor                      </td><td>      0.898 </td><td>       </td></tr>
-<tr><td>Speed                             </td><td>   1462.4   </td><td>rpm    </td></tr>
+<tr><td>Speed                             </td><td>   1462.5   </td><td>rpm    </td></tr>
 <tr><td>Electrical input                  </td><td> 20,443.95  </td><td>W      </td></tr>
 <tr><td>Stator copper losses              </td><td>    770.13  </td><td>W      </td></tr>
 <tr><td>Stator core losses                </td><td>    410.00  </td><td>W      </td></tr>
