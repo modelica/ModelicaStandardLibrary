@@ -1441,6 +1441,9 @@ the machine starts from standstill, accelerating inertias against load torque qu
         parameter Modelica.SIunits.Voltage VNominal=400 "Nominal RMS voltage";
         parameter Modelica.SIunits.Current INominal=32.85 "Nominal RMS current";
         parameter Real pfNominal=0.898 "Nominal power factor";
+        parameter Modelica.SIunits.Power PsNominal=sqrt(3)*VNominal*INominal*pfNominal "Nominal stator power";
+        parameter Modelica.SIunits.Power lossNominal=PsNominal-PNominal "Nominal losses";
+        parameter Real etaNominal=0.9049 "Nominal efficiency";
         parameter Modelica.SIunits.Frequency fNominal=50 "Nominal frequency";
         parameter Modelica.SIunits.AngularVelocity wNominal=from_rpm(1462.5)
           "Nominal speed";
@@ -1462,21 +1465,18 @@ the machine starts from standstill, accelerating inertias against load torque qu
         parameter Real etable[:]={0,0.7250,0.8268,0.8698,0.8929,0.9028,0.9064,
             0.9088,0.9089,0.9070,0.9044,0.9043,0.9008,0.8972};
       public
-        output Modelica.SIunits.Power Pmech=powerSensor.power
-          "Mechanical output";
-        output Modelica.SIunits.Current I_sim=currentQuasiRMSSensor.I
-          "Simulated current";
-        output Modelica.SIunits.Current I_meas=combiTable1Ds.y[1]
-          "Measured current";
-        output Modelica.SIunits.AngularVelocity w_sim(displayUnit="rev/min")=
-          aimc.wMechanical "Simulated speed";
-        output Modelica.SIunits.AngularVelocity w_meas(displayUnit="rev/min")=combiTable1Ds.y[2]
-          "Measured speed";
-        output Real pf_sim=if noEvent(Sel > Modelica.Constants.small) then Pel/
-            Sel else 0 "Simulated power factor";
+        output Modelica.SIunits.Power Pmech=powerSensor.power "Mechanical output";
+        output Modelica.SIunits.Power Ps_sim=sqrt(3)*VNominal*I_sim*pf_sim "Simulated stator power";
+        output Modelica.SIunits.Power Ps_meas=sqrt(3)*VNominal*I_meas*pf_meas "Simulated stator power";
+        output Modelica.SIunits.Power loss_sim=Ps_sim-Pmech "Simulated total losses";
+        output Modelica.SIunits.Power loss_meas=Ps_meas-Pmech "Measured total losses";
+        output Modelica.SIunits.Current I_sim=currentQuasiRMSSensor.I "Simulated current";
+        output Modelica.SIunits.Current I_meas=combiTable1Ds.y[1] "Measured current";
+        output Modelica.SIunits.AngularVelocity w_sim(displayUnit="rev/min")=aimc.wMechanical "Simulated speed";
+        output Modelica.SIunits.AngularVelocity w_meas(displayUnit="rev/min")=combiTable1Ds.y[2] "Measured speed";
+        output Real pf_sim=if noEvent(Sel > Modelica.Constants.small) then Pel/Sel else 0 "Simulated power factor";
         output Real pf_meas=combiTable1Ds.y[3] "Measured power factor";
-        output Real eff_sim=if noEvent(abs(Pel) > Modelica.Constants.small)
-             then Pmech/Pel else 0 "Simulated efficiency";
+        output Real eff_sim=if noEvent(abs(Pel) > Modelica.Constants.small) then Pmech/Pel else 0 "Simulated efficiency";
         output Real eff_meas=combiTable1Ds.y[4] "Measured efficiency";
         Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage
           aimc(
