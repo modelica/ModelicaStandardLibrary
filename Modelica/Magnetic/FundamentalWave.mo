@@ -2884,7 +2884,7 @@ finally reaching nominal speed.</p>
 <table>
 <tr><td>Nominal stator current            </td><td>     32.85  </td><td>A      </td></tr>
 <tr><td>Power factor                      </td><td>      0.898 </td><td>       </td></tr>
-<tr><td>Speed                             </td><td>   1462.4   </td><td>rpm    </td></tr>
+<tr><td>Speed                             </td><td>   1462.5   </td><td>rpm    </td></tr>
 <tr><td>Electrical input                  </td><td> 20,443.95  </td><td>W      </td></tr>
 <tr><td>Stator copper losses              </td><td>    770.13  </td><td>W      </td></tr>
 <tr><td>Stator core losses                </td><td>    410.00  </td><td>W      </td></tr>
@@ -2915,15 +2915,7 @@ Anton Haumer, Christian Kral, Hansj&ouml;rg Kapeller, Thomas B&auml;uml, Johanne
 The AdvancedMachines Library: Loss Models for Electric Machines</a><br>
 Modelica 2009, 7<sup>th</sup> International Modelica Conference</p>
 </html>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                  {100,100}}), graphics={Text(
-                      extent={{-100,-40},{100,-50}},
-                      lineColor={0,0,255},
-                      textString=
-                  "Simulate for 5 seconds for starting the machine."),Text(
-                      extent={{-100,-60},{100,-80}},
-                      lineColor={0,0,255},
-                      textString=
-                  "Continue the simulation for additional 5 seconds: a load ramp is applied.")}));
+                  {100,100}})));
       end AIMC_withLosses;
 
       model AIMC_Initialize "Steady-state initialization of asynchronous induction machine with squirrel cage"
