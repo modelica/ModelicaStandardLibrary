@@ -3353,9 +3353,9 @@ The harmonic is defined by <code>&radic;2 rms cos(k 2 &pi; f t + arg)</code> if 
       annotation (Placement(transformation(extent={{-140,-20},{-100,20}}),iconTransformation(extent={{-140,
               -20},{-100,20}})));
   protected
-    Real buf[ns](start=zeros(ns), fixed=true) "Input buffer";
-    Real abs[nf](start=zeros(nf), fixed=true) "FFT amplitudes";
-    Real arg[nf](start=zeros(nf), fixed=true) "FFT phases";
+    Real buf[ns](start=zeros(ns), each fixed=true) "Input buffer";
+    Real abs[nf](start=zeros(nf), each fixed=true) "FFT amplitudes";
+    Real arg[nf](start=zeros(nf), each fixed=true) "FFT phases";
     Integer iTick(start=0, fixed=true) "Sample ticks";
   algorithm
     when {sampleTrigger} then
