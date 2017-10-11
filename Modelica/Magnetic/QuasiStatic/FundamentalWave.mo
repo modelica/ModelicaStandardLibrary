@@ -3059,7 +3059,7 @@ Simulate for 0.1 second and plot (versus time):
             alpha20s=smpmData.alpha20s,
             alpha20r=smpmData.alpha20r,
             TrOperational=293.15,
-            ir(fixed=true, start=zeros(2)))
+            ir(each fixed=true, start=zeros(2)))
             annotation (Placement(transformation(extent={{20,-70},{40,-50}})));
 
           Modelica.Mechanics.Rotational.Components.Inertia loadInertiaM(J=
@@ -3176,6 +3176,7 @@ Simulate for 1 second and plot (versus time):
 </ul>
 </html>"));
         end SMPM_Mains;
+
 
         model SMPM_CurrentSource
           "Test example: PermanentMagnetSynchronousMachine fed by current source"
