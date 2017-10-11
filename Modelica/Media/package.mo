@@ -2961,7 +2961,7 @@ is given to compare the approximation.
         p(start=1.0e5, fixed=true));
       Medium.BaseProperties medium2(
         T(start=300.0, fixed=true),
-        X(start={0.2,0.1,0.3,0.4}, fixed=true),
+        X(start={0.2,0.1,0.3,0.4}, each fixed=true),
         p(start=2.0e5, fixed=true));
       Medium.SpecificHeatCapacity cp=Medium.specificHeatCapacityCp(state);
       Medium.SpecificHeatCapacity cv=Medium.specificHeatCapacityCv(state);
