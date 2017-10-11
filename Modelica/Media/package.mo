@@ -2921,7 +2921,7 @@ points, e.g., when an isentropic reference state is computed.
         p(start=1.0e5, fixed=true));
       Medium.BaseProperties medium2(
         T(start=300.0, fixed=true),
-        X(start={0.2,0.8}, fixed=true),
+        X(start={0.2,0.8}, each fixed=true),
         p(start=2.0e5, fixed=true));
       Medium.SpecificHeatCapacity cp=Medium.specificHeatCapacityCp(medium.state);
       Medium.SpecificHeatCapacity cv=Medium.specificHeatCapacityCv(medium.state);
