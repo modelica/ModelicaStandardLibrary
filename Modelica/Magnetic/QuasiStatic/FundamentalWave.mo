@@ -3177,7 +3177,6 @@ Simulate for 1 second and plot (versus time):
 </html>"));
         end SMPM_Mains;
 
-
         model SMPM_CurrentSource
           "Test example: PermanentMagnetSynchronousMachine fed by current source"
           extends Modelica.Icons.Example;
