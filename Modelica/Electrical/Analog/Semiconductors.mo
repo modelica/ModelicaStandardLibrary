@@ -68,7 +68,8 @@ package Semiconductors
     parameter SI.Current Ids = 1e-13 "Reverse saturation current";
     parameter SI.Resistance Rs = 16 "Ohmic resistance";
     parameter SI.Voltage Vt = Modelica.Constants.R * T/Modelica.Constants.F
-      "Thermal voltage (kT/q), 0.026 at normal conditions (around 20 degC)";
+      "Thermal voltage (kT/q), 0.026 at normal conditions (around 20 degC)"
+      annotation(Dialog(enable=not useHeatPort));
     parameter Real N = 1 "Emission coefficient";
     parameter SI.Voltage Bv = 100 "Reverse breakdown voltage";
     parameter SI.Conductance Gp = 1e-6
@@ -77,10 +78,8 @@ package Semiconductors
     SI.Current id "Diode current";
   protected
     SI.Voltage VdMax=Vf + (N*Vt_applied) "Linear continuation threshold";
-    SI.Current iVdMax=Ids*(exp(VdMax/(N*Vt_applied)) - 1)
-      "Current at threshold";
-    SI.Conductance diVdMax=Ids*exp(VdMax/(N*Vt_applied))/(N*
-        Vt_applied) "Conductance at threshold";
+    SI.Current iVdMax=Ids*(exp(VdMax/(N*Vt_applied)) - 1) "Current at threshold";
+    SI.Conductance diVdMax=Ids*exp(VdMax/(N*Vt_applied))/(N*Vt_applied) "Conductance at threshold";
     SI.Voltage Vt_applied;
   equation
     Vt_applied = if useHeatPort then Modelica.Constants.R * T_heatPort/Modelica.Constants.F else Vt;
