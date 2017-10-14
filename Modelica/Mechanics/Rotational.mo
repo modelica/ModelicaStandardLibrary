@@ -2699,7 +2699,7 @@ in the User's Guide of the Rotational library.
         tau_c = if abs(b) <= bEps then c*phi_diff else if phi_diff > bMax then
           c*(phi_diff - bMax) else if phi_diff < bMin then c*(phi_diff - bMin)
            else 0;
-        tau_d = d*w_rel;
+        tau_d = if abs(b) <= bEps or phi_diff > bMax or phi_diff < bMin then d*w_rel else 0;
         tau = if abs(b) <= bEps then tau_c + tau_d else if phi_diff > bMax
            then smooth(0, noEvent(if tau_c + tau_d <= 0 then 0 else tau_c + min(
           tau_c, tau_d))) else if phi_diff < bMin then smooth(0, noEvent(if
@@ -2993,7 +2993,7 @@ in the User's Guide of the Rotational library.
                 else if phi_diff < bMin then
                    c*(phi_diff - bMin)
                 else 0;
-        tau_d = d*w_rel;
+        tau_d = if abs(b) <= bEps or phi_diff > bMax or phi_diff < bMin then d*w_rel else 0;
 
         tau = if abs(b) <= bEps then
                  tau_c + tau_d
