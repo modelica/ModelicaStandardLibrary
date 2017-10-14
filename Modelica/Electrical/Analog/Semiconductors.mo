@@ -3,6 +3,7 @@ package Semiconductors
   "Semiconductor devices such as diode, MOS and bipolar transistor"
   extends Modelica.Icons.Package;
   import Modelica.Constants.k "Boltzmann's constant, [J/K]";
+  import Modelica.Constants.q "Electron charge, [As]";
 
   model Diode "Simple diode"
     extends Modelica.Electrical.Analog.Interfaces.OnePort;
@@ -712,8 +713,6 @@ model HeatingDiode "Simple diode with heating port"
   SI.Temperature vt_t "Temperature voltage";
   SI.Current id "Diode current";
   protected
-  final constant SI.ElectricCharge q=Modelica.Constants.F/Modelica.Constants.N_A
-      "Electron charge, [As]";
   SI.Temperature htemp "Auxiliary temperature";
   Real aux;
   Real auxp;
@@ -1037,9 +1036,6 @@ end HeatingDiode;
           parameter Real NR=1.0 "Reverse current emission coefficient";
           extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(
              useHeatPort=true);
-  protected
-          final constant SI.ElectricCharge q=Modelica.Constants.F/Modelica.Constants.N_A "Electron charge, [As]";
-  public
           Real vbc;
           Real vbe;
           Real qbk;
@@ -1152,7 +1148,6 @@ end HeatingDiode;
           extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(
              useHeatPort=true);
   protected
-          final constant SI.ElectricCharge q=Modelica.Constants.F/Modelica.Constants.N_A "Electron charge, [As]";
           Real vcb;
           Real veb;
           Real qbk;
