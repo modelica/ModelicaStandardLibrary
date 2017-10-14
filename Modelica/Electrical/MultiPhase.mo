@@ -1829,6 +1829,7 @@ This package contains basic analog electrical multiphase components.
             Line(points={{-90,0},{40,0}}, color={0,0,255}),
             Polygon(
               points={{30,0},{-30,40},{-30,-40},{30,0}},
+              lineColor={0,0,255},
               fillColor={255,255,255}),
             Line(points={{30,40},{30,-40}}, color={0,0,255}),
             Line(points={{40,0},{90,0}}, color={0,0,255}),
