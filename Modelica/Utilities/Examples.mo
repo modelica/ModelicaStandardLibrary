@@ -4,7 +4,7 @@ package Examples
   extends Modelica.Icons.ExamplesPackage;
 
   function calculator
-    "Interpreter to evaluate simple expressions consisting of +,-,*,/,(),sin(), cos(), tan(), sqrt(), pi"
+    "Interpreter to evaluate simple expressions consisting of +, -, *, /, (), sin(), cos(), tan(), sqrt(), asin(), acos(), atan(), exp(), log(), pi"
     import Modelica.Utilities.Strings;
     extends Modelica.Icons.Function;
     input String string "Expression that is evaluated";
@@ -39,6 +39,11 @@ The following operations are supported (pi=3.14.. is a predefined constant):
    cos(expression)
    tan(expression)
    sqrt(expression)
+   asin(expression)
+   acos(expression)
+   atan(expression)
+   exp(expression)
+   log(expression)
    pi
 </pre>
 <h4>Example</h4>
@@ -50,7 +55,7 @@ The following operations are supported (pi=3.14.. is a predefined constant):
   end calculator;
 
   function expression
-    "Expression interpreter that returns with the position after the expression (expression may consist of +,-,*,/,(),sin(), cos(), tan(), sqrt(), pi"
+    "Expression interpreter that returns with the position after the expression (expression may consist of +, -, *, /, (), sin(), cos(), tan(), sqrt(), asin(), acos(), atan(), exp(), log(), pi"
     import Modelica.Utilities.Types;
     import Modelica.Utilities.Strings;
     import Modelica.Math;
@@ -138,9 +143,21 @@ The following operations are supported (pi=3.14.. is a predefined constant):
                           "Imaginary numbers are not supported by the calculator.\n" + message);
            end if;
            result := sqrt(result);
+         elseif functionName == "asin" then
+           result := Math.asin(result);
+         elseif functionName == "acos" then
+           result := Math.acos(result);
+         elseif functionName == "atan" then
+           result := Math.atan(result);
+         elseif functionName == "exp" then
+           result := Math.exp(result);
+         elseif functionName == "log" then
+           if result <= 0.0 then
+             Strings.syntaxError(string, startIndex, "Argument of call \"log(" + String(result) + ")\" is not positive.\n" + message);
+           end if;
+           result := Math.log(result);
          else
-           Strings.syntaxError(string, startIndex, "Function \"" + functionName + "\" is unknown (not supported)\n" +
-                                           message);
+           Strings.syntaxError(string, startIndex, "Function \"" + functionName + "\" is unknown (not supported)\n" + message);
          end if;
       end if;
 
@@ -208,6 +225,11 @@ The following operations are supported (pi=3.14.. is a predefined constant):
    cos(expression)
    tan(expression)
    sqrt(expression)
+   asin(expression)
+   acos(expression)
+   atan(expression)
+   exp(expression)
+   log(expression)
    pi
 </pre>
 <p>
@@ -236,6 +258,11 @@ This function parses the following grammar
               | cos
               | tan
               | sqrt
+              | asin
+              | acos
+              | atan
+              | exp
+              | log
 </pre>
 <p>
 Note, in Examples.readRealParameter it is shown, how the expression
