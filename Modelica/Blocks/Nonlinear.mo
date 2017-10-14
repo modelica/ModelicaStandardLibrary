@@ -105,12 +105,10 @@ as output.
       annotation (Dialog(tab="Dummy"),Evaluate=true, choices(checkBox=true));
     Interfaces.RealInput limit1
       "Connector of Real input signal used as maximum of input u"
-                                annotation (Placement(transformation(extent={{
-              -140,60},{-100,100}})));
+      annotation (Placement(transformation(extent={{-140,60},{-100,100}})));
     Interfaces.RealInput limit2
       "Connector of Real input signal used as minimum of input u"
-                                annotation (Placement(transformation(extent={{
-              -140,-100},{-100,-60}})));
+      annotation (Placement(transformation(extent={{-140,-100},{-100,-60}})));
   equation
     assert(limit1 >= limit2, "Input signals are not consistent: limit1 < limit2");
 
