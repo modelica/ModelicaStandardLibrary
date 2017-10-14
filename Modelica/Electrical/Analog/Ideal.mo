@@ -707,7 +707,7 @@ If the input voltage is vin larger than 0, the output voltage is out.v = VMax.
     end if;
     in_p.i = 0;
     in_n.i = 0;
-    v_out = smooth(0, min(vps, max(vns, V0*v_in)));
+    v_out = homotopy(actual = smooth(0, if V0*v_in<vns then vns else if V0*v_in>vps then vps else V0*v_in), simplified=V0*v_in);
     annotation (defaultComponentName="opAmp",
       Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
               100}}), graphics={
