@@ -2763,8 +2763,8 @@ This torque characteristic leads to the following difficulties:
      situation), the damping torque has a non-zero value and therefore the contact
      torque changes discontinuously at phi_rel = phi_rel0. Again, this is not physical
      because the torque can only change continuously. (Note, this component is not an
-     idealized model where a steep characteristic is approximated by a discontinuity,
-     but it shall model the steep characteristic.)</li>
+     idealized model where a step characteristic is approximated by a discontinuity,
+     but it shall model the step characteristic.)</li>
 </ol>
 
 <p>
