@@ -738,14 +738,7 @@ Slider-crank mechanism with analytic handling of kinematic loop to model one cyl
     parameter Boolean animation=true "= true, if animation shall be enabled";
     replaceable model Cylinder = Cylinder_analytic_CAD constrainedby
       CylinderBase "Cylinder type"
-         annotation (choices(choice(redeclare model Cylinder =
-            Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.Cylinder_analytic_CAD
-            "Analytic loop handling + CAD animation"),
-                                                     choice(redeclare model
-            Cylinder =
-              Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.Cylinder_analytic
-            "Analytic loop handling + standard animation")), Documentation(info
-          ="<html>
+         annotation(Documentation(info="<html>
 <p>
 Model of one cylinder of an engine with analytic loop handling of the slider crank mechanism.
 </p>
