@@ -2287,7 +2287,7 @@ Default machine parameters of model <em>AIM_SquirrelCage</em> are used.
           parameter Modelica.SIunits.AngularVelocity w_Load(displayUnit="rev/min")=
                Modelica.SIunits.Conversions.from_rpm(1440.45)
             "Nominal load speed";
-          Real speedPerUnit = p*imcQS.wMechanical/(2*pi*fNominal) "Per unit speed";
+          Real speedPerUnit = p*imsQS.wMechanical/(2*pi*fNominal) "Per unit speed";
           Real slip = 1-speedPerUnit "Slip";
           output Modelica.SIunits.Current Iqs=iSensorQS.I "QS RMS current";
           Utilities.MultiTerminalBox terminalBoxQS(m=m, terminalConnection="Y")
