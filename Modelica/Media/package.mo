@@ -1372,9 +1372,7 @@ definition of a fluid library:
 Medium has to be defined. Connectors can only be connected together, if the
 corresponding attributes are either not defined or have identical values. Since
 mediumName is part of the quantity attribute of MassFlowRate, it is not
-possible to connect connectors with different media models together. In Dymola
-this is already checked when models are connected together in the diagram layer
-of the graphical user interface.</p>
+possible to connect connectors with different media models together.</p>
 </html>"));
     end BasicStructure;
 
@@ -2007,33 +2005,6 @@ for the Modelica'2003 conference (for evaluation).
 </html>"));
   end ReleaseNotes;
 
-  class Future "Future"
-    extends Modelica.Icons.Information;
-    annotation (Documentation(info="<html>
-
-<h4>Planned changes for version 3.1</h4>
-
-<p>Several changes are planned for version 3.1 of Modelica.Media. In order to have an easy transition, the current version is moved
-  to the ObsoleteModelica-package and current users can continue to use it for many years. The goal for the new version is to cover many more fluids, be easier to use for users and less for implementers that want to include their own models. A beta-version of the new media library will be available in the first quarter of 2009.</p>
-
-<p>The main user-visible changes are:</p>
-<ul>
-<li>No distinction between pure fluids and mixtures on the interface level: pure fluids are mixtures with 1 component</li>
-<li>Compressibility will in the future be a flag that can be set for those media where it makes sense. It will thus be possible to treat an ideal gas as incompressible, which is adequate for certain applications, and also use the same medium model for thermal-only applications, and thermal-hydraulic ones.</li>
-<li>All functions will have derivatives to enable analytic Jacobians.</li>
-<li>Mole-fraction based media for process applications</li>
-</ul>
-<p>For further information on the upcoming version, please contact the <a href=\"modelica://Modelica.Media.UsersGuide.Contact\">Author</a></p>
-
-<h4>Forward compatibility</h4>
-<p> In order to simplify transition to the upcoming version of
-Modelica.Media for Modelica 3.1, a new enumeration has been
-introduced:  <a href=\"modelica://Modelica.Media.Interfaces.Choices.IndependentVariables\">IndependentVariables</a> with the
-entries ph, pT, pTX, phX and dTX. Users are advised to use this enumeration to determine the independent variables of a medium. If they are going to use the function based interface of the current Modelica.Media (and not use the BaseProperties from Modelica.Media), they should not have any trouble using the next version without any need for changes in their code.</p>
-
-</html>"));
-  end Future;
-
   class Contact "Contact"
     extends Modelica.Icons.Contact;
     annotation (Documentation(info="<html>
@@ -2157,9 +2128,6 @@ This User's Guide has the following main parts:
      model has to be implemented.</li>
 <li> <a href=\"modelica://Modelica.Media.UsersGuide.ReleaseNotes\">ReleaseNotes</a>
      summarizes the changes of the library releases.</li>
-<li><a href=\"modelica://Modelica.Media.UsersGuide.Future\">Future</a>
-    provides information about the upcoming version 3.1 of Modelica.Media and
-    some changes to this version to enable forward compatibility.</li>
 <li><a href=\"modelica://Modelica.Media.UsersGuide.Contact\">Contact</a>
     provides information about the authors of the library as well as
     acknowledgements.</li>
@@ -2951,7 +2919,7 @@ points, e.g., when an isentropic reference state is computed.
         p(start=1.0e5, fixed=true));
       Medium.BaseProperties medium2(
         T(start=300.0, fixed=true),
-        X(start={0.2,0.8}, fixed=true),
+        X(start={0.2,0.8}, each fixed=true),
         p(start=2.0e5, fixed=true));
       Medium.SpecificHeatCapacity cp=Medium.specificHeatCapacityCp(medium.state);
       Medium.SpecificHeatCapacity cv=Medium.specificHeatCapacityCv(medium.state);
@@ -2991,7 +2959,7 @@ is given to compare the approximation.
         p(start=1.0e5, fixed=true));
       Medium.BaseProperties medium2(
         T(start=300.0, fixed=true),
-        X(start={0.2,0.1,0.3,0.4}, fixed=true),
+        X(start={0.2,0.1,0.3,0.4}, each fixed=true),
         p(start=2.0e5, fixed=true));
       Medium.SpecificHeatCapacity cp=Medium.specificHeatCapacityCp(state);
       Medium.SpecificHeatCapacity cv=Medium.specificHeatCapacityCv(state);

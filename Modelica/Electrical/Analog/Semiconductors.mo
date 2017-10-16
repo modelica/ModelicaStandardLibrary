@@ -3,6 +3,7 @@ package Semiconductors
   "Semiconductor devices such as diode, MOS and bipolar transistor"
   extends Modelica.Icons.Package;
   import Modelica.Constants.k "Boltzmann's constant, [J/K]";
+  import Modelica.Constants.q "Electron charge, [As]";
 
   model Diode "Simple diode"
     extends Modelica.Electrical.Analog.Interfaces.OnePort;
@@ -12,12 +13,11 @@ package Semiconductors
     parameter Real Maxexp(final min=Modelica.Constants.small) = 15
       "Max. exponent for linear continuation";
     parameter SI.Resistance R=1e8 "Parallel ohmic resistance";
-    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(
-       final T=293.15);
+    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=293.15);
   equation
     i = smooth(1, Ids*(exlin(v/Vt, Maxexp) - 1) + v/R);
     LossPower = v*i;
-    annotation (
+    annotation (defaultComponentName="diode",
       Documentation(info="<html>
 <p>The simple diode is a one port. It consists of the diode itself and an parallel ohmic resistance <em>R</em>. The diode formula is:</p>
 <pre>                v/vt
@@ -64,13 +64,13 @@ package Semiconductors
 
   model Diode2 "Improved diode model"
     extends Modelica.Electrical.Analog.Interfaces.OnePort;
-    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(
-     final T=293.15);
+    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=293.15);
     parameter SI.Voltage Vf = 0.7 "Forward voltage";
     parameter SI.Current Ids = 1e-13 "Reverse saturation current";
     parameter SI.Resistance Rs = 16 "Ohmic resistance";
     parameter SI.Voltage Vt = Modelica.Constants.R * T/Modelica.Constants.F
-      "Thermal voltage (kT/q), 0.026 at normal conditions (around 20 degC)";
+      "Thermal voltage (kT/q), 0.026 at normal conditions (around 20 degC)"
+      annotation(Dialog(enable=not useHeatPort));
     parameter Real N = 1 "Emission coefficient";
     parameter SI.Voltage Bv = 100 "Reverse breakdown voltage";
     parameter SI.Conductance Gp = 1e-6
@@ -79,10 +79,8 @@ package Semiconductors
     SI.Current id "Diode current";
   protected
     SI.Voltage VdMax=Vf + (N*Vt_applied) "Linear continuation threshold";
-    SI.Current iVdMax=Ids*(exp(VdMax/(N*Vt_applied)) - 1)
-      "Current at threshold";
-    SI.Conductance diVdMax=Ids*exp(VdMax/(N*Vt_applied))/(N*
-        Vt_applied) "Conductance at threshold";
+    SI.Current iVdMax=Ids*(exp(VdMax/(N*Vt_applied)) - 1) "Current at threshold";
+    SI.Conductance diVdMax=Ids*exp(VdMax/(N*Vt_applied))/(N*Vt_applied) "Conductance at threshold";
     SI.Voltage Vt_applied;
   equation
     Vt_applied = if useHeatPort then Modelica.Constants.R * T_heatPort/Modelica.Constants.F else Vt;
@@ -104,7 +102,7 @@ package Semiconductors
     assert(Bv>0, "Bv must be greater than zero");
     assert(Vf>0, "Vf must be greater than zero");
     assert(Vt>0, "Vt must be greater than zero");
-    annotation (
+    annotation (defaultComponentName="diode",
       Documentation(info="<html>
 <p>This diode model is an improved version of the <a href=\"modelica://Modelica.Electrical.Analog.Semiconductors.Diode\">simple diode</a> model. It includes a series resistance, parallel conductance, and also models reverse breakdown. The model is divided into three parts:</p>
 <ul>
@@ -163,16 +161,15 @@ Stefan Vorkoetter - new model proposed.</li>
     parameter SI.Voltage Bv=5.1 "Breakthrough voltage = Zener- or Z-voltage";
     parameter SI.Current Ibv=0.7 "Breakthrough knee current";
     parameter Real Nbv=0.74 "Breakthrough emission coefficient";
-    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(
-      final T=293.15);
- equation
+    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=293.15);
+  equation
     i = smooth(1, if (v>Maxexp*Vt) then
               Ids*( exp(Maxexp)*(1 + v/Vt - Maxexp)-1) + v/R else
            if ( (v+Bv)<-Maxexp*(Nbv*Vt)) then
               -Ids -Ibv* exp(Maxexp)*(1 - (v+Bv)/(Nbv*Vt) - Maxexp) +v/R else
               Ids*(exp(v/Vt)-1) - Ibv*exp(-(v+Bv)/(Nbv*Vt)) + v/R);
     LossPower = v*i;
-          annotation (
+          annotation (defaultComponentName="diode",
             Documentation(info="<html>
 <p>The simple Zener diode is a one port. It consists of the diode itself and an parallel ohmic resistance <em>R</em>. The diode formula is:
 <pre>                v/Vt                -(v+Bv)/(Nbv*Vt)
@@ -228,8 +225,7 @@ model PMOS "Simple MOS Transistor"
   parameter SI.Length dW=-2.5e-6 "Narrowing of channel";
   parameter SI.Length dL=-2.1e-6 "Shortening of channel";
   parameter SI.Resistance RDS=1e7 "Drain-Source-Resistance";
-  extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(
-     final T=293.15);
+  extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=293.15);
   protected
   Real v;
   Real uds;
@@ -349,7 +345,7 @@ model NMOS "Simple MOS Transistor"
   parameter SI.Length dW=-2.5e-6 "Narrowing of channel";
   parameter SI.Length dL=-1.5e-6 "Shortening of channel";
   parameter SI.Resistance RDS=1e7 "Drain-Source-Resistance";
-  extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=293.15);
+  extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=293.15);
   protected
   Real v;
   Real uds;
@@ -485,8 +481,7 @@ model NPN "Simple BJT according to Ebers-Moll"
   parameter SI.Voltage IC=0 "Initial Value";
   parameter Boolean UIC = false;
 
-  extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(
-     final T=293.15);
+  extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=293.15);
   protected
   Real vbc;
   Real vbe;
@@ -607,7 +602,7 @@ model PNP "Simple BJT according to Ebers-Moll"
   parameter SI.Voltage Vt=0.02585 "Voltage equivalent of temperature";
   parameter Real EMin=-100 "if x < EMin, the exp(x) function is linearized";
   parameter Real EMax=40 "if x > EMax, the exp(x) function is linearized";
-  extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=293.15);
+  extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=293.15);
   protected
   Real vbc;
   Real vbe;
@@ -718,8 +713,6 @@ model HeatingDiode "Simple diode with heating port"
   SI.Temperature vt_t "Temperature voltage";
   SI.Current id "Diode current";
   protected
-  final constant SI.ElectricCharge q=Modelica.Constants.F/Modelica.Constants.N_A
-      "Electron charge, [As]";
   SI.Temperature htemp "Auxiliary temperature";
   Real aux;
   Real auxp;
@@ -736,7 +729,7 @@ equation
   i = Ids*id*pow(htemp/TNOM, XTI/N)*auxp + v/R;
 
   LossPower = i*v;
-  annotation (
+  annotation (defaultComponentName="diode",
     Documentation(info="<html>
 <P>
 The simple diode is an electrical one port, where a heat port is added, which is
@@ -843,7 +836,7 @@ end HeatingDiode;
           S.i = smooth(0,if (D.v < S.v) then id else -id);
           B.i = 0;
           LossPower = D.i*(D.v - S.v);
-          annotation (
+          annotation (defaultComponentName="nMOS",
             Documentation(info="<html>
 <p>The NMOS model is a simple model of a n-channel metal-oxide semiconductor FET. It differs slightly from the device used in the SPICE simulator. For more details please care for H. Spiro.
 <br> A heating port is added for thermal electric simulation. The heating port is defined in the Modelica.Thermal library.
@@ -901,8 +894,7 @@ end HeatingDiode;
             fillColor={0,0,255},
             fillPattern=FillPattern.Solid,
             lineColor={0,0,255}),
-          Text(
-                    extent={{-150,130},{150,90}},
+          Text(     extent={{-150,130},{150,90}},
             textString="%name",
                     lineColor={0,0,255})}));
         end HeatingNMOS;
@@ -966,7 +958,7 @@ end HeatingDiode;
           S.i = smooth(0,if (D.v > S.v) then id else -id);
           B.i = 0;
           LossPower = D.i*(D.v - S.v);
-          annotation (
+          annotation (defaultComponentName="pMOS",
             Documentation(info="<html>
 <p>The PMOS model is a simple model of a p-channel metal-oxide semiconductor FET. It differs slightly from the device used in the SPICE simulator. For more details please care for H. Spiro.
 <br>A heating port is added for thermal electric simulation. The heating port is defined in the Modelica.Thermal library.
@@ -1013,8 +1005,7 @@ end HeatingDiode;
             fillColor={0,0,255},
             fillPattern=FillPattern.Solid,
             lineColor={0,0,255}),
-          Text(
-                    extent={{-150,130},{150,90}},
+          Text(     extent={{-150,130},{150,90}},
             textString="%name",
                     lineColor={0,0,255})}));
         end HeatingPMOS;
@@ -1045,8 +1036,6 @@ end HeatingDiode;
           parameter Real NR=1.0 "Reverse current emission coefficient";
           extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(
              useHeatPort=true);
-  protected
-          final constant SI.ElectricCharge q=Modelica.Constants.F/Modelica.Constants.N_A "Electron charge, [As]";
           Real vbc;
           Real vbe;
           Real qbk;
@@ -1062,7 +1051,7 @@ end HeatingDiode;
           Real vt_t;
           Real hexp;
           Real htempexp;
-  public
+
           Modelica.Electrical.Analog.Interfaces.Pin C "Collector"
             annotation (Placement(transformation(extent={{90,50},{110,70}}), iconTransformation(extent={{90,50},{110,70}})));
           Modelica.Electrical.Analog.Interfaces.Pin B "Base"
@@ -1094,7 +1083,7 @@ end HeatingDiode;
           E.i = -B.i - C.i + Ccs*der(C.v);
 
           LossPower = (vbc*ibc/br_t + vbe*ibe/bf_t + (ibe - ibc)*qbk*(C.v - E.v));
-          annotation (
+          annotation (defaultComponentName="npn",
             Documentation(info="<html>
 <p>This model is a simple model of a bipolar NPN junction transistor according to Ebers-Moll.
 <br>A heating port is added for thermal electric simulation. The heating port is defined in the Modelica.Thermal library.
@@ -1127,8 +1116,7 @@ end HeatingDiode;
             fillColor={0,0,255},
             fillPattern=FillPattern.Solid,
             lineColor={0,0,255}),
-          Text(
-                    extent={{-150,130},{150,90}},
+          Text(     extent={{-150,130},{150,90}},
             textString="%name",
                     lineColor={0,0,255})}));
         end HeatingNPN;
@@ -1160,7 +1148,6 @@ end HeatingDiode;
           extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(
              useHeatPort=true);
   protected
-          final constant SI.ElectricCharge q=Modelica.Constants.F/Modelica.Constants.N_A "Electron charge, [As]";
           Real vcb;
           Real veb;
           Real qbk;
@@ -1208,7 +1195,7 @@ end HeatingDiode;
           E.i = -B.i - C.i + Ccs*der(C.v);
 
           LossPower = (vcb*icb/br_t + veb*ieb/bf_t + (icb - ieb)*qbk*(C.v- E.v));
-          annotation (
+          annotation (defaultComponentName="pnp",
             Documentation(info="<html>
 <p>This model is a simple model of a bipolar PNP junction transistor according to Ebers-Moll.
 <br>A heating port is added for thermal electric simulation. The heating port is defined in the Modelica.Thermal library.
@@ -1241,8 +1228,7 @@ end HeatingDiode;
             fillColor={0,0,255},
             fillPattern=FillPattern.Solid,
             lineColor={0,0,255}),
-          Text(
-                    extent={{-150,130},{150,90}},
+          Text(     extent={{-150,130},{150,90}},
             textString="%name",
                     lineColor={0,0,255})}));
         end HeatingPNP;
@@ -1284,6 +1270,7 @@ protected
         algorithm
           z := if x < Minexp then exp(Minexp)*(1 + x - Minexp) else exlin(x, Maxexp);
         end exlin2;
+
 public
   model Thyristor "Simple Thyristor Model"
     parameter SI.Voltage VDRM(final min=0) = 100
@@ -1523,7 +1510,7 @@ public
         points={{-20,-62},{-20,-50},{-22,-50}}, color={0,0,255}));
     connect(idealDiode1.p, g) annotation (Line(
         points={{-20,-82},{-42,-82},{-42,-98},{-100,-98}}, color={0,0,255}));
-    annotation (
+    annotation (defaultComponentName="triac",
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
           Polygon(
@@ -1587,7 +1574,7 @@ public
 </dt>
 <dd>
 Christoph Clau&szlig;
-    &lt;<a href=\"mailto:Christoph.Clauss@eas.iis.fraunhofer.de\">Christoph.Clauss@eas.iis.fraunhofer.de</a>&gt;<br>
+    &lt;<a href=\"mailto:christoph@clauss-it.com\">christoph@clauss-it.com</a>&gt;<br>
     Andr&eacute; Schneider
     &lt;<a href=\"mailto:Andre.Schneider@eas.iis.fraunhofer.de\">Andre.Schneider@eas.iis.fraunhofer.de</a>&gt;<br>
     Fraunhofer Institute for Integrated Circuits<br>

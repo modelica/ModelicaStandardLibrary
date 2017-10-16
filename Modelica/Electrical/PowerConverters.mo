@@ -3682,7 +3682,7 @@ Plot machine current <code>dcpm.ia</code>, averaged current <code>meanCurrent.y<
             points={{-69,-50},{-60,-50},{-60,-2}}, color={0,0,127}));
         connect(realPassThrough.y, negativeThreshold.u) annotation (Line(
             points={{-69,-50},{-56,-50},{-56,-50},{60,-50},{60,-2}}, color={0,0,127}));
-        annotation (
+        annotation (defaultComponentName="adaptor",
           Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                   {100,100}}),graphics={Line(
                       points={{-40,-20},{-40,-24},{-20,-24},{-20,-40},{-40,-40},
@@ -3761,8 +3761,8 @@ General information about controllers is summarized in
               origin={60,110})));
       equation
         connect(voltageSensor.v, twoPulse.v[1]) annotation (Line(
-            points={{-70,0},{-12,
-                0}}, color={0,0,127}));
+            points={{-69,0},{-12,0}},
+                     color={0,0,127}));
         connect(voltageSensor.p, ac_p) annotation (Line(
             points={{-80,10},{-80,60},{-100,60}}, color={0,0,255}));
         connect(voltageSensor.n, ac_n) annotation (Line(
@@ -3773,7 +3773,7 @@ General information about controllers is summarized in
             points={{6,11},{6,80},{60,80},{60,110}}, color={255,0,255}));
         connect(twoPulse.fire_p[1], fire_p) annotation (Line(
             points={{-6,11},{-6,80},{-60,80},{-60,110}}, color={255,0,255}));
-        annotation (
+        annotation (defaultComponentName="adaptor",
           Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                   {100,100}}),graphics={Line(
                       points={{-40,-20},{-40,-24},{-20,-24},{-20,-40},{-40,-40},
@@ -3877,7 +3877,7 @@ signal <code>fire_n</code> is assigned to the thyristors connected with the nega
             points={{6,21},{6,80},{60,80},{60,110}}, color={255,0,255}));
         connect(twomPulse.fire_p, fire_p) annotation (Line(
             points={{-6,21},{-6,80},{-60,80},{-60,110}}, color={255,0,255}));
-        annotation (
+        annotation (defaultComponentName="adaptor",
           Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                   {100,100}}),graphics={Line(
                       points={{-40,-20},{-40,-24},{-20,-24},{-20,-40},{-40,-40},
@@ -3977,7 +3977,7 @@ Half of the semiconductors of the <code>2*m</code> pulse bridge rectifier are co
             points={{16,11},{16,80},{60,80},{60,110}}, color={255,0,255}));
         connect(twomPulse.fire_p, fire_p) annotation (Line(
             points={{4,11},{4,80},{-60,80},{-60,110}}, color={255,0,255}));
-        annotation (
+        annotation (defaultComponentName="adaptor",
           Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                   {100,100}}),graphics={Line(
                       points={{-40,-20},{-40,-24},{-20,-24},{-20,-40},{-40,-40},
@@ -4171,7 +4171,7 @@ enabling signal is taken from the optional signal input <code>enable</code>.
           points={{-100,60},{-60,60},{-60,20},{10,20},{10,40}}, color={0,0,255}));
       connect(ac_n, diode_p2.p) annotation (Line(
           points={{-100,-60},{-60,-60},{-60,-20},{40,-20},{40,40}}, color={0,0,255}));
-      annotation (
+      annotation (defaultComponentName="rectifier",
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
             Text(
@@ -4309,14 +4309,14 @@ This is a two pulse Graetz diode rectifier bridge. The circuit topology is the s
       connect(ac_n, thyristor_n2.n) annotation (Line(
           points={{-100,-60},{-100,-20},{20,-20},{20,-40}}, color={0,0,255}));
       connect(andCondition_p.y, thyristor_p1.fire) annotation (Line(
-          points={{-60,-69},{-60,57},{-31,57}}, color={255,0,255}));
+          points={{-60,-69},{-60,60},{-32,60}}, color={255,0,255}));
       connect(andCondition_p.y, thyristor_n2.fire) annotation (Line(
-          points={{-60,-69},{-60,-30},{40,-30},{40,-43},{31,-43}}, color={255,0,255}));
+          points={{-60,-69},{-60,-30},{40,-30},{40,-40},{32,-40}}, color={255,0,255}));
       connect(andCondition_n.y, thyristor_p2.fire) annotation (Line(
-          points={{60,-69},{60,57},{31,57}}, color={255,0,255}));
+          points={{60,-69},{60,60},{32,60}}, color={255,0,255}));
       connect(andCondition_n.y, thyristor_n1.fire) annotation (Line(
-          points={{60,-69},{60,-66},{-40,-66},{-40,-43},{-31,-43}}, color={255,0,255}));
-      annotation (
+          points={{60,-69},{60,-66},{-40,-66},{-40,-40},{-32,-40}}, color={255,0,255}));
+      annotation (defaultComponentName="rectifier",
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
             Text(
@@ -4455,10 +4455,10 @@ with thyristor <code>thyristor_p2</code> and <code>thyristor_n1</code>. See exam
       connect(ac_n, diode_n2.n) annotation (Line(
           points={{-100,-60},{-100,-20},{20,-20},{20,-40}}, color={0,0,255}));
       connect(andCondition_p.y, thyristor_p1.fire) annotation (Line(
-          points={{-60,-69},{-60,57},{-31,57}}, color={255,0,255}));
+          points={{-60,-69},{-60,60},{-32,60}}, color={255,0,255}));
       connect(andCondition_n.y, thyristor_p2.fire) annotation (Line(
-          points={{60,-69},{60,57},{31,57}}, color={255,0,255}));
-      annotation (
+          points={{60,-69},{60,60},{32,60}}, color={255,0,255}));
+      annotation (defaultComponentName="rectifier",
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
             Text(
@@ -4565,7 +4565,7 @@ The circuit topology is the same as in
       connect(diode_p.heatPort, heatPort) annotation (Line(
           points={{0,50},{0,40},{20,40},{20,-100},{
               0,-100}}, color={191,0,0}));
-      annotation (
+      annotation (defaultComponentName="rectifier",
         Icon(coordinateSystem(
             extent={{-100,-100},{100,100}},
             preserveAspectRatio=true,
@@ -4664,10 +4664,12 @@ This is a two pulse diode rectifier with center tap. In order to operate this re
           points={{0,50},{0,40},{20,40},{20,-100},{
               0,-100}}, color={191,0,0}));
       connect(andCondition_p.y, thyristor_p.fire) annotation (Line(
-          points={{-60,-69},{-60,80},{7,80},{7,71}}, color={255,0,255}));
+          points={{-60,-69},{-60,80},{10,80},{10,72}},
+                                                     color={255,0,255}));
       connect(andCondition_n.y, thyristor_n.fire) annotation (Line(
-          points={{60,-69},{60,-40},{7,-40},{7,-49}}, color={255,0,255}));
-      annotation (
+          points={{60,-69},{60,-40},{10,-40},{10,-48}},
+                                                      color={255,0,255}));
+      annotation (defaultComponentName="rectifier",
         Icon(coordinateSystem(
             extent={{-100,-100},{100,100}},
             preserveAspectRatio=true,
@@ -4755,7 +4757,7 @@ General information about AC/DC converters can be found at the
           points={{-10,-10},{-10,-20},{30,-20},{30,-80}}, color={191,0,0}));
       connect(ac, diode.plug_p) annotation (Line(
           points={{-100,0},{-20,0}}, color={0,0,255}));
-      annotation (
+      annotation (defaultComponentName="rectifier",
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
             Text(
@@ -4847,8 +4849,9 @@ The circuit topology is the same as in
       connect(ac, thyristor.plug_p) annotation (Line(
           points={{-100,0},{-20,0}}, color={0,0,255}));
       connect(andCondition_p.y, thyristor.fire) annotation (Line(
-          points={{-60,-69},{-60,20},{-3,20},{-3,11}}, color={255,0,255}));
-      annotation (
+          points={{-60,-69},{-60,20},{1.77636e-15,20},{1.77636e-15,11.8}},
+                                                       color={255,0,255}));
+      annotation (defaultComponentName="rectifier",
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
             Text(
@@ -4956,7 +4959,7 @@ See example
           points={{20,-100},{0,-100}}, color={191,0,0}));
       connect(diode_p.heatPort, thermalCollector.port_a) annotation (Line(
           points={{10,40},{20,40},{20,-80}}, color={191,0,0}));
-      annotation (
+      annotation (defaultComponentName="rectifier",
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
             Text(
@@ -5078,13 +5081,13 @@ This is a 2*m pulse diode rectifier bridge. In order to operate this rectifier a
           points={{10,40},{20,40},{20,-80}}, color={191,0,0}));
       connect(andCondition_p.y, pre_p.u)
         annotation (Line(points={{-60,-69},{-60,-48}}, color={255,0,255}));
-      connect(pre_p.y, thyristor_p.fire) annotation (Line(points={{-60,-25},{
-              -60,-25},{-60,46},{-60,47},{-11,47}}, color={255,0,255}));
-      connect(pre_n.y, thyristor_n.fire) annotation (Line(points={{-20,-25},{
-              -20,-3},{-11,-3}}, color={255,0,255}));
+      connect(pre_p.y, thyristor_p.fire) annotation (Line(points={{-60,-25},{-60,-25},{-60,46},{-60,50},{-11.8,50}},
+                                                    color={255,0,255}));
+      connect(pre_n.y, thyristor_n.fire) annotation (Line(points={{-20,-25},{-20,0},{-11.8,0}},
+                                 color={255,0,255}));
       connect(andCondition_n.y, pre_n.u) annotation (Line(points={{60,-69},{60,
               -60},{-20,-60},{-20,-48}}, color={255,0,255}));
-      annotation (
+      annotation (defaultComponentName="rectifier",
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
             Text(
@@ -5210,9 +5213,9 @@ See example
           points={{10,40},{20,40},{20,-80}}, color={191,0,0}));
       connect(andCondition_p.y, pre.u)
         annotation (Line(points={{-60,-69},{-60,-58}}, color={255,0,255}));
-      connect(pre.y, thyristor_p.fire) annotation (Line(points={{-60,-35},{-60,
-              -35},{-60,48},{-60,47},{-11,47}}, color={255,0,255}));
-      annotation (
+      connect(pre.y, thyristor_p.fire) annotation (Line(points={{-60,-35},{-60,-35},{-60,48},{-60,50},{-11.8,50}},
+                                                color={255,0,255}));
+      annotation (defaultComponentName="rectifier",
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
             Text(
@@ -5334,7 +5337,7 @@ This is a 2*m pulse half controlled rectifier bridge. In order to operate this r
           points={{-20,-60},{-100,-60}}, color={0,0,255}));
       connect(diode_n.plug_n, star_n.plug_p) annotation (Line(
           points={{0,-60},{72,-60}}, color={0,0,255}));
-      annotation (
+      annotation (defaultComponentName="rectifier",
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
             Text(
@@ -5448,10 +5451,12 @@ This is a 2*m pulse diode rectifier with center tap. In order to operate this re
       connect(thyristor_n.plug_n, star_n.plug_p) annotation (Line(
           points={{0,-60},{72,-60}}, color={0,0,255}));
       connect(andCondition_p.y, thyristor_p.fire) annotation (Line(
-          points={{-60,-69},{-60,80},{-3,80},{-3,71}}, color={255,0,255}));
+          points={{-60,-69},{-60,80},{1.77636e-15,80},{1.77636e-15,71.8}},
+                                                       color={255,0,255}));
       connect(andCondition_n.y, thyristor_n.fire) annotation (Line(
-          points={{60,-69},{60,-40},{-3,-40},{-3,-49}}, color={255,0,255}));
-      annotation (
+          points={{60,-69},{60,-40},{1.77636e-15,-40},{1.77636e-15,-48.2}},
+                                                        color={255,0,255}));
+      annotation (defaultComponentName="rectifier",
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
             Text(
@@ -5582,10 +5587,10 @@ General information about AC/DC converters can be found at the
       connect(diode_n.heatPort, heatPort) annotation (Line(
           points={{80,-20},{80,-40},{0,-40},{0,-100}}, color={191,0,0}));
       connect(andCondition_p.y, transistor_p.fire) annotation (Line(
-          points={{-60,-69},{-60,13},{19,13}}, color={255,0,255}));
+          points={{-60,-69},{-60,10},{18,10}}, color={255,0,255}));
       connect(andCondition_n.y, transistor_n.fire) annotation (Line(
-          points={{60,-69},{60,-50},{10,-50},{10,-27},{19,-27}}, color={255,0,255}));
-      annotation (
+          points={{60,-69},{60,-50},{10,-50},{10,-30},{18,-30}}, color={255,0,255}));
+      annotation (defaultComponentName="inverter",
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
             Line(
@@ -5729,9 +5734,9 @@ An example of a single phase inverter with PWM voltage control is included in
       connect(transistor_n.plug_p, diode_n.plug_n) annotation (Line(
           points={{30,-10},{70,-10}}, color={0,0,255}));
       connect(star_n.pin_n, dc_n) annotation (Line(
-          points={{50,-60},{50,-66},{-100,-66},{-100,-100}}, color={0,0,255}));
+          points={{50,-60},{50,-66},{-100,-66},{-100,-60}},  color={0,0,255}));
       connect(dc_p, star_p.pin_n) annotation (Line(
-          points={{-100,100},{-100,70},{50,70},{50,60}}, color={0,0,255}));
+          points={{-100,60},{-100,70},{50,70},{50,60}},  color={0,0,255}));
       connect(transistor_p.plug_n, ac) annotation (Line(
           points={{30,10},{50,10},{50,0},{100,0}}, color={0,0,255}));
       connect(transistor_n.plug_p, ac) annotation (Line(
@@ -5747,10 +5752,10 @@ An example of a single phase inverter with PWM voltage control is included in
       connect(diode_p.heatPort, thermalCollector.port_a) annotation (Line(
           points={{80,20},{80,4},{0,4},{0,-40}}, color={191,0,0}));
       connect(andCondition_p.y, transistor_p.fire) annotation (Line(
-          points={{-60,-69},{-60,13},{19,13}}, color={255,0,255}));
+          points={{-60,-69},{-60,10},{18,10}}, color={255,0,255}));
       connect(andCondition_n.y, transistor_n.fire) annotation (Line(
-          points={{60,-69},{60,-64},{16,-64},{16,-27},{19,-27}}, color={255,0,255}));
-      annotation (
+          points={{60,-69},{60,-64},{16,-64},{16,-30},{18,-30}}, color={255,0,255}));
+      annotation (defaultComponentName="inverter",
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
             Line(
@@ -5878,7 +5883,7 @@ General information about DC/AC converters can be found at the
             points={{33,-8},{36,-8},{36,80},{-60,80},{-60,110}}, color={255,0,255}));
         connect(inverse.y, notFire) annotation (Line(
             points={{52,31},{52,80},{60,80},{60,110}}, color={255,0,255}));
-        annotation (
+        annotation (defaultComponentName="pwm",
           Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                   {100,100}}),graphics={Line(
                       points={{-100,0},{-98,0},{12,0}},
@@ -5956,7 +5961,7 @@ The firing signal is generated by comparing the sampled duty cycle input with a 
             points={{-59,30},{20,30},{20,0},{110,0}}, color={0,0,127}));
         connect(add.y, dutyCycle) annotation (Line(
             points={{-19,-50},{20,-50},{20,0},{110,0}}, color={0,0,127}));
-        annotation (Icon(graphics={
+        annotation (defaultComponentName="adaptor", Icon(graphics={
               Rectangle(
                 extent={{-100,100},{100,-100}},
                 fillColor={255,255,255},
@@ -6041,8 +6046,9 @@ Currently there is only one PWM method provided in this library.
       connect(dc_n1, dc_n2) annotation (Line(
           points={{-100,-60},{100,-60}}, color={0,0,255}));
       connect(andCondition_p.y, transistor.fire) annotation (Line(
-          points={{-60,-69},{-60,80},{7,80},{7,71}}, color={255,0,255}));
-      annotation (
+          points={{-60,-69},{-60,80},{10,80},{10,72}},
+                                                     color={255,0,255}));
+      annotation (defaultComponentName="dcdc",
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
             Text(
@@ -6153,13 +6159,13 @@ This is a conventional step down chopper model. It consists of a transistor and 
       connect(inverter_p.heatPort, heatPort) annotation (Line(
           points={{-10,20},{-10,-100},{0,-100}}, color={191,0,0}));
       connect(dc_p1, inverter_p.dc_p) annotation (Line(
-          points={{-100,60},{-70,60},{-70,40},{-20,40}}, color={0,0,255}));
+          points={{-100,60},{-70,60},{-70,36},{-20,36}}, color={0,0,255}));
       connect(dc_p1, inverter_n.dc_p) annotation (Line(
-          points={{-100,60},{-70,60},{-70,-20},{-58,-20}}, color={0,0,255}));
+          points={{-100,60},{-70,60},{-70,-24},{-58,-24}}, color={0,0,255}));
       connect(dc_n1, inverter_n.dc_n) annotation (Line(
-          points={{-100,-60},{-80,-60},{-80,-40},{-58,-40}}, color={0,0,255}));
+          points={{-100,-60},{-80,-60},{-80,-36},{-58,-36}}, color={0,0,255}));
       connect(dc_n1, inverter_p.dc_n) annotation (Line(
-          points={{-100,-60},{-80,-60},{-80,20},{-20,20}}, color={0,0,255}));
+          points={{-100,-60},{-80,-60},{-80,24},{-20,24}}, color={0,0,255}));
       connect(inverter_p.ac, dc_p2) annotation (Line(
           points={{0,30},{100,30},{100,60}}, color={0,0,255}));
       connect(inverter_n.ac, dc_n2) annotation (Line(
@@ -6172,7 +6178,7 @@ This is a conventional step down chopper model. It consists of a transistor and 
           points={{-60,-69},{-60,-60},{-42,-60},{-42,-42}}, color={255,0,255}));
       connect(andCondition_p.y, inverter_p.fire_p) annotation (Line(
           points={{-60,-69},{-60,-60},{-16,-60},{-16,18}}, color={255,0,255}));
-      annotation (
+      annotation (defaultComponentName="dcdc",
         Icon(graphics={
             Rectangle(
               extent={{-40,40},{40,-40}},
@@ -6260,7 +6266,7 @@ General information about DC/DC converters can be found at the
               0},{12,0}}, color={255,0,255}));
       connect(enableConstantSource.y, booleanReplicator.u) annotation (Line(
           points={{58.5,0},{12,0}}, color={255,0,255}));
-      annotation (
+      annotation (defaultComponentName="enable",
         Documentation(info="<html>
 <p>This model provides an internal enable signal derived either from a parameter or an optional signal input.
 For <code>useConstantEnable = true</code> the internal signal <code>internalEnable</code> is equal to the parameter <code>constantEnable</code>.

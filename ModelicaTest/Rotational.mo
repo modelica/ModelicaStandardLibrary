@@ -699,7 +699,7 @@ they were not deleted yet.")}));
           transformation(extent={{0,0},{20,20}})));
     Modelica.Mechanics.Rotational.Sources.Move move(useSupport=false)
       annotation (Placement(transformation(extent={{20,40},{40,60}})));
-    Modelica.Blocks.Routing.Multiplex3 Multiplex3_1 annotation (Placement(
+    Modelica.Blocks.Routing.Multiplex Multiplex3_1(n=3) annotation (Placement(
           transformation(extent={{-56,40},{-36,60}})));
     Modelica.Blocks.Sources.Constant Constant1(k=1) annotation (Placement(
           transformation(extent={{-100,16},{-80,36}})));
@@ -720,11 +720,11 @@ they were not deleted yet.")}));
       annotation (Line(points={{40,50},{42,50},{42,20}}));
     connect(Multiplex3_1.y, move.u)
       annotation (Line(points={{-35,50},{18,50}}, color={0,0,127}));
-    connect(Constant1.y, Multiplex3_1.u3[1]) annotation (Line(points={{-79,26},
+    connect(Constant1.y, Multiplex3_1.u[3]) annotation (Line(points={{-79,26},
             {-74,26},{-74,43},{-58,43}}, color={0,0,127}));
-    connect(Constant2.y, Multiplex3_1.u1[1]) annotation (Line(points={{-79,80},
+    connect(Constant2.y, Multiplex3_1.u[1]) annotation (Line(points={{-79,80},
             {-74,80},{-74,57},{-58,57}}, color={0,0,127}));
-    connect(Constant2.y, Multiplex3_1.u2[1]) annotation (Line(points={{-79,80},
+    connect(Constant2.y, Multiplex3_1.u[2]) annotation (Line(points={{-79,80},
             {-74,80},{-74,50},{-58,50}}, color={0,0,127}));
     connect(Multiplex3_1.y, move1.u) annotation (Line(points={{-35,50},{-28,50},
             {-28,-30},{-22,-30}}, color={0,0,127}));

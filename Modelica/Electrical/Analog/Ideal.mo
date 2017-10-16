@@ -8,7 +8,7 @@ package Ideal
     extends Modelica.Electrical.Analog.Interfaces.IdealSemiconductor;
   equation
     off = s < 0;
-    annotation (
+    annotation (defaultComponentName="diode",
       Documentation(info="<html>
 <p>
 This is an ideal diode, for details see partial model <a href=\"modelica://Modelica.Electrical.Analog.Interfaces.IdealSemiconductor\">IdealSemiconductor</a><br>
@@ -45,7 +45,7 @@ The diode is locking if current &lt; Vknee/Goff.
           origin={100,120})));
   equation
     off = s < 0 or pre(off) and not fire;
-    annotation (
+    annotation (defaultComponentName="thyristor",
       Documentation(info="<html>
 <p>
 This is an ideal thyristor, for details see partial model <a href=\"modelica://Modelica.Electrical.Analog.Interfaces.IdealSemiconductor\">IdealSemiconductor</a><br>
@@ -96,7 +96,7 @@ If fire gets false, the current has to fall below Vknee*Goff, then the tyhristor
           origin={100,120})));
   equation
     off = s < 0 or not fire;
-    annotation (
+    annotation (defaultComponentName="gto",
       Documentation(info="<html>
 <p>
 This is an ideal GTO thyristor or switching transistor, for details see partial model <a href=\"modelica://Modelica.Electrical.Analog.Interfaces.IdealSemiconductor\">IdealSemiconductor</a><br>
@@ -180,7 +180,7 @@ Otherwise, the GTO thyristor is locking.
     p.v - n2.v = (s2*unitCurrent)*(if (control) then Ron else 1);
     n2.i = -(s2*unitVoltage)*(if (control) then 1 else Goff);
     LossPower = p.i*p.v + n1.i*n1.v + n2.i*n2.v;
-    annotation (
+    annotation (defaultComponentName="switch",
       Documentation(info="<html>
 <P>
 The commuting switch has a positive pin p and two negative pins n1 and n2.
@@ -271,7 +271,7 @@ behavior is <strong>not</strong> modelled. The parameters are not temperature de
       unitCurrent - s3*unitVoltage*Goff;
 
     LossPower = p1.i*p1.v + p2.i*p2.v + n1.i*n1.v + n2.i*n2.v;
-    annotation (
+    annotation (defaultComponentName="switch",
       Documentation(info="<html>
 <p>The intermediate switch has four switching contact pins p1, p2, n1, and n2. The switching behaviour is controlled by the input signal control. If control is true, the pin p1 is connected to the pin n2, and the pin p2 is connected to the pin n1. Otherwise,if control is false, the pin p1 is connected to n1, and the pin p2 is connected to n2.</p>
 
@@ -347,7 +347,7 @@ behavior is <strong>not</strong> modelled. The parameters are not temperature de
     p.v - n2.v = (s2*unitCurrent)*(if (control.v > level) then Ron else 1);
     n2.i = -(s2*unitVoltage)*(if (control.v > level) then 1 else Goff);
     LossPower = p.i*p.v + n1.i*n1.v + n2.i*n2.v;
-    annotation (
+    annotation (defaultComponentName="switch",
       Documentation(info="<html>
 <P>
 The commuting switch has a positive pin p and two negative pins n1 and n2.
@@ -442,7 +442,7 @@ behavior is <strong>not</strong> modelled. The parameters are not temperature de
        else -s2*unitCurrent - s3*unitVoltage*Goff;
 
     LossPower = p1.i*p1.v + p2.i*p2.v + n1.i*n1.v + n2.i*n2.v;
-    annotation (
+    annotation (defaultComponentName="switch",
       Documentation(info="<html>
 <p>The intermediate switch has four switching contact pins p1, p2, n1, and n2. The switching behaviour is controlled by the control pin. If its voltage exceeds the value of the parameter level, the pin p1 is connected to pin n2, and the pin p2 is connected to the pin n1. Otherwise, the pin p1 is connected to the pin n1, and the pin p2 is connected to the pin n2.
 </p>
@@ -519,7 +519,7 @@ The limiting case is also allowed, i.e., the resistance Ron of the closed switch
     i2 = p2.i;
     v1 = 0;
     i1 = 0;
-    annotation (
+    annotation (defaultComponentName="opAmp",
       Documentation(info="<html>
 <P>
 The ideal OpAmp is a two-port. The left port is fixed to <em>v1=0</em> and <em>i1=0</em>
@@ -566,7 +566,7 @@ are possible (norator).
     in_p.v = in_n.v;
     in_p.i = 0;
     in_n.i = 0;
-    annotation (
+    annotation (defaultComponentName="opAmp",
       Documentation(info="<html>
 <P>
 The ideal OpAmp with three pins is of exactly the same behaviour as the ideal
@@ -628,7 +628,7 @@ are possible.
        then s - 1 else 0));
     out.v = smooth(0, if s < -1 then VMin.v else if s > 1 then VMax.v else (
       VMax.v - VMin.v)*s/2 + (VMax.v + VMin.v)/2);
-    annotation (
+    annotation (defaultComponentName="opAmp",
       Documentation(info="<html>
 <P>
 The ideal OpAmp with limitation behaves like an ideal OpAmp without limitation,
@@ -707,8 +707,8 @@ If the input voltage is vin larger than 0, the output voltage is out.v = VMax.
     end if;
     in_p.i = 0;
     in_n.i = 0;
-    v_out = smooth(0, min(Vps, max(Vns, V0*v_in)));
-    annotation (
+    v_out = homotopy(actual = smooth(0, if V0*v_in<vns then vns else if V0*v_in>vps then vps else V0*v_in), simplified=V0*v_in);
+    annotation (defaultComponentName="opAmp",
       Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
               100}}), graphics={
           Line(points={{60,0},{90,0}}, color={0,0,255}),
@@ -762,7 +762,7 @@ If the input voltage is vin larger than 0, the output voltage is out.v = VMax.
       im1 = 0;
     end if;
     v1 = n*v2;
-    annotation (
+    annotation (defaultComponentName="transformer",
       Documentation(info="<html>
 <p>
 The ideal transformer is a two-port circuit element;
@@ -887,7 +887,7 @@ For the backward conversion, one has to decide about the partitioning of the lea
   equation
     i1 = G*v2;
     i2 = -G*v1;
-    annotation (
+    annotation (defaultComponentName="gyrator",
       Documentation(info="<html>
 <p>
 A gyrator is an ideal two-port element defined by the following equations:
@@ -908,8 +908,7 @@ where the constant <em>G</em> is called the gyration conductance.
 </html>"),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}},
-          grid={2,2}),
-                      graphics={
+          grid={2,2}),graphics={
           Line(points={{-90,100},{-40,100},{-40,-100},{-90,-100}},
                                                                color={0,0,255}),
           Line(points={{-30,60},{20,60}}, color={0,0,255}),
@@ -1013,7 +1012,7 @@ where the constant <em>G</em> is called the gyration conductance.
           origin={0,120})));
   equation
     off = control;
-    annotation (
+    annotation (defaultComponentName="switch",
       Documentation(info="<html>
 <P>
 The switching behaviour of the ideal opening switch is controlled by the input signal control: off = control.<br>
@@ -1052,7 +1051,7 @@ For further details, see partial model <a href=\"modelica://Modelica.Electrical.
           rotation=270)));
   equation
     off = not control;
-    annotation (
+    annotation (defaultComponentName="switch",
       Documentation(info="<html>
 <P>
 The switching behaviour of the ideal closing switch is controlled by the input signal control: off = not control.<br>
@@ -1092,7 +1091,7 @@ For further details, see partial model <a href=\"modelica://Modelica.Electrical.
   equation
     off = control.v > level;
     control.i = 0;
-    annotation (
+    annotation (defaultComponentName="switch",
       Documentation(info="<html>
 <P>
 The switching behaviour of the controlled  ideal opening switch is controlled by the control pin: off = control.v &gt; level<br>
@@ -1133,7 +1132,7 @@ For further details, see partial model <a href=\"modelica://Modelica.Electrical.
   equation
     off = control.v < level;
     control.i = 0;
-    annotation (
+    annotation (defaultComponentName="switch",
       Documentation(info="<html>
 <P>
 The switching behaviour of the controlled ideal closing switch is controlled by the control pin: off = control.v &lt; level<br>
@@ -1172,7 +1171,7 @@ For further details, see partial model <a href=\"modelica://Modelica.Electrical.
           rotation=270)));
   equation
     off = control;
-    annotation (
+    annotation (defaultComponentName="switch",
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
           Line(points={{40,20},{40,0}}, color={0,0,255}),
@@ -1209,7 +1208,7 @@ For details of the arc effect, see partial model <a href=\"modelica://Modelica.E
           rotation=270)));
   equation
     off = not control;
-    annotation (
+    annotation (defaultComponentName="switch",
       Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
               100}}), graphics={
           Line(points={{40,40},{32,14},{48,22},{40,0}}, color={255,0,0})}),
@@ -1245,7 +1244,7 @@ For details of the arc effect, see partial model <a href=\"modelica://Modelica.E
   equation
     off = control.v > level;
     control.i = 0;
-    annotation (
+    annotation (defaultComponentName="switch",
       Documentation(info="<html>
 <p>
 This model is an extension to the <a href=\"modelica://Modelica.Electrical.Analog.Ideal.ControlledIdealOpeningSwitch\">ControlledIdealOpeningSwitch</a>.
@@ -1282,7 +1281,7 @@ For details of the arc effect, see partial model <a href=\"modelica://Modelica.E
   equation
     off = control.v < level;
     control.i = 0;
-    annotation (
+    annotation (defaultComponentName="switch",
       Documentation(info="<html>
 <p>
 This model is an extension to the <a href=\"modelica://Modelica.Electrical.Analog.Ideal.ControlledIdealClosingSwitch\">ControlledIdealClosingSwitch</a>.
@@ -1365,7 +1364,8 @@ For details of the arc effect, see partial model <a href=\"modelica://Modelica.E
         points={{-100,0},{-90,0},{-90,40},{-20,40},{-20,32}}, color={0,0,255}));
     connect(idealThyristor1.p, p) annotation (Line(
         points={{0,-32},{0,-40},{80,-40},{80,0},{104,0}}, color={0,0,255}));
-    annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+    annotation (defaultComponentName="triac",
+      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}), graphics={
           Polygon(
             points={{-30,0},{-30,-100},{70,-50},{-30,0}},
@@ -1470,7 +1470,7 @@ For details of the arc effect, see partial model <a href=\"modelica://Modelica.E
     p.v - n.v = u;
     p.i*Rin = u;
     p.i + n.i = 0;
-    annotation (Documentation(info="<html>
+    annotation (defaultComponentName="converter", Documentation(info="<html>
 <P>
 Simple analog to digital converter with a variable resolution of n bits.
 It converts the input voltage <code>ppin.v-npin.v</code> to an n-vector of type Logic
@@ -1555,7 +1555,7 @@ Hence the output will change instantaneously when the trigger signal rises.
     p.v - n.v = vout;
     p.i + n.i = 0;
 
-    annotation (Documentation(info="<html>
+    annotation (defaultComponentName="converter", Documentation(info="<html>
 <p>Simple digital to analog converter with a variable input signal width of N bits. The input signal is an N-vector of type Logic (9-valued logic according to IEEE 1164 STD_ULOGIC). The output voltage of value <code>y</code> is generated by an ideal voltage source. The output can only change if the trigger signal <code>trig</code> of type Logic changes to &#39;1&#39; (forced or weak). In this case, the output voltage is calculated in the following way:
 </p>
 <pre>       N
@@ -1597,7 +1597,7 @@ Hence the output will change instantaneously when the trigger signal rises.
 </dt>
 <dd>
 Christoph Clau&szlig;
-    &lt;<a href=\"mailto:Christoph.Clauss@eas.iis.fraunhofer.de\">Christoph.Clauss@eas.iis.fraunhofer.de</a>&gt;<br>
+    &lt;<a href=\"mailto:christoph@clauss-it.com\">christoph@clauss-it.com</a>&gt;<br>
     Andr&eacute; Schneider
     &lt;<a href=\"mailto:Andre.Schneider@eas.iis.fraunhofer.de\">Andre.Schneider@eas.iis.fraunhofer.de</a>&gt;<br>
     Fraunhofer Institute for Integrated Circuits<br>

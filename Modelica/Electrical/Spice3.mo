@@ -252,7 +252,7 @@ connect(p_out, n2);
 <dt><strong>Kristin Majetta</strong></dt>
 <dd>email: <a href=\"mailto:Kristin.Majetta@eas.iis.fraunhofer.de\">Kristin Majetta@eas.iis.fraunhofer.de</a></dd>
 <dt><strong>Christoph Clauss</strong></dt>
-<dd>email: <a href=\"mailto:Christoph.Clauss@eas.iis.fraunhofer.de\">Christoph.Clauss@eas.iis.fraunhofer.de</a></dd>
+<dd>email: <a href=\"mailto:christoph@clauss-it.com\">christoph@clauss-it.com</a></dd>
 <dt><strong>Sandra Boehme</strong></dt>
 <dd>email: <a href=\"mailto:Sandra.Boehme@eas.iis.fraunhofer.de\">Sandra.Boehme@eas.iis.fraunhofer.de</a></dd>
 </dl>
@@ -267,7 +267,7 @@ Zeunerstra&szlig;e 38<br />
 
 <h4>Acknowledgements:</h4>
 <ul>
-<li>The development of this library was done within the European ITEA2 projects EUROSYSLIB and MODELISAR. </li>
+<li>The development of this library was done within the European ITEA2 projects EUROSYSLIB and MODELISAR.</li>
 <li>For his contribution we thank Mr. Jonathan Gerbet.</li>
 </ul>
 </html>"));
@@ -2036,7 +2036,6 @@ RC 3 4 1K<br/>
       Modelica.Electrical.Spice3.Basic.R_Resistor RBIT2(R=1000);
       Modelica.Electrical.Spice3.Basic.R_Resistor RBIT3(R=1000);
       Modelica.Electrical.Spice3.Basic.R_Resistor RCOUT(R=1000);
-      // *** (FOR THOSE WITH MONEY (AND MEMORY) TO BURN)
       Modelica.Electrical.Spice3.Basic.Ground g;
 
     protected
@@ -2663,7 +2662,7 @@ The corresponding SPICE description
 <strong>Main Authors:</strong>
 <dd>
 Christoph Clau&szlig;
-    &lt;<a href=\"mailto:clauss@eas.iis.fhg.de\">clauss@eas.iis.fhg.de</a>&gt;<br>
+    &lt;<a href=\"mailto:christoph@clauss-it.com\">christoph@clauss-it.com</a>&gt;<br>
 
     Fraunhofer Institute for Integrated Circuits<br>
     Design Automation Department<br>
@@ -5554,10 +5553,10 @@ on the model behaviour.
 
     record ModelcardR "Record with technology parameters (.model)"
       extends Modelica.Icons.Record;
-     parameter SI.Conversions.NonSIunits.FirstOrderTemperaturCoefficient TC1 =        0.0
+     parameter SI.LinearTemperatureCoefficientResistance TC1 = 0.0
         "First order temperature coefficient";
-     parameter SI.Conversions.NonSIunits.SecondOrderTemperaturCoefficient TC2 =               0.0
-        "In Ohm/(deg C*deg C), Second2 order temperature coefficient";
+     parameter SI.QuadraticTemperatureCoefficientResistance TC2 = 0.0
+        "Second order temperature coefficient";
      parameter SI.Resistance RSH = -1e40 "Sheet resistance";
      parameter SI.Temp_C TNOM = -1e40
         "Parameter measurement temperature, default 27";
@@ -10484,10 +10483,8 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
 
       record ResistorModelLineParams "Record for resistor model line parameters"
       extends Modelica.Icons.Record;
-          SI.Conversions.NonSIunits.FirstOrderTemperaturCoefficient
-          m_dTC1 "First order temp, coefficient";
-          SI.Conversions.NonSIunits.SecondOrderTemperaturCoefficient
-          m_dTC2 "Second order temp, coefficient";
+          SI.LinearTemperatureCoefficientResistance m_dTC1 "First order temperature coefficient";
+          SI.QuadraticTemperatureCoefficientResistance m_dTC2 "Second order temperature coefficient";
           SI.Resistance m_dRsh "Sheet resistance";
           Real m_dRshIsGiven;
           SI.Length m_dDefW "Default device width";

@@ -2822,8 +2822,8 @@ go into the text layer and add an annotation with the
 component size, resulting for example in:
 </p>
 <pre>
-  <strong>parameter</strong> StateGraph.SetRealParameter name = 2
-                       <strong>annotation</strong>(extent=[-10,-10; 10,10]);
+  <strong>parameter</strong> StateGraph.Temporary.SetRealParameter name = 2
+                       <strong>annotation</strong>(Placement(transformation(extent={{-10,-10},{10,10}})));
 </pre>
 <p>
 This change makes the parameter icon visible in the

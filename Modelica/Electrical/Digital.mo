@@ -110,7 +110,7 @@ The Electrical.Digital library is based on the following references:
 <dl>
 <dt><strong>Main Authors:</strong></dt>
 <dd>Christoph Clau&szlig;
-    &lt;<A HREF=\"mailto:Christoph.Clauss@eas.iis.fraunhofer.de\">Christoph.Clauss@eas.iis.fraunhofer.de</A>&gt;<br>
+    &lt;<A HREF=\"mailto:christoph@clauss-it.com\">christoph@clauss-it.com</A>&gt;<br>
     Andr&eacute; Schneider
     &lt;<A HREF=\"mailto:Andre.Schneider@eas.iis.fraunhofer.de\">Andre.Schneider@eas.iis.fraunhofer.de</A>&gt;<br>
     Ulrich Donath
@@ -155,8 +155,7 @@ the library and has the following content:
 </html>"));
     end UsersGuide;
 
-      package Examples
-    "Examples that demonstrate the usage of the Digital electrical components"
+      package Examples "Examples that demonstrate the usage of the Digital electrical components"
         extends Modelica.Icons.ExamplesPackage;
 
         model Multiplexer "4 to 1 Bit Multiplexer Example"
@@ -250,8 +249,7 @@ the library and has the following content:
 </html>"),            experiment(StopTime=250));
         end FlipFlop;
 
-        model HalfAdder
-      "Adding circuit for binary numbers without input carry bit"
+        model HalfAdder "Adding circuit for binary numbers without input carry bit"
           import Modelica.Electrical.Digital;
           import L = Modelica.Electrical.Digital.Interfaces.Logic;
           extends Modelica.Icons.Example;
@@ -696,8 +694,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
 </html>"));
         end DFFREGL;
 
-        model DFFREGSRH
-      "Pulse triggered D-Register-Bank, high active set and reset"
+        model DFFREGSRH "Pulse triggered D-Register-Bank, high active set and reset"
           import L = Modelica.Electrical.Digital.Interfaces.Logic;
           extends Modelica.Icons.Example;
 
@@ -734,8 +731,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
 </html>"));
         end DFFREGSRH;
 
-        model DFFREGSRL
-      "Pulse triggered D-Register-Bank, low active set and reset"
+        model DFFREGSRL "Pulse triggered D-Register-Bank, low active set and reset"
       import L = Modelica.Electrical.Digital.Interfaces.Logic;
           extends Modelica.Icons.Example;
 
@@ -835,8 +831,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
 </html>"));
         end DLATREGL;
 
-        model DLATREGSRH
-      "Level sensitive D-Register-Bank, high active set and reset"
+        model DLATREGSRH "Level sensitive D-Register-Bank, high active set and reset"
           import L = Modelica.Electrical.Digital.Interfaces.Logic;
           extends Modelica.Icons.Example;
 
@@ -873,8 +868,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
 </html>"));
         end DLATREGSRH;
 
-        model DLATREGSRL
-      "Level sensitive D-Register-Bank, low active set and reset"
+        model DLATREGSRL "Level sensitive D-Register-Bank, low active set and reset"
           import L = Modelica.Electrical.Digital.Interfaces.Logic;
           extends Modelica.Icons.Example;
 
@@ -2114,8 +2108,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
         'W' "W  Weak Unknown",
         'L' "L  Weak 0",
         'H' "H  Weak 1",
-        '-' "-  Do not care")
-      "Logic values and their coding according to IEEE 1164 STD_ULOGIC type"
+        '-' "-  Do not care") "Logic values and their coding according to IEEE 1164 STD_ULOGIC type"
               annotation (Documentation(info="<html>
 <p><strong>Code Table:</strong></p>
 
@@ -2189,14 +2182,12 @@ The result can be seen in the output signals of the FullAdders according to:</p>
 </table>
 </html>"));
 
-        connector DigitalSignal = Logic
-      "Digital port (both input/output possible)"
+        connector DigitalSignal = Logic "Digital port (both input/output possible)"
           annotation (Documentation(info="<html>
 <p>DigitalSignal is the basic digital connector definition. A direction (input, output) is not yet defined. DigitalSignal is of type Logic. It can have the logic values (U, X, 0, 1, ...) which are internally coded by integer values by using the enumeration (c.f. the definition of type Logic).</p>
 </html>"));
 
-        connector DigitalInput = input DigitalSignal
-      "Input DigitalSignal as connector"
+        connector DigitalInput = input DigitalSignal "Input DigitalSignal as connector"
           annotation (defaultComponentName="x",
             Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}), graphics={Rectangle(
@@ -2217,8 +2208,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
 <p>DigitalInput is the digital input connector definition. DigitalInput is of type Logic. It can have the logic values (U, X, 0, 1, ...) which are internally coded by integer values by using the enumeration (c.f. the definition of type Logic).</p>
 </html>"));
 
-        connector DigitalOutput = output DigitalSignal
-      "Output DigitalSignal as connector"
+        connector DigitalOutput = output DigitalSignal "Output DigitalSignal as connector"
           annotation (defaultComponentName="y", Icon(coordinateSystem(
                 preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
           graphics={Polygon(
@@ -2316,110 +2306,110 @@ The result can be seen in the output signals of the FullAdders according to:</p>
 </html>"));
         end MIMO;
 
-    partial model MemoryBase "Base model for memory elements"
-      import D = Modelica.Electrical.Digital;
-      import L = Modelica.Electrical.Digital.Interfaces.Logic;
-      import S = Modelica.Electrical.Digital.Interfaces.Strength;
-      import T = Modelica.Electrical.Digital.Tables;
+        partial model MemoryBase "Base model for memory elements"
+              import D = Modelica.Electrical.Digital;
+              import L = Modelica.Electrical.Digital.Interfaces.Logic;
+              import S = Modelica.Electrical.Digital.Interfaces.Strength;
+              import T = Modelica.Electrical.Digital.Tables;
 
-      parameter SI.Time tHL=0 "High->Low delay";
-      parameter SI.Time tLH=0 "Low->High delay";
-      parameter S strength = S.'S_X01' "Output strength";
-      parameter Integer n_addr(min=1) = 2 "Addr width";
-      parameter Integer n_data(min=1) = 2 "Data width";
-      parameter String fileName = Modelica.Utilities.Files.loadResource("modelica://Modelica/Resources/Data/Electrical/Digital/Memory_Matrix.txt")
-        "File where matrix for memory is stored"
-        annotation(Dialog(group="Table data definition", loadSelector(filter="Text files (*.txt)", caption="Open file in which table is present")));
+              parameter SI.Time tHL=0 "High->Low delay";
+              parameter SI.Time tLH=0 "Low->High delay";
+              parameter S strength = S.'S_X01' "Output strength";
+              parameter Integer n_addr(min=1) = 2 "Addr width";
+              parameter Integer n_data(min=1) = 2 "Data width";
+              parameter String fileName = Modelica.Utilities.Files.loadResource("modelica://Modelica/Resources/Data/Electrical/Digital/Memory_Matrix.txt")
+                "File where matrix for memory is stored"
+                annotation(Dialog(group="Table data definition", loadSelector(filter="Text files (*.txt)", caption="Open file in which table is present")));
 
-      DigitalInput RE "Read enable" annotation (Placement(transformation(
-        extent={{-100,-30},{-84,-14}}), iconTransformation(extent={{-100,-30},{-84,-14}})));
-      DigitalInput addr[n_addr] "Address" annotation (Placement(transformation(
-        extent={{-100,50},{-80,70}}), iconTransformation(extent={{-100,50},{-80,70}})));
-      DigitalOutput dataOut[n_data] "Data output" annotation (Placement(transformation(
-        extent={{80,10},{100,30}}), iconTransformation(extent={{80,10},{100,30}})));
+              DigitalInput RE "Read enable" annotation (Placement(transformation(
+                extent={{-100,-30},{-84,-14}}), iconTransformation(extent={{-100,-30},{-84,-14}})));
+              DigitalInput addr[n_addr] "Address" annotation (Placement(transformation(
+                extent={{-100,50},{-80,70}}), iconTransformation(extent={{-100,50},{-80,70}})));
+              DigitalOutput dataOut[n_data] "Data output" annotation (Placement(transformation(
+                extent={{80,10},{100,30}}), iconTransformation(extent={{80,10},{100,30}})));
 
-      function getMemory "Get Memory"
-        extends Modelica.Icons.Function;
-        input String filename;
-        input Integer n_addr "addr width";
-        input Integer n_data "data width";
-        output L m[integer(2^n_addr),n_data] "Memory with data, lowest bit on left side";
-        output String data;
-        output Integer bit;
-      algorithm
-        for i in 1:(2^n_addr) loop
-          data := Modelica.Utilities.Streams.readLine(filename, integer(i));
-          for j in 1:n_data loop
-            bit := Modelica.Utilities.Strings.scanInteger(data, (2*j-1));
-            if bit == 1 then
-              m[integer(i),j] := L.'1';
-            elseif bit == 0 then
-              m[integer(i),j] := L.'0';
-            else
-              m[integer(i),j] := L.'X';
-            end if;
-          end for;
-        end for;
-      end getMemory;
+              function getMemory "Get Memory"
+                extends Modelica.Icons.Function;
+                input String filename;
+                input Integer n_addr "addr width";
+                input Integer n_data "data width";
+                output L m[integer(2^n_addr),n_data] "Memory with data, lowest bit on left side";
+                output String data;
+                output Integer bit;
+              algorithm
+                for i in 1:(2^n_addr) loop
+                  data := Modelica.Utilities.Streams.readLine(filename, integer(i));
+                  for j in 1:n_data loop
+                    bit := Modelica.Utilities.Strings.scanInteger(data, (2*j-1));
+                    if bit == 1 then
+                      m[integer(i),j] := L.'1';
+                    elseif bit == 0 then
+                      m[integer(i),j] := L.'0';
+                    else
+                      m[integer(i),j] := L.'X';
+                    end if;
+                  end for;
+                end for;
+              end getMemory;
 
     protected
-      L nextstate[n_data](start=fill(L.'U',n_data));
-      L mem_word[n_data](start=fill(L.'U',n_data));
-      Integer int_addr;
-      DigitalOutput yy[n_data](start=fill(L.'U',n_data));
-      D.Delay.InertialDelaySensitive inertialDelaySensitive[n_data](each tLH=tLH, each tHL=tHL);
+              L nextstate[n_data](start=fill(L.'U',n_data));
+              L mem_word[n_data](start=fill(L.'U',n_data));
+              Integer int_addr;
+              DigitalOutput yy[n_data](start=fill(L.'U',n_data));
+              D.Delay.InertialDelaySensitive inertialDelaySensitive[n_data](each tLH=tLH, each tHL=tHL);
 
-      function address "Compute memory address"
-        extends Modelica.Icons.Function;
-        input Integer n_addr;
-        input L addr[n_addr];
-        output Integer int_addr;
+              function address "Compute memory address"
+                extends Modelica.Icons.Function;
+                input Integer n_addr;
+                input L addr[n_addr];
+                output Integer int_addr;
       protected
-        L addr_bit;
-      algorithm
-        int_addr := 1;
-        for i in 1:n_addr loop
-          addr_bit := T.X01Table[addr[i]];
-          if addr_bit == L.'1' then
-             int_addr := int_addr + integer(2^(i-1));
-          elseif addr_bit == L.'X' then
-             int_addr := 0;
-             break;
-          end if;
-        end for;
-      end address;
+                L addr_bit;
+              algorithm
+                int_addr := 1;
+                for i in 1:n_addr loop
+                  addr_bit := T.X01Table[addr[i]];
+                  if addr_bit == L.'1' then
+                     int_addr := int_addr + integer(2^(i-1));
+                  elseif addr_bit == L.'X' then
+                     int_addr := 0;
+                     break;
+                  end if;
+                end for;
+              end address;
 
-    equation
-      for i in 1:n_data loop
-        connect(yy[i], inertialDelaySensitive[i].x);
-        connect(inertialDelaySensitive[i].y, dataOut[i]);
-      end for;
+        equation
+              for i in 1:n_data loop
+                connect(yy[i], inertialDelaySensitive[i].x);
+                connect(inertialDelaySensitive[i].y, dataOut[i]);
+              end for;
 
-    annotation(Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
-      graphics={
-        Rectangle(
-          extent={{-60,80},{60,-80}},
-          lineColor={127,0,127},
-          lineThickness=0.5),
-        Line(
-          points={{-84,60},{-60,60}},
-          color={127,0,127},
-          thickness=1),
-        Line(
-          points={{60,20},{84,20}},
-          color={127,0,127},
-          thickness=1),
-        Line(
-          points={{-84,-20},{-60,-20}},
-          color={127,0,127}),
-        Line(
-          points={{-60,-10},{-46,-20},{-60,-30}},
-          color={127,0,127}),
-        Text(
-          extent={{-41,-5},{-24,-34}},
-          lineColor={127,33,107},
-          textString="RE")}));
-    end MemoryBase;
+            annotation(Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
+              graphics={
+                Rectangle(
+                  extent={{-60,80},{60,-80}},
+                  lineColor={127,0,127},
+                  lineThickness=0.5),
+                Line(
+                  points={{-84,60},{-60,60}},
+                  color={127,0,127},
+                  thickness=1),
+                Line(
+                  points={{60,20},{84,20}},
+                  color={127,0,127},
+                  thickness=1),
+                Line(
+                  points={{-84,-20},{-60,-20}},
+                  color={127,0,127}),
+                Line(
+                  points={{-60,-10},{-46,-20},{-60,-30}},
+                  color={127,0,127}),
+                Text(
+                  extent={{-41,-5},{-24,-34}},
+                  lineColor={127,33,107},
+                  textString="RE")}));
+        end MemoryBase;
 
         annotation (Documentation(info="<html>
 <p>This package contains basic definitions: Type definitions of Logic and Strength, interface definitions (connectors) for digital electrical components, and partial models for connection patterns which are often used.</p>
@@ -2645,10 +2635,10 @@ The result can be seen in the output signals of the FullAdders according to:</p>
           constant D.Interfaces.Logic LogicValues[:]=L.'U':L.'-';
     protected
           D.Interfaces.Logic x_delayed;
-		  Real xr "Auxiliary variable of type Real to use in delay()";
+      Real xr "Auxiliary variable of type Real to use in delay()";
 
         equation
-		  xr = Integer(pre(x));
+      xr = Integer(pre(x));
           x_delayed = LogicValues[integer(delay(xr, delayTime))];
           y = if delayTime > 0 then
                    (if time >= delayTime then x_delayed else y0) else
@@ -2741,8 +2731,7 @@ If time is less than <em>delayTime</em> the initial value <em>y0</em> holds.
               textString="Delay")}));
         end InertialDelay;
 
-        model InertialDelaySensitive
-      "Provide the input as output if it holds its value for a specific amount of time"
+        model InertialDelaySensitive "Provide the input as output if it holds its value for a specific amount of time"
 
           import D = Modelica.Electrical.Digital;
           import L = Modelica.Electrical.Digital.Interfaces.Logic;
@@ -2830,8 +2819,7 @@ is used, if it is zero, the input is not delayed.
             Line(points={{0,60},{20,60}})}));
         end InertialDelaySensitive;
 
-        model InertialDelaySensitiveVector
-      "Delay of a vector of digital signals"
+        model InertialDelaySensitiveVector "Delay of a vector of digital signals"
       import D = Modelica.Electrical.Digital;
       import L = Modelica.Electrical.Digital.Interfaces.Logic;
       import S = Modelica.Electrical.Digital.Interfaces.Strength;
@@ -3185,8 +3173,7 @@ The parameters <em>tLH</em> and <em>tHL</em> are valid for each of the n signals
       package Gates "Logic gates including delays"
         extends Modelica.Icons.Package;
 
-        model InvGate
-      "InvGate with 1 input value, composed by Not and sensitive inertial delay"
+        model InvGate "InvGate with 1 input value, composed by Not and sensitive inertial delay"
       import D = Modelica.Electrical.Digital;
           extends D.Delay.DelayParams;
           extends D.Interfaces.SISO;
@@ -3531,8 +3518,7 @@ The parameters <em>tLH</em> and <em>tHL</em> are valid for each of the n signals
               textString="Gate")}));
         end XnorGate;
 
-        model BufGate
-      "BufGate with 1 input value, composed by Not and sensitive inertial delay"
+        model BufGate "BufGate with 1 input value, composed by Not and sensitive inertial delay"
       import D = Modelica.Electrical.Digital;
           extends D.Delay.DelayParams;
           extends D.Interfaces.SISO;
@@ -4403,8 +4389,7 @@ The values val... are given by parameters.</P>
               lineThickness=0.5)}));
         end LogicToReal;
 
-        block LogicToXO1
-      "This model will be removed in future Modelica versions, use 'LogicToX01' instead!"
+        block LogicToXO1 "This model will be removed in future Modelica versions, use 'LogicToX01' instead!"
           // extends Modelica.Icons.ObsoleteModel;
           import D = Modelica.Electrical.Digital;
           import T = Modelica.Electrical.Digital.Tables;
@@ -4478,8 +4463,7 @@ If the signal width is greater than 1 this conversion is done for each signal.
               lineThickness=0.5)}));
         end LogicToXO1;
 
-        block LogicToXO1Z
-      "This model will be removed in future Modelica versions, use 'LogicToX01Z' instead!"
+        block LogicToXO1Z "This model will be removed in future Modelica versions, use 'LogicToX01Z' instead!"
           // extends Modelica.Icons.ObsoleteModel;
           import D = Modelica.Electrical.Digital;
           import T = Modelica.Electrical.Digital.Tables;
@@ -5183,8 +5167,7 @@ Clock transition definitions:
 </html>"));
         end DFFSR;
 
-        model DFFREGSRH
-      "Edge triggered register bank with high active set and reset"
+        model DFFREGSRH "Edge triggered register bank with high active set and reset"
           import D = Modelica.Electrical.Digital;
           import L = Modelica.Electrical.Digital.Interfaces.Logic;
           import S = Modelica.Electrical.Digital.Interfaces.Strength;
@@ -5346,8 +5329,7 @@ Clock transition definitions:
 </html>"));
         end DFFREGSRH;
 
-        model DFFREGSRL
-      "Edge triggered register bank with low active set and reset"
+        model DFFREGSRL "Edge triggered register bank with low active set and reset"
           extends Digital.Registers.DFFREGSRH(final ResetSetMap=[1,1,1,1,1,1,1,1,1;
                 1,4,2,7,4,4,2,7,4; 1,6,2,3,6,6,2,3,6; 1,5,2,8,5,5,2,8,5; 1,4,2,7,4,
                 4,2,7,4; 1,4,2,7,4,4,2,7,4; 1,6,2,3,6,6,2,3,6; 1,5,2,8,5,5,2,8,5; 1,
@@ -6037,8 +6019,7 @@ Clock transition definitions:
               textString="set")}));
         end DLATSR;
 
-        model DLATREGSRH
-      "Level sensitive register bank with set and reset, active high"
+        model DLATREGSRH "Level sensitive register bank with set and reset, active high"
 
       import D = Modelica.Electrical.Digital;
       import L = Modelica.Electrical.Digital.Interfaces.Logic;
@@ -6197,8 +6178,7 @@ Clock transition definitions:
               textString="high active")}));
         end DLATREGSRH;
 
-        model DLATREGSRL
-      "Level sensitive register bank with set and reset, active low"
+        model DLATREGSRL "Level sensitive register bank with set and reset, active low"
 
           extends Digital.Registers.DLATREGSRH(final ResetSetMap=[1,1,1,1,1,1,1,1,1;
                 1,4,2,7,4,4,2,7,4; 1,6,2,3,5,5,2,3,6; 1,5,2,8,6,6,2,8,5; 1,4,2,7,4,

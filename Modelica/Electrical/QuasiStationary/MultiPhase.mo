@@ -747,7 +747,7 @@ Multi star points are connected by resistors. This model is required to operate 
       for j in 1:m loop
         plug_p.pin[j].i = if j == k then -pin_p.i else Complex(0);
       end for;
-      annotation (Icon(graphics={Rectangle(
+      annotation (defaultComponentName="plugToPin", Icon(graphics={Rectangle(
                   extent={{-20,20},{40,-20}},
                   fillColor={215,215,215},
                   fillPattern=FillPattern.Solid),Ellipse(
@@ -791,7 +791,7 @@ Connects the single phase (positive) pin <code>k</code> of the multi phase (posi
       for j in 1:m loop
         plug_n.pin[j].i = if j == k then -pin_n.i else Complex(0);
       end for;
-      annotation (Icon(graphics={Rectangle(
+      annotation (defaultComponentName="plugToPin", Icon(graphics={Rectangle(
                   extent={{-20,20},{40,-20}},
                   fillColor={215,215,215},
                   fillPattern=FillPattern.Solid),Ellipse(
@@ -836,7 +836,7 @@ Connects the single phase (negative) pin <code>k</code> of the multi phase (nega
         connect(plug_p, plugToPin_p[j].plug_p);
         connect(plugToPin_p[j].pin_p, pin_p[j]);
       end for;
-      annotation (Icon(graphics={
+      annotation (defaultComponentName="plugToPins", Icon(graphics={
             Rectangle(
               extent={{-20,20},{40,-20}},
               fillColor={170,255,255},
@@ -880,7 +880,7 @@ Connects all <code>m</code> single phase (positive) pins of the multi phase (pos
         connect(plug_n, plugToPin_n[j].plug_n);
         connect(plugToPin_n[j].pin_n, pin_n[j]);
       end for;
-      annotation (Icon(graphics={
+      annotation (defaultComponentName="plugToPins", Icon(graphics={
             Rectangle(
               extent={{-20,20},{40,-20}},
               fillColor={170,255,255},
@@ -915,7 +915,7 @@ Connects all <code>m</code> single phase (negative) pins of the multi phase (neg
           zeros(m)
         "Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
       extends Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort(
-          final mh=m, final T=T_ref);
+          final mh=m, T=T_ref);
       QuasiStationary.SinglePhase.Basic.Resistor resistor[m](
         final R_ref=R_ref,
         final T_ref=T_ref,
@@ -984,7 +984,7 @@ A linear temperature dependency of the resistances for enabled heat ports is als
           zeros(m)
         "Temperature coefficient of conductance (G_actual = G_ref/(1 + alpha_ref*(heatPort.T - T_ref))";
       extends Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort(
-          final mh=m, final T=T_ref);
+          final mh=m, T=T_ref);
       QuasiStationary.SinglePhase.Basic.Conductor conductor[m](
         final G_ref=G_ref,
         final T_ref=T_ref,
@@ -1169,7 +1169,7 @@ using <code>m</code> <a href=\"modelica://Modelica.Electrical.QuasiStationary.Si
       for j in 1:m loop
         v[j] = sum(j*omega*L[j, k]*i[k] for k in 1:m);
       end for;
-      annotation (Documentation(info="<html>
+      annotation (defaultComponentName="inductor", Documentation(info="<html>
 <p>
 Model of a multi phase inductor providing a mutual inductance matrix model.
 </p>
@@ -1239,7 +1239,7 @@ Model of a multi phase inductor providing a mutual inductance matrix model.
           zeros(m)
         "Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
       extends Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort(
-          final mh=m, final T=T_ref);
+          final mh=m, T=T_ref);
       Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Impedance impedance[m](
         final Z_ref=Z_ref,
         final T_ref=T_ref,
@@ -1307,7 +1307,7 @@ the actual operating temperature and the reference input resistances <code>real(
           zeros(m)
         "Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
       extends Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort(
-          final mh=m, final T=T_ref);
+          final mh=m, T=T_ref);
       Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Admittance admittance[m](
         final Y_ref=Y_ref,
         final T_ref=T_ref,
@@ -1372,7 +1372,7 @@ the actual operating temperature and the reference input conductances <code>real
           zeros(m)
         "Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
       extends Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort(
-          final mh=m, final T=T_ref);
+          final mh=m, T=T_ref);
       Modelica.Blocks.Interfaces.RealInput R_ref[m](each unit="Ohm")
         "Variable resistance" annotation (Placement(transformation(
             origin={0,120},
@@ -1397,7 +1397,7 @@ the actual operating temperature and the reference input conductances <code>real
           points={{0,-10},{0,-10},{0,-100}}, color={191,0,0}));
       connect(R_ref, variableResistor.R_ref) annotation (Line(
           points={{0,120},{0,12}}, color={0,0,127}));
-      annotation (
+      annotation (defaultComponentName="resistor",
         Icon(graphics={Line(points={{60,0},{90,0}}, color={85,170,255}),
               Line(points={{-90,0},{-60,0}}, color={85,170,255}),
               Rectangle(
@@ -1452,7 +1452,7 @@ A linear temperature dependency of the resistances is also taken into account.
           zeros(m)
         "Temperature coefficient of resistance (G_actual = G_ref/(1 + alpha_ref*(heatPort.T - T_ref))";
       extends Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort(
-          final mh=m, final T=T_ref);
+          final mh=m, T=T_ref);
       Modelica.Blocks.Interfaces.RealInput G_ref[m](each unit="S")
         "Variable conductance" annotation (Placement(transformation(
             origin={0,120},
@@ -1475,7 +1475,7 @@ A linear temperature dependency of the resistances is also taken into account.
       connect(variableResistor.heatPort, heatPort) annotation (Line(points={{0,
               -10},{0,-32.5},{0,-32.5},{0,-55},{0,-55},{0,-100}}, color={191,0,0}));
       connect(G_ref, variableResistor.G_ref) annotation (Line(points={{0,120},{0,120},{0,12},{0,12}}, color={0,0,127}));
-      annotation (
+      annotation (defaultComponentName="conductor",
         Icon(graphics={Line(points={{60,0},{90,0}}, color={85,170,255}),
               Line(points={{-90,0},{-60,0}}, color={85,170,255}),
               Rectangle(
@@ -1541,7 +1541,7 @@ A linear temperature dependency of the conductances is also taken into account.
             points={{10,0},{39,0},{39,0},{68,0}}, color={85,170,255}));
       connect(C, variableCapacitor.C) annotation (Line(
           points={{0,120},{0,12}}, color={0,0,127}));
-      annotation (
+      annotation (defaultComponentName="capacitor",
         Icon(graphics={Line(points={{-90,0},{-6,0}}, color={85,170,255}),
               Line(points={{6,0},{90,0}}, color={85,170,255}),
             Line(
@@ -1601,7 +1601,7 @@ The capacitances <code>C</code> are given as <code>m</code> input signals.
       connect(variableInductor.pin_n, plugToPins_n.pin_n) annotation (Line(
             points={{10,0},{39,0},{39,0},{68,0}}, color={85,170,255}));
       connect(variableInductor.L, L) annotation (Line(points={{0,12},{0,12},{0,120}}, color={0,0,127}));
-      annotation (
+      annotation (defaultComponentName="inductor",
         Icon(graphics={Line(points={{60,0},{90,0}},
               color={85,170,255}),Line(points={{-90,0},{-60,0}}, color={85,170,255}),
             Line(
@@ -1661,7 +1661,7 @@ The inductances <code>L</code> are given as <code>m</code> input signals.
           zeros(m)
         "Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
       extends Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort(
-          final mh=m, final T=T_ref);
+          final mh=m, T=T_ref);
       ComplexBlocks.Interfaces.ComplexInput Z_ref[m]
         "Variable complex impedances" annotation (Placement(transformation(
             origin={0,120},
@@ -1686,7 +1686,7 @@ The inductances <code>L</code> are given as <code>m</code> input signals.
           points={{0,-10},{0,-100}}, color={191,0,0}));
       connect(variableImpedance.Z_ref, Z_ref) annotation (Line(
           points={{0,12},{0,64},{0,120}}, color={85,170,255}));
-      annotation (
+      annotation (defaultComponentName="impedance",
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={Line(points={{60,0},{90,0}}, color={85,170,255}),
               Line(points={{-90,0},{-60,0}}, color={85,170,255}),
@@ -1752,7 +1752,7 @@ A linear temperature dependency of the resistances is also taken into account.
           zeros(m)
         "Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
       extends Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort(
-          final mh=m, final T=T_ref);
+          final mh=m, T=T_ref);
       ComplexBlocks.Interfaces.ComplexInput Y_ref[m]
         "Variable complex admittances" annotation (Placement(transformation(
             origin={0,120},
@@ -1777,7 +1777,7 @@ A linear temperature dependency of the resistances is also taken into account.
           points={{0,-10},{0,-100}}, color={191,0,0}));
       connect(Y_ref, variableImpedance.Y_ref) annotation (Line(
           points={{0,120},{0,120},{0,12}}, color={85,170,255}));
-      annotation (
+      annotation (defaultComponentName="admittance",
         Icon(graphics={Line(points={{60,0},{90,0}}, color={85,170,255}),
               Line(points={{-90,0},{-60,0}}, color={85,170,255}),
               Rectangle(
@@ -1836,7 +1836,7 @@ A linear temperature dependency of the conductances is also taken into account.
           Line(origin={10,40}, points={{-100,-40},{-80,-40}}),
           Line(origin={10,40}, points={{60,-40},{80,-40}}),
           Rectangle(
-            lineColor={0,0,255},
+            lineColor={85,170,255},
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid,
             extent={{-70,-30},{70,30}})}, coordinateSystem(extent={{-100,-100},
@@ -1988,7 +1988,7 @@ it uses <em>m</em> <a href=\"modelica://Modelica.Electrical.QuasiStationary.Sing
           points={{-82,0},{-100,0}}, color={85,170,255}));
       connect(idealCommutingSwitch.p, plugToPins_p.pin_p) annotation (Line(
           points={{-10,0},{-78,0}}, color={85,170,255}));
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (defaultComponentName="switch", Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
                                    Ellipse(extent={{-44,4},{-36,-4}}, lineColor=
                {85,170,255}),Line(points={{-90,0},{-44,0}}, color={85,170,255}),
@@ -2078,7 +2078,7 @@ This switch is only intended to be used for structural changes, not fast switchi
           points={{10,4},{10,60},{78,60}}, color={85,170,255}));
       connect(idealIntermediateSwitch.p1, plugToPins_p1.pin_p) annotation (Line(
           points={{-10,4},{-10,60},{-78,60}}, color={85,170,255}));
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (defaultComponentName="switch", Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
                                    Ellipse(extent={{-4,14},{4,6}},  lineColor={
               85,170,255}),Line(points={{-90,0},{-40,0}}, color={85,170,255}),
@@ -2134,7 +2134,7 @@ This switch is only intended to be used for structural changes, not fast switchi
           points={{10,0},{39,0},{39,0},{68,0}}, color={85,170,255}));
       connect(plugToPins_p.pin_p, idealOpeningSwitch.pin_p) annotation (Line(
           points={{-68,0},{-10,0}}, color={85,170,255}));
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (defaultComponentName="switch", Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
                                        Line(points={{-90,0},{-44,0}}, color={85,170,255}),
               Ellipse(extent={{-44,4},{-36,-4}}, lineColor={85,170,
@@ -2188,7 +2188,7 @@ This switch is only intended to be used for structural changes, not fast switchi
           points={{-10,0},{-68,0}}, color={85,170,255}));
       connect(idealClosingSwitch.pin_n, plugToPins_n.pin_n) annotation (Line(
           points={{10,0},{39,0},{39,0},{68,0}}, color={85,170,255}));
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (defaultComponentName="switch", Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
                                        Line(points={{-90,0},{-44,0}}, color={85,170,255}),
               Ellipse(extent={{-44,4},{-36,-4}}, lineColor={85,170,
@@ -2280,7 +2280,7 @@ In quasistationary operation, instantaneous power equals active power;
     equation
       y = Modelica.Electrical.QuasiStationary.MultiPhase.Functions.quasiRMS(u);
 
-      annotation (Documentation(info="<html>
+      annotation (defaultComponentName="rms", Documentation(info="<html>
 <p>
 This block determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.Math.RootMeanSquare\">RMS</a> value of a multi phase system, representing an equivalent RMS vector or phasor.
 </p>
@@ -2297,10 +2297,10 @@ This block determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.
       import Modelica.ComplexMath.arg;
       parameter Integer m=3 "Number of phases";
       output Real abs_u[m] = 'abs'(u) "Absolute of input";
-      output Modelica.SIunits.Angle arg_u[m](displayUnit="deg") = arg(u)
+      output Modelica.SIunits.Angle arg_u[m](each displayUnit="deg") = arg(u)
         "Argument of input";
       output Real abs_y[m] = 'abs'(y) "Absolute of output";
-      output Modelica.SIunits.Angle arg_y[m](displayUnit="deg") = arg(y)
+      output Modelica.SIunits.Angle arg_y[m](each displayUnit="deg") = arg(y)
         "Argument of output";
     protected
       final parameter Complex sTM[m,m]=
@@ -2311,7 +2311,7 @@ This block determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.
         y[j] = Complex(sum({sTM[j,k].re*u[k].re - sTM[j,k].im*u[k].im for k in 1:m}),
                        sum({sTM[j,k].re*u[k].im + sTM[j,k].im*u[k].re for k in 1:m}));
       end for;
-      annotation (Icon(coordinateSystem(
+      annotation (defaultComponentName="symComp", Icon(coordinateSystem(
               preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
             graphics={
             Line(
@@ -2387,7 +2387,7 @@ Calculates the symmetric components according to Charles L. Fortescue from the t
         y[j] = Complex(sum({sbTM[j,k].re*u[k].re - sbTM[j,k].im*u[k].im for k in 1:m}),
                        sum({sbTM[j,k].re*u[k].im + sbTM[j,k].im*u[k].re for k in 1:m}));
       end for;
-      annotation (Icon(coordinateSystem(
+      annotation (defaultComponentName="symComp", Icon(coordinateSystem(
               preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
             graphics={
             Line(
@@ -2449,7 +2449,7 @@ Calculates the time phasors from the symmetric components according to Charles L
     equation
       y = u*Modelica.ComplexMath.fromPolar(fill(1, m), -
         Electrical.MultiPhase.Functions.symmetricOrientation(m));
-      annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
+      annotation (defaultComponentName="adaptor", Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
                 -100,-100},{100,100}}), graphics={Line(
                   points={{-60,-20},{-60,20},{-56,8},{-64,8},{-60,20}},
                   color={0,0,255}),Line(
@@ -2590,7 +2590,7 @@ Transformation of space phasor to m phase values (voltages or currents).
     equation
       y = plug_p.reference.gamma;
       plug_p.pin.i = fill(Complex(0), m);
-      annotation (Icon(graphics={Text(
+      annotation (defaultComponentName="refSensor", Icon(graphics={Text(
               extent={{60,-60},{-60,-30}},
               textString="ref")}), Documentation(info="<html>
 <p>
@@ -2630,7 +2630,7 @@ This sensor can be used to measure the reference angle.
           points={{-68,0},{-10,0}}, color={85,170,255}));
       connect(frequencySensor.y, y) annotation (Line(
           points={{11,0},{110,0}}, color={0,0,127}));
-      annotation (Icon(graphics={Line(points={{70,0},{80,0},{90,0},{100,0}},
+      annotation (defaultComponentName="fSensor", Icon(graphics={Line(points={{70,0},{80,0},{90,0},{100,0}},
                 color={0,0,127}), Text(
               extent={{-29,-11},{30,-70}},
               textString="f")}), Documentation(info="<html>
@@ -2677,7 +2677,7 @@ This sensor can be used to measure the frequency of the reference system, using 
           points={{-100,0},{-72,0}}, color={85,170,255}));
       connect(plugToPins_p.pin_p, potentialSensor.pin) annotation (Line(
           points={{-68,0},{-10,0}}, color={85,170,255}));
-      annotation (Icon(graphics={Text(
+      annotation (defaultComponentName="vSensor", Icon(graphics={Text(
               extent={{-29,-11},{30,-70}},
               textString="V")}), Documentation(info="<html>
 
@@ -2720,7 +2720,7 @@ This sensor can be used to measure <em>m</em> complex potentials, using <em>m</e
               {{10,0},{39,0},{39,0},{68,0}}, color={85,170,255}));
       connect(voltageSensor.y, y) annotation (Line(points={{0,-11},{0,-35.75},{
               0,-35.75},{0,-60.5},{0,-60.5},{0,-110}}, color={85,170,255}));
-      annotation (Icon(graphics={Text(
+      annotation (defaultComponentName="vSensor", Icon(graphics={Text(
               extent={{-29,-11},{30,-70}},
               textString="V")}), Documentation(info="<html>
 
@@ -2776,7 +2776,7 @@ This sensor can be used to measure <em>m</em> complex voltages, using <em>m</em>
           points={{10,0},{68,0}}, color={85,170,255}));
       connect(voltageSensor.y, quasiRMS.u) annotation (Line(
           points={{0,-11},{0,-38}}, color={85,170,255}));
-      annotation (
+      annotation (defaultComponentName="vSensor",
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
             Text(
@@ -2830,7 +2830,7 @@ This sensor determines the continuous quasi <a href=\"Modelica://Modelica.Blocks
               {{10,0},{39,0},{39,0},{68,0}}, color={85,170,255}));
       connect(currentSensor.y, y) annotation (Line(points={{0,-11},{0,-35.75},{
               0,-35.75},{0,-60.5},{0,-60.5},{0,-110}}, color={85,170,255}));
-      annotation (Icon(graphics={Text(
+      annotation (defaultComponentName="iSensor", Icon(graphics={Text(
               extent={{-29,-11},{30,-70}},
               textString="I")}), Documentation(info="<html>
 
@@ -2887,7 +2887,7 @@ This sensor can be used to measure <em>m</em> complex currents, using <em>m</em>
           points={{10,0},{68,0}}, color={85,170,255}));
       connect(currentSensor.y, quasiRMS.u) annotation (Line(
           points={{0,-11},{0,-38}}, color={85,170,255}));
-      annotation (
+      annotation (defaultComponentName="iSensor",
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
             Line(points={{-90,0},{-70,0}}, color={0,0,255}),
@@ -2992,7 +2992,7 @@ This sensor determines the continuous quasi <a href=\"Modelica://Modelica.Blocks
       connect(powerSensor.y, sum.u) annotation (Line(points={{-10,-11},{-10,-40},{-80,-40},{-80,-58}}, color={85,170,255}));
       connect(sum.y, y)
         annotation (Line(points={{-80,-81},{-80,-90},{-100,-90},{-100,-110}}, color={85,170,255}));
-      annotation (
+      annotation (defaultComponentName="pSensor",
         Icon(graphics={
             Line(points={{0,100},{0,70}}, color={85,170,255}),
             Line(points={{0,-70},{0,-100}}, color={85,170,255}),
@@ -3092,8 +3092,8 @@ This sensor can be used to measure <em>m</em> complex apparent power values, usi
     i = pc.pin.i;
     v = pv.pin.v - nv.pin.v;
     apparentPower = v.*conj(i);
-    apparentPowerTotal = 'sum'(apparentPower);
-    annotation (
+    apparentPowerTotal = Complex(sum(apparentPower.re),sum(apparentPower.im));
+    annotation (defaultComponentName="sensor",
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
         Line(points = {{0,100},{0,70}}, color={85,170,255}),
         Line(points = {{0,-70},{0,-100}}, color={85,170,255}),
@@ -3172,7 +3172,7 @@ Quasi stationary theory can be found in the
     equation
       omega = 2*Modelica.Constants.pi*f;
       v = {V[k]*exp(j*phi[k]) for k in 1:m};
-      annotation (
+      annotation (defaultComponentName="vSource",
         Icon(graphics={
             Line(points={{-50,0},{50,0}}, color={85,170,255}),
             Line(points={{-70,30},{-70,10}}, color={85,170,255}),
@@ -3213,7 +3213,7 @@ This model describes <em>m</em> constant voltage sources, specifying the complex
     equation
       omega = 2*Modelica.Constants.pi*f;
       v = V;
-      annotation (Icon(graphics={
+      annotation (defaultComponentName="vSource", Icon(graphics={
             Line(points={{-50,0},{50,0}}, color={85,170,255}),
             Line(points={{-70,30},{-70,10}}, color={85,170,255}),
             Line(points={{-80,20},{-60,20}}, color={85,170,255}),
@@ -3256,7 +3256,7 @@ Additionally, the frequency of the voltage source is defined by a real signal in
     equation
       plug_p.reference.gamma = gamma;
       v = V;
-      annotation (Documentation(info="<html>
+      annotation (defaultComponentName="vSource", Documentation(info="<html>
 
 <p>
 This model describes <em>m</em> variable current sources, with <em>m</em> complex signal inputs,
@@ -3292,7 +3292,7 @@ Additionally, the frequency of the current source is defined by a real signal in
     equation
       omega = 2*Modelica.Constants.pi*f;
       i = {I[k]*exp(j*phi[k]) for k in 1:m};
-      annotation (Icon(graphics={Line(points={{0,50},{0,-50}}, color={85,170,255}),
+      annotation (defaultComponentName="iSource", Icon(graphics={Line(points={{0,50},{0,-50}}, color={85,170,255}),
               Polygon(
               points={{90,0},{60,10},{60,-10},{90,0}},
               lineColor={85,170,255},
@@ -3338,7 +3338,7 @@ This model describes <em>m</em> constant current sources, specifying the complex
     equation
       omega = 2*Modelica.Constants.pi*f;
       i = I;
-      annotation (Icon(graphics={Line(points={{0,-50},{0,50}}, color={85,170,255}),
+      annotation (defaultComponentName="iSource", Icon(graphics={Line(points={{0,-50},{0,50}}, color={85,170,255}),
             Polygon(
               points={{90,0},{60,10},{60,-10},{90,0}},
               lineColor={85,170,255},
@@ -3387,7 +3387,7 @@ Additionally, the frequency of the current source is defined by a real signal in
     equation
       plug_p.reference.gamma = gamma;
       i = I;
-      annotation (
+      annotation (defaultComponentName="iSource",
         Icon(graphics={Line(points={{0,-50},{0,50}}, color={85,170,255}),
               Polygon(
               points={{90,0},{60,10},{60,-10},{90,0}},

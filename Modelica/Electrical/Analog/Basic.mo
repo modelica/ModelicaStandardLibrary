@@ -41,7 +41,7 @@ package Basic "Basic electrical components"
       "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(T_heatPort - T_ref))";
 
     extends Modelica.Electrical.Analog.Interfaces.OnePort;
-    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=T_ref);
+    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=T_ref);
     SI.Resistance R_actual
       "Actual resistance = R*(1 + alpha*(T_heatPort - T_ref))";
 
@@ -97,7 +97,7 @@ package Basic "Basic electrical components"
     parameter SI.LinearTemperatureCoefficient alpha=0
       "Temperature coefficient of resistance (R = R_ref*(1 + alpha*(heatPort.T - T_ref))";
     extends Modelica.Electrical.Analog.Interfaces.OnePort;
-    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=T_ref,
+    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=T_ref,
         useHeatPort=true);
     SI.Resistance R
       "Resistance = R_ref*(1 + alpha*(T_heatPort - T_ref))";
@@ -169,7 +169,7 @@ package Basic "Basic electrical components"
     parameter SI.LinearTemperatureCoefficient alpha=0
       "Temperature coefficient of conductance (G_actual = G_ref/(1 + alpha*(T_heatPort - T_ref))";
     extends Modelica.Electrical.Analog.Interfaces.OnePort;
-    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=T_ref);
+    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=T_ref);
     SI.Conductance G_actual
       "Actual conductance = G_ref/(1 + alpha*(T_heatPort - T_ref))";
 
@@ -321,7 +321,7 @@ package Basic "Basic electrical components"
     (Lact - Linf)*i/Ipar = (Lzer - Linf)*noEvent(Modelica.Math.atan(i/Ipar));
     Psi = Lact*i;
     v = der(Psi);
-    annotation (
+    annotation (defaultComponentName="inductor",
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
           Line(points={{60,0},{90,0}}, color={0,0,255}),
@@ -517,7 +517,7 @@ package Basic "Basic electrical components"
 
     v = Lm*der(i);
 
-    annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+    annotation (defaultComponentName="transformer", Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}), graphics={
           Text(
             extent={{-150,110},{150,70}},
@@ -878,7 +878,7 @@ the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N
         points={{-80,0},{-90,0},{-90,0},{-100,0}}, color={0,127,0}));
     connect(internalSupport.flange, fixed.flange) annotation (Line(
         points={{-80,0},{-80,-10}}, color={0,127,0}));
-    annotation (
+    annotation (defaultComponentName="emf",
       defaultComponentName="emf",
       Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
               100}}), graphics={
@@ -976,7 +976,7 @@ the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N
   equation
     v2 = v1*gain;
     i1 = 0;
-    annotation (
+    annotation (defaultComponentName="vcv",
       Documentation(info="<html>
 <p>The linear voltage-controlled voltage source is a TwoPort. The right port voltage v2 is controlled by the left port voltage v1 via</p>
 <pre>    v2 = v1 * gain. </pre>
@@ -1018,7 +1018,7 @@ the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N
   equation
     i2 = v1*transConductance;
     i1 = 0;
-    annotation (
+    annotation (defaultComponentName="vcc",
       Documentation(info="<html>
 <p>The linear voltage-controlled current source is a TwoPort. The right port current i2 is controlled by the left port voltage v1 via</p>
 <pre>    i2 = v1 * transConductance. </pre>
@@ -1069,7 +1069,7 @@ the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N
   equation
     v2 = i1*transResistance;
     v1 = 0;
-    annotation (
+    annotation (defaultComponentName="ccv",
       Documentation(info="<html>
 <p>The linear current-controlled voltage source is a TwoPort. The right port voltage v2 is controlled by the left port current i1 via</p>
 <pre>    v2 = i1 * transResistance. </pre>
@@ -1112,7 +1112,7 @@ the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N
   equation
     i2 = i1*gain;
     v1 = 0;
-    annotation (
+    annotation (defaultComponentName="ccc",
       Documentation(info="<html>
 <p>The linear current-controlled current source is a TwoPort. The right port current i2 is controlled by the left port current i1 via</p>
 <pre>    i2 = i1 * gain. </pre>
@@ -1470,7 +1470,7 @@ the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N
     parameter SI.LinearTemperatureCoefficient alpha=0
       "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(T_heatPort - T_ref))";
     extends Modelica.Electrical.Analog.Interfaces.OnePort;
-    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=T_ref);
+    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=T_ref);
     SI.Resistance R_actual
       "Actual resistance = R*(1 + alpha*(T_heatPort - T_ref))";
     Modelica.Blocks.Interfaces.RealInput R(unit="Ohm") annotation (Placement(
@@ -1487,7 +1487,7 @@ the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N
     R_actual = R*(1 + alpha*(T_heatPort - T_ref));
     v = R_actual*i;
     LossPower = v*i;
-    annotation (
+    annotation (defaultComponentName="resistor",
       Documentation(info="<html>
 <p>The linear resistor connects the branch voltage <em>v</em> with the branch current <em>i</em> by
 <br><em><strong>i*R = v</strong></em>
@@ -1530,7 +1530,7 @@ the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N
     parameter SI.LinearTemperatureCoefficient alpha=0
       "Temperature coefficient of conductance (G_actual = G/(1 + alpha*(T_heatPort - T_ref))";
     extends Modelica.Electrical.Analog.Interfaces.OnePort;
-    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=T_ref);
+    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=T_ref);
     SI.Conductance G_actual
       "Actual conductance = G/(1 + alpha*(T_heatPort - T_ref))";
     Modelica.Blocks.Interfaces.RealInput G(unit="S") annotation (Placement(
@@ -1544,7 +1544,7 @@ the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N
     G_actual = G/(1 + alpha*(T_heatPort - T_ref));
     i = G_actual*v;
     LossPower = v*i;
-    annotation (
+    annotation (defaultComponentName="conductor",
       Documentation(info="<html>
 <p>The linear conductor connects the branch voltage <em>v</em> with the branch current <em>i</em> by
 <br><em><strong>i = G*v</strong></em>
@@ -1601,7 +1601,7 @@ the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N
     // protect solver from index change
     Q = noEvent(max(C, Cmin))*v;
     i = der(Q);
-    annotation (
+    annotation (defaultComponentName="capacitor",
       Documentation(info="<html>
 <p>The linear capacitor connects the branch voltage <em>v</em> with the branch current <em>i</em> by
 <br><em><strong>i = dQ/dt</strong></em> with <em><strong>Q = C * v</strong></em>.
@@ -1658,7 +1658,7 @@ C = Cmin, if 0 &le; C &lt; Cmin, where Cmin is a parameter with default value Mo
     // protect solver from index change
     Psi = noEvent(max(L, Lmin))*i;
     v = der(Psi);
-    annotation (
+    annotation (defaultComponentName="inductor",
       Documentation(info="<html>
 <p>The linear inductor connects the branch voltage <em>v</em> with the branch current <em>i</em> by
 <br><em><strong>v = d Psi/dt </strong></em>with <em><strong>Psi = L * i </strong></em>.
@@ -1709,7 +1709,7 @@ It is required that L &ge; 0, otherwise an assertion is raised. To avoid a varia
     parameter SI.Temperature T_ref=293.15 "Reference temperature";
     parameter SI.LinearTemperatureCoefficient alpha=0
       "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(T_heatPort - T_ref))";
-    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=T_ref);
+    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=T_ref);
     parameter Boolean useRinput=false "use input for 0<r<1 (else constant)"
       annotation (
       Evaluate=true,
@@ -1812,7 +1812,7 @@ It is required that L &ge; 0, otherwise an assertion is raised. To avoid a varia
 </dt>
 <dd>
 Christoph Clau&szlig;
-    &lt;<a href=\"mailto:Christoph.Clauss@eas.iis.fraunhofer.de\">Christoph.Clauss@eas.iis.fraunhofer.de</a>&gt;<br>
+    &lt;<a href=\"mailto:christoph@clauss-it.com\">christoph@clauss-it.com</a>&gt;<br>
     Andr&eacute; Schneider
     &lt;<a href=\"mailto:Andre.Schneider@eas.iis.fraunhofer.de\">Andre.Schneider@eas.iis.fraunhofer.de</a>&gt;<br>
     Fraunhofer Institute for Integrated Circuits<br>

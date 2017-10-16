@@ -1070,8 +1070,7 @@ the color of the \"ControlBus\" with double width (due to \"thickness=0.5\").
 <p>
 An <strong>expandable</strong> connector is a connector where the content of the connector
 is constructed by the variables connected to instances of this connector.
-For example, if \"sine.y\" is connected to the \"controlBus\", the following
-menu pops-up in Dymola:
+For example, if \"sine.y\" is connected to the \"controlBus\", a pop-up menu may appear:
 </p>
 
 <img src=\"modelica://Modelica/Resources/Images/Blocks/BusUsage2.png\"
@@ -1087,9 +1086,7 @@ the \"controlBus\". When typing \"realSignal1\" as \"New name\", a connection of
 
 <p>
 is generated and the \"controlBus\" contains the new signal \"realSignal1\". Modelica tools
-may give more support in order to list potential signals for a connection.
-For example, in Dymola all variables are listed in the menu that are contained in
-connectors which are derived by inheritance from \"controlBus\". Therefore, in
+may give more support in order to list potential signals for a connection. Therefore, in
 <a href=\"modelica://Modelica.Blocks.Examples.BusUsage_Utilities.Interfaces\">BusUsage_Utilities.Interfaces</a>
 the expected implementation of the \"ControlBus\" and of the \"SubControlBus\" are given.
 For example \"Internal.ControlBus\" is defined as:
