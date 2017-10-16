@@ -4251,8 +4251,7 @@ class Version_3_0_1 "Version 3.0.1 (Jan. 27, 2009)"
    annotation (Documentation(info="<html>
 
 <p>
-This Modelica package is provided under the
-<a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica License 2</a>
+This Modelica package is provided under the Modelica License 2
 and no longer under Modelica License 1.1. There are the following reasons
 why the Modelica Association changes from Modelica License 1.1 to this
 new license text (note, the text below is not a legal interpretation of the
