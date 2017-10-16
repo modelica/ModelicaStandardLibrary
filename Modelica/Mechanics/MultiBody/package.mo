@@ -267,6 +267,24 @@ red box on the lower right side.
 </p>
 
 <p>
+<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/Fourbar1b.png\" width=\"205\" height=\"107\"> 
+</p> 
+ 
+<p> 
+Whenever loop structures occur, non-linear algebraic 
+equations are present on \"position level\". It is then usually not possible by 
+structural analysis to select states during translation (which is possible for 
+non-loop structures). In the example above, Dymola detects a non-linear 
+algebraic loop of 57 equations and reduces this to a system of 7 coupled 
+algebraic equations. Note, that this is performed without using any 
+\"cut-joints\" as it is usually done in multi-body programs, but by just 
+appropriate symbolic equation manipulation. Via the dynamic dummy derivative 
+method the generalized coordinates on position and velocity level from one of 
+the 7 joints are dynamically selected as states during simulation. Whenever, 
+these two states are no longer appropriate, states from one of the other 
+joints are selected during simulation. 
+</p> 
+<p> 
 The efficiency of loop structures can usually be
 enhanced, if states are statically fixed at translation time. For this
 mechanism, the generalized coordinates of joint j1 (i.e., the

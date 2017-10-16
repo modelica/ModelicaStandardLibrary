@@ -1067,6 +1067,15 @@ connector to another connector instance, the connecting line has
 the color of the \"ControlBus\" with double width (due to \"thickness=0.5\").
 </p>
 
+<p> 
+An <strong>expandable</strong> connector is a connector where the content of the connector 
+is constructed by the variables connected to instances of this connector. 
+For example, if "sine.y" is connected to the "controlBus", a popup may appear:
+</p> 
+
+<img src=\"modelica://Modelica/Resources/Images/Blocks/BusUsage2.png\" 
+     alt=\"BusUsage2.png\"> 
+
 
 <p>
 The \"Add variable/New name\" field allows the user to define the name of the signal on
@@ -1078,8 +1087,24 @@ the \"controlBus\". When typing \"realSignal1\" as \"New name\", a connection of
 
 <p>
 is generated and the \"controlBus\" contains the new signal \"realSignal1\". Modelica tools
-may give more support in order to list potential signals for a connection.
-</p>
+may give more support in order to list potential signals for a connection. Therefore, in 
+<a href=\"modelica://Modelica.Blocks.Examples.BusUsage_Utilities.Interfaces\">BusUsage_Utilities.Interfaces</a> 
+the expected implementation of the \"ControlBus\" and of the \"SubControlBus\" are given. 
+For example \"Internal.ControlBus\" is defined as: 
+</p> 
+ 
+<pre>  <strong>expandable connector</strong> StandardControlBus 
+    <strong>extends</strong> BusUsage_Utilities.Interfaces.ControlBus; 
+ 
+    <strong>import</strong> SI = Modelica.SIunits; 
+    SI.AngularVelocity    realSignal1   \"First Real signal\"; 
+    SI.Velocity           realSignal2   \"Second Real signal\"; 
+    Integer               integerSignal \"Integer signal\"; 
+    Boolean               booleanSignal \"Boolean signal\"; 
+    StandardSubControlBus subControlBus \"Combined signal\"; 
+  <strong>end</strong> StandardControlBus; 
+</pre> 
+</p> 
 
 <p>
 Consequently, when connecting now from \"sine.y\" to \"controlBus\", the menu
