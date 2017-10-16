@@ -1750,7 +1750,7 @@ The following parts are useful, when newly starting with this library:
      contains examples that demonstrate the usage of this library.</li>
 </ul>
 <p>
-<strong>Licensed by the Modelica Association under the Modelica License 2</strong><br>
+<strong>Licensed by the Modelica Association under the 3-Clause BSD License</strong><br>
 Copyright &copy; 2002-2016, ABB, DLR, Dassault Syst&egrave;mes AB, Modelon, TU Braunschweig, TU Hamburg-Harburg, Politecnico di Milano.
 </p>
 <p>
