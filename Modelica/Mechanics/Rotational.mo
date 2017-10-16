@@ -2301,10 +2301,7 @@ at an angle phi0 in the <strong>housing</strong>. May be used:
     end Fixed;
 
     model Inertia "1D-rotational component with inertia"
-      Rotational.Interfaces.Flange_a flange_a "Left flange of shaft"
-        annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
-      Rotational.Interfaces.Flange_b flange_b "Right flange of shaft"
-        annotation (Placement(transformation(extent={{90,-10},{110,10}})));
+      extends Rotational.Interfaces.PartialTwoFlanges;
       parameter SI.Inertia J(min=0, start=1) "Moment of inertia";
       parameter StateSelect stateSelect=StateSelect.default
         "Priority to use phi and w as states"
