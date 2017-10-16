@@ -1366,7 +1366,7 @@ Copyright &copy; 1998-2016, Modelica Association, Anton Haumer and Austrian Inst
 </p>
 
 <p>
-<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href="https://opensource.org/licenses/BSD-3-Clause"> https://opensource.org/licenses/BSD-3-Clause</a>.</em>
+<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://opensource.org/licenses/BSD-3-Clause\"> https://opensource.org/licenses/BSD-3-Clause</a>.</em>
 </p>
 </html>", revisions="<html>
   <ul>
@@ -2518,7 +2518,7 @@ Outlet temperature is defined by variable T of the corresponding component.</li>
 Copyright &copy; 1998-2016, Modelica Association, Anton Haumer, Christian Kral and AIT.
 </p>
 <p>
-<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href="https://opensource.org/licenses/BSD-3-Clause"> https://opensource.org/licenses/BSD-3-Clause</a>.</em>
+<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://opensource.org/licenses/BSD-3-Clause\"> https://opensource.org/licenses/BSD-3-Clause</a>.</em>
 </p>
 </html>", revisions="<html>
 

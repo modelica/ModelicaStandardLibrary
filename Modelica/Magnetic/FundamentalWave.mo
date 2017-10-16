@@ -9048,7 +9048,7 @@ Copyright &copy; 2009-2017, Modelica Association, <a href=\"modelica://Modelica.
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.Contact\">Anton Haumer</a> and AIT
 </p>
 <p>
-<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href="https://opensource.org/licenses/BSD-3-Clause"> https://opensource.org/licenses/BSD-3-Clause</a>.</em>
+<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://opensource.org/licenses/BSD-3-Clause\"> https://opensource.org/licenses/BSD-3-Clause</a>.</em>
 </p>
 </html>"),
     Icon(graphics={
