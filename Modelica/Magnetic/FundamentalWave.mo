@@ -6619,7 +6619,7 @@ Resistances and stray inductances of the machine always refer to either stator o
           annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=90,
-              origin={20,-40})));
+              origin={30,-40})));
         Components.PermanentMagnet permanentMagnet(
           final V_m=Complex(V_mPM, 0),
           final m=m,
@@ -6653,17 +6653,17 @@ Resistances and stray inductances of the machine always refer to either stator o
         connect(permanentMagnet.flange, inertiaRotor.flange_b) annotation (Line(
             points={{0,-40},{0,-20},{90,-20},{90,0}}));
         connect(airGap.port_rp, rotorCage.port_n) annotation (Line(
-            points={{10,-10},{10,-10},{10,-30},{10,-30},{10,-30},{20,-30},{20,-30}}, color={255,128,0}));
+            points={{10,-10},{10,-30},{30,-30}},                                     color={255,128,0}));
 
         connect(short.port_n, airGap.port_rp) annotation (Line(
             points={{10,-30},{10,-10}}, color={255,128,0}));
         connect(short.port_p, permanentMagnet.port_n) annotation (Line(
             points={{10,-50},{-10,-50}}, color={255,128,0}));
         connect(rotorCage.port_p, permanentMagnet.port_n) annotation (Line(
-            points={{20,-50},{-10,-50}}, color={255,128,0}));
+            points={{30,-50},{-10,-50}}, color={255,128,0}));
         connect(rotorCage.heatPortWinding, internalThermalPort.heatPortRotorWinding)
           annotation (Line(
-            points={{30,-40},{40,-40},{40,-80},{-40,-80},{-40,-90}}, color={191,0,0}));
+            points={{40,-40},{40,-80},{-40,-80},{-40,-90}},          color={191,0,0}));
         annotation (
           defaultComponentName="smpm",
           Icon(graphics={
@@ -6832,7 +6832,7 @@ Resistances and stray inductances of the machine refer to an <code>m</code> phas
           annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=90,
-              origin={20,-40})));
+              origin={30,-40})));
         Components.SinglePhaseWinding excitation(
           final orientation=0,
           final RRef=Re,
@@ -6885,16 +6885,16 @@ Resistances and stray inductances of the machine refer to an <code>m</code> phas
           annotation (Line(
             points={{-20,-50},{-20,-80},{-40,-80},{-40,-90}}, color={191,0,0}));
         connect(airGap.port_rp, rotorCage.port_n) annotation (Line(
-            points={{10,-10},{10,-30},{20,-30}}, color={255,128,0}));
+            points={{10,-10},{10,-30},{30,-30}}, color={255,128,0}));
         connect(short.port_n, airGap.port_rp) annotation (Line(
             points={{10,-30},{10,-10}}, color={255,128,0}));
         connect(rotorCage.port_p, excitation.port_n) annotation (Line(
-            points={{20,-50},{-10,-50}}, color={255,128,0}));
+            points={{30,-50},{-10,-50}}, color={255,128,0}));
         connect(short.port_p, excitation.port_n) annotation (Line(
             points={{10,-50},{-10,-50}}, color={255,128,0}));
         connect(rotorCage.heatPortWinding, internalThermalPort.heatPortRotorWinding)
           annotation (Line(
-            points={{30,-40},{40,-40},{40,-80},{-40,-80},{-40,-90}}, color={191,0,0}));
+            points={{40,-40},{40,-80},{-40,-80},{-40,-90}},          color={191,0,0}));
         annotation (
           defaultComponentName="smee",
           Icon(graphics={
@@ -7031,7 +7031,7 @@ The symmetry of the stator is assumed. For rotor asymmetries can be taken into a
           annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=90,
-              origin={20,-40})));
+              origin={30,-40})));
       protected
         Modelica.Blocks.Interfaces.RealOutput damperCageLossPower(final
             quantity="Power", final unit="W") "Damper losses";
@@ -7042,18 +7042,18 @@ The symmetry of the stator is assumed. For rotor asymmetries can be taken into a
           damperCageLossPower = 0;
         end if;
         connect(rotorCage.port_n, airGap.port_rp) annotation (Line(
-            points={{20,-30},{20,-30},{10,-30},{10,-30},{10,-30},{10,-10},{10,-10}}, color={255,128,0}));
+            points={{30,-30},{10,-30},{10,-10}},                                     color={255,128,0}));
 
         connect(short.port_n, airGap.port_rp) annotation (Line(
             points={{10,-30},{10,-10}}, color={255,128,0}));
         connect(rotorCage.port_p, airGap.port_rn) annotation (Line(
-            points={{20,-50},{-10,-50},{-10,-50},{-10,-50},{-10,-10},{-10,-10}}, color={255,128,0}));
+            points={{30,-50},{-10,-50},{-10,-10}},                               color={255,128,0}));
 
         connect(short.port_p, airGap.port_rn) annotation (Line(
             points={{10,-50},{-10,-50},{-10,-10}}, color={255,128,0}));
         connect(rotorCage.heatPortWinding, internalThermalPort.heatPortRotorWinding)
           annotation (Line(
-            points={{30,-40},{40,-40},{40,-80},{-40,-80},{-40,-90}}, color={191,0,0}));
+            points={{40,-40},{40,-80},{-40,-80},{-40,-90}},          color={191,0,0}));
         annotation (
           defaultComponentName="smr",
           Icon(graphics={
@@ -7206,7 +7206,7 @@ The symmetry of the stator is assumed. For rotor asymmetries can be taken into a
                 -20},{0,-20},{-40,0},{0,20},{40,20},{100,-20},{40,-60}}, color=
                 {0,0,255}),
                 Text(
-                    extent={{-150,120},{150,160}},
+                    extent={{-150,110},{150,150}},
                     lineColor={0,0,255},
                     textString="%name")}),   Documentation(info="<html>
 <p>
@@ -7385,7 +7385,7 @@ The single phase winding consists of a winding
               Line(points={{40,60},{100,20},{40,-20},{0,-20},{-40,0},{0,20},{40,
                     20},{100,-20},{40,-60}}, color={0,0,255}),
                 Text(
-                    extent={{-150,120},{150,160}},
+                    extent={{-150,110},{150,150}},
                     lineColor={0,0,255},
                     textString="%name")}),
                                        Documentation(info="<html>

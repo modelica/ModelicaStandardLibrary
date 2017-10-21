@@ -5197,7 +5197,7 @@ Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_Squirre
           annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=90,
-              origin={20,-40})));
+              origin={30,-40})));
         FundamentalWave.BasicMachines.Components.PermanentMagnet
           permanentMagnet(
           final V_m=Complex(V_mPM, 0),
@@ -5232,16 +5232,16 @@ Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_Squirre
         connect(permanentMagnet.flange, inertiaRotor.flange_b) annotation (Line(
             points={{0,-40},{0,-20},{90,-20},{90,0}}));
         connect(airGap.port_rp, rotorCage.port_n) annotation (Line(
-            points={{10,-10},{10,-30},{20,-30}}, color={255,170,85}));
+            points={{10,-10},{10,-30},{30,-30}}, color={255,170,85}));
         connect(short.port_n, airGap.port_rp) annotation (Line(
             points={{10,-30},{10,-10}}, color={255,170,85}));
         connect(short.port_p, permanentMagnet.port_n) annotation (Line(
             points={{10,-50},{-10,-50}}, color={255,170,85}));
         connect(rotorCage.port_p, permanentMagnet.port_n) annotation (Line(
-            points={{20,-50},{-10,-50}}, color={255,170,85}));
+            points={{30,-50},{-10,-50}}, color={255,170,85}));
         connect(rotorCage.heatPortWinding, internalThermalPort.heatPortRotorWinding)
           annotation (Line(
-            points={{30,-40},{40,-40},{40,-80},{-40,-80},{-40,-90}}, color={191,0,0}));
+            points={{40,-40},{40,-80},{-40,-80},{-40,-90}},          color={191,0,0}));
         annotation (
           defaultComponentName="smpm",
           Icon(graphics={
@@ -5410,7 +5410,7 @@ Magnetic.FundamentalWave.BasicMachines.SM_ReluctanceRotor</a>,
           annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=90,
-              origin={20,-40})));
+              origin={30,-40})));
         Components.QuasiStaticAnalogWinding excitation(
           final RRef=Re,
           final TRef=TeRef,
@@ -5450,16 +5450,16 @@ Magnetic.FundamentalWave.BasicMachines.SM_ReluctanceRotor</a>,
           annotation (Line(
             points={{-20,-50},{-20,-80},{-40,-80},{-40,-90}}, color={191,0,0}));
         connect(airGap.port_rp, rotorCage.port_n) annotation (Line(
-            points={{10,-10},{10,-30},{20,-30}}, color={255,170,85}));
+            points={{10,-10},{10,-30},{30,-30}}, color={255,170,85}));
         connect(short.port_n, airGap.port_rp) annotation (Line(
             points={{10,-30},{10,-10}}, color={255,170,85}));
         connect(rotorCage.port_p, excitation.port_n) annotation (Line(
-            points={{20,-50},{-10,-50}}, color={255,170,85}));
+            points={{30,-50},{-10,-50}}, color={255,170,85}));
         connect(short.port_p, excitation.port_n) annotation (Line(
             points={{10,-50},{-10,-50}}, color={255,170,85}));
         connect(rotorCage.heatPortWinding, internalThermalPort.heatPortRotorWinding)
           annotation (Line(
-            points={{30,-40},{40,-40},{40,-80},{-40,-80},{-40,-90}}, color={191,0,0}));
+            points={{40,-40},{40,-80},{-40,-80},{-40,-90}},          color={191,0,0}));
         connect(pin_ep, brush.p) annotation (Line(
             points={{-100,60},{-80,60},{-80,50}}, color={0,0,255}));
         connect(brush.heatPort, internalThermalPort.heatPortBrush) annotation (
@@ -5609,7 +5609,7 @@ Magnetic.FundamentalWave.BasicMachines.SM_ReluctanceRotor</a>,
           annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=90,
-              origin={20,-40})));
+              origin={30,-40})));
       protected
         Modelica.Blocks.Interfaces.RealOutput damperCageLossPower(final
             quantity="Power", final unit="W") "Damper losses";
@@ -5620,16 +5620,16 @@ Magnetic.FundamentalWave.BasicMachines.SM_ReluctanceRotor</a>,
           damperCageLossPower = 0;
         end if;
         connect(rotorCage.port_n, airGap.port_rp) annotation (Line(
-            points={{20,-30},{10,-30},{10,-10}}, color={255,170,85}));
+            points={{30,-30},{10,-30},{10,-10}}, color={255,170,85}));
         connect(short.port_n, airGap.port_rp) annotation (Line(
             points={{10,-30},{10,-10}}, color={255,170,85}));
         connect(rotorCage.port_p, airGap.port_rn) annotation (Line(
-            points={{20,-50},{-10,-50},{-10,-10}}, color={255,170,85}));
+            points={{30,-50},{-10,-50},{-10,-10}}, color={255,170,85}));
         connect(short.port_p, airGap.port_rn) annotation (Line(
             points={{10,-50},{-10,-50},{-10,-10}}, color={255,170,85}));
         connect(rotorCage.heatPortWinding, internalThermalPort.heatPortRotorWinding)
           annotation (Line(
-            points={{30,-40},{40,-40},{40,-80},{-40,-80},{-40,-90}}, color={191,0,0}));
+            points={{40,-40},{40,-80},{-40,-80},{-40,-90}},          color={191,0,0}));
         annotation (
           defaultComponentName="smr",
           Icon(graphics={
@@ -6623,7 +6623,7 @@ Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap</a>
           annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
         Modelica.Magnetic.QuasiStatic.FundamentalWave.Components.Ground groundS
           "Ground of stator magnetic circuit" annotation (Placement(
-              transformation(extent={{-38,30},{-18,10}})));
+              transformation(extent={{-40,30},{-20,10}})));
         BasicMachines.Components.RotorSaliencyAirGap airGap(final p=p, final L0=
              L0) annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
@@ -6676,7 +6676,8 @@ Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap</a>
             points={{50,60},{50,50},{60,50},{60,-100}}));
         connect(strayLoad.heatPort, internalThermalPort.heatPortStrayLoad)
           annotation (Line(
-            points={{60,60},{60,50},{50,50},{50,-80},{-39.6,-80},{-39.6,-90}}, color={191,0,0}));
+            points={{60,60},{60,50},{50,50},{50,-80},{-39.6,-80},{-39.6,-90}},
+                                                                           color={191,0,0}));
         connect(friction.support, internalSupport) annotation (Line(
             points={{90,-40},{90,-70},{60,-70},{60,-100}}));
         connect(strayLoad.flange, inertiaRotor.flange_b) annotation (Line(
@@ -6685,19 +6686,22 @@ Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap</a>
             points={{90,-20},{90,0}}));
         connect(friction.heatPort, internalThermalPort.heatPortFriction)
           annotation (Line(
-            points={{80,-40},{50,-40},{50,-80},{-40,-80},{-40,-91.6}}, color={191,0,0}));
+            points={{80,-40},{50,-40},{50,-80},{-40,-80},{-40,-91.6}},
+                                                                     color={191,0,0}));
         connect(groundS.port_p, airGap.port_sp) annotation (Line(
-            points={{-28,10},{-10,10}}, color={255,170,85}));
+            points={{-30,10},{-10,10}}, color={255,170,85}));
         connect(stator.port_n, airGap.port_sp) annotation (Line(
             points={{-10,30},{-10,10}}, color={255,170,85}));
         connect(stator.port_p, airGap.port_sn) annotation (Line(
             points={{10,30},{10,10}}, color={255,170,85}));
         connect(stator.heatPortWinding, internalThermalPort.heatPortStatorWinding)
           annotation (Line(
-            points={{-10,44},{-40.4,44},{-40.4,-89.2}}, color={191,0,0}));
+            points={{-10,44},{-40.4,44},{-40.4,-89.2}},
+                                                      color={191,0,0}));
         connect(stator.heatPortCore, internalThermalPort.heatPortStatorCore)
           annotation (Line(
-            points={{-10,36},{-39.6,36},{-39.6,-89.2}}, color={191,0,0}));
+            points={{-10,36},{-39.6,36},{-39.6,-89.2}},
+                                                      color={191,0,0}));
         connect(thermalAmbient.thermalPort, internalThermalPort) annotation (
             Line(points={{-60,-90},{-50,-90},{-40,-90}}, color={191,0,0}));
         connect(internalThermalPort, thermalPort) annotation (Line(points={{-40,
@@ -6745,8 +6749,7 @@ Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap</a>
       import Modelica.Electrical.QuasiStationary.MultiPhase.Functions.quasiRMS;
       parameter Modelica.Electrical.Machines.Losses.StrayLoadParameters
         strayLoadParameters "Stray load loss parameters";
-      extends
-        Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT(
+      extends Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT(
           useHeatPort=false);
       Modelica.SIunits.Current iRMS=quasiRMS(i);
     equation
@@ -6764,7 +6767,11 @@ Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap</a>
               lineColor={85,170,255},
               pattern=LinePattern.Dot), Line(
               points={{-102,0},{100,0}},
-              color={85,170,255})}), Documentation(info="<html>
+              color={85,170,255}),
+            Text(
+              extent={{-150,90},{150,50}},
+              lineColor={0,0,255},
+              textString="%name")}), Documentation(info="<html>
 <p>
 Stray load losses are modeled similar to standards EN 60034-2 and IEEE 512, i.e., they are dependent on square of current,
 but without scaling them to zero at no-load current.
