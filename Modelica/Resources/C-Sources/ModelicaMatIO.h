@@ -50,13 +50,13 @@
 #define MATIO_MINOR_VERSION 5
 
 /* Matio release level number */
-#define MATIO_RELEASE_LEVEL 10
+#define MATIO_RELEASE_LEVEL 11
 
 /* Matio version number */
-#define MATIO_VERSION 1510
+#define MATIO_VERSION 1511
 
 /* Matio version string */
-#define MATIO_VERSION_STR "1.5.10"
+#define MATIO_VERSION_STR "1.5.11"
 
 /* Default file format */
 #define MAT_FT_DEFAULT MAT_FT_MAT5
@@ -367,23 +367,25 @@ MATIO_EXTERN matvar_t  *Mat_VarGetStructs(matvar_t *matvar,int *start,int *strid
                             int *edge,int copy_fields);
 MATIO_EXTERN matvar_t  *Mat_VarGetStructsLinear(matvar_t *matvar,int start,int stride,
                             int edge,int copy_fields);
-MATIO_EXTERN void       Mat_VarPrint( matvar_t *matvar, int printdata );
-MATIO_EXTERN matvar_t  *Mat_VarRead(mat_t *mat, const char *name );
+MATIO_EXTERN void       Mat_VarPrint(matvar_t *matvar, int printdata);
+MATIO_EXTERN matvar_t  *Mat_VarRead(mat_t *mat, const char *name);
 MATIO_EXTERN int        Mat_VarReadData(mat_t *mat,matvar_t *matvar,void *data,
                             int *start,int *stride,int *edge);
 MATIO_EXTERN int        Mat_VarReadDataAll(mat_t *mat,matvar_t *matvar);
 MATIO_EXTERN int        Mat_VarReadDataLinear(mat_t *mat,matvar_t *matvar,void *data,
                             int start,int stride,int edge);
-MATIO_EXTERN matvar_t  *Mat_VarReadInfo( mat_t *mat, const char *name );
-MATIO_EXTERN matvar_t  *Mat_VarReadNext( mat_t *mat );
-MATIO_EXTERN matvar_t  *Mat_VarReadNextInfo( mat_t *mat );
+MATIO_EXTERN matvar_t  *Mat_VarReadInfo(mat_t *mat, const char *name);
+MATIO_EXTERN matvar_t  *Mat_VarReadNext(mat_t *mat);
+MATIO_EXTERN matvar_t  *Mat_VarReadNextInfo(mat_t *mat);
 MATIO_EXTERN matvar_t  *Mat_VarSetCell(matvar_t *matvar,int index,matvar_t *cell);
 MATIO_EXTERN matvar_t  *Mat_VarSetStructFieldByIndex(matvar_t *matvar,
                             size_t field_index,size_t index,matvar_t *field);
 MATIO_EXTERN matvar_t  *Mat_VarSetStructFieldByName(matvar_t *matvar,
                             const char *field_name,size_t index,matvar_t *field);
 MATIO_EXTERN int        Mat_VarWrite(mat_t *mat,matvar_t *matvar,
-                            enum matio_compression compress );
+                            enum matio_compression compress);
+MATIO_EXTERN int        Mat_VarWriteAppend(mat_t *mat,matvar_t *matvar,
+                            enum matio_compression compress,int dim);
 MATIO_EXTERN int        Mat_VarWriteInfo(mat_t *mat,matvar_t *matvar);
 MATIO_EXTERN int        Mat_VarWriteData(mat_t *mat,matvar_t *matvar,void *data,
                             int *start,int *stride,int *edge);
