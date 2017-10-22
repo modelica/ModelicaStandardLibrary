@@ -5648,6 +5648,8 @@ static READ_RESULT readTable(_In_z_ const char* fileName, _In_z_ const char* tab
                 }
                 else {
                     free(key);
+                    free(table);
+                    MUTEX_UNLOCK();
                     return file;
                 }
             }
