@@ -5113,6 +5113,7 @@ Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_Squirre
             final lossPowerRotorWinding=damperCageLossPower,
             final lossPowerRotorCore=0,
             final lossPowerPermanentMagnet=permanentMagnet.lossPower));
+        // Main field parameters
         parameter Modelica.SIunits.Inductance Lmd(start=0.3/(2*pi*fsNominal))
           "Stator main field inductance per phase, d-axis" annotation (Dialog(
               tab="Nominal resistances and inductances", groupImage=
@@ -5161,8 +5162,7 @@ Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_Squirre
             tab="Nominal resistances and inductances",
             group="Damper cage",
             enable=useDamperCage));
-        parameter Modelica.SIunits.Voltage VsOpenCircuit(start=112.3)
-          "Open circuit RMS voltage per phase @ fsNominal";
+        // Operational temperatures
         final parameter Modelica.SIunits.Temperature TpmOperational=293.15
           "Operational temperature of permanent magnet"
           annotation (Dialog(group="Operational temperatures"));
@@ -5170,11 +5170,15 @@ Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_Squirre
           "Operational temperature of (optional) damper cage" annotation (
             Dialog(group="Operational temperatures", enable=not useThermalPort
                  and useDamperCage));
+        // Permanent magnet parameters
+        parameter Modelica.SIunits.Voltage VsOpenCircuit(start=112.3)
+          "Open circuit RMS voltage per phase @ fsNominal";
         parameter
           Modelica.Electrical.Machines.Losses.PermanentMagnetLossParameters
           permanentMagnetLossParameters(IRef(start=100), wRef(start=2*pi*
                 fsNominal/p)) "Permanent magnet loss parameter record"
           annotation (Dialog(tab="Losses"));
+        // Rotor cage components
         Modelica.ComplexBlocks.Interfaces.ComplexOutput ir[2] if useDamperCage
           "Damper cage currents"
         annotation (Placement(visible=false));
@@ -5198,6 +5202,7 @@ Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_Squirre
               extent={{-10,-10},{10,10}},
               rotation=90,
               origin={30,-40})));
+        // Permanent magnet components
         FundamentalWave.BasicMachines.Components.PermanentMagnet
           permanentMagnet(
           final V_m=Complex(V_mPM, 0),
@@ -5311,6 +5316,7 @@ Magnetic.FundamentalWave.BasicMachines.SM_ReluctanceRotor</a>,
             final lossPowerExcitation=excitation.resistor.LossPower,
             final lossPowerBrush=brush.lossPower,
             final lossPowerRotorCore=0));
+        // Main field parameters
         parameter Modelica.SIunits.Inductance Lmd(start=1.5/(2*pi*fsNominal))
           "Stator main field inductance per phase, d-axis" annotation (Dialog(
               tab="Nominal resistances and inductances", groupImage=
@@ -5359,7 +5365,7 @@ Magnetic.FundamentalWave.BasicMachines.SM_ReluctanceRotor</a>,
             tab="Nominal resistances and inductances",
             group="DamperCage",
             enable=useDamperCage));
-        // Operational temperature
+        // Operational temperatures
         parameter Modelica.SIunits.Temperature TrOperational(start=293.15)
           "Operational temperature of (optional) damper cage" annotation (
             Dialog(group="Operational temperatures", enable=not useThermalPort
@@ -5388,6 +5394,7 @@ Magnetic.FundamentalWave.BasicMachines.SM_ReluctanceRotor</a>,
         output Modelica.SIunits.Voltage ve=pin_ep.v - pin_en.v
           "Excitation voltage";
         output Modelica.SIunits.Current ie=pin_ep.i "Excitation current";
+        // Rotor cage components
         Modelica.ComplexBlocks.Interfaces.ComplexOutput ir[2] if useDamperCage
           "Damper cage currents"
         annotation (Placement(visible=false));
@@ -5397,6 +5404,7 @@ Magnetic.FundamentalWave.BasicMachines.SM_ReluctanceRotor</a>,
               origin={10,-40},
               extent={{10,10},{-10,-10}},
               rotation=270)));
+        // Excitation components
         FundamentalWave.BasicMachines.Components.SaliencyCageWinding rotorCage(
           final Lsigma(d=Lrsigmad, q=Lrsigmaq),
           final useHeatPort=true,
@@ -5411,6 +5419,7 @@ Magnetic.FundamentalWave.BasicMachines.SM_ReluctanceRotor</a>,
               extent={{-10,-10},{10,10}},
               rotation=90,
               origin={30,-40})));
+        // Excitation components
         Components.QuasiStaticAnalogWinding excitation(
           final RRef=Re,
           final TRef=TeRef,
@@ -5420,12 +5429,6 @@ Magnetic.FundamentalWave.BasicMachines.SM_ReluctanceRotor</a>,
           final alpha20=alpha20e)
           "Excitation winding including resistance and stray inductance"
           annotation (Placement(transformation(extent={{-30,-50},{-10,-30}})));
-      protected
-        final parameter Real turnsRatio=sqrt(2)*VsNominal/(2*pi*fsNominal*Lmd*
-            IeOpenCircuit) "Stator current / excitation current";
-        Modelica.Blocks.Interfaces.RealOutput damperCageLossPower(final
-            quantity="Power", final unit="W") "Damper losses";
-      public
         Modelica.Electrical.Machines.Losses.DCMachines.Brush brush(final
             brushParameters=brushParameters, final useHeatPort=true)
           annotation (Placement(transformation(
@@ -5438,6 +5441,11 @@ Magnetic.FundamentalWave.BasicMachines.SM_ReluctanceRotor</a>,
         Modelica.Electrical.Analog.Interfaces.NegativePin pin_en
           "Negative pin of excitation" annotation (Placement(transformation(
                 extent={{-90,-50},{-110,-70}})));
+      protected
+        final parameter Real turnsRatio=sqrt(2)*VsNominal/(2*pi*fsNominal*Lmd*
+            IeOpenCircuit) "Stator current / excitation current";
+        Modelica.Blocks.Interfaces.RealOutput damperCageLossPower(final
+            quantity="Power", final unit="W") "Damper losses";
       equation
         connect(ir, rotorCage.i);
         connect(damperCageLossPower, rotorCage.lossPower);
@@ -5535,10 +5543,6 @@ Magnetic.FundamentalWave.BasicMachines.SM_ReluctanceRotor</a>,
             powerBalance(final lossPowerRotorWinding=damperCageLossPower,
               final lossPowerRotorCore=0));
 
-        parameter Modelica.SIunits.Temperature TrOperational(start=293.15)
-          "Operational temperature of (optional) damper cage" annotation (
-            Dialog(group="Operational temperatures", enable=not useThermalPort
-                 and useDamperCage));
         parameter Modelica.SIunits.Inductance Lmd(start=2.9/(2*pi*fsNominal))
           "Stator main field inductance per phase, d-axis" annotation (Dialog(
               tab="Nominal resistances and inductances", groupImage=
@@ -5587,6 +5591,12 @@ Magnetic.FundamentalWave.BasicMachines.SM_ReluctanceRotor</a>,
             tab="Nominal resistances and inductances",
             group="DamperCage",
             enable=useDamperCage));
+        // Operational temperatures
+        parameter Modelica.SIunits.Temperature TrOperational(start=293.15)
+          "Operational temperature of (optional) damper cage" annotation (
+            Dialog(group="Operational temperatures", enable=not useThermalPort
+                 and useDamperCage));
+        // Rotor cage components
         Modelica.ComplexBlocks.Interfaces.ComplexOutput ir[2] if useDamperCage
           "Damper cage currents"
         annotation (Placement(visible=false));
