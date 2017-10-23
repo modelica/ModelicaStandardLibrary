@@ -34,6 +34,10 @@
       Modelica.Blocks.Tables.CombiTable2D
 
    Release Notes:
+      Oct. 23, 2017: by Thomas Beutlich, ESI ITI GmbH
+                     Utilized non-fatal hash insertion, called by HASH_ADD_KEYPTR
+                     in function readTable (ticket #2097)
+
       Aug. 25, 2017: by Thomas Beutlich, ESI ITI GmbH
                      Added support for extrapolation in CombiTable2D (ticket #1839)
 
@@ -61,10 +65,6 @@
 
       Mar. 08, 2017: by Thomas Beutlich, ESI ITI GmbH
                      Moved file I/O functions to ModelicaIO (ticket #2192)
-
-      Feb. 26, 2017: by Thomas Beutlich, ESI ITI GmbH
-                     Fixed definition of uthash_fatal, called by HASH_ADD_KEYPTR
-                     in function readTable (ticket #2097)
 
       Feb. 25, 2017: by Thomas Beutlich, ESI ITI GmbH
                      Added support for extrapolation in CombiTable1D (ticket #1839)
@@ -145,8 +145,8 @@
 #include "ModelicaUtilities.h"
 #if defined(TABLE_SHARE) && !defined(NO_FILE_SYSTEM)
 #define uthash_strlen(s) key_strlen(s)
+#define HASH_NONFATAL_OOM 1
 #include "uthash.h"
-#undef uthash_fatal /* Ensure that nowhere in this file uses uthash_fatal by accident */
 #include "gconstructor.h"
 #endif
 #include <float.h>
@@ -5594,12 +5594,6 @@ static READ_RESULT readTable(_In_z_ const char* fileName, _In_z_ const char* tab
                              int force) {
 #if !defined(NO_FILE_SYSTEM)
 #if defined(TABLE_SHARE)
-#define uthash_fatal(msg) do { \
-    MUTEX_UNLOCK(); \
-    ModelicaFormatMessage("Error in uthash: %s\n" \
-        "Hash table for table cache may be left in corrupt state.\n", msg); \
-    return file; \
-} while (0)
     TableShare* file = NULL;
 #endif
     double* table = NULL;
@@ -5645,6 +5639,13 @@ static READ_RESULT readTable(_In_z_ const char* fileName, _In_z_ const char* tab
                     file->nCol = *nCol;
                     file->table = table;
                     HASH_ADD_KEYPTR(hh, tableShare, key, lenKey, file);
+                    if (NULL == file->hh.tbl) {
+                        free(key);
+                        free(file);
+                        free(table);
+                        MUTEX_UNLOCK();
+                        return NULL;
+                    }
                 }
                 else {
                     free(key);
@@ -5690,7 +5691,6 @@ static READ_RESULT readTable(_In_z_ const char* fileName, _In_z_ const char* tab
 #endif
     }
 #if defined(TABLE_SHARE)
-#undef uthash_fatal
     return file;
 #else
     return table;

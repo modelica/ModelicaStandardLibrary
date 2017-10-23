@@ -26,16 +26,16 @@
 */
 
 /* Release Notes:
+      Oct. 23, 2017: by Thomas Beutlich, ESI ITI GmbH
+                     Utilized non-fatal hash insertion, called by HASH_ADD_KEYPTR in
+                     function CacheFileForReading (ticket #2097)
+
       Apr. 09, 2017: by Thomas Beutlich, ESI ITI GmbH
                      Fixed macOS support of ModelicaInternal_setenv
                      (ticket #2235)
 
       Mar. 27, 2017: by Thomas Beutlich, ESI ITI GmbH
                      Replaced localtime by re-entrant function
-
-      Feb. 26, 2017: by Thomas Beutlich, ESI ITI GmbH
-                     Fixed definition of uthash_fatal, called by HASH_ADD_KEYPTR in
-                     function CacheFileForReading (ticket #2097)
 
       Jan. 31, 2017: by Thomas Beutlich, ESI ITI GmbH
                      Fixed WIN32 support of a directory name with a trailing
@@ -180,8 +180,8 @@ void ModelicaInternal_setenv(_In_z_ const char* name,
     ModelicaNotExistError("ModelicaInternal_setenv"); }
 #else
 
+#define HASH_NONFATAL_OOM 1
 #include "uthash.h"
-#undef uthash_fatal /* Ensure that nowhere in this file uses uthash_fatal by accident */
 #include "gconstructor.h"
 
 #include <stdio.h>
@@ -683,12 +683,6 @@ static void deleteCS(void) {
 #endif
 
 static void CacheFileForReading(FILE* fp, const char* fileName, int line) {
-#define uthash_fatal(msg) do { \
-    MUTEX_UNLOCK(); \
-    ModelicaFormatMessage("Error in uthash: %s\n" \
-        "Hash table for file cache may be left in corrupt state.\n", msg); \
-    return; \
-} while (0)
     FileCache* fv;
     size_t len;
     if (fileName == NULL) {
@@ -715,6 +709,10 @@ static void CacheFileForReading(FILE* fp, const char* fileName, int line) {
                 fv->fp = fp;
                 fv->line = line;
                 HASH_ADD_KEYPTR(hh, fileCache, key, (unsigned)len, fv);
+                if (NULL == fv->hh.tbl) {
+                   free(key);
+                   free(fv);
+                }
             }
             else {
                 free(fv);
@@ -722,7 +720,6 @@ static void CacheFileForReading(FILE* fp, const char* fileName, int line) {
         }
     }
     MUTEX_UNLOCK();
-#undef uthash_fatal
 }
 
 static void CloseCachedFile(const char* fileName) {
