@@ -585,7 +585,7 @@ void* ModelicaStandardTables_CombiTimeTable_init2(_In_z_ const char* fileName,
     tableID = (CombiTimeTable*)calloc(1, sizeof(CombiTimeTable));
     if (NULL == tableID) {
 #if defined(TABLE_SHARE)
-        if (NULL != keyFile) {
+        if (NULL != file) {
             MUTEX_LOCK();
             if (--file->refCount == 0) {
                 free(file->table);
@@ -1437,7 +1437,7 @@ double ModelicaStandardTables_CombiTimeTable_nextTimeEvent(void* _tableID,
                             tableID->intervals[eventInterval][1] = i + 1;
                         }
                     }
-                    else if (tableID->timeEvents == AT_DISCONT) {
+                    else /* if (tableID->timeEvents == AT_DISCONT) */ {
                         if (t1 > tEvent) {
                             if (isNearlyEqual(t0, t1)) {
                                 tEvent = t1;
@@ -1758,7 +1758,7 @@ void* ModelicaStandardTables_CombiTable1D_init2(_In_z_ const char* fileName,
     tableID = (CombiTable1D*)calloc(1, sizeof(CombiTable1D));
     if (NULL == tableID) {
 #if defined(TABLE_SHARE)
-        if (NULL != keyFile) {
+        if (NULL != file) {
             MUTEX_LOCK();
             if (--file->refCount == 0) {
                 free(file->table);
@@ -2397,7 +2397,7 @@ void* ModelicaStandardTables_CombiTable2D_init2(_In_z_ const char* fileName,
     tableID = (CombiTable2D*)calloc(1, sizeof(CombiTable2D));
     if (NULL == tableID) {
 #if defined(TABLE_SHARE)
-        if (NULL != keyFile) {
+        if (NULL != file) {
             MUTEX_LOCK();
             if (--file->refCount == 0) {
                 free(file->table);
@@ -4610,7 +4610,7 @@ static int isValidCombiTimeTable(CombiTimeTable* tableID,
         const size_t nRow = tableID->nRow;
         const size_t nCol = tableID->nCol;
         const char* tableDummyName = "NoName";
-        const char* tableName = (0 < strlen(_tableName)) ? _tableName : tableDummyName;
+        const char* tableName = _tableName[0] != '\0' ? _tableName : tableDummyName;
         size_t iCol;
 
         /* Check dimensions */
@@ -4717,7 +4717,7 @@ static int isValidCombiTable1D(CombiTable1D* tableID,
         const size_t nRow = tableID->nRow;
         const size_t nCol = tableID->nCol;
         const char* tableDummyName = "NoName";
-        const char* tableName = (0 < strlen(_tableName)) ? _tableName : tableDummyName;
+        const char* tableName = _tableName[0] != '\0' ? _tableName : tableDummyName;
         size_t iCol;
 
         /* Check dimensions */
@@ -4780,7 +4780,7 @@ static int isValidCombiTable2D(CombiTable2D* tableID,
         const size_t nRow = tableID->nRow;
         const size_t nCol = tableID->nCol;
         const char* tableDummyName = "NoName";
-        const char* tableName = (0 < strlen(_tableName)) ? _tableName : tableDummyName;
+        const char* tableName = _tableName[0] != '\0' ? _tableName : tableDummyName;
 
         /* Check dimensions */
         if (nRow < 2 || nCol < 2) {

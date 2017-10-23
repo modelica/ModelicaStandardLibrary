@@ -6666,8 +6666,8 @@ Mat_VarFree(matvar_t *matvar)
                         Mat_VarFree(fields[i]);
 
                     free(matvar->data);
-                    break;
                 }
+                break;
             case MAT_C_CELL:
                 if ( !matvar->mem_conserve ) {
                     matvar_t **cells = (matvar_t**)matvar->data;
@@ -17482,7 +17482,7 @@ Mat_VarCreateStruct(const char *name,int rank,size_t *dims,const char **fields,
                 }
             }
         }
-        if ( NULL != matvar && nmemb > 0 && nfields > 0 ) {
+        if ( NULL != matvar && nmemb > 0 ) {
             matvar_t **field_vars;
             matvar->nbytes = nmemb*nfields*matvar->data_size;
             matvar->data = malloc(matvar->nbytes);
@@ -17510,6 +17510,7 @@ Mat_VarAddStructField(matvar_t *matvar,const char *fieldname)
 {
     int       i, f, nfields, nmemb, cnt = 0;
     matvar_t **new_data, **old_data;
+    char **fieldnames;
 
     if ( matvar == NULL || fieldname == NULL )
         return -1;
@@ -17519,9 +17520,11 @@ Mat_VarAddStructField(matvar_t *matvar,const char *fieldname)
 
     nfields = matvar->internal->num_fields+1;
     matvar->internal->num_fields = nfields;
-    matvar->internal->fieldnames =
-    (char**)realloc(matvar->internal->fieldnames,
-            nfields*sizeof(*matvar->internal->fieldnames));
+    fieldnames = (char**)realloc(matvar->internal->fieldnames,
+        nfields*sizeof(*matvar->internal->fieldnames));
+    if ( NULL == fieldnames )
+        return -1;
+    matvar->internal->fieldnames = fieldnames;
     matvar->internal->fieldnames[nfields-1] = mat_strdup(fieldname);
 
     new_data = (matvar_t**)malloc(nfields*nmemb*sizeof(*new_data));
@@ -17779,8 +17782,7 @@ Mat_VarGetStructs(matvar_t *matvar,int *start,int *stride,int *edge,
                         *((matvar_t **)matvar->data + I);
                 I++;
             }
-            if ( stride != 0 )
-                I += (stride[0]-1)*nfields;
+            I += (stride[0]-1)*nfields;
         }
         idx[0] = start[0];
         I = idx[0];

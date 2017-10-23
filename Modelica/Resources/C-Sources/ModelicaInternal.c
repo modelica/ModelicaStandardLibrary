@@ -690,6 +690,7 @@ static void CacheFileForReading(FILE* fp, const char* fileName, int line) {
     return; \
 } while (0)
     FileCache* fv;
+    size_t len;
     if (fileName == NULL) {
         /* Do not add, close file */
         if (fp != NULL) {
@@ -697,8 +698,9 @@ static void CacheFileForReading(FILE* fp, const char* fileName, int line) {
         }
         return;
     }
+    len = strlen(fileName);
     MUTEX_LOCK();
-    HASH_FIND(hh, fileCache, fileName, (unsigned)strlen(fileName), fv);
+    HASH_FIND(hh, fileCache, fileName, (unsigned)len, fv);
     if (fv != NULL) {
         fv->fp = fp;
         fv->line = line;
@@ -706,13 +708,13 @@ static void CacheFileForReading(FILE* fp, const char* fileName, int line) {
     else {
         fv = (FileCache*)malloc(sizeof(FileCache));
         if (fv != NULL) {
-            char* key = (char*)malloc((strlen(fileName) + 1)*sizeof(char));
+            char* key = (char*)malloc((len + 1)*sizeof(char));
             if (key != NULL) {
                 strcpy(key, fileName);
                 fv->fileName = key;
                 fv->fp = fp;
                 fv->line = line;
-                HASH_ADD_KEYPTR(hh, fileCache, key, (unsigned)strlen(key), fv);
+                HASH_ADD_KEYPTR(hh, fileCache, key, (unsigned)len, fv);
             }
             else {
                 free(fv);
@@ -725,8 +727,9 @@ static void CacheFileForReading(FILE* fp, const char* fileName, int line) {
 
 static void CloseCachedFile(const char* fileName) {
     FileCache* fv;
+    size_t len = strlen(fileName);
     MUTEX_LOCK();
-    HASH_FIND(hh, fileCache, fileName, (unsigned)strlen(fileName), fv);
+    HASH_FIND(hh, fileCache, fileName, (unsigned)len, fv);
     if (fv != NULL) {
         if (fv->fp != NULL) {
             fclose(fv->fp);
@@ -743,8 +746,9 @@ static FILE* ModelicaStreams_openFileForReading(const char* fileName, int line) 
     FILE* fp;
     int c = 1;
     FileCache* fv;
+    size_t len = strlen(fileName);
     MUTEX_LOCK();
-    HASH_FIND(hh, fileCache, fileName, (unsigned)strlen(fileName), fv);
+    HASH_FIND(hh, fileCache, fileName, (unsigned)len, fv);
     /* Open file */
     if (fv != NULL) {
         /* Cached value */
@@ -799,7 +803,7 @@ static FILE* ModelicaStreams_openFileForWriting(const char* fileName) {
     FILE* fp;
 
     /* Check fileName */
-    if ( strlen(fileName) == 0 ) {
+    if ( fileName[0] == '\0' ) {
         ModelicaError("fileName is an empty string.\n"
             "Opening of file is aborted\n");
     }
