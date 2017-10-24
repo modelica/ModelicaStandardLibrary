@@ -7068,13 +7068,13 @@ Mat_VarPrint( matvar_t *matvar, int printdata )
 {
     size_t nmemb;
     int i, j;
-    const char *class_type_desc[16] = {"Undefined","Cell Array","Structure",
+    const char *class_type_desc[18] = {"Undefined","Cell Array","Structure",
        "Object","Character Array","Sparse Array","Double Precision Array",
        "Single Precision Array", "8-bit, signed integer array",
        "8-bit, unsigned integer array","16-bit, signed integer array",
        "16-bit, unsigned integer array","32-bit, signed integer array",
        "32-bit, unsigned integer array","64-bit, signed integer array",
-       "64-bit, unsigned integer array"};
+       "64-bit, unsigned integer array","Function","Opaque"};
 
     if ( matvar == NULL )
         return;
