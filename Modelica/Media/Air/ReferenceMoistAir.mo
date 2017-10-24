@@ -620,7 +620,7 @@ package ReferenceMoistAir
 
   redeclare function extends molarMass "Return the molar mass of the medium"
   algorithm
-    MM := 1/(state.X[1]*steam.MM + state.X[2]*dryair.MM);
+    MM := 1/(state.X[1]/steam.MM + state.X[2]/dryair.MM);
   end molarMass;
 
   redeclare function extends dynamicViscosity
