@@ -3038,7 +3038,7 @@ connected as a pair of scalar connectors.</P>
       extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
-Defines <em>non-breakable</em> branch
+Defines <em>required</em> branch of spanning-tree
 </p>
 
 <h4>Syntax</h4>
