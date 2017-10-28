@@ -3185,6 +3185,8 @@ Simulate for 1.5 seconds and plot (versus time):
           Electrical.Machines.Utilities.ParameterRecords.SM_PermanentMagnetData
           smpmData
           annotation (Placement(transformation(extent={{-40,-100},{-20,-80}})));
+        Modelica.SIunits.Angle thetaM=rotorAngleM.rotorDisplacementAngle "Rotor displacement angle, FundamentalWave machine";
+        Modelica.SIunits.Angle thetaE=rotorAngleE.rotorDisplacementAngle "Rotor displacement angle, Electrical machine";
       initial equation
         smpmE.is[1:2] = zeros(2);
         smpmM.is[1:2] = zeros(2);
@@ -3665,6 +3667,7 @@ and accelerate the inertias. Two equivalent machines with different numbers of p
               origin={-10,0},
               extent={{-10,-10},{10,10}},
               rotation=270)));
+        Modelica.SIunits.Angle theta=rotorDisplacementAngle.rotorDisplacementAngle "Rotor displacement angle, FundamentalWave machine";
       equation
         connect(star.pin_n, ground.p)
           annotation (Line(points={{-70,90},{-80,90}}, color={0,0,255}));
@@ -3846,6 +3849,8 @@ whereas the stator voltage is influenced by the d-current.</p>
               origin={-10,20},
               extent={{-10,-10},{10,10}},
               rotation=270)));
+        Modelica.SIunits.Angle theta=rotorDisplacementAngle.rotorDisplacementAngle "Rotor displacement angle, FundamentalWave machine";
+
       initial equation
         smpm.is[1:2] = zeros(2);
 
@@ -4641,6 +4646,8 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM3.rotorDisplacementAng
           TeSpecification=293.15,
           TeRef=293.15)
           annotation (Placement(transformation(extent={{-80,-80},{-60,-60}})));
+        Modelica.SIunits.Angle thetaM=rotorAngleM.rotorDisplacementAngle "Rotor displacement angle, FundamentalWave machine";
+        Modelica.SIunits.Angle thetaE=rotorAngleE.rotorDisplacementAngle "Rotor displacement angle, Electrical machine";
 
       initial equation
         smeeE.is[1:2] = zeros(2);
@@ -5205,6 +5212,9 @@ Voltage is controlled, the set point depends on speed. The generator is loaded w
         parameter Modelica.SIunits.Torque T_Load=46 "Nominal load torque";
         parameter Modelica.SIunits.Time tStep=1.2 "Time of load torque step";
         parameter Modelica.SIunits.Inertia J_Load=0.29 "Load inertia";
+        Modelica.SIunits.Angle thetaM=rotorAngleM.rotorDisplacementAngle "Rotor displacement angle, FundamentalWave machine";
+        Modelica.SIunits.Angle thetaE=rotorAngleE.rotorDisplacementAngle "Rotor displacement angle, Electrical machine";
+
         Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
               transformation(
               origin={-90,90},
