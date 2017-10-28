@@ -7279,6 +7279,7 @@ ConstantFlux</a>
     model RotorDisplacementAngle "Rotor lagging angle"
       parameter Integer m=3 "Number of phases";
       parameter Integer p(min=1) "Number of pole pairs";
+      parameter Boolean positiveRange=false "Use only positive output range, if true";
       parameter Boolean useSupport=false "Use support or fixed housing"
         annotation (Evaluate=true);
       Modelica.Blocks.Interfaces.RealOutput rotorDisplacementAngle(final
@@ -7321,7 +7322,7 @@ ConstantFlux</a>
         annotation (Placement(transformation(extent={{-70,-30},{-50,-10}})));
       Modelica.Electrical.Machines.SpacePhasors.Blocks.ToPolar toPolar
         annotation (Placement(transformation(extent={{-40,-30},{-20,-10}})));
-      Blocks.Math.WrapAngle wrapAngle
+      Blocks.Math.WrapAngle wrapAngle(final positiveRange=positiveRange)
         annotation (Placement(transformation(extent={{40,-10},{60,10}})));
     equation
       connect(relativeAngleSensor.flange_b, flange)
