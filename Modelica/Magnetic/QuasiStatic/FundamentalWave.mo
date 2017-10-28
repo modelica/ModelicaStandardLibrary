@@ -582,6 +582,7 @@ In this example the eddy current losses are implemented in two different ways. C
             m=m,
             Jr=0*imcData.Jr,
             TsOperational=293.15,
+            effectiveStatorTurns=imcData.effectiveStatorTurns,
             TrOperational=293.15) annotation (Placement(transformation(extent={{20,30},{40,50}})));
           Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Ground
             groundMachineQS annotation (Placement(transformation(
@@ -759,6 +760,7 @@ Simulate for 1 second and plot (versus imcQS.wMechanical or perUnitSpeed):
             TrRef=imcData.TrRef,
             m=m,
             TsOperational=293.15,
+            effectiveStatorTurns=imcData.effectiveStatorTurns,
             TrOperational=293.15) annotation (Placement(transformation(extent={{20,-70},{40,-50}})));
           Modelica.Mechanics.Rotational.Components.Inertia loadInertia(J=J_Load)
             annotation (Placement(transformation(extent={{50,-70},{70,-50}})));
@@ -801,9 +803,10 @@ Simulate for 1 second and plot (versus imcQS.wMechanical or perUnitSpeed):
             TrRef=imcData.TrRef,
             m=m,
             wMechanical(fixed=true),
-            TsOperational=293.15,
             gammar(fixed=true, start=pi/2),
             gamma(fixed=true, start=-pi/2),
+            TsOperational=293.15,
+            effectiveStatorTurns=imcData.effectiveStatorTurns,
             TrOperational=293.15) annotation (Placement(transformation(extent={{20,30},{40,50}})));
           Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Ground
             groundMachineQS annotation (Placement(transformation(
@@ -966,6 +969,7 @@ Simulate for 1 second and plot (versus time):
             Rr=imcData.Rr*m/3,
             m=m,
             TsOperational=293.15,
+            effectiveStatorTurns=imcData.effectiveStatorTurns,
             alpha20r=imcData.alpha20r,
             TrOperational=293.15) annotation (Placement(transformation(extent={{20,10},{40,30}})));
           Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.CurrentQuasiRMSSensor currentQuasiRMSSensorQS(m=m) annotation (Placement(transformation(
@@ -1000,7 +1004,7 @@ Simulate for 1 second and plot (versus time):
             TorqueDirection=false,
             tau_nominal=-TLoad,
             useSupport=false) annotation (Placement(transformation(extent={{100,10},{80,30}})));
-          parameter Electrical.Machines.Utilities.ParameterRecords.AIM_SquirrelCageData imcData annotation (Placement(transformation(extent={{70,70},{90,90}})));
+          parameter Electrical.Machines.Utilities.ParameterRecords.AIM_SquirrelCageData imcData annotation (Placement(transformation(extent={{70,72},{90,92}})));
 
           Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage imc(
             p=imcData.p,
@@ -1021,7 +1025,9 @@ Simulate for 1 second and plot (versus time):
             Lm=imcData.Lm*m/3,
             Lrsigma=imcData.Lrsigma*m/3,
             Rr=imcData.Rr*m/3,
+            m=m,
             TsOperational=293.15,
+            effectiveStatorTurns=imcData.effectiveStatorTurns,
             alpha20r=imcData.alpha20r,
             TrOperational=293.15) annotation (Placement(transformation(extent={{20,-90},{40,-70}})));
           Modelica.Electrical.Machines.Sensors.CurrentQuasiRMSSensor
@@ -1261,7 +1267,9 @@ Default machine parameters are used.</p>
             Lm=imcData.Lm*m/3,
             Lrsigma=imcData.Lrsigma*m/3,
             Rr=imcData.Rr*m/3,
+            m=m,
             TsOperational=293.15,
+            effectiveStatorTurns=imcData.effectiveStatorTurns,
             alpha20r=imcData.alpha20r,
             TrOperational=293.15) annotation (Placement(transformation(extent={{80,-90},{60,-70}})));
           Modelica.Electrical.MultiPhase.Sensors.CurrentQuasiRMSSensor iSensor(m=m) annotation (Placement(transformation(
@@ -1444,13 +1452,14 @@ Simulate for 2.5 seconds and plot (versus time):</p>
             strayLoadParameters=imcData.strayLoadParameters,
             TrRef=imcData.TrRef,
             m=m,
-            TsOperational=293.15,
             Rs=imcData.Rs*m/3,
             Lssigma=imcData.Lssigma*m/3,
             Lszero=imcData.Lszero*m/3,
             Lm=imcData.Lm*m/3,
             Lrsigma=imcData.Lrsigma*m/3,
             Rr=imcData.Rr*m/3,
+            TsOperational=293.15,
+            effectiveStatorTurns=imcData.effectiveStatorTurns,
             alpha20r=imcData.alpha20r,
             TrOperational=293.15) annotation (Placement(transformation(extent={
                     {20,-90},{40,-70}})));
@@ -1509,12 +1518,13 @@ Simulate for 2.5 seconds and plot (versus time):</p>
             gammar(fixed=true, start=+pi/2),
             gamma(fixed=true, start=-pi/2),
             wMechanical(fixed=true, start=0),
-            TsOperational=293.15,
             Rs=imcData.Rs*m/3,
             Lssigma=imcData.Lssigma*m/3,
             Lm=imcData.Lm*m/3,
             Lrsigma=imcData.Lrsigma*m/3,
             Rr=imcData.Rr*m/3,
+            TsOperational=293.15,
+            effectiveStatorTurns=imcData.effectiveStatorTurns,
             alpha20r=imcData.alpha20r,
             TrOperational=293.15) annotation (Placement(transformation(extent={
                     {20,10},{40,30}})));
@@ -1698,6 +1708,7 @@ and accelerating inertias. At time <code>tStep</code> a load step is applied.</p
             Rr=imcData.Rr*m/3,
             m=m,
             TsOperational=293.15,
+            effectiveStatorTurns=imcData.effectiveStatorTurns,
             alpha20r=imcData.alpha20r,
             TrOperational=293.15) annotation (Placement(transformation(extent={{60,10},{40,30}})));
           Electrical.QuasiStationary.MultiPhase.Sensors.CurrentQuasiRMSSensor currentQuasiRMSSensorQS(m=m) annotation (Placement(transformation(extent={{20,100},{40,80}}, rotation=0)));
@@ -1756,6 +1767,7 @@ and accelerating inertias. At time <code>tStep</code> a load step is applied.</p
             Rr=imcData.Rr*m/3,
             m=m,
             TsOperational=293.15,
+            effectiveStatorTurns=imcData.effectiveStatorTurns,
             alpha20r=imcData.alpha20r,
             TrOperational=293.15) annotation (Placement(transformation(extent={{60,-90},{40,-70}})));
           Electrical.MultiPhase.Sensors.CurrentQuasiRMSSensor
@@ -1950,6 +1962,7 @@ The mechanical load is a constant torque like a conveyor (with regularization ar
             Lrsigma=imcData.Lrsigma*m/3,
             Rr=imcData.Rr*m/3,
             m=m,
+            effectiveStatorTurns=imcData.effectiveStatorTurns,
             alpha20r=imcData.alpha20r) annotation (Placement(transformation(extent={{-20,60},{0,80}})));
           Utilities.MultiTerminalBox terminalBoxQS(terminalConnection="D", m=m)
                                                                            annotation (Placement(transformation(extent={{-20,76},{0,96}})));
@@ -2119,6 +2132,7 @@ Modelica 2009, 7<sup>th</sup> International Modelica Conference</p>
             Lrsigma=imcData.Lrsigma*m/3,
             Rr=imcData.Rr*m/3,
             TsOperational=293.15,
+            effectiveStatorTurns=imcData.effectiveStatorTurns,
             alpha20r=imcData.alpha20r,
             TrOperational=293.15) annotation (Placement(transformation(extent={{-20,40},{0,60}})));
           Electrical.QuasiStationary.MultiPhase.Sensors.CurrentQuasiRMSSensor currentQuasiRMSSensorQS(m=m) annotation (Placement(transformation(
@@ -2169,6 +2183,7 @@ Modelica 2009, 7<sup>th</sup> International Modelica Conference</p>
             Rr=imcData.Rr*m/3,
             m=m,
             TsOperational=293.15,
+            effectiveStatorTurns=imcData.effectiveStatorTurns,
             alpha20r=imcData.alpha20r,
             TrOperational=293.15) annotation (Placement(transformation(extent={{-20,-60},{0,-40}})));
 
@@ -2318,6 +2333,7 @@ Default machine parameters of model <em>AIM_SquirrelCage</em> are used.
             mr=mr,
             m=m,
             TsOperational=566.3,
+            effectiveStatorTurns=imsData.effectiveStatorTurns,
             TrOperational=566.3) annotation (Placement(transformation(extent={{20,30},{40,50}})));
           parameter
             Modelica.Electrical.Machines.Utilities.ParameterRecords.AIM_SlipRingData
@@ -2514,6 +2530,7 @@ Simulate for 1 second and plot (versus imsQS.wMechanical or perUnitSpeed):
             mr=mr,
             m=m,
             TsOperational=293.15,
+            effectiveStatorTurns=imsData.effectiveStatorTurns,
             TrOperational=293.15) annotation (Placement(transformation(extent={{20,-70},{40,-50}})));
           FundamentalWave.BasicMachines.InductionMachines.IM_SlipRing imsQS(
             p=imsData.p,
@@ -2543,6 +2560,7 @@ Simulate for 1 second and plot (versus imsQS.wMechanical or perUnitSpeed):
             mr=mr,
             m=m,
             TsOperational=566.3,
+            effectiveStatorTurns=imsData.effectiveStatorTurns,
             TrOperational=566.3) annotation (Placement(transformation(extent={{20,30},{40,50}})));
           Modelica.Electrical.Machines.Utilities.SwitchedRheostat rheostatM(
             tStart=tRheostat,
@@ -2777,12 +2795,13 @@ Simulate for 1.5 seconds and plot (versus time):
             permanentMagnetLossParameters=smpmData.permanentMagnetLossParameters,
             phiMechanical(start=0),
             m=m,
-            TsOperational=293.15,
             Rs=smpmData.Rs*m/3,
-            alpha20s=smpmData.alpha20s,
             Lssigma=smpmData.Lssigma*m/3,
             Lmd=smpmData.Lmd*m/3,
             Lmq=smpmData.Lmq*m/3,
+            TsOperational=293.15,
+            alpha20s=smpmData.alpha20s,
+            effectiveStatorTurns=smpmData.effectiveStatorTurns,
             alpha20r=smpmData.alpha20r,
             TrOperational=293.15) annotation (Placement(transformation(extent={
                     {-10,20},{10,40}})));
@@ -2828,13 +2847,14 @@ Simulate for 1.5 seconds and plot (versus time):
             TrRef=smpmData.TrRef,
             permanentMagnetLossParameters=smpmData.permanentMagnetLossParameters,
             m=m,
-            TsOperational=293.15,
             Rs=smpmData.Rs*m/3,
-            alpha20s=smpmData.alpha20s,
             Lssigma=smpmData.Lssigma*m/3,
             Lszero=smpmData.Lszero*m/3,
             Lmd=smpmData.Lmd*m/3,
             Lmq=smpmData.Lmq*m/3,
+            TsOperational=293.15,
+            alpha20s=smpmData.alpha20s,
+            effectiveStatorTurns=smpmData.effectiveStatorTurns,
             alpha20r=smpmData.alpha20r,
             TrOperational=293.15) annotation (Placement(transformation(extent={
                     {-10,-50},{10,-30}})));
@@ -2978,10 +2998,11 @@ Simulate for 0.1 second and plot (versus time):
             Lmq=smpmData.Lmq*m/3,
             useSupport=false,
             Js=smpmData.Js,
-            TsOperational=293.15,
-            alpha20s=smpmData.alpha20s,
             gammar(start=pi/2, fixed=true),
             gamma(start=-pi/2, fixed=true),
+            TsOperational=293.15,
+            alpha20s=smpmData.alpha20s,
+            effectiveStatorTurns=smpmData.effectiveStatorTurns,
             alpha20r=smpmData.alpha20r,
             TrOperational=293.15)
             annotation (Placement(transformation(extent={{20,30},{40,50}})));
@@ -3058,11 +3079,12 @@ Simulate for 0.1 second and plot (versus time):
             useSupport=false,
             Js=smpmData.Jr,
             phiMechanical(start=0, fixed=true),
+            ir(each fixed=true, start=zeros(2)),
             TsOperational=293.15,
             alpha20s=smpmData.alpha20s,
+            effectiveStatorTurns=smpmData.effectiveStatorTurns,
             alpha20r=smpmData.alpha20r,
-            TrOperational=293.15,
-            ir(fixed=true, start=zeros(2)))
+            TrOperational=293.15)
             annotation (Placement(transformation(extent={{20,-70},{40,-50}})));
 
           Modelica.Mechanics.Rotational.Components.Inertia loadInertiaM(J=
@@ -3222,6 +3244,7 @@ Simulate for 1 second and plot (versus time):
             m=m,
             TsOperational=293.15,
             alpha20s=smpmData.alpha20s,
+            effectiveStatorTurns=smpmData.effectiveStatorTurns,
             alpha20r=smpmData.alpha20r,
             TrOperational=293.15)
             annotation (Placement(transformation(extent={{-10,-90},{10,-70}})));
@@ -3317,6 +3340,7 @@ Simulate for 1 second and plot (versus time):
             m=m,
             TsOperational=293.15,
             alpha20s=smpmData.alpha20s,
+            effectiveStatorTurns=smpmData.effectiveStatorTurns,
             alpha20r=smpmData.alpha20r,
             TrOperational=293.15) annotation (Placement(transformation(extent={{-10,10},{10,30}})));
 
@@ -3570,6 +3594,7 @@ to numerically stabilize the simulation.</p>
             Lmd=smeeData.Lmd*m/3,
             Lmq=smeeData.Lmq*m/3,
             TsOperational=293.15,
+            effectiveStatorTurns=smeeData.effectiveStatorTurns,
             TrOperational=293.15,
             TeOperational=293.15) annotation (Placement(transformation(extent={
                     {-10,-80},{10,-60}})));
@@ -3600,11 +3625,12 @@ to numerically stabilize the simulation.</p>
             m=m,
             gammar(fixed=true, start=pi/2),
             gamma(fixed=true, start=-pi/2),
-            TsOperational=293.15,
             Rs=smeeData.Rs*m/3,
             Lssigma=smeeData.Lssigma*m/3,
             Lmd=smeeData.Lmd*m/3,
             Lmq=smeeData.Lmq*m/3,
+            TsOperational=293.15,
+            effectiveStatorTurns=smeeData.effectiveStatorTurns,
             TrOperational=293.15,
             TeOperational=293.15) annotation (Placement(transformation(extent={
                     {-10,20},{10,40}})));
@@ -3997,8 +4023,9 @@ Simulate for 30 seconds and plot versus <code>rotorAngle|rotorAngleQS.rotorDispl
             gamma(start=-pi/2),
             useDamperCage=smrData.useDamperCage,
             wMechanical(start=0, fixed=true),
-            TsOperational=293.15,
             phiMechanical(start=0, fixed=true),
+            TsOperational=293.15,
+            effectiveStatorTurns=smrData.effectiveStatorTurns,
             TrOperational=293.15) annotation (Placement(transformation(extent={{-10,10},{10,30}})));
           Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotor
             smr(
@@ -4026,9 +4053,10 @@ Simulate for 30 seconds and plot versus <code>rotorAngle|rotorAngleQS.rotorDispl
             Lszero=smrData.Lszero*m/3,
             Lmd=smrData.Lmd*m/3,
             Lmq=smrData.Lmq*m/3,
+            useDamperCage=smrData.useDamperCage,
             TsOperational=293.15,
-            TrOperational=293.15,
-            useDamperCage=smrData.useDamperCage) annotation (Placement(
+            effectiveStatorTurns=smrData.effectiveStatorTurns,
+            TrOperational=293.15)                annotation (Placement(
                 transformation(extent={{-10,-90},{10,-70}})));
           Sensors.RotorDisplacementAngle rotorAngleQS(m=m, p=smrQS.p) annotation (Placement(transformation(
                 extent={{10,-10},{-10,10}},
