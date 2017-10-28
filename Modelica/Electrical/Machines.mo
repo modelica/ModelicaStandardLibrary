@@ -14666,6 +14666,7 @@ The icons can be utilized by inheriting them in the desired class using \"extend
         parameter Machines.Thermal.LinearTemperatureCoefficient20 alpha20s=0
           "Temperature coefficient of stator resistance at 20 degC"
           annotation (Dialog(tab="Nominal resistances and inductances"));
+        parameter Real effectiveStatorTurns=1 "Effective number of stator turns";
         parameter Modelica.SIunits.Inductance Lszero=Lssigma
           "Stator zero sequence inductance"
           annotation (Dialog(tab="Nominal resistances and inductances"));
