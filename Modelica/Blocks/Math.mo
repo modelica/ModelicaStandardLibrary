@@ -2513,12 +2513,18 @@ zero or negative.
 </html>"));
   end Log10;
 
-  model WrapAngle "Wrap angle to interval ]-pi,pi]"
-    extends Modelica.Blocks.Interfaces.SISO;
+  block WrapAngle "Wrap angle to interval ]-pi,pi]"
+
+    extends Interfaces.SISO;
+    parameter Boolean positiveRange=false "Use only positive output range, if true";
+
   equation
-    y = Modelica.Math.wrapAngle(u);
-    annotation (Icon(coordinateSystem(preserveAspectRatio=false), graphics={
-          Line(points={{0,-80},{0,68}}, color={192,192,192}),
+    y = Modelica.Math.wrapAngle(u,positiveRange);
+    annotation (
+      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
+              100}}), graphics={
+          Line(points={{-80,54},{-80,54},{-60,80},{-60,-80},{60,80},{60,-80},{
+                80,-52}}),
           Polygon(
             points={{0,90},{-8,68},{8,68},{0,90}},
             lineColor={192,192,192},
@@ -2529,9 +2535,9 @@ zero or negative.
             points={{90,0},{68,8},{68,-8},{90,0}},
             lineColor={192,192,192},
             fillColor={192,192,192},
-            fillPattern=FillPattern.Solid),
-          Line(points={{-80,54},{-80,54},{-60,80},{-60,-80},{60,80},{60,-80},{80,-52}},
-              color={0,0,0})}), Diagram(coordinateSystem(preserveAspectRatio=false)),
+            fillPattern=FillPattern.Solid)}),
+      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+              100,100}})),
       Documentation(info="<html>
 <p>
 This blocks computes the output <b>y</b> by wrapping the input <b>u</b>

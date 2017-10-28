@@ -10295,6 +10295,7 @@ Calculates (mechanical) power from torque times angular speed.
     model RotorDisplacementAngle "Rotor lagging angle"
       parameter Integer m=3 "Number of phases";
       parameter Integer p(min=1) "Number of pole pairs";
+      parameter Boolean positiveRange=false "Use only positive output range, if true";
       parameter Boolean useSupport=false "Use support or fixed housing"
         annotation (Evaluate=true);
       Modelica.Blocks.Interfaces.RealOutput rotorDisplacementAngle(final
@@ -10331,6 +10332,8 @@ Calculates (mechanical) power from torque times angular speed.
             transformation(extent={{90,90},{110,110}})));
       Modelica.Mechanics.Rotational.Components.Fixed fixed if (not useSupport)
         annotation (Placement(transformation(extent={{90,70},{110,90}})));
+      Blocks.Math.WrapAngle wrapAngle(final positiveRange=positiveRange)
+        annotation (Placement(transformation(extent={{60,-10},{80,10}})));
     equation
       connect(plug_p, VoltageSensor1.plug_p) annotation (Line(points={{-100,60},
               {-80,60},{-80,10}}, color={0,0,255}));
@@ -10358,11 +10361,9 @@ Calculates (mechanical) power from torque times angular speed.
           points={{1,0},{18,0}},
           color={0,0,127}));
       connect(add.y, rotatorVS2R.angle) annotation (Line(
-          points={{-10,19},{-10,12}},
-          color={0,0,127}));
-      connect(ToPolarVSR.y[2], rotorDisplacementAngle) annotation (Line(
-          points={{41,0.5},{80,0.5},{80,0},{110,0}},
-          color={0,0,127}));
+          points={{-10,19},{-10,12}}, color={0,0,127}));
+      connect(ToPolarVSR.y[2], wrapAngle.u) annotation (Line(points={{41,0},{58,0}}, color={0,0,127}));
+      connect(wrapAngle.y, rotorDisplacementAngle) annotation (Line(points={{81,0},{110,0}}, color={0,0,127}));
       annotation (
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Ellipse(

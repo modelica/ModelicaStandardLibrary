@@ -3,11 +3,12 @@ function wrapAngle "Wrap angle to interval ]-pi,pi]"
   extends Modelica.Math.Icons.AxisCenter;
   import Modelica.Constants.pi;
   input SI.Angle u "Input angle";
+  input Boolean positiveRange=false "Use only positive output range, if true";
   output SI.Angle y "Wrapped output angle";
 
 algorithm
   y :=mod(u, 2*pi);
-  if y>pi then
+  if y>pi and not positiveRange then
     y := y - 2*pi;
   end if;
 
