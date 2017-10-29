@@ -2317,7 +2317,10 @@ This function propagates the input phasor to m output phasors with <a href=\"mod
           Electrical.MultiPhase.Functions.symmetricOrientation(m);
       Complex c;
     equation
-      c = sqrt(2)/m*'sum'({u[k]*exp(j*phi[k]) for k in 1:m});
+      // c = sqrt(2)/m*'sum'({u[k]*exp(j*phi[k]) for k in 1:m});
+      // Alternative implementation due to https://trac.openmodelica.org/OpenModelica/ticket/4496
+      c.re = sqrt(2)/m*sum(u[k].re*cos(phi[k])-u[k].im*sin(phi[k]) for k in 1:m);
+      c.im = sqrt(2)/m*sum(u[k].re*sin(phi[k])+u[k].im*cos(phi[k]) for k in 1:m);  
       y = {c.re,c.im};
       annotation (
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
@@ -2354,6 +2357,9 @@ Transformation of m phase values (voltages or currents) to space phasor.
 </p>
 </html>"));
     end ToSpacePhasor;
+
+
+
 
     block FromSpacePhasor "Conversion: space phasor -> m phase"
       extends Modelica.Blocks.Icons.Block;
