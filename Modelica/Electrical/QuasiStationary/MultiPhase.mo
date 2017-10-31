@@ -2535,9 +2535,6 @@ Transformation of m phase values (voltages or currents) to space phasor.
 </html>"));
     end ToSpacePhasor;
 
-
-
-
     block FromSpacePhasor "Conversion: space phasor -> m phase"
       extends Modelica.Blocks.Icons.Block;
       import Modelica.ComplexMath.j;
