@@ -3049,7 +3049,7 @@ Connections.branch(A.R,B.R);
 <h4>Description</h4>
 <p>
 Defines a branch from the overdetermined type or record instance <code>R</code> in connector instance <code>A</code> to the corresponding overdetermined type or record instance <code>R</code> in connector instance <code>B</code> for a virtual connection graph.
-These branches are required to be part of the spanning-tree for the virtual connection graph (they do not directly generate equations, but should be combined with equations coupling A.R to B.R), 
+These branches are required to be part of the spanning-tree for the virtual connection graph (they do not directly generate equations, but should be combined with equations coupling <code>A.R</code> to <code>B.R</code>), 
 whereas connect-statements are optional for the spanning-tree (and generate different equations depending on whether they are part of the spanning-tree or not).
 </p>
 <h4>Examples</h4>
