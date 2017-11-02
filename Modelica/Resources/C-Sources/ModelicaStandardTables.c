@@ -5608,22 +5608,30 @@ static READ_RESULT readTable(_In_z_ const char* fileName, _In_z_ const char* tab
             MUTEX_LOCK();
             HASH_FIND_STR(tableShare, key, file);
             if (NULL == file || force) {
-                /* Release lock since ModelicaIO_readRealTable may fail with
+                /* Release resources since ModelicaIO_readRealTable may fail with
                    ModelicaError
                 */
                 MUTEX_UNLOCK();
+                free(key);
 #endif
                 table = ModelicaIO_readRealTable(fileName, tableName,
                     nRow, nCol, verbose);
                 if (NULL == table) {
 #if defined(TABLE_SHARE)
-                    free(key);
                     return file;
 #else
                     return table;
 #endif
                 }
 #if defined(TABLE_SHARE)
+                /* Again allocate and set key */
+                key = (char*)malloc((lenFileName + strlen(tableName) + 2) * sizeof(char));
+                if (NULL == key) {
+                    free(table);
+                    return file;
+                }
+                strcpy(key, fileName);
+                strcpy(key + lenFileName + 1, tableName);
                 /* Again ask for lock and search in hash table share */
                 MUTEX_LOCK();
                 HASH_FIND_STR(tableShare, key, file);

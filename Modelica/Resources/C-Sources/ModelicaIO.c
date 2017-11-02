@@ -434,20 +434,20 @@ static void readMatIO(_In_z_ const char* fileName,
     char* prevToken;
     int err = 0;
 
-    matrixNameCopy = (char*)malloc((strlen(matrixName) + 1)*sizeof(char));
+    mat = Mat_Open(fileName, (int)MAT_ACC_RDONLY);
+    if (NULL == mat) {
+        ModelicaFormatError("Not possible to open file \"%s\": "
+            "No such file or directory\n", fileName);
+        return;
+    }
+
+    matrixNameCopy = (char*)malloc((strlen(matrixName) + 1) * sizeof(char));
     if (NULL != matrixNameCopy) {
         strcpy(matrixNameCopy, matrixName);
     }
     else {
+        (void)Mat_Close(mat);
         ModelicaError("Memory allocation error\n");
-        return;
-    }
-
-    mat = Mat_Open(fileName, (int)MAT_ACC_RDONLY);
-    if (NULL == mat) {
-        free(matrixNameCopy);
-        ModelicaFormatError("Not possible to open file \"%s\": "
-            "No such file or directory\n", fileName);
         return;
     }
 
