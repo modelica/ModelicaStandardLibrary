@@ -534,7 +534,7 @@ Example:
               getPhase_ph(p, h)));
 
       annotation (Inline=true, Documentation(info="<html>
-<p> This function calculates the density of R134a from the state variables p (absolute pressure) and h (specific enthalpy). The density is modelled by the fundamental equation of state of Tillner-Roth and Baehr (1994). </p>
+<p> This function calculates the density of R134a from the state variables p (absolute pressure) and h (specific enthalpy). The density is modelled by the fundamental equation of state of Tillner-Roth and Baehr (1994).</p>
 
 <p><img src=\"modelica://Modelica/Resources/Images/Media/R134a/log(p)d-Diagram-R134a.png\"/> </p>
 
@@ -576,7 +576,7 @@ by the fundamental equation of state of Tillner-Roth and Baehr (1994).
               getPhase_ph(p, h)));
 
       annotation (Inline=true, Documentation(info="<html>
-<p> This function calculates the Kelvin temperature of R134a from the state variables p (absolute pressure) and h (specific enthalpy). The temperature is modelled by the fundamental equation of state of Tillner-Roth and Baehr (1994). </p>
+<p> This function calculates the Kelvin temperature of R134a from the state variables p (absolute pressure) and h (specific enthalpy). The temperature is modelled by the fundamental equation of state of Tillner-Roth and Baehr (1994).</p>
 
 <p><img src=\"modelica://Modelica/Resources/Images/Media/R134a/log(p)h-Diagram-R134a.png\"/> </p>
 
@@ -591,7 +591,7 @@ by the fundamental equation of state of Tillner-Roth and Baehr (1994).
       T := state.T;
 
       annotation (Inline=true, Documentation(info="<html>
-<p> This function calculates the Kelvin temperature of R134a from the state record (e.g., use setState_phX function for input). The temperature is modelled by the fundamental equation of state of Tillner-Roth and Baehr (1994). </p>
+<p> This function calculates the Kelvin temperature of R134a from the state record (e.g., use setState_phX function for input). The temperature is modelled by the fundamental equation of state of Tillner-Roth and Baehr (1994).</p>
 <p><img src=\"modelica://Modelica/Resources/Images/Media/R134a/log(p)h-Diagram-R134a.png\"/> </p>
 </html>"));
     end temperature;
@@ -611,7 +611,7 @@ by the fundamental equation of state of Tillner-Roth and Baehr (1994).
       u := specificEnthalpy(state) - pressure(state)/density(state);
 
       annotation (Inline=true, Documentation(info="<html>
-<p> This function calculates the specific internal energy of R134a from the state record (e.g., use setState_phX function for input). The specific internal energy is modelled by the fundamental equation of state of Tillner-Roth and Baehr (1994). </p>
+<p> This function calculates the specific internal energy of R134a from the state record (e.g., use setState_phX function for input). The specific internal energy is modelled by the fundamental equation of state of Tillner-Roth and Baehr (1994).</p>
 <p><img src=\"modelica://Modelica/Resources/Images/Media/R134a/log(p)u-Diagram-R134a.png\"/> </p>
 
 </html>"));
@@ -655,7 +655,7 @@ by the fundamental equation of state of Tillner-Roth and Baehr (1994).
       end if;
 
       annotation (Documentation(info="<html>
-<p> This function calculates the specific entropy of R134a from the state record (e.g., use setState_phX function for input). The specific entropy is modelled by the fundamental equation of state of Tillner-Roth and Baehr (1994). </p>
+<p> This function calculates the specific entropy of R134a from the state record (e.g., use setState_phX function for input). The specific entropy is modelled by the fundamental equation of state of Tillner-Roth and Baehr (1994).</p>
 <p><img src=\"modelica://Modelica/Resources/Images/Media/R134a/log(p)s-Diagram-R134a.png\"/> </p>
 </html>"));
     end specificEntropy;
@@ -1354,7 +1354,7 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
         f.delta*f.fdelta + f.delta*f.delta*f.fdeltadelta));
 
       annotation (Documentation(info="<html>
-<p> This function calculates the specific heat capacity of R134a at <strong>constant pressure</strong> from the state record (e.g., use setState_phX function for input). The specific heat capacity is modelled by the fundamental equation of state of Tillner-Roth and Baehr (1994). </p>
+<p> This function calculates the specific heat capacity of R134a at <strong>constant pressure</strong> from the state record (e.g., use setState_phX function for input). The specific heat capacity is modelled by the fundamental equation of state of Tillner-Roth and Baehr (1994).</p>
 <h4> Restrictions</h4>
 <p>This property is only defined in one-phase region.
 </p>
@@ -1393,7 +1393,7 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
       end if;
 
       annotation (Documentation(info="<html>
-<p> This function calculates the specific heat capacity of R134a at <strong>constant volume</strong> from the state record (e.g., use setState_phX function for input). The specific heat capacity is modelled by the fundamental equation of state of Tillner-Roth and Baehr (1994). </p>
+<p> This function calculates the specific heat capacity of R134a at <strong>constant volume</strong> from the state record (e.g., use setState_phX function for input). The specific heat capacity is modelled by the fundamental equation of state of Tillner-Roth and Baehr (1994).</p>
 <p>
 Please note, that the function can also be called in the two-phase region, but the output is not continuous for a phase transition (see Tillner-Roth and Baehr, 1994). Values in two-phase region are considerably higher than in one-phase domain. The following figure just shows one-phase properties.
 </p>
@@ -1451,7 +1451,7 @@ Please note, that the function can also be called in the two-phase region, but t
       eta := (eta_star + eta_res*1e3)*1e-06;
 
       annotation (Documentation(info="<html>
-<p> This function calculates the dynamic viscosity of R134a from the state record (e.g., use setState_phX function for input). The dynamic viscosity is modelled by the corresponding states method of Klein, McLinden and Laesecke (1997). </p>
+<p> This function calculates the dynamic viscosity of R134a from the state record (e.g., use setState_phX function for input). The dynamic viscosity is modelled by the corresponding states method of Klein, McLinden and Laesecke (1997).</p>
 <h4> Restrictions</h4>
 <p>This property is only defined in one-phase region.
 </p>
@@ -1536,7 +1536,7 @@ Int. J. Refrig., Vol. 20, No.3, pp. 208-217, 1997.</dd>
       lambda := max(lambda_dg + lambda_reduced + lambda_crit, 1e-8);
 
       annotation (Documentation(info="<html>
-<p> This function calculates the thermal conductivity of R134a from the state record (e.g., use setState_phX function for input). The thermal conductivity is modelled by the corresponding states model of McLinden, Klein. and Perkins (2000). </p>
+<p> This function calculates the thermal conductivity of R134a from the state record (e.g., use setState_phX function for input). The thermal conductivity is modelled by the corresponding states model of McLinden, Klein. and Perkins (2000).</p>
 <h4> Restrictions</h4>
 <p>This property is only defined in one-phase region.
 </p>
@@ -1571,7 +1571,7 @@ Int. J. Refrig., 23 (2000) 43-63.</dd>
       end if;
 
       annotation (Documentation(info="<html>
-<p> This function calculates the surface tension of R134a from the saturation record (e.g., use setSat_T function for input). The property is modelled by an approach of Okada and Higashi (1994). </p>
+<p> This function calculates the surface tension of R134a from the saturation record (e.g., use setSat_T function for input). The property is modelled by an approach of Okada and Higashi (1994).</p>
 <h4> Restrictions</h4>
 <p>This property is only defined in two-phase region.
 </p>
@@ -1600,7 +1600,7 @@ Proceedings of the Joint Meeting of IIR Commissions B1, B2, E1, and E2, Padua, I
           *f.fdelta - f.delta*f.tau*f.fdeltatau))/(f.tau*f.tau*f.ftautau)))^0.5;
       end if;
       annotation (Documentation(info="<html>
-<p> This function calculates the velocity of sound of R134a from the state record (e.g., use setState_phX function for input). The velocity of sound is modelled by the fundamental equation of state of Tillner-Roth and Baehr (1994). </p>
+<p> This function calculates the velocity of sound of R134a from the state record (e.g., use setState_phX function for input). The velocity of sound is modelled by the fundamental equation of state of Tillner-Roth and Baehr (1994).</p>
 <h4> Restrictions</h4>
 <p>This property is only defined in one-phase region.
 </p>
@@ -1622,7 +1622,7 @@ Proceedings of the Joint Meeting of IIR Commissions B1, B2, E1, and E2, Padua, I
           *f.fdeltadelta));
       end if;
       annotation (Documentation(info="<html>
-<p> This function calculates the isothermal compressibility of R134a from the state record (e.g., use setState_phX function for input). The isothermal compressibility is modelled by the fundamental equation of state of Tillner-Roth and Baehr (1994). </p>
+<p> This function calculates the isothermal compressibility of R134a from the state record (e.g., use setState_phX function for input). The isothermal compressibility is modelled by the fundamental equation of state of Tillner-Roth and Baehr (1994).</p>
 <h4> Restrictions</h4>
 <p>This property is only defined in one-phase region.
 </p>
@@ -1643,7 +1643,7 @@ Proceedings of the Joint Meeting of IIR Commissions B1, B2, E1, and E2, Padua, I
           *isothermalCompressibility(state);
       end if;
       annotation (Documentation(info="<html>
-<p> This function calculates the isobaric expansion coefficient of R134a from the state record (e.g., use setState_phX function for input). The isobaric expansion coefficient is modelled by the fundamental equation of state of Tillner-Roth and Baehr (1994). </p>
+<p> This function calculates the isobaric expansion coefficient of R134a from the state record (e.g., use setState_phX function for input). The isobaric expansion coefficient is modelled by the fundamental equation of state of Tillner-Roth and Baehr (1994).</p>
 <h4> Restrictions</h4>
 <p>This property is only defined in one-phase region.
 </p>
@@ -1658,7 +1658,7 @@ Proceedings of the Joint Meeting of IIR Commissions B1, B2, E1, and E2, Padua, I
          else 1e-6)*velocityOfSound(state)^2;
 
       annotation (Inline=true, Documentation(info="<html>
-<p> This function calculates the isentropic exponent of R134a from the state record (e.g., use setState_phX function for input). The isentropic exponent is modelled by the fundamental equation of state of Tillner-Roth and Baehr (1994). </p>
+<p> This function calculates the isentropic exponent of R134a from the state record (e.g., use setState_phX function for input). The isentropic exponent is modelled by the fundamental equation of state of Tillner-Roth and Baehr (1994).</p>
 <h4> Restrictions</h4>
 <p>This property is only defined in one-phase region.
 </p>

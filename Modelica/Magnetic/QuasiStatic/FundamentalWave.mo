@@ -8,7 +8,7 @@ package FundamentalWave "Quasi static fundamental wave electric machines"
       annotation (Documentation(info="<html>
 <h5>Reference frames</h5>
 
-<p>Quasi static magnetic ports contain the complex magnetic flux (flow variable) and the complex magnetic potential difference (potential variable) and a reference angle. The relationship between the different complex phasors with respect to different references will be explained by means of the complex magnetic flux. The same transformation relationships also apply to the complex magnetic potential difference. However, the discussed relationships are important for handling connectors in the air gap model, transform equations into the rotor fixed reference frame, etc. </p>
+<p>Quasi static magnetic ports contain the complex magnetic flux (flow variable) and the complex magnetic potential difference (potential variable) and a reference angle. The relationship between the different complex phasors with respect to different references will be explained by means of the complex magnetic flux. The same transformation relationships also apply to the complex magnetic potential difference. However, the discussed relationships are important for handling connectors in the air gap model, transform equations into the rotor fixed reference frame, etc.</p>
 
 <p>
 Let us assume that the air gap model contains stator and rotor magnetic ports which relate to the different sides of the machine. The angle relationship between these ports is
@@ -3187,7 +3187,7 @@ Simulate for 0.1 second and plot (versus time):
             Documentation(info="<html>
 
 <p>
-This example compares a time transient and a quasi static model of a permanent magnet synchronous machine. The machines start with zero load and synchronous speed. At time <code>tStep</code> the machines are loaded with nominal torque. </p>
+This example compares a time transient and a quasi static model of a permanent magnet synchronous machine. The machines start with zero load and synchronous speed. At time <code>tStep</code> the machines are loaded with nominal torque.</p>
 
 <p>
 Simulate for 1 second and plot (versus time):

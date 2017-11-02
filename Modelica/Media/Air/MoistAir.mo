@@ -346,7 +346,7 @@ The ideal gas constant for moist air is computed from the gas phase composition.
       Inline=false,
       smoothOrder=5,
       Documentation(info="<html>
-<p>Saturation pressure of water above the triple point temperature is computed from temperature. </p>
+<p>Saturation pressure of water above the triple point temperature is computed from temperature.</p>
 <p>Source: A Saul, W Wagner: &quot;International equations for the saturation properties of ordinary water substance&quot;, equation 2.1 </p>
 </html>"));
   end saturationPressureLiquid;
@@ -380,7 +380,7 @@ The ideal gas constant for moist air is computed from the gas phase composition.
       Inline=false,
       smoothOrder=5,
       Documentation(info="<html>
-<p>Saturation pressure of water above the triple point temperature is computed from temperature. </p>
+<p>Saturation pressure of water above the triple point temperature is computed from temperature.</p>
 <p>Source: A Saul, W Wagner: &quot;International equations for the saturation properties of ordinary water substance&quot;, equation 2.1 </p>
 </html>"));
   end saturationPressureLiquid_der;
@@ -1173,8 +1173,8 @@ algorithm
       Cv.to_degC(1273.15),
       Cv.to_degC(state.T));
   annotation (smoothOrder=2, Documentation(info="<html>
-<p>Dynamic viscosity is computed from temperature using a simple polynomial for dry air. Range of validity is from 123.15 K to 1273.15 K. The influence of pressure and moisture is neglected. </p>
-<p>Source: VDI Waermeatlas, 8th edition. </p>
+<p>Dynamic viscosity is computed from temperature using a simple polynomial for dry air. Range of validity is from 123.15 K to 1273.15 K. The influence of pressure and moisture is neglected.</p>
+<p>Source: VDI Waermeatlas, 8th edition.</p>
 </html>"));
 end dynamicViscosity;
 
@@ -1191,8 +1191,8 @@ algorithm
       Cv.to_degC(state.T));
 
   annotation (smoothOrder=2, Documentation(info="<html>
-<p>Thermal conductivity is computed from temperature using a simple polynomial for dry air. Range of validity is from 123.15 K to 1273.15 K. The influence of pressure and moisture is neglected. </p>
-<p>Source: VDI Waermeatlas, 8th edition. </p>
+<p>Thermal conductivity is computed from temperature using a simple polynomial for dry air. Range of validity is from 123.15 K to 1273.15 K. The influence of pressure and moisture is neglected.</p>
+<p>Source: VDI Waermeatlas, 8th edition.</p>
 </html>"));
 end thermalConductivity;
 

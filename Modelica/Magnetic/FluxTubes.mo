@@ -135,7 +135,7 @@ The Tellinen hysteresis model is described in more detail in <a href=\"modelica:
 Therein, S<sub>U</sub>(H) and S<sub>L</sub>(H) are the derivatives of limiting branches of the hysteresis loop with respect to the magnetic field strength H, as illustrated in Fig 1.
 </p>
 <p>
-<strong>Fig. 1:</strong> Upper B<sub>U</sub>(H) and lower B<sub>L</sub>(H) branches of the hysteresis envelope curve, their corresponding slope functions S<sub>UH</sub>(H) and S<sub>LH</sub>(H) and the actual operating point H(t), B(t). </p>
+<strong>Fig. 1:</strong> Upper B<sub>U</sub>(H) and lower B<sub>L</sub>(H) branches of the hysteresis envelope curve, their corresponding slope functions S<sub>UH</sub>(H) and S<sub>LH</sub>(H) and the actual operating point H(t), B(t).</p>
 
 <table cellspacing=\"0\" cellpadding=\"2\" border=\"0\"><tr>
 <td><p><img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/StaticHysteresis/Tellinen/TellinenDesc1.png\"/> </p></td>
@@ -305,7 +305,7 @@ The following two figures show a comparison between measured and simulated dynam
         extends Modelica.Icons.Information;
         annotation (Documentation(info="<html>
 <h4>Hysteresis power losses</h4>
-<p>The total power loss (<code>LossPower</code>) of an hysteresis flux tube element is the sum of the power loss due to the static ferromagnetic hsysteresis (<code>LossPowerStat</code>) and the power loss due to eddy currents (<code>LossPowerEddy</code>). </p>
+<p>The total power loss (<code>LossPower</code>) of an hysteresis flux tube element is the sum of the power loss due to the static ferromagnetic hsysteresis (<code>LossPowerStat</code>) and the power loss due to eddy currents (<code>LossPowerEddy</code>).</p>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
   <tr>
@@ -5361,7 +5361,7 @@ All dimensions are defined as parameters. As a result, the shape of these elemen
 <p>Flux tube element for modeling soft magnetic materials with ferromagnetic and dynamic hysteresis (eddy currents). The ferromagnetic hysteresis behavior is defined by the <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Hysteresis.StaticHysteresis.Tellinen\">Tellinen hysteresis model</a>. The shape of the limiting hysteresis loop (see Fig. 1) is described by simple hyperbolic tangent functions with 4 parameters. Therefore, the hysteresis shape variety is limited but the parameterization of the model is very simple and the model is relatively fast and robust. The rising (hyst<sub>R</sub>) and falling (hyst<sub>F</sub>) branches of the limiting hysteresis loop are defined by the following equations.</p>
 <table cellspacing=\"2\" cellpadding=\"0\" border=\"0\"><tr>
 <td><p><img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Shapes/HysteresisAndMagnets/GenericHystTellinenSoft/Eqn_ShapeFunctionsTellinen.png\"/> </p><p><br><strong>Fig. 1:</strong> Hyperbolic tangent functions define the shape of the ferromagnetic (static) hysteresis </p><p><img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Shapes/HysteresisAndMagnets/GenericHystTellinenSoft/SoftMagneticHysteresis1.png\"/> </p>
-<p><br>An overview over of available hysteresis and permanent magnet elements of the package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets\">HysteresisAndMagnets</a> can be found in <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Hysteresis\">UsersGuide.Hysteresis</a>. </p>
+<p><br>An overview over of available hysteresis and permanent magnet elements of the package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets\">HysteresisAndMagnets</a> can be found in <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Hysteresis\">UsersGuide.Hysteresis</a>.</p>
 </td>
 </tr>
 </table>

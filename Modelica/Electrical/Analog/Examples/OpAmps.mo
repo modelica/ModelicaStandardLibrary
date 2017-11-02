@@ -841,7 +841,7 @@ package OpAmps "Examples with operational amplifiers"
     annotation (Documentation(info=
                    "<html>
                         <p>This signal generator consists of a Schmitt trigger and an integrator. The output of the Schmitt trigger part opamp (opAmp1) is a rectangular signal with the amplitude VAmp and the frequency f. 
-                        The output of the integrator part opamp (opAmp2) is a triangular signal of also the amplitude Vamp and the frequency f. </p>
+                        The output of the integrator part opamp (opAmp2) is a triangular signal of also the amplitude Vamp and the frequency f.</p>
                         <p>Source:</p>
                         <p>U. Tietze and C. Schenk, Halbleiter-Schaltungstechnik (German), 11th edition, Springer 1999, Chapter 14.5.2</p>
                         </html>"),

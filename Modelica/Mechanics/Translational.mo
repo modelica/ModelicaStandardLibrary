@@ -2946,7 +2946,7 @@ Version 2:
         Documentation(info="<html>
 <p>This element describes the <em>Stribeck friction characteristics</em> of a sliding mass,
 i. e. the frictional force acting between the sliding mass and the support. Included is a
-<em>hard stop</em> for the position. </p>
+<em>hard stop</em> for the position.</p>
 <p>
 The surface is fixed and there is friction between sliding mass and surface.
 The frictional force f is given for positive velocity v by:
@@ -3475,7 +3475,7 @@ and provides the result as output signal <strong>power</strong>
       annotation (Documentation(info="<html>
 <p>
 Measures the <strong>absolute velocity</strong> of a flange_a, the <strong>cut-force</strong> and <strong>power</strong> between two flanges in an
-ideal way and provides the results as output signals <strong>v</strong>, <strong>f</strong> and <strong>power</strong>, respectively. </p>
+ideal way and provides the results as output signals <strong>v</strong>, <strong>f</strong> and <strong>power</strong>, respectively.</p>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={Text(
                   extent={{-146,-70},{-56,-100}},

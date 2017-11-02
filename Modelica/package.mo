@@ -727,7 +727,7 @@ The <code>PNG</code> files should be placed in a folder which exactly represents
 
 <p>To refer to a certain figure, a figure number may be added. In such case the figure name (Fig.) including the figure enumeration (1,2,...) have to be displayed bold using <code>&lt;strong&gt;</code> and <code>&lt;/strong&gt;</code>.</p>
 <p>The figure name and enumeration should look like this: <strong>Fig. 1:</strong></p>
-<p>Figures have to be enumerated manually. </p>
+<p>Figures have to be enumerated manually.</p>
 
 <pre>
 &lt;table border=\"0\" cellspacing=\"0\" cellpadding=\"2\"&gt;

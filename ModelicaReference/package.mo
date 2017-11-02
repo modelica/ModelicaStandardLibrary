@@ -1005,7 +1005,7 @@ If true, the model developer proposes to inline the function after the function 
     class inverse "inverse"
     extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
-<p>Every function with one output argument may have one or more &quot;<code>inverse</code>&quot; annotations to define inverses of this function. </p>
+<p>Every function with one output argument may have one or more &quot;<code>inverse</code>&quot; annotations to define inverses of this function.</p>
 <h4>Syntax</h4>
 <blockquote>
 <pre><strong>function</strong> f1
@@ -2566,7 +2566,7 @@ Absolute value of Real or Integer variable.
 <h4>Description</h4>
 <P>Is expanded into &quot;noEvent(<strong>if </strong>v &ge; 0
 <strong>then</strong> v <strong>else</strong> -v)&quot;. Argument v
-needs to be an Integer or Real expression. </P>
+needs to be an Integer or Real expression.</P>
 <h4>Examples</h4>
 <pre>
   <strong>abs</strong>({-3, 0, 3})
@@ -4492,7 +4492,7 @@ Sign function of a Real or Integer number
 <h4>Description</h4>
 <p>Is expanded into &quot;noEvent(<strong>if</strong> v &gt; 0 <strong>then</strong> 1 <strong>else
 if</strong> v &lt; 0 <strong>then</strong> -1 <strong>else</strong> 0)&quot;. Argument v
-needs to be an Integer or Real expression. </p>
+needs to be an Integer or Real expression.</p>
 <h4>Examples</h4>
 <pre><strong>sign</strong>({-3, 0, 3})
  = {-1, 0, 1}</pre>

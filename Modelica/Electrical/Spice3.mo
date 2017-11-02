@@ -1294,7 +1294,7 @@ Zeunerstra&szlig;e 38<br />
       connect(UDD.n, ground.p) annotation (Line(
           points={{-10,50},{-10,-6},{-44,-6}}, color={0,0,255}));
       annotation (Documentation(info="<html>
-<p>This model is a simple JFET cascode circuit. The J2 gate variation (v_sin.p.v) is transformed to the J2 drain variation (J2.D.v). </p>
+<p>This model is a simple JFET cascode circuit. The J2 gate variation (v_sin.p.v) is transformed to the J2 drain variation (J2.D.v).</p>
 <p><br/>Simulate until 0.2s, and display the mentioned voltages.</p>
 </html>", revisions="<html>
 <ul>
@@ -1435,10 +1435,10 @@ CJC=.5PF.</p>
 
       annotation (experiment(StopTime=1e-007, Interval=1e-009),
         Documentation(info="<html>
-<p>This Mosfet Characterization model is one of the five benchmark circuits described in the SPICE3 Version e3 User&apos;s Manual (see information of package Spice3). </p>
+<p>This Mosfet Characterization model is one of the five benchmark circuits described in the SPICE3 Version e3 User&apos;s Manual (see information of package Spice3).</p>
 <p>This circuit is a very simple one than consists of an NMOS transistor level 1 that is connected to voltage sources at gate and drain node whereas the drain voltage source supplies the
 operating voltage. The user is recommended to simulate from t=0 to t=1e-7s and observe the gate node voltage (\"VGS.p.v\") and the transistor current (\"M1.D.i\").
-It can be seen that the current is increasing with increasing gate voltage which means the conductivity of the transistor is increasing. The opposite case occurs for decreasing gate voltage. </p>
+It can be seen that the current is increasing with increasing gate voltage which means the conductivity of the transistor is increasing. The opposite case occurs for decreasing gate voltage.</p>
 <p>Original SPICE3 netlist of the MOSFET characterization circuit:</p>
 <pre>
 MOS OUTPUT CHARACTERISTICS<br/>
@@ -1490,7 +1490,7 @@ M1 1 2 0 0 MOD1 L=4U W=6U AD=10P AS=10P<br/>
           Interval=1e-010,
           Tolerance=1e-008),
         Documentation(info="<html>
-<p>This RTL Inverter model is one of the five benchmark circuits described in the SPICE3 Version e3 User&apos;s Manual (see information of package Spice3). </p>
+<p>This RTL Inverter model is one of the five benchmark circuits described in the SPICE3 Version e3 User&apos;s Manual (see information of package Spice3).</p>
 <p>This simple RTL inverter (resistor transistor logic) circuits inverts the input voltage which means the output voltage has high potential if the input voltage
 has low potential and the other way round. To comprehend this behaviour the user is recommended to simulate from t=0 to t=1e-7s and observe the input voltage (VIN.p.v)
 and the output voltage (Q1.C.v)</p>
@@ -2103,7 +2103,7 @@ RC 3 4 1K<br/>
 
       annotation (experiment(StopTime=1e-006, Interval=1e-009),
         Documentation(info="<html>
-<p>This Four Bit Binary Adder model is one of the five benchmark circuits described in the SPICE3 Version e3 User&apos;s Manual (see information of package Spice3). </p>
+<p>This Four Bit Binary Adder model is one of the five benchmark circuits described in the SPICE3 Version e3 User&apos;s Manual (see information of package Spice3).</p>
 <p>The model adds two 4-bit numbers (Number A and Number B). It has eight inputs where the first one is the lowest-order bit of the first number (Number A Bit0), the second is the lowest-order bit of the second number (Number B Bit0), the third one is the second-order bit of the first number (Number A Bit1) and so on. The Four Bit Binary Adder has four outputs where the first one (Sum Bit0) is the lowest-order bit, the second and the third one (Sum Bit1 and Sum Bit2) are the next two bits and the last one (Sum Bit3) is the highest-order bit. The picture illustrates the pin-assignment.</p>
 <blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Electrical/Spice3/FourBitBinaryAdder.jpg\"
@@ -2124,7 +2124,7 @@ RC 3 4 1K<br/>
 <p>X1_p11_v --> Sum Bit2</p>
 <p>X1_p12_v --> Sum Bit3</p>
 <p>X1_p14_v --> Cout</p>
-<p>The Four Bit Binary Adder is built out of two two bit adders which respectively are built out of two one bit adders. One one bit adder is build out of nine NAND circuits. </p>
+<p>The Four Bit Binary Adder is built out of two two bit adders which respectively are built out of two one bit adders. One one bit adder is build out of nine NAND circuits.</p>
 <p>Please note, that the simulation time of the Four Bit Binary Adder can take several hours due to its immense size (e.g. 11387 equations).</p>
 <p>The user is recommended to simulate from t=0 to t=1e-6s and observe the eight inputs (X1_p1_v, ..., X1_p8_v) and the four outputs (X1_p9_v, ..., X1_p12_v) and the carryout output (X1_p14_v).</p>
 <p><strong>The timing of the single transistors of the adder causes a delay which makes it hard to recognize the adder behaviour. Since the Four Bit Binary Adder is a SPICE3 benchmark, the circuit is not changed in order to see the adder behaviour in a better way.</strong></p>
@@ -2216,7 +2216,7 @@ print v(11) v(12) v(13)
 
 .END
 </pre>
-<p>The model is built out of several subcircuits which were described only ones and used several times. </p>
+<p>The model is built out of several subcircuits which were described only ones and used several times.</p>
 </html>"));
     end Spice3BenchmarkFourBitBinaryAdder;
     annotation (Documentation(info="<html>

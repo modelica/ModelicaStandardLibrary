@@ -430,7 +430,7 @@ Calculation of the mean convective heat transfer coefficient <strong> kc </stron
 <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Channel.kc_evenGapLaminar\">See more information.</a>
 </p>
 </html>", revisions="<html>
-<p>2016-04-11 Stefan Wischhusen: Removed singularity for Re at zero mass flow rate. </p>
+<p>2016-04-11 Stefan Wischhusen: Removed singularity for Re at zero mass flow rate.</p>
 </html>"),                 smoothOrder(normallyConstant=IN_con) = 2);
       end kc_evenGapLaminar_KC;
 
@@ -593,7 +593,7 @@ Calculation of the mean convective heat transfer coefficient <strong> kc </stron
 Calculation of the mean convective heat transfer coefficient <strong> kc </strong> for an overall fluid flow through an even gap at different fluid flow and heat transfer situations. <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Channel.kc_evenGapOverall\">See more information.</a>
 </p>
 </html>", revisions="<html>
-<p>2016-04-11 Stefan Wischhusen: Removed singularity for Re at zero mass flow rate. </p>
+<p>2016-04-11 Stefan Wischhusen: Removed singularity for Re at zero mass flow rate.</p>
 </html>"),       smoothOrder(normallyConstant=IN_con) = 2);
       end kc_evenGapOverall_KC;
 
@@ -751,7 +751,7 @@ Calculation of the mean convective heat transfer coefficient <strong> kc </stron
 Calculation of the mean convective heat transfer coefficient <strong> kc </strong> for a developed turbulent fluid flow through an even gap at heat transfer from both sides. <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Channel.kc_evenGapTurbulent\">See more information.</a>
 </p>
 </html>",       revisions="<html>
-<p>2016-04-12 Stefan Wischhusen: Limited Re to very small value (Modelica.Constant.eps). </p>
+<p>2016-04-12 Stefan Wischhusen: Limited Re to very small value (Modelica.Constant.eps).</p>
 </html>"),                 smoothOrder(normallyConstant=IN_con) = 2);
       end kc_evenGapTurbulent_KC;
 
@@ -939,7 +939,7 @@ Approximate calculation of the mean convective heat transfer coefficient <strong
 <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.General.kc_approxForcedConvection\">See more information</a> .
 </p>
 </html>", revisions="<html>
-<p>2016-04-11 Stefan Wischhusen: Removed singularity for Re at zero mass flow rate. </p>
+<p>2016-04-11 Stefan Wischhusen: Removed singularity for Re at zero mass flow rate.</p>
 </html>"),       smoothOrder(normallyConstant=IN_con) = 2);
       end kc_approxForcedConvection_KC;
 
@@ -1056,7 +1056,7 @@ Calculation of the mean convective heat transfer coefficient <strong> kc </stron
 </p>
 
 </html>",       revisions="<html>
-<p>2016-04-11 Stefan Wischhusen: Removed singularity for Re at zero mass flow rate. </p>
+<p>2016-04-11 Stefan Wischhusen: Removed singularity for Re at zero mass flow rate.</p>
 </html>"),                 smoothOrder(normallyConstant=IN_con) = 2);
       end kc_flatTube;
 
@@ -1128,7 +1128,7 @@ Calculation of the mean convective heat transfer coefficient <strong> kc </stron
 <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.HeatExchanger.kc_flatTube\">See more information</a> .
 </p>
 </html>", revisions="<html>
-<p>2016-04-12 Stefan Wischhusen: Limited Re_Dh und Re_Lp to very small value (Modelica.Constant.eps). </p>
+<p>2016-04-12 Stefan Wischhusen: Limited Re_Dh und Re_Lp to very small value (Modelica.Constant.eps).</p>
 </html>"),                 smoothOrder(normallyConstant=IN_con) = 2);
       end kc_flatTube_KC;
 
@@ -1263,7 +1263,7 @@ Calculation of the mean convective heat transfer coefficient <strong> kc </stron
 <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.HeatExchanger.kc_roundTube\">See more information</a> .
 </p>
 </html>", revisions="<html>
-<p>2016-04-11 Stefan Wischhusen: Removed singularity for Re at zero mass flow rate. </p>
+<p>2016-04-11 Stefan Wischhusen: Removed singularity for Re at zero mass flow rate.</p>
 </html>"),                 smoothOrder(normallyConstant=IN_con) = 2);
       end kc_roundTube;
 
@@ -1558,7 +1558,7 @@ Calculation of the mean convective heat transfer coefficient <strong> kc </stron
 <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.HelicalPipe.kc_laminar\">See more information</a> .
 </p>
 </html>", revisions="<html>
-<p>2016-04-11 Stefan Wischhusen: Removed singularity for Re at zero mass flow rate. </p>
+<p>2016-04-11 Stefan Wischhusen: Removed singularity for Re at zero mass flow rate.</p>
 </html>"),                 smoothOrder(normallyConstant=IN_con) = 2);
       end kc_laminar;
 
@@ -1690,7 +1690,7 @@ Calculation of the mean convective heat transfer coefficient <strong> kc </stron
 <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.HelicalPipe.kc_overall\">See more information</a> .
 </p>
 </html>", revisions="<html>
-<p>2016-04-11 Stefan Wischhusen: Removed singularity for Re at zero mass flow rate. </p>
+<p>2016-04-11 Stefan Wischhusen: Removed singularity for Re at zero mass flow rate.</p>
 </html>"),                 smoothOrder(normallyConstant=IN_con) = 2);
       end kc_overall;
 
@@ -1754,7 +1754,7 @@ Calculation of the mean convective heat transfer coefficient <strong> kc </stron
 <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.HelicalPipe.kc_overall\">See more information</a> .
 </p>
 </html>", revisions="<html>
-<p>2016-04-11 Stefan Wischhusen: Removed singularity for Re at zero mass flow rate. </p>
+<p>2016-04-11 Stefan Wischhusen: Removed singularity for Re at zero mass flow rate.</p>
 </html>"),                 smoothOrder(normallyConstant=IN_con) = 2);
       end kc_overall_KC;
 
@@ -1851,7 +1851,7 @@ Calculation of the mean convective heat transfer coefficient <strong> kc </stron
 <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.HelicalPipe.kc_turbulent\">See more information</a> .
 </p>
 </html>", revisions="<html>
-<p>2016-04-11 Stefan Wischhusen: Removed singularity for Re at zero mass flow rate. </p>
+<p>2016-04-11 Stefan Wischhusen: Removed singularity for Re at zero mass flow rate.</p>
 </html>"),                 smoothOrder(normallyConstant=IN_con) = 2);
       end kc_turbulent;
 
@@ -1906,7 +1906,7 @@ Calculation of the mean convective heat transfer coefficient <strong> kc </stron
 <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.HelicalPipe.kc_turbulent\">See more information</a> .
 </p>
 </html>", revisions="<html>
-<p>2016-04-11 Stefan Wischhusen: Removed singularity for Re at zero mass flow rate. </p>
+<p>2016-04-11 Stefan Wischhusen: Removed singularity for Re at zero mass flow rate.</p>
 </html>"),                 smoothOrder(normallyConstant=IN_con) = 2);
       end kc_turbulent_KC;
 
@@ -2011,7 +2011,7 @@ This record is used as <strong> input record </strong> for the heat transfer fun
 Calculation of the mean convective heat transfer coefficient <strong> kc </strong> for a laminar fluid flow over an even surface. Note that additionally a failure status is observed in this function to check if the intended boundary conditions are fulfilled. <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Plate.kc_laminar\">See more information</a> .
 </p>
 </html>", revisions="<html>
-<p>2016-04-11 Stefan Wischhusen: Removed singularity for Re at zero mass flow rate. </p>
+<p>2016-04-11 Stefan Wischhusen: Removed singularity for Re at zero mass flow rate.</p>
 </html>"),                 smoothOrder(normallyConstant=IN_con) = 2);
       end kc_laminar;
 
@@ -2057,7 +2057,7 @@ Generally this function is numerically best used for the calculation of the mean
  <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Plate.kc_laminar\">See more information</a> .
 </p>
 </html>", revisions="<html>
-<p>2016-04-11 Stefan Wischhusen: Removed singularity for Re at zero mass flow rate. </p>
+<p>2016-04-11 Stefan Wischhusen: Removed singularity for Re at zero mass flow rate.</p>
 </html>"),                 smoothOrder(normallyConstant=IN_con) = 2);
       end kc_laminar_KC;
 
@@ -2144,7 +2144,7 @@ This record is used as <strong> input record </strong> for the heat transfer fun
 Calculation of the mean convective heat transfer coefficient <strong> kc </strong> for a laminar or turbulent fluid flow over an even surface. Note that additionally a failure status is observed in this function to check if the intended boundary conditions are fulfilled.  <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Plate.kc_overall\">See more information</a> .
 </p>
 </html>", revisions="<html>
-<p>2016-04-11 Stefan Wischhusen: Removed singularity for Re at zero mass flow rate. </p>
+<p>2016-04-11 Stefan Wischhusen: Removed singularity for Re at zero mass flow rate.</p>
 </html>"),                 smoothOrder(normallyConstant=IN_con) = 2);
       end kc_overall;
 
@@ -2182,7 +2182,7 @@ Generally this function is numerically best used for the calculation of the mean
  <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Plate.kc_overall\">See more information</a> .
 </p>
 </html>", revisions="<html>
-<p>2016-04-11 Stefan Wischhusen: Removed singularity for Re at zero mass flow rate. </p>
+<p>2016-04-11 Stefan Wischhusen: Removed singularity for Re at zero mass flow rate.</p>
 </html>"),                 smoothOrder(normallyConstant=IN_con) = 2);
       end kc_overall_KC;
 
@@ -2272,7 +2272,7 @@ This record is used as <strong> input record </strong> for the heat transfer fun
 Calculation of the mean convective heat transfer coefficient <strong> kc </strong> for a hydrodynamically developed turbulent fluid flow over an even surface. Note that additionally a failure status is observed in this function to check if the intended boundary conditions are fulfilled.  <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Plate.kc_turbulent\">See more information</a> .
 </p>
 </html>", revisions="<html>
-<p>2016-04-11 Stefan Wischhusen: Removed singularity for Re at zero mass flow rate. </p>
+<p>2016-04-11 Stefan Wischhusen: Removed singularity for Re at zero mass flow rate.</p>
 </html>"),                 smoothOrder(normallyConstant=IN_con) = 2);
       end kc_turbulent;
 
@@ -2319,7 +2319,7 @@ Generally this function is numerically best used for the calculation of the mean
  <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Plate.kc_turbulent\">See more information</a> .
 </p>
 </html>", revisions="<html>
-<p>2016-04-11 Stefan Wischhusen: Removed singularity for Re at zero mass flow rate. </p>
+<p>2016-04-11 Stefan Wischhusen: Removed singularity for Re at zero mass flow rate.</p>
 </html>"),                 smoothOrder(normallyConstant=IN_con) = 2);
       end kc_turbulent_KC;
 
@@ -2423,7 +2423,7 @@ Calculation of the mean convective heat transfer coefficient <strong> kc </stron
 Calculation of mean convective heat transfer coefficient <strong> kc </strong> of a straight pipe at an uniform wall temperature <strong> or </strong> uniform heat flux <strong>and</strong> for a hydrodynamically developed <strong>or</strong> undeveloped laminar fluid flow. Note that additionally a failure status is observed in this function to check if the intended boundary conditions are fulfilled.  <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.StraightPipe.kc_laminar\">See more information</a> .
 </p>
 </html>", revisions="<html>
-<p>2016-04-11 Stefan Wischhusen: Removed singularity for Re at zero mass flow rate. </p>
+<p>2016-04-11 Stefan Wischhusen: Removed singularity for Re at zero mass flow rate.</p>
 </html>"),                 smoothOrder(normallyConstant=IN_con) = 2);
       end kc_laminar;
 
@@ -2485,8 +2485,8 @@ Calculation of mean convective heat transfer coefficient <strong> kc </strong> o
 Calculation of mean convective heat transfer coefficient <strong> kc </strong> of a straight pipe at an uniform wall temperature <strong> or </strong> uniform heat flux <strong>and</strong> for a hydrodynamically developed <strong>or</strong> undeveloped laminar fluid flow. <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.StraightPipe.kc_laminar\">See more information</a> .
 </p>
 </html>", revisions="<html>
-<p>2014-08-05 Stefan Wischhusen: Corrected term for Uniform heat flux in developed fluid flow (Nu3). </p>
-<p>2016-04-11 Stefan Wischhusen: Removed singularity for Re at zero mass flow rate. </p>
+<p>2014-08-05 Stefan Wischhusen: Corrected term for Uniform heat flux in developed fluid flow (Nu3).</p>
+<p>2016-04-11 Stefan Wischhusen: Removed singularity for Re at zero mass flow rate.</p>
 </html>"),                 smoothOrder(normallyConstant=IN_con) = 2);
       end kc_laminar_KC;
 
@@ -2595,7 +2595,7 @@ This record is used as <strong> input record </strong> for the heat transfer fun
 Calculation of mean convective heat transfer coefficient <strong> kc </strong> of a straight pipe at an uniform wall temperature <strong> or </strong> uniform heat flux <strong> and </strong> for a hydrodynamically developed <strong>or</strong> undeveloped overall fluid flow with neglect <strong> or </strong> consideration of pressure loss influence. Note that additionally a failure status is observed in this function to check if the intended boundary conditions are fulfilled.  <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.StraightPipe.kc_overall\">See more information</a> .
 </p>
 </html>", revisions="<html>
-<p>2016-04-11 Stefan Wischhusen: Removed singularity for Re at zero mass flow rate. </p>
+<p>2016-04-11 Stefan Wischhusen: Removed singularity for Re at zero mass flow rate.</p>
 </html>"),                 smoothOrder(normallyConstant=IN_con) = 2);
       end kc_overall;
 
@@ -2651,7 +2651,7 @@ Calculation of mean convective heat transfer coefficient <strong> kc </strong> o
 Calculation of mean convective heat transfer coefficient <strong> kc </strong> of a straight pipe at an uniform wall temperature <strong> or </strong> uniform heat flux <strong> and </strong> for a hydrodynamically developed <strong>or</strong> undeveloped overall fluid flow with neglect <strong> or </strong> consideration of pressure loss influence.<a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.StraightPipe.kc_overall\">See more information</a> .
 </p>
 </html>", revisions="<html>
-<p>2016-04-11 Stefan Wischhusen: Removed singularity for Re at zero mass flow rate. </p>
+<p>2016-04-11 Stefan Wischhusen: Removed singularity for Re at zero mass flow rate.</p>
 </html>"),                 smoothOrder(normallyConstant=IN_con) = 2);
       end kc_overall_KC;
 
@@ -2762,7 +2762,7 @@ This record is used as <strong> input record </strong> for the heat transfer fun
 Calculation of mean convective heat transfer coefficient <strong> kc </strong> of a straight pipe for a hydrodynamically developed turbulent fluid flow at uniform wall temperature <strong> or </strong> uniform heat flux with neglecting <strong> or </strong> considering of pressure loss influence. Note that additionally a failure status is observed in this function to check if the intended boundary conditions are fulfilled.  <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.StraightPipe.kc_turbulent\">See more information</a> .
 </p>
 </html>", revisions="<html>
-<p>2016-04-11 Stefan Wischhusen: Removed singularity for Re at zero mass flow rate. </p>
+<p>2016-04-11 Stefan Wischhusen: Removed singularity for Re at zero mass flow rate.</p>
 </html>"),                 smoothOrder(normallyConstant=IN_con) = 2);
       end kc_turbulent;
 
@@ -2810,7 +2810,7 @@ Calculation of mean convective heat transfer coefficient <strong> kc </strong> o
 Calculation of mean convective heat transfer coefficient <strong> kc </strong> of a straight pipe for a hydrodynamically developed turbulent fluid flow at uniform wall temperature <strong> or </strong> uniform heat flux with neglecting <strong> or </strong> considering of pressure loss influence. <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.StraightPipe.kc_turbulent\">See more information</a> .
 </p>
 </html>", revisions="<html>
-<p>2016-04-12 Stefan Wischhusen: Limited Re to very small value (Modelica.Constant.eps). </p>
+<p>2016-04-12 Stefan Wischhusen: Limited Re to very small value (Modelica.Constant.eps).</p>
 </html>"),                 smoothOrder(normallyConstant=IN_con) = 2);
       end kc_turbulent_KC;
 
@@ -2877,7 +2877,7 @@ This record is used as <strong> input record </strong> for the heat transfer fun
                       "<html>
 <p>Calculation of local <strong>two phase</strong> heat transfer coefficient <strong>kc_2ph </strong>for (horizontal/vertical) <strong>boiling</strong> or (horizontal) <strong>condensation</strong> for an overall flow regime. <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.StraightPipe.kc_twoPhaseOverall\">See more information</a> .</p>
 </html>", revisions="<html>
-<p>2016-04-11 Stefan Wischhusen: Removed singularity for Re at zero mass flow rate. </p>
+<p>2016-04-11 Stefan Wischhusen: Removed singularity for Re at zero mass flow rate.</p>
 </html>"));
       end kc_twoPhaseOverall_KC;
 
@@ -3051,7 +3051,7 @@ This record is used as <strong>input record</strong> for the heat transfer funct
                 IN_var,
                 DP)),
           Documentation(info="<html>
-<p>Calculation of pressure loss in curved bends at overall flow regime for incompressible and single-phase fluid flow through circular cross sectional area considering surface roughness. </p>
+<p>Calculation of pressure loss in curved bends at overall flow regime for incompressible and single-phase fluid flow through circular cross sectional area considering surface roughness.</p>
 
 <p>Generally this function is numerically best used for the <strong>incompressible case </strong>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_curvedOverall_MFLOW\">dp_curvedOverall_MFLOW</a> is numerically best used for the <strong>compressible case </strong>if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Bend.dp_curvedOverall\">See more information</a>.</p>
 </html>", revisions="<html>
@@ -3611,7 +3611,7 @@ This record is used as <strong> input record </strong> for the  pressure loss fu
       annotation (preferredView="info", Documentation(info="<html>
 <h4>Bend</h4>
 <h5>Curved bend overall flow</h5>
-<p>Calculation of pressure loss in curved bends at overall flow regime for incompressible and single-phase fluid flow through circular cross sectional area considering surface roughness.  <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Bend.dp_curvedOverall\">See more information</a>. </p>
+<p>Calculation of pressure loss in curved bends at overall flow regime for incompressible and single-phase fluid flow through circular cross sectional area considering surface roughness.  <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Bend.dp_curvedOverall\">See more information</a>.</p>
 
 <h5>Edged bend overall flow</h5>
 <p>
@@ -3904,7 +3904,7 @@ Calculation of pressure loss for an internal flow through different geometries a
 </p>
 
 <p>
-Generally this function is numerically best used for the <strong> compressible case </strong> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. On the other hand the function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Channel.dp_internalFlowOverall_DP\">dp_internalFlowOverall_DP</a> is numerically best used for the <strong> incompressible case </strong>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. </p>
+Generally this function is numerically best used for the <strong> compressible case </strong> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. On the other hand the function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Channel.dp_internalFlowOverall_DP\">dp_internalFlowOverall_DP</a> is numerically best used for the <strong> incompressible case </strong>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated.</p>
 
 <p>
 The pressure loss calculation for internal fluid flow in different geometries is further documented  <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Channel.dp_internalFlowOverall\">here</a>.
@@ -6350,7 +6350,7 @@ You can perform an inverse calculation from <strong>kc_evenGapOverall_KC</strong
 </p>
 <p>
 The calculation conditions for laminar and turbulent flow is equal to the calculation in <strong>kc_evenGapLaminar</strong>
-and <strong>kc_evenGapTurbulent</strong>. A smooth transition between both functions is carried out between 2200 &le; Re &le; 30000 (see figure below). </p>
+and <strong>kc_evenGapTurbulent</strong>. A smooth transition between both functions is carried out between 2200 &le; Re &le; 30000 (see figure below).</p>
 
 <h4>Verification</h4>
 <p>
@@ -6575,7 +6575,7 @@ with
 
 <h4>Verification</h4>
 <p>
-The mean Nusselt number <strong> Nu </strong> representing the mean convective heat transfer coefficient <strong> kc </strong> for Prandtl numbers of different fluids is shown in the figure below. </p>
+The mean Nusselt number <strong> Nu </strong> representing the mean convective heat transfer coefficient <strong> kc </strong> for Prandtl numbers of different fluids is shown in the figure below.</p>
 <p><strong>Dittus/Boelter</strong> (target = Modelica.Fluid.Dissipation.Utilities.Types.kc_general.Rough)
 </p>
 
@@ -6986,7 +6986,7 @@ You can perform an inverse calculation from <strong>kc_overall_KC</strong>, wher
 </p>
 <p>
 The calculation conditions for laminar and turbulent flow is equal to the calculation in <strong>kc_laminar</strong>
-and <strong>kc_turbulent</strong>. A smooth transition between both functions is carried out between 2200 &le; Re &le; 30000 (see figure below). </p>
+and <strong>kc_turbulent</strong>. A smooth transition between both functions is carried out between 2200 &le; Re &le; 30000 (see figure below).</p>
 
 <h4>Verification</h4>
 <p>
@@ -7509,7 +7509,7 @@ You can perform an inverse calculation from <strong>kc_overall_KC</strong>, wher
 </p>
 <p>
 The calculation conditions for laminar and turbulent flow is equal to the calculation in <strong>kc_laminar</strong>
-and <strong>kc_turbulent</strong>. A smooth transition between both functions is carried out between 2200 &le; Re &le; 10000 (see figure below). </p>
+and <strong>kc_turbulent</strong>. A smooth transition between both functions is carried out between 2200 &le; Re &le; 10000 (see figure below).</p>
 
 <h4>Verification</h4>
 <p>
@@ -7937,7 +7937,7 @@ The pressure loss of curved bends is similar to its calculation in straight pipe
 <td><p>as pressure loss coefficient [-].</p></td>
 </tr>
 </table>
-<p><br/>The correction for surface roughness through <strong>CF </strong>is used only in the turbulent regime, where the fluid flow is influenced by surface asperities not covered by a laminar boundary layer. The turbulent regime starts at <strong>Re &ge; 4e4 </strong>according to <em>[Idelchik 2006, p. 336, sec. 15]</em>. There is no correction due to roughness in the laminar regime up to <strong>Re &le; 6.5e3 </strong>according to <em>[Idelchik 2006, p. 336, sec. 15]</em>. </p>
+<p><br/>The correction for surface roughness through <strong>CF </strong>is used only in the turbulent regime, where the fluid flow is influenced by surface asperities not covered by a laminar boundary layer. The turbulent regime starts at <strong>Re &ge; 4e4 </strong>according to <em>[Idelchik 2006, p. 336, sec. 15]</em>. There is no correction due to roughness in the laminar regime up to <strong>Re &le; 6.5e3 </strong>according to <em>[Idelchik 2006, p. 336, sec. 15]</em>.</p>
 <p>Nevertheless the transition point from the laminar to the transition regime is shifted to smaller Reynolds numbers for an increasing absolute roughness. This effect is considered according to <em>[Samoilenko in Idelchik 2006, p. 81, sec. 2-1-21]</em> as: </p>
 <pre>    Re_lam_leave = 754*exp(if k &le; 0.007 then 0.0065/0.007 else 0.0065/k)</pre>
 <p>with </p>
@@ -7950,15 +7950,15 @@ The pressure loss of curved bends is similar to its calculation in straight pipe
 <td><p>as Reynolds number for leaving laminar regime [-].</p></td>
 </tr>
 </table>
-<p>Note that the beginning of the laminar regime cannot be beneath <strong>Re &le; 1e2 </strong>. </p>
+<p>Note that the beginning of the laminar regime cannot be beneath <strong>Re &le; 1e2 </strong>.</p>
 <h4>Verification</h4>
-<p>The pressure loss coefficient <strong>zeta_TOT </strong>of a curved bend in dependence of the Reynolds number <strong>Re </strong>for different relative curvature radii <strong>R_0/d_hyd </strong>and different angles of turning <strong>delta </strong>is shown in the figures below. </p>
+<p>The pressure loss coefficient <strong>zeta_TOT </strong>of a curved bend in dependence of the Reynolds number <strong>Re </strong>for different relative curvature radii <strong>R_0/d_hyd </strong>and different angles of turning <strong>delta </strong>is shown in the figures below.</p>
 
 <p>
 <img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/bend/fig_bend_dp_curvedOverall_DPvsMFLOW.png\" alt=\"fig_bend_dp_curvedOverall_DPvsMFLOW\"/>
 </p>
 
-<p>There are deviations of the pressure loss coefficient <strong>zeta_TOT</strong> comparing different references. Usually these deviations in the transition regime have to be accepted due to an uncertainty for the determination of comparable boundary conditions in the different references. Nevertheless these calculations cover the usual range of pressure loss coefficients for a curved bend. The pressure loss coefficient <strong>zeta_TOT </strong>for the same geometry can be adjusted via varying the average height of surface asperities <strong>K</strong> for calibration. </p>
+<p>There are deviations of the pressure loss coefficient <strong>zeta_TOT</strong> comparing different references. Usually these deviations in the transition regime have to be accepted due to an uncertainty for the determination of comparable boundary conditions in the different references. Nevertheless these calculations cover the usual range of pressure loss coefficients for a curved bend. The pressure loss coefficient <strong>zeta_TOT </strong>for the same geometry can be adjusted via varying the average height of surface asperities <strong>K</strong> for calibration.</p>
 <p>The pressure loss in dependence of the mass flow rate of water is shown for different relative curvature radii: </p>
 
 <p>
@@ -10545,7 +10545,7 @@ The heterogeneous approaches are analytically derived by minimising the momentum
               0.38);
             annotation (Inline=false, smoothOrder=5,
               Documentation(revisions="<html>
-<p>2016-04-11 Stefan Wischhusen: Removed singularity for Re at zero mass flow rate. </p>
+<p>2016-04-11 Stefan Wischhusen: Removed singularity for Re at zero mass flow rate.</p>
 </html>"));
           end kc_twoPhase_condensationHorizontal_KC;
 
@@ -10619,7 +10619,7 @@ The heterogeneous approaches are analytically derived by minimising the momentum
             kc := E_fc*kc_fc + S_nb*kc_nb;
             annotation (Inline = false, smoothOrder=5,
               Documentation(revisions="<html>
-<p>2016-04-11 Stefan Wischhusen: Removed singularity for Re at zero mass flow rate. </p>
+<p>2016-04-11 Stefan Wischhusen: Removed singularity for Re at zero mass flow rate.</p>
 </html>"));
           end kc_twoPhase_boilingVertical_KC;
 
@@ -10718,7 +10718,7 @@ The heterogeneous approaches are analytically derived by minimising the momentum
             kc := E_fc*E_fc_hor*kc_fc + S_nb*S_nb_hor*kc_nb;
             annotation (Inline=false, smoothOrder=5,
               Documentation(revisions="<html>
-<p>2016-04-11 Stefan Wischhusen: Removed singularity for Re at zero mass flow rate. </p>
+<p>2016-04-11 Stefan Wischhusen: Removed singularity for Re at zero mass flow rate.</p>
 </html>"));
           end kc_twoPhase_boilingHorizontal_KC;
 
