@@ -53,7 +53,6 @@
                      Revised initialization of CombiTimeTable, CombiTable1D
                      and CombiTable2D (ticket #1899)
                      - Already read table in the initialization functions
-                     - Removed the implementation of the read functions
 
       Apr. 07, 2017: by Thomas Beutlich, ESI ITI GmbH
                      Added support for shift time (independent of start time)
