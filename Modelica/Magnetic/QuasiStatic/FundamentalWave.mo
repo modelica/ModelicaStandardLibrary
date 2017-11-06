@@ -8138,7 +8138,10 @@ choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
                   textString="id_rms"),Text(
                   extent={{-100,-40},{20,-60}},
                   lineColor={0,0,255},
-                  textString="iq_rms")}),
+                  textString="iq_rms"),     Text(
+            extent={{-150,150},{150,110}},
+            textString="%name",
+            lineColor={0,0,255})}),
         Documentation(info="<html>
 <p>
 This is a simple current controller.
