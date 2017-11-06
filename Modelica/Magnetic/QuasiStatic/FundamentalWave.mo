@@ -3535,7 +3535,7 @@ to numerically stabilize the simulation.</p>
           parameter Modelica.SIunits.Inertia JLoad=0.29 "Load's moment of inertia";
           parameter Modelica.SIunits.AngularVelocity wNominal = 2*pi*fNominal/smpmData.p "Nominal angular velocity";
           Modelica.SIunits.Angle theta=rotorAngleQS.rotorDisplacementAngle "Rotor displacement angle, quasi stastic";
-          parameter Boolean positiveRange = false "Use positive range of angles";
+          parameter Boolean positiveRange = false "Use positive range of angles, if true";
           Modelica.SIunits.Angle phi_i = Modelica.Math.wrapAngle(smpmQS.arg_is[1],positiveRange) "Angle of current";
           Modelica.SIunits.Angle phi_v = Modelica.Math.wrapAngle(smpmQS.arg_vs[1],positiveRange) "Angle of voltage";
           Modelica.SIunits.Angle phi = Modelica.Math.wrapAngle(phi_v-phi_i,positiveRange) "Angle between voltage and current";
