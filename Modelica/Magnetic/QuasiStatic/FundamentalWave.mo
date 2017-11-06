@@ -3521,7 +3521,7 @@ to numerically stabilize the simulation.</p>
                           textString="%m phase transient")}));
         end SMPM_CurrentSource;
 
-        model SMPM_MTPA "Test example: PermanentMagnetSynchronousMachine fed by current source"
+        model SMPM_MTPA "Test example: PermanentMagnetSynchronousMachine, investigating maximum torque per Amps"
           extends Modelica.Icons.Example;
           import Modelica.Constants.pi;
           parameter Integer m=3 "Number of phases";
