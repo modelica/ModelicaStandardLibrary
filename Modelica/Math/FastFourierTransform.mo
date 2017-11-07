@@ -62,7 +62,7 @@ package FastFourierTransform
          end if;
       end when;
 
-      annotation (experiment(StopTime=6),
+      annotation (experiment(StopTime=6), preferredView="text",
         Documentation(revisions="<html>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
@@ -163,7 +163,7 @@ Furthermore, note that the FFT phases are with respect to a cos(..) signal.
          end if;
       end when;
 
-      annotation (experiment(StopTime=6),
+      annotation (experiment(StopTime=6), preferredView="text",
         Documentation(revisions="<html>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
