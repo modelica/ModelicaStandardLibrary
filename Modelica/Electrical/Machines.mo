@@ -1419,7 +1419,7 @@ The mechanical load is a constant torque like a conveyor (with regularization ar
         connect(currentQuasiRMSSensor.plug_n, TerminalBox1.plugSupply)
           annotation (Line(
             points={{-10,-20},{-10,-28}}, color={0,0,255}));
-        annotation (experiment(StopTime=1.5, Interval=1E-4, Tolerance=1e-06), Documentation(
+        annotation (experiment(StopTime=1, Interval=1E-4, Tolerance=1e-06), Documentation(
               info="<html>
 <p>At start time tStart single phase voltage is supplied to the asynchronous induction machine with squirrel cage;
 the machine starts from standstill, accelerating inertias against load torque quadratic dependent on speed, finally reaching nominal speed.</p<
@@ -10177,6 +10177,7 @@ Calculates (mechanical) power from torque times angular speed.
     model RotorDisplacementAngle "Rotor lagging angle"
       parameter Integer m=3 "Number of phases";
       parameter Integer p(min=1) "Number of pole pairs";
+      parameter Boolean positiveRange=false "Use only positive output range, if true";
       parameter Boolean useSupport=false "Use support or fixed housing"
         annotation (Evaluate=true);
       Modelica.Blocks.Interfaces.RealOutput rotorDisplacementAngle(final
@@ -10213,6 +10214,8 @@ Calculates (mechanical) power from torque times angular speed.
             transformation(extent={{90,90},{110,110}})));
       Modelica.Mechanics.Rotational.Components.Fixed fixed if (not useSupport)
         annotation (Placement(transformation(extent={{90,70},{110,90}})));
+      Blocks.Math.WrapAngle wrapAngle(final positiveRange=positiveRange)
+        annotation (Placement(transformation(extent={{60,-10},{80,10}})));
     equation
       connect(plug_p, VoltageSensor1.plug_p) annotation (Line(points={{-100,60},
               {-80,60},{-80,10}}, color={0,0,255}));
@@ -10236,8 +10239,8 @@ Calculates (mechanical) power from torque times angular speed.
           points={{1,0},{18,0}}, color={0,0,127}));
       connect(add.y, rotatorVS2R.angle) annotation (Line(
           points={{-10,19},{-10,12}}, color={0,0,127}));
-      connect(ToPolarVSR.y[2], rotorDisplacementAngle) annotation (Line(
-          points={{41,0},{80,0},{80,0},{110,0}},     color={0,0,127}));
+      connect(ToPolarVSR.y[2], wrapAngle.u) annotation (Line(points={{41,0},{58,0}}, color={0,0,127}));
+      connect(wrapAngle.y, rotorDisplacementAngle) annotation (Line(points={{81,0},{110,0}}, color={0,0,127}));
       annotation (
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Ellipse(
@@ -14353,9 +14356,9 @@ The icons can be utilized by inheriting them in the desired class using \"extend
         parameter Modelica.SIunits.Temperature TsRef=293.15
           "Reference temperature of stator resistance"
           annotation (Dialog(tab="Nominal resistances and inductances"));
-        parameter Machines.Thermal.LinearTemperatureCoefficient20 alpha20s=0
-          "Temperature coefficient of stator resistance at 20 degC"
+        parameter Machines.Thermal.LinearTemperatureCoefficient20 alpha20s=0 "Temperature coefficient of stator resistance at 20 degC"
           annotation (Dialog(tab="Nominal resistances and inductances"));
+        parameter Real effectiveStatorTurns=1 "Effective number of stator turns";
         parameter Modelica.SIunits.Inductance Lszero=Lssigma
           "Stator zero sequence inductance"
           annotation (Dialog(tab="Nominal resistances and inductances"));
@@ -14369,8 +14372,7 @@ The icons can be utilized by inheriting them in the desired class using \"extend
           final m=m,
           PRef=0,
           VRef=100,
-          wRef=2*pi*fsNominal)
-          "Stator core loss parameter record; all parameters refer to stator side"
+          wRef=2*pi*fsNominal) "Stator core loss parameter record; all parameters refer to stator side"
           annotation (Dialog(tab="Losses"));
         parameter Machines.Losses.StrayLoadParameters strayLoadParameters(
           PRef=0,
@@ -14402,8 +14404,7 @@ The icons can be utilized by inheriting them in the desired class using \"extend
         parameter Modelica.SIunits.Temperature TrRef=293.15
           "Reference temperature of rotor resistance"
           annotation (Dialog(tab="Nominal resistances and inductances"));
-        parameter Machines.Thermal.LinearTemperatureCoefficient20 alpha20r=0
-          "Temperature coefficient of rotor resistance at 20 degC"
+        parameter Machines.Thermal.LinearTemperatureCoefficient20 alpha20r=0 "Temperature coefficient of rotor resistance at 20 degC"
           annotation (Dialog(tab="Nominal resistances and inductances"));
         annotation (
           defaultComponentName="aimcData",
@@ -14433,8 +14434,7 @@ The icons can be utilized by inheriting them in the desired class using \"extend
         parameter Modelica.SIunits.Temperature TrRef=293.15
           "Reference temperature of rotor resistance"
           annotation (Dialog(tab="Nominal resistances and inductances"));
-        parameter Machines.Thermal.LinearTemperatureCoefficient20 alpha20r=0
-          "Temperature coefficient of rotor resistance at 20 degC"
+        parameter Machines.Thermal.LinearTemperatureCoefficient20 alpha20r=0 "Temperature coefficient of rotor resistance at 20 degC"
           annotation (Dialog(tab="Nominal resistances and inductances"));
         parameter Boolean useTurnsRatio=true
           "Use turnsRatio or calculate from locked-rotor voltage?";
@@ -14454,8 +14454,7 @@ The icons can be utilized by inheriting them in the desired class using \"extend
           final m=3,
           PRef=0,
           VRef=1,
-          wRef=1)
-          "Rotor core loss parameter record; all parameters refer to rotor side"
+          wRef=1) "Rotor core loss parameter record; all parameters refer to rotor side"
           annotation (Dialog(tab="Losses"));
         annotation (
           defaultComponentName="aimsData",
@@ -14502,8 +14501,7 @@ The icons can be utilized by inheriting them in the desired class using \"extend
         parameter Modelica.SIunits.Temperature TeRef=293.15
           "Reference temperature of excitation resistance"
           annotation (Dialog(tab="Excitation"));
-        parameter Machines.Thermal.LinearTemperatureCoefficient20 alpha20e=0
-          "Temperature coefficient of excitation resistance"
+        parameter Machines.Thermal.LinearTemperatureCoefficient20 alpha20e=0 "Temperature coefficient of excitation resistance"
           annotation (Dialog(tab="Excitation"));
         parameter Real sigmae(
           min=0,
@@ -14559,8 +14557,7 @@ The icons can be utilized by inheriting them in the desired class using \"extend
             tab="Nominal resistances and inductances",
             group="DamperCage",
             enable=useDamperCage));
-        parameter Machines.Thermal.LinearTemperatureCoefficient20 alpha20r=0
-          "Temperature coefficient of damper resistances in d- and q-axis"
+        parameter Machines.Thermal.LinearTemperatureCoefficient20 alpha20r=0 "Temperature coefficient of damper resistances in d- and q-axis"
           annotation (Dialog(
             tab="Nominal resistances and inductances",
             group="DamperCage",
@@ -14596,8 +14593,7 @@ The icons can be utilized by inheriting them in the desired class using \"extend
         parameter Modelica.SIunits.Temperature TaRef=293.15
           "Reference temperature of armature resistance"
           annotation (Dialog(tab="Nominal resistances and inductances"));
-        parameter Machines.Thermal.LinearTemperatureCoefficient20 alpha20a=0
-          "Temperature coefficient of armature resistance"
+        parameter Machines.Thermal.LinearTemperatureCoefficient20 alpha20a=0 "Temperature coefficient of armature resistance"
           annotation (Dialog(tab="Nominal resistances and inductances"));
         parameter Modelica.SIunits.Inductance La=0.0015 "Armature inductance"
           annotation (Dialog(tab="Nominal resistances and inductances"));
@@ -14643,8 +14639,7 @@ The icons can be utilized by inheriting them in the desired class using \"extend
         parameter Modelica.SIunits.Temperature TeRef=293.15
           "Reference temperature of excitation resistance"
           annotation (Dialog(tab="Excitation"));
-        parameter Machines.Thermal.LinearTemperatureCoefficient20 alpha20e=0
-          "Temperature coefficient of excitation resistance"
+        parameter Machines.Thermal.LinearTemperatureCoefficient20 alpha20e=0 "Temperature coefficient of excitation resistance"
           annotation (Dialog(tab="Excitation"));
         parameter Modelica.SIunits.Inductance Le=1
           "Total field excitation inductance"
@@ -14670,8 +14665,7 @@ The icons can be utilized by inheriting them in the desired class using \"extend
         parameter Modelica.SIunits.Temperature TeRef=293.15
           "Reference temperature of excitation resistance"
           annotation (Dialog(tab="Excitation"));
-        parameter Machines.Thermal.LinearTemperatureCoefficient20 alpha20e=0
-          "Temperature coefficient of excitation resistance"
+        parameter Machines.Thermal.LinearTemperatureCoefficient20 alpha20e=0 "Temperature coefficient of excitation resistance"
           annotation (Dialog(tab="Excitation"));
         parameter Modelica.SIunits.Inductance Le=0.0005
           "Total field excitation inductance"
@@ -14712,8 +14706,7 @@ The icons can be utilized by inheriting them in the desired class using \"extend
         parameter Modelica.SIunits.Temperature T1Ref=293.15
           "Reference temperature of primary resistance"
           annotation (Dialog(tab="Nominal resistances and inductances"));
-        parameter Machines.Thermal.LinearTemperatureCoefficient20 alpha20_1=0
-          "Temperature coefficient of primary resistance at 20 degC"
+        parameter Machines.Thermal.LinearTemperatureCoefficient20 alpha20_1=0 "Temperature coefficient of primary resistance at 20 degC"
           annotation (Dialog(tab="Nominal resistances and inductances"));
         parameter Modelica.SIunits.Inductance L1sigma=78E-6/3
           "Primary stray inductance per phase"
@@ -14724,8 +14717,7 @@ The icons can be utilized by inheriting them in the desired class using \"extend
         parameter Modelica.SIunits.Temperature T2Ref=293.15
           "Reference temperature of secondary resistance"
           annotation (Dialog(tab="Nominal resistances and inductances"));
-        parameter Machines.Thermal.LinearTemperatureCoefficient20 alpha20_2=0
-          "Temperature coefficient of secondary resistance at 20 degC"
+        parameter Machines.Thermal.LinearTemperatureCoefficient20 alpha20_2=0 "Temperature coefficient of secondary resistance at 20 degC"
           annotation (Dialog(tab="Nominal resistances and inductances"));
         parameter Modelica.SIunits.Inductance L2sigma=78E-6/3
           "Secondary stray inductance per phase"
@@ -15437,6 +15429,7 @@ starting at time <code>tStart</code> with a linear ramp <code>tRamp</code>.</p>
         "Nominal angular frequency";
       parameter Modelica.SIunits.Current IeOpenCircuit(start=10)
         "Open circuit excitation current @ nominal voltage and frequency";
+      parameter Real effectiveStatorTurns=1 "Effective number of stator turns";
       final parameter Real turnsRatio=sqrt(2)*VsNominal/(omega*Lmd*
           IeOpenCircuit) "Stator current / excitation current";
       parameter Real x0(start=0.1)

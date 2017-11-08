@@ -755,7 +755,7 @@ documentation_annotation:
 </pre>
 <h4>Description</h4>
 <P>
-The \"Documentation\" annotation can contain the \"info\" annotation giving a textual description, the \"revisions\" annotation giving a list of revisions and other annotations defined by a tool [The \"revisions\" documentation may be omitted in printed documentation]. How the tool interprets the information in \"Documentation\" is unspecified. Within a string of the \"Documentation\" annotation, the tags &lt;HTML&gt; and &lt;/HTML&gt; or &lt;html&gt; and &lt;/html&gt; optionally begin and end of content that is HTML encoded. Links to Modelica classes may be defined with the HTML link command using scheme \"Modelica\", e.g.,
+The \"Documentation\" annotation can contain the \"info\" annotation giving a textual description, the \"revisions\" annotation giving a list of revisions and other annotations defined by a tool [The \"revisions\" documentation may be omitted in printed documentation]. How the tool interprets the information in \"Documentation\" is unspecified. Within a string of the \"Documentation\" annotation, the tags &lt;HTML&gt; and &lt;/HTML&gt; or &lt;html&gt; and &lt;/html&gt; define the start and end of content that is HTML encoded. Links to Modelica classes may be defined with the HTML link command using scheme \"Modelica\", e.g.,
 </p>
 <pre>
     &lt;a href=\"modelica://MultiBody.Tutorial\"&gt;MultiBody.Tutorial&lt;/a&gt;
@@ -1005,7 +1005,7 @@ If true, the model developer proposes to inline the function after the function 
     class inverse "inverse"
     extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
-<p>Every function with one output argument may have one or more &quot;<code>inverse</code>&quot; annotations to define inverses of this function. </p>
+<p>Every function with one output argument may have one or more &quot;<code>inverse</code>&quot; annotations to define inverses of this function.</p>
 <h4>Syntax</h4>
 <blockquote>
 <pre><strong>function</strong> f1
@@ -2566,7 +2566,7 @@ Absolute value of Real or Integer variable.
 <h4>Description</h4>
 <P>Is expanded into &quot;noEvent(<strong>if </strong>v &ge; 0
 <strong>then</strong> v <strong>else</strong> -v)&quot;. Argument v
-needs to be an Integer or Real expression. </P>
+needs to be an Integer or Real expression.</P>
 <h4>Examples</h4>
 <pre>
   <strong>abs</strong>({-3, 0, 3})
@@ -2938,7 +2938,7 @@ The same restrictions as for the pre() operator apply.</P>
     extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
-Connect objects (defines <em>breakable</em> branches)
+Connect objects
 </p>
 <h4>Examples</h4>
 
@@ -3038,7 +3038,7 @@ connected as a pair of scalar connectors.</P>
       extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
-Defines <em>non-breakable</em> branch
+Defines <em>required</em> branch of spanning-tree
 </p>
 
 <h4>Syntax</h4>
@@ -3048,7 +3048,9 @@ Connections.branch(A.R,B.R);
 
 <h4>Description</h4>
 <p>
-Defines a non-breakable branch from the overdetermined type or record instance <code>R</code> in connector instance <code>A</code> to the corresponding overdetermined type or record instance <code>R</code> in connector instance <code>B</code> for a virtual connection graph.
+Defines a branch from the overdetermined type or record instance <code>R</code> in connector instance <code>A</code> to the corresponding overdetermined type or record instance <code>R</code> in connector instance <code>B</code> for a virtual connection graph.
+These branches are required to be part of the spanning-tree for the virtual connection graph (they do not directly generate equations, but should be combined with equations coupling <code>A.R</code> to <code>B.R</code>), 
+whereas connect-statements are optional for the spanning-tree (and generate different equations depending on whether they are part of the spanning-tree or not).
 </p>
 <h4>Examples</h4>
 <p>
@@ -4490,7 +4492,7 @@ Sign function of a Real or Integer number
 <h4>Description</h4>
 <p>Is expanded into &quot;noEvent(<strong>if</strong> v &gt; 0 <strong>then</strong> 1 <strong>else
 if</strong> v &lt; 0 <strong>then</strong> -1 <strong>else</strong> 0)&quot;. Argument v
-needs to be an Integer or Real expression. </p>
+needs to be an Integer or Real expression.</p>
 <h4>Examples</h4>
 <pre><strong>sign</strong>({-3, 0, 3})
  = {-1, 0, 1}</pre>

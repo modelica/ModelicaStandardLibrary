@@ -2136,9 +2136,10 @@ The Complex output y is a step signal (of real and imaginary part):
       parameter Modelica.SIunits.Angle phi0=0
         "Initial angle of complex phasor at time = 0";
       extends Modelica.ComplexBlocks.Interfaces.ComplexSO;
-
+      Modelica.SIunits.Angle phi "Angle";
     equation
-      y = magnitude*Modelica.ComplexMath.exp(Complex(0, w*time + phi0));
+      phi = w*time + phi0;
+      y = magnitude*Modelica.ComplexMath.exp(Complex(0, phi));
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Polygon(
                   points={{-10,90},{-16,68},{-4,68},{-10,90}},

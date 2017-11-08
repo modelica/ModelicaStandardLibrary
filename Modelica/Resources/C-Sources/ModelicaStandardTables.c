@@ -38,6 +38,10 @@
       Modelica.Blocks.Tables.CombiTable2D
 
    Release Notes:
+      Oct. 23, 2017: by Thomas Beutlich, ESI ITI GmbH
+                     Utilized non-fatal hash insertion, called by HASH_ADD_KEYPTR
+                     in function readTable (ticket #2097)
+
       Aug. 25, 2017: by Thomas Beutlich, ESI ITI GmbH
                      Added support for extrapolation in CombiTable2D (ticket #1839)
 
@@ -53,7 +57,6 @@
                      Revised initialization of CombiTimeTable, CombiTable1D
                      and CombiTable2D (ticket #1899)
                      - Already read table in the initialization functions
-                     - Removed the implementation of the read functions
 
       Apr. 07, 2017: by Thomas Beutlich, ESI ITI GmbH
                      Added support for shift time (independent of start time)
@@ -65,10 +68,6 @@
 
       Mar. 08, 2017: by Thomas Beutlich, ESI ITI GmbH
                      Moved file I/O functions to ModelicaIO (ticket #2192)
-
-      Feb. 26, 2017: by Thomas Beutlich, ESI ITI GmbH
-                     Fixed definition of uthash_fatal, called by HASH_ADD_KEYPTR
-                     in function readTable (ticket #2097)
 
       Feb. 25, 2017: by Thomas Beutlich, ESI ITI GmbH
                      Added support for extrapolation in CombiTable1D (ticket #1839)
@@ -149,8 +148,8 @@
 #include "ModelicaUtilities.h"
 #if defined(TABLE_SHARE) && !defined(NO_FILE_SYSTEM)
 #define uthash_strlen(s) key_strlen(s)
+#define HASH_NONFATAL_OOM 1
 #include "uthash.h"
-#undef uthash_fatal /* Ensure that nowhere in this file uses uthash_fatal by accident */
 #include "gconstructor.h"
 #endif
 #include <float.h>
@@ -362,7 +361,7 @@ typedef struct TableShare {
 /* ----- Static variables ----- */
 
 static TableShare* tableShare = NULL;
-#if defined(_POSIX_)
+#if defined(_POSIX_) && !defined(NO_MUTEX)
 #include <pthread.h>
 #if defined(G_HAS_CONSTRUCTORS)
 static pthread_mutex_t m;
@@ -589,7 +588,7 @@ void* ModelicaStandardTables_CombiTimeTable_init2(_In_z_ const char* fileName,
     tableID = (CombiTimeTable*)calloc(1, sizeof(CombiTimeTable));
     if (NULL == tableID) {
 #if defined(TABLE_SHARE)
-        if (NULL != keyFile) {
+        if (NULL != file) {
             MUTEX_LOCK();
             if (--file->refCount == 0) {
                 free(file->table);
@@ -1441,7 +1440,7 @@ double ModelicaStandardTables_CombiTimeTable_nextTimeEvent(void* _tableID,
                             tableID->intervals[eventInterval][1] = i + 1;
                         }
                     }
-                    else if (tableID->timeEvents == AT_DISCONT) {
+                    else /* if (tableID->timeEvents == AT_DISCONT) */ {
                         if (t1 > tEvent) {
                             if (isNearlyEqual(t0, t1)) {
                                 tEvent = t1;
@@ -1762,7 +1761,7 @@ void* ModelicaStandardTables_CombiTable1D_init2(_In_z_ const char* fileName,
     tableID = (CombiTable1D*)calloc(1, sizeof(CombiTable1D));
     if (NULL == tableID) {
 #if defined(TABLE_SHARE)
-        if (NULL != keyFile) {
+        if (NULL != file) {
             MUTEX_LOCK();
             if (--file->refCount == 0) {
                 free(file->table);
@@ -2401,7 +2400,7 @@ void* ModelicaStandardTables_CombiTable2D_init2(_In_z_ const char* fileName,
     tableID = (CombiTable2D*)calloc(1, sizeof(CombiTable2D));
     if (NULL == tableID) {
 #if defined(TABLE_SHARE)
-        if (NULL != keyFile) {
+        if (NULL != file) {
             MUTEX_LOCK();
             if (--file->refCount == 0) {
                 free(file->table);
@@ -4614,7 +4613,7 @@ static int isValidCombiTimeTable(CombiTimeTable* tableID,
         const size_t nRow = tableID->nRow;
         const size_t nCol = tableID->nCol;
         const char* tableDummyName = "NoName";
-        const char* tableName = (0 < strlen(_tableName)) ? _tableName : tableDummyName;
+        const char* tableName = _tableName[0] != '\0' ? _tableName : tableDummyName;
         size_t iCol;
 
         /* Check dimensions */
@@ -4721,7 +4720,7 @@ static int isValidCombiTable1D(CombiTable1D* tableID,
         const size_t nRow = tableID->nRow;
         const size_t nCol = tableID->nCol;
         const char* tableDummyName = "NoName";
-        const char* tableName = (0 < strlen(_tableName)) ? _tableName : tableDummyName;
+        const char* tableName = _tableName[0] != '\0' ? _tableName : tableDummyName;
         size_t iCol;
 
         /* Check dimensions */
@@ -4784,7 +4783,7 @@ static int isValidCombiTable2D(CombiTable2D* tableID,
         const size_t nRow = tableID->nRow;
         const size_t nCol = tableID->nCol;
         const char* tableDummyName = "NoName";
-        const char* tableName = (0 < strlen(_tableName)) ? _tableName : tableDummyName;
+        const char* tableName = _tableName[0] != '\0' ? _tableName : tableDummyName;
 
         /* Check dimensions */
         if (nRow < 2 || nCol < 2) {
@@ -5598,12 +5597,6 @@ static READ_RESULT readTable(_In_z_ const char* fileName, _In_z_ const char* tab
                              int force) {
 #if !defined(NO_FILE_SYSTEM)
 #if defined(TABLE_SHARE)
-#define uthash_fatal(msg) do { \
-    MUTEX_UNLOCK(); \
-    ModelicaFormatMessage("Error in uthash: %s\n" \
-        "Hash table for table cache may be left in corrupt state.\n", msg); \
-    return file; \
-} while (0)
     TableShare* file = NULL;
 #endif
     double* table = NULL;
@@ -5618,22 +5611,30 @@ static READ_RESULT readTable(_In_z_ const char* fileName, _In_z_ const char* tab
             MUTEX_LOCK();
             HASH_FIND_STR(tableShare, key, file);
             if (NULL == file || force) {
-                /* Release lock since ModelicaIO_readRealTable may fail with
+                /* Release resources since ModelicaIO_readRealTable may fail with
                    ModelicaError
                 */
                 MUTEX_UNLOCK();
+                free(key);
 #endif
                 table = ModelicaIO_readRealTable(fileName, tableName,
                     nRow, nCol, verbose);
                 if (NULL == table) {
 #if defined(TABLE_SHARE)
-                    free(key);
                     return file;
 #else
                     return table;
 #endif
                 }
 #if defined(TABLE_SHARE)
+                /* Again allocate and set key */
+                key = (char*)malloc((lenFileName + strlen(tableName) + 2) * sizeof(char));
+                if (NULL == key) {
+                    free(table);
+                    return file;
+                }
+                strcpy(key, fileName);
+                strcpy(key + lenFileName + 1, tableName);
                 /* Again ask for lock and search in hash table share */
                 MUTEX_LOCK();
                 HASH_FIND_STR(tableShare, key, file);
@@ -5649,9 +5650,18 @@ static READ_RESULT readTable(_In_z_ const char* fileName, _In_z_ const char* tab
                     file->nCol = *nCol;
                     file->table = table;
                     HASH_ADD_KEYPTR(hh, tableShare, key, lenKey, file);
+                    if (NULL == file->hh.tbl) {
+                        free(key);
+                        free(file);
+                        free(table);
+                        MUTEX_UNLOCK();
+                        return NULL;
+                    }
                 }
                 else {
                     free(key);
+                    free(table);
+                    MUTEX_UNLOCK();
                     return file;
                 }
             }
@@ -5692,7 +5702,6 @@ static READ_RESULT readTable(_In_z_ const char* fileName, _In_z_ const char* tab
 #endif
     }
 #if defined(TABLE_SHARE)
-#undef uthash_fatal
     return file;
 #else
     return table;

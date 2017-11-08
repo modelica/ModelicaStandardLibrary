@@ -287,8 +287,8 @@ behavior is <strong>not</strong> modelled. The parameters are not temperature de
      alt=\"IdealIntermediateSwitch2.png\">
 </p>
 
-<p>The limiting case is also allowed, i.e., the resistance Ron of the closed switch could be exactly zero and the conductance Goff of the open switch could be also exactly zero. Note, there are circuits, where a description with zero Ron or zero Goff is not possible. </p>
-<p><strong>Please note:</strong> In case of useHeatPort=true the temperature dependence of the electrical behavior is <strong>not </strong>modelled. The parameters are not temperature dependent. </p>
+<p>The limiting case is also allowed, i.e., the resistance Ron of the closed switch could be exactly zero and the conductance Goff of the open switch could be also exactly zero. Note, there are circuits, where a description with zero Ron or zero Goff is not possible.</p>
+<p><strong>Please note:</strong> In case of useHeatPort=true the temperature dependence of the electrical behavior is <strong>not </strong>modelled. The parameters are not temperature dependent.</p>
 </html>", revisions="<html>
 <ul>
 <li><em> March 11, 2009   </em>
@@ -462,8 +462,8 @@ In order to prevent singularities during switching, the opened switch has a (ver
 </p>
 
 <p>
-The limiting case is also allowed, i.e., the resistance Ron of the closed switch could be exactly zero and the conductance Goff of the open switch could be also exactly zero. Note, there are circuits, where a description with zero Ron or zero Goff is not possible. </p>
-<p><br><strong>Please note:</strong> In case of useHeatPort=true the temperature dependence of the electrical behavior is <strong>not </strong>modelled. The parameters are not temperature dependent. </p>
+The limiting case is also allowed, i.e., the resistance Ron of the closed switch could be exactly zero and the conductance Goff of the open switch could be also exactly zero. Note, there are circuits, where a description with zero Ron or zero Goff is not possible.</p>
+<p><br><strong>Please note:</strong> In case of useHeatPort=true the temperature dependence of the electrical behavior is <strong>not </strong>modelled. The parameters are not temperature dependent.</p>
 </html>", revisions="<html>
 <ul>
 <li><em> March 11, 2009   </em>
@@ -1475,7 +1475,7 @@ For details of the arc effect, see partial model <a href=\"modelica://Modelica.E
 Simple analog to digital converter with a variable resolution of n bits.
 It converts the input voltage <code>ppin.v-npin.v</code> to an n-vector of type Logic
 (9-valued logic according to IEEE 1164 STD_ULOGIC). The input resistance between positive and negative pin is determined by <code>Rin</code>.
-Further effects (like input capacities) have to be modeled outside the converter, since this should be a general model. </P>
+Further effects (like input capacities) have to be modeled outside the converter, since this should be a general model.</P>
 
 <P>
 The input signal range (VRefLo,VRefHi) is divided into 2^n-1 equally spaced stages of length Vlsb:=(VRefHi-VRefLo)/(2^n-1).

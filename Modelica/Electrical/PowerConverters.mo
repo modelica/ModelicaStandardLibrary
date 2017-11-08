@@ -843,7 +843,7 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
 </html>"));
         end ThyristorBridge2Pulse_DC_Drive;
         annotation (Documentation(info="<html>
-<p>This package includes single phase two pulse bridge rectifiers. The examples show uncontrolled and controlled rectifiers with constant and variable firing angle. </p>
+<p>This package includes single phase two pulse bridge rectifiers. The examples show uncontrolled and controlled rectifiers with constant and variable firing angle.</p>
 </html>"));
       end RectifierBridge2Pulse;
 
@@ -1111,7 +1111,7 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
 </html>"));
         end ThyristorCenterTap2Pulse_RLV_Characteristic;
         annotation (Documentation(info="<html>
-<p>This package includes single phase two pulse center tap rectifiers. The examples show uncontrolled and controlled rectifiers with constant and variable firing angle. </p>
+<p>This package includes single phase two pulse center tap rectifiers. The examples show uncontrolled and controlled rectifiers with constant and variable firing angle.</p>
 </html>"));
       end RectifierCenterTap2Pulse;
 
@@ -1379,7 +1379,7 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
 </html>"));
         end ThyristorCenterTapmPulse_RLV_Characteristic;
         annotation (Documentation(info="<html>
-<p>This package includes multi phase center tap rectifiers. The number of phases, <code>m</code>, equals the number of pulses. The examples show uncontrolled and controlled rectifiers with constant and variable firing angle. </p>
+<p>This package includes multi phase center tap rectifiers. The number of phases, <code>m</code>, equals the number of pulses. The examples show uncontrolled and controlled rectifiers with constant and variable firing angle.</p>
 </html>"));
       end RectifierCenterTapmPulse;
 
@@ -1949,7 +1949,7 @@ In this example a PM excited DC machine is started with nominal torque at nomina
 </html>"));
         end ThyristorBridge2mPulse_DC_Drive;
         annotation (Documentation(info="<html>
-<p>This package includes multi phase bridge rectifiers. The number of phases, <code>m</code>, determines the number of pulses, <code>2*m</code>. The examples show uncontrolled and controlled rectifiers with constant and variable firing angle. </p>
+<p>This package includes multi phase bridge rectifiers. The number of phases, <code>m</code>, determines the number of pulses, <code>2*m</code>. The examples show uncontrolled and controlled rectifiers with constant and variable firing angle.</p>
 </html>"));
       end RectifierBridge2mPulse;
 
@@ -2231,7 +2231,7 @@ In this example a PM excited DC machine is started with nominal torque at nomina
 </html>"));
         end ThyristorCenterTap2mPulse_RLV_Characteristic;
         annotation (Documentation(info="<html>
-<p>This package includes multi phase center tap rectifiers. The number of phases, <code>m</code>, determines the number of pulses, <code>2*m</code>. The examples show uncontrolled and controlled rectifiers with constant and variable firing angle. </p>
+<p>This package includes multi phase center tap rectifiers. The number of phases, <code>m</code>, determines the number of pulses, <code>2*m</code>. The examples show uncontrolled and controlled rectifiers with constant and variable firing angle.</p>
 </html>"));
       end RectifierCenterTap2mPulse;
 

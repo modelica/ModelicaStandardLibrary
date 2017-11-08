@@ -32,6 +32,7 @@
 /* The following #define's are available.
 
    NO_FILE_SYSTEM : A file system is not present (e.g. on dSPACE or xPC).
+   NO_MUTEX       : Pthread mutex is not present (e.g. on dSPACE)
    NO_PID         : Function getpid is not present (e.g. on dSPACE)
    NO_TIME        : Function gettimeofday is not present (e.g. on dSPACE)
    MODELICA_EXPORT: Prefix used for function calls. If not defined, blank is used

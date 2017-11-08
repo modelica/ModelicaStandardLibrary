@@ -30,16 +30,16 @@
 */
 
 /* Release Notes:
+      Oct. 23, 2017: by Thomas Beutlich, ESI ITI GmbH
+                     Utilized non-fatal hash insertion, called by HASH_ADD_KEYPTR in
+                     function CacheFileForReading (ticket #2097)
+
       Apr. 09, 2017: by Thomas Beutlich, ESI ITI GmbH
                      Fixed macOS support of ModelicaInternal_setenv
                      (ticket #2235)
 
       Mar. 27, 2017: by Thomas Beutlich, ESI ITI GmbH
                      Replaced localtime by re-entrant function
-
-      Feb. 26, 2017: by Thomas Beutlich, ESI ITI GmbH
-                     Fixed definition of uthash_fatal, called by HASH_ADD_KEYPTR in
-                     function CacheFileForReading (ticket #2097)
 
       Jan. 31, 2017: by Thomas Beutlich, ESI ITI GmbH
                      Fixed WIN32 support of a directory name with a trailing
@@ -184,8 +184,8 @@ void ModelicaInternal_setenv(_In_z_ const char* name,
     ModelicaNotExistError("ModelicaInternal_setenv"); }
 #else
 
+#define HASH_NONFATAL_OOM 1
 #include "uthash.h"
-#undef uthash_fatal /* Ensure that nowhere in this file uses uthash_fatal by accident */
 #include "gconstructor.h"
 
 #include <stdio.h>
@@ -638,7 +638,7 @@ typedef struct FileCache {
 } FileCache;
 
 static FileCache* fileCache = NULL;
-#if defined(_POSIX_)
+#if defined(_POSIX_) && !defined(NO_MUTEX)
 #include <pthread.h>
 #if defined(G_HAS_CONSTRUCTORS)
 static pthread_mutex_t m;
@@ -687,13 +687,8 @@ static void deleteCS(void) {
 #endif
 
 static void CacheFileForReading(FILE* fp, const char* fileName, int line) {
-#define uthash_fatal(msg) do { \
-    MUTEX_UNLOCK(); \
-    ModelicaFormatMessage("Error in uthash: %s\n" \
-        "Hash table for file cache may be left in corrupt state.\n", msg); \
-    return; \
-} while (0)
     FileCache* fv;
+    size_t len;
     if (fileName == NULL) {
         /* Do not add, close file */
         if (fp != NULL) {
@@ -701,8 +696,9 @@ static void CacheFileForReading(FILE* fp, const char* fileName, int line) {
         }
         return;
     }
+    len = strlen(fileName);
     MUTEX_LOCK();
-    HASH_FIND(hh, fileCache, fileName, (unsigned)strlen(fileName), fv);
+    HASH_FIND(hh, fileCache, fileName, (unsigned)len, fv);
     if (fv != NULL) {
         fv->fp = fp;
         fv->line = line;
@@ -710,13 +706,17 @@ static void CacheFileForReading(FILE* fp, const char* fileName, int line) {
     else {
         fv = (FileCache*)malloc(sizeof(FileCache));
         if (fv != NULL) {
-            char* key = (char*)malloc((strlen(fileName) + 1)*sizeof(char));
+            char* key = (char*)malloc((len + 1)*sizeof(char));
             if (key != NULL) {
                 strcpy(key, fileName);
                 fv->fileName = key;
                 fv->fp = fp;
                 fv->line = line;
-                HASH_ADD_KEYPTR(hh, fileCache, key, (unsigned)strlen(key), fv);
+                HASH_ADD_KEYPTR(hh, fileCache, key, (unsigned)len, fv);
+                if (NULL == fv->hh.tbl) {
+                   free(key);
+                   free(fv);
+                }
             }
             else {
                 free(fv);
@@ -724,13 +724,13 @@ static void CacheFileForReading(FILE* fp, const char* fileName, int line) {
         }
     }
     MUTEX_UNLOCK();
-#undef uthash_fatal
 }
 
 static void CloseCachedFile(const char* fileName) {
     FileCache* fv;
+    size_t len = strlen(fileName);
     MUTEX_LOCK();
-    HASH_FIND(hh, fileCache, fileName, (unsigned)strlen(fileName), fv);
+    HASH_FIND(hh, fileCache, fileName, (unsigned)len, fv);
     if (fv != NULL) {
         if (fv->fp != NULL) {
             fclose(fv->fp);
@@ -747,8 +747,9 @@ static FILE* ModelicaStreams_openFileForReading(const char* fileName, int line) 
     FILE* fp;
     int c = 1;
     FileCache* fv;
+    size_t len = strlen(fileName);
     MUTEX_LOCK();
-    HASH_FIND(hh, fileCache, fileName, (unsigned)strlen(fileName), fv);
+    HASH_FIND(hh, fileCache, fileName, (unsigned)len, fv);
     /* Open file */
     if (fv != NULL) {
         /* Cached value */
@@ -803,7 +804,7 @@ static FILE* ModelicaStreams_openFileForWriting(const char* fileName) {
     FILE* fp;
 
     /* Check fileName */
-    if ( strlen(fileName) == 0 ) {
+    if ( fileName[0] == '\0' ) {
         ModelicaError("fileName is an empty string.\n"
             "Opening of file is aborted\n");
     }

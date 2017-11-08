@@ -1692,7 +1692,7 @@ is present in variable convection.fluid.
       connect(ramp.y, clutch.f_normalized) annotation (Line(
           points={{-39,40},{0,40},{0,31}}, color={0,0,127}));
       annotation (experiment(StopTime=5, Interval=0.01), Documentation(info="<html>
-<p>This model shows how an automatic gear shift is built up from a planetary gear, a brake and a clutch. </p>
+<p>This model shows how an automatic gear shift is built up from a planetary gear, a brake and a clutch.</p>
 <ul>
 <li>In the beginning, the clutch is free and the brake fixes the ring of the planetary. Thus we obtain a gearRatio = 1/(1 + planetary.ratio).</li>
 <li>At time = 2 s, the brake frees the ring of the planetary, whereas the clutch blocks the ring and the sun. Thus we obtain a gearRatio = 1.</li>
