@@ -1934,7 +1934,7 @@ This package contains test examples of asynchronous induction machines.
           annotation (Line(points={{0,20},{0,10}}, color={0,0,255}));
         annotation (experiment(StopTime=2.5, Interval=0.001), Documentation(
               info="<html>
-<b>Test example: Synchronous induction machine with reluctance rotor direct on line</b><br>
+<strong>Test example: Synchronous induction machine with reluctance rotor direct on line</strong><br>
 A synchronous machine with reluctance rotor starts direct on line, utilizing the damper cage.<br>
 After reaching synchronous speed, at time tStep a load step is applied.<br>
 Simulate for 2.5 seconds and plot (versus time):
@@ -1944,7 +1944,7 @@ Simulate for 2.5 seconds and plot (versus time):
 <li>smr.tauElectrical: motor's torque</li>
 <li>rotorDisplacementAngle.rotorDisplacementAngle: rotor displacement angle</li>
 </ul>
-Default machine parameters of model <i>SM_ReluctanceRotor</i> are used.
+Default machine parameters of model <em>SM_ReluctanceRotor</em> are used.
 </html>"));
       end SMR_DOL;
 
