@@ -29,6 +29,7 @@
 /* The following #define's are available.
 
    NO_FILE_SYSTEM        : A file system is not present (e.g. on dSPACE or xPC).
+   NO_MUTEX              : Pthread mutex is not present (e.g. on dSPACE)
    NO_TABLE_COPY         : Do not copy table data passed to _init functions
                            This is a potentially unsafe optimization (ticket #1143).
    TABLE_SHARE           : If NO_FILE_SYTEM is not defined then common/shared table

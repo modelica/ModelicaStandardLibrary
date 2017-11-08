@@ -634,7 +634,7 @@ typedef struct FileCache {
 } FileCache;
 
 static FileCache* fileCache = NULL;
-#if defined(_POSIX_)
+#if defined(_POSIX_) && !defined(NO_MUTEX)
 #include <pthread.h>
 #if defined(G_HAS_CONSTRUCTORS)
 static pthread_mutex_t m;
