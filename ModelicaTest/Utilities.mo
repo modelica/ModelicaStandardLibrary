@@ -456,6 +456,9 @@ extends Modelica.Icons.ExamplesPackage;
 
     input String logFile="ModelicaTestLog.txt"
       "Filename where the log is stored";
+    input String dirPath = Modelica.Utilities.Files.loadResource("modelica://ModelicaTest/Resources/Data");
+    input String filePath = Modelica.Utilities.Files.loadResource("modelica://ModelicaTest/Resources/Data/ReadStreamTestFile.txt");
+
     output Boolean ok;
   protected
     String directory;
@@ -464,6 +467,10 @@ extends Modelica.Icons.ExamplesPackage;
   algorithm
     Streams.print("... Test of Modelica.Utilities.Files");
     Streams.print("... Test of Modelica.Utilities.Files", logFile);
+
+    Modelica.Utilities.Files.list(dirPath);
+    Modelica.Utilities.Files.list(filePath);
+    // list() does not have output, therefore assert not feasible
 
     (directory,name,extension) := Files.splitPathName("E:/test1/test2.save.txt");
     assert(directory == "E:/test1/" and name == "test2.save" and extension ==
@@ -553,10 +560,13 @@ extends Modelica.Icons.ExamplesPackage;
   model TestFiles
     extends Modelica.Icons.Example;
 
+    parameter String dirPath = Modelica.Utilities.Files.loadResource("modelica://ModelicaTest/Resources/Data");
+    parameter String filePath = Modelica.Utilities.Files.loadResource("modelica://ModelicaTest/Resources/Data/ReadStreamTestFile.txt");
+
     Boolean result;
   algorithm
     when initial() then
-      result := ModelicaTest.Utilities.Files();
+      result := ModelicaTest.Utilities.Files(dirPath = dirPath, filePath = filePath);
     end when;
 
     annotation (experiment(StopTime=0));
