@@ -2978,7 +2978,7 @@ To drive at higher torque, i.e. produce more electric power, excitation has to b
 <li>smee.tauElectrical</li>
 <li>smee.wMechanical</li>
 <li>smee.ie</li>
-<li>rotorDisplacementAngle.rotorDisplacementAngle<li>
+<li>rotorDisplacementAngle.rotorDisplacementAngle</li>
 <li>currentQuasiRMSSensor.I</li>
 <li>electricalPowerSensor.P</li>
 <li>electricalPowerSensor.Q</li>
