@@ -120,7 +120,7 @@ Furthermore, note that the FFT phases are with respect to a cos(..) signal.
         "Frequency resolution";
       parameter Modelica.SIunits.Frequency f1 = 2 "Frequency of sine";
       parameter Modelica.SIunits.Frequency f2 = 3 "Frequency of cosine";
-      parameter String FFT_resultFileName = "RealFFT1_resultFFT.mat"
+      parameter String FFT_resultFileName = "RealFFT2_resultFFT.mat"
         "File where FFT will be stored as [f,A,Phi], with f in {Hz] and A the amplitues and Phi the phases in [rad]";
       final parameter Integer nfi = max(1,min(integer(ceil(f_max/f_resolution))+1,nf))
         "Number of frequency points of the interested frequency range (only up to f_max)";
