@@ -365,7 +365,7 @@ readRealParameter(\"test.txt\", \"w_rel0\")
       Streams.close(file);
     end when;
 
-    annotation (Documentation(info="<html>
+    annotation (preferredView="text", Documentation(info="<html>
 <p>
 Model that shows the usage of Examples.readRealParameter and Examples.expression.
 The model has 3 parameters and the values of these parameters are read
@@ -392,7 +392,7 @@ from a file.
        success4 = Modelica.Utilities.Streams.writeRealMatrix("Test_RealMatrix_v7.mat", "Matrix_A", A, format="7");
     end when;
 
-    annotation (experiment(StopTime=0.1), Documentation(info="<html>
+    annotation (preferredView="text", experiment(StopTime=0.1), Documentation(info="<html>
 <p>
 Example model that shows how to write a Real matrix in MATLAB MAT format on file
 using function <a href=\"modelica://Modelica.Utilities.Streams.writeRealMatrix\">writeRealMatrix</a>.
@@ -434,7 +434,7 @@ using function <a href=\"modelica://Modelica.Utilities.Streams.writeRealMatrix\"
        print("...    " + matrixName + "[1,1] = " + String(A[1,1]));
     end when;
 
-    annotation(experiment(StopTime=0.1), Documentation(info="<html>
+    annotation(preferredView="text", experiment(StopTime=0.1), Documentation(info="<html>
 <p>
 Example model that shows how to read a Real matrix in MATLAB MAT format from file
 using functions
