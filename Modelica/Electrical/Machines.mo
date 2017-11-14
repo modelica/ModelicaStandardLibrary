@@ -2967,22 +2967,22 @@ achieve constant current and torque.</p>
             Interval=0.0001,
             Tolerance=1e-006),                                                Documentation(info="<html>
 <p>An electrically excited synchronous generator is started direct on line utilizing the damper cage (and the shorted excitation winding) at 0.1 seconds.<br>
-At t = 0.5 seconds, the excitation voltage is rised to achieve no-load excitation current. Note, that reactive power of the stator goes to zero.<br>
+At t = 0.5 seconds, the excitation voltage is raised to achieve no-load excitation current. Note, that reactive power of the stator goes to zero.<br>
 At t = 1 second, a driving torque step is applied to the shaft (i.e. the turbine is activated). Note, that active and reactive power of the stator changes. 
-To drive at higher torque, i.e. produce more electric power, excitation has to be adapted.
+To drive at higher torque, i.e., produce more electric power, excitation has to be adapted.
 </p>
 
 <p>Simulate for 2 seconds and plot:</p>
 
 <ul>
-<li>smee.tauElectrical</li>
-<li>smee.wMechanical</li>
-<li>smee.ie</li>
-<li>rotorDisplacementAngle.rotorDisplacementAngle</li>
-<li>currentQuasiRMSSensor.I</li>
-<li>electricalPowerSensor.P</li>
-<li>electricalPowerSensor.Q</li>
-<li>mechanicalMultiSensor.power</li>
+<li><code>smee.tauElectrical</code></li>
+<li><code>smee.wMechanical</code></li>
+<li><code>smee.ie</code></li>
+<li><code>rotorDisplacementAngle.rotorDisplacementAngle</code></li>
+<li><code>currentQuasiRMSSensor.I</code></li>
+<li><code>electricalPowerSensor.P</code></li>
+<li><code>electricalPowerSensor.Q</code></li>
+<li><code>mechanicalMultiSensor.power</code></li>
 </ul>
 
 <p>Default machine parameters are used.</p>
