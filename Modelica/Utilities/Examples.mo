@@ -384,12 +384,12 @@ from a file.
     output Boolean success2 "= true if appending to Test_RealMatrix_v4.mat is successful";
     output Boolean success3 "= true if writing to Test_RealMatrix_v6.mat is successful";
     output Boolean success4 "= true if writing to Test_RealMatrix_v7.mat is successful";
-  equation
+  algorithm
     when initial() then
-       success1 = Modelica.Utilities.Streams.writeRealMatrix("Test_RealMatrix_v4.mat", "Matrix_A", A);
-       success2 = Modelica.Utilities.Streams.writeRealMatrix("Test_RealMatrix_v4.mat", "Matrix_B", A, append=true, format="4");
-       success3 = Modelica.Utilities.Streams.writeRealMatrix("Test_RealMatrix_v6.mat", "Matrix_A", A, format="6");
-       success4 = Modelica.Utilities.Streams.writeRealMatrix("Test_RealMatrix_v7.mat", "Matrix_A", A, format="7");
+      success1 := Modelica.Utilities.Streams.writeRealMatrix("Test_RealMatrix_v4.mat", "Matrix_A", A);
+      success2 := Modelica.Utilities.Streams.writeRealMatrix("Test_RealMatrix_v4.mat", "Matrix_B", A, append=true, format="4");
+      success3 := Modelica.Utilities.Streams.writeRealMatrix("Test_RealMatrix_v6.mat", "Matrix_A", A, format="6");
+      success4 := Modelica.Utilities.Streams.writeRealMatrix("Test_RealMatrix_v7.mat", "Matrix_A", A, format="7");
     end when;
 
     annotation (preferredView="text", experiment(StopTime=0.1), Documentation(info="<html>
