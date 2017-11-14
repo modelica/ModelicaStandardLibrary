@@ -429,6 +429,7 @@ using function <a href=\"modelica://Modelica.Utilities.Streams.writeRealMatrix\"
     assert(abs(A3[1,1] - 11) <= eps, "Resources/Data/Utilities/Test_RealMatrix_v7.mat not correctly loaded");
 
     der(x) = -A[1,1]*x;
+  algorithm
     when initial() then
        print("... Matrix " + matrixName + "[" + String(size(A,1)) + "," + String(size(A,2)) + "] read from file " + file);
        print("...    " + matrixName + "[1,1] = " + String(A[1,1]));
