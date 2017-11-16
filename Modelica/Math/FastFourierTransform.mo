@@ -577,7 +577,7 @@ which is a complete example where an FFT is computed during simulation and store
      // Write matrix on file and print message
      success := writeRealMatrix(fileName, "FFT", fA, format=format);
      if success then
-        print("... FFT result computed at time = " + String(t_computed) + " s stored on file: " + fileName);
+        print("... FFT result computed at time = " + String(t_computed) + " s stored on file: " + Modelica.Utilities.Files.fullPathName(fileName));
      end if;
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
