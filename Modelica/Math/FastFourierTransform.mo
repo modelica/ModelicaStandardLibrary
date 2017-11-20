@@ -547,9 +547,9 @@ which is a complete example where an FFT is computed during simulation and store
       "Phases of FFT (either provide no argument, or a vector with the same length as amplitudes)";
      input String format = "4"
       "MATLAB MAT-file version: \"4\" -> v4, \"6\" -> v6, \"7\" -> v7"
-       annotation(choices(choice="4" "Matlat MAT v4",
-                          choice="6" "Matlat MAT v6",
-                          choice="7" "Matlat MAT v7"));
+       annotation(choices(choice="4" "MATLAB v4 MAT-file",
+                          choice="6" "MATLAB v6 MAT-file",
+                          choice="7" "MATLAB v7 MAT-file"));
     output Boolean success "true if successful";
   protected
      Integer nA = size(amplitudes,1);
@@ -577,7 +577,7 @@ which is a complete example where an FFT is computed during simulation and store
      // Write matrix on file and print message
      success := writeRealMatrix(fileName, "FFT", fA, format=format);
      if success then
-        print("... FFT result computed at time = " + String(t_computed) + " s stored on file: " + fileName);
+        print("... FFT result computed at time = " + String(t_computed) + " s stored on file: " + Modelica.Utilities.Files.fullPathName(fileName));
      end if;
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
