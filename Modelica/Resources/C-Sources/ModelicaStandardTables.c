@@ -385,17 +385,17 @@ static pthread_mutex_t m = PTHREAD_MUTEX_INITIALIZER;
 #include <windows.h>
 static CRITICAL_SECTION cs;
 #ifdef G_DEFINE_CONSTRUCTOR_NEEDS_PRAGMA
-#pragma G_DEFINE_CONSTRUCTOR_PRAGMA_ARGS(initializeCS)
+#pragma G_DEFINE_CONSTRUCTOR_PRAGMA_ARGS(ModelicaStandardTables_initializeCS)
 #endif
-G_DEFINE_CONSTRUCTOR(initializeCS)
-static void initializeCS(void) {
+G_DEFINE_CONSTRUCTOR(ModelicaStandardTables_initializeCS)
+static void ModelicaStandardTables_initializeCS(void) {
     InitializeCriticalSection(&cs);
 }
 #ifdef G_DEFINE_DESTRUCTOR_NEEDS_PRAGMA
-#pragma G_DEFINE_DESTRUCTOR_PRAGMA_ARGS(deleteCS)
+#pragma G_DEFINE_DESTRUCTOR_PRAGMA_ARGS(ModelicaStandardTables_deleteCS)
 #endif
-G_DEFINE_DESTRUCTOR(deleteCS)
-static void deleteCS(void) {
+G_DEFINE_DESTRUCTOR(ModelicaStandardTables_deleteCS)
+static void ModelicaStandardTables_deleteCS(void) {
     DeleteCriticalSection(&cs);
 }
 #define MUTEX_LOCK() EnterCriticalSection(&cs)
