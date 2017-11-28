@@ -1938,8 +1938,8 @@ a flange according to a given acceleration.
     if noEvent(size(table, 1) > 1) then
       assert(table[1, 1] == 0, "The first point in time has to be set to 0, but is table[1,1] = " + String(table[1, 1]));
     end if;
-    timeScaled := time/timeScale;
     when {time >= pre(nextEvent),initial()} then
+      timeScaled := time/timeScale;
       (a,b,nextEventScaled,last) := getInterpolationCoefficients(
           table,
           offset,
