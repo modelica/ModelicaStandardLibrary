@@ -1952,7 +1952,7 @@ a flange according to a given acceleration.
     end when;
   equation
     assert(size(table, 1) > 0, "No table values defined.");
-    y = a*timeScaled + b;
+    y = a*time/timeScale + b;
     annotation (
       Icon(coordinateSystem(
           preserveAspectRatio=true,
