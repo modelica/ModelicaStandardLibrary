@@ -2911,8 +2911,8 @@ achieve constant current and torque.</p>
           annotation (Placement(transformation(extent={{-50,80},{-30,60}})));
         Mechanics.Rotational.Sources.TorqueStep torqueStep(
           offsetTorque=0,
-          startTime=1,
-          stepTorque=100)
+          stepTorque=50,
+          startTime=2)
           annotation (Placement(transformation(extent={{90,-50},{70,-30}})));
       initial equation
         smee.is[1:2] = zeros(2);
@@ -2963,7 +2963,7 @@ achieve constant current and torque.</p>
         connect(mechanicalMultiSensor.flange_b, torqueStep.flange)
           annotation (Line(points={{60,-40},{70,-40}}, color={0,0,0}));
         annotation (experiment(
-            StopTime=2,
+            StopTime=3,
             Interval=0.0001,
             Tolerance=1e-006),                                                Documentation(info="<html>
 <p>An electrically excited synchronous generator is started direct on line utilizing the damper cage (and the shorted excitation winding) at 0.1 seconds.<br>

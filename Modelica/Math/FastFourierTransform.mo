@@ -42,7 +42,7 @@ package FastFourierTransform
         "Simulation time for one FFT calculation";
 
       Integer iTick(start=0, fixed=true);
-      Real y_buf[ns](each start=0, each fixed=true);
+      Real y_buf[ns](start=vector([6.5; fill(0, ns - 1)]), each fixed=true);
     initial equation
       for i in 1:nfi loop
          fi[i] = (i-1)*f_resolution;
@@ -143,7 +143,7 @@ Furthermore, note that the FFT phases are with respect to a cos(..) signal.
         "Simulation time for one FFT calculation";
 
       Integer iTick(start=0, fixed=true);
-      Real y_buf[ns](each start=0, each fixed=true);
+      Real y_buf[ns](start=vector([6.5; fill(0, ns - 1)]), each fixed=true);
     initial equation
       for i in 1:nfi loop
          fi[i] = (i-1)*f_resolution;

@@ -1938,7 +1938,6 @@ a flange according to a given acceleration.
     if noEvent(size(table, 1) > 1) then
       assert(table[1, 1] == 0, "The first point in time has to be set to 0, but is table[1,1] = " + String(table[1, 1]));
     end if;
-    timeScaled := time/timeScale;
     when {time >= pre(nextEvent),initial()} then
       (a,b,nextEventScaled,last) := getInterpolationCoefficients(
           table,
@@ -1952,6 +1951,7 @@ a flange according to a given acceleration.
     end when;
   equation
     assert(size(table, 1) > 0, "No table values defined.");
+    timeScaled = time/timeScale;
     y = a*timeScaled + b;
     annotation (
       Icon(coordinateSystem(
