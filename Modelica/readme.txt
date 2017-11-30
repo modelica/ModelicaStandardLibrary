@@ -11,7 +11,7 @@ Copyright © 1998-2016, ABB, Austrian Institute of Technology, T. Bödrich, DLR,
 These files are free software and the use is completely at your own risk;
 they can be redistributed and/or modified under the terms of the
 BSD 3-Clause license. For license conditions (including the disclaimer of warranty) visit:
-https://opensource.org/licenses/BSD-3-Clause.
+https://modelica.org/licenses/modelica-3-clause-bsd.
 
 Licensor:
 Modelica Association
