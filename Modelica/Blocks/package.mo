@@ -423,7 +423,8 @@ reached with different precisions. This is summarized in the following table:
       annotation (Line(points={{31,0},{39.5,0},{48,0}}, color={0,0,127}));
     connect(limit_a.y, a.u) annotation (Line(points={{31,0},{40,0},{40,-30},{48,-30}},
           color={0,0,127}));
-    annotation (experiment(Interval=0.001), Documentation(info="<html>
+    annotation (experiment(StopTime=1.0, Interval=0.001),
+                                            Documentation(info="<html>
 <p>
 This example demonstrates how to use the Nonlinear.SlewRateLimiter block to limit a position step with regards to velocity and acceleration:
 </p>
