@@ -1101,7 +1101,7 @@ to see the difference.
         v(fixed=true))
         annotation (Placement(transformation(extent={{10,0},{30,20}})));
       Components.SupportFriction supportFriction(f_pos=
-            Examples.Utilities.GenerateStribeckFrictionTable(
+            Adaptors.Mechanical.Translational.Examples.Utilities.GenerateStribeckFrictionTable(
                 F_prop=1,
                 F_Coulomb=5,
                 F_Stribeck=10,
@@ -1608,99 +1608,102 @@ A moving mass gets decelerated by an eddy current brake. The loss power is fed t
       "Example to demonstrate variants to generate FMUs (Functional Mock-up Units)"
       extends Modelica.Icons.Example;
 
-      Blocks.Sources.Sine sine1(freqHz=2, amplitude=10)
-        annotation (Placement(transformation(extent={{-60,40},{-40,60}})));
-      Utilities.DirectMass directMass(m=1.1)
-        annotation (Placement(transformation(extent={{-20,40},{0,60}})));
-      Utilities.InverseMass inverseMass(m=2.2)
-        annotation (Placement(transformation(extent={{20,40},{40,60}})));
-      Utilities.SpringDamper springDamper(c=1e4, d=100)
-        annotation (Placement(transformation(extent={{10,-20},{30,0}})));
-      Blocks.Sources.Sine sine2(freqHz=2, amplitude=10)
-        annotation (Placement(transformation(extent={{-100,-20},{-80,0}})));
-      Components.Mass mass2a(
+      Modelica.Blocks.Sources.Sine sine1(freqHz=2, amplitude=10)
+        annotation (Placement(transformation(extent={{-100,40},{-80,60}})));
+      Modelica.Mechanics.Translational.Examples.Utilities.DirectMass directMass(
+          m=1.1) annotation (Placement(transformation(extent={{0,40},{20,60}})));
+      Modelica.Mechanics.Translational.Examples.Utilities.InverseMass
+        inverseMass(m=2.2)
+        annotation (Placement(transformation(extent={{40,40},{60,60}})));
+      Modelica.Mechanics.Translational.Examples.Utilities.SpringDamper
+        springDamper(c=1e4, d=100)
+        annotation (Placement(transformation(extent={{20,-20},{40,0}})));
+      Modelica.Mechanics.Translational.Components.Mass mass2a(
         m=1.1,
-        s(fixed=true),
-        v(fixed=true))
-        annotation (Placement(transformation(extent={{-40,-20},{-20,0}})));
-      Sources.Force force2
-        annotation (Placement(transformation(extent={{-68,-20},{-48,0}})));
-      Components.ForceToPositionAdaptor forceToPosition2a(use_a=false)
-        annotation (Placement(transformation(extent={{-20,-20},{0,0}})));
-      Components.Mass mass2b(
+        s(fixed=true, start=0),
+        v(fixed=true, start=0))
+        annotation (Placement(transformation(extent={{-30,-20},{-10,0}})));
+      Modelica.Mechanics.Translational.Sources.Force force2
+        annotation (Placement(transformation(extent={{-60,-20},{-40,0}})));
+      Modelica.Mechanics.Translational.Components.ForceToPositionAdaptor
+        forceToPosition2a(use_pder2=false)
+        annotation (Placement(transformation(extent={{-10,-20},{10,0}})));
+      Modelica.Mechanics.Translational.Components.Mass mass2b(
         m=2.2,
-        s(fixed=true),
-        v(fixed=true))
-        annotation (Placement(transformation(extent={{60,-20},{80,0}})));
-      Components.ForceToPositionAdaptor forceToPosition2b(use_a=false)
-        annotation (Placement(transformation(extent={{60,-20},{40,0}})));
-      Utilities.Spring spring(c=1e4)
-        annotation (Placement(transformation(extent={{10,-80},{30,-60}})));
-      Blocks.Sources.Sine sine3(freqHz=2, amplitude=10)
-        annotation (Placement(transformation(extent={{-100,-80},{-80,-60}})));
-      Components.Mass mass3a(
+        s(fixed=true, start=0),
+        v(fixed=true, start=0))
+        annotation (Placement(transformation(extent={{70,-20},{90,0}})));
+      Modelica.Mechanics.Translational.Components.ForceToPositionAdaptor
+        forceToPosition2b(use_pder2=false)
+        annotation (Placement(transformation(extent={{70,-20},{50,0}})));
+      Modelica.Mechanics.Translational.Examples.Utilities.Spring spring(c=1e4)
+        annotation (Placement(transformation(extent={{20,-80},{40,-60}})));
+      Modelica.Mechanics.Translational.Components.Mass mass3a(
         m=1.1,
-        s(fixed=true),
-        v(fixed=true))
-        annotation (Placement(transformation(extent={{-40,-80},{-20,-60}})));
-      Sources.Force force3
-        annotation (Placement(transformation(extent={{-68,-80},{-48,-60}})));
-      Components.ForceToPositionAdaptor forceToPosition3a(use_a=false, use_v=false)
-        annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
-      Components.Mass mass3b(
+        s(fixed=true, start=0),
+        v(fixed=true, start=0))
+        annotation (Placement(transformation(extent={{-30,-80},{-10,-60}})));
+      Modelica.Mechanics.Translational.Sources.Force force3
+        annotation (Placement(transformation(extent={{-60,-80},{-40,-60}})));
+      Modelica.Mechanics.Translational.Components.ForceToPositionAdaptor
+        forceToPosition3a(use_pder=false, use_pder2=false)
+        annotation (Placement(transformation(extent={{-10,-80},{10,-60}})));
+      Modelica.Mechanics.Translational.Components.Mass mass3b(
         m=2.2,
-        s(fixed=true),
-        v(fixed=true))
-        annotation (Placement(transformation(extent={{60,-80},{80,-60}})));
-      Components.ForceToPositionAdaptor forceToPosition3b(use_a=false, use_v=false)
-        annotation (Placement(transformation(extent={{60,-80},{40,-60}})));
+        s(fixed=true, start=0),
+        v(fixed=true, start=0))
+        annotation (Placement(transformation(extent={{70,-80},{90,-60}})));
+      Modelica.Mechanics.Translational.Components.ForceToPositionAdaptor
+        forceToPosition3b(use_pder=false, use_pder2=false)
+        annotation (Placement(transformation(extent={{70,-80},{50,-60}})));
     equation
       connect(sine1.y, directMass.fDrive)
-        annotation (Line(points={{-39,50},{-22,50}}, color={0,0,127}));
+        annotation (Line(points={{-79,50},{-2,50}},  color={0,0,127}));
       connect(directMass.s, inverseMass.s)
-        annotation (Line(points={{1,58},{18,58}}, color={0,0,127}));
+        annotation (Line(points={{21,58},{38,58}},color={0,0,127}));
       connect(directMass.v,inverseMass.v)
-        annotation (Line(points={{1,53},{18,53}}, color={0,0,127}));
+        annotation (Line(points={{21,53},{38,53}},color={0,0,127}));
       connect(directMass.a, inverseMass.a)
-        annotation (Line(points={{1,47},{18,47}}, color={0,0,127}));
-      connect(inverseMass.force, directMass.force)
-        annotation (Line(points={{19,42},{2,42}}, color={0,0,127}));
-      connect(sine2.y, force2.f)
-        annotation (Line(points={{-79,-10},{-70,-10}}, color={0,0,127}));
+        annotation (Line(points={{21,47},{38,47}},color={0,0,127}));
+      connect(inverseMass.f, directMass.f)
+        annotation (Line(points={{39,42},{22,42}}, color={0,0,127}));
       connect(force2.flange, mass2a.flange_a)
-        annotation (Line(points={{-48,-10},{-40,-10}}, color={0,127,0}));
+        annotation (Line(points={{-40,-10},{-30,-10}}, color={0,127,0}));
       connect(mass2a.flange_b, forceToPosition2a.flange)
-        annotation (Line(points={{-20,-10},{-12,-10}}, color={0,127,0}));
+        annotation (Line(points={{-10,-10},{-2,-10}},  color={0,127,0}));
       connect(forceToPosition2b.flange, mass2b.flange_a)
-        annotation (Line(points={{52,-10},{60,-10}}, color={0,127,0}));
-      connect(sine3.y, force3.f)
-        annotation (Line(points={{-79,-70},{-70,-70}}, color={0,0,127}));
+        annotation (Line(points={{62,-10},{70,-10}}, color={0,127,0}));
       connect(force3.flange, mass3a.flange_a)
-        annotation (Line(points={{-48,-70},{-40,-70}}, color={0,127,0}));
+        annotation (Line(points={{-40,-70},{-30,-70}}, color={0,127,0}));
       connect(mass3a.flange_b, forceToPosition3a.flange)
-        annotation (Line(points={{-20,-70},{-12,-70}}, color={0,127,0}));
+        annotation (Line(points={{-10,-70},{-2,-70}},  color={0,127,0}));
       connect(forceToPosition3b.flange, mass3b.flange_a)
-        annotation (Line(points={{52,-70},{60,-70}}, color={0,127,0}));
-      connect(forceToPosition2a.s, springDamper.s1)
-        annotation (Line(points={{-7,-2},{8,-2}}, color={0,0,127}));
-      connect(forceToPosition2a.v, springDamper.v1) annotation (Line(points={{
-              -7,-7},{0.5,-7},{0.5,-7},{8,-7}}, color={0,0,127}));
+        annotation (Line(points={{62,-70},{70,-70}}, color={0,127,0}));
       connect(forceToPosition2a.f, springDamper.f1)
-        annotation (Line(points={{-6,-18},{9,-18}}, color={0,0,127}));
+        annotation (Line(points={{3,-18},{19,-18}}, color={0,0,127}));
       connect(springDamper.f2, forceToPosition2b.f)
-        annotation (Line(points={{31,-18},{46,-18}}, color={0,0,127}));
-      connect(springDamper.v2, forceToPosition2b.v) annotation (Line(points={{
-              32,-7},{39,-7},{39,-7},{47,-7}}, color={0,0,127}));
-      connect(springDamper.s2, forceToPosition2b.s)
-        annotation (Line(points={{32,-2},{47,-2}}, color={0,0,127}));
-      connect(forceToPosition3a.s, spring.s1)
-        annotation (Line(points={{-7,-62},{8,-62}}, color={0,0,127}));
+        annotation (Line(points={{41,-18},{57,-18}}, color={0,0,127}));
       connect(forceToPosition3a.f, spring.f1)
-        annotation (Line(points={{-6,-78},{9,-78}}, color={0,0,127}));
-      connect(spring.s2, forceToPosition3b.s)
-        annotation (Line(points={{32,-62},{47,-62}}, color={0,0,127}));
+        annotation (Line(points={{3,-78},{19,-78}}, color={0,0,127}));
       connect(spring.f2, forceToPosition3b.f)
-        annotation (Line(points={{31,-78},{46,-78}}, color={0,0,127}));
+        annotation (Line(points={{41,-78},{57,-78}}, color={0,0,127}));
+      connect(forceToPosition3a.p, spring.s1)
+        annotation (Line(points={{3,-62},{18,-62}}, color={0,0,127}));
+      connect(spring.s2, forceToPosition3b.p)
+        annotation (Line(points={{42,-62},{57,-62}}, color={0,0,127}));
+      connect(forceToPosition2a.p, springDamper.s1)
+        annotation (Line(points={{3,-2},{18,-2}}, color={0,0,127}));
+      connect(forceToPosition2a.pder, springDamper.v1) annotation (Line(
+            points={{3,-5},{10,-5},{10,-7},{18,-7}},
+                                                   color={0,0,127}));
+      connect(springDamper.s2, forceToPosition2b.p)
+        annotation (Line(points={{42,-2},{57,-2}}, color={0,0,127}));
+      connect(forceToPosition2b.pder, springDamper.v2) annotation (Line(
+            points={{57,-5},{50,-5},{50,-7},{42,-7}}, color={0,0,127}));
+      connect(sine1.y, force2.f) annotation (Line(points={{-79,50},{-70,50},
+              {-70,-10},{-62,-10}}, color={0,0,127}));
+      connect(sine1.y, force3.f) annotation (Line(points={{-79,50},{-70,50},
+              {-70,-70},{-62,-70}}, color={0,0,127}));
       annotation (experiment(StopTime=1, Interval=0.001), Documentation(info="<html>
 <p>
 This example demonstrates how to generate an input/output block (e.g. in form of an
@@ -1746,6 +1749,7 @@ force law in a target system between two masses.
 
     package Utilities "Utility classes used by the Example models"
       extends Modelica.Icons.UtilitiesPackage;
+
       function GenerateStribeckFrictionTable
         "Generate Stribeck friction table for example Friction for the SupportFriction"
         extends Modelica.Icons.Function;
@@ -1780,19 +1784,19 @@ according to the Stribeck curve:
       model DirectMass "Input/output block of a direct mass model"
         extends Modelica.Blocks.Icons.Block;
         parameter Modelica.SIunits.Mass m(min=0)=1 "Mass";
-
-        Components.Mass mass(
+        Modelica.Mechanics.Translational.Components.Mass mass(
           m=m,
-          s(fixed=true),
-          v(fixed=true))
+          s(start=0, fixed=true),
+          v(start=0, fixed=true))
           annotation (Placement(transformation(extent={{-20,-10},{0,10}})));
-        Sources.Force forceSource
+        Modelica.Mechanics.Translational.Sources.Force forceSource
           annotation (Placement(transformation(extent={{-50,-10},{-30,10}})));
         Modelica.Blocks.Interfaces.RealInput fDrive(unit="N")
           "Accelerating force acting at flange (= -flange.f)"
           annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
-        Components.ForceToPositionAdaptor forceToPosition
-          annotation (Placement(transformation(extent={{4,-10},{24,10}})));
+        Modelica.Mechanics.Translational.Components.ForceToPositionAdaptor
+          forceToPosition
+          annotation (Placement(transformation(extent={{10,-10},{30,10}})));
         Modelica.Blocks.Interfaces.RealOutput s(unit="m")
           "Mass moves with position s due to force f"
           annotation (Placement(transformation(extent={{100,70},{120,90}})));
@@ -1802,25 +1806,24 @@ according to the Stribeck curve:
         Modelica.Blocks.Interfaces.RealOutput a(unit="m/s2")
           "Mass moves with acceleration a due to force f"
           annotation (Placement(transformation(extent={{100,-40},{120,-20}})));
-        Modelica.Blocks.Interfaces.RealInput force(unit="N")
-          "Force to drive the mass"
-          annotation (Placement(transformation(extent={{140,-100},{100,-60}})));
+        Modelica.Blocks.Interfaces.RealInput f(unit="N") "Force to drive the mass"
+                                    annotation (Placement(transformation(
+                extent={{140,-100},{100,-60}})));
       equation
-
-        connect(mass.flange_b, forceToPosition.flange)
-          annotation (Line(points={{0,0},{12,0}}));
-        connect(forceToPosition.a, a) annotation (Line(points={{17,-3},{66,-3},
-                {66,-30},{110,-30}}, color={0,0,127}));
-        connect(forceSource.f, fDrive)
-          annotation (Line(points={{-52,0},{-120,0}}, color={0,0,127}));
+        connect(forceToPosition.f, f) annotation (Line(points={{23,-8},{60,
+                -8},{60,-80},{120,-80}}, color={0,0,127}));
+        connect(forceToPosition.p, s) annotation (Line(points={{23,8},{60,8},
+                {60,80},{110,80}}, color={0,0,127}));
+        connect(forceToPosition.pder, v) annotation (Line(points={{23,5},{
+                80,5},{80,30},{110,30}}, color={0,0,127}));
+        connect(forceToPosition.pder2, a) annotation (Line(points={{23,2},{
+                80,2},{80,-30},{110,-30}}, color={0,0,127}));
+        connect(fDrive, forceSource.f)
+          annotation (Line(points={{-120,0},{-52,0}}, color={0,0,127}));
         connect(forceSource.flange, mass.flange_a)
           annotation (Line(points={{-30,0},{-20,0}}, color={0,127,0}));
-        connect(forceToPosition.f, force) annotation (Line(points={{18,-8},{60,
-                -8},{60,-80},{120,-80}}, color={0,0,127}));
-        connect(forceToPosition.v, v) annotation (Line(points={{17,3},{66,3},{
-                66,30},{110,30}}, color={0,0,127}));
-        connect(forceToPosition.s, s) annotation (Line(points={{17,8},{60,8},{
-                60,80},{110,80}}, color={0,0,127}));
+        connect(mass.flange_b, forceToPosition.flange)
+          annotation (Line(points={{0,0},{18,0}}));
         annotation (Icon(coordinateSystem(
                 preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
               graphics={Text(
@@ -1839,9 +1842,9 @@ according to the Stribeck curve:
                       horizontalAlignment=TextAlignment.Right,
                       textString="a"),Text(
                       extent={{-150,-110},{150,-140}},
-                      textString="J=%J"),Bitmap(extent={{-96,-42},{64,54}},
-                  fileName=
-                    "modelica://Modelica/Resources/Images/Mechanics/Translational/DirectMass.png"),
+                textString="m=%m",
+                lineColor={0,0,0}),      Bitmap(extent={{-96,-42},{64,54}},
+                  fileName="modelica://Modelica/Resources/Images/Mechanics/Translational/DirectMass.png"),
                 Text( extent={{10,-60},{94,-90}},
                       horizontalAlignment=TextAlignment.Right,
                 textString="f",
@@ -1851,13 +1854,12 @@ according to the Stribeck curve:
       model InverseMass "Input/output block of an inverse mass model"
         extends Modelica.Blocks.Icons.Block;
         parameter Modelica.SIunits.Mass m=1 "Mass";
-        Components.Mass mass(
-          m=m,
-          s(fixed=true),
-          v(fixed=true))
-          annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
-        Components.PositionToForceAdaptor positionToForce
-          annotation (Placement(transformation(extent={{-36,-10},{-16,10}})));
+        Modelica.Mechanics.Translational.Components.Mass mass(
+          m=m)           annotation (Placement(transformation(extent={{-10,
+                  -10},{10,10}})));
+        Modelica.Mechanics.Translational.Components.PositionToForceAdaptor
+          positionToForce
+          annotation (Placement(transformation(extent={{-30,-10},{-10,10}})));
         Modelica.Blocks.Interfaces.RealInput s(unit="m") "Position to drive the mass"
           annotation (Placement(transformation(extent={{-140,60},{-100,100}})));
         Modelica.Blocks.Interfaces.RealInput v(unit="m/s") "Speed to drive the mass"
@@ -1865,21 +1867,21 @@ according to the Stribeck curve:
         Modelica.Blocks.Interfaces.RealInput a(unit="m/s2")
           "Acceleration to drive the mass"            annotation (Placement(
               transformation(extent={{-140,-50},{-100,-10}})));
-        Modelica.Blocks.Interfaces.RealOutput force(unit="N")
+        Modelica.Blocks.Interfaces.RealOutput f(unit="N")
           "Force needed to drive the flange according to s, v, a"
           annotation (Placement(transformation(extent={{-100,-90},{-120,-70}})));
       equation
 
-        connect(positionToForce.a, a) annotation (Line(points={{-30,-3.2},{-80,-3.2},{
-                -80,-30},{-120,-30}}, color={0,0,127}));
-        connect(s, positionToForce.s) annotation (Line(points={{-120,80},{-70,80},{-70,
-                8},{-30,8}}, color={0,0,127}));
-        connect(v, positionToForce.v) annotation (Line(points={{-120,30},{-80,30},{-80,
-                2.8},{-30,2.8}}, color={0,0,127}));
-        connect(positionToForce.f, force) annotation (Line(points={{-29,-8},{-70,-8},{
-                -70,-80},{-110,-80}}, color={0,0,127}));
+        connect(positionToForce.f, f) annotation (Line(points={{-23,-8},{-60,
+                -8},{-60,-80},{-110,-80}}, color={0,0,127}));
         connect(positionToForce.flange, mass.flange_a)
-          annotation (Line(points={{-24,0},{-10,0}}, color={0,127,0}));
+          annotation (Line(points={{-18,0},{-10,0}}, color={0,127,0}));
+        connect(positionToForce.p, s) annotation (Line(points={{-23,8},{-60,
+                8},{-60,80},{-120,80}}, color={0,0,127}));
+        connect(positionToForce.pder, v) annotation (Line(points={{-23,5},{
+                -80,5},{-80,30},{-120,30}}, color={0,0,127}));
+        connect(positionToForce.pder2, a) annotation (Line(points={{-23,2},
+                {-80,2},{-80,-30},{-120,-30}}, color={0,0,127}));
         annotation (Icon(coordinateSystem(
                 preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
               graphics={Text(
@@ -1898,9 +1900,9 @@ according to the Stribeck curve:
                       horizontalAlignment=TextAlignment.Left,
                       textString="a"),Text(
                       extent={{-150,-110},{150,-140}},
-                      textString="J=%J"),Bitmap(extent={{-58,-42},{98,48}},
-                  fileName=
-                    "modelica://Modelica/Resources/Images/Mechanics/Translational/InverseMass.png"),
+                textString="m=%m",
+                lineColor={0,0,0}),      Bitmap(extent={{-58,-42},{98,48}},
+                  fileName="modelica://Modelica/Resources/Images/Mechanics/Translational/InverseMass.png"),
                 Text( extent={{-90,-64},{-6,-94}},
                       horizontalAlignment=TextAlignment.Left,
                 textString="f",
@@ -1909,11 +1911,15 @@ according to the Stribeck curve:
 
       model SpringDamper "Input/output block of a spring/damper model"
         extends Modelica.Blocks.Icons.Block;
-        parameter SI.TranslationalSpringConstant c=1e4 "Spring constant";
-        parameter SI.TranslationalDampingConstant d=1 "Damping constant";
-        parameter SI.Length s_rel0=0 "Unstretched spring length";
+        parameter Modelica.SIunits.TranslationalSpringConstant c=1e4
+          "Spring constant";
+        parameter Modelica.SIunits.TranslationalDampingConstant d=1
+          "Damping constant";
+        parameter Modelica.SIunits.Length s_rel0=0
+          "Unstretched spring length";
 
-        Components.PositionToForceAdaptor positionToForce1(use_a=false)
+        Modelica.Mechanics.Translational.Components.PositionToForceAdaptor
+          positionToForce1(use_pder2=false)
           annotation (Placement(transformation(extent={{-30,-10},{-10,10}})));
         Modelica.Blocks.Interfaces.RealInput s1(unit="m")
           "Position of left flange of force element"
@@ -1930,34 +1936,36 @@ according to the Stribeck curve:
           s_rel0=s_rel0)
           annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
         Modelica.Blocks.Interfaces.RealInput s2(unit="m")
-          "Position of left flange of force element"
+          "Position of right flange of force element"
           annotation (Placement(transformation(extent={{140,60},{100,100}})));
         Modelica.Blocks.Interfaces.RealInput v2(unit="m/s")
-          "Speed to left flange of force element"
+          "Speed to right flange of force element"
           annotation (Placement(transformation(extent={{140,10},{100,50}})));
         Modelica.Blocks.Interfaces.RealOutput f2(unit="N")
           "Force generated by the force element"
           annotation (Placement(transformation(extent={{100,-90},{120,-70}})));
-        Components.PositionToForceAdaptor positionToForce2(use_a=false)
+        Modelica.Mechanics.Translational.Components.PositionToForceAdaptor
+          positionToForce2(use_pder2=false)
           annotation (Placement(transformation(extent={{30,-10},{10,10}})));
       equation
 
-        connect(s1, positionToForce1.s) annotation (Line(points={{-120,80},{-40,
-                80},{-40,8},{-24,8}}, color={0,0,127}));
-        connect(v1, positionToForce1.v) annotation (Line(points={{-120,30},{-60,
-                30},{-60,2.8},{-24,2.8}}, color={0,0,127}));
         connect(f1, positionToForce1.f) annotation (Line(points={{-110,-80},{
                 -40,-80},{-40,-8},{-23,-8}}, color={0,0,127}));
-        connect(positionToForce2.s, s2) annotation (Line(points={{24,8},{60,8},{60,80},
-                {120,80}},         color={0,0,127}));
-        connect(v2, positionToForce2.v) annotation (Line(points={{120,30},{80,30},{80,
-                2.8},{24,2.8}},         color={0,0,127}));
-        connect(positionToForce2.f, f2) annotation (Line(points={{23,-8},{60,-8},{60,-80},
-                {110,-80}},          color={0,0,127}));
+        connect(positionToForce2.f, f2) annotation (Line(points={{23,-8},{
+                40,-8},{40,-80},{110,-80}},
+                                     color={0,0,127}));
         connect(positionToForce1.flange, springDamper.flange_a)
           annotation (Line(points={{-18,0},{-10,0}},color={0,127,0}));
         connect(springDamper.flange_b, positionToForce2.flange)
           annotation (Line(points={{10,0},{18,0}}, color={0,127,0}));
+        connect(positionToForce1.p, s1) annotation (Line(points={{-23,8},{
+                -40,8},{-40,80},{-120,80}}, color={0,0,127}));
+        connect(positionToForce1.pder, v1) annotation (Line(points={{-23,5},
+                {-60,5},{-60,30},{-120,30}}, color={0,0,127}));
+        connect(positionToForce2.p, s2) annotation (Line(points={{23,8},{40,
+                8},{40,80},{120,80}}, color={0,0,127}));
+        connect(positionToForce2.pder, v2) annotation (Line(points={{23,5},
+                {60,5},{60,30},{120,30}}, color={0,0,127}));
         annotation (Icon(coordinateSystem(
                 preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
               graphics={Text(
@@ -1970,8 +1978,8 @@ according to the Stribeck curve:
                 lineColor={0,0,0}),      Text(
                       extent={{-150,-118},{150,-148}},
                       textString="c=%c
-d=%d"),Bitmap(extent={{-72,-44},{84,46}}, fileName=
-                    "modelica://Modelica/Resources/Images/Mechanics/Translational/SpringDamper.png"),
+d=%d"),         Bitmap(extent={{-72,-44},{84,46}},
+                  fileName="modelica://Modelica/Resources/Images/Mechanics/Translational/SpringDamper.png"),
                 Text( extent={{12,96},{96,66}},
                       horizontalAlignment=TextAlignment.Right,
                 textString="s2",
@@ -1996,10 +2004,13 @@ d=%d"),Bitmap(extent={{-72,-44},{84,46}}, fileName=
 
       model Spring "Input/output block of a spring model"
         extends Modelica.Blocks.Icons.Block;
-        parameter SI.TranslationalSpringConstant c=1e4 "Spring constant";
-        parameter SI.Length s_rel0=0 "Unstretched spring length";
+        parameter Modelica.SIunits.TranslationalSpringConstant c=1e4
+          "Spring constant";
+        parameter Modelica.SIunits.Length s_rel0=0
+          "Unstretched spring length";
 
-        Components.PositionToForceAdaptor positionToForce1(use_a=false, use_v=false)
+        Modelica.Mechanics.Translational.Components.PositionToForceAdaptor
+          positionToForce1(use_pder=false, use_pder2=false)
           annotation (Placement(transformation(extent={{-30,-10},{-10,10}})));
         Modelica.Blocks.Interfaces.RealInput s1(unit="m")
           "Position of left flange of force element"
@@ -2007,31 +2018,32 @@ d=%d"),Bitmap(extent={{-72,-44},{84,46}}, fileName=
         Modelica.Blocks.Interfaces.RealOutput f1(unit="N")
           "Force generated by the force element"
           annotation (Placement(transformation(extent={{-100,-90},{-120,-70}})));
-        Components.Spring spring(c=c, s_rel0=s_rel0)
-          annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
+        Modelica.Mechanics.Translational.Components.Spring spring(c=c,
+            s_rel0=s_rel0) annotation (Placement(transformation(extent={{-10,
+                  -10},{10,10}})));
         Modelica.Blocks.Interfaces.RealInput s2(unit="m")
-          "Position of left flange of force element"
+          "Position of right flange of force element"
           annotation (Placement(transformation(extent={{140,60},{100,100}})));
         Modelica.Blocks.Interfaces.RealOutput f2(unit="N")
           "Force generated by the force element"
           annotation (Placement(transformation(extent={{100,-90},{120,-70}})));
-        Components.PositionToForceAdaptor positionToForce2(use_a=false, use_v=false)
+        Modelica.Mechanics.Translational.Components.PositionToForceAdaptor
+          positionToForce2(use_pder=false, use_pder2=false)
           annotation (Placement(transformation(extent={{30,-10},{10,10}})));
       equation
 
-        connect(s1, positionToForce1.s) annotation (Line(points={{-120,80},{-60,
-                80},{-60,8},{-24,8}},
-                             color={0,0,127}));
         connect(f1, positionToForce1.f) annotation (Line(points={{-110,-80},{-60,-80},
                 {-60,-8},{-23,-8}}, color={0,0,127}));
-        connect(positionToForce2.s, s2) annotation (Line(points={{24,8},{60,8},{60,80},
-                {120,80}}, color={0,0,127}));
         connect(positionToForce2.f, f2) annotation (Line(points={{23,-8},{60,-8},{60,-80},
                 {110,-80}}, color={0,0,127}));
         connect(positionToForce1.flange, spring.flange_a)
           annotation (Line(points={{-18,0},{-10,0}}, color={0,127,0}));
         connect(spring.flange_b, positionToForce2.flange)
           annotation (Line(points={{10,0},{18,0}}, color={0,127,0}));
+        connect(positionToForce1.p, s1) annotation (Line(points={{-23,8},{
+                -60,8},{-60,80},{-120,80}}, color={0,0,127}));
+        connect(positionToForce2.p, s2) annotation (Line(points={{23,8},{60,
+                8},{60,80},{120,80}}, color={0,0,127}));
         annotation (Icon(coordinateSystem(
                 preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
               graphics={Text(
@@ -2044,8 +2056,7 @@ d=%d"),Bitmap(extent={{-72,-44},{84,46}}, fileName=
                 lineColor={0,0,0}),      Text(
                       extent={{-150,-114},{150,-144}},
                       textString="c=%c"),Bitmap(extent={{-88,-36},{92,56}},
-                  fileName=
-                    "modelica://Modelica/Resources/Images/Mechanics/Translational/Spring.png"),
+                  fileName="modelica://Modelica/Resources/Images/Mechanics/Translational/Spring.png"),
                 Text( extent={{12,96},{96,66}},
                       horizontalAlignment=TextAlignment.Right,
                 textString="s2",
@@ -2062,11 +2073,10 @@ d=%d"),Bitmap(extent={{-72,-44},{84,46}}, fileName=
 
       model SpringDamperNoRelativeStates
         "Linear 1D translational spring and damper in parallel (s and v are not used as states)"
-        parameter SI.TranslationalSpringConstant c(final min=0, start=1.0e5)
-          "Spring constant";
-        parameter SI.TranslationalDampingConstant d(final min=0, start=0)
-          "Damping constant";
-        parameter SI.Length s_rel0=0 "Unstretched spring length";
+        parameter Modelica.SIunits.TranslationalSpringConstant c(final min=0, start=1.0e5) "Spring constant";
+        parameter Modelica.SIunits.TranslationalDampingConstant d(final min=0, start=0) "Damping constant";
+        parameter Modelica.SIunits.Length s_rel0=0
+          "Unstretched spring length";
         Modelica.SIunits.Velocity v_rel(start=0)
           "Relative velocity (= der(s_rel))";
         extends Modelica.Mechanics.Translational.Interfaces.PartialCompliant;
@@ -3746,82 +3756,28 @@ velocity of model mass1 or of model mass2 as state variables.
 
     model ForceToPositionAdaptor
       "Signal adaptor for a Translational flange with position, speed, and acceleration as outputs and force as input (especially useful for FMUs)"
-      parameter Boolean use_v=true
-        "= true, enable the output connector v (velocity)" annotation (
-        Evaluate=true,
-        HideResult=true,
-        choices(checkBox=true));
-      parameter Boolean use_a=true
-        "= true, enable the output connector a (acceleration)"
-        annotation (
-        Evaluate=true,
-        HideResult=true,
-        choices(checkBox=true));
-
-      Interfaces.Flange_a flange
+      extends
+        Modelica.Blocks.Interfaces.PartialFMUadaptors.FlowToPotentialAdaptor(
+        final Name_p="s",
+        final Name_pder="v",
+        final Name_pder2="a",
+        final Name_f="f",
+        final Name_fder="der(f)",
+        final Name_fder2="der2(f)",
+        final use_fder=false,
+        final use_fder2=false,
+        final p(unit="m"),
+        final pder(unit="m/s"),
+        final pder2(unit="m/s2"),
+        final f(unit="N"),
+        final fder(unit="N/s"),
+        final fder2(unit="N/s2"));
+      Modelica.Mechanics.Translational.Interfaces.Flange_a flange
         annotation (Placement(transformation(extent={{-30,-10},{-10,10}})));
-      Modelica.Blocks.Interfaces.RealOutput s(unit="m")
-        "Flange moves with position s due to force f"
-        annotation (Placement(transformation(extent={{20,70},{40,90}})));
-      Modelica.Blocks.Interfaces.RealOutput v(unit="m/s") if use_v
-        "Flange moves with speed v due to force f"
-        annotation (Placement(transformation(extent={{20,20},{40,40}})));
-      Modelica.Blocks.Interfaces.RealOutput a(unit="m/s2") if use_a
-        "Flange moves with acceleration a due to force f"
-        annotation (Placement(transformation(extent={{20,-40},{40,-20}})));
-      Modelica.Blocks.Interfaces.RealInput f(unit="N") "Force to drive the flange"
-        annotation (Placement(transformation(extent={{60,-100},{20,-60}})));
-    protected
-      Modelica.Blocks.Interfaces.RealInput v_internal
-        "Needed to connect to conditional connector v";
-      Modelica.Blocks.Interfaces.RealInput a_internal
-        "Needed to connect to conditional connector a";
     equation
-      connect(v, v_internal);
-      connect(a, a_internal);
-      s = flange.s;
-      if use_v then
-        v_internal =der(s);
-      else
-        v_internal = 0.0;
-      end if;
-      if use_a then
-        a_internal = der(v_internal);
-      else
-        a_internal = 0.0;
-      end if;
-      flange.f =f;
-
-      annotation (
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
-                Rectangle(
-                  extent={{-20,100},{20,-100}},
-                  lineColor={64,64,64},
-                  fillColor={255,255,255},
-                  fillPattern=FillPattern.HorizontalCylinder,
-                  radius=10),
-                Rectangle(
-                  extent={{-20,100},{20,-100}},
-                  lineColor={64,64,64},
-                  radius=10),
-                Text(
-                  extent={{-20,92},{20,70}},
-              textString="s",
-              lineColor={0,0,0}),   Text(
-                  visible=use_v,
-                  extent={{-20,42},{20,20}},
-              textString="v",
-              lineColor={0,0,0}), Text(
-                  visible=use_a,
-                  extent={{-20,-18},{20,-40}},
-                  textString="a"),Text(
-                  extent={{-20,-68},{20,-90}},
-              textString="f",
-              lineColor={0,0,0}),   Text(
-                  extent={{-150,150},{150,110}},
-                  textString="%name",
-                  lineColor={0,0,255})}),
-        Documentation(info="<html>
+      y = flange.s "output = potential = position";
+      u = flange.f "input = flow = force";
+      annotation (Documentation(info="<html>
 <p>
 Adaptor between a flange connector and a signal representation of the flange.
 This component is used to provide a pure signal interface around a Translational model
@@ -3829,237 +3785,36 @@ and export this model in form of an input/output block,
 especially as FMU (<a href=\"https://www.fmi-standard.org\">Functional Mock-up Unit</a>).
 Examples of the usage of this adaptor are provided in
 <a href=\"modelica://Modelica.Mechanics.Translational.Examples.GenerationOfFMUs\">Translational.Examples.GenerationOfFMUs</a>.
-This adaptor has force as input and position, velocity and acceleration as output signals.
+This adaptor has force as input and postion, velocity and acceleration as output signals.
 </p>
 </html>"));
     end ForceToPositionAdaptor;
 
     model PositionToForceAdaptor
-      "Signal adaptor for a Translational flange with force as output and position, speed, and optionally acceleration as inputs (especially useful for FMUs)"
-      parameter Boolean use_v=true
-        "= true, enable the input connector v (velocity)" annotation (
-        Evaluate=true,
-        HideResult=true,
-        choices(checkBox=true));
-      parameter Boolean use_a=true
-        "= true, enable the input connector a (acceleration)"
-        annotation (
-        Evaluate=true,
-        HideResult=true,
-        choices(checkBox=true));
-      Interfaces.Flange_b flange annotation (
-          Placement(transformation(extent={{56,-10},{76,10}}),
+      "Signal adaptor for a Translational flange with force as output and position, speed and acceleration as input (especially useful for FMUs)"
+      extends
+        Modelica.Blocks.Interfaces.PartialFMUadaptors.PotentialToFlowAdaptor(
+        final Name_p="s",
+        final Name_pder="v",
+        final Name_pder2="a",
+        final Name_f="f",
+        final Name_fder="der(f)",
+        final Name_fder2="der2(f)",
+        final use_fder=false,
+        final use_fder2=false,
+        final p(unit="m"),
+        final pder(unit="m/s"),
+        final pder2(unit="m/s2"),
+        final f(unit="N"),
+        final fder(unit="N/s"),
+        final fder2(unit="N/s2"));
+      Modelica.Mechanics.Translational.Interfaces.Flange_b flange
+        annotation (Placement(transformation(extent={{10,-10},{30,10}}),
             iconTransformation(extent={{10,-10},{30,10}})));
-      Modelica.Blocks.Interfaces.RealInput s(unit="m")
-        "Position to drive the flange" annotation (Placement(transformation(extent={
-                {-80,60},{-40,100}}), iconTransformation(extent={{-60,60},{-20,100}})));
-      Modelica.Blocks.Interfaces.RealInput v(unit="m/s") if use_v or use_a
-        "Speed to drive the flange (v=der(s) required)"   annotation (
-          Placement(transformation(extent={{-80,10},{-40,50}}),
-            iconTransformation(extent={{-60,8},{-20,48}})));
-      Modelica.Blocks.Interfaces.RealInput a(unit="m/s2") if use_a
-        "Acceleration to drive the flange (a = der(v) required)"
-        annotation (Placement(transformation(extent={{-80,-50},{-40,-10}}),
-            iconTransformation(extent={{-60,-52},{-20,-12}})));
-      Modelica.Blocks.Interfaces.RealOutput f(unit="N")
-        "Force needed to drive the flange according to s, v, a" annotation (
-          Placement(transformation(extent={{-40,-90},{-60,-70}}),
-            iconTransformation(extent={{-20,-90},{-40,-70}})));
-
-    protected
-      Sources.Move move if use_a
-        annotation (Placement(transformation(extent={{10,-10},{30,10}})));
-      Modelica.Blocks.Routing.Multiplex3 multiplex3 if use_a
-        annotation (Placement(transformation(extent={{-20,-10},{0,10}})));
-      Sensors.ForceSensor forceSensor
-        annotation (Placement(transformation(extent={{36,-10},{56,10}})));
-
-      Modelica.Blocks.Routing.Multiplex2 multiplex2 if use_v and not use_a
-        annotation (Placement(transformation(extent={{-20,40},{0,60}})));
-      Move_s move_s if     not use_v and not use_a
-        annotation (Placement(transformation(extent={{10,70},{30,90}})));
-      Move_v move_w if use_v and not use_a
-        annotation (Placement(transformation(extent={{10,40},{30,60}})));
-
-      model Move_s
-        "Forced movement of a flange according to a position signal"
-        extends
-          Modelica.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupport2;
-
-        Modelica.Blocks.Interfaces.RealInput sRef(
-          final quantity="Position",
-          final unit="m") "Position of flange with respect to support"
-          annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
-      equation
-        sRef = flange.s - s_support;
-        annotation (Documentation(info="<html>
-<p>
-Flange <strong>flange</strong> is <strong>forced</strong> to move relative to flange support with a predefined motion
-according to the input signal u
-</p>
-<pre>
-    u[1]: position of flange
-    u[2]: velocity of flange
-</pre>
-<p>
-The user has to guarantee that the input signals are consistent to each other,
-i.e., that u[2] is the derivative of u[1].
-</p>
-<p>
-The input signals can be provided from one of the signal generator
-blocks of the block library Modelica.Blocks.Sources.
-</p>
-</html>"), Icon(coordinateSystem(
-              preserveAspectRatio=true,
-              extent={{-100,-100},{100,100}}), graphics={Text(
-                      extent={{-80,-60},{-80,-100}},
-                textString="s",
-                lineColor={0,0,0}),            Line(points={{-30,-32},{30,-32}}),Line(points={{0,52},{0,32}}),Line(
-                points={{-29,32},{30,32}}),Line(points={{0,-32},
-                {0,-100}}),Line(points={{30,-42},{20,-52}}),Line(points={{30,-32},{10,-52}}),
-                Line(points={{20,-32},{0,-52}}),Line(points={{10,
-                -32},{-10,-52}}),Line(points={{0,-32},{-20,-52}}),Line(points={{-10,-32},{-30,-52}}),
-                Line(points={{-20,-32},{-30,-42}}),Text(
-                      extent={{-150,100},{150,60}},
-                      textString="%name",
-                      lineColor={0,0,255}),
-                 Rectangle(
-                   extent={{-100,20},{100,-20}},
-                   lineColor={0,127,0},
-                   fillColor={215,215,215},
-                   fillPattern=FillPattern.Solid)}));
-      end Move_s;
-
-      model Move_v
-        "Forced movement of a flange according to a position and speed signal"
-        extends
-          Modelica.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupport2;
-
-        Modelica.SIunits.Position sRef
-          "Position of flange with respect to support";
-        Modelica.Blocks.Interfaces.RealInput u[2]
-          "Position and velocity of flange with respect to support as input signals"
-          annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
-      protected
-        function position
-          extends Modelica.Icons.Function;
-          input Real q_qd[2] "Required values for position and speed";
-          input Real dummy
-            "Just to have one input signal that should be differentiated to avoid possible problems in the Modelica tool (is not used)";
-          output Real q;
-        algorithm
-          q := q_qd[1];
-          annotation (derivative(noDerivative=q_qd) = position_der,
-              InlineAfterIndexReduction=true);
-        end position;
-
-        function position_der
-          extends Modelica.Icons.Function;
-          input Real q_qd[2] "Required values for position and speed";
-          input Real dummy
-            "Just to have one input signal that should be differentiated to avoid possible problems in the Modelica tool (is not used)";
-          input Real dummy_der;
-          output Real qd;
-        algorithm
-          qd := q_qd[2];
-        end position_der;
-      equation
-        sRef = flange.s - s_support;
-        sRef = position(u, time);
-        annotation (Documentation(info="<html>
-<p>
-Flange <strong>flange</strong> is <strong>forced</strong> to move relative to flange support with a predefined motion
-according to the input signals:
-</p>
-<pre>
-    u[1]: position of flange
-    u[2]: velocity of flange
-</pre>
-<p>
-The user has to guarantee that the input signals are consistent to each other,
-i.e., that u[2] is the derivative of u[1].
-</p>
-<p>
-The input signals can be provided from one of the signal generator
-blocks of the block library Modelica.Blocks.Sources.
-</p>
-</html>"), Icon(coordinateSystem(
-              preserveAspectRatio=true,
-              extent={{-100,-100},{100,100}}), graphics={Text(
-                      extent={{-80,-60},{-80,-100}},
-                textString="s,v",
-                lineColor={0,0,0}),            Line(points={{-30,-32},{30,-32}}),Line(points={{0,52},{0,32}}),Line(
-                points={{-29,32},{30,32}}),Line(points={{0,-32},
-                {0,-100}}),Line(points={{30,-42},{20,-52}}),Line(points={{30,-32},{10,-52}}),
-                Line(points={{20,-32},{0,-52}}),Line(points={{10,
-                -32},{-10,-52}}),Line(points={{0,-32},{-20,-52}}),Line(points={{-10,-32},{-30,-52}}),
-                Line(points={{-20,-32},{-30,-42}}),Text(
-                      extent={{-150,100},{150,60}},
-                      textString="%name",
-                      lineColor={0,0,255}),
-                 Rectangle(
-                   extent={{-100,20},{100,-20}},
-                   lineColor={0,127,0},
-                   fillColor={215,215,215},
-                   fillPattern=FillPattern.Solid)}));
-      end Move_v;
     equation
-      connect(multiplex3.y, move.u) annotation (Line(
-          points={{1,0},{8,0}}, color={0,0,127}));
-      connect(s, multiplex3.u1[1]) annotation (Line(points={{-60,80},{-32,80},{-32,7},
-              {-22,7}}, color={0,0,127}));
-      connect(v, multiplex3.u2[1]) annotation (Line(
-          points={{-60,30},{-36,30},{-36,0},{-22,0}}, color={0,0,127}));
-      connect(a, multiplex3.u3[1]) annotation (Line(
-          points={{-60,-30},{-32,-30},{-32,-7},{-22,-7}}, color={0,0,127}));
-      connect(s, multiplex2.u1[1]) annotation (Line(points={{-60,80},{-46,80},{-46,80},
-              {-32,80},{-32,56},{-22,56}}, color={0,0,127}));
-      connect(v, multiplex2.u2[1]) annotation (Line(
-          points={{-60,30},{-28,30},{-28,44},{-22,44}}, color={0,0,127}));
-      connect(forceSensor.f, f)
-        annotation (Line(points={{38,-11},{38,-80},{-50,-80}}, color={0,0,127}));
-      connect(forceSensor.flange_b, flange)
-        annotation (Line(points={{56,0},{66,0}}, color={0,127,0}));
-      connect(move.flange, forceSensor.flange_a)
-        annotation (Line(points={{30,0},{36,0}}, color={0,127,0}));
-      connect(forceSensor.flange_a, move_s.flange)
-        annotation (Line(points={{36,0},{36,80},{30,80}}, color={0,127,0}));
-      connect(forceSensor.flange_a, move_w.flange)
-        annotation (Line(points={{36,0},{36,50},{30,50}}, color={0,127,0}));
-      connect(s, move_s.sRef)
-        annotation (Line(points={{-60,80},{8,80}}, color={0,0,127}));
-      connect(multiplex2.y, move_w.u)
-        annotation (Line(points={{1,50},{8,50}}, color={0,0,127}));
-      annotation (
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
-                Rectangle(
-                  extent={{-20,100},{20,-100}},
-                  lineColor={64,64,64},
-                  fillColor={255,255,255},
-                  fillPattern=FillPattern.HorizontalCylinder,
-                  radius=10),
-                Rectangle(
-                  extent={{-20,100},{20,-100}},
-                  lineColor={64,64,64},
-                  radius=10),
-                Text(
-                  extent={{-20,90},{20,68}},
-              textString="s",
-              lineColor={0,0,0}),   Text(
-                  visible=use_v,
-                  extent={{-20,40},{20,18}},
-              textString="v",
-              lineColor={0,0,0}), Text(
-                  visible=use_a,
-                  extent={{-20,-20},{20,-42}},
-                  textString="a"),Text(
-                  extent={{-20,-70},{20,-92}},
-              textString="f",
-              lineColor={0,0,0}),   Text(
-                  extent={{-150,150},{150,110}},
-                  textString="%name",
-                  lineColor={0,0,255})}),
-        Documentation(info="<html>
+      y = flange.f "output = flow = force";
+      u = flange.s "input = potential = position";
+      annotation (Documentation(info="<html>
 <p>
 Adaptor between a flange connector and a signal representation of the flange.
 This component is used to provide a pure signal interface around a Translational model
@@ -4068,7 +3823,10 @@ especially as FMU (<a href=\"https://www.fmi-standard.org\">Functional Mock-up U
 Examples of the usage of this adaptor are provided in
 <a href=\"modelica://Modelica.Mechanics.Translational.Examples.GenerationOfFMUs\">Translational.Examples.GenerationOfFMUs</a>.
 This adaptor has position, velocity and acceleration as input signals and
-force as output signal. Note, the input signals must be consistent to each other
+force as output signal. 
+<p>
+</p>
+Note, the input signals must be consistent to each other
 (v=der(s), a=der(v)).
 </p>
 </html>"));
