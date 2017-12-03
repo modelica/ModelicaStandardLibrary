@@ -1279,8 +1279,8 @@ This is a model to collect the heat flows from <em>m</em> heatports to one singl
       Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort
         annotation (Placement(transformation(extent={{-30,-10},{-10,10}})));
     equation
-      y = heatPort.T "output = flow = temperature";
-      u = heatPort.Q_flow "input = potential = heatflow";
+      y = heatPort.T "output = potential = temperature";
+      u = heatPort.Q_flow "input = flow = heatflow";
       annotation (Documentation(info="<html>
 <p>
 Adaptor between a heatport connector and a signal representation of the flange.
