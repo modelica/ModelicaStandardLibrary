@@ -267,6 +267,279 @@ Simulate for 7200 s; plot Twinding.T and Tcore.T.
 </html>"),
         experiment(StopTime=7200, Interval=0.01));
     end Motor;
+
+    model GenerationOfFMUs
+      "Example to demonstrate variants to generate FMUs (Functional Mock-up Units)"
+      extends Modelica.Icons.Example;
+
+      Modelica.Blocks.Sources.Sine sine1(freqHz=2, amplitude=1000)
+        annotation (Placement(transformation(extent={{-100,40},{-80,60}})));
+      Modelica.Thermal.HeatTransfer.Examples.Utilities.DirectCapacity
+        directCapacity(C=1.1)
+        annotation (Placement(transformation(extent={{0,40},{20,60}})));
+      Modelica.Thermal.HeatTransfer.Examples.Utilities.InverseCapacity
+        inverseCapacity(C=2.2)
+        annotation (Placement(transformation(extent={{40,40},{60,60}})));
+      Modelica.Thermal.HeatTransfer.Examples.Utilities.Conduction conductor(G=
+            10)
+        annotation (Placement(transformation(extent={{20,-80},{40,-60}})));
+      Modelica.Thermal.HeatTransfer.Components.HeatCapacitor capacitor3a(C=1.1, T(fixed=true, start=293.15))
+        annotation (Placement(transformation(extent={{-30,-70},{-10,-50}})));
+      Modelica.Thermal.HeatTransfer.Sources.PrescribedHeatFlow heatFlow3
+        annotation (Placement(transformation(extent={{-60,-80},{-40,-60}})));
+      Modelica.Thermal.HeatTransfer.Components.HeatflowToTemperatureAdaptor
+        heatflowToTemperature3a(use_pder=false)
+        annotation (Placement(transformation(extent={{-10,-80},{10,-60}})));
+      Modelica.Thermal.HeatTransfer.Components.HeatCapacitor capacitor3b(C=2.2, T(fixed=true, start=293.15))
+        annotation (Placement(transformation(extent={{70,-70},{90,-50}})));
+      Modelica.Thermal.HeatTransfer.Components.HeatflowToTemperatureAdaptor
+        heatflowToTemperature3b(use_pder=false)
+        annotation (Placement(transformation(extent={{70,-80},{50,-60}})));
+    equation
+      connect(sine1.y, directCapacity.Q_flowDrive)
+        annotation (Line(points={{-79,50},{-2,50}}, color={0,0,127}));
+      connect(directCapacity.T, inverseCapacity.T)
+        annotation (Line(points={{21,58},{38,58}}, color={0,0,127}));
+      connect(inverseCapacity.Q_flow, directCapacity.Q_flow)
+        annotation (Line(points={{39,42},{22,42}}, color={0,0,127}));
+      connect(heatflowToTemperature3a.f, conductor.Q_flow1)
+        annotation (Line(points={{3,-78},{19,-78}}, color={0,0,127}));
+      connect(conductor.Q_flow2, heatflowToTemperature3b.f)
+        annotation (Line(points={{41,-78},{57,-78}}, color={0,0,127}));
+      connect(heatflowToTemperature3a.p, conductor.T1)
+        annotation (Line(points={{3,-62},{18,-62}}, color={0,0,127}));
+      connect(conductor.T2, heatflowToTemperature3b.p)
+        annotation (Line(points={{42,-62},{57,-62}}, color={0,0,127}));
+      connect(sine1.y, heatFlow3.Q_flow) annotation (Line(points={{-79,50},{-70,50},
+              {-70,-70},{-60,-70}}, color={0,0,127}));
+      connect(heatFlow3.port, capacitor3a.port)
+        annotation (Line(points={{-40,-70},{-20,-70}}, color={191,0,0}));
+      connect(capacitor3a.port, heatflowToTemperature3a.heatPort)
+        annotation (Line(points={{-20,-70},{-2,-70}}, color={191,0,0}));
+      connect(heatflowToTemperature3b.heatPort, capacitor3b.port)
+        annotation (Line(points={{62,-70},{80,-70}}, color={191,0,0}));
+      connect(directCapacity.derT, inverseCapacity.derT) annotation (Line(points={{21,
+              53},{28.5,53},{28.5,53},{38,53}}, color={0,0,127}));
+      annotation (experiment(StopTime=1, Interval=0.001), Documentation(info="<html>
+<p>
+This example demonstrates how to generate an input/output block (e.g. in form of an
+FMU - <a href=\"https://www.fmi-standard.org\">Functional Mock-up Unit</a>) from various HeatTransfer components.
+The goal is to export such an input/output block from Modelica and import
+it in another modeling environment. The essential issue is that before
+exporting it must be known in which way the component is utilized in the
+target environment. Depending on the target usage, different flange variables
+need to be in the interface with either input or output causality.
+Note, this example model can be used to test the FMU export/import of a Modelica tool.
+Just export the components marked in the icons as \"toFMU\" as FMUs and import
+them back. The models should then still work and give the same results as a
+pure Modelica model.
+</p>
+
+<p>
+<strong>Connecting two masses</strong><br>
+The upper part (DirectCapacity, InverseCapacity)
+demonstrates how to export two heat capacitors and connect them
+together in a target system. This requires that one of the capacitors
+(here: DirectCapacity)
+is defined to have states and the temperature and 
+derivative of temperature are provided in the interface.
+The other capacitor (here: InverseCapacity) requires heatflow according
+to the provided input temperature and derivative of temperature.
+</p>
+
+<p>
+<strong>Connecting a coduction element that needs only temperature</strong><br>
+The lower part (Conductor) demonstrates how to export a conduction element
+that needs only temperatures for its conduction law and connect this
+conduction law in a target system between two capacitors.
+</p>
+</html>"));
+    end GenerationOfFMUs;
+
+    package Utilities "Utility classes used by the Example models"
+      extends Modelica.Icons.UtilitiesPackage;
+
+      model DirectCapacity
+        "Input/output block of a direct heatCapacity model"
+        extends Modelica.Blocks.Icons.Block;
+        parameter Modelica.SIunits.HeatCapacity C(min=0)=1 "HeatCapacity";
+        Modelica.Thermal.HeatTransfer.Components.HeatCapacitor heatCapacitor(C=C, T(
+              fixed=true, start=293.15))
+          annotation (Placement(transformation(extent={{-20,0},{0,20}})));
+        Modelica.Thermal.HeatTransfer.Sources.PrescribedHeatFlow forceSource
+          annotation (Placement(transformation(extent={{-50,-10},{-30,10}})));
+        Modelica.Blocks.Interfaces.RealInput Q_flowDrive(unit="W")
+          annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
+        Modelica.Thermal.HeatTransfer.Components.HeatflowToTemperatureAdaptor
+          heatflowToTemperature(use_pder=true)
+          annotation (Placement(transformation(extent={{12,-10},{28,10}})));
+        Modelica.Blocks.Interfaces.RealOutput T(unit="K", displayUnit="degC")
+          "Heatcapacity changes temperature T due to heatflow Q_flow"
+          annotation (Placement(transformation(extent={{100,70},{120,90}})));
+        Modelica.Blocks.Interfaces.RealOutput derT(unit="K/s")
+          "Heatcapacity changes temperature T due to heatflow Q_flow"
+          annotation (Placement(transformation(extent={{100,20},{120,40}})));
+        Modelica.Blocks.Interfaces.RealInput Q_flow(unit="W")
+          "Heatflow to the heatcapacity"
+          annotation (Placement(transformation(extent={{140,-100},{100,-60}})));
+      equation
+        connect(heatflowToTemperature.f, Q_flow) annotation (Line(points={{22.4,-8},{60,
+                -8},{60,-80},{120,-80}}, color={0,0,127}));
+        connect(heatflowToTemperature.p, T) annotation (Line(points={{22.4,8},{60,8},{
+                60,80},{110,80}}, color={0,0,127}));
+        connect(heatflowToTemperature.pder, derT) annotation (Line(points={{22.4,5},{80,
+                5},{80,30},{110,30}}, color={0,0,127}));
+        connect(heatCapacitor.port, heatflowToTemperature.heatPort)
+          annotation (Line(points={{-10,0},{18.4,0}}, color={191,0,0}));
+        connect(Q_flowDrive, forceSource.Q_flow)
+          annotation (Line(points={{-120,0},{-50,0}}, color={0,0,127}));
+        connect(heatCapacitor.port, forceSource.port)
+          annotation (Line(points={{-10,0},{-30,0}}, color={191,0,0}));
+        annotation (Icon(coordinateSystem(
+                preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
+              graphics={Text(
+                      extent={{-84,-58},{24,-90}},
+                      lineColor={135,135,135},
+                      textString="to FMU"),Text(
+                      extent={{8,96},{92,66}},
+                      horizontalAlignment=TextAlignment.Right,
+                lineColor={0,0,0},
+                textString="T"),                               Text(
+                      extent={{10,46},{94,16}},
+                      horizontalAlignment=TextAlignment.Right,
+                lineColor={0,0,0},
+                textString="dT"),     Text(
+                      extent={{-150,-110},{150,-140}},
+                lineColor={0,0,0},
+                textString="C=%C"),      Bitmap(extent={{-96,-42},{64,54}},
+                  fileName="modelica://Modelica/Resources/Images/Thermal/HeatTransfer/DirectCapacity.png"),
+                Text( extent={{10,-60},{94,-90}},
+                      horizontalAlignment=TextAlignment.Right,
+                lineColor={0,0,0},
+                textString="Q_flow")}));
+      end DirectCapacity;
+
+      model InverseCapacity
+        "Input/output block of an inverse heatCapacity model"
+        extends Modelica.Blocks.Icons.Block;
+        parameter Modelica.SIunits.HeatCapacity C(min=0)=1 "HeatCapacity";
+        Modelica.Thermal.HeatTransfer.Components.HeatCapacitor mass(C=C, T(fixed=true, start=293.15))
+                         annotation (Placement(transformation(extent={{-10,0},{10,20}})));
+        Modelica.Thermal.HeatTransfer.Components.TemperatureToHeatFlowAdaptor
+          temperatureToheatflow
+          annotation (Placement(transformation(extent={{-30,-10},{-10,10}})));
+        Modelica.Blocks.Interfaces.RealInput T(unit="K", displayUnit="degC")
+          "Temperature to drive the heatCapacity"
+          annotation (Placement(transformation(extent={{-140,60},{-100,100}})));
+        Modelica.Blocks.Interfaces.RealInput derT(unit="K/s")
+          "Temperature to drive the heatCapacity"
+          annotation (Placement(transformation(extent={{-140,10},{-100,50}})));
+        Modelica.Blocks.Interfaces.RealOutput Q_flow(unit="W")
+          "Heatflow needed to drive the heatPort according to T, derT"
+          annotation (Placement(transformation(extent={{-100,-90},{-120,-70}})));
+      equation
+
+        connect(temperatureToheatflow.f, Q_flow) annotation (Line(points={{-23,-8},{-60,
+                -8},{-60,-80},{-110,-80}}, color={0,0,127}));
+        connect(temperatureToheatflow.p, T) annotation (Line(points={{-23,8},{-60,8},{
+                -60,80},{-120,80}}, color={0,0,127}));
+        connect(temperatureToheatflow.pder, derT) annotation (Line(points={{-23,5},{-80,
+                5},{-80,30},{-120,30}}, color={0,0,127}));
+        connect(temperatureToheatflow.heatPort, mass.port)
+          annotation (Line(points={{-18,0},{0,0}}, color={191,0,0}));
+        annotation (Icon(coordinateSystem(
+                preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
+              graphics={Text(
+                      extent={{0,-62},{96,-94}},
+                      lineColor={135,135,135},
+                      textString="to FMU"),Text(
+                      extent={{-94,96},{-10,66}},
+                      horizontalAlignment=TextAlignment.Left,
+                lineColor={0,0,0},
+                textString="T"),        Text(
+                      extent={{-94,46},{-10,16}},
+                      horizontalAlignment=TextAlignment.Left,
+                lineColor={0,0,0},
+                textString="dT"),     Text(
+                      extent={{-150,-110},{150,-140}},
+                lineColor={0,0,0},
+                textString="C=%C"),      Bitmap(extent={{-58,-42},{98,48}},
+                  fileName="modelica://Modelica/Resources/Images/Thermal/HeatTransfer/InverseCapacity.png"),
+                Text( extent={{-90,-64},{-6,-94}},
+                      horizontalAlignment=TextAlignment.Left,
+                lineColor={0,0,0},
+                textString="Q_flow")}));
+      end InverseCapacity;
+
+      model Conduction "Input/output block of a conduction model"
+        extends Modelica.Blocks.Icons.Block;
+        parameter Modelica.SIunits.ThermalConductance G=1 "Thermal conductance";
+        Modelica.Thermal.HeatTransfer.Components.TemperatureToHeatFlowAdaptor
+          temperatureToHeatflow1(use_pder=false)
+          annotation (Placement(transformation(extent={{-30,-10},{-10,10}})));
+        Modelica.Blocks.Interfaces.RealInput T1(unit="K", displayUnit="degC")
+          "Temperature of left heatPort of conduction element"
+          annotation (Placement(transformation(extent={{-140,60},{-100,100}})));
+        Modelica.Blocks.Interfaces.RealOutput Q_flow1(unit="W")
+          "Heatflow generated by the conduction element"
+          annotation (Placement(transformation(extent={{-100,-90},{-120,-70}})));
+        Modelica.Thermal.HeatTransfer.Components.ThermalConductor thermalConductor(G=G)
+          annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
+        Modelica.Blocks.Interfaces.RealInput T2(unit="K", displayUnit="degC")
+          "Temperature of right heatPort of conduction element"
+          annotation (Placement(transformation(extent={{140,60},{100,100}})));
+        Modelica.Blocks.Interfaces.RealOutput Q_flow2(unit="W")
+          "Heatflow generated by the conduction element"
+          annotation (Placement(transformation(extent={{100,-90},{120,-70}})));
+        Modelica.Thermal.HeatTransfer.Components.TemperatureToHeatFlowAdaptor
+          temperatureToHeatflow2(use_pder=false)
+          annotation (Placement(transformation(extent={{30,-10},{10,10}})));
+      equation
+
+        connect(Q_flow1, temperatureToHeatflow1.f) annotation (Line(points={{-110,-80},
+                {-60,-80},{-60,-8},{-23,-8}}, color={0,0,127}));
+        connect(temperatureToHeatflow2.f, Q_flow2) annotation (Line(points={{23,-8},{60,
+                -8},{60,-80},{110,-80}}, color={0,0,127}));
+        connect(temperatureToHeatflow1.p, T1) annotation (Line(points={{-23,8},{-60,8},
+                {-60,80},{-120,80}}, color={0,0,127}));
+        connect(temperatureToHeatflow2.p, T2) annotation (Line(points={{23,8},{60,8},{
+                60,80},{120,80}}, color={0,0,127}));
+        connect(temperatureToHeatflow1.heatPort, thermalConductor.port_a)
+          annotation (Line(points={{-18,0},{-10,0}}, color={191,0,0}));
+        connect(thermalConductor.port_b, temperatureToHeatflow2.heatPort)
+          annotation (Line(points={{10,0},{18,0}}, color={191,0,0}));
+        annotation (Icon(coordinateSystem(
+                preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
+              graphics={Text(
+                      extent={{-48,-36},{48,-68}},
+                      lineColor={135,135,135},
+                      textString="to FMU"),Text(
+                      extent={{-94,96},{-10,66}},
+                      horizontalAlignment=TextAlignment.Left,
+                lineColor={0,0,0},
+                textString="T1"),        Text(
+                      extent={{-150,-114},{150,-144}},
+                textString="G=%G",
+                lineColor={0,0,0}),      Bitmap(extent={{-88,-36},{92,56}},
+                  fileName="modelica://Modelica/Resources/Images/Thermal/HeatTransfer/Conductor.png"),
+                Text( extent={{12,96},{96,66}},
+                      horizontalAlignment=TextAlignment.Right,
+                lineColor={0,0,0},
+                textString="T2"),        Text(
+                      extent={{16,-62},{100,-92}},
+                      horizontalAlignment=TextAlignment.Right,
+                lineColor={0,0,0},
+                textString="Q_flow2"),   Text(
+                      extent={{-100,-64},{-16,-94}},
+                      horizontalAlignment=TextAlignment.Left,
+                lineColor={0,0,0},
+                textString="Q_flow1")}));
+      end Conduction;
+
+      annotation (Documentation(info="<html>
+<p>Utility models and functions used in the Examples</p>
+</html>"));
+    end Utilities;
     annotation (Documentation(info="<html>
 
 </html>"));
@@ -983,6 +1256,85 @@ This is a model to collect the heat flows from <em>m</em> heatports to one singl
 </p>
 </html>"));
     end ThermalCollector;
+
+    model HeatflowToTemperatureAdaptor
+      "Signal adaptor for a HeatTransfer port with temperature and derivative of temperature as outputs and heatflow as input (especially useful for FMUs)"
+      extends
+        Modelica.Blocks.Interfaces.PartialFMUadaptors.FlowToPotentialAdaptor(
+        final Name_p="T",
+        final Name_pder="dT",
+        final Name_pder2="d2T",
+        final Name_f="Q",
+        final Name_fder="der(Q)",
+        final Name_fder2="der2(Q)",
+        final use_pder2=false,
+        final use_fder=false,
+        final use_fder2=false,
+        p(unit="K", displayUnit="degC"),
+        final pder(unit="K/s"),
+        final pder2(unit="K/s2"),
+        final f(unit="W"),
+        final fder(unit="W/s"),
+        final fder2(unit="W/s2"));
+      Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort
+        annotation (Placement(transformation(extent={{-30,-10},{-10,10}})));
+    equation
+      y = heatPort.T "output = flow = temperature";
+      u = heatPort.Q_flow "input = potential = heatflow";
+      annotation (Documentation(info="<html>
+<p>
+Adaptor between a heatport connector and a signal representation of the flange.
+This component is used to provide a pure signal interface around a HetaTransfer model
+and export this model in form of an input/output block,
+especially as FMU (<a href=\"https://www.fmi-standard.org\">Functional Mock-up Unit</a>).
+Examples of the usage of this adaptor are provided in
+<a href=\"modelica://Modelica.Thermal.HeatTransfer.Examples.GenerationOfFMUs\">HeatTransfer.Examples.GenerationOfFMUs</a>.
+This adaptor has heatflow as input and temperature and derivative of temperature as output signals.
+</p>
+</html>"));
+    end HeatflowToTemperatureAdaptor;
+
+    model TemperatureToHeatFlowAdaptor
+      "Signal adaptor for a HeatTransfer port with heatflow as output and temperature and derivative of temperature as input (especially useful for FMUs)"
+      extends
+        Modelica.Blocks.Interfaces.PartialFMUadaptors.PotentialToFlowAdaptor(
+        final Name_p="T",
+        final Name_pder="dT",
+        final Name_pder2="d2T",
+        final Name_f="Q",
+        final Name_fder="der(Q)",
+        final Name_fder2="der2(Q)",
+        final use_pder2=false,
+        final use_fder=false,
+        final use_fder2=false,
+        p(unit="K", displayUnit="degC"),
+        final pder(unit="K/s"),
+        final pder2(unit="K/s2"),
+        final f(unit="W"),
+        final fder(unit="W/s"),
+        final fder2(unit="W/s2"));
+      Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_b heatPort annotation (
+          Placement(transformation(extent={{10,-10},{30,10}}), iconTransformation(
+              extent={{10,-10},{30,10}})));
+    equation
+      y = heatPort.Q_flow "output = flow = heatflow";
+      u = heatPort.T "input = potential = temperature";
+      annotation (Documentation(info="<html>
+<p>
+Adaptor between a heatport connector and a signal representation of the flange.
+This component is used to provide a pure signal interface around a HeatTransfer model
+and export this model in form of an input/output block,
+especially as FMU (<a href=\"https://www.fmi-standard.org\">Functional Mock-up Unit</a>).
+Examples of the usage of this adaptor are provided in
+<a href=\"modelica://Modelica.Thermal.HeatTransfer.Examples.GenerationOfFMUs\">HeatTransfer.Examples.GenerationOfFMUs</a>.
+This adaptor has temperature and derivative of temperature as input signals and heatflow as output signal. 
+<p>
+</p>
+Note, the input signals must be consistent to each other
+(derT=der(T)).
+</p>
+</html>"));
+    end TemperatureToHeatFlowAdaptor;
     annotation (Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics={
       Rectangle(
         origin = {12,40},
