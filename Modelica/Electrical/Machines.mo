@@ -2760,8 +2760,8 @@ whereas the stator voltage is influenced by the d-current.</p>
                 255}));
         connect(smpm.flange, speedSensor.flange)
           annotation (Line(points={{0,-40},{40,-40},{40,-10}}));
-        connect(terminalBox.starpoint, starM.pin_n) annotation (Line(points={{-19,-28},
-                {-44,-28},{-70,-28},{-70,-10}}, color={0,0,255}));
+        connect(terminalBox.starpoint, starM.pin_n) annotation (Line(points={{-20,-28},{-20,-28},{-70,-28},{-70,-10}},
+                                                color={0,0,255}));
         connect(ground.p, variableResistor.n)
           annotation (Line(points={{-70,60},{-46,60},{-20,60}}, color={0,0,255}));
         connect(ground.p, grounding.n)
@@ -2905,7 +2905,7 @@ achieve constant current and torque.</p>
               origin={0,70},
               extent={{-10,10},{10,-10}},
               rotation=270)));
-        Blocks.Sources.BooleanStep booleanStep(startTime=0.1)
+        Blocks.Sources.BooleanStep booleanStep(startTime=0)
           annotation (Placement(transformation(extent={{-90,60},{-70,80}})));
         Blocks.Routing.BooleanReplicator booleanReplicator(nout=m)
           annotation (Placement(transformation(extent={{-50,80},{-30,60}})));
@@ -2986,6 +2986,12 @@ To drive at higher torque, i.e., produce more electric power, excitation has to 
 </ul>
 
 <p>Default machine parameters are used.</p>
+
+<h5>Note</h5>
+<p>The mains switch is closed at time = 0 in order to avoid non physical noise calculated by the <code>rotorDisplacementAngle</code>. 
+This noise is caused by the interaction of the high resistance of the switch and the machine, see 
+<a href=\"https://github.com/modelica/Modelica/issues/2388\">#2388</a>. 
+</p>
 </html>"));
       end SMEE_DOL;
 
