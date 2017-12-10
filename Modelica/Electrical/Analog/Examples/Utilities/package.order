@@ -2,3 +2,9 @@ Nand
 NonlinearResistor
 RealSwitch
 Transistor
+DirectCapacitor
+InverseCapacitor
+Resistor
+DirectInductor
+InverseInductor
+Conductor

@@ -22,5 +22,7 @@ ControlledSwitchWithArc
 SimpleTriacCircuit
 IdealTriacCircuit
 AD_DA_conversion
+GenerationOfFMUs
+ResonanceCircuits
 OpAmps
 Utilities
