@@ -350,6 +350,8 @@ no. 829420.
 <h5>Version 3.2.2, 2017-09-19</h5>
 
 <ul>
+  <li>Fixed propagation of excitation leakage factor, see 
+      <a href=\"https://github.com/modelica/Modelica/issues/2403\">#2403</a></li>
   <li>Unification of documentation, see 
       <a href=\"https://github.com/modelica/Modelica/issues/2276\">#2276</a></li> 
   <li>Unified communication interval, see 
@@ -4151,7 +4153,6 @@ to speed to achieve constant current and torque.</p>
           Re=smeeData.Re,
           TeRef=smeeData.TeRef,
           alpha20e(displayUnit="1/K") = smeeData.alpha20e,
-          sigmae=smeeData.sigmae,
           m=m,
           Rs=smeeData.Rs*m/3,
           Lssigma=smeeData.Lssigma*m/3,
@@ -4161,10 +4162,11 @@ to speed to achieve constant current and torque.</p>
           strayLoadParameters(IRef=100),
           brushParameters(ILinear=0.01),
           ir(each fixed=true),
-          TsOperational=293.15,
           effectiveStatorTurns=smeeData.effectiveStatorTurns,
+          TsOperational=293.15,
           TrOperational=293.15,
-          TeOperational=293.15)
+          TeOperational=293.15,
+          sigmae=smeeData.sigmae*m/3)
                                annotation (Placement(transformation(extent={{-10,30},
                   {10,50}})));
 
@@ -4372,7 +4374,7 @@ to speed to achieve constant current and torque.</p>
             points={{0,52},{0,60},{40,60},{40,80}},
             color={0,0,255}));
         connect(currentRMSsensorM.I, gain.u) annotation (Line(
-            points={{30,91},{30,100},{90,100},{90,42}},
+            points={{30,90},{30,100},{90,100},{90,42}},
             color={0,0,127}));
         connect(starM.pin_n, groundM.p) annotation (Line(points={{-70,80},{-75,
                 80},{-80,80}}, color={0,0,255}));
