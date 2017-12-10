@@ -5312,8 +5312,8 @@ Examples of the usage of this adaptor are provided in
 <a href=\"modelica://Modelica.Mechanics.Rotational.Examples.GenerationOfFMUs\">Rotational.Examples.GenerationOfFMUs</a>.
 This adaptor has angle, angular velocity and angular acceleration as input signals and
 torque as output signal. 
-<p>
 </p>
+<p>
 Note, the input signals must be consistent to each other
 (w=der(phi), a=der(w)).
 </p>
@@ -5421,8 +5421,8 @@ Examples of the usage of this adaptor are provided in
 <a href=\"modelica://Modelica.Mechanics.Rotational.Examples.GenerationOfFMUs\">Rotational.Examples.GenerationOfFMUs</a>.
 This adaptor has angle, angular velocity and angular acceleration as input signals and
 torque as output signal. 
-<p>
 </p>
+<p>
 Note, the input signals must be consistent to each other
 (w=der(phi), a=der(w)).
 </p>

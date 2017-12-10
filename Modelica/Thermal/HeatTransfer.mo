@@ -1328,8 +1328,8 @@ especially as FMU (<a href=\"https://www.fmi-standard.org\">Functional Mock-up U
 Examples of the usage of this adaptor are provided in
 <a href=\"modelica://Modelica.Thermal.HeatTransfer.Examples.GenerationOfFMUs\">HeatTransfer.Examples.GenerationOfFMUs</a>.
 This adaptor has temperature and derivative of temperature as input signals and heatflow as output signal. 
-<p>
 </p>
+<p>
 Note, the input signals must be consistent to each other
 (derT=der(T)).
 </p>

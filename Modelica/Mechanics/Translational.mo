@@ -3824,8 +3824,8 @@ Examples of the usage of this adaptor are provided in
 <a href=\"modelica://Modelica.Mechanics.Translational.Examples.GenerationOfFMUs\">Translational.Examples.GenerationOfFMUs</a>.
 This adaptor has position, velocity and acceleration as input signals and
 force as output signal. 
-<p>
 </p>
+<p>
 Note, the input signals must be consistent to each other
 (v=der(s), a=der(v)).
 </p>
