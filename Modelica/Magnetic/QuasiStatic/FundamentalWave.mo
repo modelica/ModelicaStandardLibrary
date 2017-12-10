@@ -110,8 +110,10 @@ email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
       extends Modelica.Icons.ReleaseNotes;
       annotation (Documentation(info="<html>
 
-<h5>Version 3.x.x, 2017-09-26</h5>
+<h5>Version 3.x.x, 2017-12-10</h5>
 <ul>
+  <li>Fixed propagation of excitation leakage factor, see 
+      <a href=\"https://github.com/modelica/Modelica/issues/2403\">#2403</a></li>
   <li>Unified communication interval, see 
       <a href=\"https://github.com/modelica/Modelica/issues/2279\">#2279</a></li>
   <li>Unified simulation tolerances, see 
@@ -3783,7 +3785,6 @@ to numerically stabilize the simulation.</p>
             Re=smeeData.Re,
             TeRef=smeeData.TeRef,
             alpha20e(displayUnit="1/K") = smeeData.alpha20e,
-            sigmae=smeeData.sigmae,
             statorCoreParameters(VRef=100),
             strayLoadParameters(IRef=100),
             brushParameters(ILinear=0.01),
@@ -3795,10 +3796,12 @@ to numerically stabilize the simulation.</p>
             Lssigma=smeeData.Lssigma*m/3,
             Lmd=smeeData.Lmd*m/3,
             Lmq=smeeData.Lmq*m/3,
-            TsOperational=293.15,
             effectiveStatorTurns=smeeData.effectiveStatorTurns,
+            TsOperational=293.15,
             TrOperational=293.15,
-            TeOperational=293.15) annotation (Placement(transformation(extent={
+            TeOperational=293.15,
+            sigmae=smeeData.sigmae*m/3)
+                                  annotation (Placement(transformation(extent={
                     {-10,-80},{10,-60}})));
           FundamentalWave.BasicMachines.SynchronousMachines.SM_ElectricalExcited
             smeeQS(

@@ -347,9 +347,13 @@ no. 829420.
       extends Modelica.Icons.ReleaseNotes;
       annotation (Documentation(info="<html>
 
-<h5>Version 3.2.2, 2017-09-19</h5>
+<h5>Version 3.2.2, 2017-12-10</h5>
 
 <ul>
+  <li>Fixed propagation of excitation leakage factor, see 
+      <a href=\"https://github.com/modelica/Modelica/issues/2403\">#2403</a></li>
+  <li>Added model of electrical excited synchronous machines, starting direct on line, see 
+      <a href=\"https://github.com/modelica/Modelica/issues/2388\">#2388</a></li>
   <li>Unified communication interval, see
       <a href=\"https://github.com/modelica/Modelica/issues/2279\">#2279</a></li>
   <li>Unified simulation tolerances, see
@@ -4148,7 +4152,6 @@ to speed to achieve constant current and torque.</p>
           Re=smeeData.Re,
           TeRef=smeeData.TeRef,
           alpha20e(displayUnit="1/K") = smeeData.alpha20e,
-          sigmae=smeeData.sigmae,
           m=m,
           Rs=smeeData.Rs*m/3,
           Lssigma=smeeData.Lssigma*m/3,
@@ -4158,10 +4161,11 @@ to speed to achieve constant current and torque.</p>
           strayLoadParameters(IRef=100),
           brushParameters(ILinear=0.01),
           ir(each fixed=true),
-          TsOperational=293.15,
           effectiveStatorTurns=smeeData.effectiveStatorTurns,
+          TsOperational=293.15,
           TrOperational=293.15,
-          TeOperational=293.15)
+          TeOperational=293.15,
+          sigmae=smeeData.sigmae*m/3)
                                annotation (Placement(transformation(extent={{-10,30},
                   {10,50}})));
 
