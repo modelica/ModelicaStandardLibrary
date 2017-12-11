@@ -5255,25 +5255,25 @@ Voltage is controlled, the set point depends on speed. The generator is loaded w
               rotation=0)));
         Mechanics.Rotational.Sensors.MultiSensor mSensor annotation (Placement(transformation(extent={{40,-50},{60,-30}})));
         Modelica.Electrical.MultiPhase.Sensors.MultiSensor sensor(m=m) annotation (Placement(transformation(
-              origin={40,30},
+              origin={0,40},
               extent={{-10,-10},{10,10}},
               rotation=270)));
         Modelica.Electrical.MultiPhase.Sensors.CurrentQuasiRMSSensor iSensor(m=m) annotation (Placement(transformation(
-              origin={40,0},
-              extent={{-10,-10},{10,10}},
+              origin={0,10},
+              extent={{-10,10},{10,-10}},
               rotation=270)));
         Modelica.Electrical.MultiPhase.Sources.SineVoltage sineVoltage(
           final m=m,
           final V=fill(VNominal*sqrt(2), m),
           final freqHz=fill(fNominal, m)) annotation (Placement(transformation(
-                extent={{-10,40},{-30,60}})));
+                extent={{-20,80},{-40,100}})));
         Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) annotation (
-            Placement(transformation(extent={{-40,40},{-60,60}})));
+            Placement(transformation(extent={{-50,80},{-70,100}})));
         Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
               transformation(
-              origin={-60,30},
+              origin={-90,90},
               extent={{-10,-10},{10,10}},
-              rotation=0)));
+              rotation=270)));
         Electrical.Analog.Sources.RampVoltage rampVoltage(
           duration=0.1,
           V=Ve,
@@ -5314,13 +5314,13 @@ Voltage is controlled, the set point depends on speed. The generator is loaded w
           Ron=fill(1e-5*m/3, m),
           Goff=fill(1e-5*m/3, m))
                               annotation (Placement(transformation(
-              origin={10,50},
+              origin={0,70},
               extent={{-10,10},{10,-10}},
-              rotation=0)));
-        Blocks.Sources.BooleanStep booleanStep(startTime=0)
-          annotation (Placement(transformation(extent={{-50,0},{-30,20}})));
+              rotation=270)));
+        Blocks.Sources.BooleanStep booleanStep(startTime=0.0)
+          annotation (Placement(transformation(extent={{-90,60},{-70,80}})));
         Blocks.Routing.BooleanReplicator booleanReplicator(nout=m)
-          annotation (Placement(transformation(extent={{-20,20},{0,0}})));
+          annotation (Placement(transformation(extent={{-50,80},{-30,60}})));
         Mechanics.Rotational.Sources.TorqueStep torqueStep(
           offsetTorque=0,
           stepTorque=50,
@@ -5337,10 +5337,11 @@ Voltage is controlled, the set point depends on speed. The generator is loaded w
         connect(rotorDisplacementAngle.plug_p, smee.plug_sp)
           annotation (Line(points={{14,-30},{-4,-30}}, color={0,0,255}));
         connect(star.pin_n, ground.p)
-          annotation (Line(points={{-60,50},{-60,40}}, color={0,0,255}));
+          annotation (Line(points={{-70,90},{-80,90}}, color={0,0,255}));
         connect(star.plug_p, sineVoltage.plug_n)
-          annotation (Line(points={{-40,50},{-30,50}}, color={0,0,255}));
-        connect(terminalBox.plugSupply, iSensor.plug_n) annotation (Line(points={{-10,-28},{-10,-10},{40,-10}}, color={0,0,255}));
+          annotation (Line(points={{-50,90},{-40,90}}, color={0,0,255}));
+        connect(terminalBox.plugSupply, iSensor.plug_n) annotation (Line(points={{-10,-28},
+                {-10,0},{-1.77636e-015,0}},                                                                     color={0,0,255}));
         connect(terminalBox.plug_sn, smee.plug_sn) annotation (Line(
             points={{-16,-30},{-16,-30}},
             color={0,0,255}));
@@ -5350,13 +5351,8 @@ Voltage is controlled, the set point depends on speed. The generator is loaded w
         connect(smee.flange, rotorDisplacementAngle.flange) annotation (Line(
             points={{0,-40},{10,-40}}));
         connect(smee.flange, mSensor.flange_a) annotation (Line(points={{0,-40},{40,-40}}));
-        connect(sineVoltage.plug_p, idealCloser.plug_p)
-          annotation (Line(points={{-10,50},{0,50}},        color={0,0,255}));
         connect(booleanReplicator.y, idealCloser.control)
-          annotation (Line(points={{1,10},{10,10},{10,38}},
-                                                       color={255,0,255}));
-        connect(booleanStep.y, booleanReplicator.u)
-          annotation (Line(points={{-29,10},{-22,10}}, color={255,0,255}));
+          annotation (Line(points={{-29,70},{-12,70}}, color={255,0,255}));
         connect(groundExcitation.p, rampVoltage.n)
           annotation (Line(points={{-40,-60},{-40,-60},{-40,-56},{-40,-56},{-40,-50},{-40,-50}},
                                                          color={0,0,255}));
@@ -5365,15 +5361,24 @@ Voltage is controlled, the set point depends on speed. The generator is loaded w
         connect(rampVoltage.p, smee.pin_ep) annotation (Line(points={{-40,-30},{-30,-30},{-30,-34},{-20,-34}},
                                                 color={0,0,255}));
         connect(mSensor.flange_b, torqueStep.flange) annotation (Line(points={{60,-40},{70,-40}}, color={0,0,0}));
-        connect(idealCloser.plug_n, sensor.pc) annotation (Line(points={{20,50},{40,50},{40,40}}, color={0,0,255}));
-        connect(sensor.nv, terminalBox.plug_sn) annotation (Line(points={{30,30},{20,30},{20,-20},{-16,-20},{-16,-30}}, color={0,0,255}));
-        connect(sensor.nc, iSensor.plug_p) annotation (Line(points={{40,20},{40,10}}, color={0,0,255}));
-        connect(sensor.pv, sensor.pc) annotation (Line(points={{50,30},{50,40},{40,40}}, color={0,0,255}));
+        connect(idealCloser.plug_n, sensor.pc) annotation (Line(points={{
+                -1.77636e-015,60},{1.77636e-015,60},{1.77636e-015,50}},                           color={0,0,255}));
+        connect(sensor.nv, terminalBox.plug_sn) annotation (Line(points={{-10,40},
+                {-16,40},{-16,-30}},                                                                                    color={0,0,255}));
+        connect(sensor.nc, iSensor.plug_p) annotation (Line(points={{
+                -1.77636e-015,30},{-1.77636e-015,26},{1.77636e-015,26},{
+                1.77636e-015,20}},                                                    color={0,0,255}));
+        connect(sensor.pv, sensor.pc) annotation (Line(points={{10,40},{10,50},
+                {1.77636e-015,50}},                                                      color={0,0,255}));
+        connect(booleanStep.y, booleanReplicator.u)
+          annotation (Line(points={{-69,70},{-52,70}}, color={255,0,255}));
+        connect(sineVoltage.plug_p, idealCloser.plug_p)
+          annotation (Line(points={{-20,90},{0,90},{0,80}}, color={0,0,255}));
         annotation (experiment(
             StopTime=3,
             Interval=0.0001,
             Tolerance=1e-006),                                                Documentation(info="<html>
-<p>An electrically excited synchronous generator is started direct on line utilizing the damper cage (and the shorted excitation winding) at 0.1 seconds.<br>
+<p>An electrically excited synchronous generator is started direct on line utilizing the damper cage (and the shorted excitation winding) at 0.0 seconds.<br>
 At t = 0.5 seconds, the excitation voltage is raised to achieve no-load excitation current. Note, that reactive power of the stator goes to zero.<br>
 At t = 1 second, a driving torque step is applied to the shaft (i.e. the turbine is activated). Note, that active and reactive power of the stator changes. 
 To drive at higher torque, i.e., produce more electric power, excitation has to be adapted.
