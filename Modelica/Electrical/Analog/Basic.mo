@@ -1848,7 +1848,7 @@ Note, the input signals must be consistent to each other
 (di=der(i)).
 </p>
 <p>
-Note, the adaptor contains <b>no ground</b>.
+Note, the adaptor contains <strong>no ground</strong>.
 Bear in mind that separating physical components and conecting them via adaptor signals requires to place appropriate 
 <a href=\"modelica://Modelica.Electrical.Analog.Basic.Ground\">ground components</a> to define electric potential within the subcircuits.
 </p>
@@ -1899,7 +1899,7 @@ Note, the input signals must be consistent to each other
 (dv=der(v)).
 </p>
 <p>
-Note, the adaptor contains <b>no ground</b>.
+Note, the adaptor contains <strong>no ground</strong>.
 Bear in mind that separating physical components and conecting them via adaptor signals requires to place appropriate 
 <a href=\"modelica://Modelica.Electrical.Analog.Basic.Ground\">ground components</a> to define electric potential within the subcircuits.
 </p>
