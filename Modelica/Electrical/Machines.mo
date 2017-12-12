@@ -10535,7 +10535,7 @@ Calculates (mechanical) power from torque times angular speed.
       parameter Integer m=3 "Number of phases";
       parameter Integer p(min=1) "Number of pole pairs";
       parameter Boolean positiveRange=false "Use only positive output range, if true";
-      parameter Real threshold=0 "Below threshold the voltage is considered as zero";
+      parameter Real threshold(final min=0)=0 "Below threshold the voltage is considered as zero";
       parameter Boolean useSupport=false "Use support or fixed housing"
         annotation (Evaluate=true);
       Modelica.Blocks.Interfaces.RealOutput rotorDisplacementAngle(final
@@ -10547,26 +10547,26 @@ Calculates (mechanical) power from torque times angular speed.
         annotation (Placement(transformation(extent={{-110,-70},{-90,-50}})));
       Modelica.Electrical.MultiPhase.Sensors.VoltageSensor VoltageSensor1(
           final m=m) annotation (Placement(transformation(
-            origin={-90,0},
+            origin={-80,0},
             extent={{10,-10},{-10,10}},
             rotation=90)));
       SpacePhasors.Blocks.ToSpacePhasor ToSpacePhasorVS(final m=m) annotation (
-          Placement(transformation(extent={{-70,-10},{-50,10}})));
+          Placement(transformation(extent={{-50,-10},{-30,10}})));
       Modelica.Mechanics.Rotational.Interfaces.Flange_a flange annotation (
           Placement(transformation(extent={{-10,90},{10,110}})));
       Modelica.Mechanics.Rotational.Sensors.RelAngleSensor relativeAngleSensor
         annotation (Placement(transformation(extent={{40,70},{20,90}})));
       Modelica.Blocks.Sources.Constant constant_(final k=Modelica.Constants.pi/
-            2) annotation (Placement(transformation(extent={{-70,40},{-50,60}})));
+            2) annotation (Placement(transformation(extent={{-50,40},{-30,60}})));
       Modelica.Blocks.Math.Add add(final k2=1, final k1=p) annotation (
           Placement(transformation(
-            origin={-30,30},
+            origin={-10,30},
             extent={{-10,-10},{10,10}},
             rotation=270)));
       Modelica.Electrical.Machines.SpacePhasors.Blocks.Rotator rotatorVS2R
-        annotation (Placement(transformation(extent={{-40,10},{-20,-10}})));
+        annotation (Placement(transformation(extent={{-20,10},{0,-10}})));
       Modelica.Electrical.Machines.SpacePhasors.Blocks.ToPolar ToPolarVSR
-        annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
+        annotation (Placement(transformation(extent={{10,-10},{30,10}})));
       Modelica.Mechanics.Rotational.Interfaces.Flange_a support if useSupport
         "support at which the reaction torque is acting" annotation (Placement(
             transformation(extent={{90,90},{110,110}})));
@@ -10574,24 +10574,13 @@ Calculates (mechanical) power from torque times angular speed.
         annotation (Placement(transformation(extent={{90,70},{110,90}})));
       Blocks.Math.WrapAngle wrapAngle(final positiveRange=positiveRange)
         annotation (Placement(transformation(extent={{70,-10},{90,10}})));
-      Blocks.Logical.GreaterThreshold greaterThreshold(final threshold=
-            threshold)                                 annotation (Placement(
-            transformation(
-            extent={{-10,-10},{10,10}},
-            rotation=0,
-            origin={10,-40})));
-      Blocks.Logical.Switch switch1
+      SpacePhasors.Blocks.LessThreshold lessThreshold(final threshold=threshold)
         annotation (Placement(transformation(extent={{40,-10},{60,10}})));
-      Modelica.Blocks.Sources.Constant constantZero(final k=0) annotation (
-          Placement(transformation(
-            extent={{-10,-10},{10,10}},
-            rotation=90,
-            origin={30,-70})));
     equation
-      connect(plug_p, VoltageSensor1.plug_p) annotation (Line(points={{-100,60},{-90,
-              60},{-90,10}},      color={0,0,255}));
-      connect(plug_n, VoltageSensor1.plug_n) annotation (Line(points={{-100,-60},{-90,
-              -60},{-90,-10}},      color={0,0,255}));
+      connect(plug_p, VoltageSensor1.plug_p) annotation (Line(points={{-100,60},{-80,
+              60},{-80,10}},      color={0,0,255}));
+      connect(plug_n, VoltageSensor1.plug_n) annotation (Line(points={{-100,-60},{-80,
+              -60},{-80,-10}},      color={0,0,255}));
       connect(relativeAngleSensor.flange_b, flange)
         annotation (Line(points={{20,80},{0,80},{0,100}}));
       connect(relativeAngleSensor.flange_a, support) annotation (Line(
@@ -10599,32 +10588,23 @@ Calculates (mechanical) power from torque times angular speed.
       connect(relativeAngleSensor.flange_a, fixed.flange) annotation (Line(
           points={{40,80},{100,80}}));
       connect(relativeAngleSensor.phi_rel, add.u1) annotation (Line(
-          points={{30,69},{30,50},{-24,50},{-24,42}},
-                                                    color={0,0,127}));
+          points={{30,69},{30,50},{-4,50},{-4,42}}, color={0,0,127}));
       connect(constant_.y, add.u2) annotation (Line(
-          points={{-49,50},{-36,50},{-36,42}}, color={0,0,127}));
+          points={{-29,50},{-16,50},{-16,42}}, color={0,0,127}));
       connect(VoltageSensor1.v, ToSpacePhasorVS.u) annotation (Line(
-          points={{-79,0},{-72,0}}, color={0,0,127}));
+          points={{-69,0},{-52,0}}, color={0,0,127}));
       connect(ToSpacePhasorVS.y, rotatorVS2R.u) annotation (Line(
-          points={{-49,0},{-42,0}}, color={0,0,127}));
+          points={{-29,0},{-22,0}}, color={0,0,127}));
       connect(rotatorVS2R.y, ToPolarVSR.u) annotation (Line(
-          points={{-19,0},{-12,0}},
-                                 color={0,0,127}));
+          points={{1,0},{8,0}},  color={0,0,127}));
       connect(add.y, rotatorVS2R.angle) annotation (Line(
-          points={{-30,19},{-30,12}}, color={0,0,127}));
+          points={{-10,19},{-10,12}}, color={0,0,127}));
       connect(wrapAngle.y, rotorDisplacementAngle) annotation (Line(points={{91,0},{
               110,0}},                                                                       color={0,0,127}));
-      connect(switch1.y, wrapAngle.u)
+      connect(ToPolarVSR.y, lessThreshold.u)
+        annotation (Line(points={{31,0},{38,0}}, color={0,0,127}));
+      connect(lessThreshold.y, wrapAngle.u)
         annotation (Line(points={{61,0},{68,0}}, color={0,0,127}));
-      connect(ToPolarVSR.y[2], switch1.u1)
-        annotation (Line(points={{11,0},{20,0},{20,8},{38,8}}, color={0,0,127}));
-      connect(ToPolarVSR.y[1], greaterThreshold.u) annotation (Line(points={{11,0},{
-              20,0},{20,-20},{-10,-20},{-10,-40},{-2,-40}}, color={0,0,127}));
-      connect(greaterThreshold.y, switch1.u2) annotation (Line(points={{21,-40},
-              {26,-40},{26,0},{38,0}},
-                                   color={255,0,255}));
-      connect(constantZero.y, switch1.u3)
-        annotation (Line(points={{30,-59},{30,-8},{38,-8}}, color={0,0,127}));
       annotation (
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Ellipse(
@@ -11082,6 +11062,13 @@ This model determines the RMS value of the input space phasor <code>u</code>.</p
                       lineColor={0,0,255},
                       textString="RMS")}));
       end QuasiRMS;
+
+      block LessThreshold "Sets angle to zero when length is below theshold"
+        extends Modelica.Blocks.Interfaces.MISO(final nin=2);
+        parameter Real threshold(final min=0) "threshold";
+      equation
+        y = if noEvent(u[1]<threshold) then 0 else u[2];
+      end LessThreshold;
       annotation (Documentation(info="<html>
 This package contains space phasor transformation blocks for use in controllers:
 <ul>
