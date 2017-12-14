@@ -6369,7 +6369,7 @@ on the model behaviour.
       function energyGapDepTemp "Temperature dependency of energy gap"
       extends Modelica.Icons.Function;
         input SI.Temp_K temp "Temperature";
-        output SI.Voltage ret "Output voltage";
+        output SI.GapEnergy ret "Output Gap Energy";
 
       algorithm
         ret := Spice3.Internal.MaterialParameters.EnergyGapSi - (
