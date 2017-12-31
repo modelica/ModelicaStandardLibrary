@@ -112,16 +112,16 @@ email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
 
 <h5>Version 3.x.x, 2017-12-10</h5>
 <ul>
-  <li>Fixed propagation of excitation leakage factor, see 
+  <li>Fixed propagation of excitation leakage factor, see
       <a href=\"https://github.com/modelica/Modelica/issues/2403\">#2403</a></li>
-  <li>Unified communication interval, see 
+  <li>Unified communication interval, see
       <a href=\"https://github.com/modelica/Modelica/issues/2279\">#2279</a></li>
-  <li>Unified simulation tolerances, see 
+  <li>Unified simulation tolerances, see
       <a href=\"https://github.com/modelica/Modelica/issues/2278\">#2278</a></li>
-<li>Fixed wrong initial conditions of 
+<li>Fixed wrong initial conditions of
     <a href=\"https://github.com/modelica/Modelica/issues/2277\">#2277</a></li>
-<li>Added more examples from 
-    <a href=\"modelica://Modelica.Electrical.Machines.Examples\">Machines.Examples</a>, see 
+<li>Added more examples from
+    <a href=\"modelica://Modelica.Electrical.Machines.Examples\">Machines.Examples</a>, see
     <a href=\"https://github.com/modelica/Modelica/issues/2276\">#2276</a></li>
 <li>Added
 <a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Sensors.RotorDisplacementAngle\">RotorDisplacementAngle</a>, see
@@ -138,20 +138,20 @@ email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
     <li><a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.Permeance\">Permeance</a></li>
 </ul></li>
 <li>Removed parameter text from icon layer for reluctance and permeance model</li>
-<li>Fixed issues of ticket 
+<li>Fixed issues of ticket
     <a href=\"https://github.com/modelica/Modelica/issues/1524\">#1524</a></li>
-<li>Restructured cage models with reluctance instead of inductance model according to ticket 
+<li>Restructured cage models with reluctance instead of inductance model according to ticket
     <a href=\"https://github.com/modelica/Modelica/issues/1537\">#1537</a></li>
-<li>Bug fixes according to 
+<li>Bug fixes according to
     <a href=\"https://github.com/modelica/Modelica/issues/1226\">#1226</a></li>
 <li>Added magnitude and argument of complex magnetic potentials, magnetic fluxes, voltages and currents in interface, electromagnetic coupling and machine models, see #1405</li>
-<li>Added active, reactive and apparent power and power factor in interface and machine models, see 
+<li>Added active, reactive and apparent power and power factor in interface and machine models, see
     <a href=\"https://github.com/modelica/Modelica/issues/1405\">#1405</a></li>
 <li>Added new interface model
     <a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Interfaces.PartialTwoPortExtended\">PartialTwoPortExtended</a>
-    to simplify consistent inclusion of variables, see 
+    to simplify consistent inclusion of variables, see
     <a href=\"https://github.com/modelica/Modelica/issues/1405\">#1405</a></li>
-<li>Changed icon and location of terminal box according to 
+<li>Changed icon and location of terminal box according to
     <a href=\"https://github.com/modelica/Modelica/issues/1706\">#1706</a></li>
 </ul>
 
@@ -167,13 +167,13 @@ email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
 
 <h5>Version 0.4.0, 2013-11-13</h5>
 <ul>
-<li>Renamed all machine class names according to 
+<li>Renamed all machine class names according to
     <a href=\"https://github.com/modelica/Modelica/issues/1348\">#1348</a></li>
 </ul>
 
 <h5>Version 0.3.0, 2013-11-07</h5>
 <ul>
-<li>Renamed the library from QuasiStationaryFundamantalWave to QuasiStaticFundamantalWave according to 
+<li>Renamed the library from QuasiStationaryFundamantalWave to QuasiStaticFundamantalWave according to
     <a href=\"https://github.com/modelica/Modelica/issues/1344\">#1344</a></li>
 </ul>
 
@@ -639,7 +639,7 @@ In this example the eddy current losses are implemented in two different ways. C
             Documentation(info="<html>
 
 <p>
-This examples allows the investigation of characteristic curves of quasi static multi phase induction machines with ssquirrel cage rotor 
+This examples allows the investigation of characteristic curves of quasi static multi phase induction machines with ssquirrel cage rotor
 as a function of rotor speed.
 </p>
 
@@ -918,9 +918,9 @@ Simulate for 1 second and plot (versus imcQS.wMechanical or perUnitSpeed):
                 experiment(StopTime=1, Interval=0.0001, Tolerance=1E-6),
             Documentation(info="<html>
 <p>
-This example compares a time transient and a quasi static model of a multi phase induction machine. 
-At start time <code>tOn</code> a transient and a quasi static multi phase voltage source are 
-connected to an induction machine. The machine starts from standstill, accelerating inertias 
+This example compares a time transient and a quasi static model of a multi phase induction machine.
+At start time <code>tOn</code> a transient and a quasi static multi phase voltage source are
+connected to an induction machine. The machine starts from standstill, accelerating inertias
 against load torque quadratic dependent on speed, finally reaching nominal speed.</p>
 
 <p>
@@ -2414,7 +2414,7 @@ Default machine parameters of model <em>AIM_SquirrelCage</em> are used.
             Documentation(info="<html>
 
 <p>
-This examples allows the investigation of characteristic curves of quasi static multi phase induction machines with slip ring rotor 
+This examples allows the investigation of characteristic curves of quasi static multi phase induction machines with slip ring rotor
 as a function of rotor speed.
 </p>
 
@@ -2904,7 +2904,7 @@ Simulate for 1.5 seconds and plot (versus time):
             experiment(StopTime=0.1, Interval=1E-4, Tolerance=1E-6),
             Documentation(info="<html>
 <p>
-This example compares a time transient and a quasi static model of a permanent magnet synchronous machine. 
+This example compares a time transient and a quasi static model of a permanent magnet synchronous machine.
 The machines are operated at constant mechanical angular velocity.</p>
 
 <p>
@@ -3506,7 +3506,7 @@ Simulate for 2 seconds and plot (versus time):
 </ul>
 
 <h5>Note</h5>
-<p>The resistors connected to the terminals of the windings of the quasi static machine model are necessary 
+<p>The resistors connected to the terminals of the windings of the quasi static machine model are necessary
 to numerically stabilize the simulation.</p>
 </html>"),  Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                     -100},{100,100}}), graphics={
@@ -3688,12 +3688,12 @@ to numerically stabilize the simulation.</p>
             experiment(StopTime=1, Interval=1E-3, Tolerance=1E-6),
             Documentation(info="<html>
 <p>
-This example investigates the maximum torque per amps (MTPA) of a quasi static permanent magnet synchronous machine. 
+This example investigates the maximum torque per amps (MTPA) of a quasi static permanent magnet synchronous machine.
 The machines is operated at constant speed. The current magnitude is kept constant and the current angle is
 rotated from 0 to 360 degrees with the simulation period of one second.</p>
 
 <p>
-In this simulation the angle is the following angles are calculated:</p> 
+In this simulation the angle is the following angles are calculated:</p>
 
 <ul>
 <li><code>phi_v<code> = angle of voltage phasor</li>
@@ -3714,7 +3714,7 @@ Simulate for 1 second and plot (versus angle epsilon):
 </ul>
 
 <h5>Note</h5>
-<p>The resistors connected to the terminals of the windings of the quasi static machine model are necessary 
+<p>The resistors connected to the terminals of the windings of the quasi static machine model are necessary
 to numerically stabilize the simulation.</p>
 </html>"),  Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                     -100},{100,100}}), graphics={
@@ -4042,7 +4042,7 @@ to numerically stabilize the simulation.</p>
               Tolerance=1e-06),
             Documentation(info="<html>
 <p>
-This example compares a time transient and a quasi static model of a electrically excited synchronous machine. 
+This example compares a time transient and a quasi static model of a electrically excited synchronous machine.
 The electrically excited synchronous generators are connected to the grid and driven with constant speed.
 Since speed is slightly smaller than synchronous speed corresponding to mains frequency,
 rotor angle is very slowly increased. This allows to see several characteristics dependent on rotor angle.
@@ -4644,9 +4644,9 @@ and accelerating inertias. At time <code>tStep</code> a load step is applied.</p
             experiment(StopTime=2.0, Interval=1E-4, Tolerance=1E-6),
             Documentation(info="<html><html>
 <p>
-This example compares a time transient and a quasi static model of a synchronous reluctance machine. 
-The machines are fed by a current source. The current components are oriented at the magnetic field 
-orientation and transformed to the stator fixed reference frame. This way the machines are operated at constant torque. 
+This example compares a time transient and a quasi static model of a synchronous reluctance machine.
+The machines are fed by a current source. The current components are oriented at the magnetic field
+orientation and transformed to the stator fixed reference frame. This way the machines are operated at constant torque.
 The machines start to accelerate from standstill.</p>
 
 <p>

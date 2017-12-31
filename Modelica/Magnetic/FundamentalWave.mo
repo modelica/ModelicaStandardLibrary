@@ -350,9 +350,9 @@ no. 829420.
 <h5>Version 3.2.2, 2017-12-10</h5>
 
 <ul>
-  <li>Fixed propagation of excitation leakage factor, see 
+  <li>Fixed propagation of excitation leakage factor, see
       <a href=\"https://github.com/modelica/Modelica/issues/2403\">#2403</a></li>
-  <li>Added model of electrical excited synchronous machines, starting direct on line, see 
+  <li>Added model of electrical excited synchronous machines, starting direct on line, see
       <a href=\"https://github.com/modelica/Modelica/issues/2388\">#2388</a></li>
   <li>Unified communication interval, see
       <a href=\"https://github.com/modelica/Modelica/issues/2279\">#2279</a></li>
@@ -1572,8 +1572,8 @@ Simulate for 1.5 seconds and plot (versus time):
             Interval=1E-4,
             Tolerance=1e-06),                                 Documentation(
               info="<html>
-<p>At start time tStart three phase voltage is supplied to the asynchronous induction machine with squirrel cage, 
-first star-connected, then delta-connected; the machine starts from standstill, 
+<p>At start time tStart three phase voltage is supplied to the asynchronous induction machine with squirrel cage,
+first star-connected, then delta-connected; the machine starts from standstill,
 accelerating inertias against load torque quadratic dependent on speed, finally reaching nominal speed.</p>
 
 <p>Simulate for 2.5 seconds and plot (versus time):</p>
@@ -2169,7 +2169,7 @@ The mechanical load is a constant torque like a conveyor (with regularization ar
         annotation (experiment(Interval=0.0001, Tolerance=1e-06, StopTime=1),             Documentation(
               info="<html>
 <p>At start time tStart single phase voltage is supplied to the asynchronous induction machine with squirrel cage;
-the machine starts from standstill, accelerating inertias against load torque quadratic dependent on speed, 
+the machine starts from standstill, accelerating inertias against load torque quadratic dependent on speed,
 finally reaching nominal speed.</p>
 
 <p>Default machine parameters are used.</p>
@@ -4059,9 +4059,9 @@ whereas the stator voltage is influenced by the d-current.</p>
         annotation (experiment(StopTime=0.8, Interval=1E-4, Tolerance=1e-06), Documentation(
               info="<html>
 <p>
-A synchronous induction machine with permanent magnets starts braking from nominal speed by feeding a diode bridge, 
+A synchronous induction machine with permanent magnets starts braking from nominal speed by feeding a diode bridge,
 which in turn feeds a braking resistor.
-Since induced voltage is reduced proportional to falling speed, the braking resistance is set proportional 
+Since induced voltage is reduced proportional to falling speed, the braking resistance is set proportional
 to speed to achieve constant current and torque.</p>
 
 <p>Default machine parameters are used</p>
@@ -5194,7 +5194,7 @@ Voltage is controlled, the set point depends on speed. After start-up the genera
             points={{-80,70},{-80,90},{-40,90}}, color={0,0,255}));
         annotation (experiment(StopTime=1.1, Interval=1E-4, Tolerance=1e-06), Documentation(
               info="<html>
-<p>An electrically excited synchronous generator is driven with constant speed. 
+<p>An electrically excited synchronous generator is driven with constant speed.
 Voltage is controlled, the set point depends on speed. The generator is loaded with a rectifier.</p>
 
 <p>Default machine parameters are used</p>
@@ -5380,7 +5380,7 @@ Voltage is controlled, the set point depends on speed. The generator is loaded w
             Tolerance=1e-006),                                                Documentation(info="<html>
 <p>An electrically excited synchronous generator is started direct on line utilizing the damper cage (and the shorted excitation winding) at 0.0 seconds.<br>
 At t = 0.5 seconds, the excitation voltage is raised to achieve no-load excitation current. Note, that reactive power of the stator goes to zero.<br>
-At t = 1 second, a driving torque step is applied to the shaft (i.e. the turbine is activated). Note, that active and reactive power of the stator changes. 
+At t = 1 second, a driving torque step is applied to the shaft (i.e. the turbine is activated). Note, that active and reactive power of the stator changes.
 To drive at higher torque, i.e., produce more electric power, excitation has to be adapted.
 </p>
 
@@ -5399,9 +5399,9 @@ To drive at higher torque, i.e., produce more electric power, excitation has to 
 <p>Default machine parameters are used.</p>
 
 <h5>Note</h5>
-<p>The mains switch is closed at time = 0 in order to avoid non physical noise calculated by the <code>rotorDisplacementAngle</code>. 
-This noise is caused by the interaction of the high resistance of the switch and the machine, see 
-<a href=\"https://github.com/modelica/Modelica/issues/2388\">#2388</a>. 
+<p>The mains switch is closed at time = 0 in order to avoid non physical noise calculated by the <code>rotorDisplacementAngle</code>.
+This noise is caused by the interaction of the high resistance of the switch and the machine, see
+<a href=\"https://github.com/modelica/Modelica/issues/2388\">#2388</a>.
 </p>
 </html>"));
       end SMEE_DOL;

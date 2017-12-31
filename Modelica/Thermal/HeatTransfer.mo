@@ -341,7 +341,7 @@ The upper part (DirectCapacity, InverseCapacity)
 demonstrates how to export two heat capacitors and connect them
 together in a target system. This requires that one of the capacitors
 (here: DirectCapacity)
-is defined to have states and the temperature and 
+is defined to have states and the temperature and
 derivative of temperature are provided in the interface.
 The other capacitor (here: InverseCapacity) requires heatflow according
 to the provided input temperature and derivative of temperature.
@@ -1327,7 +1327,7 @@ and export this model in form of an input/output block,
 especially as FMU (<a href=\"https://www.fmi-standard.org\">Functional Mock-up Unit</a>).
 Examples of the usage of this adaptor are provided in
 <a href=\"modelica://Modelica.Thermal.HeatTransfer.Examples.GenerationOfFMUs\">HeatTransfer.Examples.GenerationOfFMUs</a>.
-This adaptor has temperature and derivative of temperature as input signals and heatflow as output signal. 
+This adaptor has temperature and derivative of temperature as input signals and heatflow as output signal.
 </p>
 <p>
 Note, the input signals must be consistent to each other

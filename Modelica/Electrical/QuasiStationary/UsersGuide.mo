@@ -427,7 +427,7 @@ ideal AC DC converter</a>, which is used in the
     annotation (Documentation(info="<html>
 <h5>Version 3.2.2, 2017-05-10</h5>
 <ul>
-<li>Fixed missing <code>final useConjugateInput = false</code> reported in 
+<li>Fixed missing <code>final useConjugateInput = false</code> reported in
     <a href=\"https://github.com/modelica/Modelica/issues/2251\">#2251</a>:
     <ul>
     <li><a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Blocks.SymmetricalComponents\">MultiPhase.Blocks.SymmetricalComponents</a></li>

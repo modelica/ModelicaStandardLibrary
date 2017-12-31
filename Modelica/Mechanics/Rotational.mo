@@ -1854,7 +1854,7 @@ The upper part (DirectInertia, InverseInertia)
 demonstrates how to export two inertias and connect them
 together in a target system. This requires that one of the inertias
 (here: DirectInertia)
-is defined to have states and the angle, angular velocity and 
+is defined to have states and the angle, angular velocity and
 angular acceleration are provided in the interface.
 The other mass (here: InverseInertia) is moved according
 to the provided input angle, angular velocity and angular acceleration.
@@ -5246,7 +5246,7 @@ Examples of the usage of this adaptor are provided in
 This adaptor has torque as input and angle, angular velocity and angular acceleration as output signals.
 </p>
 <p>
-This is just a wrapper model around 
+This is just a wrapper model around
 <a href=\"modelica://Modelica.Mechanics.Rotational.Components.AngleToTorqueAdapterNew\">AngleToTorqueAdapterNew</a>,
 provided for backwards compatibility reasons.
 </p>
@@ -5320,14 +5320,14 @@ especially as FMU (<a href=\"https://www.fmi-standard.org\">Functional Mock-up U
 Examples of the usage of this adaptor are provided in
 <a href=\"modelica://Modelica.Mechanics.Rotational.Examples.GenerationOfFMUs\">Rotational.Examples.GenerationOfFMUs</a>.
 This adaptor has angle, angular velocity and angular acceleration as input signals and
-torque as output signal. 
+torque as output signal.
 </p>
 <p>
 Note, the input signals must be consistent to each other
 (w=der(phi), a=der(w)).
 </p>
 <p>
-This is just a wrapper model around 
+This is just a wrapper model around
 <a href=\"modelica://Modelica.Mechanics.Rotational.Components.TorqueToAngleAdapterNew\">TorqueToAngleAdapterNew</a>,
 provided for backwards compatibility reasons.
 </p>
@@ -5431,7 +5431,7 @@ especially as FMU (<a href=\"https://www.fmi-standard.org\">Functional Mock-up U
 Examples of the usage of this adaptor are provided in
 <a href=\"modelica://Modelica.Mechanics.Rotational.Examples.GenerationOfFMUs\">Rotational.Examples.GenerationOfFMUs</a>.
 This adaptor has angle, angular velocity and angular acceleration as input signals and
-torque as output signal. 
+torque as output signal.
 </p>
 <p>
 Note, the input signals must be consistent to each other

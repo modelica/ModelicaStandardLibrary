@@ -1725,7 +1725,7 @@ The upper part (DirectMass, InverseMass)
 demonstrates how to export two masses and connect them
 together in a target system. This requires that one of the masses
 (here: DirectMass)
-is defined to have states and the position, velocity and 
+is defined to have states and the position, velocity and
 acceleration are provided in the interface.
 The other mass (here: InverseMass) is moved according
 to the provided input position, velocity and acceleration.
@@ -3823,7 +3823,7 @@ especially as FMU (<a href=\"https://www.fmi-standard.org\">Functional Mock-up U
 Examples of the usage of this adaptor are provided in
 <a href=\"modelica://Modelica.Mechanics.Translational.Examples.GenerationOfFMUs\">Translational.Examples.GenerationOfFMUs</a>.
 This adaptor has position, velocity and acceleration as input signals and
-force as output signal. 
+force as output signal.
 </p>
 <p>
 Note, the input signals must be consistent to each other

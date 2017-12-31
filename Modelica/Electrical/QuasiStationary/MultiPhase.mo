@@ -3140,8 +3140,7 @@ The internal resistance of each current path is zero, the internal resistance of
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.CurrentQuasiRMSSensor\">CurrentQuasiRMSSensor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.PowerSensor\">PowerSensor</a>
 </p>
-</html>
-",          revisions="<html>
+</html>",          revisions="<html>
 <ul>
 <li><em>20170306</em> first implementation by Anton Haumer</li>
 </ul>

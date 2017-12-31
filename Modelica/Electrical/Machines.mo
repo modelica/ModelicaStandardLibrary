@@ -115,15 +115,15 @@ email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
 
 <h5>Version 3.2.2, 2017-12-10 (Anton Haumer, Christian Kral)</h5>
 <ul>
-  <li>Added new example 
+  <li>Added new example
       <a href=\"Modelica.Electrical.Machines.Examples.SynchronousInductionMachines.SMEE_DOL\">SMEE_DOL</a>, see
       <a href=\"https://github.com/modelica/Modelica/issues/2388\">#2388</a></li>
-  <li>Fixed bug of wrong smooth order in 
+  <li>Fixed bug of wrong smooth order in
       <a href=\"modelica://Modelica.Electrical.Machines.Losses.DCMachines.Brush\">Brush</a>, see
       <a href=\"https://github.com/modelica/Modelica/issues/2315\">#2315</a></li>
-  <li>Unified communication interval, see 
+  <li>Unified communication interval, see
       <a href=\"https://github.com/modelica/Modelica/issues/2279\">#2279</a></li>
-  <li>Unified simulation tolerances, see 
+  <li>Unified simulation tolerances, see
       <a href=\"https://github.com/modelica/Modelica/issues/2278\">#2278</a></li>
   <li>Fixed icons of Modelica.Electrical.Machines.BasicMachines.Components, see #2031</li>
   <li>Updated blocks and functions towards multi phase systems greater or equal to three</li>
@@ -520,7 +520,7 @@ This is the library of electric machine models.
         annotation (experiment(StopTime=1.5, Interval=1E-4, Tolerance=1e-06), Documentation(
               info="<html>
 <p>At start time tStart three phase voltage is supplied to the asynchronous induction machine with squirrel cage;
-the machine starts from standstill, accelerating inertias against load torque quadratic dependent on speed, 
+the machine starts from standstill, accelerating inertias against load torque quadratic dependent on speed,
 finally reaching nominal speed.</p>
 
 <p>Simulate for 1.5 seconds and plot (versus time):</p<
@@ -647,8 +647,8 @@ finally reaching nominal speed.</p>
             points={{0,-40},{40,-40}}));
         annotation (experiment(StopTime=2.5, Interval=1E-4, Tolerance=1e-06), Documentation(
               info="<html>
-<p>At start time tStart three phase voltage is supplied to the asynchronous induction machine with squirrel cage, 
-first star-connected, then delta-connected; the machine starts from standstill, accelerating inertias against 
+<p>At start time tStart three phase voltage is supplied to the asynchronous induction machine with squirrel cage,
+first star-connected, then delta-connected; the machine starts from standstill, accelerating inertias against
 load torque quadratic dependent on speed, finally reaching nominal speed.</p>
 
 <p>Simulate for 2.5 seconds and plot (versus time):</p>
@@ -2774,7 +2774,7 @@ whereas the stator voltage is influenced by the d-current.</p>
         annotation (experiment(StopTime=0.8, Interval=1E-4, Tolerance=1e-06), Documentation(
               info="<html>
 <p>
-A synchronous induction machine with permanent magnets starts braking from nominal speed by feeding a diode bridge, 
+A synchronous induction machine with permanent magnets starts braking from nominal speed by feeding a diode bridge,
 which in turn feeds a braking resistor.
 Since induced voltage is reduced proportional to falling speed, the braking resistance is set proportional to speed to
 achieve constant current and torque.</p>
@@ -2971,7 +2971,7 @@ achieve constant current and torque.</p>
             Tolerance=1e-006),                                                Documentation(info="<html>
 <p>An electrically excited synchronous generator is started direct on line utilizing the damper cage (and the shorted excitation winding) at 0.0 seconds.<br>
 At t = 0.5 seconds, the excitation voltage is raised to achieve no-load excitation current. Note, that reactive power of the stator goes to zero.<br>
-At t = 1 second, a driving torque step is applied to the shaft (i.e. the turbine is activated). Note, that active and reactive power of the stator changes. 
+At t = 1 second, a driving torque step is applied to the shaft (i.e. the turbine is activated). Note, that active and reactive power of the stator changes.
 To drive at higher torque, i.e., produce more electric power, excitation has to be adapted.
 </p>
 
@@ -2991,9 +2991,9 @@ To drive at higher torque, i.e., produce more electric power, excitation has to 
 <p>Default machine parameters are used.</p>
 
 <h5>Note</h5>
-<p>The mains switch is closed at time = 0 in order to avoid non physical noise calculated by the <code>rotorDisplacementAngle</code>. 
-This noise is caused by the interaction of the high resistance of the switch and the machine, see 
-<a href=\"https://github.com/modelica/Modelica/issues/2388\">#2388</a>. 
+<p>The mains switch is closed at time = 0 in order to avoid non physical noise calculated by the <code>rotorDisplacementAngle</code>.
+This noise is caused by the interaction of the high resistance of the switch and the machine, see
+<a href=\"https://github.com/modelica/Modelica/issues/2388\">#2388</a>.
 </p>
 </html>"));
       end SMEE_DOL;
@@ -3673,7 +3673,7 @@ Voltage is controlled, the set point depends on speed. After start-up the genera
             points={{-80,70},{-80,90},{-40,90}}, color={0,0,255}));
         annotation (experiment(StopTime=1.1, Interval=1E-4, Tolerance=1e-06), Documentation(
               info="<html>
-<p>An electrically excited synchronous generator is driven with constant speed. Voltage is controlled, 
+<p>An electrically excited synchronous generator is driven with constant speed. Voltage is controlled,
 the set point depends on speed. The generator is loaded with a rectifier.</p>
 
 <p>Default machine parameters are used.</p>
@@ -10362,7 +10362,7 @@ The induction machine models use package SpacePhasors.
                     textString="%name",
                     lineColor={0,0,255})}),
                                          Documentation(info="<html>
-Measured 3-phase instantaneous voltages are transformed to the corresponding space phasor; 
+Measured 3-phase instantaneous voltages are transformed to the corresponding space phasor;
 output is length of the space phasor divided by sqrt(2), thus giving in sinusoidal stationary state RMS voltage.
 </html>"));
     end VoltageQuasiRMSSensor;
