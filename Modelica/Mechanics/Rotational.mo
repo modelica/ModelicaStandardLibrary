@@ -3044,7 +3044,7 @@ in the User's Guide of the Rotational library.
                        (if tau_c + tau_d >= 0 then 0 else tau_d*w_rel)
                     else 0;
       end if;
-      annotation (
+      annotation (defaultComponentName="elastoBacklash",
         Documentation(info="<html>
 <p>
 This element consists of a <strong>backlash</strong> element <strong>connected in series</strong>
@@ -3859,7 +3859,8 @@ in the User's Guide of the Rotational library.
       stuck = locked or w_rel <= 0;
 
       lossPower = if stuck then 0 else tau*w_rel;
-      annotation (Icon(
+      annotation (defaultComponentName="clutch",
+        Icon(
             coordinateSystem(preserveAspectRatio=true,
               extent={{-100,-100},{100,100}}),
               graphics={
@@ -3980,7 +3981,8 @@ in the User's Guide of the Rotational library.
       phi_b = flange_b.phi - phi_support;
       phi_a = ratio*phi_b;
       0 = ratio*flange_a.tau + flange_b.tau;
-      annotation (Documentation(info="<html>
+      annotation (defaultComponentName="gear",
+        Documentation(info="<html>
 <p>
 This element characterizes any type of gear box which is fixed in the
 ground and which has one driving shaft and one driven shaft.
@@ -4223,7 +4225,8 @@ connected to other elements in an appropriate way.
         startBackward) and w_a < 0 then Backward else Stuck);
 
       lossPower = tauLoss*w_a;
-      annotation (Documentation(info="<html>
+      annotation (defaultComponentName="gear",
+        Documentation(info="<html>
 <p>
 This component models the gear ratio and the <strong>losses</strong> of
 a standard gear box in a <strong>reliable</strong> way including the stuck phases
@@ -4423,7 +4426,7 @@ Sept. 11, 2009.</li>
       // torque balance (no inertias)
       ring.tau = ratio*sun.tau;
       carrier.tau = -(1 + ratio)*sun.tau;
-      annotation (
+      annotation (defaultComponentName="planetary",
         Documentation(info="<html>
 <p>
 The IdealPlanetary gear box is an ideal gear without inertia,
@@ -4739,7 +4742,8 @@ in the flanges, are along the axis vector displayed in the icon.
           points={{-60,-20},{-60,-60},{-100,-60},{-100,-80}}, color={191,0,0}));
       connect(lossyGear.support, internalSupport) annotation (Line(
           points={{-40,-20},{-40,-40},{0,-40},{0,-80}}));
-      annotation (Documentation(info="<html>
+      annotation (defaultComponentName="gear",
+        Documentation(info="<html>
 <p>This component models the essential effects of a gearbox, in
 particular</p>
 <ul>
@@ -4784,7 +4788,8 @@ Gearbox.
       (flangeR.phi - internalSupportR.phi) = ratio*(flangeT.s -
         internalSupportT.s);
       0 = ratio*flangeR.tau + flangeT.f;
-      annotation (Documentation(info="<html>
+      annotation (defaultComponentName="gearR2T",
+        Documentation(info="<html>
 <p>
 This is an ideal mass- and inertialess gearbox which transforms a
 1D-rotational into a 1D-translational motion. If elasticity, damping
@@ -4855,7 +4860,8 @@ This component defines the kinematic constraint:
       (flangeR.phi - internalSupportR.phi)*radius = (flangeT.s -
         internalSupportT.s);
       0 = radius*flangeT.f + flangeR.tau;
-      annotation (Icon(
+      annotation (defaultComponentName="wheel",
+        Icon(
           coordinateSystem(preserveAspectRatio=true,
             extent={{-100.0,-100.0},{100.0,100.0}}),
             graphics={
@@ -5047,7 +5053,8 @@ no rolling resistance. This component defines the kinematic constraint:
           points={{0,-80},{60,-80},{60,0},{100,0}}));
       connect(set_flange_tau.flange, flange) annotation (Line(
           points={{76,-80},{60,-80},{60,0},{100,0}}));
-      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+      annotation (defaultComponentName="initFlange",
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={
             Text(
               extent={{-94,94},{68,66}},
@@ -5109,7 +5116,7 @@ provided via a signal bus.
       a_rel = der(w_rel);
       flange_a.tau = 0;
       flange_b.tau = 0;
-      annotation (
+      annotation (defaultComponentName="relStates",
         Documentation(info="<html>
 <p>
 Usually, the absolute angle and the absolute angular velocity of
@@ -5227,7 +5234,8 @@ in the User's Guide of the Rotational library.
         annotation (Line(points={{-7,2},{12,2},{12,20},{30,20}}, color={0,0,127}));
       connect(torqueToAngleAdaptorNew.f, tau) annotation (Line(points={{-7,-8},{0,-8},
               {0,-80},{30,-80}}, color={0,0,127}));
-      annotation (Documentation(info="<html>
+      annotation (defaultComponentName="adaptor",
+        Documentation(info="<html>
 <p>
 Adaptor between a flange connector and a signal representation of the flange.
 This component is used to provide a pure signal interface around a Rotational model
@@ -5302,7 +5310,8 @@ provided for backwards compatibility reasons.
               20},{-12,2},{7,2}}, color={0,0,127}));
       connect(tau, angleToTorqueAdaptorNew.f) annotation (Line(points={{-30,-80},{0,
               -80},{0,-8},{7,-8}}, color={0,0,127}));
-      annotation (Documentation(info="<html>
+      annotation (defaultComponentName="adaptor",
+        Documentation(info="<html>
 <p>
 Adaptor between a flange connector and a signal representation of the flange.
 This component is used to provide a pure signal interface around a Rotational model
@@ -5374,7 +5383,8 @@ provided for backwards compatibility reasons.
     equation
       y = flange.phi "output = potential = angle";
       u = flange.tau "input = flow = torque";
-      annotation (Documentation(info="<html>
+      annotation (defaultComponentName="adaptor",
+        Documentation(info="<html>
 <p>
 Adaptor between a flange connector and a signal representation of the flange.
 This component is used to provide a pure signal interface around a Rotational model
@@ -5411,7 +5421,8 @@ This adaptor has torque as input and angle, angular velocity and angular acceler
     equation
       y = flange.tau "output = flow = torque";
       u = flange.phi "input = potential = angle";
-      annotation (Documentation(info="<html>
+      annotation (defaultComponentName="adaptor",
+        Documentation(info="<html>
 <p>
 Adaptor between a flange connector and a signal representation of the flange.
 This component is used to provide a pure signal interface around a Rotational model
@@ -5470,7 +5481,8 @@ This package contains basic components 1D mechanical rotational drive trains.
         annotation (Placement(transformation(extent={{100,-10},{120,10}})));
     equation
       phi = flange.phi;
-      annotation (Documentation(info="<html>
+      annotation (defaultComponentName="phiSensor",
+        Documentation(info="<html>
 <p>
 Measures the <strong>absolute angle phi</strong> of a flange in an ideal
 way and provides the result as output signal <strong>phi</strong>
@@ -5493,7 +5505,8 @@ way and provides the result as output signal <strong>phi</strong>
 
     equation
       w = der(flange.phi);
-      annotation (Documentation(info="<html>
+      annotation (defaultComponentName="wSensor",
+        Documentation(info="<html>
 <p>
 Measures the <strong>absolute angular velocity w</strong> of a flange in an ideal
 way and provides the result as output signal <strong>w</strong>
@@ -5518,7 +5531,8 @@ way and provides the result as output signal <strong>w</strong>
     equation
       w = der(flange.phi);
       a = der(w);
-      annotation (Documentation(info="<html>
+      annotation (defaultComponentName="aSensor",
+        Documentation(info="<html>
 <p>
 Measures the <strong>absolute angular acceleration a</strong> of a flange in an ideal
 way and provides the result as output signal <strong>a</strong> (to be further processed with
@@ -5545,7 +5559,8 @@ blocks of the Modelica.Blocks library).
     equation
       phi_rel = flange_b.phi - flange_a.phi;
       0 = flange_a.tau;
-      annotation (Documentation(info="<html>
+      annotation (defaultComponentName="phiSensor",
+        Documentation(info="<html>
 <p>
 Measures the <strong>relative angle phi_rel</strong> between two flanges
 in an ideal way and provides the result as output signal <strong>phi_rel</strong>
@@ -5579,7 +5594,8 @@ in an ideal way and provides the result as output signal <strong>phi_rel</strong
       phi_rel = flange_b.phi - flange_a.phi;
       w_rel = der(phi_rel);
       0 = flange_a.tau;
-      annotation (Documentation(info="<html>
+      annotation (defaultComponentName="wSensor",
+        Documentation(info="<html>
 <p>
 Measures the <strong>relative angular velocity w_rel</strong> between two flanges
 in an ideal way and provides the result as output signal <strong>w_rel</strong>
@@ -5615,7 +5631,8 @@ in an ideal way and provides the result as output signal <strong>w_rel</strong>
       w_rel = der(phi_rel);
       a_rel = der(w_rel);
       0 = flange_a.tau;
-      annotation (Documentation(info="<html>
+      annotation (defaultComponentName="aSensor",
+        Documentation(info="<html>
 <p>
 Measures the <strong>relative angular acceleration a_rel</strong> between two flanges
 in an ideal way and provides the result as output signal <strong>a_rel</strong>
@@ -5645,7 +5662,8 @@ in an ideal way and provides the result as output signal <strong>a_rel</strong>
     equation
       flange_a.phi = flange_b.phi;
       flange_a.tau = tau;
-      annotation (Documentation(info="<html>
+      annotation (defaultComponentName="tauSensor",
+        Documentation(info="<html>
 <p>
 Measures the <strong>cut-torque between two flanges</strong> in an ideal way
 and provides the result as output signal <strong>tau</strong>
@@ -5675,7 +5693,8 @@ and provides the result as output signal <strong>tau</strong>
     equation
       flange_a.phi = flange_b.phi;
       power = flange_a.tau*der(flange_a.phi);
-      annotation (Documentation(info="<html>
+      annotation (defaultComponentName="pSensor",
+        Documentation(info="<html>
 <p>
 Measures the <strong>power between two flanges</strong> in an ideal way
 and provides the result as output signal <strong>power</strong>
@@ -5717,7 +5736,8 @@ and provides the result as output signal <strong>power</strong>
       w = der(flange_a.phi);
       tau = flange_a.tau;
       power = tau*w;
-      annotation (Documentation(info="<html>
+      annotation (defaultComponentName="sensor",
+        Documentation(info="<html>
 <p>Measures the <strong>absolute angular velocity</strong> of a flange_a, the <strong>cut-torque</strong> and <strong>power</strong> between two flanges in an ideal way and provides the results as output signals <strong>w</strong>, <strong>tau</strong> and <strong>power</strong>, respectively.
 </p>
 </html>"), Icon(coordinateSystem(
@@ -5793,7 +5813,8 @@ Modelica.Blocks library.
         a = der(w);
         a = ((phi_ref - phi)*w_crit - af*w)*(w_crit/bf);
       end if;
-      annotation (Documentation(info="<html>
+      annotation (defaultComponentName="phiSource",
+        Documentation(info="<html>
 <p>
 The input signal <strong>phi_ref</strong> defines the <strong>reference
 angle</strong> in [rad]. Flange <strong>flange</strong> is <strong>forced</strong>
@@ -5893,7 +5914,8 @@ blocks of the block library Modelica.Blocks.Sources.
         a = der(w);
         a = (w_ref - w)*w_crit;
       end if;
-      annotation (Documentation(info="<html>
+      annotation (defaultComponentName="wSource",
+        Documentation(info="<html>
 <p>
 The input signal <strong>w_ref</strong> defines the <strong>reference
 speed</strong> in [rad/s]. Flange <strong>flange</strong> is <strong>forced</strong>
@@ -5944,7 +5966,7 @@ blocks of the block library Modelica.Blocks.Sources.
         Text(extent={{-158.0,-78.0},{-54.0,-44.0}},
           textString="w_ref"),
         Text(lineColor={0,0,255},
-          extent={{-0.0,60.0},{0.0,120.0}},
+          extent={{-150,60},{150,100}},
           textString="%name"),
         Text(extent={{30.0,-60.0},{146.0,-26.0}},
           textString="exact="),
@@ -5978,7 +6000,8 @@ blocks of the block library Modelica.Blocks.Sources.
       w = der(phi);
       a = der(w);
       a = a_ref;
-      annotation (Documentation(info="<html>
+      annotation (defaultComponentName="aSource",
+        Documentation(info="<html>
 <p>
 The input signal <strong>a</strong> defines an <strong>angular acceleration</strong>
 in [rad/s2]. Flange <strong>flange</strong> is <strong>forced</strong> to move relative to flange support with
@@ -6069,7 +6092,8 @@ blocks of the block library Modelica.Blocks.Sources.
     equation
       phi = flange.phi - phi_support;
       phi = position(u, time);
-      annotation (Documentation(info="<html>
+      annotation (defaultComponentName="source",
+        Documentation(info="<html>
 <p>
 Flange <strong>flange</strong> is <strong>forced</strong> to move relative to flange support with a predefined motion
 according to the input signals:
@@ -6127,7 +6151,7 @@ blocks of the block library Modelica.Blocks.Sources.
 
     equation
       flange.tau = -tau;
-      annotation (
+      annotation (defaultComponentName="tauSource",
         Documentation(info="<html>
 <p>
 The input signal <strong>tau</strong> defines an external
@@ -6198,7 +6222,7 @@ blocks of Modelica.Blocks.Sources.
     equation
       flange_a.tau = tau;
       flange_b.tau = -tau;
-      annotation (
+      annotation (defaultComponentName="tauSource",
         Documentation(info="<html>
 <p>
 The input signal <strong>tau</strong> defines an external
@@ -6275,7 +6299,8 @@ blocks of Modelica.Blocks.Sources.
       else
         tau = tau_nominal*(w/w_nominal);
       end if;
-      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+      annotation (defaultComponentName="linear",
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Line(points={{-100,-100},{100,100}},
                 color={0,0,127})}), Documentation(info="<html>
 <p>
@@ -6306,7 +6331,7 @@ Parameter TorqueDirection chooses whether direction of torque is the same in bot
       else
         tau = tau_nominal*smooth(1, if w >= 0 then (w/w_nominal)^2 else -(w/w_nominal)^2);
       end if;
-      annotation (
+      annotation (defaultComponentName="quadratic",
         Icon(
           coordinateSystem(
             preserveAspectRatio=true,
@@ -6337,7 +6362,8 @@ Parameter TorqueDirection chooses whether direction of torque is the same in bot
       w = der(phi);
       tau = -flange.tau;
       tau = tau_constant;
-      annotation (Icon(
+      annotation (defaultComponentName="tauSource",
+        Icon(
           coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}}),
@@ -6380,7 +6406,8 @@ Negative torque brakes in positive direction of rotation, but accelerates in rev
       else//if reg==Modelica.Blocks.Types.Regularization.CoSine
         tau = tau_constant*(if abs(w)>=w0 then sign(w) else sign(w)*(1 - Modelica.Math.cos(pi/2*w/w0)));
       end if;
-      annotation (Icon(
+      annotation (defaultComponentName="tauSource",
+        Icon(
           coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}}),
@@ -6412,7 +6439,8 @@ Negative torque brakes in both directions of rotation.</p>
     equation
       w = der(phi);
       w = w_fixed;
-      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+      annotation (defaultComponentName="wSource",
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Line(points={{0,-100},{0,100}}, color={0,0,127}),
           Text(extent={{-116.0,-40.0},{128.0,-16.0}},
                 textString="%w_fixed")}), Documentation(info="<html>
@@ -6436,7 +6464,8 @@ Model of <strong>fixed</strong> angular velocity of flange, not dependent on tor
     equation
       tau = -flange.tau;
       tau = offsetTorque + (if time < startTime then 0 else stepTorque);
-      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+      annotation (defaultComponentName="tauSource",
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Line(points={{-80,-60},{0,-60},{0,60},{80,
                   60}}, color={0,0,127}), Text(
               extent={{0.0,-60.0},{100.0,-40.0}},
@@ -6474,7 +6503,8 @@ Positive torque acts accelerating.
       w_normalized = w/(w_nominal*convertResistance(1, TRef, alpha20, TheatPort));
       tau = 2*tau_nominal*w_normalized/(1 + w_normalized*w_normalized);
       lossPower = tau*w;
-      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+      annotation (defaultComponentName="eddyCurrent",
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={
             Line(
               points={{0,10},{4,41},{8,65},{12,81},{16,88},{20,90},{24,89},{28,86},{
