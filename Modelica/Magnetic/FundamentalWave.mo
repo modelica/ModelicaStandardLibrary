@@ -6389,8 +6389,7 @@ The voltages <img src=\"modelica://Modelica/Resources/Images/Magnetic/Fundamenta
 <p>
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.SinglePhaseElectroMagneticConverter\">SinglePhaseElectroMagneticConverter</a>
 </p>
-</html>"),
-        defaultComponentName="converter");
+</html>"));
     end MultiPhaseElectroMagneticConverter;
 
     model Idle "Idle running branch"
