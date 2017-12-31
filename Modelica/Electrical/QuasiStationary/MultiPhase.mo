@@ -700,7 +700,7 @@ Delta (polygon) connection of a multi phase circuit consisting of multiple base 
           points={{10,0},{40,0}}, color={85,170,255}));
       connect(star.pin_n, pin) annotation (Line(
           points={{60,0},{100,0}}, color={85,170,255}));
-      annotation (
+      annotation (defaultComponentName="multiStarR",
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={Line(
                   points={{-40,40},{0,0},{40,40},{0,0},{0,-40}},
@@ -2500,7 +2500,7 @@ This function propagates the input phasor to m output phasors with <a href=\"mod
       // c = sqrt(2)/m*'sum'({u[k]*exp(j*phi[k]) for k in 1:m});
       // Alternative implementation due to https://trac.openmodelica.org/OpenModelica/ticket/4496
       c.re = sqrt(2)/m*sum(u[k].re*cos(phi[k])-u[k].im*sin(phi[k]) for k in 1:m);
-      c.im = sqrt(2)/m*sum(u[k].re*sin(phi[k])+u[k].im*cos(phi[k]) for k in 1:m);  
+      c.im = sqrt(2)/m*sum(u[k].re*sin(phi[k])+u[k].im*cos(phi[k]) for k in 1:m);
       y = {c.re,c.im};
       annotation (
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
@@ -3279,7 +3279,8 @@ Additionally, the frequency of the current source is defined by a real signal in
 </html>"), Icon(graphics={
             Line(points={{-70,30},{-70,10}}, color={85,170,255}),
             Line(points={{-80,20},{-60,20}}, color={85,170,255}),
-            Line(points={{60,20},{80,20}}, color={85,170,255})}));
+            Line(points={{60,20},{80,20}}, color={85,170,255}),
+            Line(points={{-50,0},{50,0}},  color={85,170,255})}));
     end ReferenceVoltageSource;
 
     model CurrentSource "Constant multiphase AC current"

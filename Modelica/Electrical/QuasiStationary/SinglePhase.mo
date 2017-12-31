@@ -1251,7 +1251,7 @@ Quasi stationary theory for single phase circuits can be found in the
             Line(points={{-90,0},{-41,0}}, color={85,170,255}),
             Line(points={{91,0},{40,0}}, color={85,170,255}),
             Text(
-              extent={{-100,100},{100,70}},
+              extent={{-150,110},{150,70}},
               textString="%name",
               lineColor={0,0,255})}), Documentation(info="<html>
 <p>
@@ -1277,7 +1277,7 @@ This model is a simple idle branch considering the complex current <em><u>i</u><
               fillPattern=FillPattern.Solid),
             Line(points={{91,0},{-90,0}}, color={85,170,255}),
             Text(
-              extent={{-100,100},{100,70}},
+              extent={{-150,110},{150,70}},
               textString="%name",
               lineColor={0,0,255})}), Documentation(info="<html>
 <p>
