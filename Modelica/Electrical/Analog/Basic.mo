@@ -107,7 +107,7 @@ package Basic "Basic electrical components"
     R = R_ref*(1 + alpha*(T_heatPort - T_ref));
     v = R*i;
     LossPower = v*i;
-    annotation (
+    annotation (defaultComponentName="resistor",
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={Line(points={{-110,20},{-85,20}}, color={
             160,160,164}),Polygon(
@@ -879,7 +879,6 @@ the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N
     connect(internalSupport.flange, fixed.flange) annotation (Line(
         points={{-80,0},{-80,-10}}, color={0,127,0}));
     annotation (defaultComponentName="emf",
-      defaultComponentName="emf",
       Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
               100}}), graphics={
           Rectangle(
@@ -1431,7 +1430,7 @@ the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N
     p_supply.i = 0;
     m_supply.i = 0;
 
-    annotation (
+    annotation (defaultComponentName="opAmp",
       Documentation(info="<html>
 <p>The OpAmpDetailed model is a general operational amplifier model. The emphasis is on separating each important data sheet parameter into a sub-circuit independent of the other parameters. The model is broken down into five functional stages <strong>input</strong>, <strong>frequency response</strong>, <strong>gain</strong>, <strong>slew rate</strong> and an <strong>output</strong> stage. Each stage contains data sheet parameters to be modeled. This partitioning and the modelling of the separate submodels are based on the description in <strong>[CP92]</strong>.</p>
 <p>Using <strong>[CP92]</strong> Joachim Haase (Fraunhofer Institute for Integrated Circuits, Design Automation Division) transferred 2001 operational amplifier models into VHDL-AMS. Now one of these models, the model &quot;amp(macro)&quot; was transferred into Modelica.</p>
