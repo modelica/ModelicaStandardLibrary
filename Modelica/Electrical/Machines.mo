@@ -9541,11 +9541,10 @@ although reference temperature for both resistances is the same.
         ve = pin_ep.v - pin_en.v;
         spacePhasor_r.i_ = {-ie*turnsRatio,0};
         ve = spacePhasor_r.v_[1]*turnsRatio*3/2;
-        annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                  -100},{100,100}}), graphics={Text(
-                      extent={{-150,-90},{150,-150}},
-                      lineColor={0,0,255},
-                      textString="%name"),Polygon(
+        annotation (defaultComponentName="excitation",
+          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+                  -100},{100,100}}), graphics={
+                                          Polygon(
                       points={{-90,100},{-70,106},{-70,94},{-90,100}},
                       lineColor={0,0,255},
                       fillColor={0,0,255},
@@ -9567,7 +9566,8 @@ Model of an electrical excitation, converting excitation to space phasor.
               transformation(extent={{-110,90},{-90,110}})));
       equation
         spacePhasor_r.i_ = {-Ie,0};
-        annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+        annotation (defaultComponentName="magnet",
+          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                   -100},{100,100}}), graphics={Ellipse(
                       extent={{-60,60},{60,20}},
                       lineColor={255,0,0},
@@ -9604,6 +9604,9 @@ Model of a permanent magnet excitation, characterized by an equivalent excitatio
       model PermanentMagnetWithLosses "Permanent magnet excitation"
         extends Machines.BasicMachines.Components.PermanentMagnet;
         extends Machines.Losses.InductionMachines.PermanentMagnetLosses;
+        annotation(defaultComponentName="magnet", Documentation(info="<html>
+Model of a permanent magnet excitation with loss, characterized by an equivalent excitation current.
+</html>"));
       end PermanentMagnetWithLosses;
 
       model InductorDC
@@ -9614,7 +9617,7 @@ Model of a permanent magnet excitation, characterized by an equivalent excitatio
           "No electrical transients if true" annotation (Evaluate=true);
       equation
         v = if quasiStationary then 0 else L*der(i);
-        annotation (
+        annotation (defaultComponentName="inductor",
           Documentation(info="<html>
 <p>The linear inductor connects the branch voltage <i>v</i> with the branch current <i>i</i> by <i>v = L * di/dt</i>.
 If <code>quasiStationary == false</code>, the electrical transients are neglected, i.e., the voltage drop is zero.</p>
@@ -9781,7 +9784,8 @@ Induced armature voltage is calculated from flux times angular velocity.
         //induced voltages
         ve = v;
         vse = v*excitationTurnsRatio;
-        annotation (Icon(graphics={Polygon(
+        annotation (defaultComponentName="excitation",
+          Icon(graphics={Polygon(
                       points={{-60,-40},{-40,-40},{0,4},{40,-40},{60,-40},{10,
                   20},{10,60},{20,60},{0,80},{-20,60},{-10,60},{-10,20},{-60,-40}},
                       lineColor={0,0,255},
@@ -10106,16 +10110,21 @@ The induction machine models use package SpacePhasors.
           points={{-0.5,-41},{-0.5,-49.5},{0,-49.5},{0,-58}},
           color={0,0,127}));
       connect(Gain1.y, V) annotation (Line(
-          points={{0,-81},{0,-110}},
-          color={0,0,127}));
-      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+          points={{0,-81},{0,-110}}, color={0,0,127}));
+      annotation (defaultComponentName="vSensor",
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Line(points={{-90,0},{-70,0}},
               color={0,0,255}),Line(points={{70,0},{90,0}}, color={0,0,255}),
               Line(points={{0,-70},{0,-100}}, color={0,0,127}),Text(
                   lineColor={0,0,255},
                   extent={{-40,-60},{40,-20}},
-                  textString="V RMS")}), Documentation(info="<html>
-Measured 3-phase instantaneous voltages are transformed to the corresponding space phasor; <br>
+                  textString="V RMS"),
+                                  Text(
+                    extent={{-150,120},{150,80}},
+                    textString="%name",
+                    lineColor={0,0,255})}),
+                                         Documentation(info="<html>
+Measured 3-phase instantaneous voltages are transformed to the corresponding space phasor; 
 output is length of the space phasor divided by sqrt(2), thus giving in sinusoidal stationary state RMS voltage.
 </html>"));
     end VoltageQuasiRMSSensor;
@@ -10165,16 +10174,21 @@ output is length of the space phasor divided by sqrt(2), thus giving in sinusoid
           points={{-1.9984e-15,-41},{-1.9984e-15,-50.5},{0,-50.5},{0,-58}},
           color={0,0,127}));
       connect(Gain1.y, I) annotation (Line(
-          points={{0,-81},{0,-110}},
-          color={0,0,127}));
-      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+          points={{0,-81},{0,-110}}, color={0,0,127}));
+      annotation (defaultComponentName="iSensor",
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Line(points={{-90,0},{-70,0}},
               color={0,0,255}),Line(points={{70,0},{90,0}}, color={0,0,255}),
               Line(points={{0,-70},{0,-100}}, color={0,0,127}),Text(
                   lineColor={0,0,255},
                   extent={{-40,-60},{40,-20}},
-                  textString="A RMS")}), Documentation(info="<html>
-Measured 3-phase instantaneous currents are transformed to the corresponding space phasor; <br>
+                  textString="A RMS"),
+                                  Text(
+                    extent={{-150,120},{150,80}},
+                    textString="%name",
+                    lineColor={0,0,255})}),
+                                         Documentation(info="<html>
+Measured 3-phase instantaneous currents are transformed to the corresponding space phasor;
 output is length of the space phasor divided by sqrt(2), thus giving in sinusoidal stationary state RMS current.
 </html>"));
     end CurrentQuasiRMSSensor;
@@ -10209,7 +10223,8 @@ output is length of the space phasor divided by sqrt(2), thus giving in sinusoid
       i_ = Machines.SpacePhasors.Functions.ToSpacePhasor(plug_p.pin.i);
       2/3*P = +v_[1]*i_[1] + v_[2]*i_[2];
       2/3*Q = -v_[1]*i_[2] + v_[2]*i_[1];
-      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+      annotation (defaultComponentName="pSensor",
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Line(points={{-90,0},{-70,0}},
               color={0,0,255}),Line(points={{70,0},{90,0}}, color={0,0,255}),
               Line(points={{0,-70},{0,-90}}, color={0,0,255}),Line(points={{-10,
@@ -10219,10 +10234,11 @@ output is length of the space phasor divided by sqrt(2), thus giving in sinusoid
                   extent={{-40,-60},{40,-20}},
                   textString="P Q")}), Documentation(info="<html>
 3-phase instantaneous voltages (plug_p - plug_nv) and currents (plug_p - plug_ni) are transformed to the corresponding space phasors, <br>
-which are used to calculate power quantities:<br>
-P = instantaneous power, thus giving in stationary state active power.<br>
-Q = giving in stationary state reactive power.<br>
-</html>"));
+which are used to calculate power quantities:
+<ul>
+<li>P = instantaneous power, thus giving in stationary state active power.</li>
+<li>Q = giving in stationary state reactive power.</li>
+</ul></html>"));
     end ElectricalPowerSensor;
 
     model MechanicalPowerSensor "Mechanical power = torque x speed"
@@ -10269,9 +10285,9 @@ Q = giving in stationary state reactive power.<br>
           points={{22,-11},{22,-20},{6,-20},{6,18}},
           color={0,0,127}));
       connect(product.y, P) annotation (Line(
-          points={{0,41},{0,110}},
-          color={0,0,127}));
-      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+          points={{0,41},{0,110}}, color={0,0,127}));
+      annotation (defaultComponentName="pSensor",
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Line(points={{-70,0},{-90,0}}),
               Line(points={{70,0},{90,0}}),Line(points={{0,70},{0,100}}, color=
               {0,0,127}),Rectangle(
@@ -10362,9 +10378,13 @@ Calculates (mechanical) power from torque times angular speed.
           color={0,0,127}));
       connect(add.y, rotatorVS2R.angle) annotation (Line(
           points={{-10,19},{-10,12}}, color={0,0,127}));
-      connect(ToPolarVSR.y[2], wrapAngle.u) annotation (Line(points={{41,0},{58,0}}, color={0,0,127}));
-      connect(wrapAngle.y, rotorDisplacementAngle) annotation (Line(points={{81,0},{110,0}}, color={0,0,127}));
-      annotation (
+      connect(wrapAngle.y, rotorDisplacementAngle) annotation (Line(points={{91,0},{
+              110,0}},                                                                       color={0,0,127}));
+      connect(ToPolarVSR.y, lessThreshold.u)
+        annotation (Line(points={{31,0},{38,0}}, color={0,0,127}));
+      connect(lessThreshold.y, wrapAngle.u)
+        annotation (Line(points={{61,0},{68,0}}, color={0,0,127}));
+      annotation (defaultComponentName="angleSensor",
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Ellipse(
                   extent={{-60,80},{60,40}},
@@ -11506,7 +11526,8 @@ If it is desired to neglect stray load losses, set <code>strayLoadParameters.PRe
                            else -(-w/permanentMagnetLossParameters.wRef)^permanentMagnetLossParameters.power_w);*/
         end if;
         lossPower = -tau*w;
-        annotation (Icon(graphics={Ellipse(extent={{-40,-40},{40,40}},
+        annotation (defaultComponentName="magnetLoss",
+          Icon(graphics={Ellipse(extent={{-40,-40},{40,40}},
                 lineColor={200,0,0})}), Documentation(info="<html>
 <p>
 Permanent magnet losses are modeled dependent on current and speed.
@@ -14648,7 +14669,7 @@ The icons can be utilized by inheriting them in the desired class using \"extend
   package Utilities "Library with auxiliary models for testing"
     extends Modelica.Icons.UtilitiesPackage;
     package ParameterRecords "Parameter records"
-      extends Modelica.Icons.MaterialPropertiesPackage;
+      extends Modelica.Icons.RecordsPackage;
       record InductionMachineData "Common parameters for induction machines"
         extends Modelica.Icons.Record;
         import Modelica.Constants.pi;
@@ -15241,9 +15262,9 @@ using the provided mechanical rotor angle phi. The output are the instantaneous 
           points={{11,40},{20,40},{20,8},{38,8}},
           color={0,0,127}));
       connect(fromSpacePhasor.y, y) annotation (Line(
-          points={{61,0},{110,0}},
-          color={0,0,127}));
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+          points={{61,0},{110,0}}, color={0,0,127}));
+      annotation (defaultComponentName="iController",
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-100,60},{20,40}},
               lineColor={0,0,255},
@@ -15380,9 +15401,9 @@ They can be used to feed a current source which in turn feeds an induction machi
           points={{11,0},{20,0},{20,6},{30,6}},
           color={0,0,127}));
       connect(deCoupling.y, add.u2) annotation (Line(
-          points={{11,-30},{20,-30},{20,-6},{30,-6}},
-          color={0,0,127}));
-      annotation (Icon(graphics={Text(
+          points={{11,-30},{20,-30},{20,-6},{30,-6}}, color={0,0,127}));
+      annotation (defaultComponentName="vController",
+        Icon(graphics={Text(
               extent={{-100,60},{20,40}},
               lineColor={0,0,255},
               textString="id_rms"), Text(
@@ -15555,9 +15576,8 @@ choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
       connect(plug_sp, plugSupply) annotation (Line(points={{60,-60},{0,-60},{0,
               -40}},    color={0,0,255}));
       connect(starpoint, multiStar.starpoints) annotation (Line(
-          points={{-90,-40},{-86,-40},{-86,-80},{-80,-80}},
-          color={0,0,255}));
-      annotation (
+          points={{-100,-40},{-86,-40},{-86,-80},{-80,-80}},color={0,0,255}));
+      annotation (defaultComponentName="terminalBox",
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={Polygon(
               points={{-74,-40},{-80,-46},{-80,-80},{-40,-100},{40,-100},{80,
@@ -15631,9 +15651,9 @@ choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
           points={{-60,-60},{-70,-60}},
           color={0,0,255}));
       connect(booleanStep.y, idealCommutingSwitch.control) annotation (Line(
-          points={{-39,20},{32,20}},
-          color={255,0,255}));
-      annotation (Icon(graphics={
+          points={{-39,20},{28,20}}, color={255,0,255}));
+      annotation (defaultComponentName="rheostat",
+        Icon(graphics={
             Rectangle(
               extent={{26,40},{54,-40}},
               lineColor={0,0,255},
@@ -15700,9 +15720,9 @@ choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
           points={{60,-10},{60,-60},{-20,-60}},
           color={0,0,255}));
       connect(star.pin_n, ground.p) annotation (Line(
-          points={{-40,-60},{-60,-60}},
-          color={0,0,255}));
-      annotation (Icon(graphics={
+          points={{-40,-60},{-60,-60}}, color={0,0,255}));
+      annotation (defaultComponentName="rheostat",
+        Icon(graphics={
             Rectangle(
               extent={{26,40},{54,-40}},
               lineColor={0,0,255},
