@@ -938,9 +938,8 @@ Delta (polygon) connection of a multi phase circuit consisting of multiple base 
           color={0,0,255}));
       connect(star.pin_n, pin) annotation (Line(
           points={{60,0},{60,0},{98,0},{98,0},{100,0},{100,
-              0}},
-          color={0,0,255}));
-      annotation (
+              0}}, color={0,0,255}));
+      annotation (defaultComponentName="multiStarR",
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
             Line(
@@ -1926,9 +1925,8 @@ Contains m ideal thyristors (Modelica.Electrical.Analog.Ideal.IdealThyristor).
       connect(fire, idealGTOThyristor.fire) annotation (Line(points={{70,110},{
               70,80},{7,80},{7,11}}, color={255,0,255}));
       connect(idealGTOThyristor.heatPort, heatPort) annotation (Line(
-          points={{0,-10},{0,-100}},
-          color={191,0,0}));
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+          points={{0,-10},{0,-100}}, color={191,0,0}));
+      annotation (defaultComponentName="gto", Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
             Text(
               extent={{-100,-50},{100,-90}},
@@ -1941,12 +1939,28 @@ Contains m ideal thyristors (Modelica.Electrical.Analog.Ideal.IdealThyristor).
               fillColor={255,255,255}),
             Line(points={{30,40},{30,-40}}, color={0,0,255}),
             Line(points={{40,0},{90,0}}, color={0,0,255}),
-            Line(points={{40,50},{60,30}}, color={0,0,255}),
-            Line(points={{30,20},{70,60},{70,90}}, color={0,0,255}),
+            Line(points={{100,90},{100,100}}, color={0,0,255}),
             Text(
-              extent={{-100,100},{60,60}},
-              lineColor={0,0,0},
-              textString="m=%m")}), Documentation(info="<html>
+              extent={{-150,90},{150,50}},
+              textString="%name",
+              lineColor={0,0,255}),
+            Text(
+              extent={{-150,-80},{150,-40}},
+              textString="m=%m"),
+            Line(points={{48,52},{68,32}}, color={0,0,255}),
+            Polygon(
+              points={{44,43},{44,36},{51,36},{44,43}},
+              lineColor={0,0,255},
+              fillPattern=FillPattern.Solid,
+              fillColor={0,0,255}),
+            Polygon(
+              points={{46,33},{53,33},{53,26},{46,33}},
+              lineColor={0,0,255},
+              fillPattern=FillPattern.Solid,
+              fillColor={0,0,255}),
+            Line(points={{30,10},{68,48}}, color={0,0,255}),
+            Line(points={{30,22},{56,48}}, color={0,0,255})}),
+                                    Documentation(info="<html>
 <p>
 Contains m ideal GTO thyristors (Modelica.Electrical.Analog.Ideal.IdealGTOThyristor).
 </p>
