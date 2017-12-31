@@ -11538,8 +11538,8 @@ If it is desired to neglect permanent magnet losses, set <code>strayLoadParamete
       end PermanentMagnetLosses;
 
       model Core "Model of core losses"
-        parameter Machines.Losses.CoreParameters coreParameters;
-        final parameter Integer m=coreParameters.m "Number of phases";
+        parameter Machines.Losses.CoreParameters coreParameters(final m=m);
+        final parameter Integer m=3 "Number of phases";
         parameter Real turnsRatio(final min=Modelica.Constants.small)
           "Effective number of stator turns / effective number of rotor turns (if used as rotor core)";
         extends
@@ -11804,8 +11804,7 @@ If it is desired to neglect stray load losses, set <code>strayLoadParameters.PRe
 
       model Core "Model of core losses"
         extends Modelica.Electrical.Analog.Interfaces.OnePort;
-        parameter Machines.Losses.CoreParameters coreParameters
-          "Armature core losses";
+        parameter Machines.Losses.CoreParameters coreParameters(final m=1) "Armature core losses";
         extends
           Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT(
             useHeatPort=false);
@@ -14292,7 +14291,7 @@ Circuit layout (vector group) of primary and secondary windings have to be defin
       Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPortCore
         "Heat port of (optional) core losses"
         annotation (Placement(transformation(extent={{0,-10},{20,10}})));
-      annotation (
+        annotation (
         Diagram(graphics={Rectangle(
               extent={{-60,60},{60,-60}},
               lineColor={191,0,0},
