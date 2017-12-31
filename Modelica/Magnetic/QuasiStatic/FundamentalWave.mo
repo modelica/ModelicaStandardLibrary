@@ -6995,7 +6995,7 @@ Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap</a>
         // Reference angular speed and angle
         gamma = port_p.reference.gamma;
         // Connections.root(port_p.reference);
-        annotation (
+        annotation (defaultComponentName="maganet",
           Documentation(info="<html>
 <p>Permanent magnet model with magnetic, mechanical and thermal connector including losses. The PM model is source  of constant magnetic potential difference. The PM loss is calculated by
 <a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Losses.PermanentMagnetLosses\">PermanentMagnetLosses</a>.
@@ -7398,7 +7398,7 @@ If it is desired to neglect stray load losses, set <code>strayLoadParameters.PRe
                              else -(-w/permanentMagnetLossParameters.wRef)^permanentMagnetLossParameters.power_w);*/
       end if;
       lossPower = -tau*w;
-      annotation (Icon(graphics={Ellipse(extent={{-40,-40},{40,40}}, lineColor=
+      annotation (defaultComponentName="magnetLoss", Icon(graphics={Ellipse(extent={{-40,-40},{40,40}}, lineColor=
                   {200,0,0})}), Documentation(info="<html>
 <p>
 Permanent magnet losses are modeled dependent on current and speed.
@@ -7893,7 +7893,7 @@ ConstantFlux</a>
         annotation (Line(points={{21,0},{29.5,0},{38,0}}, color={85,170,255}));
       connect(wrapAngle.y, rotorDisplacementAngle) annotation (Line(points={{61,
               0},{80,0},{80,0},{110,0}}, color={85,170,255}));
-      annotation (
+      annotation (defaultComponentName="angleSensor",
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Ellipse(
                   extent={{-60,80},{60,40}},
@@ -8314,9 +8314,8 @@ choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
           points={{-20,-60},{60,-60},{60,-60}},
           color={85,170,255}));
       connect(plugSupply, plug_sp) annotation (Line(
-          points={{0,-40},{0,-60},{60,-60}},
-          color={85,170,255}));
-      annotation (
+          points={{0,-40},{0,-60},{60,-60}}, color={85,170,255}));
+      annotation (defaultComponentName="terminalBox",
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={Polygon(
                   points={{-74,-40},{-80,-46},{-80,-80},{-40,-100},{40,-100},{
@@ -8389,9 +8388,8 @@ choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
           points={{-40,-60},{40,-60},{40,10}},
           color={85,170,255}));
       connect(plug_n, idealCommutingSwitch.plug_n2) annotation (Line(
-          points={{100,-60},{40,-60},{40,10}},
-          color={85,170,255}));
-      annotation (
+          points={{100,-60},{40,-60},{40,10}}, color={85,170,255}));
+      annotation (defaultComponentName="rheostat",
         Icon(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
@@ -8480,9 +8478,8 @@ choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
           points={{-120,-60},{-60,-60},{-60,34},{-42,34}},
           color={85,170,255}));
       connect(realToComplex.y, singleToMultiPhase.u) annotation (Line(
-          points={{-19,40},{18,40}},
-          color={85,170,255}));
-      annotation (
+          points={{-19,40},{18,40}}, color={85,170,255}));
+      annotation (defaultComponentName="iController",
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={Rectangle(
                   extent={{-100,100},{100,-100}},
