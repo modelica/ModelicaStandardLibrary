@@ -626,7 +626,7 @@ In this example the eddy current losses are implemented in two different ways. C
           connect(starMachineQS.pin_n, groundMachineQS.pin) annotation (Line(
               points={{-10,20},{-10,20}},
               color={85,170,255}));
-          connect(imcQS.flange, speed.flange) annotation (Line(points={{40,40},{50,40}}, color={0,0,0}));
+          connect(imcQS.flange, speed.flange) annotation (Line(points={{40,40},{50,40}}));
           connect(ramp.y, speed.w_ref) annotation (Line(points={{79,40},{72,40}}, color={0,0,127}));
           connect(vSourceQS.plug_p, pSensorQS.currentP) annotation (Line(points={{-60,50},{-60,80},{-40,80}}, color={85,170,255}));
           annotation (experiment(StopTime=1, Interval=0.001, Tolerance=1E-6),
@@ -634,8 +634,7 @@ In this example the eddy current losses are implemented in two different ways. C
                 Text(
                   extent={{20,8},{100,0}},
                           textStyle={TextStyle.Bold},
-                  textString="%m phase quasi static",
-                  lineColor={0,0,0})}),
+                  textString="%m phase quasi static")}),
             Documentation(info="<html>
 
 <p>
@@ -907,14 +906,13 @@ Simulate for 1 second and plot (versus imcQS.wMechanical or perUnitSpeed):
                   extent={{-100,-100},{100,100}}), graphics={
                                                     Text(
                           extent={{20,-92},{100,-100}},
-                          lineColor={0,0,0},
                           fillColor={255,255,170},
                           fillPattern=FillPattern.Solid,
                           textStyle={TextStyle.Bold},
                           textString="%m phase transient"),     Text(
                   extent={{20,8},{100,0}},
                           textStyle={TextStyle.Bold},
-                  textString="%m phase quasi static",        lineColor={0,0,0})}),
+                  textString="%m phase quasi static")}),
                 experiment(StopTime=1, Interval=0.0001, Tolerance=1E-6),
             Documentation(info="<html>
 <p>
@@ -1126,10 +1124,8 @@ Default machine parameters are used.</p>
                 Text(
                   extent={{-60,20},{20,12}},
                           textStyle={TextStyle.Bold},
-                  textString="%m phase quasi static",
-                          lineColor={0,0,0}), Text(
+                  textString="%m phase quasi static"), Text(
                           extent={{-60,-80},{20,-88}},
-                          lineColor={0,0,0},
                           fillColor={255,255,170},
                           fillPattern=FillPattern.Solid,
                           textStyle={TextStyle.Bold},
@@ -1408,11 +1404,9 @@ Simulate for 2.5 seconds and plot (versus time):</p>
                 Text(
                   extent={{80,8},{160,0}},
                           textStyle={TextStyle.Bold},
-                  lineColor={0,0,0},
                   textString="%m phase quasi static"),
                                                     Text(
                           extent={{80,-92},{160,-100}},
-                          lineColor={0,0,0},
                           fillColor={255,255,170},
                           fillPattern=FillPattern.Solid,
                           textStyle={TextStyle.Bold},
@@ -1656,7 +1650,6 @@ and accelerating inertias. At time <code>tStep</code> a load step is applied.</p
                     -100},{100,100}}),
                                  graphics={         Text(
                           extent={{-60,-92},{20,-100}},
-                          lineColor={0,0,0},
                           fillColor={255,255,170},
                           fillPattern=FillPattern.Solid,
                           textStyle={TextStyle.Bold},
@@ -1664,7 +1657,6 @@ and accelerating inertias. At time <code>tStep</code> a load step is applied.</p
                 Text(
                   extent={{-60,8},{20,0}},
                           textStyle={TextStyle.Bold},
-                  lineColor={0,0,0},
                   textString="%m phase quasi static")}));
         end IMC_Inverter;
 
@@ -1875,11 +1867,9 @@ The mechanical load is a constant torque like a conveyor (with regularization ar
                 Text(
                   extent={{20,60},{100,52}},
                           textStyle={TextStyle.Bold},
-                  lineColor={0,0,0},
                   textString="%m phase quasi static"),
                                                     Text(
                           extent={{20,-40},{100,-48}},
-                          lineColor={0,0,0},
                           fillColor={255,255,170},
                           fillPattern=FillPattern.Solid,
                           textStyle={TextStyle.Bold},
@@ -2089,7 +2079,6 @@ Modelica 2009, 7<sup>th</sup> International Modelica Conference</p>
                 Text(
                   extent={{-80,40},{0,32}},
                           textStyle={TextStyle.Bold},
-                  lineColor={0,0,0},
                   textString="%m phase quasi static")}));
         end IMC_withLosses;
 
@@ -2274,11 +2263,9 @@ Default machine parameters of model <em>AIM_SquirrelCage</em> are used.
                 Text(
                   extent={{20,8},{100,0}},
                           textStyle={TextStyle.Bold},
-                  lineColor={0,0,0},
                   textString="%m phase quasi static"),
                                                     Text(
                           extent={{20,-92},{100,-100}},
-                          lineColor={0,0,0},
                           fillColor={255,255,170},
                           fillPattern=FillPattern.Solid,
                           textStyle={TextStyle.Bold},
@@ -2404,7 +2391,7 @@ Default machine parameters of model <em>AIM_SquirrelCage</em> are used.
               color={85,170,255}));
           connect(vSourceQS.plug_p, pSensorQS.currentP) annotation (Line(points={{-80,70},{-80,80},{-70,80}}, color={85,170,255}));
           connect(ramp.y,speed. w_ref) annotation (Line(points={{79,40},{72,40}}, color={0,0,127}));
-          connect(imsQS.flange, speed.flange) annotation (Line(points={{40,40},{50,40}}, color={0,0,0}));
+          connect(imsQS.flange, speed.flange) annotation (Line(points={{40,40},{50,40}}));
           connect(starRotorQS.pin_n, groundRotorQS.pin) annotation (Line(points={{-10,20},{-10,20}}, color={85,170,255}));
           connect(resistor.plug_n, imsQS.plug_rn) annotation (Line(points={{10,26},{20,26},{20,34}}, color={85,170,255}));
           connect(imsQS.plug_rp, resistor.plug_p) annotation (Line(points={{20,46},{10,46}}, color={85,170,255}));
@@ -2433,7 +2420,6 @@ Simulate for 1 second and plot (versus imsQS.wMechanical or perUnitSpeed):
                     -100},{100,100}}),
                                  graphics={         Text(
                           extent={{20,8},{100,0}},
-                          lineColor={0,0,0},
                           fillColor={255,255,170},
                           fillPattern=FillPattern.Solid,
                           textStyle={TextStyle.Bold},
@@ -2747,7 +2733,6 @@ Simulate for 1.5 seconds and plot (versus time):
                     -100},{100,100}}),
                                  graphics={         Text(
                           extent={{20,8},{100,0}},
-                          lineColor={0,0,0},
                           fillColor={255,255,170},
                           fillPattern=FillPattern.Solid,
                           textStyle={TextStyle.Bold},
@@ -2755,8 +2740,7 @@ Simulate for 1.5 seconds and plot (versus time):
                 Text(
                   extent={{20,-92},{100,-100}},
                           textStyle={TextStyle.Bold},
-                  textString="%m phase transient",
-                  lineColor={0,0,0})}));
+                  textString="%m phase transient")}));
         end IMS_Start;
       end InductionMachines;
 
@@ -2922,9 +2906,8 @@ Simulate for 0.1 second and plot (versus time):
                 Text(
                   extent={{-100,8},{-20,0}},
                           textStyle={TextStyle.Bold},
-                  textString="%m phase quasi static",        lineColor={0,0,0}),               Text(
+                  textString="%m phase quasi static"),               Text(
                           extent={{-100,-92},{-20,-100}},
-                          lineColor={0,0,0},
                           fillColor={255,255,170},
                           fillPattern=FillPattern.Solid,
                           textStyle={TextStyle.Bold},
@@ -3174,9 +3157,8 @@ Simulate for 0.1 second and plot (versus time):
                 Text(
                   extent={{20,8},{100,0}},
                           textStyle={TextStyle.Bold},
-                  textString="%m phase quasi static",        lineColor={0,0,0}),               Text(
+                  textString="%m phase quasi static"),               Text(
                           extent={{20,-92},{100,-100}},
-                          lineColor={0,0,0},
                           fillColor={255,255,170},
                           fillPattern=FillPattern.Solid,
                           textStyle={TextStyle.Bold},
@@ -3479,11 +3461,11 @@ Simulate for 1 second and plot (versus time):
                                                                                                                           color={0,0,127}));
           connect(angleSensorQS.phi, currentControllerQS.phi) annotation (Line(points={{30,71},{30,74},{-40,74},{-40,78}}, color={0,0,127}));
           connect(angleSensor.phi, currentController.phi) annotation (Line(points={{30,-29},{30,-26},{-40,-26},{-40,-22}}, color={0,0,127}));
-          connect(smpmQS.flange, rotorAngleQS.flange) annotation (Line(points={{10,20},{20,20}}, color={0,0,0}));
+          connect(smpmQS.flange, rotorAngleQS.flange) annotation (Line(points={{10,20},{20,20}}));
           connect(terminalBoxQS.plug_sp, rotorAngleQS.plug_p) annotation (Line(points={{6,30},{24,30}}, color={85,170,255}));
           connect(terminalBoxQS.plugSupply, currentRMSSensorQS.plug_n) annotation (Line(points={{0,32},{0,50}},     color={85,170,255}));
           connect(currentRMSSensorQS.plug_p, referenceCurrentSourceQS.plug_n) annotation (Line(points={{0,70},{0,80}}, color={85,170,255}));
-          connect(inertiaLoadQS.flange_a, smpmQS.flange) annotation (Line(points={{50,20},{10,20}}, color={0,0,0}));
+          connect(inertiaLoadQS.flange_a, smpmQS.flange) annotation (Line(points={{50,20},{10,20}}));
           connect(rotorAngleQS.plug_n, terminalBoxQS.plug_sn) annotation (Line(points={{36,30},{36,36},{-6,36},{-6,30}}, color={85,170,255}));
           connect(voltageQuasiRMSSensorQS.plug_n, currentRMSSensorQS.plug_n) annotation (Line(points={{-20,50},{0,50}}, color={85,170,255}));
           connect(starMQS.pin_n, starMachineQS.pin_n) annotation (Line(points={{-50,30},{-50,20},{-40,20}}, color={85,170,255}));
@@ -3513,9 +3495,8 @@ to numerically stabilize the simulation.</p>
                 Text(
                   extent={{30,48},{110,40}},
                           textStyle={TextStyle.Bold},
-                  textString="%m phase quasi static",        lineColor={0,0,0}),               Text(
+                  textString="%m phase quasi static"),               Text(
                           extent={{30,-52},{110,-60}},
-                          lineColor={0,0,0},
                           fillColor={255,255,170},
                           fillPattern=FillPattern.Solid,
                           textStyle={TextStyle.Bold},
@@ -3671,7 +3652,7 @@ to numerically stabilize the simulation.</p>
           connect(currentControllerQS.gamma, referenceCurrentSourceQS.gamma) annotation (Line(points={{-19,86},{-10,86},{-10,84},{-2,84}},
                                                                                                                           color={0,0,127}));
           connect(angleSensorQS.phi, currentControllerQS.phi) annotation (Line(points={{40,71},{40,74},{-30,74},{-30,78}}, color={0,0,127}));
-          connect(smpmQS.flange, rotorAngleQS.flange) annotation (Line(points={{20,20},{30,20}}, color={0,0,0}));
+          connect(smpmQS.flange, rotorAngleQS.flange) annotation (Line(points={{20,20},{30,20}}));
           connect(terminalBoxQS.plug_sp, rotorAngleQS.plug_p) annotation (Line(points={{16,30},{34,30}},color={85,170,255}));
           connect(terminalBoxQS.plugSupply, currentRMSSensorQS.plug_n) annotation (Line(points={{10,32},{10,50}},   color={85,170,255}));
           connect(currentRMSSensorQS.plug_p, referenceCurrentSourceQS.plug_n) annotation (Line(points={{10,70},{10,80}},
@@ -3680,7 +3661,7 @@ to numerically stabilize the simulation.</p>
           connect(voltageQuasiRMSSensorQS.plug_n, currentRMSSensorQS.plug_n) annotation (Line(points={{-10,50},{10,50}},color={85,170,255}));
           connect(starMQS.pin_n, starMachineQS.pin_n) annotation (Line(points={{-40,30},{-40,20},{-30,20}}, color={85,170,255}));
           connect(starMQS.plug_p, voltageQuasiRMSSensorQS.plug_p) annotation (Line(points={{-40,50},{-30,50}}, color={85,170,255}));
-          connect(quadraticSpeedDependentTorqueQS.flange, rotorAngleQS.flange) annotation (Line(points={{60,20},{30,20}}, color={0,0,0}));
+          connect(quadraticSpeedDependentTorqueQS.flange, rotorAngleQS.flange) annotation (Line(points={{60,20},{30,20}}));
           connect(toReal.u, rotSource.y) annotation (Line(points={{-70,48},{-70,41}}, color={85,170,255}));
           connect(toReal.re, currentControllerQS.id_rms) annotation (Line(points={{-76,72},{-76,96},{-42,96}}, color={0,0,127}));
           connect(currentControllerQS.iq_rms, toReal.im) annotation (Line(points={{-42,84},{-64,84},{-64,72}}, color={0,0,127}));
@@ -3721,7 +3702,7 @@ to numerically stabilize the simulation.</p>
                 Text(
                   extent={{20,0},{100,-8}},
                           textStyle={TextStyle.Bold},
-                  textString="%m phase quasi static", lineColor={0,0,0})}));
+                  textString="%m phase quasi static")}));
         end SMPM_MTPA;
 
         model SMEE_Generator
@@ -4026,13 +4007,13 @@ to numerically stabilize the simulation.</p>
               Line(
               points={{-10,50},{-10,42},{-10,42}},
               color={85,170,255}));
-          connect(smee.flange, rotorAngle.flange) annotation (Line(points={{10,-70},{20,-70}}, color={0,0,0}));
+          connect(smee.flange, rotorAngle.flange) annotation (Line(points={{10,-70},{20,-70}}));
           connect(rotorAngle.plug_p, smee.plug_sp) annotation (Line(points={{24,-60},{6,-60}}, color={0,0,255}));
           connect(smee.plug_sn, rotorAngle.plug_n) annotation (Line(points={{-6,-60},{-6,-54},{36,-54},{36,-60}}, color={0,0,255}));
           connect(terminalBoxQS.plug_sp, rotorAngleQS.plug_p) annotation (Line(points={{6,40},{24,40}}, color={85,170,255}));
           connect(rotorAngleQS.plug_n, terminalBoxQS.plug_sn) annotation (Line(points={{36,40},{36,46},{-6,46},{-6,40}}, color={85,170,255}));
-          connect(smeeQS.flange, rotorAngleQS.flange) annotation (Line(points={{10,30},{20,30}}, color={0,0,0}));
-          connect(smeeQS.flange, mechanicalPowerSensorQS.flange_a) annotation (Line(points={{10,30},{50,30}}, color={0,0,0}));
+          connect(smeeQS.flange, rotorAngleQS.flange) annotation (Line(points={{10,30},{20,30}}));
+          connect(smeeQS.flange, mechanicalPowerSensorQS.flange_a) annotation (Line(points={{10,30},{50,30}}));
           connect(starMachine.pin_n,groundMachine. p) annotation (Line(points={{-30,-50},{-40,-50}}, color={0,0,255}));
           connect(starMachine.plug_p, terminalBoxM.starpoint) annotation (Line(points={{-10,-50},{-10,-54},{-10,-58},{-10,-58}},color={0,0,255}));
           annotation (
@@ -4061,7 +4042,6 @@ Simulate for 30 seconds and plot versus <code>rotorAngle|rotorAngleQS.rotorDispl
                     -100},{100,100}}),
                                  graphics={         Text(
                           extent={{20,8},{100,0}},
-                          lineColor={0,0,0},
                           fillColor={255,255,170},
                           fillPattern=FillPattern.Solid,
                           textStyle={TextStyle.Bold},
@@ -4318,7 +4298,6 @@ and accelerating inertias. At time <code>tStep</code> a load step is applied.</p
                     -100},{100,100}}),
                                  graphics={         Text(
                           extent={{-60,-92},{20,-100}},
-                          lineColor={0,0,0},
                           fillColor={255,255,170},
                           fillPattern=FillPattern.Solid,
                           textStyle={TextStyle.Bold},
@@ -4326,7 +4305,6 @@ and accelerating inertias. At time <code>tStep</code> a load step is applied.</p
                 Text(
                   extent={{-60,8},{20,0}},
                           textStyle={TextStyle.Bold},
-                  lineColor={0,0,0},
                   textString="%m phase quasi static")}));
         end SMR_Inverter;
 
@@ -4620,10 +4598,10 @@ and accelerating inertias. At time <code>tStep</code> a load step is applied.</p
           connect(rotorDisplacementAngle.flange, inertiaLoad.flange_a)
             annotation (Line(
               points={{20,-80},{50,-80}}));
-          connect(smrQS.flange, rotorAngleQS.flange) annotation (Line(points={{10,20},{20,20}}, color={0,0,0}));
+          connect(smrQS.flange, rotorAngleQS.flange) annotation (Line(points={{10,20},{20,20}}));
           connect(smrQS.plug_sp, rotorAngleQS.plug_p) annotation (Line(points={{6,30},{24,30}}, color={85,170,255}));
           connect(smrQS.plug_sn, rotorAngleQS.plug_n) annotation (Line(points={{-6,30},{-6,36},{36,36},{36,30}}, color={85,170,255}));
-          connect(inertiaLoadQS.flange_a, smrQS.flange) annotation (Line(points={{50,20},{42,20},{42,20},{32,20},{32,20},{10,20}}, color={0,0,0}));
+          connect(inertiaLoadQS.flange_a, smrQS.flange) annotation (Line(points={{50,20},{42,20},{42,20},{32,20},{32,20},{10,20}}));
           connect(currentRMSSensorQS.plug_p, referenceCurrentSource.plug_n) annotation (Line(points={{0,70},{0,80}}, color={85,170,255}));
           connect(currentRMSSensorQS.plug_n, terminalBoxQS.plugSupply) annotation (Line(points={{0,50},{0,32}}, color={85,170,255}));
           connect(id.y, currentControllerQS.id_rms) annotation (Line(points={{-79,30},{-74,30},{-74,96},{-52,96}}, color={0,0,127}));
@@ -4662,9 +4640,8 @@ Simulate for 2 seconds and plot (versus time):
                 Text(
                   extent={{30,48},{110,40}},
                           textStyle={TextStyle.Bold},
-                  textString="%m phase quasi static",        lineColor={0,0,0}),               Text(
+                  textString="%m phase quasi static"),               Text(
                           extent={{30,-52},{110,-60}},
-                          lineColor={0,0,0},
                           fillColor={255,255,170},
                           fillPattern=FillPattern.Solid,
                           textStyle={TextStyle.Bold},

@@ -43,18 +43,14 @@ equation
                 textString="to FMU"),Text(
                 extent={{-94,96},{-10,66}},
                 horizontalAlignment=TextAlignment.Left,
-          lineColor={0,0,0},
           textString="v"),        Text(
                 extent={{-94,-12},{-10,-42}},
                 horizontalAlignment=TextAlignment.Left,
-          lineColor={0,0,0},
           textString="di"),     Text(
                 extent={{-150,-110},{150,-140}},
-          lineColor={0,0,0},
           textString="L=%L"),      Bitmap(extent={{-58,-42},{98,48}},
             fileName="modelica://Modelica/Resources/Images/Electrical/Analog/InverseInductor.png"),
           Text( extent={{-90,-64},{-6,-94}},
                 horizontalAlignment=TextAlignment.Left,
-          lineColor={0,0,0},
           textString="i")}));
 end InverseInductor;

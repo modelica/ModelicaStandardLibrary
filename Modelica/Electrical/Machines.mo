@@ -2964,7 +2964,7 @@ achieve constant current and torque.</p>
         connect(rampVoltage.p, smee.pin_ep) annotation (Line(points={{-40,-30},
                 {-30,-30},{-30,-34},{-20,-34}}, color={0,0,255}));
         connect(mechanicalMultiSensor.flange_b, torqueStep.flange)
-          annotation (Line(points={{60,-40},{70,-40}}, color={0,0,0}));
+          annotation (Line(points={{60,-40},{70,-40}}));
         annotation (experiment(
             StopTime=3,
             Interval=0.0001,

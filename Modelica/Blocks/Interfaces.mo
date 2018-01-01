@@ -1889,30 +1889,24 @@ of noise blocks.
                   radius=10),
             Text(
               extent={{-18,90},{18,70}},
-              lineColor={0,0,0},
               textString="%Name_p"),
             Text(
               extent={{-18,60},{18,40}},
-              lineColor={0,0,0},
               textString="%Name_pder",
               visible=use_pder),
             Text(
               extent={{-18,30},{18,10}},
-              lineColor={0,0,0},
               textString="%Name_pder2",
               visible=(use_pder and use_pder2)),
             Text(
               extent={{-18,-70},{18,-90}},
-              lineColor={0,0,0},
               textString="%Name_f"),
             Text(
               extent={{-18,-40},{18,-60}},
-              lineColor={0,0,0},
               textString="%Name_fder",
               visible=use_fder),
             Text(
               extent={{-18,-10},{18,-30}},
-              lineColor={0,0,0},
               textString="%Name_fder2",
               visible=(use_fder and use_fder2))}),
               Diagram(coordinateSystem(preserveAspectRatio=false)),
@@ -2009,30 +2003,24 @@ Note, the input signals must be consistent to each other
                   radius=10),
             Text(
               extent={{-18,90},{18,70}},
-              lineColor={0,0,0},
               textString="%Name_p"),
             Text(
               extent={{-18,60},{18,40}},
-              lineColor={0,0,0},
               textString="%Name_pder",
               visible=use_pder),
             Text(
               extent={{-18,30},{18,10}},
-              lineColor={0,0,0},
               textString="%Name_pder2",
               visible=(use_pder and use_pder2)),
             Text(
               extent={{-18,-70},{18,-90}},
-              lineColor={0,0,0},
               textString="%Name_f"),
             Text(
               extent={{-18,-40},{18,-60}},
-              lineColor={0,0,0},
               textString="%Name_fder",
               visible=use_fder),
             Text(
               extent={{-18,-10},{18,-30}},
-              lineColor={0,0,0},
               textString="%Name_fder2",
               visible=(use_fder and use_fder2))}),
               Diagram(coordinateSystem(preserveAspectRatio=false)),

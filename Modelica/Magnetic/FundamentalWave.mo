@@ -1451,13 +1451,11 @@ Simulate for 1.5 seconds and plot (versus time):
                   -100},{100,100}}),
                                graphics={       Text(
                       extent={{20,88},{100,80}},
-                      lineColor={0,0,0},
                       fillColor={255,255,170},
                       fillPattern=FillPattern.Solid,
                       textString="%m phase machine",
                       textStyle={TextStyle.Bold}),Text(
                       extent={{20,-22},{100,-30}},
-                      lineColor={0,0,0},
                       fillColor={255,255,170},
                       fillPattern=FillPattern.Solid,
                       textString="3 phase machine",
@@ -3031,13 +3029,11 @@ Simulate for 1.5 seconds and plot (versus time):
                   -100},{100,100}}),
                                graphics={       Text(
                       extent={{40,68},{100,60}},
-                      lineColor={0,0,0},
                       fillColor={255,255,170},
                       fillPattern=FillPattern.Solid,
                       textString="%m phase machine",
                       textStyle={TextStyle.Bold}),Text(
                       extent={{40,-32},{100,-40}},
-                      lineColor={0,0,0},
                       fillColor={255,255,170},
                       fillPattern=FillPattern.Solid,
                       textString="3 phase machine",
@@ -3544,24 +3540,20 @@ and accelerate the inertias. Two equivalent machines with different numbers of p
                   -100},{100,100}}),
                                graphics={Rectangle(
                       extent={{-20,0},{100,-40}},
-                      lineColor={0,0,0},
                       fillColor={255,255,170},
                       fillPattern=FillPattern.Solid,
                       pattern=LinePattern.Dash),Rectangle(
                       extent={{-20,-60},{100,-100}},
-                      lineColor={0,0,0},
                       fillColor={255,255,170},
                       fillPattern=FillPattern.Solid,
                       pattern=LinePattern.Dash),Text(
                       extent={{40,-54},{100,-62}},
-                      lineColor={0,0,0},
                       fillColor={255,255,170},
                       fillPattern=FillPattern.Solid,
                       textStyle={TextStyle.Bold},
                       textString="3 phase machine
 "),           Text(
                 extent={{40,-44},{100,-52}},
-                      lineColor={0,0,0},
                       fillColor={255,255,170},
                       fillPattern=FillPattern.Solid,
                       textStyle={TextStyle.Bold},
@@ -4421,26 +4413,22 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM3.rotorDisplacementAng
 </html>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                   {100,100}}), graphics={Rectangle(
                       extent={{-50,60},{70,20}},
-                      lineColor={0,0,0},
                       fillColor={255,255,170},
                       fillPattern=FillPattern.Solid,
                       pattern=LinePattern.Dash),Text(
                       extent={{10,16},{70,8}},
-                      lineColor={0,0,0},
                       fillColor={255,255,170},
                       fillPattern=FillPattern.Solid,
                       textStyle={TextStyle.Bold},
                       textString="%m phase machine
 "),           Text(
                 extent={{10,-52},{70,-60}},
-                      lineColor={0,0,0},
                       fillColor={255,255,170},
                       fillPattern=FillPattern.Solid,
                       textStyle={TextStyle.Bold},
                       textString="3 phase machine
 "),           Rectangle(
                 extent={{-50,-60},{100,-100}},
-                      lineColor={0,0,0},
                       fillColor={255,255,170},
                       fillPattern=FillPattern.Solid,
                       pattern=LinePattern.Dash)}));
@@ -5360,7 +5348,7 @@ Voltage is controlled, the set point depends on speed. The generator is loaded w
                                                 color={0,0,255}));
         connect(rampVoltage.p, smee.pin_ep) annotation (Line(points={{-40,-30},{-30,-30},{-30,-34},{-20,-34}},
                                                 color={0,0,255}));
-        connect(mSensor.flange_b, torqueStep.flange) annotation (Line(points={{60,-40},{70,-40}}, color={0,0,0}));
+        connect(mSensor.flange_b, torqueStep.flange) annotation (Line(points={{60,-40},{70,-40}}));
         connect(idealCloser.plug_n, sensor.pc) annotation (Line(points={{
                 -1.77636e-015,60},{1.77636e-015,60},{1.77636e-015,50}},                           color={0,0,255}));
         connect(sensor.nv, terminalBox.plug_sn) annotation (Line(points={{-10,40},
@@ -5896,26 +5884,22 @@ Simulate for 1.5 seconds and plot (versus time):
 </html>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                   {100,100}}), graphics={Rectangle(
                       extent={{-20,0},{100,-40}},
-                      lineColor={0,0,0},
                       fillColor={255,255,170},
                       fillPattern=FillPattern.Solid,
                       pattern=LinePattern.Dash),Text(
                       extent={{40,-44},{100,-52}},
-                      lineColor={0,0,0},
                       fillColor={255,255,170},
                       fillPattern=FillPattern.Solid,
                       textStyle={TextStyle.Bold},
                       textString="%m phase machine
 "),           Text(
                 extent={{40,-54},{100,-62}},
-                      lineColor={0,0,0},
                       fillColor={255,255,170},
                       fillPattern=FillPattern.Solid,
                       textStyle={TextStyle.Bold},
                       textString="3 phase machine
 "),           Rectangle(
                 extent={{-20,-60},{100,-100}},
-                      lineColor={0,0,0},
                       fillColor={255,255,170},
                       fillPattern=FillPattern.Solid,
                       pattern=LinePattern.Dash)}));

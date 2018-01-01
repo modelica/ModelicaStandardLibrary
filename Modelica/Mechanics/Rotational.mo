@@ -1802,17 +1802,17 @@ A rotating inertia gets decelerated by an eddy current brake. The loss power is 
       connect(sine1.y, force3.tau) annotation (Line(points={{-79,50},{-70,
               50},{-70,-70},{-62,-70}}, color={0,0,127}));
       connect(torqueToAngle2b.flange, inertia2b.flange_a)
-        annotation (Line(points={{62,-10},{70,-10}}, color={0,0,0}));
+        annotation (Line(points={{62,-10},{70,-10}}));
       connect(inertia2a.flange_b, torqueToAngle2a.flange)
-        annotation (Line(points={{-10,-10},{-2,-10}}, color={0,0,0}));
+        annotation (Line(points={{-10,-10},{-2,-10}}));
       connect(torque2.flange, inertia2a.flange_a)
-        annotation (Line(points={{-40,-10},{-30,-10}}, color={0,0,0}));
+        annotation (Line(points={{-40,-10},{-30,-10}}));
       connect(inertia3a.flange_b, torqueToAngle3a.flange)
-        annotation (Line(points={{-10,-70},{-2,-70}}, color={0,0,0}));
+        annotation (Line(points={{-10,-70},{-2,-70}}));
       connect(force3.flange, inertia3a.flange_a)
-        annotation (Line(points={{-40,-70},{-30,-70}}, color={0,0,0}));
+        annotation (Line(points={{-40,-70},{-30,-70}}));
       connect(torqueToAngle3b.flange, inertia3b.flange_a)
-        annotation (Line(points={{62,-70},{70,-70}}, color={0,0,0}));
+        annotation (Line(points={{62,-70},{70,-70}}));
       connect(torqueToAngle2a.p, springDamper.phi1)
         annotation (Line(points={{3,-2},{18,-2}}, color={0,0,127}));
       connect(torqueToAngle2a.pder, springDamper.w1) annotation (Line(
@@ -1911,9 +1911,9 @@ force law in a target system between two inertias.
         connect(tauDrive, torqueSource.tau)
           annotation (Line(points={{-120,0},{-52,0}}, color={0,0,127}));
         connect(torqueSource.flange, inertia.flange_a)
-          annotation (Line(points={{-30,0},{-20,0}}, color={0,0,0}));
+          annotation (Line(points={{-30,0},{-20,0}}));
         connect(inertia.flange_b, torqueToAngle.flange)
-          annotation (Line(points={{0,0},{18,0}}, color={0,0,0}));
+          annotation (Line(points={{0,0},{18,0}}));
         connect(torqueToAngle.p, phi) annotation (Line(points={{23,8},{40,8},
                 {40,80},{110,80}}, color={0,0,127}));
         connect(torqueToAngle.pder, w) annotation (Line(points={{23,5},{60,
@@ -1930,12 +1930,10 @@ force law in a target system between two inertias.
                       textString="to FMU"),Text(
                       extent={{8,96},{92,66}},
                       horizontalAlignment=TextAlignment.Right,
-                textString="phi",
-                lineColor={0,0,0}),                            Text(
+                textString="phi"),                            Text(
                       extent={{10,46},{94,16}},
                       horizontalAlignment=TextAlignment.Right,
-                textString="w",
-                lineColor={0,0,0}),   Text(
+                textString="w"),   Text(
                       extent={{10,-10},{94,-40}},
                       horizontalAlignment=TextAlignment.Right,
                       textString="a"),Text(
@@ -1944,8 +1942,7 @@ force law in a target system between two inertias.
                   fileName="modelica://Modelica/Resources/Images/Mechanics/Rotational/DirectInertia.png"),
                 Text( extent={{10,-60},{94,-90}},
                       horizontalAlignment=TextAlignment.Right,
-                textString="tau",
-                lineColor={0,0,0})}));
+                textString="tau")}));
       end DirectInertia;
 
       model InverseInertia "Input/output block of an inverse inertia model"
@@ -1974,7 +1971,7 @@ force law in a target system between two inertias.
       equation
 
         connect(angleToTorque.flange, inertia.flange_a)
-          annotation (Line(points={{-18,0},{-10,0}}, color={0,0,0}));
+          annotation (Line(points={{-18,0},{-10,0}}));
         connect(phi, angleToTorque.p) annotation (Line(points={{-120,80},{
                 -40,80},{-40,8},{-23,8}}, color={0,0,127}));
         connect(w, angleToTorque.pder) annotation (Line(points={{-120,30},{
@@ -1991,11 +1988,9 @@ force law in a target system between two inertias.
                       textString="to FMU"),Text(
                       extent={{-94,96},{-10,66}},
                       horizontalAlignment=TextAlignment.Left,
-                lineColor={0,0,0},
                 textString="phi"),      Text(
                       extent={{-94,46},{-10,16}},
                       horizontalAlignment=TextAlignment.Left,
-                lineColor={0,0,0},
                 textString="w"),      Text(
                       extent={{-92,-14},{-8,-44}},
                       horizontalAlignment=TextAlignment.Left,
@@ -2005,7 +2000,6 @@ force law in a target system between two inertias.
                   fileName="modelica://Modelica/Resources/Images/Mechanics/Rotational/InverseInertia.png"),
                 Text( extent={{-90,-64},{-6,-94}},
                       horizontalAlignment=TextAlignment.Left,
-                lineColor={0,0,0},
                 textString="tau")}));
       end InverseInertia;
 
@@ -2050,9 +2044,9 @@ force law in a target system between two inertias.
       equation
 
         connect(springDamper.flange_b, angleToTorque2.flange)
-          annotation (Line(points={{10,0},{18,0}}, color={0,0,0}));
+          annotation (Line(points={{10,0},{18,0}}));
         connect(angleToTorque1.flange, springDamper.flange_a)
-          annotation (Line(points={{-18,0},{-10,0}}, color={0,0,0}));
+          annotation (Line(points={{-18,0},{-10,0}}));
         connect(angleToTorque2.p, phi2) annotation (Line(points={{23,8},{40,
                 8},{40,80},{120,80}}, color={0,0,127}));
         connect(angleToTorque2.pder, w2) annotation (Line(points={{23,5},{
@@ -2073,7 +2067,6 @@ force law in a target system between two inertias.
                       textString="to FMU"),Text(
                       extent={{-94,96},{-10,66}},
                       horizontalAlignment=TextAlignment.Left,
-                lineColor={0,0,0},
                 textString="phi1"),      Text(
                       extent={{-150,-118},{150,-148}},
                       textString="c=%c
@@ -2081,23 +2074,18 @@ d=%d"),         Bitmap(extent={{-72,-44},{84,46}},
                    fileName="modelica://Modelica/Resources/Images/Mechanics/Rotational/SpringDamper.png"),
                 Text( extent={{12,96},{96,66}},
                       horizontalAlignment=TextAlignment.Right,
-                lineColor={0,0,0},
                 textString="phi2"),      Text(
                       extent={{12,48},{96,18}},
                       horizontalAlignment=TextAlignment.Right,
-                lineColor={0,0,0},
                 textString="w2"),      Text(
                       extent={{10,-60},{94,-90}},
                       horizontalAlignment=TextAlignment.Right,
-                lineColor={0,0,0},
                 textString="tau2"),      Text(
                       extent={{-94,46},{-10,16}},
                       horizontalAlignment=TextAlignment.Left,
-                lineColor={0,0,0},
                 textString="w1"),      Text(
                       extent={{-90,-64},{-6,-94}},
                       horizontalAlignment=TextAlignment.Left,
-                lineColor={0,0,0},
                 textString="tau1")}));
       end SpringDamper;
 
@@ -2132,9 +2120,9 @@ d=%d"),         Bitmap(extent={{-72,-44},{84,46}},
       equation
 
         connect(angleToTorque1.flange, spring.flange_a)
-          annotation (Line(points={{-18,0},{-10,0}}, color={0,0,0}));
+          annotation (Line(points={{-18,0},{-10,0}}));
         connect(spring.flange_b, angleToTorque2.flange)
-          annotation (Line(points={{10,0},{18,0}}, color={0,0,0}));
+          annotation (Line(points={{10,0},{18,0}}));
         connect(angleToTorque1.p, phi1) annotation (Line(points={{-23,8},{
                 -40,8},{-40,80},{-120,80}}, color={0,0,127}));
         connect(angleToTorque1.f, tau1) annotation (Line(points={{-23,-8},{
@@ -2151,22 +2139,18 @@ d=%d"),         Bitmap(extent={{-72,-44},{84,46}},
                       textString="to FMU"),Text(
                       extent={{-94,96},{-10,66}},
                       horizontalAlignment=TextAlignment.Left,
-                lineColor={0,0,0},
                 textString="phi1"),      Text(
                       extent={{-150,-114},{150,-144}},
                       textString="c=%c"),Bitmap(extent={{-88,-36},{92,56}},
                   fileName="modelica://Modelica/Resources/Images/Mechanics/Rotational/Spring.png"),
                 Text( extent={{12,96},{96,66}},
                       horizontalAlignment=TextAlignment.Right,
-                lineColor={0,0,0},
                 textString="phi2"),      Text(
                       extent={{10,-60},{94,-90}},
                       horizontalAlignment=TextAlignment.Right,
-                lineColor={0,0,0},
                 textString="tau2"),      Text(
                       extent={{-90,-64},{-6,-94}},
                       horizontalAlignment=TextAlignment.Left,
-                lineColor={0,0,0},
                 textString="tau1")}));
       end Spring;
 
@@ -5225,7 +5209,7 @@ in the User's Guide of the Rotational library.
         annotation (Placement(transformation(extent={{-20,-10},{0,10}})));
     equation
       connect(flange, torqueToAngleAdaptorNew.flange)
-        annotation (Line(points={{-20,0},{-12,0}}, color={0,0,0}));
+        annotation (Line(points={{-20,0},{-12,0}}));
       connect(torqueToAngleAdaptorNew.p, phi)
         annotation (Line(points={{-7,8},{0,8},{0,80},{30,80}}, color={0,0,127}));
       connect(torqueToAngleAdaptorNew.pder, w)
@@ -5263,19 +5247,15 @@ provided for backwards compatibility reasons.
                   radius=10),
             Text(
               extent={{-18,90},{18,70}},
-              lineColor={0,0,0},
               textString="phi"),
             Text(
               extent={{-18,60},{18,40}},
-              lineColor={0,0,0},
               textString="w", visible=use_w),
             Text(
               extent={{-18,30},{18,10}},
-              lineColor={0,0,0},
               textString="a", visible=(use_w and use_a)),
             Text(
               extent={{-18,-70},{18,-90}},
-              lineColor={0,0,0},
               textString="tau")}));
     end TorqueToAngleAdaptor;
 
@@ -5301,7 +5281,7 @@ provided for backwards compatibility reasons.
         annotation (Placement(transformation(extent={{0,-10},{20,10}})));
     equation
       connect(flange, angleToTorqueAdaptorNew.flange)
-        annotation (Line(points={{20,0},{12,0}}, color={0,0,0}));
+        annotation (Line(points={{20,0},{12,0}}));
       connect(phi, angleToTorqueAdaptorNew.p)
         annotation (Line(points={{-30,80},{0,80},{0,8},{7,8}}, color={0,0,127}));
       connect(w, angleToTorqueAdaptorNew.pder)
@@ -5344,19 +5324,15 @@ provided for backwards compatibility reasons.
                   radius=10),
             Text(
               extent={{-18,90},{18,70}},
-              lineColor={0,0,0},
               textString="phi"),
             Text(
               extent={{-18,60},{18,40}},
-              lineColor={0,0,0},
               textString="w", visible=use_w),
             Text(
               extent={{-18,30},{18,10}},
-              lineColor={0,0,0},
               textString="a", visible=(use_w and use_a)),
             Text(
               extent={{-18,-70},{18,-90}},
-              lineColor={0,0,0},
               textString="tau")}));
     end AngleToTorqueAdaptor;
 

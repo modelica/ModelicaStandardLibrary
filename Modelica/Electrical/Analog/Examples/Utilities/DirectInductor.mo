@@ -52,18 +52,14 @@ equation
                 textString="to FMU"),Text(
                 extent={{8,96},{92,66}},
                 horizontalAlignment=TextAlignment.Right,
-          lineColor={0,0,0},
           textString="v"),                               Text(
                 extent={{12,-10},{96,-40}},
                 horizontalAlignment=TextAlignment.Right,
-          lineColor={0,0,0},
           textString="di"),     Text(
                 extent={{-150,-110},{150,-140}},
-          lineColor={0,0,0},
           textString="L=%L"),      Bitmap(extent={{-96,-42},{64,54}},
             fileName="modelica://Modelica/Resources/Images/Electrical/Analog/DirectInductor.png"),
           Text( extent={{10,-60},{94,-90}},
                 horizontalAlignment=TextAlignment.Right,
-          lineColor={0,0,0},
           textString="i")}));
 end DirectInductor;

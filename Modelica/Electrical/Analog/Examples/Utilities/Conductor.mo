@@ -56,22 +56,17 @@ equation
                 textString="to FMU"),Text(
                 extent={{-94,96},{-10,66}},
                 horizontalAlignment=TextAlignment.Left,
-          lineColor={0,0,0},
           textString="v1"),        Text(
                 extent={{-150,-114},{150,-144}},
-          lineColor={0,0,0},
           textString="G=%G"),      Bitmap(extent={{-88,-36},{92,56}},
             fileName="modelica://Modelica/Resources/Images/Electrical/Analog/Conductor.png"),
           Text( extent={{12,96},{96,66}},
                 horizontalAlignment=TextAlignment.Right,
-          lineColor={0,0,0},
           textString="v2"),        Text(
                 extent={{12,-62},{96,-92}},
                 horizontalAlignment=TextAlignment.Right,
-          lineColor={0,0,0},
           textString="i2"),        Text(
                 extent={{-94,-64},{-10,-94}},
                 horizontalAlignment=TextAlignment.Left,
-          lineColor={0,0,0},
           textString="i1")}));
 end Conductor;
