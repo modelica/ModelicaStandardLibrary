@@ -1878,7 +1878,7 @@ of noise blocks.
       end if;
       annotation (Icon(coordinateSystem(preserveAspectRatio=false), graphics={
             Text(
-              extent={{-100,120},{100,100}},
+              extent={{-150,150},{150,110}},
               lineColor={0,0,255},
               textString="%name"),
                 Rectangle(
@@ -1991,10 +1991,6 @@ Note, the input signals must be consistent to each other
         u = p;
       end if;
       annotation (Icon(coordinateSystem(preserveAspectRatio=false), graphics={
-            Text(
-              extent={{-100,120},{100,100}},
-              lineColor={0,0,255},
-              textString="%name"),
                 Rectangle(
                   extent={{-20,100},{20,-100}},
                   lineColor={64,64,64},
@@ -2022,7 +2018,11 @@ Note, the input signals must be consistent to each other
             Text(
               extent={{-18,-10},{18,-30}},
               textString="%Name_fder2",
-              visible=(use_fder and use_fder2))}),
+              visible=(use_fder and use_fder2)),
+            Text(
+              extent={{-150,150},{150,110}},
+              lineColor={0,0,255},
+              textString="%name")}),
               Diagram(coordinateSystem(preserveAspectRatio=false)),
         Documentation(info="<html>
 <p>
