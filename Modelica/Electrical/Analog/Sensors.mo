@@ -14,7 +14,7 @@ package Sensors "Potential, voltage, current, and power sensors"
   equation
     p.i = 0;
     phi = p.v;
-    annotation (defaultComponentName="vSensor",
+    annotation (
       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
@@ -56,7 +56,7 @@ package Sensors "Potential, voltage, current, and power sensors"
     p.i = 0;
     n.i = 0;
     v = p.v - n.v;
-    annotation (defaultComponentName="vSensor",
+    annotation (
       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
@@ -99,7 +99,7 @@ package Sensors "Potential, voltage, current, and power sensors"
     p.v = n.v;
     p.i = i;
     n.i = -i;
-    annotation (defaultComponentName="iSensor",
+    annotation (
       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
@@ -177,7 +177,7 @@ equation
   connect(currentSensor.i, product.u2) annotation (Line(points={{-40,-11},{-40,-30},{-36,-30},{-36,-38}}, color={0,0,127}));
   connect(voltageSensor.v, product.u1) annotation (Line(points={{-11,-30},{-24,-30},{-24,-38}}, color={0,0,127}));
   connect(product.y, power) annotation (Line(points={{-30,-61},{-30,-80},{-100,-80},{-100,-110}}, color={0,0,127}));
-  annotation (defaultComponentName="pSensor",
+  annotation (
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
       Line(points = {{0,100},{0,70}}, color = {0,0,255}),
       Line(points = {{0,-70},{0,-100}}, color = {0,0,255}),
@@ -234,7 +234,7 @@ equation
   i = pc.i;
   v = pv.v - nv.v;
   power = v*i;
-  annotation (defaultComponentName="Sensor",
+  annotation (
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
       Line(points = {{0,100},{0,70}}, color = {0,0,255}),
       Line(points = {{0,-70},{0,-100}}, color = {0,0,255}),
