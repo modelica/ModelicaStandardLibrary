@@ -2799,7 +2799,8 @@ where the different effects are visualized:
             1));
 
       lossPower = f*v_relfric;
-      annotation (Documentation(info="<html>
+      annotation (defaultComponentName="friction",
+        Documentation(info="<html>
 <p>
 This element describes <strong>Coulomb friction</strong> in <strong>support</strong>,
 i.e., a frictional force acting between a flange and the housing.
@@ -3137,7 +3138,8 @@ following references, especially (Armstrong and Canudas de Wit 1996):
     model IdealGearR2T
       "Gearbox transforming rotational into translational motion"
       extends Modelica.Mechanics.Rotational.Components.IdealGearR2T;
-      annotation (Documentation(info="<html>
+      annotation (defaultComponentName="gearR2T",
+        Documentation(info="<html>
 <p>Couples rotational and translational motion, like a toothed wheel with a toothed rack, specifying the ratio of rotational / translational motion.</p>
 </html>"));
     end IdealGearR2T;
@@ -3145,7 +3147,8 @@ following references, especially (Armstrong and Canudas de Wit 1996):
     model IdealRollingWheel
       "Simple 1-dim. model of an ideal rolling wheel without inertia"
       extends Modelica.Mechanics.Rotational.Components.IdealRollingWheel;
-      annotation (Documentation(info="<html>
+      annotation (defaultComponentName="wheel",
+        Documentation(info="<html>
 <p>Couples rotational and translational motion, like an ideal rolling wheel, specifying the wheel radius.</p>
 </html>"));
     end IdealRollingWheel;
@@ -3263,7 +3266,8 @@ following references, especially (Armstrong and Canudas de Wit 1996):
           points={{-120,0},{-22,0}}, color={0,0,127}));
       connect(a_start, set_a_start.a_start) annotation (Line(
           points={{-120,-60},{-22,-60}}, color={0,0,127}));
-      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+      annotation (defaultComponentName="initFlange",
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-94,74},{68,46}},
                   textString="s_start"),Text(
@@ -3482,7 +3486,7 @@ Version 2:
         end if;
       end when;
 */
-      annotation (
+      annotation (defaultComponentName="mass",
         Documentation(info="<html>
 <p>This element describes the <em>Stribeck friction characteristics</em> of a sliding mass,
 i. e. the frictional force acting between the sliding mass and the support. Included is a
@@ -3674,7 +3678,7 @@ between the stops.</em> </li>
       a_rel = der(v_rel);
       flange_a.f = 0;
       flange_b.f = 0;
-      annotation (
+      annotation (defaultComponentName="relStates",
         Documentation(info="<html>
 <p>
 Usually, the absolute position and the absolute velocity of
@@ -3777,7 +3781,8 @@ velocity of model mass1 or of model mass2 as state variables.
     equation
       y = flange.s "output = potential = position";
       u = flange.f "input = flow = force";
-      annotation (Documentation(info="<html>
+      annotation (defaultComponentName="adaptor",
+        Documentation(info="<html>
 <p>
 Adaptor between a flange connector and a signal representation of the flange.
 This component is used to provide a pure signal interface around a Translational model
@@ -3814,7 +3819,8 @@ This adaptor has force as input and postion, velocity and acceleration as output
     equation
       y = flange.f "output = flow = force";
       u = flange.s "input = potential = position";
-      annotation (Documentation(info="<html>
+      annotation (defaultComponentName="adaptor",
+        Documentation(info="<html>
 <p>
 Adaptor between a flange connector and a signal representation of the flange.
 This component is used to provide a pure signal interface around a Translational model
@@ -3857,7 +3863,8 @@ This package contains basic components 1D mechanical translational drive trains.
 
     equation
       s = flange.s;
-      annotation (Documentation(info="<html>
+      annotation (defaultComponentName="sSensor",
+        Documentation(info="<html>
 <p>
 Measures the <em>absolute position s</em> of a flange in an ideal way and provides the result as
 output signals (to be further processed with blocks of the
@@ -3879,7 +3886,8 @@ Modelica.Blocks library).
 
     equation
       v = der(flange.s);
-      annotation (Documentation(info="<html>
+      annotation (defaultComponentName="vSensor",
+        Documentation(info="<html>
 <p>
 Measures the <em>absolute velocity v</em> of a flange in an ideal way and provides the result as
 output signals (to be further processed with blocks of the
@@ -3903,7 +3911,8 @@ Modelica.Blocks library).
     equation
       v = der(flange.s);
       a = der(v);
-      annotation (Documentation(info="<html>
+      annotation (defaultComponentName="aSensor",
+        Documentation(info="<html>
 <p>
 Measures the <em>absolute acceleration a</em>
 of a flange in an ideal way and provides the result as
@@ -3930,7 +3939,8 @@ Modelica.Blocks library).
     equation
       s_rel = flange_b.s - flange_a.s;
       0 = flange_a.f;
-      annotation (Documentation(info="<html>
+      annotation (defaultComponentName="sSensor",
+        Documentation(info="<html>
 <p>
 Measures the <em>relative position s</em> of a flange in an ideal way and provides the result as
 output signals (to be further processed with blocks of the
@@ -3959,7 +3969,8 @@ Modelica.Blocks library).
       s_rel = flange_b.s - flange_a.s;
       v_rel = der(s_rel);
       0 = flange_a.f;
-      annotation (Documentation(info="<html>
+      annotation (defaultComponentName="vSensor",
+        Documentation(info="<html>
 <p>
 Measures the <em>relative speed v</em> of a flange in an ideal way and provides the result as
 output signals (to be further processed with blocks of the
@@ -3997,7 +4008,8 @@ Modelica.Blocks library).
       v_rel = der(s_rel);
       a_rel = der(v_rel);
       0 = flange_a.f;
-      annotation (Documentation(info="<html>
+      annotation (defaultComponentName="aSensor",
+        Documentation(info="<html>
 <p>
 Measures the <em>relative acceleration a</em> of a flange in an ideal way and provides the result as
 output signals (to be further processed with blocks of the
@@ -4022,7 +4034,8 @@ Modelica.Blocks library).
     equation
       flange_a.s = flange_b.s;
       flange_a.f = f;
-      annotation (Documentation(info="<html>
+      annotation (defaultComponentName="fSensor",
+        Documentation(info="<html>
 <p>
 Measures the <em>cut-force between two flanges</em> in an ideal way
 and provides the result as output signal (to be further processed
@@ -4049,7 +4062,8 @@ with blocks of the Modelica.Blocks library).
     equation
       flange_a.s = flange_b.s;
       power = flange_a.f*der(flange_a.s);
-      annotation (Documentation(info="<html>
+      annotation (defaultComponentName="pSensor",
+        Documentation(info="<html>
 <p>
 Measures the <strong>power between two flanges</strong> in an ideal way
 and provides the result as output signal <strong>power</strong>
@@ -4090,7 +4104,8 @@ and provides the result as output signal <strong>power</strong>
       v = der(flange_a.s);
       power = f*v;
 
-      annotation (Documentation(info="<html>
+      annotation (defaultComponentName="sensor",
+        Documentation(info="<html>
 <p>
 Measures the <strong>absolute velocity</strong> of a flange_a, the <strong>cut-force</strong> and <strong>power</strong> between two flanges in an
 ideal way and provides the results as output signals <strong>v</strong>, <strong>f</strong> and <strong>power</strong>, respectively.</p>
@@ -4165,7 +4180,8 @@ Modelica.Blocks library.
         a = der(v);
         a = ((s_ref - s)*w_crit - af*v)*(w_crit/bf);
       end if;
-      annotation (Documentation(info="<html>
+      annotation (defaultComponentName="sSource",
+        Documentation(info="<html>
 <p>
 The input signal <strong>s_ref</strong> defines the <strong>reference
 position</strong> in [m]. Flange <strong>flange</strong> is <strong>forced</strong>
@@ -4255,7 +4271,8 @@ blocks of the block library Modelica.Blocks.Sources.
         a = der(v);
         a = (v_ref - v)*w_crit;
       end if;
-      annotation (Documentation(info="<html>
+      annotation (defaultComponentName="vSource",
+        Documentation(info="<html>
 <p>
 The input signal <strong>v_ref</strong> defines the <strong>reference
 speed</strong> in [m/s]. Flange <strong>flange</strong> is <strong>forced</strong>
@@ -4340,7 +4357,8 @@ blocks of the block library Modelica.Blocks.Sources.
       v = der(s);
       a = der(v);
       a = a_ref;
-      annotation (Documentation(info="<html>
+      annotation (defaultComponentName="aSource",
+        Documentation(info="<html>
 <p>
 The input signal <strong>a</strong> in [m/s2] moves the 1D translational flange
 connector flange with a predefined <em>acceleration</em>, i.e., the flange
@@ -4428,7 +4446,8 @@ blocks of the block library Modelica.Blocks.Source.
       end position_der2;
     equation
       s = position(u, time);
-      annotation (Documentation(info="<html>
+      annotation (defaultComponentName="source",
+        Documentation(info="<html>
 <p>
 Flange <strong>flange_b</strong> is <strong>forced</strong> to move relative to the support connector with a predefined motion
 according to the input signals:
@@ -4489,7 +4508,8 @@ blocks of the block library Modelica.Blocks.Sources.
 
     equation
       flange.f = -f;
-      annotation (Documentation(info="<html>
+      annotation (defaultComponentName="fSource",
+        Documentation(info="<html>
 <p>
 The input signal \"f\" in [N] characterizes an <em>external
 force</em> which acts (with positive sign) at a flange,
@@ -4533,7 +4553,8 @@ blocks of Modelica.Blocks.Source.
     equation
       flange_a.f = f;
       flange_b.f = -f;
-      annotation (Documentation(info="<html>
+      annotation (defaultComponentName="fSource",
+        Documentation(info="<html>
 <p>
 The input signal \"f\" in [N] characterizes an <em>external
 force</em> which acts (with positive sign) at both flanges,
@@ -4579,7 +4600,8 @@ blocks of Modelica.Blocks.Source.
       else
         f = -f_nominal*(v/v_nominal);
       end if;
-      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+      annotation (defaultComponentName="linear",
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Line(points={{-100,-100},{100,100}},
               color={0,0,255})}), Documentation(info="<html>
 <p>
@@ -4607,7 +4629,8 @@ Parameter ForceDirection chooses whether direction of force is the same in both 
       else
         f = -f_nominal*smooth(1, if v >= 0 then (v/v_nominal)^2 else -(v/v_nominal)^2);
       end if;
-      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+      annotation (defaultComponentName="quadratic",
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Line(
                   points={{-100,-100},{-80,-98},{-60,-92},{-40,-82},{-20,-68},{
                 0,-50},{20,-28},{40,-2},{60,28},{80,62},{100,100}},
@@ -4626,7 +4649,8 @@ Parameter ForceDirection chooses whether direction of force is the same in both 
         "Nominal force (if negative, force is acting as load)";
     equation
       f = -f_constant;
-      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+      annotation (defaultComponentName="fSource",
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Line(points={{-100,0},{98,0}},
               color={0,0,255}),Text(
                   extent={{-118,58},{126,34}},
@@ -4661,7 +4685,8 @@ Negative force brakes in positive direction of movement, but accelerates in reve
       else//if reg==Modelica.Blocks.Types.Regularization.CoSine
         f = -f_nominal*(if abs(v)>=v0 then sign(v) else sign(v)*(1 - Modelica.Math.cos(pi/2*v/v0)));
       end if;
-      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+      annotation (defaultComponentName="fSource",
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={
               Line(
                 points={{-100,0},{100,0}},
@@ -4684,7 +4709,8 @@ Negative force brakes in both directions of movement.</p>
     equation
       v = der(s);
       v = v_fixed;
-      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+      annotation (defaultComponentName="vSource",
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Line(points={{0,-100},{0,100}},
               color={0,0,255}),Text(
                   extent={{-120,60},{124,36}},
@@ -4704,7 +4730,8 @@ Model of <strong>fixed</strong> velocity of flange, not dependent on force.
         "Force = offset for time < startTime";
     equation
       f = -offsetForce - (if time < startTime then 0 else stepForce);
-      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+      annotation (defaultComponentName="fSource",
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Line(points={{-80,-60},{0,-60},{0,
               60},{80,60}}, color={0,0,255}),Text(
                   extent={{0,-40},{100,-60}},
@@ -4738,7 +4765,8 @@ Positive force acts accelerating.
       v_normalized = v/(v_nominal*convertResistance(1, TRef, alpha20, TheatPort));
       f = 2*f_nominal*v_normalized/(1 + v_normalized*v_normalized);
       lossPower = f*v;
-      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+      annotation (defaultComponentName="eddyCurrent",
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={
             Line(
               points={{0,10},{4,41},{8,65},{12,81},{16,88},{20,90},{24,89},{28,86},{
