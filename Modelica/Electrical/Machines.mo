@@ -115,7 +115,12 @@ email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
 
 <h5>Version 3.2.2, 2017-09-01 (Anton Haumer, Christian Kral)</h5>
 <ul>
-  <li>Fixed bug of wrong smooth order in 
+  <li>Shortened default component names, see 
+      <a href=\"https://github.com/modelica/Modelica/issues/2301\">#2301</a></li>
+  <li>Added new example
+      <a href=\"Modelica.Electrical.Machines.Examples.SynchronousInductionMachines.SMEE_DOL\">SMEE_DOL</a>, see
+      <a href=\"https://github.com/modelica/Modelica/issues/2388\">#2388</a></li>
+  <li>Fixed bug of wrong smooth order in
       <a href=\"modelica://Modelica.Electrical.Machines.Losses.DCMachines.Brush\">Brush</a>, see
       <a href=\"https://github.com/modelica/Modelica/issues/2315\">#2315</a></li>
   <li>Unified communication interval, see 
@@ -10111,7 +10116,7 @@ The induction machine models use package SpacePhasors.
           color={0,0,127}));
       connect(Gain1.y, V) annotation (Line(
           points={{0,-81},{0,-110}}, color={0,0,127}));
-      annotation (defaultComponentName="vSensor",
+      annotation (defaultComponentName="voltageRMSSensor",
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Line(points={{-90,0},{-70,0}},
               color={0,0,255}),Line(points={{70,0},{90,0}}, color={0,0,255}),
@@ -10175,7 +10180,7 @@ output is length of the space phasor divided by sqrt(2), thus giving in sinusoid
           color={0,0,127}));
       connect(Gain1.y, I) annotation (Line(
           points={{0,-81},{0,-110}}, color={0,0,127}));
-      annotation (defaultComponentName="iSensor",
+      annotation (defaultComponentName="currentRMSSensor",
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Line(points={{-90,0},{-70,0}},
               color={0,0,255}),Line(points={{70,0},{90,0}}, color={0,0,255}),
@@ -10223,7 +10228,7 @@ output is length of the space phasor divided by sqrt(2), thus giving in sinusoid
       i_ = Machines.SpacePhasors.Functions.ToSpacePhasor(plug_p.pin.i);
       2/3*P = +v_[1]*i_[1] + v_[2]*i_[2];
       2/3*Q = -v_[1]*i_[2] + v_[2]*i_[1];
-      annotation (defaultComponentName="pSensor",
+      annotation (defaultComponentName="powerSensor",
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Line(points={{-90,0},{-70,0}},
               color={0,0,255}),Line(points={{70,0},{90,0}}, color={0,0,255}),
@@ -10286,7 +10291,7 @@ which are used to calculate power quantities:
           color={0,0,127}));
       connect(product.y, P) annotation (Line(
           points={{0,41},{0,110}}, color={0,0,127}));
-      annotation (defaultComponentName="pSensor",
+      annotation (defaultComponentName="powerSensor",
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Line(points={{-70,0},{-90,0}}),
               Line(points={{70,0},{90,0}}),Line(points={{0,70},{0,100}}, color=
