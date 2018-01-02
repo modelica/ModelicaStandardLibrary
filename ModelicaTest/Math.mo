@@ -1263,9 +1263,9 @@ extends Modelica.Icons.ExamplesPackage;
       Real lowBound=avg-nrSigma*sqrt(avg);
       Real highBound=avg+nrSigma*sqrt(avg);
       Integer samples(start=0, fixed=true);
-    initial algorithm 
+    initial algorithm
       id := Modelica.Math.Random.Utilities.initializeImpureRandom(123456789);
-    equation 
+    equation
       when sample(0, 0.001) then
         y = Modelica.Math.Random.Utilities.impureRandomInteger(id, 1, n);
         cnt=pre(cnt)+{if i==y then 1 else 0 for i in 1:n};

@@ -1725,7 +1725,7 @@ The upper part (DirectMass, InverseMass)
 demonstrates how to export two masses and connect them
 together in a target system. This requires that one of the masses
 (here: DirectMass)
-is defined to have states and the position, velocity and 
+is defined to have states and the position, velocity and
 acceleration are provided in the interface.
 The other mass (here: InverseMass) is moved according
 to the provided input position, velocity and acceleration.
@@ -1832,23 +1832,19 @@ according to the Stribeck curve:
                       textString="to FMU"),Text(
                       extent={{8,96},{92,66}},
                       horizontalAlignment=TextAlignment.Right,
-                textString="s",
-                lineColor={0,0,0}),                            Text(
+                textString="s"),                            Text(
                       extent={{10,46},{94,16}},
                       horizontalAlignment=TextAlignment.Right,
-                textString="v",
-                lineColor={0,0,0}),   Text(
+                textString="v"),   Text(
                       extent={{10,-10},{94,-40}},
                       horizontalAlignment=TextAlignment.Right,
                       textString="a"),Text(
                       extent={{-150,-110},{150,-140}},
-                textString="m=%m",
-                lineColor={0,0,0}),      Bitmap(extent={{-96,-42},{64,54}},
+                textString="m=%m"),      Bitmap(extent={{-96,-42},{64,54}},
                   fileName="modelica://Modelica/Resources/Images/Mechanics/Translational/DirectMass.png"),
                 Text( extent={{10,-60},{94,-90}},
                       horizontalAlignment=TextAlignment.Right,
-                textString="f",
-                lineColor={0,0,0})}));
+                textString="f")}));
       end DirectMass;
 
       model InverseMass "Input/output block of an inverse mass model"
@@ -1890,23 +1886,19 @@ according to the Stribeck curve:
                       textString="to FMU"),Text(
                       extent={{-94,96},{-10,66}},
                       horizontalAlignment=TextAlignment.Left,
-                textString="s",
-                lineColor={0,0,0}),     Text(
+                textString="s"),     Text(
                       extent={{-94,46},{-10,16}},
                       horizontalAlignment=TextAlignment.Left,
-                textString="v",
-                lineColor={0,0,0}),   Text(
+                textString="v"),   Text(
                       extent={{-92,-14},{-8,-44}},
                       horizontalAlignment=TextAlignment.Left,
                       textString="a"),Text(
                       extent={{-150,-110},{150,-140}},
-                textString="m=%m",
-                lineColor={0,0,0}),      Bitmap(extent={{-58,-42},{98,48}},
+                textString="m=%m"),      Bitmap(extent={{-58,-42},{98,48}},
                   fileName="modelica://Modelica/Resources/Images/Mechanics/Translational/InverseMass.png"),
                 Text( extent={{-90,-64},{-6,-94}},
                       horizontalAlignment=TextAlignment.Left,
-                textString="f",
-                lineColor={0,0,0})}));
+                textString="f")}));
       end InverseMass;
 
       model SpringDamper "Input/output block of a spring/damper model"
@@ -1974,32 +1966,26 @@ according to the Stribeck curve:
                       textString="to FMU"),Text(
                       extent={{-94,96},{-10,66}},
                       horizontalAlignment=TextAlignment.Left,
-                textString="s1",
-                lineColor={0,0,0}),      Text(
+                textString="s1"),      Text(
                       extent={{-150,-118},{150,-148}},
                       textString="c=%c
 d=%d"),         Bitmap(extent={{-72,-44},{84,46}},
                   fileName="modelica://Modelica/Resources/Images/Mechanics/Translational/SpringDamper.png"),
                 Text( extent={{12,96},{96,66}},
                       horizontalAlignment=TextAlignment.Right,
-                textString="s2",
-                lineColor={0,0,0}),      Text(
+                textString="s2"),      Text(
                       extent={{12,48},{96,18}},
                       horizontalAlignment=TextAlignment.Right,
-                textString="v2",
-                lineColor={0,0,0}),    Text(
+                textString="v2"),    Text(
                       extent={{10,-60},{94,-90}},
                       horizontalAlignment=TextAlignment.Right,
-                textString="f2",
-                lineColor={0,0,0}),      Text(
+                textString="f2"),      Text(
                       extent={{-94,46},{-10,16}},
                       horizontalAlignment=TextAlignment.Left,
-                textString="v1",
-                lineColor={0,0,0}),    Text(
+                textString="v1"),    Text(
                       extent={{-90,-64},{-6,-94}},
                       horizontalAlignment=TextAlignment.Left,
-                textString="f1",
-                lineColor={0,0,0})}));
+                textString="f1")}));
       end SpringDamper;
 
       model Spring "Input/output block of a spring model"
@@ -2052,23 +2038,19 @@ d=%d"),         Bitmap(extent={{-72,-44},{84,46}},
                       textString="to FMU"),Text(
                       extent={{-94,96},{-10,66}},
                       horizontalAlignment=TextAlignment.Left,
-                textString="s1",
-                lineColor={0,0,0}),      Text(
+                textString="s1"),      Text(
                       extent={{-150,-114},{150,-144}},
                       textString="c=%c"),Bitmap(extent={{-88,-36},{92,56}},
                   fileName="modelica://Modelica/Resources/Images/Mechanics/Translational/Spring.png"),
                 Text( extent={{12,96},{96,66}},
                       horizontalAlignment=TextAlignment.Right,
-                textString="s2",
-                lineColor={0,0,0}),      Text(
+                textString="s2"),      Text(
                       extent={{10,-60},{94,-90}},
                       horizontalAlignment=TextAlignment.Right,
-                textString="f2",
-                lineColor={0,0,0}),      Text(
+                textString="f2"),      Text(
                       extent={{-90,-64},{-6,-94}},
                       horizontalAlignment=TextAlignment.Left,
-                textString="f1",
-                lineColor={0,0,0})}));
+                textString="f1")}));
       end Spring;
 
       model SpringDamperNoRelativeStates
@@ -3829,7 +3811,7 @@ especially as FMU (<a href=\"https://www.fmi-standard.org\">Functional Mock-up U
 Examples of the usage of this adaptor are provided in
 <a href=\"modelica://Modelica.Mechanics.Translational.Examples.GenerationOfFMUs\">Translational.Examples.GenerationOfFMUs</a>.
 This adaptor has position, velocity and acceleration as input signals and
-force as output signal. 
+force as output signal.
 </p>
 <p>
 Note, the input signals must be consistent to each other

@@ -579,7 +579,7 @@ The input(s) swill be sampled, and can thus be continuous variable(s).
 </p>
 
 <p>
-<strong>Important</strong>: If you connect several discrete blocks you should normally ensure that <strong>samplePeriod (and startTime) 
+<strong>Important</strong>: If you connect several discrete blocks you should normally ensure that <strong>samplePeriod (and startTime)
 are exactly identical</strong> for all blocks, since otherwise the output from one block will be transformed into a continuous signal
 and sampled, which can cause a variable delay of up to one sample period leading to unexpected results.
 </p>
@@ -1814,7 +1814,7 @@ of noise blocks.
   package PartialFMUadaptors "Partial FMU adaptors"
     extends Modelica.Icons.InterfacesPackage;
 
-    partial model FlowToPotentialAdaptor "Signal adaptor for a connector with flow, 1st derivative of flow, and 2nd derivative of flow as inputs and 
+    partial model FlowToPotentialAdaptor "Signal adaptor for a connector with flow, 1st derivative of flow, and 2nd derivative of flow as inputs and
   potential, 1st derivative of potential, and 2nd derivative of potential as outputs (especially useful for FMUs)"
       parameter Boolean use_pder=true "use output for 1st derivative of potential"
         annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
@@ -1889,30 +1889,24 @@ of noise blocks.
                   radius=10),
             Text(
               extent={{-18,90},{18,70}},
-              lineColor={0,0,0},
               textString="%Name_p"),
             Text(
               extent={{-18,60},{18,40}},
-              lineColor={0,0,0},
               textString="%Name_pder",
               visible=use_pder),
             Text(
               extent={{-18,30},{18,10}},
-              lineColor={0,0,0},
               textString="%Name_pder2",
               visible=(use_pder and use_pder2)),
             Text(
               extent={{-18,-70},{18,-90}},
-              lineColor={0,0,0},
               textString="%Name_f"),
             Text(
               extent={{-18,-40},{18,-60}},
-              lineColor={0,0,0},
               textString="%Name_fder",
               visible=use_fder),
             Text(
               extent={{-18,-10},{18,-30}},
-              lineColor={0,0,0},
               textString="%Name_fder2",
               visible=(use_fder and use_fder2))}),
               Diagram(coordinateSystem(preserveAspectRatio=false)),
@@ -1924,7 +1918,7 @@ and export this model in form of an input/output block,
 especially as FMU (<a href=\"https://www.fmi-standard.org\">Functional Mock-up Unit</a>).
 </p>
 <p>
-This adaptor has flow, optional 1st derivative of flow, and optional 2nd derivative of flow as input and 
+This adaptor has flow, optional 1st derivative of flow, and optional 2nd derivative of flow as input and
 potential, optional 1st derivative of potential, and optional 2nd derivative of potential as output signals.
 </p>
 </p>
@@ -1934,7 +1928,7 @@ Note, the input signals must be consistent to each other
 </html>"));
     end FlowToPotentialAdaptor;
 
-    partial model PotentialToFlowAdaptor "Signal adaptor for a connector with potential, 1st derivative of potential, and 2nd derivative of potential as inputs and 
+    partial model PotentialToFlowAdaptor "Signal adaptor for a connector with potential, 1st derivative of potential, and 2nd derivative of potential as inputs and
   flow, 1st derivative of flow, and 2nd derivative of flow as outputs (especially useful for FMUs)"
       parameter Boolean use_pder=true "use input for 1st derivative of potential"
         annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
@@ -2009,30 +2003,24 @@ Note, the input signals must be consistent to each other
                   radius=10),
             Text(
               extent={{-18,90},{18,70}},
-              lineColor={0,0,0},
               textString="%Name_p"),
             Text(
               extent={{-18,60},{18,40}},
-              lineColor={0,0,0},
               textString="%Name_pder",
               visible=use_pder),
             Text(
               extent={{-18,30},{18,10}},
-              lineColor={0,0,0},
               textString="%Name_pder2",
               visible=(use_pder and use_pder2)),
             Text(
               extent={{-18,-70},{18,-90}},
-              lineColor={0,0,0},
               textString="%Name_f"),
             Text(
               extent={{-18,-40},{18,-60}},
-              lineColor={0,0,0},
               textString="%Name_fder",
               visible=use_fder),
             Text(
               extent={{-18,-10},{18,-30}},
-              lineColor={0,0,0},
               textString="%Name_fder2",
               visible=(use_fder and use_fder2))}),
               Diagram(coordinateSystem(preserveAspectRatio=false)),
@@ -2044,7 +2032,7 @@ and export this model in form of an input/output block,
 especially as FMU (<a href=\"https://www.fmi-standard.org\">Functional Mock-up Unit</a>).
 </p>
 <p>
-This adaptor has potential, optional 1st derivative of potential, and optional 2nd derivative of potential as input and 
+This adaptor has potential, optional 1st derivative of potential, and optional 2nd derivative of potential as input and
 flow, optional 1st derivative of flow, and optional 2nd derivative of flow as output signals.
 </p>
 </p>
@@ -2116,7 +2104,7 @@ Note, the input signals must be consistent to each other
     end Functions;
     annotation (Documentation(info="<html>
 <p>
-This package contains partial adaptors to implement adaptors in various domains 
+This package contains partial adaptors to implement adaptors in various domains
 between a physical connector and a signal representation of the connector signals.
 This component is used to provide a pure signal interface around a physical model
 and export this model in form of an input/output block,

@@ -211,14 +211,14 @@ equation
   annotation (experiment(StopTime=1.0, Interval=0.0001),
                                                       Documentation(info="<html>
 <p>
-This example demonstrates how to couple the components of a parallel resonance circuit (upper part) and a series resonance circuit (lower part) 
-not directly but using adaptors between physical connectors and input/output signals. 
-Taking into account which derivatives are required, these components can be exported as input/output blocks 
-(e.g. in form of an FMU - <a href=\"https://www.fmi-standard.org\">Functional Mock-up Unit</a>). 
+This example demonstrates how to couple the components of a parallel resonance circuit (upper part) and a series resonance circuit (lower part)
+not directly but using adaptors between physical connectors and input/output signals.
+Taking into account which derivatives are required, these components can be exported as input/output blocks
+(e.g. in form of an FMU - <a href=\"https://www.fmi-standard.org\">Functional Mock-up Unit</a>).
 Connecting these input/output blocks should give the same results as connecting the physical components directly.
 </p>
 <p>
-Bear in mind that separating physical components and connecting them via adaptor signals requires to place appropriate 
+Bear in mind that separating physical components and connecting them via adaptor signals requires to place appropriate
 <a href=\"modelica://Modelica.Electrical.Analog.Basic.Ground\">ground components</a> to define electric potential within the subcircuits.
 </p>
 </html>"),

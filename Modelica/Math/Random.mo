@@ -1176,7 +1176,7 @@ is returned, so the function is impure.
       Real r "Impure Real random number";
     algorithm
       r  := impureRandom(id=id);
-      y  := min(imax, integer(r*(imax-imin+1))+imin); 
+      y  := min(imax, integer(r*(imax-imin+1))+imin);
 
       annotation (__ModelicaAssociation_Impure=true,
         Documentation(info=

@@ -157,7 +157,7 @@ The first part (DirectCapacitor, InverseCapacitor)
 demonstrates how to export two capacitors and connect them
 together in a target system. This requires that one of the capacitors
 (here: DirectCapacitor)
-is defined to have states and the voltage and 
+is defined to have states and the voltage and
 derivative of voltage are provided in the interface.
 The other capacitor (here: InverseCapacitor) requires current according
 to the provided input voltage and derivative of voltage.
@@ -176,7 +176,7 @@ The third part (DirectInductor, InverseInductor)
 demonstrates how to export two inductors and connect them
 together in a target system. This requires that one of the inductors
 (here: DirectInductor)
-is defined to have states and the current and 
+is defined to have states and the current and
 derivative of current are provided in the interface.
 The other inductor (here: InverseInductor) requires voltage according
 to the provided input current and derivative of current.
@@ -189,7 +189,7 @@ that needs only currents for its conductance law and connect this
 conductance law in a target system between two inductors.
 </p>
 <p>
-Bear in mind that separating physical components and connecting them via adaptor signals requires to place appropriate 
+Bear in mind that separating physical components and connecting them via adaptor signals requires to place appropriate
 <a href=\"modelica://Modelica.Electrical.Analog.Basic.Ground\">ground components</a> to define electric potential within the subcircuits.
 </p>
 </html>"));

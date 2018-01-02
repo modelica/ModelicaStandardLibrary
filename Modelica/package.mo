@@ -1528,9 +1528,9 @@ This class summarizes contact information of the contributing persons.
 <li> The revision history needs to answer the question:
      What has changed and what are the improvements over the previous versions and revision.</li>
 <li> The revision history includes the documentation of the development history of each class and/or package.</li>
-<li> Version number, revision number, date, author and comments shall be included. 
-     In case the version number is not known at the time of implementation, 
-     a dummy version number shall be used, e.g., <code>3.X.X</code>. The version date shall be the date of the 
+<li> Version number, revision number, date, author and comments shall be included.
+     In case the version number is not known at the time of implementation,
+     a dummy version number shall be used, e.g., <code>3.X.X</code>. The version date shall be the date of the
      latest change. </li>
 </ol>
 
@@ -1579,7 +1579,7 @@ This class summarizes contact information of the contributing persons.
       <td valign=\"top\"></td>
       <td valign=\"top\">2017-07-04</td>
       <td valign=\"top\">C. Kral</td>
-      <td valign=\"top\">Added comment on version number and date, see 
+      <td valign=\"top\">Added comment on version number and date, see
       <a href=\"https://github.com/modelica/Modelica/issues/2219\">#2219</a></td>
     </tr>
     <tr>

@@ -702,7 +702,7 @@ write to this file (useful for temporary output of files).
 The created temporary file is not automatically deleted when closed, but needs to be explicitly deleted, e.g. by <strong><a href=\"modelica://Modelica.Utilities.Files.removeFile\">removeFile</a></strong>(fileName).
 </p>
 <p>
-<strong>Warning:</strong> 
+<strong>Warning:</strong>
 The underlying C implementation of <strong>ModelicaInternal_temporaryFileName</strong> calls the standard C function <strong>tmpnam</strong>, which has a race condition security problem in the case another process creates a file with the same fileName just after <strong>tmpnam</strong> generated the full path name.
 </p>
 <h4>Example</h4>

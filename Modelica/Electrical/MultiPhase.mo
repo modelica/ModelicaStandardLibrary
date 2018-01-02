@@ -1040,8 +1040,7 @@ Connects pin <em>k</em> of plug_n to pin_n, leaving the other pins of plug_n unc
             Ellipse(
               extent={{-40,20},{0,-20}},
               fillColor={170,213,255},
-              fillPattern=FillPattern.Solid,
-              lineColor={0,0,0}),
+              fillPattern=FillPattern.Solid),
             Line(points={{-20,20},{40,20},{40,-20},{-20,-20}}),
             Text(
               extent={{-150,40},{150,80}},
@@ -1075,8 +1074,7 @@ Connects all pins of plug_p to the pin array pin_p.
             Ellipse(
               extent={{-40,20},{0,-20}},
               fillColor={170,213,255},
-              fillPattern=FillPattern.Solid,
-              lineColor={0,0,0}),
+              fillPattern=FillPattern.Solid),
             Line(points={{-20,20},{40,20},{40,-20},{-20,-20}}),
             Text(
               extent={{-150,40},{150,80}},

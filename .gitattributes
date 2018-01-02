@@ -12,3 +12,4 @@
 .gitignore text
 *.md text
 *.htm* text
+.mailmap text

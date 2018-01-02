@@ -43,18 +43,14 @@ equation
                 textString="to FMU"),Text(
                 extent={{-94,96},{-10,66}},
                 horizontalAlignment=TextAlignment.Left,
-          lineColor={0,0,0},
           textString="v"),        Text(
                 extent={{-94,46},{-10,16}},
                 horizontalAlignment=TextAlignment.Left,
-          lineColor={0,0,0},
           textString="dv"),     Text(
                 extent={{-150,-110},{150,-140}},
-          lineColor={0,0,0},
           textString="C=%C"),      Bitmap(extent={{-58,-42},{98,48}},
             fileName="modelica://Modelica/Resources/Images/Electrical/Analog/InverseCapacitor.png"),
           Text( extent={{-90,-64},{-6,-94}},
                 horizontalAlignment=TextAlignment.Left,
-          lineColor={0,0,0},
           textString="i")}));
 end InverseCapacitor;

@@ -1045,7 +1045,7 @@ If true, the model developer proposes to inline the function after the function 
 <strong>end</strong> T_phX;</pre>
 </html>"));
   end inverse;
-  
+
   class LateInline "LateInline"
     extends ModelicaReference.Icons.Information;
 
@@ -3049,7 +3049,7 @@ Connections.branch(A.R,B.R);
 <h4>Description</h4>
 <p>
 Defines a branch from the overdetermined type or record instance <code>R</code> in connector instance <code>A</code> to the corresponding overdetermined type or record instance <code>R</code> in connector instance <code>B</code> for a virtual connection graph.
-These branches are required to be part of the spanning-tree for the virtual connection graph (they do not directly generate equations, but should be combined with equations coupling <code>A.R</code> to <code>B.R</code>), 
+These branches are required to be part of the spanning-tree for the virtual connection graph (they do not directly generate equations, but should be combined with equations coupling <code>A.R</code> to <code>B.R</code>),
 whereas connect-statements are optional for the spanning-tree (and generate different equations depending on whether they are part of the spanning-tree or not).
 </p>
 <h4>Examples</h4>
@@ -4192,8 +4192,8 @@ unknowns during one iteration. Again, it is a quality of
 implementation to solve these systems more efficiently, e.g.,
 by applying the fix point iteration scheme to a subset of the
 model equations.]</em></p>
-<p><em>Note that <strong>pre</strong>(v) requires the argument to be a variable and a discrete-time expression, 
-this formulation was chosen to allow using <strong>pre</strong>(v) both for discrete-time variables and 
+<p><em>Note that <strong>pre</strong>(v) requires the argument to be a variable and a discrete-time expression,
+this formulation was chosen to allow using <strong>pre</strong>(v) both for discrete-time variables and
 for continuous-time variables inside when-clauses.
 </em></p>
 <h4>Examples</h4>
