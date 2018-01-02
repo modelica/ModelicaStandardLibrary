@@ -2797,7 +2797,7 @@ The differences between these two models in static behaviour can be analysed and
         connect(tellinenTable.port_n, magGnd2.port) annotation (Line(
             points={{80,10},{90,10},{90,-10},{70,-10}},
                                                     color={255,127,0}));
-        connect(vSource2.v, vSource1.v) annotation (Line(points={{-22,8.88178e-16},{-30,8.88178e-16},{-30,60},{-22,60}}, color={0,0,127}));
+        connect(vSource2.v, vSource1.v) annotation (Line(points={{-17,8.88178e-16},{-30,8.88178e-16},{-30,60},{-17,60}}, color={0,0,127}));
         connect(winding3.port_n, magGnd3.port) annotation (Line(points={{50,-70},{70,-70}}, color={255,127,0}));
         connect(winding3.port_p, preisachEverett.port_p) annotation (Line(points={{50,-50},{60,-50}}, color={255,127,0}));
         connect(resistor3.n, winding3.p) annotation (Line(points={{20,-50},{30,-50}}, color={0,0,255}));
@@ -2806,14 +2806,13 @@ The differences between these two models in static behaviour can be analysed and
         connect(elGnd3.p, vSource3.n) annotation (Line(points={{10,-70},{-10,-70}}, color={0,0,255}));
         connect(preisachEverett.port_n, magGnd3.port) annotation (Line(
             points={{80,-50},{90,-50},{90,-70},{70,-70}}, color={255,127,0}));
-        connect(vSource3.v, vSource1.v) annotation (Line(points={{-22,-60},{-30,-60},{-30,60},{-22,60}}, color={0,0,127}));
+        connect(vSource3.v, vSource1.v) annotation (Line(points={{-17,-60},{-30,-60},{-30,60},{-17,60}}, color={0,0,127}));
         connect(timeTable.y, gain.u) annotation (Line(
             points={{-69,60},{-60,60}},     color={0,0,127}));
-        connect(gain.y, vSource1.v) annotation (Line(points={{-37,60},{-22,60}}, color={0,0,127}));
+        connect(gain.y, vSource1.v) annotation (Line(points={{-37,60},{-17,60}}, color={0,0,127}));
         connect(winding1.port_p, tellinenSoft.port_p) annotation (Line(points={{50,70},{62,70}}, color={255,127,0}));
         connect(magGnd1.port,tellinenSoft. port_n) annotation (Line(points={{70,50},{90,50},{90,70},{82,70}},
                                               color={255,127,0}));
-        connect(preisachEverett.port_n, winding3.port_n) annotation (Line(points={{80,-50},{90,-50},{90,-70},{50,-70}}, color={255,127,0}));
         annotation (experiment(StartTime=0, StopTime=14, Interval=3e-3, Tolerance=1e-005), Documentation(info="<html>
 <p>
 Use the following simulation settings:

@@ -2822,7 +2822,7 @@ following references, especially (Armstrong and Canudas de Witt 1996):
       connect(a_start, set_a_start.a_start) annotation (Line(
           points={{-120,-60},{-22,-60}},
           color={0,0,127}));
-      annotation (defaultComponentName="initFlange",
+      annotation (
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-94,74},{68,46}},
@@ -3260,7 +3260,7 @@ between the stops.</i> </li>
       a_rel = der(v_rel);
       flange_a.f = 0;
       flange_b.f = 0;
-      annotation (defaultComponentName="relStates",
+      annotation (
         Documentation(info="<html>
 <p>
 Usually, the absolute position and the absolute velocity of
@@ -3365,7 +3365,7 @@ This package contains basic components 1D mechanical translational drive trains.
 
     equation
       s = flange.s;
-      annotation (defaultComponentName="sSensor",
+      annotation (
         Documentation(info="<html>
 <p>
 Measures the <i>absolute position s</i> of a flange in an ideal way and provides the result as
@@ -3389,7 +3389,7 @@ Modelica.Blocks library).
 
     equation
       v = der(flange.s);
-      annotation (defaultComponentName="vSensor",
+      annotation (
         Documentation(info="<html>
 <p>
 Measures the <i>absolute velocity v</i> of a flange in an ideal way and provides the result as
@@ -3415,7 +3415,7 @@ Modelica.Blocks library).
     equation
       v = der(flange.s);
       a = der(v);
-      annotation (defaultComponentName="aSensor",
+      annotation (
         Documentation(info="<html>
 <p>
 Measures the <i>absolute acceleration a</i>
@@ -3444,7 +3444,7 @@ Modelica.Blocks library).
     equation
       s_rel = flange_b.s - flange_a.s;
       0 = flange_a.f;
-      annotation (defaultComponentName="sSensor",
+      annotation (
         Documentation(info="<html>
 <p>
 Measures the <i>relative position s</i> of a flange in an ideal way and provides the result as
@@ -3475,7 +3475,7 @@ Modelica.Blocks library).
       s_rel = flange_b.s - flange_a.s;
       v_rel = der(s_rel);
       0 = flange_a.f;
-      annotation (defaultComponentName="vSensor",
+      annotation (
         Documentation(info="<html>
 <p>
 Measures the <i>relative speed v</i> of a flange in an ideal way and provides the result as
@@ -3515,7 +3515,7 @@ Modelica.Blocks library).
       v_rel = der(s_rel);
       a_rel = der(v_rel);
       0 = flange_a.f;
-      annotation (defaultComponentName="aSensor",
+      annotation (
         Documentation(info="<html>
 <p>
 Measures the <i>relative acceleration a</i> of a flange in an ideal way and provides the result as
@@ -3542,7 +3542,7 @@ Modelica.Blocks library).
     equation
       flange_a.s = flange_b.s;
       flange_a.f = f;
-      annotation (defaultComponentName="fSensor",
+      annotation (
         Documentation(info="<html>
 <p>
 Measures the <i>cut-force between two flanges</i> in an ideal way
@@ -3571,7 +3571,7 @@ with blocks of the Modelica.Blocks library).
     equation
       flange_a.s = flange_b.s;
       power = flange_a.f*der(flange_a.s);
-      annotation (defaultComponentName="pSensor",
+      annotation (
         Documentation(info="<html>
 <p>
 Measures the <b>power between two flanges</b> in an ideal way
@@ -3614,7 +3614,7 @@ and provides the result as output signal <b>power</b>
       v = der(flange_a.s);
       power = f*v;
 
-      annotation (defaultComponentName="sensor",
+      annotation (
         Documentation(info="<html>
 <p>
 Measures the <b>absolute velocity</b> of a flange_a, the <b>cut-force</b> and <b>power</b> between two flanges in an
@@ -3693,7 +3693,7 @@ Modelica.Blocks library.
         a = der(v);
         a = ((s_ref - s)*w_crit - af*v)*(w_crit/bf);
       end if;
-      annotation (defaultComponentName="sSource",
+      annotation (
         Documentation(info="<html>
 <p>
 The input signal <b>s_ref</b> defines the <b>reference
@@ -3787,7 +3787,7 @@ blocks of the block library Modelica.Blocks.Sources.
         a = der(v);
         a = (v_ref - v)*w_crit;
       end if;
-      annotation (defaultComponentName="vSource",
+      annotation (
         Documentation(info="<html>
 <p>
 The input signal <b>v_ref</b> defines the <b>reference
@@ -3876,7 +3876,7 @@ blocks of the block library Modelica.Blocks.Sources.
       v = der(s);
       a = der(v);
       a = a_ref;
-      annotation (defaultComponentName="aSource",
+      annotation (
         Documentation(info="<html>
 <p>
 The input signal <b>a</b> in [m/s2] moves the 1D translational flange
@@ -3963,7 +3963,7 @@ blocks of the block library Modelica.Blocks.Source.
       end position_der2;
     equation
       s = position(u, time);
-      annotation (defaultComponentName="source",
+      annotation (
         Documentation(info="<html>
 <p>
 Flange <b>flange_b</b> is <b>forced</b> to move relative to the support connector with a predefined motion
@@ -4026,7 +4026,7 @@ blocks of the block library Modelica.Blocks.Sources.
 
     equation
       flange.f = -f;
-      annotation (defaultComponentName="fSource",
+      annotation (
         Documentation(info="<html>
 <p>
 The input signal \"f\" in [N] characterizes an <i>external
@@ -4073,7 +4073,7 @@ blocks of Modelica.Blocks.Source.
     equation
       flange_a.f = f;
       flange_b.f = -f;
-      annotation (defaultComponentName="fSource",
+      annotation (defaultComponentName="force",
         Documentation(info="<html>
 <p>
 The input signal \"f\" in [N] characterizes an <i>external
@@ -4169,7 +4169,7 @@ Parameter ForceDirection chooses whether direction of force is the same in both 
         "Nominal force (if negative, force is acting as load)";
     equation
       f = -f_constant;
-      annotation (defaultComponentName="fSource",
+      annotation (
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Line(points={{-100,0},{98,0}},
               color={0,0,255}),Text(
@@ -4206,7 +4206,7 @@ Negative force brakes in positive direction of movement, but accelerates in reve
       else//if reg==Modelica.Blocks.Types.Regularization.CoSine
         f = -f_nominal*(if abs(v)>=v0 then sign(v) else sign(v)*(1 - cos(pi/2*v/v0)));
       end if;
-      annotation (defaultComponentName="fSource",
+      annotation (
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={
               Line(
@@ -4230,7 +4230,7 @@ Negative force brakes in both directions of movement.</p>
     equation
       v = der(s);
       v = v_fixed;
-      annotation (defaultComponentName="vSource",
+      annotation (
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Line(points={{0,-100},{0,100}},
               color={0,0,255}),Text(
@@ -4252,7 +4252,7 @@ Model of <b>fixed</b> velocity of flange, not dependent on force.
         "Force = offset for time < startTime";
     equation
       f = -offsetForce - (if time < startTime then 0 else stepForce);
-      annotation (defaultComponentName="fSource",
+      annotation (
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Line(points={{-80,-60},{0,-60},{0,
               60},{80,60}}, color={0,0,255}),Text(
