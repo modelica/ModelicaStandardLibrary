@@ -2170,7 +2170,8 @@ This is a constant voltage source, specifying the complex voltage by the RMS vol
     equation
       omega = 2*Modelica.Constants.pi*f;
       v = V;
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (defaultComponentName="voltageSource",
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
             Text(
               extent={{-120,50},{-20,0}},
@@ -2243,7 +2244,8 @@ This is a constant current source, specifying the complex current by the RMS cur
     equation
       omega = 2*Modelica.Constants.pi*f;
       i = I;
-      annotation (Icon(graphics={
+      annotation (defaultComponentName="currentSource",
+        Icon(graphics={
             Line(points={{0,-50},{0,50}}),
             Line(points={{-60,60},{60,60}}, color={0,0,255}),
             Polygon(
@@ -2458,7 +2460,7 @@ This model is intended to be used with textual representation of user models.
       annotation (Icon(graphics={
             Line(points={{-70,0},{-94,0}}),
             Text(
-              extent={{-100,100},{100,70}},
+              extent={{-150,120},{150,80}},
               lineColor={0,0,255},
               fillColor={170,85,255},
               fillPattern=FillPattern.Solid,
@@ -2492,13 +2494,13 @@ The absolute sensor partial model provides a single
       annotation (Icon(graphics={
             Line(points={{-70,0},{-94,0}}),
             Line(points={{70,0},{94,0}}),
+            Line(points={{0,-70},{0,-80},{0,-90},{0,-100}}, color={85,170,255}),
             Text(
-              extent={{-100,100},{100,70}},
+              extent={{-150,120},{150,80}},
               lineColor={0,0,255},
               fillColor={170,85,255},
               fillPattern=FillPattern.Solid,
-              textString="%name"),
-            Line(points={{0,-70},{0,-80},{0,-90},{0,-100}}, color={85,170,255})}),
+              textString="%name")}),
           Documentation(info="<html>
 <p>
 The relative sensor partial model relies on the
@@ -2530,12 +2532,14 @@ The relative sensor partial model relies on the
               lineColor={0,0,0},
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
-            Text(
-              extent={{100,-100},{-100,-60}},
-              textString="%name",
-              lineColor={0,0,255}),
             Line(points={{-90,0},{-50,0}}),
-            Line(points={{50,0},{90,0}})}), Documentation(info="<html>
+            Line(points={{50,0},{90,0}}),
+            Text(
+              extent={{-150,-60},{150,-100}},
+              lineColor={0,0,255},
+              fillColor={170,85,255},
+              fillPattern=FillPattern.Solid,
+              textString="%name")}),        Documentation(info="<html>
 <p>
 The source partial model relies on the
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.OnePort\">OnePort</a> and contains a proper icon.

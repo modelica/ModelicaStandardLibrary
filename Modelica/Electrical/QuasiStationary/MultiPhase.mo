@@ -2461,7 +2461,12 @@ In quasistationary operation, instantaneous power equals active power;
               lineColor={0,0,0},
               fillColor={0,0,0},
               fillPattern=FillPattern.Solid,
-              textString="ref")}), Documentation(info="<html>
+              textString="ref"),
+            Text(
+              extent={{-150,80},{150,120}},
+              textString="%name",
+              lineColor={0,0,255})}),
+                                   Documentation(info="<html>
 <p>
 This sensor can be used to measure the reference angle.
 </p>
@@ -2491,7 +2496,12 @@ This sensor can be used to measure the reference angle.
                 color={0,0,127}), Text(
               extent={{-29,-11},{30,-70}},
               lineColor={0,0,0},
-              textString="f")}), Documentation(info="<html>
+              textString="f"),
+            Text(
+              extent={{-150,80},{150,120}},
+              textString="%name",
+              lineColor={0,0,255})}),
+                                 Documentation(info="<html>
 
 <p>
 This sensor can be used to measure the frequency of the reference system, using <i>1</i>
@@ -2533,7 +2543,12 @@ This sensor can be used to measure the frequency of the reference system, using 
       annotation (Icon(graphics={Text(
               extent={{-29,-11},{30,-70}},
               lineColor={0,0,0},
-              textString="V")}), Documentation(info="<html>
+              textString="V"),
+            Text(
+              extent={{-150,80},{150,120}},
+              textString="%name",
+              lineColor={0,0,255})}),
+                                 Documentation(info="<html>
 
 <p>
 This sensor can be used to measure <i>m</i> complex potentials, using <i>m</i>
@@ -2572,7 +2587,12 @@ This sensor can be used to measure <i>m</i> complex potentials, using <i>m</i>
       annotation (Icon(graphics={Text(
               extent={{-29,-11},{30,-70}},
               lineColor={0,0,0},
-              textString="V")}), Documentation(info="<html>
+              textString="V"),
+            Text(
+              extent={{-150,80},{150,120}},
+              textString="%name",
+              lineColor={0,0,255})}),
+                                 Documentation(info="<html>
 
 <p>
 This sensor can be used to measure <i>m</i> complex voltages, using <i>m</i>
@@ -2622,13 +2642,13 @@ This sensor can be used to measure <i>m</i> complex voltages, using <i>m</i>
       connect(voltageSensor.y, quasiRMS.u) annotation (Line(
           points={{0,-11},{0,-38}},
           color={85,170,255}));
-      annotation (
+      annotation(defaultComponentName="voltageRMSSensor",
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
             Line(points={{-90,0},{-70,0}}, color={0,0,255}),
             Line(points={{0,-70},{0,-90}}, color={0,0,255}),
             Text(
-              extent={{-100,60},{100,120}},
+              extent={{-150,80},{150,120}},
               textString="%name",
               lineColor={0,0,255}),
             Text(
@@ -2670,7 +2690,12 @@ This sensor determines the continuous quasi <a href=\"Modelica://Modelica.Blocks
       annotation (Icon(graphics={Text(
               extent={{-29,-11},{30,-70}},
               lineColor={0,0,0},
-              textString="I")}), Documentation(info="<html>
+              textString="I"),
+            Text(
+              extent={{-150,80},{150,120}},
+              textString="%name",
+              lineColor={0,0,255})}),
+                                 Documentation(info="<html>
 
 <p>
 This sensor can be used to measure <i>m</i> complex currents, using <i>m</i>
@@ -2721,15 +2746,11 @@ This sensor can be used to measure <i>m</i> complex currents, using <i>m</i>
       connect(currentSensor.y, quasiRMS.u) annotation (Line(
           points={{0,-11},{0,-38}},
           color={85,170,255}));
-      annotation (
+      annotation (defaultComponentName="currentRMSSensor",
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
             Line(points={{-90,0},{-70,0}}, color={0,0,255}),
             Line(points={{0,-70},{0,-90}}, color={0,0,255}),
-            Text(
-              extent={{-100,60},{100,120}},
-              textString="%name",
-              lineColor={0,0,255}),
             Text(
               extent={{-100,-60},{-20,-100}},
               lineColor={0,0,0},
@@ -2738,7 +2759,11 @@ This sensor can be used to measure <i>m</i> complex currents, using <i>m</i>
               extent={{20,-60},{100,-100}},
               lineColor={0,0,0},
               textString="%m"),
-            Line(points={{70,0},{90,0}}, color={0,0,255})}),
+            Line(points={{70,0},{90,0}}, color={0,0,255}),
+            Text(
+              extent={{-150,80},{150,120}},
+              textString="%name",
+              lineColor={0,0,255})}),
         Documentation(revisions="<html>
 </html>", info="<html>
 <p>
@@ -2823,11 +2848,11 @@ This sensor determines the continuous quasi <a href=\"Modelica://Modelica.Blocks
             Line(points={{0,-70},{0,-100}}, color={0,0,255}),
             Text(extent={{-29,-70},{30,-11}}, textString="P"),
             Line(points={{-80,-100},{-80,0}}, color={85,170,255}),
+            Line(points={{-100,0},{100,0}}, color={0,0,255}),
             Text(
-              lineColor={0,0,255},
-              extent={{-100,110},{100,150}},
-              textString="%name"),
-            Line(points={{-100,0},{100,0}}, color={0,0,255})}),
+              extent={{-150,120},{150,160}},
+              textString="%name",
+              lineColor={0,0,255})}),
         Documentation(info="<html>
 
 <p>
@@ -2917,7 +2942,8 @@ This model describes <i>m</i> constant voltage sources, specifying the complex v
     equation
       omega = 2*Modelica.Constants.pi*f;
       v = V;
-      annotation (Icon(graphics={Line(points={{50,0},{-50,0}}),
+      annotation (defaultComponentName="voltageSource",
+        Icon(graphics={Line(points={{50,0},{-50,0}}),
               Text(
                   extent={{-120,50},{-20,0}},
                   lineColor={0,0,255},
@@ -2962,7 +2988,8 @@ Additionally, the frequency of the voltage source is defined by a real signal in
     equation
       plug_p.reference.gamma = gamma;
       v = V;
-      annotation (Documentation(info="<html>
+      annotation (defaultComponentName="voltageSource",
+        Documentation(info="<html>
 
 <p>
 This model describes <i>m</i> variable current sources, with <i>m</i> complex signal inputs,
@@ -3039,7 +3066,8 @@ This model describes <i>m</i> constant current sources, specifying the complex c
     equation
       omega = 2*Modelica.Constants.pi*f;
       i = I;
-      annotation (Icon(graphics={Line(points={{-60,60},{60,60}}, color={85,170,
+      annotation (defaultComponentName="currentSource",
+        Icon(graphics={Line(points={{-60,60},{60,60}}, color={85,170,
               255}),Polygon(
                   points={{60,60},{30,70},{30,50},{60,60}},
                   lineColor={0,0,255},
@@ -3082,7 +3110,7 @@ Additionally, the frequency of the current source is defined by a real signal in
     equation
       plug_p.reference.gamma = gamma;
       i = I;
-      annotation (
+      annotation (defaultComponentName="currentSource",
         Icon(graphics={Line(points={{-60,60},{60,60}}, color={85,170,255}),
               Polygon(
                   points={{60,60},{30,70},{30,50},{60,60}},
@@ -3421,7 +3449,7 @@ The relative sensor partial model relies on the
                   lineColor={0,0,0},
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid),Text(
-                  extent={{100,-100},{-100,-60}},
+                  extent={{150,-100},{-150,-60}},
                   textString="%name",
                   lineColor={0,0,255}),Line(points={{-90,0},{-50,0}}, color={0,
               0,0}),Line(points={{50,0},{90,0}}),Text(
@@ -3459,11 +3487,11 @@ The source partial model relies on the
                   lineColor={0,0,0},
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid),Text(
-                  extent={{100,-100},{-100,-60}},
+                  extent={{150,-100},{-150,-60}},
                   textString="%name",
                   lineColor={0,0,255}),Line(points={{-90,0},{-50,0}}, color={0,
               0,0}),Line(points={{50,0},{90,0}}),Text(
-                  extent={{100,60},{-100,100}},
+                  extent={{150,60},{-150,100}},
                   lineColor={0,0,0},
                   fillColor={0,0,0},
                   fillPattern=FillPattern.Solid,
