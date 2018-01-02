@@ -38,8 +38,10 @@ Copyright &copy; 1998-2016, Modelica Association, Anton Haumer, Christian Kral a
       extends Modelica.Icons.ReleaseNotes;
       annotation (Documentation(info="<html>
 
-  <h5>3.2.2, 2010-06-25</h5>
+  <h5>3.2.2, 2018-01-02</h5>
   <ul>
+  <li>Shortened default component names, see 
+      <a href=\"https://github.com/modelica/Modelica/issues/2301\">#2301</a></li>
   <li> Added users guide package including contact and release notes</li>
   </ul>
 
@@ -1690,7 +1692,7 @@ Medium: properties of water
           "Absolute pressure as output signal");
     equation
       y = flowPort.p;
-      annotation (defaultComponentName="pSensor",
+      annotation (
         Documentation(info="<html>
 pSensor measures the absolute pressure.<br>
 Thermodynamic equations are defined by Partials.AbsoluteSensor.
@@ -1708,7 +1710,7 @@ Thermodynamic equations are defined by Partials.AbsoluteSensor.
           "Absolute temperature as output signal");
     equation
       medium.cp*y = flowPort.h;
-    annotation (defaultComponentName="tSensor",
+    annotation (
         Documentation(info="<html>
 TSensor measures the absolute temperature (Kelvin).<br>
 Thermodynamic equations are defined by Partials.AbsoluteSensor.
@@ -1725,7 +1727,7 @@ Thermodynamic equations are defined by Partials.AbsoluteSensor.
           "Pressure difference as output signal");
     equation
       y = flowPort_a.p - flowPort_b.p;
-    annotation (defaultComponentName="pSensor",
+    annotation (
         Documentation(info="<html>
 dpSensor measures the pressure drop between flowPort_a and flowPort_b.<br>
 Thermodynamic equations are defined by Partials.RelativeSensor.
@@ -1742,7 +1744,7 @@ Thermodynamic equations are defined by Partials.RelativeSensor.
           "Temperature difference as output signal");
     equation
       medium.cp*y = flowPort_a.h - flowPort_b.h;
-      annotation (defaultComponentName="tSensor",
+      annotation (
         Documentation(info="<html>
 dTSensor measures the temperature difference between flowPort_a and flowPort_b.<br>
 Thermodynamic equations are defined by Partials.RelativeSensor.<br>
@@ -1762,7 +1764,7 @@ Outlet temperature is defined by variable T of the corresponding component.
           "Mass flow as output signal");
     equation
       y = V_flow*medium.rho;
-      annotation (defaultComponentName="mflowSensor",
+      annotation (
         Documentation(info="<html>
 m_flowSensor measures the mass flow rate.<br>
 Thermodynamic equations are defined by Partials.FlowSensor.
@@ -1779,7 +1781,7 @@ Thermodynamic equations are defined by Partials.FlowSensor.
           "Volume flow as output signal");
     equation
       y = V_flow;
-      annotation (defaultComponentName="vflowSensor",
+      annotation (
         Documentation(info="<html>
 V_flowSensor measures the volume flow rate.<br>
 Thermodynamic equations are defined by Partials.FlowSensor.
@@ -1796,7 +1798,7 @@ Thermodynamic equations are defined by Partials.FlowSensor.
           "Enthalpy flow as output signal");
     equation
       y = flowPort_a.H_flow;
-      annotation (defaultComponentName="hflowSensor",
+      annotation (
         Documentation(info="<html>
 H_flowSensor measures the enthalpy flow rate.<br>
 Thermodynamic equations are defined by Partials.FlowSensor.
@@ -1891,7 +1893,7 @@ Thermodynamic equations are defined by Partials.Ambient.
       flowPort.p = p;
       // no energy exchange; no mass flow by default
       flowPort.H_flow = 0;
-      annotation (defaultComponentName="pSource",
+      annotation (
         Documentation(info="<html>
 AbsolutePressure to define pressure level of a closed cooling cycle.
 Coolant's mass flow, temperature and enthalpy flow are not affected.<br>
@@ -1929,7 +1931,7 @@ Coolant's mass flow, temperature and enthalpy flow are not affected.<br>
       end if;
       Q_flow = 0;
       V_flow = internalVolumeFlow;
-      annotation (defaultComponentName="vflowSource",
+      annotation (
         Documentation(info="<html>
 Fan resp. pump with constant volume flow rate. Pressure increase is the response of the whole system.
 Coolant's temperature and enthalpy flow are not affected.<br>
@@ -1978,7 +1980,7 @@ Thermodynamic equations are defined by Partials.TwoPort.
       end if;
       Q_flow = 0;
       dp = -internalPressureIncrease;
-      annotation (defaultComponentName="pSource",
+      annotation (
         Documentation(info="<html>
 Fan resp. pump with constant pressure increase. Mass resp. volume flow is the response of the whole system.
 Coolant's temperature and enthalpy flow are not affected.<br>
@@ -2038,7 +2040,7 @@ Thermodynamic equations are defined by Partials.TwoPort.
       end if;
       // no energy exchange with medium
       Q_flow = 0;
-      annotation (defaultComponentName="pump",
+      annotation (
         Documentation(info="<html>
 Simple fan resp. pump where characteristic is dependent on shaft's speed, <br>
 torque * speed = pressure increase * volume flow (without losses)<br>
