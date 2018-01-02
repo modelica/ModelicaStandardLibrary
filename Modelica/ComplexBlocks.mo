@@ -1966,7 +1966,8 @@ connected with continuous blocks or with sampled-data blocks.
               "Time varying output signal"), Placement(transformation(extent={{
                 100,-10},{120,10}})));
 
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (defaultComponentName="expression",
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={Rectangle(
                   extent={{-100,40},{100,-40}},
                   lineThickness=5.0,
@@ -2051,7 +2052,7 @@ The Complex output y is a constant signal:
 
     equation
       y = offset + (if time < startTime then Complex(0) else height);
-      annotation (
+      annotation (defaultComponentName="step",
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Line(points={{-80,68},{-80,-80}}, color={
               192,192,192}),Polygon(
@@ -2140,7 +2141,8 @@ The Complex output y is a step signal (of real and imaginary part):
     equation
       phi = w*time + phi0;
       y = magnitude*Modelica.ComplexMath.exp(Complex(0, phi));
-      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+      annotation (defaultComponentName="rotating",
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Polygon(
                   points={{-10,90},{-16,68},{-4,68},{-10,90}},
                   lineColor={95,95,95},
@@ -2181,7 +2183,8 @@ The output y is a complex phasor with constant magnitude, spinning with constant
         "Duration of ramp (= 0.0 gives a Step)";
     equation
       y = 10^(log10(wMin) + (log10(wMax) - log10(wMin))*min(1, time/max(duration,eps)));
-       annotation (Documentation(info="<html>
+       annotation (defaultComponentName="logSweep",
+         Documentation(info="<html>
 <p>The output performs a logarithmic frequency sweep:<br>
 The logarithm of w performs a linear ramp from log10(wMin) to log10(wMax), after the duration it is kept constant.<br>
 The output is the decimal power of this logarithmic ramp.
