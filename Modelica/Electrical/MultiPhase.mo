@@ -111,8 +111,10 @@ email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
       annotation (preferredView="info",
         DocumentationClass=true, Documentation(info="<html>
 
-<h5>Version 3.2.2, 2017-03-05 (Anton Haumer, Christian Kral)</h5>
+<h5>Version 3.2.2, 2018-01-02 (Anton Haumer, Christian Kral)</h5>
 <ul>
+  <li>Shortened default component names, see 
+      <a href=\"https://github.com/modelica/Modelica/issues/2301\">#2301</a></li>
 <li>Removed redundant (and not identical) parameter m from
     <a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.MutualInductor\">MutualInductor</a>,
     see #2202</li>
@@ -2842,7 +2844,8 @@ This function determines the indices of non-positive sequence of the symmetrical
         annotation (Line(points={{-10,0},{-100,0}}, color={0,0,255}));
       connect(potentialSensor.phi, phi) annotation (Line(
           points={{11,0},{110,0}}, color={0,0,127}));
-      annotation (defaultComponentName="vSensor", Icon(graphics={Line(points={{70,0},{100,0}}, color={0,0,127}),
+      annotation (
+        Icon(graphics={Line(points={{70,0},{100,0}}, color={0,0,127}),
               Line(points={{-70,0},{-90,0}}),
             Text(
               extent={{150,-100},{-150,-70}},
@@ -2880,7 +2883,8 @@ thus measuring the m potentials <em>phi[m]</em> of the m pins of plug_p.
         annotation (Line(points={{-10,0},{-100,0}}, color={0,0,255}));
       connect(voltageSensor.v, v) annotation (Line(
           points={{0,-11},{0,-110}}, color={0,0,127}));
-      annotation (defaultComponentName="vSensor", Icon(graphics={Text(
+      annotation (
+        Icon(graphics={Text(
                   extent={{-29,-11},{30,-70}},
                   textString="V"), Line(points={{-70,0},{-90,0}}),
               Line(points={{70,0},{90,0}}),Line(points={{0,-100},
@@ -2929,7 +2933,7 @@ thus measuring the m potential differences <em>v[m]</em> between the m pins of p
           points={{0,-11},{0,-38}}, color={0,0,127}));
       connect(quasiRMS.y, V) annotation (Line(
           points={{0,-61},{0,-86},{0,-110},{-2,-110}}, color={0,0,127}));
-      annotation (defaultComponentName="vSensor", Icon(graphics={Text(
+      annotation (defaultComponentName="voltageRMSSensor", Icon(graphics={Text(
                   extent={{-160,-70},{160,-100}},
                   textString="m=%m"),Line(points={{0,-70},{0,-100}}),
               Line(points={{-90,0},{-70,0}}, color={0,0,255}),Line(points={{70,
@@ -2970,7 +2974,7 @@ This sensor determines the continuous quasi <a href=\"Modelica://Modelica.Blocks
         annotation (Line(points={{10,0},{100,0}}, color={0,0,255}));
       connect(currentSensor.i, i) annotation (Line(
           points={{0,-11},{0,-110}}, color={0,0,127}));
-      annotation (defaultComponentName="iSensor", Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-29,-11},{30,-70}},
                   textString="A"), Line(points={{-70,0},{-90,0}}),
@@ -3020,7 +3024,7 @@ thus measuring the m currents <em>i[m]</em> flowing from the m pins of plug_p to
           points={{0,-11},{0,-38}}, color={0,0,127}));
       connect(quasiRMS.y, I) annotation (Line(
           points={{0,-61},{0,-100}}, color={0,0,127}));
-      annotation (defaultComponentName="iSensor", Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (defaultComponentName="currentRMSSensor", Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={Line(points={{-90,0},{-70,0}},
               color={0,0,255}),Line(points={{0,-70},{0,-100}}),
                                    Line(points={{70,0},{90,0}}, color={0,0,255}),
@@ -3099,7 +3103,8 @@ This sensor determines the continuous quasi <a href=\"Modelica://Modelica.Blocks
           points={{-30,-51},{-30,-58}}, color={0,0,127}));
       connect(sum.y, power) annotation (Line(
           points={{-30,-81},{-30,-90},{-100,-90},{-100,-110}}, color={0,0,127}));
-      annotation (defaultComponentName="pSensor", Icon(graphics={Line(points={{0,100},{0,70}}, color={0,0,255}),
+      annotation (
+        Icon(graphics={Line(points={{0,100},{0,70}}, color={0,0,255}),
               Line(points={{0,-70},{0,-100}}, color={0,0,255}),
                                  Ellipse(fillPattern=FillPattern.Solid, extent=
               {{-5,-5},{5,5}}),Text(extent={{-29,-70},{30,-11}}, textString="P"),
@@ -3162,7 +3167,7 @@ This power sensor measures instantaneous electrical power of a multiphase system
     v = pv.pin.v - nv.pin.v;
     power = v.*i;
     powerTotal = sum(power);
-    annotation (defaultComponentName="sensor",
+    annotation (
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
         Line(points = {{0,100},{0,70}}, color = {0,0,255}),
         Line(points = {{0,-70},{0,-100}}, color = {0,0,255}),
@@ -3256,7 +3261,8 @@ This package contains multiphase potential, voltage, and current sensors.
         annotation (Line(points={{10,0},{100,0}}, color={0,0,255}));
       connect(v, signalVoltage.v)
         annotation (Line(points={{0,120},{0,12}}, color={0,0,255}));
-      annotation (defaultComponentName="vSource", Icon(graphics={Line(points={{-90,0},{-50,0}}, color={0,0,255}),
+      annotation (
+        Icon(graphics={Line(points={{-90,0},{-50,0}}, color={0,0,255}),
               Line(points={{50,0},{90,0}}, color={0,0,255}),Ellipse(
                   extent={{-50,50},{50,-50}},
                   lineColor={0,0,255},
@@ -3291,7 +3297,8 @@ Contains m signal controlled voltage sources (Modelica.Electrical.Analog.Sources
         annotation (Line(points={{-10,0},{-100,0}}, color={0,0,255}));
       connect(constantVoltage.n, plug_n.pin)
         annotation (Line(points={{10,0},{100,0}}, color={0,0,255}));
-      annotation (defaultComponentName="vSource", Icon(graphics={Line(points={{-90,0},{-50,0}}, color={0,0,255}),
+      annotation (
+        Icon(graphics={Line(points={{-90,0},{-50,0}}, color={0,0,255}),
               Line(points={{50,0},{90,0}}, color={0,0,255}),Ellipse(
                   extent={{-50,50},{50,-50}},
                   lineColor={0,0,255},
@@ -3337,7 +3344,8 @@ Contains m constant voltage sources (Modelica.Electrical.Analog.Sources.Constant
         annotation (Line(points={{-10,0},{-100,0}}, color={0,0,255}));
       connect(sineVoltage.n, plug_n.pin)
         annotation (Line(points={{10,0},{100,0}}, color={0,0,255}));
-      annotation (defaultComponentName="vSource", Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={Line(points={{-90,0},{-50,0}},
               color={0,0,255}),Line(points={{50,0},{90,0}}, color={0,0,255}),
               Ellipse(
@@ -3391,7 +3399,8 @@ with a default phase shift determined by
         annotation (Line(points={{-10,0},{-100,0}}, color={0,0,255}));
       connect(cosineVoltage.n, plug_n.pin)
         annotation (Line(points={{10,0},{100,0}}, color={0,0,255}));
-      annotation (defaultComponentName="vSource", Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={Line(points={{-90,0},{-50,0}},
               color={0,0,255}),Line(points={{50,0},{90,0}}, color={0,0,255}),
               Ellipse(
@@ -3449,7 +3458,8 @@ with a default phase shift determined by
         annotation (Line(points={{10,0},{100,0}}, color={0,0,255}));
       connect(i, signalCurrent.i)
         annotation (Line(points={{0,120},{0,12}}, color={0,0,255}));
-      annotation (defaultComponentName="iSource", Icon(graphics={Line(points={{-90,0},{-50,0}}, color={0,0,255}),
+      annotation (
+        Icon(graphics={Line(points={{-90,0},{-50,0}}, color={0,0,255}),
               Line(points={{50,0},{90,0}}, color={0,0,255}),Ellipse(
                   extent={{-50,50},{50,-50}},
                   lineColor={0,0,255},
@@ -3485,7 +3495,8 @@ Contains m signal controlled current sources (Modelica.Electrical.Analog.Sources
         annotation (Line(points={{-10,0},{-100,0}}, color={0,0,255}));
       connect(constantCurrent.n, plug_n.pin)
         annotation (Line(points={{10,0},{100,0}}, color={0,0,255}));
-      annotation (defaultComponentName="iSource", Icon(graphics={Line(points={{-90,0},{-50,0}}, color={0,0,255}),
+      annotation (
+        Icon(graphics={Line(points={{-90,0},{-50,0}}, color={0,0,255}),
               Line(points={{50,0},{90,0}}, color={0,0,255}),Ellipse(
                   extent={{-50,50},{50,-50}},
                   lineColor={0,0,255},
@@ -3532,7 +3543,8 @@ Contains m constant current sources (Modelica.Electrical.Analog.Sources.Constant
         annotation (Line(points={{-10,0},{-100,0}}, color={0,0,255}));
       connect(sineCurrent.n, plug_n.pin)
         annotation (Line(points={{10,0},{100,0}}, color={0,0,255}));
-      annotation (defaultComponentName="iSource", Icon(graphics={Line(points={{-90,0},{-50,0}}, color={0,0,255}),
+      annotation (
+        Icon(graphics={Line(points={{-90,0},{-50,0}}, color={0,0,255}),
               Line(points={{50,0},{90,0}}, color={0,0,255}),Ellipse(
                   extent={{-50,50},{50,-50}},
                   lineColor={0,0,255},
@@ -3588,7 +3600,8 @@ with a default phase shift determined by
         annotation (Line(points={{-10,0},{-100,0}}, color={0,0,255}));
       connect(cosineCurrent.n, plug_n.pin)
         annotation (Line(points={{10,0},{100,0}}, color={0,0,255}));
-      annotation (defaultComponentName="iSource", Icon(graphics={Line(points={{-90,0},{-50,0}}, color={0,0,255}),
+      annotation (
+        Icon(graphics={Line(points={{-90,0},{-50,0}}, color={0,0,255}),
               Line(points={{50,0},{90,0}}, color={0,0,255}),Ellipse(
                   extent={{-50,50},{50,-50}},
                   lineColor={0,0,255},
