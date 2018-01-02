@@ -1433,7 +1433,7 @@ Note, the input signals must be consistent to each other
     equation
       T = port.T;
       port.Q_flow = 0;
-      annotation (defaultComponentName="temperatureSensor",
+      annotation (
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Ellipse(
@@ -1526,7 +1526,7 @@ sensor model.
       T_rel = port_a.T - port_b.T;
       0 = port_a.Q_flow;
       0 = port_b.Q_flow;
-      annotation (defaultComponentName="temperatureSensor",
+      annotation (
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Line(points={{-90,0},{-70,0},{-70,0}}, color={191,0,0}),
@@ -1573,7 +1573,7 @@ the two ports of this component and is provided as output signal in Kelvin.
       port_a.T = port_b.T;
       port_a.Q_flow + port_b.Q_flow = 0;
       Q_flow = port_a.Q_flow;
-      annotation (defaultComponentName="heatFlowSensor",
+      annotation (
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Line(points={{-70,0},{-95,0}}, color={191,0,0}),
@@ -1681,7 +1681,7 @@ To avoid a singular equation system, the temperature of the sensor is set to 293
                 -10},{110,10}})));
     equation
       port.T = T;
-      annotation (defaultComponentName="temperatureSource",
+      annotation (
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Text(
@@ -1743,7 +1743,7 @@ i.e., it defines a fixed temperature as a boundary condition.
               extent={{-140,-20},{-100,20}})));
     equation
       port.T = T;
-      annotation (defaultComponentName="temperatureSource",
+      annotation (
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Rectangle(
@@ -1807,7 +1807,7 @@ as required to keep the temperature at the specified value.
                 -10},{110,10}})));
     equation
       port.Q_flow = -Q_flow*(1 + alpha*(port.T - T_ref));
-      annotation (defaultComponentName="heatFlowSource",
+      annotation (
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Text(
@@ -1892,7 +1892,7 @@ in order to simulate temperature dependent losses (which are given with respect 
                 -10},{110,10}})));
     equation
       port.Q_flow = -Q_flow*(1 + alpha*(port.T - T_ref));
-      annotation (defaultComponentName="heatFlowSource",
+      annotation (
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Line(
@@ -2090,7 +2090,7 @@ and provides is as output signal.
                 90,-10},{110,10}})));
     equation
       port.T = Modelica.SIunits.Conversions.from_degC(T);
-      annotation (defaultComponentName="temperatureSource",
+      annotation (
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Text(
@@ -2152,7 +2152,7 @@ i.e., it defines a fixed temperature as a boundary condition.
             transformation(extent={{-140,-20},{-100,20}})));
     equation
       port.T = Modelica.SIunits.Conversions.from_degC(T);
-      annotation (defaultComponentName="temperatureSource",
+      annotation (
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Rectangle(
@@ -2428,7 +2428,7 @@ and provides them as output signals.
                 90,-10},{110,10}})));
     equation
       port.T = Modelica.SIunits.Conversions.from_degF(T);
-      annotation (defaultComponentName="temperatureSource",
+      annotation (
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Text(
@@ -2490,7 +2490,7 @@ i.e., it defines a fixed temperature as a boundary condition.
         annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
     equation
       port.T = Modelica.SIunits.Conversions.from_degF(T);
-      annotation (defaultComponentName="temperatureSource",
+      annotation (
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Rectangle(
@@ -2508,7 +2508,7 @@ i.e., it defines a fixed temperature as a boundary condition.
             Text(
               extent={{-150,150},{150,110}},
               textString="%name",
-              lineColor={0,0,255}),
+              lineCdefaultComponentName="temperatureSource",olor={0,0,255}),
             Line(
               points={{-102,0},{64,0}},
               color={191,0,0},
@@ -2555,7 +2555,7 @@ as required to keep the temperature at the specified value.
     equation
       T = Modelica.SIunits.Conversions.to_degF(port.T);
       port.Q_flow = 0;
-      annotation (defaultComponentName="temperatureSensor",
+      annotation (
         Diagram(graphics={
             Ellipse(
               extent={{-20,-98},{20,-60}},
@@ -2762,7 +2762,7 @@ and provides them as output signals.
                 90,-10},{110,10}})));
     equation
       port.T = Modelica.SIunits.Conversions.from_degRk(T);
-      annotation (defaultComponentName="temperatureSource",
+      annotation (
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Text(
@@ -2771,7 +2771,7 @@ and provides them as output signals.
               lineColor={0,0,255}),
             Rectangle(
               extent={{-100,100},{100,-100}},
-              pattern=LinePattern.None,
+              pattern=LinePattern.None,defaultComponentName="temperatureSensor",
               fillColor={159,159,223},
               fillPattern=FillPattern.Backward),
             Text(
@@ -2824,7 +2824,7 @@ This model defines a fixed temperature T at its port in degree Rankine,
          annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
     equation
       port.T = Modelica.SIunits.Conversions.from_degRk(T);
-      annotation (defaultComponentName="temperatureSource",
+      annotation (
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Rectangle(
@@ -2889,7 +2889,7 @@ as required to keep the temperature at the specified value.
     equation
       T = Modelica.SIunits.Conversions.to_degRk(port.T);
       port.Q_flow = 0;
-      annotation (defaultComponentName="temperatureSensor",
+      annotation (
         Diagram(graphics={
             Ellipse(
               extent={{-20,-98},{20,-60}},
