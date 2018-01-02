@@ -110,8 +110,10 @@ email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
       extends Modelica.Icons.ReleaseNotes;
       annotation (Documentation(info="<html>
 
-<h5>Version 3.x.x, 2017-12-10</h5>
+<h5>Version 3.x.x, 2018-01-02</h5>
 <ul>
+  <li>Shortened default component names, see 
+      <a href=\"https://github.com/modelica/Modelica/issues/2301\">#2301</a></li>
   <li>Fixed propagation of excitation leakage factor, see 
       <a href=\"https://github.com/modelica/Modelica/issues/2403\">#2403</a></li>
   <li>Unified communication interval, see 
@@ -7459,7 +7461,8 @@ If it is desired to neglect permanent magnet losses, set <code>strayLoadParamete
       // Reference angular speed and angle
       omega = 2*Modelica.Constants.pi*f;
       Connections.root(port_p.reference);
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (defaultComponentName="magVoltageSource",
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-80,-20},{-80,-40}},
                   lineColor={255,170,85},
@@ -7518,7 +7521,8 @@ SignalFlux</a>
       port_p.Phi = Phi;
       // Local flux balance
       port_p.Phi + port_n.Phi = Complex(0, 0);
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (defaultComponentName="magVoltageSource",
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{80,-20},{80,-40}},
                   lineColor={255,170,85},
@@ -7579,7 +7583,8 @@ SignalFlux</a>
       // Reference angular speed and angle
       omega = 2*Modelica.Constants.pi*f;
       Connections.root(port_p.reference);
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (defaultComponentName="magFluxSource",
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={Ellipse(
                   extent={{-50,-50},{50,50}},
                   lineColor={255,127,0},
@@ -7638,7 +7643,8 @@ SignalFlux</a>
       port_p.Phi = Phi;
       // Local flux balance
       port_p.Phi + port_n.Phi = Complex(0, 0);
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (defaultComponentName="magFluxSource",
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={Ellipse(
                   extent={{-50,-50},{50,50}},
                   lineColor={255,170,85},
@@ -7701,7 +7707,7 @@ ConstantFlux</a>
       port_p.Phi + port_n.Phi = Complex(0, 0);
       // No magnetic potential difference at sensor
       V_m = Complex(0, 0);
-      annotation (
+      annotation (defaultComponentName="magFluxSensor",
         Icon(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
@@ -7749,7 +7755,8 @@ ConstantFlux</a>
       port_p.Phi + port_n.Phi = Complex(0, 0);
       // No magnetic flux through sensor
       Phi = Complex(0, 0);
-      annotation (Icon(coordinateSystem(
+      annotation (defaultComponentName="magVoltageSensor",
+        Icon(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={Text(
@@ -7793,7 +7800,8 @@ ConstantFlux</a>
       port_p.Phi = Complex(0, 0);
       // Magnetic potential
       V_m = port_p.V_m;
-      annotation (Icon(coordinateSystem(
+      annotation (defaultComponentName="magPotentialSensor",
+        Icon(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={Text(
@@ -8369,12 +8377,12 @@ choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
             transformation(extent={{-60,10},{-40,30}})));
     equation
       connect(booleanStep.y, idealCommutingSwitch.control) annotation (Line(
-          points={{-39,20},{28,20}}, color={255,0,255}));
+          points={{-39,20},{32,20}}, color={255,0,255}));
       connect(idealCommutingSwitch.plug_p, plug_p) annotation (Line(
           points={{40,30},{40,60},{100,60}},
           color={85,170,255}));
       connect(idealCommutingSwitch.plug_n1, rheostat.plug_p) annotation (Line(
-          points={{36,10},{36,-20},{0,-20}}, color={85,170,255}));
+          points={{35,10},{35,-20},{0,-20}}, color={85,170,255}));
       connect(rheostat.plug_n, starRheostat.plug_p) annotation (Line(
           points={{-20,-20},{-40,-20}},
           color={85,170,255}));
@@ -8479,7 +8487,7 @@ choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
           color={85,170,255}));
       connect(realToComplex.y, singleToMultiPhase.u) annotation (Line(
           points={{-19,40},{18,40}}, color={85,170,255}));
-      annotation (defaultComponentName="iController",
+      annotation (defaultComponentName="currentController",
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={Rectangle(
                   extent={{-100,100},{100,-100}},

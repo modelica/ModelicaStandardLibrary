@@ -589,9 +589,10 @@ Several models to describe the static hysteresis behavior of ferromagnetic mater
       extends Modelica.Icons.ReleaseNotes;
       annotation (Documentation(info="<html>
 
-<h5>Version 3.2.2, 2014-12-05 (Johannes&nbsp;Ziske, Thomas&nbsp;B&ouml;drich)</h5>
+<h5>Version 3.2.2, 2018-01-02 (Johannes&nbsp;Ziske, Thomas&nbsp;B&ouml;drich)</h5>
 
 <ul>
+<li>Shortened default component names, see <a href=\"https://github.com/modelica/Modelica/issues/2301\">#2301</a></li>
 <li>Added package <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Hysteresis\">FluxTubes.UsersGuide.Hysteresis</a></li>
 <li>Added package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.Hysteresis\">Fluxtubes.Examples.Hysteresis</a></li>
 <li>Added package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets\">FluxTubes.Shapes.HysteresisAndMagnets</a></li>
@@ -7802,7 +7803,7 @@ This package contains connectors for the magnetic domain and partial models for 
       0 = port_p.Phi + port_n.Phi;
 
       annotation (
-        defaultComponentName="vmSource",
+        defaultComponentName="magVoltageSource",
         Icon(coordinateSystem(
           preserveAspectRatio=false,
           extent={{-100,-100},{100,100}}), graphics={
@@ -7855,7 +7856,7 @@ For modelling of reluctance actuators with this source component it is assumed t
       Phi = port_p.Phi;
       0 = port_p.Phi + port_n.Phi;
       annotation (
-        defaultComponentName="vmSource",
+        defaultComponentName="magVoltageSource",
         Icon(coordinateSystem(
           preserveAspectRatio=false,
           extent={{-100,-100},{100,100}}), graphics={
@@ -7905,7 +7906,7 @@ In these cases, the magnetic potential difference or magnetomotive force imposed
       Phi = port_p.Phi;
       0 = port_p.Phi + port_n.Phi;
       annotation (
-        defaultComponentName="phiSource",
+        defaultComponentName="magFluxSource",
         Icon(coordinateSystem(
           preserveAspectRatio=false,
           extent={{-100,-100},{100,100}}), graphics={
@@ -7957,7 +7958,7 @@ Sources of a constant magnetic flux are useful for modelling of permanent magnet
       Phi = port_p.Phi;
       0 = port_p.Phi + port_n.Phi;
       annotation (
-        defaultComponentName="phiSource",
+        defaultComponentName="magFluxSource",
         Icon(coordinateSystem(
           preserveAspectRatio=false,
           extent={{-100,-100},{100,100}}), graphics={
@@ -8015,7 +8016,7 @@ This package contains sources of a magnetic potential difference or a magnetic f
       Phi = 0;
       0 = port_p.Phi + port_n.Phi;
 
-      annotation (defaultComponentName="vmSensor",
+      annotation (defaultComponentName="magVoltageSensor",
     Icon(coordinateSystem(
           preserveAspectRatio=false,
           extent={{-100,-100},{100,100}}), graphics={
@@ -8052,7 +8053,7 @@ This package contains sources of a magnetic potential difference or a magnetic f
       Phi = port_p.Phi;
       0 = port_p.Phi + port_n.Phi;
 
-      annotation (defaultComponentName="phiSensor",
+      annotation (defaultComponentName="magFluxSensor",
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={Line(points={{0,-100},{0,-70}}),Line(points={{-70,0},{-90,0}}, color={255,128,0}),
                                                                                                             Line(
