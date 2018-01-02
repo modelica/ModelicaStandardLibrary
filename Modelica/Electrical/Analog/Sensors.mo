@@ -189,12 +189,9 @@ equation
     annotation (Line(points={{-100,0},{-50,0}}, color={0,0,255}));
   connect(currentSensor.n, nc)
     annotation (Line(points={{-30,0},{100,0}}, color={0,0,255}));
-  connect(currentSensor.i, product.u2) annotation (Line(points={{-40,-10},{-40,
-            -30},{-36,-30},{-36,-38}}, color={0,0,127}));
-  connect(voltageSensor.v, product.u1) annotation (Line(points={{-10,-30},{-24,
-            -30},{-24,-38}}, color={0,0,127}));
-  connect(product.y, power) annotation (Line(points={{-30,-61},{-30,-80},{-80,
-            -80},{-80,-110}}, color={0,0,127}));
+  connect(currentSensor.i, product.u2) annotation (Line(points={{-40,-11},{-40,-30},{-36,-30},{-36,-38}}, color={0,0,127}));
+  connect(voltageSensor.v, product.u1) annotation (Line(points={{-11,-30},{-24,-30},{-24,-38}}, color={0,0,127}));
+  connect(product.y, power) annotation (Line(points={{-30,-61},{-30,-80},{-100,-80},{-100,-110}}, color={0,0,127}));
   annotation (
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
       Line(points=  {{0,100},{0,70}}, color=  {0,0,255}),
