@@ -6917,7 +6917,7 @@ Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap</a>
         // Reference angular speed and angle
         gamma = port_p.reference.gamma;
         // Connections.root(port_p.reference);
-        annotation (defaultComponentName="maganet",
+        annotation (defaultComponentName="magnet",
           Documentation(info="<html>
 <p>Permanent magnet model with magnetic, mechanical and thermal connector including losses. The PM model is source  of constant magnetic potential difference. The PM loss is calculated by
 <a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Losses.PermanentMagnetLosses\">PermanentMagnetLosses</a>.
@@ -7371,7 +7371,8 @@ If it is desired to neglect permanent magnet losses, set <code>strayLoadParamete
       // Reference angular speed and angle
       omega = 2*Modelica.Constants.pi*f;
       Connections.root(port_p.reference);
-      annotation (defaultComponentName="vmSource", Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (defaultComponentName="magVoltageSource",
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
                                   Ellipse(
                   extent={{-50,-50},{50,50}},
@@ -7430,7 +7431,8 @@ SignalFlux</a>
       port_p.Phi = Phi;
       // Local flux balance
       port_p.Phi + port_n.Phi = Complex(0, 0);
-      annotation (defaultComponentName="vmSource", Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (defaultComponentName="magVoltageSource",
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
                                   Ellipse(
                   extent={{-50,-50},{50,50}},
@@ -7491,7 +7493,8 @@ SignalFlux</a>
       // Reference angular speed and angle
       omega = 2*Modelica.Constants.pi*f;
       Connections.root(port_p.reference);
-      annotation (defaultComponentName="phiSource", Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (defaultComponentName="magFluxSource",
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={Ellipse(
                   extent={{-50,-50},{50,50}},
                   lineColor={255,127,0},
@@ -7551,7 +7554,7 @@ SignalFlux</a>
       port_p.Phi = Phi;
       // Local flux balance
       port_p.Phi + port_n.Phi = Complex(0, 0);
-      annotation (defaultComponentName="phiSource", Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (defaultComponentName="magFluxSource", Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={Ellipse(
                   extent={{-50,-50},{50,50}},
                   lineColor={255,170,85},
@@ -7615,7 +7618,7 @@ ConstantFlux</a>
       port_p.Phi + port_n.Phi = Complex(0, 0);
       // No magnetic potential difference at sensor
       V_m = Complex(0, 0);
-      annotation (defaultComponentName="phiSensor",
+      annotation (defaultComponentName="magFluxSensor",
         Icon(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
@@ -7662,7 +7665,7 @@ ConstantFlux</a>
       port_p.Phi + port_n.Phi = Complex(0, 0);
       // No magnetic flux through sensor
       Phi = Complex(0, 0);
-      annotation (defaultComponentName="vmSensor", Icon(coordinateSystem(
+      annotation (defaultComponentName="magVoltageSensor", Icon(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={Text(
@@ -7703,7 +7706,7 @@ ConstantFlux</a>
       port_p.Phi = Complex(0, 0);
       // Magnetic potential
       V_m = port_p.V_m;
-      annotation (defaultComponentName="vmSensor", Icon(coordinateSystem(
+      annotation (defaultComponentName="magPotentialSensor", Icon(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={Text(
@@ -8361,7 +8364,7 @@ choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
           points={{-120,-60},{-60,-60},{-60,34},{-42,34}}, color={85,170,255}));
       connect(realToComplex.y, singleToMultiPhase.u) annotation (Line(
           points={{-19,40},{18,40}}, color={85,170,255}));
-      annotation (defaultComponentName="iController",
+      annotation (defaultComponentName="currentController",
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={Rectangle(
                   extent={{-100,100},{100,-100}},

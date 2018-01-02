@@ -7751,7 +7751,7 @@ This package contains connectors for the magnetic domain and partial models for 
       0 = port_p.Phi + port_n.Phi;
 
       annotation (
-        defaultComponentName="vmSource",
+        defaultComponentName="magVoltageSource",
         Icon(coordinateSystem(
           preserveAspectRatio=false,
           extent={{-100,-100},{100,100}}), graphics={
@@ -7804,7 +7804,7 @@ For modelling of reluctance actuators with this source component it is assumed t
       Phi = port_p.Phi;
       0 = port_p.Phi + port_n.Phi;
       annotation (
-        defaultComponentName="vmSource",
+        defaultComponentName="magVoltageSource",
         Icon(coordinateSystem(
           preserveAspectRatio=false,
           extent={{-100,-100},{100,100}}), graphics={
@@ -7854,7 +7854,7 @@ In these cases, the magnetic potential difference or magnetomotive force imposed
       Phi = port_p.Phi;
       0 = port_p.Phi + port_n.Phi;
       annotation (
-        defaultComponentName="phiSource",
+        defaultComponentName="magFluxSource",
         Icon(coordinateSystem(
           preserveAspectRatio=false,
           extent={{-100,-100},{100,100}}), graphics={
@@ -7906,7 +7906,7 @@ Sources of a constant magnetic flux are useful for modelling of permanent magnet
       Phi = port_p.Phi;
       0 = port_p.Phi + port_n.Phi;
       annotation (
-        defaultComponentName="phiSource",
+        defaultComponentName="magFluxSource",
         Icon(coordinateSystem(
           preserveAspectRatio=false,
           extent={{-100,-100},{100,100}}), graphics={
@@ -7964,7 +7964,7 @@ This package contains sources of a magnetic potential difference or a magnetic f
       Phi = 0;
       0 = port_p.Phi + port_n.Phi;
 
-      annotation (defaultComponentName="vmSensor",
+      annotation (defaultComponentName="magVoltageSensor",
     Icon(coordinateSystem(
           preserveAspectRatio=false,
           extent={{-100,-100},{100,100}}), graphics={
@@ -8000,7 +8000,7 @@ This package contains sources of a magnetic potential difference or a magnetic f
       Phi = port_p.Phi;
       0 = port_p.Phi + port_n.Phi;
 
-      annotation (defaultComponentName="phiSensor",
+      annotation (defaultComponentName="magFluxSensor",
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={Line(points={{0,-100},{0,-70}}),Line(points={{-70,0},{-90,0}}, color={255,128,0}),
                                                                                                             Line(
