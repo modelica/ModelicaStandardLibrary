@@ -353,13 +353,13 @@ A freely available book is available in
                 rotation=90)));
         equation
           connect(meanCurrent.u, currentSensor.i) annotation (Line(
-              points={{68,-60},{0,-60},{0,-50}}, color={0,0,127}));
+              points={{68,-60},{0,-60},{0,-51}}, color={0,0,127}));
           connect(ground.p, sinevoltage.n) annotation (Line(
               points={{-80,-40},{-80,10}}, color={0,0,255}));
           connect(voltagesensor.v, meanVoltage.u) annotation (Line(
-              points={{60,10},{64,10},{64,40},{68,40}}, color={0,0,127}));
+              points={{61,10},{64,10},{64,40},{68,40}}, color={0,0,127}));
           connect(voltagesensor.v, rootMeanSquareVoltage.u) annotation (Line(
-              points={{60,10},{68,10}}, color={0,0,127}));
+              points={{61,10},{68,10}}, color={0,0,127}));
           connect(sinevoltage.p, rectifier.ac_p) annotation (Line(
               points={{-80,30},{-80,40},{-40,40}}, color={0,0,255}));
           connect(sinevoltage.n, rectifier.ac_n) annotation (Line(
@@ -446,19 +446,19 @@ A freely available book is available in
                 rotation=90)));
         equation
           connect(meanCurrent.u, currentSensor.i) annotation (Line(
-              points={{68,-60},{0,-60},{0,-50}}, color={0,0,127}));
+              points={{68,-60},{0,-60},{0,-51}}, color={0,0,127}));
           connect(ground.p, sinevoltage.n) annotation (Line(
               points={{-80,-40},{-80,10}}, color={0,0,255}));
           connect(voltagesensor.v, meanVoltage.u) annotation (Line(
-              points={{60,10},{64,10},{64,40},{68,40}}, color={0,0,127}));
+              points={{61,10},{64,10},{64,40},{68,40}}, color={0,0,127}));
           connect(voltagesensor.v, rootMeanSquareVoltage.u) annotation (Line(
-              points={{60,10},{68,10}}, color={0,0,127}));
+              points={{61,10},{68,10}}, color={0,0,127}));
           connect(sinevoltage.p, rectifier.ac_p) annotation (Line(
               points={{-80,30},{-80,40},{-40,40}}, color={0,0,255}));
           connect(sinevoltage.n, rectifier.ac_n) annotation (Line(
               points={{-80,10},{-80,10},{-80,-8},{-50,-8},{-50,28},{-40,28}}, color={0,0,255}));
           connect(rectifier.dc_n, currentSensor.n) annotation (Line(
-              points={{-19.8,28},{-10,28},{-10,-40}}, color={0,0,255}));
+              points={{-20,28},{-10,28},{-10,-40}},   color={0,0,255}));
           connect(rectifier.dc_p, voltagesensor.p) annotation (Line(
               points={{-20,40},{50,40},{50,20}}, color={0,0,255}));
           connect(voltagesensor.n, currentSensor.p) annotation (Line(
@@ -787,17 +787,17 @@ A freely available book is available in
 
         equation
           connect(meanCurrent.u, currentSensor.i) annotation (Line(
-              points={{68,-60},{0,-60},{0,-50}}, color={0,0,127}));
+              points={{68,-60},{0,-60},{0,-51}}, color={0,0,127}));
           connect(ground.p, sinevoltage.n) annotation (Line(
               points={{-80,-40},{-80,-10}}, color={0,0,255}));
           connect(voltagesensor.v, meanVoltage.u) annotation (Line(
-              points={{60,10},{64,10},{64,40},{68,40}}, color={0,0,127}));
+              points={{61,10},{64,10},{64,40},{68,40}}, color={0,0,127}));
           connect(voltagesensor.v, rootMeanSquareVoltage.u) annotation (Line(
-              points={{60,10},{68,10}}, color={0,0,127}));
+              points={{61,10},{68,10}}, color={0,0,127}));
           connect(sinevoltage.n, rectifier.ac_n) annotation (Line(
               points={{-80,-10},{-60,-10},{-60,-6},{-40,-6}}, color={0,0,255}));
           connect(rectifier.dc_n, currentSensor.n) annotation (Line(
-              points={{-19.8,-6},{-10,-6},{-10,-40}}, color={0,0,255}));
+              points={{-20,-6},{-10,-6},{-10,-40}},   color={0,0,255}));
           connect(rectifier.dc_p, voltagesensor.p) annotation (Line(
               points={{-20,6},{-10,6},{-10,40},{50,40},{50,20}}, color={0,0,255}));
           connect(voltagesensor.n, currentSensor.p) annotation (Line(
@@ -903,11 +903,11 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
                 rotation=90)));
         equation
           connect(meanCurrent.u, currentSensor.i) annotation (Line(
-              points={{68,-60},{0,-60},{0,-50}}, color={0,0,127}));
+              points={{68,-60},{0,-60},{0,-51}}, color={0,0,127}));
           connect(voltagesensor.v, meanVoltage.u) annotation (Line(
-              points={{60,10},{64,10},{64,40},{68,40}}, color={0,0,127}));
+              points={{61,10},{64,10},{64,40},{68,40}}, color={0,0,127}));
           connect(voltagesensor.v, rootMeanSquareVoltage.u) annotation (Line(
-              points={{60,10},{68,10}}, color={0,0,127}));
+              points={{61,10},{68,10}}, color={0,0,127}));
           connect(sinevoltage_p.n, sinevoltage_n.p) annotation (Line(
               points={{-80,4},{-80,-4.00001}}, color={0,0,255}));
           connect(ground.p, sinevoltage_p.n) annotation (Line(
@@ -2283,19 +2283,19 @@ In this example a PM excited DC machine is started with nominal torque at nomina
                 extent={{-10,10},{10,-10}})));
         equation
           connect(meanCurrent.u, currentSensor.i) annotation (Line(
-              points={{68,-60},{0,-60},{0,-50}}, color={0,0,127}));
+              points={{68,-60},{0,-60},{0,-51}}, color={0,0,127}));
           connect(ground.p, sinevoltage.n) annotation (Line(
               points={{-80,-40},{-80,-10}}, color={0,0,255}));
           connect(voltagesensor.v, meanVoltage.u) annotation (Line(
-              points={{60,10},{64,10},{64,40},{68,40}}, color={0,0,127}));
+              points={{61,10},{64,10},{64,40},{68,40}}, color={0,0,127}));
           connect(voltagesensor.v, rootMeanSquareVoltage.u) annotation (Line(
-              points={{60,10},{68,10}}, color={0,0,127}));
+              points={{61,10},{68,10}}, color={0,0,127}));
           connect(sinevoltage.p, idealthyristor.p) annotation (Line(
               points={{-80,10},{-80,40},{-20,40}}, color={0,0,255}));
           connect(ground.p, currentSensor.n) annotation (Line(
               points={{-80,-40},{-10,-40}}, color={0,0,255}));
           connect(pulse2.fire_p, idealthyristor.fire) annotation (Line(
-              points={{-46,11},{-46,20},{-3,20},{-3,29}}, color={255,0,255}));
+              points={{-46,11},{-46,20},{0,20},{0,28}},   color={255,0,255}));
           connect(voltagesensor.n, currentSensor.p) annotation (Line(
               points={{50,0},{50,-40},{10,-40}}, color={0,0,255}));
           connect(idealthyristor.n, voltagesensor.p) annotation (Line(
@@ -2360,13 +2360,13 @@ single pulse rectifiers</a>; load is not yet included.</p>
                 origin={-30,-2})));
         equation
           connect(meanCurrent.u, currentSensor.i) annotation (Line(
-              points={{68,-60},{0,-60},{0,-50}}, color={0,0,127}));
+              points={{68,-60},{0,-60},{0,-51}}, color={0,0,127}));
           connect(ground.p, sinevoltage.n) annotation (Line(
               points={{-80,-40},{-80,10}}, color={0,0,255}));
           connect(voltagesensor.v, meanVoltage.u) annotation (Line(
-              points={{60,10},{64,10},{64,40},{68,40}}, color={0,0,127}));
+              points={{61,10},{64,10},{64,40},{68,40}}, color={0,0,127}));
           connect(voltagesensor.v, rootMeanSquareVoltage.u) annotation (Line(
-              points={{60,10},{68,10}}, color={0,0,127}));
+              points={{61,10},{68,10}}, color={0,0,127}));
           connect(sinevoltage.p, rectifier.ac_p) annotation (Line(
               points={{-80,30},{-80,40},{-40,40}}, color={0,0,255}));
           connect(sinevoltage.n, rectifier.ac_n) annotation (Line(
@@ -2393,7 +2393,7 @@ two pulse bridge rectifiers</a>; load is not yet included.</p>
 </html>"));
         end ThyristorBridge2Pulse;
 
-        model ThyristorCenterTap2Pulse
+        partial model ThyristorCenterTap2Pulse
           "Template of two pulse thyristor rectifier with center tap"
           extends Icons.ExampleTemplate;
           import Modelica.Constants.pi;
@@ -2446,11 +2446,11 @@ two pulse bridge rectifiers</a>; load is not yet included.</p>
                 origin={-30,0})));
         equation
           connect(meanCurrent.u, currentSensor.i) annotation (Line(
-              points={{68,-60},{0,-60},{0,-50}}, color={0,0,127}));
+              points={{68,-60},{0,-60},{0,-51}}, color={0,0,127}));
           connect(voltagesensor.v, meanVoltage.u) annotation (Line(
-              points={{60,10},{64,10},{64,40},{68,40}}, color={0,0,127}));
+              points={{61,10},{64,10},{64,40},{68,40}}, color={0,0,127}));
           connect(voltagesensor.v, rootMeanSquareVoltage.u) annotation (Line(
-              points={{60,10},{68,10}}, color={0,0,127}));
+              points={{61,10},{68,10}}, color={0,0,127}));
           connect(sinevoltage_p.n, sinevoltage_n.p) annotation (Line(
               points={{-80,4},{-80,-4.00001}}, color={0,0,255}));
           connect(ground.p, sinevoltage_p.n) annotation (Line(
@@ -2542,11 +2542,11 @@ center tap two pulse rectifiers</a>; load is not yet included.</p>
           connect(star.pin_n, ground.p) annotation (Line(
               points={{-70,-40},{-70,-80}}, color={0,0,255}));
           connect(meanCurrent.u, currentSensor.i) annotation (Line(
-              points={{68,-70},{0,-70},{0,-60}}, color={0,0,127}));
+              points={{68,-70},{0,-70},{0,-61}}, color={0,0,127}));
           connect(voltagesensor.v, meanVoltage.u) annotation (Line(
-              points={{60,10},{64,10},{64,40},{68,40}}, color={0,0,127}));
+              points={{61,10},{64,10},{64,40},{68,40}}, color={0,0,127}));
           connect(voltagesensor.v, rootMeanSquareVoltage.u) annotation (Line(
-              points={{60,10},{68,10}}, color={0,0,127}));
+              points={{61,10},{68,10}}, color={0,0,127}));
           connect(rectifier.dc_p, voltagesensor.p) annotation (Line(
               points={{-20,40},{50,40},{50,20}}, color={0,0,255}));
           connect(currentSensor.p, voltagesensor.n) annotation (Line(
@@ -2629,11 +2629,11 @@ center tap <code>m</code> pulse rectifiers</a>, where <code>m</code> is the numb
                 transformation(extent={{-90,-100},{-70,-80}})));
         equation
           connect(meanCurrent.u, currentSensor.i) annotation (Line(
-              points={{68,-60},{0,-60},{0,-50}}, color={0,0,127}));
+              points={{68,-60},{0,-60},{0,-51}}, color={0,0,127}));
           connect(voltagesensor.v, meanVoltage.u) annotation (Line(
-              points={{60,10},{64,10},{64,40},{68,40}}, color={0,0,127}));
+              points={{61,10},{64,10},{64,40},{68,40}}, color={0,0,127}));
           connect(voltagesensor.v, rootMeanSquareVoltage.u) annotation (Line(
-              points={{60,10},{68,10}}, color={0,0,127}));
+              points={{61,10},{68,10}}, color={0,0,127}));
           connect(sineVoltage.plug_p, rectifier.ac) annotation (Line(
               points={{-80,-20},{-80,34},{-40,34}}, color={0,0,255}));
           connect(rectifier.dc_n, currentSensor.n) annotation (Line(
@@ -2731,11 +2731,11 @@ center tap <code>m</code> pulse rectifiers</a>, where <code>m</code> is the numb
           connect(star.pin_n, ground.p) annotation (Line(
               points={{-100,-20},{-100,-50},{-80,-50},{-80,-80}}, color={0,0,255}));
           connect(meanCurrent.u, currentSensor.i) annotation (Line(
-              points={{68,-70},{0,-70},{0,-60}}, color={0,0,127}));
+              points={{68,-70},{0,-70},{0,-61}}, color={0,0,127}));
           connect(voltagesensor.v, meanVoltage.u) annotation (Line(
-              points={{60,10},{64,10},{64,40},{68,40}}, color={0,0,127}));
+              points={{61,10},{64,10},{64,40},{68,40}}, color={0,0,127}));
           connect(voltagesensor.v, rootMeanSquareVoltage.u) annotation (Line(
-              points={{60,10},{68,10}}, color={0,0,127}));
+              points={{61,10},{68,10}}, color={0,0,127}));
           connect(rectifier.dc_p, voltagesensor.p) annotation (Line(
               points={{-20,40},{50,40},{50,20}}, color={0,0,255}));
           connect(currentSensor.p, voltagesensor.n) annotation (Line(
@@ -3155,9 +3155,9 @@ center tap <code>2*m</code> pulse rectifiers</a>, where <code>m</code> is the nu
           connect(inverter.fire_n, signalPWM.notFire) annotation (Line(
               points={{-34,18},{-34,-9}}, color={255,0,255}));
           connect(currentSensor.i, fundamentalWaveCurrent.u) annotation (Line(
-              points={{0,-80},{0,-90},{18,-90}}, color={0,0,127}));
+              points={{0,-81},{0,-90},{18,-90}}, color={0,0,127}));
           connect(voltageSensor.v, fundamentalWaveVoltage.u) annotation (Line(
-              points={{80,-10},{90,-10},{90,38}}, color={0,0,127}));
+              points={{81,-10},{90,-10},{90,38}}, color={0,0,127}));
           annotation (Documentation(
                 info="<html>
 <p>Single phase two level example template including supply and sensors; load is not yet included.</p>
@@ -3459,9 +3459,9 @@ Plot machine current <code>dcpm.ia</code>, averaged current <code>meanCurrent.y<
           connect(constantVoltage.n, ground.p) annotation (Line(
               points={{-80,-10},{-80,-20}}, color={0,0,255}));
           connect(voltageSensor.v, meanVoltage.u) annotation (Line(
-              points={{70,10},{78,10}}, color={0,0,127}));
+              points={{71,10},{78,10}}, color={0,0,127}));
           connect(currentSensor.i, meanCurrent.u) annotation (Line(
-              points={{-10,-16},{-10,-28}}, color={0,0,127}));
+              points={{-10,-17},{-10,-28}}, color={0,0,127}));
           connect(signalPWM.fire, chopperStepDown.fire_p) annotation (Line(
               points={{-56,-49},{-56,-12}}, color={255,0,255}));
           annotation (Documentation(
@@ -3514,9 +3514,9 @@ Plot machine current <code>dcpm.ia</code>, averaged current <code>meanCurrent.y<
           connect(voltageSensor.n, currentSensor.p) annotation (Line(
               points={{60,0},{60,-6},{0,-6}}, color={0,0,255}));
           connect(voltageSensor.v, meanVoltage.u) annotation (Line(
-              points={{70,10},{78,10}}, color={0,0,127}));
+              points={{71,10},{78,10}}, color={0,0,127}));
           connect(currentSensor.i, meanCurrent.u) annotation (Line(
-              points={{-10,-16},{-10,-28}}, color={0,0,127}));
+              points={{-10,-17},{-10,-28}}, color={0,0,127}));
           connect(hbridge.dc_p2, voltageSensor.p) annotation (Line(
               points={{-40,6},{-30,6},{-30,70},{60,70},{60,20}}, color={0,0,255}));
           connect(currentSensor.n, hbridge.dc_n2) annotation (Line(
