@@ -2593,7 +2593,8 @@ Transformation of space phasor to m phase values (voltages or currents).
     equation
       y = plug_p.reference.gamma;
       plug_p.pin.i = fill(Complex(0), m);
-      annotation (defaultComponentName="refSensor", Icon(graphics={Text(
+      annotation (
+        Icon(graphics={Text(
               extent={{60,-60},{-60,-30}},
               textString="ref")}), Documentation(info="<html>
 <p>
@@ -2633,7 +2634,8 @@ This sensor can be used to measure the reference angle.
           points={{-68,0},{-10,0}}, color={85,170,255}));
       connect(frequencySensor.y, y) annotation (Line(
           points={{11,0},{110,0}}, color={0,0,127}));
-      annotation (defaultComponentName="fSensor", Icon(graphics={Line(points={{70,0},{80,0},{90,0},{100,0}},
+      annotation (
+        Icon(graphics={Line(points={{70,0},{80,0},{90,0},{100,0}},
                 color={0,0,127}), Text(
               extent={{-29,-11},{30,-70}},
               textString="f")}), Documentation(info="<html>
@@ -2680,7 +2682,8 @@ This sensor can be used to measure the frequency of the reference system, using 
           points={{-100,0},{-72,0}}, color={85,170,255}));
       connect(plugToPins_p.pin_p, potentialSensor.pin) annotation (Line(
           points={{-68,0},{-10,0}}, color={85,170,255}));
-      annotation (defaultComponentName="vSensor", Icon(graphics={Text(
+      annotation (
+        Icon(graphics={Text(
               extent={{-29,-11},{30,-70}},
               textString="V")}), Documentation(info="<html>
 
@@ -2723,7 +2726,8 @@ This sensor can be used to measure <em>m</em> complex potentials, using <em>m</e
               {{10,0},{39,0},{39,0},{68,0}}, color={85,170,255}));
       connect(voltageSensor.y, y) annotation (Line(points={{0,-11},{0,-35.75},{
               0,-35.75},{0,-60.5},{0,-60.5},{0,-110}}, color={85,170,255}));
-      annotation (defaultComponentName="vSensor", Icon(graphics={Text(
+      annotation (
+        Icon(graphics={Text(
               extent={{-29,-11},{30,-70}},
               textString="V")}), Documentation(info="<html>
 
@@ -2779,7 +2783,7 @@ This sensor can be used to measure <em>m</em> complex voltages, using <em>m</em>
           points={{10,0},{68,0}}, color={85,170,255}));
       connect(voltageSensor.y, quasiRMS.u) annotation (Line(
           points={{0,-11},{0,-38}}, color={85,170,255}));
-      annotation (defaultComponentName="vSensor",
+      annotation (defaultComponentName="voltageRMSSensor",
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
             Text(
@@ -2833,7 +2837,8 @@ This sensor determines the continuous quasi <a href=\"Modelica://Modelica.Blocks
               {{10,0},{39,0},{39,0},{68,0}}, color={85,170,255}));
       connect(currentSensor.y, y) annotation (Line(points={{0,-11},{0,-35.75},{
               0,-35.75},{0,-60.5},{0,-60.5},{0,-110}}, color={85,170,255}));
-      annotation (defaultComponentName="iSensor", Icon(graphics={Text(
+      annotation (
+        Icon(graphics={Text(
               extent={{-29,-11},{30,-70}},
               textString="I")}), Documentation(info="<html>
 
@@ -2890,7 +2895,7 @@ This sensor can be used to measure <em>m</em> complex currents, using <em>m</em>
           points={{10,0},{68,0}}, color={85,170,255}));
       connect(currentSensor.y, quasiRMS.u) annotation (Line(
           points={{0,-11},{0,-38}}, color={85,170,255}));
-      annotation (defaultComponentName="iSensor",
+      annotation (defaultComponentName="currentRMSSensor",
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
             Line(points={{-90,0},{-70,0}}, color={0,0,255}),
@@ -2995,7 +3000,7 @@ This sensor determines the continuous quasi <a href=\"Modelica://Modelica.Blocks
       connect(powerSensor.y, sum.u) annotation (Line(points={{-10,-11},{-10,-40},{-80,-40},{-80,-58}}, color={85,170,255}));
       connect(sum.y, y)
         annotation (Line(points={{-80,-81},{-80,-90},{-100,-90},{-100,-110}}, color={85,170,255}));
-      annotation (defaultComponentName="pSensor",
+      annotation (
         Icon(graphics={
             Line(points={{0,100},{0,70}}, color={85,170,255}),
             Line(points={{0,-70},{0,-100}}, color={85,170,255}),
@@ -3096,7 +3101,7 @@ This sensor can be used to measure <em>m</em> complex apparent power values, usi
     v = pv.pin.v - nv.pin.v;
     apparentPower = v.*conj(i);
     apparentPowerTotal = Complex(sum(apparentPower.re),sum(apparentPower.im));
-    annotation (defaultComponentName="sensor",
+    annotation (
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
         Line(points = {{0,100},{0,70}}, color={85,170,255}),
         Line(points = {{0,-70},{0,-100}}, color={85,170,255}),
@@ -3174,7 +3179,7 @@ Quasi stationary theory can be found in the
     equation
       omega = 2*Modelica.Constants.pi*f;
       v = {V[k]*exp(j*phi[k]) for k in 1:m};
-      annotation (defaultComponentName="vSource",
+      annotation (
         Icon(graphics={
             Line(points={{-50,0},{50,0}}, color={85,170,255}),
             Line(points={{-70,30},{-70,10}}, color={85,170,255}),
@@ -3215,7 +3220,8 @@ This model describes <em>m</em> constant voltage sources, specifying the complex
     equation
       omega = 2*Modelica.Constants.pi*f;
       v = V;
-      annotation (defaultComponentName="vSource", Icon(graphics={
+      annotation (defaultComponentName="voltageSource",
+        Icon(graphics={
             Line(points={{-50,0},{50,0}}, color={85,170,255}),
             Line(points={{-70,30},{-70,10}}, color={85,170,255}),
             Line(points={{-80,20},{-60,20}}, color={85,170,255}),
@@ -3258,7 +3264,8 @@ Additionally, the frequency of the voltage source is defined by a real signal in
     equation
       plug_p.reference.gamma = gamma;
       v = V;
-      annotation (defaultComponentName="vSource", Documentation(info="<html>
+      annotation (
+        defaultComponentName="voltageSource", Documentation(info="<html>
 
 <p>
 This model describes <em>m</em> variable current sources, with <em>m</em> complex signal inputs,
@@ -3295,7 +3302,8 @@ Additionally, the frequency of the current source is defined by a real signal in
     equation
       omega = 2*Modelica.Constants.pi*f;
       i = {I[k]*exp(j*phi[k]) for k in 1:m};
-      annotation (defaultComponentName="iSource", Icon(graphics={Line(points={{0,50},{0,-50}}, color={85,170,255}),
+      annotation (
+        Icon(graphics={Line(points={{0,50},{0,-50}}, color={85,170,255}),
               Polygon(
               points={{90,0},{60,10},{60,-10},{90,0}},
               lineColor={85,170,255},
@@ -3341,7 +3349,8 @@ This model describes <em>m</em> constant current sources, specifying the complex
     equation
       omega = 2*Modelica.Constants.pi*f;
       i = I;
-      annotation (defaultComponentName="iSource", Icon(graphics={Line(points={{0,-50},{0,50}}, color={85,170,255}),
+      annotation (defaultComponentName="currentSource",
+        Icon(graphics={Line(points={{0,-50},{0,50}}, color={85,170,255}),
             Polygon(
               points={{90,0},{60,10},{60,-10},{90,0}},
               lineColor={85,170,255},
@@ -3390,7 +3399,8 @@ Additionally, the frequency of the current source is defined by a real signal in
     equation
       plug_p.reference.gamma = gamma;
       i = I;
-      annotation (defaultComponentName="iSource",
+      annotation (
+        defaultComponentName="currentSource",
         Icon(graphics={Line(points={{0,-50},{0,50}}, color={85,170,255}),
               Polygon(
               points={{90,0},{60,10},{60,-10},{90,0}},

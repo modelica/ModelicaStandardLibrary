@@ -1846,7 +1846,8 @@ Quasi stationary theory for single phase circuits can be found in the
           Placement(transformation(extent={{100,-10},{120,10}})));
     equation
       y = pin.reference.gamma;
-      annotation (defaultComponentName="refSensor", Icon(graphics={Text(
+      annotation (
+        Icon(graphics={Text(
               extent={{60,-60},{-60,-30}},
               textString="ref")}), Documentation(info="<html>
 
@@ -1875,7 +1876,8 @@ This sensor can be used to measure the reference angle.
               extent={{100,-10},{120,10}})));
     equation
       2*pi*y = omega;
-      annotation (defaultComponentName="fSensor", Icon(graphics={Text(
+      annotation (
+        Icon(graphics={Text(
               extent={{-29,-11},{30,-70}},
               textString="f")}), Documentation(info="<html>
 
@@ -1905,7 +1907,8 @@ This sensor can be used to measure the frequency of the reference system.
       Modelica.SIunits.Angle arg_y=Modelica.ComplexMath.arg(y) "Argument of complex potential";
     equation
       y = pin.v;
-      annotation (defaultComponentName="vSensor", Icon(graphics={Text(
+      annotation (
+        Icon(graphics={Text(
               extent={{-29,-11},{30,-70}},
               textString="V")}), Documentation(info="<html>
 
@@ -1935,7 +1938,8 @@ This sensor can be used to measure the complex potential.
     equation
       i = Complex(0);
       y = v;
-      annotation (defaultComponentName="vSensor", Icon(graphics={Text(
+      annotation (
+        Icon(graphics={Text(
               extent={{-29,-11},{30,-70}},
               textString="V")}), Documentation(info="<html>
 <p>
@@ -1963,7 +1967,8 @@ This sensor can be used to measure the complex voltage.
     equation
       v = Complex(0);
       y = i;
-      annotation (defaultComponentName="iSensor", Icon(graphics={Text(
+      annotation (
+        Icon(graphics={Text(
               extent={{-29,-11},{30,-70}},
               textString="I")}), Documentation(info="<html>
 <p>
@@ -2023,7 +2028,8 @@ This sensor can be used to measure the complex current.
       v = voltageP.v - voltageN.v;
       //P + j*Q = v * conj(i);
       y = v*conj(i);
-      annotation (defaultComponentName="pSensor", Icon(graphics={
+      annotation (
+        Icon(graphics={
             Line(points={{0,100},{0,70}}, color={85,170,255}),
             Line(points={{0,-70},{0,-100}}, color={85,170,255}),
             Text(extent={{-29,-70},{30,-11}}, textString="P"),
@@ -2118,7 +2124,7 @@ This sensor can be used to measure the complex apparent power.
     i = pc.i;
     v = pv.v - nv.v;
     apparentPower = v*conj(i);
-    annotation (defaultComponentName="sensor",
+    annotation (
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
         Line(points = {{0,100},{0,70}}, color={85,170,255}),
         Line(points = {{0,-70},{0,-100}}, color={85,170,255}),
@@ -2187,7 +2193,7 @@ Quasi stationary theory for single phase circuits can be found in the
     equation
       omega = 2*Modelica.Constants.pi*f;
       v = Complex(V*cos(phi), V*sin(phi));
-      annotation (defaultComponentName="vSource", Icon(graphics={
+      annotation (Icon(graphics={
             Line(points={{-50,0},{50,0}}, color={85,170,255}),
             Line(points={{-70,30},{-70,10}}, color={85,170,255}),
             Line(points={{-80,20},{-60,20}}, color={85,170,255}),
@@ -2223,7 +2229,8 @@ This is a constant voltage source, specifying the complex voltage by the RMS vol
     equation
       omega = 2*Modelica.Constants.pi*f;
       v = V;
-      annotation (defaultComponentName="vSource", Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (defaultComponentName="voltageSource",
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
             Line(points={{-50,0},{50,0}}, color={85,170,255}),
             Line(points={{-70,30},{-70,10}}, color={85,170,255}),
@@ -2254,7 +2261,8 @@ Additionally, the frequency of the voltage source is defined by a real signal in
     equation
       omega = 2*Modelica.Constants.pi*f;
       i = Complex(I*cos(phi), I*sin(phi));
-      annotation (defaultComponentName="iSource", Icon(graphics={
+      annotation (
+        Icon(graphics={
             Polygon(
               points={{90,0},{60,10},{60,-10},{90,0}},
               lineColor={85,170,255},
@@ -2291,7 +2299,8 @@ This is a constant current source, specifying the complex current by the RMS cur
     equation
       omega = 2*Modelica.Constants.pi*f;
       i = I;
-      annotation (defaultComponentName="iSource", Icon(graphics={Line(points={{0,50},{0,-50}}, color={85,170,255}),
+      annotation (defaultComponentName="currentSource",
+        Icon(graphics={Line(points={{0,50},{0,-50}}, color={85,170,255}),
             Polygon(
               points={{90,0},{60,10},{60,-10},{90,0}},
               lineColor={85,170,255},
