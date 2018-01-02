@@ -527,7 +527,7 @@ Delta (polygon) connection of a multi phase circuit consisting of multiple base 
           color={85,170,255}));
       connect(star.pin_n, pin) annotation (Line(
           points={{60,0},{100,0}}, color={85,170,255}));
-      annotation (defaultComponentName="multiStarR",
+      annotation (defaultComponentName="multiStar",
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={Line(
                   points={{-40,40},{0,0},{40,40},{0,0},{0,-40}},

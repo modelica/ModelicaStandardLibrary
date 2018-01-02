@@ -941,7 +941,7 @@ Delta (polygon) connection of a multi phase circuit consisting of multiple base 
       connect(star.pin_n, pin) annotation (Line(
           points={{60,0},{60,0},{98,0},{98,0},{100,0},{100,
               0}}, color={0,0,255}));
-      annotation (defaultComponentName="multiStarR",
+      annotation (defaultComponentName="multiStar",
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
             Line(
