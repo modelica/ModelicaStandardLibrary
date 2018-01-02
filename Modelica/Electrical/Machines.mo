@@ -10383,12 +10383,8 @@ Calculates (mechanical) power from torque times angular speed.
           color={0,0,127}));
       connect(add.y, rotatorVS2R.angle) annotation (Line(
           points={{-10,19},{-10,12}}, color={0,0,127}));
-      connect(wrapAngle.y, rotorDisplacementAngle) annotation (Line(points={{91,0},{
-              110,0}},                                                                       color={0,0,127}));
-      connect(ToPolarVSR.y, lessThreshold.u)
-        annotation (Line(points={{31,0},{38,0}}, color={0,0,127}));
-      connect(lessThreshold.y, wrapAngle.u)
-        annotation (Line(points={{61,0},{68,0}}, color={0,0,127}));
+      connect(wrapAngle.y, rotorDisplacementAngle) annotation (Line(points={{81,0},{110,0}}, color={0,0,127}));
+      connect(ToPolarVSR.y[2], wrapAngle.u) annotation (Line(points={{41,0},{58,0}}, color={0,0,127}));
       annotation (defaultComponentName="angleSensor",
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Ellipse(
