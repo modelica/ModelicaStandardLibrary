@@ -5037,7 +5037,7 @@ no rolling resistance. This component defines the kinematic constraint:
           points={{0,-80},{60,-80},{60,0},{100,0}}));
       connect(set_flange_tau.flange, flange) annotation (Line(
           points={{76,-80},{60,-80},{60,0},{100,0}}));
-      annotation (defaultComponentName="initFlange",
+      annotation (
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={
             Text(
@@ -5100,7 +5100,7 @@ provided via a signal bus.
       a_rel = der(w_rel);
       flange_a.tau = 0;
       flange_b.tau = 0;
-      annotation (defaultComponentName="relStates",
+      annotation (
         Documentation(info="<html>
 <p>
 Usually, the absolute angle and the absolute angular velocity of
@@ -5457,7 +5457,7 @@ This package contains basic components 1D mechanical rotational drive trains.
         annotation (Placement(transformation(extent={{100,-10},{120,10}})));
     equation
       phi = flange.phi;
-      annotation (defaultComponentName="phiSensor",
+      annotation (
         Documentation(info="<html>
 <p>
 Measures the <strong>absolute angle phi</strong> of a flange in an ideal
@@ -5481,7 +5481,7 @@ way and provides the result as output signal <strong>phi</strong>
 
     equation
       w = der(flange.phi);
-      annotation (defaultComponentName="wSensor",
+      annotation (
         Documentation(info="<html>
 <p>
 Measures the <strong>absolute angular velocity w</strong> of a flange in an ideal
@@ -5507,7 +5507,7 @@ way and provides the result as output signal <strong>w</strong>
     equation
       w = der(flange.phi);
       a = der(w);
-      annotation (defaultComponentName="aSensor",
+      annotation (
         Documentation(info="<html>
 <p>
 Measures the <strong>absolute angular acceleration a</strong> of a flange in an ideal
@@ -5535,7 +5535,7 @@ blocks of the Modelica.Blocks library).
     equation
       phi_rel = flange_b.phi - flange_a.phi;
       0 = flange_a.tau;
-      annotation (defaultComponentName="phiSensor",
+      annotation (
         Documentation(info="<html>
 <p>
 Measures the <strong>relative angle phi_rel</strong> between two flanges
@@ -5570,7 +5570,7 @@ in an ideal way and provides the result as output signal <strong>phi_rel</strong
       phi_rel = flange_b.phi - flange_a.phi;
       w_rel = der(phi_rel);
       0 = flange_a.tau;
-      annotation (defaultComponentName="wSensor",
+      annotation (
         Documentation(info="<html>
 <p>
 Measures the <strong>relative angular velocity w_rel</strong> between two flanges
@@ -5607,7 +5607,7 @@ in an ideal way and provides the result as output signal <strong>w_rel</strong>
       w_rel = der(phi_rel);
       a_rel = der(w_rel);
       0 = flange_a.tau;
-      annotation (defaultComponentName="aSensor",
+      annotation (
         Documentation(info="<html>
 <p>
 Measures the <strong>relative angular acceleration a_rel</strong> between two flanges
@@ -5638,7 +5638,7 @@ in an ideal way and provides the result as output signal <strong>a_rel</strong>
     equation
       flange_a.phi = flange_b.phi;
       flange_a.tau = tau;
-      annotation (defaultComponentName="tauSensor",
+      annotation (
         Documentation(info="<html>
 <p>
 Measures the <strong>cut-torque between two flanges</strong> in an ideal way
@@ -5669,7 +5669,7 @@ and provides the result as output signal <strong>tau</strong>
     equation
       flange_a.phi = flange_b.phi;
       power = flange_a.tau*der(flange_a.phi);
-      annotation (defaultComponentName="pSensor",
+      annotation (
         Documentation(info="<html>
 <p>
 Measures the <strong>power between two flanges</strong> in an ideal way
@@ -5712,7 +5712,7 @@ and provides the result as output signal <strong>power</strong>
       w = der(flange_a.phi);
       tau = flange_a.tau;
       power = tau*w;
-      annotation (defaultComponentName="sensor",
+      annotation (
         Documentation(info="<html>
 <p>Measures the <strong>absolute angular velocity</strong> of a flange_a, the <strong>cut-torque</strong> and <strong>power</strong> between two flanges in an ideal way and provides the results as output signals <strong>w</strong>, <strong>tau</strong> and <strong>power</strong>, respectively.
 </p>
@@ -5789,7 +5789,7 @@ Modelica.Blocks library.
         a = der(w);
         a = ((phi_ref - phi)*w_crit - af*w)*(w_crit/bf);
       end if;
-      annotation (defaultComponentName="phiSource",
+      annotation (
         Documentation(info="<html>
 <p>
 The input signal <strong>phi_ref</strong> defines the <strong>reference
@@ -5890,7 +5890,7 @@ blocks of the block library Modelica.Blocks.Sources.
         a = der(w);
         a = (w_ref - w)*w_crit;
       end if;
-      annotation (defaultComponentName="wSource",
+      annotation (
         Documentation(info="<html>
 <p>
 The input signal <strong>w_ref</strong> defines the <strong>reference
@@ -5976,7 +5976,7 @@ blocks of the block library Modelica.Blocks.Sources.
       w = der(phi);
       a = der(w);
       a = a_ref;
-      annotation (defaultComponentName="aSource",
+      annotation (
         Documentation(info="<html>
 <p>
 The input signal <strong>a</strong> defines an <strong>angular acceleration</strong>
@@ -6068,7 +6068,7 @@ blocks of the block library Modelica.Blocks.Sources.
     equation
       phi = flange.phi - phi_support;
       phi = position(u, time);
-      annotation (defaultComponentName="source",
+      annotation (
         Documentation(info="<html>
 <p>
 Flange <strong>flange</strong> is <strong>forced</strong> to move relative to flange support with a predefined motion
@@ -6127,7 +6127,7 @@ blocks of the block library Modelica.Blocks.Sources.
 
     equation
       flange.tau = -tau;
-      annotation (defaultComponentName="tauSource",
+      annotation (
         Documentation(info="<html>
 <p>
 The input signal <strong>tau</strong> defines an external
@@ -6198,7 +6198,7 @@ blocks of Modelica.Blocks.Sources.
     equation
       flange_a.tau = tau;
       flange_b.tau = -tau;
-      annotation (defaultComponentName="tauSource",
+      annotation (defaultComponentName="torque",
         Documentation(info="<html>
 <p>
 The input signal <strong>tau</strong> defines an external
@@ -6338,7 +6338,7 @@ Parameter TorqueDirection chooses whether direction of torque is the same in bot
       w = der(phi);
       tau = -flange.tau;
       tau = tau_constant;
-      annotation (defaultComponentName="tauSource",
+      annotation (
         Icon(
           coordinateSystem(
             preserveAspectRatio=true,
@@ -6382,7 +6382,7 @@ Negative torque brakes in positive direction of rotation, but accelerates in rev
       else//if reg==Modelica.Blocks.Types.Regularization.CoSine
         tau = tau_constant*(if abs(w)>=w0 then sign(w) else sign(w)*(1 - Modelica.Math.cos(pi/2*w/w0)));
       end if;
-      annotation (defaultComponentName="tauSource",
+      annotation (
         Icon(
           coordinateSystem(
             preserveAspectRatio=true,
@@ -6415,7 +6415,7 @@ Negative torque brakes in both directions of rotation.</p>
     equation
       w = der(phi);
       w = w_fixed;
-      annotation (defaultComponentName="wSource",
+      annotation (
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Line(points={{0,-100},{0,100}}, color={0,0,127}),
           Text(extent={{-116.0,-40.0},{128.0,-16.0}},
@@ -6440,7 +6440,7 @@ Model of <strong>fixed</strong> angular velocity of flange, not dependent on tor
     equation
       tau = -flange.tau;
       tau = offsetTorque + (if time < startTime then 0 else stepTorque);
-      annotation (defaultComponentName="tauSource",
+      annotation (
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Line(points={{-80,-60},{0,-60},{0,60},{80,
                   60}}, color={0,0,127}), Text(
