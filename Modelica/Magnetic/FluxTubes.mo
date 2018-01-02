@@ -2805,7 +2805,6 @@ The differences between these two models in static behaviour can be analysed and
         connect(winding1.port_p, tellinenSoft.port_p) annotation (Line(points={{50,70},{62,70}}, color={255,127,0}));
         connect(magGnd1.port,tellinenSoft. port_n) annotation (Line(points={{70,50},{90,50},{90,70},{82,70}},
                                               color={255,127,0}));
-        connect(preisachEverett.port_n, winding3.port_n) annotation (Line(points={{80,-50},{90,-50},{90,-70},{50,-70}}, color={255,127,0}));
         annotation (experiment(StartTime=0, StopTime=14, Interval=3e-3, Tolerance=1e-005), Documentation(info="<html>
 <p>
 Use the following simulation settings:
