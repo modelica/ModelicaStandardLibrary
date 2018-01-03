@@ -4080,7 +4080,7 @@ to speed to achieve constant current and torque.</p>
         parameter Modelica.SIunits.Frequency fNominal=50 "Nominal frequency";
         parameter Modelica.SIunits.Voltage Ve=smeeData.Re*smeeData.IeOpenCircuit "Excitation current";
         parameter Modelica.SIunits.Angle gamma0(displayUnit="deg") = 0 "Initial rotor displacement angle";
-        Modelica.SIunits.Current ir = sqrt(smee.ir[1]^2+smee.ir[2]^2)/sqrt(2) "Quasi RMS rotor current";
+        Modelica.SIunits.Current irRMS = sqrt(smee.ir[1]^2+smee.ir[2]^2)/sqrt(2) "Quasi RMS rotor current";
         Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcited smee(
           phiMechanical(start=-(Modelica.Constants.pi + gamma0)/smee.p, fixed=true),
           fsNominal=smeeData.fsNominal,
@@ -4240,20 +4240,21 @@ to speed to achieve constant current and torque.</p>
 <p>At t = 0.5 seconds, the excitation voltage is raised to achieve the no-load excitation current. 
 Note, that reactive power of the stator goes to zero.</p>
 <p>At t = 2 second, a driving torque step is applied to the shaft (i.e. the turbine is activated). 
-Note, that active and reactive power of the stator changes. 
+Note, that the active (and the reactive) power of the stator change. 
 To drive at higher torque, i.e., produce more electric power, excitation has to be adapted.
 </p>
 
 <p>Simulate for 3 seconds and plot:</p>
 
 <ul>
-<li><code>smee.tauElectrical</code></li>
-<li><code>smee.wMechanical</code></li>
-<li><code>smee.ie</code></li>
-<li><code>rotorDisplacementAngle.rotorDisplacementAngle</code></li>
-<li><code>iSensor.I</code></li>
-<li><code>sensor.powerTotal</code></li>
-<li><code>mSensor.power</code></li>
+<li><code>smee.tauElectrical</code>: electric torque</li>
+<li><code>smee.wMechanical</code>: mechanical speed</li>
+<li><code>currentRMSSensor.I</code>: quasi RMS stator current</li>
+<li><code>irRMS</code>: quasi RMS rotor current</li>
+<li><code>smee.ie</code>: excitation current</li>
+<li><code>rotorDisplacementAngle.rotorDisplacementAngle</code>: rotor displacement angle</li>
+<li><code>electricalSensor.powerTotal</code>: total electric real power</li>
+<li><code>mechanicalSensor.power</code>: mechanical power</li>
 </ul>
 
 <p>Default machine parameters are used.</p>
