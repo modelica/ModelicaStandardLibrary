@@ -1,6 +1,6 @@
 /* ModelicaStandardTables.c - External table functions
 
-   Copyright (C) 2013-2017, Modelica Association, DLR, and ESI ITI GmbH
+   Copyright (C) 2013-2018, Modelica Association, DLR, and ESI ITI GmbH
    All rights reserved.
 
    Redistribution and use in source and binary forms, with or without
@@ -34,6 +34,9 @@
       Modelica.Blocks.Tables.CombiTable2D
 
    Release Notes:
+      Jan. 03, 2018: by Thomas Beutlich, ESI ITI GmbH
+                     Improved reentrancy of CombiTimeTable (ticket #2411)
+
       Oct. 23, 2017: by Thomas Beutlich, ESI ITI GmbH
                      Utilized non-fatal hash insertion, called by HASH_ADD_KEYPTR
                      in function readTable (ticket #2097)
@@ -828,6 +831,7 @@ double ModelicaStandardTables_CombiTimeTable_getValue(void* _tableID, int iCol,
                 enum PointInterval extrapolate = IN_TABLE;
                 const double tMin = TABLE_ROW0(0);
                 const double tMax = TABLE_COL0(nRow - 1);
+                size_t last;
                 /* Shift time */
                 const double tOld = t;
                 t -= tableID->shiftTime;
@@ -880,13 +884,13 @@ double ModelicaStandardTables_CombiTimeTable_getValue(void* _tableID, int iCol,
                                 t -= T;
                             } while (t > tMax);
                         }
-                        tableID->last = findRowIndex(
-                            table, nRow, nCol, tableID->last, t);
+                        last = findRowIndex(table, nRow, nCol, tableID->last, t);
+                        tableID->last = last;
                         /* Event interval correction */
-                        if (tableID->last < i0) {
+                        if (last < i0) {
                             t = TABLE_COL0(i0);
                         }
-                        if (tableID->last >= i1) {
+                        if (last >= i1) {
                             if (tableID->eventInterval == 1) {
                                 t = TABLE_COL0(i0);
                             }
@@ -910,7 +914,6 @@ double ModelicaStandardTables_CombiTimeTable_getValue(void* _tableID, int iCol,
                 }
 
                 if (extrapolate == IN_TABLE) {
-                    size_t last;
                     if (tableID->extrapolation == PERIODIC) {
                         last = findRowIndex(table, nRow, nCol,
                             tableID->last, t);
@@ -938,6 +941,7 @@ double ModelicaStandardTables_CombiTimeTable_getValue(void* _tableID, int iCol,
                             else {
                                 last = findRowIndex(table, nRow, nCol,
                                     tableID->last, t);
+                                tableID->last = last;
                             }
                             y = TABLE(last, col);
                             return y;
@@ -1006,10 +1010,8 @@ double ModelicaStandardTables_CombiTimeTable_getValue(void* _tableID, int iCol,
                 else {
                     /* Extrapolation */
                     switch (tableID->extrapolation) {
-                        case LAST_TWO_POINTS: {
-                            const size_t last =
-                                (extrapolate == RIGHT) ? nRow - 2 : 0;
-
+                        case LAST_TWO_POINTS:
+                            last = (extrapolate == RIGHT) ? nRow - 2 : 0;
                             switch(tableID->smoothness) {
                                 case LINEAR_SEGMENTS:
                                 case CONSTANT_SEGMENTS: {
@@ -1048,7 +1050,6 @@ double ModelicaStandardTables_CombiTimeTable_getValue(void* _tableID, int iCol,
                                     return y;
                             }
                             break;
-                        }
 
                         case HOLD_LAST_POINT:
                             y = (extrapolate == RIGHT) ? TABLE(nRow - 1, col) :
@@ -1149,13 +1150,14 @@ double ModelicaStandardTables_CombiTimeTable_getDerValue(void* _tableID, int iCo
                                 t -= T;
                             } while (t > tMax);
                         }
-                        tableID->last = findRowIndex(
+                        last = findRowIndex(
                             table, nRow, nCol, tableID->last, t);
+                        tableID->last = last;
                         /* Event interval correction */
-                        if (tableID->last < i0) {
+                        if (last < i0) {
                             t = TABLE_COL0(i0);
                         }
-                        if (tableID->last >= i1) {
+                        if (last >= i1) {
                             if (tableID->eventInterval == 1) {
                                 t = TABLE_COL0(i0);
                             }
