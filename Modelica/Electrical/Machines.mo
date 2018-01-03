@@ -2971,13 +2971,16 @@ achieve constant current and torque.</p>
             StopTime=3,
             Interval=0.0001,
             Tolerance=1e-006),                                                Documentation(info="<html>
-<p>An electrically excited synchronous generator is started direct on line utilizing the damper cage (and the shorted excitation winding) at 0.0 seconds.<br>
-At t = 0.5 seconds, the excitation voltage is raised to achieve no-load excitation current. Note, that reactive power of the stator goes to zero.<br>
-At t = 1 second, a driving torque step is applied to the shaft (i.e. the turbine is activated). Note, that active and reactive power of the stator changes.
+<p>An electrically excited synchronous generator is started direct on line utilizing the damper cage 
+(and the shorted excitation winding) at 0 seconds.</p>
+<p>At t = 0.5 seconds, the excitation voltage is raised to achieve the no-load excitation current. 
+Note, that reactive power of the stator goes to zero.</p>
+<p>At t = 2 second, a driving torque step is applied to the shaft (i.e. the turbine is activated). 
+Note, that active and reactive power of the stator changes. 
 To drive at higher torque, i.e., produce more electric power, excitation has to be adapted.
 </p>
 
-<p>Simulate for 2 seconds and plot:</p>
+<p>Simulate for 3 seconds and plot:</p>
 
 <ul>
 <li><code>smee.tauElectrical</code></li>
