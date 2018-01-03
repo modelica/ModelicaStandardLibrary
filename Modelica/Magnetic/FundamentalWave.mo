@@ -8931,7 +8931,7 @@ This model is mainly used to extend from in order build more complex - equation 
         "Friction loss parameter record" annotation (Dialog(tab="Losses"));
       parameter Modelica.Electrical.Machines.Losses.CoreParameters
         statorCoreParameters(
-        final m=3,
+        final m=m,
         wRef=2*pi*fsNominal/p,
         VRef(start=100))
         "Stator core loss parameter record; all parameters refer to stator side"
