@@ -6455,7 +6455,7 @@ Positive torque acts accelerating.
     end TorqueStep;
 
     model EddyCurrentTorque "Simple model of a rotational eddy current brake"
-      import Modelica.Electrical.Machines.Thermal.convertResistance;
+      import Modelica.Electrical.Machines.Thermal.linearTemperatureDependency;
       parameter Modelica.SIunits.Torque tau_nominal
         "Maximum torque (always braking)";
       parameter Modelica.SIunits.AngularVelocity w_nominal(min=Modelica.Constants.eps)
@@ -6476,7 +6476,7 @@ Positive torque acts accelerating.
     equation
       tau = flange.tau;
       w = der(phi);
-      w_normalized = w/(w_nominal*convertResistance(1, TRef, alpha20, TheatPort));
+      w_normalized = w/(w_nominal*linearTemperatureDependency(1, TRef, alpha20, TheatPort));
       tau = 2*tau_nominal*w_normalized/(1 + w_normalized*w_normalized);
       lossPower = tau*w;
       annotation (defaultComponentName="eddyCurrent",

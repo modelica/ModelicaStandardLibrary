@@ -4725,7 +4725,7 @@ Positive force acts accelerating.
     end ForceStep;
 
     model EddyCurrentForce "Simple model of a translational eddy current brake"
-      import Modelica.Electrical.Machines.Thermal.convertResistance;
+      import Modelica.Electrical.Machines.Thermal.linearTemperatureDependency;
       parameter Modelica.SIunits.Force f_nominal
         "Maximum force (always braking)";
       parameter Modelica.SIunits.Velocity v_nominal(min=Modelica.Constants.eps)
@@ -4743,7 +4743,7 @@ Positive force acts accelerating.
       Real v_normalized "Relative speed v/v_nominal";
     equation
       v = der(s);
-      v_normalized = v/(v_nominal*convertResistance(1, TRef, alpha20, TheatPort));
+      v_normalized = v/(v_nominal*linearTemperatureDependency(1, TRef, alpha20, TheatPort));
       f = 2*f_nominal*v_normalized/(1 + v_normalized*v_normalized);
       lossPower = f*v;
       annotation (defaultComponentName="eddyCurrent",
