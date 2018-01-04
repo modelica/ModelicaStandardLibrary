@@ -12271,7 +12271,7 @@ where <code>RRef</code> is the resistance at the reference temperature <code>TRe
       annotation (Inline=true,Documentation(info="<html>
 <p>
 This is the same function as Modelica.Electrical.Machines.Thermal.convertResistance but without physical units for input RRef and result R. 
-This avoids problems ig the function is used to calculate linear temperature dependency for other values than resistances.
+This avoids problems if the function is used to calculate linear temperature dependency for other values than resistances.
 </p>
 <p>From the temperature coefficient <code>alpha20</code> at 20 degC (equals to 293.15 K) the parameter <code>alphaRef</code> at <code>TRef</code> </p>
 <pre>                        alpha20
