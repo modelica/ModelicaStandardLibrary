@@ -12282,7 +12282,7 @@ From the temperature coefficient <code>alpha20</code> at 20 degC (equals to 293.
               1 + alpha20 * (TRef - 293.15)
 </pre>
 <p>
-is determined; using this value, actual value (e.g. resistance <code>R)</code> with respect to the actual temperature <code>T</code> is calculated by
+is determined; using this value, actual value (e.g. resistance <code>R</code>) with respect to the actual temperature <code>T</code> is calculated by
 </p>
 <pre>
    R
