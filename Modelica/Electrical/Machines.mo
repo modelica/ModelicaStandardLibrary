@@ -11756,7 +11756,7 @@ If it is desired to neglect permanent magnet losses, set <code>strayLoadParamete
 
       model Core "Model of core losses"
         parameter Machines.Losses.CoreParameters coreParameters(m=3);
-        //for backwards compatibility present but unsed
+        //for backwards compatibility present but unused
         final parameter Integer m=coreParameters.m "Number of phases";
         parameter Real turnsRatio(final min=Modelica.Constants.small)
           "Effective number of stator turns / effective number of rotor turns (if used as rotor core)";
