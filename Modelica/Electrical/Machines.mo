@@ -115,7 +115,7 @@ email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
 
 <h5>Version 3.2.2, 2017-12-10 (Anton Haumer, Christian Kral)</h5>
 <ul>
-  <li>Shortened default component names, see 
+  <li>Shortened default component names, see
       <a href=\"https://github.com/modelica/Modelica/issues/2301\">#2301</a></li>
   <li>Added new example
       <a href=\"Modelica.Electrical.Machines.Examples.SynchronousInductionMachines.SMEE_DOL\">SMEE_DOL</a>, see
@@ -2971,12 +2971,12 @@ achieve constant current and torque.</p>
             StopTime=3,
             Interval=0.0001,
             Tolerance=1e-006),                                                Documentation(info="<html>
-<p>An electrically excited synchronous generator is started direct on line utilizing the damper cage 
+<p>An electrically excited synchronous generator is started direct on line utilizing the damper cage
 (and the shorted excitation winding) at 0 seconds.</p>
-<p>At t = 0.5 seconds, the excitation voltage is raised to achieve the no-load excitation current. 
+<p>At t = 0.5 seconds, the excitation voltage is raised to achieve the no-load excitation current.
 Note, that reactive power of the stator goes to zero.</p>
-<p>At t = 2 second, a driving torque step is applied to the shaft (i.e. the turbine is activated). 
-Note, that active and reactive power of the stator changes. 
+<p>At t = 2 second, a driving torque step is applied to the shaft (i.e. the turbine is activated).
+Note, that active and reactive power of the stator changes.
 To drive at higher torque, i.e., produce more electric power, excitation has to be adapted.
 </p>
 
@@ -12270,18 +12270,28 @@ where <code>RRef</code> is the resistance at the reference temperature <code>TRe
       R := RRef*(1 + Machines.Thermal.convertAlpha(alpha20, TRef)*(T - TRef));
       annotation (Inline=true,Documentation(info="<html>
 <p>
-This is the same function as Modelica.Electrical.Machines.Thermal.convertResistance but without physical units for input RRef and result R. 
+This is the same function as Modelica.Electrical.Machines.Thermal.convertResistance but without physical units for input RRef and result R.
 This avoids problems if the function is used to calculate linear temperature dependency for other values than resistances.
 </p>
-<p>From the temperature coefficient <code>alpha20</code> at 20 degC (equals to 293.15 K) the parameter <code>alphaRef</code> at <code>TRef</code> </p>
-<pre>                        alpha20
+<p>
+From the temperature coefficient <code>alpha20</code> at 20 degC (equals to 293.15 K) the parameter <code>alphaRef</code> at <code>TRef</code>
+</p>
+<pre>
+                        alpha20
   alphaRef = -------------------------------
-              1 + alpha20 * (TRef - 293.15)</pre>
-<p>is determined; using this value, actual value (e.g. resistance <code>R)</code> with respect to the actual temperature <code>T</code> is calculated by </p>
-<pre>   R
+              1 + alpha20 * (TRef - 293.15)
+</pre>
+<p>
+is determined; using this value, actual value (e.g. resistance <code>R)</code> with respect to the actual temperature <code>T</code> is calculated by
+</p>
+<pre>
+   R
   ------ = 1 + alphaRef * (T - TRef)
-   RRef</pre>
-<p>where <code>RRef</code> is the value (e.g. resistance) at the reference temperature <code>TRef</code>. </p>
+   RRef
+</pre>
+<p>
+where <code>RRef</code> is the value (e.g. resistance) at the reference temperature <code>TRef</code>.
+</p>
 </html>"));
     end linearTemperatureDependency;
 
