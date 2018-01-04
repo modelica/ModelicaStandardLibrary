@@ -515,17 +515,17 @@ neglecting initial transient.
         annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
-            origin={20,-10})));
+            origin={20,-20})));
       Modelica.Electrical.MultiPhase.Basic.Inductor inductor(m=m, L=fill(L, m))
         annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
-            origin={20,-40})));
+            origin={20,-50})));
       Modelica.Electrical.MultiPhase.Basic.Star starLoad(m=m) annotation (
           Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
-            origin={20,-70})));
+            origin={20,-80})));
       Modelica.Electrical.MultiPhase.Sensors.CurrentQuasiRMSSensor
         currentQuasiRMSSensor(m=m) annotation (Placement(transformation(
             extent={{-10,10},{10,-10}},
@@ -554,16 +554,22 @@ neglecting initial transient.
       Sensors.PowerSensor powerSensor(m=m) annotation (Placement(transformation(
             extent={{10,-10},{-10,10}},
             rotation=90,
-            origin={20,20})));
+            origin={20,10})));
       Modelica.Blocks.Math.Feedback feedbackP
-        annotation (Placement(transformation(extent={{50,10},{70,30}})));
+        annotation (Placement(transformation(extent={{60,10},{80,30}})));
       Modelica.Blocks.Sources.RealExpression realExpression(y=
             Modelica.Electrical.MultiPhase.Functions.activePower(
             voltageQuasiRMSSensor.v, currentQuasiRMSSensor.i)) annotation (
           Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=90,
-            origin={60,-10})));
+            origin={70,-10})));
+      Sensors.AronSensor aronSensor annotation (Placement(transformation(
+            extent={{10,-10},{-10,10}},
+            rotation=90,
+            origin={20,40})));
+      Modelica.Blocks.Math.Feedback feedbackAron
+        annotation (Placement(transformation(extent={{40,30},{60,50}})));
     initial equation
       for k in 1:m - 1 loop
         inductor.i[k] = 0;
@@ -576,16 +582,16 @@ neglecting initial transient.
         annotation (Line(points={{-20,60},{-20,-60}}, color={0,0,255}));
 
       connect(resistor.plug_n, inductor.plug_p) annotation (Line(
-          points={{20,-20},{20,-30}}, color={0,0,255}));
+          points={{20,-30},{20,-40}}, color={0,0,255}));
       connect(inductor.plug_n, starLoad.plug_p) annotation (Line(
-          points={{20,-50},{20,-60}}, color={0,0,255}));
+          points={{20,-60},{20,-70}}, color={0,0,255}));
       connect(currentQuasiRMSSensor.I, feedbackI.u1) annotation (Line(
-          points={{30,70},{72,70}}, color={0,0,127}));
+          points={{31,70},{72,70}}, color={0,0,127}));
       connect(feedbackI.u2, constI.y) annotation (Line(
           points={{80,62},{80,51}}, color={0,0,127}));
       connect(sineVoltage.plug_p, currentQuasiRMSSensor.plug_p) annotation (
           Line(
-          points={{-20,80},{-20,90},{20,90},{20,80}}, color={0,0,255}));
+          points={{-20,80},{20,80}},                  color={0,0,255}));
       connect(voltageQuasiRMSSensor.plug_n, sineVoltage.plug_n) annotation (
           Line(
           points={{-50,60},{-20,60}}, color={0,0,255}));
@@ -593,21 +599,27 @@ neglecting initial transient.
           Line(
           points={{-50,80},{-20,80}}, color={0,0,255}));
       connect(feedbackV.u1, voltageQuasiRMSSensor.V) annotation (Line(
-          points={{-72,70},{-60,70}}, color={0,0,127}));
+          points={{-72,70},{-61,70}}, color={0,0,127}));
       connect(constV.y, feedbackV.u2) annotation (Line(
           points={{-80,51},{-80,62}}, color={0,0,127}));
       connect(powerSensor.nc, resistor.plug_p) annotation (Line(
-          points={{20,10},{20,0}}, color={0,0,255}));
-      connect(currentQuasiRMSSensor.plug_n, powerSensor.pc) annotation (Line(
-          points={{20,60},{20,30}}, color={0,0,255}));
+          points={{20,0},{20,-10}},color={0,0,255}));
       connect(powerSensor.pc, powerSensor.pv) annotation (Line(
-          points={{20,30},{10,30},{10,20}}, color={0,0,255}));
+          points={{20,20},{10,20},{10,10}}, color={0,0,255}));
       connect(powerSensor.nv, starLoad.plug_p) annotation (Line(
-          points={{30,20},{30,-60},{20,-60}}, color={0,0,255}));
+          points={{30,10},{30,-70},{20,-70}}, color={0,0,255}));
       connect(powerSensor.power, feedbackP.u1) annotation (Line(
-          points={{31,28},{40,28},{40,20},{52,20}}, color={0,0,127}));
-      connect(realExpression.y, feedbackP.u2) annotation (Line(
-          points={{60,1},{60,12}}, color={0,0,127}));
+          points={{31,20},{62,20}},                 color={0,0,127}));
+      connect(currentQuasiRMSSensor.plug_n, aronSensor.plug_p)
+        annotation (Line(points={{20,60},{20,50}}, color={0,0,255}));
+      connect(aronSensor.plug_n, powerSensor.pc)
+        annotation (Line(points={{20,30},{20,20}}, color={0,0,255}));
+      connect(aronSensor.power, feedbackAron.u1)
+        annotation (Line(points={{31,40},{42,40}}, color={0,0,127}));
+      connect(powerSensor.power, feedbackAron.u2)
+        annotation (Line(points={{31,20},{50,20},{50,32}}, color={0,0,127}));
+      connect(realExpression.y, feedbackP.u2)
+        annotation (Line(points={{70,1},{70,12}}, color={0,0,127}));
       annotation (experiment(StopTime=0.1, Interval=0.0001), Documentation(info=
              "<html>
 <p>
@@ -3203,6 +3215,87 @@ The internal resistance of each current path is zero, the internal resistance of
 </ul>
 </html>"));
   end MultiSensor;
+
+    model AronSensor "threephase Aron sensor for active power"
+      import Modelica;
+      extends Modelica.Icons.RotationalSensor;
+      final parameter Integer m(final min=1) = 3 "Number of phases";
+      Interfaces.PositivePlug plug_p(final m=m) annotation (Placement(
+            transformation(extent={{-110,-10},{-90,10}})));
+      Interfaces.NegativePlug plug_n(final m=m) annotation (Placement(
+            transformation(extent={{90,-10},{110,10}})));
+      Modelica.Blocks.Interfaces.RealOutput power "active power" annotation (
+          Placement(transformation(
+            origin={0,-110},
+            extent={{10,-10},{-10,10}},
+            rotation=90)));
+      Basic.PlugToPins_p plugToPins_p(final m=m)
+        annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));
+      Basic.PlugToPins_n plugToPins_n(final m=m)
+        annotation (Placement(transformation(extent={{80,-10},{60,10}})));
+      Analog.Sensors.PowerSensor powerSensor1
+        annotation (Placement(transformation(extent={{-40,30},{-20,50}})));
+      Analog.Sensors.PowerSensor powerSensor3
+        annotation (Placement(transformation(extent={{20,-30},{40,-50}})));
+      Modelica.Blocks.Math.Add add annotation (Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=270,
+            origin={0,-70})));
+    equation
+      connect(plug_p, plugToPins_p.plug_p)
+        annotation (Line(points={{-100,0},{-72,0}}, color={0,0,255}));
+      connect(plugToPins_n.plug_n, plug_n)
+        annotation (Line(points={{72,0},{100,0}}, color={0,0,255}));
+      connect(plugToPins_p.pin_p[1], powerSensor1.pc) annotation (Line(points={{-68,
+              0},{-60,0},{-60,40},{-40,40}}, color={0,0,255}));
+      connect(powerSensor1.pc, powerSensor1.pv)
+        annotation (Line(points={{-40,40},{-40,50},{-30,50}}, color={0,0,255}));
+      connect(powerSensor1.nc, plugToPins_n.pin_n[1]) annotation (Line(points={{-20,
+              40},{60,40},{60,0},{68,0}}, color={0,0,255}));
+      connect(plugToPins_p.pin_p[2], plugToPins_n.pin_n[2])
+        annotation (Line(points={{-68,0},{68,0}}, color={0,0,255}));
+      connect(plugToPins_p.pin_p[3], powerSensor3.pc) annotation (Line(points={{-68,
+              0},{-60,0},{-60,-40},{20,-40}}, color={0,0,255}));
+      connect(powerSensor3.pc, powerSensor3.pv)
+        annotation (Line(points={{20,-40},{20,-50},{30,-50}}, color={0,0,255}));
+      connect(powerSensor3.nc, plugToPins_n.pin_n[3]) annotation (Line(points={{40,-40},
+              {60,-40},{60,0},{68,0}}, color={0,0,255}));
+      connect(powerSensor1.nv, plugToPins_p.pin_p[2])
+        annotation (Line(points={{-30,30},{-30,0},{-68,0}}, color={0,0,255}));
+      connect(powerSensor3.nv, plugToPins_p.pin_p[2])
+        annotation (Line(points={{30,-30},{30,0},{-68,0}}, color={0,0,255}));
+      connect(add.y, power)
+        annotation (Line(points={{0,-81},{0,-110}}, color={0,0,127}));
+      connect(powerSensor1.power, add.u2) annotation (Line(points={{-40,29},{-40,-50},
+              {-6,-50},{-6,-58}}, color={0,0,127}));
+      connect(powerSensor3.power, add.u1) annotation (Line(points={{20,-29},{20,-20},
+              {6,-20},{6,-58}}, color={0,0,127}));
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                -100},{100,100}}), graphics={Text(
+                  extent={{-29,-11},{30,-70}},
+              textString="W",
+              lineColor={0,0,0}),  Line(points={{-70,0},{-90,0}}),
+              Line(points={{70,0},{90,0}}),Line(points={{0,-100},
+              {0,-70}}, color={0,0,127}),
+            Text(
+              extent={{150,-100},{-150,-70}},
+              textString="m=%m"),
+            Text(
+              extent={{-150,80},{150,120}},
+              textString="%name",
+              lineColor={0,0,255})}), Documentation(info="<html>
+<p>
+Contains 2 power meters (Modelica.Electrical.Analog.Sensors.PowerSensor) to measure total active power in a threephase system.
+</p>
+<p>
+This device works only for sinusoidal voltages and currents in threephase systems without neutral.
+</p>
+<p>
+Elmar Schr&uuml;fer, Leonhard Reindl, Bernhard Zagar: Elektrische Messtechnik. Carl Hanser Verlag.<br>
+Reinhard Lerch: Elektrische Messtechnik. Springer Vieweg.
+</p>
+</html>"));
+    end AronSensor;
     annotation (Documentation(info="<html>
 <p>
 This package contains multiphase potential, voltage, and current sensors.
