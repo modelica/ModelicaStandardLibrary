@@ -499,7 +499,7 @@ neglecting initial transient.
         final m=m,
         V=fill(sqrt(2)*VRMS, m),
         freqHz=fill(f, m)) annotation (Placement(transformation(
-            origin={-20,70},
+            origin={-20,80},
             extent={{10,-10},{-10,10}},
             rotation=90)));
       Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) annotation (
@@ -515,61 +515,61 @@ neglecting initial transient.
         annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
-            origin={20,-20})));
+            origin={10,-20})));
       Modelica.Electrical.MultiPhase.Basic.Inductor inductor(m=m, L=fill(L, m))
         annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
-            origin={20,-50})));
+            origin={10,-50})));
       Modelica.Electrical.MultiPhase.Basic.Star starLoad(m=m) annotation (
           Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
-            origin={20,-80})));
+            origin={10,-80})));
       Modelica.Electrical.MultiPhase.Sensors.CurrentQuasiRMSSensor
         currentQuasiRMSSensor(m=m) annotation (Placement(transformation(
             extent={{-10,10},{10,-10}},
             rotation=270,
-            origin={20,70})));
+            origin={10,80})));
       Modelica.Blocks.Math.Feedback feedbackI
-        annotation (Placement(transformation(extent={{70,60},{90,80}})));
+        annotation (Placement(transformation(extent={{80,70},{100,90}})));
       Modelica.Blocks.Sources.Constant constI(k=IRMS) annotation (Placement(
             transformation(
             extent={{10,-10},{-10,10}},
             rotation=270,
-            origin={80,40})));
+            origin={90,50})));
 
       Sensors.VoltageQuasiRMSSensor voltageQuasiRMSSensor(m=m) annotation (
           Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
-            origin={-50,70})));
+            origin={-50,80})));
       Modelica.Blocks.Math.Feedback feedbackV
-        annotation (Placement(transformation(extent={{-70,60},{-90,80}})));
+        annotation (Placement(transformation(extent={{-70,70},{-90,90}})));
       Modelica.Blocks.Sources.Constant constV(k=VRMS) annotation (Placement(
             transformation(
             extent={{10,-10},{-10,10}},
             rotation=270,
-            origin={-80,40})));
+            origin={-80,50})));
       Sensors.PowerSensor powerSensor(m=m) annotation (Placement(transformation(
             extent={{10,-10},{-10,10}},
             rotation=90,
-            origin={20,10})));
+            origin={10,10})));
       Modelica.Blocks.Math.Feedback feedbackP
-        annotation (Placement(transformation(extent={{60,10},{80,30}})));
+        annotation (Placement(transformation(extent={{70,10},{90,30}})));
       Modelica.Blocks.Sources.RealExpression realExpression(y=
             Modelica.Electrical.MultiPhase.Functions.activePower(
             voltageQuasiRMSSensor.v, currentQuasiRMSSensor.i)) annotation (
           Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=90,
-            origin={70,-10})));
+            origin={80,-10})));
       Sensors.AronSensor aronSensor annotation (Placement(transformation(
             extent={{10,-10},{-10,10}},
             rotation=90,
-            origin={20,40})));
+            origin={10,50})));
       Modelica.Blocks.Math.Feedback feedbackAron
-        annotation (Placement(transformation(extent={{40,30},{60,50}})));
+        annotation (Placement(transformation(extent={{50,40},{70,60}})));
     initial equation
       for k in 1:m - 1 loop
         inductor.i[k] = 0;
@@ -579,47 +579,48 @@ neglecting initial transient.
       connect(star.pin_n, ground.p)
         annotation (Line(points={{-20,-80},{-20,-90}}, color={0,0,255}));
       connect(sineVoltage.plug_n, star.plug_p)
-        annotation (Line(points={{-20,60},{-20,-60}}, color={0,0,255}));
+        annotation (Line(points={{-20,70},{-20,-60}}, color={0,0,255}));
 
       connect(resistor.plug_n, inductor.plug_p) annotation (Line(
-          points={{20,-30},{20,-40}}, color={0,0,255}));
+          points={{10,-30},{10,-40}}, color={0,0,255}));
       connect(inductor.plug_n, starLoad.plug_p) annotation (Line(
-          points={{20,-60},{20,-70}}, color={0,0,255}));
+          points={{10,-60},{10,-70}}, color={0,0,255}));
       connect(currentQuasiRMSSensor.I, feedbackI.u1) annotation (Line(
-          points={{31,70},{72,70}}, color={0,0,127}));
+          points={{21,80},{82,80}}, color={0,0,127}));
       connect(feedbackI.u2, constI.y) annotation (Line(
-          points={{80,62},{80,51}}, color={0,0,127}));
+          points={{90,72},{90,61}}, color={0,0,127}));
       connect(sineVoltage.plug_p, currentQuasiRMSSensor.plug_p) annotation (
           Line(
-          points={{-20,80},{20,80}},                  color={0,0,255}));
+          points={{-20,90},{10,90}},                  color={0,0,255}));
       connect(voltageQuasiRMSSensor.plug_n, sineVoltage.plug_n) annotation (
           Line(
-          points={{-50,60},{-20,60}}, color={0,0,255}));
+          points={{-50,70},{-20,70}}, color={0,0,255}));
       connect(voltageQuasiRMSSensor.plug_p, sineVoltage.plug_p) annotation (
           Line(
-          points={{-50,80},{-20,80}}, color={0,0,255}));
+          points={{-50,90},{-20,90}}, color={0,0,255}));
       connect(feedbackV.u1, voltageQuasiRMSSensor.V) annotation (Line(
-          points={{-72,70},{-61,70}}, color={0,0,127}));
+          points={{-72,80},{-61,80}}, color={0,0,127}));
       connect(constV.y, feedbackV.u2) annotation (Line(
-          points={{-80,51},{-80,62}}, color={0,0,127}));
+          points={{-80,61},{-80,72}}, color={0,0,127}));
       connect(powerSensor.nc, resistor.plug_p) annotation (Line(
-          points={{20,0},{20,-10}},color={0,0,255}));
+          points={{10,0},{10,-10}},color={0,0,255}));
       connect(powerSensor.pc, powerSensor.pv) annotation (Line(
-          points={{20,20},{10,20},{10,10}}, color={0,0,255}));
+          points={{10,20},{0,20},{0,10}},   color={0,0,255}));
       connect(powerSensor.nv, starLoad.plug_p) annotation (Line(
-          points={{30,10},{30,-70},{20,-70}}, color={0,0,255}));
+          points={{20,10},{20,-70},{10,-70}}, color={0,0,255}));
       connect(powerSensor.power, feedbackP.u1) annotation (Line(
-          points={{31,20},{62,20}},                 color={0,0,127}));
+          points={{21,20},{72,20}},                 color={0,0,127}));
       connect(currentQuasiRMSSensor.plug_n, aronSensor.plug_p)
-        annotation (Line(points={{20,60},{20,50}}, color={0,0,255}));
+        annotation (Line(points={{10,70},{10,60}}, color={0,0,255}));
       connect(aronSensor.plug_n, powerSensor.pc)
-        annotation (Line(points={{20,30},{20,20}}, color={0,0,255}));
+        annotation (Line(points={{10,40},{10,20}}, color={0,0,255}));
       connect(aronSensor.power, feedbackAron.u1)
-        annotation (Line(points={{31,40},{42,40}}, color={0,0,127}));
+        annotation (Line(points={{21,50},{52,50}}, color={0,0,127}));
       connect(powerSensor.power, feedbackAron.u2)
-        annotation (Line(points={{31,20},{50,20},{50,32}}, color={0,0,127}));
+        annotation (Line(points={{21,20},{60,20},{60,42}}, color={0,0,127}));
       connect(realExpression.y, feedbackP.u2)
-        annotation (Line(points={{70,1},{70,12}}, color={0,0,127}));
+        annotation (Line(points={{80,1},{80,4},{82,4},{82,6},{78,6},{78,12}},
+                                                  color={0,0,127}));
       annotation (experiment(StopTime=0.1, Interval=0.0001), Documentation(info=
              "<html>
 <p>
@@ -3246,20 +3247,20 @@ The internal resistance of each current path is zero, the internal resistance of
         annotation (Line(points={{-100,0},{-72,0}}, color={0,0,255}));
       connect(plugToPins_n.plug_n, plug_n)
         annotation (Line(points={{72,0},{100,0}}, color={0,0,255}));
-      connect(plugToPins_p.pin_p[1], powerSensor1.pc) annotation (Line(points={{-68,
-              0},{-60,0},{-60,40},{-40,40}}, color={0,0,255}));
+      connect(plugToPins_p.pin_p[1], powerSensor1.pc) annotation (Line(points={{-68,0},
+              {-68,40},{-40,40}},            color={0,0,255}));
       connect(powerSensor1.pc, powerSensor1.pv)
         annotation (Line(points={{-40,40},{-40,50},{-30,50}}, color={0,0,255}));
-      connect(powerSensor1.nc, plugToPins_n.pin_n[1]) annotation (Line(points={{-20,
-              40},{60,40},{60,0},{68,0}}, color={0,0,255}));
+      connect(powerSensor1.nc, plugToPins_n.pin_n[1]) annotation (Line(points={{-20,40},
+              {68,40},{68,0}},            color={0,0,255}));
       connect(plugToPins_p.pin_p[2], plugToPins_n.pin_n[2])
         annotation (Line(points={{-68,0},{68,0}}, color={0,0,255}));
-      connect(plugToPins_p.pin_p[3], powerSensor3.pc) annotation (Line(points={{-68,
-              0},{-60,0},{-60,-40},{20,-40}}, color={0,0,255}));
+      connect(plugToPins_p.pin_p[3], powerSensor3.pc) annotation (Line(points={{-68,0},
+              {-68,-40},{20,-40}},            color={0,0,255}));
       connect(powerSensor3.pc, powerSensor3.pv)
         annotation (Line(points={{20,-40},{20,-50},{30,-50}}, color={0,0,255}));
       connect(powerSensor3.nc, plugToPins_n.pin_n[3]) annotation (Line(points={{40,-40},
-              {60,-40},{60,0},{68,0}}, color={0,0,255}));
+              {68,-40},{68,0}},        color={0,0,255}));
       connect(powerSensor1.nv, plugToPins_p.pin_p[2])
         annotation (Line(points={{-30,30},{-30,0},{-68,0}}, color={0,0,255}));
       connect(powerSensor3.nv, plugToPins_p.pin_p[2])
