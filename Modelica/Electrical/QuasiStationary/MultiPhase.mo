@@ -449,8 +449,8 @@ This example shows an unsymmetrical load, in the upper with neutral connection (
       parameter Modelica.SIunits.Inductance L=1/sqrt(2)/(2*pi*f) "Load inductance";
       final parameter Modelica.SIunits.Impedance Z=sqrt(R^2 + (2*pi*f*L)^2) "Load impedance";
       final parameter Modelica.SIunits.Current IRMS=VRMS/Z "Steady state RMS current";
-      final parameter Modelica.SIunits.ActivePower P=3*R*IRMS^2 "Total apparent power";
-      final parameter Modelica.SIunits.ReactivePower Q=3*(2*pi*f*L)*IRMS^2 "Total apparent power";
+      final parameter Modelica.SIunits.ActivePower P=3*R*IRMS^2 "Total active power";
+      final parameter Modelica.SIunits.ReactivePower Q=3*(2*pi*f*L)*IRMS^2 "Total reactive power";
       final parameter Modelica.SIunits.ApparentPower S=3*Z*IRMS^2 "Total apparent power";
       Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VoltageSource sineVoltage(
         final m=m,
