@@ -86,11 +86,15 @@ package Sources "Time-dependent and controlled voltage and current sources"
           Line(points={{0,0},{90,0}}, color={0,0,255}),
           Text(
             extent={{-152,70},{148,110}},
-            textString="%name=%V",
-            lineColor={0,0,255}),
+            lineColor={0,0,255},
+            textString="%name"),
           Line(points={{-70,30},{-70,10}}, color={0,0,255}),
           Line(points={{-80,20},{-60,20}}, color={0,0,255}),
-          Line(points={{60,20},{80,20}}, color={0,0,255})}),
+          Line(points={{60,20},{80,20}}, color={0,0,255}),
+          Text(
+            extent={{-150,-110},{150,-70}},
+            lineColor={0,0,0},
+            textString="V=%V")}),
       Documentation(revisions="<html>
 <ul>
 <li><em> 1998   </em>
@@ -1160,15 +1164,19 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
           Line(points={{-90,0},{-50,0}}, color={0,0,255}),
           Line(points={{50,0},{90,0}}, color={0,0,255}),
           Line(points={{0,-50},{0,50}}, color={0,0,255}),
-          Text(
-            extent={{-150,50},{150,90}},
-            textString="%name=%I",
-            lineColor={0,0,255}),
           Polygon(
             points={{90,0},{60,10},{60,-10},{90,0}},
             lineColor={0,0,255},
             fillColor={0,0,255},
-            fillPattern=FillPattern.Solid)}),
+            fillPattern=FillPattern.Solid),
+          Text(
+            extent={{-152,60},{148,100}},
+            lineColor={0,0,255},
+            textString="%name"),
+          Text(
+            extent={{-150,-100},{150,-60}},
+            lineColor={0,0,0},
+            textString="I=%I")}),
       Documentation(revisions="<html>
 <ul>
 <li><em> 1998   </em>
