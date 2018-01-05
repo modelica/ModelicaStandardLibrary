@@ -16,6 +16,7 @@ to the following object libraries
 
 - ModelicaStandardTables (.lib, .dll, .a, .so, depending on tool and OS) containing:
   ModelicaStandardTables.c
+  ModelicaStandardTablesUsertab.c
 
 - zlib (.lib, .dll, .a, .so, depending on tool and OS) containing:
   zlib/*.c
@@ -51,4 +52,4 @@ Additionally, a tool vendor has to provide library "lapack"
 and this library should be used in the linker when a model is compiled
 that uses this library in its library annotation.
 
-April 05, 2017.
+January 05, 2018.
