@@ -95,22 +95,16 @@ package Sources "Time-dependent and controlled voltage and current sources"
           Line(points={{0,30},{0,-30}}, color={0,0,255}),
           Line(points={{0,0},{90,0}}, color={0,0,255}),
           Text(
-            extent={{-150,-112},{150,-72}},
-            textString="%name=%V",
-            lineColor={0,0,255}),
-          Text(
-            extent={{-120,50},{-20,0}},
+            extent={{-152,70},{148,110}},
             lineColor={0,0,255},
-            textString="+"),
+            textString="%name"),
+          Line(points={{-70,30},{-70,10}}, color={0,0,255}),
+          Line(points={{-80,20},{-60,20}}, color={0,0,255}),
+          Line(points={{60,20},{80,20}}, color={0,0,255}),
           Text(
-            extent={{20,50},{120,0}},
-            lineColor={0,0,255},
-            textString="-")}),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={Line(points={{-96,0},{-10,0}}, color={0,0,
-            255}),Line(points={{-10,60},{-10,-60}}, color={0,0,255}),Line(
-            points={{0,30},{0,-30}}, color={0,0,255}),Line(points={{0,0},{96,0}},
-            color={0,0,255})}),
+            extent={{-150,-110},{150,-70}},
+            lineColor={0,0,0},
+            textString="V=%V")}),
       Documentation(revisions="<html>
 <ul>
 <li><i> 1998   </i>
@@ -1190,23 +1184,19 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
           Line(points={{-90,0},{-50,0}}, color={0,0,255}),
           Line(points={{50,0},{90,0}}, color={0,0,255}),
           Line(points={{0,-50},{0,50}}, color={0,0,255}),
-          Text(
-            extent={{-150,80},{150,120}},
-            textString="%name=%I",
-            lineColor={0,0,255}),
           Polygon(
             points={{90,0},{60,10},{60,-10},{90,0}},
             lineColor={0,0,255},
             fillColor={0,0,255},
-            fillPattern=FillPattern.Solid)}),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={Ellipse(
-              extent={{-50,50},{50,-50}},
-              lineColor={0,0,255},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),Line(points={{-96,0},{-50,0}},
-            color={0,0,255}),Line(points={{50,0},{96,0}}, color={0,0,255}),Line(
-            points={{0,-50},{0,50}}, color={0,0,255})}),
+            fillPattern=FillPattern.Solid),
+          Text(
+            extent={{-152,60},{148,100}},
+            lineColor={0,0,255},
+            textString="%name"),
+          Text(
+            extent={{-150,-100},{150,-60}},
+            lineColor={0,0,0},
+            textString="I=%I")}),
       Documentation(revisions="<html>
 <ul>
 <li><i> 1998   </i>
