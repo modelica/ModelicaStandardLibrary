@@ -815,7 +815,41 @@ extends Modelica.Icons.ExamplesPackage;
 
     annotation (experiment(StopTime=0));
   end TestNonlinear;
+  
+  model TestInterpolateParametric "To test smoothOrder in Modelica.Math.Vectors.interpolate"
+    extends Modelica.Icons.Example;
+    parameter Real tabx[:]={0,1,2,3,4,5};
+    parameter Real taby[:]=tabx .* tabx;
+    Real x, y, xIntegrated;
+    Integer i;
+    parameter Real p=1 "So that the variable is integrated";
+  initial equation
+    xIntegrated=x;
+  equation
+    (x,i)=Modelica.Math.Vectors.interpolate(tabx, taby, time);
+    y=der(x);
+    der(xIntegrated)=p*y;
+    assert(abs(x-xIntegrated)<0.1, "Automatically generated derivative should integrate correctly.");
+    annotation (experiment(StopTime=5));
+  end TestInterpolateParametric;
 
+    model TestInterpolateTimeVarying "To test smoothOrder in Modelica.Math.Vectors.interpolate"
+    extends Modelica.Icons.Example;
+    Real tabx[:]={0,1,2,3,4,5}+0.1*time*ones(6);
+    Real taby[:]=tabx .* tabx;
+    Real x, y, xIntegrated;
+    Integer i;
+    parameter Real p=1 "So that the variable is integrated";
+  initial equation
+    xIntegrated=x;
+  equation
+    (x,i)=Modelica.Math.Vectors.interpolate(tabx, taby, time);
+    y=der(x);
+    der(xIntegrated)=p*y;
+    assert(abs(x-xIntegrated)<0.1, "Automatically generated derivative should integrate correctly.");
+    annotation (experiment(StopTime=5));
+  end TestInterpolateTimeVarying;
+  
   package Random
     function randomNumbers
       "Demonstrate the generation of uniform random numbers in the range 0..1"

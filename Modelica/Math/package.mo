@@ -545,7 +545,8 @@ can be provided as third argument of the function. Default is \"eps = 0\".
       iNew := i;
     end if;
 
-    annotation (Documentation(info="<html>
+    annotation (smoothOrder (normallyConstant=x, normallyConstant=y)=100,
+      Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 // Real    x[:], y[:], xi, yi;
