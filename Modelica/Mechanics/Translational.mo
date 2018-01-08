@@ -406,7 +406,7 @@ drive.
       annotation (Documentation(info="<html>
 <dl>
 <dt><strong>Library Officer</strong></dt>
-<dd><a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a> <br>
+<dd>Jakub Tobolar, <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a> <br>
     Deutsches Zentrum f&uuml;r Luft und Raumfahrt e.V. (DLR)<br>
     Institut f&uuml;r Robotik und Mechatronik (DLR-RM)<br>
     Abteilung Systemdynamik und Regelungstechnik<br>

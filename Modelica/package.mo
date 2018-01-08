@@ -7844,13 +7844,13 @@ class Contact "Contact"
 
 <tr><td valign=\"top\"> Modelica.Mechanics.MultiBody </td>
    <td valign=\"top\"> DLR Institute of System Dynamics and Control, Oberpfaffenhofen, Germany<br>
-      (Martin Otter),<br>
+      (Jakub Tobolar, Martin Otter),<br>
        Modelon AB, Lund, Sweden (Johan Andreasson) </td>
 </tr>
 
 <tr><td valign=\"top\"> Modelica.Mechanics.Rotational </td>
    <td valign=\"top\"> DLR Institute of System Dynamics and Control, Oberpfaffenhofen, Germany<br>
-      (Martin Otter)<br>
+      (Jakub Tobolar, Martin Otter)<br>
       Anton Haumer, Consultant, St.Andrae-Woerdern, Austria,<br>
       Christian Kral, Vienna, Austria, <br>
       AIT, Vienna, Austria, <br>
@@ -7862,7 +7862,7 @@ class Contact "Contact"
       Christian Kral, Vienna, Austria, <br>
       AIT, Vienna, Austria,<br>
       DLR Institute of System Dynamics and Control, Oberpfaffenhofen, Germany<br>
-      (Martin Otter)<br>
+      (Jakub Tobolar, Martin Otter)<br>
        Modelon AB, Lund, Sweden (Johan Andreasson)</td>
 </tr>
 

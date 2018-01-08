@@ -974,14 +974,13 @@ dynamical effects is described in:
     annotation (Documentation(info="<html>
 <dl>
 <dt><strong>Library Officer:</strong></dt>
-<dd><a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a><br>
+<dd>Jakub Tobolar, <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a><br>
     Deutsches Zentrum f&uuml;r Luft und Raumfahrt e.V. (DLR)<br>
     Institut f&uuml;r Robotik und Mechatronik<br>
     Abteilung f&uuml;r Entwurfsorientierte Regelungstechnik<br>
     Postfach 1116<br>
     D-82230 Wessling<br>
-    Germany<br>
-    email: <A HREF=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</A><br></dd>
+    Germany<br></dd>
 </dl>
 <p><strong>Acknowledgements:</strong></p>
 <ul>
