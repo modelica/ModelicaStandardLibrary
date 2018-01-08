@@ -121,7 +121,7 @@ separated by LF or CR-LF.
 </html>"));
   end countLines;
 
-  function error "Print error message and cancel all actions"
+  function error "Print error message and cancel all actions - in case of an unrecoverable error"
     extends Modelica.Icons.Function;
     input String string "String to be printed to error message window";
     external "C" ModelicaError(string) annotation(Library="ModelicaExternalC");
@@ -132,9 +132,10 @@ Streams.<strong>error</strong>(string);
 </pre></blockquote>
 <h4>Description</h4>
 <p>
-Print the string \"string\" as error message and
-cancel all actions. Line breaks are characterized
-by \"\\n\" in the string.
+In case of an unrecoverable error (i.e., if the solver is unable to recover from the error),
+print the string \"string\" as error message and cancel all actions.
+This function is semantically equivalent with the built-in function <strong>assert</strong> if called with the (default) <strong>AssertionLevel.error</strong>.
+Line breaks are characterized by \"\\n\" in the string.
 </p>
 <h4>Example</h4>
 <blockquote><pre>
@@ -144,6 +145,7 @@ by \"\\n\" in the string.
 <p>
 <a href=\"modelica://Modelica.Utilities.Streams\">Streams</a>,
 <a href=\"modelica://Modelica.Utilities.Streams.print\">Streams.print</a>,
+<a href=\"modelica://ModelicaReference.Operators.'assert()'\">ModelicaReference.Operators.'assert()'</a>
 <a href=\"modelica://ModelicaReference.Operators.'String()'\">ModelicaReference.Operators.'String()'</a>
 </p>
 </html>"));
