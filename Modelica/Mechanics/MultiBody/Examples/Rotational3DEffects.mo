@@ -15,19 +15,18 @@ package Rotational3DEffects
       z_rel_a_fixed=false) annotation (Placement(transformation(extent={{-70,20},
               {-50,40}})));
     Parts.BodyCylinder bodyCylinder1(r={0.25,0,0}, diameter=0.05) annotation (
-        Placement(transformation(extent={{-44,20},{-24,40}})));
+        Placement(transformation(extent={{-40,20},{-20,40}})));
     Parts.FixedRotation fixedRotation1(angle=45, n={0,1,0}) annotation (
-        Placement(transformation(extent={{-16,20},{4,40}})));
+        Placement(transformation(extent={{-10,20},{10,40}})));
     Joints.Revolute revolute(
       n={1,0,0},
       a(fixed=false),
       phi(fixed=true),
-      w(fixed=true, start=10)) annotation (Placement(transformation(extent={{14,
-              20},{34,40}})));
+      w(fixed=true, start=10)) annotation (Placement(transformation(extent={{20,20},{40,40}})));
     Parts.FixedTranslation fixedTranslation(r={-0.1,0,0}) annotation (Placement(
-          transformation(extent={{42,20},{62,40}})));
+          transformation(extent={{50,20},{70,40}})));
     Parts.BodyCylinder bodyCylinder2(diameter=0.1, r={0.2,0,0}) annotation (
-        Placement(transformation(extent={{70,20},{90,40}})));
+        Placement(transformation(extent={{80,20},{100,40}})));
     Parts.Fixed fixed annotation (Placement(transformation(extent={{-100,-40},{
               -80,-20}})));
     Joints.Spherical spherical2(
@@ -38,55 +37,52 @@ package Rotational3DEffects
     Parts.BodyCylinder bodyCylinder3(
       r={0.25,0,0},
       diameter=0.05,
-      color={0,128,0}) annotation (Placement(transformation(extent={{-44,-40},{
-              -24,-20}})));
+      color={0,128,0}) annotation (Placement(transformation(extent={{-40,-40},{-20,-20}})));
     Parts.FixedRotation fixedRotation2(n={0,1,0}, angle=45) annotation (
-        Placement(transformation(extent={{-16,-40},{4,-20}})));
+        Placement(transformation(extent={{-10,-40},{10,-20}})));
     Parts.FixedTranslation fixedTranslation1(r={-0.1,0,0}) annotation (
-        Placement(transformation(extent={{24,-40},{44,-20}})));
+        Placement(transformation(extent={{50,-40},{70,-20}})));
     Parts.BodyCylinder bodyCylinder4(
       diameter=0.1,
       r={0.2,0,0},
-      color={0,128,0}) annotation (Placement(transformation(extent={{56,-40},{
-              76,-20}})));
+      color={0,128,0}) annotation (Placement(transformation(extent={{80,-40},{100,-20}})));
     Parts.Rotor1D rotor1D(
       J=bodyCylinder4.I[1, 1],
       n={1,0,0},
       a(fixed=false),
       phi(fixed=true),
-      w(fixed=true, start=10)) annotation (Placement(transformation(extent={{28,
-              -70},{48,-50}})));
+      w(fixed=true, start=10)) annotation (Placement(transformation(extent={{20,-40},{40,-60}})));
   equation
     connect(world.frame_b, spherical1.frame_a) annotation (Line(
         points={{-80,30},{-70,30}},
         color={95,95,95},
         thickness=0.5));
     connect(spherical1.frame_b, bodyCylinder1.frame_a) annotation (Line(
-        points={{-50,30},{-44,30}},
+        points={{-50,30},{-40,30}},
         color={95,95,95},
         thickness=0.5));
     connect(bodyCylinder1.frame_b, fixedRotation1.frame_a) annotation (Line(
-        points={{-24,30},{-16,30}},
+        points={{-20,30},{-10,30}},
         color={95,95,95},
         thickness=0.5));
     connect(fixedRotation1.frame_b, revolute.frame_a) annotation (Line(
-        points={{4,30},{14,30}},
+        points={{10,30},{20,30}},
         color={95,95,95},
         thickness=0.5));
     connect(revolute.frame_b, fixedTranslation.frame_a) annotation (Line(
-        points={{34,30},{42,30}},
+        points={{40,30},{50,30}},
         color={95,95,95},
         thickness=0.5));
     connect(fixedTranslation.frame_b, bodyCylinder2.frame_a) annotation (Line(
-        points={{62,30},{70,30}},
+        points={{70,30},{80,30}},
         color={95,95,95},
         thickness=0.5));
     connect(spherical2.frame_b, bodyCylinder3.frame_a) annotation (Line(
-        points={{-50,-30},{-44,-30}},
+        points={{-50,-30},{-40,-30}},
         color={95,95,95},
         thickness=0.5));
     connect(bodyCylinder3.frame_b, fixedRotation2.frame_a) annotation (Line(
-        points={{-24,-30},{-16,-30}},
+        points={{-20,-30},{-10,-30}},
         color={95,95,95},
         thickness=0.5));
     connect(fixed.frame_b, spherical2.frame_a) annotation (Line(
@@ -94,15 +90,15 @@ package Rotational3DEffects
         color={95,95,95},
         thickness=0.5));
     connect(fixedTranslation1.frame_b, bodyCylinder4.frame_a) annotation (Line(
-        points={{44,-30},{56,-30}},
+        points={{70,-30},{80,-30}},
         color={95,95,95},
         thickness=0.5));
     connect(fixedRotation2.frame_b, fixedTranslation1.frame_a) annotation (Line(
-        points={{4,-30},{24,-30}},
+        points={{10,-30},{50,-30}},
         color={95,95,95},
         thickness=0.5));
     connect(rotor1D.frame_a, fixedRotation2.frame_b) annotation (Line(
-        points={{38,-70},{38,-76},{10,-76},{10,-30},{4,-30}},
+        points={{30,-40},{30,-30},{10,-30}},
         color={95,95,95},
         thickness=0.5));
     annotation (experiment(StopTime=5, Tolerance=1e-008), Documentation(info="<html>
@@ -158,66 +154,63 @@ is much faster.
       width=0.1,
       animateSphere=false,
       r_shape={0.1,0,0},
-      r_CM={0,0,0}) annotation (Placement(transformation(extent={{8,0},{28,20}})));
+      r_CM={0,0,0}) annotation (Placement(transformation(extent={{30,60},{50,80}})));
     Joints.Revolute revolute(
       n={1,0,0},
       a(fixed=false),
       phi(fixed=true),
-      w(fixed=true)) annotation (Placement(transformation(extent={{-26,0},{-6,
-              20}})));
+      w(fixed=true)) annotation (Placement(transformation(extent={{-10,60},{10,80}})));
     inner World world(g=0, driveTrainMechanics3D=true) annotation (Placement(
-          transformation(extent={{-60,0},{-40,20}})));
-    Forces.Torque torque annotation (Placement(transformation(extent={{8,30},{
-              28,50}})));
+          transformation(extent={{-60,60},{-40,80}})));
+    Forces.Torque torque annotation (Placement(transformation(extent={{0,50},{20,30}})));
     Blocks.Sources.Sine sine[3](amplitude={1,0,0}, freqHz={1,1,1}) annotation (
-        Placement(transformation(extent={{-80,60},{-60,80}})));
-    inner Parts.Fixed fixed annotation (Placement(transformation(extent={{-62,-90},
-              {-42,-70}})));
+        Placement(transformation(extent={{-100,-10},{-80,10}})));
+    inner Parts.Fixed fixed annotation (Placement(transformation(extent={{-60,-90},{-40,-70}})));
     Parts.Rotor1D rotor1D(
       J=2,
       phi(fixed=true),
-      w(fixed=true)) annotation (Placement(transformation(extent={{0,-40},{20,-20}})));
+      w(fixed=true)) annotation (Placement(transformation(extent={{30,-40},{50,-20}})));
     Rotational.Sources.Torque torque1(useSupport=true) annotation (Placement(
-          transformation(extent={{-32,-40},{-12,-20}})));
-    Parts.Mounting1D mounting1D annotation (Placement(transformation(extent={{-46,
-              -60},{-26,-40}})));
+          transformation(extent={{0,-40},{20,-20}})));
+    Parts.Mounting1D mounting1D annotation (Placement(transformation(extent={{-10,-70},{10,-50}})));
   equation
     connect(world.frame_b, revolute.frame_a) annotation (Line(
-        points={{-40,10},{-26,10}},
+        points={{-40,70},{-10,70}},
         color={95,95,95},
         thickness=0.5));
     connect(revolute.frame_b, bodyCylinder.frame_a) annotation (Line(
-        points={{-6,10},{8,10}},
+        points={{10,70},{30,70}},
         color={95,95,95},
         thickness=0.5));
     connect(torque.frame_b, bodyCylinder.frame_b) annotation (Line(
-        points={{28,40},{38,40},{38,10},{28,10}},
+        points={{20,40},{60,40},{60,70},{50,70}},
         color={95,95,95},
         thickness=0.5));
     connect(torque.frame_resolve, world.frame_b) annotation (Line(
-        points={{22,50},{22,64},{-30,64},{-30,10},{-40,10}},
+        points={{14,30},{14,20},{-20,20},{-20,70},{-40,70}},
         color={95,95,95},
-        pattern=LinePattern.Dot));
+        pattern=LinePattern.Dot,
+        thickness=0.5));
     connect(torque.frame_a, world.frame_b) annotation (Line(
-        points={{8,40},{-30,40},{-30,10},{-40,10}},
+        points={{0,40},{-20,40},{-20,70},{-40,70}},
         color={95,95,95},
         thickness=0.5));
     connect(sine.y, torque.torque) annotation (Line(
-        points={{-59,70},{12,70},{12,52}}, color={0,0,127}));
+        points={{-79,0},{4,0},{4,28}},     color={0,0,127}));
     connect(fixed.frame_b, rotor1D.frame_a) annotation (Line(
-        points={{-42,-80},{10,-80},{10,-40}},
+        points={{-40,-80},{40,-80},{40,-40}},
         color={95,95,95},
         thickness=0.5));
     connect(torque1.flange, rotor1D.flange_a) annotation (Line(
-        points={{-12,-30},{0,-30}}));
+        points={{20,-30},{30,-30}}));
     connect(mounting1D.flange_b, torque1.support) annotation (Line(
-        points={{-26,-50},{-22,-50},{-22,-40}}));
+        points={{10,-60},{10,-40}}));
     connect(mounting1D.frame_a, fixed.frame_b) annotation (Line(
-        points={{-36,-60},{-36,-80},{-42,-80}},
+        points={{0,-70},{0,-80},{-40,-80}},
         color={95,95,95},
         thickness=0.5));
     connect(sine[1].y, torque1.tau) annotation (Line(
-        points={{-59,70},{-50,70},{-50,40},{-72,40},{-72,-30},{-34,-30}}, color={0,0,127}));
+        points={{-79,0},{-20,0},{-20,-30},{-2,-30}},                      color={0,0,127}));
     annotation (experiment(StopTime=1.1), Documentation(info="<html>
 <p>
 This example demonstrates how to utilize the
@@ -250,103 +243,99 @@ Note, the solution with Rotor1D is much more efficient.
       w(fixed=true)) annotation (Placement(transformation(extent={{16,10},{36,
               30}})));
     inner World world(g=0, driveTrainMechanics3D=true) annotation (Placement(
-          transformation(extent={{-84,10},{-64,30}})));
-    Forces.Torque torque annotation (Placement(transformation(extent={{50,40},{
-              70,60}})));
+          transformation(extent={{-80,10},{-60,30}})));
+    Forces.Torque torque annotation (Placement(transformation(extent={{50,30},{70,50}})));
     Blocks.Sources.Sine sine1[3](amplitude={1,0,0}, freqHz={1,1,1}) annotation (
        Placement(transformation(extent={{16,70},{36,90}})));
     Parts.Rotor1D rotor1D(
       J=2,
       phi(fixed=true),
-      w(fixed=true)) annotation (Placement(transformation(extent={{50,-36},{70,
-              -16}})));
+      w(fixed=true)) annotation (Placement(transformation(extent={{50,-40},{70,-20}})));
     Rotational.Sources.Torque torque1(useSupport=true) annotation (Placement(
-          transformation(extent={{18,-36},{38,-16}})));
-    Parts.Mounting1D mounting1D annotation (Placement(transformation(extent={{4,
-              -56},{24,-36}})));
+          transformation(extent={{20,-40},{40,-20}})));
+    Parts.Mounting1D mounting1D annotation (Placement(transformation(extent={{0,-60},{20,-40}})));
     Joints.Revolute r1(useAxisFlange=true, n={0,1,0}) annotation (Placement(
-          transformation(extent={{-32,10},{-12,30}})));
+          transformation(extent={{-30,10},{-10,30}})));
     Rotational.Sources.Position position1(useSupport=true, w(fixed=true))
-      annotation (Placement(transformation(extent={{-46,60},{-26,80}})));
+      annotation (Placement(transformation(extent={{-50,70},{-30,90}})));
     Blocks.Sources.Sine sine2(amplitude=2, freqHz=1) annotation (Placement(
-          transformation(extent={{-100,60},{-80,80}})));
+          transformation(extent={{-100,70},{-80,90}})));
     Parts.Mounting1D mounting1D1(n={0,1,0})
-                                 annotation (Placement(transformation(extent={{
-              -60,34},{-40,54}})));
+                                 annotation (Placement(transformation(extent={{-60,40},{-40,60}})));
     Joints.Revolute r2(useAxisFlange=true, n={0,1,0}) annotation (Placement(
-          transformation(extent={{-38,-80},{-18,-60}})));
+          transformation(extent={{-30,-80},{-10,-60}})));
     Rotational.Sources.Position position2(useSupport=true, w(fixed=true))
-      annotation (Placement(transformation(extent={{-52,-30},{-32,-10}})));
+      annotation (Placement(transformation(extent={{-50,-40},{-30,-20}})));
     Parts.Mounting1D mounting1D2(n={0,1,0})
-                                 annotation (Placement(transformation(extent={{
-              -66,-56},{-46,-36}})));
-    Parts.Fixed fixed annotation (Placement(transformation(extent={{-86,-80},{-66,
-              -60}})));
+                                 annotation (Placement(transformation(extent={{-60,-60},{-40,-40}})));
+    Parts.Fixed fixed annotation (Placement(transformation(extent={{-90,-80},{-70,-60}})));
   equation
     connect(revolute.frame_b, bodyCylinder.frame_a) annotation (Line(
         points={{36,20},{50,20}},
         color={95,95,95},
         thickness=0.5));
     connect(torque.frame_b, bodyCylinder.frame_b) annotation (Line(
-        points={{70,50},{80,50},{80,20},{70,20}},
+        points={{70,40},{80,40},{80,20},{70,20}},
         color={95,95,95},
         thickness=0.5));
     connect(sine1.y, torque.torque) annotation (Line(
-        points={{37,80},{54,80},{54,62}}, color={0,0,127}));
+        points={{37,80},{54,80},{54,52}}, color={0,0,127}));
     connect(torque1.flange, rotor1D.flange_a) annotation (Line(
-        points={{38,-26},{50,-26}}));
+        points={{40,-30},{50,-30}}));
     connect(mounting1D.flange_b, torque1.support) annotation (Line(
-        points={{24,-46},{28,-46},{28,-36}}));
+        points={{20,-50},{30,-50},{30,-40}}));
     connect(r1.frame_a, world.frame_b) annotation (Line(
-        points={{-32,20},{-64,20}},
+        points={{-30,20},{-60,20}},
         color={95,95,95},
         thickness=0.5));
     connect(position1.flange, r1.axis) annotation (Line(
-        points={{-26,70},{-22,70},{-22,30}}));
+        points={{-30,80},{-20,80},{-20,30}}));
     connect(position1.support, mounting1D1.flange_b) annotation (Line(
-        points={{-36,60},{-36,44},{-40,44}}));
+        points={{-40,70},{-40,50}}));
     connect(mounting1D1.frame_a, world.frame_b) annotation (Line(
-        points={{-50,34},{-50,20},{-64,20}},
+        points={{-50,40},{-50,20},{-60,20}},
         color={95,95,95},
         thickness=0.5));
     connect(sine2.y, position1.phi_ref) annotation (Line(
-        points={{-79,70},{-48,70}}, color={0,0,127}));
+        points={{-79,80},{-52,80}}, color={0,0,127}));
     connect(r1.frame_b, revolute.frame_a) annotation (Line(
-        points={{-12,20},{16,20}},
+        points={{-10,20},{16,20}},
         color={95,95,95},
         thickness=0.5));
     connect(torque.frame_resolve, revolute.frame_a) annotation (Line(
-        points={{64,60},{8,60},{8,20},{16,20}},
+        points={{64,50},{0,50},{0,20},{16,20}},
         color={95,95,95},
-        pattern=LinePattern.Dot));
+        pattern=LinePattern.Dot,
+        thickness=0.5));
     connect(torque.frame_a, revolute.frame_a) annotation (Line(
-        points={{50,50},{8,50},{8,20},{16,20}},
+        points={{50,40},{0,40},{0,20},{16,20}},
         color={95,95,95},
         thickness=0.5));
     connect(position2.flange, r2.axis) annotation (Line(
-        points={{-32,-20},{-28,-20},{-28,-60}}));
+        points={{-30,-30},{-20,-30},{-20,-60}}));
     connect(position2.support, mounting1D2.flange_b) annotation (Line(
-        points={{-42,-30},{-42,-46},{-46,-46}}));
+        points={{-40,-40},{-40,-50}}));
     connect(fixed.frame_b, r2.frame_a) annotation (Line(
-        points={{-66,-70},{-38,-70}},
+        points={{-70,-70},{-30,-70}},
         color={95,95,95},
         thickness=0.5));
     connect(fixed.frame_b, mounting1D2.frame_a) annotation (Line(
-        points={{-66,-70},{-56,-70},{-56,-56}},
+        points={{-70,-70},{-50,-70},{-50,-60}},
         color={95,95,95},
         thickness=0.5));
     connect(sine2.y, position2.phi_ref) annotation (Line(
-        points={{-79,70},{-70,70},{-70,46},{-92,46},{-92,-20},{-54,-20}}, color={0,0,127}));
+        points={{-79,80},{-70,80},{-70,50},{-90,50},{-90,-30},{-52,-30}}, color={0,0,127}));
     connect(r2.frame_b, rotor1D.frame_a) annotation (Line(
-        points={{-18,-70},{60,-70},{60,-36}},
+        points={{-10,-70},{60,-70},{60,-40}},
         color={95,95,95},
         thickness=0.5));
     connect(r2.frame_b, mounting1D.frame_a) annotation (Line(
-        points={{-18,-70},{14,-70},{14,-56}},
+        points={{-10,-70},{10,-70},{10,-60}},
         color={95,95,95},
         thickness=0.5));
     connect(sine1[1].y, torque1.tau) annotation (Line(
-        points={{37,80},{92,80},{92,-10},{0,-10},{0,-26},{16,-26}}, color={0,0,127}));
+        points={{37,80},{90,80},{90,-10},{10,-10},{10,-30},{18,-30}},
+                                                                    color={0,0,127}));
     annotation (experiment(StopTime=1.1),
       Documentation(info="<html>
 <p>
@@ -371,73 +360,68 @@ axes of the revolute joints.
       phi_b(fixed=true),
       w_b(fixed=true),
       checkTotalPower=true)
-                       annotation (Placement(transformation(extent={{34,40},{54,
-              60}})));
+                       annotation (Placement(transformation(extent={{50,40},{70,60}})));
     inner World world(driveTrainMechanics3D=true, g=0) annotation (Placement(
-          transformation(extent={{-62,10},{-42,30}})));
+          transformation(extent={{-50,10},{-30,30}})));
     Parts.BodyCylinder cyl1(
       diameter=0.1,
       color={0,128,0},
-      r={0.4,0,0}) annotation (Placement(transformation(extent={{2,40},{22,60}})));
+      r={0.4,0,0}) annotation (Placement(transformation(extent={{20,40},{40,60}})));
     Parts.BodyCylinder cyl2(r={0.4,0,0}, diameter=0.2) annotation (Placement(
-          transformation(extent={{70,40},{90,60}})));
-    Forces.Torque torque1 annotation (Placement(transformation(extent={{-26,40},
-              {-6,60}})));
+          transformation(extent={{80,40},{100,60}})));
+    Forces.Torque torque1 annotation (Placement(transformation(extent={{-10,40},{10,60}})));
     Blocks.Sources.Sine sine[3](amplitude={2,0,0}, freqHz={1,1,1}) annotation (
         Placement(transformation(extent={{-100,60},{-80,80}})));
-    Parts.Fixed fixed annotation (Placement(transformation(extent={{-48,-90},{-28,
-              -70}})));
+    Parts.Fixed fixed annotation (Placement(transformation(extent={{-50,-90},{-30,-70}})));
     Rotational.Components.Inertia inertia1(
       J=cyl1.I[1, 1],
       a(fixed=false),
       phi(fixed=true, start=0),
-      w(fixed=true, start=0)) annotation (Placement(transformation(extent={{-20,
-              -40},{0,-20}})));
+      w(fixed=true, start=0)) annotation (Placement(transformation(extent={{20,-40},{40,-20}})));
     Rotational.Components.IdealGear idealGear(ratio=10, useSupport=true)
-      annotation (Placement(transformation(extent={{12,-40},{32,-20}})));
+      annotation (Placement(transformation(extent={{50,-40},{70,-20}})));
     Rotational.Components.Inertia inertia2(J=cyl2.I[1, 1]) annotation (
-        Placement(transformation(extent={{44,-40},{64,-20}})));
+        Placement(transformation(extent={{80,-40},{100,-20}})));
     Rotational.Sources.Torque torque2(useSupport=true) annotation (Placement(
-          transformation(extent={{-48,-40},{-28,-20}})));
-    Parts.Mounting1D mounting1D annotation (Placement(transformation(extent={{-20,
-              -70},{0,-50}})));
+          transformation(extent={{-10,-40},{10,-20}})));
+    Parts.Mounting1D mounting1D annotation (Placement(transformation(extent={{-30,-70},{-10,-50}})));
   equation
     connect(world.frame_b, gearConstraint.bearing) annotation (Line(
-        points={{-42,20},{44,20},{44,40}},
+        points={{-30,20},{60,20},{60,40}},
         color={95,95,95},
         thickness=0.5));
     connect(cyl1.frame_b, gearConstraint.frame_a) annotation (Line(
-        points={{22,50},{34,50}},
+        points={{40,50},{50,50}},
         color={95,95,95},
         thickness=0.5));
     connect(gearConstraint.frame_b, cyl2.frame_a) annotation (Line(
-        points={{54,50},{70,50}},
+        points={{70,50},{80,50}},
         color={95,95,95},
         thickness=0.5));
     connect(torque1.frame_b, cyl1.frame_a) annotation (Line(
-        points={{-6,50},{2,50}},
+        points={{10,50},{20,50}},
         color={95,95,95},
         thickness=0.5));
     connect(torque1.frame_a, world.frame_b) annotation (Line(
-        points={{-26,50},{-36,50},{-36,20},{-42,20}},
+        points={{-10,50},{-20,50},{-20,20},{-30,20}},
         color={95,95,95},
         thickness=0.5));
     connect(sine.y, torque1.torque) annotation (Line(
-        points={{-79,70},{-22,70},{-22,62}}, color={0,0,127}));
+        points={{-79,70},{-6,70},{-6,62}},   color={0,0,127}));
     connect(inertia1.flange_b, idealGear.flange_a) annotation (Line(
-        points={{0,-30},{12,-30}}));
+        points={{40,-30},{50,-30}}));
     connect(idealGear.flange_b, inertia2.flange_a) annotation (Line(
-        points={{32,-30},{44,-30}}));
+        points={{70,-30},{80,-30}}));
     connect(torque2.flange, inertia1.flange_a) annotation (Line(
-        points={{-28,-30},{-20,-30}}));
+        points={{10,-30},{20,-30}}));
     connect(sine[1].y, torque2.tau) annotation (Line(
-        points={{-79,70},{-72,70},{-72,-30},{-50,-30}}, color={0,0,127}));
+        points={{-79,70},{-70,70},{-70,-30},{-12,-30}}, color={0,0,127}));
     connect(mounting1D.flange_b, idealGear.support) annotation (Line(
-        points={{0,-60},{22,-60},{22,-40}}));
+        points={{-10,-60},{60,-60},{60,-40}}));
     connect(mounting1D.flange_b, torque2.support) annotation (Line(
-        points={{0,-60},{4,-60},{4,-48},{-38,-48},{-38,-40}}));
+        points={{-10,-60},{0,-60},{0,-40}}));
     connect(fixed.frame_b, mounting1D.frame_a) annotation (Line(
-        points={{-28,-80},{-10,-80},{-10,-70}},
+        points={{-30,-80},{-20,-80},{-20,-70}},
         color={95,95,95},
         thickness=0.5));
     annotation (experiment(StopTime=5), Documentation(info="<html>
@@ -461,16 +445,15 @@ a one-dimensional model that is mounted with an
       "Axis of rotation of right gear axis";
 
     inner Modelica.Mechanics.MultiBody.World world(final driveTrainMechanics3D=true) annotation (Placement(transformation(
-            extent={{-80,-20},{-60,0}})));
+            extent={{-100,-50},{-80,-30}})));
     Modelica.Mechanics.MultiBody.Parts.Rotor1D       inertia1(
       J=1.1,
       a(fixed=false),
       phi(fixed=true, start=0),
       w(fixed=true, start=0),
-      n=na) annotation (Placement(transformation(extent={{-30,60},
-              {-10,80}})));
+      n=na) annotation (Placement(transformation(extent={{-30,60},{-10,80}})));
     Modelica.Mechanics.MultiBody.Parts.Rotor1D       inertia2(J=18.2, n=nb)
-      annotation (Placement(transformation(extent={{30,60},{50,80}})));
+      annotation (Placement(transformation(extent={{50,60},{70,80}})));
     Modelica.Mechanics.MultiBody.Parts.BevelGear1D bevelGear(
       ratio=10,
       n_a=na,
@@ -480,50 +463,50 @@ a one-dimensional model that is mounted with an
       stateSelect=StateSelect.always,
       phi(fixed=true),
       w(fixed=true))
-      annotation (Placement(transformation(extent={{-46,0},{-26,-20}})));
+      annotation (Placement(transformation(extent={{-60,-30},{-40,-50}})));
     Modelica.Mechanics.MultiBody.Joints.Revolute revolute2(useAxisFlange=true, n={
           0,1,0},
       stateSelect=StateSelect.always,
       phi(fixed=true),
       w(fixed=true))
-                  annotation (Placement(transformation(extent={{0,0},{20,-20}})));
+                  annotation (Placement(transformation(extent={{-20,-30},{0,-50}})));
     Modelica.Mechanics.MultiBody.Joints.Revolute revolute3(useAxisFlange=true, n={
           0,0,1},
       stateSelect=StateSelect.always,
       phi(fixed=true),
       w(fixed=true))
-                  annotation (Placement(transformation(extent={{46,0},{66,-20}})));
+                  annotation (Placement(transformation(extent={{20,-30},{40,-50}})));
     Modelica.Mechanics.Rotational.Sources.Torque torque1
-      annotation (Placement(transformation(extent={{-52,-45},{-42,-35}})));
+      annotation (Placement(transformation(extent={{-66,-75},{-56,-65}})));
     Modelica.Mechanics.Rotational.Sources.Torque torque2
-      annotation (Placement(transformation(extent={{-4,-45},{6,-35}})));
+      annotation (Placement(transformation(extent={{-24,-75},{-14,-65}})));
     Modelica.Mechanics.Rotational.Sources.Torque torque3
-      annotation (Placement(transformation(extent={{42,-45},{52,-35}})));
+      annotation (Placement(transformation(extent={{16,-75},{26,-65}})));
     Modelica.Blocks.Sources.Sine sine1(amplitude=110, freqHz=5)
-      annotation (Placement(transformation(extent={{-72,-46},{-60,-34}})));
+      annotation (Placement(transformation(extent={{-86,-76},{-74,-64}})));
     Modelica.Blocks.Sources.Sine sine2(amplitude=120, freqHz=6)
-      annotation (Placement(transformation(extent={{-24,-46},{-12,-34}})));
+      annotation (Placement(transformation(extent={{-44,-76},{-32,-64}})));
     Modelica.Blocks.Sources.Sine sine3(amplitude=130, freqHz=7)
-      annotation (Placement(transformation(extent={{24,-46},{36,-34}})));
+      annotation (Placement(transformation(extent={{-2,-76},{10,-64}})));
     Modelica.Mechanics.MultiBody.Parts.Mounting1D mounting1D(n=na)
-      annotation (Placement(transformation(extent={{-72,46},{-52,66}})));
+      annotation (Placement(transformation(extent={{-70,36},{-50,56}})));
     Modelica.Mechanics.Rotational.Sources.Torque torque(useSupport=true)
-      annotation (Placement(transformation(extent={{-58,60},{-38,80}})));
+      annotation (Placement(transformation(extent={{-60,60},{-40,80}})));
     Modelica.Blocks.Sources.Sine sine4(amplitude=140, freqHz=8)
-      annotation (Placement(transformation(extent={{-90,64},{-78,76}})));
+      annotation (Placement(transformation(extent={{-92,64},{-80,76}})));
     Modelica.Mechanics.MultiBody.Parts.BodyBox bodyBox(
       r={0.1,0.1,0.1},
       length=0.1,
       width=0.1)
-      annotation (Placement(transformation(extent={{76,-20},{96,0}})));
+      annotation (Placement(transformation(extent={{60,-50},{80,-30}})));
     Sensors.AbsoluteAngularVelocity sensor1(resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a)
-      annotation (Placement(transformation(extent={{62,42},{82,62}})));
+      annotation (Placement(transformation(extent={{20,30},{40,50}})));
     Sensors.CutTorque sensor2(resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a,
         animation=false)
       annotation (Placement(transformation(
           extent={{10,-10},{-10,10}},
           rotation=-90,
-          origin={10,42})));
+          origin={10,20})));
     Modelica.SIunits.AngularVelocity ws[3] = sensor1.w;
     Modelica.SIunits.Power bevelGearPower;
   equation
@@ -535,63 +518,63 @@ a one-dimensional model that is mounted with an
     connect(inertia1.flange_b, bevelGear.flange_a) annotation (Line(
         points={{-10,70},{0,70}}));
     connect(bevelGear.flange_b, inertia2.flange_a) annotation (Line(
-        points={{20,70},{30,70}}));
+        points={{20,70},{50,70}}));
     connect(world.frame_b, revolute1.frame_a) annotation (Line(
-        points={{-60,-10},{-46,-10}},
+        points={{-80,-40},{-60,-40}},
         color={95,95,95},
         thickness=0.5));
     connect(revolute1.frame_b, revolute2.frame_a) annotation (Line(
-        points={{-26,-10},{0,-10}},
+        points={{-40,-40},{-20,-40}},
         color={95,95,95},
         thickness=0.5));
     connect(revolute2.frame_b, revolute3.frame_a) annotation (Line(
-        points={{20,-10},{46,-10}},
+        points={{0,-40},{20,-40}},
         color={95,95,95},
         thickness=0.5));
     connect(torque1.flange, revolute1.axis) annotation (Line(
-        points={{-42,-40},{-36,-40},{-36,-20}}));
+        points={{-56,-70},{-50,-70},{-50,-50}}));
     connect(torque2.flange, revolute2.axis) annotation (Line(
-        points={{6,-40},{10,-40},{10,-20}}));
+        points={{-14,-70},{-10,-70},{-10,-50}}));
     connect(torque3.flange, revolute3.axis) annotation (Line(
-        points={{52,-40},{56,-40},{56,-20}}));
+        points={{26,-70},{30,-70},{30,-50}}));
     connect(sine1.y, torque1.tau) annotation (Line(
-        points={{-59.4,-40},{-53,-40}}, color={0,0,127}));
+        points={{-73.4,-70},{-67,-70}}, color={0,0,127}));
     connect(torque2.tau, sine2.y) annotation (Line(
-        points={{-5,-40},{-11.4,-40}}, color={0,0,127}));
+        points={{-25,-70},{-31.4,-70}},color={0,0,127}));
     connect(torque3.tau, sine3.y) annotation (Line(
-        points={{41,-40},{36.6,-40}}, color={0,0,127}));
+        points={{15,-70},{10.6,-70}}, color={0,0,127}));
     connect(torque.flange, inertia1.flange_a) annotation (Line(
-        points={{-38,70},{-30,70}}));
+        points={{-40,70},{-30,70}}));
     connect(torque.support, mounting1D.flange_b) annotation (Line(
-        points={{-48,60},{-48,56},{-52,56}}));
+        points={{-50,60},{-50,46}}));
     connect(mounting1D.frame_a, revolute3.frame_b) annotation (Line(
-        points={{-62,46},{-62,20},{72,20},{72,-10},{66,-10}},
+        points={{-60,36},{-60,0},{50,0},{50,-40},{40,-40}},
         color={95,95,95},
         thickness=0.5));
     connect(torque.tau, sine4.y) annotation (Line(
-        points={{-60,70},{-77.4,70}}, color={0,0,127}));
+        points={{-62,70},{-79.4,70}}, color={0,0,127}));
     connect(revolute3.frame_b, bodyBox.frame_a) annotation (Line(
-        points={{66,-10},{76,-10}},
+        points={{40,-40},{60,-40}},
         color={95,95,95},
         thickness=0.5));
     connect(inertia1.frame_a, revolute3.frame_b) annotation (Line(
-        points={{-20,60},{-20,40},{-20,40},{-20,20},{72,20},{72,-10},{66,-10}},
+        points={{-20,60},{-20,0},{50,0},{50,-40},{40,-40}},
         color={95,95,95},
         thickness=0.5));
     connect(inertia2.frame_a, revolute3.frame_b) annotation (Line(
-        points={{40,60},{40,20},{72,20},{72,-10},{66,-10}},
+        points={{60,60},{60,0},{50,0},{50,-40},{40,-40}},
         color={95,95,95},
         thickness=0.5));
     connect(bevelGear.frame_a, sensor1.frame_a) annotation (Line(
-        points={{10,60},{24,60},{24,52},{62,52}},
+        points={{10,60},{10,40},{20,40}},
         color={95,95,95},
         thickness=0.5));
     connect(bevelGear.frame_a, sensor2.frame_b) annotation (Line(
-        points={{10,60},{10,52}},
+        points={{10,60},{10,30}},
         color={95,95,95},
         thickness=0.5));
     connect(sensor2.frame_a, revolute3.frame_b) annotation (Line(
-        points={{10,32},{10,20},{72,20},{72,-10},{66,-10}},
+        points={{10,10},{10,0},{50,0},{50,-40},{40,-40}},
         color={95,95,95},
         thickness=0.5));
     annotation (Documentation(info="<html>

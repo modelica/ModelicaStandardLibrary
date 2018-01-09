@@ -30,9 +30,8 @@ package RobotR3
       kp=kp,
       ks=ks,
       Ts=Ts) annotation (Placement(transformation(extent={{20,0},{40,20}})));
-    Modelica.Mechanics.Rotational.Components.Inertia load(
-                                               J=1.3*mLoad)
-      annotation (Placement(transformation(extent={{54,0},{74,20}})));
+    Modelica.Mechanics.Rotational.Components.Inertia load(J=1.3*mLoad)
+      annotation (Placement(transformation(extent={{60,0},{80,20}})));
     Components.PathPlanning1 pathPlanning(
       swingTime=swingTime,
       angleBegDeg=startAngle,
@@ -46,7 +45,7 @@ package RobotR3
   equation
     connect(axis.flange, load.flange_a)
       annotation (Line(
-        points={{40,10},{54,10}},
+        points={{40,10},{60,10}},
         color={128,128,128},
         thickness=0.5));
     connect(pathPlanning.controlBus, controlBus) annotation (Line(
@@ -58,7 +57,7 @@ package RobotR3
         string="%first",
         index=-1,
         extent=[-6,3; -6,3]), Line(
-        points={{-12,30},{-12,29},{-9,29},{-9,10},{20,10}},
+        points={{-11.9,30.1},{-11.9,29},{-9,29},{-9,10},{20,10}},
         color={255,204,51},
         thickness=0.5));
     annotation (
@@ -163,7 +162,7 @@ load inertia.
     Components.MechanicalStructure mechanics(
       mLoad=mLoad,
       rLoad=rLoad,
-      g=g) annotation (Placement(transformation(extent={{35,-35},{95,25}})));
+      g=g) annotation (Placement(transformation(extent={{40,-30},{100,30}})));
     Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.PathPlanning6
       pathPlanning(
       naxis=6,
@@ -173,8 +172,7 @@ load inertia.
       speedMax=refSpeedMax,
       accMax=refAccMax,
       startTime=refStartTime,
-      swingTime=refSwingTime) annotation (Placement(transformation(extent={{-5,
-              50},{-25,70}})));
+      swingTime=refSwingTime) annotation (Placement(transformation(extent={{0,70},{-20,90}})));
 
     RobotR3.Components.AxisType1 axis1(
       w=4590,
@@ -185,7 +183,7 @@ load inertia.
       Rv1=(0.13/160),
       kp=kp1,
       ks=ks1,
-      Ts=Ts1) annotation (Placement(transformation(extent={{-25,-75},{-5,-55}})));
+      Ts=Ts1) annotation (Placement(transformation(extent={{-20,-60},{0,-40}})));
     RobotR3.Components.AxisType1 axis2(
       w=5500,
       ratio=210,
@@ -195,7 +193,7 @@ load inertia.
       Rv0=0.5,
       kp=kp2,
       ks=ks2,
-      Ts=Ts2) annotation (Placement(transformation(extent={{-25,-55},{-5,-35}})));
+      Ts=Ts2) annotation (Placement(transformation(extent={{-20,-40},{0,-20}})));
 
     RobotR3.Components.AxisType1 axis3(
       w=5500,
@@ -206,7 +204,7 @@ load inertia.
       Rv1=(0.2/130),
       kp=kp3,
       ks=ks3,
-      Ts=Ts3) annotation (Placement(transformation(extent={{-25,-35},{-5,-15}})));
+      Ts=Ts3) annotation (Placement(transformation(extent={{-20,-20},{0,0}})));
     RobotR3.Components.AxisType2 axis4(
       k=0.2365,
       w=6250,
@@ -218,7 +216,7 @@ load inertia.
       peak=26.7/21.8,
       kp=kp4,
       ks=ks4,
-      Ts=Ts4) annotation (Placement(transformation(extent={{-25,-15},{-5,5}})));
+      Ts=Ts4) annotation (Placement(transformation(extent={{-20,0},{0,20}})));
     RobotR3.Components.AxisType2 axis5(
       k=0.2608,
       w=6250,
@@ -230,7 +228,7 @@ load inertia.
       peak=39.6/30.1,
       kp=kp5,
       ks=ks5,
-      Ts=Ts5) annotation (Placement(transformation(extent={{-25,5},{-5,25}})));
+      Ts=Ts5) annotation (Placement(transformation(extent={{-20,20},{0,40}})));
     RobotR3.Components.AxisType2 axis6(
       k=0.0842,
       w=7400,
@@ -242,29 +240,24 @@ load inertia.
       peak=16.8/10.9,
       kp=kp6,
       ks=ks6,
-      Ts=Ts6) annotation (Placement(transformation(extent={{-25,25},{-5,45}})));
+      Ts=Ts6) annotation (Placement(transformation(extent={{-20,40},{0,60}})));
   protected
     Components.ControlBus controlBus
       annotation (Placement(transformation(
-          origin={-80,-10},
+          origin={-80,0},
           extent={{-20,-20},{20,20}},
           rotation=90)));
   equation
-    connect(axis2.flange, mechanics.axis2) annotation (Line(points={{-5,-45},{
-            25,-45},{25,-21.5},{33.5,-21.5}}));
-    connect(axis1.flange, mechanics.axis1) annotation (Line(points={{-5,-65},{
-            30,-65},{30,-30.5},{33.5,-30.5}}));
-    connect(axis3.flange, mechanics.axis3) annotation (Line(points={{-5,-25},{
-            15,-25},{15,-12.5},{33.5,-12.5}}));
-    connect(axis4.flange, mechanics.axis4) annotation (Line(points={{-5,-5},{15,
-            -5},{15,-3.5},{33.5,-3.5}}));
+    connect(axis2.flange, mechanics.axis2) annotation (Line(points={{0,-30},{20,-30},{20,-18.3333},{38.5,-18.3333}}));
+    connect(axis1.flange, mechanics.axis1) annotation (Line(points={{0,-50},{30,-50},{30,-28.3333},{38.5,-28.3333}}));
+    connect(axis3.flange, mechanics.axis3) annotation (Line(points={{0,-10},{10,-10},{10,-8.33333},{38.5,-8.33333}}));
+    connect(axis4.flange, mechanics.axis4) annotation (Line(points={{0,10},{10,10},{10,1.66667},{38.5,1.66667}}));
     connect(axis5.flange, mechanics.axis5)
-      annotation (Line(points={{-5,15},{10,15},{10,5.5},{33.5,5.5}}));
-    connect(axis6.flange, mechanics.axis6) annotation (Line(points={{-5,35},{20,
-            35},{20,14.5},{33.5,14.5}}));
+      annotation (Line(points={{0,30},{20,30},{20,11.6667},{38.5,11.6667}}));
+    connect(axis6.flange, mechanics.axis6) annotation (Line(points={{0,50},{30,50},{30,21.6667},{38.5,21.6667}}));
     connect(controlBus, pathPlanning.controlBus)
                                          annotation (Line(
-        points={{-80,-10},{-80,60},{-25,60}},
+        points={{-80,0},{-80,80},{-20,80}},
         color={255,204,51},
         thickness=0.5));
     connect(controlBus.axisControlBus1, axis1.axisControlBus) annotation (
@@ -272,8 +265,7 @@ load inertia.
         string="%first",
         index=-1,
         extent=[-6,3; -6,3]), Line(
-        points={{-80.1,-9.9},{-80.1,-14.5},{-79,-14.5},{-79,-17},{-65,-17},{-65,
-            -65},{-25,-65}},
+        points={{-80.1,0.1},{-80.1,-4.5},{-79,-4.5},{-79,-7},{-68,-7},{-68,-50},{-20,-50}},
         color={255,204,51},
         thickness=0.5));
 
@@ -282,27 +274,23 @@ load inertia.
         string="%first",
         index=-1,
         extent=[-6,3; -6,3]), Line(
-        points={{-80.1,-9.9},{-79,-9.9},{-79,-15},{-62.5,-15},{-62.5,-45},{-25,
-            -45}},
+        points={{-80.1,0.1},{-79,0.1},{-79,-5},{-64,-5},{-64,-30},{-20,-30}},
         color={255,204,51},
         thickness=0.5));
 
-    connect(controlBus.axisControlBus3, axis3.axisControlBus) annotation (
-      Text(
+    connect(controlBus.axisControlBus3, axis3.axisControlBus) annotation (Text(
         string="%first",
         index=-1,
         extent=[-6,3; -6,3]), Line(
-        points={{-80.1,-9.9},{-77,-9.9},{-77,-12.5},{-61,-12.5},{-61,-25},{-25,
-            -25}},
+        points={{-80.1,0.1},{-77,0.1},{-77,-2.5},{-60,-2.5},{-60,-10},{-20,-10}},
         color={255,204,51},
         thickness=0.5));
 
-    connect(controlBus.axisControlBus4, axis4.axisControlBus) annotation (
-      Text(
+    connect(controlBus.axisControlBus4, axis4.axisControlBus) annotation (Text(
         string="%first",
         index=-1,
         extent=[-6,3; -6,3]), Line(
-        points={{-80.1,-9.9},{-60.5,-9.9},{-60.5,-5},{-25,-5}},
+        points={{-80.1,0.1},{-60,0.1},{-60,10},{-20,10}},
         color={255,204,51},
         thickness=0.5));
     connect(controlBus.axisControlBus5, axis5.axisControlBus) annotation (
@@ -310,7 +298,7 @@ load inertia.
         string="%first",
         index=-1,
         extent=[-6,3; -6,3]), Line(
-        points={{-80.1,-9.9},{-77,-9.9},{-77,-7},{-63,-7},{-63,15},{-25,15}},
+        points={{-80.1,0.1},{-77,0.1},{-77,3},{-64,3},{-64,30},{-20,30}},
         color={255,204,51},
         thickness=0.5));
     connect(controlBus.axisControlBus6, axis6.axisControlBus) annotation (
@@ -318,7 +306,7 @@ load inertia.
         string="%first",
         index=-1,
         extent=[-6,3; -6,3]), Line(
-        points={{-80.1,-9.9},{-79,-9.9},{-79,-5},{-65,-5},{-65,35},{-25,35}},
+        points={{-80.1,0.1},{-79,0.1},{-79,5},{-68,5},{-68,50},{-20,50}},
         color={255,204,51},
         thickness=0.5));
     annotation (
@@ -455,23 +443,23 @@ determined from the connections to this bus.
           string="%second",
           index=1,
           extent=[6,3; 6,3]), Line(
-          points={{20,0},{100,0}},
+          points={{20,0},{60,0},{60,-0.1},{100.1,-0.1}},
           color={255,204,51},
           thickness=0.5));
       annotation (
         Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}}), graphics={
-            Rectangle(
-              extent={{-100,100},{100,-100}},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
             Text(
               extent={{-150,150},{150,110}},
               textString="%name",
               lineColor={0,0,255}),
+            Rectangle(
+              extent={{-100,100},{100,-100}},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
             Polygon(
-              points={{-80,90},{-88,68},{-72,68},{-80,88},{-80,90}},
+              points={{-80,90},{-88,68},{-72,68},{-80,90}},
               lineColor={192,192,192},
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid),
@@ -626,7 +614,7 @@ motion on the controlBus of the r3 robot.
           string="%second",
           index=1,
           extent=[6,3; 6,3]), Line(
-          points={{10,80},{80,80},{80,-0.1},{100.1,-0.1}},
+          points={{10,80},{80,80},{80,6},{100,6},{100,-0.1},{100.1,-0.1}},
           color={255,204,51},
           thickness=0.5));
       connect(pathToAxis2.axisControlBus, controlBus.axisControlBus2) annotation (
@@ -634,23 +622,21 @@ motion on the controlBus of the r3 robot.
           string="%second",
           index=1,
           extent=[6,3; 6,3]), Line(
-          points={{10,50},{77,50},{77,-0.1},{100.1,-0.1}},
+          points={{10,50},{70,50},{70,4},{100,4},{100,-0.1},{100.1,-0.1}},
           color={255,204,51},
           thickness=0.5));
-      connect(pathToAxis3.axisControlBus, controlBus.axisControlBus3) annotation (
-        Text(
+      connect(pathToAxis3.axisControlBus, controlBus.axisControlBus3) annotation (Text(
           string="%second",
           index=1,
           extent=[6,3; 6,3]), Line(
-          points={{10,20},{75,20},{75,-0.1},{100.1,-0.1}},
+          points={{10,20},{60,20},{60,2},{100,2},{100,-0.1},{100.1,-0.1}},
           color={255,204,51},
           thickness=0.5));
-      connect(pathToAxis4.axisControlBus, controlBus.axisControlBus4) annotation (
-        Text(
+      connect(pathToAxis4.axisControlBus, controlBus.axisControlBus4) annotation (Text(
           string="%second",
           index=1,
           extent=[6,3; 6,3]), Line(
-          points={{10,-10},{73,-10},{73,-0.1},{100.1,-0.1}},
+          points={{10,-10},{60,-10},{60,-0.1},{100.1,-0.1}},
           color={255,204,51},
           thickness=0.5));
       connect(pathToAxis5.axisControlBus, controlBus.axisControlBus5) annotation (
@@ -658,7 +644,7 @@ motion on the controlBus of the r3 robot.
           string="%second",
           index=1,
           extent=[6,3; 6,3]), Line(
-          points={{10,-40},{75,-40},{75,-3},{100.1,-3},{100.1,-0.1}},
+          points={{10,-40},{70,-40},{70,-3},{100.1,-3},{100.1,-0.1}},
           color={255,204,51},
           thickness=0.5));
       connect(pathToAxis6.axisControlBus, controlBus.axisControlBus6) annotation (
@@ -666,7 +652,7 @@ motion on the controlBus of the r3 robot.
           string="%second",
           index=1,
           extent=[6,3; 6,3]), Line(
-          points={{10,-70},{78,-70},{78,-0.1},{100.1,-0.1}},
+          points={{10,-70},{80,-70},{80,-6},{100,-6},{100,-0.1},{100.1,-0.1}},
           color={255,204,51},
           thickness=0.5));
       annotation (
@@ -682,7 +668,7 @@ motion on the controlBus of the r3 robot.
               textString="%name",
               lineColor={0,0,255}),
             Polygon(
-              points={{-80,90},{-88,68},{-72,68},{-80,88},{-80,90}},
+              points={{-80,90},{-88,68},{-72,68},{-80,90}},
               lineColor={192,192,192},
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid),
@@ -776,26 +762,26 @@ motion on the controlBus of the r3 robot.
         Text(
           string="%second",
           index=1,
-          extent=[6,3; 6,3]), Line(points={{-19,-60},{44,-60},{44,-8},{102,-8},
-              {102,-0.1},{100.1,-0.1}}, color={255,0,255}));
+          extent=[6,3; 6,3]), Line(points={{-19,-60},{24,-60},{24,-8},{100,-8},{100,-0.1},{100.1,-0.1}},
+                                        color={255,0,255}));
       connect(qdd_axisUsed.y, axisControlBus.acceleration_ref) annotation (
         Text(
           string="%second",
           index=1,
-          extent=[6,3; 6,3]), Line(points={{-19,-20},{40,-20},{40,-4},{98,-4},{
-              98,-0.1},{100.1,-0.1}}, color={0,0,127}));
+          extent=[6,3; 6,3]), Line(points={{-19,-20},{20,-20},{20,-4},{100,-4},{100,-0.1},{100.1,-0.1}},
+                                      color={0,0,127}));
       connect(qd_axisUsed.y, axisControlBus.speed_ref) annotation (
         Text(
           string="%second",
           index=1,
-          extent=[6,3; 6,3]), Line(points={{-19,20},{20,20},{20,-0.1},{100.1,
-              -0.1}}, color={0,0,127}));
+          extent=[6,3; 6,3]), Line(points={{-19,20},{20,20},{20,0},{100.1,0},{100.1,-0.1}},
+                      color={0,0,127}));
       connect(q_axisUsed.y, axisControlBus.angle_ref) annotation (
         Text(
           string="%second",
           index=1,
-          extent=[6,3; 6,3]), Line(points={{-19,60},{40,60},{40,-0.1},{100.1,
-              -0.1}}, color={0,0,127}));
+          extent=[6,3; 6,3]), Line(points={{-19,60},{24,60},{24,4},{100,4},{100,-0.1},{100.1,-0.1}},
+                      color={0,0,127}));
       annotation (defaultComponentName="pathToAxis1",
         Icon(coordinateSystem(
             preserveAspectRatio=true,
@@ -842,10 +828,10 @@ This model stores the 4 reference variables q, qd, qdd, moving from the path pla
 
       Modelica.Mechanics.Rotational.Components.IdealGear gear(
                                                    ratio=i, useSupport=false)
-        annotation (Placement(transformation(extent={{50,-10},{70,10}})));
+        annotation (Placement(transformation(extent={{40,-10},{60,10}})));
       Modelica.Mechanics.Rotational.Components.SpringDamper spring(
                                                         c=c, d=d)
-        annotation (Placement(transformation(extent={{0,-10},{20,10}})));
+        annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
       Modelica.Mechanics.Rotational.Components.BearingFriction bearingFriction(
                                                                     tau_pos=[0,
              Rv0/unitTorque; 1, (Rv0 + Rv1*unitAngularVelocity)/unitTorque],
@@ -853,25 +839,13 @@ This model stores the 4 reference variables q, qd, qdd, moving from the path pla
             transformation(extent={{-60,-10},{-40,10}})));
     equation
       connect(spring.flange_b, gear.flange_a)
-        annotation (Line(
-          points={{20,0},{50,0}},
-          color={128,128,128},
-          thickness=0.5));
+        annotation (Line(points={{10,0},{40,0}}, color={0,0,0}));
       connect(bearingFriction.flange_b, spring.flange_a)
-        annotation (Line(
-          points={{-40,0},{0,0}},
-          color={128,128,128},
-          thickness=0.5));
+        annotation (Line(points={{-40,0},{-10,0}}, color={0,0,0}));
       connect(gear.flange_b, flange_b)
-        annotation (Line(
-          points={{70,0},{100,0}},
-          color={128,128,128},
-          thickness=0.5));
+        annotation (Line(points={{60,0},{100,0}}, color={0,0,0}));
       connect(bearingFriction.flange_a, flange_a)
-        annotation (Line(
-          points={{-60,0},{-100,0}},
-          color={128,128,128},
-          thickness=0.5));
+        annotation (Line(points={{-60,0},{-100,0}}, color={0,0,0}));
     initial equation
       spring.w_rel = 0;
       a_rel = 0;
@@ -903,7 +877,7 @@ the definition of initial values considerably.
               lineColor={64,64,64},
               fillColor={255,255,255},
               fillPattern=FillPattern.HorizontalCylinder,
-              extent={{-90.0,-10.0},{-60.0,10.0}}),
+              extent={{-90,-10},{90,10}}),
             Polygon(
               fillColor={192,192,192},
               fillPattern=FillPattern.HorizontalCylinder,
@@ -918,23 +892,22 @@ the definition of initial values considerably.
               fillColor={192,192,192},
               fillPattern=FillPattern.HorizontalCylinder,
               points={{60.0,20.0},{40.0,40.0},{40.0,-40.0},{60.0,-20.0},{60.0,20.0}}),
-            Rectangle(
-              lineColor={64,64,64},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.HorizontalCylinder,
-              extent={{60.0,-10.0},{90.0,10.0}}),
-            Polygon(
-              fillColor={64,64,64},
-              fillPattern=FillPattern.Solid,
-              points={{-60.0,-90.0},{-50.0,-90.0},{-20.0,-30.0},{20.0,-30.0},{48.0,-90.0},{60.0,-90.0},{60.0,-100.0},{-60.0,-100.0},{-60.0,-90.0}}),
             Text(
-              extent={{0,128},{0,68}},
+              extent={{-150,100},{150,60}},
               textString="%name",
               lineColor={0,0,255}),
             Text(
               extent={{-36,40},{36,-30}},
               textString="1",
-              lineColor={0,0,255})}),
+              lineColor={0,0,0}),
+            Rectangle(
+              lineColor={64,64,64},
+              extent={{-40,-60},{40,60}},
+              radius=10),
+            Polygon(
+              fillColor={64,64,64},
+              fillPattern=FillPattern.Solid,
+              points={{-60.0,-90.0},{-50.0,-90.0},{-20.0,-30.0},{20.0,-30.0},{48.0,-90.0},{60.0,-90.0},{60.0,-100.0},{-60.0,-100.0},{-60.0,-90.0}})}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}}), graphics={Text(
@@ -957,28 +930,19 @@ the definition of initial values considerably.
       constant SI.Torque unitTorque = 1;
       Modelica.Mechanics.Rotational.Components.IdealGear gear(
                                                    ratio=i, useSupport=false)
-        annotation (Placement(transformation(extent={{-28,-10},{-8,10}})));
+        annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
       Modelica.Mechanics.Rotational.Components.BearingFriction bearingFriction(
                                                                     tau_pos=[0,
              Rv0/unitTorque; 1, (Rv0 + Rv1*unitAngularVelocity)/unitTorque], peak=peak,
         useSupport=false)
-        annotation (Placement(transformation(extent={{30,-10},{50,10}})));
+        annotation (Placement(transformation(extent={{20,-10},{40,10}})));
     equation
       connect(gear.flange_b, bearingFriction.flange_a)
-        annotation (Line(
-          points={{-8,0},{30,0}},
-          color={128,128,128},
-          thickness=0.5));
+        annotation (Line(points={{-20,0},{20,0}}, color={0,0,0}));
       connect(bearingFriction.flange_b, flange_b)
-        annotation (Line(
-          points={{50,0},{100,0}},
-          color={128,128,128},
-          thickness=0.5));
+        annotation (Line(points={{40,0},{100,0}}, color={0,0,0}));
       connect(gear.flange_a, flange_a)
-        annotation (Line(
-          points={{-28,0},{-100,0}},
-          color={128,128,128},
-          thickness=0.5));
+        annotation (Line(points={{-40,0},{-100,0}}, color={0,0,0}));
       annotation (
         Documentation(info="<html>
 <p>
@@ -991,7 +955,7 @@ Default values for all parameters are given for joint 4.
               lineColor={64,64,64},
               fillColor={255,255,255},
               fillPattern=FillPattern.HorizontalCylinder,
-              extent={{-90.0,-10.0},{-60.0,10.0}}),
+              extent={{-90,-10},{90,10}}),
             Polygon(
               fillColor={192,192,192},
               fillPattern=FillPattern.HorizontalCylinder,
@@ -1006,23 +970,22 @@ Default values for all parameters are given for joint 4.
               fillColor={192,192,192},
               fillPattern=FillPattern.HorizontalCylinder,
               points={{60.0,20.0},{40.0,40.0},{40.0,-40.0},{60.0,-20.0},{60.0,20.0}}),
-            Rectangle(
-              lineColor={64,64,64},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.HorizontalCylinder,
-              extent={{60.0,-10.0},{90.0,10.0}}),
-            Polygon(
-              fillColor={64,64,64},
-              fillPattern=FillPattern.Solid,
-              points={{-60.0,-90.0},{-50.0,-90.0},{-20.0,-30.0},{20.0,-30.0},{48.0,-90.0},{60.0,-90.0},{60.0,-100.0},{-60.0,-100.0},{-60.0,-90.0}}),
             Text(
-              extent={{0,128},{0,68}},
+              extent={{-150,100},{150,60}},
               textString="%name",
               lineColor={0,0,255}),
             Text(
               extent={{-36,40},{38,-30}},
               textString="2",
-              lineColor={0,0,255})}));
+              lineColor={0,0,0}),
+            Rectangle(
+              lineColor={64,64,64},
+              extent={{-40,-60},{40,60}},
+              radius=10),
+            Polygon(
+              fillColor={64,64,64},
+              fillPattern=FillPattern.Solid,
+              points={{-60,-90},{-50,-90},{-20,-30},{20,-30},{48,-90},{60,-90},{60,-100},{-60,-100},{-60,-90}})}));
     end GearType2;
 
     model Motor "Motor model including current controller of r3 motors"
@@ -1134,31 +1097,30 @@ Default values for all parameters are given for joint 4.
     equation
       connect(La.n, emf.p) annotation (Line(points={{56,20},{56,15},{56,10}}));
       connect(Ra.n, La.p) annotation (Line(points={{56,50},{56,40}}));
-      connect(Rd2.n, diff.n1) annotation (Line(points={{-71,30},{-64,30}}));
+      connect(Rd2.n, diff.n1) annotation (Line(points={{-71,30},{-68,30},{-68,31},{-64,31}}));
       connect(C.n, OpI.p2) annotation (Line(points={{6,46},{6,20}}));
-      connect(OpI.p2, power.p1) annotation (Line(points={{6,20},{16,20}}));
+      connect(OpI.p2, power.p1) annotation (Line(points={{6,20},{12,20},{12,19},{16,19}}));
       connect(Vs.p, Rd2.p) annotation (Line(points={{-90,10},{-90,30},{-86,30}}));
       connect(diff.n1, Rd1.p)
-        annotation (Line(points={{-64,30},{-68,30},{-68,45},{-63,45}}));
+        annotation (Line(points={{-64,31},{-68,31},{-68,45},{-63,45}}));
       connect(Rd1.n, diff.p2) annotation (Line(points={{-48,45},{-44,45},{-44,
               25}}));
       connect(diff.p2, Ri.p) annotation (Line(points={{-44,25},{-37,25}}));
-      connect(Ri.n, OpI.n1) annotation (Line(points={{-22,25},{-14,25}}));
-      connect(OpI.n1, C.p) annotation (Line(points={{-14,25},{-14,46}}));
+      connect(Ri.n, OpI.n1) annotation (Line(points={{-22,25},{-18,25},{-18,26},{-14,26}}));
+      connect(OpI.n1, C.p) annotation (Line(points={{-14,26},{-14,46}}));
       connect(power.n1, Rp1.p)
-        annotation (Line(points={{16,30},{11,30},{11,46},{17,46}}));
+        annotation (Line(points={{16,31},{11,31},{11,46},{17,46}}));
       connect(power.p2, Rp1.n) annotation (Line(points={{36,25},{36,46},{32,46}}));
       connect(Rp1.p, Rp2.p) annotation (Line(points={{17,46},{11,46},{11,64}}));
       connect(power.p2, Ra.p)
         annotation (Line(points={{36,25},{42,25},{42,80},{56,80},{56,70}}));
       connect(Rd3.p, hall2.p) annotation (Line(points={{-70,-30},{-70,-60}}));
-      connect(Rd3.n, diff.p1) annotation (Line(points={{-70,-14},{-70,20},{-64,
-              20}}));
+      connect(Rd3.n, diff.p1) annotation (Line(points={{-70,-14},{-70,19},{-64,19}}));
       connect(Rd3.n, Rd4.p) annotation (Line(points={{-70,-14},{-70,-7},{-55,-7}}));
       connect(Vs.n, g1.p) annotation (Line(points={{-90,-10},{-90,-17}}));
       connect(g2.p, hall2.n) annotation (Line(points={{-70,-71},{-70,-40}}));
       connect(Rd4.n, g3.p) annotation (Line(points={{-40,-7},{-24,-7}}));
-      connect(g3.p, OpI.p1) annotation (Line(points={{-24,-7},{-24,15},{-14,15}}));
+      connect(g3.p, OpI.p1) annotation (Line(points={{-24,-7},{-24,14},{-14,14}}));
       connect(g5.p, Rp2.n)
         annotation (Line(points={{11,83},{11,81.5},{11,80}}));
       connect(emf.n, hall1.p)
@@ -1170,30 +1132,30 @@ Default values for all parameters are given for joint 4.
         annotation (Line(points={{66,0},{66,-30},{55,-30}}, pattern=LinePattern.Dot));
       connect(OpI.n2, power.n2)
         annotation (Line(points={{-4,10},{-4,4},{26,4},{26,15}}));
-      connect(OpI.p1, OpI.n2) annotation (Line(points={{-14,15},{-14,10},{-4,10}}));
-      connect(OpI.p1, diff.n2) annotation (Line(points={{-14,15},{-54,15}}));
+      connect(OpI.p1, OpI.n2) annotation (Line(points={{-14,14},{-14,10},{-4,10}}));
+      connect(OpI.p1, diff.n2) annotation (Line(points={{-14,14},{-34,14},{-34,15},{-54,15}}));
       connect(Jmotor.flange_b, flange_motor)
         annotation (Line(
           points={{90,0},{100,0}},
           color={128,128,128},
           thickness=0.5));
       connect(phi.phi, axisControlBus.motorAngle)
-                                       annotation (Line(points={{76,-51},{76,
-              -100},{80,-100}}, color={0,0,127}));
+                                       annotation (Line(points={{76,-51},{76,-99.9},{80.1,-99.9}},
+                                color={0,0,127}));
       connect(speed.w, axisControlBus.motorSpeed)
-                                       annotation (Line(points={{55,-51},{55,
-              -95},{80,-95},{80,-100}}, color={0,0,127}));
+                                       annotation (Line(points={{55,-51},{55,-95},{80.1,-95},{80.1,-99.9}},
+                                        color={0,0,127}));
       connect(hall1.i, axisControlBus.current)
-                                    annotation (Line(points={{6,-50},{-10,-50},
-              {-10,-95},{80,-95},{80,-100}}, color={0,0,127}));
-      connect(hall1.i, convert1.u) annotation (Line(points={{6,-50},{-28.8,-50}}, color={0,0,127}));
-      connect(convert1.y, hall2.v) annotation (Line(points={{-42.6,-50},{-63,
-              -50}}, color={0,0,127}));
+                                    annotation (Line(points={{5,-50},{-10,-50},{-10,-95},{80.1,-95},{80.1,-99.9}},
+                                             color={0,0,127}));
+      connect(hall1.i, convert1.u) annotation (Line(points={{5,-50},{-28.8,-50}}, color={0,0,127}));
+      connect(convert1.y, hall2.v) annotation (Line(points={{-42.6,-50},{-58,-50}},
+                     color={0,0,127}));
       connect(convert2.u, axisControlBus.current_ref)
-                                           annotation (Line(points={{-28.8,-95},
-              {80,-95},{80,-100}}, color={0,0,127}));
-      connect(convert2.y, Vs.v) annotation (Line(points={{-42.6,-95},{-108,-95},
-              {-108,0},{-97,0}}, color={0,0,127}));
+                                           annotation (Line(points={{-28.8,-95},{80.1,-95},{80.1,-99.9}},
+                                   color={0,0,127}));
+      connect(convert2.y, Vs.v) annotation (Line(points={{-42.6,-95},{-108,-95},{-108,0},{-102,0}},
+                                 color={0,0,127}));
       connect(emf.flange, Jmotor.flange_a) annotation (Line(
           points={{66,0},{70,0}}));
       annotation (
@@ -1207,7 +1169,7 @@ produced by the motor).
 </html>"), Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}}), graphics={Text(
-              extent={{0,120},{0,60}},
+              extent={{-150,100},{150,60}},
               textString="%name",
               lineColor={0,0,255}), Line(
               points={{80,-102},{80,-10}},
@@ -1223,13 +1185,13 @@ produced by the motor).
       parameter Real ratio=1 "Gear ratio of gearbox";
 
       Modelica.Blocks.Math.Gain gain1(k=ratio)
-        annotation (Placement(transformation(extent={{-70,0},{-50,20}})));
+        annotation (Placement(transformation(extent={{-80,0},{-60,20}})));
       Modelica.Blocks.Continuous.PI PI(k=ks, T=Ts)
         annotation (Placement(transformation(extent={{60,0},{80,20}})));
       Modelica.Blocks.Math.Feedback feedback1
-        annotation (Placement(transformation(extent={{-46,0},{-26,20}})));
+        annotation (Placement(transformation(extent={{-50,0},{-30,20}})));
       Modelica.Blocks.Math.Gain P(k=kp) annotation (Placement(transformation(
-              extent={{-16,0},{4,20}})));
+              extent={{-20,0},{0,20}})));
       Modelica.Blocks.Math.Add3 add3(k3=-1) annotation (Placement(
             transformation(extent={{20,0},{40,20}})));
       Modelica.Blocks.Math.Gain gain2(k=ratio)
@@ -1239,10 +1201,10 @@ produced by the motor).
         annotation (Placement(transformation(extent={{-20,-120},{20,-80}})));
     equation
       connect(gain1.y, feedback1.u1)
-        annotation (Line(points={{-49,10},{-44,10}}, color={0,0,127}));
+        annotation (Line(points={{-59,10},{-48,10}}, color={0,0,127}));
       connect(feedback1.y, P.u)
-        annotation (Line(points={{-27,10},{-18,10}}, color={0,0,127}));
-      connect(P.y, add3.u2) annotation (Line(points={{5,10},{18,10}}, color={0,
+        annotation (Line(points={{-31,10},{-22,10}}, color={0,0,127}));
+      connect(P.y, add3.u2) annotation (Line(points={{1,10},{18,10}}, color={0,
               0,127}));
       connect(gain2.y, add3.u1)
         annotation (Line(points={{-39,50},{10,50},{10,18},{18,18}}, color={0,0,
@@ -1250,20 +1212,32 @@ produced by the motor).
       connect(add3.y, PI.u)
         annotation (Line(points={{41,10},{58,10}}, color={0,0,127}));
       connect(gain2.u, axisControlBus.speed_ref)
-                                      annotation (Line(points={{-62,50},{-90,50},
-              {-90,-99.9},{0.1,-99.9}}, color={0,0,127}));
+        annotation (Line(points={{-62,50},{-94,50},{-94,-34},{-6,-34},{-6,-99.9},{0.1,-99.9}}, color={0,0,127}), Text(
+          string="%second",
+          index=2,
+          extent=[6,3; 6,3]));
       connect(gain1.u, axisControlBus.angle_ref)
-                                      annotation (Line(points={{-72,10},{-80,10},
-              {-80,-99.9},{0.1,-99.9}}, color={0,0,127}));
+        annotation (Line(points={{-82,10},{-90,10},{-90,-30},{-4,-30},{-4,-99.9},{0.1,-99.9}}, color={0,0,127}), Text(
+          string="%second",
+          index=3,
+          extent=[6,3; 6,3]));
       connect(feedback1.u2, axisControlBus.motorAngle)
-                                            annotation (Line(points={{-36,2},{
-              -36,-99.9},{0.1,-99.9}}, color={0,0,127}));
+        annotation (Line(points={{-40,2},{-40,-26},{-2,-26},{-2,-99.9},{0.1,-99.9}}, color={0,0,127}), Text(
+          string="%second",
+          index=2,
+          extent=[6,3; 6,3]));
       connect(add3.u3, axisControlBus.motorSpeed)
-                                       annotation (Line(points={{18,2},{0.1,2},
-              {0.1,-99.9}}, color={0,0,127}));
+        annotation (Line(points={{18,2},{10,2},{10,-26},{0,-26},{0,-99.9},{0.1,-99.9}}, color={0,0,127}), Text(
+          string="%second",
+          index=3,
+          extent=[6,3; 6,3]));
       connect(PI.y, axisControlBus.current_ref)
-                                     annotation (Line(points={{81,10},{90,10},{
-              90,-99.9},{0.1,-99.9}}, color={0,0,127}));
+        annotation (Line(points={{81,10},{90,10},{90,-30},{2,-30},{2,-99.9},{0.1,-99.9}},
+                                                                          color={0,0,127}),
+          Text(
+            string="%second",
+            index=1,
+            extent=[6,3; 6,3]));
       annotation (
         Icon(coordinateSystem(
             preserveAspectRatio=true,
@@ -1272,31 +1246,30 @@ produced by the motor).
               extent={{-100,-100},{100,100}},
               fillColor={235,235,235},
               fillPattern=FillPattern.Solid),
-            Rectangle(
-              extent={{-30,54},{30,24}},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid,
+            Text(
+              extent={{-150,140},{150,100}},
+              textString="%name",
               lineColor={0,0,255}),
+            Rectangle(extent={{-80,40},{80,-40}}, lineColor={0,0,255}),
             Polygon(
               points={{-30,40},{-60,50},{-60,30},{-30,40}},
               lineColor={0,0,255},
               fillColor={0,0,255},
               fillPattern=FillPattern.Solid),
-            Line(points={{-31,-41},{-78,-41},{-78,39},{-30,39}}, color={0,0,255}),
-            Rectangle(
-              extent={{-30,-26},{30,-56}},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid,
-              lineColor={0,0,255}),
             Polygon(
-              points={{60,-32},{30,-42},{60,-52},{60,-32}},
+              points={{60,-30},{30,-40},{60,-50},{60,-30}},
               fillColor={0,0,255},
               fillPattern=FillPattern.Solid,
               lineColor={0,0,255}),
-            Line(points={{30,39},{76,39},{76,-41},{30,-41}}, color={0,0,255}),
-            Text(
-              extent={{-100,150},{100,110}},
-              textString="%name",
+            Rectangle(
+              extent={{-30,56},{30,24}},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid,
+              lineColor={0,0,255}),
+            Rectangle(
+              extent={{-30,-24},{30,-56}},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid,
               lineColor={0,0,255})}),
         Documentation(info="<html>
 <p>
@@ -1357,18 +1330,17 @@ a model of the electrical motor and a continuous-time cascade controller.
         Rv0=Rv0,
         Rv1=Rv1,
         peak=peak,
-        i=ratio) annotation (Placement(transformation(extent={{0,-10},{20,10}})));
+        i=ratio) annotation (Placement(transformation(extent={{20,-10},{40,10}})));
       Motor motor(
         J=J,
         k=k,
         w=w,
-        D=D) annotation (Placement(transformation(extent={{-30,-10},{-10,10}})));
+        D=D) annotation (Placement(transformation(extent={{-20,-10},{0,10}})));
       RobotR3.Components.Controller controller(
         kp=kp,
         ks=ks,
         Ts=Ts,
-        ratio=ratio) annotation (Placement(transformation(extent={{-70,-10},{
-                -50,10}})));
+        ratio=ratio) annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
       Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.AxisControlBus
         axisControlBus
         annotation (Placement(transformation(
@@ -1376,14 +1348,14 @@ a model of the electrical motor and a continuous-time cascade controller.
             extent={{-20,-20},{20,20}},
             rotation=270)));
       Modelica.Mechanics.Rotational.Sensors.AngleSensor angleSensor
-        annotation (Placement(transformation(extent={{30,60},{50,80}})));
+        annotation (Placement(transformation(extent={{40,60},{20,80}})));
       Modelica.Mechanics.Rotational.Sensors.SpeedSensor speedSensor
         annotation (Placement(transformation(
-            origin={40,50},
-            extent={{10,10},{-10,-10}},
+            origin={30,50},
+            extent={{-10,10},{10,-10}},
             rotation=180)));
       Modelica.Mechanics.Rotational.Sensors.AccSensor accSensor
-        annotation (Placement(transformation(extent={{30,20},{50,40}})));
+        annotation (Placement(transformation(extent={{40,20},{20,40}})));
       Modelica.Mechanics.Rotational.Components.InitializeFlange
         initializeFlange(                          stateSelect=StateSelect.prefer)
         annotation (Placement(transformation(extent={{-40,-60},{-20,-40}})));
@@ -1391,57 +1363,49 @@ a model of the electrical motor and a continuous-time cascade controller.
               extent={{-65,-65},{-55,-55}})));
     equation
       connect(gear.flange_b, flange)
-        annotation (Line(points={{20,0},{100,0}}));
+        annotation (Line(points={{40,0},{100,0}}));
       connect(gear.flange_b, angleSensor.flange)
-        annotation (Line(points={{20,0},{20,70},{30,70}}));
+        annotation (Line(points={{40,0},{60,0},{60,70},{40,70}}));
       connect(gear.flange_b, speedSensor.flange)
-        annotation (Line(points={{20,0},{24,0},{24,50},{30,50}}));
+        annotation (Line(points={{40,0},{60,0},{60,50},{40,50}}));
       connect(motor.flange_motor, gear.flange_a)
-        annotation (Line(points={{-10,0},{0,0}}));
+        annotation (Line(points={{0,0},{20,0}}));
       connect(gear.flange_b, accSensor.flange)
-        annotation (Line(points={{20,0},{28,0},{28,30},{30,30}}));
-      connect(controller.axisControlBus, axisControlBus) annotation (Line(
-          points={{-60,-10},{-60,-20},{-95,-20},{-95,-4},{-100,-4},{-100,0}},
-          color={255,204,51},
-          thickness=0.5));
+        annotation (Line(points={{40,0},{60,0},{60,30},{40,30}}));
       connect(motor.axisControlBus, axisControlBus) annotation (Line(
-          points={{-12,-10},{-12,-20},{-95,-20},{-95,-5},{-100,-5},{-100,0}},
+          points={{-2,-10},{-2,-20},{-94,-20},{-94,0},{-100,0}},
           color={255,204,51},
           thickness=0.5));
-      connect(angleSensor.phi, axisControlBus.angle) annotation (
-        Text(
+      connect(angleSensor.phi, axisControlBus.angle) annotation (Text(
           string="%second",
-          index=1,
-          extent=[6,3; 6,3]), Line(points={{51,70},{70,70},{70,84},{-98,84},{
-              -98,9},{-99.9,9},{-99.9,-0.1}}, color={0,0,127}));
-      connect(speedSensor.w, axisControlBus.speed) annotation (
-        Text(
+          index=2,
+          extent=[6,3; 6,3]), Line(points={{19,70},{0,70},{0,52},{-102,52},{-102,0},{-99.9,0},{-99.9,-0.1}}, color={0,0,127}));
+      connect(speedSensor.w, axisControlBus.speed) annotation (Text(
           string="%second",
-          index=1,
-          extent=[6,3; 6,3]), Line(points={{51,50},{74,50},{74,87},{-99.9,87},{
-              -99.9,-0.1}}, color={0,0,127}));
-      connect(accSensor.a, axisControlBus.acceleration) annotation (
-        Text(
+          index=2,
+          extent=[6,3; 6,3]), Line(points={{19,50},{0,50},{0,50},{-99.9,50},{-99.9,-0.1}}, color={0,0,127}));
+      connect(accSensor.a, axisControlBus.acceleration) annotation (Text(
           string="%second",
-          index=1,
-          extent=[6,3; 6,3]), Line(points={{51,30},{77,30},{77,90},{-102,90},{
-              -102,-0.1},{-99.9,-0.1}}, color={0,0,127}));
+          index=2,
+          extent=[6,3; 6,3]), Line(points={{19,30},{0,30},{0,48},{-98,48},{-98,-0.1},{-99.9,-0.1}}, color={0,0,127}));
       connect(axisControlBus.angle_ref, initializeFlange.phi_start) annotation (
         Text(
           string="%first",
           index=-1,
-          extent=[-6,3; -6,3]), Line(points={{-99.9,-0.1},{-99.9,-7},{-97,-7},{
-              -97,-42},{-42,-42}}));
+          extent=[-6,3; -6,3]), Line(points={{-99.9,-0.1},{-99.9,0},{-98,0},{-98,-42},{-42,-42}}));
       connect(axisControlBus.speed_ref, initializeFlange.w_start) annotation (
         Text(
           string="%first",
           index=-1,
-          extent=[-6,3; -6,3]), Line(points={{-99.9,-0.1},{-99,-0.1},{-99,-50},
-              {-42,-50}}, color={0,0,127}));
-      connect(initializeFlange.flange, flange) annotation (Line(points={{-20,
-              -50},{80,-50},{80,0},{100,0}}));
+          extent=[-6,3; -6,3]), Line(points={{-99.9,-0.1},{-100,-0.1},{-100,-50},{-42,-50}},
+                          color={0,0,127}));
+      connect(initializeFlange.flange, flange) annotation (Line(points={{-20,-50},{60,-50},{60,0},{100,0}}));
       connect(const.y, initializeFlange.a_start) annotation (Line(points={{-54.5,
               -60},{-48,-60},{-48,-58},{-42,-58}}, color={0,0,127}));
+      connect(controller.axisControlBus, axisControlBus) annotation (Line(
+          points={{-50,-10},{-50,-20},{-94,-20},{-94,0},{-100,0}},
+          color={255,204,51},
+          thickness=0.5));
       annotation (
         Documentation(info="<html>
 <p>
@@ -1465,7 +1429,7 @@ Default values of the parameters are given for the axis of joint 1.
               extent={{-100,50},{100,-50}},
               fillPattern=FillPattern.HorizontalCylinder,
               fillColor={160,160,164}), Text(
-              extent={{-150,57},{150,97}},
+              extent={{-150,100},{150,60}},
               textString="%name",
               lineColor={0,0,255})}));
     end AxisType2;
@@ -1504,36 +1468,35 @@ Default values of the parameters are given for the axis of joint 1.
         animateWorld=false,
         animateGravity=false,
         enableAnimation=animation)
-                              annotation (Placement(transformation(extent={{
-                -100,-200},{-80,-180}})));
+                              annotation (Placement(transformation(extent={{40,-170},{20,-150}})));
       Modelica.Mechanics.MultiBody.Joints.Revolute r1(n={0,1,0},useAxisFlange=true,
           animation=animation)
         annotation (Placement(transformation(
-            origin={-70,-160},
+            origin={-80,-140},
             extent={{-10,-10},{10,10}},
             rotation=90)));
       Modelica.Mechanics.MultiBody.Joints.Revolute r2(n={1,0,0},useAxisFlange=true,
           animation=animation)
-        annotation (Placement(transformation(extent={{-50,-110},{-30,-90}})));
+        annotation (Placement(transformation(extent={{-60,-100},{-40,-80}})));
       Modelica.Mechanics.MultiBody.Joints.Revolute r3(n={1,0,0},useAxisFlange=true,
           animation=animation)
         annotation (Placement(transformation(
-            origin={-50,-36},
+            origin={-50,-50},
             extent={{-10,-10},{10,10}},
             rotation=180)));
       Modelica.Mechanics.MultiBody.Joints.Revolute r4(n={0,1,0},useAxisFlange=true,
           animation=animation)
         annotation (Placement(transformation(
-            origin={-70,10},
+            origin={-80,0},
             extent={{-10,-10},{10,10}},
             rotation=90)));
       Modelica.Mechanics.MultiBody.Joints.Revolute r5(n={1,0,0},useAxisFlange=true,
           animation=animation)
-        annotation (Placement(transformation(extent={{-60,70},{-40,90}})));
+        annotation (Placement(transformation(extent={{-60,40},{-40,60}})));
       Modelica.Mechanics.MultiBody.Joints.Revolute r6(n={0,1,0},useAxisFlange=true,
           animation=animation)
         annotation (Placement(transformation(
-            origin={-60,130},
+            origin={-20,100},
             extent={{-10,-10},{10,10}},
             rotation=90)));
       Modelica.Mechanics.MultiBody.Parts.BodyShape b0(
@@ -1551,9 +1514,7 @@ Default values of the parameters are given for the axis of joint 1.
         r_CM={0,0,0},
         m=1)
         annotation (Placement(transformation(
-            origin={-30,-170},
-            extent={{-10,-10},{10,10}},
-            rotation=90)));
+            extent={{-20,-170},{-40,-150}})));
       Modelica.Mechanics.MultiBody.Parts.BodyShape b1(
         r={0,0.324,0.3},
         I_22=1.16,
@@ -1568,7 +1529,7 @@ Default values of the parameters are given for the axis of joint 1.
         color={255,0,0},
         r_CM={0,0,0},
         m=1) annotation (Placement(transformation(
-            origin={-70,-118},
+            origin={-80,-110},
             extent={{-10,-10},{10,10}},
             rotation=90)));
       Modelica.Mechanics.MultiBody.Parts.BodyShape b2(
@@ -1589,7 +1550,7 @@ Default values of the parameters are given for the axis of joint 1.
         animation=animation,
         animateSphere=false,
         color={255,178,0}) annotation (Placement(transformation(
-            origin={-16,-70},
+            origin={-20,-70},
             extent={{-10,-10},{10,10}},
             rotation=90)));
       Modelica.Mechanics.MultiBody.Parts.BodyShape b3(
@@ -1610,7 +1571,7 @@ Default values of the parameters are given for the axis of joint 1.
         animation=animation,
         animateSphere=false,
         color={255,0,0}) annotation (Placement(transformation(
-            origin={-86,-22},
+            origin={-80,-30},
             extent={{-10,10},{10,-10}},
             rotation=90)));
       Modelica.Mechanics.MultiBody.Parts.BodyShape b4(
@@ -1630,7 +1591,7 @@ Default values of the parameters are given for the axis of joint 1.
         animation=animation,
         animateSphere=false,
         color={255,178,0}) annotation (Placement(transformation(
-            origin={-70,50},
+            origin={-80,30},
             extent={{-10,-10},{10,10}},
             rotation=90)));
       Modelica.Mechanics.MultiBody.Parts.BodyShape b5(
@@ -1650,7 +1611,7 @@ Default values of the parameters are given for the axis of joint 1.
         animation=animation,
         animateSphere=false,
         color={0,0,255}) annotation (Placement(transformation(
-            origin={-20,98},
+            origin={-20,70},
             extent={{-10,-10},{10,10}},
             rotation=90)));
       Modelica.Mechanics.MultiBody.Parts.BodyShape b6(
@@ -1664,7 +1625,7 @@ Default values of the parameters are given for the axis of joint 1.
         animation=animation,
         animateSphere=false,
         color={0,0,255}) annotation (Placement(transformation(
-            origin={-60,160},
+            origin={-20,130},
             extent={{-10,-10},{10,10}},
             rotation=90)));
       Modelica.Mechanics.MultiBody.Parts.BodyShape load(
@@ -1680,13 +1641,13 @@ Default values of the parameters are given for the axis of joint 1.
         length=Modelica.Math.Vectors.length(              rLoad),
         animation=animation)
         annotation (Placement(transformation(
-            origin={-60,188},
+            origin={-20,160},
             extent={{-10,-10},{10,10}},
             rotation=90)));
     equation
       connect(r6.frame_b, b6.frame_a)
         annotation (Line(
-          points={{-60,140},{-60,150}},
+          points={{-20,110},{-20,120}},
           color={95,95,95},
           thickness=0.5));
       q = {r1.phi,r2.phi,r3.phi,r4.phi,r5.phi,r6.phi};
@@ -1695,71 +1656,67 @@ Default values of the parameters are given for the axis of joint 1.
       tau = {r1.tau, r2.tau, r3.tau, r4.tau, r5.tau, r6.tau};
       connect(load.frame_a, b6.frame_b)
         annotation (Line(
-          points={{-60,178},{-60,170}},
+          points={{-20,150},{-20,140}},
           color={95,95,95},
           thickness=0.5));
       connect(world.frame_b, b0.frame_a) annotation (Line(
-          points={{-80,-190},{-30,-190},{-30,-180}},
+          points={{20,-160},{-20,-160}},
           color={95,95,95},
           thickness=0.5));
       connect(b0.frame_b, r1.frame_a) annotation (Line(
-          points={{-30,-160},{-30,-146},{-48,-146},{-48,-180},{-70,-180},{-70,
-              -170}},
+          points={{-40,-160},{-80,-160},{-80,-150}},
           color={95,95,95},
           thickness=0.5));
       connect(b1.frame_b, r2.frame_a) annotation (Line(
-          points={{-70,-108},{-70,-100},{-50,-100}},
+          points={{-80,-100},{-80,-90},{-60,-90}},
           color={95,95,95},
           thickness=0.5));
       connect(r1.frame_b, b1.frame_a) annotation (Line(
-          points={{-70,-150},{-70,-128}},
+          points={{-80,-130},{-80,-120}},
           color={95,95,95},
           thickness=0.5));
       connect(r2.frame_b, b2.frame_a) annotation (Line(
-          points={{-30,-100},{-16,-100},{-16,-80}},
+          points={{-40,-90},{-20,-90},{-20,-80}},
           color={95,95,95},
           thickness=0.5));
       connect(b2.frame_b, r3.frame_a) annotation (Line(
-          points={{-16,-60},{-16,-36},{-40,-36}},
+          points={{-20,-60},{-20,-50},{-40,-50}},
           color={95,95,95},
           thickness=0.5));
-      connect(r2.axis, axis2) annotation (Line(points={{-40,-90},{-42,-90},{-42,
-              -80},{-160,-80},{-160,-110},{-210,-110}}));
-      connect(r1.axis, axis1) annotation (Line(points={{-80,-160},{-160,-160},{
-              -160,-170},{-210,-170}}));
+      connect(r2.axis, axis2) annotation (Line(points={{-50,-80},{-50,-76},{-180,-76},{-180,-110},{-210,-110}}));
+      connect(r1.axis, axis1) annotation (Line(points={{-90,-140},{-180,-140},{-180,-170},{-210,-170}}));
       connect(r3.frame_b, b3.frame_a) annotation (Line(
-          points={{-60,-36},{-88,-36},{-86,-32}},
+          points={{-60,-50},{-80,-50},{-80,-40}},
           color={95,95,95},
           thickness=0.5));
       connect(b3.frame_b, r4.frame_a) annotation (Line(
-          points={{-86,-12},{-86,-8},{-70,-8},{-70,0}},
+          points={{-80,-20},{-80,-10}},
           color={95,95,95},
           thickness=0.5));
       connect(r3.axis, axis3)
-        annotation (Line(points={{-50,-46},{-50,-50},{-210,-50}}));
+        annotation (Line(points={{-50,-60},{-50,-64},{-180,-64},{-180,-50},{-210,-50}}));
       connect(r4.axis, axis4)
-        annotation (Line(points={{-80,10},{-210,10}}));
+        annotation (Line(points={{-90,0},{-180,0},{-180,10},{-210,10}}));
       connect(r4.frame_b, b4.frame_a)
         annotation (Line(
-          points={{-70,20},{-70,40}},
+          points={{-80,10},{-80,20}},
           color={95,95,95},
           thickness=0.5));
       connect(b4.frame_b, r5.frame_a) annotation (Line(
-          points={{-70,60},{-70,80},{-60,80}},
+          points={{-80,40},{-80,50},{-60,50}},
           color={95,95,95},
           thickness=0.5));
-      connect(r5.axis, axis5) annotation (Line(points={{-50,90},{-50,94},{-160,
-              94},{-160,70},{-210,70}}));
+      connect(r5.axis, axis5) annotation (Line(points={{-50,60},{-50,70},{-210,70}}));
       connect(r5.frame_b, b5.frame_a) annotation (Line(
-          points={{-40,80},{-20,80},{-20,88}},
+          points={{-40,50},{-20,50},{-20,60}},
           color={95,95,95},
           thickness=0.5));
       connect(b5.frame_b, r6.frame_a) annotation (Line(
-          points={{-20,108},{-20,116},{-60,116},{-60,120}},
+          points={{-20,80},{-20,90}},
           color={95,95,95},
           thickness=0.5));
       connect(r6.axis, axis6)
-        annotation (Line(points={{-70,130},{-210,130}}));
+        annotation (Line(points={{-30,100},{-180,100},{-180,130},{-210,130}}));
       annotation (
         Documentation(info="<html>
 <p>
@@ -1768,7 +1725,7 @@ This model contains the mechanical components of the r3 robot
 </p>
 </html>"), Icon(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-200,-200},{200,200}}), graphics={
+            extent={{-200,-180},{200,180}}), graphics={
             Rectangle(
               extent={{-200,200},{200,-200}},
               fillColor={192,192,192},
@@ -1805,7 +1762,7 @@ This model contains the mechanical components of the r3 robot
                   "modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Systems/robot_kr15.png")}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-200,-200},{200,200}})));
+            extent={{-200,-180},{200,180}})));
     end MechanicalStructure;
 
     annotation (Documentation(info="<html>
