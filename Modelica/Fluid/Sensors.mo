@@ -459,7 +459,7 @@ The sensor is ideal, i.e., it does not influence the fluid.
       "Index of species in vector of independent mass fractions";
   initial algorithm
     ind:= -1;
-    for i in 1:Medium.nC loop
+    for i in 1:Medium.nXi loop
       if ( Modelica.Utilities.Strings.isEqual(Medium.substanceNames[i], substanceName)) then
         ind := i;
       end if;
@@ -489,6 +489,7 @@ The sensor is ideal, i.e., it does not influence the fluid.
 </p> </html>", revisions="<html>
 <ul>
 <li>2011-12-14: Stefan Wischhusen: Initial Release.</li>
+<li>2018-01-04: Stefan Wischhusen: Corrected failure in accessing the named substance.</li>
 </ul>
 </html>"));
   end MassFractionsTwoPort;
