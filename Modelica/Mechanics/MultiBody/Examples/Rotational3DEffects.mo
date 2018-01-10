@@ -186,11 +186,6 @@ is much faster.
         points={{20,40},{60,40},{60,70},{50,70}},
         color={95,95,95},
         thickness=0.5));
-    connect(torque.frame_resolve, world.frame_b) annotation (Line(
-        points={{14,30},{14,20},{-20,20},{-20,70},{-40,70}},
-        color={95,95,95},
-        pattern=LinePattern.Dot,
-        thickness=0.5));
     connect(torque.frame_a, world.frame_b) annotation (Line(
         points={{0,40},{-20,40},{-20,70},{-40,70}},
         color={95,95,95},
@@ -301,11 +296,6 @@ Note, the solution with Rotor1D is much more efficient.
     connect(r1.frame_b, revolute.frame_a) annotation (Line(
         points={{-10,20},{16,20}},
         color={95,95,95},
-        thickness=0.5));
-    connect(torque.frame_resolve, revolute.frame_a) annotation (Line(
-        points={{64,50},{0,50},{0,20},{16,20}},
-        color={95,95,95},
-        pattern=LinePattern.Dot,
         thickness=0.5));
     connect(torque.frame_a, revolute.frame_a) annotation (Line(
         points={{50,40},{0,40},{0,20},{16,20}},
