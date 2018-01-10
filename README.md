@@ -25,6 +25,6 @@ This Modelica package is free software and the use is completely at your own ris
 it can be redistributed and/or modified under the terms of the [Modelica License 2](https://modelica.org/licenses/ModelicaLicense2).
 
 ## Development and contribution
-The devolopment is organised by the [Modelica Association](https://www.modelica.org/association).
+The development is organised by the [Modelica Association](https://www.modelica.org/association).
 
 You may report any issues by using the [Issue Tracker](../../issues).
