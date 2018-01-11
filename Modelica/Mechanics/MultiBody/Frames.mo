@@ -119,6 +119,12 @@ residue = Frames.<strong>orientationConstraint</strong>(R);
 The function call <code>Frames.<strong>orientationConstraint</strong>(R)</code> returns the Real residue vector
 with 6 elements that describes the constraints between the 9 elements of the orientation matrix.
 </p>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.orientationConstraint\">TransformationMatrices.orientationConstraint</a>,
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Quaternions.orientationConstraint\">Quaternions.orientationConstraint</a>.
+</p>
 </html>"));
   end orientationConstraint;
 
@@ -134,14 +140,20 @@ with 6 elements that describes the constraints between the 9 elements of the ori
     annotation(Inline=true, Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-w12_1 = Frames.<strong>angularVelocity1</strong>(R12);
+w = Frames.<strong>angularVelocity1</strong>(R);
 </pre></blockquote>
 
 <h4>Description</h4>
 <p>
 The function call <code>Frames.<strong>angularVelocity1</strong>(R12)</code> returns the
-the angular velocity w12_1 of frame 2 with respect to frame 1 resolved in frame 1,
-from the orientation object R12 that describes the orientation to rotate frame 1 into frame 2.
+the angular velocity&nbsp;w of frame&nbsp;2 with respect to frame&nbsp;1 <strong>resolved in frame&nbsp;1</strong>,
+from the orientation object R12 that describes the orientation to rotate frame&nbsp;1 into frame&nbsp;2.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.angularVelocity1\">TransformationMatrices.angularVelocity1</a>,
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Quaternions.angularVelocity1\">Quaternions.angularVelocity1</a>.
 </p>
 </html>"));
   end angularVelocity1;
@@ -158,14 +170,20 @@ from the orientation object R12 that describes the orientation to rotate frame 1
     annotation(Inline=true, Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-w12_2 = Frames.<strong>angularVelocity2</strong>(R12);
+w = Frames.<strong>angularVelocity2</strong>(R);
 </pre></blockquote>
 
 <h4>Description</h4>
 <p>
-The function call <code>Frames.<strong>angularVelocity2</strong>(R12)</code> returns the
-the angular velocity w12_2 of frame 2 with respect to frame 1 resolved in frame 2,
-from the orientation object R12 that describes the orientation to rotate frame 1 into frame 2.
+The function call <code>Frames.<strong>angularVelocity1</strong>(R12)</code> returns the
+the angular velocity&nbsp;w of frame&nbsp;2 with respect to frame&nbsp;1 <strong>resolved in frame&nbsp;2</strong>,
+from the orientation object R12 that describes the orientation to rotate frame&nbsp;1 into frame&nbsp;2.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.angularVelocity2\">TransformationMatrices.angularVelocity2</a>,
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Quaternions.angularVelocity2\">Quaternions.angularVelocity2</a>.
 </p>
 </html>"));
   end angularVelocity2;
@@ -182,7 +200,7 @@ from the orientation object R12 that describes the orientation to rotate frame 1
       Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-v1 = Frames.<strong>resolve1</strong>(R12, v2);
+v1 = Frames.<strong>resolve1</strong>(R, v2);
 </pre></blockquote>
 
 <h4>Description</h4>
@@ -190,6 +208,12 @@ v1 = Frames.<strong>resolve1</strong>(R12, v2);
 The function call <code>Frames.<strong>resolve1</strong>(R12, v2)</code> returns vector v
 resolved in frame 1 (= v1) from vector v resolved in frame 2 (= v2) using the
 orientation object R12 that describes the orientation to rotate frame 1 into frame 2.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.resolve1\">TransformationMatrices.resolve1</a>,
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Quaternions.resolve1\">Quaternions.resolve1</a>.
 </p>
 </html>"));
   end resolve1;
@@ -206,7 +230,7 @@ orientation object R12 that describes the orientation to rotate frame 1 into fra
       Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-v2 = Frames.<strong>resolve2</strong>(R12, v1);
+v2 = Frames.<strong>resolve2</strong>(R, v1);
 </pre></blockquote>
 
 <h4>Description</h4>
@@ -214,6 +238,12 @@ v2 = Frames.<strong>resolve2</strong>(R12, v1);
 The function call <code>Frames.<strong>resolve2</strong>(R12, v1)</code> returns vector v
 resolved in frame 2 (= v2) from vector v resolved in frame 1 (= v1) using the
 orientation object R12 that describes the orientation  to rotate frame 1 into frame 2.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.resolve2\">TransformationMatrices.resolve2</a>,
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Quaternions.resolve2\">Quaternions.resolve2</a>.
 </p>
 </html>"));
   end resolve2;
@@ -257,7 +287,7 @@ orientation object R2 that describes the orientation to rotate frame 0 into fram
     annotation(Inline=true, Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-D1 = Frames.<strong>resolveDyade1</strong>(R12, D2);
+D1 = Frames.<strong>resolveDyade1</strong>(R, D2);
 </pre></blockquote>
 
 <h4>Description</h4>
@@ -265,6 +295,11 @@ D1 = Frames.<strong>resolveDyade1</strong>(R12, D2);
 The function call <code>Frames.<strong>Dyade1</strong>(R12, D2)</code> returns the second order tensor D
 resolved in frame 1 (= D1) from its representation in frame 2 (= D2) using the
 orientation object R12 that describes the orientation to rotate frame 1 into frame 2.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.resolveDyade1\">TransformationMatrices.resolveDyade1</a>.
 </p>
 </html>"));
   end resolveDyade1;
@@ -280,7 +315,7 @@ orientation object R12 that describes the orientation to rotate frame 1 into fra
     annotation(Inline=true, Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-D2 = Frames.<strong>resolveDyade2</strong>(R12, D1);
+D2 = Frames.<strong>resolveDyade2</strong>(R, D1);
 </pre></blockquote>
 
 <h4>Description</h4>
@@ -288,6 +323,11 @@ D2 = Frames.<strong>resolveDyade2</strong>(R12, D1);
 The function call <code>Frames.<strong>Dyade2</strong>(R12, D1)</code> returns the second order tensor D
 resolved in frame 2 (= D2) from its representation in frame 1 (= D1) using the
 orientation object R12 that describes the orientation to rotate frame 1 into frame 2.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.resolveDyade2\">TransformationMatrices.resolveDyade2</a>.
 </p>
 </html>"));
   end resolveDyade2;
@@ -302,14 +342,20 @@ orientation object R12 that describes the orientation to rotate frame 1 into fra
     annotation(Inline=true, Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-R = Frames.<strong>nullRotation</strong>(R);
+R = Frames.<strong>nullRotation</strong>();
 </pre></blockquote>
 
 <h4>Description</h4>
 <p>
-The function call <code>Frames.<strong>rnullRotation</strong>()</code> returns an orientation matrix
-R describing the orientation object to rotate frame 1 into frame 2, if frame 1 and frame 2 are identical.
+The function call <code>Frames.<strong>rnullRotation</strong>()</code> returns an orientation matrix&nbsp;R
+describing the orientation object to rotate frame&nbsp;1 into frame&nbsp;2, if frame&nbsp;1 and frame&nbsp;2 are identical.
 (= transformation matrix is identity matrix and angular velocity is zero).
+</p>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.nullRotation\">TransformationMatrices.nullRotation</a>,
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Quaternions.nullRotation\">Quaternions.nullRotation</a>.
 </p>
 </html>"));
   end nullRotation;
@@ -332,6 +378,12 @@ R_inv = Frames.<strong>inverseRotation</strong>(R);
 The function call <code>Frames.<strong>inverseRotation</strong>(R)</code> returns
 orientation object R_inv that describes the orientation to rotate from frame 2 to frame 1
 from the orientation object R that describes the orientation to rotate from frame 1 into frame 2.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.absoluteRotation\">TransformationMatrices.inverseRotation</a>,
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Quaternions.absoluteRotation\">Quaternions.inverseRotation</a>.
 </p>
 </html>"));
   end inverseRotation;
@@ -358,6 +410,12 @@ orientation object R_rel that describes the orientation to rotate frame 1 to fra
 from the orientation object R1 that describes the orientation to rotate from frame 0 to frame 1 and
 from the orientation object R2 that describes the orientation to rotate from frame 0 to frame 2.
 </p>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.relativeRotation\">TransformationMatrices.relativeRotation</a>,
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Quaternions.relativeRotation\">Quaternions.relativeRotation</a>.
+</p>
 </html>"));
   end relativeRotation;
 
@@ -382,6 +440,12 @@ The function call <code>Frames.<strong>absoluteRotation</strong>(R1,R_rel)</code
 orientation object R2 hat describes the orientation frame 0 to frame 2
 from the orientation object R1 that describes the orientation to rotate from frame 0 to frame 1 and
 from the relative orientation object R_rel that describes the orientation to rotate from frame 1 to frame 2.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.absoluteRotation\">TransformationMatrices.absoluteRotation</a>,
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Quaternions.absoluteRotation\">Quaternions.absoluteRotation</a>.
 </p>
 </html>"));
   end absoluteRotation;
@@ -412,6 +476,13 @@ orientation object R that describes the orientation to rotate in the plane along
 axis <strong>e</strong> from frame 1 into frame 2 with angle <strong>angle</strong> and derivative of angle <strong>der_angle</strong>.
 Note, \"e\" must be a unit vector. However, this is not checked in this function and the function will
 return a wrong result, if length(e) is not one.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.planarRotationAngle\">planarRotationAngle</a>,
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.planarRotation\">TransformationMatrices.planarRotation</a>,
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Quaternions.planarRotation\">Quaternions.planarRotation</a>.
 </p>
 </html>"));
   end planarRotation;
@@ -456,6 +527,12 @@ return a wrong result, if length(e) is not one.
     */
     angle := Modelica.Math.atan2(-cross(e, v1)*v2, v1*v2 - (e*v1)*(e*v2));
     annotation (Inline=true, Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+angle = Frames.<strong>planarRotationAngle</strong>(e, v1, v2);
+</pre></blockquote>
+
+<h4>Description</h4>
 <p>
 A call to this function of the form
 </p>
@@ -494,6 +571,12 @@ The function does not check the above assumptions. If these
 assumptions are violated, a wrong result will be returned
 and/or a division by zero will occur.
 </p>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.planarRotation\">planarRotation</a>,
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.planarRotationAngle\">TransformationMatrices.planarRotationAngle</a>.
+</p>
 </html>"));
   end planarRotationAngle;
 
@@ -521,10 +604,17 @@ R = Frames.<strong>axisRotation</strong>(axis, angle, der_angle);
 <h4>Description</h4>
 <p>
 The function call <code>Frames.<strong>axisRotation</strong>(axis, angle, der_angle)</code> returns
-orientation object R that describes the orientation to rotate along unit axis <strong>axis</strong>
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Orientation\">orientation object</a>&nbsp;R
+that describes the orientation to rotate along unit axis <strong>axis</strong>
 from frame 1 into frame 2 with angle <strong>angle</strong> and derivative of angle <strong>der_angle</strong>.
 For example, Frames.axisRotation(2, phi, der_phi) returns the same orientation object as with the call
 Frames.planarRotation({0,1,0}, phi, der_phi)
+</p>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.planarRotation\">planarRotation</a>,
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.axisRotation\">TransformationMatrices.axisRotation</a>.
 </p>
 </html>"));
   end axisRotation;
@@ -557,17 +647,23 @@ Frames.planarRotation({0,1,0}, phi, der_phi)
     annotation(Inline=true, Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-R = Frames.<strong>axesRotation</strong>(asequence, angles, der_angles);
+R = Frames.<strong>axesRotations</strong>(sequence, angles, der_angles);
 </pre></blockquote>
 
 <h4>Description</h4>
 <p>
 The function call <code>Frames.<strong>axesRotation</strong>(sequence, angles, der_angles)</code> returns
-orientation object R that describes the orientation to rotate
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Orientation\">orientation object</a>&nbsp;R
+that describes the orientation to rotate
 along unit axis <strong>axis</strong>
 from frame 1 into frame 2 with angle <strong>angle</strong> and derivative of angle <strong>der_angle</strong>.
 For example, Frames.axisRotation(2, phi, der_phi) returns the same orientation object as with the call
 Frames.planarRotation({0,1,0}, phi, der_phi)
+</p>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.axesRotations\">TransformationMatrices.axesRotations</a>.
 </p>
 </html>"));
   end axesRotations;
@@ -674,31 +770,37 @@ Frames.planarRotation({0,1,0}, phi, der_phi)
        e2_1a)));
 
     annotation (Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+angles = Frames.<strong>axesRotationsAngles</strong>(R, sequence, guessAngle1);
+</pre></blockquote>
+
+<h4>Description</h4>
 <p>
 A call to this function of the form
 </p>
-<pre>
-    Frames.Orientation     R;
-    <strong>parameter</strong> Integer      sequence[3] = {1,2,3};
-    Modelica.SIunits.Angle angles[3];
-  <strong>equation</strong>
-    angle = <strong>axesRotationAngles</strong>(R, sequence);
-</pre>
+<blockquote><pre>
+  Frames.Orientation R;
+  <strong>parameter</strong> Integer sequence[3] = {1,2,3};
+  Modelica.SIunits.Angle angles[3];
+<strong>equation</strong>
+  angle = <strong>axesRotationAngles</strong>(R, sequence);
+</pre></blockquote>
 <p>
 computes the rotation angles \"<strong>angles</strong>[1:3]\" to rotate frame 1
 into frame 2 along axes <strong>sequence</strong>[1:3], given the orientation
 object <strong>R</strong> from frame 1 to frame 2. Therefore, the result of
 this function fulfills the following equation:
 </p>
-<pre>
-    R = <strong>axesRotation</strong>(sequence, angles)
-</pre>
+<blockquote><pre>
+R = <strong>axesRotation</strong>(sequence, angles)
+</pre></blockquote>
 <p>
 The rotation angles are returned in the range
 </p>
-<pre>
-    -<font face=\"Symbol\">p</font> &lt;= angles[i] &lt;= <font face=\"Symbol\">p</font>
-</pre>
+<blockquote><pre>
+-<font face=\"Symbol\">p</font> &lt;= angles[i] &lt;= <font face=\"Symbol\">p</font>
+</pre></blockquote>
 <p>
 There are <strong>two solutions</strong> for \"angles[1]\" in this range.
 Via the third argument <strong>guessAngle1</strong> (default = 0) the
@@ -713,11 +815,16 @@ Note, that input argument <strong>sequence</strong> has the restriction that
 only values 1,2,3 can be used and that sequence[1] &ne; sequence[2]
 and sequence[2] &ne; sequence[3]. Often used values are:
 </p>
-<pre>
-  sequence = <strong>{1,2,3}</strong>  // Cardan angle sequence
-           = <strong>{3,1,3}</strong>  // Euler angle sequence
-           = <strong>{3,2,1}</strong>  // Tait-Bryan angle sequence
-</pre>
+<blockquote><pre>
+sequence = <strong>{1,2,3}</strong>  // Cardan angle sequence
+         = <strong>{3,1,3}</strong>  // Euler angle sequence
+         = <strong>{3,2,1}</strong>  // Tait-Bryan angle sequence
+</pre></blockquote>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.axesRotationsAngles\">TransformationMatrices.axesRotationsAngles</a>.
+</p>
 </html>"));
   end axesRotationsAngles;
 
@@ -743,7 +850,24 @@ and sequence[2] &ne; sequence[3]. Often used values are:
     phi := if withResidues then {R.T[2, 3],-R.T[1, 3],R.T[1, 2],R.T[1, 1] - 1,R.
        T[2, 2] - 1,R.T[1, 1]*R.T[2, 2] - R.T[2, 1]*R.T[1, 2] - 1} else {R.T[2,
       3],-R.T[1, 3],R.T[1, 2]};
-    annotation(Inline=true);
+    annotation(Inline=true, Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+phi = Frames.<strong>smallRotation</strong>(R, withResidues);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function returns rotation angles valid for a small rotation of x-y-z sequence (i.e. {1,2,3}).
+Optionally, residues are returned as well if <code>withResidues=true</code>.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.smallRotation\">TransformationMatrices.smallRotation</a>,
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Quaternions.smallRotation\">Quaternions.smallRotation</a>.
+</p>
+</html>"));
   end smallRotation;
 
   function from_nxy "Return fixed orientation object from n_x and n_y vectors"
@@ -764,24 +888,34 @@ and sequence[2] &ne; sequence[3]. Often used values are:
   algorithm
     R := Orientation(T={e_x,cross(e_z, e_x),e_z},w= zeros(3));
     annotation (Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+R = Frames.<strong>from_nxy</strong>(n_x, n_y);
+</pre></blockquote>
+
+<h4>Description</h4>
 <p>
 It is assumed that the two input vectors n_x and n_y are
-resolved in frame 1 and are directed along the x and y axis
-of frame 2 (i.e., n_x and n_y are orthogonal to each other)
-The function returns the orientation object R to rotate from
-frame 1 to frame 2.
+resolved in frame&nbsp;1 and are directed along the x and y axis
+of frame&nbsp;2 (i.e., n_x and n_y are orthogonal to each other)
+The function returns the orientation object&nbsp;R to rotate from
+frame&nbsp;1 to frame&nbsp;2.
 </p>
 <p>
 The function is robust in the sense that it returns always
-an orientation object R, even if n_y is not orthogonal to n_x.
+an orientation object&nbsp;R, even if n_y is not orthogonal to n_x.
 This is performed in the following way:
-</p>
-<p>
+<br>
 If n_x and n_y are not orthogonal to each other, first a unit
 vector e_y is determined that is orthogonal to n_x and is lying
 in the plane spanned by n_x and n_y. If n_x and n_y are parallel
 or nearly parallel to each other, a vector e_y is selected
 arbitrarily such that e_x and e_y are orthogonal to each other.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.from_nxy\">TransformationMatrices.from_nxy</a>.
 </p>
 </html>"));
   end from_nxy;
@@ -804,24 +938,35 @@ arbitrarily such that e_x and e_y are orthogonal to each other.
   algorithm
     R := Orientation(T={e_x,e_y,cross(e_x, e_y)},w= zeros(3));
     annotation (Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+R = Frames.<strong>from_nxz</strong>(n_x, n_z);
+</pre></blockquote>
+
+<h4>Description</h4>
 <p>
 It is assumed that the two input vectors n_x and n_z are
 resolved in frame 1 and are directed along the x and z axis
-of frame 2 (i.e., n_x and n_z are orthogonal to each other)
-The function returns the orientation object R to rotate from
-frame 1 to frame 2.
+of frame 2 (i.e., n_x and n_z are orthogonal to each other).
+The function returns the
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Orientation\">orientation object</a>&nbsp;R
+to rotate from frame 1 to frame 2.
 </p>
 <p>
-The function is robust in the sense that it returns always
+The function is robust in the sense that it always returns
 an orientation object R, even if n_z is not orthogonal to n_x.
 This is performed in the following way:
-</p>
-<p>
+<br>
 If n_x and n_z are not orthogonal to each other, first a unit
 vector e_z is determined that is orthogonal to n_x and is lying
 in the plane spanned by n_x and n_z. If n_x and n_z are parallel
 or nearly parallel to each other, a vector e_z is selected
 arbitrarily such that n_x and e_z are orthogonal to each other.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.from_nxz\">TransformationMatrices.from_nxz</a>.
 </p>
 </html>"));
   end from_nxz;
@@ -835,7 +980,30 @@ arbitrarily such that n_x and e_z are orthogonal to each other.
     output Orientation R "Orientation object to rotate frame 1 into frame 2";
   algorithm
     R := Orientation(T=T,w= w);
-    annotation(Inline=true);
+    annotation(Inline=true, Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+R = Frames.<strong>from_T</strong>(T, w);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function returns an
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Orientation\">orientation object</a>&nbsp;R
+assembled from a transformation matrix&nbsp;T and an angular velocity vector&nbsp;w.
+Generally, the transformation matrix&nbsp;T can be gained using a function from the
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices\">TransformationMatrices</a>
+package.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.to_T\">to_T</a>.
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.from_T_inv\">from_T_inv</a>,
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.from_T\">TransformationMatrices.from_T</a>,
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Quaternions.from_T\">Quaternions.from_T</a>.
+</p>
+</html>"));
   end from_T;
 
   function from_T2
@@ -849,12 +1017,23 @@ arbitrarily such that n_x and e_z are orthogonal to each other.
   algorithm
     R := Orientation(T=T,w={T[3, :]*der_T[2, :],-T[3, :]*der_T[1, :],T[2, :]*der_T[1, :]});
     annotation (Inline=true,Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+R = Frames.<strong>from_T2</strong>(T, der_T);
+</pre></blockquote>
+
+<h4>Description</h4>
 <p>
 Computes the orientation object from a transformation matrix T and
 the derivative der(T) of the transformation matrix.
 Usually, it is more efficient to use function \"from_T\" instead, where
 the angular velocity has to be given as input argument. Only if this
 is not possible or too difficult to compute, use function from_T2(..).
+</p>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.from_T\">from_T</a>.
 </p>
 </html>"));
   end from_T2;
@@ -870,7 +1049,30 @@ is not possible or too difficult to compute, use function from_T2(..).
     output Orientation R "Orientation object to rotate frame 1 into frame 2";
   algorithm
     R := Orientation(T=transpose(T_inv),w= -w);
-    annotation(Inline=true);
+    annotation(Inline=true, Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+R = Frames.<strong>from_T_inv</strong>(T_inv, w);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function returns an
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Orientation\">orientation object</a>&nbsp;R
+assembled from an inverse transformation matrix T_inv and a correspondent angular velocity vector&nbsp;w.
+Generally, the transformation matrix T_inv can be gained using a function from the
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices\">TransformationMatrices</a>
+package, e.g. using T_inv = <a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.inverseRotation\">inverseRotation</a>(T).
+Note that the velocity vector&nbsp;w has to be calculated accordingly.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.from_T\">from_T</a>,
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.from_T_inv\">TransformationMatrices.from_T_inv</a>,
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Quaternions.from_T_inv\">Quaternions.from_T_inv</a>.
+</p>
+</html>"));
   end from_T_inv;
 
   function from_Q
@@ -891,7 +1093,26 @@ is not possible or too difficult to compute, use function from_T2(..).
        2*(Q[1]*Q[3] - Q[2]*Q[4]); 2*(Q[2]*Q[1] - Q[3]*Q[4]), 2*(Q[2]*Q[2] + Q[4]
       *Q[4]) - 1, 2*(Q[2]*Q[3] + Q[1]*Q[4]); 2*(Q[3]*Q[1] + Q[2]*Q[4]), 2*(Q[3]
       *Q[2] - Q[1]*Q[4]), 2*(Q[3]*Q[3] + Q[4]*Q[4]) - 1],w= w);
-    annotation(Inline=true);
+    annotation(Inline=true, Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+R = Frames.<strong>from_Q</strong>(Q, w);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function returns an <a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Orientation\">orientation object</a>&nbsp;R
+computed from a <a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Quaternions.Orientation\">quaternion object</a>&nbsp;Q
+and an angular velocity vector&nbsp;w.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.to_Q\">to_Q</a>.
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.from_Q\">TransformationMatrices.from_Q</a>.
+</p>
+
+</html>"));
   end from_Q;
 
   function to_T "Return transformation matrix T from orientation object R"
@@ -901,7 +1122,29 @@ is not possible or too difficult to compute, use function from_T2(..).
       "Transformation matrix to transform vector from frame 1 to frame 2 (v2=T*v1)";
   algorithm
     T := R.T;
-    annotation(Inline=true);
+    annotation(Inline=true, Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+T = Frames.<strong>to_T</strong>(R);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function returns a real matrix&nbsp;T
+<!--<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation\">transformation matrix</a>&nbsp;T-->
+computed from an
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Orientation\">orientation object</a>&nbsp;R.
+The matrix&nbsp;T is considered to be an object transformation matrix.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.from_T\">from_T</a>,
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.to_T_inv\">to_T_inv</a>,
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.to_T\">TransformationMatrices.to_T</a>,
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Quaternions.to_T\">Quaternions.to_T</a>.
+</p>
+</html>"));
   end to_T;
 
   function to_T_inv
@@ -913,7 +1156,29 @@ is not possible or too difficult to compute, use function from_T2(..).
       "Inverse transformation matrix to transform vector from frame 2 into frame 1 (v1=T_inv*v2)";
   algorithm
     T_inv := transpose(R.T);
-    annotation(Inline=true);
+    annotation(Inline=true, Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+T_inv = Frames.<strong>to_T_inv</strong>(R);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function returns a real matrix T_inv
+<!--<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation\">transformation matrix</a>&nbsp;T_inv-->
+computed from an
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Orientation\">orientation object</a>&nbsp;R.
+The matrix T_inv is considered to be an inverse transformation matrix.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.from_T_inv\">from_T_inv</a>,
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.to_T\">to_T</a>,
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.to_T_inv\">TransformationMatrices.to_T_inv</a>,
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Quaternions.to_T_inv\">Quaternions.to_T_inv</a>.
+</p>
+</html>"));
   end to_T_inv;
 
   function to_Q
@@ -922,12 +1187,30 @@ is not possible or too difficult to compute, use function from_T2(..).
     extends Modelica.Icons.Function;
     input Orientation R "Orientation object to rotate frame 1 into frame 2";
     input Quaternions.Orientation Q_guess=Quaternions.nullRotation()
-      "Guess value for output Q (there are 2 solutions; the one closer to Q_guess is used";
+      "Guess value for output Q (there are 2 solutions; the one closer to Q_guess is used)";
     output Quaternions.Orientation Q
       "Quaternions orientation object to rotate frame 1 into frame 2";
   algorithm
     Q := Quaternions.from_T(R.T, Q_guess);
-    annotation(Inline=true);
+    annotation(Inline=true, Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+Q = Frames.<strong>to_Q</strong>(R, Q_guess);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function returns a <a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Quaternions.Orientation\">quaternion object</a>&nbsp;Q
+computed from an <a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Orientation\">orientation object</a>&nbsp;R
+and depending on the initial guess Q_guess.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.from_Q\">from_Q</a>,
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.to_Q\">TransformationMatrices.to_Q</a>.
+</p>
+</html>"));
   end to_Q;
 
   function to_vector "Map rotation object into vector"
@@ -937,7 +1220,25 @@ is not possible or too difficult to compute, use function from_T2(..).
   algorithm
     vec := {R.T[1, 1],R.T[2, 1],R.T[3, 1],R.T[1, 2],R.T[2, 2],R.T[3, 2],R.T[1,
       3],R.T[2, 3],R.T[3, 3]};
-    annotation(Inline=true);
+    annotation(Inline=true, Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+vec = Frames.<strong>to_vector</strong>(R);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function returns a vector vec which contains elements of a transformation matrix&nbsp;T
+computed from an
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Orientation\">orientation object</a>&nbsp;R.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.to_T\">to_T</a>,
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.to_vector\">TransformationMatrices.to_vector</a>.
+</p>
+</html>"));
   end to_vector;
 
   function to_exy
@@ -949,7 +1250,26 @@ is not possible or too difficult to compute, use function from_T2(..).
       "= [e_x, e_y] where e_x and e_y are axes unit vectors of frame 2, resolved in frame 1";
   algorithm
     exy := [R.T[1, :], R.T[2, :]];
-    annotation(Inline=true);
+    annotation(Inline=true, Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+exy = Frames.<strong>to_exy</strong>(R);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function returns unit vectors e_x and e_y which define axes of frame&nbsp;2 resolved in frame&nbsp;1,
+provided&nbsp;R is an <a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Orientation\">orientation object</a>
+to rotate frame&nbsp;1 into frame&nbsp;2.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.from_nxy\">from_nxy</a>,
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.from_nxz\">from_nxz</a>,
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.to_exy\">TransformationMatrices.to_exy</a>.
+</p>
+</html>"));
   end to_exy;
 
   function axis "Return unit vector for x-, y-, or z-axis"
@@ -958,7 +1278,24 @@ is not possible or too difficult to compute, use function from_T2(..).
     output Real e[3](each final unit="1") "Unit axis vector";
   algorithm
     e := if axis == 1 then {1,0,0} else (if axis == 2 then {0,1,0} else {0,0,1});
-    annotation(Inline=true);
+    annotation(Inline=true, Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+e = Frames.<strong>axis</strong>(axis);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+A unit vector&nbsp;e is returned depending on whether x-, y-, or z-axis is required.
+</p>
+<blockquote><pre>
+ axis  |    e
+-------+-----------
+  1    |  {1,0,0}
+  2    |  {1,0,0}
+  3    |  {1,0,0}
+</pre></blockquote>
+</html>"));
   end axis;
 
   package Quaternions
@@ -1039,11 +1376,18 @@ confused with Modelica \"parameters\".
         "Quaternions orientation object to rotate frame 1 into frame 2";
       input der_Orientation der_Q "Derivative of Q";
       output Modelica.SIunits.AngularVelocity w[3]
-        "Angular velocity resolved in frame 1";
+        "Angular velocity of frame 2 with respect to frame 1 resolved in frame 1";
     algorithm
       w := 2*([Q[4], -Q[3], Q[2], -Q[1]; Q[3], Q[4], -Q[1], -Q[2]; -Q[2], Q[1],
          Q[4], -Q[3]]*der_Q);
-      annotation(Inline=true);
+      annotation(Inline=true, Documentation(info="<html>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.angularVelocity1\">Frames.angularVelocity1</a>,
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.angularVelocity1\">TransformationMatrices.angularVelocity1</a>.
+</p>
+</html>"));
     end angularVelocity1;
 
     function angularVelocity2
@@ -1058,7 +1402,14 @@ confused with Modelica \"parameters\".
     algorithm
       w := 2*([Q[4], Q[3], -Q[2], -Q[1]; -Q[3], Q[4], Q[1], -Q[2]; Q[2], -Q[1],
          Q[4], -Q[3]]*der_Q);
-      annotation(Inline=true);
+      annotation(Inline=true, Documentation(info="<html>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.angularVelocity2\">Frames.angularVelocity2</a>,
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.angularVelocity2\">TransformationMatrices.angularVelocity2</a>.
+</p>
+</html>"));
     end angularVelocity2;
 
     function resolve1 "Transform vector from frame 2 to frame 1"
@@ -1095,7 +1446,13 @@ confused with Modelica \"parameters\".
     algorithm
       v1 := ((2*Q[4]*Q[4] - 1)*identity(3) + 2*(outerProduct(Q[1:3],Q[1:3]) +
         Q[4]*skew(Q[1:3])))*v2;
-      annotation(Inline=true);
+      annotation(Inline=true, Documentation(info="<html>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.multipleResolve1\">TransformationMatrices.multipleResolve1</a>.
+</p>
+</html>"));
     end multipleResolve1;
 
     function multipleResolve2
@@ -1108,7 +1465,13 @@ confused with Modelica \"parameters\".
     algorithm
       v2 := ((2*Q[4]*Q[4] - 1)*identity(3) + 2*(outerProduct(Q[1:3],Q[1:3]) -
         Q[4]*skew(Q[1:3])))*v1;
-      annotation(Inline=true);
+      annotation(Inline=true, Documentation(info="<html>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.multipleResolve2\">TransformationMatrices.multipleResolve2</a>.
+</p>
+</html>"));
     end multipleResolve2;
 
     function nullRotation
@@ -1163,7 +1526,14 @@ confused with Modelica \"parameters\".
       Q2 := [Q_rel[4], Q_rel[3], -Q_rel[2], Q_rel[1]; -Q_rel[3], Q_rel[4],
         Q_rel[1], Q_rel[2]; Q_rel[2], -Q_rel[1], Q_rel[4], Q_rel[3]; -Q_rel[1],
          -Q_rel[2], -Q_rel[3], Q_rel[4]]*Q1;
-      annotation(Inline=true);
+      annotation(Inline=true, Documentation(info="<html>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.absoluteRotation\">Frames.absoluteRotation</a>,
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.absoluteRotation\">TransformationMatrices.absoluteRotation</a>.
+</p>
+</html>"));
     end absoluteRotation;
 
     function planarRotation
@@ -1178,7 +1548,14 @@ confused with Modelica \"parameters\".
         "Quaternions orientation object to rotate frame 1 into frame 2 along axis e";
     algorithm
       Q := vector([e*Math.sin(angle/2); Math.cos(angle/2)]);
-      annotation(Inline=true);
+      annotation(Inline=true, Documentation(info="<html>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.planarRotation\">Frames.planarRotation</a>,
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.planarRotation\">TransformationMatrices.planarRotation</a>.
+</p>
+</html>"));
     end planarRotation;
 
     function smallRotation "Return rotation angles valid for a small rotation"
@@ -1260,6 +1637,31 @@ confused with Modelica \"parameters\".
       if Q*Q_guess < 0 then
         Q := -Q;
       end if;
+      annotation (Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+Q = Quaternions.<strong>from_T</strong>(T, Q_guess);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function returns a
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Quaternions.Orientation\">quaternions orientation</a>&nbsp;Q.
+computed from a transformation matrix&nbsp;T
+and depending on the initial guess Q_guess.
+Generally, the transformation matrix&nbsp;T can be gained using a function from the
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices\">TransformationMatrices</a>
+package.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Quaternions.to_T\">to_T</a>.
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Quaternions.from_T_inv\">from_T_inv</a>,
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.from_T\">Frames.from_T</a>,
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.from_T\">TransformationMatrices.from_T</a>.
+</p>
+</html>"));
     end from_T;
 
     function from_T_inv
@@ -1274,7 +1676,30 @@ confused with Modelica \"parameters\".
         "Quaternions orientation object to rotate frame 1 into frame 2 (Q and -Q have same transformation matrix)";
     algorithm
       Q := from_T(transpose(T_inv), Q_guess);
-      annotation(Inline=true);
+      annotation(Inline=true, Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+Q = Quaternions.<strong>from_T_inv</strong>(T_inv, Q_guess);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function returns a
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Quaternions.Orientation\">quaternions orientation</a>&nbsp;Q.
+computed from an inverse transformation matrix T_inv
+and depending on the initial guess Q_guess.
+Generally, the transformation matrix T_inv can be gained using a function from the
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices\">TransformationMatrices</a>
+package, e.g. using T_inv = <a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.inverseRotation\">inverseRotation</a>(T).
+</p>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Quaternions.from_T\">from_T</a>,
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.from_T_inv\">Frames.from_T_inv</a>,
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.from_T_inv\">TransformationMatrices.from_T_inv</a>.
+</p>
+</html>"));
     end from_T_inv;
 
     function to_T
@@ -1294,7 +1719,29 @@ confused with Modelica \"parameters\".
         3] - Q[2]*Q[4]); 2*(Q[2]*Q[1] - Q[3]*Q[4]), 2*(Q[2]*Q[2] + Q[4]*Q[4])
          - 1, 2*(Q[2]*Q[3] + Q[1]*Q[4]); 2*(Q[3]*Q[1] + Q[2]*Q[4]), 2*(Q[3]*Q[2]
          - Q[1]*Q[4]), 2*(Q[3]*Q[3] + Q[4]*Q[4]) - 1];
-      annotation(Inline=true);
+      annotation(Inline=true, Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+T = Quaternions.<strong>to_T</strong>(Q);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function returns a real matrix&nbsp;T
+<!--<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation\">transformation matrix</a>&nbsp;T-->
+computed from a
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Quaternions.Orientation\">quaternions orientation</a>&nbsp;Q.
+The matrix&nbsp;T is considered to be an object transformation matrix.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Quaternions.from_T\">from_T</a>,
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Quaternions.to_T_inv\">to_T_inv</a>,
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.to_T\">Frames.to_T</a>,
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.to_T\">TransformationMatrices.to_T</a>.
+</p>
+</html>"));
     end to_T;
 
     function to_T_inv
@@ -1314,7 +1761,29 @@ confused with Modelica \"parameters\".
         3]*Q[1] + Q[2]*Q[4]); 2*(Q[1]*Q[2] + Q[3]*Q[4]), 2*(Q[2]*Q[2] + Q[4]*Q[
         4]) - 1, 2*(Q[3]*Q[2] - Q[1]*Q[4]); 2*(Q[1]*Q[3] - Q[2]*Q[4]), 2*(Q[2]*
         Q[3] + Q[1]*Q[4]), 2*(Q[3]*Q[3] + Q[4]*Q[4]) - 1];
-      annotation(Inline=true);
+      annotation(Inline=true, Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+T_inv = Quaternions.<strong>to_T_inv</strong>(Q);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function returns a real matrix&nbsp;T_inv
+computed from a
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Quaternions.Orientation\">quaternions orientation</a>&nbsp;Q.
+The matrix&nbsp;T is considered to be an inverse transformation matrix.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Quaternions.to_T\">to_T</a>,
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Quaternions.from_T_inv\">from_T_inv</a>,
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.to_T_inv\">Frames.to_T_inv</a>,
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.to_T_inv\">TransformationMatrices.to_T_inv</a>.
+</p>
+</html>
+"));
     end to_T_inv;
 
     annotation (Documentation(info="<html>
@@ -1502,7 +1971,25 @@ Rotation can be defined by adapting this package correspondingly.
     algorithm
       residue := {T[:, 1]*T[:, 1] - 1,T[:, 2]*T[:, 2] - 1,T[:, 3]*T[:, 3] - 1,T[
         :, 1]*T[:, 2],T[:, 1]*T[:, 3],T[:, 2]*T[:, 3]};
-      annotation(Inline=true);
+      annotation(Inline=true, Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+residue = TransformationMatrices.<strong>orientationConstraint</strong>(T);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function returns the Real residue vector with 6 elements that describes the constraints
+between the 9 elements of the
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation\">transformation matrix</a>&nbsp;T.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.orientationConstraint\">Frames.orientationConstraint</a>,
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Quaternions.orientationConstraint\">Quaternions.orientationConstraint</a>.
+</p>
+</html>"));
     end orientationConstraint;
 
     function angularVelocity1
@@ -1517,7 +2004,7 @@ Rotation can be defined by adapting this package correspondingly.
     algorithm
       /* The angular velocity w of frame 2 with respect to frame 1 resolved in frame 1,
      is defined as:
-        w = vec( der(transpose(T))*T );
+        w = vec(der(transpose(T))*T );
      where
                    |   0 -w3  w2 |
          skew(w) = |  w3   0 -w1 | and w = vec(skew(w))
@@ -1534,7 +2021,30 @@ Rotation can be defined by adapting this package correspondingly.
              |  W(2,1) |   |  der(T[:,2])*T[:,1] |
   */
       w := {der_T[:, 3]*T[:, 2],-der_T[:, 3]*T[:, 1],der_T[:, 2]*T[:, 1]};
-      annotation(Inline=true);
+      annotation(Inline=true, Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+w = TransformationMatrices.<strong>angularVelocity1</strong>(T, der_T);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function returns the the angular velocity&nbsp;w of frame&nbsp;2 with
+respect to frame&nbsp;1 resolved in frame&nbsp;1, from the 
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation\">transformation matrix</a>&nbsp;T
+that describes the orientation to rotate frame&nbsp;1 into frame&nbsp;2
+and from its first time derivative der_T:
+</p>
+<blockquote><pre>
+w = vec( der(transpose(T)) * T ).
+</pre></blockquote>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.angularVelocity1\">Frames.angularVelocity1</a>,
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Quaternions.angularVelocity1\">Quaternions.angularVelocity1</a>.
+</p>
+</html>"));
     end angularVelocity1;
 
     function angularVelocity2
@@ -1566,7 +2076,30 @@ Rotation can be defined by adapting this package correspondingly.
              |  W(2,1) |   |  T[2,:]*der(T[1,:]) |
   */
       w := {T[3, :]*der_T[2, :],-T[3, :]*der_T[1, :],T[2, :]*der_T[1, :]};
-      annotation(Inline=true);
+      annotation(Inline=true, Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+w = TransformationMatrices.<strong>angularVelocity2</strong>(T, der_T);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function returns the the angular velocity&nbsp;w of frame&nbsp;2 with
+respect to frame&nbsp;1 resolved in frame&nbsp;1, from the 
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation\">transformation matrix</a>&nbsp;T
+that describes the orientation to rotate frame&nbsp;1 into frame&nbsp;2
+and from its first time derivative der_T:
+</p>
+<blockquote><pre>
+w = vec( T * der(transpose(T)) ).
+</pre></blockquote>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.angularVelocity2\">Frames.angularVelocity2</a>,
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Quaternions.angularVelocity2\">Quaternions.angularVelocity2</a>.
+</p>
+</html>"));
     end angularVelocity2;
 
     function resolve1 "Transform vector from frame 2 to frame 1"
@@ -1577,7 +2110,26 @@ Rotation can be defined by adapting this package correspondingly.
       output Real v1[3] "Vector in frame 1";
     algorithm
       v1 := transpose(T)*v2;
-      annotation(Inline=true);
+      annotation(Inline=true, Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+v1 = TransformationMatrices.<strong>resolve1</strong>(T, v2);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function returns vector&nbsp;v resolved in frame&nbsp;1 (=v1) from vector&nbsp;v
+resolved in frame&nbsp;2 (=v2) using the
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation\">transformation matrix</a>&nbsp;T
+that describes the orientation to rotate frame 1 into frame 2.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.resolve1\">Frames.resolve1</a>,
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Quaternions.resolve1\">Quaternions.resolve1</a>.
+</p>
+</html>"));
     end resolve1;
 
     function resolve2 "Transform vector from frame 1 to frame 2"
@@ -1588,7 +2140,26 @@ Rotation can be defined by adapting this package correspondingly.
       output Real v2[3] "Vector in frame 2";
     algorithm
       v2 := T*v1;
-      annotation(Inline=true);
+      annotation(Inline=true, Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+v2 = TransformationMatrices.<strong>resolve2</strong>(T, v1);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function returns vector&nbsp;v resolved in frame&nbsp;2 (=v2) from vector&nbsp;v
+resolved in frame&nbsp;1 (=v1) using the
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation\">transformation matrix</a>&nbsp;T
+that describes the orientation to rotate frame 1 into frame 2.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.resolve2\">Frames.resolve2</a>,
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Quaternions.resolve2\">Quaternions.resolve2</a>.
+</p>
+</html>"));
     end resolve2;
 
     function multipleResolve1
@@ -1601,7 +2172,25 @@ Rotation can be defined by adapting this package correspondingly.
       output Real v1[3, size(v2, 2)] "Vectors in frame 1";
     algorithm
       v1 := transpose(T)*v2;
-      annotation(Inline=true);
+      annotation(Inline=true, Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+v1 = TransformationMatrices.<strong>multipleResolve1</strong>(T, v2);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function returns vectors&nbsp;v resolved in frame&nbsp;1 (=v1) from vectors&nbsp;v
+resolved in frame&nbsp;2 (=v2) using the
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation\">transformation matrix</a>&nbsp;T
+that describes the orientation to rotate frame 1 into frame 2.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Quaternions.multipleResolve1\">Quaternions.multipleResolve1</a>.
+</p>
+</html>"));
     end multipleResolve1;
 
     function multipleResolve2
@@ -1614,7 +2203,25 @@ Rotation can be defined by adapting this package correspondingly.
       output Real v2[3, size(v1, 2)] "Vectors in frame 2";
     algorithm
       v2 := T*v1;
-      annotation(Inline=true);
+      annotation(Inline=true, Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+v2 = TransformationMatrices.<strong>multipleResolve2</strong>(T, v1);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function returns vectors&nbsp;v resolved in frame&nbsp;2 (=v2) from vectors&nbsp;v
+resolved in frame&nbsp;1 (=v1) using the
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation\">transformation matrix</a>&nbsp;T
+that describes the orientation to rotate frame 1 into frame 2.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Quaternions.multipleResolve2\">Quaternions.multipleResolve2</a>.
+</p>
+</html>"));
     end multipleResolve2;
 
     function resolveDyade1
@@ -1626,7 +2233,25 @@ Rotation can be defined by adapting this package correspondingly.
       output Real D1[3, 3] "Second order tensor resolved in frame 1";
     algorithm
       D1 := transpose(T)*D2*T;
-      annotation(Inline=true);
+      annotation(Inline=true, Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+D1 = TransformationMatrices.<strong>resolveDyade1</strong>(T, D2);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function returns the second order tensor&nbsp;D
+resolved in frame&nbsp;1 (= D1) from its representation in frame&nbsp;2 (= D2) using the
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation\">transformation matrix</a>&nbsp;T
+that describes the orientation to rotate frame&nbsp;1 into frame&nbsp;2.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.resolveDyade1\">Frames.resolveDyade1</a>.
+</p>
+</html>"));
     end resolveDyade1;
 
     function resolveDyade2
@@ -1638,7 +2263,25 @@ Rotation can be defined by adapting this package correspondingly.
       output Real D2[3, 3] "Second order tensor resolved in frame 2";
     algorithm
       D2 := T*D1*transpose(T);
-      annotation(Inline=true);
+      annotation(Inline=true, Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+D2 = TransformationMatrices.<strong>resolveDyade2</strong>(T, D1);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function returns the second order tensor&nbsp;D
+resolved in frame&nbsp;2 (= D2) from its representation in frame&nbsp;1 (= D1) using the
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation\">transformation matrix</a>&nbsp;T
+that describes the orientation to rotate frame&nbsp;1 into frame&nbsp;2.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.resolveDyade2\">Frames.resolveDyade2</a>.
+</p>
+</html>"));
     end resolveDyade2;
 
     function nullRotation
@@ -1648,7 +2291,26 @@ Rotation can be defined by adapting this package correspondingly.
         "Orientation object such that frame 1 and frame 2 are identical";
     algorithm
       T := identity(3);
-      annotation(Inline=true);
+      annotation(Inline=true, Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+T = TransformationMatrices.<strong>nullRotation</strong>();
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function returns a
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation\">transformation matrix</a>&nbsp;T
+describing the orientation object to rotate frame&nbsp;1 into frame&nbsp;2, if frame&nbsp;1 and frame&nbsp;2 are identical.
+(= transformation matrix is identity matrix and angular velocity is zero).
+</p>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.nullRotation\">Frames.nullRotation</a>,
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Quaternions.nullRotation\">Quaternions.nullRotation</a>.
+</p>
+</html>"));
     end nullRotation;
 
     function inverseRotation "Return inverse orientation object"
@@ -1659,7 +2321,29 @@ Rotation can be defined by adapting this package correspondingly.
         "Orientation object to rotate frame 2 into frame 1";
     algorithm
       T_inv := transpose(T);
-      annotation(Inline=true);
+      annotation(Inline=true, Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+T_inv = TransformationMatrices.<strong>inverseRotation</strong>(T);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function returns
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation\">transformation matrix</a> T_inv
+that describes the orientation to rotate from frame&nbsp;2 to frame&nbsp;1
+from the
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation\">transformation matrix</a>&nbsp;T
+that describes the orientation to rotate from frame&nbsp;1 into frame&nbsp;2.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.inverseRotation\">Frames.inverseRotation</a>,
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Quaternions.inverseRotation\">Quaternions.inverseRotation</a>.
+
+</p>
+</html>"));
     end inverseRotation;
 
     function relativeRotation "Return relative orientation object"
@@ -1672,7 +2356,29 @@ Rotation can be defined by adapting this package correspondingly.
         "Orientation object to rotate frame 1 into frame 2";
     algorithm
       T_rel := T2*transpose(T1);
-      annotation(Inline=true);
+      annotation(Inline=true, Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+T_rel = TransformationMatrices.<strong>relativeRotation</strong>(T1, T2);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function returns
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation\">transformation matrix</a> T_rel
+that describes the orientation to rotate frame&nbsp;1 to frame&nbsp;2 from the
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation\">transformation matrix</a>&nbsp;T1
+that describes the orientation to rotate from frame&nbsp;0 to frame&nbsp;1 and from the
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation\">transformation matrix</a>&nbsp;T2
+that describes the orientation to rotate from frame&nbsp;0 to frame&nbsp;2.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.relativeRotation\">Frames.relativeRotation</a>,
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Quaternions.relativeRotation\">Quaternions.relativeRotation</a>.
+</p>
+</html>"));
     end relativeRotation;
 
     function absoluteRotation
@@ -1687,7 +2393,29 @@ Rotation can be defined by adapting this package correspondingly.
         "Orientation object to rotate frame 0 into frame 2";
     algorithm
       T2 := T_rel*T1;
-      annotation(Inline=true);
+      annotation(Inline=true, Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+T2 = TransformationMatrices.<strong>absoluteRotation</strong>(T1, T_rel);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function returns
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation\">transformation matrix</a>&nbsp;T2
+hat describes the orientation frame 0 to frame 2 from the
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation\">transformation matrix</a>&nbsp;T1
+that describes the orientation to rotate from frame 0 to frame 1 and from the relative
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation\">transformation matrix</a>&nbsp;T2_rel
+that describes the orientation to rotate from frame 1 to frame 2.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.absoluteRotation\">Frames.absoluteRotation</a>,
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Quaternions.absoluteRotation\">Quaternions.absoluteRotation</a>.
+</p>
+</html>"));
     end absoluteRotation;
 
     function planarRotation "Return orientation object of a planar rotation"
@@ -1702,7 +2430,29 @@ Rotation can be defined by adapting this package correspondingly.
     algorithm
       T := outerProduct(e,e) + (identity(3) - outerProduct(e,e))*Math.cos(
         angle) - skew(e)*Math.sin(angle);
-      annotation(Inline=true);
+      annotation(Inline=true, Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+T = TransformationMatrices.<strong>planarRotation</strong>(e, angle);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+The function returns
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation\">transformation matrix</a>&nbsp;T
+that describes the orientation to rotate in the plane along unit
+axis <strong>e</strong> from frame 1 into frame 2 with angle <strong>angle</strong>.
+Note, \"e\" must be a unit vector. However, this is not checked in this function and the function will
+return a wrong result, if length(e) is not one.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.planarRotationAngle\">planarRotationAngle</a>,
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.planarRotation\">Frames.planarRotation</a>,
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Quaternions.planarRotation\">Quaternions.planarRotation</a>.
+</p>
+</html>"));
     end planarRotation;
 
     function planarRotationAngle
@@ -1745,15 +2495,21 @@ Rotation can be defined by adapting this package correspondingly.
     */
       angle := Modelica.Math.atan2(-cross(e, v1)*v2, v1*v2 - (e*v1)*(e*v2));
       annotation (Inline=true, Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+angle = TransformationMatrices.<strong>planarRotationAngle</strong>(e, v1, v2);
+</pre></blockquote>
+
+<h4>Description</h4>
 <p>
 A call to this function of the form
 </p>
-<pre>
-    Real[3]                e, v1, v2;
-    Modelica.SIunits.Angle angle;
-  <strong>equation</strong>
-    angle = <strong>planarRotationAngle</strong>(e, v1, v2);
-</pre>
+<blockquote><pre>
+  Real[3]                e, v1, v2;
+  Modelica.SIunits.Angle angle;
+<strong>equation</strong>
+  angle = <strong>planarRotationAngle</strong>(e, v1, v2);
+</pre></blockquote>
 <p>
 computes the rotation angle \"<strong>angle</strong>\" of a planar
 rotation along unit vector <strong>e</strong>, rotating frame 1 into frame 2, given
@@ -1761,15 +2517,15 @@ the coordinate representations of a vector \"v\" in frame 1 (<strong>v1</strong>
 and in frame 2 (<strong>v2</strong>). Therefore, the result of this function
 fulfills the following equation:
 </p>
-<pre>
-    v2 = <strong>resolve2</strong>(<strong>planarRotation</strong>(e,angle), v1)
-</pre>
+<blockquote><pre>
+v2 = <strong>resolve2</strong>(<strong>planarRotation</strong>(e,angle), v1)
+</pre></blockquote>
 <p>
 The rotation angle is returned in the range
 </p>
-<pre>
-    -<font face=\"Symbol\">p</font> &lt;= angle &lt;= <font face=\"Symbol\">p</font>
-</pre>
+<blockquote><pre>
+-<font face=\"Symbol\">p</font> &lt;= angle &lt;= <font face=\"Symbol\">p</font>
+</pre></blockquote>
 <p>
 This function makes the following assumptions on the input arguments
 </p>
@@ -1782,6 +2538,12 @@ This function makes the following assumptions on the input arguments
 The function does not check the above assumptions. If these
 assumptions are violated, a wrong result will be returned
 and/or a division by zero will occur.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.planarRotation\">planarRotation</a>,
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.planarRotationAngle\">Frames.planarRotationAngle</a>.
 </p>
 </html>"));
     end planarRotationAngle;
@@ -1799,7 +2561,28 @@ and/or a division by zero will occur.
          Modelica.Math.cos(angle)] else if axis == 2 then [Modelica.Math.cos(angle), 0, -Modelica.Math.sin(angle); 0, 1, 0;
          Modelica.Math.sin(angle), 0, Modelica.Math.cos(angle)] else [Modelica.Math.cos(angle), Modelica.Math.sin(angle), 0;
         -Modelica.Math.sin(angle), Modelica.Math.cos(angle), 0; 0, 0, 1];
-      annotation(Inline=true);
+      annotation(Inline=true, Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+T = TransformationMatrices.<strong>axisRotation</strong>(axis, angle);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function returns
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation\">transformation matrix</a>&nbsp;T
+that describes the orientation to rotate along unit axis <strong>axis</strong>
+from frame 1 into frame 2 with angle <strong>angle</strong>.
+For example, TransformationMatrices.axisRotation(2, phi) returns the same orientation object as with the call
+TransformationMatrices.planarRotation({0,1,0}, phi)
+</p>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.planarRotation\">planarRotation</a>,
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.axisRotation\">Frames.axisRotation</a>.
+</p>
+</html>"));
     end axisRotation;
 
     function axesRotations
@@ -1817,7 +2600,25 @@ and/or a division by zero will occur.
       T := absoluteRotation(absoluteRotation(axisRotation(sequence[1], angles[1]),
          axisRotation(sequence[2], angles[2])), axisRotation(sequence[3],
         angles[3]));
-      annotation(Inline=true);
+      annotation(Inline=true, Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+T = TransformationMatrices.<strong>axesRotations</strong>(sequence, angles);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function returns
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation\">transformation matrix</a>&nbsp;T
+that describes the orientation defined by three elementary rotations in
+a given <strong>sequence</strong>, each rotated by <strong>angles</strong>.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.axesRotations\">Frames.axesRotations</a>.
+</p>
+</html>"));
     end axesRotations;
 
     function axesRotationsAngles
@@ -1923,31 +2724,38 @@ and/or a division by zero will occur.
          e2_1a)));
 
       annotation (Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+angles = TransformationMatrices.<strong>axesRotationsAngles</strong>(T, sequence, guessAngle1);
+</pre></blockquote>
+
+<h4>Description</h4>
 <p>
 A call to this function of the form
 </p>
-<pre>
-    TransformationMatrices.Orientation     T;
-    <strong>parameter</strong> Integer      sequence[3] = {1,2,3};
-    Modelica.SIunits.Angle angles[3];
-  <strong>equation</strong>
-    angle = <strong>axesRotationAngles</strong>(T, sequence);
-</pre>
+<blockquote><pre>
+  TransformationMatrices.Orientation T;
+  <strong>parameter</strong> Integer sequence[3] = {1,2,3};
+  Modelica.SIunits.Angle angles[3];
+<strong>equation</strong>
+  angle = <strong>axesRotationAngles</strong>(T, sequence);
+</pre></blockquote>
 <p>
 computes the rotation angles \"<strong>angles</strong>[1:3]\" to rotate frame 1
-into frame 2 along axes <strong>sequence</strong>[1:3], given the orientation
-object <strong>T</strong> from frame 1 to frame 2. Therefore, the result of
+into frame 2 along axes <strong>sequence</strong>[1:3], given the
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation\">transformation matrix</a>&nbsp;T
+from frame 1 to frame 2. Therefore, the result of
 this function fulfills the following equation:
 </p>
-<pre>
-    T = <strong>axesRotation</strong>(sequence, angles)
-</pre>
+<blockquote><pre>
+T = <strong>axesRotation</strong>(sequence, angles)
+</pre></blockquote>
 <p>
 The rotation angles are returned in the range
 </p>
-<pre>
-    -<font face=\"Symbol\">p</font> &lt;= angles[i] &lt;= <font face=\"Symbol\">p</font>
-</pre>
+<blockquote><pre>
+-<font face=\"Symbol\">p</font> &lt;= angles[i] &lt;= <font face=\"Symbol\">p</font>
+</pre></blockquote>
 <p>
 There are <strong>two solutions</strong> for \"angles[1]\" in this range.
 Via the third argument <strong>guessAngle1</strong> (default = 0) the
@@ -1962,11 +2770,16 @@ Note, that input argument <strong>sequence</strong> has the restriction that
 only values 1,2,3 can be used and that sequence[1] &ne; sequence[2]
 and sequence[2] &ne; sequence[3]. Often used values are:
 </p>
-<pre>
-  sequence = <strong>{1,2,3}</strong>  // Cardan angle sequence
-           = <strong>{3,1,3}</strong>  // Euler angle sequence
-           = <strong>{3,2,1}</strong>  // Tait-Bryan angle sequence
-</pre>
+<blockquote><pre>
+sequence = <strong>{1,2,3}</strong>  // Cardan angle sequence
+         = <strong>{3,1,3}</strong>  // Euler angle sequence
+         = <strong>{3,2,1}</strong>  // Tait-Bryan angle sequence
+</pre></blockquote>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.axesRotationsAngles\">Frames.axesRotationsAngles</a>.
+</p>
 </html>"));
     end axesRotationsAngles;
 
@@ -1993,7 +2806,23 @@ and sequence[2] &ne; sequence[3]. Often used values are:
       phi := if withResidues then {T[2, 3],-T[1, 3],T[1, 2],T[1, 1] - 1,T[2, 2]
          - 1,T[1, 1]*T[2, 2] - T[2, 1]*T[1, 2] - 1} else {T[2, 3],-T[1, 3],T[1,
          2]};
-      annotation(Inline=true);
+      annotation(Inline=true, Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+phi = TransformationMatrices.<strong>smallRotation</strong>(T, withResidues);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function returns rotation angles valid for a small rotation of x-y-z sequence (i.e. {1,2,3}).
+Optionally, residues are returned as well if <code>withResidues=true</code>.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.smallRotation\">Frames.smallRotation</a>.
+</p>
+</html>"));
     end smallRotation;
 
     function from_nxy "Return orientation object from n_x and n_y vectors"
@@ -2015,24 +2844,34 @@ and sequence[2] &ne; sequence[3]. Often used values are:
     algorithm
       T := {e_x,cross(e_z, e_x),e_z};
       annotation (Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+T = TransformationMatrices.<strong>from_nxy</strong>(n_x, n_y);
+</pre></blockquote>
+
+<h4>Description</h4>
 <p>
 It is assumed that the two input vectors n_x and n_y are
-resolved in frame 1 and are directed along the x and y axis
-of frame 2 (i.e., n_x and n_y are orthogonal to each other)
-The function returns the orientation object T to rotate from
-frame 1 to frame 2.
+resolved in frame&nbsp;1 and are directed along the&nbsp;x and&nbsp;y axis
+of frame&nbsp;2 (i.e., n_x and n_y are orthogonal to each other)
+The function returns the orientation object&nbsp;T to rotate from
+frame&nbsp;1 to frame&nbsp;2.
 </p>
 <p>
 The function is robust in the sense that it returns always
-an orientation object T, even if n_y is not orthogonal to n_x.
+an orientation object&nbsp;T, even if n_y is not orthogonal to n_x.
 This is performed in the following way:
-</p>
-<p>
+<br>
 If n_x and n_y are not orthogonal to each other, first a unit
 vector e_y is determined that is orthogonal to n_x and is lying
 in the plane spanned by n_x and n_y. If n_x and n_y are parallel
 or nearly parallel to each other, a vector e_y is selected
 arbitrarily such that e_x and e_y are orthogonal to each other.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.from_nxy\">Frames.from_nxy</a>.
 </p>
 </html>"));
     end from_nxy;
@@ -2056,24 +2895,34 @@ arbitrarily such that e_x and e_y are orthogonal to each other.
     algorithm
       T := {e_x,e_y,cross(e_x, e_y)};
       annotation (Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+T = TransformationMatrices.<strong>from_nxz</strong>(n_x, n_z);
+</pre></blockquote>
+
+<h4>Description</h4>
 <p>
 It is assumed that the two input vectors n_x and n_z are
-resolved in frame 1 and are directed along the x and z axis
-of frame 2 (i.e., n_x and n_z are orthogonal to each other)
-The function returns the orientation object T to rotate from
-frame 1 to frame 2.
+resolved in frame&nbsp;1 and are directed along the&nbsp;x and&nbsp;z axis
+of frame&nbsp;2 (i.e., n_x and n_z are orthogonal to each other)
+The function returns the orientation object&nbsp;T to rotate from
+frame&nbsp;1 to frame&nbsp;2.
 </p>
 <p>
 The function is robust in the sense that it returns always
-an orientation object T, even if n_z is not orthogonal to n_x.
+an orientation object&nbsp;T, even if n_z is not orthogonal to n_x.
 This is performed in the following way:
-</p>
-<p>
+<br>
 If n_x and n_z are not orthogonal to each other, first a unit
 vector e_z is determined that is orthogonal to n_x and is lying
 in the plane spanned by n_x and n_z. If n_x and n_z are parallel
 or nearly parallel to each other, a vector e_z is selected
 arbitrarily such that n_x and e_z are orthogonal to each other.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.from_nxz\">Frames.from_nxz</a>.
 </p>
 </html>"));
     end from_nxz;
@@ -2086,7 +2935,26 @@ arbitrarily such that n_x and e_z are orthogonal to each other.
         "Orientation object to rotate frame 1 into frame 2";
     algorithm
       R := T;
-      annotation(Inline=true);
+      annotation(Inline=true, Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+R = TransformationMatrices.<strong>from_T</strong>(T);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function returns a
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation\">transformation matrix</a>&nbsp;R
+which is equal to a real input matrix&nbsp;T.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.from_T_inv\">from_T_inv</a>,
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.to_T\">to_T</a>,
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.from_T\">Frames.from_T</a>.
+</p>
+</html>"));
     end from_T;
 
     function from_T_inv
@@ -2099,7 +2967,26 @@ arbitrarily such that n_x and e_z are orthogonal to each other.
         "Orientation object to rotate frame 1 into frame 2";
     algorithm
       R := transpose(T_inv);
-      annotation(Inline=true);
+      annotation(Inline=true, Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+R = TransformationMatrices.<strong>from_T_inv</strong>(T_inv);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function returns a
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation\">transformation matrix</a>&nbsp;R
+which is inverse to real input matrix T_inv.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.to_T_inv\">to_T_inv</a>,
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.from_T\">from_T</a>,
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.from_T_inv\">Frames.from_T_inv</a>.
+</p>
+</html>"));
     end from_T_inv;
 
     function from_Q
@@ -2119,7 +3006,25 @@ arbitrarily such that n_x and e_z are orthogonal to each other.
         3] - Q[2]*Q[4]); 2*(Q[2]*Q[1] - Q[3]*Q[4]), 2*(Q[2]*Q[2] + Q[4]*Q[4])
          - 1, 2*(Q[2]*Q[3] + Q[1]*Q[4]); 2*(Q[3]*Q[1] + Q[2]*Q[4]), 2*(Q[3]*Q[2]
          - Q[1]*Q[4]), 2*(Q[3]*Q[3] + Q[4]*Q[4]) - 1];
-      annotation(Inline=true);
+      annotation(Inline=true, Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+T = TransformationMatrices.<strong>from_Q</strong>(Q);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function returns a
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation\">transformation matrix</a>&nbsp;T
+computed from a <a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Quaternions.Orientation\">quaternion object</a>&nbsp;Q
+</p>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.to_Q\">to_Q</a>.
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.from_Q\">Frames.from_Q</a>.
+</p>
+</html>"));
     end from_Q;
 
     function to_T "Return transformation matrix T from orientation object R"
@@ -2130,7 +3035,26 @@ arbitrarily such that n_x and e_z are orthogonal to each other.
         "Transformation matrix to transform vector from frame 1 to frame 2 (v2=T*v1)";
     algorithm
       T := R;
-      annotation(Inline=true);
+      annotation(Inline=true, Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+T = TransformationMatrices.<strong>to_T</strong>(R);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function returns a real matrix&nbsp;T which is equal to a
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Orientation\">transformation matrix</a>&nbsp;R.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.from_T\">from_T</a>,
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.to_T_inv\">to_T_inv</a>,
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.to_T\">Frames.to_T</a>,
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Quaternions.to_T\">Quaternions.to_T</a>.
+</p>
+</html>"));
     end to_T;
 
     function to_T_inv
@@ -2143,7 +3067,27 @@ arbitrarily such that n_x and e_z are orthogonal to each other.
         "Inverse transformation matrix to transform vector from frame 2 into frame 1 (v1=T_inv*v2)";
     algorithm
       T_inv := transpose(R);
-      annotation(Inline=true);
+      annotation(Inline=true, Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+T_inv = TransformationMatrices.<strong>to_T_inv</strong>(R);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function returns a real matrix&nbsp;T_inv
+which is inverse to a
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation\">transformation matrix</a>&nbsp;R.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.from_T_inv\">from_T_inv</a>,
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.to_T\">to_T</a>,
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.to_T_inv\">Frames.to_T_inv</a>,
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Quaternions.to_T_inv\">Quaternions.to_T_inv</a>.
+</p>
+</html>"));
     end to_T_inv;
 
     function to_Q
@@ -2158,7 +3102,25 @@ arbitrarily such that n_x and e_z are orthogonal to each other.
         "Quaternions orientation object to rotate frame 1 into frame 2";
     algorithm
       Q := Quaternions.from_T(T, Q_guess);
-      annotation(Inline=true);
+      annotation(Inline=true, Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+Q = TransformationMatrices.<strong>to_Q</strong>(T, Q_guess);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function returns a <a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Quaternions.Orientation\">quaternion object</a>&nbsp;Q
+computed from a <a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation\">transformation matrix</a>&nbsp;T
+and depending on the initial guess Q_guess.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.from_Q\">from_Q</a>
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.to_Q\">Frames.to_Q</a>.
+</p>
+</html>"));
     end to_Q;
 
     function to_vector "Map rotation object into vector"
@@ -2169,7 +3131,24 @@ arbitrarily such that n_x and e_z are orthogonal to each other.
     algorithm
       vec := {T[1, 1],T[2, 1],T[3, 1],T[1, 2],T[2, 2],T[3, 2],T[1, 3],T[2, 3],T[
         3, 3]};
-      annotation(Inline=true);
+      annotation(Inline=true, Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+vec = TransformationMatrices.<strong>to_vector</strong>(T);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function returns a vector vec which contains elements of a
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation\">transformation matrix</a>&nbsp;T.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.to_T\">to_T</a>,
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.to_vector\">Frames.to_vector</a>.
+</p>
+</html>"));
     end to_vector;
 
     function to_exy
@@ -2182,7 +3161,26 @@ arbitrarily such that n_x and e_z are orthogonal to each other.
         "= [e_x, e_y] where e_x and e_y are axes unit vectors of frame 2, resolved in frame 1";
     algorithm
       exy := [T[1, :], T[2, :]];
-      annotation(Inline=true);
+      annotation(Inline=true, Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+exy = TransformationMatrices.<strong>to_exy</strong>(T);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function returns unit vectors e_x and e_y which define axes of frame&nbsp;2 resolved in frame&nbsp;1,
+provided&nbsp;T is a <a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation\">transformation matrix</a>
+to rotate frame&nbsp;1 into &nbsp;2.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.from_nxy\">from_nxy</a>,
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.from_nxz\">from_nxz</a>,
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.to_exy\">Frames.to_exy</a>.
+</p>
+</html>"));
     end to_exy;
     annotation (Documentation(info="<html>
 <p>
