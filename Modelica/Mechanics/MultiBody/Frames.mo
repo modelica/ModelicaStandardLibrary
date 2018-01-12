@@ -350,7 +350,7 @@ R = Frames.<strong>nullRotation</strong>();
 
 <h4>Description</h4>
 <p>
-The function call <code>Frames.<strong>rnullRotation</strong>()</code> returns an orientation matrix&nbsp;R
+The function call <code>Frames.<strong>nullRotation</strong>()</code> returns an orientation matrix&nbsp;R
 describing the orientation object to rotate frame&nbsp;1 into frame&nbsp;2, if frame&nbsp;1 and frame&nbsp;2 are identical.
 (= transformation matrix is identity matrix and angular velocity is zero).
 </p>

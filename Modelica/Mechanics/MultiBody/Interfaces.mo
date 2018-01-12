@@ -747,10 +747,20 @@ It is used by inheritance from all visualizer objects.
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={Text(
             extent={{-74,24},{80,-20}},
-            textString="r = 0")}));
+            textString="r = 0")}), Documentation(info="<html>
+<p>
+Element consisting of a frame (frame_resolve) that is fixed in the world
+frame and has it's position and orientation identical with the world, i.e.
+the position vector from origin of world frame to frame_resolve is zero vector
+and the relative orientation between those two frames is identity matrix.
+</p>
+<p>
+This component provides no visualization.
+</p>
+</html>"));
   end ZeroPosition;
 
-  partial function partialGravityAcceleration
+  partial function partialGravityAcceleration "Interface for the gravity function used in the World object"
     extends Modelica.Icons.Function;
      input Modelica.SIunits.Position r[3]
       "Position vector from world frame to actual point, resolved in world frame";
@@ -767,7 +777,7 @@ gravity acceleration at this point, resolved in the world frame.
 </html>"));
   end partialGravityAcceleration;
 
-  partial function partialSurfaceCharacteristic
+  partial function partialSurfaceCharacteristic "Interface for a function returning surface characteristics"
     extends Modelica.Icons.Function;
      input Integer nu "Number of points in u-Dimension";
      input Integer nv "Number of points in v-Dimension";
@@ -782,6 +792,12 @@ gravity acceleration at this point, resolved in the world frame.
      output Real C[if multiColoredSurface then nu else 0,
                    if multiColoredSurface then nv else 0,3]
       "[nu,nv,3] Color array, defining the color for each surface point";
+    annotation (Documentation(info="<html>
+<p>This partial function defines the interface of a function that returns
+surface characteristics for an object visualization, see e.g.
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.SurfaceCharacteristics.torus\">Visualizers.Advanced.SurfaceCharacteristics.torus</a>.
+</p>
+</html>"));
   end partialSurfaceCharacteristic;
 
   partial function partialColorMap
