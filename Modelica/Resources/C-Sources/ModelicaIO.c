@@ -672,7 +672,7 @@ static double* readTxtTable(_In_z_ const char* fileName, _In_z_ const char* tabl
         return NULL;
     }
 
-    buf = (char*)malloc(LINE_BUFFER_LENGTH*sizeof(char));
+    buf = (char*)calloc(LINE_BUFFER_LENGTH, sizeof(char));
     if (NULL == buf) {
         fclose(fp);
         ModelicaError("Memory allocation error\n");
