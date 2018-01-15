@@ -3412,7 +3412,7 @@ November 3-4, 2003, pp. 149-158</p>
       SI.Position z;
 
       SI.Angle angles[3](start={0,0,0}, each stateSelect=stateSelect)
-        "Angles to rotate world-frame in to frame_a around z-, y-, x-axis"
+        "Angles to rotate world-frame into frame_a around z-, y-, x-axis"
         annotation(Dialog(group="Initialization", showStartAttribute=true));
 
       SI.AngularVelocity der_angles[3](start={0,0,0}, each stateSelect=stateSelect)
@@ -3528,8 +3528,10 @@ granting a permanent contact of the wheel to the ground, i.e.
 the wheel can not take off.
 </p>
 <p>
-The frame frame_a is placed in the intersection of the wheel spin axis
-with the wheel middle plane and rotates with the wheel itself.
+The origin of the frame frame_a is placed in the intersection
+of the wheel spin axis with the wheel middle plane and rotates
+with the wheel itself. The y-axis of frame_a is identical with
+the wheel spin axis, i.e. the wheel rotates about y-axis of frame_a.
 A wheel body collecting the mass and inertia should be connected to
 this frame.
 </p>
@@ -3719,25 +3721,23 @@ To work properly, the gravity acceleration vector g of the world must point in t
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
             Rectangle(
-              extent={{-62,2},{64,-6}},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
+            extent={{-62,4},{64,-4}},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
             Ellipse(
               extent={{-118,80},{-42,-80}},
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
-            Line(
-              points={{86,24},{64,24},{64,10},{56,10}}),
-            Line(
-              points={{86,-24},{64,-24},{64,-12},{56,-12}}),
+            Line(points={{86,24},{64,24},{64,12},{56,12}}),
+            Line(points={{86,-24},{64,-24},{64,-12},{56,-12}}),
             Line(
               points={{-96,100},{-80,100},{-80,4}}),
             Line(
               points={{100,100},{80,100},{80,-2}}),
             Line(
-              points={{0,72},{0,40},{-20,40},{-20,2}}),
+              points={{0,72},{0,40},{-20,40},{-20,4}}),
             Line(
-              points={{0,40},{20,40},{20,2}})}),
+              points={{0,40},{20,40},{20,4}})}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
             Line(
