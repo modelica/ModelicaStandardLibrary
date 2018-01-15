@@ -4906,7 +4906,11 @@ This component defines the kinematic constraint:
             color={64,64,64}),
           Line(  origin={38.0,-10.0},
             points={{-22.0,0.0},{22.0,0.0}},
-            color={64,64,64})}), Documentation(info="<html>
+            color={64,64,64}),
+          Text(  lineColor={0,0,0},
+            extent={{-150,-160},{150,-120}},
+              textString="radius=%radius")}),
+                                 Documentation(info="<html>
 <p>
 A simple kinematic model of a rolling wheel which has no inertia and
 no rolling resistance. This component defines the kinematic constraint:
