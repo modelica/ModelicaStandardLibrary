@@ -2721,7 +2721,9 @@ To work properly, the gravity acceleration vector g of the world must point in t
     Modelica.Mechanics.MultiBody.Interfaces.Frame_a frameMiddle
       "Frame fixed in middle of axis connecting both wheels (y-axis: along wheel axis, z-axis: upwards)"
       annotation (Placement(transformation(extent={{-16,16},{16,-16}}),
-          iconTransformation(extent={{-16,-16},{16,16}})));
+          iconTransformation(extent={{-16,-16},{16,16}},
+          rotation=90,
+          origin={0,-20})));
 
     parameter Boolean animation=true
       "= true, if animation of wheel set shall be enabled";
@@ -2861,10 +2863,10 @@ To work properly, the gravity acceleration vector g of the world must point in t
       theta2(fixed=false),
       der_theta1(fixed=false),
       der_theta2(fixed=false))
-      annotation (Placement(transformation(extent={{-10,-42},{10,-22}})));
+      annotation (Placement(transformation(extent={{-10,40},{10,60}})));
     Modelica.Mechanics.Rotational.Interfaces.Flange_b support
       "Support of 1D axes" annotation (Placement(transformation(extent={{-10,70},
-              {10,90}}), iconTransformation(extent={{-10,72},{10,92}})));
+              {10,90}}), iconTransformation(extent={{-10,70},{10,90}})));
   equation
     wheelSetJoint.x = x;
     wheelSetJoint.y = y;
@@ -2891,27 +2893,29 @@ To work properly, the gravity acceleration vector g of the world must point in t
         color={95,95,95},
         thickness=0.5));
     connect(wheelSetJoint.frame2, frame2) annotation (Line(
-        points={{8,-32},{40,-32},{40,0},{80,0}},
+        points={{8,50},{30,50},{30,0},{80,0}},
         color={95,95,95},
         thickness=0.5));
     connect(wheelSetJoint.frame1, frame1) annotation (Line(
-        points={{-8,-32},{-40,-32},{-40,0},{-80,0}},
+        points={{-8,50},{-30,50},{-30,0},{-80,0}},
         color={95,95,95},
         thickness=0.5));
     connect(wheelSetJoint.axis1, axis1) annotation (Line(
-        points={{-10,-22},{-20,-22},{-20,50},{-80,50},{-80,100},{-100,100}}));
+        points={{-10,60},{-80,60},{-80,100},{-100,100}}));
     connect(wheelSetJoint.axis2, axis2) annotation (Line(
-        points={{10,-22},{24,-22},{24,50},{80,50},{80,100},{100,100}}));
+        points={{10,60},{80,60},{80,100},{100,100}}));
     connect(wheelSetJoint.support, support) annotation (Line(
-        points={{0,-24},{0,-14},{16,-14},{16,50},{0,50},{0,80}}));
+        points={{0,58},{0,80}}));
     connect(wheelSetJoint.frameMiddle, frameMiddle) annotation (Line(
-        points={{0,-32},{-4,-32},{-4,0},{0,0}},
+        points={{0,48},{0,46},{20,46},{20,0},{0,0}},
         color={95,95,95},
         thickness=0.5));
     annotation (
       defaultComponentName="wheelSet",
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
+          Line(
+            points={{0,76},{0,4}}),
           Ellipse(
             extent={{42,80},{118,-80}},
             fillColor={215,215,215},
@@ -2928,25 +2932,22 @@ To work properly, the gravity acceleration vector g of the world must point in t
             extent={{-150,-105},{150,-145}},
             textString="%name",
             lineColor={0,0,255}),
-          Rectangle(
-            extent={{-62,4},{64,-4}},
+          Line(points={{86,24},{64,24},{64,12},{56,12}}),
+          Line(points={{86,-24},{64,-24},{64,-12},{56,-12}}),
+          Line(
+            points={{100,100},{80,100},{80,-2}}),
+          Polygon(
+            points={{-62,6},{64,6},{64,-6},{6,-6},{6,-20},{-6,-20},{-6,-6},{-62,-6},{-62,6}},
             fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
+            fillPattern=FillPattern.Solid,
+            lineColor={0,0,0}),
           Ellipse(
             extent={{-118,80},{-42,-80}},
             fillColor={215,215,215},
             fillPattern=FillPattern.Sphere,
             lineColor={64,64,64}),
-          Line(points={{86,24},{64,24},{64,12},{56,12}}),
-          Line(points={{86,-24},{64,-24},{64,-12},{56,-12}}),
           Line(
             points={{-96,100},{-80,100},{-80,4}}),
-          Line(
-            points={{100,100},{80,100},{80,-2}}),
-          Line(
-            points={{0,72},{0,40},{-20,40},{-20,4}}),
-          Line(
-            points={{0,40},{20,40},{20,4}}),
           Ellipse(extent={{-118,80},{-42,-80}}, lineColor={64,64,64}),
           Line(
             points={{-100,-80},{100,-80}})}),

@@ -3551,7 +3551,9 @@ To work properly, the gravity acceleration vector g of the world must point in t
      Modelica.Mechanics.MultiBody.Interfaces.Frame_a frameMiddle
       "Frame fixed in middle of axis connecting both wheels (y-axis: along wheel axis, z-Axis: upwards)"
         annotation (Placement(transformation(extent={{-16,16},{16,-16}}),
-            iconTransformation(extent={{-16,-16},{16,16}})));
+            iconTransformation(extent={{-16,-16},{16,16}},
+          rotation=90,
+          origin={0,-20})));
 
       parameter Boolean animation=true
       "= true, if animation of wheel set shall be enabled";
@@ -3720,24 +3722,23 @@ To work properly, the gravity acceleration vector g of the world must point in t
               extent={{42,80},{118,-80}},
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
-            Rectangle(
-            extent={{-62,4},{64,-4}},
+            Line(points={{86,24},{64,24},{64,12},{56,12}}),
+            Line(points={{86,-24},{64,-24},{64,-12},{56,-12}}),
+            Line(
+              points={{100,100},{80,100},{80,-2}}),
+            Line(
+              points={{0,76},{0,4}}),
+          Polygon(
+            points={{-62,6},{64,6},{64,-6},{6,-6},{6,-20},{-6,-20},{-6,-6},{-62,-6},{-62,6}},
             fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
+            fillPattern=FillPattern.Solid,
+            lineColor={0,0,0}),
             Ellipse(
               extent={{-118,80},{-42,-80}},
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
-            Line(points={{86,24},{64,24},{64,12},{56,12}}),
-            Line(points={{86,-24},{64,-24},{64,-12},{56,-12}}),
             Line(
-              points={{-96,100},{-80,100},{-80,4}}),
-            Line(
-              points={{100,100},{80,100},{80,-2}}),
-            Line(
-              points={{0,72},{0,40},{-20,40},{-20,4}}),
-            Line(
-              points={{0,40},{20,40},{20,4}})}),
+              points={{-96,100},{-80,100},{-80,4}})}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
             Line(
