@@ -165,19 +165,13 @@ definition of the colors used in the MultiBody library together with a color edi
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
           Polygon(
-            points={{-100,33},{-100,-61},{-10,-41},{50,-61},{50,33},{-10,11},{-100,
-                33}},
-            lineColor={0,127,255},
-            fillColor={0,127,255},
-            fillPattern=FillPattern.Solid),
-          Polygon(
-            points={{-98,34},{-64,46},{0,30},{74,56},{50,32},{-10,12},{-98,34}},
-            lineColor={255,255,255},
-            fillColor={160,160,164},
+            points={{-100,32},{-64,46},{2,30},{72,54},{50,32},{-10,12},{-100,32}},
+            lineColor={215,215,215},
+            fillColor={160,160,160},
             fillPattern=FillPattern.Solid),
           Polygon(
             points={{72,54},{50,32},{50,-60},{72,-32},{72,54}},
-            lineColor={255,255,255},
+            lineColor={215,215,215},
             fillColor={160,160,164},
             fillPattern=FillPattern.Solid),
           Text(
@@ -186,7 +180,12 @@ definition of the colors used in the MultiBody library together with a color edi
           Text(
             extent={{-150,100},{150,60}},
             textString="%name",
-            lineColor={0,0,255})}));
+            lineColor={0,0,255}),
+          Polygon(
+            points={{-100,32},{-100,-60},{-10,-42},{50,-60},{50,32},{-10,12},{-100,32}},
+            lineColor={215,215,215},
+            fillColor={0,127,255},
+            fillPattern=FillPattern.Solid)}));
   end FixedShape;
 
   model FixedShape2
@@ -270,28 +269,26 @@ MultiBody.Visualizers.FixedShape2 object is connected");
             extent={{150,-90},{-150,-60}},
             textString="r=%r"),
           Polygon(
-            points={{-100,50},{-100,-44},{-10,-24},{79,-43},{80,49},{-10,28},{-100,
-                50}},
-            lineColor={0,127,255},
-            fillColor={0,127,255},
-            fillPattern=FillPattern.Solid),
-          Polygon(
-            points={{-101,50},{-65,62},{-1,46},{100,70},{79,49},{-11,28},{-101,
-                50}},
+            points={{-100,50},{-66,62},{0,46},{100,70},{80,50},{-10,28},{-100,50}},
             lineColor={255,255,255},
             fillColor={160,160,164},
+            fillPattern=FillPattern.Solid),
+          Polygon(
+            points={{100,70},{80,50},{80,-44},{100,-16},{100,70}},
+            lineColor={255,255,255},
+            fillColor={160,160,164},
+            fillPattern=FillPattern.Solid),
+          Polygon(
+            points={{-100,50},{-100,-44},{-10,-24},{80,-44},{80,50},{-10,28},{-100,50}},
+            lineColor={215,215,215},
+            fillColor={0,127,255},
             fillPattern=FillPattern.Solid),
           Text(
             extent={{-86,15},{-50,-10}},
             textString="a"),
           Text(
             extent={{37,15},{73,-10}},
-            textString="b"),
-          Polygon(
-            points={{100,70},{78,48},{78,-44},{100,-16},{100,70}},
-            lineColor={255,255,255},
-            fillColor={160,160,164},
-            fillPattern=FillPattern.Solid)}),
+            textString="b")}),
       Documentation(info="<html>
 <p>
 Model <strong>FixedShape2</strong> defines a visual shape that is
@@ -567,7 +564,7 @@ vector <strong>r</strong>.
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid),
           Polygon(
-            points={{-2,92},{-14,52},{12,52},{-2,92},{-2,92}},
+            points={{-2,92},{-14,52},{10,52},{-2,92},{-2,92}},
             lineColor={0,191,0},
             fillColor={0,191,0},
             fillPattern=FillPattern.Solid),
@@ -592,8 +589,6 @@ vector <strong>r</strong>.
             points={{-72,-54},{-2,-18}},
             thickness=0.5,
             color={0,0,255}),
-          Polygon(points={{-98,-68},{-66,-60},{-78,-46},{-98,-68}}, lineColor={
-                0,0,255}),
           Text(
             extent={{-87,13},{-38,-36}},
             textString="z",
@@ -601,7 +596,10 @@ vector <strong>r</strong>.
           Text(
             extent={{-150,145},{150,105}},
             textString="%name",
-            lineColor={0,0,255})}),
+            lineColor={0,0,255}),
+          Polygon(points={{-98,-68},{-66,-60},{-78,-46},{-98,-68}}, lineColor={0,0,255},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid)}),
       Documentation(info="<html>
 <p>
 Model <strong>FixedFrame</strong> visualizes the three axes of
@@ -684,7 +682,7 @@ parameter menu.
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
           Rectangle(
-            extent={{-100,28},{20,-30}},
+            extent={{-100,28},{20,-28}},
             lineColor={128,128,128},
             fillColor={128,128,128},
             fillPattern=FillPattern.Solid),
@@ -765,8 +763,9 @@ parameter menu.
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
+          Line(points={{0,-102},{0,-28}}, color={0,0,127}),
           Rectangle(
-            extent={{-100,28},{20,-30}},
+            extent={{-100,28},{20,-28}},
             lineColor={128,128,128},
             fillColor={128,128,128},
             fillPattern=FillPattern.Solid),
@@ -778,8 +777,7 @@ parameter menu.
           Text(
             extent={{-150,105},{150,65}},
             textString="%name",
-            lineColor={0,0,255}),
-          Line(points={{0,-102},{0,-30}}, color={0,0,255})}),
+            lineColor={0,0,255})}),
       Documentation(info="<html>
 <p>
 Model <strong>SignalArrow</strong> defines an arrow that is dynamically visualized
@@ -875,7 +873,7 @@ This shape visualizes the x-y plane by a box
 
     parameter Modelica.SIunits.Radius ri=0.5 "Inner radius of torus" annotation(Dialog(enable=animation));
     parameter Modelica.SIunits.Radius ro=0.1 "Outer radius of torus (=width/2)"
-                                                                                 annotation(Dialog(enable=animation));
+      annotation(Dialog(enable=animation));
     parameter Modelica.SIunits.Angle opening=0 "Opening angle of torus" annotation(Dialog(enable=animation));
     parameter Modelica.SIunits.Angle startAngle=-3.1415926535898
       "Start angle of torus slice" annotation(Dialog(enable=animation));
@@ -895,18 +893,23 @@ This shape visualizes the x-y plane by a box
     parameter Integer n_ro=20 "Number of points along ro" annotation(Dialog(enable=animation,tab="Discretization"));
 
   protected
-    Advanced.Surface surface( redeclare function surfaceCharacteristic =
-          Modelica.Mechanics.MultiBody.Visualizers.Advanced.SurfaceCharacteristics.torus
-          (   ri=ri, ro=ro, opening=opening, startAngle=startAngle, stopAngle=stopAngle),
-            nu=n_ri,
-            nv=n_ro,
-            multiColoredSurface=false,
-            wireframe=wireframe,
-            color=color,
-            specularCoefficient=specularCoefficient,
-            transparency=transparency,
-      R=frame_a.R,
-      r_0=frame_a.r_0) if world.enableAnimation and animation
+    Advanced.Surface surface(
+      redeclare function surfaceCharacteristic =
+        Modelica.Mechanics.MultiBody.Visualizers.Advanced.SurfaceCharacteristics.torus (
+          ri=ri,
+          ro=ro,
+          opening=opening,
+          startAngle=startAngle,
+          stopAngle=stopAngle),
+          nu=n_ri,
+          nv=n_ro,
+          multiColoredSurface=false,
+          wireframe=wireframe,
+          color=color,
+          specularCoefficient=specularCoefficient,
+          transparency=transparency,
+          R=frame_a.R,
+          r_0=frame_a.r_0) if world.enableAnimation and animation
       annotation (Placement(transformation(extent={{-20,-10},{0,10}})));
   equation
     // No forces and torques
@@ -992,12 +995,12 @@ the last point of the parametrization coincide in this case.
         specularCoefficient = specularCoefficient) if world.enableAnimation and animation
             annotation (Placement(transformation(extent={{-20,-10},{0,10}})));
 
-      Visualizers.Advanced.Surface torus(redeclare function
-        surfaceCharacteristic =
-          Modelica.Mechanics.MultiBody.Visualizers.Advanced.SurfaceCharacteristics.torus
-          (     ri=ri,
-                ro=rCurvature2,
-                opening=Modelica.Constants.pi - Modelica.Math.asin(rw/rCurvature2)),
+      Visualizers.Advanced.Surface torus(
+        redeclare function surfaceCharacteristic =
+          Modelica.Mechanics.MultiBody.Visualizers.Advanced.SurfaceCharacteristics.torus (
+            ri=ri,
+            ro=rCurvature2,
+            opening=Modelica.Constants.pi - Modelica.Math.asin(rw/rCurvature2)),
             nu=n_rTire,
             nv=n_rCurvature,
             multiColoredSurface=false,
@@ -1059,15 +1062,18 @@ connector frame_a (visualized by the red coordinate system in the figure below).
       annotation(Dialog(enable=animation));
     input Real T[size(xsi,1)]
       "[:] Scalar values at position xsi*length (will be visualized by color)" annotation(Dialog(enable=animation));
-    parameter Real T_min "Minimum value of T that corresponds to colorMap[1,:]"
-                                                                                    annotation(Dialog(enable=animation));
+    parameter Real T_min "Minimum value of T that corresponds to colorMap[1,:]"     annotation(Dialog(enable=animation));
     parameter Real T_max
       "Maximum value of T that corresponds to colorMap[end,:]" annotation(Dialog(enable=animation));
     replaceable function colorMap =
-        Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.jet
-          constrainedby Modelica.Mechanics.MultiBody.Interfaces.partialColorMap
+      Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.jet
+      constrainedby Modelica.Mechanics.MultiBody.Interfaces.partialColorMap
       "Function defining the color map"
-            annotation(choicesAllMatching=true, Dialog(enable=animation,group="Color coding"));
+      annotation(choicesAllMatching=true, Dialog(enable=animation,group="Color coding"),
+      Documentation(info="<html>
+<p>This replaceable function defines a particular color map.</p>
+<!--a placeholder to fulfill minimum domentation length-->
+</html>"));
 
     parameter Integer n_colors=64 "Number of colors in the colorMap" annotation(Dialog(enable=animation,group="Color coding"));
     parameter Types.SpecularCoefficient specularCoefficient = 0.7
@@ -1722,14 +1728,11 @@ This definition is also available as type
       input Frames.Orientation R=Frames.nullRotation()
         "Orientation object to rotate the world frame into the arrow frame" annotation(Dialog);
       input SI.Position r[3]={0,0,0}
-        "Position vector from origin of world frame to origin of arrow frame, resolved in world frame"
-                                                                                                       annotation(Dialog);
+        "Position vector from origin of world frame to origin of arrow frame, resolved in world frame" annotation(Dialog);
       input SI.Position r_tail[3]={0,0,0}
-        "Position vector from origin of arrow frame to arrow tail, resolved in arrow frame"
-                                                                                            annotation(Dialog);
+        "Position vector from origin of arrow frame to arrow tail, resolved in arrow frame" annotation(Dialog);
       input SI.Position r_head[3]={0,0,0}
-        "Position vector from arrow tail to the head of the arrow, resolved in arrow frame"
-                                                                                            annotation(Dialog);
+        "Position vector from arrow tail to the head of the arrow, resolved in arrow frame" annotation(Dialog);
       input SI.Diameter diameter=world.defaultArrowDiameter
         "Diameter of arrow line" annotation(Dialog);
       input Modelica.Mechanics.MultiBody.Types.Color color=Modelica.Mechanics.MultiBody.Types.Defaults.ArrowColor
@@ -1812,7 +1815,7 @@ library (will be replaced by a color editor).
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Rectangle(
-              extent={{-100,28},{20,-30}},
+              extent={{-100,28},{20,-28}},
               lineColor={128,128,128},
               fillColor={128,128,128},
               fillPattern=FillPattern.Solid),
@@ -1838,14 +1841,11 @@ library (will be replaced by a color editor).
       input Frames.Orientation R=Frames.nullRotation()
         "Orientation object to rotate the world frame into the arrow frame" annotation(Dialog);
       input SI.Position r[3]={0,0,0}
-        "Position vector from origin of world frame to origin of arrow frame, resolved in world frame"
-                                                                                                       annotation(Dialog);
+        "Position vector from origin of world frame to origin of arrow frame, resolved in world frame" annotation(Dialog);
       input SI.Position r_tail[3]={0,0,0}
-        "Position vector from origin of arrow frame to double arrow tail, resolved in arrow frame"
-                                                                                                   annotation(Dialog);
+        "Position vector from origin of arrow frame to double arrow tail, resolved in arrow frame" annotation(Dialog);
       input SI.Position r_head[3]={0,0,0}
-        "Position vector from double arrow tail to the head of the double arrow, resolved in arrow frame"
-                                                                                                          annotation(Dialog);
+        "Position vector from double arrow tail to the head of the double arrow, resolved in arrow frame" annotation(Dialog);
       input SI.Diameter diameter=world.defaultArrowDiameter
         "Diameter of arrow line" annotation(Dialog);
       input Modelica.Mechanics.MultiBody.Types.Color color=Modelica.Mechanics.MultiBody.Types.Defaults.ArrowColor
@@ -2207,11 +2207,14 @@ The direct usage of the Surface model, as well as of the Torus and the Voluminou
         "Maximum value of T that corresponds to colorMap[end,:]" annotation(Dialog(group="Color coding"));
       parameter Integer n_colors=64 "Number of colors in the colorMap" annotation(Dialog(group="Color coding"));
       replaceable function colorMap =
-          Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.jet
-            constrainedby
-        Modelica.Mechanics.MultiBody.Interfaces.partialColorMap
+        Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.jet
+        constrainedby Modelica.Mechanics.MultiBody.Interfaces.partialColorMap
         "Function defining the color map"
-              annotation(choicesAllMatching=true, Dialog(group="Color coding"));
+        annotation(choicesAllMatching=true, Dialog(group="Color coding"),
+        Documentation(info="<html>
+<p>This replaceable function defines a particular color map.</p>
+<!--a placeholder to fulfill minimum domentation length-->
+</html>"));
     protected
       parameter Real colorMapData[n_colors,3] = colorMap(n_colors) annotation(HideResult=true);
       Surface surface(
@@ -2224,8 +2227,8 @@ The direct usage of the Surface model, as well as of the Torus and the Voluminou
         specularCoefficient=specularCoefficient,
         transparency=transparency,
         redeclare function surfaceCharacteristic =
-            Modelica.Mechanics.MultiBody.Visualizers.Advanced.SurfaceCharacteristics.pipeWithScalarField
-            (rOuter=rOuter,
+            Modelica.Mechanics.MultiBody.Visualizers.Advanced.SurfaceCharacteristics.pipeWithScalarField (
+             rOuter=rOuter,
              length=length,
              xsi=xsi,
              T=T,
