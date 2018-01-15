@@ -5267,6 +5267,7 @@ and c have more meaningful values for the user.
       connect(fixed.flange, internalSupport.flange) annotation (Line(
           points={{20,-87},{20,-80},{0,-80}}, color={0,127,0}));
       annotation (
+        obsolete = "Obsolete model - use Modelica.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupport2 instead",
         Documentation(info="<html>
 <p>
 This is a 1-dim. translational component with one flange and a support/housing.
@@ -5387,6 +5388,7 @@ and instead the component is internally fixed to ground.
       connect(fixed.flange, internalSupport.flange) annotation (Line(
           points={{20,-87},{20,-80},{0,-80}}, color={0,127,0}));
       annotation (
+        obsolete = "Obsolete model - use Modelica.Mechanics.Translational.Interfaces.PartialElementaryTwoFlangesAndSupport2 instead",
         Documentation(info="<html>
 <p>
 This is a 1-dim. translational component with two flanges and an additional support.

@@ -7010,6 +7010,7 @@ in the User's Guide of the Rotational library.
       connect(internalSupport.flange, fixed.flange) annotation (Line(
           points={{0,-80},{20,-80},{20,-86}}));
       annotation (
+        obsolete = "Obsolete model - use Modelica.Mechanics.Rotational.Interfaces.PartialElementaryOneFlangeAndSupport2 instead",
         Documentation(info="<html>
 <p>
 This is a 1-dim. rotational component with one flange and a support/housing.
@@ -7122,6 +7123,7 @@ and instead the component is internally fixed to ground.
       connect(internalSupport.flange, fixed.flange) annotation (Line(
           points={{0,-80},{20,-80},{20,-87}}));
       annotation (
+        obsolete = "Obsolete model - use Modelica.Mechanics.Rotational.Interfaces.PartialElementaryTwoFlangesAndSupport2 instead",
         Documentation(info="<html>
 <p>
 This is a 1-dim. rotational component with two flanges and a support/housing.

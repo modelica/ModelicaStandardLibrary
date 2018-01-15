@@ -5,23 +5,24 @@ package Sensors "Sensors to measure variables"
   model AbsoluteSensor
     "Measure absolute kinematic quantities of frame connector"
 
-    Blocks.Interfaces.RealOutput r[3](each final quantity="Length", each
-        final unit="m") if
-                     get_r
+    Blocks.Interfaces.RealOutput r[3](
+      each final quantity="Length",
+      each final unit="m") if get_r
       "Absolute position vector frame_a.r_0 resolved in frame defined by resolveInFrame"
       annotation (Placement(transformation(
           origin={-100,-110},
           extent={{10,-10},{-10,10}},
           rotation=90)));
-    Blocks.Interfaces.RealOutput v[3](each final quantity="Velocity", each
-        final unit="m/s") if
-                       get_v "Absolute velocity vector"
+    Blocks.Interfaces.RealOutput v[3](
+      each final quantity="Velocity",
+      each final unit="m/s") if get_v "Absolute velocity vector"
       annotation (Placement(transformation(
           origin={-60,-110},
           extent={{10,-10},{-10,10}},
           rotation=90)));
-    Blocks.Interfaces.RealOutput a[3](each final quantity="Acceleration", each
-        final unit="m/s2") if get_a "Absolute acceleration vector"
+    Blocks.Interfaces.RealOutput a[3](
+      each final quantity="Acceleration",
+      each final unit="m/s2") if get_a "Absolute acceleration vector"
       annotation (Placement(transformation(
           origin={-20,-110},
           extent={{10,-10},{-10,10}},
@@ -2333,7 +2334,7 @@ as output signal <strong>power</strong>.
 
     Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a
       "Coordinate system from which absolute kinematic quantities are measured"
-                                                                                           annotation (Placement(
+      annotation (Placement(
           transformation(extent={{-116,-16},{-84,16}})));
 
     Modelica.Mechanics.MultiBody.Interfaces.Frame_resolve frame_resolve if
@@ -2833,7 +2834,7 @@ transformed output vector as \"Real r_out[3]\";
 
       Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a
         "Coordinate system from which absolute kinematic quantities are measured"
-                                                                                             annotation (Placement(
+        annotation (Placement(
             transformation(extent={{-116,-16},{-84,16}})));
 
       Modelica.Mechanics.MultiBody.Interfaces.Frame_resolve frame_resolve
@@ -3223,14 +3224,20 @@ with the blocks of package Modelica.Blocks.
 
   model TansformAbsoluteVector
     "Obsolete model will be removed in future versions, use TransformAbsoluteVector instead!"
+    import Modelica;
+    extends Modelica.Icons.ObsoleteModel;
     extends TransformAbsoluteVector;
     // extends Modelica.Icons.ObsoleteModel;
+    annotation(obsolete = "Obsolete model due to false class name - use Modelica.Mechanics.MultiBody.Sensors.TransformAbsoluteVector instead");
   end TansformAbsoluteVector;
 
   model TansformRelativeVector
     "Obsolete model will be removed in future versions, use TransformRelativeVector instead!"
+    import Modelica;
+    extends Modelica.Icons.ObsoleteModel;
     extends TransformRelativeVector;
     // extends Modelica.Icons.ObsoleteModel;
+    annotation(obsolete = "Obsolete model due to false class name - use Modelica.Mechanics.MultiBody.Sensors.TransformRelativeVector instead");
   end TansformRelativeVector;
 
   annotation (Documentation(info="<html>
