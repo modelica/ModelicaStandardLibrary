@@ -1076,4 +1076,13 @@ double mydummyfunc(double* dummy_in) {
     Modelica.Blocks.Sources.BooleanTable booleanTable(table={0,0.4,1}) annotation(Placement(transformation(extent={{-40,-30},{-20,-10}})));
     annotation (experiment(StartTime=1, StopTime=3));
   end Test83;
+
+  model Test84 "Text file with UTF-8 BOM and comments (Ticket #2404)"
+    extends Modelica.Icons.Example;
+    extends Test0(t_new(
+        tableOnFile=true,
+        tableName="a",
+        fileName=loadResource("modelica://ModelicaTest/Resources/Data/Tables/test_utf8.txt")));
+    annotation (experiment(StartTime=0, StopTime=100));
+  end Test84;
 end CombiTimeTable;
