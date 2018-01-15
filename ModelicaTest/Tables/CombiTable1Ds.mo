@@ -310,4 +310,13 @@ double mydummyfunc(double* dummy_in) {
       smoothness=Modelica.Blocks.Types.Smoothness.MonotoneContinuousDerivative2));
     annotation (experiment(StartTime=7.99, StopTime=20));
   end Test32;
+
+  model Test33 "Text file with UTF-8 BOM and comments (Ticket #2404)"
+    extends Modelica.Icons.Example;
+    extends Test0(t_new(
+        tableOnFile=true,
+        tableName="a",
+        fileName=loadResource("modelica://ModelicaTest/Resources/Data/Tables/test_utf8.txt")));
+    annotation (experiment(StartTime=0, StopTime=100));
+  end Test33;
 end CombiTable1Ds;
