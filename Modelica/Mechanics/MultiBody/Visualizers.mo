@@ -1256,13 +1256,6 @@ so that the plane is rotated about the z-axis of frame_a.
 <blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Plane.png\">
 </blockquote>
-</html>", revisions="<html>
-  <ul>
-  <li> July 2010 by Martin Otter<br>
-       Adapted to the new Surface model.</li>
-  <li> July 2005 by Dirk Zimmer (practical training at DLR)<br>
-       First version to visualize a multi-level tyre wheel model.</li>
-  </ul>
 </html>"));
   end Plane;
 
