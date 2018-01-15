@@ -1162,6 +1162,110 @@ colorMapToSvg(Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.jet(),
 </html>"));
   end PipeWithScalarField;
 
+  model Plane "Visualizing a plane"
+    extends Modelica.Mechanics.MultiBody.Interfaces.PartialVisualizer;
+
+    parameter Boolean animation=true "= true, if animation shall be enabled";
+    parameter MultiBody.Types.Axis axis_x={1,0,0}
+      "Vector along x-axis of plane resolved in frame_a"
+      annotation(Evaluate=true, Dialog(enable=animation));
+    parameter MultiBody.Types.Axis axis_y={0,1,0}
+      "Vector along y-axis of plane resolved in frame_a"
+      annotation(Evaluate=true, Dialog(enable=animation));
+
+    parameter Modelica.SIunits.Length length_x=3 "Length of plane in direction x" annotation(Dialog(enable=animation));
+    parameter Modelica.SIunits.Length length_y=1 "Length of plane in direction y" annotation(Dialog(enable=animation));
+    parameter Integer nx=3 "Number of points in direction x" annotation(Dialog(enable=animation,group="Discretization"));
+    parameter Integer ny=2 "Number of points in direction y" annotation(Dialog(enable=animation,group="Discretization"));
+
+    parameter Boolean wireframe=false
+      "= true: 3D model will be displayed without faces"
+      annotation (Dialog(enable=animation, group="Material properties"),choices(checkBox=true));
+    input Modelica.Mechanics.MultiBody.Types.RealColor color={0,128,255}
+      "Color of surface" annotation(Dialog(enable=animation and not multiColoredSurface,colorSelector=true,group="Material properties"));
+    input Types.SpecularCoefficient specularCoefficient = 0.7
+      "Reflection of ambient light (= 0: light is completely absorbed)" annotation(Dialog(enable=animation,group="Material properties"));
+    input Real transparency=0
+      "Transparency of shape: 0 (= opaque) ... 1 (= fully transparent)"
+      annotation(Dialog(enable=animation,group="Material properties"));
+
+  protected
+    Advanced.Surface surface(
+      final multiColoredSurface=false,
+      final wireframe=wireframe,
+      final color=color,
+      final specularCoefficient=specularCoefficient,
+      final transparency=transparency,
+      final R=Modelica.Mechanics.MultiBody.Frames.absoluteRotation(
+          frame_a.R,Modelica.Mechanics.MultiBody.Frames.from_nxy(axis_x, axis_y)),
+      final r_0=frame_a.r_0,
+      final nu=nx,
+      final nv=ny,
+      redeclare function surfaceCharacteristic = Advanced.SurfaceCharacteristics.planeXY (lu=length_x, lv=length_y)) if
+         world.enableAnimation and animation
+      annotation (Placement(transformation(extent={{-20,-10},{0,10}})));
+    Sensors.Internal.ZeroForceAndTorque zeroForceAndTorque annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));
+
+  equation
+    connect(frame_a, zeroForceAndTorque.frame_a) annotation (Line(
+        points={{-100,0},{-80,0}},
+        color={95,95,95},
+        thickness=0.5));
+    annotation (
+      Icon(graphics={
+            Text(
+            extent={{-150,80},{150,40}},
+            lineColor={0,0,255},
+            textString="%name"),
+          Polygon(
+            points={{-60,20},{-100,-60},{60,-60},{100,20},{-60,20}},
+            lineColor={95,95,95},
+            fillColor={175,175,175},
+            fillPattern=FillPattern.Solid),
+          Ellipse(
+            extent={{-2,-18},{2,-22}},
+            lineColor={95,95,95},
+            fillColor={95,95,95},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-100,0},{0,0},{0,-20}}, color={95,95,95}),
+          Text(
+            extent={{-140,-60},{140,-90}},
+            lineColor={0,0,0},
+            lineThickness=0.5,
+            fillColor={95,95,95},
+            fillPattern=FillPattern.Solid,
+            textString="%length_x x %length_y")}),
+                                   Documentation(info="<html>
+<p>
+This model visualizes a plane. The center of the plane is located at
+connector frame_a (visualized by the red coordinate system in the figure below).
+The image below shows two planes of the same parameters
+</p>
+<blockquote><pre>
+nx = 8,
+ny = 3,
+length_x = 3,
+length_y = 2.
+</pre></blockquote>
+<p>
+The green plane on the right is visualized in wireframe thus highlighting the influence
+of the discretization. Moreover, the x-axis of this plane is modified
+so that the plane is rotated about the z-axis of frame_a.
+</p>
+
+<blockquote>
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Plane.png\">
+</blockquote>
+</html>", revisions="<html>
+  <ul>
+  <li> July 2010 by Martin Otter<br>
+       Adapted to the new Surface model.</li>
+  <li> July 2005 by Dirk Zimmer (practical training at DLR)<br>
+       First version to visualize a multi-level tyre wheel model.</li>
+  </ul>
+</html>"));
+  end Plane;
+
   package Colors "Library of functions operating on color"
     extends Modelica.Icons.FunctionsPackage;
     package ColorMaps "Library of functions returning color maps"
@@ -2288,9 +2392,8 @@ colorMapToSvg(Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.jet(),
     package SurfaceCharacteristics "Functions returning surface descriptions"
         extends Modelica.Icons.FunctionsPackage;
       function torus "Function defining the surface characteristic of a torus"
-        extends
-          Modelica.Mechanics.MultiBody.Interfaces.partialSurfaceCharacteristic(
-                  final multiColoredSurface=false);
+        extends Modelica.Mechanics.MultiBody.Interfaces.partialSurfaceCharacteristic(
+          final multiColoredSurface=false);
         input Modelica.SIunits.Radius ri=1 "Inner radius of torus" annotation(Dialog);
         input Modelica.SIunits.Radius ro=0.2 "Outer radius of torus (=width/2)" annotation(Dialog);
         input Modelica.SIunits.Angle opening=0 "Opening angle of torus" annotation(Dialog);
@@ -2307,14 +2410,15 @@ colorMapToSvg(Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.jet(),
         phi_start :=-Modelica.Constants.pi + opening;
         phi_stop  :=Modelica.Constants.pi - opening;
         for i in 1:nu loop
-            alpha := startAngle + (stopAngle-startAngle)*(i-1)/(nu-1);
-            for j in 1:nv loop
-                beta := phi_start + (phi_stop-phi_start)*(j-1)/(nv-1);
-                X[i,j] := (ri + ro*Modelica.Math.cos(beta))*Modelica.Math.sin(alpha);
-                Y[i,j] := ro*Modelica.Math.sin(beta);
-                Z[i,j] := (ri + ro*Modelica.Math.cos(beta))*Modelica.Math.cos(alpha);
-            end for;
+          alpha := startAngle + (stopAngle-startAngle)*(i-1)/(nu-1);
+          for j in 1:nv loop
+            beta := phi_start + (phi_stop-phi_start)*(j-1)/(nv-1);
+            X[i,j] := (ri + ro*Modelica.Math.cos(beta))*Modelica.Math.sin(alpha);
+            Y[i,j] := ro*Modelica.Math.sin(beta);
+            Z[i,j] := (ri + ro*Modelica.Math.cos(beta))*Modelica.Math.cos(alpha);
+          end for;
         end for;
+
         annotation (Documentation(info="<html>
 <p>
 Function <strong>torus</strong> computes the X,Y,Z arrays to visualize a torus
@@ -2323,11 +2427,11 @@ The left image below shows a torus with ri=0.5 m and ro = 0.2 m.
 The right images below shows the torus with the additional parameter
 settings:
 </p>
-<pre>
-  opening    =   45 degree
-  startAngle = -135 degree
-  stopAngle  =  135 degree
-</pre>
+<blockquote><pre>
+opening    =   45 degree
+startAngle = -135 degree
+stopAngle  =  135 degree
+</pre></blockquote>
 
 <blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Torus.png\">
@@ -2337,9 +2441,8 @@ settings:
 
       function pipeWithScalarField
         "Function defining the surface characteristic of a pipe where a scalar field value is displayed with color along the pipe axis"
-        extends
-          Modelica.Mechanics.MultiBody.Interfaces.partialSurfaceCharacteristic(
-                  final multiColoredSurface=true);
+        extends Modelica.Mechanics.MultiBody.Interfaces.partialSurfaceCharacteristic(
+          final multiColoredSurface=true);
         input Modelica.SIunits.Radius rOuter "Outer radius of cylinder" annotation(Dialog);
         input Modelica.SIunits.Length length "Length of cylinder" annotation(Dialog);
         input Modelica.SIunits.Position xsi[:]
@@ -2358,24 +2461,24 @@ settings:
       algorithm
         k:=1;
         for i in 1:nu loop
-           // Compute actual xsi-position along cylinder axis
-           xsi_i := (i-1)/(nu-1);
+          // Compute actual xsi-position along cylinder axis
+          xsi_i := (i-1)/(nu-1);
 
-           // Interpolate in xsi and T to determine the corresponding value of Ti(xsi_i)
-           (Ti,k) := Modelica.Math.Vectors.interpolate(xsi, T, xsi_i, k);
+          // Interpolate in xsi and T to determine the corresponding value of Ti(xsi_i)
+          (Ti,k) := Modelica.Math.Vectors.interpolate(xsi, T, xsi_i, k);
 
-           // Map the scalar field value Ti to a color value
-           Ci := Modelica.Mechanics.MultiBody.Visualizers.Colors.scalarToColor(
-                                                    Ti, T_min, T_max, colorMap);
+          // Map the scalar field value Ti to a color value
+          Ci := Modelica.Mechanics.MultiBody.Visualizers.Colors.scalarToColor(
+                  Ti, T_min, T_max, colorMap);
 
-           // Determine outputs
-           for j in 1:nv loop
-              beta := 2*Modelica.Constants.pi*(j-1)/(nv-1);
-              X[i,j] := length*xsi_i;
-              Y[i,j] := rOuter*Modelica.Math.sin(beta);
-              Z[i,j] := rOuter*Modelica.Math.cos(beta);
-              C[i,j,:] := Ci;
-           end for;
+          // Determine outputs
+          for j in 1:nv loop
+            beta := 2*Modelica.Constants.pi*(j-1)/(nv-1);
+            X[i,j] := length*xsi_i;
+            Y[i,j] := rOuter*Modelica.Math.sin(beta);
+            Z[i,j] := rOuter*Modelica.Math.cos(beta);
+            C[i,j,:] := Ci;
+          end for;
         end for;
         annotation (Documentation(info="<html>
 <p>
@@ -2418,6 +2521,36 @@ colorMapToSvg(Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.jet(),
 </blockquote>
 </html>"));
       end pipeWithScalarField;
+
+      function planeXY "Function defining the surface characteristic of a x-y plane"
+        extends Modelica.Mechanics.MultiBody.Interfaces.partialSurfaceCharacteristic(
+          final multiColoredSurface=false);
+        input Modelica.SIunits.Radius lu=1 "Length in direction u" annotation(Dialog);
+        input Modelica.SIunits.Radius lv=3 "Length in direction v" annotation(Dialog);
+      algorithm
+        X[:,:] := lu/2 * transpose(fill(linspace(-1,1,nu), nv));
+        Y[:,:] := lv/2 * fill(linspace(-1,1,nv), nu);
+        Z[:,:] := fill(0, nu, nv);
+
+        annotation (Documentation(info="<html>
+<p>
+Function <strong>planeXY</strong> computes the X,Y,Z arrays to visualize a x-y plane 
+with model <a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Plane\">Plane</a>.
+The image below shows two planes of
+</p>
+<blockquote><pre>
+nu = 8,
+nv = 3,
+lu = 3,
+lv = 2.
+</pre></blockquote>
+
+<blockquote>
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Plane.png\">
+</blockquote>
+</html>"));
+      end planeXY;
+
       annotation (Documentation(info="<html>
 <p>
 This package contains functions that are used to define
