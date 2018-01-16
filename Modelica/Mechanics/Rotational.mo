@@ -4908,7 +4908,7 @@ This component defines the kinematic constraint:
             points={{-22.0,0.0},{22.0,0.0}},
             color={64,64,64}),
           Text(  lineColor={0,0,0},
-            extent={{-150,-160},{150,-120}},
+            extent={{-150,-120},{150,-150}},
               textString="radius=%radius")}),
                                  Documentation(info="<html>
 <p>
