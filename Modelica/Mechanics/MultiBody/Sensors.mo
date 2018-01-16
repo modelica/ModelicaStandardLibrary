@@ -979,14 +979,15 @@ which frame_resolve is connected. Note, if this connector is enabled, it must
 be connected.
 </p>
 
+<h4>Example</h4>
 <p>
-Example: If resolveInFrame = Types.ResolveInFrameA.frame_a, the output vector is
+If resolveInFrame = Types.ResolveInFrameA.frame_a, the output vector is
 computed as:
 </p>
 
-<pre>
-    r = MultiBody.Frames.resolve2(frame_a.R, frame_b.r_0);
-</pre>
+<blockquote><pre>
+r = MultiBody.Frames.resolve2(frame_a.R, frame_b.r_0);
+</pre></blockquote>
 </html>"));
   end AbsolutePosition;
 
@@ -1111,16 +1112,16 @@ which frame_resolve is connected. Note, if this connector is enabled, it must
 be connected.
 </p>
 
+<h4>Example</h4>
 <p>
-Example: If resolveInFrame = Types.ResolveInFrameA.frame_a, the output vector is
+If resolveInFrame = Types.ResolveInFrameA.frame_a, the output vector is
 computed as:
 </p>
 
-<pre>
-    v0 = der(frame_a.r_0);
-    v  = MultiBody.Frames.resolve2(frame_a.R, v0);
-</pre>
-
+<blockquote><pre>
+v0 = der(frame_a.r_0);
+v  = MultiBody.Frames.resolve2(frame_a.R, v0);
+</pre></blockquote>
 </html>"));
   end AbsoluteVelocity;
 
@@ -1289,7 +1290,7 @@ the angular velocity is resolved:
 </p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-<tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameAB.</strong></th><th><strong>Meaning</strong></th></tr>
+<tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameA.</strong></th><th><strong>Meaning</strong></th></tr>
 <tr><td valign=\"top\">world</td>
     <td valign=\"top\">Resolve vector in world frame</td></tr>
 
@@ -1307,15 +1308,15 @@ which frame_resolve is connected. Note, if this connector is enabled, it must
 be connected.
 </p>
 
+<h4>Example</h4>
 <p>
-Example: If resolveInFrame = Types.ResolveInFrameA.frame_a, the output vector is
+If resolveInFrame = Types.ResolveInFrameA.frame_a, the output vector is
 computed as:
 </p>
 
-<pre>
-    w = MultiBody.Frames.angularVelocity2(frame_a.R);
-</pre>
-
+<blockquote><pre>
+w = MultiBody.Frames.angularVelocity2(frame_a.R);
+</pre></blockquote>
 </html>"));
   end AbsoluteAngularVelocity;
 
@@ -1413,14 +1414,15 @@ which frame_resolve is connected. Note, if this connector is enabled, it must
 be connected.
 </p>
 
+<h4>Example</h4>
 <p>
-Example: If resolveInFrame = Types.ResolveInFrameAB.frame_a, the output vector is
+If resolveInFrame = Types.ResolveInFrameAB.frame_a, the output vector is
 computed as:
 </p>
 
-<pre>
-    r_rel = MultiBody.Frames.resolve2(frame_a.R, frame_b.r_0 - frame_a.r_0);
-</pre>
+<blockquote><pre>
+r_rel = MultiBody.Frames.resolve2(frame_a.R, frame_b.r_0 - frame_a.r_0);
+</pre></blockquote>
 </html>"));
   end RelativePosition;
 
@@ -1513,10 +1515,10 @@ determined and provided at the output signal connector <strong>v_rel</strong>.
 This vector is defined as:
 </p>
 
-<pre>
-    r_rel = MultiBody.Frames.resolve2(frame_a.R, frame_b.r_0 - frame_a.r_0);
-    v_rel = <strong>der</strong>(r_rel);
-</pre>
+<blockquote><pre>
+r_rel = MultiBody.Frames.resolve2(frame_a.R, frame_b.r_0 - frame_a.r_0);
+v_rel = <strong>der</strong>(r_rel);
+</pre></blockquote>
 
 <p>
 Via parameter <strong>resolveInFrame</strong> it is defined, in which frame
@@ -1545,17 +1547,17 @@ which frame_resolve is connected. Note, if this connector is enabled, it must
 be connected.
 </p>
 
+<h4>Example</h4>
 <p>
-Example: If resolveInFrame = Types.ResolveInFrameAB.frame_b, the output vector is
+If resolveInFrame = Types.ResolveInFrameAB.frame_b, the output vector is
 computed as:
 </p>
 
-<pre>
-    r_rel   = MultiBody.Frames.resolve2(frame_a.R, frame_b.r_0 - frame_a.r_0);
-    v_rel_a = <strong>der</strong>(r_rel);
-    v_rel   = MultiBody.Frames.resolveRelative(frame_a.R, frame_b.R, v_rel_a);
-</pre>
-
+<blockquote><pre>
+r_rel   = MultiBody.Frames.resolve2(frame_a.R, frame_b.r_0 - frame_a.r_0);
+v_rel_a = <strong>der</strong>(r_rel);
+v_rel   = MultiBody.Frames.resolveRelative(frame_a.R, frame_b.R, v_rel_a);
+</pre></blockquote>
 </html>"));
   end RelativeVelocity;
 
@@ -1750,25 +1752,25 @@ the angular velocity is resolved:
 </table>
 
 <p>
-If resolveInFrame = Types.ResolveInFrameAB.frame_resolve, the conditional connector
-\"frame_resolve\" is enabled and w_rel is resolved in the frame, to
-which frame_resolve is connected. Note, if this connector is enabled, it must
-be connected.
+In this basic sensor model, <strong>the connector frame_resolve
+is always enabled</strong>.
+If resolveInFrame = Types.ResolveInFrameAB.frame_resolve, the vector&nbsp;w_rel is
+resolved in the frame to which frame_resolve is connected.
 </p>
 
+<h4>Example</h4>
 <p>
-Example: If resolveInFrame = Types.ResolveInFrameAB.frame_a, the output vector is
+If resolveInFrame = Types.ResolveInFrameAB.frame_a, the output vector is
 computed as:
 </p>
 
-<pre>
-    // Relative orientation object from frame_a to frame_b
-    R_rel = MultiBody.Frames.relativeRotation(frame_a.R, frame_b.R);
+<blockquote><pre>
+// Relative orientation object from frame_a to frame_b
+R_rel = MultiBody.Frames.relativeRotation(frame_a.R, frame_b.R);
 
-    // Angular velocity resolved in frame_a
-    w_rel = MultiBody.Frames.angularVelocity1(R_rel);
-</pre>
-
+// Angular velocity resolved in frame_a
+w_rel = MultiBody.Frames.angularVelocity1(R_rel);
+</pre></blockquote>
 </html>"));
   end RelativeAngularVelocity;
 
@@ -1964,21 +1966,19 @@ model is connected, is determined and provided at the output signal connector
 <strong>force</strong> (= frame_a.f). If parameter <strong>positiveSign</strong> =
 <strong>false</strong>, the negative cut-force is provided (= frame_b.f).
 </p>
+
 <p>
 Via parameter <strong>resolveInFrame</strong> it is defined, in which frame
 the force vector is resolved:
 </p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-<tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameAB.</strong></th><th><strong>Meaning</strong></th></tr>
+<tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameA.</strong></th><th><strong>Meaning</strong></th></tr>
 <tr><td valign=\"top\">world</td>
     <td valign=\"top\">Resolve vector in world frame</td></tr>
 
 <tr><td valign=\"top\">frame_a</td>
     <td valign=\"top\">Resolve vector in frame_a</td></tr>
-
-<tr><td valign=\"top\">frame_b</td>
-    <td valign=\"top\">Resolve vector in frame_b</td></tr>
 
 <tr><td valign=\"top\">frame_resolve</td>
     <td valign=\"top\">Resolve vector in frame_resolve</td></tr>
@@ -1999,7 +1999,7 @@ with negative sign at frame_a.
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Sensors/CutForce.png\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Sensors/CutForce.png\">
 </p>
 </html>"));
   end CutForce;
@@ -2087,15 +2087,12 @@ the torque vector is resolved:
 </p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-<tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameAB.</strong></th><th><strong>Meaning</strong></th></tr>
+<tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameA.</strong></th><th><strong>Meaning</strong></th></tr>
 <tr><td valign=\"top\">world</td>
     <td valign=\"top\">Resolve vector in world frame</td></tr>
 
 <tr><td valign=\"top\">frame_a</td>
     <td valign=\"top\">Resolve vector in frame_a</td></tr>
-
-<tr><td valign=\"top\">frame_b</td>
-    <td valign=\"top\">Resolve vector in frame_b</td></tr>
 
 <tr><td valign=\"top\">frame_resolve</td>
     <td valign=\"top\">Resolve vector in frame_resolve</td></tr>
@@ -2116,7 +2113,7 @@ with negative sign at frame_a.
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Sensors/CutTorque.png\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Sensors/CutTorque.png\">
 </p>
 </html>"));
   end CutTorque;
@@ -2254,18 +2251,15 @@ the two vectors are resolved:
 </p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-<tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameAB.</strong></th><th><strong>Meaning</strong></th></tr>
+<tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameA.</strong></th><th><strong>Meaning</strong></th></tr>
 <tr><td valign=\"top\">world</td>
-    <td valign=\"top\">Resolve vectors in world frame</td></tr>
+    <td valign=\"top\">Resolve vector in world frame</td></tr>
 
 <tr><td valign=\"top\">frame_a</td>
-    <td valign=\"top\">Resolve vectors in frame_a</td></tr>
-
-<tr><td valign=\"top\">frame_b</td>
-    <td valign=\"top\">Resolve vectors in frame_b</td></tr>
+    <td valign=\"top\">Resolve vector in frame_a</td></tr>
 
 <tr><td valign=\"top\">frame_resolve</td>
-    <td valign=\"top\">Resolve vectors in frame_resolve</td></tr>
+    <td valign=\"top\">Resolve vector in frame_resolve</td></tr>
 </table>
 
 <p>
@@ -2517,8 +2511,7 @@ transformed output vector as \"Real r_out[3]\";
 
   package Internal "Internal package, should not be used by user"
     extends Modelica.Icons.InternalPackage;
-    partial model PartialAbsoluteSensor
-      "Partial absolute sensor model for sensors defined by components"
+    partial model PartialAbsoluteSensor "Base class for absolute sensor models defined by components"
       extends Modelica.Icons.RotationalSensor;
 
       Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a
@@ -2532,11 +2525,17 @@ transformed output vector as \"Real r_out[3]\";
               extent={{-108,43},{-72,18}},
               lineColor={128,128,128},
               textString="a"), Line(
-              points={{-70,0},{-96,0},{-96,0}})}));
+              points={{-70,0},{-96,0},{-96,0}})}), Documentation(info="<html>
+<p>
+This is a base class of a 3-dim. mechanics component with one frame
+<strong>frame_a</strong> in order to measure an absolute quantity in this
+connector.
+</p>
+</html>"));
     end PartialAbsoluteSensor;
 
     model PartialAbsoluteBaseSensor
-      "Partial absolute sensor models for sensors defined by equations (frame_resolve must be connected exactly once)"
+      "Base class for absolute sensor models defined by equations (frame_resolve must be connected exactly once)"
       extends Modelica.Icons.RotationalSensor;
 
       Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a
@@ -2547,18 +2546,16 @@ transformed output vector as \"Real r_out[3]\";
         "Coordinate system in which vector is optionally resolved"
         annotation (Placement(transformation(extent={{-16,-16},{16,16}},
             rotation=-90,
-            origin={10,-100}),
-            iconTransformation(extent={{-16,-16},{16,16}},
-            rotation=-90,
             origin={0,-100})));
 
     equation
-       assert(cardinality(frame_a) > 0, "Connector frame_a must be connected at least once");
-       assert(cardinality(frame_resolve) == 1, "Connector frame_resolve must be connected exactly once");
-       frame_a.f = zeros(3);
-       frame_a.t = zeros(3);
-       frame_resolve.f = zeros(3);
-       frame_resolve.t = zeros(3);
+      assert(cardinality(frame_a) > 0, "Connector frame_a must be connected at least once");
+      assert(cardinality(frame_resolve) == 1, "Connector frame_resolve must be connected exactly once");
+      frame_a.f = zeros(3);
+      frame_a.t = zeros(3);
+      frame_resolve.f = zeros(3);
+      frame_resolve.t = zeros(3);
+
       annotation (Icon(coordinateSystem(preserveAspectRatio=true,
               extent={{-100,-100},{100,100}}), graphics={
             Text(
@@ -2578,11 +2575,16 @@ transformed output vector as \"Real r_out[3]\";
             Text(
               extent={{0,-75},{131,-100}},
               lineColor={95,95,95},
-              textString="resolve")}));
+              textString="resolve")}), Documentation(info="<html>
+<p>
+Partial base class for absolute sensor models defined by equations.
+The connector frame_resolve is always enabled and must be connected exactly once.
+</p>
+</html>"));
     end PartialAbsoluteBaseSensor;
 
     partial model PartialRelativeSensor
-      "Partial relative sensor model for sensors defined by components"
+      "Base class for relative sensor models defined by components"
       extends Modelica.Icons.RotationalSensor;
 
       Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a
@@ -2611,11 +2613,17 @@ transformed output vector as \"Real r_out[3]\";
               points={{96,0},{70,0},{70,0}}),
             Line(
               points={{60,36},{60,36},{60,80},{95,80}},
-              pattern=LinePattern.Dot)}));
+              pattern=LinePattern.Dot)}), Documentation(info="<html>
+<p>
+This is a base class of a 3-dim. mechanics component with two frames
+<strong>frame_a</strong> and <strong>frame_b</strong>
+in order to measure a relative quantity between these two connectors.
+</p>
+</html>"));
     end PartialRelativeSensor;
 
     model PartialRelativeBaseSensor
-      "Partial relative sensor models for sensors defined by equations (frame_resolve must be connected exactly once)"
+      "Base class for relative sensor models defined by equations (frame_resolve must be connected exactly once)"
       extends Modelica.Icons.RotationalSensor;
 
       Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a
@@ -2631,15 +2639,16 @@ transformed output vector as \"Real r_out[3]\";
             iconTransformation(extent={{84,65},{116,97}})));
 
     equation
-       assert(cardinality(frame_a) > 0, "Connector frame_a must be connected at least once");
-       assert(cardinality(frame_b) > 0, "Connector frame_b must be connected at least once");
-       assert(cardinality(frame_resolve) == 1, "Connector frame_resolve must be connected exactly once");
-       frame_a.f = zeros(3);
-       frame_a.t = zeros(3);
-       frame_b.f = zeros(3);
-       frame_b.t = zeros(3);
-       frame_resolve.f = zeros(3);
-       frame_resolve.t = zeros(3);
+      assert(cardinality(frame_a) > 0, "Connector frame_a must be connected at least once");
+      assert(cardinality(frame_b) > 0, "Connector frame_b must be connected at least once");
+      assert(cardinality(frame_resolve) == 1, "Connector frame_resolve must be connected exactly once");
+      frame_a.f = zeros(3);
+      frame_a.t = zeros(3);
+      frame_b.f = zeros(3);
+      frame_b.t = zeros(3);
+      frame_resolve.f = zeros(3);
+      frame_resolve.t = zeros(3);
+
       annotation (Icon(coordinateSystem(preserveAspectRatio=true,
               extent={{-100,-100},{100,100}}), graphics={
             Text(
@@ -2659,47 +2668,90 @@ transformed output vector as \"Real r_out[3]\";
               color={0,0,127}),
             Line(
               points={{60,36},{60,36},{60,80},{95,80}},
-              pattern=LinePattern.Dot)}));
+              pattern=LinePattern.Dot)}), Documentation(info="<html>
+<p>
+Partial base class for relative sensor models defined by equations.
+The connector frame_resolve is always enabled and must be connected exactly once.
+</p>
+</html>"));
     end PartialRelativeBaseSensor;
 
     model BasicAbsolutePosition
-      "Measure absolute position vector (same as Sensors.AbsolutePosition, but frame_resolve is not conditional and must be connected)"
+      "Basic sensor to measure absolute position vector"
       import Modelica.Mechanics.MultiBody.Types.ResolveInFrameA;
-      extends
-        Modelica.Mechanics.MultiBody.Sensors.Internal.PartialAbsoluteBaseSensor;
-      Modelica.Blocks.Interfaces.RealOutput r[3](each final quantity="Length", each final
-                unit = "m")
+      extends Modelica.Mechanics.MultiBody.Sensors.Internal.PartialAbsoluteBaseSensor;
+      Modelica.Blocks.Interfaces.RealOutput r[3](
+        each final quantity="Length", each final unit = "m")
         "Absolute position vector frame_a.r_0 resolved in frame defined by resolveInFrame"
         annotation (Placement(transformation(
             origin={110,0},
             extent={{-10,-10},{10,10}})));
 
-      parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameA
-        resolveInFrame=
-      Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a
+      parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameA resolveInFrame=
+        Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a
         "Frame in which output vector r is resolved (world, frame_a, or frame_resolve)";
 
     equation
-       if resolveInFrame == ResolveInFrameA.world then
-          r = frame_a.r_0;
-       elseif resolveInFrame == ResolveInFrameA.frame_a then
-          r = Frames.resolve2(frame_a.R, frame_a.r_0);
-       elseif resolveInFrame == ResolveInFrameA.frame_resolve then
-          r = Frames.resolve2(frame_resolve.R, frame_a.r_0);
-       else
-          assert(false, "Wrong value for parameter resolveInFrame");
-          r = zeros(3);
-       end if;
+      if resolveInFrame == ResolveInFrameA.world then
+        r = frame_a.r_0;
+      elseif resolveInFrame == ResolveInFrameA.frame_a then
+        r = Frames.resolve2(frame_a.R, frame_a.r_0);
+      elseif resolveInFrame == ResolveInFrameA.frame_resolve then
+        r = Frames.resolve2(frame_resolve.R, frame_a.r_0);
+      else
+        assert(false, "Wrong value for parameter resolveInFrame");
+        r = zeros(3);
+      end if;
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{61,47},{145,17}},
               textString="r"), Text(
               extent={{-127,75},{134,123}},
               textString="%name",
-              lineColor={0,0,255})}));
+              lineColor={0,0,255})}), Documentation(info="<html>
+<p>
+This basic sensor is aimed to be used within advanced sensors where
+the absolute position vector of the origin of frame_a should be determined.
+This vector is provided at the output signal connector&nbsp;<strong>r</strong>.
+</p>
+
+<p>
+Via parameter <strong>resolveInFrame</strong> it is defined in which frame
+the position vector is resolved:
+</p>
+
+<table border=1 cellspacing=0 cellpadding=2>
+<tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameA.</strong></th><th><strong>Meaning</strong></th></tr>
+<tr><td valign=\"top\">world</td>
+    <td valign=\"top\">Resolve vector in world frame</td></tr>
+
+<tr><td valign=\"top\">frame_a</td>
+    <td valign=\"top\">Resolve vector in frame_a</td></tr>
+
+<tr><td valign=\"top\">frame_resolve</td>
+    <td valign=\"top\">Resolve vector in frame_resolve</td></tr>
+</table>
+
+<p>
+In this basic sensor model, <strong>the connector frame_resolve
+is always enabled and must be connected</strong>.
+If resolveInFrame = Types.ResolveInFrameA.frame_resolve, the vector&nbsp;r is
+resolved in the frame to which frame_resolve is connected.
+</p>
+
+<h4>Example</h4>
+<p>
+If resolveInFrame = Types.ResolveInFrameA.frame_a, the output vector is
+computed as:
+</p>
+
+<blockquote><pre>
+r = MultiBody.Frames.resolve2(frame_a.R, frame_b.r_0);
+</pre></blockquote>
+</html>"));
     end BasicAbsolutePosition;
 
-    model BasicAbsoluteAngularVelocity "Measure absolute angular velocity"
+    model BasicAbsoluteAngularVelocity "Basic sensor to measure absolute angular velocity"
       import Modelica.Mechanics.MultiBody.Frames;
       import Modelica.Mechanics.MultiBody.Types.ResolveInFrameA;
 
@@ -2732,11 +2784,51 @@ transformed output vector as \"Real r_out[3]\";
               textString="w"), Text(
               extent={{-130,76},{131,124}},
               textString="%name",
-              lineColor={0,0,255})}));
+              lineColor={0,0,255})}), Documentation(info="<html>
+<p>
+This basic sensor is aimed to be used within advanced sensors where
+the absolute angular velocity of frame_a should be determined.
+This vector is provided at the output signal connector&nbsp;<strong>w</strong>.
+</p>
+
+<p>
+Via parameter <strong>resolveInFrame</strong> it is defined, in which frame
+the angular velocity is resolved:
+</p>
+
+<table border=1 cellspacing=0 cellpadding=2>
+<tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameA.</strong></th><th><strong>Meaning</strong></th></tr>
+<tr><td valign=\"top\">world</td>
+    <td valign=\"top\">Resolve vector in world frame</td></tr>
+
+<tr><td valign=\"top\">frame_a</td>
+    <td valign=\"top\">Resolve vector in frame_a</td></tr>
+
+<tr><td valign=\"top\">frame_resolve</td>
+    <td valign=\"top\">Resolve vector in frame_resolve</td></tr>
+</table>
+
+<p>
+In this basic sensor model, <strong>the connector frame_resolve
+is always enabled and must be connected</strong>.
+If resolveInFrame = Types.ResolveInFrameA.frame_resolve, the vector&nbsp;w is
+resolved in the frame to which frame_resolve is connected.
+</p>
+
+<h4>Example</h4>
+<p>
+If resolveInFrame = Types.ResolveInFrameA.frame_a, the output vector is
+computed as:
+</p>
+
+<blockquote><pre>
+w = MultiBody.Frames.angularVelocity2(frame_a.R);
+</pre></blockquote>
+</html>"));
     end BasicAbsoluteAngularVelocity;
 
     model BasicRelativePosition
-      "Measure relative position vector (same as Sensors.RelativePosition, but frame_resolve is not conditional and must be connected)"
+      "Basic sensor to measure relative position vector"
       import Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB;
       extends
         Modelica.Mechanics.MultiBody.Sensors.Internal.PartialRelativeBaseSensor;
@@ -2772,10 +2864,53 @@ transformed output vector as \"Real r_out[3]\";
               textString="r_rel"), Text(
               extent={{-127,95},{134,143}},
               textString="%name",
-              lineColor={0,0,255})}));
+              lineColor={0,0,255})}), Documentation(info="<html>
+<p>
+This basic sensor is aimed to be used within advanced sensors where
+the relative position vector between the origins of frame_a and frame_b should be determined.
+This vector is provided at the output signal connector&nbsp;<strong>r_rel</strong>.
+</p>
+
+<p>
+Via parameter <strong>resolveInFrame</strong> it is defined in which frame
+the position vector is resolved:
+</p>
+
+<table border=1 cellspacing=0 cellpadding=2>
+<tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameAB.</strong></th><th><strong>Meaning</strong></th></tr>
+<tr><td valign=\"top\">world</td>
+    <td valign=\"top\">Resolve vector in world frame</td></tr>
+
+<tr><td valign=\"top\">frame_a</td>
+    <td valign=\"top\">Resolve vector in frame_a</td></tr>
+
+<tr><td valign=\"top\">frame_b</td>
+    <td valign=\"top\">Resolve vector in frame_b</td></tr>
+
+<tr><td valign=\"top\">frame_resolve</td>
+    <td valign=\"top\">Resolve vector in frame_resolve</td></tr>
+</table>
+
+<p>
+In this basic sensor model, <strong>the connector frame_resolve
+is always enabled and must be connected</strong>.
+If resolveInFrame = Types.ResolveInFrameAB.frame_resolve, the vector&nbsp;r_rel is
+resolved in the frame to which frame_resolve is connected.
+</p>
+
+<h4>Example</h4>
+<p>
+If resolveInFrame = Types.ResolveInFrameAB.frame_a, the output vector is
+computed as:
+</p>
+
+<blockquote><pre>
+r_rel = MultiBody.Frames.resolve2(frame_a.R, frame_b.r_0 - frame_a.r_0);
+</pre></blockquote>
+</html>"));
     end BasicRelativePosition;
 
-    model BasicRelativeAngularVelocity "Measure relative angular velocity"
+    model BasicRelativeAngularVelocity "Basic sensor to measure relative angular velocity"
       import Modelica.Mechanics.MultiBody.Frames;
       import Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB;
 
@@ -2815,21 +2950,68 @@ transformed output vector as \"Real r_out[3]\";
               textString="w_rel"), Text(
               extent={{-132,90},{129,138}},
               textString="%name",
-              lineColor={0,0,255})}));
+              lineColor={0,0,255})}), Documentation(info="<html>
+<p>
+This basic sensor is aimed to be used within advanced sensors where
+the relative angular velocity between frame_a and frame_b should be determined.
+This vector is provided at the output signal connector&nbsp;<strong>w_rel</strong>.
+</p>
+
+<p>
+Via parameter <strong>resolveInFrame</strong> it is defined, in which frame
+the angular velocity is resolved:
+</p>
+
+<table border=1 cellspacing=0 cellpadding=2>
+<tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameAB.</strong></th><th><strong>Meaning</strong></th></tr>
+<tr><td valign=\"top\">world</td>
+    <td valign=\"top\">Resolve vector in world frame</td></tr>
+
+<tr><td valign=\"top\">frame_a</td>
+    <td valign=\"top\">Resolve vector in frame_a</td></tr>
+
+<tr><td valign=\"top\">frame_b</td>
+    <td valign=\"top\">Resolve vector in frame_b</td></tr>
+
+<tr><td valign=\"top\">frame_resolve</td>
+    <td valign=\"top\">Resolve vector in frame_resolve</td></tr>
+</table>
+
+<p>
+In this basic sensor model, <strong>the connector frame_resolve
+is always enabled and must be connected</strong>.
+If resolveInFrame = Types.ResolveInFrameAB.frame_resolve, the vector&nbsp;w_rel is
+resolved in the frame to which frame_resolve is connected.
+</p>
+
+<h4>Example</h4>
+<p>
+If resolveInFrame = Types.ResolveInFrameAB.frame_a, the output vector is
+computed as:
+</p>
+
+<blockquote><pre>
+// Relative orientation object from frame_a to frame_b
+R_rel = MultiBody.Frames.relativeRotation(frame_a.R, frame_b.R);
+
+// Angular velocity resolved in frame_a
+w_rel = MultiBody.Frames.angularVelocity1(R_rel);
+</pre></blockquote>
+</html>"));
     end BasicRelativeAngularVelocity;
 
     model BasicTransformAbsoluteVector
-      "Transform absolute vector in to another frame"
+      "Transform absolute vector into another frame"
       import Modelica.Mechanics.MultiBody.Frames;
       import Modelica.Mechanics.MultiBody.Types.ResolveInFrameA;
 
       extends Modelica.Icons.RotationalSensor;
 
       parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameA frame_r_in=
-      Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a
+        Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a
         "Frame in which vector r_in is resolved (world, frame_a, or frame_resolve)";
       parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameA frame_r_out=
-                      frame_r_in
+        frame_r_in
         "Frame in which vector r_out (= r_in in other frame) is resolved (world, frame_a, or frame_resolve)";
 
       Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a
@@ -2859,39 +3041,40 @@ transformed output vector as \"Real r_out[3]\";
       Modelica.Mechanics.MultiBody.Frames.Orientation R1
         "Orientation object from world frame to frame in which r_in is resolved";
     equation
-       assert(cardinality(frame_a) > 0, "Connector frame_a must be connected at least once");
-       assert(cardinality(frame_resolve) == 1, "Connector frame_resolve must be connected exactly once");
-       frame_a.f = zeros(3);
-       frame_a.t = zeros(3);
-       frame_resolve.f = zeros(3);
-       frame_resolve.t = zeros(3);
+      assert(cardinality(frame_a) > 0, "Connector frame_a must be connected at least once");
+      assert(cardinality(frame_resolve) == 1, "Connector frame_resolve must be connected exactly once");
+      frame_a.f = zeros(3);
+      frame_a.t = zeros(3);
+      frame_resolve.f = zeros(3);
+      frame_resolve.t = zeros(3);
 
-       if frame_r_out == frame_r_in then
-          r_out = r_in;
+      if frame_r_out == frame_r_in then
+        r_out = r_in;
+        R1 = Frames.nullRotation();
+      else
+        if frame_r_in == ResolveInFrameA.world then
           R1 = Frames.nullRotation();
-       else
-          if frame_r_in == ResolveInFrameA.world then
-             R1 = Frames.nullRotation();
-          elseif frame_r_in == ResolveInFrameA.frame_a then
-             R1 = frame_a.R;
-          elseif frame_r_in == ResolveInFrameA.frame_resolve then
-             R1 = frame_resolve.R;
-          else
-             assert(false, "Wrong value for parameter frame_r_in");
-             R1 = Frames.nullRotation();
-          end if;
+        elseif frame_r_in == ResolveInFrameA.frame_a then
+          R1 = frame_a.R;
+        elseif frame_r_in == ResolveInFrameA.frame_resolve then
+          R1 = frame_resolve.R;
+        else
+          assert(false, "Wrong value for parameter frame_r_in");
+          R1 = Frames.nullRotation();
+        end if;
 
-          if frame_r_out == ResolveInFrameA.world then
-             r_out = Frames.resolve1(R1, r_in);
-          elseif frame_r_out == ResolveInFrameA.frame_a then
-             r_out = Frames.resolveRelative(r_in, R1, frame_a.R);
-          elseif frame_r_out == ResolveInFrameA.frame_resolve then
-             r_out = Frames.resolveRelative(r_in, R1, frame_resolve.R);
-          else
-             assert(false, "Wrong value for parameter frame_r_out");
-             r_out = zeros(3);
-          end if;
-       end if;
+        if frame_r_out == ResolveInFrameA.world then
+          r_out = Frames.resolve1(R1, r_in);
+        elseif frame_r_out == ResolveInFrameA.frame_a then
+          r_out = Frames.resolveRelative(r_in, R1, frame_a.R);
+        elseif frame_r_out == ResolveInFrameA.frame_resolve then
+          r_out = Frames.resolveRelative(r_in, R1, frame_resolve.R);
+        else
+          assert(false, "Wrong value for parameter frame_r_out");
+          r_out = zeros(3);
+        end if;
+      end if;
+
       annotation (Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
                 -100},{100,100}}), graphics={
             Text(
@@ -2918,11 +3101,40 @@ transformed output vector as \"Real r_out[3]\";
               points={{-70,0},{-96,0},{-96,0}}),
             Line(
               points={{95,0},{95,0},{70,0},{70,0}},
-              pattern=LinePattern.Dot)}));
+              pattern=LinePattern.Dot)}), Documentation(info="<html>
+<p>
+This basic sensor transforms an absolute vector <strong>r_in</strong>,
+resolved in frame defined by frame_r_in,
+into another frame specified by frame_r_out.
+This output vector is provided at the output signal connector <strong>r_out</strong>.
+</p>
+
+<p>
+Via parameters <strong>frame_r_in</strong> and <strong>frame_r_out</strong> it is
+defined in which frame the position vector is resolved:
+</p>
+
+<table border=1 cellspacing=0 cellpadding=2>
+<tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameA.</strong></th><th><strong>Meaning</strong></th></tr>
+<tr><td valign=\"top\">world</td>
+    <td valign=\"top\">Resolve vector in world frame</td></tr>
+
+<tr><td valign=\"top\">frame_a</td>
+    <td valign=\"top\">Resolve vector in frame_a</td></tr>
+
+<tr><td valign=\"top\">frame_resolve</td>
+    <td valign=\"top\">Resolve vector in frame_resolve</td></tr>
+</table>
+
+<p>
+In this basic sensor model, <strong>the connector frame_resolve
+is always enabled and must be connected</strong>.
+</p>
+</html>"));
     end BasicTransformAbsoluteVector;
 
     model BasicTransformRelativeVector
-      "Transform relative vector in to another frame"
+      "Transform relative vector into another frame"
       import Modelica.Mechanics.MultiBody.Frames;
       import Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB;
       extends
@@ -2931,7 +3143,7 @@ transformed output vector as \"Real r_out[3]\";
       Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_a
         "Frame in which vector r_in is resolved (world, frame_a, frame_b, or frame_resolve)";
       parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB frame_r_out=
-                      frame_r_in
+        frame_r_in
         "Frame in which vector r_out (= r_in in other frame) is resolved (world, frame_a, frame_b, or frame_resolve)";
 
       Blocks.Interfaces.RealInput r_in[3]
@@ -2983,7 +3195,39 @@ transformed output vector as \"Real r_out[3]\";
               textString="r_in"),
             Line(
               points={{0,100},{0,70}},
-              color={0,0,127})}));
+              color={0,0,127})}), Documentation(info="<html>
+<p>
+This basic sensor transforms a relative vector <strong>r_in</strong>,
+resolved in frame defined by frame_r_in,
+into another frame specified by frame_r_out.
+This output vector is provided at the output signal connector <strong>r_out</strong>.
+</p>
+
+<p>
+Via parameters <strong>frame_r_in</strong> and <strong>frame_r_out</strong> it is
+defined in which frame the position vector is resolved:
+</p>
+
+<table border=1 cellspacing=0 cellpadding=2>
+<tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameAB.</strong></th><th><strong>Meaning</strong></th></tr>
+<tr><td valign=\"top\">world</td>
+    <td valign=\"top\">Resolve vector in world frame</td></tr>
+
+<tr><td valign=\"top\">frame_a</td>
+    <td valign=\"top\">Resolve vector in frame_a</td></tr>
+
+<tr><td valign=\"top\">frame_b</td>
+    <td valign=\"top\">Resolve vector in frame_b</td></tr>
+
+<tr><td valign=\"top\">frame_resolve</td>
+    <td valign=\"top\">Resolve vector in frame_resolve</td></tr>
+</table>
+
+<p>
+In this basic sensor model, <strong>the connector frame_resolve
+is always enabled and must be connected</strong>.
+</p>
+</html>"));
     end BasicTransformRelativeVector;
 
     model ZeroForceAndTorque "Set force and torque to zero"
@@ -2996,11 +3240,14 @@ transformed output vector as \"Real r_out[3]\";
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-74,24},{80,-20}},
-              textString="f = t = 0")}));
+              textString="f = t = 0")}), Documentation(info="<html>
+<p>Set force and torque vectors on frame connector frame_a to zero.</p>
+<!--a placeholder to fulfill minimum domentation length-->
+</html>"));
     end ZeroForceAndTorque;
 
     partial model PartialCutForceSensor
-      "Base model to measure the cut force and/or torque between two frames, defined by components"
+      "Base class to measure cut force and/or torque between two frames, defined by components"
 
       extends Modelica.Icons.RotationalSensor;
       Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a
@@ -3067,7 +3314,7 @@ with the blocks of package Modelica.Blocks.
     end PartialCutForceSensor;
 
     partial model PartialCutForceBaseSensor
-      "Base model to measure the cut force and/or torque between two frames, defined by equations (frame_resolve must be connected exactly once)"
+      "Base class to measure cut force and/or torque between two frames, defined by equations (frame_resolve must be connected exactly once)"
 
       extends Modelica.Icons.RotationalSensor;
       Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a
@@ -3143,34 +3390,32 @@ with the blocks of package Modelica.Blocks.
     end PartialCutForceBaseSensor;
 
     model BasicCutForce
-      "Measure cut force vector (frame_resolve must be connected)"
-
+      "Basic sensor to measure cut force vector (frame_resolve must be connected)"
       import Modelica.Mechanics.MultiBody.Types.ResolveInFrameA;
       import Modelica.Mechanics.MultiBody.Frames;
+      extends Modelica.Mechanics.MultiBody.Sensors.Internal.PartialCutForceBaseSensor;
 
-      extends
-        Modelica.Mechanics.MultiBody.Sensors.Internal.PartialCutForceBaseSensor;
       Modelica.Blocks.Interfaces.RealOutput force[3](each final quantity="Force", each final unit="N")
         "Cut force resolved in frame defined by resolveInFrame"
            annotation (Placement(transformation(
             origin={-80,-110},
             extent={{10,-10},{-10,10}},
             rotation=90)));
-        parameter Boolean positiveSign=true
+      parameter Boolean positiveSign=true
         "= true, if force with positive sign is returned (= frame_a.f), otherwise with negative sign (= frame_b.f)";
     protected
       parameter Integer csign=if positiveSign then +1 else -1;
     equation
-       if resolveInFrame == ResolveInFrameA.world then
-          force = Frames.resolve1(frame_a.R, frame_a.f)*csign;
-       elseif resolveInFrame == ResolveInFrameA.frame_a then
-          force = frame_a.f*csign;
-       elseif resolveInFrame == ResolveInFrameA.frame_resolve then
-          force = Frames.resolveRelative(frame_a.f, frame_a.R, frame_resolve.R)*csign;
-       else
-          assert(false,"Wrong value for parameter resolveInFrame");
-          force = zeros(3);
-       end if;
+      if resolveInFrame == ResolveInFrameA.world then
+        force = Frames.resolve1(frame_a.R, frame_a.f)*csign;
+      elseif resolveInFrame == ResolveInFrameA.frame_a then
+        force = frame_a.f*csign;
+      elseif resolveInFrame == ResolveInFrameA.frame_resolve then
+        force = Frames.resolveRelative(frame_a.f, frame_a.R, frame_resolve.R)*csign;
+      else
+        assert(false,"Wrong value for parameter resolveInFrame");
+        force = zeros(3);
+      end if;
       annotation (
          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Text(
@@ -3178,12 +3423,53 @@ with the blocks of package Modelica.Blocks.
               textString="force"), Line(points={{-80,-100},{-80,0}}, color={0,0,
                   127})}),
         Documentation(info="<html>
+<p>
+This basic sensor is aimed to be used within advanced sensors where
+the cut-force acting between the two frames is determined to which this
+model is connected.
+This cut-force is provided at the output signal connector
+<strong>force</strong> (= frame_a.f). If parameter <strong>positiveSign</strong> =
+<strong>false</strong>, the negative cut-force is provided (= frame_b.f).
+</p>
+<p>
+Via parameter <strong>resolveInFrame</strong> it is defined in which frame
+the force vector is resolved:
+</p>
 
+<table border=1 cellspacing=0 cellpadding=2>
+<tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameA.</strong></th><th><strong>Meaning</strong></th></tr>
+<tr><td valign=\"top\">world</td>
+    <td valign=\"top\">Resolve vector in world frame</td></tr>
+
+<tr><td valign=\"top\">frame_a</td>
+    <td valign=\"top\">Resolve vector in frame_a</td></tr>
+
+<tr><td valign=\"top\">frame_resolve</td>
+    <td valign=\"top\">Resolve vector in frame_resolve</td></tr>
+</table>
+
+<p>
+In this basic sensor model, <strong>the connector frame_resolve
+is always enabled and must be connected</strong>.
+If resolveInFrame = Types.ResolveInFrameA.frame_resolve, the vector force is
+resolved in the frame to which frame_resolve is connected.
+</p>
+
+<p>
+In the following figure the animation of a CutForce
+sensor is shown. The dark blue coordinate system is frame_b,
+and the green arrow is the cut force acting at frame_b and
+with negative sign at frame_a.
+</p>
+
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Sensors/CutForce.png\">
+</p>
 </html>"));
     end BasicCutForce;
 
     model BasicCutTorque
-      "Measure cut torque vector (frame_resolve must be connected)"
+      "Basic sensor to measure cut torque vector (frame_resolve must be connected)"
 
       import Modelica.Mechanics.MultiBody.Types.ResolveInFrameA;
       import Modelica.Mechanics.MultiBody.Frames;
@@ -3218,8 +3504,57 @@ with the blocks of package Modelica.Blocks.
                 100,100}}), graphics={Text(
               extent={{-190,-70},{-74,-96}},
               textString="torque"), Line(points={{-80,-100},{-80,0}}, color={0,
-                  0,127})}));
+                  0,127})}), Documentation(info="<html>
+<p>
+This basic sensor is aimed to be used within advanced sensors where
+the cut-torque acting between the two frames is determined to which this
+model is connected.
+This cut-torque is provided at the output signal connector
+<strong>torque</strong> (= frame_a.f). If parameter <strong>positiveSign</strong> =
+<strong>false</strong>, the negative cut-torque is provided (= frame_b.f).
+</p>
+<p>
+Via parameter <strong>resolveInFrame</strong> it is defined in which frame
+the torque vector is resolved:
+</p>
+
+<table border=1 cellspacing=0 cellpadding=2>
+<tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameA.</strong></th><th><strong>Meaning</strong></th></tr>
+<tr><td valign=\"top\">world</td>
+    <td valign=\"top\">Resolve vector in world frame</td></tr>
+
+<tr><td valign=\"top\">frame_a</td>
+    <td valign=\"top\">Resolve vector in frame_a</td></tr>
+
+<tr><td valign=\"top\">frame_resolve</td>
+    <td valign=\"top\">Resolve vector in frame_resolve</td></tr>
+</table>
+
+<p>
+In this basic sensor model, <strong>the connector frame_resolve
+is always enabled and must be connected</strong>.
+If resolveInFrame = Types.ResolveInFrameA.frame_resolve, the vector torque is
+resolved in the frame to which frame_resolve is connected.
+</p>
+
+<p>
+In the following figure the animation of a CutTorque
+sensor is shown. The dark blue coordinate system is frame_b,
+and the green arrow is the cut torque acting at frame_b and
+with negative sign at frame_a.
+</p>
+
+<p>
+<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Sensors/CutTorque.png\">
+</p>
+</html>"));
     end BasicCutTorque;
+    annotation (Documentation(info="<html>
+<p>
+Package with classes that are used within package Sensors.
+The classes in this package should not be directly used by a user.
+</p>
+</html>"));
   end Internal;
 
   model TansformAbsoluteVector
@@ -3228,7 +3563,10 @@ with the blocks of package Modelica.Blocks.
     extends Modelica.Icons.ObsoleteModel;
     extends TransformAbsoluteVector;
     // extends Modelica.Icons.ObsoleteModel;
-    annotation(obsolete = "Obsolete model due to false class name - use Modelica.Mechanics.MultiBody.Sensors.TransformAbsoluteVector instead");
+    annotation(obsolete = "Obsolete model due to false class name - use Modelica.Mechanics.MultiBody.Sensors.TransformAbsoluteVector instead", Documentation(info="<html>
+<!--a placeholder to fulfill minimum domentation length-->
+<!--a placeholder to fulfill minimum domentation length-->
+</html>"));
   end TansformAbsoluteVector;
 
   model TansformRelativeVector
@@ -3237,7 +3575,10 @@ with the blocks of package Modelica.Blocks.
     extends Modelica.Icons.ObsoleteModel;
     extends TransformRelativeVector;
     // extends Modelica.Icons.ObsoleteModel;
-    annotation(obsolete = "Obsolete model due to false class name - use Modelica.Mechanics.MultiBody.Sensors.TransformRelativeVector instead");
+    annotation(obsolete = "Obsolete model due to false class name - use Modelica.Mechanics.MultiBody.Sensors.TransformRelativeVector instead", Documentation(info="<html>
+<!--a placeholder to fulfill minimum domentation length-->
+<!--a placeholder to fulfill minimum domentation length-->
+</html>"));
   end TansformRelativeVector;
 
   annotation (Documentation(info="<html>
