@@ -9847,15 +9847,30 @@ This test model was proposed in ticket <a href=\"https://trac.modelica.org/Model
                 40,0},{60,20}})));
     equation
       connect(fixed.frame_b, box.frame_a)
-        annotation (Line(points={{-80,50},{-60,50},{-60,60}}));
+        annotation (Line(
+          points={{-80,50},{-60,50},{-60,60}},
+          color={95,95,95},
+          thickness=0.5));
       connect(fixed.frame_b, sphere.frame_a)
-        annotation (Line(points={{-80,50},{-30,50},{-30,60}}));
+        annotation (Line(
+          points={{-80,50},{-30,50},{-30,60}},
+          color={95,95,95},
+          thickness=0.5));
       connect(fixed.frame_b, cylinder.frame_a)
-        annotation (Line(points={{-80,50},{-4,50},{-4,60}}));
+        annotation (Line(
+          points={{-80,50},{-4,50},{-4,60}},
+          color={95,95,95},
+          thickness=0.5));
       connect(fixed.frame_b, pipe.frame_a)
-        annotation (Line(points={{-80,50},{42,50},{42,60}}));
+        annotation (Line(
+          points={{-80,50},{42,50},{42,60}},
+          color={95,95,95},
+          thickness=0.5));
       connect(fixed.frame_b, frame_b1)
-        annotation (Line(points={{-80,50},{-74,50},{-74,-10},{-60,-10}}));
+        annotation (Line(
+          points={{-80,50},{-74,50},{-74,-10},{-60,-10}},
+          color={95,95,95},
+          thickness=0.5));
       connect(beam.frame_a, frame_b1)
         annotation (Line(points={{-60,0},{-60,-10}}));
       connect(frame_b1, gearwheel.frame_a)
@@ -9863,7 +9878,10 @@ This test model was proposed in ticket <a href=\"https://trac.modelica.org/Model
       connect(frame_b1, spring.frame_a)
         annotation (Line(points={{-60,-10},{-2,-10},{-2,0}}));
       connect(fixed.frame_b, cone.frame_a)
-        annotation (Line(points={{-80,50},{20,50},{20,60}}));
+        annotation (Line(
+          points={{-80,50},{20,50},{20,60}},
+          color={95,95,95},
+          thickness=0.5));
       annotation (experiment(StopTime=1));
     end Shapes;
 
@@ -9895,9 +9913,15 @@ This test model was proposed in ticket <a href=\"https://trac.modelica.org/Model
         annotation (Placement(transformation(extent={{-100,-40},{-80,-20}})));
     equation
       connect(arrow.frame_a, fixed3.frame_b)
-        annotation (Line(points={{-30,20},{-30,0}}));
+        annotation (Line(
+          points={{-30,20},{-30,0}},
+          color={95,95,95},
+          thickness=0.5));
       connect(fixedArrow.frame_a, fixed3.frame_b)
-        annotation (Line(points={{-70,20},{-70,0},{-30,0}}));
+        annotation (Line(
+          points={{-70,20},{-70,0},{-30,0}},
+          color={95,95,95},
+          thickness=0.5));
       connect(sine.y, arrow.r_head) annotation (Line(
           points={{-9,30},{-18,30}}, color={0,0,127}));
       annotation (experiment(StopTime=1));
@@ -10115,6 +10139,58 @@ This test model was proposed in ticket <a href=\"https://trac.modelica.org/Model
           thickness=0.5));
       annotation (experiment(StopTime=0.1));
     end ColorMaps;
+
+    model Planes "Test and show models Visualizers.Plane"
+      extends Modelica.Icons.Example;
+
+      inner Modelica.Mechanics.MultiBody.World world(animateWorld=false, animateGravity=false) annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));
+      Modelica.Mechanics.MultiBody.Visualizers.Plane surfaceWireframe(
+        length_y=2,
+        axis_y={0,1,0},
+        axis_x={1,-0.4,0},
+        ny=3,
+        wireframe=true,
+        nx=8,
+        color={0,230,0},
+        length_x=3)      annotation (Placement(transformation(extent={{30,10},{50,30}})));
+      Modelica.Mechanics.MultiBody.Parts.FixedRotation fixedRotation(
+        rotationType=Modelica.Mechanics.MultiBody.Types.RotationTypes.TwoAxesVectors,
+        n_x={1,0,0},
+        animation=false,
+        r={0,2.3,0}) annotation (Placement(transformation(extent={{-20,10},{0,30}})));
+      Modelica.Mechanics.MultiBody.Visualizers.FixedFrame fixedFrameOfWireframe(color_x={255,0,0}) annotation (Placement(transformation(extent={{30,40},{50,60}})));
+      Modelica.Mechanics.MultiBody.Visualizers.Plane surfaceSolid(
+        length_y=2,
+        axis_y={0,1,0},
+        ny=3,
+        color={85,85,255},
+        length_x=3,
+        wireframe=false,
+        nx=8,
+        axis_x={1,0,0}) annotation (Placement(transformation(extent={{30,-30},{50,-10}})));
+      Modelica.Mechanics.MultiBody.Visualizers.FixedFrame fixedFrame(color_x={255,0,0}) annotation (Placement(transformation(extent={{30,-60},{50,-40}})));
+    equation
+      connect(fixedRotation.frame_a, world.frame_b) annotation (Line(
+          points={{-20,20},{-40,20},{-40,0},{-60,0}},
+          color={95,95,95},
+          thickness=0.5));
+      connect(surfaceSolid.frame_a, world.frame_b) annotation (Line(
+          points={{30,-20},{-40,-20},{-40,0},{-60,0}},
+          color={95,95,95},
+          thickness=0.5));
+      connect(fixedFrame.frame_a, world.frame_b) annotation (Line(
+          points={{30,-50},{20,-50},{20,-20},{-40,-20},{-40,0},{-60,0}},
+          color={95,95,95},
+          thickness=0.5));
+      connect(fixedRotation.frame_b, fixedFrameOfWireframe.frame_a) annotation (Line(
+          points={{0,20},{20,20},{20,50},{30,50}},
+          color={95,95,95},
+          thickness=0.5));
+      connect(fixedRotation.frame_b, surfaceWireframe.frame_a) annotation (Line(
+          points={{0,20},{30,20}},
+          color={95,95,95},
+          thickness=0.5));
+    end Planes;
   end Visualizers;
 
   package InitializationConversion "Test conversion of the initialization"
