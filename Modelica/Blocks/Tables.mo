@@ -50,7 +50,7 @@ package Tables
           extrapolation,
           if tableOnFile then verboseRead else false) "External table object";
     function readTableData = // No longer used, but kept for backward compatibility
-      Modelica.Blocks.Tables.Internal.readTable1DData "Read table data from ASCII text or MATLAB MAT-file";
+      Modelica.Blocks.Tables.Internal.readTable1DData "Read table data from text or MATLAB MAT-file";
   equation
     if tableOnFile then
       assert(tableName <> "NoName",
@@ -155,8 +155,8 @@ The table matrix can be defined in the following ways:
    fileName  is \"NoName\" or has only blanks.
 </pre></li>
 <li><strong>Read</strong> from a <strong>file</strong> \"fileName\" where the matrix is stored as
-    \"tableName\". Both ASCII and MAT-file format is possible.
-    (The ASCII format is described below).
+    \"tableName\". Both text and MATLAB MAT-file format is possible.
+    (The text format is described below).
     The MAT-file format comes in four different versions: v4, v6, v7 and v7.3.
     The library supports at least v4, v6 and v7 whereas v7.3 is optional.
     It is most convenient to generate the MAT-file from FreeMat or MATLAB&reg;
@@ -183,7 +183,7 @@ When the constant \"NO_FILE_SYSTEM\" is defined, all file I/O related parts of t
 source code are removed by the C-preprocessor, such that no access to files takes place.
 </p>
 <p>
-If tables are read from an ASCII-file, the file needs to have the
+If tables are read from an text file, the file needs to have the
 following structure (\"-----\" is not part of the file content):
 </p>
 <pre>
@@ -216,6 +216,7 @@ Numbers have to be given according to C syntax (such as 2.3, -2, +2.e4).
 Number separators are spaces, tab (\\t), comma (,), or semicolon (;).
 Several matrices may be defined one after another. Line comments start
 with the hash symbol (#) and can appear everywhere.
+Text files should either be ASCII or UTF-8 encoded, where UTF-8 encoded strings are only allowed in line comments and an optional UTF-8 BOM at the start of the text file is ignored.
 Other characters, like trailing non comments, are not allowed in the file.
 </p>
 <p>
@@ -340,7 +341,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
           extrapolation,
           if tableOnFile then verboseRead else false) "External table object";
     function readTableData = // No longer used, but kept for backward compatibility
-      Modelica.Blocks.Tables.Internal.readTable1DData "Read table data from ASCII text or MATLAB MAT-file";
+      Modelica.Blocks.Tables.Internal.readTable1DData "Read table data from text or MATLAB MAT-file";
   equation
     if tableOnFile then
       assert(tableName <> "NoName",
@@ -443,8 +444,8 @@ The table matrix can be defined in the following ways:
    fileName  is \"NoName\" or has only blanks.
 </pre></li>
 <li><strong>Read</strong> from a <strong>file</strong> \"fileName\" where the matrix is stored as
-    \"tableName\". Both ASCII and MAT-file format is possible.
-    (The ASCII format is described below).
+    \"tableName\". Both text and MATLAB MAT-file format is possible.
+    (The text format is described below).
     The MAT-file format comes in four different versions: v4, v6, v7 and v7.3.
     The library supports at least v4, v6 and v7 whereas v7.3 is optional.
     It is most convenient to generate the MAT-file from FreeMat or MATLAB&reg;
@@ -471,7 +472,7 @@ When the constant \"NO_FILE_SYSTEM\" is defined, all file I/O related parts of t
 source code are removed by the C-preprocessor, such that no access to files takes place.
 </p>
 <p>
-If tables are read from an ASCII-file, the file needs to have the
+If tables are read from an text file, the file needs to have the
 following structure (\"-----\" is not part of the file content):
 </p>
 <pre>
@@ -504,6 +505,7 @@ Numbers have to be given according to C syntax (such as 2.3, -2, +2.e4).
 Number separators are spaces, tab (\\t), comma (,), or semicolon (;).
 Several matrices may be defined one after another. Line comments start
 with the hash symbol (#) and can appear everywhere.
+Text files should either be ASCII or UTF-8 encoded, where UTF-8 encoded strings are only allowed in line comments and an optional UTF-8 BOM at the start of the text file is ignored.
 Other characters, like trailing non comments, are not allowed in the file.
 </p>
 <p>
@@ -623,7 +625,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
           extrapolation,
           if tableOnFile then verboseRead else false) "External table object";
     function readTableData = // No longer used, but kept for backward compatibility
-      Modelica.Blocks.Tables.Internal.readTable2DData "Read table data from ASCII text or MATLAB MAT-file";
+      Modelica.Blocks.Tables.Internal.readTable2DData "Read table data from text or MATLAB MAT-file";
   equation
     if tableOnFile then
       assert(tableName <> "NoName",
@@ -735,8 +737,8 @@ The table matrix can be defined in the following ways:
    fileName  is \"NoName\" or has only blanks.
 </pre></li>
 <li><strong>Read</strong> from a <strong>file</strong> \"fileName\" where the matrix is stored as
-    \"tableName\". Both ASCII and MAT-file format is possible.
-    (The ASCII format is described below).
+    \"tableName\". Both text and MATLAB MAT-file format is possible.
+    (The text format is described below).
     The MAT-file format comes in four different versions: v4, v6, v7 and v7.3.
     The library supports at least v4, v6 and v7 whereas v7.3 is optional.
     It is most convenient to generate the MAT-file from FreeMat or MATLAB&reg;
@@ -763,7 +765,7 @@ When the constant \"NO_FILE_SYSTEM\" is defined, all file I/O related parts of t
 source code are removed by the C-preprocessor, such that no access to files takes place.
 </p>
 <p>
-If tables are read from an ASCII-file, the file needs to have the
+If tables are read from an text file, the file needs to have the
 following structure (\"-----\" is not part of the file content):
 </p>
 <pre>
@@ -794,13 +796,13 @@ Numbers have to be given according to C syntax (such as 2.3, -2, +2.e4).
 Number separators are spaces, tab (\\t), comma (,), or semicolon (;).
 Several matrices may be defined one after another. Line comments start
 with the hash symbol (#) and can appear everywhere.
+Text files should either be ASCII or UTF-8 encoded, where UTF-8 encoded strings are only allowed in line comments and an optional UTF-8 BOM at the start of the text file is ignored.
 Other characters, like trailing non comments, are not allowed in the file.
 The matrix elements are interpreted in exactly the same way
 as if the matrix is given as a parameter. For example, the first
 column \"table2D_1[2:,1]\" contains the u[1] grid points,
 and the first row \"table2D_1[1,2:]\" contains the u[2] grid points.
 </p>
-
 <p>
 MATLAB is a registered trademark of The MathWorks, Inc.
 </p>
@@ -894,7 +896,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
 
   package Internal "Internal external object definitions for table functions that should not be directly utilized by the user"
     extends Modelica.Icons.InternalPackage;
-    function readTimeTableData "Read table data from ASCII text or MATLAB MAT-file"
+    function readTimeTableData "Read table data from text or MATLAB MAT-file"
       extends Modelica.Icons.Function;
       input Modelica.Blocks.Types.ExternalCombiTimeTable tableID;
       input Boolean forceRead = false
@@ -968,7 +970,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
         annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
     end getTimeTableTmax;
 
-    function readTable1DData "Read table data from ASCII text or MATLAB MAT-file"
+    function readTable1DData "Read table data from text or MATLAB MAT-file"
       extends Modelica.Icons.Function;
       input Modelica.Blocks.Types.ExternalCombiTable1D tableID;
       input Boolean forceRead = false
@@ -1043,7 +1045,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
         annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
     end getTable1DAbscissaUmax;
 
-    function readTable2DData "Read table data from ASCII text or MATLAB MAT-file"
+    function readTable2DData "Read table data from text or MATLAB MAT-file"
       extends Modelica.Icons.Function;
       input Modelica.Blocks.Types.ExternalCombiTable2D tableID;
       input Boolean forceRead = false

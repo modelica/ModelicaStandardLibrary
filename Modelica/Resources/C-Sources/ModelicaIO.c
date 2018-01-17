@@ -1,6 +1,6 @@
 /* ModelicaIO.c - Array I/O functions
 
-   Copyright (C) 2016-2017, Modelica Association and ESI ITI GmbH
+   Copyright (C) 2016-2018, Modelica Association and ESI ITI GmbH
    All rights reserved.
 
    Redistribution and use in source and binary forms, with or without
@@ -33,6 +33,10 @@
       Modelica.Utilities.Streams.writeRealMatrix
 
    Release Notes:
+      Jan. 15, 2018: by Thomas Beutlich, ESI ITI GmbH
+                     Added support to ignore UTF-8 BOM if reading text file
+                     (ticket #2404)
+
       Apr. 12, 2017: by Thomas Beutlich, ESI ITI GmbH
                      Improved error messages if reading struct arrays from
                      MATLAB MAT-file fails (ticket #2105)
@@ -641,6 +645,7 @@ static double* readTxtTable(_In_z_ const char* fileName, _In_z_ const char* tabl
 #define DELIM_TABLE_NUMBER " \t,;\r"
     double* table = NULL;
     char* buf;
+    char* header;
     int bufLen = LINE_BUFFER_LENGTH;
     FILE* fp;
     int foundTable = 0;
@@ -648,6 +653,8 @@ static double* readTxtTable(_In_z_ const char* fileName, _In_z_ const char* tabl
     unsigned long nRow = 0;
     unsigned long nCol = 0;
     unsigned long lineNo = 1;
+    const unsigned char txtHeader[2] = { 0x23,0x31 };
+    const unsigned char bomHeader[3] = { 0xef,0xbb,0xbf };
 #if defined(NO_LOCALE)
     const char * const dec = ".";
 #elif defined(_MSC_VER) && _MSC_VER >= 1400
@@ -665,7 +672,7 @@ static double* readTxtTable(_In_z_ const char* fileName, _In_z_ const char* tabl
         return NULL;
     }
 
-    buf = (char*)malloc(LINE_BUFFER_LENGTH*sizeof(char));
+    buf = (char*)calloc(LINE_BUFFER_LENGTH, sizeof(char));
     if (NULL == buf) {
         fclose(fp);
         ModelicaError("Memory allocation error\n");
@@ -684,9 +691,16 @@ static double* readTxtTable(_In_z_ const char* fileName, _In_z_ const char* tabl
         return NULL;
     }
 
+    header = buf;
+    /* Ignore optional UTF-8 BOM */
+    if (0 == memcmp(buf, bomHeader, sizeof(bomHeader)))
+    {
+        header += sizeof(bomHeader);
+    }
+
     /* Expected file header format: "#1" */
-    if (0 != strncmp(buf, "#1", 2)) {
-        size_t len = strlen(buf);
+    if (0 != memcmp(header, txtHeader, sizeof(txtHeader))) {
+        size_t len = strlen(header);
         fclose(fp);
         if (len == 0) {
             free(buf);
@@ -695,7 +709,7 @@ static double* readTxtTable(_In_z_ const char* fileName, _In_z_ const char* tabl
                 "line of file \"%s\": \"#1\" expected.\n", fileName);
         }
         else if (len == 1) {
-            char c0 = buf[0];
+            char c0 = header[0];
             free(buf);
             ModelicaFormatError(
                 "Error reading format and version information in first "
@@ -703,8 +717,8 @@ static double* readTxtTable(_In_z_ const char* fileName, _In_z_ const char* tabl
                 fileName, c0);
         }
         else {
-            char c0 = buf[0];
-            char c1 = buf[1];
+            char c0 = header[0];
+            char c1 = header[1];
             free(buf);
             ModelicaFormatError(
                 "Error reading format and version information in first "
