@@ -2496,7 +2496,7 @@ Modelica.Fluid.Pipes.BaseClasses.WallFriction.PartialWallFriction, see details b
           object library <strong>ModelicaIO</strong> has been added.<br>
           For a <strong>tool vendor</strong> this can be a non-backwards compatible change if the same object libraries have been used in the past
           for different releases of package Modelica.
-          In <a href=\"modelica://Modelica/Resources/C-sources/_readme.txt\">Resources/C-sources/_readme.txt</a>
+          In <a href=\"modelica://Modelica/Resources/C-Sources/_readme.txt\">Resources/C-Sources/_readme.txt</a>
           the issue is explained in detail and how to resolve it.
           For a <strong>user</strong> this might be a non-backwards compatible change if he/she implemented an
           own external C interface function to one of the functions in the ModelicaStandardTables,
