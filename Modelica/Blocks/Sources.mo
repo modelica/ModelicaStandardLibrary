@@ -2201,7 +2201,7 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
       "Next scaled time event instant";
     Real timeScaled "Scaled time";
     function readTableData = // No longer used, but kept for backward compatibility
-      Modelica.Blocks.Tables.Internal.readTimeTableData "Read table data from ASCII text or MATLAB MAT-file";
+      Modelica.Blocks.Tables.Internal.readTimeTableData "Read table data from text or MATLAB MAT-file";
   equation
     if tableOnFile then
       assert(tableName <> "NoName",
@@ -2354,8 +2354,8 @@ The table matrix can be defined in the following ways:
    fileName  is \"NoName\" or has only blanks.
 </pre></li>
 <li><strong>Read</strong> from a <strong>file</strong> \"fileName\" where the matrix is stored as
-    \"tableName\". Both ASCII and MAT-file format is possible.
-    (The ASCII format is described below).
+    \"tableName\". Both text and MATLAB MAT-file format is possible.
+    (The text format is described below).
     The MAT-file format comes in four different versions: v4, v6, v7 and v7.3.
     The library supports at least v4, v6 and v7 whereas v7.3 is optional.
     It is most convenient to generate the MAT-file from FreeMat or MATLAB&reg;
@@ -2380,7 +2380,7 @@ When the constant \"NO_FILE_SYSTEM\" is defined, all file I/O related parts of t
 source code are removed by the C-preprocessor, such that no access to files takes place.
 </p>
 <p>
-If tables are read from an ASCII-file, the file needs to have the
+If tables are read from an text file, the file needs to have the
 following structure (\"-----\" is not part of the file content):
 </p>
 <pre>
