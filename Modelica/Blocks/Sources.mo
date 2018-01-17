@@ -2415,6 +2415,7 @@ Numbers have to be given according to C syntax (such as 2.3, -2, +2.e4).
 Number separators are spaces, tab (\\t), comma (,), or semicolon (;).
 Several matrices may be defined one after another. Line comments start
 with the hash symbol (#) and can appear everywhere.
+Text files should either be ASCII or UTF-8 encoded, where UTF-8 encoded strings are only allowed in line comments and an optional UTF-8 BOM at the start of the text file is ignored.
 Other characters, like trailing non comments, are not allowed in the file.
 </p>
 <p>
