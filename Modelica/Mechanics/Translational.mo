@@ -896,24 +896,23 @@ with a predefined acceleration.
         c=1) annotation (Placement(transformation(extent={{-20,-60},{0,-40}})));
     equation
       connect(mass1.flange_b, damper1.flange_a)
-        annotation (Line(points={{-60,70},{-20,70}}, color={0,191,0}));
+        annotation (Line(points={{-60,70},{-20,70}}, color={0,127,0}));
       connect(mass2.flange_b, damper2.flange_a)
-        annotation (Line(points={{-60,10},{-20,10}}, color={0,191,0}));
+        annotation (Line(points={{-60,10},{-20,10}}, color={0,127,0}));
       connect(damper2.flange_b, spring2.flange_b)
-        annotation (Line(points={{0,10},{0,-10}}, color={0,191,0}));
+        annotation (Line(points={{0,10},{0,-10}}, color={0,127,0}));
       connect(damper2.flange_a, spring2.flange_a)
-        annotation (Line(points={{-20,10},{-20,-10}}, color={0,191,0}));
+        annotation (Line(points={{-20,10},{-20,-10}}, color={0,127,0}));
       connect(mass3.flange_b, springDamper3.flange_a)
-        annotation (Line(points={{-60,-50},{-20,-50}}, color={0,191,0}));
+        annotation (Line(points={{-60,-50},{-20,-50}}, color={0,127,0}));
       connect(damper1.flange_b, fixed1.flange) annotation (Line(
           points={{0,70},{32,70}}, color={0,127,0}));
-      connect(damper2.flange_b, fixed2.flange) annotation (Line(
-          points={{0,10},{30,10}}, color={0,127,0}));
+      connect(damper2.flange_b, fixed2.flange) annotation (Line(points={{0,10},{30,10}}, color={0,127,0}));
       connect(springDamper3.flange_b, fixed3.flange) annotation (Line(
           points={{0,-50},{30,-50}}, color={0,127,0}));
       annotation (Documentation(info="<html>
 <p>
-Demonstrate usage of damper components in different variants.
+Demonstrate usage of a translational damper component in various configurations.
 </p>
 </html>"), experiment(StopTime=1.0, Interval=0.001));
     end Damper;
@@ -1746,7 +1745,7 @@ force law in a target system between two masses.
 </html>"));
     end GenerationOfFMUs;
 
-    package Utilities "Utility classes used by the Example models"
+    package Utilities "Utility classes used by translational example models"
       extends Modelica.Icons.UtilitiesPackage;
 
       function GenerateStribeckFrictionTable
@@ -1843,7 +1842,21 @@ according to the Stribeck curve:
                   fileName="modelica://Modelica/Resources/Images/Mechanics/Translational/DirectMass.png"),
                 Text( extent={{10,-60},{94,-90}},
                       horizontalAlignment=TextAlignment.Right,
-                textString="f")}));
+                textString="f")}), Documentation(info="<html>
+<p>
+A translational component with pure signal interface which can be applied for
+a FMU (<a href=\"https://www.fmi-standard.org\">Functional Mock-up Unit</a>)
+exchange.
+The input force <code>fDrive</code> is applied on one side of a sliding mass
+whereby the input force&nbsp;<code>f</code> is applied
+on the other side of it.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Mechanics.Translational.Examples.Utilities.InverseMass\">InverseMass</a>.
+</p>
+</html>"));
       end DirectMass;
 
       model InverseMass "Input/output block of an inverse mass model"
@@ -1897,7 +1910,20 @@ according to the Stribeck curve:
                   fileName="modelica://Modelica/Resources/Images/Mechanics/Translational/InverseMass.png"),
                 Text( extent={{-90,-64},{-6,-94}},
                       horizontalAlignment=TextAlignment.Left,
-                textString="f")}));
+                textString="f")}), Documentation(info="<html>
+<p>
+A translational component with pure signal interface which can be applied for
+a FMU (<a href=\"https://www.fmi-standard.org\">Functional Mock-up Unit</a>)
+exchange.
+Based on the kinematic inputs applied on a sliding mass
+the output force&nbsp;<code>f</code> is returned.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Mechanics.Translational.Examples.Utilities.DirectMass\">DirectMass</a>.
+</p>
+</html>"));
       end InverseMass;
 
       model SpringDamper "Input/output block of a spring/damper model"
@@ -1984,7 +2010,14 @@ d=%d"),         Bitmap(extent={{-72,-44},{84,46}},
                 textString="v1"),    Text(
                       extent={{-90,-64},{-6,-94}},
                       horizontalAlignment=TextAlignment.Left,
-                textString="f1")}));
+                textString="f1")}), Documentation(info="<html>
+<p>
+A linear 1D translational spring and damper in parallel with pure signal
+interface which can be applied for
+a FMU (<a href=\"https://www.fmi-standard.org\">Functional Mock-up Unit</a>)
+exchange.
+</p>
+</html>"));
       end SpringDamper;
 
       model Spring "Input/output block of a spring model"
@@ -2049,7 +2082,14 @@ d=%d"),         Bitmap(extent={{-72,-44},{84,46}},
                 textString="f2"),      Text(
                       extent={{-90,-64},{-6,-94}},
                       horizontalAlignment=TextAlignment.Left,
-                textString="f1")}));
+                textString="f1")}), Documentation(info="<html>
+<p>
+A linear 1D translational spring with pure signal
+interface which can be applied for
+a FMU (<a href=\"https://www.fmi-standard.org\">Functional Mock-up Unit</a>)
+exchange.
+</p>
+</html>"));
       end Spring;
 
       model SpringDamperNoRelativeStates
@@ -2158,7 +2198,10 @@ desired for a force element.
               Line(points={{96,0},{80,0}})}));
       end SpringDamperNoRelativeStates;
       annotation (Documentation(info="<html>
-<p>Utility models and functions used in the Examples</p>
+<p>
+This package contains utility models and functions used by some
+of the example models from the translational mechanics package.
+</p>
 </html>"));
     end Utilities;
     annotation (Documentation(info="<html>
@@ -2290,9 +2333,8 @@ A negative force at flange flange_a moves the sliding mass to the negative direc
       annotation (
         Documentation(info="<html>
 <p>
-Rod <em>without inertia</em> and two rigidly connected flanges.
+A translational rod <strong>without inertia</strong> and two rigidly connected flanges.
 </p>
-
 </html>"),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Line(points={{-100,0},{-55,0}}, color={0,127,0}),
@@ -2729,7 +2771,7 @@ where the different effects are visualized:
       parameter Real f_pos[:, 2]=[0, 1]
         "[v, f] Positive sliding friction characteristic (v>=0)";
       parameter Real peak(final min=1) = 1
-        "peak*f_pos[1,2] = Maximum friction force for v==0";
+        "Peak for maximum friction force at w==0 (f0_max = peak*f_pos[1,2])";
       extends Translational.Interfaces.PartialFriction;
 
       SI.Position s "= flange_a.s - support.s";
@@ -2928,7 +2970,7 @@ following references, especially (Armstrong and Canudas de Wit 1996):
       parameter Real mue_pos[:, 2]=[0, 0.5]
         "[v, f] Positive sliding friction characteristic (v>=0)";
       parameter Real peak(final min=1) = 1
-        "peak*mue_pos[1,2] = Maximum friction force for v==0";
+        "Peak for maximum value of mue at w==0 (mue0_max = peak*mue_pos[1,2])";
       parameter Real cgeo(final min=0) = 1
         "Geometry constant containing friction distribution assumption";
       parameter SI.Force fn_max(final min=0, start=1) "Maximum normal force";
@@ -4128,9 +4170,9 @@ Modelica.Blocks library.
         Modelica.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupport2(
          s(stateSelect=if exact then StateSelect.default else StateSelect.prefer));
       parameter Boolean exact=false
-        "true/false exact treatment/filtering the input signal";
+        "Is true/false for exact treatment/filtering of the input signal, respectively";
       parameter SI.Frequency f_crit=50
-        "if exact=false, critical frequency of filter to filter input signal"
+        "If exact=false, critical frequency of filter to filter input signal"
         annotation (Dialog(enable=not exact));
       SI.Velocity v(start=0, stateSelect=if exact then StateSelect.default
              else StateSelect.prefer)
@@ -4223,9 +4265,9 @@ blocks of the block library Modelica.Blocks.Sources.
           fixed=true,
           stateSelect=StateSelect.prefer));
       parameter Boolean exact=false
-        "true/false exact treatment/filtering the input signal";
+        "Is true/false for exact treatment/filtering of the input signal, respectively";
       parameter SI.Frequency f_crit=50
-        "if exact=false, critical frequency of filter to filter input signal"
+        "If exact=false, critical frequency of filter to filter input signal"
         annotation (Dialog(enable=not exact));
       SI.Velocity v(stateSelect=if exact then StateSelect.default else
             StateSelect.prefer) "Absolute velocity of flange";
@@ -4718,8 +4760,8 @@ Model of <strong>fixed</strong> velocity of flange, not dependent on force.
                   extent={{0,-40},{100,-60}},
                   textString="time")}), Documentation(info="<html>
 <p>
-Model of a force step at time .<br>
-Positive force acts accelerating.
+Model of a force step at time startTime.
+Positive force accelerates in positive direction of <code>flange</code> translation.
 </p>
 </html>"));
     end ForceStep;

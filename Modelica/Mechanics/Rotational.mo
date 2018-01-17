@@ -1953,7 +1953,7 @@ on the other side of it.
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Mechanics.Rotational.Examples.Utilities.InverseInertia\">InverseInertia</a>,
+<a href=\"modelica://Modelica.Mechanics.Rotational.Examples.Utilities.InverseInertia\">InverseInertia</a>.
 </p>
 </html>"));
       end DirectInertia;
@@ -2024,7 +2024,7 @@ the output torque <code>tau</code> is returned.
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Mechanics.Rotational.Examples.Utilities.DirectInertia\">DirectInertia</a>,
+<a href=\"modelica://Modelica.Mechanics.Rotational.Examples.Utilities.DirectInertia\">DirectInertia</a>.
 </p>
 </html>"));
       end InverseInertia;
@@ -2302,7 +2302,7 @@ desired for a force element.
       annotation (Documentation(info="<html>
 <p>
 This package contains utility models and functions used by some
-of the example models from the rotational mechanic's package.
+of the example models from the rotational mechanics package.
 </p>
 </html>"));
     end Utilities;
@@ -2440,11 +2440,10 @@ Rotational component with <strong>inertia</strong> and two rigidly connected fla
       0 = flange_a.tau + flange_b.tau;
       annotation (Documentation(info="<html>
 <p>
-Rotational component with two rigidly connected flanges without <strong>inertia</strong>.
+Rotational component with two rigidly connected flanges <strong>without inertia</strong>.
 The right flange is rotated by the fixed angle \"deltaPhi\" with respect to the left
 flange.
 </p>
-
 </html>"), Icon(
         coordinateSystem(preserveAspectRatio=true,
           extent={{-100.0,-100.0},{100.0,100.0}}),
