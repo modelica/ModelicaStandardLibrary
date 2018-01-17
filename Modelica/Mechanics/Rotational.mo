@@ -1875,7 +1875,7 @@ force law in a target system between two inertias.
 </html>"));
     end GenerationOfFMUs;
 
-    package Utilities "Utility classes used by the Example models"
+    package Utilities "Utility classes used by rotational example models"
       extends Modelica.Icons.UtilitiesPackage;
 
       model DirectInertia "Input/output block of a direct inertia model"
@@ -1941,7 +1941,21 @@ force law in a target system between two inertias.
                   fileName="modelica://Modelica/Resources/Images/Mechanics/Rotational/DirectInertia.png"),
                 Text( extent={{10,-60},{94,-90}},
                       horizontalAlignment=TextAlignment.Right,
-                textString="tau")}));
+                textString="tau")}), Documentation(info="<html>
+<p>
+A rotational component with pure signal interface which can be applied for
+a FMU (<a href=\"https://www.fmi-standard.org\">Functional Mock-up Unit</a>)
+exchange.
+The input torque <code>tauDrive</code> is applied on one side of a rotational
+component with inertia whereby the input torque <code>tau</code> is applied
+on the other side of it.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Mechanics.Rotational.Examples.Utilities.InverseInertia\">InverseInertia</a>,
+</p>
+</html>"));
       end DirectInertia;
 
       model InverseInertia "Input/output block of an inverse inertia model"
@@ -1999,7 +2013,20 @@ force law in a target system between two inertias.
                   fileName="modelica://Modelica/Resources/Images/Mechanics/Rotational/InverseInertia.png"),
                 Text( extent={{-90,-64},{-6,-94}},
                       horizontalAlignment=TextAlignment.Left,
-                textString="tau")}));
+                textString="tau")}), Documentation(info="<html>
+<p>
+A rotational component with pure signal interface which can be applied for
+a FMU (<a href=\"https://www.fmi-standard.org\">Functional Mock-up Unit</a>)
+exchange.
+Based on the kinematic inputs applied on a component with inertia
+the output torque <code>tau</code> is returned.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Mechanics.Rotational.Examples.Utilities.DirectInertia\">DirectInertia</a>,
+</p>
+</html>"));
       end InverseInertia;
 
       model SpringDamper "Input/output block of a spring/damper model"
@@ -2050,8 +2077,8 @@ force law in a target system between two inertias.
                 8},{40,80},{120,80}}, color={0,0,127}));
         connect(angleToTorque2.pder, w2) annotation (Line(points={{23,5},{
                 60,5},{60,30},{120,30}}, color={0,0,127}));
-        connect(angleToTorque2.f, tau2) annotation (Line(points={{23,-8},{
-                40,-8},{40,-80},{110,-80}}, color={0,0,127}));
+        connect(angleToTorque2.f, tau2) annotation (Line(points={{23,-8},{60,-8},{60,-80},{110,-80}},
+                                            color={0,0,127}));
         connect(angleToTorque1.p, phi1) annotation (Line(points={{-23,8},{
                 -40,8},{-40,80},{-120,80}}, color={0,0,127}));
         connect(angleToTorque1.pder, w1) annotation (Line(points={{-23,5},{
@@ -2085,7 +2112,14 @@ d=%d"),         Bitmap(extent={{-72,-44},{84,46}},
                 textString="w1"),      Text(
                       extent={{-90,-64},{-6,-94}},
                       horizontalAlignment=TextAlignment.Left,
-                textString="tau1")}));
+                textString="tau1")}), Documentation(info="<html>
+<p>
+A linear 1D rotational spring and damper in parallel with pure signal
+interface which can be applied for
+a FMU (<a href=\"https://www.fmi-standard.org\">Functional Mock-up Unit</a>)
+exchange.
+</p>
+</html>"));
       end SpringDamper;
 
       model Spring "Input/output block of a spring model"
@@ -2150,7 +2184,14 @@ d=%d"),         Bitmap(extent={{-72,-44},{84,46}},
                 textString="tau2"),      Text(
                       extent={{-90,-64},{-6,-94}},
                       horizontalAlignment=TextAlignment.Left,
-                textString="tau1")}));
+                textString="tau1")}), Documentation(info="<html>
+<p>
+A linear 1D rotational spring with pure signal
+interface which can be applied for
+a FMU (<a href=\"https://www.fmi-standard.org\">Functional Mock-up Unit</a>)
+exchange.
+</p>
+</html>"));
       end Spring;
 
       model SpringDamperNoRelativeStates
@@ -2259,7 +2300,10 @@ desired for a force element.
               Line(points={{96,0},{80,0}})}));
       end SpringDamperNoRelativeStates;
       annotation (Documentation(info="<html>
-<p>Utility models and functions used in the Examples</p>
+<p>
+This package contains utility models and functions used by some
+of the example models from the rotational mechanic's package.
+</p>
 </html>"));
     end Utilities;
     annotation (Documentation(info="<html>
@@ -2345,7 +2389,6 @@ at an angle phi0 in the <strong>housing</strong>. May be used:
 <p>
 Rotational component with <strong>inertia</strong> and two rigidly connected flanges.
 </p>
-
 </html>"), Icon(
       coordinateSystem(preserveAspectRatio=true,
         extent={{-100.0,-100.0},{100.0,100.0}}),
@@ -3230,7 +3273,7 @@ in the User's Guide of the Rotational library.
       parameter Real tau_pos[:, 2]=[0, 1]
         "[w,tau] Positive sliding friction characteristic (w>=0)";
       parameter Real peak(final min=1) = 1
-        "peak*tau_pos[1,2] = Maximum friction torque for w==0";
+        "Peak for maximum friction torque at w==0 (tau0_max = peak*tau_pos[1,2])";
 
       extends Rotational.Interfaces.PartialFriction;
       extends
@@ -3409,7 +3452,7 @@ following references, especially (Armstrong and Canudas de Wit 1996):
       parameter Real mue_pos[:, 2]=[0, 0.5]
         "[w,mue] positive sliding friction coefficient (w_rel>=0)";
       parameter Real peak(final min=1) = 1
-        "peak*mue_pos[1,2] = maximum value of mue for w_rel==0";
+        "Peak for maximum value of mue at w==0 (mue0_max = peak*mue_pos[1,2])";
       parameter Real cgeo(final min=0) = 1
         "Geometry constant containing friction distribution assumption";
       parameter SI.Force fn_max(final min=0, start=1) "Maximum normal force";
@@ -3616,7 +3659,7 @@ in the User's Guide of the Rotational library.
       parameter Real mue_pos[:, 2]=[0, 0.5]
         "[w,mue] positive sliding friction coefficient (w_rel>=0)";
       parameter Real peak(final min=1) = 1
-        "peak*mue_pos[1,2] = maximum value of mue for w_rel==0";
+        "Peak for maximum value of mue at w==0 (mue0_max = peak*mue_pos[1,2])";
       parameter Real cgeo(final min=0) = 1
         "Geometry constant containing friction distribution assumption";
       parameter SI.Force fn_max(final min=0, start=1) "Maximum normal force";
@@ -3773,7 +3816,7 @@ in the User's Guide of the Rotational library.
       parameter Real mue_pos[:, 2]=[0, 0.5]
         "[w,mue] positive sliding friction coefficient (w_rel>=0)";
       parameter Real peak(final min=1) = 1
-        "peak*mue_pos[1,2] = maximum value of mue for w_rel==0";
+        "Peak for maximum value of mue at w==0 (mue0_max = peak*mue_pos[1,2])";
       parameter Real cgeo(final min=0) = 1
         "Geometry constant containing friction distribution assumption";
       parameter SI.Force fn_max(final min=0, start=1) "Maximum normal force";
@@ -5340,7 +5383,7 @@ provided for backwards compatibility reasons.
     end AngleToTorqueAdaptor;
 
     model TorqueToAngleAdaptorNew
-      "Signal adaptor for a Rotlational flange with angle, speed, and acceleration as outputs and torque as input (especially useful for FMUs)"
+      "Signal adaptor for a rotational flange with angle, speed, and acceleration as outputs and torque as input (especially useful for FMUs)"
       extends
         Modelica.Blocks.Interfaces.PartialFMUadaptors.FlowToPotentialAdaptor(
         final Name_p="phi",
@@ -5377,7 +5420,7 @@ This adaptor has torque as input and angle, angular velocity and angular acceler
     end TorqueToAngleAdaptorNew;
 
     model AngleToTorqueAdaptorNew
-      "Signal adaptor for a Rotational flange with torque as output and angle, speed and acceleration as input (especially useful for FMUs)"
+      "Signal adaptor for a rotational flange with torque as output and angle, speed and acceleration as input (especially useful for FMUs)"
       extends
         Modelica.Blocks.Interfaces.PartialFMUadaptors.PotentialToFlowAdaptor(
         final Name_p="phi",
@@ -5752,15 +5795,14 @@ Modelica.Blocks library.
       extends
         Modelica.Mechanics.Rotational.Interfaces.PartialElementaryOneFlangeAndSupport2;
       parameter Boolean exact=false
-        "true/false exact treatment/filtering the input signal";
+        "Is true/false for exact treatment/filtering of the input signal, respectively";
       parameter SI.Frequency f_crit=50
-        "if exact=false, critical frequency of filter to filter input signal"
+        "If exact=false, critical frequency of filter to filter input signal"
         annotation (Dialog(enable=not exact));
-      SI.Angle phi(stateSelect=if exact then StateSelect.default else
-            StateSelect.prefer)
+      SI.Angle phi(stateSelect=if exact then StateSelect.default else StateSelect.prefer)
         "Rotation angle of flange with respect to support";
       SI.AngularVelocity w(start=0,stateSelect=if exact then StateSelect.default
-             else StateSelect.prefer)
+        else StateSelect.prefer)
         "If exact=false, Angular velocity of flange with respect to support else dummy";
       SI.AngularAcceleration a(start=0)
         "If exact=false, Angular acceleration of flange with respect to support else dummy";
@@ -5857,9 +5899,9 @@ blocks of the block library Modelica.Blocks.Sources.
       extends
         Modelica.Mechanics.Rotational.Interfaces.PartialElementaryOneFlangeAndSupport2;
       parameter Boolean exact=false
-        "true/false exact treatment/filtering the input signal";
+        "Is true/false for exact treatment/filtering of the input signal, respectively";
       parameter SI.Frequency f_crit=50
-        "if exact=false, critical frequency of filter to filter input signal"
+        "If exact=false, critical frequency of filter to filter input signal"
         annotation (Dialog(enable=not exact));
       SI.Angle phi(
         start=0,
@@ -6451,8 +6493,8 @@ Model of <strong>fixed</strong> angular velocity of flange, not dependent on tor
               lineColor={0,0,255},
               textString="time")}), Documentation(info="<html>
 <p>
-Model of a torque step at time .<br>
-Positive torque acts accelerating.
+Model of a torque step at time startTime.
+Positive torque accelerates in positive direction of <code>flange</code> rotation.
 </p>
 </html>"));
     end TorqueStep;
@@ -7539,7 +7581,7 @@ only be used as basic building elements for models.
 
   package Icons "Icons for Rotational package"
     extends Modelica.Icons.IconsPackage;
-    partial class Gear "Rotational gear icon"
+    partial class Gear "Icon of a rotational gear"
 
       annotation (Icon(
           coordinateSystem(preserveAspectRatio=true,
@@ -7718,7 +7760,7 @@ This is the icon of a gear from the rotational package.
 </html>"));
     end Gear;
 
-    model Gearbox "Icon of gear box"
+    model Gearbox "Icon of a gear box"
 
       annotation (Icon(
           coordinateSystem(extent={{-100.0,-100.0},{100.0,100.0}},
