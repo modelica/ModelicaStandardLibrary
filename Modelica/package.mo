@@ -1442,7 +1442,7 @@ This class summarizes contact information of the contributing persons.
       &lt;th&gt;Affiliation&lt;/th&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td valign=\"top\"&gt;Library officer&lt;/td&gt;
+      &lt;td valign=\"top\"&gt;Library officers and main contributors&lt;/td&gt;
       &lt;td valign=\"top\"&gt;
       &lt;a href=\"mailto:a.haumer@haumer.at\"&gt;A. Haumer&lt;/a&gt;
       &lt;/td&gt;
