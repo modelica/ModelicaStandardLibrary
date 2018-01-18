@@ -276,13 +276,11 @@ connector.
     "Base model for components providing two frame connectors + outer world + assert to guarantee that the component is connected"
 
     Interfaces.Frame_a frame_a
-      "Coordinate system fixed to the component with one cut-force and cut-torque"
-                               annotation (Placement(transformation(extent={{
-              -116,-16},{-84,16}})));
+      "Coordinate system a fixed to the component with one cut-force and cut-torque"
+      annotation (Placement(transformation(extent={{-116,-16},{-84,16}})));
     Interfaces.Frame_b frame_b
-      "Coordinate system fixed to the component with one cut-force and cut-torque"
-                               annotation (Placement(transformation(extent={{84,
-              -16},{116,16}})));
+      "Coordinate system b fixed to the component with one cut-force and cut-torque"
+      annotation (Placement(transformation(extent={{84,-16},{116,16}})));
   protected
     outer Modelica.Mechanics.MultiBody.World world;
   equation
