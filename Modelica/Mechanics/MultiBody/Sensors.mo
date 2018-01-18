@@ -54,8 +54,7 @@ package Sensors "Sensors to measure variables"
     Interfaces.Frame_resolve frame_resolve if resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve
       "If resolveInFrame = Types.ResolveInFrameA.frame_resolve, the output signals are resolved in this frame"
        annotation (Placement(transformation(
-            extent={{84,-16},{116,16}}),iconTransformation(extent={{84,-16},{116,
-              16}})));
+            extent={{84,-16},{116,16}})));
 
     parameter Boolean animation=true
       "= true, if animation shall be enabled (show arrow)";
@@ -186,7 +185,7 @@ package Sensors "Sensors to measure variables"
     connect(angularVelocity.w, w) annotation (Line(
         points={{50,-71},{50,-94},{60,-94},{60,-110}}, color={0,0,127}));
     connect(frame_resolve, position.frame_resolve) annotation (Line(
-        points={{100,0},{114,0},{114,-90},{-80,-90},{-80,-60},{-89.9,-60}},
+        points={{100,0},{114,0},{114,-90},{-80,-90},{-80,-60},{-90,-60}},
         color={95,95,95},
         pattern=LinePattern.Dot));
     connect(frame_resolve,zeroForce2. frame_a) annotation (Line(
@@ -195,7 +194,7 @@ package Sensors "Sensors to measure variables"
         pattern=LinePattern.Dot));
     connect(angularVelocity.frame_resolve, frame_resolve) annotation (
         Line(
-        points={{60.1,-60},{66,-60},{66,-90},{114,-90},{114,0},{100,0}},
+        points={{60,-60},{66,-60},{66,-90},{114,-90},{114,0},{100,0}},
         color={95,95,95},
         pattern=LinePattern.Dot));
     connect(transformVector_a.frame_a, frame_a) annotation (Line(
@@ -436,8 +435,7 @@ and sequence[2] &ne; sequence[3]. Often used values are:
           resolveInFrameAfterDifferentiation == Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve
       "If resolveInFrame = Types.ResolveInFrameAB.frame_resolve, the output signals are resolved in this frame"
        annotation (Placement(transformation(
-            extent={{84,64},{116,96}}), iconTransformation(extent={{84,64},{116,
-              96}})));
+            extent={{84,64},{116,96}})));
 
     parameter Boolean animation=true
       "= true, if animation shall be enabled (show arrow)";
@@ -544,39 +542,36 @@ and sequence[2] &ne; sequence[3]. Often used values are:
           rotation=-90,
           origin={-25,-40})));
     Modelica.Mechanics.MultiBody.Sensors.RelativeAngles relativeAngles(sequence=
-          sequence, guessAngle1=guessAngle1) if
-                                              get_angles
-      annotation (Placement(transformation(extent={{10,-25},{30,-5}})));
-    RelativeAngularVelocity relativeAngularVelocity(resolveInFrame=resolveInFrame) if
-                                                                get_w_rel or get_z_rel
+          sequence, guessAngle1=guessAngle1) if get_angles
+      annotation (Placement(transformation(extent={{20,-25},{40,-5}})));
+    RelativeAngularVelocity relativeAngularVelocity(resolveInFrame=resolveInFrame) if get_w_rel or get_z_rel
       annotation (Placement(transformation(extent={{50,-40},{70,-20}})));
 
   protected
     Blocks.Continuous.Der der3[3] if get_z_rel annotation (Placement(transformation(
           extent={{-10,-10},{0,0}},
           rotation=-90,
-          origin={105,-60})));
+          origin={95,-58})));
     Internal.ZeroForceAndTorque zeroForce1
-      annotation (Placement(transformation(extent={{-81,40},{-61,60}})));
+      annotation (Placement(transformation(extent={{-80,40},{-60,60}})));
     Internal.ZeroForceAndTorque zeroForce2
-      annotation (Placement(transformation(extent={{70,20},{50,40}})));
+      annotation (Placement(transformation(extent={{80,40},{60,60}})));
     Internal.ZeroForceAndTorque zeroForce3 if resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve
-      annotation (Placement(transformation(extent={{70,50},{50,70}})));
+      annotation (Placement(transformation(extent={{40,70},{20,90}})));
 
   protected
     Modelica.Mechanics.MultiBody.Sensors.TransformRelativeVector
-      transformVector_v_rel(                       frame_r_in=resolveInFrame,
+      transformVector_v_rel(frame_r_in=resolveInFrame,
         frame_r_out=resolveInFrameAfterDifferentiation) if get_v_rel
       annotation (Placement(transformation(extent={{-70,-64},{-50,-44}})));
     Modelica.Mechanics.MultiBody.Sensors.TransformRelativeVector
-      transformVector_a_rel(                       frame_r_in=resolveInFrame,
+      transformVector_a_rel(frame_r_in=resolveInFrame,
         frame_r_out=resolveInFrameAfterDifferentiation) if get_a_rel
-      annotation (Placement(transformation(extent={{-30,-80},{-10,-60}})));
+      annotation (Placement(transformation(extent={{-30,-78},{-10,-58}})));
     Modelica.Mechanics.MultiBody.Sensors.TransformRelativeVector
-      transformVector_z_rel(                       frame_r_in=resolveInFrame,
-        frame_r_out=resolveInFrameAfterDifferentiation) if
-         get_z_rel
-      annotation (Placement(transformation(extent={{90,-95},{110,-75}})));
+      transformVector_z_rel(frame_r_in=resolveInFrame,
+        frame_r_out=resolveInFrameAfterDifferentiation) if get_z_rel
+      annotation (Placement(transformation(extent={{80,-94},{100,-74}})));
 
   protected
     outer Modelica.Mechanics.MultiBody.World world;
@@ -597,15 +592,15 @@ and sequence[2] &ne; sequence[3]. Often used values are:
         color={95,95,95},
         thickness=0.5));
     connect(relativePosition.r_rel, r_rel) annotation (Line(
-        points={{-70,-11},{-70,-15},{-80,-15},{-80,-80},{-100,-80},{-100,-110}}, color={0,0,127}));
+        points={{-70,-11},{-70,-15},{-80,-15},{-80,-30},{-100,-30},{-100,-110}}, color={0,0,127}));
     connect(zeroForce1.frame_a, frame_a)
-                                    annotation (Line(
-        points={{-81,50},{-90,50},{-90,0},{-100,0}},
+      annotation (Line(
+        points={{-80,50},{-90,50},{-90,0},{-100,0}},
         color={95,95,95},
         thickness=0.5));
     connect(zeroForce2.frame_a, frame_b)
-                                    annotation (Line(
-        points={{70,30},{90,30},{90,0},{100,0}},
+      annotation (Line(
+        points={{80,50},{90,50},{90,0},{100,0}},
         color={95,95,95},
         thickness=0.5));
     connect(relativePosition.r_rel, der1.u) annotation (Line(
@@ -613,91 +608,93 @@ and sequence[2] &ne; sequence[3]. Often used values are:
     connect(der2.u, der1.y) annotation (Line(
         points={{-20,-39},{-20,-35},{-60,-35},{-60,-30.5}}, color={0,0,127}));
     connect(relativeAngles.frame_a, frame_a) annotation (Line(
-        points={{10,-15},{0,-15},{0,30},{-90,30},{-90,0},{-100,0}},
+        points={{20,-15},{10,-15},{10,-84},{-90,-84},{-90,0},{-100,0}},
         color={95,95,95},
         thickness=0.5));
     connect(relativeAngles.frame_b, frame_b) annotation (Line(
-        points={{30,-15},{40,-15},{40,0},{100,0}},
+        points={{40,-15},{50,-15},{50,0},{100,0}},
         color={95,95,95},
         thickness=0.5));
     connect(relativeAngles.angles, angles) annotation (Line(
-        points={{20,-26},{20,-110}}, color={0,0,127}));
+        points={{30,-26},{30,-92},{20,-92},{20,-110}},
+                                     color={0,0,127}));
     connect(relativeAngularVelocity.frame_b, frame_b) annotation (Line(
         points={{70,-30},{80,-30},{80,0},{100,0}},
         color={95,95,95},
         thickness=0.5));
     connect(relativeAngularVelocity.frame_a, frame_a) annotation (Line(
-        points={{50,-30},{0,-30},{0,30},{-90,30},{-90,0},{-100,0}},
+        points={{50,-30},{10,-30},{10,-84},{-90,-84},{-90,0},{-100,0}},
         color={95,95,95},
         thickness=0.5));
     connect(relativeAngularVelocity.w_rel, w_rel) annotation (Line(
         points={{60,-41},{60,-110}}, color={0,0,127}));
     connect(relativeAngularVelocity.w_rel, der3.u) annotation (Line(
-        points={{60,-41},{60,-43},{100,-43},{100,-49}}, color={0,0,127}));
+        points={{60,-41},{60,-45},{90,-45},{90,-47}},   color={0,0,127}));
     connect(der1.y, transformVector_v_rel.r_in)
-                                          annotation (Line(
+      annotation (Line(
         points={{-60,-30.5},{-60,-42}}, color={0,0,127}));
     connect(transformVector_v_rel.r_out, v_rel)
-                                          annotation (Line(
+      annotation (Line(
         points={{-60,-65},{-60,-110}}, color={0,0,127}));
     connect(transformVector_v_rel.frame_a, frame_a)
-                                              annotation (Line(
+      annotation (Line(
         points={{-70,-54},{-90,-54},{-90,0},{-100,0}},
         color={95,95,95},
         thickness=0.5));
     connect(transformVector_v_rel.frame_b, frame_b)
-                                              annotation (Line(
-        points={{-50,-54},{-36,-54},{-36,0},{100,0}},
+      annotation (Line(
+        points={{-50,-54},{-40,-54},{-40,0},{100,0}},
         color={95,95,95},
         thickness=0.5));
     connect(transformVector_v_rel.frame_resolve, frame_resolve)
-                                                          annotation (Line(
-        points={{-50,-45.9},{-47,-45.9},{-47,-47},{-42,-47},{-42,80},{100,80}},
+      annotation (Line(
+        points={{-50,-46},{-46,-46},{-46,-28},{-30,-28},{-30,20},{50,20},{50,80},{100,80}},
         color={95,95,95},
         pattern=LinePattern.Dot));
     connect(frame_resolve, relativePosition.frame_resolve) annotation (Line(
-        points={{100,80},{-50,80},{-50,8.1},{-60,8.1}},
+        points={{100,80},{50,80},{50,20},{-30,20},{-30,8.1},{-60,8.1}},
         color={95,95,95},
         pattern=LinePattern.Dot));
     connect(frame_resolve, zeroForce3.frame_a) annotation (Line(
-        points={{100,80},{80,80},{80,60},{70,60}},
+        points={{100,80},{40,80}},
         color={95,95,95},
         pattern=LinePattern.Dot));
     connect(relativeAngularVelocity.frame_resolve, frame_resolve) annotation (
         Line(
-        points={{70,-21.9},{77,-21.9},{77,80},{100,80}},
+        points={{70,-21.9},{70,-21.9},{70,20},{50,20},{50,80},{100,80}},
         color={95,95,95},
         pattern=LinePattern.Dot));
     connect(der2.y, transformVector_a_rel.r_in) annotation (Line(
-        points={{-20,-50.5},{-20,-58}}, color={0,0,127}));
+        points={{-20,-50.5},{-20,-56}}, color={0,0,127}));
     connect(transformVector_a_rel.frame_a, frame_a) annotation (Line(
-        points={{-30,-70},{-90,-70},{-90,0},{-100,0}},
+        points={{-30,-68},{-40,-68},{-40,-84},{-90,-84},{-90,0},{-100,0}},
         color={95,95,95},
         thickness=0.5));
     connect(transformVector_a_rel.frame_b, frame_b) annotation (Line(
-        points={{-10,-70},{6,-70},{6,0},{100,0}},
+        points={{-10,-68},{0,-68},{0,0},{100,0}},
         color={95,95,95},
         thickness=0.5));
     connect(transformVector_a_rel.frame_resolve, frame_resolve) annotation (Line(
-        points={{-10,-61.9},{-10,80},{100,80}},
+        points={{-10,-60},{-10,-28},{-30,-28},{-30,20},{50,20},{50,80},{100,80}},
         color={95,95,95},
         pattern=LinePattern.Dot));
     connect(transformVector_a_rel.r_out, a_rel) annotation (Line(
-        points={{-20,-81},{-20,-110}}, color={0,0,127}));
+        points={{-20,-79},{-20,-110}}, color={0,0,127}));
     connect(der3.y, transformVector_z_rel.r_in) annotation (Line(
-        points={{100,-60.5},{100,-73}}, color={0,0,127}));
+        points={{90,-58.5},{90,-72}},   color={0,0,127}));
     connect(transformVector_z_rel.r_out, z_rel) annotation (Line(
-        points={{100,-96},{100,-110}}, color={0,0,127}));
+        points={{90,-95},{90,-100},{100,-100},{100,-110}},
+                                       color={0,0,127}));
     connect(transformVector_z_rel.frame_a, frame_a) annotation (Line(
-        points={{90,-85},{-90,-85},{-90,0},{-100,0}},
+        points={{80,-84},{-90,-84},{-90,0},{-100,0}},
         color={95,95,95},
         thickness=0.5));
     connect(transformVector_z_rel.frame_b, frame_b) annotation (Line(
-        points={{110,-85},{119,-85},{119,0},{100,0}},
+        points={{100,-84},{110,-84},{110,0},{100,0}},
         color={95,95,95},
         thickness=0.5));
     connect(transformVector_z_rel.frame_resolve, frame_resolve) annotation (Line(
-        points={{110,-76.9},{116,-76.9},{116,80},{100,80}},
+        points={{100,-76},{100,-20},{70,-20},{70,20},{50,20},{50,80},{100,80}},
         color={95,95,95},
         pattern=LinePattern.Dot));
     annotation (Icon(coordinateSystem(preserveAspectRatio=true,
@@ -885,25 +882,23 @@ and sequence[2] &ne; sequence[3]. Often used values are:
   model AbsolutePosition
     "Measure absolute position vector of the origin of a frame connector"
     extends Internal.PartialAbsoluteSensor;
-    Blocks.Interfaces.RealOutput r[3](each final quantity="Length", each final
-              unit =                                                                    "m")
+
+    Blocks.Interfaces.RealOutput r[3](
+      each final quantity="Length",
+      each final unit="m")
       "Absolute position vector resolved in frame defined by resolveInFrame"
       annotation (Placement(transformation(
           extent={{-10,-10},{10,10}},
           origin={110,0})));
-
-    Modelica.Mechanics.MultiBody.Interfaces.Frame_resolve frame_resolve if resolveInFrame ==
-      Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve
+    Modelica.Mechanics.MultiBody.Interfaces.Frame_resolve frame_resolve if
+      resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve
       "Coordinate system in which output vector r is optionally resolved"
       annotation (Placement(transformation(extent={{-16,-16},{16,16}},
           rotation=-90,
-          origin={0,-100}),
-          iconTransformation(extent={{-16,-16},{16,16}},
-          rotation=-90,
-          origin={0,-101})));
+          origin={0,-100})));
 
     parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameA resolveInFrame=
-    Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a
+      Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a
       "Frame in which output vector r shall be resolved (world, frame_a, or frame_resolve)";
 
   protected
@@ -994,44 +989,41 @@ r = MultiBody.Frames.resolve2(frame_a.R, frame_b.r_0);
   model AbsoluteVelocity
     "Measure absolute velocity vector of origin of frame connector"
     extends Internal.PartialAbsoluteSensor;
-    Blocks.Interfaces.RealOutput v[3](each final quantity="Velocity", each final
-              unit =                                                                    "m/s")
+
+    Blocks.Interfaces.RealOutput v[3](
+      each final quantity="Velocity",
+      each final unit="m/s")
       "Absolute velocity vector resolved in frame defined by resolveInFrame"
       annotation (Placement(transformation(
           extent={{-10,-10},{10,10}},
           origin={110,0})));
-
     Modelica.Mechanics.MultiBody.Interfaces.Frame_resolve frame_resolve if
       resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve
       "Coordinate system in which output vector v is optionally resolved"
       annotation (Placement(transformation(extent={{-16,-16},{16,16}},
           rotation=-90,
-          origin={0,-100}),
-          iconTransformation(extent={{-16,-16},{16,16}},
-          rotation=-90,
           origin={0,-100})));
 
     parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameA resolveInFrame=
-        Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a
+      Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a
       "Frame in which output vector v shall be resolved (world, frame_a, or frame_resolve)";
 
   protected
-    Internal.BasicAbsolutePosition position(resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.world)
+    Internal.BasicAbsolutePosition position(
+      resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.world)
       annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
-    Blocks.Continuous.Der der1[3]                           annotation (Placement(transformation(
+    Blocks.Continuous.Der der1[3] annotation (Placement(transformation(
           extent={{-20,-20},{0,0}},
           origin={10,10})));
-    Modelica.Mechanics.MultiBody.Sensors.TransformAbsoluteVector
-                           tansformAbsoluteVector(
+    Modelica.Mechanics.MultiBody.Sensors.TransformAbsoluteVector tansformAbsoluteVector(
       frame_r_in=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.world,
-        frame_r_out=resolveInFrame) annotation (Placement(transformation(
+      frame_r_out=resolveInFrame) annotation (Placement(transformation(
           extent={{10,-10},{-10,10}},
           rotation=90,
           origin={50,0})));
     Modelica.Mechanics.MultiBody.Interfaces.ZeroPosition zeroPosition
       annotation (Placement(transformation(extent={{-60,-60},{-80,-40}})));
-    Modelica.Mechanics.MultiBody.Interfaces.ZeroPosition zeroPosition1 if
-         not (
+    Modelica.Mechanics.MultiBody.Interfaces.ZeroPosition zeroPosition1 if not (
       resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve)
       annotation (Placement(transformation(extent={{60,-60},{80,-40}})));
   equation
@@ -1127,10 +1119,7 @@ v  = MultiBody.Frames.resolve2(frame_a.R, v0);
 
   model AbsoluteAngles
     "Measure absolute angles between frame connector and the world frame"
-    extends Modelica.Icons.RotationalSensor;
-    Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a
-      "Coordinate system a from which the angles shall be determined" annotation (Placement(
-          transformation(extent={{-116,-16},{-84,16}})));
+    extends Internal.PartialAbsoluteSensor;
 
     Modelica.Blocks.Interfaces.RealOutput angles[3](
       each final quantity="Angle",
@@ -1157,12 +1146,6 @@ v  = MultiBody.Frames.resolve2(frame_a.R, v0);
       guessAngle1);
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={
-          Text(
-            extent={{-108,43},{-72,18}},
-            lineColor={128,128,128},
-            textString="a"),
-          Line(
-            points={{-70,0},{-96,0},{-96,0}}),
           Text(
             extent={{-132,76},{129,124}},
             textString="%name",
@@ -1212,8 +1195,10 @@ and sequence[2] &ne; sequence[3]. Often used values are:
   model AbsoluteAngularVelocity
     "Measure absolute angular velocity of frame connector"
     extends Internal.PartialAbsoluteSensor;
-    Blocks.Interfaces.RealOutput w[3](each final quantity="AngularVelocity",
-        each final unit="rad/s")
+
+    Blocks.Interfaces.RealOutput w[3](
+      each final quantity="AngularVelocity",
+      each final unit="rad/s")
       "Absolute angular velocity vector of frame_a with respect to world frame, resolved in frame defined by resolveInFrame"
       annotation (Placement(transformation(
           extent={{-10,-10},{10,10}},
@@ -1224,18 +1209,15 @@ and sequence[2] &ne; sequence[3]. Often used values are:
       "Coordinate system in which w is optionally resolved"
       annotation (Placement(transformation(extent={{-16,-16},{16,16}},
           rotation=-90,
-          origin={0,-100}),
-          iconTransformation(extent={{-16,-16},{16,16}},
-          rotation=-90,
-          origin={0,-101})));
+          origin={0,-100})));
 
     parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameA resolveInFrame=
-    Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a
+      Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a
       "Frame in which output vector w shall be resolved (world, frame_a, or frame_resolve)";
 
   protected
-    Internal.BasicAbsoluteAngularVelocity angularVelocity(resolveInFrame=
-          resolveInFrame)
+    Internal.BasicAbsoluteAngularVelocity angularVelocity(
+      resolveInFrame=resolveInFrame)
       annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
     Modelica.Mechanics.MultiBody.Interfaces.ZeroPosition zeroPosition if
       not (resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve)
@@ -1323,22 +1305,20 @@ w = MultiBody.Frames.angularVelocity2(frame_a.R);
   model RelativePosition
     "Measure relative position vector between the origins of two frame connectors"
     extends Internal.PartialRelativeSensor;
+
     Blocks.Interfaces.RealOutput r_rel[3]
       "Relative position vector resolved in frame defined by resolveInFrame"
       annotation (Placement(transformation(
           extent={{-10,-10},{10,10}},
           rotation=-90,
           origin={0,-110})));
-
     Modelica.Mechanics.MultiBody.Interfaces.Frame_resolve frame_resolve if resolveInFrame ==
       Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve
       "Coordinate system in which r_rel is optionally resolved"
-      annotation (Placement(transformation(extent={{84,64},{116,96}}),
-          iconTransformation(extent={{84,65},{116,97}})));
+      annotation (Placement(transformation(extent={{84,64},{116,96}})));
 
-    parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB
-      resolveInFrame=
-    Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_a
+    parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB resolveInFrame=
+      Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_a
       "Frame in which output vector r_rel shall be resolved (world, frame_a, frame_b, or frame_resolve)";
 
   protected
@@ -1359,12 +1339,12 @@ w = MultiBody.Frames.angularVelocity2(frame_a.R);
         color={95,95,95},
         thickness=0.5));
     connect(relativePosition.frame_resolve, frame_resolve) annotation (Line(
-        points={{10,8.1},{26,8.1},{26,8},{36,8},{36,80},{100,80}},
+        points={{10,8},{20,8},{20,8},{30,8},{30,80},{100,80}},
         color={95,95,95},
         pattern=LinePattern.Dot));
     connect(zeroPosition.frame_resolve, relativePosition.frame_resolve)
       annotation (Line(
-        points={{52,30},{36,30},{36,8.1},{10,8.1}},
+        points={{52,30},{30,30},{30,8},{10,8}},
         color={95,95,95},
         pattern=LinePattern.Dot));
     connect(relativePosition.r_rel, r_rel) annotation (Line(
@@ -1440,8 +1420,7 @@ r_rel = MultiBody.Frames.resolve2(frame_a.R, frame_b.r_0 - frame_a.r_0);
     Modelica.Mechanics.MultiBody.Interfaces.Frame_resolve frame_resolve if resolveInFrame ==
       Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve
       "Coordinate system in which v_rel is optionally resolved"
-      annotation (Placement(transformation(extent={{84,64},{116,96}}),
-          iconTransformation(extent={{84,65},{116,97}})));
+      annotation (Placement(transformation(extent={{84,64},{116,96}})));
 
     parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB
       resolveInFrame=
@@ -1488,12 +1467,12 @@ r_rel = MultiBody.Frames.resolve2(frame_a.R, frame_b.r_0 - frame_a.r_0);
         color={95,95,95},
         thickness=0.5));
     connect(tansformRelativeVector.frame_resolve, frame_resolve) annotation (Line(
-        points={{10,-61.9},{35,-61.9},{35,80},{100,80}},
+        points={{10,-62},{30,-62},{30,80},{100,80}},
         color={95,95,95},
         pattern=LinePattern.Dot));
     connect(zeroPosition.frame_resolve, tansformRelativeVector.frame_resolve)
       annotation (Line(
-        points={{50,-50},{35,-50},{35,-61.9},{10,-61.9}},
+        points={{50,-50},{30,-50},{30,-62},{10,-62}},
         color={95,95,95},
         pattern=LinePattern.Dot));
     annotation (Icon(coordinateSystem(
@@ -1562,13 +1541,8 @@ v_rel   = MultiBody.Frames.resolveRelative(frame_a.R, frame_b.R, v_rel_a);
   end RelativeVelocity;
 
   model RelativeAngles "Measure relative angles between two frame connectors"
+    extends Internal.PartialRelativeSensor;
     extends Modelica.Icons.RotationalSensor;
-    Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a
-      "Coordinate system a" annotation (Placement(
-          transformation(extent={{-116,-16},{-84,16}})));
-    Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_b
-      "Coordinate system b" annotation (Placement(
-          transformation(extent={{84,-16},{116,16}})));
 
     Modelica.Blocks.Interfaces.RealOutput angles[3](
       each final quantity="Angle",
@@ -1601,18 +1575,6 @@ v_rel   = MultiBody.Frames.resolveRelative(frame_a.R, frame_b.R, v_rel_a);
       guessAngle1);
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={
-          Text(
-            extent={{-108,43},{-72,18}},
-            lineColor={128,128,128},
-            textString="a"),
-          Text(
-            extent={{72,41},{108,16}},
-            lineColor={128,128,128},
-            textString="b"),
-          Line(
-            points={{-70,0},{-96,0},{-96,0}}),
-          Line(
-            points={{96,0},{70,0},{70,0}}),
           Text(
             extent={{-132,90},{129,138}},
             textString="%name",
@@ -1662,57 +1624,52 @@ and sequence[2] &ne; sequence[3]. Often used values are:
   model RelativeAngularVelocity
     "Measure relative angular velocity between two frame connectors"
     extends Internal.PartialRelativeSensor;
-    Blocks.Interfaces.RealOutput w_rel[3](each final quantity="AngularVelocity", each final
-              unit = "rad/s")
+
+    Blocks.Interfaces.RealOutput w_rel[3](
+      each final quantity="AngularVelocity",
+      each final unit = "rad/s")
       "Relative angular velocity vector between frame_a and frame_b resolved in frame defined by resolveInFrame"
       annotation (Placement(transformation(
           extent={{-10,-10},{10,10}},
           rotation=-90,
           origin={0,-110})));
-
     Modelica.Mechanics.MultiBody.Interfaces.Frame_resolve frame_resolve if resolveInFrame ==
       Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve
       "Coordinate system in which w_rel is optionally resolved"
-      annotation (Placement(transformation(extent={{84,64},{116,96}}),
-          iconTransformation(extent={{84,65},{116,97}})));
+      annotation (Placement(transformation(extent={{84,64},{116,96}})));
 
-    parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB
-      resolveInFrame=
-    Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_a
+    parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB resolveInFrame=
+      Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_a
       "Frame in which output vector w_rel shall be resolved (world, frame_a, frame_b, or frame_resolve)";
 
   protected
-    Internal.BasicRelativeAngularVelocity relativeAngularVelocity(resolveInFrame=
-          resolveInFrame)
+    Internal.BasicRelativeAngularVelocity relativeAngularVelocity(
+      resolveInFrame=resolveInFrame)
       annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
     Modelica.Mechanics.MultiBody.Interfaces.ZeroPosition zeroPosition if
       not (resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve)
       annotation (Placement(transformation(extent={{52,20},{72,40}})));
 
   equation
-    connect(relativeAngularVelocity.frame_a, frame_a)
-                                               annotation (Line(
+    connect(relativeAngularVelocity.frame_a, frame_a) annotation (Line(
         points={{-10,0},{-100,0}},
         color={95,95,95},
         thickness=0.5));
-    connect(relativeAngularVelocity.frame_b, frame_b)
-                                               annotation (Line(
+    connect(relativeAngularVelocity.frame_b, frame_b) annotation (Line(
         points={{10,0},{100,0}},
         color={95,95,95},
         thickness=0.5));
-    connect(relativeAngularVelocity.frame_resolve, frame_resolve)
-                                                           annotation (Line(
-        points={{10,8.1},{26,8.1},{26,8},{34,8},{34,80},{100,80}},
+    connect(relativeAngularVelocity.frame_resolve, frame_resolve) annotation (Line(
+        points={{10,8},{30,8},{30,80},{100,80}},
         color={95,95,95},
         pattern=LinePattern.Dot));
-    connect(zeroPosition.frame_resolve, relativeAngularVelocity.frame_resolve)
-      annotation (Line(
-        points={{52,30},{34,30},{34,8.1},{10,8.1}},
+    connect(zeroPosition.frame_resolve, relativeAngularVelocity.frame_resolve) annotation (Line(
+        points={{52,30},{30,30},{30,8},{10,8}},
         color={95,95,95},
         pattern=LinePattern.Dot));
-    connect(relativeAngularVelocity.w_rel, w_rel)
-                                           annotation (Line(
+    connect(relativeAngularVelocity.w_rel, w_rel) annotation (Line(
         points={{0,-11},{0,-110}}, color={0,0,127}));
+
     annotation (Icon(coordinateSystem(
             preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
           Line(
@@ -2335,8 +2292,7 @@ as output signal <strong>power</strong>.
      (frame_r_in  == Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve) or
      (frame_r_out == Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve)
       "Coordinate system in which r_in or r_out is optionally resolved"
-      annotation (Placement(transformation(extent={{84,-16},{116,16}}),
-          iconTransformation(extent={{84,-15},{116,17}})));
+      annotation (Placement(transformation(extent={{84,-16},{116,16}})));
 
     Blocks.Interfaces.RealInput r_in[3]
       "Input vector resolved in frame defined by frame_r_in"
@@ -2429,8 +2385,7 @@ transformed output vector as \"Real r_out[3]\";
      (frame_r_in  == Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve) or
      (frame_r_out == Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve)
       "Coordinate system in which r_in or r_out is optionally resolved"
-      annotation (Placement(transformation(extent={{84,64},{116,96}}),
-          iconTransformation(extent={{84,65},{116,97}})));
+      annotation (Placement(transformation(extent={{84,64},{116,96}})));
 
     Blocks.Interfaces.RealInput r_in[3]
       "Input vector resolved in frame defined by frame_r_in"
@@ -2471,12 +2426,12 @@ transformed output vector as \"Real r_out[3]\";
         color={95,95,95},
         thickness=0.5));
     connect(basicTransformVector.frame_resolve, frame_resolve) annotation (Line(
-        points={{10,8.1},{20,8.1},{20,8},{32,8},{32,80},{100,80}},
+        points={{10,8},{20,8},{20,8},{32,8},{32,80},{100,80}},
         color={95,95,95},
         pattern=LinePattern.Dot));
     connect(zeroPosition.frame_resolve, basicTransformVector.frame_resolve)
       annotation (Line(
-        points={{48,20},{32,20},{32,8.1},{10,8.1}},
+        points={{48,20},{32,20},{32,8},{10,8}},
         color={95,95,95},
         pattern=LinePattern.Dot));
     connect(basicTransformVector.r_out, r_out) annotation (Line(
@@ -2496,7 +2451,11 @@ transformed output vector as \"Real r_out[3]\";
             textString="r_in"),
           Text(
             extent={{-124,-76},{2,-104}},
-            textString="r_out")}),
+            textString="r_out"),
+          Text(
+            extent={{70,126},{200,100}},
+            lineColor={95,95,95},
+            textString="resolve")}),
       Documentation(info="<html>
 <p>
 The input vector \"Real r_in[3]\" is assumed to be a relative kinematic quantity
@@ -2511,15 +2470,16 @@ transformed output vector as \"Real r_out[3]\";
 
   package Internal "Internal package, should not be used by user"
     extends Modelica.Icons.InternalPackage;
-    partial model PartialAbsoluteSensor "Base class for absolute sensor models defined by components"
+    partial model PartialAbsoluteSensor "Base class for absolute sensor models"
       extends Modelica.Icons.RotationalSensor;
 
       Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a
-        "Coordinate system at which the kinematic quantities are measured" annotation (Placement(
+        "Coordinate system a of which the absolute kinematic quantities are measured" annotation (Placement(
             transformation(extent={{-116,-16},{-84,16}})));
 
     equation
-       assert(cardinality(frame_a) > 0, "Connector frame_a must be connected at least once");
+      assert(cardinality(frame_a) > 0, "Connector frame_a must be connected at least once");
+
       annotation (Icon(coordinateSystem(preserveAspectRatio=true,
               extent={{-100,-100},{100,100}}), graphics={Text(
               extent={{-108,43},{-72,18}},
@@ -2527,9 +2487,10 @@ transformed output vector as \"Real r_out[3]\";
               textString="a"), Line(
               points={{-70,0},{-96,0},{-96,0}})}), Documentation(info="<html>
 <p>
-This is a base class of a 3-dim. mechanics component with one frame
-<strong>frame_a</strong> in order to measure an absolute quantity in this
+This is a base class of a 3-dim. mechanical component with one frame
+<strong>frame_a</strong> in order to measure an absolute quantity of this
 connector.
+This partial class can be used for sensors defined either by components or by equations.
 </p>
 </html>"));
     end PartialAbsoluteSensor;
@@ -2543,7 +2504,7 @@ connector.
             transformation(extent={{-116,-16},{-84,16}})));
 
       Modelica.Mechanics.MultiBody.Interfaces.Frame_resolve frame_resolve
-        "Coordinate system in which vector is optionally resolved"
+        "Coordinate system in which output vector(s) is optionally resolved"
         annotation (Placement(transformation(extent={{-16,-16},{16,16}},
             rotation=-90,
             origin={0,-100})));
@@ -2584,7 +2545,7 @@ The connector frame_resolve is always enabled and must be connected exactly once
     end PartialAbsoluteBaseSensor;
 
     partial model PartialRelativeSensor
-      "Base class for relative sensor models defined by components"
+      "Base class for relative sensor models"
       extends Modelica.Icons.RotationalSensor;
 
       Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a
@@ -2615,9 +2576,10 @@ The connector frame_resolve is always enabled and must be connected exactly once
               points={{60,36},{60,36},{60,80},{95,80}},
               pattern=LinePattern.Dot)}), Documentation(info="<html>
 <p>
-This is a base class of a 3-dim. mechanics component with two frames
+This is a base class of a 3-dim. mechanical component with two frames
 <strong>frame_a</strong> and <strong>frame_b</strong>
 in order to measure a relative quantity between these two connectors.
+This partial class can be used for sensors defined either by components or by equations.
 </p>
 </html>"));
     end PartialRelativeSensor;
@@ -2635,8 +2597,7 @@ in order to measure a relative quantity between these two connectors.
 
       Modelica.Mechanics.MultiBody.Interfaces.Frame_resolve frame_resolve
         "Coordinate system in which vector is optionally resolved"
-        annotation (Placement(transformation(extent={{84,64},{116,96}}),
-            iconTransformation(extent={{84,65},{116,97}})));
+        annotation (Placement(transformation(extent={{84,64},{116,96}})));
 
     equation
       assert(cardinality(frame_a) > 0, "Connector frame_a must be connected at least once");
@@ -3022,8 +2983,6 @@ w_rel = MultiBody.Frames.angularVelocity1(R_rel);
       Modelica.Mechanics.MultiBody.Interfaces.Frame_resolve frame_resolve
         "Coordinate system in which vector is optionally resolved"
         annotation (Placement(transformation(extent={{-16,-16},{16,16}},
-            origin={100,0}),
-            iconTransformation(extent={{-16,-16},{16,16}},
             origin={100,0})));
 
       Blocks.Interfaces.RealInput r_in[3]
@@ -3264,9 +3223,8 @@ is always enabled and must be connected</strong>.
             extent={{-16,-16},{16,16}},
             rotation=270)));
 
-      parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameA
-        resolveInFrame=
-      Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a
+      parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameA resolveInFrame=
+        Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a
         "Frame in which output vector(s) is/are resolved (world, frame_a, or frame_resolve)";
 
     protected
@@ -3330,9 +3288,8 @@ with the blocks of package Modelica.Blocks.
             extent={{-16,-16},{16,16}},
             rotation=270)));
 
-      parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameA
-        resolveInFrame=
-      Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a
+      parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameA resolveInFrame=
+        Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a
         "Frame in which output vector is resolved (world, frame_a, or frame_resolve)";
 
     protected
