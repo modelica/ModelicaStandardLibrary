@@ -9,30 +9,29 @@ model Fourbar2
   output SI.Velocity j2_v "axis velocity of prismatic joint j2";
 
   inner Modelica.Mechanics.MultiBody.World world annotation (Placement(
-        transformation(extent={{-100,-80},{-80,-60}})));
+        transformation(extent={{-100,-70},{-80,-50}})));
   Modelica.Mechanics.MultiBody.Joints.Revolute j1(
     n={1,0,0},
     stateSelect=StateSelect.always,
     phi(fixed=true),
     useAxisFlange=false,
-    w(
-      displayUnit="deg/s",
+    w(displayUnit="deg/s",
       start=5.235987755983,
       fixed=true))
-    annotation (Placement(transformation(extent={{-60,-50},{-40,-30}})));
+    annotation (Placement(transformation(extent={{-60,-40},{-40,-20}})));
   Modelica.Mechanics.MultiBody.Joints.Prismatic j2(
     n={1,0,0},
     boxWidth=0.05,
     s(fixed=true, start=-0.2))
-    annotation (Placement(transformation(extent={{10,-80},{30,-60}})));
+    annotation (Placement(transformation(extent={{-20,-70},{0,-50}})));
   Modelica.Mechanics.MultiBody.Parts.BodyCylinder b1(r={0,0.5,0.1}, diameter=0.05)
     annotation (Placement(transformation(
-        origin={-30,-20},
+        origin={-30,-10},
         extent={{-10,-10},{10,10}},
         rotation=90)));
   Modelica.Mechanics.MultiBody.Parts.BodyCylinder b2(r={0,0.2,0}, diameter=0.05)
     annotation (Placement(transformation(
-        origin={50,-50},
+        origin={50,-40},
         extent={{-10,-10},{10,10}},
         rotation=90)));
   Modelica.Mechanics.MultiBody.Joints.UniversalSpherical universalSpherical(
@@ -40,7 +39,7 @@ model Fourbar2
     computeRodLength=true,
     rRod_ia={-1,0.3,0.1}) annotation (Placement(transformation(extent={{20,30},{0,50}})));
   Modelica.Mechanics.MultiBody.Parts.FixedTranslation b3(r={1.2,0,0}, animation=false)
-    annotation (Placement(transformation(extent={{-30,-80},{-10,-60}})));
+    annotation (Placement(transformation(extent={{-60,-70},{-40,-50}})));
   Modelica.Mechanics.MultiBody.Visualizers.FixedFrame fixedFrame(color_x={0,0,255})
     annotation (Placement(transformation(
         extent={{20,60},{40,80}})));
@@ -50,34 +49,34 @@ equation
   j1_w = j1.w;
   j2_v = j2.v;
   connect(j2.frame_b, b2.frame_a) annotation (Line(
-      points={{30,-70},{50,-70},{50,-60}},
+      points={{0,-60},{50,-60},{50,-50}},
       color={95,95,95},
       thickness=0.5));
   connect(j1.frame_b, b1.frame_a) annotation (Line(
-      points={{-40,-40},{-30,-40},{-30,-30}},
+      points={{-40,-30},{-30,-30},{-30,-20}},
       color={95,95,95},
       thickness=0.5));
   connect(j1.frame_a, world.frame_b) annotation (Line(
-      points={{-60,-40},{-70,-40},{-70,-70},{-80,-70}},
+      points={{-60,-30},{-70,-30},{-70,-60},{-80,-60}},
       color={95,95,95},
       thickness=0.5));
   connect(b1.frame_b, universalSpherical.frame_b) annotation (Line(
-      points={{-30,-10},{-30,40},{0,40}},
+      points={{-30,0},{-30,40},{0,40}},
       color={95,95,95},
       thickness=0.5));
   connect(universalSpherical.frame_a, b2.frame_b)
     annotation (Line(
-      points={{20,40},{50,40},{50,-40}},
+      points={{20,40},{50,40},{50,-30}},
       color={95,95,95},
       thickness=0.5));
   connect(b3.frame_a, world.frame_b)
     annotation (Line(
-      points={{-30,-70},{-80,-70}},
+      points={{-60,-60},{-80,-60}},
       color={95,95,95},
       thickness=0.5));
   connect(b3.frame_b, j2.frame_a)
     annotation (Line(
-      points={{-10,-70},{10,-70}},
+      points={{-40,-60},{-20,-60}},
       color={95,95,95},
       thickness=0.5));
   connect(fixedFrame.frame_a, universalSpherical.frame_ia) annotation (Line(
