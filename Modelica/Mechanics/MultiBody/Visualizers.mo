@@ -807,9 +807,9 @@ with respect to frame_a (vector from the origin of frame_a to the arrow tail).
            choice=3 "z-axis"));
      parameter Modelica.SIunits.Position length = 10
        "Length and width of plane (center is at x=y=z=0)" annotation (Dialog(enable=animation));
-     parameter Modelica.SIunits.Position height = 0.02
-       "OBSOLETE: Height of box"
-       annotation (Dialog(enable=animation));
+     parameter Modelica.SIunits.Position height = 0.0
+       "Height of box"
+       annotation (Dialog(enable=false));
      parameter Modelica.Mechanics.MultiBody.Types.Color groundColor={0,255,0}
        "Color of box" annotation (Dialog(colorSelector=true, enable=animation));
 
