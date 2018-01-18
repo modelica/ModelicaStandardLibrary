@@ -246,19 +246,19 @@ in the middle of the light blue sphere.
 
         annotation (DocumentationClass=true, Documentation(info="<html>
 <p>
-In principal, now special action is needed, if
+In principal, no special action is needed, if
 loop structures occur (contrary to the ModelicaAdditions.MultiBody library).
 An example is presented in the figure below. It is available as
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Examples.Loops.Fourbar1\">
 MultiBody.Examples.Loops.Fourbar1</a>
 </p>
 
-<p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/Fourbar1a.png\">
-</p>
+<blockquote>
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/Fourbar1a.png\">
+</blockquote>
 
 <p>
-This mechanism consists of 6 revolute joints, 1 prismatic joint and forms a
+This mechanism consists of&nbsp;6 revolute joints and&nbsp;1 prismatic joint and forms a
 kinematical loop.
 It has has one degree of freedom. In the next figure the default animation
 is shown. Note, that the axes of the revolute joints are represented by the
@@ -266,21 +266,21 @@ red cylinders and that the axis of the prismatic joint is represented by the
 red box on the lower right side.
 </p>
 
-<p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/Fourbar1b.png\" width=\"205\" height=\"107\">
-</p>
+<blockquote>
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/Fourbar1b.png\" width=300>
+</blockquote>
 
 <p>
 Whenever loop structures occur, non-linear algebraic
 equations are present on \"position level\". It is then usually not possible by
 structural analysis to select states during translation (which is possible for
 non-loop structures). In the example above, Dymola detects a non-linear
-algebraic loop of 57 equations and reduces this to a system of 7 coupled
+algebraic loop of 57 equations and reduces this to a system of&nbsp;7 coupled
 algebraic equations. Note, that this is performed without using any
 \"cut-joints\" as it is usually done in multi-body programs, but by just
 appropriate symbolic equation manipulation. Via the dynamic dummy derivative
 method the generalized coordinates on position and velocity level from one of
-the 7 joints are dynamically selected as states during simulation. Whenever,
+the&nbsp;7 joints are dynamically selected as states during simulation. Whenever,
 these two states are no longer appropriate, states from one of the other
 joints are selected during simulation.
 </p>
@@ -288,13 +288,15 @@ joints are selected during simulation.
 The efficiency of loop structures can usually be
 enhanced, if states are statically fixed at translation time. For this
 mechanism, the generalized coordinates of joint j1 (i.e., the
-rotation angle of the revolute joint and its derivative) can always be used as
-states. This can be stated by setting parameter \"enforceStates = <strong>true</strong>\"
-in the \"Advanced\" menu of the desired joint. This flag sets the attribute
-stateSelect of the generalized coordinates of the corresponding joint to
-\"StateSelect.always\". When setting this flag to <strong>true</strong> for joint j1 in
+rotation angle of the revolute joint and its derivative;
+the joint is visualized as a red cylinder at the x-axis in the animation figure above)
+can always be used as states.
+In the abovementioned example, this is already stated by setting parameter
+\"stateSelect&nbsp;=&nbsp;<strong>StateSelect.always</strong>\"
+in the \"Advanced\" menu of that joint. 
+When setting this flag for joint j1 in that way in
 the four bar mechanism, Dymola detects a non-linear algebraic loop of 40
-equations and reduces this to a system of 5 coupled non-linear algebraic
+equations and reduces this to a system of&nbsp;5 coupled non-linear algebraic
 equations.
 </p>
 <p>
@@ -443,7 +445,7 @@ In the MultiBody library the \"characteristic pair of
 joints\" method is supported in a restricted form such that it can be applied
 also by non-specialists. The idea is to provide aggregations of joints in package
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Joints.Assemblies\">
-MultiBody.Joints.Assemblies</a>.
+MultiBody.Joints.Assemblies</a>
 as one object that either have <strong>6</strong> degrees of freedom or
 <strong>3</strong> degrees of freedom (for usage in planar loops).
 </p>
@@ -452,23 +454,23 @@ As an example, a variant of the four bar mechanism is given in
 the figure below.
 </p>
 
-<p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/FourbarAnalytic1.png\">
-</p>
+<blockquote>
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/FourbarAnalytic2.png\">
+</blockquote>
 
 <p>
-Here, the mechanism is modeled with one revolute
-joint, two spherical joints and one prismatic joint.
-In the figure below, the two spherical joints
+Here, the mechanism is modeled with six revolute
+joints and one prismatic joint.
+In the figure below, the five revolute joints
 and the prismatic joint are collected together in an assembly object
 called \"jointSSP\" from
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Joints.Assemblies.JointSSP\">
 MultiBody.Joints.Assemblies.JointSSP</a>.
 </p>
 
-<p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/FourbarAnalytic2.png\">
-</p>
+<blockquote>
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/FourbarAnalytic1.png\">
+</blockquote>
 
 <p>
 The JointSSP joint aggregation has a frame at the
@@ -579,9 +581,9 @@ MacPherson suspension in the next figure
 is from the Modelica VehicleDynamics library.
 </p>
 
-<p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/MacPherson1.png\">
-</p>
+<blockquote>
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/MacPherson1.png\">
+</blockquote>
 
 <p>
 It has three frame
@@ -619,11 +621,11 @@ see next figure for an animation view and the original definition
 of one cylinder with elementary joints.
 </p>
 
-<p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/EngineV6_3.png\" width=\"303\" height=\"136\">
-
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/EngineV6_2.png\">
-</p>
+<blockquote>
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/EngineV6_3.png\" width=\"303\" height=\"136\">
+<br>
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/EngineV6_2.png\">
+</blockquote>
 
 <p>
 It is sufficient to rewrite the basic cylinder model
@@ -631,9 +633,9 @@ by replacing the joints with a JointRRP object that has two
 revolute and one prismatic joint, see next figure.
 </p>
 
-<p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/EngineV6_4.png\">
-</p>
+<blockquote>
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/EngineV6_4.png\">
+</blockquote>
 
 <p>
 Since 6
@@ -647,9 +649,9 @@ The composition diagram of the connected 6 cylinders is
 shown in the next figure
 </p>
 
-<p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/EngineV6_1.png\">
-</p>
+<blockquote>
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/EngineV6_1.png\">
+</blockquote>
 <p>
 It can be seen that the revolute joint
 of the crank shaft (joint \"bearing\" in left part of figure) might be
@@ -1153,10 +1155,9 @@ model World
     annotation (Dialog(tab="Defaults"));
 
   replaceable function gravityAcceleration =
-       Modelica.Mechanics.MultiBody.Forces.Internal.standardGravityAcceleration
-      (    gravityType=gravityType, g=g*Modelica.Math.Vectors.normalizeWithAssert(n), mue=mue)
-       constrainedby
-    Modelica.Mechanics.MultiBody.Interfaces.partialGravityAcceleration
+       Modelica.Mechanics.MultiBody.Forces.Internal.standardGravityAcceleration (
+           gravityType=gravityType, g=g*Modelica.Math.Vectors.normalizeWithAssert(n), mue=mue)
+       constrainedby Modelica.Mechanics.MultiBody.Interfaces.partialGravityAcceleration
     "Function to compute the gravity acceleration, resolved in world frame"
        annotation(choicesAllMatching=true,Dialog(enable=gravityType==
                    Modelica.Mechanics.MultiBody.Types.GravityTypes.NoGravity),
