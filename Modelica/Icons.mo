@@ -948,7 +948,7 @@ This icon of an <strong>electrical motor</strong> model will be removed in futur
             pattern=LinePattern.None,
             fillPattern=FillPattern.Solid,
             extent={{-12.5,-12.5},{12.5,12.5}})}), Documentation(info="<html>
-<p>This package contains definitions for the graphical layout of components which may be used in different libraries. The icons can be utilized by inheriting them in the desired class using &quot;extends&quot; or by directly copying the &quot;icon&quot; layer.</p>
+<p>This package contains definitions for the graphical layout of components which may be used in different libraries. The icons can be utilized by inheriting them in the desired class using &quot;extends&quot; or by directly copying the &quot;icon&quot; layer. </p>
 
 <h4>Main Authors:</h4>
 
@@ -972,7 +972,7 @@ This icon of an <strong>electrical motor</strong> model will be removed in futur
     <dd>email: <a href=\"mailto:johan.andreasson@modelon.se\">johan.andreasson@modelon.se</a></dd>
 </dl>
 
-<p>Copyright &copy; 1998-2016, Modelica Association, DLR, AIT, and Modelon AB.</p>
-<p><em>This Modelica package is <strong>free</strong> software; it can be redistributed and/or modified under the terms of the <strong>Modelica license</strong>, see the license conditions and the accompanying <strong>disclaimer</strong> in <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a>.</em> </p>
+<p>Copyright &copy; 1998-2016, Modelica Association, DLR, AIT, and Modelon AB. </p>
+<p><em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\"> https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em> </p>
 </html>"));
 end Icons;
