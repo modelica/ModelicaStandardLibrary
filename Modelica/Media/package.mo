@@ -4404,6 +4404,8 @@ Modelica source.
       "Default value for specific enthalpy of medium (for initialization)";
     constant MassFraction X_default[nX]=reference_X
       "Default value for mass fractions of medium (for initialization)";
+    constant ExtraProperty C_default[nC]=fill(0, nC)
+      "Default value for trace substances of medium (for initialization)";
 
     final constant Integer nS=size(substanceNames, 1) "Number of substances"
       annotation (Evaluate=true);

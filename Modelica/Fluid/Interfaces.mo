@@ -545,7 +545,7 @@ the boundary temperatures <code>heatPorts[n].T</code>, and the heat flow rates <
       "Start value of mass fractions m_i/m"
         annotation (Dialog(tab="Initialization", enable=Medium.nXi > 0));
       parameter Medium.ExtraProperty C_start[Medium.nC](
-           quantity=Medium.extraPropertiesNames)=fill(0, Medium.nC)
+           quantity=Medium.extraPropertiesNames) = Medium.C_default
       "Start value of trace substances"
         annotation (Dialog(tab="Initialization", enable=Medium.nC > 0));
 
@@ -830,11 +830,11 @@ partial model PartialDistributedVolume
         T_start,
         X_start) else Medium.h_default "Start value of specific enthalpy"
     annotation(Evaluate=true, Dialog(tab = "Initialization", enable = not use_T_start));
-  parameter Medium.MassFraction X_start[Medium.nX]=Medium.X_default
+  parameter Medium.MassFraction X_start[Medium.nX] = Medium.X_default
       "Start value of mass fractions m_i/m"
     annotation (Dialog(tab="Initialization", enable=Medium.nXi > 0));
   parameter Medium.ExtraProperty C_start[Medium.nC](
-       quantity=Medium.extraPropertiesNames)=fill(0, Medium.nC)
+       quantity=Medium.extraPropertiesNames) = Medium.C_default
       "Start value of trace substances"
     annotation (Dialog(tab="Initialization", enable=Medium.nC > 0));
 
