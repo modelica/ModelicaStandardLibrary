@@ -1276,7 +1276,7 @@ end thermalConductivity;
 
   redeclare function extends molarMass
   algorithm
-    MM := Modelica.Media.Air.MoistAir.gasConstant(state)/Modelica.Constants.R;
+    MM := Modelica.Constants.R/Modelica.Media.Air.MoistAir.gasConstant(state);
     annotation (Documentation(revisions="<html>
 <p>2012-01-12        Stefan Wischhusen: Initial Release.</p>
 </html>"));
