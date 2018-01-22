@@ -902,7 +902,7 @@ When the constant \"NO_FILE_SYSTEM\" is defined, all file I/O related parts of t
 source code are removed by the C-preprocessor, such that no access to files takes place.
 </p>
 <p>
-If tables are read from an ASCII-file, the file needs to have the
+If tables are read from a text file, the file needs to have the
 following structure (\"-----\" is not part of the file content):
 </p>
 <pre>
@@ -933,13 +933,13 @@ Numbers have to be given according to C syntax (such as 2.3, -2, +2.e4).
 Number separators are spaces, tab (\\t), comma (,), or semicolon (;).
 Several matrices may be defined one after another. Line comments start
 with the hash symbol (#) and can appear everywhere.
+Text files should either be ASCII or UTF-8 encoded, where UTF-8 encoded strings are only allowed in line comments and an optional UTF-8 BOM at the start of the text file is ignored.
 Other characters, like trailing non comments, are not allowed in the file.
 The matrix elements are interpreted in exactly the same way
 as if the matrix is given as a parameter. For example, the first
 column \"table2D_1[2:,1]\" contains the u[1] grid points,
 and the first row \"table2D_1[1,2:]\" contains the u[2] grid points.
 </p>
-
 <p>
 MATLAB is a registered trademark of The MathWorks, Inc.
 </p>
