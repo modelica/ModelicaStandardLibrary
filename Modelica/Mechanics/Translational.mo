@@ -547,7 +547,7 @@ the two other examples).
       extends Modelica.Icons.Example;
 
       Translational.Components.Fixed fixed2(s0=1) annotation (Placement(
-            transformation(extent={{-100,30},{-80,50}})));
+            transformation(extent={{-90,30},{-70,50}})));
       Translational.Components.Spring s2(s_rel0=2, c=1e3) annotation (Placement(
             transformation(extent={{-60,30},{-40,50}})));
       Translational.Components.Mass m3(
@@ -586,7 +586,7 @@ the two other examples).
             transformation(extent={{60,-70},{80,-50}})));
     equation
       connect(s2.flange_a, fixed2.flange) annotation (Line(
-          points={{-60,40},{-90,40}}, color={0,127,0}));
+          points={{-60,40},{-80,40}}, color={0,127,0}));
       connect(s1.flange_a, fixed1.flange) annotation (Line(
           points={{-60,-60},{-90,-60}}, color={0,127,0}));
       connect(m1.flange_a, s1.flange_b) annotation (Line(
@@ -607,77 +607,64 @@ the two other examples).
 There are several ways to set initial conditions.
 In the first system the position of the mass m3 was defined
 by using the modifier s(start=4.5), the position of m4 by s(start=12.5).
-These positions were chosen such that the system is a rest. To calculate
-these values start at the left (Fixed1) with a value of 1 m. The spring
-has an unstretched length of 2 m and m3 an length of 3 m, which leads to
+These positions were chosen such that the system is at rest. To calculate
+these values start at the left (fixed2) with a value of 1 m. The spring s2
+has an unstretched length of 2&nbsp;m and m3 an length of 3 m, which leads to
 </p>
 
-<pre>
-        1   m (fixed1)
-      + 2   m (spring s2)
-      + 3/2 m (half of the length of mass m3)
-      -------
-        4,5 m = s(start = 4.5) for m3
-      + 3/2 m (half of the length of mass m3)
-      + 4   m (springDamper 2)
-      + 5/2 m (half of length of mass m4)
-      -------
-       12,5 m = s(start = 12.5) for m4
-</pre>
+<blockquote><pre>
+  1   m (fixed2)
++ 2   m (spring s2)
++ 3/2 m (half of the length of mass m3)
+-------
+  4,5 m = s(start = 4.5) for m3
++ 3/2 m (half of the length of mass m3)
++ 4   m (springDamper sd2)
++ 5/2 m (half of length of mass m4)
+-------
+ 12,5 m = s(start = 12.5) for m4
+</pre></blockquote>
 
 <p>
-This selection of initial conditions has the effect that Dymola selects
+This selection of initial conditions can prioritize the selection of
 those variables (m3.s and m4.s) as state variables.
-In the second example the length of the springs are given as start values
+</p>
+
+<p>
+In the second example, the lengths of the springs are given start values
 but they cannot be used as state for pure springs (only for the spring/damper
 combination). In this case the system is not at rest.
 </p>
 
-<p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/InitialConditions.png\">
-</p>
+<blockquote>
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/InitialConditions.png\">
+</blockquote>
 
 </html>"),
         experiment(StopTime=5.0, Interval=0.001),
         Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                 {100,100}}), graphics={
-            Line(
-              points={{-90,70},{-90,50}},
-              color={0,0,255}),
+            Line(points={{-80,58},{-80,46}}, color={0,0,255}),
             Text(
-              extent={{-100,82},{-80,72}},
+              extent={{-10,5},{10,-5}},
               lineColor={255,0,0},
-              textString="ref= 0 m"),
+              textString="ref= 0 m",
+              origin={-96,73},
+              rotation=90),
             Line(
-              points={{-10,70},{-10,50}},
+              points={{-10,76},{-10,50}},
               color={0,0,255}),
             Text(
-              extent={{-20,82},{0,72}},
+              extent={{-40,82},{-20,72}},
               lineColor={255,0,0},
               textString=" 4.5 m "),
             Line(
-              points={{70,70},{70,50}},
+              points={{70,90},{70,50}},
               color={0,0,255}),
             Text(
-              extent={{60,82},{80,72}},
+              extent={{40,98},{60,88}},
               lineColor={255,0,0},
               textString="12.5 m"),
-            Line(
-              points={{-54,20},{-54,22},{-60,20},{-54,18},{-54,20},{-46,20},{
-                  -46,22},{-40,20},{-46,18},{-46,20}},
-              color={0,0,255}),
-            Line(
-              points={{-14,20},{-14,22},{-20,20},{-14,18},{-14,20},{-6,20},{-6,
-                  22},{0,20},{-6,18},{-6,20}},
-              color={0,0,255}),
-            Line(
-              points={{26,20},{26,22},{20,20},{26,18},{26,20},{34,20},{34,22},{
-                  40,20},{34,18},{34,20}},
-              color={0,0,255}),
-            Line(
-              points={{66,20},{66,22},{60,20},{66,18},{66,20},{74,20},{74,22},{
-                  80,20},{74,18},{74,20}},
-              color={0,0,255}),
             Text(
               extent={{-60,16},{-40,6}},
               lineColor={0,0,255},
@@ -692,57 +679,140 @@ combination). In this case the system is not at rest.
             Text(
               extent={{60,16},{80,6}},
               textString="  5 m  "),
-            Line(
-              points={{-54,-80},{-54,-78},{-60,-80},{-54,-82},{-54,-80},{-46,
-                  -80},{-46,-78},{-40,-80},{-46,-82},{-46,-80}},
-              color={0,0,255}),
-            Line(
-              points={{-14,-80},{-14,-78},{-20,-80},{-14,-82},{-14,-80},{-6,-80},
-                  {-6,-78},{0,-80},{-6,-82},{-6,-80}},
-              color={0,0,255}),
-            Line(
-              points={{26,-80},{26,-78},{20,-80},{26,-82},{26,-80},{34,-80},{34,
-                  -78},{40,-80},{34,-82},{34,-80}},
-              color={0,0,255}),
-            Line(
-              points={{66,-80},{66,-78},{60,-80},{66,-82},{66,-80},{74,-80},{74,
-                  -78},{80,-80},{74,-82},{74,-80}},
-              color={0,0,255}),
             Text(
               extent={{-60,-84},{-40,-94}},
               lineColor={255,0,0},
               textString=" 0.5 m
- (1 m) "), Text(
+ (1 m) "),
+           Text(
               extent={{20,-84},{40,-94}},
               lineColor={255,0,0},
               textString=" 1 m
- (1 m) "), Text(
+ (1 m) "),
+           Text(
               extent={{-20,-84},{0,-94}},
               textString="  1 m  "),
             Text(
               extent={{60,-84},{80,-94}},
               textString="  2 m  "),
             Line(
-              points={{-90,-30},{-90,-50}},
+              points={{-90,-32},{-90,-56}},
               color={0,0,255}),
             Text(
-              extent={{-100,-18},{-80,-28}},
+              extent={{-10,5},{10,-5}},
               lineColor={255,0,0},
-              textString="ref=-1 m"),
+              origin={-96,-35},
+              rotation=90,
+              textString="ref= -1 m"),
             Line(
-              points={{-10,-30},{-10,-50}},
+              points={{-10,-32},{-10,-50}},
               color={0,0,255}),
             Text(
-              extent={{-20,-18},{0,-28}},
+              extent={{-20,-22},{0,-32}},
               lineColor={0,0,255},
               textString="  0 m  "),
             Line(
-              points={{70,-30},{70,-50}},
+              points={{70,-32},{70,-50}},
               color={0,0,255}),
             Text(
-              extent={{60,-18},{80,-28}},
-              lineColor={0,0,255},
-              textString=" 2.5 m ")}));
+              extent={{20,-24},{40,-34}},
+              lineColor={238,46,47},
+              textString=" 2.5 m "),
+            Line(
+              points={{-90,54},{-80,54}},
+              color={0,0,255},
+              arrow={Arrow.None,Arrow.Open}),
+            Line(
+              points={{-90,70},{-10,70}},
+              color={0,0,255},
+              arrow={Arrow.None,Arrow.Open}),
+            Line(
+              points={{-90,86},{70,86}},
+              color={0,0,255},
+              arrow={Arrow.None,Arrow.Open}),
+            Line(points={{-60,30},{-60,16}}, color={0,0,255}),
+            Line(points={{-40,30},{-40,16}}, color={0,0,255}),
+            Line(points={{-20,30},{-20,16}}, color={0,0,255}),
+            Line(points={{0,30},{0,16}}, color={0,0,255}),
+            Line(points={{20,30},{20,16}}, color={0,0,255}),
+            Line(points={{40,30},{40,16}}, color={0,0,255}),
+            Line(points={{60,30},{60,16}}, color={0,0,255}),
+            Line(points={{80,30},{80,16}}, color={0,0,255}),
+            Line(
+              points={{-60,20},{-40,20}},
+              color={0,0,255},
+              arrow={Arrow.Open,Arrow.Open}),
+            Line(
+              points={{-20,20},{0,20}},
+              color={0,0,255},
+              arrow={Arrow.Open,Arrow.Open}),
+            Line(
+              points={{20,20},{40,20}},
+              color={0,0,255},
+              arrow={Arrow.Open,Arrow.Open}),
+            Line(
+              points={{60,20},{80,20}},
+              color={0,0,255},
+              arrow={Arrow.Open,Arrow.Open}),
+            Line(
+              points={{-90,90},{-90,46}},
+              color={0,0,255}),
+            Text(
+              extent={{-90,66},{-70,56}},
+              lineColor={255,0,0},
+              textString="1 m "),
+            Line(
+              points={{-60,-70},{-60,-84}},
+              color={0,0,255}),
+            Line(
+              points={{-40,-70},{-40,-84}},
+              color={0,0,255}),
+            Line(
+              points={{-20,-70},{-20,-84}},
+              color={0,0,255}),
+            Line(
+              points={{0,-70},{0,-84}},
+              color={0,0,255}),
+            Line(
+              points={{20,-70},{20,-84}},
+              color={0,0,255}),
+            Line(
+              points={{40,-70},{40,-84}},
+              color={0,0,255}),
+            Line(
+              points={{60,-70},{60,-84}},
+              color={0,0,255}),
+            Line(
+              points={{80,-70},{80,-84}},
+              color={0,0,255}),
+            Line(
+              points={{-60,-80},{-40,-80}},
+              color={0,0,255},
+              arrow={Arrow.Open,Arrow.Open}),
+            Line(
+              points={{-20,-80},{0,-80}},
+              color={0,0,255},
+              arrow={Arrow.Open,Arrow.Open}),
+            Line(
+              points={{20,-80},{40,-80}},
+              color={0,0,255},
+              arrow={Arrow.Open,Arrow.Open}),
+            Line(
+              points={{60,-80},{80,-80}},
+              color={0,0,255},
+              arrow={Arrow.Open,Arrow.Open}),
+            Line(
+              points={{-90,-36},{-10,-36}},
+              color={0,0,255},
+              arrow={Arrow.Open,Arrow.Open}),
+            Line(
+              points={{-10,-36},{70,-36}},
+              color={0,0,255},
+              arrow={Arrow.Open,Arrow.Open}),
+            Text(
+              extent={{-60,-24},{-40,-34}},
+              lineColor={238,46,47},
+              textString="1 m ")}));
     end InitialConditions;
 
     model WhyArrows "Use of arrows in Mechanics.Translational"
