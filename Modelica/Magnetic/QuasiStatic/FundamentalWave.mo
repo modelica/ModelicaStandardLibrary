@@ -110,16 +110,18 @@ email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
       extends Modelica.Icons.ReleaseNotes;
       annotation (Documentation(info="<html>
 
-<h5>Version 3.x.x, 2017-09-26</h5>
+<h5>Version 3.x.x, 2017-12-10</h5>
 <ul>
-  <li>Unified communication interval, see 
+  <li>Fixed propagation of excitation leakage factor, see
+      <a href=\"https://github.com/modelica/Modelica/issues/2403\">#2403</a></li>
+  <li>Unified communication interval, see
       <a href=\"https://github.com/modelica/Modelica/issues/2279\">#2279</a></li>
-  <li>Unified simulation tolerances, see 
+  <li>Unified simulation tolerances, see
       <a href=\"https://github.com/modelica/Modelica/issues/2278\">#2278</a></li>
-<li>Fixed wrong initial conditions of 
+<li>Fixed wrong initial conditions of
     <a href=\"https://github.com/modelica/Modelica/issues/2277\">#2277</a></li>
-<li>Added more examples from 
-    <a href=\"modelica://Modelica.Electrical.Machines.Examples\">Machines.Examples</a>, see 
+<li>Added more examples from
+    <a href=\"modelica://Modelica.Electrical.Machines.Examples\">Machines.Examples</a>, see
     <a href=\"https://github.com/modelica/Modelica/issues/2276\">#2276</a></li>
 <li>Added
 <a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Sensors.RotorDisplacementAngle\">RotorDisplacementAngle</a>, see
@@ -136,20 +138,20 @@ email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
     <li><a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.Permeance\">Permeance</a></li>
 </ul></li>
 <li>Removed parameter text from icon layer for reluctance and permeance model</li>
-<li>Fixed issues of ticket 
+<li>Fixed issues of ticket
     <a href=\"https://github.com/modelica/Modelica/issues/1524\">#1524</a></li>
-<li>Restructured cage models with reluctance instead of inductance model according to ticket 
+<li>Restructured cage models with reluctance instead of inductance model according to ticket
     <a href=\"https://github.com/modelica/Modelica/issues/1537\">#1537</a></li>
-<li>Bug fixes according to 
+<li>Bug fixes according to
     <a href=\"https://github.com/modelica/Modelica/issues/1226\">#1226</a></li>
 <li>Added magnitude and argument of complex magnetic potentials, magnetic fluxes, voltages and currents in interface, electromagnetic coupling and machine models, see #1405</li>
-<li>Added active, reactive and apparent power and power factor in interface and machine models, see 
+<li>Added active, reactive and apparent power and power factor in interface and machine models, see
     <a href=\"https://github.com/modelica/Modelica/issues/1405\">#1405</a></li>
 <li>Added new interface model
     <a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Interfaces.PartialTwoPortExtended\">PartialTwoPortExtended</a>
-    to simplify consistent inclusion of variables, see 
+    to simplify consistent inclusion of variables, see
     <a href=\"https://github.com/modelica/Modelica/issues/1405\">#1405</a></li>
-<li>Changed icon and location of terminal box according to 
+<li>Changed icon and location of terminal box according to
     <a href=\"https://github.com/modelica/Modelica/issues/1706\">#1706</a></li>
 </ul>
 
@@ -165,13 +167,13 @@ email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
 
 <h5>Version 0.4.0, 2013-11-13</h5>
 <ul>
-<li>Renamed all machine class names according to 
+<li>Renamed all machine class names according to
     <a href=\"https://github.com/modelica/Modelica/issues/1348\">#1348</a></li>
 </ul>
 
 <h5>Version 0.3.0, 2013-11-07</h5>
 <ul>
-<li>Renamed the library from QuasiStationaryFundamantalWave to QuasiStaticFundamantalWave according to 
+<li>Renamed the library from QuasiStationaryFundamantalWave to QuasiStaticFundamantalWave according to
     <a href=\"https://github.com/modelica/Modelica/issues/1344\">#1344</a></li>
 </ul>
 
@@ -624,7 +626,7 @@ In this example the eddy current losses are implemented in two different ways. C
           connect(starMachineQS.pin_n, groundMachineQS.pin) annotation (Line(
               points={{-10,20},{-10,20}},
               color={85,170,255}));
-          connect(imcQS.flange, speed.flange) annotation (Line(points={{40,40},{50,40}}, color={0,0,0}));
+          connect(imcQS.flange, speed.flange) annotation (Line(points={{40,40},{50,40}}));
           connect(ramp.y, speed.w_ref) annotation (Line(points={{79,40},{72,40}}, color={0,0,127}));
           connect(vSourceQS.plug_p, pSensorQS.currentP) annotation (Line(points={{-60,50},{-60,80},{-40,80}}, color={85,170,255}));
           annotation (experiment(StopTime=1, Interval=0.001, Tolerance=1E-6),
@@ -632,12 +634,11 @@ In this example the eddy current losses are implemented in two different ways. C
                 Text(
                   extent={{20,8},{100,0}},
                           textStyle={TextStyle.Bold},
-                  textString="%m phase quasi static",
-                  lineColor={0,0,0})}),
+                  textString="%m phase quasi static")}),
             Documentation(info="<html>
 
 <p>
-This examples allows the investigation of characteristic curves of quasi static multi phase induction machines with ssquirrel cage rotor 
+This examples allows the investigation of characteristic curves of quasi static multi phase induction machines with ssquirrel cage rotor
 as a function of rotor speed.
 </p>
 
@@ -905,20 +906,19 @@ Simulate for 1 second and plot (versus imcQS.wMechanical or perUnitSpeed):
                   extent={{-100,-100},{100,100}}), graphics={
                                                     Text(
                           extent={{20,-92},{100,-100}},
-                          lineColor={0,0,0},
                           fillColor={255,255,170},
                           fillPattern=FillPattern.Solid,
                           textStyle={TextStyle.Bold},
                           textString="%m phase transient"),     Text(
                   extent={{20,8},{100,0}},
                           textStyle={TextStyle.Bold},
-                  textString="%m phase quasi static",        lineColor={0,0,0})}),
+                  textString="%m phase quasi static")}),
                 experiment(StopTime=1, Interval=0.0001, Tolerance=1E-6),
             Documentation(info="<html>
 <p>
-This example compares a time transient and a quasi static model of a multi phase induction machine. 
-At start time <code>tOn</code> a transient and a quasi static multi phase voltage source are 
-connected to an induction machine. The machine starts from standstill, accelerating inertias 
+This example compares a time transient and a quasi static model of a multi phase induction machine.
+At start time <code>tOn</code> a transient and a quasi static multi phase voltage source are
+connected to an induction machine. The machine starts from standstill, accelerating inertias
 against load torque quadratic dependent on speed, finally reaching nominal speed.</p>
 
 <p>
@@ -1124,10 +1124,8 @@ Default machine parameters are used.</p>
                 Text(
                   extent={{-60,20},{20,12}},
                           textStyle={TextStyle.Bold},
-                  textString="%m phase quasi static",
-                          lineColor={0,0,0}), Text(
+                  textString="%m phase quasi static"), Text(
                           extent={{-60,-80},{20,-88}},
-                          lineColor={0,0,0},
                           fillColor={255,255,170},
                           fillPattern=FillPattern.Solid,
                           textStyle={TextStyle.Bold},
@@ -1406,11 +1404,9 @@ Simulate for 2.5 seconds and plot (versus time):</p>
                 Text(
                   extent={{80,8},{160,0}},
                           textStyle={TextStyle.Bold},
-                  lineColor={0,0,0},
                   textString="%m phase quasi static"),
                                                     Text(
                           extent={{80,-92},{160,-100}},
-                          lineColor={0,0,0},
                           fillColor={255,255,170},
                           fillPattern=FillPattern.Solid,
                           textStyle={TextStyle.Bold},
@@ -1654,7 +1650,6 @@ and accelerating inertias. At time <code>tStep</code> a load step is applied.</p
                     -100},{100,100}}),
                                  graphics={         Text(
                           extent={{-60,-92},{20,-100}},
-                          lineColor={0,0,0},
                           fillColor={255,255,170},
                           fillPattern=FillPattern.Solid,
                           textStyle={TextStyle.Bold},
@@ -1662,7 +1657,6 @@ and accelerating inertias. At time <code>tStep</code> a load step is applied.</p
                 Text(
                   extent={{-60,8},{20,0}},
                           textStyle={TextStyle.Bold},
-                  lineColor={0,0,0},
                   textString="%m phase quasi static")}));
         end IMC_Inverter;
 
@@ -1873,11 +1867,9 @@ The mechanical load is a constant torque like a conveyor (with regularization ar
                 Text(
                   extent={{20,60},{100,52}},
                           textStyle={TextStyle.Bold},
-                  lineColor={0,0,0},
                   textString="%m phase quasi static"),
                                                     Text(
                           extent={{20,-40},{100,-48}},
-                          lineColor={0,0,0},
                           fillColor={255,255,170},
                           fillPattern=FillPattern.Solid,
                           textStyle={TextStyle.Bold},
@@ -2087,7 +2079,6 @@ Modelica 2009, 7<sup>th</sup> International Modelica Conference</p>
                 Text(
                   extent={{-80,40},{0,32}},
                           textStyle={TextStyle.Bold},
-                  lineColor={0,0,0},
                   textString="%m phase quasi static")}));
         end IMC_withLosses;
 
@@ -2272,11 +2263,9 @@ Default machine parameters of model <em>AIM_SquirrelCage</em> are used.
                 Text(
                   extent={{20,8},{100,0}},
                           textStyle={TextStyle.Bold},
-                  lineColor={0,0,0},
                   textString="%m phase quasi static"),
                                                     Text(
                           extent={{20,-92},{100,-100}},
-                          lineColor={0,0,0},
                           fillColor={255,255,170},
                           fillPattern=FillPattern.Solid,
                           textStyle={TextStyle.Bold},
@@ -2402,7 +2391,7 @@ Default machine parameters of model <em>AIM_SquirrelCage</em> are used.
               color={85,170,255}));
           connect(vSourceQS.plug_p, pSensorQS.currentP) annotation (Line(points={{-80,70},{-80,80},{-70,80}}, color={85,170,255}));
           connect(ramp.y,speed. w_ref) annotation (Line(points={{79,40},{72,40}}, color={0,0,127}));
-          connect(imsQS.flange, speed.flange) annotation (Line(points={{40,40},{50,40}}, color={0,0,0}));
+          connect(imsQS.flange, speed.flange) annotation (Line(points={{40,40},{50,40}}));
           connect(starRotorQS.pin_n, groundRotorQS.pin) annotation (Line(points={{-10,20},{-10,20}}, color={85,170,255}));
           connect(resistor.plug_n, imsQS.plug_rn) annotation (Line(points={{10,26},{20,26},{20,34}}, color={85,170,255}));
           connect(imsQS.plug_rp, resistor.plug_p) annotation (Line(points={{20,46},{10,46}}, color={85,170,255}));
@@ -2412,7 +2401,7 @@ Default machine parameters of model <em>AIM_SquirrelCage</em> are used.
             Documentation(info="<html>
 
 <p>
-This examples allows the investigation of characteristic curves of quasi static multi phase induction machines with slip ring rotor 
+This examples allows the investigation of characteristic curves of quasi static multi phase induction machines with slip ring rotor
 as a function of rotor speed.
 </p>
 
@@ -2431,7 +2420,6 @@ Simulate for 1 second and plot (versus imsQS.wMechanical or perUnitSpeed):
                     -100},{100,100}}),
                                  graphics={         Text(
                           extent={{20,8},{100,0}},
-                          lineColor={0,0,0},
                           fillColor={255,255,170},
                           fillPattern=FillPattern.Solid,
                           textStyle={TextStyle.Bold},
@@ -2745,7 +2733,6 @@ Simulate for 1.5 seconds and plot (versus time):
                     -100},{100,100}}),
                                  graphics={         Text(
                           extent={{20,8},{100,0}},
-                          lineColor={0,0,0},
                           fillColor={255,255,170},
                           fillPattern=FillPattern.Solid,
                           textStyle={TextStyle.Bold},
@@ -2753,8 +2740,7 @@ Simulate for 1.5 seconds and plot (versus time):
                 Text(
                   extent={{20,-92},{100,-100}},
                           textStyle={TextStyle.Bold},
-                  textString="%m phase transient",
-                  lineColor={0,0,0})}));
+                  textString="%m phase transient")}));
         end IMS_Start;
       end InductionMachines;
 
@@ -2902,7 +2888,7 @@ Simulate for 1.5 seconds and plot (versus time):
             experiment(StopTime=0.1, Interval=1E-4, Tolerance=1E-6),
             Documentation(info="<html>
 <p>
-This example compares a time transient and a quasi static model of a permanent magnet synchronous machine. 
+This example compares a time transient and a quasi static model of a permanent magnet synchronous machine.
 The machines are operated at constant mechanical angular velocity.</p>
 
 <p>
@@ -2920,9 +2906,8 @@ Simulate for 0.1 second and plot (versus time):
                 Text(
                   extent={{-100,8},{-20,0}},
                           textStyle={TextStyle.Bold},
-                  textString="%m phase quasi static",        lineColor={0,0,0}),               Text(
+                  textString="%m phase quasi static"),               Text(
                           extent={{-100,-92},{-20,-100}},
-                          lineColor={0,0,0},
                           fillColor={255,255,170},
                           fillPattern=FillPattern.Solid,
                           textStyle={TextStyle.Bold},
@@ -3172,9 +3157,8 @@ Simulate for 0.1 second and plot (versus time):
                 Text(
                   extent={{20,8},{100,0}},
                           textStyle={TextStyle.Bold},
-                  textString="%m phase quasi static",        lineColor={0,0,0}),               Text(
+                  textString="%m phase quasi static"),               Text(
                           extent={{20,-92},{100,-100}},
-                          lineColor={0,0,0},
                           fillColor={255,255,170},
                           fillPattern=FillPattern.Solid,
                           textStyle={TextStyle.Bold},
@@ -3477,11 +3461,11 @@ Simulate for 1 second and plot (versus time):
                                                                                                                           color={0,0,127}));
           connect(angleSensorQS.phi, currentControllerQS.phi) annotation (Line(points={{30,71},{30,74},{-40,74},{-40,78}}, color={0,0,127}));
           connect(angleSensor.phi, currentController.phi) annotation (Line(points={{30,-29},{30,-26},{-40,-26},{-40,-22}}, color={0,0,127}));
-          connect(smpmQS.flange, rotorAngleQS.flange) annotation (Line(points={{10,20},{20,20}}, color={0,0,0}));
+          connect(smpmQS.flange, rotorAngleQS.flange) annotation (Line(points={{10,20},{20,20}}));
           connect(terminalBoxQS.plug_sp, rotorAngleQS.plug_p) annotation (Line(points={{6,30},{24,30}}, color={85,170,255}));
           connect(terminalBoxQS.plugSupply, currentRMSSensorQS.plug_n) annotation (Line(points={{0,32},{0,50}},     color={85,170,255}));
           connect(currentRMSSensorQS.plug_p, referenceCurrentSourceQS.plug_n) annotation (Line(points={{0,70},{0,80}}, color={85,170,255}));
-          connect(inertiaLoadQS.flange_a, smpmQS.flange) annotation (Line(points={{50,20},{10,20}}, color={0,0,0}));
+          connect(inertiaLoadQS.flange_a, smpmQS.flange) annotation (Line(points={{50,20},{10,20}}));
           connect(rotorAngleQS.plug_n, terminalBoxQS.plug_sn) annotation (Line(points={{36,30},{36,36},{-6,36},{-6,30}}, color={85,170,255}));
           connect(voltageQuasiRMSSensorQS.plug_n, currentRMSSensorQS.plug_n) annotation (Line(points={{-20,50},{0,50}}, color={85,170,255}));
           connect(starMQS.pin_n, starMachineQS.pin_n) annotation (Line(points={{-50,30},{-50,20},{-40,20}}, color={85,170,255}));
@@ -3504,16 +3488,15 @@ Simulate for 2 seconds and plot (versus time):
 </ul>
 
 <h5>Note</h5>
-<p>The resistors connected to the terminals of the windings of the quasi static machine model are necessary 
+<p>The resistors connected to the terminals of the windings of the quasi static machine model are necessary
 to numerically stabilize the simulation.</p>
 </html>"),  Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                     -100},{100,100}}), graphics={
                 Text(
                   extent={{30,48},{110,40}},
                           textStyle={TextStyle.Bold},
-                  textString="%m phase quasi static",        lineColor={0,0,0}),               Text(
+                  textString="%m phase quasi static"),               Text(
                           extent={{30,-52},{110,-60}},
-                          lineColor={0,0,0},
                           fillColor={255,255,170},
                           fillPattern=FillPattern.Solid,
                           textStyle={TextStyle.Bold},
@@ -3669,7 +3652,7 @@ to numerically stabilize the simulation.</p>
           connect(currentControllerQS.gamma, referenceCurrentSourceQS.gamma) annotation (Line(points={{-19,86},{-10,86},{-10,84},{-2,84}},
                                                                                                                           color={0,0,127}));
           connect(angleSensorQS.phi, currentControllerQS.phi) annotation (Line(points={{40,71},{40,74},{-30,74},{-30,78}}, color={0,0,127}));
-          connect(smpmQS.flange, rotorAngleQS.flange) annotation (Line(points={{20,20},{30,20}}, color={0,0,0}));
+          connect(smpmQS.flange, rotorAngleQS.flange) annotation (Line(points={{20,20},{30,20}}));
           connect(terminalBoxQS.plug_sp, rotorAngleQS.plug_p) annotation (Line(points={{16,30},{34,30}},color={85,170,255}));
           connect(terminalBoxQS.plugSupply, currentRMSSensorQS.plug_n) annotation (Line(points={{10,32},{10,50}},   color={85,170,255}));
           connect(currentRMSSensorQS.plug_p, referenceCurrentSourceQS.plug_n) annotation (Line(points={{10,70},{10,80}},
@@ -3678,7 +3661,7 @@ to numerically stabilize the simulation.</p>
           connect(voltageQuasiRMSSensorQS.plug_n, currentRMSSensorQS.plug_n) annotation (Line(points={{-10,50},{10,50}},color={85,170,255}));
           connect(starMQS.pin_n, starMachineQS.pin_n) annotation (Line(points={{-40,30},{-40,20},{-30,20}}, color={85,170,255}));
           connect(starMQS.plug_p, voltageQuasiRMSSensorQS.plug_p) annotation (Line(points={{-40,50},{-30,50}}, color={85,170,255}));
-          connect(quadraticSpeedDependentTorqueQS.flange, rotorAngleQS.flange) annotation (Line(points={{60,20},{30,20}}, color={0,0,0}));
+          connect(quadraticSpeedDependentTorqueQS.flange, rotorAngleQS.flange) annotation (Line(points={{60,20},{30,20}}));
           connect(toReal.u, rotSource.y) annotation (Line(points={{-70,48},{-70,41}}, color={85,170,255}));
           connect(toReal.re, currentControllerQS.id_rms) annotation (Line(points={{-76,72},{-76,96},{-42,96}}, color={0,0,127}));
           connect(currentControllerQS.iq_rms, toReal.im) annotation (Line(points={{-42,84},{-64,84},{-64,72}}, color={0,0,127}));
@@ -3686,12 +3669,12 @@ to numerically stabilize the simulation.</p>
             experiment(StopTime=1, Interval=1E-3, Tolerance=1E-6),
             Documentation(info="<html>
 <p>
-This example investigates the maximum torque per amps (MTPA) of a quasi static permanent magnet synchronous machine. 
+This example investigates the maximum torque per amps (MTPA) of a quasi static permanent magnet synchronous machine.
 The machines is operated at constant speed. The current magnitude is kept constant and the current angle is
 rotated from 0 to 360 degrees with the simulation period of one second.</p>
 
 <p>
-In this simulation the angle is the following angles are calculated:</p> 
+In this simulation the angle is the following angles are calculated:</p>
 
 <ul>
 <li><code>phi_v<code> = angle of voltage phasor</li>
@@ -3712,14 +3695,14 @@ Simulate for 1 second and plot (versus angle epsilon):
 </ul>
 
 <h5>Note</h5>
-<p>The resistors connected to the terminals of the windings of the quasi static machine model are necessary 
+<p>The resistors connected to the terminals of the windings of the quasi static machine model are necessary
 to numerically stabilize the simulation.</p>
 </html>"),  Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                     -100},{100,100}}), graphics={
                 Text(
                   extent={{20,0},{100,-8}},
                           textStyle={TextStyle.Bold},
-                  textString="%m phase quasi static", lineColor={0,0,0})}));
+                  textString="%m phase quasi static")}));
         end SMPM_MTPA;
 
         model SMEE_Generator
@@ -3783,7 +3766,6 @@ to numerically stabilize the simulation.</p>
             Re=smeeData.Re,
             TeRef=smeeData.TeRef,
             alpha20e(displayUnit="1/K") = smeeData.alpha20e,
-            sigmae=smeeData.sigmae,
             statorCoreParameters(VRef=100),
             strayLoadParameters(IRef=100),
             brushParameters(ILinear=0.01),
@@ -3795,10 +3777,12 @@ to numerically stabilize the simulation.</p>
             Lssigma=smeeData.Lssigma*m/3,
             Lmd=smeeData.Lmd*m/3,
             Lmq=smeeData.Lmq*m/3,
-            TsOperational=293.15,
             effectiveStatorTurns=smeeData.effectiveStatorTurns,
+            TsOperational=293.15,
             TrOperational=293.15,
-            TeOperational=293.15) annotation (Placement(transformation(extent={
+            TeOperational=293.15,
+            sigmae=smeeData.sigmae*m/3)
+                                  annotation (Placement(transformation(extent={
                     {-10,-80},{10,-60}})));
           FundamentalWave.BasicMachines.SynchronousMachines.SM_ElectricalExcited
             smeeQS(
@@ -4023,13 +4007,13 @@ to numerically stabilize the simulation.</p>
               Line(
               points={{-10,50},{-10,42},{-10,42}},
               color={85,170,255}));
-          connect(smee.flange, rotorAngle.flange) annotation (Line(points={{10,-70},{20,-70}}, color={0,0,0}));
+          connect(smee.flange, rotorAngle.flange) annotation (Line(points={{10,-70},{20,-70}}));
           connect(rotorAngle.plug_p, smee.plug_sp) annotation (Line(points={{24,-60},{6,-60}}, color={0,0,255}));
           connect(smee.plug_sn, rotorAngle.plug_n) annotation (Line(points={{-6,-60},{-6,-54},{36,-54},{36,-60}}, color={0,0,255}));
           connect(terminalBoxQS.plug_sp, rotorAngleQS.plug_p) annotation (Line(points={{6,40},{24,40}}, color={85,170,255}));
           connect(rotorAngleQS.plug_n, terminalBoxQS.plug_sn) annotation (Line(points={{36,40},{36,46},{-6,46},{-6,40}}, color={85,170,255}));
-          connect(smeeQS.flange, rotorAngleQS.flange) annotation (Line(points={{10,30},{20,30}}, color={0,0,0}));
-          connect(smeeQS.flange, mechanicalPowerSensorQS.flange_a) annotation (Line(points={{10,30},{50,30}}, color={0,0,0}));
+          connect(smeeQS.flange, rotorAngleQS.flange) annotation (Line(points={{10,30},{20,30}}));
+          connect(smeeQS.flange, mechanicalPowerSensorQS.flange_a) annotation (Line(points={{10,30},{50,30}}));
           connect(starMachine.pin_n,groundMachine. p) annotation (Line(points={{-30,-50},{-40,-50}}, color={0,0,255}));
           connect(starMachine.plug_p, terminalBoxM.starpoint) annotation (Line(points={{-10,-50},{-10,-54},{-10,-58},{-10,-58}},color={0,0,255}));
           annotation (
@@ -4039,7 +4023,7 @@ to numerically stabilize the simulation.</p>
               Tolerance=1e-06),
             Documentation(info="<html>
 <p>
-This example compares a time transient and a quasi static model of a electrically excited synchronous machine. 
+This example compares a time transient and a quasi static model of a electrically excited synchronous machine.
 The electrically excited synchronous generators are connected to the grid and driven with constant speed.
 Since speed is slightly smaller than synchronous speed corresponding to mains frequency,
 rotor angle is very slowly increased. This allows to see several characteristics dependent on rotor angle.
@@ -4058,7 +4042,6 @@ Simulate for 30 seconds and plot versus <code>rotorAngle|rotorAngleQS.rotorDispl
                     -100},{100,100}}),
                                  graphics={         Text(
                           extent={{20,8},{100,0}},
-                          lineColor={0,0,0},
                           fillColor={255,255,170},
                           fillPattern=FillPattern.Solid,
                           textStyle={TextStyle.Bold},
@@ -4315,7 +4298,6 @@ and accelerating inertias. At time <code>tStep</code> a load step is applied.</p
                     -100},{100,100}}),
                                  graphics={         Text(
                           extent={{-60,-92},{20,-100}},
-                          lineColor={0,0,0},
                           fillColor={255,255,170},
                           fillPattern=FillPattern.Solid,
                           textStyle={TextStyle.Bold},
@@ -4323,7 +4305,6 @@ and accelerating inertias. At time <code>tStep</code> a load step is applied.</p
                 Text(
                   extent={{-60,8},{20,0}},
                           textStyle={TextStyle.Bold},
-                  lineColor={0,0,0},
                   textString="%m phase quasi static")}));
         end SMR_Inverter;
 
@@ -4617,10 +4598,10 @@ and accelerating inertias. At time <code>tStep</code> a load step is applied.</p
           connect(rotorDisplacementAngle.flange, inertiaLoad.flange_a)
             annotation (Line(
               points={{20,-80},{50,-80}}));
-          connect(smrQS.flange, rotorAngleQS.flange) annotation (Line(points={{10,20},{20,20}}, color={0,0,0}));
+          connect(smrQS.flange, rotorAngleQS.flange) annotation (Line(points={{10,20},{20,20}}));
           connect(smrQS.plug_sp, rotorAngleQS.plug_p) annotation (Line(points={{6,30},{24,30}}, color={85,170,255}));
           connect(smrQS.plug_sn, rotorAngleQS.plug_n) annotation (Line(points={{-6,30},{-6,36},{36,36},{36,30}}, color={85,170,255}));
-          connect(inertiaLoadQS.flange_a, smrQS.flange) annotation (Line(points={{50,20},{42,20},{42,20},{32,20},{32,20},{10,20}}, color={0,0,0}));
+          connect(inertiaLoadQS.flange_a, smrQS.flange) annotation (Line(points={{50,20},{42,20},{42,20},{32,20},{32,20},{10,20}}));
           connect(currentRMSSensorQS.plug_p, referenceCurrentSource.plug_n) annotation (Line(points={{0,70},{0,80}}, color={85,170,255}));
           connect(currentRMSSensorQS.plug_n, terminalBoxQS.plugSupply) annotation (Line(points={{0,50},{0,32}}, color={85,170,255}));
           connect(id.y, currentControllerQS.id_rms) annotation (Line(points={{-79,30},{-74,30},{-74,96},{-52,96}}, color={0,0,127}));
@@ -4641,9 +4622,9 @@ and accelerating inertias. At time <code>tStep</code> a load step is applied.</p
             experiment(StopTime=2.0, Interval=1E-4, Tolerance=1E-6),
             Documentation(info="<html><html>
 <p>
-This example compares a time transient and a quasi static model of a synchronous reluctance machine. 
-The machines are fed by a current source. The current components are oriented at the magnetic field 
-orientation and transformed to the stator fixed reference frame. This way the machines are operated at constant torque. 
+This example compares a time transient and a quasi static model of a synchronous reluctance machine.
+The machines are fed by a current source. The current components are oriented at the magnetic field
+orientation and transformed to the stator fixed reference frame. This way the machines are operated at constant torque.
 The machines start to accelerate from standstill.</p>
 
 <p>
@@ -4659,9 +4640,8 @@ Simulate for 2 seconds and plot (versus time):
                 Text(
                   extent={{30,48},{110,40}},
                           textStyle={TextStyle.Bold},
-                  textString="%m phase quasi static",        lineColor={0,0,0}),               Text(
+                  textString="%m phase quasi static"),               Text(
                           extent={{30,-52},{110,-60}},
-                          lineColor={0,0,0},
                           fillColor={255,255,170},
                           fillPattern=FillPattern.Solid,
                           textStyle={TextStyle.Bold},
@@ -6937,7 +6917,7 @@ Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap</a>
         // Reference angular speed and angle
         gamma = port_p.reference.gamma;
         // Connections.root(port_p.reference);
-        annotation (defaultComponentName="pm",
+        annotation (defaultComponentName="magnet",
           Documentation(info="<html>
 <p>Permanent magnet model with magnetic, mechanical and thermal connector including losses. The PM model is source  of constant magnetic potential difference. The PM loss is calculated by
 <a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Losses.PermanentMagnetLosses\">PermanentMagnetLosses</a>.
@@ -6997,7 +6977,7 @@ Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap</a>
           "Friction loss parameter record" annotation (Dialog(tab="Losses"));
         parameter Modelica.Electrical.Machines.Losses.CoreParameters
           statorCoreParameters(
-          final m=3,
+          final m=m,
           wRef=2*pi*fsNominal/p,
           VRef(start=100))
           "Stator core loss parameter record; all parameters refer to stator side"
@@ -7330,7 +7310,7 @@ If it is desired to neglect stray load losses, set <code>strayLoadParameters.PRe
           sign(w)*(abs(w)/permanentMagnetLossParameters.wRef)^permanentMagnetLossParameters.power_w;
       end if;
       lossPower = -tau*w;
-      annotation (defaultComponentName="pmLoss", Icon(graphics={Ellipse(extent={{-40,-40},{40,40}}, lineColor=
+      annotation (defaultComponentName="magnetLoss", Icon(graphics={Ellipse(extent={{-40,-40},{40,40}}, lineColor=
                   {200,0,0})}), Documentation(info="<html>
 <p>
 Permanent magnet losses are modeled dependent on current and speed.
@@ -7391,7 +7371,8 @@ If it is desired to neglect permanent magnet losses, set <code>strayLoadParamete
       // Reference angular speed and angle
       omega = 2*Modelica.Constants.pi*f;
       Connections.root(port_p.reference);
-      annotation (defaultComponentName="vmSource", Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (defaultComponentName="magVoltageSource",
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
                                   Ellipse(
                   extent={{-50,-50},{50,50}},
@@ -7450,7 +7431,8 @@ SignalFlux</a>
       port_p.Phi = Phi;
       // Local flux balance
       port_p.Phi + port_n.Phi = Complex(0, 0);
-      annotation (defaultComponentName="vmSource", Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (defaultComponentName="magVoltageSource",
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
                                   Ellipse(
                   extent={{-50,-50},{50,50}},
@@ -7511,7 +7493,8 @@ SignalFlux</a>
       // Reference angular speed and angle
       omega = 2*Modelica.Constants.pi*f;
       Connections.root(port_p.reference);
-      annotation (defaultComponentName="phiSource", Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (defaultComponentName="magFluxSource",
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={Ellipse(
                   extent={{-50,-50},{50,50}},
                   lineColor={255,127,0},
@@ -7571,7 +7554,7 @@ SignalFlux</a>
       port_p.Phi = Phi;
       // Local flux balance
       port_p.Phi + port_n.Phi = Complex(0, 0);
-      annotation (defaultComponentName="phiSource", Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (defaultComponentName="magFluxSource", Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={Ellipse(
                   extent={{-50,-50},{50,50}},
                   lineColor={255,170,85},
@@ -7635,7 +7618,7 @@ ConstantFlux</a>
       port_p.Phi + port_n.Phi = Complex(0, 0);
       // No magnetic potential difference at sensor
       V_m = Complex(0, 0);
-      annotation (defaultComponentName="phiSensor",
+      annotation (defaultComponentName="magFluxSensor",
         Icon(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
@@ -7682,7 +7665,7 @@ ConstantFlux</a>
       port_p.Phi + port_n.Phi = Complex(0, 0);
       // No magnetic flux through sensor
       Phi = Complex(0, 0);
-      annotation (defaultComponentName="vmSensor", Icon(coordinateSystem(
+      annotation (defaultComponentName="magVoltageSensor", Icon(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={Text(
@@ -7723,7 +7706,7 @@ ConstantFlux</a>
       port_p.Phi = Complex(0, 0);
       // Magnetic potential
       V_m = port_p.V_m;
-      annotation (defaultComponentName="vmSensor", Icon(coordinateSystem(
+      annotation (defaultComponentName="magPotentialSensor", Icon(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={Text(
@@ -7820,7 +7803,7 @@ ConstantFlux</a>
         annotation (Line(points={{21,0},{29.5,0},{38,0}}, color={85,170,255}));
       connect(wrapAngle.y, rotorDisplacementAngle) annotation (Line(points={{61,
               0},{80,0},{80,0},{110,0}}, color={85,170,255}));
-      annotation (defaultComponentName="displacementAngle",
+      annotation (defaultComponentName="angleSensor",
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Ellipse(
                   extent={{-60,80},{60,40}},
@@ -8229,7 +8212,7 @@ choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
           points={{-20,-60},{60,-60},{60,-60}}, color={85,170,255}));
       connect(plugSupply, plug_sp) annotation (Line(
           points={{0,-40},{0,-60},{60,-60}}, color={85,170,255}));
-      annotation (
+      annotation (defaultComponentName="terminalBox",
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={Polygon(
                   points={{-74,-40},{-80,-46},{-80,-80},{-40,-100},{40,-100},{
@@ -8297,7 +8280,7 @@ choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
           points={{-40,-60},{40,-60},{40,10}}, color={85,170,255}));
       connect(plug_n, idealCommutingSwitch.plug_n2) annotation (Line(
           points={{100,-60},{40,-60},{40,10}}, color={85,170,255}));
-      annotation (
+      annotation (defaultComponentName="rheostat",
         Icon(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
@@ -8381,7 +8364,7 @@ choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
           points={{-120,-60},{-60,-60},{-60,34},{-42,34}}, color={85,170,255}));
       connect(realToComplex.y, singleToMultiPhase.u) annotation (Line(
           points={{-19,40},{18,40}}, color={85,170,255}));
-      annotation (
+      annotation (defaultComponentName="currentController",
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={Rectangle(
                   extent={{-100,100},{100,-100}},
@@ -8484,11 +8467,11 @@ If <em>control</em> is true, plug_sp and plug_sn are delta connected and they ar
   annotation (preferredView="info", Documentation(info="<html>
   <p><strong>For a discrimination of various machine models, see <a href=\"modelica://Modelica.Electrical.Machines.UsersGuide.Discrimination\">discrimination</a></strong>.</p>
 <p>
-Copyright &copy; 2013-2017, <a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.Contact\">Christian Kral</a> and
+Copyright &copy; 2013-2018, <a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.Contact\">Christian Kral</a> and
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.Contact\">Anton Haumer</a>
 </p>
 <p>
-<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</em>
+<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\"> https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em>
 </p>
 </html>"),
     Icon(graphics={

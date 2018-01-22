@@ -770,7 +770,7 @@ of a polynomial and to use a polynomial to fit a given set
 of data points.
 </p>
 
-<p><strong>Copyright &copy; 2004-2016, Modelica Association and DLR.</strong></p>
+<p><strong>Copyright &copy; 2004-2018, Modelica Association and DLR.</strong></p>
 
 <p><em>
 This package is <strong>free</strong> software. It can be redistributed and/or modified

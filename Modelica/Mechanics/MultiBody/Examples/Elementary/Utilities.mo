@@ -1,6 +1,6 @@
 within Modelica.Mechanics.MultiBody.Examples.Elementary;
 package Utilities
-  "Utility models and functions used by MultiBody.Examples.Elementary"
+  "Utility classes used by elementary multi-body example models"
   extends Modelica.Icons.UtilitiesPackage;
   function theoreticalNormalGravityWGS84
     "WGS84 normal gravity over earth ellipsoid in negative y-direction"
@@ -88,7 +88,8 @@ This function is used in example
   end sineSurface;
   annotation (Documentation(info="<html>
 <p>
-This package contains utility functions used by some of the example models.
+This package contains utility models and functions used by some
+of the elementary example models from the multi-body package.
 </p>
 </html>"));
 end Utilities;

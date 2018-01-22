@@ -4,7 +4,7 @@ package Examples
   extends Modelica.Icons.ExamplesPackage;
 
   function calculator
-    "Interpreter to evaluate simple expressions consisting of +,-,*,/,(),sin(), cos(), tan(), sqrt(), pi"
+    "Interpreter to evaluate simple expressions consisting of +, -, *, /, (), sin(), cos(), tan(), sqrt(), asin(), acos(), atan(), exp(), log(), pi"
     import Modelica.Utilities.Strings;
     extends Modelica.Icons.Function;
     input String string "Expression that is evaluated";
@@ -39,6 +39,11 @@ The following operations are supported (pi=3.14.. is a predefined constant):
    cos(expression)
    tan(expression)
    sqrt(expression)
+   asin(expression)
+   acos(expression)
+   atan(expression)
+   exp(expression)
+   log(expression)
    pi
 </pre>
 <h4>Example</h4>
@@ -50,7 +55,7 @@ The following operations are supported (pi=3.14.. is a predefined constant):
   end calculator;
 
   function expression
-    "Expression interpreter that returns with the position after the expression (expression may consist of +,-,*,/,(),sin(), cos(), tan(), sqrt(), pi"
+    "Expression interpreter that returns with the position after the expression (expression may consist of +, -, *, /, (), sin(), cos(), tan(), sqrt(), asin(), acos(), atan(), exp(), log(), pi"
     import Modelica.Utilities.Types;
     import Modelica.Utilities.Strings;
     import Modelica.Math;
@@ -138,9 +143,21 @@ The following operations are supported (pi=3.14.. is a predefined constant):
                           "Imaginary numbers are not supported by the calculator.\n" + message);
            end if;
            result := sqrt(result);
+         elseif functionName == "asin" then
+           result := Math.asin(result);
+         elseif functionName == "acos" then
+           result := Math.acos(result);
+         elseif functionName == "atan" then
+           result := Math.atan(result);
+         elseif functionName == "exp" then
+           result := Math.exp(result);
+         elseif functionName == "log" then
+           if result <= 0.0 then
+             Strings.syntaxError(string, startIndex, "Argument of call \"log(" + String(result) + ")\" is not positive.\n" + message);
+           end if;
+           result := Math.log(result);
          else
-           Strings.syntaxError(string, startIndex, "Function \"" + functionName + "\" is unknown (not supported)\n" +
-                                           message);
+           Strings.syntaxError(string, startIndex, "Function \"" + functionName + "\" is unknown (not supported)\n" + message);
          end if;
       end if;
 
@@ -208,6 +225,11 @@ The following operations are supported (pi=3.14.. is a predefined constant):
    cos(expression)
    tan(expression)
    sqrt(expression)
+   asin(expression)
+   acos(expression)
+   atan(expression)
+   exp(expression)
+   log(expression)
    pi
 </pre>
 <p>
@@ -236,6 +258,11 @@ This function parses the following grammar
               | cos
               | tan
               | sqrt
+              | asin
+              | acos
+              | atan
+              | exp
+              | log
 </pre>
 <p>
 Note, in Examples.readRealParameter it is shown, how the expression
@@ -365,7 +392,7 @@ readRealParameter(\"test.txt\", \"w_rel0\")
       Streams.close(file);
     end when;
 
-    annotation (Documentation(info="<html>
+    annotation (preferredView="text", Documentation(info="<html>
 <p>
 Model that shows the usage of Examples.readRealParameter and Examples.expression.
 The model has 3 parameters and the values of these parameters are read
@@ -384,15 +411,15 @@ from a file.
     output Boolean success2 "= true if appending to Test_RealMatrix_v4.mat is successful";
     output Boolean success3 "= true if writing to Test_RealMatrix_v6.mat is successful";
     output Boolean success4 "= true if writing to Test_RealMatrix_v7.mat is successful";
-  equation
+  algorithm
     when initial() then
-       success1 = Modelica.Utilities.Streams.writeRealMatrix("Test_RealMatrix_v4.mat", "Matrix_A", A);
-       success2 = Modelica.Utilities.Streams.writeRealMatrix("Test_RealMatrix_v4.mat", "Matrix_B", A, append=true, format="4");
-       success3 = Modelica.Utilities.Streams.writeRealMatrix("Test_RealMatrix_v6.mat", "Matrix_A", A, format="6");
-       success4 = Modelica.Utilities.Streams.writeRealMatrix("Test_RealMatrix_v7.mat", "Matrix_A", A, format="7");
+      success1 := Modelica.Utilities.Streams.writeRealMatrix("Test_RealMatrix_v4.mat", "Matrix_A", A);
+      success2 := Modelica.Utilities.Streams.writeRealMatrix("Test_RealMatrix_v4.mat", "Matrix_B", A, append=true, format="4");
+      success3 := Modelica.Utilities.Streams.writeRealMatrix("Test_RealMatrix_v6.mat", "Matrix_A", A, format="6");
+      success4 := Modelica.Utilities.Streams.writeRealMatrix("Test_RealMatrix_v7.mat", "Matrix_A", A, format="7");
     end when;
 
-    annotation (experiment(StopTime=0.1), Documentation(info="<html>
+    annotation (preferredView="text", experiment(StopTime=0.1), Documentation(info="<html>
 <p>
 Example model that shows how to write a Real matrix in MATLAB MAT format on file
 using function <a href=\"modelica://Modelica.Utilities.Streams.writeRealMatrix\">writeRealMatrix</a>.
@@ -429,12 +456,13 @@ using function <a href=\"modelica://Modelica.Utilities.Streams.writeRealMatrix\"
     assert(abs(A3[1,1] - 11) <= eps, "Resources/Data/Utilities/Test_RealMatrix_v7.mat not correctly loaded");
 
     der(x) = -A[1,1]*x;
+  algorithm
     when initial() then
        print("... Matrix " + matrixName + "[" + String(size(A,1)) + "," + String(size(A,2)) + "] read from file " + file);
        print("...    " + matrixName + "[1,1] = " + String(A[1,1]));
     end when;
 
-    annotation(experiment(StopTime=0.1), Documentation(info="<html>
+    annotation(preferredView="text", experiment(StopTime=0.1), Documentation(info="<html>
 <p>
 Example model that shows how to read a Real matrix in MATLAB MAT format from file
 using functions

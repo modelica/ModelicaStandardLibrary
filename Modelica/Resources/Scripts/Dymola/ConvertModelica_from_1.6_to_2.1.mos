@@ -645,20 +645,6 @@ convertElement({"MultiBody.Forces.ForceAndTorque",
                 "MultiBody.Forces.ForceAndTorque"},
                 "inPort.signal", "load");
 
-convertElement({"MultiBody.Forces.WorldForce",
-                "MultiBody.Forces.FrameForce",
-                "MultiBody.Forces.Force"},
-                "inPort.signal", "force");
-
-convertElement({"MultiBody.Forces.WorldTorque",
-                "MultiBody.Forces.FrameTorque",
-                "MultiBody.Forces.Torque"},
-                "inPort.signal", "torque");
-
-convertElement({"MultiBody.Forces.ForceAndTorque",
-                "MultiBody.Forces.FrameForceAndTorque",
-                "MultiBody.Forces.ForceAndTorque"},
-                "inPort.signal", "load");
 
 convertModifiers({"ModelicaAdditions.Tables.CombiTableTime",
                   "ModelicaAdditions.Tables.CombiTable1D",

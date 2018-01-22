@@ -4404,6 +4404,8 @@ Modelica source.
       "Default value for specific enthalpy of medium (for initialization)";
     constant MassFraction X_default[nX]=reference_X
       "Default value for mass fractions of medium (for initialization)";
+    constant ExtraProperty C_default[nC]=fill(0, nC)
+      "Default value for trace substances of medium (for initialization)";
 
     final constant Integer nS=size(substanceNames, 1) "Number of substances"
       annotation (Evaluate=true);
@@ -5741,7 +5743,7 @@ to the above list of assumptions</li>
 
   partial package PartialTwoPhaseMedium
     "Base class for two phase medium of one substance"
-    extends PartialPureSubstance(redeclare record FluidConstants =
+    extends PartialPureSubstance(redeclare replaceable record FluidConstants =
           Modelica.Media.Interfaces.Types.TwoPhase.FluidConstants);
     constant Boolean smoothModel=false
       "True if the (derived) model should not generate state events";
@@ -9176,10 +9178,10 @@ The following parts are useful, when newly starting with this library:
      contains examples that demonstrate the usage of this library.</li>
 </ul>
 <p>
-Copyright &copy; 1998-2016, Modelica Association.
+Copyright &copy; 1998-2018, Modelica Association.
 </p>
 <p>
-<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</em>
+<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\"> https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em>
 </p>
 </html>", revisions="<html>
 <ul>

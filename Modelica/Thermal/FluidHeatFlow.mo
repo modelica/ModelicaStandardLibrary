@@ -1,6 +1,4 @@
 within Modelica.Thermal;
-
-
 package FluidHeatFlow
   "Simple components for 1-dimensional incompressible thermo-fluid flow models"
   extends Modelica.Icons.Package;
@@ -30,7 +28,7 @@ email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
 <h4>Acknowledgements</h4>
 
 <p>
-Copyright &copy; 1998-2016, Modelica Association, Anton Haumer, Christian Kral and AIT.
+Copyright &copy; 1998-2018, Modelica Association, Anton Haumer, Christian Kral and AIT.
 </p>
 
 </html>"));
@@ -1362,11 +1360,11 @@ This package contains utility components used for the test examples.<br>
   </dd>
 </dl>
 <p>
-Copyright &copy; 1998-2016, Modelica Association, Anton Haumer and Austrian Institute of Technology, AIT.
+Copyright &copy; 1998-2018, Modelica Association, Anton Haumer and Austrian Institute of Technology, AIT.
 </p>
 
 <p>
-<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</em>
+<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\"> https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em>
 </p>
 </html>", revisions="<html>
   <ul>
@@ -1432,8 +1430,9 @@ leads to neglection of temperature transient cv*m*der(T).
               extent={{-90,20},{90,-20}},
               lineColor={255,0,0},
               fillColor={0,0,255},
-              fillPattern=FillPattern.Solid), Text(extent={{-150,100},{150,40}},
-                textString="%name")}));
+              fillPattern=FillPattern.Solid), Text(extent={{-150,80},{150,40}},
+              textString="%name",
+              lineColor={0,0,255})}));
     end IsolatedPipe;
 
     model HeatedPipe "Pipe with heat exchange"
@@ -1468,10 +1467,11 @@ temperature rise defined by storing heat in medium's mass.
               lineColor={255,0,0},
               fillColor={0,0,255},
               fillPattern=FillPattern.Solid),
-            Text(extent={{-150,100},{150,40}}, textString="%name"),
             Polygon(
               points={{-10,-90},{-10,-40},{0,-20},{10,-40},{10,-90},{-10,-90}},
-              lineColor={255,0,0})}));
+              lineColor={255,0,0}),           Text(extent={{-150,80},{150,40}},
+              textString="%name",
+              lineColor={0,0,255})}));
     end HeatedPipe;
 
     model Valve "Simple valve"
@@ -1547,7 +1547,6 @@ V_flow**2 * rho / dp = Kv(y)**2 * rho0 / dp0
 </html>"),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
                 100}}), graphics={
-            Text(extent={{-150,-60},{150,-120}}, textString="%name"),
             Polygon(
               points={{-90,10},{-60,10},{-60,60},{0,0},{60,60},{60,10},{90,10},
                   {90,-10},{60,-10},{60,-60},{0,0},{-60,-60},{-60,-10},{-90,-10},
@@ -1555,7 +1554,10 @@ V_flow**2 * rho / dp = Kv(y)**2 * rho0 / dp0
               lineColor={255,0,0},
               fillColor={0,0,255},
               fillPattern=FillPattern.Solid),
-            Line(points={{0,80},{0,0}}, color={0,0,127})}));
+            Line(points={{0,80},{0,0}}, color={0,0,127}),
+                                              Text(extent={{-150,-70},{150,-110}},
+              textString="%name",
+              lineColor={0,0,255})}));
     end Valve;
   annotation (Documentation(info="<html>
 <p>This package contains components:</p>
@@ -1673,7 +1675,8 @@ Medium: properties of water
           "Absolute pressure as output signal");
     equation
       y = flowPort.p;
-    annotation (Documentation(info="<html>
+      annotation (
+        Documentation(info="<html>
 pSensor measures the absolute pressure.<br>
 Thermodynamic equations are defined by Partials.AbsoluteSensor.
 </html>"),
@@ -1690,7 +1693,8 @@ Thermodynamic equations are defined by Partials.AbsoluteSensor.
           "Absolute temperature as output signal");
     equation
       medium.cp*y = flowPort.h;
-    annotation (Documentation(info="<html>
+    annotation (
+        Documentation(info="<html>
 TSensor measures the absolute temperature (Kelvin).<br>
 Thermodynamic equations are defined by Partials.AbsoluteSensor.
 </html>"),
@@ -1706,7 +1710,8 @@ Thermodynamic equations are defined by Partials.AbsoluteSensor.
           "Pressure difference as output signal");
     equation
       y = flowPort_a.p - flowPort_b.p;
-    annotation (Documentation(info="<html>
+    annotation (
+        Documentation(info="<html>
 dpSensor measures the pressure drop between flowPort_a and flowPort_b.<br>
 Thermodynamic equations are defined by Partials.RelativeSensor.
 </html>"),
@@ -1722,7 +1727,8 @@ Thermodynamic equations are defined by Partials.RelativeSensor.
           "Temperature difference as output signal");
     equation
       medium.cp*y = flowPort_a.h - flowPort_b.h;
-    annotation (Documentation(info="<html>
+      annotation (
+        Documentation(info="<html>
 dTSensor measures the temperature difference between flowPort_a and flowPort_b.<br>
 Thermodynamic equations are defined by Partials.RelativeSensor.<br>
 <strong>Note:</strong> Connected flowPorts have the same temperature (mixing temperature)!<br>
@@ -1741,7 +1747,8 @@ Outlet temperature is defined by variable T of the corresponding component.
           "Mass flow as output signal");
     equation
       y = V_flow*medium.rho;
-    annotation (Documentation(info="<html>
+      annotation (
+        Documentation(info="<html>
 m_flowSensor measures the mass flow rate.<br>
 Thermodynamic equations are defined by Partials.FlowSensor.
 </html>"),
@@ -1757,7 +1764,8 @@ Thermodynamic equations are defined by Partials.FlowSensor.
           "Volume flow as output signal");
     equation
       y = V_flow;
-    annotation (Documentation(info="<html>
+      annotation (
+        Documentation(info="<html>
 V_flowSensor measures the volume flow rate.<br>
 Thermodynamic equations are defined by Partials.FlowSensor.
 </html>"),
@@ -1773,7 +1781,8 @@ Thermodynamic equations are defined by Partials.FlowSensor.
           "Enthalpy flow as output signal");
     equation
       y = flowPort_a.H_flow;
-    annotation (Documentation(info="<html>
+      annotation (
+        Documentation(info="<html>
 H_flowSensor measures the enthalpy flow rate.<br>
 Thermodynamic equations are defined by Partials.FlowSensor.
 </html>"),
@@ -1865,18 +1874,20 @@ Thermodynamic equations are defined by Partials.Ambient.
       flowPort.p = p;
       // no energy exchange; no mass flow by default
       flowPort.H_flow = 0;
-    annotation (Documentation(info="<html>
+      annotation (
+        Documentation(info="<html>
 AbsolutePressure to define pressure level of a closed cooling cycle.
 Coolant's mass flow, temperature and enthalpy flow are not affected.<br>
 </html>"),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
-        graphics={Text(extent={{-150,150},{150,90}},
-              lineColor={0,0,255},
-              textString="%name"),
+        graphics={
            Ellipse(extent={{-90,90},{90,-90}},
               lineColor={255,0,0},
               fillColor={255,255,255},
-              fillPattern=FillPattern.Solid)}));
+              fillPattern=FillPattern.Solid), Text(
+              extent={{-150,140},{150,100}},
+              lineColor={0,0,255},
+              textString="%name")}));
     end AbsolutePressure;
 
     model VolumeFlow "Enforces constant volume flow"
@@ -1901,7 +1912,8 @@ Coolant's mass flow, temperature and enthalpy flow are not affected.<br>
       end if;
       Q_flow = 0;
       V_flow = internalVolumeFlow;
-    annotation (Documentation(info="<html>
+      annotation (
+        Documentation(info="<html>
 Fan resp. pump with constant volume flow rate. Pressure increase is the response of the whole system.
 Coolant's temperature and enthalpy flow are not affected.<br>
 Setting parameter m (mass of medium within fan/pump) to zero
@@ -1914,10 +1926,6 @@ Thermodynamic equations are defined by Partials.TwoPort.
               lineColor={255,0,0},
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
-            Text(
-              extent={{-150,-90},{150,-150}},
-              lineColor={0,0,255},
-              textString="%name"),
             Polygon(
               points={{-60,68},{90,10},{90,-10},{-60,-68},{-60,68}},
               lineColor={255,0,0},
@@ -1925,7 +1933,10 @@ Thermodynamic equations are defined by Partials.TwoPort.
               fillPattern=FillPattern.Solid),
             Text(
               extent={{-40,20},{0,-20}},
-              textString="V")}));
+              textString="V"),                Text(
+              extent={{-150,-140},{150,-100}},
+              lineColor={0,0,255},
+              textString="%name")}));
     end VolumeFlow;
 
     model PressureIncrease "Enforces constant pressure increase"
@@ -1950,7 +1961,8 @@ Thermodynamic equations are defined by Partials.TwoPort.
       end if;
       Q_flow = 0;
       dp = -internalPressureIncrease;
-    annotation (Documentation(info="<html>
+      annotation (
+        Documentation(info="<html>
 Fan resp. pump with constant pressure increase. Mass resp. volume flow is the response of the whole system.
 Coolant's temperature and enthalpy flow are not affected.<br>
 Setting parameter m (mass of medium within fan/pump) to zero
@@ -1964,10 +1976,6 @@ Thermodynamic equations are defined by Partials.TwoPort.
               lineColor={255,0,0},
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
-            Text(
-              extent={{-150,-90},{150,-150}},
-              lineColor={0,0,255},
-              textString="%name"),
             Polygon(
               points={{-60,68},{90,10},{90,-10},{-60,-68},{-60,68}},
               lineColor={0,0,255},
@@ -1975,7 +1983,10 @@ Thermodynamic equations are defined by Partials.TwoPort.
               fillPattern=FillPattern.Solid),
             Text(
               extent={{-40,20},{0,-20}},
-              textString="dp")}));
+              textString="dp"),               Text(
+              extent={{-150,-100},{150,-140}},
+              lineColor={0,0,255},
+              textString="%name")}));
     end PressureIncrease;
 
     model IdealPump "Model of an ideal pump"
@@ -2010,7 +2021,8 @@ Thermodynamic equations are defined by Partials.TwoPort.
       end if;
       // no energy exchange with medium
       Q_flow = 0;
-    annotation (Documentation(info="<html>
+      annotation (
+        Documentation(info="<html>
 Simple fan resp. pump where characteristic is dependent on shaft's speed, <br>
 torque * speed = pressure increase * volume flow (without losses)<br>
 Pressure increase versus volume flow is defined by a linear function,
@@ -2031,10 +2043,6 @@ Thermodynamic equations are defined by Partials.TwoPort.
               lineColor={255,0,0},
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
-            Text(
-              extent={{-150,150},{150,90}},
-              lineColor={0,0,255},
-              textString="%name"),
             Rectangle(
               extent={{-10,-40},{10,-100}},
               fillPattern=FillPattern.VerticalCylinder,
@@ -2042,7 +2050,10 @@ Thermodynamic equations are defined by Partials.TwoPort.
             Polygon(
               points={{-60,68},{90,10},{90,-10},{-60,-68},{-60,68}},
               fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={0,0,255})}));
+              fillColor={0,0,255}),           Text(
+              extent={{-150,140},{150,100}},
+              lineColor={0,0,255},
+              textString="%name")}));
     end IdealPump;
   annotation (Documentation(info="<html>
 This package contains different types of sources:
@@ -2327,7 +2338,7 @@ Partial model of (Infinite) ambient, defines pressure and temperature.
                 lineColor={255,0,0},
                 fillColor={0,0,255},
                 fillPattern=FillPattern.Solid), Text(
-                extent={{-150,150},{150,90}},
+                extent={{-150,140},{150,100}},
                 lineColor={0,0,255},
                 textString="%name")}));
       end Ambient;
@@ -2355,9 +2366,9 @@ Pressure, mass flow, temperature and enthalpy flow of medium are not affected.
               Line(points={{-70,0},{-90,0}}),
               Line(points={{70,0},{100,0}}),
               Text(
-                extent={{-150,130},{150,70}},
-                lineColor={0,0,255},
-                textString="%name")}));
+                extent={{-150,80},{150,120}},
+                textString="%name",
+                lineColor={0,0,255})}));
       end AbsoluteSensor;
 
       partial model RelativeSensor "Partial model of relative sensor"
@@ -2391,9 +2402,9 @@ Pressure, mass flow, temperature and enthalpy flow of medium are not affected.
               Line(points={{70,0},{90,0}}),
               Line(points={{0,-100},{0,-70}}),
               Text(
-                extent={{-150,130},{150,70}},
-                lineColor={0,0,255},
-                textString="%name")}));
+                extent={{-150,80},{150,120}},
+                textString="%name",
+                lineColor={0,0,255})}));
       end RelativeSensor;
 
       partial model FlowSensor "Partial model of flow sensor"
@@ -2418,9 +2429,9 @@ Pressure, mass flow, temperature and enthalpy flow of medium are not affected, b
               Line(points={{70,0},{90,0}}),
               Line(points={{0,-100},{0,-70}}),
               Text(
-                extent={{-150,130},{150,70}},
-                lineColor={0,0,255},
-                textString="%name")}));
+                extent={{-150,80},{150,120}},
+                textString="%name",
+                lineColor={0,0,255})}));
       end FlowSensor;
     annotation (Documentation(info="<html>
 
@@ -2515,10 +2526,10 @@ Outlet temperature is defined by variable T of the corresponding component.</li>
 </ul>
 
 <p>
-Copyright &copy; 1998-2016, Modelica Association, Anton Haumer, Christian Kral and AIT.
+Copyright &copy; 1998-2018, Modelica Association, Anton Haumer, Christian Kral and AIT.
 </p>
 <p>
-<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</em>
+<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\"> https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em>
 </p>
 </html>", revisions="<html>
 

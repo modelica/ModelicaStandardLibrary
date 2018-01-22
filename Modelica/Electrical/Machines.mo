@@ -113,14 +113,19 @@ email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
       extends Modelica.Icons.ReleaseNotes;
       annotation (preferredView="info",Documentation(info="<html>
 
-<h5>Version 3.2.2, 2017-09-01 (Anton Haumer, Christian Kral)</h5>
+<h5>Version 3.2.2, 2017-12-10 (Anton Haumer, Christian Kral)</h5>
 <ul>
-  <li>Fixed bug of wrong smooth order in 
+  <li>Shortened default component names, see
+      <a href=\"https://github.com/modelica/Modelica/issues/2301\">#2301</a></li>
+  <li>Added new example
+      <a href=\"Modelica.Electrical.Machines.Examples.SynchronousInductionMachines.SMEE_DOL\">SMEE_DOL</a>, see
+      <a href=\"https://github.com/modelica/Modelica/issues/2388\">#2388</a></li>
+  <li>Fixed bug of wrong smooth order in
       <a href=\"modelica://Modelica.Electrical.Machines.Losses.DCMachines.Brush\">Brush</a>, see
       <a href=\"https://github.com/modelica/Modelica/issues/2315\">#2315</a></li>
-  <li>Unified communication interval, see 
+  <li>Unified communication interval, see
       <a href=\"https://github.com/modelica/Modelica/issues/2279\">#2279</a></li>
-  <li>Unified simulation tolerances, see 
+  <li>Unified simulation tolerances, see
       <a href=\"https://github.com/modelica/Modelica/issues/2278\">#2278</a></li>
   <li>Fixed icons of Modelica.Electrical.Machines.BasicMachines.Components, see #2031</li>
   <li>Updated blocks and functions towards multi phase systems greater or equal to three</li>
@@ -517,7 +522,7 @@ This is the library of electric machine models.
         annotation (experiment(StopTime=1.5, Interval=1E-4, Tolerance=1e-06), Documentation(
               info="<html>
 <p>At start time tStart three phase voltage is supplied to the asynchronous induction machine with squirrel cage;
-the machine starts from standstill, accelerating inertias against load torque quadratic dependent on speed, 
+the machine starts from standstill, accelerating inertias against load torque quadratic dependent on speed,
 finally reaching nominal speed.</p>
 
 <p>Simulate for 1.5 seconds and plot (versus time):</p<
@@ -644,8 +649,8 @@ finally reaching nominal speed.</p>
             points={{0,-40},{40,-40}}));
         annotation (experiment(StopTime=2.5, Interval=1E-4, Tolerance=1e-06), Documentation(
               info="<html>
-<p>At start time tStart three phase voltage is supplied to the asynchronous induction machine with squirrel cage, 
-first star-connected, then delta-connected; the machine starts from standstill, accelerating inertias against 
+<p>At start time tStart three phase voltage is supplied to the asynchronous induction machine with squirrel cage,
+first star-connected, then delta-connected; the machine starts from standstill, accelerating inertias against
 load torque quadratic dependent on speed, finally reaching nominal speed.</p>
 
 <p>Simulate for 2.5 seconds and plot (versus time):</p>
@@ -2760,8 +2765,8 @@ whereas the stator voltage is influenced by the d-current.</p>
                 255}));
         connect(smpm.flange, speedSensor.flange)
           annotation (Line(points={{0,-40},{40,-40},{40,-10}}));
-        connect(terminalBox.starpoint, starM.pin_n) annotation (Line(points={{-19,-28},
-                {-44,-28},{-70,-28},{-70,-10}}, color={0,0,255}));
+        connect(terminalBox.starpoint, starM.pin_n) annotation (Line(points={{-20,-28},{-20,-28},{-70,-28},{-70,-10}},
+                                                color={0,0,255}));
         connect(ground.p, variableResistor.n)
           annotation (Line(points={{-70,60},{-46,60},{-20,60}}, color={0,0,255}));
         connect(ground.p, grounding.n)
@@ -2771,7 +2776,7 @@ whereas the stator voltage is influenced by the d-current.</p>
         annotation (experiment(StopTime=0.8, Interval=1E-4, Tolerance=1e-06), Documentation(
               info="<html>
 <p>
-A synchronous induction machine with permanent magnets starts braking from nominal speed by feeding a diode bridge, 
+A synchronous induction machine with permanent magnets starts braking from nominal speed by feeding a diode bridge,
 which in turn feeds a braking resistor.
 Since induced voltage is reduced proportional to falling speed, the braking resistance is set proportional to speed to
 achieve constant current and torque.</p>
@@ -2779,6 +2784,224 @@ achieve constant current and torque.</p>
 <p>Default machine parameters are used.</p>
 </html>"));
       end SMPM_Braking;
+
+      model SMEE_DOL
+        "Test example: ElectricalExcitedSynchronousInductionMachine starting direct on line"
+        extends Modelica.Icons.Example;
+        constant Integer m=3 "Number of phases";
+        parameter Modelica.SIunits.Voltage VNominal=100
+          "Nominal RMS voltage per phase";
+        parameter Modelica.SIunits.Frequency fNominal=50 "Nominal frequency";
+        parameter Modelica.SIunits.Voltage Ve=smeeData.Re*smeeData.IeOpenCircuit "Excitation current";
+        parameter Modelica.SIunits.Angle gamma0(displayUnit="deg") = 0
+          "Initial rotor displacement angle";
+        Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcited
+          smee(
+          phiMechanical(start=-(Modelica.Constants.pi + gamma0)/smee.p, fixed=
+                true),
+          fsNominal=smeeData.fsNominal,
+          Rs=smeeData.Rs,
+          TsRef=smeeData.TsRef,
+          Lssigma=smeeData.Lssigma,
+          Lmd=smeeData.Lmd,
+          Lmq=smeeData.Lmq,
+          Lrsigmad=smeeData.Lrsigmad,
+          Lrsigmaq=smeeData.Lrsigmaq,
+          Rrd=smeeData.Rrd,
+          Rrq=smeeData.Rrq,
+          TrRef=smeeData.TrRef,
+          VsNominal=smeeData.VsNominal,
+          IeOpenCircuit=smeeData.IeOpenCircuit,
+          Re=smeeData.Re,
+          TeRef=smeeData.TeRef,
+          sigmae=smeeData.sigmae,
+          p=2,
+          Jr=0.29,
+          Js=0.29,
+          useDamperCage=true,
+          statorCoreParameters(VRef=100),
+          strayLoadParameters(IRef=100),
+          brushParameters(ILinear=0.01),
+          ir(fixed=true),
+          wMechanical(fixed=true),
+          TsOperational=293.15,
+          alpha20s=smeeData.alpha20s,
+          TrOperational=293.15,
+          alpha20r=smeeData.alpha20r,
+          alpha20e=smeeData.alpha20e,
+          TeOperational=293.15) annotation (Placement(transformation(extent={{-20,
+                  -50},{0,-30}})));
+        Machines.Sensors.RotorDisplacementAngle rotorDisplacementAngle(p=smee.p, m=m)
+          annotation (Placement(transformation(
+              origin={20,-40},
+              extent={{-10,10},{10,-10}},
+              rotation=270)));
+        Modelica.Electrical.Analog.Basic.Ground groundExcitation annotation (
+            Placement(transformation(
+              origin={-40,-70},
+              extent={{-10,-10},{10,10}},
+              rotation=0)));
+        Mechanics.Rotational.Sensors.MultiSensor
+                                               mechanicalMultiSensor
+          annotation (Placement(transformation(extent={{40,-50},{60,-30}})));
+        Machines.Sensors.ElectricalPowerSensor electricalPowerSensor
+          annotation (Placement(transformation(
+              origin={0,40},
+              extent={{-10,-10},{10,10}},
+              rotation=270)));
+        Machines.Sensors.CurrentQuasiRMSSensor currentQuasiRMSSensor
+          annotation (Placement(transformation(
+              origin={0,10},
+              extent={{-10,10},{10,-10}},
+              rotation=270)));
+        Modelica.Electrical.MultiPhase.Sources.SineVoltage sineVoltage(
+          final m=m,
+          final V=fill(VNominal*sqrt(2), m),
+          final freqHz=fill(fNominal, m)) annotation (Placement(transformation(
+                extent={{-20,80},{-40,100}})));
+        Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) annotation (
+            Placement(transformation(extent={{-50,80},{-70,100}})));
+        Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
+              transformation(
+              origin={-90,90},
+              extent={{-10,-10},{10,10}},
+              rotation=270)));
+        Analog.Sources.RampVoltage                     rampVoltage(
+          duration=0.1,
+          V=Ve,
+          offset=0,
+          startTime=0.5)
+                      annotation (Placement(transformation(
+              origin={-40,-40},
+              extent={{10,-10},{-10,10}},
+              rotation=90)));
+        Machines.Utilities.TerminalBox terminalBox(terminalConnection="Y")
+          annotation (Placement(transformation(extent={{-20,-34},{0,-14}})));
+        parameter Machines.Utilities.SynchronousMachineData smeeData(
+          SNominal=30e3,
+          VsNominal=100,
+          fsNominal=50,
+          IeOpenCircuit=10,
+          x0=0.1,
+          xd=1.6,
+          xq=1.6,
+          xdTransient=0.1375,
+          xdSubtransient=0.121428571,
+          xqSubtransient=0.148387097,
+          Ta=0.014171268,
+          Td0Transient=0.261177343,
+          Td0Subtransient=0.006963029,
+          Tq0Subtransient=0.123345081,
+          alpha20s(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
+          alpha20r(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
+          alpha20e(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
+          TsSpecification=293.15,
+          TsRef=293.15,
+          TrSpecification=293.15,
+          TrRef=293.15,
+          TeSpecification=293.15,
+          TeRef=293.15)
+          annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
+
+        MultiPhase.Ideal.IdealClosingSwitch                     idealCloser(
+          final m=m,
+          Ron=fill(1e-5, m),
+          Goff=fill(1e-5, m)) annotation (Placement(transformation(
+              origin={0,70},
+              extent={{-10,10},{10,-10}},
+              rotation=270)));
+        Blocks.Sources.BooleanStep booleanStep(startTime=0.0)
+          annotation (Placement(transformation(extent={{-90,60},{-70,80}})));
+        Blocks.Routing.BooleanReplicator booleanReplicator(nout=m)
+          annotation (Placement(transformation(extent={{-50,80},{-30,60}})));
+        Mechanics.Rotational.Sources.TorqueStep torqueStep(
+          offsetTorque=0,
+          stepTorque=50,
+          startTime=2)
+          annotation (Placement(transformation(extent={{90,-50},{70,-30}})));
+      initial equation
+        smee.is[1:2] = zeros(2);
+        smee.ie = 0;
+        //conditional damper cage currents are defined as fixed start values
+      equation
+        connect(rotorDisplacementAngle.plug_n, smee.plug_sn) annotation (Line(
+              points={{26,-30},{26,-20},{-16,-20},{-16,-30}}, color={0,0,255}));
+        connect(rotorDisplacementAngle.plug_p, smee.plug_sp)
+          annotation (Line(points={{14,-30},{-4,-30}}, color={0,0,255}));
+        connect(star.pin_n, ground.p)
+          annotation (Line(points={{-70,90},{-80,90}}, color={0,0,255}));
+        connect(star.plug_p, sineVoltage.plug_n)
+          annotation (Line(points={{-50,90},{-40,90}}, color={0,0,255}));
+        connect(electricalPowerSensor.plug_ni, currentQuasiRMSSensor.plug_p)
+          annotation (Line(points={{0,30},{0,20}},        color={0,0,255}));
+        connect(electricalPowerSensor.plug_nv, smee.plug_sn) annotation (Line(
+              points={{-10,40},{-16,40},{-16,-30}}, color={0,0,255}));
+        connect(terminalBox.plugSupply, currentQuasiRMSSensor.plug_n)
+          annotation (Line(
+            points={{-10,-28},{-10,0},{0,0}},
+            color={0,0,255}));
+        connect(terminalBox.plug_sn, smee.plug_sn) annotation (Line(
+            points={{-16,-30},{-16,-30}},
+            color={0,0,255}));
+        connect(terminalBox.plug_sp, smee.plug_sp) annotation (Line(
+            points={{-4,-30},{-4,-30}},
+            color={0,0,255}));
+        connect(smee.flange, rotorDisplacementAngle.flange) annotation (Line(
+            points={{0,-40},{10,-40}}));
+        connect(smee.flange,mechanicalMultiSensor. flange_a) annotation (Line(
+            points={{0,-40},{40,-40}}));
+        connect(sineVoltage.plug_p, idealCloser.plug_p)
+          annotation (Line(points={{-20,90},{0,90},{0,80}}, color={0,0,255}));
+        connect(idealCloser.plug_n, electricalPowerSensor.plug_p) annotation (Line(
+              points={{-1.77636e-015,60},{0,60},{0,50},{1.77636e-015,50}}, color={0,0,
+                255}));
+        connect(booleanReplicator.y, idealCloser.control)
+          annotation (Line(points={{-29,70},{-12,70}}, color={255,0,255}));
+        connect(booleanStep.y, booleanReplicator.u)
+          annotation (Line(points={{-69,70},{-52,70}}, color={255,0,255}));
+        connect(groundExcitation.p, rampVoltage.n)
+          annotation (Line(points={{-40,-60},{-40,-50}}, color={0,0,255}));
+        connect(rampVoltage.n, smee.pin_en) annotation (Line(points={{-40,-50},
+                {-30,-50},{-30,-46},{-20,-46}}, color={0,0,255}));
+        connect(rampVoltage.p, smee.pin_ep) annotation (Line(points={{-40,-30},
+                {-30,-30},{-30,-34},{-20,-34}}, color={0,0,255}));
+        connect(mechanicalMultiSensor.flange_b, torqueStep.flange)
+          annotation (Line(points={{60,-40},{70,-40}}));
+        annotation (experiment(
+            StopTime=3,
+            Interval=0.0001,
+            Tolerance=1e-006),                                                Documentation(info="<html>
+<p>An electrically excited synchronous generator is started direct on line utilizing the damper cage
+(and the shorted excitation winding) at 0 seconds.</p>
+<p>At t = 0.5 seconds, the excitation voltage is raised to achieve the no-load excitation current.
+Note, that reactive power of the stator goes to zero.</p>
+<p>At t = 2 second, a driving torque step is applied to the shaft (i.e. the turbine is activated).
+Note, that active and reactive power of the stator changes.
+To drive at higher torque, i.e., produce more electric power, excitation has to be adapted.
+</p>
+
+<p>Simulate for 3 seconds and plot:</p>
+
+<ul>
+<li><code>smee.tauElectrical</code></li>
+<li><code>smee.wMechanical</code></li>
+<li><code>smee.ie</code></li>
+<li><code>rotorDisplacementAngle.rotorDisplacementAngle</code></li>
+<li><code>currentQuasiRMSSensor.I</code></li>
+<li><code>electricalPowerSensor.P</code></li>
+<li><code>electricalPowerSensor.Q</code></li>
+<li><code>mechanicalMultiSensor.power</code></li>
+</ul>
+
+<p>Default machine parameters are used.</p>
+
+<h5>Note</h5>
+<p>The mains switch is closed at time = 0 in order to avoid non physical noise calculated by the <code>rotorDisplacementAngle</code>.
+This noise is caused by the interaction of the high resistance of the switch and the machine, see
+<a href=\"https://github.com/modelica/Modelica/issues/2388\">#2388</a>.
+</p>
+</html>"));
+      end SMEE_DOL;
 
       model SMEE_Generator
         "Test example: ElectricalExcitedSynchronousInductionMachine as Generator"
@@ -3455,7 +3678,7 @@ Voltage is controlled, the set point depends on speed. After start-up the genera
             points={{-80,70},{-80,90},{-40,90}}, color={0,0,255}));
         annotation (experiment(StopTime=1.1, Interval=1E-4, Tolerance=1e-06), Documentation(
               info="<html>
-<p>An electrically excited synchronous generator is driven with constant speed. Voltage is controlled, 
+<p>An electrically excited synchronous generator is driven with constant speed. Voltage is controlled,
 the set point depends on speed. The generator is loaded with a rectifier.</p>
 
 <p>Default machine parameters are used.</p>
@@ -5046,7 +5269,7 @@ This package contains test examples of electric machines.
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><strong>Copyright:</strong></dt>
-  <dd>Copyright &copy; 1998-2016, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2018, Modelica Association and Anton Haumer.<br>
   <em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
   under the terms of the <strong>Modelica license</strong>, see the license conditions
   and the accompanying <strong>disclaimer</strong> in the documentation of package
@@ -5578,7 +5801,7 @@ These models use package SpacePhasors.
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><strong>Copyright:</strong></dt>
-  <dd>Copyright &copy; 1998-2016, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2018, Modelica Association and Anton Haumer.<br>
   <em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
   under the terms of the <strong>Modelica license</strong>, see the license conditions
   and the accompanying <strong>disclaimer</strong> in the documentation of package
@@ -6636,7 +6859,7 @@ These models use package SpacePhasors.
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><strong>Copyright:</strong></dt>
-  <dd>Copyright &copy; 1998-2016, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2018, Modelica Association and Anton Haumer.<br>
   <em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
   under the terms of the <strong>Modelica license</strong>, see the license conditions
   and the accompanying <strong>disclaimer</strong> in the documentation of package
@@ -7321,7 +7544,7 @@ This package contains models of DC machines:
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><strong>Copyright:</strong></dt>
-  <dd>Copyright &copy; 1998-2016, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2018, Modelica Association and Anton Haumer.<br>
   <em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
   under the terms of the <strong>Modelica license</strong>, see the license conditions
   and the accompanying <strong>disclaimer</strong> in the documentation of package
@@ -7408,7 +7631,7 @@ where e.g., <code>L*der(i)</code> is replaced by <code>j*omega*L*(I_re+j*I_im)</
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><strong>Copyright:</strong></dt>
-  <dd>Copyright &copy; 1998-2016, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2018, Modelica Association and Anton Haumer.<br>
   <em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
   under the terms of the <strong>Modelica license</strong>, see the license conditions
   and the accompanying <strong>disclaimer</strong> in the documentation of package
@@ -7686,7 +7909,7 @@ This package contains transformers primary Y connected / secondary y connected i
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><strong>Copyright:</strong></dt>
-  <dd>Copyright &copy; 1998-2016, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2018, Modelica Association and Anton Haumer.<br>
   <em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
   under the terms of the <strong>Modelica license</strong>, see the license conditions
   and the accompanying <strong>disclaimer</strong> in the documentation of package
@@ -7923,7 +8146,7 @@ This package contains transformers primary Y connected / secondary d connected i
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><strong>Copyright:</strong></dt>
-  <dd>Copyright &copy; 1998-2016, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2018, Modelica Association and Anton Haumer.<br>
   <em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
   under the terms of the <strong>Modelica license</strong>, see the license conditions
   and the accompanying <strong>disclaimer</strong> in the documentation of package
@@ -8252,7 +8475,7 @@ This package contains transformers primary Y connected / secondary zig-zag conne
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><strong>Copyright:</strong></dt>
-  <dd>Copyright &copy; 1998-2016, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2018, Modelica Association and Anton Haumer.<br>
   <em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
   under the terms of the <strong>Modelica license</strong>, see the license conditions
   and the accompanying <strong>disclaimer</strong> in the documentation of package
@@ -8497,7 +8720,7 @@ This package contains transformers primary D connected / secondary y connected i
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><strong>Copyright:</strong></dt>
-  <dd>Copyright &copy; 1998-2016, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2018, Modelica Association and Anton Haumer.<br>
   <em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
   under the terms of the <strong>Modelica license</strong>, see the license conditions
   and the accompanying <strong>disclaimer</strong> in the documentation of package
@@ -8704,7 +8927,7 @@ This package contains transformers primary D connected / secondary d connected i
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><strong>Copyright:</strong></dt>
-  <dd>Copyright &copy; 1998-2016, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2018, Modelica Association and Anton Haumer.<br>
   <em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
   under the terms of the <strong>Modelica license</strong>, see the license conditions
   and the accompanying <strong>disclaimer</strong> in the documentation of package
@@ -9003,7 +9226,7 @@ This package contains transformers primary D connected / secondary d connected i
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><strong>Copyright:</strong></dt>
-  <dd>Copyright &copy; 1998-2016, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2018, Modelica Association and Anton Haumer.<br>
   <em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
   under the terms of the <strong>Modelica license</strong>, see the license conditions
   and the accompanying <strong>disclaimer</strong> in the documentation of package
@@ -9075,11 +9298,11 @@ even though the source's and/or load's starpoint are grounded; you may use a rea
   </dd>
 </dl>
 <p>
-Copyright &copy; 1998-2016, Modelica Association and Anton Haumer.
+Copyright &copy; 1998-2018, Modelica Association and Anton Haumer.
 </p>
 
 <p>
-<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</em>
+<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\"> https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em>
 </p>
 </html>", revisions="<html>
   <ul>
@@ -9541,7 +9764,8 @@ although reference temperature for both resistances is the same.
         ve = pin_ep.v - pin_en.v;
         spacePhasor_r.i_ = {-ie*turnsRatio,0};
         ve = spacePhasor_r.v_[1]*turnsRatio*3/2;
-        annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+        annotation (defaultComponentName="excitation",
+          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                   -100},{100,100}}), graphics={
                                           Polygon(
                       points={{-90,100},{-70,106},{-70,94},{-90,100}},
@@ -9568,7 +9792,8 @@ Model of an electrical excitation, converting excitation to space phasor.
               transformation(extent={{-110,90},{-90,110}})));
       equation
         spacePhasor_r.i_ = {-Ie,0};
-        annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+        annotation (defaultComponentName="magnet",
+          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                   -100},{100,100}}), graphics={Ellipse(
                       extent={{-60,60},{60,20}},
                       lineColor={255,0,0},
@@ -9605,6 +9830,9 @@ Model of a permanent magnet excitation, characterized by an equivalent excitatio
       model PermanentMagnetWithLosses "Permanent magnet excitation"
         extends Machines.BasicMachines.Components.PermanentMagnet;
         extends Machines.Losses.InductionMachines.PermanentMagnetLosses;
+        annotation(defaultComponentName="magnet", Documentation(info="<html>
+Model of a permanent magnet excitation with loss, characterized by an equivalent excitation current.
+</html>"));
       end PermanentMagnetWithLosses;
 
       model InductorDC
@@ -9615,7 +9843,7 @@ Model of a permanent magnet excitation, characterized by an equivalent excitatio
           "No electrical transients if true" annotation (Evaluate=true);
       equation
         v = if quasiStationary then 0 else L*der(i);
-        annotation (
+        annotation (defaultComponentName="inductor",
           Documentation(info="<html>
 <p>The linear inductor connects the branch voltage <em>v</em> with the branch current <em>i</em> by <em>v = L * di/dt</em>.
 If <code>quasiStationary == false</code>, the electrical transients are neglected, i.e., the voltage drop is zero.</p>
@@ -9773,7 +10001,8 @@ Induced armature voltage is calculated from flux times angular velocity.
         //induced voltages
         ve = v;
         vse = v*excitationTurnsRatio;
-        annotation (Icon(graphics={Polygon(
+        annotation (defaultComponentName="excitation",
+          Icon(graphics={Polygon(
                       points={{-60,-40},{-40,-40},{0,4},{40,-40},{60,-40},{10,
                   20},{10,60},{20,60},{0,80},{-20,60},{-10,60},{-10,20},{-60,-40}},
                       lineColor={0,0,255},
@@ -9968,7 +10197,7 @@ These models use package SpacePhasors.
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><strong>Copyright:</strong></dt>
-  <dd>Copyright &copy; 1998-2016, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2018, Modelica Association and Anton Haumer.<br>
   <em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
   under the terms of the <strong>Modelica license</strong>, see the license conditions
   and the accompanying <strong>disclaimer</strong> in the documentation of package
@@ -10011,7 +10240,7 @@ The induction machine models use package SpacePhasors.
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><strong>Copyright:</strong></dt>
-  <dd>Copyright &copy; 1998-2016, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2018, Modelica Association and Anton Haumer.<br>
   <em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
   under the terms of the <strong>Modelica license</strong>, see the license conditions
   and the accompanying <strong>disclaimer</strong> in the documentation of package
@@ -10125,7 +10354,8 @@ The induction machine models use package SpacePhasors.
                                                               color={0,0,127}));
       connect(Gain1.y, V) annotation (Line(
           points={{0,-81},{0,-110}}, color={0,0,127}));
-      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+      annotation (defaultComponentName="voltageRMSSensor",
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Line(points={{-90,0},{-70,0}},
               color={0,0,255}),Line(points={{70,0},{90,0}}, color={0,0,255}),
               Line(points={{0,-70},{0,-100}}, color={0,0,127}),Text(
@@ -10137,7 +10367,7 @@ The induction machine models use package SpacePhasors.
                     textString="%name",
                     lineColor={0,0,255})}),
                                          Documentation(info="<html>
-Measured 3-phase instantaneous voltages are transformed to the corresponding space phasor; <br>
+Measured 3-phase instantaneous voltages are transformed to the corresponding space phasor;
 output is length of the space phasor divided by sqrt(2), thus giving in sinusoidal stationary state RMS voltage.
 </html>"));
     end VoltageQuasiRMSSensor;
@@ -10186,7 +10416,8 @@ output is length of the space phasor divided by sqrt(2), thus giving in sinusoid
                                                               color={0,0,127}));
       connect(Gain1.y, I) annotation (Line(
           points={{0,-81},{0,-110}}, color={0,0,127}));
-      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+      annotation (defaultComponentName="currentRMSSensor",
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Line(points={{-90,0},{-70,0}},
               color={0,0,255}),Line(points={{70,0},{90,0}}, color={0,0,255}),
               Line(points={{0,-70},{0,-100}}, color={0,0,127}),Text(
@@ -10198,7 +10429,7 @@ output is length of the space phasor divided by sqrt(2), thus giving in sinusoid
                     textString="%name",
                     lineColor={0,0,255})}),
                                          Documentation(info="<html>
-Measured 3-phase instantaneous currents are transformed to the corresponding space phasor; <br>
+Measured 3-phase instantaneous currents are transformed to the corresponding space phasor;
 output is length of the space phasor divided by sqrt(2), thus giving in sinusoidal stationary state RMS current.
 </html>"));
     end CurrentQuasiRMSSensor;
@@ -10233,7 +10464,8 @@ output is length of the space phasor divided by sqrt(2), thus giving in sinusoid
       i_ = Machines.SpacePhasors.Functions.ToSpacePhasor(plug_p.pin.i);
       2/3*P = +v_[1]*i_[1] + v_[2]*i_[2];
       2/3*Q = -v_[1]*i_[2] + v_[2]*i_[1];
-      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+      annotation (defaultComponentName="powerSensor",
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Line(points={{-90,0},{-70,0}},
               color={0,0,255}),Line(points={{70,0},{90,0}}, color={0,0,255}),
               Line(points={{0,-70},{0,-90}}, color={0,0,255}),Line(points={{-10,
@@ -10243,10 +10475,11 @@ output is length of the space phasor divided by sqrt(2), thus giving in sinusoid
                   extent={{-40,-60},{40,-20}},
                   textString="P Q")}), Documentation(info="<html>
 3-phase instantaneous voltages (plug_p - plug_nv) and currents (plug_p - plug_ni) are transformed to the corresponding space phasors, <br>
-which are used to calculate power quantities:<br>
-P = instantaneous power, thus giving in stationary state active power.<br>
-Q = giving in stationary state reactive power.<br>
-</html>"));
+which are used to calculate power quantities:
+<ul>
+<li>P = instantaneous power, thus giving in stationary state active power.</li>
+<li>Q = giving in stationary state reactive power.</li>
+</ul></html>"));
     end ElectricalPowerSensor;
 
     model MechanicalPowerSensor "Mechanical power = torque x speed"
@@ -10292,7 +10525,8 @@ Q = giving in stationary state reactive power.<br>
           points={{22,-11},{22,-20},{6,-20},{6,18}}, color={0,0,127}));
       connect(product.y, P) annotation (Line(
           points={{0,41},{0,110}}, color={0,0,127}));
-      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+      annotation (defaultComponentName="powerSensor",
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Line(points={{-70,0},{-90,0}}),
               Line(points={{70,0},{90,0}}),Line(points={{0,70},{0,100}}, color=
               {0,0,127}),Rectangle(
@@ -10317,6 +10551,7 @@ Calculates (mechanical) power from torque times angular speed.
       parameter Integer m=3 "Number of phases";
       parameter Integer p(min=1) "Number of pole pairs";
       parameter Boolean positiveRange=false "Use only positive output range, if true";
+      parameter Real threshold(final min=0)=0 "Below threshold the voltage is considered as zero";
       parameter Boolean useSupport=false "Use support or fixed housing"
         annotation (Evaluate=true);
       Modelica.Blocks.Interfaces.RealOutput rotorDisplacementAngle(final
@@ -10332,7 +10567,7 @@ Calculates (mechanical) power from torque times angular speed.
             extent={{10,-10},{-10,10}},
             rotation=90)));
       SpacePhasors.Blocks.ToSpacePhasor ToSpacePhasorVS(final m=m) annotation (
-          Placement(transformation(extent={{-60,-10},{-40,10}})));
+          Placement(transformation(extent={{-50,-10},{-30,10}})));
       Modelica.Mechanics.Rotational.Interfaces.Flange_a flange annotation (
           Placement(transformation(extent={{-10,90},{10,110}})));
       Modelica.Mechanics.Rotational.Sensors.RelAngleSensor relativeAngleSensor
@@ -10347,19 +10582,21 @@ Calculates (mechanical) power from torque times angular speed.
       Modelica.Electrical.Machines.SpacePhasors.Blocks.Rotator rotatorVS2R
         annotation (Placement(transformation(extent={{-20,10},{0,-10}})));
       Modelica.Electrical.Machines.SpacePhasors.Blocks.ToPolar ToPolarVSR
-        annotation (Placement(transformation(extent={{20,-10},{40,10}})));
+        annotation (Placement(transformation(extent={{10,-10},{30,10}})));
       Modelica.Mechanics.Rotational.Interfaces.Flange_a support if useSupport
         "support at which the reaction torque is acting" annotation (Placement(
             transformation(extent={{90,90},{110,110}})));
       Modelica.Mechanics.Rotational.Components.Fixed fixed if (not useSupport)
         annotation (Placement(transformation(extent={{90,70},{110,90}})));
       Blocks.Math.WrapAngle wrapAngle(final positiveRange=positiveRange)
-        annotation (Placement(transformation(extent={{60,-10},{80,10}})));
+        annotation (Placement(transformation(extent={{70,-10},{90,10}})));
+      SpacePhasors.Blocks.LessThreshold lessThreshold(final threshold=threshold)
+        annotation (Placement(transformation(extent={{40,-10},{60,10}})));
     equation
-      connect(plug_p, VoltageSensor1.plug_p) annotation (Line(points={{-100,60},
-              {-80,60},{-80,10}}, color={0,0,255}));
-      connect(plug_n, VoltageSensor1.plug_n) annotation (Line(points={{-100,-60},
-              {-80,-60},{-80,-10}}, color={0,0,255}));
+      connect(plug_p, VoltageSensor1.plug_p) annotation (Line(points={{-100,60},{-80,
+              60},{-80,10}},      color={0,0,255}));
+      connect(plug_n, VoltageSensor1.plug_n) annotation (Line(points={{-100,-60},{-80,
+              -60},{-80,-10}},      color={0,0,255}));
       connect(relativeAngleSensor.flange_b, flange)
         annotation (Line(points={{20,80},{0,80},{0,100}}));
       connect(relativeAngleSensor.flange_a, support) annotation (Line(
@@ -10371,16 +10608,20 @@ Calculates (mechanical) power from torque times angular speed.
       connect(constant_.y, add.u2) annotation (Line(
           points={{-29,50},{-16,50},{-16,42}}, color={0,0,127}));
       connect(VoltageSensor1.v, ToSpacePhasorVS.u) annotation (Line(
-          points={{-69,0},{-62,0}}, color={0,0,127}));
+          points={{-69,0},{-52,0}}, color={0,0,127}));
       connect(ToSpacePhasorVS.y, rotatorVS2R.u) annotation (Line(
-          points={{-39,0},{-22,0}}, color={0,0,127}));
+          points={{-29,0},{-22,0}}, color={0,0,127}));
       connect(rotatorVS2R.y, ToPolarVSR.u) annotation (Line(
-          points={{1,0},{18,0}}, color={0,0,127}));
+          points={{1,0},{8,0}},  color={0,0,127}));
       connect(add.y, rotatorVS2R.angle) annotation (Line(
           points={{-10,19},{-10,12}}, color={0,0,127}));
-      connect(ToPolarVSR.y[2], wrapAngle.u) annotation (Line(points={{41,0},{58,0}}, color={0,0,127}));
-      connect(wrapAngle.y, rotorDisplacementAngle) annotation (Line(points={{81,0},{110,0}}, color={0,0,127}));
-      annotation (
+      connect(wrapAngle.y, rotorDisplacementAngle) annotation (Line(points={{91,0},{
+              110,0}},                                                                       color={0,0,127}));
+      connect(ToPolarVSR.y, lessThreshold.u)
+        annotation (Line(points={{31,0},{38,0}}, color={0,0,127}));
+      connect(lessThreshold.y, wrapAngle.u)
+        annotation (Line(points={{61,0},{68,0}}, color={0,0,127}));
+      annotation (defaultComponentName="angleSensor",
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Ellipse(
                   extent={{-60,80},{60,40}},
@@ -10450,7 +10691,7 @@ This package contains sensors that are useful when modelling machines.
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><strong>Copyright:</strong></dt>
-  <dd>Copyright &copy; 1998-2016, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2018, Modelica Association and Anton Haumer.<br>
   <em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
   under the terms of the <strong>Modelica license</strong>, see the license conditions
   and the accompanying <strong>disclaimer</strong> in the documentation of package
@@ -10603,7 +10844,7 @@ a ground has to be used where necessary for currents flowing back.
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><strong>Copyright:</strong></dt>
-  <dd>Copyright &copy; 1998-2016, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2018, Modelica Association and Anton Haumer.<br>
   <em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
   under the terms of the <strong>Modelica license</strong>, see the license conditions
   and the accompanying <strong>disclaimer</strong> in the documentation of package
@@ -10837,6 +11078,13 @@ This model determines the RMS value of the input space phasor <code>u</code>.</p
                       lineColor={0,0,255},
                       textString="RMS")}));
       end QuasiRMS;
+
+      block LessThreshold "Sets angle to zero when length is below theshold"
+        extends Modelica.Blocks.Interfaces.MISO(final nin=2);
+        parameter Real threshold(final min=0) "threshold";
+      equation
+        y = if noEvent(u[1]<threshold) then 0 else u[2];
+      end LessThreshold;
       annotation (Documentation(info="<html>
 This package contains space phasor transformation blocks for use in controllers:
 <ul>
@@ -10860,7 +11108,7 @@ the first element representing the real part and the second element representing
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><strong>Copyright:</strong></dt>
-  <dd>Copyright &copy; 1998-2016, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2018, Modelica Association and Anton Haumer.<br>
   <em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
   under the terms of the <strong>Modelica license</strong>, see the license conditions
   and the accompanying <strong>disclaimer</strong> in the documentation of package
@@ -11061,7 +11309,7 @@ the first element representing the real part and the second element representing
   </dd>
 
   <dt><strong>Copyright:</strong></dt>
-  <dd>Copyright &copy; 1998-2016, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2018, Modelica Association and Anton Haumer.<br>
   <em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
   under the terms of the <strong>Modelica license</strong>, see the license conditions
   and the accompanying <strong>disclaimer</strong> in the documentation of package
@@ -11090,7 +11338,7 @@ You may have a look at a short summary of space phasor theory at <a href=\"http:
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><strong>Copyright:</strong></dt>
-  <dd>Copyright &copy; 1998-2016, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2018, Modelica Association and Anton Haumer.<br>
   <em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
   under the terms of the <strong>Modelica license</strong>, see the license conditions
   and the accompanying <strong>disclaimer</strong> in the documentation of package
@@ -11474,7 +11722,8 @@ If it is desired to neglect stray load losses, set <code>strayLoadParameters.PRe
             sign(w)*(abs(w)/permanentMagnetLossParameters.wRef)^permanentMagnetLossParameters.power_w;
         end if;
         lossPower = -tau*w;
-        annotation (Icon(graphics={Ellipse(extent={{-40,-40},{40,40}},
+        annotation (defaultComponentName="magnetLoss",
+          Icon(graphics={Ellipse(extent={{-40,-40},{40,40}},
                 lineColor={200,0,0})}), Documentation(info="<html>
 <p>
 Permanent magnet losses are modeled dependent on current and speed.
@@ -11506,7 +11755,8 @@ If it is desired to neglect permanent magnet losses, set <code>strayLoadParamete
       end PermanentMagnetLosses;
 
       model Core "Model of core losses"
-        parameter Machines.Losses.CoreParameters coreParameters;
+        parameter Machines.Losses.CoreParameters coreParameters(m=3);
+        //for backwards compatibility present but unused
         final parameter Integer m=coreParameters.m "Number of phases";
         parameter Real turnsRatio(final min=Modelica.Constants.small)
           "Effective number of stator turns / effective number of rotor turns (if used as rotor core)";
@@ -11619,7 +11869,7 @@ This package contains loss models used for induction machine models.
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><strong>Copyright:</strong></dt>
-  <dd>Copyright &copy; 1998-2016, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2018, Modelica Association and Anton Haumer.<br>
   <em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
   under the terms of the <strong>Modelica license</strong>, see the license conditions
   and the accompanying <strong>disclaimer</strong> in the documentation of package
@@ -11769,8 +12019,7 @@ If it is desired to neglect stray load losses, set <code>strayLoadParameters.PRe
 
       model Core "Model of core losses"
         extends Modelica.Electrical.Analog.Interfaces.OnePort;
-        parameter Machines.Losses.CoreParameters coreParameters
-          "Armature core losses";
+        parameter Machines.Losses.CoreParameters coreParameters(m=1) "Armature core losses";
         extends
           Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT(
             useHeatPort=false);
@@ -11856,7 +12105,7 @@ This package contains loss models used for DC machine models.
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><strong>Copyright:</strong></dt>
-  <dd>Copyright &copy; 1998-2016, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2018, Modelica Association and Anton Haumer.<br>
   <em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
   under the terms of the <strong>Modelica license</strong>, see the license conditions
   and the accompanying <strong>disclaimer</strong> in the documentation of package
@@ -11880,7 +12129,7 @@ This package contains loss models and their parameter records used for machine m
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><strong>Copyright:</strong></dt>
-  <dd>Copyright &copy; 1998-2016, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2018, Modelica Association and Anton Haumer.<br>
   <em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
   under the terms of the <strong>Modelica license</strong>, see the license conditions
   and the accompanying <strong>disclaimer</strong> in the documentation of package
@@ -12007,6 +12256,44 @@ where <code>RRef</code> is the resistance at the reference temperature <code>TRe
 </p>
 </html>"));
     end convertResistance;
+
+    function linearTemperatureDependency
+      "Converts a value (e.g. resistance) from reference temperature to an actual temperature"
+      extends Modelica.Icons.Function;
+      input Real RRef "Value at TRef";
+      input Modelica.SIunits.Temperature TRef "Reference temperature";
+      input Modelica.SIunits.LinearTemperatureCoefficient alpha20
+        "Temperature coefficient at 20 degC";
+      input Modelica.SIunits.Temperature T "Actual temperature";
+      output Real R "Actual value at T";
+    algorithm
+      R := RRef*(1 + Machines.Thermal.convertAlpha(alpha20, TRef)*(T - TRef));
+      annotation (Inline=true,Documentation(info="<html>
+<p>
+This is the same function as Modelica.Electrical.Machines.Thermal.convertResistance but without physical units for input RRef and result R.
+This avoids problems if the function is used to calculate linear temperature dependency for other values than resistances.
+</p>
+<p>
+From the temperature coefficient <code>alpha20</code> at 20 degC (equals to 293.15 K) the parameter <code>alphaRef</code> at <code>TRef</code>
+</p>
+<pre>
+                        alpha20
+  alphaRef = -------------------------------
+              1 + alpha20 * (TRef - 293.15)
+</pre>
+<p>
+is determined; using this value, actual value (e.g. resistance <code>R</code>) with respect to the actual temperature <code>T</code> is calculated by
+</p>
+<pre>
+   R
+  ------ = 1 + alphaRef * (T - TRef)
+   RRef
+</pre>
+<p>
+where <code>RRef</code> is the value (e.g. resistance) at the reference temperature <code>TRef</code>.
+</p>
+</html>"));
+    end linearTemperatureDependency;
 
     package AsynchronousInductionMachines
       "Thermal parts of asynchronous induction machines"
@@ -14153,7 +14440,7 @@ Circuit layout (vector group) of primary and secondary windings have to be defin
       Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPortCore
         "Heat port of (optional) core losses"
         annotation (Placement(transformation(extent={{0,-10},{20,10}})));
-      annotation (
+        annotation (
         Diagram(graphics={Rectangle(
               extent={{-60,60},{60,-60}},
               lineColor={191,0,0},
@@ -14229,7 +14516,7 @@ This package contains the space phasor connector and partial models for machine 
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><strong>Copyright:</strong></dt>
-  <dd>Copyright &copy; 1998-2016, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2018, Modelica Association and Anton Haumer.<br>
   <em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
   under the terms of the <strong>Modelica license</strong>, see the license conditions
   and the accompanying <strong>disclaimer</strong> in the documentation of package
@@ -14480,7 +14767,7 @@ The icons can be utilized by inheriting them in the desired class using \"extend
   package Utilities "Library with auxiliary models for testing"
     extends Modelica.Icons.UtilitiesPackage;
     package ParameterRecords "Parameter records"
-      extends Modelica.Icons.MaterialPropertiesPackage;
+      extends Modelica.Icons.RecordsPackage;
       record InductionMachineData "Common parameters for induction machines"
         extends Modelica.Icons.Record;
         import Modelica.Constants.pi;
@@ -15066,7 +15353,8 @@ using the provided mechanical rotor angle phi. The output are the instantaneous 
           points={{11,40},{20,40},{20,8},{38,8}}, color={0,0,127}));
       connect(fromSpacePhasor.y, y) annotation (Line(
           points={{61,0},{110,0}}, color={0,0,127}));
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-100,60},{20,40}},
               lineColor={0,0,255},
@@ -15191,7 +15479,8 @@ They can be used to feed a current source which in turn feeds an induction machi
           points={{11,0},{20,0},{20,6},{30,6}}, color={0,0,127}));
       connect(deCoupling.y, add.u2) annotation (Line(
           points={{11,-30},{20,-30},{20,-6},{30,-6}}, color={0,0,127}));
-      annotation (Icon(graphics={Text(
+      annotation (
+        Icon(graphics={Text(
               extent={{-100,60},{20,40}},
               lineColor={0,0,255},
               textString="id_rms"), Text(
@@ -15383,7 +15672,7 @@ choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
               -40}}, color={0,0,255}));
       connect(starpoint, multiStar.starpoints) annotation (Line(
           points={{-100,-40},{-86,-40},{-86,-80},{-80,-80}},color={0,0,255}));
-      annotation (
+      annotation (defaultComponentName="terminalBox",
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={Polygon(
               points={{-74,-40},{-80,-46},{-80,-80},{-40,-100},{40,-100},{80,-70},{80,-44},{76,-40},{-74,-40}},
@@ -15449,7 +15738,8 @@ choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
           points={{-60,-60},{-70,-60}}, color={0,0,255}));
       connect(booleanStep.y, idealCommutingSwitch.control) annotation (Line(
           points={{-39,20},{28,20}}, color={255,0,255}));
-      annotation (Icon(graphics={
+      annotation (defaultComponentName="rheostat",
+        Icon(graphics={
             Rectangle(
               extent={{26,40},{54,-40}},
               lineColor={0,0,255},
@@ -15513,7 +15803,8 @@ choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
           points={{60,-10},{60,-60},{-20,-60}}, color={0,0,255}));
       connect(star.pin_n, ground.p) annotation (Line(
           points={{-40,-60},{-60,-60}}, color={0,0,255}));
-      annotation (Icon(graphics={
+      annotation (defaultComponentName="rheostat",
+        Icon(graphics={
             Rectangle(
               extent={{26,40},{54,-40}},
               lineColor={0,0,255},
@@ -15758,7 +16049,7 @@ This package contains utility components for testing examples.
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><strong>Copyright:</strong></dt>
-  <dd>Copyright &copy; 1998-2016, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2018, Modelica Association and Anton Haumer.<br>
   <em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
   under the terms of the <strong>Modelica license</strong>, see the license conditions
   and the accompanying <strong>disclaimer</strong> in the documentation of package
@@ -15783,10 +16074,10 @@ This package contains utility components for testing examples.
     Documentation(info="<html>
 <p><strong>For a discrimination of various machine models, see <a href=\"modelica://Modelica.Electrical.Machines.UsersGuide.Discrimination\">discrimination</a></strong>.</p>
 <p>
-Copyright &copy; 1998-2016, Modelica Association, Anton Haumer, Christian Kral and AIT.
+Copyright &copy; 1998-2018, Modelica Association, Anton Haumer, Christian Kral and AIT.
 </p>
 <p>
-<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</em>
+<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\"> https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em>
 </p>
 </html>", revisions="<html>
 </html>"),

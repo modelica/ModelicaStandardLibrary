@@ -3,7 +3,7 @@ package Types "Constants and types with choices, especially to build menus"
   extends Modelica.Icons.TypesPackage;
 
   type Axis = Modelica.Icons.TypeReal[3](each final unit="1")
-    "Axis vector with choices for menus" annotation (
+    "Axis vector with choices" annotation (
     preferredView="text",
     Evaluate=true,
     choices(
@@ -23,14 +23,14 @@ For an example see parameter \"n\" in model
 </html>"));
 
   type AxisLabel = Modelica.Icons.TypeString
-    "Label of axis with choices for menus" annotation (
+    "Label of axis with choices" annotation (
       preferredView="text", choices(
       choice="x" "\"x\"",
       choice="y" "\"y\"",
       choice="z" "\"z\""));
 
   type RotationSequence = Modelica.Icons.TypeInteger[3] (min={1,1,1}, max={3,3,3})
-    "Sequence of planar frame rotations with choices for menus" annotation (
+    "Sequence of planar frame rotations with choices" annotation (
     preferredView="text",
     Evaluate=true,
     choices(

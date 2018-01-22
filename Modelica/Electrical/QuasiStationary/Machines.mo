@@ -31,7 +31,7 @@ package Machines "Quasistationary machine models"
       QuasiStationary.SinglePhase.Basic.Ground groundS annotation (Placement(
             transformation(extent={{-100,-70},{-80,-50}})));
       QuasiStationary.MultiPhase.Sensors.PowerSensor electricalPowerSensorS(m=m)
-        annotation (Placement(transformation(extent={{-90,10},{-70,30}})));
+        annotation (Placement(transformation(extent={{-80,10},{-60,30}})));
       QuasiStationary.MultiPhase.Sensors.CurrentSensor currentSensorS(m=m)
         annotation (Placement(transformation(extent={{-60,30},{-40,10}})));
       ComplexBlocks.ComplexMath.ComplexToPolar polarIS annotation (Placement(
@@ -82,7 +82,7 @@ package Machines "Quasistationary machine models"
             rotation=90,
             origin={50,80})));
       QuasiStationary.MultiPhase.Sensors.PowerSensor electricalPowerSensorL(m=m)
-        annotation (Placement(transformation(extent={{70,10},{90,30}})));
+        annotation (Placement(transformation(extent={{60,10},{80,30}})));
       QuasiStationary.MultiPhase.Basic.Resistor load(R_ref=RL, m=m) annotation (
          Placement(transformation(
             origin={90,0},
@@ -152,30 +152,29 @@ package Machines "Quasistationary machine models"
           points={{90,-40},{90,-50}}, color={85,170,255}));
       connect(load.plug_n, starL.plug_p) annotation (Line(
           points={{90,-10},{90,-20}}, color={85,170,255}));
-      connect(source.plug_p, electricalPowerSensorS.currentP) annotation (Line(
-          points={{-90,10},{-90,20}}, color={85,170,255}));
       connect(electricalPowerSensorS.currentP, electricalPowerSensorS.voltageP)
         annotation (Line(
-          points={{-90,20},{-90,30},{-80,30}}, color={85,170,255}));
+          points={{-80,20},{-80,30},{-70,30}}, color={85,170,255}));
       connect(electricalPowerSensorS.currentN, currentSensorS.plug_p)
         annotation (Line(
-          points={{-70,20},{-60,20}}, color={85,170,255}));
+          points={{-60,20},{-60,20}}, color={85,170,255}));
       connect(currentSensorS.plug_n, transformer.plug1) annotation (Line(
           points={{-40,20},{-20,20}}, color={85,170,255}));
       connect(transformer.plug2, currentSensorL.plug_p) annotation (Line(
           points={{20,20},{40,20}}, color={85,170,255}));
       connect(currentSensorL.plug_n, electricalPowerSensorL.currentP)
         annotation (Line(
-          points={{60,20},{70,20}}, color={85,170,255}));
+          points={{60,20},{60,20}}, color={85,170,255}));
       connect(electricalPowerSensorL.currentP, electricalPowerSensorL.voltageP)
         annotation (Line(
-          points={{70,20},{70,30},{80,30}}, color={85,170,255}));
+          points={{60,20},{60,30},{70,30}}, color={85,170,255}));
       connect(electricalPowerSensorL.currentN, load.plug_p) annotation (Line(
-          points={{90,20},{90,10}}, color={85,170,255}));
+          points={{80,20},{80,20},{90,20},{90,10}},
+                                    color={85,170,255}));
       connect(electricalPowerSensorL.voltageN, starL.plug_p) annotation (Line(
-          points={{80,10},{80,-20},{90,-20}}, color={85,170,255}));
+          points={{70,10},{70,-20},{90,-20}}, color={85,170,255}));
       connect(electricalPowerSensorS.voltageN, starS.plug_p) annotation (Line(
-          points={{-80,10},{-80,-20},{-90,-20}}, color={85,170,255}));
+          points={{-70,10},{-70,-20},{-90,-20}}, color={85,170,255}));
       connect(earth.pin_n, groundT.pin) annotation (Line(
           points={{0,-40},{0,-50}}, color={85,170,255}));
       connect(deltaS.plug_p, voltageSensorS.plug_n) annotation (Line(
@@ -206,6 +205,8 @@ package Machines "Quasistationary machine models"
               {50,-31},{50,-34.5},{50,-38}}, color={85,170,255}));
       connect(symmetricalComponentsVL.y[1], polarVL.u) annotation (Line(points={{50,
               -61},{50,-64.5},{50,-68}}, color={85,170,255}));
+      connect(electricalPowerSensorS.currentP, source.plug_p) annotation (Line(
+            points={{-80,20},{-90,20},{-90,10}}, color={85,170,255}));
       annotation (Documentation(info="<html>
 Transformer testbench:<br>
 You may choose different connections as well as vary the load (even not symmetrical).<br>
@@ -496,7 +497,7 @@ This package contains transformers primary Y connected / secondary y connected i
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><strong>Copyright:</strong></dt>
-  <dd>Copyright &copy; 1998-2016, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2018, Modelica Association and Anton Haumer.<br>
   <em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
   under the terms of the <strong>Modelica license</strong>, see the license conditions
   and the accompanying <strong>disclaimer</strong> in the documentation of package
@@ -530,8 +531,8 @@ This package contains transformers primary Y connected / secondary y connected i
           connect(Delta2.plug_p, r2.plug_n) annotation (Line(points={{50,-20},{
                   90,-20},{90,0}}, color={85,170,255}));
           connect(l1sigma.plug_n, core.plug_p1) annotation (Line(points={{-50,0},
-                  {-50,20},{-10,20},{-10,5}}, color={85,170,255}));
-          connect(core.plug_n1, star1.plug_p) annotation (Line(points={{-10,-5},
+                  {-50,20},{-10,20},{-10,10}},color={85,170,255}));
+          connect(core.plug_n1, star1.plug_p) annotation (Line(points={{-10,-10},
                   {-10,-70},{-10,-70}}, color={85,170,255}));
           connect(core.plug_n2, core.plug_p3)
             annotation (Line(points={{10,4},{10,-4}}, color={85,170,255}));
@@ -740,7 +741,7 @@ This package contains transformers primary Y connected / secondary d connected i
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><strong>Copyright:</strong></dt>
-  <dd>Copyright &copy; 1998-2016, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2018, Modelica Association and Anton Haumer.<br>
   <em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
   under the terms of the <strong>Modelica license</strong>, see the license conditions
   and the accompanying <strong>disclaimer</strong> in the documentation of package
@@ -1076,7 +1077,7 @@ This package contains transformers primary Y connected / secondary zig-zag conne
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><strong>Copyright:</strong></dt>
-  <dd>Copyright &copy; 1998-2016, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2018, Modelica Association and Anton Haumer.<br>
   <em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
   under the terms of the <strong>Modelica license</strong>, see the license conditions
   and the accompanying <strong>disclaimer</strong> in the documentation of package
@@ -1328,7 +1329,7 @@ This package contains transformers primary D connected / secondary y connected i
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><strong>Copyright:</strong></dt>
-  <dd>Copyright &copy; 1998-2016, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2018, Modelica Association and Anton Haumer.<br>
   <em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
   under the terms of the <strong>Modelica license</strong>, see the license conditions
   and the accompanying <strong>disclaimer</strong> in the documentation of package
@@ -1542,7 +1543,7 @@ This package contains transformers primary D connected / secondary d connected i
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><strong>Copyright:</strong></dt>
-  <dd>Copyright &copy; 1998-2016, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2018, Modelica Association and Anton Haumer.<br>
   <em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
   under the terms of the <strong>Modelica license</strong>, see the license conditions
   and the accompanying <strong>disclaimer</strong> in the documentation of package
@@ -1844,7 +1845,7 @@ This package contains transformers primary D connected / secondary d connected i
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><strong>Copyright:</strong></dt>
-  <dd>Copyright &copy; 1998-2016, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2018, Modelica Association and Anton Haumer.<br>
   <em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
   under the terms of the <strong>Modelica license</strong>, see the license conditions
   and the accompanying <strong>disclaimer</strong> in the documentation of package
@@ -1917,10 +1918,10 @@ even though the source's and/or load's starpoint are grounded; you may use a rea
   </dd>
 </dl>
 <p>
-Copyright &copy; 1998-2016, Modelica Association and Anton Haumer.
+Copyright &copy; 1998-2018, Modelica Association and Anton Haumer.
 </p>
 <p>
-<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</em>
+<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\"> https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em>
 </p>
 </html>", revisions="<html>
   <ul>
@@ -2044,11 +2045,12 @@ Copyright &copy; 1998-2016, Modelica Association and Anton Haumer.
         plug_p1.reference.gamma = plug_p2.reference.gamma;
         Connections.branch(plug_p1.reference, plug_p3.reference);
         plug_p1.reference.gamma = plug_p3.reference.gamma;
-        //Define p1, p2 and p3 as potential roots
         //Note: transformer could be fed from primary or secondary side
-        Connections.potentialRoot(plug_p1.reference);
-        Connections.potentialRoot(plug_p2.reference);
-        Connections.potentialRoot(plug_p3.reference);
+        //Define p1, p2 and p3 as potential roots
+        //Not necessary since there exist non-breakable branches between primary and secondary side
+        //Connections.potentialRoot(plug_p1.reference);
+        //Connections.potentialRoot(plug_p2.reference);
+        //Connections.potentialRoot(plug_p3.reference);
         //Current balances
         plug_p1.pin.i + plug_n1.pin.i = fill(Complex(0), m);
         plug_p2.pin.i + plug_n2.pin.i = fill(Complex(0), m);

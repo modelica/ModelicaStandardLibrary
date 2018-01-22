@@ -165,19 +165,13 @@ definition of the colors used in the MultiBody library together with a color edi
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
           Polygon(
-            points={{-100,33},{-100,-61},{-10,-41},{50,-61},{50,33},{-10,11},{-100,
-                33}},
-            lineColor={0,127,255},
-            fillColor={0,127,255},
-            fillPattern=FillPattern.Solid),
-          Polygon(
-            points={{-98,34},{-64,46},{0,30},{74,56},{50,32},{-10,12},{-98,34}},
-            lineColor={255,255,255},
-            fillColor={160,160,164},
+            points={{-100,32},{-64,46},{2,30},{72,54},{50,32},{-10,12},{-100,32}},
+            lineColor={215,215,215},
+            fillColor={160,160,160},
             fillPattern=FillPattern.Solid),
           Polygon(
             points={{72,54},{50,32},{50,-60},{72,-32},{72,54}},
-            lineColor={255,255,255},
+            lineColor={215,215,215},
             fillColor={160,160,164},
             fillPattern=FillPattern.Solid),
           Text(
@@ -186,7 +180,12 @@ definition of the colors used in the MultiBody library together with a color edi
           Text(
             extent={{-150,100},{150,60}},
             textString="%name",
-            lineColor={0,0,255})}));
+            lineColor={0,0,255}),
+          Polygon(
+            points={{-100,32},{-100,-60},{-10,-42},{50,-60},{50,32},{-10,12},{-100,32}},
+            lineColor={215,215,215},
+            fillColor={0,127,255},
+            fillPattern=FillPattern.Solid)}));
   end FixedShape;
 
   model FixedShape2
@@ -270,28 +269,26 @@ MultiBody.Visualizers.FixedShape2 object is connected");
             extent={{150,-90},{-150,-60}},
             textString="r=%r"),
           Polygon(
-            points={{-100,50},{-100,-44},{-10,-24},{79,-43},{80,49},{-10,28},{-100,
-                50}},
-            lineColor={0,127,255},
-            fillColor={0,127,255},
-            fillPattern=FillPattern.Solid),
-          Polygon(
-            points={{-101,50},{-65,62},{-1,46},{100,70},{79,49},{-11,28},{-101,
-                50}},
+            points={{-100,50},{-66,62},{0,46},{100,70},{80,50},{-10,28},{-100,50}},
             lineColor={255,255,255},
             fillColor={160,160,164},
+            fillPattern=FillPattern.Solid),
+          Polygon(
+            points={{100,70},{80,50},{80,-44},{100,-16},{100,70}},
+            lineColor={255,255,255},
+            fillColor={160,160,164},
+            fillPattern=FillPattern.Solid),
+          Polygon(
+            points={{-100,50},{-100,-44},{-10,-24},{80,-44},{80,50},{-10,28},{-100,50}},
+            lineColor={215,215,215},
+            fillColor={0,127,255},
             fillPattern=FillPattern.Solid),
           Text(
             extent={{-86,15},{-50,-10}},
             textString="a"),
           Text(
             extent={{37,15},{73,-10}},
-            textString="b"),
-          Polygon(
-            points={{100,70},{78,48},{78,-44},{100,-16},{100,70}},
-            lineColor={255,255,255},
-            fillColor={160,160,164},
-            fillPattern=FillPattern.Solid)}),
+            textString="b")}),
       Documentation(info="<html>
 <p>
 Model <strong>FixedShape2</strong> defines a visual shape that is
@@ -567,7 +564,7 @@ vector <strong>r</strong>.
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid),
           Polygon(
-            points={{-2,92},{-14,52},{12,52},{-2,92},{-2,92}},
+            points={{-2,92},{-14,52},{10,52},{-2,92},{-2,92}},
             lineColor={0,191,0},
             fillColor={0,191,0},
             fillPattern=FillPattern.Solid),
@@ -592,8 +589,6 @@ vector <strong>r</strong>.
             points={{-72,-54},{-2,-18}},
             thickness=0.5,
             color={0,0,255}),
-          Polygon(points={{-98,-68},{-66,-60},{-78,-46},{-98,-68}}, lineColor={
-                0,0,255}),
           Text(
             extent={{-87,13},{-38,-36}},
             textString="z",
@@ -601,7 +596,10 @@ vector <strong>r</strong>.
           Text(
             extent={{-150,145},{150,105}},
             textString="%name",
-            lineColor={0,0,255})}),
+            lineColor={0,0,255}),
+          Polygon(points={{-98,-68},{-66,-60},{-78,-46},{-98,-68}}, lineColor={0,0,255},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid)}),
       Documentation(info="<html>
 <p>
 Model <strong>FixedFrame</strong> visualizes the three axes of
@@ -684,7 +682,7 @@ parameter menu.
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
           Rectangle(
-            extent={{-100,28},{20,-30}},
+            extent={{-100,28},{20,-28}},
             lineColor={128,128,128},
             fillColor={128,128,128},
             fillPattern=FillPattern.Solid),
@@ -765,8 +763,9 @@ parameter menu.
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
+          Line(points={{0,-102},{0,-28}}, color={0,0,127}),
           Rectangle(
-            extent={{-100,28},{20,-30}},
+            extent={{-100,28},{20,-28}},
             lineColor={128,128,128},
             fillColor={128,128,128},
             fillPattern=FillPattern.Solid),
@@ -778,8 +777,7 @@ parameter menu.
           Text(
             extent={{-150,105},{150,65}},
             textString="%name",
-            lineColor={0,0,255}),
-          Line(points={{0,-102},{0,-30}}, color={0,0,255})}),
+            lineColor={0,0,255})}),
       Documentation(info="<html>
 <p>
 Model <strong>SignalArrow</strong> defines an arrow that is dynamically visualized
@@ -799,67 +797,76 @@ with respect to frame_a (vector from the origin of frame_a to the arrow tail).
 </html>"));
   end SignalArrow;
 
-   model Ground "Visualizing the ground (box in z=0)"
-      parameter Boolean animation=true
-      "= true, if animation of ground shall be enabled";
-      parameter Modelica.SIunits.Position length = 10
-      "Length and width of box (center is at x=y=0)" annotation (Dialog(enable=animation));
-      parameter Modelica.SIunits.Position height = 0.02
-      "Height of box (upper surface is at z=0, lower surface is at z=-height)"
-                                                                        annotation (Dialog(enable=animation));
-      parameter Modelica.Mechanics.MultiBody.Types.Color groundColor={0,255,0}
-      "Color of box" annotation (Dialog(colorSelector=true, enable=animation));
+   model Ground "Visualizing the ground"
+     parameter Boolean animation=true
+       "= true, if animation of ground shall be enabled";
+     parameter Integer normal=3 "Normal vector of the ground plane"
+       annotation(choices(
+           choice=1 "x-axis",
+           choice=2 "y-axis",
+           choice=3 "z-axis"));
+     parameter Modelica.SIunits.Position length = 10
+       "Length and width of plane (center is at x=y=z=0)" annotation (Dialog(enable=animation));
+     parameter Modelica.SIunits.Position height = 0.0
+       "Height of box"
+       annotation (Dialog(enable=false));
+     parameter Modelica.Mechanics.MultiBody.Types.Color groundColor={0,255,0}
+       "Color of box" annotation (Dialog(colorSelector=true, enable=animation));
 
-      Modelica.Mechanics.MultiBody.Visualizers.FixedShape ground(
-        lengthDirection={1,0,0},
-        widthDirection={0,1,0},
-        animation=animation,
-        r_shape={-length/2,0,-height},
-        length=length,
-        height=height,
-        color=groundColor,
-        width=length)
-        annotation (Placement(transformation(extent={{-20,0},{0,20}})));
-      Modelica.Mechanics.MultiBody.Parts.Fixed fixed
-        annotation (Placement(transformation(extent={{-60,0},{-40,20}})));
+      Modelica.Mechanics.MultiBody.Parts.Fixed fixed(final animation=false)
+        annotation (Placement(transformation(extent={{-40,0},{-20,20}})));
+     Plane plane(
+       animation=animation,
+       axis_x=if normal==1 then {0,1,0} elseif normal==2 then {0,0,1} else {1,0,0},
+       axis_y=if normal==1 then {0,0,1} elseif normal==2 then {1,0,0} else {0,1,0},
+       length_x=length,
+       length_y=length,
+       nx=2,
+       ny=2,
+       color=groundColor) annotation (Placement(transformation(extent={{20,0},{40,20}})));
    equation
+     connect(plane.frame_a, fixed.frame_b) annotation (Line(
+         points={{20,10},{-20,10}},
+         color={95,95,95},
+         thickness=0.5));
 
-      connect(fixed.frame_b, ground.frame_a) annotation (Line(
-          points={{-40,10},{-20,10}},
-          color={95,95,95},
-          thickness=0.5));
-      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+     annotation (
+       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={
             Polygon(
-              points={{-20,60},{-100,-32},{20,-92},{100,8},{-20,60}},
-              fillColor={0,255,0},
-              fillPattern=FillPattern.Solid),
-            Text(
-              extent={{2,82},{44,54}},
-              textString="z"),
-            Polygon(
-              points={{100,8},{100,-4},{20,-104},{20,-92},{100,8}},
-              fillColor={0,255,0},
-              fillPattern=FillPattern.Solid),
-            Polygon(
-              points={{-100,-32},{-100,-44},{20,-104},{20,-92},{-100,-32}},
-              fillColor={0,255,0},
-              fillPattern=FillPattern.Solid),
+             points={{-20,40},{-100,-42},{20,-100},{100,-2},{-20,40}},
+             fillColor={0,196,0},
+             fillPattern=FillPattern.Solid,
+             lineColor={0,127,0}),
             Ellipse(
-              extent={{-11,-7},{-1,-12}},
+              extent={{-5,-19},{5,-24}},
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
             Line(
-              points={{-6,-10},{-6,88}}),
-            Polygon(
-              points={{-6,102},{-14,72},{2,72},{-6,102}},
-              fillPattern=FillPattern.Solid),
+              points={{0,-22},{0,76}}),
+            Polygon(points={{0,90},{-10,60},{10,60},{0,90}},   fillPattern=FillPattern.Solid),
             Text(
-            extent={{-150,-105},{150,-145}},
-            textString="%name",
-            lineColor={0,0,255})}), Documentation(info="<html>
+              extent={{8,70},{50,42}},
+              textString="x",
+              visible=normal==1),
+            Text(
+              extent={{8,70},{50,42}},
+              textString="y",
+              visible=normal==2),
+            Text(
+              extent={{8,70},{50,42}},
+              textString="z",
+              visible=normal==3),
+            Text(
+              extent={{-150,140},{150,100}},
+              textString="%name",
+              lineColor={0,0,255})}), Documentation(info="<html>
 <p>
-This shape visualizes the x-y plane by a box
+This shape visualizes a plane at the world frame origin perpendicular to given normal.
+When more advanced settings are required, use
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Plane\">Visualizers.Plane</a>
+instead. The picture below shows ground plane for normal&nbsp;=&nbsp;2, i.e. the plane
+is perpendicular to y-axis of the world frame.
 </p>
 
 <blockquote>
@@ -875,7 +882,7 @@ This shape visualizes the x-y plane by a box
 
     parameter Modelica.SIunits.Radius ri=0.5 "Inner radius of torus" annotation(Dialog(enable=animation));
     parameter Modelica.SIunits.Radius ro=0.1 "Outer radius of torus (=width/2)"
-                                                                                 annotation(Dialog(enable=animation));
+      annotation(Dialog(enable=animation));
     parameter Modelica.SIunits.Angle opening=0 "Opening angle of torus" annotation(Dialog(enable=animation));
     parameter Modelica.SIunits.Angle startAngle=-3.1415926535898
       "Start angle of torus slice" annotation(Dialog(enable=animation));
@@ -895,18 +902,23 @@ This shape visualizes the x-y plane by a box
     parameter Integer n_ro=20 "Number of points along ro" annotation(Dialog(enable=animation,tab="Discretization"));
 
   protected
-    Advanced.Surface surface( redeclare function surfaceCharacteristic =
-          Modelica.Mechanics.MultiBody.Visualizers.Advanced.SurfaceCharacteristics.torus
-          (   ri=ri, ro=ro, opening=opening, startAngle=startAngle, stopAngle=stopAngle),
-            nu=n_ri,
-            nv=n_ro,
-            multiColoredSurface=false,
-            wireframe=wireframe,
-            color=color,
-            specularCoefficient=specularCoefficient,
-            transparency=transparency,
-      R=frame_a.R,
-      r_0=frame_a.r_0) if world.enableAnimation and animation
+    Advanced.Surface surface(
+      redeclare function surfaceCharacteristic =
+        Modelica.Mechanics.MultiBody.Visualizers.Advanced.SurfaceCharacteristics.torus (
+          ri=ri,
+          ro=ro,
+          opening=opening,
+          startAngle=startAngle,
+          stopAngle=stopAngle),
+          nu=n_ri,
+          nv=n_ro,
+          multiColoredSurface=false,
+          wireframe=wireframe,
+          color=color,
+          specularCoefficient=specularCoefficient,
+          transparency=transparency,
+          R=frame_a.R,
+          r_0=frame_a.r_0) if world.enableAnimation and animation
       annotation (Placement(transformation(extent={{-20,-10},{0,10}})));
   equation
     // No forces and torques
@@ -992,12 +1004,12 @@ the last point of the parametrization coincide in this case.
         specularCoefficient = specularCoefficient) if world.enableAnimation and animation
             annotation (Placement(transformation(extent={{-20,-10},{0,10}})));
 
-      Visualizers.Advanced.Surface torus(redeclare function
-        surfaceCharacteristic =
-          Modelica.Mechanics.MultiBody.Visualizers.Advanced.SurfaceCharacteristics.torus
-          (     ri=ri,
-                ro=rCurvature2,
-                opening=Modelica.Constants.pi - Modelica.Math.asin(rw/rCurvature2)),
+      Visualizers.Advanced.Surface torus(
+        redeclare function surfaceCharacteristic =
+          Modelica.Mechanics.MultiBody.Visualizers.Advanced.SurfaceCharacteristics.torus (
+            ri=ri,
+            ro=rCurvature2,
+            opening=Modelica.Constants.pi - Modelica.Math.asin(rw/rCurvature2)),
             nu=n_rTire,
             nv=n_rCurvature,
             multiColoredSurface=false,
@@ -1059,15 +1071,18 @@ connector frame_a (visualized by the red coordinate system in the figure below).
       annotation(Dialog(enable=animation));
     input Real T[size(xsi,1)]
       "[:] Scalar values at position xsi*length (will be visualized by color)" annotation(Dialog(enable=animation));
-    parameter Real T_min "Minimum value of T that corresponds to colorMap[1,:]"
-                                                                                    annotation(Dialog(enable=animation));
+    parameter Real T_min "Minimum value of T that corresponds to colorMap[1,:]"     annotation(Dialog(enable=animation));
     parameter Real T_max
       "Maximum value of T that corresponds to colorMap[end,:]" annotation(Dialog(enable=animation));
     replaceable function colorMap =
-        Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.jet
-          constrainedby Modelica.Mechanics.MultiBody.Interfaces.partialColorMap
+      Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.jet
+      constrainedby Modelica.Mechanics.MultiBody.Interfaces.partialColorMap
       "Function defining the color map"
-            annotation(choicesAllMatching=true, Dialog(enable=animation,group="Color coding"));
+      annotation(choicesAllMatching=true, Dialog(enable=animation,group="Color coding"),
+      Documentation(info="<html>
+<p>This replaceable function defines a particular color map.</p>
+<!--a placeholder to fulfill minimum domentation length-->
+</html>"));
 
     parameter Integer n_colors=64 "Number of colors in the colorMap" annotation(Dialog(enable=animation,group="Color coding"));
     parameter Types.SpecularCoefficient specularCoefficient = 0.7
@@ -1155,6 +1170,103 @@ colorMapToSvg(Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.jet(),
   </ul>
 </html>"));
   end PipeWithScalarField;
+
+  model Plane "Visualizing a plane"
+    extends Modelica.Mechanics.MultiBody.Interfaces.PartialVisualizer;
+
+    parameter Boolean animation=true "= true, if animation shall be enabled";
+    parameter MultiBody.Types.Axis axis_x={1,0,0}
+      "Vector along x-axis of plane resolved in frame_a"
+      annotation(Evaluate=true, Dialog(enable=animation));
+    parameter MultiBody.Types.Axis axis_y={0,1,0}
+      "Vector along y-axis of plane resolved in frame_a"
+      annotation(Evaluate=true, Dialog(enable=animation));
+
+    parameter Modelica.SIunits.Length length_x=3 "Length of plane in direction x" annotation(Dialog(enable=animation));
+    parameter Modelica.SIunits.Length length_y=1 "Length of plane in direction y" annotation(Dialog(enable=animation));
+    parameter Integer nx=3 "Number of points in direction x" annotation(Dialog(enable=animation,group="Discretization"));
+    parameter Integer ny=2 "Number of points in direction y" annotation(Dialog(enable=animation,group="Discretization"));
+
+    parameter Boolean wireframe=false
+      "= true: 3D model will be displayed without faces"
+      annotation (Dialog(enable=animation, group="Material properties"),choices(checkBox=true));
+    input Modelica.Mechanics.MultiBody.Types.RealColor color={0,128,255}
+      "Color of surface" annotation(Dialog(enable=animation and not multiColoredSurface,colorSelector=true,group="Material properties"));
+    input Types.SpecularCoefficient specularCoefficient = 0.7
+      "Reflection of ambient light (= 0: light is completely absorbed)" annotation(Dialog(enable=animation,group="Material properties"));
+    input Real transparency=0
+      "Transparency of shape: 0 (= opaque) ... 1 (= fully transparent)"
+      annotation(Dialog(enable=animation,group="Material properties"));
+
+  protected
+    Advanced.Surface surface(
+      final multiColoredSurface=false,
+      final wireframe=wireframe,
+      final color=color,
+      final specularCoefficient=specularCoefficient,
+      final transparency=transparency,
+      final R=Modelica.Mechanics.MultiBody.Frames.absoluteRotation(
+          frame_a.R,Modelica.Mechanics.MultiBody.Frames.from_nxy(axis_x, axis_y)),
+      final r_0=frame_a.r_0,
+      final nu=nx,
+      final nv=ny,
+      redeclare function surfaceCharacteristic = Advanced.SurfaceCharacteristics.planeXY (lu=length_x, lv=length_y)) if
+         world.enableAnimation and animation
+      annotation (Placement(transformation(extent={{-20,-10},{0,10}})));
+    Sensors.Internal.ZeroForceAndTorque zeroForceAndTorque annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));
+
+  equation
+    connect(frame_a, zeroForceAndTorque.frame_a) annotation (Line(
+        points={{-100,0},{-80,0}},
+        color={95,95,95},
+        thickness=0.5));
+    annotation (
+      Icon(graphics={
+            Text(
+            extent={{-150,80},{150,40}},
+            lineColor={0,0,255},
+            textString="%name"),
+          Polygon(
+            points={{-60,20},{-100,-60},{60,-60},{100,20},{-60,20}},
+            lineColor={95,95,95},
+            fillColor={175,175,175},
+            fillPattern=FillPattern.Solid),
+          Ellipse(
+            extent={{-2,-18},{2,-22}},
+            lineColor={95,95,95},
+            fillColor={95,95,95},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-100,0},{0,0},{0,-20}}, color={95,95,95}),
+          Text(
+            extent={{-140,-60},{140,-90}},
+            lineColor={0,0,0},
+            lineThickness=0.5,
+            fillColor={95,95,95},
+            fillPattern=FillPattern.Solid,
+            textString="%length_x x %length_y")}),
+                                   Documentation(info="<html>
+<p>
+This model visualizes a plane. The center of the plane is located at
+connector frame_a (visualized by the red coordinate system in the figure below).
+The image below shows two planes of the same parameters
+</p>
+<blockquote><pre>
+nx = 8,
+ny = 3,
+length_x = 3,
+length_y = 2.
+</pre></blockquote>
+<p>
+The green plane on the right is visualized in wireframe thus highlighting the influence
+of the discretization. Moreover, the x-axis of this plane is modified
+so that the plane is rotated about the z-axis of frame_a.
+</p>
+
+<blockquote>
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Plane.png\">
+</blockquote>
+</html>"));
+  end Plane;
 
   package Colors "Library of functions operating on color"
     extends Modelica.Icons.FunctionsPackage;
@@ -1722,14 +1834,11 @@ This definition is also available as type
       input Frames.Orientation R=Frames.nullRotation()
         "Orientation object to rotate the world frame into the arrow frame" annotation(Dialog);
       input SI.Position r[3]={0,0,0}
-        "Position vector from origin of world frame to origin of arrow frame, resolved in world frame"
-                                                                                                       annotation(Dialog);
+        "Position vector from origin of world frame to origin of arrow frame, resolved in world frame" annotation(Dialog);
       input SI.Position r_tail[3]={0,0,0}
-        "Position vector from origin of arrow frame to arrow tail, resolved in arrow frame"
-                                                                                            annotation(Dialog);
+        "Position vector from origin of arrow frame to arrow tail, resolved in arrow frame" annotation(Dialog);
       input SI.Position r_head[3]={0,0,0}
-        "Position vector from arrow tail to the head of the arrow, resolved in arrow frame"
-                                                                                            annotation(Dialog);
+        "Position vector from arrow tail to the head of the arrow, resolved in arrow frame" annotation(Dialog);
       input SI.Diameter diameter=world.defaultArrowDiameter
         "Diameter of arrow line" annotation(Dialog);
       input Modelica.Mechanics.MultiBody.Types.Color color=Modelica.Mechanics.MultiBody.Types.Defaults.ArrowColor
@@ -1812,7 +1921,7 @@ library (will be replaced by a color editor).
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Rectangle(
-              extent={{-100,28},{20,-30}},
+              extent={{-100,28},{20,-28}},
               lineColor={128,128,128},
               fillColor={128,128,128},
               fillPattern=FillPattern.Solid),
@@ -1838,14 +1947,11 @@ library (will be replaced by a color editor).
       input Frames.Orientation R=Frames.nullRotation()
         "Orientation object to rotate the world frame into the arrow frame" annotation(Dialog);
       input SI.Position r[3]={0,0,0}
-        "Position vector from origin of world frame to origin of arrow frame, resolved in world frame"
-                                                                                                       annotation(Dialog);
+        "Position vector from origin of world frame to origin of arrow frame, resolved in world frame" annotation(Dialog);
       input SI.Position r_tail[3]={0,0,0}
-        "Position vector from origin of arrow frame to double arrow tail, resolved in arrow frame"
-                                                                                                   annotation(Dialog);
+        "Position vector from origin of arrow frame to double arrow tail, resolved in arrow frame" annotation(Dialog);
       input SI.Position r_head[3]={0,0,0}
-        "Position vector from double arrow tail to the head of the double arrow, resolved in arrow frame"
-                                                                                                          annotation(Dialog);
+        "Position vector from double arrow tail to the head of the double arrow, resolved in arrow frame" annotation(Dialog);
       input SI.Diameter diameter=world.defaultArrowDiameter
         "Diameter of arrow line" annotation(Dialog);
       input Modelica.Mechanics.MultiBody.Types.Color color=Modelica.Mechanics.MultiBody.Types.Defaults.ArrowColor
@@ -2207,11 +2313,14 @@ The direct usage of the Surface model, as well as of the Torus and the Voluminou
         "Maximum value of T that corresponds to colorMap[end,:]" annotation(Dialog(group="Color coding"));
       parameter Integer n_colors=64 "Number of colors in the colorMap" annotation(Dialog(group="Color coding"));
       replaceable function colorMap =
-          Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.jet
-            constrainedby
-        Modelica.Mechanics.MultiBody.Interfaces.partialColorMap
+        Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.jet
+        constrainedby Modelica.Mechanics.MultiBody.Interfaces.partialColorMap
         "Function defining the color map"
-              annotation(choicesAllMatching=true, Dialog(group="Color coding"));
+        annotation(choicesAllMatching=true, Dialog(group="Color coding"),
+        Documentation(info="<html>
+<p>This replaceable function defines a particular color map.</p>
+<!--a placeholder to fulfill minimum domentation length-->
+</html>"));
     protected
       parameter Real colorMapData[n_colors,3] = colorMap(n_colors) annotation(HideResult=true);
       Surface surface(
@@ -2224,8 +2333,8 @@ The direct usage of the Surface model, as well as of the Torus and the Voluminou
         specularCoefficient=specularCoefficient,
         transparency=transparency,
         redeclare function surfaceCharacteristic =
-            Modelica.Mechanics.MultiBody.Visualizers.Advanced.SurfaceCharacteristics.pipeWithScalarField
-            (rOuter=rOuter,
+            Modelica.Mechanics.MultiBody.Visualizers.Advanced.SurfaceCharacteristics.pipeWithScalarField (
+             rOuter=rOuter,
              length=length,
              xsi=xsi,
              T=T,
@@ -2285,9 +2394,8 @@ colorMapToSvg(Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.jet(),
     package SurfaceCharacteristics "Functions returning surface descriptions"
         extends Modelica.Icons.FunctionsPackage;
       function torus "Function defining the surface characteristic of a torus"
-        extends
-          Modelica.Mechanics.MultiBody.Interfaces.partialSurfaceCharacteristic(
-                  final multiColoredSurface=false);
+        extends Modelica.Mechanics.MultiBody.Interfaces.partialSurfaceCharacteristic(
+          final multiColoredSurface=false);
         input Modelica.SIunits.Radius ri=1 "Inner radius of torus" annotation(Dialog);
         input Modelica.SIunits.Radius ro=0.2 "Outer radius of torus (=width/2)" annotation(Dialog);
         input Modelica.SIunits.Angle opening=0 "Opening angle of torus" annotation(Dialog);
@@ -2304,14 +2412,15 @@ colorMapToSvg(Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.jet(),
         phi_start :=-Modelica.Constants.pi + opening;
         phi_stop  :=Modelica.Constants.pi - opening;
         for i in 1:nu loop
-            alpha := startAngle + (stopAngle-startAngle)*(i-1)/(nu-1);
-            for j in 1:nv loop
-                beta := phi_start + (phi_stop-phi_start)*(j-1)/(nv-1);
-                X[i,j] := (ri + ro*Modelica.Math.cos(beta))*Modelica.Math.sin(alpha);
-                Y[i,j] := ro*Modelica.Math.sin(beta);
-                Z[i,j] := (ri + ro*Modelica.Math.cos(beta))*Modelica.Math.cos(alpha);
-            end for;
+          alpha := startAngle + (stopAngle-startAngle)*(i-1)/(nu-1);
+          for j in 1:nv loop
+            beta := phi_start + (phi_stop-phi_start)*(j-1)/(nv-1);
+            X[i,j] := (ri + ro*Modelica.Math.cos(beta))*Modelica.Math.sin(alpha);
+            Y[i,j] := ro*Modelica.Math.sin(beta);
+            Z[i,j] := (ri + ro*Modelica.Math.cos(beta))*Modelica.Math.cos(alpha);
+          end for;
         end for;
+
         annotation (Documentation(info="<html>
 <p>
 Function <strong>torus</strong> computes the X,Y,Z arrays to visualize a torus
@@ -2320,11 +2429,11 @@ The left image below shows a torus with ri=0.5 m and ro = 0.2 m.
 The right images below shows the torus with the additional parameter
 settings:
 </p>
-<pre>
-  opening    =   45 degree
-  startAngle = -135 degree
-  stopAngle  =  135 degree
-</pre>
+<blockquote><pre>
+opening    =   45 degree
+startAngle = -135 degree
+stopAngle  =  135 degree
+</pre></blockquote>
 
 <blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Torus.png\">
@@ -2334,9 +2443,8 @@ settings:
 
       function pipeWithScalarField
         "Function defining the surface characteristic of a pipe where a scalar field value is displayed with color along the pipe axis"
-        extends
-          Modelica.Mechanics.MultiBody.Interfaces.partialSurfaceCharacteristic(
-                  final multiColoredSurface=true);
+        extends Modelica.Mechanics.MultiBody.Interfaces.partialSurfaceCharacteristic(
+          final multiColoredSurface=true);
         input Modelica.SIunits.Radius rOuter "Outer radius of cylinder" annotation(Dialog);
         input Modelica.SIunits.Length length "Length of cylinder" annotation(Dialog);
         input Modelica.SIunits.Position xsi[:]
@@ -2355,24 +2463,24 @@ settings:
       algorithm
         k:=1;
         for i in 1:nu loop
-           // Compute actual xsi-position along cylinder axis
-           xsi_i := (i-1)/(nu-1);
+          // Compute actual xsi-position along cylinder axis
+          xsi_i := (i-1)/(nu-1);
 
-           // Interpolate in xsi and T to determine the corresponding value of Ti(xsi_i)
-           (Ti,k) := Modelica.Math.Vectors.interpolate(xsi, T, xsi_i, k);
+          // Interpolate in xsi and T to determine the corresponding value of Ti(xsi_i)
+          (Ti,k) := Modelica.Math.Vectors.interpolate(xsi, T, xsi_i, k);
 
-           // Map the scalar field value Ti to a color value
-           Ci := Modelica.Mechanics.MultiBody.Visualizers.Colors.scalarToColor(
-                                                    Ti, T_min, T_max, colorMap);
+          // Map the scalar field value Ti to a color value
+          Ci := Modelica.Mechanics.MultiBody.Visualizers.Colors.scalarToColor(
+                  Ti, T_min, T_max, colorMap);
 
-           // Determine outputs
-           for j in 1:nv loop
-              beta := 2*Modelica.Constants.pi*(j-1)/(nv-1);
-              X[i,j] := length*xsi_i;
-              Y[i,j] := rOuter*Modelica.Math.sin(beta);
-              Z[i,j] := rOuter*Modelica.Math.cos(beta);
-              C[i,j,:] := Ci;
-           end for;
+          // Determine outputs
+          for j in 1:nv loop
+            beta := 2*Modelica.Constants.pi*(j-1)/(nv-1);
+            X[i,j] := length*xsi_i;
+            Y[i,j] := rOuter*Modelica.Math.sin(beta);
+            Z[i,j] := rOuter*Modelica.Math.cos(beta);
+            C[i,j,:] := Ci;
+          end for;
         end for;
         annotation (Documentation(info="<html>
 <p>
@@ -2415,6 +2523,36 @@ colorMapToSvg(Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.jet(),
 </blockquote>
 </html>"));
       end pipeWithScalarField;
+
+      function planeXY "Function defining the surface characteristic of a x-y plane"
+        extends Modelica.Mechanics.MultiBody.Interfaces.partialSurfaceCharacteristic(
+          final multiColoredSurface=false);
+        input Modelica.SIunits.Radius lu=1 "Length in direction u" annotation(Dialog);
+        input Modelica.SIunits.Radius lv=3 "Length in direction v" annotation(Dialog);
+      algorithm
+        X[:,:] := lu/2 * transpose(fill(linspace(-1,1,nu), nv));
+        Y[:,:] := lv/2 * fill(linspace(-1,1,nv), nu);
+        Z[:,:] := fill(0, nu, nv);
+
+        annotation (Documentation(info="<html>
+<p>
+Function <strong>planeXY</strong> computes the X,Y,Z arrays to visualize a x-y plane 
+with model <a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Plane\">Plane</a>.
+The image below shows two planes of
+</p>
+<blockquote><pre>
+nu = 8,
+nv = 3,
+lu = 3,
+lv = 2.
+</pre></blockquote>
+
+<blockquote>
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Plane.png\">
+</blockquote>
+</html>"));
+      end planeXY;
+
       annotation (Documentation(info="<html>
 <p>
 This package contains functions that are used to define
@@ -2718,12 +2856,12 @@ animation features of the MultiBody library.
       FixedShape has one connector frame_a, whereas FixedShape2 has additionally
           a frame_b for easier connection to further visual objects.
           The following shape types are supported:<br>&nbsp;<br>
-      <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/FixedShape.png\" ALT=\"model Visualizers.FixedShape\">
+      <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/FixedShape.png\" ALT=\"model Visualizers.FixedShape\">
       </td>
   </tr>
   <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.FixedFrame\">FixedFrame</a></td>
       <td valign=\"top\">Visualizing a coordinate system including axes labels with fixed sizes:<br>
-      <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/FixedFrame2.png\"
+      <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/FixedFrame2.png\"
        ALT=\"model Visualizers.FixedFrame\">
       </td>
   </tr>
@@ -2733,31 +2871,31 @@ animation features of the MultiBody library.
       a fixed sized arrow, model \"SignalArrow\" provides
       an arrow with dynamically varying length that is defined
       by an input signal vector:<br>
-      <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Arrow.png\">
+      <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Arrow.png\">
       </td>
   </tr>
 
   <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Ground\">Ground</a></td>
-      <td valign=\"top\">Visualizing the x-y plane by a box:<br>
-      <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/GroundSmall.png\">
+      <td valign=\"top\">Visualizing the ground by a plane:<br>
+      <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/GroundSmall.png\">
       </td>
   </tr>
 
   <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Torus\">Torus</a></td>
       <td valign=\"top\">Visualizing a torus:<br>
-      <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/TorusIcon.png\">
+      <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/TorusIcon.png\">
       </td>
   </tr>
 
   <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.VoluminousWheel\">VoluminousWheel</a></td>
       <td valign=\"top\">Visualizing a wheel:<br>
-      <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/VoluminousWheelIcon.png\">
+      <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/VoluminousWheelIcon.png\">
       </td>
   </tr>
 
   <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.PipeWithScalarField\">PipeWithScalarField</a></td>
       <td valign=\"top\">Visualizing a pipe with a scalar field represented by a color coding:<br>
-      <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/PipeWithScalarFieldIcon.png\">
+      <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/PipeWithScalarFieldIcon.png\">
       </td>
   </tr>
 
