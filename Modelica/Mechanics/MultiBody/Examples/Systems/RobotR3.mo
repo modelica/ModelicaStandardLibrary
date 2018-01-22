@@ -73,7 +73,7 @@ load inertia.
   end oneAxis;
 
   model fullRobot
-    "6 degree of freedom robot with path planning, controllers, motors, brakes, gears and mechanics"
+    "Six degree of freedom robot with path planning, controllers, motors, brakes, gears and mechanics"
     extends Modelica.Icons.Example;
 
     parameter SI.Mass mLoad(min=0) = 15 "Mass of load";
@@ -318,14 +318,15 @@ load inertia.
           "Plot result of axis 3 + animate"),
       Documentation(info="<html>
 <p>
-This is a detailed model of the robot. For animation CAD data
-is used. Translate and simulate with the default settings
-(default simulation time = 3 s). Use command script \"modelica://Modelica/Resources/Scripts/Dymola/Mechanics/MultiBody/Examples/Systems/fullRobotPlot.mos\"
-to plot variables.
+This example animates a motion of a detailed model of the robot
+with predefined axes' angles over time.
+For animation CAD data is used.
+Translate and simulate with the default settings
+(default simulation time = 3 s).
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Systems/r3_fullRobot.png\" ALT=\"model Examples.Loops.Systems.RobotR3.fullRobot\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Systems/r3_fullRobot.png\" alt=\"model Examples.Loops.Systems.RobotR3.fullRobot\">
 </p>
 </html>"));
   end fullRobot;
