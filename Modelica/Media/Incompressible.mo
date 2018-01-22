@@ -220,7 +220,7 @@ density and heat capacity as functions of temperature.</li>
              " K) is not in the allowed range (" + String(T_min) +
              " K <= T <= " + String(T_max) + " K) required from medium model \""
              + mediumName + "\".");
-      R = Modelica.Constants.R;
+      R = Modelica.Constants.R/MM_const;
       cp = Poly.evaluate(poly_Cp,if TinK then T else T_degC);
       h = if enthalpyOfT then h_T(T) else  h_pT(p,T,densityOfT);
       u = h - (if singleState then  reference_p/d else state.p/d);
