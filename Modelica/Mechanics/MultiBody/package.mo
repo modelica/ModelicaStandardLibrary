@@ -274,8 +274,8 @@ red box on the lower right side.
 Whenever loop structures occur, non-linear algebraic
 equations are present on \"position level\". It is then usually not possible by
 structural analysis to select states during translation (which is possible for
-non-loop structures). In the example above, Dymola detects a non-linear
-algebraic loop of 57 equations and reduces this to a system of&nbsp;7 coupled
+non-loop structures). In the example above, a non-linear
+algebraic loop of 54 equations can be detected and reduced to a system of&nbsp;6 coupled
 algebraic equations. Note, that this is performed without using any
 \"cut-joints\" as it is usually done in multi-body programs, but by just
 appropriate symbolic equation manipulation. Via the dynamic dummy derivative
@@ -295,8 +295,8 @@ In the abovementioned example, this is already stated by setting parameter
 \"stateSelect&nbsp;=&nbsp;<strong>StateSelect.always</strong>\"
 in the \"Advanced\" menu of that joint. 
 When setting this flag for joint j1 in that way in
-the four bar mechanism, Dymola detects a non-linear algebraic loop of 40
-equations and reduces this to a system of&nbsp;5 coupled non-linear algebraic
+the four bar mechanism, a non-linear algebraic loop of 40
+equations can be detected and reduced to a system of&nbsp;5 coupled non-linear algebraic
 equations.
 </p>
 <p>
