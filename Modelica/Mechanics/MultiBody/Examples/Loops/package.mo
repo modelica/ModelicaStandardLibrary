@@ -46,6 +46,11 @@ mechanical systems with kinematic loops can be modeled.
       <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Loops/Fourbar_analytic_small.png\">
       </td>
   </tr>
+  <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Examples.Loops.PlanarFourbar\">PlanarFourbar</a></td>
+      <td valign=\"top\"> Planar four bars  with one kinematic loop (with RevolutePlanarLoopConstraint joint)  <br>
+      <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Loops/PlanarFourbar_small.png\">
+      </td>
+  </tr>
   <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Examples.Loops.PlanarLoops_analytic\">PlanarLoops_analytic</a></td>
       <td valign=\"top\"> Mechanism with three planar kinematic loops and one
            degree-of-freedom with analytic loop handling
