@@ -1955,7 +1955,7 @@ the same).
   Real A[3,3] = [1,2,3;
                  3,4,5;
                  2,1,4];
-  Real eval;
+  Real eval[3,2];
 <strong>algorithm</strong>
   eval := Matrices.eigenValues(A);  // eval = [-0.618, 0;
                                     //          8.0  , 0;
