@@ -6889,7 +6889,7 @@ This library provides power converters for DC and AC single and multi phase elec
 </ul>
 
 <p>
-Copyright &copy; 2013-2016, <a href=\"modelica://Modelica.Electrical.PowerConverters.UsersGuide.Contact\">Christian Kral</a> and
+Copyright &copy; 2013-2018, <a href=\"modelica://Modelica.Electrical.PowerConverters.UsersGuide.Contact\">Christian Kral</a> and
 <a href=\"modelica://Modelica.Electrical.PowerConverters.UsersGuide.Contact\">Anton Haumer</a>
 </p>
 <p>

@@ -4,7 +4,7 @@ of the directory "Modelica/Resources" are licensed by the
 Modelica Association under the 3-Clause BSD License
 (with exception of the contents of the directory
 "Modelica/Resources/C-Sources").
-Copyright © 1998-2016, ABB, Austrian Institute of Technology, T. Bödrich, DLR, Dassault Systèmes AB,
+Copyright © 1998-2018, ABB, Austrian Institute of Technology, T. Bödrich, DLR, Dassault Systèmes AB,
                        ESI ITI, Fraunhofer, A. Haumer, C. Kral, Modelon, TU Hamburg-Harburg,
                        Politecnico di Milano, XRG Simulation
 

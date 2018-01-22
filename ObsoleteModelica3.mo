@@ -3457,7 +3457,7 @@ marked in the icon layer with a red box.
 </p>
 
 <p>
-Copyright &copy; 2007-2016, Modelica Association.
+Copyright &copy; 2007-2018, Modelica Association.
 </p>
 <p>
 <em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\"> https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em>

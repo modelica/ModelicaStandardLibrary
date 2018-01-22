@@ -13060,7 +13060,7 @@ reference 01IS07022B). The project was started in October 2007 and ended in June
 <h4>  License condition </h4>
 <p>
 <strong>Licensed by the Modelica Association under the 3-Clause BSD License</strong><br>
-Copyright &copy; 2007-2016, XRG Simulation GmbH.
+Copyright &copy; 2007-2018, XRG Simulation GmbH.
 </p>
 
 <p>

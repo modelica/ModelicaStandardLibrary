@@ -7321,7 +7321,7 @@ the library is implemented and released for public use.
 </p>
 
 <p>
-Copyright &copy; 1998-2016, Modelica Association and Fraunhofer-Gesellschaft.
+Copyright &copy; 1998-2018, Modelica Association and Fraunhofer-Gesellschaft.
 </p>
 
 <p>
