@@ -2380,7 +2380,7 @@ When the constant \"NO_FILE_SYSTEM\" is defined, all file I/O related parts of t
 source code are removed by the C-preprocessor, such that no access to files takes place.
 </p>
 <p>
-If tables are read from an text file, the file needs to have the
+If tables are read from a text file, the file needs to have the
 following structure (\"-----\" is not part of the file content):
 </p>
 <pre>
