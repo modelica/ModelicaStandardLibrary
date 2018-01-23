@@ -575,7 +575,7 @@ to be used as base class for a corresponding controller.
 Basic definitions of a discrete block of library
 Blocks.Discrete.
 The output(s) will only change at events, but are not formally a discrete variable(s) in Modelica.
-The input(s) swill be sampled, and can thus be continuous variable(s).
+The input(s) will be sampled, and can thus be continuous variable(s).
 </p>
 
 <p>
