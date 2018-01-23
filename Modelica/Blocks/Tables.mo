@@ -762,7 +762,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
 </html>"));
   end CombiTable2D;
 
-  block CombiTable2DVectorized "Table look-up in two dimensions (matrix/file) with vector inputs and vector output of size n"
+  block CombiTable2Dv "Table look-up in two dimensions (matrix/file) with vector inputs and vector output of size n"
     extends Modelica.Blocks.Interfaces.MI2MO;
     extends Internal.CombiTable2DBase;
   equation
@@ -944,7 +944,7 @@ and the first row \"table2D_1[1,2:]\" contains the u[2] grid points.
 MATLAB is a registered trademark of The MathWorks, Inc.
 </p>
 </html>"));
-  end CombiTable2DVectorized;
+  end CombiTable2Dv;
 
   package Internal "Internal external object definitions for table functions that should not be directly utilized by the user"
     extends Modelica.Icons.InternalPackage;
