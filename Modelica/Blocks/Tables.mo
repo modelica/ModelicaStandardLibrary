@@ -798,8 +798,7 @@ than the maximum abscissa value u_max[2] (=" + String(u_max[2]) + ") defined in 
         y[j] = Modelica.Blocks.Tables.Internal.getTable2DValue(tableID, u1[j], u2[j]);
       end for;
     end if;
-  annotation(defaultComponentName = "combiTable2Dn",
-      Documentation(info="<html>
+  annotation(Documentation(info="<html>
 <p>
 <strong>Bivariate constant</strong>, <strong>bilinear</strong> or <strong>bivariate
 Akima interpolation</strong> of a <strong>two-dimensional table</strong>.
