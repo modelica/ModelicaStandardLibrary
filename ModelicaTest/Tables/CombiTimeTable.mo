@@ -1,5 +1,5 @@
 within ModelicaTest.Tables;
-package CombiTimeTable
+package CombiTimeTable "Test models for Modelica.Blocks.Sources.CombiTimeTable"
   import Modelica.Utilities.Files.loadResource;
   extends Modelica.Icons.ExamplesPackage;
 

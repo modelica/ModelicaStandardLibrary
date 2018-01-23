@@ -1,5 +1,5 @@
 within ModelicaTest.Tables;
-package CombiTable1D
+package CombiTable1D "Test models for Modelica.Blocks.Tables.CombiTable1D"
   import Modelica.Utilities.Files.loadResource;
   extends Modelica.Icons.ExamplesPackage;
 
