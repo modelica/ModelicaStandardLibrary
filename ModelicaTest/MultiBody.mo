@@ -4150,6 +4150,42 @@ a linear damper is connected here.
 </p>
 </html>"));
     end LineForceWithMass;
+
+    model EngineGasForce "Example for gas force computation"
+      extends Modelica.Icons.Example;
+
+      Modelica.Mechanics.Translational.Components.Fixed fixed annotation (Placement(transformation(extent={{-90,-10},{-70,10}})));
+      Modelica.Mechanics.Translational.Components.Mass mass(m=1, L=0)    annotation (Placement(transformation(extent={{-20,-10},{0,10}})));
+      Modelica.Mechanics.Translational.Sources.Position position(exact=true, v(fixed=true))
+                                                                             annotation (Placement(transformation(extent={{42,-10},{22,10}})));
+      Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.GasForce2 gasForce(
+        L=0.2,
+        d=0.1,
+        k0=0.01,
+        k1=1.1,
+        k=1.08) annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
+      Modelica.Blocks.Sources.Sine sine(
+        freqHz=1,
+        phase=0,
+        startTime=0,
+        offset=0.1,
+        amplitude=0.0999999) annotation (Placement(transformation(extent={{80,-10},{60,10}})));
+    equation
+      connect(sine.y, position.s_ref) annotation (Line(points={{59,0},{44,0}},     color={0,0,127}));
+      connect(gasForce.flange_b, mass.flange_a) annotation (Line(points={{-40,0},{-20,0}}, color={0,127,0}));
+      connect(gasForce.flange_a, fixed.flange) annotation (Line(points={{-60,0},{-80,0}}, color={0,127,0}));
+      connect(position.flange, mass.flange_b) annotation (Line(points={{22,0},{0,0}}, color={0,127,0}));
+      annotation (Documentation(info="<html>
+<p>
+Simple model to test gasForce element used in some multi-body examples,
+see <a href=\"modelica://Modelica.Mechanics.MultiBody.Examples.Loops\">MultiBody.Examples.Loops</a>.
+</p>
+<p>
+To gengerate the pressure-stroke diagram, simulate the example for 1&nbsp;s
+and plot gasForce.press over gasForce.s_rel.
+</p>
+</html>"));
+    end EngineGasForce;
   end Forces;
 
   package Joints "Test MultiBody.Joints"
