@@ -4215,19 +4215,19 @@ to speed to achieve constant current and torque.</p>
                                                 color={0,0,255}));
         connect(rampVoltage.p, smee.pin_ep) annotation (Line(points={{-40,-30},{-30,-30},{-30,-34},{-20,-34}},
                                                 color={0,0,255}));
-        connect(mechanicalSensor.flange_b, torqueStep.flange) annotation (Line(points={{60,-40},{70,-40}}, color={0,0,0}));
+        connect(mechanicalSensor.flange_b, torqueStep.flange) annotation (Line(points={{60,-40},{70,-40}}));
         connect(switch.plug_n, electricalSensor.pc) annotation (Line(points={{20,50},{40,50},{40,40}}, color={0,0,255}));
         connect(electricalSensor.nv, terminalBox.plug_sn) annotation (Line(points={{30,30},{20,30},{20,-20},{-16,-20},{-16,-30}}, color={0,0,255}));
         connect(electricalSensor.nc, currentRMSSensor.plug_p) annotation (Line(points={{40,20},{40,10}}, color={0,0,255}));
         connect(electricalSensor.pv, electricalSensor.pc) annotation (Line(points={{50,30},{50,40},{40,40}}, color={0,0,255}));
         annotation (experiment(StopTime=3,Interval=0.0001,Tolerance=1e-006),
           Documentation(info="<html>
-<p>An electrically excited synchronous generator is started direct on line utilizing the damper cage 
+<p>An electrically excited synchronous generator is started direct on line utilizing the damper cage
 (and the shorted excitation winding) at 0 seconds.</p>
-<p>At t = 0.5 seconds, the excitation voltage is raised to achieve the no-load excitation current. 
+<p>At t = 0.5 seconds, the excitation voltage is raised to achieve the no-load excitation current.
 Note, that reactive power of the stator goes to zero.</p>
-<p>At t = 2 second, a driving torque step is applied to the shaft (i.e. the turbine is activated). 
-Note, that the active (and the reactive) power of the stator change. 
+<p>At t = 2 second, a driving torque step is applied to the shaft (i.e. the turbine is activated).
+Note, that the active (and the reactive) power of the stator change.
 To drive at higher torque, i.e., produce more electric power, excitation has to be adapted.
 </p>
 
@@ -4247,13 +4247,12 @@ To drive at higher torque, i.e., produce more electric power, excitation has to 
 <p>Default machine parameters are used.</p>
 
 <h5>Note</h5>
-<p>The mains switch is closed at time = 0 in order to avoid non physical noise calculated by the <code>rotorDisplacementAngle</code>. 
-This noise is caused by the interaction of the high resistance of the switch and the machine, see 
-<a href=\"https://github.com/modelica/Modelica/issues/2388\">#2388</a>. 
+<p>The mains switch is closed at time = 0 in order to avoid non physical noise calculated by the <code>rotorDisplacementAngle</code>.
+This noise is caused by the interaction of the high resistance of the switch and the machine, see
+<a href=\"https://github.com/modelica/Modelica/issues/2388\">#2388</a>.
 </p>
 </html>"),Diagram(graphics={                      Text(
                         extent={{10,-72},{90,-80}},
-                        lineColor={0,0,0},
                         fillColor={255,255,170},
                         fillPattern=FillPattern.Solid,
                         textStyle={TextStyle.Bold},

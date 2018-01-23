@@ -341,7 +341,7 @@ The upper part (DirectCapacity, InverseCapacity)
 demonstrates how to export two heat capacitors and connect them
 together in a target system. This requires that one of the capacitors
 (here: DirectCapacity)
-is defined to have states and the temperature and 
+is defined to have states and the temperature and
 derivative of temperature are provided in the interface.
 The other capacitor (here: InverseCapacity) requires heatflow according
 to the provided input temperature and derivative of temperature.
@@ -403,19 +403,15 @@ conduction law in a target system between two capacitors.
                       textString="to FMU"),Text(
                       extent={{8,96},{92,66}},
                       horizontalAlignment=TextAlignment.Right,
-                lineColor={0,0,0},
                 textString="T"),                               Text(
                       extent={{10,46},{94,16}},
                       horizontalAlignment=TextAlignment.Right,
-                lineColor={0,0,0},
                 textString="dT"),     Text(
                       extent={{-150,-110},{150,-140}},
-                lineColor={0,0,0},
                 textString="C=%C"),      Bitmap(extent={{-96,-42},{64,54}},
                   fileName="modelica://Modelica/Resources/Images/Thermal/HeatTransfer/DirectCapacity.png"),
                 Text( extent={{10,-60},{94,-90}},
                       horizontalAlignment=TextAlignment.Right,
-                lineColor={0,0,0},
                 textString="Q_flow")}));
       end DirectCapacity;
 
@@ -455,19 +451,15 @@ conduction law in a target system between two capacitors.
                       textString="to FMU"),Text(
                       extent={{-94,96},{-10,66}},
                       horizontalAlignment=TextAlignment.Left,
-                lineColor={0,0,0},
                 textString="T"),        Text(
                       extent={{-94,46},{-10,16}},
                       horizontalAlignment=TextAlignment.Left,
-                lineColor={0,0,0},
                 textString="dT"),     Text(
                       extent={{-150,-110},{150,-140}},
-                lineColor={0,0,0},
                 textString="C=%C"),      Bitmap(extent={{-58,-42},{98,48}},
                   fileName="modelica://Modelica/Resources/Images/Thermal/HeatTransfer/InverseCapacity.png"),
                 Text( extent={{-90,-64},{-6,-94}},
                       horizontalAlignment=TextAlignment.Left,
-                lineColor={0,0,0},
                 textString="Q_flow")}));
       end InverseCapacity;
 
@@ -516,23 +508,18 @@ conduction law in a target system between two capacitors.
                       textString="to FMU"),Text(
                       extent={{-94,96},{-10,66}},
                       horizontalAlignment=TextAlignment.Left,
-                lineColor={0,0,0},
                 textString="T1"),        Text(
                       extent={{-150,-114},{150,-144}},
-                textString="G=%G",
-                lineColor={0,0,0}),      Bitmap(extent={{-88,-36},{92,56}},
+                textString="G=%G"),      Bitmap(extent={{-88,-36},{92,56}},
                   fileName="modelica://Modelica/Resources/Images/Thermal/HeatTransfer/Conductor.png"),
                 Text( extent={{12,96},{96,66}},
                       horizontalAlignment=TextAlignment.Right,
-                lineColor={0,0,0},
                 textString="T2"),        Text(
                       extent={{16,-62},{100,-92}},
                       horizontalAlignment=TextAlignment.Right,
-                lineColor={0,0,0},
                 textString="Q_flow2"),   Text(
                       extent={{-100,-64},{-16,-94}},
                       horizontalAlignment=TextAlignment.Left,
-                lineColor={0,0,0},
                 textString="Q_flow1")}));
       end Conduction;
 
@@ -1329,7 +1316,7 @@ and export this model in form of an input/output block,
 especially as FMU (<a href=\"https://www.fmi-standard.org\">Functional Mock-up Unit</a>).
 Examples of the usage of this adaptor are provided in
 <a href=\"modelica://Modelica.Thermal.HeatTransfer.Examples.GenerationOfFMUs\">HeatTransfer.Examples.GenerationOfFMUs</a>.
-This adaptor has temperature and derivative of temperature as input signals and heatflow as output signal. 
+This adaptor has temperature and derivative of temperature as input signals and heatflow as output signal.
 </p>
 <p>
 Note, the input signals must be consistent to each other

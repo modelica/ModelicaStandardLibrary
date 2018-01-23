@@ -2700,7 +2700,7 @@ The rolling contact is considered being ideal, i.e. there is no
 slip between the wheel and the ground.
 The wheel can not take off but it can incline toward the ground.
 The frame frame_a is placed in the wheel center point and rotates
-with the wheel itself. Therefore, a 
+with the wheel itself. Therefore, a
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Joints.Revolute\">rotational joint</a>
 with rotation axis <code>n={0,1,0}</code> should be used to
 connect the wheel to a carrier.
@@ -2926,8 +2926,7 @@ To work properly, the gravity acceleration vector g of the world must point in t
             extent={{-100,-80},{100,-100}},
             fillColor={175,175,175},
             fillPattern=FillPattern.Solid,
-            pattern=LinePattern.None,
-            lineColor={0,0,0}),
+            pattern=LinePattern.None),
           Text(
             extent={{-150,-105},{150,-145}},
             textString="%name",
@@ -2939,8 +2938,7 @@ To work properly, the gravity acceleration vector g of the world must point in t
           Polygon(
             points={{-62,6},{64,6},{64,-6},{6,-6},{6,-20},{-6,-20},{-6,-6},{-62,-6},{-62,6}},
             fillColor={255,255,255},
-            fillPattern=FillPattern.Solid,
-            lineColor={0,0,0}),
+            fillPattern=FillPattern.Solid),
           Ellipse(
             extent={{-118,80},{-42,-80}},
             fillColor={215,215,215},

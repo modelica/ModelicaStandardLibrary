@@ -1239,7 +1239,6 @@ colorMapToSvg(Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.jet(),
           Line(points={{-100,0},{0,0},{0,-20}}, color={95,95,95}),
           Text(
             extent={{-140,-60},{140,-90}},
-            lineColor={0,0,0},
             lineThickness=0.5,
             fillColor={95,95,95},
             fillPattern=FillPattern.Solid,
@@ -2536,7 +2535,7 @@ colorMapToSvg(Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.jet(),
 
         annotation (Documentation(info="<html>
 <p>
-Function <strong>planeXY</strong> computes the X,Y,Z arrays to visualize a x-y plane 
+Function <strong>planeXY</strong> computes the X,Y,Z arrays to visualize a x-y plane
 with model <a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Plane\">Plane</a>.
 The image below shows two planes of
 </p>

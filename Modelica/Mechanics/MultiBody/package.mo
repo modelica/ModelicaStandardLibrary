@@ -293,7 +293,7 @@ the joint is visualized as a red cylinder at the x-axis in the animation figure 
 can always be used as states.
 In the abovementioned example, this is already stated by setting parameter
 \"stateSelect&nbsp;=&nbsp;<strong>StateSelect.always</strong>\"
-in the \"Advanced\" menu of that joint. 
+in the \"Advanced\" menu of that joint.
 When setting this flag for joint j1 in that way in
 the four bar mechanism, a non-linear algebraic loop of 40
 equations can be detected and reduced to a system of&nbsp;5 coupled non-linear algebraic

@@ -113,7 +113,7 @@ email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
 
 <h5>Version 3.2.2, 2018-01-02 (Anton Haumer, Christian Kral)</h5>
 <ul>
-  <li>Shortened default component names, see 
+  <li>Shortened default component names, see
       <a href=\"https://github.com/modelica/Modelica/issues/2301\">#2301</a></li>
 <li>Removed redundant (and not identical) parameter m from
     <a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.MutualInductor\">MutualInductor</a>,
@@ -520,7 +520,7 @@ Simulate for 1 second (2 periods) and compare voltages and currents of source, t
 Test example with multiphase components:<br>
 Star-connected voltage source feeds via a line reactor a diode bridge rectifier with a DC burden.<br>
 Using f=50 Hz, simulate for 0.1 second and compare voltages and currents of source and DC burden, neglecting initial transient.<br>
-We may also compare: Active power measured by powerSensor, powerSensorSpacePhasor and aronSensor, 
+We may also compare: Active power measured by powerSensor, powerSensorSpacePhasor and aronSensor,
 as well as reactive power measured by powerSensorSpacePhasor and reactivePowerSensor.
 </p>
 </html>"), experiment(StopTime=0.1, Interval=1e-005));
@@ -3352,8 +3352,7 @@ The internal resistance of each current path is zero, the internal resistance of
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-29,-11},{30,-70}},
-              textString="W",
-              lineColor={0,0,0}),  Line(points={{-70,0},{-90,0}}),
+              textString="W"),  Line(points={{-70,0},{-90,0}}),
               Line(points={{70,0},{90,0}}),Line(points={{0,-100},
               {0,-70}}, color={0,0,127}),
             Text(
@@ -3446,7 +3445,6 @@ Reinhard Lerch: Elektrische Messtechnik. Springer Vieweg.
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-29,-11},{30,-70}},
-              lineColor={0,0,0},
               textString="var"),   Line(points={{-70,0},{-90,0}}),
               Line(points={{70,0},{90,0}}),Line(points={{0,-100},
               {0,-70}}, color={0,0,127}),

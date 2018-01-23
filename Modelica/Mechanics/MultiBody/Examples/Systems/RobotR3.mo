@@ -840,13 +840,13 @@ This model stores the 4 reference variables q, qd, qdd, moving from the path pla
             transformation(extent={{-60,-10},{-40,10}})));
     equation
       connect(spring.flange_b, gear.flange_a)
-        annotation (Line(points={{10,0},{40,0}}, color={0,0,0}));
+        annotation (Line(points={{10,0},{40,0}}));
       connect(bearingFriction.flange_b, spring.flange_a)
-        annotation (Line(points={{-40,0},{-10,0}}, color={0,0,0}));
+        annotation (Line(points={{-40,0},{-10,0}}));
       connect(gear.flange_b, flange_b)
-        annotation (Line(points={{60,0},{100,0}}, color={0,0,0}));
+        annotation (Line(points={{60,0},{100,0}}));
       connect(bearingFriction.flange_a, flange_a)
-        annotation (Line(points={{-60,0},{-100,0}}, color={0,0,0}));
+        annotation (Line(points={{-60,0},{-100,0}}));
     initial equation
       spring.w_rel = 0;
       a_rel = 0;
@@ -899,8 +899,7 @@ the definition of initial values considerably.
               lineColor={0,0,255}),
             Text(
               extent={{-36,40},{36,-30}},
-              textString="1",
-              lineColor={0,0,0}),
+              textString="1"),
             Rectangle(
               lineColor={64,64,64},
               extent={{-40,-60},{40,60}},
@@ -939,11 +938,11 @@ the definition of initial values considerably.
         annotation (Placement(transformation(extent={{20,-10},{40,10}})));
     equation
       connect(gear.flange_b, bearingFriction.flange_a)
-        annotation (Line(points={{-20,0},{20,0}}, color={0,0,0}));
+        annotation (Line(points={{-20,0},{20,0}}));
       connect(bearingFriction.flange_b, flange_b)
-        annotation (Line(points={{40,0},{100,0}}, color={0,0,0}));
+        annotation (Line(points={{40,0},{100,0}}));
       connect(gear.flange_a, flange_a)
-        annotation (Line(points={{-40,0},{-100,0}}, color={0,0,0}));
+        annotation (Line(points={{-40,0},{-100,0}}));
       annotation (
         Documentation(info="<html>
 <p>
@@ -977,8 +976,7 @@ Default values for all parameters are given for joint 4.
               lineColor={0,0,255}),
             Text(
               extent={{-36,40},{38,-30}},
-              textString="2",
-              lineColor={0,0,0}),
+              textString="2"),
             Rectangle(
               lineColor={64,64,64},
               extent={{-40,-60},{40,60}},

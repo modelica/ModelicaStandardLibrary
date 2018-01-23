@@ -3731,8 +3731,7 @@ To work properly, the gravity acceleration vector g of the world must point in t
           Polygon(
             points={{-62,6},{64,6},{64,-6},{6,-6},{6,-20},{-6,-20},{-6,-6},{-62,-6},{-62,6}},
             fillColor={255,255,255},
-            fillPattern=FillPattern.Solid,
-            lineColor={0,0,0}),
+            fillPattern=FillPattern.Solid),
             Ellipse(
               extent={{-118,80},{-42,-80}},
               fillColor={255,255,255},
@@ -8584,7 +8583,7 @@ Compute three rotational angles <strong>angle</strong> for a given rotational se
               extent={{-86,16},{84,-12}},
               textString="w_rel_b")}), Documentation(info="<html>
 <p>
-Compute relative angular velocity w_rel_b of an 
+Compute relative angular velocity w_rel_b of an
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Orientation\">orientation object</a> R_b
 relative to an
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Orientation\">orientation object</a> R_a,

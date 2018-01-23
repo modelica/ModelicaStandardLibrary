@@ -93,7 +93,6 @@ package Sources "Time-dependent and controlled voltage and current sources"
           Line(points={{60,20},{80,20}}, color={0,0,255}),
           Text(
             extent={{-150,-110},{150,-70}},
-            lineColor={0,0,0},
             textString="V=%V")}),
       Documentation(revisions="<html>
 <ul>
@@ -1175,7 +1174,6 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
             textString="%name"),
           Text(
             extent={{-150,-100},{150,-60}},
-            lineColor={0,0,0},
             textString="I=%I")}),
       Documentation(revisions="<html>
 <ul>

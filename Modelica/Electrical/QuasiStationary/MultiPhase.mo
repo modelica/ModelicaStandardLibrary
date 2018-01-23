@@ -3389,8 +3389,7 @@ The internal resistance of each current path is zero, the internal resistance of
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-29,-11},{30,-70}},
-              textString="W",
-              lineColor={0,0,0}),  Line(points={{-70,0},{-90,0}}),
+              textString="W"),  Line(points={{-70,0},{-90,0}}),
               Line(points={{70,0},{90,0}}),Line(points={{0,-100},
               {0,-70}}, color={0,0,127}),
             Text(
@@ -3509,7 +3508,6 @@ Reinhard Lerch: Elektrische Messtechnik. Springer Vieweg.
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-29,-11},{30,-70}},
-              lineColor={0,0,0},
               textString="var"),   Line(points={{-70,0},{-90,0}}),
               Line(points={{70,0},{90,0}}),Line(points={{0,-100},
               {0,-70}}, color={0,0,127}),

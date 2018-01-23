@@ -1428,7 +1428,7 @@ w = Quaternions.<strong>angularVelocity1</strong>(Q, der_Q);
 <h4>Description</h4>
 <p>
 This function returns the the angular velocity&nbsp;w of frame&nbsp;2 with
-respect to frame&nbsp;1, <strong>resolved in frame&nbsp;1</strong>, from the 
+respect to frame&nbsp;1, <strong>resolved in frame&nbsp;1</strong>, from the
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Quaternions.Orientation\">quaternions orientation</a>&nbsp;Q
 that describes the orientation to rotate frame&nbsp;1 into frame&nbsp;2
 and from its first time derivative der_Q.
@@ -1462,7 +1462,7 @@ w = Quaternions.<strong>angularVelocity2</strong>(Q, der_Q);
 <h4>Description</h4>
 <p>
 This function returns the the angular velocity&nbsp;w of frame&nbsp;2 with
-respect to frame&nbsp;1, <strong>resolved in frame&nbsp;2</strong>, from the 
+respect to frame&nbsp;1, <strong>resolved in frame&nbsp;2</strong>, from the
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Quaternions.Orientation\">quaternions orientation</a>&nbsp;Q
 that describes the orientation to rotate frame&nbsp;1 into frame&nbsp;2
 and from its first time derivative der_Q.
@@ -2282,7 +2282,7 @@ w = TransformationMatrices.<strong>angularVelocity1</strong>(T, der_T);
 <h4>Description</h4>
 <p>
 This function returns the the angular velocity&nbsp;w of frame&nbsp;2 with
-respect to frame&nbsp;1, <strong>resolved in frame&nbsp;1</strong>, from the 
+respect to frame&nbsp;1, <strong>resolved in frame&nbsp;1</strong>, from the
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation\">transformation matrix</a>&nbsp;T
 that describes the orientation to rotate frame&nbsp;1 into frame&nbsp;2
 and from its first time derivative der_T:
@@ -2337,7 +2337,7 @@ w = TransformationMatrices.<strong>angularVelocity2</strong>(T, der_T);
 <h4>Description</h4>
 <p>
 This function returns the the angular velocity&nbsp;w of frame&nbsp;2 with
-respect to frame&nbsp;1, <strong>resolved in frame&nbsp;2</strong>, from the 
+respect to frame&nbsp;1, <strong>resolved in frame&nbsp;2</strong>, from the
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation\">transformation matrix</a>&nbsp;T
 that describes the orientation to rotate frame&nbsp;1 into frame&nbsp;2
 and from its first time derivative der_T:

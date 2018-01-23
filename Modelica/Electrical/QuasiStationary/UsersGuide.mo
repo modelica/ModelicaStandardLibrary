@@ -427,7 +427,7 @@ ideal AC DC converter</a>, which is used in the
     annotation (Documentation(info="<html>
 <h5>Version 3.2.2, 2018-01-02</h5>
 <ul>
-    <li>Shortened default component names, see 
+    <li>Shortened default component names, see
       <a href=\"https://github.com/modelica/Modelica/issues/2301\">#2301</a></li>
     <li>Fixed missing <code>final useConjugateInput = false</code> reported in
     <a href=\"https://github.com/modelica/Modelica/issues/2251\">#2251</a>:
