@@ -372,6 +372,10 @@ double* ModelicaIO_readRealTable(_In_z_ const char* fileName,
     return table;
 }
 
+void ModelicaIO_freeRealTable(double* table) {
+    free(table);
+}
+
 static double* readMatTable(_In_z_ const char* fileName, _In_z_ const char* tableName,
                             _Out_ size_t* m, _Out_ size_t* n) {
     double* table = NULL;

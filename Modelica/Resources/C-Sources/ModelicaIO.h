@@ -140,4 +140,10 @@ MODELICA_EXPORT double* ModelicaIO_readRealTable(_In_z_ const char* fileName,
      <- RETURN: Array of dimensions m by n
   */
 
+MODELICA_EXPORT void ModelicaIO_freeRealTable(double* table);
+  /* Free table
+     Note: Only called from ModelicaStandardTables to free the allocated memory by
+     ModelicaIO_readRealTable
+  */
+
 #endif
