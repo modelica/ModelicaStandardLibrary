@@ -52,10 +52,9 @@ to <strong>false</strong> or by setting <strong>enableAnimation</strong> in the 
 object to <strong>false</strong> to switch off animation of all components.
 </p>
 
-<table border=0 cellspacing=0 cellpadding=0><tr><td valign=\"top\">
+<blockquote>
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/DoublePendulum.png\"
 ALT=\"model Examples.Elementary.DoublePendulum\">
-</td></tr></table>
-
+</blockquote>
 </html>"));
 end DoublePendulum;
