@@ -392,7 +392,7 @@ Simulate for 1 second (2 periods) and compare voltages and currents of source, t
         "Opened diode conductance";
       parameter Modelica.SIunits.Voltage Vknee=0 "Threshold diode voltage";
       final parameter Modelica.SIunits.Voltage VDC=factorY2DC(m)*V "Estimated average DC voltage";
-      final parameter Modelica.SIunits.Current IDC=VDC/RL "Estimated average DC curent";
+      final parameter Modelica.SIunits.Current IDC=VDC/RL "Estimated average DC current";
       Sources.SineVoltage sineVoltage(
         m=m,
         freqHz=fill(f, m),
