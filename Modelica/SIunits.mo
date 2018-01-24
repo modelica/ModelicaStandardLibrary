@@ -1810,7 +1810,7 @@ argument):</p>
   operator record ComplexMagnetomotiveForce =
     Complex(redeclare Modelica.SIunits.MagnetomotiveForce re "Real part of complex magnetomotive force",
             redeclare Modelica.SIunits.MagnetomotiveForce im "Imaginary part of complex magnetomotive force")
-    "Complex magneto motive force";
+    "Complex magnetomotive force";
   operator record ComplexMagneticFluxDensity =
     Complex(redeclare Modelica.SIunits.MagneticFluxDensity re "Real part of complex magnetic flux density",
             redeclare Modelica.SIunits.MagneticFluxDensity im "Imaginary part of complex magnetic flux density")
