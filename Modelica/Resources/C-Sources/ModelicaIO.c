@@ -55,7 +55,7 @@
 
       Jan. 31, 2017: by Thomas Beutlich, ESI ITI GmbH
                      Added diagnostic message for (supported) partial read of table
-                     from ASCII text file (ticket #2151)
+                     from a text file (ticket #2151)
 
       Jan. 07, 2017: by Thomas Beutlich, ESI ITI GmbH
                      Replaced strtok by re-entrant string tokenize function
@@ -164,13 +164,13 @@ static void readRealMatIO(_In_z_ const char* fileName, _In_z_ const char* matrix
 
 static double* readTxtTable(_In_z_ const char* fileName, _In_z_ const char* tableName,
                             _Out_ size_t* m, _Out_ size_t* n) MODELICA_NONNULLATTR;
-  /* Read a table from an ASCII text file
+  /* Read a table from a text file
 
      <- RETURN: Pointer to array (row-wise storage) of table values
   */
 
 static int readLine(_In_ char** buf, _In_ int* bufLen, _In_ FILE* fp) MODELICA_NONNULLATTR;
-  /* Read line (of unknown and arbitrary length) from an ASCII text file */
+  /* Read line (of unknown and arbitrary length) from a text file */
 
 static int IsNumber(char* token);
   /*  Check, whether a token represents a floating-point number */
@@ -348,7 +348,7 @@ double* ModelicaIO_readRealTable(_In_z_ const char* fileName,
     const char* ext;
     int isMatExt = 0;
 
-    /* Table file can be either ASCII text or binary MATLAB MAT-file */
+    /* Table file can be either text or binary MATLAB MAT-file */
     ext = strrchr(fileName, '.');
     if (NULL != ext) {
         if (0 == strncmp(ext, ".mat", 4) ||

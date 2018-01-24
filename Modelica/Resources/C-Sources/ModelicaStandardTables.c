@@ -131,7 +131,7 @@
       May 21, 2014:  by Thomas Beutlich, ITI GmbH
                      Fixed bivariate Akima-spline extrapolation (ticket #1465)
                      Improved error message in case of trailing numbers when parsing
-                     a line of an external ASCII text file (ticket #1494)
+                     a line of a text file (ticket #1494)
 
       Oct. 17, 2013: by Thomas Beutlich, ITI GmbH
                      Added support of 2D tables that actually degrade to 1D tables
@@ -484,7 +484,7 @@ static size_t key_strlen(_In_z_ const char *s);
 static READ_RESULT readTable(_In_z_ const char* fileName, _In_z_ const char* tableName,
                              _Inout_ size_t* nRow, _Inout_ size_t* nCol, int verbose,
                              int force) MODELICA_NONNULLATTR;
-  /* Read a table from an ASCII text or MATLAB MAT-file
+  /* Read a table from a text or MATLAB MAT-file
 
      <- RETURN: Pointer to TableShare structure or
         pointer to array (row-wise storage) of table values
