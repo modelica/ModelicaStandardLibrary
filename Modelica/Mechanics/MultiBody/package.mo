@@ -974,17 +974,20 @@ dynamical effects is described in:
     extends Modelica.Icons.Contact;
 
     annotation (Documentation(info="<html>
-<dl>
-<dt><strong>Library Officer:</strong></dt>
-<dd>Jakub Tobolar, <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a><br>
-    Deutsches Zentrum f&uuml;r Luft und Raumfahrt e.V. (DLR)<br>
-    Institut f&uuml;r Robotik und Mechatronik<br>
-    Abteilung f&uuml;r Entwurfsorientierte Regelungstechnik<br>
-    Postfach 1116<br>
-    D-82230 Wessling<br>
-    Germany<br></dd>
-</dl>
-<p><strong>Acknowledgements:</strong></p>
+<h4>Library Officers</h4>
+
+<p>
+Jakub Tobolar and <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a><br>
+Deutsches Zentrum f&uuml;r Luft und Raumfahrt e.V. (DLR)<br>
+Institut f&uuml;r Robotik und Mechatronik<br>
+Abteilung f&uuml;r Entwurfsorientierte Regelungstechnik<br>
+Postfach 1116<br>
+D-82230 Wessling<br>
+Germany
+</p>
+
+<h4>Acknowledgements</h4>
+
 <ul>
 <li> The central idea to handle a certain class of overdetermined, consistent
      set of differential algebraic equations (i.e., there are more equations than

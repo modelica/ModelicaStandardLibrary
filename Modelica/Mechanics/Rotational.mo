@@ -647,20 +647,19 @@ The above approach to model a simplified friction element is slightly generalize
       extends Modelica.Icons.Contact;
 
       annotation (Documentation(info="<html>
-<dl>
-<dt><strong>Library Officer</strong></dt>
-<dd>Jakub Tobolar, <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a> <br>
-    Deutsches Zentrum f&uuml;r Luft und Raumfahrt e.V. (DLR)<br>
-    Institut f&uuml;r Robotik und Mechatronik (DLR-RM)<br>
-    Abteilung Systemdynamik und Regelungstechnik<br>
-    Postfach 1116<br>
-    D-82230 Wessling<br>
-    Germany<br></dd>
-</dl>
+<h4>Library Officers</h4>
 
 <p>
-<strong>Contributors to this library:</strong>
+Jakub Tobolar and <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a> <br>
+Deutsches Zentrum f&uuml;r Luft und Raumfahrt e.V. (DLR)<br>
+Institut f&uuml;r Robotik und Mechatronik (DLR-RM)<br>
+Abteilung Systemdynamik und Regelungstechnik<br>
+Postfach 1116<br>
+D-82230 Wessling<br>
+Germany
 </p>
+
+<h4>Contributors to this library</h4>
 
 <ul>
 <li> <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a> (DLR-RM)</li>
