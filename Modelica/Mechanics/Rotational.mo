@@ -1184,7 +1184,7 @@ gear.mode  :  1 = forward rolling
       connect(torque1.support, fixed.flange) annotation (Line(points={{-100,0},
               {-100,-20},{-10,-20}}));
       annotation (
-        Diagram(coordinateSystem(extent = {{-150,-100},{100,100}})),
+        Diagram(coordinateSystem(extent={{-140,-100},{100,100}})),
         Documentation(info="<html>
 <p>
 This model contains bearing friction and gear friction (= efficiency).
@@ -1238,7 +1238,7 @@ as component LossyGear includes the functionality of component BearingFriction
         height=1,
         offset=0) annotation (Placement(transformation(
             origin={90,10},
-            extent={{-10,-10},{10,10}},
+            extent={{-10,10},{10,-10}},
             rotation=180)));
       Modelica.Mechanics.Rotational.Components.Inertia Inertia2(
         J=0.001,
@@ -1259,7 +1259,7 @@ as component LossyGear includes the functionality of component BearingFriction
       connect(step1.y, torque2.tau) annotation (Line(
           points={{79,10},{74.5,10},{74.5,10},{70,10}}, color={0,0,127}));
       annotation (
-        Diagram(coordinateSystem(extent = {{-110,-100},{110,100}})),
+        Diagram(coordinateSystem(extent={{-100,-100},{100,100}})),
         Documentation(info="<html>
 <p>
 This example demonstrates a situation where the driving side of the
@@ -4029,15 +4029,13 @@ connected to other elements in an appropriate way.
       "Gear with mesh efficiency and bearing friction (stuck/rolling possible)"
 
       extends Modelica.Mechanics.Rotational.Icons.Gear;
-      extends
-        Modelica.Mechanics.Rotational.Interfaces.PartialElementaryTwoFlangesAndSupport2;
+      extends Modelica.Mechanics.Rotational.Interfaces.PartialElementaryTwoFlangesAndSupport2;
 
       parameter Real ratio(start=1)
         "Transmission ratio (flange_a.phi/flange_b.phi)";
       parameter Real lossTable[:, 5]=[0, 1, 1, 0, 0]
         "Array for mesh efficiencies and bearing friction depending on speed";
-      extends
-        Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT;
+      extends Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT;
       Modelica.SIunits.Angle phi_a
         "Angle between left shaft flange and support";
       Modelica.SIunits.Angle phi_b
@@ -4418,7 +4416,7 @@ Sept. 11, 2009.</li>
         Polygon(fillColor={161,35,41},
           pattern=LinePattern.None,
           fillPattern=FillPattern.Solid,
-          points={{-109.0,40.0},{-80.0,40.0},{-80.0,80.0},{-90.0,80.0},{-70.0,100.0},{-50.0,80.0},{-60.0,80.0},{-60.0,20.0},{-109.0,20.0},{-109.0,40.0}}),
+          points={{-110,50},{-80,50},{-80,80},{-90,80},{-70,100},{-50,80},{-60,80},{-60,30},{-110,30},{-110,50}}),
         Line(points={{-80.0,20.0},{-60.0,20.0}}),
         Text(lineColor={0,0,255},
           extent={{-148.0,105.0},{152.0,145.0}},
