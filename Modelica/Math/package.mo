@@ -545,7 +545,7 @@ can be provided as third argument of the function. Default is \"eps = 0\".
       iNew := i;
     end if;
 
-    annotation (smoothOrder (normallyConstant=x, normallyConstant=y)=100,
+    annotation (smoothOrder( normallyConstant=x, normallyConstant=y)=100,
       Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -13298,17 +13298,16 @@ as well as functions operating on
 <a href=\"modelica://Modelica.Math.BooleanVectors\">Boolean vectors</a>.
 </p>
 
-<dl>
-<dt><strong>Main Authors:</strong></dt>
-<dd><a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a> and
-    Marcus Baur<br>
-    Deutsches Zentrum f&uuml;r Luft und Raumfahrt e.V. (DLR)<br>
-    Institut f&uuml;r Robotik und Mechatronik<br>
-    Postfach 1116<br>
-    D-82230 Wessling<br>
-    Germany<br>
-    email: <A HREF=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</A><br></dd>
-</dl>
+<h4>Main Authors</h4>
+<a href=\"http://www.robotic.dlr.de/Martin.Otter/\"><strong>Martin Otter</strong></a>
+and <strong>Marcus Baur</strong><br>
+Deutsches Zentrum f&uuml;r Luft- und Raumfahrt e.V. (DLR)<br>
+Institut f&uuml;r Systemdynamik und Regelungstechnik (DLR-SR)<br>
+Forschungszentrum Oberpfaffenhofen<br>
+D-82234 Wessling<br>
+Germany<br>
+email: <a href=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</a>
+</p>
 
 <p>
 Copyright &copy; 1998-2018, Modelica Association and DLR.
