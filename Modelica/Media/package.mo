@@ -2008,15 +2008,18 @@ for the Modelica'2003 conference (for evaluation).
   class Contact "Contact"
     extends Modelica.Icons.Contact;
     annotation (Documentation(info="<html>
-<dl>
-<dt><strong>Main author and maintainer:</strong>
-<dd>Hubertus Tummescheit<br>
-    Modelon AB<br>
-    Ideon Science Park<br>
-    SE-22730 Lund, Sweden<br>
-    email: <A HREF=\"mailto:Hubertus.Tummescheit@Modelon.se\">Hubertus.Tummescheit@Modelon.se</A><br>
-</dl>
-<p><strong>Acknowledgements:</strong></p>
+<h4>Library officer and main author</h4>
+
+<p>
+<strong>Hubertus Tummescheit</strong><br>
+Modelon AB<br>
+Ideon Science Park<br>
+SE-22730 Lund, Sweden<br>
+email: <a href=\"mailto:Hubertus.Tummescheit@Modelon.se\">Hubertus.Tummescheit@Modelon.se</a>
+</p>
+
+<h4>Acknowledgements</h4>
+
 <p>
 The development of this library has been a collaborative effort
 and many have contributed:
@@ -3962,8 +3965,8 @@ output window.
       "Solve h = h_T(T), s = s_T(T) for T, if h or s is given for ideal gas NASA"
       extends Modelica.Icons.Example;
 
-      replaceable package Medium = Modelica.Media.Air.DryAirNasa constrainedby
-        Modelica.Media.IdealGases.Common.SingleGasNasa "Medium model"
+      replaceable package Medium = Modelica.Media.Air.DryAirNasa constrainedby Modelica.Media.IdealGases.Common.SingleGasNasa
+        "Medium model"
         annotation (choicesAllMatching=true);
 
       parameter SI.Temperature T_min=300
@@ -5650,9 +5653,9 @@ to the above list of assumptions</li>
 
   partial package PartialRealCondensingGases
     "Base class for mixtures of real condensing and non-condensing gases"
-    extends Modelica.Media.Interfaces.PartialMixtureMedium(redeclare
-        replaceable record FluidConstants =
-          Modelica.Media.Interfaces.Types.TwoPhase.FluidConstants);
+    extends Modelica.Media.Interfaces.PartialMixtureMedium(
+      redeclare replaceable record FluidConstants =
+        Modelica.Media.Interfaces.Types.TwoPhase.FluidConstants);
 
     replaceable partial function saturationPressure
       "Return saturation pressure of condensing fluid"
@@ -6938,10 +6941,8 @@ quantities are assumed to be constant.
     type ReferenceEnthalpy = enumeration(
         ZeroAt0K
           "The enthalpy is 0 at 0 K (default), if the enthalpy of formation is excluded",
-
         ZeroAt25C
           "The enthalpy is 0 at 25 degC, if the enthalpy of formation is excluded",
-
         UserDefined
           "The user-defined reference enthalpy is used at 293.15 K (25 degC)")
       "Enumeration defining the reference enthalpy of a medium" annotation (

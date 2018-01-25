@@ -265,14 +265,17 @@ Initial release of Fluid.Dissipation.
   class Contact "Contact"
     extends Modelica.Icons.Contact;
       annotation (Documentation(info="<html>
-<dl>
-<dt>Maintainer and co-author:</dt>
-<dd>Stefan Wischhusen<br />
-    XRG Simulation GmbH<br />
-    Hamburg, Germany<br />
-    email: <A HREF=\"mailto:wischhusen@xrg-simulation.de\">wischhusen@xrg-simulation.de</A></dd>
-</dl>
-<h4>  Acknowledgements </h4>
+<h4>Library officer and co-author</h4>
+
+<p>
+<strong>Stefan Wischhusen</strong><br>
+    XRG Simulation GmbH<br>
+    Hamburg, Germany<br>
+    email: <a href=\"mailto:wischhusen@xrg-simulation.de\">wischhusen@xrg-simulation.de</a>
+</p>
+
+<h4>Acknowledgements</h4>
+
 <p>
 The following people contributed to the Modelica.Fluid.Dissipation library (alphabetical list):
 J&ouml;rg Eiden, Ole Engel, Nina Peci, Sven Rutkowski, Thorben Vahlenkamp, Stefan

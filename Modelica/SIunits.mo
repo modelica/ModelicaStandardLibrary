@@ -203,23 +203,24 @@ in the declaration as in the example at the beginning.
     extends Modelica.Icons.Contact;
 
     annotation (Documentation(info="<html>
-<dl>
-<dt><strong>Main Author:</strong>
-<dd><a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a><br>
-    Deutsches Zentrum f&uuml;r Luft und Raumfahrt e.V. (DLR)<br>
-    Institut f&uuml;r Robotik und Mechatronik<br>
-    Abteilung f&uuml;r Entwurfsorientierte Regelungstechnik<br>
-    Postfach 1116<br>
-    D-82230 Wessling<br>
-    Germany<br>
-    email: <A HREF=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</A><br>
-</dl>
+<h4>Main author</h4>
 
-<p><strong>Acknowledgements:</strong></p>
-<ul>
-<li> Astrid Jaschinski, Hubertus Tummescheit and Christian Schweiger
-     contributed to the implementation of this package.</li>
-</ul>
+<p>
+<a href=\"http://www.robotic.dlr.de/Martin.Otter/\"><strong>Martin Otter</strong></a><br>
+Deutsches Zentrum f&uuml;r Luft- und Raumfahrt e.V. (DLR)<br>
+Institut f&uuml;r Systemdynamik und Regelungstechnik (DLR-SR)<br>
+Forschungszentrum Oberpfaffenhofen<br>
+D-82234 Wessling<br>
+Germany<br>
+email: <a href=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</a>
+</p>
+
+<h4>Acknowledgements</h4>
+
+<p>
+Astrid Jaschinski, Hubertus Tummescheit and Christian Schweiger
+contributed to the implementation of this package.
+</p>
 </html>"));
   end Contact;
 

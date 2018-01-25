@@ -404,17 +404,16 @@ drive.
       extends Modelica.Icons.Contact;
 
       annotation (Documentation(info="<html>
-<h4>Library Officers</h4>
+<h4>Library officers</h4>
 
 <p>
-Jakub Tobolar and <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a> <br>
-Deutsches Zentrum f&uuml;r Luft und Raumfahrt e.V. (DLR)<br>
-Institut f&uuml;r Robotik und Mechatronik (DLR-RM)<br>
-Abteilung Systemdynamik und Regelungstechnik<br>
-Postfach 1116<br>
-D-82230 Wessling<br>
+<strong>Jakub Tobolar</strong> and <a href=\"http://www.robotic.dlr.de/Martin.Otter/\"><strong>Martin Otter</strong></a><br>
+Deutsches Zentrum f&uuml;r Luft- und Raumfahrt e.V. (DLR)<br>
+Institut f&uuml;r Systemdynamik und Regelungstechnik (DLR-SR)<br>
+Forschungszentrum Oberpfaffenhofen<br>
+D-82234 Wessling<br>
 Germany<br>
-email: <A HREF=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</A>
+email: <a href=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</a>
 </p>
 
 <h4>Contributors to this library</h4>
@@ -683,13 +682,11 @@ combination). In this case the system is not at rest.
               extent={{-60,-84},{-40,-94}},
               lineColor={255,0,0},
               textString=" 0.5 m
- (1 m) "),
-           Text(
+ (1 m) "), Text(
               extent={{20,-84},{40,-94}},
               lineColor={255,0,0},
               textString=" 1 m
- (1 m) "),
-           Text(
+ (1 m) "), Text(
               extent={{-20,-84},{0,-94}},
               textString="  1 m  "),
             Text(

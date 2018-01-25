@@ -86,23 +86,22 @@ This set of symmterical components is repeated for each of the n<sub>Base</sub> 
       extends Modelica.Icons.Contact;
       annotation (preferredView="info",
         DocumentationClass=true, Documentation(info="<html>
-<h4>Contact</h4>
+<h4>Main authors</h4>
 
 <p>
-Christian Kral<br>
+<strong>Dr. Christian Kral</strong><br>
 Electric Machines, Drives and Systems<br>
 1060 Vienna, Austria<br>
 email: <a HREF=\"mailto:dr.christian.kral@gmail.com\">dr.christian.kral@gmail.com</a><br>
 </p>
 
 <p>
-Anton Haumer<br>
+<strong>Anton Haumer</strong><br>
 <a href=\"http://www.haumer.at\">Technical Consulting &amp; Electrical Engineering</a><br>
 93049 Regensburg, Germany<br>
 3423 St. Andrae-Woerdern, Austria<br>
 email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
 </p>
-
 </html>"));
     end Contact;
 

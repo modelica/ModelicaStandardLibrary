@@ -1607,35 +1607,27 @@ class Contact "Contact"
   extends Modelica.Icons.Contact;
 
     annotation (Documentation(info="<html>
-<dl>
-<dt><strong>Library Officers:</strong><br>&nbsp;</dt>
-<dd>
-<table border=0 cellspacing=0 cellpadding=2>
-<tr>
-<td>
-    Francesco Casella<br>
+<h4>Library officers</h4>
+
+<p>
+<strong>Francesco Casella</strong><br>
     Dipartimento di Elettronica e Informazione<br>
     Politecnico di Milano<br>
     Via Ponzio 34/5<br>
     I-20133 Milano, Italy<br>
-    email: <A HREF=\"mailto:casella@elet.polimi.it\">casella@elet.polimi.it</A><br>&nbsp;
-</td>
-<td></td>
-<td>and</td>
-<td></td>
-<td>
-    R&uuml;diger Franke<br>
+    email: <a href=\"mailto:casella@elet.polimi.it\">casella@elet.polimi.it</a>
+</p>
+<p>
+<strong>R&uuml;diger Franke</strong><br>
     ABB AG<br>
     PTSP-E22<br>
     Kallstadter Str. 1<br>
     D-68163, Germany<br>
-    email: <A HREF=\"mailto:ruediger.franke@de.abb.com\">ruediger.franke@de.abb.com</A><br>&nbsp;
-</td>
-</tr>
-</table>
-</dd>
-</dl>
-<p><strong>Acknowledgements:</strong></p>
+    email: <a href=\"mailto:ruediger.franke@de.abb.com\">ruediger.franke@de.abb.com</a>
+</p>
+
+<h4>Acknowledgements</h4>
+
 <p>
 The development of this library has been a collaborative effort
 and many have contributed.

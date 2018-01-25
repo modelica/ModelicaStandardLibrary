@@ -246,8 +246,8 @@ connect(p_out, n2);
     extends Modelica.Icons.Contact;
 
     annotation (Documentation(info="<html>
+<h4>Main Authors</h4>
 
-<h4>Main Authors:</h4>
 <dl>
 <dt><strong>Kristin Majetta</strong></dt>
 <dd>email: <a href=\"mailto:Kristin.Majetta@eas.iis.fraunhofer.de\">Kristin Majetta@eas.iis.fraunhofer.de</a></dd>
@@ -265,7 +265,8 @@ Zeunerstra&szlig;e 38<br />
 01069 Dresden, Germany</dd>
 </dl>
 
-<h4>Acknowledgements:</h4>
+<h4>Acknowledgements</h4>
+
 <ul>
 <li>The development of this library was done within the European ITEA2 projects EUROSYSLIB and MODELISAR.</li>
 <li>For his contribution we thank Mr. Jonathan Gerbet.</li>

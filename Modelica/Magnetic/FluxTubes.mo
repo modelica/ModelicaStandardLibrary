@@ -668,31 +668,29 @@ Several models to describe the static hysteresis behavior of ferromagnetic mater
       extends Modelica.Icons.Contact;
 
       annotation (Documentation(info="<html>
-<h4>Contact</h4>
+<h4>Main authors</h4>
 
-<dl>
-<dt><strong>Main Authors:</strong></dt>
-<dd>
-    <a href=\"http://www.ifte.de/mitarbeiter/boedrich.html\">Thomas B&ouml;drich</a><br>
+<p>
+<a href=\"http://www.ifte.de/mitarbeiter/boedrich.html\"><strong>Thomas B&ouml;drich</strong></a><br>
     Dresden University of Technology<br>
     Institute of Electromechanical and Electronic Design<br>
     01062 Dresden, Germany<br>
     Phone: +49 - 351 - 463 36296<br>
     Fax: +49 - 351 - 463 37183<br>
-    email: <A HREF=\"mailto:Thomas.Boedrich@tu-dresden.de\">Thomas.Boedrich@tu-dresden.de</A><br>
-</dd>
-<dd>
-    <a href=\"http://www.ifte.de/mitarbeiter/ziske.html\">Johannes Ziske</a><br>
+    email: <a href=\"mailto:Thomas.Boedrich@tu-dresden.de\">Thomas.Boedrich@tu-dresden.de</a>
+</p>
+<p>
+<a href=\"http://www.ifte.de/mitarbeiter/ziske.html\"><strong>Johannes Ziske</strong></a><br>
     Dresden University of Technology<br>
     Institute of Electromechanical and Electronic Design<br>
     01062 Dresden, Germany<br>
     Phone: +49 - 351 - 463 35250<br>
     Fax: +49 - 351 - 463 37183<br>
-    email: <A HREF=\"mailto:Johannes.Ziske@tu-dresden.de\">Johannes.Ziske@tu-dresden.de</A><br>
-</dd>
-</dl>
+    email: <a href=\"mailto:Johannes.Ziske@tu-dresden.de\">Johannes.Ziske@tu-dresden.de</a>
+</p>
 
-<p><strong>Acknowledgements:</strong></p>
+<h4>Acknowledgements</h4>
+
 <ul>
 <li> The magnetisation characteristics of the included soft magnetic materials were compiled and measured respectively by Thomas Roschke, now with Johnson Electric. Provision of this data is highly appreciated. He also formulated the approximation function used for description of the magnetisation characteristics of these materials.
 </li>

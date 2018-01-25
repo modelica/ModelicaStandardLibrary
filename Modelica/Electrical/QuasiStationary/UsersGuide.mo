@@ -526,39 +526,21 @@ ideal AC DC converter</a>, which is used in the
     extends Modelica.Icons.Contact;
 
     annotation (Documentation(info="<html>
+<h4>Library officers and main authors</h4>
 
-<p>This package is developed an maintained by the following contributors</p>
+<p>
+<strong>Anton Haumer</strong><br>
+<a href=\"http://www.haumer.at\">Technical Consulting &amp; Electrical Engineering</a><br>
+A-3423 St. Andrae-Woerdern, Austria<br>
+email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
+</p>
 
-  <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-    <tr>
-      <th></th>
-      <th>Name</th>
-      <th>Affiliation</th>
-    </tr>
-    <tr>
-      <td valign=\"top\">Library officer</td>
-      <td valign=\"top\">
-      <a href=\"mailto:a.haumer@haumer.at\">Anton Haumer</a>
-      </td>
-      <td valign=\"top\">
-        <a href=\"http://www.haumer.at\">Technical Consulting &amp; Electrical Engineering</a><br>
-        3423 St.Andrae-Woerdern<br>
-        Austria
-      </td>
-    </tr>
-    <tr>
-      <td valign=\"top\">Library officer</td>
-      <td valign=\"top\">
-        <a href=\"mailto:dr.christian.kral@gmail.com\">Christian Kral</a>
-      </td>
-      <td valign=\"top\">
-        <a href=\"https://christiankral.net\">Electric Machines, Drives and Systems</a><br>
-        1060 Vienna<br>
-        Austria
-      </td>
-    </tr>
-  </table>
-
+<p>
+<strong>Dr. Christian Kral</strong><br>
+<a href=\"https://christiankral.net/\">Electric Machines, Drives and Systems</a><br>
+A-1060 Vienna, Austria<br>
+email: <a href=\"mailto:dr.christian.kral@gmail.com\">dr.christian.kral@gmail.com</a>
+</p>
 </html>"));
   end Contact;
 

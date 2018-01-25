@@ -99,12 +99,32 @@ First version implemented.
     extends Modelica.Icons.Contact;
 
     annotation (Documentation(info="<html>
-<dl>
-<dt><strong>Responsible for Library:</strong></dt>
-<dd>Dag Br&uuml;ck, Dassault Syst&egrave;mes AB, Sweden.<br>
-    email: <A HREF=\"mailto:Dag.BRUCK@3ds.com\">Dag.BRUCK@3ds.com</A><br></dd>
-</dl>
-<p><strong>Acknowledgements:</strong></p>
+<h4>Library officers</h4>
+
+<p>
+<a href=\"http://www.robotic.dlr.de/Martin.Otter/\"><strong>Martin Otter</strong></a> <br>
+Deutsches Zentrum f&uuml;r Luft- und Raumfahrt e.V. (DLR)<br>
+Institut f&uuml;r Systemdynamik und Regelungstechnik (DLR-SR)<br>
+Forschungszentrum Oberpfaffenhofen<br>
+D-82234 Wessling<br>
+Germany
+</p>
+
+<p>
+<strong>Hans Olsson</strong><br>
+Dassault Syst&egrave;mes AB, Lund, Sweden
+</p>
+
+<h4>Main authors</h4>
+
+<p>
+<strong>Dag Br&uuml;ck</strong><br>
+Dassault Syst&egrave;mes AB, Lund, Sweden.<br>
+email: <a href=\"mailto:Dag.Bruck@3ds.com\">Dag.Bruck@3ds.com</a>
+</p>
+
+<h4>Acknowledgements</h4>
+
 <ul>
 <li> This library has been designed by:<br>
      <blockquote>

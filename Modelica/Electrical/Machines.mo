@@ -90,22 +90,21 @@ You may have a look at a short summary of space phasor theory at <a href=\"http:
     class Contact "Contact"
       extends Modelica.Icons.Contact;
       annotation (preferredView="info",Documentation(info="<html>
-<h4>Contact</h4>
+<h4>Main authors</h4>
 
 <p>
-Anton Haumer<br>
+<strong>Anton Haumer</strong><br>
 <a href=\"http://www.haumer.at\">Technical Consulting &amp; Electrical Engineering</a><br>
 3423 St. Andrae-Woerdern, Austria<br>
 email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
 </p>
 
 <p>
-  Dr. Christian Kral<br>
+<strong>Dr. Christian Kral</strong><br>
   <a href=\"https://christiankral.net/\">Electric Machines, Drives and Systems</a><br>
   A-1060 Vienna, Austria<br>
   email: <a href=\"mailto:dr.christian.kral@gmail.com\">dr.christian.kral@gmail.com</a>
 </p>
-
 </html>"));
     end Contact;
 
