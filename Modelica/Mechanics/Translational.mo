@@ -419,6 +419,15 @@ email: <a href=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</a>
 <h4>Contributors to this library</h4>
 
 <ul>
+<li> Main author until 2006:<br>
+     Peter Beater <br>
+     Universit&auml;t Paderborn, Abteilung Soest<br>
+     Fachbereich Maschinenbau/Automatisierungstechnik<br>
+     L&uuml;becker Ring 2 <br>
+     D 59494 Soest <br>
+     Germany <br>
+     email: <a href=\"mailto:info@beater.de\">info@beater.de</a>
+     </li>
 <li> <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a> (DLR-RM)</li>
 <li> Christian Schweiger (DLR-RM, until 2006).</li>
 <li> <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
@@ -5908,41 +5917,6 @@ the dissipated power is available from the new variable \"<strong>lossPower</str
 positive if heat is flowing out of the heatPort). For an example, see
 <a href=\"modelica://Modelica.Mechanics.Translational.Examples.HeatLosses\">Examples.HeatLosses</a>.
 </p>
-
-<dl>
-<dt><strong>Library Officer</strong></dt>
-<dd><a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a> <br>
-    Deutsches Zentrum f&uuml;r Luft und Raumfahrt e.V. (DLR)<br>
-    Institut f&uuml;r Robotik und Mechatronik (DLR-RM)<br>
-    Abteilung Systemdynamik und Regelungstechnik<br>
-    Postfach 1116<br>
-    D-82230 Wessling<br>
-    Germany<br>
-    email: <A HREF=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</A><br><br></dd>
-</dl>
-
-<p>
-<strong>Contributors to this library:</strong>
-</p>
-
-<ul>
-<li> Main author until 2006:<br>
-     Peter Beater <br>
-     Universit&auml;t Paderborn, Abteilung Soest<br>
-     Fachbereich Maschinenbau/Automatisierungstechnik<br>
-     L&uuml;becker Ring 2 <br>
-     D 59494 Soest <br>
-     Germany <br>
-     email: <A HREF=\"mailto:info@beater.de\">info@beater.de</A><br><br>
-     </li>
-
-<li> <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
-     Technical Consulting &amp; Electrical Engineering<br>
-     A-3423 St.Andrae-Woerdern, Austria<br>
-     email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br><br></li>
-
-<li> <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a> (DLR-RM)</li>
-</ul>
 
 <p>
 Copyright &copy; 1998-2018, Modelica Association, Anton Haumer and Universit&auml;t Paderborn, FB 12.
