@@ -425,8 +425,16 @@ ideal AC DC converter</a>, which is used in the
     extends Modelica.Icons.ReleaseNotes;
 
     annotation (Documentation(info="<html>
-<h5>Version 3.2.2, 2018-01-02</h5>
+<h5>Version 3.2.2, 2018-01-28</h5>
 <ul>
+    <li>Added frequency speed voltage and current sources, see 
+        <a href=\"https://github.com/modelica/Modelica/issues/2442\">#2442</a></li>
+    <ul>
+        <li>Single-phase <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sources.FrequencySweepVoltageSource\">FrequencySweepVoltageSource</a></li>
+        <li>Single-phase <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sources.FrequencySweepCurrentSource\">FrequencySweepCurrentSource</a></li>
+        <li>Polyphase <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sources.FrequencySweepVoltageSource\">FrequencySweepVoltageSource</a></li>
+        <li>Polyphase <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sources.FrequencySweepCurrentSource\">FrequencySweepCurrentSource</a></li>
+    </ul>
     <li>Shortened default component names, see
       <a href=\"https://github.com/modelica/Modelica/issues/2301\">#2301</a></li>
     <li>Fixed missing <code>final useConjugateInput = false</code> reported in
