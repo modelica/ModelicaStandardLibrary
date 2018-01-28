@@ -45,10 +45,10 @@ package SinglePhase "Single phase quasi static package"
       startTime=0) annotation (Placement(transformation(extent={{-100,-30},{-80,-10}})));
   equation
 
-    connect(const.y, variableResistor.R_ref) annotation (Line(points={{-29,60},{-20,60},{-20,41}}, color={0,0,127}));
-    connect(const1.y, variableConductor.G_ref) annotation (Line(points={{1,80},{6,80},{10,80},{10,41}}, color={0,0,127}));
-    connect(const2.y, variableCapacitor.C) annotation (Line(points={{49,80},{40,80},{40,41}}, color={0,0,127}));
-    connect(const3.y, variableInductor.L) annotation (Line(points={{79,60},{70,60},{70,40.8}}, color={0,0,127}));
+    connect(const.y, variableResistor.R_ref) annotation (Line(points={{-29,60},{-20,60},{-20,42}}, color={0,0,127}));
+    connect(const1.y, variableConductor.G_ref) annotation (Line(points={{1,80},{6,80},{10,80},{10,42}}, color={0,0,127}));
+    connect(const2.y, variableCapacitor.C) annotation (Line(points={{49,80},{40,80},{40,42}}, color={0,0,127}));
+    connect(const3.y, variableInductor.L) annotation (Line(points={{79,60},{70,60},{70,42}},   color={0,0,127}));
     connect(ground.pin, currentSource.pin_p) annotation (Line(points={{-50,-40},{-50,-35},{-50,-30}}, color={85,170,255}));
     connect(currentSource.pin_n, conductor.pin_p) annotation (Line(points={{-50,-10},{-50,-10},{-50,0},{-90,0}}, color={85,170,255}));
     connect(conductor.pin_n, impedance.pin_p) annotation (Line(points={{-90,20},{-90,30}}, color={85,170,255}));
@@ -59,13 +59,13 @@ package SinglePhase "Single phase quasi static package"
     connect(variableCapacitor.pin_n, variableInductor.pin_p) annotation (Line(points={{50,30},{55,30},{60,30}}, color={85,170,255}));
     connect(variableInductor.pin_n, variableImpedance.pin_p) annotation (Line(points={{80,30},{90,30},{90,-40},{80,-40}}, color={85,170,255}));
     connect(variableImpedance.pin_n, variableAdmittance.pin_p) annotation (Line(points={{60,-40},{55,-40},{50,-40}}, color={85,170,255}));
-    connect(const4.y, variableAdmittance.Y_ref) annotation (Line(points={{21,-60},{30,-60},{40,-60},{40,-51}}, color={85,170,255}));
-    connect(const5.y, variableImpedance.Z_ref) annotation (Line(points={{-9,-80},{28,-80},{70,-80},{70,-51}}, color={85,170,255}));
+    connect(const4.y, variableAdmittance.Y_ref) annotation (Line(points={{21,-60},{30,-60},{40,-60},{40,-52}}, color={85,170,255}));
+    connect(const5.y, variableImpedance.Z_ref) annotation (Line(points={{-9,-80},{28,-80},{70,-80},{70,-52}}, color={85,170,255}));
     connect(variableAdmittance.pin_n, ground.pin) annotation (Line(points={{30,-40},{30,-40},{-50,-40}}, color={85,170,255}));
     connect(voltageSensor.pin_p, conductor.pin_p) annotation (Line(points={{-20,-10},{-20,0},{-90,0}}, color={85,170,255}));
     connect(voltageSensor.pin_n, ground.pin) annotation (Line(points={{-20,-30},{-20,-40},{-50,-40}}, color={85,170,255}));
-    connect(const6.y, currentSource.I) annotation (Line(points={{-79,-50},{-70,-50},{-70,-24},{-60,-24}}, color={85,170,255}));
-    connect(ramp.y, currentSource.f) annotation (Line(points={{-79,-20},{-74,-20},{-70,-20},{-70,-16},{-60,-16}}, color={0,0,127}));
+    connect(const6.y, currentSource.I) annotation (Line(points={{-79,-50},{-70,-50},{-70,-26},{-62,-26}}, color={85,170,255}));
+    connect(ramp.y, currentSource.f) annotation (Line(points={{-79,-20},{-74,-20},{-70,-20},{-70,-14},{-62,-14}}, color={0,0,127}));
     annotation (      experiment(StopTime=1),
       Documentation(info="<html>
 <p>Serial connection of different single phase basic components</p>
@@ -128,27 +128,27 @@ package SinglePhase "Single phase quasi static package"
 
     connect(voltageSource.pin_p, short.pin_p) annotation (Line(points={{-90,20},{-90,20},{-90,30},{-80,30}}, color={85,170,255}));
     connect(short.pin_n, idle.pin_p) annotation (Line(points={{-60,30},{-50,30},{-50,20}}, color={85,170,255}));
-    connect(idealCommutingSwitch.n1, idealIntermediateSwitch.p1) annotation (Line(points={{50,35},{54,35},{60,35}}, color={85,170,255}));
+    connect(idealCommutingSwitch.n1, idealIntermediateSwitch.p1) annotation (Line(points={{50,34},{54,34},{60,34}}, color={85,170,255}));
     connect(idealCommutingSwitch.n2, idealIntermediateSwitch.p2) annotation (Line(points={{50,30},{55,30},{60,30}}, color={85,170,255}));
     connect(short.pin_n, idealOpeningSwitch.pin_p) annotation (Line(points={{-60,30},{-50,30},{-40,30}}, color={85,170,255}));
     connect(idealClosingSwitch.pin_n, idealCommutingSwitch.p) annotation (Line(points={{10,30},{20,30},{30,30}}, color={85,170,255}));
     connect(idealIntermediateSwitch.n2, impedance.pin_p) annotation (Line(points={{80,30},{84,30},{90,30},{90,0},{80,0}}, color={85,170,255}));
-    connect(idealIntermediateSwitch.n1, admittance.pin_p) annotation (Line(points={{80,35},{100,35},{100,34},{100,-22},{100,-20},{80,-20}}, color={85,170,255}));
+    connect(idealIntermediateSwitch.n1, admittance.pin_p) annotation (Line(points={{80,34},{100,34},{100,34},{100,-22},{100,-20},{80,-20}}, color={85,170,255}));
     connect(ground.pin, voltageSource.pin_n) annotation (Line(points={{-90,-40},{-90,0}}, color={85,170,255}));
-    connect(booleanStep2.y, idealCommutingSwitch.control) annotation (Line(points={{49,80},{49,80},{40,80},{40,38}}, color={255,0,255}));
-    connect(booleanStep3.y, idealIntermediateSwitch.control) annotation (Line(points={{79,60},{70,60},{70,38}}, color={255,0,255}));
+    connect(booleanStep2.y, idealCommutingSwitch.control) annotation (Line(points={{49,80},{49,80},{40,80},{40,42}}, color={255,0,255}));
+    connect(booleanStep3.y, idealIntermediateSwitch.control) annotation (Line(points={{79,60},{70,60},{70,42}}, color={255,0,255}));
     connect(prescribedTemperature.port, admittance.heatPort) annotation (Line(points={{20,-90},{50,-90},{50,-30},{70,-30}}, color={191,0,0}));
     connect(prescribedTemperature.port, impedance.heatPort) annotation (Line(points={{20,-90},{50,-90},{50,-10},{70,-10}}, color={191,0,0}));
     connect(ramp.y, prescribedTemperature.T) annotation (Line(points={{-19,-90},{-10.5,-90},{-2,-90}}, color={0,0,127}));
     connect(variableAdmittance.pin_p, admittance.pin_n) annotation (Line(points={{10,-20},{36,-20},{60,-20}}, color={85,170,255}));
     connect(impedance.pin_n, variableImpedance.pin_p) annotation (Line(points={{60,0},{46,0},{30,0}}, color={85,170,255}));
     connect(variableImpedance.pin_n, variableAdmittance.pin_n) annotation (Line(points={{10,0},{-30,0},{-30,-20},{-10,-20}}, color={85,170,255}));
-    connect(const_admittance.y, variableAdmittance.Y_ref) annotation (Line(points={{-39,-40},{-22,-40},{0,-40},{0,-31}}, color={85,170,255}));
-    connect(const_impedance.y, variableImpedance.Z_ref) annotation (Line(points={{-9,-60},{4,-60},{20,-60},{20,-11}}, color={85,170,255}));
+    connect(const_admittance.y, variableAdmittance.Y_ref) annotation (Line(points={{-39,-40},{-22,-40},{0,-40},{0,-32}}, color={85,170,255}));
+    connect(const_impedance.y, variableImpedance.Z_ref) annotation (Line(points={{-9,-60},{4,-60},{20,-60},{20,-12}}, color={85,170,255}));
     connect(variableAdmittance.heatPort, variableImpedance.heatPort) annotation (Line(points={{0,-10},{0,-10},{0,6},{0,10},{20,10}}, color={191,0,0}));
     connect(variableImpedance.heatPort, prescribedTemperature.port) annotation (Line(points={{20,10},{34,10},{50,10},{50,-90},{20,-90}}, color={191,0,0}));
-    connect(booleanStep1.y, idealClosingSwitch.control) annotation (Line(points={{-11,80},{0,80},{0,37}}, color={255,0,255}));
-    connect(booleanStep4.y, idealOpeningSwitch.control) annotation (Line(points={{-39,60},{-30,60},{-30,37}}, color={255,0,255}));
+    connect(booleanStep1.y, idealClosingSwitch.control) annotation (Line(points={{-11,80},{0,80},{0,42}}, color={255,0,255}));
+    connect(booleanStep4.y, idealOpeningSwitch.control) annotation (Line(points={{-39,60},{-30,60},{-30,42}}, color={255,0,255}));
     connect(idealOpeningSwitch.pin_n, idealClosingSwitch.pin_p) annotation (Line(points={{-20,30},{-15,30},{-10,30}}, color={85,170,255}));
     connect(idle.pin_n, variableAdmittance.pin_n) annotation (Line(points={{-50,0},{-50,0},{-50,-20},{-10,-20}}, color={85,170,255}));
     connect(currentSensor.pin_p, variableAdmittance.pin_n) annotation (Line(points={{-60,-20},{-35,-20},{-10,-20}}, color={85,170,255}));
@@ -157,4 +157,47 @@ package SinglePhase "Single phase quasi static package"
 <p>Serial connection of different single phase ideal components and temperature dependent basic components</p>
 </html>"));
   end Ideal;
+
+  model FrequencySweep "Tests voltage and current frequency sweep sources"
+    extends Modelica.Icons.Example;
+    output Modelica.SIunits.Current iL = inductor.abs_i "Inductor current";
+    output Modelica.SIunits.Voltage vC = capacitor.abs_v "Inductor voltage";
+
+    Modelica.Electrical.QuasiStationary.SinglePhase.Sources.FrequencySweepVoltageSource voltageSource(
+      gamma(start=0, fixed=true),
+      fMin=0.01,
+      fMax=100,
+      duration=1,
+      V=1) annotation (Placement(transformation(
+          extent={{-10,-10},{10,10}},
+          rotation=270,
+          origin={-40,40})));
+    Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Inductor inductor(L=1) annotation (Placement(transformation(
+          extent={{-10,-10},{10,10}},
+          rotation=270,
+          origin={-10,40})));
+    Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Ground groundV annotation (Placement(transformation(extent={{-70,0},{-50,20}})));
+    Modelica.Electrical.QuasiStationary.SinglePhase.Sources.FrequencySweepCurrentSource currentSource(
+      gamma(start=0, fixed=true),
+      startTime=0,
+      duration=1,
+      I=1,
+      fMin=0.01,
+      fMax=100) annotation (Placement(transformation(
+          extent={{-10,-10},{10,10}},
+          rotation=90,
+          origin={-40,-40})));
+    Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Capacitor capacitor(C=1) annotation (Placement(transformation(
+          extent={{-10,-10},{10,10}},
+          rotation=270,
+          origin={-10,-40})));
+    Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Ground groundI annotation (Placement(transformation(extent={{-70,-80},{-50,-60}})));
+  equation
+    connect(groundV.pin, voltageSource.pin_n) annotation (Line(points={{-60,20},{-40,20},{-40,30}}, color={85,170,255}));
+    connect(voltageSource.pin_n, inductor.pin_n) annotation (Line(points={{-40,30},{-40,20},{-10,20},{-10,30}}, color={85,170,255}));
+    connect(inductor.pin_p, voltageSource.pin_p) annotation (Line(points={{-10,50},{-10,60},{-40,60},{-40,50}}, color={85,170,255}));
+    connect(currentSource.pin_n, capacitor.pin_p) annotation (Line(points={{-40,-30},{-40,-20},{-10,-20},{-10,-30}}, color={85,170,255}));
+    connect(currentSource.pin_p, capacitor.pin_n) annotation (Line(points={{-40,-50},{-40,-60},{-10,-60},{-10,-50}}, color={85,170,255}));
+    connect(groundI.pin, currentSource.pin_p) annotation (Line(points={{-60,-60},{-40,-60},{-40,-50}}, color={85,170,255}));
+  end FrequencySweep;
 end SinglePhase;

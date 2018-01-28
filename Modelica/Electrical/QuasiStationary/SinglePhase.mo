@@ -2255,6 +2255,7 @@ Additionally, the frequency of the voltage source is defined by a real signal in
 
     model FrequencySweepVoltageSource "Voltage source with integrated frequency sweep"
       extends Interfaces.TwoPin;
+      Modelica.SIunits.Angle gamma(start=0) = pin_p.reference.gamma;
       parameter Modelica.SIunits.Frequency fMin(start=1) "Lower sweep frequency";
       parameter Modelica.SIunits.Frequency fMax(start=1) "Upper sweep frequency";
       parameter Modelica.SIunits.Time startTime=0 "Start time of frequency sweep";
@@ -2379,6 +2380,7 @@ Additionally, the frequency of the voltage source is defined by a real signal in
 
     model FrequencySweepCurrentSource "Current source with integrated frequency sweep"
       extends Interfaces.TwoPin;
+      Modelica.SIunits.Angle gamma(start=0) = pin_p.reference.gamma;
       parameter Modelica.SIunits.Frequency fMin(start=1) "Lower sweep frequency";
       parameter Modelica.SIunits.Frequency fMax(start=1) "Upper sweep frequency";
       parameter Modelica.SIunits.Time startTime=0 "Start time of frequency sweep";

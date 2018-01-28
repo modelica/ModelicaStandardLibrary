@@ -3666,6 +3666,7 @@ Additionally, the frequency of the current source is defined by a real signal in
 
     model FrequencySweepVoltageSource "Voltage source with integrated frequency sweep"
       extends Interfaces.TwoPlug;
+      Modelica.SIunits.Angle gamma(start=0) = plug_p.reference.gamma;
       parameter Integer m=3 "Number of phases";
       parameter Modelica.SIunits.Frequency fMin(start=1) "Lower sweep frequency";
       parameter Modelica.SIunits.Frequency fMax(start=1) "Upper sweep frequency";
@@ -3861,6 +3862,7 @@ Additionally, the frequency of the current source is defined by a real signal in
 
     model FrequencySweepCurrentSource "Current source with integrated frequency sweep"
       extends Interfaces.TwoPlug;
+      Modelica.SIunits.Angle gamma(start=0) = plug_p.reference.gamma;
       parameter Integer m=3 "Number of phases";
       parameter Modelica.SIunits.Frequency fMin(start=1) "Lower sweep frequency";
       parameter Modelica.SIunits.Frequency fMax(start=1) "Upper sweep frequency";
@@ -3868,8 +3870,8 @@ Additionally, the frequency of the current source is defined by a real signal in
       parameter Modelica.SIunits.Time duration(start=1) "Duration of frequency sweep";
       parameter Modelica.SIunits.Current I[m](start=fill(1,m)) "RMS current of the source";
       parameter Modelica.SIunits.Angle phi[m]=-Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m) "Phase shift of the source";
-      Modelica.SIunits.Frequency f = voltageSource.f "Actual frequency";
-      VariableVoltageSource voltageSource(final m=m) annotation (Placement(transformation(extent={{-10,10},{10,-10}})));
+      Modelica.SIunits.Frequency f=currentSource.f   "Actual frequency";
+      VariableCurrentSource currentSource(final m=m) annotation (Placement(transformation(extent={{-10,10},{10,-10}})));
       ComplexBlocks.Sources.LogFrequencySweep logFrequencySweep(
         final wMin=fMin,
         final wMax=fMax,
@@ -3877,10 +3879,10 @@ Additionally, the frequency of the current source is defined by a real signal in
         final duration=duration) annotation (Placement(transformation(extent={{40,-60},{20,-40}})));
       ComplexBlocks.Sources.ComplexConstant const[m](final k=Modelica.ComplexMath.fromPolar(len=I, phi=phi)) annotation (Placement(transformation(extent={{-60,-60},{-40,-40}})));
     equation
-      connect(logFrequencySweep.y, voltageSource.f) annotation (Line(points={{19,-50},{6,-50},{6,-12}},   color={0,0,127}));
-      connect(plug_p, voltageSource.plug_p) annotation (Line(points={{-100,0},{-10,0}}, color={85,170,255}));
-      connect(voltageSource.plug_n, plug_n) annotation (Line(points={{10,0},{100,0}}, color={85,170,255}));
-      connect(const.y, voltageSource.V) annotation (Line(points={{-39,-50},{-6,-50},{-6,-12}}, color={85,170,255}));
+      connect(logFrequencySweep.y,currentSource. f) annotation (Line(points={{19,-50},{6,-50},{6,-12}},   color={0,0,127}));
+      connect(plug_p,currentSource. plug_p) annotation (Line(points={{-100,0},{-10,0}}, color={85,170,255}));
+      connect(currentSource.plug_n, plug_n) annotation (Line(points={{10,0},{100,0}}, color={85,170,255}));
+      connect(currentSource.I, const.y) annotation (Line(points={{-6.2,-12},{-6,-12},{-6,-50},{-39,-50}}, color={85,170,255}));
       annotation (defaultComponentName="currentSource",Icon(graphics={
             Ellipse(
               extent={{-50,50},{50,-50}},

@@ -201,4 +201,41 @@ package MultiPhase "Multi phase quasi static package"
 <p>Serial connection of different multi phase ideal components and temperature dependent basic components</p>
 </html>"));
   end Ideal;
+
+  model FrequencySweep "Tests voltage and current frequency sweep sources"
+    extends Modelica.Icons.Example;
+    output Modelica.SIunits.Current iL[3] = inductor.abs_i "Inductor current";
+    output Modelica.SIunits.Voltage vC[3] = capacitor.abs_v "Inductor voltage";
+
+    Modelica.Electrical.QuasiStationary.MultiPhase.Sources.FrequencySweepVoltageSource voltageSource(
+      gamma(start=0, fixed=true),
+      startTime=0,
+      duration=1,
+      V=fill(1, 3),
+      fMin=0.01,
+      fMax=100) annotation (Placement(transformation(extent={{-40,40},{-20,60}})));
+    Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Inductor  inductor(L=fill(1, 3))  annotation (Placement(transformation(extent={{-40,70},{-20,90}})));
+    Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Star starV annotation (Placement(transformation(extent={{-20,10},{-40,30}})));
+    Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Ground groundV annotation (Placement(transformation(extent={{-70,0},{-50,20}})));
+    Modelica.Electrical.QuasiStationary.MultiPhase.Sources.FrequencySweepCurrentSource currentSource(
+      gamma(start=0, fixed=true),
+      startTime=0,
+      duration=1,
+      I=fill(1, 3),
+      fMin=0.01,
+      fMax=100) annotation (Placement(transformation(extent={{-20,-60},{-40,-40}})));
+    Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Capacitor capacitor(C=fill(1, 3)) annotation (Placement(transformation(extent={{-40,-30},{-20,-10}})));
+    Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Star starI
+                                                                   annotation (Placement(transformation(extent={{-20,-90},{-40,-70}})));
+    Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Ground groundI annotation (Placement(transformation(extent={{-70,-100},{-50,-80}})));
+  equation
+    connect(voltageSource.plug_p, inductor.plug_p) annotation (Line(points={{-40,50},{-50,50},{-50,80},{-40,80}}, color={85,170,255}));
+    connect(inductor.plug_n, voltageSource.plug_n) annotation (Line(points={{-20,80},{-10,80},{-10,50},{-20,50}}, color={85,170,255}));
+    connect(starV.plug_p, voltageSource.plug_n) annotation (Line(points={{-20,20},{-20,50}}, color={85,170,255}));
+    connect(groundV.pin, starV.pin_n) annotation (Line(points={{-60,20},{-40,20}}, color={85,170,255}));
+    connect(groundI.pin,starI. pin_n) annotation (Line(points={{-60,-80},{-40,-80}}, color={85,170,255}));
+    connect(starI.plug_p,currentSource. plug_p) annotation (Line(points={{-20,-80},{-20,-50}}, color={85,170,255}));
+    connect(currentSource.plug_p, capacitor.plug_n) annotation (Line(points={{-20,-50},{-10,-50},{-10,-20},{-20,-20}}, color={85,170,255}));
+    connect(capacitor.plug_p,currentSource. plug_n) annotation (Line(points={{-40,-20},{-50,-20},{-50,-50},{-40,-50}}, color={85,170,255}));
+  end FrequencySweep;
 end MultiPhase;
