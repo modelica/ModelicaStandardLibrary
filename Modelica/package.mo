@@ -1086,6 +1086,10 @@ For parameters, connectors, as well as inputs and outputs of function automatic 
       <th>To be used</th>
       <th>Not to be used</th>
     </tr>
+    <tr>
+      <td><a href=\"https://en.oxforddictionaries.com/definition/polyphase\">polyphase</a></td>
+      <td>multi phase, multi-phase, multiphase</td>
+    </tr>
      <tr>
       <td><a href=\"https://www.collinsdictionary.com/dictionary/english/single-phase\">single-phase</a></td>
       <td>single phase, singlephase, one phase, one-phase, onephase, 1 phase, 1-phase</td>
@@ -1093,10 +1097,6 @@ For parameters, connectors, as well as inputs and outputs of function automatic 
      <tr>
       <td><a href=\"https://en.oxforddictionaries.com/definition/three-phase\">three-phase</a></td>
       <td>three phase, threephase, 3 phase, 3-phase</td>
-    </tr>
-    <tr>
-      <td><a href=\"https://en.oxforddictionaries.com/definition/polyphase\">polyphase</a></td>
-      <td>multi phase, multi-phase, multiphase</td>
     </tr>
 </table>
 
