@@ -2251,48 +2251,42 @@ The output y is a complex phasor with constant magnitude, spinning with constant
     block LogFrequencySweep "Logarithmic frequency sweep"
       extends Modelica.Blocks.Interfaces.SO;
       import Modelica.Constants.eps;
-      parameter Real wMin(min=eps) "Lower frequency border";
+      parameter Real wMin(min=eps) "Lower frequency border"
+        annotation(Dialog(groupImage="modelica://Modelica/Resources/Images/Blocks/Sources/LogFrequencySweep.png"));
       parameter Real wMax(min=(1+eps)*wMin) "Upper frequency border";
-      parameter Modelica.SIunits.Time duration(min=0.0, start=1)
-        "Duration of ramp (= 0.0 gives a Step)";
+      parameter Modelica.SIunits.Time startTime=0 "Start time of frequency sweep";
+      parameter Modelica.SIunits.Time duration(min=0.0, start=1) "Duration of ramp (= 0.0 gives a Step)";
     equation
-      y = 10^(log10(wMin) + (log10(wMax) - log10(wMin))*min(1, time/max(duration,eps)));
+      y = if time < startTime then wMin else
+        if time < (startTime + max(duration,eps)) then
+          10^(log10(wMin) + (log10(wMax) - log10(wMin))*min(1, (time-startTime)/max(duration,eps)))
+        else
+          wMax;
        annotation (defaultComponentName="logSweep",
          Documentation(info="<html>
-<p>The output performs a logarithmic frequency sweep:<br>
-The logarithm of w performs a linear ramp from log10(wMin) to log10(wMax), after the duration it is kept constant.<br>
+<p>The output <code>y</code> performs a logarithmic frequency sweep.
+The logarithm of frequency <code>w</code> performs a linear ramp from <code>log10(wMin)</code> to <code>log10(wMax)</code>.
 The output is the decimal power of this logarithmic ramp.
 </p>
-</html>"));
+<p>For <code>time &lt; startTime</code> the output is equal to <code>wMin</code>.</p>
+<p>For <code>time &lt; startTime+druation</code> the output is equal to <code>wMax</code>.</p>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Sources/LogFrequencySweep.png\"
+     alt=\"Ramp.png\">
+</p>
+
+</html>"),
+        Icon(graphics={
+            Line(points={{-78,44},{80,44}}, color={135,135,135}),
+            Line(points={{-78,34},{80,34}}, color={135,135,135}),
+            Line(points={{-78,20},{80,20}}, color={135,135,135}),
+            Line(points={{-78,-2},{80,-2}}, color={135,135,135}),
+            Line(points={{-78,-48},{80,-48}}, color={135,135,135}),
+            Line(
+              points={{-70,-48},{-50,-48},{50,44},{70,44}},
+              color={0,0,255},
+              thickness=0.5),
+            Line(points={{-50,-48},{-50,44}}, color={135,135,135}),
+            Line(points={{48,-48},{48,44}}, color={135,135,135}),
+            Line(points={{-78,40},{80,40}}, color={135,135,135})}));
     end LogFrequencySweep;
-  end Sources;
-  annotation (Documentation(info="<html>
-<p>This library hosts blocks using Complex inputs and outputs.</p>
-<p>It depends on the implementation of Complex.</p>
-</html>"), Icon(coordinateSystem(extent={{-100.0,-100.0},{100.0,100.0}},
-          preserveAspectRatio=true), graphics={
-        Rectangle(
-          origin={0.0,35.1488},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid,
-          extent={{-30.0,-20.1488},{30.0,20.1488}}),
-        Rectangle(
-          origin={0.0,-34.8512},
-          fillColor={128,128,128},
-          fillPattern=FillPattern.Solid,
-          extent={{-30.0,-20.1488},{30.0,20.1488}}),
-        Line(origin={-51.25,0.0}, points={{21.25,-35.0},{-13.75,-35.0},{-13.75,
-              35.0},{6.25,35.0}}),
-        Polygon(
-          origin={-40.0,35.0},
-          pattern=LinePattern.None,
-          fillPattern=FillPattern.Solid,
-          points={{10.0,0.0},{-5.0,5.0},{-5.0,-5.0}}),
-        Line(origin={51.25,0.0}, points={{-21.25,35.0},{13.75,35.0},{13.75,-35.0},
-              {-6.25,-35.0}}),
-        Polygon(
-          origin={40.0,-35.0},
-          pattern=LinePattern.None,
-          fillPattern=FillPattern.Solid,
-          points={{-10.0,0.0},{5.0,5.0},{5.0,-5.0}})}));
-end ComplexBlocks;
