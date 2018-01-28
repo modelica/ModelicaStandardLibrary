@@ -61,10 +61,10 @@ package MultiPhase "Multi phase quasi static package"
           origin={-50,-60})));
   equation
 
-    connect(const.y, variableResistor.R_ref) annotation (Line(points={{-29,60},{-20,60},{-20,41}}, color={0,0,127}));
-    connect(const1.y, variableConductor.G_ref) annotation (Line(points={{1,80},{6,80},{10,80},{10,41}}, color={0,0,127}));
-    connect(const2.y, variableCapacitor.C) annotation (Line(points={{49,80},{40,80},{40,41}}, color={0,0,127}));
-    connect(const3.y, variableInductor.L) annotation (Line(points={{79,60},{70,60},{70,41}}, color={0,0,127}));
+    connect(const.y, variableResistor.R_ref) annotation (Line(points={{-29,60},{-20,60},{-20,42}}, color={0,0,127}));
+    connect(const1.y, variableConductor.G_ref) annotation (Line(points={{1,80},{6,80},{10,80},{10,42}}, color={0,0,127}));
+    connect(const2.y, variableCapacitor.C) annotation (Line(points={{49,80},{40,80},{40,42}}, color={0,0,127}));
+    connect(const3.y, variableInductor.L) annotation (Line(points={{79,60},{70,60},{70,42}}, color={0,0,127}));
     connect(currentSource.plug_n, conductor.plug_p) annotation (Line(points={{-50,-10},{-50,-10},{-50,0},{-90,0}}, color={85,170,255}));
     connect(conductor.plug_n, impedance.plug_p) annotation (Line(points={{-90,20},{-90,30}}, color={85,170,255}));
     connect(impedance.plug_n, admittance.plug_p) annotation (Line(points={{-70,30},{-60,30}}, color={85,170,255}));
@@ -74,11 +74,12 @@ package MultiPhase "Multi phase quasi static package"
     connect(variableCapacitor.plug_n, variableInductor.plug_p) annotation (Line(points={{50,30},{55,30},{60,30}}, color={85,170,255}));
     connect(variableInductor.plug_n, variableImpedance.plug_p) annotation (Line(points={{80,30},{90,30},{90,-40},{80,-40}}, color={85,170,255}));
     connect(variableImpedance.plug_n, variableAdmittance.plug_p) annotation (Line(points={{60,-40},{55,-40},{50,-40}}, color={85,170,255}));
-    connect(const4.y, variableAdmittance.Y_ref) annotation (Line(points={{21,-60},{30,-60},{40,-60},{40,-51}}, color={85,170,255}));
-    connect(const5.y, variableImpedance.Z_ref) annotation (Line(points={{-9,-80},{28,-80},{70,-80},{70,-51}}, color={85,170,255}));
+    connect(const4.y, variableAdmittance.Y_ref) annotation (Line(points={{21,-60},{30,-60},{40,-60},{40,-52}}, color={85,170,255}));
+    connect(const5.y, variableImpedance.Z_ref) annotation (Line(points={{-9,-80},{28,-80},{70,-80},{70,-52}}, color={85,170,255}));
     connect(voltageSensor.plug_p, conductor.plug_p) annotation (Line(points={{-20,-10},{-20,0},{-90,0}}, color={85,170,255}));
-    connect(const6.y, currentSource.I) annotation (Line(points={{-79,-50},{-70,-50},{-70,-24},{-60,-24}}, color={85,170,255}));
-    connect(ramp.y, currentSource.f) annotation (Line(points={{-79,-20},{-74,-20},{-70,-20},{-70,-16},{-60,-16}}, color={0,0,127}));
+    connect(const6.y, currentSource.I) annotation (Line(points={{-79,-50},{-70,-50},{-70,-26.2},{-62,-26.2}},
+                                                                                                          color={85,170,255}));
+    connect(ramp.y, currentSource.f) annotation (Line(points={{-79,-20},{-74,-20},{-70,-20},{-70,-14},{-62,-14}}, color={0,0,127}));
     connect(currentSource.plug_p, variableAdmittance.plug_n) annotation (Line(points={{-50,-30},{-50,-40},{30,-40}}, color={85,170,255}));
     connect(variableAdmittance.plug_n, voltageSensor.plug_n) annotation (Line(points={{30,-40},{8,-40},{-20,-40},{-20,-36},{-20,-30}}, color={85,170,255}));
     connect(star.plug_p, currentSource.plug_p) annotation (Line(points={{-50,-50},{-50,-50},{-50,-30}}, color={85,170,255}));

@@ -168,7 +168,10 @@ package SinglePhase "Single phase quasi static package"
       fMin=0.01,
       fMax=100,
       duration=1,
-      V=1) annotation (Placement(transformation(
+      V=1,
+      fMin=100,
+      fMax=0.01)
+           annotation (Placement(transformation(
           extent={{-10,-10},{10,10}},
           rotation=270,
           origin={-40,40})));
