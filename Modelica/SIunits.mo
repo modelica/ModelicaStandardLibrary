@@ -976,7 +976,6 @@ argument):</p>
 
 </html>"));
   end Conversions;
-
   // Space and Time (chapter 1 of ISO 31-1992)
 
   type Angle = Real (
@@ -1004,7 +1003,6 @@ argument):</p>
              "rad/s2");
   type Velocity = Real (final quantity="Velocity", final unit="m/s");
   type Acceleration = Real (final quantity="Acceleration", final unit="m/s2");
-
   // Periodic and related phenomens (chapter 2 of ISO 31-1992)
   type Period = Real (final quantity="Time", final unit="s");
   type Frequency = Real (final quantity="Frequency", final unit="Hz");
@@ -1032,7 +1030,6 @@ argument):</p>
         final unit="m-1");
   // added to ISO-chapter
   type Damping = DampingCoefficient;
-
   // Mechanics (chapter 3 of ISO 31-1992)
   type Mass = Real (
       quantity="Mass",
@@ -1131,7 +1128,6 @@ argument):</p>
   type MomentumFlux = Real (final quantity="MomentumFlux", final unit="N");
   type AngularMomentumFlux = Real (final quantity="AngularMomentumFlux", final unit=
              "N.m");
-
   // Heat (chapter 4 of ISO 31-1992)
   type ThermodynamicTemperature = Real (
       final quantity="ThermodynamicTemperature",
@@ -1140,8 +1136,7 @@ argument):</p>
       start = 288.15,
       nominal = 300,
       displayUnit="degC")
-    "Absolute temperature (use type TemperatureDifference for relative temperatures)"
-                                                                                                        annotation(absoluteValue=true);
+    "Absolute temperature (use type TemperatureDifference for relative temperatures)"                   annotation(absoluteValue=true);
   type Temp_K = ThermodynamicTemperature;
   type Temperature = ThermodynamicTemperature;
   type TemperatureDifference = Real (
@@ -1218,7 +1213,6 @@ argument):</p>
   type DerEnergyByPressure = Real (final unit="J.m.s2/kg");
   type DerPressureByDensity = Real (final unit="Pa.m3/kg");
   type DerPressureByTemperature = Real (final unit="Pa/K");
-
   // Electricity and Magnetism (chapter 5 of ISO 31-1992)
   type ElectricCurrent = Real (final quantity="ElectricCurrent", final unit="A");
   type Current = ElectricCurrent;
@@ -1340,7 +1334,6 @@ argument):</p>
   type ApparentPower = Real (final quantity="Power", final unit="VA");
   type ReactivePower = Real (final quantity="Power", final unit="var");
   type PowerFactor = Real (final quantity="PowerFactor", final unit="1");
-
   // added to ISO-chapter 5
   type Transconductance = Real (final quantity="Transconductance", final unit=
           "A/V2");
@@ -1349,7 +1342,6 @@ argument):</p>
   type ElectricalForceConstant = Real (
        final quantity="ElectricalForceConstant",
        final unit = "N/A");
-
   // Light and Related Electromagnetic Radiations (chapter 6 of ISO 31-1992)
   type RadiantEnergy = Real (final quantity="Energy", final unit="J");
   type RadiantEnergyDensity = Real (final quantity="EnergyDensity", final unit=
@@ -1407,7 +1399,6 @@ argument):</p>
   type MolarAbsorptionCoefficient = Real (final quantity=
           "MolarAbsorptionCoefficient", final unit="m2/mol");
   type RefractiveIndex = Real (final quantity="RefractiveIndex", final unit="1");
-
   // Acoustics (chapter 7 of ISO 31-1992)
   type StaticPressure = AbsolutePressure;
   type SoundPressure = StaticPressure;
@@ -1452,7 +1443,6 @@ argument):</p>
           "phon") "Obsolete type, use LoudnessLevel instead!";
   type Loundness = Real (final quantity="Loundness", final unit="sone")
     "Obsolete type, use Loudness instead!";
-
   // Physical chemistry and molecular physics (chapter 8 of ISO 31-1992)
   type RelativeAtomicMass = Real (final quantity="RelativeAtomicMass", final unit=
              "1");
@@ -1559,7 +1549,6 @@ argument):</p>
          "S.m2/mol");
   type TransportNumberOfIonic = Real (final quantity="TransportNumberOfIonic",
         final unit="1");
-
   // Atomic and Nuclear Physics (chapter 9 of ISO 31-1992)
   type ProtonNumber = Real (final quantity="ProtonNumber", final unit="1");
   type NeutronNumber = Real (final quantity="NeutronNumber", final unit="1");
@@ -1609,7 +1598,6 @@ argument):</p>
   type MaximumBetaParticleEnergy = Real (final quantity="Energy", final unit=
           "J");
   type BetaDisintegrationEnergy = Real (final quantity="Energy", final unit="J");
-
   // Nuclear Reactions and Ionizing Radiations (chapter 10 of ISO 31-1992)
   type ReactionEnergy = Real (final quantity="Energy", final unit="J");
   type ResonanceEnergy = Real (final quantity="Energy", final unit="J");
@@ -1704,7 +1692,6 @@ argument):</p>
   type Exposure = Real (final quantity="Exposure", final unit="C/kg");
   type ExposureRate = Real (final quantity="ExposureRate", final unit=
           "C/(kg.s)");
-
   // chapter 11 is not defined in ISO 31-1992
 
   // Characteristic Numbers (chapter 12 of ISO 31-1992)
@@ -1743,7 +1730,6 @@ argument):</p>
   type AlfvenNumber = Real (final quantity="AlfvenNumber", final unit="1");
   type HartmannNumber = Real (final quantity="HartmannNumber", final unit="1");
   type CowlingNumber = Real (final quantity="CowlingNumber", final unit="1");
-
   // Solid State Physics (chapter 13 of ISO 31-1992)
   type BraggAngle = Angle;
   type OrderOfReflexion = Real (final quantity="OrderOfReflexion", final unit=
@@ -1816,82 +1802,80 @@ argument):</p>
   type LandauGinzburgParameter = Real (final quantity="LandauGinzburgParameter",
           final unit="1");
   type FluxiodQuantum = Real (final quantity="FluxiodQuantum", final unit="Wb");
-
   type TimeAging = Real (final quantity="1/Modelica.SIunits.Time",final unit="1/s");
   type ChargeAging = Real (final quantity="1/Modelica.SIunits.ElectricCharge",final unit="1/(A.s)");
-
- // Other types not defined in ISO 31-1992
+  // Other types not defined in ISO 31-1992
   type PerUnit = Real(unit = "1");
   type DimensionlessRatio = Real(unit = "1");
-
- // Complex types for electrical systems (not defined in ISO 31-1992)
+  // Complex types for electrical systems (not defined in ISO 31-1992)
   operator record ComplexCurrent =
-    Complex(redeclare Modelica.SIunits.Current re,
-             redeclare Modelica.SIunits.Current im)
+    Complex(redeclare Modelica.SIunits.Current re "Real part of complex current",
+            redeclare Modelica.SIunits.Current im "Imaginary part of complex current")
     "Complex electrical current";
   operator record ComplexCurrentSlope =
-    Complex(redeclare Modelica.SIunits.CurrentSlope re,
-             redeclare Modelica.SIunits.CurrentSlope im)
+    Complex(redeclare Modelica.SIunits.CurrentSlope re "Real part of complex current slope",
+            redeclare Modelica.SIunits.CurrentSlope im "Imaginary part of complex current slope")
     "Complex current slope";
   operator record ComplexCurrentDensity =
-    Complex(redeclare Modelica.SIunits.CurrentDensity re,
-             redeclare Modelica.SIunits.CurrentDensity im)
+    Complex(redeclare Modelica.SIunits.CurrentDensity re "Real part of complex current density",
+            redeclare Modelica.SIunits.CurrentDensity im "Imaginary part of complex current density")
     "Complex electrical current density";
   operator record ComplexElectricPotential =
-    Complex(redeclare Modelica.SIunits.ElectricPotential re,
-             redeclare Modelica.SIunits.ElectricPotential im)
+    Complex(redeclare Modelica.SIunits.ElectricPotential re "Imaginary part of complex electric potential",
+            redeclare Modelica.SIunits.ElectricPotential im "Real part of complex electrical potential")
     "Complex electric potential";
   operator record ComplexPotentialDifference =
-    Complex(redeclare Modelica.SIunits.PotentialDifference re,
-             redeclare Modelica.SIunits.PotentialDifference im)
+    Complex(redeclare Modelica.SIunits.PotentialDifference re "Real part of complex potential difference",
+            redeclare Modelica.SIunits.PotentialDifference im "Imaginary part of complex potential difference")
     "Complex electric potential difference";
   operator record ComplexVoltage =
-    Complex(redeclare Modelica.SIunits.Voltage re,
-             redeclare Modelica.SIunits.Voltage im)
+    Complex(redeclare Modelica.SIunits.Voltage re "Imaginary part of complex voltage",
+            redeclare Modelica.SIunits.Voltage im "Real part of complex voltage")
     "Complex electrical voltage";
   operator record ComplexVoltageSlope =
-    Complex(redeclare Modelica.SIunits.VoltageSlope re,
-             redeclare Modelica.SIunits.VoltageSlope im)
+    Complex(redeclare Modelica.SIunits.VoltageSlope re "Real part of complex voltage slope",
+            redeclare Modelica.SIunits.VoltageSlope im "Imaginary part of complex voltage slope")
     "Complex voltage slope";
   operator record ComplexElectricFieldStrength =
-    Complex(redeclare Modelica.SIunits.ElectricFieldStrength re,
-             redeclare Modelica.SIunits.ElectricFieldStrength im)
+    Complex(redeclare Modelica.SIunits.ElectricFieldStrength re "Real part of complex electric field strength",
+            redeclare Modelica.SIunits.ElectricFieldStrength im "Imaginary part of complex electric field strength")
     "Complex electric field strength";
   operator record ComplexElectricFluxDensity =
-    Complex(redeclare Modelica.SIunits.ElectricFluxDensity re,
-             redeclare Modelica.SIunits.ElectricFluxDensity im)
+    Complex(redeclare Modelica.SIunits.ElectricFluxDensity re "Real part of complex electric flux density",
+            redeclare Modelica.SIunits.ElectricFluxDensity im "Imaginary part of complex electric flux density")
     "Complex electric flux density";
   operator record ComplexElectricFlux =
-    Complex(redeclare Modelica.SIunits.ElectricFlux re,
-             redeclare Modelica.SIunits.ElectricFlux im)
+    Complex(redeclare Modelica.SIunits.ElectricFlux re "Real part of complex electric flux",
+            redeclare Modelica.SIunits.ElectricFlux im "Imaginary part of complex electric flux")
     "Complex electric flux";
   operator record ComplexMagneticFieldStrength =
-    Complex(redeclare Modelica.SIunits.MagneticFieldStrength re,
-             redeclare Modelica.SIunits.MagneticFieldStrength im)
+    Complex(redeclare Modelica.SIunits.MagneticFieldStrength re "Real part of complex magnetic field strength",
+            redeclare Modelica.SIunits.MagneticFieldStrength im "Imaginary part of complex magnetic field strength")
     "Complex magnetic field strength";
   operator record ComplexMagneticPotential =
-    Complex(redeclare Modelica.SIunits.MagneticPotential re,
-             redeclare Modelica.SIunits.MagneticPotential im)
+    Complex(redeclare Modelica.SIunits.MagneticPotential re "Real part of complex magnetic potential",
+            redeclare Modelica.SIunits.MagneticPotential im "Imaginary part of complex magnetic potential")
     "Complex magnetic potential";
   operator record ComplexMagneticPotentialDifference =
-    Complex(redeclare Modelica.SIunits.MagneticPotentialDifference re,
-             redeclare Modelica.SIunits.MagneticPotentialDifference im)
+    Complex(redeclare Modelica.SIunits.MagneticPotentialDifference re "Real part of complex magnetic potential difference",
+            redeclare Modelica.SIunits.MagneticPotentialDifference im "Imaginary part of complex magnetic potential difference")
     "Complex magnetic potential difference";
   operator record ComplexMagnetomotiveForce =
-    Complex(redeclare Modelica.SIunits.MagnetomotiveForce re,
-             redeclare Modelica.SIunits.MagnetomotiveForce im)
-    "Complex magneto motive force";
+    Complex(redeclare Modelica.SIunits.MagnetomotiveForce re "Real part of complex magnetomotive force",
+            redeclare Modelica.SIunits.MagnetomotiveForce im "Imaginary part of complex magnetomotive force")
+    "Complex magnetomotive force";
   operator record ComplexMagneticFluxDensity =
-    Complex(redeclare Modelica.SIunits.MagneticFluxDensity re,
-             redeclare Modelica.SIunits.MagneticFluxDensity im)
+    Complex(redeclare Modelica.SIunits.MagneticFluxDensity re "Real part of complex magnetic flux density",
+            redeclare Modelica.SIunits.MagneticFluxDensity im "Imaginary part of complex magnetic flux density")
     "Complex magnetic flux density";
   operator record ComplexMagneticFlux =
-    Complex(redeclare Modelica.SIunits.MagneticFlux re,
-             redeclare Modelica.SIunits.MagneticFlux im)
+    Complex(redeclare Modelica.SIunits.MagneticFlux re "Real part of complex magnetic flux",
+            redeclare Modelica.SIunits.MagneticFlux im "Imaginary part of complex magnetic flux")
     "Complex magnetic flux";
   operator record ComplexReluctance =
-    Complex(redeclare Modelica.SIunits.Reluctance re,
-             redeclare Modelica.SIunits.Reluctance im) "Complex reluctance"
+    Complex(redeclare Modelica.SIunits.Reluctance re "Real part of complex reluctance",
+            redeclare Modelica.SIunits.Reluctance im "Imaginary part of complex reluctance")
+    "Complex reluctance"
     annotation (Documentation(info="<html>
 <p>
 Since magnetic material properties like reluctance and permeance often are anisotropic resp. salient,
@@ -1901,18 +1885,21 @@ special record <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Types.Sali
 which is only valid in the rotor-fixed coordinate system.
 </p>
 <p>
-<b>Note:</b> To avoid confusion, no magnetic material properties should be defined as Complex units.
+<strong>Note:</strong> To avoid confusion, no magnetic material properties should be defined as Complex units.
 </p>
 </html>"));
   operator record ComplexImpedance =
-    Complex(redeclare Resistance re,
-             redeclare Reactance im) "Complex electrical impedance";
+    Complex(redeclare Resistance re "Real part of complex impedance (resistance)",
+            redeclare Reactance im "Imaginary part of complex impedance (reactance)")
+    "Complex electrical impedance";
   operator record ComplexAdmittance =
-    Complex(redeclare Conductance re,
-             redeclare Susceptance im) "Complex electrical admittance";
+    Complex(redeclare Conductance re "Real part of complex admittance (conductance)",
+            redeclare Susceptance im "Imaginary part of complex admittance (susceptance)")
+    "Complex electrical admittance";
   operator record ComplexPower =
-    Complex(redeclare ActivePower re,
-             redeclare ReactivePower im) "Complex electrical power";
+    Complex(redeclare ActivePower re "Real part of complex power (active power)",
+            redeclare ReactivePower im "Imaginary part of complex power (reactive power)")
+    "Complex electrical power";
   annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
             -100},{100,100}}), graphics={
       Polygon(
