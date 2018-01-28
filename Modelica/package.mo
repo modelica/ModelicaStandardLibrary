@@ -1073,6 +1073,65 @@ For parameters, connectors, as well as inputs and outputs of function automatic 
 </html>"));
     end Documentation;
 
+    package Terms "Terms and spelling"
+      extends Modelica.Icons.Information;
+
+      class Electrical "Electrical terms"
+        extends Modelica.Icons.Information;
+
+        annotation (Documentation(info="<html>
+
+<table border=\"1\" cellpadding=\"2\" cellspacing=\"0\" >
+   <tr>
+      <th>To be used</th>
+      <th>Not to be used</th>
+    </tr>
+     <tr>
+      <td><a href=\"https://www.collinsdictionary.com/dictionary/english/single-phase\">single-phase</a></td>
+      <td>single phase, singlephase, one phase, one-phase, onephase, 1 phase, 1-phase</td>
+    </tr>
+     <tr>
+      <td><a href=\"https://en.oxforddictionaries.com/definition/three-phase\">three-phase</a></td>
+      <td>three phase, threephase, 3 phase, 3-phase</td>
+    </tr>
+    <tr>
+      <td><a href=\"https://en.oxforddictionaries.com/definition/polyphase\">polyphase</a></td>
+      <td>multi phase, multi-phase, multiphase</td>
+    </tr>
+</table>
+
+</html>"));
+      end Electrical;
+
+      class Magnetic "Magnetic terms"
+        extends Modelica.Icons.Information;
+
+        annotation (Documentation(info="<html>
+
+<table border=\"1\" cellpadding=\"2\" cellspacing=\"0\" >
+   <tr>
+      <th>To be used</th>
+      <th>Not to be used</th>
+    </tr>
+     <tr>
+      <td><a href=\"https://en.oxforddictionaries.com/definition/electromagnetic\">electromagnetic</a></td>
+      <td>electro magnetic</td>
+    </tr>
+    <tr>
+      <td><a href=\"https://en.oxforddictionaries.com/definition/magnetomotive_force\">magnetomotive force</a></td>
+      <td>magneto motive force</td>
+    </tr>
+</table>
+
+</html>"));
+      end Magnetic;
+      annotation (Documentation(info="<html>
+
+<p>This is the documentation of terms to be used in the Modelica Standard Library</p>
+
+</html>"));
+    end Terms;
+
     package ModelicaCode "Modelica code"
       extends Modelica.Icons.Information;
 
