@@ -2197,7 +2197,7 @@ The output is the decimal power of this logarithmic ramp.
 <p>For <code>time &lt; startTime+druation</code> the output is equal to <code>wMax</code>.</p>
 <p>
 <img src=\"modelica://Modelica/Resources/Images/Blocks/Sources/LogFrequencySweep.png\"
-     alt=\"Ramp.png\">
+     alt=\"LogFrequencySweep.png\">
 </p>
 
 </html>"),
