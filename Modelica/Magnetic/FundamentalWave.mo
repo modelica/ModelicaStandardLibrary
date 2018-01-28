@@ -6222,7 +6222,7 @@ The total complex magnetic potential difference of the single phase winding is d
 </p>
 
 <p>
-In this equation the magneto motive force is aligned with the orientation of the winding.
+In this equation the magnetomotive force is aligned with the orientation of the winding.
 </p>
 
 <p>
@@ -6343,7 +6343,7 @@ The total complex magnetic potential difference of the multi phase winding is de
 </p>
 
 <p>
-In this equation each contribution of a winding magneto motive force on the total complex magnetic potential difference is aligned with the respective orientation of the winding.
+In this equation each contribution of a winding magnetomotive force on the total complex magnetic potential difference is aligned with the respective orientation of the winding.
 </p>
 
 <p>
@@ -7701,14 +7701,14 @@ heat <a href=\"modelica://Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a\">
         port_sp.Phi + port_sn.Phi = Complex(0, 0) "Balance of stator flux";
         port_rp.Phi = Phi_rr "Rotor flux into positive rotor port";
         port_rp.Phi + port_rn.Phi = Complex(0, 0) "Balance of rotor flux";
-        port_sp.V_m - port_sn.V_m = V_mss "Magneto motive force of stator";
-        port_rp.V_m - port_rn.V_m = V_mrr "Magneto motive force of rotor";
+        port_sp.V_m - port_sn.V_m = V_mss "Magnetomotive force of stator";
+        port_rp.V_m - port_rn.V_m = V_mrr "Magnetomotive force of rotor";
         // Transformations between stator and rotor fixed frame
         V_msr = V_mss*Modelica.ComplexMath.conj(rotator);
         Phi_sr = Phi_ss*Modelica.ComplexMath.conj(rotator);
         // Stator flux and rotor flux are equal
         Phi_sr = Phi_rr;
-        // Local balance of magneto motive force
+        // Local balance of magnetomotive force
         (pi/2.0)*(V_mrr.re + V_msr.re) = Phi_rr.re*R_m.d;
         (pi/2.0)*(V_mrr.im + V_msr.im) = Phi_rr.im*R_m.q;
         // Torque
@@ -8384,7 +8384,7 @@ for electric machines.
     equation
       // Flux into positive port
       port_p.V_m - port_n.V_m = V_m;
-      // Magneto motive force
+      // Magnetomotive force
       port_p.Phi = Phi;
       // Local flux balance
       port_p.Phi + port_n.Phi = Complex(0, 0);
@@ -8406,7 +8406,7 @@ for electric machines.
             Line(points={{60,20},{80,20}}, color={255,128,0})}),
                                           Documentation(info="<html>
 <p>
-Source of constant magneto motive force.
+Source of constant magnetomotive force.
 </p>
 
 <h4>See also</h4>
@@ -8441,7 +8441,7 @@ Source of constant magneto motive force.
     equation
       // Flux into positive port
       port_p.V_m - port_n.V_m = V_m;
-      // Magneto motive force
+      // Magnetomotive force
       port_p.Phi = Phi;
       // Local flux balance
       port_p.Phi + port_n.Phi = Complex(0, 0);
@@ -8464,7 +8464,7 @@ Source of constant magneto motive force.
             Line(points={{60,20},{80,20}}, color={255,128,0})}),
                                           Documentation(info="<html>
 <p>
-Source of magneto motive force with complex signal input.
+Source of magnetomotive force with complex signal input.
 </p>
 
 <h4>See also</h4>
@@ -8496,7 +8496,7 @@ Source of magneto motive force with complex signal input.
     equation
       // Flux into positive port
       port_p.V_m - port_n.V_m = V_m;
-      // Magneto motive force
+      // Magnetomotive force
       port_p.Phi = Phi;
       // Local flux balance
       port_p.Phi + port_n.Phi = Complex(0, 0);
@@ -8556,7 +8556,7 @@ Source of constant magnetic flux.
     equation
       // Flux into positive port
       port_p.V_m - port_n.V_m = V_m;
-      // Magneto motive force
+      // Magnetomotive force
       port_p.Phi = Phi;
       // Local flux balance
       port_p.Phi + port_n.Phi = Complex(0, 0);
@@ -8613,7 +8613,7 @@ Source of magnetic flux with complex signal input.
     equation
       // Flux into positive port
       port_p.V_m - port_n.V_m = V_m;
-      // Magneto motive force
+      // Magnetomotive force
       port_p.Phi = Phi;
       // Local flux balance
       port_p.Phi + port_n.Phi = Complex(0, 0);
@@ -8651,7 +8651,7 @@ Source of magnetic flux with complex signal input.
     equation
       // Flux into positive port
       port_p.V_m - port_n.V_m = V_m;
-      // Magneto motive force
+      // Magnetomotive force
       port_p.Phi = Phi;
       // Local flux balance
       port_p.Phi + port_n.Phi = Complex(0, 0);
@@ -8862,7 +8862,7 @@ considers the flux balance of the two ports. Additionally the magnetic potential
     equation
       // Flux into positive port
       V_m = port_p.V_m - port_n.V_m;
-      // Magneto motive force
+      // Magnetomotive force
       port_p.Phi = Phi;
       // Local flux balance
       port_p.Phi + port_n.Phi = Complex(0, 0);

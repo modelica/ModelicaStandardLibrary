@@ -6506,11 +6506,11 @@ Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding</a>
         port_sp.Phi + port_sn.Phi = Complex(0, 0) "Balance of stator flux";
         port_rp.Phi = Phi_r "Rotor flux into positive rotor port";
         port_rp.Phi + port_rn.Phi = Complex(0, 0) "Balance of rotor flux";
-        port_sp.V_m - port_sn.V_m = V_ms "Magneto motive force of stator";
-        port_rp.V_m - port_rn.V_m = V_mr "Magneto motive force of rotor";
+        port_sp.V_m - port_sn.V_m = V_ms "Magnetomotive force of stator";
+        port_rp.V_m - port_rn.V_m = V_mr "Magnetomotive force of rotor";
         // Stator flux and rotor flux are equal
         Phi_s = Phi_r;
-        // Local balance of magneto motive force
+        // Local balance of magnetomotive force
         (pi/2.0)*(V_mrr.re + V_msr.re) = Phi_rr.re*R_m.d;
         (pi/2.0)*(V_mrr.im + V_msr.im) = Phi_rr.im*R_m.q;
         // Torque
@@ -6907,7 +6907,7 @@ Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap</a>
             Modelica.ComplexMath.fromPolar(1, -gamma)
           "Magnetic potential difference w.r.t. the reference frame";
       equation
-        // Magneto motive force with respect to rotor fixed reference
+        // Magnetomotive force with respect to rotor fixed reference
         port_p.V_m - port_n.V_m = V_mGamma;
         // Flux into positive port with respect to rotor fixed reference
         port_p.Phi = Phi;
@@ -7363,7 +7363,7 @@ If it is desired to neglect permanent magnet losses, set <code>strayLoadParamete
     equation
       // Flux into positive port
       port_p.V_m - port_n.V_m = V_m;
-      // Magneto motive force
+      // Magnetomotive force
       port_p.Phi = Phi;
       // Local flux balance
       port_p.Phi + port_n.Phi = Complex(0, 0);
@@ -7389,7 +7389,7 @@ If it is desired to neglect permanent magnet losses, set <code>strayLoadParamete
             Line(points={{60,20},{80,20}}, color={255,127,0})}),
                                           Documentation(info="<html>
 <p>
-Source of constant magneto motive force.
+Source of constant magnetomotive force.
 </p>
 
 <h4>See also</h4>
@@ -7426,7 +7426,7 @@ SignalFlux</a>
     equation
       // Flux into positive port
       port_p.V_m - port_n.V_m = V_m;
-      // Magneto motive force
+      // Magnetomotive force
       port_p.Phi = Phi;
       // Local flux balance
       port_p.Phi + port_n.Phi = Complex(0, 0);
@@ -7450,7 +7450,7 @@ SignalFlux</a>
             Line(points={{60,20},{80,20}}, color={255,127,0})}),
                                      Documentation(info="<html>
 <p>
-Source of magneto motive force with complex signal input.
+Source of magnetomotive force with complex signal input.
 </p>
 
 <h4>See also</h4>
@@ -7485,7 +7485,7 @@ SignalFlux</a>
     equation
       // Flux into positive port
       port_p.V_m - port_n.V_m = V_m;
-      // Magneto motive force
+      // Magnetomotive force
       port_p.Phi = Phi;
       // Local flux balance
       port_p.Phi + port_n.Phi = Complex(0, 0);
@@ -7549,7 +7549,7 @@ SignalFlux</a>
     equation
       // Flux into positive port
       port_p.V_m - port_n.V_m = V_m;
-      // Magneto motive force
+      // Magnetomotive force
       port_p.Phi = Phi;
       // Local flux balance
       port_p.Phi + port_n.Phi = Complex(0, 0);
@@ -7611,7 +7611,7 @@ ConstantFlux</a>
     equation
       // Flux into positive port
       port_p.V_m - port_n.V_m = V_m;
-      // Magneto motive force
+      // Magnetomotive force
       port_p.Phi = Phi;
       // Local flux balance
       port_p.Phi + port_n.Phi = Complex(0, 0);
@@ -7658,7 +7658,7 @@ ConstantFlux</a>
     equation
       // Flux into positive port
       port_p.V_m - port_n.V_m = V_m;
-      // Magneto motive force
+      // Magnetomotive force
       port_p.Phi = Phi;
       // Local flux balance
       port_p.Phi + port_n.Phi = Complex(0, 0);
