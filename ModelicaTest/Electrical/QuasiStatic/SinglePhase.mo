@@ -165,8 +165,6 @@ package SinglePhase "Single phase quasi static package"
 
     Modelica.Electrical.QuasiStationary.SinglePhase.Sources.FrequencySweepVoltageSource voltageSource(
       gamma(start=0, fixed=true),
-      fMin=0.01,
-      fMax=100,
       duration=1,
       V=1,
       fMin=100,
@@ -174,12 +172,12 @@ package SinglePhase "Single phase quasi static package"
            annotation (Placement(transformation(
           extent={{-10,-10},{10,10}},
           rotation=270,
-          origin={-40,40})));
+          origin={-60,40})));
     Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Inductor inductor(L=1) annotation (Placement(transformation(
           extent={{-10,-10},{10,10}},
           rotation=270,
-          origin={-10,40})));
-    Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Ground groundV annotation (Placement(transformation(extent={{-70,0},{-50,20}})));
+          origin={-30,40})));
+    Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Ground groundV annotation (Placement(transformation(extent={{-90,0},{-70,20}})));
     Modelica.Electrical.QuasiStationary.SinglePhase.Sources.FrequencySweepCurrentSource currentSource(
       gamma(start=0, fixed=true),
       startTime=0,
@@ -189,18 +187,70 @@ package SinglePhase "Single phase quasi static package"
       fMax=100) annotation (Placement(transformation(
           extent={{-10,-10},{10,10}},
           rotation=90,
-          origin={-40,-40})));
+          origin={-60,-40})));
     Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Capacitor capacitor(C=1) annotation (Placement(transformation(
           extent={{-10,-10},{10,10}},
           rotation=270,
-          origin={-10,-40})));
-    Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Ground groundI annotation (Placement(transformation(extent={{-70,-80},{-50,-60}})));
+          origin={-30,-40})));
+    Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Ground groundI annotation (Placement(transformation(extent={{-90,-80},{-70,-60}})));
+    Modelica.Electrical.QuasiStationary.SinglePhase.Sources.VoltageSource               constantSource(
+      gamma(start=0, fixed=true),
+      V=1,
+      f=1,
+      phi=0)
+           annotation (Placement(transformation(
+          extent={{-10,-10},{10,10}},
+          rotation=270,
+          origin={20,40})));
+    Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableImpedance impedanceL annotation (Placement(transformation(
+          extent={{-10,-10},{10,10}},
+          rotation=270,
+          origin={50,40})));
+    Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Ground groundV1
+                                                                         annotation (Placement(transformation(extent={{-10,0},{10,20}})));
+    Modelica.ComplexBlocks.Sources.ComplexRampPhasor complexRampL(
+      magnitude1=100,
+      magnitude2=0.01,
+      useLogRamp=true,
+      startTime=0,
+      duration=1,
+      phi=1.5707963267949) annotation (Placement(transformation(extent={{92,30},{72,50}})));
+    Modelica.Electrical.QuasiStationary.SinglePhase.Sources.CurrentSource               currentCurrent(
+      gamma(start=0, fixed=true),
+      I=1,
+      f=1,
+      phi=0)    annotation (Placement(transformation(
+          extent={{-10,-10},{10,10}},
+          rotation=90,
+          origin={20,-40})));
+    Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableImpedance
+                                                                    impedanceC     annotation (Placement(transformation(
+          extent={{-10,-10},{10,10}},
+          rotation=270,
+          origin={50,-40})));
+    Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Ground groundI1
+                                                                         annotation (Placement(transformation(extent={{-10,-80},{10,-60}})));
+    Modelica.ComplexBlocks.Sources.ComplexRampPhasor complexRampC(
+      useLogRamp=true,
+      startTime=0,
+      duration=1,
+      magnitude1=0.01,
+      magnitude2=100,
+      phi=-1.5707963267949) annotation (Placement(transformation(extent={{90,-50},{70,-30}})));
   equation
-    connect(groundV.pin, voltageSource.pin_n) annotation (Line(points={{-60,20},{-40,20},{-40,30}}, color={85,170,255}));
-    connect(voltageSource.pin_n, inductor.pin_n) annotation (Line(points={{-40,30},{-40,20},{-10,20},{-10,30}}, color={85,170,255}));
-    connect(inductor.pin_p, voltageSource.pin_p) annotation (Line(points={{-10,50},{-10,60},{-40,60},{-40,50}}, color={85,170,255}));
-    connect(currentSource.pin_n, capacitor.pin_p) annotation (Line(points={{-40,-30},{-40,-20},{-10,-20},{-10,-30}}, color={85,170,255}));
-    connect(currentSource.pin_p, capacitor.pin_n) annotation (Line(points={{-40,-50},{-40,-60},{-10,-60},{-10,-50}}, color={85,170,255}));
-    connect(groundI.pin, currentSource.pin_p) annotation (Line(points={{-60,-60},{-40,-60},{-40,-50}}, color={85,170,255}));
+    connect(groundV.pin, voltageSource.pin_n) annotation (Line(points={{-80,20},{-60,20},{-60,30}}, color={85,170,255}));
+    connect(voltageSource.pin_n, inductor.pin_n) annotation (Line(points={{-60,30},{-60,20},{-30,20},{-30,30}}, color={85,170,255}));
+    connect(inductor.pin_p, voltageSource.pin_p) annotation (Line(points={{-30,50},{-30,60},{-60,60},{-60,50}}, color={85,170,255}));
+    connect(currentSource.pin_n, capacitor.pin_p) annotation (Line(points={{-60,-30},{-60,-20},{-30,-20},{-30,-30}}, color={85,170,255}));
+    connect(currentSource.pin_p, capacitor.pin_n) annotation (Line(points={{-60,-50},{-60,-60},{-30,-60},{-30,-50}}, color={85,170,255}));
+    connect(groundI.pin, currentSource.pin_p) annotation (Line(points={{-80,-60},{-60,-60},{-60,-50}}, color={85,170,255}));
+    connect(groundV1.pin, constantSource.pin_n) annotation (Line(points={{0,20},{20,20},{20,30}}, color={85,170,255}));
+    connect(constantSource.pin_n, impedanceL.pin_n) annotation (Line(points={{20,30},{20,20},{50,20},{50,30}}, color={85,170,255}));
+    connect(impedanceL.pin_p, constantSource.pin_p) annotation (Line(points={{50,50},{50,60},{20,60},{20,50}}, color={85,170,255}));
+    connect(complexRampL.y, impedanceL.Z_ref) annotation (Line(points={{71,40},{62,40},{62,40}}, color={85,170,255}));
+    connect(currentCurrent.pin_n, impedanceC.pin_p) annotation (Line(points={{20,-30},{20,-20},{50,-20},{50,-30}}, color={85,170,255}));
+    connect(currentCurrent.pin_p, impedanceC.pin_n) annotation (Line(points={{20,-50},{20,-60},{50,-60},{50,-50}}, color={85,170,255}));
+    connect(groundI1.pin, currentCurrent.pin_p) annotation (Line(points={{0,-60},{20,-60},{20,-50}}, color={85,170,255}));
+    connect(complexRampC.y, impedanceC.Z_ref) annotation (Line(points={{69,-40},{62,-40}}, color={85,170,255}));
   end FrequencySweep;
 end SinglePhase;
