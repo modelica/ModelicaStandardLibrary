@@ -1081,24 +1081,26 @@ For parameters, connectors, as well as inputs and outputs of function automatic 
 
         annotation (Documentation(info="<html>
 
-<table border=\"1\" cellpadding=\"2\" cellspacing=\"0\" >
+<p>The terms listed in this package shall be in accordance with <a href=\"http://www.electropedia.org/\">Electropedia</a>.</p>
+
+<p><table border=\"1\" cellpadding=\"2\" cellspacing=\"0\" >
    <tr>
       <th>To be used</th>
       <th>Not to be used</th>
     </tr>
     <tr>
-      <td><a href=\"https://en.oxforddictionaries.com/definition/polyphase\">polyphase</a></td>
+      <td><a href=\"http://www.electropedia.org/iev/iev.nsf/display?openform&ievref=141-01-03\">polyphase</a></td>
       <td>multi phase, multi-phase, multiphase</td>
     </tr>
      <tr>
-      <td><a href=\"https://www.collinsdictionary.com/dictionary/english/single-phase\">single-phase</a></td>
+      <td><a href=\"http://www.electropedia.org/iev/iev.nsf/display?openform&ievref=411-31-13\">single-phase</a></td>
       <td>single phase, singlephase, one phase, one-phase, onephase, 1 phase, 1-phase</td>
     </tr>
      <tr>
-      <td><a href=\"https://en.oxforddictionaries.com/definition/three-phase\">three-phase</a></td>
+      <td><a href=\"http://www.electropedia.org/iev/iev.nsf/display?openform&ievref=811-12-22\">three-phase</a></td>
       <td>three phase, threephase, 3 phase, 3-phase</td>
     </tr>
-</table>
+</table></p>
 
 </html>"));
       end Electrical;
@@ -1108,26 +1110,28 @@ For parameters, connectors, as well as inputs and outputs of function automatic 
 
         annotation (Documentation(info="<html>
 
-<table border=\"1\" cellpadding=\"2\" cellspacing=\"0\" >
+<p>The terms listed in this package shall be in accordance with <a href=\"http://www.electropedia.org/\">Electropedia</a>.</p>
+
+<p><table border=\"1\" cellpadding=\"2\" cellspacing=\"0\" >
    <tr>
       <th>To be used</th>
       <th>Not to be used</th>
     </tr>
      <tr>
-      <td><a href=\"https://en.oxforddictionaries.com/definition/electromagnetic\">electromagnetic</a></td>
+      <td><a href=\"http://www.electropedia.org/iev/iev.nsf/display?openform&ievref=151-11-09\">electromagnetic</a></td>
       <td>electro magnetic</td>
     </tr>
     <tr>
-      <td><a href=\"https://en.oxforddictionaries.com/definition/magnetomotive_force\">magnetomotive force</a></td>
+      <td><a href=\"http://www.electropedia.org/iev/iev.nsf/display?openform&ievref=121-11-60\">magnetomotive force</a></td>
       <td>magneto motive force</td>
     </tr>
-</table>
+</table></p>
 
 </html>"));
       end Magnetic;
       annotation (Documentation(info="<html>
 
-<p>This is the documentation of terms to be used in the Modelica Standard Library</p>
+<p>This is the documentation of terms to be used in the Modelica Standard Library.</p>
 
 </html>"));
     end Terms;
