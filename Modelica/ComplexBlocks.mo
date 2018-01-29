@@ -2256,9 +2256,9 @@ In case of <code>useLogRamp == true</code> the magnitude ramp appears linear on 
     block LogFrequencySweep "Logarithmic frequency sweep"
       extends Modelica.Blocks.Interfaces.SO;
       import Modelica.Constants.eps;
-      parameter Real wMin(min=eps) "Lower frequency border"
+      parameter Real wMin(final min=eps) "Start frequency"
         annotation(Dialog(groupImage="modelica://Modelica/Resources/Images/Blocks/Sources/LogFrequencySweep.png"));
-      parameter Real wMax(min=(1+eps)*wMin) "Upper frequency border";
+      parameter Real wMax(final min=eps) "End frequency";
       parameter Modelica.SIunits.Time startTime=0 "Start time of frequency sweep";
       parameter Modelica.SIunits.Time duration(min=0.0, start=1) "Duration of ramp (= 0.0 gives a Step)";
     equation
@@ -2274,7 +2274,7 @@ The logarithm of frequency <code>w</code> performs a linear ramp from <code>log1
 The output is the decimal power of this logarithmic ramp.
 </p>
 <p>For <code>time &lt; startTime</code> the output is equal to <code>wMin</code>.</p>
-<p>For <code>time &lt; startTime+druation</code> the output is equal to <code>wMax</code>.</p>
+<p>For <code>time &gt; startTime+druation</code> the output is equal to <code>wMax</code>.</p>
 <p>
 <img src=\"modelica://Modelica/Resources/Images/Blocks/Sources/LogFrequencySweep.png\"
      alt=\"LogFrequencySweep.png\">
