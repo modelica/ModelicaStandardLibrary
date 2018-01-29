@@ -162,6 +162,8 @@ package SinglePhase "Single phase quasi static package"
     extends Modelica.Icons.Example;
     output Modelica.SIunits.Current iL = inductor.abs_i "Inductor current";
     output Modelica.SIunits.Voltage vC = capacitor.abs_v "Inductor voltage";
+    output Modelica.SIunits.Current iLL = impedanceL.abs_i "Inductor current";
+    output Modelica.SIunits.Voltage vCC = impedanceC.abs_v "Inductor voltage";
 
     Modelica.Electrical.QuasiStationary.SinglePhase.Sources.FrequencySweepVoltageSource voltageSource(
       gamma(start=0, fixed=true),
