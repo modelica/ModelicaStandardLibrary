@@ -1965,7 +1965,7 @@ connected with continuous blocks or with sampled-data blocks.
               "Time varying output signal"), Placement(transformation(extent={{
                 100,-10},{120,10}})));
 
-      annotation (defaultComponentName="expression",
+      annotation (defaultComponentName="complexExpr",
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={Rectangle(
                   extent={{-100,40},{100,-40}},
@@ -1997,7 +1997,7 @@ Variable <strong>y</strong> is both a variable and a connector.
     equation
       y = k;
       annotation (
-        defaultComponentName="const",
+        defaultComponentName="complexConst",
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Line(points={{-80,68},{-80,-80}}, color={
               192,192,192}),Polygon(
@@ -2051,7 +2051,7 @@ The Complex output y is a constant signal:
 
     equation
       y = offset + (if time < startTime then Complex(0) else height);
-      annotation (defaultComponentName="step",
+      annotation (defaultComponentName="complexStep",
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Line(points={{-80,68},{-80,-80}}, color={
               192,192,192}),Polygon(
@@ -2140,7 +2140,7 @@ The Complex output y is a step signal (of real and imaginary part):
     equation
       phi = w*time + phi0;
       y = magnitude*Modelica.ComplexMath.exp(Complex(0, phi));
-      annotation (defaultComponentName="rotating",
+      annotation (defaultComponentName="complexRotating",
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Polygon(
                   points={{-10,90},{-16,68},{-4,68},{-10,90}},
@@ -2154,17 +2154,18 @@ The Complex output y is a step signal (of real and imaginary part):
                   fillColor={95,95,95},
                   fillPattern=FillPattern.Solid),Line(
                   points={{-10,0},{50,50}},
-                  color={0,0,255},
-                  thickness=0.5),Polygon(
+                  color={0,0,255}),
+                                 Polygon(
                   points={{50,50},{29,41},{38,30},{50,50}},
                   lineColor={95,95,95},
                   fillColor={0,0,255},
                   fillPattern=FillPattern.Solid),Line(points={{-47,35},{-40,40},
-              {-32,44},{-20,47},{-7,46},{5,42},{18,34},{26,23},{31,10}}, color=
-              {0,0,255}),Polygon(
+              {-32,44},{-20,47},{-7,46},{5,42},{18,34},{26,23},{31,10}}, color={192,192,192},
+              smooth=Smooth.Bezier),
+                         Polygon(
                   points={{-52,29},{-32,36},{-42,47},{-52,29}},
-                  lineColor={0,0,255},
-                  fillColor={0,0,255},
+                  lineColor={192,192,192},
+                  fillColor={192,192,192},
                   fillPattern=FillPattern.Solid)}), Documentation(info="<html>
 <p>
 The output y is a complex phasor with constant magnitude, spinning with constant angular velocity.
@@ -2172,6 +2173,85 @@ The output y is a complex phasor with constant magnitude, spinning with constant
 
 </html>"));
     end ComplexRotatingPhasor;
+
+    block ComplexRampPhasor "Generate a phasor with ramped magnitude and constant angle"
+      extends Modelica.ComplexBlocks.Interfaces.ComplexSO;
+      import Modelica.Constants.eps;
+      parameter Real magnitude1(final min=eps,start=1) "Magnitude of complex phasor at startTime"
+        annotation(Dialog(groupImage="modelica://Modelica/Resources/Images/ComplexBlocks/Sources/ComplexRampPhasor.png"));
+      parameter Real magnitude2(final min=eps,start=1) "Magnitude of complex phasor at startTime+duration";
+      parameter Boolean useLogRamp = false "Ramp appears linear on a logarithmic scale, if true";
+      parameter Modelica.SIunits.Angle phi(start=0) "Angle of complex phasor";
+      parameter Modelica.SIunits.Time startTime=0 "Start time of frequency sweep";
+      parameter Modelica.SIunits.Time duration(min=0.0, start=1) "Duration of ramp (= 0.0 gives a Step)";
+      Real magnitude "Actual magntiude of complex phasor";
+    equation
+
+      magnitude = if not useLogRamp then
+        magnitude1 + (if time < startTime then
+          0 else
+          if time < (startTime + max(duration,eps)) then
+            (time - startTime)*(magnitude2-magnitude1)/max(duration,eps)
+          else
+          magnitude2-magnitude1)
+      else
+        if time < startTime then magnitude1 else
+        if time < (startTime + max(duration,eps)) then
+          10^(log10(magnitude1) + (log10(magnitude2) - log10(magnitude1))*min(1, (time-startTime)/max(duration,eps)))
+        else
+          magnitude2;
+
+      y = magnitude*Modelica.ComplexMath.exp(Complex(0, phi));
+
+      annotation (defaultComponentName="complexRamp",
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+                -100},{100,100}}), graphics={Polygon(
+                  points={{-10,90},{-16,68},{-4,68},{-10,90}},
+                  lineColor={192,192,192},
+                  fillColor={95,95,95},
+                  fillPattern=FillPattern.Solid),Line(points={{-10,68},{-10,-90}},
+              color={95,95,95}),Line(points={{-90,0},{82,0}}, color={95,95,95}),
+              Polygon(
+                  points={{90,0},{68,6},{68,-6},{90,0}},
+                  lineColor={95,95,95},
+                  fillColor={95,95,95},
+                  fillPattern=FillPattern.Solid),Line(
+                  points={{-10,-10},{14,10}},
+                  color={0,0,255}),
+                                 Polygon(
+                  points={{28,22},{7,13},{16,2},{28,22}},
+                  lineColor={95,95,95},
+                  fillColor={0,0,255},
+                  fillPattern=FillPattern.Solid),Line(
+                  points={{-10,6},{50,56}},
+                  color={0,0,255}),
+                                 Polygon(
+                  points={{66,70},{45,61},{54,50},{66,70}},
+                  lineColor={95,95,95},
+                  fillColor={0,0,255},
+                  fillPattern=FillPattern.Solid)}), Documentation(info="<html>
+<p>
+The output y is a complex phasor with constant angle and a ramped magnitude.
+</p>
+
+<p>
+In case of <code>useLogRamp == false</code> the magnitude ramp is linear:
+</p>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/ComplexBlocks/Sources/ComplexRampPhasorLinear.png\"
+     alt=\"ComplexRampPhasorLinear.png\">
+</p>
+
+<p>
+In case of <code>useLogRamp == true</code> the magnitude ramp appears linear on a logarithmic scale:
+</p>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/ComplexBlocks/Sources/ComplexRampPhasorLog.png\"
+     alt=\"ComplexRampPhasorLog.png\">
+</p>
+
+</html>"));
+    end ComplexRampPhasor;
 
     block LogFrequencySweep "Logarithmic frequency sweep"
       extends Modelica.Blocks.Interfaces.SO;
@@ -2209,11 +2289,21 @@ The output is the decimal power of this logarithmic ramp.
             Line(points={{-78,-48},{80,-48}}, color={135,135,135}),
             Line(
               points={{-70,-48},{-50,-48},{50,44},{70,44}},
-              color={0,0,255},
-              thickness=0.5),
+              color={0,0,0}),
             Line(points={{-50,-48},{-50,44}}, color={135,135,135}),
-            Line(points={{48,-48},{48,44}}, color={135,135,135}),
-            Line(points={{-78,40},{80,40}}, color={135,135,135})}));
+            Line(points={{50,-48},{50,44}}, color={135,135,135}),
+            Line(points={{-78,40},{80,40}}, color={135,135,135}),
+                                   Polygon(
+                  points={{90,-48},{68,-40},{68,-56},{90,-48}},
+                  lineColor={192,192,192},
+                  fillColor={192,192,192},
+                  fillPattern=FillPattern.Solid),
+                            Polygon(
+                  points={{-70,90},{-78,68},{-62,68},{-70,90}},
+                  lineColor={192,192,192},
+                  fillColor={192,192,192},
+                  fillPattern=FillPattern.Solid),
+            Line(points={{-70,-56},{-70,68}}, color={135,135,135})}));
     end LogFrequencySweep;
   end Sources;
   annotation (Documentation(info="<html>
