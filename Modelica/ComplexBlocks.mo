@@ -2274,7 +2274,7 @@ The logarithm of frequency <code>w</code> performs a linear ramp from <code>log1
 The output is the decimal power of this logarithmic ramp.
 </p>
 <p>For <code>time &lt; startTime</code> the output is equal to <code>wMin</code>.</p>
-<p>For <code>time &gt; startTime+druation</code> the output is equal to <code>wMax</code>.</p>
+<p>For <code>time &gt; startTime+duration</code> the output is equal to <code>wMax</code>.</p>
 <p>
 <img src=\"modelica://Modelica/Resources/Images/Blocks/Sources/LogFrequencySweep.png\"
      alt=\"LogFrequencySweep.png\">
