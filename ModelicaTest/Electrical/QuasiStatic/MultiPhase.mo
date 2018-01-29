@@ -213,8 +213,8 @@ package MultiPhase "Multi phase quasi static package"
       startTime=0,
       duration=1,
       V=fill(1, 3),
-      fMin=0.01,
-      fMax=100) annotation (Placement(transformation(extent={{-40,40},{-20,60}})));
+      fStart=0.01,
+      fStop=100) annotation (Placement(transformation(extent={{-40,40},{-20,60}})));
     Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Inductor  inductor(L=fill(1, 3))  annotation (Placement(transformation(extent={{-40,70},{-20,90}})));
     Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Star starV annotation (Placement(transformation(extent={{-20,10},{-40,30}})));
     Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Ground groundV annotation (Placement(transformation(extent={{-70,0},{-50,20}})));
@@ -223,8 +223,8 @@ package MultiPhase "Multi phase quasi static package"
       startTime=0,
       duration=1,
       I=fill(1, 3),
-      fMin=0.01,
-      fMax=100) annotation (Placement(transformation(extent={{-20,-60},{-40,-40}})));
+      fStart=0.01,
+      fStop=100) annotation (Placement(transformation(extent={{-20,-60},{-40,-40}})));
     Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Capacitor capacitor(C=fill(1, 3)) annotation (Placement(transformation(extent={{-40,-30},{-20,-10}})));
     Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Star starI
                                                                    annotation (Placement(transformation(extent={{-20,-90},{-40,-70}})));

@@ -2255,17 +2255,18 @@ Additionally, the frequency of the voltage source is defined by a real signal in
 
     model FrequencySweepVoltageSource "Voltage source with integrated frequency sweep"
       extends Interfaces.TwoPin;
+      import Modelica.Constants.eps;
       Modelica.SIunits.Angle gamma(start=0) = pin_p.reference.gamma;
-      parameter Modelica.SIunits.Frequency fMin(start=1) "Lower sweep frequency";
-      parameter Modelica.SIunits.Frequency fMax(start=1) "Upper sweep frequency";
+      parameter Modelica.SIunits.Frequency fStart(final min=eps, start=1) "Start sweep frequency";
+      parameter Modelica.SIunits.Frequency fStop(final min=eps, start=1) "Stop sweep frequency";
       parameter Modelica.SIunits.Time startTime=0 "Start time of frequency sweep";
       parameter Modelica.SIunits.Time duration(start=1) "Duration of frequency sweep";
       parameter Modelica.SIunits.Voltage V(start=1) "RMS voltage of the source";
       parameter Modelica.SIunits.Angle phi=0 "phase shift of the source";
       Modelica.SIunits.Frequency f = voltageSource.f "Actual frequency";
       ComplexBlocks.Sources.LogFrequencySweep logFrequencySweep(
-        final wMin=fMin,
-        final wMax=fMax,
+        final wMin=fStart,
+        final wMax=fStop,
         final startTime=startTime,
         final duration=duration) annotation (Placement(transformation(extent={{40,-60},{20,-40}})));
       VariableVoltageSource voltageSource annotation (Placement(transformation(extent={{-20,10},{0,-10}})));
@@ -2300,7 +2301,7 @@ Additionally, the frequency of the voltage source is defined by a real signal in
         Documentation(info="<html>
 <p>This source provides a constant RMS phase voltage <code>V</code> and phase angle <code>phi</code>, 
 whereas the frequency sweeps from 
-<code>fMin</code> to <code>fMax</code> with <code>duration</code>. The frequency sweeps such
+<code>fStart</code> to <code>fStop</code> with <code>duration</code>. The frequency sweeps such
 way that on a logarithmic frequency scale, the frequency curve appears linear.</p>
 
 <p><img src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/SinglePhase/Sources/FrequencySweepSource.png\"
@@ -2380,17 +2381,18 @@ Additionally, the frequency of the voltage source is defined by a real signal in
 
     model FrequencySweepCurrentSource "Current source with integrated frequency sweep"
       extends Interfaces.TwoPin;
+      import Modelica.Constants.eps;
       Modelica.SIunits.Angle gamma(start=0) = pin_p.reference.gamma;
-      parameter Modelica.SIunits.Frequency fMin(start=1) "Lower sweep frequency";
-      parameter Modelica.SIunits.Frequency fMax(start=1) "Upper sweep frequency";
+      parameter Modelica.SIunits.Frequency fStart(final min=eps, start=1) "Start sweep frequency";
+      parameter Modelica.SIunits.Frequency fStop(final min=eps, start=1) "Stop sweep frequency";
       parameter Modelica.SIunits.Time startTime=0 "Start time of frequency sweep";
       parameter Modelica.SIunits.Time duration(start=1) "Duration of frequency sweep";
       parameter Modelica.SIunits.Current I(start=1) "RMS current of the source";
       parameter Modelica.SIunits.Angle phi=0 "Phase shift of the source";
       Modelica.SIunits.Frequency f = currentSource.f "Actual frequency";
       ComplexBlocks.Sources.LogFrequencySweep logFrequencySweep(
-        final wMin=fMin,
-        final wMax=fMax,
+        final wMin=fStart,
+        final wMax=fStop,
         final startTime=startTime,
         final duration=duration) annotation (Placement(transformation(extent={{40,-60},{20,-40}})));
       VariableCurrentSource currentSource annotation (Placement(transformation(extent={{-20,10},{0,-10}})));
@@ -2428,7 +2430,7 @@ Additionally, the frequency of the voltage source is defined by a real signal in
         Documentation(info="<html>
 <p>This source provides a constant RMS phase current <code>I</code> and phase angle <code>phi</code>, 
 whereas the frequency sweeps from 
-<code>fMin</code> to <code>fMax</code> with <code>duration</code>. The frequency sweeps such
+<code>fStart</code> to <code>fStop</code> with <code>duration</code>. The frequency sweeps such
 way that on a logarithmic frequency scale, the frequency curve appears linear.</p>
 
 <p><img src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/SinglePhase/Sources/FrequencySweepSource.png\"

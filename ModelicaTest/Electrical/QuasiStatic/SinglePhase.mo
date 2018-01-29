@@ -169,8 +169,8 @@ package SinglePhase "Single phase quasi static package"
       gamma(start=0, fixed=true),
       duration=1,
       V=1,
-      fMin=100,
-      fMax=0.01)
+      fStart=100,
+      fStop=0.01)
            annotation (Placement(transformation(
           extent={{-10,-10},{10,10}},
           rotation=270,
@@ -185,8 +185,8 @@ package SinglePhase "Single phase quasi static package"
       startTime=0,
       duration=1,
       I=1,
-      fMin=0.01,
-      fMax=100) annotation (Placement(transformation(
+      fStart=0.01,
+      fStop=100) annotation (Placement(transformation(
           extent={{-10,-10},{10,10}},
           rotation=90,
           origin={-60,-40})));
