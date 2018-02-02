@@ -2405,6 +2405,7 @@ actuator example
         end MotorWithCurrentControl;
 
         model Controller "Simple position controller for actuator"
+          extends Modelica.Blocks.Icons.Block;
 
           Modelica.Blocks.Continuous.PI speed_PI(k=10, T=5e-2,
             initType=Modelica.Blocks.Types.Init.InitialOutput)
@@ -2451,16 +2452,10 @@ actuator example
               points={{-39,-60},{20,-60},{20,-8}}, color={0,0,127}));
           annotation (Icon(coordinateSystem(
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
-                Rectangle(extent={{-100,100},{100,-100}}, lineColor={0,0,255},
-                  fillColor={255,255,255},
-                  fillPattern=FillPattern.Solid),
                 Text(
                   extent={{-40,50},{40,-30}},
                   lineColor={0,0,255},
-                  textString="PI"), Text(
-                extent={{-150,150},{150,110}},
-                textString="%name",
-                lineColor={0,0,255})}),
+                  textString="PI")}),
             Documentation(revisions="<html>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
