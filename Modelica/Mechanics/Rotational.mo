@@ -70,8 +70,8 @@ together, see figure below.
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/driveConnections1.png\" ALT=\"driveConnections1\"><br>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/driveConnections2.png\" ALT=\"driveConnections2\"><br>
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/driveConnections1.png\" alt=\"driveConnections1\"><br>
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/driveConnections2.png\" alt=\"driveConnections2\">
 </p>
 
 </html>"));

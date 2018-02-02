@@ -427,7 +427,9 @@ achieve.
 In a series of papers and dissertations
 Prof. Hiller and his group in Duisburg, Germany,
 have developed systematic methods to handle mechanical
-loops analytically. The \"characteristic pair of joints\" method
+loops analytically, see also
+<a href=\"Modelica.Mechanics.MultiBody.UsersGuide.Literature\">MultiBody.UsersGuide.Literature</a>.
+The \"characteristic pair of joints\" method
 basically cuts a loop at two joints and uses geometric
 invariants to reduce the number of algebraic
 equations, often down to one equation that can be solved analytically. Also
@@ -441,7 +443,7 @@ singularity during simulation. Therefore, the \"characteristic pair of joints\"
 method is usually manually applied which requires know-how and experience.
 </p>
 <p>
-In the MultiBody library the \"characteristic pair of
+In the MultiBody library, the \"characteristic pair of
 joints\" method is supported in a restricted form such that it can be applied
 also by non-specialists. The idea is to provide aggregations of joints in package
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Joints.Assemblies\">
@@ -474,35 +476,37 @@ MultiBody.Joints.Assemblies.JointSSP</a>.
 
 <p>
 The JointSSP joint aggregation has a frame at the
-left side of the left spherical joint (frame_a) and a frame at the right side
-of the prismatic joint (frame_b). JointSSP, as all other objects from the
+outer spherical joint (frame_a) and a frame at
+the prismatic joint (frame_b). JointSSP, as all other objects from the
 Joints.Assemblies package, has the property, that the <strong>generalized
 coordinates, and all other frames
 defined in the assembly, can be calculated given the movement of frame_a and
 of frame_b</strong>. This is performed by <strong>analytically</strong> solving non-linear
-systems of equations (details are given in section xxx). From a
+systems of equations.
+<!-- (details are given in section xxx). -->
+From a
 structural point of view, the equations in an assembly object are written in
 the form
 </p>
-<p align=\"left\">
+<blockquote>
   <strong>q</strong> = <strong>
   f</strong><sub>1</sub>(<strong>r</strong><sup>a</sup>, <strong>R</strong><sup>a</sup>, <strong>r</strong><sup>b</sup>,
   <strong>R</strong><sup>b</sup>)
-</p>
+</blockquote>
 <p>
-where <strong>r</strong><sup>a</sup>, <strong>R</strong><sup>a</sup>,<strong>
-r</strong><sup>b</sup>, <strong>R</strong><sup>b</sup> are the variables defining the
-position and orientation of the frame_a and frame_b connector,
+where <strong>r</strong><sup>a</sup>, <strong>R</strong><sup>a</sup>,
+<strong>r</strong><sup>b</sup>, <strong>R</strong><sup>b</sup> are the variables defining the
+position and orientation of the frame_a and frame_b, respectively, and
 <strong>q</strong> are the generalized positional coordinates inside the
 assembly, e.g., the angle of a revolute joint. Given angle
 <span style=\"font-family:Symbol\">j</span> of revolute joint j1 from the four
 bar mechanism, frame_a and frame_b of the assembly object can be computed by a
 forward recursion
 </p>
-<p align=\"left\">
+<blockquote>
 (<strong>r</strong><sup>a</sup>,
 <strong>R</strong><sup>a</sup>, <strong>r</strong><sup>b</sup>, <strong>R</strong><sup>b</sup>) = <strong>f</strong>(<span style=\"font-family:Symbol\">j)</span>
-</p>
+</blockquote>
 <p>
 Since this is a structural property, the
 symbolic algorithms can automatically select <span style=\"font-family:Symbol\">
@@ -577,8 +581,7 @@ and inertia of the rod is not significant.
 </p>
 <p>
 Let us discuss item (a) in more detail: The
-MacPherson suspension in the next figure
-is from the Modelica VehicleDynamics library.
+MacPherson suspension in the next figure has three frame connectors.
 </p>
 
 <blockquote>
@@ -586,13 +589,12 @@ is from the Modelica VehicleDynamics library.
 </blockquote>
 
 <p>
-It has three frame
-connectors. The lower left one (frame_C) is fixed in the vehicle chassis. The
-upper left one (frame_S) is driven by the steering mechanism, i.e., the
-movement of both frames are given. The frame connector on the right (frame_U)
+The lower left one (frameChassis) is fixed to the vehicle chassis. The
+upper left one (frameSteering) is driven by the steering mechanism, i.e. the
+movement of both frames are given. The frame connector on the right (frameWheel)
 drives the wheel. The three frames are connected by a mechanism consisting
 essentially of two rods with spherical joints on both ends. These are built up
-by a jointUPS and a jointSSR assembly.
+by a jointUPS and a jointSSR assemblies.
 As can be seen, the universal joint from the jointUPS
 assembly is connected to the revolute joint of the jointSSR assembly.
 Therefore, we have 3 revolute joints connected together at one point and if
@@ -601,17 +603,17 @@ joint. In other words, the two connected assemblies define the desired two
 rods with spherical joints on each ends.
 </p>
 <p>
-The movement of the chassis, frame_C, is computed
-somewhere else. When the generalized coordinates of revolute joint
-\"innerJoint\" (lower left part in figure) are used as states, then frame_a and
+The movement of the chassis, frameChassis, is computed
+outside of the suspension model. When the generalized coordinates of revolute joint
+\"jointArm\" (lower left part in figure) are used as states, then frame_a and
 frame_b of the jointUPS joint can be calculated. After the non-linear loop
 with jointUPS is (analytically) solved, all frames on this assembly are
 known, especially,
-the one connected to frame_b of the jointSSR assembly. Since frame_b of
-jointSSR is connected to frame_S which is computed from the steering
+the one connected to frame_b of the jointSSR assembly. Since frame_a of
+jointSSR is connected to frameSteering which is computed from the steering
 mechanism, again the two required frame movements of the jointSSR assembly are
-calculated, meaning in turn that also all other frames on the jointSSR
-assembly can be computed, especially, the one connected to frame_U that drives
+calculated. This in turn means that also all other frames on the jointSSR
+assembly can be computed, especially, the one connected to frameWheel that drives
 the wheel. From this analysis it is clear that a tool is able to solve these
 coupled loops analytically.
 </p>
@@ -623,14 +625,16 @@ of one cylinder with elementary joints.
 
 <blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/EngineV6_3.png\" width=\"303\" height=\"136\">
-<br>
+</blockquote>
+
+<blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/EngineV6_2.png\">
 </blockquote>
 
 <p>
-It is sufficient to rewrite the basic cylinder model
+Here, it is sufficient to rewrite the basic cylinder model
 by replacing the joints with a JointRRP object that has two
-revolute and one prismatic joint, see next figure.
+revolute and one prismatic joint, as can be seen in next figure.
 </p>
 
 <blockquote>
@@ -655,13 +659,13 @@ shown in the next figure
 <p>
 It can be seen that the revolute joint
 of the crank shaft (joint \"bearing\" in left part of figure) might be
-selected as degree of freedom. Then the 4 connector frames of all cylinders
-can be computed. As a result the computations of the cylinders are decoupled
+selected as degree of freedom. Then, the&nbsp;4 connector frames of all cylinders
+can be computed. As a result, the computations of the cylinders are decoupled
 from each other. Within one cylinder
 the position of frame_a and frame_b of the jointRRP assembly
 can be computed and therefore the generalized coordinates of the two revolute
-and the prismatic joint in the jointRRP object can be determined. From this
-analysis it is not surprising that a Modelica translator
+and the prismatic joint in the jointRRP object can be determined. Considering this
+analysis, it is not surprising that a Modelica translator
 is able to transform the DAE
 equations into a sequential evaluation without any non-linear loop.
 Compare this nice result with the model using only elementary joints
@@ -751,9 +755,9 @@ message will be something like: .
 </p></blockquote>
 
 <p>
-The two flags \"fixedRotationAtFrame_a\" and \"fixedRotationAtFrame_b must be very carefully
-set, because a wrong definition can lead to a model that simulates, but the simulation
-result is wrong. This is the case, whenever the movement of the resulting system depends
+The two flags \"fixedRotationAtFrame_a\" and \"fixedRotationAtFrame_b must be set very carefully
+because a wrong definition can lead to a model that simulates, but the simulation
+result is wrong. This is the case whenever the movement of the resulting system depends
 on the orientation object that was arbitrarily set in parallel to the world frame.
 A typical example is shown in the next figure:
 </p>
@@ -925,8 +929,7 @@ calls in 0.99 should be changed:
 
     annotation (Documentation(info="<html>
 <ul>
-<li>Technical details of this library are described in the
-20 page paper:
+<li>Technical details of this library are described in the paper:
 <dl>
 <dt>Otter M., Elmqvist H., and Mattsson S.E.:</dt>
 <dd> <strong>The New Modelica MultiBody Library</strong>.
