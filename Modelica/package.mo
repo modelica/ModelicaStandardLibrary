@@ -1497,88 +1497,56 @@ This class summarizes contact information of the contributing persons.
 <h5>Example</h5>
 
 <pre>
-&lt;p&gt;This package is developed and maintained by the following contributors&lt;/p&gt;
-  &lt;table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-    &lt;tr&gt;
-      &lt;th&gt;&lt;/th&gt;
-      &lt;th&gt;Name&lt;/th&gt;
-      &lt;th&gt;Affiliation&lt;/th&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td valign=\"top\"&gt;Library officers and main contributors&lt;/td&gt;
-      &lt;td valign=\"top\"&gt;
-      &lt;a href=\"mailto:a.haumer@haumer.at\"&gt;A. Haumer&lt;/a&gt;
-      &lt;/td&gt;
-      &lt;td valign=\"top\"&gt;
-        &lt;a href=\"http://www.haumer.at\"&gt;Technical Consulting &amp;amp; Electrical Engineering&lt;/a&gt;&lt;br&gt;
-        3423 St.Andrae-Woerdern&lt;br&gt;
-        Austria
-      &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td valign=\"top\"&gt;Contributor&lt;/td&gt;
-      &lt;td valign=\"top\"&gt;
-        &lt;a href=\"mailto:dr.christian.kral@gmail.com\"&gt;C. Kral&lt;/a&gt;
-      &lt;/td&gt;
-      &lt;td valign=\"top\"&gt;
-        &lt;a href=\"https://christiankral.net\"&gt;Electric Machines, Drives and Systems&lt;/a&gt;&lt;br&gt;
-        1060 Vienna&lt;br&gt;
-        Austria
-      &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td valign=\"top\"&gt;Contributor&lt;/td&gt;
-      &lt;td valign=\"top\"&gt;
-        &lt;a href=\"http://www.linkedin.com/in/dietmarw\"&gt;D. Winkler&lt;/a&gt;
-      &lt;/td&gt;
-      &lt;td valign=\"top\"&gt;
-        DWE, Norway
-      &lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/table&gt;</pre>
+&lt;p&gt;
+Library officers responsible for the maintenance and for the
+organization of the development of this library are listed in
+&lt;a href=\"modelica://Modelica.UsersGuide.Contact\"&gt;Modelica.UsersGuide.Contact&lt;/a&gt;.
+&lt;/p&gt;
 
-<p>appears as</p>
+&lt;h4&gt;Main authors&lt;/h4&gt;
 
-<p>This package is developed and maintained by the following contributors</p>
-  <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-    <tr>
-      <th></th>
-      <th>Name</th>
-      <th>Affiliation</th>
-    </tr>
-    <tr>
-      <td valign=\"top\">Library officer</td>
-      <td valign=\"top\">
-      <a href=\"mailto:a.haumer@haumer.at\">A. Haumer</a>
-      </td>
-      <td valign=\"top\">
-        <a href=\"http://www.haumer.at\">Technical Consulting &amp; Electrical Engineering</a><br>
-        3423 St.Andrae-Woerdern<br>
-        Austria
-      </td>
-    </tr>
-    <tr>
-      <td valign=\"top\">Contributor</td>
-      <td valign=\"top\">
-        <a href=\"mailto:dr.christian.kral@gmail.com\">C. Kral</a>
-      </td>
-      <td valign=\"top\">
-        <a href=\"https://christiankral.net\">Electric Machines, Drives and Systems</a><br>
-        1060 Vienna<br>
-        Austria
-      </td>
-    </tr>
-    <tr>
-      <td valign=\"top\">Contributor</td>
-      <td valign=\"top\">
-        <a href=\"http://www.linkedin.com/in/dietmarw\">D. Winkler</a>
-      </td>
-      <td valign=\"top\">
-        DWE, Norway
-      </td>
-    </tr>
-  </table>
+&lt;p&gt;
+&lt;strong&gt;First author's name&lt;/strong&gt;&lt;br&gt;
+First author's address&lt;br&gt;
+next address line&lt;br&gt;
+email: &lt;a href=\"mailto:author1@website.org\"&gt;author1@website.org&lt;/a&gt;
+&lt;/p&gt;
 
+&lt;p&gt;
+&lt;strong&gt;Second author's name&lt;/strong&gt;&lt;br&gt;
+Second author's address&lt;br&gt;
+next address line&lt;br&gt;
+email: &lt;a href=\"mailto:author2@website.org\"&gt;author2@website.org&lt;/a&gt;
+&lt;/p&gt;
+
+&lt;h4&gt;Contributors to this library&lt;/h4&gt;
+
+&lt;ul&gt;
+&nbsp; &lt;li&gt;Person one&lt;/li&gt;
+&nbsp; &lt;li&gt;...&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4&gt;Acknowledgements&lt;/h4&gt;
+
+&lt;p&gt;
+The authors would like to thank following persons for their support ...
+&lt;/p&gt;
+
+OR
+
+&lt;p&gt;
+We are thankful to our colleagues [names] who provided expertise to develop this library...
+&lt;/p&gt;
+
+OR
+
+&lt;p&gt;
+The [partial] financial support for the development of this library by [organization]
+is highly appreciated.
+&lt;/p&gt;
+
+OR whatever
+</pre>
 </html>"));
       end Contact;
 
