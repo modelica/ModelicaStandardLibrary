@@ -1289,7 +1289,7 @@ has a 3D icon (e.g., used in Blocks.Logical library).
           extent={{-100,-100},{100,100}},
           initialScale=0.04), graphics={
           Text(
-            extent={{-300,200},{298,120}},
+            extent={{-300,200},{300,120}},
             textString="%name",
             lineColor={0,0,255}),
           Rectangle(
