@@ -634,7 +634,7 @@ Examples to demonstrate the usage of quasistationary electric components.
                   points={{0,0},{-38,-69}},
                   color={85,170,255},
                   thickness=0.5), Line(points={{-90,0},{-40,0}}, color={85,170,255}),
-              Line(points={{80,0},{90,0}}, color={0,0,255}),
+              Line(points={{80,0},{90,0}}, color={85,170,255}),
             Text(
               extent={{-150,70},{150,110}},
               textString="%name",
@@ -743,7 +743,8 @@ Delta (polygon) connection of a multi phase circuit.
                   points={{6,4},{-32,-65}},
                   color={85,170,255},
                   thickness=0.5), Line(points={{-90,0},{-40,0}}, color={85,170,255}),
-              Line(points={{80,0},{90,0}}, color={0,0,255}),Line(
+              Line(points={{80,0},{90,0}}, color={85,170,255}),
+                                                            Line(
                   points={{-6,-4},{-45,64}},
                   color={85,170,255},
                   thickness=0.5),Line(
