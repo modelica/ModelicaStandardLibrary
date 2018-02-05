@@ -813,7 +813,9 @@ This model stores the 4 reference variables q, qd, qdd, moving from the path pla
     end PathToAxisControlBus;
 
     model GearType1 "Motor inertia and gearbox model for r3 joints 1,2,3"
+      extends Modelica.Mechanics.Rotational.Icons.Gearbox;
       extends Modelica.Mechanics.Rotational.Interfaces.PartialTwoFlanges;
+
       parameter Real i=-105 "Gear ratio";
       parameter Real c(unit="N.m/rad") = 43 "Spring constant";
       parameter Real d(unit="N.m.s/rad") = 0.005 "Damper constant";
@@ -874,40 +876,13 @@ Since relative quantities are used as state variables, this simplifies
 the definition of initial values considerably.
 </p>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
-            Rectangle(
-              lineColor={64,64,64},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.HorizontalCylinder,
-              extent={{-90,-10},{90,10}}),
-            Polygon(
-              fillColor={192,192,192},
-              fillPattern=FillPattern.HorizontalCylinder,
-              points={{-60.0,10.0},{-60.0,20.0},{-40.0,40.0},{-40.0,-40.0},{-60.0,-20.0},{-60.0,10.0}}),
-            Rectangle(
-              lineColor={64,64,64},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.HorizontalCylinder,
-              extent={{-40.0,-60.0},{40.0,60.0}},
-              radius=10.0),
-            Polygon(
-              fillColor={192,192,192},
-              fillPattern=FillPattern.HorizontalCylinder,
-              points={{60.0,20.0},{40.0,40.0},{40.0,-40.0},{60.0,-20.0},{60.0,20.0}}),
             Text(
               extent={{-150,100},{150,60}},
               textString="%name",
               lineColor={0,0,255}),
             Text(
               extent={{-36,40},{36,-30}},
-              textString="1"),
-            Rectangle(
-              lineColor={64,64,64},
-              extent={{-40,-60},{40,60}},
-              radius=10),
-            Polygon(
-              fillColor={64,64,64},
-              fillPattern=FillPattern.Solid,
-              points={{-60.0,-90.0},{-50.0,-90.0},{-20.0,-30.0},{20.0,-30.0},{48.0,-90.0},{60.0,-90.0},{60.0,-100.0},{-60.0,-100.0},{-60.0,-90.0}})}),
+              textString="1")}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}}), graphics={Text(
@@ -918,7 +893,9 @@ the definition of initial values considerably.
     end GearType1;
 
     model GearType2 "Motor inertia and gearbox model for r3 joints 4,5,6"
+      extends Modelica.Mechanics.Rotational.Icons.Gearbox;
       extends Modelica.Mechanics.Rotational.Interfaces.PartialTwoFlanges;
+
       parameter Real i=-99 "Gear ratio";
       parameter SI.Torque Rv0=21.8 "Viscous friction torque at zero velocity";
       parameter Real Rv1=9.8
@@ -951,40 +928,13 @@ three joints of the robot is neglected.
 Default values for all parameters are given for joint 4.
 </p>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
-            Rectangle(
-              lineColor={64,64,64},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.HorizontalCylinder,
-              extent={{-90,-10},{90,10}}),
-            Polygon(
-              fillColor={192,192,192},
-              fillPattern=FillPattern.HorizontalCylinder,
-              points={{-60.0,10.0},{-60.0,20.0},{-40.0,40.0},{-40.0,-40.0},{-60.0,-20.0},{-60.0,10.0}}),
-            Rectangle(
-              lineColor={64,64,64},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.HorizontalCylinder,
-              extent={{-40.0,-60.0},{40.0,60.0}},
-              radius=10.0),
-            Polygon(
-              fillColor={192,192,192},
-              fillPattern=FillPattern.HorizontalCylinder,
-              points={{60.0,20.0},{40.0,40.0},{40.0,-40.0},{60.0,-20.0},{60.0,20.0}}),
             Text(
               extent={{-150,100},{150,60}},
               textString="%name",
               lineColor={0,0,255}),
             Text(
-              extent={{-36,40},{38,-30}},
-              textString="2"),
-            Rectangle(
-              lineColor={64,64,64},
-              extent={{-40,-60},{40,60}},
-              radius=10),
-            Polygon(
-              fillColor={64,64,64},
-              fillPattern=FillPattern.Solid,
-              points={{-60,-90},{-50,-90},{-20,-30},{20,-30},{48,-90},{60,-90},{60,-100},{-60,-100},{-60,-90}})}));
+              extent={{-36,40},{36,-30}},
+              textString="2")}));
     end GearType2;
 
     model Motor "Motor model including current controller of r3 motors"
@@ -1033,15 +983,15 @@ Default values for all parameters are given for joint 4.
         annotation (Placement(transformation(extent={{17,38},{32,54}})));
       Modelica.Electrical.Analog.Basic.Resistor Rp2(R=50)
         annotation (Placement(transformation(
-            origin={11,72},
-            extent={{-8,-7},{8,7}},
+            origin={10,70},
+            extent={{-10,-10},{10,10}},
             rotation=90)));
       Modelica.Electrical.Analog.Basic.Resistor Rd4(R=100)
         annotation (Placement(transformation(extent={{-55,-15},{-40,1}})));
       Modelica.Electrical.Analog.Sources.SignalVoltage hall2
         annotation (Placement(transformation(
             origin={-70,-50},
-            extent={{-10,10},{10,-10}},
+            extent={{10,10},{-10,-10}},
             rotation=90)));
       Modelica.Electrical.Analog.Basic.Resistor Rd3(R=100)
         annotation (Placement(transformation(
@@ -1051,29 +1001,29 @@ Default values for all parameters are given for joint 4.
       Modelica.Electrical.Analog.Basic.Ground g1
         annotation (Placement(transformation(extent={{-100,-37},{-80,-17}})));
       Modelica.Electrical.Analog.Basic.Ground g2
-        annotation (Placement(transformation(extent={{-80,-91},{-60,-71}})));
+        annotation (Placement(transformation(extent={{-80,-84},{-60,-64}})));
       Modelica.Electrical.Analog.Basic.Ground g3
         annotation (Placement(transformation(extent={{-34,-27},{-14,-7}})));
       Modelica.Electrical.Analog.Sensors.CurrentSensor hall1
         annotation (Placement(transformation(
-            origin={16,-50},
+            origin={20,-50},
             extent={{-10,-10},{10,10}},
             rotation=270)));
       Modelica.Electrical.Analog.Basic.Ground g4
-        annotation (Placement(transformation(extent={{6,-84},{26,-64}})));
+        annotation (Placement(transformation(extent={{10,-84},{30,-64}})));
       Modelica.Electrical.Analog.Basic.Ground g5
         annotation (Placement(transformation(
-            origin={11,93},
+            origin={10,94},
             extent={{-10,-10},{10,10}},
             rotation=180)));
       Modelica.Mechanics.Rotational.Sensors.AngleSensor phi
         annotation (Placement(transformation(
-            origin={76,-40},
+            origin={80,-40},
             extent={{-10,-10},{10,10}},
             rotation=270)));
       Modelica.Mechanics.Rotational.Sensors.SpeedSensor speed
         annotation (Placement(transformation(
-            origin={55,-40},
+            origin={50,-40},
             extent={{-10,-10},{10,10}},
             rotation=270)));
       Modelica.Mechanics.Rotational.Components.Inertia Jmotor(
@@ -1081,13 +1031,12 @@ Default values for all parameters are given for joint 4.
         annotation (Placement(transformation(extent={{70,-10},{90,10}})));
       Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.AxisControlBus
         axisControlBus
-        annotation (Placement(transformation(extent={{60,-120},{100,-80}})));
+        annotation (Placement(transformation(extent={{-20,-120},{20,-80}})));
       Blocks.Math.Gain convert1(k(unit="V/A")=1)
                                 annotation (Placement(transformation(extent={{-30,-56},
                 {-42,-44}})));
       Blocks.Math.Gain convert2(k(unit="V/A")=1)
-                                annotation (Placement(transformation(extent={{-30,
-                -101},{-42,-89}})));
+                                annotation (Placement(transformation(extent={{-40,-97},{-52,-85}})));
     initial equation
       // initialize motor in steady state
       der(C.v) = 0;
@@ -1110,28 +1059,28 @@ Default values for all parameters are given for joint 4.
       connect(power.n1, Rp1.p)
         annotation (Line(points={{16,31},{11,31},{11,46},{17,46}}));
       connect(power.p2, Rp1.n) annotation (Line(points={{36,25},{36,46},{32,46}}));
-      connect(Rp1.p, Rp2.p) annotation (Line(points={{17,46},{11,46},{11,64}}));
+      connect(Rp1.p, Rp2.p) annotation (Line(points={{17,46},{10,46},{10,60}}));
       connect(power.p2, Ra.p)
         annotation (Line(points={{36,25},{42,25},{42,80},{56,80},{56,70}}));
-      connect(Rd3.p, hall2.p) annotation (Line(points={{-70,-30},{-70,-60}}));
+      connect(Rd3.p, hall2.p) annotation (Line(points={{-70,-30},{-70,-40}}));
       connect(Rd3.n, diff.p1) annotation (Line(points={{-70,-14},{-70,19},{-64,19}}));
       connect(Rd3.n, Rd4.p) annotation (Line(points={{-70,-14},{-70,-7},{-55,-7}}));
       connect(Vs.n, g1.p) annotation (Line(points={{-90,-10},{-90,-17}}));
-      connect(g2.p, hall2.n) annotation (Line(points={{-70,-71},{-70,-40}}));
+      connect(g2.p, hall2.n) annotation (Line(points={{-70,-64},{-70,-60}}));
       connect(Rd4.n, g3.p) annotation (Line(points={{-40,-7},{-24,-7}}));
       connect(g3.p, OpI.p1) annotation (Line(points={{-24,-7},{-24,14},{-14,14}}));
       connect(g5.p, Rp2.n)
-        annotation (Line(points={{11,83},{11,81.5},{11,80}}));
+        annotation (Line(points={{10,84},{10,80}}));
       connect(emf.n, hall1.p)
-        annotation (Line(points={{56,-10},{56,-24},{16,-24},{16,-40}}));
-      connect(hall1.n, g4.p) annotation (Line(points={{16,-60},{16,-62},{16,-64}}));
+        annotation (Line(points={{56,-10},{56,-20},{20,-20},{20,-40}}, color={0,0,255}));
+      connect(hall1.n, g4.p) annotation (Line(points={{20,-60},{20,-64}}));
       connect(emf.flange, phi.flange)
-        annotation (Line(points={{66,0},{66,-30},{76,-30}}, pattern=LinePattern.Dot));
+        annotation (Line(points={{66,0},{66,-30},{80,-30}}, color={0,0,0}));
       connect(emf.flange, speed.flange)
-        annotation (Line(points={{66,0},{66,-30},{55,-30}}, pattern=LinePattern.Dot));
+        annotation (Line(points={{66,0},{66,-30},{50,-30}}, color={0,0,0}));
       connect(OpI.n2, power.n2)
         annotation (Line(points={{-4,10},{-4,4},{26,4},{26,15}}));
-      connect(OpI.p1, OpI.n2) annotation (Line(points={{-14,14},{-14,10},{-4,10}}));
+      connect(OpI.p1, OpI.n2) annotation (Line(points={{-14,14},{-14,4},{-4,4},{-4,10}}));
       connect(OpI.p1, diff.n2) annotation (Line(points={{-14,14},{-34,14},{-34,15},{-54,15}}));
       connect(Jmotor.flange_b, flange_motor)
         annotation (Line(
@@ -1139,21 +1088,31 @@ Default values for all parameters are given for joint 4.
           color={128,128,128},
           thickness=0.5));
       connect(phi.phi, axisControlBus.motorAngle)
-                                       annotation (Line(points={{76,-51},{76,-99.9},{80.1,-99.9}},
-                                color={0,0,127}));
+        annotation (Line(points={{80,-51},{80,-99.9},{0.1,-99.9}}, color={0,0,127}), Text(
+          string="%second",
+          index=1,
+          extent={{6,-3},{6,-3}}));
       connect(speed.w, axisControlBus.motorSpeed)
-                                       annotation (Line(points={{55,-51},{55,-95},{80.1,-95},{80.1,-99.9}},
-                                        color={0,0,127}));
+        annotation (Line(points={{50,-51},{50,-98},{0.1,-98},{0.1,-99.9}}, color={0,0,127}), Text(
+          string="%second",
+          index=1,
+          extent={{6,-3},{6,-3}}));
       connect(hall1.i, axisControlBus.current)
-                                    annotation (Line(points={{5,-50},{-10,-50},{-10,-95},{80.1,-95},{80.1,-99.9}},
-                                             color={0,0,127}));
-      connect(hall1.i, convert1.u) annotation (Line(points={{5,-50},{-28.8,-50}}, color={0,0,127}));
+        annotation (Line(points={{9,-50},{-10,-50},{-10,-98},{0.1,-98},{0.1,-99.9}}, color={0,0,127}), Text(
+          string="%second",
+          index=2,
+          extent={{6,3},{6,3}}));
+      connect(hall1.i, convert1.u) annotation (Line(points={{9,-50},{-28.8,-50}}, color={0,0,127}));
       connect(convert1.y, hall2.v) annotation (Line(points={{-42.6,-50},{-58,-50}},
                      color={0,0,127}));
       connect(convert2.u, axisControlBus.current_ref)
-                                           annotation (Line(points={{-28.8,-95},{80.1,-95},{80.1,-99.9}},
-                                   color={0,0,127}));
-      connect(convert2.y, Vs.v) annotation (Line(points={{-42.6,-95},{-108,-95},{-108,0},{-102,0}},
+        annotation (Line(points={{-38.8,-91},{-20,-91},{-20,-100},{0.1,-100},{0.1,-99.9}},
+                                                                      color={0,0,127}),
+          Text(
+            string="%second",
+            index=1,
+            extent={{6,3},{6,3}}));
+      connect(convert2.y, Vs.v) annotation (Line(points={{-52.6,-91},{-108,-91},{-108,0},{-102,0}},
                                  color={0,0,127}));
       connect(emf.flange, Jmotor.flange_a) annotation (Line(
           points={{66,0},{70,0}}));
@@ -1171,7 +1130,7 @@ produced by the motor).
               extent={{-150,100},{150,60}},
               textString="%name",
               lineColor={0,0,255}), Line(
-              points={{80,-102},{80,-10}},
+              points={{0,-100},{70,-100},{70,-10}},
               color={255,204,51},
               thickness=0.5)}));
     end Motor;
