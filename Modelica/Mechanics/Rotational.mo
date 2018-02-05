@@ -4707,8 +4707,7 @@ in the flanges, are along the axis vector displayed in the icon.
 
     model Gearbox "Realistic model of a gearbox (based on LossyGear)"
       extends Modelica.Mechanics.Rotational.Icons.Gearbox;
-      extends
-        Modelica.Mechanics.Rotational.Interfaces.PartialTwoFlangesAndSupport;
+      extends Modelica.Mechanics.Rotational.Interfaces.PartialTwoFlangesAndSupport;
 
       parameter Real ratio(start=1)
         "Transmission ratio (flange_a.phi/flange_b.phi)";
@@ -4722,8 +4721,7 @@ in the flanges, are along the axis vector displayed in the icon.
       parameter StateSelect stateSelect=StateSelect.prefer
         "Priority to use phi_rel and w_rel as states"
         annotation (HideResult=true, Dialog(tab="Advanced"));
-      extends
-        Modelica.Thermal.HeatTransfer.Interfaces.PartialConditionalHeatPort(
+      extends Modelica.Thermal.HeatTransfer.Interfaces.PartialConditionalHeatPort(
           final T=293.15);
       Modelica.SIunits.Angle phi_rel(
         start=0,
@@ -7760,11 +7758,11 @@ This is the icon of a gear from the rotational package.
           coordinateSystem(extent={{-100.0,-100.0},{100.0,100.0}},
             preserveAspectRatio=true),
             graphics={
-          Rectangle(origin={20.0,0.0},
+          Rectangle(
             lineColor={64,64,64},
             fillColor={192,192,192},
             fillPattern=FillPattern.HorizontalCylinder,
-            extent={{-120.0,-10.0},{-80.0,10.0}}),
+            extent={{-100,-10},{100,10}}),
           Polygon(fillColor={192,192,192},
             fillPattern=FillPattern.HorizontalCylinder,
             points={{-60.0,10.0},{-60.0,20.0},{-40.0,40.0},{-40.0,-40.0},{-60.0,-20.0},{-60.0,10.0}}),
@@ -7779,15 +7777,10 @@ This is the icon of a gear from the rotational package.
           Polygon(fillColor={192,192,192},
             fillPattern=FillPattern.HorizontalCylinder,
             points={{60.0,20.0},{40.0,40.0},{40.0,-40.0},{60.0,-20.0},{60.0,20.0}}),
-          Rectangle(origin={-20.0,0.0},
-            lineColor={64,64,64},
-            fillColor={192,192,192},
-            fillPattern=FillPattern.HorizontalCylinder,
-            extent={{80.0,-10.0},{120.0,10.0}}),
-          Polygon(origin={0.0,10.0},
+          Polygon(
             fillColor={64,64,64},
             fillPattern=FillPattern.Solid,
-            points={{-60.0,-90.0},{-50.0,-90.0},{-20.0,-30.0},{20.0,-30.0},{48.0,-90.0},{60.0,-90.0},{60.0,-100.0},{-60.0,-100.0},{-60.0,-90.0}})}), Documentation(info="<html>
+            points={{-60,-80},{-50,-80},{-20,-20},{20,-20},{48,-80},{60,-80},{60,-90},{-60,-90},{-60,-80}})}),                                       Documentation(info="<html>
 <p>
 This is the icon of a gear box from the rotational package.
 </p>
