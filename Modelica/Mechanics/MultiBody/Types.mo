@@ -192,7 +192,7 @@ variable <strong>extra</strong> is used as instance name:
 <tr><th><strong>shapeType</strong></th><th>Meaning of parameter <strong>extra</strong></th></tr>
 <tr>
   <td valign=\"top\">\"cylinder\"</td>
-  <td valign=\"top\">if extra &gt; 0, a black line is included in the
+  <td valign=\"top\">if extra&nbsp;&gt;&nbsp;0, a black line is included in the
       cylinder to show the rotation of it.</td>
 </tr>
 <tr>
@@ -210,7 +210,7 @@ variable <strong>extra</strong> is used as instance name:
 <tr>
   <td valign=\"top\">\"gearwheel\"</td>
   <td valign=\"top\">extra is the number of teeth of the (external) gear.
-If extra &lt; 0, an internal gear is visualized with |extra| teeth.
+If extra&nbsp;&lt;&nbsp;0, an internal gear is visualized with |extra| teeth.
 The axis of the gearwheel is along \"lengthDirection\", and usually:
 width = height = 2*radiusOfGearWheel.</td>
 </tr>
@@ -223,12 +223,10 @@ width = height = 2*radiusOfGearWheel.</td>
 <tr>
   <td valign=\"top\">external shape</td>
   <td valign=\"top\">extra = 0: Visualization from file is not scaled.<br>
-                     extra = 1: Visualization from file is scaled with \"length\", \"width\" and height\"
+                     extra = 1: Visualization from file is scaled with \"length\", \"width\" and \"height\"
                                 of the shape</td>
 </tr>
-
 </table>
-
 </html>"));
 
   type ResolveInFrameA = enumeration(

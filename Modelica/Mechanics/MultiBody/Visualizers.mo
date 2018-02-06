@@ -117,7 +117,7 @@ Via variable <strong>extra</strong> additional data can be defined:
 <tr><th><strong>shapeType</strong></th><th>Meaning of parameter <strong>extra</strong></th></tr>
 <tr>
   <td valign=\"top\">\"cylinder\"</td>
-  <td valign=\"top\">if extra &gt; 0, a black line is included in the
+  <td valign=\"top\">if extra&nbsp;&gt;&nbsp;0, a black line is included in the
       cylinder to show the rotation of it.</td>
 </tr>
 <tr>
@@ -135,7 +135,7 @@ Via variable <strong>extra</strong> additional data can be defined:
 <tr>
   <td valign=\"top\">\"gearwheel\"</td>
   <td valign=\"top\">extra is the number of teeth of the (external) gear.
-If extra &lt; 0, an internal gear is visualized with |extra| teeth.
+If extra&nbsp;&lt;&nbsp;0, an internal gear is visualized with |extra| teeth.
 The axis of the gearwheel is along \"lengthDirection\", and usually:
 width = height = 2*radiusOfGearWheel.</td>
 </tr>
@@ -148,15 +148,15 @@ width = height = 2*radiusOfGearWheel.</td>
 <tr>
   <td valign=\"top\">external shape</td>
   <td valign=\"top\">extra = 0: Visualization from file is not scaled.<br>
-                     extra = 1: Visualization from file is scaled with \"length\", \"width\" and height\"
+                     extra = 1: Visualization from file is scaled with \"length\", \"width\" and \"height\"
                                 of the shape</td>
 </tr>
 </table>
 <p>
 Parameter <strong>color</strong> is a vector with 3 elements,
-{r, g, b}, and specifies the color of the shape.
-{r,g,b} are the \"red\", \"green\" and \"blue\" color parts.
-Note, r g, b are given as Integer[3] in the ranges 0 .. 255,
+{r,&nbsp;g,&nbsp;b}, and specifies the color of the shape.
+{r,&nbsp;g,&nbsp;b} are the \"red\", \"green\" and \"blue\" color parts.
+Note, r, g, b are given as Integer[3] in the ranges 0&nbsp;..&nbsp;255,
 respectively. The predefined type
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Types.Color\">MultiBody.Types.Color</a> contains a menu
 definition of the colors used in the MultiBody library together with a color editor.
@@ -357,7 +357,7 @@ Via variable <strong>extra</strong> additional data can be defined:
 <tr><th><strong>shapeType</strong></th><th>Meaning of parameter <strong>extra</strong></th></tr>
 <tr>
   <td valign=\"top\">\"cylinder\"</td>
-  <td valign=\"top\">if extra &gt; 0, a black line is included in the
+  <td valign=\"top\">if extra&nbsp;&gt;&nbsp;0, a black line is included in the
       cylinder to show the rotation of it.</td>
 </tr>
 <tr>
@@ -375,7 +375,7 @@ Via variable <strong>extra</strong> additional data can be defined:
 <tr>
   <td valign=\"top\">\"gearwheel\"</td>
   <td valign=\"top\">extra is the number of teeth of the (external) gear.
-If extra &lt; 0, an internal gear is visualized with |extra| teeth.
+If extra&nbsp;&lt;&nbsp;0, an internal gear is visualized with |extra| teeth.
 The axis of the gearwheel is along \"lengthDirection\", and usually:
 width = height = 2*radiusOfGearWheel.</td>
 </tr>
@@ -388,15 +388,15 @@ width = height = 2*radiusOfGearWheel.</td>
 <tr>
   <td valign=\"top\">external shape</td>
   <td valign=\"top\">extra = 0: Visualization from file is not scaled.<br>
-                     extra = 1: Visualization from file is scaled with \"length\", \"width\" and height\"
+                     extra = 1: Visualization from file is scaled with \"length\", \"width\" and \"height\"
                                 of the shape</td>
 </tr>
 </table>
 <p>
 Parameter <strong>color</strong> is a vector with 3 elements,
-{r, g, b}, and specifies the color of the shape.
-{r,g,b} are the \"red\", \"green\" and \"blue\" color parts.
-Note, r g, b are given as Integer[3] in the ranges 0 .. 255,
+{r,&nbsp;g,&nbsp;b}, and specifies the color of the shape.
+{r,&nbsp;g,&nbsp;b} are the \"red\", \"green\" and \"blue\" color parts.
+Note, r, g, b are given as Integer[3] in the ranges 0&nbsp;..&nbsp;255,
 respectively. The predefined type
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Types.Color\">MultiBody.Types.Color</a> contains a menu
 definition of the colors used in the MultiBody library together with a color editor.
@@ -405,11 +405,11 @@ definition of the colors used in the MultiBody library together with a color edi
 In the following figure the relationships between
 frame_a and frame_b are shown. The origin of frame_b
 with respect to frame_a is specified via parameter
-vector <strong>r</strong>.
+vector&nbsp;<strong>r</strong>.
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/FixedTranslation.png\" ALT=\"Parts.FixedTranslation\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/FixedTranslation.png\" alt=\"Parts.FixedTranslation\">
 </p>
 </html>"));
   end FixedShape2;
@@ -2112,7 +2112,7 @@ parameter <strong>shapeType</strong> (e.g., shapeType=\"box\"):<br>&nbsp;
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Shape.png\" ALT=\"model Visualizers.FixedShape\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Shape.png\" alt=\"model Visualizers.FixedShape\">
 </p>
 
 <p>&nbsp;<br>
@@ -2163,7 +2163,7 @@ Via variable <strong>extra</strong> additional data can be defined:
 <tr><th><strong>shapeType</strong></th><th>Meaning of parameter <strong>extra</strong></th></tr>
 <tr>
   <td valign=\"top\">\"cylinder\"</td>
-  <td valign=\"top\">if extra &gt; 0, a black line is included in the
+  <td valign=\"top\">if extra&nbsp;&gt;&nbsp;0, a black line is included in the
       cylinder to show the rotation of it.</td>
 </tr>
 <tr>
@@ -2194,15 +2194,15 @@ width = height = 2*radiusOfGearWheel.</td>
 <tr>
   <td valign=\"top\">external shape</td>
   <td valign=\"top\">extra = 0: Visualization from file is not scaled.<br>
-                   extra = 1: Visualization from file is scaled with \"length\", \"width\" and height\"
+                   extra = 1: Visualization from file is scaled with \"length\", \"width\" and \"height\"
                               of the shape</td>
 </tr>
 </table>
 <p>
 Parameter <strong>color</strong> is a vector with 3 elements,
-{r, g, b}, and specifies the color of the shape.
-{r,g,b} are the \"red\", \"green\" and \"blue\" color parts.
-Note, r g, b are given as Integer[3] in the ranges 0 .. 255,
+{r,&nbsp;g,&nbsp;b}, and specifies the color of the shape.
+{r,&nbsp;g,&nbsp;b} are the \"red\", \"green\" and \"blue\" color parts.
+Note, r, g, b are given as Integer[3] in the ranges 0&nbsp;..&nbsp;255,
 respectively. The predefined type
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Types.Color\">MultiBody.Types.Color</a> contains a menu
 definition of the colors used in the MultiBody library together with a color editor.
@@ -2215,9 +2215,10 @@ If the default equation is not appropriate, a corresponding
 modifier equation has to be provided in the
 model where a <strong>Shape</strong> instance is used, e.g., in the form
 </p>
-<pre>
-    Visualizers.Advanced.Shape shape(length = sin(time));
-</pre>
+
+<blockquote><pre>
+Visualizers.Advanced.Shape shape(length = sin(time));
+</pre></blockquote>
 </html>"));
     end Shape;
 
