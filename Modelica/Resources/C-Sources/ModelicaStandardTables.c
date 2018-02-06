@@ -601,12 +601,6 @@ void* ModelicaStandardTables_CombiTimeTable_init2(_In_z_ const char* fileName,
             }
             MUTEX_UNLOCK();
         }
-        else {
-            /* Should not be possible to get here */
-            if (NULL != tableFile) {
-                free(tableFile);
-            }
-        }
 #else
         if (NULL != tableFile) {
             free(tableFile);
@@ -1773,12 +1767,6 @@ void* ModelicaStandardTables_CombiTable1D_init2(_In_z_ const char* fileName,
             }
             MUTEX_UNLOCK();
         }
-        else {
-            /* Should not be possible to get here */
-            if (NULL != tableFile) {
-                free(tableFile);
-            }
-        }
 #else
         if (NULL != tableFile) {
             free(tableFile);
@@ -2411,12 +2399,6 @@ void* ModelicaStandardTables_CombiTable2D_init2(_In_z_ const char* fileName,
                 free(file);
             }
             MUTEX_UNLOCK();
-        }
-        else {
-            /* Should not be possible to get here */
-            if (NULL != tableFile) {
-                free(tableFile);
-            }
         }
 #else
         if (NULL != tableFile) {
