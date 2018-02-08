@@ -7630,7 +7630,7 @@ on the model behaviour.
       output SI.Power LossPowerEddy
         "Eddy current losses (dynamic hysteresis losses)";
       //output SI.Power LossPower "Total power loss of core (ferromagnetic + eddy currents)"; // defined in ConditionalHeatPort
-      Real derHstat(start=0, fixed=true, unit="A/(m.s)")=der(Hstat);
+      Real derHstat(unit="A/(m.s)")=der(Hstat);
 
     protected
       final parameter Real eddyCurrentFactor(final unit="S.m") = (sigma * d^2)/12;
