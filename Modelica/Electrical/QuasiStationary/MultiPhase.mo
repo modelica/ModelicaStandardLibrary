@@ -2960,7 +2960,7 @@ This sensor can be used to measure <em>m</em> complex voltages, using <em>m</em>
             Line(points={{0,-70},{0,-100}}, color={85,170,255}),
             Line(points={{70,0},{90,0}}, color={0,0,255}),
             Text(
-              textColor={0,0,255},
+              lineColor={0,0,255},
               extent={{-150,80},{150,120}},
               textString="%name")}),
         Documentation(revisions="<html>
@@ -3072,7 +3072,7 @@ This sensor can be used to measure <em>m</em> complex currents, using <em>m</em>
               extent={{150,-100},{-150,-70}},
               textString="m=%m"),
             Text(
-              textColor={0,0,255},
+              lineColor={0,0,255},
               extent={{-150,80},{150,120}},
               textString="%name")}),
         Documentation(revisions="<html>
@@ -3173,7 +3173,7 @@ This sensor determines the continuous quasi <a href=\"Modelica://Modelica.Blocks
             Line(points={{0,-70},{0,-100}}, color={85,170,255}),
             Text(extent={{-29,-70},{30,-11}}, textString="P"),
             Text(
-              textColor={0,0,255},
+              lineColor={0,0,255},
               extent={{-150,110},{150,150}},
               textString="%name"),
             Line(points={{-100,0},{100,0}}, color={85,170,255}),
@@ -4165,7 +4165,7 @@ a <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Plug
               extent={{150,-100},{-150,-70}},
               textString="m=%m"),
             Text(
-              textColor={0,0,255},
+              lineColor={0,0,255},
               extent={{-150,80},{150,120}},
               textString="%name")}), Documentation(info="<html>
 
@@ -4201,7 +4201,7 @@ The absolute sensor partial model relies on the a
               extent={{150,-100},{-150,-70}},
               textString="m=%m"),
             Text(
-              textColor={0,0,255},
+              lineColor={0,0,255},
               extent={{-150,80},{150,120}},
               textString="%name")}), Documentation(info="<html>
 <p>
