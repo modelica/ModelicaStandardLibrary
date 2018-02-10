@@ -498,7 +498,7 @@ the following examples are present.
      and can therefore be an expression.<br>&nbsp;</li>
 <li> Model <a href=\"modelica://Modelica.Utilities.Examples.readRealParameterModel\">readRealParameterModel</a>
      is a test model to demonstrate the usage of \"readRealParameter\". The model
-     contains 3 parameters that are read from file \"Modelica.Utilities/data/Examples_readRealParameters.txt\".<br>&nbsp;
+     contains 3 parameters that are read from file <a href=\"modelica://Modelica/Resources/Data/Utilities/Examples_readRealParameters.txt\">Examples_readRealParameters.txt</a>.<br>&nbsp;
      </li>
 <li> Model <a href=\"modelica://Modelica.Utilities.Examples.WriteRealMatrixToFile\">WriteRealMatrixToFile</a>
      demonstrates the usage of function \"Streams.writeReaMatrix\" to store a matrix in various MATLAB MAT formats on file.<br>&nbsp;
