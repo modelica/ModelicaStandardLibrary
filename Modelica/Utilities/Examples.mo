@@ -55,7 +55,7 @@ The following operations are supported (pi=3.14.. is a predefined constant):
   end calculator;
 
   function expression
-    "Expression interpreter that returns with the position after the expression (expression may consist of +, -, *, /, (), sin(), cos(), tan(), sqrt(), asin(), acos(), atan(), exp(), log(), pi"
+    "Expression interpreter that returns with the position after the expression (expression may consist of +, -, *, /, (), sin(), cos(), tan(), sqrt(), asin(), acos(), atan(), exp(), log(), pi)"
     import Modelica.Utilities.Types;
     import Modelica.Utilities.Strings;
     import Modelica.Math;
