@@ -814,6 +814,9 @@ In the table below an example call to every function is given:
            and is in a directory where access rights allow to <br>
            write to this file (useful for temporary output of files).</td>
   </tr>
+  <tr><td valign=\"top\">fileReference = <a href=\"modelica://Modelica.Utilities.Files.loadResource\">loadResource</a>(uri)</td>
+      <td valign=\"top\">Return the absolute path name of a URI or local file name.</td>
+  </tr>
 </table>
 </html>"));
 end Files;
