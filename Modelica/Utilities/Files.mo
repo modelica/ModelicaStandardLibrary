@@ -728,11 +728,11 @@ end temporaryFileName;
                    "<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-fileReference = FileSystem.<strong>loadResource</strong>(uri);
+fileReference = Files.<strong>loadResource</strong>(uri);
 </pre></blockquote>
 <h4>Description</h4>
 <p>
-The function call \"<code>FileSystem.<strong>loadResource</strong>(uri)</code>\" returns the
+The function call \"<code>Files.<strong>loadResource</strong>(uri)</code>\" returns the
 <strong>absolute path name</strong> of the file that is either defined by an URI or by a local
 path name. With the returned file name it is possible to
 access the file with function calls of the C standard library.
