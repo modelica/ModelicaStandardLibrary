@@ -43,7 +43,7 @@
 #include "ModelicaUtilities.h"
 
 #if defined(DUMMY_FUNCTION_USERTAB)
-#if defined(__clang__) || defined(__GNUC__)
+#if (defined(__clang__) || defined(__GNUC__)) && !(defined(__MINGW32__) || defined(__MINGW64__))
 int usertab(char* tableName, int nipo, int dim[], int* colWise,
             double** table) __attribute__ ((weak, alias ("dummy_usertab")));
 #define USERTAB_NAME dummy_usertab
