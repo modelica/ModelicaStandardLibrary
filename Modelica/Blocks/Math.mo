@@ -2487,7 +2487,7 @@ zero or negative.
 </html>"));
   end Log10;
 
-  block WrapAngle "Wrap angle to interval ]-pi,pi]"
+  block WrapAngle "Wrap angle to interval ]-pi,pi] or [0,2*pi["
 
     extends Interfaces.SISO;
     parameter Boolean positiveRange=false "Use only positive output range, if true";
@@ -2515,7 +2515,8 @@ zero or negative.
               100,100}})),
       Documentation(info="<html>
 <p>
-This blocks wraps the input angle into the interval ]-pi,pi].
+This blocks wraps the input angle into the interval ]-pi,pi], if <code>positiveRange == false</code>. 
+Otherwise the input angle <code>u</code> is wrapped to the interval [0,2*pi[.
 </p>
 
 </html>"));
