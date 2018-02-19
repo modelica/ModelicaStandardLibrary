@@ -3921,7 +3921,7 @@ The normal force&nbsp;fn has to be provided as input signal f_normalized in a no
 fn&nbsp;=&nbsp;fn_max&nbsp;*&nbsp;f_normalized, where fn_max has to be provided as parameter.
 </p>
 <p>
-The friction in the clutch is modeled in the following way:
+The friction in the clutch is modeled in the following way.
 When the relative angular velocity is positive, the friction torque is a
 function of the velocity dependent friction coefficient mue(w_rel), of
 the normal force&nbsp;fn, and of a geometry constant cgeo which takes into
@@ -3943,15 +3943,18 @@ operating in oil:  <strong>mue</strong> = 0.05 .. 0.1
 </pre></blockquote>
 
 <p>
-When plates are pressed together, where <strong>ri</strong> is the inner radius,
-<strong>ro</strong> is the outer radius and&nbsp;<strong>N</strong> is the number of friction interfaces,
-the geometry constant is calculated in the following way under the
-assumption of a uniform rate of wear at the interfaces:
+The geometry constant is calculated - under the
+assumption of a uniform rate of wear at the friction surfaces - in the following way:
 </p>
 
 <blockquote><pre>
 <strong>cgeo</strong> = <strong>N</strong>*(<strong>r0</strong> + <strong>ri</strong>)/2
 </pre></blockquote>
+
+<p>
+where <strong>ri</strong> is the inner radius,
+<strong>ro</strong> is the outer radius and&nbsp;<strong>N</strong> is the number of friction interfaces,
+</p>
 
 <p>
 The positive part of the friction characteristic <strong>mue</strong>(w_rel),
