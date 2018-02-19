@@ -3805,7 +3805,7 @@ in the User's Guide of the Rotational library.
 </html>"));
     end Clutch;
 
-    model OneWayClutch "Series connection of freewheel and clutch"
+    model OneWayClutch "Parallel connection of freewheel and clutch"
       extends Modelica.Mechanics.Rotational.Icons.Clutch;
       extends
         Modelica.Mechanics.Rotational.Interfaces.PartialCompliantWithRelativeStates;
@@ -3900,74 +3900,79 @@ in the User's Guide of the Rotational library.
 This component models a <strong>one-way clutch</strong>, i.e., a component with
 two flanges where friction is present between the two flanges
 and these flanges are pressed together via a normal force. These
-flanges maybe sliding with respect to each other
-Parallel connection of ClutchCombi and of FreeWheel.
-                     The element is introduced to resolve the ambiguity
-                     of the constraint torques of the elements.
+flanges may be sliding with respect to each other.
 </p>
 <p>
-A one-way-clutch is an element where a clutch is connected in parallel
-to a free wheel. This special element is provided, because such
+A one-way-clutch is an element where a&nbsp;clutch is connected in parallel
+to a&nbsp;free wheel. This special element is provided, because such
 a parallel connection introduces an ambiguity into the model
 (the constraint torques are not uniquely defined when both
 elements are stuck) and this element resolves it by introducing
-<strong>one</strong> constraint torque and not two.
+<strong>one</strong> constraint torque only instead of two constraints.
 </p>
 <p>
-Note, initial values have to be chosen for the model, such that the
-relative speed of the one-way-clutch >= 0. Otherwise, the configuration
+Note, initial values have to be chosen for the model such that the
+relative speed of the one-way-clutch &ge;&nbsp;0. Otherwise, the configuration
 is physically not possible and an error occurs.
 </p>
 <p>
-The normal force fn has to be provided as input signal f_normalized in a normalized form
-(0 &le; f_normalized &le; 1),
-fn = fn_max*f_normalized, where fn_max has to be provided as parameter. Friction in the
-clutch is modelled in the following way:
+The normal force&nbsp;fn has to be provided as input signal f_normalized in a normalized form
+(0&nbsp;&le;&nbsp;f_normalized&nbsp;&le;&nbsp;1),
+fn&nbsp;=&nbsp;fn_max&nbsp;*&nbsp;f_normalized, where fn_max has to be provided as parameter.
 </p>
 <p>
+The friction in the clutch is modeled in the following way:
 When the relative angular velocity is positive, the friction torque is a
-function of the velocity dependent friction coefficient  mue(w_rel) , of
-the normal force \"fn\", and of a geometry constant \"cgeo\" which takes into
+function of the velocity dependent friction coefficient mue(w_rel), of
+the normal force&nbsp;fn, and of a geometry constant cgeo which takes into
 account the geometry of the device and the assumptions on the friction
 distributions:
 </p>
-<pre>
-        frictional_torque = <strong>cgeo</strong> * <strong>mue</strong>(w_rel) * <strong>fn</strong>
-</pre>
+
+<blockquote><pre>
+frictional_torque = <strong>cgeo</strong> * <strong>mue</strong>(w_rel) * <strong>fn</strong>
+</pre></blockquote>
+
 <p>
-   Typical values of coefficients of friction:
+Typical values of coefficients of friction:
 </p>
-<pre>
-      dry operation   :  <strong>mue</strong> = 0.2 .. 0.4
-      operating in oil:  <strong>mue</strong> = 0.05 .. 0.1
-</pre>
+
+<blockquote><pre>
+dry operation   :  <strong>mue</strong> = 0.2 .. 0.4
+operating in oil:  <strong>mue</strong> = 0.05 .. 0.1
+</pre></blockquote>
+
 <p>
-   When plates are pressed together, where  <strong>ri</strong>  is the inner radius,
-   <strong>ro</strong> is the outer radius and <strong>N</strong> is the number of friction interfaces,
-   the geometry constant is calculated in the following way under the
-   assumption of a uniform rate of wear at the interfaces:
+When plates are pressed together, where <strong>ri</strong> is the inner radius,
+<strong>ro</strong> is the outer radius and&nbsp;<strong>N</strong> is the number of friction interfaces,
+the geometry constant is calculated in the following way under the
+assumption of a uniform rate of wear at the interfaces:
 </p>
-<pre>
-         <strong>cgeo</strong> = <strong>N</strong>*(<strong>r0</strong> + <strong>ri</strong>)/2
-</pre>
+
+<blockquote><pre>
+<strong>cgeo</strong> = <strong>N</strong>*(<strong>r0</strong> + <strong>ri</strong>)/2
+</pre></blockquote>
+
 <p>
-    The positive part of the friction characteristic <strong>mue</strong>(w_rel),
-    w_rel >= 0, is defined via table mue_pos (first column = w_rel,
-    second column = mue). Currently, only linear interpolation in
-    the table is supported.
+The positive part of the friction characteristic <strong>mue</strong>(w_rel),
+w_rel&nbsp;>=&nbsp;0, is defined via table mue_pos (first column = w_rel,
+second column = mue). Currently, only linear interpolation in
+the table is supported.
 </p>
 <p>
-   When the relative angular velocity becomes zero, the elements
-   connected by the friction element become stuck, i.e., the relative
-   angle remains constant. In this phase the friction torque is
-   calculated from a torque balance due to the requirement, that
-   the relative acceleration shall be zero.  The elements begin
-   to slide when the friction torque exceeds a threshold value,
-   called the  maximum static friction torque, computed via:
+When the relative angular velocity w_rel becomes zero, the elements
+connected by the friction element become stuck, i.e., the relative
+angle remains constant. In this phase the friction torque is
+calculated from a torque balance due to the requirement that
+the relative acceleration shall be zero.  The elements begin
+to slide when the friction torque exceeds a threshold value,
+called the  maximum static friction torque, computed via:
 </p>
-<pre>
-       frictional_torque = <strong>peak</strong> * <strong>cgeo</strong> * <strong>mue</strong>(w_rel=0) * <strong>fn</strong>   (<strong>peak</strong> >= 1)
-</pre>
+
+<blockquote><pre>
+frictional_torque = <strong>peak</strong> * <strong>cgeo</strong> * <strong>mue</strong>(w_rel=0) * <strong>fn</strong>,   (<strong>peak</strong> >= 1)
+</pre></blockquote>
+
 <p>
 This procedure is implemented in a \"clean\" way by state events and
 leads to continuous/discrete systems of equations if friction elements
