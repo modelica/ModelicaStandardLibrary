@@ -459,7 +459,7 @@ More details are given in the following sub-sections:
 
     extends Modelica.Icons.ExamplesPackage;
 
-    model SignConvention "Examples for the used sign conventions."
+    model SignConvention "Examples for the used sign conventions"
       extends Modelica.Icons.Example;
       Translational.Components.Mass mass1(
         L=1,
@@ -616,8 +616,8 @@ There are several ways to set initial conditions.
 In the first system the position of the mass m3 was defined
 by using the modifier s(start=4.5), the position of m4 by s(start=12.5).
 These positions were chosen such that the system is at rest. To calculate
-these values start at the left (fixed2) with a value of 1 m. The spring s2
-has an unstretched length of 2&nbsp;m and m3 an length of 3 m, which leads to
+these values start at the left (fixed2) with a value of 1&nbsp;m. The spring s2
+has an unstretched length of 2&nbsp;m and m3 an length of 3&nbsp;m, which leads to
 </p>
 
 <blockquote><pre>
@@ -860,9 +860,9 @@ combination). In this case the system is not at rest.
                 60,-40}})));
     equation
       connect(spring1.flange_b, mass1.flange_b) annotation (Line(points={{-60,-50},
-              {-60,-72},{-30,-72},{-30,-50}}, color={0,191,0}));
+              {-60,-72},{-30,-72},{-30,-50}}, color={0,127,0}));
       connect(spring2.flange_b, inertia2.flange_b)
-        annotation (Line(points={{50,-50},{60,-50}}, color={0,191,0}));
+        annotation (Line(points={{50,-50},{60,-50}}, color={0,127,0}));
       connect(rod3.flange_b, positionSensor3.flange) annotation (Line(
           points={{-50,68},{-60,68}}, color={0,127,0}));
       connect(rod1.flange_a, positionSensor1.flange) annotation (Line(
@@ -887,8 +887,8 @@ it is recommended to make sure that all arrows point in
 the same direction because then all component have the
 same reference system.
 In the example the distance from flange_a of Rod1 to flange_b
-of Rod2 is 2 m. The distance from flange_a of Rod1 to flange_b
-of Rod3 is also 2 m though it is difficult to see that. Without
+of Rod2 is 2&nbsp;m. The distance from flange_a of Rod1 to flange_b
+of Rod3 is also 2&nbsp;m though it is difficult to see that. Without
 the arrows it would be almost impossible to notice.
 That all arrows point in the same direction is a sufficient
 condition for an easy use of the library. There are cases
@@ -913,29 +913,30 @@ problems.
         experiment(StopTime=1.0, Interval=0.001));
     end WhyArrows;
 
-    model Accelerate "Use of model accelerate."
+    model Accelerate "Use of model accelerate"
 
       extends Modelica.Icons.Example;
       Translational.Sources.Accelerate accelerate annotation (Placement(
-            transformation(extent={{-40,20},{-20,40}})));
+            transformation(extent={{-10,-10},{10,10}})));
       Translational.Components.Mass mass(L=1, m=1) annotation (Placement(
-            transformation(extent={{0,20},{20,40}})));
+            transformation(extent={{30,-10},{50,10}})));
       Modelica.Blocks.Sources.Constant constantAcc(k=1) annotation (Placement(
-            transformation(extent={{-80,20},{-60,40}})));
+            transformation(extent={{-50,-10},{-30,10}})));
     equation
       connect(accelerate.flange, mass.flange_a) annotation (Line(
-          points={{-20,30},{0,30}}, color={0,127,0}));
+          points={{10,0},{30,0}},   color={0,127,0}));
       connect(constantAcc.y, accelerate.a_ref) annotation (Line(
-          points={{-59,30},{-42,30}}, color={0,0,127}));
+          points={{-29,0},{-12,0}},   color={0,0,127}));
       annotation (Documentation(info="<html>
 <p>
-Demonstrate usage of component Sources.Accelerate by moving a massing
-with a predefined acceleration.
+Demonstrate usage of component
+<a href=\"modelica://Modelica.Mechanics.Translational.Sources.Accelerate\">Sources.Accelerate</a>
+by moving a mass with a predefined acceleration.
 </p>
 </html>"), experiment(StopTime=1.0, Interval=0.001));
     end Accelerate;
 
-    model Damper "Use of damper models."
+    model Damper "Use of damper models"
 
       extends Modelica.Icons.Example;
 
@@ -943,49 +944,53 @@ with a predefined acceleration.
         L=1,
         s(start=3, fixed=true),
         v(start=10, fixed=true),
-        m=1) annotation (Placement(transformation(extent={{-80,60},{-60,80}})));
+        m=1) annotation (Placement(transformation(extent={{-60,50},{-40,70}})));
       Translational.Components.Damper damper1(d=25) annotation (Placement(
-            transformation(extent={{-20,60},{0,80}})));
+            transformation(extent={{-10,50},{10,70}})));
       Translational.Components.Fixed fixed1(s0=4.5) annotation (Placement(
-            transformation(extent={{22,60},{42,80}})));
+            transformation(extent={{30,50},{50,70}})));
       Translational.Components.Mass mass2(
         L=1,
         s(start=3, fixed=true),
         v(start=10, fixed=true),
-        m=1) annotation (Placement(transformation(extent={{-80,0},{-60,20}})));
+        m=1) annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
       Translational.Components.Damper damper2(d=25) annotation (Placement(
-            transformation(extent={{-20,0},{0,20}})));
+            transformation(extent={{-10,0},{10,20}})));
       Translational.Components.Fixed fixed2(s0=4.5) annotation (Placement(
-            transformation(extent={{20,0},{40,20}})));
+            transformation(extent={{30,-10},{50,10}})));
       Translational.Components.Mass mass3(
         L=1,
         s(start=3, fixed=true),
         v(start=10, fixed=true),
-        m=1) annotation (Placement(transformation(extent={{-80,-60},{-60,-40}})));
+        m=1) annotation (Placement(transformation(extent={{-60,-70},{-40,-50}})));
       Translational.Components.Fixed fixed3(s0=4.5) annotation (Placement(
-            transformation(extent={{20,-60},{40,-40}})));
+            transformation(extent={{30,-70},{50,-50}})));
       Translational.Components.Spring spring2(s_rel0=1, c=1) annotation (
-          Placement(transformation(extent={{-20,-20},{0,0}})));
+          Placement(transformation(extent={{-10,-20},{10,0}})));
       Translational.Components.SpringDamper springDamper3(
         s_rel0=1,
         d=25,
-        c=1) annotation (Placement(transformation(extent={{-20,-60},{0,-40}})));
+        c=1) annotation (Placement(transformation(extent={{-10,-70},{10,-50}})));
     equation
       connect(mass1.flange_b, damper1.flange_a)
-        annotation (Line(points={{-60,70},{-20,70}}, color={0,127,0}));
+        annotation (Line(points={{-40,60},{-10,60}}, color={0,127,0}));
       connect(mass2.flange_b, damper2.flange_a)
-        annotation (Line(points={{-60,10},{-20,10}}, color={0,127,0}));
+        annotation (Line(points={{-40,0},{-20,0},{-20,10},{-10,10}},
+                                                     color={0,127,0}));
       connect(damper2.flange_b, spring2.flange_b)
-        annotation (Line(points={{0,10},{0,-10}}, color={0,127,0}));
+        annotation (Line(points={{10,10},{20,10},{20,-10},{10,-10}},
+                                                  color={0,127,0}));
       connect(damper2.flange_a, spring2.flange_a)
-        annotation (Line(points={{-20,10},{-20,-10}}, color={0,127,0}));
+        annotation (Line(points={{-10,10},{-20,10},{-20,-10},{-10,-10}},
+                                                      color={0,127,0}));
       connect(mass3.flange_b, springDamper3.flange_a)
-        annotation (Line(points={{-60,-50},{-20,-50}}, color={0,127,0}));
+        annotation (Line(points={{-40,-60},{-10,-60}}, color={0,127,0}));
       connect(damper1.flange_b, fixed1.flange) annotation (Line(
-          points={{0,70},{32,70}}, color={0,127,0}));
-      connect(damper2.flange_b, fixed2.flange) annotation (Line(points={{0,10},{30,10}}, color={0,127,0}));
+          points={{10,60},{40,60}},color={0,127,0}));
+      connect(damper2.flange_b, fixed2.flange) annotation (Line(points={{10,10},{20,10},{20,0},{40,0}},
+                                                                                         color={0,127,0}));
       connect(springDamper3.flange_b, fixed3.flange) annotation (Line(
-          points={{0,-50},{30,-50}}, color={0,127,0}));
+          points={{10,-60},{40,-60}},color={0,127,0}));
       annotation (Documentation(info="<html>
 <p>
 Demonstrate usage of a translational damper component in various configurations.
@@ -993,7 +998,7 @@ Demonstrate usage of a translational damper component in various configurations.
 </html>"), experiment(StopTime=1.0, Interval=0.001));
     end Damper;
 
-    model Oscillator "Oscillator demonstrates the use of initial conditions."
+    model Oscillator "Oscillator demonstrates the use of initial conditions"
 
       extends Modelica.Icons.Example;
 
@@ -1001,134 +1006,141 @@ Demonstrate usage of a translational damper component in various configurations.
         L=1,
         s(start=-0.5, fixed=true),
         v(start=0, fixed=true),
-        m=1) annotation (Placement(transformation(extent={{-20,40},{0,60}})));
+        m=1) annotation (Placement(transformation(extent={{-20,20},{0,40}})));
       Translational.Components.Spring spring1(s_rel0=1, c=10000) annotation (
-          Placement(transformation(extent={{20,40},{40,60}})));
+          Placement(transformation(extent={{20,20},{40,40}})));
       Translational.Components.Fixed fixed1(s0=1) annotation (Placement(
-            transformation(extent={{60,40},{80,60}})));
+            transformation(extent={{60,20},{80,40}})));
       Translational.Sources.Force force1 annotation (Placement(transformation(
-              extent={{-60,40},{-40,60}})));
+              extent={{-60,20},{-40,40}})));
       Modelica.Blocks.Sources.Sine sine1(freqHz=15.9155) annotation (Placement(
-            transformation(extent={{-100,40},{-80,60}})));
+            transformation(extent={{-100,20},{-80,40}})));
       Translational.Components.Mass mass2(
         L=1,
         s(start=-0.5, fixed=true),
         v(start=0, fixed=true),
-        m=1) annotation (Placement(transformation(extent={{-20,-60},{0,-40}})));
+        m=1) annotation (Placement(transformation(extent={{-20,-40},{0,-20}})));
       Translational.Components.Spring spring2(s_rel0=1, c=10000) annotation (
-          Placement(transformation(extent={{20,-60},{40,-40}})));
+          Placement(transformation(extent={{20,-50},{40,-30}})));
       Translational.Components.Fixed fixed2(s0=1) annotation (Placement(
-            transformation(extent={{60,-60},{80,-40}})));
+            transformation(extent={{60,-40},{80,-20}})));
       Translational.Sources.Force force2 annotation (Placement(transformation(
-              extent={{-60,-60},{-40,-40}})));
+              extent={{-60,-40},{-40,-20}})));
       Modelica.Blocks.Sources.Sine sine2(freqHz=15.9155) annotation (Placement(
-            transformation(extent={{-100,-60},{-80,-40}})));
+            transformation(extent={{-100,-40},{-80,-20}})));
       Translational.Components.Damper damper1(d=10) annotation (Placement(
-            transformation(extent={{20,-36},{40,-16}})));
+            transformation(extent={{20,-30},{40,-10}})));
     equation
       connect(mass1.flange_b, spring1.flange_a)
-        annotation (Line(points={{0,50},{20,50}}, color={0,191,0}));
+        annotation (Line(points={{0,30},{20,30}}, color={0,127,0}));
       connect(spring2.flange_a, damper1.flange_a)
-        annotation (Line(points={{20,-50},{20,-26}}, color={0,191,0}));
+        annotation (Line(points={{20,-40},{10,-40},{10,-20},{20,-20}},
+                                                     color={0,127,0}));
       connect(mass2.flange_b, spring2.flange_a)
-        annotation (Line(points={{0,-50},{20,-50}}, color={0,191,0}));
+        annotation (Line(points={{0,-30},{10,-30},{10,-40},{20,-40}},
+                                                    color={0,127,0}));
       connect(damper1.flange_b, spring2.flange_b)
-        annotation (Line(points={{40,-26},{40,-50}}, color={0,191,0}));
+        annotation (Line(points={{40,-20},{50,-20},{50,-40},{40,-40}},
+                                                     color={0,127,0}));
       connect(sine1.y, force1.f)
-        annotation (Line(points={{-79,50},{-62,50}}, color={0,0,127}));
+        annotation (Line(points={{-79,30},{-62,30}}, color={0,0,127}));
       connect(sine2.y, force2.f)
-        annotation (Line(points={{-79,-50},{-62,-50}}, color={0,0,127}));
+        annotation (Line(points={{-79,-30},{-62,-30}}, color={0,0,127}));
       connect(spring1.flange_b, fixed1.flange) annotation (Line(
-          points={{40,50},{70,50}}, color={0,127,0}));
+          points={{40,30},{70,30}}, color={0,127,0}));
       connect(force2.flange, mass2.flange_a) annotation (Line(
-          points={{-40,-50},{-20,-50}}, color={0,127,0}));
+          points={{-40,-30},{-20,-30}}, color={0,127,0}));
       connect(force1.flange, mass1.flange_a) annotation (Line(
-          points={{-40,50},{-20,50}}, color={0,127,0}));
+          points={{-40,30},{-20,30}}, color={0,127,0}));
       connect(spring2.flange_b, fixed2.flange) annotation (Line(
-          points={{40,-50},{70,-50}}, color={0,127,0}));
+          points={{40,-40},{50,-40},{50,-30},{70,-30}},
+                                      color={0,127,0}));
       annotation (Documentation(info="<html>
 <p>
 A spring - mass system is a mechanical oscillator. If no
 damping is included and the system is excited at resonance
 frequency infinite amplitudes will result.
 The resonant frequency is given by
-omega_res = sqrt(c / m)
+omega_res&nbsp;=&nbsp;sqrt(c&nbsp;/&nbsp;m)
 with:
 </p>
 
-<pre>
-      c spring stiffness
-      m mass
-</pre>
+<blockquote><pre>
+c ... spring stiffness
+m ... mass
+</pre></blockquote>
 
 <p>
 To make sure that the system is initially at rest the initial
-conditions s(start=0) and v(start=0) for the SlidingMass
+conditions s(start=-0.5) and v(start=0) for the sliding masses
 are set.
 If damping is added the amplitudes are bounded.
 </p>
 </html>"), experiment(StopTime=1.0, Interval=0.001));
     end Oscillator;
 
-    model Sensors "Sensors for translational systems."
+    model Sensors "Sensors for translational systems"
       extends Modelica.Icons.Example;
 
       Translational.Sensors.ForceSensor forceSensor annotation (Placement(
-            transformation(extent={{-34,40},{-14,60}})));
+            transformation(extent={{-40,10},{-20,30}})));
+      Modelica.Mechanics.Translational.Sensors.MultiSensor multiSensor
+        annotation (Placement(transformation(extent={{-10,10},{10,30}})));
       Translational.Sensors.SpeedSensor speedSensor1 annotation (Placement(
-            transformation(extent={{40,-40},{60,-20}})));
+            transformation(extent={{60,-50},{80,-30}})));
       Translational.Sensors.PositionSensor positionSensor1 annotation (
-          Placement(transformation(extent={{40,0},{60,20}})));
+          Placement(transformation(extent={{60,-20},{80,0}})));
       Translational.Sensors.AccSensor accSensor1 annotation (Placement(
-            transformation(extent={{40,-80},{60,-60}})));
+            transformation(extent={{60,-80},{80,-60}})));
+      Translational.Sensors.PositionSensor positionSensor2 annotation (
+          Placement(transformation(extent={{60,10},{80,30}})));
       Translational.Components.Mass mass(
         L=1,
         s(fixed=true),
         v(fixed=true),
-        m=1) annotation (Placement(transformation(extent={{20,40},{40,60}})));
+        m=1) annotation (Placement(transformation(extent={{30,10},{50,30}})));
       Translational.Sources.Force force annotation (Placement(transformation(
-              extent={{-64,40},{-44,60}})));
+              extent={{-70,10},{-50,30}})));
       Modelica.Blocks.Sources.Sine sineForce(amplitude=10, freqHz=4)
-        annotation (Placement(transformation(extent={{-100,40},{-80,60}})));
-      Translational.Sensors.PositionSensor positionSensor2 annotation (
-          Placement(transformation(extent={{60,40},{80,60}})));
-      Modelica.Mechanics.Translational.Sensors.MultiSensor multiSensor
-        annotation (Placement(transformation(extent={{-8,40},{12,60}})));
+        annotation (Placement(transformation(extent={{-100,10},{-80,30}})));
     equation
       connect(sineForce.y, force.f)
-        annotation (Line(points={{-79,50},{-66,50}}, color={0,0,127}));
+        annotation (Line(points={{-79,20},{-72,20}}, color={0,0,127}));
       connect(forceSensor.flange_a, force.flange) annotation (Line(
-          points={{-34,50},{-44,50}}, color={0,127,0}));
+          points={{-40,20},{-50,20}}, color={0,127,0}));
       connect(mass.flange_a, positionSensor1.flange) annotation (Line(
-          points={{20,50},{20,10},{40,10}}, color={0,127,0}));
+          points={{30,20},{20,20},{20,-10},{60,-10}},
+                                            color={0,127,0}));
       connect(mass.flange_a, speedSensor1.flange) annotation (Line(
-          points={{20,50},{20,-30},{40,-30}}, color={0,127,0}));
+          points={{30,20},{20,20},{20,-40},{60,-40}},
+                                              color={0,127,0}));
       connect(mass.flange_a, accSensor1.flange) annotation (Line(
-          points={{20,50},{20,-70},{40,-70}}, color={0,127,0}));
+          points={{30,20},{20,20},{20,-70},{60,-70}},
+                                              color={0,127,0}));
       connect(mass.flange_b, positionSensor2.flange) annotation (Line(
-          points={{40,50},{60,50}}, color={0,127,0}));
+          points={{50,20},{60,20}}, color={0,127,0}));
       connect(forceSensor.flange_b, multiSensor.flange_a) annotation (Line(
-          points={{-14,50},{-8,50}}, color={0,127,0}));
+          points={{-20,20},{-10,20}},color={0,127,0}));
       connect(multiSensor.flange_b, mass.flange_a) annotation (Line(
-          points={{12,50},{20,50}}, color={0,127,0}));
+          points={{10,20},{30,20}}, color={0,127,0}));
       annotation (Documentation(info="<html>
 <p>
 These sensors measure
 </p>
 
-<pre>
-   force f in N
-   position s in m
-   velocity v in m/s
-   acceleration a in m/s2
-</pre>
+<blockquote><pre>
+force f in N
+position s in m
+velocity v in m/s
+acceleration a in m/s2
+</pre></blockquote>
 
 <p>
-The measured velocity and acceleration is independent on
-the flange the sensor is connected to. The position
+In this example, the measured velocity and acceleration is independent of
+the flange the sensor is connected to. In contrast, the measured position
 depends on the flange (flange_a or flange_b) and the
-length L of the component.
-Plot PositionSensor1.s, PositionSensor2.s and SlidingMass1.s
+length&nbsp;<var>L</var> of the component.
+Plot <code>positionSensor1.s</code>, <code>positionSensor2.s</code> and <code>mass.s</code>
 to see the difference.
 </p>
 </html>"), experiment(StopTime=1.0, Interval=0.001));
@@ -1161,14 +1173,13 @@ to see the difference.
         m=1,
         F_prop=1,
         fexp=2,
-        v(start=-5, fixed=true)) annotation (Placement(transformation(extent={{
-                42,-60},{62,-40}})));
+        v(start=-5, fixed=true)) annotation (Placement(transformation(extent={{38,-60},{58,-40}})));
       Translational.Components.Spring spring(s_rel0=1, c=500) annotation (
-          Placement(transformation(extent={{2,-60},{22,-40}})));
+          Placement(transformation(extent={{0,-60},{20,-40}})));
       Translational.Components.Fixed fixed2(s0=-1.75) annotation (Placement(
             transformation(extent={{-40,-60},{-20,-40}})));
       Translational.Sources.Force force2 annotation (Placement(transformation(
-              extent={{-22,0},{-2,20}})));
+              extent={{-20,0},{0,20}})));
       Components.Mass mass(
         m=1,
         L=1,
@@ -1185,19 +1196,19 @@ to see the difference.
         annotation (Placement(transformation(extent={{40,0},{60,20}})));
     equation
       connect(spring.flange_b, stop2.flange_a)
-        annotation (Line(points={{22,-50},{42,-50}}, color={0,191,0}));
+        annotation (Line(points={{20,-50},{38,-50}}, color={0,127,0}));
       connect(sineForce.y, force.f)
         annotation (Line(points={{-39,70},{-22,70}}, color={0,0,127}));
       connect(spring.flange_a, fixed2.flange) annotation (Line(
-          points={{2,-50},{-30,-50}}, color={0,127,0}));
+          points={{0,-50},{-30,-50}}, color={0,127,0}));
       connect(force.flange, stop1.flange_a) annotation (Line(
           points={{0,70},{20,70}}, color={0,127,0}));
       connect(force2.flange, mass.flange_a) annotation (Line(
-          points={{-2,10},{10,10}}, color={0,127,0}));
+          points={{0,10},{10,10}},  color={0,127,0}));
       connect(mass.flange_b, supportFriction.flange_a) annotation (Line(
           points={{30,10},{40,10}}, color={0,127,0}));
       connect(sineForce.y, force2.f) annotation (Line(
-          points={{-39,70},{-30,70},{-30,10},{-24,10}}, color={0,0,127}));
+          points={{-39,70},{-30,70},{-30,10},{-22,10}}, color={0,0,127}));
       annotation (
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={Text(
@@ -1229,126 +1240,116 @@ to see the difference.
         experiment(StopTime=5.0, Interval=0.001));
     end Friction;
 
-    model PreLoad "Preload of a spool using ElastoGap models."
+    model PreLoad "Preload of a spool using ElastoGap models"
 
       extends Modelica.Icons.Example;
 
       Translational.Components.ElastoGap innerContactA(
         c=1000e3,
         d=250,
-        s_rel0=0.001) annotation (Placement(transformation(extent={{-70,20},{-50,
-                40}})));
+        s_rel0=0.001) annotation (Placement(transformation(extent={{-70,0},{-50,20}})));
       Translational.Components.ElastoGap innerContactB(
         c=1000e3,
         d=250,
-        s_rel0=0.001) annotation (Placement(transformation(extent={{50,20},{70,
-                40}})));
+        s_rel0=0.001) annotation (Placement(transformation(extent={{50,0},{70,20}})));
       Translational.Components.Mass spool(
         L=0.19,
         m=0.150,
         s(start=0.01475, fixed=true),
-        v(fixed=true)) annotation (Placement(transformation(extent={{0,-40},{40,
-                0}})));
+        v(fixed=true)) annotation (Placement(transformation(extent={{10,-70},{50,-30}})));
       Translational.Components.Fixed fixedLe(s0=-0.0955) annotation (Placement(
             transformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
-            origin={-80,90})));
+            origin={-90,70})));
       Translational.Components.Mass springPlateA(
         m=10e-3,
         L=0.002,
         s(start=-0.093, fixed=true),
-        v(fixed=true)) annotation (Placement(transformation(extent={{-38,60},{-18,
-                80}})));
+        v(fixed=true)) annotation (Placement(transformation(extent={{-40,40},{-20,60}})));
       Translational.Components.Mass springPlateB(
         m=10e-3,
         s(start=-0.06925, fixed=true),
         L=0.002,
-        v(fixed=true)) annotation (Placement(transformation(extent={{20,60},{40,
-                80}})));
+        v(fixed=true)) annotation (Placement(transformation(extent={{20,40},{40,60}})));
       Translational.Components.Spring spring(c=20e3, s_rel0=0.025) annotation (
-          Placement(transformation(extent={{-10,60},{10,80}})));
+          Placement(transformation(extent={{-10,40},{10,60}})));
       Translational.Components.ElastoGap outerContactA(
         c=1000e3,
         d=250,
-        s_rel0=0.0015) annotation (Placement(transformation(extent={{-70,60},{-50,
-                80}})));
+        s_rel0=0.0015) annotation (Placement(transformation(extent={{-70,40},{-50,60}})));
       Translational.Components.ElastoGap outerContactB(
         c=1000e3,
         d=250,
-        s_rel0=0.0015) annotation (Placement(transformation(extent={{50,60},{70,
-                80}})));
+        s_rel0=0.0015) annotation (Placement(transformation(extent={{50,40},{70,60}})));
       Translational.Components.Rod rod1(L=0.007) annotation (Placement(
-            transformation(extent={{-40,30},{-20,50}})));
+            transformation(extent={{-40,10},{-20,30}})));
       Translational.Components.Damper friction(d=2500) annotation (Placement(
             transformation(
-            origin={-80,50},
+            origin={-80,30},
             extent={{-10,-10},{10,10}},
             rotation=270)));
       Translational.Sources.Force force annotation (Placement(transformation(
-              extent={{-38,-30},{-18,-10}})));
+              extent={{-38,-60},{-18,-40}})));
       Translational.Components.Rod housing(L=0.0305) annotation (Placement(
-            transformation(extent={{-10,80},{10,100}})));
+            transformation(extent={{-10,60},{10,80}})));
       Translational.Components.Rod rod3(L=0.00575) annotation (Placement(
-            transformation(extent={{-40,-2},{-20,18}})));
+            transformation(extent={{-40,-20},{-20,0}})));
       Translational.Components.Rod rod4(L=0.00575) annotation (Placement(
-            transformation(extent={{20,-2},{40,18}})));
+            transformation(extent={{20,-20},{40,0}})));
       Translational.Components.Rod rod2(L=0.007) annotation (Placement(
-            transformation(extent={{20,30},{40,50}})));
+            transformation(extent={{20,10},{40,30}})));
       Modelica.Blocks.Sources.Sine sineForce(amplitude=150, freqHz=0.01)
-        annotation (Placement(transformation(extent={{-78,-30},{-58,-10}})));
+        annotation (Placement(transformation(extent={{-78,-60},{-58,-40}})));
     equation
       connect(outerContactA.flange_b, springPlateA.flange_a)
-        annotation (Line(points={{-50,70},{-38,70}}, color={0,191,0}));
-      connect(springPlateA.flange_b, spring.flange_a) annotation (Line(points={
-              {-18,70},{-18,70},{-10,70}}, color={0,191,0}));
+        annotation (Line(points={{-50,50},{-40,50}}, color={0,127,0}));
+      connect(springPlateA.flange_b, spring.flange_a) annotation (Line(points={{-20,50},{-10,50}},
+                                           color={0,127,0}));
       connect(spring.flange_b, springPlateB.flange_a)
-        annotation (Line(points={{10,70},{20,70}}, color={0,191,0}));
+        annotation (Line(points={{10,50},{20,50}}, color={0,127,0}));
       connect(springPlateB.flange_b, outerContactB.flange_a)
-        annotation (Line(points={{40,70},{40,70},{50,70}}, color={0,191,0}));
+        annotation (Line(points={{40,50},{50,50}},         color={0,127,0}));
       connect(outerContactB.flange_b, housing.flange_b)
-        annotation (Line(points={{70,70},{70,90},{10,90}}, color={0,191,0}));
-      connect(springPlateA.flange_b, rod1.flange_a) annotation (Line(points={{-18,
-              70},{-18,52},{-40,52},{-40,40}}, color={0,191,0}));
-      connect(innerContactA.flange_a, rod3.flange_a) annotation (Line(points={{
-              -70,30},{-80,30},{-80,8},{-40,8}}, color={0,191,0}));
-      connect(innerContactA.flange_b, rod1.flange_b) annotation (Line(points={{
-              -50,30},{-20,30},{-20,40}}, color={0,191,0}));
+        annotation (Line(points={{70,50},{80,50},{80,70},{10,70}},
+                                                           color={0,127,0}));
+      connect(springPlateA.flange_b, rod1.flange_a) annotation (Line(points={{-20,50},{-20,32},{-40,32},{-40,20}},
+                                               color={0,127,0}));
+      connect(innerContactA.flange_a, rod3.flange_a) annotation (Line(points={{-70,10},{-80,10},{-80,-10},{-40,-10}},
+                                                 color={0,127,0}));
+      connect(innerContactA.flange_b, rod1.flange_b) annotation (Line(points={{-50,10},{-20,10},{-20,20}},
+                                          color={0,127,0}));
       connect(rod2.flange_a, innerContactB.flange_a)
-        annotation (Line(points={{20,40},{20,30},{50,30}}, color={0,191,0}));
+        annotation (Line(points={{20,20},{20,10},{50,10}}, color={0,127,0}));
       connect(rod4.flange_b, innerContactB.flange_b)
-        annotation (Line(points={{40,8},{70,8},{70,30}}, color={0,191,0}));
+        annotation (Line(points={{40,-10},{80,-10},{80,10},{70,10}},
+                                                         color={0,127,0}));
       connect(friction.flange_b, rod3.flange_a)
-        annotation (Line(points={{-80,40},{-80,8},{-40,8}}, color={0,191,0}));
+        annotation (Line(points={{-80,20},{-80,-10},{-40,-10}},
+                                                            color={0,127,0}));
       connect(rod3.flange_b, rod4.flange_a)
-        annotation (Line(points={{-20,8},{20,8}}, color={0,191,0}));
-      connect(rod2.flange_b, springPlateB.flange_a) annotation (Line(points={{
-              40,40},{40,52},{20,52},{20,70}}, color={0,191,0}));
+        annotation (Line(points={{-20,-10},{20,-10}},
+                                                  color={0,127,0}));
+      connect(rod2.flange_b, springPlateB.flange_a) annotation (Line(points={{40,20},{40,32},{20,32},{20,50}},
+                                               color={0,127,0}));
       connect(spool.flange_a, rod4.flange_a)
-        annotation (Line(points={{0,-20},{0,8},{20,8}}, color={0,191,0}));
-      connect(sineForce.y, force.f) annotation (Line(points={{-57,-20},{-46,-20},
-              {-40,-20}}, color={0,0,127}));
+        annotation (Line(points={{10,-50},{0,-50},{0,-10},{20,-10}},
+                                                        color={0,127,0}));
+      connect(sineForce.y, force.f) annotation (Line(points={{-57,-50},{-40,-50}},
+                          color={0,0,127}));
       connect(force.flange, spool.flange_a) annotation (Line(
-          points={{-18,-20},{0,-20}}, color={0,127,0}));
+          points={{-18,-50},{10,-50}},color={0,127,0}));
       connect(outerContactA.flange_a, fixedLe.flange) annotation (Line(
-          points={{-70,70},{-80,70},{-80,90}}, color={0,127,0}));
+          points={{-70,50},{-80,50},{-80,70},{-90,70}},
+                                               color={0,127,0}));
       connect(housing.flange_a, fixedLe.flange) annotation (Line(
-          points={{-10,90},{-80,90}}, color={0,127,0}));
+          points={{-10,70},{-90,70}}, color={0,127,0}));
       connect(friction.flange_a, fixedLe.flange) annotation (Line(
-          points={{-80,60},{-80,90}}, color={0,127,0}));
+          points={{-80,40},{-80,70},{-90,70}},
+                                      color={0,127,0}));
       annotation (
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}), graphics={Text(
-                  extent={{-92,-72},{90,-80}},
-                  textString=
-                "positive force => spool moves in positive direction ",
-                  lineColor={0,0,255}),Text(
-                  extent={{-48,-52},{42,-60}},
-                  textString="Simulate for 100 s",
-                  lineColor={0,0,255}),Text(
-                  extent={{-100,-62},{88,-70}},
-                  lineColor={0,0,255},
-                  textString="plot spool.s as a function of force.f")}),
+                {100,100}})),
         Documentation(info="<html>
 <p>
 When designing hydraulic valves it is often necessary to hold the spool in
@@ -1361,17 +1362,21 @@ Drawing of spool.
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/PreLoad.png\"><br>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/PreLoad3.png\"><br>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/PreLoad4.png\"><br>
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/PreLoad.png\"><br>
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/PreLoad3.png\"><br>
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/PreLoad4.png\"><br>
 </p>
 
 <p>
-Spool position s as a function of working force f.
+Simulate for 100&nbsp;s and plot the spool position <code>spool.s</code>
+as a function of working force <code>force.f</code>.
+For positive force, the spool moves in positive direction - in figure below
+the start value <code>spool.s.start</code> influences the offset.
+.
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/PreLoad2.png\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/PreLoad2.png\">
 </p>
 </html>"),
         experiment(StopTime=100, Interval=0.1));
@@ -1428,7 +1433,7 @@ Spool position s as a function of working force f.
       connect(fixed.flange, rod2.flange_a) annotation (Line(
           points={{0,0},{20,0}}, color={0,127,0}));
       connect(springDamper1.flange_a, rod1.flange_a) annotation (Line(
-          points={{-40,30},{-48,30},{-48,0},{-40,0}}, color={0,127,0}));
+          points={{-40,30},{-50,30},{-50,0},{-40,0}}, color={0,127,0}));
       connect(springDamper2.flange_b, rod2.flange_b) annotation (Line(
           points={{40,30},{50,30},{50,0},{40,0}}, color={0,127,0}));
       connect(springDamper1.flange_b, mass1.flange_a) annotation (Line(
@@ -1436,22 +1441,26 @@ Spool position s as a function of working force f.
       connect(mass1.flange_b, springDamper2.flange_a) annotation (Line(
           points={{10,30},{20,30}}, color={0,127,0}));
       connect(rod1.flange_a, elastoGap1.flange_a) annotation (Line(
-          points={{-40,0},{-48,0},{-48,-30},{-40,-30}}, color={0,127,0}));
+          points={{-40,0},{-50,0},{-50,-30},{-40,-30}}, color={0,127,0}));
       connect(rod2.flange_b, elastoGap2.flange_b) annotation (Line(
           points={{40,0},{50,0},{50,-30},{40,-30}}, color={0,127,0}));
       connect(elastoGap1.flange_b, mass2.flange_a) annotation (Line(
           points={{-20,-30},{-10,-30}}, color={0,127,0}));
       connect(mass2.flange_b, elastoGap2.flange_a) annotation (Line(
           points={{10,-30},{20,-30}}, color={0,127,0}));
-      annotation (Documentation(info="<html>
+      annotation (
+        experiment(StopTime=5, Interval=0.01),
+        Documentation(info="<html>
 <p>
-This model demonstrates the effect of ElastoGaps on eigenfrequency:<br>
-Plot mass1.s and mass2.s as well as mass1.v and mass2.v<br><br>
-mass1 is moved by both spring forces all the time.<br>
-Since elastoGap1 lifts off at s &gt; -0.5 m and elastoGap2 lifts off s &lt; +0.5 m,
-mass2 moves freely as long as -0.5 m &lt; s &lt; +0.5 m.
+This model demonstrates the effect of ElastoGaps on eigenfrequency: 
+Plot mass1.s and mass2.s as well as mass1.v and mass2.v to see that effect.
 </p>
-</html>"), experiment(StopTime=1.0, Interval=0.01));
+<p>
+While mass1 is moved by both spring/damper forces all the time, this is not the case for mass2
+since elastoGap1 lifts off at s&nbsp;&gt;&nbsp;-0.5 m and elastoGap2 lifts off at s&nbsp;&lt;&nbsp;+0.5 m.
+Therefore, mass2 moves freely as long as -0.5&nbsp;m&nbsp;&lt;&nbsp;s&nbsp;&lt;&nbsp;+0.5&nbsp;m.
+</p>
+</html>"));
     end ElastoGap;
 
     model Brake "Demonstrate braking of a translational moving mass"
@@ -1459,43 +1468,43 @@ mass2 moves freely as long as -0.5 m &lt; s &lt; +0.5 m.
 
       Modelica.Mechanics.Translational.Components.Brake brake(fn_max=1,
           useSupport=false)
-        annotation (Placement(transformation(extent={{6,40},{26,20}})));
+        annotation (Placement(transformation(extent={{0,50},{20,30}})));
       Modelica.Mechanics.Translational.Components.Mass mass1(
         m=1,
         s(fixed=true),
         v(start=1, fixed=true))
-        annotation (Placement(transformation(extent={{-34,20},{-14,40}})));
+        annotation (Placement(transformation(extent={{-40,30},{-20,50}})));
       Modelica.Blocks.Sources.Step step(startTime=0.1, height=2) annotation (
           Placement(transformation(
             extent={{-10,-10},{10,10}},
-            origin={-24,-10})));
+            origin={-30,0})));
       Modelica.Mechanics.Translational.Components.Brake brake1(fn_max=1,
           useSupport=true)
-        annotation (Placement(transformation(extent={{6,-60},{26,-40}})));
+        annotation (Placement(transformation(extent={{0,-50},{20,-30}})));
       Modelica.Mechanics.Translational.Components.Mass mass2(
         m=1,
         s(fixed=true),
         v(start=1, fixed=true))
-        annotation (Placement(transformation(extent={{-34,-60},{-14,-40}})));
+        annotation (Placement(transformation(extent={{-40,-50},{-20,-30}})));
       Modelica.Mechanics.Translational.Components.Fixed fixed
-        annotation (Placement(transformation(extent={{6,-80},{26,-60}})));
+        annotation (Placement(transformation(extent={{0,-70},{20,-50}})));
     equation
       connect(mass1.flange_b, brake.flange_a) annotation (Line(
-          points={{-14,30},{6,30}}, color={0,127,0}));
+          points={{-20,40},{0,40}}, color={0,127,0}));
       connect(step.y, brake.f_normalized) annotation (Line(
-          points={{-13,-10},{16,-10},{16,19}}, color={0,0,127}));
+          points={{-19,0},{10,0},{10,29}},     color={0,0,127}));
       connect(mass2.flange_b, brake1.flange_a) annotation (Line(
-          points={{-14,-50},{6,-50}}, color={0,127,0}));
+          points={{-20,-40},{0,-40}}, color={0,127,0}));
       connect(step.y, brake1.f_normalized) annotation (Line(
-          points={{-13,-10},{16,-10},{16,-39}}, color={0,0,127}));
+          points={{-19,0},{10,0},{10,-29}},     color={0,0,127}));
       connect(fixed.flange, brake1.support) annotation (Line(
-          points={{16,-70},{16,-60}}, color={0,127,0}));
+          points={{10,-60},{10,-50}}, color={0,127,0}));
       annotation (Documentation(info="<html>
 <p>
-This model consists of a mass with an initial velocity of 1 m/s.
-After 0.1 s, a brake is activated and it is shown that the mass decelerates until
+This model consists of a mass with an initial velocity of 1&nbsp;m/s.
+After 0.1&nbsp;s, a brake is activated and it is shown that the mass decelerates until
 it arrives at rest and remains at rest. Two versions of this system are present,
-one where the brake is implicitly grounded and one where it is explicitly grounded.
+one where the brake is implicitly grounded and one where it is grounded explicitly.
 </p>
 </html>"), experiment(StopTime=2.0, Interval=0.001));
     end Brake;
@@ -1507,51 +1516,51 @@ one where the brake is implicitly grounded and one where it is explicitly ground
         s(fixed=true),
         L=0.1,
         v(fixed=true))
-        annotation (Placement(transformation(extent={{-60,20},{-40,40}})));
+        annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
       Components.SpringDamper springDamper(
         s_rel(fixed=true),
         v_rel(fixed=true),
         c=100,
         d=10,
         useHeatPort=true)
-        annotation (Placement(transformation(extent={{-30,20},{-10,40}})));
+        annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
       Components.Damper damper(d=10, useHeatPort=true) annotation (Placement(
             transformation(
             extent={{-10,10},{10,-10}},
             rotation=-90,
-            origin={-60,-10})));
+            origin={-40,-40})));
       Components.ElastoGap elastoGap(
         c=100,
         d=20,
         s_rel0=-0.02,
         useHeatPort=true)
-        annotation (Placement(transformation(extent={{-90,-10},{-70,10}})));
-      Components.Fixed fixed1
         annotation (Placement(transformation(extent={{-70,-40},{-50,-20}})));
+      Components.Fixed fixed1
+        annotation (Placement(transformation(extent={{-50,-70},{-30,-50}})));
       Sources.Force force
-        annotation (Placement(transformation(extent={{-90,20},{-70,40}})));
+        annotation (Placement(transformation(extent={{-70,-10},{-50,10}})));
       Blocks.Sources.Sine sine1(freqHz=1, amplitude=20)
-        annotation (Placement(transformation(extent={{-120,20},{-100,40}})));
+        annotation (Placement(transformation(extent={{-100,-10},{-80,10}})));
       Components.Mass mass2(
         m=1,
         L=0.1,
         s(fixed=false),
         v(fixed=false))
-        annotation (Placement(transformation(extent={{0,20},{20,40}})));
+        annotation (Placement(transformation(extent={{20,-10},{40,10}})));
       Components.SupportFriction supportFriction(useHeatPort=true)
-        annotation (Placement(transformation(extent={{30,20},{50,40}})));
+        annotation (Placement(transformation(extent={{50,-10},{70,10}})));
       Components.Spring spring(c=100, s_rel(fixed=true))
-        annotation (Placement(transformation(extent={{60,20},{80,40}})));
+        annotation (Placement(transformation(extent={{-40,50},{-20,70}})));
       Components.Mass mass3(
         m=1,
         L=0.1,
         s(fixed=false),
         v(fixed=true))
-        annotation (Placement(transformation(extent={{90,20},{110,40}})));
+        annotation (Placement(transformation(extent={{-10,50},{10,70}})));
       Components.Brake brake(fn_max=10, useHeatPort=true)
-        annotation (Placement(transformation(extent={{120,20},{140,40}})));
+        annotation (Placement(transformation(extent={{20,50},{40,70}})));
       Blocks.Sources.Sine sine2(amplitude=10, freqHz=2)
-        annotation (Placement(transformation(extent={{100,50},{120,70}})));
+        annotation (Placement(transformation(extent={{0,80},{20,100}})));
       Components.MassWithStopAndFriction massWithStopAndFriction(
         L=0.1,
         m=1,
@@ -1563,74 +1572,84 @@ one where the brake is implicitly grounded and one where it is explicitly ground
         smax=0.4,
         v(fixed=true),
         useHeatPort=true)
-        annotation (Placement(transformation(extent={{180,20},{200,40}})));
+        annotation (Placement(transformation(extent={{80,50},{100,70}})));
       Thermal.HeatTransfer.Components.Convection convection
-        annotation (Placement(transformation(extent={{-10,-40},{10,-60}})));
+        annotation (Placement(transformation(extent={{20,-90},{40,-70}})));
       Blocks.Sources.Constant const(k=20)
-        annotation (Placement(transformation(extent={{-30,-90},{-10,-70}})));
+        annotation (Placement(transformation(extent={{70,-60},{50,-40}})));
       Thermal.HeatTransfer.Celsius.FixedTemperature TAmbient(T=25)
         "Ambient temperature"
-        annotation (Placement(transformation(extent={{40,-60},{20,-40}})));
+        annotation (Placement(transformation(extent={{70,-90},{50,-70}})));
       Components.Fixed fixed2
-        annotation (Placement(transformation(extent={{-120,-10},{-100,10}})));
+        annotation (Placement(transformation(extent={{-100,-40},{-80,-20}})));
       Components.SpringDamper springDamper1(
         c=10000,
         d=1000,
         useHeatPort=true,
         s_rel(fixed=true))
-        annotation (Placement(transformation(extent={{150,20},{170,40}})));
+        annotation (Placement(transformation(extent={{50,50},{70,70}})));
     equation
 
       connect(mass1.flange_b, springDamper.flange_a) annotation (Line(
-          points={{-40,30},{-30,30}}, color={0,127,0}));
+          points={{-20,0},{-10,0}},   color={0,127,0}));
       connect(sine1.y, force.f) annotation (Line(
-          points={{-99,30},{-92,30}}, color={0,0,127}));
+          points={{-79,0},{-72,0}},   color={0,0,127}));
       connect(force.flange, mass1.flange_a) annotation (Line(
-          points={{-70,30},{-60,30}}, color={0,127,0}));
+          points={{-50,0},{-40,0}},   color={0,127,0}));
       connect(mass1.flange_a, damper.flange_a) annotation (Line(
-          points={{-60,30},{-60,0}}, color={0,127,0}));
+          points={{-40,0},{-40,-30}},color={0,127,0}));
       connect(damper.flange_b, fixed1.flange) annotation (Line(
-          points={{-60,-20},{-60,-30}}, color={0,127,0}));
+          points={{-40,-50},{-40,-60}}, color={0,127,0}));
       connect(springDamper.flange_b, mass2.flange_a) annotation (Line(
-          points={{-10,30},{0,30}}, color={0,127,0}));
+          points={{10,0},{20,0}},   color={0,127,0}));
       connect(mass2.flange_b, supportFriction.flange_a) annotation (Line(
-          points={{20,30},{30,30}}, color={0,127,0}));
+          points={{40,0},{50,0}},   color={0,127,0}));
       connect(supportFriction.flange_b, spring.flange_a) annotation (Line(
-          points={{50,30},{60,30}}, color={0,127,0}));
+          points={{70,0},{70,20},{-50,20},{-50,60},{-40,60}},
+                                    color={0,127,0}));
       connect(spring.flange_b, mass3.flange_a) annotation (Line(
-          points={{80,30},{90,30}}, color={0,127,0}));
+          points={{-20,60},{-10,60}},
+                                    color={0,127,0}));
       connect(mass3.flange_b, brake.flange_a) annotation (Line(
-          points={{110,30},{120,30}}, color={0,127,0}));
+          points={{10,60},{20,60}},   color={0,127,0}));
       connect(sine2.y, brake.f_normalized) annotation (Line(
-          points={{121,60},{130,60},{130,41}}, color={0,0,127}));
+          points={{21,90},{30,90},{30,71}},    color={0,0,127}));
       connect(elastoGap.flange_b, mass1.flange_a) annotation (Line(
-          points={{-70,0},{-60,0},{-60,30}}, color={0,127,0}));
+          points={{-50,-30},{-40,-30},{-40,0}},
+                                             color={0,127,0}));
       connect(const.y, convection.Gc) annotation (Line(
-          points={{-9,-80},{0,-80},{0,-60}}, color={0,0,127}));
+          points={{49,-50},{30,-50},{30,-70}},
+                                             color={0,0,127}));
       connect(TAmbient.port, convection.fluid) annotation (Line(
-          points={{20,-50},{10,-50}}, color={191,0,0}));
+          points={{50,-80},{40,-80}}, color={191,0,0}));
       connect(elastoGap.flange_a, fixed2.flange) annotation (Line(
-          points={{-90,0},{-110,0}}, color={0,127,0}));
+          points={{-70,-30},{-90,-30}},
+                                     color={0,127,0}));
       connect(elastoGap.heatPort, convection.solid) annotation (Line(
-          points={{-90,-10},{-90,-50},{-10,-50}}, color={191,0,0}));
+          points={{-70,-40},{-70,-80},{20,-80}},  color={191,0,0}));
       connect(damper.heatPort, convection.solid) annotation (Line(
-          points={{-50,0},{-50,-50},{-10,-50}}, color={191,0,0}));
+          points={{-30,-30},{-10,-30},{-10,-80},{20,-80}},
+                                                color={191,0,0}));
       connect(springDamper.heatPort, convection.solid) annotation (Line(
-          points={{-30,20},{-30,-50},{-10,-50}}, color={191,0,0}));
+          points={{-10,-10},{-10,-80},{20,-80}}, color={191,0,0}));
       connect(supportFriction.heatPort, convection.solid) annotation (Line(
-          points={{30,20},{30,0},{-30,0},{-30,-50},{-10,-50}}, color={191,0,0}));
+          points={{50,-10},{50,-30},{-10,-30},{-10,-80},{20,-80}},
+                                                               color={191,0,0}));
       connect(brake.heatPort, convection.solid) annotation (Line(
-          points={{120,20},{120,0},{-30,0},{-30,-50},{-10,-50}}, color={191,0,0}));
+          points={{20,50},{20,30},{90,30},{90,-30},{-10,-30},{-10,-80},{20,-80}},
+                                                                 color={191,0,0}));
       connect(massWithStopAndFriction.heatPort, convection.solid) annotation (
           Line(
-          points={{180,20},{180,0},{-30,0},{-30,-50},{-10,-50}}, color={191,0,0}));
+          points={{80,50},{80,30},{90,30},{90,-30},{-10,-30},{-10,-80},{20,-80}},
+                                                                 color={191,0,0}));
       connect(brake.flange_b, springDamper1.flange_a) annotation (Line(
-          points={{140,30},{150,30}}, color={0,127,0}));
+          points={{40,60},{50,60}},   color={0,127,0}));
       connect(springDamper1.flange_b, massWithStopAndFriction.flange_a)
         annotation (Line(
-          points={{170,30},{180,30}}, color={0,127,0}));
+          points={{70,60},{80,60}},   color={0,127,0}));
       connect(springDamper1.heatPort, convection.solid) annotation (Line(
-          points={{150,20},{150,0},{-30,0},{-30,-50},{-10,-50}}, color={191,0,0}));
+          points={{50,50},{50,30},{90,30},{90,-30},{-10,-30},{-10,-80},{20,-80}},
+                                                                 color={191,0,0}));
       annotation (
         Documentation(info="<html>
 <p>
@@ -1642,7 +1661,7 @@ is present in variable convection.fluid.
 </p>
 </html>"),
         experiment(StopTime=2.0, Interval=0.001),
-        Diagram(coordinateSystem(extent={{-120,-100},{200,100}},
+        Diagram(coordinateSystem(extent={{-100,-100},{100,100}},
               preserveAspectRatio=false)));
     end HeatLosses;
 
@@ -2177,8 +2196,7 @@ exchange.
         Modelica.SIunits.Velocity v_rel(start=0)
           "Relative velocity (= der(s_rel))";
         extends Modelica.Mechanics.Translational.Interfaces.PartialCompliant;
-        extends
-          Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT;
+        extends Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT;
       protected
         Modelica.SIunits.Force f_c "Spring force";
         Modelica.SIunits.Force f_d "Damping force";
