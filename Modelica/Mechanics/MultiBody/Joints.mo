@@ -20,8 +20,7 @@ package Joints "Components that constrain the motion between two frames"
       "Axis of translation resolved in frame_a (= same as in frame_b)"
       annotation (Evaluate=true);
     constant SI.Position s_offset=0
-      "Relative distance offset (distance between frame_a and frame_b = s_offset + s)"
-      annotation (Evaluate=false);
+      "Relative distance offset (distance between frame_a and frame_b = s_offset + s)";
     parameter Types.Axis boxWidthDirection={0,1,0}
       "Vector in width direction of box, resolved in frame_a"
       annotation (Evaluate=true, Dialog(tab="Animation", group=
