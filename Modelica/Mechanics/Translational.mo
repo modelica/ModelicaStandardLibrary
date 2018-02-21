@@ -4625,6 +4625,7 @@ blocks of the block library Modelica.Blocks.Sources.
 
     equation
       flange.f = -f;
+
       annotation (
         Documentation(info="<html>
 <p>
@@ -4636,24 +4637,30 @@ i.e., the component connected to the flange is driven by force f.
 Input signal f can be provided from one of the signal generator
 blocks of Modelica.Blocks.Source.
 </p>
-
-</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}), graphics={Polygon(
-                  points={{-100,10},{20,10},{20,41},{90,0},{20,-41},{20,-10},{-100,
-                -10},{-100,10}},
-                  lineColor={0,127,0},
-                  fillColor={215,215,215},
-                  fillPattern=FillPattern.Solid),Text(
-                  extent={{-150,-32},{-80,-62}},
-                  textString="f"),Text(
-                  extent={{-150,90},{150,50}},
-                  textString="%name",
-                  lineColor={0,0,255}),Line(points={{-30,-60},{30,-60}}),Line(points={{0,-60},{0,-101}}),Line(
-              points={{-30,-80},{-10,-60}}),Line(points={{-10,-80},
-              {10,-60}}),Line(points={{10,-80},{30,-60}}),Polygon(
-                  points={{-61,-50},{-30,-40},{-30,-60},{-61,-50}},
+</html>"),
+        Icon(
+          coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}}),
+            graphics={
+              Polygon(
+                points={{-100,10},{20,10},{20,41},{90,0},{20,-41},{20,-10},{-100,-10},{-100,10}},
+                lineColor={0,127,0},
+                fillColor={215,215,215},
+                fillPattern=FillPattern.Solid),
+              Text(
+                extent={{-150,-32},{-80,-62}},
+                textString="f"),
+              Text(
+                extent={{-150,90},{150,50}},
+                textString="%name",
+                lineColor={0,0,255}),
+              Line(points={{0,-60},{0,-101}}),
+              Line(points={{-31,-60},{50,-60}}),
+              Polygon(
+                  points={{-61,-60},{-30,-50},{-30,-70},{-61,-60}},
                   fillColor={128,128,128},
-                  fillPattern=FillPattern.Solid),Line(points={{-31,-50},{50,-50}}),Line(points={{-50,-80},{-30,-60}})}));
+                  fillPattern=FillPattern.Solid)}));
     end Force;
 
     model Force2 "Input signal acting as torque on two flanges"

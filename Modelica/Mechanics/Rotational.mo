@@ -6172,8 +6172,7 @@ blocks of the block library Modelica.Blocks.Sources.
     end Move;
 
     model Torque "Input signal acting as external torque on a flange"
-      extends
-        Modelica.Mechanics.Rotational.Interfaces.PartialElementaryOneFlangeAndSupport2;
+      extends Modelica.Mechanics.Rotational.Interfaces.PartialElementaryOneFlangeAndSupport2;
       Modelica.Blocks.Interfaces.RealInput tau(unit="N.m")
         "Accelerating torque acting at flange (= -flange.tau)" annotation (
           Placement(transformation(extent={{-140,-20},{-100,20}})));
@@ -6196,24 +6195,28 @@ blocks of Modelica.Blocks.Sources.
         coordinateSystem(preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}),
           graphics={
+            Ellipse(
+              extent={{-90,-120},{90,60}},
+              lineColor={0,0,0},
+              lineThickness=0.5,
+              startAngle=25,
+              endAngle=160,
+              closure=EllipseClosure.None),
+            Ellipse(
+              extent={{-60,-150},{60,-10}},
+              lineColor={0,0,0},
+              startAngle=35,
+              endAngle=145,
+              closure=EllipseClosure.None),
         Text(extent={{-150,110},{150,70}},
           textString="%name",
           lineColor={0,0,255}),
         Text(extent={{-62,-29},{-141,-70}},
           textString="tau"),
-        Line(points={{-88,0},{-64,30},{-36,52},{-2,62},{28,56},{48,44},{64,28},{76,14},{86,0}},
-          thickness=0.5,
-          smooth=Smooth.Bezier),
         Polygon(points={{86,0},{66,58},{37,27},{86,0}},
           fillPattern=FillPattern.Solid),
-        Line(points={{-30,-30},{30,-30}}),
-        Line(points={{0,-30},{0,-101}}),
-        Line(points={{-30,-50},{-10,-30}}),
-        Line(points={{-10,-50},{10,-30}}),
-        Line(points={{10,-50},{30,-30}}),
-        Line(points={{-54,-42},{-38,-28},{-16,-16},{4,-14},{22,-18},{36,-26},{48,-36},{56,-46},{64,-58}},
-          smooth=Smooth.Bezier),
-        Polygon(points={{-61,-66},{-44,-42},{-58,-36},{-61,-66}},
+        Line(points={{0,-10},{0,-101}}),
+        Polygon(points={{-53,-54},{-36,-30},{-50,-24},{-53,-54}},
           fillPattern=FillPattern.Solid)}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
