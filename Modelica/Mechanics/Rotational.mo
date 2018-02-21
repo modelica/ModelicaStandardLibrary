@@ -1344,12 +1344,12 @@ Simulate for about 10 seconds and plot the angular velocities of the inertias <c
     model Backlash "Example to demonstrate backlash"
       extends Modelica.Icons.Example;
       Rotational.Components.Fixed fixed1
-        annotation (Placement(transformation(extent={{-50,50},{-30,70}})));
+        annotation (Placement(transformation(extent={{-50,30},{-30,50}})));
       Rotational.Components.SpringDamper springDamper(
         c=20E3,
         d=50,
         phi_nominal=1)
-        annotation (Placement(transformation(extent={{-20,50},{0,70}})));
+        annotation (Placement(transformation(extent={{-20,30},{0,50}})));
       Rotational.Components.Inertia inertia1(
         J=5,
         w(fixed=true, start=0),
@@ -1357,15 +1357,15 @@ Simulate for about 10 seconds and plot the angular velocities of the inertias <c
           fixed=true,
           displayUnit="deg",
           start=1.570796326794897))
-        annotation (Placement(transformation(extent={{20,50},{40,70}})));
+        annotation (Placement(transformation(extent={{20,30},{40,50}})));
       Rotational.Components.Fixed fixed2
-        annotation (Placement(transformation(extent={{-50,0},{-30,20}})));
+        annotation (Placement(transformation(extent={{-50,-10},{-30,10}})));
       Rotational.Components.ElastoBacklash elastoBacklash(
         c=20E3,
         d=50,
         b(displayUnit="deg") = 0.7853981633974483,
         phi_nominal=1)
-        annotation (Placement(transformation(extent={{-20,0},{0,20}})));
+        annotation (Placement(transformation(extent={{-20,-10},{0,10}})));
       Rotational.Components.Inertia inertia2(
         J=5,
         w(fixed=true, start=0),
@@ -1373,15 +1373,15 @@ Simulate for about 10 seconds and plot the angular velocities of the inertias <c
           fixed=true,
           start=1.570796326794897,
           displayUnit="deg"))
-        annotation (Placement(transformation(extent={{20,0},{40,20}})));
+        annotation (Placement(transformation(extent={{20,-10},{40,10}})));
       Rotational.Components.Fixed fixed3
-        annotation (Placement(transformation(extent={{-52,-40},{-32,-20}})));
+        annotation (Placement(transformation(extent={{-50,-50},{-30,-30}})));
       Components.ElastoBacklash2           elastoBacklash2(
         c=20E3,
         d=50,
         phi_nominal=1,
         b(displayUnit="deg") = 0.78539816339745)
-        annotation (Placement(transformation(extent={{-22,-40},{-2,-20}})));
+        annotation (Placement(transformation(extent={{-20,-50},{0,-30}})));
       Rotational.Components.Inertia inertia3(
         J=5,
         w(fixed=true, start=0),
@@ -1389,20 +1389,20 @@ Simulate for about 10 seconds and plot the angular velocities of the inertias <c
           fixed=true,
           start=1.570796326794897,
           displayUnit="deg"))
-        annotation (Placement(transformation(extent={{18,-40},{38,-20}})));
+        annotation (Placement(transformation(extent={{20,-50},{40,-30}})));
     equation
       connect(springDamper.flange_b, inertia1.flange_a) annotation (Line(
-          points={{0,60},{20,60}}));
+          points={{0,40},{20,40}}));
       connect(elastoBacklash.flange_b, inertia2.flange_a) annotation (Line(
-          points={{0,10},{20,10}}));
+          points={{0,0},{20,0}}));
       connect(fixed1.flange, springDamper.flange_a) annotation (Line(
-          points={{-40,60},{-20,60}}));
+          points={{-40,40},{-20,40}}));
       connect(fixed2.flange, elastoBacklash.flange_a) annotation (Line(
-          points={{-40,10},{-20,10}}));
+          points={{-40,0},{-20,0}}));
       connect(elastoBacklash2.flange_b, inertia3.flange_a)
-        annotation (Line(points={{-2,-30},{18,-30}}));
+        annotation (Line(points={{0,-40},{20,-40}}));
       connect(fixed3.flange, elastoBacklash2.flange_a)
-        annotation (Line(points={{-42,-30},{-22,-30}}));
+        annotation (Line(points={{-40,-40},{-20,-40}}));
       annotation (Documentation(info="<html>
 <p>
 This model demonstrates the effect of a backlash on eigenfrequency, and
@@ -1462,75 +1462,75 @@ Du to a speed dependent force (like driving resistance), we find an equilibrium 
     model HeatLosses "Demonstrate the modeling of heat losses"
       extends Modelica.Icons.Example;
       Blocks.Sources.Sine sine(freqHz=5, amplitude=20)
-        annotation (Placement(transformation(extent={{-100,20},{-80,40}})));
+        annotation (Placement(transformation(extent={{-140,-10},{-120,10}})));
       Sources.Torque torque
-        annotation (Placement(transformation(extent={{-70,20},{-50,40}})));
+        annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
       Components.Inertia inertia1(
         J=2,
         phi(fixed=true, start=0),
         w(fixed=true, start=0))
-        annotation (Placement(transformation(extent={{-40,20},{-20,40}})));
+        annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));
       Components.Damper damper(useHeatPort=true, d=10) annotation (Placement(
             transformation(
-            extent={{10,-10},{-10,10}},
+            extent={{10,10},{-10,-10}},
             rotation=-90,
-            origin={-20,10})));
+            origin={-50,-20})));
       Components.Fixed fixed
-        annotation (Placement(transformation(extent={{-30,-20},{-10,0}})));
+        annotation (Placement(transformation(extent={{-60,-50},{-40,-30}})));
       Thermal.HeatTransfer.Components.Convection convection
-        annotation (Placement(transformation(extent={{20,-20},{40,-40}})));
+        annotation (Placement(transformation(extent={{0,-50},{20,-70}})));
       Thermal.HeatTransfer.Celsius.FixedTemperature TAmbient(T=25)
         "Ambient temperature"
-        annotation (Placement(transformation(extent={{68,-40},{48,-20}})));
+        annotation (Placement(transformation(extent={{48,-70},{28,-50}})));
       Blocks.Sources.Constant const(k=20)
-        annotation (Placement(transformation(extent={{0,-70},{20,-50}})));
+        annotation (Placement(transformation(extent={{-20,-100},{0,-80}})));
       Components.SpringDamper springDamper(
         c=1e4,
         d=20,
         useHeatPort=true)
-        annotation (Placement(transformation(extent={{-10,20},{10,40}})));
+        annotation (Placement(transformation(extent={{-30,-10},{-10,10}})));
       Components.Inertia inertia2(
         J=2,
         phi(fixed=true, start=0),
         w(fixed=true, start=0))
-        annotation (Placement(transformation(extent={{20,20},{40,40}})));
+        annotation (Placement(transformation(extent={{0,-10},{20,10}})));
       Components.ElastoBacklash elastoBacklash(
         c=1e5,
         d=100,
         useHeatPort=true,
         b(displayUnit="rad") = 0.001)
-        annotation (Placement(transformation(extent={{50,20},{70,40}})));
+        annotation (Placement(transformation(extent={{30,-10},{50,10}})));
       Components.Inertia inertia3(
         J=2,
         phi(fixed=true, start=0),
         w(fixed=true, start=0))
-        annotation (Placement(transformation(extent={{80,20},{100,40}})));
+        annotation (Placement(transformation(extent={{60,-10},{80,10}})));
       Components.BearingFriction bearingFriction(useHeatPort=true)
-        annotation (Placement(transformation(extent={{110,20},{130,40}})));
+        annotation (Placement(transformation(extent={{90,-10},{110,10}})));
       Components.Spring spring3(c=1e4)
-        annotation (Placement(transformation(extent={{-70,70},{-50,90}})));
+        annotation (Placement(transformation(extent={{-90,40},{-70,60}})));
       Components.Inertia inertia4(
         J=2,
         phi(fixed=true, start=0),
         w(fixed=true, start=0))
-        annotation (Placement(transformation(extent={{-40,70},{-20,90}})));
+        annotation (Placement(transformation(extent={{-60,40},{-40,60}})));
       Components.LossyGear lossyGear(
         ratio=2,
         lossTable=[0, 0.8, 0.8, 1, 1; 1, 0.7, 0.7, 2, 2],
         useHeatPort=true)
-        annotation (Placement(transformation(extent={{-10,70},{10,90}})));
+        annotation (Placement(transformation(extent={{-30,40},{-10,60}})));
       Components.Clutch clutch(
         useHeatPort=true,
         fn_max=10,
         phi_rel(fixed=true),
         w_rel(fixed=true))
-        annotation (Placement(transformation(extent={{20,70},{40,90}})));
+        annotation (Placement(transformation(extent={{0,40},{20,60}})));
       Components.Inertia inertia5(J=2)
-        annotation (Placement(transformation(extent={{50,70},{70,90}})));
+        annotation (Placement(transformation(extent={{30,40},{50,60}})));
       Blocks.Sources.Sine sine2(freqHz=0.2, amplitude=1)
-        annotation (Placement(transformation(extent={{0,110},{20,130}})));
+        annotation (Placement(transformation(extent={{-20,80},{0,100}})));
       Components.Inertia inertia6(J=2)
-        annotation (Placement(transformation(extent={{110,70},{130,90}})));
+        annotation (Placement(transformation(extent={{90,40},{110,60}})));
       Components.OneWayClutch oneWayClutch(
         phi_rel(fixed=true),
         w_rel(fixed=true),
@@ -1538,74 +1538,81 @@ Du to a speed dependent force (like driving resistance), we find an equilibrium 
         stuck(fixed=true),
         fn_max=1,
         useHeatPort=true)
-        annotation (Placement(transformation(extent={{80,70},{100,90}})));
+        annotation (Placement(transformation(extent={{60,40},{80,60}})));
       Components.Brake brake(fn_max=2, useHeatPort=true)
-        annotation (Placement(transformation(extent={{140,70},{160,90}})));
+        annotation (Placement(transformation(extent={{120,40},{140,60}})));
     equation
 
       connect(sine.y, torque.tau) annotation (Line(
-          points={{-79,30},{-72,30}}, color={0,0,127}));
+          points={{-119,0},{-112,0}}, color={0,0,127}));
       connect(torque.flange, inertia1.flange_a) annotation (Line(
-          points={{-50,30},{-40,30}}));
+          points={{-90,0},{-80,0}}));
       connect(inertia1.flange_b, damper.flange_b) annotation (Line(
-          points={{-20,30},{-20,25},{-20,20},{-20,20}}));
+          points={{-60,0},{-50,0},{-50,-10}}));
       connect(damper.flange_a, fixed.flange) annotation (Line(
-          points={{-20,0},{-20,-5},{-20,-5},{-20,-10}}));
+          points={{-50,-30},{-50,-40}}));
       connect(damper.heatPort, convection.solid) annotation (Line(
-          points={{-30,0},{-30,-30},{20,-30}}, color={191,0,0}));
+          points={{-40,-30},{-20,-30},{-20,-60},{0,-60}},
+                                               color={191,0,0}));
       connect(TAmbient.port, convection.fluid) annotation (Line(
-          points={{48,-30},{40,-30}}, color={191,0,0}));
+          points={{28,-60},{20,-60}}, color={191,0,0}));
       connect(const.y, convection.Gc) annotation (Line(
-          points={{21,-60},{30,-60},{30,-40}}, color={0,0,127}));
+          points={{1,-90},{10,-90},{10,-70}},  color={0,0,127}));
       connect(inertia1.flange_b, springDamper.flange_a) annotation (Line(
-          points={{-20,30},{-10,30}}));
+          points={{-60,0},{-30,0}}));
       connect(springDamper.heatPort, convection.solid) annotation (Line(
-          points={{-10,20},{-10,-30},{20,-30}}, color={191,0,0}));
+          points={{-30,-10},{-30,-30},{-20,-30},{-20,-60},{0,-60}},
+                                                color={191,0,0}));
       connect(springDamper.flange_b, inertia2.flange_a) annotation (Line(
-          points={{10,30},{20,30}}));
+          points={{-10,0},{0,0}}));
       connect(elastoBacklash.flange_a, inertia2.flange_b) annotation (Line(
-          points={{50,30},{40,30}}));
+          points={{30,0},{20,0}}));
       connect(elastoBacklash.heatPort, convection.solid) annotation (Line(
-          points={{50,20},{50,0},{-10,0},{-10,-30},{20,-30}}, color={191,0,0}));
+          points={{30,-10},{30,-30},{-20,-30},{-20,-60},{0,-60}},
+                                                              color={191,0,0}));
       connect(elastoBacklash.flange_b, inertia3.flange_a) annotation (Line(
-          points={{70,30},{80,30}}));
+          points={{50,0},{60,0}}));
       connect(inertia3.flange_b, bearingFriction.flange_a) annotation (Line(
-          points={{100,30},{110,30}}));
+          points={{80,0},{90,0}}));
       connect(convection.solid, bearingFriction.heatPort) annotation (Line(
-          points={{20,-30},{-10,-30},{-10,0},{110,0},{110,20}}, color={191,0,0}));
+          points={{0,-60},{-20,-60},{-20,-30},{90,-30},{90,-10}},
+                                                                color={191,0,0}));
       connect(spring3.flange_b, inertia4.flange_a) annotation (Line(
-          points={{-50,80},{-40,80}}));
+          points={{-70,50},{-60,50}}));
       connect(bearingFriction.flange_b, spring3.flange_a) annotation (Line(
-          points={{130,30},{130,48},{-70,48},{-70,80}}));
+          points={{110,0},{110,20},{-90,20},{-90,50}}));
       connect(inertia4.flange_b, lossyGear.flange_a) annotation (Line(
-          points={{-20,80},{-10,80}}));
+          points={{-40,50},{-30,50}}));
       connect(lossyGear.heatPort, convection.solid) annotation (Line(
-          points={{-10,70},{-10,60},{140,60},{140,0},{-10,0},{-10,-30},{20,-30}}, color={191,0,0}));
+          points={{-30,40},{-30,30},{120,30},{120,-30},{-20,-30},{-20,-60},{0,-60}},
+                                                                                  color={191,0,0}));
 
       connect(lossyGear.flange_b, clutch.flange_a) annotation (Line(
-          points={{10,80},{20,80}}));
+          points={{-10,50},{0,50}}));
       connect(clutch.heatPort, convection.solid) annotation (Line(
-          points={{20,70},{20,60},{140,60},{140,0},{-10,0},{-10,-30},{20,-30}}, color={191,0,0}));
+          points={{0,40},{0,30},{120,30},{120,-30},{-20,-30},{-20,-60},{0,-60}},color={191,0,0}));
 
       connect(clutch.flange_b, inertia5.flange_a) annotation (Line(
-          points={{40,80},{50,80}}));
+          points={{20,50},{30,50}}));
       connect(sine2.y, clutch.f_normalized) annotation (Line(
-          points={{21,120},{30,120},{30,91}}, color={0,0,127}));
+          points={{1,90},{10,90},{10,61}},    color={0,0,127}));
       connect(inertia5.flange_b, oneWayClutch.flange_a) annotation (Line(
-          points={{70,80},{80,80}}));
+          points={{50,50},{60,50}}));
       connect(oneWayClutch.flange_b, inertia6.flange_a) annotation (Line(
-          points={{100,80},{110,80}}));
+          points={{80,50},{90,50}}));
       connect(sine2.y, oneWayClutch.f_normalized) annotation (Line(
-          points={{21,120},{90,120},{90,91}}, color={0,0,127}));
+          points={{1,90},{70,90},{70,61}},    color={0,0,127}));
       connect(inertia6.flange_b, brake.flange_a) annotation (Line(
-          points={{130,80},{140,80}}));
+          points={{110,50},{120,50}}));
       connect(sine2.y, brake.f_normalized) annotation (Line(
-          points={{21,120},{150,120},{150,91}}, color={0,0,127}));
+          points={{1,90},{130,90},{130,61}},    color={0,0,127}));
       connect(oneWayClutch.heatPort, convection.solid) annotation (Line(
-          points={{80,70},{80,60},{140,60},{140,0},{-10,0},{-10,-30},{20,-30}}, color={191,0,0}));
+          points={{60,40},{60,30},{120,30},{120,-30},{-20,-30},{-20,-60},{0,-60}},
+                                                                                color={191,0,0}));
 
       connect(brake.heatPort, convection.solid) annotation (Line(
-          points={{140,70},{140,0},{-10,0},{-10,-30},{20,-30}}, color={191,0,0}));
+          points={{120,40},{120,-30},{-20,-30},{-20,-60},{0,-60}},
+                                                                color={191,0,0}));
 
       annotation (
         Documentation(info="<html>
@@ -1618,7 +1625,8 @@ is present in variable convection.fluid.
 </p>
 </html>"),
         experiment(StopTime=1.0, Interval=0.0001),
-        Diagram(coordinateSystem(extent={{-120,-100},{180,140}})));
+        Diagram(coordinateSystem(extent={{-140,-100},{140,100}})),
+        Icon(coordinateSystem(extent={{-100,-100},{100,100}}, initialScale=0.1)));
     end HeatLosses;
 
     model SimpleGearShift "Simple Gearshift"
