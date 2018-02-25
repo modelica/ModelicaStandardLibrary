@@ -1109,7 +1109,11 @@ by <em>dividing</em> the two inputs <strong>u1</strong> and <strong>u2</strong>:
             extent={{-150,110},{150,150}},
             textString="%name"),
           Line(points={{-100,60},{-66,60},{-40,30}}, color={0,0,127}),
-          Line(points={{-100,-60},{0,-60},{0,-50}}, color={0,0,127})}),
+          Line(points={{-100,-60},{0,-60},{0,-50}}, color={0,0,127}),
+          Text(
+            extent={{-60,88},{90,60}},
+            lineColor={0,0,255},
+            textString="y = u1 / u2")}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={Rectangle(
               extent={{-100,-100},{100,100}},
