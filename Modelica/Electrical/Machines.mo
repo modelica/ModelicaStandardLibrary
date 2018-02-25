@@ -4824,8 +4824,8 @@ This package contains test examples of DC machines.
           offset=0,
           startTime=0.1) annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
-              rotation=270,
-              origin={-30,50})));
+              rotation=0,
+              origin={-40,30})));
       equation
         connect(loadInertia.flange_b, loadTorque.flange)
           annotation (Line(points={{70,0},{80,0}}, color={0,0,0}));
@@ -4845,7 +4845,7 @@ This package contains test examples of DC machines.
               points={{19,24},{10,24},{10,10},{-16,10},{-16,18}}, color={0,0,
                 127}));
         connect(speedSensor.w, currentController.feedForward) annotation (Line(
-              points={{50,-31},{50,-42},{-4,-42},{-4,18}}, color={0,0,127}));
+              points={{50,-31},{50,-40},{-4,-40},{-4,18}}, color={0,0,127}));
         connect(constantVoltage.n, ground.p)
           annotation (Line(points={{20,80},{20,60}}, color={0,0,255}));
         connect(ground.p, idealDCDCinverter.pin_nBat)
@@ -4854,16 +4854,19 @@ This package contains test examples of DC machines.
           annotation (Line(points={{40,80},{40,70}}, color={0,0,255}));
         connect(resistor.n, idealDCDCinverter.pin_pBat)
           annotation (Line(points={{40,50},{40,40}}, color={0,0,255}));
-        connect(step.y, currentController.u) annotation (Line(points={{-30,39},
-                {-30,30},{-22,30}}, color={0,0,127}));
-        annotation (experiment(StopTime=2, Interval=0.0001), Documentation(info=
-               "<html>
+        connect(step.y, currentController.u)
+          annotation (Line(points={{-29,30},{-22,30}}, color={0,0,127}));
+        annotation (experiment(StopTime=2, Interval=0.0001), Documentation(info="<html>
 <p>This model demonstrates how a current controller for a DC PM drive works.</p>
 <p>
 Electrical power is taken from a battery (constant voltage with inner resistance) and fed to the motor via an ideal DC-DC inverter. 
 The current controller is parameterized according to the absolute optimum.
 </p>
 <p>At time=0.1 s a reference current step is applied, causing the drive to accelerate until motor torque and load torque are at an equilibrium.</p>
+<p>
+Further reading: 
+<a href=\"modelica://Modelica/Resources/Documentation/Electrical/Machines/DriveControl.pdf\">Tutorial at the Modelica Conference 2017</a>
+</p>
 </html>"));
       end CurrentControlledDCPM;
 
@@ -4947,9 +4950,9 @@ The current controller is parameterized according to the absolute optimum.
           startTime=0.1,
           height=dcpmDriveData.dcpmData.wNominal) annotation (Placement(
               transformation(
-              extent={{-10,-10},{10,10}},
-              rotation=270,
-              origin={-90,50})));
+              extent={{-10,10},{10,-10}},
+              rotation=180,
+              origin={-70,60})));
       equation
         connect(loadInertia.flange_b, loadTorque.flange)
           annotation (Line(points={{70,0},{80,0}}, color={0,0,0}));
@@ -4969,7 +4972,7 @@ The current controller is parameterized according to the absolute optimum.
               points={{19,24},{10,24},{10,10},{-16,10},{-16,18}}, color={0,0,
                 127}));
         connect(speedSensor.w, currentController.feedForward) annotation (Line(
-              points={{50,-31},{50,-42},{-4,-42},{-4,18}}, color={0,0,127}));
+              points={{50,-31},{50,-40},{-4,-40},{-4,18}}, color={0,0,127}));
         connect(constantVoltage.n, ground.p)
           annotation (Line(points={{20,80},{20,60}}, color={0,0,255}));
         connect(ground.p, idealDCDCinverter.pin_nBat)
@@ -4980,25 +4983,180 @@ The current controller is parameterized according to the absolute optimum.
           annotation (Line(points={{40,50},{40,40}}, color={0,0,255}));
         connect(speedController.y, currentController.u)
           annotation (Line(points={{-29,30},{-22,30}}, color={0,0,127}));
-        connect(speedSensor.w, speedController.u_m) annotation (Line(points={{
-                50,-31},{50,-42},{-46,-42},{-46,18}}, color={0,0,127}));
+        connect(speedSensor.w, speedController.u_m) annotation (Line(points={{50,-31},
+                {50,-40},{-46,-40},{-46,18}},         color={0,0,127}));
         connect(preFilter.y, speedController.u)
           annotation (Line(points={{-59,30},{-52,30}}, color={0,0,127}));
-        connect(step.y, preFilter.u) annotation (Line(points={{-90,39},{-90,30},
-                {-82,30}}, color={0,0,127}));
+        connect(step.y, preFilter.u) annotation (Line(points={{-81,60},{-90,60},
+                {-90,30},{-82,30}}, color={0,0,127}));
         annotation (experiment(Interval=0.0001),             Documentation(info="<html>
 <p>This model demonstrates how a speed controller for a current controlled DC PM drive works.</p>
 <p>
 Electrical power is taken from a battery (constant voltage with inner resistance) and fed to the motor via an ideal DC-DC inverter. 
-The current controller is parameterized according to the absolute optimum. 
+The inner current controller is parameterized according to the absolute optimum. 
 The outer control loop is formed by the speed controller which is parameterized according to the symmetrical optimum. 
 </p>
 <p>
 At time=0.1 s a reference speed step is applied, causing the drive to accelerate to the desired speed.
 At time=0.8 s a load torque step is applied, causing to drive to decelerate until the speed controller brings the drive back to the desired speed.
 </p>
+<p>
+Further reading: 
+<a href=\"modelica://Modelica/Resources/Documentation/Electrical/Machines/DriveControl.pdf\">Tutorial at the Modelica Conference 2017</a>
+</p>
 </html>"));
       end SpeedControlledDCPM;
+
+      model PositionControlledDCPM "Position controlled DC PM drive"
+        extends Modelica.Icons.Example;
+        parameter Modelica.Electrical.Machines.Utilities.DcpmDriveData dcpmDriveData
+          annotation (Placement(transformation(extent={{50,20},{70,40}})));
+        Modelica.Mechanics.Rotational.Sources.TorqueStep
+          loadTorque(
+          stepTorque=-dcpmDriveData.tauNominal,
+          offsetTorque=0,
+          startTime=2)
+          annotation (Placement(transformation(extent={{100,-10},{80,10}})));
+        Modelica.Mechanics.Rotational.Components.Inertia loadInertia(J=
+              dcpmDriveData.JL)
+          annotation (Placement(transformation(extent={{50,-10},{70,10}})));
+        Modelica.Mechanics.Rotational.Sensors.SpeedSensor speedSensor annotation (
+            Placement(transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=270,
+              origin={50,-20})));
+        Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_PermanentMagnet dcpm(
+          TaOperational=dcpmDriveData.dcpmData.TaNominal,
+          VaNominal=dcpmDriveData.dcpmData.VaNominal,
+          IaNominal=dcpmDriveData.dcpmData.IaNominal,
+          wNominal=dcpmDriveData.dcpmData.wNominal,
+          TaNominal=dcpmDriveData.dcpmData.TaNominal,
+          Ra=dcpmDriveData.dcpmData.Ra,
+          TaRef=dcpmDriveData.dcpmData.TaRef,
+          La=dcpmDriveData.dcpmData.La,
+          Jr=dcpmDriveData.dcpmData.Jr,
+          frictionParameters=dcpmDriveData.dcpmData.frictionParameters,
+          phiMechanical(fixed=true),
+          wMechanical(fixed=true),
+          coreParameters=dcpmDriveData.dcpmData.coreParameters,
+          strayLoadParameters=dcpmDriveData.dcpmData.strayLoadParameters,
+          brushParameters=dcpmDriveData.dcpmData.brushParameters,
+          ia(fixed=true),
+          Js=dcpmDriveData.dcpmData.Js,
+          alpha20a=dcpmDriveData.dcpmData.alpha20a)
+          annotation (Placement(transformation(extent={{20,-10},{40,10}})));
+        Modelica.Electrical.Machines.Utilities.IdealDCDCinverter idealDCDCinverter(Td=
+              dcpmDriveData.Td)
+          annotation (Placement(transformation(extent={{20,20},{40,40}})));
+        Modelica.Electrical.Analog.Basic.Resistor resistor(R=0.05*dcpmDriveData.dcpmData.VaNominal
+              /dcpmDriveData.dcpmData.IaNominal) annotation (Placement(
+              transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=270,
+              origin={40,60})));
+        Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
+              transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=270,
+              origin={10,60})));
+        Modelica.Electrical.Analog.Sources.ConstantVoltage constantVoltage(V=
+              dcpmDriveData.VaMax)
+          annotation (Placement(transformation(extent={{40,70},{20,90}})));
+        Modelica.Electrical.Machines.Utilities.LimitedPI currentController(
+          constantLimits=false,
+          k=dcpmDriveData.kpI,
+          Ti=dcpmDriveData.TiI,
+          kFF=dcpmDriveData.kPhi,
+          initType=Modelica.Blocks.Types.Init.InitialOutput)
+          annotation (Placement(transformation(extent={{-20,20},{0,40}})));
+        Modelica.Electrical.Machines.Utilities.LimitedPI speedController(
+          initType=Modelica.Blocks.Types.Init.InitialOutput,
+          k=dcpmDriveData.kpw,
+          Ti=dcpmDriveData.Tiw,
+          with_FF=false,
+          constantLimits=true,
+          yMax=dcpmDriveData.IaMax)
+          annotation (Placement(transformation(extent={{-50,20},{-30,40}})));
+        Modelica.Electrical.Machines.Utilities.LimitedPI positionController(
+          with_FF=false,
+          constantLimits=true,
+          k=dcpmDriveData.kpP,
+          useI=false,
+          yMax=dcpmDriveData.wMax,
+          initType=Modelica.Blocks.Types.Init.SteadyState)
+          annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
+        Modelica.Mechanics.Rotational.Sensors.AngleSensor angleSensor
+          annotation (Placement(transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=270,
+              origin={40,-58})));
+        Modelica.Blocks.Sources.KinematicPTP2 kinematicPTP(
+          startTime=0.1,
+          qd_max={dcpmDriveData.wMax},
+          qdd_max={dcpmDriveData.aMax},
+          q_end={200}) annotation (Placement(transformation(
+              extent={{-10,10},{10,-10}},
+              rotation=180,
+              origin={-70,60})));
+      equation
+        connect(loadInertia.flange_b, loadTorque.flange)
+          annotation (Line(points={{70,0},{80,0}}, color={0,0,0}));
+        connect(dcpm.flange, loadInertia.flange_a)
+          annotation (Line(points={{40,0},{50,0}}, color={0,0,0}));
+        connect(speedSensor.flange, dcpm.flange)
+          annotation (Line(points={{50,-10},{50,0},{40,0}}, color={0,0,0}));
+        connect(idealDCDCinverter.pin_nMot, dcpm.pin_an)
+          annotation (Line(points={{24,20},{24,10}}, color={0,0,255}));
+        connect(idealDCDCinverter.pin_pMot, dcpm.pin_ap)
+          annotation (Line(points={{36,20},{36,10}}, color={0,0,255}));
+        connect(idealDCDCinverter.vBat, currentController.yMaxVar)
+          annotation (Line(points={{19,36},{2,36}}, color={0,0,127}));
+        connect(idealDCDCinverter.vRef, currentController.y)
+          annotation (Line(points={{18,30},{1,30}}, color={0,0,127}));
+        connect(idealDCDCinverter.iMot, currentController.u_m) annotation (Line(
+              points={{19,24},{10,24},{10,10},{-16,10},{-16,18}}, color={0,0,
+                127}));
+        connect(speedSensor.w, currentController.feedForward) annotation (Line(
+              points={{50,-31},{50,-40},{-4,-40},{-4,18}}, color={0,0,127}));
+        connect(constantVoltage.n, ground.p)
+          annotation (Line(points={{20,80},{20,60}}, color={0,0,255}));
+        connect(ground.p, idealDCDCinverter.pin_nBat)
+          annotation (Line(points={{20,60},{20,40}}, color={0,0,255}));
+        connect(constantVoltage.p, resistor.p)
+          annotation (Line(points={{40,80},{40,70}}, color={0,0,255}));
+        connect(resistor.n, idealDCDCinverter.pin_pBat)
+          annotation (Line(points={{40,50},{40,40}}, color={0,0,255}));
+        connect(speedController.y, currentController.u)
+          annotation (Line(points={{-29,30},{-22,30}}, color={0,0,127}));
+        connect(speedSensor.w, speedController.u_m) annotation (Line(points={{50,-31},
+                {50,-40},{-46,-40},{-46,18}},         color={0,0,127}));
+        connect(positionController.y, speedController.u)
+          annotation (Line(points={{-59,30},{-52,30}}, color={0,0,127}));
+        connect(dcpm.flange, angleSensor.flange) annotation (Line(points={{40,0},
+                {50,0},{50,-10},{40,-10},{40,-48}}, color={0,0,0}));
+        connect(angleSensor.phi, positionController.u_m) annotation (Line(
+              points={{40,-69},{40,-80},{-76,-80},{-76,18}}, color={0,0,127}));
+        connect(kinematicPTP.q[1], positionController.u) annotation (Line(
+              points={{-81,68},{-90,68},{-90,30},{-82,30}}, color={0,0,127}));
+        annotation (experiment(StopTime=2.5, Interval=0.0001),
+                                                             Documentation(info="<html>
+<p>This model demonstrates how a position controller for a speed controlled DC PM drive works.</p>
+<p>
+Electrical power is taken from a battery (constant voltage with inner resistance) and fed to the motor via an ideal DC-DC inverter. 
+The inner current controller is parameterized according to the absolute optimum. 
+The middle control loop is formed by the speed controller which is parameterized according to the symmetrical optimum. 
+The outer control loop is formed by the position controller which is parameterized to avoid an overshot in the position. 
+</p>
+<p>
+At time=0.1 s the kinematicPTP starts to prescribe the reference position with limited speed and limited acceleration.
+At time=2 s a load torque step is applied, causing to drive to slighlty leave the end position until the position controller brings the drive back to the desired position.
+</p>
+<p>
+Further reading: 
+<a href=\"modelica://Modelica/Resources/Documentation/Electrical/Machines/DriveControl.pdf\">Tutorial at the Modelica Conference 2017</a>
+</p>
+</html>"));
+      end PositionControlledDCPM;
       annotation (Documentation(info="<html>
 This package contains test examples demonstrating control of electric drives.
 </html>"));
@@ -16668,12 +16826,21 @@ normally given in a technical description, according to the standard EN&nbsp;600
         annotation(Dialog(tab="Controller", group="Speed controller"));
       parameter Modelica.SIunits.Current IaMax=1.5*dcpmData.IaNominal "Maximum current"
         annotation(Dialog(tab="Controller", group="Speed controller"));
+      parameter Modelica.SIunits.Torque tauMax=kPhi*IaMax "Maximum torque"
+        annotation(Dialog(tab="Controller", group="Speed controller", enable=false));
       parameter Real kpw=(JL + dcpmData.Jr)/(2*Tsub)/kPhi "Proportional gain"
         annotation(Dialog(tab="Controller", group="Speed controller", enable=false));
       parameter Modelica.SIunits.Time Tiw=4*Tsub "Integral time constant"
         annotation(Dialog(tab="Controller", group="Speed controller", enable=false));
       parameter Modelica.SIunits.Time Tfw=Tiw "Filter time constant"
         annotation(Dialog(tab="Controller", group="Speed controller", enable=false));
+    //Position controller
+      parameter Modelica.SIunits.AngularVelocity wMax=dcpmData.wNominal*dcpmData.VaNominal/dcpmData.ViNominal "Maximum speed"
+        annotation(Dialog(tab="Controller", group="Position controller"));
+      parameter Modelica.SIunits.AngularAcceleration aMax=tauMax/(JL + dcpmData.Jr) "Maximum acceleration"
+        annotation(Dialog(tab="Controller", group="Position controller", enable=false));
+      parameter Real kpP=1/(16*Tsub) "Proportional gain"
+        annotation(Dialog(tab="Controller", group="Position controller", enable=false));
       annotation (
         defaultComponentName="dcpmDriveData",
         defaultComponentPrefixes="parameter",
