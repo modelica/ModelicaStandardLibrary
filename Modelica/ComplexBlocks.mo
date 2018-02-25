@@ -1894,28 +1894,22 @@ An error occurs if the elements of the input <code>u</code> is zero.
     block Bode "Calculate quantities to plot Bode diagram"
       parameter Boolean useDivisor = true "Use divisor input, if true";
       constant Modelica.SIunits.AmplitudeLevelDifference dB = 20 "Amplitude level difference";
-      Interfaces.ComplexInput u "Dividend if useDivisor == true"
-                                annotation (Placement(transformation(extent={{-140,40},{-100,80}}),   iconTransformation(extent={{-140,40},{-100,80}})));
-      Interfaces.ComplexInput divisor if useDivisor "Divisor"
-                                                    annotation (Placement(transformation(extent={{-140,-80},{-100,-40}}), iconTransformation(extent={{-140,-80},{-100,-40}})));
-      Blocks.Interfaces.RealOutput abs_y "Absolute value of ratio u / divisor"
-                                         annotation (Placement(transformation(extent={{-10,-10},{10,10}},
+      Interfaces.ComplexInput u "Dividend if useDivisor == true" annotation (Placement(transformation(extent={{-140,40},{-100,80}}),   iconTransformation(extent={{-140,40},{-100,80}})));
+      Interfaces.ComplexInput divisor if useDivisor "Divisor" annotation (Placement(transformation(extent={{-140,-80},{-100,-40}}), iconTransformation(extent={{-140,-80},{-100,-40}})));
+      Blocks.Interfaces.RealOutput abs_y "Absolute value of ratio u / divisor" annotation (Placement(transformation(extent={{-10,-10},{10,10}},
             rotation=270,
             origin={-60,-110}),                                                                              iconTransformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
             origin={-60,-110})));
-      Blocks.Interfaces.RealOutput arg_y "Angle of ratio u / divisor"
-                                         annotation (Placement(transformation(extent={{-10,-10},{10,10}},
+      Blocks.Interfaces.RealOutput arg_y "Angle of ratio u / divisor" annotation (Placement(transformation(extent={{-10,-10},{10,10}},
             rotation=270,
             origin={60,-110}),                                                                                iconTransformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
             origin={60,-110})));
-      Interfaces.ComplexOutput y "Quotient y = u / divisior"
-                                 annotation (Placement(transformation(extent={{100,-10},{120,10}}), iconTransformation(extent={{100,-10},{120,10}})));
-      Sources.ComplexConstant complexOne(final k=Complex(1, 0)) if
-                                                                  not useDivisor "Complex(1,0)" annotation (Placement(transformation(extent={{-100,-50},{-80,-30}})));
+      Interfaces.ComplexOutput y "Quotient y = u / divisior" annotation (Placement(transformation(extent={{100,-10},{120,10}}), iconTransformation(extent={{100,-10},{120,10}})));
+      Sources.ComplexConstant complexOne(final k=Complex(1, 0)) if not useDivisor "Complex(1,0)" annotation (Placement(transformation(extent={{-100,-50},{-80,-30}})));
       Division division annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
       ComplexToPolar complexToPolar annotation (Placement(transformation(
             extent={{-10,10},{10,-10}},
