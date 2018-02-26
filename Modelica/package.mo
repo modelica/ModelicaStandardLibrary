@@ -2317,6 +2317,10 @@ to <font color=\"blue\"><strong>existing</strong></font> libraries:<br>
 <tr><td valign=\"top\" width=\"150\">LogFrequencySweep</td>
     <td valign=\"top\"> The logarithm of w performs a linear ramp from log10(wMin) to log10(wMax), the output is the decimal power of this logarithmic ramp.</td></tr>
 
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Machines.Examples</strong></td></tr>
+<tr><td valign=\"top\" width=\"150\">ControlledDCDrives</td>
+    <td valign=\"top\">Current, speed and position controlled DC PM drive</a></td></tr>
+
 <tr><td colspan=\"2\"><strong>Modelica.Mechanics.Rotational.Examples.Utilities.</strong></td></tr>
 <tr><td valign=\"top\" width=\"150\">SpringDamperNoRelativeStates</td>
     <td valign=\"top\">Introduced to fix ticket <a href=\"https://trac.modelica.org/Modelica/ticket/1375\">1375</a></td></tr>

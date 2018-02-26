@@ -4754,7 +4754,7 @@ This package contains test examples of DC machines.
 </html>"));
     end DCMachines;
 
-    package ControlledDrives "Test examples of controlled drives"
+    package ControlledDCDrives "Test examples of controlled DC drives"
       import Modelica;
       extends Modelica.Icons.ExamplesPackage;
       model CurrentControlledDCPM "Current controlled DC PM drive"
@@ -5377,15 +5377,15 @@ The integral part can be switched off to obtain a limited P-controller.
           annotation (Icon(coordinateSystem(preserveAspectRatio=false), graphics={
                 Text(
                   extent={{-100,20},{100,-20}},
-                  lineColor={28,108,200},
+                  lineColor={0,0,255},
                   textString="%name"),
                 Text(
                   extent={{-40,80},{40,60}},
-                  lineColor={28,108,200},
+                  lineColor={128,128,128},
                   textString="Bat"),
                 Text(
                   extent={{-40,-60},{40,-80}},
-                  lineColor={28,108,200},
+                  lineColor={128,128,128},
                   textString="Mot")}),                                   Diagram(
                 coordinateSystem(preserveAspectRatio=false)),
             Documentation(info="<html>
@@ -5537,7 +5537,7 @@ The integral part can be switched off to obtain a limited P-controller.
       annotation (Documentation(info="<html>
 This package contains test examples demonstrating control of electric drives.
 </html>"));
-    end ControlledDrives;
+    end ControlledDCDrives;
 
     package Transformers "Test examples of transformers"
       extends Modelica.Icons.ExamplesPackage;
