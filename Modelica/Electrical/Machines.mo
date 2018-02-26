@@ -4755,7 +4755,6 @@ This package contains test examples of DC machines.
     end DCMachines;
 
     package ControlledDCDrives "Test examples of controlled DC drives"
-      import Modelica;
       extends Modelica.Icons.ExamplesPackage;
       model CurrentControlledDCPM "Current controlled DC PM drive"
         extends Components.PartialControlledDCPM(redeclare
