@@ -3519,7 +3519,6 @@ The classes in this package should not be directly used by a user.
     import Modelica;
     extends Modelica.Icons.ObsoleteModel;
     extends TransformAbsoluteVector;
-    // extends Modelica.Icons.ObsoleteModel;
     annotation(obsolete = "Obsolete model due to false class name - use Modelica.Mechanics.MultiBody.Sensors.TransformAbsoluteVector instead", Documentation(info="<html>
 <!--a placeholder to fulfill minimum domentation length-->
 <!--a placeholder to fulfill minimum domentation length-->
@@ -3531,7 +3530,6 @@ The classes in this package should not be directly used by a user.
     import Modelica;
     extends Modelica.Icons.ObsoleteModel;
     extends TransformRelativeVector;
-    // extends Modelica.Icons.ObsoleteModel;
     annotation(obsolete = "Obsolete model due to false class name - use Modelica.Mechanics.MultiBody.Sensors.TransformRelativeVector instead", Documentation(info="<html>
 <!--a placeholder to fulfill minimum domentation length-->
 <!--a placeholder to fulfill minimum domentation length-->
