@@ -516,8 +516,8 @@ on the model behaviour.
     Real s(start=0, final unit="1")
       "Auxiliary variable for actual position on the ideal diode characteristic";
     /* s = 0: knee point
-     s < 0: below knee point, conducting
-     s > 0: above knee point, locking */
+     s < 0: below knee point, blocking
+     s > 0: above knee point, conducting */
     constant Modelica.SIunits.Voltage unitVoltage=1 annotation (HideResult=true);
     constant Modelica.SIunits.Current unitCurrent=1 annotation (HideResult=true);
   equation
