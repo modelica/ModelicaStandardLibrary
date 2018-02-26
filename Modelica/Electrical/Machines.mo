@@ -4776,7 +4776,7 @@ This package contains test examples of DC machines.
             Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=270,
-              origin={50,-20})));
+              origin={50,-30})));
         Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_PermanentMagnet dcpm(
           TaOperational=dcpmDriveData.dcpmData.TaNominal,
           VaNominal=dcpmDriveData.dcpmData.VaNominal,
@@ -4797,7 +4797,7 @@ This package contains test examples of DC machines.
           Js=dcpmDriveData.dcpmData.Js,
           alpha20a=dcpmDriveData.dcpmData.alpha20a)
           annotation (Placement(transformation(extent={{20,-10},{40,10}})));
-        Modelica.Electrical.Machines.Examples.ControlledDrives.Components.IdealDCDCinverter
+        Components.IdealDCDCinverter
           dcdcInverter(
           fS=dcpmDriveData.fS,
           Td=dcpmDriveData.Td,
@@ -4839,7 +4839,7 @@ This package contains test examples of DC machines.
         connect(dcpm.flange, loadInertia.flange_a)
           annotation (Line(points={{40,0},{50,0}}, color={0,0,0}));
         connect(speedSensor.flange, dcpm.flange)
-          annotation (Line(points={{50,-10},{50,0},{40,0}}, color={0,0,0}));
+          annotation (Line(points={{50,-20},{50,0},{40,0}}, color={0,0,0}));
         connect(dcdcInverter.pin_nMot, dcpm.pin_an)
           annotation (Line(points={{24,20},{24,10}}, color={0,0,255}));
         connect(dcdcInverter.pin_pMot, dcpm.pin_ap)
@@ -4852,7 +4852,7 @@ This package contains test examples of DC machines.
               points={{19,24},{10,24},{10,10},{-16,10},{-16,18}}, color={0,0,
                 127}));
         connect(speedSensor.w, currentController.feedForward) annotation (Line(
-              points={{50,-31},{50,-40},{-4,-40},{-4,18}}, color={0,0,127}));
+              points={{50,-41},{50,-50},{-4,-50},{-4,18}}, color={0,0,127}));
         connect(constantVoltage.n, ground.p)
           annotation (Line(points={{20,80},{20,60}}, color={0,0,255}));
         connect(ground.p, dcdcInverter.pin_nBat)
@@ -4896,7 +4896,7 @@ Further reading:
             Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=270,
-              origin={50,-20})));
+              origin={50,-30})));
         Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_PermanentMagnet dcpm(
           TaOperational=dcpmDriveData.dcpmData.TaNominal,
           VaNominal=dcpmDriveData.dcpmData.VaNominal,
@@ -4974,7 +4974,7 @@ Further reading:
         connect(dcpm.flange, loadInertia.flange_a)
           annotation (Line(points={{40,0},{50,0}}, color={0,0,0}));
         connect(speedSensor.flange, dcpm.flange)
-          annotation (Line(points={{50,-10},{50,0},{40,0}}, color={0,0,0}));
+          annotation (Line(points={{50,-20},{50,0},{40,0}}, color={0,0,0}));
         connect(dcdcInverter.pin_nMot, dcpm.pin_an)
           annotation (Line(points={{24,20},{24,10}}, color={0,0,255}));
         connect(dcdcInverter.pin_pMot, dcpm.pin_ap)
@@ -4987,7 +4987,7 @@ Further reading:
               points={{19,24},{10,24},{10,10},{-16,10},{-16,18}}, color={0,0,
                 127}));
         connect(speedSensor.w, currentController.feedForward) annotation (Line(
-              points={{50,-31},{50,-40},{-4,-40},{-4,18}}, color={0,0,127}));
+              points={{50,-41},{50,-50},{-4,-50},{-4,18}}, color={0,0,127}));
         connect(constantVoltage.n, ground.p)
           annotation (Line(points={{20,80},{20,60}}, color={0,0,255}));
         connect(ground.p, dcdcInverter.pin_nBat)
@@ -4998,8 +4998,8 @@ Further reading:
           annotation (Line(points={{40,50},{40,40}}, color={0,0,255}));
         connect(speedController.y, currentController.u)
           annotation (Line(points={{-29,30},{-22,30}}, color={0,0,127}));
-        connect(speedSensor.w, speedController.u_m) annotation (Line(points={{50,-31},
-                {50,-40},{-46,-40},{-46,18}},         color={0,0,127}));
+        connect(speedSensor.w, speedController.u_m) annotation (Line(points={{50,-41},
+                {50,-50},{-46,-50},{-46,18}},         color={0,0,127}));
         connect(preFilter.y, speedController.u)
           annotation (Line(points={{-59,30},{-52,30}}, color={0,0,127}));
         connect(step.y, preFilter.u) annotation (Line(points={{-81,60},{-90,60},
@@ -5032,7 +5032,7 @@ Further reading:
           loadTorque(
           stepTorque=-dcpmDriveData.tauNominal,
           offsetTorque=0,
-          startTime=2)
+          startTime=2.2)
           annotation (Placement(transformation(extent={{100,-10},{80,10}})));
         Modelica.Mechanics.Rotational.Components.Inertia loadInertia(J=
               dcpmDriveData.JL)
@@ -5041,7 +5041,7 @@ Further reading:
             Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=270,
-              origin={50,-20})));
+              origin={50,-30})));
         Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_PermanentMagnet dcpm(
           TaOperational=dcpmDriveData.dcpmData.TaNominal,
           VaNominal=dcpmDriveData.dcpmData.VaNominal,
@@ -5062,7 +5062,7 @@ Further reading:
           Js=dcpmDriveData.dcpmData.Js,
           alpha20a=dcpmDriveData.dcpmData.alpha20a)
           annotation (Placement(transformation(extent={{20,-10},{40,10}})));
-        Modelica.Electrical.Machines.Examples.ControlledDrives.Components.IdealDCDCinverter
+        Components.IdealDCDCinverter
           dcdcInverter(
           fS=dcpmDriveData.fS,
           Td=dcpmDriveData.Td,
@@ -5113,7 +5113,7 @@ Further reading:
           annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=270,
-              origin={40,-58})));
+              origin={70,-30})));
         Modelica.Blocks.Sources.KinematicPTP2 kinematicPTP(
           startTime=0.1,
           qd_max={dcpmDriveData.wMax},
@@ -5128,7 +5128,7 @@ Further reading:
         connect(dcpm.flange, loadInertia.flange_a)
           annotation (Line(points={{40,0},{50,0}}, color={0,0,0}));
         connect(speedSensor.flange, dcpm.flange)
-          annotation (Line(points={{50,-10},{50,0},{40,0}}, color={0,0,0}));
+          annotation (Line(points={{50,-20},{50,0},{40,0}}, color={0,0,0}));
         connect(dcdcInverter.pin_nMot, dcpm.pin_an)
           annotation (Line(points={{24,20},{24,10}}, color={0,0,255}));
         connect(dcdcInverter.pin_pMot, dcpm.pin_ap)
@@ -5141,7 +5141,7 @@ Further reading:
               points={{19,24},{10,24},{10,10},{-16,10},{-16,18}}, color={0,0,
                 127}));
         connect(speedSensor.w, currentController.feedForward) annotation (Line(
-              points={{50,-31},{50,-40},{-4,-40},{-4,18}}, color={0,0,127}));
+              points={{50,-41},{50,-50},{-4,-50},{-4,18}}, color={0,0,127}));
         connect(constantVoltage.n, ground.p)
           annotation (Line(points={{20,80},{20,60}}, color={0,0,255}));
         connect(ground.p, dcdcInverter.pin_nBat)
@@ -5152,16 +5152,16 @@ Further reading:
           annotation (Line(points={{40,50},{40,40}}, color={0,0,255}));
         connect(speedController.y, currentController.u)
           annotation (Line(points={{-29,30},{-22,30}}, color={0,0,127}));
-        connect(speedSensor.w, speedController.u_m) annotation (Line(points={{50,-31},
-                {50,-40},{-46,-40},{-46,18}},         color={0,0,127}));
+        connect(speedSensor.w, speedController.u_m) annotation (Line(points={{50,-41},
+                {50,-50},{-46,-50},{-46,18}},         color={0,0,127}));
         connect(positionController.y, speedController.u)
           annotation (Line(points={{-59,30},{-52,30}}, color={0,0,127}));
-        connect(dcpm.flange, angleSensor.flange) annotation (Line(points={{40,0},
-                {50,0},{50,-10},{40,-10},{40,-48}}, color={0,0,0}));
         connect(angleSensor.phi, positionController.u_m) annotation (Line(
-              points={{40,-69},{40,-80},{-76,-80},{-76,18}}, color={0,0,127}));
+              points={{70,-41},{70,-60},{-76,-60},{-76,18}}, color={0,0,127}));
         connect(kinematicPTP.q[1], positionController.u) annotation (Line(
               points={{-81,68},{-90,68},{-90,30},{-82,30}}, color={0,0,127}));
+        connect(speedSensor.flange, angleSensor.flange)
+          annotation (Line(points={{50,-20},{70,-20}}, color={0,0,0}));
         annotation (experiment(StopTime=2.5, Interval=0.0001),
                                                              Documentation(info="<html>
 <p>This model demonstrates how a position controller for a speed controlled DC PM drive works.</p>
@@ -5173,7 +5173,7 @@ The outer control loop is formed by the position controller which is parameteriz
 </p>
 <p>
 At time=0.1 s the kinematicPTP starts to prescribe the reference position with limited speed and limited acceleration.
-At time=2 s a load torque step is applied, causing to drive to slighlty leave the end position until the position controller brings the drive back to the desired position.
+At time=2.2 s a load torque step is applied, causing to drive to slighlty leave the end position until the position controller brings the drive back to the desired position.
 </p>
 <p>
 Further reading: 
@@ -5206,11 +5206,13 @@ Further reading:
           parameter Modelica.SIunits.ElectricalTorqueConstant kPhi=tauNominal/dcpmData.IaNominal
             "Torque constant"
             annotation(Dialog(group="Motor", enable=false));
-          parameter Modelica.SIunits.Frequency fS=1e3 "Switching frequency"
+          parameter Modelica.SIunits.Frequency fS=2e3 "Switching frequency"
             annotation(Dialog(group="Inverter"));
           parameter Modelica.SIunits.Time Td=0.5/fS "Dead time of inverter"
             annotation(Dialog(group="Inverter", enable=false));
-          parameter Modelica.SIunits.Time Tmf=0*2/fS "Measurement filter time constant"
+          parameter Modelica.SIunits.Time Tmf=2/fS "Measurement filter time constant"
+            annotation(Dialog(group="Inverter", enable=false));
+          parameter Modelica.SIunits.Time Tsigma=Td + Tmf "Sum of small time constants"
             annotation(Dialog(group="Inverter", enable=false));
           parameter Modelica.SIunits.Inertia JL=dcpmData.Jr "Load inertia"
             annotation(Dialog(group="Load"));
@@ -5226,12 +5228,9 @@ Further reading:
           parameter Modelica.SIunits.AngularAcceleration aMax=tauMax/(JL + dcpmData.Jr) "Maximum acceleration"
             annotation(Dialog(tab="Controller", group="Limits", enable=false));
         //Current controller: absolute optimum
-          parameter Modelica.SIunits.Time Tsigma=Td + Tmf "Sum of small time constants"
-            annotation(Dialog(tab="Controller", group="Current controller", enable=false));
           parameter Real kpI=dcpmData.La/(2*Tsigma) "Proportional gain"
             annotation(Dialog(tab="Controller", group="Current controller", enable=false));
-          parameter Modelica.SIunits.Time TiI=Ta
-                                                "Integral time constant"
+          parameter Modelica.SIunits.Time TiI=Ta "Integral time constant"
             annotation(Dialog(tab="Controller", group="Current controller", enable=false));
           parameter Modelica.SIunits.Time Tsub=2*Tsigma "Substitute time constant"
             annotation(Dialog(tab="Controller", group="Current controller", enable=false));
@@ -5444,18 +5443,17 @@ The integral part can be switched off to obtain a limited P-controller.
 </html>"));
         end LimitedPI;
 
-        model IdealDCDCinverter "Ideal DC-DC inverter"
+        partial model PartialDCDCinverter "Partial DC-DC inverter"
           parameter Modelica.SIunits.Frequency fS "Switching frequency";
           parameter Modelica.SIunits.Time Td=0.5/fS "Dead time";
           parameter Modelica.SIunits.Time Tmf=2/fS "Measurement filter time constant";
           parameter Modelica.SIunits.Voltage VaMax "Maximum Voltage";
-          parameter Modelica.SIunits.Time Ti=1e-6 "Time constant of integral power controller";
           output Modelica.SIunits.Voltage vBattery=pin_pBat.v - pin_nBat.v "Voltage at battery";
           output Modelica.SIunits.Current iBattery=pin_pBat.i "Current from battery";
-          output Modelica.SIunits.Power pBattery=powerBat.power "Power from battery";
+          output Modelica.SIunits.Power pBattery=vBattery*iBattery "Power from battery";
           output Modelica.SIunits.Voltage vMotor=pin_pMot.v - pin_nMot.v "Voltage at motor";
           output Modelica.SIunits.Current iMotor=-pin_pMot.i "Current to motor";
-          output Modelica.SIunits.Power pMotor=powerMot.power "Power to motor";
+          output Modelica.SIunits.Power pMotor=vMotor*iMotor "Power to motor";
           Analog.Interfaces.PositivePin pin_pMot
             annotation (Placement(transformation(extent={{50,-110},{70,-90}})));
           Analog.Interfaces.PositivePin pin_pBat
@@ -5465,13 +5463,6 @@ The integral part can be switched off to obtain a limited P-controller.
           Analog.Interfaces.NegativePin pin_nBat
             annotation (Placement(transformation(extent={{-110,110},{-90,90}}),
                 iconTransformation(extent={{-110,110},{-90,90}})));
-          Analog.Sources.SignalVoltage signalVoltage
-            annotation (Placement(transformation(extent={{10,-90},{-10,-70}})));
-          Analog.Sources.SignalCurrent signalCurrent annotation (Placement(
-                transformation(
-                extent={{-10,-10},{10,10}},
-                rotation=180,
-                origin={0,80})));
           Analog.Sensors.VoltageSensor voltageSensor annotation (Placement(
                 transformation(
                 extent={{-10,10},{10,-10}},
@@ -5479,12 +5470,6 @@ The integral part can be switched off to obtain a limited P-controller.
                 origin={-40,60})));
           Analog.Sensors.CurrentSensor currentSensor
             annotation (Placement(transformation(extent={{-50,-70},{-30,-90}})));
-          Analog.Sensors.PowerSensor powerBat
-            annotation (Placement(transformation(extent={{40,80},{20,60}})));
-          Analog.Sensors.PowerSensor powerMot annotation (Placement(transformation(
-                extent={{10,10},{-10,-10}},
-                rotation=180,
-                origin={30,-70})));
           Blocks.Interfaces.RealInput vRef
             annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
           Blocks.Interfaces.RealOutput vBat annotation (Placement(transformation(
@@ -5497,92 +5482,49 @@ The integral part can be switched off to obtain a limited P-controller.
                 origin={-110,-60})));
           Blocks.Nonlinear.VariableLimiter variableLimiter
             annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
-          Blocks.Continuous.FirstOrder firstOrder(
-            k=1,
-            initType=Modelica.Blocks.Types.Init.InitialOutput,
-            y_start=0,
-            T=Td)
-            annotation (Placement(transformation(extent={{-30,-10},{-10,10}})));
           Blocks.Math.Gain gain(k=-1) annotation (Placement(transformation(
                 extent={{-6,-6},{6,6}},
                 rotation=270,
                 origin={-90,20})));
-          Blocks.Math.Feedback feedback annotation (Placement(transformation(
-                extent={{-10,-10},{10,10}},
-                rotation=90,
-                origin={70,0})));
-          Blocks.Continuous.Integrator integrator(
+          Modelica.Blocks.Continuous.FirstOrder voltageFilter(
+            k=1,
+            T=Tmf,
             initType=Modelica.Blocks.Types.Init.InitialOutput,
-            y_start=0,
-            k=1/Ti)    annotation (Placement(transformation(extent={{60,10},{40,30}})));
-          Analog.Basic.Ground groundMotor annotation (Placement(transformation(
-                extent={{-10,-10},{10,10}},
-                rotation=270,
-                origin={-70,-80})));
+            y_start=VaMax)
+            annotation (Placement(transformation(extent={{-60,50},{-80,70}})));
+          Modelica.Blocks.Continuous.FirstOrder currentFilter(
+            k=1,
+            T=Tmf,
+            initType=Modelica.Blocks.Types.Init.InitialOutput,
+            y_start=0) annotation (Placement(transformation(extent={{-60,-70},{
+                    -80,-50}})));
         equation
-          connect(pin_nBat, signalCurrent.n)
-            annotation (Line(points={{-100,100},{-40,100},{-40,80},{-10,80}},
-                                                                   color={0,0,255}));
           connect(pin_nBat, voltageSensor.n)
             annotation (Line(points={{-100,100},{-40,100},{-40,70}},
                                                           color={0,0,255}));
           connect(currentSensor.p, pin_nMot)
             annotation (Line(points={{-50,-80},{-60,-80},{-60,-100}},
                                                             color={0,0,255}));
-          connect(currentSensor.n, signalVoltage.n)
-            annotation (Line(points={{-30,-80},{-10,-80}}, color={0,0,255}));
-          connect(signalCurrent.p, powerBat.nc)
-            annotation (Line(points={{10,80},{10,70},{20,70}}, color={0,0,255}));
-          connect(powerBat.pv, powerBat.pc)
-            annotation (Line(points={{30,60},{40,60},{40,70}}, color={0,0,255}));
-          connect(pin_nBat, powerBat.nv)
-            annotation (Line(points={{-100,100},{30,100},{30,80}},color={0,0,255}));
-          connect(powerBat.pc, pin_pBat)
-            annotation (Line(points={{40,70},{100,70},{100,100}}, color={0,0,255}));
-          connect(signalVoltage.p, powerMot.pc)
-            annotation (Line(points={{10,-80},{10,-70},{20,-70}}, color={0,0,255}));
-          connect(powerMot.nc, pin_pMot)
-            annotation (Line(points={{40,-70},{60,-70},{60,-100}}, color={0,0,255}));
-          connect(powerMot.pc, powerMot.pv)
-            annotation (Line(points={{20,-70},{20,-60},{30,-60}}, color={0,0,255}));
-          connect(pin_nMot, powerMot.nv)
-            annotation (Line(points={{-60,-100},{30,-100},{30,-80}}, color={0,0,255}));
-          connect(currentSensor.i, iMot) annotation (Line(points={{-40,-69},{-40,
-                  -60},{-110,-60}},
-                         color={0,0,127}));
-          connect(voltageSensor.v, vBat)
-            annotation (Line(points={{-51,60},{-110,60}}, color={0,0,127}));
           connect(pin_pBat, voltageSensor.p)
             annotation (Line(points={{100,100},{100,50},{-40,50}}, color={0,0,255}));
-          connect(variableLimiter.y, firstOrder.u)
-            annotation (Line(points={{-39,0},{-32,0}}, color={0,0,127}));
-          connect(firstOrder.y, signalVoltage.v)
-            annotation (Line(points={{-9,0},{0,0},{0,-68}}, color={0,0,127}));
           connect(vRef, variableLimiter.u)
             annotation (Line(points={{-120,0},{-62,0}}, color={0,0,127}));
-          connect(voltageSensor.v, variableLimiter.limit1) annotation (Line(points={{-51,60},
-                  {-90,60},{-90,40},{-80,40},{-80,8},{-62,8}},
-                                                 color={0,0,127}));
           connect(gain.y, variableLimiter.limit2)
             annotation (Line(points={{-90,13.4},{-90,-8},{-62,-8}}, color={0,0,127}));
-          connect(voltageSensor.v, gain.u)
-            annotation (Line(points={{-51,60},{-90,60},{-90,27.2}}, color={0,0,127}));
-          connect(powerBat.power, feedback.u2) annotation (Line(points={{40,81},{40,88},
-                  {90,88},{90,0},{78,0}}, color={0,0,127}));
-          connect(powerMot.power, feedback.u1) annotation (Line(points={{20,-81},{20,-88},
-                  {70,-88},{70,-8}}, color={0,0,127}));
-          connect(feedback.y, integrator.u)
-            annotation (Line(points={{70,9},{70,20},{62,20}}, color={0,0,127}));
-          connect(integrator.y, signalCurrent.i)
-            annotation (Line(points={{39,20},{0,20},{0,68}}, color={0,0,127}));
-          connect(pin_nMot, groundMotor.p)
-            annotation (Line(points={{-60,-100},{-60,-80}}, color={0,0,255}));
-          connect(currentSensor.p, groundMotor.p)
-            annotation (Line(points={{-50,-80},{-60,-80}}, color={0,0,255}));
+          connect(currentSensor.i, currentFilter.u) annotation (Line(points={{
+                  -40,-69},{-40,-60},{-58,-60}}, color={0,0,127}));
+          connect(currentFilter.y, iMot)
+            annotation (Line(points={{-81,-60},{-110,-60}}, color={0,0,127}));
+          connect(voltageSensor.v, voltageFilter.u)
+            annotation (Line(points={{-51,60},{-58,60}}, color={0,0,127}));
+          connect(voltageFilter.y, vBat)
+            annotation (Line(points={{-81,60},{-110,60}}, color={0,0,127}));
+          connect(voltageFilter.y, gain.u) annotation (Line(points={{-81,60},{
+                  -90,60},{-90,27.2}}, color={0,0,127}));
+          connect(voltageFilter.y, variableLimiter.limit1) annotation (Line(
+                points={{-81,60},{-90,60},{-90,40},{-80,40},{-80,8},{-62,8}},
+                color={0,0,127}));
           annotation (Icon(coordinateSystem(preserveAspectRatio=false), graphics={
-                Rectangle(
-                  extent={{-100,100},{100,-100}},
-                  lineColor={28,108,200}),
                 Text(
                   extent={{-100,20},{100,-20}},
                   lineColor={28,108,200},
@@ -5594,7 +5536,92 @@ The integral part can be switched off to obtain a limited P-controller.
                 Text(
                   extent={{-40,-60},{40,-80}},
                   lineColor={28,108,200},
-                  textString="Mot"),
+                  textString="Mot")}),                                   Diagram(
+                coordinateSystem(preserveAspectRatio=false)),
+            Documentation(info="<html>
+<p>This is a partial model of a DC-DC inverter.</p>
+<p>Reference voltage is limited to actual battery voltage.</p>
+<p>Battery voltage and motor current are measured.</p>
+</html>"));
+        end PartialDCDCinverter;
+
+        model IdealDCDCinverter "Ideal DC-DC inverter"
+          extends Modelica.Electrical.Machines.Examples.ControlledDrives.Components.PartialDCDCinverter;
+          parameter Modelica.SIunits.Time Ti=1e-6 "Time constant of integral power controller";
+          Analog.Sources.SignalVoltage signalVoltage
+            annotation (Placement(transformation(extent={{10,-80},{-10,-60}})));
+          Analog.Sources.SignalCurrent signalCurrent annotation (Placement(
+                transformation(
+                extent={{-10,-10},{10,10}},
+                rotation=180,
+                origin={0,70})));
+          Analog.Sensors.PowerSensor powerBat
+            annotation (Placement(transformation(extent={{40,80},{20,60}})));
+          Analog.Sensors.PowerSensor powerMot annotation (Placement(transformation(
+                extent={{10,10},{-10,-10}},
+                rotation=180,
+                origin={30,-70})));
+          Blocks.Continuous.FirstOrder deadTime(
+            k=1,
+            initType=Modelica.Blocks.Types.Init.InitialOutput,
+            y_start=0,
+            T=Td)
+            annotation (Placement(transformation(extent={{-30,-10},{-10,10}})));
+          Blocks.Math.Feedback feedback annotation (Placement(transformation(
+                extent={{-10,-10},{10,10}},
+                rotation=90,
+                origin={50,0})));
+          Blocks.Continuous.Integrator powerController(
+            initType=Modelica.Blocks.Types.Init.InitialOutput,
+            y_start=0,
+            k=1/Ti)
+            annotation (Placement(transformation(extent={{30,10},{10,30}})));
+          Analog.Basic.Ground groundMotor annotation (Placement(transformation(
+                extent={{-10,-10},{10,10}},
+                rotation=270,
+                origin={-80,-80})));
+        equation
+          connect(signalCurrent.p, powerBat.nc)
+            annotation (Line(points={{10,70},{20,70}},         color={0,0,255}));
+          connect(powerBat.pv, powerBat.pc)
+            annotation (Line(points={{30,60},{40,60},{40,70}}, color={0,0,255}));
+          connect(signalVoltage.p, powerMot.pc)
+            annotation (Line(points={{10,-70},{20,-70}},          color={0,0,255}));
+          connect(powerMot.pc, powerMot.pv)
+            annotation (Line(points={{20,-70},{20,-60},{30,-60}}, color={0,0,255}));
+          connect(powerBat.power, feedback.u2) annotation (Line(points={{40,81},
+                  {40,88},{70,88},{70,-4.44089e-16},{58,-4.44089e-16}},
+                                          color={0,0,127}));
+          connect(powerMot.power, feedback.u1) annotation (Line(points={{20,-81},
+                  {20,-88},{50,-88},{50,-8}},
+                                     color={0,0,127}));
+          connect(feedback.y, powerController.u) annotation (Line(points={{50,9},
+                  {50,20},{32,20}}, color={0,0,127}));
+          connect(powerController.y, signalCurrent.i)
+            annotation (Line(points={{9,20},{0,20},{0,58}}, color={0,0,127}));
+          connect(pin_nBat, signalCurrent.n) annotation (Line(points={{-100,100},
+                  {-40,100},{-40,70},{-10,70}}, color={0,0,255}));
+          connect(pin_pBat, powerBat.pc) annotation (Line(points={{100,100},{
+                  100,70},{40,70}}, color={0,0,255}));
+          connect(pin_nBat, powerBat.nv) annotation (Line(points={{-100,100},{
+                  30,100},{30,80}}, color={0,0,255}));
+          connect(pin_nMot, powerMot.nv) annotation (Line(points={{-60,-100},{
+                  30,-100},{30,-80}}, color={0,0,255}));
+          connect(currentSensor.n, signalVoltage.n)
+            annotation (Line(points={{-30,-80},{-30,-70},{-10,-70}},
+                                                           color={0,0,255}));
+          connect(pin_pMot, powerMot.nc) annotation (Line(points={{60,-100},{60,
+                  -70},{40,-70}}, color={0,0,255}));
+          connect(pin_nMot, groundMotor.p) annotation (Line(points={{-60,-100},
+                  {-60,-80},{-70,-80}}, color={0,0,255}));
+          connect(variableLimiter.y, deadTime.u)
+            annotation (Line(points={{-39,0},{-32,0}}, color={0,0,127}));
+          connect(deadTime.y, signalVoltage.v)
+            annotation (Line(points={{-9,0},{0,0},{0,-58}}, color={0,0,127}));
+          annotation (Icon(coordinateSystem(preserveAspectRatio=false), graphics={
+                Rectangle(
+                  extent={{-100,100},{100,-100}},
+                  lineColor={28,108,200}),
                 Line(points={{100,100},{20,20}},     color={28,108,200}),
                 Line(points={{-20,-20},{-100,-100}}, color={28,108,200})}),
                                                                          Diagram(
@@ -5605,6 +5632,58 @@ The integral part can be switched off to obtain a limited P-controller.
 <p>Battery voltage and motor current are measured.</p>
 </html>"));
         end IdealDCDCinverter;
+
+        model SwitchingDCDCinverter "Switching DC-DC inverter"
+          extends
+            Modelica.Electrical.Machines.Examples.ControlledDrives.Components.PartialDCDCinverter;
+          parameter Modelica.SIunits.Time Ti=1e-6 "Time constant of integral power controller";
+          Modelica.Electrical.PowerConverters.DCDC.Control.VoltageToDutyCycle
+            adaptor(useConstantMaximumVoltage=false, vMax=VaMax)
+            annotation (Placement(transformation(extent={{-30,-10},{-10,10}})));
+          Modelica.Electrical.PowerConverters.DCDC.Control.SignalPWM pwm(
+              useConstantDutyCycle=false, f=fS) annotation (Placement(
+                transformation(
+                extent={{-10,-10},{10,10}},
+                rotation=270,
+                origin={0,-20})));
+          Modelica.Electrical.PowerConverters.DCDC.HBridge dcdc annotation (
+              Placement(transformation(
+                extent={{-10,-10},{10,10}},
+                rotation=270,
+                origin={30,-20})));
+        equation
+          connect(variableLimiter.y, adaptor.v)
+            annotation (Line(points={{-39,0},{-32,0}}, color={0,0,127}));
+          connect(voltageFilter.y, adaptor.vMaxExt) annotation (Line(points={{
+                  -81,60},{-90,60},{-90,40},{-20,40},{-20,12}}, color={0,0,127}));
+          connect(adaptor.dutyCycle, pwm.dutyCycle)
+            annotation (Line(points={{-9,0},{0,0},{0,-8}}, color={0,0,127}));
+          connect(pwm.fire, dcdc.fire_p)
+            annotation (Line(points={{11,-14},{18,-14}}, color={255,0,255}));
+          connect(pwm.notFire, dcdc.fire_n)
+            annotation (Line(points={{11,-26},{18,-26}}, color={255,0,255}));
+          connect(pin_nBat, dcdc.dc_n1) annotation (Line(points={{-100,100},{
+                  -40,100},{-40,70},{24,70},{24,-10}}, color={0,0,255}));
+          connect(pin_pBat, dcdc.dc_p1) annotation (Line(points={{100,100},{100,
+                  70},{36,70},{36,-10}}, color={0,0,255}));
+          connect(dcdc.dc_n2, currentSensor.n) annotation (Line(points={{24,-30},
+                  {24,-70},{-30,-70},{-30,-80}}, color={0,0,255}));
+          connect(dcdc.dc_p2, pin_pMot) annotation (Line(points={{36,-30},{36,
+                  -70},{60,-70},{60,-100}}, color={0,0,255}));
+          annotation (Icon(coordinateSystem(preserveAspectRatio=false), graphics={
+                Rectangle(
+                  extent={{-100,100},{100,-100}},
+                  lineColor={217,67,180}),
+                Line(points={{100,100},{20,20}},     color={217,67,180}),
+                Line(points={{-20,-20},{-100,-100}}, color={217,67,180})}),
+                                                                         Diagram(
+                coordinateSystem(preserveAspectRatio=false)),
+            Documentation(info="<html>
+<p>This is a model of an ideal DC-DC inverter based on a power balance achieved by an integral controller.</p>
+<p>Reference voltage is limited to actual battery voltage and delayed.</p>
+<p>Battery voltage and motor current are measured.</p>
+</html>"));
+        end SwitchingDCDCinverter;
       end Components;
       annotation (Documentation(info="<html>
 This package contains test examples demonstrating control of electric drives.
