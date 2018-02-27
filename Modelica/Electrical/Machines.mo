@@ -4922,6 +4922,7 @@ Further reading:
         extends Modelica.Icons.UtilitiesPackage;
         partial model PartialControlledDCPM "Partial controlled DC PM drive"
           extends Modelica.Icons.Example;
+          parameter Modelica.SIunits.Resistance Ri=0.05*dcpmDriveData.dcpmData.VaNominal/dcpmDriveData.dcpmData.IaNominal "Inner resistance of battery";
           parameter Utilities.DcpmDriveData dcpmDriveData
             annotation (Placement(transformation(extent={{50,20},{70,40}})));
           Modelica.Mechanics.Rotational.Components.Inertia loadInertia(J=dcpmDriveData.JL)
@@ -4957,7 +4958,7 @@ Further reading:
             Tmf=dcpmDriveData.Tmf,
             VMax=dcpmDriveData.VaMax)
             annotation (Placement(transformation(extent={{20,20},{40,40}})));
-          Modelica.Electrical.Analog.Basic.Resistor resistor(R=0.05*dcpmDriveData.dcpmData.VaNominal/dcpmDriveData.dcpmData.IaNominal) annotation (Placement(
+          Modelica.Electrical.Analog.Basic.Resistor resistor(R=Ri)                                                                     annotation (Placement(
                 transformation(
                 extent={{-10,-10},{10,10}},
                 rotation=270,
@@ -5242,7 +5243,8 @@ Current controller according to absolute optimum, speed controller according to 
                   fillColor={192,192,192},
                   fillPattern=FillPattern.Solid),
                 Line(points={{-80,78},{-80,-90}}, color={192,192,192}),
-                Line(visible=useI, points={{-80,-80},{-80,-20},{60,80}}, color = {0,0,127}),
+                Line(visible=useI, points={{-80,-80},{-80,-20},{40.8594,66.3281},
+                      {60,66}},                                          color = {0,0,127}),
                 Line(points={{-90,-80},{82,-80}}, color={192,192,192}),
                 Polygon(
                   points={{90,-80},{68,-72},{68,-88},{90,-80}},
@@ -5408,6 +5410,11 @@ The integral part can be switched off to obtain a limited P-controller.
           connect(voltageFilter.y, switchingDCDCinverter.vMax) annotation (Line(points={
                   {-81,60},{-90,60},{-90,40},{-20,40},{-20,26},{-12,26}}, color={0,0,127}));
           annotation (Icon(coordinateSystem(preserveAspectRatio=false), graphics={
+                Rectangle(
+                  extent={{-100,100},{100,-100}},
+                  lineColor={0,0,255},
+                  fillColor={255,255,255},
+                  fillPattern=FillPattern.Solid),
                 Text(
                   extent={{-100,20},{100,-20}},
                   lineColor={0,0,255},
@@ -5420,9 +5427,6 @@ The integral part can be switched off to obtain a limited P-controller.
                   extent={{-40,-60},{40,-80}},
                   lineColor={128,128,128},
                   textString="Mot"),
-                Rectangle(
-                  extent={{-100,100},{100,-100}},
-                  lineColor={0,0,255}),
                 Line(points={{-20,-20},{-100,-100}}, color={0,0,255}),
                 Line(points={{100,100},{20,20}},     color={0,0,255}),
                 Rectangle(visible=not useIdealInverter,
@@ -5525,7 +5529,9 @@ The integral part can be switched off to obtain a limited P-controller.
           annotation (Icon(coordinateSystem(preserveAspectRatio=false), graphics={
                 Rectangle(
                   extent={{-100,100},{100,-100}},
-                  lineColor={0,0,255}),
+                  lineColor={0,0,255},
+                  fillColor={255,255,255},
+                  fillPattern=FillPattern.Solid),
                 Line(points={{100,100},{20,20}},     color={0,0,255}),
                 Line(points={{-20,-20},{-100,-100}}, color={0,0,255}),
                 Text(
@@ -5613,7 +5619,9 @@ The integral part can be switched off to obtain a limited P-controller.
           annotation (Icon(coordinateSystem(preserveAspectRatio=false), graphics={
                 Rectangle(
                   extent={{-98,98},{98,-98}},
-                  lineColor={217,67,180}),
+                  lineColor={217,67,180},
+                  fillColor={255,255,255},
+                  fillPattern=FillPattern.Solid),
                 Line(points={{98,98},{20,20}},       color={217,67,180}),
                 Line(points={{-20,-20},{-98,-98}},   color={217,67,180}),
                 Text(
