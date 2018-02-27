@@ -148,8 +148,8 @@ other columns contain the data to be interpolated. Example:
 The table matrix can be defined in the following ways:
 </p>
 <ol>
-<li> Explicitly supplied as <strong>parameter matrix</strong> \"table\",
-     and the other parameters have the following values:
+<li>Explicitly supplied as <strong>parameter matrix</strong> \"table\",
+    and the other parameters have the following values:
 <pre>
    tableName is \"NoName\" or has only blanks,
    fileName  is \"NoName\" or has only blanks.
@@ -623,9 +623,9 @@ The grid points and function values are stored in a matrix \"table[i,j]\",
 where:
 </p>
 <ul>
-<li> the first column \"table[2:,1]\" contains the u[1] grid points,</li>
-<li> the first row \"table[1,2:]\" contains the u[2] grid points,</li>
-<li> the other rows and columns contain the data to be interpolated.</li>
+<li>the first column \"table[2:,1]\" contains the u1 grid points,</li>
+<li>the first row \"table[1,2:]\" contains the u2 grid points,</li>
+<li>the other rows and columns contain the data to be interpolated.</li>
 </ul>
 <p>
 Example:
@@ -643,8 +643,8 @@ Example:
       table = [0.0,   1.0,   2.0,   3.0;
                1.0,   1.0,   3.0,   5.0;
                2.0,   2.0,   4.0,   6.0]
-   If, e.g., the input u is [1.0;1.0], the output y is 1.0,
-       e.g., the input u is [2.0;1.5], the output y is 3.0.
+   If, e.g., the input u1 is 1.0, input u2 is 1.0 and smoothness is LinearSegments, the output y is 1.0,
+       e.g., the input u1 is 2.0, input u2 is 1.5 and smoothness is LinearSegments, the output y is 3.0.
 </pre>
 <ul>
 <li>The interpolation interval is found by a binary search where the interval used in the
@@ -806,9 +806,9 @@ The grid points and function values are stored in a matrix \"table[i,j]\",
 where:
 </p>
 <ul>
-<li> the first column \"table[2:,1]\" contains the u[1] grid points,</li>
-<li> the first row \"table[1,2:]\" contains the u[2] grid points,</li>
-<li> the other rows and columns contain the data to be interpolated.</li>
+<li>the first column \"table[2:,1]\" contains the u1 grid points,</li>
+<li>the first row \"table[1,2:]\" contains the u2 grid points,</li>
+<li>the other rows and columns contain the data to be interpolated.</li>
 </ul>
 <p>
 Example:
@@ -826,8 +826,8 @@ Example:
       table = [0.0,   1.0,   2.0,   3.0;
                1.0,   1.0,   3.0,   5.0;
                2.0,   2.0,   4.0,   6.0]
-   If, e.g., the input u is [1.0;1.0], the output y is 1.0,
-       e.g., the input u is [2.0;1.5], the output y is 3.0.
+   If, e.g., the input u1 is {1.0}, input u2 is {1.0} and smoothness is LinearSegments, the output y is {1.0},
+       e.g., the input u1 is {2.0}, input u2 is {1.5} and smoothness is LinearSegments, the output y is {3.0}.
 </pre>
 <ul>
 <li>The interpolation interval is found by a binary search where the interval used in the
