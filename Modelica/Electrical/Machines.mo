@@ -5338,7 +5338,7 @@ The feed-forward gain can either be constant or given by the optional input kFF.
 </p>
 <p>
 When the ouput is limited, the controller cannot bring the control error to zero and the integrator will not stop integrating. 
-To avoid the <b>WindUp</b> - effect, an <b>Anti-WindUp</b> loop is implemented: 
+To avoid the <strong>WindUp</strong> - effect, an <strong>Anti-WindUp</strong> loop is implemented: 
 The difference between unlimited and limited output is fed back to the integrator's input.
 </p>
 </html>"));
