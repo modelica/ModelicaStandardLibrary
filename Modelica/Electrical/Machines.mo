@@ -4763,31 +4763,34 @@ This package contains test examples of DC machines.
           tau_nominal=-driveData.tauNominal,
           TorqueDirection=false,
           w_nominal=driveData.motorData.wNominal)
-          annotation (Placement(transformation(extent={{100,-10},{80,10}})));
+          annotation (Placement(transformation(extent={{100,-50},{80,-30}})));
         Modelica.Blocks.Sources.Step step(
           offset=0,
-          startTime=0.1,
+          startTime=0.2,
           height=driveData.tauNominal) annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=0,
-              origin={-70,30})));
+              origin={-110,-10})));
       equation
         connect(loadInertia.flange_b, loadTorque.flange)
-          annotation (Line(points={{70,0},{80,0}}, color={0,0,0}));
+          annotation (Line(points={{70,-40},{80,-40}},
+                                                   color={0,0,0}));
         connect(step.y, tau2i.u)
-          annotation (Line(points={{-59,30},{-52,30}}, color={0,0,127}));
+          annotation (Line(points={{-99,-10},{-82,-10}},
+                                                       color={0,0,127}));
         annotation (experiment(StopTime=2, Interval=0.0001), Documentation(info="<html>
 <p>This model demonstrates how a current controller for a DC PM drive works.</p>
 <p>
 Electrical power is taken from a battery (constant voltage with inner resistance) and fed to the motor via an ideal DC-DC inverter. 
 The current controller is parameterized according to the absolute optimum.
 </p>
-<p>At time=0.1 s a reference current step is applied, causing the drive to accelerate until motor torque and load torque are at an equilibrium.</p>
+<p>At time=0.2 s a reference torque step is applied, causing the drive to accelerate until motor torque and load torque are at an equilibrium.</p>
 <p>
 Further reading: 
 <a href=\"modelica://Modelica/Resources/Documentation/Electrical/Machines/DriveControl.pdf\">Tutorial at the Modelica Conference 2017</a>
 </p>
-</html>"));
+</html>"),Diagram(coordinateSystem(extent={{-200,-100},{100,100}}, initialScale=0.1)),
+          Icon(coordinateSystem(extent={{-180,-100},{100,100}}, initialScale=0.1)));
       end CurrentControlledDCPM;
 
       model SpeedControlledDCPM "Speed controlled DC PM drive"
@@ -4796,37 +4799,40 @@ Further reading:
           stepTorque=-driveData.tauNominal,
           offsetTorque=0,
           startTime=0.8)
-          annotation (Placement(transformation(extent={{100,-10},{80,10}})));
+          annotation (Placement(transformation(extent={{100,-50},{80,-30}})));
         Utilities.LimitedPI speedController(
           initType=Modelica.Blocks.Types.Init.InitialOutput,
           k=driveData.kpw,
           Ti=driveData.Tiw,
           constantLimits=true,
           yMax=driveData.tauMax)
-          annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
+          annotation (Placement(transformation(extent={{-120,-20},{-100,0}})));
         Modelica.Blocks.Continuous.FirstOrder preFilter(
           k=1,
           T=driveData.Tfw,
           initType=Modelica.Blocks.Types.Init.InitialOutput)
-          annotation (Placement(transformation(extent={{-110,20},{-90,40}})));
+          annotation (Placement(transformation(extent={{-150,-20},{-130,0}})));
         Modelica.Blocks.Sources.Step step(
           offset=0,
-          startTime=0.1,
-          height=driveData.motorData.wNominal) annotation (Placement(transformation(
+          height=driveData.motorData.wNominal,
+          startTime=0.2)                       annotation (Placement(transformation(
               extent={{10,10},{-10,-10}},
               rotation=180,
-              origin={-130,30})));
+              origin={-170,-10})));
       equation
         connect(preFilter.y, speedController.u)
-          annotation (Line(points={{-89,30},{-82,30}}, color={0,0,127}));
-        connect(step.y, preFilter.u) annotation (Line(points={{-119,30},{-112,30}},
-                                    color={0,0,127}));
+          annotation (Line(points={{-129,-10},{-122,-10}},
+                                                       color={0,0,127}));
+        connect(step.y, preFilter.u) annotation (Line(points={{-159,-10},{-152,
+                -10}},              color={0,0,127}));
         connect(loadInertia.flange_b, loadTorque.flange)
-          annotation (Line(points={{70,0},{80,0}}, color={0,0,0}));
-        connect(speedSensor.w, speedController.u_m) annotation (Line(points={{50,-41},
-                {50,-50},{-76,-50},{-76,18}},      color={0,0,127}));
+          annotation (Line(points={{70,-40},{80,-40}},
+                                                   color={0,0,0}));
+        connect(speedSensor.w, speedController.u_m) annotation (Line(points={{50,-81},
+                {50,-90},{-116,-90},{-116,-22}},   color={0,0,127}));
         connect(speedController.y, tau2i.u)
-          annotation (Line(points={{-59,30},{-52,30}}, color={0,0,127}));
+          annotation (Line(points={{-99,-10},{-82,-10}},
+                                                       color={0,0,127}));
         annotation (experiment(Interval=0.0001),             Documentation(info="<html>
 <p>This model demonstrates how a speed controller for a current controlled DC PM drive works.</p>
 <p>
@@ -4835,15 +4841,15 @@ The inner current controller is parameterized according to the absolute optimum.
 The outer control loop is formed by the speed controller which is parameterized according to the symmetrical optimum. 
 </p>
 <p>
-At time=0.1 s a reference speed step is applied, causing the drive to accelerate to the desired speed.
+At time=0.2 s a reference speed step is applied, causing the drive to accelerate to the desired speed.
 At time=0.8 s a load torque step is applied, causing to drive to decelerate until the speed controller brings the drive back to the desired speed.
 </p>
 <p>
 Further reading: 
 <a href=\"modelica://Modelica/Resources/Documentation/Electrical/Machines/DriveControl.pdf\">Tutorial at the Modelica Conference 2017</a>
 </p>
-</html>"),Diagram(coordinateSystem(extent={{-140,-100},{100,100}}, initialScale=0.1)),
-          Icon(coordinateSystem(extent={{-140,-100},{100,100}}, initialScale=0.1)));
+</html>"),Diagram(coordinateSystem(extent={{-200,-100},{100,100}}, initialScale=0.1)),
+          Icon(coordinateSystem(extent={{-180,-100},{100,100}}, initialScale=0.1)));
       end SpeedControlledDCPM;
 
       model PositionControlledDCPM "Position controlled DC PM drive"
@@ -4851,52 +4857,57 @@ Further reading:
         Modelica.Mechanics.Rotational.Sources.TorqueStep loadTorque(
           stepTorque=-driveData.tauNominal,
           offsetTorque=0,
-          startTime=2.2)
-          annotation (Placement(transformation(extent={{100,-10},{80,10}})));
+          startTime=2.3)
+          annotation (Placement(transformation(extent={{100,-50},{80,-30}})));
         Utilities.LimitedPI speedController(
           initType=Modelica.Blocks.Types.Init.InitialOutput,
           k=driveData.kpw,
           Ti=driveData.Tiw,
           constantLimits=true,
           yMax=driveData.tauMax)
-          annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
+          annotation (Placement(transformation(extent={{-120,-20},{-100,0}})));
         Utilities.LimitedPI positionController(
           constantLimits=true,
           k=driveData.kpP,
           useI=false,
           yMax=driveData.wMax,
           initType=Modelica.Blocks.Types.Init.SteadyState)
-          annotation (Placement(transformation(extent={{-110,20},{-90,40}})));
+          annotation (Placement(transformation(extent={{-150,-20},{-130,0}})));
         Modelica.Mechanics.Rotational.Sensors.AngleSensor angleSensor
           annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=270,
-              origin={70,-30})));
+              origin={70,-60})));
         Modelica.Blocks.Sources.KinematicPTP2 kinematicPTP(
-          startTime=0.1,
           qd_max={driveData.wMax},
           qdd_max={driveData.aMax},
-          q_end={200}) annotation (Placement(transformation(
+          q_end={200},
+          startTime=0.2)
+                       annotation (Placement(transformation(
               extent={{10,10},{-10,-10}},
               rotation=180,
-              origin={-140,30})));
+              origin={-180,-10})));
       equation
         connect(positionController.y, speedController.u)
-          annotation (Line(points={{-89,30},{-82,30}}, color={0,0,127}));
+          annotation (Line(points={{-129,-10},{-122,-10}},
+                                                       color={0,0,127}));
         connect(angleSensor.phi, positionController.u_m) annotation (Line(
-              points={{70,-41},{70,-60},{-106,-60},{-106,18}},
+              points={{70,-71},{70,-100},{-146,-100},{-146,-22}},
                                                              color={0,0,127}));
         connect(kinematicPTP.q[1], positionController.u) annotation (Line(
-              points={{-129,38},{-120,38},{-120,30},{-112,30}},
+              points={{-169,-2},{-160,-2},{-160,-10},{-152,-10}},
                                                             color={0,0,127}));
         connect(speedSensor.flange, angleSensor.flange)
-          annotation (Line(points={{50,-20},{70,-20}}, color={0,0,0}));
-        connect(speedSensor.w, speedController.u_m) annotation (Line(points={{50,-41},
-                {50,-50},{-76,-50},{-76,18}},      color={0,0,127}));
+          annotation (Line(points={{50,-60},{60,-60},{60,-50},{70,-50}},
+                                                       color={0,0,0}));
+        connect(speedSensor.w, speedController.u_m) annotation (Line(points={{50,-81},
+                {50,-90},{-116,-90},{-116,-22}},   color={0,0,127}));
         connect(loadInertia.flange_b, loadTorque.flange)
-          annotation (Line(points={{70,0},{80,0}}, color={0,0,0}));
+          annotation (Line(points={{70,-40},{80,-40}},
+                                                   color={0,0,0}));
         connect(speedController.y, tau2i.u)
-          annotation (Line(points={{-59,30},{-52,30}}, color={0,0,127}));
+          annotation (Line(points={{-99,-10},{-82,-10}},
+                                                       color={0,0,127}));
         annotation (experiment(StopTime=2.5, Interval=0.0001),
                                                              Documentation(info="<html>
 <p>This model demonstrates how a position controller for a speed controlled DC PM drive works.</p>
@@ -4907,15 +4918,15 @@ The middle control loop is formed by the speed controller which is parameterized
 The outer control loop is formed by the position controller which is parameterized to avoid an overshot in the position. 
 </p>
 <p>
-At time=0.1 s the kinematicPTP starts to prescribe the reference position with limited speed and limited acceleration.
-At time=2.2 s a load torque step is applied, causing to drive to slighlty leave the end position until the position controller brings the drive back to the desired position.
+At time=0.2 s the kinematicPTP starts to prescribe the reference position with limited speed and limited acceleration.
+At time=2.3 s a load torque step is applied, causing to drive to slighlty leave the end position until the position controller brings the drive back to the desired position.
 </p>
 <p>
 Further reading: 
 <a href=\"modelica://Modelica/Resources/Documentation/Electrical/Machines/DriveControl.pdf\">Tutorial at the Modelica Conference 2017</a>
 </p>
-</html>"),Diagram(coordinateSystem(extent={{-160,-100},{100,100}}, initialScale=0.1)),
-          Icon(coordinateSystem(extent={{-160,-100},{100,100}}, initialScale=0.1)));
+</html>"),Diagram(coordinateSystem(extent={{-200,-100},{100,100}}, initialScale=0.1)),
+          Icon(coordinateSystem(extent={{-180,-100},{100,100}}, initialScale=0.1)));
       end PositionControlledDCPM;
 
       package Utilities "Utilitiess for controlled drives"
@@ -4924,15 +4935,15 @@ Further reading:
           extends Modelica.Icons.Example;
           parameter Modelica.SIunits.Resistance Ri=0.05*driveData.motorData.VaNominal/driveData.motorData.IaNominal
             "Inner resistance of battery";
-          parameter Utilities.DcpmDriveData driveData
-            annotation (Placement(transformation(extent={{50,20},{70,40}})));
+          parameter DriveDataDCPM driveData
+            annotation (Placement(transformation(extent={{50,-20},{70,0}})));
           Modelica.Mechanics.Rotational.Components.Inertia loadInertia(J=driveData.JL)
-            annotation (Placement(transformation(extent={{50,-10},{70,10}})));
+            annotation (Placement(transformation(extent={{50,-50},{70,-30}})));
           Modelica.Mechanics.Rotational.Sensors.SpeedSensor speedSensor annotation (
               Placement(transformation(
                 extent={{-10,-10},{10,10}},
                 rotation=270,
-                origin={50,-30})));
+                origin={50,-70})));
           Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_PermanentMagnet dcpm(
             TaOperational=driveData.motorData.TaNominal,
             VaNominal=driveData.motorData.VaNominal,
@@ -4952,64 +4963,69 @@ Further reading:
             ia(fixed=true),
             Js=driveData.motorData.Js,
             alpha20a=driveData.motorData.alpha20a)
-            annotation (Placement(transformation(extent={{20,-10},{40,10}})));
-          Utilities.DcdcInverter dcdcInverter(
+            annotation (Placement(transformation(extent={{20,-50},{40,-30}})));
+          Utilities.DcdcInverter armatureInverter(
             fS=driveData.fS,
             Td=driveData.Td,
             Tmf=driveData.Tmf,
             VMax=driveData.VaMax)
-            annotation (Placement(transformation(extent={{20,20},{40,40}})));
+            annotation (Placement(transformation(extent={{20,-20},{40,0}})));
           Modelica.Electrical.Analog.Basic.Resistor resistor(R=Ri)                                                                     annotation (Placement(
                 transformation(
                 extent={{-10,-10},{10,10}},
                 rotation=270,
-                origin={40,60})));
+                origin={40,70})));
           Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
                 transformation(
                 extent={{-10,-10},{10,10}},
                 rotation=270,
-                origin={10,60})));
+                origin={10,70})));
           Modelica.Electrical.Analog.Sources.ConstantVoltage constantVoltage(V=
                 driveData.VaMax)
-            annotation (Placement(transformation(extent={{40,70},{20,90}})));
+            annotation (Placement(transformation(extent={{40,80},{20,100}})));
           Utilities.LimitedPI currentController(
             constantLimits=false,
             k=driveData.kpI,
             Ti=driveData.TiI,
-            kFF=driveData.kPhi,
+            KFF=driveData.kPhi,
             initType=Modelica.Blocks.Types.Init.InitialOutput,
             useFF=true)
-            annotation (Placement(transformation(extent={{-20,20},{0,40}})));
+            annotation (Placement(transformation(extent={{-50,-20},{-30,0}})));
           Blocks.Math.Gain tau2i(k=1/driveData.kPhi)
-            annotation (Placement(transformation(extent={{-50,20},{-30,40}})));
+            annotation (Placement(transformation(extent={{10,-10},{-10,10}},
+                rotation=180,
+                origin={-70,-10})));
         equation
           connect(dcpm.flange, loadInertia.flange_a)
-            annotation (Line(points={{40,0},{50,0}}, color={0,0,0}));
+            annotation (Line(points={{40,-40},{50,-40}},
+                                                     color={0,0,0}));
           connect(speedSensor.flange, dcpm.flange)
-            annotation (Line(points={{50,-20},{50,0},{40,0}}, color={0,0,0}));
-          connect(dcdcInverter.pin_nMot, dcpm.pin_an)
-            annotation (Line(points={{24,20},{24,10}}, color={0,0,255}));
-          connect(dcdcInverter.pin_pMot, dcpm.pin_ap)
-            annotation (Line(points={{36,20},{36,10}}, color={0,0,255}));
-          connect(dcdcInverter.vBat, currentController.yMaxVar)
-            annotation (Line(points={{19,36},{2,36}}, color={0,0,127}));
-          connect(dcdcInverter.vRef, currentController.y)
-            annotation (Line(points={{18,30},{1,30}}, color={0,0,127}));
-          connect(dcdcInverter.iMot, currentController.u_m) annotation (Line(
-                points={{19,24},{10,24},{10,10},{-16,10},{-16,18}}, color={0,0,
-                  127}));
+            annotation (Line(points={{50,-60},{50,-40},{40,-40}},
+                                                              color={0,0,0}));
+          connect(armatureInverter.pin_nMot, dcpm.pin_an)
+            annotation (Line(points={{24,-20},{24,-30}}, color={0,0,255}));
+          connect(armatureInverter.pin_pMot, dcpm.pin_ap)
+            annotation (Line(points={{36,-20},{36,-30}}, color={0,0,255}));
+          connect(armatureInverter.vBat, currentController.yMaxVar)
+            annotation (Line(points={{19,-4},{-28,-4}}, color={0,0,127}));
+          connect(armatureInverter.vRef, currentController.y)
+            annotation (Line(points={{18,-10},{-29,-10}}, color={0,0,127}));
+          connect(armatureInverter.iMot, currentController.u_m) annotation (
+              Line(points={{19,-16},{-20,-16},{-20,-30},{-46,-30},{-46,-22}},
+                color={0,0,127}));
           connect(speedSensor.w, currentController.feedForward) annotation (Line(
-                points={{50,-41},{50,-50},{-4,-50},{-4,18}}, color={0,0,127}));
+                points={{50,-81},{50,-90},{-40,-90},{-40,-22}},
+                                                             color={0,0,127}));
           connect(constantVoltage.n, ground.p)
-            annotation (Line(points={{20,80},{20,60}}, color={0,0,255}));
-          connect(ground.p, dcdcInverter.pin_nBat)
-            annotation (Line(points={{20,60},{20,40}}, color={0,0,255}));
+            annotation (Line(points={{20,90},{20,70}}, color={0,0,255}));
+          connect(ground.p, armatureInverter.pin_nBat)
+            annotation (Line(points={{20,70},{20,0}}, color={0,0,255}));
           connect(constantVoltage.p, resistor.p)
-            annotation (Line(points={{40,80},{40,70}}, color={0,0,255}));
-          connect(resistor.n, dcdcInverter.pin_pBat)
-            annotation (Line(points={{40,50},{40,40}}, color={0,0,255}));
+            annotation (Line(points={{40,90},{40,80}}, color={0,0,255}));
+          connect(resistor.n, armatureInverter.pin_pBat)
+            annotation (Line(points={{40,60},{40,0}}, color={0,0,255}));
           connect(tau2i.y, currentController.u)
-            annotation (Line(points={{-29,30},{-22,30}}, color={0,0,127}));
+            annotation (Line(points={{-59,-10},{-52,-10}}, color={0,0,127}));
           annotation (Documentation(info="<html>
   <p>This is a partial model of a controlled DC PM drive.</p>
 <p>
@@ -5022,15 +5038,19 @@ The current controller is parameterized according to the absolute optimum.
 Further reading: 
 <a href=\"modelica://Modelica/Resources/Documentation/Electrical/Machines/DriveControl.pdf\">Tutorial at the Modelica Conference 2017</a>
 </p>
-</html>"));
+</html>"),
+            Diagram(coordinateSystem(extent={{-200,-100},{100,100}},
+                  initialScale=0.1)),
+            Icon(coordinateSystem(extent={{-200,-100},{100,100}}, initialScale=
+                    0.1)));
         end PartialControlledDCPM;
 
-        record DcpmDriveData
+        record DriveDataDCPM
           "Parameters of a controlled DC permanent magnet drive"
           extends Modelica.Icons.Record;
           import Modelica.Electrical.Machines.Thermal.convertResistance;
-          parameter
-            Modelica.Electrical.Machines.Utilities.ParameterRecords.DcPermanentMagnetData
+        //Motor
+          parameter Modelica.Electrical.Machines.Utilities.ParameterRecords.DcPermanentMagnetData
             motorData "Motor data" annotation (Dialog(group="Motor"), Placement(
                 transformation(extent={{-10,-10},{10,10}})));
           parameter Modelica.SIunits.Resistance Ra=convertResistance(motorData.Ra,
@@ -5039,7 +5059,7 @@ Further reading:
             annotation(Dialog(group="Motor", enable=false));
           parameter Modelica.SIunits.Time Ta=motorData.La/Ra "Armature time constant"
             annotation(Dialog(group="Motor", enable=false));
-          parameter Modelica.SIunits.Power PNominal=motorData.VaNominal*motorData.IaNominal- Ra*motorData.IaNominal^2
+          parameter Modelica.SIunits.Power PNominal=motorData.ViNominal*motorData.IaNominal
             -motorData.frictionParameters.PRef -motorData.coreParameters.PRef -motorData.strayLoadParameters.PRef
             "Nominal mechanical output"
             annotation(Dialog(group="Motor", enable=false));
@@ -5049,14 +5069,19 @@ Further reading:
           parameter Modelica.SIunits.ElectricalTorqueConstant kPhi=tauNominal/motorData.IaNominal
             "Torque constant"
             annotation(Dialog(group="Motor", enable=false));
+          parameter Modelica.SIunits.AngularVelocity w0=motorData.wNominal*motorData.VaNominal/motorData.ViNominal
+            "No-load speed"
+          annotation(Dialog(group="Motor", enable=false));
+        //Inverter
           parameter Modelica.SIunits.Frequency fS=2e3 "Switching frequency"
-            annotation(Dialog(group="Inverter"));
+            annotation(Dialog(tab="Inverter", group="Armature inverter"));
           parameter Modelica.SIunits.Time Td=0.5/fS "Dead time of inverter"
-            annotation(Dialog(group="Inverter", enable=false));
+            annotation(Dialog(tab="Inverter", group="Armature inverter", enable=false));
           parameter Modelica.SIunits.Time Tmf=2/fS "Measurement filter time constant"
-            annotation(Dialog(group="Inverter", enable=false));
+            annotation(Dialog(tab="Inverter", group="Armature inverter", enable=false));
           parameter Modelica.SIunits.Time Tsigma=Td + Tmf "Sum of small time constants"
-            annotation(Dialog(group="Inverter", enable=false));
+            annotation(Dialog(tab="Inverter", group="Armature inverter", enable=false));
+        //Load
           parameter Modelica.SIunits.Inertia JL=motorData.Jr "Load inertia"
             annotation(Dialog(group="Load"));
         //Limits
@@ -5104,7 +5129,7 @@ Calculates controller parameters of a DC permanent magnet drive:
 Current controller according to absolute optimum, speed controller according to symmetric optimum.
 </p>
 </html>"));
-        end DcpmDriveData;
+        end DriveDataDCPM;
 
         block LimitedPI
           "Limited PI-controller with anti-windup and feedforward"
@@ -5122,12 +5147,18 @@ Current controller according to absolute optimum, speed controller according to 
               Placement(transformation(
                 extent={{-20,-20},{20,20}},
                 rotation=90,
-                origin={60,-120}),iconTransformation(
+                origin={0,-120}), iconTransformation(
+                extent={{-20,-20},{20,20}},
+                rotation=90,
+                origin={0,-120})));
+          Blocks.Interfaces.RealInput kFF if useFF and not useConstantKFF
+            "Connector of feedforward factor" annotation (Placement(transformation(
+                extent={{-20,-20},{20,20}},
+                rotation=90,
+                origin={60,-120}), iconTransformation(
                 extent={{-20,-20},{20,20}},
                 rotation=90,
                 origin={60,-120})));
-          output Real controlError = u - u_m
-            "Control error (set point - measurement)";
           Modelica.Blocks.Interfaces.RealInput yMaxVar if not constantLimits
             "Connector of yMax input signal" annotation (Placement(transformation(
                 origin={120,60},
@@ -5138,22 +5169,26 @@ Current controller according to absolute optimum, speed controller according to 
                 origin={120,-60},
                 extent={{20,-20},{-20,20}},
                 rotation=0)));
+          output Real controlError = u - u_m
+            "Control error (set point - measurement)";
           parameter Real k(unit="1")=1 "Gain";
           parameter Boolean useI=true "PI else P" annotation(Evaluate=true);
           parameter Modelica.SIunits.Time Ti(min=Modelica.Constants.small)=1
             "Integral time constant (T>0 required)" annotation(Dialog(enable=useI));
           parameter Boolean useFF=false "Use FeedForward?"
-            annotation(Dialog(group="FeedForward"), Evaluate=true);
-          parameter Real kFF(unit="1")=1 "FeedForward gain"
+            annotation(Dialog(group="FeedForward"));
+          parameter Boolean useConstantKFF=true "Use constant FeedForward factor?"
             annotation(Dialog(group="FeedForward", enable=useFF));
+          parameter Real KFF(unit="1")=1 "FeedForward gain"
+            annotation(Dialog(group="FeedForward", enable=useFF and useConstantKFF));
           parameter Boolean constantLimits=true "Use constant limits?"
-            annotation(Dialog(group="Limitation"), Evaluate=true);
+            annotation(Dialog(group="Limitation"));
           parameter Boolean symmetricLimits=true "Use symmetric limits?"
-            annotation(Dialog(group="Limitation"), Evaluate=true);
+            annotation(Dialog(group="Limitation"));
           parameter Real yMax = inf "Upper limit of output"
             annotation(Dialog(group="Limitation", enable=constantLimits));
           parameter Real yMin=-yMax "Lower limit of output"
-            annotation(Dialog(group="Limitation", enable=constantLimits));
+            annotation(Dialog(group="Limitation", enable=constantLimits and not symmetricLimits));
           parameter Modelica.Blocks.Types.Init initType=Modelica.Blocks.Types.Init.NoInit
             "Type of initialization (1: no init, 2: steady state, 3: initial state, 4: initial output)"
             annotation(Evaluate=true,
@@ -5175,7 +5210,7 @@ Current controller according to absolute optimum, speed controller according to 
           Modelica.Blocks.Math.Add3 add3(
             k1=k,
             k2=k,
-            k3=kFF)
+            k3=1)
             annotation (Placement(transformation(extent={{20,-10},{40,10}})));
           Modelica.Blocks.Nonlinear.VariableLimiter variableLimiter
             annotation (Placement(transformation(extent={{70,-10},{90,10}})));
@@ -5183,11 +5218,18 @@ Current controller according to absolute optimum, speed controller according to 
                 extent={{-10,10},{10,-10}},
                 rotation=270,
                 origin={50,-20})));
+          Blocks.Math.Product product annotation (Placement(transformation(
+                extent={{-10,-10},{10,10}},
+                rotation=90,
+                origin={10,-70})));
         protected
           Modelica.Blocks.Sources.Constant zeroI(k=0) if not useI
-            annotation (Placement(transformation(extent={{-20,-70},{0,-50}})));
+            annotation (Placement(transformation(extent={{-20,20},{0,40}})));
           Modelica.Blocks.Sources.Constant zeroFF(k=0) if not useFF
             annotation (Placement(transformation(extent={{-30,-100},{-10,-80}})));
+          Blocks.Sources.Constant constantKFF(k=KFF) if not useFF or
+            useConstantKFF
+            annotation (Placement(transformation(extent={{90,-100},{70,-80}})));
           Modelica.Blocks.Sources.Constant yMaxConst(k=yMax) if constantLimits
             annotation (Placement(transformation(extent={{40,50},{60,70}})));
           Modelica.Blocks.Sources.Constant yMinConst(k=yMin) if constantLimits and not symmetricLimits
@@ -5196,7 +5238,8 @@ Current controller according to absolute optimum, speed controller according to 
               Placement(transformation(
                 extent={{-4,-4},{4,4}},
                 rotation=270,
-                origin={60,10})));
+                origin={58,10})));
+
         initial equation
           if initType == Init.SteadyState and useI then
             der(add3.u2) = 0;
@@ -5221,8 +5264,7 @@ Current controller according to absolute optimum, speed controller according to 
           connect(variableLimiter.y, addSat.u2) annotation (Line(points={{91,0},{94,
                   0},{94,-20},{58,-20}},
                                      color={0,0,127}));
-          connect(add3.u2, zeroI.y) annotation (Line(points={{18,0},{6,0},{6,-60},{
-                  1,-60}},
+          connect(add3.u2, zeroI.y) annotation (Line(points={{18,0},{6,0},{6,30},{1,30}},
                          color={0,0,127}));
           connect(u, feedback.u1)
             annotation (Line(points={{-120,0},{-88,0}}, color={0,0,127}));
@@ -5237,12 +5279,6 @@ Current controller according to absolute optimum, speed controller according to 
                              color={0,0,127}));
           connect(addSat.y, addAntiWindup.u2) annotation (Line(points={{50,-29},{50,
                   -40},{-60,-40},{-60,-26},{-52,-26}}, color={0,0,127}));
-          connect(feedForward, add3.u3) annotation (Line(points={{60,-120},{60,-90},
-                  {10,-90},{10,-8},{18,-8}},
-                                         color={0,0,127}));
-          connect(add3.u3, zeroFF.y) annotation (Line(points={{18,-8},{10,-8},{10,
-                  -90},{-9,-90}},
-                           color={0,0,127}));
           connect(yMinVar, variableLimiter.limit2) annotation (Line(points={{120,
                   -60},{64,-60},{64,-8},{68,-8}}, color={0,0,127}));
           connect(variableLimiter.limit2, yMinConst.y) annotation (Line(points={{68,
@@ -5252,9 +5288,20 @@ Current controller according to absolute optimum, speed controller according to 
           connect(variableLimiter.limit1, yMaxConst.y) annotation (Line(points={{68,
                   8},{64,8},{64,60},{61,60}}, color={0,0,127}));
           connect(variableLimiter.limit2, gain.y)
-            annotation (Line(points={{68,-8},{60,-8},{60,5.6}}, color={0,0,127}));
-          connect(variableLimiter.limit1, gain.u) annotation (Line(points={{68,8},{64,8},
-                  {64,20},{60,20},{60,14.8}}, color={0,0,127}));
+            annotation (Line(points={{68,-8},{58,-8},{58,5.6}}, color={0,0,127}));
+          connect(variableLimiter.limit1, gain.u) annotation (Line(points={{68,8},{
+                  64,8},{64,20},{58,20},{58,14.8}},
+                                              color={0,0,127}));
+          connect(product.y, add3.u3)
+            annotation (Line(points={{10,-59},{10,-8},{18,-8}}, color={0,0,127}));
+          connect(feedForward, product.u1) annotation (Line(points={{0,-120},{0,-90},{4,
+                  -90},{4,-82}}, color={0,0,127}));
+          connect(product.u1, zeroFF.y)
+            annotation (Line(points={{4,-82},{4,-90},{-9,-90}}, color={0,0,127}));
+          connect(constantKFF.y, product.u2)
+            annotation (Line(points={{69,-90},{16,-90},{16,-82}}, color={0,0,127}));
+          connect(product.u2, kFF) annotation (Line(points={{16,-82},{16,-90},{60,-90},{
+                  60,-120}}, color={0,0,127}));
           annotation (Icon(coordinateSystem(preserveAspectRatio=false), graphics={
                 Polygon(
                   points={{-80,90},{-88,68},{-72,68},{-80,90}},
@@ -5286,12 +5333,15 @@ Current controller according to absolute optimum, speed controller according to 
 Proportional - Integral - controller with optional feed-foward and limitation at the output.
 </p>
 <p>
+The integral part can be switched off to obtain a limited P-controller.
+</p>
+<p>
+The feed-forward gain can either be constant or given by the optional input kFF.
+</p>
+<p>
 When the ouput is limited, the controller cannot bring the control error to zero and the integrator will not stop integrating. 
 To avoid thie <b>WindUp</b> - effect, an <b>Anti-WindUp</b> loop is implemented: 
 The difference between unlimited and limited output is fed back to the integrator's input.
-</p>
-<p>
-The integral part can be switched off to obtain a limited P-controller.
 </p>
 </html>"));
         end LimitedPI;
@@ -5304,15 +5354,19 @@ The integral part can be switched off to obtain a limited P-controller.
           parameter Modelica.SIunits.Voltage VMax "Maximum Voltage";
           parameter Modelica.SIunits.Time Ti=1e-6 "Time constant of integral power controller"
             annotation(Dialog(group="Averaging", enable=useIdealInverter));
-          parameter SIunits.Resistance RonTransistor=1e-05 "Transistor closed resistance"
+          parameter SIunits.Resistance RonTransistor=1e-05
+            "Transistor closed resistance"
             annotation(Dialog(group="Switching", enable=not useIdealInverter));
-          parameter SIunits.Conductance GoffTransistor=1e-05 "Transistor opened conductance"
+          parameter SIunits.Conductance GoffTransistor=1e-05
+            "Transistor opened conductance"
             annotation(Dialog(group="Switching", enable=not useIdealInverter));
-          parameter SIunits.Voltage VkneeTransistor=0 "Transistor threshold voltage"
+          parameter SIunits.Voltage VkneeTransistor=0
+            "Transistor threshold voltage"
             annotation(Dialog(group="Switching", enable=not useIdealInverter));
           parameter SIunits.Resistance RonDiode=1e-05 "Diode closed resistance"
             annotation(Dialog(group="Switching", enable=not useIdealInverter));
-          parameter SIunits.Conductance GoffDiode=1e-05 "Diode opened conductance"
+          parameter SIunits.Conductance GoffDiode=1e-05
+            "Diode opened conductance"
             annotation(Dialog(group="Switching", enable=not useIdealInverter));
           parameter SIunits.Voltage VkneeDiode=0 "Diode threshold voltage"
             annotation(Dialog(group="Switching", enable=not useIdealInverter));
@@ -5368,9 +5422,9 @@ The integral part can be switched off to obtain a limited P-controller.
             initType=Modelica.Blocks.Types.Init.InitialOutput,
             y_start=0) annotation (Placement(transformation(extent={{-60,-70},{
                     -80,-50}})));
-          IdealDCDCinverter idealDCDCinverter(Td=Td, Ti=Ti) if useIdealInverter
+          IdealDcDc idealDcDc(Td=Td, Ti=Ti) if                 useIdealInverter
             annotation (Placement(transformation(extent={{20,-30},{40,-10}})));
-          SwitchingDCDCinverter switchingDCDCinverter(
+          SwitchingDcDc switchingDcDc(
             fS=fS,
             VMax=VMax,
             RonTransistor=RonTransistor,
@@ -5406,28 +5460,29 @@ The integral part can be switched off to obtain a limited P-controller.
           connect(voltageFilter.y, variableLimiter.limit1) annotation (Line(
                 points={{-81,60},{-90,60},{-90,40},{-80,40},{-80,8},{-62,8}},
                 color={0,0,127}));
-          connect(pin_nBat, switchingDCDCinverter.pin_nBat)
-            annotation (Line(points={{-100,100},{-10,100},{-10,30}}, color={0,0,255}));
-          connect(pin_pBat, switchingDCDCinverter.pin_pBat) annotation (Line(points={{100,
-                  100},{100,50},{10,50},{10,30}}, color={0,0,255}));
-          connect(pin_pBat, idealDCDCinverter.pin_pBat) annotation (Line(points={{100,100},
-                  {100,50},{40,50},{40,-10}}, color={0,0,255}));
-          connect(pin_nBat, idealDCDCinverter.pin_nBat)
-            annotation (Line(points={{-100,100},{20,100},{20,-10}}, color={0,0,255}));
-          connect(switchingDCDCinverter.pin_nMot, currentSensor.n)
-            annotation (Line(points={{-6,10},{-6,-80},{-30,-80}}, color={0,0,255}));
-          connect(currentSensor.n, idealDCDCinverter.pin_nMot)
-            annotation (Line(points={{-30,-80},{24,-80},{24,-30}}, color={0,0,255}));
-          connect(pin_pMot, idealDCDCinverter.pin_pMot)
-            annotation (Line(points={{60,-100},{36,-100},{36,-30}}, color={0,0,255}));
-          connect(pin_pMot, switchingDCDCinverter.pin_pMot)
-            annotation (Line(points={{60,-100},{6,-100},{6,10}}, color={0,0,255}));
-          connect(variableLimiter.y, idealDCDCinverter.vRef) annotation (Line(points={{-39,
-                  0},{-20,0},{-20,-20},{18,-20}}, color={0,0,127}));
-          connect(variableLimiter.y, switchingDCDCinverter.vRef) annotation (Line(
+          connect(pin_nBat, switchingDcDc.pin_nBat) annotation (Line(points={{-100,
+                  100},{-10,100},{-10,30}}, color={0,0,255}));
+          connect(pin_pBat, switchingDcDc.pin_pBat) annotation (Line(points={{
+                  100,100},{100,50},{10,50},{10,30}}, color={0,0,255}));
+          connect(pin_pBat, idealDcDc.pin_pBat) annotation (Line(points={{100,
+                  100},{100,50},{40,50},{40,-10}}, color={0,0,255}));
+          connect(pin_nBat, idealDcDc.pin_nBat) annotation (Line(points={{-100,
+                  100},{20,100},{20,-10}}, color={0,0,255}));
+          connect(switchingDcDc.pin_nMot, currentSensor.n) annotation (Line(
+                points={{-6,10},{-6,-80},{-30,-80}}, color={0,0,255}));
+          connect(currentSensor.n, idealDcDc.pin_nMot) annotation (Line(points=
+                  {{-30,-80},{24,-80},{24,-30}}, color={0,0,255}));
+          connect(pin_pMot, idealDcDc.pin_pMot) annotation (Line(points={{60,-100},
+                  {36,-100},{36,-30}}, color={0,0,255}));
+          connect(pin_pMot, switchingDcDc.pin_pMot) annotation (Line(points={{
+                  60,-100},{6,-100},{6,10}}, color={0,0,255}));
+          connect(variableLimiter.y, idealDcDc.vRef) annotation (Line(points={{
+                  -39,0},{-20,0},{-20,-20},{18,-20}}, color={0,0,127}));
+          connect(variableLimiter.y, switchingDcDc.vRef) annotation (Line(
                 points={{-39,0},{-20,0},{-20,20},{-12,20}}, color={0,0,127}));
-          connect(voltageFilter.y, switchingDCDCinverter.vMax) annotation (Line(points={
-                  {-81,60},{-90,60},{-90,40},{-20,40},{-20,26},{-12,26}}, color={0,0,127}));
+          connect(voltageFilter.y, switchingDcDc.vMax) annotation (Line(points=
+                  {{-81,60},{-90,60},{-90,40},{-20,40},{-20,26},{-12,26}},
+                color={0,0,127}));
           annotation (Icon(coordinateSystem(preserveAspectRatio=false), graphics={
                 Rectangle(
                   extent={{-100,100},{100,-100}},
@@ -5435,7 +5490,7 @@ The integral part can be switched off to obtain a limited P-controller.
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid),
                 Text(
-                  extent={{-100,20},{100,-20}},
+                  extent={{-98,20},{98,-20}},
                   lineColor={0,0,255},
                   textString="%name"),
                 Text(
@@ -5462,7 +5517,7 @@ The integral part can be switched off to obtain a limited P-controller.
 </html>"));
         end DcdcInverter;
 
-        model IdealDCDCinverter "Ideal DC-DC inverter"
+        model IdealDcDc "Ideal DC-DC inverter"
           parameter Modelica.SIunits.Time Td "Dead time";
           parameter Modelica.SIunits.Time Ti=1e-6 "Time constant of integral power controller";
           Modelica.Electrical.Analog.Sources.SignalVoltage signalVoltage
@@ -5569,16 +5624,20 @@ The integral part can be switched off to obtain a limited P-controller.
             Documentation(info="<html>
 <p>This is a model of an ideal DC-DC inverter based on a power balance achieved by an integral controller.</p>
 </html>"));
-        end IdealDCDCinverter;
+        end IdealDcDc;
 
-        model SwitchingDCDCinverter "Switching DC-DC inverter"
+        model SwitchingDcDc "Switching DC-DC inverter"
           parameter Modelica.SIunits.Frequency fS "Switching frequency";
           parameter Modelica.SIunits.Voltage VMax "Maximum Voltage";
-          parameter SIunits.Resistance RonTransistor=1e-05 "Transistor closed resistance";
-          parameter SIunits.Conductance GoffTransistor=1e-05 "Transistor opened conductance";
-          parameter SIunits.Voltage VkneeTransistor=0 "Transistor threshold voltage";
+          parameter SIunits.Resistance RonTransistor=1e-05
+            "Transistor closed resistance";
+          parameter SIunits.Conductance GoffTransistor=1e-05
+            "Transistor opened conductance";
+          parameter SIunits.Voltage VkneeTransistor=0
+            "Transistor threshold voltage";
           parameter SIunits.Resistance RonDiode=1e-05 "Diode closed resistance";
-          parameter SIunits.Conductance GoffDiode=1e-05 "Diode opened conductance";
+          parameter SIunits.Conductance GoffDiode=1e-05
+            "Diode opened conductance";
           parameter SIunits.Voltage VkneeDiode=0 "Diode threshold voltage";
           Modelica.Electrical.PowerConverters.DCDC.Control.VoltageToDutyCycle
             adaptor(useConstantMaximumVoltage=false, vMax=VMax)
@@ -5659,7 +5718,7 @@ The integral part can be switched off to obtain a limited P-controller.
             Documentation(info="<html>
 <p>This is a model of a switchinjg DC-DC inverter based on a H-bridge.</p>
 </html>"));
-        end SwitchingDCDCinverter;
+        end SwitchingDcDc;
         annotation (Documentation(info="<html>
 <p>This package contains utilities for controlled drives</p>
 </html>"));
