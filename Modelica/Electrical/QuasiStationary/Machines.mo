@@ -5,7 +5,7 @@ package Machines "Quasistationary machine models"
   package Examples "Test examples"
     extends Modelica.Icons.ExamplesPackage;
 
-    model TransformerTestbench "Transformer Testbench"
+    model TransformerTestbench "Transformer test bench"
       extends Modelica.Icons.Example;
       parameter Integer m=3 "Number of phases";
       parameter Modelica.SIunits.Resistance RL[m]=fill(1/3, m)
@@ -208,7 +208,7 @@ package Machines "Quasistationary machine models"
       connect(electricalPowerSensorS.currentP, source.plug_p) annotation (Line(
             points={{-80,20},{-90,20},{-90,10}}, color={85,170,255}));
       annotation (Documentation(info="<html>
-Transformer testbench:<br>
+Transformer test bench:<br>
 You may choose different connections as well as vary the load (even not symmetrical).<br>
 <strong>Please pay attention</strong> to proper grounding of the primary and secondary part of the whole circuit.<br>
 The primary and secondary starpoint are available as connectors, if the connection is not delta (D or d).<br>

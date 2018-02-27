@@ -306,7 +306,7 @@ static ModelicaFileType Internal_stat(_In_z_ const char* name) {
     int statReturn = _stat(name, &fileInfo);
     if (0 != statReturn) {
         /* For some reason _stat requires "a:\" and "a:\test1" but fails
-         * on "a:" and "a:\test1\", repectively. It could be handled in the
+         * on "a:" and "a:\test1\", respectively. It could be handled in the
          * Modelica code, but seems better to have it here.
          */
         const char* firstSlash = strpbrk(name, "/\\");

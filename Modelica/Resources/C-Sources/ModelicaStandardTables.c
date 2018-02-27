@@ -4638,7 +4638,7 @@ static int isValidCombiTimeTable(CombiTimeTable* tableID,
                         ModelicaStandardTables_CombiTimeTable_close(tableID);
                     }
                     ModelicaFormatError(
-                        "Table matrix \"%s\" does not have a positive period/cylce "
+                        "Table matrix \"%s\" does not have a positive period/cycle "
                         "time for time interpolation with periodic "
                         "extrapolation.\n", tableName);
                     isValid = 0;

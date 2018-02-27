@@ -4918,7 +4918,7 @@ The outer control loop is formed by the position controller which is parameteriz
 </p>
 <p>
 At time=0.2 s the kinematicPTP starts to prescribe the reference position with limited speed and limited acceleration.
-At time=2.3 s a load torque step is applied, causing to drive to slighlty leave the end position until the position controller brings the drive back to the desired position.
+At time=2.3 s a load torque step is applied, causing to drive to slightly leave the end position until the position controller brings the drive back to the desired position.
 </p>
 <p>
 Further reading: 
@@ -4928,7 +4928,7 @@ Further reading:
           Icon(coordinateSystem(extent={{-180,-100},{100,100}}, initialScale=0.1)));
       end PositionControlledDCPM;
 
-      package Utilities "Utilitiess for controlled drives"
+      package Utilities "Utilities for controlled drives"
         extends Modelica.Icons.UtilitiesPackage;
         partial model PartialControlledDCPM "Partial controlled DC PM drive"
           extends Modelica.Icons.Example;
@@ -5029,7 +5029,7 @@ Further reading:
   <p>This is a partial model of a controlled DC PM drive.</p>
 <p>
 Electrical power is taken from a battery (constant voltage with inner resistance) and fed to the motor via a DC-DC inverter. 
-The level of detail of the DC-DC inverter may choosen from ideal averaging or switching. 
+The level of detail of the DC-DC inverter may be chosen from ideal averaging or switching. 
 The DC-DC inverter is commanded by the current controller. 
 The current controller is parameterized according to the absolute optimum.
 </p>
@@ -5328,7 +5328,7 @@ Current controller according to absolute optimum, speed controller according to 
                 coordinateSystem(preserveAspectRatio=false)),
             Documentation(info="<html>
 <p>
-Proportional - Integral - controller with optional feed-foward and limitation at the output.
+Proportional - Integral - controller with optional feed-forward and limitation at the output.
 </p>
 <p>
 The integral part can be switched off to obtain a limited P-controller.
@@ -5337,7 +5337,7 @@ The integral part can be switched off to obtain a limited P-controller.
 The feed-forward gain can either be constant or given by the optional input kFF.
 </p>
 <p>
-When the ouput is limited, the controller cannot bring the control error to zero and the integrator will not stop integrating. 
+When the output is limited, the controller cannot bring the control error to zero and the integrator will not stop integrating. 
 To avoid the <strong>WindUp</strong> - effect, an <strong>Anti-WindUp</strong> loop is implemented: 
 The difference between unlimited and limited output is fed back to the integrator's input.
 </p>
@@ -5509,7 +5509,7 @@ The difference between unlimited and limited output is fed back to the integrato
                                                                          Diagram(
                 coordinateSystem(preserveAspectRatio=false)),
             Documentation(info="<html>
-<p>This is a model of a DC-DC inverter. The level of detail of the DC-DC inverter may choosen from ideal averaging or switching.</p>
+<p>This is a model of a DC-DC inverter. The level of detail of the DC-DC inverter may be chosen from ideal averaging or switching.</p>
 <p>Reference voltage is limited to actual battery voltage.</p>
 <p>Battery voltage and motor current are measured.</p>
 </html>"));
@@ -5714,7 +5714,7 @@ The difference between unlimited and limited output is fed back to the integrato
                   textString="Mot")}),                                   Diagram(
                 coordinateSystem(preserveAspectRatio=false)),
             Documentation(info="<html>
-<p>This is a model of a switchinjg DC-DC inverter based on a H-bridge.</p>
+<p>This is a model of a switching DC-DC inverter based on a H-bridge.</p>
 </html>"));
         end SwitchingDcDc;
         annotation (Documentation(info="<html>
@@ -5728,7 +5728,7 @@ This package contains test examples demonstrating control of electric drives.
 
     package Transformers "Test examples of transformers"
       extends Modelica.Icons.ExamplesPackage;
-      model TransformerTestbench "Transformer Testbench"
+      model TransformerTestbench "Transformer test bench"
         extends Modelica.Icons.Example;
         parameter Modelica.SIunits.Resistance RL[3]=fill(1/3, 3)
           "Load resistance";
@@ -5864,7 +5864,7 @@ This package contains test examples demonstrating control of electric drives.
         connect(deltaL.plug_p, voltageRMSSensorL.plug_n) annotation (Line(
             points={{60,-10},{60,-30}}, color={0,0,255}));
         annotation (Documentation(info="<html>
-<h4>Transformer testbench:</h4>
+<h4>Transformer test bench:</h4>
 <p>
 You may choose different connections as well as vary the load (even not symmetrical).
 </p>
@@ -5886,7 +5886,7 @@ In some cases it may be necessary to ground the transformer's starpoint even tho
 </html>"), experiment(StopTime=0.1, Interval=1E-4, Tolerance=1E-6));
       end TransformerTestbench;
 
-      model AsymmetricalLoad "AsymmetricalLoad"
+      model AsymmetricalLoad "Asymmetrical load"
         extends Modelica.Icons.Example;
         parameter Modelica.SIunits.Resistance RL=1 "Load resistance";
         Modelica.Electrical.MultiPhase.Sources.SineVoltage source(freqHz=fill(
@@ -12050,9 +12050,9 @@ This model determines the RMS value of the input space phasor <code>u</code>.</p
                       textString="RMS")}));
       end QuasiRMS;
 
-      block LessThreshold "Sets angle to zero when length is below theshold"
+      block LessThreshold "Sets angle to zero when length is below threshold"
         extends Modelica.Blocks.Interfaces.MISO(final nin=2);
-        parameter Real threshold(final min=0) "threshold";
+        parameter Real threshold(final min=0) "Threshold";
       equation
         y = if noEvent(u[1]<threshold) then 0 else u[2];
       end LessThreshold;
