@@ -1081,7 +1081,7 @@ connector frame_a (visualized by the red coordinate system in the figure below).
       annotation(choicesAllMatching=true, Dialog(enable=animation,group="Color coding"),
       Documentation(info="<html>
 <p>This replaceable function defines a particular color map.</p>
-<!--a placeholder to fulfill minimum domentation length-->
+<!--a placeholder to fulfill minimum documentation length-->
 </html>"));
 
     parameter Integer n_colors=64 "Number of colors in the colorMap" annotation(Dialog(enable=animation,group="Color coding"));
@@ -2319,7 +2319,7 @@ The direct usage of the Surface model, as well as of the Torus and the Voluminou
         annotation(choicesAllMatching=true, Dialog(group="Color coding"),
         Documentation(info="<html>
 <p>This replaceable function defines a particular color map.</p>
-<!--a placeholder to fulfill minimum domentation length-->
+<!--a placeholder to fulfill minimum documentation length-->
 </html>"));
     protected
       parameter Real colorMapData[n_colors,3] = colorMap(n_colors) annotation(HideResult=true);

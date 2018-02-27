@@ -3201,7 +3201,7 @@ is always enabled and must be connected</strong>.
               extent={{-74,24},{80,-20}},
               textString="f = t = 0")}), Documentation(info="<html>
 <p>Set force and torque vectors on frame connector frame_a to zero.</p>
-<!--a placeholder to fulfill minimum domentation length-->
+<!--a placeholder to fulfill minimum documentation length-->
 </html>"));
     end ZeroForceAndTorque;
 
@@ -3519,8 +3519,8 @@ The classes in this package should not be directly used by a user.
     extends Modelica.Icons.ObsoleteModel;
     extends TransformAbsoluteVector;
     annotation(obsolete = "Obsolete model due to false class name - use Modelica.Mechanics.MultiBody.Sensors.TransformAbsoluteVector instead", Documentation(info="<html>
-<!--a placeholder to fulfill minimum domentation length-->
-<!--a placeholder to fulfill minimum domentation length-->
+<!--a placeholder to fulfill minimum documentation length-->
+<!--a placeholder to fulfill minimum documentation length-->
 </html>"));
   end TansformAbsoluteVector;
 
@@ -3529,8 +3529,8 @@ The classes in this package should not be directly used by a user.
     extends Modelica.Icons.ObsoleteModel;
     extends TransformRelativeVector;
     annotation(obsolete = "Obsolete model due to false class name - use Modelica.Mechanics.MultiBody.Sensors.TransformRelativeVector instead", Documentation(info="<html>
-<!--a placeholder to fulfill minimum domentation length-->
-<!--a placeholder to fulfill minimum domentation length-->
+<!--a placeholder to fulfill minimum documentation length-->
+<!--a placeholder to fulfill minimum documentation length-->
 </html>"));
   end TansformRelativeVector;
 
