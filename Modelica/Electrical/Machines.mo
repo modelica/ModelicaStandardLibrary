@@ -4757,12 +4757,7 @@ This package contains test examples of DC machines.
     package ControlledDCDrives "Test examples of controlled DC drives"
       extends Modelica.Icons.ExamplesPackage;
       model CurrentControlledDCPM "Current controlled DC PM drive"
-        extends Components.PartialControlledDCPM(redeclare
-            Components.IdealDCDCinverter dcdcInverter(
-            fS=dcpmDriveData.fS,
-            Td=dcpmDriveData.Td,
-            Tmf=dcpmDriveData.Tmf,
-            VaMax=dcpmDriveData.VaMax));
+        extends Utilities.PartialControlledDCPM;
         Modelica.Mechanics.Rotational.Sources.QuadraticSpeedDependentTorque
           loadTorque(
           tau_nominal=-dcpmDriveData.tauNominal,
@@ -4796,18 +4791,13 @@ Further reading:
       end CurrentControlledDCPM;
 
       model SpeedControlledDCPM "Speed controlled DC PM drive"
-        extends Components.PartialControlledDCPM(redeclare
-            Components.IdealDCDCinverter dcdcInverter(
-            fS=dcpmDriveData.fS,
-            Td=dcpmDriveData.Td,
-            Tmf=dcpmDriveData.Tmf,
-            VaMax=dcpmDriveData.VaMax));
+        extends Utilities.PartialControlledDCPM;
         Modelica.Mechanics.Rotational.Sources.TorqueStep loadTorque(
           stepTorque=-dcpmDriveData.tauNominal,
           offsetTorque=0,
           startTime=0.8)
           annotation (Placement(transformation(extent={{100,-10},{80,10}})));
-        Components.LimitedPI speedController(
+        Utilities.LimitedPI speedController(
           initType=Modelica.Blocks.Types.Init.InitialOutput,
           k=dcpmDriveData.kpw,
           Ti=dcpmDriveData.Tiw,
@@ -4858,18 +4848,13 @@ Further reading:
       end SpeedControlledDCPM;
 
       model PositionControlledDCPM "Position controlled DC PM drive"
-        extends Components.PartialControlledDCPM(redeclare
-            Components.IdealDCDCinverter dcdcInverter(
-            fS=dcpmDriveData.fS,
-            Td=dcpmDriveData.Td,
-            Tmf=dcpmDriveData.Tmf,
-            VaMax=dcpmDriveData.VaMax));
+        extends Utilities.PartialControlledDCPM;
         Modelica.Mechanics.Rotational.Sources.TorqueStep loadTorque(
           stepTorque=-dcpmDriveData.tauNominal,
           offsetTorque=0,
           startTime=2.2)
           annotation (Placement(transformation(extent={{100,-10},{80,10}})));
-        Components.LimitedPI speedController(
+        Utilities.LimitedPI speedController(
           initType=Modelica.Blocks.Types.Init.InitialOutput,
           k=dcpmDriveData.kpw,
           Ti=dcpmDriveData.Tiw,
@@ -4877,7 +4862,7 @@ Further reading:
           constantLimits=true,
           yMax=dcpmDriveData.IaMax)
           annotation (Placement(transformation(extent={{-50,20},{-30,40}})));
-        Components.LimitedPI positionController(
+        Utilities.LimitedPI positionController(
           with_FF=false,
           constantLimits=true,
           k=dcpmDriveData.kpP,
@@ -4933,11 +4918,11 @@ Further reading:
 </html>"));
       end PositionControlledDCPM;
 
-      package Components "Components for controlled drives"
-        extends Modelica.Icons.VariantsPackage;
+      package Utilities "Utilitiess for controlled drives"
+        extends Modelica.Icons.UtilitiesPackage;
         partial model PartialControlledDCPM "Partial controlled DC PM drive"
           extends Modelica.Icons.Example;
-          parameter Components.DcpmDriveData dcpmDriveData
+          parameter Utilities.DcpmDriveData dcpmDriveData
             annotation (Placement(transformation(extent={{50,20},{70,40}})));
           Modelica.Mechanics.Rotational.Components.Inertia loadInertia(J=dcpmDriveData.JL)
             annotation (Placement(transformation(extent={{50,-10},{70,10}})));
@@ -4966,13 +4951,11 @@ Further reading:
             Js=dcpmDriveData.dcpmData.Js,
             alpha20a=dcpmDriveData.dcpmData.alpha20a)
             annotation (Placement(transformation(extent={{20,-10},{40,10}})));
-          replaceable Components.IdealDCDCinverter
-            dcdcInverter(
+          Utilities.DcdcInverter dcdcInverter(
             fS=dcpmDriveData.fS,
             Td=dcpmDriveData.Td,
             Tmf=dcpmDriveData.Tmf,
-            VaMax=dcpmDriveData.VaMax) constrainedby
-            Components.PartialDCDCinverter
+            VMax=dcpmDriveData.VaMax)
             annotation (Placement(transformation(extent={{20,20},{40,40}})));
           Modelica.Electrical.Analog.Basic.Resistor resistor(R=0.05*dcpmDriveData.dcpmData.VaNominal/dcpmDriveData.dcpmData.IaNominal) annotation (Placement(
                 transformation(
@@ -4986,7 +4969,7 @@ Further reading:
                 origin={10,60})));
           Modelica.Electrical.Analog.Sources.ConstantVoltage constantVoltage(V=dcpmDriveData.VaMax)
             annotation (Placement(transformation(extent={{40,70},{20,90}})));
-          Components.LimitedPI currentController(
+          Utilities.LimitedPI currentController(
             constantLimits=false,
             k=dcpmDriveData.kpI,
             Ti=dcpmDriveData.TiI,
@@ -5022,7 +5005,9 @@ Further reading:
           annotation (Documentation(info="<html>
   <p>This is a partial model of a controlled DC PM drive.</p>
 <p>
-Electrical power is taken from a battery (constant voltage with inner resistance) and fed to the motor via an ideal DC-DC inverter. 
+Electrical power is taken from a battery (constant voltage with inner resistance) and fed to the motor via a DC-DC inverter. 
+The level of detail of the DC-DC inverter may choosen from ideal averaging or switching. 
+The DC-DC inverter is commanded by the current controller. 
 The current controller is parameterized according to the absolute optimum.
 </p>
 <p>
@@ -5290,11 +5275,26 @@ The integral part can be switched off to obtain a limited P-controller.
 </html>"));
         end LimitedPI;
 
-        partial model PartialDCDCinverter "Partial DC-DC inverter"
+        model DcdcInverter "DC-DC inverter"
+          parameter Boolean useIdealInverter=true "Use ideal averaging inverter, otherwise switching inverter";
           parameter Modelica.SIunits.Frequency fS "Switching frequency";
           parameter Modelica.SIunits.Time Td=0.5/fS "Dead time";
           parameter Modelica.SIunits.Time Tmf=2/fS "Measurement filter time constant";
-          parameter Modelica.SIunits.Voltage VaMax "Maximum Voltage";
+          parameter Modelica.SIunits.Voltage VMax "Maximum Voltage";
+          parameter Modelica.SIunits.Time Ti=1e-6 "Time constant of integral power controller"
+            annotation(Dialog(group="Averaging", enable=useIdealInverter));
+          parameter SIunits.Resistance RonTransistor=1e-05 "Transistor closed resistance"
+            annotation(Dialog(group="Switching", enable=not useIdealInverter));
+          parameter SIunits.Conductance GoffTransistor=1e-05 "Transistor opened conductance"
+            annotation(Dialog(group="Switching", enable=not useIdealInverter));
+          parameter SIunits.Voltage VkneeTransistor=0 "Transistor threshold voltage"
+            annotation(Dialog(group="Switching", enable=not useIdealInverter));
+          parameter SIunits.Resistance RonDiode=1e-05 "Diode closed resistance"
+            annotation(Dialog(group="Switching", enable=not useIdealInverter));
+          parameter SIunits.Conductance GoffDiode=1e-05 "Diode opened conductance"
+            annotation(Dialog(group="Switching", enable=not useIdealInverter));
+          parameter SIunits.Voltage VkneeDiode=0 "Diode threshold voltage"
+            annotation(Dialog(group="Switching", enable=not useIdealInverter));
           output Modelica.SIunits.Voltage vBattery=pin_pBat.v - pin_nBat.v "Voltage at battery";
           output Modelica.SIunits.Current iBattery=pin_pBat.i "Current from battery";
           output Modelica.SIunits.Power pBattery=vBattery*iBattery "Power from battery";
@@ -5339,7 +5339,7 @@ The integral part can be switched off to obtain a limited P-controller.
             k=1,
             T=Tmf,
             initType=Modelica.Blocks.Types.Init.InitialOutput,
-            y_start=VaMax)
+            y_start=VMax)
             annotation (Placement(transformation(extent={{-60,50},{-80,70}})));
           Modelica.Blocks.Continuous.FirstOrder currentFilter(
             k=1,
@@ -5347,6 +5347,18 @@ The integral part can be switched off to obtain a limited P-controller.
             initType=Modelica.Blocks.Types.Init.InitialOutput,
             y_start=0) annotation (Placement(transformation(extent={{-60,-70},{
                     -80,-50}})));
+          IdealDCDCinverter idealDCDCinverter(Td=Td, Ti=Ti) if useIdealInverter
+            annotation (Placement(transformation(extent={{20,-30},{40,-10}})));
+          SwitchingDCDCinverter switchingDCDCinverter(
+            fS=fS,
+            VMax=VMax,
+            RonTransistor=RonTransistor,
+            GoffTransistor=GoffTransistor,
+            VkneeTransistor=VkneeTransistor,
+            RonDiode=RonDiode,
+            GoffDiode=GoffDiode,
+            VkneeDiode=VkneeDiode) if not useIdealInverter
+            annotation (Placement(transformation(extent={{-10,10},{10,30}})));
         equation
           connect(pin_nBat, voltageSensor.n)
             annotation (Line(points={{-100,100},{-40,100},{-40,70}},
@@ -5373,6 +5385,28 @@ The integral part can be switched off to obtain a limited P-controller.
           connect(voltageFilter.y, variableLimiter.limit1) annotation (Line(
                 points={{-81,60},{-90,60},{-90,40},{-80,40},{-80,8},{-62,8}},
                 color={0,0,127}));
+          connect(pin_nBat, switchingDCDCinverter.pin_nBat)
+            annotation (Line(points={{-100,100},{-10,100},{-10,30}}, color={0,0,255}));
+          connect(pin_pBat, switchingDCDCinverter.pin_pBat) annotation (Line(points={{100,
+                  100},{100,50},{10,50},{10,30}}, color={0,0,255}));
+          connect(pin_pBat, idealDCDCinverter.pin_pBat) annotation (Line(points={{100,100},
+                  {100,50},{40,50},{40,-10}}, color={0,0,255}));
+          connect(pin_nBat, idealDCDCinverter.pin_nBat)
+            annotation (Line(points={{-100,100},{20,100},{20,-10}}, color={0,0,255}));
+          connect(switchingDCDCinverter.pin_nMot, currentSensor.n)
+            annotation (Line(points={{-6,10},{-6,-80},{-30,-80}}, color={0,0,255}));
+          connect(currentSensor.n, idealDCDCinverter.pin_nMot)
+            annotation (Line(points={{-30,-80},{24,-80},{24,-30}}, color={0,0,255}));
+          connect(pin_pMot, idealDCDCinverter.pin_pMot)
+            annotation (Line(points={{60,-100},{36,-100},{36,-30}}, color={0,0,255}));
+          connect(pin_pMot, switchingDCDCinverter.pin_pMot)
+            annotation (Line(points={{60,-100},{6,-100},{6,10}}, color={0,0,255}));
+          connect(variableLimiter.y, idealDCDCinverter.vRef) annotation (Line(points={{-39,
+                  0},{-20,0},{-20,-20},{18,-20}}, color={0,0,127}));
+          connect(variableLimiter.y, switchingDCDCinverter.vRef) annotation (Line(
+                points={{-39,0},{-20,0},{-20,20},{-12,20}}, color={0,0,127}));
+          connect(voltageFilter.y, switchingDCDCinverter.vMax) annotation (Line(points={
+                  {-81,60},{-90,60},{-90,40},{-20,40},{-20,26},{-12,26}}, color={0,0,127}));
           annotation (Icon(coordinateSystem(preserveAspectRatio=false), graphics={
                 Text(
                   extent={{-100,20},{100,-20}},
@@ -5385,17 +5419,28 @@ The integral part can be switched off to obtain a limited P-controller.
                 Text(
                   extent={{-40,-60},{40,-80}},
                   lineColor={128,128,128},
-                  textString="Mot")}),                                   Diagram(
+                  textString="Mot"),
+                Rectangle(
+                  extent={{-100,100},{100,-100}},
+                  lineColor={0,0,255}),
+                Line(points={{-20,-20},{-100,-100}}, color={0,0,255}),
+                Line(points={{100,100},{20,20}},     color={0,0,255}),
+                Rectangle(visible=not useIdealInverter,
+                  extent={{-98,98},{98,-98}},
+                  lineColor={217,67,180}),
+                Line(visible=not useIdealInverter, points={{-20,-20},{-98,-98}},   color={217,67,180}),
+                Line(visible=not useIdealInverter, points={{98,98},{20,20}},       color={217,67,180})}),
+                                                                         Diagram(
                 coordinateSystem(preserveAspectRatio=false)),
             Documentation(info="<html>
-<p>This is a partial model of a DC-DC inverter.</p>
+<p>This is a model of a DC-DC inverter. The level of detail of the DC-DC inverter may choosen from ideal averaging or switching.</p>
 <p>Reference voltage is limited to actual battery voltage.</p>
 <p>Battery voltage and motor current are measured.</p>
 </html>"));
-        end PartialDCDCinverter;
+        end DcdcInverter;
 
         model IdealDCDCinverter "Ideal DC-DC inverter"
-          extends PartialDCDCinverter;
+          parameter Modelica.SIunits.Time Td "Dead time";
           parameter Modelica.SIunits.Time Ti=1e-6 "Time constant of integral power controller";
           Modelica.Electrical.Analog.Sources.SignalVoltage signalVoltage
             annotation (Placement(transformation(extent={{10,-80},{-10,-60}})));
@@ -5429,6 +5474,17 @@ The integral part can be switched off to obtain a limited P-controller.
                 extent={{-10,-10},{10,10}},
                 rotation=270,
                 origin={-80,-80})));
+          Analog.Interfaces.NegativePin                     pin_nBat annotation (
+              Placement(transformation(extent={{-110,110},{-90,90}}),
+                iconTransformation(extent={{-110,110},{-90,90}})));
+          Analog.Interfaces.PositivePin                     pin_pBat
+            annotation (Placement(transformation(extent={{90,110},{110,90}})));
+          Analog.Interfaces.NegativePin                     pin_nMot
+            annotation (Placement(transformation(extent={{-70,-110},{-50,-90}})));
+          Analog.Interfaces.PositivePin                     pin_pMot
+            annotation (Placement(transformation(extent={{50,-110},{70,-90}})));
+          Blocks.Interfaces.RealInput          vRef
+            annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
         equation
           connect(signalCurrent.p, powerBat.nc)
             annotation (Line(points={{10,70},{20,70}},         color={0,0,255}));
@@ -5449,90 +5505,138 @@ The integral part can be switched off to obtain a limited P-controller.
           connect(powerController.y, signalCurrent.i)
             annotation (Line(points={{9,20},{0,20},{0,58}}, color={0,0,127}));
           connect(pin_nBat, signalCurrent.n) annotation (Line(points={{-100,100},
-                  {-40,100},{-40,70},{-10,70}}, color={0,0,255}));
+                  {-100,70},{-10,70}},          color={0,0,255}));
           connect(pin_pBat, powerBat.pc) annotation (Line(points={{100,100},{
                   100,70},{40,70}}, color={0,0,255}));
           connect(pin_nBat, powerBat.nv) annotation (Line(points={{-100,100},{
                   30,100},{30,80}}, color={0,0,255}));
           connect(pin_nMot, powerMot.nv) annotation (Line(points={{-60,-100},{
                   30,-100},{30,-80}}, color={0,0,255}));
-          connect(currentSensor.n, signalVoltage.n)
-            annotation (Line(points={{-30,-80},{-30,-70},{-10,-70}},
-                                                           color={0,0,255}));
           connect(pin_pMot, powerMot.nc) annotation (Line(points={{60,-100},{60,
                   -70},{40,-70}}, color={0,0,255}));
           connect(pin_nMot, groundMotor.p) annotation (Line(points={{-60,-100},
                   {-60,-80},{-70,-80}}, color={0,0,255}));
-          connect(variableLimiter.y, deadTime.u)
-            annotation (Line(points={{-39,0},{-32,0}}, color={0,0,127}));
           connect(deadTime.y, signalVoltage.v)
             annotation (Line(points={{-9,0},{0,0},{0,-58}}, color={0,0,127}));
+          connect(vRef, deadTime.u)
+            annotation (Line(points={{-120,0},{-32,0}}, color={0,0,127}));
+          connect(signalVoltage.n, pin_nMot) annotation (Line(points={{-10,-70},
+                  {-60,-70},{-60,-100}}, color={0,0,255}));
           annotation (Icon(coordinateSystem(preserveAspectRatio=false), graphics={
                 Rectangle(
                   extent={{-100,100},{100,-100}},
-                  lineColor={28,108,200}),
-                Line(points={{100,100},{20,20}},     color={28,108,200}),
-                Line(points={{-20,-20},{-100,-100}}, color={28,108,200})}),
-                                                                         Diagram(
+                  lineColor={0,0,255}),
+                Line(points={{100,100},{20,20}},     color={0,0,255}),
+                Line(points={{-20,-20},{-100,-100}}, color={0,0,255}),
+                Text(
+                  extent={{-40,80},{40,60}},
+                  lineColor={128,128,128},
+                  textString="Bat"),
+                Text(
+                  extent={{-100,20},{100,-20}},
+                  lineColor={0,0,255},
+                  textString="%name"),
+                Text(
+                  extent={{-40,-60},{40,-80}},
+                  lineColor={128,128,128},
+                  textString="Mot")}),                                   Diagram(
                 coordinateSystem(preserveAspectRatio=false)),
             Documentation(info="<html>
 <p>This is a model of an ideal DC-DC inverter based on a power balance achieved by an integral controller.</p>
-<p>Reference voltage is limited to actual battery voltage and delayed.</p>
-<p>Battery voltage and motor current are measured.</p>
 </html>"));
         end IdealDCDCinverter;
 
         model SwitchingDCDCinverter "Switching DC-DC inverter"
-          extends PartialDCDCinverter;
-          parameter Modelica.SIunits.Time Ti=1e-6 "Time constant of integral power controller";
+          parameter Modelica.SIunits.Frequency fS "Switching frequency";
+          parameter Modelica.SIunits.Voltage VMax "Maximum Voltage";
+          parameter SIunits.Resistance RonTransistor=1e-05 "Transistor closed resistance";
+          parameter SIunits.Conductance GoffTransistor=1e-05 "Transistor opened conductance";
+          parameter SIunits.Voltage VkneeTransistor=0 "Transistor threshold voltage";
+          parameter SIunits.Resistance RonDiode=1e-05 "Diode closed resistance";
+          parameter SIunits.Conductance GoffDiode=1e-05 "Diode opened conductance";
+          parameter SIunits.Voltage VkneeDiode=0 "Diode threshold voltage";
           Modelica.Electrical.PowerConverters.DCDC.Control.VoltageToDutyCycle
-            adaptor(useConstantMaximumVoltage=false, vMax=VaMax)
-            annotation (Placement(transformation(extent={{-30,-10},{-10,10}})));
+            adaptor(useConstantMaximumVoltage=false, vMax=VMax)
+            annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
           Modelica.Electrical.PowerConverters.DCDC.Control.SignalPWM pwm(
               useConstantDutyCycle=false, f=fS) annotation (Placement(
                 transformation(
                 extent={{-10,-10},{10,10}},
                 rotation=270,
-                origin={0,-20})));
-          Modelica.Electrical.PowerConverters.DCDC.HBridge dcdc annotation (
+                origin={-30,-20})));
+          Modelica.Electrical.PowerConverters.DCDC.HBridge dcdc(
+            RonTransistor=RonTransistor,
+            GoffTransistor=GoffTransistor,
+            VkneeTransistor=VkneeTransistor,
+            RonDiode=RonDiode,
+            GoffDiode=GoffDiode,
+            VkneeDiode=VkneeDiode)                              annotation (
               Placement(transformation(
                 extent={{-10,-10},{10,10}},
                 rotation=270,
-                origin={30,-20})));
+                origin={0,-20})));
+          Analog.Interfaces.NegativePin                     pin_nBat annotation (
+              Placement(transformation(extent={{-110,110},{-90,90}}),
+                iconTransformation(extent={{-110,110},{-90,90}})));
+          Analog.Interfaces.PositivePin                     pin_pBat
+            annotation (Placement(transformation(extent={{90,110},{110,90}})));
+          Analog.Interfaces.PositivePin                     pin_pMot
+            annotation (Placement(transformation(extent={{50,-110},{70,-90}})));
+          Analog.Interfaces.NegativePin                     pin_nMot
+            annotation (Placement(transformation(extent={{-70,-110},{-50,-90}})));
+          Blocks.Interfaces.RealInput          vRef
+            annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
+          Blocks.Interfaces.RealInput vMax
+            annotation (Placement(transformation(extent={{-140,40},{-100,80}})));
         equation
-          connect(variableLimiter.y, adaptor.v)
-            annotation (Line(points={{-39,0},{-32,0}}, color={0,0,127}));
-          connect(voltageFilter.y, adaptor.vMaxExt) annotation (Line(points={{
-                  -81,60},{-90,60},{-90,40},{-20,40},{-20,12}}, color={0,0,127}));
           connect(adaptor.dutyCycle, pwm.dutyCycle)
-            annotation (Line(points={{-9,0},{0,0},{0,-8}}, color={0,0,127}));
+            annotation (Line(points={{-39,0},{-30,0},{-30,-8}},
+                                                           color={0,0,127}));
           connect(pwm.fire, dcdc.fire_p)
-            annotation (Line(points={{11,-14},{18,-14}}, color={255,0,255}));
+            annotation (Line(points={{-19,-14},{-12,-14}},
+                                                         color={255,0,255}));
           connect(pwm.notFire, dcdc.fire_n)
-            annotation (Line(points={{11,-26},{18,-26}}, color={255,0,255}));
-          connect(pin_nBat, dcdc.dc_n1) annotation (Line(points={{-100,100},{
-                  -40,100},{-40,70},{24,70},{24,-10}}, color={0,0,255}));
-          connect(pin_pBat, dcdc.dc_p1) annotation (Line(points={{100,100},{100,
-                  70},{36,70},{36,-10}}, color={0,0,255}));
-          connect(dcdc.dc_n2, currentSensor.n) annotation (Line(points={{24,-30},
-                  {24,-70},{-30,-70},{-30,-80}}, color={0,0,255}));
-          connect(dcdc.dc_p2, pin_pMot) annotation (Line(points={{36,-30},{36,
-                  -70},{60,-70},{60,-100}}, color={0,0,255}));
+            annotation (Line(points={{-19,-26},{-12,-26}},
+                                                         color={255,0,255}));
+          connect(pin_nBat, dcdc.dc_n1) annotation (Line(points={{-100,100},{-100,70},{-6,
+                  70},{-6,-10}},                       color={0,0,255}));
+          connect(pin_pBat, dcdc.dc_p1) annotation (Line(points={{100,100},{100,70},{6,70},
+                  {6,-10}},              color={0,0,255}));
+          connect(dcdc.dc_p2, pin_pMot) annotation (Line(points={{6,-30},{6,-70},{60,-70},
+                  {60,-100}},               color={0,0,255}));
+          connect(pin_nMot, dcdc.dc_n2) annotation (Line(points={{-60,-100},{-60,-68},{-6,
+                  -68},{-6,-30}}, color={0,0,255}));
+          connect(vRef, adaptor.v)
+            annotation (Line(points={{-120,0},{-62,0}}, color={0,0,127}));
+          connect(vMax, adaptor.vMaxExt)
+            annotation (Line(points={{-120,60},{-50,60},{-50,12}}, color={0,0,127}));
           annotation (Icon(coordinateSystem(preserveAspectRatio=false), graphics={
                 Rectangle(
-                  extent={{-100,100},{100,-100}},
+                  extent={{-98,98},{98,-98}},
                   lineColor={217,67,180}),
-                Line(points={{100,100},{20,20}},     color={217,67,180}),
-                Line(points={{-20,-20},{-100,-100}}, color={217,67,180})}),
-                                                                         Diagram(
+                Line(points={{98,98},{20,20}},       color={217,67,180}),
+                Line(points={{-20,-20},{-98,-98}},   color={217,67,180}),
+                Text(
+                  extent={{-40,80},{40,60}},
+                  lineColor={128,128,128},
+                  textString="Bat"),
+                Text(
+                  extent={{-100,20},{100,-20}},
+                  lineColor={0,0,255},
+                  textString="%name"),
+                Text(
+                  extent={{-40,-60},{40,-80}},
+                  lineColor={128,128,128},
+                  textString="Mot")}),                                   Diagram(
                 coordinateSystem(preserveAspectRatio=false)),
             Documentation(info="<html>
-<p>This is a model of an ideal DC-DC inverter based on a power balance achieved by an integral controller.</p>
-<p>Reference voltage is limited to actual battery voltage and delayed.</p>
-<p>Battery voltage and motor current are measured.</p>
+<p>This is a model of a switchinjg DC-DC inverter based on a H-bridge.</p>
 </html>"));
         end SwitchingDCDCinverter;
-      end Components;
+        annotation (Documentation(info="<html>
+<p>This package contains utilities for controlled drives</p>
+</html>"));
+      end Utilities;
       annotation (Documentation(info="<html>
 This package contains test examples demonstrating control of electric drives.
 </html>"));
