@@ -4877,7 +4877,7 @@ Further reading:
           annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=270,
-              origin={70,-60})));
+              origin={70,-70})));
         Modelica.Blocks.Sources.KinematicPTP2 kinematicPTP(
           qd_max={driveData.wMax},
           qdd_max={driveData.aMax},
@@ -4892,14 +4892,13 @@ Further reading:
           annotation (Line(points={{-129,-10},{-122,-10}},
                                                        color={0,0,127}));
         connect(angleSensor.phi, positionController.u_m) annotation (Line(
-              points={{70,-71},{70,-100},{-146,-100},{-146,-22}},
+              points={{70,-81},{70,-100},{-146,-100},{-146,-22}},
                                                              color={0,0,127}));
         connect(kinematicPTP.q[1], positionController.u) annotation (Line(
               points={{-169,-2},{-160,-2},{-160,-10},{-152,-10}},
                                                             color={0,0,127}));
         connect(speedSensor.flange, angleSensor.flange)
-          annotation (Line(points={{50,-60},{60,-60},{60,-50},{70,-50}},
-                                                       color={0,0,0}));
+          annotation (Line(points={{50,-60},{70,-60}}, color={0,0,0}));
         connect(speedSensor.w, speedController.u_m) annotation (Line(points={{50,-81},
                 {50,-90},{-116,-90},{-116,-22}},   color={0,0,127}));
         connect(loadInertia.flange_b, loadTorque.flange)
@@ -5038,8 +5037,7 @@ The current controller is parameterized according to the absolute optimum.
 Further reading: 
 <a href=\"modelica://Modelica/Resources/Documentation/Electrical/Machines/DriveControl.pdf\">Tutorial at the Modelica Conference 2017</a>
 </p>
-</html>"),
-            Diagram(coordinateSystem(extent={{-200,-100},{100,100}},
+</html>"),  Diagram(coordinateSystem(extent={{-200,-100},{100,100}},
                   initialScale=0.1)),
             Icon(coordinateSystem(extent={{-200,-100},{100,100}}, initialScale=
                     0.1)));
