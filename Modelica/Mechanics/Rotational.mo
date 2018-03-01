@@ -6404,10 +6404,11 @@ Parameter TorqueDirection chooses whether direction of torque is the same in bot
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}}),
             graphics={
-              Line(points={{-75,0},{75,0}}, color={192,192,192}),
-              Line(points={{0,60},{0,-15}}, color={192,192,192}),
-              Line(points={{-75,20},{75,20}}, color={0,0,127}),
-              Text(extent={{-120,-50},{120,-20}}, textString="%tau_constant")}),
+              Line(points={{-75,10},{75,10}},
+                                            color={192,192,192}),
+              Line(points={{0,60},{0,0}}, color={192,192,192}),
+              Line(points={{-75,30},{75,30}}, color={0,0,127}),
+              Text(extent={{-120,-40},{120,-10}}, textString="%tau_constant")}),
         Documentation(info="<html>
 <p>Model of constant torque, not dependent on angular velocity of flange.</p>
 <p>Please note:<br>
@@ -6447,13 +6448,14 @@ Negative torque brakes in positive direction of rotation, but accelerates in rev
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}}),
             graphics={
-              Line(points={{-75,0},{75,0}}, color={192,192,192}),
-              Line(points={{0,60},{0,-55}}, color={192,192,192}),
               Text(
-                extent={{-120,-40},{120,-10}},
+                extent={{-120,-50},{120,-20}},
               textString="%tau_constant",
               lineColor={0,0,0}),
-            Line(points={{-75,-45},{-6,-45},{-4,-43},{4,43},{6,45},{75,45}})}), Documentation(info="<html>
+              Line(points={{-75,24},{75,24}},
+                                            color={192,192,192}),
+              Line(points={{0,66},{0,-20}}, color={192,192,192}),
+            Line(points={{-74,-12},{-8,-12},{-6,-10},{6,58},{8,60},{48,60}})}), Documentation(info="<html>
 <p>Model of constant torque which changes sign with direction of rotation.</p>
 <p>Please note:<br>
 Positive torque accelerates in both directions of rotation.<br>

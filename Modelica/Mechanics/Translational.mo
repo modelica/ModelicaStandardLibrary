@@ -4726,8 +4726,11 @@ blocks of Modelica.Blocks.Source.
       end if;
       annotation (defaultComponentName="linear",
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}), graphics={Line(points={{-100,-100},{100,100}},
-              color={0,0,255})}), Documentation(info="<html>
+                -100},{100,100}}), graphics={
+              Line(points={{-75,0},{75,0}}, color={192,192,192}),
+              Line(points={{0,60},{0,-50}}, color={192,192,192}),
+                                      Line(points={{-60,-45},{60,45}}, color={0,0,127})}),
+                                  Documentation(info="<html>
 <p>
 Model of force, linearly dependent on velocity of flange.<br>
 Parameter ForceDirection chooses whether direction of force is the same in both directions of movement or not.
@@ -4755,11 +4758,13 @@ Parameter ForceDirection chooses whether direction of force is the same in both 
       end if;
       annotation (defaultComponentName="quadratic",
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}), graphics={Line(
-                  points={{-100,-100},{-80,-98},{-60,-92},{-40,-82},{-20,-68},{
-                0,-50},{20,-28},{40,-2},{60,28},{80,62},{100,100}},
-                  color={0,0,127},
-                  smooth=Smooth.Bezier)}), Documentation(info="<html>
+                -100},{100,100}}), graphics={
+              Line(points={{-60,50},{-60,-40}}, color={192,192,192}),
+              Line(points={{-75,-30},{75,-30}}, color={192,192,192}),
+            Line(
+              points={{-60,-30},{-40,-28},{-20,-22},{0,-10},{20,6},{40,26},{58,52}},
+              color={0,0,127},
+              smooth=Smooth.Bezier)}),     Documentation(info="<html>
 <p>
 Model of force, quadratic dependent on velocity of flange.<br>
 Parameter ForceDirection chooses whether direction of force is the same in both directions of movement or not.
@@ -4775,10 +4780,14 @@ Parameter ForceDirection chooses whether direction of force is the same in both 
       f = -f_constant;
       annotation (
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}), graphics={Line(points={{-100,0},{98,0}},
-              color={0,0,255}),Text(
-                  extent={{-118,58},{126,34}},
-                  textString="%f_constant")}), Documentation(info="<html>
+                -100},{100,100}}), graphics={
+              Line(points={{-75,10},{75,10}},
+                                            color={192,192,192}),
+              Line(points={{0,60},{0,0}}, color={192,192,192}),
+              Line(points={{-75,30},{75,30}}, color={0,0,127}),
+              Text(extent={{-120,-40},{120,-10}},
+              textString="%f_constant",
+              lineColor={0,0,0})}),            Documentation(info="<html>
 <p>Model of constant force, not dependent on velocity of flange.</p>
 <p>Please note:<br>
 Positive force accelerates in positive direction of movement, but brakes in reverse direction of movement.<br>
@@ -4812,10 +4821,14 @@ Negative force brakes in positive direction of movement, but accelerates in reve
       annotation (
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={
-              Line(
-                points={{-100,0},{100,0}},
-                color={0,0,127}),
-            Line(points={{-80,-40},{-6,-40},{-4,-38},{4,38},{6,40},{80,40}})}), Documentation(info="<html>
+              Line(points={{0,66},{0,-20}}, color={192,192,192}),
+              Line(points={{-75,24},{75,24}},
+                                            color={192,192,192}),
+            Line(points={{-74,-12},{-8,-12},{-6,-10},{6,58},{8,60},{74,60}}),
+              Text(
+                extent={{-120,-50},{120,-20}},
+              lineColor={0,0,0},
+              textString="%f_nominal")}),                                       Documentation(info="<html>
 <p>Model of constant force which changes sign with direction of movement.</p>
 <p>Please note:<br>
 Positive force accelerates in both directions of movement.<br>
@@ -4835,10 +4848,13 @@ Negative force brakes in both directions of movement.</p>
       v = v_fixed;
       annotation (
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}), graphics={Line(points={{0,-100},{0,100}},
-              color={0,0,255}),Text(
-                  extent={{-120,60},{124,36}},
-                  textString="%v_fixed")}), Documentation(info="<html>
+                -100},{100,100}}), graphics={
+              Line(points={{-60,60},{-60,-10}}, color={192,192,192}),
+              Line(points={{-75,0},{75,0}}, color={192,192,192}),
+                                      Line(points={{10,-15},{10,70}}, color={0,0,127}),
+          Text(extent={{-120,-50},{120,-20}},
+              textString="%v_fixed",
+              lineColor={0,0,0})}),         Documentation(info="<html>
 <p>
 Model of <strong>fixed</strong> velocity of flange, not dependent on force.
 </p>
@@ -4856,10 +4872,13 @@ Model of <strong>fixed</strong> velocity of flange, not dependent on force.
       f = -offsetForce - (if time < startTime then 0 else stepForce);
       annotation (
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}), graphics={Line(points={{-80,-60},{0,-60},{0,
-              60},{80,60}}, color={0,0,255}),Text(
-                  extent={{0,-40},{100,-60}},
-                  textString="time")}), Documentation(info="<html>
+                -100},{100,100}}), graphics={
+              Line(points={{-75,0},{75,0}}, color={192,192,192}),
+                                      Line(points={{-75,-30},{0,-30},{0,45},{65,45}}, color={0,0,127}),
+                                          Text(
+              extent={{0,-40},{100,-10}},
+              lineColor={128,128,128},
+              textString="time")}),     Documentation(info="<html>
 <p>
 Model of a force step at time startTime.
 Positive force accelerates in positive direction of <code>flange</code> translation.
@@ -4879,8 +4898,7 @@ Positive force accelerates in positive direction of <code>flange</code> translat
         Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20
         alpha20(start=0) "Temperature coefficient of material";
       extends Modelica.Mechanics.Translational.Interfaces.PartialForce;
-      extends
-        Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort;
+      extends Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort;
       Modelica.SIunits.Velocity v
         "Velocity of flange with respect to support (= der(s))";
       Real v_normalized "Relative speed v/v_nominal";
@@ -4892,16 +4910,11 @@ Positive force accelerates in positive direction of <code>flange</code> translat
       annotation (defaultComponentName="eddyCurrent",
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={
-            Line(
-              points={{0,10},{4,41},{8,65},{12,81},{16,88},{20,90},{24,89},{28,86},{
-                  32,82},{36,78},{40,74},{50,65},{60,58},{70,52},{80,48}},
-              color={95,95,95}),
-            Line(
-              points={{-40,-40},{-36,-9},{-32,15},{-28,31},{-24,38},{-20,40},{-16,39},
-                  {-12,36},{-8,32},{-4,28},{0,24},{10,15},{20,8},{30,2},{40,-2}},
-              color={95,95,95},
-              origin={-40,-30},
-              rotation=180)}), Documentation(info="<HTML>
+              Line(points={{-75,0},{75,0}}, color={192,192,192}),
+              Line(points={{0,60},{0,-50}}, color={192,192,192}),
+            Line(points={{0,0},{4,25},{8,41},{12,48},{16,50},{20,49},{24,46},{28,42},{32,38},{36,34},{46,25},{56,18},{66,12},{76,8}}, color={0,0,127}),
+            Line(points={{0,0},{-4,-25},{-8,-41},{-12,-48},{-16,-50},{-20,-49},{-24,-46},{-28,-42},{-32,-38},{-36,-34},{-46,-25},{-56,-18},{-66,-12},{-76,-8}}, color={0,0,127})}),
+        Documentation(info="<HTML>
 <p>This is a simple model of a translational <strong>eddy current brake</strong>. The force versus speed characteristic is defined by Kloss' equation.</p>
 <p><strong>Thermal behaviour:</strong><br>
 The resistance of the braking fin is influenced by the actual temperature Theatport, which in turn shifts the speed v_nominal at which the (unchanged) maximum torque occurs.<br>
