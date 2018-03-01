@@ -6333,8 +6333,11 @@ blocks of Modelica.Blocks.Sources.
       end if;
       annotation (defaultComponentName="linear",
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-                100,100}}), graphics={Line(points={{-100,-100},{100,100}},
-                color={0,0,127})}), Documentation(info="<html>
+                100,100}}), graphics={
+              Line(points={{0,60},{0,-50}}, color={192,192,192}),
+              Line(points={{-75,0},{75,0}}, color={192,192,192}),
+              Line(points={{-60,-45},{60,45}}, color={0,0,127})}),
+        Documentation(info="<html>
 <p>
 Model of torque, linearly dependent on angular velocity of flange.<br>
 Parameter TorqueDirection chooses whether direction of torque is the same in both directions of rotation or not.
@@ -6369,11 +6372,12 @@ Parameter TorqueDirection chooses whether direction of torque is the same in bot
             preserveAspectRatio=true,
             extent={{-100.0,-100.0},{100.0,100.0}}),
           graphics={
+              Line(points={{-60,40},{-60,-50}}, color={192,192,192}),
+              Line(points={{-75,-40},{75,-40}}, color={192,192,192}),
             Line(
-              points={{-100.0,-100.0},{-80.0,-98.0},{-60.0,-92.0},
-                {-40.0,-82.0},{-20.0,-68.0},{0.0,-50.0},{20.0,-28.0},
-                {40.0,-2.0},{60.0,28.0},{80.0,62.0},{100.0,100.0}},
-              color={0,0,127}, smooth=Smooth.Bezier)}),
+              points={{-60,-40},{-40,-38},{-20,-32},{0,-20},{20,-4},{40,16},{58,42}},
+              color={0,0,127},
+              smooth=Smooth.Bezier)}),
         Documentation(info="<html>
 <p>
 Model of torque, quadratic dependent on angular velocity of flange.<br>
@@ -6400,12 +6404,11 @@ Parameter TorqueDirection chooses whether direction of torque is the same in bot
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}}),
             graphics={
-              Line(
-                points={{-98,0},{100,0}},
-                color={0,0,127}),
-              Text(
-                extent={{-124.0,-40.0},{120.0,-16.0}},
-                textString="%tau_constant")}), Documentation(info="<html>
+              Line(points={{-75,0},{75,0}}, color={192,192,192}),
+              Line(points={{0,60},{0,-15}}, color={192,192,192}),
+              Line(points={{-75,20},{75,20}}, color={0,0,127}),
+              Text(extent={{-120,-50},{120,-20}}, textString="%tau_constant")}),
+        Documentation(info="<html>
 <p>Model of constant torque, not dependent on angular velocity of flange.</p>
 <p>Please note:<br>
 Positive torque accelerates in positive direction of rotation, but brakes in reverse direction of rotation.<br>
@@ -6444,17 +6447,13 @@ Negative torque brakes in positive direction of rotation, but accelerates in rev
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}}),
             graphics={
+              Line(points={{-75,0},{75,0}}, color={192,192,192}),
+              Line(points={{0,60},{0,-55}}, color={192,192,192}),
               Text(
-                extent={{-124.0,-40.0},{120.0,-16.0}},
-                textString="%tau_constant"),
-              Line(
-                points={{-100,0},{100,0}},
-                color={0,0,127}),
-              Line(
-                points={{-100,0},{100,0}},
-                color={0,0,127},
-              rotation=90),
-            Line(points={{-80,-40},{-6,-40},{-4,-38},{4,38},{6,40},{80,40}})}), Documentation(info="<html>
+                extent={{-120,-40},{120,-10}},
+              textString="%tau_constant",
+              lineColor={0,0,0}),
+            Line(points={{-75,-45},{-6,-45},{-4,-43},{4,43},{6,45},{75,45}})}), Documentation(info="<html>
 <p>Model of constant torque which changes sign with direction of rotation.</p>
 <p>Please note:<br>
 Positive torque accelerates in both directions of rotation.<br>
@@ -6473,9 +6472,12 @@ Negative torque brakes in both directions of rotation.</p>
       w = w_fixed;
       annotation (
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-                100,100}}), graphics={Line(points={{0,-100},{0,100}}, color={0,0,127}),
-          Text(extent={{-116.0,-40.0},{128.0,-16.0}},
-                textString="%w_fixed")}), Documentation(info="<html>
+                100,100}}), graphics={
+              Line(points={{-60,60},{-60,-10}}, color={192,192,192}),
+              Line(points={{-75,0},{75,0}}, color={192,192,192}),
+              Line(points={{10,-15},{10,70}}, color={0,0,127}),
+              Text(extent={{-120,-50},{120,-20}}, textString="%w_fixed")}),
+        Documentation(info="<html>
 <p>
 Model of <strong>fixed</strong> angular velocity of flange, not dependent on torque.
 </p>
@@ -6498,11 +6500,14 @@ Model of <strong>fixed</strong> angular velocity of flange, not dependent on tor
       tau = offsetTorque + (if time < startTime then 0 else stepTorque);
       annotation (
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-                100,100}}), graphics={Line(points={{-80,-60},{0,-60},{0,60},{80,
-                  60}}, color={0,0,127}), Text(
-              extent={{0.0,-60.0},{100.0,-40.0}},
-              lineColor={0,0,255},
-              textString="time")}), Documentation(info="<html>
+                100,100}}), graphics={
+              Line(points={{-75,0},{75,0}}, color={192,192,192}),
+              Line(points={{-75,-30},{0,-30},{0,45},{65,45}}, color={0,0,127}),
+              Text(
+              extent={{0,-40},{100,-10}},
+              lineColor={128,128,128},
+              textString="time")}),
+        Documentation(info="<html>
 <p>
 Model of a torque step at time startTime.
 Positive torque accelerates in positive direction of <code>flange</code> rotation.
@@ -6538,16 +6543,11 @@ Positive torque accelerates in positive direction of <code>flange</code> rotatio
       annotation (defaultComponentName="eddyCurrent",
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={
-            Line(
-              points={{0,10},{4,41},{8,65},{12,81},{16,88},{20,90},{24,89},{28,86},{
-                  32,82},{36,78},{40,74},{50,65},{60,58},{70,52},{80,48}},
-              color={95,95,95}),
-            Line(
-              points={{-40,-40},{-36,-9},{-32,15},{-28,31},{-24,38},{-20,40},{-16,39},
-                  {-12,36},{-8,32},{-4,28},{0,24},{10,15},{20,8},{30,2},{40,-2}},
-              color={95,95,95},
-              origin={-40,-30},
-              rotation=180)}), Documentation(info="<HTML>
+              Line(points={{-75,0},{75,0}}, color={192,192,192}),
+              Line(points={{0,60},{0,-50}}, color={192,192,192}),
+            Line(points={{0,0},{4,25},{8,41},{12,48},{16,50},{20,49},{24,46},{28,42},{32,38},{36,34},{46,25},{56,18},{66,12},{76,8}}, color={0,0,127}),
+            Line(points={{0,0},{-4,-25},{-8,-41},{-12,-48},{-16,-50},{-20,-49},{-24,-46},{-28,-42},{-32,-38},{-36,-34},{-46,-25},{-56,-18},{-66,-12},{-76,-8}}, color={0,0,127})}),
+        Documentation(info="<HTML>
 <p>This is a simple model of a rotational <strong>eddy current brake</strong>. The torque versus speed characteristic is defined by Kloss' equation.</p>
 <p><strong>Thermal behaviour:</strong><br>
 The resistance of the braking disc is influenced by the actual temperature Theatport, which in turn shifts the speed w_nominal at which the (unchanged) maximum torque occurs.<br>
@@ -7373,8 +7373,7 @@ and instead the translational part is internally fixed to ground.
 
     partial model PartialTorque
       "Partial model of a torque acting at the flange (accelerates the flange)"
-      extends
-        Modelica.Mechanics.Rotational.Interfaces.PartialElementaryOneFlangeAndSupport2;
+      extends Modelica.Mechanics.Rotational.Interfaces.PartialElementaryOneFlangeAndSupport2;
       Modelica.SIunits.Angle phi
         "Angle of flange with respect to support (= flange.phi - support.phi)";
 
@@ -7388,19 +7387,15 @@ and instead the translational part is internally fixed to ground.
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
             Line(points={{0,-62},{0,-100}}),
-            Line(points={{-92,0},{-76,36},{-54,62},{-30,80},{-14,88},{10,92},{
-                  26,90},{46,80},{64,62}}, smooth=Smooth.Bezier),
             Text(
-              extent={{-150,140},{150,100}},
+              extent={{-150,150},{150,110}},
               lineColor={0,0,255},
               textString="%name"),
             Polygon(
-              points={{94,16},{80,74},{50,52},{94,16}},
+              points={{94,26},{80,84},{50,62},{94,26}},
               fillPattern=FillPattern.Solid),
-            Line(points={{-58,-82},{-42,-68},{-20,-56},{0,-54},{18,-56},{34,-62},
-                  {44,-72},{54,-82},{60,-94}}, smooth=Smooth.Bezier),
             Polygon(
-              points={{-65,-98},{-46,-80},{-58,-72},{-65,-98}},
+              points={{-50,-98},{-30,-80},{-42,-72},{-50,-98}},
               fillPattern=FillPattern.Solid),
             Line(
               visible=not useSupport,
@@ -7416,7 +7411,16 @@ and instead the translational part is internally fixed to ground.
               points={{10,-120},{30,-100}}),
             Line(
               visible=not useSupport,
-              points={{-30,-100},{30,-100}})}), Documentation(info="<html>
+              points={{-30,-100},{30,-100}}),
+        Line(
+          points={{-48,-92},{-38,-76},{-18,-64},{0,-60},{18,-64},{38,-76},{48,-92}},
+          color={0,0,0},
+          smooth=Smooth.Bezier),
+        Line(
+          points={{-86,40},{-74,66},{-56,86},{-20,100},{20,100},{60,80},{82,48}},
+          color={0,0,0},
+          smooth=Smooth.Bezier)}),
+        Documentation(info="<html>
 <p>
 Partial model of torque that accelerates the flange.
 </p>
