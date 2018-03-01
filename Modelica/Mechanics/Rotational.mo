@@ -2094,9 +2094,9 @@ the output torque <code>tau</code> is returned.
         annotation (Icon(coordinateSystem(
                 preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
               graphics={Text(
-                      extent={{-48,-36},{48,-68}},
-                      lineColor={135,135,135},
-                      textString="to FMU"),Text(
+                extent={{-48,-36},{48,-68}},
+                lineColor={128,128,128},
+                textString="to FMU"),      Text(
                       extent={{-94,96},{-10,66}},
                       horizontalAlignment=TextAlignment.Left,
                 textString="phi1"),      Text(
@@ -2173,9 +2173,9 @@ exchange.
         annotation (Icon(coordinateSystem(
                 preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
               graphics={Text(
-                      extent={{-48,-36},{48,-68}},
-                      lineColor={135,135,135},
-                      textString="to FMU"),Text(
+                extent={{-48,-36},{48,-68}},
+                lineColor={128,128,128},
+                textString="to FMU"),      Text(
                       extent={{-94,96},{-10,66}},
                       horizontalAlignment=TextAlignment.Left,
                 textString="phi1"),      Text(
@@ -5095,14 +5095,18 @@ no rolling resistance. This component defines the kinematic constraint:
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={
             Text(
-              extent={{-94,94},{68,66}},
-              textString="phi_start"),
+              extent={{-94,94},{66,66}},
+              textString="phi_start",
+              lineColor={128,128,128}),
             Text(
-              extent={{-94,16},{70,-14}},
-              textString="w_start"),
+              extent={{-94,16},{60,-14}},
+              textString="w_start",
+              lineColor={128,128,128}),
             Text(
-              extent={{-92,-66},{68,-94}},
-              textString="a_start")}), Documentation(info="<html>
+              extent={{-92,-66},{60,-94}},
+              textString="a_start",
+              lineColor={128,128,128})}),
+        Documentation(info="<html>
 <p>
 This component is used to optionally initialize the angle, speed,
 and/or angular acceleration of the flange to which this component
@@ -6195,19 +6199,6 @@ blocks of Modelica.Blocks.Sources.
         coordinateSystem(preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}),
           graphics={
-            Ellipse(
-              extent={{-90,-120},{90,60}},
-              lineColor={0,0,0},
-              lineThickness=0.5,
-              startAngle=25,
-              endAngle=160,
-              closure=EllipseClosure.None),
-            Ellipse(
-              extent={{-60,-150},{60,-10}},
-              lineColor={0,0,0},
-              startAngle=35,
-              endAngle=145,
-              closure=EllipseClosure.None),
         Text(extent={{-150,110},{150,70}},
           textString="%name",
           lineColor={0,0,255}),
@@ -6217,7 +6208,16 @@ blocks of Modelica.Blocks.Sources.
           fillPattern=FillPattern.Solid),
         Line(points={{0,-10},{0,-101}}),
         Polygon(points={{-53,-54},{-36,-30},{-50,-24},{-53,-54}},
-          fillPattern=FillPattern.Solid)}),
+          fillPattern=FillPattern.Solid),
+        Line(
+          points={{-84,0},{-78,18},{-56,46},{-20,60},{20,60},{60,40},{82,8}},
+          color={0,0,0},
+          smooth=Smooth.Bezier,
+          thickness=0.5),
+        Line(
+          points={{-50,-40},{-38,-24},{-18,-12},{0,-10},{18,-12},{38,-24},{50,-40}},
+          color={0,0,0},
+          smooth=Smooth.Bezier)}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}}), graphics={
