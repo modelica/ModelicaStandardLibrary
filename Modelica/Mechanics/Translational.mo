@@ -4297,6 +4297,7 @@ Modelica.Blocks library.
         a = der(v);
         a = ((s_ref - s)*w_crit - af*v)*(w_crit/bf);
       end if;
+
       annotation (
         Documentation(info="<html>
 <p>
@@ -4328,27 +4329,30 @@ The input signal can be provided from one of the signal generator
 blocks of the block library Modelica.Blocks.Sources.
 </p>
 
-</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}), graphics={Text(
-                  extent={{-56,-36},{-178,-66}},
-                  textString="s_ref"),Rectangle(
-                  extent={{-100,20},{100,-20}},
-                  lineColor={0,127,0},
-                  fillColor={215,215,215},
-                  fillPattern=FillPattern.Solid),Text(
-                  extent={{150,60},{-150,100}},
-                  textString="%name",
-                  lineColor={0,0,255}),Line(points={{0,52},{0,32}}),
-              Line(points={{-29,32},{30,32}}),Line(points={{
-              -30,-32},{30,-32}}),Line(points={{0,-32},{0,-100}}),Line(points={{30,-42},{20,-52}}),
-              Line(points={{30,-32},{10,-52}}),Line(points={{20,
-              -32},{0,-52}}),Line(points={{10,-32},{-10,-52}}),Line(points={{0,-32},{-20,-52}}),
-              Line(points={{-10,-32},{-30,-52}}),Line(points={{-20,
-              -32},{-30,-42}}),Text(
-                  extent={{144,-30},{30,-60}},
-                  textString="exact="),Text(
-                  extent={{134,-68},{22,-96}},
-                  textString="%exact")}));
+</html>"),
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
+          graphics={
+            Rectangle(
+              extent={{-100,20},{100,-20}},
+              lineColor={0,127,0},
+              fillColor={215,215,215},
+              fillPattern=FillPattern.Solid),
+            Text(
+              extent={{150,60},{-150,100}},
+              textString="%name",
+              lineColor={0,0,255}),
+            Line(points={{0,52},{0,32}}),
+            Line(points={{-29,32},{30,32}}),
+            Line(points={{-30,-32},{30,-32}}),
+            Line(points={{0,-32},{0,-100}}),
+            Text(extent={{30,-60},{150,-30}},
+              textString="exact="),
+            Text(extent={{30,-90},{150,-60}},
+              textString="%exact"),
+            Text(extent={{-140,-60},{-40,-30}},
+              lineColor={128,128,128},
+              horizontalAlignment=TextAlignment.Right,
+              textString="s_ref")}));
     end Position;
 
     model Speed "Forced movement of a flange according to a reference speed"
@@ -4388,6 +4392,7 @@ blocks of the block library Modelica.Blocks.Sources.
         a = der(v);
         a = (v_ref - v)*w_crit;
       end if;
+
       annotation (
         Documentation(info="<html>
 <p>
@@ -4419,44 +4424,37 @@ The input signal can be provided from one of the signal generator
 blocks of the block library Modelica.Blocks.Sources.
 </p>
 
-</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
-             graphics={
-               Text(
-                 extent={{-54,-36},{-174,-68}},
-                 textString="v_ref"),
-               Line(points={{-30,-32},{30,-32}}),
-               Line(points={{0,-32},{0,-100}}),
-               Line(points={{30,-42},{20,-52}}),
-               Line(points={{30,-32},{10,-52}}),
-               Line(points={{20,-32},{0,-52}}),
-               Line(points={{10,-32},{-10,-52}}),
-               Line(points={{0,-32},{-20,-52}}),
-               Line(points={{-10,-32},{-30,-52}}),
-               Line(points={{-20,-32},{-30,-42}}),
-               Rectangle(
-                 extent={{-100,20},{100,-20}},
-                 lineColor={0,127,0},
-                 fillColor={215,215,215},
-                 fillPattern=FillPattern.Solid),
-               Line(points={{-29,32},{30,32}}),
-               Line(points={{0,52},{0,32}}),
-               Text(
-                 extent={{150,60},{-150,100}},
-                 textString="%name",
-                 lineColor={0,0,255}),
-               Text(
-                 extent={{146,-38},{32,-64}},
-                 textString="exact="),
-               Text(
-                 extent={{140,-76},{22,-102}},
-                 textString="%exact")}));
+</html>"),
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
+          graphics={
+            Line(points={{-30,-32},{30,-32}}),
+            Line(points={{0,-32},{0,-100}}),
+            Rectangle(
+              extent={{-100,20},{100,-20}},
+              lineColor={0,127,0},
+              fillColor={215,215,215},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-29,32},{30,32}}),
+            Line(points={{0,52},{0,32}}),
+            Text(
+              extent={{150,60},{-150,100}},
+              textString="%name",
+              lineColor={0,0,255}),
+            Text(extent={{-140,-60},{-40,-30}},
+              lineColor={128,128,128},
+              horizontalAlignment=TextAlignment.Right,
+              textString="v_ref"),
+            Text(extent={{30,-60},{150,-30}},
+              textString="exact="),
+            Text(extent={{30,-90},{150,-60}},
+              textString="%exact")}));
     end Speed;
 
     model Accelerate
       "Forced movement of a flange according to an acceleration signal"
       extends
         Modelica.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupport2(
-         s(
+        s(
           start=0,
           fixed=true,
           stateSelect=StateSelect.prefer));
@@ -4474,6 +4472,7 @@ blocks of the block library Modelica.Blocks.Sources.
       v = der(s);
       a = der(v);
       a = a_ref;
+
       annotation (
         Documentation(info="<html>
 <p>
@@ -4488,30 +4487,25 @@ The acceleration \"a(t)\" can be provided from one of the signal generator
 blocks of the block library Modelica.Blocks.Source.
 </p>
 
-</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
-             graphics={
-               Text(
-                 extent={{-56,-40},{-166,-68}},
-                 textString="a_ref"),
-               Line(points={{-30,-32},{30,-32}}),
-               Line(points={{0,-32},{0,-100}}),
-               Line(points={{30,-42},{20,-52}}),
-               Line(points={{30,-32},{10,-52}}),
-               Line(points={{20,-32},{0,-52}}),
-               Line(points={{10,-32},{-10,-52}}),
-               Line(points={{0,-32},{-20,-52}}),
-               Line(points={{-10,-32},{-30,-52}}),
-               Line(points={{-20,-32},{-30,-42}}),
-               Rectangle(
-                 extent={{-100,20},{100,-20}},
-                 lineColor={0,127,0},
-                 fillColor={215,215,215},
-                 fillPattern=FillPattern.Solid),
-               Line(points={{-29,32},{30,32}}),
-               Line(points={{0,52},{0,32}}),
-               Text(extent={{150,60},{-150,100}},
-                 textString="%name",
-                 lineColor={0,0,255})}));
+</html>"),
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
+          graphics={
+            Line(points={{-30,-32},{30,-32}}),
+            Line(points={{0,-32},{0,-100}}),
+            Rectangle(
+              extent={{-100,20},{100,-20}},
+              lineColor={0,127,0},
+              fillColor={215,215,215},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-29,32},{30,32}}),
+            Line(points={{0,52},{0,32}}),
+            Text(extent={{150,60},{-150,100}},
+              textString="%name",
+              lineColor={0,0,255}),
+            Text(extent={{-140,-60},{-40,-30}},
+              lineColor={128,128,128},
+              horizontalAlignment=TextAlignment.Right,
+              textString="a_ref")}));
     end Accelerate;
 
     model Move
@@ -4563,6 +4557,7 @@ blocks of the block library Modelica.Blocks.Source.
       end position_der2;
     equation
       s = position(u, time);
+
       annotation (
         Documentation(info="<html>
 <p>
@@ -4588,31 +4583,26 @@ The input signals can be provided from one of the signal generator
 blocks of the block library Modelica.Blocks.Sources.
 </p>
 
-</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
-             graphics={
-               Text(
-                 extent={{-192,-38},{-32,-70}},
-                 textString="s,v,a"),
-               Line(points={{-30,-32},{30,-32}}),
-               Line(points={{0,-32},{0,-100}}),
-               Line(points={{30,-42},{20,-52}}),
-               Line(points={{30,-32},{10,-52}}),
-               Line(points={{20,-32},{0,-52}}),
-               Line(points={{10,-32},{-10,-52}}),
-               Line(points={{0,-32},{-20,-52}}),
-               Line(points={{-10,-32},{-30,-52}}),
-               Line(points={{-20,-32},{-30,-42}}),
-               Rectangle(
-                 extent={{-100,20},{100,-20}},
-                 lineColor={0,127,0},
-                 fillColor={215,215,215},
-                 fillPattern=FillPattern.Solid),
-               Line(points={{0,52},{0,32}}),
-               Line(points={{-29,32},{30,32}}),
-             Text(
-                 extent={{150,60},{-150,100}},
-                 textString="%name",
-                 lineColor={0,0,255})}));
+</html>"),
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
+          graphics={
+            Line(points={{-30,-32},{30,-32}}),
+            Line(points={{0,-32},{0,-100}}),
+            Rectangle(
+              extent={{-100,20},{100,-20}},
+              lineColor={0,127,0},
+              fillColor={215,215,215},
+              fillPattern=FillPattern.Solid),
+            Line(points={{0,52},{0,32}}),
+            Line(points={{-29,32},{30,32}}),
+          Text(
+            extent={{150,60},{-150,100}},
+            textString="%name",
+            lineColor={0,0,255}),
+          Text(extent={{-140,-60},{-40,-30}},
+            lineColor={128,128,128},
+            horizontalAlignment=TextAlignment.Right,
+            textString="s,v,a")}));
     end Move;
 
     model Force
