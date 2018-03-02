@@ -6667,7 +6667,7 @@ differentiation of the flange angle phi:
         Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}}), graphics={Ellipse(
-                  extent={{-98,100},{102,-100}},
+                  extent={{-100,100},{100,-100}},
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid)}),
         Diagram(coordinateSystem(
@@ -6902,12 +6902,12 @@ and instead the component is internally fixed to ground.
         annotation (Placement(transformation(extent={{-3,-83},{3,-77}})));
       Components.Fixed fixed if not useSupport
         "Fixed support/housing, if not useSupport"
-        annotation (Placement(transformation(extent={{10,-97},{30,-77}})));
+        annotation (Placement(transformation(extent={{10,-94},{30,-74}})));
     equation
       connect(support, internalSupport) annotation (Line(
           points={{0,-100},{0,-80}}));
       connect(internalSupport, fixed.flange) annotation (Line(
-          points={{0,-80},{20,-80},{20,-87}}));
+          points={{0,-80},{20,-80},{20,-84}}));
       annotation (
         Documentation(info="<html>
 <p>
@@ -7303,16 +7303,17 @@ and instead the component is internally fixed to ground.
       Translational.Interfaces.InternalSupport internalSupportT(f=-flangeT.f)
         annotation (Placement(transformation(extent={{90,-90},{110,-70}})));
       Rotational.Components.Fixed fixedR if not useSupportR
-        annotation (Placement(transformation(extent={{-90,-90},{-70,-70}})));
+        annotation (Placement(transformation(extent={{-90,-94},{-70,-74}})));
       Translational.Components.Fixed fixedT if not useSupportT
-        annotation (Placement(transformation(extent={{70,-90},{90,-70}})));
+        annotation (Placement(transformation(extent={{70,-94},{90,-74}})));
     equation
       connect(internalSupportR.flange, supportR) annotation (Line(
           points={{-100,-80},{-100,-100}}));
       connect(internalSupportR.flange, fixedR.flange) annotation (Line(
-          points={{-100,-80},{-80,-80}}));
+          points={{-100,-80},{-80,-80},{-80,-84}}));
       connect(fixedT.flange, internalSupportT.flange) annotation (Line(
-          points={{80,-80},{100,-80}}, color={0,127,0}));
+          points={{80,-84},{80,-80},{100,-80}},
+                                       color={0,127,0}));
       connect(internalSupportT.flange, supportT) annotation (Line(
           points={{100,-80},{100,-100}}, color={0,127,0}));
       annotation (Documentation(info="<html>
@@ -7491,7 +7492,7 @@ with the blocks of package Modelica.Blocks.
         Line(points={{-70.0,0.0},{-90.0,0.0}}),
         Line(points={{70.0,0.0},{90.0,0.0}}),
         Text(lineColor={0,0,255},
-          extent={{-150.0,73.0},{150.0,113.0}},
+          extent={{-150,80},{150,120}},
           textString="%name")}));
     end PartialRelativeSensor;
 
