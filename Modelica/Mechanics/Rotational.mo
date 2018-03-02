@@ -5804,8 +5804,7 @@ Modelica.Blocks library.
 
     model Position
       "Forced movement of a flange according to a reference angle signal"
-      extends
-        Modelica.Mechanics.Rotational.Interfaces.PartialElementaryOneFlangeAndSupport2;
+      extends Modelica.Mechanics.Rotational.Interfaces.PartialElementaryOneFlangeAndSupport2;
       parameter Boolean exact=false
         "Is true/false for exact treatment/filtering of the input signal, respectively";
       parameter SI.Frequency f_crit=50
@@ -5884,25 +5883,20 @@ blocks of the block library Modelica.Blocks.Sources.
           fillColor={192,192,192},
           fillPattern=FillPattern.HorizontalCylinder,
           extent={{-100.0,-20.0},{100.0,20.0}}),
-        Line(points={{-30.0,-32.0},{30.0,-32.0}}),
-        Line(points={{0.0,52.0},{0.0,32.0}}),
-        Line(points={{-29.0,32.0},{30.0,32.0}}),
-        Line(points={{0.0,-32.0},{0.0,-100.0}}),
-        Line(points={{30.0,-42.0},{20.0,-52.0}}),
-        Line(points={{30.0,-32.0},{10.0,-52.0}}),
-        Line(points={{20.0,-32.0},{0.0,-52.0}}),
-        Line(points={{10.0,-32.0},{-10.0,-52.0}}),
-        Line(points={{0.0,-32.0},{-20.0,-52.0}}),
-        Line(points={{-10.0,-32.0},{-30.0,-52.0}}),
-        Line(points={{-20.0,-32.0},{-30.0,-42.0}}),
-        Text(extent={{-172.0,-90.0},{-56.0,-56.0}},
-          textString="phi_ref"),
+        Line(points={{-30,-32},{30,-32}}),
+        Line(points={{0,52},{0,32}}),
+        Line(points={{-29,32},{30,32}}),
+        Line(points={{0,-32},{0,-100}}),
+        Text(extent={{-150,-60},{-40,-30}},
+              lineColor={128,128,128},
+              textString="phi_ref",
+              horizontalAlignment=TextAlignment.Right),
         Text(lineColor={0,0,255},
-          extent={{-150.0,60.0},{150.0,100.0}},
+          extent={{-150,60},{150,100}},
           textString="%name"),
-        Text(extent={{30.0,-62.0},{146.0,-28.0}},
+        Text(extent={{30,-60},{150,-30}},
           textString="exact="),
-        Text(extent={{30.0,-98.0},{146.0,-64.0}},
+        Text(extent={{30,-90},{150,-60}},
           textString="%exact")}));
     end Position;
 
@@ -5981,6 +5975,14 @@ blocks of the block library Modelica.Blocks.Sources.
         coordinateSystem(preserveAspectRatio=true,
           extent={{-100.0,-100.0},{100.0,100.0}}),
           graphics={
+        Text(extent={{-140,-60},{-40,-30}},
+              lineColor={128,128,128},
+              horizontalAlignment=TextAlignment.Right,
+              textString="w_ref"),
+        Text(extent={{30,-60},{150,-30}},
+          textString="exact="),
+        Text(extent={{30,-90},{150,-60}},
+          textString="%exact"),
         Rectangle(lineColor={64,64,64},
           fillColor={192,192,192},
           fillPattern=FillPattern.HorizontalCylinder,
@@ -5989,22 +5991,9 @@ blocks of the block library Modelica.Blocks.Sources.
         Line(points={{0.0,52.0},{0.0,32.0}}),
         Line(points={{-29.0,32.0},{30.0,32.0}}),
         Line(points={{0.0,-32.0},{0.0,-100.0}}),
-        Line(points={{-10.0,-32.0},{-30.0,-52.0}}),
-        Line(points={{0.0,-32.0},{-20.0,-52.0}}),
-        Line(points={{10.0,-32.0},{-10.0,-52.0}}),
-        Line(points={{20.0,-32.0},{0.0,-52.0}}),
-        Line(points={{-20.0,-32.0},{-30.0,-42.0}}),
-        Line(points={{30.0,-32.0},{10.0,-52.0}}),
-        Line(points={{30.0,-42.0},{20.0,-52.0}}),
-        Text(extent={{-158.0,-78.0},{-54.0,-44.0}},
-          textString="w_ref"),
         Text(lineColor={0,0,255},
           extent={{-150,60},{150,100}},
-          textString="%name"),
-        Text(extent={{30.0,-60.0},{146.0,-26.0}},
-          textString="exact="),
-        Text(extent={{30.0,-96.0},{146.0,-62.0}},
-          textString="%exact")}));
+          textString="%name")}));
     end Speed;
 
     model Accelerate
@@ -6058,18 +6047,13 @@ blocks of the block library Modelica.Blocks.Sources.
         Line(points={{0.0,52.0},{0.0,32.0}}),
         Line(points={{-29.0,32.0},{30.0,32.0}}),
         Line(points={{0.0,-32.0},{0.0,-100.0}}),
-        Line(points={{30.0,-42.0},{20.0,-52.0}}),
-        Line(points={{30.0,-32.0},{10.0,-52.0}}),
-        Line(points={{20.0,-32.0},{0.0,-52.0}}),
-        Line(points={{10.0,-32.0},{-10.0,-52.0}}),
-        Line(points={{0.0,-32.0},{-20.0,-52.0}}),
-        Line(points={{-10.0,-32.0},{-30.0,-52.0}}),
-        Line(points={{-20.0,-32.0},{-30.0,-42.0}}),
-        Text(extent={{-144.0,-86.0},{-46.0,-50.0}},
-          textString="a_ref"),
         Text(lineColor={0,0,255},
           extent={{-150.0,60.0},{150.0,100.0}},
-          textString="%name")}));
+          textString="%name"),
+        Text(extent={{-140,-60},{-40,-30}},
+              lineColor={128,128,128},
+              horizontalAlignment=TextAlignment.Right,
+              textString="a_ref")}));
     end Accelerate;
 
     model Move
@@ -6153,8 +6137,6 @@ blocks of the block library Modelica.Blocks.Sources.
         coordinateSystem(preserveAspectRatio=true,
           extent={{-100.0,-100.0},{100.0,100.0}}),
           graphics={
-        Text(extent={{-80.0,-100.0},{-80.0,-60.0}},
-          textString="phi,w,a"),
         Rectangle(lineColor={64,64,64},
           fillColor={192,192,192},
           fillPattern=FillPattern.HorizontalCylinder,
@@ -6163,16 +6145,13 @@ blocks of the block library Modelica.Blocks.Sources.
         Line(points={{0.0,52.0},{0.0,32.0}}),
         Line(points={{-29.0,32.0},{30.0,32.0}}),
         Line(points={{0.0,-32.0},{0.0,-100.0}}),
-        Line(points={{30.0,-42.0},{20.0,-52.0}}),
-        Line(points={{30.0,-32.0},{10.0,-52.0}}),
-        Line(points={{20.0,-32.0},{0.0,-52.0}}),
-        Line(points={{10.0,-32.0},{-10.0,-52.0}}),
-        Line(points={{0.0,-32.0},{-20.0,-52.0}}),
-        Line(points={{-10.0,-32.0},{-30.0,-52.0}}),
-        Line(points={{-20.0,-32.0},{-30.0,-42.0}}),
         Text(lineColor={0,0,255},
           extent={{-150.0,60.0},{150.0,100.0}},
-          textString="%name")}));
+          textString="%name"),
+        Text(extent={{-140,-60},{-40,-30}},
+              lineColor={128,128,128},
+              horizontalAlignment=TextAlignment.Right,
+              textString="phi,w,a")}));
     end Move;
 
     model Torque "Input signal acting as external torque on a flange"
