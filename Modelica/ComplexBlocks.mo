@@ -1910,8 +1910,10 @@ An error occurs if the elements of the input <code>u</code> is zero.
             origin={60,-110})));
       Interfaces.ComplexOutput y "Quotient y = u / divisior" annotation (Placement(transformation(extent={{100,-10},{120,10}}), iconTransformation(extent={{100,-10},{120,10}})));
       Sources.ComplexConstant complexOne(final k=Complex(1, 0)) if not useDivisor "Complex(1,0)" annotation (Placement(transformation(extent={{-100,-50},{-80,-30}})));
-      Division division annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
-      ComplexToPolar complexToPolar annotation (Placement(transformation(
+      Division division(final useConjugateInput1=false, final useConjugateInput2=false)
+                        annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
+      ComplexToPolar complexToPolar(final useConjugateInput=false)
+                                    annotation (Placement(transformation(
             extent={{-10,10},{10,-10}},
             rotation=270,
             origin={0,-20})));
