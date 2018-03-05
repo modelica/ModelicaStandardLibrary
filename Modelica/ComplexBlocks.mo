@@ -1929,7 +1929,6 @@ An error occurs if the elements of the input <code>u</code> is zero.
       Blocks.Math.Gain gain(final k=dB) annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
     equation
 
-      connect(arg_y, arg_y) annotation (Line(points={{60,-110},{60,-110}},                         color={0,0,127}));
       connect(complexOne.y, division.u2) annotation (Line(points={{-79,-40},{-70,-40},{-70,-6},{-62,-6}}, color={85,170,255}));
       connect(divisor, division.u2) annotation (Line(points={{-120,-60},{-70,-60},{-70,-6},{-62,-6}}, color={85,170,255}));
       connect(division.u1, u) annotation (Line(points={{-62,6},{-70,6},{-70,60},{-120,60}}, color={85,170,255}));
