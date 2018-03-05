@@ -883,16 +883,8 @@ Optionally, residues are returned as well if <code>withResidues=true</code>.
     input Real n_y[3](each final unit="1")
       "Vector in direction of y-axis of frame 2, resolved in frame 1";
     output Orientation R "Orientation object to rotate frame 1 into frame 2";
-  protected
-    Real abs_n_x=sqrt(n_x*n_x);
-    Real e_x[3](each final unit="1")=if abs_n_x < 1e-10 then {1,0,0} else n_x/abs_n_x;
-    Real n_z_aux[3](each final unit="1")=cross(e_x, n_y);
-    Real n_y_aux[3](each final unit="1")=if n_z_aux*n_z_aux > 1.0e-6 then n_y else (if abs(e_x[1])
-         > 1.0e-6 then {0,1,0} else {1,0,0});
-    Real e_z_aux[3](each final unit="1")=cross(e_x, n_y_aux);
-    Real e_z[3](each final unit="1")=e_z_aux/sqrt(e_z_aux*e_z_aux);
   algorithm
-    R := Orientation(T={e_x,cross(e_z, e_x),e_z},w= zeros(3));
+    R := Orientation(T=TransformationMatrices.from_nxy(n_x,n_y),w= zeros(3));
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -933,16 +925,8 @@ arbitrarily such that e_x and e_y are orthogonal to each other.
     input Real n_z[3](each final unit="1")
       "Vector in direction of z-axis of frame 2, resolved in frame 1";
     output Orientation R "Orientation object to rotate frame 1 into frame 2";
-  protected
-    Real abs_n_x=sqrt(n_x*n_x);
-    Real e_x[3](each final unit="1")=if abs_n_x < 1e-10 then {1,0,0} else n_x/abs_n_x;
-    Real n_y_aux[3](each final unit="1")=cross(n_z, e_x);
-    Real n_z_aux[3](each final unit="1")=if n_y_aux*n_y_aux > 1.0e-6 then n_z else (if abs(e_x[1])
-         > 1.0e-6 then {0,0,1} else {1,0,0});
-    Real e_y_aux[3](each final unit="1")=cross(n_z_aux, e_x);
-    Real e_y[3](each final unit="1")=e_y_aux/sqrt(e_y_aux*e_y_aux);
   algorithm
-    R := Orientation(T={e_x,e_y,cross(e_x, e_y)},w= zeros(3));
+    R := Orientation(T=TransformationMatrices.from_nxz(n_x,n_z),w= zeros(3));
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
