@@ -3275,11 +3275,11 @@ This sensor can be used to measure <em>m</em> complex apparent power values, usi
         Line(points = {{-100,0},{100,0}}, color={85,170,255}),
         Line(points = {{0,70},{0,40}}),
           Line(points={{-100,-60},{-80,-60},{-56,-42}},
-                                                     color={28,108,200}),
+                                                     color={85,170,255}),
           Line(points={{-60,-100},{-60,-80},{-42,-56}},
-                                                     color={28,108,200}),
+                                                     color={85,170,255}),
           Line(points={{60,-100},{60,-80},{42,-56}},
-                                                  color={28,108,200}),
+                                                  color={85,170,255}),
           Text(
             extent={{-100,-40},{-60,-80}},
             textString="s"),
@@ -3289,7 +3289,7 @@ This sensor can be used to measure <em>m</em> complex apparent power values, usi
           Text(
             extent={{40,-60},{80,-100}},
             textString="v"),
-          Line(points={{100,-60},{80,-60},{56,-42}}, color={28,108,200}),
+          Line(points={{100,-60},{80,-60},{56,-42}}, color={85,170,255}),
           Text(
             extent={{-150,110},{150,150}},
             textString="%name",

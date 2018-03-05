@@ -2158,7 +2158,7 @@ This sensor can be used to measure the complex apparent power.
           rotation=180), iconTransformation(
           extent={{-10,10},{10,-10}},
           rotation=180,
-          origin={-110,-58})));
+          origin={-110,-60})));
     output Modelica.SIunits.Current abs_i='abs'(i) "Absolute of complex current";
     output Modelica.SIunits.Angle arg_i=arg(i) "Argument of complex current";
     output Modelica.SIunits.Voltage abs_v='abs'(v) "Absolute of complex voltage";
@@ -2190,11 +2190,11 @@ This sensor can be used to measure the complex apparent power.
             textString="%name",
             lineColor={0,0,255}),
           Line(points={{-100,-60},{-80,-60},{-56,-42}},
-                                                     color={28,108,200}),
+                                                     color={85,170,255}),
           Line(points={{-60,-100},{-60,-80},{-42,-56}},
-                                                     color={28,108,200}),
+                                                     color={85,170,255}),
           Line(points={{60,-100},{60,-80},{42,-56}},
-                                                  color={28,108,200}),
+                                                  color={85,170,255}),
           Text(
             extent={{-100,-40},{-60,-80}},
             textString="s"),
