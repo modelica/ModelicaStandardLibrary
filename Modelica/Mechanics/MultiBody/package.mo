@@ -1048,6 +1048,7 @@ model World
 
   import Modelica.Mechanics.MultiBody.Types.GravityTypes;
   import Modelica.Mechanics.MultiBody.Types;
+  import Modelica.Constants.pi;
 
   Interfaces.Frame_b frame_b
     "Coordinate system fixed in the origin of the world frame"
@@ -1059,6 +1060,8 @@ model World
     "= true, if world coordinate system shall be visualized" annotation(Dialog(enable=enableAnimation));
   parameter Boolean animateGravity=true
     "= true, if gravity field shall be visualized (acceleration vector or field center)" annotation(Dialog(enable=enableAnimation));
+  parameter Boolean animateGround=false
+    "= true, if ground plane shall be visualized" annotation(Dialog(enable=enableAnimation));
   parameter Types.AxisLabel label1="x" "Label of horizontal axis in icon";
   parameter Types.AxisLabel label2="y" "Label of vertical axis in icon";
   parameter Types.GravityTypes gravityType=GravityTypes.UniformGravity
@@ -1119,6 +1122,26 @@ model World
     annotation (Dialog(colorSelector=true, tab="Animation", group=
           "if animateGravity = true and gravityType = PointGravity",
           enable=enableAnimation and animateGravity and gravityType == GravityTypes.PointGravity));
+
+  parameter MultiBody.Types.Axis groundAxis_u=if abs(n[1])>=0.99 then {0,1,0} else {1,0,0}
+    "Vector along 1st axis (called u) of ground plane, resolved in world frame (should be perpendicular to gravity direction)"
+    annotation (Dialog(
+      tab="Animation", group="if animateGround = true and gravityType = UniformGravity",
+      enable=enableAnimation and animateGround and gravityType == GravityTypes.UniformGravity));
+  parameter Modelica.SIunits.Length groundLength_u=2 "Length of ground plane along groundAxis_u"
+    annotation (Dialog(
+      tab="Animation", group="if animateGround = true and gravityType = UniformGravity",
+      enable=enableAnimation and animateGround and gravityType == GravityTypes.UniformGravity));
+  parameter Modelica.SIunits.Length groundLength_v=groundLength_u "Length of ground plane perpendicular to groundAxis_u"
+    annotation (Dialog(
+      tab="Animation", group="if animateGround = true and gravityType = UniformGravity",
+      enable=enableAnimation and animateGround and gravityType == GravityTypes.UniformGravity));
+  input Types.Color groundColor={200,200,200}
+    "Color of ground plane"
+    annotation (Dialog(
+      colorSelector=true,
+      tab="Animation", group="if animateGround = true and gravityType = UniformGravity",
+      enable=enableAnimation and animateGround and gravityType == GravityTypes.UniformGravity));
 
   parameter SI.Length nominalLength=1 "\"Nominal\" length of multi-body system"
     annotation (Dialog(tab="Defaults"));
@@ -1336,6 +1359,22 @@ protected
       mue=mue);
 */
 
+  // Ground plane visualization
+  Modelica.Mechanics.MultiBody.Visualizers.Advanced.Surface surface(
+    final multiColoredSurface=false,
+    final wireframe=false,
+    final color=groundColor,
+    final specularCoefficient=0,
+    final transparency=0,
+    final R=Modelica.Mechanics.MultiBody.Frames.absoluteRotation(
+      Modelica.Mechanics.MultiBody.Frames.from_nxy(n, groundAxis_u),
+      Modelica.Mechanics.MultiBody.Frames.axesRotations({1,2,3}, {pi/2,pi/2,0}, {0,0,0})),
+    final r_0=zeros(3),
+    final nu=2,
+    final nv=2,
+    redeclare function surfaceCharacteristic =
+      Modelica.Mechanics.MultiBody.Visualizers.Advanced.SurfaceCharacteristics.planeXY(lu=groundLength_u, lv=groundLength_v)) if
+      enableAnimation and animateGround and gravityType == GravityTypes.UniformGravity;
 equation
   Connections.root(frame_b.R);
 
@@ -1423,9 +1462,9 @@ ground. This model serves several purposes:
      the center of mass of a body, or the diameters of the cylinders
      representing a revolute joint).</li>
 <li> It is used to define a <strong>visual representation</strong> of the
-     world model (= 3 coordinate axes with labels) and of the defined
-     gravity field.<br>
-    <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/world.png\" ALT=\"MultiBody.World\">
+     world model (= 3 coordinate axes with labels), of the defined
+     gravity field and of a ground plane perpendicular to the gravity direction.<br>
+    <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/world.png\" alt=\"MultiBody.World\">
 </li>
 </ul>
 <p>
@@ -1435,9 +1474,11 @@ from nearly every component, exactly one instance of model World needs
 to be present in every model on the top level. The basic declaration
 needs to be:
 </p>
-<pre>
-    <strong>inner</strong> Modelica.Mechanics.MultiBody.World world
-</pre>
+
+<blockquote><pre>
+<strong>inner</strong> Modelica.Mechanics.MultiBody.World world
+</pre></blockquote>
+
 <p>
 Note, it must be an <strong>inner</strong> declaration with instance name <strong>world</strong>
 in order that this world object can be accessed from all objects in the
