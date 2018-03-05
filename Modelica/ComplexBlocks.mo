@@ -1925,8 +1925,9 @@ An error occurs if the elements of the input <code>u</code> is zero.
       Blocks.Math.Log10 log10_y annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=0,
-            origin={-40,-70})));
-      Blocks.Math.Gain gain(final k=dB) annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
+            origin={-10,-70})));
+      Blocks.Math.Gain gain(final k=dB) annotation (Placement(transformation(extent={{10,-80},{30,-60}})));
+      Blocks.Nonlinear.Limiter limiter(final uMax=Modelica.Constants.inf, final uMin=Modelica.Constants.eps) annotation (Placement(transformation(extent={{-50,-80},{-30,-60}})));
     equation
 
       connect(complexOne.y, division.u2) annotation (Line(points={{-79,-40},{-70,-40},{-70,-6},{-62,-6}}, color={85,170,255}));
@@ -1936,9 +1937,10 @@ An error occurs if the elements of the input <code>u</code> is zero.
       connect(complexToPolar.u, y) annotation (Line(points={{0,-8},{0,0},{110,0}},  color={85,170,255}));
       connect(complexToPolar.phi, arg_y) annotation (Line(points={{6,-32},{6,-40},{60,-40},{60,-110}}, color={0,0,127}));
       connect(complexToPolar.len, abs_y) annotation (Line(points={{-6,-32},{-6,-40},{-60,-40},{-60,-110}}, color={0,0,127}));
-      connect(log10_y.y, gain.u) annotation (Line(points={{-29,-70},{-22,-70}}, color={0,0,127}));
-      connect(log10_y.u, abs_y) annotation (Line(points={{-52,-70},{-60,-70},{-60,-110}}, color={0,0,127}));
-      connect(gain.y, dB_y) annotation (Line(points={{1,-70},{10,-70},{10,-90},{0,-90},{0,-110}}, color={0,0,127}));
+      connect(log10_y.y, gain.u) annotation (Line(points={{1,-70},{8,-70}},     color={0,0,127}));
+      connect(gain.y, dB_y) annotation (Line(points={{31,-70},{40,-70},{40,-90},{0,-90},{0,-110}},color={0,0,127}));
+      connect(limiter.y, log10_y.u) annotation (Line(points={{-29,-70},{-22,-70}}, color={0,0,127}));
+      connect(complexToPolar.len, limiter.u) annotation (Line(points={{-6,-32},{-6,-40},{-60,-40},{-60,-70},{-52,-70}}, color={0,0,127}));
       annotation (Icon(coordinateSystem(preserveAspectRatio=false), graphics={
                                     Rectangle(
             extent={{-100,-100},{100,100}},
