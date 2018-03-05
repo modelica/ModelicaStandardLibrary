@@ -2158,13 +2158,13 @@ This sensor can be used to measure the complex apparent power.
           rotation=180), iconTransformation(
           extent={{-10,10},{10,-10}},
           rotation=180,
-          origin={-110,-58})));
-    output Modelica.SIunits.Current i_abs='abs'(i) "Absolute of complex current";
-    output Modelica.SIunits.Angle i_arg=arg(i) "Argument of complex current";
-    output Modelica.SIunits.Voltage v_abs='abs'(v) "Absolute of complex voltage";
-    output Modelica.SIunits.Angle v_arg=arg(v) "Argument of complex voltage";
-    output Modelica.SIunits.ApparentPower apparentPower_abs='abs'(apparentPower) "Absolute of complex apparent power";
-    output Modelica.SIunits.Angle apparentPower_arg=arg(apparentPower) "Argument of complex apparent power";
+          origin={-110,-60})));
+    output Modelica.SIunits.Current abs_i='abs'(i) "Absolute of complex current";
+    output Modelica.SIunits.Angle arg_i=arg(i) "Argument of complex current";
+    output Modelica.SIunits.Voltage abs_v='abs'(v) "Absolute of complex voltage";
+    output Modelica.SIunits.Angle arg_v=arg(v) "Argument of complex voltage";
+    output Modelica.SIunits.ApparentPower abs_apparentPower='abs'(apparentPower) "Absolute of complex apparent power";
+    output Modelica.SIunits.Angle arg_apparentPower=arg(apparentPower) "Argument of complex apparent power";
   equation
     Connections.branch(pc.reference, nc.reference);
     pc.reference.gamma = nc.reference.gamma;
@@ -2190,11 +2190,11 @@ This sensor can be used to measure the complex apparent power.
             textString="%name",
             lineColor={0,0,255}),
           Line(points={{-100,-60},{-80,-60},{-56,-42}},
-                                                     color={28,108,200}),
+                                                     color={85,170,255}),
           Line(points={{-60,-100},{-60,-80},{-42,-56}},
-                                                     color={28,108,200}),
+                                                     color={85,170,255}),
           Line(points={{60,-100},{60,-80},{42,-56}},
-                                                  color={28,108,200}),
+                                                  color={85,170,255}),
           Text(
             extent={{-100,-40},{-60,-80}},
             textString="s"),

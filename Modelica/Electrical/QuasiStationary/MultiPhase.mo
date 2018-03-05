@@ -3245,14 +3245,14 @@ This sensor can be used to measure <em>m</em> complex apparent power values, usi
           origin={110,-60},
           extent={{10,10},{-10,-10}},
           rotation=180)));
-    output Modelica.SIunits.Current i_abs[m]='abs'(i) "Absolute of complex currents";
-    output Modelica.SIunits.Angle i_arg[m]=arg(i) "Argument of complex currents";
-    output Modelica.SIunits.Voltage v_abs[m]='abs'(v) "Absolute of complex voltages";
-    output Modelica.SIunits.Angle v_arg[m]=arg(v) "Argument of complex voltages";
-    output Modelica.SIunits.ApparentPower apparentPower_abs[m]='abs'(apparentPower) "Absolute of complex apparent power signals";
-    output Modelica.SIunits.Angle apparentPower_arg[m]=arg(apparentPower) "Argument of complex apparent power signals";
-    output Modelica.SIunits.ApparentPower apparentPowerTotal_abs='abs'(apparentPowerTotal) "Absolute of sum complex apparent power";
-    output Modelica.SIunits.Angle apparentPowerTotal_arg=arg(apparentPowerTotal) "Argument of sum complex apparent power";
+    output Modelica.SIunits.Current abs_i[m]='abs'(i) "Absolute of complex currents";
+    output Modelica.SIunits.Angle arg_i[m]=arg(i) "Argument of complex currents";
+    output Modelica.SIunits.Voltage abs_v[m]='abs'(v) "Absolute of complex voltages";
+    output Modelica.SIunits.Angle arg_v[m]=arg(v) "Argument of complex voltages";
+    output Modelica.SIunits.ApparentPower abs_apparentPower[m]='abs'(apparentPower) "Absolute of complex apparent power signals";
+    output Modelica.SIunits.Angle arg_apparentPower[m]=arg(apparentPower) "Argument of complex apparent power signals";
+    output Modelica.SIunits.ApparentPower abs_apparentPowerTotal='abs'(apparentPowerTotal) "Absolute of sum complex apparent power";
+    output Modelica.SIunits.Angle arg_apparentPowerTotal=arg(apparentPowerTotal) "Argument of sum complex apparent power";
   equation
     Connections.branch(pc.reference, nc.reference);
     pc.reference.gamma = nc.reference.gamma;
@@ -3275,11 +3275,11 @@ This sensor can be used to measure <em>m</em> complex apparent power values, usi
         Line(points = {{-100,0},{100,0}}, color={85,170,255}),
         Line(points = {{0,70},{0,40}}),
           Line(points={{-100,-60},{-80,-60},{-56,-42}},
-                                                     color={28,108,200}),
+                                                     color={85,170,255}),
           Line(points={{-60,-100},{-60,-80},{-42,-56}},
-                                                     color={28,108,200}),
+                                                     color={85,170,255}),
           Line(points={{60,-100},{60,-80},{42,-56}},
-                                                  color={28,108,200}),
+                                                  color={85,170,255}),
           Text(
             extent={{-100,-40},{-60,-80}},
             textString="s"),
@@ -3289,7 +3289,7 @@ This sensor can be used to measure <em>m</em> complex apparent power values, usi
           Text(
             extent={{40,-60},{80,-100}},
             textString="v"),
-          Line(points={{100,-60},{80,-60},{56,-42}}, color={28,108,200}),
+          Line(points={{100,-60},{80,-60},{56,-42}}, color={85,170,255}),
           Text(
             extent={{-150,110},{150,150}},
             textString="%name",
