@@ -1184,8 +1184,8 @@ colorMapToSvg(Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.jet(),
 
     parameter Modelica.SIunits.Length length_x=3 "Length of plane in direction x" annotation(Dialog(enable=animation));
     parameter Modelica.SIunits.Length length_y=1 "Length of plane in direction y" annotation(Dialog(enable=animation));
-    parameter Integer nx=3 "Number of points in direction x" annotation(Dialog(enable=animation,group="Discretization"));
-    parameter Integer ny=2 "Number of points in direction y" annotation(Dialog(enable=animation,group="Discretization"));
+    parameter Integer nx(min=2)=3 "Number of points in direction x" annotation(Dialog(enable=animation,group="Discretization"));
+    parameter Integer ny(min=2)=2 "Number of points in direction y" annotation(Dialog(enable=animation,group="Discretization"));
 
     parameter Boolean wireframe=false
       "= true: 3D model will be displayed without faces"
