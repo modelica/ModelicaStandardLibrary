@@ -4454,8 +4454,7 @@ blocks of the block library Modelica.Blocks.Sources.
       "Forced movement of a flange according to an acceleration signal"
       extends
         Modelica.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupport2(
-        s(
-          start=0,
+        s(start=0,
           fixed=true,
           stateSelect=StateSelect.prefer));
       SI.Velocity v(
@@ -4923,11 +4922,33 @@ This package contains ideal sources to drive 1D mechanical translational drive t
     "Interfaces for 1-dim. translational mechanical components"
     extends Modelica.Icons.InterfacesPackage;
 
-    connector Flange_a
-      "(left) 1D translational flange (flange axis directed INTO cut plane, e. g. from left to right)"
+    connector Flange "One-dimensional translational flange"
 
       SI.Position s "Absolute position of flange";
       flow SI.Force f "Cut force directed into flange";
+      annotation (
+        Documentation(info="<html>
+<p>
+This is a connector for 1D translational mechanical systems.
+It has no icon definition and is only used by inheritance from
+flange connectors to define different icons.
+</p>
+<p>
+The following variables are defined in this connector:
+</p>
+
+<blockquote><pre>
+s: Absolute position of the flange in [m]. A positive translation
+   means that the flange is translated along the flange axis.
+f: Cut-force in direction of the flange axis in [N].
+</pre></blockquote>
+</html>"));
+    end Flange;
+
+    connector Flange_a
+      "One-dimensional translational flange (left, flange axis directed INTO cut plane)"
+      extends Flange;
+
       annotation (
         defaultComponentName="flange_a",
         Documentation(info="<html>
@@ -4944,11 +4965,12 @@ flanges are identical.
 <p>
 The following variables are transported through this connector:
 </p>
-<pre>
-  s: Absolute position of the flange in [m]. A positive translation
-     means that the flange is translated along the flange axis.
-  f: Cut-force in direction of the flange axis in [N].
-</pre>
+
+<blockquote><pre>
+s: Absolute position of the flange in [m]. A positive translation
+   means that the flange is translated along the flange axis.
+f: Cut-force in direction of the flange axis in [N].
+</pre></blockquote>
 </html>"),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Rectangle(
@@ -4968,10 +4990,9 @@ The following variables are transported through this connector:
     end Flange_a;
 
     connector Flange_b
-      "(right) 1D translational flange (flange axis directed OUT OF cut plane)"
+      "One-dimensional translational flange (right, flange axis directed OUT OF cut plane)"
+      extends Flange;
 
-      SI.Position s "Absolute position of flange";
-      flow SI.Force f "Cut force directed into flange";
       annotation (
         defaultComponentName="flange_b",
         Documentation(info="<html>
@@ -4987,11 +5008,12 @@ flanges are identical.
 <p>
 The following variables are transported through this connector:
 </p>
-<pre>
-  s: Absolute position of the flange in [m]. A positive translation
-     means that the flange is translated along the flange axis.
-  f: Cut-force in direction of the flange axis in [N].
-</pre>
+
+<blockquote><pre>
+s: Absolute position of the flange in [m]. A positive translation
+   means that the flange is translated along the flange axis.
+f: Cut-force in direction of the flange axis in [N].
+</pre></blockquote>
 </html>"),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Rectangle(
@@ -5010,10 +5032,9 @@ The following variables are transported through this connector:
               textString="%name")}));
     end Flange_b;
 
-    connector Support "Support/housing 1D translational flange"
+    connector Support "Support/housing flange of a one-dimensional translational component"
+      extends Flange;
 
-      SI.Position s "Absolute position of flange";
-      flow SI.Force f "Cut force directed into flange";
       annotation (
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={Rectangle(
@@ -5043,17 +5064,20 @@ The following variables are transported through this connector:
                   fillColor={0,127,0},
                   fillPattern=FillPattern.Solid)}),
         Documentation(info="<html>
-<p>This is a connector for 1-dim. rotational mechanical systems and models the support or housing of a shaft. The following variables are defined in this connector:</p>
-<table cellspacing=\"0\" cellpadding=\"2\" border=\"1\"><tr>
-<td valign=\"top\"><h4>s</h4></td>
-<td valign=\"top\"><p>Absolute position of the support/housing in [m]</p></td>
-</tr>
-<tr>
-<td valign=\"top\"><h4>f</h4></td>
-<td valign=\"top\"><p>Reaction force in the support/housing in [N]</p></td>
-</tr>
-</table>
-<p><br/>The support connector is usually defined as conditional connector. It is most convenient to utilize it</p>
+<p>
+This is a connector for 1-dim. rotational mechanical systems and models
+the support or housing of a shaft.
+The following variables are defined in this connector:
+</p>
+
+<blockquote><pre>
+s: Absolute position of the support/housing in [m].
+f: Reaction force in the support/housing in [N].
+</pre></blockquote>
+
+<p>
+The support connector is usually defined as conditional connector. It is most convenient to utilize it
+</p>
 <ul>
 <li>For models to be build graphically (i.e., the model is build up by drag-and-drop from elementary components):<br/><a href=\"modelica://Modelica.Mechanics.Translational.Interfaces.PartialOneFlangeAndSupport\">PartialOneFlangeAndSupport</a>,<br/><a href=\"modelica://Modelica.Mechanics.Translational.Interfaces.PartialTwoFlangesAndSupport\">PartialTwoFlangesAndSupport</a>, <br/>&nbsp; </li>
 <li>For models to be build textually (i.e., elementary models):<br/><a href=\"modelica://Modelica.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupport\">PartialElementaryOneFlangeAndSupport</a>,<br/><a href=\"modelica://Modelica.Mechanics.Translational.Interfaces.PartialElementaryTwoFlangesAndSupport\">PartialElementaryTwoFlangesAndSupport</a>,<br/><a href=\"modelica://Modelica.Mechanics.Translational.Interfaces.PartialElementaryRotationalToTranslational\">PartialElementaryRotationalToTranslational</a>. </li>
@@ -5847,7 +5871,6 @@ This package contains connectors and partial models for 1-dim.
 translational mechanical components. The components of this package can
 only be used as basic building elements for models.
 </p>
-
 </html>"));
   end Interfaces;
 

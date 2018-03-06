@@ -6548,10 +6548,32 @@ This package contains ideal sources to drive 1D mechanical rotational drive trai
 
     extends Modelica.Icons.InterfacesPackage;
 
-    connector Flange_a
-      "One-dimensional rotational flange of a shaft (filled circle icon)"
+    connector Flange "One-dimensional rotational flange"
+
       SI.Angle phi "Absolute rotation angle of flange";
       flow SI.Torque tau "Cut torque in the flange";
+      annotation (
+        Documentation(info="<html>
+<p>
+This is a connector for 1D rotational mechanical systems.
+It has no icon definition and is only used by inheritance from
+flange connectors to define different icons.
+</p>
+<p>
+The following variables are defined in this connector:
+</p>
+
+<blockquote><pre>
+phi: Absolute rotation angle of the flange in [rad].
+tau: Cut-torque in the flange in [Nm].
+</pre></blockquote>
+</html>"));
+    end Flange;
+
+    connector Flange_a
+      "One-dimensional rotational flange of a shaft (filled circle icon)"
+      extends Flange;
+
       annotation (
         defaultComponentName="flange_a",
         Documentation(info="<html>
@@ -6560,14 +6582,10 @@ This is a connector for 1-dim. rotational mechanical systems and models
 the mechanical flange of a shaft. The following variables are defined in this connector:
 </p>
 
-<table border=1 cellspacing=0 cellpadding=2>
-  <tr><td valign=\"top\"> <strong>phi</strong></td>
-      <td valign=\"top\"> Absolute rotation angle of the shaft flange in [rad] </td>
-  </tr>
-  <tr><td valign=\"top\"> <strong>tau</strong></td>
-      <td valign=\"top\"> Cut-torque in the shaft flange in [Nm] </td>
-  </tr>
-</table>
+<blockquote><pre>
+phi: Absolute rotation angle of the shaft flange in [rad].
+tau: Cut-torque in the shaft flange in [Nm].
+</pre></blockquote>
 
 <p>
 There is a second connector for flanges: Flange_b. The connectors
@@ -6584,9 +6602,10 @@ If needed, the absolute angular velocity w and the
 absolute angular acceleration a of the flange can be determined by
 differentiation of the flange angle phi:
 </p>
-<pre>
-     w = der(phi);    a = der(w)
-</pre>
+
+<blockquote><pre>
+w = der(phi);    a = der(w)
+</pre></blockquote>
 </html>"),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
           Ellipse(
@@ -6605,8 +6624,8 @@ differentiation of the flange angle phi:
 
     connector Flange_b
       "One-dimensional rotational flange of a shaft (non-filled circle icon)"
-      SI.Angle phi "Absolute rotation angle of flange";
-      flow SI.Torque tau "Cut torque in the flange";
+      extends Flange;
+
       annotation (
         defaultComponentName="flange_b",
         Documentation(info="<html>
@@ -6615,14 +6634,10 @@ This is a connector for 1-dim. rotational mechanical systems and models
 the mechanical flange of a shaft. The following variables are defined in this connector:
 </p>
 
-<table border=1 cellspacing=0 cellpadding=2>
-  <tr><td valign=\"top\"> <strong>phi</strong></td>
-      <td valign=\"top\"> Absolute rotation angle of the shaft flange in [rad] </td>
-  </tr>
-  <tr><td valign=\"top\"> <strong>tau</strong></td>
-      <td valign=\"top\"> Cut-torque in the shaft flange in [Nm] </td>
-  </tr>
-</table>
+<blockquote><pre>
+phi: Absolute rotation angle of the shaft flange in [rad].
+tau: Cut-torque in the shaft flange in [Nm].
+</pre></blockquote>
 
 <p>
 There is a second connector for flanges: Flange_a. The connectors
@@ -6639,9 +6654,10 @@ If needed, the absolute angular velocity w and the
 absolute angular acceleration a of the flange can be determined by
 differentiation of the flange angle phi:
 </p>
-<pre>
-     w = der(phi);    a = der(w)
-</pre>
+
+<blockquote><pre>
+w = der(phi);    a = der(w)
+</pre></blockquote>
 </html>"),
         Icon(coordinateSystem(
             preserveAspectRatio=true,
@@ -6659,10 +6675,8 @@ differentiation of the flange angle phi:
                   textString="%name")}));
     end Flange_b;
 
-    connector Support "Support/housing of a 1-dim. rotational shaft"
-
-      SI.Angle phi "Absolute rotation angle of the support/housing";
-      flow SI.Torque tau "Reaction torque in the support/housing";
+    connector Support "Support/housing flange of a one-dimensional rotational shaft"
+      extends Flange;
 
       annotation (
         Documentation(info="<html>
@@ -6671,14 +6685,10 @@ This is a connector for 1-dim. rotational mechanical systems and models
 the support or housing of a shaft. The following variables are defined in this connector:
 </p>
 
-<table border=1 cellspacing=0 cellpadding=2>
-  <tr><td valign=\"top\"> <strong>phi</strong></td>
-      <td valign=\"top\"> Absolute rotation angle of the support/housing in [rad] </td>
-  </tr>
-  <tr><td valign=\"top\"> <strong>tau</strong></td>
-      <td valign=\"top\"> Reaction torque in the support/housing in [Nm] </td>
-  </tr>
-</table>
+<blockquote><pre>
+phi: Absolute rotation angle of the support/housing in [rad].
+tau: Reaction torque in the support/housing in [Nm].
+</pre></blockquote>
 
 <p>
 The support connector is usually defined as conditional connector.
