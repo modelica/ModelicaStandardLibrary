@@ -337,7 +337,7 @@ It can also be applied to Boolean variables to define a check box:
 
     annotation (Documentation(info="<html>
 <p>
-Automatically display a list of matching choises in a graphical parameter menu.
+Automatically display a list of matching choices in a graphical parameter menu.
 </p>
 
 <h4>Description</h4>
