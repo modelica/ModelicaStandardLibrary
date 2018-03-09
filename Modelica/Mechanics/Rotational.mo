@@ -3104,7 +3104,7 @@ in the User's Guide of the Rotational library.
     equation
       if initial() then
         /* During initialization the characteristic is modified, in order that
-        it is a strict monoton rising function. Otherwise, initialization might
+        it is a strict monotone rising function. Otherwise, initialization might
         result in a singular system when the characteristic has to be
         inverted. The characteristic is modified in the range 1.5*bMin <= phi_rel - phi_rel0 <= 1.5 bMax,
         so that in this range a linear characteristic is present that approaches the original
