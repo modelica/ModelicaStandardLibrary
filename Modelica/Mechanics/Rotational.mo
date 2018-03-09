@@ -5341,7 +5341,7 @@ in the User's Guide of the Rotational library.
     end RelativeStates;
 
     model TorqueToAngleAdaptor
-      "Signal adaptor for a Rotlational flange with angle, speed, and acceleration as outputs and torque as input (especially useful for FMUs)"
+      "Signal adaptor for a Rotational flange with angle, speed, and acceleration as outputs and torque as input (especially useful for FMUs)"
       parameter Boolean use_w=true "use output for velocity = 1st derivative of angle"
         annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
       parameter Boolean use_a=true "use output for acceleration = 2nd derivative of angle"
