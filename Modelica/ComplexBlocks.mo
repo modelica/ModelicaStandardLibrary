@@ -1908,7 +1908,7 @@ An error occurs if the elements of the input <code>u</code> is zero.
             extent={{-10,-10},{10,10}},
             rotation=270,
             origin={60,-110})));
-      Interfaces.ComplexOutput y "Quotient y = u / divisior" annotation (Placement(transformation(extent={{100,-10},{120,10}}), iconTransformation(extent={{100,-10},{120,10}})));
+      Interfaces.ComplexOutput y "Quotient y = u / divisor" annotation (Placement(transformation(extent={{100,-10},{120,10}}), iconTransformation(extent={{100,-10},{120,10}})));
       Sources.ComplexConstant complexOne(final k=Complex(1, 0)) if not useDivisor "Complex(1,0)" annotation (Placement(transformation(extent={{-100,-50},{-80,-30}})));
       Division division(final useConjugateInput1=false, final useConjugateInput2=false)
                         annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
@@ -2304,7 +2304,7 @@ The output y is a complex phasor with constant magnitude, spinning with constant
       parameter Modelica.SIunits.Angle phi(start=0) "Angle of complex phasor";
       parameter Modelica.SIunits.Time startTime=0 "Start time of frequency sweep";
       parameter Modelica.SIunits.Time duration(min=0.0, start=1) "Duration of ramp (= 0.0 gives a Step)";
-      Real magnitude "Actual magntiude of complex phasor";
+      Real magnitude "Actual magnitude of complex phasor";
     equation
 
       magnitude = if not useLogRamp then
