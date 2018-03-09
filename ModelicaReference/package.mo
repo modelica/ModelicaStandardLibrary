@@ -720,7 +720,7 @@ Annotation \"Dialog\" is defined as:
 A parameter dialog is a sequence of tabs with a sequence of groups inside them.
 </p>
 <p>
-A <code>Selector</code> displays a file dialog to select a file: Parameter <code>filter</code> only shows files that fulfill the given pattern defined by \"<code>text1 (*.ext1);text2 (*.ext2);</code>\" to show only files <code>*.ext1</code> and <code>*.ext2</code> and displaying a description text \"<code>text1</code>\" and \"<code>text2</code>\", respectively. Parameter caption is the text displayed in the dialog menu. Parameter <code>loadSelector</code> is used to select an existing file for reading, whereas parameter <code>saveSelector</code> is used to define a file for writing.
+A <code>Selector</code> displays a file dialog to select a file: Parameter <code>filter</code> only shows files that fulfill the given pattern defined by \"<code>text1 (*.ext1);;text2 (*.ext2);</code>\" to show only files with file extension <code>*.ext1</code> or <code>*.ext2</code> and displaying a description text \"<code>text1</code>\" and \"<code>text2</code>\", respectively. Parameter caption is the text displayed in the dialog menu. Parameter <code>loadSelector</code> is used to select an existing file for reading, whereas parameter <code>saveSelector</code> is used to define a file for writing.
 </p>
 
 <pre><strong>model</strong> DialogDemo
