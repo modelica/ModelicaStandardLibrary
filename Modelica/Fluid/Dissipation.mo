@@ -10182,7 +10182,7 @@ documentation available in this package.
               "Minimum Reynolds number assuming turbulent regime";
 
             //SOURCE_2: p.Lbb 2, eq. 9-10: Considering influence of Reynolds number on Darcy friction factor for smooth straight pipes
-            //Correlation based on neglection of surface roughness
+            //Correlation based on neglect of surface roughness
             //Correlation based on assumption that total mass flow rate is flowing as gas
             TYP.DarcyFrictionFactor lambda_lam_g=64/Re_g
               "Darcy friction factor of gas for assumed laminar regime";
