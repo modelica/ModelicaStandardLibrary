@@ -2243,7 +2243,7 @@ its tip position, is shown in
       "Dummy if m==0, or position vector from world frame to mid-point of rod, resolved in world frame";
     SI.Velocity v_CM_0[3] "First derivative of r_CM_0";
     SI.Force f_CM_a[3]
-      "Dummy if m==0, or inertial force acting at mid-point of rod due to mass oint acceleration, resolved in frame_a";
+      "Dummy if m==0, or inertial force acting at mid-point of rod due to mass point acceleration, resolved in frame_a";
     SI.Force f_CM_e[3]
       "Dummy if m==0, or projection of f_CM_a onto eRod_a, resolved in frame_a";
     SI.Force f_b_a1[3]
