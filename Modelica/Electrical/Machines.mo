@@ -4756,7 +4756,8 @@ This package contains test examples of DC machines.
 
     package ControlledDCDrives "Test examples of controlled DC drives"
       extends Modelica.Icons.ExamplesPackage;
-      model CurrentControlledDCPM "Current controlled DC PM drive"
+      model CurrentControlledDCPM
+        "Current controlled DC PM drive with H-bridge from battery"
         extends Utilities.PartialControlledDCPM;
         Modelica.Mechanics.Rotational.Sources.QuadraticSpeedDependentTorque
           loadTorque(
@@ -4781,7 +4782,6 @@ This package contains test examples of DC machines.
         annotation (experiment(StopTime=2, Interval=0.0001), Documentation(info="<html>
 <p>This model demonstrates how a current controller for a DC PM drive works.</p>
 <p>
-Electrical power is taken from a battery (constant voltage with inner resistance) and fed to the motor via an ideal DC-DC inverter. 
 The current controller is parameterized according to the absolute optimum.
 </p>
 <p>At time=0.2 s a reference torque step is applied, causing the drive to accelerate until motor torque and load torque are at an equilibrium.</p>
@@ -4793,7 +4793,8 @@ Further reading:
           Icon(coordinateSystem(extent={{-180,-100},{100,100}}, initialScale=0.1)));
       end CurrentControlledDCPM;
 
-      model SpeedControlledDCPM "Speed controlled DC PM drive"
+      model SpeedControlledDCPM
+        "Speed controlled DC PM drive with H-bridge from battery"
         extends Utilities.PartialControlledDCPM;
         Modelica.Mechanics.Rotational.Sources.TorqueStep loadTorque(
           stepTorque=-driveData.tauNominal,
@@ -4811,20 +4812,21 @@ Further reading:
           k=1,
           T=driveData.Tfw,
           initType=Modelica.Blocks.Types.Init.InitialOutput)
-          annotation (Placement(transformation(extent={{-150,-20},{-130,0}})));
+          annotation (Placement(transformation(extent={{-160,0},{-140,20}})));
         Modelica.Blocks.Sources.Step step(
           offset=0,
           height=driveData.motorData.wNominal,
           startTime=0.2)                       annotation (Placement(transformation(
               extent={{10,10},{-10,-10}},
               rotation=180,
-              origin={-170,-10})));
+              origin={-190,-10})));
+        Modelica.Blocks.Nonlinear.SlewRateLimiter slewRateLimiter(initType=Modelica.Blocks.Types.Init.InitialOutput,
+            Rising=driveData.aMax)
+          annotation (Placement(transformation(extent={{-160,-40},{-140,-20}})));
       equation
-        connect(preFilter.y, speedController.u)
-          annotation (Line(points={{-129,-10},{-122,-10}},
-                                                       color={0,0,127}));
-        connect(step.y, preFilter.u) annotation (Line(points={{-159,-10},{-152,
-                -10}},              color={0,0,127}));
+        connect(step.y, preFilter.u) annotation (Line(points={{-179,-10},{-170,-10},
+                {-170,10},{-162,10}},
+                                    color={0,0,127}));
         connect(loadInertia.flange_b, loadTorque.flange)
           annotation (Line(points={{70,-40},{80,-40}},
                                                    color={0,0,0}));
@@ -4833,16 +4835,22 @@ Further reading:
         connect(speedController.y, tau2i.u)
           annotation (Line(points={{-99,-10},{-82,-10}},
                                                        color={0,0,127}));
+        connect(step.y, slewRateLimiter.u) annotation (Line(points={{-179,-10},{
+                -170,-10},{-170,-30},{-162,-30}}, color={0,0,127}));
+        connect(speedController.u, preFilter.y) annotation (Line(points={{-122,-10},
+                {-130,-10},{-130,10},{-139,10}}, color={0,0,127}));
         annotation (experiment(Interval=0.0001),             Documentation(info="<html>
 <p>This model demonstrates how a speed controller for a current controlled DC PM drive works.</p>
 <p>
-Electrical power is taken from a battery (constant voltage with inner resistance) and fed to the motor via an ideal DC-DC inverter. 
 The inner current controller is parameterized according to the absolute optimum. 
 The outer control loop is formed by the speed controller which is parameterized according to the symmetrical optimum. 
 </p>
 <p>
 At time=0.2 s a reference speed step is applied, causing the drive to accelerate to the desired speed.
 At time=0.8 s a load torque step is applied, causing to drive to decelerate until the speed controller brings the drive back to the desired speed.
+</p>
+<p>
+You may try a slewRateLimiter instead the prefilter to limit the speed rise i.e. the torque.
 </p>
 <p>
 Further reading: 
@@ -4852,7 +4860,8 @@ Further reading:
           Icon(coordinateSystem(extent={{-180,-100},{100,100}}, initialScale=0.1)));
       end SpeedControlledDCPM;
 
-      model PositionControlledDCPM "Position controlled DC PM drive"
+      model PositionControlledDCPM
+        "Position controlled DC PM drive with H-bridge from battery"
         extends Utilities.PartialControlledDCPM;
         Modelica.Mechanics.Rotational.Sources.TorqueStep loadTorque(
           stepTorque=-driveData.tauNominal,
@@ -4911,7 +4920,6 @@ Further reading:
                                                              Documentation(info="<html>
 <p>This model demonstrates how a position controller for a speed controlled DC PM drive works.</p>
 <p>
-Electrical power is taken from a battery (constant voltage with inner resistance) and fed to the motor via an ideal DC-DC inverter. 
 The inner current controller is parameterized according to the absolute optimum. 
 The middle control loop is formed by the speed controller which is parameterized according to the symmetrical optimum. 
 The outer control loop is formed by the position controller which is parameterized to avoid an overshot in the position. 
@@ -4928,13 +4936,13 @@ Further reading:
           Icon(coordinateSystem(extent={{-180,-100},{100,100}}, initialScale=0.1)));
       end PositionControlledDCPM;
 
-      package Utilities "Utilities for controlled drives"
+      package Utilities "Utilitiess for controlled drives"
         extends Modelica.Icons.UtilitiesPackage;
-        partial model PartialControlledDCPM "Partial controlled DC PM drive"
+        partial model PartialControlledDCPM
+          "Partial controlled DC PM drive with H-bridge from battery"
           extends Modelica.Icons.Example;
-          parameter Modelica.SIunits.Resistance Ri=0.05*driveData.motorData.VaNominal/driveData.motorData.IaNominal
-            "Inner resistance of battery";
-          parameter DriveDataDCPM driveData
+          replaceable parameter DriveDataDCPM driveData constrainedby
+            ControlledDCDrives.Utilities.DriveDataDCPM
             annotation (Placement(transformation(extent={{50,-20},{70,0}})));
           Modelica.Mechanics.Rotational.Components.Inertia loadInertia(J=driveData.JL)
             annotation (Placement(transformation(extent={{50,-50},{70,-30}})));
@@ -4963,26 +4971,19 @@ Further reading:
             Js=driveData.motorData.Js,
             alpha20a=driveData.motorData.alpha20a)
             annotation (Placement(transformation(extent={{20,-50},{40,-30}})));
-          Utilities.DcdcInverter armatureInverter(
+          DcdcInverter armatureInverter(
             fS=driveData.fS,
             Td=driveData.Td,
             Tmf=driveData.Tmf,
             VMax=driveData.VaMax)
             annotation (Placement(transformation(extent={{20,-20},{40,0}})));
-          Modelica.Electrical.Analog.Basic.Resistor resistor(R=Ri)                                                                     annotation (Placement(
-                transformation(
-                extent={{-10,-10},{10,10}},
-                rotation=270,
-                origin={40,70})));
-          Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
-                transformation(
-                extent={{-10,-10},{10,10}},
-                rotation=270,
-                origin={10,70})));
-          Modelica.Electrical.Analog.Sources.ConstantVoltage constantVoltage(V=
-                driveData.VaMax)
-            annotation (Placement(transformation(extent={{40,80},{20,100}})));
-          Utilities.LimitedPI currentController(
+          Battery source(
+            INominal=driveData.motorData.IaNominal, V0=driveData.VBat)
+            annotation (Placement(transformation(
+                extent={{10,-10},{-10,10}},
+                rotation=180,
+                origin={30,80})));
+          LimitedPI currentController(
             constantLimits=false,
             k=driveData.kpI,
             Ti=driveData.TiI,
@@ -4990,8 +4991,9 @@ Further reading:
             initType=Modelica.Blocks.Types.Init.InitialOutput,
             useFF=true)
             annotation (Placement(transformation(extent={{-50,-20},{-30,0}})));
-          Blocks.Math.Gain tau2i(k=1/driveData.kPhi)
-            annotation (Placement(transformation(extent={{10,-10},{-10,10}},
+          Modelica.Blocks.Math.Gain tau2i(k=1/driveData.kPhi) annotation (Placement(
+                transformation(
+                extent={{10,-10},{-10,10}},
                 rotation=180,
                 origin={-70,-10})));
         equation
@@ -5005,7 +5007,7 @@ Further reading:
             annotation (Line(points={{24,-20},{24,-30}}, color={0,0,255}));
           connect(armatureInverter.pin_pMot, dcpm.pin_ap)
             annotation (Line(points={{36,-20},{36,-30}}, color={0,0,255}));
-          connect(armatureInverter.vBat, currentController.yMaxVar)
+          connect(armatureInverter.vDC, currentController.yMaxVar)
             annotation (Line(points={{19,-4},{-28,-4}}, color={0,0,127}));
           connect(armatureInverter.vRef, currentController.y)
             annotation (Line(points={{18,-10},{-29,-10}}, color={0,0,127}));
@@ -5015,16 +5017,12 @@ Further reading:
           connect(speedSensor.w, currentController.feedForward) annotation (Line(
                 points={{50,-81},{50,-90},{-40,-90},{-40,-22}},
                                                              color={0,0,127}));
-          connect(constantVoltage.n, ground.p)
-            annotation (Line(points={{20,90},{20,70}}, color={0,0,255}));
-          connect(ground.p, armatureInverter.pin_nBat)
-            annotation (Line(points={{20,70},{20,0}}, color={0,0,255}));
-          connect(constantVoltage.p, resistor.p)
-            annotation (Line(points={{40,90},{40,80}}, color={0,0,255}));
-          connect(resistor.n, armatureInverter.pin_pBat)
-            annotation (Line(points={{40,60},{40,0}}, color={0,0,255}));
           connect(tau2i.y, currentController.u)
             annotation (Line(points={{-59,-10},{-52,-10}}, color={0,0,127}));
+          connect(source.pin_n, armatureInverter.pin_nBat) annotation (Line(points={{24,
+                  70},{24,60},{20,60},{20,0}}, color={0,0,255}));
+          connect(source.pin_p, armatureInverter.pin_pBat) annotation (Line(points={{36,
+                  70},{36,60},{40,60},{40,0}}, color={0,0,255}));
           annotation (Documentation(info="<html>
   <p>This is a partial model of a controlled DC PM drive.</p>
 <p>
@@ -5037,10 +5035,9 @@ The current controller is parameterized according to the absolute optimum.
 Further reading: 
 <a href=\"modelica://Modelica/Resources/Documentation/Electrical/Machines/DriveControl.pdf\">Tutorial at the Modelica Conference 2017</a>
 </p>
-</html>"),  Diagram(coordinateSystem(extent={{-200,-100},{100,100}},
-                  initialScale=0.1)),
-            Icon(coordinateSystem(extent={{-200,-100},{100,100}}, initialScale=
-                    0.1)));
+</html>"),  Diagram(coordinateSystem(extent={{-200,-100},{100,100}}, initialScale=
+                    0.1)),
+            Icon(coordinateSystem(extent={{-200,-100},{100,100}}, initialScale=0.1)));
         end PartialControlledDCPM;
 
         record DriveDataDCPM
@@ -5073,9 +5070,11 @@ Further reading:
         //Inverter
           parameter Modelica.SIunits.Frequency fS=2e3 "Switching frequency"
             annotation(Dialog(tab="Inverter", group="Armature inverter"));
+          parameter Modelica.SIunits.Voltage VBat=VaMax "DC no-load voltage"
+            annotation(Dialog(tab="Inverter", group="Armature inverter"));
           parameter Modelica.SIunits.Time Td=0.5/fS "Dead time of inverter"
             annotation(Dialog(tab="Inverter", group="Armature inverter", enable=false));
-          parameter Modelica.SIunits.Time Tmf=2/fS "Measurement filter time constant"
+          parameter Modelica.SIunits.Time Tmf=4*Td "Measurement filter time constant"
             annotation(Dialog(tab="Inverter", group="Armature inverter", enable=false));
           parameter Modelica.SIunits.Time Tsigma=Td + Tmf "Sum of small time constants"
             annotation(Dialog(tab="Inverter", group="Armature inverter", enable=false));
@@ -5129,6 +5128,97 @@ Current controller according to absolute optimum, speed controller according to 
 </html>"));
         end DriveDataDCPM;
 
+        block FieldWeakening "Field weakening for DCEE"
+          extends Modelica.Blocks.Interfaces.BlockIcon;
+          parameter Modelica.SIunits.Current IeNominal "Nominal excitation current for nominal flux";
+          parameter Modelica.SIunits.Current IeMax "Maximum excitation current";
+          parameter Modelica.SIunits.AngularVelocity w0 "No-load speed at nominal flux";
+          parameter Modelica.SIunits.Voltage VaNominal "Nominal armature voltage";
+          parameter Modelica.SIunits.ElectricalTorqueConstant kPhiNominal "Torque constant at nominal flux";
+          parameter Modelica.SIunits.Current IaMax "Maximum armature current";
+          Modelica.Blocks.Interfaces.RealInput w "actual speed" annotation (
+              Placement(transformation(
+                extent={{-20,-20},{20,20}},
+                rotation=0,
+                origin={-120,0})));
+          Modelica.Blocks.Interfaces.RealOutput ie "reference excitation current"
+            annotation (Placement(transformation(
+                extent={{-10,-10},{10,10}},
+                rotation=0,
+                origin={110,0})));
+          Modelica.Blocks.Interfaces.RealInput vaMax
+            "actual maximum armature voltage" annotation (Placement(transformation(
+                extent={{-20,-20},{20,20}},
+                rotation=90,
+                origin={60,-120})));
+          Modelica.Blocks.Interfaces.RealOutput kPhi "actual torque constant"
+            annotation (Placement(transformation(
+                extent={{-10,-10},{10,10}},
+                rotation=270,
+                origin={-60,-110})));
+          Modelica.Blocks.Interfaces.RealOutput tauMax "actual maximum torque"
+            annotation (Placement(transformation(
+                extent={{-10,-10},{10,10}},
+                rotation=270,
+                origin={0,-110})));
+        equation
+          ie = IeNominal*(if noEvent(abs(w)<=w0) then 1 else w0*min(vaMax/VaNominal, 1)/abs(w));
+          kPhi = kPhiNominal*ie/IeNominal;
+          tauMax = kPhi*IaMax;
+          annotation (Documentation(info="<html>
+<p>
+This block provides a simple field weakening algorithm for electrically excited DC machines: 
+When speed exceeds nominal no-load speed, reference excitation current is lowered.
+</p>
+</html>"),         Icon(graphics={
+                Polygon(
+                  points={{-80,90},{-88,68},{-72,68},{-80,90}},
+                  lineColor={192,192,192},
+                  fillColor={192,192,192},
+                  fillPattern=FillPattern.Solid),
+                Line(points={{-80,78},{-80,-90}}, color={192,192,192}),
+                Line(points={{-80,20},{0,20},{10,9},{20,0},{30,-8},{40,-14},{50,-20},{60,
+                      -25}}, color={0,0,128}),
+                Line(points={{-90,-80},{82,-80}}, color={192,192,192}),
+                Polygon(
+                  points={{90,-80},{68,-72},{68,-88},{90,-80}},
+                  lineColor={192,192,192},
+                  fillColor={192,192,192},
+                  fillPattern=FillPattern.Solid)}));
+        end FieldWeakening;
+
+        block FieldWeakeningLimiter "Field weakening limiter"
+          extends Modelica.Blocks.Interfaces.SISO;
+          parameter Modelica.SIunits.ElectricalTorqueConstant kPhiNominal "Torque constant at nominal flux";
+          parameter Real yMax "Maximum output";
+          Modelica.Blocks.Interfaces.RealInput kPhi "actual torque constant"
+            annotation (Placement(transformation(
+                extent={{-20,-20},{20,20}},
+                rotation=90,
+                origin={0,-120})));
+        equation
+          y =u*kPhi/kPhiNominal;
+          annotation (Documentation(info="<html>
+<p>
+This block limits the input signal to maximum output according to field weakening.
+</p>
+</html>"),         Icon(graphics={
+                Polygon(
+                  points={{-80,90},{-88,68},{-72,68},{-80,90}},
+                  lineColor={192,192,192},
+                  fillColor={192,192,192},
+                  fillPattern=FillPattern.Solid),
+                Line(points={{-80,78},{-80,-90}}, color={192,192,192}),
+                Line(points={{-80,20},{0,20},{10,9},{20,0},{30,-8},{40,-14},{50,-20},{60,
+                      -25}}, color={0,0,128}),
+                Line(points={{-90,-80},{82,-80}}, color={192,192,192}),
+                Polygon(
+                  points={{90,-80},{68,-72},{68,-88},{90,-80}},
+                  lineColor={192,192,192},
+                  fillColor={192,192,192},
+                  fillPattern=FillPattern.Solid)}));
+        end FieldWeakeningLimiter;
+
         block LimitedPI
           "Limited PI-controller with anti-windup and feedforward"
           extends Modelica.Blocks.Interfaces.SISO;
@@ -5149,7 +5239,7 @@ Current controller according to absolute optimum, speed controller according to 
                 extent={{-20,-20},{20,20}},
                 rotation=90,
                 origin={0,-120})));
-          Blocks.Interfaces.RealInput kFF if useFF and not useConstantKFF
+          Modelica.Blocks.Interfaces.RealInput kFF if useFF and not useConstantKFF
             "Connector of feedforward factor" annotation (Placement(transformation(
                 extent={{-20,-20},{20,20}},
                 rotation=90,
@@ -5216,7 +5306,7 @@ Current controller according to absolute optimum, speed controller according to 
                 extent={{-10,10},{10,-10}},
                 rotation=270,
                 origin={50,-20})));
-          Blocks.Math.Product product annotation (Placement(transformation(
+          Modelica.Blocks.Math.Product product annotation (Placement(transformation(
                 extent={{-10,-10},{10,10}},
                 rotation=90,
                 origin={10,-70})));
@@ -5225,7 +5315,7 @@ Current controller according to absolute optimum, speed controller according to 
             annotation (Placement(transformation(extent={{-20,20},{0,40}})));
           Modelica.Blocks.Sources.Constant zeroFF(k=0) if not useFF
             annotation (Placement(transformation(extent={{-30,-100},{-10,-80}})));
-          Blocks.Sources.Constant constantKFF(k=KFF) if not useFF or
+          Modelica.Blocks.Sources.Constant constantKFF(k=KFF) if not useFF or
             useConstantKFF
             annotation (Placement(transformation(extent={{90,-100},{70,-80}})));
           Modelica.Blocks.Sources.Constant yMaxConst(k=yMax) if constantLimits
@@ -5338,11 +5428,79 @@ The feed-forward gain can either be constant or given by the optional input kFF.
 </p>
 <p>
 When the output is limited, the controller cannot bring the control error to zero and the integrator will not stop integrating. 
-To avoid the <strong>WindUp</strong> - effect, an <strong>Anti-WindUp</strong> loop is implemented: 
+To avoid this <strong>WindUp</strong> - effect, an <strong>Anti-WindUp</strong> loop is implemented: 
 The difference between unlimited and limited output is fed back to the integrator's input.
 </p>
 </html>"));
         end LimitedPI;
+
+        model Battery "Simple battery model"
+          parameter Modelica.SIunits.Voltage V0 "No-load voltage";
+          parameter Modelica.SIunits.Current INominal "Nominal current";
+          parameter Modelica.SIunits.Resistance Ri=0.05*V0/INominal "Inner resistance";
+          Modelica.Electrical.Analog.Interfaces.PositivePin pin_p
+            annotation (Placement(transformation(extent={{50,110},{70,90}})));
+          Modelica.Electrical.Analog.Interfaces.NegativePin pin_n
+            annotation (Placement(transformation(extent={{-70,110},{-50,90}})));
+          Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
+                transformation(
+                extent={{-10,-10},{10,10}},
+                rotation=270,
+                origin={-90,80})));
+          Modelica.Electrical.Analog.Sources.ConstantVoltage constantVoltage(V=V0)
+            annotation (Placement(transformation(extent={{10,50},{-10,70}})));
+          Modelica.Electrical.Analog.Basic.Resistor resistor(R=Ri)
+            annotation (Placement(
+                transformation(
+                extent={{10,-10},{-10,10}},
+                rotation=270,
+                origin={60,70})));
+        equation
+          connect(ground.p, pin_n)
+            annotation (Line(points={{-80,80},{-60,80},{-60,100}}, color={0,0,255}));
+          connect(pin_n, constantVoltage.n)
+            annotation (Line(points={{-60,100},{-60,60},{-10,60}}, color={0,0,255}));
+          connect(constantVoltage.p, resistor.p)
+            annotation (Line(points={{10,60},{60,60}}, color={0,0,255}));
+          connect(resistor.n, pin_p)
+            annotation (Line(points={{60,80},{60,100}}, color={0,0,255}));
+          annotation (Icon(coordinateSystem(preserveAspectRatio=false), graphics={
+                                                Text(
+                extent={{-120,-100},{120,-140}},
+                textString="%name",
+                lineColor={0,0,255}),           Text(
+                extent={{-100,-60},{100,-80}},
+                lineColor={0,0,255},
+                  textString="V0=%V0"),
+                Rectangle(extent={{-70,90},{-50,80}}, lineColor={28,108,200}),
+                Rectangle(
+                  extent={{50,90},{70,80}},
+                  lineColor={28,108,200},
+                  fillColor={0,0,255},
+                  fillPattern=FillPattern.Solid),
+                Rectangle(
+                  extent={{-100,80},{100,-40}},
+                  lineColor={28,108,200},
+                  fillColor={0,0,255},
+                  fillPattern=FillPattern.Solid,
+                  radius=10),
+                Rectangle(
+                  extent={{-92,72},{-4,-32}},
+                  lineColor={28,108,200},
+                  fillColor={215,215,215},
+                  fillPattern=FillPattern.Solid),
+                Rectangle(
+                  extent={{4,72},{92,-32}},
+                  lineColor={28,108,200},
+                  fillColor={215,215,215},
+                  fillPattern=FillPattern.Solid)}),                      Diagram(
+                coordinateSystem(preserveAspectRatio=false)),
+            Documentation(info="<html>
+<p>
+This is a simple model of a DC-source resp. battery, consisting of a constant DC-voltage and an inner resistance.
+</p>
+</html>"));
+        end Battery;
 
         model DcdcInverter "DC-DC inverter"
           parameter Boolean useIdealInverter=true "Use ideal averaging inverter, otherwise switching inverter";
@@ -5352,22 +5510,23 @@ The difference between unlimited and limited output is fed back to the integrato
           parameter Modelica.SIunits.Voltage VMax "Maximum Voltage";
           parameter Modelica.SIunits.Time Ti=1e-6 "Time constant of integral power controller"
             annotation(Dialog(group="Averaging", enable=useIdealInverter));
-          parameter SIunits.Resistance RonTransistor=1e-05
+          parameter Modelica.SIunits.Resistance RonT=1e-05
             "Transistor closed resistance"
-            annotation(Dialog(group="Switching", enable=not useIdealInverter));
-          parameter SIunits.Conductance GoffTransistor=1e-05
+            annotation (Dialog(group="Switching", enable=not useIdealInverter));
+          parameter Modelica.SIunits.Conductance GoffT=1e-05
             "Transistor opened conductance"
-            annotation(Dialog(group="Switching", enable=not useIdealInverter));
-          parameter SIunits.Voltage VkneeTransistor=0
+            annotation (Dialog(group="Switching", enable=not useIdealInverter));
+          parameter Modelica.SIunits.Voltage VkneeT=0
             "Transistor threshold voltage"
-            annotation(Dialog(group="Switching", enable=not useIdealInverter));
-          parameter SIunits.Resistance RonDiode=1e-05 "Diode closed resistance"
-            annotation(Dialog(group="Switching", enable=not useIdealInverter));
-          parameter SIunits.Conductance GoffDiode=1e-05
+            annotation (Dialog(group="Switching", enable=not useIdealInverter));
+          parameter Modelica.SIunits.Resistance RonD=1e-05
+            "Diode closed resistance"
+            annotation (Dialog(group="Switching", enable=not useIdealInverter));
+          parameter Modelica.SIunits.Conductance GoffD=1e-05
             "Diode opened conductance"
-            annotation(Dialog(group="Switching", enable=not useIdealInverter));
-          parameter SIunits.Voltage VkneeDiode=0 "Diode threshold voltage"
-            annotation(Dialog(group="Switching", enable=not useIdealInverter));
+            annotation (Dialog(group="Switching", enable=not useIdealInverter));
+          parameter Modelica.SIunits.Voltage VkneeD=0 "Diode threshold voltage"
+            annotation (Dialog(group="Switching", enable=not useIdealInverter));
           output Modelica.SIunits.Voltage vBattery=pin_pBat.v - pin_nBat.v "Voltage at battery";
           output Modelica.SIunits.Current iBattery=pin_pBat.i "Current from battery";
           output Modelica.SIunits.Power pBattery=vBattery*iBattery "Power from battery";
@@ -5392,7 +5551,7 @@ The difference between unlimited and limited output is fed back to the integrato
             annotation (Placement(transformation(extent={{-50,-70},{-30,-90}})));
           Modelica.Blocks.Interfaces.RealInput vRef
             annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
-          Modelica.Blocks.Interfaces.RealOutput vBat annotation (Placement(
+          Modelica.Blocks.Interfaces.RealOutput vDC annotation (Placement(
                 transformation(
                 extent={{-10,-10},{10,10}},
                 rotation=180,
@@ -5420,17 +5579,17 @@ The difference between unlimited and limited output is fed back to the integrato
             initType=Modelica.Blocks.Types.Init.InitialOutput,
             y_start=0) annotation (Placement(transformation(extent={{-60,-70},{
                     -80,-50}})));
-          IdealDcDc idealDcDc(Td=Td, Ti=Ti) if                 useIdealInverter
+          IdealDcDc idealDcDc(Td=Td, Ti=Ti) if useIdealInverter
             annotation (Placement(transformation(extent={{20,-30},{40,-10}})));
           SwitchingDcDc switchingDcDc(
             fS=fS,
             VMax=VMax,
-            RonTransistor=RonTransistor,
-            GoffTransistor=GoffTransistor,
-            VkneeTransistor=VkneeTransistor,
-            RonDiode=RonDiode,
-            GoffDiode=GoffDiode,
-            VkneeDiode=VkneeDiode) if not useIdealInverter
+            RonT=RonT,
+            GoffT=GoffT,
+            VkneeT=VkneeT,
+            RonD=RonD,
+            GoffD=GoffD,
+            VkneeD=VkneeD) if not useIdealInverter
             annotation (Placement(transformation(extent={{-10,10},{10,30}})));
         equation
           connect(pin_nBat, voltageSensor.n)
@@ -5451,7 +5610,7 @@ The difference between unlimited and limited output is fed back to the integrato
             annotation (Line(points={{-81,-60},{-110,-60}}, color={0,0,127}));
           connect(voltageSensor.v, voltageFilter.u)
             annotation (Line(points={{-51,60},{-58,60}}, color={0,0,127}));
-          connect(voltageFilter.y, vBat)
+          connect(voltageFilter.y, vDC)
             annotation (Line(points={{-81,60},{-110,60}}, color={0,0,127}));
           connect(voltageFilter.y, gain.u) annotation (Line(points={{-81,60},{
                   -90,60},{-90,27.2}}, color={0,0,127}));
@@ -5462,20 +5621,20 @@ The difference between unlimited and limited output is fed back to the integrato
                   100},{-10,100},{-10,30}}, color={0,0,255}));
           connect(pin_pBat, switchingDcDc.pin_pBat) annotation (Line(points={{
                   100,100},{100,50},{10,50},{10,30}}, color={0,0,255}));
-          connect(pin_pBat, idealDcDc.pin_pBat) annotation (Line(points={{100,
-                  100},{100,50},{40,50},{40,-10}}, color={0,0,255}));
-          connect(pin_nBat, idealDcDc.pin_nBat) annotation (Line(points={{-100,
-                  100},{20,100},{20,-10}}, color={0,0,255}));
+          connect(pin_pBat, idealDcDc.pin_pBat) annotation (Line(points={{100,100},{100,
+                  50},{40,50},{40,-10}},           color={0,0,255}));
+          connect(pin_nBat, idealDcDc.pin_nBat) annotation (Line(points={{-100,100},{20,
+                  100},{20,-10}},          color={0,0,255}));
           connect(switchingDcDc.pin_nMot, currentSensor.n) annotation (Line(
                 points={{-6,10},{-6,-80},{-30,-80}}, color={0,0,255}));
-          connect(currentSensor.n, idealDcDc.pin_nMot) annotation (Line(points=
-                  {{-30,-80},{24,-80},{24,-30}}, color={0,0,255}));
-          connect(pin_pMot, idealDcDc.pin_pMot) annotation (Line(points={{60,-100},
-                  {36,-100},{36,-30}}, color={0,0,255}));
+          connect(currentSensor.n, idealDcDc.pin_nMot) annotation (Line(points={{-30,-80},
+                  {24,-80},{24,-30}},            color={0,0,255}));
+          connect(pin_pMot, idealDcDc.pin_pMot) annotation (Line(points={{60,-100},{36,-100},
+                  {36,-30}},           color={0,0,255}));
           connect(pin_pMot, switchingDcDc.pin_pMot) annotation (Line(points={{
                   60,-100},{6,-100},{6,10}}, color={0,0,255}));
-          connect(variableLimiter.y, idealDcDc.vRef) annotation (Line(points={{
-                  -39,0},{-20,0},{-20,-20},{18,-20}}, color={0,0,127}));
+          connect(variableLimiter.y, idealDcDc.vRef) annotation (Line(points={{-39,0},{-20,
+                  0},{-20,-20},{18,-20}},             color={0,0,127}));
           connect(variableLimiter.y, switchingDcDc.vRef) annotation (Line(
                 points={{-39,0},{-20,0},{-20,20},{-12,20}}, color={0,0,127}));
           connect(voltageFilter.y, switchingDcDc.vMax) annotation (Line(points=
@@ -5550,16 +5709,16 @@ The difference between unlimited and limited output is fed back to the integrato
                 extent={{-10,-10},{10,10}},
                 rotation=270,
                 origin={-80,-80})));
-          Analog.Interfaces.NegativePin                     pin_nBat annotation (
+          Modelica.Electrical.Analog.Interfaces.NegativePin pin_nBat annotation (
               Placement(transformation(extent={{-110,110},{-90,90}}),
                 iconTransformation(extent={{-110,110},{-90,90}})));
-          Analog.Interfaces.PositivePin                     pin_pBat
+          Modelica.Electrical.Analog.Interfaces.PositivePin pin_pBat
             annotation (Placement(transformation(extent={{90,110},{110,90}})));
-          Analog.Interfaces.NegativePin                     pin_nMot
+          Modelica.Electrical.Analog.Interfaces.NegativePin pin_nMot
             annotation (Placement(transformation(extent={{-70,-110},{-50,-90}})));
-          Analog.Interfaces.PositivePin                     pin_pMot
+          Modelica.Electrical.Analog.Interfaces.PositivePin pin_pMot
             annotation (Placement(transformation(extent={{50,-110},{70,-90}})));
-          Blocks.Interfaces.RealInput          vRef
+          Modelica.Blocks.Interfaces.RealInput vRef
             annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
         equation
           connect(signalCurrent.p, powerBat.nc)
@@ -5627,16 +5786,17 @@ The difference between unlimited and limited output is fed back to the integrato
         model SwitchingDcDc "Switching DC-DC inverter"
           parameter Modelica.SIunits.Frequency fS "Switching frequency";
           parameter Modelica.SIunits.Voltage VMax "Maximum Voltage";
-          parameter SIunits.Resistance RonTransistor=1e-05
+          parameter Modelica.SIunits.Resistance RonT=1e-05
             "Transistor closed resistance";
-          parameter SIunits.Conductance GoffTransistor=1e-05
+          parameter Modelica.SIunits.Conductance GoffT=1e-05
             "Transistor opened conductance";
-          parameter SIunits.Voltage VkneeTransistor=0
+          parameter Modelica.SIunits.Voltage VkneeT=0
             "Transistor threshold voltage";
-          parameter SIunits.Resistance RonDiode=1e-05 "Diode closed resistance";
-          parameter SIunits.Conductance GoffDiode=1e-05
+          parameter Modelica.SIunits.Resistance RonD=1e-05
+            "Diode closed resistance";
+          parameter Modelica.SIunits.Conductance GoffD=1e-05
             "Diode opened conductance";
-          parameter SIunits.Voltage VkneeDiode=0 "Diode threshold voltage";
+          parameter Modelica.SIunits.Voltage VkneeD=0 "Diode threshold voltage";
           Modelica.Electrical.PowerConverters.DCDC.Control.VoltageToDutyCycle
             adaptor(useConstantMaximumVoltage=false, vMax=VMax)
             annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
@@ -5647,28 +5807,28 @@ The difference between unlimited and limited output is fed back to the integrato
                 rotation=270,
                 origin={-30,-20})));
           Modelica.Electrical.PowerConverters.DCDC.HBridge dcdc(
-            RonTransistor=RonTransistor,
-            GoffTransistor=GoffTransistor,
-            VkneeTransistor=VkneeTransistor,
-            RonDiode=RonDiode,
-            GoffDiode=GoffDiode,
-            VkneeDiode=VkneeDiode)                              annotation (
+            RonTransistor=RonT,
+            GoffTransistor=GoffT,
+            VkneeTransistor=VkneeT,
+            RonDiode=RonD,
+            GoffDiode=GoffD,
+            VkneeDiode=VkneeD)                                  annotation (
               Placement(transformation(
                 extent={{-10,-10},{10,10}},
                 rotation=270,
                 origin={0,-20})));
-          Analog.Interfaces.NegativePin                     pin_nBat annotation (
+          Modelica.Electrical.Analog.Interfaces.NegativePin pin_nBat annotation (
               Placement(transformation(extent={{-110,110},{-90,90}}),
                 iconTransformation(extent={{-110,110},{-90,90}})));
-          Analog.Interfaces.PositivePin                     pin_pBat
+          Modelica.Electrical.Analog.Interfaces.PositivePin pin_pBat
             annotation (Placement(transformation(extent={{90,110},{110,90}})));
-          Analog.Interfaces.PositivePin                     pin_pMot
+          Modelica.Electrical.Analog.Interfaces.PositivePin pin_pMot
             annotation (Placement(transformation(extent={{50,-110},{70,-90}})));
-          Analog.Interfaces.NegativePin                     pin_nMot
+          Modelica.Electrical.Analog.Interfaces.NegativePin pin_nMot
             annotation (Placement(transformation(extent={{-70,-110},{-50,-90}})));
-          Blocks.Interfaces.RealInput          vRef
+          Modelica.Blocks.Interfaces.RealInput vRef
             annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
-          Blocks.Interfaces.RealInput vMax
+          Modelica.Blocks.Interfaces.RealInput vMax
             annotation (Placement(transformation(extent={{-140,40},{-100,80}})));
         equation
           connect(adaptor.dutyCycle, pwm.dutyCycle)
@@ -5717,6 +5877,7 @@ The difference between unlimited and limited output is fed back to the integrato
 <p>This is a model of a switching DC-DC inverter based on a H-bridge.</p>
 </html>"));
         end SwitchingDcDc;
+
         annotation (Documentation(info="<html>
 <p>This package contains utilities for controlled drives</p>
 </html>"));
