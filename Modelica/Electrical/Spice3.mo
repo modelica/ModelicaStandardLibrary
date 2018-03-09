@@ -12356,7 +12356,7 @@ to the internal parameters (e.g., m_satCur). It also does the analysis of the Is
         SI.Charge m_chargegd "Qgd";
         SI.Capacitance m_capgd "Cgd, G-D junction cap";
         SI.Charge m_chargegs "Qgs";
-        SI.Capacitance m_capgs "Cgs, G-S junction capactance";
+        SI.Capacitance m_capgs "Cgs, G-S junction capacitance";
         SI.Current m_cdrain "Idrain";
         SI.Conductance m_gm "Gm";
         SI.Conductance m_gds "Gds";
@@ -12592,7 +12592,7 @@ to the internal parameters (e.g., m_satCur). It also does the analysis of the Is
 
         end drainCur;
 
-        function calculateGateCap "Gate capactance calculation"
+        function calculateGateCap "Gate capacitance calculation"
         extends Modelica.Icons.Function;
           input Modelica.Electrical.Spice3.Internal.Fet.Fet in_f;
           input SI.Voltage vgs "Input voltage gate source";
