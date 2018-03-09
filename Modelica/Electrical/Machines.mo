@@ -4936,7 +4936,7 @@ Further reading:
           Icon(coordinateSystem(extent={{-180,-100},{100,100}}, initialScale=0.1)));
       end PositionControlledDCPM;
 
-      package Utilities "Utilitiess for controlled drives"
+      package Utilities "Utilities for controlled drives"
         extends Modelica.Icons.UtilitiesPackage;
         partial model PartialControlledDCPM
           "Partial controlled DC PM drive with H-bridge from battery"
