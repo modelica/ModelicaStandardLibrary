@@ -4936,14 +4936,14 @@ Further reading:
           Icon(coordinateSystem(extent={{-180,-100},{100,100}}, initialScale=0.1)));
       end PositionControlledDCPM;
 
-      package Utilities "Utilities for controlled drives"
+      package Utilities "Utilitiess for controlled drives"
         extends Modelica.Icons.UtilitiesPackage;
         partial model PartialControlledDCPM
           "Partial controlled DC PM drive with H-bridge from battery"
           extends Modelica.Icons.Example;
           replaceable parameter DriveDataDCPM driveData constrainedby
             ControlledDCDrives.Utilities.DriveDataDCPM
-            annotation (Placement(transformation(extent={{50,-20},{70,0}})));
+            annotation (Placement(transformation(extent={{20,-80},{40,-60}})));
           Modelica.Mechanics.Rotational.Components.Inertia loadInertia(J=driveData.JL)
             annotation (Placement(transformation(extent={{50,-50},{70,-30}})));
           Modelica.Mechanics.Rotational.Sensors.SpeedSensor speedSensor annotation (
@@ -5004,9 +5004,11 @@ Further reading:
             annotation (Line(points={{50,-60},{50,-40},{40,-40}},
                                                               color={0,0,0}));
           connect(armatureInverter.pin_nMot, dcpm.pin_an)
-            annotation (Line(points={{24,-20},{24,-30}}, color={0,0,255}));
+            annotation (Line(points={{24,-20},{24,-30},{24,-30}},
+                                                         color={0,0,255}));
           connect(armatureInverter.pin_pMot, dcpm.pin_ap)
-            annotation (Line(points={{36,-20},{36,-30}}, color={0,0,255}));
+            annotation (Line(points={{36,-20},{36,-30},{36,-30}},
+                                                         color={0,0,255}));
           connect(armatureInverter.vDC, currentController.yMaxVar)
             annotation (Line(points={{19,-4},{-28,-4}}, color={0,0,127}));
           connect(armatureInverter.vRef, currentController.y)
@@ -5019,10 +5021,10 @@ Further reading:
                                                              color={0,0,127}));
           connect(tau2i.y, currentController.u)
             annotation (Line(points={{-59,-10},{-52,-10}}, color={0,0,127}));
-          connect(source.pin_n, armatureInverter.pin_nBat) annotation (Line(points={{24,
-                  70},{24,60},{20,60},{20,0}}, color={0,0,255}));
-          connect(source.pin_p, armatureInverter.pin_pBat) annotation (Line(points={{36,
-                  70},{36,60},{40,60},{40,0}}, color={0,0,255}));
+          connect(source.pin_n, armatureInverter.pin_nBat) annotation (Line(points={{24,70},
+                  {24,70},{24,0}},             color={0,0,255}));
+          connect(source.pin_p, armatureInverter.pin_pBat) annotation (Line(points={{36,70},
+                  {36,60},{36,60},{36,0}},     color={0,0,255}));
           annotation (Documentation(info="<html>
   <p>This is a partial model of a controlled DC PM drive.</p>
 <p>
@@ -5127,97 +5129,6 @@ Current controller according to absolute optimum, speed controller according to 
 </p>
 </html>"));
         end DriveDataDCPM;
-
-        block FieldWeakening "Field weakening for DCEE"
-          extends Modelica.Blocks.Interfaces.BlockIcon;
-          parameter Modelica.SIunits.Current IeNominal "Nominal excitation current for nominal flux";
-          parameter Modelica.SIunits.Current IeMax "Maximum excitation current";
-          parameter Modelica.SIunits.AngularVelocity w0 "No-load speed at nominal flux";
-          parameter Modelica.SIunits.Voltage VaNominal "Nominal armature voltage";
-          parameter Modelica.SIunits.ElectricalTorqueConstant kPhiNominal "Torque constant at nominal flux";
-          parameter Modelica.SIunits.Current IaMax "Maximum armature current";
-          Modelica.Blocks.Interfaces.RealInput w "actual speed" annotation (
-              Placement(transformation(
-                extent={{-20,-20},{20,20}},
-                rotation=0,
-                origin={-120,0})));
-          Modelica.Blocks.Interfaces.RealOutput ie "reference excitation current"
-            annotation (Placement(transformation(
-                extent={{-10,-10},{10,10}},
-                rotation=0,
-                origin={110,0})));
-          Modelica.Blocks.Interfaces.RealInput vaMax
-            "actual maximum armature voltage" annotation (Placement(transformation(
-                extent={{-20,-20},{20,20}},
-                rotation=90,
-                origin={60,-120})));
-          Modelica.Blocks.Interfaces.RealOutput kPhi "actual torque constant"
-            annotation (Placement(transformation(
-                extent={{-10,-10},{10,10}},
-                rotation=270,
-                origin={-60,-110})));
-          Modelica.Blocks.Interfaces.RealOutput tauMax "actual maximum torque"
-            annotation (Placement(transformation(
-                extent={{-10,-10},{10,10}},
-                rotation=270,
-                origin={0,-110})));
-        equation
-          ie = IeNominal*(if noEvent(abs(w)<=w0) then 1 else w0*min(vaMax/VaNominal, 1)/abs(w));
-          kPhi = kPhiNominal*ie/IeNominal;
-          tauMax = kPhi*IaMax;
-          annotation (Documentation(info="<html>
-<p>
-This block provides a simple field weakening algorithm for electrically excited DC machines: 
-When speed exceeds nominal no-load speed, reference excitation current is lowered.
-</p>
-</html>"),         Icon(graphics={
-                Polygon(
-                  points={{-80,90},{-88,68},{-72,68},{-80,90}},
-                  lineColor={192,192,192},
-                  fillColor={192,192,192},
-                  fillPattern=FillPattern.Solid),
-                Line(points={{-80,78},{-80,-90}}, color={192,192,192}),
-                Line(points={{-80,20},{0,20},{10,9},{20,0},{30,-8},{40,-14},{50,-20},{60,
-                      -25}}, color={0,0,128}),
-                Line(points={{-90,-80},{82,-80}}, color={192,192,192}),
-                Polygon(
-                  points={{90,-80},{68,-72},{68,-88},{90,-80}},
-                  lineColor={192,192,192},
-                  fillColor={192,192,192},
-                  fillPattern=FillPattern.Solid)}));
-        end FieldWeakening;
-
-        block FieldWeakeningLimiter "Field weakening limiter"
-          extends Modelica.Blocks.Interfaces.SISO;
-          parameter Modelica.SIunits.ElectricalTorqueConstant kPhiNominal "Torque constant at nominal flux";
-          parameter Real yMax "Maximum output";
-          Modelica.Blocks.Interfaces.RealInput kPhi "actual torque constant"
-            annotation (Placement(transformation(
-                extent={{-20,-20},{20,20}},
-                rotation=90,
-                origin={0,-120})));
-        equation
-          y =u*kPhi/kPhiNominal;
-          annotation (Documentation(info="<html>
-<p>
-This block limits the input signal to maximum output according to field weakening.
-</p>
-</html>"),         Icon(graphics={
-                Polygon(
-                  points={{-80,90},{-88,68},{-72,68},{-80,90}},
-                  lineColor={192,192,192},
-                  fillColor={192,192,192},
-                  fillPattern=FillPattern.Solid),
-                Line(points={{-80,78},{-80,-90}}, color={192,192,192}),
-                Line(points={{-80,20},{0,20},{10,9},{20,0},{30,-8},{40,-14},{50,-20},{60,
-                      -25}}, color={0,0,128}),
-                Line(points={{-90,-80},{82,-80}}, color={192,192,192}),
-                Polygon(
-                  points={{90,-80},{68,-72},{68,-88},{90,-80}},
-                  lineColor={192,192,192},
-                  fillColor={192,192,192},
-                  fillPattern=FillPattern.Solid)}));
-        end FieldWeakeningLimiter;
 
         block LimitedPI
           "Limited PI-controller with anti-windup and feedforward"
@@ -5527,28 +5438,18 @@ This is a simple model of a DC-source resp. battery, consisting of a constant DC
             annotation (Dialog(group="Switching", enable=not useIdealInverter));
           parameter Modelica.SIunits.Voltage VkneeD=0 "Diode threshold voltage"
             annotation (Dialog(group="Switching", enable=not useIdealInverter));
-          output Modelica.SIunits.Voltage vBattery=pin_pBat.v - pin_nBat.v "Voltage at battery";
-          output Modelica.SIunits.Current iBattery=pin_pBat.i "Current from battery";
-          output Modelica.SIunits.Power pBattery=vBattery*iBattery "Power from battery";
-          output Modelica.SIunits.Voltage vMotor=pin_pMot.v - pin_nMot.v "Voltage at motor";
-          output Modelica.SIunits.Current iMotor=-pin_pMot.i "Current to motor";
-          output Modelica.SIunits.Power pMotor=vMotor*iMotor "Power to motor";
+          output Modelica.SIunits.Power pDC=vDC*iDC "DC power (from battery)";
+          output Modelica.SIunits.Power pMot=vMot*iMot "Power to motor";
+          Modelica.Electrical.Analog.Interfaces.PositivePin pin_pBat
+            annotation (Placement(transformation(extent={{50,110},{70,90}})));
+          Modelica.Electrical.Analog.Interfaces.NegativePin pin_nBat annotation (
+              Placement(transformation(extent={{-70,110},{-50,90}}),
+                iconTransformation(extent={{-70,110},{-50,90}})));
           Modelica.Electrical.Analog.Interfaces.PositivePin pin_pMot
             annotation (Placement(transformation(extent={{50,-110},{70,-90}})));
-          Modelica.Electrical.Analog.Interfaces.PositivePin pin_pBat
-            annotation (Placement(transformation(extent={{90,110},{110,90}})));
           Modelica.Electrical.Analog.Interfaces.NegativePin pin_nMot
             annotation (Placement(transformation(extent={{-70,-110},{-50,-90}})));
-          Modelica.Electrical.Analog.Interfaces.NegativePin pin_nBat annotation (
-              Placement(transformation(extent={{-110,110},{-90,90}}),
-                iconTransformation(extent={{-110,110},{-90,90}})));
-          Modelica.Electrical.Analog.Sensors.VoltageSensor voltageSensor
-            annotation (Placement(transformation(
-                extent={{-10,10},{10,-10}},
-                rotation=90,
-                origin={-40,60})));
-          Modelica.Electrical.Analog.Sensors.CurrentSensor currentSensor
-            annotation (Placement(transformation(extent={{-50,-70},{-30,-90}})));
+
           Modelica.Blocks.Interfaces.RealInput vRef
             annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
           Modelica.Blocks.Interfaces.RealOutput vDC annotation (Placement(
@@ -5556,31 +5457,49 @@ This is a simple model of a DC-source resp. battery, consisting of a constant DC
                 extent={{-10,-10},{10,10}},
                 rotation=180,
                 origin={-110,60})));
+          Modelica.Blocks.Interfaces.RealOutput iDC annotation (Placement(
+                transformation(
+                extent={{10,-10},{-10,10}},
+                rotation=180,
+                origin={110,60})));
+
+          Modelica.Blocks.Interfaces.RealOutput vMot annotation (Placement(
+                transformation(
+                extent={{10,-10},{-10,10}},
+                rotation=180,
+                origin={110,-60})));
           Modelica.Blocks.Interfaces.RealOutput iMot annotation (Placement(
                 transformation(
                 extent={{-10,-10},{10,10}},
                 rotation=180,
                 origin={-110,-60})));
+          Modelica.Electrical.Analog.Sensors.VoltageSensor vDCSensor annotation (
+              Placement(transformation(
+                extent={{-10,10},{10,-10}},
+                rotation=180,
+                origin={0,100})));
+          Modelica.Electrical.Analog.Sensors.CurrentSensor iMotSensor
+            annotation (Placement(transformation(extent={{-50,-70},{-30,-90}})));
           Modelica.Blocks.Nonlinear.VariableLimiter variableLimiter
-            annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
+            annotation (Placement(transformation(extent={{-70,-10},{-50,10}})));
           Modelica.Blocks.Math.Gain gain(k=-1) annotation (Placement(transformation(
                 extent={{-6,-6},{6,6}},
                 rotation=270,
                 origin={-90,20})));
-          Modelica.Blocks.Continuous.FirstOrder voltageFilter(
+          Modelica.Blocks.Continuous.FirstOrder vDCFilter(
             k=1,
             T=Tmf,
             initType=Modelica.Blocks.Types.Init.InitialOutput,
             y_start=VMax)
             annotation (Placement(transformation(extent={{-60,50},{-80,70}})));
-          Modelica.Blocks.Continuous.FirstOrder currentFilter(
+          Modelica.Blocks.Continuous.FirstOrder iMotFilter(
             k=1,
             T=Tmf,
             initType=Modelica.Blocks.Types.Init.InitialOutput,
-            y_start=0) annotation (Placement(transformation(extent={{-60,-70},{
-                    -80,-50}})));
+            y_start=0)
+            annotation (Placement(transformation(extent={{-60,-70},{-80,-50}})));
           IdealDcDc idealDcDc(Td=Td, Ti=Ti) if useIdealInverter
-            annotation (Placement(transformation(extent={{20,-30},{40,-10}})));
+            annotation (Placement(transformation(extent={{10,-30},{30,-10}})));
           SwitchingDcDc switchingDcDc(
             fS=fS,
             VMax=VMax,
@@ -5590,56 +5509,88 @@ This is a simple model of a DC-source resp. battery, consisting of a constant DC
             RonD=RonD,
             GoffD=GoffD,
             VkneeD=VkneeD) if not useIdealInverter
-            annotation (Placement(transformation(extent={{-10,10},{10,30}})));
+            annotation (Placement(transformation(extent={{-30,10},{-10,30}})));
+          Modelica.Electrical.Analog.Sensors.CurrentSensor iDCSensor
+            annotation (Placement(transformation(extent={{50,70},{30,90}})));
+          Modelica.Electrical.Analog.Sensors.VoltageSensor vMotSensor annotation (
+              Placement(transformation(
+                extent={{-10,-10},{10,10}},
+                rotation=180,
+                origin={0,-100})));
+          Modelica.Blocks.Continuous.FirstOrder vMotFilter(
+            k=1,
+            T=Tmf,
+            initType=Modelica.Blocks.Types.Init.InitialOutput,
+            y_start=0)
+            annotation (Placement(transformation(extent={{60,-70},{80,-50}})));
+          Modelica.Blocks.Continuous.FirstOrder iDCFilter(
+            k=1,
+            T=Tmf,
+            initType=Modelica.Blocks.Types.Init.InitialOutput,
+            y_start=VMax)
+            annotation (Placement(transformation(extent={{60,50},{80,70}})));
         equation
-          connect(pin_nBat, voltageSensor.n)
-            annotation (Line(points={{-100,100},{-40,100},{-40,70}},
-                                                          color={0,0,255}));
-          connect(currentSensor.p, pin_nMot)
-            annotation (Line(points={{-50,-80},{-60,-80},{-60,-100}},
-                                                            color={0,0,255}));
-          connect(pin_pBat, voltageSensor.p)
-            annotation (Line(points={{100,100},{100,50},{-40,50}}, color={0,0,255}));
+          connect(iMotSensor.p, pin_nMot) annotation (Line(points={{-50,-80},{
+                  -60,-80},{-60,-100}},
+                              color={0,0,255}));
           connect(vRef, variableLimiter.u)
-            annotation (Line(points={{-120,0},{-62,0}}, color={0,0,127}));
+            annotation (Line(points={{-120,0},{-72,0}}, color={0,0,127}));
           connect(gain.y, variableLimiter.limit2)
-            annotation (Line(points={{-90,13.4},{-90,-8},{-62,-8}}, color={0,0,127}));
-          connect(currentSensor.i, currentFilter.u) annotation (Line(points={{
-                  -40,-69},{-40,-60},{-58,-60}}, color={0,0,127}));
-          connect(currentFilter.y, iMot)
+            annotation (Line(points={{-90,13.4},{-90,-8},{-72,-8}}, color={0,0,127}));
+          connect(iMotSensor.i, iMotFilter.u)
+            annotation (Line(points={{-40,-69},{-40,-60},{-58,-60}}, color={0,0,127}));
+          connect(iMotFilter.y, iMot)
             annotation (Line(points={{-81,-60},{-110,-60}}, color={0,0,127}));
-          connect(voltageSensor.v, voltageFilter.u)
-            annotation (Line(points={{-51,60},{-58,60}}, color={0,0,127}));
-          connect(voltageFilter.y, vDC)
+          connect(vDCFilter.y, vDC)
             annotation (Line(points={{-81,60},{-110,60}}, color={0,0,127}));
-          connect(voltageFilter.y, gain.u) annotation (Line(points={{-81,60},{
-                  -90,60},{-90,27.2}}, color={0,0,127}));
-          connect(voltageFilter.y, variableLimiter.limit1) annotation (Line(
-                points={{-81,60},{-90,60},{-90,40},{-80,40},{-80,8},{-62,8}},
-                color={0,0,127}));
-          connect(pin_nBat, switchingDcDc.pin_nBat) annotation (Line(points={{-100,
-                  100},{-10,100},{-10,30}}, color={0,0,255}));
-          connect(pin_pBat, switchingDcDc.pin_pBat) annotation (Line(points={{
-                  100,100},{100,50},{10,50},{10,30}}, color={0,0,255}));
-          connect(pin_pBat, idealDcDc.pin_pBat) annotation (Line(points={{100,100},{100,
-                  50},{40,50},{40,-10}},           color={0,0,255}));
-          connect(pin_nBat, idealDcDc.pin_nBat) annotation (Line(points={{-100,100},{20,
-                  100},{20,-10}},          color={0,0,255}));
-          connect(switchingDcDc.pin_nMot, currentSensor.n) annotation (Line(
-                points={{-6,10},{-6,-80},{-30,-80}}, color={0,0,255}));
-          connect(currentSensor.n, idealDcDc.pin_nMot) annotation (Line(points={{-30,-80},
-                  {24,-80},{24,-30}},            color={0,0,255}));
-          connect(pin_pMot, idealDcDc.pin_pMot) annotation (Line(points={{60,-100},{36,-100},
-                  {36,-30}},           color={0,0,255}));
-          connect(pin_pMot, switchingDcDc.pin_pMot) annotation (Line(points={{
-                  60,-100},{6,-100},{6,10}}, color={0,0,255}));
-          connect(variableLimiter.y, idealDcDc.vRef) annotation (Line(points={{-39,0},{-20,
-                  0},{-20,-20},{18,-20}},             color={0,0,127}));
+          connect(vDCFilter.y, gain.u)
+            annotation (Line(points={{-81,60},{-90,60},{-90,27.2}}, color={0,0,127}));
+          connect(vDCFilter.y, variableLimiter.limit1) annotation (Line(points={{-81,60},
+                  {-90,60},{-90,40},{-80,40},{-80,8},{-72,8}}, color={0,0,127}));
+          connect(variableLimiter.y, idealDcDc.vRef) annotation (Line(points={{-49,0},{-40,
+                  0},{-40,-20},{8,-20}},              color={0,0,127}));
           connect(variableLimiter.y, switchingDcDc.vRef) annotation (Line(
-                points={{-39,0},{-20,0},{-20,20},{-12,20}}, color={0,0,127}));
-          connect(voltageFilter.y, switchingDcDc.vMax) annotation (Line(points=
-                  {{-81,60},{-90,60},{-90,40},{-20,40},{-20,26},{-12,26}},
-                color={0,0,127}));
+                points={{-49,0},{-40,0},{-40,20},{-32,20}}, color={0,0,127}));
+          connect(vDCFilter.y, switchingDcDc.vMax) annotation (Line(points={{-81,60},{-90,
+                  60},{-90,40},{-40,40},{-40,26},{-32,26}}, color={0,0,127}));
+          connect(iDCSensor.p, pin_pBat)
+            annotation (Line(points={{50,80},{60,80},{60,100}}, color={0,0,255}));
+          connect(iMotSensor.n, switchingDcDc.pin_nMot)
+            annotation (Line(points={{-30,-80},{-30,-80},{-30,10}}, color={0,0,255}));
+          connect(vMotFilter.y, vMot)
+            annotation (Line(points={{81,-60},{110,-60}}, color={0,0,127}));
+          connect(iDCSensor.i, iDCFilter.u)
+            annotation (Line(points={{40,69},{40,60},{58,60}}, color={0,0,127}));
+          connect(iDCFilter.y, iDC)
+            annotation (Line(points={{81,60},{110,60}}, color={0,0,127}));
+          connect(idealDcDc.pin_pBat, iDCSensor.n)
+            annotation (Line(points={{30,-10},{30,80}}, color={0,0,255}));
+          connect(pin_nBat, switchingDcDc.pin_nBat)
+            annotation (Line(points={{-60,100},{-30,100},{-30,30}}, color={0,0,255}));
+          connect(pin_nBat, idealDcDc.pin_nBat) annotation (Line(points={{-60,100},
+                  {-30,100},{-30,80},{10,80},{10,-10}},
+                                                   color={0,0,255}));
+          connect(iDCSensor.n, switchingDcDc.pin_pBat) annotation (Line(points={{30,80},
+                  {30,40},{-10,40},{-10,30}}, color={0,0,255}));
+          connect(iMotSensor.n, idealDcDc.pin_nMot) annotation (Line(points={{-30,-80},{
+                  -30,-40},{10,-40},{10,-30}}, color={0,0,255}));
+          connect(idealDcDc.pin_pMot, pin_pMot) annotation (Line(points={{30,
+                  -30.2},{30,-80},{60,-80},{60,-100}},
+                                            color={0,0,255}));
+          connect(pin_pMot, switchingDcDc.pin_pMot) annotation (Line(points={{60,-100},
+                  {60,-80},{-10,-80},{-10,10}},color={0,0,255}));
+          connect(pin_nBat, vDCSensor.n)
+            annotation (Line(points={{-60,100},{-10,100}}, color={0,0,255}));
+          connect(pin_pBat, vDCSensor.p)
+            annotation (Line(points={{60,100},{10,100}}, color={0,0,255}));
+          connect(pin_nMot, vMotSensor.n)
+            annotation (Line(points={{-60,-100},{-10,-100}}, color={0,0,255}));
+          connect(pin_pMot, vMotSensor.p)
+            annotation (Line(points={{60,-100},{10,-100}}, color={0,0,255}));
+          connect(vMotFilter.u, vMotSensor.v)
+            annotation (Line(points={{58,-60},{0,-60},{0,-89}}, color={0,0,127}));
+          connect(vDCFilter.u, vDCSensor.v)
+            annotation (Line(points={{-58,60},{0,60},{0,89}}, color={0,0,127}));
           annotation (Icon(coordinateSystem(preserveAspectRatio=false), graphics={
                 Rectangle(
                   extent={{-100,100},{100,-100}},
@@ -5664,8 +5615,23 @@ This is a simple model of a DC-source resp. battery, consisting of a constant DC
                   extent={{-98,98},{98,-98}},
                   lineColor={217,67,180}),
                 Line(visible=not useIdealInverter, points={{-20,-20},{-98,-98}},   color={217,67,180}),
-                Line(visible=not useIdealInverter, points={{98,98},{20,20}},       color={217,67,180})}),
-                                                                         Diagram(
+                Line(visible=not useIdealInverter, points={{98,98},{20,20}},       color={217,67,180}),
+                Text(
+                  extent={{-100,70},{-80,50}},
+                  lineColor={128,128,128},
+                  textString="v"),
+                Text(
+                  extent={{80,-50},{100,-70}},
+                  lineColor={128,128,128},
+                  textString="v"),
+                Text(
+                  extent={{80,70},{100,50}},
+                  lineColor={128,128,128},
+                  textString="i"),
+                Text(
+                  extent={{-100,-50},{-80,-70}},
+                  lineColor={128,128,128},
+                  textString="i")}),                                     Diagram(
                 coordinateSystem(preserveAspectRatio=false)),
             Documentation(info="<html>
 <p>This is a model of a DC-DC inverter. The level of detail of the DC-DC inverter may be chosen from ideal averaging or switching.</p>
@@ -5706,7 +5672,7 @@ This is a simple model of a DC-source resp. battery, consisting of a constant DC
             k=1/Ti) annotation (Placement(transformation(extent={{30,10},{10,30}})));
           Modelica.Electrical.Analog.Basic.Ground groundMotor annotation (Placement(
                 transformation(
-                extent={{-10,-10},{10,10}},
+                extent={{-10,10},{10,-10}},
                 rotation=270,
                 origin={-80,-80})));
           Modelica.Electrical.Analog.Interfaces.NegativePin pin_nBat annotation (
@@ -5715,9 +5681,9 @@ This is a simple model of a DC-source resp. battery, consisting of a constant DC
           Modelica.Electrical.Analog.Interfaces.PositivePin pin_pBat
             annotation (Placement(transformation(extent={{90,110},{110,90}})));
           Modelica.Electrical.Analog.Interfaces.NegativePin pin_nMot
-            annotation (Placement(transformation(extent={{-70,-110},{-50,-90}})));
+            annotation (Placement(transformation(extent={{-110,-110},{-90,-90}})));
           Modelica.Electrical.Analog.Interfaces.PositivePin pin_pMot
-            annotation (Placement(transformation(extent={{50,-110},{70,-90}})));
+            annotation (Placement(transformation(extent={{90,-112},{110,-92}})));
           Modelica.Blocks.Interfaces.RealInput vRef
             annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
         equation
@@ -5745,18 +5711,20 @@ This is a simple model of a DC-source resp. battery, consisting of a constant DC
                   100,70},{40,70}}, color={0,0,255}));
           connect(pin_nBat, powerBat.nv) annotation (Line(points={{-100,100},{
                   30,100},{30,80}}, color={0,0,255}));
-          connect(pin_nMot, powerMot.nv) annotation (Line(points={{-60,-100},{
+          connect(pin_nMot, powerMot.nv) annotation (Line(points={{-100,-100},{
                   30,-100},{30,-80}}, color={0,0,255}));
-          connect(pin_pMot, powerMot.nc) annotation (Line(points={{60,-100},{60,
-                  -70},{40,-70}}, color={0,0,255}));
-          connect(pin_nMot, groundMotor.p) annotation (Line(points={{-60,-100},
-                  {-60,-80},{-70,-80}}, color={0,0,255}));
+          connect(pin_pMot, powerMot.nc) annotation (Line(points={{100,-102},{
+                  100,-70},{40,-70}},
+                                  color={0,0,255}));
+          connect(pin_nMot, groundMotor.p) annotation (Line(points={{-100,-100},
+                  {-100,-80},{-90,-80}},color={0,0,255}));
           connect(deadTime.y, signalVoltage.v)
             annotation (Line(points={{-9,0},{0,0},{0,-58}}, color={0,0,127}));
           connect(vRef, deadTime.u)
             annotation (Line(points={{-120,0},{-32,0}}, color={0,0,127}));
           connect(signalVoltage.n, pin_nMot) annotation (Line(points={{-10,-70},
-                  {-60,-70},{-60,-100}}, color={0,0,255}));
+                  {-100,-70},{-100,-100}},
+                                         color={0,0,255}));
           annotation (Icon(coordinateSystem(preserveAspectRatio=false), graphics={
                 Rectangle(
                   extent={{-100,100},{100,-100}},
@@ -5823,9 +5791,9 @@ This is a simple model of a DC-source resp. battery, consisting of a constant DC
           Modelica.Electrical.Analog.Interfaces.PositivePin pin_pBat
             annotation (Placement(transformation(extent={{90,110},{110,90}})));
           Modelica.Electrical.Analog.Interfaces.PositivePin pin_pMot
-            annotation (Placement(transformation(extent={{50,-110},{70,-90}})));
+            annotation (Placement(transformation(extent={{90,-110},{110,-90}})));
           Modelica.Electrical.Analog.Interfaces.NegativePin pin_nMot
-            annotation (Placement(transformation(extent={{-70,-110},{-50,-90}})));
+            annotation (Placement(transformation(extent={{-110,-110},{-90,-90}})));
           Modelica.Blocks.Interfaces.RealInput vRef
             annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
           Modelica.Blocks.Interfaces.RealInput vMax
@@ -5844,10 +5812,11 @@ This is a simple model of a DC-source resp. battery, consisting of a constant DC
                   70},{-6,-10}},                       color={0,0,255}));
           connect(pin_pBat, dcdc.dc_p1) annotation (Line(points={{100,100},{100,70},{6,70},
                   {6,-10}},              color={0,0,255}));
-          connect(dcdc.dc_p2, pin_pMot) annotation (Line(points={{6,-30},{6,-70},{60,-70},
-                  {60,-100}},               color={0,0,255}));
-          connect(pin_nMot, dcdc.dc_n2) annotation (Line(points={{-60,-100},{-60,-68},{-6,
-                  -68},{-6,-30}}, color={0,0,255}));
+          connect(dcdc.dc_p2, pin_pMot) annotation (Line(points={{6,-30},{6,-70},
+                  {100,-70},{100,-100}},    color={0,0,255}));
+          connect(pin_nMot, dcdc.dc_n2) annotation (Line(points={{-100,-100},{
+                  -100,-68},{-6,-68},{-6,-30}},
+                                  color={0,0,255}));
           connect(vRef, adaptor.v)
             annotation (Line(points={{-120,0},{-62,0}}, color={0,0,127}));
           connect(vMax, adaptor.vMaxExt)
