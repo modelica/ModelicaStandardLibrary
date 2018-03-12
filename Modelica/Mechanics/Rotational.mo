@@ -1923,7 +1923,7 @@ When disengaged, only the freewheel functionality of the one-way clutch is
 available and is active as long as the relative angular velocity w_rel becomes zero.
 </p>
 <p>
-Simulate for 2&nbsp;seconds and compare inertias&apos; velocities <code>inertiaIn.w</code>
+Simulate for 2&nbsp;seconds and compare inertias&#39; velocities <code>inertiaIn.w</code>
 and <code>inertiaOut.w</code> to each other.
 Check also the engagement of the clutch <code>oneWayClutch.f_normalized</code>
 and its lossy power <code>oneWayClutch.lossPower</code>.
@@ -1967,13 +1967,13 @@ and its lossy power <code>oneWayClutch.lossPower</code>.
         experiment(StopTime=2, Interval=0.001), Documentation(info="<html>
 <p>
 The drive train consists of a one-way clutch and driving and driven inertias.
-To demonstrate the behavior of the clutch&apos;s freewheel only, the clutch stays
+To demonstrate the behavior of the clutch&#39;s freewheel only, the clutch stays
 disengaged for all the time.
-The sine torque is applied on the driving inertia forcing inertia&apos;s speed change.
+The sine torque is applied on the driving inertia forcing inertia&#39;s speed change.
 On the driven side there is applied constant load torque only.
 </p>
 <p>
-Simulate for 2&nbsp;seconds and compare inertias&apos; velocities <code>inertiaIn.w</code>
+Simulate for 2&nbsp;seconds and compare inertias&#39; velocities <code>inertiaIn.w</code>
 and <code>inertiaOut.w</code> to each other.
 </p>
 </html>"));
