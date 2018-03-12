@@ -4953,7 +4953,8 @@ f: Cut-force in direction of the flange axis in [N].
         defaultComponentName="flange_a",
         Documentation(info="<html>
 <p>
-This is a flange for 1D translational mechanical systems. In the cut plane of
+This is a connector for 1-dim. translational mechanical systems which represents
+a mechanical flange. In the cut plane of
 the flange a unit vector n, called flange axis, is defined which is directed
 INTO the cut plane, i. e. from left to right. All vectors in the cut plane are
 resolved with respect to
@@ -4997,7 +4998,8 @@ f: Cut-force in direction of the flange axis in [N].
         defaultComponentName="flange_b",
         Documentation(info="<html>
 <p>
-This is a flange for 1D translational mechanical systems. In the cut plane of
+This is a connector for 1-dim. translational mechanical systems which represents
+a mechanical flange. In the cut plane of
 the flange a unit vector n, called flange axis, is defined which is directed
 OUT OF the cut plane. All vectors in the cut plane are resolved with respect to
 this unit vector. E.g. force f characterizes a vector which is directed in
@@ -5065,7 +5067,7 @@ f: Cut-force in direction of the flange axis in [N].
                   fillPattern=FillPattern.Solid)}),
         Documentation(info="<html>
 <p>
-This is a connector for 1-dim. rotational mechanical systems and models
+This is a connector for 1-dim. translational mechanical systems and models
 the support or housing of a shaft.
 The following variables are defined in this connector:
 </p>

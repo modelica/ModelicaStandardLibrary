@@ -6672,8 +6672,8 @@ tau: Cut-torque in the flange in [Nm].
         defaultComponentName="flange_a",
         Documentation(info="<html>
 <p>
-This is a connector for 1-dim. rotational mechanical systems and models
-the mechanical flange of a shaft. The following variables are defined in this connector:
+This is a connector for 1-dim. rotational mechanical systems and models which represents
+a mechanical flange of a shaft. The following variables are defined in this connector:
 </p>
 
 <blockquote><pre>
@@ -6682,7 +6682,9 @@ tau: Cut-torque in the shaft flange in [Nm].
 </pre></blockquote>
 
 <p>
-There is a second connector for flanges: Flange_b. The connectors
+There is a second connector for flanges:
+<a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.Flange_b\">Flange_b</a>.
+The connectors
 Flange_a and Flange_b are completely identical. There is only a difference
 in the icons, in order to easier identify a flange variable in a diagram.
 For a discussion on the actual direction of the cut-torque tau and
@@ -6698,7 +6700,8 @@ differentiation of the flange angle phi:
 </p>
 
 <blockquote><pre>
-w = der(phi);    a = der(w)
+w = der(phi);
+a = der(w);
 </pre></blockquote>
 </html>"),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
@@ -6724,8 +6727,8 @@ w = der(phi);    a = der(w)
         defaultComponentName="flange_b",
         Documentation(info="<html>
 <p>
-This is a connector for 1-dim. rotational mechanical systems and models
-the mechanical flange of a shaft. The following variables are defined in this connector:
+This is a connector for 1-dim. rotational mechanical systems and models which represents
+a mechanical flange of a shaft. The following variables are defined in this connector:
 </p>
 
 <blockquote><pre>
@@ -6734,7 +6737,9 @@ tau: Cut-torque in the shaft flange in [Nm].
 </pre></blockquote>
 
 <p>
-There is a second connector for flanges: Flange_a. The connectors
+There is a second connector for flanges:
+<a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.Flange_a\">Flange_a</a>.
+The connectors
 Flange_a and Flange_b are completely identical. There is only a difference
 in the icons, in order to easier identify a flange variable in a diagram.
 For a discussion on the actual direction of the cut-torque tau and
@@ -6750,7 +6755,8 @@ differentiation of the flange angle phi:
 </p>
 
 <blockquote><pre>
-w = der(phi);    a = der(w)
+w = der(phi);
+a = der(w);
 </pre></blockquote>
 </html>"),
         Icon(coordinateSystem(
@@ -6775,8 +6781,8 @@ w = der(phi);    a = der(w)
       annotation (
         Documentation(info="<html>
 <p>
-This is a connector for 1-dim. rotational mechanical systems and models
-the support or housing of a shaft. The following variables are defined in this connector:
+This is a connector for 1-dim. rotational mechanical systems and models which represents
+a support or housing of a shaft. The following variables are defined in this connector:
 </p>
 
 <blockquote><pre>
