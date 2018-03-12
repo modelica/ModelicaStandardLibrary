@@ -1894,7 +1894,9 @@ force law in a target system between two inertias.
         w(fixed=true, start=0)) annotation (Placement(transformation(extent={{40,-10},{60,10}})));
       Modelica.Mechanics.Rotational.Components.OneWayClutch oneWayClutch(
         peak=25,
-        fn_max=3) annotation (Placement(transformation(extent={{10,-10},{30,10}})));
+        fn_max=3,
+        startForward(fixed=true),
+        stuck(fixed=true)) annotation (Placement(transformation(extent={{10,-10},{30,10}})));
       Modelica.Mechanics.Rotational.Sources.Torque torque
         annotation (Placement(transformation(extent={{-50,-10},{-30,10}})));
       Modelica.Blocks.Sources.Sine signalTorque(
@@ -1942,7 +1944,9 @@ and its lossy power <code>oneWayClutch.lossPower</code>.
         w(fixed=true, start=0)) annotation (Placement(transformation(extent={{40,-10},{60,10}})));
       Modelica.Mechanics.Rotational.Components.OneWayClutch oneWayClutch(
         peak=25,
-        fn_max=3) annotation (Placement(transformation(extent={{10,-10},{30,10}})));
+        fn_max=3,
+        startForward(fixed=true),
+        stuck(fixed=true)) annotation (Placement(transformation(extent={{10,-10},{30,10}})));
       Modelica.Mechanics.Rotational.Sources.Torque torque
         annotation (Placement(transformation(extent={{-50,-10},{-30,10}})));
       Modelica.Mechanics.Rotational.Sources.ConstantTorque torqueLoad(tau_constant=-0.3) annotation (Placement(transformation(extent={{90,-10},{70,10}})));
