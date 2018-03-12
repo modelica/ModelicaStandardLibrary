@@ -3158,7 +3158,7 @@ the origin of frame_a to the middle of the rod, this might be defined as:
      there are two degrees of freedom. If the rotational angles of these joints
      would be used as generalized coordinates phi_a, phi_b with associated generalized
      torques tau_a, tau_b (torques along the axes of rotations), then the equations
-     of motion (Kane's equations or Lagrange's equations of the second kind) are
+     of motion (Kane&#39;s equations or Lagrange&#39;s equations of the second kind) are
      in the rows for phi_a, phi_b:
         .... = ... + {...., tau_a, tau_b, ....}
 
@@ -3170,7 +3170,7 @@ the origin of frame_a to the middle of the rod, this might be defined as:
 
          0 = G * {der(phi_a), der(phi_b)};   G = [1, -ratio]
 
-     According to Lagrange's equations of the first kind, the generalized forces
+     According to Lagrange&#39;s equations of the first kind, the generalized forces
      must be replaced by G'*lambda, where lambda is the new constraint force
      due this constraint. Therefore, the equations of motions are changed to
 

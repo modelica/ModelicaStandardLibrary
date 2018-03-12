@@ -3171,7 +3171,7 @@ This block is demonstrated in the examples
 
 </table>
 </html>",                                   info="<html>
-<p>This block calculates the standard deviation of its input signal. The standard deviation is the square root of the signal&apos;s variance:</p>
+<p>This block calculates the standard deviation of its input signal. The standard deviation is the square root of the signal&#39;s variance:</p>
 <blockquote>
 <pre>y = sqrt( variance(u) )</pre>
 </blockquote>

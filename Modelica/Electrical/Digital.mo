@@ -7257,11 +7257,11 @@ Description in VHDL is given by <a href=\"http://www.cs.sfu.ca/~ggbaker/referenc
 </table>
 <pre>
 
-  *  = don&apos;t care
-  0  = L.&apos;0&apos; or L.&apos;L&apos;
-  1  = L.&apos;1&apos; or L.&apos;H&apos;
-  X  = L.&apos;X&apos; or L.&apos;W&apos; or L.&apos;Z&apos; or L.&apos;-&apos;
-  U  = L.&apos;U&apos; </pre>
+  *  = don&#39;t care
+  0  = L.&#39;0&#39; or L.&#39;L&#39;
+  1  = L.&#39;1&#39; or L.&#39;H&#39;
+  X  = L.&#39;X&#39; or L.&#39;W&#39; or L.&#39;Z&#39; or L.&#39;-&#39;
+  U  = L.&#39;U&#39; </pre>
 </html>", revisions="<html>
 <dl>
 <dt><em>January 24, 2011</em></dt>

@@ -413,7 +413,7 @@ parameters:
 
 <ul>
 <li> The <strong>samplePeriod</strong> of the block should be much faster (say by a factor of 100)
-     than the fastest dynamics of the system fed by the block&apos;s outputs. </li>
+     than the fastest dynamics of the system fed by the block&#39;s outputs.</li>
 <li> The <strong>noisePower</strong> of the signal should be set to the expected power per frequency
      of the white noise. Since many system models assume a noise power of 1,
      this preset may be a reasonable first choice (= default).</li>
@@ -440,7 +440,7 @@ think of the power of a signal may be helpful:
 
 <ul>
 <li> The energy of a signal is the integral of its squared absolute value over time.
-     The signal&apos;s power is this integral divided by the time span of the integral.</li>
+     The signal&#39;s power is this integral divided by the time span of the integral.</li>
 <li> The total power of a signal can also be obtained by integrating its (two-sided)
      power spectral density over all frequencies.</li>
 <li> The total power of a signal is finally also equal to its variance.</li>

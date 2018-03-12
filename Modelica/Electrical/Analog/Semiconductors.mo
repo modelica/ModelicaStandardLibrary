@@ -112,7 +112,7 @@ package Semiconductors
 </ul>
 <p>Temperature dependent behaviour is modelled when useHeatPort=true. In that case, the Vt parameter is ignored, and Vt is computed as k&middot;T/q, where</p>
 <ul>
-<li>k is Boltzmann&apos;s constant</li>
+<li>k is Boltzmann&#39;s constant</li>
 <li>T is the heat port temperature.</li>
 <li>q is the electron charge.</li>
 </ul>
