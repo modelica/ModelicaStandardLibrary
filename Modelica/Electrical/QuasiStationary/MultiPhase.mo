@@ -2968,10 +2968,11 @@ This sensor can be used to measure <em>m</em> complex voltages, using <em>m</em>
         Documentation(revisions="<html>
 </html>", info="<html>
 <p>
-This sensor determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.Math.RootMeanSquare\">RMS</a> value of a multi phase voltage system, representing an equivalent RMS voltage vector <code>I</code> or phasor.
+This sensor determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.Math.RootMeanSquare\">RMS</a> 
+value of a multi phase voltage system, by averaging the phase RMS voltage phasors <code>v</code>.
 </p>
 <pre>
- V = sqrt(sum(v[k]^2 for k in 1:m)/m)
+  V = sum({'abs'(v[k]) for k in 1:m})/m
 </pre>
 
 <h4>See also</h4>
@@ -3080,10 +3081,11 @@ This sensor can be used to measure <em>m</em> complex currents, using <em>m</em>
         Documentation(revisions="<html>
 </html>", info="<html>
 <p>
-This sensor determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.Math.RootMeanSquare\">RMS</a> value of a multi phase current system, representing an equivalent RMS current vector <code>I</code> or phasor.
+This sensor determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.Math.RootMeanSquare\">RMS</a> 
+value of a multi phase current system, by averaging the phase RMS current phasors <code>i</code>.
 </p>
 <pre>
- I = sqrt(sum(i[k]^2 for k in 1:m)/m)
+  I = sum({'abs'(i[k]) for k in 1:m})/m
 </pre>
 
 <h4>See also</h4>
