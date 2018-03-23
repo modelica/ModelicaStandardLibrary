@@ -14,7 +14,7 @@ The [workflow for outside collaborators](https://guides.github.com/activities/fo
    [using the `Fork` button](https://help.github.com/articles/fork-a-repo/).
 2. Clone the forked repository to your computer.
 3. Create a new topic branch and give it a meaningful name, 
-   like e.g. `issue2161_contributing`.
+   like, e.g., `issue2161_contributing`.
 4. Do your code changes and commit them, one change per commit. 
    Single commits can be copied to other branches.
    Multiple commits can be squashed into one, but splitting is difficult.
