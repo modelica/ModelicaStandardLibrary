@@ -797,76 +797,67 @@ with respect to frame_a (vector from the origin of frame_a to the arrow tail).
 </html>"));
   end SignalArrow;
 
-   model Ground "Visualizing the ground"
-     parameter Boolean animation=true
-       "= true, if animation of ground shall be enabled";
-     parameter Integer normal=3 "Normal vector of the ground plane"
-       annotation(choices(
-           choice=1 "x-axis",
-           choice=2 "y-axis",
-           choice=3 "z-axis"));
-     parameter Modelica.SIunits.Position length = 10
-       "Length and width of plane (center is at x=y=z=0)" annotation (Dialog(enable=animation));
-     parameter Modelica.SIunits.Position height = 0.0
-       "Height of box"
-       annotation (Dialog(enable=false));
-     parameter Modelica.Mechanics.MultiBody.Types.Color groundColor={0,255,0}
-       "Color of box" annotation (Dialog(colorSelector=true, enable=animation));
+   model Ground "Visualizing the ground (box in z=0)"
+      parameter Boolean animation=true
+      "= true, if animation of ground shall be enabled";
+      parameter Modelica.SIunits.Position length = 10
+      "Length and width of box (center is at x=y=0)" annotation (Dialog(enable=animation));
+      parameter Modelica.SIunits.Position height = 0.02
+      "Height of box (upper surface is at z=0, lower surface is at z=-height)"
+                                                                        annotation (Dialog(enable=animation));
+      parameter Modelica.Mechanics.MultiBody.Types.Color groundColor={0,255,0}
+      "Color of box" annotation (Dialog(colorSelector=true, enable=animation));
 
-      Modelica.Mechanics.MultiBody.Parts.Fixed fixed(final animation=false)
-        annotation (Placement(transformation(extent={{-40,0},{-20,20}})));
-     Plane plane(
-       animation=animation,
-       axis_x=if normal==1 then {0,1,0} elseif normal==2 then {0,0,1} else {1,0,0},
-       axis_y=if normal==1 then {0,0,1} elseif normal==2 then {1,0,0} else {0,1,0},
-       length_x=length,
-       length_y=length,
-       nx=2,
-       ny=2,
-       color=groundColor) annotation (Placement(transformation(extent={{20,0},{40,20}})));
+      Modelica.Mechanics.MultiBody.Visualizers.FixedShape ground(
+        lengthDirection={1,0,0},
+        widthDirection={0,1,0},
+        animation=animation,
+        r_shape={-length/2,0,-height},
+        length=length,
+        height=height,
+        color=groundColor,
+        width=length)
+        annotation (Placement(transformation(extent={{-20,0},{0,20}})));
+      Modelica.Mechanics.MultiBody.Parts.Fixed fixed
+        annotation (Placement(transformation(extent={{-60,0},{-40,20}})));
    equation
-     connect(plane.frame_a, fixed.frame_b) annotation (Line(
-         points={{20,10},{-20,10}},
-         color={95,95,95},
-         thickness=0.5));
 
-     annotation (
-       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+      connect(fixed.frame_b, ground.frame_a) annotation (Line(
+          points={{-40,10},{-20,10}},
+          color={95,95,95},
+          thickness=0.5));
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={
             Polygon(
-             points={{-20,40},{-100,-42},{20,-100},{100,-2},{-20,40}},
-             fillColor={0,196,0},
-             fillPattern=FillPattern.Solid,
-             lineColor={0,127,0}),
+              points={{-20,60},{-100,-32},{20,-92},{100,8},{-20,60}},
+              fillColor={0,255,0},
+              fillPattern=FillPattern.Solid),
+            Text(
+              extent={{2,82},{44,54}},
+              textString="z"),
+            Polygon(
+              points={{100,8},{100,-4},{20,-104},{20,-92},{100,8}},
+              fillColor={0,255,0},
+              fillPattern=FillPattern.Solid),
+            Polygon(
+              points={{-100,-32},{-100,-44},{20,-104},{20,-92},{-100,-32}},
+              fillColor={0,255,0},
+              fillPattern=FillPattern.Solid),
             Ellipse(
-              extent={{-5,-19},{5,-24}},
+              extent={{-11,-7},{-1,-12}},
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
             Line(
-              points={{0,-22},{0,76}}),
-            Polygon(points={{0,90},{-10,60},{10,60},{0,90}},   fillPattern=FillPattern.Solid),
+              points={{-6,-10},{-6,88}}),
+            Polygon(
+              points={{-6,102},{-14,72},{2,72},{-6,102}},
+              fillPattern=FillPattern.Solid),
             Text(
-              extent={{8,70},{50,42}},
-              textString="x",
-              visible=normal==1),
-            Text(
-              extent={{8,70},{50,42}},
-              textString="y",
-              visible=normal==2),
-            Text(
-              extent={{8,70},{50,42}},
-              textString="z",
-              visible=normal==3),
-            Text(
-              extent={{-150,140},{150,100}},
-              textString="%name",
-              lineColor={0,0,255})}), Documentation(info="<html>
+            extent={{-150,-105},{150,-145}},
+            textString="%name",
+            lineColor={0,0,255})}), Documentation(info="<html>
 <p>
-This shape visualizes a plane at the world frame origin perpendicular to given normal.
-When more advanced settings are required, use
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Plane\">Visualizers.Plane</a>
-instead. The picture below shows ground plane for normal&nbsp;=&nbsp;2, i.e. the plane
-is perpendicular to y-axis of the world frame.
+This shape visualizes the x-y plane by a box.
 </p>
 
 <blockquote>
