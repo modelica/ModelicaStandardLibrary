@@ -798,6 +798,7 @@ with respect to frame_a (vector from the origin of frame_a to the arrow tail).
   end SignalArrow;
 
    model Ground "Visualizing the ground (box in z=0)"
+     extends Modelica.Icons.ObsoleteModel;
       parameter Boolean animation=true
       "= true, if animation of ground shall be enabled";
       parameter Modelica.SIunits.Position length = 10
@@ -826,7 +827,9 @@ with respect to frame_a (vector from the origin of frame_a to the arrow tail).
           points={{-40,10},{-20,10}},
           color={95,95,95},
           thickness=0.5));
-      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+      annotation (
+       obsolete = "Obsolete model - use ground visualization possibility in Modelica.Mechanics.MultiBody.World, or use model Modelica.Mechanics.MultiBody.Visualizers.Plane instead",
+       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={
             Polygon(
               points={{-20,60},{-100,-32},{20,-92},{100,8},{-20,60}},
