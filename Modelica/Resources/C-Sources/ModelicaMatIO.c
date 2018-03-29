@@ -11629,7 +11629,7 @@ Mat_WriteCompressedEmptyVariable5(mat_t *mat,const char *name,int rank,
  * @param N number of data elements allocated for the pointer
  * @endif
  */
-void
+static void
 Mat_VarReadNumeric5(mat_t *mat,matvar_t *matvar,void *data,size_t N)
 {
     int nBytes = 0, data_in_tag = 0;
