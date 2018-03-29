@@ -138,10 +138,12 @@ typedef uint8_t mat_uint8_t;
 
 #include <stdarg.h>
 
+#if !defined(MATIO_EXTERN)
 #if defined(__cplusplus)
 #define MATIO_EXTERN extern "C"
 #else
 #define MATIO_EXTERN
+#endif
 #endif
 
 /** @defgroup MAT Matlab MAT File I/O Library */
