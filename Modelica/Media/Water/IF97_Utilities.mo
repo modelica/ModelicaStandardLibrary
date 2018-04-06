@@ -3017,7 +3017,7 @@ package IF97_Utilities
         Real Tlim=min(T, data.TCRIT);
       algorithm
         assert(T >= 273.16, "IF97 medium function psat: input temperature (= "
-           + String(triple.ptriple) + " K).\n" +
+           + String(triple.Ttriple) + " K).\n" +
           "lower than the triple point temperature 273.16 K");
         o[1] := -650.17534844798 + Tlim;
         o[2] := 1/o[1];
