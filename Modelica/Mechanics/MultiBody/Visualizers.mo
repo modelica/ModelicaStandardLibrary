@@ -2417,7 +2417,7 @@ colorMapToSvg(Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.jet(),
 
         annotation (Documentation(info="<html>
 <p>
-Function <strong>torus</strong> computes the X,Y,Z arrays to visualize a torus
+Function <strong>torus</strong> computes the X, Y and Z arrays to visualize a torus
 with model <a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Torus\">Torus</a>.
 The left image below shows a torus with ri=0.5 m and ro = 0.2 m.
 The right images below shows the torus with the additional parameter
@@ -2478,7 +2478,7 @@ stopAngle  =  135 degree
         end for;
         annotation (Documentation(info="<html>
 <p>
-Function <strong>pipeWithScalarField</strong> computes the X,Y,Z,C arrays in order to
+Function <strong>pipeWithScalarField</strong> computes the X, Y, Z and C arrays in order to
 visualize a pipe and a scalar field along the pipe axis with model
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.PipeWithScalarField\">PipeWithScalarField</a>.
 The latter is shown by mapping scalar
@@ -2530,7 +2530,7 @@ colorMapToSvg(Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.jet(),
 
         annotation (Documentation(info="<html>
 <p>
-Function <strong>planeXY</strong> computes the X,Y,Z arrays to visualize a x-y plane
+Function <strong>planeXY</strong> computes the X, Y and Z arrays to visualize a x-y plane
 with model <a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Plane\">Plane</a>.
 The image below shows two planes of
 </p>
