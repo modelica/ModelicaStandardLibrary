@@ -1933,6 +1933,9 @@ a flange according to a given acceleration.
         end if;
 
         // Determine interpolation coefficients
+        if next == 1 then
+          next := 2;
+        end if;
         next0 := next - 1;
         dt := table[next, 1] - table[next0, 1];
         if dt <= TimeEps*abs(table[next, 1]) then
