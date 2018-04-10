@@ -1165,21 +1165,21 @@ colorMapToSvg(Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.jet(),
 </html>"));
   end PipeWithScalarField;
 
-  model Plane "Visualizing a plane"
+  model Rectangle "Visualizing a planar rectangular surface"
     extends Modelica.Mechanics.MultiBody.Interfaces.PartialVisualizer;
 
     parameter Boolean animation=true "= true, if animation shall be enabled";
-    parameter MultiBody.Types.Axis axis_x={1,0,0}
-      "Vector along x-axis of plane resolved in frame_a"
+    parameter MultiBody.Types.Axis direction_u={1,0,0}
+      "Vector along u-axis of rectangle resolved in frame_a"
       annotation(Evaluate=true, Dialog(enable=animation));
-    parameter MultiBody.Types.Axis axis_y={0,1,0}
-      "Vector along y-axis of plane resolved in frame_a"
+    parameter MultiBody.Types.Axis direction_v={0,1,0}
+      "Vector along v-axis of rectangle resolved in frame_a"
       annotation(Evaluate=true, Dialog(enable=animation));
 
-    parameter Modelica.SIunits.Length length_x=3 "Length of plane in direction x" annotation(Dialog(enable=animation));
-    parameter Modelica.SIunits.Length length_y=1 "Length of plane in direction y" annotation(Dialog(enable=animation));
-    parameter Integer nx(min=2)=3 "Number of points in direction x" annotation(Dialog(enable=animation,group="Discretization"));
-    parameter Integer ny(min=2)=2 "Number of points in direction y" annotation(Dialog(enable=animation,group="Discretization"));
+    parameter SI.Distance length_u=3 "Length of rectangle in direction u" annotation(Dialog(enable=animation));
+    parameter SI.Distance length_v=1 "Length of rectangle in direction v" annotation(Dialog(enable=animation));
+    parameter Integer nu(min=2)=3 "Number of points in direction u" annotation(Dialog(enable=animation,group="Discretization"));
+    parameter Integer nv(min=2)=2 "Number of points in direction v" annotation(Dialog(enable=animation,group="Discretization"));
 
     parameter Boolean wireframe=false
       "= true: 3D model will be displayed without faces"
@@ -1200,12 +1200,12 @@ colorMapToSvg(Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.jet(),
       final specularCoefficient=specularCoefficient,
       final transparency=transparency,
       final R=Modelica.Mechanics.MultiBody.Frames.absoluteRotation(
-          frame_a.R,Modelica.Mechanics.MultiBody.Frames.from_nxy(axis_x, axis_y)),
+          frame_a.R,Modelica.Mechanics.MultiBody.Frames.from_nxy(direction_u, direction_v)),
       final r_0=frame_a.r_0,
-      final nu=nx,
-      final nv=ny,
-      redeclare function surfaceCharacteristic = Advanced.SurfaceCharacteristics.planeXY (lu=length_x, lv=length_y)) if
-         world.enableAnimation and animation
+      final nu=nu,
+      final nv=nv,
+      redeclare function surfaceCharacteristic = Advanced.SurfaceCharacteristics.rectangle (
+        lu=length_u, lv=length_v)) if world.enableAnimation and animation
       annotation (Placement(transformation(extent={{-20,-10},{0,10}})));
     Sensors.Internal.ZeroForceAndTorque zeroForceAndTorque annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));
 
@@ -1221,7 +1221,7 @@ colorMapToSvg(Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.jet(),
             lineColor={0,0,255},
             textString="%name"),
           Polygon(
-            points={{-60,20},{-100,-60},{60,-60},{100,20},{-60,20}},
+            points={{-50,20},{-90,-60},{70,-60},{90,20},{-50,20}},
             lineColor={95,95,95},
             fillColor={175,175,175},
             fillPattern=FillPattern.Solid),
@@ -1236,30 +1236,30 @@ colorMapToSvg(Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.jet(),
             lineThickness=0.5,
             fillColor={95,95,95},
             fillPattern=FillPattern.Solid,
-            textString="%length_x x %length_y")}),
-                                   Documentation(info="<html>
+            textString="%length_u x %length_v")}),
+      Documentation(info="<html>
 <p>
-This model visualizes a plane. The center of the plane is located at
+This model visualizes a planar rectangle. The center of the rectangle is located at
 connector frame_a (visualized by the red coordinate system in the figure below).
-The image below shows two planes of the same parameters
+The figure below shows two rectangles of the same parameters
 </p>
 <blockquote><pre>
-nx = 8,
-ny = 3,
-length_x = 3,
-length_y = 2.
+nu = 8,
+nv = 3,
+length_u = 3,
+length_v = 2.
 </pre></blockquote>
 <p>
-The green plane on the right is visualized in wireframe thus highlighting the influence
-of the discretization. Moreover, the x-axis of this plane is modified
-so that the plane is rotated about the z-axis of frame_a.
+The green rectangle on the right is visualized in wireframe thus highlighting the influence
+of the discretization. Moreover, the u-axis of this rectangle is modified
+so that the rectangle is rotated about the z-axis of frame_a.
 </p>
 
 <blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Plane.png\">
 </blockquote>
 </html>"));
-  end Plane;
+  end Rectangle;
 
   package Colors "Library of functions operating on color"
     extends Modelica.Icons.FunctionsPackage;
@@ -2518,11 +2518,11 @@ colorMapToSvg(Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.jet(),
 </html>"));
       end pipeWithScalarField;
 
-      function planeXY "Function defining the surface characteristic of a x-y plane"
+      function rectangle "Function defining the surface characteristic of a planar rectangle"
         extends Modelica.Mechanics.MultiBody.Interfaces.partialSurfaceCharacteristic(
           final multiColoredSurface=false);
-        input Modelica.SIunits.Radius lu=1 "Length in direction u" annotation(Dialog);
-        input Modelica.SIunits.Radius lv=3 "Length in direction v" annotation(Dialog);
+        input SI.Distance lu=1 "Length in direction u" annotation(Dialog);
+        input SI.Distance lv=3 "Length in direction v" annotation(Dialog);
       algorithm
         X[:,:] := lu/2 * transpose(fill(linspace(-1,1,nu), nv));
         Y[:,:] := lv/2 * fill(linspace(-1,1,nv), nu);
@@ -2530,9 +2530,9 @@ colorMapToSvg(Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.jet(),
 
         annotation (Documentation(info="<html>
 <p>
-Function <strong>planeXY</strong> computes the X, Y and Z arrays to visualize a x-y plane
+Function <strong>rectangle</strong> computes the X, Y and Z arrays to visualize a rectangle
 with model <a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Plane\">Plane</a>.
-The image below shows two planes of
+The image below shows two rectangles of
 </p>
 <blockquote><pre>
 nu = 8,
@@ -2545,7 +2545,7 @@ lv = 2.
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Plane.png\">
 </blockquote>
 </html>"));
-      end planeXY;
+      end rectangle;
 
       annotation (Documentation(info="<html>
 <p>

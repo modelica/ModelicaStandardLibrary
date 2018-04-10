@@ -10406,30 +10406,30 @@ This test model was proposed in ticket <a href=\"https://trac.modelica.org/Model
       extends Modelica.Icons.Example;
 
       inner Modelica.Mechanics.MultiBody.World world(animateWorld=false, animateGravity=false) annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));
-      Modelica.Mechanics.MultiBody.Visualizers.Plane surfaceWireframe(
-        length_y=2,
-        axis_y={0,1,0},
-        axis_x={1,-0.4,0},
-        ny=3,
+      Modelica.Mechanics.MultiBody.Visualizers.Rectangle surfaceWireframe(
+        direction_u={1,-0.4,0},
+        direction_v={0,1,0},
+        length_u=3,
+        length_v=2,
+        nu=8,
+        nv=3,
         wireframe=true,
-        nx=8,
-        color={0,230,0},
-        length_x=3)      annotation (Placement(transformation(extent={{30,10},{50,30}})));
+        color={0,230,0})      annotation (Placement(transformation(extent={{30,10},{50,30}})));
       Modelica.Mechanics.MultiBody.Parts.FixedRotation fixedRotation(
         rotationType=Modelica.Mechanics.MultiBody.Types.RotationTypes.TwoAxesVectors,
         n_x={1,0,0},
         animation=false,
         r={0,2.3,0}) annotation (Placement(transformation(extent={{-20,10},{0,30}})));
       Modelica.Mechanics.MultiBody.Visualizers.FixedFrame fixedFrameOfWireframe(color_x={255,0,0}) annotation (Placement(transformation(extent={{30,40},{50,60}})));
-      Modelica.Mechanics.MultiBody.Visualizers.Plane surfaceSolid(
-        length_y=2,
-        axis_y={0,1,0},
-        ny=3,
+      Modelica.Mechanics.MultiBody.Visualizers.Rectangle surfaceSolid(
+        direction_u={1,0,0},
+        direction_v={0,1,0},
+        length_u=3,
+        length_v=2,
+        nu=8,
+        nv=3,
         color={85,85,255},
-        length_x=3,
-        wireframe=false,
-        nx=8,
-        axis_x={1,0,0}) annotation (Placement(transformation(extent={{30,-30},{50,-10}})));
+        wireframe=false) annotation (Placement(transformation(extent={{30,-30},{50,-10}})));
       Modelica.Mechanics.MultiBody.Visualizers.FixedFrame fixedFrame(color_x={255,0,0}) annotation (Placement(transformation(extent={{30,-60},{50,-40}})));
     equation
       connect(fixedRotation.frame_a, world.frame_b) annotation (Line(

@@ -1373,7 +1373,8 @@ protected
     final nu=2,
     final nv=2,
     redeclare function surfaceCharacteristic =
-      Modelica.Mechanics.MultiBody.Visualizers.Advanced.SurfaceCharacteristics.planeXY(lu=groundLength_u, lv=groundLength_v)) if
+      Modelica.Mechanics.MultiBody.Visualizers.Advanced.SurfaceCharacteristics.rectangle(
+      lu=groundLength_u, lv=groundLength_v)) if
       enableAnimation and animateGround and gravityType == GravityTypes.UniformGravity;
 equation
   Connections.root(frame_b.R);
