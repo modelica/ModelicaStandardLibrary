@@ -159,7 +159,7 @@ package IF97_Utilities
     record triple "Triple point data"
       extends Modelica.Icons.Record;
       constant SI.Temperature Ttriple=273.16 "The triple point temperature";
-      constant SI.Pressure ptriple=611.657 "The triple point temperature";
+      constant SI.Pressure ptriple=611.657 "The triple point pressure";
       constant SI.Density dltriple=999.792520031617642
         "The triple point liquid density";
       constant SI.Density dvtriple=0.485457572477861372e-2
