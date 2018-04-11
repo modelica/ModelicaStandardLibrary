@@ -159,7 +159,7 @@ package IF97_Utilities
     record triple "Triple point data"
       extends Modelica.Icons.Record;
       constant SI.Temperature Ttriple=273.16 "The triple point temperature";
-      constant SI.Pressure ptriple=611.657 "The triple point temperature";
+      constant SI.Pressure ptriple=611.657 "The triple point pressure";
       constant SI.Density dltriple=999.792520031617642
         "The triple point liquid density";
       constant SI.Density dvtriple=0.485457572477861372e-2
@@ -3017,7 +3017,7 @@ package IF97_Utilities
         Real Tlim=min(T, data.TCRIT);
       algorithm
         assert(T >= 273.16, "IF97 medium function psat: input temperature (= "
-           + String(triple.ptriple) + " K).\n" +
+           + String(triple.Ttriple) + " K).\n" +
           "lower than the triple point temperature 273.16 K");
         o[1] := -650.17534844798 + Tlim;
         o[2] := 1/o[1];
