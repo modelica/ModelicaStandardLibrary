@@ -9446,6 +9446,46 @@ This test model was proposed in ticket <a href=\"https://trac.modelica.org/Model
       annotation (experiment(StopTime=1.1));
     end CutForce2;
 
+    model CutForce3
+      extends Modelica.Icons.Example;
+      inner Modelica.Mechanics.MultiBody.World world(animateWorld=false,
+          animateGravity=false) annotation (Placement(transformation(extent={{-80,
+                -20},{-60,0}})));
+      Modelica.Mechanics.MultiBody.Sensors.CutForce cutForce(animation=false, vectorAnimation=true) annotation (
+          Placement(transformation(extent={{0,-20},{20,0}})));
+      Modelica.Mechanics.MultiBody.Parts.FixedRotation fixedRotation(
+        r={0.5,0.5,0.1},
+        rotationType=Modelica.Mechanics.MultiBody.Types.RotationTypes.PlanarRotationSequence,
+        animation=false) annotation (Placement(transformation(extent={{-40,-20},
+                {-20,0}})));
+
+      Modelica.Mechanics.MultiBody.Visualizers.FixedFrame frame_b(color_x={0,0,
+            200}) annotation (Placement(transformation(
+            origin={30,30},
+            extent={{10,-10},{-10,10}},
+            rotation=270)));
+      Modelica.Mechanics.MultiBody.Forces.WorldForce WorldForce1(animation=
+            false) annotation (Placement(transformation(extent={{60,-20},{40,0}})));
+      Modelica.Blocks.Sources.Constant Constant1[3](k={500,0,0}) annotation (
+          Placement(transformation(extent={{100,-20},{80,0}})));
+    equation
+      connect(world.frame_b, fixedRotation.frame_a) annotation (Line(
+          points={{-60,-10},{-40,-10}},
+          thickness=0.5));
+      connect(fixedRotation.frame_b, cutForce.frame_a) annotation (Line(
+          points={{-20,-10},{0,-10}},
+          thickness=0.5));
+      connect(cutForce.frame_b, WorldForce1.frame_b) annotation (Line(
+          points={{20,-10},{40,-10}},
+          thickness=0.5));
+      connect(frame_b.frame_a, cutForce.frame_b) annotation (Line(
+          points={{30,20},{30,20},{30,-10},{20,-10}},
+          thickness=0.5));
+      connect(Constant1.y, WorldForce1.force) annotation (Line(
+          points={{79,-10},{62,-10}}, color={0,0,127}));
+      annotation (experiment(StopTime=1.1));
+    end CutForce3;
+    
     model CutTorque
       extends Modelica.Icons.Example;
       parameter Real tol=1e-3;
@@ -9628,6 +9668,46 @@ This test model was proposed in ticket <a href=\"https://trac.modelica.org/Model
           thickness=0.5));
       annotation (experiment(StopTime=1.1));
     end CutTorque2;
+    
+    model CutTorque3
+      extends Modelica.Icons.Example;
+      inner Modelica.Mechanics.MultiBody.World world(animateWorld=false,
+          animateGravity=false) annotation (Placement(transformation(extent={{-80,
+                -20},{-60,0}})));
+      Modelica.Mechanics.MultiBody.Sensors.CutTorque cutTorque(animation=false, vectorAnimation=true) annotation (
+          Placement(transformation(extent={{0,-20},{20,0}})));
+      Modelica.Mechanics.MultiBody.Parts.FixedRotation fixedRotation(
+        r={0.5,0.5,0.1},
+        rotationType=Modelica.Mechanics.MultiBody.Types.RotationTypes.PlanarRotationSequence,
+        animation=false) annotation (Placement(transformation(extent={{-40,-20},
+                {-20,0}})));
+
+      Modelica.Mechanics.MultiBody.Visualizers.FixedFrame frame_b(color_x={0,0,
+            200}) annotation (Placement(transformation(
+            origin={30,30},
+            extent={{10,-10},{-10,10}},
+            rotation=270)));
+      Modelica.Mechanics.MultiBody.Forces.WorldTorque worldTorque(animation=
+            false) annotation (Placement(transformation(extent={{60,-20},{40,0}})));
+      Modelica.Blocks.Sources.Constant Constant1[3](k={500,0,0}) annotation (
+          Placement(transformation(extent={{100,-20},{80,0}})));
+    equation
+      connect(world.frame_b, fixedRotation.frame_a) annotation (Line(
+          points={{-60,-10},{-40,-10}},
+          thickness=0.5));
+      connect(Constant1.y, worldTorque.torque)
+        annotation (Line(points={{79,-10},{62,-10}}, color={0,0,255}));
+      connect(fixedRotation.frame_b, cutTorque.frame_a) annotation (Line(
+          points={{-20,-10},{0,-10}},
+          thickness=0.5));
+      connect(cutTorque.frame_b, worldTorque.frame_b) annotation (Line(
+          points={{20,-10},{40,-10}},
+          thickness=0.5));
+      connect(frame_b.frame_a, cutTorque.frame_b) annotation (Line(
+          points={{30,20},{30,20},{30,-10},{20,-10}},
+          thickness=0.5));
+      annotation (experiment(StopTime=1.1));
+    end CutTorque3;
 
     model CutForceAndTorque1
       extends Modelica.Icons.Example;
