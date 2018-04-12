@@ -1604,8 +1604,9 @@ In most cases, it is recommended to use specialized classes as
 <a href=\"modelica://ModelicaReference.Classes.'record'\">record</a>,
 <a href=\"modelica://ModelicaReference.Classes.'function'\">function</a>,
 <a href=\"modelica://ModelicaReference.Classes.'type'\">type</a>.
-\"class\" should only be used to define
-<a href=\"modelica://ModelicaReference.Classes.ExternalObject\">ExternalObject</a>s.
+\"class\" should be used to define
+<a href=\"modelica://ModelicaReference.Classes.ExternalObject\">ExternalObject</a>s,
+and can be used for classes merely containing documentation and/or graphics.
 </p>
 </html>"));
   end 'class';
