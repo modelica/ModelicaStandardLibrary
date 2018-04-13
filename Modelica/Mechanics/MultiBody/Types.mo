@@ -117,7 +117,7 @@ are shown for a cylinder:
 </p>
 </html>"));
   type ShapeType = Modelica.Icons.TypeString
-    "Type of shape (box, sphere, cylinder, pipecylinder, cone, pipe, beam, gearwheel, spring, <external shape>)"
+    "Type of shape (box, sphere, cylinder, pipecylinder, cone, pipe, beam, gearwheel, spring, vector, <external shape>)"
      annotation ( choices(
       choice="box" "\"box\"",
       choice="sphere" "\"sphere\"",
@@ -128,6 +128,7 @@ are shown for a cylinder:
       choice="beam" "\"beam\"",
       choice="gearwheel" "\"gearwheel\"",
       choice="spring" "\"spring\"",
+      choice="vector" "\vector\"",
       choice="modelica://PackageName/PathName.dxf"),
     Documentation(info="<html>
 <p>
