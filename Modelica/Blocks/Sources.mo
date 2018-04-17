@@ -2799,12 +2799,12 @@ at sample times (defined by parameter <strong>period</strong>) and is otherwise
     extends Interfaces.partialBooleanSO;
 
     CombiTimeTable combiTimeTable(
-      table=if n > 0 then if startValue then [table[1], 1.0; table, {mod(i + 1, 2.0) for i in 1:n}] else [table[1], 0.0; table, {mod(i, 2.0) for i in 1:n}] else if startValue then [0.0, 1.0] else [0.0, 0.0],
+      final table=if n > 0 then if startValue then [table[1], 1.0; table, {mod(i + 1, 2.0) for i in 1:n}] else [table[1], 0.0; table, {mod(i, 2.0) for i in 1:n}] else if startValue then [0.0, 1.0] else [0.0, 0.0],
       final smoothness=Modelica.Blocks.Types.Smoothness.ConstantSegments,
       final columns={2},
-      extrapolation=extrapolation,
-      startTime=startTime,
-      shiftTime=shiftTime) annotation(Placement(transformation(extent={{-30,-10},{-10,10}})));
+      final extrapolation=extrapolation,
+      final startTime=startTime,
+      final shiftTime=shiftTime) annotation(Placement(transformation(extent={{-30,-10},{-10,10}})));
     Modelica.Blocks.Math.RealToBoolean realToBoolean annotation(Placement(transformation(extent={{10,-10},{30,10}})));
 
     protected
@@ -3134,12 +3134,12 @@ The Integer output y is a step signal:
     extends Interfaces.IntegerSO;
 
     CombiTimeTable combiTimeTable(
-      table=table,
+      final table=table,
       final smoothness=Modelica.Blocks.Types.Smoothness.ConstantSegments,
       final columns={2},
-      extrapolation=extrapolation,
-      startTime=startTime,
-      shiftTime=shiftTime) annotation(Placement(transformation(extent={{-30,-10},{-10,10}})));
+      final extrapolation=extrapolation,
+      final startTime=startTime,
+      final shiftTime=shiftTime) annotation(Placement(transformation(extent={{-30,-10},{-10,10}})));
     Modelica.Blocks.Math.RealToInteger realToInteger annotation(Placement(transformation(extent={{10,-10},{30,10}})));
 
     protected
