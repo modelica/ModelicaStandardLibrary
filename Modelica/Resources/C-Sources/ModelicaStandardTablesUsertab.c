@@ -30,20 +30,21 @@
 */
 
 /* The usertab function needs to be in a separate object or gcc/clang
- * optimize the code in such a way that the user-defined usertab gets
- * sent the wrong input.
- *
- * NOTE: If a dummy usertab is included in your code, you may be unable
- * to also provide a user-defined usertab. If you use dynamic linking
- * this is sometimes possible: when the simulation executable provides
- * a usertab object, it will be part of the table of loaded objects and
- * when later loading the shared object version of ModelicaStandardTables,
- * the dummy usertab will not be loaded by the dynamic linker; this is
- * what can confuse C-compilers and why this function is in a separate
- * file).
- *
- * The interface of usertab is defined in ModelicaStandardTables.c
+   optimize the code in such a way that the user-defined usertab gets
+   sent the wrong input.
+
+   NOTE: If a dummy usertab is included in your code, you may be unable
+   to also provide a user-defined usertab. If you use dynamic linking
+   this is sometimes possible: when the simulation executable provides
+   a usertab object, it will be part of the table of loaded objects and
+   when later loading the shared object version of ModelicaStandardTables,
+   the dummy usertab will not be loaded by the dynamic linker; this is
+   what can confuse C-compilers and why this function is in a separate
+   file).
+
+   The interface of usertab is defined in ModelicaStandardTables.c
  */
+
 #include "ModelicaUtilities.h"
 
 #if defined(DUMMY_FUNCTION_USERTAB)
