@@ -5694,11 +5694,3 @@ static READ_RESULT readTable(_In_z_ const char* fileName, _In_z_ const char* tab
     return NULL;
 #endif /* #if !defined(NO_FILE_SYSTEM) */
 }
-
-#if defined(DUMMY_FUNCTION_USERTAB)
-int usertab(char* tableName, int nipo, int dim[], int* colWise,
-            double** table) {
-    ModelicaError("Function \"usertab\" is not implemented\n");
-    return 1; /* Error */
-}
-#endif /* #if defined(DUMMY_FUNCTION_USERTAB) */
