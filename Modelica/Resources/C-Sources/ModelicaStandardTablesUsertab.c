@@ -48,7 +48,7 @@
 #include "ModelicaUtilities.h"
 
 #if defined(DUMMY_FUNCTION_USERTAB)
-#if (defined(__clang__) || defined(__GNUC__)) && !(defined(__MINGW32__) || defined(__MINGW64__))
+#if (defined(__clang__) || defined(__GNUC__)) && !(defined(__MINGW32__) || defined(__MINGW64__) || defined(__CYGWIN__))
 int usertab(char* tableName, int nipo, int dim[], int* colWise,
             double** table) __attribute__ ((weak, alias ("dummy_usertab")));
 #define USERTAB_NAME dummy_usertab
@@ -56,7 +56,7 @@ int usertab(char* tableName, int nipo, int dim[], int* colWise,
 #define USERTAB_NAME usertab
 #endif /* clang/gcc weak linking */
 int USERTAB_NAME(char* tableName, int nipo, int dim[], int* colWise,
-            double** table) {
+                 double** table) {
     ModelicaError("Function \"usertab\" is not implemented\n");
     return 1; /* Error */
 }
