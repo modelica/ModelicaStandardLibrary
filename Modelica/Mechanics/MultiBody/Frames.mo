@@ -438,7 +438,7 @@ from the orientation object R2 that describes the orientation to rotate from fra
     annotation(Inline=true, Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-R2 = Frames.<strong>relativeRotation</strong>(R1,R_rel);
+R2 = Frames.<strong>absoluteRotation</strong>(R1,R_rel);
 </pre></blockquote>
 
 <h4>Description</h4>
