@@ -2001,11 +2001,11 @@ An error occurs if the elements of the input <code>u</code> is zero.
               textString="∠")}),                                   Diagram(coordinateSystem(preserveAspectRatio=false)),
         Documentation(info="<html>
 <p>This complex block is used to determine variables of a Bode diagram for the output <code>y</code>. 
-The output <code>y</code> if calculated by <code>u / divisor</code> if <code>useDivisor == true</code>. 
+The output <code>y</code> is calculated by <code>u / divisor</code> if <code>useDivisor == true</code>. 
 Otherwise the output <code>y = u</code>.</p>
 <ul>
 <li><code>abs_y</code> Absolute value of <code>y</code></li>
-<li><code>arg_y</code> Anglie of <code>y</code></li>
+<li><code>arg_y</code> Angle of <code>y</code></li>
 <li><code>dB_y</code> Logarithm to the base 10 of the absolute value of <code>y</code> in dB</li>
 </ul>
 </html>"));
