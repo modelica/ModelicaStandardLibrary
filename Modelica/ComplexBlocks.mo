@@ -1,4 +1,4 @@
-﻿within Modelica;
+within Modelica;
 package ComplexBlocks
   "Library of basic input/output control blocks with Complex signals"
   extends Modelica.Icons.Package;
@@ -1912,8 +1912,7 @@ An error occurs if the elements of the input <code>u</code> is zero.
       Sources.ComplexConstant complexOne(final k=Complex(1, 0)) if not useDivisor "Complex(1,0)" annotation (Placement(transformation(extent={{-100,-50},{-80,-30}})));
       Division division(final useConjugateInput1=false, final useConjugateInput2=false)
                         annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
-      ComplexToPolar complexToPolar(final useConjugateInput=false)
-                                    annotation (Placement(transformation(
+      ComplexToPolar complexToPolar(final useConjugateInput=false) annotation (Placement(transformation(
             extent={{-10,10},{10,-10}},
             rotation=270,
             origin={0,-20})));
@@ -1943,8 +1942,7 @@ An error occurs if the elements of the input <code>u</code> is zero.
       connect(gain.y, dB_y) annotation (Line(points={{31,-70},{40,-70},{40,-90},{0,-90},{0,-110}},color={0,0,127}));
       connect(limiter.y, log10_y.u) annotation (Line(points={{-29,-70},{-22,-70}}, color={0,0,127}));
       connect(complexToPolar.len, limiter.u) annotation (Line(points={{-6,-32},{-6,-40},{-60,-40},{-60,-70},{-52,-70}}, color={0,0,127}));
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false), graphics={
-                                    Rectangle(
+      annotation (Icon(graphics={Rectangle(
             extent={{-100,-100},{100,100}},
             lineColor={0,0,127},
             fillColor={255,255,255},
@@ -1998,7 +1996,7 @@ An error occurs if the elements of the input <code>u</code> is zero.
               lineThickness=0.5,
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid,
-              textString="∠")}),                                   Diagram(coordinateSystem(preserveAspectRatio=false)),
+              textString="∠")}),
         Documentation(info="<html>
 <p>This complex block is used to determine variables of a Bode diagram for the output <code>y</code>. 
 The output <code>y</code> is calculated by <code>u / divisor</code> if <code>useDivisor == true</code>. 
