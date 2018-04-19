@@ -9186,6 +9186,8 @@ Copyright &copy; 1998-2018, Modelica Association.
 </p>
 </html>", revisions="<html>
 <ul>
+<li><em>February 01, 2017</em> by Thomas Beutlich:<br/>
+    Fixed data errors of the NASA Glenn coefficients in some ideal gases (CH2, CH3, CH3OOH, C2CL2, C2CL4, C2CL6, C2HCL, C2HCL3, CH2CO_ketene, O_CH_2O, HO_CO_2OH, CH2BrminusCOOH, C2H3CL, CH2CLminusCOOH, HO2, HO2minus, OD, ODminus), see <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/1922\">#1922</a></li>
 <li><em>May 16, 2013</em> by Stefan Wischhusen (XRG Simulation):<br/>
     Added new media models Air.ReferenceMoistAir, Air.ReferenceAir, R134a.</li>
 <li><em>May 25, 2011</em> by Francesco Casella:<br/>Added min/max attributes to Water, TableBased, MixtureGasNasa, SimpleAir and MoistAir local types.</li>
