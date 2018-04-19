@@ -247,7 +247,14 @@ conversion(
  noneFromVersion="1.1"),
 Documentation(info="<html>
 <p>Complex number defined as a record containing real and imaginary part, utilizing operator overloading.</p>
-</html>"),
+<p>
+<strong>Licensed by the Modelica Association under the 3-Clause BSD License</strong><br>
+Copyright &copy; 2010-2018, DLR, A.&nbsp;Haumer and <a href=\"modelica://Modelica.UsersGuide.Contact\">main contributors</a>.
+</p>
+
+<p>
+<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em>
+</p></html>"),
     Icon(graphics={Rectangle(
           lineColor={160,160,164},
           fillColor={160,160,164},
