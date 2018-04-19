@@ -1643,7 +1643,7 @@ This class summarizes contact information of the contributing persons.
       <td valign=\"top\">2017-07-04</td>
       <td valign=\"top\">C. Kral</td>
       <td valign=\"top\">Added comment on version number and date, see
-      <a href=\"https://github.com/modelica/Modelica/issues/2219\">#2219</a></td>
+      <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2219\">#2219</a></td>
     </tr>
     <tr>
       <td valign=\"top\">1.1.0</td>
@@ -1715,7 +1715,7 @@ This class summarizes contact information of the contributing persons.
 <p>The main icon color of a component shall be the same for all components of one library.</p>
 
 <p>White fill areas of an icon shall not be used to hide parts of an icon, see
-<a href=\"https://github.com/modelica/Modelica/issues/2031\">#2031</a>.</p>
+<a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2031\">#2031</a>.</p>
 
 <h4>Icon size</h4>
 

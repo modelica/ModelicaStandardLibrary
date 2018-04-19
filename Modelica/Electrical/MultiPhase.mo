@@ -113,7 +113,7 @@ email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
 <h5>Version 3.2.2, 2018-01-02 (Anton Haumer, Christian Kral)</h5>
 <ul>
   <li>Shortened default component names, see
-      <a href=\"https://github.com/modelica/Modelica/issues/2301\">#2301</a></li>
+      <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2301\">#2301</a></li>
 <li>Removed redundant (and not identical) parameter m from
     <a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.MutualInductor\">MutualInductor</a>,
     see #2202</li>

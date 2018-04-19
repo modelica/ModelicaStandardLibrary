@@ -112,19 +112,19 @@ email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
 <h5>Version 3.x.x, 2017-12-10</h5>
 <ul>
   <li>Fixed propagation of excitation leakage factor, see
-      <a href=\"https://github.com/modelica/Modelica/issues/2403\">#2403</a></li>
+      <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2403\">#2403</a></li>
   <li>Unified communication interval, see
-      <a href=\"https://github.com/modelica/Modelica/issues/2279\">#2279</a></li>
+      <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2279\">#2279</a></li>
   <li>Unified simulation tolerances, see
-      <a href=\"https://github.com/modelica/Modelica/issues/2278\">#2278</a></li>
+      <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2278\">#2278</a></li>
 <li>Fixed wrong initial conditions of
-    <a href=\"https://github.com/modelica/Modelica/issues/2277\">#2277</a></li>
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2277\">#2277</a></li>
 <li>Added more examples from
     <a href=\"modelica://Modelica.Electrical.Machines.Examples\">Machines.Examples</a>, see
-    <a href=\"https://github.com/modelica/Modelica/issues/2276\">#2276</a></li>
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2276\">#2276</a></li>
 <li>Added
 <a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Sensors.RotorDisplacementAngle\">RotorDisplacementAngle</a>, see
-    <a href=\"https://github.com/modelica/Modelica/issues/2050\">#2050</a></li></li>
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2050\">#2050</a></li></li>
 </ul>
 
 <h5>Version 3.2.2, 2015-02-02</h5>
@@ -138,20 +138,20 @@ email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
 </ul></li>
 <li>Removed parameter text from icon layer for reluctance and permeance model</li>
 <li>Fixed issues of ticket
-    <a href=\"https://github.com/modelica/Modelica/issues/1524\">#1524</a></li>
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/1524\">#1524</a></li>
 <li>Restructured cage models with reluctance instead of inductance model according to ticket
-    <a href=\"https://github.com/modelica/Modelica/issues/1537\">#1537</a></li>
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/1537\">#1537</a></li>
 <li>Bug fixes according to
-    <a href=\"https://github.com/modelica/Modelica/issues/1226\">#1226</a></li>
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/1226\">#1226</a></li>
 <li>Added magnitude and argument of complex magnetic potentials, magnetic fluxes, voltages and currents in interface, electromagnetic coupling and machine models, see #1405</li>
 <li>Added active, reactive and apparent power and power factor in interface and machine models, see
-    <a href=\"https://github.com/modelica/Modelica/issues/1405\">#1405</a></li>
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/1405\">#1405</a></li>
 <li>Added new interface model
     <a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Interfaces.PartialTwoPortExtended\">PartialTwoPortExtended</a>
     to simplify consistent inclusion of variables, see
-    <a href=\"https://github.com/modelica/Modelica/issues/1405\">#1405</a></li>
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/1405\">#1405</a></li>
 <li>Changed icon and location of terminal box according to
-    <a href=\"https://github.com/modelica/Modelica/issues/1706\">#1706</a></li>
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/1706\">#1706</a></li>
 </ul>
 
 <h5>Version 0.4.1, 2013-12-18</h5>
@@ -167,13 +167,13 @@ email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
 <h5>Version 0.4.0, 2013-11-13</h5>
 <ul>
 <li>Renamed all machine class names according to
-    <a href=\"https://github.com/modelica/Modelica/issues/1348\">#1348</a></li>
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/1348\">#1348</a></li>
 </ul>
 
 <h5>Version 0.3.0, 2013-11-07</h5>
 <ul>
 <li>Renamed the library from QuasiStationaryFundamantalWave to QuasiStaticFundamantalWave according to
-    <a href=\"https://github.com/modelica/Modelica/issues/1344\">#1344</a></li>
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/1344\">#1344</a></li>
 </ul>
 
 <h5>Version 0.2.5, 2013-11-06</h5>

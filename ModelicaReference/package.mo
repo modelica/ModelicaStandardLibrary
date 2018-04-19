@@ -6978,7 +6978,7 @@ It is based on the
       <ul>
       <li>Changed grammar to have colon emphasized as well, since it may otherwise look like a dot after 't' due to lack of kerning.</li>
       <li>Annotation inverse moved to annotations.</li>
-      <li>The operator sign does not generate events, <a href=\"https://github.com/modelica/Modelica/issues/2324\">#2324</a></li>
+      <li>The operator sign does not generate events, <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2324\">#2324</a></li>
       <li>Some stylistic improvements of the English text</li>
       </ul>
       </td>

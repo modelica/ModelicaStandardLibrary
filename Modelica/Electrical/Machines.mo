@@ -115,17 +115,17 @@ email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
 <h5>Version 3.2.2, 2017-12-10 (Anton Haumer, Christian Kral)</h5>
 <ul>
   <li>Shortened default component names, see
-      <a href=\"https://github.com/modelica/Modelica/issues/2301\">#2301</a></li>
+      <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2301\">#2301</a></li>
   <li>Added new example
       <a href=\"Modelica.Electrical.Machines.Examples.SynchronousInductionMachines.SMEE_DOL\">SMEE_DOL</a>, see
-      <a href=\"https://github.com/modelica/Modelica/issues/2388\">#2388</a></li>
+      <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2388\">#2388</a></li>
   <li>Fixed bug of wrong smooth order in
       <a href=\"modelica://Modelica.Electrical.Machines.Losses.DCMachines.Brush\">Brush</a>, see
-      <a href=\"https://github.com/modelica/Modelica/issues/2315\">#2315</a></li>
+      <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2315\">#2315</a></li>
   <li>Unified communication interval, see
-      <a href=\"https://github.com/modelica/Modelica/issues/2279\">#2279</a></li>
+      <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2279\">#2279</a></li>
   <li>Unified simulation tolerances, see
-      <a href=\"https://github.com/modelica/Modelica/issues/2278\">#2278</a></li>
+      <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2278\">#2278</a></li>
   <li>Fixed icons of Modelica.Electrical.Machines.BasicMachines.Components, see #2031</li>
   <li>Updated blocks and functions towards multi phase systems greater or equal to three</li>
   <li>Added standard blocks and functions</li>
@@ -2997,7 +2997,7 @@ To drive at higher torque, i.e., produce more electric power, excitation has to 
 <h5>Note</h5>
 <p>The mains switch is closed at time = 0 in order to avoid non physical noise calculated by the <code>rotorDisplacementAngle</code>.
 This noise is caused by the interaction of the high resistance of the switch and the machine, see
-<a href=\"https://github.com/modelica/Modelica/issues/2388\">#2388</a>.
+<a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2388\">#2388</a>.
 </p>
 </html>"));
       end SMEE_DOL;

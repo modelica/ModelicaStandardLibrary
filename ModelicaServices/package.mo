@@ -14,7 +14,7 @@ package ModelicaServices "ModelicaServices (Default implementation) - Models and
 <ul>
 <li> New function
      <a href=\"modelica://ModelicaServices.System.exit\">exit</a>
-     to terminate the Modelica environment, see <a href=\"https://github.com/modelica/Modelica/issues/2211\">#2211</a>.
+     to terminate the Modelica environment, see <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2211\">#2211</a>.
      </li>
 </ul>
 
