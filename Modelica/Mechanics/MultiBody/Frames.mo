@@ -444,7 +444,7 @@ R2 = Frames.<strong>relativeRotation</strong>(R1,R_rel);
 <h4>Description</h4>
 <p>
 The function call <code>Frames.<strong>absoluteRotation</strong>(R1,R_rel)</code> returns
-orientation object R2 hat describes the orientation frame&nbsp;0 to frame&nbsp;2
+orientation object R2 that describes the orientation frame&nbsp;0 to frame&nbsp;2
 from the orientation object R1 that describes the orientation to rotate from frame&nbsp;0 to frame&nbsp;1 and
 from the relative orientation object R_rel that describes the orientation to rotate from frame&nbsp;1 to frame&nbsp;2.
 </p>
@@ -1711,7 +1711,7 @@ Q2 = Quaternions.<strong>absoluteRotation</strong>(Q1, Q_rel);
 <p>
 This function returns
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Quaternions.Orientation\">quaternions orientation</a>&nbsp;Q2
-hat describes the orientation frame&nbsp;0 to frame&nbsp;2 from the
+that describes the orientation frame&nbsp;0 to frame&nbsp;2 from the
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Quaternions.Orientation\">quaternions orientation</a>&nbsp;Q1
 that describes the orientation to rotate from frame&nbsp;0 to frame&nbsp;1 and from the relative
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Quaternions.Orientation\">quaternions orientation</a> Q_rel
@@ -2640,7 +2640,7 @@ T2 = TransformationMatrices.<strong>absoluteRotation</strong>(T1, T_rel);
 <p>
 This function returns
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation\">transformation matrix</a>&nbsp;T2
-hat describes the orientation frame&nbsp;0 to frame&nbsp;2 from the
+that describes the orientation frame&nbsp;0 to frame&nbsp;2 from the
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation\">transformation matrix</a>&nbsp;T1
 that describes the orientation to rotate from frame&nbsp;0 to frame&nbsp;1 and from the relative
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation\">transformation matrix</a> T2_rel
