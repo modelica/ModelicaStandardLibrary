@@ -914,8 +914,8 @@ Example:
   block Add "Output the sum of the two inputs"
     extends Interfaces.SI2SO;
 
-    parameter Real k1=+1 "Gain of upper input";
-    parameter Real k2=+1 "Gain of lower input";
+    parameter Real k1=+1 "Gain of input signal 1";
+    parameter Real k2=+1 "Gain of input signal 2";
 
   equation
     y = k1*u1 + k2*u2;
@@ -975,16 +975,16 @@ Example:
   block Add3 "Output the sum of the three inputs"
     extends Modelica.Blocks.Icons.Block;
 
-    parameter Real k1=+1 "Gain of upper input";
-    parameter Real k2=+1 "Gain of middle input";
-    parameter Real k3=+1 "Gain of lower input";
-    Interfaces.RealInput u1 "Connector 1 of Real input signals" annotation (
+    parameter Real k1=+1 "Gain of input signal 1";
+    parameter Real k2=+1 "Gain of input signal 2";
+    parameter Real k3=+1 "Gain of input signal 3";
+    Interfaces.RealInput u1 "Connector of Real input signal 1" annotation (
         Placement(transformation(extent={{-140,60},{-100,100}})));
-    Interfaces.RealInput u2 "Connector 2 of Real input signals" annotation (
+    Interfaces.RealInput u2 "Connector of Real input signal 2" annotation (
         Placement(transformation(extent={{-140,-20},{-100,20}})));
-    Interfaces.RealInput u3 "Connector 3 of Real input signals" annotation (
+    Interfaces.RealInput u3 "Connector of Real input signal 3" annotation (
         Placement(transformation(extent={{-140,-100},{-100,-60}})));
-    Interfaces.RealOutput y "Connector of Real output signals" annotation (
+    Interfaces.RealOutput y "Connector of Real output signal" annotation (
         Placement(transformation(extent={{100,-10},{120,10}})));
 
   equation
