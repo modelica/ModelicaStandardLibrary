@@ -51,12 +51,12 @@ end testAllFunctions;
 
 
   annotation (preferredView="info",
-       version="3.2.2",
+       version="3.2.3",
        versionBuild=0,
-       versionDate="2016-03-11",
-       dateModified = "2016-03-11 08:44:41Z",
+       versionDate="2018-08-01",
+       dateModified = "2018-04-20 12:00:00Z",
        revisionId="$Id::                                       $",
-       uses(Modelica(version="3.2.2")),
+       uses(Modelica(version="3.2.3")),
     Documentation(info="<html>
 <p>
 This library provides models and functions to test components of
