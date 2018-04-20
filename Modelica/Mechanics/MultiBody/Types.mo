@@ -127,7 +127,7 @@ are shown for a cylinder:
       choice="pipe" "\"pipe\"",
       choice="beam" "\"beam\"",
       choice="gearwheel" "\"gearwheel\"",
-      choice="vector" "\vector\"",
+      choice="vector" "\"vector\"",
       choice="spring" "\"spring\"",
       choice="modelica://PackageName/PathName.dxf"),
     Documentation(info="<html>
