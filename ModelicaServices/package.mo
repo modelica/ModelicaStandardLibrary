@@ -211,17 +211,18 @@ Specification (version &ge; 3.3).
 
   annotation (
     preferredView="info",
-    version="3.2.2",
+    version="3.2.3",
     versionBuild=0,
-    versionDate="2016-01-15",
-    dateModified = "2016-01-15 08:44:41Z",
+    versionDate="2018-08-01",
+    dateModified = "2018-04-20 12:00:00Z",
     revisionId="$Id::                                       $",
-    uses(Modelica(version="3.x.x")),
+    uses(Modelica(version="3.2.3")),
     conversion(
       noneFromVersion="1.0",
       noneFromVersion="1.1",
       noneFromVersion="1.2",
-      noneFromVersion="3.2.1"),
+      noneFromVersion="3.2.1",
+      noneFromVersion="3.2.2"),
     Documentation(info="<html>
 <p>
 This package contains a set of functions and models to be used in the

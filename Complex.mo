@@ -1,6 +1,6 @@
 within ;
 operator record Complex "Complex number with overloaded operators"
-//record Complex "Complex number with overloaded operators"
+
   replaceable Real re "Real part of complex number" annotation(Dialog);
   replaceable Real im "Imaginary part of complex number" annotation(Dialog);
 
@@ -236,12 +236,13 @@ operator record Complex "Complex number with overloaded operators"
 
 
 annotation (
-version="3.2.2",
+version="3.2.3",
 versionBuild=0,
-versionDate="2016-01-15",
-dateModified = "2016-01-15 08:44:41Z",
+versionDate="2018-08-01",
+dateModified = "2018-04-20 12:00:00Z",
 revisionId="$Id::                                       $",
 conversion(
+ noneFromVersion="3.2.2",
  noneFromVersion="3.2.1",
  noneFromVersion="1.0",
  noneFromVersion="1.1"),
