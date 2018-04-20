@@ -235,7 +235,7 @@ operator record Complex "Complex number with overloaded operators"
   end 'String';
 
 
-annotation (Protection(access=Access.hide),
+annotation (
 version="3.2.2",
 versionBuild=0,
 versionDate="2016-01-15",

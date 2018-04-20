@@ -210,7 +210,6 @@ Specification (version &ge; 3.3).
   end Types;
 
   annotation (
-    Protection(access=Access.hide),
     preferredView="info",
     version="3.2.2",
     versionBuild=0,
