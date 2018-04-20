@@ -1,5 +1,5 @@
 within ;
-package Modelica "Modelica Standard Library - Version 3.x.x"
+package Modelica "Modelica Standard Library - Version 3.2.3"
 extends Modelica.Icons.Package;
 
 
@@ -1919,6 +1919,8 @@ instead of a warning.
 end ParameterDefaults;
 
 package ReleaseNotes "Release notes"
+  extends Modelica.Icons.ReleaseNotes;
+
 class VersionManagement "Version Management"
   extends Modelica.Icons.ReleaseNotes;
 
@@ -2025,6 +2027,14 @@ more of the following changes.
 </ul>
 </html>"));
 end VersionManagement;
+
+class Version_3_2_3 "Version 3.2.3 (August 1, 2018)"
+  extends Modelica.Icons.ReleaseNotes;
+
+ annotation (Documentation(info="<html>
+
+</html>"));
+end Version_3_2_3;
 
 class Version_3_2_2 "Version 3.2.2 (April 3, 2016)"
   extends Modelica.Icons.ReleaseNotes;
@@ -2435,8 +2445,6 @@ The following <font color=\"blue\"><strong>existing components</strong></font> h
 
 </html>"));
 end Version_3_2_2;
-
-  extends Modelica.Icons.ReleaseNotes;
 
 class Version_3_2_1 "Version 3.2.1 (August 14, 2013)"
   extends Modelica.Icons.ReleaseNotes;
@@ -7858,13 +7866,14 @@ end UsersGuide;
 
 annotation (
 preferredView="info",
-version="3.x.x",
+version="3.2.3",
 versionBuild=0,
-versionDate="2016-04-03",
-dateModified = "2016-04-03 08:44:41Z",
+versionDate="2018-08-01",
+dateModified = "2018-08-01 12:00:00Z",
 revisionId="$Id::                                       $",
-uses(Complex(version="3.2.2"), ModelicaServices(version="3.2.2")),
+uses(Complex(version="3.2.3"), ModelicaServices(version="3.2.3")),
 conversion(
+ noneFromVersion="3.2.2",
  noneFromVersion="3.2.1",
  noneFromVersion="3.2",
  noneFromVersion="3.1",
