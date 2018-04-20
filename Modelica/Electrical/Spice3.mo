@@ -5673,7 +5673,7 @@ on the model behaviour.
        constant SI.Temp_K REFTEMP =    300.15;  /* 27 deg C */
 
        constant Real CONSTroot2 =  sqrt(2.0);
-       constant Real CONSTvt0(   final unit= "(J/K)/(A.s)") = Modelica.Constants.k * SI.Conversions.from_degC(27)  / CHARGE; // deg C
+       constant Real CONSTvt0(   final unit= "(J)/(A.s)") = Modelica.Constants.k * SI.Conversions.from_degC(27)  / CHARGE; // deg C
        constant Real CONSTKoverQ(  final unit= "(J/K)/(A.s)")= Modelica.Constants.k / CHARGE;
        constant Real CONSTe =      exp(1.0);
 

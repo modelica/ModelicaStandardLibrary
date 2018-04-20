@@ -711,7 +711,7 @@ model HeatingDiode "Simple diode with heating port"
   parameter Real XTI=3 "Temperature exponent of saturation current";
   extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(useHeatPort=true);
 
-  SI.Temperature vt_t "Temperature voltage";
+  SI.Voltage vt_t "Temperature voltage";
   SI.Current id "Diode current";
   protected
   SI.Temperature htemp "Auxiliary temperature";

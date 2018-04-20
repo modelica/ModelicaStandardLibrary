@@ -380,7 +380,7 @@ type Init = enumeration(
       "Arrow head width / arrow diameter";
 
     // Other defaults
-    constant SI.Diameter BodyCylinderDiameterFraction=3
+    constant Real BodyCylinderDiameterFraction=3
       "Default for body cylinder diameter as a fraction of body sphere diameter";
     constant Real JointRodDiameterFraction=2
       "Default for rod diameter as a fraction of joint sphere diameter attached to rod";
