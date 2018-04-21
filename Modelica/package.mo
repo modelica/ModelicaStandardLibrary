@@ -7348,7 +7348,7 @@ class Contact "Contact"
 
  annotation (Documentation(info="<html>
 <dl><dt>The Modelica Standard Library (this Modelica package) is developed by many people from different organizations (see list below). It is licensed under the <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">BSD 3-Clause License</a> by:</dt>
-<dt>&nbsp;</dt>
+<dt><br /></dt>
 <dd>Modelica Association</dd>
 <dd>(Ideella F&ouml;reningar 822003-8858 in Link&ouml;ping)</dd>
 <dd>c/o PELAB, IDA, Link&ouml;pings Universitet</dd>
@@ -7356,15 +7356,32 @@ class Contact "Contact"
 <dd>Sweden</dd>
 <dd>email: <a href=\"mailto:Board@Modelica.org\">Board@Modelica.org</a></dd>
 <dd>web: <a href=\"https://www.Modelica.org\">https://www.Modelica.org</a></dd>
-<dd>&nbsp;&nbsp;</dd>
+<dd><br /></dd>
 
-<dt>The development of this Modelica package, starting with version 3.2.1, is organized by:</dt>
+<dt>The development of this Modelica package, starting with version 3.2.3, is organized by:</dt>
+<dd>Thomas Beutlich</dd>
+<dd>ESI ITI GmbH</dd>
+<dd>Scheriner Str. 1</dd>
+<dd>D-01067 Dresden</dd>
+<dd>Germany</dd>
+<dd>email: <a href=\"mailto:Thomas.Beutlich@esi-group.com\">Thomas.Beutlich@esi-group.com</a></dd>
+<dd><br /></dd>
+<dd>Dietmar Winkler</dd>
+<dd>University College of Southeast Norway (USN)</dd>
+<dd>Department of Electrical Engineering, Information Technology and Cybernetics</dd>
+<dd>Post box 235</dd>
+<dd>N-3603 Kongsberg</dd>
+<dd>Norway</dd>
+<dd>email: <a href=\"mailto:Dietmar.Winkler@usn.no\">Dietmar.Winkler@usn.no</a></dd>
+<dd><br /></dd>
+
+<dt>The development of this Modelica package of version 3.2.2, was organized by:</dt>
 <dd><a href=\"http://www.haumer.at/eindex.htm\">Anton Haumer</a></dd>
 <dd>Technical Consulting &amp; Electrical Engineering</dd>
 <dd>A-3423 St.Andrae-Woerdern, Hadersfelderweg 21</dd>
 <dd>Austria</dd>
 <dd>email: <a href=\"mailto:A.Haumer@Haumer.at\">A.Haumer@Haumer.at</a></dd>
-<dd>&nbsp;&nbsp;</dd>
+<dd><br /></dd>
 
 <dt>The development of this Modelica package up to and including version 3.2.1 was organized by:</dt>
 <dd><a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a></dd>
