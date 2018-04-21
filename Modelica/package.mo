@@ -7377,130 +7377,152 @@ class Contact "Contact"
 <dd>email: <a href=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</a></dd>
 </dl>
 <p>Since end of 2007, the development of the sublibraries of package Modelica is organized by personal and/or organizational <strong>library officers</strong> assigned by the Modelica Association. They are responsible for the maintenance and for the further organization of the development. Other persons may also contribute, but the final decision for library improvements and/or changes is performed by the responsible library officer(s). In order that a new sublibrary or a new version of a sublibrary is ready to be released, the responsible library officers report the changes to the members of the Modelica Association and the library is made available for beta testing to interested parties before a final decision. A new release of a sublibrary is formally decided by voting of the Modelica Association members.</p>
-<p>The following library officers are currently assigned:</p>
+<p>As of March 21st, 2018, the following library officers are assigned:</p>
 
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><td valign=\"top\"><strong>Sublibraries</strong> </td>
    <td valign=\"top\"><strong>Library officers</strong></td>
 </tr>
 
-<tr><td valign=\"top\"> Complex </td>
-   <td valign=\"top\"> DLR Institute of System Dynamics and Control, Oberpfaffenhofen, Germany<br>
-        (Martin Otter)<br>
-        Anton Haumer, Consultant, St.Andrae-Woerdern, Austria, <br>
-        Christian Kral, Vienna, Austria, <br>
-        AIT, Vienna, Austria
-</td>
-
+<tr>
+<td align=\"left\"><code>Blocks</code></td>
+<td align=\"left\">Martin Otter, Anton Haumer</td>
 </tr>
-
-<tr><td valign=\"top\"> Modelica.Blocks <br>
-                      Modelica.Constants </td>
-   <td valign=\"top\"> DLR Institute of System Dynamics and Control, Oberpfaffenhofen, Germany<br>
-        (Martin Otter)</td>
+<tr>
+<td align=\"left\"><code>ComplexBlocks</code></td>
+<td align=\"left\">Anton Haumer, Christian Kral</td>
 </tr>
-
-<tr><td valign=\"top\"> Modelica.Electrical.Analog<br>
-                      Modelica.Electrical.Digital<br>
-                      Modelica.Electrical.Spice3 </td>
-   <td valign=\"top\"> Fraunhofer Institute for Integrated Circuits, Dresden, Germany<br>
-      (Christoph Clauss)</td>
+<tr>
+<td align=\"left\"><code>Blocks.Tables</code></td>
+<td align=\"left\">Thomas Beutlich, Martin Otter, Anton Haumer</td>
 </tr>
-
-<tr><td valign=\"top\"> Modelica.ComplexBlocks<br>
-                      Modelica.Electrical.Machines<br>
-                      Modelica.Electrical.MultiPhase<br>
-                      Modelica.Electrical.QuasiStationary </td>
-   <td valign=\"top\"> Anton Haumer, Consultant, St.Andrae-Woerdern, Austria,<br>
-        Christian Kral, Vienna, Austria, <br>
-        AIT, Vienna, Austria</td>
+<tr>
+<td align=\"left\"><code>StateGraph</code></td>
+<td align=\"left\">Martin Otter, Hans Olsson</td>
 </tr>
-
-<tr><td valign=\"top\"> Modelica.Magnetic.FluxTubes </td>
-   <td valign=\"top\"> Thomas B&ouml;drich, Dresden, Germany<br>
-                               (Dresden University of Technology,<br>
-                               Institute of Electromechanical and Electronic Design)
-</td>
+<tr>
+<td align=\"left\"><code>Electrical.Analog</code></td>
+<td align=\"left\">Christoph Clauss, Kristin Majetta, Christian Kral</td>
 </tr>
-
-<tr><td valign=\"top\"> Modelica.Magnetic.FundamentalWave </td>
-   <td valign=\"top\"> Christian Kral, Vienna, Austria, <br>
-                     AIT, Vienna, Austria<br>
-                     Anton Haumer, Consultant, St.Andrae-Woerdern, Austria
-</td>
+<tr>
+<td align=\"left\"><code>Electrical.Digital</code></td>
+<td align=\"left\">Christoph Clauss, Kristin Majetta</td>
 </tr>
-
-<tr><td valign=\"top\"> Modelica.Fluid </td>
-   <td valign=\"top\"> Politecnico di Milano (Francesco Casella), and<br>
-                            R&uuml;diger Franke (ABB)</td>
+<tr>
+<td align=\"left\"><code>Electrical.Machines</code></td>
+<td align=\"left\">Anton Haumer, Christian Kral</td>
 </tr>
-
-<tr><td valign=\"top\"> Modelica.Fluid.Dissipation </td>
-   <td valign=\"top\"> XRG Simulation, Hamburg, Germany (Stefan Wischhusen)</td>
+<tr>
+<td align=\"left\"><code>Electrical.Multiphase</code></td>
+<td align=\"left\">Anton Haumer, Christian Kral</td>
 </tr>
-
-<tr><td valign=\"top\"> Modelica.Icons </td>
-   <td valign=\"top\"> Modelon AB, Lund, Sweden (Johan Andreasson) </td>
+<tr>
+<td align=\"left\"><code>Electrical.PowerConverters</code></td>
+<td align=\"left\">Christian Kral, Anton Haumer</td>
 </tr>
-
-<tr><td valign=\"top\"> Modelica.Math </td>
-   <td valign=\"top\"> DLR Institute of System Dynamics and Control, Oberpfaffenhofen, Germany<br>
-      (Martin Otter)</td>
+<tr>
+<td align=\"left\"><code>Electrical.QuasiStationary</code></td>
+<td align=\"left\">Anton Haumer, Christian Kral</td>
 </tr>
-
-<tr><td valign=\"top\"> Modelica.ComplexMath </td>
-   <td valign=\"top\"> DLR Institute of System Dynamics and Control, Oberpfaffenhofen, Germany<br>
-      (Martin Otter)<br>
-      Anton Haumer, Consultant, St.Andrae-Woerdern, Austria,<br>
-      Christian Kral, Vienna, Austria, <br>
-      AIT, Vienna, Austria
-   </td>
+<tr>
+<td align=\"left\"><code>Electrical.Spice3</code></td>
+<td align=\"left\">Christoph Clauss, Kristin Majetta</td>
 </tr>
-
-<tr><td valign=\"top\"> Modelica.Mechanics.MultiBody </td>
-   <td valign=\"top\"> DLR Institute of System Dynamics and Control, Oberpfaffenhofen, Germany<br>
-      (Jakub Tobolar, Martin Otter),<br>
-       Modelon AB, Lund, Sweden (Johan Andreasson) </td>
+<tr>
+<td align=\"left\"><code>Magnetic.FluxTubes</code></td>
+<td align=\"left\">Thomas B&ouml;drich, Johannes Ziske</td>
 </tr>
-
-<tr><td valign=\"top\"> Modelica.Mechanics.Rotational </td>
-   <td valign=\"top\"> DLR Institute of System Dynamics and Control, Oberpfaffenhofen, Germany<br>
-      (Jakub Tobolar, Martin Otter)<br>
-      Anton Haumer, Consultant, St.Andrae-Woerdern, Austria,<br>
-      Christian Kral, Vienna, Austria, <br>
-      AIT, Vienna, Austria, <br>
-      Modelon AB, Lund, Sweden (Johan Andreasson)</td>
+<tr>
+<td align=\"left\"><code>Magnetic.FundamentalWave</code></td>
+<td align=\"left\">Christian Kral, Anton Haumer</td>
 </tr>
-
-<tr><td valign=\"top\"> Modelica.Mechanics.Translational </td>
-   <td valign=\"top\"> Anton Haumer, Consultant, St.Andrae-Woerdern, Austria,<br>
-      Christian Kral, Vienna, Austria, <br>
-      AIT, Vienna, Austria,<br>
-      DLR Institute of System Dynamics and Control, Oberpfaffenhofen, Germany<br>
-      (Jakub Tobolar, Martin Otter)<br>
-       Modelon AB, Lund, Sweden (Johan Andreasson)</td>
+<tr>
+<td align=\"left\"><code>Magnetic.QuasiStatic</code></td>
+<td align=\"left\">Christian Kral, Anton Haumer</td>
 </tr>
-
-<tr><td valign=\"top\"> Modelica.Media </td>
-   <td valign=\"top\"> Modelon AB, Lund, Sweden (Hubertus Tummescheit) </td>
+<tr>
+<td align=\"left\"><code>Mechanics.MultiBody</code></td>
+<td align=\"left\">Jakub Tobolar, Martin Otter</td>
 </tr>
-
-<tr><td valign=\"top\"> Modelica.SIunits <br>
-      Modelica.StateGraph </td>
-   <td valign=\"top\"> DLR Institute of System Dynamics and Control, Oberpfaffenhofen, Germany<br>
-      (Martin Otter)</td>
+<tr>
+<td align=\"left\"><code>Mechanics.Rotational</code></td>
+<td align=\"left\">Jakub Tobolar, Martin Otter, Anton Haumer, Christian Kral</td>
 </tr>
-
-<tr><td valign=\"top\"> Modelica.Thermal.FluidHeatFlow <br>
-      Modelica.Thermal.HeatTransfer </td>
-   <td valign=\"top\"> Anton Haumer, Consultant, St.Andrae-Woerdern, Austria, and<br>
-      Christian Kral, Vienna, Austria, <br>
-      AIT, Vienna, Austria</td></tr>
-
-<tr><td valign=\"top\"> Modelica.Utilities </td>
-   <td valign=\"top\"> DLR Institute of System Dynamics and Control, Oberpfaffenhofen, Germany<br>
-      (Martin Otter)<br>
-      Dassault Syst&egrave;mes AB, Lund, Sweden (Hans Olsson)</td>
+<tr>
+<td align=\"left\"><code>Mechanics.Translational</code></td>
+<td align=\"left\">Anton Haumer, Jakub Tobolar, Martin Otter, Christian Kral</td>
+</tr>
+<tr>
+<td align=\"left\"><code>Fluid</code></td>
+<td align=\"left\">R&uuml;diger Franke, Francesco Casella, Hubertus Tummescheit</td>
+</tr>
+<tr>
+<td align=\"left\"><code>Fluid.Dissipation</code></td>
+<td align=\"left\">Stefan Wischhusen, Francesco Casella</td>
+</tr>
+<tr>
+<td align=\"left\"><code>Media</code></td>
+<td align=\"left\">Hubertus Tummescheit, Francesco Casella, R&uuml;diger Franke</td>
+</tr>
+<tr>
+<td align=\"left\"><code>Thermal.FluidHeatFlow</code></td>
+<td align=\"left\">Anton Haumer, Christian Kral</td>
+</tr>
+<tr>
+<td align=\"left\"><code>Thermal.HeatTransfer</code></td>
+<td align=\"left\">Anton Haumer, Christian Kral</td>
+</tr>
+<tr>
+<td align=\"left\"><code>Math</code></td>
+<td align=\"left\">Martin Otter, Hans Olsson</td>
+</tr>
+<tr>
+<td align=\"left\"><code>ComplexMath</code></td>
+<td align=\"left\">Anton Haumer, Martin Otter, Christian Kral</td>
+</tr>
+<tr>
+<td align=\"left\"><code>Utilities</code></td>
+<td align=\"left\">Martin Otter, Hans Olsson, Dag Br&uuml;ck</td>
+</tr>
+<tr>
+<td align=\"left\"><code>Constants</code></td>
+<td align=\"left\">Martin Otter, Hans Olsson</td>
+</tr>
+<tr>
+<td align=\"left\"><code>Icons</code></td>
+<td align=\"left\">Christian Kral</td>
+</tr>
+<tr>
+<td align=\"left\"><code>SIunits</code></td>
+<td align=\"left\">Martin Otter, Christian Kral</td>
+</tr>
+<tr>
+<td align=\"left\"><code>C-Sources</code></td>
+<td align=\"left\">Thomas Beutlich, Hans Olsson, Martin Sj&ouml;lund</td>
+</tr>
+<tr>
+<td align=\"left\"><code>Reference</code></td>
+<td align=\"left\">Dietmar Winkler, Hans Olsson</td>
+</tr>
+<tr>
+<td align=\"left\"><code>Services</code></td>
+<td align=\"left\">Hans Olsson, Martin Otter</td>
+</tr>
+<tr>
+<td align=\"left\"><code>Complex</code></td>
+<td align=\"left\">Anton Haumer, Christian Kral</td>
+</tr>
+<tr>
+<td align=\"left\"><code>Test</code></td>
+<td align=\"left\">Leo Gall, Martin Otter</td>
+</tr>
+<tr>
+<td align=\"left\"><code>TestOverdetermined</code></td>
+<td align=\"left\">Leo Gall, Martin Otter</td>
+</tr>
+<tr>
+<td align=\"left\"><code>ObsoleteModelica3</code></td>
+<td align=\"left\">Hans Olsson, Martin Otter</td>
 </tr>
 </table>
 
