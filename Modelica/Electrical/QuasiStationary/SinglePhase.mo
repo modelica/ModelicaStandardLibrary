@@ -51,7 +51,7 @@ package SinglePhase "Single phase AC components"
       annotation (Documentation(info="<html>
 <p>
 The frequency of the voltage source is varied by a logaithmic ramp, the supply voltage magnitude is constant.</p>
-<p>Plot versus <code>voltageSource.f</code> on a logarithmic scale in order to determine the Bode diagrams of the ratio of 
+<p>Plot versus <code>voltageSource.f</code> on a logarithmic scale in order to determine the Bode diagrams of the ratio of
 the voltage of the resistor divided by the supply voltage:</p>
 <ul>
 <li>Gain response: <code>dB_y</code></li>
@@ -2354,8 +2354,8 @@ Additionally, the frequency of the voltage source is defined by a real signal in
               color={192,192,192},
               smooth=Smooth.Bezier)}),                               Diagram(coordinateSystem(preserveAspectRatio=false)),
         Documentation(info="<html>
-<p>This source provides a constant RMS phase voltage <code>V</code> and phase angle <code>phi</code>, 
-whereas the frequency sweeps from 
+<p>This source provides a constant RMS phase voltage <code>V</code> and phase angle <code>phi</code>,
+whereas the frequency sweeps from
 <code>fStart</code> to <code>fStop</code> with <code>duration</code>. The frequency sweeps such
 way that on a logarithmic frequency scale, the frequency curve appears linear.</p>
 
@@ -2483,8 +2483,8 @@ Additionally, the frequency of the voltage source is defined by a real signal in
                        Line(points={{0,50},{0,-50}}, color={85,170,255})}),
                                                                      Diagram(coordinateSystem(preserveAspectRatio=false)),
         Documentation(info="<html>
-<p>This source provides a constant RMS phase current <code>I</code> and phase angle <code>phi</code>, 
-whereas the frequency sweeps from 
+<p>This source provides a constant RMS phase current <code>I</code> and phase angle <code>phi</code>,
+whereas the frequency sweeps from
 <code>fStart</code> to <code>fStop</code> with <code>duration</code>. The frequency sweeps such
 way that on a logarithmic frequency scale, the frequency curve appears linear.</p>
 

@@ -1626,7 +1626,7 @@ is present in variable convection.fluid.
 </html>"),
         experiment(StopTime=1.0, Interval=0.0001),
         Diagram(coordinateSystem(extent={{-140,-100},{140,100}})),
-        Icon(coordinateSystem(extent={{-100,-100},{100,100}}, initialScale=0.1)));
+        Icon(coordinateSystem(extent={{-100,-100},{100,100}})));
     end HeatLosses;
 
     model SimpleGearShift "Simple Gearshift"
@@ -1908,10 +1908,10 @@ force law in a target system between two inertias.
         period=1.3,
         startTime=0.3) annotation (Placement(transformation(extent={{-20,30},{0,50}})));
     equation
-      connect(torque.flange, inertiaIn.flange_a) annotation (Line(points={{-30,0},{-20,0}}, color={0,0,0}));
+      connect(torque.flange, inertiaIn.flange_a) annotation (Line(points={{-30,0},{-20,0}}));
       connect(signalTorque.y, torque.tau) annotation (Line(points={{-59,0},{-52,0}}, color={0,0,127}));
-      connect(inertiaIn.flange_b, oneWayClutch.flange_a) annotation (Line(points={{0,0},{10,0}}, color={0,0,0}));
-      connect(oneWayClutch.flange_b, inertiaOut.flange_a) annotation (Line(points={{30,0},{40,0}}, color={0,0,0}));
+      connect(inertiaIn.flange_b, oneWayClutch.flange_a) annotation (Line(points={{0,0},{10,0}}));
+      connect(oneWayClutch.flange_b, inertiaOut.flange_a) annotation (Line(points={{30,0},{40,0}}));
       connect(signalEngagement.y, oneWayClutch.f_normalized) annotation (Line(points={{1,40},{20,40},{20,11}}, color={0,0,127}));
       annotation (
         experiment(StopTime=2, Interval=0.001), Documentation(info="<html>
@@ -1957,12 +1957,12 @@ and its lossy power <code>oneWayClutch.lossPower</code>.
       Modelica.Blocks.Sources.Constant signalEngagement(k=0)
         annotation (Placement(transformation(extent={{-20,30},{0,50}})));
     equation
-      connect(torque.flange, inertiaIn.flange_a) annotation (Line(points={{-30,0},{-20,0}}, color={0,0,0}));
+      connect(torque.flange, inertiaIn.flange_a) annotation (Line(points={{-30,0},{-20,0}}));
       connect(signalTorque.y, torque.tau) annotation (Line(points={{-59,0},{-52,0}}, color={0,0,127}));
-      connect(inertiaIn.flange_b, oneWayClutch.flange_a) annotation (Line(points={{0,0},{10,0}}, color={0,0,0}));
-      connect(oneWayClutch.flange_b, inertiaOut.flange_a) annotation (Line(points={{30,0},{40,0}}, color={0,0,0}));
+      connect(inertiaIn.flange_b, oneWayClutch.flange_a) annotation (Line(points={{0,0},{10,0}}));
+      connect(oneWayClutch.flange_b, inertiaOut.flange_a) annotation (Line(points={{30,0},{40,0}}));
       connect(signalEngagement.y, oneWayClutch.f_normalized) annotation (Line(points={{1,40},{20,40},{20,11}}, color={0,0,127}));
-      connect(inertiaOut.flange_b, torqueLoad.flange) annotation (Line(points={{60,0},{70,0}}, color={0,0,0}));
+      connect(inertiaOut.flange_b, torqueLoad.flange) annotation (Line(points={{60,0},{70,0}}));
       annotation (
         experiment(StopTime=2, Interval=0.001), Documentation(info="<html>
 <p>
@@ -6288,12 +6288,10 @@ blocks of Modelica.Blocks.Sources.
           fillPattern=FillPattern.Solid),
         Line(
           points={{-84,0},{-78,18},{-56,46},{-20,60},{20,60},{60,40},{82,8}},
-          color={0,0,0},
           smooth=Smooth.Bezier,
           thickness=0.5),
         Line(
           points={{-50,-40},{-38,-24},{-18,-12},{0,-10},{18,-12},{38,-24},{50,-40}},
-          color={0,0,0},
           smooth=Smooth.Bezier)}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
@@ -6527,8 +6525,7 @@ Negative torque brakes in positive direction of rotation, but accelerates in rev
             graphics={
               Text(
                 extent={{-120,-50},{120,-20}},
-              textString="%tau_constant",
-              lineColor={0,0,0}),
+              textString="%tau_constant"),
               Line(points={{-75,24},{75,24}},
                                             color={192,192,192}),
               Line(points={{0,66},{0,-20}}, color={192,192,192}),
@@ -7510,11 +7507,9 @@ and instead the translational part is internally fixed to ground.
               points={{-30,-100},{30,-100}}),
         Line(
           points={{-48,-92},{-38,-76},{-18,-64},{0,-60},{18,-64},{38,-76},{48,-92}},
-          color={0,0,0},
           smooth=Smooth.Bezier),
         Line(
           points={{-86,40},{-74,66},{-56,86},{-20,100},{20,100},{60,80},{82,48}},
-          color={0,0,0},
           smooth=Smooth.Bezier)}),
         Documentation(info="<html>
 <p>

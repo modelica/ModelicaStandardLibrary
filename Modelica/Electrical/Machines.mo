@@ -4774,8 +4774,7 @@ This package contains test examples of DC machines.
               origin={-110,-10})));
       equation
         connect(loadInertia.flange_b, loadTorque.flange)
-          annotation (Line(points={{70,-40},{80,-40}},
-                                                   color={0,0,0}));
+          annotation (Line(points={{70,-40},{80,-40}}));
         connect(step.y, tau2i.u)
           annotation (Line(points={{-99,-10},{-82,-10}},
                                                        color={0,0,127}));
@@ -4786,11 +4785,11 @@ The current controller is parameterized according to the absolute optimum.
 </p>
 <p>At time=0.2 s a reference torque step is applied, causing the drive to accelerate until motor torque and load torque are at an equilibrium.</p>
 <p>
-Further reading: 
+Further reading:
 <a href=\"modelica://Modelica/Resources/Documentation/Electrical/Machines/DriveControl.pdf\">Tutorial at the Modelica Conference 2017</a>
 </p>
-</html>"),Diagram(coordinateSystem(extent={{-200,-100},{100,100}}, initialScale=0.1)),
-          Icon(coordinateSystem(extent={{-180,-100},{100,100}}, initialScale=0.1)));
+</html>"),Diagram(coordinateSystem(extent={{-200,-100},{100,100}})),
+          Icon(coordinateSystem(extent={{-180,-100},{100,100}})));
       end CurrentControlledDCPM;
 
       model SpeedControlledDCPM
@@ -4828,8 +4827,7 @@ Further reading:
                 {-170,10},{-162,10}},
                                     color={0,0,127}));
         connect(loadInertia.flange_b, loadTorque.flange)
-          annotation (Line(points={{70,-40},{80,-40}},
-                                                   color={0,0,0}));
+          annotation (Line(points={{70,-40},{80,-40}}));
         connect(speedSensor.w, speedController.u_m) annotation (Line(points={{50,-81},
                 {50,-90},{-116,-90},{-116,-22}},   color={0,0,127}));
         connect(speedController.y, tau2i.u)
@@ -4842,8 +4840,8 @@ Further reading:
         annotation (experiment(Interval=0.0001),             Documentation(info="<html>
 <p>This model demonstrates how a speed controller for a current controlled DC PM drive works.</p>
 <p>
-The inner current controller is parameterized according to the absolute optimum. 
-The outer control loop is formed by the speed controller which is parameterized according to the symmetrical optimum. 
+The inner current controller is parameterized according to the absolute optimum.
+The outer control loop is formed by the speed controller which is parameterized according to the symmetrical optimum.
 </p>
 <p>
 At time=0.2 s a reference speed step is applied, causing the drive to accelerate to the desired speed.
@@ -4853,11 +4851,11 @@ At time=0.8 s a load torque step is applied, causing to drive to decelerate unti
 You may try a slewRateLimiter instead the prefilter to limit the speed rise i.e. the torque.
 </p>
 <p>
-Further reading: 
+Further reading:
 <a href=\"modelica://Modelica/Resources/Documentation/Electrical/Machines/DriveControl.pdf\">Tutorial at the Modelica Conference 2017</a>
 </p>
-</html>"),Diagram(coordinateSystem(extent={{-200,-100},{100,100}}, initialScale=0.1)),
-          Icon(coordinateSystem(extent={{-180,-100},{100,100}}, initialScale=0.1)));
+</html>"),Diagram(coordinateSystem(extent={{-200,-100},{100,100}})),
+          Icon(coordinateSystem(extent={{-180,-100},{100,100}})));
       end SpeedControlledDCPM;
 
       model PositionControlledDCPM
@@ -4907,12 +4905,11 @@ Further reading:
               points={{-169,-2},{-160,-2},{-160,-10},{-152,-10}},
                                                             color={0,0,127}));
         connect(speedSensor.flange, angleSensor.flange)
-          annotation (Line(points={{50,-60},{70,-60}}, color={0,0,0}));
+          annotation (Line(points={{50,-60},{70,-60}}));
         connect(speedSensor.w, speedController.u_m) annotation (Line(points={{50,-81},
                 {50,-90},{-116,-90},{-116,-22}},   color={0,0,127}));
         connect(loadInertia.flange_b, loadTorque.flange)
-          annotation (Line(points={{70,-40},{80,-40}},
-                                                   color={0,0,0}));
+          annotation (Line(points={{70,-40},{80,-40}}));
         connect(speedController.y, tau2i.u)
           annotation (Line(points={{-99,-10},{-82,-10}},
                                                        color={0,0,127}));
@@ -4920,20 +4917,20 @@ Further reading:
                                                              Documentation(info="<html>
 <p>This model demonstrates how a position controller for a speed controlled DC PM drive works.</p>
 <p>
-The inner current controller is parameterized according to the absolute optimum. 
-The middle control loop is formed by the speed controller which is parameterized according to the symmetrical optimum. 
-The outer control loop is formed by the position controller which is parameterized to avoid an overshot in the position. 
+The inner current controller is parameterized according to the absolute optimum.
+The middle control loop is formed by the speed controller which is parameterized according to the symmetrical optimum.
+The outer control loop is formed by the position controller which is parameterized to avoid an overshot in the position.
 </p>
 <p>
 At time=0.2 s the kinematicPTP starts to prescribe the reference position with limited speed and limited acceleration.
 At time=2.3 s a load torque step is applied, causing to drive to slightly leave the end position until the position controller brings the drive back to the desired position.
 </p>
 <p>
-Further reading: 
+Further reading:
 <a href=\"modelica://Modelica/Resources/Documentation/Electrical/Machines/DriveControl.pdf\">Tutorial at the Modelica Conference 2017</a>
 </p>
-</html>"),Diagram(coordinateSystem(extent={{-200,-100},{100,100}}, initialScale=0.1)),
-          Icon(coordinateSystem(extent={{-180,-100},{100,100}}, initialScale=0.1)));
+</html>"),Diagram(coordinateSystem(extent={{-200,-100},{100,100}})),
+          Icon(coordinateSystem(extent={{-180,-100},{100,100}})));
       end PositionControlledDCPM;
 
       package Utilities "Utilities for controlled drives"
@@ -4998,11 +4995,9 @@ Further reading:
                 origin={-70,-10})));
         equation
           connect(dcpm.flange, loadInertia.flange_a)
-            annotation (Line(points={{40,-40},{50,-40}},
-                                                     color={0,0,0}));
+            annotation (Line(points={{40,-40},{50,-40}}));
           connect(speedSensor.flange, dcpm.flange)
-            annotation (Line(points={{50,-60},{50,-40},{40,-40}},
-                                                              color={0,0,0}));
+            annotation (Line(points={{50,-60},{50,-40},{40,-40}}));
           connect(armatureInverter.pin_nMot, dcpm.pin_an)
             annotation (Line(points={{24,-20},{24,-30},{24,-30}},
                                                          color={0,0,255}));
@@ -5028,18 +5023,17 @@ Further reading:
           annotation (Documentation(info="<html>
   <p>This is a partial model of a controlled DC PM drive.</p>
 <p>
-Electrical power is taken from a battery (constant voltage with inner resistance) and fed to the motor via a DC-DC inverter. 
-The level of detail of the DC-DC inverter may be chosen from ideal averaging or switching. 
-The DC-DC inverter is commanded by the current controller. 
+Electrical power is taken from a battery (constant voltage with inner resistance) and fed to the motor via a DC-DC inverter.
+The level of detail of the DC-DC inverter may be chosen from ideal averaging or switching.
+The DC-DC inverter is commanded by the current controller.
 The current controller is parameterized according to the absolute optimum.
 </p>
 <p>
-Further reading: 
+Further reading:
 <a href=\"modelica://Modelica/Resources/Documentation/Electrical/Machines/DriveControl.pdf\">Tutorial at the Modelica Conference 2017</a>
 </p>
-</html>"),  Diagram(coordinateSystem(extent={{-200,-100},{100,100}}, initialScale=
-                    0.1)),
-            Icon(coordinateSystem(extent={{-200,-100},{100,100}}, initialScale=0.1)));
+</html>"),  Diagram(coordinateSystem(extent={{-200,-100},{100,100}})),
+            Icon(coordinateSystem(extent={{-200,-100},{100,100}})));
         end PartialControlledDCPM;
 
         record DriveDataDCPM
@@ -5338,8 +5332,8 @@ The integral part can be switched off to obtain a limited P-controller.
 The feed-forward gain can either be constant or given by the optional input kFF.
 </p>
 <p>
-When the output is limited, the controller cannot bring the control error to zero and the integrator will not stop integrating. 
-To avoid this <strong>WindUp</strong> - effect, an <strong>Anti-WindUp</strong> loop is implemented: 
+When the output is limited, the controller cannot bring the control error to zero and the integrator will not stop integrating.
+To avoid this <strong>WindUp</strong> - effect, an <strong>Anti-WindUp</strong> loop is implemented:
 The difference between unlimited and limited output is fed back to the integrator's input.
 </p>
 </html>"));

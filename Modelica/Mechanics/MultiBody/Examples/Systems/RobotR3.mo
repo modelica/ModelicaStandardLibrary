@@ -1055,11 +1055,9 @@ Default values for all parameters are given for joint 4.
         annotation (Line(points={{40,-10},{40,-20},{20,-20},{20,-30}}, color={0,0,255}));
       connect(hall1.n, g4.p) annotation (Line(points={{20,-50},{20,-54}}));
       connect(emf.flange, phi.flange)
-        annotation (Line(points={{50,0},{60,0},{60,-30},{80,-30}},
-                                                            color={0,0,0}));
+        annotation (Line(points={{50,0},{60,0},{60,-30},{80,-30}}));
       connect(emf.flange, speed.flange)
-        annotation (Line(points={{50,0},{60,0},{60,-30},{50,-30}},
-                                                            color={0,0,0}));
+        annotation (Line(points={{50,0},{60,0},{60,-30},{50,-30}}));
       connect(OpI.n2, power.n2)
         annotation (Line(points={{10,34},{10,30},{50,30},{50,50}}, color={0,0,255}));
       connect(OpI.p1, OpI.n2) annotation (Line(points={{0,38},{0,30},{10,30},{10,34}}, color={0,0,255}));

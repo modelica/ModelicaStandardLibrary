@@ -2519,7 +2519,7 @@ zero or negative.
               100,100}})),
       Documentation(info="<html>
 <p>
-This blocks wraps the input angle into the interval ]-pi,pi], if <code>positiveRange == false</code>. 
+This blocks wraps the input angle into the interval ]-pi,pi], if <code>positiveRange == false</code>.
 Otherwise the input angle <code>u</code> is wrapped to the interval [0,2*pi[.
 </p>
 

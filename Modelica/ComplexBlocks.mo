@@ -1975,14 +1975,12 @@ An error occurs if the elements of the input <code>u</code> is zero.
             lineColor={0,0,255}),
             Text(
               extent={{-80,-90},{-40,-70}},
-              lineColor={0,0,0},
               lineThickness=0.5,
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid,
               textString="|y|"),
             Text(
               extent={{-20,-90},{20,-70}},
-              lineColor={0,0,0},
               lineThickness=0.5,
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid,
@@ -1992,14 +1990,13 @@ An error occurs if the elements of the input <code>u</code> is zero.
             lineColor={0,0,255}),
             Text(
               extent={{40,-90},{80,-70}},
-              lineColor={0,0,0},
               lineThickness=0.5,
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid,
               textString="∠")}),
         Documentation(info="<html>
-<p>This complex block is used to determine variables of a Bode diagram for the output <code>y</code>. 
-The output <code>y</code> is calculated by <code>u / divisor</code> if <code>useDivisor == true</code>. 
+<p>This complex block is used to determine variables of a Bode diagram for the output <code>y</code>.
+The output <code>y</code> is calculated by <code>u / divisor</code> if <code>useDivisor == true</code>.
 Otherwise the output <code>y = u</code>.</p>
 <ul>
 <li><code>abs_y</code> Absolute value of <code>y</code></li>
@@ -2406,8 +2403,7 @@ The output is the decimal power of this logarithmic ramp.
             Line(points={{-78,-2},{80,-2}}, color={135,135,135}),
             Line(points={{-78,-48},{80,-48}}, color={135,135,135}),
             Line(
-              points={{-70,-48},{-50,-48},{50,44},{70,44}},
-              color={0,0,0}),
+              points={{-70,-48},{-50,-48},{50,44},{70,44}}),
             Line(points={{-50,-48},{-50,44}}, color={135,135,135}),
             Line(points={{50,-48},{50,44}}, color={135,135,135}),
             Line(points={{-78,40},{80,40}}, color={135,135,135}),

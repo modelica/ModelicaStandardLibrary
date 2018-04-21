@@ -2968,7 +2968,7 @@ This sensor can be used to measure <em>m</em> complex voltages, using <em>m</em>
         Documentation(revisions="<html>
 </html>", info="<html>
 <p>
-This sensor determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.Math.RootMeanSquare\">RMS</a> 
+This sensor determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.Math.RootMeanSquare\">RMS</a>
 value of a multi phase voltage system, by averaging the phase RMS voltage phasors <code>v</code>.
 </p>
 <pre>
@@ -3081,7 +3081,7 @@ This sensor can be used to measure <em>m</em> complex currents, using <em>m</em>
         Documentation(revisions="<html>
 </html>", info="<html>
 <p>
-This sensor determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.Math.RootMeanSquare\">RMS</a> 
+This sensor determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.Math.RootMeanSquare\">RMS</a>
 value of a multi phase current system, by averaging the phase RMS current phasors <code>i</code>.
 </p>
 <pre>
@@ -3717,8 +3717,8 @@ Additionally, the frequency of the current source is defined by a real signal in
               extent={{160,-100},{-160,-60}},
               textString="m=%m")}),
         Documentation(info="<html>
-<p>This source provides polyphase constant RMS phase voltages <code>V</code> and phase angles <code>phi</code>, 
-whereas the frequency sweeps from 
+<p>This source provides polyphase constant RMS phase voltages <code>V</code> and phase angles <code>phi</code>,
+whereas the frequency sweeps from
 <code>fStart</code> to <code>fStop</code> with <code>duration</code>. The frequency sweeps such
 way that on a logarithmic frequency scale, the frequency curve appears linear.</p>
 
@@ -3916,8 +3916,8 @@ Additionally, the frequency of the current source is defined by a real signal in
               extent={{160,-100},{-160,-60}},
               textString="m=%m")}),
         Documentation(info="<html>
-<p>This source provides polyphase constant RMS phase currents <code>I</code> and phase angles <code>phi</code>, 
-whereas the frequency sweeps from 
+<p>This source provides polyphase constant RMS phase currents <code>I</code> and phase angles <code>phi</code>,
+whereas the frequency sweeps from
 <code>fStart</code> to <code>fStop</code> with <code>duration</code>. The frequency sweeps such
 way that on a logarithmic frequency scale, the frequency curve appears linear.</p>
 

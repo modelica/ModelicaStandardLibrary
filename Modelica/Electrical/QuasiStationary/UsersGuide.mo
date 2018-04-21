@@ -427,7 +427,7 @@ ideal AC DC converter</a>, which is used in the
     annotation (Documentation(info="<html>
 <h5>Version 3.2.2, 2018-01-28</h5>
 <ul>
-    <li>Added frequency speed voltage and current sources, see 
+    <li>Added frequency speed voltage and current sources, see
         <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2442\">#2442</a></li>
     <ul>
         <li>Single-phase <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sources.FrequencySweepVoltageSource\">FrequencySweepVoltageSource</a></li>

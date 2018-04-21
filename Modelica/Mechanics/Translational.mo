@@ -1452,7 +1452,7 @@ the start value <code>spool.s.start</code> influences the offset.
         experiment(StopTime=5, Interval=0.01),
         Documentation(info="<html>
 <p>
-This model demonstrates the effect of ElastoGaps on eigenfrequency: 
+This model demonstrates the effect of ElastoGaps on eigenfrequency:
 Plot mass1.s and mass2.s as well as mass1.v and mass2.v to see that effect.
 </p>
 <p>
@@ -4775,8 +4775,7 @@ Parameter ForceDirection chooses whether direction of force is the same in both 
               Line(points={{0,60},{0,0}}, color={192,192,192}),
               Line(points={{-75,30},{75,30}}, color={0,0,127}),
               Text(extent={{-120,-40},{120,-10}},
-              textString="%f_constant",
-              lineColor={0,0,0})}),            Documentation(info="<html>
+              textString="%f_constant")}),            Documentation(info="<html>
 <p>Model of constant force, not dependent on velocity of flange.</p>
 <p>Please note:<br>
 Positive force accelerates in positive direction of movement, but brakes in reverse direction of movement.<br>
@@ -4816,7 +4815,6 @@ Negative force brakes in positive direction of movement, but accelerates in reve
             Line(points={{-74,-12},{-8,-12},{-6,-10},{6,58},{8,60},{74,60}}),
               Text(
                 extent={{-120,-50},{120,-20}},
-              lineColor={0,0,0},
               textString="%f_nominal")}),                                       Documentation(info="<html>
 <p>Model of constant force which changes sign with direction of movement.</p>
 <p>Please note:<br>
@@ -4842,8 +4840,7 @@ Negative force brakes in both directions of movement.</p>
               Line(points={{-75,0},{75,0}}, color={192,192,192}),
                                       Line(points={{10,-15},{10,70}}, color={0,0,127}),
           Text(extent={{-120,-50},{120,-20}},
-              textString="%v_fixed",
-              lineColor={0,0,0})}),         Documentation(info="<html>
+              textString="%v_fixed")}),         Documentation(info="<html>
 <p>
 Model of <strong>fixed</strong> velocity of flange, not dependent on force.
 </p>
