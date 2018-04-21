@@ -293,7 +293,6 @@ ALT=\"model Examples.Elementary.DoublePendulum\">
         points={{0,0},{-20,0}},
         color={95,95,95},
         thickness=0.5));
-    annotation ();
   end WorldGroundVisualization;
 
   package FourbarVariants "Test joints and assembly joints with four bar loop"

@@ -211,7 +211,7 @@ package Blocks "Test models for Modelica.Blocks"
     Modelica.Blocks.Sources.BooleanPulse booleanPulse(
       period=1.0) annotation(Placement(transformation(extent={{-80,20},{-60,40}})));
     Modelica.Blocks.Logical.FallingEdge fallingEdge annotation(Placement(transformation(extent={{0,-20},{20,0}})));
-    equation 
+    equation
       connect(switch.y, integrator.u) annotation(Line(
         points={{21,30},{38,30}},
         color={0,0,127}));
@@ -245,7 +245,7 @@ package Blocks "Test models for Modelica.Blocks"
     Modelica.Blocks.Sources.BooleanPulse booleanPulse(
       period=1.0) annotation(Placement(transformation(extent={{-80,20},{-60,40}})));
     Modelica.Blocks.Logical.Change change annotation(Placement(transformation(extent={{0,-20},{20,0}})));
-    equation 
+    equation
       connect(switch.y, integrator.u) annotation(Line(
         points={{21,30},{38,30}},
         color={0,0,127}));
