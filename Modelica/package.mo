@@ -7549,232 +7549,242 @@ of the Modelica package (many more people have contributed to the design):
 </p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-<tr><td valign=\"top\"><strong>Marcus Baur</strong> </td>
-   <td valign=\"top\"> Institute of System Dynamics and Control<br>
-     DLR, German Aerospace Center, <br>
+<tr><td valign=\"top\"><strong>Marcus Baur</strong></td>
+   <td valign=\"top\">Institute of System Dynamics and Control<br>
+     DLR, German Aerospace Center,<br>
      Oberpfaffenhofen, Germany</td>
-   <td valign=\"top\"> Complex<br>
-                     Modelica.Math.Vectors<br>
-                     Modelica.Math.Matrices</td>
+   <td valign=\"top\">Complex<br>
+                      Modelica.Math.Vectors<br>
+                      Modelica.Math.Matrices</td>
 </tr>
 
-<tr><td valign=\"top\"><strong>Peter Beater</strong> </td>
-   <td valign=\"top\"> University of Paderborn, Germany</td>
-   <td valign=\"top\"> Modelica.Mechanics.Translational </td>
+<tr><td valign=\"top\"><strong>Peter Beater</strong></td>
+   <td valign=\"top\">University of Paderborn, Germany</td>
+   <td valign=\"top\">Modelica.Mechanics.Translational</td>
 </tr>
 
-
-
-<tr><td valign=\"top\"><strong>Thomas Beutlich</strong> </td>
-   <td valign=\"top\"> ITI GmbH, Germany</td>
-   <td valign=\"top\"> Modelica.Blocks.Sources.CombiTimeTable<br>
-                       Modelica.Blocks.Tables </td>
+<tr><td valign=\"top\"><strong>Thomas Beutlich</strong></td>
+   <td valign=\"top\">ESI ITI GmbH, Germany</td>
+   <td valign=\"top\">Modelica.Blocks.Sources.CombiTimeTable<br>
+                      Modelica.Blocks.Tables</td>
 </tr>
 
-<tr><td valign=\"top\"><strong>Thomas B&ouml;drich</strong> </td>
-   <td valign=\"top\"> Dresden University of Technology, Germany</td>
-   <td valign=\"top\"> Modelica.Magnetic.FluxTubes </td>
+<tr><td valign=\"top\"><strong>Thomas B&ouml;drich</strong></td>
+   <td valign=\"top\">Dresden University of Technology, Germany</td>
+   <td valign=\"top\">Modelica.Magnetic.FluxTubes</td>
 </tr>
 
-<tr><td valign=\"top\"><strong>Dag Br&uuml;ck</strong> </td>
-   <td valign=\"top\"> Dassault Syst&egrave;mes AB, Lund, Sweden</td>
-   <td valign=\"top\"> Modelica.Utilities</td>
+<tr><td valign=\"top\"><strong>Dag Br&uuml;ck</strong></td>
+   <td valign=\"top\">Dassault Syst&egrave;mes AB, Lund, Sweden</td>
+   <td valign=\"top\">Modelica.Utilities</td>
 </tr>
 
-<tr><td valign=\"top\"><strong>Francesco Casella</strong> </td>
-   <td valign=\"top\"> Politecnico di Milano, Milano, Italy</td>
-   <td valign=\"top\"> Modelica.Fluid<br>
-                            Modelica.Media</td>
+<tr><td valign=\"top\"><strong>Francesco Casella</strong></td>
+   <td valign=\"top\">Politecnico di Milano, Milano, Italy</td>
+   <td valign=\"top\">Modelica.Fluid<br>
+                      Modelica.Media</td>
 </tr>
 
-<tr><td valign=\"top\"><strong>Christoph Clauss</strong> </td>
-   <td valign=\"top\"> Fraunhofer Institute for Integrated Circuits,<br> Dresden, Germany</td>
-   <td valign=\"top\"> Modelica.Electrical.Analog<br>
-     Modelica.Electrical.Digital<br>
-     Modelica.Electrical.Spice3</td>
+<tr><td valign=\"top\"><strong>Christoph Clauss</strong></td>
+   <td valign=\"top\">until 2016:<br>
+     Fraunhofer Institute for Integrated Circuits,<br>
+     Dresden, Germany</td>
+   <td valign=\"top\">Modelica.Electrical.Analog<br>
+                      Modelica.Electrical.Digital<br>
+                      Modelica.Electrical.Spice3</td>
 </tr>
 
-<tr><td valign=\"top\"><strong>Jonas Eborn</strong> </td>
-   <td valign=\"top\"> Modelon AB, Lund, Sweden</td>
-   <td valign=\"top\"> Modelica.Media</td>
+<tr><td valign=\"top\"><strong>Jonas Eborn</strong></td>
+   <td valign=\"top\">Modelon AB, Lund, Sweden</td>
+   <td valign=\"top\">Modelica.Media</td>
 </tr>
 
-<tr><td valign=\"top\"><strong>Hilding Elmqvist</strong> </td>
-   <td valign=\"top\"> Dassault Syst&egrave;mes AB, Lund, Sweden</td>
-   <td valign=\"top\"> Modelica.Mechanics.MultiBody<br>
-                   Modelica.Fluid<br>
-     Modelica.Media<br>
-     Modelica.StateGraph<br>
-     Modelica.Utilities<br>
-     Conversion from 1.6 to 2.0</td>
+<tr><td valign=\"top\"><strong>Hilding Elmqvist</strong></td>
+   <td valign=\"top\">Mogram AB, Lund, Sweden<br>
+     until 2015:<br>
+     Dassault Syst&egrave;mes AB, Lund, Sweden</td>
+   <td valign=\"top\">Modelica.Mechanics.MultiBody<br>
+                      Modelica.Fluid<br>
+                      Modelica.Media<br>
+                      Modelica.StateGraph<br>
+                      Modelica.Utilities<br>
+                      Conversion from 1.6 to 2.0</td>
 </tr>
 
-<tr><td valign=\"top\"><strong>R&uuml;diger Franke</strong> </td>
-   <td valign=\"top\"> ABB Corporate Research,<br>Ladenburg, German</td>
-   <td valign=\"top\"> Modelica.Fluid<br>
-                            Modelica.Media</td>
+<tr><td valign=\"top\"><strong>R&uuml;diger Franke</strong></td>
+   <td valign=\"top\">ABB Corporate Research,<br>Ladenburg, Germany</td>
+   <td valign=\"top\">Modelica.Fluid<br>
+                      Modelica.Media</td>
 </tr>
 
-<tr><td valign=\"top\"><strong>Manuel Gr&auml;ber</strong> </td>
-   <td valign=\"top\"> Institut f&uuml;r Thermodynamik, <br>
-     Technische Universit&auml;t Braunschweig, <br>
-     Germany</td>
-   <td valign=\"top\"> Modelica.Fluid</td>
+<tr><td valign=\"top\"><strong>Manuel Gr&auml;ber</strong></td>
+   <td valign=\"top\">Institut f&uuml;r Thermodynamik,<br>
+     Technische Universit&auml;t Braunschweig, Germany</td>
+   <td valign=\"top\">Modelica.Fluid</td>
 </tr>
 
-<tr><td valign=\"top\"><strong>Anton Haumer</strong> </td>
-   <td valign=\"top\"> Consultant, St.Andrae-Woerdern,<br>Austria</td>
-   <td valign=\"top\"> Modelica.ComplexBlocks<br>
-     Modelica.Electrical.Machines<br>
-     Modelica.Electrical.Multiphase<br>
-     Modelica.Electrical.QuasiStationary<br>
-     Modelica.Magnetics.FundamentalWave<br>
-     Modelica.Mechanics.Rotational<br>
-     Modelica.Mechanics.Translational<br>
-     Modelica.Thermal.FluidHeatFlow<br>
-     Modelica.Thermal.HeatTransfer<br>
-     Modelica.ComplexMath<br>
-     Conversion from 1.6 to 2.0<br>
-     Conversion from 2.2 to 3.0</td>
+<tr><td valign=\"top\"><strong>Anton Haumer</strong></td>
+   <td valign=\"top\">Consultant, St.Andrae-Woerdern,<br>Austria</td>
+   <td valign=\"top\">Modelica.ComplexBlocks<br>
+                      Modelica.Electrical.Machines<br>
+                      Modelica.Electrical.Multiphase<br>
+                      Modelica.Electrical.QuasiStationary<br>
+                      Modelica.Magnetics.FundamentalWave<br>
+                      Modelica.Mechanics.Rotational<br>
+                      Modelica.Mechanics.Translational<br>
+                      Modelica.Thermal.FluidHeatFlow<br>
+                      Modelica.Thermal.HeatTransfer<br>
+                      Modelica.ComplexMath<br>
+                      Conversion from 1.6 to 2.0<br>
+                      Conversion from 2.2 to 3.0</td>
 </tr>
 
-<tr><td valign=\"top\"><strong>Hans-Dieter Joos</strong> </td>
-   <td valign=\"top\"> Institute of System Dynamics and Control<br>
-     DLR, German Aerospace Center, <br>
+<tr><td valign=\"top\"><strong>Hans-Dieter Joos</strong></td>
+   <td valign=\"top\">Institute of System Dynamics and Control<br>
+     DLR, German Aerospace Center,<br>
      Oberpfaffenhofen, Germany</td>
-   <td valign=\"top\"> Modelica.Math.Matrices</td>
+   <td valign=\"top\">Modelica.Math.Matrices</td>
 </tr>
 
-<tr><td valign=\"top\"><strong>Christian Kral</strong> </td>
-   <td valign=\"top\"> Modeling and Simulation of Electric Machines, Drives and Mechatronic Systems, Vienna, Austria</td>
-   <td valign=\"top\"> Modelica.ComplexBlocks<br>
-     Modelica.Electrical.Machines<br>
-     Modelica.Electrical.MultiPhase<br>
-     Modelica.Electrical.QuasiStationary<br>
-     Modelica.Magnetics.FundamentalWave<br>
-     Modelica.Mechanics.Rotational<br>
-     Modelica.Mechanics.Translational<br>
-     Modelica.Thermal.FluidHeatFlow<br>
-     Modelica.Thermal.HeatTransfer<br>
-     Modelica.ComplexMath
-     </td>
+<tr><td valign=\"top\"><strong>Christian Kral</strong></td>
+   <td valign=\"top\">Modeling and Simulation of Electric Machines, Drives and Mechatronic Systems,<br>
+     Vienna, Austria</td>
+   <td valign=\"top\">Modelica.ComplexBlocks<br>
+                      Modelica.Electrical.Machines<br>
+                      Modelica.Electrical.MultiPhase<br>
+                      Modelica.Electrical.QuasiStationary<br>
+                      Modelica.Magnetics.FundamentalWave<br>
+                      Modelica.Mechanics.Rotational<br>
+                      Modelica.Mechanics.Translational<br>
+                      Modelica.Thermal.FluidHeatFlow<br>
+                      Modelica.Thermal.HeatTransfer<br>
+                      Modelica.ComplexMath
+  </td>
 </tr>
 
-<tr><td valign=\"top\"><strong>Sven Erik Mattsson</strong> </td>
-   <td valign=\"top\"> Dassault Syst&egrave;mes AB, Lund, Sweden</td>
-   <td valign=\"top\"> Modelica.Mechanics.MultiBody</td>
-</tr>
-<tr><td valign=\"top\"><strong>Hans Olsson</strong> </td>
-   <td valign=\"top\"> Dassault Syst&egrave;mes AB, Lund, Sweden</td>
-   <td valign=\"top\"> Modelica.Blocks<br>
-     Modelica.Math.Matrices<br>
-     Modelica.Utilities<br>
-     Conversion from 1.6 to 2.0<br>
-     Conversion from 2.2 to 3.0</td>
+<tr><td valign=\"top\"><strong>Sven Erik Mattsson</strong></td>
+   <td valign=\"top\">until 2015:<br>
+     Dassault Syst&egrave;mes AB, Lund, Sweden</td>
+   <td valign=\"top\">Modelica.Mechanics.MultiBody</td>
 </tr>
 
-<tr><td valign=\"top\"><strong>Martin Otter</strong> </td>
-   <td valign=\"top\"> Institute of System Dynamics and Control<br>
-     DLR, German Aerospace Center, <br>
+<tr><td valign=\"top\"><strong>Hans Olsson</strong></td>
+   <td valign=\"top\">Dassault Syst&egrave;mes AB, Lund, Sweden</td>
+   <td valign=\"top\">Modelica.Blocks<br>
+                      Modelica.Math.Matrices<br>
+                      Modelica.Utilities<br>
+                      Conversion from 1.6 to 2.0<br>
+                      Conversion from 2.2 to 3.0</td>
+</tr>
+
+<tr><td valign=\"top\"><strong>Martin Otter</strong></td>
+   <td valign=\"top\">Institute of System Dynamics and Control<br>
+     DLR, German Aerospace Center,<br>
      Oberpfaffenhofen, Germany</td>
-   <td valign=\"top\"> Complex<br>
-     Modelica.Blocks<br>
-     Modelica.Fluid<br>
-     Modelica.Mechanics.MultiBody<br>
-     Modelica.Mechanics.Rotational<br>
-     Modelica.Mechanics.Translational<br>
-     Modelica.Math<br>
-     Modelica.ComplexMath<br>
-     Modelica.Media<br>
-     Modelica.SIunits<br>
-     Modelica.StateGraph<br>
-     Modelica.Thermal.HeatTransfer<br>
-     Modelica.Utilities<br>
-     ModelicaReference<br>
-     Conversion from 1.6 to 2.0<br>
-     Conversion from 2.2 to 3.0</td>
+   <td valign=\"top\">Complex<br>
+                      Modelica.Blocks<br>
+                      Modelica.Fluid<br>
+                      Modelica.Mechanics.MultiBody<br>
+                      Modelica.Mechanics.Rotational<br>
+                      Modelica.Mechanics.Translational<br>
+                      Modelica.Math<br>
+                      Modelica.ComplexMath<br>
+                      Modelica.Media<br>
+                      Modelica.SIunits<br>
+                      Modelica.StateGraph<br>
+                      Modelica.Thermal.HeatTransfer<br>
+                      Modelica.Utilities<br>
+                      ModelicaReference<br>
+                      Conversion from 1.6 to 2.0<br>
+                      Conversion from 2.2 to 3.0</td>
 </tr>
 
-<tr><td valign=\"top\"><strong>Katrin Pr&ouml;l&szlig;</strong> </td>
-   <td valign=\"top\"> Modelon AB, Lund, Sweden<br>
-                            until 2008:<br>
-                            Department of Technical Thermodynamics,<br>
+<tr><td valign=\"top\"><strong>Katrin Pr&ouml;l&szlig;</strong></td>
+   <td valign=\"top\">Modelon Deutschland GmbH, Hamburg, Germany<br>
+     until 2008:<br>
+     Department of Technical Thermodynamics,<br>
      Technical University Hamburg-Harburg,<br>Germany</td>
-   <td valign=\"top\"> Modelica.Fluid<br>
+   <td valign=\"top\">Modelica.Fluid<br>
                             Modelica.Media</td>
 </tr>
 
-<tr><td valign=\"top\"><strong>Christoph C. Richter</strong> </td>
-   <td valign=\"top\"> until 2009:<br>
-     Institut f&uuml;r Thermodynamik, <br>
-     Technische Universit&auml;t Braunschweig, <br>
+<tr><td valign=\"top\"><strong>Christoph C. Richter</strong></td>
+   <td valign=\"top\">until 2009:<br>
+     Institut f&uuml;r Thermodynamik,<br>
+     Technische Universit&auml;t Braunschweig,<br>
      Germany</td>
-   <td valign=\"top\"> Modelica.Fluid<br>
-                            Modelica.Media</td>
+   <td valign=\"top\">Modelica.Fluid<br>
+                      Modelica.Media</td>
 </tr>
 
-<tr><td valign=\"top\"><strong>Andr&eacute; Schneider</strong> </td>
-   <td valign=\"top\"> Fraunhofer Institute for Integrated Circuits,<br> Dresden, Germany</td>
-   <td valign=\"top\"> Modelica.Electrical.Analog<br>
+<tr><td valign=\"top\"><strong>Andr&eacute; Schneider</strong></td>
+   <td valign=\"top\">Fraunhofer Institute for Integrated Circuits,<br>Dresden, Germany</td>
+   <td valign=\"top\">Modelica.Electrical.Analog<br>
      Modelica.Electrical.Digital</td>
 </tr>
-<tr><td valign=\"top\"><strong>Christian Schweiger</strong> </td>
-   <td valign=\"top\"> Until 2006:<br>
+<tr><td valign=\"top\"><strong>Christian Schweiger</strong></td>
+   <td valign=\"top\">until 2006:<br>
      Institute of System Dynamics and Control,<br>
      DLR, German Aerospace Center,<br>
      Oberpfaffenhofen, Germany</td>
-   <td valign=\"top\"> Modelica.Mechanics.Rotational<br>
-     ModelicaReference<br>
-     Conversion from 1.6 to 2.0</td>
+   <td valign=\"top\">Modelica.Mechanics.Rotational<br>
+                      ModelicaReference<br>
+                      Conversion from 1.6 to 2.0</td>
 </tr>
 
-<tr><td valign=\"top\"><strong>Michael Sielemann</strong> </td>
-   <td valign=\"top\"> Institute of System Dynamics and Control<br>
-     DLR, German Aerospace Center, <br>
+<tr><td valign=\"top\"><strong>Michael Sielemann</strong></td>
+   <td valign=\"top\">Modelon Deutschland GmbH, Munich, Germany<br>
+     previously at:<br>
+     Institute of System Dynamics and Control<br>
+     DLR, German Aerospace Center,<br>
      Oberpfaffenhofen, Germany</td>
-   <td valign=\"top\"> Modelica.Fluid<br>
-                       Modelica.Media</td>
+   <td valign=\"top\">Modelica.Fluid<br>
+                      Modelica.Media</td>
 </tr>
 
-<tr><td valign=\"top\"><strong>Michael Tiller</strong> </td>
-   <td valign=\"top\"> Emmeskay, Inc., Dearborn, MI, U.S.A, <br>
-     (previously Ford Motor Company, Dearborn) </td>
-   <td valign=\"top\"> Modelica.Media<br>
-     Modelica.Thermal.HeatTransfer</td>
-</tr>
-<tr><td valign=\"top\"><strong>Hubertus Tummescheit</strong> </td>
-   <td valign=\"top\"> Modelon AB, Lund, Sweden </td>
-   <td valign=\"top\"> Modelica.Media<br>
-     Modelica.Thermal.HeatTransfer</td>
+<tr><td valign=\"top\"><strong>Michael Tiller</strong></td>
+   <td valign=\"top\">Xogeny Inc., Canton, MI, U.S.A.<br>
+     previously at:<br>
+     Emmeskay, Inc., Dearborn, MI, U.S.A.<br>
+     previously at:<br>
+     Ford Motor Company, Dearborn, MI, U.S.A.</td>
+   <td valign=\"top\">Modelica.Media<br>
+                      Modelica.Thermal.HeatTransfer</td>
 </tr>
 
-<tr><td valign=\"top\"><strong>Thorsten Vahlenkamp</strong> </td>
-   <td valign=\"top\"> until 2010:<br>
+<tr><td valign=\"top\"><strong>Hubertus Tummescheit</strong></td>
+   <td valign=\"top\">Modelon, Inc., Hartford, CT, U.S.A.</td>
+   <td valign=\"top\">Modelica.Media<br>
+                      Modelica.Thermal.HeatTransfer</td>
+</tr>
+
+<tr><td valign=\"top\"><strong>Thorsten Vahlenkamp</strong></td>
+   <td valign=\"top\">until 2010:<br>
                      XRG Simulation GmbH, Hamburg, Germany</td>
-   <td valign=\"top\"> Modelica.Fluid.Dissipation</td>
+   <td valign=\"top\">Modelica.Fluid.Dissipation</td>
 </tr>
 
-<tr><td valign=\"top\"><strong>Nico Walter</strong> </td>
-   <td valign=\"top\"> Master thesis at HTWK Leipzig<br>
+<tr><td valign=\"top\"><strong>Nico Walter</strong></td>
+   <td valign=\"top\">Master thesis at HTWK Leipzig<br>
      (Prof. R. M&uuml;ller) and<br>
      DLR Oberpfaffenhofen, Germany</td>
-   <td valign=\"top\"> Modelica.Math.Matrices</td>
+   <td valign=\"top\">Modelica.Math.Matrices</td>
 </tr>
 
-<tr><td valign=\"top\"><strong>Michael Wetter</strong> </td>
-   <td valign=\"top\"> Lawrence Berkeley National Laboratory; U.S.A.</td>
-   <td valign=\"top\"> Modelica.Fluid</td>
+<tr><td valign=\"top\"><strong>Michael Wetter</strong></td>
+   <td valign=\"top\">Lawrence Berkeley National Laboratory, Berkeley, CA, U.S.A.</td>
+   <td valign=\"top\">Modelica.Fluid</td>
 </tr>
 
-<tr><td valign=\"top\"><strong>Hans-J&uuml;rg Wiesmann</strong> </td>
-   <td valign=\"top\"> Switzerland</td>
-   <td valign=\"top\"> Modelica.ComplexMath</td>
+<tr><td valign=\"top\"><strong>Hans-J&uuml;rg Wiesmann</strong></td>
+   <td valign=\"top\">Switzerland</td>
+   <td valign=\"top\">Modelica.ComplexMath</td>
 </tr>
 
-<tr><td valign=\"top\"><strong>Stefan Wischhusen</strong> </td>
-   <td valign=\"top\"> XRG Simulation GmbH, Hamburg, Germany</td>
-   <td valign=\"top\"> Modelica.Fluid.Dissipation<br>
-                       Modelica.Media</td>
+<tr><td valign=\"top\"><strong>Stefan Wischhusen</strong></td>
+   <td valign=\"top\">XRG Simulation GmbH, Hamburg, Germany</td>
+   <td valign=\"top\">Modelica.Fluid.Dissipation<br>
+                      Modelica.Media</td>
 </tr>
 </table>
 
