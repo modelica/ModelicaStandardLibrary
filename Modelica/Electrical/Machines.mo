@@ -2088,6 +2088,94 @@ and accelerating inertias. At time tStep a load step is applied.</p>
 </html>"));
       end SMR_Inverter;
 
+      model SMPM_NoLoad "SMPM at no-load"
+        extends Modelica.Icons.Example;
+        import Modelica.Constants.pi;
+        constant Integer m=3 "Number of phases";
+        Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet
+          smpm(
+          p=smpmData.p,
+          fsNominal=smpmData.fsNominal,
+          Rs=smpmData.Rs,
+          TsRef=smpmData.TsRef,
+          Lszero=smpmData.Lszero,
+          Lssigma=smpmData.Lssigma,
+          Jr=smpmData.Jr,
+          VsOpenCircuit=smpmData.VsOpenCircuit,
+          Lmd=smpmData.Lmd,
+          Lmq=smpmData.Lmq,
+          useDamperCage=smpmData.useDamperCage,
+          Lrsigmad=smpmData.Lrsigmad,
+          Lrsigmaq=smpmData.Lrsigmaq,
+          Rrd=smpmData.Rrd,
+          Rrq=smpmData.Rrq,
+          TrRef=smpmData.TrRef,
+          frictionParameters=smpmData.frictionParameters,
+          statorCoreParameters=smpmData.statorCoreParameters,
+          strayLoadParameters=smpmData.strayLoadParameters,
+          permanentMagnetLossParameters=smpmData.permanentMagnetLossParameters,
+          TsOperational=293.15,
+          alpha20s=smpmData.alpha20s,
+          phiMechanical(fixed=true, start=(pi + 0*2*pi/m)/smpmData.p),
+          TrOperational=293.15,
+          alpha20r=smpmData.alpha20r)
+               annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
+        Modelica.Electrical.Machines.Utilities.TerminalBox terminalBox(
+            terminalConnection="Y", m=m)
+          annotation (Placement(transformation(extent={{-10,6},{10,26}})));
+        Modelica.Electrical.Analog.Basic.Ground ground
+          annotation (Placement(transformation(extent={{-30,-10},{-10,10}})));
+        Modelica.Electrical.MultiPhase.Sensors.PotentialSensor potentialSensor(m=m)
+          annotation (Placement(transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=90,
+              origin={0,30})));
+        Modelica.Electrical.MultiPhase.Blocks.QuasiRMS quasiRMS(m=m)
+          annotation (Placement(transformation(extent={{12,70},{32,90}})));
+        Modelica.Electrical.Machines.SpacePhasors.Blocks.ToSpacePhasor toSpacePhasor(m=m)
+          annotation (Placement(transformation(extent={{10,40},{30,60}})));
+        parameter
+          Modelica.Electrical.Machines.Utilities.ParameterRecords.SM_PermanentMagnetData
+          smpmData(useDamperCage=false)
+          annotation (Placement(transformation(extent={{-10,-40},{10,-20}})));
+        Modelica.Mechanics.Rotational.Sources.ConstantSpeed constantSpeed(w_fixed=2*
+              pi*smpmData.fsNominal/smpmData.p)
+          annotation (Placement(transformation(extent={{40,-10},{20,10}})));
+      equation
+        connect(terminalBox.plug_sn, smpm.plug_sn)
+          annotation (Line(points={{-6,10},{-6,10}}, color={0,0,255}));
+        connect(terminalBox.plug_sp, smpm.plug_sp)
+          annotation (Line(points={{6,10},{6,10}}, color={0,0,255}));
+        connect(ground.p, terminalBox.starpoint)
+          annotation (Line(points={{-20,10},{-20,12},{-10,12}},color={0,0,255}));
+        connect(potentialSensor.plug_p, terminalBox.plugSupply)
+          annotation (Line(points={{0,20},{0,12}}, color={0,0,255}));
+        connect(potentialSensor.phi, toSpacePhasor.u) annotation (Line(points={{8.88178e-16,
+                41},{8.88178e-16,50},{8,50}}, color={0,0,127}));
+        connect(constantSpeed.flange, smpm.flange)
+          annotation (Line(points={{20,0},{10,0}}, color={0,0,0}));
+        connect(potentialSensor.phi, quasiRMS.u)
+          annotation (Line(points={{0,41},{0,80},{10,80}}, color={0,0,127}));
+        annotation (                                 experiment(StopTime=0.02,
+              Interval=0.0001),
+          Documentation(info="<html>
+<p>
+Synchronous machine with permanent magnets at no-load, driven with constant nominal speed.
+</p>
+<p>
+You may check the terminal voltage = VsOpenCircuit and the frequency = fsNominal.
+</p>
+</p>
+Additionally, you may check the phase shift of the stator voltages with respect to the mechanical shaft angle: 
+<ul>
+<li>If the shaft angle starts at (pi + 0*pi/3)/p, the flux linkage through phase 1 is at the maximum and therefore this phase voltage starts at 0.</li>
+<li>If the shaft angle starts at (pi + 2*pi/3)/p, the flux linkage through phase 2 is at the maximum and therefore this phase voltage starts at 0.</li>
+<li>If the shaft angle starts at (pi + 4*pi/3)/p, the flux linkage through phase 3 is at the maximum and therefore this phase voltage starts at 0.</li>
+</ul>
+</p>
+</html>"));
+      end SMPM_NoLoad;
+
       model SMPM_Inverter
         "Test example: PermanentMagnetSynchronousInductionMachine with inverter"
         extends Modelica.Icons.Example;
