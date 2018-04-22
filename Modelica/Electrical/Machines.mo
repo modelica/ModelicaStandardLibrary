@@ -2092,6 +2092,10 @@ and accelerating inertias. At time tStep a load step is applied.</p>
         extends Modelica.Icons.Example;
         import Modelica.Constants.pi;
         constant Integer m=3 "Number of phases";
+        parameter
+          Modelica.Electrical.Machines.Utilities.ParameterRecords.SM_PermanentMagnetData
+          smpmData(useDamperCage=false)
+          annotation (Placement(transformation(extent={{-10,-40},{10,-20}})));
         Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet
           smpm(
           p=smpmData.p,
@@ -2130,17 +2134,21 @@ and accelerating inertias. At time tStep a load step is applied.</p>
               extent={{-10,-10},{10,10}},
               rotation=90,
               origin={0,30})));
-        Modelica.Electrical.MultiPhase.Blocks.QuasiRMS quasiRMS(m=m)
-          annotation (Placement(transformation(extent={{12,70},{32,90}})));
         Modelica.Electrical.Machines.SpacePhasors.Blocks.ToSpacePhasor toSpacePhasor(m=m)
           annotation (Placement(transformation(extent={{10,40},{30,60}})));
-        parameter
-          Modelica.Electrical.Machines.Utilities.ParameterRecords.SM_PermanentMagnetData
-          smpmData(useDamperCage=false)
-          annotation (Placement(transformation(extent={{-10,-40},{10,-20}})));
+        SpacePhasors.Blocks.ToPolar toPolar
+          annotation (Placement(transformation(extent={{40,40},{60,60}})));
+        Blocks.Math.Gain toDeg(k=180/pi)
+          annotation (Placement(transformation(extent={{70,40},{90,60}})));
+        Sensors.HallSensor hallSensor(p=smpmData.p) annotation (Placement(
+              transformation(
+              extent={{10,-10},{-10,10}},
+              rotation=0,
+              origin={40,-30})));
         Modelica.Mechanics.Rotational.Sources.ConstantSpeed constantSpeed(w_fixed=2*
               pi*smpmData.fsNominal/smpmData.p)
-          annotation (Placement(transformation(extent={{40,-10},{20,10}})));
+          annotation (Placement(transformation(extent={{52,-10},{32,10}})));
+
       equation
         connect(terminalBox.plug_sn, smpm.plug_sn)
           annotation (Line(points={{-6,10},{-6,10}}, color={0,0,255}));
@@ -2153,17 +2161,22 @@ and accelerating inertias. At time tStep a load step is applied.</p>
         connect(potentialSensor.phi, toSpacePhasor.u) annotation (Line(points={{8.88178e-16,
                 41},{8.88178e-16,50},{8,50}}, color={0,0,127}));
         connect(constantSpeed.flange, smpm.flange)
-          annotation (Line(points={{20,0},{10,0}}, color={0,0,0}));
-        connect(potentialSensor.phi, quasiRMS.u)
-          annotation (Line(points={{0,41},{0,80},{10,80}}, color={0,0,127}));
-        annotation (                                 experiment(StopTime=0.02,
+          annotation (Line(points={{32,0},{10,0}}, color={0,0,0}));
+        connect(smpm.flange, hallSensor.flange)
+          annotation (Line(points={{10,0},{20,0},{20,-30},{30,-30}},
+                                                            color={0,0,0}));
+        connect(toSpacePhasor.y, toPolar.u)
+          annotation (Line(points={{31,50},{38,50}}, color={0,0,127}));
+        connect(toPolar.y[2], toDeg.u)
+          annotation (Line(points={{61,50},{68,50}}, color={0,0,127}));
+        annotation (                                 experiment(StopTime=0.04,
               Interval=0.0001),
           Documentation(info="<html>
 <p>
 Synchronous machine with permanent magnets at no-load, driven with constant nominal speed.
 </p>
 <p>
-You may check the terminal voltage = VsOpenCircuit and the frequency = fsNominal.
+You may check the terminal voltage = VsOpenCircuit (shown by the length of the space phasor) and the frequency = fsNominal.
 </p>
 </p>
 Additionally, you may check the phase shift of the stator voltages with respect to the mechanical shaft angle: 
@@ -2172,6 +2185,8 @@ Additionally, you may check the phase shift of the stator voltages with respect 
 <li>If the shaft angle starts at (pi + 2*pi/3)/p, the flux linkage through phase 2 is at the maximum and therefore this phase voltage starts at 0.</li>
 <li>If the shaft angle starts at (pi + 4*pi/3)/p, the flux linkage through phase 3 is at the maximum and therefore this phase voltage starts at 0.</li>
 </ul>
+Note that the angle of the voltage space phasor is pi/2 behind the angle of the hall sensor, 
+i.e. after a rotation of the shaft by pi/2/p the flux linkage of phase 1 is zero and the induced voltage a maximum.
 </p>
 </html>"));
       end SMPM_NoLoad;
@@ -11862,6 +11877,66 @@ Otherwise, the sensor's support has to be connected to the machine's support.
 </p>
 </html>"));
     end RotorDisplacementAngle;
+
+    model HallSensor "Hall sensor"
+      import Modelica.Constants.pi;
+      extends
+        Modelica.Mechanics.Rotational.Interfaces.PartialElementaryOneFlangeAndSupport2;
+      parameter Integer p(final min=1, start=2) "Number of pole pairs";
+      parameter Modelica.SIunits.Angle phi0=-pi/p "Initial mechanical angle";
+      Modelica.Blocks.Interfaces.RealOutput y(
+        quantity="Angle",
+        final unit="rad",
+        displayUnit="deg") "\"Electrical angle\""
+        annotation (Placement(transformation(extent={{-100,-10},{-120,10}})));
+    equation
+      flange.tau=0;
+      y=rem((flange.phi - phi_support - phi0)*p, 2*pi);
+       annotation (
+        Icon(coordinateSystem(preserveAspectRatio=false), graphics={
+            Text(
+              extent={{-100,-60},{100,-80}},
+              lineColor={28,108,200},
+              textString="p=%p"),
+            Ellipse(extent={{-60,60},{60,-60}}, lineColor={28,108,200},
+              fillColor={215,215,215},
+              fillPattern=FillPattern.Solid),
+            Line(points={{0,0},{0,60}},  color={28,108,200}),
+            Line(points={{0,-30},{0,30}},color={28,108,200},
+              origin={-26,15},
+              rotation=60),
+            Line(points={{0,-30},{0,30}},color={28,108,200},
+              origin={26,15},
+              rotation=-60),
+            Line(points={{0,-60},{0,0}}, color={28,108,200}),
+            Line(points={{0,-30},{0,30}},color={28,108,200},
+              origin={26,-15},
+              rotation=60),
+            Line(points={{0,-30},{0,30}},color={28,108,200},
+              origin={-26,-15},
+              rotation=-60),
+            Ellipse(extent={{-20,20},{20,-20}}, lineColor={28,108,200},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-60,0},{-100,0}}, color={28,108,200}),
+            Line(points={{100,0},{60,0}}, color={28,108,200}),
+            Text(
+              extent={{-100,100},{100,60}},
+              lineColor={28,108,200},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.None,
+              textString="%name")}),
+        Diagram(coordinateSystem(preserveAspectRatio=false)),
+        Documentation(info="<html>
+<p>
+Simple model of a hall sensor, i.e. measuring the angle of the flange (w.r.t. the optional support), multiplying by the number of phases p to obtain the electrical angle, 
+and adding a correction term i.e. the initial angle of the flange phi0.
+</p>
+<p>
+Note that phi0 has to be set that way, that in shaft position phi0 the flux linkage of phase 1 is a maximum.
+</p>
+</html>"));
+    end HallSensor;
     annotation (Documentation(info="<html>
 This package contains sensors that are useful when modelling machines.
 </html>", revisions="<html>
