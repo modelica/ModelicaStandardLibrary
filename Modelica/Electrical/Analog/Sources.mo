@@ -80,10 +80,6 @@ package Sources "Time-dependent and controlled voltage and current sources"
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
-          Line(points={{-90,0},{-10,0}}, color={0,0,255}),
-          Line(points={{-10,60},{-10,-60}}, color={0,0,255}),
-          Line(points={{0,30},{0,-30}}, color={0,0,255}),
-          Line(points={{0,0},{90,0}}, color={0,0,255}),
           Text(
             extent={{-152,70},{148,110}},
             lineColor={0,0,255},
@@ -93,7 +89,15 @@ package Sources "Time-dependent and controlled voltage and current sources"
           Line(points={{60,20},{80,20}}, color={0,0,255}),
           Text(
             extent={{-150,-110},{150,-70}},
-            textString="V=%V")}),
+            textString="V=%V"),
+          Ellipse(
+            extent={{-50,50},{50,-50}},
+            lineColor={0,0,255},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-50,0},{50,0}}, color={0,0,255}),
+          Line(points={{-90,0},{-50,0}}, color={0,0,255}),
+          Line(points={{50,0},{90,0}}, color={0,0,255})}),
       Documentation(revisions="<html>
 <ul>
 <li><em> 1998   </em>
