@@ -7347,7 +7347,7 @@ class Contact "Contact"
   extends Modelica.Icons.Contact;
 
  annotation (Documentation(info="<html>
-<dl><dt>The Modelica Standard Library (this Modelica package) is developed by many people from different organizations (see list below). It is licensed under the <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">BSD 3-Clause License</a> by:</dt>
+<dl><dt>The Modelica Standard Library (this Modelica package) is developed by contributors from different organizations (see list below). It is licensed under the <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">BSD 3-Clause License</a> by:</dt>
 <dt><br /></dt>
 <dd>Modelica Association</dd>
 <dd>(Ideella F&ouml;reningar 822003-8858 in Link&ouml;ping)</dd>
