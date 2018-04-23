@@ -7361,7 +7361,7 @@ class Contact "Contact"
 <dt>The development of this Modelica package, starting with version 3.2.3, is organized by:</dt>
 <dd>Thomas Beutlich</dd>
 <dd>ESI ITI GmbH</dd>
-<dd>Scheriner Str. 1</dd>
+<dd>Schweriner Str. 1</dd>
 <dd>D-01067 Dresden</dd>
 <dd>Germany</dd>
 <dd>email: <a href=\"mailto:Thomas.Beutlich@esi-group.com\">Thomas.Beutlich@esi-group.com</a></dd>
