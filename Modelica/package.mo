@@ -7402,143 +7402,143 @@ class Contact "Contact"
 </tr>
 
 <tr>
-<td align=\"left\"><code>Blocks</code></td>
+<td align=\"left\">Blocks</td>
 <td align=\"left\">Martin Otter, Anton Haumer</td>
 </tr>
 <tr>
-<td align=\"left\"><code>ComplexBlocks</code></td>
+<td align=\"left\">ComplexBlocks</td>
 <td align=\"left\">Anton Haumer, Christian Kral</td>
 </tr>
 <tr>
-<td align=\"left\"><code>Blocks.Tables</code></td>
+<td align=\"left\">Blocks.Tables</td>
 <td align=\"left\">Thomas Beutlich, Martin Otter, Anton Haumer</td>
 </tr>
 <tr>
-<td align=\"left\"><code>StateGraph</code></td>
+<td align=\"left\">StateGraph</td>
 <td align=\"left\">Martin Otter, Hans Olsson</td>
 </tr>
 <tr>
-<td align=\"left\"><code>Electrical.Analog</code></td>
+<td align=\"left\">Electrical.Analog</td>
 <td align=\"left\">Christoph Clauss, Kristin Majetta, Christian Kral</td>
 </tr>
 <tr>
-<td align=\"left\"><code>Electrical.Digital</code></td>
+<td align=\"left\">Electrical.Digital</td>
 <td align=\"left\">Christoph Clauss, Kristin Majetta</td>
 </tr>
 <tr>
-<td align=\"left\"><code>Electrical.Machines</code></td>
+<td align=\"left\">Electrical.Machines</td>
 <td align=\"left\">Anton Haumer, Christian Kral</td>
 </tr>
 <tr>
-<td align=\"left\"><code>Electrical.Multiphase</code></td>
+<td align=\"left\">Electrical.Multiphase</td>
 <td align=\"left\">Anton Haumer, Christian Kral</td>
 </tr>
 <tr>
-<td align=\"left\"><code>Electrical.PowerConverters</code></td>
+<td align=\"left\">Electrical.PowerConverters</td>
 <td align=\"left\">Christian Kral, Anton Haumer</td>
 </tr>
 <tr>
-<td align=\"left\"><code>Electrical.QuasiStationary</code></td>
+<td align=\"left\">Electrical.QuasiStationary</td>
 <td align=\"left\">Anton Haumer, Christian Kral</td>
 </tr>
 <tr>
-<td align=\"left\"><code>Electrical.Spice3</code></td>
+<td align=\"left\">Electrical.Spice3</td>
 <td align=\"left\">Christoph Clauss, Kristin Majetta</td>
 </tr>
 <tr>
-<td align=\"left\"><code>Magnetic.FluxTubes</code></td>
+<td align=\"left\">Magnetic.FluxTubes</td>
 <td align=\"left\">Thomas B&ouml;drich, Johannes Ziske</td>
 </tr>
 <tr>
-<td align=\"left\"><code>Magnetic.FundamentalWave</code></td>
+<td align=\"left\">Magnetic.FundamentalWave</td>
 <td align=\"left\">Christian Kral, Anton Haumer</td>
 </tr>
 <tr>
-<td align=\"left\"><code>Magnetic.QuasiStatic</code></td>
+<td align=\"left\">Magnetic.QuasiStatic</td>
 <td align=\"left\">Christian Kral, Anton Haumer</td>
 </tr>
 <tr>
-<td align=\"left\"><code>Mechanics.MultiBody</code></td>
+<td align=\"left\">Mechanics.MultiBody</td>
 <td align=\"left\">Jakub Tobolar, Martin Otter</td>
 </tr>
 <tr>
-<td align=\"left\"><code>Mechanics.Rotational</code></td>
+<td align=\"left\">Mechanics.Rotational</td>
 <td align=\"left\">Jakub Tobolar, Martin Otter, Anton Haumer, Christian Kral</td>
 </tr>
 <tr>
-<td align=\"left\"><code>Mechanics.Translational</code></td>
+<td align=\"left\">Mechanics.Translational</td>
 <td align=\"left\">Anton Haumer, Jakub Tobolar, Martin Otter, Christian Kral</td>
 </tr>
 <tr>
-<td align=\"left\"><code>Fluid</code></td>
+<td align=\"left\">Fluid</td>
 <td align=\"left\">R&uuml;diger Franke, Francesco Casella, Hubertus Tummescheit</td>
 </tr>
 <tr>
-<td align=\"left\"><code>Fluid.Dissipation</code></td>
+<td align=\"left\">Fluid.Dissipation</td>
 <td align=\"left\">Stefan Wischhusen, Francesco Casella</td>
 </tr>
 <tr>
-<td align=\"left\"><code>Media</code></td>
+<td align=\"left\">Media</td>
 <td align=\"left\">Hubertus Tummescheit, Francesco Casella, R&uuml;diger Franke</td>
 </tr>
 <tr>
-<td align=\"left\"><code>Thermal.FluidHeatFlow</code></td>
+<td align=\"left\">Thermal.FluidHeatFlow</td>
 <td align=\"left\">Anton Haumer, Christian Kral</td>
 </tr>
 <tr>
-<td align=\"left\"><code>Thermal.HeatTransfer</code></td>
+<td align=\"left\">Thermal.HeatTransfer</td>
 <td align=\"left\">Anton Haumer, Christian Kral</td>
 </tr>
 <tr>
-<td align=\"left\"><code>Math</code></td>
+<td align=\"left\">Math</td>
 <td align=\"left\">Martin Otter, Hans Olsson</td>
 </tr>
 <tr>
-<td align=\"left\"><code>ComplexMath</code></td>
+<td align=\"left\">ComplexMath</td>
 <td align=\"left\">Anton Haumer, Martin Otter, Christian Kral</td>
 </tr>
 <tr>
-<td align=\"left\"><code>Utilities</code></td>
+<td align=\"left\">Utilities</td>
 <td align=\"left\">Martin Otter, Hans Olsson, Dag Br&uuml;ck</td>
 </tr>
 <tr>
-<td align=\"left\"><code>Constants</code></td>
+<td align=\"left\">Constants</td>
 <td align=\"left\">Martin Otter, Hans Olsson</td>
 </tr>
 <tr>
-<td align=\"left\"><code>Icons</code></td>
+<td align=\"left\">Icons</td>
 <td align=\"left\">Christian Kral</td>
 </tr>
 <tr>
-<td align=\"left\"><code>SIunits</code></td>
+<td align=\"left\">SIunits</td>
 <td align=\"left\">Martin Otter, Christian Kral</td>
 </tr>
 <tr>
-<td align=\"left\"><code>C-Sources</code></td>
+<td align=\"left\">C-Sources</td>
 <td align=\"left\">Thomas Beutlich, Hans Olsson, Martin Sj&ouml;lund</td>
 </tr>
 <tr>
-<td align=\"left\"><code>Reference</code></td>
+<td align=\"left\">Reference</td>
 <td align=\"left\">Dietmar Winkler, Hans Olsson</td>
 </tr>
 <tr>
-<td align=\"left\"><code>Services</code></td>
+<td align=\"left\">Services</td>
 <td align=\"left\">Hans Olsson, Martin Otter</td>
 </tr>
 <tr>
-<td align=\"left\"><code>Complex</code></td>
+<td align=\"left\">Complex</td>
 <td align=\"left\">Anton Haumer, Christian Kral</td>
 </tr>
 <tr>
-<td align=\"left\"><code>Test</code></td>
+<td align=\"left\">Test</td>
 <td align=\"left\">Leo Gall, Martin Otter</td>
 </tr>
 <tr>
-<td align=\"left\"><code>TestOverdetermined</code></td>
+<td align=\"left\">TestOverdetermined</td>
 <td align=\"left\">Leo Gall, Martin Otter</td>
 </tr>
 <tr>
-<td align=\"left\"><code>ObsoleteModelica3</code></td>
+<td align=\"left\">ObsoleteModelica3</td>
 <td align=\"left\">Hans Olsson, Martin Otter</td>
 </tr>
 </table>
