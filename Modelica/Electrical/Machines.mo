@@ -2161,10 +2161,9 @@ and accelerating inertias. At time tStep a load step is applied.</p>
         connect(potentialSensor.phi, toSpacePhasor.u) annotation (Line(points={{8.88178e-16,
                 41},{8.88178e-16,50},{8,50}}, color={0,0,127}));
         connect(constantSpeed.flange, smpm.flange)
-          annotation (Line(points={{32,0},{10,0}}, color={0,0,0}));
+          annotation (Line(points={{32,0},{10,0}}));
         connect(smpm.flange, hallSensor.flange)
-          annotation (Line(points={{10,0},{20,0},{20,-30},{30,-30}},
-                                                            color={0,0,0}));
+          annotation (Line(points={{10,0},{20,0},{20,-30},{30,-30}}));
         connect(toSpacePhasor.y, toPolar.u)
           annotation (Line(points={{31,50},{38,50}}, color={0,0,127}));
         connect(toPolar.y[2], toDeg.u)
@@ -2179,13 +2178,13 @@ Synchronous machine with permanent magnets at no-load, driven with constant nomi
 You may check the terminal voltage = VsOpenCircuit (shown by the length of the space phasor) and the frequency = fsNominal.
 </p>
 </p>
-Additionally, you may check the phase shift of the stator voltages with respect to the mechanical shaft angle: 
+Additionally, you may check the phase shift of the stator voltages with respect to the mechanical shaft angle:
 <ul>
 <li>If the shaft angle starts at (pi + 0*pi/3)/p, the flux linkage through phase 1 is at the maximum and therefore this phase voltage starts at 0.</li>
 <li>If the shaft angle starts at (pi + 2*pi/3)/p, the flux linkage through phase 2 is at the maximum and therefore this phase voltage starts at 0.</li>
 <li>If the shaft angle starts at (pi + 4*pi/3)/p, the flux linkage through phase 3 is at the maximum and therefore this phase voltage starts at 0.</li>
 </ul>
-Note that the angle of the voltage space phasor is pi/2 behind the angle of the hall sensor, 
+Note that the angle of the voltage space phasor is pi/2 behind the angle of the hall sensor,
 i.e. after a rotation of the shaft by pi/2/p the flux linkage of phase 1 is zero and the induced voltage a maximum.
 </p>
 </html>"));
@@ -11924,12 +11923,11 @@ Otherwise, the sensor's support has to be connected to the machine's support.
               extent={{-100,100},{100,60}},
               lineColor={28,108,200},
               fillColor={255,255,255},
-              fillPattern=FillPattern.None,
               textString="%name")}),
         Diagram(coordinateSystem(preserveAspectRatio=false)),
         Documentation(info="<html>
 <p>
-Simple model of a hall sensor, i.e. measuring the angle of the flange (w.r.t. the optional support), multiplying by the number of phases p to obtain the electrical angle, 
+Simple model of a hall sensor, i.e. measuring the angle of the flange (w.r.t. the optional support), multiplying by the number of phases p to obtain the electrical angle,
 and adding a correction term i.e. the initial angle of the flange phi0.
 </p>
 <p>
