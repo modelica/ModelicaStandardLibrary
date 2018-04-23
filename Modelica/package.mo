@@ -7375,7 +7375,7 @@ class Contact "Contact"
 <dd>email: <a href=\"mailto:Dietmar.Winkler@usn.no\">Dietmar.Winkler@usn.no</a></dd>
 <dd><br /></dd>
 
-<dt>The development of this Modelica package of version 3.2.2, was organized by:</dt>
+<dt>The development of this Modelica package of version 3.2.2 was organized by:</dt>
 <dd><a href=\"http://www.haumer.at/eindex.htm\">Anton Haumer</a></dd>
 <dd>Technical Consulting &amp; Electrical Engineering</dd>
 <dd>A-3423 St.Andrae-Woerdern, Hadersfelderweg 21</dd>
