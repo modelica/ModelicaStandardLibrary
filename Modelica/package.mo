@@ -1571,7 +1571,7 @@ This class summarizes contact information of the contributing persons.
     <tr>
       <td valign=\"top\">Contributor</td>
       <td valign=\"top\">
-        <a href=\"http://www.linkedin.com/in/dietmarw\">D. Winkler</a>
+        <a href=\"https://github.com/dietmarw\">D. Winkler</a>
       </td>
       <td valign=\"top\">
         DWE, Norway
@@ -7359,20 +7359,7 @@ class Contact "Contact"
 <dd><br /></dd>
 
 <dt>The development of this Modelica package, starting with version 3.2.3, is organized by:</dt>
-<dd>Thomas Beutlich</dd>
-<dd>ESI ITI GmbH</dd>
-<dd>Schweriner Str. 1</dd>
-<dd>D-01067 Dresden</dd>
-<dd>Germany</dd>
-<dd>email: <a href=\"mailto:Thomas.Beutlich@esi-group.com\">Thomas.Beutlich@esi-group.com</a></dd>
-<dd><br /></dd>
-<dd>Dietmar Winkler</dd>
-<dd>University College of Southeast Norway (USN)</dd>
-<dd>Department of Electrical Engineering, Information Technology and Cybernetics</dd>
-<dd>Post box 235</dd>
-<dd>N-3603 Kongsberg</dd>
-<dd>Norway</dd>
-<dd>email: <a href=\"mailto:Dietmar.Winkler@usn.no\">Dietmar.Winkler@usn.no</a></dd>
+<dd><a href=\"https://github.com/beutlich\">Thomas Beutlich</a> and <a href=\"https://github.com/dietmarw\">Dietmar Winkler</a></dd>
 <dd><br /></dd>
 
 <dt>The development of this Modelica package of version 3.2.2 was organized by:</dt>
