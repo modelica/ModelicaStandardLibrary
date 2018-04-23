@@ -6805,17 +6805,7 @@ class Contact "Contact"
   annotation (Documentation(info="<html>
 <dl>
 <dt><strong>Library Officers:</strong>
-<dd> <a href=\"https://github.com/dietmarw\">Dietmar Winkler</a><br>
-     &nbsp;<br>
-     and<br>&nbsp;<br>
-    <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a><br>
-    German Aerospace Center (DLR)<br>
-    Robotics and Mechatronics Center (RMC)<br>
-    Institute of System Dynamics and Control (SR)<br>
-    Postfach 1116<br>
-    D-82230 Wessling<br>
-    Germany<br>
-    email: <A HREF=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</A><br>
+<dd><a href=\"https://github.com/dietmarw\">Dietmar Winkler</a> and <a href=\"https://github.com/HansOlsson\">Hans Olsson</a></dd>
 </dl>
 <p><strong>Acknowledgements:</strong></p>
 <ul>
