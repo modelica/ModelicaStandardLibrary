@@ -2162,11 +2162,7 @@ see <a href=\"https://trac.modelica.org/Modelica/ticket/1867\">#1867</a>):
 <li> <strong>LMS Imagine.Lab Amesim 14.2</strong> and <strong>LMS Imagine.Lab Amesim 15 (development build)</strong>.
      No previously unreported regressions have been detected.</li>
 <li> <strong>Maplesim Parser</strong></li>
-<li> <strong>OpenModelica 1.9.4 Beta.2</strong> (Windows, Linux, Mac)<br>
-     <a href=\"https://test.openmodelica.org/hudson/job/MSL_trunk_Compilation/\">Compilation</a> of models of 3.2.2.<br>
-     <a href=\"https://test.openmodelica.org/hudson/job/MSL_trunk_cpp_Simulation/\">Simulation</a> of models of 3.2.2.<br>
-     <a href=\"https://test.openmodelica.org/libraries/MSL_trunk/BuildModelRecursive.html\">Regression testing</a> of 3.2.2 using OpenModelica 1.9.4 with respect
-     to 3.2.1+build.4 reference files.</li>
+<li> <strong>OpenModelica 1.9.4 Beta.2</strong> (Windows, Linux, Mac)</li>
 </ul>
 
 <p>
