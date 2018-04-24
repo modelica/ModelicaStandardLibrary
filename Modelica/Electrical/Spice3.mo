@@ -2979,11 +2979,18 @@ Christoph Clau&szlig;
         Icon(coordinateSystem(
         preserveAspectRatio=false,
         extent={{-100,-100},{100,100}}), graphics={
-        Line(points={{-90,0},{-10,0}}, color={0,0,255}),
-        Line(points={{-10,60},{-10,-60}}, color={0,0,255}),
-        Line(points={{0,30},{0,-30}}, color={0,0,255}),
-        Line(points={{0,0},{90,0}}, color={0,0,255}),
-        Text(extent={{-100,-120},{100,-80}}, textString="%name=%V")}),
+        Text(extent={{-100,-120},{100,-80}}, textString="%name=%V"),
+            Ellipse(
+              extent={{-50,50},{50,-50}},
+              lineColor={0,0,255},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-90,0},{-50,0}}, color={0,0,255}),
+            Line(points={{-50,0},{50,0}}, color={0,0,255}),
+            Line(points={{50,0},{90,0}}, color={0,0,255}),
+            Line(points={{60,20},{80,20}}, color={0,0,255}),
+            Line(points={{-70,30},{-70,10}}, color={0,0,255}),
+            Line(points={{-80,20},{-60,20}}, color={0,0,255})}),
     Documentation(info="<html>
 <p>The V_constant source is a  source is a simple constant voltage source for an ideal constant voltage which is provided by a parameter.</p>
 </html>"));
