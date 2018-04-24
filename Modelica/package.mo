@@ -7322,6 +7322,7 @@ main version number is not changed.
 </p>
 
 <table border=1 cellspacing=0 cellpadding=2>
+<tr><td valign=\"top\"><a href=\"modelica://Modelica.UsersGuide.ReleaseNotes.Version_3_2_3\">Version 3.2.3</a></td><td>August 1, 2018</td></tr>
 <tr><td valign=\"top\"><a href=\"modelica://Modelica.UsersGuide.ReleaseNotes.Version_3_2_2\">Version 3.2.2</a></td><td>April 3, 2016</td></tr>
 <tr><td valign=\"top\"><a href=\"modelica://Modelica.UsersGuide.ReleaseNotes.Version_3_2_1\">Version 3.2.1</a></td><td>August 14, 2013</td></tr>
 <tr><td valign=\"top\"><a href=\"modelica://Modelica.UsersGuide.ReleaseNotes.Version_3_2\">Version 3.2</a></td><td>Oct. 25, 2010</td></tr>
