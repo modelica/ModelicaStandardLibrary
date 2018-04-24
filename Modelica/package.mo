@@ -1494,7 +1494,7 @@ This class summarizes general information about the implementation which is not 
 This class summarizes contact information of the contributing persons.
 </p>
 
-<h5>Example</h5>
+<h4>Example</h4>
 
 <pre>
 &lt;p&gt;
@@ -1547,6 +1547,42 @@ is highly appreciated.
 
 OR whatever
 </pre>
+<p>appears as</p>
+<p>
+Library officers responsible for the maintenance and for the
+organization of the development of this library are listed in
+<a href=\"modelica://Modelica.UsersGuide.Contact\">Modelica.UsersGuide.Contact</a>.
+</p>
+
+<h4>Main authors</h4>
+
+<p>
+<strong>First author's name</strong><br>
+First author's address<br>
+next address line<br>
+email: <a href=\"mailto:author1@website.org\">author1@website.org</a>
+</p>
+
+<p>
+<strong>Second author's name</strong><br>
+Second author's address<br>
+next address line<br>
+email: <a href=\"mailto:author2@website.org\">author2@website.org</a>
+</p>
+
+<h4>Contributors to this library</h4>
+
+<ul>
+  <li>Person one</li>
+  <li>...</li>
+</ul>
+
+<h4>Acknowledgements</h4>
+
+<p>
+The authors would like to thank following persons for their support ...
+</p>
+
 </html>"));
       end Contact;
 
