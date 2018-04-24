@@ -1509,14 +1509,15 @@ organization of the development of this library are listed in
 &lt;strong&gt;First author's name&lt;/strong&gt;&lt;br&gt;
 First author's address&lt;br&gt;
 next address line&lt;br&gt;
-email: &lt;a href=\"mailto:author1@website.org\"&gt;author1@website.org&lt;/a&gt;
+email: &lt;a href=\"mailto:author1@example.org\"&gt;author1@example.org&lt;/a&gt;&lt;br&gt;
+web: &lt;a href=&quot;https://www.example.org&quot;&gt;https://www.example.org&lt;/a&gt;
 &lt;/p&gt;
 
 &lt;p&gt;
 &lt;strong&gt;Second author's name&lt;/strong&gt;&lt;br&gt;
 Second author's address&lt;br&gt;
 next address line&lt;br&gt;
-email: &lt;a href=\"mailto:author2@website.org\"&gt;author2@website.org&lt;/a&gt;
+email: &lt;a href=\"mailto:author2@example.org\"&gt;author2@example.org&lt;/a&gt;
 &lt;/p&gt;
 
 &lt;h4&gt;Contributors to this library&lt;/h4&gt;
@@ -1560,14 +1561,15 @@ organization of the development of this library are listed in
 <strong>First author's name</strong><br>
 First author's address<br>
 next address line<br>
-email: <a href=\"mailto:author1@website.org\">author1@website.org</a>
+email: <a href=\"mailto:author1@example.org\">author1@example.org</a><br>
+web: <a href=\"https://www.example.org\">https://www.example.org</a>
 </p>
 
 <p>
 <strong>Second author's name</strong><br>
 Second author's address<br>
 next address line<br>
-email: <a href=\"mailto:author2@website.org\">author2@website.org</a>
+email: <a href=\"mailto:author2@example.org\">author2@example.org</a><br>
 </p>
 
 <h4>Contributors to this library</h4>
