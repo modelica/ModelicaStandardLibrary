@@ -1925,47 +1925,34 @@ class VersionManagement "Version Management"
   extends Modelica.Icons.ReleaseNotes;
 
       annotation (Documentation(info="<html>
+<h4>Development branches</h4>
 <p>
-Maintenance of the Modelica Standard Library is performed with
-three branches on the subversion server of the Modelica Association
-(<a href=\"https://svn.modelica.org/projects/Modelica\">https://svn.modelica.org/projects/Modelica</a>):
+Further development and maintenance of the Modelica Standard Library is performed with
+two branches on the public <a href=\"https://github.com/modelica/ModelicaStandardLibrary.git\">GitHub repository</a> of the Modelica Association.
 </p>
 
-<h4>Released branch</h4>
+<h5>Main development branch</h5>
 <p>
-Example: \"/tags/v3.0.1/Modelica\"
-</p>
-
-<p>
-This branch contains the released Modelica versions (e.g., version 3.0.1),
-where all available test cases and compatibility checks with other Modelica
-libraries have been performed on the respective release. This version is
-usually shipped with a Modelica modeling and simulation environment and
-utilized by a Modelica user.
-</p>
-
-<h4>Development branch</h4>
-<p>
-Example: \"/trunk/Modelica\"
+Name: \"master\"
 </p>
 
 <p>
 This branch contains the actual development version, i.e., all bug fixes
-and new features based on the last Modelica release.
-New features should have been tested before including them.
+and new features.
+New features must have been tested before including them.
 However, the exhaustive tests for a new version are (usually) not performed.
 This version is usually only be used by the developers of the
 Modelica Standard Library and is not utilized by Modelica users.
 </p>
 
-<h4>Maintenance branch</h4>
+<h5>Maintenance branch</h5>
 <p>
-Example: \"/branches/maintenance/3.0.1/Modelica\"
+Name: \"maint/3.2.3\"
 </p>
 
 <p>
-This branch contains the released Modelica version (e.g., version 3.0.1)
-where all bug fixes since this release date are included (up to a  new release,
+This branch contains the released Modelica Standard Library version (e.g., v3.2.3)
+where all bug fixes since this release date are included (up to a new release,
 when becoming available; i.e., after a new release, the previous maintenance
 versions are no longer changed).
 These bug fixes might be not yet tested with all test cases or with
@@ -1974,21 +1961,40 @@ any time for a new release of its software, in order to incorporate the latest
 bug fixes, without changing the version number of the Modelica Standard Library.
 </p>
 
+<h4>Contribution workflow</h4>
 <p>
-Incorporation of bug fixes (subversion \"commit\") shall be performed in the following way:
+The general <a href=\"https://guides.github.com/activities/forking/\">contribution workflow</a> is usually as follows::
+</p>
+
+<ol>
+<li>Fork the repository to your account by
+   <a href=\"https://help.github.com/articles/fork-a-repo/\">using the Fork button</a> of the GitHub repository site.</li>
+<li>Clone the forked repository to your computer. Make sure to checkout the maintenance branch if the bug fix is going to get merged to the maintenance branch.</li>
+<li>Create a new topic branch and give it a meaningful name,
+   like, e.g., \"issue2161-fix-algorithm\".</li>
+<li>Do your code changes and commit them, one change per commit.
+   Single commits can be copied to other branches.
+   Multiple commits can be squashed into one, but splitting is difficult.</li>
+<li>Once you are done, push your topic branch to your forked repository.</li>
+<li>Go to the upstream <a href=\"https://github.com/modelica/ModelicaStandardLibrary.git\">https://github.com/modelica/ModelicaStandardLibrary.git</a> repository and submit a
+   <a href=\"https://help.github.com/articles/about-pull-requests/\">Pull Request</a> (PR).
+   If the PR is related to a certain issue, reference it by its number like this: #2161.
+   Once a pull request is opened, you can discuss and
+   <a href=\"https://help.github.com/articles/about-pull-request-reviews/\">review</a>
+   the potential changes with collaborators and add follow-up commits before
+   the changes are merged into the repository.</li>
+<li>Update your branch with the requested changes. If necessary, merge the latest
+   \"master\" branch into your topic branch and solve all merge conflicts in your topic branch.</li>
+</ol>
+
+<p>
+There are some special guidelines for changes to maintenance branch.
 </p>
 
 <ul>
-<li> One person is fixing the bug and another person is checking whether the
-         fix is fine.</li>
-<li> It is up to the library developer, whether he opens a new branch for
-         testing and then merges it with the \"head\" maintenance branch or not.</li>
-<li> Every change to the maintenance branch has to be done at the development
-         branch (see above) as well. One exception are pure changes to the
+<li> Every change to the maintenance branch has to get cherry-picked at the \"master\" 
+         branch (see above), too. One exception are pure changes to the
          \"versionBuild\" annotation as these have no meaning in the development trunk.</li>
-<li> Every change to the maintenance branch requires introducing a
-         description of the bug fix under
-         Modelica.UsersGuide.ReleaseNotes.Version_&lt;release-number&gt;_BugFixes.</li>
 <li> Annotations \"version\" and \"versionDate\" must <u>not</u> be changed in a maintenance release.</li>
 <li> Every change to the maintenance branch requires changing the \"versionBuild\" number (incrementing it by one),
      as well as the \"dateModified\" field.<br>
@@ -1998,17 +2004,14 @@ Incorporation of bug fixes (subversion \"commit\") shall be performed in the fol
              versionBuild = 3,
              dateModified = \"2009-08-28 07:40:19Z\",
              revisionId   = \"$I&#8203;d::                                       $\")</pre>
-     The \"revisionId\" field is a bit special though. If written like in the example above it will be automatically
-     expanded to:
-        <pre>             revisionId   = \"$I&#8203;d:: package.mo 2879 2009-08-28 07:40:19Z #$\"</pre>
-     by the subversion checkout procedure.</li>
-<li> If time does not permit, a vendor makes the bug fix in its local version
-         and then has to include it in the maintenance version. It would be best to make these
-         changes at a new branch in order to get a unique release number.</li>
+     The \"revisionId\" field is a special annotation to mark a properly released (maintenance) version from unreleased commits. It will be
+     expanded taking the git tag into account, for example:
+        <pre>             revisionId   = \"$I&#8203;d:: MSL v3.2.1+build.4 2015-10-02 07:40:19Z $\"</pre>
+     </li>
 </ul>
 
 <p>
-A valid \"commit\" to the maintenance branch may contain one or
+As a recommendation, a valid bug fix to the maintenance branch may contain one or
 more of the following changes.
 </p>
 
@@ -2249,7 +2252,7 @@ The following <font color=\"blue\"><strong>new libraries</strong></font> have be
   <li><a href=\"modelica://Modelica.Math.Distributions\">Modelica.Math.Distributions</a></li>
   <li><a href=\"modelica://Modelica.Math.Special\">Modelica.Math.Special</a></li>
   </ul>
-  (These extensions have been developed by  Andreas Kl&ouml;ckner, Frans van der Linden, Dirk Zimmer, and Martin Otter from
+  (These extensions have been developed by Andreas Kl&ouml;ckner, Frans van der Linden, Dirk Zimmer, and Martin Otter from
   DLR Institute of System Dynamics and Control).
     </td></tr>
 
@@ -2257,7 +2260,7 @@ The following <font color=\"blue\"><strong>new libraries</strong></font> have be
     <td valign=\"top\">
    New functions are provided in the <a href=\"modelica://Modelica.Utilities.Streams\">Modelica.Utilities.Streams</a>
    sublibrary to write matrices in MATLAB MAT format on file and read matrices in this format from file.
-   The MATLAB MAT formats v4, v6, v7 and v7.3 (in case the tool supports HDF) are supported by these functions.
+   The MATLAB MAT formats v4, v6, v7 and v7.3 (in case the tool supports HDF5) are supported by these functions.
    Additionally, example models are provided under
    <a href=\"modelica://Modelica.Utilities.Examples\">Modelica.Utilities.Examples</a>
    to demonstrate the usage of these functions in models. For more details see below.<br>
@@ -7316,8 +7319,8 @@ end Version_1_4;
 This section summarizes the changes that have been performed
 on the Modelica standard library. Furthermore, it is explained in
 <a href=\"modelica://Modelica.UsersGuide.ReleaseNotes.VersionManagement\">Modelica.UsersGuide.ReleaseNotes.VersionManagement</a>
-how the versions are managed with the subversion management systems.
-This is especially important for maintenance (bug-fix) releases where the
+how the versions are managed.
+This is especially important for maintenance (bug fix) releases where the
 main version number is not changed.
 </p>
 
