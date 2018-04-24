@@ -86,14 +86,14 @@ package Semiconductors
     Vt_applied = if useHeatPort then Modelica.Constants.R * T_heatPort/Modelica.Constants.F else Vt;
     id = smooth(1,
       if vd < -Bv / 2 then
-        //Lower half of reverse biased region including breakdown.
         -Ids * (exp(-(vd+Bv)/(N*Vt_applied)) + 1 - 2*exp(-Bv/(2*N*Vt_applied)))
       elseif vd < VdMax then
-        //Upper half of reverse biased region, and forward biased region before conduction.
         Ids * (exp(vd/(N*Vt_applied)) - 1)
       else
-        //Forward biased region after conduction
         iVdMax + (vd - VdMax) * diVdMax);
+        //Lower half of reverse biased region including breakdown.
+        //Upper half of reverse biased region, and forward biased region before conduction.
+        //Forward biased region after conduction
 
     v = vd + id * Rs;
     i = id + v*Gp;
@@ -1292,12 +1292,12 @@ public
       "Voltage equivalent of temperature (kT/qn)";
     parameter Real Nbv=0.74 "Reverse Breakthrough emission coefficient";
    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort;
-    Real iGK "Gate current";
-    Real vGK "Voltage between gate and cathode";
-    Real vAK "Voltage between anode and cathode";
-    Real vControl(start=0);
-    Real vContot;
-    Real vConmain;
+    SI.Current iGK "Gate current";
+    SI.Voltage vGK "Voltage between gate and cathode";
+    SI.Voltage vAK "Voltage between anode and cathode";
+    SI.Voltage vControl(start=0);
+    SI.Voltage vContot;
+    SI.Voltage vConmain;
 
   public
     Modelica.Electrical.Analog.Interfaces.PositivePin Anode annotation (Placement(
