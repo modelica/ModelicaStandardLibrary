@@ -135,7 +135,7 @@ package Lines
           Line(points={{80,0},{90,0}}, color={0,0,255}),
           Line(points={{-80,0},{-90,0}}, color={0,0,255}),
           Text(
-            extent={{-151,130},{149,90}},
+            extent={{-150,130},{150,90}},
             textString="%name",
             lineColor={0,0,255}),
           Line(points={{40,30},{-40,30}}),

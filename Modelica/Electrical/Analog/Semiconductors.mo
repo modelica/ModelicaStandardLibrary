@@ -1536,7 +1536,7 @@ public
             points={{-100,-88},{-100,-80},{-30,-50}},
             color={0,0,255}),
           Text(
-            extent={{-170,150},{148,110}},
+            extent={{-150,150},{150,110}},
             textString="%name",
             lineColor={0,0,255})}),
       Documentation(info="<html>

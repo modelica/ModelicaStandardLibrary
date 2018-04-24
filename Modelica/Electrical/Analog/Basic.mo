@@ -1049,7 +1049,7 @@ the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N
                                                     color={0,0,255}),
           Line(points={{20,0},{60,0}}, color={0,0,255}),
           Text(
-            extent={{-149,150},{151,110}},
+            extent={{-150,150},{150,110}},
             textString="%name",
             lineColor={0,0,255}),
           Line(points={{-90,100},{-40,100},{-40,60}}, color={0,0,255}),
@@ -1099,7 +1099,7 @@ the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N
           Line(points={{-90,100},{-40,100},{-40,-100},{-90,-100}},
                                                                color={0,0,255}),
           Text(
-            extent={{-170,150},{130,110}},
+            extent={{-150,150},{150,110}},
             textString="%name",
             lineColor={0,0,255})}));
   end CCV;
@@ -1445,7 +1445,7 @@ the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
           Text(
-            extent={{-151,149},{149,109}},
+            extent={{-150,150},{150,110}},
             textString="%name",
             lineColor={0,0,255}),
           Polygon(

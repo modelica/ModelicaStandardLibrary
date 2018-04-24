@@ -81,7 +81,7 @@ package Sources "Time-dependent and controlled voltage and current sources"
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
           Text(
-            extent={{-152,70},{148,110}},
+            extent={{-150,70},{150,110}},
             lineColor={0,0,255},
             textString="%name"),
           Line(points={{-70,30},{-70,10}}, color={0,0,255}),
@@ -1173,7 +1173,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
             fillColor={0,0,255},
             fillPattern=FillPattern.Solid),
           Text(
-            extent={{-152,60},{148,100}},
+            extent={{-150,60},{150,100}},
             lineColor={0,0,255},
             textString="%name"),
           Text(

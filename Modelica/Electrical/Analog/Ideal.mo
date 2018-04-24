@@ -823,7 +823,7 @@ For the backward conversion, one has to decide about the partitioning of the lea
             lineColor={0,0,255},
             textString="2"),
           Text(
-            extent={{-150,149},{150,109}},
+            extent={{-150,150},{150,110}},
             textString="%name",
             lineColor={0,0,255}),
           Line(points={{-40,60},{-40,100},{-90,100}}, color={0,0,255}),
