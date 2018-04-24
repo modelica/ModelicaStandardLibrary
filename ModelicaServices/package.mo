@@ -212,7 +212,7 @@ Specification (version &ge; 3.3).
   annotation (
     preferredView="info",
     version="3.2.3",
-    versionBuild=0,
+    versionBuild=1,
     versionDate="2018-08-01",
     dateModified = "2018-04-20 12:00:00Z",
     revisionId="$Id::                                       $",
