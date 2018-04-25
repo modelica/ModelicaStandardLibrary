@@ -377,7 +377,6 @@ This can be recommended by having  <code><strong>annotation</strong> choicesAllM
 <strong>package</strong> Modelica
   <strong>annotation</strong>(version      = &quot;3.0.1&quot;,
              versionDate  = &quot;2008-04-10&quot;,
-             versionBuild = 4,
              <em>dateModified = &quot;2009-02-15 16:33:14Z&quot;</em>,
              revisionId   = &quot;$I&#8203;d:: package.mo 2566 2009-02-15 16:33:14Z #$&quot;);
   ...
@@ -1177,7 +1176,6 @@ The preferredView annotation defines the default view when selecting the class. 
 <pre><strong>package</strong> Modelica
   <strong>annotation</strong>(version      = &quot;3.0.1&quot;,
              versionDate  = &quot;2008-04-10&quot;,
-             versionBuild = 4,
              dateModified = &quot;2009-02-15 16:33:14Z&quot;,
              <em>revisionId   = &quot;$I&#8203;d:: package.mo 2566 2009-02-15 16:33:14Z #$&quot;</em>);
   ...
@@ -1186,7 +1184,6 @@ The preferredView annotation defines the default view when selecting the class. 
 <ul>
   <li><a href=\"modelica://ModelicaReference.Annotations.version\">version</a></li>
   <li><a href=\"modelica://ModelicaReference.Annotations.versionDate\">versionDate</a></li>
-  <li><a href=\"modelica://ModelicaReference.Annotations.versionBuild\">versionBuild</a></li>
   <li><a href=\"modelica://ModelicaReference.Annotations.dateModified\">dateModified</a></li>
 </ul>
 </html>"));
@@ -1440,7 +1437,12 @@ This allows a tool to access multiple versions of the same package.
     extends ModelicaReference.Icons.Information;
 
     annotation (Documentation(info="<html>
-<p>Defines the optional build number of the library. <em>(This is a deprecated annotation. It should  no longer be used, since it will be removed in one of the next Modelica releases.)</em></p>
+<p>Defines the optional build number of the library.</p>
+
+<blockquote>
+<em>This is a <strong>deprecated</strong> annotation. It should no longer be used, since it will be removed in one of the next Modelica releases. Use instead <a href=\"https://semver.org/\">Semantic Versioning</a> which provides a better mechanism for maintaining releases and bugfixes in a well defined way.</emp>
+</blockquote>
+
 <h4>Syntax</h4>
 <blockquote><pre>
 <strong>annotation</strong>&quot;(&quot; versionBuild &quot;=&quot; INTEGER &quot;)&quot;
@@ -1491,7 +1493,6 @@ A &ldquo;<code>versionBuild</code>&rdquo; number A that is higher as &ldquo;<cod
 <strong>package</strong> Modelica
   <strong>annotation</strong>(version      = &quot;3.0.1&quot;,
              <em>versionDate  = &quot;2008-04-10&quot;</em>,
-             versionBuild = 4,
              dateModified = &quot;2009-02-15 16:33:14Z&quot;,
              revisionId   = &quot;$I&#8203;d:: package.mo 2566 2009-02-15 16:33:14Z #$&quot;);
   ...
@@ -6932,7 +6933,7 @@ end Icons;
 annotation (
   DocumentationClass=true,
   version="3.2.2",
-  versionBuild=0,
+  versionBuild=1,
   versionDate="2016-01-15",
   dateModified = "2016-01-15 08:44:41Z",
   revisionId="$Id::                                       $",
