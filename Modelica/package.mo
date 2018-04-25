@@ -1992,21 +1992,28 @@ There are some special guidelines for changes to maintenance branch.
 </p>
 
 <ul>
-<li> Every change to the maintenance branch has to get cherry-picked at the \"master\" 
+<li> Every change to the maintenance branch has to get cherry-picked at the \"master\"
          branch (see above), too. One exception are pure changes to the
          \"versionBuild\" annotation as these have no meaning in the development trunk.</li>
 <li> Annotations \"version\" and \"versionDate\" must <u>not</u> be changed in a maintenance release.</li>
-<li> Every change to the maintenance branch requires changing the \"versionBuild\" number (incrementing it by one),
-     as well as the \"dateModified\" field.<br>
+<li> Since the version number can currently not be changed when releasing new maintenance releases
+     (also known as bugfix release) the Modelica Standard Library utilizes the \"versionBuild\" annotation
+     for this purpose. So should there be a new maintenance release in the maintenance branch then the
+     \"versionBuild\" number needs to be incremented by one. At the same time the \"dateModified\" field
+     needs to be updated.<br>
      Example:
-         <pre>  annotation(version      = \"3.1\",
-             versionDate  = \"2009-06-22\",
-             versionBuild = 3,
-             dateModified = \"2009-08-28 07:40:19Z\",
-             revisionId   = \"$I&#8203;d::                                       $\")</pre>
-     The \"revisionId\" field is a special annotation to mark a properly released (maintenance) version from unreleased commits. It will be
-     expanded taking the git tag into account, for example:
-        <pre>             revisionId   = \"$I&#8203;d:: MSL v3.2.1+build.4 2015-10-02 07:40:19Z $\"</pre>
+         <pre>  annotation(version      = \"3.2.3\",
+             versionDate  = \"2018-08-01\",
+             versionBuild = 2,
+             dateModified = \"2018-12-12 07:40:19Z\",
+             revisionId   = \"$F&#8203;ormat:%h %s %ci$\")</pre>
+     The \"revisionId\" field is a special annotation to mark a properly released (maintenance) version from unreleased commits. <br>
+     Example:
+     <blockquote>
+        Running the export command \"<code>git archive -o msl.zip v3.2.3</code>\" will
+        expand the above revisionId place holder to something like:
+        <pre>revisionId = \"c04e23a0d v3.2.3+build.1 2018-08-01 12:00:00 +0200$\"</pre>
+     </blockquote>
      </li>
 </ul>
 
@@ -7906,7 +7913,7 @@ version="3.2.3",
 versionBuild=1,
 versionDate="2018-08-01",
 dateModified = "2018-08-01 12:00:00Z",
-revisionId="$Id::                                       $",
+revisionId="$Format:%h %s %ci$",
 uses(Complex(version="3.2.3"), ModelicaServices(version="3.2.3")),
 conversion(
  noneFromVersion="3.2.2",

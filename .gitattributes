@@ -13,3 +13,11 @@
 *.md text
 *.htm* text
 .mailmap text
+
+# git archive keyword substitions for the main package files
+Complex.mo export-subst
+Modelica/package.mo export-subst
+ModelicaReferences/package.mo export-subst
+ModelicaServices/package.mo export-subst
+ModelicaTest/package.mo export-subst
+ModelicaTestOverdetermined.mo export-subst
