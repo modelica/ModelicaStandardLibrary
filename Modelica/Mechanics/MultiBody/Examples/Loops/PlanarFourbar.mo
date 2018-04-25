@@ -96,7 +96,7 @@ equation
     Documentation(info="<html>
 <p>
 A planar four link mechanism demonstrating possible usage of the
-<a href=\"Modelica.Mechanics.MultiBody.Joints.RevolutePlanarLoopConstraint\">RevolutePlanarLoopConstraint</a>.
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Joints.RevolutePlanarLoopConstraint\">RevolutePlanarLoopConstraint</a>.
 In this planar example, all the revolute joints rotate about axes perpendicular
 to the x-y plane, i.e. they all are parallel to each other.
 To enable a unique numerical solution in such a case,
@@ -108,7 +108,7 @@ instead of the common revolute joint.
 Another option is to use the assembly joint
 <strong>Joints.Assemblies.JointRRR</strong> instead of a part
 of the mechanism, as demonstrated in the example
-<a href=\"Modelica.Mechanics.MultiBody.Examples.Loops.PlanarLoops_analytic\">PlanarLoops_analytic</a>.
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Examples.Loops.PlanarLoops_analytic\">PlanarLoops_analytic</a>.
 </p>
 
 <blockquote>

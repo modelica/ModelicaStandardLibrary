@@ -481,7 +481,7 @@ A freely available book is available in
               Interval=0.0002),
             Documentation(info="<html>
 <p>This examples shows a two pulse half controlled bridge example with resistive load. In case of resistive load the half controlled bridge shows the same output voltage as the
-<a href=\"Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2Pulse.ThyristorBridge2Pulse_R\">full controlled bridge</a>.</p>
+<a href=\"modelica://Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2Pulse.ThyristorBridge2Pulse_R\">full controlled bridge</a>.</p>
 
 <p>Plot current <code>currentSensor.i</code>, average current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
 </html>"));
@@ -513,7 +513,7 @@ A freely available book is available in
               Interval=0.0002),
             Documentation(info="<html>
 <p>This examples shows a two pulse full controlled bridge example with resistive load. In case of resistive load the full controlled bridge shows the same output voltage as the
-<a href=\"Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2Pulse.HalfControlledBridge2Pulse\">half controlled bridge</a>.</p>
+<a href=\"modelica://Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2Pulse.HalfControlledBridge2Pulse\">half controlled bridge</a>.</p>
 
 <p>Plot current <code>currentSensor.i</code>, average current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
 </html>"));
@@ -1579,7 +1579,7 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
               Interval=0.0002),
             Documentation(info="<html>
 <p>This example shows a half controlled <code>2*m</code> pulse bridge rectifier with resistive load, where <code>m</code> is the number of phases. In case of resistive load the half controlled bridge shows the same output voltage as the
-<a href=\"Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse.ThyristorBridge2mPulse_R\">full controlled bridge</a>.</p>
+<a href=\"modelica://Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse.ThyristorBridge2mPulse_R\">full controlled bridge</a>.</p>
 
 <p>Plot current <code>currentSensor.i</code>, average current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
 
@@ -1612,7 +1612,7 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
               Interval=0.0002),
             Documentation(info="<html>
 <p>This example shows a full controlled <code>2*m</code> pulse bridge rectifier with resistive load, where <code>m</code> is the number of phases. In case of resistive load the full controlled bridge shows the same output voltage as the
-<a href=\"Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse.HalfControlledBridge2mPulse\">half controlled bridge</a>.</p>
+<a href=\"modelica://Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse.HalfControlledBridge2mPulse\">half controlled bridge</a>.</p>
 
 <p>Plot current <code>currentSensor.i</code>, average current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
 </html>"));
@@ -2306,7 +2306,7 @@ In this example a PM excited DC machine is started with nominal torque at nomina
           annotation (
             Documentation(info="<html>
 <p>Template of
-<a href=\"Modelica.Electrical.PowerConverters.Examples.ACDC.Rectifier1Pulse\">
+<a href=\"modelica://Modelica.Electrical.PowerConverters.Examples.ACDC.Rectifier1Pulse\">
 single pulse rectifiers</a>; load is not yet included.</p>
 </html>"));
         end Thyristor1Pulse;
@@ -2387,7 +2387,7 @@ single pulse rectifiers</a>; load is not yet included.</p>
           annotation (
             Documentation(info="<html>
 <p>Template of
-<a href=\"Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2Pulse\">
+<a href=\"modelica://Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2Pulse\">
 two pulse bridge rectifiers</a>; load is not yet included.</p>
 </html>"));
         end ThyristorBridge2Pulse;
@@ -2475,7 +2475,7 @@ two pulse bridge rectifiers</a>; load is not yet included.</p>
           annotation (
             Documentation(info="<html>
 <p>Template of
-<a href=\"Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2Pulse\">
+<a href=\"modelica://Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2Pulse\">
 center tap two pulse rectifiers</a>; load is not yet included.</p>
 </html>"));
         end ThyristorCenterTap2Pulse;
@@ -2564,7 +2564,7 @@ center tap two pulse rectifiers</a>; load is not yet included.</p>
           annotation (
             Documentation(info="<html>
 <p>Template of
-<a href=\"Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTapmPulse\">
+<a href=\"modelica://Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTapmPulse\">
 center tap <code>m</code> pulse rectifiers</a>, where <code>m</code> is the number of phases; load is not yet included.</p>
 </html>"));
         end ThyristorCenterTapmPulse;
@@ -2655,7 +2655,7 @@ center tap <code>m</code> pulse rectifiers</a>, where <code>m</code> is the numb
           annotation (
             Documentation(info="<html>
 <p>Template of
-<a href=\"Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse\">
+<a href=\"modelica://Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse\">
 <code>2*m</code> pulse bridge rectifiers</a>, where <code>m</code> is the number of phases; load is not yet included.</p>
 </html>"));
         end ThyristorBridge2mPulse;
@@ -2760,7 +2760,7 @@ center tap <code>m</code> pulse rectifiers</a>, where <code>m</code> is the numb
           annotation (
             Documentation(info="<html>
 <p>Template of
-<a href=\"Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2mPulse\">
+<a href=\"modelica://Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2mPulse\">
 center tap <code>2*m</code> pulse rectifiers</a>, where <code>m</code> is the number of phases; load is not yet included.</p>
 </html>"));
         end ThyristorCenterTap2mPulse;
@@ -2954,7 +2954,7 @@ center tap <code>2*m</code> pulse rectifiers</a>, where <code>m</code> is the nu
               Tolerance=1e-06,
               Interval=0.00002),
             Documentation(info="<html>
-<p>Plot current <code>currentSensor.i[:]</code>, harmonic current magnitude <code>fundamentalWaveCurrent[:].y_RMS</code>, harmonic voltage magnitude <code>fundamentalWaveVoltage[:].y_RMS</code>. The instantaneous voltages <code>voltageSensor.i[:]</code> and currents <code>currentSensor.i[:]</code> directly show the switching pattern of the inverter. There is not smoothing effect due to an inductance in this example; see <a href=\"Modelica.Electrical.PowerConverters.Examples.DCAC.MultiPhaseTwoLevel.MultiPhaseTwoLevel_RL\">MultiPhaseTwoLevel_RL</a>.</p>
+<p>Plot current <code>currentSensor.i[:]</code>, harmonic current magnitude <code>fundamentalWaveCurrent[:].y_RMS</code>, harmonic voltage magnitude <code>fundamentalWaveVoltage[:].y_RMS</code>. The instantaneous voltages <code>voltageSensor.i[:]</code> and currents <code>currentSensor.i[:]</code> directly show the switching pattern of the inverter. There is not smoothing effect due to an inductance in this example; see <a href=\"modelica://Modelica.Electrical.PowerConverters.Examples.DCAC.MultiPhaseTwoLevel.MultiPhaseTwoLevel_RL\">MultiPhaseTwoLevel_RL</a>.</p>
 </html>"));
         end MultiPhaseTwoLevel_R;
 

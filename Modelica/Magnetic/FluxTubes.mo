@@ -238,7 +238,7 @@ Two different types of hyteresis models are supported:
 <h4>Dynamic Hysteresis (Eddy Currents)</h4>
 
 <p>
-Some of the hysteresis flux tubes elements of the package <a href=\"FluxTubes.Shapes.HysteresisAndMagnets\">HysteresisAndMagnets</a> are capable of simulating eddy currents (dynamic hysteresis) additional to the static hysteresis behavior of the core material. The computation of eddy currents can be activated via the switch <code>includeEddyCurrents</code> in the \"LossesAndHeat\" tab of the corresponding elements parameter dialog. The total magnetic field strength <code>H</code> of the element is the sum of the ferromagnetic portion <code>Hstat</code> and the eddy current portion <code>Heddy:</code>
+Some of the hysteresis flux tubes elements of the package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets\">HysteresisAndMagnets</a> are capable of simulating eddy currents (dynamic hysteresis) additional to the static hysteresis behavior of the core material. The computation of eddy currents can be activated via the switch <code>includeEddyCurrents</code> in the \"LossesAndHeat\" tab of the corresponding elements parameter dialog. The total magnetic field strength <code>H</code> of the element is the sum of the ferromagnetic portion <code>Hstat</code> and the eddy current portion <code>Heddy:</code>
 </p>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
@@ -275,7 +275,7 @@ Where <code>&sigma;</code> is the electrical conductivity and <code>d</code> the
 </table>
 
 <p>
-The following two figures show a comparison between measured and simulated dynamic hysteresis at several frequencies. The measurements were performed with a 25 cm Epstein frame  according to DIN EN 60404-2. The magnetic core was made up of four layers of M330-50A steel sheet. The primary Winding of the used Epstein frame had 720 turns. The primary voltage was adjusted so that the magnetic excitation was about Hmax = 400 A/m, but 72 V in maximum. The simulation results (see Fig. 3) were generated with a simple model of this setup using the <a href=\"FluxTubes.Shapes.HysteresisAndMagnets.GenericHystTellinenTable\">GenericHystTellinenTable</a> hysteresis flux tube element for modeling the magnetic core.
+The following two figures show a comparison between measured and simulated dynamic hysteresis at several frequencies. The measurements were performed with a 25 cm Epstein frame  according to DIN EN 60404-2. The magnetic core was made up of four layers of M330-50A steel sheet. The primary Winding of the used Epstein frame had 720 turns. The primary voltage was adjusted so that the magnetic excitation was about Hmax = 400 A/m, but 72 V in maximum. The simulation results (see Fig. 3) were generated with a simple model of this setup using the <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystTellinenTable\">GenericHystTellinenTable</a> hysteresis flux tube element for modeling the magnetic core.
 </p>
 
 
@@ -4510,7 +4510,7 @@ The flux linkage &Psi; and the static inductance L_stat = |&Psi;/i| are calculat
             Line(points={{-30,-100},{-30,-60}}, color={28,108,200})}),
         Documentation(info="<html>
 <p>
-Same as <a href=\"FluxTubes.Basic.ElectroMagneticConverter\">ElectroMagneticConverter</a> with an additional leakage path on the magnetic side (leakage inductance, leakage flux). This model may improve stability especially when the magnetic circuit contains more than one electro-magnetic converter.
+Same as <a href=\"modelica://Modelica.Magnetic.FluxTubes.Basic.ElectroMagneticConverter\">ElectroMagneticConverter</a> with an additional leakage path on the magnetic side (leakage inductance, leakage flux). This model may improve stability especially when the magnetic circuit contains more than one electro-magnetic converter.
 </p>
 </html>"));
     end ElectroMagneticConverterWithLeakageInductance;

@@ -1242,7 +1242,7 @@ The result of a simulation is shown in the next diagram:
      annotation (experiment(StopTime=2), Documentation(info="<html>
 <p>
 This example demonstrates manual and automatic seed selection of
-<a href=\"Modelica.Blocks.Noise.UniformNoise\">UniformNoise</a> blocks, as well
+<a href=\"modelica://Modelica.Blocks.Noise.UniformNoise\">UniformNoise</a> blocks, as well
 as starting the noise at startTime = 0.5 s with an output value of y = -1 before this
 time. All noise blocks in this example generate uniform noise in the
 band y_min=-1 .. y_max=3 with samplePeriod = 0.01 s.
@@ -1952,7 +1952,7 @@ Reference
 <p>
 This block determines the probability density y of a uniform distribution for the given input signal u
 (for details of this density function see
-<a href=\"Modelica.Math.Distributions.Uniform.density\">Math.Distributions.Uniform.density</a>).
+<a href=\"modelica://Modelica.Math.Distributions.Uniform.density\">Math.Distributions.Uniform.density</a>).
 </p>
 
 <p>
@@ -2023,7 +2023,7 @@ This block is demonstrated in the example
 <p>
 This block determines the probability density y of a normal distribution for the given input signal u
 (for details of this density function see
-<a href=\"Modelica.Math.Distributions.Normal.density\">Math.Distributions.Normal.density</a>).
+<a href=\"modelica://Modelica.Math.Distributions.Normal.density\">Math.Distributions.Normal.density</a>).
 </p>
 
 <p>
@@ -2095,7 +2095,7 @@ This block is demonstrated in the example
 <p>
 This block determines the probability density y of a Weibull distribution for the given input signal u
 (for details of this density function see
-<a href=\"Modelica.Math.Distributions.Weibull.density\">Math.Distributions.Weibull.density</a>).
+<a href=\"modelica://Modelica.Math.Distributions.Weibull.density\">Math.Distributions.Weibull.density</a>).
 </p>
 
 <p>

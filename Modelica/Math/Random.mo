@@ -61,7 +61,7 @@ package Random "Library of functions for generating random numbers"
       annotation (experiment(StopTime=2), Documentation(info="<html>
 <p>
 This example demonstrates how to utilize the random number generators
-of package <a href=\"Modelica.Math.Random.Generators\">Math.Random.Generators</a> in a Modelica model.
+of package <a href=\"modelica://Modelica.Math.Random.Generators\">Math.Random.Generators</a> in a Modelica model.
 The example calculates random numbers in the range 0 .. 1 of the available random number generators periodically
 with a sample period of 0.05 s. Simulations results are shown in the figure below:
 </p>
@@ -802,7 +802,7 @@ Further explanations of the properties above:
 
 <p>
 The xorshift random number generators are used in the following way in the
-<a href=\"Modelica.Blocks.Noise\">Blocks.Noise</a> package:
+<a href=\"modelica://Modelica.Blocks.Noise\">Blocks.Noise</a> package:
 </p>
 <ol>
 <li> Xorshift64star (xorshift64*) is used to generate the initial internal state vectors of the
@@ -810,14 +810,14 @@ The xorshift random number generators are used in the following way in the
      to the very good startup properties.</li>
 
 <li> Xorshift128plus (xorshift128+) is the random number generator
-     used by the blocks in <a href=\"Modelica.Blocks.Noise\">Blocks.Noise</a>.
+     used by the blocks in <a href=\"modelica://Modelica.Blocks.Noise\">Blocks.Noise</a>.
      Since these blocks hold the internal state vector for every block instance, and the
      internal state vector is copied whenever a new random number is drawn, it is important
      that the internal state vector is short (and still has good statistical properties
      as shown in the table above).</li>
 
 <li> Xorshift1024star (xorshift1024*) is the basis of the impure function
-     <a href=\"Modelica.Math.Random.Utilities.impureRandom\">Math.Random.Utilities.impureRandom</a>
+     <a href=\"modelica://Modelica.Math.Random.Utilities.impureRandom\">Math.Random.Utilities.impureRandom</a>
      which in turn is used with
      <a href=\"modelica://Modelica.Blocks.Noise.GlobalSeed\">Blocks.Noise.GlobalSeed</a>.
      The internal state vector is not exposed. It is updated internally, whenever a new random number

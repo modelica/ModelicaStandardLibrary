@@ -82,7 +82,7 @@ ellipsoid surface.
 <p>
 Function defining the characteristics of a moving sine in three dimensions.
 This function is used in example
-<a href=\"Modelica.Mechanics.MultiBody.Examples.Elementary.Surfaces\">Elementary.Surfaces</a>.
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Examples.Elementary.Surfaces\">Elementary.Surfaces</a>.
 </p>
 </html>"));
   end sineSurface;

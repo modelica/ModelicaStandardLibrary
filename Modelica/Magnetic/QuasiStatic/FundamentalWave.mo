@@ -5119,7 +5119,7 @@ Resistances and stray inductances of the machine refer to an <code>m</code> phas
 
 <h4>See also</h4>
 <p>
-<a href=\"Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.InductionMachines.IM_SlipRing\">
+<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.InductionMachines.IM_SlipRing\">
 IM_SlipRing</a>,
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing\">
 Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing</a>,
@@ -5290,7 +5290,7 @@ Resistances and stray inductances of the machine always refer to either stator o
 
 <h4>See also</h4>
 <p>
-<a href=\"Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.InductionMachines.IM_SquirrelCage\">
+<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.InductionMachines.IM_SquirrelCage\">
 IM_SquirrelCage</a>,
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing\">
 Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing</a>,
@@ -6312,7 +6312,7 @@ is the electrical angle between stator and rotor.
 
 <p>
 The air gap model has two magnetic stator and two magnetic rotor
-<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Interfaces.MagneticPort\">ports</a>. The magnetic potential difference and the magnetic flux of the stator and rotor are equal complex quantities, respectively, but the reference angles are different; see <a href=\"Modelica.Magnetic.QuasiStatic.FundamentalWave.UsersGuide.Concept\">Concept</a>. The d and q axis components with respect to the rotor fixed reference frame (superscript r) are determined from the stator (superscript s) and rotor (superscript r) reference quantities, by
+<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Interfaces.MagneticPort\">ports</a>. The magnetic potential difference and the magnetic flux of the stator and rotor are equal complex quantities, respectively, but the reference angles are different; see <a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.UsersGuide.Concept\">Concept</a>. The d and q axis components with respect to the rotor fixed reference frame (superscript r) are determined from the stator (superscript s) and rotor (superscript r) reference quantities, by
 </p>
 
 <p>

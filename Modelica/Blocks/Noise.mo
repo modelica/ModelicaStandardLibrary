@@ -456,7 +456,7 @@ frequency bandwidth 1/samplePeriod: <code>signal power = signal variance = noise
 </p>
 
 <p>
-Example <a href=\"Modelica.Blocks.Examples.NoiseExamples.DrydenContinuousTurbulence\">NoiseExamples.DrydenContinuousTurbulence</a>
+Example <a href=\"modelica://Modelica.Blocks.Examples.NoiseExamples.DrydenContinuousTurbulence\">NoiseExamples.DrydenContinuousTurbulence</a>
 demonstrates how to utilize this block to model wind gust.
 </p>
 </html>"));
@@ -480,7 +480,7 @@ Many examples how to use the Noise blocks are provided in sublibrary
 
 <p>
 When using one of the blocks of this sublibrary, on the same or a higher level,
-block <a href=\"Modelica.Blocks.Noise.GlobalSeed\">Noise.GlobalSeed</a>
+block <a href=\"modelica://Modelica.Blocks.Noise.GlobalSeed\">Noise.GlobalSeed</a>
 must be dragged resulting in a declaration
 </p>
 
@@ -633,7 +633,7 @@ numbers in the range 0.0 .. 1.0 (and these random numbers are transformed
 afterwards, see below). This sublibrary uses the xorshift random number generation
 suite developed in 2014 by Sebastiano Vigna (for details see
 <a href=\"http://xorshift.di.unimi.it\">http://xorshift.di.unimi.it</a> and
-<a href=\"Modelica.Math.Random.Generators\">Math.Random.Generators</a>).
+<a href=\"modelica://Modelica.Math.Random.Generators\">Math.Random.Generators</a>).
 These random number generators have excellent
 statistical properties, produce quickly statistically relevant random numbers, even if
 starting from a bad initial seed, and have a reasonable length of the internal state
@@ -645,7 +645,7 @@ The random number generator with a length of 33 Integer is used from the impure 
 generator. It is suited even for massively parallel simulations where every simulation
 computes a large number of random values. More details of the random number
 generators are described in the documentation of package
-<a href=\"Modelica.Math.Random.Generators\">Math.Random.Generators</a>.
+<a href=\"modelica://Modelica.Math.Random.Generators\">Math.Random.Generators</a>.
 </p>
 
 <h4>Distributions</h4>
@@ -680,7 +680,7 @@ when modeling noise that is known to be in a particular range, say &plusmn; 0.1 
 then with the TruncatedNormal distribution it is guaranteed that random values are only
 generated in this band). More details of truncated
 distributions are given in the documentation of package
-<a href=\"Modelica.Math.Distributions\">Math.Distributions</a>.
+<a href=\"modelica://Modelica.Math.Distributions\">Math.Distributions</a>.
 </p>
 </html>", revisions="<html>
 <table border=1 cellspacing=0 cellpadding=2>
