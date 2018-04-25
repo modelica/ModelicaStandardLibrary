@@ -21,3 +21,4 @@ ModelicaReferences/package.mo export-subst
 ModelicaServices/package.mo export-subst
 ModelicaTest/package.mo export-subst
 ModelicaTestOverdetermined.mo export-subst
+ObsoleteModelica3.mo export-subst
