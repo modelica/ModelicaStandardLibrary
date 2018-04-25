@@ -5387,7 +5387,7 @@ This adaptor has torque as input and angle, angular velocity and angular acceler
 </p>
 <p>
 This is just a wrapper model around
-<a href=\"modelica://Modelica.Mechanics.Rotational.Components.AngleToTorqueAdapterNew\">AngleToTorqueAdapterNew</a>,
+<a href=\"modelica://Modelica.Mechanics.Rotational.Components.TorqueToAngleAdaptorNew\">TorqueToAngleAdaptorNew</a>,
 provided for backwards compatibility reasons.
 </p>
 </html>"),     Icon(graphics={

@@ -428,7 +428,7 @@ In a series of papers and dissertations
 Prof. Hiller and his group in Duisburg, Germany,
 have developed systematic methods to handle mechanical
 loops analytically, see also
-<a href=\"Modelica.Mechanics.MultiBody.UsersGuide.Literature\">MultiBody.UsersGuide.Literature</a>.
+<a href=\"modelica://Modelica.Mechanics.MultiBody.UsersGuide.Literature\">MultiBody.UsersGuide.Literature</a>.
 The \"characteristic pair of joints\" method
 basically cuts a loop at two joints and uses geometric
 invariants to reduce the number of algebraic

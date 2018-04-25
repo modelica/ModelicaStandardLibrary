@@ -177,7 +177,7 @@ Furthermore, note that the FFT phases are with respect to a cos(..) signal.
 </html>",
       info="<html>
 <p>
-This is the same example as <a href=\"Modelica.Math.FastFourierTransform.Examples.RealFFT1\">Examples.RealFFT1</a>
+This is the same example as <a href=\"modelica://Modelica.Math.FastFourierTransform.Examples.RealFFT1\">Examples.RealFFT1</a>
 with the only difference that just the amplitudes of the FFT are stored on file (but not the phases).
 </p>
 </html>"));

@@ -417,7 +417,7 @@ axes of the revolute joints.
     annotation (experiment(StopTime=5), Documentation(info="<html>
 <p>
 This model demonstrates the usage of the
-<a href=\"Modelica.Mechanics.MultiBody.Joints.GearConstraint\">GearConstraint</a>
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Joints.GearConstraint\">GearConstraint</a>
 model to model a gearbox with multi-body elements. The formulation is compared with
 a one-dimensional model that is mounted with an
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Parts.Mounting1D\">Mounting1D</a> element.

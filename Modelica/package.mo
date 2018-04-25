@@ -2091,8 +2091,8 @@ Modelica.Fluid.Pipes.BaseClasses.WallFriction.PartialWallFriction, see details b
                  Modelica.Fluid library in version 3.2.1 build 4 and any previous version).</li>
 
             <li> In ticket <a href=\"https://trac.modelica.org/Modelica/ticket/1757\">1757</a> it is (correctly) stated
-                 that the example model <a href=\"modelica://Modelica.Media.Air.MoistAir.PsychrometricData\">PsychrometricData</a>
-                 was moved to another location and that this is a non-backwards compatible change.
+                 that the example model <a href=\"modelica://Modelica.Media.Examples.PsychrometricData\">PsychrometricData</a>
+                 was moved from Modelica.Media.Air.MoistAir.PsychrometricData and that this is a non-backwards compatible change.
                  This non-backwards compatible change is accepted, because it fixes a circular depedency (a model references
                  a package in which it resides), for details see ticket
                  <a href=\"https://trac.modelica.org/Modelica/ticket/1679\">1679</a>.
@@ -2226,11 +2226,11 @@ The following <font color=\"blue\"><strong>new libraries</strong></font> have be
    For modeling of ferromagnetic hysteresis, two different hystereses models have been implemented: The simple Tellinen model and the considerably
    more detailed Preisach hysteresis model. The following packages have been added:
   <ul>
-  <li><a href=\"Modelica.Magnetic.FluxTubes.UsersGuide.Hysteresis\">FluxTubes.UsersGuide.Hysteresis</a></li>
-  <li><a href=\"Modelica.Magnetic.FluxTubes.Examples.Hysteresis\">Fluxtubes.Examples.Hysteresis</a></li>
-  <li><a href=\"Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets\">FluxTubes.Shapes.HysteresisAndMagnets</a></li>
-  <li><a href=\"Modelica.Magnetic.FluxTubes.Material.HysteresisEverettParameter\">FluxTubes.Material.HysteresisEverettParameter</a></li>
-  <li><a href=\"Modelica.Magnetic.FluxTubes.Material.HysteresisTableData\">FluxTubes.Material.HysteresisTableData</a></li>
+  <li><a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Hysteresis\">FluxTubes.UsersGuide.Hysteresis</a></li>
+  <li><a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.Hysteresis\">Fluxtubes.Examples.Hysteresis</a></li>
+  <li><a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets\">FluxTubes.Shapes.HysteresisAndMagnets</a></li>
+  <li><a href=\"modelica://Modelica.Magnetic.FluxTubes.Material.HysteresisEverettParameter\">FluxTubes.Material.HysteresisEverettParameter</a></li>
+  <li><a href=\"modelica://Modelica.Magnetic.FluxTubes.Material.HysteresisTableData\">FluxTubes.Material.HysteresisTableData</a></li>
   </ul>
     (These extensions have been developed by Johannes Ziske and Thomas B&ouml;drich as part of the <a href=\"http://www.cleansky.eu/\">Clean Sky</a> JTI project;
      project number: 296369; Theme:
