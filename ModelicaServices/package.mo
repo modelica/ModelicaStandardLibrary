@@ -93,7 +93,7 @@ First version of the ModelicaServices library.
 <p><strong>Acknowledgements:</strong></p>
 
 <p>
-The design of the Animation.Shape component is from Hilding Elmqvist, Dassault Syst&egrave;mes AB.
+The design of the Animation.Shape component is from Hilding Elmqvist, previously at Dassault Syst&egrave;mes AB.
 </p>
 </html>"));
     end Contact;

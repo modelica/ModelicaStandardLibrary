@@ -129,7 +129,7 @@ email: <a href=\"mailto:Dag.Bruck@3ds.com\">Dag.Bruck@3ds.com</a>
 <li> This library has been designed by:<br>
      <blockquote>
      Dag Br&uuml;ck, Dassault Syst&egrave;mes AB, Sweden <br>
-     Hilding Elmqvist, Dassault Syst&egrave;mes AB, Sweden <br>
+     Hilding Elmqvist, previously at Dassault Syst&egrave;mes AB, Sweden <br>
      Hans Olsson, Dassault Syst&egrave;mes AB, Sweden <br>
      Martin Otter, DLR Oberpfaffenhofen, Germany.
      </blockquote></li>

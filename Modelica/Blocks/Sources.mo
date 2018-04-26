@@ -3290,14 +3290,14 @@ usually requires a trimming calculation.
        and Christian Schweiger:<br>
        Integer sources added. Step, TimeTable and BooleanStep slightly changed.</li>
 <li><em>Nov. 8, 1999</em>
-       by <a href=\"mailto:clauss@eas.iis.fhg.de\">Christoph Clau&szlig;</a>,
+       by <a href=\"mailto:christoph@clauss-it.com\">Christoph Clau&szlig;</a>,
        <a href=\"mailto:Andre.Schneider@eas.iis.fraunhofer.de\">Andre.Schneider@eas.iis.fraunhofer.de</a>,
        <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
        New sources: Exponentials, TimeTable. Trapezoid slightly enhanced
        (nperiod=-1 is an infinite number of periods).</li>
 <li><em>Oct. 31, 1999</em>
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-       <a href=\"mailto:clauss@eas.iis.fhg.de\">Christoph Clau&szlig;</a>,
+       <a href=\"mailto:christoph@clauss-it.com\">Christoph Clau&szlig;</a>,
        <a href=\"mailto:Andre.Schneider@eas.iis.fraunhofer.de\">Andre.Schneider@eas.iis.fraunhofer.de</a>,
        All sources vectorized. New sources: ExpSine, Trapezoid,
        BooleanConstant, BooleanStep, BooleanPulse, SampleTrigger.
