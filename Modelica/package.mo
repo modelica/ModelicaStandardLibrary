@@ -1971,7 +1971,7 @@ The general <a href=\"https://guides.github.com/activities/forking/\">contributi
    <a href=\"https://help.github.com/articles/fork-a-repo/\">using the Fork button</a> of the GitHub repository site.</li>
 <li>Clone the forked repository to your computer. Make sure to checkout the maintenance branch if the bug fix is going to get merged to the maintenance branch.</li>
 <li>Create a new topic branch and give it a meaningful name,
-   like, e.g., \"issue2161-fix-algorithm\".</li>
+   like, e.g., \"issue2161-fix-formula\".</li>
 <li>Do your code changes and commit them, one change per commit.
    Single commits can be copied to other branches.
    Multiple commits can be squashed into one, but splitting is difficult.</li>
