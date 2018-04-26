@@ -703,7 +703,7 @@ The <code>PNG</code> files should be placed in a folder which exactly represents
 <a href=\"modelica://Modelica.Blocks\">Blocks</a> package.</p>
 
 <pre>
-&lt;img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Images/Blocks/Examples/PID_controller.png\"
+&lt;img src=\"modelica://Modelica/Resources/Images/Blocks/PID_controller.png\"
      alt=\"PID_controller.png\"&gt;
 </pre>
 
@@ -716,7 +716,7 @@ The <code>PNG</code> files should be placed in a folder which exactly represents
   &lt;caption align=\"bottom\"&gt;Caption starts with a capital letter&lt;/caption&gt;
   &lt;tr&gt;
     &lt;td&gt;
-      &lt;img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Images/Blocks/Examples/PID_controller.png\"
+      &lt;img src=\"modelica://Modelica/Resources/Images/Blocks/PID_controller.png\"
            alt=\"PID_controller.png\"&gt;
     &lt;/td&gt;
   &lt;/tr&gt;
@@ -734,7 +734,7 @@ The <code>PNG</code> files should be placed in a folder which exactly represents
   &lt;caption align=\"bottom\"&gt;&lt;strong&gt;Fig. 2: &lt;/strong&gt;Caption starts with a capital letter&lt;/caption&gt;
   &lt;tr&gt;
     &lt;td&gt;
-      &lt;img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Images/Blocks/Examples/PID_controller.png\"
+      &lt;img src=\"modelica://Modelica/Resources/Images/Blocks/PID_controller.png\"
            alt=\"PID_controller.png\"&gt;
     &lt;/td&gt;
   &lt;/tr&gt;
