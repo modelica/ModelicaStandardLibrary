@@ -882,9 +882,9 @@ to a two-phase state, as shown in the following example;
 This feature can be used for the following purposes:
 </p>
 <ul>
-<li> saving computational time, if one knows in advance the phase of the medium;
-<li> unambiguously determine the phase, when the two inputs correspond to a point on the saturation boundary (the derivative functions have substantially different values on either side);
-<li> get the properties of metastable states, like superheated water or subcooled vapour.
+<li> saving computational time, if one knows in advance the phase of the medium;</li>
+<li> unambiguously determine the phase, when the two inputs correspond to a point on the saturation boundary (the derivative functions have substantially different values on either side);</li>
+<li> get the properties of metastable states, like superheated water or subcooled vapour.</li>
 </ul>
 <p>
 Many additional optional functions are defined to compute properties of
@@ -1392,7 +1392,7 @@ The new medium model is obtained by extending Modelica.Media.Interfaces.PartialM
 setting the following package constants:
 </p>
 <ul>
-<li>mediumName is a String containing the name of the medium.
+<li>mediumName is a String containing the name of the medium.</li>
 <li>substanceNames is a vector of strings containing the names of the substances
     that make up the medium. In this case, it will contain only mediumName.</li>
 <li>singleState can be set to true if u and d in BaseProperties do not depend
@@ -5482,7 +5482,7 @@ one, which would require a numeric solution.
 <li>The isobaric expansion coefficient (beta) is constant</li>
 <li>The isothermal compressibility (kappa) is constant</li>
 <li>Pressure and temperature are used as states</li>
-<li>The influence of density on specific enthalpy (h), entropy (s), inner energy (u) and heat capacity (cv) at constant volume is neglected.
+<li>The influence of density on specific enthalpy (h), entropy (s), inner energy (u) and heat capacity (cv) at constant volume is neglected.</li>
 </ul>
 <p>
 That means that the density is a linear function in temperature and in pressure.

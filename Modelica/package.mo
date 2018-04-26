@@ -2324,7 +2324,7 @@ to <font color=\"blue\"><strong>existing</strong></font> libraries:<br>
 
 <tr><td colspan=\"2\"><strong>Modelica.Electrical.Machines.Examples</strong></td></tr>
 <tr><td valign=\"top\" width=\"150\">ControlledDCDrives</td>
-    <td valign=\"top\">Current, speed and position controlled DC PM drive</a></td></tr>
+    <td valign=\"top\">Current, speed and position controlled DC PM drive</td></tr>
 
 <tr><td colspan=\"2\"><strong>Modelica.Mechanics.Rotational.Examples.Utilities.</strong></td></tr>
 <tr><td valign=\"top\" width=\"150\">SpringDamperNoRelativeStates</td>
@@ -6023,7 +6023,7 @@ that can lead to wrong simulation results):
 </table>
 
 <p><br>
-The following <font color=\"red\"><strong>uncritical errors</strong></font></font> have been fixed (i.e., errors
+The following <font color=\"red\"><strong>uncritical errors</strong></font> have been fixed (i.e., errors
 that do <font color=\"red\"><strong>not</strong></font> lead to wrong simulation results, but, e.g.,
 units are wrong or errors in documentation):
 </p>

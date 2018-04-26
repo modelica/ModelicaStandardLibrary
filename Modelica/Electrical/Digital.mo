@@ -125,7 +125,7 @@ The Electrical.Digital library is based on the following references:
 Design Automation Department (EAS)<br>
 Zeunerstra&szlig;e 38<br>
 D-01069 Dresden<br>
-Germany
+Germany</dd>
 </dl>
 
 

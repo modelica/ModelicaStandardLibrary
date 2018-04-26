@@ -663,9 +663,9 @@ Specific enthalpy of dry air is computed from temperature.
     annotation (derivative=enthalpyOfWater_der, Documentation(info="<html>
 Specific enthalpy of water (liquid and solid) is computed from temperature using constant properties as follows:<br>
 <ul>
-<li>  heat capacity of liquid water:4200 J/kg
-<li>  heat capacity of solid water: 2050 J/kg
-<li>  enthalpy of fusion (liquid=>solid): 333000 J/kg
+<li>  heat capacity of liquid water:4200 J/kg</li>
+<li>  heat capacity of solid water: 2050 J/kg</li>
+<li>  enthalpy of fusion (liquid=>solid): 333000 J/kg</li>
 </ul>
 Pressure is assumed to be around 1 bar. This function is usually used to determine the specific enthalpy of the liquid or solid fraction of moist air.
 </html>"));

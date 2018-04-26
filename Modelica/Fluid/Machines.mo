@@ -509,7 +509,7 @@ Then the model can be replaced with a Pump with rotational shaft or with a Presc
 <li><code>use_powerCharacteristic = false</code> (default option): the replaceable function <code>efficiencyCharacteristic</code> (efficiency vs. volume flow rate in nominal conditions) is used to determine the efficiency, and then the power consumption.
     The default is a constant efficiency of 0.8.</li>
 <li><code>use_powerCharacteristic = true</code>: the replaceable function <code>powerCharacteristic</code> (power consumption vs. volume flow rate in nominal conditions) is used to determine the power consumption, and then the efficiency.
-    Use <code>powerCharacteristic</code> to specify a non-zero power consumption for zero flow rate.
+    Use <code>powerCharacteristic</code> to specify a non-zero power consumption for zero flow rate.</li>
 </ul>
 <p>
 Several functions are provided in the package <code>PumpCharacteristics</code> to specify the characteristics as a function of some operating points at nominal conditions.

@@ -1921,7 +1921,7 @@ especially as FMU (<a href=\"https://www.fmi-standard.org\">Functional Mock-up U
 This adaptor has flow, optional 1st derivative of flow, and optional 2nd derivative of flow as input and
 potential, optional 1st derivative of potential, and optional 2nd derivative of potential as output signals.
 </p>
-</p>
+<p>
 Note, the input signals must be consistent to each other
 (fder=der(f), fder2=der(fder)).
 </p>
@@ -2035,7 +2035,7 @@ especially as FMU (<a href=\"https://www.fmi-standard.org\">Functional Mock-up U
 This adaptor has potential, optional 1st derivative of potential, and optional 2nd derivative of potential as input and
 flow, optional 1st derivative of flow, and optional 2nd derivative of flow as output signals.
 </p>
-</p>
+<p>
 Note, the input signals must be consistent to each other
 (pder=der(p), pder2=der(pder)).
 </p>

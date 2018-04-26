@@ -398,7 +398,7 @@ equations hold
           A(x): area perpendicular to direction x<br>
           g: gravity constant<br>
           f: Fanning friction factor<br>
-          S: circumference
+          S: circumference</td>
   </tr>
 </table>
 <p>
@@ -1136,7 +1136,7 @@ Modelica_Fluid was refactored and finalized for the release:
      All non-trivial mass and energy balances of Vessels, Machines and Fittings have been replaced with PartialLumpedVolume.
      The mass and energy balances of Pipes are based on PartialDistributedVolume.<br>
      See <a href=\"modelica://Modelica.Fluid.Examples.BranchingDynamicPipes\">Examples.BranchingDynamicPipes</a>
-     for an example utilizing the complete balance equations.
+     for an example utilizing the complete balance equations.</li>
 
 <li> New approach for the connection of distributed flow models<br>
      The staggered grid approach offers different choices for the connection approach. So far the preferred modeling was to put full mass balances
@@ -1155,7 +1155,7 @@ Modelica_Fluid was refactored and finalized for the release:
      now makes clear that the ports represent the thermodynamic enthalpy, as opposed to stagnation enthalpy,
      and thermodynamic or static pressure, as opposed to total pressure. An new package Explanatory has been added to the
      examples to show the difference between static pressure and total pressure and possible implications. See
-     <a href=\"modelica://Modelica.Fluid.Examples.Explanatory.MomentumBalanceFittings\">Examples.Explanatory.MomentumBalanceFittings</a>.
+     <a href=\"modelica://Modelica.Fluid.Examples.Explanatory.MomentumBalanceFittings\">Examples.Explanatory.MomentumBalanceFittings</a>.</li>
 
 <li> System (former Ambient)<br>
      The use of the global System object has been extended towards common default values for
@@ -1203,7 +1203,7 @@ Modelica_Fluid was refactored and finalized for the release:
      besides the Pipes. All HeatTransfer models are optional.
      The heat transfer models are parameterized with the Medium and the ThermodynamicState
      of involved flow segments.<br>
-     See <a href=\"modelica://Modelica.Fluid.Interfaces.PartialHeatTransfer\">Interfaces.PartialHeatTransfer</a>.
+     See <a href=\"modelica://Modelica.Fluid.Interfaces.PartialHeatTransfer\">Interfaces.PartialHeatTransfer</a>.</li>
 
 <li> All examples are working now (using Dymola 7.1).<br>
      The number of examples has been extended with the former critical test cases
@@ -1504,12 +1504,12 @@ New examples (ControlledTankSystem, AST_BatchPlant).
 <h4>Version 0.910, 2005-10-25</h4>
 <ul>
 <li> Changes as decided on 41th-45th Modelica Design Meetings
-     (details, see minutes).
+     (details, see minutes).</li>
 </ul>
 <h4>Version 0.900, 2004-10-18</h4>
 <ul>
 <li> Changes as decided on 40th Modelica Design Meeting in Dresden
-     (see also minutes)
+     (see also minutes)</li>
 </ul>
 <h4>Version 0.794, 2004-05-31</h4>
 <ul>

@@ -580,7 +580,7 @@ Authors: Gordon, Sanford (NASA Lewis Research Center)
  Mcbride, Bonnie J. (NASA Lewis Research Center)
 Published: Oct 01, 1994.
 </p>
-<p><strong>Known limits of validity:</strong></br>
+<p><strong>Known limits of validity:</strong><br>
 The data is valid for
 temperatures between 200K and 6000K.  A few of the data sets for
 monatomic gases have a discontinuous 1st derivative at 1000K, but
@@ -1420,7 +1420,7 @@ Authors: Gordon, Sanford (NASA Lewis Research Center)
  Mcbride, Bonnie J. (NASA Lewis Research Center)
 Published: Oct 01, 1994.
 </p>
-<p><strong>Known limits of validity:</strong></br>
+<p><strong>Known limits of validity:</strong><br>
 The data is valid for
 temperatures between 200 K and 6000 K.  A few of the data sets for
 monatomic gases have a discontinuous 1st derivative at 1000 K, but

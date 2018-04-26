@@ -3138,7 +3138,7 @@ If this model is used, the loss power has to be provided by an equation in the m
 This partial model provides a conditional heat port for dissipating losses.
 </p>
 <ul>
-<li>If <strong>useHeatPort</strong> is set to <strong>false</strong> (default), no heat port is available, and the thermal loss power is dissipated internally.
+<li>If <strong>useHeatPort</strong> is set to <strong>false</strong> (default), no heat port is available, and the thermal loss power is dissipated internally.</li>
 <li>If <strong>useHeatPort</strong> is set to <strong>true</strong>, the heat port is available and must be connected from the outside.</li>
 </ul>
 <p>

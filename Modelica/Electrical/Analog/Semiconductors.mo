@@ -270,9 +270,9 @@ In case of useHeatPort=true the temperature dependence of the electrical
 behavior is <strong>not</strong> modelled yet. The parameters are not temperature dependent.
 </P>
 <DL>
-<DT><strong>References:</strong>
+<DT><strong>References:</strong></DT>
 <DD>Spiro, H.: Simulation integrierter Schaltungen. R. Oldenbourg Verlag
-  Muenchen Wien 1990.
+  Muenchen Wien 1990.</DD>
 </DL>
 <P>
 Some typical parameter sets are:

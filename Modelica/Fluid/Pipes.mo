@@ -629,7 +629,7 @@ This considers
 <li>pressure drop due to friction and other dissipative losses, and</li>
 <li>gravity effects for non-horizontal devices.</li>
 <li>variation of flow velocity along the flow path,
-which occur due to changes in the cross sectional area or the fluid density, provided that <code>flowModel.use_Ib_flows</code> is true.
+which occur due to changes in the cross sectional area or the fluid density, provided that <code>flowModel.use_Ib_flows</code> is true.</li>
 </ul>
 
 <h4>Model Structure</h4>
@@ -641,7 +641,7 @@ The options include (default: av_vb):
 <ul>
 <li><code>av_vb</code>: Symmetric setting with nNodes-1 momentum balances between nNodes flow segments.
     The ports <code>port_a</code> and <code>port_b</code> expose the first and the last thermodynamic state, respectively.
-    Connecting two or more flow devices therefore may result in high-index DAEs for the pressures of connected flow segments.
+    Connecting two or more flow devices therefore may result in high-index DAEs for the pressures of connected flow segments.</li>
 <li><code>a_v_b</code>: Alternative symmetric setting with nNodes+1 momentum balances across nNodes flow segments.
     Half momentum balances are placed between <code>port_a</code> and the first flow segment as well as between the last flow segment and <code>port_b</code>.
     Connecting two or more flow devices therefore results in algebraic pressures at the ports.

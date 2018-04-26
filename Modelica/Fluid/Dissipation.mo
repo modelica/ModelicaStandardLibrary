@@ -6523,9 +6523,9 @@ You can perform an inverse calculation from <strong>kc_approxForcedConvection_KC
 <h4>Restriction</h4>
 
 <ul>
-<li> Constant wall temperature <strong> or </strong> constant heat flux
-<li> Turbulent regime (Reynolds number 2500 &lt; Re &lt; 1e6)
-<li> Prandtl number 0.5 &le; Pr &le; 500
+<li> Constant wall temperature <strong> or </strong> constant heat flux</li>
+<li> Turbulent regime (Reynolds number 2500 &lt; Re &lt; 1e6)</li>
+<li> Prandtl number 0.5 &le; Pr &le; 500</li>
 </ul>
 
 <h4>Calculation</h4>
@@ -8942,11 +8942,11 @@ This function shall be used within the restricted limits according to the refere
 </p>
 <ul>
  <li>
-      <strong> Reynolds number (for vena contraction) Re &gt; 1e3 </strong> <em>[Idelchik 2006, p. 222, diag. 4-15] </em>
+      <strong> Reynolds number (for vena contraction) Re &gt; 1e3 </strong> <em>[Idelchik 2006, p. 222, diag. 4-15] </em></li>
  <li>
-      <strong> Relative length of vena contraction (L/d_hyd_0) &gt; 0.015 </strong> <em>[Idelchik 2006, p. 222, diag. 4-15] </em>
+      <strong> Relative length of vena contraction (L/d_hyd_0) &gt; 0.015 </strong> <em>[Idelchik 2006, p. 222, diag. 4-15] </em></li>
  <li>
-      <strong> Darcy friction factor lambda_FRI = 0.02 </strong> <em>[Idelchik 2006, p. 222, sec. 4-15] </em>
+      <strong> Darcy friction factor lambda_FRI = 0.02 </strong> <em>[Idelchik 2006, p. 222, sec. 4-15] </em></li>
 </ul>
 
 <h4>Geometry</h4>
@@ -9301,7 +9301,7 @@ And the mass flow rate <strong>m_flow</strong> for the turbulent regime in depen
     Jaico Publishing House, Mumbai, 3rd edition, 2006.</dd>
  <dt>Miller,D.S.:</dt>
     <dd><strong>Internal flow systems</strong>.
-    volume 5th of BHRA Fluid Engineering Series.BHRA Fluid Engineering, 1984.
+    volume 5th of BHRA Fluid Engineering Series.BHRA Fluid Engineering, 1984.</dd>
  <dt>Samoilenko,L.A.:</dt>
     <dd><strong>Investigation of the hydraulic resistance of pipelines in the
         zone of transition from laminar into turbulent motion</strong>.

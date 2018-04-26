@@ -475,7 +475,7 @@ Several models to describe the static hysteresis behavior of ferromagnetic mater
       <td valign=\"top\">[B&ouml;08]</td>
       <td valign=\"top\">B&ouml;drich, T.:
         <em>Electromagnetic Actuator Modelling with the Extended Modelica Magnetic Library</em>,
-        Modelica 2008 Conference, Bielefeld, Germany,pp. 221-227, March 3-4, 2008. Download from: <a href=\"https://www.modelica.org/events/modelica2008/Proceedings/sessions/session2d2.pdf\">https://www.modelica.org/events/modelica2008/&shy;Proceedings/sessions/session2d2.pdf</a>
+        Modelica 2008 Conference, Bielefeld, Germany,pp. 221-227, March 3-4, 2008. Download from: <a href=\"https://www.modelica.org/events/modelica2008/Proceedings/sessions/session2d2.pdf\">https://www.modelica.org/events/modelica2008/&shy;Proceedings/sessions/session2d2.pdf</a></td>
     </tr>
 </table><br>
 
@@ -487,7 +487,7 @@ Several models to describe the static hysteresis behavior of ferromagnetic mater
       <td valign=\"top\">[Ro41]</td>
       <td valign=\"top\">Roters, H.:
         <em>Electromagnetic Devices</em>,
-        New York: John Wiley &amp; Sons 1941 (8th Printing 1961)
+        New York: John Wiley &amp; Sons 1941 (8th Printing 1961)</td>
     </tr>
 </table><br>
 </li>
@@ -499,14 +499,14 @@ Several models to describe the static hysteresis behavior of ferromagnetic mater
       <td valign=\"top\">[KEQ+12]</td>
       <td valign=\"top\">Kallenbach, E.; Eick, R.; Quendt, P.; Str&ouml;hla, T.; Feindt, K.; Kallenbach, M.; Radler, O.:
         <em>Elektromagnete: Grundlagen, Berechnung, Entwurf und Anwendung</em>,
-        3rd ed., Wiesbaden: Vieweg Teubner 2008 (in German).
+        3rd ed., Wiesbaden: Vieweg Teubner 2008 (in German).</td>
     </tr>
 
     <tr>
       <td valign=\"top\">[Ro00]</td>
       <td valign=\"top\">Roschke, T.:
         <em>Entwurf geregelter elektromagnetischer Antriebe f&uuml;r Luftsch&uuml;tze</em>,
-        Fortschritt-Berichte VDI, Reihe 21, Nr. 293, D&uuml;sseldorf: VDI-Verlag 2000 (in German).
+        Fortschritt-Berichte VDI, Reihe 21, Nr. 293, D&uuml;sseldorf: VDI-Verlag 2000 (in German).</td>
     </tr>
 </table><br>
 </li>
@@ -518,7 +518,7 @@ Several models to describe the static hysteresis behavior of ferromagnetic mater
       <td valign=\"top\">[HM94]</td>
       <td valign=\"top\">Hendershot, J.R. Jr.; Miller, T.J.E.:
         <em>Design of Brushless Permanent-Magnet Motors</em>,
-        Magna Physics Publishing and Oxford University Press 1994.
+        Magna Physics Publishing and Oxford University Press 1994.</td>
     </tr>
 </table><br>
 </li>
@@ -7829,7 +7829,7 @@ In electromagnetic devices, a change of a coil's magnetic flux linkage &Psi; rea
 </pre>
 <p>This reaction can possibly be neglected for</p>
 <ul>
-<li>modelling of electromagnetic actuators under quasi-stationary conditions (slow current change, slow armature motion),
+<li>modelling of electromagnetic actuators under quasi-stationary conditions (slow current change, slow armature motion),</li>
 <li>modelling of current-controlled electromagnetic actuators (ideal current source) and</li>
 <li>for system simulation where the system dynamics is not governed by an electromagnetic actuator, but by the surrounding subsystems.</li>
 </ul>

@@ -124,7 +124,7 @@ email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
     <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2276\">#2276</a></li>
 <li>Added
 <a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Sensors.RotorDisplacementAngle\">RotorDisplacementAngle</a>, see
-    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2050\">#2050</a></li></li>
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2050\">#2050</a></li>
 </ul>
 
 <h5>Version 3.2.2, 2015-02-02</h5>
@@ -181,7 +181,7 @@ email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
 <li>Changed implementation of symmetrical components: symmetricTransformationMatrix(m) is now
     multiplied by numberOfSymmetricBaseSystems(m) in order to overcome differences in calculation
     of current and voltage symmetrical components. The symmetrical components of a system of
-    even phase numbers are now equal to the symmetrical components of one corresponding base system.
+    even phase numbers are now equal to the symmetrical components of one corresponding base system.</li>
 <li>Improved examples package and removed SMPM_Inverter example</li>
 </ul>
 
@@ -3676,8 +3676,8 @@ rotated from 0 to 360 degrees with the simulation period of one second.</p>
 In this simulation the angle is the following angles are calculated:</p>
 
 <ul>
-<li><code>phi_v<code> = angle of voltage phasor</li>
-<li><code>phi_i<code> = angle of current phasor</li>
+<li><code>phi_v</code> = angle of voltage phasor</li>
+<li><code>phi_i</code> = angle of current phasor</li>
 <li><code>phiphi_v - phi_i</code> = angle between voltage and current phasor</li>
 <li><code>theta</code> = rotor displacement angle</li>
 <li><code>epsilon = phi - theta</code> = current angle</li>
