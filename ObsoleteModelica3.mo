@@ -2119,21 +2119,21 @@ Exact definition of the returned quantities:
       <th><strong><em>resolveInFrame_a =</em></strong></th>
       <th><strong><em>vector is resolved in</em></strong></th>
   </tr>
-  <tr><td valign=\"top\">connected</td>
-      <td valign=\"top\">true</td>
-      <td valign=\"top\"><strong>frame_resolve</strong></td>
+  <tr><td>connected</td>
+      <td>true</td>
+      <td><strong>frame_resolve</strong></td>
   </tr>
-  <tr><td valign=\"top\">connected</td>
-      <td valign=\"top\">false</td>
-      <td valign=\"top\"><strong>frame_resolve</strong></td>
+  <tr><td>connected</td>
+      <td>false</td>
+      <td><strong>frame_resolve</strong></td>
   </tr>
-  <tr><td valign=\"top\">not connected</td>
-      <td valign=\"top\">true</td>
-      <td valign=\"top\"><strong>frame_a</strong></td>
+  <tr><td>not connected</td>
+      <td>true</td>
+      <td><strong>frame_a</strong></td>
   </tr>
-  <tr><td valign=\"top\">not connected</td>
-      <td valign=\"top\">false</td>
-      <td valign=\"top\"><strong>world frame</strong></td>
+  <tr><td>not connected</td>
+      <td>false</td>
+      <td><strong>world frame</strong></td>
   </tr>
 </table><br>
 </html>"));
@@ -2530,21 +2530,21 @@ and resolved in the following frame
       <th><strong><em>resolveInFrame_a =</em></strong></th>
       <th><strong><em>vector is resolved in</em></strong></th>
   </tr>
-  <tr><td valign=\"top\">connected</td>
-      <td valign=\"top\">true</td>
-      <td valign=\"top\"><strong>frame_resolve</strong></td>
+  <tr><td>connected</td>
+      <td>true</td>
+      <td><strong>frame_resolve</strong></td>
   </tr>
-  <tr><td valign=\"top\">connected</td>
-      <td valign=\"top\">false</td>
-      <td valign=\"top\"><strong>frame_resolve</strong></td>
+  <tr><td>connected</td>
+      <td>false</td>
+      <td><strong>frame_resolve</strong></td>
   </tr>
-  <tr><td valign=\"top\">not connected</td>
-      <td valign=\"top\">true</td>
-      <td valign=\"top\"><strong>frame_a</strong></td>
+  <tr><td>not connected</td>
+      <td>true</td>
+      <td><strong>frame_a</strong></td>
   </tr>
-  <tr><td valign=\"top\">not connected</td>
-      <td valign=\"top\">false</td>
-      <td valign=\"top\"><strong>frame_b</strong></td>
+  <tr><td>not connected</td>
+      <td>false</td>
+      <td><strong>frame_b</strong></td>
   </tr>
 </table>
 </HTML>"));
@@ -2725,26 +2725,26 @@ with negative sign at frame_a.
 
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th><strong>Types.Init.</strong></th><th><strong>Meaning</strong></th></tr>
-<tr><td valign=\"top\">Free</td>
-    <td valign=\"top\">No initialization</td></tr>
+<tr><td>Free</td>
+    <td>No initialization</td></tr>
 
-<tr><td valign=\"top\">PositionVelocity</td>
-    <td valign=\"top\">Initialize generalized position and velocity variables</td></tr>
+<tr><td>PositionVelocity</td>
+    <td>Initialize generalized position and velocity variables</td></tr>
 
-<tr><td valign=\"top\">SteadyState</td>
-    <td valign=\"top\">Initialize in steady state (velocity and acceleration are zero)</td></tr>
+<tr><td>SteadyState</td>
+    <td>Initialize in steady state (velocity and acceleration are zero)</td></tr>
 
-<tr><td valign=\"top\">Position </td>
-    <td valign=\"top\">Initialize only generalized position variable(s)</td></tr>
+<tr><td>Position </td>
+    <td>Initialize only generalized position variable(s)</td></tr>
 
-<tr><td valign=\"top\">Velocity</td>
-    <td valign=\"top\">Initialize only generalized velocity variable(s)</td></tr>
+<tr><td>Velocity</td>
+    <td>Initialize only generalized velocity variable(s)</td></tr>
 
-<tr><td valign=\"top\">VelocityAcceleration</td>
-    <td valign=\"top\">Initialize generalized velocity and acceleration variables</td></tr>
+<tr><td>VelocityAcceleration</td>
+    <td>Initialize generalized velocity and acceleration variables</td></tr>
 
-<tr><td valign=\"top\">PositionVelocityAcceleration</td>
-    <td valign=\"top\">Initialize generalized position, velocity and acceleration variables</td></tr>
+<tr><td>PositionVelocityAcceleration</td>
+    <td>Initialize generalized position, velocity and acceleration variables</td></tr>
 
 </table>
 

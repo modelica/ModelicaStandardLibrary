@@ -196,16 +196,16 @@ which are defined in sublibrary Interfaces:
 <table BORDER=1 CELLSPACING=0 CELLPADDING=2>
 <tr><th>Name</th><th>Description</th></tr>
 <tr>
-  <td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.Translational.Interfaces.PartialCompliant\">PartialCompliant</a>
+  <td><a href=\"modelica://Modelica.Mechanics.Translational.Interfaces.PartialCompliant\">PartialCompliant</a>
   </td>
-  <td valign=\"top\">Compliant connection of two translational 1-dim. flanges
+  <td>Compliant connection of two translational 1-dim. flanges
                    (used for force laws such as a spring or a damper).</td>
 </tr>
 
 <tr>
-  <td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.Translational.Interfaces.PartialCompliantWithRelativeStates\">PartialCompliantWithRelativeStates</a>
+  <td><a href=\"modelica://Modelica.Mechanics.Translational.Interfaces.PartialCompliantWithRelativeStates\">PartialCompliantWithRelativeStates</a>
   </td>
-  <td valign=\"top\"> Same as \"PartialCompliant\", but relative position and relative speed are
+  <td> Same as \"PartialCompliant\", but relative position and relative speed are
                     defined as preferred states. Use this partial model if the force law
                     needs anyway the relative speed. The advantage is that it is usually better
                     to use relative positions between drive train components
@@ -214,38 +214,38 @@ which are defined in sublibrary Interfaces:
 </tr>
 
 <tr>
-  <td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.Translational.Interfaces.PartialElementaryTwoFlangesAndSupport2\">PartialElementaryTwoFlangesAndSupport2</a>
+  <td><a href=\"modelica://Modelica.Mechanics.Translational.Interfaces.PartialElementaryTwoFlangesAndSupport2\">PartialElementaryTwoFlangesAndSupport2</a>
 </td>
-  <td valign=\"top\"> Partial model for a 1-dim. translational component consisting of the flange of
+  <td> Partial model for a 1-dim. translational component consisting of the flange of
                     an input shaft, the flange of an output shaft and the support.
   </td>
 </tr>
 
 <tr>
-  <td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.Translational.Interfaces.PartialForce\">PartialForce</a>
+  <td><a href=\"modelica://Modelica.Mechanics.Translational.Interfaces.PartialForce\">PartialForce</a>
 </td>
-  <td valign=\"top\"> Partial model of a force acting at the flange (accelerates the flange).
+  <td> Partial model of a force acting at the flange (accelerates the flange).
   </td>
 </tr>
 
 <tr>
-  <td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.Translational.Interfaces.PartialTwoFlanges\">PartialTwoFlanges</a>
+  <td><a href=\"modelica://Modelica.Mechanics.Translational.Interfaces.PartialTwoFlanges\">PartialTwoFlanges</a>
 </td>
-  <td valign=\"top\">General connection of two translational 1-dim. flanges.
+  <td>General connection of two translational 1-dim. flanges.
   </td>
 </tr>
 
 <tr>
-  <td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.Translational.Interfaces.PartialAbsoluteSensor\">PartialAbsoluteSensor</a>
+  <td><a href=\"modelica://Modelica.Mechanics.Translational.Interfaces.PartialAbsoluteSensor\">PartialAbsoluteSensor</a>
 </td>
-  <td valign=\"top\">Measure absolute flange variables.
+  <td>Measure absolute flange variables.
   </td>
 </tr>
 
 <tr>
-  <td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.Translational.Interfaces.PartialRelativeSensor\">PartialRelativeSensor</a>
+  <td><a href=\"modelica://Modelica.Mechanics.Translational.Interfaces.PartialRelativeSensor\">PartialRelativeSensor</a>
 </td>
-  <td valign=\"top\">Measure relative flange variables.
+  <td>Measure relative flange variables.
   </td>
 </tr>
 </table>

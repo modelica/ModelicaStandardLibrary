@@ -401,58 +401,58 @@ Several models to describe the static hysteresis behavior of ferromagnetic mater
  </tr>
 
  <tr>
-  <td valign=\"top\"><a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystTellinenSoft\">GenericHystTellinenSoft</a><br><img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/GenericHystTellinenS.png\">
+  <td><a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystTellinenSoft\">GenericHystTellinenSoft</a><br><img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/GenericHystTellinenS.png\">
   </td>
-  <td valign=\"top\">
+  <td>
   Flux tube element for modeling soft magnetic materials with ferromagnetic and dynamic hysteresis (eddy currents). The ferromagnetic hysteresis behavior is defined by the <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Hysteresis.StaticHysteresis.Tellinen\">Tellinen hysteresis model</a>. The shape of the limiting hysteresis loop is described by simple hyperbolic tangent functions with 4 parameters. Therefore, the hysteresis shape variety is limited but the parameterization of the model is very simple and the model is relatively fast and robust.
   </td>
  </tr>
 
  <tr>
-  <td valign=\"top\"><a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystTellinenHard\">GenericHystTellinenHard</a><br><img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/GenericHystTellinenH.png\">
+  <td><a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystTellinenHard\">GenericHystTellinenHard</a><br><img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/GenericHystTellinenH.png\">
   </td>
-  <td valign=\"top\">
+  <td>
   Flux tube element for modeling the ferromagnetic (static) hysteresis of hard magnetic materials. The ferromagnetic hysteresis behavior is defined by the <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Hysteresis.StaticHysteresis.Tellinen\">Tellinen hysteresis model</a>. The shape of the limiting hysteresis loop is described by simple hyperbolic tangent functions with 4 parameters.
   </td>
  </tr>
 
  <tr>
-  <td valign=\"top\"><a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystTellinenEverett\">GenericHystTellinenEverett</a><br><img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/GenericHystTellinenE.png\">
+  <td><a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystTellinenEverett\">GenericHystTellinenEverett</a><br><img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/GenericHystTellinenE.png\">
   </td>
-  <td valign=\"top\">
+  <td>
   Flux tube element for modeling soft magnetic materials with ferromagnetic and dynamic hysteresis (eddy currents). The ferromagnetic hysteresis behavior is defined by the <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Hysteresis.StaticHysteresis.Tellinen\">Tellinen hysteresis model</a>. The Shape of the limiting ferromagnetic hysteresis loop is specified by an analytical description of the Everett function, which is also used to parameterize the <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystPreisachEverett\">GenericHystPreisachEverett</a> model. A library of predefined parameter sets can be found in <a href=\"modelica://Modelica.Magnetic.FluxTubes.Material.HysteresisEverettParameter\">FluxTubes.Material.HysteresisEverettParameter</a>.
   </td>
  </tr>
 
  <tr>
-  <td valign=\"top\"><a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystTellinenTable\">GenericHystTellinenTable</a><br><img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/GenericHystTellinenT.png\">
+  <td><a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystTellinenTable\">GenericHystTellinenTable</a><br><img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/GenericHystTellinenT.png\">
   </td>
-  <td valign=\"top\">
+  <td>
   Flux tube element for modeling magnetic materials with ferromagnetic and dynamic hysteresis (eddy currents). The ferromagnetic hysteresis behavior is defined by the <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Hysteresis.StaticHysteresis.Tellinen\">Tellinen hysteresis model</a>. The rising and falling branch of the limiting ferromagnetic hysteresis loop are specified by table data. Therefore, almost any hysteresis shapes are possible. A library with predefined tables can be found at <a href=\"modelica://Modelica.Magnetic.FluxTubes.Material.HysteresisTableData\">FluxTubes.Material.HysteresisTableData</a>.
   </td>
  </tr>
 
  <tr>
-  <td valign=\"top\"><a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystPreisachEverett\">GenericHystPreisachEverett</a><br><img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/GenericHystPreisachE.png\">
+  <td><a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystPreisachEverett\">GenericHystPreisachEverett</a><br><img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/GenericHystPreisachE.png\">
   </td>
-  <td valign=\"top\">
+  <td>
   Flux tube element for modeling magnetic materials with ferromagnetic and dynamic hysteresis (eddy currents). The ferromagnetic hysteresis behavior is defined by the
 <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Hysteresis.StaticHysteresis.Preisach\">Preisach hysteresis model</a>. The Shape of the limiting ferromagnetic hysteresis loop is specified by an analytical description of the Everett function. A library of predefined parameter sets can be found in <a href=\"modelica://Modelica.Magnetic.FluxTubes.Material.HysteresisEverettParameter\">FluxTubes.Material.HysteresisEverettParameter</a>.
   </td>
  </tr>
 
  <tr>
-  <td valign=\"top\"><a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystTellinenPermanentMagnet\">GenericHystTellinenPermanentMagnet</a><br><img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/GenericHystTellinenPM.png\">
+  <td><a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystTellinenPermanentMagnet\">GenericHystTellinenPermanentMagnet</a><br><img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/GenericHystTellinenPM.png\">
   </td>
-  <td valign=\"top\">
+  <td>
   Flux tube element for modeling the hard magnetic hysteresis of permanent magnets. The model is similar to <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystTellinenHard\">GenericHystTellinenHard</a> but has an initial magnetization preset of -100% and an adapted icon for better readability of the diagram.
   </td>
  </tr>
 
  <tr>
-  <td valign=\"top\"><a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericLinearPermanentMagnet\">GenericLinearPermanentMagnet</a><br><img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/GenericLinearPM.png\">
+  <td><a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericLinearPermanentMagnet\">GenericLinearPermanentMagnet</a><br><img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/GenericLinearPM.png\">
   </td>
-  <td valign=\"top\">
+  <td>
   Simple model of a linear permanent Magnet. Typical characteristics of common permanent magnetic materials can be found at <a href=\"modelica://Modelica.Magnetic.FluxTubes.Material.HardMagnetic\">FluxTubes.Material.HardMagnetic</a>.
   </td>
  </tr>
@@ -472,8 +472,8 @@ Several models to describe the static hysteresis behavior of ferromagnetic mater
 
 <br><table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
     <tr>
-      <td valign=\"top\">[B&ouml;08]</td>
-      <td valign=\"top\">B&ouml;drich, T.:
+      <td>[B&ouml;08]</td>
+      <td>B&ouml;drich, T.:
         <em>Electromagnetic Actuator Modelling with the Extended Modelica Magnetic Library</em>,
         Modelica 2008 Conference, Bielefeld, Germany,pp. 221-227, March 3-4, 2008. Download from: <a href=\"https://www.modelica.org/events/modelica2008/Proceedings/sessions/session2d2.pdf\">https://www.modelica.org/events/modelica2008/&shy;Proceedings/sessions/session2d2.pdf</a></td>
     </tr>
@@ -484,8 +484,8 @@ Several models to describe the static hysteresis behavior of ferromagnetic mater
 
 <br><table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
     <tr>
-      <td valign=\"top\">[Ro41]</td>
-      <td valign=\"top\">Roters, H.:
+      <td>[Ro41]</td>
+      <td>Roters, H.:
         <em>Electromagnetic Devices</em>,
         New York: John Wiley &amp; Sons 1941 (8th Printing 1961)</td>
     </tr>
@@ -496,15 +496,15 @@ Several models to describe the static hysteresis behavior of ferromagnetic mater
 
 <br><table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
     <tr>
-      <td valign=\"top\">[KEQ+12]</td>
-      <td valign=\"top\">Kallenbach, E.; Eick, R.; Quendt, P.; Str&ouml;hla, T.; Feindt, K.; Kallenbach, M.; Radler, O.:
+      <td>[KEQ+12]</td>
+      <td>Kallenbach, E.; Eick, R.; Quendt, P.; Str&ouml;hla, T.; Feindt, K.; Kallenbach, M.; Radler, O.:
         <em>Elektromagnete: Grundlagen, Berechnung, Entwurf und Anwendung</em>,
         3rd ed., Wiesbaden: Vieweg Teubner 2008 (in German).</td>
     </tr>
 
     <tr>
-      <td valign=\"top\">[Ro00]</td>
-      <td valign=\"top\">Roschke, T.:
+      <td>[Ro00]</td>
+      <td>Roschke, T.:
         <em>Entwurf geregelter elektromagnetischer Antriebe f&uuml;r Luftsch&uuml;tze</em>,
         Fortschritt-Berichte VDI, Reihe 21, Nr. 293, D&uuml;sseldorf: VDI-Verlag 2000 (in German).</td>
     </tr>
@@ -515,8 +515,8 @@ Several models to describe the static hysteresis behavior of ferromagnetic mater
 
 <br><table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
     <tr>
-      <td valign=\"top\">[HM94]</td>
-      <td valign=\"top\">Hendershot, J.R. Jr.; Miller, T.J.E.:
+      <td>[HM94]</td>
+      <td>Hendershot, J.R. Jr.; Miller, T.J.E.:
         <em>Design of Brushless Permanent-Magnet Motors</em>,
         Magna Physics Publishing and Oxford University Press 1994.</td>
     </tr>
@@ -527,50 +527,50 @@ Several models to describe the static hysteresis behavior of ferromagnetic mater
 
 <br><table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
     <tr>
-      <td valign=\"top\">[BE01]</td>
-      <td valign=\"top\">Bergqvist, A. J.; Engdahl, S. G.:
+      <td>[BE01]</td>
+      <td>Bergqvist, A. J.; Engdahl, S. G.:
         <em>A Homogenization Procedure of Field Quantities in Laminated Electric Steel</em>,
         IEEE Transactions on Magnetics, vol.37, no.5, pp.3329-3331, 2001.</td>
     </tr>
     <tr>
-      <td valign=\"top\">[Te98]</td>
-      <td valign=\"top\">Tellinen, J:
+      <td>[Te98]</td>
+      <td>Tellinen, J:
         <em>A simple scalar model for magnetic hysteresis</em>,
         IEEE Translation Journal on Magnetics in Japan, vol.4, no.6, pp.353-359, 1989.</td>
     </tr>
     <tr>
-      <td valign=\"top\">[Pr35]</td>
-      <td valign=\"top\">Preisach, F.:
+      <td>[Pr35]</td>
+      <td>Preisach, F.:
         <em>&Uuml;ber die magnetische Nachwirkung</em>,
         Zeitschrift f&uuml;r Physik A Hadrons and Nuclei, vol. 94, pp. 277-302, 1935.</td>
     </tr>
     <tr>
-      <td valign=\"top\">[Ma03]</td>
-      <td valign=\"top\">Mayergoyz, I.:
+      <td>[Ma03]</td>
+      <td>Mayergoyz, I.:
         <em>Mathematical Models of Hysteresis and their Application</em>,
         Elsevier, 2003.</td>
     </tr>
     <tr>
-      <td valign=\"top\">[Va01]</td>
-      <td valign=\"top\">VAC Vacuumschmelze:
+      <td>[Va01]</td>
+      <td>VAC Vacuumschmelze:
         <em>Soft Magnetic Cobalt-Iron-Alloys</em>, 2001.
         Download from: <a  href=\"http://www.vacuumschmelze.com/fileadmin/docroot/medialib/documents/broschueren/htbrosch/Pht-004_e.pdf\">http://www.vacuumschmelze.com/fileadmin/&shy;docroot/medialib/documents/&shy;broschueren/htbrosch/Pht-004_e.pdf</a></td>
     </tr>
     <tr>
-      <td valign=\"top\">[YUY89]</td>
-      <td valign=\"top\">Yamaguchi, T.; Ueda, F.; Yamamoto, E.:
+      <td>[YUY89]</td>
+      <td>Yamaguchi, T.; Ueda, F.; Yamamoto, E.:
         <em>Simulation of Hysteresis Characteristics of Core Materials Using the Everett Function</em>,
         IEEE Translation Journal on Magnetics in Japan, vol.4, no.6, pp.353-359, 1989.</td>
     </tr>
     <tr>
-      <td valign=\"top\">[ZB12]</td>
-      <td valign=\"top\">Ziske, J.; B&ouml;drich, T.:
+      <td>[ZB12]</td>
+      <td>Ziske, J.; B&ouml;drich, T.:
         <em>Magnetic Hysteresis Models for Modelica</em>,
         Proc. of the 9th Modelica Conference, Munich, Germany, pp. 151-158, September 3-5, 2012. Download from: <a  href=\"http://www.ep.liu.se/ecp/076/014/ecp12076014.pdf\">http://www.ep.liu.se/ecp/&shy;076/014/ecp12076014.pdf</a></td>
     </tr>
     <tr>
-      <td valign=\"top\">[ZB14]</td>
-      <td valign=\"top\">Ziske, J.; B&ouml;drich, T.:
+      <td>[ZB14]</td>
+      <td>Ziske, J.; B&ouml;drich, T.:
         <em>http://www.ep.liu.se/ecp/096/017/ecp14096017.pdf</em>,
         Proc. of the 10th Modelica Conference, Lund, Sweden, pp. 165-172, March 10-12, 2014. Download from: <a  href=\"http://www.ep.liu.se/ecp/096/017/ecp14096017.pdf\">http://www.ep.liu.se/ecp/&shy;096/017/ecp14096017.pdf</a></td>
     </tr>

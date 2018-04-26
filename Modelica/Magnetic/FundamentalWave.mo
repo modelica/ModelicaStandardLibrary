@@ -577,8 +577,8 @@ model from R to G</li>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
     <tr>
-      <td valign=\"top\">[Beuschel00]</td>
-      <td valign=\"top\">M. Beuschel,
+      <td>[Beuschel00]</td>
+      <td>M. Beuschel,
         &quot;<a href=\"https://www.modelica.org/events/workshop2000/proceedings/Beuschel.pdf\">
         A uniform approach for modelling electrical machines</a>,&quot;
         <em>Modelica Workshop</em>,
@@ -586,38 +586,38 @@ model from R to G</li>
     </tr>
 
     <tr>
-      <td valign=\"top\">[Eckhardt82]</td>
-      <td valign=\"top\">H. Eckhardt,
+      <td>[Eckhardt82]</td>
+      <td>H. Eckhardt,
         <em>Grundz&uuml;ge der elektrischen Maschinen</em> (in German),
         B. G. Teubner Verlag, Stuttgart, 1982.</td>
     </tr>
 
     <tr>
-      <td valign=\"top\">[Haumer09]</td>
-      <td valign=\"top\">A. Haumer, and C. Kral,
+      <td>[Haumer09]</td>
+      <td>A. Haumer, and C. Kral,
         &quot;<a href=\"https://www.modelica.org/events/modelica2009/Proceedings/memorystick/pages/papers/0103/0103.pdf\">The
         AdvancedMachines Library: Loss Models for Electric Machines</a>,&quot;
         <em>Modelica Conference</em>, 2009.</td>
     </tr>
 
     <tr>
-      <td valign=\"top\">[Lang84]</td>
-      <td valign=\"top\">W. Lang,
+      <td>[Lang84]</td>
+      <td>W. Lang,
         <em>&Uuml;ber die Bemessung verlustarmer Asynchronmotoren mit K&auml;figl&auml;ufer f&uuml;r Pulsumrichterspeisung</em>
        (in German),
        Doctoral Thesis, Technical University of Vienna, 1984.</td>
     </tr>
 
     <tr>
-      <td valign=\"top\">[Laughton02]</td>
-      <td valign=\"top\">M.A. Laughton, D.F. Warne
+      <td>[Laughton02]</td>
+      <td>M.A. Laughton, D.F. Warne
         <em>Electrical Engineer's Reference Book</em>
         Butterworth Heinemann, 16th edition, ISBN 978-0750646376, 2002</td>
     </tr>
 
     <tr>
-      <td valign=\"top\">[Li07]</td>
-      <td valign=\"top\">Y. Li, Z. Q. Zhu, D. Howe, and C. M. Bingham,
+      <td>[Li07]</td>
+      <td>Y. Li, Z. Q. Zhu, D. Howe, and C. M. Bingham,
         &quot;Modeling of Cross-Coupling Magnetic Saturation in Signal-Injection-Based
         Sensorless Control of Permanent-Magnet Brushless AC Motors,&quot;
         <em>IEEE Transactions on Magnetics</em>,
@@ -625,15 +625,15 @@ model from R to G</li>
     </tr>
 
     <tr>
-      <td valign=\"top\">[Mueller70]</td>
-      <td valign=\"top\">G, M&uuml;ller,
+      <td>[Mueller70]</td>
+      <td>G, M&uuml;ller,
         <em>Elektrische Maschinen -- Grundlagen, Aufbau und Wirkungsweise</em> (in German),
         VEB Verlag Technik Berlin, 4th edition, 1970.</td>
     </tr>
 
     <tr>
-      <td valign=\"top\">[Spaeth73]</td>
-      <td valign=\"top\">H. Sp&auml;th,
+      <td>[Spaeth73]</td>
+      <td>H. Sp&auml;th,
         <em>Elektrische Maschinen -- Eine Einf&uuml;hrung in die Theorie des Betriebsverhaltens</em> (in German),
         Springer-Verlag, Berlin, Heidelberg, New York, 1973.</td>
     </tr>

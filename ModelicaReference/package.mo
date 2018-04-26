@@ -6962,10 +6962,10 @@ It is based on the
       <th>Comment</th>
     </tr>
     <tr>
-      <td valign=\"top\"></td>
-      <td valign=\"top\">2017-09-22</td>
-      <td valign=\"top\"><a href=\"https://github.com/HansOlsson\">Hans Olsson</a></td>
-      <td valign=\"top\">
+      <td></td>
+      <td>2017-09-22</td>
+      <td><a href=\"https://github.com/HansOlsson\">Hans Olsson</a></td>
+      <td>
       <ul>
       <li>Changed grammar to have colon emphasized as well, since it may otherwise look like a dot after 't' due to lack of kerning.</li>
       <li>Annotation inverse moved to annotations.</li>
@@ -6974,11 +6974,11 @@ It is based on the
       </ul>
       </td>
      <tr>
-      <td valign=\"top\"></td>
-      <td valign=\"top\">2013-07-26</td>
-      <td valign=\"top\"><a href=\"https://github.com/dietmarw\">Dietmar Winkler</a>,<br>
+      <td></td>
+      <td>2013-07-26</td>
+      <td><a href=\"https://github.com/dietmarw\">Dietmar Winkler</a>,<br>
                          <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a></td>
-      <td valign=\"top\">
+      <td>
 <ul>
 <li> Update of grammar from Maplesoft which reflects changes from
      <a href=\"http://trac.modelica.org/Modelica/ticket/1140\">#1140</a></li>
@@ -7014,62 +7014,62 @@ It is based on the
      </tr>
 
      <tr>
-      <td valign=\"top\"><a href=\"http://trac.modelica.org/Modelica/changeset/4781/Modelica\">r4781</a></td>
-      <td valign=\"top\">2011-12-15</td>
-      <td valign=\"top\"><a href=\"https://github.com/dietmarw\">Dietmar Winkler</a></td>
-      <td valign=\"top\">Use quoted class names for function descriptions (closes ticket <a href=\"http://trac.modelica.org/Modelica/ticket/565\">#565</a>)</td>
+      <td><a href=\"http://trac.modelica.org/Modelica/changeset/4781/Modelica\">r4781</a></td>
+      <td>2011-12-15</td>
+      <td><a href=\"https://github.com/dietmarw\">Dietmar Winkler</a></td>
+      <td>Use quoted class names for function descriptions (closes ticket <a href=\"http://trac.modelica.org/Modelica/ticket/565\">#565</a>)</td>
     </tr>
     <tr>
-      <td valign=\"top\"><a href=\"http://trac.modelica.org/Modelica/changeset/4256/Modelica\">r4256</a></td>
-      <td valign=\"top\">2010-10-06</td>
-      <td valign=\"top\"><a href=\"https://github.com/dietmarw\">Dietmar Winkler</a></td>
-      <td valign=\"top\">Removed 'uses' annotation and added icons so it can be used with multiple versions of the MSL (closes ticket <a href=\"http://trac.modelica.org/Modelica/ticket/425\">#425</a>)</td>
+      <td><a href=\"http://trac.modelica.org/Modelica/changeset/4256/Modelica\">r4256</a></td>
+      <td>2010-10-06</td>
+      <td><a href=\"https://github.com/dietmarw\">Dietmar Winkler</a></td>
+      <td>Removed 'uses' annotation and added icons so it can be used with multiple versions of the MSL (closes ticket <a href=\"http://trac.modelica.org/Modelica/ticket/425\">#425</a>)</td>
     </tr>
     <tr>
-      <td valign=\"top\"><a href=\"http://trac.modelica.org/Modelica/changeset/4218/Modelica\">r4218</a></td>
-      <td valign=\"top\">2010-09-25</td>
-      <td valign=\"top\"><a href=\"https://github.com/dietmarw\">Dietmar Winkler</a></td>
-      <td valign=\"top\">Major clean up of the documentation by use of <a href=\"http://linkchecker.sourceforge.net\"> LinkChecker</a> (closes ticket <a href=\"http://trac.modelica.org/Modelica/ticket/228\">#228</a>)</td>
+      <td><a href=\"http://trac.modelica.org/Modelica/changeset/4218/Modelica\">r4218</a></td>
+      <td>2010-09-25</td>
+      <td><a href=\"https://github.com/dietmarw\">Dietmar Winkler</a></td>
+      <td>Major clean up of the documentation by use of <a href=\"http://linkchecker.sourceforge.net\"> LinkChecker</a> (closes ticket <a href=\"http://trac.modelica.org/Modelica/ticket/228\">#228</a>)</td>
     </tr>
     <tr>
-      <td valign=\"top\"><a href=\"http://trac.modelica.org/Modelica/changeset/4145/Modelica\">r4145</a></td>
-      <td valign=\"top\">2010-09-07</td>
-      <td valign=\"top\"><a href=\"https://github.com/dietmarw\">Dietmar Winkler</a></td>
-      <td valign=\"top\">Added an update of the <a href=\"modelica://ModelicaReference.ModelicaGrammar\">Modelica 3.2 grammar</a>
+      <td><a href=\"http://trac.modelica.org/Modelica/changeset/4145/Modelica\">r4145</a></td>
+      <td>2010-09-07</td>
+      <td><a href=\"https://github.com/dietmarw\">Dietmar Winkler</a></td>
+      <td>Added an update of the <a href=\"modelica://ModelicaReference.ModelicaGrammar\">Modelica 3.2 grammar</a>
                        from Stefan Vorkoetter (Maplesoft).</td>
     </tr>
     <tr>
-      <td valign=\"top\"><a href=\"http://trac.modelica.org/Modelica/changeset/3742/Modelica\">r3742</a></td>
-      <td valign=\"top\">2010-04-13</td>
-      <td valign=\"top\"><a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a></td>
-      <td valign=\"top\">Added the <a href=\"modelica://ModelicaReference.ModelicaGrammar\">Modelica 3.2 grammar</a>
+      <td><a href=\"http://trac.modelica.org/Modelica/changeset/3742/Modelica\">r3742</a></td>
+      <td>2010-04-13</td>
+      <td><a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a></td>
+      <td>Added the <a href=\"modelica://ModelicaReference.ModelicaGrammar\">Modelica 3.2 grammar</a>
                        from Stefan Vorkoetter (Maplesoft).<br>
                        Introduced a \"Contact\" subpackage with updated contact and
                        acknowledgment information.</td>
     </tr>
     <tr>
-      <td valign=\"top\"><a href=\"http://trac.modelica.org/Modelica/changeset/3598/Modelica\">r3598</a></td>
-      <td valign=\"top\">2010-03-10</td>
-      <td valign=\"top\"><a href=\"https://github.com/dietmarw\">Dietmar Winkler</a></td>
-      <td valign=\"top\">Added some annotations from Modelica language version 3.1 and 3.2 (see ticket <a href=\"http://trac.modelica.org/Modelica/ticket/228\">#228</a>)</td>
+      <td><a href=\"http://trac.modelica.org/Modelica/changeset/3598/Modelica\">r3598</a></td>
+      <td>2010-03-10</td>
+      <td><a href=\"https://github.com/dietmarw\">Dietmar Winkler</a></td>
+      <td>Added some annotations from Modelica language version 3.1 and 3.2 (see ticket <a href=\"http://trac.modelica.org/Modelica/ticket/228\">#228</a>)</td>
     </tr>
     <tr>
-      <td valign=\"top\"><a href=\"http://trac.modelica.org/Modelica/changeset/948/Modelica\">r948</a></td>
-      <td valign=\"top\">2008-01-02</td>
-      <td valign=\"top\"><a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a></td>
-      <td valign=\"top\">Adapted to Modelica language version 3.0</td>
+      <td><a href=\"http://trac.modelica.org/Modelica/changeset/948/Modelica\">r948</a></td>
+      <td>2008-01-02</td>
+      <td><a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a></td>
+      <td>Adapted to Modelica language version 3.0</td>
     </tr>
     <tr>
-      <td valign=\"top\"></td>
-      <td valign=\"top\">2004-09-30</td>
-      <td valign=\"top\"><a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a></td>
-      <td valign=\"top\">Moved the content of \"Functions\" into \"Operators\" and updated \"Operators\" according to Modelica 2.1</td>
+      <td></td>
+      <td>2004-09-30</td>
+      <td><a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a></td>
+      <td>Moved the content of \"Functions\" into \"Operators\" and updated \"Operators\" according to Modelica 2.1</td>
     </tr>
     <tr>
-      <td valign=\"top\"></td>
-      <td valign=\"top\">2003-07-10</td>
-      <td valign=\"top\">Christian Schweiger</td>
-      <td valign=\"top\">Implemented.</td>
+      <td></td>
+      <td>2003-07-10</td>
+      <td>Christian Schweiger</td>
+      <td>Implemented.</td>
     </tr>
 </table>
 </html>"));

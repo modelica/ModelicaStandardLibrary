@@ -3268,11 +3268,11 @@ have at least the following two parameters:
 </p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td valign=\"top\"><strong>offset</strong></td>
-      <td valign=\"top\">Value which is added to the signal</td>
+  <tr><td><strong>offset</strong></td>
+      <td>Value which is added to the signal</td>
   </tr>
-  <tr><td valign=\"top\"><strong>startTime</strong></td>
-      <td valign=\"top\">Start time of signal. For time &lt; startTime,
+  <tr><td><strong>startTime</strong></td>
+      <td>Start time of signal. For time &lt; startTime,
                 the output y is set to offset.</td>
   </tr>
 </table>

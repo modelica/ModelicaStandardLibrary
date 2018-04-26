@@ -334,37 +334,37 @@ In the table below an example call to every function is given:
 </p>
 <table border=1 cellspacing=0 cellpadding=2>
   <tr><th><strong><em>Function/type</em></strong></th><th><strong><em>Description</em></strong></th></tr>
-  <tr><td valign=\"top\"><a href=\"modelica://Modelica.Utilities.Streams.print\">print</a>(string)<br>
+  <tr><td><a href=\"modelica://Modelica.Utilities.Streams.print\">print</a>(string)<br>
           <a href=\"modelica://Modelica.Utilities.Streams.print\">print</a>(string,fileName)</td>
-      <td valign=\"top\"> Print string \"string\" or vector of strings to message window or on
+      <td> Print string \"string\" or vector of strings to message window or on
            file \"fileName\".</td>
   </tr>
-  <tr><td valign=\"top\">stringVector =
+  <tr><td>stringVector =
          <a href=\"modelica://Modelica.Utilities.Streams.readFile\">readFile</a>(fileName)</td>
-      <td valign=\"top\"> Read complete text file and return it as a vector of strings.</td>
+      <td> Read complete text file and return it as a vector of strings.</td>
   </tr>
-  <tr><td valign=\"top\">(string, endOfFile) =
+  <tr><td>(string, endOfFile) =
          <a href=\"modelica://Modelica.Utilities.Streams.readLine\">readLine</a>(fileName, lineNumber)</td>
-      <td valign=\"top\">Returns from the file the content of line lineNumber.</td>
+      <td>Returns from the file the content of line lineNumber.</td>
   </tr>
-  <tr><td valign=\"top\">lines =
+  <tr><td>lines =
          <a href=\"modelica://Modelica.Utilities.Streams.countLines\">countLines</a>(fileName)</td>
-      <td valign=\"top\">Returns the number of lines in a file.</td>
+      <td>Returns the number of lines in a file.</td>
   </tr>
-  <tr><td valign=\"top\"><a href=\"modelica://Modelica.Utilities.Streams.error\">error</a>(string)</td>
-      <td valign=\"top\"> Print error message \"string\" to message window
+  <tr><td><a href=\"modelica://Modelica.Utilities.Streams.error\">error</a>(string)</td>
+      <td> Print error message \"string\" to message window
            and cancel all actions</td>
   </tr>
-  <tr><td valign=\"top\"><a href=\"modelica://Modelica.Utilities.Streams.close\">close</a>(fileName)</td>
-      <td valign=\"top\"> Close file if it is still open. Ignore call if
+  <tr><td><a href=\"modelica://Modelica.Utilities.Streams.close\">close</a>(fileName)</td>
+      <td> Close file if it is still open. Ignore call if
            file is already closed or does not exist. </td>
   </tr>
-  <tr><td valign=\"top\"><a href=\"modelica://Modelica.Utilities.Streams.readMatrixSize\">readMatrixSize</a>(fileName, matrixName)</td>
-      <td valign=\"top\"> Read dimensions of a Real matrix from a MATLAB MAT file. </td></tr>
-  <tr><td valign=\"top\"><a href=\"modelica://Modelica.Utilities.Streams.readRealMatrix\">readRealMatrix</a>(fileName, matrixName, nrow, ncol)</td>
-      <td valign=\"top\"> Read a Real matrix from a MATLAB MAT file. </td></tr>
-  <tr><td valign=\"top\"><a href=\"modelica://Modelica.Utilities.Streams.writeRealMatrix\">writeRealMatrix</a>(fileName, matrixName, matrix, append, format)</td>
-      <td valign=\"top\"> Write Real matrix to a MATLAB MAT file. </td></tr>
+  <tr><td><a href=\"modelica://Modelica.Utilities.Streams.readMatrixSize\">readMatrixSize</a>(fileName, matrixName)</td>
+      <td> Read dimensions of a Real matrix from a MATLAB MAT file. </td></tr>
+  <tr><td><a href=\"modelica://Modelica.Utilities.Streams.readRealMatrix\">readRealMatrix</a>(fileName, matrixName, nrow, ncol)</td>
+      <td> Read a Real matrix from a MATLAB MAT file. </td></tr>
+  <tr><td><a href=\"modelica://Modelica.Utilities.Streams.writeRealMatrix\">writeRealMatrix</a>(fileName, matrixName, matrix, append, format)</td>
+      <td> Write Real matrix to a MATLAB MAT file. </td></tr>
 </table>
 <p>
 Use functions <strong>scanXXX</strong> from package

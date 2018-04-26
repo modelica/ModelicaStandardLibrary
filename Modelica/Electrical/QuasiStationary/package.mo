@@ -41,11 +41,11 @@ Copyright &copy; 1998-2018, Modelica Association, Anton Haumer, Christian Kral a
       <th>Comment</th>
     </tr>
     <tr>
-      <td valign=\"top\">1.0.0</td>
-      <td valign=\"top\"> </td>
-      <td valign=\"top\">2010-01-30</td>
-      <td valign=\"top\">A. Haumer<br>C. Kral</td>
-      <td valign=\"top\"></td>
+      <td>1.0.0</td>
+      <td> </td>
+      <td>2010-01-30</td>
+      <td>A. Haumer<br>C. Kral</td>
+      <td></td>
     </tr>
 </table>
 </html>"),
