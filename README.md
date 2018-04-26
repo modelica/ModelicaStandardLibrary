@@ -1,5 +1,7 @@
 # Modelica Standard Library
 
+[![Join the chat at https://gitter.im/modelica/ModelicaStandardLibrary](https://badges.gitter.im/modelica/ModelicaStandardLibrary.svg)](https://gitter.im/modelica/ModelicaStandardLibrary?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 Free library from the Modelica Association to model mechanical (1D/3D), electrical (analog, digital, machines), thermal, fluid, control systems and hierarchical state machines. Also numerical functions and functions for strings, files and streams are included.
 
 ## Library description
