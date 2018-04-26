@@ -240,7 +240,7 @@ version="3.2.3",
 versionBuild=1,
 versionDate="2018-08-01",
 dateModified = "2018-04-20 12:00:00Z",
-revisionId="$Id::                                       $",
+revisionId="$Format:%h %s %ci$",
 conversion(
  noneFromVersion="3.2.2",
  noneFromVersion="3.2.1",

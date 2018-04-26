@@ -3420,6 +3420,11 @@ to the left and/or the right flange.
     end Rotational;
   end Mechanics;
   annotation (uses(Modelica(version="3.2.2")),
+              version="3.2.3",
+              versionBuild=1,
+              versionDate="2018-08-01",
+              dateModified = "2018-08-01 12:00:00Z",
+              revisionId="$Format:%h %s %ci$",
 Documentation(info="<html>
 <p>
 This package contains models and blocks from the Modelica Standard Library
