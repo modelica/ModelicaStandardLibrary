@@ -1963,7 +1963,7 @@ bug fixes, without changing the version number of the Modelica Standard Library.
 
 <h4>Contribution workflow</h4>
 <p>
-The general <a href=\"https://guides.github.com/activities/forking/\">contribution workflow</a> is usually as follows::
+The general <a href=\"https://guides.github.com/activities/forking/\">contribution workflow</a> is usually as follows:
 </p>
 
 <ol>
@@ -1988,7 +1988,7 @@ The general <a href=\"https://guides.github.com/activities/forking/\">contributi
 </ol>
 
 <p>
-There are some special guidelines for changes to maintenance branch.
+There are some special guidelines for changes to the maintenance branch.
 </p>
 
 <ul>
@@ -1996,8 +1996,8 @@ There are some special guidelines for changes to maintenance branch.
          branch (see above), too. One exception are pure changes to the
          \"versionBuild\" annotation as these have no meaning in the development trunk.</li>
 <li> Annotations \"version\" and \"versionDate\" must <u>not</u> be changed in a maintenance release.</li>
-<li> Since the version number can currently not be changed when releasing new maintenance releases
-     (also known as bugfix release) the Modelica Standard Library utilizes the \"versionBuild\" annotation
+<li> Since the version number can currently not be changed when releasing a new maintenance release
+     (also known as bug fix release) the Modelica Standard Library utilizes the \"versionBuild\" annotation
      for this purpose. So should there be a new maintenance release in the maintenance branch then the
      \"versionBuild\" number needs to be incremented by one. At the same time the \"dateModified\" field
      needs to be updated.<br>
@@ -2011,7 +2011,7 @@ There are some special guidelines for changes to maintenance branch.
      Example:
      <blockquote>
         Running the export command \"<code>git archive -o msl.zip v3.2.3</code>\" will
-        expand the above revisionId place holder to something like:
+        expand the above \"revisionId\" place holder to something like:
         <pre>revisionId = \"c04e23a0d v3.2.3+build.1 2018-08-01 12:00:00 +0200$\"</pre>
      </blockquote>
      </li>
