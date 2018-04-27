@@ -347,7 +347,7 @@ The ideal gas constant for moist air is computed from the gas phase composition.
       smoothOrder=5,
       Documentation(info="<html>
 <p>Saturation pressure of water above the triple point temperature is computed from temperature.</p>
-<p>Source: A Saul, W Wagner: &quot;International equations for the saturation properties of ordinary water substance&quot;, equation 2.1 </p>
+<p>Source: A Saul, W Wagner: &quot;International equations for the saturation properties of ordinary water substance&quot;, equation 2.1</p>
 </html>"));
   end saturationPressureLiquid;
 
@@ -381,7 +381,7 @@ The ideal gas constant for moist air is computed from the gas phase composition.
       smoothOrder=5,
       Documentation(info="<html>
 <p>Saturation pressure of water above the triple point temperature is computed from temperature.</p>
-<p>Source: A Saul, W Wagner: &quot;International equations for the saturation properties of ordinary water substance&quot;, equation 2.1 </p>
+<p>Source: A Saul, W Wagner: &quot;International equations for the saturation properties of ordinary water substance&quot;, equation 2.1</p>
 </html>"));
   end saturationPressureLiquid_der;
 

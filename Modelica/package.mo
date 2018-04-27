@@ -1498,7 +1498,7 @@ This class summarizes contact information of the contributing persons.
 
 <pre>
 &lt;p&gt;This package is developed and maintained by the following contributors&lt;/p&gt;
-  &lt;table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
+  &lt;table border=\"1\" cellspacing=\"0\" cellpadding=\"2\"&gt;
     &lt;tr&gt;
       &lt;th&gt;&lt;/th&gt;
       &lt;th&gt;Name&lt;/th&gt;
@@ -1529,7 +1529,7 @@ This class summarizes contact information of the contributing persons.
     &lt;tr&gt;
       &lt;td&gt;Contributor&lt;/td&gt;
       &lt;td&gt;
-        &lt;a href=\"http://www.linkedin.com/in/dietmarw\"&gt;D. Winkler&lt;/a&gt;
+        &lt;a href=\"https://github.com/dietmarw\"&gt;D. Winkler&lt;/a&gt;
       &lt;/td&gt;
       &lt;td&gt;
         DWE, Norway
@@ -1696,7 +1696,7 @@ This class summarizes contact information of the contributing persons.
       extends Modelica.Icons.Information;
       annotation (Documentation(info="<html>
 
-<p>The icon of a Modelica class shall consider the following the guidelines: </p>
+<p>The icon of a Modelica class shall consider the following the guidelines:</p>
 
 <h4>Color and Shapes</h4>
 

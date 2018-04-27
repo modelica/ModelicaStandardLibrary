@@ -1071,7 +1071,6 @@ with scale parameter <strong>lambda</strong> and shape parameter <strong>k</stro
 <blockquote><pre>
 y := lambda * (-log( 1-u)) ^(1/k);
 </pre></blockquote>
-</p>
 
 <p>
 Input argument u must be in the range:

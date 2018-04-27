@@ -15,10 +15,10 @@ The purely sinusoidal voltage
 </p>
 
 <p>
-<IMG
- BORDER=\"0\"
+<img
+ border=\"0\"
  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Introduction/img1.png\"
- ALT=\"v=\\sqrt{2}V_{\\mathrm{RMS}}\\cos(\\omega t+\\varphi_{v})\">
+ alt=\"v=\\sqrt{2}V_{\\mathrm{RMS}}\\cos(\\omega t+\\varphi_{v})\">
 </p>
 
 <p>
@@ -27,20 +27,20 @@ in the time domain can be represented by a complex
 </p>
 
 <p>
-<IMG
- BORDER=\"0\"
+<img
+ border=\"0\"
  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Introduction/img2.png\"
- ALT=\"\\underline{v}=V_{\\mathrm{RMS}}e^{j\\varphi_{v}}.\">
+ alt=\"\\underline{v}=V_{\\mathrm{RMS}}e^{j\\varphi_{v}}.\">
 </p>
 
 <p>For these quasi stationary
 phasor the following relationship applies:</p>
 
 <p>
-<IMG
- BORDER=\"0\"
+<img
+ border=\"0\"
  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Introduction/img3.png\"
- ALT=\"\\begin{displaymath}
+ alt=\"\\begin{displaymath}
 v=\\mathrm{Re}(\\sqrt{2}\\underline{v}e^{j\\omega t})\\end{displaymath}\">
 </p>
 
@@ -107,10 +107,10 @@ The voltage drop across the resistor
 </p>
 
 <p>
-<IMG
- BORDER=\"0\"
+<img
+ border=\"0\"
  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/ACCircuit/img1.png\"
- ALT=\"
+ alt=\"
 \\underline{v}_{r}=R\\underline{i}\">
 </p>
 
@@ -119,10 +119,10 @@ and the inductor
 </p>
 
 <p>
-<IMG
- BORDER=\"0\"
+<img
+ border=\"0\"
  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/ACCircuit/img2.png\"
- ALT=\"
+ alt=\"
 \\underline{v}_{l}=j\\omega L\\underline{i}\">
 </p>
 
@@ -131,10 +131,10 @@ and the capacitor
 </p>
 
 <p>
-<IMG
- BORDER=\"0\"
+<img
+ border=\"0\"
  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/ACCircuit/img3.png\"
- ALT=\"
+ alt=\"
 \\underline{v}_{l}=j\\omega L\\underline{i}\">
 </p>
 
@@ -143,10 +143,10 @@ add up to the total voltage
 </p>
 
 <p>
-<IMG
- BORDER=\"0\"
+<img
+ border=\"0\"
  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/ACCircuit/img4.png\"
- ALT=\"
+ alt=\"
 \\underline{v}=\\underline{v}_{r}+\\underline{v}_{l}\">
 </p>
 
@@ -167,7 +167,7 @@ as illustrated in the phasor diagram of Fig. 2.
 <p>Due to the series connection of the resistor, inductor and capacitor, the three currents are all equal:</p>
 
 <p>
-<IMG BORDER=\"0\"
+<img border=\"0\"
  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/ACCircuit/img5.png\"
  alt=\"img5.png\">
 </p>
@@ -207,9 +207,9 @@ will be investigated.
 The instantaneous voltage and current are in phase:
 </p>
 <p>
-<IMG BORDER=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/v_r.png\"
+<img border=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/v_r.png\"
                    alt=\"v_r.png\"><br>
-<IMG BORDER=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/i_r.png\"
+<img border=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/i_r.png\"
                    alt=\"i_r.png\">
 </p>
 
@@ -217,7 +217,7 @@ The instantaneous voltage and current are in phase:
 Therefore, the instantaneous power is
 </p>
 <p>
-<IMG BORDER=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/power_r.png\"
+<img border=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/power_r.png\"
                    alt=\"power_r.png\">
 </p>
 
@@ -235,7 +235,7 @@ Therefore, the instantaneous power is
 
 <p>Real power of the resistor is the average of instantaneous power:</p>
 <p>
-<IMG BORDER=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/p_r.png\"
+<img border=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/p_r.png\"
                    alt=\"p_r.png\">
 </p>
 
@@ -245,9 +245,9 @@ Therefore, the instantaneous power is
 The instantaneous voltage leads the current by a quarter of the period:
 </p>
 <p>
-<IMG BORDER=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/v_l.png\"
+<img border=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/v_l.png\"
                    alt=\"v_l.png\"><br>
-<IMG BORDER=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/i_l.png\"
+<img border=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/i_l.png\"
                    alt=\"i_l.png\">
 </p>
 
@@ -255,7 +255,7 @@ The instantaneous voltage leads the current by a quarter of the period:
 Therefore, the instantaneous power is
 </p>
 <p>
-<IMG BORDER=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/power_l.png\"
+<img border=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/power_l.png\"
                    alt=\"power_l.png\">
 </p>
 
@@ -273,7 +273,7 @@ Therefore, the instantaneous power is
 
 <p>Reactive power of the inductor is:</p>
 <p>
-<IMG BORDER=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/q_l.png\"
+<img border=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/q_l.png\"
                    alt=\"q_l.png\">
 </p>
 
@@ -283,9 +283,9 @@ Therefore, the instantaneous power is
 The instantaneous voltage lags the current by a quarter of the period:
 </p>
 <p>
-<IMG BORDER=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/v_c.png\"
+<img border=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/v_c.png\"
                    alt=\"v_c.png\"><br>
-<IMG BORDER=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/i_c.png\"
+<img border=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/i_c.png\"
                    alt=\"i_c.png\">
 </p>
 
@@ -293,7 +293,7 @@ The instantaneous voltage lags the current by a quarter of the period:
 Therefore, the instantaneous power is
 </p>
 <p>
-<IMG BORDER=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/power_c.png\"
+<img border=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/power_c.png\"
                    alt=\"power_c.png\">
 </p>
 
@@ -311,7 +311,7 @@ Therefore, the instantaneous power is
 
 <p>Reactive power of the capacitor is:</p>
 <p>
-<IMG BORDER=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/q_c.png\"
+<img border=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/q_c.png\"
                    alt=\"q_c.png\">
 </p>
 
@@ -319,7 +319,7 @@ Therefore, the instantaneous power is
 
 <p>For an arbitrary component with two pins, real and reactive power can be determined by the complex phasors:</p>
 <p>
-<IMG BORDER=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/s.png\"
+<img border=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/s.png\"
                    alt=\"s.png\">
 </p>
 
@@ -540,7 +540,7 @@ ideal AC DC converter</a>, which is used in the
 <strong>Anton Haumer</strong><br>
 <a href=\"http://www.haumer.at\">Technical Consulting &amp; Electrical Engineering</a><br>
 A-3423 St. Andrae-Woerdern, Austria<br>
-email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
+email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
 </p>
 
 <p>

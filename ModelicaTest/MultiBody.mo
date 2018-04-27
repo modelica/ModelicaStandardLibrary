@@ -261,9 +261,9 @@ can be switched of by setting the first parameter <strong>animation</strong>
 to <strong>false</strong> or by setting <strong>enableAnimation</strong> in the <strong>world</strong>
 object to <strong>false</strong> to switch off animation of all components.
 </p>
-<P>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/DoublePendulum.png\"
-ALT=\"model Examples.Elementary.DoublePendulum\">
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/DoublePendulum.png\"
+alt=\"model Examples.Elementary.DoublePendulum\">
 </p>
 </html>"));
   end SphericalDoublePendulum;
@@ -380,7 +380,7 @@ This is a second version of the \"four-bar\" mechanism, see figure:
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Loops/Fourbar2.png\" ALT=\"model Examples.Loops.Fourbar2\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Loops/Fourbar2.png\" alt=\"model Examples.Loops.Fourbar2\">
 </p>
 
 <p>
@@ -2521,8 +2521,8 @@ component):
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/ForceWithMasses.png\"
-ALT=\"model Examples.Elementary.ForceWithMasses\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/ForceWithMasses.png\"
+alt=\"model Examples.Elementary.ForceWithMasses\">
 </p>
 
 <p>
@@ -4365,8 +4365,8 @@ component):
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/ForceWithMasses.png\"
-ALT=\"model Examples.Elementary.ForceWithMasses\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/ForceWithMasses.png\"
+alt=\"model Examples.Elementary.ForceWithMasses\">
 </p>
 
 <p>

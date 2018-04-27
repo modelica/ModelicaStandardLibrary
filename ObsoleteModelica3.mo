@@ -246,7 +246,7 @@ The desired conversion can be selected in the parameter menu
             u1 = u2;
             annotation(defaultConnectionStructurallyInconsistent=true,
               obsolete="Model is not balanced, i.e., not according to Modelica Language 3.0. Use instead Modelica.Blocks.Math.InverseBlockConstraints",
-              Documentation(info="<HTML>
+              Documentation(info="<html>
 <p>
 This block is used to enable assignment of values to variables preliminary
 defined as outputs (e.g., useful for inverse model generation).
@@ -389,7 +389,7 @@ This block is used to enable calculation of values preliminary defined as inputs
                   lineColor={0,0,255},
                   fillColor={0,0,255},
                   fillPattern=FillPattern.Solid)}),
-            Documentation(info="<HTML>
+            Documentation(info="<html>
 <p>This is a model for an electrical resistor where the generated heat
 is dissipated to the environment via connector <strong>heatPort</strong> and where
 the resistance R is temperature dependent according to the following
@@ -581,7 +581,7 @@ This icon is designed for an <strong>enumeration</strong>
                 Polygon(
                   points={{99,21},{74,80},{40,45},{99,21}},
                   fillPattern=FillPattern.Solid)}),
-            Documentation(info="<HTML>
+            Documentation(info="<html>
 <p>
 The <strong>6</strong> signals of the <strong>load</strong> connector are interpreted
 as the x-, y- and z-coordinates of a <strong>force</strong> and as
@@ -612,13 +612,13 @@ An example how to use this model is given in the
 following figure:
 </p>
 
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/WorldForceAndTorque1.png\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/WorldForceAndTorque1.png\">
 
 <p>
 This leads to the following animation
 </p>
 
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/WorldForceAndTorque2.png\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/WorldForceAndTorque2.png\">
 </html>"));
         end WorldForceAndTorque;
 
@@ -738,7 +738,7 @@ This leads to the following animation
                   points={{0,95},{0,10}},
                   color={95,95,95},
                   pattern=LinePattern.Dot)}),
-            Documentation(info="<HTML>
+            Documentation(info="<html>
 <p>
 The <strong>6</strong> signals of the <strong>load</strong> connector are interpreted
 as the x-, y- and z-coordinates of a <strong>force</strong> and as
@@ -777,13 +777,13 @@ An example how to use this model is given in the
 following figure:
 </p>
 
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/FrameForceAndTorque1.png\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/FrameForceAndTorque1.png\">
 
 <p>
 This leads to the following animation
 </p>
 
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/FrameForceAndTorque2.png\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/FrameForceAndTorque2.png\">
 </html>"));
         end FrameForceAndTorque;
 
@@ -936,7 +936,7 @@ This leads to the following animation
                       85}}),
                 Line(points={{76,47},{66,60},{55,69},{49,74},{41,80},{31,84},{
                       20,85}})}),
-            Documentation(info="<HTML>
+            Documentation(info="<html>
 <p>
 The <strong>6</strong> signals of the <strong>load</strong> connector are interpreted
 as the x-, y- and z-coordinates of a <strong>force</strong> and as
@@ -965,7 +965,7 @@ An example how to use this model is given in the
 following figure:
 </p>
 
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/ForceAndTorque1.png\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/ForceAndTorque1.png\">
 
 <p>
 This leads to the following animation (the yellow cylinder
@@ -976,7 +976,7 @@ also on the opposite side of this cylinder, but for
 clarity this is not shown in the animation):
 </p>
 
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/ForceAndTorque2.png\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/ForceAndTorque2.png\">
 </html>"));
         end ForceAndTorque;
       end Forces;
@@ -1411,7 +1411,7 @@ position a degree of freedom is lost.
                     extent={{-10,50},{10,100}},
                     fillPattern=FillPattern.VerticalCylinder,
                     fillColor={192,192,192})}),
-              Documentation(info="<HTML>
+              Documentation(info="<html>
 <p>
 Joint where frame_b rotates around axis n which is fixed in frame_a.
 The two frames coincide when \"phi + phi_offset = 0\", where
@@ -1749,7 +1749,7 @@ degree of freedom is lost.
                     extent={{100,40},{90,80}},
                     fillColor={192,192,192},
                     fillPattern=FillPattern.Solid)}),
-              Documentation(info="<HTML>
+              Documentation(info="<html>
 <p>
 Joint where frame_b is translated along axis n which is fixed in frame_a.
 The two frames coincide when \"s + s_offset = 0\", where
@@ -2009,7 +2009,7 @@ joints.</strong>
                   points={{-84,0},{-84,82},{0,82},{0,98}},
                   color={95,95,95},
                   pattern=LinePattern.Dot)}),
-            Documentation(info="<HTML>
+            Documentation(info="<html>
 <p>
 Absolute kinematic quantities of frame_a are
 computed and provided at the output signal connector <strong>y</strong>
@@ -2038,7 +2038,7 @@ component is shown. The light blue coordinate system is
 frame_a and the yellow arrow is the animated sensor.
 </p>
 
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Sensors/AbsoluteSensor.png\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Sensors/AbsoluteSensor.png\">
 
 <p>
 If <strong>frame_resolve</strong> is connected to another frame, then the
@@ -2392,7 +2392,7 @@ Exact definition of the returned quantities:
                   points={{-60,-98},{-60,-76},{0,-76},{0,-76}},
                   color={95,95,95},
                   pattern=LinePattern.Dot)}),
-            Documentation(info="<HTML>
+            Documentation(info="<html>
 <p>
 Relative kinematic quantities between frame_a and frame_b are
 determined and provided at the output signal connector <strong>y</strong>
@@ -2422,7 +2422,7 @@ frame_a, the dark blue coordinate system is frame_b, and
 the yellow arrow is the animated sensor.
 </p>
 
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Sensors/RelativeSensor.png\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Sensors/RelativeSensor.png\">
 
 <p>
 If parameter <strong>resolveInFrame_a</strong> = <strong>true</strong>, then the
@@ -2547,7 +2547,7 @@ and resolved in the following frame
       <td><strong>frame_b</strong></td>
   </tr>
 </table>
-</HTML>"));
+</html>"));
         end RelativeSensor;
 
         model CutForceAndTorque
@@ -2640,7 +2640,7 @@ and resolved in the following frame
           annotation (
             obsolete="Based on a packed result signal which is not a good design. Use instead Modelica.Mechanics.MultiBody.Sensors.CutForceAndTorque",
             preferredView="info",
-            Documentation(info="<HTML>
+            Documentation(info="<html>
 <p>
 The cut-force and cut-torque acting at the component to which frame_b is
 connected are determined and provided at the output signal connector
@@ -2671,8 +2671,8 @@ respectively, acting at frame_b and
 with negative sign at frame_a.
 </p>
 
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Sensors/CutForceAndTorque.png\">
-</HTML>"));
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Sensors/CutForceAndTorque.png\">
+</html>"));
         end CutForceAndTorque;
       end Sensors;
 
@@ -2956,11 +2956,11 @@ of several base components.</p>
                 Polygon(
                   points={{94,16},{80,74},{50,52},{94,16}},
                   fillPattern=FillPattern.Solid)}),
-            Documentation(info="<HTML>
+            Documentation(info="<html>
 <p>
 Partial model of torque dependent on speed that accelerates the flange.
 </p>
-</HTML>"));
+</html>"));
         end PartialSpeedDependentTorque;
 
         partial model AbsoluteSensor
@@ -3150,14 +3150,14 @@ quantities.
 
 </html>"));
         end InitRel;
-        annotation (preferredView="info", Documentation(info="<HTML>
+        annotation (preferredView="info", Documentation(info="<html>
 <p>
 In this package <strong>types</strong> and <strong>constants</strong> are defined that are used
 in library Modelica.Blocks. The types have additional annotation choices
 definitions that define the menus to be built up in the graphical
 user interface when the type is used as parameter in a declaration.
 </p>
-</HTML>"));
+</html>"));
       end Types;
 
       model GearEfficiency

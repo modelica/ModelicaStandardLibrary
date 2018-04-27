@@ -98,6 +98,6 @@ not numerically as in this model (Engine1b).
 An animation of this example is shown in the figure below.
 </p>
 
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Loops/Engine.png\" ALT=\"model Examples.Loops.Engine\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Loops/Engine.png\" alt=\"model Examples.Loops.Engine\">
 </html>"));
 end Engine1b;

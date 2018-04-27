@@ -681,7 +681,7 @@ see \"blue\" curve in the next figure:
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Fluid/Components/PipeFriction1.png\" ALT=\"PipeFriction1\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Components/PipeFriction1.png\" alt=\"PipeFriction1\">
 </p>
 
 <p>
@@ -696,7 +696,7 @@ used in Modelica.Fluid:
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Fluid/Components/PipeFriction2.png\" ALT=\"PipeFriction2\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Components/PipeFriction2.png\" alt=\"PipeFriction2\">
 </p>
 
 <p>
@@ -1015,7 +1015,7 @@ used, provided they extend the interfaces defined in
 Modelica.Media.Interfaces.
 </p>
 <p>
-All the components in Modelica.Fluid use a <em>replaceable</em> medium package, called <code>Medium</code>: the model is written for a generic fluid, and a specific fluid model can then be specified when building a system model by redeclaring the package. This can be done in different ways:
+All the components in Modelica.Fluid use a <em>replaceable</em> medium package, called <code>Medium</code>: the model is written for a generic fluid, and a specific fluid model can then be specified when building a system model by redeclaring the package. This can be done in different ways:</p>
 <ul>
 <li>
 If several components use the same medium, it is possible to select

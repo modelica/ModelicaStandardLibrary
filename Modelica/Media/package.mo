@@ -113,6 +113,7 @@ is provided by the user. The four fundamental setState_XXX functions are provide
 </table>
 <p>
 The simple example that explained the basic usage of BaseProperties would then become
+</p>
 <pre>
   <strong>model</strong> Pump
     <strong>replaceable package</strong> Medium = Modelica.Media.Interfaces.PartialMedium
@@ -134,7 +135,7 @@ is given in the next figure:
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Media/UsersGuide/mediumMenu.png\" ALT=\"medium selection menu\">
+<img src=\"modelica://Modelica/Resources/Images/Media/UsersGuide/mediumMenu.png\" alt=\"medium selection menu\">
 </p>
 
 <p>
@@ -1561,7 +1562,7 @@ flow direction of a pipe:
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Media/UsersGuide/BalanceEquations1.png\">
+<img src=\"modelica://Modelica/Resources/Images/Media/UsersGuide/BalanceEquations1.png\">
 </p>
 
 <p>
@@ -1571,7 +1572,7 @@ Usually, it is given as:
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Media/UsersGuide/EnergyBalance1.png\">
+<img src=\"modelica://Modelica/Resources/Images/Media/UsersGuide/EnergyBalance1.png\">
 </p>
 
 <p>
@@ -1584,7 +1585,7 @@ of the energy balance:
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Media/UsersGuide/EnergyBalance2.png\">
+<img src=\"modelica://Modelica/Resources/Images/Media/UsersGuide/EnergyBalance2.png\">
 </p>
 
 <p>
@@ -5532,13 +5533,13 @@ to the above list of assumptions</li>
     Politecnico di Milano<br>
     Via Ponzio 34/5<br>
     I-20133 Milano, Italy<br>
-    email: <A HREF=\"mailto:casella@elet.polimi.it\">casella@elet.polimi.it</A><br>
+    email: <a href=\"mailto:casella@elet.polimi.it\">casella@elet.polimi.it</a><br>
     and<br>
     Hubertus Tummescheit<br>
     Modelon AB<br>
     Ideon Science Park<br>
     SE-22730 Lund, Sweden<br>
-    email: <A HREF=\"mailto:Hubertus.Tummescheit@Modelon.se\">Hubertus.Tummescheit@Modelon.se</A>
+    email: <a href=\"mailto:Hubertus.Tummescheit@Modelon.se\">Hubertus.Tummescheit@Modelon.se</a>
 </dd>
 </dl>
 </html>"));
@@ -9165,7 +9166,7 @@ single and multiple substance fluids with one and multiple phases:
 <li> <a href=\"modelica://Modelica.Media.R134a\">Refrigerant Tetrafluoroethane (R134a)</a>.</li>
 </ul>
 <p>
-The following parts are useful, when newly starting with this library:
+The following parts are useful, when newly starting with this library:</p>
 <ul>
 <li> <a href=\"modelica://Modelica.Media.UsersGuide\">Modelica.Media.UsersGuide</a>.</li>
 <li> <a href=\"modelica://Modelica.Media.UsersGuide.MediumUsage\">Modelica.Media.UsersGuide.MediumUsage</a>

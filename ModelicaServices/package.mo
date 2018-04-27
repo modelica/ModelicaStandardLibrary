@@ -86,7 +86,7 @@ First version of the ModelicaServices library.
     Postfach 1116<br>
     D-82230 Wessling<br>
     Germany<br>
-    email: <A HREF=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</A></td>
+    email: <a href=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</a></td>
 </tr>
 </table>
 

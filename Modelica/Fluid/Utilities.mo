@@ -326,7 +326,7 @@ and the second one with k1=1 and k2=3:
 
 <p>
 The (smooth) derivative of the function with
-k1=1, k2=3 is shown in the next figure:
+k1=1, k2=3 is shown in the next figure:</p>
 <p>
 <img src=\"modelica://Modelica/Resources/Images/Fluid/Components/regRoot2_c.png\"
      alt=\"regRoot2_c.png\">

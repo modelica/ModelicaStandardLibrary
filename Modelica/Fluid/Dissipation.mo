@@ -374,7 +374,7 @@ reference 01IS07022B). The project was started in October 2007 and ended in June
         end for;
       annotation(Inline=false, Documentation(info="<html>
 <p>Calculation of the mean convective heat transfer coefficient <strong>kc </strong>for a laminar fluid flow through an even gap at different fluid flow and heat transfer situations. Note that additionally a failure status is observed in this function to check if the intended boundary conditions are fulfilled.
-<a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Channel.kc_evenGapLaminar\">See more information.</a> </p>
+<a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Channel.kc_evenGapLaminar\">See more information.</a></p>
 </html>"), smoothOrder(normallyConstant=IN_con) = 2);
       end kc_evenGapLaminar;
 
@@ -789,7 +789,7 @@ This record is used as <strong> input record </strong> for the heat transfer fun
     annotation (preferredView="info", Documentation(info="<html>
 <h4>Even gap</h4>
 <h5>Laminar flow</h5>
-<p>Calculation of the mean convective heat transfer coefficient <strong>kc </strong>for a laminar fluid flow through an even gap at different fluid flow and heat transfer situations. <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Channel.kc_evenGapLaminar\">See more information.</a> </p>
+<p>Calculation of the mean convective heat transfer coefficient <strong>kc </strong>for a laminar fluid flow through an even gap at different fluid flow and heat transfer situations. <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Channel.kc_evenGapLaminar\">See more information.</a></p>
 
 <h5>Turbulent flow</h5>
 <p>Calculation of the mean convective heat transfer coefficient <strong>kc </strong>for a laminar fluid flow through an even gap at different fluid flow and heat transfer situations. <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Channel.kc_evenGapTurbulent\">See more information.</a></p>
@@ -983,7 +983,7 @@ This record is used as <strong> input record </strong> for the heat transfer fun
     annotation (preferredView="info", Documentation(info="<html>
 <h4>General heat transfer</h4>
 <h5>Approximated forced convection</h5>
-<p>Approximate calculation of the mean convective heat transfer coefficient <strong> kc </strong> for forced convection with a fully developed fluid flow in a turbulent regime. <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.General.kc_approxForcedConvection\">See more information.</a> </p>
+<p>Approximate calculation of the mean convective heat transfer coefficient <strong> kc </strong> for forced convection with a fully developed fluid flow in a turbulent regime. <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.General.kc_approxForcedConvection\">See more information.</a></p>
 </html>"));
     end General;
 
@@ -7863,22 +7863,22 @@ with
 The pressure loss of curved bends is similar to its calculation in straight pipes. There are three different flow regimes observed (laminar,transition,turbulent). The turbulent regime is further separated into sections with a dependence or independence of the local resistance coefficient (<strong>zeta_LOC </strong>) on Reynolds number. The local resistance coefficient (<strong>zeta_LOC</strong>) of a curved bend is calculated in dependence of the flow regime as follows:
 </p>
 <ul>
-<li><p><strong>Laminar regime (Re &le; Re_lam_leave)</strong>: </p>
+<li><p><strong>Laminar regime (Re &le; Re_lam_leave)</strong>:</p>
 <pre>      zeta_LOC = A2/Re + A1*B1*C1</pre></li>
 <li><p><strong>Transition regime (Re_lam_leave &le; 4e4)</strong></p>
 <p> This calculation is done using a smoothing function interpolating between the laminar and the first turbulent flow regime.</p></li>
-<li><p><strong>Turbulent regime (4e4 &le; 3e5) with dependence </strong> of local resistance coefficient on Reynolds number: </p>
+<li><p><strong>Turbulent regime (4e4 &le; 3e5) with dependence </strong> of local resistance coefficient on Reynolds number:</p>
 <pre>      zeta_LOC = k_Re * (A1*B1*C1)</pre>
 <p>where <strong>k_Re</strong> depends on the relative curvature radius <strong>R_0/d_hyd </strong></p>
 <pre>
       k_Re = 1 + 4400/Re              for 0.50 &lt; r/d_hyd &lt; 0.55
       k_Re = 5.45/Re^(0.118)          for 0.55 &le; r/d_hyd &lt; 0.70
       k_Re = 11.5/Re^(0.19)           for 0.70 &le; r/d_hyd &lt; 3.00</pre></li>
-<li><p><strong>Turbulent regime (Re &ge; 3e5) with independence </strong>of local resistance coefficient on Reynolds number </p>
+<li><p><strong>Turbulent regime (Re &ge; 3e5) with independence </strong>of local resistance coefficient on Reynolds number</p>
 <pre>      zeta_LOC = A1*B1*C1</pre></li>
 </ul>
 
-<p>with </p>
+<p>with</p>
 <table cellspacing=\"2\" cellpadding=\"0\" border=\"0\"><tr>
 <td><p><strong>A1 </strong></p></td>
 <td><p>as coefficient considering effect of angle of turning (delta) [-],</p></td>
@@ -7904,13 +7904,13 @@ The pressure loss of curved bends is similar to its calculation in straight pipe
 <td><p>as Reynolds number [-].</p></td>
 </tr>
 </table>
-<p><br/><br/>The pressure loss coefficient <strong>zeta_TOT </strong>of a curved bend including pressure loss due to friction is determined by its local resistance coefficient <strong>zeta_LOC </strong>multiplied with a correction factor <strong>CF </strong>for surface roughness according to <em>[Miller, p. 209, eq. 9.4]:</em> </p>
+<p><br/><br/>The pressure loss coefficient <strong>zeta_TOT </strong>of a curved bend including pressure loss due to friction is determined by its local resistance coefficient <strong>zeta_LOC </strong>multiplied with a correction factor <strong>CF </strong>for surface roughness according to <em>[Miller, p. 209, eq. 9.4]:</em></p>
 <pre>    zeta_TOT = CF*zeta_LOC </pre>
-<p>where the correction factor <strong>CF </strong>is determined from the Darcy friction factor of a straight pipe having the bend flow path length </p>
+<p>where the correction factor <strong>CF </strong>is determined from the Darcy friction factor of a straight pipe having the bend flow path length</p>
 <pre>    CF = 1 + (lambda_FRI_rough * pi * delta/d_hyd) / zeta_LOC</pre>
-<p>and the Darcy friction factors <strong>lambda_FRI_rough </strong>is calculated with an approximated Colebrook-White law according to <em>[Miller, p. 191, eq. 8.4]:</em> </p>
+<p>and the Darcy friction factors <strong>lambda_FRI_rough </strong>is calculated with an approximated Colebrook-White law according to <em>[Miller, p. 191, eq. 8.4]:</em></p>
 <pre>    lambda_FRI_rough = 0.25*(lg(K/(3.7*d_hyd) + 5.74/Re^0.9))^-2</pre>
-<p>with </p>
+<p>with</p>
 <table cellspacing=\"2\" cellpadding=\"0\" border=\"0\"><tr>
 <td><p><strong>delta </strong></p></td>
 <td><p>as curvature radiant [rad],</p></td>
@@ -7920,7 +7920,7 @@ The pressure loss of curved bends is similar to its calculation in straight pipe
 <td><p>as hydraulic diameter [m],</p></td>
 </tr>
 <tr>
-<td><p><strong>K</strong> </p></td>
+<td><p><strong>K</strong></p></td>
 <td><p>as absolute roughness (average height of surface asperities) [m],</p></td>
 </tr>
 <tr>
@@ -7941,9 +7941,9 @@ The pressure loss of curved bends is similar to its calculation in straight pipe
 </tr>
 </table>
 <p><br/>The correction for surface roughness through <strong>CF </strong>is used only in the turbulent regime, where the fluid flow is influenced by surface asperities not covered by a laminar boundary layer. The turbulent regime starts at <strong>Re &ge; 4e4 </strong>according to <em>[Idelchik 2006, p. 336, sec. 15]</em>. There is no correction due to roughness in the laminar regime up to <strong>Re &le; 6.5e3 </strong>according to <em>[Idelchik 2006, p. 336, sec. 15]</em>.</p>
-<p>Nevertheless the transition point from the laminar to the transition regime is shifted to smaller Reynolds numbers for an increasing absolute roughness. This effect is considered according to <em>[Samoilenko in Idelchik 2006, p. 81, sec. 2-1-21]</em> as: </p>
+<p>Nevertheless the transition point from the laminar to the transition regime is shifted to smaller Reynolds numbers for an increasing absolute roughness. This effect is considered according to <em>[Samoilenko in Idelchik 2006, p. 81, sec. 2-1-21]</em> as:</p>
 <pre>    Re_lam_leave = 754*exp(if k &le; 0.007 then 0.0065/0.007 else 0.0065/k)</pre>
-<p>with </p>
+<p>with</p>
 <table cellspacing=\"2\" cellpadding=\"0\" border=\"0\"><tr>
 <td><p><strong>k = K /d_hyd </strong></p></td>
 <td><p>as relative roughness [-],</p></td>
@@ -7962,13 +7962,13 @@ The pressure loss of curved bends is similar to its calculation in straight pipe
 </p>
 
 <p>There are deviations of the pressure loss coefficient <strong>zeta_TOT</strong> comparing different references. Usually these deviations in the transition regime have to be accepted due to an uncertainty for the determination of comparable boundary conditions in the different references. Nevertheless these calculations cover the usual range of pressure loss coefficients for a curved bend. The pressure loss coefficient <strong>zeta_TOT </strong>for the same geometry can be adjusted via varying the average height of surface asperities <strong>K</strong> for calibration.</p>
-<p>The pressure loss in dependence of the mass flow rate of water is shown for different relative curvature radii: </p>
+<p>The pressure loss in dependence of the mass flow rate of water is shown for different relative curvature radii:</p>
 
 <p>
 <img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/bend/fig_bend_dp_curvedOverall_DPvsMFLOWwrtRD.png\" alt=\"fig_bend_dp_curvedOverall_DPvsMFLOWwrtRD\"/>
 </p>
 
-<p>The pressure loss in dependence of the mass flow rate of water is shown for different angles of turning: </p>
+<p>The pressure loss in dependence of the mass flow rate of water is shown for different angles of turning:</p>
 
 <p>
 <img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/bend/fig_bend_dp_curvedOverall_DPvsMFLOWwrtDelta.png\" alt=\"fig_bend_dp_curvedOverall_DPvsMFLOWwrtRD\"/>

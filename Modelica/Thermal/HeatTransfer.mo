@@ -132,7 +132,7 @@ Tsensor1.T, Tsensor2.T, T_final_degC
                                             annotation (Line(points={{-51,-10},
               {-60,-10},{-60,-33}}, color={255,0,255}));
       annotation (Documentation(info="<html>
-<P>
+<p>
 A constant voltage of 10 V is applied to a
 temperature dependent resistor of 10*(1+(T-20C)/(235+20C)) Ohms,
 whose losses v**2/r are dissipated via a
@@ -145,7 +145,7 @@ by switching on and off the voltage source.
 The reference temperature starts at 25 degree C
 and rises between t = 2 and 8 seconds linear to 50 degree C.
 An appropriate simulating time would be 10 seconds.
-</P>
+</p>
 </html>"),        experiment(StopTime=10, Interval=0.001));
     end ControlledTemperature;
 
@@ -3262,7 +3262,7 @@ of this example:
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Thermal/HeatTransfer/driveWithHeatTransfer.png\" ALT=\"driveWithHeatTransfer\">
+<img src=\"modelica://Modelica/Resources/Images/Thermal/HeatTransfer/driveWithHeatTransfer.png\" alt=\"driveWithHeatTransfer\">
 </p>
 
 <p>

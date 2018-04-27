@@ -1386,13 +1386,13 @@ This model is a simple short cut branch considering the complex voltage <em><u>v
         n2.i));
       annotation (defaultComponentName="switch",
         Documentation(info="<html>
-<P>
+<p>
 The commuting switch has a positive pin p and two negative pins n1 and n2.
 The switching behaviour is controlled
 by the input signal control. If control is true, the pin p is connected
 with the negative pin n2. Otherwise, the pin p is connected to the negative pin n1.
-</P>
-<P>
+</p>
+<p>
 In order to prevent singularities during switching, the opened
 switch has a (very low) conductance Goff
 and the closed switch has a (very low) resistance Ron.
@@ -1404,7 +1404,7 @@ where a description with zero Ron or zero Goff is not possible.
 <strong>Please note:</strong>
 In case of useHeatPort=true the temperature dependence of the electrical
 behavior is <strong>not</strong> modelled. The parameters are not temperature dependent.
-</P>
+</p>
 <p>
 <strong>Use with care:</strong>
 This switch is only intended to be used for structural changes, not for fast switching sequences, due to the quasistationary formulation.
@@ -1483,29 +1483,29 @@ This switch is only intended to be used for structural changes, not for fast swi
         conj(n1.i)) + real(n2.v*conj(n2.i));
       annotation (defaultComponentName="switch",
         Documentation(info="<html>
-<P>
+<p>
 The intermediate switch has four switching contact pins p1, p2, n1, and n2.
 The switching behaviour is controlled by the input signal control. If control
 is true, the pin p1 is connected to pin n2, and the pin p2 is
 connected to the pin n2. Otherwise, the pin p1 is connected to n1, and
 p2 is connected to n2.
-</P>
-
-<p>
-<IMG src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/SinglePhase/Ideal/IdealIntermediateSwitch1.png\" ALT=\"IdealIntermediateSwitch1\">
 </p>
 
-<P>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/SinglePhase/Ideal/IdealIntermediateSwitch1.png\" alt=\"IdealIntermediateSwitch1\">
+</p>
+
+<p>
 In order to prevent singularities during switching, the opened
 switch has a (very low) conductance Goff
 and the closed switch has a (very low) resistance Ron.
-</P>
-
-<p>
-<IMG src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/SinglePhase/Ideal/IdealIntermediateSwitch2.png\" ALT=\"IdealIntermediateSwitch2\">
 </p>
 
-<P>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/SinglePhase/Ideal/IdealIntermediateSwitch2.png\" alt=\"IdealIntermediateSwitch2\">
+</p>
+
+<p>
 The limiting case is also allowed, i.e., the resistance Ron of the
 closed switch could be exactly zero and the conductance Goff of the
 open switch could be also exactly zero. Note, there are circuits,
@@ -1514,7 +1514,7 @@ where a description with zero Ron or zero Goff is not possible.
 <strong>Please note:</strong>
 In case of useHeatPort=true the temperature dependence of the electrical
 behavior is <strong>not</strong> modelled. The parameters are not temperature dependent.
-</P>
+</p>
 <p>
 <strong>Use with care:</strong>
 This switch is only intended to be used for structural changes, not for fast switching sequences, due to the quasistationary formulation.
@@ -1561,14 +1561,14 @@ This switch is only intended to be used for structural changes, not for fast swi
       LossPower = real(v*conj(i));
       annotation (defaultComponentName="switch",
         Documentation(info="<html>
-<P>
+<p>
 The ideal opening switch has a positive pin p and a negative pin n.
 The switching behaviour is controlled by the input signal control.
 If control is true, pin p is not connected
 with negative pin n. Otherwise, pin p is connected
 with negative pin n.
-</P>
-<P>
+</p>
+<p>
 In order to prevent singularities during switching, the opened
 switch has a (very low) conductance Goff
 and the closed switch has a (very low) resistance Ron.
@@ -1580,7 +1580,7 @@ where a description with zero Ron or zero Goff is not possible.
 <strong>Please note:</strong>
 In case of useHeatPort=true the temperature dependence of the electrical
 behavior is <strong>not</strong> modelled. The parameters are not temperature dependent.
-</P>
+</p>
 <p>
 <strong>Use with care:</strong>
 This switch is only intended to be used for structural changes, not for fast switching sequences, due to the quasistationary formulation.
@@ -1636,14 +1636,14 @@ This switch is only intended to be used for structural changes, not for fast swi
       LossPower = real(v*conj(i));
       annotation (defaultComponentName="switch",
         Documentation(info="<html>
-<P>
+<p>
 The ideal closing switch has a positive pin p and a negative pin n.
 The switching behaviour is controlled by input signal control.
 If control is true, pin p is connected
 with negative pin n. Otherwise, pin p is not connected
 with negative pin n.
-</P>
-<P>
+</p>
+<p>
 In order to prevent singularities during switching, the opened
 switch has a (very low) conductance Goff
 and the closed switch has a (very low) resistance Ron.
@@ -1655,7 +1655,7 @@ where a description with zero Ron or zero Goff is not possible.
 <strong>Please note:</strong>
 In case of useHeatPort=true the temperature dependence of the electrical
 behavior is <strong>not</strong> modelled. The parameters are not temperature dependent.
-</P>
+</p>
 <p>
 <strong>Use with care:</strong>
 This switch is only intended to be used for structural changes, not for fast switching sequences, due to the quasistationary formulation.

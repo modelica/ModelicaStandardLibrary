@@ -753,7 +753,7 @@ documentation_annotation:
                             [\",\" \"revisions\" \"=\" STRING ] \")\" \")\"
 </pre>
 <h4>Description</h4>
-<P>
+<p>
 The \"Documentation\" annotation can contain the \"info\" annotation giving a textual description, the \"revisions\" annotation giving a list of revisions and other annotations defined by a tool [The \"revisions\" documentation may be omitted in printed documentation]. How the tool interprets the information in \"Documentation\" is unspecified. Within a string of the \"Documentation\" annotation, the tags &lt;HTML&gt; and &lt;/HTML&gt; or &lt;html&gt; and &lt;/html&gt; define the start and end of content that is HTML encoded. Links to Modelica classes may be defined with the HTML link command using scheme \"Modelica\", e.g.,
 </p>
 <pre>
@@ -1539,18 +1539,18 @@ Define specialized class <em>block</em>
 
 <h4>Syntax</h4>
 
-<PRE>   [ <strong>encapsulated</strong> ][ <strong>partial </strong>] <strong>block</strong>
+<pre>   [ <strong>encapsulated</strong> ][ <strong>partial </strong>] <strong>block</strong>
    IDENT class_specifier
 
 class_specifier :
    string_comment composition <strong>end</strong> IDENT
    | \"=\" base_prefix name [ array_subscripts ] [ class_modification ] comment
-   | \"=\" <strong>enumeration</strong> \"(\" ( [enum_list] | \":\" ) \")\" comment</PRE>
+   | \"=\" <strong>enumeration</strong> \"(\" ( [enum_list] | \":\" ) \")\" comment</pre>
 
 <p>See Modelica Language Specification for further details.</p>
 
 <h4>Description</h4>
-<P>
+<p>
 A block class is the same as a model class
 with the restriction that each connector component of a block must
 have prefixes input and/or output for all connector variables.
@@ -1558,7 +1558,7 @@ The purpose is to model input/output blocks of block diagrams.
 Due to the restrictions on input and output prefixes,
 connections between blocks are only possible according
 to block diagram semantic.
-</P>
+</p>
 </html>"));
   end 'block';
 
@@ -1583,13 +1583,13 @@ Define class
 <strong>end</strong> MyTable;</pre>
 
 <h4>Syntax</h4>
-<PRE>   [ <strong>encapsulated</strong> ][ <strong>partial </strong>] <strong>class</strong>
+<pre>   [ <strong>encapsulated</strong> ][ <strong>partial </strong>] <strong>class</strong>
    IDENT class_specifier
 
 class_specifier :
    string_comment composition <strong>end</strong> IDENT
    | \"=\" base_prefix name [ array_subscripts ] [ class_modification ] comment
-   | \"=\" <strong>enumeration</strong> \"(\" ( [enum_list] | \":\" ) \")\" comment</PRE>
+   | \"=\" <strong>enumeration</strong> \"(\" ( [enum_list] | \":\" ) \")\" comment</pre>
 
 <p>See Modelica Language Specification for further details.</p>
 
@@ -1628,13 +1628,13 @@ Define specialized class <em>connector</em>
 <strong>end</strong> flange;</pre>
 
 <h4>Syntax</h4>
-<PRE>   [ <strong>encapsulated</strong> ][ <strong>partial </strong>] <strong>connector</strong>
+<pre>   [ <strong>encapsulated</strong> ][ <strong>partial </strong>] <strong>connector</strong>
    IDENT class_specifier
 
 class_specifier :
    string_comment composition <strong>end</strong> IDENT
    | \"=\" base_prefix name [ array_subscripts ] [ class_modification ] comment
-   | \"=\" <strong>enumeration</strong> \"(\" ( [enum_list] | \":\" ) \")\" comment</PRE>
+   | \"=\" <strong>enumeration</strong> \"(\" ( [enum_list] | \":\" ) \")\" comment</pre>
 
 <p>See Modelica Language Specification for further details.</p>
 
@@ -1862,19 +1862,19 @@ Define specialized class <em>function</em>
 
 <h4>Syntax</h4>
 
-<PRE>   [ <strong>encapsulated</strong> ][ <strong>partial </strong>] <strong>function</strong>
+<pre>   [ <strong>encapsulated</strong> ][ <strong>partial </strong>] <strong>function</strong>
    IDENT class_specifier
 
 class_specifier :
    string_comment composition <strong>end</strong> IDENT
    | \"=\" base_prefix name [ array_subscripts ] [ class_modification ] comment
-   | \"=\" <strong>enumeration</strong> \"(\" ( [enum_list] | \":\" ) \")\" comment</PRE>
+   | \"=\" <strong>enumeration</strong> \"(\" ( [enum_list] | \":\" ) \")\" comment</pre>
 
 <p>See Modelica Language Specification for further details.</p>
 
 <h4>Description</h4>
 
-<P>The keyword function is used to define functions as known from programming
+<p>The keyword function is used to define functions as known from programming
 languages. Each part of a function interface must
 either have causality equal to input or output. A function may not be used in connections.
 In functions, no equations or initial algorithm and at most
@@ -2167,21 +2167,21 @@ Define specialized class <em>model</em>
 <strong>end</strong> SlidingMass;</pre>
 
 <h4>Syntax</h4>
-<PRE>   [ <strong>encapsulated</strong> ][ <strong>partial </strong>] <strong>model</strong>
+<pre>   [ <strong>encapsulated</strong> ][ <strong>partial </strong>] <strong>model</strong>
    IDENT class_specifier
 
 class_specifier :
    string_comment composition <strong>end</strong> IDENT
    | \"=\" base_prefix name [ array_subscripts ] [ class_modification ] comment
-   | \"=\" <strong>enumeration</strong> \"(\" ( [enum_list] | \":\" ) \")\" comment</PRE>
+   | \"=\" <strong>enumeration</strong> \"(\" ( [enum_list] | \":\" ) \")\" comment</pre>
 
 <p>See Modelica Language Specification for further details.</p>
 
 <h4>Description</h4>
-<P>
+<p>
 The keyword model is identical to the keyword class, i.e.,
 no restrictions and no enhancements.
-</P>
+</p>
 </html>"));
   end 'model';
 
@@ -2209,19 +2209,19 @@ Define specialized class <em>package</em>
 <strong>end</strong> Library;</pre>
 
 <h4>Syntax</h4>
-<PRE>   [ <strong>encapsulated</strong> ][ <strong>partial </strong>] <strong>package</strong>
+<pre>   [ <strong>encapsulated</strong> ][ <strong>partial </strong>] <strong>package</strong>
    IDENT class_specifier
 
 class_specifier :
    string_comment composition <strong>end</strong> IDENT
    | \"=\" base_prefix name [ array_subscripts ] [ class_modification ] comment
-   | \"=\" <strong>enumeration</strong> \"(\" ( [enum_list] | \":\" ) \")\" comment</PRE>
+   | \"=\" <strong>enumeration</strong> \"(\" ( [enum_list] | \":\" ) \")\" comment</pre>
 
 <p>See Modelica Language Specification for further details.</p>
 
 <h4>Description</h4>
-<P>May only contain declarations of classes and constants.
-   Enhanced to allow import of elements of packages.</P>
+<p>May only contain declarations of classes and constants.
+   Enhanced to allow import of elements of packages.</p>
 
 </html>"));
   end 'package';
@@ -2255,13 +2255,13 @@ Define specialized class <em>record</em>
   <strong>end</strong> SlidingMass;</pre>
 
 <h4>Syntax</h4>
-<PRE>   [ <strong>encapsulated</strong> ][ <strong>partial </strong>] <strong>record</strong>
+<pre>   [ <strong>encapsulated</strong> ][ <strong>partial </strong>] <strong>record</strong>
    IDENT class_specifier
 
 class_specifier :
    string_comment composition <strong>end</strong> IDENT
    | \"=\" base_prefix name [ array_subscripts ] [ class_modification ] comment
-   | \"=\" <strong>enumeration</strong> \"(\" ( [enum_list] | \":\" ) \")\" comment</PRE>
+   | \"=\" <strong>enumeration</strong> \"(\" ( [enum_list] | \":\" ) \")\" comment</pre>
 
 <p>See Modelica Language Specification for further details.</p>
 
@@ -2293,13 +2293,13 @@ Define specialized class <em>type</em>
 <pre><strong>type</strong> R0Plus = Real(min=0);</pre>
 
 <h4>Syntax</h4>
-<PRE>   [ <strong>encapsulated</strong> ][ <strong>partial </strong>] <strong>type</strong>
+<pre>   [ <strong>encapsulated</strong> ][ <strong>partial </strong>] <strong>type</strong>
    IDENT class_specifier
 
 class_specifier :
    string_comment composition <strong>end</strong> IDENT
    | \"=\" base_prefix name [ array_subscripts ] [ class_modification ] comment
-   | \"=\" <strong>enumeration</strong> \"(\" ( [enum_list] | \":\" ) \")\" comment</PRE>
+   | \"=\" <strong>enumeration</strong> \"(\" ( [enum_list] | \":\" ) \")\" comment</pre>
 
 <p>See Modelica Language Specification for further details.</p>
 
@@ -2567,9 +2567,9 @@ Absolute value of Real or Integer variable.
 <h4>Syntax</h4>
 <blockquote><code><strong>abs</strong>(v)</code></blockquote>
 <h4>Description</h4>
-<P>Is expanded into &quot;noEvent(<strong>if </strong>v &ge; 0
+<p>Is expanded into &quot;noEvent(<strong>if </strong>v &ge; 0
 <strong>then</strong> v <strong>else</strong> -v)&quot;. Argument v
-needs to be an Integer or Real expression.</P>
+needs to be an Integer or Real expression.</p>
 <h4>Examples</h4>
 <pre>
   <strong>abs</strong>({-3, 0, 3})
@@ -2708,7 +2708,7 @@ Trigger error and print error message if assertion condition is not fulfilled
 <p>The Boolean expression <em>condition</em> shall be true for successful model evaluations.
 Otherwise, an error occurs using the string expression <em>message</em>
 as error message.</p>
-<P>If the condition of an assert statement is true, message is not
+<p>If the condition of an assert statement is true, message is not
 evaluated and the procedure call is ignored. If the condition
 evaluates to false different actions are taken depending on the level input:
 </p>
@@ -2833,7 +2833,7 @@ parameters.
 </p>
 
 <h4>Examples</h4>
-<PRE><strong>connector</strong> Pin
+<pre><strong>connector</strong> Pin
   Real      v;
   <strong>flow</strong> Real i;
 <strong>end</strong> Pin;
@@ -2851,7 +2851,7 @@ parameters.
       <strong>end if</strong>;
    // Equations of resistor
       ...
-<strong>end</strong> Resistor;</PRE>
+<strong>end</strong> Resistor;</pre>
 </html>"));
   end 'cardinality()';
 
@@ -2920,8 +2920,8 @@ Indicate discrete variable changing
 <h4>Syntax</h4>
 <blockquote><pre><strong>change</strong>(v)</pre></blockquote>
 <h4>Description</h4>
-<P>Is expanded into &quot;(v&lt;&gt;pre(v))&quot;.
-The same restrictions as for the pre() operator apply.</P>
+<p>Is expanded into &quot;(v&lt;&gt;pre(v))&quot;.
+The same restrictions as for the pre() operator apply.</p>
 <h4>Examples</h4>
 <pre><strong>model</strong> BothEdges
   Boolean u;
@@ -2977,7 +2977,7 @@ Connect objects
 
 <h4>Syntax</h4>
 
-<PRE>equation_clause :
+<pre>equation_clause :
   [ <strong>initial</strong> ] <strong>equation</strong> { equation \";\" | annotation  \";\" }
 
 equation :
@@ -2990,14 +2990,14 @@ equation :
   comment
 
 connect_clause :
-  <strong>connect</strong> \"(\" component_reference \",\" component_reference \")\"</PRE>
+  <strong>connect</strong> \"(\" component_reference \",\" component_reference \")\"</pre>
 
 <h4>Description</h4>
 
-<P>Connections between objects are introduced by the <strong>connect</strong>
+<p>Connections between objects are introduced by the <strong>connect</strong>
 statement in the equation part of a class. The <strong>connect</strong>
 construct takes two references to connectors, each of which is
-either of the following forms:</P>
+either of the following forms:</p>
 
 <UL>
   <LI>c1.c2. ... .cn, where c1 is a connector of the class, n&ge;1
@@ -3006,20 +3006,20 @@ either of the following forms:</P>
       a connector element of m.</LI>
 </UL>
 
-<P>There may optionally be array subscripts on any of the components;
+<p>There may optionally be array subscripts on any of the components;
 the array subscripts shall be parameter expressions. If the connect
 construct references array of connectors, the array dimensions must
 match, and each corresponding pair of elements from the arrays is
-connected as a pair of scalar connectors.</P>
+connected as a pair of scalar connectors.</p>
 
-<P>The two main tasks are to:</P>
+<p>The two main tasks are to:</p>
 
 <UL>
   <LI>Build connection sets from <strong>connect </strong>statements.</LI>
   <LI>Generate equations for the complete model.</LI>
 </UL>
 
-<P>Definitions:</P>
+<p>Definitions:</p>
 
 <ul>
   <li>Connection sets<br>
@@ -3235,13 +3235,13 @@ Delay expression
 <blockquote><pre><strong>delay</strong>(expr, delayTime, delayMax)
 <strong>delay</strong>(expr, delayTime)</pre></blockquote>
 <h4>Description</h4>
-<P>Returns <CODE>\"expr(time - delayTime)\"</CODE> for <CODE>time &gt; time.start + delayTime</CODE>
-and <CODE>\"expr(time.start)\"</CODE> for <CODE>time &le; time.start + delayTime</CODE>. The
+<p>Returns <code>\"expr(time - delayTime)\"</code> for <code>time &gt; time.start + delayTime</code>
+and <code>\"expr(time.start)\"</code> for <code>time &le; time.start + delayTime</code>. The
 arguments, i.e., <code>expr</code>, <code>delayTime</code> and <code>delayMax</code>, need to be subtypes of Real.
-<CODE>delayMax</CODE> needs to be additionally a parameter expression. The following relation
-shall hold: <CODE>0 &le; delayTime &le; delayMax</code>, otherwise an error occurs. If
+<code>delayMax</code> needs to be additionally a parameter expression. The following relation
+shall hold: <code>0 &le; delayTime &le; delayMax</code>, otherwise an error occurs. If
 <code>delayMax</code> is not supplied in the argument list, <code>delayTime</code> need to be a
-parameter expression.</P>
+parameter expression.</p>
 <p><em>[The <strong>delay</strong> operator allows a numerical sound implementation
 by interpolating in the (internal) integrator polynomials, as well as a
 more simple realization by interpolating linearly in a buffer containing
@@ -3362,14 +3362,14 @@ Integer part of division of two Real numbers
 <h4>Syntax</h4>
 <blockquote><pre><strong>div</strong>(x, y)</pre></blockquote>
 <h4>Description</h4>
-<P>Returns the algebraic quotient <CODE>x/y</CODE> with any
+<p>Returns the algebraic quotient <code>x/y</code> with any
 fractional part discarded (also known as truncation
 toward zero). <em>[Note: this is defined for / in C99;
 in C89 the result for negative numbers is
 implementation-defined, so the standard function
-<CODE>div()</CODE> must be used.]</em> Result and arguments
+<code>div()</code> must be used.]</em> Result and arguments
 shall have type Real or Integer. If either of the
-arguments is Real the result is Real otherwise Integer.</P>
+arguments is Real the result is Real otherwise Integer.</p>
 
 <p><em>[Note, outside of a when clause state events are triggered
 when the return value changes discontinuously.]</em></p>
@@ -3389,10 +3389,10 @@ Indicate rising edge
 <h4>Syntax</h4>
 <blockquote><pre><strong>edge</strong>(b)</pre></blockquote>
 <h4>Description</h4>
-<P>Is expanded into &quot;(b <strong>and not pre</strong>(b))&quot;
+<p>Is expanded into &quot;(b <strong>and not pre</strong>(b))&quot;
 for Boolean variable b. The same restrictions as for the
 <strong>pre</strong> operator apply (e.g., not to be used in function
-classes).</P>
+classes).</p>
 <h4>Examples</h4>
 <pre><strong>model</strong> RisingEdge
   Boolean u;
@@ -4051,11 +4051,11 @@ Integer modulus of a division of two Real numbers
 <h4>Syntax</h4>
 <blockquote><pre><strong>mod</strong>(x, y)</pre></blockquote>
 <h4>Description</h4>
-<P>Returns the integer modulus of <CODE>x/y</CODE>, i.e., mod(x, y) = x - floor(x/y)*y.
+<p>Returns the integer modulus of <code>x/y</code>, i.e., mod(x, y) = x - floor(x/y)*y.
 Result and arguments shall have type Real or Integer. If either of the
 arguments is Real the result is Real otherwise Integer. <em>[Note, outside of
 a when clause state events are triggered when the return value changes
-discontinuously.]</em></P>
+discontinuously.]</em></p>
 <h4>Examples</h4>
 <pre><strong>mod</strong>(3,1.4)
  = 0.2
@@ -4107,12 +4107,12 @@ it can be necessary to use noEvent inside smooth. <em>[Note that smooth does
 not guarantee a smooth output if any of the occurring variables change
 discontinuously.]</em></p>
 <p><em>[Example:</em></p>
-<PRE>  Real x, y, z;
+<pre>  Real x, y, z;
 <strong>equation</strong>
   x = <strong>if</strong> time&lt;1 <strong>then</strong> 2 <strong>else</strong> time-2;
   z = smooth(0, <strong>if</strong> time&lt;0 <strong>then</strong> 0 <strong>else</strong> time);
   y = smooth(1, noEvent(<strong>if</strong> x&lt;0 <strong>then</strong> 0 <strong>else</strong> sqrt(x)*x));
-  // noEvent is necessary.</PRE>
+  // noEvent is necessary.</pre>
 <p><em>]</em></p>
 <h4>Examples</h4>
 <pre>der(h)=<strong>if noEvent</strong>(h&gt;0) <strong>then</strong> -c*sqrt(h) <strong>else</strong> 0;</pre>
@@ -4160,7 +4160,7 @@ Refer to left limit
 <h4>Syntax</h4>
 <blockquote><pre><strong>pre</strong>(y)</pre></blockquote>
 <h4>Description</h4>
-<P>Returns the &quot;left limit&quot; y(t<SUP>pre</SUP>)
+<p>Returns the &quot;left limit&quot; y(t<SUP>pre</SUP>)
 of variable y(t) at a time instant t. At an event instant,
 y(t<SUP>pre</SUP>) is the value of y after the last event
 iteration at time instant t. The
@@ -4172,14 +4172,14 @@ conditions are fulfilled simultaneously:</p>
   <li>the operator is <strong>not</strong> applied in a <strong>function</strong> class</li>
 </ul>
 <p>The first value of <strong>pre</strong>(y) is
-determined in the initialization phase.</P>
-<P>A new event is triggered if at least for one variable v
+determined in the initialization phase.</p>
+<p>A new event is triggered if at least for one variable v
 &quot;<strong>pre</strong>(v) &lt;&gt; v&quot; after the active model
 equations are evaluated at an event instant. In this case
 the model is at once reevaluated. This evaluation sequence
 is called &quot;<em>event iteration</em>&quot;. The integration
 is restarted, if for all v used in <strong>pre</strong>-operators the
-following condition holds: &quot;<strong>pre</strong>(v) == v&quot;.</P>
+following condition holds: &quot;<strong>pre</strong>(v) == v&quot;.</p>
 <p><em>[If v and <strong>pre</strong>(v) are only used in when clauses,
 the translator might mask event iteration for variable v since
 v cannot change during event iteration. It is a &quot;quality
@@ -4315,13 +4315,13 @@ Integer remainder of the division of two Real numbers
 <h4>Syntax</h4>
 <blockquote><pre><strong>rem</strong>(x, y)</pre></blockquote>
 <h4>Description</h4>
-<P>Returns the integer remainder of <CODE>x/y</CODE>,
-such that <CODE>div(x,y) * y + rem(x, y) = x</CODE>.
+<p>Returns the integer remainder of <code>x/y</code>,
+such that <code>div(x,y) * y + rem(x, y) = x</code>.
 Result and arguments shall have type Real or
 Integer. If either of the arguments is Real the
 result is Real otherwise Integer. <em>[Note, outside
 of a when clause state events are triggered when
-the return value changes discontinuously.]</em></P>
+the return value changes discontinuously.]</em></p>
 <h4>Examples</h4>
 <pre><strong>rem</strong>(3,1.4)
  = 0.2
@@ -4350,13 +4350,13 @@ Trigger time events
 <h4>Syntax</h4>
 <blockquote><pre><strong>sample</strong>(start, interval)</pre></blockquote>
 <h4>Description</h4>
-<P>Returns true and triggers time events at time instants
-<CODE>&quot;start + i*interval&quot; (i=0, 1, ...)</CODE>.
+<p>Returns true and triggers time events at time instants
+<code>&quot;start + i*interval&quot; (i=0, 1, ...)</code>.
 During continuous integration the operator returns always
 false. The starting time &quot;start&quot; and the sample
 interval &quot;interval&quot; need to be parameter
 expressions and need to be a subtype of Real or Integer.
-</P>
+</p>
 <h4>Examples</h4>
 <pre><strong>model</strong> Sampling
   Integer i;
@@ -4610,14 +4610,14 @@ Indicate smoothness of expression
 <h4>Syntax</h4>
 <blockquote><pre><strong>smooth</strong>(p, expr)</pre></blockquote>
 <h4>Description</h4>
-<P>If p&gt;=0 <strong>smooth</strong>(p, expr) returns expr and states
+<p>If p&gt;=0 <strong>smooth</strong>(p, expr) returns expr and states
 that expr is p times continuously differentiable, i.e.: expr
 is continuous in all real variables appearing in the expression
 and all partial derivatives with respect to all appearing real
 variables <strong>exist</strong> and are continuous up to order p.</p>
 <p>The only allowed types for expr in smooth are: real expressions,
 arrays of allowed expressions, and records containing only
-components of allowed expressions.</P>
+components of allowed expressions.</p>
 <h4>smooth vs. noEvent</h4>
 <p>The noEvent operator implies that real elementary expressions are taken
 literally instead of generating crossing functions. The smooth operator
@@ -4628,12 +4628,12 @@ it can be necessary to use noEvent inside smooth. <em>[Note that smooth does
 not guarantee a smooth output if any of the occurring variables change
 discontinuously.]</em></p>
 <h4>Examples</h4>
-<PRE>  Real x, y, z;
+<pre>  Real x, y, z;
 <strong>equation</strong>
   x = <strong>if</strong> time&lt;1 <strong>then</strong> 2 <strong>else</strong> time-2;
   z = smooth(0, <strong>if</strong> time&lt;0 <strong>then</strong> 0 <strong>else</strong> time);
   y = smooth(1, noEvent(<strong>if</strong> x&lt;0 <strong>then</strong> 0 <strong>else</strong> sqrt(x)*x));
-  // noEvent is necessary.</PRE>
+  // noEvent is necessary.</pre>
 </html>"));
   end 'smooth()';
 
@@ -4881,10 +4881,10 @@ Successfully terminate current analysis
 <h4>Syntax</h4>
 <blockquote><pre><strong>terminate</strong>(message)</pre></blockquote>
 <h4>Description</h4>
-<P>The terminate function successfully terminates the analysis
+<p>The terminate function successfully terminates the analysis
 which was carried out. The function has a string argument
 indicating the reason for the success. <em>[The intention is to
-give more complex stopping criteria than a fixed point in time.]</em></P>
+give more complex stopping criteria than a fixed point in time.]</em></p>
 <h4>Examples</h4>
 <pre><strong>model</strong> ThrowingBall
   Real x(start=0);
@@ -5391,12 +5391,12 @@ Break lookup in hierarchy
 
 <h4>Syntax</h4>
 
-<PRE>class_definition :
+<pre>class_definition :
    [ <strong>encapsulated</strong> ]
    [ <strong>partial</strong> ]
    ( <strong>class</strong> | <strong>model</strong> | <strong>record</strong> | <strong>block</strong> | <strong>connector</strong> | <strong>type</strong> |
      <strong>package</strong> | <strong>function</strong> )
-   IDENT class_specifier</PRE>
+   IDENT class_specifier</pre>
 
 <h4>Description</h4>
 
@@ -5422,7 +5422,7 @@ Inheritance from base class
 </p>
 <h4>Examples</h4>
 
-<PRE><strong>class</strong> A
+<pre><strong>class</strong> A
   <strong>parameter</strong> Real a, b;
 <strong>end</strong> A;
 
@@ -5432,28 +5432,28 @@ Inheritance from base class
 
 <strong>class</strong> C
   <strong>extends</strong> B(a=1);
-<strong>end</strong> C;</PRE>
+<strong>end</strong> C;</pre>
 
 <p>From the example above we get the following instantiated
-class:</P>
+class:</p>
 
-<PRE><strong>class</strong> Cinstance
+<pre><strong>class</strong> Cinstance
   <strong>parameter</strong> Real a=1;
   <strong>parameter</strong> Real b=2;
-<strong>end</strong> Cinstance;</PRE>
+<strong>end</strong> Cinstance;</pre>
 
 <p>The ordering of the merging rules ensures that, given
-classes A and B defined above,</P>
+classes A and B defined above,</p>
 
-<PRE><strong>class</strong> C2
+<pre><strong>class</strong> C2
   B bcomp(b=3);
-<strong>end</strong> C2;</PRE>
+<strong>end</strong> C2;</pre>
 
-<p>yields an instance with <CODE>bcomp.b=3</CODE>, which overrides <CODE>b=2</CODE>.</P>
+<p>yields an instance with <code>bcomp.b=3</code>, which overrides <code>b=2</code>.</p>
 
 <h4>Syntax</h4>
 
-<PRE>class_definition :
+<pre>class_definition :
    [ <strong>encapsulated</strong> ]
    [ <strong>partial</strong> ]
    ( <strong>class</strong> | <strong>model</strong> | <strong>record</strong> | <strong>block</strong> | <strong>connector</strong> | <strong>type</strong> |
@@ -5489,27 +5489,27 @@ element :
         [constraining_clause comment])
 
 extends_clause :
-   <strong>extends</strong> name [ class_modification ]</PRE>
+   <strong>extends</strong> name [ class_modification ]</pre>
 
 <h4>Description</h4>
 
-<P>The name of the base class is looked up in the partially
+<p>The name of the base class is looked up in the partially
 instantiated parent of the extends clause. The found base
 class is instantiated with a new environment and the
 partially instantiated parent of the extends clause. The new
-environment is the result of merging</P>
+environment is the result of merging</p>
 
 <OL>
   <LI>arguments of all parent environments that match names in the instantiated base class</LI>
   <LI>the optional class modification of the extends clause</LI>
 </OL>
 
-<P>in that order.</P>
+<p>in that order.</p>
 
-<P>The elements of the instantiated base class become elements
-of the instantiated parent class.</P>
+<p>The elements of the instantiated base class become elements
+of the instantiated parent class.</p>
 
-<P>The declaration elements of the instantiated base class shall either</P>
+<p>The declaration elements of the instantiated base class shall either</p>
 
 <UL>
   <LI>not already exist in the partially instantiated parent class
@@ -5521,13 +5521,13 @@ of the instantiated parent class.</P>
       it does not matter which one).</LI>
 </UL>
 
-<P>Otherwise the model is incorrect.</P>
+<p>Otherwise the model is incorrect.</p>
 
-<P>Equations of the instantiated base class that are syntactically
+<p>Equations of the instantiated base class that are syntactically
 equivalent to equations in the instantiated parent class are discarded.
 <em>[Note: equations that are mathematically equivalent but not
 syntactically equivalent are not discarded, hence yield an
-overdetermined system of equations.]</em></P>
+overdetermined system of equations.]</em></p>
 
 <p>Since
 specialized classes of different
@@ -5651,7 +5651,7 @@ a.p.i + b.p.i + c.p.i = 0;</pre>
 
 <h4>Syntax</h4>
 
-<PRE>class_definition :
+<pre>class_definition :
    [ <strong>encapsulated</strong> ]
    [ <strong>partial</strong> ]
    ( <strong>class</strong> | <strong>model</strong> | <strong>record</strong> | <strong>block</strong> | <strong>connector</strong> | <strong>type</strong> |
@@ -5694,7 +5694,7 @@ component_clause:
 
 type_prefix :
    [ <strong>flow</strong> | <strong>stream</strong> ]
-   [ <strong>discrete</strong> | <strong>parameter</strong> | <strong>constant</strong> ] [ <strong>input</strong> | <strong>output</strong> ]</PRE>
+   [ <strong>discrete</strong> | <strong>parameter</strong> | <strong>constant</strong> ] [ <strong>input</strong> | <strong>output</strong> ]</pre>
 
 <h4>Description</h4>
 
@@ -5828,13 +5828,13 @@ Declare equations or execute statements conditionally
     <strong>end if</strong>;</pre>
 
 <h4>If expression</h4>
-<PRE>  Integer i;
-  Integer sign_of_i=<strong>if</strong> i&lt;0 <strong>then</strong> -1 <strong>else if</strong> i==0 <strong>then</strong> 0 <strong>else</strong> 1;</PRE>
+<pre>  Integer i;
+  Integer sign_of_i=<strong>if</strong> i&lt;0 <strong>then</strong> -1 <strong>else if</strong> i==0 <strong>then</strong> 0 <strong>else</strong> 1;</pre>
 <h4>Syntax</h4>
 <p>
 In equation sections:
 </p>
-<PRE>   <strong>if</strong> expression <strong>then</strong>
+<pre>   <strong>if</strong> expression <strong>then</strong>
      { equation \";\" }
    { <strong>elseif </strong>expression <strong>then</strong>
      { equation \";\" }
@@ -5854,10 +5854,10 @@ In algorithm sections:
    [ <strong>else</strong>
      { algorithm \";\" }
    ]
-   <strong>end if</strong></PRE>
+   <strong>end if</strong></pre>
 <h4>Description</h4>
 <h4>If clause</h4>
-<P>
+<p>
 The expression of an <strong>if</strong> and <strong>elseif</strong>-clause must be scalar Boolean expression.
 One <strong>if</strong>-clause, and zero or more <strong>elseif</strong>-clauses, and an optional <strong>else</strong>-clause
 together form a list of branches. One or zero of the bodies of these <strong>if</strong>-, <strong>elseif</strong>-
@@ -5867,26 +5867,26 @@ the conditions evaluate to true the body of the <strong>else</strong>-clause is 
 <strong>else</strong>-clause exists, otherwise no body is selected). In an algorithm section, the selected
 body is then executed. In an equation section, the equations in the body are seen as equations
 that must be satisfied. The bodies that are not selected have no effect on that model evaluation.
-</P>
-<P>
+</p>
+<p>
 If clauses in <strong>equation </strong>sections which do not have exclusively parameter expressions as
 switching conditions shall have an <strong>else</strong> clause and each branch shall have the <em>same
 number</em> of <em>equations</em>. <em>[If this condition is violated, the single assignment rule
 would not hold, because the number of equations may change during simulation although the number
 of unknowns remains the same].</em>
-</P>
+</p>
 
 <h4>If expression</h4>
 
-<P>An expression</P>
+<p>An expression</p>
 <pre>   <strong>if</strong> expression1 <strong>then</strong> expression2 <strong>else</strong> expression3</pre>
-<P>is one example of if-expression. First expression1, which must be Boolean expression,
+<p>is one example of if-expression. First expression1, which must be Boolean expression,
 is evaluated. If expression1 is true expression2 is evaluated and is the value of the
 if-expression, else expression3 is evaluated and is the value of the if-expression.
 The two expressions, expression2 and expression3, must be type compatible and give the
 type of the if-expression. If-expressions with <strong>elseif</strong> are defined by replacing
 <strong>elseif</strong> by <strong>else if</strong>.<em>[Note: elseif is added for symmetry with if-clauses.]</em>
-</P>
+</p>
 </html>"));
 end 'if';
 
@@ -5914,7 +5914,7 @@ Import classes
 
 <h4>Syntax</h4>
 
-<PRE>class_definition :
+<pre>class_definition :
    [ <strong>encapsulated</strong> ]
    [ <strong>partial</strong> ]
    ( <strong>class</strong> | <strong>model</strong> | <strong>record</strong> | <strong>block</strong> | <strong>connector</strong> | <strong>type</strong> |
@@ -5950,7 +5950,7 @@ element :
         [constraining_clause comment])
 
 import_clause :
-   <strong>import</strong> ( IDENT \"=\" name | name [\".\" \"*\"] ) comment</PRE>
+   <strong>import</strong> ( IDENT \"=\" name | name [\".\" \"*\"] ) comment</pre>
 <h4>Description</h4>
 
 <p>Using import statements extends the static name lookup to additional import names.
@@ -5991,7 +5991,7 @@ Define causality and/or block diagram connection semantic
 
 <h4>Syntax</h4>
 
-<PRE>class_definition :
+<pre>class_definition :
    [ <strong>encapsulated</strong> ]
    [ <strong>partial</strong> ]
    ( <strong>class</strong> | <strong>model</strong> | <strong>record</strong> | <strong>block</strong> | <strong>connector</strong> | <strong>type</strong> |
@@ -6034,7 +6034,7 @@ component_clause:
 
 type_prefix :
    [ <strong>flow</strong> ]
-   [ <strong>discrete</strong> | <strong>parameter</strong> | <strong>constant</strong> ] [ <strong>input</strong> | <strong>output</strong> ]</PRE>
+   [ <strong>discrete</strong> | <strong>parameter</strong> | <strong>constant</strong> ] [ <strong>input</strong> | <strong>output</strong> ]</pre>
 
 <h4>Description</h4>
 
@@ -6119,7 +6119,7 @@ Define causality and/or block diagram connection semantic
 
 <h4>Syntax</h4>
 
-<PRE>class_definition :
+<pre>class_definition :
    [ <strong>encapsulated</strong> ]
    [ <strong>partial</strong> ]
    ( <strong>class</strong> | <strong>model</strong> | <strong>record</strong> | <strong>block</strong> | <strong>connector</strong> | <strong>type</strong> |
@@ -6162,7 +6162,7 @@ component_clause:
 
 type_prefix :
    [ <strong>flow</strong> ]
-   [ <strong>discrete</strong> | <strong>parameter</strong> | <strong>constant</strong> ] [ <strong>input</strong> | <strong>output</strong> ]</PRE>
+   [ <strong>discrete</strong> | <strong>parameter</strong> | <strong>constant</strong> ] [ <strong>input</strong> | <strong>output</strong> ]</pre>
 
 <h4>Description</h4>
 
@@ -6260,7 +6260,7 @@ Prohibit instantiation of components of the class
 
 <h4>Syntax</h4>
 
-<PRE>class_definition :
+<pre>class_definition :
    [ <strong>encapsulated</strong> ]
    [ <strong>partial</strong> ]
    ( <strong>class</strong> | <strong>model</strong> | <strong>record</strong> | <strong>block</strong> | <strong>connector</strong> | <strong>type</strong> |
@@ -6270,7 +6270,7 @@ Prohibit instantiation of components of the class
 class_specifier :
    string_comment composition <strong>end</strong> IDENT
    | \"=\" base_prefix name [ array_subscripts ] [ class_modification ] comment
-   | \"=\" <strong>enumeration</strong> \"(\" ( [enum_list] | \":\" ) \")\" comment</PRE>
+   | \"=\" <strong>enumeration</strong> \"(\" ( [enum_list] | \":\" ) \")\" comment</pre>
 
 <h4>Description</h4>
 
@@ -6382,7 +6382,7 @@ operators inside the components provide the \"ideal mixing\" equations:
 
 <h4>Syntax</h4>
 
-<PRE>class_definition :
+<pre>class_definition :
    [ <strong>encapsulated</strong> ]
    [ <strong>partial</strong> ]
    ( <strong>class</strong> | <strong>model</strong> | <strong>record</strong> | <strong>block</strong> | <strong>connector</strong> | <strong>type</strong> |
@@ -6425,7 +6425,7 @@ component_clause:
 
 type_prefix :
    [ <strong>flow</strong> | <strong>stream</strong> ]
-   [ <strong>discrete</strong> | <strong>parameter</strong> | <strong>constant</strong> ] [ <strong>input</strong> | <strong>output</strong> ]</PRE>
+   [ <strong>discrete</strong> | <strong>parameter</strong> | <strong>constant</strong> ] [ <strong>input</strong> | <strong>output</strong> ]</pre>
 
 <h4>Description</h4>
 
@@ -6549,11 +6549,11 @@ Built-in variable time
 </p>
 <h4>Examples</h4>
 
-<PRE><strong>encapsulated model</strong> SineSource
+<pre><strong>encapsulated model</strong> SineSource
   <strong>import</strong> Modelica.Math.sin;
   <strong>connector</strong> OutPort=<strong>output</strong> Real;
   OutPort y=sin(time); // Uses the built-in variable time.
-<strong>end</strong> SineSource;</PRE>
+<strong>end</strong> SineSource;</pre>
 
 <h4>Syntax</h4>
 
@@ -6561,16 +6561,16 @@ Built-in variable time
 
 <h4>Description</h4>
 
-<P>All declared variables are functions of the independent
+<p>All declared variables are functions of the independent
 variable <strong>time</strong>. Time is a built-in variable available
 in all classes, which is treated as an input variable. It
-is implicitly defined as:</P>
+is implicitly defined as:</p>
 
-<PRE><strong>input</strong> Real time (<strong>final</strong> quantity = \"Time\",
-                 <strong>final</strong> unit     = \"s\");</PRE>
+<pre><strong>input</strong> Real time (<strong>final</strong> quantity = \"Time\",
+                 <strong>final</strong> unit     = \"s\");</pre>
 
-<P>The value of the <strong>start</strong> attribute of time is set to
-the time instant at which the simulation is started.</P>
+<p>The value of the <strong>start</strong> attribute of time is set to
+the time instant at which the simulation is started.</p>
 
 </html>"));
 end 'time';
@@ -6583,12 +6583,12 @@ class 'when' "when"
 Activate equations or statements when condition becomes true
 </p>
 <h4>Examples</h4>
-<PRE> <strong>equation
+<pre> <strong>equation
    when</strong> x &gt; 2 <strong>then</strong>
      y3 = 2*x +y1+y2; // Order of y1 and y3 equations does not matter
      y1 = sin(x);
    <strong>end when</strong>;
-   y2 = sin(y1);</PRE>
+   y2 = sin(y1);</pre>
 
 <h4>Syntax</h4>
 
@@ -6596,28 +6596,28 @@ Activate equations or statements when condition becomes true
 In equation sections:
 </p>
 
-<PRE>  <strong>when</strong> expression <strong>then</strong>
+<pre>  <strong>when</strong> expression <strong>then</strong>
     { equation \";\" }
   { <strong>elsewhen</strong> expression <strong>then</strong>
     { equation \";\" } }
-  <strong>end when</strong></PRE>
+  <strong>end when</strong></pre>
 
 <p>
 In algorithm sections:
 </p>
-<PRE>  <strong>when</strong> expression <strong>then</strong>
+<pre>  <strong>when</strong> expression <strong>then</strong>
     { algorithm \";\" }
   { <strong>elsewhen</strong> expression <strong>then</strong>
     { algorithm \";\" } }
-  <strong>end when</strong></PRE>
+  <strong>end when</strong></pre>
 
 <h4>Description</h4>
 
-<P>The expression of a when clause shall be a discrete-time Boolean scalar
+<p>The expression of a when clause shall be a discrete-time Boolean scalar
 or vector expression. The equations and algorithm statements within a when
 clause are activated when the scalar or any one of the elements of the vector
 expression becomes true. When-clauses in equation sections are allowed, provided
-the equations within the when-clause have one of the following forms:</P>
+the equations within the when-clause have one of the following forms:</p>
 
 <UL>
   <LI>v = expr;</LI>
@@ -6628,59 +6628,59 @@ the equations within the when-clause have one of the following forms:</P>
   <LI>In an equation section, the branches of an if-then-else clause inside when-clauses must have the same set of component references on the left-hand side, unless the if-then-else have exclusively parameter expressions as switching conditions.</LI>
 </UL>
 
-<P>A when clause shall not be used within a function class.</P>
+<p>A when clause shall not be used within a function class.</p>
 
-<P><em>[Example:</em></P>
+<p><em>[Example:</em></p>
 
-<P><em>Algorithms are activated when x becomes &gt; 2:</em></P>
+<p><em>Algorithms are activated when x becomes &gt; 2:</em></p>
 
-<PRE>   <strong>when</strong> x &gt; 2 <strong>then</strong>
+<pre>   <strong>when</strong> x &gt; 2 <strong>then</strong>
      y1 := sin(x);
      y3 := 2*x + y1 + y2;
-   <strong>end when</strong>;</PRE>
+   <strong>end when</strong>;</pre>
 
-<P><em>Algorithms are activated when either x becomes &gt; 2 or sample(0,2) becomes true or x becomes less than 5:</em></P>
+<p><em>Algorithms are activated when either x becomes &gt; 2 or sample(0,2) becomes true or x becomes less than 5:</em></p>
 
-<PRE>   <strong>when</strong> {x &gt; 2, sample(0,2), x &lt; 5} <strong>then</strong>
+<pre>   <strong>when</strong> {x &gt; 2, sample(0,2), x &lt; 5} <strong>then</strong>
      y1 := sin(x);
      y3 := 2*x + y1 + y2;
-   <strong>end when</strong>;</PRE>
+   <strong>end when</strong>;</pre>
 
-<P><em>For when in equation sections the order between the equations does not matter, e.g.,</em></P>
-<PRE> <strong>equation
+<p><em>For when in equation sections the order between the equations does not matter, e.g.,</em></p>
+<pre> <strong>equation
    when</strong> x &gt; 2 <strong>then</strong>
      y3 = 2*x +y1+y2; // Order of y1 and y3 equations does not matter
      y1 = sin(x);
    <strong>end when</strong>;
-   y2 = sin(y1);</PRE>
+   y2 = sin(y1);</pre>
 
-<P><em>The needed restrictions on equations within a when-clause becomes apparent with the following example:</em></P>
+<p><em>The needed restrictions on equations within a when-clause becomes apparent with the following example:</em></p>
 
-<PRE>   Real x, y;
+<pre>   Real x, y;
 <strong>equation</strong>
    x + y = 5;
    <strong>when</strong> condition <strong>then</strong>
       2*x + y = 7;         // error: not valid Modelica
-   <strong>end when</strong>;</PRE>
+   <strong>end when</strong>;</pre>
 
-<P><em>When the equations of the when-clause are not activated it is not clear which
-variable to hold constant, either x or y. A corrected version of this example is:</em></P>
+<p><em>When the equations of the when-clause are not activated it is not clear which
+variable to hold constant, either x or y. A corrected version of this example is:</em></p>
 
-<PRE>   Real x, y;
+<pre>   Real x, y;
 <strong>equation</strong>
    x + y = 5;
    <strong>when</strong> condition <strong>then</strong>
       y = 7 - 2*x;        // fine
-   <strong>end when</strong>;</PRE>
+   <strong>end when</strong>;</pre>
 
-<P><em>Here, variable y is held constant when the when-clause is de-activated and x
-is computed from the first equation using the value of y from the previous event instant.</em></P>
+<p><em>Here, variable y is held constant when the when-clause is de-activated and x
+is computed from the first equation using the value of y from the previous event instant.</em></p>
 
-<P><em>For when in algorithm sections the order is significant and it is advisable to have only
+<p><em>For when in algorithm sections the order is significant and it is advisable to have only
 one assignment within the when-clause and instead use several algorithms having when-clauses
-with identical conditions, e.g.,</em></P>
+with identical conditions, e.g.,</em></p>
 
-<PRE> <strong>algorithm</strong>
+<pre> <strong>algorithm</strong>
    <strong>when</strong> x &gt; 2 <strong>then</strong>
      y1 := sin(x);
    <strong>end when</strong>;
@@ -6689,25 +6689,25 @@ with identical conditions, e.g.,</em></P>
  <strong>algorithm</strong>
    <strong>when</strong> x &gt; 2 <strong>then</strong>
      y3 := 2*x + y1 + y2;
-   <strong>end when</strong>;</PRE>
+   <strong>end when</strong>;</pre>
 
-<P><em>Merging the when-clauses can lead to less efficient code and different models
-with different behaviour depending on the order of the assignment to y1 and y3 in the algorithm.]</em></P>
+<p><em>Merging the when-clauses can lead to less efficient code and different models
+with different behaviour depending on the order of the assignment to y1 and y3 in the algorithm.]</em></p>
 
-<P>A when clause</P>
+<p>A when clause</p>
 
-<PRE> <strong>algorithm
+<pre> <strong>algorithm
    when</strong> {x&gt;1, <strong>..., </strong>y&gt;p} <strong>then
      ...
    elsewhen</strong> x &gt; y.start <strong>then
      ...
-   end when</strong>;</PRE>
+   end when</strong>;</pre>
 
-<P>is equivalent to the following special if-clause, where Boolean b1[N]
+<p>is equivalent to the following special if-clause, where Boolean b1[N]
 and Boolean b2 are necessary because the <strong>edge</strong>() operator can only
-be applied to variables</P>
+be applied to variables</p>
 
-<PRE>   Boolean b1[N](start={x.start&gt;1,<strong> ..., </strong>y.start&gt;p});
+<pre>   Boolean b1[N](start={x.start&gt;1,<strong> ..., </strong>y.start&gt;p});
    Boolean b2(start=x.start&gt;y.start);
  <strong>algorithm</strong>
    b1:={x&gt;1, ..., y&gt;p};
@@ -6717,46 +6717,46 @@ be applied to variables</P>
      ...
    elseif edge</strong>(b2) <strong>then
      ...
-   end if</strong>;</PRE>
+   end if</strong>;</pre>
 
-<P>with &quot;<strong>edge</strong>(A)= A <strong>and not pre</strong>(A)&quot; and the additional
+<p>with &quot;<strong>edge</strong>(A)= A <strong>and not pre</strong>(A)&quot; and the additional
 guarantee, that the algorithms within this special if clause are only evaluated
-at event instants.</P>
+at event instants.</p>
 
-<P>A when-clause</P>
+<p>A when-clause</p>
 
-<PRE> <strong>equation
+<pre> <strong>equation
    when</strong> x&gt;2 <strong>then</strong>
      v1 = expr1 ;
      v2 = expr2 ;
-   <strong>end when</strong>;</PRE>
+   <strong>end when</strong>;</pre>
 
-<P>is equivalent to the following special if-expressions</P>
+<p>is equivalent to the following special if-expressions</p>
 
-<PRE>   Boolean b(start=x.start&gt;2);
+<pre>   Boolean b(start=x.start&gt;2);
  <strong>equation</strong>
    b  = x&gt;2;
    v1 = <strong>if edge</strong>(b) <strong>then</strong> expr1 <strong>else pre</strong>(v1);
-   v2 = <strong>if edge</strong>(b) <strong>then</strong> expr2 <strong>else pre</strong>(v2);</PRE>
+   v2 = <strong>if edge</strong>(b) <strong>then</strong> expr2 <strong>else pre</strong>(v2);</pre>
 
-<P>The start-values of the introduced Boolean variables are defined by
+<p>The start-values of the introduced Boolean variables are defined by
 the taking the start-value of the when-condition, as above where p is a
 parameter variable. The start-values of the special functions
-<strong>initial</strong>, <strong>terminal</strong>, and <strong>sample</strong> is false.</P>
+<strong>initial</strong>, <strong>terminal</strong>, and <strong>sample</strong> is false.</p>
 
-<P>When clauses cannot be nested.</P>
+<p>When clauses cannot be nested.</p>
 
-<P><em>[Example:</em></P>
+<p><em>[Example:</em></p>
 
-<P><em>The following when clause is invalid:</em></P>
+<p><em>The following when clause is invalid:</em></p>
 
-<PRE>   <strong>when</strong> x &gt; 2 <strong>then
+<pre>   <strong>when</strong> x &gt; 2 <strong>then
      when</strong> y1 &gt; 3 <strong>then</strong>
        y2 = sin(x);
      <strong>end when</strong>;
-   <strong>end when</strong>;</PRE>
+   <strong>end when</strong>;</pre>
 
-<P><em>]</em></P>
+<p><em>]</em></p>
 </html>"));
 end 'when';
 
@@ -6778,15 +6778,15 @@ Repeat statements as long as a condition is fulfilled
 
 <h4>Syntax</h4>
 
-<PRE>  <strong>while</strong> expression <strong>loop</strong>
+<pre>  <strong>while</strong> expression <strong>loop</strong>
     { algorithm \";\" }
-  <strong>end while</strong></PRE>
+  <strong>end while</strong></pre>
 
 <h4>Description</h4>
 
-<P>The expression of a while clause shall be a scalar Boolean expression.
+<p>The expression of a while clause shall be a scalar Boolean expression.
 The while-clause corresponds to while-statements in programming languages,
-and is formally defined as follows</P>
+and is formally defined as follows</p>
 
 <OL>
   <LI>The expression of the while clause is evaluated.</LI>

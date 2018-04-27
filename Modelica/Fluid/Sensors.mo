@@ -846,7 +846,7 @@ this partial class should add a medium instance to calculate the measured proper
 
   end BaseClasses;
   annotation (preferredView="info", Documentation(info="<html>
-<p align = justify>
+<p>
 Package <strong>Sensors</strong> consists of idealized sensor components that
 provide variables of a medium model and/or fluid ports as
 output signals. These signals can be, e.g., further processed
@@ -856,7 +856,7 @@ processing (e.g., by attaching block Modelica.Blocks.FirstOrder to
 model the time constant of the sensor).
 </p>
 
-<p align = justify>For the thermodynamic state variables temperature, specific enthalpy, specific entropy and density
+<p>For the thermodynamic state variables temperature, specific enthalpy, specific entropy and density
 the fluid library provides two different types of sensors: <strong>regular one port</strong> and <strong>two port</strong> sensors.</p>
 
 <ul>

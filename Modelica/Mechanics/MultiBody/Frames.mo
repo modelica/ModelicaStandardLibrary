@@ -1416,6 +1416,7 @@ respect to frame&nbsp;1, <strong>resolved in frame&nbsp;1</strong>, from the
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Quaternions.Orientation\">quaternions orientation</a>&nbsp;Q
 that describes the orientation to rotate frame&nbsp;1 into frame&nbsp;2
 and from its first time derivative der_Q.
+</p>
 
 <h4>See also</h4>
 <p>

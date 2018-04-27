@@ -38,7 +38,7 @@ systems are available in the simulation tool, the simulation of
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/drive1.png\" ALT=\"drive1\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/drive1.png\" alt=\"drive1\">
 </p>
 
 <p>
@@ -123,7 +123,7 @@ the ground via spring-damper-systems (cf. example
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/bearing.png\" ALT=\"bearing\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/bearing.png\" alt=\"bearing\">
 </p>
 
 <p>
@@ -134,7 +134,7 @@ identical results.
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/bearing2.png\" ALT=\"bearing2\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/bearing2.png\" alt=\"bearing2\">
 </p>
 
 </html>"));
@@ -155,7 +155,7 @@ at hand of the following figure:
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/drive2.png\" ALT=\"drive2\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/drive2.png\" alt=\"drive2\">
 </p>
 
 <p>
@@ -179,7 +179,7 @@ vector direction displayed according to this rule:
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/drive3.png\" ALT=\"drive3\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/drive3.png\" alt=\"drive3\">
 </p>
 <p>
 The cut-torques <code>J2.flange_a.tau, J4.flange_a.tau, J6.flange_b.tau</code>
@@ -192,7 +192,7 @@ cases are shown in the next figure:
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/drive4.png\" ALT=\"drive4\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/drive4.png\" alt=\"drive4\">
 </p>
 
 <p>
@@ -225,7 +225,7 @@ It is convenient to define a new
 component by inheritance from one of the following base classes,
 which are defined in sublibrary Interfaces:
 </p>
-<table BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Name</th><th>Description</th></tr>
 <tr>
   <td><a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialCompliant\">PartialCompliant</a>
@@ -303,7 +303,7 @@ for an inertia component and a planetary gearbox:
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/driveAxis.png\" ALT=\"driveAxis\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/driveAxis.png\" alt=\"driveAxis\">
 </p>
 
 <p>
@@ -321,7 +321,7 @@ component. But this is not the case, as shown in the next figure:
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/inertias.png\" ALT=\"inertias\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/inertias.png\" alt=\"inertias\">
 </p>
 
 <p>
@@ -392,7 +392,7 @@ Coulomb friction elements <strong>BearingFriction, Clutch, Brake, LossyGear</str
 the elements become stuck:
 </p>
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/driveConnections3.png\" ALT=\"driveConnections3\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/driveConnections3.png\" alt=\"driveConnections3\">
 </p>
 <p>
 In the figure above two typical situations are shown: In the upper part of
@@ -4402,7 +4402,7 @@ flow direction. They are defined by parameter <strong>lossTable[:,5]
 meaning:
 </p>
 
-<table BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<table border=1 cellspacing=0 cellpadding=2>
   <tbody>
     <tr>
       <td>|w_a|</td>
@@ -4429,7 +4429,7 @@ meaning:
 </table>
 
 <p>with</p>
-<table BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<table border=1 cellspacing=0 cellpadding=2>
   <tbody>
     <tr>
       <td>|w_a|</td>
@@ -5276,7 +5276,7 @@ An example is given in the next figure
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/relativeStates.png\" ALT=\"relativeStates\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/relativeStates.png\" alt=\"relativeStates\">
 </p>
 
 <p>
@@ -6623,13 +6623,13 @@ Positive torque accelerates in positive direction of <code>flange</code> rotatio
               Line(points={{0,60},{0,-50}}, color={192,192,192}),
             Line(points={{0,0},{4,25},{8,41},{12,48},{16,50},{20,49},{24,46},{28,42},{32,38},{36,34},{46,25},{56,18},{66,12},{76,8}}, color={0,0,127}),
             Line(points={{0,0},{-4,-25},{-8,-41},{-12,-48},{-16,-50},{-20,-49},{-24,-46},{-28,-42},{-32,-38},{-36,-34},{-46,-25},{-56,-18},{-66,-12},{-76,-8}}, color={0,0,127})}),
-        Documentation(info="<HTML>
+        Documentation(info="<html>
 <p>This is a simple model of a rotational <strong>eddy current brake</strong>. The torque versus speed characteristic is defined by Kloss' equation.</p>
 <p><strong>Thermal behaviour:</strong><br>
 The resistance of the braking disc is influenced by the actual temperature Theatport, which in turn shifts the speed w_nominal at which the (unchanged) maximum torque occurs.<br>
 If the heatPort is not used (useHeatPort = false), the operational temperature remains at the given temperature T.<br>
 However, the speed w_nominal at which the maximum torque occurs is adapted from reference temperature TRef to the operational temperature.</p>
-</HTML>"));
+</html>"));
     end EddyCurrentTorque;
     annotation (Documentation(info="<html>
 <p>

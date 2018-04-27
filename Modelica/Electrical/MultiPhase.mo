@@ -92,7 +92,7 @@ This set of symmterical components is repeated for each of the n<sub>Base</sub> 
 <strong>Dr. Christian Kral</strong><br>
 Electric Machines, Drives and Systems<br>
 1060 Vienna, Austria<br>
-email: <a HREF=\"mailto:dr.christian.kral@gmail.com\">dr.christian.kral@gmail.com</a><br>
+email: <a href=\"mailto:dr.christian.kral@gmail.com\">dr.christian.kral@gmail.com</a><br>
 </p>
 
 <p>
@@ -100,7 +100,7 @@ email: <a HREF=\"mailto:dr.christian.kral@gmail.com\">dr.christian.kral@gmail.co
 <a href=\"http://www.haumer.at\">Technical Consulting &amp; Electrical Engineering</a><br>
 93049 Regensburg, Germany<br>
 3423 St. Andrae-Woerdern, Austria<br>
-email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
+email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
 </p>
 </html>"));
     end Contact;
@@ -1425,7 +1425,7 @@ Each element of the array of saturatingInductors is only dependent on the curren
 <p>
 Model of a multi phase inductor providing a mutual inductance matrix model.
 </p>
-<H4>Implementation</H4>
+<h4>Implementation</h4>
 <pre>
   v[1] = L[1,1]*der(i[1]) + L[1,2]*der(i[2]) + ... + L[1,m]*der(i[m])
   v[2] = L[2,1]*der(i[1]) + L[2,2]*der(i[2]) + ... + L[2,m]*der(i[m])
@@ -1502,7 +1502,7 @@ Model of a multi phase inductor providing a mutual inductance matrix model.
 <p>
 Model of a multi phase zero sequence inductor.
 </p>
-<H4>Implementation</H4>
+<h4>Implementation</h4>
 <pre>
   v = Lzero*sum(der(i)) = Lzero*der(sum(i))
 </pre>
@@ -1671,11 +1671,11 @@ Contains m transformers (Modelica.Electrical.Analog.Basic.Transformer)
 <p>
 Contains m variable resistors (Modelica.Electrical.Analog.Basic.VariableResistor)
 </p>
-<P>
+<p>
 <strong>Attention!!!</strong><br>
   It is recommended that none of the R_Port signals should not cross the zero value.
   Otherwise depending on the surrounding circuit the probability of singularities is high.
-</P>
+</p>
 </html>"));
     end VariableResistor;
 
@@ -1729,11 +1729,11 @@ Contains m variable resistors (Modelica.Electrical.Analog.Basic.VariableResistor
 <p>
 Contains m variable conductors (Modelica.Electrical.Analog.Basic.VariableConductor)
 </p>
-<P>
+<p>
 <strong>Attention!!!</strong><br>
   It is recommended that none of the G_Port signals should not cross the zero value.
   Otherwise depending on the surrounding circuit the probability of singularities is high.
-</P>
+</p>
 </html>"));
     end VariableConductor;
 
@@ -1774,12 +1774,12 @@ Contains m variable conductors (Modelica.Electrical.Analog.Basic.VariableConduct
 <p>
 Contains m variable capacitors (Modelica.Electrical.Analog.Basic.VariableCapacitor)
 </p>
-<P>
+<p>
 It is required that each C_Port.signal &ge; 0, otherwise an
 assertion is raised. To avoid a variable index system,<br>
 C = Cmin, if 0 &le; C_Port.signal &lt; Cmin, where
 Cmin is a parameter with default value Modelica.Constants.eps.
-</P>
+</p>
 </html>"));
     end VariableCapacitor;
 
@@ -1837,12 +1837,12 @@ Cmin is a parameter with default value Modelica.Constants.eps.
 <p>
 Contains m variable inductors (Modelica.Electrical.Analog.Basic.VariableInductor)
 </p>
-<P>
+<p>
 It is required that each L_Port.signal &ge; 0, otherwise an
 assertion is raised. To avoid a variable index system,<br>
 L = Lmin, if 0 &le; L_Port.signal &lt; Lmin, where
 Lmin is a parameter with default value Modelica.Constants.eps.
-</P>
+</p>
 </html>"));
     end VariableInductor;
     annotation (Documentation(info="<html>

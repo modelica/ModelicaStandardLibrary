@@ -176,7 +176,7 @@ With the optional
 second argument \"p\", any other p-norm can be computed:
 </p>
 <center>
-<IMG src=\"modelica://Modelica/Resources/Images/Math/Vectors/vectorNorm.png\" ALT=\"function Vectors.norm\">
+<img src=\"modelica://Modelica/Resources/Images/Math/Vectors/vectorNorm.png\" alt=\"function Vectors.norm\">
 </center>
 <p>
 Besides the Euclidean norm (p=2), also the 1-norm and the
@@ -2654,7 +2654,7 @@ which based on the <code>balance</code> function from EISPACK.
         end if;
       end for;
     end while;
-    annotation (Documentation(info="<html><
+    annotation (Documentation(info="<html>
 
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -4200,11 +4200,11 @@ for more information.
 </p>
 
 <h4>References</h4>
-<PRE>
+<pre>
   [1] Laub, A.J.
       A Schur Method for Solving Algebraic Riccati equations.
       IEEE Trans. Auto. Contr., AC-24, pp. 913-921, 1979.
-</PRE>
+</pre>
 
 <h4>Example</h4>
 <blockquote><pre>
@@ -4374,11 +4374,11 @@ The Boolean input \"ATisSchur\" indicates to omit the transformation to Schur in
 </p>
 
 <h4>References</h4>
-<PRE>
+<pre>
   [1] Bartels, R.H. and Stewart G.W.
       Algorithm 432: Solution of the matrix equation AX + XB = C.
       Comm. ACM., Vol. 15, pp. 820-826, 1972.
-</PRE>
+</pre>
 
 <h4>Example</h4>
 <blockquote><pre>
@@ -4579,12 +4579,12 @@ The Boolean inputs \"AisHess\" and \"BTisSchur\" indicate to omit one or both of
 </p>
 
 <h4>References</h4>
-<PRE>
+<pre>
   [1] Golub, G.H., Nash, S. and Van Loan, C.F.
       A Hessenberg-Schur method for the problem AX + XB = C.
       IEEE Transaction on Automatic Control, AC-24, no. 6, pp. 909-913, 1979.
 
-</PRE>
+</pre>
 
 <h4>Example</h4>
 <blockquote><pre>
@@ -4802,11 +4802,11 @@ according to <strong>S</strong>, the solution <strong>X</strong> can be calculat
 </pre></blockquote>
 
 <h4>References</h4>
-<PRE>
+<pre>
   [1] Laub, A.J.
       A Schur Method for Solving Algebraic Riccati equations.
       IEEE Trans. Auto. Contr., AC-24, pp. 913-921, 1979.
-</PRE>
+</pre>
 
 <h4>Example</h4>
 <blockquote><pre>
@@ -10905,14 +10905,14 @@ system equation.<br>
 The algorithm is taken from [1] and [2].
 </p>
 <h4>References</h4>
-<PRE>
+<pre>
   [1] Benner, P., Byers, R.
       An Exact Line Search Method for Solving Generalized Continuous-Time Algebraic Riccati Equations
       IEEE Transactions On Automatic Control, Vol. 43, No. 1, pp. 101-107, 1998.
   [2] Datta, B.N.
       Numerical Methods for Linear Control Systems
       Elsevier Academic Press, 2004.
-</PRE>
+</pre>
 
 <h4>Example</h4>
 <blockquote><pre>
@@ -11072,14 +11072,14 @@ system equation.
 The algorithm is taken from [1] and [2].
 </p>
 <h4>References</h4>
-<PRE>
+<pre>
   [1] Benner, P., Byers, R.
       An Exact Line Search Method for Solving Generalized Continuous-Time Algebraic Riccati Equations
       IEEE Transactions On Automatic Control, Vol. 43, No. 1, pp. 101-107, 1998.
   [2] Datta, B.N.
       Numerical Methods for Linear Control Systems
       Elsevier Academic Press, 2004.
-</PRE>
+</pre>
 
 <h4>Example</h4>
 <blockquote><pre>
@@ -11595,11 +11595,11 @@ With t_k_min the norm of the next residual of the algorithm will be minimized.<b
 See [1] for more information
 </p>
 <h4>References</h4>
-<PRE>
+<pre>
   [1] Benner, P., Byers, R.
       An Exact Line Search Method for Solving Generalized Continuous-Time Algebraic Riccati Equations
       IEEE Transactions On Automatic Control, Vol. 43, No. 1, pp. 101-107, 1998.
-</PRE>
+</pre>
 
 <h4>See also</h4>
 <a href=\"modelica://Modelica.Math.Matrices.Utilities.continuousRiccatiIterative\">Matrices.Utilities.continuousRiccatiIterative</a><br>
@@ -13299,7 +13299,7 @@ as well as functions operating on
 </p>
 
 <h4>Main Authors</h4>
-<a href=\"http://www.robotic.dlr.de/Martin.Otter/\"><strong>Martin Otter</strong></a>
+<p><a href=\"http://www.robotic.dlr.de/Martin.Otter/\"><strong>Martin Otter</strong></a>
 and <strong>Marcus Baur</strong><br>
 Deutsches Zentrum f&uuml;r Luft- und Raumfahrt e.V. (DLR)<br>
 Institut f&uuml;r Systemdynamik und Regelungstechnik (DLR-SR)<br>

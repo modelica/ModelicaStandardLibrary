@@ -113,7 +113,7 @@ are shown for a cylinder:
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/SpecularCoefficient.png\" />
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/SpecularCoefficient.png\"/>
 </p>
 </html>"));
   type ShapeType = Modelica.Icons.TypeString
@@ -138,7 +138,7 @@ values for shapeType are possible, e.g., shapeType=\"box\":
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Shape.png\" ALT=\"model Visualizers.FixedShape\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Shape.png\" alt=\"model Visualizers.FixedShape\">
 </p>
 
 <p>

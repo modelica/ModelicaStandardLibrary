@@ -107,8 +107,8 @@ package Lines
 <br> The conductances are calculated with: G=g*length/N.
 <br> The resistances are calculated with : R=r*length/(N+1).
 <br> The inductances are calculated with : L=l*length/(N+1).
-<br> For all capacitors, conductors, resistors and inductors the values of each segment are the same except of the first and last resistor and inductor, that only have the half of the above calculated value of the rest.
-<br><p>The user has the possibility to enable a conditional heatport. If so, the OLine can be connected to a thermal network. When the parameter alpha is set to an value greater than zero, the OLine becomes temperature sensitive</p><p>due to their resistors which resistances are calculated by <code>R_actual = R*(1 + alpha*(heatPort.T - T_ref))</code> and conductors calculated by <code> (G_actual = G/(1 + alpha*(T_heatPort - T_ref)).</code> </p>
+<br> For all capacitors, conductors, resistors and inductors the values of each segment are the same except of the first and last resistor and inductor, that only have the half of the above calculated value of the rest.</p>
+<p>The user has the possibility to enable a conditional heatport. If so, the OLine can be connected to a thermal network. When the parameter alpha is set to an value greater than zero, the OLine becomes temperature sensitive</p><p>due to their resistors which resistances are calculated by <code>R_actual = R*(1 + alpha*(heatPort.T - T_ref))</code> and conductors calculated by <code> (G_actual = G/(1 + alpha*(T_heatPort - T_ref)).</code></p>
 <p>Note, this is different to the lumped line model of SPICE.</p>
 
 <dl><dt><strong>References:</strong> </dt>
@@ -443,7 +443,7 @@ package Lines
 </blockquote>
 
 <p>The complete multi line consists of N segments and an auxiliary segment_last:</p>
-<p align=\"center\"><code>-- segment_1 -- segment_2 -- ... -- segment_N -- segment_last --</code> </p>
+<p align=\"center\"><code>-- segment_1 -- segment_2 -- ... -- segment_N -- segment_last --</code></p>
 <p>In the picture of the segment can be seen, that a single segment is asymmetric. Connecting such asymmetric segments in a series forces also an asymmetric multi line. To get a symmetric model which is useful for coupling and which guaranties the same pin properties, in the segment_1 only half valued resistors and inductors are used. The remaining resistors and inductors are at the other end of the line within the auxiliary segment_last. For the example with 4 lines the schematic of segment_last is like this:</p>
 
 <blockquote>
@@ -459,7 +459,7 @@ package Lines
 <img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/Lines/M_OLine-eqMatrix.png\" alt=\"Matrix\"/>
 </blockquote>
 
-<p>the vector with dim_vector_lgc=4*5/2=10 has to appear in the following way: vector = [<strong>1</strong>, 0.1, 0.2, 0.4, <strong>2</strong>, 0.3 0.5, <strong>3</strong>, 0.6, <strong>4</strong>] </p>
+<p>the vector with dim_vector_lgc=4*5/2=10 has to appear in the following way: vector = [<strong>1</strong>, 0.1, 0.2, 0.4, <strong>2</strong>, 0.3 0.5, <strong>3</strong>, 0.6, <strong>4</strong>]</p>
 
 <p>For the example of a microelectronic line of 0.1m length, which is used as default example for the M_OLine model, a sensible inductance-matrix would be </p>
 
@@ -596,7 +596,7 @@ package Lines
 The capacitances are calculated with: C=c*length/N.
 <br>The resistances are calculated with: R=r*length/(N+1).
 <br>For all capacitors and resistors the values of each segment are the same except for the first and last resistor, that only has the half of the above calculated value.<p>The user has the possibility to enable a conditional heatport. If so, the ULine can be connected to a thermal network. When the parameter alpha is set to an value greater than zero, the ULine becomes temperature sensitive</p>
-<p>due to their resistors which resistances are calculated by <code>R_actual= R*(1 + alpha*(heatPort.T - T_ref)).</code> </p>
+<p>due to their resistors which resistances are calculated by <code>R_actual= R*(1 + alpha*(heatPort.T - T_ref)).</code></p>
 <p>Note, this is different compared with the lumped line model of SPICE.</p>
 <p><strong>References</strong></p>
 <dl><dt>Johnson, B.; Quarles, T.; Newton, A. R.; Pederson, D. O.; Sangiovanni-Vincentelli, A.</dt>

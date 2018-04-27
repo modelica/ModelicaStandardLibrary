@@ -96,7 +96,7 @@ You may have a look at a short summary of space phasor theory at <a href=\"http:
 <strong>Anton Haumer</strong><br>
 <a href=\"http://www.haumer.at\">Technical Consulting &amp; Electrical Engineering</a><br>
 3423 St. Andrae-Woerdern, Austria<br>
-email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
+email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
 </p>
 
 <p>
@@ -524,7 +524,7 @@ This is the library of electric machine models.
 the machine starts from standstill, accelerating inertias against load torque quadratic dependent on speed,
 finally reaching nominal speed.</p>
 
-<p>Simulate for 1.5 seconds and plot (versus time):</p<
+<p>Simulate for 1.5 seconds and plot (versus time):</p>
 <ul>
 <li>currentQuasiRMSSensor.I: stator current RMS</li>
 <li>aimc.wMechanical: motor's speed</li>
@@ -1426,7 +1426,7 @@ The mechanical load is a constant torque like a conveyor (with regularization ar
         annotation (experiment(StopTime=1, Interval=1E-4, Tolerance=1e-06), Documentation(
               info="<html>
 <p>At start time tStart single phase voltage is supplied to the asynchronous induction machine with squirrel cage;
-the machine starts from standstill, accelerating inertias against load torque quadratic dependent on speed, finally reaching nominal speed.</p<
+the machine starts from standstill, accelerating inertias against load torque quadratic dependent on speed, finally reaching nominal speed.</p>
 
 <p>Default machine parameters are used.</p>
 </html>"));
@@ -2177,7 +2177,7 @@ Synchronous machine with permanent magnets at no-load, driven with constant nomi
 <p>
 You may check the terminal voltage = VsOpenCircuit (shown by the length of the space phasor) and the frequency = fsNominal.
 </p>
-</p>
+<p>
 Additionally, you may check the phase shift of the stator voltages with respect to the mechanical shaft angle:
 <ul>
 <li>If the shaft angle starts at (pi + 0*pi/3)/p, the flux linkage through phase 1 is at the maximum and therefore this phase voltage starts at 0.</li>
@@ -2317,7 +2317,7 @@ i.e. after a rotation of the shaft by pi/2/p the flux linkage of phase 1 is zero
 Frequency is raised by a ramp, causing the permanent magnet synchronous induction machine to start,
 and accelerating inertias. At time tStep a load step is applied.</p>
 
-<p<Simulate for 1.5 seconds and plot (versus time):</p>
+<p>Simulate for 1.5 seconds and plot (versus time):</p>
 
 <ul>
 <li>currentQuasiRMSSensor.I: stator current RMS</li>
@@ -16506,7 +16506,7 @@ The multi phase input values <code>u[m]</code> are transformed to the correspond
 using the provided mechanical rotor angle phi. The output are the resulting d and q components of the space phasor arranged in one vector <code>y[2]</code>.
 </p>
 
-<h4>See also></h4>
+<h4>See also</h4>
 <p>
 <a href=\"modelica://Modelica.Electrical.Machines.Utilities.FromDQ\">FromDQ</a>
 </p>
@@ -16554,7 +16554,7 @@ The d and q components of a space phasor <code>u[2]</code> are rotated back to t
 using the provided mechanical rotor angle phi. The output are the instantaneous multi phase values <code>y[m]</code>.
 </p>
 
-<h4>See also></h4>
+<h4>See also</h4>
 <p>
 <a href=\"modelica://Modelica.Electrical.Machines.Utilities.ToDQ\">ToDQ</a>
 </p>

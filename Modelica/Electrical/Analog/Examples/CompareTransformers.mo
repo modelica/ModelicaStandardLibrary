@@ -161,6 +161,6 @@ Plot in separate windows for comparison:
 <br>basicTransformer.p1.v and idealTransformer.p1.v
 <br>basicTransformer.p1.i and idealTransformer.p1.i
 <br>basicTransformer.p2.v and idealTransformer.p2.v
-basicTransformer.p2.i and idealTransformer.p2.i </p>
+basicTransformer.p2.i and idealTransformer.p2.i</p>
 </html>"));
 end CompareTransformers;

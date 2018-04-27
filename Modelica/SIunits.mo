@@ -358,7 +358,7 @@ SIunits.Conversions.<strong>to_unit1</strong>(r);
 <h4>Description</h4>
 <p>
 The function call \"<code>Conversions.<strong>to_unit1</strong>(r)</code>\" returns r with unit=\"1\".
-
+</p>
 <h4>Example</h4>
 <blockquote><pre>
   Modelica.SIunits.Velocity v = {3,2,1};

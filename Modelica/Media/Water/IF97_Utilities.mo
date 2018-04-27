@@ -5933,11 +5933,11 @@ white-space:nowrap;
       email: hubertus@modelon.se
       </address>
         <p>In September 1997, the International Association for the Properties
-        of Water and Steam (<A HREF=\"http://www.iapws.org\">IAPWS</A>) adopted a
+        of Water and Steam (<a href=\"http://www.iapws.org\">IAPWS</a>) adopted a
         new formulation for the thermodynamic properties of water and steam for
         industrial use. This new industrial standard is called \"IAPWS Industrial
         Formulation for the Thermodynamic Properties of Water and Steam\" (IAPWS-IF97).
-        The formulation IAPWS-IF97 replaces the previous industrial standard IFC-67.
+        The formulation IAPWS-IF97 replaces the previous industrial standard IFC-67.</p>
         <p>Based on this new formulation, a new steam table, titled \"<a href=\"http://www.springer.de/cgi-bin/search_book.pl?isbn=3-540-64339-7\">Properties of Water and Steam</a>\" by W. Wagner and A. Kruse, was published by
         the Springer-Verlag, Berlin - New-York - Tokyo in April 1998. This
         steam table, ref. <a href=\"#steamprop\">[1]</a> is bilingual (English /
@@ -5945,10 +5945,10 @@ white-space:nowrap;
         IAPWS-IF97. This reference is the authoritative source of information
         for this implementation. A mostly identical version has been published by the International
         Association for the Properties
-        of Water and Steam (<A HREF=\"http://www.iapws.org\">IAPWS</A>) with permission granted to re-publish the
+        of Water and Steam (<a href=\"http://www.iapws.org\">IAPWS</a>) with permission granted to re-publish the
         information if credit is given to IAPWS. This document is distributed with this library as
         <a href=\"modelica://Modelica/Resources/Documentation/Media/Water/IF97documentation/IF97.pdf\">IF97.pdf</a>.
-        In addition, the equations published by <A HREF=\"http://www.iapws.org\">IAPWS</A> for
+        In addition, the equations published by <a href=\"http://www.iapws.org\">IAPWS</a> for
         the transport properties dynamic viscosity (standards document: <a href=\"modelica://Modelica/Resources/Documentation/Media/Water/IF97documentation/visc.pdf\">visc.pdf</a>)
         and thermal conductivity (standards document: <a href=\"modelica://Modelica/Resources/Documentation/Media/Water/IF97documentation/thcond.pdf\">thcond.pdf</a>)
         and equations for the surface tension (standards document: <a href=\"modelica://Modelica/Resources/Documentation/Media/Water/IF97documentation/surf.pdf\">surf.pdf</a>)
@@ -6039,7 +6039,7 @@ I., &#352;ifner, O., Takaishi, Y., Tanishita, I., Tr&uuml;benbach, J., and Willk
 Th.</em> The IAPWS Industrial Formulation 1997 for the Thermodynamic Properties
 of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (2000), 150 - 182.
 </p>
-<HR size=3 width=\"90%\">
+<hr size=3 width=\"90%\">
 <h4>2. Calculable Properties      </h4>
 <table border=\"1\" cellpadding=\"2\" cellspacing=\"0\">
        <tbody>
@@ -6267,7 +6267,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
         <p>The high-level calls to steam properties are grouped into records comprising both the properties of general interest
         and the entries to the thermodynamic Jacobian. If additional properties are
         needed the low level functions in BaseIF97 provide more choice.</p>
-        <HR size=3 width=\"90%\">
+        <hr size=3 width=\"90%\">
         <h4>Additional functions</h4>
         <ul>
         <li>Function <strong>boundaryvals_p</strong> computes the temperature and the specific enthalpy and

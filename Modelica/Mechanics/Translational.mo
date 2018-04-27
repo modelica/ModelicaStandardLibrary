@@ -37,7 +37,7 @@ systems are available in the simulation tool, the simulation of
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/drive1.png\" ALT=\"drive1\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/drive1.png\" alt=\"drive1\">
 </p>
 
 <p>
@@ -68,8 +68,8 @@ together, see figure below.
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/driveConnections1.png\" ALT=\"driveConnections1\"><br>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/driveConnections2.png\" ALT=\"driveConnections2\"><br>
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/driveConnections1.png\" alt=\"driveConnections1\"><br>
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/driveConnections2.png\" alt=\"driveConnections2\"><br>
 </p>
 
 </html>"));
@@ -118,7 +118,7 @@ If it is disabled, it need not be connected.
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/bearing.png\" ALT=\"bearing\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/bearing.png\" alt=\"bearing\">
 </p>
 
 <p>
@@ -129,7 +129,7 @@ identical results.
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/bearing2.png\" ALT=\"bearing2\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/bearing2.png\" alt=\"bearing2\">
 </p>
 
 </html>"));
@@ -150,7 +150,7 @@ at hand of the following figure:
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/drive2.png\" ALT=\"drive2\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/drive2.png\" alt=\"drive2\">
 </p>
 
 <p>
@@ -167,7 +167,7 @@ vector direction displayed according to this rule:
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/drive3.png\" ALT=\"drive3\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/drive3.png\" alt=\"drive3\">
 </p>
 <p>
 The cut-force <code>m2.flange_a.f</code>
@@ -193,7 +193,7 @@ It is convenient to define a new
 component by inheritance from one of the following base classes,
 which are defined in sublibrary Interfaces:
 </p>
-<table BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Name</th><th>Description</th></tr>
 <tr>
   <td><a href=\"modelica://Modelica.Mechanics.Translational.Interfaces.PartialCompliant\">PartialCompliant</a>
@@ -270,7 +270,7 @@ for a mass component:
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/driveAxis.png\" ALT=\"driveAxis\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/driveAxis.png\" alt=\"driveAxis\">
 </p>
 
 <p>
@@ -285,7 +285,7 @@ component. But this is not the case, as shown in the next figure:
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/masses.png\" ALT=\"masses\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/masses.png\" alt=\"masses\">
 </p>
 
 <p>
@@ -3617,7 +3617,7 @@ f = F_Coulomb + F_prop * v + F_Stribeck * exp (-fexp * v)
 </pre></blockquote>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/Stribeck.png\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/Stribeck.png\">
 </p>
 
 <p>
@@ -3638,7 +3638,7 @@ force exceeds a threshold value, called the maximum static friction force, compu
 <font color=\"#ff0000\"> <strong>This requires the states Stop.s and Stop.v</strong> </font>. If these states are eliminated during the index reduction
 the model will not work. To avoid this any inertias should be connected via springs
 to the Stop element, other sliding masses, dampers or hydraulic chambers must be avoided.</p>
-<p>For more details of the used friction model see the following reference: </p>
+<p>For more details of the used friction model see the following reference:</p>
 
 <dl>
 <dt>Beater P. (1999):</dt>
@@ -3664,7 +3664,7 @@ the advantage that the friction element can be completely described by a differe
 equation without events. The drawback is that the system becomes stiff (about 10-20 times
 slower simulation) and that more material constants have to be supplied which requires more
 sophisticated identification. For more details, see the following references, especially
-(Armstrong and Canudas de Wit 1996): </p>
+(Armstrong and Canudas de Wit 1996):</p>
 <dl>
 <dt>
 Armstrong B. (1991):</dt>
@@ -3815,7 +3815,7 @@ An example is given in the next figure
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/relativeStates2.png\" ALT=\"relativeStates2\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/relativeStates2.png\" alt=\"relativeStates2\">
 </p>
 
 <p>
@@ -4900,13 +4900,13 @@ Positive force accelerates in positive direction of <code>flange</code> translat
               Line(points={{0,60},{0,-50}}, color={192,192,192}),
             Line(points={{0,0},{4,25},{8,41},{12,48},{16,50},{20,49},{24,46},{28,42},{32,38},{36,34},{46,25},{56,18},{66,12},{76,8}}, color={0,0,127}),
             Line(points={{0,0},{-4,-25},{-8,-41},{-12,-48},{-16,-50},{-20,-49},{-24,-46},{-28,-42},{-32,-38},{-36,-34},{-46,-25},{-56,-18},{-66,-12},{-76,-8}}, color={0,0,127})}),
-        Documentation(info="<HTML>
+        Documentation(info="<html>
 <p>This is a simple model of a translational <strong>eddy current brake</strong>. The force versus speed characteristic is defined by Kloss' equation.</p>
 <p><strong>Thermal behaviour:</strong><br>
 The resistance of the braking fin is influenced by the actual temperature Theatport, which in turn shifts the speed v_nominal at which the (unchanged) maximum torque occurs.<br>
 If the heatPort is not used (useHeatPort = false), the operational temperature remains at the given temperature T.<br>
 However, the speed v_nominal at which the maximum torque occurs is adapted from reference temperature TRef to the operational temperature.</p>
-</HTML>"));
+</html>"));
     end EddyCurrentForce;
     annotation (Documentation(info="<html>
 <p>

@@ -2767,7 +2767,7 @@ This library contains input/output blocks to build up block diagrams.
     Oberpfaffenhofen<br>
     Postfach 1116<br>
     D-82230 Wessling<br>
-    email: <A HREF=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</A><br></dd>
+    email: <a href=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</a><br></dd>
 </dl>
 <p>
 Copyright &copy; 1998-2018, Modelica Association and DLR.

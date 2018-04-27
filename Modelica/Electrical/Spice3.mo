@@ -2239,17 +2239,17 @@ print v(11) v(12) v(13)
       p.v = 0;
       annotation (
         Documentation(info="<html>
-<P>
+<p>
 Ground of an electrical circuit. The potential at the
 ground node is zero. Every electrical circuit has to contain
 at least one ground object.
-</P>
-<P>
+</p>
+<p>
 SPICE does not have an element for the ground node (mass). In SPICE
 netlists the ground is specified by the node number 0.
 This Modelica SPICE library demands to describe the ground node
 by this ground element.
-</P>
+</p>
 </html>"),
         Icon(coordinateSystem(
             preserveAspectRatio=true,
@@ -2279,11 +2279,11 @@ by this ground element.
       R*i = v;
       annotation (
         Documentation(info="<html>
-<P>
+<p>
 The linear resistor connects the branch voltage <em>v</em> with the
 branch current <em>i</em> by <em>i*R = v</em>.
 The Resistance <em>R</em> is allowed to be positive, zero, or negative.
-</P>
+</p>
 </html>"),
         Icon(coordinateSystem(
             preserveAspectRatio=false,
@@ -2735,7 +2735,7 @@ Christoph Clau&szlig;
               lineColor={0,0,255},
               fillColor={0,0,255},
               fillPattern=FillPattern.Solid)}), Documentation(info="<html>
-<p>The model M_NMOS is a N channel MOSFET transistor with fixed level 2: </p>
+<p>The model M_NMOS is a N channel MOSFET transistor with fixed level 2:</p>
 <p>The models from the package Semiconductors accesses to the package Internal where all functions,</p>
 <p>records and data are stored and modeled that are needed for the semiconductor models.</p>
 <p>The package Semiconductors is for user access but not the package Internal.</p>

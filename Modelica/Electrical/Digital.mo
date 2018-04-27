@@ -118,7 +118,8 @@ The Electrical.Digital library is based on the following references:
 <dt><strong>Ulrich Donath</strong></dt>
 <dd>email: <a href=\"mailto:Ulrich.Donath@eas.iis.fraunhofer.de\">Ulrich.Donath@eas.iis.fraunhofer.de</a></dd>
 </dl>
-
+</p>
+<p>
 <dl>
 <dt>Address</dt>
 <dd>Fraunhofer Institute for Integrated Circuits (IIS)<br>
@@ -127,7 +128,7 @@ Zeunerstra&szlig;e 38<br>
 D-01069 Dresden<br>
 Germany</dd>
 </dl>
-
+</p>
 
 <h4>Acknowledgements</h4>
 
@@ -2649,10 +2650,10 @@ The result can be seen in the output signals of the FullAdders according to:</p>
                    (if time >= delayTime then x_delayed else y0) else
                      pre(x);
           annotation (Documentation(info="<html>
-<P>
+<p>
 Provide the input as output exactly delayed by <em>Tdel</em>.
 If time less than <em>Tdel</em> the initial value <em>initout</em> holds.
-</P>
+</p>
 </html>", revisions="<html>
 <dl>
 <dt><em>August 11, 2003</em></dt>
@@ -2703,10 +2704,10 @@ If time less than <em>Tdel</em> the initial value <em>initout</em> holds.
           y := if delayTime > 0 then y_auxiliary else x;
           annotation (
             Documentation(info="<html>
-<P>
+<p>
 Provides the input as output delayed by <em>delayTime</em> if the input holds its value for a longer time than <em>delayTime</em>.
 If time is less than <em>delayTime</em> the initial value <em>y0</em> holds.
-</P>
+</p>
 </html>", revisions="<html>
 <dl>
 <dt><em>August 12, 2003</em></dt>
@@ -2768,13 +2769,13 @@ If time is less than <em>delayTime</em> the initial value <em>y0</em> holds.
          y := if ((tLH > 0 or tHL > 0)) then y_auxiliary else x;
           annotation (
             Documentation(info="<html>
-<P>
+<p>
 Provides the input as output delayed by <em>Tdel</em> if the input holds its value for a longer time than <em>Tdel</em>.
 If the time is less than <em>Tdel</em> the initial value <em>y0</em> holds.<br>
 The delay <em>Tdel</em> depends on the values of the signal change. To calculate <em>Tdel</em>, the DelayTable specified in
 Digital.Tables is used. If the corresponding value is 1, then <em>tLH</em> is used, if it is -1, then <em>tHL</em>
 is used, if it is zero, the input is not delayed.
-</P>
+</p>
 </html>", revisions="<html>
 <ul>
 <li><em>January 24, 2013</em> Initial value for y set to y0
@@ -3578,12 +3579,12 @@ The parameters <em>tLH</em> and <em>tHL</em> are valid for each of the n signals
         algorithm
           y := x;
           annotation (Documentation(info="<html>
-<P>
+<p>
 Sets a nine valued digital signal, which is specified by the <em>setval</em> parameter.
-</P>
-<P>
+</p>
+<p>
 To specify <em>setval</em>, the integer code has to be used.
-</P>
+</p>
 <p><strong>Code Table</strong></p>
 
 <table border=1 cellspacing=0 cellpadding=2>
@@ -3603,10 +3604,10 @@ To specify <em>setval</em>, the integer code has to be used.
   <tr><td>'-'</td> <td>9</td> <td>Do not care</td></tr>
 </table>
 
-<P>
+<p>
 If the logic values are imported by<br><strong>import L = Digital.Interfaces.Logic;</strong><br>
 they can be used to specify the parameter, e.g., <strong>L.'0'</strong> for forcing 0.
-</P>
+</p>
 </html>", revisions="<html>
 <dl>
 <dt><em>August 20, 2003</em></dt>
@@ -3651,13 +3652,13 @@ they can be used to specify the parameter, e.g., <strong>L.'0'</strong> for forc
           end if;
           annotation (
             Documentation(info="<html>
-<P>
+<p>
 The step source output signal steps from the value <em>before</em> to the value <em>after</em>
 at the time <em>stepTime</em>.
-</P>
-<P>
+</p>
+<p>
 To specify the logic value parameters, the integer code has to be used.
-</P>
+</p>
 <p><strong>Code Table</strong></p>
 <table border=1 cellspacing=0 cellpadding=2>
   <tr><td><strong>Logic value</strong></td>
@@ -3675,10 +3676,10 @@ To specify the logic value parameters, the integer code has to be used.
   <tr><td>'H'</td> <td>8</td> <td>Weak 1</td></tr>
   <tr><td>'-'</td> <td>9</td> <td>Do not care</td></tr>
 </table>
-<P>
+<p>
 If the logic values are imported by<br><strong>import L = Digital.Interfaces.Logic;</strong><br>
 they can be used to specify the parameter, e.g., <strong>L.'0'</strong> for forcing 0.
-</P>
+</p>
 </html>", revisions="<html>
 <dl>
 <dt><em>August 20, 2003</em></dt>
@@ -3726,13 +3727,13 @@ they can be used to specify the parameter, e.g., <strong>L.'0'</strong> for forc
           end for;
           annotation (
             Documentation(info="<html>
-<P>
+<p>
 The table source output signal <em>y</em> steps to the values of the  <em>x</em> table at the corresponding
 timepoints in the <em>t</em> table.<br>The initial value is specified by <em>y0</em>.
-</P>
-<P>
+</p>
+<p>
 To specify the logic value parameters, the integer code has to be used.
-</P>
+</p>
 <p><strong>Code Table</strong></p>
 <table border=1 cellspacing=0 cellpadding=2>
   <tr><td><strong>Logic value</strong></td>
@@ -3750,10 +3751,10 @@ To specify the logic value parameters, the integer code has to be used.
   <tr><td>'H'</td> <td>8</td> <td>Weak 1</td></tr>
   <tr><td>'-'</td> <td>9</td> <td>Do not care</td></tr>
 </table>
-<P>
+<p>
 If the logic values are imported by<br><strong>import L = Digital.Interfaces.Logic;</strong><br>
 they can be used to specify the parameter, e.g., <strong>L.'0'</strong> for forcing 0.
-</P>
+</p>
 </html>", revisions="<html>
 <dl>
 <dt><em>August 20, 2003</em></dt>
@@ -3821,15 +3822,15 @@ they can be used to specify the parameter, e.g., <strong>L.'0'</strong> for forc
              y = quiet;
           end if;
           annotation (Documentation(info="<html>
-<P>
+<p>
 The pulse source forms pulses between the  <em>quiet</em> value and the <em>pulse</em> value.
 The pulse length <em>width</em> is specified in percent of the period length <em>period</em>.
 The number of periods is specified by <em>nperiod</em>. If <em>nperiod</em> is less than zero,
 the number of periods is unlimited.
-</P>
-<P>
+</p>
+<p>
 To specify the logic value parameters, the integer code has to be used.
-</P>
+</p>
 <p><strong>Code Table</strong></p>
 <table border=1 cellspacing=0 cellpadding=2>
   <tr><td><strong>Logic value</strong></td>
@@ -3847,10 +3848,10 @@ To specify the logic value parameters, the integer code has to be used.
   <tr><td>'H'</td> <td>8</td> <td>Weak 1</td></tr>
   <tr><td>'-'</td> <td>9</td> <td>Do not care</td></tr>
 </table>
-<P>
+<p>
 If the logic values are imported by<br><strong>import L = Digital.Interfaces.Logic;</strong><br>
 they can be used to specify the parameter, e.g., <strong>L.'0'</strong> for forcing 0.
-</P>
+</p>
 </html>", revisions="<html>
 <dl>
 <dt><em>September 2, 2003</em></dt>
@@ -3897,13 +3898,13 @@ they can be used to specify the parameter, e.g., <strong>L.'0'</strong> for forc
           end when;
           y =  if (not time>=startTime) or time >= t_i + t_width then L.'0' else L.'1';
           annotation (Documentation(info="<html>
-<P>
+<p>
 The clock source forms pulses between the  <em>'0'</em> value (forcing 0) and the <em>'1'</em> value (forcing 1).
 The pulse length <em>width</em> is specified in percent of the period length <em>period</em>.
 The number of periods is unlimited. The first pulse starts at startTime.
-</P>
-<P> The clock source is a special but often used variant of the pulse source.
-</P>
+</p>
+<p> The clock source is a special but often used variant of the pulse source.
+</p>
 </html>", revisions="<html>
 <dl>
 <dt><em>September 18, 2004</em></dt>
@@ -4019,10 +4020,10 @@ If the signal width is greater than 1 this conversion is done for each signal.
           end for;
           annotation (
             Documentation(info="<html>
-<P>
+<p>
 Conversion of a nine valued digital input into a X01Z digital output without
 any delay according to IEEE 1164 To_X01Z function.
-</P>
+</p>
 <p><strong>Conversion Table:</strong></p>
 <pre>
  input                  output
@@ -4036,9 +4037,9 @@ any delay according to IEEE 1164 To_X01Z function.
  'H' (coded by 8)       '1'  (coded by 4)
  '-' (coded by 9)       'X'  (coded by 2)
 </pre>
-<P>
+<p>
 If the signal width is greater than 1 this conversion is done for each signal.
-</P>
+</p>
 </html>", revisions="<html>
 <ul>
 <li><em>September 15, 2004</em>
@@ -4089,10 +4090,10 @@ If the signal width is greater than 1 this conversion is done for each signal.
           end for;
           annotation (
             Documentation(info="<html>
-<P>
+<p>
 Conversion of a nine valued digital input into a UX01 digital output without
 any delay according to IEEE 1164 To_UX01 function.
-</P>
+</p>
 <p><strong>Conversion Table:</strong></p>
 <pre>
  input                  output
@@ -4106,9 +4107,9 @@ any delay according to IEEE 1164 To_UX01 function.
  'H' (coded by 8)       '1'  (coded by 4)
  '-' (coded by 9)       'X'  (coded by 2)
 </pre>
-<P>
+<p>
 If the signal width is greater than 1 this conversion is done for each signal.
-</P>
+</p>
 </html>", revisions="<html>
 <ul>
 <li><em>September 15, 2004</em>
@@ -4156,17 +4157,17 @@ If the signal width is greater than 1 this conversion is done for each signal.
           end for;
           annotation (
             Documentation(info="<html>
-<P>
+<p>
 Conversion of a Boolean input into a digital output without any delay according to:
-</P>
+</p>
 <pre>
  input      output
  true       '1'  (coded by 4)
  false      '0'  (coded by 3)
 </pre>
-<P>
+<p>
 If the signal width is greater than 1 this conversion is done for each signal.
-</P>
+</p>
 </html>", revisions="<html>
 <ul>
 <li><em>September 15, 2004</em>
@@ -4209,9 +4210,9 @@ If the signal width is greater than 1 this conversion is done for each signal.
             y[i] = (x[i] == L.'1' or x[i] == L.'H');
           end for;
           annotation (Documentation(info="<html>
-<P>
+<p>
 Conversion of a digital input into a Boolean output without any delay according to:
-</P>
+</p>
 <pre>
  input                 output
  'U'  (coded by 1)     false
@@ -4224,9 +4225,9 @@ Conversion of a digital input into a Boolean output without any delay according 
  'H'  (coded by 8)     true
  '-'  (coded by 9)     false
 </pre>
-<P>
+<p>
 If the signal width is greater than 1 this conversion is done for each signal.
-</P>
+</p>
 </html>", revisions="<html>
 <ul>
 <li><em>September 15, 2004</em>
@@ -4277,18 +4278,18 @@ If the signal width is greater than 1 this conversion is done for each signal.
           end for;
           annotation (
             Documentation(info="<html>
-<P>
+<p>
 Conversion of a real input into a digital output without any delay according to:
-</P>
+</p>
 <pre>
                                  condition            output
       first check:               input greater upp    lupp
       second check:              input larger low     llow
                                  else                 lmid
 </pre>
-<P>
+<p>
 If the signal width is greater than 1 this conversion is done for each signal.
-</P>
+</p>
 </html>", revisions="<html>
 <ul>
 <li><em>September 15, 2004</em>
@@ -4347,9 +4348,9 @@ If the signal width is greater than 1 this conversion is done for each signal.
               x[i] == L.'H' then value_H else value_m;
           end for;
           annotation (Documentation(info="<html>
-<P>
+<p>
 Conversion of a digital input into a Real output without any delay according to:
-</P>
+</p>
 <pre>
   input                 output
   'U'  (coded by 1)     val_U
@@ -4362,10 +4363,10 @@ Conversion of a digital input into a Real output without any delay according to:
   'H'  (coded by 8)     val_H
   '-'  (coded by 9)     val_m
 </pre>
-<P>
-The values val... are given by parameters.</P>
-<P>If the signal width is greater than 1 this conversion is done for each signal.
-</P>
+<p>
+The values val... are given by parameters.</p>
+<p>If the signal width is greater than 1 this conversion is done for each signal.
+</p>
 </html>", revisions="<html>
 <ul>
 <li><em>September 15, 2004</em>
@@ -4431,9 +4432,9 @@ any delay according to IEEE 1164 To_X01 function.
   'H' (coded by 8)       '1'  (coded by 4)
   '-' (coded by 9)       'X'  (coded by 2)
 </pre>
-<P>
+<p>
 If the signal width is greater than 1 this conversion is done for each signal.
-</P>
+</p>
 </html>", revisions="<html>
 <ul>
 <li><em>September 15, 2004</em>
@@ -4488,10 +4489,10 @@ If the signal width is greater than 1 this conversion is done for each signal.
 <h4>Obsoletion Note</h4>
 <p>This model will be removed in future versions of the Modelica Standard Library. Instead the model <a href=\"modelica://Modelica.Electrical.Digital.Converters.LogicToX01Z\">LogicToX01Z</a> shall be used.</p>
 <hr>
-<P>
+<p>
 Conversion of a nine valued digital input into a X01Z digital output without
 any delay according to IEEE 1164 To_X01Z function.
-</P>
+</p>
 <p><strong>Conversion Table:</strong></p>
 <pre>
  input                  output
@@ -4505,9 +4506,9 @@ any delay according to IEEE 1164 To_X01Z function.
  'H' (coded by 8)       '1'  (coded by 4)
  '-' (coded by 9)       'X'  (coded by 2)
 </pre>
-<P>
+<p>
 If the signal width is greater than 1 this conversion is done for each signal.
-</P>
+</p>
 </html>", revisions="<html>
 <ul>
 <li><em>September 15, 2004</em>
@@ -4712,7 +4713,7 @@ If the signal width is greater than 1 this conversion is done for each signal.
   <tr><td>*</td> <td>*</td> <td>X</td> <td>X or U or 0 or NC</td> <td>4</td> </tr>
 </table>
 
-<PRE>
+<pre>
 
   *  = do not care
   U  = L.'U'
@@ -4725,7 +4726,7 @@ Clock transition definitions:
   1-Trns: 0 -> 1
   0-Trns: ~ -> 0 or 1 -> * or X -> X|U or U -> X|U
   X-Trns: 0 -> X|U or X|U -> 1
-</PRE>
+</pre>
 </html>", revisions="<html>
 <ul>
 <li><em>September 11, 2009</em> created by Ulrich Donath<br>
@@ -4851,7 +4852,7 @@ Clock transition definitions:
   <tr><td>*</td> <td>*</td> <td>X</td> <td>X or U or 0 or NC</td> </tr>
 </table>
 
-<PRE>
+<pre>
   *  = do not care
   U  = L.'U'
   0  = L.'0' or L.'L'
@@ -4863,7 +4864,7 @@ Clock transition definitions:
   1-Trns: 0 -> 1
   0-Trns: ~ -> 0 or 1 -> * or X -> X|U or U -> X|U
   X-Trns: 0 -> X|U or X|U -> 1
-</PRE>
+</pre>
 </html>", revisions="<html>
 <ul>
 <li><em>September 11, 2009</em> created by Ulrich Donath<br>
@@ -4898,7 +4899,7 @@ Clock transition definitions:
   <tr><td>*</td> <td>*</td> <td>X</td> <td>X or U or 0 or NC</td> </tr>
 </table>
 
-<PRE>
+<pre>
   *  = do not care
   U  = L.'U'
   0  = L.'0' or L.'L'
@@ -4910,7 +4911,7 @@ Clock transition definitions:
   1-Trns: 0 -> 1
   0-Trns: ~ -> 0 or 1 -> * or X -> X|U or U -> X|U
   X-Trns: 0 -> X|U or X|U -> 1
-</PRE>
+</pre>
 </html>", revisions="<html>
 <ul>
 <li><em>September 11, 2009</em> created by Ulrich Donath<br>
@@ -5150,7 +5151,7 @@ Clock transition definitions:
   <tr><td>*</td> <td>0-Trns</td> <td>1</td>  <td>1</td> <td>NC</td> <td>8</td> </tr>
 </table>
 
-<PRE>
+<pre>
   *  = do not care
   ~  = not equal
   U  = L.'U'
@@ -5163,7 +5164,7 @@ Clock transition definitions:
   1-Trns: 0 -> 1
   0-Trns: ~ -> 0 or 1 -> * or X -> X|U or U -> X|U
   X-Trns: 0 -> X|U or X|U -> 1
-</PRE>
+</pre>
 </html>", revisions="<html>
 <ul>
 <li><em>September 11, 2009</em> created by Ulrich Donath<br>
@@ -5312,7 +5313,7 @@ Clock transition definitions:
   <tr><td>*</td> <td>0-Trns</td> <td>0</td>  <td>0</td> <td>NC</td> </tr>
 </table>
 
-<PRE>
+<pre>
   *  = do not care
   ~  = not equal
   U  = L.'U'
@@ -5325,7 +5326,7 @@ Clock transition definitions:
   1-Trns: 0 -> 1
   0-Trns: ~ -> 0 or 1 -> * or X -> X|U or U -> X|U
   X-Trns: 0 -> X|U or X|U -> 1
-</PRE>
+</pre>
 </html>", revisions="<html>
 <ul>
 <li><em>September 11, 2009</em> created by Ulrich Donath<br>
@@ -5373,7 +5374,7 @@ Clock transition definitions:
   <tr><td>*</td> <td>0-Trns</td> <td>1</td>  <td>1</td> <td>NC</td> </tr>
 </table>
 
-<PRE>
+<pre>
   *  = do not care
   ~  = not equal
   U  = L.'U'
@@ -5386,7 +5387,7 @@ Clock transition definitions:
   1-Trns: 0 -> 1
   0-Trns: ~ -> 0 or 1 -> * or X -> X|U or U -> X|U
   X-Trns: 0 -> X|U or X|U -> 1
-</PRE>
+</pre>
 </html>", revisions="<html>
 <ul>
 <li><em>September 11, 2009</em> created by Ulrich Donath<br>
@@ -5529,7 +5530,7 @@ Clock transition definitions:
   <tr><td>*</td> <td>~U</td> <td>X</td> <td>X or U or 0 or NC</td> <td>4</td> </tr>
 </table>
 
-<PRE>
+<pre>
 
   *  = do not care
   ~  = not equal
@@ -5538,7 +5539,7 @@ Clock transition definitions:
   1  = L.'1' or L.'H'
   X  = L.'X' or L.'W' or L.'Z' or L.'-'
   NC = no change
-</PRE>
+</pre>
 </html>", revisions="<html>
 <ul>
 <li><em>September 11, 2009</em> created by Ulrich Donath<br>
@@ -5662,7 +5663,7 @@ Clock transition definitions:
   <tr><td>*</td> <td>~U</td> <td>X</td> <td>X or U or 0 or NC</td> </tr>
 </table>
 
-<PRE>
+<pre>
   *  = do not care
   ~  = not equal
   U  = L.'U'
@@ -5670,7 +5671,7 @@ Clock transition definitions:
   1  = L.'1' or L.'H'
   X  = L.'X' or L.'W' or L.'Z' or L.'-'
   NC = no change
-</PRE>
+</pre>
 </html>", revisions="<html>
 <ul>
 <li><em>September 11, 2009</em> created by Ulrich Donath<br>
@@ -5750,7 +5751,7 @@ Clock transition definitions:
   <tr><td>*</td> <td>~U</td> <td>X</td> <td>X or U or 0 or NC</td> </tr>
 </table>
 
-<PRE>
+<pre>
   *  = do not care
   ~  = not equal
   U  = L.'U'
@@ -5758,7 +5759,7 @@ Clock transition definitions:
   1  = L.'1' or L.'H'
   X  = L.'X' or L.'W' or L.'Z' or L.'-'
   NC = no change
-</PRE>
+</pre>
 </html>", revisions="<html>
 <ul>
 <li><em>September 11, 2009</em> created by Ulrich Donath<br>
@@ -5963,7 +5964,7 @@ Clock transition definitions:
 
 </table>
 
-<PRE>
+<pre>
   *  = do not care
   ~  = not equal
   U  = L.'U'
@@ -5971,7 +5972,7 @@ Clock transition definitions:
   1  = L.'1' or L.'H'
   X  = L.'X' or L.'W' or L.'Z' or L.'-'
   NC = no change
-</PRE>
+</pre>
 </html>", revisions="<html>
 <ul>
 <li><em>September 11, 2009</em> created by Ulrich Donath<br>
@@ -6118,7 +6119,7 @@ Clock transition definitions:
 
 </table>
 
-<PRE>
+<pre>
   *  = do not care
   ~  = not equal
   U  = L.'U'
@@ -6126,7 +6127,7 @@ Clock transition definitions:
   1  = L.'1' or L.'H'
   X  = L.'X' or L.'W' or L.'Z' or L.'-'
   NC = no change
-</PRE>
+</pre>
 </html>", revisions="<html>
 <ul>
 <li><em>September 11, 2009</em> created by Ulrich Donath<br>
@@ -6217,7 +6218,7 @@ Clock transition definitions:
   <tr><td>*</td> <td>0</td> <td>1</td>  <td>1</td> <td>NC</td> </tr>
 </table>
 
-<PRE>
+<pre>
   *  = do not care
   ~  = not equal
   U  = L.'U'
@@ -6225,7 +6226,7 @@ Clock transition definitions:
   1  = L.'1' or L.'H'
   X  = L.'X' or L.'W' or L.'Z' or L.'-'
   NC = no change
-</PRE>
+</pre>
 </html>", revisions="<html>
 <ul>
 <li><em>September 11, 2009</em> created by Ulrich Donath<br>
@@ -6329,9 +6330,9 @@ Clock transition definitions:
   <tr><td>*</td> <td>-</td> <td>UX</td></tr>
 </table>
 
-<PRE>
+<pre>
   UX: if dataIn == U then U else X
-</PRE>
+</pre>
 </html>"));
     end NXFERGATE;
 
@@ -6411,10 +6412,10 @@ Clock transition definitions:
   <tr><td>*</td> <td>-</td> <td>UW</td></tr>
 </table>
 
-<PRE>
+<pre>
   UW: if dataIn == U then U else W
   Strength Reduced: 0 -> L, 1 -> H, X -> W
-</PRE>
+</pre>
 </html>"));
     end NRXFERGATE;
 
@@ -6493,9 +6494,9 @@ Clock transition definitions:
   <tr><td>*</td> <td>-</td> <td>UX</td></tr>
 </table>
 
-<PRE>
+<pre>
   UX: if dataIn == U then U else X
-</PRE>
+</pre>
 </html>"));
     end PXFERGATE;
 
@@ -6653,10 +6654,10 @@ Clock transition definitions:
   <tr><td>*</td> <td>-</td> <td>UX</td></tr>
 </table>
 
-<PRE>
+<pre>
   UX: if dataIn == U then U else X
   DataOut*: Strength map for DataOut according to tristate table Buf3sTable
-</PRE>
+</pre>
 </html>"));
     end BUF3S;
 
@@ -6732,10 +6733,10 @@ Clock transition definitions:
   <tr><td>*</td> <td>-</td> <td>UX</td></tr>
 </table>
 
-<PRE>
+<pre>
   UX: if dataIn == U then U else X
   DataOut*: Strength map for DataOut according to tristate table Buf3slTable
-</PRE>
+</pre>
 </html>"));
     end BUF3SL;
 
@@ -6816,10 +6817,10 @@ Clock transition definitions:
   <tr><td>*</td> <td>-</td> <td>UX</td></tr>
 </table>
 
-<PRE>
+<pre>
   UX: if dataIn == U then U else X
   DataOut*: Strength map for DataOut according to tristate table Buf3sTable
-</PRE>
+</pre>
 </html>"));
     end INV3S;
 
@@ -6900,10 +6901,10 @@ Clock transition definitions:
   <tr><td>*</td> <td>-</td> <td>UX</td></tr>
 </table>
 
-<PRE>
+<pre>
   UX: if dataIn == U then U else X
   DataOut*: Strength map for DataOut according to tristate table Buf3slTable
-</PRE>
+</pre>
 </html>"));
     end INV3SL;
 
@@ -6919,9 +6920,9 @@ Clock transition definitions:
       y = pre(auxiliary[n]);
       annotation (
         Documentation(info="<html>
-<P>
+<p>
 Wires n input signals in one output signal, without delay.
-</P>
+</p>
 <p>Resolution table is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_misc.vhd</p>
 </html>", revisions="<html>
 <ul>
@@ -7026,14 +7027,14 @@ Description in VHDL is given by <a href=\"http://www.cs.sfu.ca/~ggbaker/referenc
   <tr><td>X</td>  <td>X in Addr</td>      <td>no write</td>  </tr>
 </table>
 
-<PRE>
+<pre>
 
   *  = do not care
   0  = L.'0' or L.'L'
   1  = L.'1' or L.'H'
   X  = L.'X' or L.'W' or L.'Z' or L.'-' or L.'U'
   Z  = L.'Z'
-</PRE>
+</pre>
 
 <p><strong>Simultaneous read/write operations are allowed.
 Firstly Write is carried out, then Read.</strong></p>
@@ -7112,14 +7113,14 @@ Description in VHDL is given by <a href=\"http://www.cs.sfu.ca/~ggbaker/referenc
   <tr><td>X</td> <td>*</td> <td>X over all</td> </tr>
 </table>
 
-<PRE>
+<pre>
 
   *  = do not care
   0  = L.'0' or L.'L'
   1  = L.'1' or L.'H'
   X  = L.'X' or L.'W' or L.'Z' or L.'-' or L.'U'
   Z  = L.'Z'
-</PRE>
+</pre>
 
 </html>", revisions="<html>
 <dl>

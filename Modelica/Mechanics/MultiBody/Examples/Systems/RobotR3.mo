@@ -1717,8 +1717,8 @@ Furthermore, it is shown how CAD data can be used
 for animation.
 </p>
 
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Systems/robot_kr15.png\"
-ALT=\"model Examples.Systems.RobotR3\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Systems/robot_kr15.png\"
+alt=\"model Examples.Systems.RobotR3\">
 
 <p>
 The following models are available:

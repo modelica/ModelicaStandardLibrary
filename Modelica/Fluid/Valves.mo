@@ -58,8 +58,7 @@ package Valves "Components for the regulation and control of fluid flow"
     annotation (
     Documentation(info="<html>
 <p>
-Valve model according to the IEC 534/ISA S.75 standards for valve sizing, incompressible fluids.<
-/p>
+Valve model according to the IEC 534/ISA S.75 standards for valve sizing, incompressible fluids.</p>
 
 <p>
 The parameters of this model are explained in detail in
@@ -167,9 +166,9 @@ The parameters of this model are explained in detail in
 (the base model for valves).
 </p>
 
-<p>The model operating range includes choked flow operation, which takes place for low outlet pressures due to flashing in the vena contracta; otherwise, non-choking conditions are assumed.
-<p>This model requires a two-phase medium model, to describe the liquid and (possible) two-phase conditions.
-<p>The default liquid pressure recovery coefficient <code>Fl</code> is constant and given by the parameter <code>Fl_nominal</code>. The relative change (per unit) of the recovery coefficient can be specified as a given function of the valve opening by replacing the <code>FlCharacteristic</code> function.
+<p>The model operating range includes choked flow operation, which takes place for low outlet pressures due to flashing in the vena contracta; otherwise, non-choking conditions are assumed.</p>
+<p>This model requires a two-phase medium model, to describe the liquid and (possible) two-phase conditions.</p>
+<p>The default liquid pressure recovery coefficient <code>Fl</code> is constant and given by the parameter <code>Fl_nominal</code>. The relative change (per unit) of the recovery coefficient can be specified as a given function of the valve opening by replacing the <code>FlCharacteristic</code> function.</p>
 <p>If <code>checkValve</code> is false, the valve supports reverse flow, with a symmetric flow characteristic curve. Otherwise, reverse flow is stopped (check valve behaviour).</p>
 
 <p>
@@ -278,7 +277,7 @@ The parameters of this model are explained in detail in
 
 <p>This model can be used with gases and vapours, with arbitrary pressure ratio between inlet and outlet.</p>
 
-<p>The product Fk*xt is given by the parameter <code>Fxt_full</code>, and is assumed constant by default. The relative change (per unit) of the xt coefficient with the valve opening can be specified by replacing the <code>xtCharacteristic</code> function.
+<p>The product Fk*xt is given by the parameter <code>Fxt_full</code>, and is assumed constant by default. The relative change (per unit) of the xt coefficient with the valve opening can be specified by replacing the <code>xtCharacteristic</code> function.</p>
 <p>If <code>checkValve</code> is false, the valve supports reverse flow, with a symmetric flow characteristic curve. Otherwise, reverse flow is stopped (check valve behaviour).</p>
 
 <p>
@@ -638,14 +637,14 @@ y=uMin is passed as output.
 <p>The model assumes adiabatic operation (no heat losses to the ambient); changes in kinetic energy
 from inlet to outlet are neglected in the energy balance.</p>
 <p><strong>Modelling options</strong></p>
-<p>The following options are available to specify the valve flow coefficient in fully open conditions:
+<p>The following options are available to specify the valve flow coefficient in fully open conditions:</p>
 <ul><li><code>CvData = Modelica.Fluid.Types.CvTypes.Av</code>: the flow coefficient is given by the metric <code>Av</code> coefficient (m^2).</li>
 <li><code>CvData = Modelica.Fluid.Types.CvTypes.Kv</code>: the flow coefficient is given by the metric <code>Kv</code> coefficient (m^3/h).</li>
 <li><code>CvData = Modelica.Fluid.Types.CvTypes.Cv</code>: the flow coefficient is given by the US <code>Cv</code> coefficient (USG/min).</li>
 <li><code>CvData = Modelica.Fluid.Types.CvTypes.OpPoint</code>: the flow is computed from the nominal operating point specified by <code>p_nominal</code>, <code>dp_nominal</code>, <code>m_flow_nominal</code>, <code>rho_nominal</code>, <code>opening_nominal</code>.</li>
 </ul>
-<p>The nominal pressure drop <code>dp_nominal</code> must always be specified; to avoid numerical singularities, the flow characteristic is modified for pressure drops less than <code>b*dp_nominal</code> (the default value is 1% of the nominal pressure drop). Increase this parameter if numerical problems occur in valves with very low pressure drops.
-<p>If <code>checkValve</code> is true, then the flow is stopped when the outlet pressure is higher than the inlet pressure; otherwise, reverse flow takes place. Use this option only when needed, as it increases the numerical complexity of the problem.
+<p>The nominal pressure drop <code>dp_nominal</code> must always be specified; to avoid numerical singularities, the flow characteristic is modified for pressure drops less than <code>b*dp_nominal</code> (the default value is 1% of the nominal pressure drop). Increase this parameter if numerical problems occur in valves with very low pressure drops.</p>
+<p>If <code>checkValve</code> is true, then the flow is stopped when the outlet pressure is higher than the inlet pressure; otherwise, reverse flow takes place. Use this option only when needed, as it increases the numerical complexity of the problem.</p>
 <p>The valve opening characteristic <code>valveCharacteristic</code>, linear by default, can be replaced by any user-defined function. Quadratic and equal percentage with customizable rangeability are already provided by the library. The characteristics for constant port_a.p and port_b.p pressures with continuously changing opening are shown in the next two figures:
 </p>
 
@@ -763,10 +762,10 @@ m_flow =                  rc * Av * sqrt(rho * dp)
               pos/delta*rangeability^(delta-1);
       annotation (Documentation(info="<html>
 This characteristic is such that the relative change of the flow coefficient is proportional to the change in the opening position:
-<p> d(rc)/d(pos) = k d(pos).
-<p> The constant k is expressed in terms of the rangeability, i.e., the ratio between the maximum and the minimum useful flow coefficient:
-<p> rangeability = exp(k) = rc(1.0)/rc(0.0).
-<p> The theoretical characteristic has a non-zero opening when pos = 0; the implemented characteristic is modified so that the valve closes linearly when pos &lt; delta.
+<p> d(rc)/d(pos) = k d(pos).</p>
+<p> The constant k is expressed in terms of the rangeability, i.e., the ratio between the maximum and the minimum useful flow coefficient:</p>
+<p> rangeability = exp(k) = rc(1.0)/rc(0.0).</p>
+<p> The theoretical characteristic has a non-zero opening when pos = 0; the implemented characteristic is modified so that the valve closes linearly when pos &lt; delta.</p>
 </html>"));
     end equalPercentage;
 

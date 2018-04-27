@@ -1853,7 +1853,7 @@ and accelerating inertias. At time <code>tStep</code> a load step is applied.</p
 <p>
 An ideal frequency inverter is modeled by using a VfController and a three-phase SignalVoltage.
 Frequency is driven by a load cycle of acceleration, constant speed, deceleration and standstill.
-The mechanical load is a constant torque like a conveyor (with regularization around zero speed).</p>
+The mechanical load is a constant torque like a conveyor (with regularization around zero speed).
 </p>
 <p>Simulate for 20 seconds and plot (versus time):</p>
 <ul>
@@ -7847,7 +7847,7 @@ The output voltages may serve as inputs for complex voltage sources with phase i
   <caption align=\"bottom\"><strong>Fig. 1:</strong> Voltage vs. frequency of voltage frequency controller</caption>
   <tr>
     <td>
-      <img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FundamentalWave/Utilities/VoltageFrequencyController.png\"/>
+      <img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FundamentalWave/Utilities/VoltageFrequencyController.png\">
     </td>
   </tr>
 </table>

@@ -106,7 +106,7 @@ email: <a href=\"mailto:dr.christian.kral@gmail.com\">dr.christian.kral@gmail.co
 <strong>Anton Haumer</strong><br>
 <a href=\"http://www.haumer.at\">Technical Consulting &amp; Electrical Engineering</a><br>
 A-3423 St. Andrae-Woerdern, Austria<br>
-email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
+email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
 </p>
 </html>"));
     end Contact;

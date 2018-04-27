@@ -115,8 +115,8 @@ package Machines
             fillPattern=FillPattern.VerticalCylinder,
             fillColor={95,95,95})}),
     Documentation(info="<html>
-<p>This model describes a centrifugal pump (or a group of <code>nParallel</code> pumps) with a mechanical rotational connector for the shaft, to be used when the pump drive has to be modelled explicitly. In the case of <code>nParallel</code> pumps, the mechanical connector is relative to a single pump.
-<p>The model extends <code>PartialPump</code>
+<p>This model describes a centrifugal pump (or a group of <code>nParallel</code> pumps) with a mechanical rotational connector for the shaft, to be used when the pump drive has to be modelled explicitly. In the case of <code>nParallel</code> pumps, the mechanical connector is relative to a single pump.</p>
+<p>The model extends <code>PartialPump</code></p>
  </html>",
        revisions="<html>
 <ul>
@@ -269,8 +269,8 @@ Then the model can be replaced with a Pump with rotational shaft or with a Presc
             extent={{14,98},{178,82}},
             textString="N_in [rpm]")}),
       Documentation(info="<html>
-<p>This model describes a centrifugal pump (or a group of <code>nParallel</code> pumps) with prescribed speed, either fixed or provided by an external signal.
-<p>The model extends <code>PartialPump</code>
+<p>This model describes a centrifugal pump (or a group of <code>nParallel</code> pumps) with prescribed speed, either fixed or provided by an external signal.</p>
+<p>The model extends <code>PartialPump</code></p>
 <p>If the <code>N_in</code> input connector is wired, it provides rotational speed of the pumps (rpm); otherwise, a constant rotational speed equal to <code>n_const</code> (which can be different from <code>N_nominal</code>) is assumed.</p>
 </html>",
         revisions="<html>
@@ -499,12 +499,12 @@ Then the model can be replaced with a Pump with rotational shaft or with a Presc
               fillPattern=FillPattern.HorizontalCylinder,
               fillColor={255,255,255})}),
       Documentation(info="<html>
-<p>This is the base model for pumps.
-<p>The model describes a centrifugal pump, or a group of <code>nParallel</code> identical pumps. The pump model is based on the theory of kinematic similarity: the pump characteristics are given for nominal operating conditions (rotational speed and fluid density), and then adapted to actual operating condition, according to the similarity equations.
+<p>This is the base model for pumps.</p>
+<p>The model describes a centrifugal pump, or a group of <code>nParallel</code> identical pumps. The pump model is based on the theory of kinematic similarity: the pump characteristics are given for nominal operating conditions (rotational speed and fluid density), and then adapted to actual operating condition, according to the similarity equations.</p>
 
 <p><strong>Pump characteristics</strong></p>
-<p> The nominal hydraulic characteristic (head vs. volume flow rate) is given by the replaceable function <code>flowCharacteristic</code>.
-<p> The pump energy balance can be specified in two alternative ways:
+<p> The nominal hydraulic characteristic (head vs. volume flow rate) is given by the replaceable function <code>flowCharacteristic</code>.</p>
+<p> The pump energy balance can be specified in two alternative ways:</p>
 <ul>
 <li><code>use_powerCharacteristic = false</code> (default option): the replaceable function <code>efficiencyCharacteristic</code> (efficiency vs. volume flow rate in nominal conditions) is used to determine the efficiency, and then the power consumption.
     The default is a constant efficiency of 0.8.</li>
@@ -513,6 +513,7 @@ Then the model can be replaced with a Pump with rotational shaft or with a Presc
 </ul>
 <p>
 Several functions are provided in the package <code>PumpCharacteristics</code> to specify the characteristics as a function of some operating points at nominal conditions.
+</p>
 <p>Depending on the value of the <code>checkValve</code> parameter, the model either supports reverse flow conditions, or includes a built-in check valve to avoid flow reversal.
 </p>
 <p>It is possible to take into account the mass and energy storage of the fluid inside the pump by specifying its volume <code>V</code>, and by selecting appropriate dynamic mass and energy balance assumptions (see below);

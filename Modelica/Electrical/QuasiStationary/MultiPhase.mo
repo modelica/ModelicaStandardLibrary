@@ -1340,7 +1340,7 @@ using <code>m</code> <a href=\"modelica://Modelica.Electrical.QuasiStationary.Si
 <p>
 Model of a multi phase inductor providing a mutual inductance matrix model.
 </p>
-<H4>Implementation</H4>
+<h4>Implementation</h4>
 <pre>
   v[1] = j*omega*L[1,1]*i[1] + j*omega*L[1,2]*i[2] + ... + j*omega*L[1,m]*i[m]
   v[2] = j*omega*L[2,1]*i[1] + j*omega*L[2,2]*i[2] + ... + j*omega*L[2,m]*i[m]

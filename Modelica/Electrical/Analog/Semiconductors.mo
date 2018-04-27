@@ -171,7 +171,7 @@ Stefan Vorkoetter - new model proposed.</li>
     LossPower = v*i;
           annotation (defaultComponentName="diode",
             Documentation(info="<html>
-<p>The simple Zener diode is a one port. It consists of the diode itself and an parallel ohmic resistance <em>R</em>. The diode formula is:
+<p>The simple Zener diode is a one port. It consists of the diode itself and an parallel ohmic resistance <em>R</em>. The diode formula is:</p>
 <pre>                v/Vt                -(v+Bv)/(Nbv*Vt)
   i  =  Ids ( e      - 1) - Ibv ( e                  ).</pre>
 <p>If the exponent in one of the two branches reaches the limit <em>Maxexp</em>, the diode characteristic is linearly continued to avoid overflow.</p>
@@ -256,28 +256,28 @@ equation
   LossPower = D.i * (D.v - S.v);
   annotation (
     Documentation(info="<html>
-<P>
+<p>
 The PMOS model is a simple model of a p-channel metal-oxide semiconductor
 FET. It differs slightly from the device used in the SPICE simulator.
 For more details please care for H. Spiro.
-</P>
-<P>
+</p>
+<p>
 The model does not consider capacitances. A high drain-source resistance RDS
 is included to avoid numerical difficulties.
 <br><br>
 <strong>Please note:</strong>
 In case of useHeatPort=true the temperature dependence of the electrical
 behavior is <strong>not</strong> modelled yet. The parameters are not temperature dependent.
-</P>
-<DL>
-<DT><strong>References:</strong></DT>
-<DD>Spiro, H.: Simulation integrierter Schaltungen. R. Oldenbourg Verlag
-  Muenchen Wien 1990.</DD>
-</DL>
-<P>
+</p>
+<dl>
+<dt><strong>References:</strong></dt>
+<dd>Spiro, H.: Simulation integrierter Schaltungen. R. Oldenbourg Verlag
+  Muenchen Wien 1990.</dd>
+</dl>
+<p>
 Some typical parameter sets are:
-</P>
-<PRE>
+</p>
+<pre>
   W       L      Beta        Vt    K2     K5      DW       DL
   m       m      A/V^2       V     -      -       m        m
   50.e-6  8.e-6  0.0085e-3  -0.15  0.41   0.839  -3.8e-6  -4.0e-6
@@ -287,7 +287,7 @@ Some typical parameter sets are:
   30.e-6  5.e-6  0.0163e-3  -0.69  0.104  1.1    -0.8e-6  -0.4e-6
   30.e-6  5.e-6  0.0182e-3  -0.69  0.086  1.06   -0.1e-6  -0.6e-6
   20.e-6  6.e-6  0.0074e-3  -1.    0.4    0.59    0        0
-</PRE>
+</pre>
 
 </html>",
  revisions="<html>
@@ -376,20 +376,20 @@ equation
   LossPower = D.i * (D.v - S.v);
   annotation (
     Documentation(info="<html>
-<P>
+<p>
 The NMOS model is a simple model of a n-channel metal-oxide semiconductor
 FET. It differs slightly from the device used in the SPICE simulator.
 For more details please care for H. Spiro.
-</P>
-<P>
+</p>
+<p>
 The model does not consider capacitances. A high drain-source resistance RDS
 is included to avoid numerical difficulties.
 <br><br>
 <strong>Please note:</strong>
 In case of useHeatPort=true the temperature dependence of the electrical
 behavior is <strong>not</strong> modelled yet. The parameters are not temperature dependent.
-</P>
-<PRE>
+</p>
+<pre>
   W       L      Beta         Vt      K2     K5       DW       DL
   m       m      A/V^2        V       -      -        m        m
   12.e-6  4.e-6  0.062e-3    -4.5     0.24   0.61    -1.2e-6  -0.9e-6      depletion
@@ -410,13 +410,13 @@ behavior is <strong>not</strong> modelled yet. The parameters are not temperatur
   60.e-6  3.e-6  0.022e-3     0.1     0.11   0.65     0        0           enhancement
   12.e-6  4.e-6  0.038e-3    -0.8     0.33   0.6      0        0           zero
   20.e-6  6.e-6  0.022e-3     0.8     1      0.66     0        0
-</PRE>
+</pre>
 
-<DL>
-<DT><strong>References:</strong></DT>
-<DD>Spiro, H.: Simulation integrierter Schaltungen. R. Oldenbourg Verlag
-Muenchen Wien 1990.</DD>
-</DL>
+<dl>
+<dt><strong>References:</strong></dt>
+<dd>Spiro, H.: Simulation integrierter Schaltungen. R. Oldenbourg Verlag
+Muenchen Wien 1990.</dd>
+</dl>
 </html>",
  revisions="<html>
 <ul>
@@ -523,28 +523,28 @@ equation
   LossPower = (C.v-E.v)*(ibe-ibc)*qbk + vbc*ibc/Br + vbe*ibe/Bf;
   annotation (
     Documentation(info="<html>
-<P>
+<p>
 This model is a simple model of a bipolar NPN junction transistor according
 to Ebers-Moll.
 <br><br>
 <strong>Please note:</strong>
 In case of useHeatPort=true the temperature dependence of the electrical
 behavior is <strong>not</strong> modelled yet. The parameters are not temperature dependent.
-</P>
-<P>
+</p>
+<p>
 A typical parameter set is:
-</P>
-<PRE>
+</p>
+<pre>
   Bf  Br  Is     Vak  Tauf    Taur  Ccs   Cje     Cjc     Phie  Me   PHic   Mc     Gbc    Gbe    Vt
   -   -   A      V    s       s     F     F       F       V     -    V      -      mS     mS     V
   50  0.1 1e-16  0.02 0.12e-9 5e-9  1e-12 0.4e-12 0.5e-12 0.8   0.4  0.8    0.333  1e-15  1e-15  0.02585
-</PRE>
-<DL>
-<DT><strong>References:</strong></DT>
-<DD>Vlach, J.; Singal, K.: Computer methods for circuit analysis and design.
+</pre>
+<dl>
+<dt><strong>References:</strong></dt>
+<dd>Vlach, J.; Singal, K.: Computer methods for circuit analysis and design.
 Van Nostrand Reinhold, New York 1983
-on page 317 ff.</DD>
-</DL>
+on page 317 ff.</dd>
+</dl>
 </html>",
  revisions="<html>
 <ul>
@@ -639,27 +639,27 @@ equation
   LossPower = (E.v-C.v)*(ibe-ibc)*qbk + vbc*ibc/Br + vbe*ibe/Bf;
                                                                     annotation (
     Documentation(info="<html>
-<P>
+<p>
 This model is a simple model of a bipolar PNP junction transistor according
 to Ebers-Moll.
 <br><br>
 <strong>Please note:</strong>
-In case of useHeatPort=true the temperature dependence of the electrical
-behavior is <strong>not</strong> modelled yet. The parameters are not temperature dependent.
-<P>
+In case of useHeatPort=true the temperature dependency of the electrical
+behavior is <strong>not</strong> modelled yet. The parameters are not temperature dependent.</p>
+<p>
 A typical parameter set is:
-</P>
-<PRE>
+</p>
+<pre>
   Bf  Br  Is     Vak  Tauf    Taur  Ccs   Cje     Cjc     Phie  Me   PHic   Mc     Gbc    Gbe    Vt
   -   -   A      V    s       s     F     F       F       V     -    V      -      mS     mS     V
   50  0.1 1e-16  0.02 0.12e-9 5e-9  1e-12 0.4e-12 0.5e-12 0.8   0.4  0.8    0.333  1e-15  1e-15  0.02585
-</PRE>
-<DL>
-<DT><strong>References:</strong></DT>
-<DD>Vlach, J.; Singal, K.: Computer methods for circuit analysis and design.
+</pre>
+<dl>
+<dt><strong>References:</strong></dt>
+<dd>Vlach, J.; Singal, K.: Computer methods for circuit analysis and design.
 Van Nostrand Reinhold, New York 1983
-on page 317 ff.</DD>
-</DL>
+on page 317 ff.</dd>
+</dl>
 </html>",
  revisions="<html>
 <ul>
@@ -732,25 +732,25 @@ equation
   LossPower = i*v;
   annotation (defaultComponentName="diode",
     Documentation(info="<html>
-<P>
+<p>
 The simple diode is an electrical one port, where a heat port is added, which is
 defined in the Modelica.Thermal library. It consists of the diode itself and an parallel ohmic
 resistance <em>R</em>. The diode formula is:
-</P>
-<PRE>
+</p>
+<pre>
                 v/vt_t
   i  =  ids ( e        - 1).
 
-</PRE>
+</pre>
 where vt_t depends on the temperature of the heat port:
-<PRE>
+<pre>
   vt_t = k*temp/q
-</PRE>
-<P>
+</pre>
+<p>
 If the exponent <em>v/vt_t</em> reaches the limit <em>maxex</em>, the diode characteristic is linearly
 continued to avoid overflow.<br>
 The thermal power is calculated by <em>i*v</em>.
-</P>
+</p>
 </html>", revisions="<html>
 <ul>
 <li><em> March 11, 2009   </em>
@@ -843,7 +843,7 @@ end HeatingDiode;
 <br> A heating port is added for thermal electric simulation. The heating port is defined in the Modelica.Thermal library.
 <br>The model does not consider capacitances. A high drain-source resistance RDS is included to avoid numerical difficulties.
 </p>
-<PRE>
+<pre>
   W       L      Beta         Vt      K2     K5       DW       DL
   m       m      A/V^2        V       -      -        m        m
   12.e-6  4.e-6  0.062e-3    -4.5     0.24   0.61    -1.2e-6  -0.9e-6      depletion
@@ -864,7 +864,7 @@ end HeatingDiode;
   60.e-6  3.e-6  0.022e-3     0.1     0.11   0.65     0        0           enhancement
   12.e-6  4.e-6  0.038e-3    -0.8     0.33   0.6      0        0           zero
   20.e-6  6.e-6  0.022e-3     0.8     1      0.66     0        0
-</PRE>
+</pre>
 <p><strong>References:</strong></p>
 <p>Spiro, H.: Simulation integrierter Schaltungen. R. Oldenbourg Verlag Muenchen Wien 1990.</p>
 </html>",  revisions="<html>
@@ -967,7 +967,7 @@ end HeatingDiode;
 <dl><dt><strong>References:</strong> </dt>
 <dd>Spiro, H.: Simulation integrierter Schaltungen. R. Oldenbourg Verlag Muenchen Wien 1990. </dd>
 </dl><p>Some typical parameter sets are:</p>
-<PRE>
+<pre>
   W       L      Beta        Vt    K2     K5      DW       DL
   m       m      A/V^2       V     -      -       m        m
   50.e-6  8.e-6  0.0085e-3  -0.15  0.41   0.839  -3.8e-6  -4.0e-6
@@ -977,7 +977,7 @@ end HeatingDiode;
   30.e-6  5.e-6  0.0163e-3  -0.69  0.104  1.1    -0.8e-6  -0.4e-6
   30.e-6  5.e-6  0.0182e-3  -0.69  0.086  1.06   -0.1e-6  -0.6e-6
   20.e-6  6.e-6  0.0074e-3  -1.    0.4    0.59    0        0
-</PRE>
+</pre>
 </html>",  revisions="<html>
 <ul>
 <li><em> March 11, 2009   </em>
