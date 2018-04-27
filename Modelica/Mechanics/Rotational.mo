@@ -228,16 +228,16 @@ which are defined in sublibrary Interfaces:
 <table BORDER=1 CELLSPACING=0 CELLPADDING=2>
 <tr><th>Name</th><th>Description</th></tr>
 <tr>
-  <td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialCompliant\">PartialCompliant</a>
+  <td><a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialCompliant\">PartialCompliant</a>
   </td>
-  <td valign=\"top\">Compliant connection of two rotational 1-dim. flanges
+  <td>Compliant connection of two rotational 1-dim. flanges
                    (used for force laws such as a spring or a damper).</td>
 </tr>
 
 <tr>
-  <td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialCompliantWithRelativeStates\">PartialCompliantWithRelativeStates</a>
+  <td><a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialCompliantWithRelativeStates\">PartialCompliantWithRelativeStates</a>
   </td>
-  <td valign=\"top\"> Same as \"PartialCompliant\", but relative angle and relative speed are
+  <td> Same as \"PartialCompliant\", but relative angle and relative speed are
                     defined as preferred states. Use this partial model if the force law
                     needs anyway the relative speed. The advantage is that it is usually better
                     to use relative angles between drive train components
@@ -247,38 +247,38 @@ which are defined in sublibrary Interfaces:
 </tr>
 
 <tr>
-  <td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialElementaryTwoFlangesAndSupport2\">PartialElementaryTwoFlangesAndSupport2</a>
+  <td><a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialElementaryTwoFlangesAndSupport2\">PartialElementaryTwoFlangesAndSupport2</a>
 </td>
-  <td valign=\"top\"> Partial model for a 1-dim. rotational gear consisting of the flange of
+  <td> Partial model for a 1-dim. rotational gear consisting of the flange of
                     an input shaft, the flange of an output shaft and the support.
   </td>
 </tr>
 
 <tr>
-  <td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialTorque\">PartialTorque</a>
+  <td><a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialTorque\">PartialTorque</a>
 </td>
-  <td valign=\"top\"> Partial model of a torque acting at the flange (accelerates the flange).
+  <td> Partial model of a torque acting at the flange (accelerates the flange).
   </td>
 </tr>
 
 <tr>
-  <td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialTwoFlanges\">PartialTwoFlanges</a>
+  <td><a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialTwoFlanges\">PartialTwoFlanges</a>
 </td>
-  <td valign=\"top\">General connection of two rotational 1-dim. flanges.
+  <td>General connection of two rotational 1-dim. flanges.
   </td>
 </tr>
 
 <tr>
-  <td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialAbsoluteSensor\">PartialAbsoluteSensor</a>
+  <td><a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialAbsoluteSensor\">PartialAbsoluteSensor</a>
 </td>
-  <td valign=\"top\">Measure absolute flange variables.
+  <td>Measure absolute flange variables.
   </td>
 </tr>
 
 <tr>
-  <td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialRelativeSensor\">PartialRelativeSensor</a>
+  <td><a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialRelativeSensor\">PartialRelativeSensor</a>
 </td>
-  <td valign=\"top\">Measure relative flange variables.
+  <td>Measure relative flange variables.
   </td>
 </tr>
 </table>
@@ -4405,11 +4405,11 @@ meaning:
 <table BORDER=1 CELLSPACING=0 CELLPADDING=2>
   <tbody>
     <tr>
-      <td valign=\"top\">|w_a|</td>
-      <td valign=\"top\">eta_mf1</td>
-      <td valign=\"top\">eta_mf2</td>
-      <td valign=\"top\">|tau_bf1|</td>
-      <td valign=\"top\">|tau_bf2|</td>
+      <td>|w_a|</td>
+      <td>eta_mf1</td>
+      <td>eta_mf2</td>
+      <td>|tau_bf1|</td>
+      <td>|tau_bf2|</td>
     </tr>
     <tr>
       <td align=\"center\">...</td>
@@ -4432,27 +4432,27 @@ meaning:
 <table BORDER=1 CELLSPACING=0 CELLPADDING=2>
   <tbody>
     <tr>
-      <td valign=\"top\">|w_a|</td>
-      <td valign=\"top\">Absolute value of angular velocity of input shaft flange_a</td>
+      <td>|w_a|</td>
+      <td>Absolute value of angular velocity of input shaft flange_a</td>
     </tr>
     <tr>
-      <td valign=\"top\">eta_mf1</td>
-      <td valign=\"top\">Mesh efficiency in case that flange_a is driving</td>
+      <td>eta_mf1</td>
+      <td>Mesh efficiency in case that flange_a is driving</td>
     </tr>
     <tr>
-      <td valign=\"top\">eta_mf2</td>
-      <td valign=\"top\">Mesh efficiency in case that flange_b is driving</td>
+      <td>eta_mf2</td>
+      <td>Mesh efficiency in case that flange_b is driving</td>
     </tr>
     <tr>
-      <td valign=\"top\">|tau_bf1|</td>
-      <td valign=\"top\"> Absolute resultant bearing friction torque with respect to flange_a
+      <td>|tau_bf1|</td>
+      <td> Absolute resultant bearing friction torque with respect to flange_a
                         in case that flange_a is driving<br>
                         (= |tau_bf_a*eta_mf1 + tau_bf_b/i|)
                         </td>
     </tr>
     <tr>
-      <td valign=\"top\">|tau_bf2|</td>
-      <td valign=\"top\"> Absolute resultant bearing friction torque with respect to flange_a
+      <td>|tau_bf2|</td>
+      <td> Absolute resultant bearing friction torque with respect to flange_a
                         in case that flange_b is driving<br>
                         (= |tau_bf_a/eta_mf2 + tau_bf_b/i|)
                         </td>

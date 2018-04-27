@@ -170,8 +170,8 @@ email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
     <tr>
-      <td valign=\"top\">[Vaske1963]</td>
-      <td valign=\"top\">P. Vaske,
+      <td>[Vaske1963]</td>
+      <td>P. Vaske,
         &quot;&Uuml;ber die Drehfelder und Drehmomente symmetrischer Komponenten in Induktionsmaschinen,&quot;
         (in German), <em>Archiv f&uuml;r Elektrotechnik</em>
         vol 2, 1963, pp. 97-117.</td>

@@ -191,38 +191,38 @@ variable <strong>extra</strong> is used as instance name:
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th><strong>shapeType</strong></th><th>Meaning of parameter <strong>extra</strong></th></tr>
 <tr>
-  <td valign=\"top\">\"cylinder\"</td>
-  <td valign=\"top\">if extra&nbsp;&gt;&nbsp;0, a black line is included in the
+  <td>\"cylinder\"</td>
+  <td>if extra&nbsp;&gt;&nbsp;0, a black line is included in the
       cylinder to show the rotation of it.</td>
 </tr>
 <tr>
-  <td valign=\"top\">\"cone\"</td>
-  <td valign=\"top\">extra = diameter-left-side / diameter-right-side, i.e.,<br>
+  <td>\"cone\"</td>
+  <td>extra = diameter-left-side / diameter-right-side, i.e.,<br>
       extra = 1: cylinder<br>
       extra = 0: \"real\" cone.</td>
 </tr>
 <tr>
-  <td valign=\"top\">\"pipe\"</td>
-  <td valign=\"top\">extra = outer-diameter / inner-diameter, i.e, <br>
+  <td>\"pipe\"</td>
+  <td>extra = outer-diameter / inner-diameter, i.e, <br>
       extra = 1: cylinder that is completely hollow<br>
       extra = 0: cylinder without a hole.</td>
 </tr>
 <tr>
-  <td valign=\"top\">\"gearwheel\"</td>
-  <td valign=\"top\">extra is the number of teeth of the (external) gear.
+  <td>\"gearwheel\"</td>
+  <td>extra is the number of teeth of the (external) gear.
 If extra&nbsp;&lt;&nbsp;0, an internal gear is visualized with |extra| teeth.
 The axis of the gearwheel is along \"lengthDirection\", and usually:
 width = height = 2*radiusOfGearWheel.</td>
 </tr>
 <tr>
-  <td valign=\"top\">\"spring\"</td>
-  <td valign=\"top\">extra is the number of windings of the spring.
+  <td>\"spring\"</td>
+  <td>extra is the number of windings of the spring.
       Additionally, \"height\" is <strong>not</strong> the \"height\" but
       2*coil-width.</td>
 </tr>
 <tr>
-  <td valign=\"top\">external shape</td>
-  <td valign=\"top\">extra = 0: Visualization from file is not scaled.<br>
+  <td>external shape</td>
+  <td>extra = 0: Visualization from file is not scaled.<br>
                      extra = 1: Visualization from file is scaled with \"length\", \"width\" and \"height\"
                                 of the shape</td>
 </tr>
@@ -238,14 +238,14 @@ width = height = 2*radiusOfGearWheel.</td>
                                                annotation (Documentation(info="<html>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th><strong>Types.ResolveInFrameA.</strong></th><th><strong>Meaning</strong></th></tr>
-<tr><td valign=\"top\">world</td>
-    <td valign=\"top\">Resolve vector in world frame</td></tr>
+<tr><td>world</td>
+    <td>Resolve vector in world frame</td></tr>
 
-<tr><td valign=\"top\">frame_a</td>
-    <td valign=\"top\">Resolve vector in frame_a</td></tr>
+<tr><td>frame_a</td>
+    <td>Resolve vector in frame_a</td></tr>
 
-<tr><td valign=\"top\">frame_resolve</td>
-    <td valign=\"top\">Resolve vector in frame_resolve (frame_resolve must be connected)</td></tr>
+<tr><td>frame_resolve</td>
+    <td>Resolve vector in frame_resolve (frame_resolve must be connected)</td></tr>
 </table>
 </html>"));
   type ResolveInFrameB = enumeration(
@@ -257,14 +257,14 @@ width = height = 2*radiusOfGearWheel.</td>
                                                annotation (Documentation(info="<html>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th><strong>Types.ResolveInFrameB.</strong></th><th><strong>Meaning</strong></th></tr>
-<tr><td valign=\"top\">world</td>
-    <td valign=\"top\">Resolve vector in world frame</td></tr>
+<tr><td>world</td>
+    <td>Resolve vector in world frame</td></tr>
 
-<tr><td valign=\"top\">frame_b</td>
-    <td valign=\"top\">Resolve vector in frame_b</td></tr>
+<tr><td>frame_b</td>
+    <td>Resolve vector in frame_b</td></tr>
 
-<tr><td valign=\"top\">frame_resolve</td>
-    <td valign=\"top\">Resolve vector in frame_resolve (frame_resolve must be connected)</td></tr>
+<tr><td>frame_resolve</td>
+    <td>Resolve vector in frame_resolve (frame_resolve must be connected)</td></tr>
 </table>
 </html>"));
   type ResolveInFrameAB = enumeration(
@@ -277,17 +277,17 @@ width = height = 2*radiusOfGearWheel.</td>
                                                annotation (Documentation(info="<html>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th><strong>Types.ResolveInFrameAB.</strong></th><th><strong>Meaning</strong></th></tr>
-<tr><td valign=\"top\">world</td>
-    <td valign=\"top\">Resolve vector in world frame</td></tr>
+<tr><td>world</td>
+    <td>Resolve vector in world frame</td></tr>
 
-<tr><td valign=\"top\">frame_a</td>
-    <td valign=\"top\">Resolve vector in frame_a</td></tr>
+<tr><td>frame_a</td>
+    <td>Resolve vector in frame_a</td></tr>
 
-<tr><td valign=\"top\">frame_b</td>
-    <td valign=\"top\">Resolve vector in frame_b</td></tr>
+<tr><td>frame_b</td>
+    <td>Resolve vector in frame_b</td></tr>
 
-<tr><td valign=\"top\">frame_resolve</td>
-    <td valign=\"top\">Resolve vector in frame_resolve (frame_resolve must be connected)</td></tr>
+<tr><td>frame_resolve</td>
+    <td>Resolve vector in frame_resolve (frame_resolve must be connected)</td></tr>
 </table>
 </html>"));
 
@@ -300,15 +300,15 @@ width = height = 2*radiusOfGearWheel.</td>
         Documentation(Evaluate=true, info="<html>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th><strong>Types.RotationTypes.</strong></th><th><strong>Meaning</strong></th></tr>
-<tr><td valign=\"top\">RotationAxis</td>
-    <td valign=\"top\">frame_b is defined by rotating the coordinate system along
+<tr><td>RotationAxis</td>
+    <td>frame_b is defined by rotating the coordinate system along
         an axis fixed in frame_a and with a fixed angle.</td></tr>
 
-<tr><td valign=\"top\">TwoAxesVectors</td>
-    <td valign=\"top\">frame_b is defined by resolving two vectors of frame_b in frame_a.</td></tr>
+<tr><td>TwoAxesVectors</td>
+    <td>frame_b is defined by resolving two vectors of frame_b in frame_a.</td></tr>
 
-<tr><td valign=\"top\">PlanarRotationSequence</td>
-    <td valign=\"top\">frame_b is defined by rotating the coordinate system along
+<tr><td>PlanarRotationSequence</td>
+    <td>frame_b is defined by rotating the coordinate system along
         3 consecutive axes vectors with fixed rotation angles
         (e.g., Cardan or Euler angle sequence rotation).</td></tr>
 </table>
@@ -322,14 +322,14 @@ width = height = 2*radiusOfGearWheel.</td>
       annotation (Documentation(info="<html>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th><strong>Types.GravityTypes.</strong></th><th><strong>Meaning</strong></th></tr>
-<tr><td valign=\"top\">NoGravity</td>
-    <td valign=\"top\">No gravity field</td></tr>
+<tr><td>NoGravity</td>
+    <td>No gravity field</td></tr>
 
-<tr><td valign=\"top\">UniformGravity</td>
-    <td valign=\"top\">Gravity field is described by a vector of constant gravity acceleration</td></tr>
+<tr><td>UniformGravity</td>
+    <td>Gravity field is described by a vector of constant gravity acceleration</td></tr>
 
-<tr><td valign=\"top\">PointGravity</td>
-    <td valign=\"top\">Central gravity field. The gravity acceleration vector is directed to
+<tr><td>PointGravity</td>
+    <td>Central gravity field. The gravity acceleration vector is directed to
         the field center and the gravity is proportional to 1/r^2, where
         r is the distance to the field center.</td></tr>
 </table>
