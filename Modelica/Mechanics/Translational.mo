@@ -2249,7 +2249,6 @@ desired for a force element.
           Text(
             origin={0,-7},
             extent={{-150,-108},{150,-68}},
-                lineColor={0,0,0},
                 textString="c=%c"),
           Line(visible=useHeatPort,
             points={{-100,-100},{-100,-55},{-5,-55}},
