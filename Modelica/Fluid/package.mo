@@ -336,20 +336,20 @@ sum(port_j.m_flow*C_connection) = 0;  // Trace components mass balances
 It is <strong>very important</strong> to bear in mind that
 </p>
 <ul>
-<li> the mass balances are always exact; </li>
+<li> the mass balances are always exact;</li>
 <li> the momentum and energy balance are only exact when two port with the same
-diameter are connected, because there is no friction and no change in fluid velocity. </li>
+diameter are connected, because there is no friction and no change in fluid velocity.</li>
 </ul>
 <p>
 In all other cases, i.e., different port diameters and/or multiple port connections:
 </p>
 <ul>
 <li> The momentum balance does not consider friction effects and changes of pressure due to changes
-in velocity. </li>
+in velocity.</li>
 <li> There might thus be errors in the momentum balance of the order of magnitude
 of the dynamic pressure &rho;v<sup>2</sup>/2.</li>
 <li> The energy balance does not consider the kinetic terms (gravity terms cancel out due
-to the infinitesimal size of the connection volume). There might thus be errors in the momentum balance of the order of magnitude of the kinetic energy v^2/2. </li>
+to the infinitesimal size of the connection volume). There might thus be errors in the momentum balance of the order of magnitude of the kinetic energy v^2/2.</li>
 </ul>
 <p>
 In many applications, where fluid speeds are low and thermal phenomena are mainly of interest,
@@ -710,7 +710,7 @@ The pressure loss characteristic is divided into three regions:
      assumptions of steady flow, constant pressure gradient and constant
      density and viscosity (= Hagen-Poiseuille flow) leading to &lambda;2 = 64*Re.
      Therefore:
-     <pre> dp = 128*&mu;*L/(&pi;*D^4*&rho;)*m_flow </pre> <br>&nbsp;
+     <pre> dp = 128*&mu;*L/(&pi;*D^4*&rho;)*m_flow </pre><br>&nbsp;
 </li>
 
 <li> <strong>Region 3</strong>:
@@ -991,7 +991,7 @@ used by all the components.
 </li>
 <li> The <em>Assumptions</em> tab allows to change the default modelling assumptions
 used by all the components (see the section <em>Customizing a system model later</em>)</li>
-<li> The <em>Initialization</em> tab allows to define default start values for mass flow rates, pressures and temperatures in the model; this can be useful to help nonlinear solver converge to the solution of any nonlinear system of equations that involves such variables, by providing meaningful guess values. </li>
+<li> The <em>Initialization</em> tab allows to define default start values for mass flow rates, pressures and temperatures in the model; this can be useful to help nonlinear solver converge to the solution of any nonlinear system of equations that involves such variables, by providing meaningful guess values.</li>
 <li> The <em>Advanced</em> tab contains default values for parameters used in
 the advanced settings of some components.</li>
 </ul>
@@ -1057,7 +1057,7 @@ equations are included, fixing the states to the start values provided by the
 component parameters.</li>
 <li>SteadyStateInitial: dynamic equations are considered (nonzero storage), initial
 equations are included, declaring that the state derivatives are zero (steady-state
-initialization) and the start values are used as guess values for the nonlinear solver. </li>
+initialization) and the start values are used as guess values for the nonlinear solver.</li>
 <li>SteadyState: algebraic (or static) balance equations are considered (no storage)
 and the start values are used as guess values for the nonlinear solver.</li>
 </ul>
@@ -1223,7 +1223,7 @@ Modelica.Fluid was further improved:
      Added asserts to require that ports are connected at most once.
      If a user would perform more than one connection, ideal mixing
      takes place for the connected components and this is nearly never
-     what the user would like to have </li>
+     what the user would like to have</li>
 
 <li> Ambient<br>
      Renamed Ambient to System, including adaptation of models.<br>
@@ -1252,7 +1252,7 @@ Modelica.Fluid was further improved:
      Removed parameter Kv and added dp_nom, m_flow_nom from linear
      and discrete valve interfaces. Added test cases.<br>
      Adapted Examples to new LinearValve and DiscreteValve,
-     using nominal values instead of Kv. <br>
+     using nominal values instead of Kv.<br>
      Changed default flow coefficient selection to OpPoint</li>
 
 <li> Fixed units for Kv and Cv in control valve models.</li>
@@ -1283,7 +1283,7 @@ Modelica.Fluid was further improved:
      Fluid ports positioned in the middle line
      and using the same size as for all other components.</li>
 
-<li> Pumps.Pump <br>
+<li> Pumps.Pump<br>
      Resized input connector, so that it has the same size as the
      standard input connectors.<br>
      Changed icon text to input connector to \"N_in [rpm]\".<br>
@@ -1340,7 +1340,7 @@ library 3.0 (by automatic conversion). Further changes:
 <li> Emulated enumerations changed to real enumerations.</li>
 <li> Improved ControlValves code</li>
 <li> Introduced stream connectors with stream keyword (was previously an annotation)</li>
-<li> Introduced inStream() instead of inflow() </li>
+<li> Introduced inStream() instead of inflow()</li>
 <li> Introduced m_flow*actualStream(h_outflow) instead of
      streamFlow() or semiLinear(m_flow, inStream(h_outflow), medium.h)</li>
 <li> Removed Modelica.Fluid.Media and all references to it (since now available
@@ -1397,14 +1397,14 @@ Changed connectors to stream connectors and adapted the following sublibraries:
 
 <ul>
 <li> Volumes</li>
-<li> PressureLosses </li>
-<li> Sensors </li>
-<li> Sources </li>
-<li> ControlValves </li>
-<li> HeatExchangers </li>
-<li> Junctions </li>
-<li> Pipes </li>
-<li> Pumps </li>
+<li> PressureLosses</li>
+<li> Sensors</li>
+<li> Sources</li>
+<li> ControlValves</li>
+<li> HeatExchangers</li>
+<li> Junctions</li>
+<li> Pipes</li>
+<li> Pumps</li>
 <li> Test and Examples (most of the examples and tests are simulating)</li>
 </ul>
 

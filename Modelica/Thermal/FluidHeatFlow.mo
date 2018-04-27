@@ -82,7 +82,7 @@ Copyright &copy; 1998-2018, Modelica Association, Anton Haumer, Christian Kral a
 
   <h5>1.60, 2007-01-23 (Anton Haumer)</h5>
   <ul>
-  <li> New parameter tapT defining Temperature of heatPort </li>
+  <li> New parameter tapT defining Temperature of heatPort</li>
   </ul>
 
   <h5>1.50 2005-09-07 (Anton Haumer)</h5>
@@ -2023,7 +2023,7 @@ Thermodynamic equations are defined by Partials.TwoPort.
       Q_flow = 0;
       annotation (
         Documentation(info="<html>
-Simple fan resp. pump where characteristic is dependent on shaft's speed, <br>
+Simple fan resp. pump where characteristic is dependent on shaft's speed,<br>
 torque * speed = pressure increase * volume flow (without losses)<br>
 Pressure increase versus volume flow is defined by a linear function,
 from dp0(V_flow=0) to V_flow0(dp=0).<br>

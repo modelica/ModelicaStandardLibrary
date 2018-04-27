@@ -343,14 +343,14 @@ performs the following actions:
 <ol>
 <li> It opens file \"fileName\" and reads the lines of the file.</li>
 <li> In every line, Modelica line comments (\"// ... end-of-line\")
-     are skipped </li>
+     are skipped</li>
 <li> If a line consists of \"name = expression\" and the \"name\"
      in this line is identical to the second argument \"name\"
      of the function call, the expression calculator Examples.expression
      is used to evaluate the expression after the \"=\" character.
      The expression can optionally be terminated with a \";\".</li>
 <li> The result of the expression evaluation is returned as
-     the value of the parameter \"name\". </li>
+     the value of the parameter \"name\".</li>
 </ol>
 <h4>Example</h4>
 <p>

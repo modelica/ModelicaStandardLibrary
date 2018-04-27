@@ -3604,7 +3604,7 @@ To specify <em>setval</em>, the integer code has to be used.
 </table>
 
 <P>
-If the logic values are imported by <br><strong>import L = Digital.Interfaces.Logic;</strong><br>
+If the logic values are imported by<br><strong>import L = Digital.Interfaces.Logic;</strong><br>
 they can be used to specify the parameter, e.g., <strong>L.'0'</strong> for forcing 0.
 </P>
 </html>", revisions="<html>
@@ -3676,7 +3676,7 @@ To specify the logic value parameters, the integer code has to be used.
   <tr><td>'-'</td> <td>9</td> <td>Do not care</td></tr>
 </table>
 <P>
-If the logic values are imported by <br><strong>import L = Digital.Interfaces.Logic;</strong><br>
+If the logic values are imported by<br><strong>import L = Digital.Interfaces.Logic;</strong><br>
 they can be used to specify the parameter, e.g., <strong>L.'0'</strong> for forcing 0.
 </P>
 </html>", revisions="<html>
@@ -3728,7 +3728,7 @@ they can be used to specify the parameter, e.g., <strong>L.'0'</strong> for forc
             Documentation(info="<html>
 <P>
 The table source output signal <em>y</em> steps to the values of the  <em>x</em> table at the corresponding
-timepoints in the <em>t</em> table. <br>The initial value is specified by <em>y0</em>.
+timepoints in the <em>t</em> table.<br>The initial value is specified by <em>y0</em>.
 </P>
 <P>
 To specify the logic value parameters, the integer code has to be used.
@@ -3751,7 +3751,7 @@ To specify the logic value parameters, the integer code has to be used.
   <tr><td>'-'</td> <td>9</td> <td>Do not care</td></tr>
 </table>
 <P>
-If the logic values are imported by <br><strong>import L = Digital.Interfaces.Logic;</strong><br>
+If the logic values are imported by<br><strong>import L = Digital.Interfaces.Logic;</strong><br>
 they can be used to specify the parameter, e.g., <strong>L.'0'</strong> for forcing 0.
 </P>
 </html>", revisions="<html>
@@ -3848,7 +3848,7 @@ To specify the logic value parameters, the integer code has to be used.
   <tr><td>'-'</td> <td>9</td> <td>Do not care</td></tr>
 </table>
 <P>
-If the logic values are imported by <br><strong>import L = Digital.Interfaces.Logic;</strong><br>
+If the logic values are imported by<br><strong>import L = Digital.Interfaces.Logic;</strong><br>
 they can be used to specify the parameter, e.g., <strong>L.'0'</strong> for forcing 0.
 </P>
 </html>", revisions="<html>

@@ -224,7 +224,7 @@ variables is explained in section \"Connector Equations\" below):
      <br>Plug, PositivePlug, NegativePlug</td>
    <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/ElectricalPlugs.png\"></td></tr>
 
-<tr><td><strong>electrical <br>space phasor</strong></td>
+<tr><td><strong>electrical<br>space phasor</strong></td>
    <td>2 electrical potentials</td>
    <td>2 electrical currents</td>
    <td></td>
@@ -247,7 +247,7 @@ variables is explained in section \"Connector Equations\" below):
      <br>Plug, PositivePlug, NegativePlug</td>
    <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/QuasiStationaryMultiPhasePlugs.png\"></td></tr>
 
-<tr><td><strong>electrical <br>digital</strong></td>
+<tr><td><strong>electrical<br>digital</strong></td>
    <td>Integer (1..9)</td>
    <td></td>
    <td></td>
@@ -261,7 +261,7 @@ variables is explained in section \"Connector Equations\" below):
    <td></td>
    <td>
 <a href=\"modelica://Modelica.Magnetic.FluxTubes.Interfaces\">Modelica.Magnetic.FluxTubes.Interfaces</a>
-     <br>MagneticPort, PositiveMagneticPort, <br>NegativeMagneticPort</td>
+     <br>MagneticPort, PositiveMagneticPort,<br>NegativeMagneticPort</td>
    <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/MagneticPorts.png\"></td></tr>
 
 <tr><td><strong>magnetic<br>fundamental<br>wave</strong></td>
@@ -270,7 +270,7 @@ variables is explained in section \"Connector Equations\" below):
    <td></td>
    <td>
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces\">Modelica.Magnetic.FundamentalWave.Interfaces</a>
-     <br>MagneticPort, PositiveMagneticPort, <br>NegativeMagneticPort</td>
+     <br>MagneticPort, PositiveMagneticPort,<br>NegativeMagneticPort</td>
    <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/FundamentalWavePorts.png\"></td></tr>
 
 <tr><td><strong>translational</strong></td>
@@ -351,7 +351,7 @@ variables is explained in section \"Connector Equations\" below):
 
 <tr><td><strong>state<br>machine</strong></td>
    <td>Boolean variables<br>
-    (occupied, set, <br>
+    (occupied, set,<br>
      available, reset)</td>
    <td></td>
    <td></td>
@@ -534,16 +534,16 @@ In a more equation oriented case additional equations or code segments can be ad
 <p>appears as</p>
 
 <ul>
-  <li>if <code>usePolar == true</code>, assign magnitude and angle to output <br>
+  <li>if <code>usePolar == true</code>, assign magnitude and angle to output<br>
 
   <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Documentation/Format/Cases/y_i1_polar.png\"
-       alt=\"y[i,1] = sqrt( a[i]^2 + b[i]^2 )\"> <br>
+       alt=\"y[i,1] = sqrt( a[i]^2 + b[i]^2 )\"><br>
   <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Documentation/Format/Cases/y_i2_polar.png\"
        alt=\"y[i,2] = atan2( b[i], a[i] )\">
   </li>
-  <li>if <code>usePolar == false</code>, assign cosine and sine to output <br>
+  <li>if <code>usePolar == false</code>, assign cosine and sine to output<br>
   <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Documentation/Format/Cases/y_i1_rect.png\"
-       alt=\"y[i,1] = a[i]\"> <br>
+       alt=\"y[i,1] = a[i]\"><br>
   <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Documentation/Format/Cases/y_i2_rect.png\"
        alt=\" y[i,2] = b[i]\">
   </li>
@@ -564,7 +564,7 @@ Modelica code in the HTML documentation.
 
 <ol>
 <li> For constants, parameters and variables in code segments <code>&lt;code&gt;</code> and <code>&lt;/code&gt;</code>
-     should to be used, e.g., <br>
+     should to be used, e.g.,<br>
      <code><strong>parameter</strong> Modelica.SIunits.Time tStart \"Start time\"</code></li>
 <li> Write multi or single line code segments using <code>&lt;pre&gt;</code> and <code>&lt;/pre&gt;</code>.</li>
 <li> Multi line or single line code shall not be indented.</li>
@@ -624,8 +624,8 @@ or <a href=\"http://www.codecogs.com/latex/eqneditor.php\">codecogs</a> can be u
 <p>
 A typical equation, e.g., of a Fourier synthesis, could look like<br>
 <img
- src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Documentation/Format/Equations/fourier.png\"> <br>
-or <br>
+ src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Documentation/Format/Equations/fourier.png\"><br>
+or<br>
 <img
  src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Documentation/Format/Equations/sample.png\"
  alt=\"y=a_1+a_2\"><br>
@@ -998,7 +998,7 @@ The <a href=\"modelica://Modelica.UsersGuide.Conventions.Documentation.Structure
      <code>&lt;h2&gt;</code> and <code>&lt;h3&gt;</code> should not be used, because they are utilized by
      the automatically generated documentation.</li>
 <li> The utilized heading format starts with <code>&lt;h4&gt;</code> and terminates with <code>&lt;/h4&gt;</code>, e.g.,
-     <code>&lt;h4&gt;Description&lt;/h4&gt;</code> </li>
+     <code>&lt;h4&gt;Description&lt;/h4&gt;</code></li>
 <li> The  <code>&lt;h4&gt;</code> and  <code>&lt;h5&gt;</code> headings must not be terminated by a colon (:).</li>
 <li> For additional structuring <code>&lt;h5&gt;</code> and <code>&lt;/h5&gt;</code> may be used as demonstrated below.</li>
 </ol>
@@ -1011,12 +1011,12 @@ The following parts should be added to the documentation of each component:
 <ol>
 <li> General information without additional subsection explains how the class works</li>
 <li> <strong>Syntax</strong> (for functions only): shows syntax of function call with minimum and full input parameters</li>
-<li> <strong>Implementation</strong> (optional): explains how the implementation is made </li>
+<li> <strong>Implementation</strong> (optional): explains how the implementation is made</li>
 <li> <strong>Limitations</strong> (optional): explains the limitations of the component</li>
-<li> <strong>Notes</strong> (optional): if required/useful </li>
-<li> <strong>Examples</strong> (optional): if required/useful </li>
-<li> <strong>Acknowledgments</strong> (optional): if required </li>
-<li> <strong>See also</strong>: shows hyperlinks to related models </li>
+<li> <strong>Notes</strong> (optional): if required/useful</li>
+<li> <strong>Examples</strong> (optional): if required/useful</li>
+<li> <strong>Acknowledgments</strong> (optional): if required</li>
+<li> <strong>See also</strong>: shows hyperlinks to related models</li>
 <li> <strong>Revision history</strong> (optional): if required/intended for a package/model, the revision history
         should be placed in <code>annotation(Documentation(revisions=&quot;...&quot;));</code></li>
 </ol>
@@ -1384,7 +1384,7 @@ This class summarizes general information about the implementation which is not 
 <p>In the following the reference formats will be explained based on five examples:</p>
 
 <ul>
-<li> Journal (or conference) [Gao2008] </li>
+<li> Journal (or conference) [Gao2008]</li>
 <li> Book [Andronov1973]</li>
 <li> Master's thesis [Woehrnschimmel1998]</li>
 <li> PhD thesis [Farnleitner1999]</li>
@@ -1594,7 +1594,7 @@ This class summarizes contact information of the contributing persons.
 <li> Version number, date, author and comments shall be included.
      In case the version number is not known at the time of implementation,
      a dummy version number shall be used, e.g., <code>3.x.x</code>. The version date shall be the date of the
-     latest change. </li>
+     latest change.</li>
 </ol>
 
 <h5>Example</h5>
@@ -1684,7 +1684,7 @@ This class summarizes contact information of the contributing persons.
 <p>The UsersGuide of each package should consist of the following classes</p>
 <ol>
 <li> <a href=\"modelica://Modelica.UsersGuide.Conventions.UsersGuide.Contact\">Contact</a> information of
-     the library officer and the co-authors </li>
+     the library officer and the co-authors</li>
 <li> Optional <a href=\"modelica://Modelica.UsersGuide.Conventions.UsersGuide.Implementation\">Implementation Notes</a> to give general information about the implementation</li>
 <li> <a href=\"modelica://Modelica.UsersGuide.Conventions.UsersGuide.References\">References</a> for summarizing the literature of the package</li>
 <li> <a href=\"modelica://Modelica.UsersGuide.Conventions.UsersGuide.RevisionHistory\">Revision history </a> to summarize the most important changes and improvements of the package</li>
@@ -1727,7 +1727,7 @@ Fig. 1: (a) Typical icon, (b) including dimensions
 <p>The component name <code>%name</code> shall be in RGB (0,0,255) blue color.</p>
 <ul>
 <li>Text height: 40 units</li>
-<li>Text width: 300 units </li>
+<li>Text width: 300 units</li>
 </ul>
 <p>The text shall be located above the actual icon. If there is enough space, the upper text limit of the component name
 shall be 10 units below the upper icon boundary, see Fig. 1.</p>
@@ -1762,7 +1762,7 @@ Fig. 4: Component name below actual icon
 <p>One significant parameter shall be placed below the icon, see Fig. 1 and 2. The parameter name shall be RGB (0,0,0) black color.</p>
 <ul>
 <li>Text height: 40 units (or 30 units, minimum 20 units, if required)</li>
-<li>Text width: 300 units </li>
+<li>Text width: 300 units</li>
 </ul>
 <p>The parameter text box shall be placed 10 units below the actual icon.
 </p>
@@ -1793,8 +1793,8 @@ icons of the Icon layer. Any graphical illustrations shall be moved to the HTML 
     annotation (DocumentationClass=true,Documentation(info="<html>
 <p>A Modelica main package should be compliant with the UsersGuide stated in this documentation:</p>
 <ol>
-<li> Conventions of the <a href=\"modelica://Modelica.UsersGuide.Conventions.ModelicaCode\">Modelica code</a> </li>
-<li> Consistent HTML documentation <a href=\"modelica://Modelica.UsersGuide.Conventions.Documentation\">UsersGuide</a> </li>
+<li> Conventions of the <a href=\"modelica://Modelica.UsersGuide.Conventions.ModelicaCode\">Modelica code</a></li>
+<li> Consistent HTML documentation <a href=\"modelica://Modelica.UsersGuide.Conventions.Documentation\">UsersGuide</a></li>
 <li> Structure to be provided by a main package
 <ul>
      <li> <a href=\"modelica://Modelica.UsersGuide.Conventions.UsersGuide\">User's Guide</a></li>
@@ -1996,7 +1996,7 @@ There are some special guidelines for changes to the maintenance branch.
              versionBuild = 2,
              dateModified = \"2018-12-12 07:40:19Z\",
              revisionId   = \"$F&#8203;ormat:%h %s %ci$\")</pre>
-     The \"revisionId\" field is a special annotation to mark a properly released (maintenance) version from unreleased commits. <br>
+     The \"revisionId\" field is a special annotation to mark a properly released (maintenance) version from unreleased commits.<br>
      Example:
      <blockquote>
         Running the export command \"<code>git archive -o msl.zip v3.2.3</code>\" will
@@ -2057,7 +2057,7 @@ Modelica.Fluid.Pipes.BaseClasses.WallFriction.PartialWallFriction, see details b
      <ul>
      <li> <strong>Version 3.2.1 Build.3</strong> (July 30, 2015) with respect to 3.2.1 Build.2 (August 14, 2013):<br>
           About <a href=\"modelica://Modelica/Resources/Documentation/Version-3.2.1/ResolvedTracTickets-build-3.html\">103 tickets</a>
-          have been fixed for this maintenance release.<br>&nbsp; </li>
+          have been fixed for this maintenance release.<br>&nbsp;</li>
 
      <li> <strong>Version 3.2.1 Build.4</strong> (September 30, 2015) with respect to 3.2.1 Build.3 (July 30, 2015):
           <ul>
@@ -2138,7 +2138,7 @@ The exact difference between package Modelica version 3.2.2 and version 3.2.1 is
 summarized in the following two comparison tables:
 </p>
 <ul>
-<li><a href=\"modelica://Modelica/Resources/Documentation/Version-3.2.2/Differences322To321Build4.html\">Difference 3.2.2 to 3.2.1 Build 4</a>, </li>
+<li><a href=\"modelica://Modelica/Resources/Documentation/Version-3.2.2/Differences322To321Build4.html\">Difference 3.2.2 to 3.2.1 Build 4</a>,</li>
 <li><a href=\"modelica://Modelica/Resources/Documentation/Version-3.2.2/Differences321Build4toBuild2.html\">Difference 3.2.1 Build 4 to 3.2.1 Build 2</a>.</li>
 </ul>
 
@@ -2186,7 +2186,7 @@ The following Modelica packages have been tested that they work together with th
 <li>Hydro Power Library 2.6 (Modelon)</li>
 <li>Liquid Cooling Library 1.5 (Modelon)</li>
 <li>Modelica_Synchronous 0.92.1</li>
-<li>Modelica_LinearSystems2 2.3.4 </li>
+<li>Modelica_LinearSystems2 2.3.4</li>
 <li>Modelica_StateGraph2 2.0.3</li>
 <li>Optimization 2.2.2 (DLR)</li>
 <li>PowerTrain 2.4.0 (DLR)</li>
@@ -2515,7 +2515,7 @@ tools might not yet supported the complete Modelica package):
 </p>
 
 <ul>
-<li> CyModelica </li>
+<li> CyModelica</li>
 <li> Dymola 2014 (Windows 64 bit)<br>
      Regression test results with regards to Modelica 3.2 are available
      in ticket <a href=\"https://trac.modelica.org/Modelica/ticket/1114\">#1114</a>.</li>
@@ -2540,11 +2540,11 @@ The following Modelica packages have been tested that they work together with th
 </p>
 
 <ul>
-<li> Buildings 1.4 (LBNL) </li>
+<li> Buildings 1.4 (LBNL)</li>
 <li> FlexibleBodies 2.0.1 (DLR)</li>
 <li> Modelica_Synchronous 0.91 (DLR)</li>
 <li> Optimization 2.2 (DLR)</li>
-<li> PowerTrain 2.2.0 (DLR) </li>
+<li> PowerTrain 2.2.0 (DLR)</li>
 </ul>
 
 <p>
@@ -2568,7 +2568,7 @@ The new open source tables have been tested by T. Beutlich (ITI):
      &nbsp;&nbsp;&nbsp;dSPACE DS1401 (no file system)
      </li>
 <li> The following compilers/environments have been used for the platform evaluation<br>
-     &nbsp;&nbsp;&nbsp;Microsoft compilers (VC6 and &ge; VS2005 (Win32 and x64)) <br>
+     &nbsp;&nbsp;&nbsp;Microsoft compilers (VC6 and &ge; VS2005 (Win32 and x64))<br>
      &nbsp;&nbsp;&nbsp;MinGW (GCC 4.4.0 and GCC 4.7.2)<br>
      &nbsp;&nbsp;&nbsp;Cygwin (GCC 4.3.0)<br>
      &nbsp;&nbsp;&nbsp;Open WATCOM 1.3<br>
@@ -2658,15 +2658,15 @@ to <font color=\"blue\"><strong>existing</strong></font> libraries:
 <tr><td width=\"150\"> K_CoupledInductors</td>
     <td> Inductive coupling via coupling factor K </td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Electrical.Spice3.Semiconductors.</strong></td></tr>
-<tr><td width=\"150\"> M_NMOS2 <br>
-                                      M_PMOS2 <br>
+<tr><td width=\"150\"> M_NMOS2<br>
+                                      M_PMOS2<br>
                                       ModelcardMOS2</td>
     <td>  N/P channel MOSFET transistor with fixed level 2 </td></tr>
-<tr><td width=\"150\"> J_NJFJFE <br>
-                                      J_PJFJFE <br>
+<tr><td width=\"150\"> J_NJFJFE<br>
+                                      J_PJFJFE<br>
                                       ModelcardJFET</td>
     <td>  N/P-channel junction field-effect transistor </td></tr>
-<tr><td width=\"150\"> C_Capacitor <br>
+<tr><td width=\"150\"> C_Capacitor<br>
                                       ModelcardCAPACITOR</td>
     <td>  Semiconductor capacitor model </td></tr>
 
@@ -2721,14 +2721,14 @@ to <font color=\"blue\"><strong>existing</strong></font> libraries:
     <td> Lumped thermal element for heat convection (dT = Rc*Q_flow) </td></tr>
 
 <tr><td colspan=\"2\"><strong>Modelica.MultiBody.Examples.Constraints.</strong></td></tr>
-<tr><td width=\"150\"> PrismaticConstraint <br>
+<tr><td width=\"150\"> PrismaticConstraint<br>
                         RevoluteConstraint<br>
                         SphericalConstraint<br>
                         UniversalConstraint</td>
     <td> Demonstrates the use of the new Joints.Constraints joints by comparing
                         them with the standard joints.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.MultiBody.Joints.Constraints.</strong></td></tr>
-<tr><td width=\"150\"> Prismatic <br>
+<tr><td width=\"150\"> Prismatic<br>
                         Revolute<br>
                         Spherical<br>
                         Universal</td>
@@ -3117,13 +3117,13 @@ to <font color=\"blue\"><strong>existing</strong></font> libraries:
                       DCMachines<br>
                       Transformers </td></tr>
 <tr><td> Losses.* </td>
-    <td> Parameter records and models for losses in electrical machines and transformers (where applicable): <br>
-                      Friction losses <br>
-                      Brush losses <br>
-                      Stray Load losses <br>
+    <td> Parameter records and models for losses in electrical machines and transformers (where applicable):<br>
+                      Friction losses<br>
+                      Brush losses<br>
+                      Stray Load losses<br>
                       Core losses (only eddy current losses but no hysteresis losses; not for transformers) </td></tr>
 <tr><td> Thermal.* </td>
-    <td> Simple thermal ambients, to be connected to the thermal ports of machines, <br>
+    <td> Simple thermal ambients, to be connected to the thermal ports of machines,<br>
                       as well as material constants and utility functions.</td></tr>
 <tr><td> Icons.* </td>
     <td> Icons for transient and quasistationary electrical machines and transformers.</td></tr>
@@ -3155,8 +3155,8 @@ to <font color=\"blue\"><strong>existing</strong></font> libraries:
     <td> Permanent magnet DC machine, comparison between model with and without losses </td></tr>
 
 <tr><td colspan=\"2\"><strong>Modelica.Electrical.Machines.BasicMachines.QuasiStationaryDCMachines.</strong></td></tr>
-<tr><td> DC_PermanentMagnet <br>
-                      DC_ElectricalExcited <br>
+<tr><td> DC_PermanentMagnet<br>
+                      DC_ElectricalExcited<br>
                       DC_SeriesExcited </td>
     <td> QuasiStationary DC machines, i.e., neglecting electrical transients </td></tr>
 
@@ -3165,7 +3165,7 @@ to <font color=\"blue\"><strong>existing</strong></font> libraries:
     <td> Inductor model which neglects der(i) if Boolean parameter quasiStationary = true </td></tr>
 
 <tr><td colspan=\"2\"><strong>Modelica.Electrical.Machines.Interfaces.</strong></td></tr>
-<tr><td>  ThermalPortTransformer <br>
+<tr><td>  ThermalPortTransformer<br>
                        PowerBalanceTransformer </td>
     <td> Thermal ports and power balances for electrical machines and transformers.</td></tr>
 
@@ -3441,18 +3441,18 @@ have been <font color=\"blue\"><strong>improved</strong></font> in a
                        </td></tr>
 <tr><td> Machines.*</td>
     <td> To all electric machines (asynchronous and synchronous induction machines, DC machines)
-                      and transformers loss models have been added (where applicable): <br>
-                      Temperature dependent resistances (ohmic losses) <br>
-                      Friction losses <br>
-                      Brush losses <br>
-                      Stray Load losses <br>
-                      Core losses (only eddy current losses but no hysteresis losses; not for transformers) <br>
-                      As default, temperature dependency and losses are set to zero. <br><br>
+                      and transformers loss models have been added (where applicable):<br>
+                      Temperature dependent resistances (ohmic losses)<br>
+                      Friction losses<br>
+                      Brush losses<br>
+                      Stray Load losses<br>
+                      Core losses (only eddy current losses but no hysteresis losses; not for transformers)<br>
+                      As default, temperature dependency and losses are set to zero.<br><br>
                       To all electric machines (asynchronous and synchronous induction machines, DC machines)
                       and transformers conditional thermal ports have been added,
                       to which the dissipated losses are flowing, if activated.
                       The thermal port contains a <a href=\"modelica://Modelica.Thermal.HeatTransfer.Interfaces.HeatPort\">HeatPort</a>
-                      for each loss source of the specific machine type. <br><br>
+                      for each loss source of the specific machine type.<br><br>
                       To all electric machines (asynchronous and synchronous induction machines, DC machines)
                       a \"powerBalance\" result record has been added, summarizing converted power and losses.
                        </td></tr>
@@ -4126,7 +4126,7 @@ to <font color=\"blue\"><strong>existing</strong></font> libraries:
 <tr><td> OpAmpDetailed<br>
                       TranslationalEMF<br>
                       M_Transformer</td>
-    <td> New detailed model of an operational amplifier. <br>
+    <td> New detailed model of an operational amplifier.<br>
                       New electromotoric force from electrical energy into mechanical translational energy.<br>
                       Generic transformer with choosable number of inductors</td></tr>
 
@@ -4437,18 +4437,18 @@ have been <font color=\"blue\"><strong>changed</strong></font> (in a
 </tr>
 
 <tr><td colspan=\"2\"><strong>Media.Examples.</strong></td></tr>
-<tr><td> SimpleLiquidWater <br>
-                                                IdealGasH20 <br>
-                                                WaterIF97 <br>
-                                                MixtureGases <br>
+<tr><td> SimpleLiquidWater<br>
+                                                IdealGasH20<br>
+                                                WaterIF97<br>
+                                                MixtureGases<br>
                                                 MoistAir </td>
           <td> Added equations to test the new setSmoothState(..) functions
                                                 including the analytic derivatives of these functions.</td></tr>
 
 <tr><td colspan=\"2\"><strong>Media.Interfaces.PartialLinearFluid.</strong></td></tr>
-<tr><td> setState_pTX <br>
-                                                setState_phX <br>
-                                                setState_psX <br>
+<tr><td> setState_pTX<br>
+                                                setState_phX<br>
+                                                setState_psX<br>
                                                 setState_dTX </td>
           <td> Rewritten function in one statement so that it is usually inlined.</td></tr>
 
@@ -4626,21 +4626,21 @@ The following changes are present for the whole library:
          its size in a model. This flag is set so that all icons of the Modelica
          Standard Library keep its aspect ratios. This is slightly non-backward compatible:
          If the aspect ratio was not kept when using a component from the Modelica
-         Standard Library, it is now resized so that the aspect ratio is maintained.<br>&nbsp; </li>
+         Standard Library, it is now resized so that the aspect ratio is maintained.<br>&nbsp;</li>
 
 <li> All non-standard annotations removed by:<br>
          (1) Removing the annotation since without effect
                  (e.g., \"__Dymola_experimentSetupOutput\", \"Window\", \"Terminal\" removed).<br>
          (2) Renaming the annotation to a standard name (e.g., \"Hide\" renamed to \"HideResult\").<br>
          (3) Renaming the annotation to a vendor specific name
-                 (e.g., \"checkBox\" renamed to \"__Dymola_checkBox\").<br>&nbsp; </li>
+                 (e.g., \"checkBox\" renamed to \"__Dymola_checkBox\").<br>&nbsp;</li>
 
 <li> All emulated enumerations (defined via packages and constants) have been
          replaced by \"real\" enumerations. User models are automatically correctly
          converted, provided the user models used the package constants previously.
          <strong>Existing models that use directly literal values for enumerations, might give in
          some cases wrong results</strong> (if the first constant of the emulated enumeration
-         had value zero, whereas the first value of an enumeration is one).<br>&nbsp; </li>
+         had value zero, whereas the first value of an enumeration is one).<br>&nbsp;</li>
 
 <li> The operator \"cardinality\" will be removed in one of the next versions of the
          Modelica language, since it is a reflective operator and its usage significantly
@@ -4960,7 +4960,7 @@ should be automatic):
                                                 can be enabled with parameter useAxisFlange.</td></tr>
 <tr><td> Assemblies</td>
           <td> Assembly joint implementation slightly changed, so that
-                                                annotation \"structurallyIncomplete\" <br>could be removed
+                                                annotation \"structurallyIncomplete\"<br>could be removed
                                                 (all Assembly joint models are now \"balanced\").</td></tr>
 
 <tr><td colspan=\"2\"><strong>Mechanics.MultiBody.Joints.Internal</strong></td></tr>
@@ -5048,9 +5048,9 @@ should be automatic):
                                                 Clutch<br>
                                                 OneWayClutch</td>
           <td> Relative quantities (phi_rel, w_rel) are used as states, if possible
-                                                (due to StateSelect.prefer). <br>
+                                                (due to StateSelect.prefer).<br>
                                                 In most cases, relative states in drive trains are better suited as
-                                                absolute states. <br> This change might give changes in the selected states
+                                                absolute states.<br> This change might give changes in the selected states
                                                 of existing models.<br>
                                                 This might give rise to problems if, e.g., the initialization was not
                                                 completely defined in a user model,<br> since the default
@@ -5063,12 +5063,12 @@ should be automatic):
           <td> Adaptions corresponding to Rotational</td></tr>
 <tr><td> Stop</td>
           <td> Renamed to Components.MassWithStopAndFriction to be more concise.<br>
-                                                MassWithStopAndFriction is not available with a support connector, <br>
+                                                MassWithStopAndFriction is not available with a support connector,<br>
                                                 since the reaction force can't be modeled in a meaningful way due to reinit of velocity v.<br>
                                                 Until a sound implementation of a hard stop is available, the old model may be used.</td></tr>
 <tr><td colspan=\"2\"><strong>Media.</strong></td></tr>
-<tr><td> constant nX <br>
-                                                constant nXi <br>
+<tr><td> constant nX<br>
+                                                constant nXi<br>
                                                 constant reference_X<br>
                                                 BaseProperties</td>
           <td> The package constant nX = nS, now always, even for single species media. This also allows to define mixtures with only 1 element. The package constant nXi=if fixedX then 0 else if reducedX or nS==1 then nS - 1 else nS. This required that all BaseProperties for single species media get an additional equation to define the composition X as {1.0} (or reference_X, which is {1.0} for single species). This will also mean that all user defined single species media need to be updated by that equation.</td></tr>
@@ -5077,7 +5077,7 @@ should be automatic):
 <tr><td> CelsiusTemperature </td>
           <td> Removed, since no SI unit. The conversion script changes references to
                                                 SIunits.Conversions.NonSIunits.Temperature_degC </td></tr>
-<tr><td> ThermodynamicTemperature <br>
+<tr><td> ThermodynamicTemperature<br>
                                                 TemperatureDifference</td>
           <td> Added annotation \"absoluteValue=true/false\"
                                                 in order that unit checking is possible<br>
@@ -5106,7 +5106,7 @@ should be automatic):
                                                 an example.</td></tr>
 
 <tr><td colspan=\"2\"><strong>Thermal.FluidHeatFlow.Sensors.</strong></td></tr>
-<tr><td> <br>
+<tr><td><br>
                                                 pSensor<br>TSensor<br>dpSensor<br>dTSensor<br>m_flowSensor<br>V_flowSensor<br>H_flowSensor</td>
           <td> renamed to:<br>
                                                 PressureSensor<br>TemperatureSensor<br>RelPressureSensor<br>RelTemperatureSensor<br>MassFlowSensor<br>VolumeFlowSensor<br>EnthalpyFlowSensor
@@ -5135,7 +5135,7 @@ should be automatic):
           <td> Initialization changed: SteadyStateStart removed. Instead
                                                 start/fixed values for T and der_T<br>(initial temperature and its derivative).</td></tr>
 
-<tr><td> <br><br>HeatCapacitor<br>ThermalConductor<br>ThermalConvection<br>BodyRadiation<br><br>
+<tr><td><br><br>HeatCapacitor<br>ThermalConductor<br>ThermalConvection<br>BodyRadiation<br><br>
                                                 TemperatureSensor<br>RelTemperatureSensor<br>HeatFlowSensor<br><br>
                                                 FixedTemperature<br>PrescribedTemperature<br>FixedHeatFlow<br>PrescribedHeatFlow</td>
           <td> Moved components to sub-packages:<br><br>
@@ -5211,7 +5211,7 @@ have been <font color=\"blue\"><strong>improved</strong></font> in a
 
 <tr><td colspan=\"2\"><strong>Thermal.FluidHeatFlow.Interfaces.Partials.</strong></td></tr>
 <tr><td>TwoPort</td>
-          <td> Introduced <code>parameter Real tapT(final min=0, final max=1)=1</code> <br> that defines the temperature of the heatPort
+          <td> Introduced <code>parameter Real tapT(final min=0, final max=1)=1</code><br> that defines the temperature of the heatPort
                                                 between inlet and outlet.</td></tr>
 
 <tr><td colspan=\"2\"><strong>StateGraph.</strong></td></tr>
@@ -5318,7 +5318,7 @@ units are wrong or errors in documentation):
 <tr><td> BearingFriction<br>
                                                 Clutch<br>
                                                 OneWayClutch<br>
-                                                Brake <br>
+                                                Brake<br>
                                                 Gear </td>
           <td> Declaration of table parameter changed from
                                                 table[:,:] to table[:,2].</td>
@@ -5873,7 +5873,7 @@ have been <font color=\"blue\"><strong>improved</strong></font>:
 
 <tr><td colspan=\"2\"><strong> Media.Common.ThermoFluidSpecial.</strong></td></tr>
 <tr><td> gibbsToProps_ph<br>
-                   gibbsToProps_ph  <br>
+                   gibbsToProps_ph<br>
                    gibbsToBoundaryProps<br>
                    gibbsToProps_dT<br>
                    gibbsToProps_pT</td>
@@ -6626,7 +6626,7 @@ The following <strong>components</strong> have been improved:
 <tr><td> SimpleFriction</td>
           <td> Calculates friction losses from pressure drop and volume flow.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Thermal.FluidHeatFlow.Components.</strong></td></tr>
-<tr><td> IsolatedPipe <br>
+<tr><td> IsolatedPipe<br>
                    HeatedPipe</td>
           <td> Added geodetic height as a source of pressure change;
                    feeds friction losses as calculated by simple friction to
@@ -6720,7 +6720,7 @@ The following <strong>new libraries</strong> have been added:
                    <ul>
                    <li>1241 detailed gas models,</li>
                    <li> moist air,</li>
-                   <li> high precision water model (according to IAPWS/IF97 standard), </li>
+                   <li> high precision water model (according to IAPWS/IF97 standard),</li>
                    <li> incompressible media defined by tables (cp(T), rho(t), eta(T), etc. are defined by tables).</li>
                    </ul>
                    The user can conveniently define mixtures of gases between the
@@ -6821,9 +6821,9 @@ The following <strong>new libraries</strong> have been added:
                   norm(), LU(), QR(),  eigenValues(), singularValues(), exp(), ...</td></tr>
 <tr><td><a href=\"modelica://Modelica.StateGraph\">Modelica.StateGraph</a></td>
           <td> Modeling of <strong>discrete event</strong> and <strong>reactive</strong> systems in a convenient way using<br>
-                   <strong>hierarchical state machines</strong> and <strong>Modelica</strong> as <strong>action language</strong>. <br>
-                   It is based on JGrafchart and Grafcet and  has a similar modeling power as <br>
-                   StateCharts. It avoids deficiencies of usually used action languages. <br>
+                   <strong>hierarchical state machines</strong> and <strong>Modelica</strong> as <strong>action language</strong>.<br>
+                   It is based on JGrafchart and Grafcet and  has a similar modeling power as<br>
+                   StateCharts. It avoids deficiencies of usually used action languages.<br>
                    This library makes the ModelicaAdditions.PetriNets library obsolete.</td></tr>
 <tr><td><a href=\"modelica://Modelica.Utilities.Files\">Modelica.Utilities.Files</a></td>
           <td>Functions to operate on files and directories (copy, move, remove files etc.)</td></tr>
@@ -6857,7 +6857,7 @@ to the new sublibraries inside package Modelica):
           <td> One and two-dimensional interpolation in tables. CombiTimeTable is available<br>
                    in Modelica.Blocks.Sources (from ModelicaAdditions.Tables)</td></tr>
 <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody\">Modelica.Mechanics.MultiBody</a></td>
-          <td> Components to model the movement of 3-dimensional mechanical systems. Contains <br>
+          <td> Components to model the movement of 3-dimensional mechanical systems. Contains<br>
                    body, joint, force and sensor components, analytic handling of kinematic loops,<br>
                    force elements with mass, series/parallel connection of 3D force elements etc.<br>
                    (from MultiBody 1.0 where the new signal connectors are used;<br>
@@ -6874,7 +6874,7 @@ The following <strong>new components</strong> have been added to <strong>existin
 <table border=\"1\" cellspacing=0 cellpadding=2>
 <tr><td colspan=\"2\"><strong>Modelica.Blocks.Logical.</strong></td></tr>
 <tr><td>Pre</td>
-          <td>y = pre(u): Breaks algebraic loops by an infinitesimal small <br>
+          <td>y = pre(u): Breaks algebraic loops by an infinitesimal small<br>
                   time delay (event iteration continues until u = pre(u))</td></tr>
 <tr><td>Edge</td>
           <td>y = edge(u): Output y is true, if the input u has a rising edge </td></tr>
@@ -6889,7 +6889,7 @@ The following <strong>new components</strong> have been added to <strong>existin
 <tr><td>LessEqual</td>
           <td>Output y is true, if input u1 is less or equal than input u2 </td></tr>
 <tr><td>Timer</td>
-          <td>Timer measuring the time from the time instant where the <br>
+          <td>Timer measuring the time from the time instant where the<br>
                   Boolean input became true </td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Blocks.Math.</strong></td></tr>
 <tr><td>BooleanToReal</td>

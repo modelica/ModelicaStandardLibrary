@@ -368,12 +368,12 @@ substring by \"replaceString\".
 <li> If the optional argument \"replaceAll\" is <strong>true</strong> (default),
      all occurrences of \"searchString\" are replaced.
      If the argument is <strong>false</strong>, only the first occurrence
-     is replaced. </li>
+     is replaced.</li>
 <li> The search for \"searchString\" distinguishes upper and lower
      case letters. If the optional argument \"caseSensitive\" is
      <strong>false</strong>,
      the search ignores whether letters are upper
-     or lower case. </li>
+     or lower case.</li>
 </ul>
 <p>
 The function returns the \"string\" with the
@@ -1335,7 +1335,7 @@ The following additional rules apply for the scanning:
 <li> Function <a href=\"modelica://Modelica.Utilities.Strings.Advanced.skipLineComments\">skipLineComments</a><br>
      Skips white space and Modelica (C/C++) line comments iteratively.
      A line comment starts with \"//\" and ends either with an
-     end-of-line (\"\\n\") or the end of the \"string\". </li>
+     end-of-line (\"\\n\") or the end of the \"string\".</li>
 </ul>
 </html>"));
   end Advanced;
@@ -1393,10 +1393,10 @@ call to every function is given using the <strong>default</strong> options.
   <tr><td>(delimiter, index) = <a href=\"modelica://Modelica.Utilities.Strings.scanDelimiter\">scanDelimiter</a>(string,startIndex)</td>
       <td>Scan for delimiters</td></tr>
   <tr><td><a href=\"modelica://Modelica.Utilities.Strings.scanNoToken\">scanNoToken</a>(string,startIndex)</td>
-      <td>Check that remaining part of string consists solely of <br>
+      <td>Check that remaining part of string consists solely of<br>
           white space or line comments (\"// ...\\n\").</td></tr>
   <tr><td><a href=\"modelica://Modelica.Utilities.Strings.syntaxError\">syntaxError</a>(string,index,message)</td>
-      <td> Print a \"syntax error message\" as well as a string and the <br>
+      <td> Print a \"syntax error message\" as well as a string and the<br>
            index at which scanning detected an error</td></tr>
 </table>
 <p>

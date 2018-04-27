@@ -3568,7 +3568,7 @@ The used variables have the following declaration:
       </td>
   </tr>
   <tr><td>exy = <strong>to_exy</strong>(T);</td>
-      <td>Return [e_x, e_y] matrix of an orientation object T, <br>
+      <td>Return [e_x, e_y] matrix of an orientation object T,<br>
           with e_x and e_y vectors of frame 2, resolved in frame 1.
       </td>
   </tr>
@@ -3878,7 +3878,7 @@ The used variables have the following declaration:
       </td>
   </tr>
   <tr><td>exy = <strong>to_exy</strong>(R);</td>
-      <td>Return [e_x, e_y] matrix of an orientation object R, <br>
+      <td>Return [e_x, e_y] matrix of an orientation object R,<br>
           with e_x and e_y vectors of frame 2, resolved in frame 1.
       </td>
   </tr>

@@ -955,9 +955,9 @@ cases, only nonpolar mixtures were compared, and very good results
 obtained. For some systems containing hydrogen as one component, less
 satisfactory agreement was noted. Wilke's method predicted mixture
 viscosities that were larger than experimental for the H2-N2 system,
-but for H2-NH3, it underestimated the viscosities. <br>
+but for H2-NH3, it underestimated the viscosities.<br>
 Gururaja, et al. (1967) found that this method also overpredicted in
-the H2-O2 case but was quite accurate for the H2-CO2 system. <br>
+the H2-O2 case but was quite accurate for the H2-CO2 system.<br>
 Wilke's approximation has proved reliable even for polar-polar gas
 mixtures of aliphatic alcohols (Reid and Belenyessy, 1960). The
 principal reservation appears to lie in those cases where Mi&gt;&gt;Mj
@@ -1081,7 +1081,7 @@ Values of kappa for a few such materials:
 cellspacing=\"0\" cellpadding=\"2\">
 <tbody>
 <tr>
-<td style=\"vertical-align: top;\">Compound <br>
+<td style=\"vertical-align: top;\">Compound<br>
 </td>
 <td style=\"vertical-align: top; text-align: center;\">Kappa<br>
 </td>
@@ -1154,7 +1154,7 @@ cellspacing=\"0\" cellpadding=\"2\">
 <p>
 Chung, et al. (1984) suggest that for other alcohols not shown in the
 table:<br>
-&nbsp;&nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
 &nbsp;&nbsp;&nbsp; kappa = 0.0682 + 4.704*[(number of -OH
 groups)]/[molecular weight]<br>
 <br>

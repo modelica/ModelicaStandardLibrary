@@ -102,7 +102,7 @@ First version implemented.
 <h4>Library officers</h4>
 
 <p>
-<a href=\"http://www.robotic.dlr.de/Martin.Otter/\"><strong>Martin Otter</strong></a> <br>
+<a href=\"http://www.robotic.dlr.de/Martin.Otter/\"><strong>Martin Otter</strong></a><br>
 Deutsches Zentrum f&uuml;r Luft- und Raumfahrt e.V. (DLR)<br>
 Institut f&uuml;r Systemdynamik und Regelungstechnik (DLR-SR)<br>
 Forschungszentrum Oberpfaffenhofen<br>
@@ -128,9 +128,9 @@ email: <a href=\"mailto:Dag.Bruck@3ds.com\">Dag.Bruck@3ds.com</a>
 <ul>
 <li> This library has been designed by:<br>
      <blockquote>
-     Dag Br&uuml;ck, Dassault Syst&egrave;mes AB, Sweden <br>
-     Hilding Elmqvist, previously at Dassault Syst&egrave;mes AB, Sweden <br>
-     Hans Olsson, Dassault Syst&egrave;mes AB, Sweden <br>
+     Dag Br&uuml;ck, Dassault Syst&egrave;mes AB, Sweden<br>
+     Hilding Elmqvist, previously at Dassault Syst&egrave;mes AB, Sweden<br>
+     Hans Olsson, Dassault Syst&egrave;mes AB, Sweden<br>
      Martin Otter, DLR Oberpfaffenhofen, Germany.
      </blockquote></li>
 <li> The library including the C reference implementation has
@@ -139,7 +139,7 @@ email: <a href=\"mailto:Dag.Bruck@3ds.com\">Dag.Bruck@3ds.com</a>
      with this library is from Hilding Elmqvist.</li>
 <li> Helpful comments from Kaj Nystr&ouml;m, PELAB, Link&ouml;ping, Sweden,
      are appreciated, as well as discussions at the 34th, 36th, and 40th
-     Modelica Design Meetings in Vienna, Link&ouml;ping, and Dresden. </li>
+     Modelica Design Meetings in Vienna, Link&ouml;ping, and Dresden.</li>
 </ul>
 </html>"));
   end Contact;

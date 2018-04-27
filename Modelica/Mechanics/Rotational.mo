@@ -4380,10 +4380,10 @@ where
 </p>
 
 <ul>
-<li> <strong>i</strong> is the constant <strong>gear ratio</strong>, </li>
+<li> <strong>i</strong> is the constant <strong>gear ratio</strong>,</li>
 
 <li> <strong>eta_mf</strong> = eta_mf(w_a) is the <strong>mesh efficiency</strong> due to the
-     friction between the teeth of the gear wheels, </li>
+     friction between the teeth of the gear wheels,</li>
 
 <li> <strong>tau_bf_a</strong> = tau_bf_a(w_a) is the <strong>bearing friction torque</strong>
      on the flange_a side,</li>
@@ -6800,7 +6800,7 @@ It is most convenient to utilize it
 <li> For models to be build graphically (i.e., the model is build up by drag-and-drop
      from elementary components):<br>
      <a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialOneFlangeAndSupport\">PartialOneFlangeAndSupport</a>,<br>
-     <a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialTwoFlangesAndSupport\">PartialTwoFlangesAndSupport</a>.<br> &nbsp; </li>
+     <a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialTwoFlangesAndSupport\">PartialTwoFlangesAndSupport</a>.<br> &nbsp;</li>
 
 <li> For models to be build textually (i.e., elementary models):<br>
      <a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialElementaryOneFlangeAndSupport2\">PartialElementaryOneFlangeAndSupport</a>,<br>
@@ -7413,10 +7413,10 @@ This is a 1-dim. rotational component with
 </p>
 
 <ul>
-<li> one rotational flange, </li>
-<li> one rotational support/housing, </li>
-<li> one translational flange, and </li>
-<li> one translational support/housing </li>
+<li> one rotational flange,</li>
+<li> one rotational support/housing,</li>
+<li> one translational flange, and</li>
+<li> one translational support/housing</li>
 </ul>
 
 <p>

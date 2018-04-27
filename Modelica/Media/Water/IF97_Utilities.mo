@@ -83,7 +83,7 @@ package IF97_Utilities
        by Hubertus Tummescheit
        </li>
 </ul>
- <address>Author: Hubertus Tummescheit, <br>
+ <address>Author: Hubertus Tummescheit,<br>
       Modelon AB<br>
       Ideon Science Park<br>
       SE-22370 Lund, Sweden<br>
@@ -143,7 +143,7 @@ package IF97_Utilities
        by Hubertus Tummescheit
        </li>
 </ul>
- <address>Author: Hubertus Tummescheit, <br>
+ <address>Author: Hubertus Tummescheit,<br>
       Modelon AB<br>
       Ideon Science Park<br>
       SE-22370 Lund, Sweden<br>
@@ -174,7 +174,7 @@ package IF97_Utilities
        by Hubertus Tummescheit
        </li>
 </ul>
- <address>Author: Hubertus Tummescheit, <br>
+ <address>Author: Hubertus Tummescheit,<br>
       Modelon AB<br>
       Ideon Science Park<br>
       SE-22370 Lund, Sweden<br>
@@ -3305,7 +3305,7 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
       &nbsp;Vejle, Denmark<br>
       &nbsp;August 2003<br>
       &nbsp;Supplementary Release on Backward Equations for the Functions
-      T(p,h), v(p,h) and T(p,s), <br>
+      T(p,h), v(p,h) and T(p,s),<br>
       &nbsp;v(p,s) for Region 3 of the IAPWS Industrial Formulation 1997 for
       the Thermodynamic Properties of<br>
       &nbsp;Water and Steam</div>
@@ -3347,7 +3347,7 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
  &nbsp;Vejle, Denmark<br>
  &nbsp;August 2003<br>
  &nbsp;Supplementary Release on Backward Equations for the Functions
- T(p,h), v(p,h) and T(p,s), <br>
+ T(p,h), v(p,h) and T(p,s),<br>
  &nbsp;v(p,s) for Region 3 of the IAPWS Industrial Formulation 1997 for
  the Thermodynamic Properties of<br>
  &nbsp;Water and Steam</div>
@@ -3390,7 +3390,7 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
  &nbsp;Vejle, Denmark<br>
  &nbsp;August 2003<br>
  &nbsp;Supplementary Release on Backward Equations for the Functions
- T(p,h), v(p,h) and T(p,s), <br>
+ T(p,h), v(p,h) and T(p,s),<br>
  &nbsp;v(p,s) for Region 3 of the IAPWS Industrial Formulation 1997 for
  the Thermodynamic Properties of<br>
  &nbsp;Water and Steam</div>
@@ -3433,7 +3433,7 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
  &nbsp;Vejle, Denmark<br>
  &nbsp;August 2003<br>
  &nbsp;Supplementary Release on Backward Equations for the Functions
- T(p,h), v(p,h) and T(p,s), <br>
+ T(p,h), v(p,h) and T(p,s),<br>
  &nbsp;v(p,s) for Region 3 of the IAPWS Industrial Formulation 1997 for
  the Thermodynamic Properties of<br>
  &nbsp;Water and Steam</div>
@@ -3477,7 +3477,7 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
  &nbsp;Vejle, Denmark<br>
  &nbsp;August 2003<br>
  &nbsp;Supplementary Release on Backward Equations for the Functions
- T(p,h), v(p,h) and T(p,s), <br>
+ T(p,h), v(p,h) and T(p,s),<br>
  &nbsp;v(p,s) for Region 3 of the IAPWS Industrial Formulation 1997 for
  the Thermodynamic Properties of<br>
  &nbsp;Water and Steam</div>
@@ -3522,7 +3522,7 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
  &nbsp;Vejle, Denmark<br>
  &nbsp;August 2003<br>
  &nbsp;Supplementary Release on Backward Equations for the Functions
- T(p,h), v(p,h) and T(p,s), <br>
+ T(p,h), v(p,h) and T(p,s),<br>
  &nbsp;v(p,s) for Region 3 of the IAPWS Industrial Formulation 1997 for
  the Thermodynamic Properties of<br>
  &nbsp;Water and Steam</div>
@@ -3564,7 +3564,7 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
  &nbsp;Vejle, Denmark<br>
  &nbsp;August 2003<br>
  &nbsp;Supplementary Release on Backward Equations for the Functions
- T(p,h), v(p,h) and T(p,s), <br>
+ T(p,h), v(p,h) and T(p,s),<br>
  &nbsp;v(p,s) for Region 3 of the IAPWS Industrial Formulation 1997 for
  the Thermodynamic Properties of<br>
  &nbsp;Water and Steam</div>
@@ -3607,7 +3607,7 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
  &nbsp;Vejle, Denmark<br>
  &nbsp;August 2003<br>
  &nbsp;Supplementary Release on Backward Equations for the Functions
- T(p,h), v(p,h) and T(p,s), <br>
+ T(p,h), v(p,h) and T(p,s),<br>
  &nbsp;v(p,s) for Region 3 of the IAPWS Industrial Formulation 1997 for
  the Thermodynamic Properties of<br>
  &nbsp;Water and Steam</div>
@@ -3651,7 +3651,7 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
  &nbsp;Vejle, Denmark<br>
  &nbsp;August 2003<br>
  &nbsp;Supplementary Release on Backward Equations for the Functions
- T(p,h), v(p,h) and T(p,s), <br>
+ T(p,h), v(p,h) and T(p,s),<br>
  &nbsp;v(p,s) for Region 3 of the IAPWS Industrial Formulation 1997 for
  the Thermodynamic Properties of<br>
  &nbsp;Water and Steam</div>
@@ -3700,7 +3700,7 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
           by Hubertus Tummescheit
           </li>
           </ul>
-          <address>Author: Hubertus Tummescheit, <br>
+          <address>Author: Hubertus Tummescheit,<br>
       Modelon AB<br>
       Ideon Science Park<br>
       SE-22370 Lund, Sweden<br>
@@ -3718,7 +3718,7 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
        &nbsp;Vejle, Denmark<br>
        &nbsp;August 2003<br>
        &nbsp;Supplementary Release on Backward Equations for the Functions
-       T(p,h), v(p,h) and T(p,s), <br>
+       T(p,h), v(p,h) and T(p,s),<br>
        &nbsp;v(p,s) for Region 3 of the IAPWS Industrial Formulation 1997 for
        the Thermodynamic Properties of<br>
        &nbsp;Water and Steam</div>
@@ -4819,7 +4819,7 @@ Ordinary Water Substance<br>
           by Hubertus Tummescheit
           </li>
           </ul>
-          <address>Author: Hubertus Tummescheit, <br>
+          <address>Author: Hubertus Tummescheit,<br>
       Modelon AB<br>
       Ideon Science Park<br>
       SE-22370 Lund, Sweden<br>
@@ -5452,7 +5452,7 @@ Ordinary Water Substance<br>
           by Hubertus Tummescheit
           </li>
           </ul>
-          <address>Author: Hubertus Tummescheit, <br>
+          <address>Author: Hubertus Tummescheit,<br>
       Modelon AB<br>
       Ideon Science Park<br>
       SE-22370 Lund, Sweden<br>
@@ -5546,7 +5546,7 @@ Ordinary Water Substance<br>
           by Hubertus Tummescheit
           </li>
           </ul>
-          <address>Author: Hubertus Tummescheit, <br>
+          <address>Author: Hubertus Tummescheit,<br>
       Modelon AB<br>
       Ideon Science Park<br>
       SE-22370 Lund, Sweden<br>
@@ -5805,7 +5805,7 @@ Ordinary Water Substance<br>
           by Hubertus Tummescheit
           </li>
           </ul>
-          <address>Author: Hubertus Tummescheit, <br>
+          <address>Author: Hubertus Tummescheit,<br>
       Modelon AB<br>
       Ideon Science Park<br>
       SE-22370 Lund, Sweden<br>
@@ -5926,7 +5926,7 @@ white-space:nowrap;
       by <a href=\"mailto:Hubertus.Tummescheit@modelon.se\">Hubertus Tummescheit</a> and moved to Modelica
       properties library.</li>
         </ul>
-      <address>Author: Hubertus Tummescheit, <br>
+      <address>Author: Hubertus Tummescheit,<br>
       Modelon AB<br>
       Ideon Science Park<br>
       SE-22370 Lund, Sweden<br>
@@ -6248,7 +6248,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
      </td>
      </tr>
      <tr>
-     <td>22 <br>
+     <td>22<br>
       </td>
       <td>Surface tension</td>
      <td>sigma (<font face=\"Symbol\">s</font>)<br>
@@ -8355,11 +8355,11 @@ public
       The low-level functions in BaseIF97 are not needed for standard simulation usage,
       but can be useful for experts and some special purposes.</li>
       <li>Function <strong>water_ph</strong> returns all properties needed for a dynamic control volume model and properties of general
-      interest using pressure p and specific entropy enthalpy h as dynamic states in the record ThermoProperties_ph. </li>
+      interest using pressure p and specific entropy enthalpy h as dynamic states in the record ThermoProperties_ph.</li>
       <li>Function <strong>water_ps</strong> returns all properties needed for a dynamic control volume model and properties of general
-      interest using pressure p and specific entropy s as dynamic states in the record ThermoProperties_ps. </li>
+      interest using pressure p and specific entropy s as dynamic states in the record ThermoProperties_ps.</li>
       <li>Function <strong>water_dT</strong> returns all properties needed for a dynamic control volume model and properties of general
-      interest using density d and temperature T as dynamic states in the record ThermoProperties_dT. </li>
+      interest using density d and temperature T as dynamic states in the record ThermoProperties_dT.</li>
       <li>Function <strong>water_pT</strong> returns all properties needed for a dynamic control volume model and properties of general
       interest using pressure p and temperature T as dynamic states in the record ThermoProperties_pT. Due to the coupling of
       pressure and temperature in the two-phase region, this model can obviously
@@ -8400,7 +8400,7 @@ public
       by <a href=\"mailto:Hubertus.Tummescheit@modelon.se\">Hubertus Tummescheit</a> and moved to Modelica
       properties library.</li>
       </ul>
-      <address>Author: Hubertus Tummescheit, <br>
+      <address>Author: Hubertus Tummescheit,<br>
       Modelon AB<br>
       Ideon Science Park<br>
       SE-22370 Lund, Sweden<br>

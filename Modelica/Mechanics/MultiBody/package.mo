@@ -81,7 +81,7 @@ The main features of the library are:
     differential algebraic equations symbolically to a system where
     the number of equations and unknowns are the same (the user need
     <strong>not</strong> cut loops with special cut-joints to construct a
-    tree-structure). </li>
+    tree-structure).</li>
 <li><strong>Automatic state selection from joints and bodies</strong>.
     Most joints and all bodies have potential states. A Modelica
     translator will use the generalized coordinates
@@ -91,7 +91,7 @@ The main features of the library are:
     to define a body moving freely in space. An advanced user
     may select states manually from the <strong>Advanced</strong> menu of the
     corresponding components or use a Modelica parameter modification
-    to set the \"stateSelect\" attribute directly. </li>
+    to set the \"stateSelect\" attribute directly.</li>
 <li> <strong>Analytic solution of kinematic loops</strong>. The non-linear
     equations occurring in kinematic loops are solved <strong>analytically</strong>
     for a large class of mechanisms, such as a 4 bar mechanism,

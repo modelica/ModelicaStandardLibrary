@@ -811,7 +811,7 @@ In the table below an example call to every function is given:
   </tr>
   <tr><td>fileName = <a href=\"modelica://Modelica.Utilities.Files.temporaryFileName\">temporaryFileName</a>()</td>
       <td> Return arbitrary name of a file that does not exist<br>
-           and is in a directory where access rights allow to <br>
+           and is in a directory where access rights allow to<br>
            write to this file (useful for temporary output of files).</td>
   </tr>
   <tr><td>fileReference = <a href=\"modelica://Modelica.Utilities.Files.loadResource\">loadResource</a>(uri)</td>

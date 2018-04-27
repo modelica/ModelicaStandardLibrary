@@ -209,7 +209,7 @@ email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
 <h5>Version 0.2.0, 2013-09-01</h5>
 <ul>
 <li>Implemented induction machine with slip ring rotor including example</li>
-<li>Implemented magnetic crossing </li>
+<li>Implemented magnetic crossing</li>
 </ul>
 
 <h5>Version 0.1.0, 2013-08-27</h5>
@@ -220,10 +220,10 @@ email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
 <li>Electromagnetic coupling with Analog domain is implemented fully quasi static with v = 0 at the electric connectors -- this may have to be changed in the future</li>
 <li>Implemented machine types</li>
 <li><ul>
-<li>Induction machine with squirrel cage </li>
-<li>Permanent magnet synchronous machine with optional damper cage </li>
-<li>Electrical excited synchronous machine with optional damper cage (may be removed in first release) </li>
-<li>Synchronous reluctance machine with optional damper cage (may be removed in first release) </li>
+<li>Induction machine with squirrel cage</li>
+<li>Permanent magnet synchronous machine with optional damper cage</li>
+<li>Electrical excited synchronous machine with optional damper cage (may be removed in first release)</li>
+<li>Synchronous reluctance machine with optional damper cage (may be removed in first release)</li>
 </ul></li>
 </ul>
 </html>"));

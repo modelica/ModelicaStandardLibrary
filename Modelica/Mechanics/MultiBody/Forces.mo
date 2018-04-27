@@ -2980,13 +2980,13 @@ between two frame connectors, e.g., between two parts.
   <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Forces.WorldForce\">WorldForce</a></td>
       <td> External force acting at the frame to which this component
            is connected and defined by 3 input signals,
-           that are interpreted as one vector resolved in frame world, frame_b or frame_resolve. <br>
+           that are interpreted as one vector resolved in frame world, frame_b or frame_resolve.<br>
            <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/ArrowForce.png\"></td>
   </tr>
   <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Forces.WorldTorque\">WorldTorque</a></td>
       <td> External torque acting at the frame to which this component
            is connected and defined by 3 input signals,
-           that are interpreted as one vector resolved in frame world, frame_b or frame_resolve. <br>
+           that are interpreted as one vector resolved in frame world, frame_b or frame_resolve.<br>
            <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/ArrowTorque.png\"></td>
   </tr>
   <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Forces.WorldForceAndTorque\">WorldForceAndTorque</a></td>
@@ -2994,24 +2994,24 @@ between two frame connectors, e.g., between two parts.
            to which this component
            is connected and defined by 3+3 input signals,
            that are interpreted as a force and as a torque vector
-           resolved in frame world, frame_b or frame_resolve. <br>
+           resolved in frame world, frame_b or frame_resolve.<br>
            <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/ArrowForce.png\"><br>
            <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/ArrowTorque.png\">
       </td>
   </tr>
   <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Forces.Force\">Force</a></td>
       <td> Force acting between two frames defined by 3 input signals
-           resolved in frame world, frame_a, frame_b or in frame_resolve. <br>
+           resolved in frame world, frame_a, frame_b or in frame_resolve.<br>
            <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/ArrowForce2.png\"></td>
   </tr>
   <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Forces.Torque\">Torque</a></td>
       <td> Torque acting between two frames defined by 3 input signals
-           resolved in frame world, frame_a, frame_b or in frame_resolve. <br>
+           resolved in frame world, frame_a, frame_b or in frame_resolve.<br>
            <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/ArrowTorque2.png\"></td>
   </tr>
   <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Forces.ForceAndTorque\">ForceAndTorque</a></td>
       <td> Force and torque acting between two frames defined by 3+3 input signals
-           resolved in frame world, frame_a, frame_b or in frame_resolve. <br>
+           resolved in frame world, frame_a, frame_b or in frame_resolve.<br>
            <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/ArrowForce2.png\"><br>
            <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/ArrowTorque2.png\"></td>
   </tr>
@@ -3028,11 +3028,11 @@ between two frame connectors, e.g., between two parts.
            <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/LineForceWithTwoMasses.png\"></td>
   </tr>
   <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Forces.Spring\">Spring</a></td>
-      <td> Linear translational spring with optional mass <br>
+      <td> Linear translational spring with optional mass<br>
            <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/Spring2.png\"></td>
   </tr>
   <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Forces.Damper\">Damper</a></td>
-      <td> Linear (velocity dependent) damper <br>
+      <td> Linear (velocity dependent) damper<br>
            <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/Damper2.png\"></td>
   </tr>
   <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Forces.SpringDamperParallel\">SpringDamperParallel</a></td>

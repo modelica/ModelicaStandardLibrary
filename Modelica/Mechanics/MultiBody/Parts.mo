@@ -3069,7 +3069,7 @@ a \"Body\" and of several \"FixedTranslation\" components.
 <p>
 Components <strong>Fixed</strong>, <strong>FixedTranslation</strong>, <strong>FixedRotation</strong>
 and <strong>BodyShape</strong> are visualized according to parameter
-<strong>shapeType</strong>, that may have the following values (e.g., shapeType = \"box\"): <br>&nbsp;<br>
+<strong>shapeType</strong>, that may have the following values (e.g., shapeType = \"box\"):<br>&nbsp;<br>
 </p>
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/FixedShape.png\" ALT=\"model Visualizers.FixedShape\">
 <p>

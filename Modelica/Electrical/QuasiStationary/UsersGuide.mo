@@ -208,7 +208,7 @@ The instantaneous voltage and current are in phase:
 </p>
 <p>
 <IMG BORDER=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/v_r.png\"
-                   alt=\"v_r.png\"> <br>
+                   alt=\"v_r.png\"><br>
 <IMG BORDER=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/i_r.png\"
                    alt=\"i_r.png\">
 </p>
@@ -246,7 +246,7 @@ The instantaneous voltage leads the current by a quarter of the period:
 </p>
 <p>
 <IMG BORDER=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/v_l.png\"
-                   alt=\"v_l.png\"> <br>
+                   alt=\"v_l.png\"><br>
 <IMG BORDER=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/i_l.png\"
                    alt=\"i_l.png\">
 </p>
@@ -284,7 +284,7 @@ The instantaneous voltage lags the current by a quarter of the period:
 </p>
 <p>
 <IMG BORDER=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/v_c.png\"
-                   alt=\"v_c.png\"> <br>
+                   alt=\"v_c.png\"><br>
 <IMG BORDER=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/i_c.png\"
                    alt=\"i_c.png\">
 </p>
@@ -346,7 +346,7 @@ The reference angle <code>gamma</code>:
 </p>
 <ul>
   <li>defines the angular frequency <code>omega</code> of the voltages and currents
-      of a circuit by means of <code>omega = der(gamma)</code>. </li>
+      of a circuit by means of <code>omega = der(gamma)</code>.</li>
   <li>is not a global quantity since it propagated through the connector.
       Therefore, independent circuits of different frequencies can be modeled in one model.</li>
   <li>is present only once in a multiphase connector;
@@ -384,7 +384,7 @@ voltages and currents. The main characteristics of the library are:
   <li>The electrical components of this library are strictly linear.</li>
   <li>The angular frequency <code>omega</code> of the voltages and currents of
       a circuit are determined from a reference angle <code>gamma</code> by means of
-      <code>omega = der(gamma)</code>. </li>
+      <code>omega = der(gamma)</code>.</li>
   <li>The reference angle <code>gamma</code> is not a global quantity
       since it propagated through the connector.
       Therefore, independent circuits of different frequencies can be modeled in one model.</li>

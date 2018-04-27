@@ -472,8 +472,8 @@ Given
 </p>
 <ul>
 <li> start and end angle of an axis</li>
-<li> maximum speed of the axis </li>
-<li> maximum acceleration of the axis </li>
+<li> maximum speed of the axis</li>
+<li> maximum acceleration of the axis</li>
 </ul>
 
 <p>
@@ -674,8 +674,8 @@ Given
 </p>
 <ul>
 <li> start and end angles of every axis</li>
-<li> maximum speed of every axis </li>
-<li> maximum acceleration of every axis </li>
+<li> maximum speed of every axis</li>
+<li> maximum acceleration of every axis</li>
 </ul>
 
 <p>

@@ -420,12 +420,12 @@ email: <a href=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</a>
 
 <ul>
 <li> Main author until 2006:<br>
-     Peter Beater <br>
+     Peter Beater<br>
      Universit&auml;t Paderborn, Abteilung Soest<br>
      Fachbereich Maschinenbau/Automatisierungstechnik<br>
-     L&uuml;becker Ring 2 <br>
-     D 59494 Soest <br>
-     Germany <br>
+     L&uuml;becker Ring 2<br>
+     D 59494 Soest<br>
+     Germany<br>
      email: <a href=\"mailto:info@beater.de\">info@beater.de</a>
      </li>
 <li> <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a> (DLR-RM)</li>
@@ -3692,12 +3692,12 @@ in the lossPower due to the discontinuously changing kinetic energy of the mass
 </html>", revisions="<html>
 <h4>Release Notes:</h4>
 <ul>
-<li><em>First Version from December 7, 1999 by P. Beater (based on Rotational.BearingFriction)</em> </li>
-<li><em>July 14, 2001 by P. Beater, assert on initialization added, diagram modified</em> </li>
+<li><em>First Version from December 7, 1999 by P. Beater (based on Rotational.BearingFriction)</em></li>
+<li><em>July 14, 2001 by P. Beater, assert on initialization added, diagram modified</em></li>
 <li><em>October 11, 2001, by Hans Olsson, Dassault Syst&egrave;mes AB, modified assert to handle start at stops,
 modified event logic such if you have friction parameters equal to zero you do not get events
-between the stops.</em> </li>
-<li><em>June 10, 2002 by P. Beater, StateSelect.always for variables s and v (instead of fixed=true). </em> </li>
+between the stops.</em></li>
+<li><em>June 10, 2002 by P. Beater, StateSelect.always for variables s and v (instead of fixed=true). </em></li>
 </ul>
 </html>"),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
@@ -4097,7 +4097,7 @@ Modelica.Blocks library).
 </html>", revisions="<html>
 <p><strong>Release Notes:</strong></p>
 <ul>
-<li><em>First Version from August 26, 1999 by P. Beater</em> </li>
+<li><em>First Version from August 26, 1999 by P. Beater</em></li>
 </ul>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={Line(points={{-70,0},{-90,0}}),
@@ -5658,10 +5658,10 @@ connector is not connected).
       annotation (Documentation(info="<html>
 <p>This is a 1-dim. rotational component with</p>
 <ul>
-<li>one rotational flange, </li>
-<li>one rotational support/housing, </li>
-<li>one translational flange, and </li>
-<li>one translational support/housing </li>
+<li>one rotational flange,</li>
+<li>one rotational support/housing,</li>
+<li>one translational flange, and</li>
+<li>one translational support/housing</li>
 </ul>
 <p>This model is used to build up elementary components of a drive train transforming rotational into translational motion with equations in the text layer.</p>
 <p>If <em>useSupportR=true</em>, the rotational support connector is conditionally enabled and needs to be connected.</p>
@@ -5995,12 +5995,12 @@ Copyright &copy; 1998-2018, Modelica Association, Anton Haumer and Universit&aum
        <br></li>
 
 <li><em>Version 1.01 (July 18, 2001)</em>
-       by Peter Beater <br>
+       by Peter Beater<br>
        Assert statement added to \"Stop\", small bug fixes in examples.
        <br></li>
 
 <li><em>Version 1.0 (January 5, 2000)</em>
-       by Peter Beater <br>
+       by Peter Beater<br>
        Realized a first version based on Modelica library Mechanics.Rotational
        by Martin Otter and an existing Dymola library onedof.lib by Peter Beater.</li>
 </ul>

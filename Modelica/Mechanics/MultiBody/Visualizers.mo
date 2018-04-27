@@ -128,7 +128,7 @@ Via variable <strong>extra</strong> additional data can be defined:
 </tr>
 <tr>
   <td>\"pipe\"</td>
-  <td>extra = outer-diameter / inner-diameter, i.e, <br>
+  <td>extra = outer-diameter / inner-diameter, i.e,<br>
       extra = 1: cylinder that is completely hollow<br>
       extra = 0: cylinder without a hole.</td>
 </tr>
@@ -368,7 +368,7 @@ Via variable <strong>extra</strong> additional data can be defined:
 </tr>
 <tr>
   <td>\"pipe\"</td>
-  <td>extra = outer-diameter / inner-diameter, i.e, <br>
+  <td>extra = outer-diameter / inner-diameter, i.e,<br>
       extra = 1: cylinder that is completely hollow<br>
       extra = 0: cylinder without a hole.</td>
 </tr>
@@ -1732,13 +1732,13 @@ with
 <tr>
   <td>&lt;width&gt;</td>
   <td> Minimum field width. The converted number will be printed in a field at<br>
-       least this wide and wider if necessary. If the converted number has <br>
+       least this wide and wider if necessary. If the converted number has<br>
        fewer characters it will be padded on the left (or the right depending<br>
        on &lt;flags&gt;) with blanks or 0 (depending on &lt;flags&gt;).</td></tr>
 <tr>
   <td>&lt;precision&gt;</td>
-  <td> The number of digits to be printed after the decimal point for <br>
-       e, E, or f conversions, or the number of significant digits for <br>
+  <td> The number of digits to be printed after the decimal point for<br>
+       e, E, or f conversions, or the number of significant digits for<br>
        g or G conversions.</td></tr>
 <tr>
   <td> &lt;conversion&gt;</td>
@@ -2168,7 +2168,7 @@ Via variable <strong>extra</strong> additional data can be defined:
 </tr>
 <tr>
   <td>\"pipe\"</td>
-  <td>extra = outer-diameter / inner-diameter, i.e, <br>
+  <td>extra = outer-diameter / inner-diameter, i.e,<br>
       extra = 1: cylinder that is completely hollow<br>
       extra = 0: cylinder without a hole.</td>
 </tr>
@@ -2242,7 +2242,7 @@ that is used for animation. This object is specified by:
 <li> The surface frame (orientation object \"R\" and origin \"r_0\")
      in which the data is specified.</li>
 <li> A set of two parameters, one in u- and one in v-direction,
-     that defines the control points. </li>
+     that defines the control points.</li>
 <li> A time-varying position of each control point with respect to
      the surface frame.</li>
 </ul>

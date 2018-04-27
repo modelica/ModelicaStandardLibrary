@@ -143,10 +143,10 @@ The basic operation is to fill and empty the two tanks:
 <ol>
 <li> Valve 1 is opened and tank 1 is filled.</li>
 <li> When tank 1 reaches its fill level limit,
-     valve 1 is closed. </li>
+     valve 1 is closed.</li>
 <li> After a waiting time, valve 2 is
      opened and the fluid flows from tank 1 into tank 2.</li>
-<li> When tank 1 reaches its minimum level, valve 2 is closed. </li>
+<li> When tank 1 reaches its minimum level, valve 2 is closed.</li>
 <li> After a waiting time, valve 3 is opened and
      the fluid flows out of tank 2</li>
 <li> When tank 2 reaches its minimum level, valve 3 is closed</li>
@@ -177,10 +177,10 @@ The demo-run uses the following button presses:
 
 <ul>
 <li> Button <strong>start</strong> pressed at 20 s.</li>
-<li> Button <strong>stop</strong> pressed at 220 s </li>
-<li> Button <strong>start</strong> pressed at 280 s </li>
-<li> Button <strong>stop</strong> pressed at 650 s </li>
-<li> Button <strong>shut</strong> pressed at 700 s </li>
+<li> Button <strong>stop</strong> pressed at 220 s</li>
+<li> Button <strong>start</strong> pressed at 280 s</li>
+<li> Button <strong>stop</strong> pressed at 650 s</li>
+<li> Button <strong>shut</strong> pressed at 700 s</li>
 <li> Simulate for 900 s</li>
 </ul>
 

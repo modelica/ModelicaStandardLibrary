@@ -203,7 +203,7 @@ variable <strong>extra</strong> is used as instance name:
 </tr>
 <tr>
   <td>\"pipe\"</td>
-  <td>extra = outer-diameter / inner-diameter, i.e, <br>
+  <td>extra = outer-diameter / inner-diameter, i.e,<br>
       extra = 1: cylinder that is completely hollow<br>
       extra = 0: cylinder without a hole.</td>
 </tr>

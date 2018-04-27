@@ -325,7 +325,7 @@ as output signals:
 </p>
 
 <ol>
-<li> Absolute position vector (= r) </li>
+<li> Absolute position vector (= r)</li>
 <li> Absolute velocity vector (= v)</li>
 <li> Absolute acceleration vector (= a)</li>
 <li> Three angles to rotate world frame into frame_a (= angles)</li>
@@ -762,7 +762,7 @@ as output signals:
 </p>
 
 <ol>
-<li> Relative position vector (= r_rel) </li>
+<li> Relative position vector (= r_rel)</li>
 <li> Relative velocity vector (= v_rel)</li>
 <li> Relative acceleration vector (= a_rel)</li>
 <li> Three angles to rotate frame_a into frame_b (= angles)</li>

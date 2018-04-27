@@ -47,7 +47,7 @@ of the heat capacities of each element.
 </p>
 <p>
 Simulate for 5 s and plot the variables<br>
-mass1.T, mass2.T, T_final_K or <br>
+mass1.T, mass2.T, T_final_K or<br>
 Tsensor1.T, Tsensor2.T, T_final_degC
 </p>
 </html>"),
@@ -3112,8 +3112,8 @@ This partial model provides a conditional heat port for dissipating losses.
 </p>
 <ul>
 <li>If <strong>useHeatPort</strong> is set to <strong>false</strong> (default), no heat port is available, and the thermal loss power is dissipated internally.
-In this case, the parameter <strong>T</strong> specifies the fixed device temperature (the default for T = 20&deg;C) </li>
-<li>If <strong>useHeatPort</strong> is set to <strong>true</strong>, the heat port is available. </li>
+In this case, the parameter <strong>T</strong> specifies the fixed device temperature (the default for T = 20&deg;C)</li>
+<li>If <strong>useHeatPort</strong> is set to <strong>true</strong>, the heat port is available.</li>
 </ul>
 <p>
 If this model is used, the loss power has to be provided by an equation in the model which inherits from PartialElementaryConditionalHeatPort model
@@ -3180,8 +3180,8 @@ This partial model provides a conditional heat port for dissipating losses.
 </p>
 <ul>
 <li>If <strong>useHeatPort</strong> is set to <strong>false</strong> (default), no heat port is available, and the thermal loss power is dissipated internally.
-In this case, the parameter <strong>T</strong> specifies the fixed device temperature (the default for T = 20&deg;C) </li>
-<li>If <strong>useHeatPort</strong> is set to <strong>true</strong>, the heat port is available. </li>
+In this case, the parameter <strong>T</strong> specifies the fixed device temperature (the default for T = 20&deg;C)</li>
+<li>If <strong>useHeatPort</strong> is set to <strong>true</strong>, the heat port is available.</li>
 </ul>
 <p>
 If this model is used, the <strong>internalHeatPort</strong> has to be connected in the model which inherits from PartialElementaryConditionalHeatPort model.

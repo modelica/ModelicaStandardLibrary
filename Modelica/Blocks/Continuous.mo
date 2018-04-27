@@ -1090,7 +1090,7 @@ part of this controller, the following features are present:
 <ul>
 <li> The output of this controller is limited. If the controller is
      in its limits, anti-windup compensation is activated to drive
-     the integrator state to zero. </li>
+     the integrator state to zero.</li>
 <li> The high-frequency gain of the derivative part is limited
      to avoid excessive amplification of measurement noise.</li>
 <li> Setpoint weighting is present, which allows to weight

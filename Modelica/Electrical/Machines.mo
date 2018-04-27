@@ -6972,7 +6972,7 @@ Resistance and stray inductance of stator and rotor are modeled directly in stat
 </table>
 <p>
 Parameter turnsRatio could be obtained from the following relationship
-at standstill with open rotor circuit at nominal voltage and nominal frequency, <br>
+at standstill with open rotor circuit at nominal voltage and nominal frequency,<br>
 using the locked-rotor voltage VR, no-load stator current I0 and powerfactor PF0:<br>
 turnsRatio * <u>V</u><sub>R</sub> = <u>V</u><sub>s</sub> - (R<sub>s</sub> + j X<sub>s,sigma</sub>) <u>I</u><sub>0</sub>
 </p>
@@ -11671,7 +11671,7 @@ output is length of the space phasor divided by sqrt(2), thus giving in sinusoid
                   lineColor={0,0,255},
                   extent={{-40,-60},{40,-20}},
                   textString="P Q")}), Documentation(info="<html>
-3-phase instantaneous voltages (plug_p - plug_nv) and currents (plug_p - plug_ni) are transformed to the corresponding space phasors, <br>
+3-phase instantaneous voltages (plug_p - plug_nv) and currents (plug_p - plug_ni) are transformed to the corresponding space phasors,<br>
 which are used to calculate power quantities:
 <ul>
 <li>P = instantaneous power, thus giving in stationary state active power.</li>
@@ -11866,7 +11866,7 @@ Calculates (mechanical) power from torque times angular speed.
                   visible=not useSupport,
                   points={{120,120},{110,100}})}),
         Documentation(info="<html>
-Calculates rotor lagging angle by measuring the stator phase voltages, transforming them to the corresponding space phasor in stator-fixed coordinate system, <br>
+Calculates rotor lagging angle by measuring the stator phase voltages, transforming them to the corresponding space phasor in stator-fixed coordinate system,<br>
 rotating the space phasor to the rotor-fixed coordinate system and calculating the angle of this space phasor.
 <p>
 The sensor's housing can be implicitly fixed (useSupport=false).<br>

@@ -891,7 +891,7 @@ This library provides functions operating on vectors:
        zero-division for zero vector.</li>
 
 <li> <a href=\"modelica://Modelica.Math.Vectors.reverse\">reverse</a>(v)
-     - reverses the vector elements of v. </li>
+     - reverses the vector elements of v.</li>
 
 <li> <a href=\"modelica://Modelica.Math.Vectors.sort\">sort</a>(v)
      - sorts the elements of vector v in ascending or descending order.</li>
@@ -1394,7 +1394,7 @@ where Q1 consists of the first \"rank\" columns of Q.
 
 <p>
 <a href=\"modelica://Modelica.Math.Matrices.leastSquares2\">Matrices.leastSquares2</a>
-(same as leastSquares, but with a right hand side matrix), <br>
+(same as leastSquares, but with a right hand side matrix),<br>
 <a href=\"modelica://Modelica.Math.Matrices.solve\">Matrices.solve</a>
 (for square, regular matrices A)
 </p>
@@ -1544,7 +1544,7 @@ where Q1 consists of the first \"rank\" columns of Q.
 
 <p>
 <a href=\"modelica://Modelica.Math.Matrices.leastSquares\">Matrices.leastSquares</a>
-(same as leastSquares2, but with a right hand side vector), <br>
+(same as leastSquares2, but with a right hand side vector),<br>
 <a href=\"modelica://Modelica.Math.Matrices.solve2\">Matrices.solve2</a>
 (for square, regular matrices A)
 </p>
@@ -1674,7 +1674,7 @@ The optional third (Integer) output argument has the following meaning:</p>
       <td>successful exit</td></tr>
   <tr><td>info &gt; 0:</td>
       <td>if info = i, U[i,i] is exactly zero. The factorization
-          has been completed, <br>
+          has been completed,<br>
           but the factor U is exactly
           singular, and division by zero will occur<br> if it is used
           to solve a system of equations.</td></tr>
@@ -2160,7 +2160,7 @@ vector. Matrix <strong>R</strong> has the following important properties:
      abs(R[i,i]) &ge; abs(R[i,j]).</li>
 <li> The diagonal elements of <strong>R</strong> are sorted according to size, such that
      the largest absolute value is abs(R[1,1]) and
-     abs(R[i,i]) &ge; abs(R[j,j]) with i &lt; j. </li>
+     abs(R[i,i]) &ge; abs(R[j,j]) with i &lt; j.</li>
 </ul>
 <p>
 This means that if abs(R[i,i]) &le; &epsilon; then abs(R[j,k]) &le; &epsilon;
@@ -3397,7 +3397,7 @@ to compute the solution of a linear system of differential equations</p>
 </dl>
 <p>The following steps are performed to calculate the exponential of A:</p>
 <ol>
-  <li>Matrix <strong>A</strong> is balanced <br>
+  <li>Matrix <strong>A</strong> is balanced<br>
   (= is transformed with a diagonal matrix <strong>D</strong>, such that inv(<strong>D</strong>)*<strong>A</strong>*<strong>D</strong>
   has a smaller condition as <strong>A</strong>).</li>
   <li>The scalar T is divided by a multiple of 2 such that norm(

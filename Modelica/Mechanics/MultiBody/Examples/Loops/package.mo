@@ -36,25 +36,25 @@ mechanical systems with kinematic loops can be modeled.
   </tr>
   <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Examples.Loops.Fourbar2\">Fourbar2</a></td>
       <td> One kinematic loop with four bars (with UniversalSpherical
-           joint; 1 non-linear equation) <br>
+           joint; 1 non-linear equation)<br>
       <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Loops/Fourbar2_small.png\">
       </td>
   </tr>
   <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Examples.Loops.Fourbar_analytic\">Fourbar_analytic</a></td>
       <td> One kinematic loop with four bars (with JointSSP joint;
-           analytic solution of non-linear algebraic loop)  <br>
+           analytic solution of non-linear algebraic loop)<br>
       <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Loops/Fourbar_analytic_small.png\">
       </td>
   </tr>
   <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Examples.Loops.PlanarFourbar\">PlanarFourbar</a></td>
-      <td> Planar four bars  with one kinematic loop (with RevolutePlanarLoopConstraint joint)  <br>
+      <td> Planar four bars  with one kinematic loop (with RevolutePlanarLoopConstraint joint)<br>
       <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Loops/PlanarFourbar_small.png\">
       </td>
   </tr>
   <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Examples.Loops.PlanarLoops_analytic\">PlanarLoops_analytic</a></td>
       <td> Mechanism with three planar kinematic loops and one
            degree-of-freedom with analytic loop handling
-           (with JointRRR joints) <br>
+           (with JointRRR joints)<br>
       <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Loops/PlanarLoops_small.png\">
       </td>
   </tr>

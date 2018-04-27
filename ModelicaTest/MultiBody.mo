@@ -110,7 +110,7 @@ are present with annotation \"InineAfterIndexReduction = true\".
      is applied and the equations are symbolically differentiated.</li>
 
 <li> The functions are inlined and further symbolic transformation
-     is performed (sorting the equations, dummy derivative method etc.. </li>
+     is performed (sorting the equations, dummy derivative method etc..</li>
 </ol>
 
 <p>
@@ -127,7 +127,7 @@ The model contains the following functions that have annotation
      this lets the Pantelides algorithm fail in this example (this happens usually only
      in systems with kinematic loops). This means that the differentiated equation system
      is structurally singular, after the functions with annotation \"InineAfterIndexReduction = true\"
-     are inlined. </li>
+     are inlined.</li>
 <li> The Rotational.Sources.Move block is using internally functions to express that
      an input u[2] is the derivative of of input u[1]. In order that this is possible, the functions
      have the annotation \"InineAfterIndexReduction = true\" so that the differentiation takes place

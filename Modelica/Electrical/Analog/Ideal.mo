@@ -196,7 +196,7 @@ The limiting case is also allowed, i.e., the resistance Ron of the
 closed switch could be exactly zero and the conductance Goff of the
 open switch could be also exactly zero. Note, there are circuits,
 where a description with zero Ron or zero Goff is not possible.
-<br> <br>
+<br><br>
 <strong>Please note:</strong>
 In case of useHeatPort=true the temperature dependence of the electrical
 behavior is <strong>not</strong> modelled. The parameters are not temperature dependent.
@@ -364,7 +364,7 @@ The limiting case is also allowed, i.e., the resistance Ron of the
 closed switch could be exactly zero and the conductance Goff of the
 open switch could be also exactly zero. Note, there are circuits,
 where a description with zero Ron or zero Goff is not possible.
-<br> <br>
+<br><br>
 <strong>Please note:</strong>
 In case of useHeatPort=true the temperature dependence of the electrical
 behavior is <strong>not</strong> modelled. The parameters are not temperature dependent.
@@ -1401,23 +1401,23 @@ For details of the arc effect, see partial model <a href=\"modelica://Modelica.E
 
 <p>Characteristics:</p>
 <ul>
-<li>high switching times between on-state and off state up to activation of the reverse current phase </li>
-<li>gate electrode are activated with (positive) impulse (called thyristor/triac firing), after firing thyristor path holds itself in state of low resistance or conductive state up to holding voltage is fallen below, it follows change to off state and next thyristor path can fire </li>
-<li>in particular by switching of inductive components triacs generate harmonic waves, whose frequency ranges into broadcast sector and could there cause transmission disturbances; therefore triacs have to eliminate interference by inductors and capacitors </li>
+<li>high switching times between on-state and off state up to activation of the reverse current phase</li>
+<li>gate electrode are activated with (positive) impulse (called thyristor/triac firing), after firing thyristor path holds itself in state of low resistance or conductive state up to holding voltage is fallen below, it follows change to off state and next thyristor path can fire</li>
+<li>in particular by switching of inductive components triacs generate harmonic waves, whose frequency ranges into broadcast sector and could there cause transmission disturbances; therefore triacs have to eliminate interference by inductors and capacitors</li>
 </ul>
 <p>Applications:</p>
 <ul>
-<li>any stepless exposure (dimmer) </li>
-<li>engine speed adjustment of electric motors </li>
-<li>further applications of phase-angle control (power electronics) </li>
-<li>power packs </li>
+<li>any stepless exposure (dimmer)</li>
+<li>engine speed adjustment of electric motors</li>
+<li>further applications of phase-angle control (power electronics)</li>
+<li>power packs</li>
 </ul>
 <p>As an additional information: this model is based on the Modelica.Electrical.Analog.Ideal.IdealThyristor.</p>
 </html>", revisions="<html>
 <ul>
-<li><em>November 25, 2009   </em> <br>
+<li><em>November 25, 2009   </em><br>
 
-       by Susann Wolf <br><br>
+       by Susann Wolf<br><br>
        </li>
 </ul>
 </html>"));

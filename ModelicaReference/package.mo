@@ -1734,7 +1734,7 @@ External functions may have internal memory reported between function calls. Wit
 <li> An external object class shall be directly extended from
      ExternalObject, shall have exactly two function definitions,
      called \"<strong>constructor</strong>\" and \"<strong>destructor</strong>\", and
-     shall not contain other elements. </li>
+     shall not contain other elements.</li>
 
 <li> The constructor function is called exactly once before the first use of
      the object. For each completely constructed object, the destructor
@@ -1907,7 +1907,7 @@ general Modelica class:
      section, which, if present, is the body of the function.</li>
 
 <li> A function may have zero or one external function interface, which,
-     if present, is the external definition of the function. </li>
+     if present, is the external definition of the function.</li>
 
 <li> For a function to be called in a simulation model, it must have
      either an algorithm section or an external function interface as
@@ -1953,7 +1953,7 @@ Modelica functions have the following enhancements compared to a general Modelic
 
 <li> A function is dynamically instantiated when it is called rather than
      being statically instantiated by an instance declaration,
-     which is the case for other kinds of classes. </li>
+     which is the case for other kinds of classes.</li>
 
 <li> A function may have an external function interface specifier as its body.</li>
 
@@ -1997,7 +1997,7 @@ to be passed to a formal parameter of function type in a function call
 </p>
 <ol>
 <li> as a function name,</li>
-<li> as a function partial application, </li>
+<li> as a function partial application,</li>
 <li> as a function that is a component,</li>
 <li> as a function partial application of a function that is a component.</li>
 </ol>
@@ -2350,14 +2350,14 @@ or arrays.
       <td>multiplication;<br>
           scalar*array: element-wise multiplication<br>
           vector*vector: element-wise multiplication (result: scalar)<br>
-          matrix*matrix: matrix product <br>
+          matrix*matrix: matrix product<br>
           vector*matrix: row-matrix*matrix (result: vector)<br>
           matrix*vector: matrix*column-matrix (result: vector)</td></tr>
   <tr><td>/</td>
       <td>a / b</td>
       <td>division of two scalars or an array by a scalar;<br>
           division of an array by a scalar is defined element-wise.<br>
-          The result is always of real type. In order to get integer <br>
+          The result is always of real type. In order to get integer<br>
           division with truncation use the function div.</td></tr>
 
   <tr><td>^</td>
@@ -2723,7 +2723,7 @@ evaluates to false different actions are taken depending on the level input:
      termination, such that if the model first triggers the
      end of successful analysis by reaching the stop-time
      or explicitly with terminate(), but the evaluation with
-     terminal()=true triggers an assert, the analysis failed. </li>
+     terminal()=true triggers an assert, the analysis failed.</li>
 <li> level = AssertionLevel.warning:<br>
      The current evaluation is not aborted, message indicates
      the cause of the warning [It is recommended to report the
@@ -4145,7 +4145,7 @@ Returns the outer product of two vectors
 <blockquote><pre><strong>outerProduct</strong>(v1,v2)</pre></blockquote>
 <h4>Description</h4>
 <p>
-Returns the outer product of vectors v1 and v2 <br>
+Returns the outer product of vectors v1 and v2<br>
 (= matrix(v)*transpose( matrix(v) ) ).
 </p>
 </html>"));
@@ -4690,7 +4690,7 @@ The arguments have the following meaning
   <td> Enumeration expression</td></tr>
 <tr>
   <td> Integer minimumLength = 0 </td>
-  <td> Minimum length of the resulting string. If necessary, <br>
+  <td> Minimum length of the resulting string. If necessary,<br>
        the blank character is used to fill up unused space.</td></tr>
 <tr>
   <td> Boolean leftJustified = <strong>true</strong> </td>
@@ -4717,13 +4717,13 @@ with
 <tr>
   <td>&lt;width&gt;</td>
   <td> Minimum field width. The converted number will be printed in a field at<br>
-       least this wide and wider if necessary. If the converted number has <br>
+       least this wide and wider if necessary. If the converted number has<br>
        fewer characters it will be padded on the left (or the right depending<br>
        on &lt;flags&gt;) with blanks or 0 (depending on &lt;flags&gt;).</td></tr>
 <tr>
   <td>&lt;precision&gt;</td>
-  <td> The number of digits to be printed after the decimal point for <br>
-       e, E, or f conversions, or the number of significant digits for <br>
+  <td> The number of digits to be printed after the decimal point for<br>
+       e, E, or f conversions, or the number of significant digits for<br>
        g or G conversions.</td></tr>
 <tr>
   <td> &lt;conversion&gt;</td>
@@ -5035,7 +5035,7 @@ The local number of unknowns of a model or block class is the sum based on the c
 </p>
 
 <ul>
-<li> For each declared component of specialized class type (Real, Integer, String, Boolean, enumeration and arrays of those, etc.) or record, not declared as outer, it is the \"number of unknown variables\" inside it (i.e., excluding parameters and constants and counting the elements after expanding all records and arrays to a set of scalars of primitive types). </li>
+<li> For each declared component of specialized class type (Real, Integer, String, Boolean, enumeration and arrays of those, etc.) or record, not declared as outer, it is the \"number of unknown variables\" inside it (i.e., excluding parameters and constants and counting the elements after expanding all records and arrays to a set of scalars of primitive types).</li>
 
 <li> Each declared component  of specialized class type or record declared as outer is ignored [i.e., all variables inside the component are treated as known].</li>
 
@@ -5095,7 +5095,7 @@ The following restrictions hold:
 </p>
 
 <ul>
-<li>In a non-partial model or block, all non-connector inputs of model or block components must have binding equations. [E.g., if the model contains a component, firstOrder (of specialized class model) and firstOrder has  \"input Real u\" then there must be a binding equation for firstOrder.u.] </li>
+<li>In a non-partial model or block, all non-connector inputs of model or block components must have binding equations. [E.g., if the model contains a component, firstOrder (of specialized class model) and firstOrder has  \"input Real u\" then there must be a binding equation for firstOrder.u.]</li>
 <li>A component declared with the inner or outer prefix shall not be of a class having top-level public connectors containing inputs.</li>
 <li>Modifiers for components shall only contain redeclarations of replaceable elements and binding equations for parameters, constants (that do not yet have binding equations), inputs and variables having a default binding equation.</li>
 <li>All non-partial model and block classes must be locally balanced [this means that the local number of unknowns equals the local equation size].</li>
@@ -5308,7 +5308,7 @@ The local number of unknowns of DynamicVolume is:
 
 <ul>
 <li> 4+2*nXi (inside the port connector), plus</li>
-<li> 2+nXi (variables U, M and MXi), plus </li>
+<li> 2+nXi (variables U, M and MXi), plus</li>
 <li> 2+nXi (the input variables in the connectors of the medium model)
 </ul>
 

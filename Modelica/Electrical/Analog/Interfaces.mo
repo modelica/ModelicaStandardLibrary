@@ -540,8 +540,8 @@ and the closed semiconductor has a low resistance <em>Roff</em> which is default
 </P>
 <P>
 The parameter <em>Vknee</em> which is the forward threshold voltage, allows to displace
-the knee point <br> along  the <em>Gon</em>-characteristic until <em>v = Vknee</em>.
-<br> <br>
+the knee point<br> along  the <em>Gon</em>-characteristic until <em>v = Vknee</em>.
+<br><br>
 <strong>Please note:</strong>
 In case of useHeatPort=true the temperature dependence of the electrical
 behavior is <strong>not</strong> modelled.
@@ -645,7 +645,7 @@ The limiting case is also allowed, i.e., the resistance Ron of the
 closed switch could be exactly zero and the conductance Goff of the
 open switch could be also exactly zero. Note, there are circuits,
 where a description with zero Ron or zero Goff is not possible.
-<br> <br>
+<br><br>
 <strong>Please note:</strong>
 In case of useHeatPort=true the temperature dependence of the electrical
 behavior is <strong>not</strong> modelled. The parameters are not temperature dependent.
@@ -770,7 +770,7 @@ i.e., the equation for the on-state is activated <code>v=Ron*i</code>.
 <p>
 Please note: In an AC circuit, at least the arc quenches when the next natural zero-crossing of the current occurs.
 In a DC circuit, the arc will not quench if the arc voltage is not sufficient that a zero-crossing of the current occurs.
-<br> <br>
+<br><br>
 <strong>Please note:</strong>
 In case of useHeatPort=true the temperature dependence of the electrical
 behavior is <strong>not</strong> modelled. The parameters are not temperature dependent.

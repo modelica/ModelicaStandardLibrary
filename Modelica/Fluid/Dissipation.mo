@@ -227,7 +227,7 @@ Fluid.Dissipation was improved for the release as follows:
 </p>
 
 <ul>
-<li> Changed flow models structure: <br>
+<li> Changed flow models structure:<br>
 Now that a future feature for the automatic choice of using either a mass flow rate (compressible case) or a pressure loss (incompressible case) function for calculation is supported if implemented by IDE. Due to that no manual selection of a compressible or incompressible calculation in the Modelica.Fluid flow models is possible anymore. Therefore nonlinear equations will be created from the Modelica.Fluid flow models, if the future feature is not supported and the mass flow rate is known at a fluid port instead of the pressure loss.
 </li>
 <li> Changed structure and amount of records used as input for function calls due to
@@ -6191,7 +6191,7 @@ You can perform an inverse calculation from <strong>kc_evenGapLaminar_KC</strong
    <ul>
    <li> heat transfer from one side of the gap (target=Modelica.Fluid.Dissipation.Utilities.Types.kc_evenGap.UndevOne)
        <ul>
-       <li> Prandtl number 0.1 &le; Pr &le; 10 </li>
+       <li> Prandtl number 0.1 &le; Pr &le; 10</li>
        </ul></li>
    <li> heat transfer from both sides of the gap (target=Modelica.Fluid.Dissipation.Utilities.Types.kc_evenGap.UndevBoth)
        <ul>
@@ -6329,18 +6329,18 @@ You can perform an inverse calculation from <strong>kc_evenGapOverall_KC</strong
 <ul>
 <li> developed fluid flow
    <ul>
-   <li> heat transfer from one side of the gap (target=Modelica.Fluid.Dissipation.Utilities.Types.kc_evenGap.DevOne) </li>
-   <li> heat transfer from both sides of the gap (target=Modelica.Fluid.Dissipation.Utilities.Types.kc_evenGap.DevBoth) </li>
+   <li> heat transfer from one side of the gap (target=Modelica.Fluid.Dissipation.Utilities.Types.kc_evenGap.DevOne)</li>
+   <li> heat transfer from both sides of the gap (target=Modelica.Fluid.Dissipation.Utilities.Types.kc_evenGap.DevBoth)</li>
    </ul></li>
 <li> undeveloped fluid flow
    <ul>
    <li> heat transfer from one side of the gap (target=Modelica.Fluid.Dissipation.Utilities.Types.kc_evenGap.UndevOne)
        <ul>
-       <li> Prandtl number 0.1 &le; Pr &le; 10 </li>
+       <li> Prandtl number 0.1 &le; Pr &le; 10</li>
        </ul></li>
    <li> heat transfer from both sides of the gap (target=Modelica.Fluid.Dissipation.Utilities.Types.kc_evenGap.UndevBoth)
    <ul>
-       <li> Prandtl number 0.1 &le; Pr &le; 1000 </li>
+       <li> Prandtl number 0.1 &le; Pr &le; 1000</li>
        </ul></li>
    </ul></li>
 <li> turbulent regime always calculated for developed fluid flow and heat transfer from both sides of the gap (target=Modelica.Fluid.Dissipation.Utilities.Types.kc_evenGap.DevBoth)</li>
@@ -6413,7 +6413,7 @@ You can perform an inverse calculation from <strong>kc_evenGapTurbulent_KC</stro
 <ul>
 <li> identical and constant wall temperatures</li>
 <li> hydraulic diameter per gap length (d_hyd / L) &le; 1</li>
-<li> 0.5 &le; Prandtl number Pr &le; 100) </li>
+<li> 0.5 &le; Prandtl number Pr &le; 100)</li>
 <li> turbulent regime (3e4 &le; Reynolds number &le; 1e6)</li>
 <li> developed fluid flow</li>
 <li> heat transfer from both sides of the gap (target = Modelica.Fluid.Dissipation.Utilities.Types.kc_evenGap.DevBoth)</li>
@@ -6530,7 +6530,7 @@ You can perform an inverse calculation from <strong>kc_approxForcedConvection_KC
 
 <h4>Calculation</h4>
 <p>
-The mean convective heat transfer coefficient <strong> kc </strong> is approximated through different Nusselt number <strong> Nu </strong> correlations out of <em>[Bejan 2003, p. 424 ff]</em>. <br>
+The mean convective heat transfer coefficient <strong> kc </strong> is approximated through different Nusselt number <strong> Nu </strong> correlations out of <em>[Bejan 2003, p. 424 ff]</em>.<br>
 Roughest approximation according to Dittus/Boelter (1930):
 </p>
 <pre>
@@ -6642,8 +6642,8 @@ You can perform an inverse calculation from <strong>kc_flatTube_KC</strong>, whe
 
 <h4>Restriction</h4>
 <ul>
-<li> According to the kind of fin geometry the calculation is valid in a range of <strong> Re</strong> from 100 to 5000. </li>
-<li> medium = air </li>
+<li> According to the kind of fin geometry the calculation is valid in a range of <strong> Re</strong> from 100 to 5000.</li>
+<li> medium = air</li>
 </ul>
 
 <h4>Geometry </h4>
@@ -6739,8 +6739,8 @@ You can perform an inverse calculation from <strong>kc_roundTube_KC</strong>, wh
 
 <h4>Restriction</h4>
 <ul>
-<li> According to the kind of fin geometry the calculation is valid in a range of <strong> Re</strong> from 300 to 8000. </li>
-<li> medium = air </li>
+<li> According to the kind of fin geometry the calculation is valid in a range of <strong> Re</strong> from 300 to 8000.</li>
+<li> medium = air</li>
 </ul>
 
 <h4>Geometry </h4>
@@ -6834,8 +6834,8 @@ You can perform an inverse calculation from <strong>kc_laminar_KC</strong>, wher
 <h4>Restriction</h4>
 
 <ul>
-  <li> laminar regime (Reynolds number &le; critical Reynolds number <strong> Re_crit</strong>) </li>
-  <li> neglect influence of heat transfer direction (heating/cooling) according to <em>Sieder and Tate </em> </li>
+  <li> laminar regime (Reynolds number &le; critical Reynolds number <strong> Re_crit</strong>)</li>
+  <li> neglect influence of heat transfer direction (heating/cooling) according to <em>Sieder and Tate </em></li>
 </ul>
 
 <p>
@@ -7498,11 +7498,11 @@ You can perform an inverse calculation from <strong>kc_overall_KC</strong>, wher
 
 <h4>Restriction</h4>
 <ul>
-<li> circular cross sectional area </li>
-<li> uniform wall temperature (UWT) <strong> or </strong> uniform heat flux (UHF) </li>
-<li> hydrodynamically developed fluid flow </li>
-<li> hydraulic diameter / length &le; 1 </li>
-<li> 0.6 &le; Prandtl number &le; 1000 </li>
+<li> circular cross sectional area</li>
+<li> uniform wall temperature (UWT) <strong> or </strong> uniform heat flux (UHF)</li>
+<li> hydrodynamically developed fluid flow</li>
+<li> hydraulic diameter / length &le; 1</li>
+<li> 0.6 &le; Prandtl number &le; 1000</li>
 </ul>
 
 <h4>Geometry and Calculation </h4>
@@ -7564,11 +7564,11 @@ You can perform an inverse calculation from <strong>kc_turbulent_KC</strong>, wh
 <h4>Restriction</h4>
 
 <ul>
-<li> circular cross sectional area </li>
-<li> hydrodynamically developed fluid flow </li>
-<li> hydraulic diameter / length &le; 1 </li>
-<li> 0.6 &le; Prandtl number &le; 1000 </li>
-<li> turbulent flow regime (1e4 &le; Reynolds number &le; 1e6) </li>
+<li> circular cross sectional area</li>
+<li> hydrodynamically developed fluid flow</li>
+<li> hydraulic diameter / length &le; 1</li>
+<li> 0.6 &le; Prandtl number &le; 1000</li>
+<li> turbulent flow regime (1e4 &le; Reynolds number &le; 1e6)</li>
 </ul>
 
 <h4>Geometry </h4>
@@ -7673,9 +7673,9 @@ Calculation of local <strong>two phase</strong> heat transfer coefficient <stron
 
 <h4>Restriction</h4>
 <ul>
-  <li>circular cross sectional area </li>
-  <li>no subcooled boiling </li>
-  <li>film condensation </li>
+  <li>circular cross sectional area</li>
+  <li>no subcooled boiling</li>
+  <li>film condensation</li>
 </ul>
 
 <h4>Geometry </h4>
@@ -9443,12 +9443,12 @@ Calculation of pressure loss for <strong>two phase flow</strong> in a horizontal
 This function shall be used within the restricted limits according to the referenced literature.
 </p>
 <ul>
- <li> <strong> circular cross sectional area </strong> </li>
- <li> <strong> neglecting of surface roughness </strong> </li>
- <li> <strong> horizontal flow or vertical upflow </strong> </li>
- <li> <strong> usage of mass flow rate quality (see Calculation) </strong> </li>
+ <li> <strong> circular cross sectional area </strong></li>
+ <li> <strong> neglecting of surface roughness </strong></li>
+ <li> <strong> horizontal flow or vertical upflow </strong></li>
+ <li> <strong> usage of mass flow rate quality (see Calculation) </strong></li>
  <li> <strong> two phase pressure loss for mean constant mass flow rate quality (x_flow) over (increment) length </strong></li>
- <li> <strong> usage of two phase pressure loss function for discretization at boiling or condensation considering variable mass flow rate quality</strong> </li>
+ <li> <strong> usage of two phase pressure loss function for discretization at boiling or condensation considering variable mass flow rate quality</strong></li>
 </ul>
 
 <h4>Geometry </h4>
@@ -9598,7 +9598,7 @@ The void fraction is one of the most important parameter used to characterize tw
 </p>
 
 <ul>
- <li>    <strong> homogeneous approach </strong> </li>
+ <li>    <strong> homogeneous approach </strong></li>
  <li>     <strong> momentum flux approach (heterogeneous model) </strong></li>
  <li>     <strong> Kinetic energy flow approach by Zivi (heterogeneous model) </strong></li>
  <li>     <strong> Empirical momentum flux approach by Chisholm (heterogeneous model) </strong></li>
@@ -10378,9 +10378,9 @@ A <strong> mean density </strong> assuming a continuous distribution out of a di
 The following <strong> modelling approaches </strong> can be used to calculate the mean density of two phase flow:
 </p>
 <ul>
-<li>        <strong> homogeneous density </strong> (homogeneous approach) </li>
-<li>         <strong> momentum flux density </strong> (heterogeneous approach) </li>
-<li>         <strong> kinetic energy flow density </strong> (heterogeneous approach) </li>
+<li>        <strong> homogeneous density </strong> (homogeneous approach)</li>
+<li>         <strong> momentum flux density </strong> (heterogeneous approach)</li>
+<li>         <strong> kinetic energy flow density </strong> (heterogeneous approach)</li>
 </ul>
 
 

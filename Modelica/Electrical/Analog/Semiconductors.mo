@@ -120,11 +120,11 @@ package Semiconductors
    revisions="<html>
 <ul>
 <li><em>November 2015 </em>
-by Stefan Vorkoetter <br>implemented dynamic temperature dependency</br></li>
+by Stefan Vorkoetter<br>implemented dynamic temperature dependency</br></li>
 <li><em>November 2015</em>
-by Kristin Majetta <br> defined parameter Vt based on fixed temperature</br></li>
+by Kristin Majetta<br> defined parameter Vt based on fixed temperature</br></li>
 <li><em>June 2014</em>
-by Stefan Vorkoetter, Kristin Majetta, and Christoph Clauss <br>implemented</br></li>
+by Stefan Vorkoetter, Kristin Majetta, and Christoph Clauss<br>implemented</br></li>
 <li><em>October 2011</em>
 Stefan Vorkoetter - new model proposed.</li>
 </ul>
@@ -384,7 +384,7 @@ For more details please care for H. Spiro.
 <P>
 The model does not consider capacitances. A high drain-source resistance RDS
 is included to avoid numerical difficulties.
-<br> <br>
+<br><br>
 <strong>Please note:</strong>
 In case of useHeatPort=true the temperature dependence of the electrical
 behavior is <strong>not</strong> modelled yet. The parameters are not temperature dependent.
@@ -526,7 +526,7 @@ equation
 <P>
 This model is a simple model of a bipolar NPN junction transistor according
 to Ebers-Moll.
-<br> <br>
+<br><br>
 <strong>Please note:</strong>
 In case of useHeatPort=true the temperature dependence of the electrical
 behavior is <strong>not</strong> modelled yet. The parameters are not temperature dependent.
@@ -642,7 +642,7 @@ equation
 <P>
 This model is a simple model of a bipolar PNP junction transistor according
 to Ebers-Moll.
-<br> <br>
+<br><br>
 <strong>Please note:</strong>
 In case of useHeatPort=true the temperature dependence of the electrical
 behavior is <strong>not</strong> modelled yet. The parameters are not temperature dependent.
@@ -1548,9 +1548,9 @@ public
 </html>",
      revisions="<html>
 <ul>
-<li><em>November 25, 2009   </em> <br>
+<li><em>November 25, 2009   </em><br>
 
-       by Susann Wolf <br><br>
+       by Susann Wolf<br><br>
        </li>
 </ul>
 </html>"));

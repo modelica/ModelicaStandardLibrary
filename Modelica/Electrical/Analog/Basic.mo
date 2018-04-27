@@ -359,7 +359,7 @@ package Basic "Basic electrical components"
 <li>Inom...nominal current</li>
 <li>Lnom...nominal inductance at nominal current</li>
 <li>Lzer...inductance near current = 0; Lzer has to be greater than Lnom</li>
-<li>Linf...inductance at large currents; Linf has to be less than Lnom </li>
+<li>Linf...inductance at large currents; Linf has to be less than Lnom</li>
 </ul>
 </html>", revisions="<html>
 <dl>

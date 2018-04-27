@@ -1993,7 +1993,7 @@ updated User's Guide.
      in Modelica 2.1.</li>
 <li> Re-introduced package \"Water.SaltWater\" in order to test
      substance mixtures (this medium model does not describe
-     real mixing of water and salt). </li>
+     real mixing of water and salt).</li>
 <li> Started to improve the documentation in
      Modelica.Media.UsersGuide.MediumDefinition.BasicStructure</li>
 </ul>
@@ -2029,7 +2029,7 @@ and many have contributed:
      in the ThermoFluid library by Hubertus Tummescheit with
      help from Jonas Eborn and Falko Jens Wagner. These media models
      have been converted to the Modelica.Media interface definition
-     and have been improved by Hubertus Tummescheit. </li>
+     and have been improved by Hubertus Tummescheit.</li>
 <li> The effort for the development of the Modelica.Media library has been
      organized by Martin Otter who also contributed to the design,
      implemented part of the generic models, contributed to the User's Guide
@@ -2631,7 +2631,7 @@ properties are not well defined in the two phase region and the
 functions might return undesired values if called there. It is the
 user's responsibility&nbsp; to take care of such situations. The example
 uses one of several possible models to compute an averaged viscosity
-for two-phase flows. </li>
+for two-phase flows.</li>
 </ol>
 In two phase models, properties are often needed on the phase boundary
 just outside the two phase dome, right on the border.. To compute the
@@ -2641,13 +2641,13 @@ one-phase, but with the optional phase argument set to 2, the output is
 forced to be just inside the phase boundary. This is only needed when
 derivatives like cv are computed with are different on both sides of
 the boundaries. The usual steps to compute properties on the phase
-boundary are: <br>
+boundary are:<br>
 <ol>
 <li>Declare an instance of ThermodynamicState, e.g., \"ThermodynamicState&nbsp; dew\".</li>
 <li>Compute the state, using an instance of SaturationProperties,
 e.g., dew = setDewState(sat)</li>
 <li>Compute properties on the phase boundary to your full desire,
-e.g., \"cp_d = specificHeatCapacityCp(dew)\". <br>
+e.g., \"cp_d = specificHeatCapacityCp(dew)\".<br>
 </li>
 </ol>
 <p>The sample model TestTwoPhaseStates test the extended properties</p>
@@ -5533,7 +5533,7 @@ to the above list of assumptions</li>
     Via Ponzio 34/5<br>
     I-20133 Milano, Italy<br>
     email: <A HREF=\"mailto:casella@elet.polimi.it\">casella@elet.polimi.it</A><br>
-    and <br>
+    and<br>
     Hubertus Tummescheit<br>
     Modelon AB<br>
     Ideon Science Park<br>
@@ -9126,10 +9126,10 @@ provide a package in the following way:
       <li>Code reorganization, enhanced documentation, additional functions: <em>December, 2002</em>
       by Hubertus Tummescheit and move to Modelica
                             properties library.</li>
-      <li>Inclusion into Modelica.Media: September 2003 </li>
+      <li>Inclusion into Modelica.Media: September 2003</li>
       </ul>
 
-      <address>Author: Hubertus Tummescheit, <br>
+      <address>Author: Hubertus Tummescheit,<br>
       Lund University<br>
       Department of Automatic Control<br>
       Box 118, 22100 Lund, Sweden<br>

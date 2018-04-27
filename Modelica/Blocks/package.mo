@@ -1042,7 +1042,7 @@ at hand of this model (Modelica.Blocks.Examples.BusUsage):
 <li> Input/output signals can be directly connected to the \"controlBus\".</li>
 <li> A component, such as \"part\", can be directly connected to the \"controlBus\",
      provided it has also a bus connector, or the \"part\" connector is a
-     sub-connector contained in the \"controlBus\". </li>
+     sub-connector contained in the \"controlBus\".</li>
 </ul>
 
 <p>
@@ -1856,10 +1856,10 @@ The spectrum is parametrized with the following parameters:
 </p>
 
 <ul>
-<li> Lw is the turbulence scale. <br>In low altitudes, it is equal to the flight altitude.</li>
-<li> sigma is the turbulence intensity. <br>In low altitudes, it is equal to 1/10 of the
+<li> Lw is the turbulence scale.<br>In low altitudes, it is equal to the flight altitude.</li>
+<li> sigma is the turbulence intensity.<br>In low altitudes, it is equal to 1/10 of the
      wind speed at 20 ft altitude, which is 30 kts for medium turbulence.</li>
-<li> Omega is the spatial frequency. <br> The turbulence model is thus defined in space and the aircraft experiences turbulence as it flies through the defined wind field.</li>
+<li> Omega is the spatial frequency.<br> The turbulence model is thus defined in space and the aircraft experiences turbulence as it flies through the defined wind field.</li>
 <li> Omega = s/V will be used to transform the spatial definition into a temporal definition, which can be realized as a state space system.</li>
 <li> V is the airspeed of the aircraft.<br>It is approximately 150 kts during the approach (i.e. at low altitudes).</li>
 </ul>
@@ -2809,7 +2809,7 @@ Copyright &copy; 1998-2018, Modelica Association and DLR.
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
        Renamed to Blocks. New subpackages Math, Nonlinear.
        Additional components in subpackages Interfaces, Continuous
-       and Sources. </li>
+       and Sources.</li>
 <li><em>June 30, 1999</em>
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
        Realized a first version, based on an existing Dymola library

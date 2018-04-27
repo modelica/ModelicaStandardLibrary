@@ -107,13 +107,13 @@ tables:
 
 <tr><td> FixedInitial</td>
     <td> no restrictions </td>
-    <td> <strong>if</strong> Medium.singleState <strong>then</strong> <br>
+    <td> <strong>if</strong> Medium.singleState <strong>then</strong><br>
          &nbsp;&nbsp;no initial condition<br>
          <strong>else</strong> p=p_start </td></tr>
 
 <tr><td> SteadyStateInitial</td>
     <td> no restrictions </td>
-    <td> <strong>if</strong> Medium.singleState <strong>then</strong> <br>
+    <td> <strong>if</strong> Medium.singleState <strong>then</strong><br>
          &nbsp;&nbsp;no initial condition<br>
          <strong>else</strong> <strong>der</strong>(p)=0 </td></tr>
 

@@ -3297,7 +3297,7 @@ This block calculates the root mean square and the phase angle of a single harmo
 Note: The output is updated after each period defined by 1/f.
 </p>
 <p>
-Note: <br>
+Note:<br>
 The harmonic is defined by <code>&radic;2 rms cos(k 2 &pi; f t - arg)</code> if useConjugateComplex=false (default)<br>
 The harmonic is defined by <code>&radic;2 rms cos(k 2 &pi; f t + arg)</code> if useConjugateComplex=true
 </p>

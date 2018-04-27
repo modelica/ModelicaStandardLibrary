@@ -40,62 +40,62 @@ the usage of the MultiBody library
       </td>
   </tr>
   <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Examples.Elementary.Pendulum\">Pendulum</a></td>
-      <td> Simple pendulum with one revolute joint and one body. <br>
+      <td> Simple pendulum with one revolute joint and one body.<br>
       <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/Pendulum_small.png\">
       </td>
   </tr>
   <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Examples.Elementary.PendulumWithSpringDamper\">PendulumWithSpringDamper</a></td>
-      <td> Simple spring/damper/mass system <br>
+      <td> Simple spring/damper/mass system<br>
       <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/PendulumWithSpringDamper_small.png\">
       </td>
   </tr>
   <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Examples.Elementary.PointGravity\">PointGravity</a></td>
-      <td> Two bodies in a point gravity field <br>
+      <td> Two bodies in a point gravity field<br>
       <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/PointGravity_small.png\">
       </td>
   </tr>
   <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Examples.Elementary.PointGravityWithPointMasses\">PointGravityWithPointMasses</a></td>
-      <td> Two point masses in a point gravity field (rotation of bodies is neglected) <br>
+      <td> Two point masses in a point gravity field (rotation of bodies is neglected)<br>
       <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/PointGravityWithPointMasses_small.png\">
       </td>
   </tr>
   <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Examples.Elementary.PointGravityWithPointMasses2\">PointGravityWithPointMasses2</a></td>
-      <td> Rigidly connected point masses in a point gravity field <br>
+      <td> Rigidly connected point masses in a point gravity field<br>
       <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/PointGravityWithPointMasses2_small.png\">
       </td>
   </tr>
 
   <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Examples.Elementary.RollingWheel\">RollingWheel</a></td>
-      <td> Single wheel rolling on ground starting from an initial speed <br>
+      <td> Single wheel rolling on ground starting from an initial speed<br>
       <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/RollingWheel.png\">
       </td>
   </tr>
 
   <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Examples.Elementary.RollingWheelSetDriving\">RollingWheelSetDriving</a></td>
-      <td> Rolling wheel set that is driven by torques driving the wheels <br>
+      <td> Rolling wheel set that is driven by torques driving the wheels<br>
       <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/RollingWheelSetDriving.png\">
       </td>
   </tr>
 
   <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Examples.Elementary.RollingWheelSetPulling\">RollingWheelSetPulling</a></td>
-      <td> Rolling wheel set that is pulled by a force <br>
+      <td> Rolling wheel set that is pulled by a force<br>
       <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/RollingWheelSetPulling.png\">
       </td>
   </tr>
 
   <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Examples.Elementary.SpringDamperSystem\">SpringDamperSystem</a></td>
       <td> Spring/damper system with a prismatic joint and
-           attached on free flying body <br>
+           attached on free flying body<br>
       <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/SpringDamperSystem_small.png\">
       </td>
   </tr>
   <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Examples.Elementary.SpringMassSystem\">SpringMassSystem</a></td>
-      <td> Mass attached via a prismatic joint and a spring to the world frame <br>
+      <td> Mass attached via a prismatic joint and a spring to the world frame<br>
       <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/SpringMassSystem_small.png\">
       </td>
   </tr>
   <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Examples.Elementary.SpringWithMass\">SpringWithMass</a></td>
-      <td> Point mass hanging on a spring <br>
+      <td> Point mass hanging on a spring<br>
       <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/SpringWithMass_small.png\">
       </td>
   </tr>
@@ -115,7 +115,7 @@ the usage of the MultiBody library
 
   <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Examples.Elementary.Surfaces\">Surfaces</a></td>
       <td> Demonstrate the visualization of a sine surface,
-       as well as a torus and a wheel constructed from a surface <br>
+       as well as a torus and a wheel constructed from a surface<br>
       <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/Surfaces_small.png\">
       </td>
   </tr>

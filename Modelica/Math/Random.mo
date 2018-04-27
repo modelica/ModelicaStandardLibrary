@@ -797,7 +797,7 @@ Further explanations of the properties above:
 <li> <strong>Run time</strong> shows that the xorshift random number generators are
      all much faster than the Mersenne Twister random number generator, although
      this is not really relevant for most simulations, because the execution
-     time of the other parts of the simulations is usually much larger. </li>
+     time of the other parts of the simulations is usually much larger.</li>
 </ul>
 
 <p>

@@ -752,10 +752,10 @@ which is fixed in frame_a. The two frames coincide when
 has the following potential states;
 </p>
 <ul>
-<li> The relative angle phi [rad] around axis n, </li>
-<li> the relative distance s [m] along axis n, </li>
+<li> The relative angle phi [rad] around axis n,</li>
+<li> the relative distance s [m] along axis n,</li>
 <li> the relative angular velocity w [rad/s] (= der(phi))
-     and </li>
+     and</li>
 <li> the relative velocity v [m/s] (= der(s)).</li>
 </ul>
 <p>
@@ -898,9 +898,9 @@ The two frames coincide when
 has the following potential states;
 </p>
 <ul>
-<li> The relative angle phi_a = revolute_a.phi [rad] around axis n_a, </li>
-<li> the relative angle phi_b = revolute_b.phi [rad] around axis n_b, </li>
-<li> the relative angular velocity w_a (= der(phi_a))  and </li>
+<li> The relative angle phi_a = revolute_a.phi [rad] around axis n_a,</li>
+<li> the relative angle phi_b = revolute_b.phi [rad] around axis n_b,</li>
+<li> the relative angular velocity w_a (= der(phi_a))  and</li>
 <li> the relative angular velocity w_b (= der(phi_b)).</li>
 </ul>
 <p>
@@ -1128,9 +1128,9 @@ s_y=prismatic_y.s=0 and phi=revolute.phi=0. This joint has the following
 potential states:
 </p>
 <ul>
-<li> the relative distance s_x = prismatic_x.s [m] along axis n_x, </li>
-<li> the relative distance s_y = prismatic_y.s [m] along axis n_y = cross(n,n_x), </li>
-<li> the relative angle phi = revolute.phi [rad] around axis n, </li>
+<li> the relative distance s_x = prismatic_x.s [m] along axis n_x,</li>
+<li> the relative distance s_y = prismatic_y.s [m] along axis n_y = cross(n,n_x),</li>
+<li> the relative angle phi = revolute.phi [rad] around axis n,</li>
 <li> the relative velocity v_x (= der(s_x)).</li>
 <li> the relative velocity v_y (= der(s_y)).</li>
 <li> the relative angular velocity w (= der(phi))</li>
