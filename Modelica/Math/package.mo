@@ -13116,7 +13116,8 @@ partial function baseIcon1
 <p>This icon will be removed in future versions of the Modelica Standard Library.
 Instead the icon <a href=\"modelica://Modelica.Math.Icons.AxisLeft\">Modelica.Math.Icons.AxisLeft</a> shall be used.
 </p>
-</html>"));
+</html>"),
+  obsolete = "Obsolete function - use use Modelica.Math.Icons.AxisLeft instead");
 end baseIcon1;
 
 
@@ -13155,7 +13156,8 @@ partial function baseIcon2
 <p>This icon will be removed in future versions of the Modelica Standard Library.
 Instead the icon <a href=\"modelica://Modelica.Math.Icons.AxisCenter\">Modelica.Math.Icons.AxisCenter</a> shall be used.
 </p>
-</html>"));
+</html>"),
+  obsolete = "Obsolete function - use use Modelica.Math.Icons.AxisCenter instead");
 end baseIcon2;
 
 
@@ -13216,7 +13218,8 @@ algorithm
 
   annotation (Documentation(info="<html>
 
-</html>"));
+</html>"),
+  obsolete = "Obsolete function");
 end tempInterpol1;
 
 
@@ -13278,7 +13281,8 @@ algorithm
 
   annotation (Documentation(info="<html>
 
-</html>"));
+</html>"),
+  obsolete = "Obsolete function");
 end tempInterpol2;
 
 
