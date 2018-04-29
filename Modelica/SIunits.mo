@@ -307,10 +307,12 @@ end UsersGuide;
 
       type FirstOrderTemperaturCoefficient =
                               Real (final quantity="FirstOrderTemperatureCoefficient",
-            final unit="Ohm/degC") "Obsolete type, use LinearTemperatureCoefficientResistance instead!" annotation(absoluteValue=true);
+            final unit="Ohm/degC") "Obsolete type, use LinearTemperatureCoefficientResistance instead!" annotation(absoluteValue=true,
+        obsolete = "Obsolete type - use Modelica.SIunits.LinearTemperatureCoefficientResistance instead");
       type SecondOrderTemperaturCoefficient =
                               Real (final quantity="SecondOrderTemperatureCoefficient",
-            final unit="Ohm/degC2") "Obsolete type, use QuadraticTemperatureCoefficientResistance instead!" annotation(absoluteValue=true);
+            final unit="Ohm/degC2") "Obsolete type, use QuadraticTemperatureCoefficientResistance instead!" annotation(absoluteValue=true,
+        obsolete = "Obsolete type - use Modelica.SIunits.QuadraticTemperatureCoefficientResistance instead");
       type Area_cm =   Real (final quantity="Area", final unit="cm2")
         "Area in cm";
       type PerArea_cm =Real (final quantity="PerArea", final unit="1/cm2")
@@ -881,7 +883,8 @@ The function call \"<code>Conversions.<strong>to_unit1</strong>(r)</code>\" retu
 <p>
 This icon of a <strong>conversion symbol</strong> will be removed in future versions of the library. Instead the icon <a href=\"modelica://Modelica.SIunits.Icons.Conversion\">Modelica.SIunits.Icons.Conversion</a> shall be used.
 </p>
-</html>"));
+</html>"),
+      obsolete = "Obsolete function - use Modelica.SIunits.Icons.Conversion instead");
     end ConversionIcon;
     annotation (Documentation(info="<html>
 <p>This package provides conversion functions from the non SI Units
@@ -1380,9 +1383,11 @@ argument):</p>
           "phon");
   type Loudness = Real (final quantity="Loudness", final unit="sone");
   type LoundnessLevel = Real (final quantity="LoundnessLevel", final unit=
-          "phon") "Obsolete type, use LoudnessLevel instead!";
+          "phon") "Obsolete type, use LoudnessLevel instead!" annotation(
+    obsolete = "Obsolete type - use Modelica.SIunits.LoudnessLevel instead");
   type Loundness = Real (final quantity="Loundness", final unit="sone")
-    "Obsolete type, use Loudness instead!";
+    "Obsolete type, use Loudness instead!" annotation(
+    obsolete = "Obsolete type - use Modelica.SIunits.Loudness instead");
 
   // Physical chemistry and molecular physics (chapter 8 of ISO 31-1992)
   type RelativeAtomicMass = Real (final quantity="RelativeAtomicMass", final unit=
