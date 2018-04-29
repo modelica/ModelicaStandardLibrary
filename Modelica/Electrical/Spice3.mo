@@ -10801,7 +10801,7 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
         Real iXX;
 
         annotation (Documentation(info="<html>
-<p>This record contains the model variables that are used for the bipoar transistor model in SPICE3.</p>
+<p>This record contains the model variables that are used for the bipolar transistor model in SPICE3.</p>
 </html>"));
       end CurrentsCapacitances;
 
@@ -11419,7 +11419,7 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
         Real m_CScap= 1;
 
         annotation (Documentation(info="<html>
-<p>This record contains the model variables that are used for the bipoar transistor bjt model in SPICE3.</p>
+<p>This record contains the model variables that are used for the bipolar transistor bjt model in SPICE3.</p>
 </html>"));
       end BjtVariables;
 
@@ -11431,7 +11431,7 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
         Real m_invRollOffR=1;
 
         annotation (Documentation(info="<html>
-<p>This record contains the model variables that are used for the bipoar transistor bjt3 model in SPICE3.</p>
+<p>This record contains the model variables that are used for the bipolar transistor bjt3 model in SPICE3.</p>
 </html>"));
       end Bjt3Variables;
       annotation (Documentation(info="<html>
@@ -11643,7 +11643,7 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
         Real m_invRollOffR( start = 0.0);
 
         annotation (Documentation(info="<html>
-<p>This record contains the model variables that are used for the bipoar transistor bjt3 model in SPICE3.</p>
+<p>This record contains the model variables that are used for the bipolar transistor bjt3 model in SPICE3.</p>
 </html>"));
       end Bjt3Variables;
 
@@ -11690,7 +11690,7 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
         SI.Capacitance capcs( start = 0.0);
 
         annotation (Documentation(info="<html>
-<p>This record contains the model variables that are used for the bipoar transistor model in SPICE3.</p>
+<p>This record contains the model variables that are used for the bipolar transistor model in SPICE3.</p>
 </html>"));
       end CurrentsCapacitances;
 
@@ -12101,7 +12101,7 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
         Real m_CScap;
 
         annotation (Documentation(info="<html>
-<p>This record contains the model variables that are used for the bipoar transistor bjt model in SPICE3.</p>
+<p>This record contains the model variables that are used for the bipolar transistor bjt model in SPICE3.</p>
 </html>"));
       end BjtVariables;
 
