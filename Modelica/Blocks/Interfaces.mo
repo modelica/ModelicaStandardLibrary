@@ -1739,7 +1739,7 @@ Instead the icon <a href=\"modelica://Modelica.Blocks.Icons.PartialBooleanBlock\
     outer Modelica.Blocks.Noise.GlobalSeed globalSeed
       "Definition of global seed via inner/outer";
     parameter Integer actualGlobalSeed = if useGlobalSeed then globalSeed.seed else 0
-      "The global seed, which is atually used";
+      "The global seed, which is actually used";
     parameter Boolean generateNoise = enableNoise and globalSeed.enableNoise
       "= true if noise shall be generated, otherwise no noise";
 
