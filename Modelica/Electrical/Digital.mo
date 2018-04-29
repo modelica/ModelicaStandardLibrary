@@ -4466,7 +4466,8 @@ If the signal width is greater than 1 this conversion is done for each signal.
               textString="X01"),
             Rectangle(
               extent={{-40,40},{40,-40}},
-              lineThickness=0.5)}));
+              lineThickness=0.5)}),
+          obsolete = "Obsolete block - use Modelica.Electrical.Digital.Converters.LogicToX01 instead");
         end LogicToXO1;
 
         block LogicToXO1Z "This model will be removed in future Modelica versions, use 'LogicToX01Z' instead!"
@@ -4540,7 +4541,8 @@ If the signal width is greater than 1 this conversion is done for each signal.
               textString="X01Z"),
             Rectangle(
               extent={{-40,40},{40,-40}},
-              lineThickness=0.5)}));
+              lineThickness=0.5)}),
+          obsolete = "Obsolete block - use Modelica.Electrical.Digital.Converters.LogicToX01Z instead");
         end LogicToXO1Z;
         annotation (Documentation(info="<html>
 <p>The Converter BooleanToLogic, LogicToBoolean, RealToLogic, and LogicTo Real components are not standard logic components. They were designed to easily convert from or to Boolean or Real valued signals. The LogicToX01, LogicToX01Z and LogicTo UX01 converters correspond to standard logic functions. They transform 9-valued logic to 3- or 4-valued logic.</p>
