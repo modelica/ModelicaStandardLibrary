@@ -43,7 +43,8 @@ Instead the icon <a href=\"modelica://Modelica.Icons.VariantsPackage\">Modelica.
             lineColor={128,128,128},
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid,
-            extent={{-80.0,0.0},{-20.0,60.0}})}));
+            extent={{-80.0,0.0},{-20.0,60.0}})}),
+    obsolete = "Obsolete class - use Modelica.Icons.VariantsPackage instead");
   end VariantLibrary;
 
   partial package BaseClassLibrary
@@ -55,7 +56,7 @@ Instead the icon <a href=\"modelica://Modelica.Icons.VariantsPackage\">Modelica.
 This icon will be removed in future versions of the Modelica Standard Library.
 Instead the icon <a href=\"modelica://Modelica.Icons.BasesPackage\">Modelica.Icons.BasesPackage</a> shall be used.
 </p>
-</html>"));
-
+</html>"),
+    obsolete = "Obsolete package - use Modelica.Icons.BasePackage instead");
   end BaseClassLibrary;
 end Icons;
