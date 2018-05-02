@@ -1,5 +1,5 @@
 within Modelica.Electrical.Analog.Examples;
-model HeatingPNP_NORGate "Heating NPN OR Gate"
+model HeatingPNP_NORGate "Heating PNP NOR Gate"
   extends Modelica.Icons.Example;
   parameter Modelica.SIunits.Capacitance CapVal=0 annotation (Evaluate=true);
   parameter Modelica.SIunits.Time tauVal=0 annotation (Evaluate=true);
@@ -182,14 +182,14 @@ annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
           textString="Heating \"PNP NOR\" Gate")}),
                                   Documentation(info="<html>
 <p>The heating &quot;PNP NOR&quot; gate shows a heat flow always if a transistor is conducting.</p>
-<p>Simulate until T=200 s. Plot V1.v and V2.v and C2.v to see the NOR-functionality. High potential is -6V which menas logic &quot;true&quot;. Low potential is 0V which means logic &quot;false&quot;.</p>
-<p>To see which transistor is conducting one can have a look at the temperatures T1.heatPort.T and T2.heatPort.T and the heatflows T1.heatPort.Q_flow and T2.heatPort.Q_flow of the heatports of the transistors T1 and T2. </p>
+<p>Simulate until T=200 s. Plot V1.v and V2.v and C2.v to see the NOR-functionality. High potential is -6V which means logic &quot;true&quot;. Low potential is 0V which means logic &quot;false&quot;.</p>
+<p>To see which transistor is conducting one can have a look at the temperatures T1.heatPort.T and T2.heatPort.T and the heat flows T1.heatPort.Q_flow and T2.heatPort.Q_flow of the heatports of the transistors T1 and T2.</p>
 <p>They are different from zero if the transistor is conducting.</p>
 </html>",
    revisions="<html>
 <h4>Release Notes:</h4>
 <ul>
-<li><i>Mai 02, 2018 </i>by Kristin Majetta and Christoph Clauss<br>realized<br></li>
+<li><i>May 02, 2018 </i>by Kristin Majetta and Christoph Clauss<br>realized<br></li>
 </ul>
 </html>"), experiment(StopTime=200));
 end HeatingPNP_NORGate;
