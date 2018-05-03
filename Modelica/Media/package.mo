@@ -2527,7 +2527,7 @@ It must be noted that the relationship of both axis variables is not right-angle
 <li><strong>y_T</strong>: constant temperature</li>
 <li><strong>y_phi</strong>: constant relative humidity</li>
 </ul>
-</html>"));
+</html>"), experiment(StopTime=1.0, Interval=0.001));
   end PsychrometricData;
 
   package TwoPhaseWater "Extension of the StandardWater package"
@@ -6936,10 +6936,8 @@ quantities are assumed to be constant.
     type ReferenceEnthalpy = enumeration(
         ZeroAt0K
           "The enthalpy is 0 at 0 K (default), if the enthalpy of formation is excluded",
-
         ZeroAt25C
           "The enthalpy is 0 at 25 degC, if the enthalpy of formation is excluded",
-
         UserDefined
           "The user-defined reference enthalpy is used at 293.15 K (25 degC)")
       "Enumeration defining the reference enthalpy of a medium" annotation (
