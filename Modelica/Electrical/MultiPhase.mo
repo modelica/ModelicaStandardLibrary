@@ -86,23 +86,22 @@ This set of symmterical components is repeated for each of the n<sub>Base</sub> 
       extends Modelica.Icons.Contact;
       annotation (preferredView="info",
         DocumentationClass=true, Documentation(info="<html>
-<h4>Contact</h4>
+<h4>Main authors</h4>
 
 <p>
-Christian Kral<br>
+<strong>Dr. Christian Kral</strong><br>
 Electric Machines, Drives and Systems<br>
 1060 Vienna, Austria<br>
-email: <a HREF=\"mailto:dr.christian.kral@gmail.com\">dr.christian.kral@gmail.com</a><br>
+email: <a href=\"mailto:dr.christian.kral@gmail.com\">dr.christian.kral@gmail.com</a><br>
 </p>
 
 <p>
-Anton Haumer<br>
+<strong>Anton Haumer</strong><br>
 <a href=\"http://www.haumer.at\">Technical Consulting &amp; Electrical Engineering</a><br>
 93049 Regensburg, Germany<br>
 3423 St. Andrae-Woerdern, Austria<br>
-email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
+email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
 </p>
-
 </html>"));
     end Contact;
 
@@ -111,8 +110,10 @@ email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
       annotation (preferredView="info",
         DocumentationClass=true, Documentation(info="<html>
 
-<h5>Version 3.2.2, 2017-03-05 (Anton Haumer, Christian Kral)</h5>
+<h5>Version 3.2.2, 2018-01-02 (Anton Haumer, Christian Kral)</h5>
 <ul>
+  <li>Shortened default component names, see
+      <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2301\">#2301</a></li>
 <li>Removed redundant (and not identical) parameter m from
     <a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.MutualInductor\">MutualInductor</a>,
     see #2202</li>
@@ -169,8 +170,8 @@ email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
     <tr>
-      <td valign=\"top\">[Vaske1963]</td>
-      <td valign=\"top\">P. Vaske,
+      <td>[Vaske1963]</td>
+      <td>P. Vaske,
         &quot;&Uuml;ber die Drehfelder und Drehmomente symmetrischer Komponenten in Induktionsmaschinen,&quot;
         (in German), <em>Archiv f&uuml;r Elektrotechnik</em>
         vol 2, 1963, pp. 97-117.</td>
@@ -377,39 +378,46 @@ Simulate for 1 second (2 periods) and compare voltages and currents of source, t
 
     model Rectifier "Test example with multiphase components"
       extends Modelica.Icons.Example;
-      parameter Integer m=3 "Number of phases";
-      parameter Modelica.SIunits.Voltage V=1 "Amplitude of Star-Voltage";
-      parameter Modelica.SIunits.Frequency f=5 "Frequency";
-      parameter Modelica.SIunits.Inductance L=0.001 "Line Inductance";
+      import Modelica.Electrical.MultiPhase.Functions.factorY2DC;
+      final parameter Integer m=3 "Number of phases";
+      parameter Modelica.SIunits.Voltage V=100 "RMS of Star-Voltage";
+      parameter Modelica.SIunits.Frequency f=50 "Frequency";
+      parameter Modelica.SIunits.Inductance L=0.0001 "Line Inductance";
       parameter Modelica.SIunits.Resistance RL=2 "Load Resistance";
-      parameter Modelica.SIunits.Capacitance C=0.05 "Total DC-Capacitance";
+      parameter Modelica.SIunits.Capacitance C=0.005 "Total DC-Capacitance";
       parameter Modelica.SIunits.Resistance RE=1E6 "Earthing Resistance";
       parameter Modelica.SIunits.Resistance Ron=1e-5 "Closed diode resistance";
       parameter Modelica.SIunits.Conductance Goff=1e-5
         "Opened diode conductance";
       parameter Modelica.SIunits.Voltage Vknee=0 "Threshold diode voltage";
-
+      final parameter Modelica.SIunits.Voltage VDC=factorY2DC(m)*V "Estimated average DC voltage";
+      final parameter Modelica.SIunits.Current IDC=VDC/RL "Estimated average DC current";
       Sources.SineVoltage sineVoltage(
         m=m,
-        V=fill(V, m),
-        freqHz=fill(f, m)) annotation (Placement(transformation(extent={{-70,10},
-                {-90,-10}})));
+        freqHz=fill(f, m),
+        V=sqrt(2)*fill(V, m))
+                           annotation (Placement(transformation(extent={{10,10},{-10,
+                -10}},
+            rotation=90,
+            origin={-90,-50})));
       Basic.Star starS(m=m) annotation (Placement(transformation(
-            origin={-90,-50},
+            origin={-90,-80},
             extent={{-10,-10},{10,10}},
             rotation=270)));
       Basic.Inductor supplyL(m=m, L=fill(L, m)) annotation (Placement(
-            transformation(extent={{-52,-10},{-32,10}})));
+            transformation(extent={{-10,-10},{10,10}},
+            rotation=90,
+            origin={-90,-20})));
       Ideal.IdealDiode idealDiode1(
         m=m,
         Ron=fill(Ron, m),
         Goff=fill(Goff, m),
         Vknee=fill(Vknee, m)) annotation (Placement(transformation(
-            origin={10,20},
+            origin={40,20},
             extent={{-10,-10},{10,10}},
             rotation=90)));
       Basic.Star star1(m=m) annotation (Placement(transformation(
-            origin={10,50},
+            origin={40,50},
             extent={{-10,-10},{10,10}},
             rotation=90)));
       Ideal.IdealDiode idealDiode2(
@@ -417,71 +425,108 @@ Simulate for 1 second (2 periods) and compare voltages and currents of source, t
         Ron=fill(Ron, m),
         Goff=fill(Goff, m),
         Vknee=fill(Vknee, m)) annotation (Placement(transformation(
-            origin={10,-20},
+            origin={40,-20},
             extent={{-10,-10},{10,10}},
             rotation=90)));
       Basic.Star star2(m=m) annotation (Placement(transformation(
-            origin={10,-50},
+            origin={40,-50},
             extent={{-10,10},{10,-10}},
             rotation=270)));
       Modelica.Electrical.Analog.Basic.Resistor loadR(R=RL) annotation (
           Placement(transformation(
-            origin={50,0},
+            origin={60,0},
             extent={{-10,-10},{10,10}},
             rotation=270)));
       Modelica.Electrical.Analog.Basic.Capacitor cDC1(C=2*C) annotation (
           Placement(transformation(
-            origin={70,30},
+            origin={80,30},
             extent={{-10,-10},{10,10}},
             rotation=270)));
       Modelica.Electrical.Analog.Basic.Capacitor cDC2(C=2*C) annotation (
           Placement(transformation(
-            origin={70,-30},
+            origin={80,-30},
             extent={{-10,-10},{10,10}},
             rotation=270)));
       Modelica.Electrical.Analog.Basic.Ground groundDC annotation (Placement(
             transformation(extent={{80,-80},{100,-60}})));
+      Machines.Sensors.ElectricalPowerSensor powerSensorSpacePhasor annotation (
+          Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=0,
+            origin={-40,0})));
+      Sensors.AronSensor aronSensor annotation (Placement(transformation(
+            extent={{10,10},{-10,-10}},
+            rotation=180,
+            origin={-12,0})));
+      Sensors.PowerSensor powerSensor(m=m) annotation (Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=0,
+            origin={-70,0})));
+      Sensors.ReactivePowerSensor reactivePowerSensor annotation (Placement(
+            transformation(
+            extent={{10,10},{-10,-10}},
+            rotation=180,
+            origin={20,0})));
     initial equation
-      cDC1.v = 0;
-      cDC2.v = 0;
-      supplyL.i[1:m - 1] = zeros(m - 1) "Y-connection";
-
+      cDC1.v = VDC/2;
+      cDC2.v = VDC/2;
+    //supplyL.i[1:m - 1] = zeros(m - 1) "Y-connection";
+      supplyL.i[2]=-IDC;
+      supplyL.i[3]= IDC;
     equation
       connect(cDC1.n, cDC2.p)
-        annotation (Line(points={{70,20},{70,-20}}, color={0,0,255}));
-      connect(cDC1.n, groundDC.p) annotation (Line(points={{70,20},{70,0},{90,0},
-              {90,-60}}, color={0,0,255}));
+        annotation (Line(points={{80,20},{80,-20}}, color={0,0,255}));
+      connect(cDC1.n, groundDC.p) annotation (Line(points={{80,20},{80,0},{90,0},{90,
+              -60}},     color={0,0,255}));
       connect(starS.plug_p, sineVoltage.plug_n)
-        annotation (Line(points={{-90,-40},{-90,0}}, color={0,0,255}));
+        annotation (Line(points={{-90,-70},{-90,-60}},
+                                                     color={0,0,255}));
       connect(sineVoltage.plug_p, supplyL.plug_p)
-        annotation (Line(points={{-70,0},{-52,0}}, color={0,0,255}));
-      connect(idealDiode1.plug_p, supplyL.plug_n)
-        annotation (Line(points={{10,10},{10,0},{-32,0}}, color={0,0,255}));
-      connect(idealDiode2.plug_n, supplyL.plug_n)
-        annotation (Line(points={{10,-10},{10,0},{-32,0}}, color={0,0,255}));
+        annotation (Line(points={{-90,-40},{-90,-30}},
+                                                   color={0,0,255}));
       connect(idealDiode1.plug_n, star1.plug_p)
-        annotation (Line(points={{10,30},{10,40}}, color={0,0,255}));
-      connect(idealDiode2.plug_p, star2.plug_p) annotation (Line(points={{10,-30},
-              {10,-35},{10,-40}}, color={0,0,255}));
-      connect(star2.pin_n, loadR.n) annotation (Line(points={{10,-60},{50,-60},
-              {50,-10}}, color={0,0,255}));
-      connect(star2.pin_n, cDC2.n) annotation (Line(points={{10,-60},{70,-60},{
-              70,-40}}, color={0,0,255}));
+        annotation (Line(points={{40,30},{40,40}}, color={0,0,255}));
+      connect(idealDiode2.plug_p, star2.plug_p) annotation (Line(points={{40,-30},{40,
+              -40}},              color={0,0,255}));
+      connect(star2.pin_n, loadR.n) annotation (Line(points={{40,-60},{60,-60},{60,-10}},
+                         color={0,0,255}));
+      connect(star2.pin_n, cDC2.n) annotation (Line(points={{40,-60},{80,-60},{80,-40}},
+                        color={0,0,255}));
       connect(star1.pin_n, loadR.p)
-        annotation (Line(points={{10,60},{50,60},{50,10}}, color={0,0,255}));
+        annotation (Line(points={{40,60},{60,60},{60,10}}, color={0,0,255}));
       connect(star1.pin_n, cDC1.p)
-        annotation (Line(points={{10,60},{70,60},{70,40}}, color={0,0,255}));
+        annotation (Line(points={{40,60},{80,60},{80,40}}, color={0,0,255}));
+      connect(idealDiode1.plug_p, idealDiode2.plug_n)
+        annotation (Line(points={{40,10},{40,-10}}, color={0,0,255}));
+      connect(supplyL.plug_n, powerSensor.pc)
+        annotation (Line(points={{-90,-10},{-90,0},{-80,0}}, color={0,0,255}));
+      connect(powerSensor.nc, powerSensorSpacePhasor.plug_p)
+        annotation (Line(points={{-60,0},{-50,0}}, color={0,0,255}));
+      connect(powerSensorSpacePhasor.plug_ni, aronSensor.plug_p)
+        annotation (Line(points={{-30,0},{-22,0}}, color={0,0,255}));
+      connect(aronSensor.plug_n, reactivePowerSensor.plug_p)
+        annotation (Line(points={{-2,0},{10,0}}, color={0,0,255}));
+      connect(idealDiode1.plug_p, reactivePowerSensor.plug_n)
+        annotation (Line(points={{40,10},{40,0},{30,0}}, color={0,0,255}));
+      connect(powerSensor.pc, powerSensor.pv)
+        annotation (Line(points={{-80,0},{-80,10},{-70,10}}, color={0,0,255}));
+      connect(starS.plug_p, powerSensor.nv)
+        annotation (Line(points={{-90,-70},{-70,-70},{-70,-10}}, color={0,0,255}));
+      connect(starS.plug_p, powerSensorSpacePhasor.plug_nv)
+        annotation (Line(points={{-90,-70},{-40,-70},{-40,-10}}, color={0,0,255}));
       annotation (Documentation(info="<html>
 <p>
 Test example with multiphase components:<br>
 Star-connected voltage source feeds via a line reactor a diode bridge rectifier with a DC burden.<br>
-Using f=5 Hz, simulate for 1 second (2 periods) and compare voltages and currents of source and DC burden,
-neglecting initial transient.
+Using f=50 Hz, simulate for 0.1 second and compare voltages and currents of source and DC burden, neglecting initial transient.<br>
+We may also compare: Active power measured by powerSensor, powerSensorSpacePhasor and aronSensor,
+as well as reactive power measured by powerSensorSpacePhasor and reactivePowerSensor.
 </p>
-</html>"), experiment(StopTime=1.0, Interval=0.0001));
+</html>"), experiment(StopTime=0.1, Interval=1e-005));
     end Rectifier;
 
     model TestSensors
+      import Modelica;
       extends Modelica.Icons.Example;
       constant Integer m=3 "Number of phases";
       import Modelica.Constants.pi;
@@ -489,15 +534,17 @@ neglecting initial transient.
         "Nominal RMS voltage per phase";
       parameter Modelica.SIunits.Frequency f=50 "Frequency";
       parameter Modelica.SIunits.Resistance R=1/sqrt(2) "Load resistance";
-      parameter Modelica.SIunits.Inductance L=1/sqrt(2)/(2*pi*f)
-        "Load inductance";
-      final parameter Modelica.SIunits.Current IRMS=VRMS/sqrt(R^2 + (2*pi*f*L)^
-          2) "Steady state RMS current";
+      parameter Modelica.SIunits.Inductance L=1/sqrt(2)/(2*pi*f) "Load inductance";
+      final parameter Modelica.SIunits.Impedance Z=sqrt(R^2 + (2*pi*f*L)^2) "Load impedance";
+      final parameter Modelica.SIunits.Current IRMS=VRMS/Z "Steady state RMS current";
+      final parameter Modelica.SIunits.ActivePower P=3*R*IRMS^2 "Total active power";
+      final parameter Modelica.SIunits.ReactivePower Q=3*(2*pi*f*L)*IRMS^2 "Total reactive power";
+      final parameter Modelica.SIunits.ApparentPower S=3*Z*IRMS^2 "Total apparent power";
       Modelica.Electrical.MultiPhase.Sources.SineVoltage sineVoltage(
         final m=m,
         V=fill(sqrt(2)*VRMS, m),
         freqHz=fill(f, m)) annotation (Placement(transformation(
-            origin={-20,70},
+            origin={-20,-30},
             extent={{10,-10},{-10,10}},
             rotation=90)));
       Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) annotation (
@@ -513,55 +560,78 @@ neglecting initial transient.
         annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
-            origin={20,-10})));
+            origin={20,-20})));
       Modelica.Electrical.MultiPhase.Basic.Inductor inductor(m=m, L=fill(L, m))
         annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
-            origin={20,-40})));
+            origin={20,-50})));
       Modelica.Electrical.MultiPhase.Basic.Star starLoad(m=m) annotation (
           Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
-            origin={20,-70})));
+            origin={20,-80})));
       Modelica.Electrical.MultiPhase.Sensors.CurrentQuasiRMSSensor
         currentQuasiRMSSensor(m=m) annotation (Placement(transformation(
             extent={{-10,10},{10,-10}},
-            rotation=270,
-            origin={20,70})));
+            rotation=90,
+            origin={-20,40})));
       Modelica.Blocks.Math.Feedback feedbackI
-        annotation (Placement(transformation(extent={{70,60},{90,80}})));
+        annotation (Placement(transformation(extent={{-70,30},{-90,50}})));
       Modelica.Blocks.Sources.Constant constI(k=IRMS) annotation (Placement(
             transformation(
             extent={{10,-10},{-10,10}},
             rotation=270,
-            origin={80,40})));
+            origin={-80,10})));
 
       Sensors.VoltageQuasiRMSSensor voltageQuasiRMSSensor(m=m) annotation (
           Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
-            origin={-50,70})));
+            origin={-50,-30})));
       Modelica.Blocks.Math.Feedback feedbackV
-        annotation (Placement(transformation(extent={{-70,60},{-90,80}})));
+        annotation (Placement(transformation(extent={{-70,-40},{-90,-20}})));
       Modelica.Blocks.Sources.Constant constV(k=VRMS) annotation (Placement(
             transformation(
             extent={{10,-10},{-10,10}},
             rotation=270,
-            origin={-80,40})));
+            origin={-80,-60})));
       Sensors.PowerSensor powerSensor(m=m) annotation (Placement(transformation(
             extent={{10,-10},{-10,10}},
             rotation=90,
-            origin={20,20})));
+            origin={20,10})));
       Modelica.Blocks.Math.Feedback feedbackP
-        annotation (Placement(transformation(extent={{50,10},{70,30}})));
+        annotation (Placement(transformation(extent={{40,10},{60,30}})));
       Modelica.Blocks.Sources.RealExpression realExpression(y=
             Modelica.Electrical.MultiPhase.Functions.activePower(
             voltageQuasiRMSSensor.v, currentQuasiRMSSensor.i)) annotation (
           Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=90,
-            origin={60,-10})));
+            origin={50,-20})));
+      Machines.Sensors.ElectricalPowerSensor powerSensorSpacePhasor annotation (
+          Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=90,
+            origin={-20,70})));
+      Modelica.Blocks.Math.Feedback feedbackSpacePhasor annotation (Placement(
+            transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=180,
+            origin={-60,60})));
+      Sensors.AronSensor aronSensor annotation (Placement(transformation(
+            extent={{10,-10},{-10,10}},
+            rotation=90,
+            origin={20,40})));
+      Modelica.Blocks.Math.Feedback feedbackAron
+        annotation (Placement(transformation(extent={{80,30},{100,50}})));
+      Sensors.ReactivePowerSensor reactivePowerSensor annotation (Placement(
+            transformation(
+            extent={{10,-10},{-10,10}},
+            rotation=90,
+            origin={20,70})));
+      Modelica.Blocks.Math.Feedback feedbackQ
+        annotation (Placement(transformation(extent={{40,80},{60,60}})));
     initial equation
       for k in 1:m - 1 loop
         inductor.i[k] = 0;
@@ -570,46 +640,68 @@ neglecting initial transient.
     equation
       connect(star.pin_n, ground.p)
         annotation (Line(points={{-20,-80},{-20,-90}}, color={0,0,255}));
-      connect(sineVoltage.plug_n, star.plug_p)
-        annotation (Line(points={{-20,60},{-20,-60}}, color={0,0,255}));
 
       connect(resistor.plug_n, inductor.plug_p) annotation (Line(
-          points={{20,-20},{20,-30}}, color={0,0,255}));
+          points={{20,-30},{20,-40}}, color={0,0,255}));
       connect(inductor.plug_n, starLoad.plug_p) annotation (Line(
-          points={{20,-50},{20,-60}}, color={0,0,255}));
-      connect(currentQuasiRMSSensor.I, feedbackI.u1) annotation (Line(
-          points={{30,70},{72,70}}, color={0,0,127}));
-      connect(feedbackI.u2, constI.y) annotation (Line(
-          points={{80,62},{80,51}}, color={0,0,127}));
-      connect(sineVoltage.plug_p, currentQuasiRMSSensor.plug_p) annotation (
-          Line(
-          points={{-20,80},{-20,90},{20,90},{20,80}}, color={0,0,255}));
+          points={{20,-60},{20,-70}}, color={0,0,255}));
       connect(voltageQuasiRMSSensor.plug_n, sineVoltage.plug_n) annotation (
           Line(
-          points={{-50,60},{-20,60}}, color={0,0,255}));
+          points={{-50,-40},{-20,-40}},
+                                      color={0,0,255}));
       connect(voltageQuasiRMSSensor.plug_p, sineVoltage.plug_p) annotation (
           Line(
-          points={{-50,80},{-20,80}}, color={0,0,255}));
+          points={{-50,-20},{-20,-20}},
+                                      color={0,0,255}));
       connect(feedbackV.u1, voltageQuasiRMSSensor.V) annotation (Line(
-          points={{-72,70},{-60,70}}, color={0,0,127}));
+          points={{-72,-30},{-61,-30}},
+                                      color={0,0,127}));
       connect(constV.y, feedbackV.u2) annotation (Line(
-          points={{-80,51},{-80,62}}, color={0,0,127}));
+          points={{-80,-49},{-80,-38}},
+                                      color={0,0,127}));
       connect(powerSensor.nc, resistor.plug_p) annotation (Line(
-          points={{20,10},{20,0}}, color={0,0,255}));
-      connect(currentQuasiRMSSensor.plug_n, powerSensor.pc) annotation (Line(
-          points={{20,60},{20,30}}, color={0,0,255}));
+          points={{20,0},{20,-10}},color={0,0,255}));
       connect(powerSensor.pc, powerSensor.pv) annotation (Line(
-          points={{20,30},{10,30},{10,20}}, color={0,0,255}));
+          points={{20,20},{10,20},{10,10}}, color={0,0,255}));
       connect(powerSensor.nv, starLoad.plug_p) annotation (Line(
-          points={{30,20},{30,-60},{20,-60}}, color={0,0,255}));
+          points={{30,10},{30,-70},{20,-70}}, color={0,0,255}));
       connect(powerSensor.power, feedbackP.u1) annotation (Line(
-          points={{31,28},{40,28},{40,20},{52,20}}, color={0,0,127}));
-      connect(realExpression.y, feedbackP.u2) annotation (Line(
-          points={{60,1},{60,12}}, color={0,0,127}));
-      annotation (experiment(StopTime=0.1, Interval=0.0001), Documentation(info=
-             "<html>
+          points={{31,20},{42,20}},                 color={0,0,127}));
+      connect(aronSensor.plug_n, powerSensor.pc)
+        annotation (Line(points={{20,30},{20,20}}, color={0,0,255}));
+      connect(sineVoltage.plug_n, star.plug_p)
+        annotation (Line(points={{-20,-40},{-20,-60}}, color={0,0,255}));
+      connect(feedbackI.u2, constI.y)
+        annotation (Line(points={{-80,32},{-80,21}}, color={0,0,127}));
+      connect(feedbackI.u1, currentQuasiRMSSensor.I)
+        annotation (Line(points={{-72,40},{-31,40}}, color={0,0,127}));
+      connect(currentQuasiRMSSensor.plug_p, sineVoltage.plug_p)
+        annotation (Line(points={{-20,30},{-20,-20}}, color={0,0,255}));
+      connect(feedbackP.u2, realExpression.y)
+        annotation (Line(points={{50,12},{50,-9}},  color={0,0,127}));
+      connect(powerSensorSpacePhasor.plug_p, currentQuasiRMSSensor.plug_n)
+        annotation (Line(points={{-20,60},{-20,50}}, color={0,0,255}));
+      connect(powerSensorSpacePhasor.plug_nv, starLoad.plug_p) annotation (Line(
+            points={{-10,70},{-10,70},{0,70},{0,-70},{20,-70}}, color={0,0,255}));
+      connect(powerSensorSpacePhasor.plug_ni, reactivePowerSensor.plug_p)
+        annotation (Line(points={{-20,80},{20,80}}, color={0,0,255}));
+      connect(reactivePowerSensor.plug_n, aronSensor.plug_p)
+        annotation (Line(points={{20,60},{20,50}}, color={0,0,255}));
+      connect(reactivePowerSensor.reactivePower, feedbackQ.u1)
+        annotation (Line(points={{31,70},{42,70}}, color={0,0,127}));
+      connect(powerSensorSpacePhasor.Q, feedbackQ.u2) annotation (Line(points={{-31,
+              75},{-40,75},{-40,90},{50,90},{50,78}}, color={0,0,127}));
+      connect(aronSensor.power, feedbackAron.u1)
+        annotation (Line(points={{31,40},{82,40}}, color={0,0,127}));
+      connect(feedbackSpacePhasor.u1, powerSensorSpacePhasor.P) annotation (Line(
+            points={{-52,60},{-40,60},{-40,65},{-31,65}}, color={0,0,127}));
+      connect(realExpression.y, feedbackAron.u2)
+        annotation (Line(points={{50,-9},{50,0},{90,0},{90,32}}, color={0,0,127}));
+      connect(realExpression.y, feedbackSpacePhasor.u2) annotation (Line(points={{50,
+              -9},{50,0},{70,0},{70,98},{-60,98},{-60,68}}, color={0,0,127}));
+      annotation (experiment(StopTime=0.1, Interval=0.0001), Documentation(info="<html>
 <p>
-Test multiphase quasiRMS sensors: A sinusoidal source feeds a load consisting of resistor and inductor.
+Test multiphase quasiRMS and power sensors: A sinusoidal source feeds a load consisting of resistor and inductor.
 </p>
 </html>"));
     end TestSensors;
@@ -634,7 +726,7 @@ This package contains test examples of analog electrical multiphase circuits.
   </ul>
   </dd>
   <dt><strong>Copyright:</strong></dt>
-  <dd>Copyright &copy; 1998-2016, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2018, Modelica Association and Anton Haumer.<br>
   <em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
   under the terms of the <strong>Modelica license</strong>, see the license conditions
   and the accompanying <strong>disclaimer</strong> in the documentation of package
@@ -901,7 +993,7 @@ Delta (polygon) connection of a multi phase circuit consisting of multiple base 
       connect(star.pin_n, pin) annotation (Line(
           points={{60,0},{60,0},{98,0},{98,0},{100,0},{100,
               0}}, color={0,0,255}));
-      annotation (
+      annotation (defaultComponentName="multiStar",
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
             Line(
@@ -1040,8 +1132,7 @@ Connects pin <em>k</em> of plug_n to pin_n, leaving the other pins of plug_n unc
             Ellipse(
               extent={{-40,20},{0,-20}},
               fillColor={170,213,255},
-              fillPattern=FillPattern.Solid,
-              lineColor={0,0,0}),
+              fillPattern=FillPattern.Solid),
             Line(points={{-20,20},{40,20},{40,-20},{-20,-20}}),
             Text(
               extent={{-150,40},{150,80}},
@@ -1075,8 +1166,7 @@ Connects all pins of plug_p to the pin array pin_p.
             Ellipse(
               extent={{-40,20},{0,-20}},
               fillColor={170,213,255},
-              fillPattern=FillPattern.Solid,
-              lineColor={0,0,0}),
+              fillPattern=FillPattern.Solid),
             Line(points={{-20,20},{40,20},{40,-20},{-20,-20}}),
             Text(
               extent={{-150,40},{150,80}},
@@ -1335,7 +1425,7 @@ Each element of the array of saturatingInductors is only dependent on the curren
 <p>
 Model of a multi phase inductor providing a mutual inductance matrix model.
 </p>
-<H4>Implementation</H4>
+<h4>Implementation</h4>
 <pre>
   v[1] = L[1,1]*der(i[1]) + L[1,2]*der(i[2]) + ... + L[1,m]*der(i[m])
   v[2] = L[2,1]*der(i[1]) + L[2,2]*der(i[2]) + ... + L[2,m]*der(i[m])
@@ -1412,7 +1502,7 @@ Model of a multi phase inductor providing a mutual inductance matrix model.
 <p>
 Model of a multi phase zero sequence inductor.
 </p>
-<H4>Implementation</H4>
+<h4>Implementation</h4>
 <pre>
   v = Lzero*sum(der(i)) = Lzero*der(sum(i))
 </pre>
@@ -1581,11 +1671,11 @@ Contains m transformers (Modelica.Electrical.Analog.Basic.Transformer)
 <p>
 Contains m variable resistors (Modelica.Electrical.Analog.Basic.VariableResistor)
 </p>
-<P>
+<p>
 <strong>Attention!!!</strong><br>
   It is recommended that none of the R_Port signals should not cross the zero value.
   Otherwise depending on the surrounding circuit the probability of singularities is high.
-</P>
+</p>
 </html>"));
     end VariableResistor;
 
@@ -1639,11 +1729,11 @@ Contains m variable resistors (Modelica.Electrical.Analog.Basic.VariableResistor
 <p>
 Contains m variable conductors (Modelica.Electrical.Analog.Basic.VariableConductor)
 </p>
-<P>
+<p>
 <strong>Attention!!!</strong><br>
   It is recommended that none of the G_Port signals should not cross the zero value.
   Otherwise depending on the surrounding circuit the probability of singularities is high.
-</P>
+</p>
 </html>"));
     end VariableConductor;
 
@@ -1684,12 +1774,12 @@ Contains m variable conductors (Modelica.Electrical.Analog.Basic.VariableConduct
 <p>
 Contains m variable capacitors (Modelica.Electrical.Analog.Basic.VariableCapacitor)
 </p>
-<P>
+<p>
 It is required that each C_Port.signal &ge; 0, otherwise an
 assertion is raised. To avoid a variable index system,<br>
 C = Cmin, if 0 &le; C_Port.signal &lt; Cmin, where
 Cmin is a parameter with default value Modelica.Constants.eps.
-</P>
+</p>
 </html>"));
     end VariableCapacitor;
 
@@ -1747,12 +1837,12 @@ Cmin is a parameter with default value Modelica.Constants.eps.
 <p>
 Contains m variable inductors (Modelica.Electrical.Analog.Basic.VariableInductor)
 </p>
-<P>
+<p>
 It is required that each L_Port.signal &ge; 0, otherwise an
 assertion is raised. To avoid a variable index system,<br>
 L = Lmin, if 0 &le; L_Port.signal &lt; Lmin, where
 Lmin is a parameter with default value Modelica.Constants.eps.
-</P>
+</p>
 </html>"));
     end VariableInductor;
     annotation (Documentation(info="<html>
@@ -1776,7 +1866,7 @@ This package contains basic analog electrical multiphase components.
   </ul>
   </dd>
   <dt><strong>Copyright:</strong></dt>
-  <dd>Copyright &copy; 1998-2016, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2018, Modelica Association and Anton Haumer.<br>
   <em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
   under the terms of the <strong>Modelica license</strong>, see the license conditions
   and the accompanying <strong>disclaimer</strong> in the documentation of package
@@ -1829,6 +1919,7 @@ This package contains basic analog electrical multiphase components.
             Line(points={{-90,0},{40,0}}, color={0,0,255}),
             Polygon(
               points={{30,0},{-30,40},{-30,-40},{30,0}},
+              lineColor={0,0,255},
               fillColor={255,255,255}),
             Line(points={{30,40},{30,-40}}, color={0,0,255}),
             Line(points={{40,0},{90,0}}, color={0,0,255}),
@@ -1934,7 +2025,7 @@ Contains m ideal thyristors (Modelica.Electrical.Analog.Ideal.IdealThyristor).
       connect(fire, idealGTOThyristor.fire) annotation (Line(points={{100,120},{100,80},{10,80},{10,12}}, color={255,0,255}));
       connect(idealGTOThyristor.heatPort, heatPort) annotation (Line(
           points={{0,-10},{0,-100}}, color={191,0,0}));
-      annotation (defaultComponentName="thyristor", Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (defaultComponentName="gto", Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
             Line(points={{-90,0},{40,0}}, color={0,0,255}),
             Polygon(
@@ -1943,9 +2034,6 @@ Contains m ideal thyristors (Modelica.Electrical.Analog.Ideal.IdealThyristor).
               fillColor={255,255,255}),
             Line(points={{30,40},{30,-40}}, color={0,0,255}),
             Line(points={{40,0},{90,0}}, color={0,0,255}),
-            Line(points={{40,50},{60,30}}, color={0,0,255}),
-            Line(points={{40,50},{60,30}}, color={0,0,255}),
-            Line(points={{30,20},{58,48}}, color={0,0,255}),
             Line(points={{100,90},{100,100}}, color={0,0,255}),
             Text(
               extent={{-150,90},{150,50}},
@@ -1953,7 +2041,21 @@ Contains m ideal thyristors (Modelica.Electrical.Analog.Ideal.IdealThyristor).
               lineColor={0,0,255}),
             Text(
               extent={{-150,-80},{150,-40}},
-              textString="m=%m")}), Documentation(info="<html>
+              textString="m=%m"),
+            Line(points={{48,52},{68,32}}, color={0,0,255}),
+            Polygon(
+              points={{44,43},{44,36},{51,36},{44,43}},
+              lineColor={0,0,255},
+              fillPattern=FillPattern.Solid,
+              fillColor={0,0,255}),
+            Polygon(
+              points={{46,33},{53,33},{53,26},{46,33}},
+              lineColor={0,0,255},
+              fillPattern=FillPattern.Solid,
+              fillColor={0,0,255}),
+            Line(points={{30,10},{68,48}}, color={0,0,255}),
+            Line(points={{30,22},{56,48}}, color={0,0,255})}),
+                                    Documentation(info="<html>
 <p>
 Contains m ideal GTO thyristors (Modelica.Electrical.Analog.Ideal.IdealGTOThyristor).
 </p>
@@ -2473,7 +2575,7 @@ like thyristor, diode, switch, transformer.
   </ul>
   </dd>
   <dt><strong>Copyright:</strong></dt>
-  <dd>Copyright &copy; 1998-2016, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2018, Modelica Association and Anton Haumer.<br>
   <em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
   under the terms of the <strong>Modelica license</strong>, see the license conditions
   and the accompanying <strong>disclaimer</strong> in the documentation of package
@@ -2832,7 +2934,8 @@ This function determines the indices of non-positive sequence of the symmetrical
         annotation (Line(points={{-10,0},{-100,0}}, color={0,0,255}));
       connect(potentialSensor.phi, phi) annotation (Line(
           points={{11,0},{110,0}}, color={0,0,127}));
-      annotation (defaultComponentName="vSensor", Icon(graphics={Line(points={{70,0},{100,0}}, color={0,0,127}),
+      annotation (
+        Icon(graphics={Line(points={{70,0},{100,0}}, color={0,0,127}),
               Line(points={{-70,0},{-90,0}}),
             Text(
               extent={{150,-100},{-150,-70}},
@@ -2870,7 +2973,8 @@ thus measuring the m potentials <em>phi[m]</em> of the m pins of plug_p.
         annotation (Line(points={{-10,0},{-100,0}}, color={0,0,255}));
       connect(voltageSensor.v, v) annotation (Line(
           points={{0,-11},{0,-110}}, color={0,0,127}));
-      annotation (defaultComponentName="vSensor", Icon(graphics={Text(
+      annotation (
+        Icon(graphics={Text(
                   extent={{-29,-11},{30,-70}},
                   textString="V"), Line(points={{-70,0},{-90,0}}),
               Line(points={{70,0},{90,0}}),Line(points={{0,-100},
@@ -2919,7 +3023,7 @@ thus measuring the m potential differences <em>v[m]</em> between the m pins of p
           points={{0,-11},{0,-38}}, color={0,0,127}));
       connect(quasiRMS.y, V) annotation (Line(
           points={{0,-61},{0,-86},{0,-110},{-2,-110}}, color={0,0,127}));
-      annotation (defaultComponentName="vSensor", Icon(graphics={Text(
+      annotation (defaultComponentName="voltageRMSSensor", Icon(graphics={Text(
                   extent={{-160,-70},{160,-100}},
                   textString="m=%m"),Line(points={{0,-70},{0,-100}}),
               Line(points={{-90,0},{-70,0}}, color={0,0,255}),Line(points={{70,
@@ -2960,7 +3064,7 @@ This sensor determines the continuous quasi <a href=\"Modelica://Modelica.Blocks
         annotation (Line(points={{10,0},{100,0}}, color={0,0,255}));
       connect(currentSensor.i, i) annotation (Line(
           points={{0,-11},{0,-110}}, color={0,0,127}));
-      annotation (defaultComponentName="iSensor", Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-29,-11},{30,-70}},
                   textString="A"), Line(points={{-70,0},{-90,0}}),
@@ -3010,7 +3114,7 @@ thus measuring the m currents <em>i[m]</em> flowing from the m pins of plug_p to
           points={{0,-11},{0,-38}}, color={0,0,127}));
       connect(quasiRMS.y, I) annotation (Line(
           points={{0,-61},{0,-100}}, color={0,0,127}));
-      annotation (defaultComponentName="iSensor", Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (defaultComponentName="currentRMSSensor", Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={Line(points={{-90,0},{-70,0}},
               color={0,0,255}),Line(points={{0,-70},{0,-100}}),
                                    Line(points={{70,0},{90,0}}, color={0,0,255}),
@@ -3089,7 +3193,8 @@ This sensor determines the continuous quasi <a href=\"Modelica://Modelica.Blocks
           points={{-30,-51},{-30,-58}}, color={0,0,127}));
       connect(sum.y, power) annotation (Line(
           points={{-30,-81},{-30,-90},{-100,-90},{-100,-110}}, color={0,0,127}));
-      annotation (defaultComponentName="pSensor", Icon(graphics={Line(points={{0,100},{0,70}}, color={0,0,255}),
+      annotation (
+        Icon(graphics={Line(points={{0,100},{0,70}}, color={0,0,255}),
               Line(points={{0,-70},{0,-100}}, color={0,0,255}),
                                  Ellipse(fillPattern=FillPattern.Solid, extent=
               {{-5,-5},{5,5}}),Text(extent={{-29,-70},{30,-11}}, textString="P"),
@@ -3152,7 +3257,7 @@ This power sensor measures instantaneous electrical power of a multiphase system
     v = pv.pin.v - nv.pin.v;
     power = v.*i;
     powerTotal = sum(power);
-    annotation (defaultComponentName="sensor",
+    annotation (
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
         Line(points = {{0,100},{0,70}}, color = {0,0,255}),
         Line(points = {{0,-70},{0,-100}}, color = {0,0,255}),
@@ -3188,6 +3293,175 @@ The internal resistance of each current path is zero, the internal resistance of
 </ul>
 </html>"));
   end MultiSensor;
+
+    model AronSensor "threephase Aron sensor for active power"
+      import Modelica;
+      extends Modelica.Icons.RotationalSensor;
+      final parameter Integer m(final min=1) = 3 "Number of phases";
+      Interfaces.PositivePlug plug_p(final m=m) annotation (Placement(
+            transformation(extent={{-110,-10},{-90,10}})));
+      Interfaces.NegativePlug plug_n(final m=m) annotation (Placement(
+            transformation(extent={{90,-10},{110,10}})));
+      Modelica.Blocks.Interfaces.RealOutput power "active power" annotation (
+          Placement(transformation(
+            origin={0,-110},
+            extent={{10,-10},{-10,10}},
+            rotation=90)));
+      Basic.PlugToPins_p plugToPins_p(final m=m)
+        annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));
+      Basic.PlugToPins_n plugToPins_n(final m=m)
+        annotation (Placement(transformation(extent={{80,-10},{60,10}})));
+      Analog.Sensors.PowerSensor powerSensor1
+        annotation (Placement(transformation(extent={{-40,30},{-20,50}})));
+      Analog.Sensors.PowerSensor powerSensor3
+        annotation (Placement(transformation(extent={{20,-30},{40,-50}})));
+      Modelica.Blocks.Math.Add add annotation (Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=270,
+            origin={0,-70})));
+    equation
+      connect(plug_p, plugToPins_p.plug_p)
+        annotation (Line(points={{-100,0},{-72,0}}, color={0,0,255}));
+      connect(plugToPins_n.plug_n, plug_n)
+        annotation (Line(points={{72,0},{100,0}}, color={0,0,255}));
+      connect(plugToPins_p.pin_p[1], powerSensor1.pc) annotation (Line(points={{-68,0},
+              {-68,40},{-40,40}},            color={0,0,255}));
+      connect(powerSensor1.pc, powerSensor1.pv)
+        annotation (Line(points={{-40,40},{-40,50},{-30,50}}, color={0,0,255}));
+      connect(powerSensor1.nc, plugToPins_n.pin_n[1]) annotation (Line(points={{-20,40},
+              {68,40},{68,0}},            color={0,0,255}));
+      connect(plugToPins_p.pin_p[2], plugToPins_n.pin_n[2])
+        annotation (Line(points={{-68,0},{68,0}}, color={0,0,255}));
+      connect(plugToPins_p.pin_p[3], powerSensor3.pc) annotation (Line(points={{-68,0},
+              {-68,-40},{20,-40}},            color={0,0,255}));
+      connect(powerSensor3.pc, powerSensor3.pv)
+        annotation (Line(points={{20,-40},{20,-50},{30,-50}}, color={0,0,255}));
+      connect(powerSensor3.nc, plugToPins_n.pin_n[3]) annotation (Line(points={{40,-40},
+              {68,-40},{68,0}},        color={0,0,255}));
+      connect(powerSensor1.nv, plugToPins_p.pin_p[2])
+        annotation (Line(points={{-30,30},{-30,0},{-68,0}}, color={0,0,255}));
+      connect(powerSensor3.nv, plugToPins_p.pin_p[2])
+        annotation (Line(points={{30,-30},{30,0},{-68,0}}, color={0,0,255}));
+      connect(add.y, power)
+        annotation (Line(points={{0,-81},{0,-110}}, color={0,0,127}));
+      connect(powerSensor1.power, add.u2) annotation (Line(points={{-40,29},{-40,-50},
+              {-6,-50},{-6,-58}}, color={0,0,127}));
+      connect(powerSensor3.power, add.u1) annotation (Line(points={{20,-29},{20,-20},
+              {6,-20},{6,-58}}, color={0,0,127}));
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                -100},{100,100}}), graphics={Text(
+                  extent={{-29,-11},{30,-70}},
+              textString="W"),  Line(points={{-70,0},{-90,0}}),
+              Line(points={{70,0},{90,0}}),Line(points={{0,-100},
+              {0,-70}}, color={0,0,127}),
+            Text(
+              extent={{150,-100},{-150,-70}},
+              textString="m=%m"),
+            Text(
+              extent={{-150,80},{150,120}},
+              textString="%name",
+              lineColor={0,0,255})}), Documentation(info="<html>
+<p>
+Contains 2 power meters (Modelica.Electrical.Analog.Sensors.PowerSensor) to measure total active power in a threephase system.
+</p>
+<p>
+This device works only for sinusoidal voltages and currents in threephase systems without neutral.
+</p>
+<p>
+Elmar Schr&uuml;fer, Leonhard Reindl, Bernhard Zagar: Elektrische Messtechnik. Carl Hanser Verlag.<br>
+Reinhard Lerch: Elektrische Messtechnik. Springer Vieweg.
+</p>
+</html>"));
+    end AronSensor;
+
+    model ReactivePowerSensor "threephase sensor for reactive power"
+      import Modelica;
+      extends Modelica.Icons.RotationalSensor;
+      final parameter Integer m(final min=1) = 3 "Number of phases";
+      Interfaces.PositivePlug plug_p(final m=m) annotation (Placement(
+            transformation(extent={{-110,-10},{-90,10}})));
+      Interfaces.NegativePlug plug_n(final m=m) annotation (Placement(
+            transformation(extent={{90,-10},{110,10}})));
+      Modelica.Blocks.Interfaces.RealOutput reactivePower "reactive power"
+        annotation (Placement(transformation(
+            origin={0,-110},
+            extent={{10,-10},{-10,10}},
+            rotation=90)));
+      Basic.PlugToPins_p plugToPins_p(final m=m)
+        annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));
+      Basic.PlugToPins_n plugToPins_n(final m=m)
+        annotation (Placement(transformation(extent={{80,-10},{60,10}})));
+      Analog.Sensors.PowerSensor powerSensor1
+        annotation (Placement(transformation(extent={{-40,20},{-20,40}})));
+      Analog.Sensors.PowerSensor powerSensor2
+        annotation (Placement(transformation(extent={{10,10},{30,-10}})));
+      Modelica.Blocks.Math.Add3 add(
+        final k1=1/sqrt(3),
+        final k2=1/sqrt(3),
+        final k3=1/sqrt(3))        annotation (Placement(transformation(
+            extent={{-10,10},{10,-10}},
+            rotation=270,
+            origin={0,-80})));
+      Analog.Sensors.PowerSensor powerSensor3
+        annotation (Placement(transformation(extent={{30,-40},{50,-20}})));
+    equation
+      connect(plug_p, plugToPins_p.plug_p)
+        annotation (Line(points={{-100,0},{-72,0}}, color={0,0,255}));
+      connect(plugToPins_n.plug_n, plug_n)
+        annotation (Line(points={{72,0},{100,0}}, color={0,0,255}));
+      connect(add.y, reactivePower)
+        annotation (Line(points={{0,-91},{0,-110}}, color={0,0,127}));
+      connect(plugToPins_p.pin_p[1], powerSensor1.pc)
+        annotation (Line(points={{-68,0},{-68,30},{-40,30}}, color={0,0,255}));
+      connect(powerSensor1.pv, plugToPins_p.pin_p[2]) annotation (Line(points={
+              {-30,40},{-50,40},{-50,0},{-68,0}}, color={0,0,255}));
+      connect(plugToPins_p.pin_p[3], powerSensor1.nv) annotation (Line(points={
+              {-68,0},{-68,-30},{-30,-30},{-30,20}}, color={0,0,255}));
+      connect(plugToPins_p.pin_p[3], powerSensor2.pv) annotation (Line(points={
+              {-68,0},{-68,-30},{20,-30},{20,-10}}, color={0,0,255}));
+      connect(plugToPins_p.pin_p[2], powerSensor2.pc)
+        annotation (Line(points={{-68,0},{10,0}}, color={0,0,255}));
+      connect(powerSensor1.nc, plugToPins_n.pin_n[1])
+        annotation (Line(points={{-20,30},{68,30},{68,0}}, color={0,0,255}));
+      connect(powerSensor2.nc, plugToPins_n.pin_n[2])
+        annotation (Line(points={{30,0},{68,0}}, color={0,0,255}));
+      connect(powerSensor1.nc, powerSensor2.nv)
+        annotation (Line(points={{-20,30},{20,30},{20,10}}, color={0,0,255}));
+      connect(plugToPins_p.pin_p[3], powerSensor3.pc) annotation (Line(points={
+              {-68,0},{-68,-30},{30,-30}}, color={0,0,255}));
+      connect(powerSensor3.nc, plugToPins_n.pin_n[3])
+        annotation (Line(points={{50,-30},{68,-30},{68,0}}, color={0,0,255}));
+      connect(powerSensor1.nc, powerSensor3.pv)
+        annotation (Line(points={{-20,30},{40,30},{40,-20}}, color={0,0,255}));
+      connect(powerSensor3.nv, plugToPins_n.pin_n[2]) annotation (Line(points={
+              {40,-40},{40,-50},{60,-50},{60,0},{68,0}}, color={0,0,255}));
+      connect(powerSensor2.power, add.u2) annotation (Line(points={{10,11},{10,
+              20},{0,20},{0,-66},{0,-66},{0,-68}}, color={0,0,127}));
+      connect(powerSensor1.power, add.u1) annotation (Line(points={{-40,19},{
+              -40,-60},{-8,-60},{-8,-68}}, color={0,0,127}));
+      connect(powerSensor3.power, add.u3) annotation (Line(points={{30,-41},{30,
+              -60},{8,-60},{8,-68}}, color={0,0,127}));
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                -100},{100,100}}), graphics={Text(
+                  extent={{-29,-11},{30,-70}},
+              textString="var"),   Line(points={{-70,0},{-90,0}}),
+              Line(points={{70,0},{90,0}}),Line(points={{0,-100},
+              {0,-70}}, color={0,0,127}),
+            Text(
+              extent={{150,-100},{-150,-70}},
+              textString="m=%m"),
+            Text(
+              extent={{-150,80},{150,120}},
+              textString="%name",
+              lineColor={0,0,255})}), Documentation(info="<html>
+<p>
+Contains 3 power meters (Modelica.Electrical.Analog.Sensors.PowerSensor) to measure total reactive power in a threephase system.
+</p>
+<p>
+Thomas M&uuml;hl: Elektrische Messtechnik. Springer Vieweg.
+</p>
+</html>"));
+    end ReactivePowerSensor;
     annotation (Documentation(info="<html>
 <p>
 This package contains multiphase potential, voltage, and current sensors.
@@ -3211,7 +3485,7 @@ This package contains multiphase potential, voltage, and current sensors.
   </ul>
   </dd>
   <dt><strong>Copyright:</strong></dt>
-  <dd>Copyright &copy; 1998-2016, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2018, Modelica Association and Anton Haumer.<br>
   <em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
   under the terms of the <strong>Modelica license</strong>, see the license conditions
   and the accompanying <strong>disclaimer</strong> in the documentation of package
@@ -3246,7 +3520,8 @@ This package contains multiphase potential, voltage, and current sensors.
         annotation (Line(points={{10,0},{100,0}}, color={0,0,255}));
       connect(v, signalVoltage.v)
         annotation (Line(points={{0,120},{0,12}}, color={0,0,255}));
-      annotation (defaultComponentName="vSource", Icon(graphics={Line(points={{-90,0},{-50,0}}, color={0,0,255}),
+      annotation (
+        Icon(graphics={Line(points={{-90,0},{-50,0}}, color={0,0,255}),
               Line(points={{50,0},{90,0}}, color={0,0,255}),Ellipse(
                   extent={{-50,50},{50,-50}},
                   lineColor={0,0,255},
@@ -3281,7 +3556,8 @@ Contains m signal controlled voltage sources (Modelica.Electrical.Analog.Sources
         annotation (Line(points={{-10,0},{-100,0}}, color={0,0,255}));
       connect(constantVoltage.n, plug_n.pin)
         annotation (Line(points={{10,0},{100,0}}, color={0,0,255}));
-      annotation (defaultComponentName="vSource", Icon(graphics={Line(points={{-90,0},{-50,0}}, color={0,0,255}),
+      annotation (
+        Icon(graphics={Line(points={{-90,0},{-50,0}}, color={0,0,255}),
               Line(points={{50,0},{90,0}}, color={0,0,255}),Ellipse(
                   extent={{-50,50},{50,-50}},
                   lineColor={0,0,255},
@@ -3327,7 +3603,8 @@ Contains m constant voltage sources (Modelica.Electrical.Analog.Sources.Constant
         annotation (Line(points={{-10,0},{-100,0}}, color={0,0,255}));
       connect(sineVoltage.n, plug_n.pin)
         annotation (Line(points={{10,0},{100,0}}, color={0,0,255}));
-      annotation (defaultComponentName="vSource", Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={Line(points={{-90,0},{-50,0}},
               color={0,0,255}),Line(points={{50,0},{90,0}}, color={0,0,255}),
               Ellipse(
@@ -3381,7 +3658,8 @@ with a default phase shift determined by
         annotation (Line(points={{-10,0},{-100,0}}, color={0,0,255}));
       connect(cosineVoltage.n, plug_n.pin)
         annotation (Line(points={{10,0},{100,0}}, color={0,0,255}));
-      annotation (defaultComponentName="vSource", Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={Line(points={{-90,0},{-50,0}},
               color={0,0,255}),Line(points={{50,0},{90,0}}, color={0,0,255}),
               Ellipse(
@@ -3439,7 +3717,8 @@ with a default phase shift determined by
         annotation (Line(points={{10,0},{100,0}}, color={0,0,255}));
       connect(i, signalCurrent.i)
         annotation (Line(points={{0,120},{0,12}}, color={0,0,255}));
-      annotation (defaultComponentName="iSource", Icon(graphics={Line(points={{-90,0},{-50,0}}, color={0,0,255}),
+      annotation (
+        Icon(graphics={Line(points={{-90,0},{-50,0}}, color={0,0,255}),
               Line(points={{50,0},{90,0}}, color={0,0,255}),Ellipse(
                   extent={{-50,50},{50,-50}},
                   lineColor={0,0,255},
@@ -3475,7 +3754,8 @@ Contains m signal controlled current sources (Modelica.Electrical.Analog.Sources
         annotation (Line(points={{-10,0},{-100,0}}, color={0,0,255}));
       connect(constantCurrent.n, plug_n.pin)
         annotation (Line(points={{10,0},{100,0}}, color={0,0,255}));
-      annotation (defaultComponentName="iSource", Icon(graphics={Line(points={{-90,0},{-50,0}}, color={0,0,255}),
+      annotation (
+        Icon(graphics={Line(points={{-90,0},{-50,0}}, color={0,0,255}),
               Line(points={{50,0},{90,0}}, color={0,0,255}),Ellipse(
                   extent={{-50,50},{50,-50}},
                   lineColor={0,0,255},
@@ -3522,7 +3802,8 @@ Contains m constant current sources (Modelica.Electrical.Analog.Sources.Constant
         annotation (Line(points={{-10,0},{-100,0}}, color={0,0,255}));
       connect(sineCurrent.n, plug_n.pin)
         annotation (Line(points={{10,0},{100,0}}, color={0,0,255}));
-      annotation (defaultComponentName="iSource", Icon(graphics={Line(points={{-90,0},{-50,0}}, color={0,0,255}),
+      annotation (
+        Icon(graphics={Line(points={{-90,0},{-50,0}}, color={0,0,255}),
               Line(points={{50,0},{90,0}}, color={0,0,255}),Ellipse(
                   extent={{-50,50},{50,-50}},
                   lineColor={0,0,255},
@@ -3578,7 +3859,8 @@ with a default phase shift determined by
         annotation (Line(points={{-10,0},{-100,0}}, color={0,0,255}));
       connect(cosineCurrent.n, plug_n.pin)
         annotation (Line(points={{10,0},{100,0}}, color={0,0,255}));
-      annotation (defaultComponentName="iSource", Icon(graphics={Line(points={{-90,0},{-50,0}}, color={0,0,255}),
+      annotation (
+        Icon(graphics={Line(points={{-90,0},{-50,0}}, color={0,0,255}),
               Line(points={{50,0},{90,0}}, color={0,0,255}),Ellipse(
                   extent={{-50,50},{50,-50}},
                   lineColor={0,0,255},
@@ -3642,7 +3924,7 @@ This package contains time-dependent and controlled multiphase voltage and curre
   </ul>
   </dd>
   <dt><strong>Copyright:</strong></dt>
-  <dd>Copyright &copy; 1998-2016, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2018, Modelica Association and Anton Haumer.<br>
   <em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
   under the terms of the <strong>Modelica license</strong>, see the license conditions
   and the accompanying <strong>disclaimer</strong> in the documentation of package
@@ -3863,7 +4145,7 @@ electrical multiphase components, based on Modelica.Electrical.Analog.
   </ul>
   </dd>
   <dt><strong>Copyright:</strong></dt>
-  <dd>Copyright &copy; 1998-2016, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2018, Modelica Association and Anton Haumer.<br>
   <em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
   under the terms of the <strong>Modelica license</strong>, see the license conditions
   and the accompanying <strong>disclaimer</strong> in the documentation of package
@@ -3873,10 +4155,10 @@ electrical multiphase components, based on Modelica.Electrical.Analog.
   end Interfaces;
   annotation (Documentation(info="<html>
 <p>
-Copyright &copy; 1998-2016, Modelica Association and Anton Haumer.
+Copyright &copy; 1998-2018, Modelica Association and Anton Haumer.
 </p>
 <p>
-<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</em>
+<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em>
 </p>
 </html>", revisions="<html>
   <ul>

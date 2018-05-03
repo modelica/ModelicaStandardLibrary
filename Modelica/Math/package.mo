@@ -176,24 +176,24 @@ With the optional
 second argument \"p\", any other p-norm can be computed:
 </p>
 <center>
-<IMG src=\"modelica://Modelica/Resources/Images/Math/Vectors/vectorNorm.png\" ALT=\"function Vectors.norm\">
+<img src=\"modelica://Modelica/Resources/Images/Math/Vectors/vectorNorm.png\" alt=\"function Vectors.norm\">
 </center>
 <p>
 Besides the Euclidean norm (p=2), also the 1-norm and the
 infinity-norm are sometimes used:
 </p>
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td valign=\"top\"><strong>1-norm</strong></td>
-      <td valign=\"top\">= sum(abs(v))</td>
-      <td valign=\"top\"><strong>norm</strong>(v,1)</td>
+  <tr><td><strong>1-norm</strong></td>
+      <td>= sum(abs(v))</td>
+      <td><strong>norm</strong>(v,1)</td>
   </tr>
-  <tr><td valign=\"top\"><strong>2-norm</strong></td>
-      <td valign=\"top\">= sqrt(v*v)</td>
-      <td valign=\"top\"><strong>norm</strong>(v) or <strong>norm</strong>(v,2)</td>
+  <tr><td><strong>2-norm</strong></td>
+      <td>= sqrt(v*v)</td>
+      <td><strong>norm</strong>(v) or <strong>norm</strong>(v,2)</td>
   </tr>
-  <tr><td valign=\"top\"><strong>infinity-norm</strong></td>
-      <td valign=\"top\">= max(abs(v))</td>
-      <td valign=\"top\"><strong>norm</strong>(v,Modelica.Constants.<strong>inf</strong>)</td>
+  <tr><td><strong>infinity-norm</strong></td>
+      <td>= max(abs(v))</td>
+      <td><strong>norm</strong>(v,Modelica.Constants.<strong>inf</strong>)</td>
   </tr>
 </table>
 <p>
@@ -545,7 +545,8 @@ can be provided as third argument of the function. Default is \"eps = 0\".
       iNew := i;
     end if;
 
-    annotation (Documentation(info="<html>
+    annotation (smoothOrder( normallyConstant=x, normallyConstant=y)=100,
+      Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 // Real    x[:], y[:], xi, yi;
@@ -890,7 +891,7 @@ This library provides functions operating on vectors:
        zero-division for zero vector.</li>
 
 <li> <a href=\"modelica://Modelica.Math.Vectors.reverse\">reverse</a>(v)
-     - reverses the vector elements of v. </li>
+     - reverses the vector elements of v.</li>
 
 <li> <a href=\"modelica://Modelica.Math.Vectors.sort\">sort</a>(v)
      - sorts the elements of vector v in ascending or descending order.</li>
@@ -1393,7 +1394,7 @@ where Q1 consists of the first \"rank\" columns of Q.
 
 <p>
 <a href=\"modelica://Modelica.Math.Matrices.leastSquares2\">Matrices.leastSquares2</a>
-(same as leastSquares, but with a right hand side matrix), <br>
+(same as leastSquares, but with a right hand side matrix),<br>
 <a href=\"modelica://Modelica.Math.Matrices.solve\">Matrices.solve</a>
 (for square, regular matrices A)
 </p>
@@ -1543,7 +1544,7 @@ where Q1 consists of the first \"rank\" columns of Q.
 
 <p>
 <a href=\"modelica://Modelica.Math.Matrices.leastSquares\">Matrices.leastSquares</a>
-(same as leastSquares2, but with a right hand side vector), <br>
+(same as leastSquares2, but with a right hand side vector),<br>
 <a href=\"modelica://Modelica.Math.Matrices.solve2\">Matrices.solve2</a>
 (for square, regular matrices A)
 </p>
@@ -1669,11 +1670,11 @@ more convenient to just use the function
 <p>
 The optional third (Integer) output argument has the following meaning:</p>
 <table border=0 cellspacing=0 cellpadding=2>
-  <tr><td valign=\"top\">info = 0:</td>
-      <td valign=\"top\">successful exit</td></tr>
-  <tr><td valign=\"top\">info &gt; 0:</td>
-      <td valign=\"top\">if info = i, U[i,i] is exactly zero. The factorization
-          has been completed, <br>
+  <tr><td>info = 0:</td>
+      <td>successful exit</td></tr>
+  <tr><td>info &gt; 0:</td>
+      <td>if info = i, U[i,i] is exactly zero. The factorization
+          has been completed,<br>
           but the factor U is exactly
           singular, and division by zero will occur<br> if it is used
           to solve a system of equations.</td></tr>
@@ -1954,7 +1955,7 @@ the same).
   Real A[3,3] = [1,2,3;
                  3,4,5;
                  2,1,4];
-  Real eval;
+  Real eval[3,2];
 <strong>algorithm</strong>
   eval := Matrices.eigenValues(A);  // eval = [-0.618, 0;
                                     //          8.0  , 0;
@@ -2159,7 +2160,7 @@ vector. Matrix <strong>R</strong> has the following important properties:
      abs(R[i,i]) &ge; abs(R[i,j]).</li>
 <li> The diagonal elements of <strong>R</strong> are sorted according to size, such that
      the largest absolute value is abs(R[1,1]) and
-     abs(R[i,i]) &ge; abs(R[j,j]) with i &lt; j. </li>
+     abs(R[i,i]) &ge; abs(R[j,j]) with i &lt; j.</li>
 </ul>
 <p>
 This means that if abs(R[i,i]) &le; &epsilon; then abs(R[j,k]) &le; &epsilon;
@@ -2653,7 +2654,7 @@ which based on the <code>balance</code> function from EISPACK.
         end if;
       end for;
     end while;
-    annotation (Documentation(info="<html><
+    annotation (Documentation(info="<html>
 
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -3396,7 +3397,7 @@ to compute the solution of a linear system of differential equations</p>
 </dl>
 <p>The following steps are performed to calculate the exponential of A:</p>
 <ol>
-  <li>Matrix <strong>A</strong> is balanced <br>
+  <li>Matrix <strong>A</strong> is balanced<br>
   (= is transformed with a diagonal matrix <strong>D</strong>, such that inv(<strong>D</strong>)*<strong>A</strong>*<strong>D</strong>
   has a smaller condition as <strong>A</strong>).</li>
   <li>The scalar T is divided by a multiple of 2 such that norm(
@@ -4199,11 +4200,11 @@ for more information.
 </p>
 
 <h4>References</h4>
-<PRE>
+<pre>
   [1] Laub, A.J.
       A Schur Method for Solving Algebraic Riccati equations.
       IEEE Trans. Auto. Contr., AC-24, pp. 913-921, 1979.
-</PRE>
+</pre>
 
 <h4>Example</h4>
 <blockquote><pre>
@@ -4373,11 +4374,11 @@ The Boolean input \"ATisSchur\" indicates to omit the transformation to Schur in
 </p>
 
 <h4>References</h4>
-<PRE>
+<pre>
   [1] Bartels, R.H. and Stewart G.W.
       Algorithm 432: Solution of the matrix equation AX + XB = C.
       Comm. ACM., Vol. 15, pp. 820-826, 1972.
-</PRE>
+</pre>
 
 <h4>Example</h4>
 <blockquote><pre>
@@ -4578,12 +4579,12 @@ The Boolean inputs \"AisHess\" and \"BTisSchur\" indicate to omit one or both of
 </p>
 
 <h4>References</h4>
-<PRE>
+<pre>
   [1] Golub, G.H., Nash, S. and Van Loan, C.F.
       A Hessenberg-Schur method for the problem AX + XB = C.
       IEEE Transaction on Automatic Control, AC-24, no. 6, pp. 909-913, 1979.
 
-</PRE>
+</pre>
 
 <h4>Example</h4>
 <blockquote><pre>
@@ -4801,11 +4802,11 @@ according to <strong>S</strong>, the solution <strong>X</strong> can be calculat
 </pre></blockquote>
 
 <h4>References</h4>
-<PRE>
+<pre>
   [1] Laub, A.J.
       A Schur Method for Solving Algebraic Riccati equations.
       IEEE Trans. Auto. Contr., AC-24, pp. 913-921, 1979.
-</PRE>
+</pre>
 
 <h4>Example</h4>
 <blockquote><pre>
@@ -10904,14 +10905,14 @@ system equation.<br>
 The algorithm is taken from [1] and [2].
 </p>
 <h4>References</h4>
-<PRE>
+<pre>
   [1] Benner, P., Byers, R.
       An Exact Line Search Method for Solving Generalized Continuous-Time Algebraic Riccati Equations
       IEEE Transactions On Automatic Control, Vol. 43, No. 1, pp. 101-107, 1998.
   [2] Datta, B.N.
       Numerical Methods for Linear Control Systems
       Elsevier Academic Press, 2004.
-</PRE>
+</pre>
 
 <h4>Example</h4>
 <blockquote><pre>
@@ -11071,14 +11072,14 @@ system equation.
 The algorithm is taken from [1] and [2].
 </p>
 <h4>References</h4>
-<PRE>
+<pre>
   [1] Benner, P., Byers, R.
       An Exact Line Search Method for Solving Generalized Continuous-Time Algebraic Riccati Equations
       IEEE Transactions On Automatic Control, Vol. 43, No. 1, pp. 101-107, 1998.
   [2] Datta, B.N.
       Numerical Methods for Linear Control Systems
       Elsevier Academic Press, 2004.
-</PRE>
+</pre>
 
 <h4>Example</h4>
 <blockquote><pre>
@@ -11594,11 +11595,11 @@ With t_k_min the norm of the next residual of the algorithm will be minimized.<b
 See [1] for more information
 </p>
 <h4>References</h4>
-<PRE>
+<pre>
   [1] Benner, P., Byers, R.
       An Exact Line Search Method for Solving Generalized Continuous-Time Algebraic Riccati Equations
       IEEE Transactions On Automatic Control, Vol. 43, No. 1, pp. 101-107, 1998.
-</PRE>
+</pre>
 
 <h4>See also</h4>
 <a href=\"modelica://Modelica.Math.Matrices.Utilities.continuousRiccatiIterative\">Matrices.Utilities.continuousRiccatiIterative</a><br>
@@ -13115,7 +13116,8 @@ partial function baseIcon1
 <p>This icon will be removed in future versions of the Modelica Standard Library.
 Instead the icon <a href=\"modelica://Modelica.Math.Icons.AxisLeft\">Modelica.Math.Icons.AxisLeft</a> shall be used.
 </p>
-</html>"));
+</html>"),
+  obsolete = "Obsolete function - use use Modelica.Math.Icons.AxisLeft instead");
 end baseIcon1;
 
 
@@ -13154,7 +13156,8 @@ partial function baseIcon2
 <p>This icon will be removed in future versions of the Modelica Standard Library.
 Instead the icon <a href=\"modelica://Modelica.Math.Icons.AxisCenter\">Modelica.Math.Icons.AxisCenter</a> shall be used.
 </p>
-</html>"));
+</html>"),
+  obsolete = "Obsolete function - use use Modelica.Math.Icons.AxisCenter instead");
 end baseIcon2;
 
 
@@ -13215,7 +13218,8 @@ algorithm
 
   annotation (Documentation(info="<html>
 
-</html>"));
+</html>"),
+  obsolete = "Obsolete function");
 end tempInterpol1;
 
 
@@ -13277,7 +13281,8 @@ algorithm
 
   annotation (Documentation(info="<html>
 
-</html>"));
+</html>"),
+  obsolete = "Obsolete function");
 end tempInterpol2;
 
 
@@ -13297,23 +13302,22 @@ as well as functions operating on
 <a href=\"modelica://Modelica.Math.BooleanVectors\">Boolean vectors</a>.
 </p>
 
-<dl>
-<dt><strong>Main Authors:</strong></dt>
-<dd><a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a> and
-    Marcus Baur<br>
-    Deutsches Zentrum f&uuml;r Luft und Raumfahrt e.V. (DLR)<br>
-    Institut f&uuml;r Robotik und Mechatronik<br>
-    Postfach 1116<br>
-    D-82230 Wessling<br>
-    Germany<br>
-    email: <A HREF=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</A><br></dd>
-</dl>
+<h4>Main Authors</h4>
+<p><a href=\"http://www.robotic.dlr.de/Martin.Otter/\"><strong>Martin Otter</strong></a>
+and <strong>Marcus Baur</strong><br>
+Deutsches Zentrum f&uuml;r Luft- und Raumfahrt e.V. (DLR)<br>
+Institut f&uuml;r Systemdynamik und Regelungstechnik (DLR-SR)<br>
+Forschungszentrum Oberpfaffenhofen<br>
+D-82234 Wessling<br>
+Germany<br>
+email: <a href=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</a>
+</p>
 
 <p>
-Copyright &copy; 1998-2016, Modelica Association and DLR.
+Copyright &copy; 1998-2018, Modelica Association and DLR.
 </p>
 <p>
-<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</em>
+<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em>
 </p>
 </html>", revisions="<html>
 <ul>

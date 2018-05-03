@@ -8,7 +8,8 @@ INC = -I"../../C-Sources/zlib"
 TARGETDIR = linux64
 
 TABLES_OBJS = \
-	ModelicaStandardTables.o
+	ModelicaStandardTables.o \
+	ModelicaStandardTablesUsertab.o
 
 MATIO_OBJS = \
 	ModelicaMatIO.o

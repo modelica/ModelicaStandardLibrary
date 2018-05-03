@@ -11,10 +11,10 @@ from different domains are used, including 3-dimensional mechanics.
 <h4>Content</h4>
 <table border=1 cellspacing=0 cellpadding=2>
   <tr><th><strong><em>Model</em></strong></th><th><strong><em>Description</em></strong></th></tr>
-  <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3\">RobotR3</a><br>
+  <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3\">RobotR3</a><br>
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.oneAxis\">RobotR3.oneAxis</a><br>
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.fullRobot\">RobotR3.fullRobot</a></td>
-      <td valign=\"top\"> 6 degree of freedom robot with path planning,
+      <td> 6 degree of freedom robot with path planning,
            controllers, motors, brakes, gears and mechanics.
            \"oneAxis\" models only one drive train. \"fullRobot\" is
            the complete, detailed robot model.<br>

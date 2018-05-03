@@ -457,7 +457,7 @@ The new features are:
 <ul>
 <li> If useful, blocks may have an arbitrary number of inputs (e.g., \"And\" block with 2,3,4,...
      Boolean inputs). This is based on the \"connectorSizing\" annotation which
-     allows a tool to conveniently handle vectors of connectors. </li>
+     allows a tool to conveniently handle vectors of connectors.</li>
 
 <li> The blocks are smaller in size, so that the diagram area is better
      utilized for trivial blocks such as \"And\" or \"Or\".</li>

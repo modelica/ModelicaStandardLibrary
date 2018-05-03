@@ -107,7 +107,7 @@ package Basic "Basic electrical components"
     R = R_ref*(1 + alpha*(T_heatPort - T_ref));
     v = R*i;
     LossPower = v*i;
-    annotation (
+    annotation (defaultComponentName="resistor",
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={Line(points={{-110,20},{-85,20}}, color={
             160,160,164}),Polygon(
@@ -359,7 +359,7 @@ package Basic "Basic electrical components"
 <li>Inom...nominal current</li>
 <li>Lnom...nominal inductance at nominal current</li>
 <li>Lzer...inductance near current = 0; Lzer has to be greater than Lnom</li>
-<li>Linf...inductance at large currents; Linf has to be less than Lnom </li>
+<li>Linf...inductance at large currents; Linf has to be less than Lnom</li>
 </ul>
 </html>", revisions="<html>
 <dl>
@@ -586,7 +586,7 @@ package Basic "Basic electrical components"
 <p>The model <em>M_Transformer</em> is a model of a transformer with the possibility to choose the number of inductors. Inside the model, an inductance matrix is built based on the inductance of the inductors and the coupling inductances between the inductors given as a parameter vector from the user of the model.</p>
 
 <p>An example shows that approach:<br>
-The user chooses a model with <strong>three</strong> inductors, that means the parameter <em><strong>N</strong></em> has to be <strong>3</strong>. Then he has to specify the inductances of the three inductors and the three coupling inductances. The coupling inductances are no real existing devices, but effects that occur between two inductors. The inductivities (main diagonal of the inductance matrix) and the coupling inductivities have to be specified in the parameter vector <em>L</em>. The length <em>dimL</em> of the parameter vector is calculated as follows: <em><strong>dimL=(N*(N+1))/2</strong></em></p>
+The user chooses a model with <strong>three</strong> inductors, that means the parameter <em><strong>N</strong></em> has to be <strong>3</strong>. Then he has to specify the inductances of the three inductors and the three coupling inductances. The coupling inductances are no real existing devices, but effects that occur between two inductors. The inductances (main diagonal of the inductance matrix) and the coupling inductances have to be specified in the parameter vector <em>L</em>. The length <em>dimL</em> of the parameter vector is calculated as follows: <em><strong>dimL=(N*(N+1))/2</strong></em></p>
 
 <p>The following example shows how the parameter vector is used to fill in the inductance matrix. To specify the inductance matrix of a three inductances transformer (<em>N=3</em>):
 </p>
@@ -610,25 +610,25 @@ the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N
       <th>Comment</th>
     </tr>
    <tr>
-      <td valign=\"top\"></td>
-      <td valign=\"top\">4163</td>
-      <td valign=\"top\">2010-09-11</td>
-      <td valign=\"top\">Dietmar Winkler</td>
-      <td valign=\"top\">Documentation corrected according to documentation guidelines.</td>
+      <td></td>
+      <td>4163</td>
+      <td>2010-09-11</td>
+      <td>Dietmar Winkler</td>
+      <td>Documentation corrected according to documentation guidelines.</td>
     </tr>
     <tr>
-      <td valign=\"top\"></td>
-      <td valign=\"top\"></td>
-      <td valign=\"top\">2008-11-24</td>
-      <td valign=\"top\">Kristin Majetta</td>
-      <td valign=\"top\">Documentation added.</td>
+      <td></td>
+      <td></td>
+      <td>2008-11-24</td>
+      <td>Kristin Majetta</td>
+      <td>Documentation added.</td>
     </tr>
     <tr>
-      <td valign=\"top\"></td>
-      <td valign=\"top\"></td>
-      <td valign=\"top\">2008-11-16</td>
-      <td valign=\"top\">Kristin Majetta</td>
-      <td valign=\"top\">Initially implemented</td>
+      <td></td>
+      <td></td>
+      <td>2008-11-16</td>
+      <td>Kristin Majetta</td>
+      <td>Initially implemented</td>
     </tr>
 </table>
 </html>"));
@@ -879,7 +879,6 @@ the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N
     connect(internalSupport.flange, fixed.flange) annotation (Line(
         points={{-80,0},{-80,-10}}, color={0,127,0}));
     annotation (defaultComponentName="emf",
-      defaultComponentName="emf",
       Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
               100}}), graphics={
           Rectangle(
@@ -1050,7 +1049,7 @@ the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N
                                                     color={0,0,255}),
           Line(points={{20,0},{60,0}}, color={0,0,255}),
           Text(
-            extent={{-149,150},{151,110}},
+            extent={{-150,150},{150,110}},
             textString="%name",
             lineColor={0,0,255}),
           Line(points={{-90,100},{-40,100},{-40,60}}, color={0,0,255}),
@@ -1100,7 +1099,7 @@ the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N
           Line(points={{-90,100},{-40,100},{-40,-100},{-90,-100}},
                                                                color={0,0,255}),
           Text(
-            extent={{-170,150},{130,110}},
+            extent={{-150,150},{150,110}},
             textString="%name",
             lineColor={0,0,255})}));
   end CCV;
@@ -1431,7 +1430,7 @@ the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N
     p_supply.i = 0;
     m_supply.i = 0;
 
-    annotation (
+    annotation (defaultComponentName="opAmp",
       Documentation(info="<html>
 <p>The OpAmpDetailed model is a general operational amplifier model. The emphasis is on separating each important data sheet parameter into a sub-circuit independent of the other parameters. The model is broken down into five functional stages <strong>input</strong>, <strong>frequency response</strong>, <strong>gain</strong>, <strong>slew rate</strong> and an <strong>output</strong> stage. Each stage contains data sheet parameters to be modeled. This partitioning and the modelling of the separate submodels are based on the description in <strong>[CP92]</strong>.</p>
 <p>Using <strong>[CP92]</strong> Joachim Haase (Fraunhofer Institute for Integrated Circuits, Design Automation Division) transferred 2001 operational amplifier models into VHDL-AMS. Now one of these models, the model &quot;amp(macro)&quot; was transferred into Modelica.</p>
@@ -1446,7 +1445,7 @@ the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
           Text(
-            extent={{-151,149},{149,109}},
+            extent={{-150,150},{150,110}},
             textString="%name",
             lineColor={0,0,255}),
           Polygon(
@@ -1803,8 +1802,110 @@ It is required that L &ge; 0, otherwise an assertion is raised. To avoid a varia
                        <p>The total resistance R is temperature dependent.</p>
                        </html>"));
   end Potentiometer;
+
+  model CurrentToVoltageAdaptor
+    "Signal adaptor for an Electrical OnePort with voltage and derivative of voltage as outputs and current and derivative of current as inputs (especially useful for FMUs)"
+    extends Modelica.Blocks.Interfaces.PartialFMUadaptors.FlowToPotentialAdaptor(
+      final Name_p="v",
+      final Name_pder="dv",
+      final Name_pder2="d2v",
+      final Name_f="i",
+      final Name_fder="di",
+      final Name_fder2="d2i",
+      final use_pder2=false,
+      final use_fder2=false,
+      final p(unit="V"),
+      final pder(unit="V/s"),
+      final pder2(unit="V/s2"),
+      final f(unit="A"),
+      final fder(unit="A/s"),
+      final fder2(unit="A/s2"));
+    Modelica.SIunits.Voltage v "Voltage drop between the two pins (= p.v - n.v)";
+    Modelica.SIunits.Current i "Current flowing from pin p to pin n";
+    Modelica.Electrical.Analog.Interfaces.PositivePin pin_p
+      annotation (Placement(transformation(extent={{-30,70},{-10,90}})));
+    Modelica.Electrical.Analog.Interfaces.NegativePin pin_n
+      annotation (Placement(transformation(extent={{-30,-90},{-10,-70}})));
+  equation
+    v = pin_p.v - pin_n.v;
+    i = pin_p.i;
+    pin_p.i + pin_n.i = 0;
+    y = v "output = potential = voltage";
+    u = i "input = flow = current";
+    annotation (Documentation(info="<html>
+<p>
+Adaptor between an electrical oneport and a signal representation of the oneport.
+This component is used to provide a pure signal interface around an Electrical model
+and export this model in form of an input/output block,
+especially as FMU (<a href=\"https://www.fmi-standard.org\">Functional Mock-up Unit</a>).
+Examples of the usage of this adaptor are provided in
+<a href=\"modelica://Modelica.Electrical.Analog.Examples.GenerationOfFMUs\">Electrical.Analog.Examples.GenerationOfFMUs</a>.
+This adaptor has current and derivative of current as inputs and voltage and derivative of voltage as output signals.
+</p>
+<p>
+Note, the input signals must be consistent to each other
+(di=der(i)).
+</p>
+<p>
+Note, the adaptor contains <strong>no ground</strong>.
+Bear in mind that separating physical components and connecting them via adaptor signals requires to place appropriate
+<a href=\"modelica://Modelica.Electrical.Analog.Basic.Ground\">ground components</a> to define electric potential within the subcircuits.
+</p>
+</html>"));
+  end CurrentToVoltageAdaptor;
+
+  model VoltageToCurrentAdaptor
+    "Signal adaptor for an Electrical OnePort with current and derivative of current as output and voltage and derivative of voltage as input (especially useful for FMUs)"
+    extends Modelica.Blocks.Interfaces.PartialFMUadaptors.PotentialToFlowAdaptor(
+      final Name_p="v",
+      final Name_pder="dv",
+      final Name_pder2="d2v",
+      final Name_f="i",
+      final Name_fder="di",
+      final Name_fder2="d2i",
+      final use_pder2=false,
+      final use_fder2=false,
+      final p(unit="V"),
+      final pder(unit="V/s"),
+      final pder2(unit="V/s2"),
+      final f(unit="A"),
+      final fder(unit="A/s"),
+      final fder2(unit="A/s2"));
+    Modelica.SIunits.Voltage v "Voltage drop between the two pins (= p.v - n.v)";
+    Modelica.SIunits.Current i "Current flowing from pin p to pin n";
+    Modelica.Electrical.Analog.Interfaces.PositivePin pin_p
+      annotation (Placement(transformation(extent={{10,70},{30,90}})));
+    Modelica.Electrical.Analog.Interfaces.NegativePin pin_n
+      annotation (Placement(transformation(extent={{10,-90},{30,-70}})));
+  equation
+    v = pin_p.v - pin_n.v;
+    i = pin_p.i;
+    pin_p.i + pin_n.i = 0;
+    y = i "output = flow = current";
+    u = v "input = potential = voltage";
+    annotation (Documentation(info="<html>
+<p>
+Adaptor between an electrical openport and a signal representation of the oneport.
+This component is used to provide a pure signal interface around an Electrical model
+and export this model in form of an input/output block,
+especially as FMU (<a href=\"https://www.fmi-standard.org\">Functional Mock-up Unit</a>).
+Examples of the usage of this adaptor are provided in
+<a href=\"modelica://Modelica.Electrical.Analog.Examples.GenerationOfFMUs\">Electrical.Analog.Examples.GenerationOfFMUs</a>.
+This adaptor has voltage and derivative of voltage as input signals and current and derivative of current as output signal.
+</p>
+<p>
+Note, the input signals must be consistent to each other
+(dv=der(v)).
+</p>
+<p>
+Note, the adaptor contains <strong>no ground</strong>.
+Bear in mind that separating physical components and connecting them via adaptor signals requires to place appropriate
+<a href=\"modelica://Modelica.Electrical.Analog.Basic.Ground\">ground components</a> to define electric potential within the subcircuits.
+</p>
+</html>"));
+  end VoltageToCurrentAdaptor;
   annotation (Documentation(info="<html>
-<p>This package contains very basic analog electrical components such as resistor, conductor, condensator, inductor, and the ground (which is needed in each electrical circuit description. Furthermore, controlled sources, coupling components, and some improved (but nevertheless basic) are in this package.</p>
+<p>This package contains very basic analog electrical components such as resistor, conductor, capacitor, inductor, and the ground (which is needed in each electrical circuit description. Furthermore, controlled sources, coupling components, and some improved (but nevertheless basic) are in this package.</p>
 </html>", revisions="<html>
 <dl>
 <dt>

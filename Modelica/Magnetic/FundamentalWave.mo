@@ -179,13 +179,13 @@ as depicted in Fig. 1 and 2.
 Mathematically, this symmetry is expressed in terms of phase currents by:
 </p>
 
-<p><img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/ik_odd.png\"/> </p>
+<p><img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/ik_odd.png\"/></p>
 
 <p>
 The orientation of the winding axis of such winding is given by:
 </p>
 
-<p><img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/orientationk_m.png\"/> </p>
+<p><img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/orientationk_m.png\"/></p>
 
 <h5>Even number of phases</h5>
 
@@ -309,20 +309,20 @@ phase winding parameters -- at the same nominal rotor voltage and frequency.
     class Contact "Contact"
       extends Modelica.Icons.Contact;
       annotation (Documentation(info="<html>
-<h4>Contact</h4>
+<h4>Library officers</h4>
 
 <p>
-  Dr. Christian Kral<br>
-  <a href=\"https://christiankral.net/\">Electric Machines, Drives and Systems</a><br>
-  A-1060 Vienna, Austria<br>
-  email: <a href=\"mailto:dr.christian.kral@gmail.com\">dr.christian.kral@gmail.com</a>
+<strong>Dr. Christian Kral</strong><br>
+<a href=\"https://christiankral.net/\">Electric Machines, Drives and Systems</a><br>
+A-1060 Vienna, Austria<br>
+email: <a href=\"mailto:dr.christian.kral@gmail.com\">dr.christian.kral@gmail.com</a>
 </p>
 
 <p>
-Anton Haumer<br>
+<strong>Anton Haumer</strong><br>
 <a href=\"http://www.haumer.at\">Technical Consulting &amp; Electrical Engineering</a><br>
 3423 St. Andrae-Woerdern, Austria<br>
-email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
+email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
 </p>
 
 <h4>Acknowledgements</h4>
@@ -347,22 +347,26 @@ no. 829420.
       extends Modelica.Icons.ReleaseNotes;
       annotation (Documentation(info="<html>
 
-<h5>Version 3.2.2, 2017-09-19</h5>
+<h5>Version 3.2.2, 2017-12-10</h5>
 
 <ul>
+  <li>Fixed propagation of excitation leakage factor, see
+      <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2403\">#2403</a></li>
+  <li>Added model of electrical excited synchronous machines, starting direct on line, see
+      <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2388\">#2388</a></li>
   <li>Unified communication interval, see
-      <a href=\"https://github.com/modelica/Modelica/issues/2279\">#2279</a></li>
+      <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2279\">#2279</a></li>
   <li>Unified simulation tolerances, see
-      <a href=\"https://github.com/modelica/Modelica/issues/2278\">#2278</a></li>
+      <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2278\">#2278</a></li>
 <li>Added more examples from
     <a href=\"modelica://Modelica.Electrical.Machines.Examples\">Machines.Examples</a>, see
-    <a href=\"https://github.com/modelica/Modelica/issues/2276\">#2276</a></li>
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2276\">#2276</a></li>
 <li>Replace wrong permeance image in documentation according to
-    <a href=\"https://github.com/modelica/Modelica/issues/2208\">#2208</a></li>
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2208\">#2208</a></li>
 <li>Added obsolete annotation to
     <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseCageWinding_obsolete\">SymmetricMultiPhaseCageWinding_obsolete</a> and
     <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SaliencyCageWinding_obsolete\">SaliencyCageWinding_obsolete</a>,
-    see <a href=\"https://github.com/modelica/Modelica/issues/1536\">#1536</a></li>
+    see <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/1536\">#1536</a></li>
 <li>Updated documentation of
     <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.Short\">Short</a>,
     <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.Idle\">Idle</a> and
@@ -375,25 +379,25 @@ no. 829420.
 </ul>
 <li>Removed parameter text from icon layer for reluctance and permeance model</li>
 <li>Restructured cage models with reluctance instead of inductance model according to ticket
-    <a href=\"https://github.com/modelica/Modelica/issues/1536\">#1536</a>;
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/1536\">#1536</a>;
 the re-structuring of the model required to change the initial conditions of the included examples, since the number of rotor states is reduced by new implementation</li>
 <li>Some more bug fixes according to
-<a href=\"https://github.com/modelica/Modelica/issues/1226\">#1226</a>,
+<a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/1226\">#1226</a>,
 since not all reference orientations have been correct</li>
 <li>Added variables for magnitude and argument of complex magnetic potential difference and flux, see
-<a href=\"https://github.com/modelica/Modelica/issues/1405\">#1405</a></li>
+<a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/1405\">#1405</a></li>
 </ul>
 
 <h5>Version 3.2.1, 2013-07-31</h5>
 
 <ul>
 <li>Bug fix of wrong orientation of squirrel and damper cage models, see ticket
-<a href=\"https://github.com/modelica/Modelica/issues/1226\">#1226</a>;
+<a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/1226\">#1226</a>;
 this also includes the removal of the rotor cage heat sensor which previously has been used</li>
 <li>Bug fix of conditional initialization of examples, see ticket
-<a href=\"https://github.com/modelica/Modelica/issues/1223\">#1223</a></li>
+<a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/1223\">#1223</a></li>
 <li>Fixed missing default parameter TpmOperational in ambient of PM synchronous machine, see ticket
-<a href=\"https://github.com/modelica/Modelica/issues/1216\">#1216</a>#1216</li>
+<a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/1216\">#1216</a>#1216</li>
 <li>Added voltages, currents, complex flux and magnetic potential difference as global variables in
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.MultiPhaseElectroMagneticConverter\">multi phase converter</a></li>
 <li>Added two more component examples, showing the equivalent nature of electrical and magnetic domain</li>
@@ -403,9 +407,9 @@ this also includes the removal of the rotor cage heat sensor which previously ha
 
 <ul>
 <li>Corrected wrong parameter descriptions, see ticket
-<a href=\"https://github.com/modelica/Modelica/issues/1003\">#1003</a></li>
+<a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/1003\">#1003</a></li>
 <li>Extended machine models towards phase numbers to greater or equal than three, see ticket
-<a href=\"https://github.com/modelica/Modelica/issues/990\">#990</a></li>
+<a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/990\">#990</a></li>
 </ul>
 
 <h5>Version 1.7.3, 2013-02-25</h5>
@@ -464,7 +468,7 @@ Translational.Interfaces</a></li>
   <li>Added machine specific output records to summarize power and loss balance</li>
   <li>Updated images of Users Guide</li>
   <li>Improved performance due to <code>annotation(Evaluate=true)</code> added to the parameters of the
-      <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SinglePhaseWinding\">single phase winding</a>
+      <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SinglePhaseWinding\">single phase winding</a></li>
   <li>Reduced number of states in <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseCageWinding\">symmetric cage</a> model by introducing an additional non-grounded star connection</li>
 </ul>
 
@@ -481,9 +485,9 @@ Translational.Interfaces</a></li>
 <li>Update due to changed class names in <a href=\"modelica://Modelica.Electrical.Machines.Icons\">Machines.Icons</a></li>
 <li>Using <a href=\"modelica://Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort\">HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort</a> instead of
     <a href=\"modelica://Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort\">Analog.Interfaces.ConditionalHeatPort</a> in
-    <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.EddyCurrent\">EddyCurrent</a> </li>
+    <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.EddyCurrent\">EddyCurrent</a></li>
 <li>Added <code>modelica://</code> to all Modelica hyper links</li>
-<li>Fixed bug in displayed parameters of <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.EddyCurrent\">EddyCurrent</a> </li>
+<li>Fixed bug in displayed parameters of <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.EddyCurrent\">EddyCurrent</a></li>
 <li>Updated some images (and renamed image file <code>LossPower.png</code> to <code>lossPower.png</code>)</li>
 <li>Exchanged positive and negative stator ports of <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap\">RotorSaliencyAirGap</a>
 model, adapted equations accordingly and updated code documentation.</li>
@@ -506,7 +510,7 @@ model from R to G</li>
 <ul>
 <li>Added eddy current model in accordance to <a href=\"modelica://Modelica.Magnetic.FluxTubes\">FluxTubes</a> library</li>
 <li>Added thermal heat port to eddy current model</li>
-<li>Minor updates due to dependencies of <a href=\"modelica://Modelica.Electrical.Machines\">Machines</a>
+<li>Minor updates due to dependencies of <a href=\"modelica://Modelica.Electrical.Machines\">Machines</a></li>
 </ul>
 
 <h5>Version 1.3.0, 2010-02-26</h5>
@@ -523,7 +527,7 @@ model from R to G</li>
 <ul>
 <li>Renamed Machines to BasicMachines</li>
 <li>Updated dependencies due to renamed class
-<a href=\"modelica://Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20\">LinearTemperatureCoefficient20</a>
+<a href=\"modelica://Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20\">LinearTemperatureCoefficient20</a></li>
 <li>Added release notes in User's Guide</li>
 </ul>
 
@@ -573,8 +577,8 @@ model from R to G</li>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
     <tr>
-      <td valign=\"top\">[Beuschel00]</td>
-      <td valign=\"top\">M. Beuschel,
+      <td>[Beuschel00]</td>
+      <td>M. Beuschel,
         &quot;<a href=\"https://www.modelica.org/events/workshop2000/proceedings/Beuschel.pdf\">
         A uniform approach for modelling electrical machines</a>,&quot;
         <em>Modelica Workshop</em>,
@@ -582,38 +586,38 @@ model from R to G</li>
     </tr>
 
     <tr>
-      <td valign=\"top\">[Eckhardt82]</td>
-      <td valign=\"top\">H. Eckhardt,
+      <td>[Eckhardt82]</td>
+      <td>H. Eckhardt,
         <em>Grundz&uuml;ge der elektrischen Maschinen</em> (in German),
         B. G. Teubner Verlag, Stuttgart, 1982.</td>
     </tr>
 
     <tr>
-      <td valign=\"top\">[Haumer09]</td>
-      <td valign=\"top\">A. Haumer, and C. Kral,
+      <td>[Haumer09]</td>
+      <td>A. Haumer, and C. Kral,
         &quot;<a href=\"https://www.modelica.org/events/modelica2009/Proceedings/memorystick/pages/papers/0103/0103.pdf\">The
         AdvancedMachines Library: Loss Models for Electric Machines</a>,&quot;
         <em>Modelica Conference</em>, 2009.</td>
     </tr>
 
     <tr>
-      <td valign=\"top\">[Lang84]</td>
-      <td valign=\"top\">W. Lang,
+      <td>[Lang84]</td>
+      <td>W. Lang,
         <em>&Uuml;ber die Bemessung verlustarmer Asynchronmotoren mit K&auml;figl&auml;ufer f&uuml;r Pulsumrichterspeisung</em>
        (in German),
        Doctoral Thesis, Technical University of Vienna, 1984.</td>
     </tr>
 
     <tr>
-      <td valign=\"top\">[Laughton02]</td>
-      <td valign=\"top\">M.A. Laughton, D.F. Warne
+      <td>[Laughton02]</td>
+      <td>M.A. Laughton, D.F. Warne
         <em>Electrical Engineer's Reference Book</em>
         Butterworth Heinemann, 16th edition, ISBN 978-0750646376, 2002</td>
     </tr>
 
     <tr>
-      <td valign=\"top\">[Li07]</td>
-      <td valign=\"top\">Y. Li, Z. Q. Zhu, D. Howe, and C. M. Bingham,
+      <td>[Li07]</td>
+      <td>Y. Li, Z. Q. Zhu, D. Howe, and C. M. Bingham,
         &quot;Modeling of Cross-Coupling Magnetic Saturation in Signal-Injection-Based
         Sensorless Control of Permanent-Magnet Brushless AC Motors,&quot;
         <em>IEEE Transactions on Magnetics</em>,
@@ -621,15 +625,15 @@ model from R to G</li>
     </tr>
 
     <tr>
-      <td valign=\"top\">[Mueller70]</td>
-      <td valign=\"top\">G, M&uuml;ller,
+      <td>[Mueller70]</td>
+      <td>G, M&uuml;ller,
         <em>Elektrische Maschinen -- Grundlagen, Aufbau und Wirkungsweise</em> (in German),
         VEB Verlag Technik Berlin, 4th edition, 1970.</td>
     </tr>
 
     <tr>
-      <td valign=\"top\">[Spaeth73]</td>
-      <td valign=\"top\">H. Sp&auml;th,
+      <td>[Spaeth73]</td>
+      <td>H. Sp&auml;th,
         <em>Elektrische Maschinen -- Eine Einf&uuml;hrung in die Theorie des Betriebsverhaltens</em> (in German),
         Springer-Verlag, Berlin, Heidelberg, New York, 1973.</td>
     </tr>
@@ -1447,13 +1451,11 @@ Simulate for 1.5 seconds and plot (versus time):
                   -100},{100,100}}),
                                graphics={       Text(
                       extent={{20,88},{100,80}},
-                      lineColor={0,0,0},
                       fillColor={255,255,170},
                       fillPattern=FillPattern.Solid,
                       textString="%m phase machine",
                       textStyle={TextStyle.Bold}),Text(
                       extent={{20,-22},{100,-30}},
-                      lineColor={0,0,0},
                       fillColor={255,255,170},
                       fillPattern=FillPattern.Solid,
                       textString="3 phase machine",
@@ -1568,8 +1570,8 @@ Simulate for 1.5 seconds and plot (versus time):
             Interval=1E-4,
             Tolerance=1e-06),                                 Documentation(
               info="<html>
-<p>At start time tStart three phase voltage is supplied to the asynchronous induction machine with squirrel cage, 
-first star-connected, then delta-connected; the machine starts from standstill, 
+<p>At start time tStart three phase voltage is supplied to the asynchronous induction machine with squirrel cage,
+first star-connected, then delta-connected; the machine starts from standstill,
 accelerating inertias against load torque quadratic dependent on speed, finally reaching nominal speed.</p>
 
 <p>Simulate for 2.5 seconds and plot (versus time):</p>
@@ -2165,7 +2167,7 @@ The mechanical load is a constant torque like a conveyor (with regularization ar
         annotation (experiment(Interval=0.0001, Tolerance=1e-06, StopTime=1),             Documentation(
               info="<html>
 <p>At start time tStart single phase voltage is supplied to the asynchronous induction machine with squirrel cage;
-the machine starts from standstill, accelerating inertias against load torque quadratic dependent on speed, 
+the machine starts from standstill, accelerating inertias against load torque quadratic dependent on speed,
 finally reaching nominal speed.</p>
 
 <p>Default machine parameters are used.</p>
@@ -3027,13 +3029,11 @@ Simulate for 1.5 seconds and plot (versus time):
                   -100},{100,100}}),
                                graphics={       Text(
                       extent={{40,68},{100,60}},
-                      lineColor={0,0,0},
                       fillColor={255,255,170},
                       fillPattern=FillPattern.Solid,
                       textString="%m phase machine",
                       textStyle={TextStyle.Bold}),Text(
                       extent={{40,-32},{100,-40}},
-                      lineColor={0,0,0},
                       fillColor={255,255,170},
                       fillPattern=FillPattern.Solid,
                       textString="3 phase machine",
@@ -3540,24 +3540,20 @@ and accelerate the inertias. Two equivalent machines with different numbers of p
                   -100},{100,100}}),
                                graphics={Rectangle(
                       extent={{-20,0},{100,-40}},
-                      lineColor={0,0,0},
                       fillColor={255,255,170},
                       fillPattern=FillPattern.Solid,
                       pattern=LinePattern.Dash),Rectangle(
                       extent={{-20,-60},{100,-100}},
-                      lineColor={0,0,0},
                       fillColor={255,255,170},
                       fillPattern=FillPattern.Solid,
                       pattern=LinePattern.Dash),Text(
                       extent={{40,-54},{100,-62}},
-                      lineColor={0,0,0},
                       fillColor={255,255,170},
                       fillPattern=FillPattern.Solid,
                       textStyle={TextStyle.Bold},
                       textString="3 phase machine
 "),           Text(
                 extent={{40,-44},{100,-52}},
-                      lineColor={0,0,0},
                       fillColor={255,255,170},
                       fillPattern=FillPattern.Solid,
                       textStyle={TextStyle.Bold},
@@ -4055,14 +4051,213 @@ whereas the stator voltage is influenced by the d-current.</p>
         annotation (experiment(StopTime=0.8, Interval=1E-4, Tolerance=1e-06), Documentation(
               info="<html>
 <p>
-A synchronous induction machine with permanent magnets starts braking from nominal speed by feeding a diode bridge, 
+A synchronous induction machine with permanent magnets starts braking from nominal speed by feeding a diode bridge,
 which in turn feeds a braking resistor.
-Since induced voltage is reduced proportional to falling speed, the braking resistance is set proportional 
+Since induced voltage is reduced proportional to falling speed, the braking resistance is set proportional
 to speed to achieve constant current and torque.</p>
 
 <p>Default machine parameters are used</p>
 </html>"));
       end SMPM_Braking;
+
+      model SMEE_DOL "ElectricalExcitedSynchronousInductionMachine starting direct on line"
+        extends Modelica.Icons.Example;
+        parameter Integer m=3 "Number of phases";
+        parameter Modelica.SIunits.Voltage VNominal=100 "Nominal RMS voltage per phase";
+        parameter Modelica.SIunits.Frequency fNominal=50 "Nominal frequency";
+        parameter Modelica.SIunits.Voltage Ve=smeeData.Re*smeeData.IeOpenCircuit "Excitation current";
+        parameter Modelica.SIunits.Angle gamma0(displayUnit="deg") = 0 "Initial rotor displacement angle";
+        Modelica.SIunits.Current irRMS = sqrt(smee.ir[1]^2+smee.ir[2]^2)/sqrt(2) "Quasi RMS rotor current";
+        Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcited smee(
+          phiMechanical(start=-(Modelica.Constants.pi + gamma0)/smee.p, fixed=true),
+          fsNominal=smeeData.fsNominal,
+          TsRef=smeeData.TsRef,
+          Lrsigmad=smeeData.Lrsigmad,
+          Lrsigmaq=smeeData.Lrsigmaq,
+          Rrd=smeeData.Rrd,
+          Rrq=smeeData.Rrq,
+          TrRef=smeeData.TrRef,
+          VsNominal=smeeData.VsNominal,
+          IeOpenCircuit=smeeData.IeOpenCircuit,
+          Re=smeeData.Re,
+          TeRef=smeeData.TeRef,
+          p=2,
+          Jr=0.29,
+          Js=0.29,
+          useDamperCage=true,
+          statorCoreParameters(VRef=100),
+          strayLoadParameters(IRef=100),
+          brushParameters(ILinear=0.01),
+          ir(fixed=true),
+          wMechanical(fixed=true),
+          m=m,
+          Rs=smeeData.Rs*m/3,
+          Lssigma=smeeData.Lssigma*m/3,
+          Lmd=smeeData.Lmd*m/3,
+          Lmq=smeeData.Lmq*m/3,
+          TsOperational=293.15,
+          alpha20s=smeeData.alpha20s,
+          alpha20r=smeeData.alpha20r,
+          TrOperational=293.15,
+          TeOperational=293.15,
+          alpha20e=smeeData.alpha20e,
+          sigmae=smeeData.sigmae*m/3)
+            annotation (Placement(transformation(extent={{-20,-50},{0,-30}})));
+        Modelica.Electrical.Machines.Sensors.RotorDisplacementAngle rotorDisplacementAngle(p=smee.p, m=m) annotation (Placement(transformation(
+              origin={20,-40},
+              extent={{-10,10},{10,-10}},
+              rotation=270)));
+        Modelica.Electrical.Analog.Basic.Ground groundExcitation annotation (
+            Placement(transformation(
+              origin={-40,-70},
+              extent={{-10,-10},{10,10}},
+              rotation=0)));
+        Modelica.Mechanics.Rotational.Sensors.MultiSensor mechanicalSensor annotation (Placement(transformation(extent={{40,-50},{60,-30}})));
+        Modelica.Electrical.MultiPhase.Sensors.MultiSensor electricalSensor(m=m) annotation (Placement(transformation(
+              origin={40,30},
+              extent={{-10,-10},{10,10}},
+              rotation=270)));
+        Modelica.Electrical.MultiPhase.Sensors.CurrentQuasiRMSSensor currentRMSSensor(m=m) annotation (Placement(transformation(
+              origin={40,0},
+              extent={{-10,-10},{10,10}},
+              rotation=270)));
+        Modelica.Electrical.MultiPhase.Sources.SineVoltage sineVoltage(
+          final m=m,
+          final V=fill(VNominal*sqrt(2), m),
+          final freqHz=fill(fNominal, m)) annotation (Placement(transformation(
+                extent={{-10,40},{-30,60}})));
+        Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) annotation (
+            Placement(transformation(extent={{-40,40},{-60,60}})));
+        Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
+              transformation(
+              origin={-60,30},
+              extent={{-10,-10},{10,10}},
+              rotation=0)));
+        Modelica.Electrical.Analog.Sources.RampVoltage rampVoltage(
+          duration=0.1,
+          V=Ve,
+          offset=0,
+          startTime=0.5) annotation (Placement(transformation(
+              origin={-40,-40},
+              extent={{10,-10},{-10,10}},
+              rotation=90)));
+        Modelica.Electrical.Machines.Utilities.TerminalBox terminalBox(terminalConnection="Y", m=m) annotation (Placement(transformation(extent={{-20,-34},{0,-14}})));
+        parameter Modelica.Electrical.Machines.Utilities.SynchronousMachineData smeeData(
+          SNominal=30e3,
+          VsNominal=100,
+          fsNominal=50,
+          IeOpenCircuit=10,
+          x0=0.1,
+          xd=1.6,
+          xq=1.6,
+          xdTransient=0.1375,
+          xdSubtransient=0.121428571,
+          xqSubtransient=0.148387097,
+          Ta=0.014171268,
+          Td0Transient=0.261177343,
+          Td0Subtransient=0.006963029,
+          Tq0Subtransient=0.123345081,
+          alpha20s(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
+          alpha20r(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
+          alpha20e(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
+          TsSpecification=293.15,
+          TsRef=293.15,
+          TrSpecification=293.15,
+          TrRef=293.15,
+          TeSpecification=293.15,
+          TeRef=293.15) annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
+
+        Modelica.Electrical.MultiPhase.Ideal.IdealClosingSwitch switch(
+          final m=m,
+          Ron=fill(1e-5*m/3, m),
+          Goff=fill(1e-5*m/3, m)) annotation (Placement(transformation(
+              origin={10,50},
+              extent={{-10,10},{10,-10}},
+              rotation=0)));
+        Modelica.Blocks.Sources.BooleanStep booleanStep(startTime=0) annotation (Placement(transformation(extent={{-50,0},{-30,20}})));
+        Modelica.Blocks.Routing.BooleanReplicator booleanReplicator(nout=m) annotation (Placement(transformation(extent={{-20,20},{0,0}})));
+        Modelica.Mechanics.Rotational.Sources.TorqueStep torqueStep(
+          offsetTorque=0,
+          stepTorque=50,
+          startTime=2) annotation (Placement(transformation(extent={{90,-50},{70,-30}})));
+      initial equation
+        // sum(smee.is) = 0;
+        smee.is[1:2] = zeros(2);
+        smee.ie = 0;
+        //conditional damper cage currents are defined as fixed start values
+      equation
+        connect(rotorDisplacementAngle.plug_n, smee.plug_sn) annotation (Line(
+              points={{26,-30},{26,-20},{-16,-20},{-16,-30}}, color={0,0,255}));
+        connect(rotorDisplacementAngle.plug_p, smee.plug_sp)
+          annotation (Line(points={{14,-30},{-4,-30}}, color={0,0,255}));
+        connect(star.pin_n, ground.p)
+          annotation (Line(points={{-60,50},{-60,40}}, color={0,0,255}));
+        connect(star.plug_p, sineVoltage.plug_n)
+          annotation (Line(points={{-40,50},{-30,50}}, color={0,0,255}));
+        connect(terminalBox.plugSupply, currentRMSSensor.plug_n) annotation (Line(points={{-10,-28},{-10,-10},{40,-10}}, color={0,0,255}));
+        connect(terminalBox.plug_sn, smee.plug_sn) annotation (Line(
+            points={{-16,-30},{-16,-30}},
+            color={0,0,255}));
+        connect(terminalBox.plug_sp, smee.plug_sp) annotation (Line(
+            points={{-4,-30},{-4,-30}},
+            color={0,0,255}));
+        connect(smee.flange, rotorDisplacementAngle.flange) annotation (Line(
+            points={{0,-40},{10,-40}}));
+        connect(smee.flange, mechanicalSensor.flange_a) annotation (Line(points={{0,-40},{40,-40}}));
+        connect(sineVoltage.plug_p, switch.plug_p) annotation (Line(points={{-10,50},{0,50}}, color={0,0,255}));
+        connect(booleanReplicator.y, switch.control) annotation (Line(points={{1,10},{10,10},{10,38}}, color={255,0,255}));
+        connect(booleanStep.y, booleanReplicator.u)
+          annotation (Line(points={{-29,10},{-22,10}}, color={255,0,255}));
+        connect(groundExcitation.p, rampVoltage.n)
+          annotation (Line(points={{-40,-60},{-40,-60},{-40,-56},{-40,-56},{-40,-50},{-40,-50}},
+                                                         color={0,0,255}));
+        connect(rampVoltage.n, smee.pin_en) annotation (Line(points={{-40,-50},{-30,-50},{-30,-46},{-20,-46}},
+                                                color={0,0,255}));
+        connect(rampVoltage.p, smee.pin_ep) annotation (Line(points={{-40,-30},{-30,-30},{-30,-34},{-20,-34}},
+                                                color={0,0,255}));
+        connect(mechanicalSensor.flange_b, torqueStep.flange) annotation (Line(points={{60,-40},{70,-40}}));
+        connect(switch.plug_n, electricalSensor.pc) annotation (Line(points={{20,50},{40,50},{40,40}}, color={0,0,255}));
+        connect(electricalSensor.nv, terminalBox.plug_sn) annotation (Line(points={{30,30},{20,30},{20,-20},{-16,-20},{-16,-30}}, color={0,0,255}));
+        connect(electricalSensor.nc, currentRMSSensor.plug_p) annotation (Line(points={{40,20},{40,10}}, color={0,0,255}));
+        connect(electricalSensor.pv, electricalSensor.pc) annotation (Line(points={{50,30},{50,40},{40,40}}, color={0,0,255}));
+        annotation (experiment(StopTime=3,Interval=0.0001,Tolerance=1e-006),
+          Documentation(info="<html>
+<p>An electrically excited synchronous generator is started direct on line utilizing the damper cage
+(and the shorted excitation winding) at 0 seconds.</p>
+<p>At t = 0.5 seconds, the excitation voltage is raised to achieve the no-load excitation current.
+Note, that reactive power of the stator goes to zero.</p>
+<p>At t = 2 second, a driving torque step is applied to the shaft (i.e. the turbine is activated).
+Note, that the active (and the reactive) power of the stator change.
+To drive at higher torque, i.e., produce more electric power, excitation has to be adapted.
+</p>
+
+<p>Simulate for 3 seconds and plot:</p>
+
+<ul>
+<li><code>smee.tauElectrical</code>: electric torque</li>
+<li><code>smee.wMechanical</code>: mechanical speed</li>
+<li><code>currentRMSSensor.I</code>: quasi RMS stator current</li>
+<li><code>irRMS</code>: quasi RMS rotor current</li>
+<li><code>smee.ie</code>: excitation current</li>
+<li><code>rotorDisplacementAngle.rotorDisplacementAngle</code>: rotor displacement angle</li>
+<li><code>electricalSensor.powerTotal</code>: total electric real power</li>
+<li><code>mechanicalSensor.power</code>: mechanical power</li>
+</ul>
+
+<p>Default machine parameters are used.</p>
+
+<h5>Note</h5>
+<p>The mains switch is closed at time = 0 in order to avoid non physical noise calculated by the <code>rotorDisplacementAngle</code>.
+This noise is caused by the interaction of the high resistance of the switch and the machine, see
+<a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2388\">#2388</a>.
+</p>
+</html>"),Diagram(graphics={                      Text(
+                        extent={{10,-72},{90,-80}},
+                        fillColor={255,255,170},
+                        fillPattern=FillPattern.Solid,
+                        textStyle={TextStyle.Bold},
+                textString="%m phase quasi static")}));
+      end SMEE_DOL;
 
       model SMEE_Generator_MultiPhase
         "Electrical excited multi phase synchronous machine operating as generator"
@@ -4148,7 +4343,6 @@ to speed to achieve constant current and torque.</p>
           Re=smeeData.Re,
           TeRef=smeeData.TeRef,
           alpha20e(displayUnit="1/K") = smeeData.alpha20e,
-          sigmae=smeeData.sigmae,
           m=m,
           Rs=smeeData.Rs*m/3,
           Lssigma=smeeData.Lssigma*m/3,
@@ -4158,10 +4352,11 @@ to speed to achieve constant current and torque.</p>
           strayLoadParameters(IRef=100),
           brushParameters(ILinear=0.01),
           ir(each fixed=true),
-          TsOperational=293.15,
           effectiveStatorTurns=smeeData.effectiveStatorTurns,
+          TsOperational=293.15,
           TrOperational=293.15,
-          TeOperational=293.15)
+          TeOperational=293.15,
+          sigmae=smeeData.sigmae*m/3)
                                annotation (Placement(transformation(extent={{-10,30},
                   {10,50}})));
 
@@ -4417,26 +4612,22 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM3.rotorDisplacementAng
 </html>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                   {100,100}}), graphics={Rectangle(
                       extent={{-50,60},{70,20}},
-                      lineColor={0,0,0},
                       fillColor={255,255,170},
                       fillPattern=FillPattern.Solid,
                       pattern=LinePattern.Dash),Text(
                       extent={{10,16},{70,8}},
-                      lineColor={0,0,0},
                       fillColor={255,255,170},
                       fillPattern=FillPattern.Solid,
                       textStyle={TextStyle.Bold},
                       textString="%m phase machine
 "),           Text(
                 extent={{10,-52},{70,-60}},
-                      lineColor={0,0,0},
                       fillColor={255,255,170},
                       fillPattern=FillPattern.Solid,
                       textStyle={TextStyle.Bold},
                       textString="3 phase machine
 "),           Rectangle(
                 extent={{-50,-60},{100,-100}},
-                      lineColor={0,0,0},
                       fillColor={255,255,170},
                       fillPattern=FillPattern.Solid,
                       pattern=LinePattern.Dash)}));
@@ -4868,7 +5059,7 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM.rotorDisplacementAngl
               extent={{-10,10},{10,-10}},
               rotation=270)));
         Modelica.Blocks.Sources.BooleanPulse loadControl(period=4, startTime=2)
-          annotation (Placement(transformation(extent={{-40,70},{-20,90}})));
+          annotation (Placement(transformation(extent={{-80,70},{-60,90}})));
         Modelica.Electrical.MultiPhase.Ideal.CloserWithArc switch(
           m=m,
           Ron=fill(1e-5, m),
@@ -4892,6 +5083,9 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM.rotorDisplacementAngl
       protected
         constant Modelica.SIunits.MagneticFlux unitMagneticFlux=1
           annotation (HideResult=true);
+      public
+        Blocks.Routing.BooleanReplicator booleanReplicator(nout=m)
+          annotation (Placement(transformation(extent={{-50,90},{-30,70}})));
       initial equation
         smee.airGap.V_msr = Complex(0, 0);
         //conditional damper cage currents are defined as fixed start values
@@ -4937,14 +5131,10 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM.rotorDisplacementAngl
             points={{0,50},{10,50},{10,40}}, color={0,0,255}));
         connect(star.plug_p, loadInductor.plug_n) annotation (Line(
             points={{-90,40},{-90,50},{-80,50}}, color={0,0,255}));
-        connect(loadControl.y, switch.control[1]) annotation (Line(
-            points={{-19,80},{-10,80},{-10,62}}, color={255,0,255}));
-        connect(loadControl.y, switch.control[2]) annotation (Line(
-            points={{-19,80},{-10,80},{-10,62}}, color={255,0,255}));
-        connect(loadControl.y, switch.control[3]) annotation (Line(
-            points={{-19,80},{-10,80},{-10,62}}, color={255,0,255}));
         connect(star.pin_n, ground.p) annotation (Line(
             points={{-90,20},{-90,10}}, color={0,0,255}));
+        connect(loadControl.y, booleanReplicator.u) annotation (Line(points={{-59,80},{-52,80}}, color={255,0,255}));
+        connect(booleanReplicator.y, switch.control) annotation (Line(points={{-29,80},{-10,80},{-10,62}}, color={255,0,255}));
         annotation (experiment(StopTime=10, Interval=1E-4, Tolerance=1e-06), Documentation(info="<html>
 <p>An electrically excited synchronous generator is started with a speed ramp, then driven with constant speed.
 Voltage is controlled, the set point depends on speed. After start-up the generator is loaded, the load is rejected.</p>
@@ -5191,7 +5381,7 @@ Voltage is controlled, the set point depends on speed. After start-up the genera
             points={{-80,70},{-80,90},{-40,90}}, color={0,0,255}));
         annotation (experiment(StopTime=1.1, Interval=1E-4, Tolerance=1e-06), Documentation(
               info="<html>
-<p>An electrically excited synchronous generator is driven with constant speed. 
+<p>An electrically excited synchronous generator is driven with constant speed.
 Voltage is controlled, the set point depends on speed. The generator is loaded with a rectifier.</p>
 
 <p>Default machine parameters are used</p>
@@ -5689,26 +5879,22 @@ Simulate for 1.5 seconds and plot (versus time):
 </html>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                   {100,100}}), graphics={Rectangle(
                       extent={{-20,0},{100,-40}},
-                      lineColor={0,0,0},
                       fillColor={255,255,170},
                       fillPattern=FillPattern.Solid,
                       pattern=LinePattern.Dash),Text(
                       extent={{40,-44},{100,-52}},
-                      lineColor={0,0,0},
                       fillColor={255,255,170},
                       fillPattern=FillPattern.Solid,
                       textStyle={TextStyle.Bold},
                       textString="%m phase machine
 "),           Text(
                 extent={{40,-54},{100,-62}},
-                      lineColor={0,0,0},
                       fillColor={255,255,170},
                       fillPattern=FillPattern.Solid,
                       textStyle={TextStyle.Bold},
                       textString="3 phase machine
 "),           Rectangle(
                 extent={{-20,-60},{100,-100}},
-                      lineColor={0,0,0},
                       fillColor={255,255,170},
                       fillPattern=FillPattern.Solid,
                       pattern=LinePattern.Dash)}));
@@ -6036,7 +6222,7 @@ The total complex magnetic potential difference of the single phase winding is d
 </p>
 
 <p>
-In this equation the magneto motive force is aligned with the orientation of the winding.
+In this equation the magnetomotive force is aligned with the orientation of the winding.
 </p>
 
 <p>
@@ -6157,7 +6343,7 @@ The total complex magnetic potential difference of the multi phase winding is de
 </p>
 
 <p>
-In this equation each contribution of a winding magneto motive force on the total complex magnetic potential difference is aligned with the respective orientation of the winding.
+In this equation each contribution of a winding magnetomotive force on the total complex magnetic potential difference is aligned with the respective orientation of the winding.
 </p>
 
 <p>
@@ -6182,8 +6368,7 @@ The voltages <img src=\"modelica://Modelica/Resources/Images/Magnetic/Fundamenta
 <p>
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.SinglePhaseElectroMagneticConverter\">SinglePhaseElectroMagneticConverter</a>
 </p>
-</html>"),
-        defaultComponentName="converter");
+</html>"));
     end MultiPhaseElectroMagneticConverter;
 
     model Idle "Idle running branch"
@@ -7516,14 +7701,14 @@ heat <a href=\"modelica://Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a\">
         port_sp.Phi + port_sn.Phi = Complex(0, 0) "Balance of stator flux";
         port_rp.Phi = Phi_rr "Rotor flux into positive rotor port";
         port_rp.Phi + port_rn.Phi = Complex(0, 0) "Balance of rotor flux";
-        port_sp.V_m - port_sn.V_m = V_mss "Magneto motive force of stator";
-        port_rp.V_m - port_rn.V_m = V_mrr "Magneto motive force of rotor";
+        port_sp.V_m - port_sn.V_m = V_mss "Magnetomotive force of stator";
+        port_rp.V_m - port_rn.V_m = V_mrr "Magnetomotive force of rotor";
         // Transformations between stator and rotor fixed frame
         V_msr = V_mss*Modelica.ComplexMath.conj(rotator);
         Phi_sr = Phi_ss*Modelica.ComplexMath.conj(rotator);
         // Stator flux and rotor flux are equal
         Phi_sr = Phi_rr;
-        // Local balance of magneto motive force
+        // Local balance of magnetomotive force
         (pi/2.0)*(V_mrr.re + V_msr.re) = Phi_rr.re*R_m.d;
         (pi/2.0)*(V_mrr.im + V_msr.im) = Phi_rr.im*R_m.q;
         // Torque
@@ -7988,7 +8173,7 @@ The permanent magnet is modeled by a magnetic potential difference. The internal
             points={{-40,-90},{-40,-100},{0,-100}}, color={191,0,0}));
         connect(resistor.plug_n, starAuxiliary.plug_p) annotation (Line(
             points={{-20,-80},{30,-80}}, color={0,0,255}));
-        annotation (defaultComponentName="cage", obsolete="Wrong structure of multi phase cage, see #1536 (https://github.com/modelica/Modelica/issues/1536)",
+        annotation (defaultComponentName="cage", obsolete="Wrong structure of multi phase cage, see #1536 (https://github.com/modelica/ModelicaStandardLibrary/issues/1536)",
           Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                   {100,100}}), graphics={Ellipse(
                       extent={{-80,80},{80,-80}},
@@ -8125,7 +8310,7 @@ The symmetric rotor cage model of this library does not consist of rotor bars an
             points={{-40,-90},{-40,-100},{0,-100}}, color={191,0,0}));
         connect(resistor.heatPort, thermalCollector.port_a) annotation (Line(
             points={{-30,-70},{-40,-70}}, color={191,0,0}));
-        annotation (defaultComponentName="cage", obsolete="Wrong structure of saliency cage, see #1536 (https://github.com/modelica/Modelica/issues/1536)",
+        annotation (defaultComponentName="cage", obsolete="Wrong structure of saliency cage, see #1536 (https://github.com/modelica/ModelicaStandardLibrary/issues/1536)",
           Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                   -100},{100,100}}), graphics={Ellipse(
                       extent={{-80,80},{80,-80}},
@@ -8199,11 +8384,11 @@ for electric machines.
     equation
       // Flux into positive port
       port_p.V_m - port_n.V_m = V_m;
-      // Magneto motive force
+      // Magnetomotive force
       port_p.Phi = Phi;
       // Local flux balance
       port_p.Phi + port_n.Phi = Complex(0, 0);
-      annotation (defaultComponentName="vmSource", Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (defaultComponentName="magVoltageSource", Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
                                   Ellipse(
                   extent={{-50,-50},{50,50}},
@@ -8221,7 +8406,7 @@ for electric machines.
             Line(points={{60,20},{80,20}}, color={255,128,0})}),
                                           Documentation(info="<html>
 <p>
-Source of constant magneto motive force.
+Source of constant magnetomotive force.
 </p>
 
 <h4>See also</h4>
@@ -8256,11 +8441,11 @@ Source of constant magneto motive force.
     equation
       // Flux into positive port
       port_p.V_m - port_n.V_m = V_m;
-      // Magneto motive force
+      // Magnetomotive force
       port_p.Phi = Phi;
       // Local flux balance
       port_p.Phi + port_n.Phi = Complex(0, 0);
-      annotation (defaultComponentName="vmSource", Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (defaultComponentName="magVoltageSource", Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
                                   Ellipse(
                   extent={{-50,-50},{50,50}},
@@ -8279,7 +8464,7 @@ Source of constant magneto motive force.
             Line(points={{60,20},{80,20}}, color={255,128,0})}),
                                           Documentation(info="<html>
 <p>
-Source of magneto motive force with complex signal input.
+Source of magnetomotive force with complex signal input.
 </p>
 
 <h4>See also</h4>
@@ -8311,11 +8496,11 @@ Source of magneto motive force with complex signal input.
     equation
       // Flux into positive port
       port_p.V_m - port_n.V_m = V_m;
-      // Magneto motive force
+      // Magnetomotive force
       port_p.Phi = Phi;
       // Local flux balance
       port_p.Phi + port_n.Phi = Complex(0, 0);
-      annotation (defaultComponentName="phiSource", Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (defaultComponentName="magFluxSource", Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={Ellipse(
                   extent={{-50,-50},{50,50}},
                   lineColor={255,128,0},
@@ -8371,11 +8556,11 @@ Source of constant magnetic flux.
     equation
       // Flux into positive port
       port_p.V_m - port_n.V_m = V_m;
-      // Magneto motive force
+      // Magnetomotive force
       port_p.Phi = Phi;
       // Local flux balance
       port_p.Phi + port_n.Phi = Complex(0, 0);
-      annotation (defaultComponentName="phiSource", Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (defaultComponentName="magFluxSource", Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={Ellipse(
                   extent={{-50,-50},{50,50}},
                   lineColor={255,128,0},
@@ -8428,13 +8613,13 @@ Source of magnetic flux with complex signal input.
     equation
       // Flux into positive port
       port_p.V_m - port_n.V_m = V_m;
-      // Magneto motive force
+      // Magnetomotive force
       port_p.Phi = Phi;
       // Local flux balance
       port_p.Phi + port_n.Phi = Complex(0, 0);
       // No magnetic potential difference at sensor
       V_m = Complex(0, 0);
-      annotation (defaultComponentName="phiSensor", Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (defaultComponentName="magFluxSensor", Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-29,-11},{30,-70}},
                   textString="Phi"),Line(points={{-72,0},{-90,0}}),
@@ -8466,13 +8651,13 @@ Source of magnetic flux with complex signal input.
     equation
       // Flux into positive port
       port_p.V_m - port_n.V_m = V_m;
-      // Magneto motive force
+      // Magnetomotive force
       port_p.Phi = Phi;
       // Local flux balance
       port_p.Phi + port_n.Phi = Complex(0, 0);
       // No magnetic flux through sensor
       Phi = Complex(0, 0);
-      annotation (defaultComponentName="vmSensor", Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (defaultComponentName="magVoltageSensor", Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-52,1},{48,-57}},
                   textString="V_m"),Line(points={{-70,0},{-90,0}}),
@@ -8504,7 +8689,7 @@ Source of magnetic flux with complex signal input.
       port_p.Phi = Complex(0, 0);
       // Magnetic potential
       V_m = port_p.V_m;
-      annotation (defaultComponentName="vmSensor", Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (defaultComponentName="magPotentialSensor", Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-52,1},{48,-57}},
                   textString="V_m"),Line(points={{-70,0},{-90,0}}),
@@ -8654,7 +8839,7 @@ considers the flux balance of the two ports. Additionally the magnetic potential
       annotation (Documentation(info="<html>
 <p>This magnetic two port element consists of a <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.PositiveMagneticPort\">positive</a> and a <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.NegativeMagneticPort\">negative magnetic port</a> and some additionally variables, but no physical balance equations.</p>
 <h4>See also</h4>
-<p><a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.PositiveMagneticPort\">PositiveMagneticPort</a>, <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.NegativeMagneticPort\">NegativeMagneticPort</a>, <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPort\">PartialTwoPort</a>, <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPortElementary\">PartialTwoPortElementary</a> </p>
+<p><a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.PositiveMagneticPort\">PositiveMagneticPort</a>, <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.NegativeMagneticPort\">NegativeMagneticPort</a>, <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPort\">PartialTwoPort</a>, <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPortElementary\">PartialTwoPortElementary</a></p>
 </html>"));
     end PartialTwoPortExtended;
 
@@ -8677,7 +8862,7 @@ considers the flux balance of the two ports. Additionally the magnetic potential
     equation
       // Flux into positive port
       V_m = port_p.V_m - port_n.V_m;
-      // Magneto motive force
+      // Magnetomotive force
       port_p.Phi = Phi;
       // Local flux balance
       port_p.Phi + port_n.Phi = Complex(0, 0);
@@ -8745,7 +8930,7 @@ This model is mainly used to extend from in order build more complex - equation 
         "Friction loss parameter record" annotation (Dialog(tab="Losses"));
       parameter Modelica.Electrical.Machines.Losses.CoreParameters
         statorCoreParameters(
-        final m=3,
+        final m=m,
         wRef=2*pi*fsNominal/p,
         VRef(start=100))
         "Stator core loss parameter record; all parameters refer to stator side"
@@ -9211,11 +9396,11 @@ Definition of saliency with respect to the orthogonal d- and q-axis. Saliency, h
 </html>", info="<html>
   <p><strong>For a discrimination of various machine models, see <a href=\"modelica://Modelica.Electrical.Machines.UsersGuide.Discrimination\">discrimination</a></strong>.</p>
 <p>
-Copyright &copy; 2009-2017, Modelica Association, <a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.Contact\">Christian Kral</a>,
+Copyright &copy; 2009-2018, Modelica Association, <a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.Contact\">Christian Kral</a>,
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.Contact\">Anton Haumer</a> and AIT
 </p>
 <p>
-<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</em>
+<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em>
 </p>
 </html>"),
     Icon(graphics={

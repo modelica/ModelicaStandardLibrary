@@ -9,17 +9,17 @@ package ComplexBlocks
     class Contact "Contact"
       extends Modelica.Icons.Contact;
       annotation (Documentation(info="<html>
-<h4>Contact</h4>
+<h4>Main authors</h4>
 
 <p>
-Anton Haumer<br>
+<strong>Anton Haumer</strong><br>
 <a href=\"http://www.haumer.at\">Technical Consulting &amp; Electrical Engineering</a><br>
 3423 St. Andrae-Woerdern, Austria<br>
-email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
+email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
 </p>
 
 <p>
-  Dr. Christian Kral<br>
+<strong>Dr. Christian Kral</strong><br>
   <a href=\"https://christiankral.net/\">Electric Machines, Drives and Systems</a><br>
   A-1060 Vienna, Austria<br>
   email: <a href=\"mailto:dr.christian.kral@gmail.com\">dr.christian.kral@gmail.com</a>
@@ -28,9 +28,8 @@ email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
 <h4>Acknowledgements</h4>
 
 <p>
-Copyright &copy; 1998-2016, Modelica Association, Anton Haumer and Christian Kral.
+Copyright &copy; 1998-2018, Modelica Association, Anton Haumer and Christian Kral.
 </p>
-
 </html>"));
     end Contact;
 
@@ -1892,6 +1891,121 @@ An error occurs if the elements of the input <code>u</code> is zero.
 </html>"));
     end ComplexToPolar;
 
+    block Bode "Calculate quantities to plot Bode diagram"
+      parameter Boolean useDivisor = true "Use divisor input, if true";
+      constant Modelica.SIunits.AmplitudeLevelDifference dB = 20 "Amplitude level difference";
+      Interfaces.ComplexInput u "Dividend if useDivisor == true" annotation (Placement(transformation(extent={{-140,40},{-100,80}}),   iconTransformation(extent={{-140,40},{-100,80}})));
+      Interfaces.ComplexInput divisor if useDivisor "Divisor" annotation (Placement(transformation(extent={{-140,-80},{-100,-40}}), iconTransformation(extent={{-140,-80},{-100,-40}})));
+      Blocks.Interfaces.RealOutput abs_y "Absolute value of ratio u / divisor" annotation (Placement(transformation(extent={{-10,-10},{10,10}},
+            rotation=270,
+            origin={-60,-110}),                                                                              iconTransformation(
+            extent={{-10,-10},{10,10}},
+            rotation=270,
+            origin={-60,-110})));
+      Blocks.Interfaces.RealOutput arg_y "Angle of ratio u / divisor" annotation (Placement(transformation(extent={{-10,-10},{10,10}},
+            rotation=270,
+            origin={60,-110}),                                                                                iconTransformation(
+            extent={{-10,-10},{10,10}},
+            rotation=270,
+            origin={60,-110})));
+      Interfaces.ComplexOutput y "Quotient y = u / divisor" annotation (Placement(transformation(extent={{100,-10},{120,10}}), iconTransformation(extent={{100,-10},{120,10}})));
+      Sources.ComplexConstant complexOne(final k=Complex(1, 0)) if not useDivisor "Complex(1,0)" annotation (Placement(transformation(extent={{-100,-50},{-80,-30}})));
+      Division division(final useConjugateInput1=false, final useConjugateInput2=false)
+                        annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
+      ComplexToPolar complexToPolar(final useConjugateInput=false) annotation (Placement(transformation(
+            extent={{-10,10},{10,-10}},
+            rotation=270,
+            origin={0,-20})));
+      Blocks.Interfaces.RealOutput dB_y(unit="dB") "Log10 of absolute value of ratio u / divisor in dB" annotation (Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=270,
+            origin={0,-110}), iconTransformation(
+            extent={{-10,-10},{10,10}},
+            rotation=270,
+            origin={0,-110})));
+      Blocks.Math.Log10 log10_y annotation (Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=0,
+            origin={-10,-70})));
+      Blocks.Math.Gain gain(final k=dB) annotation (Placement(transformation(extent={{10,-80},{30,-60}})));
+      Blocks.Nonlinear.Limiter limiter(final uMax=Modelica.Constants.inf, final uMin=Modelica.Constants.eps) annotation (Placement(transformation(extent={{-50,-80},{-30,-60}})));
+    equation
+
+      connect(complexOne.y, division.u2) annotation (Line(points={{-79,-40},{-70,-40},{-70,-6},{-62,-6}}, color={85,170,255}));
+      connect(divisor, division.u2) annotation (Line(points={{-120,-60},{-70,-60},{-70,-6},{-62,-6}}, color={85,170,255}));
+      connect(division.u1, u) annotation (Line(points={{-62,6},{-70,6},{-70,60},{-120,60}}, color={85,170,255}));
+      connect(division.y, y) annotation (Line(points={{-39,0},{110,0},{110,0}}, color={85,170,255}));
+      connect(complexToPolar.u, y) annotation (Line(points={{0,-8},{0,0},{110,0}},  color={85,170,255}));
+      connect(complexToPolar.phi, arg_y) annotation (Line(points={{6,-32},{6,-40},{60,-40},{60,-110}}, color={0,0,127}));
+      connect(complexToPolar.len, abs_y) annotation (Line(points={{-6,-32},{-6,-40},{-60,-40},{-60,-110}}, color={0,0,127}));
+      connect(log10_y.y, gain.u) annotation (Line(points={{1,-70},{8,-70}},     color={0,0,127}));
+      connect(gain.y, dB_y) annotation (Line(points={{31,-70},{40,-70},{40,-90},{0,-90},{0,-110}},color={0,0,127}));
+      connect(limiter.y, log10_y.u) annotation (Line(points={{-29,-70},{-22,-70}}, color={0,0,127}));
+      connect(complexToPolar.len, limiter.u) annotation (Line(points={{-6,-32},{-6,-40},{-60,-40},{-60,-70},{-52,-70}}, color={0,0,127}));
+      annotation (Icon(graphics={Rectangle(
+            extent={{-100,-100},{100,100}},
+            lineColor={0,0,127},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
+            Line(points={{-78,44},{80,44}}, color={135,135,135}),
+            Line(points={{-78,34},{80,34}}, color={135,135,135}),
+            Line(points={{-78,20},{80,20}}, color={135,135,135}),
+            Line(points={{-78,-2},{80,-2}}, color={135,135,135}),
+            Line(points={{-78,-48},{80,-48}}, color={135,135,135}),
+            Line(points={{-50,-48},{-50,44}}, color={135,135,135}),
+            Line(points={{50,-48},{50,44}}, color={135,135,135}),
+            Line(points={{-78,40},{80,40}}, color={135,135,135}),
+                                   Polygon(
+                  points={{90,-48},{68,-40},{68,-56},{90,-48}},
+                  lineColor={192,192,192},
+                  fillColor={192,192,192},
+                  fillPattern=FillPattern.Solid),
+                            Polygon(
+                  points={{-70,90},{-78,68},{-62,68},{-70,90}},
+                  lineColor={192,192,192},
+                  fillColor={192,192,192},
+                  fillPattern=FillPattern.Solid),
+            Line(points={{-70,-56},{-70,68}}, color={135,135,135}),
+            Line(
+              points={{-78,44},{-50,44},{70,-66}},
+              color={0,0,255},
+              thickness=0.5),               Text(
+            extent={{-150,150},{150,110}},
+            textString="%name",
+            lineColor={0,0,255}),
+            Text(
+              extent={{-80,-90},{-40,-70}},
+              lineThickness=0.5,
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid,
+              textString="|y|"),
+            Text(
+              extent={{-20,-90},{20,-70}},
+              lineThickness=0.5,
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid,
+              textString="dB"),             Text(
+            extent={{-150,150},{150,110}},
+            textString="%name",
+            lineColor={0,0,255}),
+            Text(
+              extent={{40,-90},{80,-70}},
+              lineThickness=0.5,
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid,
+              textString="∠")}),
+        Documentation(info="<html>
+<p>This complex block is used to determine variables of a Bode diagram for the output <code>y</code>.
+The output <code>y</code> is calculated by <code>u / divisor</code> if <code>useDivisor == true</code>.
+Otherwise the output <code>y = u</code>.</p>
+<ul>
+<li><code>abs_y</code> Absolute value of <code>y</code></li>
+<li><code>arg_y</code> Angle of <code>y</code></li>
+<li><code>dB_y</code> Logarithm to the base 10 of the absolute value of <code>y</code> in dB</li>
+</ul>
+</html>"));
+    end Bode;
+
     block TransferFunction "Complex Transfer Function"
       extends Modelica.ComplexBlocks.Interfaces.ComplexSISO;
       import Modelica.ComplexMath.j;
@@ -1966,7 +2080,8 @@ connected with continuous blocks or with sampled-data blocks.
               "Time varying output signal"), Placement(transformation(extent={{
                 100,-10},{120,10}})));
 
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (defaultComponentName="complexExpr",
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={Rectangle(
                   extent={{-100,40},{100,-40}},
                   lineThickness=5.0,
@@ -1997,7 +2112,7 @@ Variable <strong>y</strong> is both a variable and a connector.
     equation
       y = k;
       annotation (
-        defaultComponentName="const",
+        defaultComponentName="complexConst",
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Line(points={{-80,68},{-80,-80}}, color={
               192,192,192}),Polygon(
@@ -2051,7 +2166,7 @@ The Complex output y is a constant signal:
 
     equation
       y = offset + (if time < startTime then Complex(0) else height);
-      annotation (
+      annotation (defaultComponentName="complexStep",
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Line(points={{-80,68},{-80,-80}}, color={
               192,192,192}),Polygon(
@@ -2140,7 +2255,8 @@ The Complex output y is a step signal (of real and imaginary part):
     equation
       phi = w*time + phi0;
       y = magnitude*Modelica.ComplexMath.exp(Complex(0, phi));
-      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+      annotation (defaultComponentName="complexRotating",
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Polygon(
                   points={{-10,90},{-16,68},{-4,68},{-10,90}},
                   lineColor={95,95,95},
@@ -2153,17 +2269,18 @@ The Complex output y is a step signal (of real and imaginary part):
                   fillColor={95,95,95},
                   fillPattern=FillPattern.Solid),Line(
                   points={{-10,0},{50,50}},
-                  color={0,0,255},
-                  thickness=0.5),Polygon(
+                  color={0,0,255}),
+                                 Polygon(
                   points={{50,50},{29,41},{38,30},{50,50}},
                   lineColor={95,95,95},
                   fillColor={0,0,255},
                   fillPattern=FillPattern.Solid),Line(points={{-47,35},{-40,40},
-              {-32,44},{-20,47},{-7,46},{5,42},{18,34},{26,23},{31,10}}, color=
-              {0,0,255}),Polygon(
+              {-32,44},{-20,47},{-7,46},{5,42},{18,34},{26,23},{31,10}}, color={192,192,192},
+              smooth=Smooth.Bezier),
+                         Polygon(
                   points={{-52,29},{-32,36},{-42,47},{-52,29}},
-                  lineColor={0,0,255},
-                  fillColor={0,0,255},
+                  lineColor={192,192,192},
+                  fillColor={192,192,192},
                   fillPattern=FillPattern.Solid)}), Documentation(info="<html>
 <p>
 The output y is a complex phasor with constant magnitude, spinning with constant angular velocity.
@@ -2172,21 +2289,135 @@ The output y is a complex phasor with constant magnitude, spinning with constant
 </html>"));
     end ComplexRotatingPhasor;
 
+    block ComplexRampPhasor "Generate a phasor with ramped magnitude and constant angle"
+      extends Modelica.ComplexBlocks.Interfaces.ComplexSO;
+      import Modelica.Constants.eps;
+      parameter Real magnitude1(final min=eps,start=1) "Magnitude of complex phasor at startTime"
+        annotation(Dialog(groupImage="modelica://Modelica/Resources/Images/ComplexBlocks/Sources/ComplexRampPhasor.png"));
+      parameter Real magnitude2(final min=eps,start=1) "Magnitude of complex phasor at startTime+duration";
+      parameter Boolean useLogRamp = false "Ramp appears linear on a logarithmic scale, if true";
+      parameter Modelica.SIunits.Angle phi(start=0) "Angle of complex phasor";
+      parameter Modelica.SIunits.Time startTime=0 "Start time of frequency sweep";
+      parameter Modelica.SIunits.Time duration(min=0.0, start=1) "Duration of ramp (= 0.0 gives a Step)";
+      Real magnitude "Actual magnitude of complex phasor";
+    equation
+
+      magnitude = if not useLogRamp then
+        magnitude1 + (if time < startTime then
+          0 else
+          if time < (startTime + max(duration,eps)) then
+            (time - startTime)*(magnitude2-magnitude1)/max(duration,eps)
+          else
+          magnitude2-magnitude1)
+      else
+        if time < startTime then magnitude1 else
+        if time < (startTime + max(duration,eps)) then
+          10^(log10(magnitude1) + (log10(magnitude2) - log10(magnitude1))*min(1, (time-startTime)/max(duration,eps)))
+        else
+          magnitude2;
+
+      y = magnitude*Modelica.ComplexMath.exp(Complex(0, phi));
+
+      annotation (defaultComponentName="complexRamp",
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+                -100},{100,100}}), graphics={Polygon(
+                  points={{-10,90},{-16,68},{-4,68},{-10,90}},
+                  lineColor={192,192,192},
+                  fillColor={95,95,95},
+                  fillPattern=FillPattern.Solid),Line(points={{-10,68},{-10,-90}},
+              color={95,95,95}),Line(points={{-90,0},{82,0}}, color={95,95,95}),
+              Polygon(
+                  points={{90,0},{68,6},{68,-6},{90,0}},
+                  lineColor={95,95,95},
+                  fillColor={95,95,95},
+                  fillPattern=FillPattern.Solid),Line(
+                  points={{-10,-10},{14,10}},
+                  color={0,0,255}),
+                                 Polygon(
+                  points={{28,22},{7,13},{16,2},{28,22}},
+                  lineColor={95,95,95},
+                  fillColor={0,0,255},
+                  fillPattern=FillPattern.Solid),Line(
+                  points={{-10,6},{50,56}},
+                  color={0,0,255}),
+                                 Polygon(
+                  points={{66,70},{45,61},{54,50},{66,70}},
+                  lineColor={95,95,95},
+                  fillColor={0,0,255},
+                  fillPattern=FillPattern.Solid)}), Documentation(info="<html>
+<p>
+The output y is a complex phasor with constant angle and a ramped magnitude.
+</p>
+
+<p>
+In case of <code>useLogRamp == false</code> the magnitude ramp is linear:
+</p>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/ComplexBlocks/Sources/ComplexRampPhasorLinear.png\"
+     alt=\"ComplexRampPhasorLinear.png\">
+</p>
+
+<p>
+In case of <code>useLogRamp == true</code> the magnitude ramp appears linear on a logarithmic scale:
+</p>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/ComplexBlocks/Sources/ComplexRampPhasorLog.png\"
+     alt=\"ComplexRampPhasorLog.png\">
+</p>
+
+</html>"));
+    end ComplexRampPhasor;
+
     block LogFrequencySweep "Logarithmic frequency sweep"
       extends Modelica.Blocks.Interfaces.SO;
       import Modelica.Constants.eps;
-      parameter Real wMin(min=eps) "Lower frequency border";
-      parameter Real wMax(min=(1+eps)*wMin) "Upper frequency border";
-      parameter Modelica.SIunits.Time duration(min=0.0, start=1)
-        "Duration of ramp (= 0.0 gives a Step)";
+      parameter Real wMin(final min=eps) "Start frequency"
+        annotation(Dialog(groupImage="modelica://Modelica/Resources/Images/Blocks/Sources/LogFrequencySweep.png"));
+      parameter Real wMax(final min=eps) "End frequency";
+      parameter Modelica.SIunits.Time startTime=0 "Start time of frequency sweep";
+      parameter Modelica.SIunits.Time duration(min=0.0, start=1) "Duration of ramp (= 0.0 gives a Step)";
     equation
-      y = 10^(log10(wMin) + (log10(wMax) - log10(wMin))*min(1, time/max(duration,eps)));
-       annotation (Documentation(info="<html>
-<p>The output performs a logarithmic frequency sweep:<br>
-The logarithm of w performs a linear ramp from log10(wMin) to log10(wMax), after the duration it is kept constant.<br>
+      y = if time < startTime then wMin else
+        if time < (startTime + max(duration,eps)) then
+          10^(log10(wMin) + (log10(wMax) - log10(wMin))*min(1, (time-startTime)/max(duration,eps)))
+        else
+          wMax;
+       annotation (defaultComponentName="logSweep",
+         Documentation(info="<html>
+<p>The output <code>y</code> performs a logarithmic frequency sweep.
+The logarithm of frequency <code>w</code> performs a linear ramp from <code>log10(wMin)</code> to <code>log10(wMax)</code>.
 The output is the decimal power of this logarithmic ramp.
 </p>
-</html>"));
+<p>For <code>time &lt; startTime</code> the output is equal to <code>wMin</code>.</p>
+<p>For <code>time &gt; startTime+duration</code> the output is equal to <code>wMax</code>.</p>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Sources/LogFrequencySweep.png\"
+     alt=\"LogFrequencySweep.png\">
+</p>
+
+</html>"),
+        Icon(graphics={
+            Line(points={{-78,44},{80,44}}, color={135,135,135}),
+            Line(points={{-78,34},{80,34}}, color={135,135,135}),
+            Line(points={{-78,20},{80,20}}, color={135,135,135}),
+            Line(points={{-78,-2},{80,-2}}, color={135,135,135}),
+            Line(points={{-78,-48},{80,-48}}, color={135,135,135}),
+            Line(
+              points={{-70,-48},{-50,-48},{50,44},{70,44}}),
+            Line(points={{-50,-48},{-50,44}}, color={135,135,135}),
+            Line(points={{50,-48},{50,44}}, color={135,135,135}),
+            Line(points={{-78,40},{80,40}}, color={135,135,135}),
+                                   Polygon(
+                  points={{90,-48},{68,-40},{68,-56},{90,-48}},
+                  lineColor={192,192,192},
+                  fillColor={192,192,192},
+                  fillPattern=FillPattern.Solid),
+                            Polygon(
+                  points={{-70,90},{-78,68},{-62,68},{-70,90}},
+                  lineColor={192,192,192},
+                  fillColor={192,192,192},
+                  fillPattern=FillPattern.Solid),
+            Line(points={{-70,-56},{-70,68}}, color={135,135,135})}));
     end LogFrequencySweep;
   end Sources;
   annotation (Documentation(info="<html>

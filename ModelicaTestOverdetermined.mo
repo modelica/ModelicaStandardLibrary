@@ -608,12 +608,12 @@ The initial equations are consistent however and a tool shall reduce them approp
           fillColor={75,138,73},
           fillPattern=FillPattern.Solid)}),
        preferredView="info",
-       version="3.2.2",
-       versionBuild=0,
-       versionDate="2016-03-11",
-       dateModified = "2016-03-11 08:44:41Z",
+       versionBuild=1,
+       version="3.2.3",
+       versionDate="2018-08-01",
+       dateModified = "2018-04-20 12:00:00Z",
        revisionId="$Id::                                       $",
-       uses(Modelica(version="3.2.2")),
+       uses(Modelica(version="3.2.3")),
     Documentation(info="<html>
 <p>
 This library provides models and functions to test components of
@@ -628,10 +628,10 @@ fail during translation but give useful error messages.
 </p>
 
 <p>
-Copyright &copy; 1998-2016, Modelica Association.
+Copyright &copy; 1998-2018, Modelica Association.
 </p>
 <p>
-<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</em>
+<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em>
 </p>
 </html>"));
 end ModelicaTestOverdetermined;

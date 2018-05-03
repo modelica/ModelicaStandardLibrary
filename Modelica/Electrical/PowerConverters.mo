@@ -93,22 +93,21 @@ is provided.
     class Contact "Contact"
       extends Modelica.Icons.Contact;
       annotation (Documentation(info="<html>
-<h4>Contact</h4>
+<h4>Main authors</h4>
 
 <p>
-  Dr. Christian Kral<br>
-  <a href=\"https://christiankral.net/\">Electric Machines, Drives and Systems</a><br>
-  A-1060 Vienna, Austria<br>
-  email: <a href=\"mailto:dr.christian.kral@gmail.com\">dr.christian.kral@gmail.com</a>
+<strong>Dr. Christian Kral</strong><br>
+<a href=\"https://christiankral.net/\">Electric Machines, Drives and Systems</a><br>
+A-1060 Vienna, Austria<br>
+email: <a href=\"mailto:dr.christian.kral@gmail.com\">dr.christian.kral@gmail.com</a>
 </p>
 
 <p>
-Anton Haumer<br>
+<strong>Anton Haumer</strong><br>
 <a href=\"http://www.haumer.at\">Technical Consulting &amp; Electrical Engineering</a><br>
-3423 St. Andrae-Woerdern, Austria<br>
-email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
+A-3423 St. Andrae-Woerdern, Austria<br>
+email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
 </p>
-
 </html>"));
     end Contact;
 
@@ -150,23 +149,23 @@ email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
     <tr>
-      <td valign=\"top\">[Skvarenina01]</td>
-      <td valign=\"top\">Timothy L. Skvarenina,
+      <td>[Skvarenina01]</td>
+      <td>Timothy L. Skvarenina,
         <a href=\"http://www.crcpress.com/product/isbn/9780849373367\">
         <em>The Power Electronics Handbook</em></a>,
         CRC Press 2001, ISBN 9780849373367</td>
     </tr>
 
     <tr>
-      <td valign=\"top\">[Luo05]</td>
-      <td valign=\"top\">Fang Lin Luo, Hong Ye and Muhammad H. Rashid,
+      <td>[Luo05]</td>
+      <td>Fang Lin Luo, Hong Ye and Muhammad H. Rashid,
         <a href=\"http://store.elsevier.com/product.jsp?isbn=9780120887576&amp;_requestid=1725\"><em>Digital Power Electronics and Applications</em></a>,
         Elsevier Academic Press, 2005, ISBN 978-0120887576</td>
     </tr>
 
     <tr>
-      <td valign=\"top\">[Williams2006]</td>
-      <td valign=\"top\"><a href=\"http://www.freescience.info/go.php?pagename=books&amp;id=1732\">
+      <td>[Williams2006]</td>
+      <td><a href=\"http://www.freescience.info/go.php?pagename=books&amp;id=1732\">
 <em>Principles and Elements of Power Electronics: Devices, Drivers, Applications, and Passive Components</em></a>, available at <a href=\"http://www.freescience.info/go.php?pagename=books&amp;id=1732\">FreeScience</a>, ISBN 978-0-9553384-0-3</td>
     </tr>
 </table>
@@ -353,13 +352,13 @@ A freely available book is available in
                 rotation=90)));
         equation
           connect(meanCurrent.u, currentSensor.i) annotation (Line(
-              points={{68,-60},{0,-60},{0,-50}}, color={0,0,127}));
+              points={{68,-60},{0,-60},{0,-51}}, color={0,0,127}));
           connect(ground.p, sinevoltage.n) annotation (Line(
               points={{-80,-40},{-80,10}}, color={0,0,255}));
           connect(voltagesensor.v, meanVoltage.u) annotation (Line(
-              points={{60,10},{64,10},{64,40},{68,40}}, color={0,0,127}));
+              points={{61,10},{64,10},{64,40},{68,40}}, color={0,0,127}));
           connect(voltagesensor.v, rootMeanSquareVoltage.u) annotation (Line(
-              points={{60,10},{68,10}}, color={0,0,127}));
+              points={{61,10},{68,10}}, color={0,0,127}));
           connect(sinevoltage.p, rectifier.ac_p) annotation (Line(
               points={{-80,30},{-80,40},{-40,40}}, color={0,0,255}));
           connect(sinevoltage.n, rectifier.ac_n) annotation (Line(
@@ -446,19 +445,19 @@ A freely available book is available in
                 rotation=90)));
         equation
           connect(meanCurrent.u, currentSensor.i) annotation (Line(
-              points={{68,-60},{0,-60},{0,-50}}, color={0,0,127}));
+              points={{68,-60},{0,-60},{0,-51}}, color={0,0,127}));
           connect(ground.p, sinevoltage.n) annotation (Line(
               points={{-80,-40},{-80,10}}, color={0,0,255}));
           connect(voltagesensor.v, meanVoltage.u) annotation (Line(
-              points={{60,10},{64,10},{64,40},{68,40}}, color={0,0,127}));
+              points={{61,10},{64,10},{64,40},{68,40}}, color={0,0,127}));
           connect(voltagesensor.v, rootMeanSquareVoltage.u) annotation (Line(
-              points={{60,10},{68,10}}, color={0,0,127}));
+              points={{61,10},{68,10}}, color={0,0,127}));
           connect(sinevoltage.p, rectifier.ac_p) annotation (Line(
               points={{-80,30},{-80,40},{-40,40}}, color={0,0,255}));
           connect(sinevoltage.n, rectifier.ac_n) annotation (Line(
               points={{-80,10},{-80,10},{-80,-8},{-50,-8},{-50,28},{-40,28}}, color={0,0,255}));
           connect(rectifier.dc_n, currentSensor.n) annotation (Line(
-              points={{-19.8,28},{-10,28},{-10,-40}}, color={0,0,255}));
+              points={{-20,28},{-10,28},{-10,-40}},   color={0,0,255}));
           connect(rectifier.dc_p, voltagesensor.p) annotation (Line(
               points={{-20,40},{50,40},{50,20}}, color={0,0,255}));
           connect(voltagesensor.n, currentSensor.p) annotation (Line(
@@ -482,7 +481,7 @@ A freely available book is available in
               Interval=0.0002),
             Documentation(info="<html>
 <p>This examples shows a two pulse half controlled bridge example with resistive load. In case of resistive load the half controlled bridge shows the same output voltage as the
-<a href=\"Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2Pulse.ThyristorBridge2Pulse_R\">full controlled bridge</a>.</p>
+<a href=\"modelica://Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2Pulse.ThyristorBridge2Pulse_R\">full controlled bridge</a>.</p>
 
 <p>Plot current <code>currentSensor.i</code>, average current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
 </html>"));
@@ -514,7 +513,7 @@ A freely available book is available in
               Interval=0.0002),
             Documentation(info="<html>
 <p>This examples shows a two pulse full controlled bridge example with resistive load. In case of resistive load the full controlled bridge shows the same output voltage as the
-<a href=\"Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2Pulse.HalfControlledBridge2Pulse\">half controlled bridge</a>.</p>
+<a href=\"modelica://Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2Pulse.HalfControlledBridge2Pulse\">half controlled bridge</a>.</p>
 
 <p>Plot current <code>currentSensor.i</code>, average current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
 </html>"));
@@ -787,17 +786,17 @@ A freely available book is available in
 
         equation
           connect(meanCurrent.u, currentSensor.i) annotation (Line(
-              points={{68,-60},{0,-60},{0,-50}}, color={0,0,127}));
+              points={{68,-60},{0,-60},{0,-51}}, color={0,0,127}));
           connect(ground.p, sinevoltage.n) annotation (Line(
               points={{-80,-40},{-80,-10}}, color={0,0,255}));
           connect(voltagesensor.v, meanVoltage.u) annotation (Line(
-              points={{60,10},{64,10},{64,40},{68,40}}, color={0,0,127}));
+              points={{61,10},{64,10},{64,40},{68,40}}, color={0,0,127}));
           connect(voltagesensor.v, rootMeanSquareVoltage.u) annotation (Line(
-              points={{60,10},{68,10}}, color={0,0,127}));
+              points={{61,10},{68,10}}, color={0,0,127}));
           connect(sinevoltage.n, rectifier.ac_n) annotation (Line(
               points={{-80,-10},{-60,-10},{-60,-6},{-40,-6}}, color={0,0,255}));
           connect(rectifier.dc_n, currentSensor.n) annotation (Line(
-              points={{-19.8,-6},{-10,-6},{-10,-40}}, color={0,0,255}));
+              points={{-20,-6},{-10,-6},{-10,-40}},   color={0,0,255}));
           connect(rectifier.dc_p, voltagesensor.p) annotation (Line(
               points={{-20,6},{-10,6},{-10,40},{50,40},{50,20}}, color={0,0,255}));
           connect(voltagesensor.n, currentSensor.p) annotation (Line(
@@ -903,11 +902,11 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
                 rotation=90)));
         equation
           connect(meanCurrent.u, currentSensor.i) annotation (Line(
-              points={{68,-60},{0,-60},{0,-50}}, color={0,0,127}));
+              points={{68,-60},{0,-60},{0,-51}}, color={0,0,127}));
           connect(voltagesensor.v, meanVoltage.u) annotation (Line(
-              points={{60,10},{64,10},{64,40},{68,40}}, color={0,0,127}));
+              points={{61,10},{64,10},{64,40},{68,40}}, color={0,0,127}));
           connect(voltagesensor.v, rootMeanSquareVoltage.u) annotation (Line(
-              points={{60,10},{68,10}}, color={0,0,127}));
+              points={{61,10},{68,10}}, color={0,0,127}));
           connect(sinevoltage_p.n, sinevoltage_n.p) annotation (Line(
               points={{-80,4},{-80,-4.00001}}, color={0,0,255}));
           connect(ground.p, sinevoltage_p.n) annotation (Line(
@@ -1580,7 +1579,7 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
               Interval=0.0002),
             Documentation(info="<html>
 <p>This example shows a half controlled <code>2*m</code> pulse bridge rectifier with resistive load, where <code>m</code> is the number of phases. In case of resistive load the half controlled bridge shows the same output voltage as the
-<a href=\"Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse.ThyristorBridge2mPulse_R\">full controlled bridge</a>.</p>
+<a href=\"modelica://Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse.ThyristorBridge2mPulse_R\">full controlled bridge</a>.</p>
 
 <p>Plot current <code>currentSensor.i</code>, average current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
 
@@ -1613,7 +1612,7 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
               Interval=0.0002),
             Documentation(info="<html>
 <p>This example shows a full controlled <code>2*m</code> pulse bridge rectifier with resistive load, where <code>m</code> is the number of phases. In case of resistive load the full controlled bridge shows the same output voltage as the
-<a href=\"Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse.HalfControlledBridge2mPulse\">half controlled bridge</a>.</p>
+<a href=\"modelica://Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse.HalfControlledBridge2mPulse\">half controlled bridge</a>.</p>
 
 <p>Plot current <code>currentSensor.i</code>, average current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
 </html>"));
@@ -2283,19 +2282,19 @@ In this example a PM excited DC machine is started with nominal torque at nomina
                 extent={{-10,10},{10,-10}})));
         equation
           connect(meanCurrent.u, currentSensor.i) annotation (Line(
-              points={{68,-60},{0,-60},{0,-50}}, color={0,0,127}));
+              points={{68,-60},{0,-60},{0,-51}}, color={0,0,127}));
           connect(ground.p, sinevoltage.n) annotation (Line(
               points={{-80,-40},{-80,-10}}, color={0,0,255}));
           connect(voltagesensor.v, meanVoltage.u) annotation (Line(
-              points={{60,10},{64,10},{64,40},{68,40}}, color={0,0,127}));
+              points={{61,10},{64,10},{64,40},{68,40}}, color={0,0,127}));
           connect(voltagesensor.v, rootMeanSquareVoltage.u) annotation (Line(
-              points={{60,10},{68,10}}, color={0,0,127}));
+              points={{61,10},{68,10}}, color={0,0,127}));
           connect(sinevoltage.p, idealthyristor.p) annotation (Line(
               points={{-80,10},{-80,40},{-20,40}}, color={0,0,255}));
           connect(ground.p, currentSensor.n) annotation (Line(
               points={{-80,-40},{-10,-40}}, color={0,0,255}));
           connect(pulse2.fire_p, idealthyristor.fire) annotation (Line(
-              points={{-46,11},{-46,20},{-3,20},{-3,29}}, color={255,0,255}));
+              points={{-46,11},{-46,20},{0,20},{0,28}},   color={255,0,255}));
           connect(voltagesensor.n, currentSensor.p) annotation (Line(
               points={{50,0},{50,-40},{10,-40}}, color={0,0,255}));
           connect(idealthyristor.n, voltagesensor.p) annotation (Line(
@@ -2307,7 +2306,7 @@ In this example a PM excited DC machine is started with nominal torque at nomina
           annotation (
             Documentation(info="<html>
 <p>Template of
-<a href=\"Modelica.Electrical.PowerConverters.Examples.ACDC.Rectifier1Pulse\">
+<a href=\"modelica://Modelica.Electrical.PowerConverters.Examples.ACDC.Rectifier1Pulse\">
 single pulse rectifiers</a>; load is not yet included.</p>
 </html>"));
         end Thyristor1Pulse;
@@ -2360,13 +2359,13 @@ single pulse rectifiers</a>; load is not yet included.</p>
                 origin={-30,-2})));
         equation
           connect(meanCurrent.u, currentSensor.i) annotation (Line(
-              points={{68,-60},{0,-60},{0,-50}}, color={0,0,127}));
+              points={{68,-60},{0,-60},{0,-51}}, color={0,0,127}));
           connect(ground.p, sinevoltage.n) annotation (Line(
               points={{-80,-40},{-80,10}}, color={0,0,255}));
           connect(voltagesensor.v, meanVoltage.u) annotation (Line(
-              points={{60,10},{64,10},{64,40},{68,40}}, color={0,0,127}));
+              points={{61,10},{64,10},{64,40},{68,40}}, color={0,0,127}));
           connect(voltagesensor.v, rootMeanSquareVoltage.u) annotation (Line(
-              points={{60,10},{68,10}}, color={0,0,127}));
+              points={{61,10},{68,10}}, color={0,0,127}));
           connect(sinevoltage.p, rectifier.ac_p) annotation (Line(
               points={{-80,30},{-80,40},{-40,40}}, color={0,0,255}));
           connect(sinevoltage.n, rectifier.ac_n) annotation (Line(
@@ -2388,12 +2387,12 @@ single pulse rectifiers</a>; load is not yet included.</p>
           annotation (
             Documentation(info="<html>
 <p>Template of
-<a href=\"Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2Pulse\">
+<a href=\"modelica://Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2Pulse\">
 two pulse bridge rectifiers</a>; load is not yet included.</p>
 </html>"));
         end ThyristorBridge2Pulse;
 
-        model ThyristorCenterTap2Pulse
+        partial model ThyristorCenterTap2Pulse
           "Template of two pulse thyristor rectifier with center tap"
           extends Icons.ExampleTemplate;
           import Modelica.Constants.pi;
@@ -2446,11 +2445,11 @@ two pulse bridge rectifiers</a>; load is not yet included.</p>
                 origin={-30,0})));
         equation
           connect(meanCurrent.u, currentSensor.i) annotation (Line(
-              points={{68,-60},{0,-60},{0,-50}}, color={0,0,127}));
+              points={{68,-60},{0,-60},{0,-51}}, color={0,0,127}));
           connect(voltagesensor.v, meanVoltage.u) annotation (Line(
-              points={{60,10},{64,10},{64,40},{68,40}}, color={0,0,127}));
+              points={{61,10},{64,10},{64,40},{68,40}}, color={0,0,127}));
           connect(voltagesensor.v, rootMeanSquareVoltage.u) annotation (Line(
-              points={{60,10},{68,10}}, color={0,0,127}));
+              points={{61,10},{68,10}}, color={0,0,127}));
           connect(sinevoltage_p.n, sinevoltage_n.p) annotation (Line(
               points={{-80,4},{-80,-4.00001}}, color={0,0,255}));
           connect(ground.p, sinevoltage_p.n) annotation (Line(
@@ -2476,7 +2475,7 @@ two pulse bridge rectifiers</a>; load is not yet included.</p>
           annotation (
             Documentation(info="<html>
 <p>Template of
-<a href=\"Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2Pulse\">
+<a href=\"modelica://Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2Pulse\">
 center tap two pulse rectifiers</a>; load is not yet included.</p>
 </html>"));
         end ThyristorCenterTap2Pulse;
@@ -2542,11 +2541,11 @@ center tap two pulse rectifiers</a>; load is not yet included.</p>
           connect(star.pin_n, ground.p) annotation (Line(
               points={{-70,-40},{-70,-80}}, color={0,0,255}));
           connect(meanCurrent.u, currentSensor.i) annotation (Line(
-              points={{68,-70},{0,-70},{0,-60}}, color={0,0,127}));
+              points={{68,-70},{0,-70},{0,-61}}, color={0,0,127}));
           connect(voltagesensor.v, meanVoltage.u) annotation (Line(
-              points={{60,10},{64,10},{64,40},{68,40}}, color={0,0,127}));
+              points={{61,10},{64,10},{64,40},{68,40}}, color={0,0,127}));
           connect(voltagesensor.v, rootMeanSquareVoltage.u) annotation (Line(
-              points={{60,10},{68,10}}, color={0,0,127}));
+              points={{61,10},{68,10}}, color={0,0,127}));
           connect(rectifier.dc_p, voltagesensor.p) annotation (Line(
               points={{-20,40},{50,40},{50,20}}, color={0,0,255}));
           connect(currentSensor.p, voltagesensor.n) annotation (Line(
@@ -2565,7 +2564,7 @@ center tap two pulse rectifiers</a>; load is not yet included.</p>
           annotation (
             Documentation(info="<html>
 <p>Template of
-<a href=\"Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTapmPulse\">
+<a href=\"modelica://Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTapmPulse\">
 center tap <code>m</code> pulse rectifiers</a>, where <code>m</code> is the number of phases; load is not yet included.</p>
 </html>"));
         end ThyristorCenterTapmPulse;
@@ -2629,11 +2628,11 @@ center tap <code>m</code> pulse rectifiers</a>, where <code>m</code> is the numb
                 transformation(extent={{-90,-100},{-70,-80}})));
         equation
           connect(meanCurrent.u, currentSensor.i) annotation (Line(
-              points={{68,-60},{0,-60},{0,-50}}, color={0,0,127}));
+              points={{68,-60},{0,-60},{0,-51}}, color={0,0,127}));
           connect(voltagesensor.v, meanVoltage.u) annotation (Line(
-              points={{60,10},{64,10},{64,40},{68,40}}, color={0,0,127}));
+              points={{61,10},{64,10},{64,40},{68,40}}, color={0,0,127}));
           connect(voltagesensor.v, rootMeanSquareVoltage.u) annotation (Line(
-              points={{60,10},{68,10}}, color={0,0,127}));
+              points={{61,10},{68,10}}, color={0,0,127}));
           connect(sineVoltage.plug_p, rectifier.ac) annotation (Line(
               points={{-80,-20},{-80,34},{-40,34}}, color={0,0,255}));
           connect(rectifier.dc_n, currentSensor.n) annotation (Line(
@@ -2656,7 +2655,7 @@ center tap <code>m</code> pulse rectifiers</a>, where <code>m</code> is the numb
           annotation (
             Documentation(info="<html>
 <p>Template of
-<a href=\"Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse\">
+<a href=\"modelica://Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse\">
 <code>2*m</code> pulse bridge rectifiers</a>, where <code>m</code> is the number of phases; load is not yet included.</p>
 </html>"));
         end ThyristorBridge2mPulse;
@@ -2731,11 +2730,11 @@ center tap <code>m</code> pulse rectifiers</a>, where <code>m</code> is the numb
           connect(star.pin_n, ground.p) annotation (Line(
               points={{-100,-20},{-100,-50},{-80,-50},{-80,-80}}, color={0,0,255}));
           connect(meanCurrent.u, currentSensor.i) annotation (Line(
-              points={{68,-70},{0,-70},{0,-60}}, color={0,0,127}));
+              points={{68,-70},{0,-70},{0,-61}}, color={0,0,127}));
           connect(voltagesensor.v, meanVoltage.u) annotation (Line(
-              points={{60,10},{64,10},{64,40},{68,40}}, color={0,0,127}));
+              points={{61,10},{64,10},{64,40},{68,40}}, color={0,0,127}));
           connect(voltagesensor.v, rootMeanSquareVoltage.u) annotation (Line(
-              points={{60,10},{68,10}}, color={0,0,127}));
+              points={{61,10},{68,10}}, color={0,0,127}));
           connect(rectifier.dc_p, voltagesensor.p) annotation (Line(
               points={{-20,40},{50,40},{50,20}}, color={0,0,255}));
           connect(currentSensor.p, voltagesensor.n) annotation (Line(
@@ -2761,7 +2760,7 @@ center tap <code>m</code> pulse rectifiers</a>, where <code>m</code> is the numb
           annotation (
             Documentation(info="<html>
 <p>Template of
-<a href=\"Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2mPulse\">
+<a href=\"modelica://Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2mPulse\">
 center tap <code>2*m</code> pulse rectifiers</a>, where <code>m</code> is the number of phases; load is not yet included.</p>
 </html>"));
         end ThyristorCenterTap2mPulse;
@@ -2955,7 +2954,7 @@ center tap <code>2*m</code> pulse rectifiers</a>, where <code>m</code> is the nu
               Tolerance=1e-06,
               Interval=0.00002),
             Documentation(info="<html>
-<p>Plot current <code>currentSensor.i[:]</code>, harmonic current magnitude <code>fundamentalWaveCurrent[:].y_RMS</code>, harmonic voltage magnitude <code>fundamentalWaveVoltage[:].y_RMS</code>. The instantaneous voltages <code>voltageSensor.i[:]</code> and currents <code>currentSensor.i[:]</code> directly show the switching pattern of the inverter. There is not smoothing effect due to an inductance in this example; see <a href=\"Modelica.Electrical.PowerConverters.Examples.DCAC.MultiPhaseTwoLevel.MultiPhaseTwoLevel_RL\">MultiPhaseTwoLevel_RL</a>.</p>
+<p>Plot current <code>currentSensor.i[:]</code>, harmonic current magnitude <code>fundamentalWaveCurrent[:].y_RMS</code>, harmonic voltage magnitude <code>fundamentalWaveVoltage[:].y_RMS</code>. The instantaneous voltages <code>voltageSensor.i[:]</code> and currents <code>currentSensor.i[:]</code> directly show the switching pattern of the inverter. There is not smoothing effect due to an inductance in this example; see <a href=\"modelica://Modelica.Electrical.PowerConverters.Examples.DCAC.MultiPhaseTwoLevel.MultiPhaseTwoLevel_RL\">MultiPhaseTwoLevel_RL</a>.</p>
 </html>"));
         end MultiPhaseTwoLevel_R;
 
@@ -3155,9 +3154,9 @@ center tap <code>2*m</code> pulse rectifiers</a>, where <code>m</code> is the nu
           connect(inverter.fire_n, signalPWM.notFire) annotation (Line(
               points={{-34,18},{-34,-9}}, color={255,0,255}));
           connect(currentSensor.i, fundamentalWaveCurrent.u) annotation (Line(
-              points={{0,-80},{0,-90},{18,-90}}, color={0,0,127}));
+              points={{0,-81},{0,-90},{18,-90}}, color={0,0,127}));
           connect(voltageSensor.v, fundamentalWaveVoltage.u) annotation (Line(
-              points={{80,-10},{90,-10},{90,38}}, color={0,0,127}));
+              points={{81,-10},{90,-10},{90,38}}, color={0,0,127}));
           annotation (Documentation(
                 info="<html>
 <p>Single phase two level example template including supply and sensors; load is not yet included.</p>
@@ -3237,6 +3236,37 @@ Plot current <code>currentSensor.i</code>, averaged current <code>meanCurrent.y<
 </html>"));
         end ChopperStepDown_RL;
       end ChopperStepDown;
+
+      package ChopperStepUp "Step up chopper"
+        extends Modelica.Icons.ExamplesPackage;
+        model ChopperStepUp_R "Step up chopper with resistive load"
+          extends ExampleTemplates.ChopperStepUp;
+          extends Modelica.Icons.Example;
+          parameter Modelica.SIunits.Resistance R=10 "Resistance";
+          Modelica.Electrical.Analog.Basic.Resistor resistor(R=R) annotation (
+              Placement(transformation(
+                extent={{-10,-10},{10,10}},
+                rotation=270,
+                origin={40,50})));
+        equation
+          connect(resistor.n, currentSensor.p) annotation (Line(
+              points={{40,40},{40,-10},{30,-10}},
+                                               color={0,0,255}));
+          connect(capacitor.p, resistor.p) annotation (Line(points={{0,10},{0,
+                  70},{40,70},{40,60}}, color={0,0,255}));
+          annotation (
+            experiment(
+              StopTime=0.1,
+              Interval=5e-05,
+              Tolerance=1e-06),
+            Documentation(info="<html>
+<p>This example demonstrates the switching on of a resistive load operated by a step up chopper.
+DC output voltage is equal to <code>1/(1 - dutyCycle)</code> times the input voltage.
+Plot current <code>currentSensor.i</code>, averaged current <code>meanCurrent.y</code>, total voltage <code>voltageSensor.v</code> and voltage <code>meanVoltage.v</code>.</p>
+</html>"));
+        end ChopperStepUp_R;
+
+      end ChopperStepUp;
 
       package HBridge "H bridge converter"
         extends Modelica.Icons.ExamplesPackage;
@@ -3415,8 +3445,12 @@ Plot machine current <code>dcpm.ia</code>, averaged current <code>meanCurrent.y<
         partial model ChopperStepDown "Step down chopper including control"
           extends Icons.ExampleTemplate;
           parameter Modelica.SIunits.Frequency f=1000 "Switching frequency";
-          Modelica.Electrical.Analog.Sources.ConstantVoltage constantVoltage(V=
-                100) annotation (Placement(transformation(
+          parameter Modelica.SIunits.Voltage Vsource=100 "Source voltage";
+          parameter Real dutyCycle=0.25 "Duty cycle";
+          parameter Modelica.SIunits.Voltage V0=Vsource*dutyCycle "No-load voltage";
+          Modelica.Electrical.Analog.Sources.ConstantVoltage constantVoltage(final V=
+                Vsource)
+                     annotation (Placement(transformation(
                 extent={{-10,-10},{10,10}},
                 rotation=270,
                 origin={-80,0})));
@@ -3433,7 +3467,8 @@ Plot machine current <code>dcpm.ia</code>, averaged current <code>meanCurrent.y<
           Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
                 transformation(extent={{-90,-40},{-70,-20}})));
           Modelica.Electrical.PowerConverters.DCDC.Control.SignalPWM signalPWM(
-              constantDutyCycle=0.25, f=f) annotation (Placement(transformation(
+                                           final constantDutyCycle=dutyCycle, final f=f)
+                                           annotation (Placement(transformation(
                 extent={{-10,-10},{10,10}},
                 origin={-50,-60})));
           Modelica.Blocks.Math.Mean meanCurrent(f=f, x0=0) annotation (
@@ -3459,9 +3494,9 @@ Plot machine current <code>dcpm.ia</code>, averaged current <code>meanCurrent.y<
           connect(constantVoltage.n, ground.p) annotation (Line(
               points={{-80,-10},{-80,-20}}, color={0,0,255}));
           connect(voltageSensor.v, meanVoltage.u) annotation (Line(
-              points={{70,10},{78,10}}, color={0,0,127}));
+              points={{71,10},{78,10}}, color={0,0,127}));
           connect(currentSensor.i, meanCurrent.u) annotation (Line(
-              points={{-10,-16},{-10,-28}}, color={0,0,127}));
+              points={{-10,-17},{-10,-28}}, color={0,0,127}));
           connect(signalPWM.fire, chopperStepDown.fire_p) annotation (Line(
               points={{-56,-49},{-56,-12}}, color={255,0,255}));
           annotation (Documentation(
@@ -3469,6 +3504,87 @@ Plot machine current <code>dcpm.ia</code>, averaged current <code>meanCurrent.y<
 <p>Step down chopper example template including supply and sensors; load is not yet included</p>
 </html>"));
         end ChopperStepDown;
+
+        partial model ChopperStepUp "Step up chopper including control"
+          import Modelica;
+          extends Icons.ExampleTemplate;
+          parameter Modelica.SIunits.Frequency f=1000 "Switching frequency";
+          parameter Modelica.SIunits.Voltage Vsource=100 "Source voltage";
+          parameter Modelica.SIunits.Inductance Lsource=10e-3 "Source inductance";
+          parameter Modelica.SIunits.Capacitance C=0.1e-3 "Smoothing capacitance";
+          parameter Real dutyCycle=0.25 "Duty cycle";
+          parameter Modelica.SIunits.Voltage V0=Vsource/(1 - dutyCycle) "No-load voltage";
+          Modelica.Electrical.Analog.Sources.ConstantVoltage constantVoltage(final V=
+                Vsource)
+                     annotation (Placement(transformation(
+                extent={{-10,-10},{10,10}},
+                rotation=270,
+                origin={-80,0})));
+          Modelica.Electrical.PowerConverters.DCDC.ChopperStepUp   chopperStepUp(
+              useHeatPort=false)
+            annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
+          Modelica.Electrical.Analog.Sensors.CurrentSensor currentSensor
+            annotation (Placement(transformation(extent={{30,-20},{10,0}})));
+          Modelica.Electrical.Analog.Sensors.VoltageSensor voltageSensor
+            annotation (Placement(transformation(
+                extent={{-10,10},{10,-10}},
+                rotation=270,
+                origin={60,10})));
+          Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
+                transformation(extent={{-90,-40},{-70,-20}})));
+          Modelica.Electrical.PowerConverters.DCDC.Control.SignalPWM signalPWM(
+                                           final constantDutyCycle=dutyCycle, final f=f)
+                                           annotation (Placement(transformation(
+                extent={{-10,-10},{10,10}},
+                origin={-30,-60})));
+          Modelica.Blocks.Math.Mean meanCurrent(f=f, x0=0) annotation (
+              Placement(transformation(
+                extent={{-10,-10},{10,10}},
+                rotation=270,
+                origin={20,-44})));
+          Modelica.Blocks.Math.Mean meanVoltage(f=f, x0=0) annotation (
+              Placement(transformation(
+                extent={{-10,-10},{10,10}},
+                origin={90,10})));
+          Analog.Basic.Inductor inductorSource(i(fixed=true, start=0), final L=Lsource)
+            annotation (Placement(transformation(extent={{-70,0},{-50,20}})));
+          Analog.Basic.Capacitor capacitor(               C=C, v(fixed=true, start=V0))
+                                                               annotation (Placement(
+                transformation(
+                extent={{-10,-10},{10,10}},
+                rotation=270,
+                origin={0,0})));
+        equation
+          connect(constantVoltage.n, chopperStepUp.dc_n1) annotation (Line(points={{-80,
+                  -10},{-50,-10},{-50,-6},{-40,-6}}, color={0,0,255}));
+          connect(voltageSensor.n, currentSensor.p) annotation (Line(
+              points={{60,0},{60,-10},{30,-10}},
+                                              color={0,0,255}));
+          connect(constantVoltage.n, ground.p) annotation (Line(
+              points={{-80,-10},{-80,-20}}, color={0,0,255}));
+          connect(voltageSensor.v, meanVoltage.u) annotation (Line(
+              points={{71,10},{78,10}}, color={0,0,127}));
+          connect(currentSensor.i, meanCurrent.u) annotation (Line(
+              points={{20,-21},{20,-32}},   color={0,0,127}));
+          connect(signalPWM.fire, chopperStepUp.fire_p)
+            annotation (Line(points={{-36,-49},{-36,-12}}, color={255,0,255}));
+          connect(constantVoltage.p, inductorSource.p)
+            annotation (Line(points={{-80,10},{-70,10}}, color={0,0,255}));
+          connect(inductorSource.n, chopperStepUp.dc_p1)
+            annotation (Line(points={{-50,10},{-50,6},{-40,6}}, color={0,0,255}));
+          connect(voltageSensor.p, capacitor.p)
+            annotation (Line(points={{60,20},{60,70},{0,70},{0,10}}, color={0,0,255}));
+          connect(capacitor.p, chopperStepUp.dc_p2) annotation (Line(points={{0,10},{-10,
+                  10},{-10,6},{-20,6}}, color={0,0,255}));
+          connect(chopperStepUp.dc_n2, capacitor.n) annotation (Line(points={{-20,-6},{-10,
+                  -6},{-10,-10},{0,-10}}, color={0,0,255}));
+          connect(capacitor.n, currentSensor.n)
+            annotation (Line(points={{0,-10},{10,-10}}, color={0,0,255}));
+          annotation (Documentation(
+                info="<html>
+<p>Step up chopper example template including supply and sensors; load is not yet included</p>
+</html>"));
+        end ChopperStepUp;
 
         partial model HBridge "H bridge DC/DC converter"
           extends Icons.ExampleTemplate;
@@ -3514,9 +3630,9 @@ Plot machine current <code>dcpm.ia</code>, averaged current <code>meanCurrent.y<
           connect(voltageSensor.n, currentSensor.p) annotation (Line(
               points={{60,0},{60,-6},{0,-6}}, color={0,0,255}));
           connect(voltageSensor.v, meanVoltage.u) annotation (Line(
-              points={{70,10},{78,10}}, color={0,0,127}));
+              points={{71,10},{78,10}}, color={0,0,127}));
           connect(currentSensor.i, meanCurrent.u) annotation (Line(
-              points={{-10,-16},{-10,-28}}, color={0,0,127}));
+              points={{-10,-17},{-10,-28}}, color={0,0,127}));
           connect(hbridge.dc_p2, voltageSensor.p) annotation (Line(
               points={{-40,6},{-30,6},{-30,70},{60,70},{60,20}}, color={0,0,255}));
           connect(currentSensor.n, hbridge.dc_n2) annotation (Line(
@@ -5930,8 +6046,11 @@ The firing signal is generated by comparing the sampled duty cycle input with a 
       block VoltageToDutyCycle "Linearly transforms voltage to duty cycle"
         parameter Boolean useBipolarVoltage = true
           "Enables bipolar input voltage range";
-        parameter Modelica.SIunits.Voltage vMax
-          "Maximum voltage range mapped to dutyCycle = 1";
+        parameter Boolean useConstantMaximumVoltage=true
+          "Enables constant maximum voltage";
+        parameter Modelica.SIunits.Voltage vMax=0
+          "Maximum voltage range mapped to dutyCycle = 1"
+          annotation(Dialog(enable=useConstantMaximumVoltage));
 
         Modelica.Blocks.Interfaces.RealInput v "Voltage" annotation (Placement(
               transformation(extent={{-140,-20},{-100,20}}), iconTransformation(
@@ -5939,28 +6058,54 @@ The firing signal is generated by comparing the sampled duty cycle input with a 
         Modelica.Blocks.Interfaces.RealOutput dutyCycle "Duty cycle" annotation (
             Placement(transformation(extent={{100,-10},{120,10}}), iconTransformation(
                 extent={{100,-10},{120,10}})));
-        Modelica.Blocks.Math.Gain gainUnipolar(final k=1/vMax) if not useBipolarVoltage
-          annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
-        Modelica.Blocks.Math.Gain gainBipolar(final k=0.5/vMax) if useBipolarVoltage
-          annotation (Placement(transformation(extent={{-80,-40},{-60,-20}})));
-        Modelica.Blocks.Math.Add add if useBipolarVoltage
-          annotation (Placement(transformation(extent={{-40,-60},{-20,-40}})));
+        Blocks.Math.Division divisionUnipolar if not useBipolarVoltage
+          annotation (Placement(transformation(extent={{-40,20},{-20,40}})));
+        Blocks.Math.Division divisionBipolar if useBipolarVoltage
+          annotation (Placement(transformation(extent={{-40,-40},{-20,-20}})));
+        Modelica.Blocks.Math.Add add(k1=0.5, k2=1) if useBipolarVoltage
+          annotation (Placement(transformation(extent={{0,-60},{20,-40}})));
         Modelica.Blocks.Sources.Constant offset(final k=0.5) if useBipolarVoltage
           "Offset of 0.5 in case of bipolar operation"
-          annotation (Placement(transformation(extent={{-80,-80},{-60,-60}})));
+          annotation (Placement(transformation(extent={{-40,-80},{-20,-60}})));
+        Blocks.Interfaces.RealInput vMaxExt if not useConstantMaximumVoltage
+          "External maximum voltage" annotation (
+            Placement(transformation(
+              extent={{-20,-20},{20,20}},
+              rotation=270,
+              origin={0,120}), iconTransformation(
+              extent={{-20,-20},{20,20}},
+              rotation=270,
+              origin={0,120})));
+        Blocks.Sources.Constant vMaxConst(final k=vMax) if useConstantMaximumVoltage
+          "Offset of 0.5 in case of bipolar operation"
+          annotation (Placement(transformation(extent={{40,70},{20,90}})));
+      protected
+        Blocks.Interfaces.RealInput vMaxInt "External maximum voltage" annotation (
+            Placement(transformation(
+              extent={{-4,-4},{4,4}},
+              rotation=180,
+              origin={0,80})));
       equation
-        connect(v, gainUnipolar.u) annotation (Line(
-            points={{-120,0},{-90,0},{-90,30},{-82,30}}, color={0,0,127}));
-        connect(v, gainBipolar.u) annotation (Line(
-            points={{-120,0},{-90,0},{-90,-30},{-82,-30}}, color={0,0,127}));
-        connect(gainBipolar.y, add.u1) annotation (Line(
-            points={{-59,-30},{-50,-30},{-50,-44},{-42,-44}}, color={0,0,127}));
+        connect(divisionBipolar.y, add.u1) annotation (Line(points={{-19,-30},{-10,-30},
+                {-10,-44},{-2,-44}}, color={0,0,127}));
         connect(offset.y, add.u2) annotation (Line(
-            points={{-59,-70},{-50,-70},{-50,-56},{-42,-56}}, color={0,0,127}));
-        connect(gainUnipolar.y, dutyCycle) annotation (Line(
-            points={{-59,30},{20,30},{20,0},{110,0}}, color={0,0,127}));
+            points={{-19,-70},{-10,-70},{-10,-56},{-2,-56}},  color={0,0,127}));
+        connect(divisionUnipolar.y, dutyCycle) annotation (Line(points={{-19,30},{40,30},
+                {40,0},{110,0}}, color={0,0,127}));
         connect(add.y, dutyCycle) annotation (Line(
-            points={{-19,-50},{20,-50},{20,0},{110,0}}, color={0,0,127}));
+            points={{21,-50},{40,-50},{40,0},{110,0}},  color={0,0,127}));
+        connect(v, divisionUnipolar.u1) annotation (Line(points={{-120,0},{-80,0},{-80,
+                36},{-42,36}}, color={0,0,127}));
+        connect(v, divisionBipolar.u1) annotation (Line(points={{-120,0},{-80,0},{-80,
+                -24},{-42,-24}}, color={0,0,127}));
+        connect(vMaxExt, vMaxInt)
+          annotation (Line(points={{0,120},{0,80}}, color={0,0,127}));
+        connect(vMaxInt, divisionUnipolar.u2) annotation (Line(points={{0,80},{-60,80},
+                {-60,24},{-42,24}}, color={0,0,127}));
+        connect(vMaxInt, vMaxConst.y)
+          annotation (Line(points={{0,80},{19,80}}, color={0,0,127}));
+        connect(vMaxInt, divisionBipolar.u2) annotation (Line(points={{0,80},{-60,80},
+                {-60,-36},{-42,-36}}, color={0,0,127}));
         annotation (defaultComponentName="adaptor", Icon(graphics={
               Rectangle(
                 extent={{-100,100},{100,-100}},
@@ -6068,39 +6213,155 @@ Currently there is only one PWM method provided in this library.
               lineColor={255,255,255},
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
-            Line(
-              points={{-20,20},{-20,-20}},
-              color={0,0,255}),
-            Line(
-              points={{-28,20},{-28,-20}},
-              color={0,0,255}),
-            Line(
-              points={{-40,0},{-28,0}},
-              color={0,0,255}),
-            Line(
-              points={{-20,4},{0,24},{0,40}},
-              color={0,0,255}),
-            Line(
-              points={{-20,-4},{0,-24},{0,-40}},
-              color={0,0,255}),
-            Line(
-              points={{-4,-20},{-10,-8},{-16,-14},{-4,-20}},
-              color={0,0,255}),
-            Line(
-              points={{0,-24},{10,-24},{10,24},{0,24}},
-              color={0,0,255}),
-            Line(
-              points={{0,8},{20,8}},
-              color={0,0,255}),
-            Line(
-              points={{10,8},{0,-8},{20,-8},{10,8}},
-              color={0,0,255})}),
+            Line(points={{-30,20},{-30,0}}, color={217,67,180}),
+            Line(points={{-40,30},{-30,20},{-20,30}}, color={0,0,255}),
+            Polygon(
+              points={{-20,30},{-26,26},{-24,24},{-20,30}},
+              lineColor={0,0,255},
+              fillColor={0,0,255},
+              fillPattern=FillPattern.Solid),
+            Polygon(points={{20,10},{10,-10},{30,-10},{20,10}}, lineColor={0,0,
+                  255}),
+            Line(points={{10,10},{30,10}}, color={0,0,255}),
+            Line(points={{-20,30},{60,30}}, color={0,0,255}),
+            Line(points={{-60,30},{-40,30}}, color={0,0,255}),
+            Line(points={{-60,-30},{60,-30}}, color={0,0,255}),
+            Line(points={{20,30},{20,-30}}, color={0,0,255}),
+            Ellipse(extent={{-62,32},{-58,28}}, lineColor={0,0,255}),
+            Ellipse(extent={{-62,-28},{-58,-32}}, lineColor={0,0,255}),
+            Ellipse(extent={{18,-28},{22,-32}}, lineColor={0,0,255}),
+            Ellipse(extent={{58,-28},{62,-32}}, lineColor={0,0,255}),
+            Ellipse(extent={{58,32},{62,28}}, lineColor={0,0,255}),
+            Ellipse(extent={{18,32},{22,28}}, lineColor={0,0,255}),
+            Ellipse(extent={{-44,40},{-16,12}}, lineColor={0,0,255}),
+            Line(points={{-40,20},{-20,20}}, color={0,0,255})}),
         Documentation(info="<html>
 <p>
-This is a conventional step down chopper model. It consists of a transistor and free wheeling diode.
+This is a conventional step down chopper (buck converter) model. It consists of a transistor and free wheeling diode.
 </p>
 </html>"));
     end ChopperStepDown;
+
+    model ChopperStepUp "Step up chopper"
+      import Modelica.Constants.pi;
+      extends Icons.Converter;
+      parameter Modelica.SIunits.Resistance RonTransistor=1e-05
+        "Transistor closed resistance";
+      parameter Modelica.SIunits.Conductance GoffTransistor=1e-05
+        "Transistor opened conductance";
+      parameter Modelica.SIunits.Voltage VkneeTransistor=0
+        "Transistor threshold voltage";
+      parameter Modelica.SIunits.Resistance RonDiode(final min=0) = 1e-05
+        "Closed diode resistance";
+      parameter Modelica.SIunits.Conductance GoffDiode(final min=0) = 1e-05
+        "Opened diode conductance";
+      parameter Modelica.SIunits.Voltage VkneeDiode(final min=0) = 0
+        "Diode forward threshold voltage";
+      extends Modelica.Electrical.PowerConverters.Interfaces.DCDC.DCtwoPin1;
+      extends Modelica.Electrical.PowerConverters.Interfaces.DCDC.DCtwoPin2;
+      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
+           293.15);
+      extends Interfaces.Enable.Enable1;
+      Modelica.Electrical.Analog.Ideal.IdealGTOThyristor transistor(
+        useHeatPort=useHeatPort,
+        Ron=RonTransistor,
+        Goff=GoffTransistor,
+        Vknee=VkneeTransistor) "Switching transistor" annotation (Placement(
+            transformation(
+            origin={-40,0},
+            extent={{10,-10},{-10,10}},
+            rotation=90)));
+      Modelica.Electrical.Analog.Ideal.IdealDiode diode(
+        Ron=RonDiode,
+        Goff=GoffDiode,
+        Vknee=VkneeDiode,
+        useHeatPort=useHeatPort) "Free wheeling diode" annotation (Placement(
+            transformation(
+            origin={0,60},
+            extent={{-10,-10},{10,10}},
+            rotation=0)));
+    equation
+      if not useHeatPort then
+        LossPower = diode.LossPower + transistor.LossPower;
+      end if;
+      connect(andCondition_p.y, transistor.fire) annotation (Line(points={{-60,
+              -69},{-60,-10},{-52,-10}}, color={255,0,255}));
+      connect(dc_p1, transistor.p) annotation (Line(points={{-100,60},{-40,60},
+              {-40,10}}, color={0,0,255}));
+      connect(dc_n1, transistor.n) annotation (Line(points={{-100,-60},{-40,-60},
+              {-40,-10}}, color={0,0,255}));
+      connect(dc_p1, diode.p)
+        annotation (Line(points={{-100,60},{-10,60}}, color={0,0,255}));
+      connect(diode.n, dc_p2)
+        annotation (Line(points={{10,60},{100,60}}, color={0,0,255}));
+      connect(dc_n1, dc_n2)
+        annotation (Line(points={{-100,-60},{100,-60}}, color={0,0,255}));
+      connect(transistor.heatPort, heatPort) annotation (Line(points={{-30,
+              -4.44089e-16},{-16,-4.44089e-16},{-16,0},{0,0},{0,-100}}, color={
+              191,0,0}));
+      connect(heatPort, diode.heatPort)
+        annotation (Line(points={{0,-100},{0,50}}, color={191,0,0}));
+      annotation (defaultComponentName="dcdc",
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}), graphics={
+            Text(
+              extent={{-100,70},{0,50}},
+              lineColor={0,0,127},
+              textString="DC in"),
+            Text(
+              extent={{0,-50},{100,-70}},
+              lineColor={0,0,127},
+              textString="DC out"),
+            Text(
+              extent={{-150,150},{150,110}},
+              textString="%name",
+              lineColor={0,0,255}),
+            Rectangle(
+              extent={{-40,40},{40,-40}},
+              lineColor={255,255,255},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Ellipse(extent={{-62,32},{-58,28}}, lineColor={0,0,255}),
+            Ellipse(extent={{-38,14},{-10,-14}},lineColor={0,0,255}),
+            Line(points={{-60,30},{60,30}}, color={0,0,255}),
+            Ellipse(extent={{-22,32},{-18,28}},
+                                              lineColor={0,0,255}),
+            Line(points={{0,10},{0,-10}},   color={217,67,180},
+              origin={-40,0},
+              rotation=90),
+            Line(points={{-20,30},{-20,10}},color={0,0,255}),
+            Line(points={{-10,0},{10,0}},  color={0,0,255},
+              origin={30,30},
+              rotation=270),
+            Polygon(points={{0,10},{-10,-10},{10,-10},{0,10}},  lineColor={0,0,
+                  255},
+              origin={20,30},
+              rotation=270),
+            Ellipse(extent={{58,-28},{62,-32}}, lineColor={0,0,255}),
+            Line(points={{-60,-30},{60,-30}}, color={0,0,255}),
+            Ellipse(extent={{58,32},{62,28}}, lineColor={0,0,255}),
+            Ellipse(extent={{-22,-28},{-18,-32}},
+                                                lineColor={0,0,255}),
+            Ellipse(extent={{-62,-28},{-58,-32}}, lineColor={0,0,255}),
+            Polygon(
+              points={{3,3},{-3,-1},{-1,-3},{3,3}},
+              lineColor={0,0,255},
+              fillColor={0,0,255},
+              fillPattern=FillPattern.Solid,
+              origin={-23,-7},
+              rotation=270),
+            Line(points={{-10,0},{10,0}},    color={0,0,255},
+              origin={-30,0},
+              rotation=90),
+            Line(points={{-20,10},{-30,0},{-20,-10}}, color={28,108,200}),
+            Line(points={{-20,-10},{-20,-30}},
+                                            color={0,0,255})}),
+        Documentation(info="<html>
+<p>
+This is a conventional step up chopper (boost converter) model. It consists of a transistor and free wheeling diode.
+</p>
+</html>"));
+    end ChopperStepUp;
 
     model HBridge "H bridge (four quadrant converter)"
       extends Icons.Converter;
@@ -6194,14 +6455,32 @@ This is a conventional step down chopper model. It consists of a transistor and 
               lineColor={0,0,127},
               textString="DC in"),
             Line(
-              points={{-20,30},{-20,-30}},
-              color={0,0,127}),
+              points={{-40,0},{-28,0}},
+              color={0,0,255}),
             Line(
-              points={{20,30},{20,-30}},
-              color={0,0,127}),
+              points={{-28,20},{-28,-20}},
+              color={0,0,255}),
             Line(
-              points={{-20,0},{20,0}},
-              color={0,0,127})}),
+              points={{-20,20},{-20,-20}},
+              color={0,0,255}),
+            Line(
+              points={{-20,4},{0,24},{0,40}},
+              color={0,0,255}),
+            Line(
+              points={{-20,-4},{0,-24},{0,-40}},
+              color={0,0,255}),
+            Line(
+              points={{-4,-20},{-10,-8},{-16,-14},{-4,-20}},
+              color={0,0,255}),
+            Line(
+              points={{0,-24},{10,-24},{10,24},{0,24}},
+              color={0,0,255}),
+            Line(
+              points={{0,8},{20,8}},
+              color={0,0,255}),
+            Line(
+              points={{10,8},{0,-8},{20,-8},{10,8}},
+              color={0,0,255})}),
         Documentation(info="<html>
 <p>
 The H bridge is a four quadrant DC/DC converter. It consists of two single phase DC/AC converters which are controlled differently; see Fig.&nbsp;1.</p>
@@ -6638,11 +6917,11 @@ This library provides power converters for DC and AC single and multi phase elec
 </ul>
 
 <p>
-Copyright &copy; 2013-2016, <a href=\"modelica://Modelica.Electrical.PowerConverters.UsersGuide.Contact\">Christian Kral</a> and
+Copyright &copy; 2013-2018, <a href=\"modelica://Modelica.Electrical.PowerConverters.UsersGuide.Contact\">Christian Kral</a> and
 <a href=\"modelica://Modelica.Electrical.PowerConverters.UsersGuide.Contact\">Anton Haumer</a>
 </p>
 <p>
-<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</em>
+<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em>
 </p>
 </html>"),
     Icon(graphics={

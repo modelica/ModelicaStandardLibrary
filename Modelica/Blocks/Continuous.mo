@@ -5,9 +5,13 @@ package Continuous "Library of continuous control blocks with internal states"
   import Modelica.SIunits;
   extends Modelica.Icons.Package;
 
-  block Integrator "Output the integral of the input signal"
+  block Integrator "Output the integral of the input signal with optional reset"
     import Modelica.Blocks.Types.Init;
     parameter Real k(unit="1")=1 "Integrator gain";
+    parameter Boolean use_reset = false "=true, if reset port enabled"
+      annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
+    parameter Boolean use_set = false "=true, if set port enabled and used as reinitialization value when reset"
+      annotation(Dialog(enable=use_reset), Evaluate=true, HideResult=true, choices(checkBox=true));
 
     /* InitialState is the default, because it was the default in Modelica 2.2
      and therefore this setting is backward compatible
@@ -18,6 +22,19 @@ package Continuous "Library of continuous control blocks with internal states"
     parameter Real y_start=0 "Initial or guess value of output (= state)"
       annotation (Dialog(group="Initialization"));
     extends Interfaces.SISO(y(start=y_start));
+    Modelica.Blocks.Interfaces.BooleanInput reset if use_reset annotation(Placement(
+      transformation(
+        extent={{-20,-20},{20,20}},
+        rotation=90,
+        origin={60,-120})));
+    Modelica.Blocks.Interfaces.RealInput set if use_set annotation(Placement(
+      transformation(
+        extent={{-20,-20},{20,20}},
+        rotation=270,
+        origin={60,120})));
+  protected
+    Modelica.Blocks.Interfaces.BooleanOutput local_reset annotation(HideResult=true);
+    Modelica.Blocks.Interfaces.RealOutput local_set annotation(HideResult=true);
 
   initial equation
     if initType == Init.SteadyState then
@@ -27,6 +44,20 @@ package Continuous "Library of continuous control blocks with internal states"
       y = y_start;
     end if;
   equation
+    if use_reset then
+      connect(reset, local_reset);
+      if use_set then
+        connect(set, local_set);
+      else
+        local_set = y_start;
+      end if;
+    else
+      local_reset = false;
+      local_set = 0;
+    end if;
+    when local_reset then
+      reinit(y, local_set);
+    end when;
     der(y) = k*u;
     annotation (
       Documentation(info="<html>
@@ -47,6 +78,11 @@ This is discussed in the description of package
 <a href=\"modelica://Modelica.Blocks.Continuous#info\">Continuous</a>.
 </p>
 
+<p>
+If the <em>reset</em> port is enabled, then the output <strong>y</strong> is reset to <em>set</em>
+or to <em>y_start</em> (if the <em>set</em> port is not enabled), whenever the <em>reset</em>
+port has a rising edge.
+</p>
 </html>"), Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100.0,-100.0},{100.0,100.0}}),
@@ -75,8 +111,17 @@ This is discussed in the description of package
               extent={{-150.0,-150.0},{150.0,-110.0}},
               textString="k=%k"),
             Line(
-              points={{-80.0,-80.0},{80.0,80.0}},
-              color={0,0,127})}),
+              points=DynamicSelect({{-80.0,-80.0},{80.0,80.0}}, if use_reset then {{-80.0,-80.0},{60.0,60.0},{60.0,-80.0},{80.0,-60.0}} else {{-80.0,-80.0},{80.0,80.0}}),
+              color={0,0,127}),
+            Line(
+              visible=use_reset,
+              points={{60,-100},{60,-80}},
+              color={255,0,255},
+              pattern=LinePattern.Dot),
+            Text(
+              visible=use_reset,
+              extent={{-28,-62},{94,-86}},
+              textString="reset")}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
@@ -92,11 +137,15 @@ This is discussed in the description of package
           Line(points={{-46,0},{46,0}})}));
   end Integrator;
 
-  block LimIntegrator "Integrator with limited value of the output"
+  block LimIntegrator "Integrator with limited value of the output and optional reset"
     import Modelica.Blocks.Types.Init;
     parameter Real k(unit="1")=1 "Integrator gain";
     parameter Real outMax(start=1) "Upper limit of output";
     parameter Real outMin=-outMax "Lower limit of output";
+    parameter Boolean use_reset = false "=true, if reset port enabled"
+      annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
+    parameter Boolean use_set = false "=true, if set port enabled and used as reinitialization value when reset"
+      annotation(Dialog(enable=use_reset), Evaluate=true, HideResult=true, choices(checkBox=true));
     parameter Modelica.Blocks.Types.Init initType=Modelica.Blocks.Types.Init.InitialState
       "Type of initialization (1: no init, 2: steady state, 3/4: initial output)"
       annotation(Evaluate=true, Dialog(group="Initialization"));
@@ -109,6 +158,19 @@ This is discussed in the description of package
     parameter Boolean strict=false "= true, if strict limits with noEvent(..)"
       annotation (Evaluate=true, choices(checkBox=true), Dialog(tab="Advanced"));
     extends Interfaces.SISO(y(start=y_start));
+    Modelica.Blocks.Interfaces.BooleanInput reset if use_reset annotation(Placement(
+      transformation(
+        extent={{-20,-20},{20,20}},
+        rotation=90,
+        origin={60,-120})));
+    Modelica.Blocks.Interfaces.RealInput set if use_set annotation(Placement(
+      transformation(
+        extent={{-20,-20},{20,20}},
+        rotation=270,
+        origin={60,120})));
+  protected
+    Modelica.Blocks.Interfaces.BooleanOutput local_reset annotation(HideResult=true);
+    Modelica.Blocks.Interfaces.RealOutput local_set annotation(HideResult=true);
 
   initial equation
     if initType == Init.SteadyState then
@@ -118,6 +180,20 @@ This is discussed in the description of package
       y = y_start;
     end if;
   equation
+    if use_reset then
+      connect(reset, local_reset);
+      if use_set then
+        connect(set, local_set);
+      else
+        local_set = y_start;
+      end if;
+    else
+      local_reset = false;
+      local_set = 0;
+    end if;
+    when local_reset then
+      reinit(y, if local_set < outMin then outMin elseif local_set > outMax then outMax else local_set);
+    end when;
     if initial() and not limitsAtInit then
        der(y) = k*u;
        assert(y >= outMin - 0.001*abs(outMax-outMin) and y <= outMax + 0.001*abs(outMax-outMin),
@@ -155,6 +231,11 @@ defined limits. For backward compatibility reasons
 <strong>limitAtInit</strong> = <strong>true</strong>. In most cases it is best
 to use <strong>limitAtInit</strong> = <strong>false</strong>.
 </p>
+<p>
+If the <em>reset</em> port is enabled, then the output <strong>y</strong> is reset to <em>set</em>
+or to <em>y_start</em> (if the <em>set</em> port is not enabled), whenever the <em>reset</em>
+port has a rising edge.
+</p>
 </html>"), Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
@@ -170,7 +251,9 @@ to use <strong>limitAtInit</strong> = <strong>false</strong>.
             lineColor={192,192,192},
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid),
-          Line(points={{-80,-80},{20,20},{80,20}}, color={0,0,127}),
+          Line(
+            points=DynamicSelect({{-80,-80},{20,20},{80,20}}, if use_reset then {{-80,-80},{20,20},{60,20},{60,-80},{80,-60}} else {{-80,-80},{20,20},{80,20}}),
+            color={0,0,127}),
           Text(
             extent={{0,-10},{60,-70}},
             lineColor={192,192,192},
@@ -180,8 +263,17 @@ to use <strong>limitAtInit</strong> = <strong>false</strong>.
             textString="k=%k"),
           Line(
             visible=strict,
-            points={{20,20},{80,20}},
-            color={255,0,0})}),
+            points=DynamicSelect({{20,20},{80,20}}, if use_reset then {{20,20},{60,20}} else {{20,20},{80,20}}),
+            color={255,0,0}),
+          Line(
+            visible=use_reset,
+            points={{60,-100},{60,-80}},
+            color={255,0,255},
+            pattern=LinePattern.Dot),
+          Text(
+            visible=use_reset,
+            extent={{-28,-62},{94,-86}},
+            textString="reset")}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
@@ -733,30 +825,30 @@ blocks inside the PID controller are initialized according to the following tabl
 </p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td valign=\"top\"><strong>initType</strong></td>
-      <td valign=\"top\"><strong>I.initType</strong></td>
-      <td valign=\"top\"><strong>D.initType</strong></td></tr>
+  <tr><td><strong>initType</strong></td>
+      <td><strong>I.initType</strong></td>
+      <td><strong>D.initType</strong></td></tr>
 
-  <tr><td valign=\"top\"><strong>NoInit</strong></td>
-      <td valign=\"top\">NoInit</td>
-      <td valign=\"top\">NoInit</td></tr>
+  <tr><td><strong>NoInit</strong></td>
+      <td>NoInit</td>
+      <td>NoInit</td></tr>
 
-  <tr><td valign=\"top\"><strong>SteadyState</strong></td>
-      <td valign=\"top\">SteadyState</td>
-      <td valign=\"top\">SteadyState</td></tr>
+  <tr><td><strong>SteadyState</strong></td>
+      <td>SteadyState</td>
+      <td>SteadyState</td></tr>
 
-  <tr><td valign=\"top\"><strong>InitialState</strong></td>
-      <td valign=\"top\">InitialState</td>
-      <td valign=\"top\">InitialState</td></tr>
+  <tr><td><strong>InitialState</strong></td>
+      <td>InitialState</td>
+      <td>InitialState</td></tr>
 
-  <tr><td valign=\"top\"><strong>InitialOutput</strong><br>
+  <tr><td><strong>InitialOutput</strong><br>
           and initial equation: y = y_start</td>
-      <td valign=\"top\">NoInit</td>
-      <td valign=\"top\">SteadyState</td></tr>
+      <td>NoInit</td>
+      <td>SteadyState</td></tr>
 
-  <tr><td valign=\"top\"><strong>DoNotUse_InitialIntegratorState</strong></td>
-      <td valign=\"top\">InitialState</td>
-      <td valign=\"top\">NoInit</td></tr>
+  <tr><td><strong>DoNotUse_InitialIntegratorState</strong></td>
+      <td>InitialState</td>
+      <td>NoInit</td></tr>
 </table>
 
 <p>
@@ -998,7 +1090,7 @@ part of this controller, the following features are present:
 <ul>
 <li> The output of this controller is limited. If the controller is
      in its limits, anti-windup compensation is activated to drive
-     the integrator state to zero. </li>
+     the integrator state to zero.</li>
 <li> The high-frequency gain of the derivative part is limited
      to avoid excessive amplification of measurement noise.</li>
 <li> Setpoint weighting is present, which allows to weight
@@ -1066,30 +1158,30 @@ blocks inside the PID controller are initialized according to the following tabl
 </p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td valign=\"top\"><strong>initType</strong></td>
-      <td valign=\"top\"><strong>I.initType</strong></td>
-      <td valign=\"top\"><strong>D.initType</strong></td></tr>
+  <tr><td><strong>initType</strong></td>
+      <td><strong>I.initType</strong></td>
+      <td><strong>D.initType</strong></td></tr>
 
-  <tr><td valign=\"top\"><strong>NoInit</strong></td>
-      <td valign=\"top\">NoInit</td>
-      <td valign=\"top\">NoInit</td></tr>
+  <tr><td><strong>NoInit</strong></td>
+      <td>NoInit</td>
+      <td>NoInit</td></tr>
 
-  <tr><td valign=\"top\"><strong>SteadyState</strong></td>
-      <td valign=\"top\">SteadyState</td>
-      <td valign=\"top\">SteadyState</td></tr>
+  <tr><td><strong>SteadyState</strong></td>
+      <td>SteadyState</td>
+      <td>SteadyState</td></tr>
 
-  <tr><td valign=\"top\"><strong>InitialState</strong></td>
-      <td valign=\"top\">InitialState</td>
-      <td valign=\"top\">InitialState</td></tr>
+  <tr><td><strong>InitialState</strong></td>
+      <td>InitialState</td>
+      <td>InitialState</td></tr>
 
-  <tr><td valign=\"top\"><strong>InitialOutput</strong><br>
+  <tr><td><strong>InitialOutput</strong><br>
           and initial equation: y = y_start</td>
-      <td valign=\"top\">NoInit</td>
-      <td valign=\"top\">SteadyState</td></tr>
+      <td>NoInit</td>
+      <td>SteadyState</td></tr>
 
-  <tr><td valign=\"top\"><strong>DoNotUse_InitialIntegratorState</strong></td>
-      <td valign=\"top\">InitialState</td>
-      <td valign=\"top\">NoInit</td></tr>
+  <tr><td><strong>DoNotUse_InitialIntegratorState</strong></td>
+      <td>InitialState</td>
+      <td>NoInit</td></tr>
 </table>
 
 <p>
@@ -4528,20 +4620,20 @@ values of initType are defined in
 </p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td valign=\"top\"><strong>Name</strong></td>
-      <td valign=\"top\"><strong>Description</strong></td></tr>
+  <tr><td><strong>Name</strong></td>
+      <td><strong>Description</strong></td></tr>
 
-  <tr><td valign=\"top\"><strong>Init.NoInit</strong></td>
-      <td valign=\"top\">no initialization (start values are used as guess values with fixed=false)</td></tr>
+  <tr><td><strong>Init.NoInit</strong></td>
+      <td>no initialization (start values are used as guess values with fixed=false)</td></tr>
 
-  <tr><td valign=\"top\"><strong>Init.SteadyState</strong></td>
-      <td valign=\"top\">steady state initialization (derivatives of states are zero)</td></tr>
+  <tr><td><strong>Init.SteadyState</strong></td>
+      <td>steady state initialization (derivatives of states are zero)</td></tr>
 
-  <tr><td valign=\"top\"><strong>Init.InitialState</strong></td>
-      <td valign=\"top\">Initialization with initial states</td></tr>
+  <tr><td><strong>Init.InitialState</strong></td>
+      <td>Initialization with initial states</td></tr>
 
-  <tr><td valign=\"top\"><strong>Init.InitialOutput</strong></td>
-      <td valign=\"top\">Initialization with initial outputs (and steady state of the states if possible)</td></tr>
+  <tr><td><strong>Init.InitialOutput</strong></td>
+      <td>Initialization with initial outputs (and steady state of the states if possible)</td></tr>
 </table>
 
 <p>

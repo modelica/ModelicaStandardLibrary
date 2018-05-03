@@ -61,7 +61,7 @@ package Random "Library of functions for generating random numbers"
       annotation (experiment(StopTime=2), Documentation(info="<html>
 <p>
 This example demonstrates how to utilize the random number generators
-of package <a href=\"Modelica.Math.Random.Generators\">Math.Random.Generators</a> in a Modelica model.
+of package <a href=\"modelica://Modelica.Math.Random.Generators\">Math.Random.Generators</a> in a Modelica model.
 The example calculates random numbers in the range 0 .. 1 of the available random number generators periodically
 with a sample period of 0.05 s. Simulations results are shown in the figure below:
 </p>
@@ -73,11 +73,11 @@ with a sample period of 0.05 s. Simulations results are shown in the figure belo
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -98,11 +98,11 @@ This package contains examples demonstrating the usage of the functions in packa
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -195,11 +195,11 @@ and the returned state is the one from the last iteration.
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -260,11 +260,11 @@ same random number r is returned.
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -287,11 +287,11 @@ For an overview, comparison with other random number generators, and links to ar
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -368,11 +368,11 @@ random number generator is used to fill the internal state vector with 64 bit ra
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -433,11 +433,11 @@ same random number r is returned.
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -461,11 +461,11 @@ other random number generators, and links to articles, see
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -545,11 +545,11 @@ random number generator is used to fill the internal state vector with 64 bit ra
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -610,11 +610,11 @@ same random number r is returned.
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -637,11 +637,11 @@ For an overview, comparison with other random number generators, and links to ar
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -797,12 +797,12 @@ Further explanations of the properties above:
 <li> <strong>Run time</strong> shows that the xorshift random number generators are
      all much faster than the Mersenne Twister random number generator, although
      this is not really relevant for most simulations, because the execution
-     time of the other parts of the simulations is usually much larger. </li>
+     time of the other parts of the simulations is usually much larger.</li>
 </ul>
 
 <p>
 The xorshift random number generators are used in the following way in the
-<a href=\"Modelica.Blocks.Noise\">Blocks.Noise</a> package:
+<a href=\"modelica://Modelica.Blocks.Noise\">Blocks.Noise</a> package:
 </p>
 <ol>
 <li> Xorshift64star (xorshift64*) is used to generate the initial internal state vectors of the
@@ -810,14 +810,14 @@ The xorshift random number generators are used in the following way in the
      to the very good startup properties.</li>
 
 <li> Xorshift128plus (xorshift128+) is the random number generator
-     used by the blocks in <a href=\"Modelica.Blocks.Noise\">Blocks.Noise</a>.
+     used by the blocks in <a href=\"modelica://Modelica.Blocks.Noise\">Blocks.Noise</a>.
      Since these blocks hold the internal state vector for every block instance, and the
      internal state vector is copied whenever a new random number is drawn, it is important
      that the internal state vector is short (and still has good statistical properties
      as shown in the table above).</li>
 
 <li> Xorshift1024star (xorshift1024*) is the basis of the impure function
-     <a href=\"Modelica.Math.Random.Utilities.impureRandom\">Math.Random.Utilities.impureRandom</a>
+     <a href=\"modelica://Modelica.Math.Random.Utilities.impureRandom\">Math.Random.Utilities.impureRandom</a>
      which in turn is used with
      <a href=\"modelica://Modelica.Blocks.Noise.GlobalSeed\">Blocks.Noise.GlobalSeed</a>.
      The internal state vector is not exposed. It is updated internally, whenever a new random number
@@ -832,11 +832,11 @@ These numbers are mapped to the 52 bit mantissa of double numbers in the range 0
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -895,11 +895,11 @@ These numbers are mapped to the 52 bit mantissa of double numbers in the range 0
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -971,7 +971,7 @@ This function should be only called once during initialization.
      <strong>parameter</strong> Boolean useAutomaticSeed = false;
      <strong>parameter</strong> Integer fixedSeed = 67867967;
      <strong>final parameter</strong> Integer seed = <strong>if</strong> useAutomaticSeed <strong>then</strong>
-                                   Random.Utilities.automaticGlobalSeed() <strong>else</strong> fixedSeed;;
+                                   Random.Utilities.automaticGlobalSeed() <strong>else</strong> fixedSeed;
 </pre>
 
 <h4>Note</h4>
@@ -980,11 +980,11 @@ This function should be only called once during initialization.
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -1072,11 +1072,11 @@ random number generator to fill the internal state vector with 64 bit random num
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -1146,11 +1146,11 @@ is returned, so the function is impure.
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -1176,7 +1176,7 @@ is returned, so the function is impure.
       Real r "Impure Real random number";
     algorithm
       r  := impureRandom(id=id);
-      y  := min(imax, integer(r*(imax-imin+1))+imin); 
+      y  := min(imax, integer(r*(imax-imin+1))+imin);
 
       annotation (__ModelicaAssociation_Impure=true,
         Documentation(info=
@@ -1209,11 +1209,11 @@ is returned, so the function is impure.
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 <tr><td>June 2, 2017</td><td>Correct probabilities - especially for small ranges, by Hans Olsson, <a href=\"https://www.3ds.com\">Dassault Syst&egrave;mes</a></td></tr>
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -1235,11 +1235,11 @@ that are usually of no interest for the user
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -1290,11 +1290,11 @@ package <a href=\"modelica://Modelica.Blocks.Noise\">Blocks.Noise</a>).
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by

@@ -543,24 +543,24 @@ Three variable pairs can be the independent variables of the model:
 The following quantities are always computed:
 </p>
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td valign=\"top\"><strong>Variable</strong></td>
-      <td valign=\"top\"><strong>Unit</strong></td>
-      <td valign=\"top\"><strong>Description</strong></td></tr>
-  <tr><td valign=\"top\">T</td>
-      <td valign=\"top\">K</td>
-      <td valign=\"top\">temperature</td></tr>
-  <tr><td valign=\"top\">u</td>
-      <td valign=\"top\">J/kg</td>
-      <td valign=\"top\">specific internal energy</td></tr>
-  <tr><td valign=\"top\">d</td>
-      <td valign=\"top\">kg/m^3</td>
-      <td valign=\"top\">density</td></tr>
-  <tr><td valign=\"top\">p</td>
-      <td valign=\"top\">Pa</td>
-      <td valign=\"top\">pressure</td></tr>
-  <tr><td valign=\"top\">h</td>
-      <td valign=\"top\">J/kg</td>
-      <td valign=\"top\">specific enthalpy</td></tr>
+  <tr><td><strong>Variable</strong></td>
+      <td><strong>Unit</strong></td>
+      <td><strong>Description</strong></td></tr>
+  <tr><td>T</td>
+      <td>K</td>
+      <td>temperature</td></tr>
+  <tr><td>u</td>
+      <td>J/kg</td>
+      <td>specific internal energy</td></tr>
+  <tr><td>d</td>
+      <td>kg/m^3</td>
+      <td>density</td></tr>
+  <tr><td>p</td>
+      <td>Pa</td>
+      <td>pressure</td></tr>
+  <tr><td>h</td>
+      <td>J/kg</td>
+      <td>specific enthalpy</td></tr>
 </table>
 <p>
 In some cases additional medium properties are needed.
@@ -2151,7 +2151,7 @@ Some parts of this library refer to the ThermoFluid library developed at Lund Un
 <p>
 In no event will XRG Simulation GmbH be liable for any direct, indirect, incidental, special, exemplary, or consequential damages, arising in any way out of the use of this software, even if advised of the possibility of such damage.
 </p>
-<h4> Copyright &copy; 2013-2016, XRG Simulation GmbH </h4>
+<h4> Copyright &copy; 2013-2018, XRG Simulation GmbH </h4>
 
 </html>"));
 end ReferenceAir;

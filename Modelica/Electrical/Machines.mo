@@ -90,22 +90,21 @@ You may have a look at a short summary of space phasor theory at <a href=\"http:
     class Contact "Contact"
       extends Modelica.Icons.Contact;
       annotation (preferredView="info",Documentation(info="<html>
-<h4>Contact</h4>
+<h4>Main authors</h4>
 
 <p>
-Anton Haumer<br>
+<strong>Anton Haumer</strong><br>
 <a href=\"http://www.haumer.at\">Technical Consulting &amp; Electrical Engineering</a><br>
 3423 St. Andrae-Woerdern, Austria<br>
-email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
+email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
 </p>
 
 <p>
-  Dr. Christian Kral<br>
+<strong>Dr. Christian Kral</strong><br>
   <a href=\"https://christiankral.net/\">Electric Machines, Drives and Systems</a><br>
   A-1060 Vienna, Austria<br>
   email: <a href=\"mailto:dr.christian.kral@gmail.com\">dr.christian.kral@gmail.com</a>
 </p>
-
 </html>"));
     end Contact;
 
@@ -113,15 +112,20 @@ email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
       extends Modelica.Icons.ReleaseNotes;
       annotation (preferredView="info",Documentation(info="<html>
 
-<h5>Version 3.2.2, 2017-09-01 (Anton Haumer, Christian Kral)</h5>
+<h5>Version 3.2.2, 2017-12-10 (Anton Haumer, Christian Kral)</h5>
 <ul>
-  <li>Fixed bug of wrong smooth order in 
+  <li>Shortened default component names, see
+      <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2301\">#2301</a></li>
+  <li>Added new example
+      <a href=\"modelica://Modelica.Electrical.Machines.Examples.SynchronousInductionMachines.SMEE_DOL\">SMEE_DOL</a>, see
+      <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2388\">#2388</a></li>
+  <li>Fixed bug of wrong smooth order in
       <a href=\"modelica://Modelica.Electrical.Machines.Losses.DCMachines.Brush\">Brush</a>, see
-      <a href=\"https://github.com/modelica/Modelica/issues/2315\">#2315</a></li>
-  <li>Unified communication interval, see 
-      <a href=\"https://github.com/modelica/Modelica/issues/2279\">#2279</a></li>
-  <li>Unified simulation tolerances, see 
-      <a href=\"https://github.com/modelica/Modelica/issues/2278\">#2278</a></li>
+      <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2315\">#2315</a></li>
+  <li>Unified communication interval, see
+      <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2279\">#2279</a></li>
+  <li>Unified simulation tolerances, see
+      <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2278\">#2278</a></li>
   <li>Fixed icons of Modelica.Electrical.Machines.BasicMachines.Components, see #2031</li>
   <li>Updated blocks and functions towards multi phase systems greater or equal to three</li>
   <li>Added standard blocks and functions</li>
@@ -381,8 +385,8 @@ SM_ElectricalExcited</a>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
     <tr>
-      <td valign=\"top\">[Lang1984]</td>
-      <td valign=\"top\">W. Lang,
+      <td>[Lang1984]</td>
+      <td>W. Lang,
         &quot;&Uuml;ber die Bemessung verlustarmer Asynchronmotoren mit K&auml;figl&auml;ufer f&uuml;r
         Pulsumrichterspeisung,&quot;
         Doctoral Thesis,
@@ -517,10 +521,10 @@ This is the library of electric machine models.
         annotation (experiment(StopTime=1.5, Interval=1E-4, Tolerance=1e-06), Documentation(
               info="<html>
 <p>At start time tStart three phase voltage is supplied to the asynchronous induction machine with squirrel cage;
-the machine starts from standstill, accelerating inertias against load torque quadratic dependent on speed, 
+the machine starts from standstill, accelerating inertias against load torque quadratic dependent on speed,
 finally reaching nominal speed.</p>
 
-<p>Simulate for 1.5 seconds and plot (versus time):</p<
+<p>Simulate for 1.5 seconds and plot (versus time):</p>
 <ul>
 <li>currentQuasiRMSSensor.I: stator current RMS</li>
 <li>aimc.wMechanical: motor's speed</li>
@@ -644,8 +648,8 @@ finally reaching nominal speed.</p>
             points={{0,-40},{40,-40}}));
         annotation (experiment(StopTime=2.5, Interval=1E-4, Tolerance=1e-06), Documentation(
               info="<html>
-<p>At start time tStart three phase voltage is supplied to the asynchronous induction machine with squirrel cage, 
-first star-connected, then delta-connected; the machine starts from standstill, accelerating inertias against 
+<p>At start time tStart three phase voltage is supplied to the asynchronous induction machine with squirrel cage,
+first star-connected, then delta-connected; the machine starts from standstill, accelerating inertias against
 load torque quadratic dependent on speed, finally reaching nominal speed.</p>
 
 <p>Simulate for 2.5 seconds and plot (versus time):</p>
@@ -1422,7 +1426,7 @@ The mechanical load is a constant torque like a conveyor (with regularization ar
         annotation (experiment(StopTime=1, Interval=1E-4, Tolerance=1e-06), Documentation(
               info="<html>
 <p>At start time tStart single phase voltage is supplied to the asynchronous induction machine with squirrel cage;
-the machine starts from standstill, accelerating inertias against load torque quadratic dependent on speed, finally reaching nominal speed.</p<
+the machine starts from standstill, accelerating inertias against load torque quadratic dependent on speed, finally reaching nominal speed.</p>
 
 <p>Default machine parameters are used.</p>
 </html>"));
@@ -2084,6 +2088,108 @@ and accelerating inertias. At time tStep a load step is applied.</p>
 </html>"));
       end SMR_Inverter;
 
+      model SMPM_NoLoad "SMPM at no-load"
+        extends Modelica.Icons.Example;
+        import Modelica.Constants.pi;
+        constant Integer m=3 "Number of phases";
+        parameter
+          Modelica.Electrical.Machines.Utilities.ParameterRecords.SM_PermanentMagnetData
+          smpmData(useDamperCage=false)
+          annotation (Placement(transformation(extent={{-10,-40},{10,-20}})));
+        Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet
+          smpm(
+          p=smpmData.p,
+          fsNominal=smpmData.fsNominal,
+          Rs=smpmData.Rs,
+          TsRef=smpmData.TsRef,
+          Lszero=smpmData.Lszero,
+          Lssigma=smpmData.Lssigma,
+          Jr=smpmData.Jr,
+          VsOpenCircuit=smpmData.VsOpenCircuit,
+          Lmd=smpmData.Lmd,
+          Lmq=smpmData.Lmq,
+          useDamperCage=smpmData.useDamperCage,
+          Lrsigmad=smpmData.Lrsigmad,
+          Lrsigmaq=smpmData.Lrsigmaq,
+          Rrd=smpmData.Rrd,
+          Rrq=smpmData.Rrq,
+          TrRef=smpmData.TrRef,
+          frictionParameters=smpmData.frictionParameters,
+          statorCoreParameters=smpmData.statorCoreParameters,
+          strayLoadParameters=smpmData.strayLoadParameters,
+          permanentMagnetLossParameters=smpmData.permanentMagnetLossParameters,
+          TsOperational=293.15,
+          alpha20s=smpmData.alpha20s,
+          phiMechanical(fixed=true, start=(pi + 0*2*pi/m)/smpmData.p),
+          TrOperational=293.15,
+          alpha20r=smpmData.alpha20r)
+               annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
+        Modelica.Electrical.Machines.Utilities.TerminalBox terminalBox(
+            terminalConnection="Y", m=m)
+          annotation (Placement(transformation(extent={{-10,6},{10,26}})));
+        Modelica.Electrical.Analog.Basic.Ground ground
+          annotation (Placement(transformation(extent={{-30,-10},{-10,10}})));
+        Modelica.Electrical.MultiPhase.Sensors.PotentialSensor potentialSensor(m=m)
+          annotation (Placement(transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=90,
+              origin={0,30})));
+        Modelica.Electrical.Machines.SpacePhasors.Blocks.ToSpacePhasor toSpacePhasor(m=m)
+          annotation (Placement(transformation(extent={{10,40},{30,60}})));
+        SpacePhasors.Blocks.ToPolar toPolar
+          annotation (Placement(transformation(extent={{40,40},{60,60}})));
+        Blocks.Math.Gain toDeg(k=180/pi)
+          annotation (Placement(transformation(extent={{70,40},{90,60}})));
+        Sensors.HallSensor hallSensor(p=smpmData.p) annotation (Placement(
+              transformation(
+              extent={{10,-10},{-10,10}},
+              rotation=0,
+              origin={40,-30})));
+        Modelica.Mechanics.Rotational.Sources.ConstantSpeed constantSpeed(w_fixed=2*
+              pi*smpmData.fsNominal/smpmData.p)
+          annotation (Placement(transformation(extent={{52,-10},{32,10}})));
+
+      equation
+        connect(terminalBox.plug_sn, smpm.plug_sn)
+          annotation (Line(points={{-6,10},{-6,10}}, color={0,0,255}));
+        connect(terminalBox.plug_sp, smpm.plug_sp)
+          annotation (Line(points={{6,10},{6,10}}, color={0,0,255}));
+        connect(ground.p, terminalBox.starpoint)
+          annotation (Line(points={{-20,10},{-20,12},{-10,12}},color={0,0,255}));
+        connect(potentialSensor.plug_p, terminalBox.plugSupply)
+          annotation (Line(points={{0,20},{0,12}}, color={0,0,255}));
+        connect(potentialSensor.phi, toSpacePhasor.u) annotation (Line(points={{8.88178e-16,
+                41},{8.88178e-16,50},{8,50}}, color={0,0,127}));
+        connect(constantSpeed.flange, smpm.flange)
+          annotation (Line(points={{32,0},{10,0}}));
+        connect(smpm.flange, hallSensor.flange)
+          annotation (Line(points={{10,0},{20,0},{20,-30},{30,-30}}));
+        connect(toSpacePhasor.y, toPolar.u)
+          annotation (Line(points={{31,50},{38,50}}, color={0,0,127}));
+        connect(toPolar.y[2], toDeg.u)
+          annotation (Line(points={{61,50},{68,50}}, color={0,0,127}));
+        annotation (                                 experiment(StopTime=0.04,
+              Interval=0.0001),
+          Documentation(info="<html>
+<p>
+Synchronous machine with permanent magnets at no-load, driven with constant nominal speed.
+</p>
+<p>
+You may check the terminal voltage = VsOpenCircuit (shown by the length of the space phasor) and the frequency = fsNominal.
+</p>
+<p>
+Additionally, you may check the phase shift of the stator voltages with respect to the mechanical shaft angle:
+<ul>
+<li>If the shaft angle starts at (pi + 0*pi/3)/p, the flux linkage through phase 1 is at the maximum and therefore this phase voltage starts at 0.</li>
+<li>If the shaft angle starts at (pi + 2*pi/3)/p, the flux linkage through phase 2 is at the maximum and therefore this phase voltage starts at 0.</li>
+<li>If the shaft angle starts at (pi + 4*pi/3)/p, the flux linkage through phase 3 is at the maximum and therefore this phase voltage starts at 0.</li>
+</ul>
+Note that the angle of the voltage space phasor is pi/2 behind the angle of the hall sensor,
+i.e. after a rotation of the shaft by pi/2/p the flux linkage of phase 1 is zero and the induced voltage a maximum.
+</p>
+</html>"));
+      end SMPM_NoLoad;
+
       model SMPM_Inverter
         "Test example: PermanentMagnetSynchronousInductionMachine with inverter"
         extends Modelica.Icons.Example;
@@ -2211,7 +2317,7 @@ and accelerating inertias. At time tStep a load step is applied.</p>
 Frequency is raised by a ramp, causing the permanent magnet synchronous induction machine to start,
 and accelerating inertias. At time tStep a load step is applied.</p>
 
-<p<Simulate for 1.5 seconds and plot (versus time):</p>
+<p>Simulate for 1.5 seconds and plot (versus time):</p>
 
 <ul>
 <li>currentQuasiRMSSensor.I: stator current RMS</li>
@@ -2760,8 +2866,8 @@ whereas the stator voltage is influenced by the d-current.</p>
                 255}));
         connect(smpm.flange, speedSensor.flange)
           annotation (Line(points={{0,-40},{40,-40},{40,-10}}));
-        connect(terminalBox.starpoint, starM.pin_n) annotation (Line(points={{-19,-28},
-                {-44,-28},{-70,-28},{-70,-10}}, color={0,0,255}));
+        connect(terminalBox.starpoint, starM.pin_n) annotation (Line(points={{-20,-28},{-20,-28},{-70,-28},{-70,-10}},
+                                                color={0,0,255}));
         connect(ground.p, variableResistor.n)
           annotation (Line(points={{-70,60},{-46,60},{-20,60}}, color={0,0,255}));
         connect(ground.p, grounding.n)
@@ -2771,7 +2877,7 @@ whereas the stator voltage is influenced by the d-current.</p>
         annotation (experiment(StopTime=0.8, Interval=1E-4, Tolerance=1e-06), Documentation(
               info="<html>
 <p>
-A synchronous induction machine with permanent magnets starts braking from nominal speed by feeding a diode bridge, 
+A synchronous induction machine with permanent magnets starts braking from nominal speed by feeding a diode bridge,
 which in turn feeds a braking resistor.
 Since induced voltage is reduced proportional to falling speed, the braking resistance is set proportional to speed to
 achieve constant current and torque.</p>
@@ -2779,6 +2885,224 @@ achieve constant current and torque.</p>
 <p>Default machine parameters are used.</p>
 </html>"));
       end SMPM_Braking;
+
+      model SMEE_DOL
+        "Test example: ElectricalExcitedSynchronousInductionMachine starting direct on line"
+        extends Modelica.Icons.Example;
+        constant Integer m=3 "Number of phases";
+        parameter Modelica.SIunits.Voltage VNominal=100
+          "Nominal RMS voltage per phase";
+        parameter Modelica.SIunits.Frequency fNominal=50 "Nominal frequency";
+        parameter Modelica.SIunits.Voltage Ve=smeeData.Re*smeeData.IeOpenCircuit "Excitation current";
+        parameter Modelica.SIunits.Angle gamma0(displayUnit="deg") = 0
+          "Initial rotor displacement angle";
+        Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcited
+          smee(
+          phiMechanical(start=-(Modelica.Constants.pi + gamma0)/smee.p, fixed=
+                true),
+          fsNominal=smeeData.fsNominal,
+          Rs=smeeData.Rs,
+          TsRef=smeeData.TsRef,
+          Lssigma=smeeData.Lssigma,
+          Lmd=smeeData.Lmd,
+          Lmq=smeeData.Lmq,
+          Lrsigmad=smeeData.Lrsigmad,
+          Lrsigmaq=smeeData.Lrsigmaq,
+          Rrd=smeeData.Rrd,
+          Rrq=smeeData.Rrq,
+          TrRef=smeeData.TrRef,
+          VsNominal=smeeData.VsNominal,
+          IeOpenCircuit=smeeData.IeOpenCircuit,
+          Re=smeeData.Re,
+          TeRef=smeeData.TeRef,
+          sigmae=smeeData.sigmae,
+          p=2,
+          Jr=0.29,
+          Js=0.29,
+          useDamperCage=true,
+          statorCoreParameters(VRef=100),
+          strayLoadParameters(IRef=100),
+          brushParameters(ILinear=0.01),
+          ir(fixed=true),
+          wMechanical(fixed=true),
+          TsOperational=293.15,
+          alpha20s=smeeData.alpha20s,
+          TrOperational=293.15,
+          alpha20r=smeeData.alpha20r,
+          alpha20e=smeeData.alpha20e,
+          TeOperational=293.15) annotation (Placement(transformation(extent={{-20,
+                  -50},{0,-30}})));
+        Machines.Sensors.RotorDisplacementAngle rotorDisplacementAngle(p=smee.p, m=m)
+          annotation (Placement(transformation(
+              origin={20,-40},
+              extent={{-10,10},{10,-10}},
+              rotation=270)));
+        Modelica.Electrical.Analog.Basic.Ground groundExcitation annotation (
+            Placement(transformation(
+              origin={-40,-70},
+              extent={{-10,-10},{10,10}},
+              rotation=0)));
+        Mechanics.Rotational.Sensors.MultiSensor
+                                               mechanicalMultiSensor
+          annotation (Placement(transformation(extent={{40,-50},{60,-30}})));
+        Machines.Sensors.ElectricalPowerSensor electricalPowerSensor
+          annotation (Placement(transformation(
+              origin={0,40},
+              extent={{-10,-10},{10,10}},
+              rotation=270)));
+        Machines.Sensors.CurrentQuasiRMSSensor currentQuasiRMSSensor
+          annotation (Placement(transformation(
+              origin={0,10},
+              extent={{-10,10},{10,-10}},
+              rotation=270)));
+        Modelica.Electrical.MultiPhase.Sources.SineVoltage sineVoltage(
+          final m=m,
+          final V=fill(VNominal*sqrt(2), m),
+          final freqHz=fill(fNominal, m)) annotation (Placement(transformation(
+                extent={{-20,80},{-40,100}})));
+        Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) annotation (
+            Placement(transformation(extent={{-50,80},{-70,100}})));
+        Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
+              transformation(
+              origin={-90,90},
+              extent={{-10,-10},{10,10}},
+              rotation=270)));
+        Analog.Sources.RampVoltage                     rampVoltage(
+          duration=0.1,
+          V=Ve,
+          offset=0,
+          startTime=0.5)
+                      annotation (Placement(transformation(
+              origin={-40,-40},
+              extent={{10,-10},{-10,10}},
+              rotation=90)));
+        Machines.Utilities.TerminalBox terminalBox(terminalConnection="Y")
+          annotation (Placement(transformation(extent={{-20,-34},{0,-14}})));
+        parameter Machines.Utilities.SynchronousMachineData smeeData(
+          SNominal=30e3,
+          VsNominal=100,
+          fsNominal=50,
+          IeOpenCircuit=10,
+          x0=0.1,
+          xd=1.6,
+          xq=1.6,
+          xdTransient=0.1375,
+          xdSubtransient=0.121428571,
+          xqSubtransient=0.148387097,
+          Ta=0.014171268,
+          Td0Transient=0.261177343,
+          Td0Subtransient=0.006963029,
+          Tq0Subtransient=0.123345081,
+          alpha20s(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
+          alpha20r(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
+          alpha20e(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
+          TsSpecification=293.15,
+          TsRef=293.15,
+          TrSpecification=293.15,
+          TrRef=293.15,
+          TeSpecification=293.15,
+          TeRef=293.15)
+          annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
+
+        MultiPhase.Ideal.IdealClosingSwitch                     idealCloser(
+          final m=m,
+          Ron=fill(1e-5, m),
+          Goff=fill(1e-5, m)) annotation (Placement(transformation(
+              origin={0,70},
+              extent={{-10,10},{10,-10}},
+              rotation=270)));
+        Blocks.Sources.BooleanStep booleanStep(startTime=0.0)
+          annotation (Placement(transformation(extent={{-90,60},{-70,80}})));
+        Blocks.Routing.BooleanReplicator booleanReplicator(nout=m)
+          annotation (Placement(transformation(extent={{-50,80},{-30,60}})));
+        Mechanics.Rotational.Sources.TorqueStep torqueStep(
+          offsetTorque=0,
+          stepTorque=50,
+          startTime=2)
+          annotation (Placement(transformation(extent={{90,-50},{70,-30}})));
+      initial equation
+        smee.is[1:2] = zeros(2);
+        smee.ie = 0;
+        //conditional damper cage currents are defined as fixed start values
+      equation
+        connect(rotorDisplacementAngle.plug_n, smee.plug_sn) annotation (Line(
+              points={{26,-30},{26,-20},{-16,-20},{-16,-30}}, color={0,0,255}));
+        connect(rotorDisplacementAngle.plug_p, smee.plug_sp)
+          annotation (Line(points={{14,-30},{-4,-30}}, color={0,0,255}));
+        connect(star.pin_n, ground.p)
+          annotation (Line(points={{-70,90},{-80,90}}, color={0,0,255}));
+        connect(star.plug_p, sineVoltage.plug_n)
+          annotation (Line(points={{-50,90},{-40,90}}, color={0,0,255}));
+        connect(electricalPowerSensor.plug_ni, currentQuasiRMSSensor.plug_p)
+          annotation (Line(points={{0,30},{0,20}},        color={0,0,255}));
+        connect(electricalPowerSensor.plug_nv, smee.plug_sn) annotation (Line(
+              points={{-10,40},{-16,40},{-16,-30}}, color={0,0,255}));
+        connect(terminalBox.plugSupply, currentQuasiRMSSensor.plug_n)
+          annotation (Line(
+            points={{-10,-28},{-10,0},{0,0}},
+            color={0,0,255}));
+        connect(terminalBox.plug_sn, smee.plug_sn) annotation (Line(
+            points={{-16,-30},{-16,-30}},
+            color={0,0,255}));
+        connect(terminalBox.plug_sp, smee.plug_sp) annotation (Line(
+            points={{-4,-30},{-4,-30}},
+            color={0,0,255}));
+        connect(smee.flange, rotorDisplacementAngle.flange) annotation (Line(
+            points={{0,-40},{10,-40}}));
+        connect(smee.flange,mechanicalMultiSensor. flange_a) annotation (Line(
+            points={{0,-40},{40,-40}}));
+        connect(sineVoltage.plug_p, idealCloser.plug_p)
+          annotation (Line(points={{-20,90},{0,90},{0,80}}, color={0,0,255}));
+        connect(idealCloser.plug_n, electricalPowerSensor.plug_p) annotation (Line(
+              points={{-1.77636e-015,60},{0,60},{0,50},{1.77636e-015,50}}, color={0,0,
+                255}));
+        connect(booleanReplicator.y, idealCloser.control)
+          annotation (Line(points={{-29,70},{-12,70}}, color={255,0,255}));
+        connect(booleanStep.y, booleanReplicator.u)
+          annotation (Line(points={{-69,70},{-52,70}}, color={255,0,255}));
+        connect(groundExcitation.p, rampVoltage.n)
+          annotation (Line(points={{-40,-60},{-40,-50}}, color={0,0,255}));
+        connect(rampVoltage.n, smee.pin_en) annotation (Line(points={{-40,-50},
+                {-30,-50},{-30,-46},{-20,-46}}, color={0,0,255}));
+        connect(rampVoltage.p, smee.pin_ep) annotation (Line(points={{-40,-30},
+                {-30,-30},{-30,-34},{-20,-34}}, color={0,0,255}));
+        connect(mechanicalMultiSensor.flange_b, torqueStep.flange)
+          annotation (Line(points={{60,-40},{70,-40}}));
+        annotation (experiment(
+            StopTime=3,
+            Interval=0.0001,
+            Tolerance=1e-006),                                                Documentation(info="<html>
+<p>An electrically excited synchronous generator is started direct on line utilizing the damper cage
+(and the shorted excitation winding) at 0 seconds.</p>
+<p>At t = 0.5 seconds, the excitation voltage is raised to achieve the no-load excitation current.
+Note, that reactive power of the stator goes to zero.</p>
+<p>At t = 2 second, a driving torque step is applied to the shaft (i.e. the turbine is activated).
+Note, that active and reactive power of the stator changes.
+To drive at higher torque, i.e., produce more electric power, excitation has to be adapted.
+</p>
+
+<p>Simulate for 3 seconds and plot:</p>
+
+<ul>
+<li><code>smee.tauElectrical</code></li>
+<li><code>smee.wMechanical</code></li>
+<li><code>smee.ie</code></li>
+<li><code>rotorDisplacementAngle.rotorDisplacementAngle</code></li>
+<li><code>currentQuasiRMSSensor.I</code></li>
+<li><code>electricalPowerSensor.P</code></li>
+<li><code>electricalPowerSensor.Q</code></li>
+<li><code>mechanicalMultiSensor.power</code></li>
+</ul>
+
+<p>Default machine parameters are used.</p>
+
+<h5>Note</h5>
+<p>The mains switch is closed at time = 0 in order to avoid non physical noise calculated by the <code>rotorDisplacementAngle</code>.
+This noise is caused by the interaction of the high resistance of the switch and the machine, see
+<a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2388\">#2388</a>.
+</p>
+</html>"));
+      end SMEE_DOL;
 
       model SMEE_Generator
         "Test example: ElectricalExcitedSynchronousInductionMachine as Generator"
@@ -3455,7 +3779,7 @@ Voltage is controlled, the set point depends on speed. After start-up the genera
             points={{-80,70},{-80,90},{-40,90}}, color={0,0,255}));
         annotation (experiment(StopTime=1.1, Interval=1E-4, Tolerance=1e-06), Documentation(
               info="<html>
-<p>An electrically excited synchronous generator is driven with constant speed. Voltage is controlled, 
+<p>An electrically excited synchronous generator is driven with constant speed. Voltage is controlled,
 the set point depends on speed. The generator is loaded with a rectifier.</p>
 
 <p>Default machine parameters are used.</p>
@@ -4532,9 +4856,1105 @@ This package contains test examples of DC machines.
 </html>"));
     end DCMachines;
 
+    package ControlledDCDrives "Test examples of controlled DC drives"
+      extends Modelica.Icons.ExamplesPackage;
+      model CurrentControlledDCPM
+        "Current controlled DC PM drive with H-bridge from battery"
+        extends Utilities.PartialControlledDCPM;
+        Modelica.Mechanics.Rotational.Sources.QuadraticSpeedDependentTorque
+          loadTorque(
+          tau_nominal=-driveData.tauNominal,
+          TorqueDirection=false,
+          w_nominal=driveData.motorData.wNominal)
+          annotation (Placement(transformation(extent={{100,-50},{80,-30}})));
+        Modelica.Blocks.Sources.Step step(
+          offset=0,
+          startTime=0.2,
+          height=driveData.tauNominal) annotation (Placement(transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=0,
+              origin={-110,-10})));
+      equation
+        connect(loadInertia.flange_b, loadTorque.flange)
+          annotation (Line(points={{70,-40},{80,-40}}));
+        connect(step.y, tau2i.u)
+          annotation (Line(points={{-99,-10},{-82,-10}},
+                                                       color={0,0,127}));
+        annotation (experiment(StopTime=2, Interval=0.0001), Documentation(info="<html>
+<p>This model demonstrates how a current controller for a DC PM drive works.</p>
+<p>
+The current controller is parameterized according to the absolute optimum.
+</p>
+<p>At time=0.2 s a reference torque step is applied, causing the drive to accelerate until motor torque and load torque are at an equilibrium.</p>
+<p>
+Further reading:
+<a href=\"modelica://Modelica/Resources/Documentation/Electrical/Machines/DriveControl.pdf\">Tutorial at the Modelica Conference 2017</a>
+</p>
+</html>"),Diagram(coordinateSystem(extent={{-200,-100},{100,100}})),
+          Icon(coordinateSystem(extent={{-180,-100},{100,100}})));
+      end CurrentControlledDCPM;
+
+      model SpeedControlledDCPM
+        "Speed controlled DC PM drive with H-bridge from battery"
+        extends Utilities.PartialControlledDCPM;
+        Modelica.Mechanics.Rotational.Sources.TorqueStep loadTorque(
+          stepTorque=-driveData.tauNominal,
+          offsetTorque=0,
+          startTime=0.8)
+          annotation (Placement(transformation(extent={{100,-50},{80,-30}})));
+        Utilities.LimitedPI speedController(
+          initType=Modelica.Blocks.Types.Init.InitialOutput,
+          k=driveData.kpw,
+          Ti=driveData.Tiw,
+          constantLimits=true,
+          yMax=driveData.tauMax)
+          annotation (Placement(transformation(extent={{-120,-20},{-100,0}})));
+        Modelica.Blocks.Continuous.FirstOrder preFilter(
+          k=1,
+          T=driveData.Tfw,
+          initType=Modelica.Blocks.Types.Init.InitialOutput)
+          annotation (Placement(transformation(extent={{-160,0},{-140,20}})));
+        Modelica.Blocks.Sources.Step step(
+          offset=0,
+          height=driveData.motorData.wNominal,
+          startTime=0.2)                       annotation (Placement(transformation(
+              extent={{10,10},{-10,-10}},
+              rotation=180,
+              origin={-190,-10})));
+        Modelica.Blocks.Nonlinear.SlewRateLimiter slewRateLimiter(initType=Modelica.Blocks.Types.Init.InitialOutput,
+            Rising=driveData.aMax)
+          annotation (Placement(transformation(extent={{-160,-40},{-140,-20}})));
+      equation
+        connect(step.y, preFilter.u) annotation (Line(points={{-179,-10},{-170,-10},
+                {-170,10},{-162,10}},
+                                    color={0,0,127}));
+        connect(loadInertia.flange_b, loadTorque.flange)
+          annotation (Line(points={{70,-40},{80,-40}}));
+        connect(speedSensor.w, speedController.u_m) annotation (Line(points={{50,-81},
+                {50,-90},{-116,-90},{-116,-22}},   color={0,0,127}));
+        connect(speedController.y, tau2i.u)
+          annotation (Line(points={{-99,-10},{-82,-10}},
+                                                       color={0,0,127}));
+        connect(step.y, slewRateLimiter.u) annotation (Line(points={{-179,-10},{
+                -170,-10},{-170,-30},{-162,-30}}, color={0,0,127}));
+        connect(speedController.u, preFilter.y) annotation (Line(points={{-122,-10},
+                {-130,-10},{-130,10},{-139,10}}, color={0,0,127}));
+        annotation (experiment(Interval=0.0001),             Documentation(info="<html>
+<p>This model demonstrates how a speed controller for a current controlled DC PM drive works.</p>
+<p>
+The inner current controller is parameterized according to the absolute optimum.
+The outer control loop is formed by the speed controller which is parameterized according to the symmetrical optimum.
+</p>
+<p>
+At time=0.2 s a reference speed step is applied, causing the drive to accelerate to the desired speed.
+At time=0.8 s a load torque step is applied, causing to drive to decelerate until the speed controller brings the drive back to the desired speed.
+</p>
+<p>
+You may try a slewRateLimiter instead the prefilter to limit the speed rise i.e. the torque.
+</p>
+<p>
+Further reading:
+<a href=\"modelica://Modelica/Resources/Documentation/Electrical/Machines/DriveControl.pdf\">Tutorial at the Modelica Conference 2017</a>
+</p>
+</html>"),Diagram(coordinateSystem(extent={{-200,-100},{100,100}})),
+          Icon(coordinateSystem(extent={{-180,-100},{100,100}})));
+      end SpeedControlledDCPM;
+
+      model PositionControlledDCPM
+        "Position controlled DC PM drive with H-bridge from battery"
+        extends Utilities.PartialControlledDCPM;
+        Modelica.Mechanics.Rotational.Sources.TorqueStep loadTorque(
+          stepTorque=-driveData.tauNominal,
+          offsetTorque=0,
+          startTime=2.3)
+          annotation (Placement(transformation(extent={{100,-50},{80,-30}})));
+        Utilities.LimitedPI speedController(
+          initType=Modelica.Blocks.Types.Init.InitialOutput,
+          k=driveData.kpw,
+          Ti=driveData.Tiw,
+          constantLimits=true,
+          yMax=driveData.tauMax)
+          annotation (Placement(transformation(extent={{-120,-20},{-100,0}})));
+        Utilities.LimitedPI positionController(
+          constantLimits=true,
+          k=driveData.kpP,
+          useI=false,
+          yMax=driveData.wMax,
+          initType=Modelica.Blocks.Types.Init.SteadyState)
+          annotation (Placement(transformation(extent={{-150,-20},{-130,0}})));
+        Modelica.Mechanics.Rotational.Sensors.AngleSensor angleSensor
+          annotation (Placement(transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=270,
+              origin={70,-70})));
+        Modelica.Blocks.Sources.KinematicPTP2 kinematicPTP(
+          qd_max={driveData.wMax},
+          qdd_max={driveData.aMax},
+          q_end={200},
+          startTime=0.2)
+                       annotation (Placement(transformation(
+              extent={{10,10},{-10,-10}},
+              rotation=180,
+              origin={-180,-10})));
+      equation
+        connect(positionController.y, speedController.u)
+          annotation (Line(points={{-129,-10},{-122,-10}},
+                                                       color={0,0,127}));
+        connect(angleSensor.phi, positionController.u_m) annotation (Line(
+              points={{70,-81},{70,-100},{-146,-100},{-146,-22}},
+                                                             color={0,0,127}));
+        connect(kinematicPTP.q[1], positionController.u) annotation (Line(
+              points={{-169,-2},{-160,-2},{-160,-10},{-152,-10}},
+                                                            color={0,0,127}));
+        connect(speedSensor.flange, angleSensor.flange)
+          annotation (Line(points={{50,-60},{70,-60}}));
+        connect(speedSensor.w, speedController.u_m) annotation (Line(points={{50,-81},
+                {50,-90},{-116,-90},{-116,-22}},   color={0,0,127}));
+        connect(loadInertia.flange_b, loadTorque.flange)
+          annotation (Line(points={{70,-40},{80,-40}}));
+        connect(speedController.y, tau2i.u)
+          annotation (Line(points={{-99,-10},{-82,-10}},
+                                                       color={0,0,127}));
+        annotation (experiment(StopTime=2.5, Interval=0.0001),
+                                                             Documentation(info="<html>
+<p>This model demonstrates how a position controller for a speed controlled DC PM drive works.</p>
+<p>
+The inner current controller is parameterized according to the absolute optimum.
+The middle control loop is formed by the speed controller which is parameterized according to the symmetrical optimum.
+The outer control loop is formed by the position controller which is parameterized to avoid an overshot in the position.
+</p>
+<p>
+At time=0.2 s the kinematicPTP starts to prescribe the reference position with limited speed and limited acceleration.
+At time=2.3 s a load torque step is applied, causing to drive to slightly leave the end position until the position controller brings the drive back to the desired position.
+</p>
+<p>
+Further reading:
+<a href=\"modelica://Modelica/Resources/Documentation/Electrical/Machines/DriveControl.pdf\">Tutorial at the Modelica Conference 2017</a>
+</p>
+</html>"),Diagram(coordinateSystem(extent={{-200,-100},{100,100}})),
+          Icon(coordinateSystem(extent={{-180,-100},{100,100}})));
+      end PositionControlledDCPM;
+
+      package Utilities "Utilities for controlled drives"
+        extends Modelica.Icons.UtilitiesPackage;
+        partial model PartialControlledDCPM
+          "Partial controlled DC PM drive with H-bridge from battery"
+          extends Modelica.Icons.Example;
+          replaceable parameter DriveDataDCPM driveData constrainedby
+            ControlledDCDrives.Utilities.DriveDataDCPM
+            annotation (Placement(transformation(extent={{20,-80},{40,-60}})));
+          Modelica.Mechanics.Rotational.Components.Inertia loadInertia(J=driveData.JL)
+            annotation (Placement(transformation(extent={{50,-50},{70,-30}})));
+          Modelica.Mechanics.Rotational.Sensors.SpeedSensor speedSensor annotation (
+              Placement(transformation(
+                extent={{-10,-10},{10,10}},
+                rotation=270,
+                origin={50,-70})));
+          Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_PermanentMagnet dcpm(
+            TaOperational=driveData.motorData.TaNominal,
+            VaNominal=driveData.motorData.VaNominal,
+            IaNominal=driveData.motorData.IaNominal,
+            wNominal=driveData.motorData.wNominal,
+            TaNominal=driveData.motorData.TaNominal,
+            Ra=driveData.motorData.Ra,
+            TaRef=driveData.motorData.TaRef,
+            La=driveData.motorData.La,
+            Jr=driveData.motorData.Jr,
+            frictionParameters=driveData.motorData.frictionParameters,
+            phiMechanical(fixed=true),
+            wMechanical(fixed=true),
+            coreParameters=driveData.motorData.coreParameters,
+            strayLoadParameters=driveData.motorData.strayLoadParameters,
+            brushParameters=driveData.motorData.brushParameters,
+            ia(fixed=true),
+            Js=driveData.motorData.Js,
+            alpha20a=driveData.motorData.alpha20a)
+            annotation (Placement(transformation(extent={{20,-50},{40,-30}})));
+          DcdcInverter armatureInverter(
+            fS=driveData.fS,
+            Td=driveData.Td,
+            Tmf=driveData.Tmf,
+            VMax=driveData.VaMax)
+            annotation (Placement(transformation(extent={{20,-20},{40,0}})));
+          Battery source(
+            INominal=driveData.motorData.IaNominal, V0=driveData.VBat)
+            annotation (Placement(transformation(
+                extent={{10,-10},{-10,10}},
+                rotation=180,
+                origin={30,80})));
+          LimitedPI currentController(
+            constantLimits=false,
+            k=driveData.kpI,
+            Ti=driveData.TiI,
+            KFF=driveData.kPhi,
+            initType=Modelica.Blocks.Types.Init.InitialOutput,
+            useFF=true)
+            annotation (Placement(transformation(extent={{-50,-20},{-30,0}})));
+          Modelica.Blocks.Math.Gain tau2i(k=1/driveData.kPhi) annotation (Placement(
+                transformation(
+                extent={{10,-10},{-10,10}},
+                rotation=180,
+                origin={-70,-10})));
+        equation
+          connect(dcpm.flange, loadInertia.flange_a)
+            annotation (Line(points={{40,-40},{50,-40}}));
+          connect(speedSensor.flange, dcpm.flange)
+            annotation (Line(points={{50,-60},{50,-40},{40,-40}}));
+          connect(armatureInverter.pin_nMot, dcpm.pin_an)
+            annotation (Line(points={{24,-20},{24,-30},{24,-30}},
+                                                         color={0,0,255}));
+          connect(armatureInverter.pin_pMot, dcpm.pin_ap)
+            annotation (Line(points={{36,-20},{36,-30},{36,-30}},
+                                                         color={0,0,255}));
+          connect(armatureInverter.vDC, currentController.yMaxVar)
+            annotation (Line(points={{19,-4},{-28,-4}}, color={0,0,127}));
+          connect(armatureInverter.vRef, currentController.y)
+            annotation (Line(points={{18,-10},{-29,-10}}, color={0,0,127}));
+          connect(armatureInverter.iMot, currentController.u_m) annotation (
+              Line(points={{19,-16},{-20,-16},{-20,-30},{-46,-30},{-46,-22}},
+                color={0,0,127}));
+          connect(speedSensor.w, currentController.feedForward) annotation (Line(
+                points={{50,-81},{50,-90},{-40,-90},{-40,-22}},
+                                                             color={0,0,127}));
+          connect(tau2i.y, currentController.u)
+            annotation (Line(points={{-59,-10},{-52,-10}}, color={0,0,127}));
+          connect(source.pin_n, armatureInverter.pin_nBat) annotation (Line(points={{24,70},
+                  {24,70},{24,0}},             color={0,0,255}));
+          connect(source.pin_p, armatureInverter.pin_pBat) annotation (Line(points={{36,70},
+                  {36,60},{36,60},{36,0}},     color={0,0,255}));
+          annotation (Documentation(info="<html>
+  <p>This is a partial model of a controlled DC PM drive.</p>
+<p>
+Electrical power is taken from a battery (constant voltage with inner resistance) and fed to the motor via a DC-DC inverter.
+The level of detail of the DC-DC inverter may be chosen from ideal averaging or switching.
+The DC-DC inverter is commanded by the current controller.
+The current controller is parameterized according to the absolute optimum.
+</p>
+<p>
+Further reading:
+<a href=\"modelica://Modelica/Resources/Documentation/Electrical/Machines/DriveControl.pdf\">Tutorial at the Modelica Conference 2017</a>
+</p>
+</html>"),  Diagram(coordinateSystem(extent={{-200,-100},{100,100}})),
+            Icon(coordinateSystem(extent={{-200,-100},{100,100}})));
+        end PartialControlledDCPM;
+
+        record DriveDataDCPM
+          "Parameters of a controlled DC permanent magnet drive"
+          extends Modelica.Icons.Record;
+          import Modelica.Electrical.Machines.Thermal.convertResistance;
+        //Motor
+          parameter Modelica.Electrical.Machines.Utilities.ParameterRecords.DcPermanentMagnetData
+            motorData "Motor data" annotation (Dialog(group="Motor"), Placement(
+                transformation(extent={{-10,-10},{10,10}})));
+          parameter Modelica.SIunits.Resistance Ra=convertResistance(motorData.Ra,
+              motorData.TaRef,motorData.alpha20a,motorData.TaNominal)
+            "Armature resistance at nominal temperature"
+            annotation(Dialog(group="Motor", enable=false));
+          parameter Modelica.SIunits.Time Ta=motorData.La/Ra "Armature time constant"
+            annotation(Dialog(group="Motor", enable=false));
+          parameter Modelica.SIunits.Power PNominal=motorData.ViNominal*motorData.IaNominal
+            -motorData.frictionParameters.PRef -motorData.coreParameters.PRef -motorData.strayLoadParameters.PRef
+            "Nominal mechanical output"
+            annotation(Dialog(group="Motor", enable=false));
+          parameter Modelica.SIunits.Torque tauNominal=PNominal/motorData.wNominal
+            "Nominal torque"
+            annotation(Dialog(group="Motor", enable=false));
+          parameter Modelica.SIunits.ElectricalTorqueConstant kPhi=tauNominal/motorData.IaNominal
+            "Torque constant"
+            annotation(Dialog(group="Motor", enable=false));
+          parameter Modelica.SIunits.AngularVelocity w0=motorData.wNominal*motorData.VaNominal/motorData.ViNominal
+            "No-load speed"
+          annotation(Dialog(group="Motor", enable=false));
+        //Inverter
+          parameter Modelica.SIunits.Frequency fS=2e3 "Switching frequency"
+            annotation(Dialog(tab="Inverter", group="Armature inverter"));
+          parameter Modelica.SIunits.Voltage VBat=VaMax "DC no-load voltage"
+            annotation(Dialog(tab="Inverter", group="Armature inverter"));
+          parameter Modelica.SIunits.Time Td=0.5/fS "Dead time of inverter"
+            annotation(Dialog(tab="Inverter", group="Armature inverter", enable=false));
+          parameter Modelica.SIunits.Time Tmf=4*Td "Measurement filter time constant"
+            annotation(Dialog(tab="Inverter", group="Armature inverter", enable=false));
+          parameter Modelica.SIunits.Time Tsigma=Td + Tmf "Sum of small time constants"
+            annotation(Dialog(tab="Inverter", group="Armature inverter", enable=false));
+        //Load
+          parameter Modelica.SIunits.Inertia JL=motorData.Jr "Load inertia"
+            annotation(Dialog(group="Load"));
+        //Limits
+          parameter Modelica.SIunits.Voltage VaMax=1.2*motorData.VaNominal "Maximum Voltage"
+            annotation(Dialog(tab="Controller", group="Limits"));
+          parameter Modelica.SIunits.Current IaMax=1.5*motorData.IaNominal "Maximum current"
+            annotation(Dialog(tab="Controller", group="Limits"));
+          parameter Modelica.SIunits.Torque tauMax=kPhi*IaMax "Maximum torque"
+            annotation(Dialog(tab="Controller", group="Limits", enable=false));
+          parameter Modelica.SIunits.AngularVelocity wMax=motorData.wNominal*motorData.VaNominal/motorData.ViNominal
+            "Maximum speed"
+            annotation(Dialog(tab="Controller", group="Limits"));
+          parameter Modelica.SIunits.AngularAcceleration aMax=tauMax/(JL +motorData.Jr)
+            "Maximum acceleration"
+            annotation(Dialog(tab="Controller", group="Limits", enable=false));
+        //Current controller: absolute optimum
+          parameter Real kpI=motorData.La/(2*Tsigma) "Proportional gain" annotation (
+              Dialog(
+              tab="Controller",
+              group="Current controller",
+              enable=false));
+          parameter Modelica.SIunits.Time TiI=Ta "Integral time constant"
+            annotation(Dialog(tab="Controller", group="Current controller", enable=false));
+          parameter Modelica.SIunits.Time Tsub=2*Tsigma "Substitute time constant"
+            annotation(Dialog(tab="Controller", group="Current controller", enable=false));
+        //Speed controller: symmetrical optimum
+          parameter Real kpw=(JL + motorData.Jr)/(2*Tsub) "Proportional gain"
+            annotation (Dialog(
+              tab="Controller",
+              group="Speed controller",
+              enable=false));
+          parameter Modelica.SIunits.Time Tiw=4*Tsub "Integral time constant"
+            annotation(Dialog(tab="Controller", group="Speed controller", enable=false));
+          parameter Modelica.SIunits.Time Tfw=Tiw "Filter time constant"
+            annotation(Dialog(tab="Controller", group="Speed controller", enable=false));
+        //Position controller
+          parameter Real kpP=1/(16*Tsub) "Proportional gain"
+            annotation(Dialog(tab="Controller", group="Position controller", enable=false));
+          annotation (
+            defaultComponentName="dcpmDriveData",
+            defaultComponentPrefixes="parameter",
+            Documentation(info="<html>
+<p>
+Calculates controller parameters of a DC permanent magnet drive:
+Current controller according to absolute optimum, speed controller according to symmetric optimum.
+</p>
+</html>"));
+        end DriveDataDCPM;
+
+        block LimitedPI
+          "Limited PI-controller with anti-windup and feedforward"
+          extends Modelica.Blocks.Interfaces.SISO;
+          import Modelica.Blocks.Types.Init;
+          import Modelica.Constants.inf;
+          Modelica.Blocks.Interfaces.RealInput u_m "Connector of measured signal"
+            annotation (Placement(transformation(
+                extent={{-20,-20},{20,20}},
+                rotation=90,
+                origin={-60,-120})));
+          Modelica.Blocks.Interfaces.RealInput feedForward if useFF
+            "Connector of feedforward signal"
+            annotation (
+              Placement(transformation(
+                extent={{-20,-20},{20,20}},
+                rotation=90,
+                origin={0,-120}), iconTransformation(
+                extent={{-20,-20},{20,20}},
+                rotation=90,
+                origin={0,-120})));
+          Modelica.Blocks.Interfaces.RealInput kFF if useFF and not useConstantKFF
+            "Connector of feedforward factor" annotation (Placement(transformation(
+                extent={{-20,-20},{20,20}},
+                rotation=90,
+                origin={60,-120}), iconTransformation(
+                extent={{-20,-20},{20,20}},
+                rotation=90,
+                origin={60,-120})));
+          Modelica.Blocks.Interfaces.RealInput yMaxVar if not constantLimits
+            "Connector of yMax input signal" annotation (Placement(transformation(
+                origin={120,60},
+                extent={{20,-20},{-20,20}},
+                rotation=0)));
+          Modelica.Blocks.Interfaces.RealInput yMinVar if not constantLimits and not symmetricLimits
+            "Connector of yMin input signal" annotation (Placement(transformation(
+                origin={120,-60},
+                extent={{20,-20},{-20,20}},
+                rotation=0)));
+          output Real controlError = u - u_m
+            "Control error (set point - measurement)";
+          parameter Real k(unit="1")=1 "Gain";
+          parameter Boolean useI=true "PI else P" annotation(Evaluate=true);
+          parameter Modelica.SIunits.Time Ti(min=Modelica.Constants.small)=1
+            "Integral time constant (T>0 required)" annotation(Dialog(enable=useI));
+          parameter Boolean useFF=false "Use FeedForward?"
+            annotation(Dialog(group="FeedForward"));
+          parameter Boolean useConstantKFF=true "Use constant FeedForward factor?"
+            annotation(Dialog(group="FeedForward", enable=useFF));
+          parameter Real KFF(unit="1")=1 "FeedForward gain"
+            annotation(Dialog(group="FeedForward", enable=useFF and useConstantKFF));
+          parameter Boolean constantLimits=true "Use constant limits?"
+            annotation(Dialog(group="Limitation"));
+          parameter Boolean symmetricLimits=true "Use symmetric limits?"
+            annotation(Dialog(group="Limitation"));
+          parameter Real yMax = inf "Upper limit of output"
+            annotation(Dialog(group="Limitation", enable=constantLimits));
+          parameter Real yMin=-yMax "Lower limit of output"
+            annotation(Dialog(group="Limitation", enable=constantLimits and not symmetricLimits));
+          parameter Modelica.Blocks.Types.Init initType=Modelica.Blocks.Types.Init.NoInit
+            "Type of initialization (1: no init, 2: steady state, 3: initial state, 4: initial output)"
+            annotation(Evaluate=true,
+              Dialog(group="Initialization"));
+          parameter Real x_start=0 "Initial or guess value of state"
+            annotation (Dialog(group="Initialization"));
+          parameter Real y_start=0 "Initial value of output"
+            annotation(Dialog(enable=initType == Init.SteadyState or initType == Init.InitialOutput, group=
+                  "Initialization"));
+          Modelica.Blocks.Math.Feedback feedback annotation (Placement(transformation(
+                extent={{-10,-10},{10,10}},
+                rotation=0,
+                origin={-80,0})));
+
+          Modelica.Blocks.Math.Add addAntiWindup(k1=1, k2=-1/k)
+            annotation (Placement(transformation(extent={{-50,-30},{-30,-10}})));
+          Modelica.Blocks.Continuous.Integrator integrator(k=1/Ti, initType=Modelica.Blocks.Types.Init.NoInit) if useI
+            annotation (Placement(transformation(extent={{-20,-30},{0,-10}})));
+          Modelica.Blocks.Math.Add3 add3(
+            k1=k,
+            k2=k,
+            k3=1)
+            annotation (Placement(transformation(extent={{20,-10},{40,10}})));
+          Modelica.Blocks.Nonlinear.VariableLimiter variableLimiter
+            annotation (Placement(transformation(extent={{70,-10},{90,10}})));
+          Modelica.Blocks.Math.Feedback addSat annotation (Placement(transformation(
+                extent={{-10,10},{10,-10}},
+                rotation=270,
+                origin={50,-20})));
+          Modelica.Blocks.Math.Product product annotation (Placement(transformation(
+                extent={{-10,-10},{10,10}},
+                rotation=90,
+                origin={10,-70})));
+        protected
+          Modelica.Blocks.Sources.Constant zeroI(k=0) if not useI
+            annotation (Placement(transformation(extent={{-20,20},{0,40}})));
+          Modelica.Blocks.Sources.Constant zeroFF(k=0) if not useFF
+            annotation (Placement(transformation(extent={{-30,-100},{-10,-80}})));
+          Modelica.Blocks.Sources.Constant constantKFF(k=KFF) if not useFF or
+            useConstantKFF
+            annotation (Placement(transformation(extent={{90,-100},{70,-80}})));
+          Modelica.Blocks.Sources.Constant yMaxConst(k=yMax) if constantLimits
+            annotation (Placement(transformation(extent={{40,50},{60,70}})));
+          Modelica.Blocks.Sources.Constant yMinConst(k=yMin) if constantLimits and not symmetricLimits
+            annotation (Placement(transformation(extent={{40,-70},{60,-50}})));
+          Modelica.Blocks.Math.Gain gain(k=-1) if symmetricLimits annotation (
+              Placement(transformation(
+                extent={{-4,-4},{4,4}},
+                rotation=270,
+                origin={58,10})));
+
+        initial equation
+          if initType == Init.SteadyState and useI then
+            der(add3.u2) = 0;
+          elseif initType == Init.InitialState and useI then
+            add3.u2 = x_start;
+          elseif initType == Init.InitialOutput then
+            add3.y = y_start;
+          end if;
+
+        equation
+          connect(addAntiWindup.y, integrator.u) annotation (Line(points={{-29,-20},
+                  {-22,-20}},      color={0,0,127}));
+          connect(integrator.y, add3.u2) annotation (Line(points={{1,-20},{6,-20},{
+                  6,0},{18,0}},
+                              color={0,0,127}));
+          connect(add3.y, variableLimiter.u)
+            annotation (Line(points={{41,0},{68,0}}, color={0,0,127}));
+          connect(variableLimiter.y, y)
+            annotation (Line(points={{91,0},{110,0}}, color={0,0,127}));
+          connect(add3.y, addSat.u1)
+            annotation (Line(points={{41,0},{50,0},{50,-12}}, color={0,0,127}));
+          connect(variableLimiter.y, addSat.u2) annotation (Line(points={{91,0},{94,
+                  0},{94,-20},{58,-20}},
+                                     color={0,0,127}));
+          connect(add3.u2, zeroI.y) annotation (Line(points={{18,0},{6,0},{6,30},{1,30}},
+                         color={0,0,127}));
+          connect(u, feedback.u1)
+            annotation (Line(points={{-120,0},{-88,0}}, color={0,0,127}));
+          connect(feedback.y, add3.u1) annotation (Line(points={{-71,0},{-60,0},{
+                  -60,8},{18,8}},
+                           color={0,0,127}));
+          connect(feedback.y, addAntiWindup.u1) annotation (Line(points={{-71,0},{
+                  -60,0},{-60,-14},{-52,-14}},
+                                        color={0,0,127}));
+          connect(u_m, feedback.u2) annotation (Line(points={{-60,-120},{-60,-90},{
+                  -80,-90},{-80,-8}},
+                             color={0,0,127}));
+          connect(addSat.y, addAntiWindup.u2) annotation (Line(points={{50,-29},{50,
+                  -40},{-60,-40},{-60,-26},{-52,-26}}, color={0,0,127}));
+          connect(yMinVar, variableLimiter.limit2) annotation (Line(points={{120,
+                  -60},{64,-60},{64,-8},{68,-8}}, color={0,0,127}));
+          connect(variableLimiter.limit2, yMinConst.y) annotation (Line(points={{68,
+                  -8},{64,-8},{64,-60},{61,-60}}, color={0,0,127}));
+          connect(yMaxVar, variableLimiter.limit1) annotation (Line(points={{120,60},
+                  {64,60},{64,8},{68,8}}, color={0,0,127}));
+          connect(variableLimiter.limit1, yMaxConst.y) annotation (Line(points={{68,
+                  8},{64,8},{64,60},{61,60}}, color={0,0,127}));
+          connect(variableLimiter.limit2, gain.y)
+            annotation (Line(points={{68,-8},{58,-8},{58,5.6}}, color={0,0,127}));
+          connect(variableLimiter.limit1, gain.u) annotation (Line(points={{68,8},{
+                  64,8},{64,20},{58,20},{58,14.8}},
+                                              color={0,0,127}));
+          connect(product.y, add3.u3)
+            annotation (Line(points={{10,-59},{10,-8},{18,-8}}, color={0,0,127}));
+          connect(feedForward, product.u1) annotation (Line(points={{0,-120},{0,-90},{4,
+                  -90},{4,-82}}, color={0,0,127}));
+          connect(product.u1, zeroFF.y)
+            annotation (Line(points={{4,-82},{4,-90},{-9,-90}}, color={0,0,127}));
+          connect(constantKFF.y, product.u2)
+            annotation (Line(points={{69,-90},{16,-90},{16,-82}}, color={0,0,127}));
+          connect(product.u2, kFF) annotation (Line(points={{16,-82},{16,-90},{60,-90},{
+                  60,-120}}, color={0,0,127}));
+          annotation (Icon(coordinateSystem(preserveAspectRatio=false), graphics={
+                Polygon(
+                  points={{-80,90},{-88,68},{-72,68},{-80,90}},
+                  lineColor={192,192,192},
+                  fillColor={192,192,192},
+                  fillPattern=FillPattern.Solid),
+                Line(points={{-80,78},{-80,-90}}, color={192,192,192}),
+                Line(visible=useI, points={{-80,-80},{-80,-20},{40.8594,66.3281},
+                      {60,66}},                                          color = {0,0,127}),
+                Line(points={{-90,-80},{82,-80}}, color={192,192,192}),
+                Polygon(
+                  points={{90,-80},{68,-72},{68,-88},{90,-80}},
+                  lineColor={192,192,192},
+                  fillColor={192,192,192},
+                  fillPattern=FillPattern.Solid),
+                Text(
+                  extent={{0,6},{60,-56}},
+                  lineColor={192,192,192},
+                  textString="PI", visible=useI),
+                Text(
+                  extent={{0,6},{60,-56}},
+                  lineColor={192,192,192},
+                  textString="P", visible=not useI),
+                Line(visible=not useI, points={{-80,-80},{-80,24},{56,24}},  color = {0,0,127})}),
+                                                       Diagram(
+                coordinateSystem(preserveAspectRatio=false)),
+            Documentation(info="<html>
+<p>
+Proportional - Integral - controller with optional feed-forward and limitation at the output.
+</p>
+<p>
+The integral part can be switched off to obtain a limited P-controller.
+</p>
+<p>
+The feed-forward gain can either be constant or given by the optional input kFF.
+</p>
+<p>
+When the output is limited, the controller cannot bring the control error to zero and the integrator will not stop integrating.
+To avoid this <strong>WindUp</strong> - effect, an <strong>Anti-WindUp</strong> loop is implemented:
+The difference between unlimited and limited output is fed back to the integrator's input.
+</p>
+</html>"));
+        end LimitedPI;
+
+        model Battery "Simple battery model"
+          parameter Modelica.SIunits.Voltage V0 "No-load voltage";
+          parameter Modelica.SIunits.Current INominal "Nominal current";
+          parameter Modelica.SIunits.Resistance Ri=0.05*V0/INominal "Inner resistance";
+          Modelica.Electrical.Analog.Interfaces.PositivePin pin_p
+            annotation (Placement(transformation(extent={{50,110},{70,90}})));
+          Modelica.Electrical.Analog.Interfaces.NegativePin pin_n
+            annotation (Placement(transformation(extent={{-70,110},{-50,90}})));
+          Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
+                transformation(
+                extent={{-10,-10},{10,10}},
+                rotation=270,
+                origin={-90,80})));
+          Modelica.Electrical.Analog.Sources.ConstantVoltage constantVoltage(V=V0)
+            annotation (Placement(transformation(extent={{10,50},{-10,70}})));
+          Modelica.Electrical.Analog.Basic.Resistor resistor(R=Ri)
+            annotation (Placement(
+                transformation(
+                extent={{10,-10},{-10,10}},
+                rotation=270,
+                origin={60,70})));
+        equation
+          connect(ground.p, pin_n)
+            annotation (Line(points={{-80,80},{-60,80},{-60,100}}, color={0,0,255}));
+          connect(pin_n, constantVoltage.n)
+            annotation (Line(points={{-60,100},{-60,60},{-10,60}}, color={0,0,255}));
+          connect(constantVoltage.p, resistor.p)
+            annotation (Line(points={{10,60},{60,60}}, color={0,0,255}));
+          connect(resistor.n, pin_p)
+            annotation (Line(points={{60,80},{60,100}}, color={0,0,255}));
+          annotation (Icon(coordinateSystem(preserveAspectRatio=false), graphics={
+                                                Text(
+                extent={{-120,-100},{120,-140}},
+                textString="%name",
+                lineColor={0,0,255}),           Text(
+                extent={{-100,-60},{100,-80}},
+                lineColor={0,0,255},
+                  textString="V0=%V0"),
+                Rectangle(extent={{-70,90},{-50,80}}, lineColor={28,108,200}),
+                Rectangle(
+                  extent={{50,90},{70,80}},
+                  lineColor={28,108,200},
+                  fillColor={0,0,255},
+                  fillPattern=FillPattern.Solid),
+                Rectangle(
+                  extent={{-100,80},{100,-40}},
+                  lineColor={28,108,200},
+                  fillColor={0,0,255},
+                  fillPattern=FillPattern.Solid,
+                  radius=10),
+                Rectangle(
+                  extent={{-92,72},{-4,-32}},
+                  lineColor={28,108,200},
+                  fillColor={215,215,215},
+                  fillPattern=FillPattern.Solid),
+                Rectangle(
+                  extent={{4,72},{92,-32}},
+                  lineColor={28,108,200},
+                  fillColor={215,215,215},
+                  fillPattern=FillPattern.Solid)}),                      Diagram(
+                coordinateSystem(preserveAspectRatio=false)),
+            Documentation(info="<html>
+<p>
+This is a simple model of a DC-source resp. battery, consisting of a constant DC-voltage and an inner resistance.
+</p>
+</html>"));
+        end Battery;
+
+        model DcdcInverter "DC-DC inverter"
+          parameter Boolean useIdealInverter=true "Use ideal averaging inverter, otherwise switching inverter";
+          parameter Modelica.SIunits.Frequency fS "Switching frequency";
+          parameter Modelica.SIunits.Time Td=0.5/fS "Dead time";
+          parameter Modelica.SIunits.Time Tmf=2/fS "Measurement filter time constant";
+          parameter Modelica.SIunits.Voltage VMax "Maximum Voltage";
+          parameter Modelica.SIunits.Time Ti=1e-6 "Time constant of integral power controller"
+            annotation(Dialog(group="Averaging", enable=useIdealInverter));
+          parameter Modelica.SIunits.Resistance RonT=1e-05
+            "Transistor closed resistance"
+            annotation (Dialog(group="Switching", enable=not useIdealInverter));
+          parameter Modelica.SIunits.Conductance GoffT=1e-05
+            "Transistor opened conductance"
+            annotation (Dialog(group="Switching", enable=not useIdealInverter));
+          parameter Modelica.SIunits.Voltage VkneeT=0
+            "Transistor threshold voltage"
+            annotation (Dialog(group="Switching", enable=not useIdealInverter));
+          parameter Modelica.SIunits.Resistance RonD=1e-05
+            "Diode closed resistance"
+            annotation (Dialog(group="Switching", enable=not useIdealInverter));
+          parameter Modelica.SIunits.Conductance GoffD=1e-05
+            "Diode opened conductance"
+            annotation (Dialog(group="Switching", enable=not useIdealInverter));
+          parameter Modelica.SIunits.Voltage VkneeD=0 "Diode threshold voltage"
+            annotation (Dialog(group="Switching", enable=not useIdealInverter));
+          output Modelica.SIunits.Power pDC=vDC*iDC "DC power (from battery)";
+          output Modelica.SIunits.Power pMot=vMot*iMot "Power to motor";
+          Modelica.Electrical.Analog.Interfaces.PositivePin pin_pBat
+            annotation (Placement(transformation(extent={{50,110},{70,90}})));
+          Modelica.Electrical.Analog.Interfaces.NegativePin pin_nBat annotation (
+              Placement(transformation(extent={{-70,110},{-50,90}}),
+                iconTransformation(extent={{-70,110},{-50,90}})));
+          Modelica.Electrical.Analog.Interfaces.PositivePin pin_pMot
+            annotation (Placement(transformation(extent={{50,-110},{70,-90}})));
+          Modelica.Electrical.Analog.Interfaces.NegativePin pin_nMot
+            annotation (Placement(transformation(extent={{-70,-110},{-50,-90}})));
+
+          Modelica.Blocks.Interfaces.RealInput vRef
+            annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
+          Modelica.Blocks.Interfaces.RealOutput vDC annotation (Placement(
+                transformation(
+                extent={{-10,-10},{10,10}},
+                rotation=180,
+                origin={-110,60})));
+          Modelica.Blocks.Interfaces.RealOutput iDC annotation (Placement(
+                transformation(
+                extent={{10,-10},{-10,10}},
+                rotation=180,
+                origin={110,60})));
+
+          Modelica.Blocks.Interfaces.RealOutput vMot annotation (Placement(
+                transformation(
+                extent={{10,-10},{-10,10}},
+                rotation=180,
+                origin={110,-60})));
+          Modelica.Blocks.Interfaces.RealOutput iMot annotation (Placement(
+                transformation(
+                extent={{-10,-10},{10,10}},
+                rotation=180,
+                origin={-110,-60})));
+          Modelica.Electrical.Analog.Sensors.VoltageSensor vDCSensor annotation (
+              Placement(transformation(
+                extent={{-10,10},{10,-10}},
+                rotation=180,
+                origin={0,100})));
+          Modelica.Electrical.Analog.Sensors.CurrentSensor iMotSensor
+            annotation (Placement(transformation(extent={{-50,-70},{-30,-90}})));
+          Modelica.Blocks.Nonlinear.VariableLimiter variableLimiter
+            annotation (Placement(transformation(extent={{-70,-10},{-50,10}})));
+          Modelica.Blocks.Math.Gain gain(k=-1) annotation (Placement(transformation(
+                extent={{-6,-6},{6,6}},
+                rotation=270,
+                origin={-90,20})));
+          Modelica.Blocks.Continuous.FirstOrder vDCFilter(
+            k=1,
+            T=Tmf,
+            initType=Modelica.Blocks.Types.Init.InitialOutput,
+            y_start=VMax)
+            annotation (Placement(transformation(extent={{-60,50},{-80,70}})));
+          Modelica.Blocks.Continuous.FirstOrder iMotFilter(
+            k=1,
+            T=Tmf,
+            initType=Modelica.Blocks.Types.Init.InitialOutput,
+            y_start=0)
+            annotation (Placement(transformation(extent={{-60,-70},{-80,-50}})));
+          IdealDcDc idealDcDc(Td=Td, Ti=Ti) if useIdealInverter
+            annotation (Placement(transformation(extent={{10,-30},{30,-10}})));
+          SwitchingDcDc switchingDcDc(
+            fS=fS,
+            VMax=VMax,
+            RonT=RonT,
+            GoffT=GoffT,
+            VkneeT=VkneeT,
+            RonD=RonD,
+            GoffD=GoffD,
+            VkneeD=VkneeD) if not useIdealInverter
+            annotation (Placement(transformation(extent={{-30,10},{-10,30}})));
+          Modelica.Electrical.Analog.Sensors.CurrentSensor iDCSensor
+            annotation (Placement(transformation(extent={{50,70},{30,90}})));
+          Modelica.Electrical.Analog.Sensors.VoltageSensor vMotSensor annotation (
+              Placement(transformation(
+                extent={{-10,-10},{10,10}},
+                rotation=180,
+                origin={0,-100})));
+          Modelica.Blocks.Continuous.FirstOrder vMotFilter(
+            k=1,
+            T=Tmf,
+            initType=Modelica.Blocks.Types.Init.InitialOutput,
+            y_start=0)
+            annotation (Placement(transformation(extent={{60,-70},{80,-50}})));
+          Modelica.Blocks.Continuous.FirstOrder iDCFilter(
+            k=1,
+            T=Tmf,
+            initType=Modelica.Blocks.Types.Init.InitialOutput,
+            y_start=VMax)
+            annotation (Placement(transformation(extent={{60,50},{80,70}})));
+        equation
+          connect(iMotSensor.p, pin_nMot) annotation (Line(points={{-50,-80},{
+                  -60,-80},{-60,-100}},
+                              color={0,0,255}));
+          connect(vRef, variableLimiter.u)
+            annotation (Line(points={{-120,0},{-72,0}}, color={0,0,127}));
+          connect(gain.y, variableLimiter.limit2)
+            annotation (Line(points={{-90,13.4},{-90,-8},{-72,-8}}, color={0,0,127}));
+          connect(iMotSensor.i, iMotFilter.u)
+            annotation (Line(points={{-40,-69},{-40,-60},{-58,-60}}, color={0,0,127}));
+          connect(iMotFilter.y, iMot)
+            annotation (Line(points={{-81,-60},{-110,-60}}, color={0,0,127}));
+          connect(vDCFilter.y, vDC)
+            annotation (Line(points={{-81,60},{-110,60}}, color={0,0,127}));
+          connect(vDCFilter.y, gain.u)
+            annotation (Line(points={{-81,60},{-90,60},{-90,27.2}}, color={0,0,127}));
+          connect(vDCFilter.y, variableLimiter.limit1) annotation (Line(points={{-81,60},
+                  {-90,60},{-90,40},{-80,40},{-80,8},{-72,8}}, color={0,0,127}));
+          connect(variableLimiter.y, idealDcDc.vRef) annotation (Line(points={{-49,0},{-40,
+                  0},{-40,-20},{8,-20}},              color={0,0,127}));
+          connect(variableLimiter.y, switchingDcDc.vRef) annotation (Line(
+                points={{-49,0},{-40,0},{-40,20},{-32,20}}, color={0,0,127}));
+          connect(vDCFilter.y, switchingDcDc.vMax) annotation (Line(points={{-81,60},{-90,
+                  60},{-90,40},{-40,40},{-40,26},{-32,26}}, color={0,0,127}));
+          connect(iDCSensor.p, pin_pBat)
+            annotation (Line(points={{50,80},{60,80},{60,100}}, color={0,0,255}));
+          connect(iMotSensor.n, switchingDcDc.pin_nMot)
+            annotation (Line(points={{-30,-80},{-30,-80},{-30,10}}, color={0,0,255}));
+          connect(vMotFilter.y, vMot)
+            annotation (Line(points={{81,-60},{110,-60}}, color={0,0,127}));
+          connect(iDCSensor.i, iDCFilter.u)
+            annotation (Line(points={{40,69},{40,60},{58,60}}, color={0,0,127}));
+          connect(iDCFilter.y, iDC)
+            annotation (Line(points={{81,60},{110,60}}, color={0,0,127}));
+          connect(idealDcDc.pin_pBat, iDCSensor.n)
+            annotation (Line(points={{30,-10},{30,80}}, color={0,0,255}));
+          connect(pin_nBat, switchingDcDc.pin_nBat)
+            annotation (Line(points={{-60,100},{-30,100},{-30,30}}, color={0,0,255}));
+          connect(pin_nBat, idealDcDc.pin_nBat) annotation (Line(points={{-60,100},
+                  {-30,100},{-30,80},{10,80},{10,-10}},
+                                                   color={0,0,255}));
+          connect(iDCSensor.n, switchingDcDc.pin_pBat) annotation (Line(points={{30,80},
+                  {30,40},{-10,40},{-10,30}}, color={0,0,255}));
+          connect(iMotSensor.n, idealDcDc.pin_nMot) annotation (Line(points={{-30,-80},{
+                  -30,-40},{10,-40},{10,-30}}, color={0,0,255}));
+          connect(idealDcDc.pin_pMot, pin_pMot) annotation (Line(points={{30,
+                  -30.2},{30,-80},{60,-80},{60,-100}},
+                                            color={0,0,255}));
+          connect(pin_pMot, switchingDcDc.pin_pMot) annotation (Line(points={{60,-100},
+                  {60,-80},{-10,-80},{-10,10}},color={0,0,255}));
+          connect(pin_nBat, vDCSensor.n)
+            annotation (Line(points={{-60,100},{-10,100}}, color={0,0,255}));
+          connect(pin_pBat, vDCSensor.p)
+            annotation (Line(points={{60,100},{10,100}}, color={0,0,255}));
+          connect(pin_nMot, vMotSensor.n)
+            annotation (Line(points={{-60,-100},{-10,-100}}, color={0,0,255}));
+          connect(pin_pMot, vMotSensor.p)
+            annotation (Line(points={{60,-100},{10,-100}}, color={0,0,255}));
+          connect(vMotFilter.u, vMotSensor.v)
+            annotation (Line(points={{58,-60},{0,-60},{0,-89}}, color={0,0,127}));
+          connect(vDCFilter.u, vDCSensor.v)
+            annotation (Line(points={{-58,60},{0,60},{0,89}}, color={0,0,127}));
+          annotation (Icon(coordinateSystem(preserveAspectRatio=false), graphics={
+                Rectangle(
+                  extent={{-100,100},{100,-100}},
+                  lineColor={0,0,255},
+                  fillColor={255,255,255},
+                  fillPattern=FillPattern.Solid),
+                Text(
+                  extent={{-98,20},{98,-20}},
+                  lineColor={0,0,255},
+                  textString="%name"),
+                Text(
+                  extent={{-40,80},{40,60}},
+                  lineColor={128,128,128},
+                  textString="Bat"),
+                Text(
+                  extent={{-40,-60},{40,-80}},
+                  lineColor={128,128,128},
+                  textString="Mot"),
+                Line(points={{-20,-20},{-100,-100}}, color={0,0,255}),
+                Line(points={{100,100},{20,20}},     color={0,0,255}),
+                Rectangle(visible=not useIdealInverter,
+                  extent={{-98,98},{98,-98}},
+                  lineColor={217,67,180}),
+                Line(visible=not useIdealInverter, points={{-20,-20},{-98,-98}},   color={217,67,180}),
+                Line(visible=not useIdealInverter, points={{98,98},{20,20}},       color={217,67,180}),
+                Text(
+                  extent={{-100,70},{-80,50}},
+                  lineColor={128,128,128},
+                  textString="v"),
+                Text(
+                  extent={{80,-50},{100,-70}},
+                  lineColor={128,128,128},
+                  textString="v"),
+                Text(
+                  extent={{80,70},{100,50}},
+                  lineColor={128,128,128},
+                  textString="i"),
+                Text(
+                  extent={{-100,-50},{-80,-70}},
+                  lineColor={128,128,128},
+                  textString="i")}),                                     Diagram(
+                coordinateSystem(preserveAspectRatio=false)),
+            Documentation(info="<html>
+<p>This is a model of a DC-DC inverter. The level of detail of the DC-DC inverter may be chosen from ideal averaging or switching.</p>
+<p>Reference voltage is limited to actual battery voltage.</p>
+<p>Battery voltage and motor current are measured.</p>
+</html>"));
+        end DcdcInverter;
+
+        model IdealDcDc "Ideal DC-DC inverter"
+          parameter Modelica.SIunits.Time Td "Dead time";
+          parameter Modelica.SIunits.Time Ti=1e-6 "Time constant of integral power controller";
+          Modelica.Electrical.Analog.Sources.SignalVoltage signalVoltage
+            annotation (Placement(transformation(extent={{10,-80},{-10,-60}})));
+          Modelica.Electrical.Analog.Sources.SignalCurrent signalCurrent annotation (
+              Placement(transformation(
+                extent={{-10,-10},{10,10}},
+                rotation=180,
+                origin={0,70})));
+          Modelica.Electrical.Analog.Sensors.PowerSensor powerBat
+            annotation (Placement(transformation(extent={{40,80},{20,60}})));
+          Modelica.Electrical.Analog.Sensors.PowerSensor powerMot annotation (Placement(
+                transformation(
+                extent={{10,10},{-10,-10}},
+                rotation=180,
+                origin={30,-70})));
+          Modelica.Blocks.Continuous.FirstOrder deadTime(
+            k=1,
+            initType=Modelica.Blocks.Types.Init.InitialOutput,
+            y_start=0,
+            T=Td) annotation (Placement(transformation(extent={{-30,-10},{-10,10}})));
+          Modelica.Blocks.Math.Feedback feedback annotation (Placement(transformation(
+                extent={{-10,-10},{10,10}},
+                rotation=90,
+                origin={50,0})));
+          Modelica.Blocks.Continuous.Integrator powerController(
+            initType=Modelica.Blocks.Types.Init.InitialOutput,
+            y_start=0,
+            k=1/Ti) annotation (Placement(transformation(extent={{30,10},{10,30}})));
+          Modelica.Electrical.Analog.Basic.Ground groundMotor annotation (Placement(
+                transformation(
+                extent={{-10,10},{10,-10}},
+                rotation=270,
+                origin={-80,-80})));
+          Modelica.Electrical.Analog.Interfaces.NegativePin pin_nBat annotation (
+              Placement(transformation(extent={{-110,110},{-90,90}}),
+                iconTransformation(extent={{-110,110},{-90,90}})));
+          Modelica.Electrical.Analog.Interfaces.PositivePin pin_pBat
+            annotation (Placement(transformation(extent={{90,110},{110,90}})));
+          Modelica.Electrical.Analog.Interfaces.NegativePin pin_nMot
+            annotation (Placement(transformation(extent={{-110,-110},{-90,-90}})));
+          Modelica.Electrical.Analog.Interfaces.PositivePin pin_pMot
+            annotation (Placement(transformation(extent={{90,-112},{110,-92}})));
+          Modelica.Blocks.Interfaces.RealInput vRef
+            annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
+        equation
+          connect(signalCurrent.p, powerBat.nc)
+            annotation (Line(points={{10,70},{20,70}},         color={0,0,255}));
+          connect(powerBat.pv, powerBat.pc)
+            annotation (Line(points={{30,60},{40,60},{40,70}}, color={0,0,255}));
+          connect(signalVoltage.p, powerMot.pc)
+            annotation (Line(points={{10,-70},{20,-70}},          color={0,0,255}));
+          connect(powerMot.pc, powerMot.pv)
+            annotation (Line(points={{20,-70},{20,-60},{30,-60}}, color={0,0,255}));
+          connect(powerBat.power, feedback.u2) annotation (Line(points={{40,81},
+                  {40,88},{70,88},{70,-4.44089e-16},{58,-4.44089e-16}},
+                                          color={0,0,127}));
+          connect(powerMot.power, feedback.u1) annotation (Line(points={{20,-81},
+                  {20,-88},{50,-88},{50,-8}},
+                                     color={0,0,127}));
+          connect(feedback.y, powerController.u) annotation (Line(points={{50,9},
+                  {50,20},{32,20}}, color={0,0,127}));
+          connect(powerController.y, signalCurrent.i)
+            annotation (Line(points={{9,20},{0,20},{0,58}}, color={0,0,127}));
+          connect(pin_nBat, signalCurrent.n) annotation (Line(points={{-100,100},
+                  {-100,70},{-10,70}},          color={0,0,255}));
+          connect(pin_pBat, powerBat.pc) annotation (Line(points={{100,100},{
+                  100,70},{40,70}}, color={0,0,255}));
+          connect(pin_nBat, powerBat.nv) annotation (Line(points={{-100,100},{
+                  30,100},{30,80}}, color={0,0,255}));
+          connect(pin_nMot, powerMot.nv) annotation (Line(points={{-100,-100},{
+                  30,-100},{30,-80}}, color={0,0,255}));
+          connect(pin_pMot, powerMot.nc) annotation (Line(points={{100,-102},{
+                  100,-70},{40,-70}},
+                                  color={0,0,255}));
+          connect(pin_nMot, groundMotor.p) annotation (Line(points={{-100,-100},
+                  {-100,-80},{-90,-80}},color={0,0,255}));
+          connect(deadTime.y, signalVoltage.v)
+            annotation (Line(points={{-9,0},{0,0},{0,-58}}, color={0,0,127}));
+          connect(vRef, deadTime.u)
+            annotation (Line(points={{-120,0},{-32,0}}, color={0,0,127}));
+          connect(signalVoltage.n, pin_nMot) annotation (Line(points={{-10,-70},
+                  {-100,-70},{-100,-100}},
+                                         color={0,0,255}));
+          annotation (Icon(coordinateSystem(preserveAspectRatio=false), graphics={
+                Rectangle(
+                  extent={{-100,100},{100,-100}},
+                  lineColor={0,0,255},
+                  fillColor={255,255,255},
+                  fillPattern=FillPattern.Solid),
+                Line(points={{100,100},{20,20}},     color={0,0,255}),
+                Line(points={{-20,-20},{-100,-100}}, color={0,0,255}),
+                Text(
+                  extent={{-40,80},{40,60}},
+                  lineColor={128,128,128},
+                  textString="Bat"),
+                Text(
+                  extent={{-100,20},{100,-20}},
+                  lineColor={0,0,255},
+                  textString="%name"),
+                Text(
+                  extent={{-40,-60},{40,-80}},
+                  lineColor={128,128,128},
+                  textString="Mot")}),                                   Diagram(
+                coordinateSystem(preserveAspectRatio=false)),
+            Documentation(info="<html>
+<p>This is a model of an ideal DC-DC inverter based on a power balance achieved by an integral controller.</p>
+</html>"));
+        end IdealDcDc;
+
+        model SwitchingDcDc "Switching DC-DC inverter"
+          parameter Modelica.SIunits.Frequency fS "Switching frequency";
+          parameter Modelica.SIunits.Voltage VMax "Maximum Voltage";
+          parameter Modelica.SIunits.Resistance RonT=1e-05
+            "Transistor closed resistance";
+          parameter Modelica.SIunits.Conductance GoffT=1e-05
+            "Transistor opened conductance";
+          parameter Modelica.SIunits.Voltage VkneeT=0
+            "Transistor threshold voltage";
+          parameter Modelica.SIunits.Resistance RonD=1e-05
+            "Diode closed resistance";
+          parameter Modelica.SIunits.Conductance GoffD=1e-05
+            "Diode opened conductance";
+          parameter Modelica.SIunits.Voltage VkneeD=0 "Diode threshold voltage";
+          Modelica.Electrical.PowerConverters.DCDC.Control.VoltageToDutyCycle
+            adaptor(useConstantMaximumVoltage=false, vMax=VMax)
+            annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
+          Modelica.Electrical.PowerConverters.DCDC.Control.SignalPWM pwm(
+              useConstantDutyCycle=false, f=fS) annotation (Placement(
+                transformation(
+                extent={{-10,-10},{10,10}},
+                rotation=270,
+                origin={-30,-20})));
+          Modelica.Electrical.PowerConverters.DCDC.HBridge dcdc(
+            RonTransistor=RonT,
+            GoffTransistor=GoffT,
+            VkneeTransistor=VkneeT,
+            RonDiode=RonD,
+            GoffDiode=GoffD,
+            VkneeDiode=VkneeD)                                  annotation (
+              Placement(transformation(
+                extent={{-10,-10},{10,10}},
+                rotation=270,
+                origin={0,-20})));
+          Modelica.Electrical.Analog.Interfaces.NegativePin pin_nBat annotation (
+              Placement(transformation(extent={{-110,110},{-90,90}}),
+                iconTransformation(extent={{-110,110},{-90,90}})));
+          Modelica.Electrical.Analog.Interfaces.PositivePin pin_pBat
+            annotation (Placement(transformation(extent={{90,110},{110,90}})));
+          Modelica.Electrical.Analog.Interfaces.PositivePin pin_pMot
+            annotation (Placement(transformation(extent={{90,-110},{110,-90}})));
+          Modelica.Electrical.Analog.Interfaces.NegativePin pin_nMot
+            annotation (Placement(transformation(extent={{-110,-110},{-90,-90}})));
+          Modelica.Blocks.Interfaces.RealInput vRef
+            annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
+          Modelica.Blocks.Interfaces.RealInput vMax
+            annotation (Placement(transformation(extent={{-140,40},{-100,80}})));
+        equation
+          connect(adaptor.dutyCycle, pwm.dutyCycle)
+            annotation (Line(points={{-39,0},{-30,0},{-30,-8}},
+                                                           color={0,0,127}));
+          connect(pwm.fire, dcdc.fire_p)
+            annotation (Line(points={{-19,-14},{-12,-14}},
+                                                         color={255,0,255}));
+          connect(pwm.notFire, dcdc.fire_n)
+            annotation (Line(points={{-19,-26},{-12,-26}},
+                                                         color={255,0,255}));
+          connect(pin_nBat, dcdc.dc_n1) annotation (Line(points={{-100,100},{-100,70},{-6,
+                  70},{-6,-10}},                       color={0,0,255}));
+          connect(pin_pBat, dcdc.dc_p1) annotation (Line(points={{100,100},{100,70},{6,70},
+                  {6,-10}},              color={0,0,255}));
+          connect(dcdc.dc_p2, pin_pMot) annotation (Line(points={{6,-30},{6,-70},
+                  {100,-70},{100,-100}},    color={0,0,255}));
+          connect(pin_nMot, dcdc.dc_n2) annotation (Line(points={{-100,-100},{
+                  -100,-68},{-6,-68},{-6,-30}},
+                                  color={0,0,255}));
+          connect(vRef, adaptor.v)
+            annotation (Line(points={{-120,0},{-62,0}}, color={0,0,127}));
+          connect(vMax, adaptor.vMaxExt)
+            annotation (Line(points={{-120,60},{-50,60},{-50,12}}, color={0,0,127}));
+          annotation (Icon(coordinateSystem(preserveAspectRatio=false), graphics={
+                Rectangle(
+                  extent={{-98,98},{98,-98}},
+                  lineColor={217,67,180},
+                  fillColor={255,255,255},
+                  fillPattern=FillPattern.Solid),
+                Line(points={{98,98},{20,20}},       color={217,67,180}),
+                Line(points={{-20,-20},{-98,-98}},   color={217,67,180}),
+                Text(
+                  extent={{-40,80},{40,60}},
+                  lineColor={128,128,128},
+                  textString="Bat"),
+                Text(
+                  extent={{-100,20},{100,-20}},
+                  lineColor={0,0,255},
+                  textString="%name"),
+                Text(
+                  extent={{-40,-60},{40,-80}},
+                  lineColor={128,128,128},
+                  textString="Mot")}),                                   Diagram(
+                coordinateSystem(preserveAspectRatio=false)),
+            Documentation(info="<html>
+<p>This is a model of a switching DC-DC inverter based on a H-bridge.</p>
+</html>"));
+        end SwitchingDcDc;
+
+        annotation (Documentation(info="<html>
+<p>This package contains utilities for controlled drives</p>
+</html>"));
+      end Utilities;
+      annotation (Documentation(info="<html>
+This package contains test examples demonstrating control of electric drives.
+</html>"));
+    end ControlledDCDrives;
+
     package Transformers "Test examples of transformers"
       extends Modelica.Icons.ExamplesPackage;
-      model TransformerTestbench "Transformer Testbench"
+      model TransformerTestbench "Transformer test bench"
         extends Modelica.Icons.Example;
         parameter Modelica.SIunits.Resistance RL[3]=fill(1/3, 3)
           "Load resistance";
@@ -4670,7 +6090,7 @@ This package contains test examples of DC machines.
         connect(deltaL.plug_p, voltageRMSSensorL.plug_n) annotation (Line(
             points={{60,-10},{60,-30}}, color={0,0,255}));
         annotation (Documentation(info="<html>
-<h4>Transformer testbench:</h4>
+<h4>Transformer test bench:</h4>
 <p>
 You may choose different connections as well as vary the load (even not symmetrical).
 </p>
@@ -4692,7 +6112,7 @@ In some cases it may be necessary to ground the transformer's starpoint even tho
 </html>"), experiment(StopTime=0.1, Interval=1E-4, Tolerance=1E-6));
       end TransformerTestbench;
 
-      model AsymmetricalLoad "AsymmetricalLoad"
+      model AsymmetricalLoad "Asymmetrical load"
         extends Modelica.Icons.Example;
         parameter Modelica.SIunits.Resistance RL=1 "Load resistance";
         Modelica.Electrical.MultiPhase.Sources.SineVoltage source(freqHz=fill(
@@ -5046,7 +6466,7 @@ This package contains test examples of electric machines.
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><strong>Copyright:</strong></dt>
-  <dd>Copyright &copy; 1998-2016, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2018, Modelica Association and Anton Haumer.<br>
   <em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
   under the terms of the <strong>Modelica license</strong>, see the license conditions
   and the accompanying <strong>disclaimer</strong> in the documentation of package
@@ -5165,108 +6585,108 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
 <p><strong>Default values for machine's parameters (a realistic example) are:</strong><br></p>
 <table>
 <tr>
-<td valign=\"top\">number of pole pairs p</td>
-<td valign=\"top\">2</td><td valign=\"top\"> </td>
+<td>number of pole pairs p</td>
+<td>2</td><td> </td>
 </tr>
 <tr>
-<td valign=\"top\">stator's moment of inertia</td>
-<td valign=\"top\">0.29</td><td valign=\"top\">kg.m2</td>
+<td>stator's moment of inertia</td>
+<td>0.29</td><td>kg.m2</td>
 </tr>
 <tr>
-<td valign=\"top\">rotor's moment of inertia</td>
-<td valign=\"top\">0.29</td><td valign=\"top\">kg.m2</td>
+<td>rotor's moment of inertia</td>
+<td>0.29</td><td>kg.m2</td>
 </tr>
 <tr>
-<td valign=\"top\">nominal frequency fNominal</td>
-<td valign=\"top\">50</td><td valign=\"top\">Hz</td>
+<td>nominal frequency fNominal</td>
+<td>50</td><td>Hz</td>
 </tr>
 <tr>
-<td valign=\"top\">nominal voltage per phase</td>
-<td valign=\"top\">100</td><td valign=\"top\">V RMS</td>
+<td>nominal voltage per phase</td>
+<td>100</td><td>V RMS</td>
 </tr>
 <tr>
-<td valign=\"top\">nominal current per phase</td>
-<td valign=\"top\">100</td><td valign=\"top\">A RMS</td>
+<td>nominal current per phase</td>
+<td>100</td><td>A RMS</td>
 </tr>
 <tr>
-<td valign=\"top\">nominal torque</td>
-<td valign=\"top\">161.4</td><td valign=\"top\">Nm</td>
+<td>nominal torque</td>
+<td>161.4</td><td>Nm</td>
 </tr>
 <tr>
-<td valign=\"top\">nominal speed</td>
-<td valign=\"top\">1440.45</td><td valign=\"top\">rpm</td>
+<td>nominal speed</td>
+<td>1440.45</td><td>rpm</td>
 </tr>
 <tr>
-<td valign=\"top\">nominal mechanical output</td>
-<td valign=\"top\">24.346</td><td valign=\"top\">kW</td>
+<td>nominal mechanical output</td>
+<td>24.346</td><td>kW</td>
 </tr>
 <tr>
-<td valign=\"top\">efficiency</td>
-<td valign=\"top\">92.7</td><td valign=\"top\">%</td>
+<td>efficiency</td>
+<td>92.7</td><td>%</td>
 </tr>
 <tr>
-<td valign=\"top\">power factor</td>
-<td valign=\"top\">0.875</td><td valign=\"top\"> </td>
+<td>power factor</td>
+<td>0.875</td><td> </td>
 </tr>
 <tr>
-<td valign=\"top\">stator resistance</td>
-<td valign=\"top\">0.03</td><td valign=\"top\">Ohm per phase at reference temperature</td>
+<td>stator resistance</td>
+<td>0.03</td><td>Ohm per phase at reference temperature</td>
 </tr>
 <tr>
-<td valign=\"top\">reference temperature TsRef</td>
-<td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
+<td>reference temperature TsRef</td>
+<td>20</td><td>&deg;C</td>
 </tr>
 <tr>
-<td valign=\"top\">temperature coefficient alpha20s </td>
-<td valign=\"top\">0</td><td valign=\"top\">1/K</td>
+<td>temperature coefficient alpha20s </td>
+<td>0</td><td>1/K</td>
 </tr>
 <tr>
-<td valign=\"top\">rotor resistance</td>
-<td valign=\"top\">0.04</td><td valign=\"top\">Ohm at reference temperature</td>
+<td>rotor resistance</td>
+<td>0.04</td><td>Ohm at reference temperature</td>
 </tr>
 <tr>
-<td valign=\"top\">reference temperature TrRef</td>
-<td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
+<td>reference temperature TrRef</td>
+<td>20</td><td>&deg;C</td>
 </tr>
 <tr>
-<td valign=\"top\">temperature coefficient alpha20r </td>
-<td valign=\"top\">0</td><td valign=\"top\">1/K</td>
+<td>temperature coefficient alpha20r </td>
+<td>0</td><td>1/K</td>
 </tr>
 <tr>
-<td valign=\"top\">stator reactance Xs</td>
-<td valign=\"top\">3</td><td valign=\"top\">Ohm per phase</td>
+<td>stator reactance Xs</td>
+<td>3</td><td>Ohm per phase</td>
 </tr>
 <tr>
-<td valign=\"top\">rotor reactance Xr</td>
-<td valign=\"top\">3</td><td valign=\"top\">Ohm</td>
+<td>rotor reactance Xr</td>
+<td>3</td><td>Ohm</td>
 </tr>
 <tr>
-<td valign=\"top\">total stray coefficient sigma</td>
-<td valign=\"top\">0.0667</td><td valign=\"top\"> </td>
+<td>total stray coefficient sigma</td>
+<td>0.0667</td><td> </td>
 </tr>
 <tr>
-<td valign=\"top\">stator operational temperature TsOperational</td>
-<td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
+<td>stator operational temperature TsOperational</td>
+<td>20</td><td>&deg;C</td>
 </tr>
 <tr>
-<td valign=\"top\">rotor operational temperature TrOperational</td>
-<td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
+<td>rotor operational temperature TrOperational</td>
+<td>20</td><td>&deg;C</td>
 </tr>
 <tr>
-<td valign=\"top\">These values give the following inductances:</td>
-<td valign=\"top\"> </td><td valign=\"top\"> </td>
+<td>These values give the following inductances:</td>
+<td> </td><td> </td>
 </tr>
 <tr>
-<td valign=\"top\">stator stray inductance per phase</td>
-<td valign=\"top\">Xs * (1 - sqrt(1-sigma))/(2*pi*fNominal)</td><td valign=\"top\"> </td>
+<td>stator stray inductance per phase</td>
+<td>Xs * (1 - sqrt(1-sigma))/(2*pi*fNominal)</td><td> </td>
 </tr>
 <tr>
-<td valign=\"top\">rotor stray inductance</td>
-<td valign=\"top\">Xr * (1 - sqrt(1-sigma))/(2*pi*fNominal)</td><td valign=\"top\"> </td>
+<td>rotor stray inductance</td>
+<td>Xr * (1 - sqrt(1-sigma))/(2*pi*fNominal)</td><td> </td>
 </tr>
 <tr>
-<td valign=\"top\">main field inductance per phase</td>
-<td valign=\"top\">sqrt(Xs*Xr * (1-sigma))/(2*pi*fNominal)</td><td valign=\"top\"> </td>
+<td>main field inductance per phase</td>
+<td>sqrt(Xs*Xr * (1-sigma))/(2*pi*fNominal)</td><td> </td>
 </tr>
 </table>
 </html>"));
@@ -5442,117 +6862,117 @@ Resistance and stray inductance of stator and rotor are modeled directly in stat
 <p><strong>Default values for machine's parameters (a realistic example) are:</strong><br></p>
 <table>
 <tr>
-<td valign=\"top\">number of pole pairs p</td>
-<td valign=\"top\">2</td><td valign=\"top\"> </td>
+<td>number of pole pairs p</td>
+<td>2</td><td> </td>
 </tr>
 <tr>
-<td valign=\"top\">stator's moment of inertia</td>
-<td valign=\"top\">0.29</td><td valign=\"top\">kg.m2</td>
+<td>stator's moment of inertia</td>
+<td>0.29</td><td>kg.m2</td>
 </tr>
 <tr>
-<td valign=\"top\">rotor's moment of inertia</td>
-<td valign=\"top\">0.29</td><td valign=\"top\">kg.m2</td>
+<td>rotor's moment of inertia</td>
+<td>0.29</td><td>kg.m2</td>
 </tr>
 <tr>
-<td valign=\"top\">nominal frequency fNominal</td>
-<td valign=\"top\">50</td><td valign=\"top\">Hz</td>
+<td>nominal frequency fNominal</td>
+<td>50</td><td>Hz</td>
 </tr>
 <tr>
-<td valign=\"top\">nominal voltage per phase</td>
-<td valign=\"top\">100</td><td valign=\"top\">V RMS</td>
+<td>nominal voltage per phase</td>
+<td>100</td><td>V RMS</td>
 </tr>
 <tr>
-<td valign=\"top\">nominal current per phase</td>
-<td valign=\"top\">100</td><td valign=\"top\">A RMS</td>
+<td>nominal current per phase</td>
+<td>100</td><td>A RMS</td>
 </tr>
 <tr>
-<td valign=\"top\">nominal torque</td>
-<td valign=\"top\">161.4</td><td valign=\"top\">Nm</td>
+<td>nominal torque</td>
+<td>161.4</td><td>Nm</td>
 </tr>
 <tr>
-<td valign=\"top\">nominal speed</td>
-<td valign=\"top\">1440.45</td><td valign=\"top\">rpm</td>
+<td>nominal speed</td>
+<td>1440.45</td><td>rpm</td>
 </tr>
 <tr>
-<td valign=\"top\">nominal mechanical output</td>
-<td valign=\"top\">24.346</td><td valign=\"top\">kW</td>
+<td>nominal mechanical output</td>
+<td>24.346</td><td>kW</td>
 </tr>
 <tr>
-<td valign=\"top\">efficiency</td>
-<td valign=\"top\">92.7</td><td valign=\"top\">%</td>
+<td>efficiency</td>
+<td>92.7</td><td>%</td>
 </tr>
 <tr>
-<td valign=\"top\">power factor</td>
-<td valign=\"top\">0.875</td><td valign=\"top\"> </td>
+<td>power factor</td>
+<td>0.875</td><td> </td>
 </tr>
 <tr>
-<td valign=\"top\">stator resistance</td>
-<td valign=\"top\">0.03</td><td valign=\"top\">Ohm per phase at reference temperature</td>
+<td>stator resistance</td>
+<td>0.03</td><td>Ohm per phase at reference temperature</td>
 </tr>
 <tr>
-<td valign=\"top\">reference temperature TsRef</td>
-<td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
+<td>reference temperature TsRef</td>
+<td>20</td><td>&deg;C</td>
 </tr>
 <tr>
-<td valign=\"top\">temperature coefficient alpha20s </td>
-<td valign=\"top\">0</td><td valign=\"top\">1/K</td>
+<td>temperature coefficient alpha20s </td>
+<td>0</td><td>1/K</td>
 </tr>
 <tr>
-<td valign=\"top\">rotor resistance</td>
-<td valign=\"top\">0.04</td><td valign=\"top\">Ohm per phase at reference temperature</td>
+<td>rotor resistance</td>
+<td>0.04</td><td>Ohm per phase at reference temperature</td>
 </tr>
 <tr>
-<td valign=\"top\">reference temperature TrRef</td>
-<td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
+<td>reference temperature TrRef</td>
+<td>20</td><td>&deg;C</td>
 </tr>
 <tr>
-<td valign=\"top\">temperature coefficient alpha20r </td>
-<td valign=\"top\">0</td><td valign=\"top\">1/K</td>
+<td>temperature coefficient alpha20r </td>
+<td>0</td><td>1/K</td>
 </tr>
 <tr>
-<td valign=\"top\">stator reactance Xs</td>
-<td valign=\"top\">3</td><td valign=\"top\">Ohm per phase</td>
+<td>stator reactance Xs</td>
+<td>3</td><td>Ohm per phase</td>
 </tr>
 <tr>
-<td valign=\"top\">rotor reactance Xr</td>
-<td valign=\"top\">3</td><td valign=\"top\">Ohm per phase</td>
+<td>rotor reactance Xr</td>
+<td>3</td><td>Ohm per phase</td>
 </tr>
 <tr>
-<td valign=\"top\">total stray coefficient sigma</td>
-<td valign=\"top\">0.0667</td><td valign=\"top\"> </td>
+<td>total stray coefficient sigma</td>
+<td>0.0667</td><td> </td>
 </tr>
 <tr>
-<td valign=\"top\">turnsRatio</td>
-<td valign=\"top\">1</td><td valign=\"top\">effective ratio of stator and rotor current</td>
+<td>turnsRatio</td>
+<td>1</td><td>effective ratio of stator and rotor current</td>
 </tr>
 <tr>
-<td valign=\"top\">stator operational temperature TsOperational</td>
-<td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
+<td>stator operational temperature TsOperational</td>
+<td>20</td><td>&deg;C</td>
 </tr>
 <tr>
-<td valign=\"top\">rotor operational temperature TrOperational</td>
-<td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
+<td>rotor operational temperature TrOperational</td>
+<td>20</td><td>&deg;C</td>
 </tr>
 <tr>
-<td valign=\"top\">These values give the following inductances:</td>
-<td valign=\"top\"> </td><td valign=\"top\"> </td>
+<td>These values give the following inductances:</td>
+<td> </td><td> </td>
 </tr>
 <tr>
-<td valign=\"top\">stator stray inductance per phase</td>
-<td valign=\"top\">Xs * (1 - sqrt(1-sigma))/(2*pi*fNominal)</td><td valign=\"top\"> </td>
+<td>stator stray inductance per phase</td>
+<td>Xs * (1 - sqrt(1-sigma))/(2*pi*fNominal)</td><td> </td>
 </tr>
 <tr>
-<td valign=\"top\">rotor stray inductance</td>
-<td valign=\"top\">Xr * (1 - sqrt(1-sigma))/(2*pi*fNominal)</td><td valign=\"top\"> </td>
+<td>rotor stray inductance</td>
+<td>Xr * (1 - sqrt(1-sigma))/(2*pi*fNominal)</td><td> </td>
 </tr>
 <tr>
-<td valign=\"top\">main field inductance per phase</td>
-<td valign=\"top\">sqrt(Xs*Xr * (1-sigma))/(2*pi*f)</td><td valign=\"top\"> </td>
+<td>main field inductance per phase</td>
+<td>sqrt(Xs*Xr * (1-sigma))/(2*pi*f)</td><td> </td>
 </tr>
 </table>
 <p>
 Parameter turnsRatio could be obtained from the following relationship
-at standstill with open rotor circuit at nominal voltage and nominal frequency, <br>
+at standstill with open rotor circuit at nominal voltage and nominal frequency,<br>
 using the locked-rotor voltage VR, no-load stator current I0 and powerfactor PF0:<br>
 turnsRatio * <u>V</u><sub>R</sub> = <u>V</u><sub>s</sub> - (R<sub>s</sub> + j X<sub>s,sigma</sub>) <u>I</u><sub>0</sub>
 </p>
@@ -5578,7 +6998,7 @@ These models use package SpacePhasors.
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><strong>Copyright:</strong></dt>
-  <dd>Copyright &copy; 1998-2016, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2018, Modelica Association and Anton Haumer.<br>
   <em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
   under the terms of the <strong>Modelica license</strong>, see the license conditions
   and the accompanying <strong>disclaimer</strong> in the documentation of package
@@ -5790,136 +7210,136 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
 <br><strong>Default values for machine's parameters (a realistic example) are:</strong><br></p>
 <table>
 <tr>
-<td valign=\"top\">number of pole pairs p</td>
-<td valign=\"top\">2</td><td valign=\"top\"> </td>
+<td>number of pole pairs p</td>
+<td>2</td><td> </td>
 </tr>
 <tr>
-<td valign=\"top\">stator's moment of inertia</td>
-<td valign=\"top\">0.29</td><td valign=\"top\">kg.m2</td>
+<td>stator's moment of inertia</td>
+<td>0.29</td><td>kg.m2</td>
 </tr>
 <tr>
-<td valign=\"top\">rotor's moment of inertia</td>
-<td valign=\"top\">0.29</td><td valign=\"top\">kg.m2</td>
+<td>rotor's moment of inertia</td>
+<td>0.29</td><td>kg.m2</td>
 </tr>
 <tr>
-<td valign=\"top\">nominal frequency fNominal</td>
-<td valign=\"top\">50</td><td valign=\"top\">Hz</td>
+<td>nominal frequency fNominal</td>
+<td>50</td><td>Hz</td>
 </tr>
 <tr>
-<td valign=\"top\">nominal voltage per phase</td>
-<td valign=\"top\">100</td><td valign=\"top\">V RMS</td>
+<td>nominal voltage per phase</td>
+<td>100</td><td>V RMS</td>
 </tr>
 <tr>
-<td valign=\"top\">no-load voltage per phase</td>
-<td valign=\"top\">112.3</td><td valign=\"top\">V RMS @ nominal speed</td>
+<td>no-load voltage per phase</td>
+<td>112.3</td><td>V RMS @ nominal speed</td>
 </tr>
 <tr>
-<td valign=\"top\">nominal current per phase</td>
-<td valign=\"top\">100</td><td valign=\"top\">A RMS</td>
+<td>nominal current per phase</td>
+<td>100</td><td>A RMS</td>
 </tr>
 <tr>
-<td valign=\"top\">nominal torque</td>
-<td valign=\"top\">181.4</td><td valign=\"top\">Nm</td>
+<td>nominal torque</td>
+<td>181.4</td><td>Nm</td>
 </tr>
 <tr>
-<td valign=\"top\">nominal speed</td>
-<td valign=\"top\">1500</td><td valign=\"top\">rpm</td>
+<td>nominal speed</td>
+<td>1500</td><td>rpm</td>
 </tr>
 <tr>
-<td valign=\"top\">nominal mechanical output</td>
-<td valign=\"top\">28.5</td><td valign=\"top\">kW</td>
+<td>nominal mechanical output</td>
+<td>28.5</td><td>kW</td>
 </tr>
 <tr>
-<td valign=\"top\">nominal rotor angle</td>
-<td valign=\"top\">20.75</td><td valign=\"top\">degree</td>
+<td>nominal rotor angle</td>
+<td>20.75</td><td>degree</td>
 </tr>
 <tr>
-<td valign=\"top\">efficiency</td>
-<td valign=\"top\">95.0</td><td valign=\"top\">%</td>
+<td>efficiency</td>
+<td>95.0</td><td>%</td>
 </tr>
 <tr>
-<td valign=\"top\">power factor</td>
-<td valign=\"top\">0.98</td><td valign=\"top\"> </td>
+<td>power factor</td>
+<td>0.98</td><td> </td>
 </tr>
 <tr>
-<td valign=\"top\">stator resistance</td>
-<td valign=\"top\">0.03</td><td valign=\"top\">Ohm per phase at reference temperature</td>
+<td>stator resistance</td>
+<td>0.03</td><td>Ohm per phase at reference temperature</td>
 </tr>
 <tr>
-<td valign=\"top\">reference temperature TsRef</td>
-<td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
+<td>reference temperature TsRef</td>
+<td>20</td><td>&deg;C</td>
 </tr>
 <tr>
-<td valign=\"top\">temperature coefficient alpha20s </td>
-<td valign=\"top\">0</td><td valign=\"top\">1/K</td>
+<td>temperature coefficient alpha20s </td>
+<td>0</td><td>1/K</td>
 </tr>
 <tr>
-<td valign=\"top\">stator reactance Xd</td>
-<td valign=\"top\">0.4</td><td valign=\"top\">Ohm per phase in d-axis</td>
+<td>stator reactance Xd</td>
+<td>0.4</td><td>Ohm per phase in d-axis</td>
 </tr>
 <tr>
-<td valign=\"top\">stator reactance Xq</td>
-<td valign=\"top\">0.4</td><td valign=\"top\">Ohm per phase in q-axis</td>
+<td>stator reactance Xq</td>
+<td>0.4</td><td>Ohm per phase in q-axis</td>
 </tr>
 <tr>
-<td valign=\"top\">stator stray reactance Xss</td>
-<td valign=\"top\">0.1</td><td valign=\"top\">Ohm per phase</td>
+<td>stator stray reactance Xss</td>
+<td>0.1</td><td>Ohm per phase</td>
 </tr>
 <tr>
-<td valign=\"top\">damper resistance in d-axis</td>
-<td valign=\"top\">0.04</td><td valign=\"top\">Ohm at reference temperature</td>
+<td>damper resistance in d-axis</td>
+<td>0.04</td><td>Ohm at reference temperature</td>
 </tr>
 <tr>
-<td valign=\"top\">damper resistance in q-axis</td>
-<td valign=\"top\">same as d-axis</td><td valign=\"top\"> </td>
+<td>damper resistance in q-axis</td>
+<td>same as d-axis</td><td> </td>
 </tr>
 <tr>
-<td valign=\"top\">reference temperature TrRef</td>
-<td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
+<td>reference temperature TrRef</td>
+<td>20</td><td>&deg;C</td>
 </tr>
 <tr>
-<td valign=\"top\">temperature coefficient alpha20r </td>
-<td valign=\"top\">0</td><td valign=\"top\">1/K</td>
+<td>temperature coefficient alpha20r </td>
+<td>0</td><td>1/K</td>
 </tr>
 <tr>
-<td valign=\"top\">damper stray reactance in d-axis XDds</td>
-<td valign=\"top\">0.05</td><td valign=\"top\">Ohm</td>
+<td>damper stray reactance in d-axis XDds</td>
+<td>0.05</td><td>Ohm</td>
 </tr>
 <tr>
-<td valign=\"top\">damper stray reactance in q-axis XDqs</td>
-<td valign=\"top\">same as d-axis</td><td valign=\"top\"> </td>
+<td>damper stray reactance in q-axis XDqs</td>
+<td>same as d-axis</td><td> </td>
 </tr>
 <tr>
-<td valign=\"top\">stator operational temperature TsOperational</td>
-<td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
+<td>stator operational temperature TsOperational</td>
+<td>20</td><td>&deg;C</td>
 </tr>
 <tr>
-<td valign=\"top\">damper operational temperature TrOperational</td>
-<td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
+<td>damper operational temperature TrOperational</td>
+<td>20</td><td>&deg;C</td>
 </tr>
 <tr>
-<td valign=\"top\">These values give the following inductances:</td>
-<td valign=\"top\"> </td><td valign=\"top\"> </td>
+<td>These values give the following inductances:</td>
+<td> </td><td> </td>
 </tr>
 <tr>
-<td valign=\"top\">main field inductance in d-axis</td>
-<td valign=\"top\">(Xd - Xss)/(2*pi*fNominal)</td><td valign=\"top\"> </td>
+<td>main field inductance in d-axis</td>
+<td>(Xd - Xss)/(2*pi*fNominal)</td><td> </td>
 </tr>
 <tr>
-<td valign=\"top\">main field inductance in q-axis</td>
-<td valign=\"top\">(Xq - Xss)/(2*pi*fNominal)</td><td valign=\"top\"> </td>
+<td>main field inductance in q-axis</td>
+<td>(Xq - Xss)/(2*pi*fNominal)</td><td> </td>
 </tr>
 <tr>
-<td valign=\"top\">stator stray inductance per phase</td>
-<td valign=\"top\">Xss/(2*pi*fNominal)</td><td valign=\"top\"> </td>
+<td>stator stray inductance per phase</td>
+<td>Xss/(2*pi*fNominal)</td><td> </td>
 </tr>
 <tr>
-<td valign=\"top\">damper stray inductance in d-axis</td>
-<td valign=\"top\">XDds/(2*pi*fNominal)</td><td valign=\"top\"> </td>
+<td>damper stray inductance in d-axis</td>
+<td>XDds/(2*pi*fNominal)</td><td> </td>
 </tr>
 <tr>
-<td valign=\"top\">damper stray inductance in q-axis</td>
-<td valign=\"top\">XDqs/(2*pi*fNominal)</td><td valign=\"top\"> </td>
+<td>damper stray inductance in q-axis</td>
+<td>XDqs/(2*pi*fNominal)</td><td> </td>
 </tr>
 </table>
 </html>"));
@@ -6163,169 +7583,169 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
 <br><strong>Default values for machine's parameters (a realistic example) are:</strong><br></p>
 <table>
 <tr>
-<td valign=\"top\">number of pole pairs p</td>
-<td valign=\"top\">2</td><td valign=\"top\"> </td>
+<td>number of pole pairs p</td>
+<td>2</td><td> </td>
 </tr>
 <tr>
-<td valign=\"top\">stator's moment of inertia</td>
-<td valign=\"top\">0.29</td><td valign=\"top\">kg.m2</td>
+<td>stator's moment of inertia</td>
+<td>0.29</td><td>kg.m2</td>
 </tr>
 <tr>
-<td valign=\"top\">rotor's moment of inertia</td>
-<td valign=\"top\">0.29</td><td valign=\"top\">kg.m2</td>
+<td>rotor's moment of inertia</td>
+<td>0.29</td><td>kg.m2</td>
 </tr>
 <tr>
-<td valign=\"top\">nominal frequency fNominal</td>
-<td valign=\"top\">50</td><td valign=\"top\">Hz</td>
+<td>nominal frequency fNominal</td>
+<td>50</td><td>Hz</td>
 </tr>
 <tr>
-<td valign=\"top\">nominal voltage per phase</td>
-<td valign=\"top\">100</td><td valign=\"top\">V RMS</td>
+<td>nominal voltage per phase</td>
+<td>100</td><td>V RMS</td>
 </tr>
 <tr>
-<td valign=\"top\">no-load excitation current<br>
+<td>no-load excitation current<br>
     @ nominal voltage and frequency</td>
-<td valign=\"top\">10</td><td valign=\"top\">A DC</td>
+<td>10</td><td>A DC</td>
 </tr>
 <tr>
-<td valign=\"top\">warm excitation resistance</td>
-<td valign=\"top\">2.5</td><td valign=\"top\">Ohm</td>
+<td>warm excitation resistance</td>
+<td>2.5</td><td>Ohm</td>
 </tr>
 <tr>
-<td valign=\"top\">nominal current per phase</td>
-<td valign=\"top\">100</td><td valign=\"top\">A RMS</td>
+<td>nominal current per phase</td>
+<td>100</td><td>A RMS</td>
 </tr>
 <tr>
-<td valign=\"top\">nominal apparent power</td>
-<td valign=\"top\">-30000</td><td valign=\"top\">VA</td>
+<td>nominal apparent power</td>
+<td>-30000</td><td>VA</td>
 </tr>
 <tr>
-<td valign=\"top\">power factor</td>
-<td valign=\"top\">-1.0</td><td valign=\"top\">ind./cap.</td>
+<td>power factor</td>
+<td>-1.0</td><td>ind./cap.</td>
 </tr>
 <tr>
-<td valign=\"top\">nominal excitation current</td>
-<td valign=\"top\">19</td><td valign=\"top\">A</td>
+<td>nominal excitation current</td>
+<td>19</td><td>A</td>
 </tr>
 <tr>
-<td valign=\"top\">efficiency w/o excitation</td>
-<td valign=\"top\">97.1</td><td valign=\"top\">%</td>
+<td>efficiency w/o excitation</td>
+<td>97.1</td><td>%</td>
 </tr>
 <tr>
-<td valign=\"top\">nominal torque</td>
-<td valign=\"top\">-196.7</td><td valign=\"top\">Nm</td>
+<td>nominal torque</td>
+<td>-196.7</td><td>Nm</td>
 </tr>
 <tr>
-<td valign=\"top\">nominal speed</td>
-<td valign=\"top\">1500</td><td valign=\"top\">rpm</td>
+<td>nominal speed</td>
+<td>1500</td><td>rpm</td>
 </tr>
 <tr>
-<td valign=\"top\">nominal rotor angle</td>
-<td valign=\"top\">-57.23</td><td valign=\"top\">degree</td>
+<td>nominal rotor angle</td>
+<td>-57.23</td><td>degree</td>
 </tr>
 <tr>
-<td valign=\"top\">stator resistance</td>
-<td valign=\"top\">0.03</td><td valign=\"top\">Ohm per phase at reference temperature</td>
+<td>stator resistance</td>
+<td>0.03</td><td>Ohm per phase at reference temperature</td>
 </tr>
 <tr>
-<td valign=\"top\">reference temperature TsRef</td>
-<td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
+<td>reference temperature TsRef</td>
+<td>20</td><td>&deg;C</td>
 </tr>
 <tr>
-<td valign=\"top\">temperature coefficient alpha20s </td>
-<td valign=\"top\">0</td><td valign=\"top\">1/K</td>
+<td>temperature coefficient alpha20s </td>
+<td>0</td><td>1/K</td>
 </tr>
 <tr>
-<td valign=\"top\">stator reactance Xd</td>
-<td valign=\"top\">1.6</td><td valign=\"top\">Ohm per phase in d-axis</td>
+<td>stator reactance Xd</td>
+<td>1.6</td><td>Ohm per phase in d-axis</td>
 </tr>
 <tr>
-<td valign=\"top\">giving Kc</td>
-<td valign=\"top\">0.625</td><td valign=\"top\"> </td>
+<td>giving Kc</td>
+<td>0.625</td><td> </td>
 </tr>
 <tr>
-<td valign=\"top\">stator reactance Xq</td>
-<td valign=\"top\">1.6</td><td valign=\"top\">Ohm per phase in q-axis</td>
+<td>stator reactance Xq</td>
+<td>1.6</td><td>Ohm per phase in q-axis</td>
 </tr>
 <tr>
-<td valign=\"top\">stator stray reactance Xss</td>
-<td valign=\"top\">0.1</td><td valign=\"top\">Ohm per phase</td>
+<td>stator stray reactance Xss</td>
+<td>0.1</td><td>Ohm per phase</td>
 </tr>
 <tr>
-<td valign=\"top\">damper resistance in d-axis</td>
-<td valign=\"top\">0.04</td><td valign=\"top\">Ohm at reference temperature</td>
+<td>damper resistance in d-axis</td>
+<td>0.04</td><td>Ohm at reference temperature</td>
 </tr>
 <tr>
-<td valign=\"top\">damper resistance in q-axis</td>
-<td valign=\"top\">same as d-axis</td><td valign=\"top\"> </td>
+<td>damper resistance in q-axis</td>
+<td>same as d-axis</td><td> </td>
 </tr>
 <tr>
-<td valign=\"top\">reference temperature TrRef</td>
-<td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
+<td>reference temperature TrRef</td>
+<td>20</td><td>&deg;C</td>
 </tr>
 <tr>
-<td valign=\"top\">temperature coefficient alpha20r </td>
-<td valign=\"top\">0</td><td valign=\"top\">1/K</td>
+<td>temperature coefficient alpha20r </td>
+<td>0</td><td>1/K</td>
 </tr>
 <tr>
-<td valign=\"top\">damper stray reactance in d-axis XDds</td>
-<td valign=\"top\">0.05</td><td valign=\"top\">Ohm</td>
+<td>damper stray reactance in d-axis XDds</td>
+<td>0.05</td><td>Ohm</td>
 </tr>
 <tr>
-<td valign=\"top\">damper stray reactance in q-axis XDqs</td>
-<td valign=\"top\">same as d-axis</td><td valign=\"top\"> </td>
+<td>damper stray reactance in q-axis XDqs</td>
+<td>same as d-axis</td><td> </td>
 </tr>
 <tr>
-<td valign=\"top\">excitation resistance</td>
-<td valign=\"top\">2.5</td><td valign=\"top\">Ohm at reference temperature</td>
+<td>excitation resistance</td>
+<td>2.5</td><td>Ohm at reference temperature</td>
 </tr>
 <tr>
-<td valign=\"top\">reference temperature TeRef</td>
-<td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
+<td>reference temperature TeRef</td>
+<td>20</td><td>&deg;C</td>
 </tr>
 <tr>
-<td valign=\"top\">temperature coefficient alpha20e </td>
-<td valign=\"top\">0</td><td valign=\"top\">1/K</td>
+<td>temperature coefficient alpha20e </td>
+<td>0</td><td>1/K</td>
 </tr>
 <tr>
-<td valign=\"top\">excitation stray inductance</td>
-<td valign=\"top\">2.5</td><td valign=\"top\">% of total excitation inductance</td>
+<td>excitation stray inductance</td>
+<td>2.5</td><td>% of total excitation inductance</td>
 </tr>
 <tr>
-<td valign=\"top\">stator operational temperature TsOperational</td>
-<td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
+<td>stator operational temperature TsOperational</td>
+<td>20</td><td>&deg;C</td>
 </tr>
 <tr>
-<td valign=\"top\">damper operational temperature TrOperational</td>
-<td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
+<td>damper operational temperature TrOperational</td>
+<td>20</td><td>&deg;C</td>
 </tr>
 <tr>
-<td valign=\"top\">excitation operational temperature TeOperational</td>
-<td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
+<td>excitation operational temperature TeOperational</td>
+<td>20</td><td>&deg;C</td>
 </tr>
 <tr>
-<td valign=\"top\">These values give the following inductances:</td>
-<td valign=\"top\"> </td><td valign=\"top\"> </td>
+<td>These values give the following inductances:</td>
+<td> </td><td> </td>
 </tr>
 <tr>
-<td valign=\"top\">main field inductance in d-axis</td>
-<td valign=\"top\">(Xd - Xss)/(2*pi*fNominal)</td><td valign=\"top\"> </td>
+<td>main field inductance in d-axis</td>
+<td>(Xd - Xss)/(2*pi*fNominal)</td><td> </td>
 </tr>
 <tr>
-<td valign=\"top\">main field inductance in q-axis</td>
-<td valign=\"top\">(Xq - Xss)/(2*pi*fNominal)</td><td valign=\"top\"> </td>
+<td>main field inductance in q-axis</td>
+<td>(Xq - Xss)/(2*pi*fNominal)</td><td> </td>
 </tr>
 <tr>
-<td valign=\"top\">stator stray inductance per phase</td>
-<td valign=\"top\">Xss/(2*pi*fNominal)</td><td valign=\"top\"> </td>
+<td>stator stray inductance per phase</td>
+<td>Xss/(2*pi*fNominal)</td><td> </td>
 </tr>
 <tr>
-<td valign=\"top\">damper stray inductance in d-axis</td>
-<td valign=\"top\">XDds/(2*pi*fNominal)</td><td valign=\"top\"> </td>
+<td>damper stray inductance in d-axis</td>
+<td>XDds/(2*pi*fNominal)</td><td> </td>
 </tr>
 <tr>
-<td valign=\"top\">damper stray inductance in q-axis</td>
-<td valign=\"top\">XDqs/(2*pi*fNominal)</td><td valign=\"top\"> </td>
+<td>damper stray inductance in q-axis</td>
+<td>XDqs/(2*pi*fNominal)</td><td> </td>
 </tr>
 </table>
 </html>"));
@@ -6480,128 +7900,128 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
 <br><strong>Default values for machine's parameters (a realistic example) are:</strong><br></p>
 <table>
 <tr>
-<td valign=\"top\">number of pole pairs p</td>
-<td valign=\"top\">2</td><td valign=\"top\"> </td>
+<td>number of pole pairs p</td>
+<td>2</td><td> </td>
 </tr>
 <tr>
-<td valign=\"top\">stator's moment of inertia</td>
-<td valign=\"top\">0.29</td><td valign=\"top\">kg.m2</td>
+<td>stator's moment of inertia</td>
+<td>0.29</td><td>kg.m2</td>
 </tr>
 <tr>
-<td valign=\"top\">rotor's moment of inertia</td>
-<td valign=\"top\">0.29</td><td valign=\"top\">kg.m2</td>
+<td>rotor's moment of inertia</td>
+<td>0.29</td><td>kg.m2</td>
 </tr>
 <tr>
-<td valign=\"top\">nominal frequency fNominal</td>
-<td valign=\"top\">50</td><td valign=\"top\">Hz</td>
+<td>nominal frequency fNominal</td>
+<td>50</td><td>Hz</td>
 </tr>
 <tr>
-<td valign=\"top\">nominal voltage per phase</td>
-<td valign=\"top\">100</td><td valign=\"top\">V RMS</td>
+<td>nominal voltage per phase</td>
+<td>100</td><td>V RMS</td>
 </tr>
 <tr>
-<td valign=\"top\">nominal current per phase</td>
-<td valign=\"top\">50</td><td valign=\"top\">A RMS</td>
+<td>nominal current per phase</td>
+<td>50</td><td>A RMS</td>
 </tr>
 <tr>
-<td valign=\"top\">nominal torque</td>
-<td valign=\"top\"> 46</td><td valign=\"top\">Nm</td>
+<td>nominal torque</td>
+<td> 46</td><td>Nm</td>
 </tr>
 <tr>
-<td valign=\"top\">nominal speed</td>
-<td valign=\"top\">1500</td><td valign=\"top\">rpm</td>
+<td>nominal speed</td>
+<td>1500</td><td>rpm</td>
 </tr>
 <tr>
-<td valign=\"top\">nominal mechanical output</td>
-<td valign=\"top\"> 7.23</td><td valign=\"top\">kW</td>
+<td>nominal mechanical output</td>
+<td> 7.23</td><td>kW</td>
 </tr>
 <tr>
-<td valign=\"top\">efficiency</td>
-<td valign=\"top\">96.98</td><td valign=\"top\">%</td>
+<td>efficiency</td>
+<td>96.98</td><td>%</td>
 </tr>
 <tr>
-<td valign=\"top\">power factor</td>
-<td valign=\"top\">0.497</td><td valign=\"top\"> </td>
+<td>power factor</td>
+<td>0.497</td><td> </td>
 </tr>
 <tr>
-<td valign=\"top\">stator resistance</td>
-<td valign=\"top\">0.03</td><td valign=\"top\">Ohm per phase at reference temperature</td>
+<td>stator resistance</td>
+<td>0.03</td><td>Ohm per phase at reference temperature</td>
 </tr>
 <tr>
-<td valign=\"top\">reference temperature TsRef</td>
-<td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
+<td>reference temperature TsRef</td>
+<td>20</td><td>&deg;C</td>
 </tr>
 <tr>
-<td valign=\"top\">temperature coefficient alpha20s </td>
-<td valign=\"top\">0</td><td valign=\"top\">1/K</td>
+<td>temperature coefficient alpha20s </td>
+<td>0</td><td>1/K</td>
 </tr>
 <tr>
-<td valign=\"top\">rotor resistance in d-axis</td>
-<td valign=\"top\">0.04</td><td valign=\"top\">Ohm at reference temperature</td>
+<td>rotor resistance in d-axis</td>
+<td>0.04</td><td>Ohm at reference temperature</td>
 </tr>
 <tr>
-<td valign=\"top\">rotor resistance in q-axis</td>
-<td valign=\"top\">same as d-axis</td><td valign=\"top\"> </td>
+<td>rotor resistance in q-axis</td>
+<td>same as d-axis</td><td> </td>
 </tr>
 <tr>
-<td valign=\"top\">reference temperature TrRef</td>
-<td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
+<td>reference temperature TrRef</td>
+<td>20</td><td>&deg;C</td>
 </tr>
 <tr>
-<td valign=\"top\">temperature coefficient alpha20r </td>
-<td valign=\"top\">0</td><td valign=\"top\">1/K</td>
+<td>temperature coefficient alpha20r </td>
+<td>0</td><td>1/K</td>
 </tr>
 <tr>
-<td valign=\"top\">stator reactance Xsd in d-axis</td>
-<td valign=\"top\">3</td><td valign=\"top\">Ohm per phase</td>
+<td>stator reactance Xsd in d-axis</td>
+<td>3</td><td>Ohm per phase</td>
 </tr>
 <tr>
-<td valign=\"top\">stator reactance Xsq in q-axis</td>
-<td valign=\"top\">1</td><td valign=\"top\">Ohm</td>
+<td>stator reactance Xsq in q-axis</td>
+<td>1</td><td>Ohm</td>
 </tr>
 <tr>
-<td valign=\"top\">stator stray reactance Xss</td>
-<td valign=\"top\">0.1</td><td valign=\"top\">Ohm per phase</td>
+<td>stator stray reactance Xss</td>
+<td>0.1</td><td>Ohm per phase</td>
 </tr>
 <tr>
-<td valign=\"top\">rotor stray reactance in d-axis Xrds</td>
-<td valign=\"top\">0.05</td><td valign=\"top\">Ohm per phase</td>
+<td>rotor stray reactance in d-axis Xrds</td>
+<td>0.05</td><td>Ohm per phase</td>
 </tr>
 <tr>
-<td valign=\"top\">rotor stray reactance in q-axis Xrqs</td>
-<td valign=\"top\">same as d-axis</td><td valign=\"top\"> </td>
+<td>rotor stray reactance in q-axis Xrqs</td>
+<td>same as d-axis</td><td> </td>
 </tr>
 <tr>
-<td valign=\"top\">stator operational temperature TsOperational</td>
-<td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
+<td>stator operational temperature TsOperational</td>
+<td>20</td><td>&deg;C</td>
 </tr>
 <tr>
-<td valign=\"top\">damper operational temperature TrOperational</td>
-<td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
+<td>damper operational temperature TrOperational</td>
+<td>20</td><td>&deg;C</td>
 </tr>
 <tr>
-<td valign=\"top\">These values give the following inductances:</td>
-<td valign=\"top\"> </td><td valign=\"top\"> </td>
+<td>These values give the following inductances:</td>
+<td> </td><td> </td>
 </tr>
 <tr>
-<td valign=\"top\">stator stray inductance per phase</td>
-<td valign=\"top\">Xss/(2*pi*fNominal)</td><td valign=\"top\"> </td>
+<td>stator stray inductance per phase</td>
+<td>Xss/(2*pi*fNominal)</td><td> </td>
 </tr>
 <tr>
-<td valign=\"top\">rotor stray inductance in d-axis</td>
-<td valign=\"top\">Xrds/(2*pi*fNominal)</td><td valign=\"top\"> </td>
+<td>rotor stray inductance in d-axis</td>
+<td>Xrds/(2*pi*fNominal)</td><td> </td>
 </tr>
 <tr>
-<td valign=\"top\">rotor stray inductance in q-axis</td>
-<td valign=\"top\">Xrqs/(2*pi*fNominal)</td><td valign=\"top\"> </td>
+<td>rotor stray inductance in q-axis</td>
+<td>Xrqs/(2*pi*fNominal)</td><td> </td>
 </tr>
 <tr>
-<td valign=\"top\">main field inductance per phase in d-axis</td>
-<td valign=\"top\">(Xsd-Xss)/(2*pi*fNominal)</td><td valign=\"top\"> </td>
+<td>main field inductance per phase in d-axis</td>
+<td>(Xsd-Xss)/(2*pi*fNominal)</td><td> </td>
 </tr>
 <tr>
-<td valign=\"top\">main field inductance per phase in q-axis</td>
-<td valign=\"top\">(Xsq-Xss)/(2*pi*fNominal)</td><td valign=\"top\"> </td>
+<td>main field inductance per phase in q-axis</td>
+<td>(Xsq-Xss)/(2*pi*fNominal)</td><td> </td>
 </tr>
 </table>
 </html>"));
@@ -6636,7 +8056,7 @@ These models use package SpacePhasors.
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><strong>Copyright:</strong></dt>
-  <dd>Copyright &copy; 1998-2016, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2018, Modelica Association and Anton Haumer.<br>
   <em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
   under the terms of the <strong>Modelica license</strong>, see the license conditions
   and the accompanying <strong>disclaimer</strong> in the documentation of package
@@ -6757,60 +8177,60 @@ Armature resistance and inductance are modeled directly after the armature pins,
 <br><strong>Default values for machine's parameters (a realistic example) are:</strong><br></p>
 <table>
 <tr>
-<td valign=\"top\">stator's moment of inertia</td>
-<td valign=\"top\">0.29</td><td valign=\"top\">kg.m2</td>
+<td>stator's moment of inertia</td>
+<td>0.29</td><td>kg.m2</td>
 </tr>
 <tr>
-<td valign=\"top\">rotor's moment of inertia</td>
-<td valign=\"top\">0.15</td><td valign=\"top\">kg.m2</td>
+<td>rotor's moment of inertia</td>
+<td>0.15</td><td>kg.m2</td>
 </tr>
 <tr>
-<td valign=\"top\">nominal armature voltage</td>
-<td valign=\"top\">100</td><td valign=\"top\">V</td>
+<td>nominal armature voltage</td>
+<td>100</td><td>V</td>
 </tr>
 <tr>
-<td valign=\"top\">nominal armature current</td>
-<td valign=\"top\">100</td><td valign=\"top\">A</td>
+<td>nominal armature current</td>
+<td>100</td><td>A</td>
 </tr>
 <tr>
-<td valign=\"top\">nominal speed</td>
-<td valign=\"top\">1425</td><td valign=\"top\">rpm</td>
+<td>nominal speed</td>
+<td>1425</td><td>rpm</td>
 </tr>
 <tr>
-<td valign=\"top\">nominal torque</td>
-<td valign=\"top\">63.66</td><td valign=\"top\">Nm</td>
+<td>nominal torque</td>
+<td>63.66</td><td>Nm</td>
 </tr>
 <tr>
-<td valign=\"top\">nominal mechanical output</td>
-<td valign=\"top\">9.5</td><td valign=\"top\">kW</td>
+<td>nominal mechanical output</td>
+<td>9.5</td><td>kW</td>
 </tr>
 <tr>
-<td valign=\"top\">efficiency</td>
-<td valign=\"top\">95.0</td><td valign=\"top\">%</td>
+<td>efficiency</td>
+<td>95.0</td><td>%</td>
 </tr>
 <tr>
-<td valign=\"top\">armature resistance</td>
-<td valign=\"top\">0.05</td><td valign=\"top\">Ohm at reference temperature</td>
+<td>armature resistance</td>
+<td>0.05</td><td>Ohm at reference temperature</td>
 </tr>
 <tr>
-<td valign=\"top\">reference temperature TaRef</td>
-<td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
+<td>reference temperature TaRef</td>
+<td>20</td><td>&deg;C</td>
 </tr>
 <tr>
-<td valign=\"top\">temperature coefficient alpha20a </td>
-<td valign=\"top\">0</td><td valign=\"top\">1/K</td>
+<td>temperature coefficient alpha20a </td>
+<td>0</td><td>1/K</td>
 </tr>
 <tr>
-<td valign=\"top\">armature inductance</td>
-<td valign=\"top\">0.0015</td><td valign=\"top\">H</td>
+<td>armature inductance</td>
+<td>0.0015</td><td>H</td>
 </tr>
 <tr>
-<td valign=\"top\">armature nominal temperature TaNominal</td>
-<td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
+<td>armature nominal temperature TaNominal</td>
+<td>20</td><td>&deg;C</td>
 </tr>
 <tr>
-<td valign=\"top\">armature operational temperature TaOperational</td>
-<td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
+<td>armature operational temperature TaOperational</td>
+<td>20</td><td>&deg;C</td>
 </tr>
 </table>
 Armature resistance resp. inductance include resistance resp. inductance of commutating pole winding and compensation winding, if present.
@@ -6964,96 +8384,96 @@ Shunt or separate excitation is defined by the user's external circuit.
 <br><strong>Default values for machine's parameters (a realistic example) are:</strong><br></p>
 <table>
 <tr>
-<td valign=\"top\">stator's moment of inertia</td>
-<td valign=\"top\">0.29</td><td valign=\"top\">kg.m2</td>
+<td>stator's moment of inertia</td>
+<td>0.29</td><td>kg.m2</td>
 </tr>
 <tr>
-<td valign=\"top\">rotor's moment of inertia</td>
-<td valign=\"top\">0.15</td><td valign=\"top\">kg.m2</td>
+<td>rotor's moment of inertia</td>
+<td>0.15</td><td>kg.m2</td>
 </tr>
 <tr>
-<td valign=\"top\">nominal armature voltage</td>
-<td valign=\"top\">100</td><td valign=\"top\">V</td>
+<td>nominal armature voltage</td>
+<td>100</td><td>V</td>
 </tr>
 <tr>
-<td valign=\"top\">nominal armature current</td>
-<td valign=\"top\">100</td><td valign=\"top\">A</td>
+<td>nominal armature current</td>
+<td>100</td><td>A</td>
 </tr>
 <tr>
-<td valign=\"top\">nominal torque</td>
-<td valign=\"top\">63.66</td><td valign=\"top\">Nm</td>
+<td>nominal torque</td>
+<td>63.66</td><td>Nm</td>
 </tr>
 <tr>
-<td valign=\"top\">nominal speed</td>
-<td valign=\"top\">1425</td><td valign=\"top\">rpm</td>
+<td>nominal speed</td>
+<td>1425</td><td>rpm</td>
 </tr>
 <tr>
-<td valign=\"top\">nominal mechanical output</td>
-<td valign=\"top\">9.5</td><td valign=\"top\">kW</td>
+<td>nominal mechanical output</td>
+<td>9.5</td><td>kW</td>
 </tr>
 <tr>
-<td valign=\"top\">efficiency</td>
-<td valign=\"top\">95.0</td><td valign=\"top\">% only armature</td>
+<td>efficiency</td>
+<td>95.0</td><td>% only armature</td>
 </tr>
 <tr>
-<td valign=\"top\">efficiency</td>
-<td valign=\"top\">94.06</td><td valign=\"top\">% including excitation</td>
+<td>efficiency</td>
+<td>94.06</td><td>% including excitation</td>
 </tr>
 <tr>
-<td valign=\"top\">armature resistance</td>
-<td valign=\"top\">0.05</td><td valign=\"top\">Ohm at reference temperature</td>
+<td>armature resistance</td>
+<td>0.05</td><td>Ohm at reference temperature</td>
 </tr>
 <tr>
-<td valign=\"top\">reference temperature TaRef</td>
-<td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
+<td>reference temperature TaRef</td>
+<td>20</td><td>&deg;C</td>
 </tr>
 <tr>
-<td valign=\"top\">temperature coefficient alpha20a </td>
-<td valign=\"top\">0</td><td valign=\"top\">1/K</td>
+<td>temperature coefficient alpha20a </td>
+<td>0</td><td>1/K</td>
 </tr>
 <tr>
-<td valign=\"top\">armature inductance</td>
-<td valign=\"top\">0.0015</td><td valign=\"top\">H</td>
+<td>armature inductance</td>
+<td>0.0015</td><td>H</td>
 </tr>
 <tr>
-<td valign=\"top\">nominal excitation voltage</td>
-<td valign=\"top\">100</td><td valign=\"top\">V</td>
+<td>nominal excitation voltage</td>
+<td>100</td><td>V</td>
 </tr>
 <tr>
-<td valign=\"top\">nominal excitation current</td>
-<td valign=\"top\">1</td><td valign=\"top\">A</td>
+<td>nominal excitation current</td>
+<td>1</td><td>A</td>
 </tr>
 <tr>
-<td valign=\"top\">excitation resistance</td>
-<td valign=\"top\">100</td><td valign=\"top\">Ohm at reference temperature</td>
+<td>excitation resistance</td>
+<td>100</td><td>Ohm at reference temperature</td>
 </tr>
 <tr>
-<td valign=\"top\">reference temperature TeRef</td>
-<td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
+<td>reference temperature TeRef</td>
+<td>20</td><td>&deg;C</td>
 </tr>
 <tr>
-<td valign=\"top\">temperature coefficient alpha20e </td>
-<td valign=\"top\">0</td><td valign=\"top\">1/K</td>
+<td>temperature coefficient alpha20e </td>
+<td>0</td><td>1/K</td>
 </tr>
 <tr>
-<td valign=\"top\">excitation inductance</td>
-<td valign=\"top\">1</td><td valign=\"top\">H</td>
+<td>excitation inductance</td>
+<td>1</td><td>H</td>
 </tr>
 <tr>
-<td valign=\"top\">stray part of excitation inductance</td>
-<td valign=\"top\">0</td><td valign=\"top\"> </td>
+<td>stray part of excitation inductance</td>
+<td>0</td><td> </td>
 </tr>
 <tr>
-<td valign=\"top\">armature nominal temperature TaNominal</td>
-<td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
+<td>armature nominal temperature TaNominal</td>
+<td>20</td><td>&deg;C</td>
 </tr>
 <tr>
-<td valign=\"top\">armature operational temperature TaOperational</td>
-<td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
+<td>armature operational temperature TaOperational</td>
+<td>20</td><td>&deg;C</td>
 </tr>
 <tr>
-<td valign=\"top\">(shunt) excitation operational temperature TeOperational</td>
-<td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
+<td>(shunt) excitation operational temperature TeOperational</td>
+<td>20</td><td>&deg;C</td>
 </tr>
 </table>
 Armature resistance resp. inductance include resistance resp. inductance of commutating pole winding and
@@ -7212,88 +8632,88 @@ Series excitation has to be connected by the user's external circuit.
 <br><strong>Default values for machine's parameters (a realistic example) are:</strong><br></p>
 <table>
 <tr>
-<td valign=\"top\">stator's moment of inertia</td>
-<td valign=\"top\">0.29</td><td valign=\"top\">kg.m2</td>
+<td>stator's moment of inertia</td>
+<td>0.29</td><td>kg.m2</td>
 </tr>
 <tr>
-<td valign=\"top\">rotor's moment of inertia</td>
-<td valign=\"top\">0.15</td><td valign=\"top\">kg.m2</td>
+<td>rotor's moment of inertia</td>
+<td>0.15</td><td>kg.m2</td>
 </tr>
 <tr>
-<td valign=\"top\">nominal armature voltage</td>
-<td valign=\"top\">100</td><td valign=\"top\">V</td>
+<td>nominal armature voltage</td>
+<td>100</td><td>V</td>
 </tr>
 <tr>
-<td valign=\"top\">nominal armature current</td>
-<td valign=\"top\">100</td><td valign=\"top\">A</td>
+<td>nominal armature current</td>
+<td>100</td><td>A</td>
 </tr>
 <tr>
-<td valign=\"top\">nominal torque</td>
-<td valign=\"top\">63.66</td><td valign=\"top\">Nm</td>
+<td>nominal torque</td>
+<td>63.66</td><td>Nm</td>
 </tr>
 <tr>
-<td valign=\"top\">nominal speed</td>
-<td valign=\"top\">1410</td><td valign=\"top\">rpm</td>
+<td>nominal speed</td>
+<td>1410</td><td>rpm</td>
 </tr>
 <tr>
-<td valign=\"top\">nominal mechanical output</td>
-<td valign=\"top\">9.4</td><td valign=\"top\">kW</td>
+<td>nominal mechanical output</td>
+<td>9.4</td><td>kW</td>
 </tr>
 <tr>
-<td valign=\"top\">efficiency</td>
-<td valign=\"top\">94.0</td><td valign=\"top\">% only armature</td>
+<td>efficiency</td>
+<td>94.0</td><td>% only armature</td>
 </tr>
 <tr>
-<td valign=\"top\">armature resistance</td>
-<td valign=\"top\">0.05</td><td valign=\"top\">Ohm at reference temperature</td>
+<td>armature resistance</td>
+<td>0.05</td><td>Ohm at reference temperature</td>
 </tr>
 <tr>
-<td valign=\"top\">reference temperature TaRef</td>
-<td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
+<td>reference temperature TaRef</td>
+<td>20</td><td>&deg;C</td>
 </tr>
 <tr>
-<td valign=\"top\">temperature coefficient alpha20a </td>
-<td valign=\"top\">0</td><td valign=\"top\">1/K</td>
+<td>temperature coefficient alpha20a </td>
+<td>0</td><td>1/K</td>
 </tr>
 <tr>
-<td valign=\"top\">armature inductance</td>
-<td valign=\"top\">0.0015</td><td valign=\"top\">H</td>
+<td>armature inductance</td>
+<td>0.0015</td><td>H</td>
 </tr>
 <tr>
-<td valign=\"top\">excitation resistance</td>
-<td valign=\"top\">0.01</td><td valign=\"top\">Ohm at reference temperature</td>
+<td>excitation resistance</td>
+<td>0.01</td><td>Ohm at reference temperature</td>
 </tr>
 <tr>
-<td valign=\"top\">reference temperature TeRef</td>
-<td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
+<td>reference temperature TeRef</td>
+<td>20</td><td>&deg;C</td>
 </tr>
 <tr>
-<td valign=\"top\">temperature coefficient alpha20e</td>
-<td valign=\"top\">0</td><td valign=\"top\">1/K</td>
+<td>temperature coefficient alpha20e</td>
+<td>0</td><td>1/K</td>
 </tr>
 <tr>
-<td valign=\"top\">excitation inductance</td>
-<td valign=\"top\">0.0005</td><td valign=\"top\">H</td>
+<td>excitation inductance</td>
+<td>0.0005</td><td>H</td>
 </tr>
 <tr>
-<td valign=\"top\">stray part of excitation inductance</td>
-<td valign=\"top\">0</td><td valign=\"top\"> </td>
+<td>stray part of excitation inductance</td>
+<td>0</td><td> </td>
 </tr>
 <tr>
-<td valign=\"top\">armature nominal temperature TaNominal</td>
-<td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
+<td>armature nominal temperature TaNominal</td>
+<td>20</td><td>&deg;C</td>
 </tr>
 <tr>
-<td valign=\"top\">series excitation nominal temperature TeNominal</td>
-<td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
+<td>series excitation nominal temperature TeNominal</td>
+<td>20</td><td>&deg;C</td>
 </tr>
 <tr>
-<td valign=\"top\">armature operational temperature TaOperational</td>
-<td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
+<td>armature operational temperature TaOperational</td>
+<td>20</td><td>&deg;C</td>
 </tr>
 <tr>
-<td valign=\"top\">series excitation operational temperature TeOperational</td>
-<td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
+<td>series excitation operational temperature TeOperational</td>
+<td>20</td><td>&deg;C</td>
 </tr>
 </table>
 Armature resistance resp. inductance include resistance resp. inductance of commutating pole winding and
@@ -7321,7 +8741,7 @@ This package contains models of DC machines:
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><strong>Copyright:</strong></dt>
-  <dd>Copyright &copy; 1998-2016, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2018, Modelica Association and Anton Haumer.<br>
   <em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
   under the terms of the <strong>Modelica license</strong>, see the license conditions
   and the accompanying <strong>disclaimer</strong> in the documentation of package
@@ -7408,7 +8828,7 @@ where e.g., <code>L*der(i)</code> is replaced by <code>j*omega*L*(I_re+j*I_im)</
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><strong>Copyright:</strong></dt>
-  <dd>Copyright &copy; 1998-2016, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2018, Modelica Association and Anton Haumer.<br>
   <em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
   under the terms of the <strong>Modelica license</strong>, see the license conditions
   and the accompanying <strong>disclaimer</strong> in the documentation of package
@@ -7686,7 +9106,7 @@ This package contains transformers primary Y connected / secondary y connected i
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><strong>Copyright:</strong></dt>
-  <dd>Copyright &copy; 1998-2016, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2018, Modelica Association and Anton Haumer.<br>
   <em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
   under the terms of the <strong>Modelica license</strong>, see the license conditions
   and the accompanying <strong>disclaimer</strong> in the documentation of package
@@ -7923,7 +9343,7 @@ This package contains transformers primary Y connected / secondary d connected i
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><strong>Copyright:</strong></dt>
-  <dd>Copyright &copy; 1998-2016, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2018, Modelica Association and Anton Haumer.<br>
   <em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
   under the terms of the <strong>Modelica license</strong>, see the license conditions
   and the accompanying <strong>disclaimer</strong> in the documentation of package
@@ -8252,7 +9672,7 @@ This package contains transformers primary Y connected / secondary zig-zag conne
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><strong>Copyright:</strong></dt>
-  <dd>Copyright &copy; 1998-2016, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2018, Modelica Association and Anton Haumer.<br>
   <em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
   under the terms of the <strong>Modelica license</strong>, see the license conditions
   and the accompanying <strong>disclaimer</strong> in the documentation of package
@@ -8497,7 +9917,7 @@ This package contains transformers primary D connected / secondary y connected i
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><strong>Copyright:</strong></dt>
-  <dd>Copyright &copy; 1998-2016, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2018, Modelica Association and Anton Haumer.<br>
   <em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
   under the terms of the <strong>Modelica license</strong>, see the license conditions
   and the accompanying <strong>disclaimer</strong> in the documentation of package
@@ -8704,7 +10124,7 @@ This package contains transformers primary D connected / secondary d connected i
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><strong>Copyright:</strong></dt>
-  <dd>Copyright &copy; 1998-2016, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2018, Modelica Association and Anton Haumer.<br>
   <em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
   under the terms of the <strong>Modelica license</strong>, see the license conditions
   and the accompanying <strong>disclaimer</strong> in the documentation of package
@@ -9003,7 +10423,7 @@ This package contains transformers primary D connected / secondary d connected i
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><strong>Copyright:</strong></dt>
-  <dd>Copyright &copy; 1998-2016, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2018, Modelica Association and Anton Haumer.<br>
   <em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
   under the terms of the <strong>Modelica license</strong>, see the license conditions
   and the accompanying <strong>disclaimer</strong> in the documentation of package
@@ -9075,11 +10495,11 @@ even though the source's and/or load's starpoint are grounded; you may use a rea
   </dd>
 </dl>
 <p>
-Copyright &copy; 1998-2016, Modelica Association and Anton Haumer.
+Copyright &copy; 1998-2018, Modelica Association and Anton Haumer.
 </p>
 
 <p>
-<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</em>
+<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em>
 </p>
 </html>", revisions="<html>
   <ul>
@@ -9541,7 +10961,8 @@ although reference temperature for both resistances is the same.
         ve = pin_ep.v - pin_en.v;
         spacePhasor_r.i_ = {-ie*turnsRatio,0};
         ve = spacePhasor_r.v_[1]*turnsRatio*3/2;
-        annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+        annotation (defaultComponentName="excitation",
+          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                   -100},{100,100}}), graphics={
                                           Polygon(
                       points={{-90,100},{-70,106},{-70,94},{-90,100}},
@@ -9568,7 +10989,8 @@ Model of an electrical excitation, converting excitation to space phasor.
               transformation(extent={{-110,90},{-90,110}})));
       equation
         spacePhasor_r.i_ = {-Ie,0};
-        annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+        annotation (defaultComponentName="magnet",
+          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                   -100},{100,100}}), graphics={Ellipse(
                       extent={{-60,60},{60,20}},
                       lineColor={255,0,0},
@@ -9605,6 +11027,9 @@ Model of a permanent magnet excitation, characterized by an equivalent excitatio
       model PermanentMagnetWithLosses "Permanent magnet excitation"
         extends Machines.BasicMachines.Components.PermanentMagnet;
         extends Machines.Losses.InductionMachines.PermanentMagnetLosses;
+        annotation(defaultComponentName="magnet", Documentation(info="<html>
+Model of a permanent magnet excitation with loss, characterized by an equivalent excitation current.
+</html>"));
       end PermanentMagnetWithLosses;
 
       model InductorDC
@@ -9615,7 +11040,7 @@ Model of a permanent magnet excitation, characterized by an equivalent excitatio
           "No electrical transients if true" annotation (Evaluate=true);
       equation
         v = if quasiStationary then 0 else L*der(i);
-        annotation (
+        annotation (defaultComponentName="inductor",
           Documentation(info="<html>
 <p>The linear inductor connects the branch voltage <em>v</em> with the branch current <em>i</em> by <em>v = L * di/dt</em>.
 If <code>quasiStationary == false</code>, the electrical transients are neglected, i.e., the voltage drop is zero.</p>
@@ -9773,7 +11198,8 @@ Induced armature voltage is calculated from flux times angular velocity.
         //induced voltages
         ve = v;
         vse = v*excitationTurnsRatio;
-        annotation (Icon(graphics={Polygon(
+        annotation (defaultComponentName="excitation",
+          Icon(graphics={Polygon(
                       points={{-60,-40},{-40,-40},{0,4},{40,-40},{60,-40},{10,
                   20},{10,60},{20,60},{0,80},{-20,60},{-10,60},{-10,20},{-60,-40}},
                       lineColor={0,0,255},
@@ -9968,7 +11394,7 @@ These models use package SpacePhasors.
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><strong>Copyright:</strong></dt>
-  <dd>Copyright &copy; 1998-2016, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2018, Modelica Association and Anton Haumer.<br>
   <em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
   under the terms of the <strong>Modelica license</strong>, see the license conditions
   and the accompanying <strong>disclaimer</strong> in the documentation of package
@@ -10011,7 +11437,7 @@ The induction machine models use package SpacePhasors.
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><strong>Copyright:</strong></dt>
-  <dd>Copyright &copy; 1998-2016, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2018, Modelica Association and Anton Haumer.<br>
   <em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
   under the terms of the <strong>Modelica license</strong>, see the license conditions
   and the accompanying <strong>disclaimer</strong> in the documentation of package
@@ -10125,7 +11551,8 @@ The induction machine models use package SpacePhasors.
                                                               color={0,0,127}));
       connect(Gain1.y, V) annotation (Line(
           points={{0,-81},{0,-110}}, color={0,0,127}));
-      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+      annotation (defaultComponentName="voltageRMSSensor",
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Line(points={{-90,0},{-70,0}},
               color={0,0,255}),Line(points={{70,0},{90,0}}, color={0,0,255}),
               Line(points={{0,-70},{0,-100}}, color={0,0,127}),Text(
@@ -10137,7 +11564,7 @@ The induction machine models use package SpacePhasors.
                     textString="%name",
                     lineColor={0,0,255})}),
                                          Documentation(info="<html>
-Measured 3-phase instantaneous voltages are transformed to the corresponding space phasor; <br>
+Measured 3-phase instantaneous voltages are transformed to the corresponding space phasor;
 output is length of the space phasor divided by sqrt(2), thus giving in sinusoidal stationary state RMS voltage.
 </html>"));
     end VoltageQuasiRMSSensor;
@@ -10186,7 +11613,8 @@ output is length of the space phasor divided by sqrt(2), thus giving in sinusoid
                                                               color={0,0,127}));
       connect(Gain1.y, I) annotation (Line(
           points={{0,-81},{0,-110}}, color={0,0,127}));
-      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+      annotation (defaultComponentName="currentRMSSensor",
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Line(points={{-90,0},{-70,0}},
               color={0,0,255}),Line(points={{70,0},{90,0}}, color={0,0,255}),
               Line(points={{0,-70},{0,-100}}, color={0,0,127}),Text(
@@ -10198,7 +11626,7 @@ output is length of the space phasor divided by sqrt(2), thus giving in sinusoid
                     textString="%name",
                     lineColor={0,0,255})}),
                                          Documentation(info="<html>
-Measured 3-phase instantaneous currents are transformed to the corresponding space phasor; <br>
+Measured 3-phase instantaneous currents are transformed to the corresponding space phasor;
 output is length of the space phasor divided by sqrt(2), thus giving in sinusoidal stationary state RMS current.
 </html>"));
     end CurrentQuasiRMSSensor;
@@ -10233,7 +11661,8 @@ output is length of the space phasor divided by sqrt(2), thus giving in sinusoid
       i_ = Machines.SpacePhasors.Functions.ToSpacePhasor(plug_p.pin.i);
       2/3*P = +v_[1]*i_[1] + v_[2]*i_[2];
       2/3*Q = -v_[1]*i_[2] + v_[2]*i_[1];
-      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+      annotation (defaultComponentName="powerSensor",
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Line(points={{-90,0},{-70,0}},
               color={0,0,255}),Line(points={{70,0},{90,0}}, color={0,0,255}),
               Line(points={{0,-70},{0,-90}}, color={0,0,255}),Line(points={{-10,
@@ -10242,11 +11671,12 @@ output is length of the space phasor divided by sqrt(2), thus giving in sinusoid
                   lineColor={0,0,255},
                   extent={{-40,-60},{40,-20}},
                   textString="P Q")}), Documentation(info="<html>
-3-phase instantaneous voltages (plug_p - plug_nv) and currents (plug_p - plug_ni) are transformed to the corresponding space phasors, <br>
-which are used to calculate power quantities:<br>
-P = instantaneous power, thus giving in stationary state active power.<br>
-Q = giving in stationary state reactive power.<br>
-</html>"));
+3-phase instantaneous voltages (plug_p - plug_nv) and currents (plug_p - plug_ni) are transformed to the corresponding space phasors,<br>
+which are used to calculate power quantities:
+<ul>
+<li>P = instantaneous power, thus giving in stationary state active power.</li>
+<li>Q = giving in stationary state reactive power.</li>
+</ul></html>"));
     end ElectricalPowerSensor;
 
     model MechanicalPowerSensor "Mechanical power = torque x speed"
@@ -10292,7 +11722,8 @@ Q = giving in stationary state reactive power.<br>
           points={{22,-11},{22,-20},{6,-20},{6,18}}, color={0,0,127}));
       connect(product.y, P) annotation (Line(
           points={{0,41},{0,110}}, color={0,0,127}));
-      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+      annotation (defaultComponentName="powerSensor",
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Line(points={{-70,0},{-90,0}}),
               Line(points={{70,0},{90,0}}),Line(points={{0,70},{0,100}}, color=
               {0,0,127}),Rectangle(
@@ -10317,6 +11748,7 @@ Calculates (mechanical) power from torque times angular speed.
       parameter Integer m=3 "Number of phases";
       parameter Integer p(min=1) "Number of pole pairs";
       parameter Boolean positiveRange=false "Use only positive output range, if true";
+      parameter Real threshold(final min=0)=0 "Below threshold the voltage is considered as zero";
       parameter Boolean useSupport=false "Use support or fixed housing"
         annotation (Evaluate=true);
       Modelica.Blocks.Interfaces.RealOutput rotorDisplacementAngle(final
@@ -10332,7 +11764,7 @@ Calculates (mechanical) power from torque times angular speed.
             extent={{10,-10},{-10,10}},
             rotation=90)));
       SpacePhasors.Blocks.ToSpacePhasor ToSpacePhasorVS(final m=m) annotation (
-          Placement(transformation(extent={{-60,-10},{-40,10}})));
+          Placement(transformation(extent={{-50,-10},{-30,10}})));
       Modelica.Mechanics.Rotational.Interfaces.Flange_a flange annotation (
           Placement(transformation(extent={{-10,90},{10,110}})));
       Modelica.Mechanics.Rotational.Sensors.RelAngleSensor relativeAngleSensor
@@ -10347,19 +11779,21 @@ Calculates (mechanical) power from torque times angular speed.
       Modelica.Electrical.Machines.SpacePhasors.Blocks.Rotator rotatorVS2R
         annotation (Placement(transformation(extent={{-20,10},{0,-10}})));
       Modelica.Electrical.Machines.SpacePhasors.Blocks.ToPolar ToPolarVSR
-        annotation (Placement(transformation(extent={{20,-10},{40,10}})));
+        annotation (Placement(transformation(extent={{10,-10},{30,10}})));
       Modelica.Mechanics.Rotational.Interfaces.Flange_a support if useSupport
         "support at which the reaction torque is acting" annotation (Placement(
             transformation(extent={{90,90},{110,110}})));
       Modelica.Mechanics.Rotational.Components.Fixed fixed if (not useSupport)
         annotation (Placement(transformation(extent={{90,70},{110,90}})));
       Blocks.Math.WrapAngle wrapAngle(final positiveRange=positiveRange)
-        annotation (Placement(transformation(extent={{60,-10},{80,10}})));
+        annotation (Placement(transformation(extent={{70,-10},{90,10}})));
+      SpacePhasors.Blocks.LessThreshold lessThreshold(final threshold=threshold)
+        annotation (Placement(transformation(extent={{40,-10},{60,10}})));
     equation
-      connect(plug_p, VoltageSensor1.plug_p) annotation (Line(points={{-100,60},
-              {-80,60},{-80,10}}, color={0,0,255}));
-      connect(plug_n, VoltageSensor1.plug_n) annotation (Line(points={{-100,-60},
-              {-80,-60},{-80,-10}}, color={0,0,255}));
+      connect(plug_p, VoltageSensor1.plug_p) annotation (Line(points={{-100,60},{-80,
+              60},{-80,10}},      color={0,0,255}));
+      connect(plug_n, VoltageSensor1.plug_n) annotation (Line(points={{-100,-60},{-80,
+              -60},{-80,-10}},      color={0,0,255}));
       connect(relativeAngleSensor.flange_b, flange)
         annotation (Line(points={{20,80},{0,80},{0,100}}));
       connect(relativeAngleSensor.flange_a, support) annotation (Line(
@@ -10371,16 +11805,20 @@ Calculates (mechanical) power from torque times angular speed.
       connect(constant_.y, add.u2) annotation (Line(
           points={{-29,50},{-16,50},{-16,42}}, color={0,0,127}));
       connect(VoltageSensor1.v, ToSpacePhasorVS.u) annotation (Line(
-          points={{-69,0},{-62,0}}, color={0,0,127}));
+          points={{-69,0},{-52,0}}, color={0,0,127}));
       connect(ToSpacePhasorVS.y, rotatorVS2R.u) annotation (Line(
-          points={{-39,0},{-22,0}}, color={0,0,127}));
+          points={{-29,0},{-22,0}}, color={0,0,127}));
       connect(rotatorVS2R.y, ToPolarVSR.u) annotation (Line(
-          points={{1,0},{18,0}}, color={0,0,127}));
+          points={{1,0},{8,0}},  color={0,0,127}));
       connect(add.y, rotatorVS2R.angle) annotation (Line(
           points={{-10,19},{-10,12}}, color={0,0,127}));
-      connect(ToPolarVSR.y[2], wrapAngle.u) annotation (Line(points={{41,0},{58,0}}, color={0,0,127}));
-      connect(wrapAngle.y, rotorDisplacementAngle) annotation (Line(points={{81,0},{110,0}}, color={0,0,127}));
-      annotation (
+      connect(wrapAngle.y, rotorDisplacementAngle) annotation (Line(points={{91,0},{
+              110,0}},                                                                       color={0,0,127}));
+      connect(ToPolarVSR.y, lessThreshold.u)
+        annotation (Line(points={{31,0},{38,0}}, color={0,0,127}));
+      connect(lessThreshold.y, wrapAngle.u)
+        annotation (Line(points={{61,0},{68,0}}, color={0,0,127}));
+      annotation (defaultComponentName="angleSensor",
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Ellipse(
                   extent={{-60,80},{60,40}},
@@ -10428,7 +11866,7 @@ Calculates (mechanical) power from torque times angular speed.
                   visible=not useSupport,
                   points={{120,120},{110,100}})}),
         Documentation(info="<html>
-Calculates rotor lagging angle by measuring the stator phase voltages, transforming them to the corresponding space phasor in stator-fixed coordinate system, <br>
+Calculates rotor lagging angle by measuring the stator phase voltages, transforming them to the corresponding space phasor in stator-fixed coordinate system,<br>
 rotating the space phasor to the rotor-fixed coordinate system and calculating the angle of this space phasor.
 <p>
 The sensor's housing can be implicitly fixed (useSupport=false).<br>
@@ -10438,6 +11876,65 @@ Otherwise, the sensor's support has to be connected to the machine's support.
 </p>
 </html>"));
     end RotorDisplacementAngle;
+
+    model HallSensor "Hall sensor"
+      import Modelica.Constants.pi;
+      extends
+        Modelica.Mechanics.Rotational.Interfaces.PartialElementaryOneFlangeAndSupport2;
+      parameter Integer p(final min=1, start=2) "Number of pole pairs";
+      parameter Modelica.SIunits.Angle phi0=-pi/p "Initial mechanical angle";
+      Modelica.Blocks.Interfaces.RealOutput y(
+        quantity="Angle",
+        final unit="rad",
+        displayUnit="deg") "\"Electrical angle\""
+        annotation (Placement(transformation(extent={{-100,-10},{-120,10}})));
+    equation
+      flange.tau=0;
+      y=rem((flange.phi - phi_support - phi0)*p, 2*pi);
+       annotation (
+        Icon(coordinateSystem(preserveAspectRatio=false), graphics={
+            Text(
+              extent={{-100,-60},{100,-80}},
+              lineColor={28,108,200},
+              textString="p=%p"),
+            Ellipse(extent={{-60,60},{60,-60}}, lineColor={28,108,200},
+              fillColor={215,215,215},
+              fillPattern=FillPattern.Solid),
+            Line(points={{0,0},{0,60}},  color={28,108,200}),
+            Line(points={{0,-30},{0,30}},color={28,108,200},
+              origin={-26,15},
+              rotation=60),
+            Line(points={{0,-30},{0,30}},color={28,108,200},
+              origin={26,15},
+              rotation=-60),
+            Line(points={{0,-60},{0,0}}, color={28,108,200}),
+            Line(points={{0,-30},{0,30}},color={28,108,200},
+              origin={26,-15},
+              rotation=60),
+            Line(points={{0,-30},{0,30}},color={28,108,200},
+              origin={-26,-15},
+              rotation=-60),
+            Ellipse(extent={{-20,20},{20,-20}}, lineColor={28,108,200},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-60,0},{-100,0}}, color={28,108,200}),
+            Line(points={{100,0},{60,0}}, color={28,108,200}),
+            Text(
+              extent={{-100,100},{100,60}},
+              lineColor={28,108,200},
+              fillColor={255,255,255},
+              textString="%name")}),
+        Diagram(coordinateSystem(preserveAspectRatio=false)),
+        Documentation(info="<html>
+<p>
+Simple model of a hall sensor, i.e. measuring the angle of the flange (w.r.t. the optional support), multiplying by the number of phases p to obtain the electrical angle,
+and adding a correction term i.e. the initial angle of the flange phi0.
+</p>
+<p>
+Note that phi0 has to be set that way, that in shaft position phi0 the flux linkage of phase 1 is a maximum.
+</p>
+</html>"));
+    end HallSensor;
     annotation (Documentation(info="<html>
 This package contains sensors that are useful when modelling machines.
 </html>", revisions="<html>
@@ -10450,7 +11947,7 @@ This package contains sensors that are useful when modelling machines.
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><strong>Copyright:</strong></dt>
-  <dd>Copyright &copy; 1998-2016, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2018, Modelica Association and Anton Haumer.<br>
   <em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
   under the terms of the <strong>Modelica license</strong>, see the license conditions
   and the accompanying <strong>disclaimer</strong> in the documentation of package
@@ -10603,7 +12100,7 @@ a ground has to be used where necessary for currents flowing back.
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><strong>Copyright:</strong></dt>
-  <dd>Copyright &copy; 1998-2016, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2018, Modelica Association and Anton Haumer.<br>
   <em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
   under the terms of the <strong>Modelica license</strong>, see the license conditions
   and the accompanying <strong>disclaimer</strong> in the documentation of package
@@ -10837,6 +12334,13 @@ This model determines the RMS value of the input space phasor <code>u</code>.</p
                       lineColor={0,0,255},
                       textString="RMS")}));
       end QuasiRMS;
+
+      block LessThreshold "Sets angle to zero when length is below threshold"
+        extends Modelica.Blocks.Interfaces.MISO(final nin=2);
+        parameter Real threshold(final min=0) "Threshold";
+      equation
+        y = if noEvent(u[1]<threshold) then 0 else u[2];
+      end LessThreshold;
       annotation (Documentation(info="<html>
 This package contains space phasor transformation blocks for use in controllers:
 <ul>
@@ -10860,7 +12364,7 @@ the first element representing the real part and the second element representing
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><strong>Copyright:</strong></dt>
-  <dd>Copyright &copy; 1998-2016, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2018, Modelica Association and Anton Haumer.<br>
   <em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
   under the terms of the <strong>Modelica license</strong>, see the license conditions
   and the accompanying <strong>disclaimer</strong> in the documentation of package
@@ -11061,7 +12565,7 @@ the first element representing the real part and the second element representing
   </dd>
 
   <dt><strong>Copyright:</strong></dt>
-  <dd>Copyright &copy; 1998-2016, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2018, Modelica Association and Anton Haumer.<br>
   <em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
   under the terms of the <strong>Modelica license</strong>, see the license conditions
   and the accompanying <strong>disclaimer</strong> in the documentation of package
@@ -11090,7 +12594,7 @@ You may have a look at a short summary of space phasor theory at <a href=\"http:
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><strong>Copyright:</strong></dt>
-  <dd>Copyright &copy; 1998-2016, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2018, Modelica Association and Anton Haumer.<br>
   <em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
   under the terms of the <strong>Modelica license</strong>, see the license conditions
   and the accompanying <strong>disclaimer</strong> in the documentation of package
@@ -11474,7 +12978,8 @@ If it is desired to neglect stray load losses, set <code>strayLoadParameters.PRe
             sign(w)*(abs(w)/permanentMagnetLossParameters.wRef)^permanentMagnetLossParameters.power_w;
         end if;
         lossPower = -tau*w;
-        annotation (Icon(graphics={Ellipse(extent={{-40,-40},{40,40}},
+        annotation (defaultComponentName="magnetLoss",
+          Icon(graphics={Ellipse(extent={{-40,-40},{40,40}},
                 lineColor={200,0,0})}), Documentation(info="<html>
 <p>
 Permanent magnet losses are modeled dependent on current and speed.
@@ -11506,7 +13011,8 @@ If it is desired to neglect permanent magnet losses, set <code>strayLoadParamete
       end PermanentMagnetLosses;
 
       model Core "Model of core losses"
-        parameter Machines.Losses.CoreParameters coreParameters;
+        parameter Machines.Losses.CoreParameters coreParameters(m=3);
+        //for backwards compatibility present but unused
         final parameter Integer m=coreParameters.m "Number of phases";
         parameter Real turnsRatio(final min=Modelica.Constants.small)
           "Effective number of stator turns / effective number of rotor turns (if used as rotor core)";
@@ -11619,7 +13125,7 @@ This package contains loss models used for induction machine models.
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><strong>Copyright:</strong></dt>
-  <dd>Copyright &copy; 1998-2016, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2018, Modelica Association and Anton Haumer.<br>
   <em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
   under the terms of the <strong>Modelica license</strong>, see the license conditions
   and the accompanying <strong>disclaimer</strong> in the documentation of package
@@ -11769,8 +13275,7 @@ If it is desired to neglect stray load losses, set <code>strayLoadParameters.PRe
 
       model Core "Model of core losses"
         extends Modelica.Electrical.Analog.Interfaces.OnePort;
-        parameter Machines.Losses.CoreParameters coreParameters
-          "Armature core losses";
+        parameter Machines.Losses.CoreParameters coreParameters(m=1) "Armature core losses";
         extends
           Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT(
             useHeatPort=false);
@@ -11856,7 +13361,7 @@ This package contains loss models used for DC machine models.
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><strong>Copyright:</strong></dt>
-  <dd>Copyright &copy; 1998-2016, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2018, Modelica Association and Anton Haumer.<br>
   <em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
   under the terms of the <strong>Modelica license</strong>, see the license conditions
   and the accompanying <strong>disclaimer</strong> in the documentation of package
@@ -11880,7 +13385,7 @@ This package contains loss models and their parameter records used for machine m
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><strong>Copyright:</strong></dt>
-  <dd>Copyright &copy; 1998-2016, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2018, Modelica Association and Anton Haumer.<br>
   <em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
   under the terms of the <strong>Modelica license</strong>, see the license conditions
   and the accompanying <strong>disclaimer</strong> in the documentation of package
@@ -12007,6 +13512,44 @@ where <code>RRef</code> is the resistance at the reference temperature <code>TRe
 </p>
 </html>"));
     end convertResistance;
+
+    function linearTemperatureDependency
+      "Converts a value (e.g. resistance) from reference temperature to an actual temperature"
+      extends Modelica.Icons.Function;
+      input Real RRef "Value at TRef";
+      input Modelica.SIunits.Temperature TRef "Reference temperature";
+      input Modelica.SIunits.LinearTemperatureCoefficient alpha20
+        "Temperature coefficient at 20 degC";
+      input Modelica.SIunits.Temperature T "Actual temperature";
+      output Real R "Actual value at T";
+    algorithm
+      R := RRef*(1 + Machines.Thermal.convertAlpha(alpha20, TRef)*(T - TRef));
+      annotation (Inline=true,Documentation(info="<html>
+<p>
+This is the same function as Modelica.Electrical.Machines.Thermal.convertResistance but without physical units for input RRef and result R.
+This avoids problems if the function is used to calculate linear temperature dependency for other values than resistances.
+</p>
+<p>
+From the temperature coefficient <code>alpha20</code> at 20 degC (equals to 293.15 K) the parameter <code>alphaRef</code> at <code>TRef</code>
+</p>
+<pre>
+                        alpha20
+  alphaRef = -------------------------------
+              1 + alpha20 * (TRef - 293.15)
+</pre>
+<p>
+is determined; using this value, actual value (e.g. resistance <code>R</code>) with respect to the actual temperature <code>T</code> is calculated by
+</p>
+<pre>
+   R
+  ------ = 1 + alphaRef * (T - TRef)
+   RRef
+</pre>
+<p>
+where <code>RRef</code> is the value (e.g. resistance) at the reference temperature <code>TRef</code>.
+</p>
+</html>"));
+    end linearTemperatureDependency;
 
     package AsynchronousInductionMachines
       "Thermal parts of asynchronous induction machines"
@@ -14067,76 +15610,76 @@ Circuit layout (vector group) of primary and secondary windings have to be defin
 <br><strong>Default values for transformer's parameters (a realistic example) are:</strong><br>
 <table>
 <tr>
-<td valign=\"top\">turns ratio n</td>
-<td valign=\"top\">1</td><td valign=\"top\"> </td>
+<td>turns ratio n</td>
+<td>1</td><td> </td>
 </tr>
 <tr>
-<td valign=\"top\">nominal frequency fNominal</td>
-<td valign=\"top\">50</td><td valign=\"top\">Hz</td>
+<td>nominal frequency fNominal</td>
+<td>50</td><td>Hz</td>
 </tr>
 <tr>
-<td valign=\"top\">nominal voltage per phase</td>
-<td valign=\"top\">100</td><td valign=\"top\">V RMS</td>
+<td>nominal voltage per phase</td>
+<td>100</td><td>V RMS</td>
 </tr>
 <tr>
-<td valign=\"top\">nominal current per phase</td>
-<td valign=\"top\">100</td><td valign=\"top\">A RMS</td>
+<td>nominal current per phase</td>
+<td>100</td><td>A RMS</td>
 </tr>
 <tr>
-<td valign=\"top\">nominal apparent power</td>
-<td valign=\"top\">30</td><td valign=\"top\">kVA</td>
+<td>nominal apparent power</td>
+<td>30</td><td>kVA</td>
 </tr>
 <tr>
-<td valign=\"top\">primary resistance R1</td>
-<td valign=\"top\">0.005</td><td valign=\"top\">Ohm per phase at reference temperature</td>
+<td>primary resistance R1</td>
+<td>0.005</td><td>Ohm per phase at reference temperature</td>
 </tr>
 <tr>
-<td valign=\"top\">reference temperature T1Ref</td>
-<td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
+<td>reference temperature T1Ref</td>
+<td>20</td><td>&deg;C</td>
 </tr>
 <tr>
-<td valign=\"top\">temperature coefficient alpha20_1 </td>
-<td valign=\"top\">0</td><td valign=\"top\">1/K</td>
+<td>temperature coefficient alpha20_1 </td>
+<td>0</td><td>1/K</td>
 </tr>
 <tr>
-<td valign=\"top\">primary stray inductance L1sigma</td>
-<td valign=\"top\">78E-6</td><td valign=\"top\">H per phase</td>
+<td>primary stray inductance L1sigma</td>
+<td>78E-6</td><td>H per phase</td>
 </tr>
 <tr>
-<td valign=\"top\">secondary resistance R2</td>
-<td valign=\"top\">0.005</td><td valign=\"top\">Ohm per phase at reference temperature</td>
+<td>secondary resistance R2</td>
+<td>0.005</td><td>Ohm per phase at reference temperature</td>
 </tr>
 <tr>
-<td valign=\"top\">reference temperature T2Ref</td>
-<td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
+<td>reference temperature T2Ref</td>
+<td>20</td><td>&deg;C</td>
 </tr>
 <tr>
-<td valign=\"top\">temperature coefficient alpha20_2 </td>
-<td valign=\"top\">0</td><td valign=\"top\">1/K</td>
+<td>temperature coefficient alpha20_2 </td>
+<td>0</td><td>1/K</td>
 </tr>
 <tr>
-<td valign=\"top\">secondary stray inductance L2sigma</td>
-<td valign=\"top\">78E-6</td><td valign=\"top\">H per phase</td>
+<td>secondary stray inductance L2sigma</td>
+<td>78E-6</td><td>H per phase</td>
 </tr>
 <tr>
-<td valign=\"top\">operational temperature T1Operational</td>
-<td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
+<td>operational temperature T1Operational</td>
+<td>20</td><td>&deg;C</td>
 </tr>
 <tr>
-<td valign=\"top\">operational temperature T2Operational</td>
-<td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
+<td>operational temperature T2Operational</td>
+<td>20</td><td>&deg;C</td>
 </tr>
 <tr>
-<td valign=\"top\">These values give the operational parameters:</td>
-<td valign=\"top\"> </td><td valign=\"top\"> </td>
+<td>These values give the operational parameters:</td>
+<td> </td><td> </td>
 </tr>
 <tr>
-<td valign=\"top\">nominal voltage drop</td>
-<td valign=\"top\">0.05</td><td valign=\"top\">p.u.</td>
+<td>nominal voltage drop</td>
+<td>0.05</td><td>p.u.</td>
 </tr>
 <tr>
-<td valign=\"top\">nominal copper losses</td>
-<td valign=\"top\">300</td><td valign=\"top\">W</td>
+<td>nominal copper losses</td>
+<td>300</td><td>W</td>
 </tr>
 </table>
 </html>"));
@@ -14153,7 +15696,7 @@ Circuit layout (vector group) of primary and secondary windings have to be defin
       Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPortCore
         "Heat port of (optional) core losses"
         annotation (Placement(transformation(extent={{0,-10},{20,10}})));
-      annotation (
+        annotation (
         Diagram(graphics={Rectangle(
               extent={{-60,60},{60,-60}},
               lineColor={191,0,0},
@@ -14229,7 +15772,7 @@ This package contains the space phasor connector and partial models for machine 
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><strong>Copyright:</strong></dt>
-  <dd>Copyright &copy; 1998-2016, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2018, Modelica Association and Anton Haumer.<br>
   <em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
   under the terms of the <strong>Modelica license</strong>, see the license conditions
   and the accompanying <strong>disclaimer</strong> in the documentation of package
@@ -14480,7 +16023,7 @@ The icons can be utilized by inheriting them in the desired class using \"extend
   package Utilities "Library with auxiliary models for testing"
     extends Modelica.Icons.UtilitiesPackage;
     package ParameterRecords "Parameter records"
-      extends Modelica.Icons.MaterialPropertiesPackage;
+      extends Modelica.Icons.RecordsPackage;
       record InductionMachineData "Common parameters for induction machines"
         extends Modelica.Icons.Record;
         import Modelica.Constants.pi;
@@ -14963,7 +16506,7 @@ The multi phase input values <code>u[m]</code> are transformed to the correspond
 using the provided mechanical rotor angle phi. The output are the resulting d and q components of the space phasor arranged in one vector <code>y[2]</code>.
 </p>
 
-<h4>See also></h4>
+<h4>See also</h4>
 <p>
 <a href=\"modelica://Modelica.Electrical.Machines.Utilities.FromDQ\">FromDQ</a>
 </p>
@@ -15011,7 +16554,7 @@ The d and q components of a space phasor <code>u[2]</code> are rotated back to t
 using the provided mechanical rotor angle phi. The output are the instantaneous multi phase values <code>y[m]</code>.
 </p>
 
-<h4>See also></h4>
+<h4>See also</h4>
 <p>
 <a href=\"modelica://Modelica.Electrical.Machines.Utilities.ToDQ\">ToDQ</a>
 </p>
@@ -15066,7 +16609,8 @@ using the provided mechanical rotor angle phi. The output are the instantaneous 
           points={{11,40},{20,40},{20,8},{38,8}}, color={0,0,127}));
       connect(fromSpacePhasor.y, y) annotation (Line(
           points={{61,0},{110,0}}, color={0,0,127}));
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-100,60},{20,40}},
               lineColor={0,0,255},
@@ -15191,7 +16735,8 @@ They can be used to feed a current source which in turn feeds an induction machi
           points={{11,0},{20,0},{20,6},{30,6}}, color={0,0,127}));
       connect(deCoupling.y, add.u2) annotation (Line(
           points={{11,-30},{20,-30},{20,-6},{30,-6}}, color={0,0,127}));
-      annotation (Icon(graphics={Text(
+      annotation (
+        Icon(graphics={Text(
               extent={{-100,60},{20,40}},
               lineColor={0,0,255},
               textString="id_rms"), Text(
@@ -15383,7 +16928,7 @@ choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
               -40}}, color={0,0,255}));
       connect(starpoint, multiStar.starpoints) annotation (Line(
           points={{-100,-40},{-86,-40},{-86,-80},{-80,-80}},color={0,0,255}));
-      annotation (
+      annotation (defaultComponentName="terminalBox",
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={Polygon(
               points={{-74,-40},{-80,-46},{-80,-80},{-40,-100},{40,-100},{80,-70},{80,-44},{76,-40},{-74,-40}},
@@ -15449,7 +16994,8 @@ choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
           points={{-60,-60},{-70,-60}}, color={0,0,255}));
       connect(booleanStep.y, idealCommutingSwitch.control) annotation (Line(
           points={{-39,20},{28,20}}, color={255,0,255}));
-      annotation (Icon(graphics={
+      annotation (defaultComponentName="rheostat",
+        Icon(graphics={
             Rectangle(
               extent={{26,40},{54,-40}},
               lineColor={0,0,255},
@@ -15513,7 +17059,8 @@ choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
           points={{60,-10},{60,-60},{-20,-60}}, color={0,0,255}));
       connect(star.pin_n, ground.p) annotation (Line(
           points={{-40,-60},{-60,-60}}, color={0,0,255}));
-      annotation (Icon(graphics={
+      annotation (defaultComponentName="rheostat",
+        Icon(graphics={
             Rectangle(
               extent={{26,40},{54,-40}},
               lineColor={0,0,255},
@@ -15746,6 +17293,7 @@ normally given in a technical description, according to the standard EN&nbsp;600
 <p>The parameters of the transformer models are calculated from parameters normally given in a technical description.</p>
 </html>"));
     end TransformerData;
+
     annotation (Documentation(info="<html>
 This package contains utility components for testing examples.
 </html>", revisions="<html>
@@ -15758,7 +17306,7 @@ This package contains utility components for testing examples.
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><strong>Copyright:</strong></dt>
-  <dd>Copyright &copy; 1998-2016, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2018, Modelica Association and Anton Haumer.<br>
   <em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
   under the terms of the <strong>Modelica license</strong>, see the license conditions
   and the accompanying <strong>disclaimer</strong> in the documentation of package
@@ -15783,10 +17331,10 @@ This package contains utility components for testing examples.
     Documentation(info="<html>
 <p><strong>For a discrimination of various machine models, see <a href=\"modelica://Modelica.Electrical.Machines.UsersGuide.Discrimination\">discrimination</a></strong>.</p>
 <p>
-Copyright &copy; 1998-2016, Modelica Association, Anton Haumer, Christian Kral and AIT.
+Copyright &copy; 1998-2018, Modelica Association, Anton Haumer, Christian Kral and AIT.
 </p>
 <p>
-<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</em>
+<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em>
 </p>
 </html>", revisions="<html>
 </html>"),

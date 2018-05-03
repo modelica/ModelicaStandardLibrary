@@ -203,23 +203,24 @@ in the declaration as in the example at the beginning.
     extends Modelica.Icons.Contact;
 
     annotation (Documentation(info="<html>
-<dl>
-<dt><strong>Main Author:</strong>
-<dd><a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a><br>
-    Deutsches Zentrum f&uuml;r Luft und Raumfahrt e.V. (DLR)<br>
-    Institut f&uuml;r Robotik und Mechatronik<br>
-    Abteilung f&uuml;r Entwurfsorientierte Regelungstechnik<br>
-    Postfach 1116<br>
-    D-82230 Wessling<br>
-    Germany<br>
-    email: <A HREF=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</A><br>
-</dl>
+<h4>Main author</h4>
 
-<p><strong>Acknowledgements:</strong></p>
-<ul>
-<li> Astrid Jaschinski, Hubertus Tummescheit and Christian Schweiger
-     contributed to the implementation of this package.</li>
-</ul>
+<p>
+<a href=\"http://www.robotic.dlr.de/Martin.Otter/\"><strong>Martin Otter</strong></a><br>
+Deutsches Zentrum f&uuml;r Luft- und Raumfahrt e.V. (DLR)<br>
+Institut f&uuml;r Systemdynamik und Regelungstechnik (DLR-SR)<br>
+Forschungszentrum Oberpfaffenhofen<br>
+D-82234 Wessling<br>
+Germany<br>
+email: <a href=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</a>
+</p>
+
+<h4>Acknowledgements</h4>
+
+<p>
+Astrid Jaschinski, Hubertus Tummescheit and Christian Schweiger
+contributed to the implementation of this package.
+</p>
 </html>"));
   end Contact;
 
@@ -306,10 +307,12 @@ end UsersGuide;
 
       type FirstOrderTemperaturCoefficient =
                               Real (final quantity="FirstOrderTemperatureCoefficient",
-            final unit="Ohm/degC") "Obsolete type, use LinearTemperatureCoefficientResistance instead!" annotation(absoluteValue=true);
+            final unit="Ohm/degC") "Obsolete type, use LinearTemperatureCoefficientResistance instead!" annotation(absoluteValue=true,
+        obsolete = "Obsolete type - use Modelica.SIunits.LinearTemperatureCoefficientResistance instead");
       type SecondOrderTemperaturCoefficient =
                               Real (final quantity="SecondOrderTemperatureCoefficient",
-            final unit="Ohm/degC2") "Obsolete type, use QuadraticTemperatureCoefficientResistance instead!" annotation(absoluteValue=true);
+            final unit="Ohm/degC2") "Obsolete type, use QuadraticTemperatureCoefficientResistance instead!" annotation(absoluteValue=true,
+        obsolete = "Obsolete type - use Modelica.SIunits.QuadraticTemperatureCoefficientResistance instead");
       type Area_cm =   Real (final quantity="Area", final unit="cm2")
         "Area in cm";
       type PerArea_cm =Real (final quantity="PerArea", final unit="1/cm2")
@@ -357,7 +360,7 @@ SIunits.Conversions.<strong>to_unit1</strong>(r);
 <h4>Description</h4>
 <p>
 The function call \"<code>Conversions.<strong>to_unit1</strong>(r)</code>\" returns r with unit=\"1\".
-
+</p>
 <h4>Example</h4>
 <blockquote><pre>
   Modelica.SIunits.Velocity v = {3,2,1};
@@ -880,7 +883,8 @@ The function call \"<code>Conversions.<strong>to_unit1</strong>(r)</code>\" retu
 <p>
 This icon of a <strong>conversion symbol</strong> will be removed in future versions of the library. Instead the icon <a href=\"modelica://Modelica.SIunits.Icons.Conversion\">Modelica.SIunits.Icons.Conversion</a> shall be used.
 </p>
-</html>"));
+</html>"),
+      obsolete = "Obsolete function - use Modelica.SIunits.Icons.Conversion instead");
     end ConversionIcon;
     annotation (Documentation(info="<html>
 <p>This package provides conversion functions from the non SI Units
@@ -1379,9 +1383,11 @@ argument):</p>
           "phon");
   type Loudness = Real (final quantity="Loudness", final unit="sone");
   type LoundnessLevel = Real (final quantity="LoundnessLevel", final unit=
-          "phon") "Obsolete type, use LoudnessLevel instead!";
+          "phon") "Obsolete type, use LoudnessLevel instead!" annotation(
+    obsolete = "Obsolete type - use Modelica.SIunits.LoudnessLevel instead");
   type Loundness = Real (final quantity="Loundness", final unit="sone")
-    "Obsolete type, use Loudness instead!";
+    "Obsolete type, use Loudness instead!" annotation(
+    obsolete = "Obsolete type - use Modelica.SIunits.Loudness instead");
 
   // Physical chemistry and molecular physics (chapter 8 of ISO 31-1992)
   type RelativeAtomicMass = Real (final quantity="RelativeAtomicMass", final unit=
@@ -1756,72 +1762,73 @@ argument):</p>
 
  // Complex types for electrical systems (not defined in ISO 31-1992)
   operator record ComplexCurrent =
-    Complex(redeclare Modelica.SIunits.Current re,
-             redeclare Modelica.SIunits.Current im)
+    Complex(redeclare Modelica.SIunits.Current re "Real part of complex current",
+            redeclare Modelica.SIunits.Current im "Imaginary part of complex current")
     "Complex electrical current";
   operator record ComplexCurrentSlope =
-    Complex(redeclare Modelica.SIunits.CurrentSlope re,
-             redeclare Modelica.SIunits.CurrentSlope im)
+    Complex(redeclare Modelica.SIunits.CurrentSlope re "Real part of complex current slope",
+            redeclare Modelica.SIunits.CurrentSlope im "Imaginary part of complex current slope")
     "Complex current slope";
   operator record ComplexCurrentDensity =
-    Complex(redeclare Modelica.SIunits.CurrentDensity re,
-             redeclare Modelica.SIunits.CurrentDensity im)
+    Complex(redeclare Modelica.SIunits.CurrentDensity re "Real part of complex current density",
+            redeclare Modelica.SIunits.CurrentDensity im "Imaginary part of complex current density")
     "Complex electrical current density";
   operator record ComplexElectricPotential =
-    Complex(redeclare Modelica.SIunits.ElectricPotential re,
-             redeclare Modelica.SIunits.ElectricPotential im)
+    Complex(redeclare Modelica.SIunits.ElectricPotential re "Imaginary part of complex electric potential",
+            redeclare Modelica.SIunits.ElectricPotential im "Real part of complex electrical potential")
     "Complex electric potential";
   operator record ComplexPotentialDifference =
-    Complex(redeclare Modelica.SIunits.PotentialDifference re,
-             redeclare Modelica.SIunits.PotentialDifference im)
+    Complex(redeclare Modelica.SIunits.PotentialDifference re "Real part of complex potential difference",
+            redeclare Modelica.SIunits.PotentialDifference im "Imaginary part of complex potential difference")
     "Complex electric potential difference";
   operator record ComplexVoltage =
-    Complex(redeclare Modelica.SIunits.Voltage re,
-             redeclare Modelica.SIunits.Voltage im)
+    Complex(redeclare Modelica.SIunits.Voltage re "Imaginary part of complex voltage",
+            redeclare Modelica.SIunits.Voltage im "Real part of complex voltage")
     "Complex electrical voltage";
   operator record ComplexVoltageSlope =
-    Complex(redeclare Modelica.SIunits.VoltageSlope re,
-             redeclare Modelica.SIunits.VoltageSlope im)
+    Complex(redeclare Modelica.SIunits.VoltageSlope re "Real part of complex voltage slope",
+            redeclare Modelica.SIunits.VoltageSlope im "Imaginary part of complex voltage slope")
     "Complex voltage slope";
   operator record ComplexElectricFieldStrength =
-    Complex(redeclare Modelica.SIunits.ElectricFieldStrength re,
-             redeclare Modelica.SIunits.ElectricFieldStrength im)
+    Complex(redeclare Modelica.SIunits.ElectricFieldStrength re "Real part of complex electric field strength",
+            redeclare Modelica.SIunits.ElectricFieldStrength im "Imaginary part of complex electric field strength")
     "Complex electric field strength";
   operator record ComplexElectricFluxDensity =
-    Complex(redeclare Modelica.SIunits.ElectricFluxDensity re,
-             redeclare Modelica.SIunits.ElectricFluxDensity im)
+    Complex(redeclare Modelica.SIunits.ElectricFluxDensity re "Real part of complex electric flux density",
+            redeclare Modelica.SIunits.ElectricFluxDensity im "Imaginary part of complex electric flux density")
     "Complex electric flux density";
   operator record ComplexElectricFlux =
-    Complex(redeclare Modelica.SIunits.ElectricFlux re,
-             redeclare Modelica.SIunits.ElectricFlux im)
+    Complex(redeclare Modelica.SIunits.ElectricFlux re "Real part of complex electric flux",
+            redeclare Modelica.SIunits.ElectricFlux im "Imaginary part of complex electric flux")
     "Complex electric flux";
   operator record ComplexMagneticFieldStrength =
-    Complex(redeclare Modelica.SIunits.MagneticFieldStrength re,
-             redeclare Modelica.SIunits.MagneticFieldStrength im)
+    Complex(redeclare Modelica.SIunits.MagneticFieldStrength re "Real part of complex magnetic field strength",
+            redeclare Modelica.SIunits.MagneticFieldStrength im "Imaginary part of complex magnetic field strength")
     "Complex magnetic field strength";
   operator record ComplexMagneticPotential =
-    Complex(redeclare Modelica.SIunits.MagneticPotential re,
-             redeclare Modelica.SIunits.MagneticPotential im)
+    Complex(redeclare Modelica.SIunits.MagneticPotential re "Real part of complex magnetic potential",
+            redeclare Modelica.SIunits.MagneticPotential im "Imaginary part of complex magnetic potential")
     "Complex magnetic potential";
   operator record ComplexMagneticPotentialDifference =
-    Complex(redeclare Modelica.SIunits.MagneticPotentialDifference re,
-             redeclare Modelica.SIunits.MagneticPotentialDifference im)
+    Complex(redeclare Modelica.SIunits.MagneticPotentialDifference re "Real part of complex magnetic potential difference",
+            redeclare Modelica.SIunits.MagneticPotentialDifference im "Imaginary part of complex magnetic potential difference")
     "Complex magnetic potential difference";
   operator record ComplexMagnetomotiveForce =
-    Complex(redeclare Modelica.SIunits.MagnetomotiveForce re,
-             redeclare Modelica.SIunits.MagnetomotiveForce im)
-    "Complex magneto motive force";
+    Complex(redeclare Modelica.SIunits.MagnetomotiveForce re "Real part of complex magnetomotive force",
+            redeclare Modelica.SIunits.MagnetomotiveForce im "Imaginary part of complex magnetomotive force")
+    "Complex magnetomotive force";
   operator record ComplexMagneticFluxDensity =
-    Complex(redeclare Modelica.SIunits.MagneticFluxDensity re,
-             redeclare Modelica.SIunits.MagneticFluxDensity im)
+    Complex(redeclare Modelica.SIunits.MagneticFluxDensity re "Real part of complex magnetic flux density",
+            redeclare Modelica.SIunits.MagneticFluxDensity im "Imaginary part of complex magnetic flux density")
     "Complex magnetic flux density";
   operator record ComplexMagneticFlux =
-    Complex(redeclare Modelica.SIunits.MagneticFlux re,
-             redeclare Modelica.SIunits.MagneticFlux im)
+    Complex(redeclare Modelica.SIunits.MagneticFlux re "Real part of complex magnetic flux",
+            redeclare Modelica.SIunits.MagneticFlux im "Imaginary part of complex magnetic flux")
     "Complex magnetic flux";
   operator record ComplexReluctance =
-    Complex(redeclare Modelica.SIunits.Reluctance re,
-             redeclare Modelica.SIunits.Reluctance im) "Complex reluctance"
+    Complex(redeclare Modelica.SIunits.Reluctance re "Real part of complex reluctance",
+            redeclare Modelica.SIunits.Reluctance im "Imaginary part of complex reluctance")
+    "Complex reluctance"
     annotation (Documentation(info="<html>
 <p>
 Since magnetic material properties like reluctance and permeance often are anisotropic resp. salient,
@@ -1835,17 +1842,21 @@ which is only valid in the rotor-fixed coordinate system.
 </p>
 </html>"));
   operator record ComplexImpedance =
-    Complex(redeclare Resistance re,
-             redeclare Reactance im) "Complex electrical impedance";
+    Complex(redeclare Resistance re "Real part of complex impedance (resistance)",
+            redeclare Reactance im "Imaginary part of complex impedance (reactance)")
+    "Complex electrical impedance";
   operator record ComplexAdmittance =
-    Complex(redeclare Conductance re,
-             redeclare Susceptance im) "Complex electrical admittance";
+    Complex(redeclare Conductance re "Real part of complex admittance (conductance)",
+            redeclare Susceptance im "Imaginary part of complex admittance (susceptance)")
+    "Complex electrical admittance";
   operator record ComplexPower =
-    Complex(redeclare ActivePower re,
-             redeclare ReactivePower im) "Complex electrical power";
+    Complex(redeclare ActivePower re "Real part of complex power (active power)",
+            redeclare ReactivePower im "Imaginary part of complex power (reactive power)")
+    "Complex electrical power";
   operator record ComplexPerUnit =
-    Complex(redeclare PerUnit re,
-             redeclare PerUnit im) "Complex per unit";
+    Complex(redeclare PerUnit re "Real part of complex per unit quantity",
+            redeclare PerUnit im "Imaginary part of complex per unit quantity")
+    "Complex per unit";
   annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
             -100},{100,100}}), graphics={
       Polygon(
@@ -1889,10 +1900,10 @@ with package SIunits, have a look at:
 </p>
 
 <p>
-Copyright &copy; 1998-2016, Modelica Association and DLR.
+Copyright &copy; 1998-2018, Modelica Association and DLR.
 </p>
 <p>
-<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</em>
+<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em>
 </p>
 </html>", revisions="<html>
 <ul>

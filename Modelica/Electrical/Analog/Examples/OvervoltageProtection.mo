@@ -60,7 +60,7 @@ equation
        by Kristin Majetta<br>
        documentation added</li>
 <li><em> January 08, 2009   </em>
-        by Matthias Franke <br>initially implemented
+        by Matthias Franke<br>initially implemented
        </li>
 </ul>
 </html>"));

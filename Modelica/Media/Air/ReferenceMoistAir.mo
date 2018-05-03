@@ -51,7 +51,7 @@ package ReferenceMoistAir
           StateSelect.default),
     final standardOrderComponents=true) "Moist air base properties record"
 
-    MassFraction x_water "Mass of total water/mass of dry air";
+    Real x_water "Mass of total water/mass of dry air";
     Real phi "Relative humidity";
 
   protected
@@ -60,7 +60,7 @@ package ReferenceMoistAir
     MassFraction X_air "Mass fraction of air";
     MassFraction X_sat
       "Steam water mass fraction of saturation boundary in kg_water/kg_moistair";
-    MassFraction x_sat
+    Real x_sat
       "Steam water mass content of saturation boundary in kg_water/kg_dryair";
     AbsolutePressure p_steam_sat "partial saturation pressure of steam";
   equation
@@ -71,8 +71,8 @@ package ReferenceMoistAir
     MM = 1/(Xi[Water]/MMX[Water] + (1.0 - Xi[Water])/MMX[Air]);
 
     p_steam_sat = Modelica.Media.Air.ReferenceMoistAir.Utilities.pds_pT(p, T);
-    X_sat = k_mair/(p/p_steam_sat - 1 + k_mair);
-    X_liquid = Xi[Water] - X_sat;
+    X_sat = Modelica.Media.Air.ReferenceMoistAir.Xsaturation(state);
+    X_liquid = max(Xi[Water] - X_sat, 0.0);
     X_steam = Xi[Water] - X_liquid;
     X_air = 1 - Xi[Water];
 
@@ -94,13 +94,16 @@ package ReferenceMoistAir
     state.X = X;
 
     // these x are per unit mass of DRY air!
-    x_sat = k_mair*p_steam_sat/max(100*Constants.eps, p - p_steam_sat);
-    x_water = Xi[Water]/max(X_air, 100*Constants.eps);
+    x_sat = Modelica.Media.Air.ReferenceMoistAir.xsaturation(state);
+    x_water = Modelica.Media.Air.ReferenceMoistAir.waterContent_X(state.X);
     phi = Modelica.Media.Air.ReferenceMoistAir.Utilities.phi_pTX(
         p,
         T,
         Xi);
 
+    annotation (Documentation(revisions="<html>
+2017-04-13 Stefan Wischhusen: Resolved a problem for high saturation pressures and temperatures.
+</html>"));
   end BaseProperties;
 
   redeclare function extends setState_pTX
@@ -250,9 +253,12 @@ package ReferenceMoistAir
     Real xw;
     Real xws;
   algorithm
-    xw := state.X[1]/(1 - state.X[1]);
+    xw := state.X[1]/max(100*Modelica.Constants.eps, (1 - state.X[1]));
     xws := Utilities.xws_pT(state.p, state.T);
     X := if (xw <= xws) then xw/(1 + xw) else xws/(1 + xw);
+    annotation (Documentation(revisions="<html>
+2017-04-13 Stefan Wischhusen: Guard introduced against division by zero.
+</html>"));
   end massFractionWaterVapor;
 
   function massFractionWaterNonVapor
@@ -264,9 +270,12 @@ package ReferenceMoistAir
     Real xw;
     Real xws;
   algorithm
-    xw := state.X[1]/(1 - state.X[1]);
+    xw := state.X[1]/max(100*Modelica.Constants.eps, (1 - state.X[1]));
     xws := Utilities.xws_pT(state.p, state.T);
     X := if (xw <= xws) then 0 else (xw - xws)/(1 + xw);
+    annotation (Documentation(revisions="<html>
+2017-04-13 Stefan Wischhusen: Guard introduced against division by zero.
+</html>"));
   end massFractionWaterNonVapor;
 
   redeclare function extends massFractionSaturation
@@ -307,7 +316,10 @@ package ReferenceMoistAir
     input MassFraction[:] X "Mass fractions";
     output Real xw "Water content in kg(water)/kg(dry air)";
   algorithm
-    xw := X[1]/(1 - X[1]);
+    xw := X[1]/max(100*Modelica.Constants.eps, (1 - X[1]));
+    annotation (Documentation(revisions="<html>
+2017-04-13 Stefan Wischhusen: Guard introduced against divsion by zero.
+</html>"));
   end waterContent_X;
 
   redeclare function extends relativeHumidity "Return relative humidity"
@@ -620,7 +632,7 @@ package ReferenceMoistAir
 
   redeclare function extends molarMass "Return the molar mass of the medium"
   algorithm
-    MM := 1/(state.X[1]*steam.MM + state.X[2]*dryair.MM);
+    MM := 1/(state.X[1]/steam.MM + state.X[2]/dryair.MM);
   end molarMass;
 
   redeclare function extends dynamicViscosity
@@ -3204,12 +3216,16 @@ package ReferenceMoistAir
       if (T <= Tlim) then
         pds := Modelica.Media.Air.ReferenceMoistAir.Utilities.f_pT(p, T)*pds;
       else
-        pds := -1;
+        // pds := -1;
+        pds := p;
       end if;
       annotation (
         derivative=pds_pT_der,
         Inline=false,
-        LateInline=true);
+        LateInline=true,
+        Documentation(revisions="<html>
+2017-04-13 Stefan Wischhusen: Partial steam pressure cannot become higher than absolute pressure p.
+</html>"));
     end pds_pT;
 
     function pd_pTX "partial pressure of steam"
@@ -3242,7 +3258,7 @@ package ReferenceMoistAir
         LateInline=true);
     end pd_pTX;
 
-    function xws_pT "Humidity ration (absolute) of saturated humid air"
+    function xws_pT "Humidity ratio (absolute) of saturated humid air"
       extends Modelica.Icons.Function;
 
       input Modelica.SIunits.AbsolutePressure p "Pressure";
@@ -3259,12 +3275,16 @@ package ReferenceMoistAir
         Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.Basic.Tsub(
         p) else
         Modelica.Media.Air.ReferenceMoistAir.Utilities.Water95_Utilities.Tsat(p);
-      xws := if (T <= Tlim) then Modelica.Media.Air.ReferenceMoistAir.k_mair*
-        pds/(p - pds) else -1;
+    //   xws := if (T <= Tlim) then Modelica.Media.Air.ReferenceMoistAir.k_mair*
+    //     pds/(p - pds) else -1;
+      xws := if (pds < p) then pds*Modelica.Media.Air.ReferenceMoistAir.k_mair/(p - pds) else Modelica.Constants.inf;
       annotation (
         derivative=xws_pT_der,
         Inline=false,
-        LateInline=true);
+        LateInline=true,
+        Documentation(revisions="<html>
+2017-04-13 Stefan Wischhusen: New formula for xws.
+</html>"));
     end xws_pT;
 
     function phi_pTX "Relative humidity"
@@ -3294,13 +3314,18 @@ package ReferenceMoistAir
         end if;
         pds := Modelica.Media.Air.ReferenceMoistAir.Utilities.f_pT(p, T)*pds;
         pd := xw/(Modelica.Media.Air.ReferenceMoistAir.k_mair + xw)*p;
-        if (pd <= pds) then
-          phi := pd/pds;
-        else
-          phi := -1;
-        end if;
+    //     if (pd <= pds) then
+    //       phi := pd/pds;
+    //     else
+    //       phi := -1;
+    //     end if;
+        phi := pd/max(100*Modelica.Constants.eps, pds);
       end if;
-      annotation (Inline=false, LateInline=true);
+
+      annotation(Inline=false, LateInline=true,
+        Documentation(revisions="<html>
+2017-04-13 Stefan Wischhusen: New calculation for phi.
+</html>"));
     end phi_pTX;
 
     function cp_pTX "Specific isobaric heat capacity"
@@ -3807,8 +3832,11 @@ package ReferenceMoistAir
           xw*xw_der)*p + xw/(Modelica.Media.Air.ReferenceMoistAir.k_mair + xw)*
           p_der;
         xws := Modelica.Media.Air.ReferenceMoistAir.Utilities.xws_pT(p, T);
-        pd_der := if ((xw <= xws) or (xws == -1)) then pd_der else pds_der;
+        pd_der := if (xw <= xws) then pd_der else pds_der;
       end if;
+      annotation (Documentation(revisions="<html>
+2017-04-13 Stefan Wischhusen: Changed derivative function.
+</html>"));
     end pd_pTX_der;
 
     function xws_pT_der
@@ -3836,12 +3864,15 @@ package ReferenceMoistAir
         Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.Basic.Tsub(
         p) else
         Modelica.Media.Air.ReferenceMoistAir.Utilities.Water95_Utilities.Tsat(p);
-      if (T <= Tlim) then
+      if (pds < p) then
         xws_der := Modelica.Media.Air.ReferenceMoistAir.k_mair*((pds_der*(p -
           pds) + pds*pds_der)/(p - pds)^2);
       else
         xws_der := 0;
       end if;
+      annotation (Documentation(revisions="<html>
+2017-04-13 Stefan Wischhusen: Changed derivative function.
+</html>"));
     end xws_pT_der;
 
     function pds_pT_der "Derivative of saturation partial pressure of steam"
@@ -3875,8 +3906,11 @@ package ReferenceMoistAir
       if (T <= Tlim) then
         pds_der := pds_der;
       else
-        pds_der := 0;
+        pds_der := p_der;
       end if;
+      annotation (Documentation(revisions="<html>
+2017-04-13 Stefan Wischhusen: Changed derivative if pds=p.
+</html>"));
     end pds_pT_der;
 
     function rho_pTX_der
@@ -4482,19 +4516,19 @@ The package MoistAir can be used as any other medium model (see <a href=\"modeli
 </p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr>
-<td valign=\"top\"><strong>Constant</strong></td>
-<td valign=\"top\"><strong>Default Value</strong></td>
-<td valign=\"top\"><strong>Meaning</strong></td>
+<td><strong>Constant</strong></td>
+<td><strong>Default Value</strong></td>
+<td><strong>Meaning</strong></td>
 </tr>
 <tr>
-<td valign=\"top\">useEnhancementFactor</td>
-<td valign=\"top\">false</td>
-<td valign=\"top\">The enhancement factor is used in the calculation of the saturation partial pressure of water in moist air. It is always very close to 1 except for high pressures (&gt;2 MPa) and low temperatures (&lt;233.15 K). For pressures less than 1 MPa this factor can be safely set to 1. Its calculation is very expensive, since it can only be calculated by an iterative method.</td>
+<td>useEnhancementFactor</td>
+<td>false</td>
+<td>The enhancement factor is used in the calculation of the saturation partial pressure of water in moist air. It is always very close to 1 except for high pressures (&gt;2 MPa) and low temperatures (&lt;233.15 K). For pressures less than 1 MPa this factor can be safely set to 1. Its calculation is very expensive, since it can only be calculated by an iterative method.</td>
 </tr>
 <tr>
-<td valign=\"top\">useDissociation</td>
-<td valign=\"top\">true</td>
-<td valign=\"top\">The effect of dissociation is taken into account for temperatures greater than 773.15 K.</td>
+<td>useDissociation</td>
+<td>true</td>
+<td>The effect of dissociation is taken into account for temperatures greater than 773.15 K.</td>
 </tr>
 </table>
 
@@ -4669,6 +4703,6 @@ Some parts of this library refer to the ThermoFluid library developed at Lund Un
 <p>
 In no event will XRG Simulation GmbH be liable for any direct, indirect, incidental, special, exemplary, or consequential damages, arising in any way out of the use of this software, even if advised of the possibility of such damage.
 </p>
-<h4> Copyright &copy; 2013-2016, XRG Simulation GmbH </h4>
+<h4> Copyright &copy; 2013-2018, XRG Simulation GmbH </h4>
 </html>"));
 end ReferenceMoistAir;

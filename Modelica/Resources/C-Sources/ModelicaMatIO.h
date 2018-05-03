@@ -1,6 +1,6 @@
 /* ModelicaMatIO.h - MAT file I/O functions header
 
-   Copyright (C) 2013-2017, Christopher C. Hulbert, Modelica Association, and ESI ITI GmbH
+   Copyright (C) 2013-2018, Christopher C. Hulbert, Modelica Association, and ESI ITI GmbH
    Copyright (C) 2005-2013, Christopher C. Hulbert
    All rights reserved.
 
@@ -13,6 +13,10 @@
    2. Redistributions in binary form must reproduce the above copyright
       notice, this list of conditions and the following disclaimer in the
       documentation and/or other materials provided with the distribution.
+
+   3. Neither the name of the copyright holder nor the names of its
+      contributors may be used to endorse or promote products derived from
+      this software without specific prior written permission.
 
    THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
    ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
@@ -50,13 +54,13 @@
 #define MATIO_MINOR_VERSION 5
 
 /* Matio release level number */
-#define MATIO_RELEASE_LEVEL 11
+#define MATIO_RELEASE_LEVEL 12
 
 /* Matio version number */
-#define MATIO_VERSION 1511
+#define MATIO_VERSION 1512
 
 /* Matio version string */
-#define MATIO_VERSION_STR "1.5.11"
+#define MATIO_VERSION_STR "1.5.12"
 
 /* Default file format */
 #define MAT_FT_DEFAULT MAT_FT_MAT5
@@ -134,10 +138,12 @@ typedef uint8_t mat_uint8_t;
 
 #include <stdarg.h>
 
+#if !defined(MATIO_EXTERN)
 #if defined(__cplusplus)
 #define MATIO_EXTERN extern "C"
 #else
 #define MATIO_EXTERN
+#endif
 #endif
 
 /** @defgroup MAT Matlab MAT File I/O Library */
@@ -303,11 +309,11 @@ typedef struct matvar_t {
  */
 typedef struct mat_sparse_t {
     int nzmax;               /**< Maximum number of non-zero elements */
-    int *ir;                 /**< Array of size nzmax where ir[k] is the row of
+    mat_int32_t *ir;         /**< Array of size nzmax where ir[k] is the row of
                                *  data[k].  0 <= k <= nzmax
                                */
     int nir;                 /**< number of elements in ir */
-    int *jc;                 /**< Array size N+1 (N is number of columns) with
+    mat_int32_t *jc;         /**< Array size N+1 (N is number of columns) with
                                *  jc[k] being the index into ir/data of the
                                *  first non-zero element for row k.
                                */

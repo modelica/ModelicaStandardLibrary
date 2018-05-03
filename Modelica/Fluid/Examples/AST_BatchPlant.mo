@@ -926,9 +926,9 @@ package AST_BatchPlant
 (Assumption: The gas is condensed immediately afterwards so that a liquid boiling fluid is created.)</p>
 <p>The tank can be initialized with the following options:</p>
 <ul>
-<li>GuessValues: no explicit initial conditions
-<li>InitialValues: initial values of temperature (or specific enthalpy), composition and level are specified
-<li>SteadyStateHydraulic: initial values of temperature (or specific enthalpy) and composition are specified; the initial level is determined so that levels and pressure are at steady state.
+<li>GuessValues: no explicit initial conditions</li>
+<li>InitialValues: initial values of temperature (or specific enthalpy), composition and level are specified</li>
+<li>SteadyStateHydraulic: initial values of temperature (or specific enthalpy) and composition are specified; the initial level is determined so that levels and pressure are at steady state.</li>
 </ul>
 <p>
 Full steady state initialization is not supported, because the corresponding initial equations for temperature/enthalpy are undetermined (the flow rate through the port at steady state is zero).

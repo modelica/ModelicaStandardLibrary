@@ -459,7 +459,7 @@ The sensor is ideal, i.e., it does not influence the fluid.
       "Index of species in vector of independent mass fractions";
   initial algorithm
     ind:= -1;
-    for i in 1:Medium.nC loop
+    for i in 1:Medium.nXi loop
       if ( Modelica.Utilities.Strings.isEqual(Medium.substanceNames[i], substanceName)) then
         ind := i;
       end if;
@@ -489,6 +489,7 @@ The sensor is ideal, i.e., it does not influence the fluid.
 </p> </html>", revisions="<html>
 <ul>
 <li>2011-12-14: Stefan Wischhusen: Initial Release.</li>
+<li>2018-01-04: Stefan Wischhusen: Corrected failure in accessing the named substance.</li>
 </ul>
 </html>"));
   end MassFractionsTwoPort;
@@ -845,7 +846,7 @@ this partial class should add a medium instance to calculate the measured proper
 
   end BaseClasses;
   annotation (preferredView="info", Documentation(info="<html>
-<p align = justify>
+<p>
 Package <strong>Sensors</strong> consists of idealized sensor components that
 provide variables of a medium model and/or fluid ports as
 output signals. These signals can be, e.g., further processed
@@ -855,7 +856,7 @@ processing (e.g., by attaching block Modelica.Blocks.FirstOrder to
 model the time constant of the sensor).
 </p>
 
-<p align = justify>For the thermodynamic state variables temperature, specific enthalpy, specific entropy and density
+<p>For the thermodynamic state variables temperature, specific enthalpy, specific entropy and density
 the fluid library provides two different types of sensors: <strong>regular one port</strong> and <strong>two port</strong> sensors.</p>
 
 <ul>

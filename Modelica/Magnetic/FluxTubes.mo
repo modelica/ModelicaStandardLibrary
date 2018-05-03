@@ -21,7 +21,7 @@ Following below, the concept of magnetic flux tubes is outlined in short. For a 
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/FluxTubeConcept/magnetic_flux_tube_schematic.png\" ALT=\"Magnetic flux tube\">
+<img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/FluxTubeConcept/magnetic_flux_tube_schematic.png\" alt=\"Magnetic flux tube\">
 </p>
 
 
@@ -30,7 +30,7 @@ Following below, the concept of magnetic flux tubes is outlined in short. For a 
 For a region with an approximately homogeneous distribution of the magnetic field strength <strong>H</strong> and the magnetic flux density <strong>B</strong> through cross sectional area <em>A</em> at each length coordinate <em>s</em>  (<em>A</em> perpendicular to the direction of the magnetic field lines), a magnetic reluctance <em>R<sub>m</sub></em> can be defined:</p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/FluxTubeConcept/eq_transition_reluctance_flowAcross_IntegralQuantities.png\" ALT=\"Transition from field quantities to flow- and across variables\">
+<img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/FluxTubeConcept/eq_transition_reluctance_flowAcross_IntegralQuantities.png\" alt=\"Transition from field quantities to flow- and across variables\">
 </p>
 
 <p>
@@ -38,20 +38,20 @@ With the definition of the magnetic potential difference <em>V<sub>m</sub></em> 
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/FluxTubeConcept/eq_MaxwellConstitutive.png\" ALT=\"Maxwell's constitutive equation\">
+<img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/FluxTubeConcept/eq_MaxwellConstitutive.png\" alt=\"Maxwell's constitutive equation\">
 </p>
 
 <p>the general formula for the calculation of a magnetic reluctance <em>R<sub>m</sub></em> from its geometric and material properties is:</p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/FluxTubeConcept/eq_reluctance_general.png\" ALT=\"General formula for calculation of a magnetic reluctance\">
+<img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/FluxTubeConcept/eq_reluctance_general.png\" alt=\"General formula for calculation of a magnetic reluctance\">
 </p>
 
 <p>
 For a prismatic or cylindrical volume of length <em>l</em> and cross sectional area <em>A</em> with the magnetic flux entering and leaving the region through its end planes, the above equation simplifies to:</p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/FluxTubeConcept/eq_reluctance_prismatic.png\" ALT=\"Magnetic reluctance of a prismatic or cylindrical volume\">
+<img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/FluxTubeConcept/eq_reluctance_prismatic.png\" alt=\"Magnetic reluctance of a prismatic or cylindrical volume\">
 </p>
 
 <p>
@@ -59,7 +59,7 @@ Similar equations can be derived for other geometries. In cases where a direct i
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/FluxTubeConcept/eq_reluctanceFromAverageGeometry.png\" ALT=\"Reluctance calculation from average geometric quantities\">
+<img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/FluxTubeConcept/eq_reluctanceFromAverageGeometry.png\" alt=\"Reluctance calculation from average geometric quantities\">
 </p>
 
 <p>
@@ -80,7 +80,7 @@ Generally, the thrust <em>F</em> developed by a translatory electro-magneto-mech
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/ReluctanceForceCalculation/eq_CoEnergy_general.png\" ALT=\"Equation for force calculation from change of magnetic co-energy with armature position\">
+<img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/ReluctanceForceCalculation/eq_CoEnergy_general.png\" alt=\"Equation for force calculation from change of magnetic co-energy with armature position\">
 </p>
 
 <p>
@@ -88,7 +88,7 @@ Generally, the thrust <em>F</em> developed by a translatory electro-magneto-mech
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/ReluctanceForceCalculation/eq_forceFromPermeance_network.png\" ALT=\"Equation for force calculation in lumped magnetic network models\">
+<img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/ReluctanceForceCalculation/eq_forceFromPermeance_network.png\" alt=\"Equation for force calculation in lumped magnetic network models\">
 </p>
 
 <p>
@@ -96,7 +96,7 @@ where <em>n<sub>linear</sub></em> is the number of flux tube elements with const
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/ReluctanceForceCalculation/eq_transition_forceReluctancePermeance.png\" ALT=\"Transition from force calculation based on reluctance to calculation based on permeance\">
+<img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/ReluctanceForceCalculation/eq_transition_forceReluctancePermeance.png\" alt=\"Transition from force calculation based on reluctance to calculation based on permeance\">
 </p>
 
 <p>with <em>&Phi;<sub>i</sub></em> being the magnetic flux through each respective flux tube element.</p>
@@ -127,7 +127,7 @@ The Tellinen hysteresis model is described in more detail in <a href=\"modelica:
 </p>
 
 <table cellspacing=\"0\" cellpadding=\"2\" border=\"0\"><tr>
-<td><p><img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/StaticHysteresis/Tellinen/Eqn_Tellinen01.png\"/> </p></td>
+<td><p><img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/StaticHysteresis/Tellinen/Eqn_Tellinen01.png\"/></p></td>
 </tr>
 </table>
 
@@ -138,7 +138,7 @@ Therein, S<sub>U</sub>(H) and S<sub>L</sub>(H) are the derivatives of limiting b
 <strong>Fig. 1:</strong> Upper B<sub>U</sub>(H) and lower B<sub>L</sub>(H) branches of the hysteresis envelope curve, their corresponding slope functions S<sub>UH</sub>(H) and S<sub>LH</sub>(H) and the actual operating point H(t), B(t).</p>
 
 <table cellspacing=\"0\" cellpadding=\"2\" border=\"0\"><tr>
-<td><p><img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/StaticHysteresis/Tellinen/TellinenDesc1.png\"/> </p></td>
+<td><p><img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/StaticHysteresis/Tellinen/TellinenDesc1.png\"/></p></td>
 </tr>
 </table>
 </html>"));
@@ -223,7 +223,7 @@ According to <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Literat
         end Preisach;
         annotation (Documentation(info="<html>
 <p>
-Two different types of hyteresis models are supported:
+Two different types of hyteresis models are supported:</p>
 <ul>
 <li> Tellinen model (a simple model to describe the static magnetic hysteresis behavior of ferromagnetic materials).</li>
 <li> Preisach model (a more detailed, but also computationally more involved hysteresis model).</li>
@@ -238,7 +238,7 @@ Two different types of hyteresis models are supported:
 <h4>Dynamic Hysteresis (Eddy Currents)</h4>
 
 <p>
-Some of the hysteresis flux tubes elements of the package <a href=\"FluxTubes.Shapes.HysteresisAndMagnets\">HysteresisAndMagnets</a> are capable of simulating eddy currents (dynamic hysteresis) additional to the static hysteresis behavior of the core material. The computation of eddy currents can be activated via the switch <code>includeEddyCurrents</code> in the \"LossesAndHeat\" tab of the corresponding elements parameter dialog. The total magnetic field strength <code>H</code> of the element is the sum of the ferromagnetic portion <code>Hstat</code> and the eddy current portion <code>Heddy:</code>
+Some of the hysteresis flux tubes elements of the package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets\">HysteresisAndMagnets</a> are capable of simulating eddy currents (dynamic hysteresis) additional to the static hysteresis behavior of the core material. The computation of eddy currents can be activated via the switch <code>includeEddyCurrents</code> in the \"LossesAndHeat\" tab of the corresponding elements parameter dialog. The total magnetic field strength <code>H</code> of the element is the sum of the ferromagnetic portion <code>Hstat</code> and the eddy current portion <code>Heddy:</code>
 </p>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
@@ -275,7 +275,7 @@ Where <code>&sigma;</code> is the electrical conductivity and <code>d</code> the
 </table>
 
 <p>
-The following two figures show a comparison between measured and simulated dynamic hysteresis at several frequencies. The measurements were performed with a 25 cm Epstein frame  according to DIN EN 60404-2. The magnetic core was made up of four layers of M330-50A steel sheet. The primary Winding of the used Epstein frame had 720 turns. The primary voltage was adjusted so that the magnetic excitation was about Hmax = 400 A/m, but 72 V in maximum. The simulation results (see Fig. 3) were generated with a simple model of this setup using the <a href=\"FluxTubes.Shapes.HysteresisAndMagnets.GenericHystTellinenTable\">GenericHystTellinenTable</a> hysteresis flux tube element for modeling the magnetic core.
+The following two figures show a comparison between measured and simulated dynamic hysteresis at several frequencies. The measurements were performed with a 25 cm Epstein frame  according to DIN EN 60404-2. The magnetic core was made up of four layers of M330-50A steel sheet. The primary Winding of the used Epstein frame had 720 turns. The primary voltage was adjusted so that the magnetic excitation was about Hmax = 400 A/m, but 72 V in maximum. The simulation results (see Fig. 3) were generated with a simple model of this setup using the <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystTellinenTable\">GenericHystTellinenTable</a> hysteresis flux tube element for modeling the magnetic core.
 </p>
 
 
@@ -401,58 +401,58 @@ Several models to describe the static hysteresis behavior of ferromagnetic mater
  </tr>
 
  <tr>
-  <td valign=\"top\"><a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystTellinenSoft\">GenericHystTellinenSoft</a><br><img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/GenericHystTellinenS.png\">
+  <td><a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystTellinenSoft\">GenericHystTellinenSoft</a><br><img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/GenericHystTellinenS.png\">
   </td>
-  <td valign=\"top\">
+  <td>
   Flux tube element for modeling soft magnetic materials with ferromagnetic and dynamic hysteresis (eddy currents). The ferromagnetic hysteresis behavior is defined by the <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Hysteresis.StaticHysteresis.Tellinen\">Tellinen hysteresis model</a>. The shape of the limiting hysteresis loop is described by simple hyperbolic tangent functions with 4 parameters. Therefore, the hysteresis shape variety is limited but the parameterization of the model is very simple and the model is relatively fast and robust.
   </td>
  </tr>
 
  <tr>
-  <td valign=\"top\"><a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystTellinenHard\">GenericHystTellinenHard</a><br><img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/GenericHystTellinenH.png\">
+  <td><a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystTellinenHard\">GenericHystTellinenHard</a><br><img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/GenericHystTellinenH.png\">
   </td>
-  <td valign=\"top\">
+  <td>
   Flux tube element for modeling the ferromagnetic (static) hysteresis of hard magnetic materials. The ferromagnetic hysteresis behavior is defined by the <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Hysteresis.StaticHysteresis.Tellinen\">Tellinen hysteresis model</a>. The shape of the limiting hysteresis loop is described by simple hyperbolic tangent functions with 4 parameters.
   </td>
  </tr>
 
  <tr>
-  <td valign=\"top\"><a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystTellinenEverett\">GenericHystTellinenEverett</a><br><img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/GenericHystTellinenE.png\">
+  <td><a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystTellinenEverett\">GenericHystTellinenEverett</a><br><img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/GenericHystTellinenE.png\">
   </td>
-  <td valign=\"top\">
+  <td>
   Flux tube element for modeling soft magnetic materials with ferromagnetic and dynamic hysteresis (eddy currents). The ferromagnetic hysteresis behavior is defined by the <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Hysteresis.StaticHysteresis.Tellinen\">Tellinen hysteresis model</a>. The Shape of the limiting ferromagnetic hysteresis loop is specified by an analytical description of the Everett function, which is also used to parameterize the <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystPreisachEverett\">GenericHystPreisachEverett</a> model. A library of predefined parameter sets can be found in <a href=\"modelica://Modelica.Magnetic.FluxTubes.Material.HysteresisEverettParameter\">FluxTubes.Material.HysteresisEverettParameter</a>.
   </td>
  </tr>
 
  <tr>
-  <td valign=\"top\"><a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystTellinenTable\">GenericHystTellinenTable</a><br><img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/GenericHystTellinenT.png\">
+  <td><a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystTellinenTable\">GenericHystTellinenTable</a><br><img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/GenericHystTellinenT.png\">
   </td>
-  <td valign=\"top\">
+  <td>
   Flux tube element for modeling magnetic materials with ferromagnetic and dynamic hysteresis (eddy currents). The ferromagnetic hysteresis behavior is defined by the <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Hysteresis.StaticHysteresis.Tellinen\">Tellinen hysteresis model</a>. The rising and falling branch of the limiting ferromagnetic hysteresis loop are specified by table data. Therefore, almost any hysteresis shapes are possible. A library with predefined tables can be found at <a href=\"modelica://Modelica.Magnetic.FluxTubes.Material.HysteresisTableData\">FluxTubes.Material.HysteresisTableData</a>.
   </td>
  </tr>
 
  <tr>
-  <td valign=\"top\"><a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystPreisachEverett\">GenericHystPreisachEverett</a><br><img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/GenericHystPreisachE.png\">
+  <td><a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystPreisachEverett\">GenericHystPreisachEverett</a><br><img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/GenericHystPreisachE.png\">
   </td>
-  <td valign=\"top\">
+  <td>
   Flux tube element for modeling magnetic materials with ferromagnetic and dynamic hysteresis (eddy currents). The ferromagnetic hysteresis behavior is defined by the
 <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Hysteresis.StaticHysteresis.Preisach\">Preisach hysteresis model</a>. The Shape of the limiting ferromagnetic hysteresis loop is specified by an analytical description of the Everett function. A library of predefined parameter sets can be found in <a href=\"modelica://Modelica.Magnetic.FluxTubes.Material.HysteresisEverettParameter\">FluxTubes.Material.HysteresisEverettParameter</a>.
   </td>
  </tr>
 
  <tr>
-  <td valign=\"top\"><a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystTellinenPermanentMagnet\">GenericHystTellinenPermanentMagnet</a><br><img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/GenericHystTellinenPM.png\">
+  <td><a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystTellinenPermanentMagnet\">GenericHystTellinenPermanentMagnet</a><br><img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/GenericHystTellinenPM.png\">
   </td>
-  <td valign=\"top\">
+  <td>
   Flux tube element for modeling the hard magnetic hysteresis of permanent magnets. The model is similar to <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystTellinenHard\">GenericHystTellinenHard</a> but has an initial magnetization preset of -100% and an adapted icon for better readability of the diagram.
   </td>
  </tr>
 
  <tr>
-  <td valign=\"top\"><a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericLinearPermanentMagnet\">GenericLinearPermanentMagnet</a><br><img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/GenericLinearPM.png\">
+  <td><a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericLinearPermanentMagnet\">GenericLinearPermanentMagnet</a><br><img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/GenericLinearPM.png\">
   </td>
-  <td valign=\"top\">
+  <td>
   Simple model of a linear permanent Magnet. Typical characteristics of common permanent magnetic materials can be found at <a href=\"modelica://Modelica.Magnetic.FluxTubes.Material.HardMagnetic\">FluxTubes.Material.HardMagnetic</a>.
   </td>
  </tr>
@@ -472,10 +472,10 @@ Several models to describe the static hysteresis behavior of ferromagnetic mater
 
 <br><table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
     <tr>
-      <td valign=\"top\">[B&ouml;08]</td>
-      <td valign=\"top\">B&ouml;drich, T.:
+      <td>[B&ouml;08]</td>
+      <td>B&ouml;drich, T.:
         <em>Electromagnetic Actuator Modelling with the Extended Modelica Magnetic Library</em>,
-        Modelica 2008 Conference, Bielefeld, Germany,pp. 221-227, March 3-4, 2008. Download from: <a href=\"https://www.modelica.org/events/modelica2008/Proceedings/sessions/session2d2.pdf\">https://www.modelica.org/events/modelica2008/&shy;Proceedings/sessions/session2d2.pdf</a>
+        Modelica 2008 Conference, Bielefeld, Germany,pp. 221-227, March 3-4, 2008. Download from: <a href=\"https://www.modelica.org/events/modelica2008/Proceedings/sessions/session2d2.pdf\">https://www.modelica.org/events/modelica2008/&shy;Proceedings/sessions/session2d2.pdf</a></td>
     </tr>
 </table><br>
 
@@ -484,10 +484,10 @@ Several models to describe the static hysteresis behavior of ferromagnetic mater
 
 <br><table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
     <tr>
-      <td valign=\"top\">[Ro41]</td>
-      <td valign=\"top\">Roters, H.:
+      <td>[Ro41]</td>
+      <td>Roters, H.:
         <em>Electromagnetic Devices</em>,
-        New York: John Wiley &amp; Sons 1941 (8th Printing 1961)
+        New York: John Wiley &amp; Sons 1941 (8th Printing 1961)</td>
     </tr>
 </table><br>
 </li>
@@ -496,17 +496,17 @@ Several models to describe the static hysteresis behavior of ferromagnetic mater
 
 <br><table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
     <tr>
-      <td valign=\"top\">[KEQ+12]</td>
-      <td valign=\"top\">Kallenbach, E.; Eick, R.; Quendt, P.; Str&ouml;hla, T.; Feindt, K.; Kallenbach, M.; Radler, O.:
+      <td>[KEQ+12]</td>
+      <td>Kallenbach, E.; Eick, R.; Quendt, P.; Str&ouml;hla, T.; Feindt, K.; Kallenbach, M.; Radler, O.:
         <em>Elektromagnete: Grundlagen, Berechnung, Entwurf und Anwendung</em>,
-        3rd ed., Wiesbaden: Vieweg Teubner 2008 (in German).
+        3rd ed., Wiesbaden: Vieweg Teubner 2008 (in German).</td>
     </tr>
 
     <tr>
-      <td valign=\"top\">[Ro00]</td>
-      <td valign=\"top\">Roschke, T.:
+      <td>[Ro00]</td>
+      <td>Roschke, T.:
         <em>Entwurf geregelter elektromagnetischer Antriebe f&uuml;r Luftsch&uuml;tze</em>,
-        Fortschritt-Berichte VDI, Reihe 21, Nr. 293, D&uuml;sseldorf: VDI-Verlag 2000 (in German).
+        Fortschritt-Berichte VDI, Reihe 21, Nr. 293, D&uuml;sseldorf: VDI-Verlag 2000 (in German).</td>
     </tr>
 </table><br>
 </li>
@@ -515,10 +515,10 @@ Several models to describe the static hysteresis behavior of ferromagnetic mater
 
 <br><table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
     <tr>
-      <td valign=\"top\">[HM94]</td>
-      <td valign=\"top\">Hendershot, J.R. Jr.; Miller, T.J.E.:
+      <td>[HM94]</td>
+      <td>Hendershot, J.R. Jr.; Miller, T.J.E.:
         <em>Design of Brushless Permanent-Magnet Motors</em>,
-        Magna Physics Publishing and Oxford University Press 1994.
+        Magna Physics Publishing and Oxford University Press 1994.</td>
     </tr>
 </table><br>
 </li>
@@ -527,50 +527,50 @@ Several models to describe the static hysteresis behavior of ferromagnetic mater
 
 <br><table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
     <tr>
-      <td valign=\"top\">[BE01]</td>
-      <td valign=\"top\">Bergqvist, A. J.; Engdahl, S. G.:
+      <td>[BE01]</td>
+      <td>Bergqvist, A. J.; Engdahl, S. G.:
         <em>A Homogenization Procedure of Field Quantities in Laminated Electric Steel</em>,
         IEEE Transactions on Magnetics, vol.37, no.5, pp.3329-3331, 2001.</td>
     </tr>
     <tr>
-      <td valign=\"top\">[Te98]</td>
-      <td valign=\"top\">Tellinen, J:
+      <td>[Te98]</td>
+      <td>Tellinen, J:
         <em>A simple scalar model for magnetic hysteresis</em>,
         IEEE Translation Journal on Magnetics in Japan, vol.4, no.6, pp.353-359, 1989.</td>
     </tr>
     <tr>
-      <td valign=\"top\">[Pr35]</td>
-      <td valign=\"top\">Preisach, F.:
+      <td>[Pr35]</td>
+      <td>Preisach, F.:
         <em>&Uuml;ber die magnetische Nachwirkung</em>,
         Zeitschrift f&uuml;r Physik A Hadrons and Nuclei, vol. 94, pp. 277-302, 1935.</td>
     </tr>
     <tr>
-      <td valign=\"top\">[Ma03]</td>
-      <td valign=\"top\">Mayergoyz, I.:
+      <td>[Ma03]</td>
+      <td>Mayergoyz, I.:
         <em>Mathematical Models of Hysteresis and their Application</em>,
         Elsevier, 2003.</td>
     </tr>
     <tr>
-      <td valign=\"top\">[Va01]</td>
-      <td valign=\"top\">VAC Vacuumschmelze:
+      <td>[Va01]</td>
+      <td>VAC Vacuumschmelze:
         <em>Soft Magnetic Cobalt-Iron-Alloys</em>, 2001.
         Download from: <a  href=\"http://www.vacuumschmelze.com/fileadmin/docroot/medialib/documents/broschueren/htbrosch/Pht-004_e.pdf\">http://www.vacuumschmelze.com/fileadmin/&shy;docroot/medialib/documents/&shy;broschueren/htbrosch/Pht-004_e.pdf</a></td>
     </tr>
     <tr>
-      <td valign=\"top\">[YUY89]</td>
-      <td valign=\"top\">Yamaguchi, T.; Ueda, F.; Yamamoto, E.:
+      <td>[YUY89]</td>
+      <td>Yamaguchi, T.; Ueda, F.; Yamamoto, E.:
         <em>Simulation of Hysteresis Characteristics of Core Materials Using the Everett Function</em>,
         IEEE Translation Journal on Magnetics in Japan, vol.4, no.6, pp.353-359, 1989.</td>
     </tr>
     <tr>
-      <td valign=\"top\">[ZB12]</td>
-      <td valign=\"top\">Ziske, J.; B&ouml;drich, T.:
+      <td>[ZB12]</td>
+      <td>Ziske, J.; B&ouml;drich, T.:
         <em>Magnetic Hysteresis Models for Modelica</em>,
         Proc. of the 9th Modelica Conference, Munich, Germany, pp. 151-158, September 3-5, 2012. Download from: <a  href=\"http://www.ep.liu.se/ecp/076/014/ecp12076014.pdf\">http://www.ep.liu.se/ecp/&shy;076/014/ecp12076014.pdf</a></td>
     </tr>
     <tr>
-      <td valign=\"top\">[ZB14]</td>
-      <td valign=\"top\">Ziske, J.; B&ouml;drich, T.:
+      <td>[ZB14]</td>
+      <td>Ziske, J.; B&ouml;drich, T.:
         <em>http://www.ep.liu.se/ecp/096/017/ecp14096017.pdf</em>,
         Proc. of the 10th Modelica Conference, Lund, Sweden, pp. 165-172, March 10-12, 2014. Download from: <a  href=\"http://www.ep.liu.se/ecp/096/017/ecp14096017.pdf\">http://www.ep.liu.se/ecp/&shy;096/017/ecp14096017.pdf</a></td>
     </tr>
@@ -668,31 +668,29 @@ Several models to describe the static hysteresis behavior of ferromagnetic mater
       extends Modelica.Icons.Contact;
 
       annotation (Documentation(info="<html>
-<h4>Contact</h4>
+<h4>Main authors</h4>
 
-<dl>
-<dt><strong>Main Authors:</strong></dt>
-<dd>
-    <a href=\"http://www.ifte.de/mitarbeiter/boedrich.html\">Thomas B&ouml;drich</a><br>
+<p>
+<a href=\"http://www.ifte.de/mitarbeiter/boedrich.html\"><strong>Thomas B&ouml;drich</strong></a><br>
     Dresden University of Technology<br>
     Institute of Electromechanical and Electronic Design<br>
     01062 Dresden, Germany<br>
     Phone: +49 - 351 - 463 36296<br>
     Fax: +49 - 351 - 463 37183<br>
-    email: <A HREF=\"mailto:Thomas.Boedrich@tu-dresden.de\">Thomas.Boedrich@tu-dresden.de</A><br>
-</dd>
-<dd>
-    <a href=\"http://www.ifte.de/mitarbeiter/ziske.html\">Johannes Ziske</a><br>
+    email: <a href=\"mailto:Thomas.Boedrich@tu-dresden.de\">Thomas.Boedrich@tu-dresden.de</a>
+</p>
+<p>
+<a href=\"http://www.ifte.de/mitarbeiter/ziske.html\"><strong>Johannes Ziske</strong></a><br>
     Dresden University of Technology<br>
     Institute of Electromechanical and Electronic Design<br>
     01062 Dresden, Germany<br>
     Phone: +49 - 351 - 463 35250<br>
     Fax: +49 - 351 - 463 37183<br>
-    email: <A HREF=\"mailto:Johannes.Ziske@tu-dresden.de\">Johannes.Ziske@tu-dresden.de</A><br>
-</dd>
-</dl>
+    email: <a href=\"mailto:Johannes.Ziske@tu-dresden.de\">Johannes.Ziske@tu-dresden.de</a>
+</p>
 
-<p><strong>Acknowledgements:</strong></p>
+<h4>Acknowledgements</h4>
+
 <ul>
 <li> The magnetisation characteristics of the included soft magnetic materials were compiled and measured respectively by Thomas Roschke, now with Johnson Electric. Provision of this data is highly appreciated. He also formulated the approximation function used for description of the magnetisation characteristics of these materials.
 </li>
@@ -902,7 +900,7 @@ If the supply voltage has a zero-crossing when applied to the inductor at time t
           experiment(StopTime=6, Tolerance=1e-007),
           Documentation(info="<html>
 <p>
-Have a look at <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.ConstantActuator\">ConstantActuator</a> and at <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.PermeanceActuator\">PermeanceActuator</a> for an explanation of both converter models. <br>
+Have a look at <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.ConstantActuator\">ConstantActuator</a> and at <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.PermeanceActuator\">PermeanceActuator</a> for an explanation of both converter models.<br>
 </p>
 <p>
 Simulation of the force-current characteristics of both converter models with the armature blocked at mid-position x=0 reveals the difference between the two models. In the <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.ConstantActuator\">ConstantActuator</a>, force is proportional to current. In the simple <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.PermeanceActuator\">PermeanceActuator</a> there is an additional non-linear force component that is due to the dependency of the inductance on the armature position. Comparison with FEA results validates the higher accuracy of the <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.PermeanceActuator\">PermeanceActuator</a>. In the FEA model, the relative permeability of the stator iron was set to mu_rFe=const.=1000 in order to avoid additional non-linear force components due to saturation. <strong>Simulate for 6 s</strong> and <strong>plot vs. current (e.g., iSensor.i)</strong></p>
@@ -968,7 +966,7 @@ Simulation of the force-current characteristics of both converter models with th
             StopTime=4,
             Tolerance=1e-007), Documentation(info="<html>
 <p>
-Have a look at <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.ConstantActuator\">ConstantActuator</a> and at <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.PermeanceActuator\">PermeanceActuator</a> for an explanation of both converter models. <br>
+Have a look at <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.ConstantActuator\">ConstantActuator</a> and at <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.PermeanceActuator\">PermeanceActuator</a> for an explanation of both converter models.<br>
 </p>
 <p>
 Simulation of the force-stroke characteristic of the <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.PermeanceActuator\">PermeanceActuator</a> with a constant current I=3A and a forced armature movement (similar to measurements in reality) shows the dependency of both force-generating permeances G_ma and G_mb as well as inductance L on armature position x. <strong>Simulate for 8 s</strong> and <strong>plot vs.</strong> armature position <strong>feedX.flange_b.s</strong> (same physical quantities together in a common diagram for comparison):</p>
@@ -1075,7 +1073,7 @@ A voltage step at time t=0 is applied to both actuator models. In each model, th
 The initial current rise in both actuator models is due to the inductance of the actuator coil. After acceleration of the armature and the load, the current decreases due to the motion-induced back-emf. Bouncing occurs when the armatures of both models arrive at the stopper at maximum armature position. The bouncing is rather intense due to the absence of any kind of external friction in this simple example (apart from the nonlinear damping in the stopper elements). After decay of the bouncing, both actuators operate under conditions valid for a blocked armature.
 </p>
 <p>
-Whereas the steady state current is the same in both models, the steady state actuator force is not due to the neglection of the non-linear force component in the converter constant model. Differences in the current rise of both models are due to the neglection of the coil inductance variation in the converter constant model.
+Whereas the steady state current is the same in both models, the steady state actuator force is not due to the neglect of the non-linear force component in the converter constant model. Differences in the current rise of both models are due to the neglect of the coil inductance variation in the converter constant model.
 </p>
 </html>"));
       end ArmatureStroke;
@@ -1258,7 +1256,7 @@ Both force components are properly considered with a simple permeance model as s
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Examples/MovingCoilActuator/MovingCoilActuator_PermeanceModel.png\" ALT=\"Structure, assigned flux tubes and field plots of the moving coil actuator\">
+<img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Examples/MovingCoilActuator/MovingCoilActuator_PermeanceModel.png\" alt=\"Structure, assigned flux tubes and field plots of the moving coil actuator\">
 </p>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                     {100,100}}), graphics={Rectangle(
@@ -2282,7 +2280,7 @@ In the half-section below, the flux tube elements of the actuator's magnetic cir
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Examples/SolenoidActuator/SimpleSolenoidModel_fluxTubePartitioning.png\" ALT=\"Field lines and assigned flux tubes of the simple solenoid model\">
+<img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Examples/SolenoidActuator/SimpleSolenoidModel_fluxTubePartitioning.png\" alt=\"Field lines and assigned flux tubes of the simple solenoid model\">
 </p>
 
 <p>
@@ -2681,7 +2679,7 @@ Please have a look at <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Examples/SolenoidActuator/AdvancedSolenoidModel_fluxTubePartitioning.png\" ALT=\"Assigned flux tubes and field plot of the solenoid actuator\">
+<img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Examples/SolenoidActuator/AdvancedSolenoidModel_fluxTubePartitioning.png\" alt=\"Assigned flux tubes and field plot of the solenoid actuator\">
 </p>
 
 <p>
@@ -2805,7 +2803,6 @@ The differences between these two models in static behaviour can be analysed and
         connect(winding1.port_p, tellinenSoft.port_p) annotation (Line(points={{50,70},{62,70}}, color={255,127,0}));
         connect(magGnd1.port,tellinenSoft. port_n) annotation (Line(points={{70,50},{90,50},{90,70},{82,70}},
                                               color={255,127,0}));
-        connect(preisachEverett.port_n, winding3.port_n) annotation (Line(points={{80,-50},{90,-50},{90,-70},{50,-70}}, color={255,127,0}));
         annotation (experiment(StartTime=0, StopTime=14, Interval=3e-3, Tolerance=1e-005), Documentation(info="<html>
 <p>
 Use the following simulation settings:
@@ -2943,7 +2940,7 @@ Then plot the flux density of the Core Core.B over the magnetic field strength C
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
   <tr>
     <td>
-      <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Examples/Hysteresis/SinglePhaseTransformerWithHysteresis1/plot01.png\" Hspace=\"10\" Vspace=\"10\">
+      <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Examples/Hysteresis/SinglePhaseTransformerWithHysteresis1/plot01.png\" hspace=\"10\" vspace=\"10\">
     </td>
   </tr>
 </table>
@@ -2951,7 +2948,7 @@ Then plot the flux density of the Core Core.B over the magnetic field strength C
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
   <tr>
     <td>
-      <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Examples/Hysteresis/SinglePhaseTransformerWithHysteresis1/plot02.png\" Hspace=\"10\" Vspace=\"10\">
+      <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Examples/Hysteresis/SinglePhaseTransformerWithHysteresis1/plot02.png\" hspace=\"10\" vspace=\"10\">
     </td>
   </tr>
 </table>
@@ -2962,34 +2959,30 @@ Then plot the flux density of the Core Core.B over the magnetic field strength C
       model SinglePhaseTransformerWithHysteresis2
         extends Modelica.Icons.Example;
         Modelica.Electrical.Analog.Basic.Ground el_ground1
-          annotation (Placement(transformation(extent={{-40,-20},{-20,0}})));
-        Modelica.Electrical.Analog.Basic.Resistor resistor1(R=0.05) annotation (Placement(transformation(extent={{-40,30},{-20,50}})));
-        Modelica.Electrical.Analog.Sources.SineVoltage SineVoltage(      freqHz=
+          annotation (Placement(transformation(extent={{-50,-20},{-30,0}})));
+        Modelica.Electrical.Analog.Basic.Resistor resistor1(R=0.05) annotation (Placement(transformation(extent={{-50,30},{-30,50}})));
+        Modelica.Electrical.Analog.Sources.SineVoltage SineVoltage(freqHz=
              400, V=6) annotation (Placement(transformation(
               extent={{-10,10},{10,-10}},
               rotation=270,
-              origin={-50,20})));
-        Modelica.Electrical.Analog.Basic.Resistor resistor2(R=2) annotation (Placement(transformation(extent={{-10,-10},{10,10}}, origin={30,40})));
+              origin={-60,20})));
+        Modelica.Electrical.Analog.Basic.Resistor resistor2(R=2) annotation (Placement(transformation(extent={{-10,-10},{10,10}}, origin={40,40})));
         Modelica.Electrical.Analog.Basic.Ground el_ground2
-          annotation (Placement(transformation(extent={{20,-20},{40,0}})));
-        Components.Transformer1PhaseWithHysteresis tr(
+          annotation (Placement(transformation(extent={{30,-20},{50,0}})));
+        Components.Transformer1PhaseWithHysteresis transformer(
           mat=FluxTubes.Material.HysteresisEverettParameter.M330_50A(),
           MagRelFixed=true,
-          IpFixed=true,
+          I1Fixed=true,
           EddyCurrents=false,
-          HFixed=false)
-          annotation (Placement(transformation(extent={{-10,12},{10,32}})));
+          HFixed=false) annotation (Placement(transformation(extent={{-10,10},{10,30}})));
       equation
-        connect(SineVoltage.p, resistor1.p) annotation (Line(points={{-50,30},{-50,40},{-40,40}}, color={0,0,255}));
-        connect(SineVoltage.n, el_ground1.p)
-                                            annotation (Line(
-            points={{-50,10},{-50,0},{-30,0}},
-                                      color={0,0,255}));
-        connect(resistor2.n, el_ground2.p) annotation (Line(points={{40,40},{50,40},{50,0},{30,0}}, color={0,0,255}));
-        connect(resistor1.n, tr.p1) annotation (Line(points={{-20,40},{-10,40},{-10,32}}, color={0,0,255}));
-        connect(tr.n1, el_ground1.p) annotation (Line(points={{-10,12},{-10,0},{-30,0}}, color={0,0,255}));
-        connect(tr.p2, resistor2.p) annotation (Line(points={{10,32},{10,40},{20,40}}, color={0,0,255}));
-        connect(tr.n2, el_ground2.p) annotation (Line(points={{10,12},{10,0},{30,0}}, color={0,0,255}));
+        connect(SineVoltage.p, resistor1.p) annotation (Line(points={{-60,30},{-60,40},{-50,40}}, color={0,0,255}));
+        connect(SineVoltage.n, el_ground1.p) annotation (Line(points={{-60,10},{-60,0},{-40,0}},color={0,0,255}));
+        connect(resistor2.n, el_ground2.p) annotation (Line(points={{50,40},{60,40},{60,0},{40,0}}, color={0,0,255}));
+        connect(resistor1.n, transformer.p1) annotation (Line(points={{-30,40},{-20,40},{-20,30},{-10,30}}, color={0,0,255}));
+        connect(transformer.n1, el_ground1.p) annotation (Line(points={{-10,10},{-20,10},{-20,0},{-40,0}}, color={0,0,255}));
+        connect(transformer.p2, resistor2.p) annotation (Line(points={{10,30},{10,30},{20,30},{20,40},{30,40}}, color={0,0,255}));
+        connect(transformer.n2, el_ground2.p) annotation (Line(points={{10,10},{10,12},{20,12},{20,0},{40,0}}, color={0,0,255}));
         annotation (experiment(StartTime=0, StopTime=0.1, Interval=2e-5, Tolerance=1e-004), Documentation(info="<html>
 <p>
 A simple model of an single phase transformer (similar to <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.Hysteresis.SinglePhaseTransformerWithHysteresis1\">SinglePhaseTransformerWithHysteresis1</a> but with separate transformer model: <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.Hysteresis.Components.Transformer1PhaseWithHysteresis\">Transformer1PhaseWithHysteresis</a>). Use the simulation settings:
@@ -3005,7 +2998,7 @@ The figure shows the magnetic hysteresis in the transformer core. In (a) the con
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
   <tr>
     <td>
-      <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Examples/Hysteresis/SinglePhaseTransformerWithHysteresis2/plot1.png\" Hspace=\"10\" Vspace=\"10\">
+      <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Examples/Hysteresis/SinglePhaseTransformerWithHysteresis2/plot1.png\" hspace=\"10\" vspace=\"10\">
     </td>
   </tr>
 </table>
@@ -3015,7 +3008,6 @@ The figure shows the magnetic hysteresis in the transformer core. In (a) the con
 
       model ThreePhaseTransformerWithRectifier
         "3 Phase transformer (including hysteresis effect) with rectifier"
-        import Modelica.Magnetic.FluxTubes;
         extends Modelica.Icons.Example;
 
         Modelica.Electrical.Analog.Basic.Ground ground1 annotation (Placement(transformation(extent={{-120,-90},{-100,-70}})));
@@ -3027,25 +3019,23 @@ The figure shows the magnetic hysteresis in the transformer core. In (a) the con
               extent={{-10,-10},{10,10}},
               rotation=270,
               origin={-140,-40})));
-        Components.Transformer3PhaseYyWithHysteresis
-                                           tr3PhaseYy(
+        Components.Transformer3PhaseYyWithHysteresis transformer(
           EddyCurrents=true,
-          N_p=200,
-          N_s=10,
+          N1=200,
+          N2=10,
           mat=FluxTubes.Material.HysteresisEverettParameter.M330_50A(),
           sigma=2.2e6,
           HFixed={true,true,true},
           MagRelFixed={true,true,false},
-          IprimFixed={true,true,true},
-          IsecFixed={true,false,false},
+          I1Fixed={true,true,true},
+          I2Fixed={true,false,false},
           useHeatPort=false,
           MagRelStart={-0.4,0.8,-0.4},
           l1=0.2,
           l2=0.15,
           a=0.04,
           b=0.04,
-          t=0.0005)
-          annotation (Placement(transformation(extent={{-40,-15},{-20,5}})));
+          t=0.0005) annotation (Placement(transformation(extent={{-40,-15},{-20,5}})));
         Modelica.Electrical.Analog.Sources.SineVoltage vSource2(
           offset=0,
           freqHz=vSource1.freqHz,
@@ -3110,12 +3100,9 @@ The figure shows the magnetic hysteresis in the transformer core. In (a) the con
               extent={{-10,-10},{10,10}},
               rotation=270,
               origin={90,-30})));
-        Modelica.Blocks.Sources.RealExpression rExp1(y=tr3PhaseYy.LossPowerStat)
-          annotation (Placement(transformation(extent={{-113,77},{-82,93}})));
-        Modelica.Blocks.Sources.RealExpression rExp2(y=tr3PhaseYy.LossPowerEddy)
-          annotation (Placement(transformation(extent={{-113,57},{-81,73}})));
-        Modelica.Blocks.Sources.RealExpression rExp3(y=tr3PhaseYy.LossPowerWinding)
-          annotation (Placement(transformation(extent={{-113,37},{-81,53}})));
+        Modelica.Blocks.Sources.RealExpression rExp1(y=transformer.LossPowerStat) annotation (Placement(transformation(extent={{-113,77},{-82,93}})));
+        Modelica.Blocks.Sources.RealExpression rExp2(y=transformer.LossPowerEddy) annotation (Placement(transformation(extent={{-113,57},{-81,73}})));
+        Modelica.Blocks.Sources.RealExpression rExp3(y=transformer.LossPowerWinding) annotation (Placement(transformation(extent={{-113,37},{-81,53}})));
         Modelica.Blocks.Continuous.Filter pdissStatAvg(f_cut=10)
           "Approx. average static hysteresis losses"
           annotation (Placement(transformation(extent={{-50,80},{-40,90}})));
@@ -3129,12 +3116,12 @@ The figure shows the magnetic hysteresis in the transformer core. In (a) the con
         connect(vSource1.n, ground1.p) annotation (Line(points={{-140,-50},{-140,-70},{-110,-70}}, color={0,0,255}));
         connect(vSource2.n, ground1.p) annotation (Line(points={{-120,-50},{-120,-70},{-110,-70}}, color={0,0,255}));
         connect(vSource3.n, ground1.p) annotation (Line(points={{-100,-50},{-100,-70},{-110,-70}}, color={0,0,255}));
-        connect(resistor1.n, tr3PhaseYy.p1) annotation (Line(points={{-60,15},{-50,15},{-50,1},{-40,1}}, color={0,0,255}));
+        connect(resistor1.n, transformer.p1) annotation (Line(points={{-60,15},{-50,15},{-50,1},{-40,1}}, color={0,0,255}));
         connect(resistor1.p, vSource1.p) annotation (Line(points={{-80,15},{-140,15},{-140,-30}}, color={0,0,255}));
-        connect(resistor2.n, tr3PhaseYy.p2) annotation (Line(points={{-60,-5},{-40,-5}}, color={0,0,255}));
+        connect(resistor2.n, transformer.p2) annotation (Line(points={{-60,-5},{-40,-5}}, color={0,0,255}));
         connect(resistor2.p, vSource2.p) annotation (Line(points={{-80,-5},{-120,-5},{-120,-30}}, color={0,0,255}));
         connect(vSource3.p, resistor3.p) annotation (Line(points={{-100,-30},{-100,-25},{-80,-25}}, color={0,0,255}));
-        connect(resistor3.n, tr3PhaseYy.p3) annotation (Line(points={{-60,-25},{-50,-25},{-50,-11},{-40,-11}}, color={0,0,255}));
+        connect(resistor3.n, transformer.p3) annotation (Line(points={{-60,-25},{-50,-25},{-50,-11},{-40,-11}}, color={0,0,255}));
         connect(diode2.n, diode1.p) annotation (Line(points={{30,-20},{30,10}}, color={0,0,255}));
         connect(diode4.n, diode3.p) annotation (Line(points={{50,-20},{50,10}}, color={0,0,255}));
         connect(diode6.n, diode5.p) annotation (Line(points={{70,-20},{70,10}}, color={0,0,255}));
@@ -3144,25 +3131,21 @@ The figure shows the magnetic hysteresis in the transformer core. In (a) the con
         connect(diode3.n, diode5.n) annotation (Line(points={{50,30},{70,30}}, color={0,0,255}));
         connect(diode5.n, capacitor1.p) annotation (Line(points={{70,30},{90,30}}, color={0,0,255}));
         connect(resistorL.p, capacitor1.p) annotation (Line(points={{120,5},{120,30},{90,30}}, color={0,0,255}));
-        connect(tr3PhaseYy.n1, inductor1.p) annotation (Line(points={{-20,1},{-10,1},{-10,14}}, color={0,0,255}));
-        connect(tr3PhaseYy.n2, inductor2.p) annotation (Line(points={{-20,-5},{-10,-5}}, color={0,0,255}));
+        connect(transformer.n1, inductor1.p) annotation (Line(points={{-20,1},{-10,1},{-10,14}}, color={0,0,255}));
+        connect(transformer.n2, inductor2.p) annotation (Line(points={{-20,-5},{-10,-5}}, color={0,0,255}));
         connect(inductor2.n, diode3.p) annotation (Line(points={{10,-5},{50,-5},{50,10}}, color={0,0,255}));
-        connect(inductor3.p, tr3PhaseYy.n3) annotation (Line(points={{-10,-25},{-10,-11},{-20,-11}}, color={0,0,255}));
+        connect(inductor3.p, transformer.n3) annotation (Line(points={{-10,-25},{-10,-11},{-20,-11}}, color={0,0,255}));
         connect(inductor3.n, diode6.n) annotation (Line(points={{10,-25},{10,-10},{70,-10},{70,-20}}, color={0,0,255}));
         connect(capacitor2.n, diode6.p) annotation (Line(points={{90,-40},{70,-40}}, color={0,0,255}));
-        connect(capacitor2.p, capacitor1.n) annotation (Line(
-            points={{90,-20},{90,10}},color={0,0,255}));
+        connect(capacitor2.p, capacitor1.n) annotation (Line(points={{90,-20},{90,10}},color={0,0,255}));
         connect(inductor1.n, diode1.p) annotation (Line(points={{10,14},{10,0},{30,0},{30,10}}, color={0,0,255}));
         connect(resistorL.n, capacitor2.n) annotation (Line(points={{120,-15},{120,-40},{90,-40}}, color={0,0,255}));
-        connect(tr3PhaseYy.starPoint1, ground1.p) annotation (Line(points={{-34,-15},{-34,-70},{-110,-70}}, color={0,0,255}));
-        connect(tr3PhaseYy.starPoint2, ground2.p) annotation (Line(points={{-26,-15},{-26,-70}}, color={0,0,255}));
+        connect(transformer.starPoint1, ground1.p) annotation (Line(points={{-34,-15},{-34,-70},{-110,-70}}, color={0,0,255}));
+        connect(transformer.starPoint2, ground2.p) annotation (Line(points={{-26,-15},{-26,-70}}, color={0,0,255}));
         connect(ground2.p, capacitor2.p) annotation (Line(points={{-26,-70},{105,-70},{105,-4},{90,-4},{90,-20}}, color={0,0,255}));
-        connect(rExp3.y,pdissCopAvg. u)
-          annotation (Line(points={{-79.4,45},{-51,45}}, color={0,0,127}));
-        connect(rExp2.y,pdissEddyAvg. u)
-          annotation (Line(points={{-79.4,65},{-51,65}}, color={0,0,127}));
-        connect(rExp1.y,pdissStatAvg. u) annotation (Line(points={{-80.45,85},{-51,85}},
-                               color={0,0,127}));
+        connect(rExp3.y,pdissCopAvg. u) annotation (Line(points={{-79.4,45},{-51,45}}, color={0,0,127}));
+        connect(rExp2.y,pdissEddyAvg. u) annotation (Line(points={{-79.4,65},{-51,65}}, color={0,0,127}));
+        connect(rExp1.y,pdissStatAvg. u) annotation (Line(points={{-80.45,85},{-51,85}}, color={0,0,127}));
         annotation (experiment(StartTime=0, StopTime=0.2, Interval=1e-4, Tolerance=1e-006), Diagram(coordinateSystem(
               preserveAspectRatio=false,
               extent={{-150,-100},{150,100}},
@@ -3185,7 +3168,7 @@ An example simulation shows the transformer inrush currents due to an initially 
 <caption align=\"bottom\"><strong>Fig. 1:</strong> Transformer inrush currents due to initial magnetization of the magnetic core; (a) transformer primary currents; (b)  transformer secondary currents; (c) flux densities of the transformer legs; (d) B(H) hysteresis loops of transformer leg one.; (e) instantaneous static hysteresis, eddy current and copper losses of the transformer; (f) approximated average static hysteresis, eddy current and copper losses of the transformer</caption>
   <tr>
     <td>
-      <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Examples/Hysteresis/ThreePhaseTransformerWithRectifier/plot01.png\" Hspace=\"10\" Vspace=\"10\">
+      <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Examples/Hysteresis/ThreePhaseTransformerWithRectifier/plot01.png\" hspace=\"10\" vspace=\"10\">
     </td>
   </tr>
 </table>
@@ -3206,34 +3189,34 @@ An example simulation shows the transformer inrush currents due to an initially 
           Modelica.Thermal.HeatTransfer.Sources.PrescribedTemperature tempSource annotation (Placement(transformation(extent={{-94,-54},{-86,-46}})));
 
           // Tab: Electrical //Group:Primary Winding
-          parameter Integer N_p=10 "Primary turns"
+          parameter Integer N1=10 "Primary turns"
             annotation(Dialog(tab="Electrical", group="Primary Winding"));
-          parameter SI.Length l_p(displayUnit="mm") = 1.2*2*(a+b)
+          parameter SI.Length L1(displayUnit="mm") = 1.2*2*(a+b)
             "Mean primary turn length"
             annotation(Dialog(tab="Electrical", group="Primary Winding"));
-          parameter SI.Length d_p(displayUnit="mm") = 0.5e-3
+          parameter SI.Length d1(displayUnit="mm") = 0.5e-3
             "Wire diameter of primary turns"
             annotation(Dialog(tab="Electrical", group="Primary Winding"));
-          parameter SI.Resistivity rho_p = 1.678e-8
+          parameter SI.Resistivity rho1 = 1.678e-8
             "Resistivity of primary winding (at 20degC)"
             annotation(Dialog(tab="Electrical", group="Primary Winding"));
-          parameter SI.LinearTemperatureCoefficient alpha_p = 0
+          parameter SI.LinearTemperatureCoefficient alpha1 = 0
             "Temperature coefficient of primary turns" annotation(Dialog(tab="Electrical", group="Primary Winding"));
 
           // Tab: Electrical //Group:Secondary Winding
-          parameter Integer N_s=10 "Secondary turns"
+          parameter Integer N2=10 "Secondary turns"
             annotation(Dialog(tab="Electrical", group="Secondary Winding"));
-          parameter SI.Length l_s(displayUnit="mm") = l_p
+          parameter SI.Length L2(displayUnit="mm") = L1
             "Mean secondary turn length"
             annotation(Dialog(tab="Electrical", group="Secondary Winding"));
-          parameter SI.Length d_s(displayUnit="mm") = d_p
+          parameter SI.Length d2(displayUnit="mm") = d1
             "Wire diameter of secondary turns"
             annotation(Dialog(tab="Electrical", group="Secondary Winding"));
-          parameter SI.Resistivity rho_s = rho_p
+          parameter SI.Resistivity rho2 = rho1
             "Resistivity of secondary winding (at 20degC)"
             annotation(Dialog(tab="Electrical", group="Secondary Winding"));
 
-          parameter SI.LinearTemperatureCoefficient alpha_s = alpha_p
+          parameter SI.LinearTemperatureCoefficient alpha2 = alpha1
             "Temperature coefficient of secondary turns" annotation(Dialog(tab="Electrical", group="Secondary Winding"));
 
           parameter SI.Length l1(displayUnit="mm") = 40e-3
@@ -3249,14 +3232,14 @@ An example simulation shows the transformer inrush currents due to an initially 
             "Parameter set of ferromagnetic Hysteresis" annotation (Dialog(tab="Core",
                 group="Material"), choicesAllMatching=true);
 
-          output SI.Voltage v_p "Primary voltage drop";
-          output SI.Voltage v_s "secondary voltage drop";
+          output SI.Voltage v1 "Primary voltage drop";
+          output SI.Voltage v2 "secondary voltage drop";
 
-          output SI.Resistance R_p "Primary resistance of Winding";
-          output SI.Resistance R_s "Secondary resistance of Winding";
+          output SI.Resistance R1 "Primary resistance of Winding";
+          output SI.Resistance R2 "Secondary resistance of Winding";
 
-          output SI.Current i_p "Primary current";
-          output SI.Current i_s "Secondary current";
+          output SI.Current i1 "Primary current";
+          output SI.Current i2 "Secondary current";
 
           output SI.MagneticFluxDensity B "Magnetic Flux Density of Core";
           output SI.MagneticFieldStrength Hstat
@@ -3266,7 +3249,7 @@ An example simulation shows the transformer inrush currents due to an initially 
           output SI.MagneticFieldStrength H
             "Total magnetic field strength of core";
 
-          //output SI.Resistance R_p
+          //output SI.Resistance R1
 
           parameter Real MagRelStart=0 "Initial magnetization of Core (-1..1)"
             annotation (Dialog(tab="Core", group="Initialization"));
@@ -3277,9 +3260,9 @@ An example simulation shows the transformer inrush currents due to an initially 
             annotation (Dialog(tab="Core", group="Initialization"));
           parameter Boolean HFixed = false "Fixed"
             annotation (Dialog(tab="Core", group="Initialization"),choices(checkBox=true));
-          parameter SI.ElectricCurrent IpStart=0
+          parameter SI.ElectricCurrent I1Start=0
             "Initial primary current through winding" annotation (Dialog(tab="Core", group="Initialization"));
-          parameter Boolean IpFixed = false "Fixed" annotation (Dialog(tab="Core", group="Initialization"),choices(checkBox=true));
+          parameter Boolean I1Fixed = false "Fixed" annotation (Dialog(tab="Core", group="Initialization"),choices(checkBox=true));
 
           output SI.Power LossPowerWinding "Winding lossses";
           output SI.Power LossPowerStat "Ferromagnetic hysteresis losses";
@@ -3292,42 +3275,42 @@ An example simulation shows the transformer inrush currents due to an initially 
             "Conductivity of core material" annotation (Dialog(tab="Losses and Heat", group="Eddy Currents", enable=EddyCurrents));
           parameter SI.Length t(displayUnit="mm") = 0.5e-3
             "Thickness of lamination" annotation (Dialog(tab="Losses and Heat", group="Eddy Currents", enable=EddyCurrents));
-          parameter SI.Length L_lp=10e-3 "Length of leakage of primary Winding" annotation (Dialog(tab="Leakage"));
-          parameter SI.Area A_lp=10e-6
+          parameter SI.Length L_l1=10e-3 "Length of leakage of primary Winding" annotation (Dialog(tab="Leakage"));
+          parameter SI.Area A_l1=10e-6
             "Cross section of leakage of primary Winding" annotation (Dialog(tab="Leakage"));
-          parameter Real mu_relp=1
+          parameter Real mu_rel1=1
             "Constant relative permeability of primary leakage (>0 required)" annotation (Dialog(tab="Leakage"));
-          parameter SI.Length L_ls=10e-3
+          parameter SI.Length L_l2=10e-3
             "Length of leakage of secondary Winding" annotation (Dialog(tab="Leakage"));
-          parameter SI.Area A_ls=10e-6
+          parameter SI.Area A_l2=10e-6
             "Cross section of leakage of secondary Winding" annotation (Dialog(tab="Leakage"));
-          parameter Real mu_rels=1
+          parameter Real mu_rel2=1
             "Constant relative permeability of secondary leakage (>0 required)" annotation (Dialog(tab="Leakage"));
 
         protected
           Basic.Ground ground
             annotation (Placement(transformation(extent={{-10,-50},{10,-30}})));
           Basic.ElectroMagneticConverterWithLeakageInductance winding1(
-            N=N_p,
-            L=L_lp,
-            A=A_lp,
-            mu_rel=mu_relp,
-            i(start=IpStart, fixed=IpFixed)) annotation (Placement(transformation(extent={{-60,-20},{-40,0}})));
+            N=N1,
+            L=L_l1,
+            A=A_l1,
+            mu_rel=mu_rel1,
+            i(start=I1Start, fixed=I1Fixed)) annotation (Placement(transformation(extent={{-60,-20},{-40,0}})));
           Basic.ElectroMagneticConverterWithLeakageInductance winding2(
-            N=N_s,
-            L=L_ls,
-            mu_rel=mu_rels,
-            A=A_ls) annotation (Placement(transformation(extent={{60,-20},{40,0}})));
+            N=N2,
+            L=L_l2,
+            mu_rel=mu_rel2,
+            A=A_l2) annotation (Placement(transformation(extent={{60,-20},{40,0}})));
 
           Modelica.Electrical.Analog.Basic.Resistor resistor1(
-            R=rho_p*N_p*l_p/(pi/4*d_p^2),
+            R=rho1*N1*L1/(pi/4*d1^2),
             useHeatPort=true,
-            alpha=alpha_p,
+            alpha=alpha1,
             T_ref=293.15) annotation (Placement(transformation(extent={{-90,-10},{-70,10}})));
           Modelica.Electrical.Analog.Basic.Resistor resistor2(
-            R=rho_s*N_s*l_s/(pi/4*d_s^2),
+            R=rho2*N2*L2/(pi/4*d2^2),
             useHeatPort=true,
-            alpha=alpha_s,
+            alpha=alpha2,
             T_ref=293.15) annotation (Placement(transformation(extent={{70,-10},{90,10}})));
 
         public
@@ -3342,13 +3325,13 @@ An example simulation shows the transformer inrush currents due to an initially 
             MagRel(start=MagRelStart, fixed=MagRelFixed))
             annotation (Placement(transformation(extent={{-10,0},{10,20}})));
         equation
-          v_p =p1.v - n1.v;
-          i_p =resistor1.i;
-          R_p =resistor1.R_actual;
+          v1 =p1.v - n1.v;
+          i1 =resistor1.i;
+          R1 =resistor1.R_actual;
 
-          v_s =p2.v - n2.v;
-          i_s =resistor2.i;
-          R_s =resistor2.R_actual;
+          v2 =p2.v - n2.v;
+          i2 =resistor2.i;
+          R2 =resistor2.R_actual;
 
           B =core.B;
           Hstat =core.Hstat;
@@ -3376,7 +3359,7 @@ An example simulation shows the transformer inrush currents due to an initially 
           connect(n2, winding2.p) annotation (Line(points={{100,-100},{94,-100},{94,20},{60,20},{60,0}}, color={0,0,255}));
           connect(core.port_p, winding1.port_p) annotation (Line(points={{-10,10},{-40,10},{-40,0}}, color={255,127,0}));
           connect(core.port_n, winding2.port_p) annotation (Line(points={{10,10},{40,10},{40,0}}, color={255,127,0}));
-          annotation (defaultComponentName="tr", Icon(graphics={
+          annotation (defaultComponentName="tansformer", Icon(graphics={
                 Polygon(
                   points={{50,60},{30,40},{30,-40},{50,-60},{50,60}},
                   fillColor={255,128,0},
@@ -3412,9 +3395,9 @@ An example simulation shows the transformer inrush currents due to an initially 
                   origin={-30,70},
                   rotation=90),
                 Line(points={{-100,90},{-100,36},{-68,36}}, color={0,0,255}),
-                Line(points={{-100,-90},{-100,-34},{-68,-34}}, color={0,0,255}),
-                Line(points={{100,-90},{100,-20},{62,-20}}, color={0,0,255}),
-                Line(points={{100,90},{100,20},{62,20}}, color={0,0,255})}),
+                Line(points={{-100,-90},{-100,-36},{-68,-36}}, color={0,0,255}),
+                Line(points={{100,-90},{100,-20},{60,-20}}, color={0,0,255}),
+                Line(points={{100,90},{100,20},{60,20}}, color={0,0,255})}),
             Documentation(info="<html>
 <p>
 Simple model of a single phase transformer with a primary and a secondary winding and a magnetic core. The core is modeled with <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystTellinenEverett\">GenericHystTellinenEverett</a> flux tube elements. Thus, this element considers static and dynamic hysteresis.
@@ -3439,34 +3422,34 @@ Simple model of a single phase transformer with a primary and a secondary windin
             annotation (Placement(transformation(extent={{-166,14},{-154,26}})));
 
           // Tab: Electrical //Group:Primary Winding
-          parameter Integer N_p=10 "Primary turns"
+          parameter Integer N1=10 "Primary turns"
             annotation(Dialog(tab="Electrical", group="Primary Winding"));
-          parameter SI.Length l_p(displayUnit="mm") = 1.2*2*(a+b)
+          parameter SI.Length L1(displayUnit="mm") = 1.2*2*(a+b)
             "Mean primary turn length"
             annotation(Dialog(tab="Electrical", group="Primary Winding"));
-          parameter SI.Length d_p(displayUnit="mm") = 0.5e-3
+          parameter SI.Length d1(displayUnit="mm") = 0.5e-3
             "Wire diameter of primary turns"
             annotation(Dialog(tab="Electrical", group="Primary Winding"));
-          parameter SI.Resistivity rho_p = 1.678e-8
+          parameter SI.Resistivity rho1 = 1.678e-8
             "Resistivity of primary winding (at 20degC)"
             annotation(Dialog(tab="Electrical", group="Primary Winding"));
-          parameter SI.LinearTemperatureCoefficient alpha_p = 0
+          parameter SI.LinearTemperatureCoefficient alpha1 = 0
             "Temperature coefficient of primary turns" annotation(Dialog(tab="Electrical", group="Primary Winding"));
 
           // Tab: Electrical //Group:Secondary Winding
-          parameter Integer N_s=10 "Secondary turns"
+          parameter Integer N2=10 "Secondary turns"
              annotation(Dialog(tab="Electrical", group="Secondary Winding"));
-          parameter SI.Length l_s(displayUnit="mm") = l_p
+          parameter SI.Length L2(displayUnit="mm") = L1
             "Mean secondary turn length"
             annotation(Dialog(tab="Electrical", group="Secondary Winding"));
-          parameter SI.Length d_s(displayUnit="mm") = d_p
+          parameter SI.Length d2(displayUnit="mm") = d1
             "Wire diameter of secondary turns"
             annotation(Dialog(tab="Electrical", group="Secondary Winding"));
-          parameter SI.Resistivity rho_s = rho_p
+          parameter SI.Resistivity rho2 = rho1
             "Resistivity of secondary winding (at 20degC)"
             annotation(Dialog(tab="Electrical", group="Secondary Winding"));
 
-          parameter SI.LinearTemperatureCoefficient alpha_s = alpha_p
+          parameter SI.LinearTemperatureCoefficient alpha2 = alpha1
             "Temperature coefficient of secondary turns" annotation(Dialog(tab="Electrical", group="Secondary Winding"));
 
           parameter SI.Length l1(displayUnit="mm") = 40e-3
@@ -3481,14 +3464,14 @@ Simple model of a single phase transformer with a primary and a secondary windin
             "Core Material" annotation (Dialog(tab="Core", group="Material"),
               choicesAllMatching=true);
 
-          output SI.Voltage v_p[3] "Voltage drop of primary winding 1-3";
-          output SI.Voltage v_s[3] "Voltage drop of secondary winding 1-3";
+          output SI.Voltage v1[3] "Voltage drop of primary winding 1-3";
+          output SI.Voltage v2[3] "Voltage drop of secondary winding 1-3";
 
-          output SI.Resistance R_p[3] "Resistance of primary winding 1-3";
-          output SI.Resistance R_s[3] "Resistance of secondary winding 1-3";
+          output SI.Resistance R1[3] "Resistance of primary winding 1-3";
+          output SI.Resistance R2[3] "Resistance of secondary winding 1-3";
 
-          output SI.Current i_p[3] "Current in primary winding 1-3";
-          output SI.Current i_s[3] "Current in secondary winding 1-3";
+          output SI.Current i1[3] "Current in primary winding 1-3";
+          output SI.Current i2[3] "Current in secondary winding 1-3";
 
           output SI.MagneticFluxDensity B[3]
             "Magnetic Flux Density in core portions 1-3";
@@ -3502,7 +3485,7 @@ Simple model of a single phase transformer with a primary and a secondary windin
           output SI.MagneticFieldStrength H[3]
             "Total magnetic field strength of core";
 
-          //output SI.Resistance R_p
+          //output SI.Resistance R1
 
           parameter Real MagRelStart[3]={0,0,0}
             "Initial magnetization of Core (-1..1)" annotation (Dialog(tab="Core", group="Initialization"));
@@ -3512,13 +3495,13 @@ Simple model of a single phase transformer with a primary and a secondary windin
             "Initial magnetic field strength of Core" annotation (Dialog(tab="Core", group="Initialization"));
           parameter Boolean HFixed[3] = {false,false,false} "Fixed" annotation (Dialog(tab="Core", group="Initialization"),choices(checkBox=true));
 
-          parameter SI.ElectricCurrent IprimStart[3]={0,0,0}
+          parameter SI.ElectricCurrent I1Start[3]={0,0,0}
             "Initial current of primary Windings" annotation (Dialog(tab="Core", group="Initialization"));
-          parameter Boolean IprimFixed[3] = {false,false,false} "Fixed" annotation (Dialog(tab="Core", group="Initialization"),choices(checkBox=true));
+          parameter Boolean I1Fixed[3] = {false,false,false} "Fixed" annotation (Dialog(tab="Core", group="Initialization"),choices(checkBox=true));
 
-          parameter SI.ElectricCurrent IsecStart[3]={0,0,0}
+          parameter SI.ElectricCurrent I2Start[3]={0,0,0}
             "Initial current of secondary Windings" annotation (Dialog(tab="Core", group="Initialization"));
-          parameter Boolean IsecFixed[3] = {false,false,false} "Fixed" annotation (Dialog(tab="Core", group="Initialization"),choices(checkBox=true));
+          parameter Boolean I2Fixed[3] = {false,false,false} "Fixed" annotation (Dialog(tab="Core", group="Initialization"),choices(checkBox=true));
 
           output SI.Power LossPowerWinding "Winding lossses";
           output SI.Power LossPowerStat "Ferromagnetic hysteresis losses";
@@ -3531,15 +3514,15 @@ Simple model of a single phase transformer with a primary and a secondary windin
           parameter SI.Length t(displayUnit="mm") = 0.5e-3
             "Thickness of lamination" annotation (Dialog(tab="Losses and Heat", group="Eddy Currents", enable=EddyCurrents));
 
-          parameter SI.Length L_lp=10e-3 "Length of leakage of primary Winding" annotation (Dialog(tab="Leakage"));
-          parameter SI.Area A_lp=10e-6
+          parameter SI.Length L_l1=10e-3 "Length of leakage of primary Winding" annotation (Dialog(tab="Leakage"));
+          parameter SI.Area A_l1=10e-6
             "Cross section of leakage of primary Winding" annotation (Dialog(tab="Leakage"));
-          parameter Real mu_relp=1
+          parameter Real mu_rel1=1
             "Constant relative permeability of primary leakage (>0 required)" annotation (Dialog(tab="Leakage"));
-          parameter SI.Length L_ls=10e-3
+          parameter SI.Length L_l2=10e-3
             "Cross section of leakage of secondary Winding" annotation (Dialog(tab="Leakage"));
-          parameter SI.Area A_ls=10e-6 "Length of leakage of secondary Winding" annotation (Dialog(tab="Leakage"));
-          parameter Real mu_rels=1
+          parameter SI.Area A_l2=10e-6 "Length of leakage of secondary Winding" annotation (Dialog(tab="Leakage"));
+          parameter Real mu_rel2=1
             "Constant relative permeability of secondary leakage (>0 required)" annotation (Dialog(tab="Leakage"));
 
         protected
@@ -3586,79 +3569,79 @@ Simple model of a single phase transformer with a primary and a secondary windin
             annotation (Placement(transformation(extent={{0,-80},{20,-60}})));
 
           Basic.ElectroMagneticConverterWithLeakageInductance winding11(
-            N=N_p,
-            L=L_lp,
-            A=A_lp,
-            mu_rel=mu_relp,
-            i(start=IprimStart[1], fixed=IprimFixed[1])) annotation (Placement(transformation(extent={{-110,40},{-90,60}})));
+            N=N1,
+            L=L_l1,
+            A=A_l1,
+            mu_rel=mu_rel1,
+            i(start=I1Start[1], fixed=I1Fixed[1])) annotation (Placement(transformation(extent={{-110,40},{-90,60}})));
 
           Basic.ElectroMagneticConverterWithLeakageInductance winding12(
-            L=L_lp,
-            A=A_lp,
-            mu_rel=mu_relp,
-            i(start=IprimStart[2], fixed=IprimFixed[2]),
-            final N=N_p) annotation (Placement(transformation(extent={{-10,40},{10,60}})));
+            L=L_l1,
+            A=A_l1,
+            mu_rel=mu_rel1,
+            i(start=I1Start[2], fixed=I1Fixed[2]),
+            final N=N1) annotation (Placement(transformation(extent={{-10,40},{10,60}})));
 
           Basic.ElectroMagneticConverterWithLeakageInductance winding13(
-            N=N_p,
-            L=L_lp,
-            A=A_lp,
-            mu_rel=mu_relp,
-            i(start=IprimStart[3], fixed=IprimFixed[3])) annotation (Placement(transformation(extent={{110,40},{130,60}})));
+            N=N1,
+            L=L_l1,
+            A=A_l1,
+            mu_rel=mu_rel1,
+            i(start=I1Start[3], fixed=I1Fixed[3])) annotation (Placement(transformation(extent={{110,40},{130,60}})));
 
            Basic.ElectroMagneticConverterWithLeakageInductance winding21(
-            N=N_s,
-            L=L_ls,
-            A=A_ls,
-            mu_rel=mu_rels,
-            i(start=IsecStart[1], fixed=IsecFixed[1])) annotation (Placement(transformation(extent={{-110,-20},{-90,0}})));
+            N=N2,
+            L=L_l2,
+            A=A_l2,
+            mu_rel=mu_rel2,
+            i(start=I2Start[1], fixed=I2Fixed[1])) annotation (Placement(transformation(extent={{-110,-20},{-90,0}})));
 
            Basic.ElectroMagneticConverterWithLeakageInductance winding22(
-            N=N_s,
-            L=L_ls,
-            A=A_ls,
-            mu_rel=mu_rels,
-            i(start=IsecStart[1], fixed=IsecFixed[1])) annotation (Placement(transformation(extent={{-10,-20},{10,0}})));
+            N=N2,
+            L=L_l2,
+            A=A_l2,
+            mu_rel=mu_rel2,
+            i(start=I2Start[1], fixed=I2Fixed[1])) annotation (Placement(transformation(extent={{-10,-20},{10,0}})));
 
           Basic.ElectroMagneticConverterWithLeakageInductance winding23(
-            N=N_s,
-            L=L_ls,
-            A=A_ls,
-            mu_rel=mu_rels,
-            i(start=IsecStart[1], fixed=IsecFixed[1])) annotation (Placement(transformation(extent={{110,-20},{130,0}})));
+            N=N2,
+            L=L_l2,
+            A=A_l2,
+            mu_rel=mu_rel2,
+            i(start=I2Start[1], fixed=I2Fixed[1])) annotation (Placement(transformation(extent={{110,-20},{130,0}})));
 
           Modelica.Electrical.Analog.Basic.Resistor resistor11(
-            R=rho_p*N_p*l_p/(pi/4*d_p^2),
+            R=rho1*N1*L1/(pi/4*d1^2),
             useHeatPort=true,
-            alpha=alpha_p,
+            alpha=alpha1,
             T_ref=293.15) annotation (Placement(transformation(extent={{-140,50},{-120,70}})));
           Modelica.Electrical.Analog.Basic.Resistor resistor21(
-            R=rho_s*N_s*l_s/(pi/4*d_s^2),
+            R=rho2*N2*L2/(pi/4*d2^2),
             useHeatPort=true,
-            alpha=alpha_s,
+            alpha=alpha2,
             T_ref=293.15) annotation (Placement(transformation(extent={{-120,-10},{-140,10}})));
 
           Modelica.Electrical.Analog.Basic.Resistor resistor12(
-            R=rho_p*N_p*l_p/(pi/4*d_p^2),
+            R=rho1*N1*L1/(pi/4*d1^2),
             useHeatPort=true,
-            alpha=alpha_p,
+            alpha=alpha1,
             T_ref=293.15) annotation (Placement(transformation(extent={{-40,50},{-20,70}})));
           Modelica.Electrical.Analog.Basic.Resistor resistor22(
-            R=rho_s*N_s*l_s/(pi/4*d_s^2),
+            R=rho2*N2*L2/(pi/4*d2^2),
             useHeatPort=true,
-            alpha=alpha_s,
+            alpha=alpha2,
             T_ref=293.15) annotation (Placement(transformation(extent={{-20,-10},{-40,10}})));
 
           Modelica.Electrical.Analog.Basic.Resistor resistor23(
-            R=rho_s*N_s*l_s/(pi/4*d_s^2),
+            R=rho2*N2*L2/(pi/4*d2^2),
             useHeatPort=true,
-            alpha=alpha_s,
+            alpha=alpha2,
             T_ref=293.15) annotation (Placement(transformation(extent={{100,-10},{80,10}})));
 
           Modelica.Electrical.Analog.Basic.Resistor resistor13(
-            R=rho_p*N_p*l_p/(pi/4*d_p^2),
+            R=rho1*N1*L1/(pi/4*d1^2),
             useHeatPort=true,
-            alpha=alpha_p,
+            alpha=alpha1,
             T_ref=293.15) annotation (Placement(transformation(extent={{80,50},{100,70}})));
           Shapes.FixedShape.Cuboid leakage(
             nonLinearPermeability=false,
@@ -3682,25 +3665,25 @@ Simple model of a single phase transformer with a primary and a secondary windin
           Modelica.Electrical.Analog.Interfaces.NegativePin starPoint1 "Star point of primary windings" annotation (Placement(transformation(extent={{-120,20},{-100,40}}), iconTransformation(extent={{-50,-110},{-30,-90}})));
 
         equation
-          v_p[1] =resistor11.p.v - winding11.n.v;
-          v_p[2] =resistor12.p.v - winding12.n.v;
-          v_p[3] =resistor13.p.v - winding13.n.v;
-          i_p[1] =resistor11.i;
-          i_p[2] =resistor12.i;
-          i_p[3] =resistor13.i;
-          R_p[1] =resistor11.R_actual;
-          R_p[2] =resistor12.R_actual;
-          R_p[3] =resistor13.R_actual;
+          v1[1] =resistor11.p.v - winding11.n.v;
+          v1[2] =resistor12.p.v - winding12.n.v;
+          v1[3] =resistor13.p.v - winding13.n.v;
+          i1[1] =resistor11.i;
+          i1[2] =resistor12.i;
+          i1[3] =resistor13.i;
+          R1[1] =resistor11.R_actual;
+          R1[2] =resistor12.R_actual;
+          R1[3] =resistor13.R_actual;
 
-          v_s[1] =resistor21.n.v - winding21.n.v;
-          v_s[2] =resistor21.n.v - winding21.n.v;
-          v_s[3] =resistor21.n.v - winding21.n.v;
-          i_s[1] =resistor21.i;
-          i_s[2] =resistor22.i;
-          i_s[3] =resistor23.i;
-          R_s[1] =resistor21.R_actual;
-          R_s[2] =resistor22.R_actual;
-          R_s[3] =resistor23.R_actual;
+          v2[1] =resistor21.n.v - winding21.n.v;
+          v2[2] =resistor21.n.v - winding21.n.v;
+          v2[3] =resistor21.n.v - winding21.n.v;
+          i2[1] =resistor21.i;
+          i2[2] =resistor22.i;
+          i2[3] =resistor23.i;
+          R2[1] =resistor21.R_actual;
+          R2[2] =resistor22.R_actual;
+          R2[3] =resistor23.R_actual;
 
           B[1] =core1.B;
           B[2] =core2.B;
@@ -3770,7 +3753,7 @@ Simple model of a single phase transformer with a primary and a secondary windin
           connect(starPoint2, winding22.n) annotation (Line(points={{-110,-34},{-10,-34},{-10,-19.8}}, color={0,0,255}));
           connect(winding23.n, starPoint2) annotation (Line(points={{110,-19.8},{110,-34},{-110,-34}}, color={0,0,255}));
 
-          annotation (defaultComponentName="T3PhaseYyHyst", Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-200,
+          annotation (defaultComponentName="tansformer", Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-200,
                     -200},{200,200}})),     Icon(graphics={
                 Polygon(
                   points={{70,60},{50,40},{50,-40},{70,-60},{70,60}},
@@ -4527,7 +4510,7 @@ The flux linkage &Psi; and the static inductance L_stat = |&Psi;/i| are calculat
             Line(points={{-30,-100},{-30,-60}}, color={28,108,200})}),
         Documentation(info="<html>
 <p>
-Same as <a href=\"FluxTubes.Basic.ElectroMagneticConverter\">ElectroMagneticConverter</a> with an additional leakage path on the magnetic side (leakage inductance, leakage flux). This model may improve stability especially when the magnetic circuit contains more than one electro-magnetic converter.
+Same as <a href=\"modelica://Modelica.Magnetic.FluxTubes.Basic.ElectroMagneticConverter\">ElectroMagneticConverter</a> with an additional leakage path on the magnetic side (leakage inductance, leakage flux). This model may improve stability especially when the magnetic circuit contains more than one electro-magnetic converter.
 </p>
 </html>"));
     end ElectroMagneticConverterWithLeakageInductance;
@@ -5360,7 +5343,7 @@ All dimensions are defined as parameters. As a result, the shape of these elemen
         annotation (defaultComponentName="core", Documentation(info="<html>
 <p>Flux tube element for modeling soft magnetic materials with ferromagnetic and dynamic hysteresis (eddy currents). The ferromagnetic hysteresis behavior is defined by the <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Hysteresis.StaticHysteresis.Tellinen\">Tellinen hysteresis model</a>. The shape of the limiting hysteresis loop (see Fig. 1) is described by simple hyperbolic tangent functions with 4 parameters. Therefore, the hysteresis shape variety is limited but the parameterization of the model is very simple and the model is relatively fast and robust. The rising (hyst<sub>R</sub>) and falling (hyst<sub>F</sub>) branches of the limiting hysteresis loop are defined by the following equations.</p>
 <table cellspacing=\"2\" cellpadding=\"0\" border=\"0\"><tr>
-<td><p><img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Shapes/HysteresisAndMagnets/GenericHystTellinenSoft/Eqn_ShapeFunctionsTellinen.png\"/> </p><p><br><strong>Fig. 1:</strong> Hyperbolic tangent functions define the shape of the ferromagnetic (static) hysteresis </p><p><img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Shapes/HysteresisAndMagnets/GenericHystTellinenSoft/SoftMagneticHysteresis1.png\"/> </p>
+<td><p><img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Shapes/HysteresisAndMagnets/GenericHystTellinenSoft/Eqn_ShapeFunctionsTellinen.png\"/></p><p><br><strong>Fig. 1:</strong> Hyperbolic tangent functions define the shape of the ferromagnetic (static) hysteresis</p><p><img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Shapes/HysteresisAndMagnets/GenericHystTellinenSoft/SoftMagneticHysteresis1.png\"/></p>
 <p><br>An overview over of available hysteresis and permanent magnet elements of the package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets\">HysteresisAndMagnets</a> can be found in <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Hysteresis\">UsersGuide.Hysteresis</a>.</p>
 </td>
 </tr>
@@ -5540,7 +5523,7 @@ An overview of all available hysteresis and permanent magnet elements of the pac
 
 <p>
 Flux tube element for modeling magnetic materials with ferromagnetic and dynamic hysteresis (eddy currents). The ferromagnetic hysteresis behavior is defined by the <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Hysteresis.StaticHysteresis.Tellinen\">Tellinen hysteresis model</a>. The rising and falling branch of the limiting ferromagnetic hysteresis loop are specified by table data. Therefore, almost any hysteresis shapes are possible. A library with predefined tables can be found at <a href=\"modelica://Modelica.Magnetic.FluxTubes.Material.HysteresisTableData\">FluxTubes.Material.HysteresisTableData</a>.
-
+</p>
 <p>
 An overview of all available hysteresis and permanent magnet elements of the package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets\">HysteresisAndMagnets</a> can be found in <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Hysteresis\">UsersGuide.Hysteresis</a>.
 </p>
@@ -6269,7 +6252,7 @@ The relative permeability mu_r as a function of flux density B for all soft magn
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Material/SoftMagnetic/eq_mu_rApprox.png\" ALT=\"Equation for approximation mu_r(B)\"/>
+<img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Material/SoftMagnetic/eq_mu_rApprox.png\" alt=\"Equation for approximation mu_r(B)\"/>
 </p>
 
 <p>
@@ -6282,9 +6265,9 @@ The magnetisation characteristics mu_r(B) of all soft magnetic materials current
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Material/SoftMagnetic/Steel.png\" ALT=\"Approximated magnetization characteristics of selected steels\"><br>
-<IMG src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Material/SoftMagnetic/Miscellaneous.png\" ALT=\"Approximated magnetization characteristics of miscellaneous soft magnetic materials\"><br>
-<IMG src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Material/SoftMagnetic/ElectricSheet.png\" ALT=\"Approximated magnetization characteristics of included electric sheets\"><br>
+<img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Material/SoftMagnetic/Steel.png\" alt=\"Approximated magnetization characteristics of selected steels\"><br>
+<img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Material/SoftMagnetic/Miscellaneous.png\" alt=\"Approximated magnetization characteristics of miscellaneous soft magnetic materials\"><br>
+<img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Material/SoftMagnetic/ElectricSheet.png\" alt=\"Approximated magnetization characteristics of included electric sheets\"><br>
 </p>
 
 <p>
@@ -6426,10 +6409,10 @@ Please refer to the description of  the enclosing package <a href=\"modelica://M
 
       annotation (Documentation(info="<html>
 <p>
-Typical values for remanence, coercivity and the temperature coefficient of remanence are provided for the common permanent magnetic materials illustrated below.
+Typical values for remanence, coercivity and the temperature coefficient of remanence are provided for the common permanent magnetic materials illustrated below.</p>
 <dl>
 <dd>
-<IMG src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Material/HardMagnetic/HardMagneticMaterials.png\" ALT=\"Demagnetization characteristics of included permanent magnetic materials\">
+<img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Material/HardMagnetic/HardMagneticMaterials.png\" alt=\"Demagnetization characteristics of included permanent magnetic materials\">
 </dd>
 </dl>
 <p>
@@ -7647,7 +7630,7 @@ on the model behaviour.
       output SI.Power LossPowerEddy
         "Eddy current losses (dynamic hysteresis losses)";
       //output SI.Power LossPower "Total power loss of core (ferromagnetic + eddy currents)"; // defined in ConditionalHeatPort
-      Real derHstat(start=0, fixed=true, unit="A/(m.s)")=der(Hstat);
+      Real derHstat(start=0, unit="A/(m.s)")=der(Hstat);
 
     protected
       final parameter Real eddyCurrentFactor(final unit="S.m") = (sigma * d^2)/12;
@@ -7734,7 +7717,7 @@ der(b) = dhR/diffHyst * der(hystR);
 der(b) = dhF/diffHyst * der(hystF);
 </pre></blockquote>
 <table cellspacing=\"0\" cellpadding=\"2\" border=\"0\"><tr>
-<td><p><img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/StaticHysteresis/Tellinen/TellinenDesc1.png\"/> </p></td>
+<td><p><img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/StaticHysteresis/Tellinen/TellinenDesc1.png\"/></p></td>
 </tr>
 </table>
 <strong>Fig. 1:</strong> Description of the Tellinen hysteresis model.
@@ -7765,7 +7748,7 @@ This package contains connectors for the magnetic domain and partial models for 
       0 = port_p.Phi + port_n.Phi;
 
       annotation (
-        defaultComponentName="vmSource",
+        defaultComponentName="magVoltageSource",
         Icon(coordinateSystem(
           preserveAspectRatio=false,
           extent={{-100,-100},{100,100}}), graphics={
@@ -7789,8 +7772,8 @@ This package contains connectors for the magnetic domain and partial models for 
 Magnetic circuits under steady-state conditions, i.e., with stationary magnetic fields (change of magnetic flux  d&Phi;/dt = 0) can be described with constant sources of a magnetic potential difference or magnetomotive force (mmf). Constant magnetic potential differences are imposed by
 </p>
 <ul>
-<li>coils with stationary current (di / dt = 0) and </li>
-<li>permanent magnets modelled with <em>Th&eacute;venin</em>'s equivalent magnetic circuit. </li>
+<li>coils with stationary current (di / dt = 0) and</li>
+<li>permanent magnets modelled with <em>Th&eacute;venin</em>'s equivalent magnetic circuit.</li>
 </ul>
 <p>
 For modelling of reluctance actuators with this source component it is assumed that the armature is fixed so that no motion-induced flux change d&Phi;/dt can occur.
@@ -7818,7 +7801,7 @@ For modelling of reluctance actuators with this source component it is assumed t
       Phi = port_p.Phi;
       0 = port_p.Phi + port_n.Phi;
       annotation (
-        defaultComponentName="vmSource",
+        defaultComponentName="magVoltageSource",
         Icon(coordinateSystem(
           preserveAspectRatio=false,
           extent={{-100,-100},{100,100}}), graphics={
@@ -7846,7 +7829,7 @@ In electromagnetic devices, a change of a coil's magnetic flux linkage &Psi; rea
 </pre>
 <p>This reaction can possibly be neglected for</p>
 <ul>
-<li>modelling of electromagnetic actuators under quasi-stationary conditions (slow current change, slow armature motion),
+<li>modelling of electromagnetic actuators under quasi-stationary conditions (slow current change, slow armature motion),</li>
 <li>modelling of current-controlled electromagnetic actuators (ideal current source) and</li>
 <li>for system simulation where the system dynamics is not governed by an electromagnetic actuator, but by the surrounding subsystems.</li>
 </ul>
@@ -7868,7 +7851,7 @@ In these cases, the magnetic potential difference or magnetomotive force imposed
       Phi = port_p.Phi;
       0 = port_p.Phi + port_n.Phi;
       annotation (
-        defaultComponentName="phiSource",
+        defaultComponentName="magFluxSource",
         Icon(coordinateSystem(
           preserveAspectRatio=false,
           extent={{-100,-100},{100,100}}), graphics={
@@ -7920,7 +7903,7 @@ Sources of a constant magnetic flux are useful for modelling of permanent magnet
       Phi = port_p.Phi;
       0 = port_p.Phi + port_n.Phi;
       annotation (
-        defaultComponentName="phiSource",
+        defaultComponentName="magFluxSource",
         Icon(coordinateSystem(
           preserveAspectRatio=false,
           extent={{-100,-100},{100,100}}), graphics={
@@ -7978,7 +7961,7 @@ This package contains sources of a magnetic potential difference or a magnetic f
       Phi = 0;
       0 = port_p.Phi + port_n.Phi;
 
-      annotation (defaultComponentName="vmSensor",
+      annotation (defaultComponentName="magVoltageSensor",
     Icon(coordinateSystem(
           preserveAspectRatio=false,
           extent={{-100,-100},{100,100}}), graphics={
@@ -8014,7 +7997,7 @@ This package contains sources of a magnetic potential difference or a magnetic f
       Phi = port_p.Phi;
       0 = port_p.Phi + port_n.Phi;
 
-      annotation (defaultComponentName="phiSensor",
+      annotation (defaultComponentName="magFluxSensor",
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={Line(points={{0,-100},{0,-70}}),Line(points={{-70,0},{-90,0}}, color={255,128,0}),
                                                                                                             Line(
@@ -8116,10 +8099,10 @@ This library contains components for modelling of electromagnetic devices with l
 </p>
 
 <p>
-Copyright &copy; 2005-2016, Modelica Association and Thomas B&ouml;drich.
+Copyright &copy; 2005-2018, Modelica Association and Thomas B&ouml;drich.
 </p>
 <p>
-<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</em>
+<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em>
 </p>
 </html>", revisions="<html>
 <p>

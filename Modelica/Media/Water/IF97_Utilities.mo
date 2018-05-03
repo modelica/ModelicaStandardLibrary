@@ -83,7 +83,7 @@ package IF97_Utilities
        by Hubertus Tummescheit
        </li>
 </ul>
- <address>Author: Hubertus Tummescheit, <br>
+ <address>Author: Hubertus Tummescheit,<br>
       Modelon AB<br>
       Ideon Science Park<br>
       SE-22370 Lund, Sweden<br>
@@ -143,7 +143,7 @@ package IF97_Utilities
        by Hubertus Tummescheit
        </li>
 </ul>
- <address>Author: Hubertus Tummescheit, <br>
+ <address>Author: Hubertus Tummescheit,<br>
       Modelon AB<br>
       Ideon Science Park<br>
       SE-22370 Lund, Sweden<br>
@@ -159,7 +159,7 @@ package IF97_Utilities
     record triple "Triple point data"
       extends Modelica.Icons.Record;
       constant SI.Temperature Ttriple=273.16 "The triple point temperature";
-      constant SI.Pressure ptriple=611.657 "The triple point temperature";
+      constant SI.Pressure ptriple=611.657 "The triple point pressure";
       constant SI.Density dltriple=999.792520031617642
         "The triple point liquid density";
       constant SI.Density dvtriple=0.485457572477861372e-2
@@ -174,7 +174,7 @@ package IF97_Utilities
        by Hubertus Tummescheit
        </li>
 </ul>
- <address>Author: Hubertus Tummescheit, <br>
+ <address>Author: Hubertus Tummescheit,<br>
       Modelon AB<br>
       Ideon Science Park<br>
       SE-22370 Lund, Sweden<br>
@@ -3017,7 +3017,7 @@ package IF97_Utilities
         Real Tlim=min(T, data.TCRIT);
       algorithm
         assert(T >= 273.16, "IF97 medium function psat: input temperature (= "
-           + String(triple.ptriple) + " K).\n" +
+           + String(triple.Ttriple) + " K).\n" +
           "lower than the triple point temperature 273.16 K");
         o[1] := -650.17534844798 + Tlim;
         o[2] := 1/o[1];
@@ -3305,7 +3305,7 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
       &nbsp;Vejle, Denmark<br>
       &nbsp;August 2003<br>
       &nbsp;Supplementary Release on Backward Equations for the Functions
-      T(p,h), v(p,h) and T(p,s), <br>
+      T(p,h), v(p,h) and T(p,s),<br>
       &nbsp;v(p,s) for Region 3 of the IAPWS Industrial Formulation 1997 for
       the Thermodynamic Properties of<br>
       &nbsp;Water and Steam</div>
@@ -3347,7 +3347,7 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
  &nbsp;Vejle, Denmark<br>
  &nbsp;August 2003<br>
  &nbsp;Supplementary Release on Backward Equations for the Functions
- T(p,h), v(p,h) and T(p,s), <br>
+ T(p,h), v(p,h) and T(p,s),<br>
  &nbsp;v(p,s) for Region 3 of the IAPWS Industrial Formulation 1997 for
  the Thermodynamic Properties of<br>
  &nbsp;Water and Steam</div>
@@ -3390,7 +3390,7 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
  &nbsp;Vejle, Denmark<br>
  &nbsp;August 2003<br>
  &nbsp;Supplementary Release on Backward Equations for the Functions
- T(p,h), v(p,h) and T(p,s), <br>
+ T(p,h), v(p,h) and T(p,s),<br>
  &nbsp;v(p,s) for Region 3 of the IAPWS Industrial Formulation 1997 for
  the Thermodynamic Properties of<br>
  &nbsp;Water and Steam</div>
@@ -3433,7 +3433,7 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
  &nbsp;Vejle, Denmark<br>
  &nbsp;August 2003<br>
  &nbsp;Supplementary Release on Backward Equations for the Functions
- T(p,h), v(p,h) and T(p,s), <br>
+ T(p,h), v(p,h) and T(p,s),<br>
  &nbsp;v(p,s) for Region 3 of the IAPWS Industrial Formulation 1997 for
  the Thermodynamic Properties of<br>
  &nbsp;Water and Steam</div>
@@ -3477,7 +3477,7 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
  &nbsp;Vejle, Denmark<br>
  &nbsp;August 2003<br>
  &nbsp;Supplementary Release on Backward Equations for the Functions
- T(p,h), v(p,h) and T(p,s), <br>
+ T(p,h), v(p,h) and T(p,s),<br>
  &nbsp;v(p,s) for Region 3 of the IAPWS Industrial Formulation 1997 for
  the Thermodynamic Properties of<br>
  &nbsp;Water and Steam</div>
@@ -3522,7 +3522,7 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
  &nbsp;Vejle, Denmark<br>
  &nbsp;August 2003<br>
  &nbsp;Supplementary Release on Backward Equations for the Functions
- T(p,h), v(p,h) and T(p,s), <br>
+ T(p,h), v(p,h) and T(p,s),<br>
  &nbsp;v(p,s) for Region 3 of the IAPWS Industrial Formulation 1997 for
  the Thermodynamic Properties of<br>
  &nbsp;Water and Steam</div>
@@ -3564,7 +3564,7 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
  &nbsp;Vejle, Denmark<br>
  &nbsp;August 2003<br>
  &nbsp;Supplementary Release on Backward Equations for the Functions
- T(p,h), v(p,h) and T(p,s), <br>
+ T(p,h), v(p,h) and T(p,s),<br>
  &nbsp;v(p,s) for Region 3 of the IAPWS Industrial Formulation 1997 for
  the Thermodynamic Properties of<br>
  &nbsp;Water and Steam</div>
@@ -3607,7 +3607,7 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
  &nbsp;Vejle, Denmark<br>
  &nbsp;August 2003<br>
  &nbsp;Supplementary Release on Backward Equations for the Functions
- T(p,h), v(p,h) and T(p,s), <br>
+ T(p,h), v(p,h) and T(p,s),<br>
  &nbsp;v(p,s) for Region 3 of the IAPWS Industrial Formulation 1997 for
  the Thermodynamic Properties of<br>
  &nbsp;Water and Steam</div>
@@ -3651,7 +3651,7 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
  &nbsp;Vejle, Denmark<br>
  &nbsp;August 2003<br>
  &nbsp;Supplementary Release on Backward Equations for the Functions
- T(p,h), v(p,h) and T(p,s), <br>
+ T(p,h), v(p,h) and T(p,s),<br>
  &nbsp;v(p,s) for Region 3 of the IAPWS Industrial Formulation 1997 for
  the Thermodynamic Properties of<br>
  &nbsp;Water and Steam</div>
@@ -3700,7 +3700,7 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
           by Hubertus Tummescheit
           </li>
           </ul>
-          <address>Author: Hubertus Tummescheit, <br>
+          <address>Author: Hubertus Tummescheit,<br>
       Modelon AB<br>
       Ideon Science Park<br>
       SE-22370 Lund, Sweden<br>
@@ -3718,7 +3718,7 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
        &nbsp;Vejle, Denmark<br>
        &nbsp;August 2003<br>
        &nbsp;Supplementary Release on Backward Equations for the Functions
-       T(p,h), v(p,h) and T(p,s), <br>
+       T(p,h), v(p,h) and T(p,s),<br>
        &nbsp;v(p,s) for Region 3 of the IAPWS Industrial Formulation 1997 for
        the Thermodynamic Properties of<br>
        &nbsp;Water and Steam</div>
@@ -4819,7 +4819,7 @@ Ordinary Water Substance<br>
           by Hubertus Tummescheit
           </li>
           </ul>
-          <address>Author: Hubertus Tummescheit, <br>
+          <address>Author: Hubertus Tummescheit,<br>
       Modelon AB<br>
       Ideon Science Park<br>
       SE-22370 Lund, Sweden<br>
@@ -5452,7 +5452,7 @@ Ordinary Water Substance<br>
           by Hubertus Tummescheit
           </li>
           </ul>
-          <address>Author: Hubertus Tummescheit, <br>
+          <address>Author: Hubertus Tummescheit,<br>
       Modelon AB<br>
       Ideon Science Park<br>
       SE-22370 Lund, Sweden<br>
@@ -5546,7 +5546,7 @@ Ordinary Water Substance<br>
           by Hubertus Tummescheit
           </li>
           </ul>
-          <address>Author: Hubertus Tummescheit, <br>
+          <address>Author: Hubertus Tummescheit,<br>
       Modelon AB<br>
       Ideon Science Park<br>
       SE-22370 Lund, Sweden<br>
@@ -5805,7 +5805,7 @@ Ordinary Water Substance<br>
           by Hubertus Tummescheit
           </li>
           </ul>
-          <address>Author: Hubertus Tummescheit, <br>
+          <address>Author: Hubertus Tummescheit,<br>
       Modelon AB<br>
       Ideon Science Park<br>
       SE-22370 Lund, Sweden<br>
@@ -5926,18 +5926,18 @@ white-space:nowrap;
       by <a href=\"mailto:Hubertus.Tummescheit@modelon.se\">Hubertus Tummescheit</a> and moved to Modelica
       properties library.</li>
         </ul>
-      <address>Author: Hubertus Tummescheit, <br>
+      <address>Author: Hubertus Tummescheit,<br>
       Modelon AB<br>
       Ideon Science Park<br>
       SE-22370 Lund, Sweden<br>
       email: hubertus@modelon.se
       </address>
         <p>In September 1997, the International Association for the Properties
-        of Water and Steam (<A HREF=\"http://www.iapws.org\">IAPWS</A>) adopted a
+        of Water and Steam (<a href=\"http://www.iapws.org\">IAPWS</a>) adopted a
         new formulation for the thermodynamic properties of water and steam for
         industrial use. This new industrial standard is called \"IAPWS Industrial
         Formulation for the Thermodynamic Properties of Water and Steam\" (IAPWS-IF97).
-        The formulation IAPWS-IF97 replaces the previous industrial standard IFC-67.
+        The formulation IAPWS-IF97 replaces the previous industrial standard IFC-67.</p>
         <p>Based on this new formulation, a new steam table, titled \"<a href=\"http://www.springer.de/cgi-bin/search_book.pl?isbn=3-540-64339-7\">Properties of Water and Steam</a>\" by W. Wagner and A. Kruse, was published by
         the Springer-Verlag, Berlin - New-York - Tokyo in April 1998. This
         steam table, ref. <a href=\"#steamprop\">[1]</a> is bilingual (English /
@@ -5945,10 +5945,10 @@ white-space:nowrap;
         IAPWS-IF97. This reference is the authoritative source of information
         for this implementation. A mostly identical version has been published by the International
         Association for the Properties
-        of Water and Steam (<A HREF=\"http://www.iapws.org\">IAPWS</A>) with permission granted to re-publish the
+        of Water and Steam (<a href=\"http://www.iapws.org\">IAPWS</a>) with permission granted to re-publish the
         information if credit is given to IAPWS. This document is distributed with this library as
         <a href=\"modelica://Modelica/Resources/Documentation/Media/Water/IF97documentation/IF97.pdf\">IF97.pdf</a>.
-        In addition, the equations published by <A HREF=\"http://www.iapws.org\">IAPWS</A> for
+        In addition, the equations published by <a href=\"http://www.iapws.org\">IAPWS</a> for
         the transport properties dynamic viscosity (standards document: <a href=\"modelica://Modelica/Resources/Documentation/Media/Water/IF97documentation/visc.pdf\">visc.pdf</a>)
         and thermal conductivity (standards document: <a href=\"modelica://Modelica/Resources/Documentation/Media/Water/IF97documentation/thcond.pdf\">thcond.pdf</a>)
         and equations for the surface tension (standards document: <a href=\"modelica://Modelica/Resources/Documentation/Media/Water/IF97documentation/surf.pdf\">surf.pdf</a>)
@@ -5974,12 +5974,12 @@ a set of equations for different regions which cover the following range
 of validity:</p>
 <table border=0 cellpadding=4>
 <tr>
-<td valign=\"top\">273,15 K &lt; <em>T</em> &lt; 1073,15 K</td>
-<td valign=\"top\"><em>p</em> &lt; 100 MPa</td>
+<td>273,15 K &lt; <em>T</em> &lt; 1073,15 K</td>
+<td><em>p</em> &lt; 100 MPa</td>
 </tr>
 <tr>
-<td valign=\"top\">1073,15 K &lt; <em>T</em> &lt; 2273,15 K</td>
-<td valign=\"top\"><em>p</em> &lt; 10 MPa</td>
+<td>1073,15 K &lt; <em>T</em> &lt; 2273,15 K</td>
+<td><em>p</em> &lt; 10 MPa</td>
 </tr>
 </table>
 <p>
@@ -6039,221 +6039,221 @@ I., &#352;ifner, O., Takaishi, Y., Tanishita, I., Tr&uuml;benbach, J., and Willk
 Th.</em> The IAPWS Industrial Formulation 1997 for the Thermodynamic Properties
 of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (2000), 150 - 182.
 </p>
-<HR size=3 width=\"90%\">
+<hr size=3 width=\"90%\">
 <h4>2. Calculable Properties      </h4>
 <table border=\"1\" cellpadding=\"2\" cellspacing=\"0\">
        <tbody>
        <tr>
-       <td valign=\"top\" bgcolor=\"#cccccc\"><br>
+       <td bgcolor=\"#cccccc\"><br>
       </td>
-      <td valign=\"top\" bgcolor=\"#cccccc\"><strong>Common name</strong><br>
+      <td bgcolor=\"#cccccc\"><strong>Common name</strong><br>
        </td>
-       <td valign=\"top\" bgcolor=\"#cccccc\"><strong>Abbreviation</strong><br>
+       <td bgcolor=\"#cccccc\"><strong>Abbreviation</strong><br>
        </td>
-       <td valign=\"top\" bgcolor=\"#cccccc\"><strong>Unit</strong><br>
+       <td bgcolor=\"#cccccc\"><strong>Unit</strong><br>
        </td>
        </tr>
        <tr>
-       <td valign=\"top\">&nbsp;1<br>
+       <td>&nbsp;1<br>
       </td>
-      <td valign=\"top\">Pressure</td>
-       <td valign=\"top\">p<br>
+      <td>Pressure</td>
+       <td>p<br>
         </td>
-       <td valign=\"top\">Pa<br>
+       <td>Pa<br>
        </td>
        </tr>
        <tr>
-       <td valign=\"top\">&nbsp;2<br>
+       <td>&nbsp;2<br>
       </td>
-      <td valign=\"top\">Temperature</td>
-       <td valign=\"top\">T<br>
+      <td>Temperature</td>
+       <td>T<br>
        </td>
-       <td valign=\"top\">K<br>
+       <td>K<br>
        </td>
        </tr>
        <tr>
-       <td valign=\"top\">&nbsp;3<br>
+       <td>&nbsp;3<br>
       </td>
-      <td valign=\"top\">Density</td>
-        <td valign=\"top\">d<br>
+      <td>Density</td>
+        <td>d<br>
         </td>
-       <td valign=\"top\">kg/m<sup>3</sup><br>
+       <td>kg/m<sup>3</sup><br>
        </td>
        </tr>
        <tr>
-       <td valign=\"top\">&nbsp;4<br>
+       <td>&nbsp;4<br>
       </td>
-      <td valign=\"top\">Specific volume</td>
-        <td valign=\"top\">v<br>
+      <td>Specific volume</td>
+        <td>v<br>
         </td>
-       <td valign=\"top\">m<sup>3</sup>/kg<br>
+       <td>m<sup>3</sup>/kg<br>
        </td>
        </tr>
        <tr>
-       <td valign=\"top\">&nbsp;5<br>
+       <td>&nbsp;5<br>
       </td>
-      <td valign=\"top\">Specific enthalpy</td>
-       <td valign=\"top\">h<br>
+      <td>Specific enthalpy</td>
+       <td>h<br>
        </td>
-       <td valign=\"top\">J/kg<br>
+       <td>J/kg<br>
        </td>
        </tr>
        <tr>
-       <td valign=\"top\">&nbsp;6<br>
+       <td>&nbsp;6<br>
       </td>
-      <td valign=\"top\">Specific entropy</td>
-       <td valign=\"top\">s<br>
+      <td>Specific entropy</td>
+       <td>s<br>
        </td>
-       <td valign=\"top\">J/(kg K)<br>
+       <td>J/(kg K)<br>
        </td>
        </tr>
        <tr>
-       <td valign=\"top\">&nbsp;7<br>
+       <td>&nbsp;7<br>
       </td>
-      <td valign=\"top\">Specific internal energy<br>
+      <td>Specific internal energy<br>
        </td>
-       <td valign=\"top\">u<br>
+       <td>u<br>
        </td>
-       <td valign=\"top\">J/kg<br>
+       <td>J/kg<br>
        </td>
        </tr>
        <tr>
-       <td valign=\"top\">&nbsp;8<br>
+       <td>&nbsp;8<br>
       </td>
-      <td valign=\"top\">Specific isobaric heat capacity</td>
-       <td valign=\"top\">c<sub>p</sub><br>
+      <td>Specific isobaric heat capacity</td>
+       <td>c<sub>p</sub><br>
        </td>
-       <td valign=\"top\">J/(kg K)<br>
+       <td>J/(kg K)<br>
        </td>
        </tr>
        <tr>
-       <td valign=\"top\">&nbsp;9<br>
+       <td>&nbsp;9<br>
       </td>
-      <td valign=\"top\">Specific isochoric heat capacity</td>
-       <td valign=\"top\">c<sub>v</sub><br>
+      <td>Specific isochoric heat capacity</td>
+       <td>c<sub>v</sub><br>
        </td>
-       <td valign=\"top\">J/(kg K)<br>
+       <td>J/(kg K)<br>
        </td>
        </tr>
        <tr>
-       <td valign=\"top\">10<br>
+       <td>10<br>
       </td>
-      <td valign=\"top\">Isentropic exponent, kappa<span class=\"nobr\">=<font face=\"Symbol\">-</font>(v/p)
+      <td>Isentropic exponent, kappa<span class=\"nobr\">=<font face=\"Symbol\">-</font>(v/p)
 (dp/dv)<sub>s</sub></span></td>
-     <td valign=\"top\">kappa (<font face=\"Symbol\">k</font>)<br>
+     <td>kappa (<font face=\"Symbol\">k</font>)<br>
      </td>
-     <td valign=\"top\">1<br>
+     <td>1<br>
      </td>
      </tr>
      <tr>
-     <td valign=\"top\">11<br>
+     <td>11<br>
       </td>
-      <td valign=\"top\">Speed of sound<br>
+      <td>Speed of sound<br>
      </td>
-     <td valign=\"top\">a<br>
+     <td>a<br>
      </td>
-     <td valign=\"top\">m/s<br>
+     <td>m/s<br>
      </td>
      </tr>
      <tr>
-     <td valign=\"top\">12<br>
+     <td>12<br>
       </td>
-      <td valign=\"top\">Dryness fraction<br>
+      <td>Dryness fraction<br>
      </td>
-     <td valign=\"top\">x<br>
+     <td>x<br>
      </td>
-     <td valign=\"top\">kg/kg<br>
+     <td>kg/kg<br>
      </td>
      </tr>
      <tr>
-     <td valign=\"top\">13<br>
+     <td>13<br>
       </td>
-      <td valign=\"top\">Specific Helmholtz free energy,     f = u - Ts</td>
-     <td valign=\"top\">f<br>
+      <td>Specific Helmholtz free energy,     f = u - Ts</td>
+     <td>f<br>
      </td>
-     <td valign=\"top\">J/kg<br>
+     <td>J/kg<br>
      </td>
      </tr>
      <tr>
-     <td valign=\"top\">14<br>
+     <td>14<br>
       </td>
-      <td valign=\"top\">Specific Gibbs free energy,     g = h - Ts</td>
-     <td valign=\"top\">g<br>
+      <td>Specific Gibbs free energy,     g = h - Ts</td>
+     <td>g<br>
      </td>
-     <td valign=\"top\">J/kg<br>
+     <td>J/kg<br>
      </td>
      </tr>
      <tr>
-     <td valign=\"top\">15<br>
+     <td>15<br>
       </td>
-      <td valign=\"top\">Isenthalpic exponent, <span class=\"nobr\"> theta = -(v/p)(dp/dv)<sub>h</sub></span></td>
-     <td valign=\"top\">theta (<font face=\"Symbol\">q</font>)<br>
+      <td>Isenthalpic exponent, <span class=\"nobr\"> theta = -(v/p)(dp/dv)<sub>h</sub></span></td>
+     <td>theta (<font face=\"Symbol\">q</font>)<br>
      </td>
-     <td valign=\"top\">1<br>
+     <td>1<br>
      </td>
      </tr>
      <tr>
-     <td valign=\"top\">16<br>
+     <td>16<br>
       </td>
-      <td valign=\"top\">Isobaric volume expansion coefficient, alpha = v<sup>-1</sup>       (dv/dT)<sub>p</sub></td>
-     <td valign=\"top\">alpha  (<font face=\"Symbol\">a</font>)<br>
+      <td>Isobaric volume expansion coefficient, alpha = v<sup>-1</sup>       (dv/dT)<sub>p</sub></td>
+     <td>alpha  (<font face=\"Symbol\">a</font>)<br>
      </td>
-       <td valign=\"top\">1/K<br>
+       <td>1/K<br>
      </td>
      </tr>
      <tr>
-     <td valign=\"top\">17<br>
+     <td>17<br>
       </td>
-      <td valign=\"top\">Isochoric pressure coefficient,     <span class=\"nobr\">beta = p<sup><font face=\"Symbol\">-</font>1</sup>(dp/dT)<sub>v</sub></span></td>
-     <td valign=\"top\">beta (<font face=\"Symbol\">b</font>)<br>
+      <td>Isochoric pressure coefficient,     <span class=\"nobr\">beta = p<sup><font face=\"Symbol\">-</font>1</sup>(dp/dT)<sub>v</sub></span></td>
+     <td>beta (<font face=\"Symbol\">b</font>)<br>
      </td>
-     <td valign=\"top\">1/K<br>
+     <td>1/K<br>
      </td>
      </tr>
      <tr>
-     <td valign=\"top\">18<br>
+     <td>18<br>
      </td>
-     <td valign=\"top\">Isothermal compressibility, <span class=\"nobr\">gamma = <font
+     <td>Isothermal compressibility, <span class=\"nobr\">gamma = <font
  face=\"Symbol\">-</font>v<sup><font face=\"Symbol\">-</font>1</sup>(dv/dp)<sub>T</sub></span></td>
-     <td valign=\"top\">gamma (<font face=\"Symbol\">g</font>)<br>
+     <td>gamma (<font face=\"Symbol\">g</font>)<br>
      </td>
-     <td valign=\"top\">1/Pa<br>
-     </td>
-     </tr>
-     <!-- <tr><td valign=\"top\">f</td><td valign=\"top\">Fugacity</td></tr> --> <tr>
-     <td valign=\"top\">19<br>
-      </td>
-      <td valign=\"top\">Dynamic viscosity</td>
-     <td valign=\"top\">eta (<font face=\"Symbol\">h</font>)<br>
-     </td>
-     <td valign=\"top\">Pa s<br>
+     <td>1/Pa<br>
      </td>
      </tr>
-     <tr>
-     <td valign=\"top\">20<br>
+     <!-- <tr><td>f</td><td>Fugacity</td></tr> --> <tr>
+     <td>19<br>
       </td>
-      <td valign=\"top\">Kinematic viscosity</td>
-     <td valign=\"top\">nu (<font face=\"Symbol\">n</font>)<br>
+      <td>Dynamic viscosity</td>
+     <td>eta (<font face=\"Symbol\">h</font>)<br>
      </td>
-     <td valign=\"top\">m<sup>2</sup>/s<br>
-     </td>
-     </tr>
-     <!-- <tr><td valign=\"top\">Pr</td><td valign=\"top\">Prandtl number</td></tr> --> <tr>
-     <td valign=\"top\">21<br>
-      </td>
-      <td valign=\"top\">Thermal conductivity</td>
-     <td valign=\"top\">lambda (<font face=\"Symbol\">l</font>)<br>
-     </td>
-     <td valign=\"top\">W/(m K)<br>
+     <td>Pa s<br>
      </td>
      </tr>
      <tr>
-     <td valign=\"top\">22 <br>
+     <td>20<br>
       </td>
-      <td valign=\"top\">Surface tension</td>
-     <td valign=\"top\">sigma (<font face=\"Symbol\">s</font>)<br>
+      <td>Kinematic viscosity</td>
+     <td>nu (<font face=\"Symbol\">n</font>)<br>
      </td>
-     <td valign=\"top\">N/m<br>
+     <td>m<sup>2</sup>/s<br>
+     </td>
+     </tr>
+     <!-- <tr><td>Pr</td><td>Prandtl number</td></tr> --> <tr>
+     <td>21<br>
+      </td>
+      <td>Thermal conductivity</td>
+     <td>lambda (<font face=\"Symbol\">l</font>)<br>
+     </td>
+     <td>W/(m K)<br>
+     </td>
+     </tr>
+     <tr>
+     <td>22<br>
+      </td>
+      <td>Surface tension</td>
+     <td>sigma (<font face=\"Symbol\">s</font>)<br>
+     </td>
+     <td>N/m<br>
      </td>
      </tr>
   </tbody>
@@ -6267,7 +6267,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
         <p>The high-level calls to steam properties are grouped into records comprising both the properties of general interest
         and the entries to the thermodynamic Jacobian. If additional properties are
         needed the low level functions in BaseIF97 provide more choice.</p>
-        <HR size=3 width=\"90%\">
+        <hr size=3 width=\"90%\">
         <h4>Additional functions</h4>
         <ul>
         <li>Function <strong>boundaryvals_p</strong> computes the temperature and the specific enthalpy and
@@ -8355,11 +8355,11 @@ public
       The low-level functions in BaseIF97 are not needed for standard simulation usage,
       but can be useful for experts and some special purposes.</li>
       <li>Function <strong>water_ph</strong> returns all properties needed for a dynamic control volume model and properties of general
-      interest using pressure p and specific entropy enthalpy h as dynamic states in the record ThermoProperties_ph. </li>
+      interest using pressure p and specific entropy enthalpy h as dynamic states in the record ThermoProperties_ph.</li>
       <li>Function <strong>water_ps</strong> returns all properties needed for a dynamic control volume model and properties of general
-      interest using pressure p and specific entropy s as dynamic states in the record ThermoProperties_ps. </li>
+      interest using pressure p and specific entropy s as dynamic states in the record ThermoProperties_ps.</li>
       <li>Function <strong>water_dT</strong> returns all properties needed for a dynamic control volume model and properties of general
-      interest using density d and temperature T as dynamic states in the record ThermoProperties_dT. </li>
+      interest using density d and temperature T as dynamic states in the record ThermoProperties_dT.</li>
       <li>Function <strong>water_pT</strong> returns all properties needed for a dynamic control volume model and properties of general
       interest using pressure p and temperature T as dynamic states in the record ThermoProperties_pT. Due to the coupling of
       pressure and temperature in the two-phase region, this model can obviously
@@ -8400,7 +8400,7 @@ public
       by <a href=\"mailto:Hubertus.Tummescheit@modelon.se\">Hubertus Tummescheit</a> and moved to Modelica
       properties library.</li>
       </ul>
-      <address>Author: Hubertus Tummescheit, <br>
+      <address>Author: Hubertus Tummescheit,<br>
       Modelon AB<br>
       Ideon Science Park<br>
       SE-22370 Lund, Sweden<br>

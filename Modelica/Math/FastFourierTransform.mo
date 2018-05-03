@@ -42,7 +42,7 @@ package FastFourierTransform
         "Simulation time for one FFT calculation";
 
       Integer iTick(start=0, fixed=true);
-      Real y_buf[ns](each start=0, each fixed=true);
+      Real y_buf[ns](start=vector([6.5; fill(0, ns - 1)]), each fixed=true);
     initial equation
       for i in 1:nfi loop
          fi[i] = (i-1)*f_resolution;
@@ -67,8 +67,8 @@ package FastFourierTransform
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> Nov. 29, 2015 </td>
-    <td valign=\"top\">
+<tr><td> Nov. 29, 2015 </td>
+    <td>
      Initial version implemented by
      Martin R. Kuhn and Martin Otter
      (<a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>.</td></tr>
@@ -120,7 +120,7 @@ Furthermore, note that the FFT phases are with respect to a cos(..) signal.
         "Frequency resolution";
       parameter Modelica.SIunits.Frequency f1 = 2 "Frequency of sine";
       parameter Modelica.SIunits.Frequency f2 = 3 "Frequency of cosine";
-      parameter String FFT_resultFileName = "RealFFT1_resultFFT.mat"
+      parameter String FFT_resultFileName = "RealFFT2_resultFFT.mat"
         "File where FFT will be stored as [f,A,Phi], with f in {Hz] and A the amplitues and Phi the phases in [rad]";
       final parameter Integer nfi = max(1,min(integer(ceil(f_max/f_resolution))+1,nf))
         "Number of frequency points of the interested frequency range (only up to f_max)";
@@ -143,7 +143,7 @@ Furthermore, note that the FFT phases are with respect to a cos(..) signal.
         "Simulation time for one FFT calculation";
 
       Integer iTick(start=0, fixed=true);
-      Real y_buf[ns](each start=0, each fixed=true);
+      Real y_buf[ns](start=vector([6.5; fill(0, ns - 1)]), each fixed=true);
     initial equation
       for i in 1:nfi loop
          fi[i] = (i-1)*f_resolution;
@@ -168,8 +168,8 @@ Furthermore, note that the FFT phases are with respect to a cos(..) signal.
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> Nov. 29, 2015 </td>
-    <td valign=\"top\">
+<tr><td> Nov. 29, 2015 </td>
+    <td>
      Initial version implemented by
      Martin R. Kuhn and Martin Otter
      (<a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>.</td></tr>
@@ -177,7 +177,7 @@ Furthermore, note that the FFT phases are with respect to a cos(..) signal.
 </html>",
       info="<html>
 <p>
-This is the same example as <a href=\"Modelica.Math.FastFourierTransform.Examples.RealFFT1\">Examples.RealFFT1</a>
+This is the same example as <a href=\"modelica://Modelica.Math.FastFourierTransform.Examples.RealFFT1\">Examples.RealFFT1</a>
 with the only difference that just the amplitudes of the FFT are stored on file (but not the phases).
 </p>
 </html>"));
@@ -186,8 +186,8 @@ with the only difference that just the amplitudes of the FFT are stored on file 
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> Nov. 29, 2015 </td>
-    <td valign=\"top\">
+<tr><td> Nov. 29, 2015 </td>
+    <td>
      Initial version implemented by
      Martin R. Kuhn and Martin Otter
      (<a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>.</td></tr>
@@ -234,8 +234,8 @@ with the only difference that just the amplitudes of the FFT are stored on file 
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> Nov. 29, 2015 </td>
-    <td valign=\"top\">
+<tr><td> Nov. 29, 2015 </td>
+    <td>
      Initial version implemented by
      Martin R. Kuhn and Martin Otter
      (<a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>.</td></tr>
@@ -323,8 +323,8 @@ results in the following output:
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> Nov. 29, 2015 </td>
-    <td valign=\"top\">
+<tr><td> Nov. 29, 2015 </td>
+    <td>
      Initial version implemented by
      Martin R. Kuhn and Martin Otter
      (<a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>.</td></tr>
@@ -447,8 +447,8 @@ results in the following output:
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> Nov. 29, 2015 </td>
-    <td valign=\"top\">
+<tr><td> Nov. 29, 2015 </td>
+    <td>
      Initial version implemented by
      Martin R. Kuhn and Martin Otter
      (<a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>.</td></tr>
@@ -547,9 +547,9 @@ which is a complete example where an FFT is computed during simulation and store
       "Phases of FFT (either provide no argument, or a vector with the same length as amplitudes)";
      input String format = "4"
       "MATLAB MAT-file version: \"4\" -> v4, \"6\" -> v6, \"7\" -> v7"
-       annotation(choices(choice="4" "Matlat MAT v4",
-                          choice="6" "Matlat MAT v6",
-                          choice="7" "Matlat MAT v7"));
+       annotation(choices(choice="4" "MATLAB v4 MAT-file",
+                          choice="6" "MATLAB v6 MAT-file",
+                          choice="7" "MATLAB v7 MAT-file"));
     output Boolean success "true if successful";
   protected
      Integer nA = size(amplitudes,1);
@@ -577,7 +577,7 @@ which is a complete example where an FFT is computed during simulation and store
      // Write matrix on file and print message
      success := writeRealMatrix(fileName, "FFT", fA, format=format);
      if success then
-        print("... FFT result computed at time = " + String(t_computed) + " s stored on file: " + fileName);
+        print("... FFT result computed at time = " + String(t_computed) + " s stored on file: " + Modelica.Utilities.Files.fullPathName(fileName));
      end if;
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
@@ -645,8 +645,8 @@ See detailed example model:
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> Nov. 29, 2015 </td>
-    <td valign=\"top\">
+<tr><td> Nov. 29, 2015 </td>
+    <td>
      Initial version implemented by
      Martin R. Kuhn and Martin Otter
      (<a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>.</td></tr>
@@ -747,8 +747,8 @@ used in this function.
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> Nov. 29, 2015 </td>
-    <td valign=\"top\">
+<tr><td> Nov. 29, 2015 </td>
+    <td>
      Initial version implemented by
      Martin R. Kuhn and Martin Otter
      (<a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>.</td></tr>
@@ -778,8 +778,8 @@ If this is not possible, success = false, and e2, e3, e5 are dummy values.
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> Nov. 29, 2015 </td>
-    <td valign=\"top\">
+<tr><td> Nov. 29, 2015 </td>
+    <td>
      Initial version implemented by
      Martin R. Kuhn and Martin Otter
      (<a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>.</td></tr>
@@ -837,8 +837,8 @@ resulting in:
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> Nov. 29, 2015 </td>
-    <td valign=\"top\">
+<tr><td> Nov. 29, 2015 </td>
+    <td>
      Initial version implemented by
      Martin R. Kuhn and Martin Otter
      (<a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>.</td></tr>

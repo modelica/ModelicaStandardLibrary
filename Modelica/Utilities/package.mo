@@ -99,18 +99,38 @@ First version implemented.
     extends Modelica.Icons.Contact;
 
     annotation (Documentation(info="<html>
-<dl>
-<dt><strong>Responsible for Library:</strong></dt>
-<dd>Dag Br&uuml;ck, Dassault Syst&egrave;mes AB, Sweden.<br>
-    email: <A HREF=\"mailto:Dag.BRUCK@3ds.com\">Dag.BRUCK@3ds.com</A><br></dd>
-</dl>
-<p><strong>Acknowledgements:</strong></p>
+<h4>Library officers</h4>
+
+<p>
+<a href=\"http://www.robotic.dlr.de/Martin.Otter/\"><strong>Martin Otter</strong></a><br>
+Deutsches Zentrum f&uuml;r Luft- und Raumfahrt e.V. (DLR)<br>
+Institut f&uuml;r Systemdynamik und Regelungstechnik (DLR-SR)<br>
+Forschungszentrum Oberpfaffenhofen<br>
+D-82234 Wessling<br>
+Germany
+</p>
+
+<p>
+<strong>Hans Olsson</strong><br>
+Dassault Syst&egrave;mes AB, Lund, Sweden
+</p>
+
+<h4>Main authors</h4>
+
+<p>
+<strong>Dag Br&uuml;ck</strong><br>
+Dassault Syst&egrave;mes AB, Lund, Sweden.<br>
+email: <a href=\"mailto:Dag.Bruck@3ds.com\">Dag.Bruck@3ds.com</a>
+</p>
+
+<h4>Acknowledgements</h4>
+
 <ul>
 <li> This library has been designed by:<br>
      <blockquote>
-     Dag Br&uuml;ck, Dassault Syst&egrave;mes AB, Sweden <br>
-     Hilding Elmqvist, Dassault Syst&egrave;mes AB, Sweden <br>
-     Hans Olsson, Dassault Syst&egrave;mes AB, Sweden <br>
+     Dag Br&uuml;ck, Dassault Syst&egrave;mes AB, Sweden<br>
+     Hilding Elmqvist, previously at Dassault Syst&egrave;mes AB, Sweden<br>
+     Hans Olsson, Dassault Syst&egrave;mes AB, Sweden<br>
      Martin Otter, DLR Oberpfaffenhofen, Germany.
      </blockquote></li>
 <li> The library including the C reference implementation has
@@ -119,7 +139,7 @@ First version implemented.
      with this library is from Hilding Elmqvist.</li>
 <li> Helpful comments from Kaj Nystr&ouml;m, PELAB, Link&ouml;ping, Sweden,
      are appreciated, as well as discussions at the 34th, 36th, and 40th
-     Modelica Design Meetings in Vienna, Link&ouml;ping, and Dresden. </li>
+     Modelica Design Meetings in Vienna, Link&ouml;ping, and Dresden.</li>
 </ul>
 </html>"));
   end Contact;
@@ -195,11 +215,11 @@ The following main sublibraries are available:
 </ul>
 
 <p>
-Copyright &copy; 1998-2016, Modelica Association, DLR, and Dassault Syst&egrave;mes AB.
+Copyright &copy; 1998-2018, Modelica Association, DLR, and Dassault Syst&egrave;mes AB.
 </p>
 
 <p>
-<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</em>
+<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em>
 </p>
 
 </html>"));

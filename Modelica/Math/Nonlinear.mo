@@ -76,9 +76,9 @@ The following integrals are computed:
 </p>
 
 <ul>
-<li> integral(sin(x)*dx) from x=0 to x=1 </li>
-<li> integral(sin(5*x)*dx) from x=0 to x=13 </li>
-<li> elliptic integral from x=0 to pi/2 </li>
+<li> integral(sin(x)*dx) from x=0 to x=1</li>
+<li> integral(sin(5*x)*dx) from x=0 to x=13</li>
+<li> elliptic integral from x=0 to pi/2</li>
 </ul>
 
 </html>"));
@@ -148,9 +148,9 @@ The following integrals are computed:
 </p>
 
 <ul>
-<li> integral(sin(x)*dx) </li>
-<li> integral(sin(w*x)*dx) </li>
-<li> elliptic integral </li>
+<li> integral(sin(x)*dx)</li>
+<li> integral(sin(w*x)*dx)</li>
+<li> elliptic integral</li>
 </ul>
 
 </html>"));
@@ -224,9 +224,9 @@ The following nonlinear equations are solved:
 </p>
 
 <ul>
-<li> 0 = u^2 - 1 </li>
-<li> 0 = 3*u - sin(3*u) - 1 </li>
-<li> 0 = 5 + log(u) - u </li>
+<li> 0 = u^2 - 1</li>
+<li> 0 = 3*u - sin(3*u) - 1</li>
+<li> 0 = 5 + log(u) - u</li>
 </ul>
 
 </html>"));
@@ -304,9 +304,9 @@ The following nonlinear equations are solved:
 </p>
 
 <ul>
-<li> 0 = u^2 - 1 </li>
-<li> 0 = 3*u - sin(w*u) - 1 </li>
-<li> 0 = p[1] + log(p[2]*u) - m*u </li>
+<li> 0 = u^2 - 1</li>
+<li> 0 = 3*u - sin(w*u) - 1</li>
+<li> 0 = p[1] + log(p[2]*u) - m*u</li>
 </ul>
 
 </html>"));
@@ -814,10 +814,10 @@ or the Modelica Language  Specification, Chapter 12.4.2.
 
 </html>", revisions="<html>
 <ul>
-<li><em>July 2010 </em> by Martin Otter (DLR-RM): <br>
+<li><em>July 2010 </em> by Martin Otter (DLR-RM):<br>
     Included in MSL3.2, adapted, and documentation improved</li>
 
-<li><em>March 2010 </em> by Andreas Pfeiffer (DLR-RM): <br>
+<li><em>March 2010 </em> by Andreas Pfeiffer (DLR-RM):<br>
     Adapted the quadrature function from Gerhard Schillhuber and
     the solution of one non-linear equation in one unknown from
     Modelica.Media.Common.OneNonLinearEquation so that

@@ -5,6 +5,61 @@ package SinglePhase "Single phase AC components"
   package Examples "Test examples"
     extends Modelica.Icons.ExamplesPackage;
 
+    model SeriesBode "Series circuit with Bodel analysis"
+      extends Modelica.Icons.Example;
+      output Real abs_y = bode.abs_y "Magnitude of voltage ratio";
+      output Modelica.SIunits.AmplitudeLevelDifference dB_y = bode.dB_y "Log10 of magnitude of voltage ratio in dB";
+      output Modelica.SIunits.Angle arg_y = bode.arg_y "Angle of voltage ratio";
+      ComplexBlocks.Sources.LogFrequencySweep frequencySweep(duration=1,wMin=0.01,wMax=100) annotation (Placement(transformation(
+            origin={-70,-40},
+            extent={{-10,-10},{10,10}},
+            rotation=0)));
+      QuasiStationary.SinglePhase.Sources.VariableVoltageSource voltageSource(gamma(fixed=true, start=0)) annotation (Placement(transformation(
+            origin={-30,-20},
+            extent={{-10,10},{10,-10}},
+            rotation=270)));
+      QuasiStationary.SinglePhase.Basic.Ground ground annotation (Placement(
+            transformation(extent={{-40,-60},{-20,-40}})));
+      QuasiStationary.SinglePhase.Basic.Resistor resistor(R_ref=1)   annotation (Placement(transformation(extent={{20,-10},{40,10}})));
+      QuasiStationary.SinglePhase.Basic.Inductor inductor(L=1/(2*Modelica.Constants.pi)) annotation (Placement(transformation(extent={{50,-10},{70,10}})));
+      ComplexBlocks.Sources.ComplexConstant complexConst(k=Complex(1, 0)) annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));
+      Sensors.CurrentSensor currentSensor annotation (Placement(transformation(extent={{10,10},{-10,-10}},
+            rotation=180,
+            origin={-10,0})));
+      Sensors.VoltageSensor voltageSensor annotation (Placement(transformation(
+            extent={{-10,10},{10,-10}},
+            rotation=0,
+            origin={30,20})));
+      ComplexBlocks.ComplexMath.Bode bode annotation (Placement(transformation(extent={{-10,10},{10,-10}},
+            rotation=180,
+            origin={-70,30})));
+    equation
+      connect(frequencySweep.y, voltageSource.f) annotation (Line(points={{-59,-40},{-50,-40},{-50,-26},{-42,-26}}, color={0,0,127}));
+      connect(ground.pin, voltageSource.pin_n) annotation (Line(points={{-30,-40},
+              {-30,-35},{-30,-30}}, color={85,170,255}));
+      connect(resistor.pin_n, inductor.pin_p) annotation (Line(points={{40,0},{50,0}},
+                                      color={85,170,255}));
+      connect(complexConst.y, voltageSource.V) annotation (Line(points={{-59,0},{-50,0},{-50,-14},{-42,-14}}, color={85,170,255}));
+      connect(voltageSensor.pin_p, resistor.pin_p) annotation (Line(points={{20,20},{10,20},{10,0},{20,0}},
+                                                                                                   color={85,170,255}));
+      connect(voltageSensor.pin_n, inductor.pin_p) annotation (Line(points={{40,20},{50,20},{50,0}}, color={85,170,255}));
+      connect(ground.pin, inductor.pin_n) annotation (Line(points={{-30,-40},{80,-40},{80,0},{70,0}}, color={85,170,255}));
+      connect(bode.divisor, complexConst.y) annotation (Line(points={{-58,24},{-50,24},{-50,0},{-59,0}}, color={85,170,255}));
+      connect(bode.u, voltageSensor.y) annotation (Line(points={{-58,36},{30,36},{30,31}}, color={85,170,255}));
+      connect(currentSensor.pin_p, voltageSource.pin_p) annotation (Line(points={{-20,0},{-30,0},{-30,-10}}, color={85,170,255}));
+      connect(currentSensor.pin_n, resistor.pin_p) annotation (Line(points={{0,0},{20,0}}, color={85,170,255}));
+      annotation (Documentation(info="<html>
+<p>
+The frequency of the voltage source is varied by a logaithmic ramp, the supply voltage magnitude is constant.</p>
+<p>Plot versus <code>voltageSource.f</code> on a logarithmic scale in order to determine the Bode diagrams of the ratio of
+the voltage of the resistor divided by the supply voltage:</p>
+<ul>
+<li>Gain response: <code>dB_y</code></li>
+<li>Phase response: <code>arg_y</code></li>
+</ul>
+</html>"), experiment(StopTime=1.0, Interval=0.001));
+    end SeriesBode;
+
     model SeriesResonance "Series resonance circuit"
       extends Modelica.Icons.Example;
       output Modelica.SIunits.Current I_abs=complexToPolar.len "Current";
@@ -1251,7 +1306,7 @@ Quasi stationary theory for single phase circuits can be found in the
             Line(points={{-90,0},{-41,0}}, color={85,170,255}),
             Line(points={{91,0},{40,0}}, color={85,170,255}),
             Text(
-              extent={{-100,100},{100,70}},
+              extent={{-150,110},{150,70}},
               textString="%name",
               lineColor={0,0,255})}), Documentation(info="<html>
 <p>
@@ -1277,7 +1332,7 @@ This model is a simple idle branch considering the complex current <em><u>i</u><
               fillPattern=FillPattern.Solid),
             Line(points={{91,0},{-90,0}}, color={85,170,255}),
             Text(
-              extent={{-100,100},{100,70}},
+              extent={{-150,110},{150,70}},
               textString="%name",
               lineColor={0,0,255})}), Documentation(info="<html>
 <p>
@@ -1331,13 +1386,13 @@ This model is a simple short cut branch considering the complex voltage <em><u>v
         n2.i));
       annotation (defaultComponentName="switch",
         Documentation(info="<html>
-<P>
+<p>
 The commuting switch has a positive pin p and two negative pins n1 and n2.
 The switching behaviour is controlled
 by the input signal control. If control is true, the pin p is connected
 with the negative pin n2. Otherwise, the pin p is connected to the negative pin n1.
-</P>
-<P>
+</p>
+<p>
 In order to prevent singularities during switching, the opened
 switch has a (very low) conductance Goff
 and the closed switch has a (very low) resistance Ron.
@@ -1345,11 +1400,11 @@ The limiting case is also allowed, i.e., the resistance Ron of the
 closed switch could be exactly zero and the conductance Goff of the
 open switch could be also exactly zero. Note, there are circuits,
 where a description with zero Ron or zero Goff is not possible.
-<br> <br>
+<br><br>
 <strong>Please note:</strong>
 In case of useHeatPort=true the temperature dependence of the electrical
 behavior is <strong>not</strong> modelled. The parameters are not temperature dependent.
-</P>
+</p>
 <p>
 <strong>Use with care:</strong>
 This switch is only intended to be used for structural changes, not for fast switching sequences, due to the quasistationary formulation.
@@ -1428,38 +1483,38 @@ This switch is only intended to be used for structural changes, not for fast swi
         conj(n1.i)) + real(n2.v*conj(n2.i));
       annotation (defaultComponentName="switch",
         Documentation(info="<html>
-<P>
+<p>
 The intermediate switch has four switching contact pins p1, p2, n1, and n2.
 The switching behaviour is controlled by the input signal control. If control
 is true, the pin p1 is connected to pin n2, and the pin p2 is
 connected to the pin n2. Otherwise, the pin p1 is connected to n1, and
 p2 is connected to n2.
-</P>
-
-<p>
-<IMG src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/SinglePhase/Ideal/IdealIntermediateSwitch1.png\" ALT=\"IdealIntermediateSwitch1\">
 </p>
 
-<P>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/SinglePhase/Ideal/IdealIntermediateSwitch1.png\" alt=\"IdealIntermediateSwitch1\">
+</p>
+
+<p>
 In order to prevent singularities during switching, the opened
 switch has a (very low) conductance Goff
 and the closed switch has a (very low) resistance Ron.
-</P>
-
-<p>
-<IMG src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/SinglePhase/Ideal/IdealIntermediateSwitch2.png\" ALT=\"IdealIntermediateSwitch2\">
 </p>
 
-<P>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/SinglePhase/Ideal/IdealIntermediateSwitch2.png\" alt=\"IdealIntermediateSwitch2\">
+</p>
+
+<p>
 The limiting case is also allowed, i.e., the resistance Ron of the
 closed switch could be exactly zero and the conductance Goff of the
 open switch could be also exactly zero. Note, there are circuits,
 where a description with zero Ron or zero Goff is not possible.
-<br> <br>
+<br><br>
 <strong>Please note:</strong>
 In case of useHeatPort=true the temperature dependence of the electrical
 behavior is <strong>not</strong> modelled. The parameters are not temperature dependent.
-</P>
+</p>
 <p>
 <strong>Use with care:</strong>
 This switch is only intended to be used for structural changes, not for fast switching sequences, due to the quasistationary formulation.
@@ -1506,14 +1561,14 @@ This switch is only intended to be used for structural changes, not for fast swi
       LossPower = real(v*conj(i));
       annotation (defaultComponentName="switch",
         Documentation(info="<html>
-<P>
+<p>
 The ideal opening switch has a positive pin p and a negative pin n.
 The switching behaviour is controlled by the input signal control.
 If control is true, pin p is not connected
 with negative pin n. Otherwise, pin p is connected
 with negative pin n.
-</P>
-<P>
+</p>
+<p>
 In order to prevent singularities during switching, the opened
 switch has a (very low) conductance Goff
 and the closed switch has a (very low) resistance Ron.
@@ -1521,11 +1576,11 @@ The limiting case is also allowed, i.e., the resistance Ron of the
 closed switch could be exactly zero and the conductance Goff of the
 open switch could be also exactly zero. Note, there are circuits,
 where a description with zero Ron or zero Goff is not possible.
-<br> <br>
+<br><br>
 <strong>Please note:</strong>
 In case of useHeatPort=true the temperature dependence of the electrical
 behavior is <strong>not</strong> modelled. The parameters are not temperature dependent.
-</P>
+</p>
 <p>
 <strong>Use with care:</strong>
 This switch is only intended to be used for structural changes, not for fast switching sequences, due to the quasistationary formulation.
@@ -1581,14 +1636,14 @@ This switch is only intended to be used for structural changes, not for fast swi
       LossPower = real(v*conj(i));
       annotation (defaultComponentName="switch",
         Documentation(info="<html>
-<P>
+<p>
 The ideal closing switch has a positive pin p and a negative pin n.
 The switching behaviour is controlled by input signal control.
 If control is true, pin p is connected
 with negative pin n. Otherwise, pin p is not connected
 with negative pin n.
-</P>
-<P>
+</p>
+<p>
 In order to prevent singularities during switching, the opened
 switch has a (very low) conductance Goff
 and the closed switch has a (very low) resistance Ron.
@@ -1596,11 +1651,11 @@ The limiting case is also allowed, i.e., the resistance Ron of the
 closed switch could be exactly zero and the conductance Goff of the
 open switch could be also exactly zero. Note, there are circuits,
 where a description with zero Ron or zero Goff is not possible.
-<br> <br>
+<br><br>
 <strong>Please note:</strong>
 In case of useHeatPort=true the temperature dependence of the electrical
 behavior is <strong>not</strong> modelled. The parameters are not temperature dependent.
-</P>
+</p>
 <p>
 <strong>Use with care:</strong>
 This switch is only intended to be used for structural changes, not for fast switching sequences, due to the quasistationary formulation.
@@ -1846,7 +1901,8 @@ Quasi stationary theory for single phase circuits can be found in the
           Placement(transformation(extent={{100,-10},{120,10}})));
     equation
       y = pin.reference.gamma;
-      annotation (defaultComponentName="refSensor", Icon(graphics={Text(
+      annotation (
+        Icon(graphics={Text(
               extent={{60,-60},{-60,-30}},
               textString="ref")}), Documentation(info="<html>
 
@@ -1875,7 +1931,8 @@ This sensor can be used to measure the reference angle.
               extent={{100,-10},{120,10}})));
     equation
       2*pi*y = omega;
-      annotation (defaultComponentName="fSensor", Icon(graphics={Text(
+      annotation (
+        Icon(graphics={Text(
               extent={{-29,-11},{30,-70}},
               textString="f")}), Documentation(info="<html>
 
@@ -1905,7 +1962,8 @@ This sensor can be used to measure the frequency of the reference system.
       Modelica.SIunits.Angle arg_y=Modelica.ComplexMath.arg(y) "Argument of complex potential";
     equation
       y = pin.v;
-      annotation (defaultComponentName="vSensor", Icon(graphics={Text(
+      annotation (
+        Icon(graphics={Text(
               extent={{-29,-11},{30,-70}},
               textString="V")}), Documentation(info="<html>
 
@@ -1935,7 +1993,8 @@ This sensor can be used to measure the complex potential.
     equation
       i = Complex(0);
       y = v;
-      annotation (defaultComponentName="vSensor", Icon(graphics={Text(
+      annotation (
+        Icon(graphics={Text(
               extent={{-29,-11},{30,-70}},
               textString="V")}), Documentation(info="<html>
 <p>
@@ -1963,7 +2022,8 @@ This sensor can be used to measure the complex voltage.
     equation
       v = Complex(0);
       y = i;
-      annotation (defaultComponentName="iSensor", Icon(graphics={Text(
+      annotation (
+        Icon(graphics={Text(
               extent={{-29,-11},{30,-70}},
               textString="I")}), Documentation(info="<html>
 <p>
@@ -2023,7 +2083,8 @@ This sensor can be used to measure the complex current.
       v = voltageP.v - voltageN.v;
       //P + j*Q = v * conj(i);
       y = v*conj(i);
-      annotation (defaultComponentName="pSensor", Icon(graphics={
+      annotation (
+        Icon(graphics={
             Line(points={{0,100},{0,70}}, color={85,170,255}),
             Line(points={{0,-70},{0,-100}}, color={85,170,255}),
             Text(extent={{-29,-70},{30,-11}}, textString="P"),
@@ -2097,13 +2158,13 @@ This sensor can be used to measure the complex apparent power.
           rotation=180), iconTransformation(
           extent={{-10,10},{10,-10}},
           rotation=180,
-          origin={-110,-58})));
-    output Modelica.SIunits.Current i_abs='abs'(i) "Absolute of complex current";
-    output Modelica.SIunits.Angle i_arg=arg(i) "Argument of complex current";
-    output Modelica.SIunits.Voltage v_abs='abs'(v) "Absolute of complex voltage";
-    output Modelica.SIunits.Angle v_arg=arg(v) "Argument of complex voltage";
-    output Modelica.SIunits.ApparentPower apparentPower_abs='abs'(apparentPower) "Absolute of complex apparent power";
-    output Modelica.SIunits.Angle apparentPower_arg=arg(apparentPower) "Argument of complex apparent power";
+          origin={-110,-60})));
+    output Modelica.SIunits.Current abs_i='abs'(i) "Absolute of complex current";
+    output Modelica.SIunits.Angle arg_i=arg(i) "Argument of complex current";
+    output Modelica.SIunits.Voltage abs_v='abs'(v) "Absolute of complex voltage";
+    output Modelica.SIunits.Angle arg_v=arg(v) "Argument of complex voltage";
+    output Modelica.SIunits.ApparentPower abs_apparentPower='abs'(apparentPower) "Absolute of complex apparent power";
+    output Modelica.SIunits.Angle arg_apparentPower=arg(apparentPower) "Argument of complex apparent power";
   equation
     Connections.branch(pc.reference, nc.reference);
     pc.reference.gamma = nc.reference.gamma;
@@ -2118,7 +2179,7 @@ This sensor can be used to measure the complex apparent power.
     i = pc.i;
     v = pv.v - nv.v;
     apparentPower = v*conj(i);
-    annotation (defaultComponentName="sensor",
+    annotation (
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
         Line(points = {{0,100},{0,70}}, color={85,170,255}),
         Line(points = {{0,-70},{0,-100}}, color={85,170,255}),
@@ -2129,11 +2190,11 @@ This sensor can be used to measure the complex apparent power.
             textString="%name",
             lineColor={0,0,255}),
           Line(points={{-100,-60},{-80,-60},{-56,-42}},
-                                                     color={28,108,200}),
+                                                     color={85,170,255}),
           Line(points={{-60,-100},{-60,-80},{-42,-56}},
-                                                     color={28,108,200}),
+                                                     color={85,170,255}),
           Line(points={{60,-100},{60,-80},{42,-56}},
-                                                  color={28,108,200}),
+                                                  color={85,170,255}),
           Text(
             extent={{-100,-40},{-60,-80}},
             textString="s"),
@@ -2187,7 +2248,7 @@ Quasi stationary theory for single phase circuits can be found in the
     equation
       omega = 2*Modelica.Constants.pi*f;
       v = Complex(V*cos(phi), V*sin(phi));
-      annotation (defaultComponentName="vSource", Icon(graphics={
+      annotation (Icon(graphics={
             Line(points={{-50,0},{50,0}}, color={85,170,255}),
             Line(points={{-70,30},{-70,10}}, color={85,170,255}),
             Line(points={{-80,20},{-60,20}}, color={85,170,255}),
@@ -2223,7 +2284,8 @@ This is a constant voltage source, specifying the complex voltage by the RMS vol
     equation
       omega = 2*Modelica.Constants.pi*f;
       v = V;
-      annotation (defaultComponentName="vSource", Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (defaultComponentName="voltageSource",
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
             Line(points={{-50,0},{50,0}}, color={85,170,255}),
             Line(points={{-70,30},{-70,10}}, color={85,170,255}),
@@ -2246,6 +2308,63 @@ Additionally, the frequency of the voltage source is defined by a real signal in
 </html>"));
     end VariableVoltageSource;
 
+    model FrequencySweepVoltageSource "Voltage source with integrated frequency sweep"
+      extends Interfaces.TwoPin;
+      import Modelica.Constants.eps;
+      Modelica.SIunits.Angle gamma(start=0) = pin_p.reference.gamma;
+      parameter Modelica.SIunits.Frequency fStart(final min=eps, start=1) "Start sweep frequency";
+      parameter Modelica.SIunits.Frequency fStop(final min=eps, start=1) "Stop sweep frequency";
+      parameter Modelica.SIunits.Time startTime=0 "Start time of frequency sweep";
+      parameter Modelica.SIunits.Time duration(start=1) "Duration of frequency sweep";
+      parameter Modelica.SIunits.Voltage V(start=1) "RMS voltage of the source";
+      parameter Modelica.SIunits.Angle phi=0 "phase shift of the source";
+      Modelica.SIunits.Frequency f = voltageSource.f "Actual frequency";
+      ComplexBlocks.Sources.LogFrequencySweep logFrequencySweep(
+        final wMin=fStart,
+        final wMax=fStop,
+        final startTime=startTime,
+        final duration=duration) annotation (Placement(transformation(extent={{40,-60},{20,-40}})));
+      VariableVoltageSource voltageSource annotation (Placement(transformation(extent={{-20,10},{0,-10}})));
+      ComplexBlocks.Sources.ComplexConstant const(final k=Modelica.ComplexMath.fromPolar(len=V, phi=phi))
+        annotation (Placement(transformation(extent={{-60,-60},{-40,-40}})));
+    equation
+
+      connect(logFrequencySweep.y, voltageSource.f) annotation (Line(points={{19,-50},{-4,-50},{-4,-12}}, color={0,0,127}));
+      connect(const.y, voltageSource.V) annotation (Line(points={{-39,-50},{-16,-50},{-16,-12}}, color={85,170,255}));
+      connect(pin_p, voltageSource.pin_p) annotation (Line(points={{-100,0},{-20,0}}, color={85,170,255}));
+      connect(voltageSource.pin_n, pin_n) annotation (Line(points={{0,0},{100,0}},         color={85,170,255}));
+      annotation (defaultComponentName="voltageSource",Icon(coordinateSystem(preserveAspectRatio=false), graphics={
+            Ellipse(
+              extent={{-50,50},{50,-50}},
+              lineColor={85,170,255},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-90,0},{-50,0}}, color={85,170,255}),
+            Line(points={{50,0},{90,0}}, color={85,170,255}),
+            Line(points={{-50,0},{50,0}}, color={85,170,255}),
+            Line(points={{-70,30},{-70,10}}, color={85,170,255}),
+            Line(points={{-80,20},{-60,20}}, color={85,170,255}),
+            Line(points={{60,20},{80,20}}, color={85,170,255}),
+            Text(
+              extent={{150,60},{-150,100}},
+              textString="%name",
+              lineColor={0,0,255}),
+            Line(
+              points={{-44,0},{-32,14},{-20,32},{-12,42},{-6,30},{0,0},{4,-28},{8,-40},{12,-20},{14,2},{16,30},{18,42},{20,28},{24,-32},{26,-40},{28,0}},
+              color={192,192,192},
+              smooth=Smooth.Bezier)}),                               Diagram(coordinateSystem(preserveAspectRatio=false)),
+        Documentation(info="<html>
+<p>This source provides a constant RMS phase voltage <code>V</code> and phase angle <code>phi</code>,
+whereas the frequency sweeps from
+<code>fStart</code> to <code>fStop</code> with <code>duration</code>. The frequency sweeps such
+way that on a logarithmic frequency scale, the frequency curve appears linear.</p>
+
+<p><img src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/SinglePhase/Sources/FrequencySweepSource.png\"
+     alt=\"FrequencySweepSource.png\"></p>
+
+</html>"));
+    end FrequencySweepVoltageSource;
+
     model CurrentSource "Constant AC current"
       extends Interfaces.Source;
       parameter Modelica.SIunits.Frequency f(start=1) "frequency of the source";
@@ -2254,7 +2373,8 @@ Additionally, the frequency of the voltage source is defined by a real signal in
     equation
       omega = 2*Modelica.Constants.pi*f;
       i = Complex(I*cos(phi), I*sin(phi));
-      annotation (defaultComponentName="iSource", Icon(graphics={
+      annotation (
+        Icon(graphics={
             Polygon(
               points={{90,0},{60,10},{60,-10},{90,0}},
               lineColor={85,170,255},
@@ -2291,7 +2411,8 @@ This is a constant current source, specifying the complex current by the RMS cur
     equation
       omega = 2*Modelica.Constants.pi*f;
       i = I;
-      annotation (defaultComponentName="iSource", Icon(graphics={Line(points={{0,50},{0,-50}}, color={85,170,255}),
+      annotation (defaultComponentName="currentSource",
+        Icon(graphics={Line(points={{0,50},{0,-50}}, color={85,170,255}),
             Polygon(
               points={{90,0},{60,10},{60,-10},{90,0}},
               lineColor={85,170,255},
@@ -2312,6 +2433,66 @@ Additionally, the frequency of the voltage source is defined by a real signal in
 </p>
 </html>"));
     end VariableCurrentSource;
+
+    model FrequencySweepCurrentSource "Current source with integrated frequency sweep"
+      extends Interfaces.TwoPin;
+      import Modelica.Constants.eps;
+      Modelica.SIunits.Angle gamma(start=0) = pin_p.reference.gamma;
+      parameter Modelica.SIunits.Frequency fStart(final min=eps, start=1) "Start sweep frequency";
+      parameter Modelica.SIunits.Frequency fStop(final min=eps, start=1) "Stop sweep frequency";
+      parameter Modelica.SIunits.Time startTime=0 "Start time of frequency sweep";
+      parameter Modelica.SIunits.Time duration(start=1) "Duration of frequency sweep";
+      parameter Modelica.SIunits.Current I(start=1) "RMS current of the source";
+      parameter Modelica.SIunits.Angle phi=0 "Phase shift of the source";
+      Modelica.SIunits.Frequency f = currentSource.f "Actual frequency";
+      ComplexBlocks.Sources.LogFrequencySweep logFrequencySweep(
+        final wMin=fStart,
+        final wMax=fStop,
+        final startTime=startTime,
+        final duration=duration) annotation (Placement(transformation(extent={{40,-60},{20,-40}})));
+      VariableCurrentSource currentSource annotation (Placement(transformation(extent={{-20,10},{0,-10}})));
+      ComplexBlocks.Sources.ComplexConstant const(final k=Modelica.ComplexMath.fromPolar(len=I, phi=phi))
+        annotation (Placement(transformation(extent={{-60,-60},{-40,-40}})));
+    equation
+
+      connect(logFrequencySweep.y,currentSource. f) annotation (Line(points={{19,-50},{-4,-50},{-4,-12}}, color={0,0,127}));
+      connect(pin_p,currentSource. pin_p) annotation (Line(points={{-100,0},{-20,0}}, color={85,170,255}));
+      connect(currentSource.pin_n, pin_n) annotation (Line(points={{0,0},{100,0}},         color={85,170,255}));
+      connect(const.y, currentSource.I) annotation (Line(points={{-39,-50},{-16,-50},{-16,-12}}, color={85,170,255}));
+      annotation (defaultComponentName="currentSource",Icon(coordinateSystem(preserveAspectRatio=false), graphics={
+            Ellipse(
+              extent={{-50,50},{50,-50}},
+              lineColor={85,170,255},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-90,0},{-50,0}}, color={85,170,255}),
+            Line(points={{50,0},{90,0}}, color={85,170,255}),
+            Text(
+              extent={{150,60},{-150,100}},
+              textString="%name",
+              lineColor={0,0,255}),
+            Line(
+              points={{-44,0},{-32,14},{-20,32},{-12,42},{-6,30},{0,0},{4,-28},{8,-40},{12,-20},{14,2},{16,30},{18,42},{20,28},{24,-32},{26,-40},{28,0}},
+              color={192,192,192},
+              smooth=Smooth.Bezier),
+            Polygon(
+              points={{90,0},{60,10},{60,-10},{90,0}},
+              lineColor={85,170,255},
+              fillColor={85,170,255},
+              fillPattern=FillPattern.Solid),
+                       Line(points={{0,50},{0,-50}}, color={85,170,255})}),
+                                                                     Diagram(coordinateSystem(preserveAspectRatio=false)),
+        Documentation(info="<html>
+<p>This source provides a constant RMS phase current <code>I</code> and phase angle <code>phi</code>,
+whereas the frequency sweeps from
+<code>fStart</code> to <code>fStop</code> with <code>duration</code>. The frequency sweeps such
+way that on a logarithmic frequency scale, the frequency curve appears linear.</p>
+
+<p><img src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/SinglePhase/Sources/FrequencySweepSource.png\"
+     alt=\"FrequencySweepSource.png\"></p>
+
+</html>"));
+    end FrequencySweepCurrentSource;
     annotation (Documentation(info="<html>
 <p>This package hosts sources for quasi stationary single phase circuits.
 Quasi stationary theory for single phase circuits can be found in the

@@ -28,9 +28,9 @@ with its schematic.
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/DoublePendulumSmall.png\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/DoublePendulumSmall.png\">
 
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/DoublePendulumDiagramSmall.png\" ALT=\"double pendulum (diagram layer)\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/DoublePendulumDiagramSmall.png\" alt=\"double pendulum (diagram layer)\">
 </p>
 
 <p>
@@ -81,7 +81,7 @@ The main features of the library are:
     differential algebraic equations symbolically to a system where
     the number of equations and unknowns are the same (the user need
     <strong>not</strong> cut loops with special cut-joints to construct a
-    tree-structure). </li>
+    tree-structure).</li>
 <li><strong>Automatic state selection from joints and bodies</strong>.
     Most joints and all bodies have potential states. A Modelica
     translator will use the generalized coordinates
@@ -91,7 +91,7 @@ The main features of the library are:
     to define a body moving freely in space. An advanced user
     may select states manually from the <strong>Advanced</strong> menu of the
     corresponding components or use a Modelica parameter modification
-    to set the \"stateSelect\" attribute directly. </li>
+    to set the \"stateSelect\" attribute directly.</li>
 <li> <strong>Analytic solution of kinematic loops</strong>. The non-linear
     equations occurring in kinematic loops are solved <strong>analytically</strong>
     for a large class of mechanisms, such as a 4 bar mechanism,
@@ -157,8 +157,8 @@ Modelica composition diagram, resulting in:
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/FirstExample/PenulumSchematic1.png\"
-ALT=\"Modelica composition diagram of simple pendulum\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/FirstExample/PenulumSchematic1.png\"
+alt=\"Modelica composition diagram of simple pendulum\">
 </p>
 
 <p>
@@ -168,7 +168,7 @@ and connect them according to the figure:
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/FirstExample/PenulumSchematic2.png\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/FirstExample/PenulumSchematic2.png\">
 </p>
 
 <p>
@@ -205,9 +205,9 @@ is shown in the parameter menus of the revolute joint and the body:
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/FirstExample/ActuatedRevolute.png\">
-
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/FirstExample/Body.png\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/FirstExample/ActuatedRevolute.png\">
+<br>
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/FirstExample/Body.png\">
 </p>
 
 <p>
@@ -224,7 +224,7 @@ With default settings, the following animation is defined:
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/FirstExample/Pendulum.png\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/Pendulum.png\">
 </p>
 
 <p>
@@ -246,19 +246,19 @@ in the middle of the light blue sphere.
 
         annotation (DocumentationClass=true, Documentation(info="<html>
 <p>
-In principal, now special action is needed, if
+In principal, no special action is needed, if
 loop structures occur (contrary to the ModelicaAdditions.MultiBody library).
 An example is presented in the figure below. It is available as
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Examples.Loops.Fourbar1\">
 MultiBody.Examples.Loops.Fourbar1</a>
 </p>
 
-<p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/Fourbar1a.png\">
-</p>
+<blockquote>
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/Fourbar1a.png\">
+</blockquote>
 
 <p>
-This mechanism consists of 6 revolute joints, 1 prismatic joint and forms a
+This mechanism consists of&nbsp;6 revolute joints and&nbsp;1 prismatic joint and forms a
 kinematical loop.
 It has has one degree of freedom. In the next figure the default animation
 is shown. Note, that the axes of the revolute joints are represented by the
@@ -266,21 +266,21 @@ red cylinders and that the axis of the prismatic joint is represented by the
 red box on the lower right side.
 </p>
 
-<p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/Fourbar1b.png\" width=\"205\" height=\"107\">
-</p>
+<blockquote>
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/Fourbar1b.png\" width=300>
+</blockquote>
 
 <p>
 Whenever loop structures occur, non-linear algebraic
 equations are present on \"position level\". It is then usually not possible by
 structural analysis to select states during translation (which is possible for
-non-loop structures). In the example above, Dymola detects a non-linear
-algebraic loop of 57 equations and reduces this to a system of 7 coupled
+non-loop structures). In the example above, a non-linear
+algebraic loop of 54 equations can be detected and reduced to a system of&nbsp;6 coupled
 algebraic equations. Note, that this is performed without using any
 \"cut-joints\" as it is usually done in multi-body programs, but by just
 appropriate symbolic equation manipulation. Via the dynamic dummy derivative
 method the generalized coordinates on position and velocity level from one of
-the 7 joints are dynamically selected as states during simulation. Whenever,
+the&nbsp;7 joints are dynamically selected as states during simulation. Whenever,
 these two states are no longer appropriate, states from one of the other
 joints are selected during simulation.
 </p>
@@ -288,13 +288,15 @@ joints are selected during simulation.
 The efficiency of loop structures can usually be
 enhanced, if states are statically fixed at translation time. For this
 mechanism, the generalized coordinates of joint j1 (i.e., the
-rotation angle of the revolute joint and its derivative) can always be used as
-states. This can be stated by setting parameter \"enforceStates = <strong>true</strong>\"
-in the \"Advanced\" menu of the desired joint. This flag sets the attribute
-stateSelect of the generalized coordinates of the corresponding joint to
-\"StateSelect.always\". When setting this flag to <strong>true</strong> for joint j1 in
-the four bar mechanism, Dymola detects a non-linear algebraic loop of 40
-equations and reduces this to a system of 5 coupled non-linear algebraic
+rotation angle of the revolute joint and its derivative;
+the joint is visualized as a red cylinder at the x-axis in the animation figure above)
+can always be used as states.
+In the abovementioned example, this is already stated by setting parameter
+\"stateSelect&nbsp;=&nbsp;<strong>StateSelect.always</strong>\"
+in the \"Advanced\" menu of that joint.
+When setting this flag for joint j1 in that way in
+the four bar mechanism, a non-linear algebraic loop of 40
+equations can be detected and reduced to a system of&nbsp;5 coupled non-linear algebraic
 equations.
 </p>
 <p>
@@ -319,7 +321,7 @@ MultiBody.Examples.Loops.EngineV6</a>.
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/EngineV6_1.png\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/EngineV6_1.png\">
 </p>
 
 <p>
@@ -330,7 +332,7 @@ above.
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/EngineV6_2.png\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/EngineV6_2.png\">
 </p>
 
 <p>
@@ -343,7 +345,7 @@ loops that have together 1 degree of freedom.
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/EngineV6_3.png\" width=\"303\" height=\"136\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/EngineV6_3.png\" width=\"303\" height=\"136\">
 </p>
 
 <p>
@@ -425,7 +427,9 @@ achieve.
 In a series of papers and dissertations
 Prof. Hiller and his group in Duisburg, Germany,
 have developed systematic methods to handle mechanical
-loops analytically. The \"characteristic pair of joints\" method
+loops analytically, see also
+<a href=\"modelica://Modelica.Mechanics.MultiBody.UsersGuide.Literature\">MultiBody.UsersGuide.Literature</a>.
+The \"characteristic pair of joints\" method
 basically cuts a loop at two joints and uses geometric
 invariants to reduce the number of algebraic
 equations, often down to one equation that can be solved analytically. Also
@@ -439,11 +443,11 @@ singularity during simulation. Therefore, the \"characteristic pair of joints\"
 method is usually manually applied which requires know-how and experience.
 </p>
 <p>
-In the MultiBody library the \"characteristic pair of
+In the MultiBody library, the \"characteristic pair of
 joints\" method is supported in a restricted form such that it can be applied
 also by non-specialists. The idea is to provide aggregations of joints in package
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Joints.Assemblies\">
-MultiBody.Joints.Assemblies</a>.
+MultiBody.Joints.Assemblies</a>
 as one object that either have <strong>6</strong> degrees of freedom or
 <strong>3</strong> degrees of freedom (for usage in planar loops).
 </p>
@@ -452,55 +456,57 @@ As an example, a variant of the four bar mechanism is given in
 the figure below.
 </p>
 
-<p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/FourbarAnalytic1.png\">
-</p>
+<blockquote>
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/FourbarAnalytic2.png\">
+</blockquote>
 
 <p>
-Here, the mechanism is modeled with one revolute
-joint, two spherical joints and one prismatic joint.
-In the figure below, the two spherical joints
+Here, the mechanism is modeled with six revolute
+joints and one prismatic joint.
+In the figure below, the five revolute joints
 and the prismatic joint are collected together in an assembly object
 called \"jointSSP\" from
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Joints.Assemblies.JointSSP\">
 MultiBody.Joints.Assemblies.JointSSP</a>.
 </p>
 
-<p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/FourbarAnalytic2.png\">
-</p>
+<blockquote>
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/FourbarAnalytic1.png\">
+</blockquote>
 
 <p>
 The JointSSP joint aggregation has a frame at the
-left side of the left spherical joint (frame_a) and a frame at the right side
-of the prismatic joint (frame_b). JointSSP, as all other objects from the
+outer spherical joint (frame_a) and a frame at
+the prismatic joint (frame_b). JointSSP, as all other objects from the
 Joints.Assemblies package, has the property, that the <strong>generalized
 coordinates, and all other frames
 defined in the assembly, can be calculated given the movement of frame_a and
 of frame_b</strong>. This is performed by <strong>analytically</strong> solving non-linear
-systems of equations (details are given in section xxx). From a
+systems of equations.
+<!-- (details are given in section xxx). -->
+From a
 structural point of view, the equations in an assembly object are written in
 the form
 </p>
-<p align=\"left\">
+<blockquote>
   <strong>q</strong> = <strong>
   f</strong><sub>1</sub>(<strong>r</strong><sup>a</sup>, <strong>R</strong><sup>a</sup>, <strong>r</strong><sup>b</sup>,
   <strong>R</strong><sup>b</sup>)
-</p>
+</blockquote>
 <p>
-where <strong>r</strong><sup>a</sup>, <strong>R</strong><sup>a</sup>,<strong>
-r</strong><sup>b</sup>, <strong>R</strong><sup>b</sup> are the variables defining the
-position and orientation of the frame_a and frame_b connector,
+where <strong>r</strong><sup>a</sup>, <strong>R</strong><sup>a</sup>,
+<strong>r</strong><sup>b</sup>, <strong>R</strong><sup>b</sup> are the variables defining the
+position and orientation of the frame_a and frame_b, respectively, and
 <strong>q</strong> are the generalized positional coordinates inside the
 assembly, e.g., the angle of a revolute joint. Given angle
 <span style=\"font-family:Symbol\">j</span> of revolute joint j1 from the four
 bar mechanism, frame_a and frame_b of the assembly object can be computed by a
 forward recursion
 </p>
-<p align=\"left\">
+<blockquote>
 (<strong>r</strong><sup>a</sup>,
 <strong>R</strong><sup>a</sup>, <strong>r</strong><sup>b</sup>, <strong>R</strong><sup>b</sup>) = <strong>f</strong>(<span style=\"font-family:Symbol\">j)</span>
-</p>
+</blockquote>
 <p>
 Since this is a structural property, the
 symbolic algorithms can automatically select <span style=\"font-family:Symbol\">
@@ -528,35 +534,35 @@ combinations are listed in the table below.
         <td colspan=\"2\"> <strong>3-dimensional Loops:</strong></td>
       </tr>
       <tr>
-        <td valign=\"top\">JointSSR</td>
-        <td valign=\"top\">Spherical - Spherical - Revolute</td>
+        <td>JointSSR</td>
+        <td>Spherical - Spherical - Revolute</td>
       </tr>
       <tr>
-        <td valign=\"top\">JointSSP</td>
-        <td valign=\"top\">Spherical - Spherical - Prismatic</td>
+        <td>JointSSP</td>
+        <td>Spherical - Spherical - Prismatic</td>
       </tr>
       <tr>
-        <td valign=\"top\">JointUSR</td>
-        <td valign=\"top\">Universal - Spherical - Revolute</td>
+        <td>JointUSR</td>
+        <td>Universal - Spherical - Revolute</td>
       </tr>
       <tr>
-        <td valign=\"top\">JointUSP</td>
-        <td valign=\"top\">Universal - Spherical - Prismatic</td>
+        <td>JointUSP</td>
+        <td>Universal - Spherical - Prismatic</td>
       </tr>
       <tr>
-        <td valign=\"top\">JointUPS</td>
-        <td valign=\"top\">Universal - Prismatic - Spherical</td>
+        <td>JointUPS</td>
+        <td>Universal - Prismatic - Spherical</td>
       </tr>
       <tr>
         <td colspan=\"2\"><strong>Planar Loops:</strong></td>
       </tr>
       <tr>
-        <td valign=\"top\">JointRRR</td>
-        <td valign=\"top\">Revolute - Revolute - Revolute</td>
+        <td>JointRRR</td>
+        <td>Revolute - Revolute - Revolute</td>
       </tr>
       <tr>
-        <td valign=\"top\">JointRRP</td>
-        <td valign=\"top\">Revolute - Revolute - Prismatic</td>
+        <td>JointRRP</td>
+        <td>Revolute - Revolute - Prismatic</td>
       </tr>
 </table>
 </div>
@@ -575,22 +581,20 @@ and inertia of the rod is not significant.
 </p>
 <p>
 Let us discuss item (a) in more detail: The
-MacPherson suspension in the next figure
-is from the Modelica VehicleDynamics library.
+MacPherson suspension in the next figure has three frame connectors.
 </p>
 
-<p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/MacPherson1.png\">
-</p>
+<blockquote>
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/MacPherson1.png\">
+</blockquote>
 
 <p>
-It has three frame
-connectors. The lower left one (frame_C) is fixed in the vehicle chassis. The
-upper left one (frame_S) is driven by the steering mechanism, i.e., the
-movement of both frames are given. The frame connector on the right (frame_U)
+The lower left one (frameChassis) is fixed to the vehicle chassis. The
+upper left one (frameSteering) is driven by the steering mechanism, i.e. the
+movement of both frames are given. The frame connector on the right (frameWheel)
 drives the wheel. The three frames are connected by a mechanism consisting
 essentially of two rods with spherical joints on both ends. These are built up
-by a jointUPS and a jointSSR assembly.
+by a jointUPS and a jointSSR assemblies.
 As can be seen, the universal joint from the jointUPS
 assembly is connected to the revolute joint of the jointSSR assembly.
 Therefore, we have 3 revolute joints connected together at one point and if
@@ -599,17 +603,17 @@ joint. In other words, the two connected assemblies define the desired two
 rods with spherical joints on each ends.
 </p>
 <p>
-The movement of the chassis, frame_C, is computed
-somewhere else. When the generalized coordinates of revolute joint
-\"innerJoint\" (lower left part in figure) are used as states, then frame_a and
+The movement of the chassis, frameChassis, is computed
+outside of the suspension model. When the generalized coordinates of revolute joint
+\"jointArm\" (lower left part in figure) are used as states, then frame_a and
 frame_b of the jointUPS joint can be calculated. After the non-linear loop
 with jointUPS is (analytically) solved, all frames on this assembly are
 known, especially,
-the one connected to frame_b of the jointSSR assembly. Since frame_b of
-jointSSR is connected to frame_S which is computed from the steering
+the one connected to frame_b of the jointSSR assembly. Since frame_a of
+jointSSR is connected to frameSteering which is computed from the steering
 mechanism, again the two required frame movements of the jointSSR assembly are
-calculated, meaning in turn that also all other frames on the jointSSR
-assembly can be computed, especially, the one connected to frame_U that drives
+calculated. This in turn means that also all other frames on the jointSSR
+assembly can be computed, especially, the one connected to frameWheel that drives
 the wheel. From this analysis it is clear that a tool is able to solve these
 coupled loops analytically.
 </p>
@@ -619,21 +623,23 @@ see next figure for an animation view and the original definition
 of one cylinder with elementary joints.
 </p>
 
-<p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/EngineV6_3.png\" width=\"303\" height=\"136\">
+<blockquote>
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/EngineV6_3.png\" width=\"303\" height=\"136\">
+</blockquote>
 
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/EngineV6_2.png\">
-</p>
+<blockquote>
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/EngineV6_2.png\">
+</blockquote>
 
 <p>
-It is sufficient to rewrite the basic cylinder model
+Here, it is sufficient to rewrite the basic cylinder model
 by replacing the joints with a JointRRP object that has two
-revolute and one prismatic joint, see next figure.
+revolute and one prismatic joint, as can be seen in next figure.
 </p>
 
-<p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/EngineV6_4.png\">
-</p>
+<blockquote>
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/EngineV6_4.png\">
+</blockquote>
 
 <p>
 Since 6
@@ -647,19 +653,19 @@ The composition diagram of the connected 6 cylinders is
 shown in the next figure
 </p>
 
-<p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/EngineV6_1.png\">
-</p>
+<blockquote>
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/EngineV6_1.png\">
+</blockquote>
 <p>
 It can be seen that the revolute joint
 of the crank shaft (joint \"bearing\" in left part of figure) might be
-selected as degree of freedom. Then the 4 connector frames of all cylinders
-can be computed. As a result the computations of the cylinders are decoupled
+selected as degree of freedom. Then, the&nbsp;4 connector frames of all cylinders
+can be computed. As a result, the computations of the cylinders are decoupled
 from each other. Within one cylinder
 the position of frame_a and frame_b of the jointRRP assembly
 can be computed and therefore the generalized coordinates of the two revolute
-and the prismatic joint in the jointRRP object can be determined. From this
-analysis it is not surprising that a Modelica translator
+and the prismatic joint in the jointRRP object can be determined. Considering this
+analysis, it is not surprising that a Modelica translator
 is able to transform the DAE
 equations into a sequential evaluation without any non-linear loop.
 Compare this nice result with the model using only elementary joints
@@ -749,9 +755,9 @@ message will be something like: .
 </p></blockquote>
 
 <p>
-The two flags \"fixedRotationAtFrame_a\" and \"fixedRotationAtFrame_b must be very carefully
-set, because a wrong definition can lead to a model that simulates, but the simulation
-result is wrong. This is the case, whenever the movement of the resulting system depends
+The two flags \"fixedRotationAtFrame_a\" and \"fixedRotationAtFrame_b must be set very carefully
+because a wrong definition can lead to a model that simulates, but the simulation
+result is wrong. This is the case whenever the movement of the resulting system depends
 on the orientation object that was arbitrarily set in parallel to the world frame.
 A typical example is shown in the next figure:
 </p>
@@ -856,36 +862,36 @@ functions from library Modelica.Mechanics.MultiBody.Frames):
            Interfaces.Frame_a</strong></th>
     <th><strong>MultiBody.Interfaces.Frame_a</strong></th></tr>
 <tr>
-  <td valign=\"top\">frame_a.<strong>r0</strong></td>
-  <td valign=\"top\">= frame_a.r_0 (is converted)</td>
+  <td>frame_a.<strong>r0</strong></td>
+  <td>= frame_a.r_0 (is converted)</td>
 </tr>
 <tr>
-  <td valign=\"top\">frame_a.<strong>S</strong></td>
-  <td valign=\"top\">= transpose(frame_a.R)</td>
+  <td>frame_a.<strong>S</strong></td>
+  <td>= transpose(frame_a.R)</td>
 </tr>
 <tr>
-  <td valign=\"top\">frame_a.<strong>v</strong></td>
-  <td valign=\"top\">= resolve2(frame_a.R, <strong>der</strong>(frame_a.r_0))</td>
+  <td>frame_a.<strong>v</strong></td>
+  <td>= resolve2(frame_a.R, <strong>der</strong>(frame_a.r_0))</td>
 </tr>
 <tr>
-  <td valign=\"top\">frame_a.<strong>w</strong></td>
-  <td valign=\"top\">= angularVelocity2(frame_a.R)</td>
+  <td>frame_a.<strong>w</strong></td>
+  <td>= angularVelocity2(frame_a.R)</td>
 </tr>
 <tr>
-  <td valign=\"top\">frame_a.<strong>a</strong></td>
-  <td valign=\"top\">= resolve2(frame_a.R, <strong>der</strong>(v_0)); v_0 = der(r_0)</td>
+  <td>frame_a.<strong>a</strong></td>
+  <td>= resolve2(frame_a.R, <strong>der</strong>(v_0)); v_0 = der(r_0)</td>
 </tr>
 <tr>
-  <td valign=\"top\">frame_a.<strong>z</strong></td>
-  <td valign=\"top\">= <strong>der</strong>(w);  w = angulaVelocity2(frame_a.R)</td>
+  <td>frame_a.<strong>z</strong></td>
+  <td>= <strong>der</strong>(w);  w = angulaVelocity2(frame_a.R)</td>
 </tr>
 <tr>
-  <td valign=\"top\">frame_a.<strong>f</strong></td>
-  <td valign=\"top\">= frame_a.f (no conversion needed)</td>
+  <td>frame_a.<strong>f</strong></td>
+  <td>= frame_a.f (no conversion needed)</td>
 </tr>
 <tr>
-  <td valign=\"top\">frame_a.<strong>t</strong></td>
-  <td valign=\"top\">= frame_a.t (no conversion needed)</td>
+  <td>frame_a.<strong>t</strong></td>
+  <td>= frame_a.t (no conversion needed)</td>
 </tr>
 </table>
 <p>
@@ -923,8 +929,7 @@ calls in 0.99 should be changed:
 
     annotation (Documentation(info="<html>
 <ul>
-<li>Technical details of this library are described in the
-20 page paper:
+<li>Technical details of this library are described in the paper:
 <dl>
 <dt>Otter M., Elmqvist H., and Mattsson S.E.:</dt>
 <dd> <strong>The New Modelica MultiBody Library</strong>.
@@ -972,23 +977,24 @@ dynamical effects is described in:
     extends Modelica.Icons.Contact;
 
     annotation (Documentation(info="<html>
-<dl>
-<dt><strong>Library Officer:</strong></dt>
-<dd><a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a><br>
-    Deutsches Zentrum f&uuml;r Luft und Raumfahrt e.V. (DLR)<br>
-    Institut f&uuml;r Robotik und Mechatronik<br>
-    Abteilung f&uuml;r Entwurfsorientierte Regelungstechnik<br>
-    Postfach 1116<br>
-    D-82230 Wessling<br>
-    Germany<br>
-    email: <A HREF=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</A><br></dd>
-</dl>
-<p><strong>Acknowledgements:</strong></p>
+<h4>Library officers</h4>
+
+<p>
+<strong>Jakub Tobolar</strong> and <a href=\"http://www.robotic.dlr.de/Martin.Otter/\"><strong>Martin Otter</strong></a><br>
+Deutsches Zentrum f&uuml;r Luft- und Raumfahrt e.V. (DLR)<br>
+Institut f&uuml;r Systemdynamik und Regelungstechnik (DLR-SR)<br>
+Forschungszentrum Oberpfaffenhofen<br>
+D-82234 Wessling<br>
+Germany
+</p>
+
+<h4>Acknowledgements</h4>
+
 <ul>
 <li> The central idea to handle a certain class of overdetermined, consistent
      set of differential algebraic equations (i.e., there are more equations than
      unknowns) with symbolic transformation algorithms was developed together
-     with Hilding Elmqvist and Sven Erik Mattsson from Dassault Syst&egrave;mes AB, Lund, Sweden.
+     with Hilding Elmqvist and Sven Erik Mattsson, previously at Dassault Syst&egrave;mes AB, Lund, Sweden.
      The MultiBody library is heavily relying on this feature which is a
      prerequisite for a truly \"object-oriented\" multi-body systems library,
      where components can be connected together in any meaningful way.</li>
@@ -1042,6 +1048,7 @@ model World
 
   import Modelica.Mechanics.MultiBody.Types.GravityTypes;
   import Modelica.Mechanics.MultiBody.Types;
+  import Modelica.Constants.pi;
 
   Interfaces.Frame_b frame_b
     "Coordinate system fixed in the origin of the world frame"
@@ -1053,6 +1060,8 @@ model World
     "= true, if world coordinate system shall be visualized" annotation(Dialog(enable=enableAnimation));
   parameter Boolean animateGravity=true
     "= true, if gravity field shall be visualized (acceleration vector or field center)" annotation(Dialog(enable=enableAnimation));
+  parameter Boolean animateGround=false
+    "= true, if ground plane shall be visualized" annotation(Dialog(enable=enableAnimation));
   parameter Types.AxisLabel label1="x" "Label of horizontal axis in icon";
   parameter Types.AxisLabel label2="y" "Label of vertical axis in icon";
   parameter Types.GravityTypes gravityType=GravityTypes.UniformGravity
@@ -1114,6 +1123,26 @@ model World
           "if animateGravity = true and gravityType = PointGravity",
           enable=enableAnimation and animateGravity and gravityType == GravityTypes.PointGravity));
 
+  parameter MultiBody.Types.Axis groundAxis_u=if abs(n[1])>=0.99 then {0,1,0} else {1,0,0}
+    "Vector along 1st axis (called u) of ground plane, resolved in world frame (should be perpendicular to gravity direction)"
+    annotation (Dialog(
+      tab="Animation", group="if animateGround = true and gravityType = UniformGravity",
+      enable=enableAnimation and animateGround and gravityType == GravityTypes.UniformGravity));
+  parameter Modelica.SIunits.Length groundLength_u=2 "Length of ground plane along groundAxis_u"
+    annotation (Dialog(
+      tab="Animation", group="if animateGround = true and gravityType = UniformGravity",
+      enable=enableAnimation and animateGround and gravityType == GravityTypes.UniformGravity));
+  parameter Modelica.SIunits.Length groundLength_v=groundLength_u "Length of ground plane perpendicular to groundAxis_u"
+    annotation (Dialog(
+      tab="Animation", group="if animateGround = true and gravityType = UniformGravity",
+      enable=enableAnimation and animateGround and gravityType == GravityTypes.UniformGravity));
+  input Types.Color groundColor={200,200,200}
+    "Color of ground plane"
+    annotation (Dialog(
+      colorSelector=true,
+      tab="Animation", group="if animateGround = true and gravityType = UniformGravity",
+      enable=enableAnimation and animateGround and gravityType == GravityTypes.UniformGravity));
+
   parameter SI.Length nominalLength=1 "\"Nominal\" length of multi-body system"
     annotation (Dialog(tab="Defaults"));
   parameter SI.Length defaultAxisLength=nominalLength/5
@@ -1154,10 +1183,9 @@ model World
     annotation (Dialog(tab="Defaults"));
 
   replaceable function gravityAcceleration =
-       Modelica.Mechanics.MultiBody.Forces.Internal.standardGravityAcceleration
-      (    gravityType=gravityType, g=g*Modelica.Math.Vectors.normalizeWithAssert(n), mue=mue)
-       constrainedby
-    Modelica.Mechanics.MultiBody.Interfaces.partialGravityAcceleration
+       Modelica.Mechanics.MultiBody.Forces.Internal.standardGravityAcceleration (
+           gravityType=gravityType, g=g*Modelica.Math.Vectors.normalizeWithAssert(n), mue=mue)
+       constrainedby Modelica.Mechanics.MultiBody.Interfaces.partialGravityAcceleration
     "Function to compute the gravity acceleration, resolved in world frame"
        annotation(choicesAllMatching=true,Dialog(enable=gravityType==
                    Modelica.Mechanics.MultiBody.Types.GravityTypes.NoGravity),
@@ -1331,6 +1359,23 @@ protected
       mue=mue);
 */
 
+  // Ground plane visualization
+  Modelica.Mechanics.MultiBody.Visualizers.Advanced.Surface surface(
+    final multiColoredSurface=false,
+    final wireframe=false,
+    final color=groundColor,
+    final specularCoefficient=0,
+    final transparency=0,
+    final R=Modelica.Mechanics.MultiBody.Frames.absoluteRotation(
+      Modelica.Mechanics.MultiBody.Frames.from_nxy(n, groundAxis_u),
+      Modelica.Mechanics.MultiBody.Frames.axesRotations({1,2,3}, {pi/2,pi/2,0}, {0,0,0})),
+    final r_0=zeros(3),
+    final nu=2,
+    final nv=2,
+    redeclare function surfaceCharacteristic =
+      Modelica.Mechanics.MultiBody.Visualizers.Advanced.SurfaceCharacteristics.rectangle(
+      lu=groundLength_u, lv=groundLength_v)) if
+      enableAnimation and animateGround and gravityType == GravityTypes.UniformGravity;
 equation
   Connections.root(frame_b.R);
 
@@ -1418,9 +1463,9 @@ ground. This model serves several purposes:
      the center of mass of a body, or the diameters of the cylinders
      representing a revolute joint).</li>
 <li> It is used to define a <strong>visual representation</strong> of the
-     world model (= 3 coordinate axes with labels) and of the defined
-     gravity field.<br>
-    <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/world.png\" ALT=\"MultiBody.World\">
+     world model (= 3 coordinate axes with labels), of the defined
+     gravity field and of a ground plane perpendicular to the gravity direction.<br>
+    <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/world.png\" alt=\"MultiBody.World\">
 </li>
 </ul>
 <p>
@@ -1430,9 +1475,11 @@ from nearly every component, exactly one instance of model World needs
 to be present in every model on the top level. The basic declaration
 needs to be:
 </p>
-<pre>
-    <strong>inner</strong> Modelica.Mechanics.MultiBody.World world
-</pre>
+
+<blockquote><pre>
+<strong>inner</strong> Modelica.Mechanics.MultiBody.World world
+</pre></blockquote>
+
 <p>
 Note, it must be an <strong>inner</strong> declaration with instance name <strong>world</strong>
 in order that this world object can be accessed from all objects in the
@@ -1484,10 +1531,10 @@ For an introduction, have especially a look at:
 </ul>
 
 <p>
-Copyright &copy; 1998-2016, Modelica Association and DLR.
+Copyright &copy; 1998-2018, Modelica Association and DLR.
 </p>
 <p>
-<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</em>
+<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em>
 </p>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
             {100,100}}), graphics={

@@ -94,11 +94,11 @@ For more details, see <a href=\"http://en.wikipedia.org/wiki/Error_function\">Wi
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -178,11 +178,11 @@ see <a href=\"http://en.wikipedia.org/wiki/Error_function\">Wikipedia</a>.
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -264,11 +264,11 @@ For more details, see <a href=\"http://en.wikipedia.org/wiki/Error_function\">Wi
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -355,11 +355,11 @@ For more details, see <a href=\"http://en.wikipedia.org/wiki/Error_function\">Wi
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -384,11 +384,11 @@ For more details, see <a href=\"http://en.wikipedia.org/wiki/Error_function\">Wi
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -449,11 +449,11 @@ Evaluate a polynomial using Horner's scheme.
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -569,11 +569,11 @@ Utility function in order to compute part of erf(..) and erfc(..).
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -824,11 +824,11 @@ Utility function in order to compute erfInv(..) and erfcInv(..).
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -850,11 +850,11 @@ by the user.
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -877,11 +877,11 @@ cannot be expressed analytically.
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by

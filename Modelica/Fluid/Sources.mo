@@ -21,20 +21,19 @@ package Sources "Define fixed or prescribed boundary conditions"
     parameter Boolean use_T=true "select T or h"
       annotation (Evaluate = true,
                   Dialog(group = "Boundary temperature or Boundary specific enthalpy"));
-    parameter Medium.Temperature T=Medium.T_default "Boundary temperature"
+    parameter Medium.Temperature T = Medium.T_default "Boundary temperature"
       annotation (Dialog(group = "Boundary temperature or Boundary specific enthalpy",
                          enable = use_T));
-    parameter Medium.SpecificEnthalpy h=Medium.h_default
+    parameter Medium.SpecificEnthalpy h = Medium.h_default
       "Boundary specific enthalpy"
       annotation (Dialog(group="Boundary temperature or Boundary specific enthalpy",
                   enable = not use_T));
     parameter Medium.MassFraction X[Medium.nX](
-         quantity=Medium.substanceNames)=Medium.X_default
+         quantity=Medium.substanceNames) = Medium.X_default
       "Boundary mass fractions m_i/m"
       annotation (Dialog(group = "Only for multi-substance flow", enable=Medium.nXi > 0));
-
     parameter Medium.ExtraProperty C[Medium.nC](
-         quantity=Medium.extraPropertiesNames)=fill(0, Medium.nC)
+         quantity=Medium.extraPropertiesNames) = Medium.C_default
       "Boundary trace substances"
       annotation (Dialog(group = "Only for trace-substance flow", enable=Medium.nC > 0));
   protected
@@ -155,7 +154,7 @@ with exception of boundary pressure, do not have an effect.
       annotation (Evaluate = true,
                   Dialog(enable = (not use_X_in) and Medium.nXi > 0));
     parameter Medium.ExtraProperty C[Medium.nC](
-         quantity=Medium.extraPropertiesNames)=fill(0, Medium.nC)
+         quantity=Medium.extraPropertiesNames) = Medium.C_default
       "Fixed values of trace substances"
       annotation (Evaluate=true,
                   Dialog(enable = (not use_C_in) and Medium.nC > 0));
@@ -303,7 +302,7 @@ with exception of boundary pressure, do not have an effect.
       annotation (Evaluate = true,
                   Dialog(enable = (not use_X_in) and Medium.nXi > 0));
     parameter Medium.ExtraProperty C[Medium.nC](
-         quantity=Medium.extraPropertiesNames)=fill(0, Medium.nC)
+         quantity=Medium.extraPropertiesNames) = Medium.C_default
       "Fixed values of trace substances"
       annotation (Evaluate=true,
                   Dialog(enable = (not use_C_in) and Medium.nC > 0));
@@ -451,7 +450,7 @@ with exception of boundary pressure, do not have an effect.
       annotation (Evaluate = true,
                   Dialog(enable = (not use_X_in) and Medium.nXi > 0));
     parameter Medium.ExtraProperty C[Medium.nC](
-         quantity=Medium.extraPropertiesNames)=fill(0, Medium.nC)
+         quantity=Medium.extraPropertiesNames) = Medium.C_default
       "Fixed values of trace substances"
       annotation (Evaluate=true,
                   Dialog(enable = (not use_C_in) and Medium.nC > 0));
@@ -604,7 +603,7 @@ with exception of boundary flow rate, do not have an effect.
       annotation (Evaluate = true,
                   Dialog(enable = (not use_X_in) and Medium.nXi > 0));
     parameter Medium.ExtraProperty C[Medium.nC](
-         quantity=Medium.extraPropertiesNames)=fill(0, Medium.nC)
+         quantity=Medium.extraPropertiesNames) = Medium.C_default
       "Fixed values of trace substances"
       annotation (Evaluate=true,
                   Dialog(enable = (not use_C_in) and Medium.nC > 0));

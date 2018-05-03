@@ -33,7 +33,7 @@ model EngineV6_analytic
     useSupport=false)
              annotation (Placement(transformation(extent={{90,10},{70,30}})));
   Rotational.Sensors.TorqueSensor torqueSensor
-    annotation (Placement(transformation(extent={{12,10},{32,30}})));
+    annotation (Placement(transformation(extent={{10,10},{30,30}})));
   Blocks.Continuous.CriticalDamping filter(
     n=2,
     initType=Modelica.Blocks.Types.Init.SteadyState,
@@ -48,11 +48,11 @@ equation
   connect(load2.flange, load.flange_b)
     annotation (Line(points={{70,20},{60,20}}));
   connect(torqueSensor.flange_a, engine.flange_b)
-    annotation (Line(points={{12,20},{2,20}}));
+    annotation (Line(points={{10,20},{2,20}}));
   connect(torqueSensor.flange_b, load.flange_a)
-    annotation (Line(points={{32,20},{40,20}}));
-  connect(torqueSensor.tau, filter.u) annotation (Line(points={{14,9},{14,-10},
-          {28,-10}}, color={0,0,127}));
+    annotation (Line(points={{30,20},{40,20}}));
+  connect(torqueSensor.tau, filter.u) annotation (Line(points={{12,9},{12,-10},{28,-10}},
+                     color={0,0,127}));
   annotation (
     Documentation(info="<html>
 <p>
@@ -64,7 +64,7 @@ mass of the crank shaft:
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Loops/EngineV6_CAD_small.png\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Loops/EngineV6_CAD_small.png\">
 </p>
 
 <p>

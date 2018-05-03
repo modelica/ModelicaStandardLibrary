@@ -98,14 +98,14 @@ coordinates shall be resolved:
 
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th><strong>Types.ResolveInFrameB.</strong></th><th><strong>Meaning</strong></th></tr>
-<tr><td valign=\"top\">world</td>
-    <td valign=\"top\">Resolve input force in world frame (= default)</td></tr>
+<tr><td>world</td>
+    <td>Resolve input force in world frame (= default)</td></tr>
 
-<tr><td valign=\"top\">frame_b</td>
-    <td valign=\"top\">Resolve input force in frame_b</td></tr>
+<tr><td>frame_b</td>
+    <td>Resolve input force in frame_b</td></tr>
 
-<tr><td valign=\"top\">frame_resolve</td>
-    <td valign=\"top\">Resolve input force in frame_resolve (frame_resolve must be connected)</td></tr>
+<tr><td>frame_resolve</td>
+    <td>Resolve input force in frame_resolve (frame_resolve must be connected)</td></tr>
 </table>
 
 <p>
@@ -143,7 +143,7 @@ following figure:
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/WorldForce1.png\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/WorldForce1.png\">
 </p>
 
 <p>
@@ -151,7 +151,7 @@ This leads to the following animation
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/WorldForce2.png\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/WorldForce2.png\">
 </p>
 
 </html>"));
@@ -235,14 +235,14 @@ coordinates shall be resolved:
 
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th><strong>Types.ResolveInFrameB.</strong></th><th><strong>Meaning</strong></th></tr>
-<tr><td valign=\"top\">world</td>
-    <td valign=\"top\">Resolve input torque in world frame (= default)</td></tr>
+<tr><td>world</td>
+    <td>Resolve input torque in world frame (= default)</td></tr>
 
-<tr><td valign=\"top\">frame_b</td>
-    <td valign=\"top\">Resolve input torque in frame_b</td></tr>
+<tr><td>frame_b</td>
+    <td>Resolve input torque in frame_b</td></tr>
 
-<tr><td valign=\"top\">frame_resolve</td>
-    <td valign=\"top\">Resolve input torque in frame_resolve (frame_resolve must be connected)</td></tr>
+<tr><td>frame_resolve</td>
+    <td>Resolve input torque in frame_resolve (frame_resolve must be connected)</td></tr>
 </table>
 
 <p>
@@ -280,7 +280,7 @@ following figure:
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/WorldTorque1.png\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/WorldTorque1.png\">
 </p>
 
 <p>
@@ -288,7 +288,7 @@ This leads to the following animation
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/WorldTorque2.png\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/WorldTorque2.png\">
 </p>
 
 </html>"), Icon(coordinateSystem(
@@ -468,14 +468,14 @@ coordinates shall be resolved:
 
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th><strong>Types.ResolveInFrameB.</strong></th><th><strong>Meaning</strong></th></tr>
-<tr><td valign=\"top\">world</td>
-    <td valign=\"top\">Resolve input force and torque in world frame (= default)</td></tr>
+<tr><td>world</td>
+    <td>Resolve input force and torque in world frame (= default)</td></tr>
 
-<tr><td valign=\"top\">frame_b</td>
-    <td valign=\"top\">Resolve input force and torque in frame_b</td></tr>
+<tr><td>frame_b</td>
+    <td>Resolve input force and torque in frame_b</td></tr>
 
-<tr><td valign=\"top\">frame_resolve</td>
-    <td valign=\"top\">Resolve input force and torque in frame_resolve
+<tr><td>frame_resolve</td>
+    <td>Resolve input force and torque in frame_resolve
                     (frame_resolve must be connected)</td></tr>
 </table>
 
@@ -516,7 +516,7 @@ following figure:
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/WorldForceAndTorque1.png\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/WorldForceAndTorque1.png\">
 </p>
 
 <p>
@@ -524,7 +524,7 @@ This leads to the following animation
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/WorldForceAndTorque2.png\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/WorldForceAndTorque2.png\">
 </p>
 
 </html>"));
@@ -661,17 +661,17 @@ coordinates shall be resolved:
 
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th><strong>Types.ResolveInFrameAB.</strong></th><th><strong>Meaning</strong></th></tr>
-<tr><td valign=\"top\">world</td>
-    <td valign=\"top\">Resolve input force in world frame</td></tr>
+<tr><td>world</td>
+    <td>Resolve input force in world frame</td></tr>
 
-<tr><td valign=\"top\">frame_a</td>
-    <td valign=\"top\">Resolve input force in frame_a</td></tr>
+<tr><td>frame_a</td>
+    <td>Resolve input force in frame_a</td></tr>
 
-<tr><td valign=\"top\">frame_b</td>
-    <td valign=\"top\">Resolve input force in frame_b (= default)</td></tr>
+<tr><td>frame_b</td>
+    <td>Resolve input force in frame_b (= default)</td></tr>
 
-<tr><td valign=\"top\">frame_resolve</td>
-    <td valign=\"top\">Resolve input force in frame_resolve (frame_resolve must be connected)</td></tr>
+<tr><td>frame_resolve</td>
+    <td>Resolve input force in frame_resolve (frame_resolve must be connected)</td></tr>
 </table>
 
 <p>
@@ -697,7 +697,7 @@ following figure:
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/Force1.png\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/Force1.png\">
 </p>
 
 <p>
@@ -709,7 +709,7 @@ clarity this is not shown in the animation):
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/Force2.png\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/Force2.png\">
 </p>
 
 </html>"));
@@ -848,17 +848,17 @@ coordinates shall be resolved:
 
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th><strong>Types.ResolveInFrameAB.</strong></th><th><strong>Meaning</strong></th></tr>
-<tr><td valign=\"top\">world</td>
-    <td valign=\"top\">Resolve input torque in world frame</td></tr>
+<tr><td>world</td>
+    <td>Resolve input torque in world frame</td></tr>
 
-<tr><td valign=\"top\">frame_a</td>
-    <td valign=\"top\">Resolve input torque in frame_a</td></tr>
+<tr><td>frame_a</td>
+    <td>Resolve input torque in frame_a</td></tr>
 
-<tr><td valign=\"top\">frame_b</td>
-    <td valign=\"top\">Resolve input torque in frame_b (= default)</td></tr>
+<tr><td>frame_b</td>
+    <td>Resolve input torque in frame_b (= default)</td></tr>
 
-<tr><td valign=\"top\">frame_resolve</td>
-    <td valign=\"top\">Resolve input torque in frame_resolve (frame_resolve must be connected)</td></tr>
+<tr><td>frame_resolve</td>
+    <td>Resolve input torque in frame_resolve (frame_resolve must be connected)</td></tr>
 </table>
 
 <p>
@@ -884,7 +884,7 @@ following figure:
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/Torque1.png\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/Torque1.png\">
 </p>
 
 <p>
@@ -896,7 +896,7 @@ clarity this is not shown in the animation):
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/Torque2.png\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/Torque2.png\">
 </p>
 
 </html>"));
@@ -1102,17 +1102,17 @@ coordinates shall be resolved:
 
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th><strong>Types.ResolveInFrameAB.</strong></th><th><strong>Meaning</strong></th></tr>
-<tr><td valign=\"top\">world</td>
-    <td valign=\"top\">Resolve input force/torque in world frame</td></tr>
+<tr><td>world</td>
+    <td>Resolve input force/torque in world frame</td></tr>
 
-<tr><td valign=\"top\">frame_a</td>
-    <td valign=\"top\">Resolve input force/torque in frame_a</td></tr>
+<tr><td>frame_a</td>
+    <td>Resolve input force/torque in frame_a</td></tr>
 
-<tr><td valign=\"top\">frame_b</td>
-    <td valign=\"top\">Resolve input force/torque in frame_b (= default)</td></tr>
+<tr><td>frame_b</td>
+    <td>Resolve input force/torque in frame_b (= default)</td></tr>
 
-<tr><td valign=\"top\">frame_resolve</td>
-    <td valign=\"top\">Resolve input force/torque in frame_resolve (frame_resolve must be connected)</td></tr>
+<tr><td>frame_resolve</td>
+    <td>Resolve input force/torque in frame_resolve (frame_resolve must be connected)</td></tr>
 </table>
 
 <p>
@@ -1137,7 +1137,7 @@ following figure:
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/ForceAndTorque1.png\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/ForceAndTorque1.png\">
 </p>
 
 <p>
@@ -1150,7 +1150,7 @@ clarity this is not shown in the animation):
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/ForceAndTorque2.png\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/ForceAndTorque2.png\">
 </p>
 
 </html>"));
@@ -1816,7 +1816,7 @@ is displayed in the figure below.
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/LineForceWithTwoMasses1.png\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/LineForceWithTwoMasses1.png\">
 </p>
 
 <p>
@@ -1829,7 +1829,7 @@ with the LineForceWithTwoMasses component is simpler.
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/LineForceWithTwoMasses2.png\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/LineForceWithTwoMasses2.png\">
 </p>
 
 <p>
@@ -2001,8 +2001,8 @@ spring characterizes the location of the point mass.
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/SpringWithMass.png\"
-ALT=\"model Examples.Elementary.SpringWithMass\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/SpringWithMass.png\"
+alt=\"model Examples.Elementary.SpringWithMass\">
 </p>
 
 </html>"));
@@ -2083,7 +2083,7 @@ where a mass is hanging on a damper.
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/Damper.png\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/Damper.png\">
 </p>
 
 </html>"),
@@ -2563,17 +2563,17 @@ coordinates shall be resolved:
 
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th><strong>Types.ResolveInFrameAB.</strong></th><th><strong>Meaning</strong></th></tr>
-<tr><td valign=\"top\">world</td>
-    <td valign=\"top\">Resolve input force in world frame</td></tr>
+<tr><td>world</td>
+    <td>Resolve input force in world frame</td></tr>
 
-<tr><td valign=\"top\">frame_a</td>
-    <td valign=\"top\">Resolve input force in frame_a</td></tr>
+<tr><td>frame_a</td>
+    <td>Resolve input force in frame_a</td></tr>
 
-<tr><td valign=\"top\">frame_b</td>
-    <td valign=\"top\">Resolve input force in frame_b (= default)</td></tr>
+<tr><td>frame_b</td>
+    <td>Resolve input force in frame_b (= default)</td></tr>
 
-<tr><td valign=\"top\">frame_resolve</td>
-    <td valign=\"top\">Resolve input force in frame_resolve (frame_resolve must be connected)</td></tr>
+<tr><td>frame_resolve</td>
+    <td>Resolve input force in frame_resolve (frame_resolve must be connected)</td></tr>
 </table>
 
 <p>
@@ -2689,17 +2689,17 @@ coordinates shall be resolved:
 
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th><strong>Types.ResolveInFrameAB.</strong></th><th><strong>Meaning</strong></th></tr>
-<tr><td valign=\"top\">world</td>
-    <td valign=\"top\">Resolve input torque in world frame</td></tr>
+<tr><td>world</td>
+    <td>Resolve input torque in world frame</td></tr>
 
-<tr><td valign=\"top\">frame_a</td>
-    <td valign=\"top\">Resolve input torque in frame_a</td></tr>
+<tr><td>frame_a</td>
+    <td>Resolve input torque in frame_a</td></tr>
 
-<tr><td valign=\"top\">frame_b</td>
-    <td valign=\"top\">Resolve input torque in frame_b (= default)</td></tr>
+<tr><td>frame_b</td>
+    <td>Resolve input torque in frame_b (= default)</td></tr>
 
-<tr><td valign=\"top\">frame_resolve</td>
-    <td valign=\"top\">Resolve input torque in frame_resolve (frame_resolve must be connected)</td></tr>
+<tr><td>frame_resolve</td>
+    <td>Resolve input torque in frame_resolve (frame_resolve must be connected)</td></tr>
 </table>
 
 <p>
@@ -2789,14 +2789,14 @@ coordinates shall be resolved:
 
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th><strong>Types.ResolveInFrameB.</strong></th><th><strong>Meaning</strong></th></tr>
-<tr><td valign=\"top\">world</td>
-    <td valign=\"top\">Resolve input force in world frame (= default)</td></tr>
+<tr><td>world</td>
+    <td>Resolve input force in world frame (= default)</td></tr>
 
-<tr><td valign=\"top\">frame_b</td>
-    <td valign=\"top\">Resolve input force in frame_b</td></tr>
+<tr><td>frame_b</td>
+    <td>Resolve input force in frame_b</td></tr>
 
-<tr><td valign=\"top\">frame_resolve</td>
-    <td valign=\"top\">Resolve input force in frame_resolve (frame_resolve must be connected)</td></tr>
+<tr><td>frame_resolve</td>
+    <td>Resolve input force in frame_resolve (frame_resolve must be connected)</td></tr>
 </table>
 
 <p>
@@ -2897,14 +2897,14 @@ coordinates shall be resolved:
 
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th><strong>Types.ResolveInFrameB.</strong></th><th><strong>Meaning</strong></th></tr>
-<tr><td valign=\"top\">world</td>
-    <td valign=\"top\">Resolve input torque in world frame (= default)</td></tr>
+<tr><td>world</td>
+    <td>Resolve input torque in world frame (= default)</td></tr>
 
-<tr><td valign=\"top\">frame_b</td>
-    <td valign=\"top\">Resolve input torque in frame_b</td></tr>
+<tr><td>frame_b</td>
+    <td>Resolve input torque in frame_b</td></tr>
 
-<tr><td valign=\"top\">frame_resolve</td>
-    <td valign=\"top\">Resolve input torque in frame_resolve (frame_resolve must be connected)</td></tr>
+<tr><td>frame_resolve</td>
+    <td>Resolve input torque in frame_resolve (frame_resolve must be connected)</td></tr>
 </table>
 
 <p>
@@ -2977,69 +2977,69 @@ between two frame connectors, e.g., between two parts.
 <h4>Content</h4>
 <table border=1 cellspacing=0 cellpadding=2>
   <tr><th><strong><em>Model</em></strong></th><th><strong><em>Description</em></strong></th></tr>
-  <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Forces.WorldForce\">WorldForce</a></td>
-      <td valign=\"top\"> External force acting at the frame to which this component
+  <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Forces.WorldForce\">WorldForce</a></td>
+      <td> External force acting at the frame to which this component
            is connected and defined by 3 input signals,
-           that are interpreted as one vector resolved in frame world, frame_b or frame_resolve. <br>
-           <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/ArrowForce.png\"></td>
+           that are interpreted as one vector resolved in frame world, frame_b or frame_resolve.<br>
+           <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/ArrowForce.png\"></td>
   </tr>
-  <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Forces.WorldTorque\">WorldTorque</a></td>
-      <td valign=\"top\"> External torque acting at the frame to which this component
+  <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Forces.WorldTorque\">WorldTorque</a></td>
+      <td> External torque acting at the frame to which this component
            is connected and defined by 3 input signals,
-           that are interpreted as one vector resolved in frame world, frame_b or frame_resolve. <br>
-           <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/ArrowTorque.png\"></td>
+           that are interpreted as one vector resolved in frame world, frame_b or frame_resolve.<br>
+           <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/ArrowTorque.png\"></td>
   </tr>
-  <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Forces.WorldForceAndTorque\">WorldForceAndTorque</a></td>
-      <td valign=\"top\"> External force and external torque acting at the frame
+  <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Forces.WorldForceAndTorque\">WorldForceAndTorque</a></td>
+      <td> External force and external torque acting at the frame
            to which this component
            is connected and defined by 3+3 input signals,
            that are interpreted as a force and as a torque vector
-           resolved in frame world, frame_b or frame_resolve. <br>
-           <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/ArrowForce.png\"><br>
-           <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/ArrowTorque.png\">
+           resolved in frame world, frame_b or frame_resolve.<br>
+           <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/ArrowForce.png\"><br>
+           <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/ArrowTorque.png\">
       </td>
   </tr>
-  <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Forces.Force\">Force</a></td>
-      <td valign=\"top\"> Force acting between two frames defined by 3 input signals
-           resolved in frame world, frame_a, frame_b or in frame_resolve. <br>
-           <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/ArrowForce2.png\"></td>
+  <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Forces.Force\">Force</a></td>
+      <td> Force acting between two frames defined by 3 input signals
+           resolved in frame world, frame_a, frame_b or in frame_resolve.<br>
+           <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/ArrowForce2.png\"></td>
   </tr>
-  <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Forces.Torque\">Torque</a></td>
-      <td valign=\"top\"> Torque acting between two frames defined by 3 input signals
-           resolved in frame world, frame_a, frame_b or in frame_resolve. <br>
-           <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/ArrowTorque2.png\"></td>
+  <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Forces.Torque\">Torque</a></td>
+      <td> Torque acting between two frames defined by 3 input signals
+           resolved in frame world, frame_a, frame_b or in frame_resolve.<br>
+           <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/ArrowTorque2.png\"></td>
   </tr>
-  <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Forces.ForceAndTorque\">ForceAndTorque</a></td>
-      <td valign=\"top\"> Force and torque acting between two frames defined by 3+3 input signals
-           resolved in frame world, frame_a, frame_b or in frame_resolve. <br>
-           <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/ArrowForce2.png\"><br>
-           <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/ArrowTorque2.png\"></td>
+  <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Forces.ForceAndTorque\">ForceAndTorque</a></td>
+      <td> Force and torque acting between two frames defined by 3+3 input signals
+           resolved in frame world, frame_a, frame_b or in frame_resolve.<br>
+           <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/ArrowForce2.png\"><br>
+           <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/ArrowTorque2.png\"></td>
   </tr>
-  <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Forces.LineForceWithMass\">LineForceWithMass</a></td>
-      <td valign=\"top\">  General line force component with an optional point mass
+  <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Forces.LineForceWithMass\">LineForceWithMass</a></td>
+      <td>  General line force component with an optional point mass
             on the connection line. The force law can be defined by a
             component of Modelica.Mechanics.Translational<br>
-           <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/LineForceWithMass.png\"></td>
+           <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/LineForceWithMass.png\"></td>
   </tr>
-  <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Forces.LineForceWithTwoMasses\">LineForceWithTwoMasses</a></td>
-      <td valign=\"top\">  General line force component with two optional point masses
+  <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Forces.LineForceWithTwoMasses\">LineForceWithTwoMasses</a></td>
+      <td>  General line force component with two optional point masses
             on the connection line. The force law can be defined by a
             component of Modelica.Mechanics.Translational<br>
-           <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/LineForceWithTwoMasses.png\"></td>
+           <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/LineForceWithTwoMasses.png\"></td>
   </tr>
-  <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Forces.Spring\">Spring</a></td>
-      <td valign=\"top\"> Linear translational spring with optional mass <br>
-           <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/Spring2.png\"></td>
+  <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Forces.Spring\">Spring</a></td>
+      <td> Linear translational spring with optional mass<br>
+           <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/Spring2.png\"></td>
   </tr>
-  <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Forces.Damper\">Damper</a></td>
-      <td valign=\"top\"> Linear (velocity dependent) damper <br>
-           <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/Damper2.png\"></td>
+  <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Forces.Damper\">Damper</a></td>
+      <td> Linear (velocity dependent) damper<br>
+           <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/Damper2.png\"></td>
   </tr>
-  <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Forces.SpringDamperParallel\">SpringDamperParallel</a></td>
-      <td valign=\"top\"> Linear spring and damper in parallel connection </td>
+  <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Forces.SpringDamperParallel\">SpringDamperParallel</a></td>
+      <td> Linear spring and damper in parallel connection </td>
   </tr>
-  <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Forces.SpringDamperSeries\">SpringDamperSeries</a></td>
-      <td valign=\"top\"> Linear spring and damper in series connection </td>
+  <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Forces.SpringDamperSeries\">SpringDamperSeries</a></td>
+      <td> Linear spring and damper in series connection </td>
   </tr>
 </table>
 </html>"));

@@ -227,7 +227,7 @@ Fluid.Dissipation was improved for the release as follows:
 </p>
 
 <ul>
-<li> Changed flow models structure: <br>
+<li> Changed flow models structure:<br>
 Now that a future feature for the automatic choice of using either a mass flow rate (compressible case) or a pressure loss (incompressible case) function for calculation is supported if implemented by IDE. Due to that no manual selection of a compressible or incompressible calculation in the Modelica.Fluid flow models is possible anymore. Therefore nonlinear equations will be created from the Modelica.Fluid flow models, if the future feature is not supported and the mass flow rate is known at a fluid port instead of the pressure loss.
 </li>
 <li> Changed structure and amount of records used as input for function calls due to
@@ -265,14 +265,17 @@ Initial release of Fluid.Dissipation.
   class Contact "Contact"
     extends Modelica.Icons.Contact;
       annotation (Documentation(info="<html>
-<dl>
-<dt>Maintainer and co-author:</dt>
-<dd>Stefan Wischhusen<br />
-    XRG Simulation GmbH<br />
-    Hamburg, Germany<br />
-    email: <A HREF=\"mailto:wischhusen@xrg-simulation.de\">wischhusen@xrg-simulation.de</A></dd>
-</dl>
-<h4>  Acknowledgements </h4>
+<h4>Library officer and co-author</h4>
+
+<p>
+<strong>Stefan Wischhusen</strong><br>
+    XRG Simulation GmbH<br>
+    Hamburg, Germany<br>
+    email: <a href=\"mailto:wischhusen@xrg-simulation.de\">wischhusen@xrg-simulation.de</a>
+</p>
+
+<h4>Acknowledgements</h4>
+
 <p>
 The following people contributed to the Modelica.Fluid.Dissipation library (alphabetical list):
 J&ouml;rg Eiden, Ole Engel, Nina Peci, Sven Rutkowski, Thorben Vahlenkamp, Stefan
@@ -371,7 +374,7 @@ reference 01IS07022B). The project was started in October 2007 and ended in June
         end for;
       annotation(Inline=false, Documentation(info="<html>
 <p>Calculation of the mean convective heat transfer coefficient <strong>kc </strong>for a laminar fluid flow through an even gap at different fluid flow and heat transfer situations. Note that additionally a failure status is observed in this function to check if the intended boundary conditions are fulfilled.
-<a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Channel.kc_evenGapLaminar\">See more information.</a> </p>
+<a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Channel.kc_evenGapLaminar\">See more information.</a></p>
 </html>"), smoothOrder(normallyConstant=IN_con) = 2);
       end kc_evenGapLaminar;
 
@@ -786,7 +789,7 @@ This record is used as <strong> input record </strong> for the heat transfer fun
     annotation (preferredView="info", Documentation(info="<html>
 <h4>Even gap</h4>
 <h5>Laminar flow</h5>
-<p>Calculation of the mean convective heat transfer coefficient <strong>kc </strong>for a laminar fluid flow through an even gap at different fluid flow and heat transfer situations. <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Channel.kc_evenGapLaminar\">See more information.</a> </p>
+<p>Calculation of the mean convective heat transfer coefficient <strong>kc </strong>for a laminar fluid flow through an even gap at different fluid flow and heat transfer situations. <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Channel.kc_evenGapLaminar\">See more information.</a></p>
 
 <h5>Turbulent flow</h5>
 <p>Calculation of the mean convective heat transfer coefficient <strong>kc </strong>for a laminar fluid flow through an even gap at different fluid flow and heat transfer situations. <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Channel.kc_evenGapTurbulent\">See more information.</a></p>
@@ -980,7 +983,7 @@ This record is used as <strong> input record </strong> for the heat transfer fun
     annotation (preferredView="info", Documentation(info="<html>
 <h4>General heat transfer</h4>
 <h5>Approximated forced convection</h5>
-<p>Approximate calculation of the mean convective heat transfer coefficient <strong> kc </strong> for forced convection with a fully developed fluid flow in a turbulent regime. <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.General.kc_approxForcedConvection\">See more information.</a> </p>
+<p>Approximate calculation of the mean convective heat transfer coefficient <strong> kc </strong> for forced convection with a fully developed fluid flow in a turbulent regime. <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.General.kc_approxForcedConvection\">See more information.</a></p>
 </html>"));
     end General;
 
@@ -6188,7 +6191,7 @@ You can perform an inverse calculation from <strong>kc_evenGapLaminar_KC</strong
    <ul>
    <li> heat transfer from one side of the gap (target=Modelica.Fluid.Dissipation.Utilities.Types.kc_evenGap.UndevOne)
        <ul>
-       <li> Prandtl number 0.1 &le; Pr &le; 10 </li>
+       <li> Prandtl number 0.1 &le; Pr &le; 10</li>
        </ul></li>
    <li> heat transfer from both sides of the gap (target=Modelica.Fluid.Dissipation.Utilities.Types.kc_evenGap.UndevBoth)
        <ul>
@@ -6326,18 +6329,18 @@ You can perform an inverse calculation from <strong>kc_evenGapOverall_KC</strong
 <ul>
 <li> developed fluid flow
    <ul>
-   <li> heat transfer from one side of the gap (target=Modelica.Fluid.Dissipation.Utilities.Types.kc_evenGap.DevOne) </li>
-   <li> heat transfer from both sides of the gap (target=Modelica.Fluid.Dissipation.Utilities.Types.kc_evenGap.DevBoth) </li>
+   <li> heat transfer from one side of the gap (target=Modelica.Fluid.Dissipation.Utilities.Types.kc_evenGap.DevOne)</li>
+   <li> heat transfer from both sides of the gap (target=Modelica.Fluid.Dissipation.Utilities.Types.kc_evenGap.DevBoth)</li>
    </ul></li>
 <li> undeveloped fluid flow
    <ul>
    <li> heat transfer from one side of the gap (target=Modelica.Fluid.Dissipation.Utilities.Types.kc_evenGap.UndevOne)
        <ul>
-       <li> Prandtl number 0.1 &le; Pr &le; 10 </li>
+       <li> Prandtl number 0.1 &le; Pr &le; 10</li>
        </ul></li>
    <li> heat transfer from both sides of the gap (target=Modelica.Fluid.Dissipation.Utilities.Types.kc_evenGap.UndevBoth)
    <ul>
-       <li> Prandtl number 0.1 &le; Pr &le; 1000 </li>
+       <li> Prandtl number 0.1 &le; Pr &le; 1000</li>
        </ul></li>
    </ul></li>
 <li> turbulent regime always calculated for developed fluid flow and heat transfer from both sides of the gap (target=Modelica.Fluid.Dissipation.Utilities.Types.kc_evenGap.DevBoth)</li>
@@ -6410,7 +6413,7 @@ You can perform an inverse calculation from <strong>kc_evenGapTurbulent_KC</stro
 <ul>
 <li> identical and constant wall temperatures</li>
 <li> hydraulic diameter per gap length (d_hyd / L) &le; 1</li>
-<li> 0.5 &le; Prandtl number Pr &le; 100) </li>
+<li> 0.5 &le; Prandtl number Pr &le; 100)</li>
 <li> turbulent regime (3e4 &le; Reynolds number &le; 1e6)</li>
 <li> developed fluid flow</li>
 <li> heat transfer from both sides of the gap (target = Modelica.Fluid.Dissipation.Utilities.Types.kc_evenGap.DevBoth)</li>
@@ -6520,14 +6523,14 @@ You can perform an inverse calculation from <strong>kc_approxForcedConvection_KC
 <h4>Restriction</h4>
 
 <ul>
-<li> Constant wall temperature <strong> or </strong> constant heat flux
-<li> Turbulent regime (Reynolds number 2500 &lt; Re &lt; 1e6)
-<li> Prandtl number 0.5 &le; Pr &le; 500
+<li> Constant wall temperature <strong> or </strong> constant heat flux</li>
+<li> Turbulent regime (Reynolds number 2500 &lt; Re &lt; 1e6)</li>
+<li> Prandtl number 0.5 &le; Pr &le; 500</li>
 </ul>
 
 <h4>Calculation</h4>
 <p>
-The mean convective heat transfer coefficient <strong> kc </strong> is approximated through different Nusselt number <strong> Nu </strong> correlations out of <em>[Bejan 2003, p. 424 ff]</em>. <br>
+The mean convective heat transfer coefficient <strong> kc </strong> is approximated through different Nusselt number <strong> Nu </strong> correlations out of <em>[Bejan 2003, p. 424 ff]</em>.<br>
 Roughest approximation according to Dittus/Boelter (1930):
 </p>
 <pre>
@@ -6639,8 +6642,8 @@ You can perform an inverse calculation from <strong>kc_flatTube_KC</strong>, whe
 
 <h4>Restriction</h4>
 <ul>
-<li> According to the kind of fin geometry the calculation is valid in a range of <strong> Re</strong> from 100 to 5000. </li>
-<li> medium = air </li>
+<li> According to the kind of fin geometry the calculation is valid in a range of <strong> Re</strong> from 100 to 5000.</li>
+<li> medium = air</li>
 </ul>
 
 <h4>Geometry </h4>
@@ -6736,8 +6739,8 @@ You can perform an inverse calculation from <strong>kc_roundTube_KC</strong>, wh
 
 <h4>Restriction</h4>
 <ul>
-<li> According to the kind of fin geometry the calculation is valid in a range of <strong> Re</strong> from 300 to 8000. </li>
-<li> medium = air </li>
+<li> According to the kind of fin geometry the calculation is valid in a range of <strong> Re</strong> from 300 to 8000.</li>
+<li> medium = air</li>
 </ul>
 
 <h4>Geometry </h4>
@@ -6831,8 +6834,8 @@ You can perform an inverse calculation from <strong>kc_laminar_KC</strong>, wher
 <h4>Restriction</h4>
 
 <ul>
-  <li> laminar regime (Reynolds number &le; critical Reynolds number <strong> Re_crit</strong>) </li>
-  <li> neglect influence of heat transfer direction (heating/cooling) according to <em>Sieder and Tate </em> </li>
+  <li> laminar regime (Reynolds number &le; critical Reynolds number <strong> Re_crit</strong>)</li>
+  <li> neglect influence of heat transfer direction (heating/cooling) according to <em>Sieder and Tate </em></li>
 </ul>
 
 <p>
@@ -7495,11 +7498,11 @@ You can perform an inverse calculation from <strong>kc_overall_KC</strong>, wher
 
 <h4>Restriction</h4>
 <ul>
-<li> circular cross sectional area </li>
-<li> uniform wall temperature (UWT) <strong> or </strong> uniform heat flux (UHF) </li>
-<li> hydrodynamically developed fluid flow </li>
-<li> hydraulic diameter / length &le; 1 </li>
-<li> 0.6 &le; Prandtl number &le; 1000 </li>
+<li> circular cross sectional area</li>
+<li> uniform wall temperature (UWT) <strong> or </strong> uniform heat flux (UHF)</li>
+<li> hydrodynamically developed fluid flow</li>
+<li> hydraulic diameter / length &le; 1</li>
+<li> 0.6 &le; Prandtl number &le; 1000</li>
 </ul>
 
 <h4>Geometry and Calculation </h4>
@@ -7561,11 +7564,11 @@ You can perform an inverse calculation from <strong>kc_turbulent_KC</strong>, wh
 <h4>Restriction</h4>
 
 <ul>
-<li> circular cross sectional area </li>
-<li> hydrodynamically developed fluid flow </li>
-<li> hydraulic diameter / length &le; 1 </li>
-<li> 0.6 &le; Prandtl number &le; 1000 </li>
-<li> turbulent flow regime (1e4 &le; Reynolds number &le; 1e6) </li>
+<li> circular cross sectional area</li>
+<li> hydrodynamically developed fluid flow</li>
+<li> hydraulic diameter / length &le; 1</li>
+<li> 0.6 &le; Prandtl number &le; 1000</li>
+<li> turbulent flow regime (1e4 &le; Reynolds number &le; 1e6)</li>
 </ul>
 
 <h4>Geometry </h4>
@@ -7670,9 +7673,9 @@ Calculation of local <strong>two phase</strong> heat transfer coefficient <stron
 
 <h4>Restriction</h4>
 <ul>
-  <li>circular cross sectional area </li>
-  <li>no subcooled boiling </li>
-  <li>film condensation </li>
+  <li>circular cross sectional area</li>
+  <li>no subcooled boiling</li>
+  <li>film condensation</li>
 </ul>
 
 <h4>Geometry </h4>
@@ -7860,22 +7863,22 @@ with
 The pressure loss of curved bends is similar to its calculation in straight pipes. There are three different flow regimes observed (laminar,transition,turbulent). The turbulent regime is further separated into sections with a dependence or independence of the local resistance coefficient (<strong>zeta_LOC </strong>) on Reynolds number. The local resistance coefficient (<strong>zeta_LOC</strong>) of a curved bend is calculated in dependence of the flow regime as follows:
 </p>
 <ul>
-<li><p><strong>Laminar regime (Re &le; Re_lam_leave)</strong>: </p>
+<li><p><strong>Laminar regime (Re &le; Re_lam_leave)</strong>:</p>
 <pre>      zeta_LOC = A2/Re + A1*B1*C1</pre></li>
 <li><p><strong>Transition regime (Re_lam_leave &le; 4e4)</strong></p>
 <p> This calculation is done using a smoothing function interpolating between the laminar and the first turbulent flow regime.</p></li>
-<li><p><strong>Turbulent regime (4e4 &le; 3e5) with dependence </strong> of local resistance coefficient on Reynolds number: </p>
+<li><p><strong>Turbulent regime (4e4 &le; 3e5) with dependence </strong> of local resistance coefficient on Reynolds number:</p>
 <pre>      zeta_LOC = k_Re * (A1*B1*C1)</pre>
 <p>where <strong>k_Re</strong> depends on the relative curvature radius <strong>R_0/d_hyd </strong></p>
 <pre>
       k_Re = 1 + 4400/Re              for 0.50 &lt; r/d_hyd &lt; 0.55
       k_Re = 5.45/Re^(0.118)          for 0.55 &le; r/d_hyd &lt; 0.70
       k_Re = 11.5/Re^(0.19)           for 0.70 &le; r/d_hyd &lt; 3.00</pre></li>
-<li><p><strong>Turbulent regime (Re &ge; 3e5) with independence </strong>of local resistance coefficient on Reynolds number </p>
+<li><p><strong>Turbulent regime (Re &ge; 3e5) with independence </strong>of local resistance coefficient on Reynolds number</p>
 <pre>      zeta_LOC = A1*B1*C1</pre></li>
 </ul>
 
-<p>with </p>
+<p>with</p>
 <table cellspacing=\"2\" cellpadding=\"0\" border=\"0\"><tr>
 <td><p><strong>A1 </strong></p></td>
 <td><p>as coefficient considering effect of angle of turning (delta) [-],</p></td>
@@ -7901,13 +7904,13 @@ The pressure loss of curved bends is similar to its calculation in straight pipe
 <td><p>as Reynolds number [-].</p></td>
 </tr>
 </table>
-<p><br/><br/>The pressure loss coefficient <strong>zeta_TOT </strong>of a curved bend including pressure loss due to friction is determined by its local resistance coefficient <strong>zeta_LOC </strong>multiplied with a correction factor <strong>CF </strong>for surface roughness according to <em>[Miller, p. 209, eq. 9.4]:</em> </p>
+<p><br/><br/>The pressure loss coefficient <strong>zeta_TOT </strong>of a curved bend including pressure loss due to friction is determined by its local resistance coefficient <strong>zeta_LOC </strong>multiplied with a correction factor <strong>CF </strong>for surface roughness according to <em>[Miller, p. 209, eq. 9.4]:</em></p>
 <pre>    zeta_TOT = CF*zeta_LOC </pre>
-<p>where the correction factor <strong>CF </strong>is determined from the Darcy friction factor of a straight pipe having the bend flow path length </p>
+<p>where the correction factor <strong>CF </strong>is determined from the Darcy friction factor of a straight pipe having the bend flow path length</p>
 <pre>    CF = 1 + (lambda_FRI_rough * pi * delta/d_hyd) / zeta_LOC</pre>
-<p>and the Darcy friction factors <strong>lambda_FRI_rough </strong>is calculated with an approximated Colebrook-White law according to <em>[Miller, p. 191, eq. 8.4]:</em> </p>
+<p>and the Darcy friction factors <strong>lambda_FRI_rough </strong>is calculated with an approximated Colebrook-White law according to <em>[Miller, p. 191, eq. 8.4]:</em></p>
 <pre>    lambda_FRI_rough = 0.25*(lg(K/(3.7*d_hyd) + 5.74/Re^0.9))^-2</pre>
-<p>with </p>
+<p>with</p>
 <table cellspacing=\"2\" cellpadding=\"0\" border=\"0\"><tr>
 <td><p><strong>delta </strong></p></td>
 <td><p>as curvature radiant [rad],</p></td>
@@ -7917,7 +7920,7 @@ The pressure loss of curved bends is similar to its calculation in straight pipe
 <td><p>as hydraulic diameter [m],</p></td>
 </tr>
 <tr>
-<td><p><strong>K</strong> </p></td>
+<td><p><strong>K</strong></p></td>
 <td><p>as absolute roughness (average height of surface asperities) [m],</p></td>
 </tr>
 <tr>
@@ -7938,9 +7941,9 @@ The pressure loss of curved bends is similar to its calculation in straight pipe
 </tr>
 </table>
 <p><br/>The correction for surface roughness through <strong>CF </strong>is used only in the turbulent regime, where the fluid flow is influenced by surface asperities not covered by a laminar boundary layer. The turbulent regime starts at <strong>Re &ge; 4e4 </strong>according to <em>[Idelchik 2006, p. 336, sec. 15]</em>. There is no correction due to roughness in the laminar regime up to <strong>Re &le; 6.5e3 </strong>according to <em>[Idelchik 2006, p. 336, sec. 15]</em>.</p>
-<p>Nevertheless the transition point from the laminar to the transition regime is shifted to smaller Reynolds numbers for an increasing absolute roughness. This effect is considered according to <em>[Samoilenko in Idelchik 2006, p. 81, sec. 2-1-21]</em> as: </p>
+<p>Nevertheless the transition point from the laminar to the transition regime is shifted to smaller Reynolds numbers for an increasing absolute roughness. This effect is considered according to <em>[Samoilenko in Idelchik 2006, p. 81, sec. 2-1-21]</em> as:</p>
 <pre>    Re_lam_leave = 754*exp(if k &le; 0.007 then 0.0065/0.007 else 0.0065/k)</pre>
-<p>with </p>
+<p>with</p>
 <table cellspacing=\"2\" cellpadding=\"0\" border=\"0\"><tr>
 <td><p><strong>k = K /d_hyd </strong></p></td>
 <td><p>as relative roughness [-],</p></td>
@@ -7959,13 +7962,13 @@ The pressure loss of curved bends is similar to its calculation in straight pipe
 </p>
 
 <p>There are deviations of the pressure loss coefficient <strong>zeta_TOT</strong> comparing different references. Usually these deviations in the transition regime have to be accepted due to an uncertainty for the determination of comparable boundary conditions in the different references. Nevertheless these calculations cover the usual range of pressure loss coefficients for a curved bend. The pressure loss coefficient <strong>zeta_TOT </strong>for the same geometry can be adjusted via varying the average height of surface asperities <strong>K</strong> for calibration.</p>
-<p>The pressure loss in dependence of the mass flow rate of water is shown for different relative curvature radii: </p>
+<p>The pressure loss in dependence of the mass flow rate of water is shown for different relative curvature radii:</p>
 
 <p>
 <img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/bend/fig_bend_dp_curvedOverall_DPvsMFLOWwrtRD.png\" alt=\"fig_bend_dp_curvedOverall_DPvsMFLOWwrtRD\"/>
 </p>
 
-<p>The pressure loss in dependence of the mass flow rate of water is shown for different angles of turning: </p>
+<p>The pressure loss in dependence of the mass flow rate of water is shown for different angles of turning:</p>
 
 <p>
 <img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/bend/fig_bend_dp_curvedOverall_DPvsMFLOWwrtDelta.png\" alt=\"fig_bend_dp_curvedOverall_DPvsMFLOWwrtRD\"/>
@@ -8939,11 +8942,11 @@ This function shall be used within the restricted limits according to the refere
 </p>
 <ul>
  <li>
-      <strong> Reynolds number (for vena contraction) Re &gt; 1e3 </strong> <em>[Idelchik 2006, p. 222, diag. 4-15] </em>
+      <strong> Reynolds number (for vena contraction) Re &gt; 1e3 </strong> <em>[Idelchik 2006, p. 222, diag. 4-15] </em></li>
  <li>
-      <strong> Relative length of vena contraction (L/d_hyd_0) &gt; 0.015 </strong> <em>[Idelchik 2006, p. 222, diag. 4-15] </em>
+      <strong> Relative length of vena contraction (L/d_hyd_0) &gt; 0.015 </strong> <em>[Idelchik 2006, p. 222, diag. 4-15] </em></li>
  <li>
-      <strong> Darcy friction factor lambda_FRI = 0.02 </strong> <em>[Idelchik 2006, p. 222, sec. 4-15] </em>
+      <strong> Darcy friction factor lambda_FRI = 0.02 </strong> <em>[Idelchik 2006, p. 222, sec. 4-15] </em></li>
 </ul>
 
 <h4>Geometry</h4>
@@ -9298,7 +9301,7 @@ And the mass flow rate <strong>m_flow</strong> for the turbulent regime in depen
     Jaico Publishing House, Mumbai, 3rd edition, 2006.</dd>
  <dt>Miller,D.S.:</dt>
     <dd><strong>Internal flow systems</strong>.
-    volume 5th of BHRA Fluid Engineering Series.BHRA Fluid Engineering, 1984.
+    volume 5th of BHRA Fluid Engineering Series.BHRA Fluid Engineering, 1984.</dd>
  <dt>Samoilenko,L.A.:</dt>
     <dd><strong>Investigation of the hydraulic resistance of pipelines in the
         zone of transition from laminar into turbulent motion</strong>.
@@ -9440,12 +9443,12 @@ Calculation of pressure loss for <strong>two phase flow</strong> in a horizontal
 This function shall be used within the restricted limits according to the referenced literature.
 </p>
 <ul>
- <li> <strong> circular cross sectional area </strong> </li>
- <li> <strong> neglecting of surface roughness </strong> </li>
- <li> <strong> horizontal flow or vertical upflow </strong> </li>
- <li> <strong> usage of mass flow rate quality (see Calculation) </strong> </li>
+ <li> <strong> circular cross sectional area </strong></li>
+ <li> <strong> neglecting of surface roughness </strong></li>
+ <li> <strong> horizontal flow or vertical upflow </strong></li>
+ <li> <strong> usage of mass flow rate quality (see Calculation) </strong></li>
  <li> <strong> two phase pressure loss for mean constant mass flow rate quality (x_flow) over (increment) length </strong></li>
- <li> <strong> usage of two phase pressure loss function for discretization at boiling or condensation considering variable mass flow rate quality</strong> </li>
+ <li> <strong> usage of two phase pressure loss function for discretization at boiling or condensation considering variable mass flow rate quality</strong></li>
 </ul>
 
 <h4>Geometry </h4>
@@ -9595,7 +9598,7 @@ The void fraction is one of the most important parameter used to characterize tw
 </p>
 
 <ul>
- <li>    <strong> homogeneous approach </strong> </li>
+ <li>    <strong> homogeneous approach </strong></li>
  <li>     <strong> momentum flux approach (heterogeneous model) </strong></li>
  <li>     <strong> Kinetic energy flow approach by Zivi (heterogeneous model) </strong></li>
  <li>     <strong> Empirical momentum flux approach by Chisholm (heterogeneous model) </strong></li>
@@ -10179,7 +10182,7 @@ documentation available in this package.
               "Minimum Reynolds number assuming turbulent regime";
 
             //SOURCE_2: p.Lbb 2, eq. 9-10: Considering influence of Reynolds number on Darcy friction factor for smooth straight pipes
-            //Correlation based on neglection of surface roughness
+            //Correlation based on neglect of surface roughness
             //Correlation based on assumption that total mass flow rate is flowing as gas
             TYP.DarcyFrictionFactor lambda_lam_g=64/Re_g
               "Darcy friction factor of gas for assumed laminar regime";
@@ -10375,9 +10378,9 @@ A <strong> mean density </strong> assuming a continuous distribution out of a di
 The following <strong> modelling approaches </strong> can be used to calculate the mean density of two phase flow:
 </p>
 <ul>
-<li>        <strong> homogeneous density </strong> (homogeneous approach) </li>
-<li>         <strong> momentum flux density </strong> (heterogeneous approach) </li>
-<li>         <strong> kinetic energy flow density </strong> (heterogeneous approach) </li>
+<li>        <strong> homogeneous density </strong> (homogeneous approach)</li>
+<li>         <strong> momentum flux density </strong> (heterogeneous approach)</li>
+<li>         <strong> kinetic energy flow density </strong> (heterogeneous approach)</li>
 </ul>
 
 
@@ -13034,18 +13037,22 @@ annotation (Documentation(info="<html>
 
 <h4>  Library description </h4>
 
+<p>
 This library contains <strong>convective heat transfer</strong> and  <strong>pressure loss</strong> functions written in
-Modelica&reg;. Generally the pressure loss calculations are based on incompressible fluids and total pressure difference. For devices with non changing cross sectional area, the calculated total pressure loss is equal to the static pressure difference. Geodetic pressure loss is not considered throughout the library. The functions supplied may be used separately.<br>
-<br>
-The library is a non-commercial product of XRG Simulation GmbH. It makes use of external,
-non-commercial models supplied by Modelica Standard Library. In order to work correctly,
-ensure that this library is always loaded with <strong> Modelica Standard Library version
-3.1</strong> especially to be able to use Modelica.Fluid applications.<br>
+Modelica&reg;. Generally the pressure loss calculations are based on incompressible fluids and total pressure difference. For devices with non changing cross sectional area, the calculated total pressure loss is equal to the static pressure difference. Geodetic pressure loss is not considered throughout the library. The functions supplied may be used separately.
+</p>
+
+<p>
+The library is a non-commercial product of XRG Simulation GmbH.
+</p>
 
 <h4>  Acknowledgements </h4>
+
+<p>
 The following people contributed to the Fluid.Dissipation library (alphabetical list):
 J&ouml;rg Eiden, Ole Engel, Nina Peci, Sven Rutkowski, Thorben Vahlenkamp, Stefan
 Wischhusen.
+</p>
 
 <p>
 The development of the Fluid.Dissipation library was founded within the ITEA research
@@ -13055,12 +13062,12 @@ reference 01IS07022B). The project was started in October 2007 and ended in June
 
 <h4>  License condition </h4>
 <p>
-<strong>Licensed by the Modelica Association under the Modelica License 2</strong><br>
-Copyright &copy; 2007-2016, XRG Simulation GmbH.
+<strong>Licensed by the Modelica Association under the 3-Clause BSD License</strong><br>
+Copyright &copy; 2007-2018, XRG Simulation GmbH.
 </p>
 
 <p>
-<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</em>
+<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em>
 </p>
 
 <h4>  Contact </h4>

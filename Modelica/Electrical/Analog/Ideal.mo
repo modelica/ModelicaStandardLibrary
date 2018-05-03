@@ -50,7 +50,7 @@ The diode is locking if current &lt; Vknee/Goff.
 <p>
 This is an ideal thyristor, for details see partial model <a href=\"modelica://Modelica.Electrical.Analog.Interfaces.IdealSemiconductor\">IdealSemiconductor</a><br>
 The thyristor is conducting if voltage &gt; Vknee AND fire = true.<br>
-If fire gets false, the current has to fall below Vknee*Goff, then the tyhristor gets locking.
+If fire gets false, the current has to fall below Vknee*Goff, then the tyhristor gets locking.</p>
 </html>", revisions="<html>
 <ul>
 <li><em>February 7, 2016   </em>
@@ -182,13 +182,13 @@ Otherwise, the GTO thyristor is locking.
     LossPower = p.i*p.v + n1.i*n1.v + n2.i*n2.v;
     annotation (defaultComponentName="switch",
       Documentation(info="<html>
-<P>
+<p>
 The commuting switch has a positive pin p and two negative pins n1 and n2.
 The switching behaviour is controlled
 by the input signal control. If control is true, the pin p is connected
 with the negative pin n2. Otherwise, the pin p is connected to the negative pin n1.
-</P>
-<P>
+</p>
+<p>
 In order to prevent singularities during switching, the opened
 switch has a (very low) conductance Goff
 and the closed switch has a (very low) resistance Ron.
@@ -196,11 +196,11 @@ The limiting case is also allowed, i.e., the resistance Ron of the
 closed switch could be exactly zero and the conductance Goff of the
 open switch could be also exactly zero. Note, there are circuits,
 where a description with zero Ron or zero Goff is not possible.
-<br> <br>
+<br><br>
 <strong>Please note:</strong>
 In case of useHeatPort=true the temperature dependence of the electrical
 behavior is <strong>not</strong> modelled. The parameters are not temperature dependent.
-</P>
+</p>
 </html>", revisions="<html>
 <ul>
 <li><em> March 11, 2009   </em>
@@ -349,14 +349,14 @@ behavior is <strong>not</strong> modelled. The parameters are not temperature de
     LossPower = p.i*p.v + n1.i*n1.v + n2.i*n2.v;
     annotation (defaultComponentName="switch",
       Documentation(info="<html>
-<P>
+<p>
 The commuting switch has a positive pin p and two negative pins n1 and n2.
 The switching behaviour is controlled
 by the control pin. If its voltage exceeds the value of the parameter level,
 the pin p is connected with the negative pin n2. Otherwise, the pin p is
 connected the negative pin n1.
-</P>
-<P>
+</p>
+<p>
 In order to prevent singularities during switching, the opened
 switch has a (very low) conductance Goff
 and the closed switch has a (very low) resistance Ron.
@@ -364,11 +364,11 @@ The limiting case is also allowed, i.e., the resistance Ron of the
 closed switch could be exactly zero and the conductance Goff of the
 open switch could be also exactly zero. Note, there are circuits,
 where a description with zero Ron or zero Goff is not possible.
-<br> <br>
+<br><br>
 <strong>Please note:</strong>
 In case of useHeatPort=true the temperature dependence of the electrical
 behavior is <strong>not</strong> modelled. The parameters are not temperature dependent.
-</P>
+</p>
 </html>", revisions="<html>
 <ul>
 <li><em> March 11, 2009   </em>
@@ -521,11 +521,11 @@ The limiting case is also allowed, i.e., the resistance Ron of the closed switch
     i1 = 0;
     annotation (defaultComponentName="opAmp",
       Documentation(info="<html>
-<P>
+<p>
 The ideal OpAmp is a two-port. The left port is fixed to <em>v1=0</em> and <em>i1=0</em>
 (nullator). At the right port both any voltage <em>v2</em> and any current <em>i2</em>
 are possible (norator).
-</P>
+</p>
 </html>", revisions="<html>
 <ul>
 <li><em> 1998   </em>
@@ -568,13 +568,13 @@ are possible (norator).
     in_n.i = 0;
     annotation (defaultComponentName="opAmp",
       Documentation(info="<html>
-<P>
+<p>
 The ideal OpAmp with three pins is of exactly the same behaviour as the ideal
 OpAmp with four pins. Only the negative output pin is left out.
 Both the input voltage and current are fixed to zero (nullator).
 At the output pin both any voltage <em>v2</em> and any current <em>i2</em>
 are possible.
-</P>
+</p>
 </html>", revisions="<html>
 <ul>
 <li><em> 2002   </em>
@@ -630,13 +630,13 @@ are possible.
       VMax.v - VMin.v)*s/2 + (VMax.v + VMin.v)/2);
     annotation (defaultComponentName="opAmp",
       Documentation(info="<html>
-<P>
+<p>
 The ideal OpAmp with limitation behaves like an ideal OpAmp without limitation,
 if the output voltage is within the limits VMin and VMax. In this case
 the input voltage vin = in_p.v - in_n.v is zero.
 If the input voltage vin less than 0, the output voltage is out.v = VMin.
 If the input voltage is vin larger than 0, the output voltage is out.v = VMax.
-</P>
+</p>
 </html>", revisions="<html>
 <ul>
 <li><em> 1998   </em>
@@ -823,7 +823,7 @@ For the backward conversion, one has to decide about the partitioning of the lea
             lineColor={0,0,255},
             textString="2"),
           Text(
-            extent={{-150,149},{150,109}},
+            extent={{-150,150},{150,110}},
             textString="%name",
             lineColor={0,0,255}),
           Line(points={{-40,60},{-40,100},{-90,100}}, color={0,0,255}),
@@ -898,7 +898,7 @@ A gyrator is an ideal two-port element defined by the following equations:
 </code>
 <br>
 where the constant <em>G</em> is called the gyration conductance.
-</P>
+</p>
 </html>", revisions="<html>
 <ul>
 <li><em> 1998   </em>
@@ -1014,10 +1014,10 @@ where the constant <em>G</em> is called the gyration conductance.
     off = control;
     annotation (defaultComponentName="switch",
       Documentation(info="<html>
-<P>
+<p>
 The switching behaviour of the ideal opening switch is controlled by the input signal control: off = control.<br>
 For further details, see partial model <a href=\"modelica://Modelica.Electrical.Analog.Interfaces.IdealSwitch\">IdealSwitch</a>.
-</P>
+</p>
 </html>", revisions="<html>
 <ul>
 <li><em>February 7, 2016   </em>
@@ -1053,10 +1053,10 @@ For further details, see partial model <a href=\"modelica://Modelica.Electrical.
     off = not control;
     annotation (defaultComponentName="switch",
       Documentation(info="<html>
-<P>
+<p>
 The switching behaviour of the ideal closing switch is controlled by the input signal control: off = not control.<br>
 For further details, see partial model <a href=\"modelica://Modelica.Electrical.Analog.Interfaces.IdealSwitch\">IdealSwitch</a>.
-</P>
+</p>
 </html>", revisions="<html>
 <ul>
 <li><em>February 7, 2016   </em>
@@ -1093,10 +1093,10 @@ For further details, see partial model <a href=\"modelica://Modelica.Electrical.
     control.i = 0;
     annotation (defaultComponentName="switch",
       Documentation(info="<html>
-<P>
+<p>
 The switching behaviour of the controlled  ideal opening switch is controlled by the control pin: off = control.v &gt; level<br>
 For further details, see partial model <a href=\"modelica://Modelica.Electrical.Analog.Interfaces.IdealSwitch\">IdealSwitch</a>.
-</P>
+</p>
 </html>", revisions="<html>
 <ul>
 <li><em>February 7, 2016   </em>
@@ -1134,10 +1134,10 @@ For further details, see partial model <a href=\"modelica://Modelica.Electrical.
     control.i = 0;
     annotation (defaultComponentName="switch",
       Documentation(info="<html>
-<P>
+<p>
 The switching behaviour of the controlled ideal closing switch is controlled by the control pin: off = control.v &lt; level<br>
 For further details, see partial model <a href=\"modelica://Modelica.Electrical.Analog.Interfaces.IdealSwitch\">IdealSwitch</a>.
-</P>
+</p>
 
 </html>", revisions="<html>
 <ul>
@@ -1401,23 +1401,23 @@ For details of the arc effect, see partial model <a href=\"modelica://Modelica.E
 
 <p>Characteristics:</p>
 <ul>
-<li>high switching times between on-state and off state up to activation of the reverse current phase </li>
-<li>gate electrode are activated with (positive) impulse (called thyristor/triac firing), after firing thyristor path holds itself in state of low resistance or conductive state up to holding voltage is fallen below, it follows change to off state and next thyristor path can fire </li>
-<li>in particular by switching of inductive components triacs generate harmonic waves, whose frequency ranges into broadcast sector and could there cause transmission disturbances; therefore triacs have to eliminate interference by inductors and capacitors </li>
+<li>high switching times between on-state and off state up to activation of the reverse current phase</li>
+<li>gate electrode are activated with (positive) impulse (called thyristor/triac firing), after firing thyristor path holds itself in state of low resistance or conductive state up to holding voltage is fallen below, it follows change to off state and next thyristor path can fire</li>
+<li>in particular by switching of inductive components triacs generate harmonic waves, whose frequency ranges into broadcast sector and could there cause transmission disturbances; therefore triacs have to eliminate interference by inductors and capacitors</li>
 </ul>
 <p>Applications:</p>
 <ul>
-<li>any stepless exposure (dimmer) </li>
-<li>engine speed adjustment of electric motors </li>
-<li>further applications of phase-angle control (power electronics) </li>
-<li>power packs </li>
+<li>any stepless exposure (dimmer)</li>
+<li>engine speed adjustment of electric motors</li>
+<li>further applications of phase-angle control (power electronics)</li>
+<li>power packs</li>
 </ul>
 <p>As an additional information: this model is based on the Modelica.Electrical.Analog.Ideal.IdealThyristor.</p>
 </html>", revisions="<html>
 <ul>
-<li><em>November 25, 2009   </em> <br>
+<li><em>November 25, 2009   </em><br>
 
-       by Susann Wolf <br><br>
+       by Susann Wolf<br><br>
        </li>
 </ul>
 </html>"));
@@ -1471,27 +1471,27 @@ For details of the arc effect, see partial model <a href=\"modelica://Modelica.E
     p.i*Rin = u;
     p.i + n.i = 0;
     annotation (defaultComponentName="converter", Documentation(info="<html>
-<P>
+<p>
 Simple analog to digital converter with a variable resolution of n bits.
 It converts the input voltage <code>ppin.v-npin.v</code> to an n-vector of type Logic
 (9-valued logic according to IEEE 1164 STD_ULOGIC). The input resistance between positive and negative pin is determined by <code>Rin</code>.
-Further effects (like input capacities) have to be modeled outside the converter, since this should be a general model.</P>
+Further effects (like input capacities) have to be modeled outside the converter, since this should be a general model.</p>
 
-<P>
+<p>
 The input signal range (VRefLo,VRefHi) is divided into 2^n-1 equally spaced stages of length Vlsb:=(VRefHi-VRefLo)/(2^n-1).
 The output signal is the binary code of <code> k </code> as long as the input voltage takes values in the k-th stage, namely in the range from
-<code> Vlsb*(k-0.5) </code> to <code> m*(k+0.5) </code>. This is called mid-tread operation. Additionally the output can only change
-its value if the trigger signal <CODE> trig </CODE> of type Logic changes to '1' (forced or weak).
-</P>
+<code>Vlsb*(k-0.5)</code> to <code>m*(k+0.5)</code>. This is called mid-tread operation. Additionally the output can only change
+its value if the trigger signal <code>trig</code> of type Logic changes to '1' (forced or weak).
+</p>
 
-<P>
+<p>
 The output vector is a 'little-endian'. i.e., that the first bit y[1] is the least significant one (LSB).
-</P>
+</p>
 
-<P>
+<p>
 This is an abstract model of an ADC. Therefore, it can not cover the dynamic behaviour of the converter.
 Hence the output will change instantaneously when the trigger signal rises.
-</P>
+</p>
 
 </html>", revisions="<html>
 <ul>
@@ -1609,7 +1609,7 @@ Christoph Clau&szlig;
 <strong>Copyright:</strong>
 </dt>
 <dd>
-Copyright &copy; 1998-2016, Modelica Association and Fraunhofer-Gesellschaft.<br>
+Copyright &copy; 1998-2018, Modelica Association and Fraunhofer-Gesellschaft.<br>
 <em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
 under the terms of the <strong>Modelica license</strong>, see the license conditions
 and the accompanying <strong>disclaimer</strong> in the documentation of package

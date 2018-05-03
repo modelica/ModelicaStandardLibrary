@@ -575,11 +575,11 @@ to be used as base class for a corresponding controller.
 Basic definitions of a discrete block of library
 Blocks.Discrete.
 The output(s) will only change at events, but are not formally a discrete variable(s) in Modelica.
-The input(s) swill be sampled, and can thus be continuous variable(s).
+The input(s) will be sampled, and can thus be continuous variable(s).
 </p>
 
 <p>
-<strong>Important</strong>: If you connect several discrete blocks you should normally ensure that <strong>samplePeriod (and startTime) 
+<strong>Important</strong>: If you connect several discrete blocks you should normally ensure that <strong>samplePeriod (and startTime)
 are exactly identical</strong> for all blocks, since otherwise the output from one block will be transformed into a continuous signal
 and sampled, which can cause a variable delay of up to one sample period leading to unexpected results.
 </p>
@@ -1373,7 +1373,8 @@ It is much more convenient and more powerful to use \"expandable connectors\"
 for signal buses, see example
 <a href=\"modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a>.
 </p>
-</html>"));
+</html>"),
+      obsolete = "Obsolete block - use expandable connectors instead");
     end SendReal;
 
     block SendBoolean "Obsolete block to send Boolean signal to bus"
@@ -1406,7 +1407,8 @@ It is much more convenient and more powerful to use \"expandable connectors\"
 for signal buses, see example
 <a href=\"modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a>.
 </p>
-</html>"));
+</html>"),
+      obsolete = "Obsolete block - use expandable connectors instead");
     end SendBoolean;
 
     block SendInteger "Obsolete block to send Integer signal to bus"
@@ -1439,7 +1441,8 @@ It is much more convenient and more powerful to use \"expandable connectors\"
 for signal buses, see example
 <a href=\"modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a>.
 </p>
-</html>"));
+</html>"),
+      obsolete = "Obsolete block - use expandable connectors instead");
     end SendInteger;
 
     block ReceiveReal "Obsolete block to receive Real signal from bus"
@@ -1472,7 +1475,8 @@ It is much more convenient and more powerful to use \"expandable connectors\"
 for signal buses, see example
 <a href=\"modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a>.
 </p>
-</html>"));
+</html>"),
+      obsolete = "Obsolete block - use expandable connectors instead");
     end ReceiveReal;
 
     block ReceiveBoolean "Obsolete block to receive Boolean signal from bus"
@@ -1505,7 +1509,8 @@ It is much more convenient and more powerful to use \"expandable connectors\"
 for signal buses, see example
 <a href=\"modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a>.
 </p>
-</html>"));
+</html>"),
+      obsolete = "Obsolete block - use expandable connectors instead");
     end ReceiveBoolean;
 
     block ReceiveInteger "Obsolete block to receive Integer signal from bus"
@@ -1538,7 +1543,8 @@ It is much more convenient and more powerful to use \"expandable connectors\"
 for signal buses, see example
 <a href=\"modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a>.
 </p>
-</html>"));
+</html>"),
+      obsolete = "Obsolete block - use expandable connectors instead");
     end ReceiveInteger;
 
     annotation (Documentation(info="<html>
@@ -1549,7 +1555,8 @@ It is much more convenient and more powerful to use \"expandable connectors\"
 for signal buses, see example
 <a href=\"modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a>.
 </p>
-</html>"));
+</html>"),
+      obsolete = "Obsolete package - use expandable connectors instead");
   end Adaptors;
 
   partial block PartialConversionBlock
@@ -1608,8 +1615,8 @@ converts from one unit into another one.
 This icon will be removed in future versions of the Modelica Standard Library.
 Instead the icon <a href=\"modelica://Modelica.Blocks.Icons.Block\">Modelica.Blocks.Icons.Block</a> shall be used.
 </p>
-</html>"));
-
+</html>"),
+    obsolete = "Obsolete block - use Modelica.Blocks.Icons.Block instead");
   end BlockIcon;
 
   partial block BooleanBlockIcon
@@ -1629,8 +1636,8 @@ Instead the icon <a href=\"modelica://Modelica.Blocks.Icons.Block\">Modelica.Blo
 This icon will be removed in future versions of the Modelica Standard Library.
 Instead the icon <a href=\"modelica://Modelica.Blocks.Icons.BooleanBlock\">Modelica.Blocks.Icons.BooleanBlock</a> shall be used.
 </p>
-</html>"));
-
+</html>"),
+    obsolete = "Obsolete block - use Modelica.Blocks.Icons.BooleanBlock instead");
   end BooleanBlockIcon;
 
   partial block DiscreteBlockIcon
@@ -1651,7 +1658,8 @@ Instead the icon <a href=\"modelica://Modelica.Blocks.Icons.BooleanBlock\">Model
 This icon will be removed in future versions of the Modelica Standard Library.
 Instead the icon <a href=\"modelica://Modelica.Blocks.Icons.DiscreteBlock\">Modelica.Blocks.Icons.DiscreteBlock</a> shall be used.
 </p>
-</html>"));
+</html>"),
+    obsolete = "Obsolete block - use Modelica.Blocks.Icons.DiscreteBlock instead");
   end DiscreteBlockIcon;
 
   partial block IntegerBlockIcon
@@ -1671,7 +1679,8 @@ Instead the icon <a href=\"modelica://Modelica.Blocks.Icons.DiscreteBlock\">Mode
 This icon will be removed in future versions of the Modelica Standard Library.
 Instead the icon <a href=\"modelica://Modelica.Blocks.Icons.IntegerBlock\">Modelica.Blocks.Icons.IntegerBlock</a> shall be used.
 </p>
-</html>"));
+</html>"),
+    obsolete = "Obsolete block - use Modelica.Blocks.Icons.IntegerBlock instead");
   end IntegerBlockIcon;
 
   partial block partialBooleanBlockIcon
@@ -1691,7 +1700,8 @@ Instead the icon <a href=\"modelica://Modelica.Blocks.Icons.IntegerBlock\">Model
 This icon will be removed in future versions of the Modelica Standard Library.
 Instead the icon <a href=\"modelica://Modelica.Blocks.Icons.PartialBooleanBlock\">Modelica.Blocks.Icons.PartialBooleanBlock</a> shall be used.
 </p>
-</html>"));
+</html>"),
+    obsolete = "Obsolete block - use Modelica.Blocks.Icons.PartialBooleanBlock instead");
   end partialBooleanBlockIcon;
 
   partial block PartialNoise "Partial noise generator"
@@ -1729,7 +1739,7 @@ Instead the icon <a href=\"modelica://Modelica.Blocks.Icons.PartialBooleanBlock\
     outer Modelica.Blocks.Noise.GlobalSeed globalSeed
       "Definition of global seed via inner/outer";
     parameter Integer actualGlobalSeed = if useGlobalSeed then globalSeed.seed else 0
-      "The global seed, which is atually used";
+      "The global seed, which is actually used";
     parameter Boolean generateNoise = enableNoise and globalSeed.enableNoise
       "= true if noise shall be generated, otherwise no noise";
 
@@ -1794,11 +1804,11 @@ of noise blocks.
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -1810,6 +1820,308 @@ of noise blocks.
 </table>
 </html>"));
   end PartialNoise;
+
+  package PartialFMUadaptors "Partial FMU adaptors"
+    extends Modelica.Icons.InterfacesPackage;
+
+    partial model FlowToPotentialAdaptor "Signal adaptor for a connector with flow, 1st derivative of flow, and 2nd derivative of flow as inputs and
+  potential, 1st derivative of potential, and 2nd derivative of potential as outputs (especially useful for FMUs)"
+      parameter Boolean use_pder=true "use output for 1st derivative of potential"
+        annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
+      parameter Boolean use_pder2=true "use output for 2nd derivative of potential (only if 1st derivate is used, too)"
+        annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
+      parameter Boolean use_fder=true "use input for 1st derivative of flow"
+        annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
+      parameter Boolean use_fder2=true "use input for 2nd derivative of flow (only if 1st derivate is used, too)"
+        annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
+      Modelica.Blocks.Interfaces.RealOutput p "output for potential"
+        annotation (Placement(transformation(extent={{20,70},{40,90}})));
+      Modelica.Blocks.Interfaces.RealOutput pder if use_pder
+        "optional output for der(potential)"
+        annotation (Placement(transformation(extent={{20,40},{40,60}})));
+      Modelica.Blocks.Interfaces.RealOutput pder2 if (use_pder and use_pder2)
+        "optional output for der2(potential)"
+        annotation (Placement(transformation(extent={{20,10},{40,30}})));
+      Modelica.Blocks.Interfaces.RealInput f "input for flow"
+        annotation (Placement(transformation(extent={{40,-90},{20,-70}})));
+      Modelica.Blocks.Interfaces.RealInput fder if use_fder
+        "optional input for der(flow)"
+        annotation (Placement(transformation(extent={{40,-60},{20,-40}})));
+      Modelica.Blocks.Interfaces.RealInput fder2 if (use_fder and use_fder2)
+        "optional input for der2(flow)"
+        annotation (Placement(transformation(extent={{40,-30},{20,-10}})));
+    protected
+      parameter String Name_p="p" "Name of potential variable";
+      parameter String Name_pder="der(p)" "Name of 1st derivative of potential variable";
+      parameter String Name_pder2="der2(p)" "Name of 2nd derivative of potential variable";
+      parameter String Name_f="f" "Name of flow variable";
+      parameter String Name_fder="der(f)" "Name of 1st derivative of flow variable";
+      parameter String Name_fder2="der2(f)" "Name of 2nd derivative of flow variable";
+      Real y "output signal" annotation(HideResult=true);
+      Modelica.Blocks.Interfaces.RealOutput y1 "Optional 1st derivative of output" annotation(HideResult=true);
+      Modelica.Blocks.Interfaces.RealOutput y2 "Optional 2nd derivative of output" annotation(HideResult=true);
+      Real u "input signal" annotation(HideResult=true);
+      Modelica.Blocks.Interfaces.RealInput u1 "Optional 1st derivative of input" annotation (HideResult=true);
+      Modelica.Blocks.Interfaces.RealInput u2 "Optional 2nd derivative of input" annotation (HideResult=true);
+    equation
+      y = p;
+      y1 = if use_pder then der(y) else 0;
+      y2 = if (use_pder and use_pder2) then der(y1) else 0;
+      connect(y1, pder);
+      connect(y2, pder2);
+      if use_fder then
+        connect(fder, u1);
+      else
+        u1 = 0;
+      end if;
+      if (use_fder and use_fder2) then
+        connect(fder2, u2);
+      else
+        u2 = 0;
+      end if;
+      if (use_fder and use_fder2) then
+        u = Functions.state2({f, u1, u2}, time);
+      elseif (use_fder and not use_fder2) then
+        u = Functions.state1({f, u1}, time);
+      else
+        u = f;
+      end if;
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false), graphics={
+            Text(
+              extent={{-100,120},{100,100}},
+              lineColor={0,0,255},
+              textString="%name"),
+                Rectangle(
+                  extent={{-20,100},{20,-100}},
+                  lineColor={64,64,64},
+                  fillColor={255,255,255},
+                  fillPattern=FillPattern.HorizontalCylinder,
+                  radius=10),
+            Text(
+              extent={{-18,90},{18,70}},
+              textString="%Name_p"),
+            Text(
+              extent={{-18,60},{18,40}},
+              textString="%Name_pder",
+              visible=use_pder),
+            Text(
+              extent={{-18,30},{18,10}},
+              textString="%Name_pder2",
+              visible=(use_pder and use_pder2)),
+            Text(
+              extent={{-18,-70},{18,-90}},
+              textString="%Name_f"),
+            Text(
+              extent={{-18,-40},{18,-60}},
+              textString="%Name_fder",
+              visible=use_fder),
+            Text(
+              extent={{-18,-10},{18,-30}},
+              textString="%Name_fder2",
+              visible=(use_fder and use_fder2))}),
+              Diagram(coordinateSystem(preserveAspectRatio=false)),
+        Documentation(info="<html>
+<p>
+Adaptor between a physical connector and a signal representation of the connector signals.
+This component is used to provide a pure signal interface around a physical model
+and export this model in form of an input/output block,
+especially as FMU (<a href=\"https://www.fmi-standard.org\">Functional Mock-up Unit</a>).
+</p>
+<p>
+This adaptor has flow, optional 1st derivative of flow, and optional 2nd derivative of flow as input and
+potential, optional 1st derivative of potential, and optional 2nd derivative of potential as output signals.
+</p>
+<p>
+Note, the input signals must be consistent to each other
+(fder=der(f), fder2=der(fder)).
+</p>
+</html>"));
+    end FlowToPotentialAdaptor;
+
+    partial model PotentialToFlowAdaptor "Signal adaptor for a connector with potential, 1st derivative of potential, and 2nd derivative of potential as inputs and
+  flow, 1st derivative of flow, and 2nd derivative of flow as outputs (especially useful for FMUs)"
+      parameter Boolean use_pder=true "use input for 1st derivative of potential"
+        annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
+      parameter Boolean use_pder2=true "use input for 2nd derivative of potential (only if 1st derivate is used, too)"
+        annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
+      parameter Boolean use_fder=true "use output for 1st derivative of flow"
+        annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
+      parameter Boolean use_fder2=true "use output for 2nd derivative of flow (only if 1st derivate is used, too)"
+        annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
+      Modelica.Blocks.Interfaces.RealInput p "input for potential"
+        annotation (Placement(transformation(extent={{-40,70},{-20,90}})));
+      Modelica.Blocks.Interfaces.RealInput pder if use_pder
+        "optional input for der(potential)"
+        annotation (Placement(transformation(extent={{-40,40},{-20,60}})));
+      Modelica.Blocks.Interfaces.RealInput pder2 if (use_pder and use_pder2)
+        "optional input for der2(potential)"
+        annotation (Placement(transformation(extent={{-40,10},{-20,30}})));
+      Modelica.Blocks.Interfaces.RealOutput f "output for flow"
+        annotation (Placement(transformation(extent={{-20,-90},{-40,-70}})));
+      Modelica.Blocks.Interfaces.RealOutput fder if use_fder
+        "optional output for der(flow)"
+        annotation (Placement(transformation(extent={{-20,-60},{-40,-40}})));
+      Modelica.Blocks.Interfaces.RealOutput fder2 if (use_fder and use_fder2)
+        "optional output for der2(flow)"
+        annotation (Placement(transformation(extent={{-20,-30},{-40,-10}})));
+    protected
+      parameter String Name_p="p" "Name of potential variable";
+      parameter String Name_pder="der(p)" "Name of 1st derivative of potential variable";
+      parameter String Name_pder2="der2(p)" "Name of 2nd derivative of potential variable";
+      parameter String Name_f="f" "Name of flow variable";
+      parameter String Name_fder="der(f)" "Name of 1st derivative of flow variable";
+      parameter String Name_fder2="der2(f)" "Name of 2nd derivative of flow variable";
+      Real y "output signal" annotation(HideResult=true);
+      Modelica.Blocks.Interfaces.RealOutput y1 "Optional 1st derivative of output" annotation(HideResult=true);
+      Modelica.Blocks.Interfaces.RealOutput y2 "Optional 2nd derivative of output" annotation(HideResult=true);
+      Real u "input signal" annotation(HideResult=true);
+      Modelica.Blocks.Interfaces.RealInput u1 "Optional 1st derivative of input" annotation (HideResult=true);
+      Modelica.Blocks.Interfaces.RealInput u2 "Optional 2nd derivative of input" annotation (HideResult=true);
+    equation
+      y = -f;
+      y1 = if use_fder then -der(y) else 0;
+      y2 = if (use_fder and use_fder2) then -der(y1) else 0;
+      connect(y1, fder);
+      connect(y2, fder2);
+      if use_pder then
+        connect(pder, u1);
+      else
+        u1 = 0;
+      end if;
+      if (use_pder and use_pder2) then
+        connect(pder2, u2);
+      else
+        u2 = 0;
+      end if;
+      if (use_pder and use_pder2) then
+        u = Functions.state2({p, u1, u2}, time);
+      elseif (use_pder and not use_pder2) then
+        u = Functions.state1({p, u1}, time);
+      else
+        u = p;
+      end if;
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false), graphics={
+            Text(
+              extent={{-100,120},{100,100}},
+              lineColor={0,0,255},
+              textString="%name"),
+                Rectangle(
+                  extent={{-20,100},{20,-100}},
+                  lineColor={64,64,64},
+                  fillColor={255,255,255},
+                  fillPattern=FillPattern.HorizontalCylinder,
+                  radius=10),
+            Text(
+              extent={{-18,90},{18,70}},
+              textString="%Name_p"),
+            Text(
+              extent={{-18,60},{18,40}},
+              textString="%Name_pder",
+              visible=use_pder),
+            Text(
+              extent={{-18,30},{18,10}},
+              textString="%Name_pder2",
+              visible=(use_pder and use_pder2)),
+            Text(
+              extent={{-18,-70},{18,-90}},
+              textString="%Name_f"),
+            Text(
+              extent={{-18,-40},{18,-60}},
+              textString="%Name_fder",
+              visible=use_fder),
+            Text(
+              extent={{-18,-10},{18,-30}},
+              textString="%Name_fder2",
+              visible=(use_fder and use_fder2))}),
+              Diagram(coordinateSystem(preserveAspectRatio=false)),
+        Documentation(info="<html>
+<p>
+Adaptor between a physical connector and a signal representation of the connector signals.
+This component is used to provide a pure signal interface around a physical model
+and export this model in form of an input/output block,
+especially as FMU (<a href=\"https://www.fmi-standard.org\">Functional Mock-up Unit</a>).
+</p>
+<p>
+This adaptor has potential, optional 1st derivative of potential, and optional 2nd derivative of potential as input and
+flow, optional 1st derivative of flow, and optional 2nd derivative of flow as output signals.
+</p>
+<p>
+Note, the input signals must be consistent to each other
+(pder=der(p), pder2=der(pder)).
+</p>
+</html>"));
+    end PotentialToFlowAdaptor;
+
+    package Functions "Functions for FMU adapters"
+      extends Modelica.Icons.InternalPackage;
+
+      function state1 "Return state (with one derivative)"
+        input Real u[2] "Required values for state and der(s)";
+        input Real dummy
+          "Just to have one input signal that should be differentiated to avoid possible problems in the Modelica tool (is not used)";
+        output Real s;
+      algorithm
+        s := u[1];
+        annotation (derivative(noDerivative=u) = state1der1,
+            InlineAfterIndexReduction=true);
+      end state1;
+
+      function state1der1 "Return 1st derivative (der of state1)"
+        input Real u[2] "Required values for state and der(s)";
+        input Real dummy
+          "Just to have one input signal that should be differentiated to avoid possible problems in the Modelica tool (is not used)";
+        input Real dummy_der;
+        output Real sder1;
+      algorithm
+        sder1 := u[2];
+        annotation (InlineAfterIndexReduction=true);
+      end state1der1;
+
+      function state2 "Return state (with two derivatives)"
+        input Real u[3] "Required values for state and der(s)";
+        input Real dummy
+          "Just to have one input signal that should be differentiated to avoid possible problems in the Modelica tool (is not used)";
+        output Real s;
+      algorithm
+        s := u[1];
+        annotation (derivative(noDerivative=u) = state2der1,
+            InlineAfterIndexReduction=true);
+      end state2;
+
+      function state2der1 "Return 1st derivative (der of state2)"
+        input Real u[3] "Required values for state and der(s)";
+        input Real dummy
+          "Just to have one input signal that should be differentiated to avoid possible problems in the Modelica tool (is not used)";
+        input Real dummy_der;
+        output Real sder1;
+      algorithm
+        sder1 := u[2];
+        annotation (derivative(noDerivative=u) = state2der2,
+            InlineAfterIndexReduction=true);
+      end state2der1;
+
+      function state2der2 "Return 2nd derivative (der of state2der1)"
+        input Real u[3] "Required values for state and der(s)";
+        input Real dummy
+          "Just to have one input signal that should be differentiated to avoid possible problems in the Modelica tool (is not used)";
+        input Real dummy_der;
+        input Real dummy_der2;
+        output Real sder2;
+      algorithm
+        sder2 := u[3];
+        annotation (InlineAfterIndexReduction=true);
+      end state2der2;
+    end Functions;
+    annotation (Documentation(info="<html>
+<p>
+This package contains partial adaptors to implement adaptors in various domains
+between a physical connector and a signal representation of the connector signals.
+This component is used to provide a pure signal interface around a physical model
+and export this model in form of an input/output block,
+especially as FMU (<a href=\"https://www.fmi-standard.org\">Functional Mock-up Unit</a>).
+</p>
+</html>"));
+  end PartialFMUadaptors;
   annotation (Documentation(info="<html>
 <p>
 This package contains interface definitions for

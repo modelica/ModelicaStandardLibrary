@@ -60,11 +60,11 @@ into your model and specify the seed.
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -200,11 +200,11 @@ is dragged to provide global settings for all instances.
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -261,11 +261,11 @@ is dragged to provide global settings for all instances.
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -349,11 +349,11 @@ is dragged to provide global settings for all instances.
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -413,7 +413,7 @@ parameters:
 
 <ul>
 <li> The <strong>samplePeriod</strong> of the block should be much faster (say by a factor of 100)
-     than the fastest dynamics of the system fed by the block&apos;s outputs. </li>
+     than the fastest dynamics of the system fed by the block&#39;s outputs.</li>
 <li> The <strong>noisePower</strong> of the signal should be set to the expected power per frequency
      of the white noise. Since many system models assume a noise power of 1,
      this preset may be a reasonable first choice (= default).</li>
@@ -440,7 +440,7 @@ think of the power of a signal may be helpful:
 
 <ul>
 <li> The energy of a signal is the integral of its squared absolute value over time.
-     The signal&apos;s power is this integral divided by the time span of the integral.</li>
+     The signal&#39;s power is this integral divided by the time span of the integral.</li>
 <li> The total power of a signal can also be obtained by integrating its (two-sided)
      power spectral density over all frequencies.</li>
 <li> The total power of a signal is finally also equal to its variance.</li>
@@ -456,7 +456,7 @@ frequency bandwidth 1/samplePeriod: <code>signal power = signal variance = noise
 </p>
 
 <p>
-Example <a href=\"Modelica.Blocks.Examples.NoiseExamples.DrydenContinuousTurbulence\">NoiseExamples.DrydenContinuousTurbulence</a>
+Example <a href=\"modelica://Modelica.Blocks.Examples.NoiseExamples.DrydenContinuousTurbulence\">NoiseExamples.DrydenContinuousTurbulence</a>
 demonstrates how to utilize this block to model wind gust.
 </p>
 </html>"));
@@ -480,7 +480,7 @@ Many examples how to use the Noise blocks are provided in sublibrary
 
 <p>
 When using one of the blocks of this sublibrary, on the same or a higher level,
-block <a href=\"Modelica.Blocks.Noise.GlobalSeed\">Noise.GlobalSeed</a>
+block <a href=\"modelica://Modelica.Blocks.Noise.GlobalSeed\">Noise.GlobalSeed</a>
 must be dragged resulting in a declaration
 </p>
 
@@ -633,7 +633,7 @@ numbers in the range 0.0 .. 1.0 (and these random numbers are transformed
 afterwards, see below). This sublibrary uses the xorshift random number generation
 suite developed in 2014 by Sebastiano Vigna (for details see
 <a href=\"http://xorshift.di.unimi.it\">http://xorshift.di.unimi.it</a> and
-<a href=\"Modelica.Math.Random.Generators\">Math.Random.Generators</a>).
+<a href=\"modelica://Modelica.Math.Random.Generators\">Math.Random.Generators</a>).
 These random number generators have excellent
 statistical properties, produce quickly statistically relevant random numbers, even if
 starting from a bad initial seed, and have a reasonable length of the internal state
@@ -645,7 +645,7 @@ The random number generator with a length of 33 Integer is used from the impure 
 generator. It is suited even for massively parallel simulations where every simulation
 computes a large number of random values. More details of the random number
 generators are described in the documentation of package
-<a href=\"Modelica.Math.Random.Generators\">Math.Random.Generators</a>.
+<a href=\"modelica://Modelica.Math.Random.Generators\">Math.Random.Generators</a>.
 </p>
 
 <h4>Distributions</h4>
@@ -680,17 +680,17 @@ when modeling noise that is known to be in a particular range, say &plusmn; 0.1 
 then with the TruncatedNormal distribution it is guaranteed that random values are only
 generated in this band). More details of truncated
 distributions are given in the documentation of package
-<a href=\"Modelica.Math.Distributions\">Math.Distributions</a>.
+<a href=\"modelica://Modelica.Math.Distributions\">Math.Distributions</a>.
 </p>
 </html>", revisions="<html>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by

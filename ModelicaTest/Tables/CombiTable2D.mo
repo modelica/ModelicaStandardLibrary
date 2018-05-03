@@ -1,5 +1,5 @@
 within ModelicaTest.Tables;
-package CombiTable2D
+package CombiTable2D "Test models for Modelica.Blocks.Tables.CombiTable2D"
   import Modelica.Utilities.Files.loadResource;
   extends Modelica.Icons.ExamplesPackage;
 
@@ -1057,4 +1057,22 @@ double mydummyfunc(double dummy_in) {
         points={{-59,-10},{-50,-10},{-50,4},{-42,4}}, color={0,0,127}));
     annotation (experiment(StartTime=0, StopTime=1));
   end Test30;
+
+  model Test31 "Text file with UTF-8 BOM and comments (Ticket #2404)"
+    extends Modelica.Icons.Example;
+    extends Test0(t_new(
+        tableOnFile=true,
+        tableName="akima2D",
+        fileName=loadResource("modelica://ModelicaTest/Resources/Data/Tables/test_utf8.txt")));
+    Modelica.Blocks.Sources.Clock clock1
+      annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
+    Modelica.Blocks.Sources.Clock clock2
+      annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
+  equation
+    connect(clock1.y, t_new.u1) annotation (Line(
+        points={{-59,30},{-50,30},{-50,16},{-42,16}}, color={0,0,127}));
+    connect(clock2.y, t_new.u2) annotation (Line(
+        points={{-59,-10},{-50,-10},{-50,4},{-42,4}}, color={0,0,127}));
+    annotation (experiment(StartTime=0, StopTime=60));
+  end Test31;
 end CombiTable2D;

@@ -12,7 +12,7 @@ model FreeBody "Free flying body attached by two springs to environment"
     numberOfWindings=5,
     c=20,
     s_unstretched=0) annotation (Placement(transformation(
-        origin={-20,6},
+        origin={-20,0},
         extent={{-10,-10},{10,10}},
         rotation=270)));
   Modelica.Mechanics.MultiBody.Parts.BodyShape body(
@@ -35,7 +35,7 @@ model FreeBody "Free flying body attached by two springs to environment"
     width=0.1,
     coilWidth=0.005,
     numberOfWindings=5) annotation (Placement(transformation(
-        origin={40,6},
+        origin={40,0},
         extent={{-10,-10},{10,10}},
         rotation=270)));
 equation
@@ -45,20 +45,20 @@ equation
       color={95,95,95},
       thickness=0.5));
   connect(spring1.frame_b, body.frame_a) annotation (Line(
-      points={{-20,-4},{-20,-30},{0,-30}},
+      points={{-20,-10},{-20,-30},{0,-30}},
       color={95,95,95},
       thickness=0.5));
   connect(bar2.frame_b, spring2.frame_a)
     annotation (Line(
-      points={{20,30},{40,30},{40,16}},
+      points={{20,30},{40,30},{40,10}},
       color={95,95,95},
       thickness=0.5));
   connect(spring1.frame_a, world.frame_b) annotation (Line(
-      points={{-20,16},{-20,30},{-40,30}},
+      points={{-20,10},{-20,30},{-40,30}},
       color={95,95,95},
       thickness=0.5));
   connect(body.frame_b, spring2.frame_b) annotation (Line(
-      points={{20,-30},{40,-30},{40,-4}},
+      points={{20,-30},{40,-30},{40,-10}},
       color={95,95,95},
       thickness=0.5));
   annotation (
@@ -78,7 +78,7 @@ This example demonstrates:
     body \"body1\" in the left part (click on \"Initialization\").</li>
 </ul>
 
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/FreeBody.png\"
-ALT=\"model Examples.Elementary.FreeBody\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/FreeBody.png\"
+alt=\"model Examples.Elementary.FreeBody\">
 </html>"));
 end FreeBody;

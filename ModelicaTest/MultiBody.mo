@@ -110,7 +110,7 @@ are present with annotation \"InineAfterIndexReduction = true\".
      is applied and the equations are symbolically differentiated.</li>
 
 <li> The functions are inlined and further symbolic transformation
-     is performed (sorting the equations, dummy derivative method etc.. </li>
+     is performed (sorting the equations, dummy derivative method etc..</li>
 </ol>
 
 <p>
@@ -127,7 +127,7 @@ The model contains the following functions that have annotation
      this lets the Pantelides algorithm fail in this example (this happens usually only
      in systems with kinematic loops). This means that the differentiated equation system
      is structurally singular, after the functions with annotation \"InineAfterIndexReduction = true\"
-     are inlined. </li>
+     are inlined.</li>
 <li> The Rotational.Sources.Move block is using internally functions to express that
      an input u[2] is the derivative of of input u[1]. In order that this is possible, the functions
      have the annotation \"InineAfterIndexReduction = true\" so that the differentiation takes place
@@ -261,12 +261,39 @@ can be switched of by setting the first parameter <strong>animation</strong>
 to <strong>false</strong> or by setting <strong>enableAnimation</strong> in the <strong>world</strong>
 object to <strong>false</strong> to switch off animation of all components.
 </p>
-<P>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/DoublePendulum.png\"
-ALT=\"model Examples.Elementary.DoublePendulum\">
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/DoublePendulum.png\"
+alt=\"model Examples.Elementary.DoublePendulum\">
 </p>
 </html>"));
   end SphericalDoublePendulum;
+
+  model WorldGroundVisualization "Demonstrate visualization of world's ground plane"
+    extends Modelica.Icons.Example;
+
+    Modelica.Mechanics.MultiBody.Visualizers.FixedArrow visGroundAxis_x(
+      animation=true,
+      r_tail={0,0,0},
+      n=world.groundAxis_u,
+      length=world.nominalLength/4,
+      diameter=world.axisDiameter) "Visualize arrow in direction of world.groundAxis_x" annotation (Placement(transformation(extent={{0,-10},{20,10}})));
+
+    inner Modelica.Mechanics.MultiBody.World world(
+      groundLength_v=0.2,
+      animateGround=true,
+      groundAxis_u={1,0.3,0},
+      groundColor={0,128,0},
+      n={-0.2,0.3,-1},
+      groundLength_u=1,
+      animateGravity=true,
+      gravityType=Modelica.Mechanics.MultiBody.Types.GravityTypes.UniformGravity)
+                        annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
+  equation
+    connect(visGroundAxis_x.frame_a, world.frame_b) annotation (Line(
+        points={{0,0},{-20,0}},
+        color={95,95,95},
+        thickness=0.5));
+  end WorldGroundVisualization;
 
   package FourbarVariants "Test joints and assembly joints with four bar loop"
     extends Modelica.Icons.ExamplesPackage;
@@ -353,7 +380,7 @@ This is a second version of the \"four-bar\" mechanism, see figure:
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Loops/Fourbar2.png\" ALT=\"model Examples.Loops.Fourbar2\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Loops/Fourbar2.png\" alt=\"model Examples.Loops.Fourbar2\">
 </p>
 
 <p>
@@ -1496,22 +1523,21 @@ menu (this sets \"fixed=false\" on parameter \"length\").
       parameter Real m=2;
       parameter Real tol=1e-4;
       inner Modelica.Mechanics.MultiBody.World world annotation (Placement(
-            transformation(extent={{-82,56},{-62,76}})));
+            transformation(extent={{-90,0},{-70,20}})));
       Modelica.Mechanics.MultiBody.Joints.Revolute revolute1(phi(fixed=true), w(
-            fixed=true)) annotation (Placement(transformation(extent={{-22,56},
-                {-2,76}})));
+            fixed=true)) annotation (Placement(transformation(extent={{-10,60},{10,80}})));
       Modelica.Mechanics.MultiBody.Parts.BodyBox bodyBox1(r={0.7,0,0})
-        annotation (Placement(transformation(extent={{18,56},{38,76}})));
+        annotation (Placement(transformation(extent={{20,60},{40,80}})));
       Modelica.Mechanics.MultiBody.Parts.FixedTranslation rod1(
         r={0,-0.9,0},
         width=0.01,
         animation=false) annotation (Placement(transformation(
-            origin={-42,50},
+            origin={-30,40},
             extent={{-10,-10},{10,10}},
-            rotation=270)));
+            rotation=0)));
       Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUPS jointUPS(nAxis_ia=
            {0.7,1.2,0}, animation=true) annotation (Placement(transformation(
-              extent={{-2,46},{18,26}})));
+              extent={{-2,52},{22,28}})));
       Modelica.Mechanics.MultiBody.Parts.Body body1(
         r_CM=0.2*jointUPS.eAxis_ia,
         cylinderDiameter=0.05,
@@ -1519,7 +1545,7 @@ menu (this sets \"fixed=false\" on parameter \"length\").
         m=m,
         I_11=0,
         I_22=0,
-        I_33=0) annotation (Placement(transformation(extent={{-16,10},{-36,30}})));
+        I_33=0) annotation (Placement(transformation(extent={{-14,10},{-34,30}})));
       Modelica.Mechanics.MultiBody.Parts.Body body2(
         r_CM=-0.2*jointUPS.eAxis_ia,
         cylinderDiameter=0.05,
@@ -1527,37 +1553,36 @@ menu (this sets \"fixed=false\" on parameter \"length\").
         m=m,
         I_11=0,
         I_22=0,
-        I_33=0) annotation (Placement(transformation(extent={{30,10},{50,30}})));
+        I_33=0) annotation (Placement(transformation(extent={{32,10},{52,30}})));
       Modelica.Mechanics.MultiBody.Parts.FixedTranslation rod2(
         r={0,0.3,0},
         width=0.01,
         animation=false) annotation (Placement(transformation(
-            origin={-42,80},
+            origin={-30,70},
             extent={{10,-10},{-10,10}},
-            rotation=270)));
+            rotation=180)));
       Modelica.Mechanics.Translational.Components.Damper damper1(d=3)
-        annotation (Placement(transformation(extent={{-2,20},{18,0}})));
+        annotation (Placement(transformation(extent={{0,14},{20,-6}})));
       Modelica.Mechanics.MultiBody.Joints.Revolute revolute2(phi(fixed=true), w(
-            fixed=true)) annotation (Placement(transformation(extent={{-22,-44},
-                {-2,-24}})));
+            fixed=true)) annotation (Placement(transformation(extent={{-10,-40},{10,-20}})));
       Modelica.Mechanics.MultiBody.Parts.BodyBox bodyBox2(r={0.7,0,0})
-        annotation (Placement(transformation(extent={{18,-44},{38,-24}})));
+        annotation (Placement(transformation(extent={{20,-40},{40,-20}})));
       Modelica.Mechanics.MultiBody.Parts.FixedTranslation rod3(
         width=0.01,
         r={0,-0.9,0.3},
         animation=false) annotation (Placement(transformation(
-            origin={-42,-50},
+            origin={-30,-60},
             extent={{-10,-10},{10,10}},
-            rotation=270)));
+            rotation=0)));
       Modelica.Mechanics.MultiBody.Parts.FixedTranslation rod4(
         width=0.01,
         r={0,0.3,0.3},
         animation=false) annotation (Placement(transformation(
-            origin={-42,-20},
+            origin={-30,-30},
             extent={{10,-10},{-10,10}},
-            rotation=270)));
+            rotation=180)));
       Modelica.Mechanics.Translational.Components.Damper damper2(d=3)
-        annotation (Placement(transformation(extent={{-2,-80},{18,-100}})));
+        annotation (Placement(transformation(extent={{0,-80},{20,-100}})));
       Modelica.Mechanics.MultiBody.Forces.LineForceWithTwoMasses
         lineForceWithTwoMasses(
         L_a=0.2,
@@ -1566,75 +1591,76 @@ menu (this sets \"fixed=false\" on parameter \"length\").
         cylinderLength_b=1.2,
         massDiameterFaction=2.2,
         m_a=m,
-        m_b=m) annotation (Placement(transformation(extent={{-2,-54},{18,-74}})));
+        m_b=m) annotation (Placement(transformation(extent={{0,-50},{20,-70}})));
     equation
       assert(revolute1.phi - revolute2.phi < tol,
         "Angles of joints must be equal");
       assert(revolute1.w - revolute2.w < tol, "Angles of joints must be equal");
-      connect(jointUPS.bearing, damper1.flange_a) annotation (Line(points={{4,
-              26},{4,16},{-2,16},{-2,10}}, color={0,191,0}));
-      connect(jointUPS.axis, damper1.flange_b) annotation (Line(points={{12,26},
-              {12,16},{18,16},{18,10}}, color={0,191,0}));
+      connect(jointUPS.bearing, damper1.flange_a) annotation (Line(points={{5.2,28},{5.2,16},{0,16},{0,4}},
+                                           color={0,127,0}));
+      connect(jointUPS.axis, damper1.flange_b) annotation (Line(points={{14.8,28},{14.8,16},{20,16},{20,4}},
+                                        color={0,127,0}));
       connect(jointUPS.frame_ib, body2.frame_a) annotation (Line(
-          points={{16,26},{16,20},{30,20}},
+          points={{19.6,28},{19.6,20},{32,20}},
           color={95,95,95},
           thickness=0.5));
       connect(world.frame_b, rod2.frame_a) annotation (Line(
-          points={{-62,66},{-42,66},{-42,70}},
+          points={{-70,10},{-50,10},{-50,70},{-40,70}},
           color={95,95,95},
           thickness=0.5));
       connect(world.frame_b, rod1.frame_a) annotation (Line(
-          points={{-62,66},{-42,66},{-42,60}},
+          points={{-70,10},{-50,10},{-50,40},{-40,40}},
           color={95,95,95},
           thickness=0.5));
       connect(rod2.frame_b, revolute1.frame_a) annotation (Line(
-          points={{-42,90},{-42,94},{-30,94},{-30,66},{-22,66}},
+          points={{-20,70},{-10,70}},
           color={95,95,95},
           thickness=0.5));
       connect(revolute1.frame_b, bodyBox1.frame_a) annotation (Line(
-          points={{-2,66},{18,66}},
+          points={{10,70},{20,70}},
           color={95,95,95},
           thickness=0.5));
       connect(bodyBox1.frame_b, jointUPS.frame_b) annotation (Line(
-          points={{38,66},{44,66},{44,36},{18,36}},
+          points={{40,70},{50,70},{50,40},{22,40}},
           color={95,95,95},
           thickness=0.5));
       connect(body1.frame_a, jointUPS.frame_ia) annotation (Line(
-          points={{-16,20},{0,20},{0,26}},
+          points={{-14,20},{0.4,20},{0.4,28}},
           color={95,95,95},
           thickness=0.5));
       connect(rod1.frame_b, jointUPS.frame_a) annotation (Line(
-          points={{-42,40},{-42,36},{-2,36}},
+          points={{-20,40},{-2,40}},
           color={95,95,95},
           thickness=0.5));
       connect(rod4.frame_b, revolute2.frame_a) annotation (Line(
-          points={{-42,-10},{-42,-6},{-30,-6},{-30,-34},{-22,-34}},
+          points={{-20,-30},{-10,-30}},
           color={95,95,95},
           thickness=0.5));
       connect(revolute2.frame_b, bodyBox2.frame_a) annotation (Line(
-          points={{-2,-34},{18,-34}},
+          points={{10,-30},{20,-30}},
           color={95,95,95},
           thickness=0.5));
       connect(world.frame_b, rod4.frame_a) annotation (Line(
-          points={{-62,66},{-54,66},{-54,-36},{-42,-36},{-42,-30}},
+          points={{-70,10},{-50,10},{-50,-30},{-40,-30}},
           color={95,95,95},
           thickness=0.5));
       connect(rod3.frame_a, rod4.frame_a) annotation (Line(
-          points={{-42,-40},{-42,-37.5},{-42,-35},{-42,-30}},
-          thickness=0.5));
+          points={{-40,-60},{-50,-60},{-50,-30},{-40,-30}},
+          thickness=0.5,
+          color={95,95,95}));
       connect(lineForceWithTwoMasses.frame_a, rod3.frame_b) annotation (Line(
-          points={{-2,-64},{-42,-64},{-42,-60}},
+          points={{0,-60},{-20,-60}},
           color={95,95,95},
           thickness=0.5));
       connect(lineForceWithTwoMasses.frame_b, bodyBox2.frame_b) annotation (
           Line(
-          points={{18,-64},{52,-64},{52,-34},{38,-34}},
+          points={{20,-60},{50,-60},{50,-30},{40,-30}},
           color={95,95,95},
           thickness=0.5));
       connect(lineForceWithTwoMasses.flange_b, damper2.flange_b) annotation (
-          Line(points={{14,-75},{18,-75},{18,-90}}, color={0,191,0}));
+          Line(points={{16,-71},{20,-71},{20,-90}}, color={0,127,0}));
       connect(lineForceWithTwoMasses.flange_a, damper2.flange_a)
-        annotation (Line(points={{2,-75},{-2,-75},{-2,-90}}, color={0,191,0}));
+        annotation (Line(points={{4,-71},{0,-71},{0,-90}},   color={0,127,0}));
       annotation (experiment(StopTime=3));
     end ForceWithTwoMasses2;
 
@@ -1667,25 +1693,41 @@ menu (this sets \"fixed=false\" on parameter \"length\").
           Placement(transformation(extent={{-40,-40},{-20,-20}})));
     equation
       connect(BodyCylinder1.frame_a, Revolute1.frame_b)
-        annotation (Line(points={{0,50},{-20,50}}));
+        annotation (Line(points={{0,50},{-20,50}},
+          color={95,95,95},
+          thickness=0.5));
       connect(fixed1.frame_b, Revolute1.frame_a)
-        annotation (Line(points={{-60,50},{-40,50}}));
+        annotation (Line(points={{-60,50},{-40,50}},
+          color={95,95,95},
+          thickness=0.5));
       connect(frameForce1.frame_b, BodyCylinder1.frame_b)
-        annotation (Line(points={{40,50},{20,50}}));
+        annotation (Line(points={{40,50},{20,50}},
+          color={95,95,95},
+          thickness=0.5));
       connect(Constant1.y, frameForce1.force)
-        annotation (Line(points={{79,50},{62,50}}, color={0,0,255}));
+        annotation (Line(points={{79,50},{62,50}}, color={0,0,127}));
       connect(BodyCylinder2.frame_a, Revolute2.frame_b)
-        annotation (Line(points={{0,10},{-20,10}}));
+        annotation (Line(points={{0,10},{-20,10}},
+          color={95,95,95},
+          thickness=0.5));
       connect(fixed2.frame_b, Revolute2.frame_a)
-        annotation (Line(points={{-60,10},{-40,10}}));
+        annotation (Line(points={{-60,10},{-40,10}},
+          color={95,95,95},
+          thickness=0.5));
       connect(frameForce2.frame_b, BodyCylinder2.frame_b)
-        annotation (Line(points={{40,10},{20,10}}));
+        annotation (Line(points={{40,10},{20,10}},
+          color={95,95,95},
+          thickness=0.5));
       connect(fixed2.frame_b, FixedRotation1.frame_a)
-        annotation (Line(points={{-60,10},{-52,10},{-52,-30},{-40,-30}}));
+        annotation (Line(points={{-60,10},{-50,10},{-50,-30},{-40,-30}},
+          color={95,95,95},
+          thickness=0.5));
       connect(FixedRotation1.frame_b, frameForce2.frame_resolve)
-        annotation (Line(points={{-20,-30},{50,-30},{50,0}}));
+        annotation (Line(points={{-20,-30},{50,-30},{50,0}},
+          color={95,95,95},
+          thickness=0.5));
       connect(Constant1.y, frameForce2.force) annotation (Line(points={{79,50},
-              {72,50},{72,10},{62,10}}, color={0,0,255}));
+              {72,50},{72,10},{62,10}}, color={0,0,127}));
       annotation ( experiment(StopTime=1.1));
     end FrameForces;
 
@@ -1693,50 +1735,47 @@ menu (this sets \"fixed=false\" on parameter \"length\").
       extends Modelica.Icons.Example;
       import Modelica.Mechanics.MultiBody.*;
       parameter Real tol=1e-4;
-      inner World world annotation (Placement(transformation(extent={{-90,-68},
-                {-70,-48}})));
+      inner World world annotation (Placement(transformation(extent={{-90,-50},{-70,-30}})));
       Joints.Revolute Revolute1(
         phi(fixed=true),
         w(fixed=true),
-        useAxisFlange=false) annotation (Placement(transformation(extent={{-40,
-                40},{-20,60}})));
+        useAxisFlange=false) annotation (Placement(transformation(extent={{-40,60},{-20,80}})));
       Parts.BodyCylinder BodyCylinder1(r={1,0,0}) annotation (Placement(
-            transformation(extent={{0,40},{20,60}})));
+            transformation(extent={{0,60},{20,80}})));
       Modelica.Blocks.Sources.Constant Constant1[3](k={0,500,0}) annotation (
-          Placement(transformation(extent={{100,40},{80,60}})));
+          Placement(transformation(extent={{100,60},{80,80}})));
       Parts.Fixed fixed1(r={0,0.5,0}) annotation (Placement(transformation(
-              extent={{-80,40},{-60,60}})));
+              extent={{-80,60},{-60,80}})));
       Modelica.Mechanics.MultiBody.Forces.WorldForce frameForce1(N_to_m=600,
           resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_b)
-        annotation (Placement(transformation(extent={{60,40},{40,60}})));
+        annotation (Placement(transformation(extent={{60,60},{40,80}})));
       Joints.Revolute Revolute2(phi(fixed=true), w(fixed=true)) annotation (
-          Placement(transformation(extent={{-40,0},{-20,20}})));
+          Placement(transformation(extent={{-40,20},{-20,40}})));
       Parts.BodyCylinder BodyCylinder2(r={1,0,0}) annotation (Placement(
-            transformation(extent={{0,0},{20,20}})));
+            transformation(extent={{0,20},{20,40}})));
       Parts.Fixed fixed2(r={0,-0.5,0}) annotation (Placement(transformation(
-              extent={{-80,0},{-60,20}})));
+              extent={{-80,20},{-60,40}})));
       Modelica.Mechanics.MultiBody.Forces.WorldForce frameForce2(N_to_m=600,
           resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_resolve)
-        annotation (Placement(transformation(extent={{60,0},{40,20}})));
+        annotation (Placement(transformation(extent={{60,20},{40,40}})));
       Joints.Revolute Revolute3(
         phi(fixed=true),
         w(fixed=true),
-        useAxisFlange=false) annotation (Placement(transformation(extent={{-40,
-                -48},{-20,-28}})));
+        useAxisFlange=false) annotation (Placement(transformation(extent={{-40,-30},{-20,-10}})));
       Parts.BodyCylinder BodyCylinder3(r={1,0,0}) annotation (Placement(
-            transformation(extent={{0,-48},{20,-28}})));
+            transformation(extent={{0,-30},{20,-10}})));
       Modelica.Blocks.Sources.Constant Constant2[3](k={0,500,0}) annotation (
-          Placement(transformation(extent={{100,-48},{80,-28}})));
+          Placement(transformation(extent={{100,-30},{80,-10}})));
       Modelica.Mechanics.MultiBody.Forces.WorldForce frameForce3(N_to_m=600,
           resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.world)
-        annotation (Placement(transformation(extent={{60,-48},{40,-28}})));
+        annotation (Placement(transformation(extent={{60,-30},{40,-10}})));
       Joints.Revolute Revolute4(phi(fixed=true), w(fixed=true)) annotation (
-          Placement(transformation(extent={{-40,-88},{-20,-68}})));
+          Placement(transformation(extent={{-40,-70},{-20,-50}})));
       Parts.BodyCylinder BodyCylinder4(r={1,0,0}) annotation (Placement(
-            transformation(extent={{0,-88},{20,-68}})));
+            transformation(extent={{0,-70},{20,-50}})));
       Modelica.Mechanics.MultiBody.Forces.WorldForce frameForce4(N_to_m=600,
           resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_resolve)
-        annotation (Placement(transformation(extent={{60,-88},{40,-68}})));
+        annotation (Placement(transformation(extent={{60,-70},{40,-50}})));
     equation
       assert(Revolute1.phi - Revolute2.phi < tol,
         "Angles of joints must be equal");
@@ -1745,55 +1784,75 @@ menu (this sets \"fixed=false\" on parameter \"length\").
         "Angles of joints must be equal");
       assert(Revolute3.w - Revolute4.w < tol, "Angles of joints must be equal");
       connect(BodyCylinder1.frame_a, Revolute1.frame_b)
-        annotation (Line(points={{0,50},{-20,50}}));
+        annotation (Line(points={{0,70},{-20,70}},
+          color={95,95,95},
+          thickness=0.5));
       connect(fixed1.frame_b, Revolute1.frame_a)
-        annotation (Line(points={{-60,50},{-40,50}}));
+        annotation (Line(points={{-60,70},{-40,70}},
+          color={95,95,95},
+          thickness=0.5));
       connect(frameForce1.frame_b, BodyCylinder1.frame_b)
-        annotation (Line(points={{40,50},{20,50}}));
+        annotation (Line(points={{40,70},{20,70}},
+          color={95,95,95},
+          thickness=0.5));
       connect(Constant1.y, frameForce1.force)
-        annotation (Line(points={{79,50},{62,50}}, color={0,0,255}));
+        annotation (Line(points={{79,70},{62,70}}, color={0,0,127}));
       connect(BodyCylinder2.frame_a, Revolute2.frame_b)
-        annotation (Line(points={{0,10},{-20,10}}));
+        annotation (Line(points={{0,30},{-20,30}},
+          color={95,95,95},
+          thickness=0.5));
       connect(fixed2.frame_b, Revolute2.frame_a)
-        annotation (Line(points={{-60,10},{-40,10}}));
+        annotation (Line(points={{-60,30},{-40,30}},
+          color={95,95,95},
+          thickness=0.5));
       connect(frameForce2.frame_b, BodyCylinder2.frame_b)
-        annotation (Line(points={{40,10},{20,10}}));
-      connect(Constant1.y, frameForce2.force) annotation (Line(points={{79,50},
-              {72,50},{72,10},{62,10}}, color={0,0,255}));
+        annotation (Line(points={{40,30},{20,30}},
+          color={95,95,95},
+          thickness=0.5));
+      connect(Constant1.y, frameForce2.force) annotation (Line(points={{79,70},{70,70},{70,30},{62,30}},
+                                        color={0,0,127}));
       connect(BodyCylinder2.frame_b, frameForce2.frame_resolve) annotation (
           Line(
-          points={{20,10},{30,10},{30,-12},{50,-12},{50,0}},
+          points={{20,30},{30,30},{30,8},{50,8},{50,20}},
           color={95,95,95},
           thickness=0.5));
       connect(BodyCylinder3.frame_a, Revolute3.frame_b)
-        annotation (Line(points={{0,-38},{-20,-38}}));
+        annotation (Line(points={{0,-20},{-20,-20}},
+          color={95,95,95},
+          thickness=0.5));
       connect(frameForce3.frame_b, BodyCylinder3.frame_b)
-        annotation (Line(points={{40,-38},{20,-38}}));
+        annotation (Line(points={{40,-20},{20,-20}},
+          color={95,95,95},
+          thickness=0.5));
       connect(Constant2.y, frameForce3.force)
-        annotation (Line(points={{79,-38},{62,-38}}, color={0,0,255}));
+        annotation (Line(points={{79,-20},{62,-20}}, color={0,0,127}));
       connect(BodyCylinder4.frame_a, Revolute4.frame_b)
-        annotation (Line(points={{0,-78},{-20,-78}}));
+        annotation (Line(points={{0,-60},{-20,-60}},
+          color={95,95,95},
+          thickness=0.5));
       connect(frameForce4.frame_b, BodyCylinder4.frame_b)
-        annotation (Line(points={{40,-78},{20,-78}}));
-      connect(Constant2.y, frameForce4.force) annotation (Line(points={{79,-38},
-              {72,-38},{72,-78},{62,-78}}, color={0,0,255}));
+        annotation (Line(points={{40,-60},{20,-60}},
+          color={95,95,95},
+          thickness=0.5));
+      connect(Constant2.y, frameForce4.force) annotation (Line(points={{79,-20},{70,-20},{70,-60},{62,-60}},
+                                           color={0,0,127}));
       connect(world.frame_b, Revolute3.frame_a) annotation (Line(
-          points={{-70,-58},{-56,-58},{-56,-38},{-40,-38}},
+          points={{-70,-40},{-50,-40},{-50,-20},{-40,-20}},
           color={95,95,95},
           thickness=0.5));
       connect(frameForce4.frame_resolve, world.frame_b) annotation (Line(
-          points={{50,-88},{50,-106},{-66,-106},{-66,-58},{-70,-58}},
+          points={{50,-70},{50,-88},{-50,-88},{-50,-40},{-70,-40}},
           color={95,95,95},
-          pattern=LinePattern.Dot));
+          pattern=LinePattern.Dash));
       connect(Revolute4.frame_a, world.frame_b) annotation (Line(
-          points={{-40,-78},{-56,-78},{-56,-58},{-70,-58}},
+          points={{-40,-60},{-50,-60},{-50,-40},{-70,-40}},
           color={95,95,95},
           thickness=0.5));
       annotation (
         experiment(StopTime=2, Tolerance=1e-006),
-        Diagram(coordinateSystem(extent={{-100,-120},{100,100}},
+        Diagram(coordinateSystem(extent={{-100,-100},{100,100}},
               preserveAspectRatio=true)),
-        Icon(coordinateSystem(extent={{-100,-120},{100,100}})));
+        Icon(coordinateSystem(extent={{-100,-100},{100,80}})));
     end FrameForces2;
 
     model FrameForcesAndTorques
@@ -1814,11 +1873,11 @@ menu (this sets \"fixed=false\" on parameter \"length\").
       Modelica.Blocks.Sources.Constant Constant1[6](k={0,500,0,-100,100,0})
         annotation (Placement(transformation(extent={{100,60},{80,80}})));
       Parts.Fixed fixed1(r={0,0.5,0}) annotation (Placement(transformation(
-              extent={{-80,20},{-60,40}})));
+              extent={{-100,20},{-80,40}})));
       Parts.BodyCylinder body2(r={1,0,0}) annotation (Placement(transformation(
               extent={{0,-30},{20,-10}})));
       Parts.Fixed fixed2(r={0,-0.5,0}) annotation (Placement(transformation(
-              extent={{-88,-70},{-68,-50}})));
+              extent={{-98,-70},{-78,-50}})));
       Modelica.Mechanics.MultiBody.Forces.WorldForceAndTorque frameTorque1(
         Nm_to_m=120,
         N_to_m=600,
@@ -1839,45 +1898,61 @@ menu (this sets \"fixed=false\" on parameter \"length\").
       Modelica.Blocks.Sources.Constant Constant2[6](k={0,500,0,-100,100,0})
         annotation (Placement(transformation(extent={{100,-30},{80,-10}})));
       Joints.Revolute Revolute3(phi(fixed=true), w(fixed=true)) annotation (
-          Placement(transformation(extent={{-52,20},{-32,40}})));
+          Placement(transformation(extent={{-60,20},{-40,40}})));
       Joints.Revolute Revolute4(phi(fixed=true), w(fixed=true)) annotation (
           Placement(transformation(extent={{-60,-70},{-40,-50}})));
       Modelica.Mechanics.MultiBody.Parts.FixedRotation FixedRotation1(angle=45,
           n={0,0,1})
-        annotation (Placement(transformation(extent={{-34,-90},{-14,-70}})));
+        annotation (Placement(transformation(extent={{0,-90},{20,-70}})));
     equation
 
       connect(frameTorque1.frame_b, body1.frame_b)
-        annotation (Line(points={{40,70},{20,70}}));
+        annotation (Line(points={{40,70},{20,70}},
+          color={95,95,95},
+          thickness=0.5));
       connect(Revolute1.frame_b, body1.frame_a)
-        annotation (Line(points={{-20,60},{-20,70},{0,70}}));
+        annotation (Line(points={{-20,60},{-20,70},{0,70}},
+          color={95,95,95},
+          thickness=0.5));
       connect(Revolute2.frame_b, body2.frame_a)
-        annotation (Line(points={{-20,-30},{-20,-20},{0,-20}}));
+        annotation (Line(points={{-20,-30},{-20,-20},{0,-20}},
+          color={95,95,95},
+          thickness=0.5));
       connect(frameTorque2.frame_b, body2.frame_b)
-        annotation (Line(points={{40,-20},{20,-20}}));
+        annotation (Line(points={{40,-20},{20,-20}},
+          color={95,95,95},
+          thickness=0.5));
       connect(Revolute3.frame_a, fixed1.frame_b)
-        annotation (Line(points={{-52,30},{-60,30}}));
+        annotation (Line(points={{-60,30},{-80,30}},
+          color={95,95,95},
+          thickness=0.5));
       connect(Revolute3.frame_b, Revolute1.frame_a)
-        annotation (Line(points={{-32,30},{-20,30},{-20,40}}));
+        annotation (Line(points={{-40,30},{-20,30},{-20,40}},
+          color={95,95,95},
+          thickness=0.5));
       connect(fixed2.frame_b, Revolute4.frame_a)
-        annotation (Line(points={{-68,-60},{-60,-60}}));
+        annotation (Line(points={{-78,-60},{-60,-60}},
+          color={95,95,95},
+          thickness=0.5));
       connect(Revolute4.frame_b, Revolute2.frame_a)
-        annotation (Line(points={{-40,-60},{-20,-60},{-20,-50}}));
+        annotation (Line(points={{-40,-60},{-20,-60},{-20,-50}},
+          color={95,95,95},
+          thickness=0.5));
       connect(Constant1[1:3].y, frameTorque1.force[1:3]) annotation (Line(
-          points={{79,70},{72,70},{72,62.6667},{62,62.6667}}, color={0,0,127}));
+          points={{79,70},{72,70},{72,65.3333},{62,65.3333}}, color={0,0,127}));
       connect(Constant1[4:6].y, frameTorque1.torque[1:3]) annotation (Line(
-          points={{79,70},{72,70},{72,74.6667},{62,74.6667}}, color={0,0,127}));
+          points={{79,70},{72,70},{72,77.3333},{62,77.3333}}, color={0,0,127}));
       connect(Constant2[1:3].y, frameTorque2.force[1:3]) annotation (Line(
-          points={{79,-20},{72,-20},{72,-12.6667},{62,-12.6667}}, color={0,0,127}));
+          points={{79,-20},{72,-20},{72,-15.3333},{62,-15.3333}}, color={0,0,127}));
       connect(Constant2[4:6].y, frameTorque2.torque[1:3]) annotation (Line(
-          points={{79,-20},{72,-20},{72,-24.6667},{62,-24.6667}}, color={0,0,127}));
+          points={{79,-20},{72,-20},{72,-27.3333},{62,-27.3333}}, color={0,0,127}));
       connect(fixed2.frame_b, FixedRotation1.frame_a) annotation (Line(
-          points={{-68,-60},{-64,-60},{-64,-80},{-34,-80}},
+          points={{-78,-60},{-70,-60},{-70,-80},{0,-80}},
           color={95,95,95},
           thickness=0.5));
       connect(FixedRotation1.frame_b, frameTorque2.frame_resolve) annotation (
           Line(
-          points={{-14,-80},{50,-80},{50,-30}},
+          points={{20,-80},{50,-80},{50,-30}},
           color={95,95,95},
           thickness=0.5));
       annotation (experiment(StopTime=1.1));
@@ -1901,11 +1976,11 @@ menu (this sets \"fixed=false\" on parameter \"length\").
       Modelica.Blocks.Sources.Constant Constant1[6](k={0,500,0,-100,100,0})
         annotation (Placement(transformation(extent={{100,60},{80,80}})));
       Parts.Fixed fixed1(r={0,0.5,0}) annotation (Placement(transformation(
-              extent={{-80,20},{-60,40}})));
+              extent={{-100,20},{-80,40}})));
       Parts.BodyCylinder body2(r={1,0,0}) annotation (Placement(transformation(
               extent={{0,-30},{20,-10}})));
       Parts.Fixed fixed2(r={0,-0.5,0}) annotation (Placement(transformation(
-              extent={{-88,-70},{-68,-50}})));
+              extent={{-98,-70},{-78,-50}})));
       Modelica.Mechanics.MultiBody.Forces.WorldForceAndTorque frameTorque1(
         Nm_to_m=120,
         N_to_m=600,
@@ -1926,7 +2001,7 @@ menu (this sets \"fixed=false\" on parameter \"length\").
       Modelica.Blocks.Sources.Constant Constant2[6](k={0,500,0,-100,100,0})
         annotation (Placement(transformation(extent={{100,-30},{80,-10}})));
       Joints.Revolute Revolute3(phi(fixed=true), w(fixed=true)) annotation (
-          Placement(transformation(extent={{-52,20},{-32,40}})));
+          Placement(transformation(extent={{-60,20},{-40,40}})));
       Joints.Revolute Revolute4(phi(fixed=true), w(fixed=true)) annotation (
           Placement(transformation(extent={{-60,-70},{-40,-50}})));
     equation
@@ -1938,31 +2013,47 @@ menu (this sets \"fixed=false\" on parameter \"length\").
       assert(Revolute3.w - Revolute4.w < tol, "Angles of joints must be equal");
 
       connect(frameTorque1.frame_b, body1.frame_b)
-        annotation (Line(points={{40,70},{20,70}}));
+        annotation (Line(points={{40,70},{20,70}},
+          color={95,95,95},
+          thickness=0.5));
       connect(Revolute1.frame_b, body1.frame_a)
-        annotation (Line(points={{-20,60},{-20,70},{0,70}}));
+        annotation (Line(points={{-20,60},{-20,70},{0,70}},
+          color={95,95,95},
+          thickness=0.5));
       connect(Revolute2.frame_b, body2.frame_a)
-        annotation (Line(points={{-20,-30},{-20,-20},{0,-20}}));
+        annotation (Line(points={{-20,-30},{-20,-20},{0,-20}},
+          color={95,95,95},
+          thickness=0.5));
       connect(frameTorque2.frame_b, body2.frame_b)
-        annotation (Line(points={{40,-20},{20,-20}}));
+        annotation (Line(points={{40,-20},{20,-20}},
+          color={95,95,95},
+          thickness=0.5));
       connect(Revolute3.frame_a, fixed1.frame_b)
-        annotation (Line(points={{-52,30},{-60,30}}));
+        annotation (Line(points={{-60,30},{-80,30}},
+          color={95,95,95},
+          thickness=0.5));
       connect(Revolute3.frame_b, Revolute1.frame_a)
-        annotation (Line(points={{-32,30},{-20,30},{-20,40}}));
+        annotation (Line(points={{-40,30},{-20,30},{-20,40}},
+          color={95,95,95},
+          thickness=0.5));
       connect(fixed2.frame_b, Revolute4.frame_a)
-        annotation (Line(points={{-68,-60},{-60,-60}}));
+        annotation (Line(points={{-78,-60},{-60,-60}},
+          color={95,95,95},
+          thickness=0.5));
       connect(Revolute4.frame_b, Revolute2.frame_a)
-        annotation (Line(points={{-40,-60},{-20,-60},{-20,-50}}));
+        annotation (Line(points={{-40,-60},{-20,-60},{-20,-50}},
+          color={95,95,95},
+          thickness=0.5));
       connect(Constant1[1:3].y, frameTorque1.force[1:3]) annotation (Line(
-          points={{79,70},{72,70},{72,62.6667},{62,62.6667}}, color={0,0,127}));
+          points={{79,70},{72,70},{72,65.3333},{62,65.3333}}, color={0,0,127}));
       connect(Constant1[4:6].y, frameTorque1.torque[1:3]) annotation (Line(
-          points={{79,70},{72,70},{72,74.6667},{62,74.6667}}, color={0,0,127}));
+          points={{79,70},{72,70},{72,77.3333},{62,77.3333}}, color={0,0,127}));
       connect(Constant2[1:3].y, frameTorque2.force[1:3]) annotation (Line(
-          points={{79,-20},{72,-20},{72,-12.6667},{62,-12.6667}}, color={0,0,127}));
+          points={{79,-20},{72,-20},{72,-15.3333},{62,-15.3333}}, color={0,0,127}));
       connect(Constant2[4:6].y, frameTorque2.torque[1:3]) annotation (Line(
-          points={{79,-20},{72,-20},{72,-24.6667},{62,-24.6667}}, color={0,0,127}));
+          points={{79,-20},{72,-20},{72,-27.3333},{62,-27.3333}}, color={0,0,127}));
       connect(body2.frame_b, frameTorque2.frame_resolve) annotation (Line(
-          points={{20,-20},{28,-20},{28,-60},{50,-60},{50,-30}},
+          points={{20,-20},{30,-20},{30,-40},{50,-40},{50,-30}},
           color={95,95,95},
           thickness=0.5));
       annotation (experiment(StopTime=2, Tolerance=1e-6));
@@ -2007,14 +2098,14 @@ menu (this sets \"fixed=false\" on parameter \"length\").
       Modelica.Blocks.Sources.Constant Constant2[6](k={0,500,0,-100,100,0})
         annotation (Placement(transformation(extent={{100,-30},{80,-10}})));
       Joints.Revolute Revolute3(phi(fixed=true), w(fixed=true)) annotation (
-          Placement(transformation(extent={{-52,20},{-32,40}})));
+          Placement(transformation(extent={{-60,20},{-40,40}})));
       Joints.Revolute Revolute4(phi(fixed=true), w(fixed=true)) annotation (
           Placement(transformation(extent={{-60,-70},{-40,-50}})));
       Modelica.Mechanics.MultiBody.Parts.FixedTranslation fixedTranslation(r={0,
             0,1}) annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
-            origin={-78,-24})));
+            origin={-70,0})));
     equation
       assert(Revolute1.phi - Revolute2.phi < tol,
         "Angles of joints must be equal");
@@ -2023,39 +2114,51 @@ menu (this sets \"fixed=false\" on parameter \"length\").
         "Angles of joints must be equal");
       assert(Revolute3.w - Revolute4.w < tol, "Angles of joints must be equal");
       connect(frameTorque1.frame_b, body1.frame_b)
-        annotation (Line(points={{40,70},{20,70}}));
+        annotation (Line(points={{40,70},{20,70}},
+          color={95,95,95},
+          thickness=0.5));
       connect(Revolute1.frame_b, body1.frame_a)
-        annotation (Line(points={{-20,60},{-20,70},{0,70}}));
+        annotation (Line(points={{-20,60},{-20,70},{0,70}},
+          color={95,95,95},
+          thickness=0.5));
       connect(Revolute2.frame_b, body2.frame_a)
-        annotation (Line(points={{-20,-30},{-20,-20},{0,-20}}));
+        annotation (Line(points={{-20,-30},{-20,-20},{0,-20}},
+          color={95,95,95},
+          thickness=0.5));
       connect(frameTorque2.frame_b, body2.frame_b)
-        annotation (Line(points={{40,-20},{20,-20}}));
+        annotation (Line(points={{40,-20},{20,-20}},
+          color={95,95,95},
+          thickness=0.5));
       connect(Revolute3.frame_b, Revolute1.frame_a)
-        annotation (Line(points={{-32,30},{-20,30},{-20,40}}));
+        annotation (Line(points={{-40,30},{-20,30},{-20,40}},
+          color={95,95,95},
+          thickness=0.5));
       connect(Revolute4.frame_b, Revolute2.frame_a)
-        annotation (Line(points={{-40,-60},{-20,-60},{-20,-50}}));
+        annotation (Line(points={{-40,-60},{-20,-60},{-20,-50}},
+          color={95,95,95},
+          thickness=0.5));
       connect(Constant1[1:3].y, frameTorque1.force[1:3]) annotation (Line(
-          points={{79,70},{72,70},{72,62.6667},{62,62.6667}}, color={0,0,127}));
+          points={{79,70},{72,70},{72,65.3333},{62,65.3333}}, color={0,0,127}));
       connect(Constant1[4:6].y, frameTorque1.torque[1:3]) annotation (Line(
-          points={{79,70},{72,70},{72,74.6667},{62,74.6667}}, color={0,0,127}));
+          points={{79,70},{72,70},{72,77.3333},{62,77.3333}}, color={0,0,127}));
       connect(Constant2[1:3].y, frameTorque2.force[1:3]) annotation (Line(
-          points={{79,-20},{72,-20},{72,-12.6667},{62,-12.6667}}, color={0,0,127}));
+          points={{79,-20},{72,-20},{72,-15.3333},{62,-15.3333}}, color={0,0,127}));
       connect(Constant2[4:6].y, frameTorque2.torque[1:3]) annotation (Line(
-          points={{79,-20},{72,-20},{72,-24.6667},{62,-24.6667}}, color={0,0,127}));
+          points={{79,-20},{72,-20},{72,-27.3333},{62,-27.3333}}, color={0,0,127}));
       connect(world.frame_b, Revolute3.frame_a) annotation (Line(
-          points={{-80,30},{-52,30}},
+          points={{-80,30},{-60,30}},
           color={95,95,95},
           thickness=0.5));
       connect(fixedTranslation.frame_a, world.frame_b) annotation (Line(
-          points={{-78,-14},{-80,-14},{-80,30}},
+          points={{-70,10},{-70,30},{-80,30}},
           color={95,95,95},
           thickness=0.5));
       connect(fixedTranslation.frame_b, Revolute4.frame_a) annotation (Line(
-          points={{-78,-34},{-70,-34},{-70,-60},{-60,-60}},
+          points={{-70,-10},{-70,-60},{-60,-60}},
           color={95,95,95},
           thickness=0.5));
       connect(Revolute4.frame_a, frameTorque2.frame_resolve) annotation (Line(
-          points={{-60,-60},{-58,-60},{-58,-84},{44,-84},{44,-30},{50,-30}},
+          points={{-60,-60},{-70,-60},{-70,-80},{50,-80},{50,-30},{50,-30}},
           color={95,95,95},
           thickness=0.5));
       annotation (experiment(StopTime=2, Tolerance=1e-6));
@@ -2102,21 +2205,37 @@ menu (this sets \"fixed=false\" on parameter \"length\").
           Placement(transformation(extent={{100,0},{80,20}})));
     equation
       connect(fixed2.frame_b, FixedRotation1.frame_a)
-        annotation (Line(points={{-60,-30},{-52,-30},{-52,-50},{0,-50}}));
+        annotation (Line(points={{-60,-30},{-52,-30},{-52,-50},{0,-50}},
+          color={95,95,95},
+          thickness=0.5));
       connect(frameTorque1.frame_b, body1.frame_b)
-        annotation (Line(points={{40,90},{20,90}}));
+        annotation (Line(points={{40,90},{20,90}},
+          color={95,95,95},
+          thickness=0.5));
       connect(fixed1.frame_b, Revolute1.frame_a)
-        annotation (Line(points={{-60,30},{-30,30},{-30,40}}));
+        annotation (Line(points={{-60,30},{-30,30},{-30,40}},
+          color={95,95,95},
+          thickness=0.5));
       connect(Revolute1.frame_b, body1.frame_a)
-        annotation (Line(points={{-30,60},{-30,90},{0,90}}));
+        annotation (Line(points={{-30,60},{-30,90},{0,90}},
+          color={95,95,95},
+          thickness=0.5));
       connect(fixed2.frame_b, Revolute2.frame_a)
-        annotation (Line(points={{-60,-30},{-30,-30},{-30,-20}}));
+        annotation (Line(points={{-60,-30},{-30,-30},{-30,-20}},
+          color={95,95,95},
+          thickness=0.5));
       connect(Revolute2.frame_b, body2.frame_a)
-        annotation (Line(points={{-30,0},{-30,10},{0,10}}));
+        annotation (Line(points={{-30,0},{-30,10},{0,10}},
+          color={95,95,95},
+          thickness=0.5));
       connect(frameTorque2.frame_b, body2.frame_b)
-        annotation (Line(points={{40,10},{20,10}}));
+        annotation (Line(points={{40,10},{20,10}},
+          color={95,95,95},
+          thickness=0.5));
       connect(FixedRotation1.frame_b, frameTorque2.frame_resolve)
-        annotation (Line(points={{20,-50},{50,-50},{50,0}}));
+        annotation (Line(points={{20,-50},{50,-50},{50,0}},
+          color={95,95,95},
+          thickness=0.5));
       connect(Constant1.y, frameTorque1.torque) annotation (Line(
           points={{79,90},{62,90}}, color={0,0,127}));
       connect(Constant2.y, frameTorque2.torque) annotation (Line(
@@ -2128,24 +2247,23 @@ menu (this sets \"fixed=false\" on parameter \"length\").
       import Modelica.Mechanics.MultiBody.*;
       extends Modelica.Icons.Example;
       parameter Real tol=1e-4;
-      inner World world annotation (Placement(transformation(extent={{-90,-26},
-                {-70,-6}})));
+      inner World world annotation (Placement(transformation(extent={{-90,-30},{-70,-10}})));
       Joints.Revolute Revolute1(
         n={0,1,0},
         phi(fixed=true),
         w(fixed=true)) annotation (Placement(transformation(
-            origin={-32,90},
+            origin={-30,90},
             extent={{-10,-10},{10,10}})));
       Parts.BodyCylinder body1(r={1,0,0}) annotation (Placement(transformation(
               extent={{0,80},{20,100}})));
       Modelica.Blocks.Sources.Constant Constant1[3](k={0,100,0}) annotation (
           Placement(transformation(extent={{100,80},{80,100}})));
       Parts.Fixed fixed1(r={0,0.5,0}) annotation (Placement(transformation(
-              extent={{-74,80},{-54,100}})));
+              extent={{-82,80},{-62,100}})));
       Parts.BodyCylinder body2(r={1,0,0}) annotation (Placement(transformation(
               extent={{0,40},{20,60}})));
       Parts.Fixed fixed2(r={0,-0.5,0}) annotation (Placement(transformation(
-              extent={{-72,40},{-52,60}})));
+              extent={{-80,40},{-60,60}})));
       Modelica.Mechanics.MultiBody.Forces.WorldTorque frameTorque1(Nm_to_m=120,
           resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_b)
         annotation (Placement(transformation(extent={{60,80},{40,100}})));
@@ -2156,7 +2274,7 @@ menu (this sets \"fixed=false\" on parameter \"length\").
         n={0,1,0},
         phi(fixed=true),
         w(fixed=true)) annotation (Placement(transformation(
-            origin={-32,50},
+            origin={-30,50},
             extent={{-10,-10},{10,10}})));
       Modelica.Blocks.Sources.Constant Constant2[3](k={0,100,0}) annotation (
           Placement(transformation(extent={{100,40},{80,60}})));
@@ -2164,28 +2282,28 @@ menu (this sets \"fixed=false\" on parameter \"length\").
         n={0,1,0},
         phi(fixed=true),
         w(fixed=true)) annotation (Placement(transformation(
-            origin={-36,-16},
+            origin={-30,-20},
             extent={{-10,-10},{10,10}})));
       Parts.BodyCylinder body3(r={1,0,0}) annotation (Placement(transformation(
-              extent={{-4,-26},{16,-6}})));
+              extent={{-4,-30},{16,-10}})));
       Modelica.Blocks.Sources.Constant Constant3[3](k={0,100,0}) annotation (
-          Placement(transformation(extent={{96,-26},{76,-6}})));
+          Placement(transformation(extent={{100,-30},{80,-10}})));
       Parts.BodyCylinder body4(r={1,0,0}) annotation (Placement(transformation(
-              extent={{-4,-66},{16,-46}})));
+              extent={{-4,-70},{16,-50}})));
       Modelica.Mechanics.MultiBody.Forces.WorldTorque frameTorque3(Nm_to_m=120,
           resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.world)
-        annotation (Placement(transformation(extent={{56,-26},{36,-6}})));
+        annotation (Placement(transformation(extent={{56,-30},{36,-10}})));
       Modelica.Mechanics.MultiBody.Forces.WorldTorque frameTorque4(Nm_to_m=120,
           resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_resolve)
-        annotation (Placement(transformation(extent={{56,-46},{36,-66}})));
+        annotation (Placement(transformation(extent={{56,-50},{36,-70}})));
       Joints.Revolute Revolute4(
         n={0,1,0},
         phi(fixed=true),
         w(fixed=true)) annotation (Placement(transformation(
-            origin={-36,-56},
+            origin={-30,-60},
             extent={{-10,-10},{10,10}})));
       Modelica.Blocks.Sources.Constant Constant4[3](k={0,100,0}) annotation (
-          Placement(transformation(extent={{96,-66},{76,-46}})));
+          Placement(transformation(extent={{100,-70},{80,-50}})));
     equation
       assert(Revolute1.phi - Revolute2.phi < tol,
         "Angles of joints must be equal");
@@ -2194,47 +2312,67 @@ menu (this sets \"fixed=false\" on parameter \"length\").
         "Angles of joints must be equal");
       assert(Revolute3.w - Revolute4.w < tol, "Angles of joints must be equal");
       connect(frameTorque1.frame_b, body1.frame_b)
-        annotation (Line(points={{40,90},{20,90}}));
+        annotation (Line(points={{40,90},{20,90}},
+          color={95,95,95},
+          thickness=0.5));
       connect(fixed1.frame_b, Revolute1.frame_a)
-        annotation (Line(points={{-54,90},{-42,90}}));
+        annotation (Line(points={{-62,90},{-40,90}},
+          color={95,95,95},
+          thickness=0.5));
       connect(Revolute1.frame_b, body1.frame_a)
-        annotation (Line(points={{-22,90},{-22,90},{0,90}}));
+        annotation (Line(points={{-20,90},{0,90}},
+          color={95,95,95},
+          thickness=0.5));
       connect(fixed2.frame_b, Revolute2.frame_a)
-        annotation (Line(points={{-52,50},{-42,50}}));
+        annotation (Line(points={{-60,50},{-40,50}},
+          color={95,95,95},
+          thickness=0.5));
       connect(Revolute2.frame_b, body2.frame_a)
-        annotation (Line(points={{-22,50},{-22,50},{0,50}}));
+        annotation (Line(points={{-20,50},{0,50}},
+          color={95,95,95},
+          thickness=0.5));
       connect(frameTorque2.frame_b, body2.frame_b)
-        annotation (Line(points={{40,50},{20,50}}));
+        annotation (Line(points={{40,50},{20,50}},
+          color={95,95,95},
+          thickness=0.5));
       connect(Constant1.y, frameTorque1.torque) annotation (Line(
           points={{79,90},{62,90}}, color={0,0,127}));
       connect(Constant2.y, frameTorque2.torque) annotation (Line(
           points={{79,50},{62,50}}, color={0,0,127}));
       connect(body2.frame_b, frameTorque2.frame_resolve) annotation (Line(
-          points={{20,50},{22,50},{22,18},{50,18},{50,40}},
+          points={{20,50},{30,50},{30,30},{50,30},{50,40}},
           color={95,95,95},
           thickness=0.5));
       connect(frameTorque3.frame_b, body3.frame_b)
-        annotation (Line(points={{36,-16},{16,-16}}));
+        annotation (Line(points={{36,-20},{16,-20}},
+          color={95,95,95},
+          thickness=0.5));
       connect(Revolute3.frame_b, body3.frame_a)
-        annotation (Line(points={{-26,-16},{-26,-16},{-4,-16}}));
+        annotation (Line(points={{-20,-20},{-4,-20}},
+          color={95,95,95},
+          thickness=0.5));
       connect(Revolute4.frame_b, body4.frame_a)
-        annotation (Line(points={{-26,-56},{-26,-56},{-4,-56}}));
+        annotation (Line(points={{-20,-60},{-4,-60}},
+          color={95,95,95},
+          thickness=0.5));
       connect(frameTorque4.frame_b, body4.frame_b)
-        annotation (Line(points={{36,-56},{16,-56}}));
+        annotation (Line(points={{36,-60},{16,-60}},
+          color={95,95,95},
+          thickness=0.5));
       connect(Constant3.y, frameTorque3.torque) annotation (Line(
-          points={{75,-16},{58,-16}}, color={0,0,127}));
+          points={{79,-20},{58,-20}}, color={0,0,127}));
       connect(Constant4.y, frameTorque4.torque) annotation (Line(
-          points={{75,-56},{58,-56}}, color={0,0,127}));
+          points={{79,-60},{58,-60}}, color={0,0,127}));
       connect(world.frame_b, Revolute3.frame_a) annotation (Line(
-          points={{-70,-16},{-46,-16}},
+          points={{-70,-20},{-40,-20}},
           color={95,95,95},
           thickness=0.5));
       connect(world.frame_b, Revolute4.frame_a) annotation (Line(
-          points={{-70,-16},{-58,-16},{-58,-56},{-46,-56}},
+          points={{-70,-20},{-60,-20},{-60,-60},{-40,-60}},
           color={95,95,95},
           thickness=0.5));
       connect(Revolute4.frame_a, frameTorque4.frame_resolve) annotation (Line(
-          points={{-46,-56},{-46,-82},{46,-82},{46,-66}},
+          points={{-40,-60},{-60,-60},{-60,-80},{46,-80},{46,-70}},
           color={95,95,95},
           thickness=0.5));
       annotation (experiment(StopTime=1.1));
@@ -2383,8 +2521,8 @@ component):
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/ForceWithMasses.png\"
-ALT=\"model Examples.Elementary.ForceWithMasses\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/ForceWithMasses.png\"
+alt=\"model Examples.Elementary.ForceWithMasses\">
 </p>
 
 <p>
@@ -2421,11 +2559,11 @@ a linear damper is connected here.
             extent={{-10,10},{10,-10}},
             rotation=270)));
       Parts.Fixed fixed1(r={0,0.5,0}) annotation (Placement(transformation(
-              extent={{-90,0},{-70,20}})));
+              extent={{-100,0},{-80,20}})));
       Parts.BodyCylinder body2(r={1,0,0}) annotation (Placement(transformation(
               extent={{0,-30},{20,-10}})));
       Parts.Fixed fixed3(r={0,-0.5,0}) annotation (Placement(transformation(
-              extent={{-88,-70},{-68,-50}})));
+              extent={{-98,-70},{-78,-50}})));
       Parts.FixedRotation fixedRotation(n={0,0,1}, angle=45) annotation (
           Placement(transformation(extent={{-8,-90},{12,-70}})));
       Modelica.Mechanics.MultiBody.Forces.Torque torque1(Nm_to_m=120,
@@ -2449,32 +2587,52 @@ a linear damper is connected here.
       Joints.Revolute Revolute3(phi(fixed=true), w(fixed=true)) annotation (
           Placement(transformation(extent={{-52,0},{-32,20}})));
       Joints.Revolute Revolute4(phi(fixed=true), w(fixed=true)) annotation (
-          Placement(transformation(extent={{-62,-70},{-42,-50}})));
+          Placement(transformation(extent={{-60,-70},{-40,-50}})));
       Parts.Fixed fixed2(animation=false, r={1.5,0.25,0}) annotation (Placement(
             transformation(extent={{100,40},{80,60}})));
       Parts.Fixed fixed4(animation=false, r={1.5,-0.25,0}) annotation (
           Placement(transformation(extent={{100,-30},{80,-10}})));
     equation
       connect(torque1.frame_b, body1.frame_b)
-        annotation (Line(points={{42,50},{20,50}}));
+        annotation (Line(points={{42,50},{20,50}},
+          color={95,95,95},
+          thickness=0.5));
       connect(Revolute1.frame_b, body1.frame_a)
-        annotation (Line(points={{-20,40},{-20,50},{0,50}}));
+        annotation (Line(points={{-20,40},{-20,50},{0,50}},
+          color={95,95,95},
+          thickness=0.5));
       connect(Revolute2.frame_b, body2.frame_a)
-        annotation (Line(points={{-20,-30},{-20,-20},{0,-20}}));
+        annotation (Line(points={{-20,-30},{-20,-20},{0,-20}},
+          color={95,95,95},
+          thickness=0.5));
       connect(torque2.frame_b, body2.frame_b)
-        annotation (Line(points={{40,-20},{20,-20}}));
+        annotation (Line(points={{40,-20},{20,-20}},
+          color={95,95,95},
+          thickness=0.5));
       connect(Revolute3.frame_a, fixed1.frame_b)
-        annotation (Line(points={{-52,10},{-70,10}}));
+        annotation (Line(points={{-52,10},{-80,10}},
+          color={95,95,95},
+          thickness=0.5));
       connect(Revolute3.frame_b, Revolute1.frame_a)
-        annotation (Line(points={{-32,10},{-20,10},{-20,20}}));
+        annotation (Line(points={{-32,10},{-20,10},{-20,20}},
+          color={95,95,95},
+          thickness=0.5));
       connect(fixedRotation.frame_b, torque2.frame_resolve)
-        annotation (Line(points={{12,-80},{46,-80},{46,-30}}));
+        annotation (Line(points={{12,-80},{46,-80},{46,-30}},
+          color={95,95,95},
+          thickness=0.5));
       connect(fixed3.frame_b, Revolute4.frame_a)
-        annotation (Line(points={{-68,-60},{-62,-60}}));
+        annotation (Line(points={{-78,-60},{-60,-60}},
+          color={95,95,95},
+          thickness=0.5));
       connect(Revolute4.frame_b, Revolute2.frame_a)
-        annotation (Line(points={{-42,-60},{-20,-60},{-20,-50}}));
+        annotation (Line(points={{-40,-60},{-20,-60},{-20,-50}},
+          color={95,95,95},
+          thickness=0.5));
       connect(fixed3.frame_b, fixedRotation.frame_a)
-        annotation (Line(points={{-68,-60},{-64,-60},{-64,-80},{-8,-80}}));
+        annotation (Line(points={{-78,-60},{-70,-60},{-70,-80},{-8,-80}},
+          color={95,95,95},
+          thickness=0.5));
       connect(Constant1.y, torque1.torque) annotation (Line(points={{50,79},{50,
               72},{58,72},{58,62}}, color={0,0,255}));
       connect(Constant2.y, torque2.torque) annotation (Line(points={{70,-59},{
@@ -2892,23 +3050,41 @@ a linear damper is connected here.
             origin={50,-50})));
     equation
       connect(BodyCylinder1.frame_a, Revolute1.frame_b)
-        annotation (Line(points={{0,70},{-20,70}}));
+        annotation (Line(points={{0,70},{-20,70}},
+          color={95,95,95},
+          thickness=0.5));
       connect(worldForce.frame_b, BodyCylinder1.frame_b)
-        annotation (Line(points={{40,70},{20,70}}));
+        annotation (Line(points={{40,70},{20,70}},
+          color={95,95,95},
+          thickness=0.5));
       connect(fixed2.frame_b, Revolute2.frame_a)
-        annotation (Line(points={{-60,-10},{-30,-10},{-30,0}}));
+        annotation (Line(points={{-60,-10},{-30,-10},{-30,0}},
+          color={95,95,95},
+          thickness=0.5));
       connect(BodyCylinder2.frame_a, Revolute2.frame_b)
-        annotation (Line(points={{0,30},{-30,30},{-30,20}}));
+        annotation (Line(points={{0,30},{-30,30},{-30,20}},
+          color={95,95,95},
+          thickness=0.5));
       connect(worldTorque1.frame_b, BodyCylinder2.frame_b)
-        annotation (Line(points={{40,30},{20,30}}));
+        annotation (Line(points={{40,30},{20,30}},
+          color={95,95,95},
+          thickness=0.5));
       connect(fixed1.frame_b, Revolute1.frame_a)
-        annotation (Line(points={{-60,70},{-40,70}}));
+        annotation (Line(points={{-60,70},{-40,70}},
+          color={95,95,95},
+          thickness=0.5));
       connect(fixed3.frame_b, Revolute3.frame_a)
-        annotation (Line(points={{-60,-90},{-50,-90}}));
+        annotation (Line(points={{-60,-90},{-50,-90}},
+          color={95,95,95},
+          thickness=0.5));
       connect(Revolute3.frame_b, Revolute4.frame_a)
-        annotation (Line(points={{-30,-90},{-10,-90},{-10,-80}}));
+        annotation (Line(points={{-30,-90},{-10,-90},{-10,-80}},
+          color={95,95,95},
+          thickness=0.5));
       connect(Revolute4.frame_b, BodyCylinder3.frame_a)
-        annotation (Line(points={{-10,-60},{-10,-50},{0,-50}}));
+        annotation (Line(points={{-10,-60},{-10,-50},{0,-50}},
+          color={95,95,95},
+          thickness=0.5));
       connect(Constant1.y, worldForce.force) annotation (Line(
           points={{79,70},{62,70}}, color={0,0,127}));
       connect(Constant2.y, worldTorque1.torque) annotation (Line(
@@ -2954,11 +3130,11 @@ a linear damper is connected here.
       Parts.Fixed fixed2(r={0,0.5,0}) annotation (Placement(transformation(
               extent={{-82,18},{-62,38}})));
       Joints.Revolute Revolute3(phi(fixed=true), w(fixed=true)) annotation (
-          Placement(transformation(extent={{-40,-58},{-20,-38}})));
+          Placement(transformation(extent={{-40,-60},{-20,-40}})));
       Parts.BodyCylinder BodyCylinder3(r={1,0,0}) annotation (Placement(
-            transformation(extent={{0,-58},{20,-38}})));
+            transformation(extent={{0,-60},{20,-40}})));
       Parts.Fixed fixed3(r={0,0.5,0}) annotation (Placement(transformation(
-              extent={{-80,-58},{-60,-38}})));
+              extent={{-80,-60},{-60,-40}})));
       Modelica.Mechanics.MultiBody.Forces.WorldForce worldForce2(N_to_m=600,
           resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_b)
         annotation (Placement(transformation(extent={{60,-60},{40,-40}})));
@@ -2974,19 +3150,31 @@ a linear damper is connected here.
       assert((Revolute1.w - Revolute2.w) < tol,
         "Angles of Revolute1 and Revolute2 must be equal (diff<tol)");
       connect(BodyCylinder1.frame_a, Revolute1.frame_b)
-        annotation (Line(points={{0,70},{-20,70}}));
+        annotation (Line(points={{0,70},{-20,70}},
+          color={95,95,95},
+          thickness=0.5));
       connect(worldForce.frame_b, BodyCylinder1.frame_b)
-        annotation (Line(points={{40,70},{20,70}}));
+        annotation (Line(points={{40,70},{20,70}},
+          color={95,95,95},
+          thickness=0.5));
       connect(fixed1.frame_b, Revolute1.frame_a)
-        annotation (Line(points={{-60,70},{-40,70}}));
+        annotation (Line(points={{-60,70},{-40,70}},
+          color={95,95,95},
+          thickness=0.5));
       connect(Constant1.y, worldForce.force) annotation (Line(
           points={{79,70},{62,70}}, color={0,0,127}));
       connect(BodyCylinder2.frame_a, Revolute2.frame_b)
-        annotation (Line(points={{-2,28},{-22,28}}));
+        annotation (Line(points={{-2,28},{-22,28}},
+          color={95,95,95},
+          thickness=0.5));
       connect(worldForce1.frame_b, BodyCylinder2.frame_b)
-        annotation (Line(points={{38,28},{18,28}}));
+        annotation (Line(points={{38,28},{18,28}},
+          color={95,95,95},
+          thickness=0.5));
       connect(fixed2.frame_b, Revolute2.frame_a)
-        annotation (Line(points={{-62,28},{-42,28}}));
+        annotation (Line(points={{-62,28},{-42,28}},
+          color={95,95,95},
+          thickness=0.5));
       connect(Constant2.y, worldForce1.force) annotation (Line(
           points={{77,28},{60,28}}, color={0,0,127}));
       connect(world.frame_b, worldForce1.frame_resolve) annotation (Line(
@@ -2994,11 +3182,15 @@ a linear damper is connected here.
           color={95,95,95},
           thickness=0.5));
       connect(BodyCylinder3.frame_a, Revolute3.frame_b)
-        annotation (Line(points={{0,-48},{-20,-48}}));
+        annotation (Line(points={{0,-50},{-20,-50}},
+          color={95,95,95},
+          thickness=0.5));
       connect(fixed3.frame_b, Revolute3.frame_a)
-        annotation (Line(points={{-60,-48},{-40,-48}}));
+        annotation (Line(points={{-60,-50},{-40,-50}},
+          color={95,95,95},
+          thickness=0.5));
       connect(worldForce2.frame_b, BodyCylinder3.frame_b) annotation (Line(
-          points={{40,-50},{30,-50},{30,-48},{20,-48}},
+          points={{40,-50},{20,-50}},
           color={95,95,95},
           thickness=0.5));
       connect(sine.y, worldForce2.force[2]) annotation (Line(
@@ -3016,87 +3208,102 @@ a linear damper is connected here.
       parameter Real tol=1e-4;
       inner World world annotation (Placement(transformation(
             extent={{10,-10},{-10,10}},
-            origin={76,18})));
+            origin={80,18})));
       Parts.Fixed fixed2(r={0,-0.5,0}) annotation (Placement(transformation(
               extent={{-80,40},{-60,60}})));
       Joints.Revolute Revolute2(
         n={0,1,0},
         phi(fixed=true),
         w(fixed=true)) annotation (Placement(transformation(
-            origin={-36,50},
+            origin={-40,50},
             extent={{-10,-10},{10,10}})));
       Parts.BodyCylinder BodyCylinder2(r={1,0,0}) annotation (Placement(
-            transformation(extent={{-14,40},{6,60}})));
+            transformation(extent={{-10,40},{10,60}})));
       Modelica.Mechanics.MultiBody.Forces.WorldTorque worldTorque1(Nm_to_m=200)
         annotation (Placement(transformation(extent={{46,40},{26,60}})));
       Modelica.Blocks.Sources.Constant Constant2[3](k={100,100,100})
-        annotation (Placement(transformation(extent={{86,40},{66,60}})));
+        annotation (Placement(transformation(extent={{90,40},{70,60}})));
       Parts.Fixed fixed1(r={0,-0.5,0}) annotation (Placement(transformation(
-              extent={{-78,-22},{-58,-2}})));
+              extent={{-80,-20},{-60,0}})));
       Joints.Revolute Revolute1(
         n={0,1,0},
         phi(fixed=true),
         w(fixed=true)) annotation (Placement(transformation(
-            origin={-34,-12},
+            origin={-40,-10},
             extent={{-10,-10},{10,10}})));
       Parts.BodyCylinder BodyCylinder1(r={1,0,0}) annotation (Placement(
-            transformation(extent={{-12,-22},{8,-2}})));
+            transformation(extent={{-10,-20},{10,0}})));
       Modelica.Mechanics.MultiBody.Forces.WorldTorque worldTorque2(Nm_to_m=200,
           resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_resolve)
-        annotation (Placement(transformation(extent={{48,-22},{28,-2}})));
+        annotation (Placement(transformation(extent={{48,-20},{28,0}})));
       Modelica.Blocks.Sources.Constant Constant1[3](k={100,100,100})
-        annotation (Placement(transformation(extent={{86,-22},{66,-2}})));
+        annotation (Placement(transformation(extent={{90,-20},{70,0}})));
       Modelica.Mechanics.MultiBody.Joints.Revolute Revolute3(
         phi(fixed=true),
         w(fixed=true),
-        n={0,1,0}) annotation (Placement(transformation(extent={{-44,-62},{-24,
-                -42}})));
+        n={0,1,0}) annotation (Placement(transformation(extent={{-50,-70},{-30,-50}})));
       Modelica.Mechanics.MultiBody.Parts.BodyCylinder BodyCylinder3(r={1,0,0})
-        annotation (Placement(transformation(extent={{-4,-62},{16,-42}})));
+        annotation (Placement(transformation(extent={{-10,-70},{10,-50}})));
       Modelica.Mechanics.MultiBody.Parts.Fixed fixed3(r={0,0.5,0}) annotation (
-          Placement(transformation(extent={{-84,-62},{-64,-42}})));
+          Placement(transformation(extent={{-80,-70},{-60,-50}})));
       Modelica.Blocks.Sources.Sine sine[3](amplitude={100,100,100}, freqHz={5,5,
             5}) annotation (Placement(transformation(
             extent={{10,-10},{-10,10}},
-            origin={80,-54})));
+            origin={80,-60})));
       Modelica.Mechanics.MultiBody.Forces.WorldTorque worldTorque3(Nm_to_m=200,
           resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_b)
-        annotation (Placement(transformation(extent={{48,-64},{28,-44}})));
+        annotation (Placement(transformation(extent={{50,-70},{30,-50}})));
     equation
       assert((Revolute1.phi - Revolute2.phi) < tol,
         "Angles of Revolute1 and Revolute2 must be equal (diff<tol)");
       assert((Revolute1.w - Revolute2.w) < tol,
         "Angular velocity of Revolute1 and Revolute2 must be equal (diff<tol)");
       connect(fixed2.frame_b, Revolute2.frame_a)
-        annotation (Line(points={{-60,50},{-46,50}}));
+        annotation (Line(points={{-60,50},{-50,50}},
+          color={95,95,95},
+          thickness=0.5));
       connect(BodyCylinder2.frame_a, Revolute2.frame_b)
-        annotation (Line(points={{-14,50},{-26,50}}));
+        annotation (Line(points={{-10,50},{-30,50}},
+          color={95,95,95},
+          thickness=0.5));
       connect(worldTorque1.frame_b, BodyCylinder2.frame_b)
-        annotation (Line(points={{26,50},{6,50}}));
+        annotation (Line(points={{26,50},{10,50}},
+          color={95,95,95},
+          thickness=0.5));
       connect(Constant2.y, worldTorque1.torque) annotation (Line(
-          points={{65,50},{48,50}}, color={0,0,127}));
+          points={{69,50},{48,50}}, color={0,0,127}));
       connect(fixed1.frame_b, Revolute1.frame_a)
-        annotation (Line(points={{-58,-12},{-44,-12}}));
+        annotation (Line(points={{-60,-10},{-50,-10}},
+          color={95,95,95},
+          thickness=0.5));
       connect(BodyCylinder1.frame_a, Revolute1.frame_b)
-        annotation (Line(points={{-12,-12},{-24,-12}}));
+        annotation (Line(points={{-10,-10},{-30,-10}},
+          color={95,95,95},
+          thickness=0.5));
       connect(worldTorque2.frame_b, BodyCylinder1.frame_b)
-        annotation (Line(points={{28,-12},{8,-12}}));
+        annotation (Line(points={{28,-10},{10,-10}},
+          color={95,95,95},
+          thickness=0.5));
       connect(Constant1.y, worldTorque2.torque) annotation (Line(
-          points={{65,-12},{50,-12}}, color={0,0,127}));
+          points={{69,-10},{50,-10}}, color={0,0,127}));
       connect(world.frame_b, worldTorque2.frame_resolve) annotation (Line(
-          points={{66,18},{54,18},{54,-2},{38,-2}},
+          points={{70,18},{38,18},{38,0}},
           color={95,95,95},
           thickness=0.5));
       connect(BodyCylinder3.frame_a, Revolute3.frame_b)
-        annotation (Line(points={{-4,-52},{-24,-52}}));
+        annotation (Line(points={{-10,-60},{-30,-60}},
+          color={95,95,95},
+          thickness=0.5));
       connect(fixed3.frame_b, Revolute3.frame_a)
-        annotation (Line(points={{-64,-52},{-44,-52}}));
+        annotation (Line(points={{-60,-60},{-50,-60}},
+          color={95,95,95},
+          thickness=0.5));
       connect(worldTorque3.frame_b, BodyCylinder3.frame_b) annotation (Line(
-          points={{28,-54},{22,-54},{22,-52},{16,-52}},
+          points={{30,-60},{10,-60}},
           color={95,95,95},
           thickness=0.5));
       connect(sine.y, worldTorque3.torque) annotation (Line(
-          points={{69,-54},{50,-54}}, color={0,0,127}));
+          points={{69,-60},{52,-60}}, color={0,0,127}));
       annotation (experiment(StopTime=1.1));
     end WorldTorques;
 
@@ -3106,68 +3313,67 @@ a linear damper is connected here.
 
       parameter Real tol=1e-4;
 
-      inner World world annotation (Placement(transformation(extent={{94,-12},{
-                74,8}})));
+      inner World world annotation (Placement(transformation(extent={{94,-32},{74,-12}})));
       Joints.Revolute Revolute3(phi(fixed=true), w(fixed=true)) annotation (
-          Placement(transformation(extent={{-60,72},{-40,92}})));
+          Placement(transformation(extent={{-70,52},{-50,72}})));
       Parts.BodyCylinder BodyCylinder3(r={1,0,0}) annotation (Placement(
-            transformation(extent={{0,72},{20,92}})));
+            transformation(extent={{0,52},{20,72}})));
       Modelica.Blocks.Sources.Constant Constant4[6](k={0,500,0,100,100,100})
-        annotation (Placement(transformation(extent={{94,72},{74,92}})));
+        annotation (Placement(transformation(extent={{94,52},{74,72}})));
       Parts.Fixed fixed3(r={0,-1,0}) annotation (Placement(transformation(
-              extent={{-90,72},{-70,92}})));
+              extent={{-100,52},{-80,72}})));
       Joints.Revolute Revolute4(
         n={0,1,0},
         phi(fixed=true),
         w(fixed=true)) annotation (Placement(transformation(
-            origin={-20,82},
+            origin={-30,62},
             extent={{-10,-10},{10,10}})));
       Modelica.Mechanics.MultiBody.Forces.WorldForceAndTorque forceAndTorque(
           resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.world)
         annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=180,
-            origin={44,82})));
+            origin={44,62})));
       Joints.Revolute Revolute1(phi(fixed=true), w(fixed=true)) annotation (
-          Placement(transformation(extent={{-60,30},{-40,50}})));
+          Placement(transformation(extent={{-70,10},{-50,30}})));
       Parts.BodyCylinder BodyCylinder1(r={1,0,0}) annotation (Placement(
-            transformation(extent={{0,30},{20,50}})));
+            transformation(extent={{0,10},{20,30}})));
       Modelica.Blocks.Sources.Constant Constant1[6](k={0,500,0,100,100,100})
-        annotation (Placement(transformation(extent={{94,30},{74,50}})));
+        annotation (Placement(transformation(extent={{94,10},{74,30}})));
       Parts.Fixed fixed1(r={0,-1,0}) annotation (Placement(transformation(
-              extent={{-90,30},{-70,50}})));
+              extent={{-100,10},{-80,30}})));
       Joints.Revolute Revolute2(
         n={0,1,0},
         phi(fixed=true),
         w(fixed=true)) annotation (Placement(transformation(
-            origin={-20,40},
+            origin={-30,20},
             extent={{-10,-10},{10,10}})));
       Modelica.Mechanics.MultiBody.Forces.WorldForceAndTorque forceAndTorque1(
           resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_resolve)
         annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=180,
-            origin={44,40})));
+            origin={44,20})));
       Joints.Revolute Revolute5(phi(fixed=true), w(fixed=true)) annotation (
-          Placement(transformation(extent={{-58,-50},{-38,-30}})));
+          Placement(transformation(extent={{-70,-70},{-50,-50}})));
       Parts.BodyCylinder BodyCylinder2(r={1,0,0}) annotation (Placement(
-            transformation(extent={{2,-50},{22,-30}})));
+            transformation(extent={{0,-70},{20,-50}})));
       Modelica.Blocks.Sources.Constant Constant2[6](k={0,500,0,100,100,100})
-        annotation (Placement(transformation(extent={{94,-50},{74,-30}})));
+        annotation (Placement(transformation(extent={{94,-70},{74,-50}})));
       Parts.Fixed fixed2(r={0,-1,0}) annotation (Placement(transformation(
-              extent={{-88,-50},{-68,-30}})));
+              extent={{-100,-70},{-80,-50}})));
       Joints.Revolute Revolute6(
         n={0,1,0},
         phi(fixed=true),
         w(fixed=true)) annotation (Placement(transformation(
-            origin={-18,-40},
+            origin={-30,-60},
             extent={{-10,-10},{10,10}})));
       Modelica.Mechanics.MultiBody.Forces.WorldForceAndTorque forceAndTorque2(
           resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_b)
         annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=180,
-            origin={46,-40})));
+            origin={46,-60})));
     equation
 
       assert((Revolute1.phi - Revolute3.phi) < tol,
@@ -3179,53 +3385,71 @@ a linear damper is connected here.
       assert((Revolute2.w - Revolute4.w) < tol,
         "Angular velocity of Revolute1 and Revolute2 must be equal (diff<tol)");
       connect(fixed3.frame_b, Revolute3.frame_a)
-        annotation (Line(points={{-70,82},{-64,82},{-60,82}}));
+        annotation (Line(points={{-80,62},{-70,62}},
+          color={95,95,95},
+          thickness=0.5));
       connect(Revolute3.frame_b, Revolute4.frame_a)
-        annotation (Line(points={{-40,82},{-40,82},{-30,82}}));
+        annotation (Line(points={{-50,62},{-40,62}},
+          color={95,95,95},
+          thickness=0.5));
       connect(Revolute4.frame_b, BodyCylinder3.frame_a)
-        annotation (Line(points={{-10,82},{-10,82},{0,82}}));
+        annotation (Line(points={{-20,62},{0,62}},
+          color={95,95,95},
+          thickness=0.5));
       connect(forceAndTorque.frame_b, BodyCylinder3.frame_b) annotation (Line(
-          points={{34,82},{20,82}},
+          points={{34,62},{20,62}},
           color={95,95,95},
           thickness=0.5));
       connect(Constant4[1:3].y, forceAndTorque.force) annotation (Line(
-          points={{73,82},{64,82},{64,88},{56,88}}, color={0,0,127}));
+          points={{73,62},{64,62},{64,68},{56,68}}, color={0,0,127}));
       connect(Constant4[4:6].y, forceAndTorque.torque) annotation (Line(
-          points={{73,82},{66,82},{66,76},{56,76}}, color={0,0,127}));
+          points={{73,62},{66,62},{66,56},{56,56}}, color={0,0,127}));
       connect(fixed1.frame_b, Revolute1.frame_a)
-        annotation (Line(points={{-70,40},{-60,40}}));
+        annotation (Line(points={{-80,20},{-70,20}},
+          color={95,95,95},
+          thickness=0.5));
       connect(Revolute1.frame_b, Revolute2.frame_a)
-        annotation (Line(points={{-40,40},{-40,40},{-30,40}}));
+        annotation (Line(points={{-50,20},{-40,20}},
+          color={95,95,95},
+          thickness=0.5));
       connect(Revolute2.frame_b, BodyCylinder1.frame_a)
-        annotation (Line(points={{-10,40},{-10,40},{0,40}}));
+        annotation (Line(points={{-20,20},{0,20}},
+          color={95,95,95},
+          thickness=0.5));
       connect(forceAndTorque1.frame_b, BodyCylinder1.frame_b) annotation (Line(
-          points={{34,40},{20,40}},
+          points={{34,20},{20,20}},
           color={95,95,95},
           thickness=0.5));
       connect(world.frame_b, forceAndTorque1.frame_resolve) annotation (Line(
-          points={{74,-2},{60,-2},{60,30},{44,30}},
+          points={{74,-22},{60,-22},{60,10},{44,10}},
           color={95,95,95},
           thickness=0.5));
       connect(Constant1[1:3].y, forceAndTorque1.force) annotation (Line(
-          points={{73,40},{66,40},{66,46},{56,46}}, color={0,0,127}));
+          points={{73,20},{66,20},{66,26},{56,26}}, color={0,0,127}));
       connect(Constant1[4:6].y, forceAndTorque1.torque) annotation (Line(
-          points={{73,40},{64,40},{64,34},{56,34}}, color={0,0,127}));
+          points={{73,20},{64,20},{64,14},{56,14}}, color={0,0,127}));
       connect(fixed2.frame_b, Revolute5.frame_a)
-        annotation (Line(points={{-68,-40},{-62,-40},{-58,-40}}));
+        annotation (Line(points={{-80,-60},{-70,-60}},
+          color={95,95,95},
+          thickness=0.5));
       connect(Revolute5.frame_b, Revolute6.frame_a)
-        annotation (Line(points={{-38,-40},{-38,-40},{-28,-40}}));
+        annotation (Line(points={{-50,-60},{-40,-60}},
+          color={95,95,95},
+          thickness=0.5));
       connect(Revolute6.frame_b, BodyCylinder2.frame_a)
-        annotation (Line(points={{-8,-40},{-8,-40},{2,-40}}));
+        annotation (Line(points={{-20,-60},{0,-60}},
+          color={95,95,95},
+          thickness=0.5));
       connect(forceAndTorque2.frame_b, BodyCylinder2.frame_b) annotation (Line(
-          points={{36,-40},{22,-40}},
+          points={{36,-60},{20,-60}},
           color={95,95,95},
           thickness=0.5));
       connect(Constant2[1:3].y, forceAndTorque2.force) annotation (Line(
-          points={{73,-40},{66,-40},{66,-34},{58,-34}}, color={0,0,127}));
+          points={{73,-60},{66,-60},{66,-54},{58,-54}}, color={0,0,127}));
       connect(Constant2[4:6].y, forceAndTorque2.torque) annotation (Line(
-          points={{73,-40},{66,-40},{66,-46},{58,-46}}, color={0,0,127}));
-      annotation (experiment(StopTime=1.1), Diagram(coordinateSystem(extent={{-140,
-                -80},{140,120}}, preserveAspectRatio=true)));
+          points={{73,-60},{66,-60},{66,-66},{58,-66}}, color={0,0,127}));
+      annotation (experiment(StopTime=1.1), Diagram(coordinateSystem(extent={{-100,-100},{100,100}},
+                                 preserveAspectRatio=true)));
     end WorldForceAndTorque;
 
     model Spring
@@ -3322,38 +3546,38 @@ a linear damper is connected here.
 
       extends Modelica.Icons.Example;
       inner Modelica.Mechanics.MultiBody.World world
-        annotation (Placement(transformation(extent={{-100,-20},{-80,0}})));
+        annotation (Placement(transformation(extent={{-120,20},{-100,40}})));
       parameter Real tol=1e-4;
       Modelica.Mechanics.MultiBody.Forces.Damper damper(d=10) annotation (
           Placement(transformation(
-            extent={{-12,-12},{12,12}},
-            origin={0,-108})));
+            extent={{-10,-10},{10,10}},
+            origin={-40,-50})));
       Modelica.Mechanics.MultiBody.Joints.Prismatic prismatic(
         useAxisFlange=false,
         s(fixed=true, start=0.5),
         v(fixed=true, start=-0.1),
         stateSelect=StateSelect.never)
-        annotation (Placement(transformation(extent={{-12,-144},{14,-118}})));
+        annotation (Placement(transformation(extent={{-50,-90},{-30,-70}})));
       Modelica.Mechanics.MultiBody.Forces.Force force
-        annotation (Placement(transformation(extent={{-10,-88},{12,-66}})));
+        annotation (Placement(transformation(extent={{-50,-30},{-30,-10}})));
       Modelica.Mechanics.MultiBody.Parts.Body body(m=5, r_CM={0,0,0})
-        annotation (Placement(transformation(extent={{66,-118},{86,-98}})));
+        annotation (Placement(transformation(extent={{-10,-60},{10,-40}})));
       Modelica.Blocks.Sources.Sine sine(freqHz=2, amplitude=50)
-        annotation (Placement(transformation(extent={{152,-60},{132,-40}})));
+        annotation (Placement(transformation(extent={{90,-10},{70,10}})));
       Modelica.Blocks.Sources.Constant const(k=0)
-        annotation (Placement(transformation(extent={{152,-8},{132,12}})));
+        annotation (Placement(transformation(extent={{90,20},{70,40}})));
       Modelica.Mechanics.MultiBody.Forces.Damper damper1(d=10,useHeatPort=true)
         annotation (Placement(transformation(
-            extent={{-12,-12},{12,12}},
-            origin={0,186})));
+            extent={{-10,10},{10,-10}},
+            origin={-30,110})));
       Modelica.Mechanics.MultiBody.Joints.Prismatic prismatic1(
         useAxisFlange=false,
         stateSelect=StateSelect.always,
         s(start=0.5, fixed=true),
         v(start=-0.1, fixed=true))
-        annotation (Placement(transformation(extent={{-12,138},{14,164}})));
+        annotation (Placement(transformation(extent={{-40,70},{-20,90}})));
       Modelica.Mechanics.MultiBody.Forces.Force force1
-        annotation (Placement(transformation(extent={{-12,134},{10,112}})));
+        annotation (Placement(transformation(extent={{-40,60},{-20,40}})));
       Modelica.Mechanics.MultiBody.Parts.Body body1(
         m=5,
         r_CM={0,0,0},
@@ -3362,34 +3586,36 @@ a linear damper is connected here.
         v_0(start={-0.1,0,0}),
         angles_fixed=false,
         w_0_fixed=false)
-        annotation (Placement(transformation(extent={{64,140},{84,160}})));
+        annotation (Placement(transformation(extent={{10,70},{30,90}})));
       Modelica.Thermal.HeatTransfer.Components.HeatCapacitor heatCapacitor(C=
             100, T(fixed=true))
-        annotation (Placement(transformation(extent={{-60,162},{-40,182}})));
+        annotation (Placement(transformation(extent={{-10,-10},{10,10}},
+            rotation=90,
+            origin={-90,120})));
       Modelica.Mechanics.MultiBody.Forces.Damper damper2(d(fixed=false, start=3))
         annotation (Placement(transformation(
-            extent={{-12,-12},{12,12}},
-            origin={-2,-270})));
+            extent={{-10,-10},{10,10}},
+            origin={50,-70})));
       Modelica.Mechanics.MultiBody.Joints.Prismatic prismatic2(
         useAxisFlange=false,
         s(fixed=true, start=0.5),
         v(fixed=true, start=-0.1),
         a(fixed=true, start=0.2))
-        annotation (Placement(transformation(extent={{-16,-318},{10,-292}})));
+        annotation (Placement(transformation(extent={{40,-110},{60,-90}})));
       Modelica.Mechanics.MultiBody.Forces.Force force2
-        annotation (Placement(transformation(extent={{-12,-240},{10,-218}})));
+        annotation (Placement(transformation(extent={{40,-50},{60,-30}})));
       Modelica.Mechanics.MultiBody.Parts.Body body2(m=5,r_CM={0,0,0})
-        annotation (Placement(transformation(extent={{64,-270},{84,-250}})));
+        annotation (Placement(transformation(extent={{80,-80},{100,-60}})));
       Modelica.Mechanics.MultiBody.Parts.FixedTranslation fixedTranslation(r={0,
             0.1,0}) annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
-            origin={-72,-66})));
+            origin={-90,-10})));
       Modelica.Mechanics.MultiBody.Parts.FixedTranslation fixedTranslation1(r={
             0,0.1,0}) annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
-            rotation=270,
-            origin={-72,-198})));
+            rotation=0,
+            origin={0,-100})));
     equation
       assert(body.r_0[1] - body1.r_0[1] < tol and body1.r_0[1] - body2.r_0[1]
          < tol and body.r_0[1] - body2.r_0[1] < tol,
@@ -3399,107 +3625,109 @@ a linear damper is connected here.
         "Positions of bodies must be equal (diff<tol)");
 
       connect(prismatic.frame_b, body.frame_a) annotation (Line(
-          points={{14,-131},{40,-131},{40,-108},{66,-108}},
+          points={{-30,-80},{-20,-80},{-20,-50},{-10,-50}},
           color={95,95,95},
           thickness=0.5));
       connect(damper.frame_b, body.frame_a) annotation (Line(
-          points={{12,-108},{66,-108}},
+          points={{-30,-50},{-10,-50}},
           color={95,95,95},
           thickness=0.5));
       connect(force.frame_b, body.frame_a) annotation (Line(
-          points={{12,-77},{40,-77},{40,-108},{66,-108}},
+          points={{-30,-20},{-20,-20},{-20,-50},{-10,-50}},
           color={95,95,95},
           thickness=0.5));
       connect(sine.y, force.force[1]) annotation (Line(
-          points={{131,-50},{-22,-50},{-22,-62.3333},{-5.6,-62.3333}}, color={0,0,127}));
+          points={{69,0},{-46,0},{-46,-6.66667}},                      color={0,0,127}));
       connect(const.y, force.force[2]) annotation (Line(
-          points={{131,2},{14,2},{14,-63.8},{-5.6,-63.8}}, color={0,0,127}));
+          points={{69,30},{-50,30},{-50,-8},{-46,-8}},     color={0,0,127}));
       connect(const.y, force.force[3]) annotation (Line(
-          points={{131,2},{14,2},{14,-65.2667},{-5.6,-65.2667}}, color={0,0,127}));
+          points={{69,30},{-50,30},{-50,-9.33333},{-46,-9.33333}},
+                                                                 color={0,0,127}));
       connect(world.frame_b, prismatic1.frame_a) annotation (Line(
-          points={{-80,-10},{-72,-10},{-72,151},{-12,151}},
+          points={{-100,30},{-90,30},{-90,80},{-40,80}},
           color={95,95,95},
           thickness=0.5));
       connect(damper1.frame_a, world.frame_b) annotation (Line(
-          points={{-12,186},{-72,186},{-72,-10},{-80,-10}},
+          points={{-40,110},{-50,110},{-50,80},{-90,80},{-90,30},{-100,30}},
           color={95,95,95},
           thickness=0.5));
       connect(force1.frame_a, world.frame_b) annotation (Line(
-          points={{-12,123},{-72,123},{-72,-10},{-80,-10}},
+          points={{-40,50},{-50,50},{-50,80},{-90,80},{-90,30},{-100,30}},
           color={95,95,95},
           thickness=0.5));
       connect(prismatic1.frame_b, body1.frame_a) annotation (Line(
-          points={{14,151},{38,151},{38,150},{64,150}},
+          points={{-20,80},{10,80}},
           color={95,95,95},
           thickness=0.5));
       connect(damper1.frame_b, body1.frame_a) annotation (Line(
-          points={{12,186},{38,186},{38,150},{64,150}},
+          points={{-20,110},{-10,110},{-10,80},{10,80}},
           color={95,95,95},
           thickness=0.5));
       connect(force1.frame_b, body1.frame_a) annotation (Line(
-          points={{10,123},{38,123},{38,150},{64,150}},
+          points={{-20,50},{-10,50},{-10,80},{10,80}},
           color={95,95,95},
           thickness=0.5));
       connect(const.y, force1.force[2]) annotation (Line(
-          points={{131,2},{14,2},{14,109.8},{-7.6,109.8}}, color={0,0,127}));
+          points={{69,30},{-50,30},{-50,38},{-36,38}},     color={0,0,127}));
       connect(const.y, force1.force[3]) annotation (Line(
-          points={{131,2},{14,2},{14,111.267},{-7.6,111.267}}, color={0,0,127}));
+          points={{69,30},{-50,30},{-50,39.3333},{-36,39.3333}},
+                                                               color={0,0,127}));
       connect(sine.y, force1.force[1]) annotation (Line(
-          points={{131,-50},{-22,-50},{-22,108.333},{-7.6,108.333}}, color={0,0,127}));
+          points={{69,0},{-36,0},{-36,36.6667}},                     color={0,0,127}));
       connect(heatCapacitor.port, damper1.heatPort) annotation (Line(
-          points={{-50,162},{-12,162},{-12,174}}, color={191,0,0}));
+          points={{-80,120},{-40,120}},           color={191,0,0}));
       connect(prismatic2.frame_b, body2.frame_a) annotation (Line(
-          points={{10,-305},{38,-305},{38,-260},{64,-260}},
+          points={{60,-100},{70,-100},{70,-70},{80,-70}},
           color={95,95,95},
           thickness=0.5));
       connect(damper2.frame_b, body2.frame_a) annotation (Line(
-          points={{10,-270},{38,-270},{38,-260},{64,-260}},
+          points={{60,-70},{80,-70}},
           color={95,95,95},
           thickness=0.5));
       connect(force2.frame_b, body2.frame_a) annotation (Line(
-          points={{10,-229},{38,-229},{38,-260},{64,-260}},
+          points={{60,-40},{70,-40},{70,-70},{80,-70}},
           color={95,95,95},
           thickness=0.5));
       connect(const.y, force2.force[2]) annotation (Line(
-          points={{131,2},{96,2},{96,-215.8},{-7.6,-215.8}}, color={0,0,127}));
+          points={{69,30},{50,30},{50,-28},{44,-28}},        color={0,0,127}));
       connect(const.y, force2.force[3]) annotation (Line(
-          points={{131,2},{96,2},{96,-217.267},{-7.6,-217.267}}, color={0,0,127}));
+          points={{69,30},{50,30},{50,-29.3333},{44,-29.3333}},  color={0,0,127}));
       connect(sine.y, force2.force[1]) annotation (Line(
-          points={{131,-50},{112,-50},{112,-214.333},{-7.6,-214.333}}, color={0,0,127}));
+          points={{69,0},{44,0},{44,-26.6667}},                        color={0,0,127}));
       connect(fixedTranslation.frame_a, world.frame_b) annotation (Line(
-          points={{-72,-56},{-72,-10},{-80,-10}},
+          points={{-90,0},{-90,30},{-100,30}},
           color={95,95,95},
           thickness=0.5));
       connect(fixedTranslation1.frame_a, fixedTranslation.frame_b) annotation (
           Line(
-          points={{-72,-188},{-72,-76}},
+          points={{-10,-100},{-90,-100},{-90,-20}},
           color={95,95,95},
           thickness=0.5));
       connect(prismatic.frame_a, fixedTranslation.frame_b) annotation (Line(
-          points={{-12,-131},{-42,-131},{-42,-76},{-72,-76}},
+          points={{-50,-80},{-60,-80},{-60,-50},{-90,-50},{-90,-20}},
           color={95,95,95},
           thickness=0.5));
       connect(damper.frame_a, fixedTranslation.frame_b) annotation (Line(
-          points={{-12,-108},{-42,-108},{-42,-76},{-72,-76}},
+          points={{-50,-50},{-90,-50},{-90,-20}},
           color={95,95,95},
           thickness=0.5));
       connect(force.frame_a, fixedTranslation.frame_b) annotation (Line(
-          points={{-10,-77},{-42,-77},{-42,-76},{-72,-76}},
+          points={{-50,-20},{-60,-20},{-60,-50},{-90,-50},{-90,-20}},
           color={95,95,95},
           thickness=0.5));
       connect(fixedTranslation1.frame_b, force2.frame_a) annotation (Line(
-          points={{-72,-208},{-44,-208},{-44,-229},{-12,-229}},
+          points={{10,-100},{30,-100},{30,-40},{40,-40}},
           color={95,95,95},
           thickness=0.5));
       connect(damper2.frame_a, fixedTranslation1.frame_b) annotation (Line(
-          points={{-14,-270},{-44,-270},{-44,-208},{-72,-208}},
+          points={{40,-70},{30,-70},{30,-100},{10,-100}},
           color={95,95,95},
           thickness=0.5));
       connect(prismatic2.frame_a, fixedTranslation1.frame_b) annotation (Line(
-          points={{-16,-305},{-44,-305},{-44,-208},{-72,-208}},
+          points={{40,-100},{10,-100}},
           color={95,95,95},
           thickness=0.5));
-      annotation (Diagram(coordinateSystem(extent={{-100,-360},{180,220}},
+      annotation (Diagram(coordinateSystem(extent={{-120,-120},{100,140}},
               preserveAspectRatio=true)), experiment(StopTime=7));
     end Damper;
 
@@ -3613,82 +3841,82 @@ a linear damper is connected here.
       final parameter Real d(fixed=false, start=2);
 
       inner Modelica.Mechanics.MultiBody.World world
-        annotation (Placement(transformation(extent={{-100,60},{-80,80}})));
+        annotation (Placement(transformation(extent={{-100,40},{-80,60}})));
       Modelica.Mechanics.MultiBody.Forces.SpringDamperParallel
         springDamperParallel(
         s_unstretched=0.2,
         d=10,
         c=100) annotation (Placement(transformation(
-            extent={{-18,-18},{18,18}},
-            origin={20,92})));
+            extent={{-10,-10},{10,10}},
+            origin={20,80})));
       Modelica.Mechanics.MultiBody.Parts.PointMass pm1(m=5, v_0(start={0.1,0,0}))
-        annotation (Placement(transformation(extent={{60,82},{80,102}})));
+        annotation (Placement(transformation(extent={{70,70},{90,90}})));
       Modelica.Mechanics.MultiBody.Joints.Universal universal(
         phi_a(fixed=true),
         w_a(fixed=true),
         w_b(fixed=true),
         phi_b(fixed=true, start=0.78539816339745))
-        annotation (Placement(transformation(extent={{-12,132},{8,152}})));
+        annotation (Placement(transformation(extent={{0,110},{20,130}})));
       Modelica.Mechanics.MultiBody.Joints.Prismatic prismatic(s(fixed=true,
             start=0.1), v(fixed=true, start=0.1))
-        annotation (Placement(transformation(extent={{22,132},{42,152}})));
+        annotation (Placement(transformation(extent={{30,110},{50,130}})));
       Modelica.Mechanics.MultiBody.Parts.FixedTranslation fixedTranslation(r={1,
             0,0}) annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
-            origin={-72,18})));
+            origin={-60,20})));
       Modelica.Mechanics.MultiBody.Parts.FixedTranslation fixedTranslation1(r={
             1,0,0}) annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
-            origin={-72,-116})));
+            origin={-60,-60})));
       Modelica.Mechanics.MultiBody.Forces.SpringDamperParallel
         springDamperParallel1(
         s_unstretched=0.2,
         d=10,
         c(fixed=false, start=3)) annotation (Placement(transformation(
-            extent={{-18,-18},{18,18}},
-            origin={22,-24})));
+            extent={{-10,-10},{10,10}},
+            origin={20,-10})));
       Modelica.Mechanics.MultiBody.Parts.PointMass pm2(
         m=5,
         stateSelect=StateSelect.default,
         r_0(start={1,0.1,0.1}),
         v_0(start={0.1,0,0}))
-        annotation (Placement(transformation(extent={{62,-34},{82,-14}})));
+        annotation (Placement(transformation(extent={{70,-20},{90,0}})));
       Modelica.Mechanics.MultiBody.Joints.Universal universal1(
         phi_a(fixed=true),
         w_a(fixed=true),
         w_b(fixed=true),
         phi_b(fixed=true, start=0.78539816339745))
-        annotation (Placement(transformation(extent={{-10,16},{10,36}})));
+        annotation (Placement(transformation(extent={{0,20},{20,40}})));
       Modelica.Mechanics.MultiBody.Joints.Prismatic prismatic1(
         s(start=0.1, fixed=true),
         v(start=0.1, fixed=true),
         a(fixed=true, start=1.8))
-        annotation (Placement(transformation(extent={{24,16},{44,36}})));
+        annotation (Placement(transformation(extent={{30,20},{50,40}})));
       Modelica.Mechanics.MultiBody.Forces.SpringDamperParallel
         springDamperParallel2(
         s_unstretched=0.2,
         d=d,
         c=100) annotation (Placement(transformation(
-            extent={{-18,-18},{18,18}},
-            origin={20,-126})));
+            extent={{-10,-10},{10,10}},
+            origin={20,-100})));
       Modelica.Mechanics.MultiBody.Parts.PointMass pm3(
         m=5,
         v_0(start={0.1,0,0}),
         stateSelect=StateSelect.always)
-        annotation (Placement(transformation(extent={{60,-136},{80,-116}})));
+        annotation (Placement(transformation(extent={{70,-110},{90,-90}})));
       Modelica.Mechanics.MultiBody.Joints.Universal universal2(
         phi_a(fixed=true),
         w_a(fixed=true),
         w_b(fixed=true),
         phi_b(fixed=true, start=0.78539816339745))
-        annotation (Placement(transformation(extent={{-12,-86},{8,-66}})));
+        annotation (Placement(transformation(extent={{0,-50},{20,-70}})));
       Modelica.Mechanics.MultiBody.Joints.Prismatic prismatic2(
         s(fixed=true, start=0.1),
         v(fixed=true, start=0.1),
         a(start=1.8, fixed=true))
-        annotation (Placement(transformation(extent={{22,-86},{42,-66}})));
+        annotation (Placement(transformation(extent={{32,-70},{52,-50}})));
     equation
       assert(pm1.v_0[1] - pm2.v_0[1] < tol and pm2.v_0[1] - pm3.v_0[1] < tol
          and pm1.v_0[1] - pm3.v_0[1] < tol, "");
@@ -3697,79 +3925,79 @@ a linear damper is connected here.
       assert(pm1.v_0[3] - pm2.v_0[3] < tol and pm2.v_0[3] - pm3.v_0[3] < tol
          and pm1.v_0[3] - pm3.v_0[3] < tol, "");
       connect(world.frame_b, springDamperParallel.frame_a) annotation (Line(
-          points={{-80,70},{-72,70},{-72,92},{2,92}},
+          points={{-80,50},{-60,50},{-60,80},{10,80}},
           color={95,95,95},
           thickness=0.5));
       connect(pm1.frame_a, springDamperParallel.frame_b) annotation (Line(
-          points={{70,92},{38,92}},
+          points={{80,80},{30,80}},
           color={95,95,95},
           thickness=0.5));
       connect(springDamperParallel.frame_a, universal.frame_a) annotation (Line(
-          points={{2,92},{-12,92},{-12,142}},
+          points={{10,80},{-10,80},{-10,120},{0,120}},
           color={95,95,95},
           thickness=0.5));
       connect(universal.frame_b, prismatic.frame_a) annotation (Line(
-          points={{8,142},{22,142}},
+          points={{20,120},{30,120}},
           color={95,95,95},
           thickness=0.5));
       connect(prismatic.frame_b, pm1.frame_a) annotation (Line(
-          points={{42,142},{54,142},{54,92},{70,92}},
+          points={{50,120},{60,120},{60,80},{80,80}},
           color={95,95,95},
           thickness=0.5));
       connect(fixedTranslation.frame_a, world.frame_b) annotation (Line(
-          points={{-72,28},{-72,70},{-80,70}},
+          points={{-60,30},{-60,50},{-80,50}},
           color={95,95,95},
           thickness=0.5));
       connect(fixedTranslation1.frame_a, fixedTranslation.frame_b) annotation (
           Line(
-          points={{-72,-106},{-72,8}},
+          points={{-60,-50},{-60,10}},
           color={95,95,95},
           thickness=0.5));
       connect(pm2.frame_a, springDamperParallel1.frame_b) annotation (Line(
-          points={{72,-24},{40,-24}},
+          points={{80,-10},{30,-10}},
           color={95,95,95},
           thickness=0.5));
       connect(springDamperParallel1.frame_a, universal1.frame_a) annotation (
           Line(
-          points={{4,-24},{-10,-24},{-10,26}},
+          points={{10,-10},{-10,-10},{-10,30},{0,30}},
           color={95,95,95},
           thickness=0.5));
       connect(universal1.frame_b, prismatic1.frame_a) annotation (Line(
-          points={{10,26},{24,26}},
+          points={{20,30},{30,30}},
           color={95,95,95},
           thickness=0.5));
       connect(prismatic1.frame_b, pm2.frame_a) annotation (Line(
-          points={{44,26},{56,26},{56,-24},{72,-24}},
+          points={{50,30},{60,30},{60,-10},{80,-10}},
           color={95,95,95},
           thickness=0.5));
       connect(springDamperParallel1.frame_a, fixedTranslation.frame_b)
         annotation (Line(
-          points={{4,-24},{-72,-24},{-72,8}},
+          points={{10,-10},{-60,-10},{-60,10}},
           color={95,95,95},
           thickness=0.5));
       connect(pm3.frame_a, springDamperParallel2.frame_b) annotation (Line(
-          points={{70,-126},{38,-126}},
+          points={{80,-100},{30,-100}},
           color={95,95,95},
           thickness=0.5));
       connect(springDamperParallel2.frame_a, universal2.frame_a) annotation (
           Line(
-          points={{2,-126},{-12,-126},{-12,-76}},
+          points={{10,-100},{-10,-100},{-10,-60},{0,-60}},
           color={95,95,95},
           thickness=0.5));
       connect(universal2.frame_b, prismatic2.frame_a) annotation (Line(
-          points={{8,-76},{22,-76}},
+          points={{20,-60},{32,-60}},
           color={95,95,95},
           thickness=0.5));
       connect(prismatic2.frame_b, pm3.frame_a) annotation (Line(
-          points={{42,-76},{54,-76},{54,-126},{70,-126}},
+          points={{52,-60},{64,-60},{64,-100},{80,-100}},
           color={95,95,95},
           thickness=0.5));
       connect(springDamperParallel2.frame_a, fixedTranslation1.frame_b)
         annotation (Line(
-          points={{2,-126},{-72,-126}},
+          points={{10,-100},{-60,-100},{-60,-70}},
           color={95,95,95},
           thickness=0.5));
-      annotation (Diagram(coordinateSystem(extent={{-120,-160},{100,160}},
+      annotation (Diagram(coordinateSystem(extent={{-100,-120},{100,140}},
               preserveAspectRatio=true)), experiment(StopTime=1.1, Tolerance=
               1e-007));
     end SpringDamperParallel;
@@ -3779,63 +4007,22 @@ a linear damper is connected here.
 
       extends Modelica.Icons.Example;
       inner Modelica.Mechanics.MultiBody.World world
-        annotation (Placement(transformation(extent={{-100,-20},{-80,0}})));
+        annotation (Placement(transformation(extent={{-120,20},{-100,40}})));
       parameter Real tol=1e-4;
-      Modelica.Mechanics.MultiBody.Forces.Damper damper(d=310) annotation (
+      Modelica.Mechanics.MultiBody.Forces.Damper damper(d=310)
+                                                              annotation (
           Placement(transformation(
-            extent={{-12,-12},{12,12}},
-            origin={0,-108})));
+            extent={{-10,-10},{10,10}},
+            origin={-40,-50})));
       Modelica.Mechanics.MultiBody.Joints.Prismatic prismatic(
         useAxisFlange=false,
         s(fixed=true, start=0.5),
         v(fixed=true, start=-0.1))
-        annotation (Placement(transformation(extent={{-12,-144},{14,-118}})));
+        annotation (Placement(transformation(extent={{-50,-90},{-30,-70}})));
       Modelica.Mechanics.MultiBody.Forces.Force force
-        annotation (Placement(transformation(extent={{-10,-88},{12,-66}})));
+        annotation (Placement(transformation(extent={{-50,-30},{-30,-10}})));
       Modelica.Mechanics.MultiBody.Parts.Body body(m=5, r_CM={0,0,0})
-        annotation (Placement(transformation(extent={{66,-118},{86,-98}})));
-      Modelica.Blocks.Sources.Constant const(k=0)
-        annotation (Placement(transformation(extent={{152,-8},{132,12}})));
-      Modelica.Mechanics.MultiBody.Forces.Damper damper1(useHeatPort=true, d=
-            310) annotation (Placement(transformation(
-            extent={{-12,-12},{12,12}},
-            origin={0,186})));
-      Modelica.Mechanics.MultiBody.Joints.Prismatic prismatic1(
-        useAxisFlange=false,
-        s(fixed=true, start=0.5),
-        v(fixed=true, start=-0.1))
-        annotation (Placement(transformation(extent={{-12,138},{14,164}})));
-      Modelica.Mechanics.MultiBody.Forces.Force force1
-        annotation (Placement(transformation(extent={{-12,134},{10,112}})));
-      Modelica.Mechanics.MultiBody.Parts.Body body1(m=5, r_CM={0,0,0})
-        annotation (Placement(transformation(extent={{64,140},{84,160}})));
-      Modelica.Thermal.HeatTransfer.Components.HeatCapacitor heatCapacitor(C=
-            100, T(fixed=true))
-        annotation (Placement(transformation(extent={{-60,162},{-40,182}})));
-      Modelica.Mechanics.MultiBody.Forces.Damper damper2(d(fixed=false,start=3))
-        annotation (Placement(transformation(
-            extent={{-12,-12},{12,12}},
-            origin={-2,-270})));
-      Modelica.Mechanics.MultiBody.Joints.Prismatic prismatic2(
-        useAxisFlange=false,
-        s(fixed=true, start=0.5),
-        v(fixed=true, start=-0.1),
-        a(fixed=true, start=0.2))
-        annotation (Placement(transformation(extent={{-16,-318},{10,-292}})));
-      Modelica.Mechanics.MultiBody.Forces.Force force2
-        annotation (Placement(transformation(extent={{-12,-240},{10,-218}})));
-      Modelica.Mechanics.MultiBody.Parts.Body body2(m=5,r_CM={0,0,0})
-        annotation (Placement(transformation(extent={{64,-270},{84,-250}})));
-      Modelica.Mechanics.MultiBody.Parts.FixedTranslation fixedTranslation(r={0,
-            0.1,0}) annotation (Placement(transformation(
-            extent={{-10,-10},{10,10}},
-            rotation=270,
-            origin={-72,-66})));
-      Modelica.Mechanics.MultiBody.Parts.FixedTranslation fixedTranslation1(r={
-            0,0.1,0}) annotation (Placement(transformation(
-            extent={{-10,-10},{10,10}},
-            rotation=270,
-            origin={-72,-198})));
+        annotation (Placement(transformation(extent={{-10,-60},{10,-40}})));
       Modelica.Blocks.Sources.Trapezoid trapezoid(
         amplitude=50,
         rising=0.1,
@@ -3843,7 +4030,53 @@ a linear damper is connected here.
         falling=0.1,
         period=0.5,
         offset=-30)
-        annotation (Placement(transformation(extent={{154,-126},{134,-106}})));
+        annotation (Placement(transformation(extent={{90,-10},{70,10}})));
+      Modelica.Blocks.Sources.Constant const(k=0)
+        annotation (Placement(transformation(extent={{90,20},{70,40}})));
+      Modelica.Mechanics.MultiBody.Forces.Damper damper1(     useHeatPort=true, d=310)
+        annotation (Placement(transformation(
+            extent={{-10,10},{10,-10}},
+            origin={-30,110})));
+      Modelica.Mechanics.MultiBody.Joints.Prismatic prismatic1(
+        useAxisFlange=false,
+        s(fixed=true, start=0.5),
+        v(fixed=true, start=-0.1))
+        annotation (Placement(transformation(extent={{-40,70},{-20,90}})));
+      Modelica.Mechanics.MultiBody.Forces.Force force1
+        annotation (Placement(transformation(extent={{-40,60},{-20,40}})));
+      Modelica.Mechanics.MultiBody.Parts.Body body1(
+        m=5,
+        r_CM={0,0,0})
+        annotation (Placement(transformation(extent={{10,70},{30,90}})));
+      Modelica.Thermal.HeatTransfer.Components.HeatCapacitor heatCapacitor(C=
+            100, T(fixed=true))
+        annotation (Placement(transformation(extent={{-10,-10},{10,10}},
+            rotation=90,
+            origin={-90,120})));
+      Modelica.Mechanics.MultiBody.Forces.Damper damper2(d(fixed=false, start=3))
+        annotation (Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            origin={50,-70})));
+      Modelica.Mechanics.MultiBody.Joints.Prismatic prismatic2(
+        useAxisFlange=false,
+        s(fixed=true, start=0.5),
+        v(fixed=true, start=-0.1),
+        a(fixed=true, start=0.2))
+        annotation (Placement(transformation(extent={{40,-110},{60,-90}})));
+      Modelica.Mechanics.MultiBody.Forces.Force force2
+        annotation (Placement(transformation(extent={{40,-50},{60,-30}})));
+      Modelica.Mechanics.MultiBody.Parts.Body body2(m=5,r_CM={0,0,0})
+        annotation (Placement(transformation(extent={{80,-80},{100,-60}})));
+      Modelica.Mechanics.MultiBody.Parts.FixedTranslation fixedTranslation(r={0,
+            0.1,0}) annotation (Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=270,
+            origin={-90,-10})));
+      Modelica.Mechanics.MultiBody.Parts.FixedTranslation fixedTranslation1(r={
+            0,0.1,0}) annotation (Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=0,
+            origin={0,-100})));
     equation
       assert(body.r_0[1] - body1.r_0[1] < tol and body1.r_0[1] - body2.r_0[1]
          < tol and body.r_0[1] - body2.r_0[1] < tol,
@@ -3853,107 +4086,106 @@ a linear damper is connected here.
         "Positions of bodies must be equal (diff<tol)");
 
       connect(prismatic.frame_b, body.frame_a) annotation (Line(
-          points={{14,-131},{40,-131},{40,-108},{66,-108}},
+          points={{-30,-80},{-20,-80},{-20,-50},{-10,-50}},
           color={95,95,95},
           thickness=0.5));
       connect(damper.frame_b, body.frame_a) annotation (Line(
-          points={{12,-108},{66,-108}},
+          points={{-30,-50},{-10,-50}},
           color={95,95,95},
           thickness=0.5));
       connect(force.frame_b, body.frame_a) annotation (Line(
-          points={{12,-77},{40,-77},{40,-108},{66,-108}},
+          points={{-30,-20},{-20,-20},{-20,-50},{-10,-50}},
           color={95,95,95},
           thickness=0.5));
+      connect(trapezoid.y, force.force[1]) annotation (Line(points={{69,0},{-46,0},{-46,-6.66667}}, color={0,0,127}));
       connect(const.y, force.force[2]) annotation (Line(
-          points={{131,2},{14,2},{14,-63.8},{-5.6,-63.8}}, color={0,0,127}));
+          points={{69,30},{-50,30},{-50,-8},{-46,-8}},     color={0,0,127}));
       connect(const.y, force.force[3]) annotation (Line(
-          points={{131,2},{14,2},{14,-65.2667},{-5.6,-65.2667}}, color={0,0,127}));
+          points={{69,30},{-50,30},{-50,-9.33333},{-46,-9.33333}},
+                                                                 color={0,0,127}));
       connect(world.frame_b, prismatic1.frame_a) annotation (Line(
-          points={{-80,-10},{-72,-10},{-72,151},{-12,151}},
+          points={{-100,30},{-90,30},{-90,80},{-40,80}},
           color={95,95,95},
           thickness=0.5));
       connect(damper1.frame_a, world.frame_b) annotation (Line(
-          points={{-12,186},{-72,186},{-72,-10},{-80,-10}},
+          points={{-40,110},{-50,110},{-50,80},{-90,80},{-90,30},{-100,30}},
           color={95,95,95},
           thickness=0.5));
       connect(force1.frame_a, world.frame_b) annotation (Line(
-          points={{-12,123},{-72,123},{-72,-10},{-80,-10}},
+          points={{-40,50},{-50,50},{-50,80},{-90,80},{-90,30},{-100,30}},
           color={95,95,95},
           thickness=0.5));
       connect(prismatic1.frame_b, body1.frame_a) annotation (Line(
-          points={{14,151},{38,151},{38,150},{64,150}},
+          points={{-20,80},{10,80}},
           color={95,95,95},
           thickness=0.5));
       connect(damper1.frame_b, body1.frame_a) annotation (Line(
-          points={{12,186},{38,186},{38,150},{64,150}},
+          points={{-20,110},{-10,110},{-10,80},{10,80}},
           color={95,95,95},
           thickness=0.5));
       connect(force1.frame_b, body1.frame_a) annotation (Line(
-          points={{10,123},{38,123},{38,150},{64,150}},
+          points={{-20,50},{-10,50},{-10,80},{10,80}},
           color={95,95,95},
           thickness=0.5));
       connect(const.y, force1.force[2]) annotation (Line(
-          points={{131,2},{14,2},{14,109.8},{-7.6,109.8}}, color={0,0,127}));
+          points={{69,30},{-50,30},{-50,38},{-36,38}},     color={0,0,127}));
       connect(const.y, force1.force[3]) annotation (Line(
-          points={{131,2},{14,2},{14,111.267},{-7.6,111.267}}, color={0,0,127}));
+          points={{69,30},{-50,30},{-50,39.3333},{-36,39.3333}},
+                                                               color={0,0,127}));
+      connect(trapezoid.y, force1.force[1]) annotation (Line(points={{69,0},{-36,0},{-36,36.6667}}, color={0,0,127}));
       connect(heatCapacitor.port, damper1.heatPort) annotation (Line(
-          points={{-50,162},{-12,162},{-12,174}}, color={191,0,0}));
+          points={{-80,120},{-40,120}},           color={191,0,0}));
       connect(prismatic2.frame_b, body2.frame_a) annotation (Line(
-          points={{10,-305},{38,-305},{38,-260},{64,-260}},
+          points={{60,-100},{70,-100},{70,-70},{80,-70}},
           color={95,95,95},
           thickness=0.5));
       connect(damper2.frame_b, body2.frame_a) annotation (Line(
-          points={{10,-270},{38,-270},{38,-260},{64,-260}},
+          points={{60,-70},{80,-70}},
           color={95,95,95},
           thickness=0.5));
       connect(force2.frame_b, body2.frame_a) annotation (Line(
-          points={{10,-229},{38,-229},{38,-260},{64,-260}},
+          points={{60,-40},{70,-40},{70,-70},{80,-70}},
           color={95,95,95},
           thickness=0.5));
       connect(const.y, force2.force[2]) annotation (Line(
-          points={{131,2},{96,2},{96,-215.8},{-7.6,-215.8}}, color={0,0,127}));
+          points={{69,30},{50,30},{50,-28},{44,-28}},        color={0,0,127}));
       connect(const.y, force2.force[3]) annotation (Line(
-          points={{131,2},{96,2},{96,-217.267},{-7.6,-217.267}}, color={0,0,127}));
+          points={{69,30},{50,30},{50,-29.3333},{44,-29.3333}},  color={0,0,127}));
+      connect(trapezoid.y, force2.force[1]) annotation (Line(points={{69,0},{44,0},{44,-26.6667}}, color={0,0,127}));
       connect(fixedTranslation.frame_a, world.frame_b) annotation (Line(
-          points={{-72,-56},{-72,-10},{-80,-10}},
+          points={{-90,0},{-90,30},{-100,30}},
           color={95,95,95},
           thickness=0.5));
       connect(fixedTranslation1.frame_a, fixedTranslation.frame_b) annotation (
           Line(
-          points={{-72,-188},{-72,-76}},
+          points={{-10,-100},{-90,-100},{-90,-20}},
           color={95,95,95},
           thickness=0.5));
       connect(prismatic.frame_a, fixedTranslation.frame_b) annotation (Line(
-          points={{-12,-131},{-42,-131},{-42,-76},{-72,-76}},
+          points={{-50,-80},{-60,-80},{-60,-50},{-90,-50},{-90,-20}},
           color={95,95,95},
           thickness=0.5));
       connect(damper.frame_a, fixedTranslation.frame_b) annotation (Line(
-          points={{-12,-108},{-42,-108},{-42,-76},{-72,-76}},
+          points={{-50,-50},{-90,-50},{-90,-20}},
           color={95,95,95},
           thickness=0.5));
       connect(force.frame_a, fixedTranslation.frame_b) annotation (Line(
-          points={{-10,-77},{-42,-77},{-42,-76},{-72,-76}},
+          points={{-50,-20},{-60,-20},{-60,-50},{-90,-50},{-90,-20}},
           color={95,95,95},
           thickness=0.5));
       connect(fixedTranslation1.frame_b, force2.frame_a) annotation (Line(
-          points={{-72,-208},{-44,-208},{-44,-229},{-12,-229}},
+          points={{10,-100},{30,-100},{30,-40},{40,-40}},
           color={95,95,95},
           thickness=0.5));
       connect(damper2.frame_a, fixedTranslation1.frame_b) annotation (Line(
-          points={{-14,-270},{-44,-270},{-44,-208},{-72,-208}},
+          points={{40,-70},{30,-70},{30,-100},{10,-100}},
           color={95,95,95},
           thickness=0.5));
       connect(prismatic2.frame_a, fixedTranslation1.frame_b) annotation (Line(
-          points={{-16,-305},{-44,-305},{-44,-208},{-72,-208}},
+          points={{40,-100},{10,-100}},
           color={95,95,95},
           thickness=0.5));
-      connect(trapezoid.y, force2.force[1]) annotation (Line(
-          points={{133,-116},{104,-116},{104,-214.333},{-7.6,-214.333}}, color={0,0,127}));
-      connect(trapezoid.y, force.force[1]) annotation (Line(
-          points={{133,-116},{103.5,-116},{103.5,-62.3333},{-5.6,-62.3333}}, color={0,0,127}));
-      connect(trapezoid.y, force1.force[1]) annotation (Line(
-          points={{133,-116},{104,-116},{104,108.333},{-7.6,108.333}}, color={0,0,127}));
-      annotation (Diagram(coordinateSystem(extent={{-100,-360},{180,220}},
+      annotation (Diagram(coordinateSystem(extent={{-120,-120},{100,140}},
               preserveAspectRatio=true)), experiment(StopTime=7));
     end Damper2;
 
@@ -3966,47 +4198,47 @@ a linear damper is connected here.
         c=10,
         s_unstretched=0.1,
         d=10)
-        annotation (Placement(transformation(extent={{-68,126},{-48,146}})));
+        annotation (Placement(transformation(extent={{-70,120},{-50,140}})));
       Modelica.Mechanics.MultiBody.Forces.Spring s1(c=10, s_unstretched=0.1)
-        annotation (Placement(transformation(extent={{-68,150},{-48,170}})));
+        annotation (Placement(transformation(extent={{-70,150},{-50,170}})));
       Modelica.Mechanics.MultiBody.Parts.PointMass pointMass(m=1)
-        annotation (Placement(transformation(extent={{-18,140},{2,160}})));
+        annotation (Placement(transformation(extent={{0,130},{20,150}})));
       Modelica.Mechanics.MultiBody.Joints.Universal universal1(
         phi_a(fixed=true),
         w_a(fixed=true),
         w_b(fixed=true),
         phi_b(fixed=true, start=0.78539816339745))
-        annotation (Placement(transformation(extent={{-66,180},{-46,200}})));
+        annotation (Placement(transformation(extent={{-70,180},{-50,200}})));
       Modelica.Mechanics.MultiBody.Joints.Prismatic prismatic1(s(fixed=true,
             start=0.1), v(fixed=true, start=0.1))
-        annotation (Placement(transformation(extent={{-36,180},{-16,200}})));
+        annotation (Placement(transformation(extent={{-40,180},{-20,200}})));
     equation
       connect(s1.frame_a, world.frame_b) annotation (Line(
-          points={{-68,160},{-90,160}},
+          points={{-70,160},{-90,160}},
           color={95,95,95},
           thickness=0.5));
       connect(sps1.frame_a, s1.frame_a) annotation (Line(
-          points={{-68,136},{-68,160}},
+          points={{-70,130},{-80,130},{-80,160},{-70,160}},
           color={95,95,95},
           thickness=0.5));
       connect(s1.frame_b, pointMass.frame_a) annotation (Line(
-          points={{-48,160},{-30,160},{-30,150},{-8,150}},
+          points={{-50,160},{-40,160},{-40,140},{10,140}},
           color={95,95,95},
           thickness=0.5));
       connect(sps1.frame_b, pointMass.frame_a) annotation (Line(
-          points={{-48,136},{-30,136},{-30,150},{-8,150}},
+          points={{-50,130},{-40,130},{-40,140},{10,140}},
           color={95,95,95},
           thickness=0.5));
       connect(s1.frame_a, universal1.frame_a) annotation (Line(
-          points={{-68,160},{-68,190},{-66,190}},
+          points={{-70,160},{-80,160},{-80,190},{-70,190}},
           color={95,95,95},
           thickness=0.5));
       connect(pointMass.frame_a, prismatic1.frame_b) annotation (Line(
-          points={{-8,150},{-8,190},{-16,190}},
+          points={{10,140},{10,140},{0,140},{0,190},{-20,190}},
           color={95,95,95},
           thickness=0.5));
       connect(universal1.frame_b, prismatic1.frame_a) annotation (Line(
-          points={{-46,190},{-36,190}},
+          points={{-50,190},{-40,190}},
           color={95,95,95},
           thickness=0.5));
       annotation (experiment(StopTime=1.0),Diagram(coordinateSystem(extent={{-120,80},{40,200}},
@@ -4133,8 +4365,8 @@ component):
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/ForceWithMasses.png\"
-ALT=\"model Examples.Elementary.ForceWithMasses\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/ForceWithMasses.png\"
+alt=\"model Examples.Elementary.ForceWithMasses\">
 </p>
 
 <p>
@@ -4150,6 +4382,42 @@ a linear damper is connected here.
 </p>
 </html>"));
     end LineForceWithMass;
+
+    model EngineGasForce "Example for gas force computation"
+      extends Modelica.Icons.Example;
+
+      Modelica.Mechanics.Translational.Components.Fixed fixed annotation (Placement(transformation(extent={{-90,-10},{-70,10}})));
+      Modelica.Mechanics.Translational.Components.Mass mass(m=1, L=0)    annotation (Placement(transformation(extent={{-20,-10},{0,10}})));
+      Modelica.Mechanics.Translational.Sources.Position position(exact=true, v(fixed=true))
+                                                                             annotation (Placement(transformation(extent={{42,-10},{22,10}})));
+      Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.GasForce2 gasForce(
+        L=0.2,
+        d=0.1,
+        k0=0.01,
+        k1=1.1,
+        k=1.08) annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
+      Modelica.Blocks.Sources.Sine sine(
+        freqHz=1,
+        phase=0,
+        startTime=0,
+        offset=0.1,
+        amplitude=0.0999999) annotation (Placement(transformation(extent={{80,-10},{60,10}})));
+    equation
+      connect(sine.y, position.s_ref) annotation (Line(points={{59,0},{44,0}},     color={0,0,127}));
+      connect(gasForce.flange_b, mass.flange_a) annotation (Line(points={{-40,0},{-20,0}}, color={0,127,0}));
+      connect(gasForce.flange_a, fixed.flange) annotation (Line(points={{-60,0},{-80,0}}, color={0,127,0}));
+      connect(position.flange, mass.flange_b) annotation (Line(points={{22,0},{0,0}}, color={0,127,0}));
+      annotation (Documentation(info="<html>
+<p>
+Simple model to test gasForce element used in some multi-body examples,
+see <a href=\"modelica://Modelica.Mechanics.MultiBody.Examples.Loops\">MultiBody.Examples.Loops</a>.
+</p>
+<p>
+To gengerate the pressure-stroke diagram, simulate the example for 1&nbsp;s
+and plot gasForce.press over gasForce.s_rel.
+</p>
+</html>"));
+    end EngineGasForce;
   end Forces;
 
   package Joints "Test MultiBody.Joints"
@@ -6593,17 +6861,16 @@ often possible to use the FreeMotion joint such that the singularity
       extends Modelica.Icons.Example;
       parameter Boolean animation=true "= true, if animation shall be enabled";
       inner Modelica.Mechanics.MultiBody.World world annotation (Placement(
-            transformation(extent={{-94,20},{-74,40}})));
+            transformation(extent={{-100,20},{-80,40}})));
       Modelica.Mechanics.MultiBody.Parts.FixedTranslation bar2(r={0.8,0,0},
-          animation=false) annotation (Placement(transformation(extent={{56,20},
-                {76,40}})));
+          animation=false) annotation (Placement(transformation(extent={{60,20},{80,40}})));
       Modelica.Mechanics.MultiBody.Forces.Spring spring1(
         width=0.1,
         coilWidth=0.005,
         numberOfWindings=5,
         c=20,
         s_unstretched=0) annotation (Placement(transformation(
-            origin={36,6},
+            origin={50,0},
             extent={{-10,-10},{10,10}},
             rotation=270)));
       Modelica.Mechanics.MultiBody.Parts.BodyShape bodyShape(
@@ -6620,14 +6887,14 @@ often possible to use the FreeMotion joint such that the singularity
         enforceStates=true,
         m=1,
         angles_start={0.17453292519943,0.17453292519943,0.17453292519943})
-        annotation (Placement(transformation(extent={{56,-40},{76,-20}})));
+        annotation (Placement(transformation(extent={{60,-40},{80,-20}})));
       Modelica.Mechanics.MultiBody.Forces.Spring spring2(
         c=20,
         s_unstretched=0,
         width=0.1,
         coilWidth=0.005,
         numberOfWindings=5) annotation (Placement(transformation(
-            origin={96,6},
+            origin={90,0},
             extent={{-10,-10},{10,10}},
             rotation=270)));
       Modelica.Mechanics.MultiBody.Parts.Body body(
@@ -6663,14 +6930,14 @@ often possible to use the FreeMotion joint such that the singularity
         w_0_fixed=true) annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=-90,
-            origin={-36,-30})));
+            origin={-30,-30})));
       Modelica.Mechanics.MultiBody.Forces.Spring spring4(
         width=0.1,
         coilWidth=0.005,
         numberOfWindings=5,
         s_unstretched=0,
         c=100) annotation (Placement(transformation(
-            origin={-36,-2},
+            origin={-30,0},
             extent={{-10,-10},{10,10}},
             rotation=270)));
       Modelica.Mechanics.MultiBody.Forces.Spring spring5(
@@ -6679,7 +6946,7 @@ often possible to use the FreeMotion joint such that the singularity
         numberOfWindings=5,
         s_unstretched=0,
         c=100) annotation (Placement(transformation(
-            origin={-6,0},
+            origin={0,0},
             extent={{-10,-10},{10,10}},
             rotation=270)));
       Modelica.Mechanics.MultiBody.Parts.BodyCylinder bodyCylinder(
@@ -6692,7 +6959,7 @@ often possible to use the FreeMotion joint such that the singularity
         w_0_fixed=true) annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=-90,
-            origin={-6,-30})));
+            origin={0,-30})));
       Modelica.Mechanics.MultiBody.Parts.PointMass pointMass(
         m=1,
         sphereDiameter=0.1,
@@ -6701,7 +6968,7 @@ often possible to use the FreeMotion joint such that the singularity
         v_0(fixed=true)) annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=-90,
-            origin={16,-36})));
+            origin={30,-30})));
       Modelica.Mechanics.MultiBody.Forces.Spring spring6(
         width=0.1,
         coilWidth=0.005,
@@ -6709,32 +6976,32 @@ often possible to use the FreeMotion joint such that the singularity
         c=20,
         s_unstretched=0,
         fixedRotationAtFrame_b=true) annotation (Placement(transformation(
-            origin={16,-2},
+            origin={30,0},
             extent={{-10,-10},{10,10}},
             rotation=270)));
     equation
       connect(bar2.frame_a, world.frame_b) annotation (Line(
-          points={{56,30},{12,30},{-74,30}},
+          points={{60,30},{-80,30}},
           color={95,95,95},
           thickness=0.5));
       connect(spring1.frame_b, bodyShape.frame_a) annotation (Line(
-          points={{36,-4},{36,-30},{56,-30}},
+          points={{50,-10},{50,-30},{60,-30}},
           color={95,95,95},
           thickness=0.5));
       connect(bar2.frame_b, spring2.frame_a) annotation (Line(
-          points={{76,30},{96,30},{96,16}},
+          points={{80,30},{90,30},{90,10}},
           color={95,95,95},
           thickness=0.5));
       connect(spring1.frame_a, world.frame_b) annotation (Line(
-          points={{36,16},{36,30},{-74,30}},
+          points={{50,10},{50,30},{-80,30}},
           color={95,95,95},
           thickness=0.5));
       connect(bodyShape.frame_b, spring2.frame_b) annotation (Line(
-          points={{76,-30},{96,-30},{96,-4}},
+          points={{80,-30},{90,-30},{90,-10}},
           color={95,95,95},
           thickness=0.5));
       connect(world.frame_b, spring3.frame_a) annotation (Line(
-          points={{-74,30},{-60,30},{-60,10}},
+          points={{-80,30},{-60,30},{-60,10}},
           color={95,95,95},
           thickness=0.5));
       connect(spring3.frame_b, body.frame_a) annotation (Line(
@@ -6742,27 +7009,27 @@ often possible to use the FreeMotion joint such that the singularity
           color={95,95,95},
           thickness=0.5));
       connect(world.frame_b, spring4.frame_a) annotation (Line(
-          points={{-74,30},{-36,30},{-36,8}},
+          points={{-80,30},{-30,30},{-30,10}},
           color={95,95,95},
           thickness=0.5));
       connect(spring4.frame_b, bodyBox.frame_a) annotation (Line(
-          points={{-36,-12},{-36,-20}},
+          points={{-30,-10},{-30,-20}},
           color={95,95,95},
           thickness=0.5));
       connect(world.frame_b, spring5.frame_a) annotation (Line(
-          points={{-74,30},{-6,30},{-6,10}},
+          points={{-80,30},{1.77636e-15,30},{1.77636e-15,10}},
           color={95,95,95},
           thickness=0.5));
       connect(spring5.frame_b, bodyCylinder.frame_a) annotation (Line(
-          points={{-6,-10},{-6,-12.5},{-6,-12.5},{-6,-15},{-6,-20},{-6,-20}},
+          points={{0,-10},{0,-20}},
           color={95,95,95},
           thickness=0.5));
       connect(world.frame_b, spring6.frame_a) annotation (Line(
-          points={{-74,30},{16,30},{16,8}},
+          points={{-80,30},{30,30},{30,10}},
           color={95,95,95},
           thickness=0.5));
       connect(spring6.frame_b, pointMass.frame_a) annotation (Line(
-          points={{16,-12},{16,-24},{16,-24},{16,-36}},
+          points={{30,-10},{30,-30}},
           color={95,95,95},
           thickness=0.5));
       annotation (
@@ -6777,17 +7044,16 @@ often possible to use the FreeMotion joint such that the singularity
       extends Modelica.Icons.Example;
       parameter Boolean animation=true "= true, if animation shall be enabled";
       inner Modelica.Mechanics.MultiBody.World world annotation (Placement(
-            transformation(extent={{-94,20},{-74,40}})));
+            transformation(extent={{-100,20},{-80,40}})));
       Modelica.Mechanics.MultiBody.Parts.FixedTranslation bar2(r={0.8,0,0},
-          animation=false) annotation (Placement(transformation(extent={{56,20},
-                {76,40}})));
+          animation=false) annotation (Placement(transformation(extent={{60,20},{80,40}})));
       Modelica.Mechanics.MultiBody.Forces.Spring spring1(
         width=0.1,
         coilWidth=0.005,
         numberOfWindings=5,
         c=20,
         s_unstretched=0) annotation (Placement(transformation(
-            origin={36,6},
+            origin={50,0},
             extent={{-10,-10},{10,10}},
             rotation=270)));
       Modelica.Mechanics.MultiBody.Parts.BodyShape bodyShape(
@@ -6804,14 +7070,14 @@ often possible to use the FreeMotion joint such that the singularity
         enforceStates=true,
         m=1,
         angles_start={0.17453292519943,0.17453292519943,0.17453292519943})
-        annotation (Placement(transformation(extent={{56,-40},{76,-20}})));
+        annotation (Placement(transformation(extent={{60,-40},{80,-20}})));
       Modelica.Mechanics.MultiBody.Forces.Spring spring2(
         c=20,
         s_unstretched=0,
         width=0.1,
         coilWidth=0.005,
         numberOfWindings=5) annotation (Placement(transformation(
-            origin={96,6},
+            origin={90,0},
             extent={{-10,-10},{10,10}},
             rotation=270)));
       Modelica.Mechanics.MultiBody.Parts.Body body(
@@ -6849,14 +7115,14 @@ often possible to use the FreeMotion joint such that the singularity
         v_0(each fixed=true)) annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=-90,
-            origin={-36,-30})));
+            origin={-30,-30})));
       Modelica.Mechanics.MultiBody.Forces.Spring spring4(
         width=0.1,
         coilWidth=0.005,
         numberOfWindings=5,
         s_unstretched=0,
         c=100) annotation (Placement(transformation(
-            origin={-36,-2},
+            origin={-30,0},
             extent={{-10,-10},{10,10}},
             rotation=270)));
       Modelica.Mechanics.MultiBody.Forces.Spring spring5(
@@ -6865,7 +7131,7 @@ often possible to use the FreeMotion joint such that the singularity
         numberOfWindings=5,
         s_unstretched=0,
         c=100) annotation (Placement(transformation(
-            origin={-6,0},
+            origin={0,0},
             extent={{-10,-10},{10,10}},
             rotation=270)));
       Modelica.Mechanics.MultiBody.Parts.BodyCylinder bodyCylinder(
@@ -6879,7 +7145,7 @@ often possible to use the FreeMotion joint such that the singularity
         v_0(each fixed=true)) annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=-90,
-            origin={-6,-30})));
+            origin={0,-30})));
       Modelica.Mechanics.MultiBody.Parts.PointMass pointMass(
         m=1,
         sphereDiameter=0.1,
@@ -6888,7 +7154,7 @@ often possible to use the FreeMotion joint such that the singularity
         v_0(each fixed=true)) annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=-90,
-            origin={16,-36})));
+            origin={30,-30})));
       Modelica.Mechanics.MultiBody.Forces.Spring spring6(
         width=0.1,
         coilWidth=0.005,
@@ -6896,32 +7162,32 @@ often possible to use the FreeMotion joint such that the singularity
         c=20,
         s_unstretched=0,
         fixedRotationAtFrame_b=true) annotation (Placement(transformation(
-            origin={16,-2},
+            origin={30,0},
             extent={{-10,-10},{10,10}},
             rotation=270)));
     equation
       connect(bar2.frame_a, world.frame_b) annotation (Line(
-          points={{56,30},{12,30},{-74,30}},
+          points={{60,30},{-80,30}},
           color={95,95,95},
           thickness=0.5));
       connect(spring1.frame_b, bodyShape.frame_a) annotation (Line(
-          points={{36,-4},{36,-30},{56,-30}},
+          points={{50,-10},{50,-30},{60,-30}},
           color={95,95,95},
           thickness=0.5));
       connect(bar2.frame_b, spring2.frame_a) annotation (Line(
-          points={{76,30},{96,30},{96,16}},
+          points={{80,30},{90,30},{90,10}},
           color={95,95,95},
           thickness=0.5));
       connect(spring1.frame_a, world.frame_b) annotation (Line(
-          points={{36,16},{36,30},{-74,30}},
+          points={{50,10},{50,30},{-80,30}},
           color={95,95,95},
           thickness=0.5));
       connect(bodyShape.frame_b, spring2.frame_b) annotation (Line(
-          points={{76,-30},{96,-30},{96,-4}},
+          points={{80,-30},{90,-30},{90,-10}},
           color={95,95,95},
           thickness=0.5));
       connect(world.frame_b, spring3.frame_a) annotation (Line(
-          points={{-74,30},{-60,30},{-60,10}},
+          points={{-80,30},{-60,30},{-60,10}},
           color={95,95,95},
           thickness=0.5));
       connect(spring3.frame_b, body.frame_a) annotation (Line(
@@ -6929,33 +7195,217 @@ often possible to use the FreeMotion joint such that the singularity
           color={95,95,95},
           thickness=0.5));
       connect(world.frame_b, spring4.frame_a) annotation (Line(
-          points={{-74,30},{-36,30},{-36,8}},
+          points={{-80,30},{-30,30},{-30,10}},
           color={95,95,95},
           thickness=0.5));
       connect(spring4.frame_b, bodyBox.frame_a) annotation (Line(
-          points={{-36,-12},{-36,-20}},
+          points={{-30,-10},{-30,-20}},
           color={95,95,95},
           thickness=0.5));
       connect(world.frame_b, spring5.frame_a) annotation (Line(
-          points={{-74,30},{-6,30},{-6,10}},
+          points={{-80,30},{1.77636e-15,30},{1.77636e-15,10}},
           color={95,95,95},
           thickness=0.5));
       connect(spring5.frame_b, bodyCylinder.frame_a) annotation (Line(
-          points={{-6,-10},{-6,-12.5},{-6,-12.5},{-6,-15},{-6,-20},{-6,-20}},
+          points={{0,-10},{0,-20}},
           color={95,95,95},
           thickness=0.5));
       connect(world.frame_b, spring6.frame_a) annotation (Line(
-          points={{-74,30},{16,30},{16,8}},
+          points={{-80,30},{30,30},{30,10}},
           color={95,95,95},
           thickness=0.5));
       connect(pointMass.frame_a, spring6.frame_b) annotation (Line(
-          points={{16,-36},{16,-24},{16,-12},{16,-12}},
+          points={{30,-30},{30,-10}},
           color={95,95,95},
           thickness=0.5));
       annotation (experiment(StopTime=10), Documentation(info="<html>
 
 </html>"));
     end FreeBodies2;
+
+    model FreeBodiesEnforceStatesFalse
+      "Test whether enforceStates=false give any undesired output"
+      extends Modelica.Icons.Example;
+      parameter Boolean animation=true "= true, if animation shall be enabled";
+      inner Modelica.Mechanics.MultiBody.World world annotation (Placement(
+            transformation(extent={{-100,20},{-80,40}})));
+      Modelica.Mechanics.MultiBody.Parts.FixedTranslation bar2(r={0.8,0,0},
+          animation=false) annotation (Placement(transformation(extent={{60,20},{80,40}})));
+      Modelica.Mechanics.MultiBody.Forces.Spring spring1(
+        width=0.1,
+        coilWidth=0.005,
+        numberOfWindings=5,
+        c=20,
+        s_unstretched=0) annotation (Placement(transformation(
+            origin={50,0},
+            extent={{-10,-10},{10,10}},
+            rotation=270)));
+      Modelica.Mechanics.MultiBody.Parts.BodyShape bodyShape(
+        I_11=1,
+        I_22=1,
+        I_33=1,
+        r={0.4,0,0},
+        r_CM={0.2,0,0},
+        width=0.05,
+        r_0(start={0.2,-0.5,0.1}, each fixed=true),
+        v_0(each fixed=true),
+        angles_fixed=true,
+        w_0_fixed=true,
+        m=1,
+        angles_start={0.17453292519943,0.17453292519943,0.17453292519943},
+        enforceStates=false) annotation (Placement(transformation(extent={{60,-40},{80,-20}})));
+      Modelica.Mechanics.MultiBody.Forces.Spring spring2(
+        c=20,
+        s_unstretched=0,
+        width=0.1,
+        coilWidth=0.005,
+        numberOfWindings=5) annotation (Placement(transformation(
+            origin={90,0},
+            extent={{-10,-10},{10,10}},
+            rotation=270)));
+      Modelica.Mechanics.MultiBody.Parts.Body body(
+        I_11=0.1,
+        I_22=0.1,
+        I_33=0.1,
+        r_0(start={0.2,-0.5,0.1}, each fixed=true),
+        m=1,
+        r_CM={0,-0.3,0},
+        angles_fixed=true,
+        w_0_fixed=true,
+        v_0(each fixed=true, start={-0.1,-0.1,-0.1}),
+        w_0_start={-0.1,-0.1,-0.1},
+        enforceStates=false) annotation (Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=-90,
+            origin={-60,-30})));
+      Modelica.Mechanics.MultiBody.Forces.Spring spring3(
+        width=0.1,
+        coilWidth=0.005,
+        numberOfWindings=5,
+        c=20,
+        s_unstretched=0) annotation (Placement(transformation(
+            origin={-60,0},
+            extent={{-10,-10},{10,10}},
+            rotation=270)));
+      Modelica.Mechanics.MultiBody.Parts.BodyBox bodyBox(
+        r={0,-0.3,0},
+        width=0.05,
+        angles_fixed=true,
+        w_0_fixed=true,
+        w_0_start={-0.1,-0.1,-0.1},
+        r_0(start={0.2,-0.5,0.1}, each fixed=true),
+        v_0(each fixed=true),
+        enforceStates=false) annotation (Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=-90,
+            origin={-30,-30})));
+      Modelica.Mechanics.MultiBody.Forces.Spring spring4(
+        width=0.1,
+        coilWidth=0.005,
+        numberOfWindings=5,
+        s_unstretched=0,
+        c=100) annotation (Placement(transformation(
+            origin={-30,0},
+            extent={{-10,-10},{10,10}},
+            rotation=270)));
+      Modelica.Mechanics.MultiBody.Forces.Spring spring5(
+        width=0.1,
+        coilWidth=0.005,
+        numberOfWindings=5,
+        s_unstretched=0,
+        c=100) annotation (Placement(transformation(
+            origin={0,0},
+            extent={{-10,-10},{10,10}},
+            rotation=270)));
+      Modelica.Mechanics.MultiBody.Parts.BodyCylinder bodyCylinder(
+        r={0,-0.3,0},
+        diameter=0.05,
+        angles_fixed=true,
+        w_0_fixed=true,
+        w_0_start={-0.1,-0.1,-0.1},
+        r_0(start={0.2,-0.5,0.1}, each fixed=true),
+        v_0(each fixed=true),
+        enforceStates=false) annotation (Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=-90,
+            origin={0,-30})));
+      Modelica.Mechanics.MultiBody.Parts.PointMass pointMass(
+        m=1,
+        sphereDiameter=0.1,
+        r_0(start={0.2,-0.5,0.1}, each fixed=true),
+        v_0(each fixed=true),
+        stateSelect=StateSelect.never) annotation (Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=-90,
+            origin={30,-30})));
+      Modelica.Mechanics.MultiBody.Forces.Spring spring6(
+        width=0.1,
+        coilWidth=0.005,
+        numberOfWindings=5,
+        c=20,
+        s_unstretched=0,
+        fixedRotationAtFrame_b=true) annotation (Placement(transformation(
+            origin={30,0},
+            extent={{-10,-10},{10,10}},
+            rotation=270)));
+    equation
+      connect(bar2.frame_a, world.frame_b) annotation (Line(
+          points={{60,30},{-80,30}},
+          color={95,95,95},
+          thickness=0.5));
+      connect(spring1.frame_b, bodyShape.frame_a) annotation (Line(
+          points={{50,-10},{50,-30},{60,-30}},
+          color={95,95,95},
+          thickness=0.5));
+      connect(bar2.frame_b, spring2.frame_a) annotation (Line(
+          points={{80,30},{90,30},{90,10}},
+          color={95,95,95},
+          thickness=0.5));
+      connect(spring1.frame_a, world.frame_b) annotation (Line(
+          points={{50,10},{50,30},{-80,30}},
+          color={95,95,95},
+          thickness=0.5));
+      connect(bodyShape.frame_b, spring2.frame_b) annotation (Line(
+          points={{80,-30},{90,-30},{90,-10}},
+          color={95,95,95},
+          thickness=0.5));
+      connect(world.frame_b, spring3.frame_a) annotation (Line(
+          points={{-80,30},{-60,30},{-60,10}},
+          color={95,95,95},
+          thickness=0.5));
+      connect(spring3.frame_b, body.frame_a) annotation (Line(
+          points={{-60,-10},{-60,-20}},
+          color={95,95,95},
+          thickness=0.5));
+      connect(world.frame_b, spring4.frame_a) annotation (Line(
+          points={{-80,30},{-30,30},{-30,10}},
+          color={95,95,95},
+          thickness=0.5));
+      connect(spring4.frame_b, bodyBox.frame_a) annotation (Line(
+          points={{-30,-10},{-30,-20}},
+          color={95,95,95},
+          thickness=0.5));
+      connect(world.frame_b, spring5.frame_a) annotation (Line(
+          points={{-80,30},{1.77636e-15,30},{1.77636e-15,10}},
+          color={95,95,95},
+          thickness=0.5));
+      connect(spring5.frame_b, bodyCylinder.frame_a) annotation (Line(
+          points={{0,-10},{0,-20}},
+          color={95,95,95},
+          thickness=0.5));
+      connect(world.frame_b, spring6.frame_a) annotation (Line(
+          points={{-80,30},{30,30},{30,10}},
+          color={95,95,95},
+          thickness=0.5));
+      connect(pointMass.frame_a, spring6.frame_b) annotation (Line(
+          points={{30,-30},{30,-10}},
+          color={95,95,95},
+          thickness=0.5));
+      annotation (experiment(StopTime=10), Documentation(info="<html>
+<p>This test case is made with the intent of verifying what choices are made by the compiler in terms of state selection when wrong indications are given, here all the bodies have the flag enforceStates=false but the bodies positions and velocities are the only possible states.</p>
+<p><br/>Dymola ignores the flag and uses bodies variables as states.</p>
+</html>"));
+    end FreeBodiesEnforceStatesFalse;
 
     model Bodies
       import SI = Modelica.SIunits;
@@ -7063,61 +7513,61 @@ often possible to use the FreeMotion joint such that the singularity
       parameter SI.Diameter diameter=length/30 "Diameter of frame axes";
       Modelica.Mechanics.MultiBody.Frames.Orientation R;
       Visualizers.FixedFrame frameT1(length=length, diameter=diameter)
-        annotation (Placement(transformation(extent={{-14,20},{-34,40}})));
+        annotation (Placement(transformation(extent={{-20,20},{-40,40}})));
       Visualizers.FixedFrame frameT2(length=length, diameter=diameter)
-        annotation (Placement(transformation(extent={{48,4},{68,24}})));
+        annotation (Placement(transformation(extent={{60,10},{80,30}})));
       inner Modelica.Mechanics.MultiBody.World world(animateWorld=false,
           gravityType=Modelica.Mechanics.MultiBody.Types.GravityTypes.NoGravity)
-        annotation (Placement(transformation(extent={{-34,-18},{-14,2}})));
+        annotation (Placement(transformation(extent={{-40,-20},{-20,0}})));
       Modelica.Mechanics.MultiBody.Parts.FixedRotation fixedRotation(angle=47)
-        annotation (Placement(transformation(extent={{10,4},{30,24}})));
+        annotation (Placement(transformation(extent={{20,10},{40,30}})));
       Modelica.Mechanics.MultiBody.Parts.FixedRotation fixedRotation1(
         r={1,1,1},
         rotationType=Modelica.Mechanics.MultiBody.Types.RotationTypes.TwoAxesVectors,
         n_x={0,1,0},
         n_y={0,0,1})
-        annotation (Placement(transformation(extent={{10,-26},{30,-6}})));
+        annotation (Placement(transformation(extent={{20,-20},{40,0}})));
 
       Visualizers.FixedFrame frameT3(length=length, diameter=diameter)
-        annotation (Placement(transformation(extent={{48,-28},{68,-8}})));
+        annotation (Placement(transformation(extent={{60,-20},{80,0}})));
       Modelica.Mechanics.MultiBody.Parts.FixedRotation fixedRotation2(
         n_x={0,1,0},
         n_y={0,0,1},
         rotationType=Modelica.Mechanics.MultiBody.Types.RotationTypes.PlanarRotationSequence,
         angles={30,20,10},
         r={-1,0,1})
-        annotation (Placement(transformation(extent={{10,-60},{30,-40}})));
+        annotation (Placement(transformation(extent={{20,-50},{40,-30}})));
 
       Visualizers.FixedFrame frameT4(length=length, diameter=diameter)
-        annotation (Placement(transformation(extent={{48,-62},{68,-42}})));
+        annotation (Placement(transformation(extent={{60,-50},{80,-30}})));
     equation
       R = Modelica.Mechanics.MultiBody.Frames.nullRotation();
       connect(frameT1.frame_a, fixedRotation.frame_a) annotation (Line(
-          points={{-14,30},{0,30},{0,14},{10,14}},
+          points={{-20,30},{0,30},{0,20},{20,20}},
           color={95,95,95},
           thickness=0.5));
       connect(fixedRotation.frame_b, frameT2.frame_a) annotation (Line(
-          points={{30,14},{48,14}},
+          points={{40,20},{60,20}},
           color={95,95,95},
           thickness=0.5));
       connect(world.frame_b, fixedRotation.frame_a) annotation (Line(
-          points={{-14,-8},{-2,-8},{-2,14},{10,14}},
+          points={{-20,-10},{0,-10},{0,20},{20,20}},
           color={95,95,95},
           thickness=0.5));
       connect(fixedRotation1.frame_b, frameT3.frame_a) annotation (Line(
-          points={{30,-16},{40,-16},{40,-18},{48,-18}},
+          points={{40,-10},{60,-10}},
           color={95,95,95},
           thickness=0.5));
       connect(fixedRotation2.frame_b, frameT4.frame_a) annotation (Line(
-          points={{30,-50},{40,-50},{40,-52},{48,-52}},
+          points={{40,-40},{60,-40}},
           color={95,95,95},
           thickness=0.5));
       connect(fixedRotation1.frame_a, world.frame_b) annotation (Line(
-          points={{10,-16},{-2,-16},{-2,-8},{-14,-8}},
+          points={{20,-10},{-20,-10}},
           color={95,95,95},
           thickness=0.5));
       connect(fixedRotation2.frame_a, world.frame_b) annotation (Line(
-          points={{10,-50},{-2,-50},{-2,-8},{-14,-8}},
+          points={{20,-40},{0,-40},{0,-10},{-20,-10}},
           color={95,95,95},
           thickness=0.5));
       annotation (experiment(StopTime=1.1));
@@ -7139,15 +7589,14 @@ often possible to use the FreeMotion joint such that the singularity
         w_0_fixed=true,
         w_0_start={1,0.3,0.2},
         r_0(each fixed=true, start={1,1,1})) annotation (Placement(
-            transformation(extent={{-20,46},{0,66}})));
+            transformation(extent={{-20,0},{0,20}})));
       Modelica.Mechanics.MultiBody.Parts.BodyBox BodyBox1(
         r={1,0,0},
         r_0(each fixed=true, start={-0.1,-0.3,-0.2}),
         v_0(each fixed=true),
         angles_fixed=true,
         w_0_fixed=true,
-        w_0_start={1,0.3,0.2}) annotation (Placement(transformation(extent={{-20,
-                6},{0,26}})));
+        w_0_start={1,0.3,0.2}) annotation (Placement(transformation(extent={{-20,-40},{0,-20}})));
       Modelica.Mechanics.MultiBody.Parts.BodyCylinder bodyCylinder(
         r={1,0,0},
         innerDiameter=bodyCylinder.diameter/2,
@@ -7155,8 +7604,7 @@ often possible to use the FreeMotion joint such that the singularity
         v_0(each fixed=true),
         angles_fixed=true,
         w_0_fixed=true,
-        w_0_start={5,-0.4,0.5}) annotation (Placement(transformation(extent={{-20,
-                -34},{0,-14}})));
+        w_0_start={5,-0.4,0.5}) annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
       Modelica.Mechanics.MultiBody.Parts.Body body1(
         m=1,
         I_11=1,
@@ -7168,227 +7616,40 @@ often possible to use the FreeMotion joint such that the singularity
         angles_fixed=true,
         angles_start={0,0,0},
         w_0_fixed=true,
-        w_0_start={1,0.3,0.2}) annotation (Placement(transformation(extent={{-20,
-                72},{0,92}})));
+        w_0_start={1,0.3,0.2}) annotation (Placement(transformation(extent={{-20,40},{0,60}})));
       inner Modelica.Mechanics.MultiBody.World world(
         animateWorld=false,
         animateGravity=false,
         gravityType=Modelica.Mechanics.MultiBody.Types.GravityTypes.NoGravity)
-        annotation (Placement(transformation(extent={{80,80},{100,100}})));
+        annotation (Placement(transformation(extent={{40,60},{60,80}})));
       Modelica.Mechanics.MultiBody.Visualizers.FixedFrame fixedFrame
-        annotation (Placement(transformation(extent={{-42,76},{-56,90}})));
+        annotation (Placement(transformation(extent={{-40,40},{-60,60}})));
       Modelica.Mechanics.MultiBody.Visualizers.FixedFrame fixedFrame1
-        annotation (Placement(transformation(extent={{-44,48},{-58,62}})));
+        annotation (Placement(transformation(extent={{-40,0},{-60,20}})));
       Modelica.Mechanics.MultiBody.Visualizers.FixedFrame fixedFrame2
-        annotation (Placement(transformation(extent={{-42,6},{-56,20}})));
+        annotation (Placement(transformation(extent={{-40,-40},{-60,-20}})));
       Modelica.Mechanics.MultiBody.Visualizers.FixedFrame fixedFrame3
-        annotation (Placement(transformation(extent={{-42,-30},{-56,-16}})));
+        annotation (Placement(transformation(extent={{-40,-80},{-60,-60}})));
     equation
 
       connect(fixedFrame.frame_a, body1.frame_a) annotation (Line(
-          points={{-42,83},{-32,83},{-32,82},{-20,82}},
+          points={{-40,50},{-20,50}},
           color={95,95,95},
           thickness=0.5));
       connect(fixedFrame1.frame_a, bodyShape.frame_a) annotation (Line(
-          points={{-44,55},{-32,55},{-32,56},{-20,56}},
+          points={{-40,10},{-20,10}},
           color={95,95,95},
           thickness=0.5));
       connect(fixedFrame2.frame_a, BodyBox1.frame_a) annotation (Line(
-          points={{-42,13},{-30,13},{-30,16},{-20,16}},
+          points={{-40,-30},{-20,-30}},
           color={95,95,95},
           thickness=0.5));
       connect(fixedFrame3.frame_a, bodyCylinder.frame_a) annotation (Line(
-          points={{-42,-23},{-30,-23},{-30,-26},{-20,-26},{-20,-24}},
+          points={{-40,-70},{-20,-70}},
           color={95,95,95},
           thickness=0.5));
       annotation (experiment(StopTime=4));
     end FlyingBodies;
-
-    model FreeBodiesEnforceStatesFalse
-      "Test whether enforceStates=false give any undesired output"
-      extends Modelica.Icons.Example;
-      parameter Boolean animation=true "= true, if animation shall be enabled";
-      inner Modelica.Mechanics.MultiBody.World world annotation (Placement(
-            transformation(extent={{-94,20},{-74,40}})));
-      Modelica.Mechanics.MultiBody.Parts.FixedTranslation bar2(r={0.8,0,0},
-          animation=false) annotation (Placement(transformation(extent={{56,20},
-                {76,40}})));
-      Modelica.Mechanics.MultiBody.Forces.Spring spring1(
-        width=0.1,
-        coilWidth=0.005,
-        numberOfWindings=5,
-        c=20,
-        s_unstretched=0) annotation (Placement(transformation(
-            origin={36,6},
-            extent={{-10,-10},{10,10}},
-            rotation=270)));
-      Modelica.Mechanics.MultiBody.Parts.BodyShape bodyShape(
-        I_11=1,
-        I_22=1,
-        I_33=1,
-        r={0.4,0,0},
-        r_CM={0.2,0,0},
-        width=0.05,
-        r_0(start={0.2,-0.5,0.1}, each fixed=true),
-        v_0(each fixed=true),
-        angles_fixed=true,
-        w_0_fixed=true,
-        m=1,
-        angles_start={0.17453292519943,0.17453292519943,0.17453292519943},
-        enforceStates=false) annotation (Placement(transformation(extent={{56,-40},
-                {76,-20}})));
-      Modelica.Mechanics.MultiBody.Forces.Spring spring2(
-        c=20,
-        s_unstretched=0,
-        width=0.1,
-        coilWidth=0.005,
-        numberOfWindings=5) annotation (Placement(transformation(
-            origin={96,6},
-            extent={{-10,-10},{10,10}},
-            rotation=270)));
-      Modelica.Mechanics.MultiBody.Parts.Body body(
-        I_11=0.1,
-        I_22=0.1,
-        I_33=0.1,
-        r_0(start={0.2,-0.5,0.1}, each fixed=true),
-        m=1,
-        r_CM={0,-0.3,0},
-        angles_fixed=true,
-        w_0_fixed=true,
-        v_0(each fixed=true, start={-0.1,-0.1,-0.1}),
-        w_0_start={-0.1,-0.1,-0.1},
-        enforceStates=false) annotation (Placement(transformation(
-            extent={{-10,-10},{10,10}},
-            rotation=-90,
-            origin={-60,-30})));
-      Modelica.Mechanics.MultiBody.Forces.Spring spring3(
-        width=0.1,
-        coilWidth=0.005,
-        numberOfWindings=5,
-        c=20,
-        s_unstretched=0) annotation (Placement(transformation(
-            origin={-60,0},
-            extent={{-10,-10},{10,10}},
-            rotation=270)));
-      Modelica.Mechanics.MultiBody.Parts.BodyBox bodyBox(
-        r={0,-0.3,0},
-        width=0.05,
-        angles_fixed=true,
-        w_0_fixed=true,
-        w_0_start={-0.1,-0.1,-0.1},
-        r_0(start={0.2,-0.5,0.1}, each fixed=true),
-        v_0(each fixed=true),
-        enforceStates=false) annotation (Placement(transformation(
-            extent={{-10,-10},{10,10}},
-            rotation=-90,
-            origin={-36,-30})));
-      Modelica.Mechanics.MultiBody.Forces.Spring spring4(
-        width=0.1,
-        coilWidth=0.005,
-        numberOfWindings=5,
-        s_unstretched=0,
-        c=100) annotation (Placement(transformation(
-            origin={-36,-2},
-            extent={{-10,-10},{10,10}},
-            rotation=270)));
-      Modelica.Mechanics.MultiBody.Forces.Spring spring5(
-        width=0.1,
-        coilWidth=0.005,
-        numberOfWindings=5,
-        s_unstretched=0,
-        c=100) annotation (Placement(transformation(
-            origin={-6,0},
-            extent={{-10,-10},{10,10}},
-            rotation=270)));
-      Modelica.Mechanics.MultiBody.Parts.BodyCylinder bodyCylinder(
-        r={0,-0.3,0},
-        diameter=0.05,
-        angles_fixed=true,
-        w_0_fixed=true,
-        w_0_start={-0.1,-0.1,-0.1},
-        r_0(start={0.2,-0.5,0.1}, each fixed=true),
-        v_0(each fixed=true),
-        enforceStates=false) annotation (Placement(transformation(
-            extent={{-10,-10},{10,10}},
-            rotation=-90,
-            origin={-6,-30})));
-      Modelica.Mechanics.MultiBody.Parts.PointMass pointMass(
-        m=1,
-        sphereDiameter=0.1,
-        r_0(start={0.2,-0.5,0.1}, each fixed=true),
-        v_0(each fixed=true),
-        stateSelect=StateSelect.never) annotation (Placement(transformation(
-            extent={{-10,-10},{10,10}},
-            rotation=-90,
-            origin={16,-36})));
-      Modelica.Mechanics.MultiBody.Forces.Spring spring6(
-        width=0.1,
-        coilWidth=0.005,
-        numberOfWindings=5,
-        c=20,
-        s_unstretched=0,
-        fixedRotationAtFrame_b=true) annotation (Placement(transformation(
-            origin={16,-2},
-            extent={{-10,-10},{10,10}},
-            rotation=270)));
-    equation
-      connect(bar2.frame_a, world.frame_b) annotation (Line(
-          points={{56,30},{12,30},{-74,30}},
-          color={95,95,95},
-          thickness=0.5));
-      connect(spring1.frame_b, bodyShape.frame_a) annotation (Line(
-          points={{36,-4},{36,-30},{56,-30}},
-          color={95,95,95},
-          thickness=0.5));
-      connect(bar2.frame_b, spring2.frame_a) annotation (Line(
-          points={{76,30},{96,30},{96,16}},
-          color={95,95,95},
-          thickness=0.5));
-      connect(spring1.frame_a, world.frame_b) annotation (Line(
-          points={{36,16},{36,30},{-74,30}},
-          color={95,95,95},
-          thickness=0.5));
-      connect(bodyShape.frame_b, spring2.frame_b) annotation (Line(
-          points={{76,-30},{96,-30},{96,-4}},
-          color={95,95,95},
-          thickness=0.5));
-      connect(world.frame_b, spring3.frame_a) annotation (Line(
-          points={{-74,30},{-60,30},{-60,10}},
-          color={95,95,95},
-          thickness=0.5));
-      connect(spring3.frame_b, body.frame_a) annotation (Line(
-          points={{-60,-10},{-60,-20}},
-          color={95,95,95},
-          thickness=0.5));
-      connect(world.frame_b, spring4.frame_a) annotation (Line(
-          points={{-74,30},{-36,30},{-36,8}},
-          color={95,95,95},
-          thickness=0.5));
-      connect(spring4.frame_b, bodyBox.frame_a) annotation (Line(
-          points={{-36,-12},{-36,-20}},
-          color={95,95,95},
-          thickness=0.5));
-      connect(world.frame_b, spring5.frame_a) annotation (Line(
-          points={{-74,30},{-6,30},{-6,10}},
-          color={95,95,95},
-          thickness=0.5));
-      connect(spring5.frame_b, bodyCylinder.frame_a) annotation (Line(
-          points={{-6,-10},{-6,-12.5},{-6,-12.5},{-6,-15},{-6,-20},{-6,-20}},
-          color={95,95,95},
-          thickness=0.5));
-      connect(world.frame_b, spring6.frame_a) annotation (Line(
-          points={{-74,30},{16,30},{16,8}},
-          color={95,95,95},
-          thickness=0.5));
-      connect(pointMass.frame_a, spring6.frame_b) annotation (Line(
-          points={{16,-36},{16,-24},{16,-12},{16,-12}},
-          color={95,95,95},
-          thickness=0.5));
-      annotation (experiment(StopTime=10), Documentation(info="<html>
-<p>This test case is made with the intent of verifying what choices are made by the compiler in terms of state selection when wrong indications are given, here all the bodies have the flag enforceStates=false but the bodies positions and velocities are the only possible states.</p>
-<p><br/>Dymola ignores the flag and uses bodies variables as states.</p>
-</html>"));
-    end FreeBodiesEnforceStatesFalse;
 
     package Rotor1D
       extends Modelica.Icons.ExamplesPackage;
@@ -9847,15 +10108,30 @@ This test model was proposed in ticket <a href=\"https://trac.modelica.org/Model
                 40,0},{60,20}})));
     equation
       connect(fixed.frame_b, box.frame_a)
-        annotation (Line(points={{-80,50},{-60,50},{-60,60}}));
+        annotation (Line(
+          points={{-80,50},{-60,50},{-60,60}},
+          color={95,95,95},
+          thickness=0.5));
       connect(fixed.frame_b, sphere.frame_a)
-        annotation (Line(points={{-80,50},{-30,50},{-30,60}}));
+        annotation (Line(
+          points={{-80,50},{-30,50},{-30,60}},
+          color={95,95,95},
+          thickness=0.5));
       connect(fixed.frame_b, cylinder.frame_a)
-        annotation (Line(points={{-80,50},{-4,50},{-4,60}}));
+        annotation (Line(
+          points={{-80,50},{-4,50},{-4,60}},
+          color={95,95,95},
+          thickness=0.5));
       connect(fixed.frame_b, pipe.frame_a)
-        annotation (Line(points={{-80,50},{42,50},{42,60}}));
+        annotation (Line(
+          points={{-80,50},{42,50},{42,60}},
+          color={95,95,95},
+          thickness=0.5));
       connect(fixed.frame_b, frame_b1)
-        annotation (Line(points={{-80,50},{-74,50},{-74,-10},{-60,-10}}));
+        annotation (Line(
+          points={{-80,50},{-74,50},{-74,-10},{-60,-10}},
+          color={95,95,95},
+          thickness=0.5));
       connect(beam.frame_a, frame_b1)
         annotation (Line(points={{-60,0},{-60,-10}}));
       connect(frame_b1, gearwheel.frame_a)
@@ -9863,7 +10139,10 @@ This test model was proposed in ticket <a href=\"https://trac.modelica.org/Model
       connect(frame_b1, spring.frame_a)
         annotation (Line(points={{-60,-10},{-2,-10},{-2,0}}));
       connect(fixed.frame_b, cone.frame_a)
-        annotation (Line(points={{-80,50},{20,50},{20,60}}));
+        annotation (Line(
+          points={{-80,50},{20,50},{20,60}},
+          color={95,95,95},
+          thickness=0.5));
       annotation (experiment(StopTime=1));
     end Shapes;
 
@@ -9895,9 +10174,15 @@ This test model was proposed in ticket <a href=\"https://trac.modelica.org/Model
         annotation (Placement(transformation(extent={{-100,-40},{-80,-20}})));
     equation
       connect(arrow.frame_a, fixed3.frame_b)
-        annotation (Line(points={{-30,20},{-30,0}}));
+        annotation (Line(
+          points={{-30,20},{-30,0}},
+          color={95,95,95},
+          thickness=0.5));
       connect(fixedArrow.frame_a, fixed3.frame_b)
-        annotation (Line(points={{-70,20},{-70,0},{-30,0}}));
+        annotation (Line(
+          points={{-70,20},{-70,0},{-30,0}},
+          color={95,95,95},
+          thickness=0.5));
       connect(sine.y, arrow.r_head) annotation (Line(
           points={{-9,30},{-18,30}}, color={0,0,127}));
       annotation (experiment(StopTime=1));
@@ -10115,6 +10400,58 @@ This test model was proposed in ticket <a href=\"https://trac.modelica.org/Model
           thickness=0.5));
       annotation (experiment(StopTime=0.1));
     end ColorMaps;
+
+    model Planes "Test and show models Visualizers.Plane"
+      extends Modelica.Icons.Example;
+
+      inner Modelica.Mechanics.MultiBody.World world(animateWorld=false, animateGravity=false) annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));
+      Modelica.Mechanics.MultiBody.Visualizers.Rectangle surfaceWireframe(
+        direction_u={1,-0.4,0},
+        direction_v={0,1,0},
+        length_u=3,
+        length_v=2,
+        nu=8,
+        nv=3,
+        wireframe=true,
+        color={0,230,0})      annotation (Placement(transformation(extent={{30,10},{50,30}})));
+      Modelica.Mechanics.MultiBody.Parts.FixedRotation fixedRotation(
+        rotationType=Modelica.Mechanics.MultiBody.Types.RotationTypes.TwoAxesVectors,
+        n_x={1,0,0},
+        animation=false,
+        r={0,2.3,0}) annotation (Placement(transformation(extent={{-20,10},{0,30}})));
+      Modelica.Mechanics.MultiBody.Visualizers.FixedFrame fixedFrameOfWireframe(color_x={255,0,0}) annotation (Placement(transformation(extent={{30,40},{50,60}})));
+      Modelica.Mechanics.MultiBody.Visualizers.Rectangle surfaceSolid(
+        direction_u={1,0,0},
+        direction_v={0,1,0},
+        length_u=3,
+        length_v=2,
+        nu=8,
+        nv=3,
+        color={85,85,255},
+        wireframe=false) annotation (Placement(transformation(extent={{30,-30},{50,-10}})));
+      Modelica.Mechanics.MultiBody.Visualizers.FixedFrame fixedFrame(color_x={255,0,0}) annotation (Placement(transformation(extent={{30,-60},{50,-40}})));
+    equation
+      connect(fixedRotation.frame_a, world.frame_b) annotation (Line(
+          points={{-20,20},{-40,20},{-40,0},{-60,0}},
+          color={95,95,95},
+          thickness=0.5));
+      connect(surfaceSolid.frame_a, world.frame_b) annotation (Line(
+          points={{30,-20},{-40,-20},{-40,0},{-60,0}},
+          color={95,95,95},
+          thickness=0.5));
+      connect(fixedFrame.frame_a, world.frame_b) annotation (Line(
+          points={{30,-50},{20,-50},{20,-20},{-40,-20},{-40,0},{-60,0}},
+          color={95,95,95},
+          thickness=0.5));
+      connect(fixedRotation.frame_b, fixedFrameOfWireframe.frame_a) annotation (Line(
+          points={{0,20},{20,20},{20,50},{30,50}},
+          color={95,95,95},
+          thickness=0.5));
+      connect(fixedRotation.frame_b, surfaceWireframe.frame_a) annotation (Line(
+          points={{0,20},{30,20}},
+          color={95,95,95},
+          thickness=0.5));
+    end Planes;
   end Visualizers;
 
   package InitializationConversion "Test conversion of the initialization"
@@ -10513,5 +10850,4 @@ they were not deleted yet.")}));
     end Bodies;
 
   end InitializationConversion;
-
 end MultiBody;
