@@ -2531,7 +2531,7 @@ It must be noted that the relationship of both axis variables is not right-angle
 <li><strong>y_T</strong>: constant temperature</li>
 <li><strong>y_phi</strong>: constant relative humidity</li>
 </ul>
-</html>"));
+</html>"), experiment(StopTime=1.0, Interval=0.001));
   end PsychrometricData;
 
   package TwoPhaseWater "Extension of the StandardWater package"
