@@ -1556,7 +1556,7 @@ Int. J. Refrig., 23 (2000) 43-63.</dd>
       "Surface tension as a function of temperature (below critical point)"
 
     protected
-      Real tau "Reduced temperatur";
+      Real tau "Reduced temperature";
       R134aData.CoeffsSurfaceTension coeff "Polynomial coefficients";
       Modelica.SIunits.Temperature Tc=374.21 "Critical temperature";
 

@@ -5995,7 +5995,7 @@ Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding</a>
         Modelica.SIunits.Angle gammas=port_sp.reference.gamma
           "Angle electrical quantities in stator fixed frame";
         Modelica.SIunits.Angle gammar=port_rp.reference.gamma
-          "Angle electrical quantities in rotor fixedframe";
+          "Angle electrical quantities in rotor fixed frame";
       equation
         port_sp.Phi = Phi_s "Stator flux into positive stator port";
         port_sp.Phi + port_sn.Phi = Complex(0, 0) "Balance of stator flux";

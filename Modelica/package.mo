@@ -1711,7 +1711,7 @@ This class summarizes contact information of the contributing persons.
 <p>The icon of a Modelica class shall not be significantly greater or smaller than the default Diagram limits of 200 units x 200 units. These default diagram limits are</p>
 <ul>
 <li>-100 units &le; horizontal coordinate &le; +100 units</li>
-<li>-100 units &le; vertical coordinate &le; +100 untis</li>
+<li>-100 units &le; vertical coordinate &le; +100 units</li>
 </ul>
 <p>If possible, the icon shall be designed such way, that the icon name <code>%name</code>
 and the most significant parameter can be displayed within the vertical Diagram range of the icon.</p>
@@ -1740,7 +1740,7 @@ the component name shall be placed above the icon with vertical 10 units of spac
 Fig. 2: Block component name
 </p>
 
-<p>If there is a connector locoated at the top icon boundary and it is obvious that this connector influences the model
+<p>If there is a connector located at the top icon boundary and it is obvious that this connector influences the model
 behavior compared to a similar model without such connector, then a line from the connector to the actual icon
 shall be avoided to keep the design straight, see Fig. 4. If it is required to use a line indicating the connector dependency, then
 the line shall be interrupted such that this line does not interfere with component name.</p>
