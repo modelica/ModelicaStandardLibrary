@@ -479,8 +479,8 @@ model NPN "Simple BJT according to Ebers-Moll"
   parameter SI.Voltage Vt=0.02585 "Voltage equivalent of temperature";
   parameter Real EMin=-100 "if x < EMin, the exp(x) function is linearized";
   parameter Real EMax=40 "if x > EMax, the exp(x) function is linearized";
-  parameter SI.Voltage IC=0 "Initial Value";
-  parameter Boolean UIC = false "Decision if initional conditions should be used";
+  parameter SI.Voltage IC=0 "Initial value";
+  parameter Boolean UIC = false "Decision if initial value should be used";
 
   extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=293.15);
   protected
