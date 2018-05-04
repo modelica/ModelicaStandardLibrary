@@ -6404,7 +6404,7 @@ Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap</a>
           annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               origin={0,20})));
-        Electrical.QuasiStationary.MultiPhase.Basic.MultiStar mulitStar(final m=m)
+        Electrical.QuasiStationary.MultiPhase.Basic.MultiStar multiStar(final m=m)
           annotation (Placement(transformation(extent={{20,-30},{40,-10}})));
       equation
         connect(thermalCollector.port_a, resistor.heatPort) annotation (Line(
@@ -6424,11 +6424,11 @@ Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap</a>
         connect(electroMagneticConverter.plug_p, resistor.plug_p) annotation (
             Line(
             points={{-10,-20},{-20,-20},{-20,-40}}, color={85,170,255}));
-        connect(electroMagneticConverter.plug_n, mulitStar.plug_p) annotation (
+        connect(electroMagneticConverter.plug_n, multiStar.plug_p) annotation (
             Line(points={{10,-20},{15,-20},{20,-20}}, color={85,170,255}));
-        connect(mulitStar.starpoints, star.plug_p) annotation (Line(points={{40,
+        connect(multiStar.starpoints, star.plug_p) annotation (Line(points={{40,
                 -20},{45,-20},{50,-20}}, color={85,170,255}));
-        connect(mulitStar.plug_p, resistor.plug_n) annotation (Line(points={{20,
+        connect(multiStar.plug_p, resistor.plug_n) annotation (Line(points={{20,
                 -20},{20,-60},{-20,-60}}, color={85,170,255}));
         annotation (defaultComponentName="cage",
           Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
