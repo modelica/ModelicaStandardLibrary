@@ -2899,28 +2899,19 @@ where the different effects are visualized:
       flange_a.f + flange_b.f - f = 0;
 
       // Friction force
-      f = if locked then sa*unitForce else (if startForward then
-        Modelica.Math.Vectors.interpolate(
-            f_pos[:, 1],
-            f_pos[:, 2],
-            v,
-            1) else if startBackward then -Modelica.Math.Vectors.interpolate(
-            f_pos[:, 1],
-            f_pos[:, 2],
-            -v,
-            1) else if pre(mode) == Forward then
-        Modelica.Math.Vectors.interpolate(
-            f_pos[:, 1],
-            f_pos[:, 2],
-            v,
-            1) else -Modelica.Math.Vectors.interpolate(
-            f_pos[:, 1],
-            f_pos[:, 2],
-            -v,
-            1));
+      f = if locked then sa*unitForce else (
+        if startForward then
+          Modelica.Math.Vectors.interpolate(f_pos[:, 1], f_pos[:, 2], v, 1)
+        else if startBackward then
+          -Modelica.Math.Vectors.interpolate(f_pos[:, 1], f_pos[:, 2], -v, 1)
+        else if pre(mode) == Forward then
+          Modelica.Math.Vectors.interpolate(f_pos[:, 1], f_pos[:, 2], v, 1)
+        else
+          -Modelica.Math.Vectors.interpolate(f_pos[:, 1], f_pos[:, 2], -v, 1));
 
       lossPower = f*v_relfric;
-      annotation (defaultComponentName="friction",
+      annotation(
+        defaultComponentName="friction",
         Documentation(info="<html>
 <p>
 This element describes <strong>Coulomb friction</strong> in <strong>support</strong>,
@@ -3004,60 +2995,68 @@ following references, especially (Armstrong and Canudas de Wit 1996):
     IEEE Transactions on Automatic Control, Vol. 40, No. 3, pp. 419-425.<br><br></dd>
 </dl>
 
-</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}), graphics={          Line(points={{0,-60},{0,-100}}, color={0,127,0}),
-                                                 Ellipse(
-                  extent={{-48,-10},{-28,-30}},
-                  lineColor={0,127,0},
-                  fillPattern=FillPattern.Sphere,
-                  fillColor={255,255,255}),Ellipse(
-                  extent={{-10,-10},{10,-30}},
-                  lineColor={0,127,0},
-                  fillPattern=FillPattern.Sphere,
-                  fillColor={255,255,255}),Ellipse(
-                  extent={{30,-10},{50,-30}},
-                  lineColor={0,127,0},
-                  fillPattern=FillPattern.Sphere,
-                  fillColor={255,255,255}),      Ellipse(
-                  extent={{-50,30},{-30,10}},
-                  lineColor={0,127,0},
-                  fillPattern=FillPattern.Sphere,
-                  fillColor={255,255,255}),Ellipse(
-                  extent={{-10,30},{10,10}},
-                  lineColor={0,127,0},
-                  fillPattern=FillPattern.Sphere,
-                  fillColor={255,255,255}),Ellipse(
-                  extent={{30,30},{50,10}},
-                  lineColor={0,127,0},
-                  fillPattern=FillPattern.Sphere,
-                  fillColor={255,255,255}),
-                                       Rectangle(
+</html>"),
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
+          graphics={
+            Polygon(
+              points={{-50,-50},{-10,-90},{-10,-100},{10,-100},{10,-90},{50,-50},{-50,-50}},
+              lineColor={95,95,95},
+              fillColor={131,175,131},
+              fillPattern=FillPattern.Solid),
+            Ellipse(
+              extent={{-48,-10},{-28,-30}},
+              lineColor={0,127,0},
+              fillPattern=FillPattern.Sphere,
+              fillColor={255,255,255}),
+            Ellipse(
+              extent={{-10,-10},{10,-30}},
+              lineColor={0,127,0},
+              fillPattern=FillPattern.Sphere,
+              fillColor={255,255,255}),
+            Ellipse(
+              extent={{30,-10},{50,-30}},
+              lineColor={0,127,0},
+              fillPattern=FillPattern.Sphere,
+              fillColor={255,255,255}),
+            Ellipse(
+              extent={{-50,30},{-30,10}},
+              lineColor={0,127,0},
+              fillPattern=FillPattern.Sphere,
+              fillColor={255,255,255}),
+            Ellipse(
+              extent={{-10,30},{10,10}},
+              lineColor={0,127,0},
+              fillPattern=FillPattern.Sphere,
+              fillColor={255,255,255}),
+            Ellipse(
+              extent={{30,30},{50,10}},
+              lineColor={0,127,0},
+              fillPattern=FillPattern.Sphere,
+              fillColor={255,255,255}),
+            Rectangle(
               extent={{-90,10},{90,-10}},
               lineColor={0,127,0},
               fillColor={160,215,160},
               fillPattern=FillPattern.Solid),
-                                           Polygon(
-              points={{-60,-30},{60,-30},{60,-20},{80,-20},{80,-50},{-80,-50},{-80,-20},{-60,-20},{-60,-30}},
-              lineColor={95,95,95},
-              fillPattern=FillPattern.Solid,
-              fillColor={131,175,131}),    Text(
-                  extent={{-150,100},{150,60}},
-                  textString="%name",
-                  lineColor={0,0,255}),
-                        Polygon(
-              points={{-60,-50},{-20,-80},{20,-80},{60,-50},{-60,-50}},
-              lineColor={95,95,95},
-              fillColor={131,175,131},
-              fillPattern=FillPattern.Solid),
-                                           Polygon(
+            Text(
+              extent={{-150,100},{150,60}},
+              textString="%name",
+              lineColor={0,0,255}),
+            Polygon(
               points={{-60,30},{60,30},{60,20},{80,20},{80,50},{-80,50},{-80,20},{-60,20},{-60,30}},
               lineColor={95,95,95},
               fillPattern=FillPattern.Solid,
-              fillColor={131,175,131}),    Line(
-                  visible=useHeatPort,
-                  points={{-100,-100},{-100,-20},{0,-20}},
-                  color={191,0,0},
-                  pattern=LinePattern.Dot)}));
+              fillColor={131,175,131}),
+            Line(
+              visible=useHeatPort,
+              points={{-100,-100},{-100,-20},{0,-20}},
+              color={191,0,0},
+              pattern=LinePattern.Dot),
+            Polygon(
+              points={{-60,-30},{60,-30},{60,-20},{80,-20},{80,-50},{-80,-50},{-80,-20},{-60,-20},{-60,-30}},
+              lineColor={95,95,95},
+              fillPattern=FillPattern.Solid,
+              fillColor={131,175,131})}));
     end SupportFriction;
 
     model Brake "Brake based on Coulomb friction"
@@ -3607,7 +3606,8 @@ Version 2:
         end if;
       end when;
 */
-      annotation (defaultComponentName="mass",
+      annotation (
+        defaultComponentName="mass",
         Documentation(info="<html>
 <p>This element describes the <em>Stribeck friction characteristics</em> of a sliding mass,
 i. e. the frictional force acting between the sliding mass and the support. Included is a
@@ -3704,96 +3704,116 @@ between the stops.</em></li>
 <li><em>June 10, 2002 by P. Beater, StateSelect.always for variables s and v (instead of fixed=true). </em></li>
 </ul>
 </html>"),
-        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-                100,100}}), graphics={     Line(points={{-100,0},{100,0}},color=
-               {0,127,0}),            Polygon(
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
+          graphics={
+            Line(points={{-100,0},{100,0}},color={0,127,0}),
+            Polygon(
               points={{80,-100},{50,-90},{50,-110},{80,-100}},
               lineColor={95,127,95},
               fillColor={95,127,95},
-              fillPattern=FillPattern.Solid),    Line(points={{-40,-100},{50,-100}}, color={95,127,95}),
-                                                                                     Rectangle(
+              fillPattern=FillPattern.Solid),
+            Line(points={{-40,-100},{50,-100}}, color={95,127,95}),
+            Rectangle(
               extent={{-30,30},{30,-30}},
               fillPattern=FillPattern.Sphere,
               fillColor={166,221,166},
-              lineColor={0,127,0}),              Rectangle(
-                  extent={{-64,-16},{-56,-46}},
-                  fillPattern=FillPattern.Solid,
-              lineColor={0,127,0},
-              fillColor={0,127,0}),              Rectangle(
-                  extent={{56,-16},{64,-46}},
-                  fillPattern=FillPattern.Solid,
+              lineColor={0,127,0}),
+            Rectangle(
+              extent={{-64,-16},{-56,-46}},
+              fillPattern=FillPattern.Solid,
               lineColor={0,127,0},
               fillColor={0,127,0}),
-                               Text(
-                  extent={{-150,80},{150,40}},
+            Rectangle(
+              extent={{56,-16},{64,-46}},
+              fillPattern=FillPattern.Solid,
+              lineColor={0,127,0},
+              fillColor={0,127,0}),
+            Text( extent={{-150,80},{150,40}},
                   textString="%name",
-                  lineColor={0,0,255}),Line(points={{-50,-90},{-30,-70}}, color={0,127,0}),
-                                                                          Line(points={{-30,-70},{30,-70}}, color={0,127,0}),
-                                                                                                            Line(
-              points={{-30,-90},{-10,-70}}, color={0,127,0}),
-                                            Line(points={{-10,-90},
-              {10,-70}}, color={0,127,0}),
-                         Line(points={{10,-90},{30,-70}}, color={0,127,0}),
-                                                          Text(
-                  extent={{-150,-110},{150,-140}},
-                  textString="m=%m"),Line(
-                  visible=useHeatPort,
-                  points={{-100,-100},{-100,-40},{3,-40}},
-                  color={191,0,0},
-                  pattern=LinePattern.Dot),
-                          Rectangle(
-              extent={{-70,-46},{70,-60}},
+                  lineColor={0,0,255}),
+            Line(points={{-50,-90},{-28,-68}}, color={0,127,0}),
+            Line(points={{-30,-90},{-8,-68}}, color={0,127,0}),
+            Line(points={{-10,-90},{12,-68}}, color={0,127,0}),
+            Line(points={{10,-90},{32,-68}}, color={0,127,0}),
+            Text(
+              extent={{-150,-110},{150,-140}},
+              textString="m=%m"),
+            Line(
+              visible=useHeatPort,
+              points={{-100,-100},{-100,-40},{3,-40}},
+              color={191,0,0},
+              pattern=LinePattern.Dot),
+            Rectangle(
+              extent={{-70,-46},{70,-70}},
               fillColor={160,215,160},
               fillPattern=FillPattern.Solid,
               lineColor={0,127,0})}),
-        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}), graphics={Polygon(
-                  points={{50,-75},{20,-65},{20,-85},{50,-75}},
-                  lineColor={128,128,128},
-                  fillColor={128,128,128},
-                  fillPattern=FillPattern.Solid),Line(points={{-60,-75},{20,-75}}),Rectangle(
-                  extent={{-30,26},{35,-9}},
-                  fillPattern=FillPattern.Sphere,
-                  fillColor={255,255,255}),Line(points={{-90,0},{-30,0}}, color=
-               {0,127,0}),Line(points={{35,0},{90,0}}, color={0,127,0}),
-              Rectangle(
-                  extent={{-68,-14},{76,-29}},
-                  fillColor={192,192,192},
-                  fillPattern=FillPattern.Solid),Rectangle(
-                  extent={{-119,43},{-111,17}},
-                  fillPattern=FillPattern.Solid),Line(
-                  points={{-111,43},{-111,50}}),Line(
-                  points={{-151,49},{-113,49}}),Text(
-                  extent={{-149,51},{-126,60}},
-                  textString="s min",
-                  lineColor={0,0,255}),Polygon(
-                  points={{-121,52},{-111,49},{-121,46},{-121,52}},
-                  fillPattern=FillPattern.Solid),Rectangle(
-                  extent={{124,42},{132,17}},
-                  fillPattern=FillPattern.Solid),Line(
-                  points={{124,39},{124,87}}),Line(
-                  points={{-19,78},{121,78}}),Text(
-                  extent={{-17,83},{6,92}},
-                  textString="s max",
-                  lineColor={0,0,255}),Polygon(
-                  points={{114,81},{124,78},{114,75},{114,81}},
-                  fillPattern=FillPattern.Solid),Line(
-                  points={{5,26},{5,63}}),Line(
-                  points={{-77,58},{-1,58}}),Text(
-                  extent={{-75,60},{-38,71}},
-                  textString="Position s",
-                  lineColor={0,0,255}),Polygon(
-                  points={{-5,61},{5,58},{-5,55},{-5,61}},
-                  fillPattern=FillPattern.Solid),Line(points={{-100,-10},{-100,
-              -60}}),Line(points={{100,-10},{100,-60}}),
-              Polygon(
-                  points={{90,-47},{100,-50},{90,-53},{90,-47}},
-                  fillPattern=FillPattern.Solid),Polygon(
-                  points={{-90,-47},{-90,-53},{-100,-50},{-90,-47}},
-                  fillPattern=FillPattern.Solid),Line(points={{-90,-50},{92,-50}}),Text(
-                  extent={{-11,-46},{26,-36}},
-                  textString="Length L",
-                  lineColor={0,0,255})}));
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
+          graphics={
+            Polygon(
+              points={{50,-75},{20,-65},{20,-85},{50,-75}},
+              lineColor={128,128,128},
+              fillColor={128,128,128},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-60,-75},{20,-75}}),
+            Rectangle(
+              extent={{-30,26},{35,-9}},
+              fillPattern=FillPattern.Sphere,
+              fillColor={255,255,255}),
+            Line(points={{-90,0},{-30,0}}, color={0,127,0}),
+            Line(points={{35,0},{90,0}}, color={0,127,0}),
+            Rectangle(
+              extent={{-68,-14},{76,-29}},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid),
+            Rectangle(
+              extent={{-119,43},{-111,17}},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-111,43},{-111,50}}),
+            Line(points={{-151,49},{-113,49}}),
+            Text(
+              extent={{-149,51},{-126,60}},
+              textString="s min",
+              lineColor={0,0,255}),
+            Polygon(
+              points={{-121,52},{-111,49},{-121,46},{-121,52}},
+              fillPattern=FillPattern.Solid),
+            Rectangle(
+              extent={{124,42},{132,17}},
+              fillPattern=FillPattern.Solid),
+            Line(points={{124,39},{124,87}}),
+            Line(points={{-19,78},{121,78}}),
+            Text(
+              extent={{-17,83},{6,92}},
+              textString="s max",
+              lineColor={0,0,255}),
+            Polygon(
+              points={{114,81},{124,78},{114,75},{114,81}},
+              fillPattern=FillPattern.Solid),
+            Line(
+              points={{5,26},{5,63}}),
+            Line(
+              points={{-77,58},{-1,58}}),
+            Text(
+              extent={{-75,60},{-38,71}},
+              textString="Position s",
+              lineColor={0,0,255}),
+            Polygon(
+              points={{-5,61},{5,58},{-5,55},{-5,61}},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-100,-10},{-100,-60}}),
+            Line(points={{100,-10},{100,-60}}),
+            Polygon(
+              points={{90,-47},{100,-50},{90,-53},{90,-47}},
+              fillPattern=FillPattern.Solid),
+            Polygon(
+              points={{-90,-47},{-90,-53},{-100,-50},{-90,-47}},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-90,-50},{92,-50}}),
+            Text(
+              extent={{-11,-46},{26,-36}},
+              textString="Length L",
+              lineColor={0,0,255})}));
     end MassWithStopAndFriction;
 
     model RelativeStates "Definition of relative state variables"
@@ -4640,26 +4660,25 @@ blocks of Modelica.Blocks.Source.
           coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}}),
-            graphics={
-              Polygon(
+          graphics={
+            Line(points={{0,-60},{0,-101}}, color={0,127,0}),
+            Polygon(
               points={{-100,10},{20,10},{20,41},{90,0},{20,-41},{20,-10},{-100,-10},{-100,10}},
               lineColor={0,127,0},
               fillColor={160,215,160},
               fillPattern=FillPattern.Solid),
-              Text(
-                extent={{-150,-32},{-80,-62}},
-                textString="f"),
-              Text(
-                extent={{-150,90},{150,50}},
-                textString="%name",
-                lineColor={0,0,255}),
-              Line(points={{0,-60},{0,-101}}, color={0,127,0}),
-              Line(points={{-31,-60},{50,-60}}, color={95,127,95}),
-              Polygon(
-              points={{-61,-60},{-30,-50},{-30,-70},{-61,-60}},
-              fillColor={95,127,95},
-              fillPattern=FillPattern.Solid,
-              lineColor={95,127,95})}));
+            Text(
+              extent={{-150,-32},{-80,-62}},
+              textString="f"),
+            Text(
+              extent={{-150,90},{150,50}},
+              textString="%name",
+              lineColor={0,0,255}),
+            Polygon(
+              points={{50,-54},{-30,-54},{-30,-46},{-60,-60},{-30,-74},{-30,-66},{50,-66},{50,-54}},
+              lineColor={0,127,0},
+              fillColor={160,215,160},
+              fillPattern=FillPattern.Solid)}));
     end Force;
 
     model Force2 "Input signal acting as torque on two flanges"
