@@ -5076,7 +5076,7 @@ At time=0.2 s a reference speed step is applied, causing the drive to accelerate
 At time=0.8 s a load torque step is applied, causing to drive to decelerate until the speed controller brings the drive back to the desired speed.
 </p>
 <p>
-You may try a slewRateLimiter instead the prefilter to limit the speed rise i.e. the torque.
+You may try a slewRateLimiter instead of the prefilter to limit the speed rise i.e. the torque.
 </p>
 <p>
 Further reading:
