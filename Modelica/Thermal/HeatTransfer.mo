@@ -2495,7 +2495,7 @@ i.e., it defines a fixed temperature as a boundary condition.
             Text(
               extent={{-150,150},{150,110}},
               textString="%name",
-              lineCdefaultComponentName="temperatureSource",olor={0,0,255}),
+              lineColor={0,0,255}),
             Line(
               points={{-102,0},{64,0}},
               color={191,0,0},
