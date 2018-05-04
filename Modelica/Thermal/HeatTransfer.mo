@@ -2758,7 +2758,7 @@ and provides them as output signals.
               lineColor={0,0,255}),
             Rectangle(
               extent={{-100,100},{100,-100}},
-              pattern=LinePattern.None,defaultComponentName="temperatureSensor",
+              pattern=LinePattern.None,
               fillColor={159,159,223},
               fillPattern=FillPattern.Backward),
             Text(
