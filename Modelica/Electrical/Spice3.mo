@@ -6382,7 +6382,7 @@ on the model behaviour.
         input SI.Temp_K temp "Temperature";
         output SI.GapEnergy ret "Output Gap Energy";
 
-      algorithm
+    algorithm
         ret := Spice3.Internal.MaterialParameters.EnergyGapSi - (
           Spice3.Internal.MaterialParameters.FirstBandCorrFactorSi
           *temp*temp)/(temp + Spice3.Internal.MaterialParameters.SecondBandCorrFactorSi);
@@ -12939,10 +12939,13 @@ to the internal parameters (e.g. m_drainResistance). It also does the analysis o
         end capacitorRenameParametersDev;
 
       end Csemiconductor;
+    annotation (Documentation(info="<html>
+<p>The package Internal contains functions and auxiliary models that are necessary for the Spice3 models. The package should not be used by the users of the Spice3-library.</p>
+</html>"));
   end Internal;
 
     annotation (Documentation(info="<html>
-<p>This package contains all function, parameters and data of semiconductor models, that are transformed from SPICE3 into Modelica. The models of the package semiconductors access to repository models. This package should not be used via direct access by a user of the Spice-Library for Modelica. It is restricted to the development.</p>
+<p>The Spice3 package contains models of the electronic simulator SPICE3. The models were translated into Modelica by rewriting the SPICE3 model code. </p>
 </html>"), Icon(graphics={
           Line(points={{-20,40},{-20,-40}}),
           Line(points={{-90,0},{-20,0}}),
