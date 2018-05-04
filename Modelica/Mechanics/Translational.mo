@@ -5523,17 +5523,25 @@ If <em>useSupport=false</em>, the support connector is conditionally disabled
 and instead the component is internally fixed to ground.
 </p>
 
-</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}),graphics={Line(
-                  points={{-50,-120},{-30,-100}}, color={0,127,0}),
-                                                  Line(
-                  points={{-30,-120},{-10,-100}}, color={0,127,0}),
-                                                  Line(
-                  points={{-10,-120},{10,-100}}, color={0,127,0}),
-                                                 Line(
-                  points={{10,-120},{30,-100}}, color={0,127,0}),
-                                                Line(
-                  points={{-30,-100},{30,-100}}, color={0,127,0})}));
+</html>"),
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+                {100,100}}),
+          graphics={
+            Line(
+              visible=not useSupport,
+              points={{-50,-120},{-30,-100}}, color={0,127,0}),
+            Line(
+              visible=not useSupport,
+              points={{-30,-120},{-10,-100}}, color={0,127,0}),
+            Line(
+              visible=not useSupport,
+              points={{-10,-120},{10,-100}}, color={0,127,0}),
+            Line(
+              visible=not useSupport,
+              points={{10,-120},{30,-100}}, color={0,127,0}),
+            Line(
+              visible=not useSupport,
+              points={{-30,-100},{30,-100}}, color={0,127,0})}));
     end PartialElementaryOneFlangeAndSupport2;
 
     partial model PartialElementaryTwoFlangesAndSupport
@@ -5642,18 +5650,25 @@ to avoid the unphysical behavior that the
 support force is required to be zero (= the default value, if the
 connector is not connected).
 </p>
-
-</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}),graphics={Line(
-                  points={{-50,-120},{-30,-100}}, color={0,127,0}),
-                                                  Line(
-                  points={{-30,-120},{-10,-100}}, color={0,127,0}),
-                                                  Line(
-                  points={{-10,-120},{10,-100}}, color={0,127,0}),
-                                                 Line(
-                  points={{10,-120},{30,-100}}, color={0,127,0}),
-                                                Line(
-                  points={{-30,-100},{30,-100}}, color={0,127,0})}));
+</html>"),
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+                {100,100}}),
+          graphics={
+            Line(
+              visible=not useSupport,
+              points={{-50,-120},{-30,-100}}, color={0,127,0}),
+            Line(
+              visible=not useSupport,
+              points={{-30,-120},{-10,-100}}, color={0,127,0}),
+            Line(
+              visible=not useSupport,
+              points={{-10,-120},{10,-100}}, color={0,127,0}),
+            Line(
+              visible=not useSupport,
+              points={{10,-120},{30,-100}}, color={0,127,0}),
+            Line(
+              visible=not useSupport,
+              points={{-30,-100},{30,-100}}, color={0,127,0})}));
     end PartialElementaryTwoFlangesAndSupport2;
 
     partial model PartialElementaryRotationalToTranslational
