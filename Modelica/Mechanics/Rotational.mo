@@ -2552,27 +2552,28 @@ flange.
         coordinateSystem(preserveAspectRatio=true,
           extent={{-100.0,-100.0},{100.0,100.0}}),
           graphics={
-            Rectangle(    lineColor={64,64,64},
-              fillColor={192,192,192},
-              fillPattern=FillPattern.HorizontalCylinder,
-              extent={{-100.0,-10.0},{99.0,10.0}}),
-            Rectangle(    lineColor={64,64,64},
-              fillColor={192,192,192},
-              fillPattern=FillPattern.HorizontalCylinder,
-              extent={{-10.0,-50.0},{10.0,50.0}}),
-            Text(    lineColor={0,0,255},
-              extent={{-150.0,60.0},{150.0,100.0}},
-              textString="%name"),
-            Rectangle(    lineColor={64,64,64},
+            Rectangle(lineColor={64,64,64},
               fillColor={192,192,192},
               fillPattern=FillPattern.HorizontalCylinder,
               extent={{-30.0,10.0},{-10.0,50.0}}),
-            Rectangle(    lineColor={64,64,64},
+            Rectangle(lineColor={64,64,64},
               fillColor={192,192,192},
               fillPattern=FillPattern.HorizontalCylinder,
               extent={{10.0,-50.0},{30.0,-10.0}}),
-            Text(    extent={{-160.0,-87.0},{160.0,-62.0}},
-              textString="deltaPhi = %deltaPhi")}));
+            Rectangle(
+              lineColor={64,64,64},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.HorizontalCylinder,
+              extent={{-100.0,-10.0},{100.0,10.0}}),
+            Rectangle(lineColor={64,64,64},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.HorizontalCylinder,
+              extent={{-10.0,-50.0},{10.0,50.0}}),
+            Text(extent={{-160.0,-87.0},{160.0,-62.0}},
+              textString="deltaPhi = %deltaPhi"),
+            Text(lineColor={0,0,255},
+              extent={{-150.0,60.0},{150.0,100.0}},
+              textString="%name")}));
     end Disc;
 
     model Spring "Linear 1D rotational spring"
@@ -4946,23 +4947,26 @@ This component defines the kinematic constraint:
         Text(lineColor={0,0,255},
           extent={{-150.0,85.0},{150.0,125.0}},
           textString="%name"),
-        Rectangle(fillColor={160,160,164},
+        Rectangle(
+          fillColor={131,175,131},
           fillPattern=FillPattern.Solid,
           extent={{95.0,-60.0},{106.0,-10.0}}),
-        Rectangle(origin={-0.5889,0.0},
-          fillColor={160,160,164},
+        Rectangle(
+          fillColor={131,175,131},
           fillPattern=FillPattern.Solid,
-          extent={{-74.4111,-80.0},{106.5889,-60.0}}),
+          extent={{-74.411,-80},{106.589,-60}}),
         Text(extent={{-150.0,50.0},{150.0,80.0}},
           textString="ratio=%ratio"),
-        Line(points={{-100.0,15.0},{-80.0,15.0}}),
-        Line(points={{-100.0,-16.0},{-80.0,-16.0}}),
+        Line(points={{-100,16},{-80,16}}),
+        Line(points={{-100,-16},{-80,-16}}),
         Line(points={{-100.0,-16.0},{-100.0,-100.0}}),
-        Line(points={{100.0,-80.0},{100.0,-100.0}}),
-        Polygon(origin={16.875,-50.0},
-          fillColor={160,160,164},
-          fillPattern=FillPattern.Solid,
-          points={{-84.375,-10.0},{-79.375,10.0},{-69.375,10.0},{-64.375,-10.0},{-54.375,-10.0},{-49.375,10.0},{-39.375,10.0},{-34.375,-10.0},{-24.375,-10.0},{-19.375,10.0},{-9.375,10.0},{-4.375,-10.0},{5.625,-10.0},{10.625,10.0},{20.625,10.0},{25.625,-10.0},{35.625,-10.0},{40.625,10.0},{50.625,10.0},{55.625,-10.0},{65.625,-10.0},{70.625,10.0},{78.125,10.0},{78.125,-10.0}}),
+        Line(points={{100,-80},{100,-100}}, color={0,127,0}),
+        Polygon(
+              origin={16.875,-50.0},
+              fillColor={131,175,131},
+              fillPattern=FillPattern.Solid,
+              points={{-84.375,-10.0},{-79.375,10.0},{-69.375,10.0},{-64.375,-10.0},{-54.375,-10.0},{-49.375,10.0},{-39.375,10.0},{-34.375,-10.0},{-24.375,-10.0},{-19.375,10.0},{-9.375,10.0},{-4.375,-10.0},
+                  {5.625,-10.0},{10.625,10.0},{20.625,10.0},{25.625,-10.0},{35.625,-10.0},{40.625,10.0},{50.625,10.0},{55.625,-10.0},{65.625,-10.0},{70.625,10.0},{78.125,10.0},{78.125,-10.0}}),
         Polygon(origin={-20.0,-0.0},
           rotation=10.0,
           fillColor={255,255,255},
@@ -7380,12 +7384,10 @@ and instead the component is internally fixed to ground.
               extent={{90,10},{110,-10}})));
       Rotational.Interfaces.Support supportR if useSupportR
         "Rotational support/housing of component" annotation (Placement(
-            transformation(extent={{-110,-110},{-90,-90}}),
-            iconTransformation(extent={{-110,-110},{-90,-90}})));
+            transformation(extent={{-110,-110},{-90,-90}})));
       Translational.Interfaces.Support supportT if useSupportT
-        "Translational support/housing of component" annotation (Placement(
-            transformation(extent={{110,-110},{90,-90}}),
-            iconTransformation(extent={{90,-110},{110,-90}})));
+        "Translational support/housing of component"
+        annotation (Placement(transformation(extent={{110,-110},{90,-90}})));
 
     protected
       Rotational.Interfaces.InternalSupport internalSupportR(tau=-flangeR.tau)
@@ -7440,16 +7442,16 @@ and instead the translational part is internally fixed to ground.
             extent={{-100,-100},{100,100}}), graphics={
             Line(
               visible=not useSupportT,
-              points={{85,-110},{95,-100}}),
+              points={{85,-110},{95,-100}}, color={0,127,0}),
             Line(
               visible=not useSupportT,
-              points={{95,-110},{105,-100}}),
+              points={{95,-110},{105,-100}}, color={0,127,0}),
             Line(
               visible=not useSupportT,
-              points={{105,-110},{115,-100}}),
+              points={{105,-110},{115,-100}}, color={0,127,0}),
             Line(
               visible=not useSupportT,
-              points={{85,-100},{115,-100}}),
+              points={{85,-100},{115,-100}}, color={0,127,0}),
             Line(
               visible=not useSupportR,
               points={{-115,-110},{-105,-100}}),
