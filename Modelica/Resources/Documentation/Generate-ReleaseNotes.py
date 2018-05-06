@@ -15,6 +15,17 @@ import re
 import os
 import os.path
 import sys
+from enum import IntEnum
+
+IssueType = IntEnum(
+    value='IssueType',
+    names=[
+        ('Bugs', 1),
+        ('Enhancements', 2),
+        ('Documentation', 3),
+        ('Miscellaneous', 4)
+    ]
+)
 
 def main(dir, milestone, version):
     owner = 'modelica'
@@ -43,7 +54,14 @@ def main(dir, milestone, version):
             url = issue['html_url']
             # Mark pull requests
             if 'pull_request' in issue:
-                t = ' (PR) ' + t
+                t = '(PR) ' + t
+            issueType = IssueType.Miscellaneous
+            if 'bug' in labels:
+                issueType = IssueType.Bugs
+            elif 'enhancement' in labels:
+                issueType = IssueType.Enhancements
+            elif 'documentation' in labels:
+                issueType = IssueType.Documentation
             foundLabel = False
             for l in labels:
                 if l.startswith('L: '):
@@ -55,9 +73,12 @@ def main(dir, milestone, version):
             for l in labels:
                 if l.startswith('L: '):
                     if l in issues:
-                        issues[l].append((t, n, url))
+                        if issueType in issues[l]:
+                            issues[l][issueType].append((t, n, url))
+                        else:
+                            issues[l][issueType] = [(t, n, url)]
                     else:
-                        issues[l] = [(t, n, url)]
+                        issues[l] = {issueType: [(t, n, url)]}
         if 'next' in r.links:
             r = requests.get(r.links['next']['url'])
             data = json.loads(r.text or r.content)
@@ -72,12 +93,14 @@ def main(dir, milestone, version):
         f.write('# GitHub issues resolved for v{0}\n'.format(version))
         f.write('As part of this release {0} [issues]({1}) were closed.\n\n'.format(cnt, url))
         pattern = r'[\#\1](https://github.com/{0}/{1}/issues/\1)'.format(owner, repo)
-        for issue, data in sorted(issues.items()):
-            f.write('## {0}\n'.format(issue[3:]))
-            for t, n, url in data:
-                t = re.sub('#(\d+)', pattern, t)
-                f.write("* [\#{1}]({2}) {0}\n".format(t, n, url))
-            f.write('\n')
+        for label, data in sorted(issues.items()):
+            f.write('## {0}\n'.format(label[3:]))
+            for issueType, issue in sorted(data.items()):
+                f.write('### {0}\n'.format(issueType.name))
+                for t, n, url in issue:
+                    t = re.sub('#(\d+)', pattern, t)
+                    f.write("* [\#{1}]({2}) {0}\n".format(t, n, url))
+                f.write('\n')
 
     with open(os.path.join(path, 'ResolvedGitHubIssues.md'), 'r') as f:
         content = f.read()
