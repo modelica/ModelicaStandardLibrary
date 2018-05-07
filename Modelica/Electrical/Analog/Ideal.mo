@@ -1452,9 +1452,9 @@ For details of the arc effect, see partial model <a href=\"modelica://Modelica.E
     Integer z(start=0, fixed=true);
     Real u;
 
-  initial equation
+  initial algorithm
     for i in 1:N loop
-      y[i] = L.'X';
+      y[i] := L.'X';
     end for;
 
   algorithm
