@@ -7,11 +7,11 @@ extends Modelica.Icons.ExamplesPackage;
     extends Modelica.Icons.Example;
     parameter Boolean animation=true "True, if animation shall be enabled";
 
-    Joints.Prismatic jointPrismatic_x(stateSelect=StateSelect.never, n={1,0,0},
+    Joints.Prismatic jointPrismatic_x(n={1,0,0},
       s(fixed=true),
       v(fixed=true))
       annotation (Placement(transformation(extent={{80,-30},{60,-10}})));
-    Joints.Prismatic jointPrismatic_y(stateSelect=StateSelect.never, n={0,1,0},
+    Joints.Prismatic jointPrismatic_y(n={0,1,0},
       s(fixed=true),
       v(fixed=true))
       annotation (Placement(transformation(extent={{40,-30},{20,-10}})));
@@ -184,8 +184,7 @@ extends Modelica.Icons.ExamplesPackage;
     "Body attached by one spring and revolute joint or constrained to environment"
     extends Modelica.Icons.Example;
     parameter Boolean animation=true "= true, if animation shall be enabled";
-    Modelica.Mechanics.MultiBody.Joints.Revolute joint(stateSelect=
-          StateSelect.never, n={0,1,0},
+    Modelica.Mechanics.MultiBody.Joints.Revolute joint(n={0,1,0},
       phi(fixed=true),
       w(fixed=true))
       annotation (Placement(transformation(extent={{60,-30},{40,-10}})));
