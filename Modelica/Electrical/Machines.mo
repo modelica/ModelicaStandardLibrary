@@ -5353,7 +5353,7 @@ Current controller according to absolute optimum, speed controller according to 
         end DriveDataDCPM;
 
         block LimitedPI
-          "Limited PI-controller with anti-windup and feedforward"
+          "Limited PI-controller with anti-windup and feed-forward"
           extends Modelica.Blocks.Interfaces.SISO;
           import Modelica.Blocks.Types.Init;
           import Modelica.Constants.inf;
@@ -5363,7 +5363,7 @@ Current controller according to absolute optimum, speed controller according to 
                 rotation=90,
                 origin={-60,-120})));
           Modelica.Blocks.Interfaces.RealInput feedForward if useFF
-            "Connector of feedforward signal"
+            "Connector of feed-forward signal"
             annotation (
               Placement(transformation(
                 extent={{-20,-20},{20,20}},
@@ -5373,7 +5373,7 @@ Current controller according to absolute optimum, speed controller according to 
                 rotation=90,
                 origin={0,-120})));
           Modelica.Blocks.Interfaces.RealInput kFF if useFF and not useConstantKFF
-            "Connector of feedforward factor" annotation (Placement(transformation(
+            "Connector of feed-forward factor" annotation (Placement(transformation(
                 extent={{-20,-20},{20,20}},
                 rotation=90,
                 origin={60,-120}), iconTransformation(
@@ -5396,12 +5396,12 @@ Current controller according to absolute optimum, speed controller according to 
           parameter Boolean useI=true "PI else P" annotation(Evaluate=true);
           parameter Modelica.SIunits.Time Ti(min=Modelica.Constants.small)=1
             "Integral time constant (T>0 required)" annotation(Dialog(enable=useI));
-          parameter Boolean useFF=false "Use FeedForward?"
-            annotation(Dialog(group="FeedForward"));
-          parameter Boolean useConstantKFF=true "Use constant FeedForward factor?"
-            annotation(Dialog(group="FeedForward", enable=useFF));
-          parameter Real KFF(unit="1")=1 "FeedForward gain"
-            annotation(Dialog(group="FeedForward", enable=useFF and useConstantKFF));
+          parameter Boolean useFF=false "Use feed-forward?"
+            annotation(Dialog(group="Feed-forward"));
+          parameter Boolean useConstantKFF=true "Use constant feed-forward factor?"
+            annotation(Dialog(group="Feed-forward", enable=useFF));
+          parameter Real KFF(unit="1")=1 "Feed-forward gain"
+            annotation(Dialog(group="Feed-forward", enable=useFF and useConstantKFF));
           parameter Boolean constantLimits=true "Use constant limits?"
             annotation(Dialog(group="Limitation"));
           parameter Boolean symmetricLimits=true "Use symmetric limits?"
