@@ -2910,8 +2910,7 @@ where the different effects are visualized:
           -Modelica.Math.Vectors.interpolate(f_pos[:, 1], f_pos[:, 2], -v, 1));
 
       lossPower = f*v_relfric;
-      annotation(
-        defaultComponentName="friction",
+      annotation (
         Documentation(info="<html>
 <p>
 This element describes <strong>Coulomb friction</strong> in <strong>support</strong>,
@@ -3259,7 +3258,7 @@ following references, especially (Armstrong and Canudas de Wit 1996):
     model IdealGearR2T
       "Gearbox transforming rotational into translational motion"
       extends Modelica.Mechanics.Rotational.Components.IdealGearR2T;
-      annotation (defaultComponentName="gearR2T",
+      annotation (
         Documentation(info="<html>
 <p>Couples rotational and translational motion, like a toothed wheel with a toothed rack, specifying the ratio of rotational / translational motion.</p>
 </html>"));
@@ -3268,7 +3267,7 @@ following references, especially (Armstrong and Canudas de Wit 1996):
     model IdealRollingWheel
       "Simple 1-dim. model of an ideal rolling wheel without inertia"
       extends Modelica.Mechanics.Rotational.Components.IdealRollingWheel;
-      annotation (defaultComponentName="wheel",
+      annotation (
         Documentation(info="<html>
 <p>Couples rotational and translational motion, like an ideal rolling wheel, specifying the wheel radius.</p>
 </html>"));
@@ -3607,7 +3606,6 @@ Version 2:
       end when;
 */
       annotation (
-        defaultComponentName="mass",
         Documentation(info="<html>
 <p>This element describes the <em>Stribeck friction characteristics</em> of a sliding mass,
 i. e. the frictional force acting between the sliding mass and the support. Included is a
@@ -3934,7 +3932,7 @@ velocity of model mass1 or of model mass2 as state variables.
     equation
       y = flange.s "output = potential = position";
       u = flange.f "input = flow = force";
-      annotation (defaultComponentName="adaptor",
+      annotation (
         Documentation(info="<html>
 <p>
 Adaptor between a flange connector and a signal representation of the flange.
@@ -3972,7 +3970,7 @@ This adaptor has force as input and position, velocity and acceleration as outpu
     equation
       y = flange.f "output = flow = force";
       u = flange.s "input = potential = position";
-      annotation (defaultComponentName="adaptor",
+      annotation (
         Documentation(info="<html>
 <p>
 Adaptor between a flange connector and a signal representation of the flange.
@@ -4740,7 +4738,7 @@ blocks of Modelica.Blocks.Source.
       else
         f = -f_nominal*(v/v_nominal);
       end if;
-      annotation (defaultComponentName="linear",
+      annotation (
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={
               Line(points={{-75,0},{75,0}}, color={192,192,192}),
@@ -4772,7 +4770,7 @@ Parameter ForceDirection chooses whether direction of force is the same in both 
       else
         f = -f_nominal*smooth(1, if v >= 0 then (v/v_nominal)^2 else -(v/v_nominal)^2);
       end if;
-      annotation (defaultComponentName="quadratic",
+      annotation (
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={
               Line(points={{-60,50},{-60,-40}}, color={192,192,192}),
@@ -4920,7 +4918,7 @@ Positive force accelerates in positive direction of <code>flange</code> translat
       v_normalized = v/(v_nominal*linearTemperatureDependency(1, TRef, alpha20, TheatPort));
       f = 2*f_nominal*v_normalized/(1 + v_normalized*v_normalized);
       lossPower = f*v;
-      annotation (defaultComponentName="eddyCurrent",
+      annotation (
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={
               Line(points={{-75,0},{75,0}}, color={192,192,192}),
