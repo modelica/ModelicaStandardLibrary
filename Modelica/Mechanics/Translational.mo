@@ -2348,7 +2348,7 @@ where the different effects are visualized:
             1));
 
       lossPower = f*v_relfric;
-      annotation (defaultComponentName="friction",
+      annotation (
         Documentation(info="<html>
 <p>
 This element describes <b>Coulomb friction</b> in <b>support</b>,
@@ -2691,7 +2691,7 @@ following references, especially (Armstrong and Canudas de Witt 1996):
     model IdealGearR2T
       "Gearbox transforming rotational into translational motion"
       extends Modelica.Mechanics.Rotational.Components.IdealGearR2T;
-      annotation (defaultComponentName="gearR2T",
+      annotation (
         Documentation(info="<html>
 <p>Couples rotational and translational motion, like a toothed wheel with a toothed rack, specifying the ratio of rotational / translational motion.</p>
 </html>"));
@@ -2700,7 +2700,7 @@ following references, especially (Armstrong and Canudas de Witt 1996):
     model IdealRollingWheel
       "Simple 1-dim. model of an ideal rolling wheel without inertia"
       extends Modelica.Mechanics.Rotational.Components.IdealRollingWheel;
-      annotation (defaultComponentName="wheel",
+      annotation (
         Documentation(info="<html>
 <p>Couples rotational and translational motion, like an ideal rolling wheel, specifying the wheel radius.</p>
 </html>"));
@@ -3045,7 +3045,7 @@ Version 2:
         end if;
       end when;
 */
-      annotation (defaultComponentName="mass",
+      annotation (
         Documentation(info="<html>
 <p>This element describes the <i>Stribeck friction characteristics</i> of a sliding mass,
 i. e. the frictional force acting between the sliding mass and the support. Included is a
@@ -4120,7 +4120,7 @@ blocks of Modelica.Blocks.Source.
       else
         f = -f_nominal*(v/v_nominal);
       end if;
-      annotation (defaultComponentName="linear",
+      annotation (
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Line(points={{-100,-100},{100,100}},
               color={0,0,255})}), Documentation(info="<html>
@@ -4149,7 +4149,7 @@ Parameter ForceDirection chooses whether direction of force is the same in both 
       else
         f = -f_nominal*smooth(1, if v >= 0 then (v/v_nominal)^2 else -(v/v_nominal)^2);
       end if;
-      annotation (defaultComponentName="quadratic",
+      annotation (
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Line(
                   points={{-100,-100},{-80,-98},{-60,-92},{-40,-82},{-20,-68},{
