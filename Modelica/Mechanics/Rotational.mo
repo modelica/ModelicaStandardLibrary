@@ -3944,7 +3944,7 @@ in the User's Guide of the Rotational library.
       stuck = locked or w_rel <= 0;
 
       lossPower = if stuck then 0 else tau*w_rel;
-      annotation (defaultComponentName="clutch",
+      annotation (
         Icon(
             coordinateSystem(preserveAspectRatio=true,
               extent={{-100,-100},{100,100}}),
@@ -4313,7 +4313,7 @@ connected to other elements in an appropriate way.
         startBackward) and w_a < 0 then Backward else Stuck);
 
       lossPower = tauLoss*w_a;
-      annotation (defaultComponentName="clutch",
+      annotation (
         Documentation(info="<html>
 <p>
 This component models the gear ratio and the <b>losses</b> of
@@ -4832,7 +4832,7 @@ in the flanges, are along the axis vector displayed in the icon.
           color={191,0,0}));
       connect(lossyGear.support, internalSupport) annotation (Line(
           points={{-40,-20},{-40,-40},{0,-40},{0,-80}}));
-      annotation (defaultComponentName="gear",
+      annotation (
         Documentation(info="<html>
 <p>This component models the essential effects of a gearbox, in
 particular</p>
@@ -4951,7 +4951,7 @@ This component defines the kinematic constraint:
       (flangeR.phi - internalSupportR.phi)*radius = (flangeT.s -
         internalSupportT.s);
       0 = radius*flangeT.f + flangeR.tau;
-      annotation (defaultComponentName="wheel",
+      annotation (
         Icon(
           coordinateSystem(preserveAspectRatio=true,
             extent={{-100.0,-100.0},{100.0,100.0}}),
@@ -5351,7 +5351,7 @@ in the User's Guide of the Rotational library.
       end if;
       flange.tau = tau;
 
-      annotation (defaultComponentName="adaptor",
+      annotation (
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
                 Rectangle(
                   extent={{-20,100},{20,-100}},
@@ -5602,7 +5602,7 @@ blocks of the block library Modelica.Blocks.Sources.
           color={0,0,127}));
       connect(move_phi.flange, torqueSensor.flange_a) annotation (Line(
           points={{30,80},{36,80},{36,0}}));
-      annotation (defaultComponentName="adaptor",
+      annotation (
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
                 Rectangle(
                   extent={{-20,100},{20,-100}},
@@ -6528,7 +6528,7 @@ blocks of Modelica.Blocks.Sources.
       else
         tau = tau_nominal*(w/w_nominal);
       end if;
-      annotation (defaultComponentName="linear",
+      annotation (
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Line(points={{-100,-100},{100,100}},
                 color={0,0,127})}), Documentation(info="<html>
@@ -6560,7 +6560,7 @@ Parameter TorqueDirection chooses whether direction of torque is the same in bot
       else
         tau = tau_nominal*smooth(1, if w >= 0 then (w/w_nominal)^2 else -(w/w_nominal)^2);
       end if;
-      annotation (defaultComponentName="quadratic",
+      annotation (
         Icon(
           coordinateSystem(
             preserveAspectRatio=true,
