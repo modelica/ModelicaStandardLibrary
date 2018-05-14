@@ -4119,7 +4119,7 @@ in the User's Guide of the Rotational library.
       phi_b = flange_b.phi - phi_support;
       phi_a = ratio*phi_b;
       0 = ratio*flange_a.tau + flange_b.tau;
-      annotation (defaultComponentName="gear",
+      annotation (
         Documentation(info="<html>
 <p>
 This element characterizes any type of gear box which is fixed in the
@@ -4562,7 +4562,7 @@ Sept. 11, 2009.</li>
       // torque balance (no inertias)
       ring.tau = ratio*sun.tau;
       carrier.tau = -(1 + ratio)*sun.tau;
-      annotation (defaultComponentName="planetary",
+      annotation (
         Documentation(info="<html>
 <p>
 The IdealPlanetary gear box is an ideal gear without inertia,
@@ -4922,7 +4922,7 @@ Gearbox.
       (flangeR.phi - internalSupportR.phi) = ratio*(flangeT.s -
         internalSupportT.s);
       0 = ratio*flangeR.tau + flangeT.f;
-      annotation (defaultComponentName="gearR2T",
+      annotation (
         Documentation(info="<html>
 <p>
 This is an ideal mass- and inertialess gearbox which transforms a
