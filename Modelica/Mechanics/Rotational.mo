@@ -3989,7 +3989,7 @@ in the User's Guide of the Rotational library.
       stuck = locked or w_rel <= 0;
 
       lossPower = if stuck then 0 else tau*w_rel;
-      annotation (defaultComponentName="clutch",
+      annotation (
         Icon(
             coordinateSystem(preserveAspectRatio=true,
               extent={{-100,-100},{100,100}}),
@@ -4361,7 +4361,7 @@ connected to other elements in an appropriate way.
         startBackward) and w_a < 0 then Backward else Stuck);
 
       lossPower = tauLoss*w_a;
-      annotation (defaultComponentName="gear",
+      annotation (
         Documentation(info="<html>
 <p>
 This component models the gear ratio and the <strong>losses</strong> of
@@ -4876,7 +4876,7 @@ in the flanges, are along the axis vector displayed in the icon.
           points={{-60,-20},{-60,-60},{-100,-60},{-100,-80}}, color={191,0,0}));
       connect(lossyGear.support, internalSupport) annotation (Line(
           points={{-40,-20},{-40,-40},{0,-40},{0,-80}}));
-      annotation (defaultComponentName="gear",
+      annotation (
         Documentation(info="<html>
 <p>This component models the essential effects of a gearbox, in
 particular</p>
@@ -4997,7 +4997,7 @@ This component defines the kinematic constraint:
       (flangeR.phi - internalSupportR.phi)*radius = (flangeT.s -
         internalSupportT.s);
       0 = radius*flangeT.f + flangeR.tau;
-      annotation (defaultComponentName="wheel",
+      annotation (
         Icon(
           coordinateSystem(preserveAspectRatio=true,
             extent={{-100.0,-100.0},{100.0,100.0}}),
@@ -5378,7 +5378,7 @@ in the User's Guide of the Rotational library.
         annotation (Line(points={{-7,2},{12,2},{12,20},{30,20}}, color={0,0,127}));
       connect(torqueToAngleAdaptorNew.f, tau) annotation (Line(points={{-7,-8},{0,-8},
               {0,-80},{30,-80}}, color={0,0,127}));
-      annotation (defaultComponentName="adaptor",
+      annotation (
         Documentation(info="<html>
 <p>
 Adaptor between a flange connector and a signal representation of the flange.
@@ -5450,7 +5450,7 @@ provided for backwards compatibility reasons.
               20},{-12,2},{7,2}}, color={0,0,127}));
       connect(tau, angleToTorqueAdaptorNew.f) annotation (Line(points={{-30,-80},{0,
               -80},{0,-8},{7,-8}}, color={0,0,127}));
-      annotation (defaultComponentName="adaptor",
+      annotation (
         Documentation(info="<html>
 <p>
 Adaptor between a flange connector and a signal representation of the flange.
@@ -5519,7 +5519,7 @@ provided for backwards compatibility reasons.
     equation
       y = flange.phi "output = potential = angle";
       u = flange.tau "input = flow = torque";
-      annotation (defaultComponentName="adaptor",
+      annotation (defaultComponentName="torqueToAngleAdaptor",
         Documentation(info="<html>
 <p>
 Adaptor between a flange connector and a signal representation of the flange.
@@ -5557,7 +5557,7 @@ This adaptor has torque as input and angle, angular velocity and angular acceler
     equation
       y = flange.tau "output = flow = torque";
       u = flange.phi "input = potential = angle";
-      annotation (defaultComponentName="adaptor",
+      annotation (defaultComponentName="angleToTorqueAdaptor",
         Documentation(info="<html>
 <p>
 Adaptor between a flange connector and a signal representation of the flange.
@@ -6410,7 +6410,7 @@ blocks of Modelica.Blocks.Sources.
       else
         tau = tau_nominal*(w/w_nominal);
       end if;
-      annotation (defaultComponentName="linear",
+      annotation (
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
               Line(points={{0,60},{0,-50}}, color={192,192,192}),
@@ -6445,7 +6445,7 @@ Parameter TorqueDirection chooses whether direction of torque is the same in bot
       else
         tau = tau_nominal*smooth(1, if w >= 0 then (w/w_nominal)^2 else -(w/w_nominal)^2);
       end if;
-      annotation (defaultComponentName="quadratic",
+      annotation (
         Icon(
           coordinateSystem(
             preserveAspectRatio=true,
@@ -6620,7 +6620,7 @@ Positive torque accelerates in positive direction of <code>flange</code> rotatio
       w_normalized = w/(w_nominal*linearTemperatureDependency(1, TRef, alpha20, TheatPort));
       tau = 2*tau_nominal*w_normalized/(1 + w_normalized*w_normalized);
       lossPower = tau*w;
-      annotation (defaultComponentName="eddyCurrent",
+      annotation (
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={
               Line(points={{-75,0},{75,0}}, color={192,192,192}),
