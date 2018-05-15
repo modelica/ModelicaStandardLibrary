@@ -355,7 +355,7 @@ static void kf_bfly_generic(
             int twidx=0;
             Fout[ k ] = scratch[0];
             for (q=1; q<p; ++q ) {
-                twidx += fstride * k;
+                twidx += (int)(fstride * k);
                 if (twidx>=Norig) twidx-=Norig;
                 C_MUL(t,scratch[q] , twiddles[twidx] );
                 C_ADDTO( Fout[ k ] ,t);
@@ -533,7 +533,7 @@ int ModelicaFFT_kiss_fftr(_In_ double* u, size_t nu, _In_ double* work, size_t n
 
     */
     int i;
-    int nu2 = nu / 2;
+    int nu2 = (int)(nu / 2);
     int nf  = nu2+1;
 
     struct mrkiss_fft_state  fft_obj;
