@@ -13082,7 +13082,7 @@ end log10;
 
 partial function baseIcon1
   "This icon will be removed in future Modelica versions, use Modelica.Math.Icons.AxisLeft instead."
-  // extends Modelica.Icons.ObsoleteModel;
+  extends Modelica.Icons.ObsoleteModel;
 
   annotation (
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
@@ -13123,7 +13123,7 @@ end baseIcon1;
 
 partial function baseIcon2
   "This icon will be removed in future Modelica versions, use Modelica.Math.Icons.AxisCenter instead."
-  // extends Modelica.Icons.ObsoleteModel;
+  extends Modelica.Icons.ObsoleteModel;
 
   annotation (
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
