@@ -1705,11 +1705,142 @@ The authors would like to thank following persons for their support ...
 
 <h4>Color and Shapes</h4>
 
+<p>The main icon color of a component shall be the same for all components of one library. White fill areas of an icon shall not be used to hide parts of an icon, see
+<a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2031\">#2031</a>.
+In the Modelica Standard Library the following color schemes apply:</p>
 
-<p>The main icon color of a component shall be the same for all components of one library.</p>
-
-<p>White fill areas of an icon shall not be used to hide parts of an icon, see
-<a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2031\">#2031</a>.</p>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
+  <tr>
+    <th>Package</th>
+    <th>Color RGB code</th>
+    <th>Color sample</th>
+  </tr>
+  <tr>
+    <td>Modelica.Blocks</td>
+    <td>{0,0,127}</td>
+    <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleBlocks.png\"></td>                 
+  </tr>
+  <tr>
+    <td>Modelica.ComplexBlocks</td>
+    <td>{85,170,255}</td>
+    <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleComplexBlocks.png\"></td>
+  </tr>
+  <tr>
+    <td>Modelica.StateGraph</td>
+    <td>{0,0,0}</td>
+    <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleStateGraph.png\"></td>
+  </tr>
+  <tr>
+    <td>Modelica.Electrical.Analog</td>
+    <td>{0,0,255}</td>
+    <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleElectricalAnalog.png\"></td>
+  </tr>
+  <tr>
+    <td>Modelica.Electrical.Digital</td>
+    <td>{128,0,128}</td>
+    <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleElectricalDigital.png\"></td>
+  </tr>
+  <tr>
+    <td>Modelica.Electrical.Machines</td>
+    <td>{0,0,255}</td>
+    <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleElectricalMachines.png\"></td>
+  </tr>
+  <tr>
+    <td>Modelica.Electrical.MultiPhase</td>
+    <td>{0,0,255}</td>
+    <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleElectricalMultiPhase.png\"></td>
+  </tr>
+  <tr>
+    <td>Modelica.Electrical.QuasiStationary</td>
+    <td>{85,170,255}</td>
+    <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleElectricalQuasiStationary.png\"></td>
+  </tr>
+  <tr>
+    <td>Modelica.Electrical.Spice3</td>
+    <td> {170,85,255}</td>
+    <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleElectricalSpice3.png\"></td>
+  </tr>
+  <tr>
+    <td>Modelica.Magnetic.FluxTubes</td>
+    <td>{255,127,0}</td>
+    <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleMagneticFluxTubes.png\"></td>
+  </tr>
+  <tr>
+    <td>Modelica.Magnetic.FundamentalWave</td>
+    <td>{255,127,0}</td>
+    <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleMagneticFundamentalWave.png\"></td>
+  </tr>
+  <tr>
+    <td>Modelica.Magnetic.QuasiStatic</td>
+    <td>{255,170,85}</td>
+    <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleMagneticQuasiStatic.png\"></td>
+  </tr>
+  <tr>
+    <td>Modelica.Mechanics.MultiBody</td>
+    <td>{192,192,192}</td>
+    <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleMechanicsMultiBody.png\"></td>
+  </tr>
+  <tr>
+    <td>Modelica.Mechanics.Rotational</td>
+    <td>{95,95,95}</td>
+    <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleMechanicsRotational.png\"></td>
+  </tr>
+  <tr>
+    <td>Modelica.Mechanics.Translational</td>
+    <td>{0,127,0}</td>
+    <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleMechanicsTranslational.png\"></td>
+  </tr>
+  <tr>
+    <td>Modelica.Fluid</td>
+    <td>{0,127,255}</td>
+    <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleFluid.png\"></td>
+  </tr>
+  <tr>
+    <td>Modelica.Media</td>
+    <td>none</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Modelica.Thermal.FluidHeatFlow</td>
+    <td>{0,0,255}</td>
+    <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleThermalFluidHeatFlow.png\"></td>
+  </tr>
+  <tr>
+    <td>Modelica.Thermal.HeatTransfer</td>
+    <td>{191,0,0}</td>
+    <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleThermalHeatTransfer.png\"></td>
+  </tr>
+  <tr>
+    <td>Modelica.Math</td>
+    <td>none</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Modelica.ComplexMath</td>
+    <td>none</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Modelica.Utilities</td>
+    <td>none</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Modelica.Constants</td>
+    <td>none</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Modelica.Icons</td>
+    <td>none</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Modelica.SIunits</td>
+    <td>none</td>
+    <td></td>
+  </tr>
+</table>
 
 <h4>Icon size</h4>
 
