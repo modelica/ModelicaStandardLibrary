@@ -4396,7 +4396,7 @@ The values val... are given by parameters.</p>
         end LogicToReal;
 
         block LogicToXO1 "This model will be removed in future Modelica versions, use 'LogicToX01' instead!"
-          // extends Modelica.Icons.ObsoleteModel;
+          extends Modelica.Icons.ObsoleteModel;
           import D = Modelica.Electrical.Digital;
           import T = Modelica.Electrical.Digital.Tables;
           D.Interfaces.DigitalInput x[n]
@@ -4471,7 +4471,7 @@ If the signal width is greater than 1 this conversion is done for each signal.
         end LogicToXO1;
 
         block LogicToXO1Z "This model will be removed in future Modelica versions, use 'LogicToX01Z' instead!"
-          // extends Modelica.Icons.ObsoleteModel;
+          extends Modelica.Icons.ObsoleteModel;
           import D = Modelica.Electrical.Digital;
           import T = Modelica.Electrical.Digital.Tables;
           D.Interfaces.DigitalInput x[n]
