@@ -937,7 +937,7 @@ This icon of an <strong>electrical motor</strong> model will be removed in futur
 <p>This icon indicate classes containing only documentation, intended for general description of e.g., concepts and features of a package.</p>
 <h5>Note</h5>
 <p>This icon will be removed in future versions of the Modelica Standard Library. Instead the icon <a href=\"modelica://Modelica.Icons.Information\">Information</a> shall be used.</p></html>"),
-    obsolete = "Obsolete class - use modelica://Modelica.Icons.Information instead");
+    obsolete = "Obsolete class - use Modelica.Icons.Information instead");
   end Info;
   annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
               -100},{100,100}}), graphics={Polygon(
