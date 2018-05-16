@@ -384,7 +384,7 @@ reached with different precisions. This is summarized in the following table:
     "Demonstrate usage of Nonlinear.SlewRateLimiter"
     extends Modelica.Icons.Example;
     parameter Modelica.SIunits.Velocity vMax=2 "Max. velocity";
-    parameter Modelica.SIunits.Acceleration aMax=20 "Max. accelereation";
+    parameter Modelica.SIunits.Acceleration aMax=20 "Max. acceleration";
     Modelica.SIunits.Position s=positionStep.y "Reference position";
     Modelica.SIunits.Position sSmoothed=positionSmoothed.y "Smoothed position";
     Modelica.SIunits.Velocity vLimited=limit_a.y "Limited velocity";
@@ -423,8 +423,8 @@ reached with different precisions. This is summarized in the following table:
       annotation (Line(points={{31,0},{39.5,0},{48,0}}, color={0,0,127}));
     connect(limit_a.y, a.u) annotation (Line(points={{31,0},{40,0},{40,-30},{48,-30}},
           color={0,0,127}));
-    annotation (experiment(StopTime=1.0, Interval=0.001),
-                                            Documentation(info="<html>
+      
+    annotation (experiment(StopTime=1.0, Interval=0.001), Documentation(info="<html>
 <p>
 This example demonstrates how to use the Nonlinear.SlewRateLimiter block to limit a position step with regards to velocity and acceleration:
 </p>
@@ -433,7 +433,7 @@ This example demonstrates how to use the Nonlinear.SlewRateLimiter block to limi
 <li> The first SlewRateLimiter block  <code>limit_v</code> limits velocity.</li>
 <li> The first Der block <code>v</code> calculates velocity from the smoothed position signal.</li>
 <li> The second SlewRateLimiter block <code>limit_a</code> limits acceleration of the smoothed velocity signal.</li>
-<li> The second Der block <code>a</code> calculates acceleraton from the smoothed velocity signal.</li>
+<li> The second Der block <code>a</code> calculates acceleration from the smoothed velocity signal.</li>
 <li> The Integrator block <code>positionSmoothed</code> calculates smoothed position from the smoothed velocity signal.</li>
 </ul>
 <p>
@@ -1042,7 +1042,7 @@ at hand of this model (Modelica.Blocks.Examples.BusUsage):
 <li> Input/output signals can be directly connected to the \"controlBus\".</li>
 <li> A component, such as \"part\", can be directly connected to the \"controlBus\",
      provided it has also a bus connector, or the \"part\" connector is a
-     sub-connector contained in the \"controlBus\". </li>
+     sub-connector contained in the \"controlBus\".</li>
 </ul>
 
 <p>
@@ -1171,11 +1171,11 @@ The result of a simulation is shown in the next diagram:
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -1242,7 +1242,7 @@ The result of a simulation is shown in the next diagram:
      annotation (experiment(StopTime=2), Documentation(info="<html>
 <p>
 This example demonstrates manual and automatic seed selection of
-<a href=\"Modelica.Blocks.Noise.UniformNoise\">UniformNoise</a> blocks, as well
+<a href=\"modelica://Modelica.Blocks.Noise.UniformNoise\">UniformNoise</a> blocks, as well
 as starting the noise at startTime = 0.5 s with an output value of y = -1 before this
 time. All noise blocks in this example generate uniform noise in the
 band y_min=-1 .. y_max=3 with samplePeriod = 0.01 s.
@@ -1277,11 +1277,11 @@ manualSeed2 will produce exactly the same noise.
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -1345,11 +1345,11 @@ truncated normal distriution has more values centered around the mean value 1.
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -1450,11 +1450,11 @@ distribution have good statistical properties.
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -1554,11 +1554,11 @@ distribution have good statistical properties.
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -1621,11 +1621,11 @@ inputs:
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -1664,11 +1664,11 @@ generator. Simulation results are shown in the next figure:
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -1781,11 +1781,11 @@ enableNoise = false in the globalSeed component.
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -1856,10 +1856,10 @@ The spectrum is parametrized with the following parameters:
 </p>
 
 <ul>
-<li> Lw is the turbulence scale. <br>In low altitudes, it is equal to the flight altitude.</li>
-<li> sigma is the turbulence intensity. <br>In low altitudes, it is equal to 1/10 of the
+<li> Lw is the turbulence scale.<br>In low altitudes, it is equal to the flight altitude.</li>
+<li> sigma is the turbulence intensity.<br>In low altitudes, it is equal to 1/10 of the
      wind speed at 20 ft altitude, which is 30 kts for medium turbulence.</li>
-<li> Omega is the spatial frequency. <br> The turbulence model is thus defined in space and the aircraft experiences turbulence as it flies through the defined wind field.</li>
+<li> Omega is the spatial frequency.<br> The turbulence model is thus defined in space and the aircraft experiences turbulence as it flies through the defined wind field.</li>
 <li> Omega = s/V will be used to transform the spatial definition into a temporal definition, which can be realized as a state space system.</li>
 <li> V is the airspeed of the aircraft.<br>It is approximately 150 kts during the approach (i.e. at low altitudes).</li>
 </ul>
@@ -1952,7 +1952,7 @@ Reference
 <p>
 This block determines the probability density y of a uniform distribution for the given input signal u
 (for details of this density function see
-<a href=\"Modelica.Math.Distributions.Uniform.density\">Math.Distributions.Uniform.density</a>).
+<a href=\"modelica://Modelica.Math.Distributions.Uniform.density\">Math.Distributions.Uniform.density</a>).
 </p>
 
 <p>
@@ -1963,11 +1963,11 @@ This block is demonstrated in the example
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -2023,7 +2023,7 @@ This block is demonstrated in the example
 <p>
 This block determines the probability density y of a normal distribution for the given input signal u
 (for details of this density function see
-<a href=\"Modelica.Math.Distributions.Normal.density\">Math.Distributions.Normal.density</a>).
+<a href=\"modelica://Modelica.Math.Distributions.Normal.density\">Math.Distributions.Normal.density</a>).
 </p>
 
 <p>
@@ -2034,11 +2034,11 @@ This block is demonstrated in the example
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -2095,7 +2095,7 @@ This block is demonstrated in the example
 <p>
 This block determines the probability density y of a Weibull distribution for the given input signal u
 (for details of this density function see
-<a href=\"Modelica.Math.Distributions.Weibull.density\">Math.Distributions.Weibull.density</a>).
+<a href=\"modelica://Modelica.Math.Distributions.Weibull.density\">Math.Distributions.Weibull.density</a>).
 </p>
 
 <p>
@@ -2106,11 +2106,11 @@ This block is demonstrated in the example
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -2147,11 +2147,11 @@ random number generator. This block is used in the example
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -2379,11 +2379,11 @@ actuator example
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -2460,11 +2460,11 @@ actuator example
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -2487,11 +2487,11 @@ actuator example
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -2517,11 +2517,11 @@ This package contains utility models that are used for the examples.
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -2543,11 +2543,11 @@ to utilize the blocks from sublibrary
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -2767,13 +2767,13 @@ This library contains input/output blocks to build up block diagrams.
     Oberpfaffenhofen<br>
     Postfach 1116<br>
     D-82230 Wessling<br>
-    email: <A HREF=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</A><br></dd>
+    email: <a href=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</a><br></dd>
 </dl>
 <p>
 Copyright &copy; 1998-2018, Modelica Association and DLR.
 </p>
 <p>
-<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\"> https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em>
+<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em>
 </p>
 </html>", revisions="<html>
 <ul>
@@ -2809,7 +2809,7 @@ Copyright &copy; 1998-2018, Modelica Association and DLR.
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
        Renamed to Blocks. New subpackages Math, Nonlinear.
        Additional components in subpackages Interfaces, Continuous
-       and Sources. </li>
+       and Sources.</li>
 <li><em>June 30, 1999</em>
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
        Realized a first version, based on an existing Dymola library

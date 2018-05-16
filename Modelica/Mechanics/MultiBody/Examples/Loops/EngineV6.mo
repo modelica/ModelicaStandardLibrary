@@ -151,7 +151,7 @@ An animation of the engine is shown in the figure below.
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Loops/EngineV6.png\" ALT=\"model Examples.Loops.EngineV6\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Loops/EngineV6.png\" alt=\"model Examples.Loops.EngineV6\">
 </p>
 
 <p>

@@ -55,7 +55,7 @@ The following operations are supported (pi=3.14.. is a predefined constant):
   end calculator;
 
   function expression
-    "Expression interpreter that returns with the position after the expression (expression may consist of +, -, *, /, (), sin(), cos(), tan(), sqrt(), asin(), acos(), atan(), exp(), log(), pi"
+    "Expression interpreter that returns with the position after the expression (expression may consist of +, -, *, /, (), sin(), cos(), tan(), sqrt(), asin(), acos(), atan(), exp(), log(), pi)"
     import Modelica.Utilities.Types;
     import Modelica.Utilities.Strings;
     import Modelica.Math;
@@ -343,14 +343,14 @@ performs the following actions:
 <ol>
 <li> It opens file \"fileName\" and reads the lines of the file.</li>
 <li> In every line, Modelica line comments (\"// ... end-of-line\")
-     are skipped </li>
+     are skipped</li>
 <li> If a line consists of \"name = expression\" and the \"name\"
      in this line is identical to the second argument \"name\"
      of the function call, the expression calculator Examples.expression
      is used to evaluate the expression after the \"=\" character.
      The expression can optionally be terminated with a \";\".</li>
 <li> The result of the expression evaluation is returned as
-     the value of the parameter \"name\". </li>
+     the value of the parameter \"name\".</li>
 </ol>
 <h4>Example</h4>
 <p>
@@ -498,7 +498,7 @@ the following examples are present.
      and can therefore be an expression.<br>&nbsp;</li>
 <li> Model <a href=\"modelica://Modelica.Utilities.Examples.readRealParameterModel\">readRealParameterModel</a>
      is a test model to demonstrate the usage of \"readRealParameter\". The model
-     contains 3 parameters that are read from file \"Modelica.Utilities/data/Examples_readRealParameters.txt\".<br>&nbsp;
+     contains 3 parameters that are read from file <a href=\"modelica://Modelica/Resources/Data/Utilities/Examples_readRealParameters.txt\">Examples_readRealParameters.txt</a>.<br>&nbsp;
      </li>
 <li> Model <a href=\"modelica://Modelica.Utilities.Examples.WriteRealMatrixToFile\">WriteRealMatrixToFile</a>
      demonstrates the usage of function \"Streams.writeReaMatrix\" to store a matrix in various MATLAB MAT formats on file.<br>&nbsp;

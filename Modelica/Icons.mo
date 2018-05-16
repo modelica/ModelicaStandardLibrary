@@ -574,7 +574,8 @@ built-in base classes Real, Integer etc. Instead for Complex, an icon is already
 definition (which is not possible for the built-in classes). Therefore, TypeComplex is just an alias
 to Complex and is therefore superfluous.
 </p>
-</html>"));
+</html>"),
+    obsolete = "Obsolete operator record - use Complex instead");
 
   type TypeReal "Icon for Real types"
       extends Real;
@@ -816,7 +817,8 @@ corresponding library in a future release.
 <p>This icon of a package will be removed in future versions of the library.</p>
 <h5>Note</h5>
 <p>This icon will be removed in future versions of the Modelica Standard Library. Instead the icon <a href=\"modelica://Modelica.Icons.Package\">Package</a> shall be used.</p>
-</html>"));
+</html>"),
+    obsolete = "Obsolete package - use Modelica.Icons.Package instead");
   end Library;
 
   partial package Library2
@@ -836,7 +838,8 @@ corresponding library in a future release.
             radius=25.0)}), Documentation(info="<html>
 <p>This icon of a package will be removed in future versions of the library.</p>
 <h5>Note</h5>
-<p>This icon will be removed in future versions of the Modelica Standard Library. Instead the icon <a href=\"modelica://Modelica.Icons.Package\">Package</a> shall be used.</p></html>"));
+<p>This icon will be removed in future versions of the Modelica Standard Library. Instead the icon <a href=\"modelica://Modelica.Icons.Package\">Package</a> shall be used.</p></html>"),
+    obsolete = "Obsolete package - use Modelica.Icons.Package instead");
   end Library2;
 
   partial class GearIcon
@@ -876,7 +879,8 @@ corresponding library in a future release.
 <p>
 This icon of a <strong>gearbox</strong> will be removed in future versions of the library. Please use one of the icons of <a href=\"modelica://Modelica.Mechanics.Rotational.Icons\">Mechanics.Rotational.Icons</a> instead.
 </p>
-</html>"));
+</html>"),
+    obsolete = "Obsolete class - use Modelica.Mechanics.Rotational.Icons instead");
   end GearIcon;
 
   partial class MotorIcon
@@ -903,7 +907,8 @@ This icon of a <strong>gearbox</strong> will be removed in future versions of th
 <p>
 This icon of an <strong>electrical motor</strong> model will be removed in future versions of the library. Please use a locally defined icon in your user defined libraries and applications.
 </p>
-</html>"));
+</html>"),
+    obsolete = "Obsolete class");
   end MotorIcon;
 
   partial class Info "This icon will be removed in future Modelica versions."
@@ -931,7 +936,8 @@ This icon of an <strong>electrical motor</strong> model will be removed in futur
                               Documentation(info="<html>
 <p>This icon indicate classes containing only documentation, intended for general description of e.g., concepts and features of a package.</p>
 <h5>Note</h5>
-<p>This icon will be removed in future versions of the Modelica Standard Library. Instead the icon <a href=\"modelica://Modelica.Icons.Information\">Information</a> shall be used.</p></html>"));
+<p>This icon will be removed in future versions of the Modelica Standard Library. Instead the icon <a href=\"modelica://Modelica.Icons.Information\">Information</a> shall be used.</p></html>"),
+    obsolete = "Obsolete class - use Modelica.Icons.Information instead");
   end Info;
   annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
               -100},{100,100}}), graphics={Polygon(
@@ -948,7 +954,7 @@ This icon of an <strong>electrical motor</strong> model will be removed in futur
             pattern=LinePattern.None,
             fillPattern=FillPattern.Solid,
             extent={{-12.5,-12.5},{12.5,12.5}})}), Documentation(info="<html>
-<p>This package contains definitions for the graphical layout of components which may be used in different libraries. The icons can be utilized by inheriting them in the desired class using &quot;extends&quot; or by directly copying the &quot;icon&quot; layer. </p>
+<p>This package contains definitions for the graphical layout of components which may be used in different libraries. The icons can be utilized by inheriting them in the desired class using &quot;extends&quot; or by directly copying the &quot;icon&quot; layer.</p>
 
 <h4>Main Authors:</h4>
 
@@ -972,7 +978,7 @@ This icon of an <strong>electrical motor</strong> model will be removed in futur
     <dd>email: <a href=\"mailto:johan.andreasson@modelon.se\">johan.andreasson@modelon.se</a></dd>
 </dl>
 
-<p>Copyright &copy; 1998-2018, Modelica Association, DLR, AIT, and Modelon AB. </p>
-<p><em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\"> https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em> </p>
+<p>Copyright &copy; 1998-2018, Modelica Association, DLR, AIT, and Modelon AB.</p>
+<p><em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em></p>
 </html>"));
 end Icons;

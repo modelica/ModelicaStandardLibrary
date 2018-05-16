@@ -34,9 +34,9 @@ equation
   annotation (experiment(StopTime=2),
     Documentation(revisions="<html>
 <ul>
-<li><em>November 25, 2009   </em> <br>
+<li><em>November 25, 2009   </em><br>
 
-       by Susann Wolf <br><br>
+       by Susann Wolf<br><br>
        </li>
 </ul>
 </html>", info="<html>

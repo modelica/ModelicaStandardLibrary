@@ -110,7 +110,7 @@ are present with annotation \"InineAfterIndexReduction = true\".
      is applied and the equations are symbolically differentiated.</li>
 
 <li> The functions are inlined and further symbolic transformation
-     is performed (sorting the equations, dummy derivative method etc.. </li>
+     is performed (sorting the equations, dummy derivative method etc..</li>
 </ol>
 
 <p>
@@ -127,7 +127,7 @@ The model contains the following functions that have annotation
      this lets the Pantelides algorithm fail in this example (this happens usually only
      in systems with kinematic loops). This means that the differentiated equation system
      is structurally singular, after the functions with annotation \"InineAfterIndexReduction = true\"
-     are inlined. </li>
+     are inlined.</li>
 <li> The Rotational.Sources.Move block is using internally functions to express that
      an input u[2] is the derivative of of input u[1]. In order that this is possible, the functions
      have the annotation \"InineAfterIndexReduction = true\" so that the differentiation takes place
@@ -261,12 +261,39 @@ can be switched of by setting the first parameter <strong>animation</strong>
 to <strong>false</strong> or by setting <strong>enableAnimation</strong> in the <strong>world</strong>
 object to <strong>false</strong> to switch off animation of all components.
 </p>
-<P>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/DoublePendulum.png\"
-ALT=\"model Examples.Elementary.DoublePendulum\">
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/DoublePendulum.png\"
+alt=\"model Examples.Elementary.DoublePendulum\">
 </p>
 </html>"));
   end SphericalDoublePendulum;
+
+  model WorldGroundVisualization "Demonstrate visualization of world's ground plane"
+    extends Modelica.Icons.Example;
+
+    Modelica.Mechanics.MultiBody.Visualizers.FixedArrow visGroundAxis_x(
+      animation=true,
+      r_tail={0,0,0},
+      n=world.groundAxis_u,
+      length=world.nominalLength/4,
+      diameter=world.axisDiameter) "Visualize arrow in direction of world.groundAxis_x" annotation (Placement(transformation(extent={{0,-10},{20,10}})));
+
+    inner Modelica.Mechanics.MultiBody.World world(
+      groundLength_v=0.2,
+      animateGround=true,
+      groundAxis_u={1,0.3,0},
+      groundColor={0,128,0},
+      n={-0.2,0.3,-1},
+      groundLength_u=1,
+      animateGravity=true,
+      gravityType=Modelica.Mechanics.MultiBody.Types.GravityTypes.UniformGravity)
+                        annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
+  equation
+    connect(visGroundAxis_x.frame_a, world.frame_b) annotation (Line(
+        points={{0,0},{-20,0}},
+        color={95,95,95},
+        thickness=0.5));
+  end WorldGroundVisualization;
 
   package FourbarVariants "Test joints and assembly joints with four bar loop"
     extends Modelica.Icons.ExamplesPackage;
@@ -353,7 +380,7 @@ This is a second version of the \"four-bar\" mechanism, see figure:
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Loops/Fourbar2.png\" ALT=\"model Examples.Loops.Fourbar2\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Loops/Fourbar2.png\" alt=\"model Examples.Loops.Fourbar2\">
 </p>
 
 <p>
@@ -2494,8 +2521,8 @@ component):
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/ForceWithMasses.png\"
-ALT=\"model Examples.Elementary.ForceWithMasses\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/ForceWithMasses.png\"
+alt=\"model Examples.Elementary.ForceWithMasses\">
 </p>
 
 <p>
@@ -4338,8 +4365,8 @@ component):
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/ForceWithMasses.png\"
-ALT=\"model Examples.Elementary.ForceWithMasses\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/ForceWithMasses.png\"
+alt=\"model Examples.Elementary.ForceWithMasses\">
 </p>
 
 <p>
@@ -6834,17 +6861,16 @@ often possible to use the FreeMotion joint such that the singularity
       extends Modelica.Icons.Example;
       parameter Boolean animation=true "= true, if animation shall be enabled";
       inner Modelica.Mechanics.MultiBody.World world annotation (Placement(
-            transformation(extent={{-94,20},{-74,40}})));
+            transformation(extent={{-100,20},{-80,40}})));
       Modelica.Mechanics.MultiBody.Parts.FixedTranslation bar2(r={0.8,0,0},
-          animation=false) annotation (Placement(transformation(extent={{56,20},
-                {76,40}})));
+          animation=false) annotation (Placement(transformation(extent={{60,20},{80,40}})));
       Modelica.Mechanics.MultiBody.Forces.Spring spring1(
         width=0.1,
         coilWidth=0.005,
         numberOfWindings=5,
         c=20,
         s_unstretched=0) annotation (Placement(transformation(
-            origin={36,6},
+            origin={50,0},
             extent={{-10,-10},{10,10}},
             rotation=270)));
       Modelica.Mechanics.MultiBody.Parts.BodyShape bodyShape(
@@ -6861,14 +6887,14 @@ often possible to use the FreeMotion joint such that the singularity
         enforceStates=true,
         m=1,
         angles_start={0.17453292519943,0.17453292519943,0.17453292519943})
-        annotation (Placement(transformation(extent={{56,-40},{76,-20}})));
+        annotation (Placement(transformation(extent={{60,-40},{80,-20}})));
       Modelica.Mechanics.MultiBody.Forces.Spring spring2(
         c=20,
         s_unstretched=0,
         width=0.1,
         coilWidth=0.005,
         numberOfWindings=5) annotation (Placement(transformation(
-            origin={96,6},
+            origin={90,0},
             extent={{-10,-10},{10,10}},
             rotation=270)));
       Modelica.Mechanics.MultiBody.Parts.Body body(
@@ -6904,14 +6930,14 @@ often possible to use the FreeMotion joint such that the singularity
         w_0_fixed=true) annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=-90,
-            origin={-36,-30})));
+            origin={-30,-30})));
       Modelica.Mechanics.MultiBody.Forces.Spring spring4(
         width=0.1,
         coilWidth=0.005,
         numberOfWindings=5,
         s_unstretched=0,
         c=100) annotation (Placement(transformation(
-            origin={-36,-2},
+            origin={-30,0},
             extent={{-10,-10},{10,10}},
             rotation=270)));
       Modelica.Mechanics.MultiBody.Forces.Spring spring5(
@@ -6920,7 +6946,7 @@ often possible to use the FreeMotion joint such that the singularity
         numberOfWindings=5,
         s_unstretched=0,
         c=100) annotation (Placement(transformation(
-            origin={-6,0},
+            origin={0,0},
             extent={{-10,-10},{10,10}},
             rotation=270)));
       Modelica.Mechanics.MultiBody.Parts.BodyCylinder bodyCylinder(
@@ -6933,7 +6959,7 @@ often possible to use the FreeMotion joint such that the singularity
         w_0_fixed=true) annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=-90,
-            origin={-6,-30})));
+            origin={0,-30})));
       Modelica.Mechanics.MultiBody.Parts.PointMass pointMass(
         m=1,
         sphereDiameter=0.1,
@@ -6942,7 +6968,7 @@ often possible to use the FreeMotion joint such that the singularity
         v_0(fixed=true)) annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=-90,
-            origin={16,-36})));
+            origin={30,-30})));
       Modelica.Mechanics.MultiBody.Forces.Spring spring6(
         width=0.1,
         coilWidth=0.005,
@@ -6950,32 +6976,32 @@ often possible to use the FreeMotion joint such that the singularity
         c=20,
         s_unstretched=0,
         fixedRotationAtFrame_b=true) annotation (Placement(transformation(
-            origin={16,-2},
+            origin={30,0},
             extent={{-10,-10},{10,10}},
             rotation=270)));
     equation
       connect(bar2.frame_a, world.frame_b) annotation (Line(
-          points={{56,30},{12,30},{-74,30}},
+          points={{60,30},{-80,30}},
           color={95,95,95},
           thickness=0.5));
       connect(spring1.frame_b, bodyShape.frame_a) annotation (Line(
-          points={{36,-4},{36,-30},{56,-30}},
+          points={{50,-10},{50,-30},{60,-30}},
           color={95,95,95},
           thickness=0.5));
       connect(bar2.frame_b, spring2.frame_a) annotation (Line(
-          points={{76,30},{96,30},{96,16}},
+          points={{80,30},{90,30},{90,10}},
           color={95,95,95},
           thickness=0.5));
       connect(spring1.frame_a, world.frame_b) annotation (Line(
-          points={{36,16},{36,30},{-74,30}},
+          points={{50,10},{50,30},{-80,30}},
           color={95,95,95},
           thickness=0.5));
       connect(bodyShape.frame_b, spring2.frame_b) annotation (Line(
-          points={{76,-30},{96,-30},{96,-4}},
+          points={{80,-30},{90,-30},{90,-10}},
           color={95,95,95},
           thickness=0.5));
       connect(world.frame_b, spring3.frame_a) annotation (Line(
-          points={{-74,30},{-60,30},{-60,10}},
+          points={{-80,30},{-60,30},{-60,10}},
           color={95,95,95},
           thickness=0.5));
       connect(spring3.frame_b, body.frame_a) annotation (Line(
@@ -6983,27 +7009,27 @@ often possible to use the FreeMotion joint such that the singularity
           color={95,95,95},
           thickness=0.5));
       connect(world.frame_b, spring4.frame_a) annotation (Line(
-          points={{-74,30},{-36,30},{-36,8}},
+          points={{-80,30},{-30,30},{-30,10}},
           color={95,95,95},
           thickness=0.5));
       connect(spring4.frame_b, bodyBox.frame_a) annotation (Line(
-          points={{-36,-12},{-36,-20}},
+          points={{-30,-10},{-30,-20}},
           color={95,95,95},
           thickness=0.5));
       connect(world.frame_b, spring5.frame_a) annotation (Line(
-          points={{-74,30},{-6,30},{-6,10}},
+          points={{-80,30},{1.77636e-15,30},{1.77636e-15,10}},
           color={95,95,95},
           thickness=0.5));
       connect(spring5.frame_b, bodyCylinder.frame_a) annotation (Line(
-          points={{-6,-10},{-6,-12.5},{-6,-12.5},{-6,-15},{-6,-20},{-6,-20}},
+          points={{0,-10},{0,-20}},
           color={95,95,95},
           thickness=0.5));
       connect(world.frame_b, spring6.frame_a) annotation (Line(
-          points={{-74,30},{16,30},{16,8}},
+          points={{-80,30},{30,30},{30,10}},
           color={95,95,95},
           thickness=0.5));
       connect(spring6.frame_b, pointMass.frame_a) annotation (Line(
-          points={{16,-12},{16,-24},{16,-24},{16,-36}},
+          points={{30,-10},{30,-30}},
           color={95,95,95},
           thickness=0.5));
       annotation (
@@ -7018,17 +7044,16 @@ often possible to use the FreeMotion joint such that the singularity
       extends Modelica.Icons.Example;
       parameter Boolean animation=true "= true, if animation shall be enabled";
       inner Modelica.Mechanics.MultiBody.World world annotation (Placement(
-            transformation(extent={{-94,20},{-74,40}})));
+            transformation(extent={{-100,20},{-80,40}})));
       Modelica.Mechanics.MultiBody.Parts.FixedTranslation bar2(r={0.8,0,0},
-          animation=false) annotation (Placement(transformation(extent={{56,20},
-                {76,40}})));
+          animation=false) annotation (Placement(transformation(extent={{60,20},{80,40}})));
       Modelica.Mechanics.MultiBody.Forces.Spring spring1(
         width=0.1,
         coilWidth=0.005,
         numberOfWindings=5,
         c=20,
         s_unstretched=0) annotation (Placement(transformation(
-            origin={36,6},
+            origin={50,0},
             extent={{-10,-10},{10,10}},
             rotation=270)));
       Modelica.Mechanics.MultiBody.Parts.BodyShape bodyShape(
@@ -7045,14 +7070,14 @@ often possible to use the FreeMotion joint such that the singularity
         enforceStates=true,
         m=1,
         angles_start={0.17453292519943,0.17453292519943,0.17453292519943})
-        annotation (Placement(transformation(extent={{56,-40},{76,-20}})));
+        annotation (Placement(transformation(extent={{60,-40},{80,-20}})));
       Modelica.Mechanics.MultiBody.Forces.Spring spring2(
         c=20,
         s_unstretched=0,
         width=0.1,
         coilWidth=0.005,
         numberOfWindings=5) annotation (Placement(transformation(
-            origin={96,6},
+            origin={90,0},
             extent={{-10,-10},{10,10}},
             rotation=270)));
       Modelica.Mechanics.MultiBody.Parts.Body body(
@@ -7090,14 +7115,14 @@ often possible to use the FreeMotion joint such that the singularity
         v_0(each fixed=true)) annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=-90,
-            origin={-36,-30})));
+            origin={-30,-30})));
       Modelica.Mechanics.MultiBody.Forces.Spring spring4(
         width=0.1,
         coilWidth=0.005,
         numberOfWindings=5,
         s_unstretched=0,
         c=100) annotation (Placement(transformation(
-            origin={-36,-2},
+            origin={-30,0},
             extent={{-10,-10},{10,10}},
             rotation=270)));
       Modelica.Mechanics.MultiBody.Forces.Spring spring5(
@@ -7106,7 +7131,7 @@ often possible to use the FreeMotion joint such that the singularity
         numberOfWindings=5,
         s_unstretched=0,
         c=100) annotation (Placement(transformation(
-            origin={-6,0},
+            origin={0,0},
             extent={{-10,-10},{10,10}},
             rotation=270)));
       Modelica.Mechanics.MultiBody.Parts.BodyCylinder bodyCylinder(
@@ -7120,7 +7145,7 @@ often possible to use the FreeMotion joint such that the singularity
         v_0(each fixed=true)) annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=-90,
-            origin={-6,-30})));
+            origin={0,-30})));
       Modelica.Mechanics.MultiBody.Parts.PointMass pointMass(
         m=1,
         sphereDiameter=0.1,
@@ -7129,7 +7154,7 @@ often possible to use the FreeMotion joint such that the singularity
         v_0(each fixed=true)) annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=-90,
-            origin={16,-36})));
+            origin={30,-30})));
       Modelica.Mechanics.MultiBody.Forces.Spring spring6(
         width=0.1,
         coilWidth=0.005,
@@ -7137,32 +7162,32 @@ often possible to use the FreeMotion joint such that the singularity
         c=20,
         s_unstretched=0,
         fixedRotationAtFrame_b=true) annotation (Placement(transformation(
-            origin={16,-2},
+            origin={30,0},
             extent={{-10,-10},{10,10}},
             rotation=270)));
     equation
       connect(bar2.frame_a, world.frame_b) annotation (Line(
-          points={{56,30},{12,30},{-74,30}},
+          points={{60,30},{-80,30}},
           color={95,95,95},
           thickness=0.5));
       connect(spring1.frame_b, bodyShape.frame_a) annotation (Line(
-          points={{36,-4},{36,-30},{56,-30}},
+          points={{50,-10},{50,-30},{60,-30}},
           color={95,95,95},
           thickness=0.5));
       connect(bar2.frame_b, spring2.frame_a) annotation (Line(
-          points={{76,30},{96,30},{96,16}},
+          points={{80,30},{90,30},{90,10}},
           color={95,95,95},
           thickness=0.5));
       connect(spring1.frame_a, world.frame_b) annotation (Line(
-          points={{36,16},{36,30},{-74,30}},
+          points={{50,10},{50,30},{-80,30}},
           color={95,95,95},
           thickness=0.5));
       connect(bodyShape.frame_b, spring2.frame_b) annotation (Line(
-          points={{76,-30},{96,-30},{96,-4}},
+          points={{80,-30},{90,-30},{90,-10}},
           color={95,95,95},
           thickness=0.5));
       connect(world.frame_b, spring3.frame_a) annotation (Line(
-          points={{-74,30},{-60,30},{-60,10}},
+          points={{-80,30},{-60,30},{-60,10}},
           color={95,95,95},
           thickness=0.5));
       connect(spring3.frame_b, body.frame_a) annotation (Line(
@@ -7170,33 +7195,217 @@ often possible to use the FreeMotion joint such that the singularity
           color={95,95,95},
           thickness=0.5));
       connect(world.frame_b, spring4.frame_a) annotation (Line(
-          points={{-74,30},{-36,30},{-36,8}},
+          points={{-80,30},{-30,30},{-30,10}},
           color={95,95,95},
           thickness=0.5));
       connect(spring4.frame_b, bodyBox.frame_a) annotation (Line(
-          points={{-36,-12},{-36,-20}},
+          points={{-30,-10},{-30,-20}},
           color={95,95,95},
           thickness=0.5));
       connect(world.frame_b, spring5.frame_a) annotation (Line(
-          points={{-74,30},{-6,30},{-6,10}},
+          points={{-80,30},{1.77636e-15,30},{1.77636e-15,10}},
           color={95,95,95},
           thickness=0.5));
       connect(spring5.frame_b, bodyCylinder.frame_a) annotation (Line(
-          points={{-6,-10},{-6,-12.5},{-6,-12.5},{-6,-15},{-6,-20},{-6,-20}},
+          points={{0,-10},{0,-20}},
           color={95,95,95},
           thickness=0.5));
       connect(world.frame_b, spring6.frame_a) annotation (Line(
-          points={{-74,30},{16,30},{16,8}},
+          points={{-80,30},{30,30},{30,10}},
           color={95,95,95},
           thickness=0.5));
       connect(pointMass.frame_a, spring6.frame_b) annotation (Line(
-          points={{16,-36},{16,-24},{16,-12},{16,-12}},
+          points={{30,-30},{30,-10}},
           color={95,95,95},
           thickness=0.5));
       annotation (experiment(StopTime=10), Documentation(info="<html>
 
 </html>"));
     end FreeBodies2;
+
+    model FreeBodiesEnforceStatesFalse
+      "Test whether enforceStates=false give any undesired output"
+      extends Modelica.Icons.Example;
+      parameter Boolean animation=true "= true, if animation shall be enabled";
+      inner Modelica.Mechanics.MultiBody.World world annotation (Placement(
+            transformation(extent={{-100,20},{-80,40}})));
+      Modelica.Mechanics.MultiBody.Parts.FixedTranslation bar2(r={0.8,0,0},
+          animation=false) annotation (Placement(transformation(extent={{60,20},{80,40}})));
+      Modelica.Mechanics.MultiBody.Forces.Spring spring1(
+        width=0.1,
+        coilWidth=0.005,
+        numberOfWindings=5,
+        c=20,
+        s_unstretched=0) annotation (Placement(transformation(
+            origin={50,0},
+            extent={{-10,-10},{10,10}},
+            rotation=270)));
+      Modelica.Mechanics.MultiBody.Parts.BodyShape bodyShape(
+        I_11=1,
+        I_22=1,
+        I_33=1,
+        r={0.4,0,0},
+        r_CM={0.2,0,0},
+        width=0.05,
+        r_0(start={0.2,-0.5,0.1}, each fixed=true),
+        v_0(each fixed=true),
+        angles_fixed=true,
+        w_0_fixed=true,
+        m=1,
+        angles_start={0.17453292519943,0.17453292519943,0.17453292519943},
+        enforceStates=false) annotation (Placement(transformation(extent={{60,-40},{80,-20}})));
+      Modelica.Mechanics.MultiBody.Forces.Spring spring2(
+        c=20,
+        s_unstretched=0,
+        width=0.1,
+        coilWidth=0.005,
+        numberOfWindings=5) annotation (Placement(transformation(
+            origin={90,0},
+            extent={{-10,-10},{10,10}},
+            rotation=270)));
+      Modelica.Mechanics.MultiBody.Parts.Body body(
+        I_11=0.1,
+        I_22=0.1,
+        I_33=0.1,
+        r_0(start={0.2,-0.5,0.1}, each fixed=true),
+        m=1,
+        r_CM={0,-0.3,0},
+        angles_fixed=true,
+        w_0_fixed=true,
+        v_0(each fixed=true, start={-0.1,-0.1,-0.1}),
+        w_0_start={-0.1,-0.1,-0.1},
+        enforceStates=false) annotation (Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=-90,
+            origin={-60,-30})));
+      Modelica.Mechanics.MultiBody.Forces.Spring spring3(
+        width=0.1,
+        coilWidth=0.005,
+        numberOfWindings=5,
+        c=20,
+        s_unstretched=0) annotation (Placement(transformation(
+            origin={-60,0},
+            extent={{-10,-10},{10,10}},
+            rotation=270)));
+      Modelica.Mechanics.MultiBody.Parts.BodyBox bodyBox(
+        r={0,-0.3,0},
+        width=0.05,
+        angles_fixed=true,
+        w_0_fixed=true,
+        w_0_start={-0.1,-0.1,-0.1},
+        r_0(start={0.2,-0.5,0.1}, each fixed=true),
+        v_0(each fixed=true),
+        enforceStates=false) annotation (Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=-90,
+            origin={-30,-30})));
+      Modelica.Mechanics.MultiBody.Forces.Spring spring4(
+        width=0.1,
+        coilWidth=0.005,
+        numberOfWindings=5,
+        s_unstretched=0,
+        c=100) annotation (Placement(transformation(
+            origin={-30,0},
+            extent={{-10,-10},{10,10}},
+            rotation=270)));
+      Modelica.Mechanics.MultiBody.Forces.Spring spring5(
+        width=0.1,
+        coilWidth=0.005,
+        numberOfWindings=5,
+        s_unstretched=0,
+        c=100) annotation (Placement(transformation(
+            origin={0,0},
+            extent={{-10,-10},{10,10}},
+            rotation=270)));
+      Modelica.Mechanics.MultiBody.Parts.BodyCylinder bodyCylinder(
+        r={0,-0.3,0},
+        diameter=0.05,
+        angles_fixed=true,
+        w_0_fixed=true,
+        w_0_start={-0.1,-0.1,-0.1},
+        r_0(start={0.2,-0.5,0.1}, each fixed=true),
+        v_0(each fixed=true),
+        enforceStates=false) annotation (Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=-90,
+            origin={0,-30})));
+      Modelica.Mechanics.MultiBody.Parts.PointMass pointMass(
+        m=1,
+        sphereDiameter=0.1,
+        r_0(start={0.2,-0.5,0.1}, each fixed=true),
+        v_0(each fixed=true),
+        stateSelect=StateSelect.never) annotation (Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=-90,
+            origin={30,-30})));
+      Modelica.Mechanics.MultiBody.Forces.Spring spring6(
+        width=0.1,
+        coilWidth=0.005,
+        numberOfWindings=5,
+        c=20,
+        s_unstretched=0,
+        fixedRotationAtFrame_b=true) annotation (Placement(transformation(
+            origin={30,0},
+            extent={{-10,-10},{10,10}},
+            rotation=270)));
+    equation
+      connect(bar2.frame_a, world.frame_b) annotation (Line(
+          points={{60,30},{-80,30}},
+          color={95,95,95},
+          thickness=0.5));
+      connect(spring1.frame_b, bodyShape.frame_a) annotation (Line(
+          points={{50,-10},{50,-30},{60,-30}},
+          color={95,95,95},
+          thickness=0.5));
+      connect(bar2.frame_b, spring2.frame_a) annotation (Line(
+          points={{80,30},{90,30},{90,10}},
+          color={95,95,95},
+          thickness=0.5));
+      connect(spring1.frame_a, world.frame_b) annotation (Line(
+          points={{50,10},{50,30},{-80,30}},
+          color={95,95,95},
+          thickness=0.5));
+      connect(bodyShape.frame_b, spring2.frame_b) annotation (Line(
+          points={{80,-30},{90,-30},{90,-10}},
+          color={95,95,95},
+          thickness=0.5));
+      connect(world.frame_b, spring3.frame_a) annotation (Line(
+          points={{-80,30},{-60,30},{-60,10}},
+          color={95,95,95},
+          thickness=0.5));
+      connect(spring3.frame_b, body.frame_a) annotation (Line(
+          points={{-60,-10},{-60,-20}},
+          color={95,95,95},
+          thickness=0.5));
+      connect(world.frame_b, spring4.frame_a) annotation (Line(
+          points={{-80,30},{-30,30},{-30,10}},
+          color={95,95,95},
+          thickness=0.5));
+      connect(spring4.frame_b, bodyBox.frame_a) annotation (Line(
+          points={{-30,-10},{-30,-20}},
+          color={95,95,95},
+          thickness=0.5));
+      connect(world.frame_b, spring5.frame_a) annotation (Line(
+          points={{-80,30},{1.77636e-15,30},{1.77636e-15,10}},
+          color={95,95,95},
+          thickness=0.5));
+      connect(spring5.frame_b, bodyCylinder.frame_a) annotation (Line(
+          points={{0,-10},{0,-20}},
+          color={95,95,95},
+          thickness=0.5));
+      connect(world.frame_b, spring6.frame_a) annotation (Line(
+          points={{-80,30},{30,30},{30,10}},
+          color={95,95,95},
+          thickness=0.5));
+      connect(pointMass.frame_a, spring6.frame_b) annotation (Line(
+          points={{30,-30},{30,-10}},
+          color={95,95,95},
+          thickness=0.5));
+      annotation (experiment(StopTime=10), Documentation(info="<html>
+<p>This test case is made with the intent of verifying what choices are made by the compiler in terms of state selection when wrong indications are given, here all the bodies have the flag enforceStates=false but the bodies positions and velocities are the only possible states.</p>
+<p><br/>Dymola ignores the flag and uses bodies variables as states.</p>
+</html>"));
+    end FreeBodiesEnforceStatesFalse;
 
     model Bodies
       import SI = Modelica.SIunits;
@@ -7304,61 +7513,61 @@ often possible to use the FreeMotion joint such that the singularity
       parameter SI.Diameter diameter=length/30 "Diameter of frame axes";
       Modelica.Mechanics.MultiBody.Frames.Orientation R;
       Visualizers.FixedFrame frameT1(length=length, diameter=diameter)
-        annotation (Placement(transformation(extent={{-14,20},{-34,40}})));
+        annotation (Placement(transformation(extent={{-20,20},{-40,40}})));
       Visualizers.FixedFrame frameT2(length=length, diameter=diameter)
-        annotation (Placement(transformation(extent={{48,4},{68,24}})));
+        annotation (Placement(transformation(extent={{60,10},{80,30}})));
       inner Modelica.Mechanics.MultiBody.World world(animateWorld=false,
           gravityType=Modelica.Mechanics.MultiBody.Types.GravityTypes.NoGravity)
-        annotation (Placement(transformation(extent={{-34,-18},{-14,2}})));
+        annotation (Placement(transformation(extent={{-40,-20},{-20,0}})));
       Modelica.Mechanics.MultiBody.Parts.FixedRotation fixedRotation(angle=47)
-        annotation (Placement(transformation(extent={{10,4},{30,24}})));
+        annotation (Placement(transformation(extent={{20,10},{40,30}})));
       Modelica.Mechanics.MultiBody.Parts.FixedRotation fixedRotation1(
         r={1,1,1},
         rotationType=Modelica.Mechanics.MultiBody.Types.RotationTypes.TwoAxesVectors,
         n_x={0,1,0},
         n_y={0,0,1})
-        annotation (Placement(transformation(extent={{10,-26},{30,-6}})));
+        annotation (Placement(transformation(extent={{20,-20},{40,0}})));
 
       Visualizers.FixedFrame frameT3(length=length, diameter=diameter)
-        annotation (Placement(transformation(extent={{48,-28},{68,-8}})));
+        annotation (Placement(transformation(extent={{60,-20},{80,0}})));
       Modelica.Mechanics.MultiBody.Parts.FixedRotation fixedRotation2(
         n_x={0,1,0},
         n_y={0,0,1},
         rotationType=Modelica.Mechanics.MultiBody.Types.RotationTypes.PlanarRotationSequence,
         angles={30,20,10},
         r={-1,0,1})
-        annotation (Placement(transformation(extent={{10,-60},{30,-40}})));
+        annotation (Placement(transformation(extent={{20,-50},{40,-30}})));
 
       Visualizers.FixedFrame frameT4(length=length, diameter=diameter)
-        annotation (Placement(transformation(extent={{48,-62},{68,-42}})));
+        annotation (Placement(transformation(extent={{60,-50},{80,-30}})));
     equation
       R = Modelica.Mechanics.MultiBody.Frames.nullRotation();
       connect(frameT1.frame_a, fixedRotation.frame_a) annotation (Line(
-          points={{-14,30},{0,30},{0,14},{10,14}},
+          points={{-20,30},{0,30},{0,20},{20,20}},
           color={95,95,95},
           thickness=0.5));
       connect(fixedRotation.frame_b, frameT2.frame_a) annotation (Line(
-          points={{30,14},{48,14}},
+          points={{40,20},{60,20}},
           color={95,95,95},
           thickness=0.5));
       connect(world.frame_b, fixedRotation.frame_a) annotation (Line(
-          points={{-14,-8},{-2,-8},{-2,14},{10,14}},
+          points={{-20,-10},{0,-10},{0,20},{20,20}},
           color={95,95,95},
           thickness=0.5));
       connect(fixedRotation1.frame_b, frameT3.frame_a) annotation (Line(
-          points={{30,-16},{40,-16},{40,-18},{48,-18}},
+          points={{40,-10},{60,-10}},
           color={95,95,95},
           thickness=0.5));
       connect(fixedRotation2.frame_b, frameT4.frame_a) annotation (Line(
-          points={{30,-50},{40,-50},{40,-52},{48,-52}},
+          points={{40,-40},{60,-40}},
           color={95,95,95},
           thickness=0.5));
       connect(fixedRotation1.frame_a, world.frame_b) annotation (Line(
-          points={{10,-16},{-2,-16},{-2,-8},{-14,-8}},
+          points={{20,-10},{-20,-10}},
           color={95,95,95},
           thickness=0.5));
       connect(fixedRotation2.frame_a, world.frame_b) annotation (Line(
-          points={{10,-50},{-2,-50},{-2,-8},{-14,-8}},
+          points={{20,-40},{0,-40},{0,-10},{-20,-10}},
           color={95,95,95},
           thickness=0.5));
       annotation (experiment(StopTime=1.1));
@@ -7380,15 +7589,14 @@ often possible to use the FreeMotion joint such that the singularity
         w_0_fixed=true,
         w_0_start={1,0.3,0.2},
         r_0(each fixed=true, start={1,1,1})) annotation (Placement(
-            transformation(extent={{-20,46},{0,66}})));
+            transformation(extent={{-20,0},{0,20}})));
       Modelica.Mechanics.MultiBody.Parts.BodyBox BodyBox1(
         r={1,0,0},
         r_0(each fixed=true, start={-0.1,-0.3,-0.2}),
         v_0(each fixed=true),
         angles_fixed=true,
         w_0_fixed=true,
-        w_0_start={1,0.3,0.2}) annotation (Placement(transformation(extent={{-20,
-                6},{0,26}})));
+        w_0_start={1,0.3,0.2}) annotation (Placement(transformation(extent={{-20,-40},{0,-20}})));
       Modelica.Mechanics.MultiBody.Parts.BodyCylinder bodyCylinder(
         r={1,0,0},
         innerDiameter=bodyCylinder.diameter/2,
@@ -7396,8 +7604,7 @@ often possible to use the FreeMotion joint such that the singularity
         v_0(each fixed=true),
         angles_fixed=true,
         w_0_fixed=true,
-        w_0_start={5,-0.4,0.5}) annotation (Placement(transformation(extent={{-20,
-                -34},{0,-14}})));
+        w_0_start={5,-0.4,0.5}) annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
       Modelica.Mechanics.MultiBody.Parts.Body body1(
         m=1,
         I_11=1,
@@ -7409,227 +7616,40 @@ often possible to use the FreeMotion joint such that the singularity
         angles_fixed=true,
         angles_start={0,0,0},
         w_0_fixed=true,
-        w_0_start={1,0.3,0.2}) annotation (Placement(transformation(extent={{-20,
-                72},{0,92}})));
+        w_0_start={1,0.3,0.2}) annotation (Placement(transformation(extent={{-20,40},{0,60}})));
       inner Modelica.Mechanics.MultiBody.World world(
         animateWorld=false,
         animateGravity=false,
         gravityType=Modelica.Mechanics.MultiBody.Types.GravityTypes.NoGravity)
-        annotation (Placement(transformation(extent={{80,80},{100,100}})));
+        annotation (Placement(transformation(extent={{40,60},{60,80}})));
       Modelica.Mechanics.MultiBody.Visualizers.FixedFrame fixedFrame
-        annotation (Placement(transformation(extent={{-42,76},{-56,90}})));
+        annotation (Placement(transformation(extent={{-40,40},{-60,60}})));
       Modelica.Mechanics.MultiBody.Visualizers.FixedFrame fixedFrame1
-        annotation (Placement(transformation(extent={{-44,48},{-58,62}})));
+        annotation (Placement(transformation(extent={{-40,0},{-60,20}})));
       Modelica.Mechanics.MultiBody.Visualizers.FixedFrame fixedFrame2
-        annotation (Placement(transformation(extent={{-42,6},{-56,20}})));
+        annotation (Placement(transformation(extent={{-40,-40},{-60,-20}})));
       Modelica.Mechanics.MultiBody.Visualizers.FixedFrame fixedFrame3
-        annotation (Placement(transformation(extent={{-42,-30},{-56,-16}})));
+        annotation (Placement(transformation(extent={{-40,-80},{-60,-60}})));
     equation
 
       connect(fixedFrame.frame_a, body1.frame_a) annotation (Line(
-          points={{-42,83},{-32,83},{-32,82},{-20,82}},
+          points={{-40,50},{-20,50}},
           color={95,95,95},
           thickness=0.5));
       connect(fixedFrame1.frame_a, bodyShape.frame_a) annotation (Line(
-          points={{-44,55},{-32,55},{-32,56},{-20,56}},
+          points={{-40,10},{-20,10}},
           color={95,95,95},
           thickness=0.5));
       connect(fixedFrame2.frame_a, BodyBox1.frame_a) annotation (Line(
-          points={{-42,13},{-30,13},{-30,16},{-20,16}},
+          points={{-40,-30},{-20,-30}},
           color={95,95,95},
           thickness=0.5));
       connect(fixedFrame3.frame_a, bodyCylinder.frame_a) annotation (Line(
-          points={{-42,-23},{-30,-23},{-30,-26},{-20,-26},{-20,-24}},
+          points={{-40,-70},{-20,-70}},
           color={95,95,95},
           thickness=0.5));
       annotation (experiment(StopTime=4));
     end FlyingBodies;
-
-    model FreeBodiesEnforceStatesFalse
-      "Test whether enforceStates=false give any undesired output"
-      extends Modelica.Icons.Example;
-      parameter Boolean animation=true "= true, if animation shall be enabled";
-      inner Modelica.Mechanics.MultiBody.World world annotation (Placement(
-            transformation(extent={{-94,20},{-74,40}})));
-      Modelica.Mechanics.MultiBody.Parts.FixedTranslation bar2(r={0.8,0,0},
-          animation=false) annotation (Placement(transformation(extent={{56,20},
-                {76,40}})));
-      Modelica.Mechanics.MultiBody.Forces.Spring spring1(
-        width=0.1,
-        coilWidth=0.005,
-        numberOfWindings=5,
-        c=20,
-        s_unstretched=0) annotation (Placement(transformation(
-            origin={36,6},
-            extent={{-10,-10},{10,10}},
-            rotation=270)));
-      Modelica.Mechanics.MultiBody.Parts.BodyShape bodyShape(
-        I_11=1,
-        I_22=1,
-        I_33=1,
-        r={0.4,0,0},
-        r_CM={0.2,0,0},
-        width=0.05,
-        r_0(start={0.2,-0.5,0.1}, each fixed=true),
-        v_0(each fixed=true),
-        angles_fixed=true,
-        w_0_fixed=true,
-        m=1,
-        angles_start={0.17453292519943,0.17453292519943,0.17453292519943},
-        enforceStates=false) annotation (Placement(transformation(extent={{56,-40},
-                {76,-20}})));
-      Modelica.Mechanics.MultiBody.Forces.Spring spring2(
-        c=20,
-        s_unstretched=0,
-        width=0.1,
-        coilWidth=0.005,
-        numberOfWindings=5) annotation (Placement(transformation(
-            origin={96,6},
-            extent={{-10,-10},{10,10}},
-            rotation=270)));
-      Modelica.Mechanics.MultiBody.Parts.Body body(
-        I_11=0.1,
-        I_22=0.1,
-        I_33=0.1,
-        r_0(start={0.2,-0.5,0.1}, each fixed=true),
-        m=1,
-        r_CM={0,-0.3,0},
-        angles_fixed=true,
-        w_0_fixed=true,
-        v_0(each fixed=true, start={-0.1,-0.1,-0.1}),
-        w_0_start={-0.1,-0.1,-0.1},
-        enforceStates=false) annotation (Placement(transformation(
-            extent={{-10,-10},{10,10}},
-            rotation=-90,
-            origin={-60,-30})));
-      Modelica.Mechanics.MultiBody.Forces.Spring spring3(
-        width=0.1,
-        coilWidth=0.005,
-        numberOfWindings=5,
-        c=20,
-        s_unstretched=0) annotation (Placement(transformation(
-            origin={-60,0},
-            extent={{-10,-10},{10,10}},
-            rotation=270)));
-      Modelica.Mechanics.MultiBody.Parts.BodyBox bodyBox(
-        r={0,-0.3,0},
-        width=0.05,
-        angles_fixed=true,
-        w_0_fixed=true,
-        w_0_start={-0.1,-0.1,-0.1},
-        r_0(start={0.2,-0.5,0.1}, each fixed=true),
-        v_0(each fixed=true),
-        enforceStates=false) annotation (Placement(transformation(
-            extent={{-10,-10},{10,10}},
-            rotation=-90,
-            origin={-36,-30})));
-      Modelica.Mechanics.MultiBody.Forces.Spring spring4(
-        width=0.1,
-        coilWidth=0.005,
-        numberOfWindings=5,
-        s_unstretched=0,
-        c=100) annotation (Placement(transformation(
-            origin={-36,-2},
-            extent={{-10,-10},{10,10}},
-            rotation=270)));
-      Modelica.Mechanics.MultiBody.Forces.Spring spring5(
-        width=0.1,
-        coilWidth=0.005,
-        numberOfWindings=5,
-        s_unstretched=0,
-        c=100) annotation (Placement(transformation(
-            origin={-6,0},
-            extent={{-10,-10},{10,10}},
-            rotation=270)));
-      Modelica.Mechanics.MultiBody.Parts.BodyCylinder bodyCylinder(
-        r={0,-0.3,0},
-        diameter=0.05,
-        angles_fixed=true,
-        w_0_fixed=true,
-        w_0_start={-0.1,-0.1,-0.1},
-        r_0(start={0.2,-0.5,0.1}, each fixed=true),
-        v_0(each fixed=true),
-        enforceStates=false) annotation (Placement(transformation(
-            extent={{-10,-10},{10,10}},
-            rotation=-90,
-            origin={-6,-30})));
-      Modelica.Mechanics.MultiBody.Parts.PointMass pointMass(
-        m=1,
-        sphereDiameter=0.1,
-        r_0(start={0.2,-0.5,0.1}, each fixed=true),
-        v_0(each fixed=true),
-        stateSelect=StateSelect.never) annotation (Placement(transformation(
-            extent={{-10,-10},{10,10}},
-            rotation=-90,
-            origin={16,-36})));
-      Modelica.Mechanics.MultiBody.Forces.Spring spring6(
-        width=0.1,
-        coilWidth=0.005,
-        numberOfWindings=5,
-        c=20,
-        s_unstretched=0,
-        fixedRotationAtFrame_b=true) annotation (Placement(transformation(
-            origin={16,-2},
-            extent={{-10,-10},{10,10}},
-            rotation=270)));
-    equation
-      connect(bar2.frame_a, world.frame_b) annotation (Line(
-          points={{56,30},{12,30},{-74,30}},
-          color={95,95,95},
-          thickness=0.5));
-      connect(spring1.frame_b, bodyShape.frame_a) annotation (Line(
-          points={{36,-4},{36,-30},{56,-30}},
-          color={95,95,95},
-          thickness=0.5));
-      connect(bar2.frame_b, spring2.frame_a) annotation (Line(
-          points={{76,30},{96,30},{96,16}},
-          color={95,95,95},
-          thickness=0.5));
-      connect(spring1.frame_a, world.frame_b) annotation (Line(
-          points={{36,16},{36,30},{-74,30}},
-          color={95,95,95},
-          thickness=0.5));
-      connect(bodyShape.frame_b, spring2.frame_b) annotation (Line(
-          points={{76,-30},{96,-30},{96,-4}},
-          color={95,95,95},
-          thickness=0.5));
-      connect(world.frame_b, spring3.frame_a) annotation (Line(
-          points={{-74,30},{-60,30},{-60,10}},
-          color={95,95,95},
-          thickness=0.5));
-      connect(spring3.frame_b, body.frame_a) annotation (Line(
-          points={{-60,-10},{-60,-20}},
-          color={95,95,95},
-          thickness=0.5));
-      connect(world.frame_b, spring4.frame_a) annotation (Line(
-          points={{-74,30},{-36,30},{-36,8}},
-          color={95,95,95},
-          thickness=0.5));
-      connect(spring4.frame_b, bodyBox.frame_a) annotation (Line(
-          points={{-36,-12},{-36,-20}},
-          color={95,95,95},
-          thickness=0.5));
-      connect(world.frame_b, spring5.frame_a) annotation (Line(
-          points={{-74,30},{-6,30},{-6,10}},
-          color={95,95,95},
-          thickness=0.5));
-      connect(spring5.frame_b, bodyCylinder.frame_a) annotation (Line(
-          points={{-6,-10},{-6,-12.5},{-6,-12.5},{-6,-15},{-6,-20},{-6,-20}},
-          color={95,95,95},
-          thickness=0.5));
-      connect(world.frame_b, spring6.frame_a) annotation (Line(
-          points={{-74,30},{16,30},{16,8}},
-          color={95,95,95},
-          thickness=0.5));
-      connect(pointMass.frame_a, spring6.frame_b) annotation (Line(
-          points={{16,-36},{16,-24},{16,-12},{16,-12}},
-          color={95,95,95},
-          thickness=0.5));
-      annotation (experiment(StopTime=10), Documentation(info="<html>
-<p>This test case is made with the intent of verifying what choices are made by the compiler in terms of state selection when wrong indications are given, here all the bodies have the flag enforceStates=false but the bodies positions and velocities are the only possible states.</p>
-<p><br/>Dymola ignores the flag and uses bodies variables as states.</p>
-</html>"));
-    end FreeBodiesEnforceStatesFalse;
 
     package Rotor1D
       extends Modelica.Icons.ExamplesPackage;
@@ -10385,30 +10405,30 @@ This test model was proposed in ticket <a href=\"https://trac.modelica.org/Model
       extends Modelica.Icons.Example;
 
       inner Modelica.Mechanics.MultiBody.World world(animateWorld=false, animateGravity=false) annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));
-      Modelica.Mechanics.MultiBody.Visualizers.Plane surfaceWireframe(
-        length_y=2,
-        axis_y={0,1,0},
-        axis_x={1,-0.4,0},
-        ny=3,
+      Modelica.Mechanics.MultiBody.Visualizers.Rectangle surfaceWireframe(
+        direction_u={1,-0.4,0},
+        direction_v={0,1,0},
+        length_u=3,
+        length_v=2,
+        nu=8,
+        nv=3,
         wireframe=true,
-        nx=8,
-        color={0,230,0},
-        length_x=3)      annotation (Placement(transformation(extent={{30,10},{50,30}})));
+        color={0,230,0})      annotation (Placement(transformation(extent={{30,10},{50,30}})));
       Modelica.Mechanics.MultiBody.Parts.FixedRotation fixedRotation(
         rotationType=Modelica.Mechanics.MultiBody.Types.RotationTypes.TwoAxesVectors,
         n_x={1,0,0},
         animation=false,
         r={0,2.3,0}) annotation (Placement(transformation(extent={{-20,10},{0,30}})));
       Modelica.Mechanics.MultiBody.Visualizers.FixedFrame fixedFrameOfWireframe(color_x={255,0,0}) annotation (Placement(transformation(extent={{30,40},{50,60}})));
-      Modelica.Mechanics.MultiBody.Visualizers.Plane surfaceSolid(
-        length_y=2,
-        axis_y={0,1,0},
-        ny=3,
+      Modelica.Mechanics.MultiBody.Visualizers.Rectangle surfaceSolid(
+        direction_u={1,0,0},
+        direction_v={0,1,0},
+        length_u=3,
+        length_v=2,
+        nu=8,
+        nv=3,
         color={85,85,255},
-        length_x=3,
-        wireframe=false,
-        nx=8,
-        axis_x={1,0,0}) annotation (Placement(transformation(extent={{30,-30},{50,-10}})));
+        wireframe=false) annotation (Placement(transformation(extent={{30,-30},{50,-10}})));
       Modelica.Mechanics.MultiBody.Visualizers.FixedFrame fixedFrame(color_x={255,0,0}) annotation (Placement(transformation(extent={{30,-60},{50,-40}})));
     equation
       connect(fixedRotation.frame_a, world.frame_b) annotation (Line(
@@ -10830,5 +10850,4 @@ they were not deleted yet.")}));
     end Bodies;
 
   end InitializationConversion;
-
 end MultiBody;

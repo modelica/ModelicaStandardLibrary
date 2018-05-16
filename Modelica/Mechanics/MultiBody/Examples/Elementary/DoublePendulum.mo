@@ -53,8 +53,8 @@ object to <strong>false</strong> to switch off animation of all components.
 </p>
 
 <blockquote>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/DoublePendulum.png\"
-ALT=\"model Examples.Elementary.DoublePendulum\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/DoublePendulum.png\"
+alt=\"model Examples.Elementary.DoublePendulum\">
 </blockquote>
 </html>"));
 end DoublePendulum;

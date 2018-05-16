@@ -275,6 +275,10 @@
 				RelativePath="..\..\C-Sources\ModelicaStandardTables.c"
 				>
 			</File>
+			<File
+				RelativePath="..\..\C-Sources\ModelicaStandardTablesUsertab.c"
+				>
+			</File>
 		</Filter>
 		<Filter
 			Name="Header Files"

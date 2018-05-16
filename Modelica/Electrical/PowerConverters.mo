@@ -106,7 +106,7 @@ email: <a href=\"mailto:dr.christian.kral@gmail.com\">dr.christian.kral@gmail.co
 <strong>Anton Haumer</strong><br>
 <a href=\"http://www.haumer.at\">Technical Consulting &amp; Electrical Engineering</a><br>
 A-3423 St. Andrae-Woerdern, Austria<br>
-email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
+email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
 </p>
 </html>"));
     end Contact;
@@ -149,23 +149,23 @@ email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
     <tr>
-      <td valign=\"top\">[Skvarenina01]</td>
-      <td valign=\"top\">Timothy L. Skvarenina,
+      <td>[Skvarenina01]</td>
+      <td>Timothy L. Skvarenina,
         <a href=\"http://www.crcpress.com/product/isbn/9780849373367\">
         <em>The Power Electronics Handbook</em></a>,
         CRC Press 2001, ISBN 9780849373367</td>
     </tr>
 
     <tr>
-      <td valign=\"top\">[Luo05]</td>
-      <td valign=\"top\">Fang Lin Luo, Hong Ye and Muhammad H. Rashid,
+      <td>[Luo05]</td>
+      <td>Fang Lin Luo, Hong Ye and Muhammad H. Rashid,
         <a href=\"http://store.elsevier.com/product.jsp?isbn=9780120887576&amp;_requestid=1725\"><em>Digital Power Electronics and Applications</em></a>,
         Elsevier Academic Press, 2005, ISBN 978-0120887576</td>
     </tr>
 
     <tr>
-      <td valign=\"top\">[Williams2006]</td>
-      <td valign=\"top\"><a href=\"http://www.freescience.info/go.php?pagename=books&amp;id=1732\">
+      <td>[Williams2006]</td>
+      <td><a href=\"http://www.freescience.info/go.php?pagename=books&amp;id=1732\">
 <em>Principles and Elements of Power Electronics: Devices, Drivers, Applications, and Passive Components</em></a>, available at <a href=\"http://www.freescience.info/go.php?pagename=books&amp;id=1732\">FreeScience</a>, ISBN 978-0-9553384-0-3</td>
     </tr>
 </table>
@@ -481,7 +481,7 @@ A freely available book is available in
               Interval=0.0002),
             Documentation(info="<html>
 <p>This examples shows a two pulse half controlled bridge example with resistive load. In case of resistive load the half controlled bridge shows the same output voltage as the
-<a href=\"Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2Pulse.ThyristorBridge2Pulse_R\">full controlled bridge</a>.</p>
+<a href=\"modelica://Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2Pulse.ThyristorBridge2Pulse_R\">full controlled bridge</a>.</p>
 
 <p>Plot current <code>currentSensor.i</code>, average current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
 </html>"));
@@ -513,7 +513,7 @@ A freely available book is available in
               Interval=0.0002),
             Documentation(info="<html>
 <p>This examples shows a two pulse full controlled bridge example with resistive load. In case of resistive load the full controlled bridge shows the same output voltage as the
-<a href=\"Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2Pulse.HalfControlledBridge2Pulse\">half controlled bridge</a>.</p>
+<a href=\"modelica://Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2Pulse.HalfControlledBridge2Pulse\">half controlled bridge</a>.</p>
 
 <p>Plot current <code>currentSensor.i</code>, average current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
 </html>"));
@@ -1579,7 +1579,7 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
               Interval=0.0002),
             Documentation(info="<html>
 <p>This example shows a half controlled <code>2*m</code> pulse bridge rectifier with resistive load, where <code>m</code> is the number of phases. In case of resistive load the half controlled bridge shows the same output voltage as the
-<a href=\"Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse.ThyristorBridge2mPulse_R\">full controlled bridge</a>.</p>
+<a href=\"modelica://Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse.ThyristorBridge2mPulse_R\">full controlled bridge</a>.</p>
 
 <p>Plot current <code>currentSensor.i</code>, average current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
 
@@ -1612,7 +1612,7 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
               Interval=0.0002),
             Documentation(info="<html>
 <p>This example shows a full controlled <code>2*m</code> pulse bridge rectifier with resistive load, where <code>m</code> is the number of phases. In case of resistive load the full controlled bridge shows the same output voltage as the
-<a href=\"Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse.HalfControlledBridge2mPulse\">half controlled bridge</a>.</p>
+<a href=\"modelica://Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse.HalfControlledBridge2mPulse\">half controlled bridge</a>.</p>
 
 <p>Plot current <code>currentSensor.i</code>, average current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
 </html>"));
@@ -2306,7 +2306,7 @@ In this example a PM excited DC machine is started with nominal torque at nomina
           annotation (
             Documentation(info="<html>
 <p>Template of
-<a href=\"Modelica.Electrical.PowerConverters.Examples.ACDC.Rectifier1Pulse\">
+<a href=\"modelica://Modelica.Electrical.PowerConverters.Examples.ACDC.Rectifier1Pulse\">
 single pulse rectifiers</a>; load is not yet included.</p>
 </html>"));
         end Thyristor1Pulse;
@@ -2387,7 +2387,7 @@ single pulse rectifiers</a>; load is not yet included.</p>
           annotation (
             Documentation(info="<html>
 <p>Template of
-<a href=\"Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2Pulse\">
+<a href=\"modelica://Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2Pulse\">
 two pulse bridge rectifiers</a>; load is not yet included.</p>
 </html>"));
         end ThyristorBridge2Pulse;
@@ -2475,7 +2475,7 @@ two pulse bridge rectifiers</a>; load is not yet included.</p>
           annotation (
             Documentation(info="<html>
 <p>Template of
-<a href=\"Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2Pulse\">
+<a href=\"modelica://Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2Pulse\">
 center tap two pulse rectifiers</a>; load is not yet included.</p>
 </html>"));
         end ThyristorCenterTap2Pulse;
@@ -2564,7 +2564,7 @@ center tap two pulse rectifiers</a>; load is not yet included.</p>
           annotation (
             Documentation(info="<html>
 <p>Template of
-<a href=\"Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTapmPulse\">
+<a href=\"modelica://Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTapmPulse\">
 center tap <code>m</code> pulse rectifiers</a>, where <code>m</code> is the number of phases; load is not yet included.</p>
 </html>"));
         end ThyristorCenterTapmPulse;
@@ -2655,7 +2655,7 @@ center tap <code>m</code> pulse rectifiers</a>, where <code>m</code> is the numb
           annotation (
             Documentation(info="<html>
 <p>Template of
-<a href=\"Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse\">
+<a href=\"modelica://Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse\">
 <code>2*m</code> pulse bridge rectifiers</a>, where <code>m</code> is the number of phases; load is not yet included.</p>
 </html>"));
         end ThyristorBridge2mPulse;
@@ -2760,7 +2760,7 @@ center tap <code>m</code> pulse rectifiers</a>, where <code>m</code> is the numb
           annotation (
             Documentation(info="<html>
 <p>Template of
-<a href=\"Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2mPulse\">
+<a href=\"modelica://Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2mPulse\">
 center tap <code>2*m</code> pulse rectifiers</a>, where <code>m</code> is the number of phases; load is not yet included.</p>
 </html>"));
         end ThyristorCenterTap2mPulse;
@@ -2954,7 +2954,7 @@ center tap <code>2*m</code> pulse rectifiers</a>, where <code>m</code> is the nu
               Tolerance=1e-06,
               Interval=0.00002),
             Documentation(info="<html>
-<p>Plot current <code>currentSensor.i[:]</code>, harmonic current magnitude <code>fundamentalWaveCurrent[:].y_RMS</code>, harmonic voltage magnitude <code>fundamentalWaveVoltage[:].y_RMS</code>. The instantaneous voltages <code>voltageSensor.i[:]</code> and currents <code>currentSensor.i[:]</code> directly show the switching pattern of the inverter. There is not smoothing effect due to an inductance in this example; see <a href=\"Modelica.Electrical.PowerConverters.Examples.DCAC.MultiPhaseTwoLevel.MultiPhaseTwoLevel_RL\">MultiPhaseTwoLevel_RL</a>.</p>
+<p>Plot current <code>currentSensor.i[:]</code>, harmonic current magnitude <code>fundamentalWaveCurrent[:].y_RMS</code>, harmonic voltage magnitude <code>fundamentalWaveVoltage[:].y_RMS</code>. The instantaneous voltages <code>voltageSensor.i[:]</code> and currents <code>currentSensor.i[:]</code> directly show the switching pattern of the inverter. There is not smoothing effect due to an inductance in this example; see <a href=\"modelica://Modelica.Electrical.PowerConverters.Examples.DCAC.MultiPhaseTwoLevel.MultiPhaseTwoLevel_RL\">MultiPhaseTwoLevel_RL</a>.</p>
 </html>"));
         end MultiPhaseTwoLevel_R;
 
@@ -6046,8 +6046,11 @@ The firing signal is generated by comparing the sampled duty cycle input with a 
       block VoltageToDutyCycle "Linearly transforms voltage to duty cycle"
         parameter Boolean useBipolarVoltage = true
           "Enables bipolar input voltage range";
-        parameter Modelica.SIunits.Voltage vMax
-          "Maximum voltage range mapped to dutyCycle = 1";
+        parameter Boolean useConstantMaximumVoltage=true
+          "Enables constant maximum voltage";
+        parameter Modelica.SIunits.Voltage vMax=0
+          "Maximum voltage range mapped to dutyCycle = 1"
+          annotation(Dialog(enable=useConstantMaximumVoltage));
 
         Modelica.Blocks.Interfaces.RealInput v "Voltage" annotation (Placement(
               transformation(extent={{-140,-20},{-100,20}}), iconTransformation(
@@ -6055,28 +6058,54 @@ The firing signal is generated by comparing the sampled duty cycle input with a 
         Modelica.Blocks.Interfaces.RealOutput dutyCycle "Duty cycle" annotation (
             Placement(transformation(extent={{100,-10},{120,10}}), iconTransformation(
                 extent={{100,-10},{120,10}})));
-        Modelica.Blocks.Math.Gain gainUnipolar(final k=1/vMax) if not useBipolarVoltage
-          annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
-        Modelica.Blocks.Math.Gain gainBipolar(final k=0.5/vMax) if useBipolarVoltage
-          annotation (Placement(transformation(extent={{-80,-40},{-60,-20}})));
-        Modelica.Blocks.Math.Add add if useBipolarVoltage
-          annotation (Placement(transformation(extent={{-40,-60},{-20,-40}})));
+        Blocks.Math.Division divisionUnipolar if not useBipolarVoltage
+          annotation (Placement(transformation(extent={{-40,20},{-20,40}})));
+        Blocks.Math.Division divisionBipolar if useBipolarVoltage
+          annotation (Placement(transformation(extent={{-40,-40},{-20,-20}})));
+        Modelica.Blocks.Math.Add add(k1=0.5, k2=1) if useBipolarVoltage
+          annotation (Placement(transformation(extent={{0,-60},{20,-40}})));
         Modelica.Blocks.Sources.Constant offset(final k=0.5) if useBipolarVoltage
           "Offset of 0.5 in case of bipolar operation"
-          annotation (Placement(transformation(extent={{-80,-80},{-60,-60}})));
+          annotation (Placement(transformation(extent={{-40,-80},{-20,-60}})));
+        Blocks.Interfaces.RealInput vMaxExt if not useConstantMaximumVoltage
+          "External maximum voltage" annotation (
+            Placement(transformation(
+              extent={{-20,-20},{20,20}},
+              rotation=270,
+              origin={0,120}), iconTransformation(
+              extent={{-20,-20},{20,20}},
+              rotation=270,
+              origin={0,120})));
+        Blocks.Sources.Constant vMaxConst(final k=vMax) if useConstantMaximumVoltage
+          "Offset of 0.5 in case of bipolar operation"
+          annotation (Placement(transformation(extent={{40,70},{20,90}})));
+      protected
+        Blocks.Interfaces.RealInput vMaxInt "External maximum voltage" annotation (
+            Placement(transformation(
+              extent={{-4,-4},{4,4}},
+              rotation=180,
+              origin={0,80})));
       equation
-        connect(v, gainUnipolar.u) annotation (Line(
-            points={{-120,0},{-90,0},{-90,30},{-82,30}}, color={0,0,127}));
-        connect(v, gainBipolar.u) annotation (Line(
-            points={{-120,0},{-90,0},{-90,-30},{-82,-30}}, color={0,0,127}));
-        connect(gainBipolar.y, add.u1) annotation (Line(
-            points={{-59,-30},{-50,-30},{-50,-44},{-42,-44}}, color={0,0,127}));
+        connect(divisionBipolar.y, add.u1) annotation (Line(points={{-19,-30},{-10,-30},
+                {-10,-44},{-2,-44}}, color={0,0,127}));
         connect(offset.y, add.u2) annotation (Line(
-            points={{-59,-70},{-50,-70},{-50,-56},{-42,-56}}, color={0,0,127}));
-        connect(gainUnipolar.y, dutyCycle) annotation (Line(
-            points={{-59,30},{20,30},{20,0},{110,0}}, color={0,0,127}));
+            points={{-19,-70},{-10,-70},{-10,-56},{-2,-56}},  color={0,0,127}));
+        connect(divisionUnipolar.y, dutyCycle) annotation (Line(points={{-19,30},{40,30},
+                {40,0},{110,0}}, color={0,0,127}));
         connect(add.y, dutyCycle) annotation (Line(
-            points={{-19,-50},{20,-50},{20,0},{110,0}}, color={0,0,127}));
+            points={{21,-50},{40,-50},{40,0},{110,0}},  color={0,0,127}));
+        connect(v, divisionUnipolar.u1) annotation (Line(points={{-120,0},{-80,0},{-80,
+                36},{-42,36}}, color={0,0,127}));
+        connect(v, divisionBipolar.u1) annotation (Line(points={{-120,0},{-80,0},{-80,
+                -24},{-42,-24}}, color={0,0,127}));
+        connect(vMaxExt, vMaxInt)
+          annotation (Line(points={{0,120},{0,80}}, color={0,0,127}));
+        connect(vMaxInt, divisionUnipolar.u2) annotation (Line(points={{0,80},{-60,80},
+                {-60,24},{-42,24}}, color={0,0,127}));
+        connect(vMaxInt, vMaxConst.y)
+          annotation (Line(points={{0,80},{19,80}}, color={0,0,127}));
+        connect(vMaxInt, divisionBipolar.u2) annotation (Line(points={{0,80},{-60,80},
+                {-60,-36},{-42,-36}}, color={0,0,127}));
         annotation (defaultComponentName="adaptor", Icon(graphics={
               Rectangle(
                 extent={{-100,100},{100,-100}},
@@ -6892,7 +6921,7 @@ Copyright &copy; 2013-2018, <a href=\"modelica://Modelica.Electrical.PowerConver
 <a href=\"modelica://Modelica.Electrical.PowerConverters.UsersGuide.Contact\">Anton Haumer</a>
 </p>
 <p>
-<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\"> https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em>
+<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em>
 </p>
 </html>"),
     Icon(graphics={

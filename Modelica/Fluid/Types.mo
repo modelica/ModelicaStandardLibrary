@@ -96,7 +96,7 @@ tables:
 </p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-<tr><td colspan=\"3\"><strong>Mass balance</strong> </td>
+<tr><td colspan=\"3\"><strong>Mass balance</strong> </td></tr>
 <tr><td><strong>Dynamics.</strong></td>
     <td><strong>Balance equation</strong></td>
     <td><strong>Initial condition</strong></td></tr>
@@ -107,13 +107,13 @@ tables:
 
 <tr><td> FixedInitial</td>
     <td> no restrictions </td>
-    <td> <strong>if</strong> Medium.singleState <strong>then</strong> <br>
+    <td> <strong>if</strong> Medium.singleState <strong>then</strong><br>
          &nbsp;&nbsp;no initial condition<br>
          <strong>else</strong> p=p_start </td></tr>
 
 <tr><td> SteadyStateInitial</td>
     <td> no restrictions </td>
-    <td> <strong>if</strong> Medium.singleState <strong>then</strong> <br>
+    <td> <strong>if</strong> Medium.singleState <strong>then</strong><br>
          &nbsp;&nbsp;no initial condition<br>
          <strong>else</strong> <strong>der</strong>(p)=0 </td></tr>
 
@@ -125,7 +125,7 @@ tables:
 &nbsp;<br>
 
 <table border=1 cellspacing=0 cellpadding=2>
-<tr><td colspan=\"3\"><strong>Energy balance</strong> </td>
+<tr><td colspan=\"3\"><strong>Energy balance</strong> </td></tr>
 <tr><td><strong>Dynamics.</strong></td>
     <td><strong>Balance equation</strong></td>
     <td><strong>Initial condition</strong></td></tr>
@@ -150,7 +150,7 @@ tables:
 &nbsp;<br>
 
 <table border=1 cellspacing=0 cellpadding=2>
-<tr><td colspan=\"3\"><strong>Momentum balance</strong> </td>
+<tr><td colspan=\"3\"><strong>Momentum balance</strong> </td></tr>
 <tr><td><strong>Dynamics.</strong></td>
     <td><strong>Balance equation</strong></td>
     <td><strong>Initial condition</strong></td></tr>

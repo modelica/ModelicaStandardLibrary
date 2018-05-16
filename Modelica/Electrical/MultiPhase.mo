@@ -24,7 +24,7 @@ In symmetrical multi phase systems odd and even phase numbers have to be disting
 </p>
 <h5>Odd number of phases</h5>
 <p>
-For a symmetrical multi phase system with m phases the displacement of the sinewaves is 2 &pi; / m.
+For a symmetrical multi phase system with m phases the displacement of the sine waves is 2 &pi; / m.
 </p>
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
   <caption align=\"bottom\"><strong>Fig. 1: </strong>Symmetrical (a) three phase and (b) five phase current system</caption>
@@ -44,7 +44,7 @@ The number of phases m can be divided by 2 recursively until the result is eithe
 The number of base systems n<sub>Base</sub> is defined by the number of divisions, i.e., m = n<sub>Base</sub> * m<sub>Base</sub>.
 </p>
 <p>
-For a base system with m<sub>Base</sub> phases the displacement of the sinewaves belongig to that base system is 2 &pi; / m<sub>Base</sub>.
+For a base system with m<sub>Base</sub> phases the displacement of the sine waves belonging to that base system is 2 &pi; / m<sub>Base</sub>.
 </p>
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
   <caption align=\"bottom\"><strong>Fig. 2: </strong>Symmetrical (a) six and (b) ten phase current system</caption>
@@ -73,7 +73,7 @@ In case of  m<sub>Base</sub> &gt; 2, the components [2..m<sub>Base</sub> - 1] ar
 and the last component [m<sub>Base</sub>] is the zero sequence component.
 </p>
 <p>
-This set of symmterical components is repeated for each of the n<sub>Base</sub> base systems.
+This set of symmetrical components is repeated for each of the n<sub>Base</sub> base systems.
 </p>
 <h4>See also</h4>
 <p>
@@ -92,7 +92,7 @@ This set of symmterical components is repeated for each of the n<sub>Base</sub> 
 <strong>Dr. Christian Kral</strong><br>
 Electric Machines, Drives and Systems<br>
 1060 Vienna, Austria<br>
-email: <a HREF=\"mailto:dr.christian.kral@gmail.com\">dr.christian.kral@gmail.com</a><br>
+email: <a href=\"mailto:dr.christian.kral@gmail.com\">dr.christian.kral@gmail.com</a><br>
 </p>
 
 <p>
@@ -100,7 +100,7 @@ email: <a HREF=\"mailto:dr.christian.kral@gmail.com\">dr.christian.kral@gmail.co
 <a href=\"http://www.haumer.at\">Technical Consulting &amp; Electrical Engineering</a><br>
 93049 Regensburg, Germany<br>
 3423 St. Andrae-Woerdern, Austria<br>
-email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
+email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
 </p>
 </html>"));
     end Contact;
@@ -113,7 +113,7 @@ email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
 <h5>Version 3.2.2, 2018-01-02 (Anton Haumer, Christian Kral)</h5>
 <ul>
   <li>Shortened default component names, see
-      <a href=\"https://github.com/modelica/Modelica/issues/2301\">#2301</a></li>
+      <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2301\">#2301</a></li>
 <li>Removed redundant (and not identical) parameter m from
     <a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.MutualInductor\">MutualInductor</a>,
     see #2202</li>
@@ -170,8 +170,8 @@ email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
     <tr>
-      <td valign=\"top\">[Vaske1963]</td>
-      <td valign=\"top\">P. Vaske,
+      <td>[Vaske1963]</td>
+      <td>P. Vaske,
         &quot;&Uuml;ber die Drehfelder und Drehmomente symmetrischer Komponenten in Induktionsmaschinen,&quot;
         (in German), <em>Archiv f&uuml;r Elektrotechnik</em>
         vol 2, 1963, pp. 97-117.</td>
@@ -1425,7 +1425,7 @@ Each element of the array of saturatingInductors is only dependent on the curren
 <p>
 Model of a multi phase inductor providing a mutual inductance matrix model.
 </p>
-<H4>Implementation</H4>
+<h4>Implementation</h4>
 <pre>
   v[1] = L[1,1]*der(i[1]) + L[1,2]*der(i[2]) + ... + L[1,m]*der(i[m])
   v[2] = L[2,1]*der(i[1]) + L[2,2]*der(i[2]) + ... + L[2,m]*der(i[m])
@@ -1502,7 +1502,7 @@ Model of a multi phase inductor providing a mutual inductance matrix model.
 <p>
 Model of a multi phase zero sequence inductor.
 </p>
-<H4>Implementation</H4>
+<h4>Implementation</h4>
 <pre>
   v = Lzero*sum(der(i)) = Lzero*der(sum(i))
 </pre>
@@ -1671,11 +1671,11 @@ Contains m transformers (Modelica.Electrical.Analog.Basic.Transformer)
 <p>
 Contains m variable resistors (Modelica.Electrical.Analog.Basic.VariableResistor)
 </p>
-<P>
+<p>
 <strong>Attention!!!</strong><br>
   It is recommended that none of the R_Port signals should not cross the zero value.
   Otherwise depending on the surrounding circuit the probability of singularities is high.
-</P>
+</p>
 </html>"));
     end VariableResistor;
 
@@ -1729,11 +1729,11 @@ Contains m variable resistors (Modelica.Electrical.Analog.Basic.VariableResistor
 <p>
 Contains m variable conductors (Modelica.Electrical.Analog.Basic.VariableConductor)
 </p>
-<P>
+<p>
 <strong>Attention!!!</strong><br>
   It is recommended that none of the G_Port signals should not cross the zero value.
   Otherwise depending on the surrounding circuit the probability of singularities is high.
-</P>
+</p>
 </html>"));
     end VariableConductor;
 
@@ -1774,12 +1774,12 @@ Contains m variable conductors (Modelica.Electrical.Analog.Basic.VariableConduct
 <p>
 Contains m variable capacitors (Modelica.Electrical.Analog.Basic.VariableCapacitor)
 </p>
-<P>
+<p>
 It is required that each C_Port.signal &ge; 0, otherwise an
 assertion is raised. To avoid a variable index system,<br>
 C = Cmin, if 0 &le; C_Port.signal &lt; Cmin, where
 Cmin is a parameter with default value Modelica.Constants.eps.
-</P>
+</p>
 </html>"));
     end VariableCapacitor;
 
@@ -1837,12 +1837,12 @@ Cmin is a parameter with default value Modelica.Constants.eps.
 <p>
 Contains m variable inductors (Modelica.Electrical.Analog.Basic.VariableInductor)
 </p>
-<P>
+<p>
 It is required that each L_Port.signal &ge; 0, otherwise an
 assertion is raised. To avoid a variable index system,<br>
 L = Lmin, if 0 &le; L_Port.signal &lt; Lmin, where
 Lmin is a parameter with default value Modelica.Constants.eps.
-</P>
+</p>
 </html>"));
     end VariableInductor;
     annotation (Documentation(info="<html>
@@ -2801,12 +2801,12 @@ The back transformation matrix can be used to determine the time phasors from th
     end symmetricBackTransformationMatrix;
 
     function numberOfSymmetricBaseSystems
-      "Determines the number of symmeric base systems of m phase symmetric system"
+      "Determines the number of symmetric base systems of m phase symmetric system"
       extends Modelica.Icons.Function;
       input Integer m=3 "Number of phases";
       output Integer n "Number of symmetric base systems";
     algorithm
-      // Init number of base systmes
+      // Init number of base systems
       n := 1;
       if mod(m, 2) == 0 then
         // Even number of phases
@@ -4158,7 +4158,7 @@ electrical multiphase components, based on Modelica.Electrical.Analog.
 Copyright &copy; 1998-2018, Modelica Association and Anton Haumer.
 </p>
 <p>
-<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\"> https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em>
+<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em>
 </p>
 </html>", revisions="<html>
   <ul>

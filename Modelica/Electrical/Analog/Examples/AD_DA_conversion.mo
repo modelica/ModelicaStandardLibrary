@@ -56,7 +56,7 @@ equation
 <p>Compare the input voltage (aD_Converter.p.v) with the output voltage (dA_Converter.p.v). By changing N the influence of the digital signal width can be studied. Otherwise the trigger frequency pulse.period can be changed to see its influence.</p>
 </html>", revisions="<html>
 <ul>
-<li><em>October 13, 2009  </em>by Matthias Franke </li>
+<li><em>October 13, 2009  </em>by Matthias Franke</li>
 </ul>
 </html>"));
 end AD_DA_conversion;

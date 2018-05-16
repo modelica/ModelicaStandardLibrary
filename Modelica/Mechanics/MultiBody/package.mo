@@ -28,9 +28,9 @@ with its schematic.
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/DoublePendulumSmall.png\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/DoublePendulumSmall.png\">
 
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/DoublePendulumDiagramSmall.png\" ALT=\"double pendulum (diagram layer)\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/DoublePendulumDiagramSmall.png\" alt=\"double pendulum (diagram layer)\">
 </p>
 
 <p>
@@ -81,7 +81,7 @@ The main features of the library are:
     differential algebraic equations symbolically to a system where
     the number of equations and unknowns are the same (the user need
     <strong>not</strong> cut loops with special cut-joints to construct a
-    tree-structure). </li>
+    tree-structure).</li>
 <li><strong>Automatic state selection from joints and bodies</strong>.
     Most joints and all bodies have potential states. A Modelica
     translator will use the generalized coordinates
@@ -91,7 +91,7 @@ The main features of the library are:
     to define a body moving freely in space. An advanced user
     may select states manually from the <strong>Advanced</strong> menu of the
     corresponding components or use a Modelica parameter modification
-    to set the \"stateSelect\" attribute directly. </li>
+    to set the \"stateSelect\" attribute directly.</li>
 <li> <strong>Analytic solution of kinematic loops</strong>. The non-linear
     equations occurring in kinematic loops are solved <strong>analytically</strong>
     for a large class of mechanisms, such as a 4 bar mechanism,
@@ -321,7 +321,7 @@ MultiBody.Examples.Loops.EngineV6</a>.
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/EngineV6_1.png\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/EngineV6_1.png\">
 </p>
 
 <p>
@@ -332,7 +332,7 @@ above.
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/EngineV6_2.png\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/EngineV6_2.png\">
 </p>
 
 <p>
@@ -345,7 +345,7 @@ loops that have together 1 degree of freedom.
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/EngineV6_3.png\" width=\"303\" height=\"136\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/EngineV6_3.png\" width=\"303\" height=\"136\">
 </p>
 
 <p>
@@ -428,7 +428,7 @@ In a series of papers and dissertations
 Prof. Hiller and his group in Duisburg, Germany,
 have developed systematic methods to handle mechanical
 loops analytically, see also
-<a href=\"Modelica.Mechanics.MultiBody.UsersGuide.Literature\">MultiBody.UsersGuide.Literature</a>.
+<a href=\"modelica://Modelica.Mechanics.MultiBody.UsersGuide.Literature\">MultiBody.UsersGuide.Literature</a>.
 The \"characteristic pair of joints\" method
 basically cuts a loop at two joints and uses geometric
 invariants to reduce the number of algebraic
@@ -534,35 +534,35 @@ combinations are listed in the table below.
         <td colspan=\"2\"> <strong>3-dimensional Loops:</strong></td>
       </tr>
       <tr>
-        <td valign=\"top\">JointSSR</td>
-        <td valign=\"top\">Spherical - Spherical - Revolute</td>
+        <td>JointSSR</td>
+        <td>Spherical - Spherical - Revolute</td>
       </tr>
       <tr>
-        <td valign=\"top\">JointSSP</td>
-        <td valign=\"top\">Spherical - Spherical - Prismatic</td>
+        <td>JointSSP</td>
+        <td>Spherical - Spherical - Prismatic</td>
       </tr>
       <tr>
-        <td valign=\"top\">JointUSR</td>
-        <td valign=\"top\">Universal - Spherical - Revolute</td>
+        <td>JointUSR</td>
+        <td>Universal - Spherical - Revolute</td>
       </tr>
       <tr>
-        <td valign=\"top\">JointUSP</td>
-        <td valign=\"top\">Universal - Spherical - Prismatic</td>
+        <td>JointUSP</td>
+        <td>Universal - Spherical - Prismatic</td>
       </tr>
       <tr>
-        <td valign=\"top\">JointUPS</td>
-        <td valign=\"top\">Universal - Prismatic - Spherical</td>
+        <td>JointUPS</td>
+        <td>Universal - Prismatic - Spherical</td>
       </tr>
       <tr>
         <td colspan=\"2\"><strong>Planar Loops:</strong></td>
       </tr>
       <tr>
-        <td valign=\"top\">JointRRR</td>
-        <td valign=\"top\">Revolute - Revolute - Revolute</td>
+        <td>JointRRR</td>
+        <td>Revolute - Revolute - Revolute</td>
       </tr>
       <tr>
-        <td valign=\"top\">JointRRP</td>
-        <td valign=\"top\">Revolute - Revolute - Prismatic</td>
+        <td>JointRRP</td>
+        <td>Revolute - Revolute - Prismatic</td>
       </tr>
 </table>
 </div>
@@ -862,36 +862,36 @@ functions from library Modelica.Mechanics.MultiBody.Frames):
            Interfaces.Frame_a</strong></th>
     <th><strong>MultiBody.Interfaces.Frame_a</strong></th></tr>
 <tr>
-  <td valign=\"top\">frame_a.<strong>r0</strong></td>
-  <td valign=\"top\">= frame_a.r_0 (is converted)</td>
+  <td>frame_a.<strong>r0</strong></td>
+  <td>= frame_a.r_0 (is converted)</td>
 </tr>
 <tr>
-  <td valign=\"top\">frame_a.<strong>S</strong></td>
-  <td valign=\"top\">= transpose(frame_a.R)</td>
+  <td>frame_a.<strong>S</strong></td>
+  <td>= transpose(frame_a.R)</td>
 </tr>
 <tr>
-  <td valign=\"top\">frame_a.<strong>v</strong></td>
-  <td valign=\"top\">= resolve2(frame_a.R, <strong>der</strong>(frame_a.r_0))</td>
+  <td>frame_a.<strong>v</strong></td>
+  <td>= resolve2(frame_a.R, <strong>der</strong>(frame_a.r_0))</td>
 </tr>
 <tr>
-  <td valign=\"top\">frame_a.<strong>w</strong></td>
-  <td valign=\"top\">= angularVelocity2(frame_a.R)</td>
+  <td>frame_a.<strong>w</strong></td>
+  <td>= angularVelocity2(frame_a.R)</td>
 </tr>
 <tr>
-  <td valign=\"top\">frame_a.<strong>a</strong></td>
-  <td valign=\"top\">= resolve2(frame_a.R, <strong>der</strong>(v_0)); v_0 = der(r_0)</td>
+  <td>frame_a.<strong>a</strong></td>
+  <td>= resolve2(frame_a.R, <strong>der</strong>(v_0)); v_0 = der(r_0)</td>
 </tr>
 <tr>
-  <td valign=\"top\">frame_a.<strong>z</strong></td>
-  <td valign=\"top\">= <strong>der</strong>(w);  w = angulaVelocity2(frame_a.R)</td>
+  <td>frame_a.<strong>z</strong></td>
+  <td>= <strong>der</strong>(w);  w = angulaVelocity2(frame_a.R)</td>
 </tr>
 <tr>
-  <td valign=\"top\">frame_a.<strong>f</strong></td>
-  <td valign=\"top\">= frame_a.f (no conversion needed)</td>
+  <td>frame_a.<strong>f</strong></td>
+  <td>= frame_a.f (no conversion needed)</td>
 </tr>
 <tr>
-  <td valign=\"top\">frame_a.<strong>t</strong></td>
-  <td valign=\"top\">= frame_a.t (no conversion needed)</td>
+  <td>frame_a.<strong>t</strong></td>
+  <td>= frame_a.t (no conversion needed)</td>
 </tr>
 </table>
 <p>
@@ -994,7 +994,7 @@ Germany
 <li> The central idea to handle a certain class of overdetermined, consistent
      set of differential algebraic equations (i.e., there are more equations than
      unknowns) with symbolic transformation algorithms was developed together
-     with Hilding Elmqvist and Sven Erik Mattsson from Dassault Syst&egrave;mes AB, Lund, Sweden.
+     with Hilding Elmqvist and Sven Erik Mattsson, previously at Dassault Syst&egrave;mes AB, Lund, Sweden.
      The MultiBody library is heavily relying on this feature which is a
      prerequisite for a truly \"object-oriented\" multi-body systems library,
      where components can be connected together in any meaningful way.</li>
@@ -1048,6 +1048,7 @@ model World
 
   import Modelica.Mechanics.MultiBody.Types.GravityTypes;
   import Modelica.Mechanics.MultiBody.Types;
+  import Modelica.Constants.pi;
 
   Interfaces.Frame_b frame_b
     "Coordinate system fixed in the origin of the world frame"
@@ -1059,6 +1060,8 @@ model World
     "= true, if world coordinate system shall be visualized" annotation(Dialog(enable=enableAnimation));
   parameter Boolean animateGravity=true
     "= true, if gravity field shall be visualized (acceleration vector or field center)" annotation(Dialog(enable=enableAnimation));
+  parameter Boolean animateGround=false
+    "= true, if ground plane shall be visualized" annotation(Dialog(enable=enableAnimation));
   parameter Types.AxisLabel label1="x" "Label of horizontal axis in icon";
   parameter Types.AxisLabel label2="y" "Label of vertical axis in icon";
   parameter Types.GravityTypes gravityType=GravityTypes.UniformGravity
@@ -1119,6 +1122,26 @@ model World
     annotation (Dialog(colorSelector=true, tab="Animation", group=
           "if animateGravity = true and gravityType = PointGravity",
           enable=enableAnimation and animateGravity and gravityType == GravityTypes.PointGravity));
+
+  parameter MultiBody.Types.Axis groundAxis_u=if abs(n[1])>=0.99 then {0,1,0} else {1,0,0}
+    "Vector along 1st axis (called u) of ground plane, resolved in world frame (should be perpendicular to gravity direction)"
+    annotation (Dialog(
+      tab="Animation", group="if animateGround = true and gravityType = UniformGravity",
+      enable=enableAnimation and animateGround and gravityType == GravityTypes.UniformGravity));
+  parameter Modelica.SIunits.Length groundLength_u=2 "Length of ground plane along groundAxis_u"
+    annotation (Dialog(
+      tab="Animation", group="if animateGround = true and gravityType = UniformGravity",
+      enable=enableAnimation and animateGround and gravityType == GravityTypes.UniformGravity));
+  parameter Modelica.SIunits.Length groundLength_v=groundLength_u "Length of ground plane perpendicular to groundAxis_u"
+    annotation (Dialog(
+      tab="Animation", group="if animateGround = true and gravityType = UniformGravity",
+      enable=enableAnimation and animateGround and gravityType == GravityTypes.UniformGravity));
+  input Types.Color groundColor={200,200,200}
+    "Color of ground plane"
+    annotation (Dialog(
+      colorSelector=true,
+      tab="Animation", group="if animateGround = true and gravityType = UniformGravity",
+      enable=enableAnimation and animateGround and gravityType == GravityTypes.UniformGravity));
 
   parameter SI.Length nominalLength=1 "\"Nominal\" length of multi-body system"
     annotation (Dialog(tab="Defaults"));
@@ -1336,6 +1359,23 @@ protected
       mue=mue);
 */
 
+  // Ground plane visualization
+  Modelica.Mechanics.MultiBody.Visualizers.Advanced.Surface surface(
+    final multiColoredSurface=false,
+    final wireframe=false,
+    final color=groundColor,
+    final specularCoefficient=0,
+    final transparency=0,
+    final R=Modelica.Mechanics.MultiBody.Frames.absoluteRotation(
+      Modelica.Mechanics.MultiBody.Frames.from_nxy(n, groundAxis_u),
+      Modelica.Mechanics.MultiBody.Frames.axesRotations({1,2,3}, {pi/2,pi/2,0}, {0,0,0})),
+    final r_0=zeros(3),
+    final nu=2,
+    final nv=2,
+    redeclare function surfaceCharacteristic =
+      Modelica.Mechanics.MultiBody.Visualizers.Advanced.SurfaceCharacteristics.rectangle(
+      lu=groundLength_u, lv=groundLength_v)) if
+      enableAnimation and animateGround and gravityType == GravityTypes.UniformGravity;
 equation
   Connections.root(frame_b.R);
 
@@ -1423,9 +1463,9 @@ ground. This model serves several purposes:
      the center of mass of a body, or the diameters of the cylinders
      representing a revolute joint).</li>
 <li> It is used to define a <strong>visual representation</strong> of the
-     world model (= 3 coordinate axes with labels) and of the defined
-     gravity field.<br>
-    <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/world.png\" ALT=\"MultiBody.World\">
+     world model (= 3 coordinate axes with labels), of the defined
+     gravity field and of a ground plane perpendicular to the gravity direction.<br>
+    <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/world.png\" alt=\"MultiBody.World\">
 </li>
 </ul>
 <p>
@@ -1435,9 +1475,11 @@ from nearly every component, exactly one instance of model World needs
 to be present in every model on the top level. The basic declaration
 needs to be:
 </p>
-<pre>
-    <strong>inner</strong> Modelica.Mechanics.MultiBody.World world
-</pre>
+
+<blockquote><pre>
+<strong>inner</strong> Modelica.Mechanics.MultiBody.World world
+</pre></blockquote>
+
 <p>
 Note, it must be an <strong>inner</strong> declaration with instance name <strong>world</strong>
 in order that this world object can be accessed from all objects in the
@@ -1492,7 +1534,7 @@ For an introduction, have especially a look at:
 Copyright &copy; 1998-2018, Modelica Association and DLR.
 </p>
 <p>
-<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\"> https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em>
+<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em>
 </p>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
             {100,100}}), graphics={

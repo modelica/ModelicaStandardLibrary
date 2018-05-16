@@ -325,7 +325,7 @@ as output signals:
 </p>
 
 <ol>
-<li> Absolute position vector (= r) </li>
+<li> Absolute position vector (= r)</li>
 <li> Absolute velocity vector (= v)</li>
 <li> Absolute acceleration vector (= a)</li>
 <li> Three angles to rotate world frame into frame_a (= angles)</li>
@@ -340,14 +340,14 @@ a vector is resolved:
 
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameA.</strong></th><th><strong>Meaning</strong></th></tr>
-<tr><td valign=\"top\">world</td>
-    <td valign=\"top\">Resolve vectors in world frame</td></tr>
+<tr><td>world</td>
+    <td>Resolve vectors in world frame</td></tr>
 
-<tr><td valign=\"top\">frame_a</td>
-    <td valign=\"top\">Resolve vectors in frame_a</td></tr>
+<tr><td>frame_a</td>
+    <td>Resolve vectors in frame_a</td></tr>
 
-<tr><td valign=\"top\">frame_resolve</td>
-    <td valign=\"top\">Resolve vectors in frame_resolve</td></tr>
+<tr><td>frame_resolve</td>
+    <td>Resolve vectors in frame_resolve</td></tr>
 </table>
 
 <p>
@@ -364,7 +364,7 @@ frame_a and the yellow arrow is the animated sensor.
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Sensors/AbsoluteSensor.png\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Sensors/AbsoluteSensor.png\">
 </p>
 
 <p>
@@ -762,7 +762,7 @@ as output signals:
 </p>
 
 <ol>
-<li> Relative position vector (= r_rel) </li>
+<li> Relative position vector (= r_rel)</li>
 <li> Relative velocity vector (= v_rel)</li>
 <li> Relative acceleration vector (= a_rel)</li>
 <li> Three angles to rotate frame_a into frame_b (= angles)</li>
@@ -777,17 +777,17 @@ a vector is resolved (before differentiation):
 
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameAB.</strong></th><th><strong>Meaning</strong></th></tr>
-<tr><td valign=\"top\">world</td>
-    <td valign=\"top\">Resolve vectors in world frame</td></tr>
+<tr><td>world</td>
+    <td>Resolve vectors in world frame</td></tr>
 
-<tr><td valign=\"top\">frame_a</td>
-    <td valign=\"top\">Resolve vectors in frame_a</td></tr>
+<tr><td>frame_a</td>
+    <td>Resolve vectors in frame_a</td></tr>
 
-<tr><td valign=\"top\">frame_b</td>
-    <td valign=\"top\">Resolve vectors in frame_b</td></tr>
+<tr><td>frame_b</td>
+    <td>Resolve vectors in frame_b</td></tr>
 
-<tr><td valign=\"top\">frame_resolve</td>
-    <td valign=\"top\">Resolve vectors in frame_resolve</td></tr>
+<tr><td>frame_resolve</td>
+    <td>Resolve vectors in frame_resolve</td></tr>
 </table>
 
 <p>
@@ -805,7 +805,7 @@ the yellow arrow is the animated sensor.
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Sensors/RelativeSensor.png\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Sensors/RelativeSensor.png\">
 </p>
 
 <p>
@@ -957,14 +957,14 @@ the position vector is resolved:
 
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameA.</strong></th><th><strong>Meaning</strong></th></tr>
-<tr><td valign=\"top\">world</td>
-    <td valign=\"top\">Resolve vector in world frame</td></tr>
+<tr><td>world</td>
+    <td>Resolve vector in world frame</td></tr>
 
-<tr><td valign=\"top\">frame_a</td>
-    <td valign=\"top\">Resolve vector in frame_a</td></tr>
+<tr><td>frame_a</td>
+    <td>Resolve vector in frame_a</td></tr>
 
-<tr><td valign=\"top\">frame_resolve</td>
-    <td valign=\"top\">Resolve vector in frame_resolve</td></tr>
+<tr><td>frame_resolve</td>
+    <td>Resolve vector in frame_resolve</td></tr>
 </table>
 
 <p>
@@ -1087,14 +1087,14 @@ the velocity vector is resolved:
 
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameA.</strong></th><th><strong>Meaning</strong></th></tr>
-<tr><td valign=\"top\">world</td>
-    <td valign=\"top\">Resolve vector in world frame</td></tr>
+<tr><td>world</td>
+    <td>Resolve vector in world frame</td></tr>
 
-<tr><td valign=\"top\">frame_a</td>
-    <td valign=\"top\">Resolve vector in frame_a</td></tr>
+<tr><td>frame_a</td>
+    <td>Resolve vector in frame_a</td></tr>
 
-<tr><td valign=\"top\">frame_resolve</td>
-    <td valign=\"top\">Resolve vector in frame_resolve</td></tr>
+<tr><td>frame_resolve</td>
+    <td>Resolve vector in frame_resolve</td></tr>
 </table>
 
 <p>
@@ -1273,14 +1273,14 @@ the angular velocity is resolved:
 
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameA.</strong></th><th><strong>Meaning</strong></th></tr>
-<tr><td valign=\"top\">world</td>
-    <td valign=\"top\">Resolve vector in world frame</td></tr>
+<tr><td>world</td>
+    <td>Resolve vector in world frame</td></tr>
 
-<tr><td valign=\"top\">frame_a</td>
-    <td valign=\"top\">Resolve vector in frame_a</td></tr>
+<tr><td>frame_a</td>
+    <td>Resolve vector in frame_a</td></tr>
 
-<tr><td valign=\"top\">frame_resolve</td>
-    <td valign=\"top\">Resolve vector in frame_resolve</td></tr>
+<tr><td>frame_resolve</td>
+    <td>Resolve vector in frame_resolve</td></tr>
 </table>
 
 <p>
@@ -1374,17 +1374,17 @@ the position vector is resolved:
 
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameAB.</strong></th><th><strong>Meaning</strong></th></tr>
-<tr><td valign=\"top\">world</td>
-    <td valign=\"top\">Resolve vector in world frame</td></tr>
+<tr><td>world</td>
+    <td>Resolve vector in world frame</td></tr>
 
-<tr><td valign=\"top\">frame_a</td>
-    <td valign=\"top\">Resolve vector in frame_a</td></tr>
+<tr><td>frame_a</td>
+    <td>Resolve vector in frame_a</td></tr>
 
-<tr><td valign=\"top\">frame_b</td>
-    <td valign=\"top\">Resolve vector in frame_b</td></tr>
+<tr><td>frame_b</td>
+    <td>Resolve vector in frame_b</td></tr>
 
-<tr><td valign=\"top\">frame_resolve</td>
-    <td valign=\"top\">Resolve vector in frame_resolve</td></tr>
+<tr><td>frame_resolve</td>
+    <td>Resolve vector in frame_resolve</td></tr>
 </table>
 
 <p>
@@ -1506,17 +1506,17 @@ the velocity vector is resolved:
 
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameAB.</strong></th><th><strong>Meaning</strong></th></tr>
-<tr><td valign=\"top\">world</td>
-    <td valign=\"top\">Resolve vector in world frame</td></tr>
+<tr><td>world</td>
+    <td>Resolve vector in world frame</td></tr>
 
-<tr><td valign=\"top\">frame_a</td>
-    <td valign=\"top\">Resolve vector in frame_a</td></tr>
+<tr><td>frame_a</td>
+    <td>Resolve vector in frame_a</td></tr>
 
-<tr><td valign=\"top\">frame_b</td>
-    <td valign=\"top\">Resolve vector in frame_b</td></tr>
+<tr><td>frame_b</td>
+    <td>Resolve vector in frame_b</td></tr>
 
-<tr><td valign=\"top\">frame_resolve</td>
-    <td valign=\"top\">Resolve vector in frame_resolve</td></tr>
+<tr><td>frame_resolve</td>
+    <td>Resolve vector in frame_resolve</td></tr>
 </table>
 
 <p>
@@ -1695,17 +1695,17 @@ the angular velocity is resolved:
 
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameAB.</strong></th><th><strong>Meaning</strong></th></tr>
-<tr><td valign=\"top\">world</td>
-    <td valign=\"top\">Resolve vector in world frame</td></tr>
+<tr><td>world</td>
+    <td>Resolve vector in world frame</td></tr>
 
-<tr><td valign=\"top\">frame_a</td>
-    <td valign=\"top\">Resolve vector in frame_a</td></tr>
+<tr><td>frame_a</td>
+    <td>Resolve vector in frame_a</td></tr>
 
-<tr><td valign=\"top\">frame_b</td>
-    <td valign=\"top\">Resolve vector in frame_b</td></tr>
+<tr><td>frame_b</td>
+    <td>Resolve vector in frame_b</td></tr>
 
-<tr><td valign=\"top\">frame_resolve</td>
-    <td valign=\"top\">Resolve vector in frame_resolve</td></tr>
+<tr><td>frame_resolve</td>
+    <td>Resolve vector in frame_resolve</td></tr>
 </table>
 
 <p>
@@ -1825,7 +1825,7 @@ the yellow arrow is the animated sensor.
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Sensors/Distance.png\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Sensors/Distance.png\">
 </p>
 
 <p>
@@ -1931,14 +1931,14 @@ the force vector is resolved:
 
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameA.</strong></th><th><strong>Meaning</strong></th></tr>
-<tr><td valign=\"top\">world</td>
-    <td valign=\"top\">Resolve vector in world frame</td></tr>
+<tr><td>world</td>
+    <td>Resolve vector in world frame</td></tr>
 
-<tr><td valign=\"top\">frame_a</td>
-    <td valign=\"top\">Resolve vector in frame_a</td></tr>
+<tr><td>frame_a</td>
+    <td>Resolve vector in frame_a</td></tr>
 
-<tr><td valign=\"top\">frame_resolve</td>
-    <td valign=\"top\">Resolve vector in frame_resolve</td></tr>
+<tr><td>frame_resolve</td>
+    <td>Resolve vector in frame_resolve</td></tr>
 </table>
 
 <p>
@@ -2045,14 +2045,14 @@ the torque vector is resolved:
 
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameA.</strong></th><th><strong>Meaning</strong></th></tr>
-<tr><td valign=\"top\">world</td>
-    <td valign=\"top\">Resolve vector in world frame</td></tr>
+<tr><td>world</td>
+    <td>Resolve vector in world frame</td></tr>
 
-<tr><td valign=\"top\">frame_a</td>
-    <td valign=\"top\">Resolve vector in frame_a</td></tr>
+<tr><td>frame_a</td>
+    <td>Resolve vector in frame_a</td></tr>
 
-<tr><td valign=\"top\">frame_resolve</td>
-    <td valign=\"top\">Resolve vector in frame_resolve</td></tr>
+<tr><td>frame_resolve</td>
+    <td>Resolve vector in frame_resolve</td></tr>
 </table>
 
 <p>
@@ -2209,14 +2209,14 @@ the two vectors are resolved:
 
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameA.</strong></th><th><strong>Meaning</strong></th></tr>
-<tr><td valign=\"top\">world</td>
-    <td valign=\"top\">Resolve vector in world frame</td></tr>
+<tr><td>world</td>
+    <td>Resolve vector in world frame</td></tr>
 
-<tr><td valign=\"top\">frame_a</td>
-    <td valign=\"top\">Resolve vector in frame_a</td></tr>
+<tr><td>frame_a</td>
+    <td>Resolve vector in frame_a</td></tr>
 
-<tr><td valign=\"top\">frame_resolve</td>
-    <td valign=\"top\">Resolve vector in frame_resolve</td></tr>
+<tr><td>frame_resolve</td>
+    <td>Resolve vector in frame_resolve</td></tr>
 </table>
 
 <p>
@@ -2235,7 +2235,7 @@ with negative sign at frame_a.
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Sensors/CutForceAndTorque.png\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Sensors/CutForceAndTorque.png\">
 </p>
 </html>"));
   end CutForceAndTorque;
@@ -2683,14 +2683,14 @@ the position vector is resolved:
 
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameA.</strong></th><th><strong>Meaning</strong></th></tr>
-<tr><td valign=\"top\">world</td>
-    <td valign=\"top\">Resolve vector in world frame</td></tr>
+<tr><td>world</td>
+    <td>Resolve vector in world frame</td></tr>
 
-<tr><td valign=\"top\">frame_a</td>
-    <td valign=\"top\">Resolve vector in frame_a</td></tr>
+<tr><td>frame_a</td>
+    <td>Resolve vector in frame_a</td></tr>
 
-<tr><td valign=\"top\">frame_resolve</td>
-    <td valign=\"top\">Resolve vector in frame_resolve</td></tr>
+<tr><td>frame_resolve</td>
+    <td>Resolve vector in frame_resolve</td></tr>
 </table>
 
 <p>
@@ -2759,14 +2759,14 @@ the angular velocity is resolved:
 
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameA.</strong></th><th><strong>Meaning</strong></th></tr>
-<tr><td valign=\"top\">world</td>
-    <td valign=\"top\">Resolve vector in world frame</td></tr>
+<tr><td>world</td>
+    <td>Resolve vector in world frame</td></tr>
 
-<tr><td valign=\"top\">frame_a</td>
-    <td valign=\"top\">Resolve vector in frame_a</td></tr>
+<tr><td>frame_a</td>
+    <td>Resolve vector in frame_a</td></tr>
 
-<tr><td valign=\"top\">frame_resolve</td>
-    <td valign=\"top\">Resolve vector in frame_resolve</td></tr>
+<tr><td>frame_resolve</td>
+    <td>Resolve vector in frame_resolve</td></tr>
 </table>
 
 <p>
@@ -2839,17 +2839,17 @@ the position vector is resolved:
 
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameAB.</strong></th><th><strong>Meaning</strong></th></tr>
-<tr><td valign=\"top\">world</td>
-    <td valign=\"top\">Resolve vector in world frame</td></tr>
+<tr><td>world</td>
+    <td>Resolve vector in world frame</td></tr>
 
-<tr><td valign=\"top\">frame_a</td>
-    <td valign=\"top\">Resolve vector in frame_a</td></tr>
+<tr><td>frame_a</td>
+    <td>Resolve vector in frame_a</td></tr>
 
-<tr><td valign=\"top\">frame_b</td>
-    <td valign=\"top\">Resolve vector in frame_b</td></tr>
+<tr><td>frame_b</td>
+    <td>Resolve vector in frame_b</td></tr>
 
-<tr><td valign=\"top\">frame_resolve</td>
-    <td valign=\"top\">Resolve vector in frame_resolve</td></tr>
+<tr><td>frame_resolve</td>
+    <td>Resolve vector in frame_resolve</td></tr>
 </table>
 
 <p>
@@ -2925,17 +2925,17 @@ the angular velocity is resolved:
 
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameAB.</strong></th><th><strong>Meaning</strong></th></tr>
-<tr><td valign=\"top\">world</td>
-    <td valign=\"top\">Resolve vector in world frame</td></tr>
+<tr><td>world</td>
+    <td>Resolve vector in world frame</td></tr>
 
-<tr><td valign=\"top\">frame_a</td>
-    <td valign=\"top\">Resolve vector in frame_a</td></tr>
+<tr><td>frame_a</td>
+    <td>Resolve vector in frame_a</td></tr>
 
-<tr><td valign=\"top\">frame_b</td>
-    <td valign=\"top\">Resolve vector in frame_b</td></tr>
+<tr><td>frame_b</td>
+    <td>Resolve vector in frame_b</td></tr>
 
-<tr><td valign=\"top\">frame_resolve</td>
-    <td valign=\"top\">Resolve vector in frame_resolve</td></tr>
+<tr><td>frame_resolve</td>
+    <td>Resolve vector in frame_resolve</td></tr>
 </table>
 
 <p>
@@ -3075,14 +3075,14 @@ defined in which frame the position vector is resolved:
 
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameA.</strong></th><th><strong>Meaning</strong></th></tr>
-<tr><td valign=\"top\">world</td>
-    <td valign=\"top\">Resolve vector in world frame</td></tr>
+<tr><td>world</td>
+    <td>Resolve vector in world frame</td></tr>
 
-<tr><td valign=\"top\">frame_a</td>
-    <td valign=\"top\">Resolve vector in frame_a</td></tr>
+<tr><td>frame_a</td>
+    <td>Resolve vector in frame_a</td></tr>
 
-<tr><td valign=\"top\">frame_resolve</td>
-    <td valign=\"top\">Resolve vector in frame_resolve</td></tr>
+<tr><td>frame_resolve</td>
+    <td>Resolve vector in frame_resolve</td></tr>
 </table>
 
 <p>
@@ -3169,17 +3169,17 @@ defined in which frame the position vector is resolved:
 
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameAB.</strong></th><th><strong>Meaning</strong></th></tr>
-<tr><td valign=\"top\">world</td>
-    <td valign=\"top\">Resolve vector in world frame</td></tr>
+<tr><td>world</td>
+    <td>Resolve vector in world frame</td></tr>
 
-<tr><td valign=\"top\">frame_a</td>
-    <td valign=\"top\">Resolve vector in frame_a</td></tr>
+<tr><td>frame_a</td>
+    <td>Resolve vector in frame_a</td></tr>
 
-<tr><td valign=\"top\">frame_b</td>
-    <td valign=\"top\">Resolve vector in frame_b</td></tr>
+<tr><td>frame_b</td>
+    <td>Resolve vector in frame_b</td></tr>
 
-<tr><td valign=\"top\">frame_resolve</td>
-    <td valign=\"top\">Resolve vector in frame_resolve</td></tr>
+<tr><td>frame_resolve</td>
+    <td>Resolve vector in frame_resolve</td></tr>
 </table>
 
 <p>
@@ -3201,7 +3201,7 @@ is always enabled and must be connected</strong>.
               extent={{-74,24},{80,-20}},
               textString="f = t = 0")}), Documentation(info="<html>
 <p>Set force and torque vectors on frame connector frame_a to zero.</p>
-<!--a placeholder to fulfill minimum domentation length-->
+<!--a placeholder to fulfill minimum documentation length-->
 </html>"));
     end ZeroForceAndTorque;
 
@@ -3395,14 +3395,14 @@ the force vector is resolved:
 
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameA.</strong></th><th><strong>Meaning</strong></th></tr>
-<tr><td valign=\"top\">world</td>
-    <td valign=\"top\">Resolve vector in world frame</td></tr>
+<tr><td>world</td>
+    <td>Resolve vector in world frame</td></tr>
 
-<tr><td valign=\"top\">frame_a</td>
-    <td valign=\"top\">Resolve vector in frame_a</td></tr>
+<tr><td>frame_a</td>
+    <td>Resolve vector in frame_a</td></tr>
 
-<tr><td valign=\"top\">frame_resolve</td>
-    <td valign=\"top\">Resolve vector in frame_resolve</td></tr>
+<tr><td>frame_resolve</td>
+    <td>Resolve vector in frame_resolve</td></tr>
 </table>
 
 <p>
@@ -3477,14 +3477,14 @@ the torque vector is resolved:
 
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameA.</strong></th><th><strong>Meaning</strong></th></tr>
-<tr><td valign=\"top\">world</td>
-    <td valign=\"top\">Resolve vector in world frame</td></tr>
+<tr><td>world</td>
+    <td>Resolve vector in world frame</td></tr>
 
-<tr><td valign=\"top\">frame_a</td>
-    <td valign=\"top\">Resolve vector in frame_a</td></tr>
+<tr><td>frame_a</td>
+    <td>Resolve vector in frame_a</td></tr>
 
-<tr><td valign=\"top\">frame_resolve</td>
-    <td valign=\"top\">Resolve vector in frame_resolve</td></tr>
+<tr><td>frame_resolve</td>
+    <td>Resolve vector in frame_resolve</td></tr>
 </table>
 
 <p>
@@ -3502,7 +3502,7 @@ with negative sign at frame_a.
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Sensors/CutTorque.png\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Sensors/CutTorque.png\">
 </p>
 </html>"));
     end BasicCutTorque;
@@ -3516,25 +3516,19 @@ The classes in this package should not be directly used by a user.
 
   model TansformAbsoluteVector
     "Obsolete model will be removed in future versions, use TransformAbsoluteVector instead!"
-    import Modelica;
     extends Modelica.Icons.ObsoleteModel;
     extends TransformAbsoluteVector;
-    // extends Modelica.Icons.ObsoleteModel;
     annotation(obsolete = "Obsolete model due to false class name - use Modelica.Mechanics.MultiBody.Sensors.TransformAbsoluteVector instead", Documentation(info="<html>
-<!--a placeholder to fulfill minimum domentation length-->
-<!--a placeholder to fulfill minimum domentation length-->
+<!--a placeholder to fulfill minimum documentation length-->
 </html>"));
   end TansformAbsoluteVector;
 
   model TansformRelativeVector
     "Obsolete model will be removed in future versions, use TransformRelativeVector instead!"
-    import Modelica;
     extends Modelica.Icons.ObsoleteModel;
     extends TransformRelativeVector;
-    // extends Modelica.Icons.ObsoleteModel;
     annotation(obsolete = "Obsolete model due to false class name - use Modelica.Mechanics.MultiBody.Sensors.TransformRelativeVector instead", Documentation(info="<html>
-<!--a placeholder to fulfill minimum domentation length-->
-<!--a placeholder to fulfill minimum domentation length-->
+<!--a placeholder to fulfill minimum documentation length-->
 </html>"));
   end TansformRelativeVector;
 

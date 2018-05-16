@@ -74,7 +74,7 @@ With the default value of delta=0.01, the difference between sqrt(x) and regRoot
 <ul>
 <li><em>15 Mar 2005</em>
     by <a href=\"mailto:francesco.casella@polimi.it\">Francesco Casella</a>:<br>
-       Created. </li>
+       Created.</li>
 </ul>
 </html>"));
   end regRoot;
@@ -94,7 +94,7 @@ With the default value of delta=0.01, the difference between sqrt(x) and regRoot
 <ul>
 <li><em>15 Mar 2005</em>
     by <a href=\"mailto:francesco.casella@polimi.it\">Francesco Casella</a>:<br>
-       Created. </li>
+       Created.</li>
 </ul>
 </html>"));
   end regRoot_der;
@@ -125,7 +125,7 @@ With the default value of delta=0.01, the difference between x^2 and regSquare(x
 <ul>
 <li><em>15 Mar 2005</em>
     by <a href=\"mailto:francesco.casella@polimi.it\">Francesco Casella</a>:<br>
-       Created. </li>
+       Created.</li>
 </ul>
 </html>"));
   end regSquare;
@@ -154,7 +154,7 @@ This function approximates abs(x)^a*sign(x), such that the derivative is positiv
 <ul>
 <li><em>15 Mar 2005</em>
     by <a href=\"mailto:francesco.casella@polimi.it\">Francesco Casella</a>:<br>
-       Created. </li>
+       Created.</li>
 </ul>
 </html>"));
   end regPow;
@@ -297,7 +297,7 @@ the function is described by two polynomials of third order
 such that
 </p>
 <ul>
-<li> The derivative at x=0 is finite. </li>
+<li> The derivative at x=0 is finite.</li>
 <li> The overall function is continuous with a
      continuous first derivative everywhere.</li>
 <li> If parameter use_yd0 = <strong>false</strong>, the two polynomials
@@ -326,7 +326,7 @@ and the second one with k1=1 and k2=3:
 
 <p>
 The (smooth) derivative of the function with
-k1=1, k2=3 is shown in the next figure:
+k1=1, k2=3 is shown in the next figure:</p>
 <p>
 <img src=\"modelica://Modelica/Resources/Images/Fluid/Components/regRoot2_c.png\"
      alt=\"regRoot2_c.png\">
@@ -446,7 +446,7 @@ such that
 
 <ul>
 <li> The derivative at x=0 is non-zero (in order that the
-     inverse of the function does not have an infinite derivative). </li>
+     inverse of the function does not have an infinite derivative).</li>
 <li> The overall function is continuous with a
      continuous first derivative everywhere.</li>
 <li> If parameter use_yd0 = <strong>false</strong>, the two polynomials

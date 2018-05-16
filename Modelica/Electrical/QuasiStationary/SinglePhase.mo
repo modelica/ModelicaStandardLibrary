@@ -5,6 +5,61 @@ package SinglePhase "Single phase AC components"
   package Examples "Test examples"
     extends Modelica.Icons.ExamplesPackage;
 
+    model SeriesBode "Series circuit with Bode analysis"
+      extends Modelica.Icons.Example;
+      output Real abs_y = bode.abs_y "Magnitude of voltage ratio";
+      output Modelica.SIunits.AmplitudeLevelDifference dB_y = bode.dB_y "Log10 of magnitude of voltage ratio in dB";
+      output Modelica.SIunits.Angle arg_y = bode.arg_y "Angle of voltage ratio";
+      ComplexBlocks.Sources.LogFrequencySweep frequencySweep(duration=1,wMin=0.01,wMax=100) annotation (Placement(transformation(
+            origin={-70,-40},
+            extent={{-10,-10},{10,10}},
+            rotation=0)));
+      QuasiStationary.SinglePhase.Sources.VariableVoltageSource voltageSource(gamma(fixed=true, start=0)) annotation (Placement(transformation(
+            origin={-30,-20},
+            extent={{-10,10},{10,-10}},
+            rotation=270)));
+      QuasiStationary.SinglePhase.Basic.Ground ground annotation (Placement(
+            transformation(extent={{-40,-60},{-20,-40}})));
+      QuasiStationary.SinglePhase.Basic.Resistor resistor(R_ref=1)   annotation (Placement(transformation(extent={{20,-10},{40,10}})));
+      QuasiStationary.SinglePhase.Basic.Inductor inductor(L=1/(2*Modelica.Constants.pi)) annotation (Placement(transformation(extent={{50,-10},{70,10}})));
+      ComplexBlocks.Sources.ComplexConstant complexConst(k=Complex(1, 0)) annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));
+      Sensors.CurrentSensor currentSensor annotation (Placement(transformation(extent={{10,10},{-10,-10}},
+            rotation=180,
+            origin={-10,0})));
+      Sensors.VoltageSensor voltageSensor annotation (Placement(transformation(
+            extent={{-10,10},{10,-10}},
+            rotation=0,
+            origin={30,20})));
+      ComplexBlocks.ComplexMath.Bode bode annotation (Placement(transformation(extent={{-10,10},{10,-10}},
+            rotation=180,
+            origin={-70,30})));
+    equation
+      connect(frequencySweep.y, voltageSource.f) annotation (Line(points={{-59,-40},{-50,-40},{-50,-26},{-42,-26}}, color={0,0,127}));
+      connect(ground.pin, voltageSource.pin_n) annotation (Line(points={{-30,-40},
+              {-30,-35},{-30,-30}}, color={85,170,255}));
+      connect(resistor.pin_n, inductor.pin_p) annotation (Line(points={{40,0},{50,0}},
+                                      color={85,170,255}));
+      connect(complexConst.y, voltageSource.V) annotation (Line(points={{-59,0},{-50,0},{-50,-14},{-42,-14}}, color={85,170,255}));
+      connect(voltageSensor.pin_p, resistor.pin_p) annotation (Line(points={{20,20},{10,20},{10,0},{20,0}},
+                                                                                                   color={85,170,255}));
+      connect(voltageSensor.pin_n, inductor.pin_p) annotation (Line(points={{40,20},{50,20},{50,0}}, color={85,170,255}));
+      connect(ground.pin, inductor.pin_n) annotation (Line(points={{-30,-40},{80,-40},{80,0},{70,0}}, color={85,170,255}));
+      connect(bode.divisor, complexConst.y) annotation (Line(points={{-58,24},{-50,24},{-50,0},{-59,0}}, color={85,170,255}));
+      connect(bode.u, voltageSensor.y) annotation (Line(points={{-58,36},{30,36},{30,31}}, color={85,170,255}));
+      connect(currentSensor.pin_p, voltageSource.pin_p) annotation (Line(points={{-20,0},{-30,0},{-30,-10}}, color={85,170,255}));
+      connect(currentSensor.pin_n, resistor.pin_p) annotation (Line(points={{0,0},{20,0}}, color={85,170,255}));
+      annotation (Documentation(info="<html>
+<p>
+The frequency of the voltage source is varied by a logarithmic ramp, the supply voltage magnitude is constant.</p>
+<p>Plot versus <code>voltageSource.f</code> on a logarithmic scale in order to determine the Bode diagrams of the ratio of
+the voltage of the resistor divided by the supply voltage:</p>
+<ul>
+<li>Gain response: <code>dB_y</code></li>
+<li>Phase response: <code>arg_y</code></li>
+</ul>
+</html>"), experiment(StopTime=1.0, Interval=0.001));
+    end SeriesBode;
+
     model SeriesResonance "Series resonance circuit"
       extends Modelica.Icons.Example;
       output Modelica.SIunits.Current I_abs=complexToPolar.len "Current";
@@ -1331,13 +1386,13 @@ This model is a simple short cut branch considering the complex voltage <em><u>v
         n2.i));
       annotation (defaultComponentName="switch",
         Documentation(info="<html>
-<P>
+<p>
 The commuting switch has a positive pin p and two negative pins n1 and n2.
 The switching behaviour is controlled
 by the input signal control. If control is true, the pin p is connected
 with the negative pin n2. Otherwise, the pin p is connected to the negative pin n1.
-</P>
-<P>
+</p>
+<p>
 In order to prevent singularities during switching, the opened
 switch has a (very low) conductance Goff
 and the closed switch has a (very low) resistance Ron.
@@ -1345,11 +1400,11 @@ The limiting case is also allowed, i.e., the resistance Ron of the
 closed switch could be exactly zero and the conductance Goff of the
 open switch could be also exactly zero. Note, there are circuits,
 where a description with zero Ron or zero Goff is not possible.
-<br> <br>
+<br><br>
 <strong>Please note:</strong>
 In case of useHeatPort=true the temperature dependence of the electrical
 behavior is <strong>not</strong> modelled. The parameters are not temperature dependent.
-</P>
+</p>
 <p>
 <strong>Use with care:</strong>
 This switch is only intended to be used for structural changes, not for fast switching sequences, due to the quasistationary formulation.
@@ -1428,38 +1483,38 @@ This switch is only intended to be used for structural changes, not for fast swi
         conj(n1.i)) + real(n2.v*conj(n2.i));
       annotation (defaultComponentName="switch",
         Documentation(info="<html>
-<P>
+<p>
 The intermediate switch has four switching contact pins p1, p2, n1, and n2.
 The switching behaviour is controlled by the input signal control. If control
 is true, the pin p1 is connected to pin n2, and the pin p2 is
 connected to the pin n2. Otherwise, the pin p1 is connected to n1, and
 p2 is connected to n2.
-</P>
-
-<p>
-<IMG src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/SinglePhase/Ideal/IdealIntermediateSwitch1.png\" ALT=\"IdealIntermediateSwitch1\">
 </p>
 
-<P>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/SinglePhase/Ideal/IdealIntermediateSwitch1.png\" alt=\"IdealIntermediateSwitch1\">
+</p>
+
+<p>
 In order to prevent singularities during switching, the opened
 switch has a (very low) conductance Goff
 and the closed switch has a (very low) resistance Ron.
-</P>
-
-<p>
-<IMG src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/SinglePhase/Ideal/IdealIntermediateSwitch2.png\" ALT=\"IdealIntermediateSwitch2\">
 </p>
 
-<P>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/SinglePhase/Ideal/IdealIntermediateSwitch2.png\" alt=\"IdealIntermediateSwitch2\">
+</p>
+
+<p>
 The limiting case is also allowed, i.e., the resistance Ron of the
 closed switch could be exactly zero and the conductance Goff of the
 open switch could be also exactly zero. Note, there are circuits,
 where a description with zero Ron or zero Goff is not possible.
-<br> <br>
+<br><br>
 <strong>Please note:</strong>
 In case of useHeatPort=true the temperature dependence of the electrical
 behavior is <strong>not</strong> modelled. The parameters are not temperature dependent.
-</P>
+</p>
 <p>
 <strong>Use with care:</strong>
 This switch is only intended to be used for structural changes, not for fast switching sequences, due to the quasistationary formulation.
@@ -1506,14 +1561,14 @@ This switch is only intended to be used for structural changes, not for fast swi
       LossPower = real(v*conj(i));
       annotation (defaultComponentName="switch",
         Documentation(info="<html>
-<P>
+<p>
 The ideal opening switch has a positive pin p and a negative pin n.
 The switching behaviour is controlled by the input signal control.
 If control is true, pin p is not connected
 with negative pin n. Otherwise, pin p is connected
 with negative pin n.
-</P>
-<P>
+</p>
+<p>
 In order to prevent singularities during switching, the opened
 switch has a (very low) conductance Goff
 and the closed switch has a (very low) resistance Ron.
@@ -1521,11 +1576,11 @@ The limiting case is also allowed, i.e., the resistance Ron of the
 closed switch could be exactly zero and the conductance Goff of the
 open switch could be also exactly zero. Note, there are circuits,
 where a description with zero Ron or zero Goff is not possible.
-<br> <br>
+<br><br>
 <strong>Please note:</strong>
 In case of useHeatPort=true the temperature dependence of the electrical
 behavior is <strong>not</strong> modelled. The parameters are not temperature dependent.
-</P>
+</p>
 <p>
 <strong>Use with care:</strong>
 This switch is only intended to be used for structural changes, not for fast switching sequences, due to the quasistationary formulation.
@@ -1581,14 +1636,14 @@ This switch is only intended to be used for structural changes, not for fast swi
       LossPower = real(v*conj(i));
       annotation (defaultComponentName="switch",
         Documentation(info="<html>
-<P>
+<p>
 The ideal closing switch has a positive pin p and a negative pin n.
 The switching behaviour is controlled by input signal control.
 If control is true, pin p is connected
 with negative pin n. Otherwise, pin p is not connected
 with negative pin n.
-</P>
-<P>
+</p>
+<p>
 In order to prevent singularities during switching, the opened
 switch has a (very low) conductance Goff
 and the closed switch has a (very low) resistance Ron.
@@ -1596,11 +1651,11 @@ The limiting case is also allowed, i.e., the resistance Ron of the
 closed switch could be exactly zero and the conductance Goff of the
 open switch could be also exactly zero. Note, there are circuits,
 where a description with zero Ron or zero Goff is not possible.
-<br> <br>
+<br><br>
 <strong>Please note:</strong>
 In case of useHeatPort=true the temperature dependence of the electrical
 behavior is <strong>not</strong> modelled. The parameters are not temperature dependent.
-</P>
+</p>
 <p>
 <strong>Use with care:</strong>
 This switch is only intended to be used for structural changes, not for fast switching sequences, due to the quasistationary formulation.
@@ -2103,13 +2158,13 @@ This sensor can be used to measure the complex apparent power.
           rotation=180), iconTransformation(
           extent={{-10,10},{10,-10}},
           rotation=180,
-          origin={-110,-58})));
-    output Modelica.SIunits.Current i_abs='abs'(i) "Absolute of complex current";
-    output Modelica.SIunits.Angle i_arg=arg(i) "Argument of complex current";
-    output Modelica.SIunits.Voltage v_abs='abs'(v) "Absolute of complex voltage";
-    output Modelica.SIunits.Angle v_arg=arg(v) "Argument of complex voltage";
-    output Modelica.SIunits.ApparentPower apparentPower_abs='abs'(apparentPower) "Absolute of complex apparent power";
-    output Modelica.SIunits.Angle apparentPower_arg=arg(apparentPower) "Argument of complex apparent power";
+          origin={-110,-60})));
+    output Modelica.SIunits.Current abs_i='abs'(i) "Absolute of complex current";
+    output Modelica.SIunits.Angle arg_i=arg(i) "Argument of complex current";
+    output Modelica.SIunits.Voltage abs_v='abs'(v) "Absolute of complex voltage";
+    output Modelica.SIunits.Angle arg_v=arg(v) "Argument of complex voltage";
+    output Modelica.SIunits.ApparentPower abs_apparentPower='abs'(apparentPower) "Absolute of complex apparent power";
+    output Modelica.SIunits.Angle arg_apparentPower=arg(apparentPower) "Argument of complex apparent power";
   equation
     Connections.branch(pc.reference, nc.reference);
     pc.reference.gamma = nc.reference.gamma;
@@ -2135,11 +2190,11 @@ This sensor can be used to measure the complex apparent power.
             textString="%name",
             lineColor={0,0,255}),
           Line(points={{-100,-60},{-80,-60},{-56,-42}},
-                                                     color={28,108,200}),
+                                                     color={85,170,255}),
           Line(points={{-60,-100},{-60,-80},{-42,-56}},
-                                                     color={28,108,200}),
+                                                     color={85,170,255}),
           Line(points={{60,-100},{60,-80},{42,-56}},
-                                                  color={28,108,200}),
+                                                  color={85,170,255}),
           Text(
             extent={{-100,-40},{-60,-80}},
             textString="s"),
@@ -2299,8 +2354,8 @@ Additionally, the frequency of the voltage source is defined by a real signal in
               color={192,192,192},
               smooth=Smooth.Bezier)}),                               Diagram(coordinateSystem(preserveAspectRatio=false)),
         Documentation(info="<html>
-<p>This source provides a constant RMS phase voltage <code>V</code> and phase angle <code>phi</code>, 
-whereas the frequency sweeps from 
+<p>This source provides a constant RMS phase voltage <code>V</code> and phase angle <code>phi</code>,
+whereas the frequency sweeps from
 <code>fStart</code> to <code>fStop</code> with <code>duration</code>. The frequency sweeps such
 way that on a logarithmic frequency scale, the frequency curve appears linear.</p>
 
@@ -2428,8 +2483,8 @@ Additionally, the frequency of the voltage source is defined by a real signal in
                        Line(points={{0,50},{0,-50}}, color={85,170,255})}),
                                                                      Diagram(coordinateSystem(preserveAspectRatio=false)),
         Documentation(info="<html>
-<p>This source provides a constant RMS phase current <code>I</code> and phase angle <code>phi</code>, 
-whereas the frequency sweeps from 
+<p>This source provides a constant RMS phase current <code>I</code> and phase angle <code>phi</code>,
+whereas the frequency sweeps from
 <code>fStart</code> to <code>fStop</code> with <code>duration</code>. The frequency sweeps such
 way that on a logarithmic frequency scale, the frequency curve appears linear.</p>
 

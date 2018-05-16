@@ -438,13 +438,13 @@ from the orientation object R2 that describes the orientation to rotate from fra
     annotation(Inline=true, Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-R2 = Frames.<strong>relativeRotation</strong>(R1,R_rel);
+R2 = Frames.<strong>absoluteRotation</strong>(R1,R_rel);
 </pre></blockquote>
 
 <h4>Description</h4>
 <p>
 The function call <code>Frames.<strong>absoluteRotation</strong>(R1,R_rel)</code> returns
-orientation object R2 hat describes the orientation frame&nbsp;0 to frame&nbsp;2
+orientation object R2 that describes the orientation frame&nbsp;0 to frame&nbsp;2
 from the orientation object R1 that describes the orientation to rotate from frame&nbsp;0 to frame&nbsp;1 and
 from the relative orientation object R_rel that describes the orientation to rotate from frame&nbsp;1 to frame&nbsp;2.
 </p>
@@ -883,16 +883,8 @@ Optionally, residues are returned as well if <code>withResidues=true</code>.
     input Real n_y[3](each final unit="1")
       "Vector in direction of y-axis of frame 2, resolved in frame 1";
     output Orientation R "Orientation object to rotate frame 1 into frame 2";
-  protected
-    Real abs_n_x=sqrt(n_x*n_x);
-    Real e_x[3](each final unit="1")=if abs_n_x < 1e-10 then {1,0,0} else n_x/abs_n_x;
-    Real n_z_aux[3](each final unit="1")=cross(e_x, n_y);
-    Real n_y_aux[3](each final unit="1")=if n_z_aux*n_z_aux > 1.0e-6 then n_y else (if abs(e_x[1])
-         > 1.0e-6 then {0,1,0} else {1,0,0});
-    Real e_z_aux[3](each final unit="1")=cross(e_x, n_y_aux);
-    Real e_z[3](each final unit="1")=e_z_aux/sqrt(e_z_aux*e_z_aux);
   algorithm
-    R := Orientation(T={e_x,cross(e_z, e_x),e_z},w= zeros(3));
+    R := Orientation(T=TransformationMatrices.from_nxy(n_x,n_y),w= zeros(3));
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -933,16 +925,8 @@ arbitrarily such that e_x and e_y are orthogonal to each other.
     input Real n_z[3](each final unit="1")
       "Vector in direction of z-axis of frame 2, resolved in frame 1";
     output Orientation R "Orientation object to rotate frame 1 into frame 2";
-  protected
-    Real abs_n_x=sqrt(n_x*n_x);
-    Real e_x[3](each final unit="1")=if abs_n_x < 1e-10 then {1,0,0} else n_x/abs_n_x;
-    Real n_y_aux[3](each final unit="1")=cross(n_z, e_x);
-    Real n_z_aux[3](each final unit="1")=if n_y_aux*n_y_aux > 1.0e-6 then n_z else (if abs(e_x[1])
-         > 1.0e-6 then {0,0,1} else {1,0,0});
-    Real e_y_aux[3](each final unit="1")=cross(n_z_aux, e_x);
-    Real e_y[3](each final unit="1")=e_y_aux/sqrt(e_y_aux*e_y_aux);
   algorithm
-    R := Orientation(T={e_x,e_y,cross(e_x, e_y)},w= zeros(3));
+    R := Orientation(T=TransformationMatrices.from_nxz(n_x,n_z),w= zeros(3));
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -1432,6 +1416,7 @@ respect to frame&nbsp;1, <strong>resolved in frame&nbsp;1</strong>, from the
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Quaternions.Orientation\">quaternions orientation</a>&nbsp;Q
 that describes the orientation to rotate frame&nbsp;1 into frame&nbsp;2
 and from its first time derivative der_Q.
+</p>
 
 <h4>See also</h4>
 <p>
@@ -1727,7 +1712,7 @@ Q2 = Quaternions.<strong>absoluteRotation</strong>(Q1, Q_rel);
 <p>
 This function returns
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Quaternions.Orientation\">quaternions orientation</a>&nbsp;Q2
-hat describes the orientation frame&nbsp;0 to frame&nbsp;2 from the
+that describes the orientation frame&nbsp;0 to frame&nbsp;2 from the
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Quaternions.Orientation\">quaternions orientation</a>&nbsp;Q1
 that describes the orientation to rotate from frame&nbsp;0 to frame&nbsp;1 and from the relative
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Quaternions.Orientation\">quaternions orientation</a> Q_rel
@@ -2046,86 +2031,86 @@ The used variables have the following declaration:
 </pre>
 <table border=1 cellspacing=0 cellpadding=2>
   <tr><th><strong><em>Function/type</em></strong></th><th><strong><em>Description</em></strong></th></tr>
-  <tr><td valign=\"top\"><strong>Orientation Q;</strong></td>
-      <td valign=\"top\">New type defining a quaternion object that describes<br>
+  <tr><td><strong>Orientation Q;</strong></td>
+      <td>New type defining a quaternion object that describes<br>
           the rotation of frame 1 into frame 2.
       </td>
   </tr>
-  <tr><td valign=\"top\"><strong>der_Orientation</strong> der_Q;</td>
-      <td valign=\"top\">New type defining the first time derivative
+  <tr><td><strong>der_Orientation</strong> der_Q;</td>
+      <td>New type defining the first time derivative
          of Frames.Quaternions.Orientation.
       </td>
   </tr>
-  <tr><td valign=\"top\">res_ori = <strong>orientationConstraint</strong>(Q);</td>
-      <td valign=\"top\">Return the constraints between the variables of a quaternion object<br>
+  <tr><td>res_ori = <strong>orientationConstraint</strong>(Q);</td>
+      <td>Return the constraints between the variables of a quaternion object<br>
       (shall be zero).</td>
   </tr>
-  <tr><td valign=\"top\">w1 = <strong>angularVelocity1</strong>(Q, der_Q);</td>
-      <td valign=\"top\">Return angular velocity resolved in frame 1 from
+  <tr><td>w1 = <strong>angularVelocity1</strong>(Q, der_Q);</td>
+      <td>Return angular velocity resolved in frame 1 from
           quaternion object Q<br> and its derivative der_Q.
      </td>
   </tr>
-  <tr><td valign=\"top\">w2 = <strong>angularVelocity2</strong>(Q, der_Q);</td>
-      <td valign=\"top\">Return angular velocity resolved in frame 2 from
+  <tr><td>w2 = <strong>angularVelocity2</strong>(Q, der_Q);</td>
+      <td>Return angular velocity resolved in frame 2 from
           quaternion object Q<br> and its derivative der_Q.
      </td>
   </tr>
-  <tr><td valign=\"top\">v1 = <strong>resolve1</strong>(Q,v2);</td>
-      <td valign=\"top\">Transform vector v2 from frame 2 to frame 1.
+  <tr><td>v1 = <strong>resolve1</strong>(Q,v2);</td>
+      <td>Transform vector v2 from frame 2 to frame 1.
       </td>
   </tr>
-  <tr><td valign=\"top\">v2 = <strong>resolve2</strong>(Q,v1);</td>
-      <td valign=\"top\">Transform vector v1 from frame 1 to frame 2.
+  <tr><td>v2 = <strong>resolve2</strong>(Q,v1);</td>
+      <td>Transform vector v1 from frame 1 to frame 2.
      </td>
   </tr>
-  <tr><td valign=\"top\">[v1,w1] = <strong>multipleResolve1</strong>(Q, [v2,w2]);</td>
-      <td valign=\"top\">Transform several vectors from frame 2 to frame 1.
+  <tr><td>[v1,w1] = <strong>multipleResolve1</strong>(Q, [v2,w2]);</td>
+      <td>Transform several vectors from frame 2 to frame 1.
       </td>
   </tr>
-  <tr><td valign=\"top\">[v2,w2] = <strong>multipleResolve2</strong>(Q, [v1,w1]);</td>
-      <td valign=\"top\">Transform several vectors from frame 1 to frame 2.
+  <tr><td>[v2,w2] = <strong>multipleResolve2</strong>(Q, [v1,w1]);</td>
+      <td>Transform several vectors from frame 1 to frame 2.
       </td>
   </tr>
-  <tr><td valign=\"top\">Q = <strong>nullRotation</strong>()</td>
-      <td valign=\"top\">Return quaternion object R that does not rotate a frame.
+  <tr><td>Q = <strong>nullRotation</strong>()</td>
+      <td>Return quaternion object R that does not rotate a frame.
       </td>
   </tr>
-  <tr><td valign=\"top\">Q_inv = <strong>inverseRotation</strong>(Q);</td>
-      <td valign=\"top\">Return inverse quaternion object.
+  <tr><td>Q_inv = <strong>inverseRotation</strong>(Q);</td>
+      <td>Return inverse quaternion object.
       </td>
   </tr>
-  <tr><td valign=\"top\">Q_rel = <strong>relativeRotation</strong>(Q1,Q2);</td>
-      <td valign=\"top\">Return relative quaternion object from two absolute
+  <tr><td>Q_rel = <strong>relativeRotation</strong>(Q1,Q2);</td>
+      <td>Return relative quaternion object from two absolute
           quaternion objects.
       </td>
   </tr>
-  <tr><td valign=\"top\">Q2 = <strong>absoluteRotation</strong>(Q1,Q_rel);</td>
-      <td valign=\"top\">Return absolute quaternion object from another
+  <tr><td>Q2 = <strong>absoluteRotation</strong>(Q1,Q_rel);</td>
+      <td>Return absolute quaternion object from another
           absolute<br> and a relative quaternion object.
       </td>
   </tr>
-  <tr><td valign=\"top\">Q = <strong>planarRotation</strong>(e, angle);</td>
-      <td valign=\"top\">Return quaternion object of a planar rotation.
+  <tr><td>Q = <strong>planarRotation</strong>(e, angle);</td>
+      <td>Return quaternion object of a planar rotation.
       </td>
   </tr>
-  <tr><td valign=\"top\">phi = <strong>smallRotation</strong>(Q);</td>
-      <td valign=\"top\">Return rotation angles phi valid for a small rotation.
+  <tr><td>phi = <strong>smallRotation</strong>(Q);</td>
+      <td>Return rotation angles phi valid for a small rotation.
       </td>
   </tr>
-  <tr><td valign=\"top\">Q = <strong>from_T</strong>(T);</td>
-      <td valign=\"top\">Return quaternion object Q from transformation matrix T.
+  <tr><td>Q = <strong>from_T</strong>(T);</td>
+      <td>Return quaternion object Q from transformation matrix T.
       </td>
   </tr>
-  <tr><td valign=\"top\">Q = <strong>from_T_inv</strong>(T_inv);</td>
-      <td valign=\"top\">Return quaternion object Q from inverse transformation matrix T_inv.
+  <tr><td>Q = <strong>from_T_inv</strong>(T_inv);</td>
+      <td>Return quaternion object Q from inverse transformation matrix T_inv.
       </td>
   </tr>
-  <tr><td valign=\"top\">T = <strong>to_T</strong>(Q);</td>
-      <td valign=\"top\">Return transformation matrix T from quaternion object Q.
+  <tr><td>T = <strong>to_T</strong>(Q);</td>
+      <td>Return transformation matrix T from quaternion object Q.
       </td>
   </tr>
-  <tr><td valign=\"top\">T_inv = <strong>to_T_inv</strong>(Q);</td>
-      <td valign=\"top\">Return inverse transformation matrix T_inv from quaternion object Q.
+  <tr><td>T_inv = <strong>to_T_inv</strong>(Q);</td>
+      <td>Return inverse transformation matrix T_inv from quaternion object Q.
       </td>
   </tr>
 </table>
@@ -2656,7 +2641,7 @@ T2 = TransformationMatrices.<strong>absoluteRotation</strong>(T1, T_rel);
 <p>
 This function returns
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation\">transformation matrix</a>&nbsp;T2
-hat describes the orientation frame&nbsp;0 to frame&nbsp;2 from the
+that describes the orientation frame&nbsp;0 to frame&nbsp;2 from the
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation\">transformation matrix</a>&nbsp;T1
 that describes the orientation to rotate from frame&nbsp;0 to frame&nbsp;1 and from the relative
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation\">transformation matrix</a> T2_rel
@@ -3081,6 +3066,9 @@ Optionally, residues are returned as well if <code>withResidues=true</code>.
 
     function from_nxy "Return orientation object from n_x and n_y vectors"
       extends Modelica.Icons.Function;
+      import Modelica.Math.Vectors.length;
+      import Modelica.Math.Vectors.normalize;
+
       input Real n_x[3](each final unit="1")
         "Vector in direction of x-axis of frame 2, resolved in frame 1";
       input Real n_y[3](each final unit="1")
@@ -3088,13 +3076,12 @@ Optionally, residues are returned as well if <code>withResidues=true</code>.
       output TransformationMatrices.Orientation T
         "Orientation object to rotate frame 1 into frame 2";
     protected
-      Real abs_n_x=sqrt(n_x*n_x);
-      Real e_x[3](each final unit="1")=if abs_n_x < 1e-10 then {1,0,0} else n_x/abs_n_x;
+      Real e_x[3](each final unit="1")=if length(n_x) < 1e-10 then {1,0,0} else normalize(n_x);
       Real n_z_aux[3](each final unit="1")=cross(e_x, n_y);
-      Real n_y_aux[3](each final unit="1")=if n_z_aux*n_z_aux > 1.0e-6 then n_y else (if abs(e_x[1])
-           > 1.0e-6 then {0,1,0} else {1,0,0});
+      Real n_y_aux[3](each final unit="1")=if n_z_aux*n_z_aux > 1.0e-6 then n_y
+             else (if abs(e_x[1]) > 1.0e-6 then {0,1,0} else {1,0,0});
       Real e_z_aux[3](each final unit="1")=cross(e_x, n_y_aux);
-      Real e_z[3](each final unit="1")=e_z_aux/sqrt(e_z_aux*e_z_aux);
+      Real e_z[3](each final unit="1")=normalize(e_z_aux);
     algorithm
       T := {e_x,cross(e_z, e_x),e_z};
       annotation (Documentation(info="<html>
@@ -3132,6 +3119,9 @@ arbitrarily such that e_x and e_y are orthogonal to each other.
 
     function from_nxz "Return orientation object from n_x and n_z vectors"
       extends Modelica.Icons.Function;
+      import Modelica.Math.Vectors.length;
+      import Modelica.Math.Vectors.normalize;
+
       input Real n_x[3](each final unit="1")
         "Vector in direction of x-axis of frame 2, resolved in frame 1";
       input Real n_z[3](each final unit="1")
@@ -3139,13 +3129,12 @@ arbitrarily such that e_x and e_y are orthogonal to each other.
       output TransformationMatrices.Orientation T
         "Orientation object to rotate frame 1 into frame 2";
     protected
-      Real abs_n_x=sqrt(n_x*n_x);
-      Real e_x[3](each final unit="1")=if abs_n_x < 1e-10 then {1,0,0} else n_x/abs_n_x;
+      Real e_x[3](each final unit="1")=if length(n_x) < 1e-10 then {1,0,0} else normalize(n_x);
       Real n_y_aux[3](each final unit="1")=cross(n_z, e_x);
-      Real n_z_aux[3](each final unit="1")=if n_y_aux*n_y_aux > 1.0e-6 then n_z else (if abs(e_x[1])
-           > 1.0e-6 then {0,0,1} else {1,0,0});
+      Real n_z_aux[3](each final unit="1")=if n_y_aux*n_y_aux > 1.0e-6 then n_z
+             else (if abs(e_x[1]) > 1.0e-6 then {0,0,1} else {1,0,0});
       Real e_y_aux[3](each final unit="1")=cross(n_z_aux, e_x);
-      Real e_y[3](each final unit="1")=e_y_aux/sqrt(e_y_aux*e_y_aux);
+      Real e_y[3](each final unit="1")=normalize(e_y_aux);
     algorithm
       T := {e_x,e_y,cross(e_x, e_y)};
       annotation (Documentation(info="<html>
@@ -3454,133 +3443,133 @@ The used variables have the following declaration:
 </pre>
 <table border=1 cellspacing=0 cellpadding=2>
   <tr><th><strong><em>Function/type</em></strong></th><th><strong><em>Description</em></strong></th></tr>
-  <tr><td valign=\"top\"><strong>Orientation T;</strong></td>
-      <td valign=\"top\">New type defining an orientation object that describes<br>
+  <tr><td><strong>Orientation T;</strong></td>
+      <td>New type defining an orientation object that describes<br>
           the rotation of frame 1 into frame 2.
       </td>
   </tr>
-  <tr><td valign=\"top\"><strong>der_Orientation</strong> der_T;</td>
-      <td valign=\"top\">New type defining the first time derivative
+  <tr><td><strong>der_Orientation</strong> der_T;</td>
+      <td>New type defining the first time derivative
          of Frames.Orientation.
       </td>
   </tr>
-  <tr><td valign=\"top\">res_ori = <strong>orientationConstraint</strong>(T);</td>
-      <td valign=\"top\">Return the constraints between the variables of an orientation object<br>
+  <tr><td>res_ori = <strong>orientationConstraint</strong>(T);</td>
+      <td>Return the constraints between the variables of an orientation object<br>
       (shall be zero).</td>
   </tr>
-  <tr><td valign=\"top\">w1 = <strong>angularVelocity1</strong>(T, der_T);</td>
-      <td valign=\"top\">Return angular velocity resolved in frame 1 from
+  <tr><td>w1 = <strong>angularVelocity1</strong>(T, der_T);</td>
+      <td>Return angular velocity resolved in frame 1 from
           orientation object T<br> and its derivative der_T.
      </td>
   </tr>
-  <tr><td valign=\"top\">w2 = <strong>angularVelocity2</strong>(T, der_T);</td>
-      <td valign=\"top\">Return angular velocity resolved in frame 2 from
+  <tr><td>w2 = <strong>angularVelocity2</strong>(T, der_T);</td>
+      <td>Return angular velocity resolved in frame 2 from
           orientation object T<br> and its derivative der_T.
      </td>
   </tr>
-  <tr><td valign=\"top\">v1 = <strong>resolve1</strong>(T,v2);</td>
-      <td valign=\"top\">Transform vector v2 from frame 2 to frame 1.
+  <tr><td>v1 = <strong>resolve1</strong>(T,v2);</td>
+      <td>Transform vector v2 from frame 2 to frame 1.
       </td>
   </tr>
-  <tr><td valign=\"top\">v2 = <strong>resolve2</strong>(T,v1);</td>
-      <td valign=\"top\">Transform vector v1 from frame 1 to frame 2.
+  <tr><td>v2 = <strong>resolve2</strong>(T,v1);</td>
+      <td>Transform vector v1 from frame 1 to frame 2.
      </td>
   </tr>
-  <tr><td valign=\"top\">[v1,w1] = <strong>multipleResolve1</strong>(T, [v2,w2]);</td>
-      <td valign=\"top\">Transform several vectors from frame 2 to frame 1.
+  <tr><td>[v1,w1] = <strong>multipleResolve1</strong>(T, [v2,w2]);</td>
+      <td>Transform several vectors from frame 2 to frame 1.
       </td>
   </tr>
-  <tr><td valign=\"top\">[v2,w2] = <strong>multipleResolve2</strong>(T, [v1,w1]);</td>
-      <td valign=\"top\">Transform several vectors from frame 1 to frame 2.
+  <tr><td>[v2,w2] = <strong>multipleResolve2</strong>(T, [v1,w1]);</td>
+      <td>Transform several vectors from frame 1 to frame 2.
       </td>
   </tr>
-  <tr><td valign=\"top\">D1 = <strong>resolveDyade1</strong>(T,D2);</td>
-      <td valign=\"top\">Transform second order tensor D2 from frame 2 to frame 1.
+  <tr><td>D1 = <strong>resolveDyade1</strong>(T,D2);</td>
+      <td>Transform second order tensor D2 from frame 2 to frame 1.
       </td>
   </tr>
-  <tr><td valign=\"top\">D2 = <strong>resolveDyade2</strong>(T,D1);</td>
-      <td valign=\"top\">Transform second order tensor D1 from frame 1 to frame 2.
+  <tr><td>D2 = <strong>resolveDyade2</strong>(T,D1);</td>
+      <td>Transform second order tensor D1 from frame 1 to frame 2.
      </td>
   </tr>
-  <tr><td valign=\"top\">T= <strong>nullRotation</strong>()</td>
-      <td valign=\"top\">Return orientation object T that does not rotate a frame.
+  <tr><td>T= <strong>nullRotation</strong>()</td>
+      <td>Return orientation object T that does not rotate a frame.
      </td>
   </tr>
-  <tr><td valign=\"top\">T_inv = <strong>inverseRotation</strong>(T);</td>
-      <td valign=\"top\">Return inverse orientation object.
+  <tr><td>T_inv = <strong>inverseRotation</strong>(T);</td>
+      <td>Return inverse orientation object.
       </td>
   </tr>
-  <tr><td valign=\"top\">T_rel = <strong>relativeRotation</strong>(T1,T2);</td>
-      <td valign=\"top\">Return relative orientation object from two absolute
+  <tr><td>T_rel = <strong>relativeRotation</strong>(T1,T2);</td>
+      <td>Return relative orientation object from two absolute
           orientation objects.
       </td>
   </tr>
-  <tr><td valign=\"top\">T2 = <strong>absoluteRotation</strong>(T1,T_rel);</td>
-      <td valign=\"top\">Return absolute orientation object from another
+  <tr><td>T2 = <strong>absoluteRotation</strong>(T1,T_rel);</td>
+      <td>Return absolute orientation object from another
           absolute<br> and a relative orientation object.
       </td>
   </tr>
-  <tr><td valign=\"top\">T = <strong>planarRotation</strong>(e, angle);</td>
-      <td valign=\"top\">Return orientation object of a planar rotation.
+  <tr><td>T = <strong>planarRotation</strong>(e, angle);</td>
+      <td>Return orientation object of a planar rotation.
       </td>
   </tr>
-  <tr><td valign=\"top\">angle = <strong>planarRotationAngle</strong>(e, v1, v2);</td>
-      <td valign=\"top\">Return angle of a planar rotation, given the rotation axis<br>
+  <tr><td>angle = <strong>planarRotationAngle</strong>(e, v1, v2);</td>
+      <td>Return angle of a planar rotation, given the rotation axis<br>
         and the representations of a vector in frame 1 and frame 2.
       </td>
   </tr>
-  <tr><td valign=\"top\">T = <strong>axisRotation</strong>(i, angle);</td>
-      <td valign=\"top\">Return orientation object T for rotation around axis i of frame 1.
+  <tr><td>T = <strong>axisRotation</strong>(i, angle);</td>
+      <td>Return orientation object T for rotation around axis i of frame 1.
       </td>
   </tr>
-  <tr><td valign=\"top\">T = <strong>axesRotations</strong>(sequence, angles);</td>
-      <td valign=\"top\">Return rotation object to rotate in sequence around 3 axes. Example:<br>
+  <tr><td>T = <strong>axesRotations</strong>(sequence, angles);</td>
+      <td>Return rotation object to rotate in sequence around 3 axes. Example:<br>
           T = axesRotations({1,2,3},{90,45,-90});
       </td>
   </tr>
-  <tr><td valign=\"top\">angles = <strong>axesRotationsAngles</strong>(T, sequence);</td>
-      <td valign=\"top\">Return the 3 angles to rotate in sequence around 3 axes to<br>
+  <tr><td>angles = <strong>axesRotationsAngles</strong>(T, sequence);</td>
+      <td>Return the 3 angles to rotate in sequence around 3 axes to<br>
           construct the given orientation object.
       </td>
   </tr>
-  <tr><td valign=\"top\">phi = <strong>smallRotation</strong>(T);</td>
-      <td valign=\"top\">Return rotation angles phi valid for a small rotation.
+  <tr><td>phi = <strong>smallRotation</strong>(T);</td>
+      <td>Return rotation angles phi valid for a small rotation.
       </td>
   </tr>
-  <tr><td valign=\"top\">T = <strong>from_nxy</strong>(n_x, n_y);</td>
-      <td valign=\"top\">Return orientation object from n_x and n_y vectors.
+  <tr><td>T = <strong>from_nxy</strong>(n_x, n_y);</td>
+      <td>Return orientation object from n_x and n_y vectors.
       </td>
   </tr>
-  <tr><td valign=\"top\">T = <strong>from_nxz</strong>(n_x, n_z);</td>
-      <td valign=\"top\">Return orientation object from n_x and n_z vectors.
+  <tr><td>T = <strong>from_nxz</strong>(n_x, n_z);</td>
+      <td>Return orientation object from n_x and n_z vectors.
       </td>
   </tr>
-  <tr><td valign=\"top\">R = <strong>from_T</strong>(T);</td>
-      <td valign=\"top\">Return orientation object R from transformation matrix T.
+  <tr><td>R = <strong>from_T</strong>(T);</td>
+      <td>Return orientation object R from transformation matrix T.
       </td>
   </tr>
-  <tr><td valign=\"top\">R = <strong>from_T_inv</strong>(T_inv);</td>
-      <td valign=\"top\">Return orientation object R from inverse transformation matrix T_inv.
+  <tr><td>R = <strong>from_T_inv</strong>(T_inv);</td>
+      <td>Return orientation object R from inverse transformation matrix T_inv.
       </td>
   </tr>
-  <tr><td valign=\"top\">T = <strong>from_Q</strong>(Q);</td>
-      <td valign=\"top\">Return orientation object T from quaternion orientation object Q.
+  <tr><td>T = <strong>from_Q</strong>(Q);</td>
+      <td>Return orientation object T from quaternion orientation object Q.
       </td>
   </tr>
-  <tr><td valign=\"top\">T = <strong>to_T</strong>(R);</td>
-      <td valign=\"top\">Return transformation matrix T from orientation object R.
+  <tr><td>T = <strong>to_T</strong>(R);</td>
+      <td>Return transformation matrix T from orientation object R.
       </td>
   </tr>
-  <tr><td valign=\"top\">T_inv = <strong>to_T_inv</strong>(R);</td>
-      <td valign=\"top\">Return inverse transformation matrix T_inv from orientation object R.
+  <tr><td>T_inv = <strong>to_T_inv</strong>(R);</td>
+      <td>Return inverse transformation matrix T_inv from orientation object R.
       </td>
   </tr>
-  <tr><td valign=\"top\">Q = <strong>to_Q</strong>(T);</td>
-      <td valign=\"top\">Return quaternion orientation object Q from orientation object T.
+  <tr><td>Q = <strong>to_Q</strong>(T);</td>
+      <td>Return quaternion orientation object Q from orientation object T.
       </td>
   </tr>
-  <tr><td valign=\"top\">exy = <strong>to_exy</strong>(T);</td>
-      <td valign=\"top\">Return [e_x, e_y] matrix of an orientation object T, <br>
+  <tr><td>exy = <strong>to_exy</strong>(T);</td>
+      <td>Return [e_x, e_y] matrix of an orientation object T,<br>
           with e_x and e_y vectors of frame 2, resolved in frame 1.
       </td>
   </tr>
@@ -3764,155 +3753,155 @@ The used variables have the following declaration:
 </pre>
 <table border=1 cellspacing=0 cellpadding=2>
   <tr><th><strong><em>Function/type</em></strong></th><th><strong><em>Description</em></strong></th></tr>
-  <tr><td valign=\"top\"><strong>Orientation R;</strong></td>
-      <td valign=\"top\">New type defining an orientation object that describes<br>
+  <tr><td><strong>Orientation R;</strong></td>
+      <td>New type defining an orientation object that describes<br>
           the rotation of frame 1 into frame 2.
       </td>
   </tr>
-  <tr><td valign=\"top\">res_ori = <strong>orientationConstraint</strong>(R);</td>
-      <td valign=\"top\">Return the constraints between the variables of an orientation object<br>
+  <tr><td>res_ori = <strong>orientationConstraint</strong>(R);</td>
+      <td>Return the constraints between the variables of an orientation object<br>
       (shall be zero).</td>
   </tr>
-  <tr><td valign=\"top\">w1 = <strong>angularVelocity1</strong>(R);</td>
-      <td valign=\"top\">Return angular velocity resolved in frame 1 from
+  <tr><td>w1 = <strong>angularVelocity1</strong>(R);</td>
+      <td>Return angular velocity resolved in frame 1 from
           orientation object R.
      </td>
   </tr>
-  <tr><td valign=\"top\">w2 = <strong>angularVelocity2</strong>(R);</td>
-      <td valign=\"top\">Return angular velocity resolved in frame 2 from
+  <tr><td>w2 = <strong>angularVelocity2</strong>(R);</td>
+      <td>Return angular velocity resolved in frame 2 from
           orientation object R.
      </td>
   </tr>
-  <tr><td valign=\"top\">v1 = <strong>resolve1</strong>(R,v2);</td>
-      <td valign=\"top\">Transform vector v2 from frame 2 to frame 1.
+  <tr><td>v1 = <strong>resolve1</strong>(R,v2);</td>
+      <td>Transform vector v2 from frame 2 to frame 1.
       </td>
   </tr>
-  <tr><td valign=\"top\">v2 = <strong>resolve2</strong>(R,v1);</td>
-      <td valign=\"top\">Transform vector v1 from frame 1 to frame 2.
+  <tr><td>v2 = <strong>resolve2</strong>(R,v1);</td>
+      <td>Transform vector v1 from frame 1 to frame 2.
      </td>
   </tr>
-  <tr><td valign=\"top\">v2 = <strong>resolveRelative</strong>(v1,R1,R2);</td>
-      <td valign=\"top\">Transform vector v1 from frame 1 to frame 2
+  <tr><td>v2 = <strong>resolveRelative</strong>(v1,R1,R2);</td>
+      <td>Transform vector v1 from frame 1 to frame 2
           using absolute orientation objects R1 of frame 1 and R2 of frame 2.
       </td>
   </tr>
-  <tr><td valign=\"top\">D1 = <strong>resolveDyade1</strong>(R,D2);</td>
-      <td valign=\"top\">Transform second order tensor D2 from frame 2 to frame 1.
+  <tr><td>D1 = <strong>resolveDyade1</strong>(R,D2);</td>
+      <td>Transform second order tensor D2 from frame 2 to frame 1.
       </td>
   </tr>
-  <tr><td valign=\"top\">D2 = <strong>resolveDyade2</strong>(R,D1);</td>
-      <td valign=\"top\">Transform second order tensor D1 from frame 1 to frame 2.
+  <tr><td>D2 = <strong>resolveDyade2</strong>(R,D1);</td>
+      <td>Transform second order tensor D1 from frame 1 to frame 2.
      </td>
   </tr>
-  <tr><td valign=\"top\">R = <strong>nullRotation</strong>()</td>
-      <td valign=\"top\">Return orientation object R that does not rotate a frame.
+  <tr><td>R = <strong>nullRotation</strong>()</td>
+      <td>Return orientation object R that does not rotate a frame.
      </td>
   </tr>
-  <tr><td valign=\"top\">R_inv = <strong>inverseRotation</strong>(R);</td>
-      <td valign=\"top\">Return inverse orientation object.
+  <tr><td>R_inv = <strong>inverseRotation</strong>(R);</td>
+      <td>Return inverse orientation object.
       </td>
   </tr>
-  <tr><td valign=\"top\">R_rel = <strong>relativeRotation</strong>(R1,R2);</td>
-      <td valign=\"top\">Return relative orientation object from two absolute
+  <tr><td>R_rel = <strong>relativeRotation</strong>(R1,R2);</td>
+      <td>Return relative orientation object from two absolute
           orientation objects.
       </td>
   </tr>
-  <tr><td valign=\"top\">R2 = <strong>absoluteRotation</strong>(R1,R_rel);</td>
-      <td valign=\"top\">Return absolute orientation object from another
+  <tr><td>R2 = <strong>absoluteRotation</strong>(R1,R_rel);</td>
+      <td>Return absolute orientation object from another
           absolute<br> and a relative orientation object.
       </td>
   </tr>
-  <tr><td valign=\"top\">R = <strong>planarRotation</strong>(e, angle, der_angle);</td>
-      <td valign=\"top\">Return orientation object of a planar rotation.
+  <tr><td>R = <strong>planarRotation</strong>(e, angle, der_angle);</td>
+      <td>Return orientation object of a planar rotation.
       </td>
   </tr>
-  <tr><td valign=\"top\">angle = <strong>planarRotationAngle</strong>(e, v1, v2);</td>
-      <td valign=\"top\">Return angle of a planar rotation, given the rotation axis<br>
+  <tr><td>angle = <strong>planarRotationAngle</strong>(e, v1, v2);</td>
+      <td>Return angle of a planar rotation, given the rotation axis<br>
         and the representations of a vector in frame 1 and frame 2.
       </td>
   </tr>
-  <tr><td valign=\"top\">R = <strong>axisRotation</strong>(axis, angle, der_angle);</td>
-      <td valign=\"top\">Return orientation object R to rotate around angle along axis of frame 1.
+  <tr><td>R = <strong>axisRotation</strong>(axis, angle, der_angle);</td>
+      <td>Return orientation object R to rotate around angle along axis of frame 1.
       </td>
   </tr>
-  <tr><td valign=\"top\">R = <strong>axesRotations</strong>(sequence, angles, der_angles);</td>
-      <td valign=\"top\">Return rotation object to rotate in sequence around 3 axes. Example:<br>
+  <tr><td>R = <strong>axesRotations</strong>(sequence, angles, der_angles);</td>
+      <td>Return rotation object to rotate in sequence around 3 axes. Example:<br>
           R = axesRotations({1,2,3},{pi/2,pi/4,-pi}, zeros(3));
       </td>
   </tr>
-  <tr><td valign=\"top\">angles = <strong>axesRotationsAngles</strong>(R, sequence);</td>
-      <td valign=\"top\">Return the 3 angles to rotate in sequence around 3 axes to<br>
+  <tr><td>angles = <strong>axesRotationsAngles</strong>(R, sequence);</td>
+      <td>Return the 3 angles to rotate in sequence around 3 axes to<br>
           construct the given orientation object.
       </td>
   </tr>
-  <tr><td valign=\"top\">phi = <strong>smallRotation</strong>(R);</td>
-      <td valign=\"top\">Return rotation angles phi valid for a small rotation R.
+  <tr><td>phi = <strong>smallRotation</strong>(R);</td>
+      <td>Return rotation angles phi valid for a small rotation R.
       </td>
   </tr>
-  <tr><td valign=\"top\">R = <strong>from_nxy</strong>(n_x, n_y);</td>
-      <td valign=\"top\">Return orientation object from n_x and n_y vectors.
+  <tr><td>R = <strong>from_nxy</strong>(n_x, n_y);</td>
+      <td>Return orientation object from n_x and n_y vectors.
       </td>
   </tr>
-  <tr><td valign=\"top\">R = <strong>from_nxz</strong>(n_x, n_z);</td>
-      <td valign=\"top\">Return orientation object from n_x and n_z vectors.
+  <tr><td>R = <strong>from_nxz</strong>(n_x, n_z);</td>
+      <td>Return orientation object from n_x and n_z vectors.
       </td>
   </tr>
-  <tr><td valign=\"top\">R = <strong>from_T</strong>(T,w);</td>
-      <td valign=\"top\">Return orientation object R from transformation matrix T and
+  <tr><td>R = <strong>from_T</strong>(T,w);</td>
+      <td>Return orientation object R from transformation matrix T and
           its angular velocity w.
       </td>
   </tr>
-  <tr><td valign=\"top\">R = <strong>from_T2</strong>(T,der(T));</td>
-      <td valign=\"top\">Return orientation object R from transformation matrix T and
+  <tr><td>R = <strong>from_T2</strong>(T,der(T));</td>
+      <td>Return orientation object R from transformation matrix T and
           its derivative der(T).
       </td>
   </tr>
-  <tr><td valign=\"top\">R = <strong>from_T_inv</strong>(T_inv,w);</td>
-      <td valign=\"top\">Return orientation object R from inverse transformation matrix T_inv and
+  <tr><td>R = <strong>from_T_inv</strong>(T_inv,w);</td>
+      <td>Return orientation object R from inverse transformation matrix T_inv and
           its angular velocity w.
       </td>
   </tr>
-  <tr><td valign=\"top\">R = <strong>from_Q</strong>(Q,w);</td>
-      <td valign=\"top\">Return orientation object R from quaternion orientation object Q
+  <tr><td>R = <strong>from_Q</strong>(Q,w);</td>
+      <td>Return orientation object R from quaternion orientation object Q
           and its angular velocity w.
       </td>
   </tr>
-  <tr><td valign=\"top\">T = <strong>to_T</strong>(R);</td>
-      <td valign=\"top\">Return transformation matrix T from orientation object R.
+  <tr><td>T = <strong>to_T</strong>(R);</td>
+      <td>Return transformation matrix T from orientation object R.
       </td>
   </tr>
-  <tr><td valign=\"top\">T_inv = <strong>to_T_inv</strong>(R);</td>
-      <td valign=\"top\">Return inverse transformation matrix T_inv from orientation object R.
+  <tr><td>T_inv = <strong>to_T_inv</strong>(R);</td>
+      <td>Return inverse transformation matrix T_inv from orientation object R.
       </td>
   </tr>
-  <tr><td valign=\"top\">Q = <strong>to_Q</strong>(R);</td>
-      <td valign=\"top\">Return quaternion orientation object Q from orientation object R.
+  <tr><td>Q = <strong>to_Q</strong>(R);</td>
+      <td>Return quaternion orientation object Q from orientation object R.
       </td>
   </tr>
-  <tr><td valign=\"top\">exy = <strong>to_exy</strong>(R);</td>
-      <td valign=\"top\">Return [e_x, e_y] matrix of an orientation object R, <br>
+  <tr><td>exy = <strong>to_exy</strong>(R);</td>
+      <td>Return [e_x, e_y] matrix of an orientation object R,<br>
           with e_x and e_y vectors of frame 2, resolved in frame 1.
       </td>
   </tr>
-  <tr><td valign=\"top\">L = <strong>length</strong>(n_x);</td>
-      <td valign=\"top\">Return length L of a vector n_x.
+  <tr><td>L = <strong>length</strong>(n_x);</td>
+      <td>Return length L of a vector n_x.
       </td>
   </tr>
-  <tr><td valign=\"top\">e_x = <strong>normalize</strong>(n_x);</td>
-      <td valign=\"top\">Return normalized vector e_x of n_x such that length of e_x is one.
+  <tr><td>e_x = <strong>normalize</strong>(n_x);</td>
+      <td>Return normalized vector e_x of n_x such that length of e_x is one.
       </td>
   </tr>
-  <tr><td valign=\"top\">e = <strong>axis</strong>(i);</td>
-      <td valign=\"top\">Return unit vector e directed along axis i
+  <tr><td>e = <strong>axis</strong>(i);</td>
+      <td>Return unit vector e directed along axis i
       </td>
   </tr>
-  <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Quaternions\">Quaternions</a></td>
-      <td valign=\"top\"><strong>Package</strong> with functions to transform rotational frame quantities based
+  <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Quaternions\">Quaternions</a></td>
+      <td><strong>Package</strong> with functions to transform rotational frame quantities based
           on quaternions (also called Euler parameters).
       </td>
   </tr>
-  <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices\">TransformationMatrices</a></td>
-      <td valign=\"top\"><strong>Package</strong> with functions to transform rotational frame quantities based
+  <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices\">TransformationMatrices</a></td>
+      <td><strong>Package</strong> with functions to transform rotational frame quantities based
           on transformation matrices.
       </td>
   </tr>

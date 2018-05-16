@@ -159,9 +159,9 @@ or other flow models without storage, are directly connected.
 <p>Note that this generally leads to high-index DAEs for pressure states if dynamic pipes are directly connected to each other, or generally to models with storage exposing a thermodynamic state through the port. This may not be valid if the dynamic pipe is connected to a model with non-differentiable pressure, like a Sources.Boundary_pT with prescribed jumping pressure. The <code><strong>modelStructure</strong></code> can be configured as appropriate in such situations, in order to place a momentum balance between a pressure state of the pipe and a non-differentiable boundary condition.</p>
 <p>The default <code><strong>modelStructure</strong></code> is <code>av_vb</code> (see Advanced tab). The simplest possible alternative symmetric configuration, avoiding potential high-index DAEs at the cost of the potential introduction of nonlinear equation systems, is obtained with the setting <code>nNodes=1, modelStructure=a_v_b</code>. Depending on the configured model structure, the first and the last pipe segment, or the flow path length of the first and the last momentum balance, are of half size. See the documentation of the base class <a href=\"modelica://Modelica.Fluid.Pipes.BaseClasses.PartialTwoPortFlow\">Pipes.BaseClasses.PartialTwoPortFlow</a>, also covering asymmetric configurations.</p>
 <p>The <code><strong>HeatTransfer</strong></code> component specifies the source term <code>Qb_flows</code> of the energy balance. The default component uses a constant coefficient for the heat transfer between the bulk flow and the segment boundaries exposed through the <code>heatPorts</code>. The <code>HeatTransfer</code> model is replaceable and can be exchanged with any model extended from <a href=\"modelica://Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.PartialFlowHeatTransfer\">BaseClasses.HeatTransfer.PartialFlowHeatTransfer</a>.</p>
-<p>The intended use is for complex networks of pipes and other flow devices, like valves. See, e.g., </p>
+<p>The intended use is for complex networks of pipes and other flow devices, like valves. See, e.g.,</p>
 <ul>
-<li><a href=\"modelica://Modelica.Fluid.Examples.BranchingDynamicPipes\">Examples.BranchingDynamicPipes</a>, or </li>
+<li><a href=\"modelica://Modelica.Fluid.Examples.BranchingDynamicPipes\">Examples.BranchingDynamicPipes</a>, or</li>
 <li><a href=\"modelica://Modelica.Fluid.Examples.IncompressibleFluidNetwork\">Examples.IncompressibleFluidNetwork</a>.</li>
 </ul>
 </html>"),
@@ -629,7 +629,7 @@ This considers
 <li>pressure drop due to friction and other dissipative losses, and</li>
 <li>gravity effects for non-horizontal devices.</li>
 <li>variation of flow velocity along the flow path,
-which occur due to changes in the cross sectional area or the fluid density, provided that <code>flowModel.use_Ib_flows</code> is true.
+which occur due to changes in the cross sectional area or the fluid density, provided that <code>flowModel.use_Ib_flows</code> is true.</li>
 </ul>
 
 <h4>Model Structure</h4>
@@ -641,7 +641,7 @@ The options include (default: av_vb):
 <ul>
 <li><code>av_vb</code>: Symmetric setting with nNodes-1 momentum balances between nNodes flow segments.
     The ports <code>port_a</code> and <code>port_b</code> expose the first and the last thermodynamic state, respectively.
-    Connecting two or more flow devices therefore may result in high-index DAEs for the pressures of connected flow segments.
+    Connecting two or more flow devices therefore may result in high-index DAEs for the pressures of connected flow segments.</li>
 <li><code>a_v_b</code>: Alternative symmetric setting with nNodes+1 momentum balances across nNodes flow segments.
     Half momentum balances are placed between <code>port_a</code> and the first flow segment as well as between the last flow segment and <code>port_b</code>.
     Connecting two or more flow devices therefore results in algebraic pressures at the ports.

@@ -359,7 +359,7 @@ package Basic "Basic electrical components"
 <li>Inom...nominal current</li>
 <li>Lnom...nominal inductance at nominal current</li>
 <li>Lzer...inductance near current = 0; Lzer has to be greater than Lnom</li>
-<li>Linf...inductance at large currents; Linf has to be less than Lnom </li>
+<li>Linf...inductance at large currents; Linf has to be less than Lnom</li>
 </ul>
 </html>", revisions="<html>
 <dl>
@@ -586,7 +586,7 @@ package Basic "Basic electrical components"
 <p>The model <em>M_Transformer</em> is a model of a transformer with the possibility to choose the number of inductors. Inside the model, an inductance matrix is built based on the inductance of the inductors and the coupling inductances between the inductors given as a parameter vector from the user of the model.</p>
 
 <p>An example shows that approach:<br>
-The user chooses a model with <strong>three</strong> inductors, that means the parameter <em><strong>N</strong></em> has to be <strong>3</strong>. Then he has to specify the inductances of the three inductors and the three coupling inductances. The coupling inductances are no real existing devices, but effects that occur between two inductors. The inductivities (main diagonal of the inductance matrix) and the coupling inductivities have to be specified in the parameter vector <em>L</em>. The length <em>dimL</em> of the parameter vector is calculated as follows: <em><strong>dimL=(N*(N+1))/2</strong></em></p>
+The user chooses a model with <strong>three</strong> inductors, that means the parameter <em><strong>N</strong></em> has to be <strong>3</strong>. Then he has to specify the inductances of the three inductors and the three coupling inductances. The coupling inductances are no real existing devices, but effects that occur between two inductors. The inductances (main diagonal of the inductance matrix) and the coupling inductances have to be specified in the parameter vector <em>L</em>. The length <em>dimL</em> of the parameter vector is calculated as follows: <em><strong>dimL=(N*(N+1))/2</strong></em></p>
 
 <p>The following example shows how the parameter vector is used to fill in the inductance matrix. To specify the inductance matrix of a three inductances transformer (<em>N=3</em>):
 </p>
@@ -610,25 +610,25 @@ the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N
       <th>Comment</th>
     </tr>
    <tr>
-      <td valign=\"top\"></td>
-      <td valign=\"top\">4163</td>
-      <td valign=\"top\">2010-09-11</td>
-      <td valign=\"top\">Dietmar Winkler</td>
-      <td valign=\"top\">Documentation corrected according to documentation guidelines.</td>
+      <td></td>
+      <td>4163</td>
+      <td>2010-09-11</td>
+      <td>Dietmar Winkler</td>
+      <td>Documentation corrected according to documentation guidelines.</td>
     </tr>
     <tr>
-      <td valign=\"top\"></td>
-      <td valign=\"top\"></td>
-      <td valign=\"top\">2008-11-24</td>
-      <td valign=\"top\">Kristin Majetta</td>
-      <td valign=\"top\">Documentation added.</td>
+      <td></td>
+      <td></td>
+      <td>2008-11-24</td>
+      <td>Kristin Majetta</td>
+      <td>Documentation added.</td>
     </tr>
     <tr>
-      <td valign=\"top\"></td>
-      <td valign=\"top\"></td>
-      <td valign=\"top\">2008-11-16</td>
-      <td valign=\"top\">Kristin Majetta</td>
-      <td valign=\"top\">Initially implemented</td>
+      <td></td>
+      <td></td>
+      <td>2008-11-16</td>
+      <td>Kristin Majetta</td>
+      <td>Initially implemented</td>
     </tr>
 </table>
 </html>"));
@@ -1049,7 +1049,7 @@ the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N
                                                     color={0,0,255}),
           Line(points={{20,0},{60,0}}, color={0,0,255}),
           Text(
-            extent={{-149,150},{151,110}},
+            extent={{-150,150},{150,110}},
             textString="%name",
             lineColor={0,0,255}),
           Line(points={{-90,100},{-40,100},{-40,60}}, color={0,0,255}),
@@ -1099,7 +1099,7 @@ the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N
           Line(points={{-90,100},{-40,100},{-40,-100},{-90,-100}},
                                                                color={0,0,255}),
           Text(
-            extent={{-170,150},{130,110}},
+            extent={{-150,150},{150,110}},
             textString="%name",
             lineColor={0,0,255})}));
   end CCV;
@@ -1445,7 +1445,7 @@ the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
           Text(
-            extent={{-151,149},{149,109}},
+            extent={{-150,150},{150,110}},
             textString="%name",
             lineColor={0,0,255}),
           Polygon(
@@ -1905,7 +1905,7 @@ Bear in mind that separating physical components and connecting them via adaptor
 </html>"));
   end VoltageToCurrentAdaptor;
   annotation (Documentation(info="<html>
-<p>This package contains very basic analog electrical components such as resistor, conductor, condensator, inductor, and the ground (which is needed in each electrical circuit description. Furthermore, controlled sources, coupling components, and some improved (but nevertheless basic) are in this package.</p>
+<p>This package contains very basic analog electrical components such as resistor, conductor, capacitor, inductor, and the ground (which is needed in each electrical circuit description. Furthermore, controlled sources, coupling components, and some improved (but nevertheless basic) are in this package.</p>
 </html>", revisions="<html>
 <dl>
 <dt>

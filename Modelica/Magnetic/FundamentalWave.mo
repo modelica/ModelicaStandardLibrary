@@ -179,13 +179,13 @@ as depicted in Fig. 1 and 2.
 Mathematically, this symmetry is expressed in terms of phase currents by:
 </p>
 
-<p><img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/ik_odd.png\"/> </p>
+<p><img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/ik_odd.png\"/></p>
 
 <p>
 The orientation of the winding axis of such winding is given by:
 </p>
 
-<p><img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/orientationk_m.png\"/> </p>
+<p><img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/orientationk_m.png\"/></p>
 
 <h5>Even number of phases</h5>
 
@@ -351,22 +351,22 @@ no. 829420.
 
 <ul>
   <li>Fixed propagation of excitation leakage factor, see
-      <a href=\"https://github.com/modelica/Modelica/issues/2403\">#2403</a></li>
+      <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2403\">#2403</a></li>
   <li>Added model of electrical excited synchronous machines, starting direct on line, see
-      <a href=\"https://github.com/modelica/Modelica/issues/2388\">#2388</a></li>
+      <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2388\">#2388</a></li>
   <li>Unified communication interval, see
-      <a href=\"https://github.com/modelica/Modelica/issues/2279\">#2279</a></li>
+      <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2279\">#2279</a></li>
   <li>Unified simulation tolerances, see
-      <a href=\"https://github.com/modelica/Modelica/issues/2278\">#2278</a></li>
+      <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2278\">#2278</a></li>
 <li>Added more examples from
     <a href=\"modelica://Modelica.Electrical.Machines.Examples\">Machines.Examples</a>, see
-    <a href=\"https://github.com/modelica/Modelica/issues/2276\">#2276</a></li>
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2276\">#2276</a></li>
 <li>Replace wrong permeance image in documentation according to
-    <a href=\"https://github.com/modelica/Modelica/issues/2208\">#2208</a></li>
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2208\">#2208</a></li>
 <li>Added obsolete annotation to
     <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseCageWinding_obsolete\">SymmetricMultiPhaseCageWinding_obsolete</a> and
     <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SaliencyCageWinding_obsolete\">SaliencyCageWinding_obsolete</a>,
-    see <a href=\"https://github.com/modelica/Modelica/issues/1536\">#1536</a></li>
+    see <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/1536\">#1536</a></li>
 <li>Updated documentation of
     <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.Short\">Short</a>,
     <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.Idle\">Idle</a> and
@@ -379,25 +379,25 @@ no. 829420.
 </ul>
 <li>Removed parameter text from icon layer for reluctance and permeance model</li>
 <li>Restructured cage models with reluctance instead of inductance model according to ticket
-    <a href=\"https://github.com/modelica/Modelica/issues/1536\">#1536</a>;
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/1536\">#1536</a>;
 the re-structuring of the model required to change the initial conditions of the included examples, since the number of rotor states is reduced by new implementation</li>
 <li>Some more bug fixes according to
-<a href=\"https://github.com/modelica/Modelica/issues/1226\">#1226</a>,
+<a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/1226\">#1226</a>,
 since not all reference orientations have been correct</li>
 <li>Added variables for magnitude and argument of complex magnetic potential difference and flux, see
-<a href=\"https://github.com/modelica/Modelica/issues/1405\">#1405</a></li>
+<a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/1405\">#1405</a></li>
 </ul>
 
 <h5>Version 3.2.1, 2013-07-31</h5>
 
 <ul>
 <li>Bug fix of wrong orientation of squirrel and damper cage models, see ticket
-<a href=\"https://github.com/modelica/Modelica/issues/1226\">#1226</a>;
+<a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/1226\">#1226</a>;
 this also includes the removal of the rotor cage heat sensor which previously has been used</li>
 <li>Bug fix of conditional initialization of examples, see ticket
-<a href=\"https://github.com/modelica/Modelica/issues/1223\">#1223</a></li>
+<a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/1223\">#1223</a></li>
 <li>Fixed missing default parameter TpmOperational in ambient of PM synchronous machine, see ticket
-<a href=\"https://github.com/modelica/Modelica/issues/1216\">#1216</a>#1216</li>
+<a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/1216\">#1216</a>#1216</li>
 <li>Added voltages, currents, complex flux and magnetic potential difference as global variables in
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.MultiPhaseElectroMagneticConverter\">multi phase converter</a></li>
 <li>Added two more component examples, showing the equivalent nature of electrical and magnetic domain</li>
@@ -407,9 +407,9 @@ this also includes the removal of the rotor cage heat sensor which previously ha
 
 <ul>
 <li>Corrected wrong parameter descriptions, see ticket
-<a href=\"https://github.com/modelica/Modelica/issues/1003\">#1003</a></li>
+<a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/1003\">#1003</a></li>
 <li>Extended machine models towards phase numbers to greater or equal than three, see ticket
-<a href=\"https://github.com/modelica/Modelica/issues/990\">#990</a></li>
+<a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/990\">#990</a></li>
 </ul>
 
 <h5>Version 1.7.3, 2013-02-25</h5>
@@ -468,7 +468,7 @@ Translational.Interfaces</a></li>
   <li>Added machine specific output records to summarize power and loss balance</li>
   <li>Updated images of Users Guide</li>
   <li>Improved performance due to <code>annotation(Evaluate=true)</code> added to the parameters of the
-      <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SinglePhaseWinding\">single phase winding</a>
+      <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SinglePhaseWinding\">single phase winding</a></li>
   <li>Reduced number of states in <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseCageWinding\">symmetric cage</a> model by introducing an additional non-grounded star connection</li>
 </ul>
 
@@ -485,9 +485,9 @@ Translational.Interfaces</a></li>
 <li>Update due to changed class names in <a href=\"modelica://Modelica.Electrical.Machines.Icons\">Machines.Icons</a></li>
 <li>Using <a href=\"modelica://Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort\">HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort</a> instead of
     <a href=\"modelica://Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort\">Analog.Interfaces.ConditionalHeatPort</a> in
-    <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.EddyCurrent\">EddyCurrent</a> </li>
+    <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.EddyCurrent\">EddyCurrent</a></li>
 <li>Added <code>modelica://</code> to all Modelica hyper links</li>
-<li>Fixed bug in displayed parameters of <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.EddyCurrent\">EddyCurrent</a> </li>
+<li>Fixed bug in displayed parameters of <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.EddyCurrent\">EddyCurrent</a></li>
 <li>Updated some images (and renamed image file <code>LossPower.png</code> to <code>lossPower.png</code>)</li>
 <li>Exchanged positive and negative stator ports of <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap\">RotorSaliencyAirGap</a>
 model, adapted equations accordingly and updated code documentation.</li>
@@ -510,7 +510,7 @@ model from R to G</li>
 <ul>
 <li>Added eddy current model in accordance to <a href=\"modelica://Modelica.Magnetic.FluxTubes\">FluxTubes</a> library</li>
 <li>Added thermal heat port to eddy current model</li>
-<li>Minor updates due to dependencies of <a href=\"modelica://Modelica.Electrical.Machines\">Machines</a>
+<li>Minor updates due to dependencies of <a href=\"modelica://Modelica.Electrical.Machines\">Machines</a></li>
 </ul>
 
 <h5>Version 1.3.0, 2010-02-26</h5>
@@ -527,7 +527,7 @@ model from R to G</li>
 <ul>
 <li>Renamed Machines to BasicMachines</li>
 <li>Updated dependencies due to renamed class
-<a href=\"modelica://Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20\">LinearTemperatureCoefficient20</a>
+<a href=\"modelica://Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20\">LinearTemperatureCoefficient20</a></li>
 <li>Added release notes in User's Guide</li>
 </ul>
 
@@ -577,8 +577,8 @@ model from R to G</li>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
     <tr>
-      <td valign=\"top\">[Beuschel00]</td>
-      <td valign=\"top\">M. Beuschel,
+      <td>[Beuschel00]</td>
+      <td>M. Beuschel,
         &quot;<a href=\"https://www.modelica.org/events/workshop2000/proceedings/Beuschel.pdf\">
         A uniform approach for modelling electrical machines</a>,&quot;
         <em>Modelica Workshop</em>,
@@ -586,38 +586,38 @@ model from R to G</li>
     </tr>
 
     <tr>
-      <td valign=\"top\">[Eckhardt82]</td>
-      <td valign=\"top\">H. Eckhardt,
+      <td>[Eckhardt82]</td>
+      <td>H. Eckhardt,
         <em>Grundz&uuml;ge der elektrischen Maschinen</em> (in German),
         B. G. Teubner Verlag, Stuttgart, 1982.</td>
     </tr>
 
     <tr>
-      <td valign=\"top\">[Haumer09]</td>
-      <td valign=\"top\">A. Haumer, and C. Kral,
+      <td>[Haumer09]</td>
+      <td>A. Haumer, and C. Kral,
         &quot;<a href=\"https://www.modelica.org/events/modelica2009/Proceedings/memorystick/pages/papers/0103/0103.pdf\">The
         AdvancedMachines Library: Loss Models for Electric Machines</a>,&quot;
         <em>Modelica Conference</em>, 2009.</td>
     </tr>
 
     <tr>
-      <td valign=\"top\">[Lang84]</td>
-      <td valign=\"top\">W. Lang,
+      <td>[Lang84]</td>
+      <td>W. Lang,
         <em>&Uuml;ber die Bemessung verlustarmer Asynchronmotoren mit K&auml;figl&auml;ufer f&uuml;r Pulsumrichterspeisung</em>
        (in German),
        Doctoral Thesis, Technical University of Vienna, 1984.</td>
     </tr>
 
     <tr>
-      <td valign=\"top\">[Laughton02]</td>
-      <td valign=\"top\">M.A. Laughton, D.F. Warne
+      <td>[Laughton02]</td>
+      <td>M.A. Laughton, D.F. Warne
         <em>Electrical Engineer's Reference Book</em>
         Butterworth Heinemann, 16th edition, ISBN 978-0750646376, 2002</td>
     </tr>
 
     <tr>
-      <td valign=\"top\">[Li07]</td>
-      <td valign=\"top\">Y. Li, Z. Q. Zhu, D. Howe, and C. M. Bingham,
+      <td>[Li07]</td>
+      <td>Y. Li, Z. Q. Zhu, D. Howe, and C. M. Bingham,
         &quot;Modeling of Cross-Coupling Magnetic Saturation in Signal-Injection-Based
         Sensorless Control of Permanent-Magnet Brushless AC Motors,&quot;
         <em>IEEE Transactions on Magnetics</em>,
@@ -625,15 +625,15 @@ model from R to G</li>
     </tr>
 
     <tr>
-      <td valign=\"top\">[Mueller70]</td>
-      <td valign=\"top\">G, M&uuml;ller,
+      <td>[Mueller70]</td>
+      <td>G, M&uuml;ller,
         <em>Elektrische Maschinen -- Grundlagen, Aufbau und Wirkungsweise</em> (in German),
         VEB Verlag Technik Berlin, 4th edition, 1970.</td>
     </tr>
 
     <tr>
-      <td valign=\"top\">[Spaeth73]</td>
-      <td valign=\"top\">H. Sp&auml;th,
+      <td>[Spaeth73]</td>
+      <td>H. Sp&auml;th,
         <em>Elektrische Maschinen -- Eine Einf&uuml;hrung in die Theorie des Betriebsverhaltens</em> (in German),
         Springer-Verlag, Berlin, Heidelberg, New York, 1973.</td>
     </tr>
@@ -4249,7 +4249,7 @@ To drive at higher torque, i.e., produce more electric power, excitation has to 
 <h5>Note</h5>
 <p>The mains switch is closed at time = 0 in order to avoid non physical noise calculated by the <code>rotorDisplacementAngle</code>.
 This noise is caused by the interaction of the high resistance of the switch and the machine, see
-<a href=\"https://github.com/modelica/Modelica/issues/2388\">#2388</a>.
+<a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2388\">#2388</a>.
 </p>
 </html>"),Diagram(graphics={                      Text(
                         extent={{10,-72},{90,-80}},
@@ -8173,7 +8173,7 @@ The permanent magnet is modeled by a magnetic potential difference. The internal
             points={{-40,-90},{-40,-100},{0,-100}}, color={191,0,0}));
         connect(resistor.plug_n, starAuxiliary.plug_p) annotation (Line(
             points={{-20,-80},{30,-80}}, color={0,0,255}));
-        annotation (defaultComponentName="cage", obsolete="Wrong structure of multi phase cage, see #1536 (https://github.com/modelica/Modelica/issues/1536)",
+        annotation (defaultComponentName="cage", obsolete="Wrong structure of multi phase cage, see #1536 (https://github.com/modelica/ModelicaStandardLibrary/issues/1536)",
           Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                   {100,100}}), graphics={Ellipse(
                       extent={{-80,80},{80,-80}},
@@ -8310,7 +8310,7 @@ The symmetric rotor cage model of this library does not consist of rotor bars an
             points={{-40,-90},{-40,-100},{0,-100}}, color={191,0,0}));
         connect(resistor.heatPort, thermalCollector.port_a) annotation (Line(
             points={{-30,-70},{-40,-70}}, color={191,0,0}));
-        annotation (defaultComponentName="cage", obsolete="Wrong structure of saliency cage, see #1536 (https://github.com/modelica/Modelica/issues/1536)",
+        annotation (defaultComponentName="cage", obsolete="Wrong structure of saliency cage, see #1536 (https://github.com/modelica/ModelicaStandardLibrary/issues/1536)",
           Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                   -100},{100,100}}), graphics={Ellipse(
                       extent={{-80,80},{80,-80}},
@@ -8839,7 +8839,7 @@ considers the flux balance of the two ports. Additionally the magnetic potential
       annotation (Documentation(info="<html>
 <p>This magnetic two port element consists of a <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.PositiveMagneticPort\">positive</a> and a <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.NegativeMagneticPort\">negative magnetic port</a> and some additionally variables, but no physical balance equations.</p>
 <h4>See also</h4>
-<p><a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.PositiveMagneticPort\">PositiveMagneticPort</a>, <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.NegativeMagneticPort\">NegativeMagneticPort</a>, <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPort\">PartialTwoPort</a>, <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPortElementary\">PartialTwoPortElementary</a> </p>
+<p><a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.PositiveMagneticPort\">PositiveMagneticPort</a>, <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.NegativeMagneticPort\">NegativeMagneticPort</a>, <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPort\">PartialTwoPort</a>, <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPortElementary\">PartialTwoPortElementary</a></p>
 </html>"));
     end PartialTwoPortExtended;
 
@@ -9400,7 +9400,7 @@ Copyright &copy; 2009-2018, Modelica Association, <a href=\"modelica://Modelica.
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.Contact\">Anton Haumer</a> and AIT
 </p>
 <p>
-<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\"> https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em>
+<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em>
 </p>
 </html>"),
     Icon(graphics={

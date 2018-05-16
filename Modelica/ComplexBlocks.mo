@@ -15,7 +15,7 @@ package ComplexBlocks
 <strong>Anton Haumer</strong><br>
 <a href=\"http://www.haumer.at\">Technical Consulting &amp; Electrical Engineering</a><br>
 3423 St. Andrae-Woerdern, Austria<br>
-email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
+email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
 </p>
 
 <p>
@@ -1891,6 +1891,121 @@ An error occurs if the elements of the input <code>u</code> is zero.
 </html>"));
     end ComplexToPolar;
 
+    block Bode "Calculate quantities to plot Bode diagram"
+      parameter Boolean useDivisor = true "Use divisor input, if true";
+      constant Modelica.SIunits.AmplitudeLevelDifference dB = 20 "Amplitude level difference";
+      Interfaces.ComplexInput u "Dividend if useDivisor == true" annotation (Placement(transformation(extent={{-140,40},{-100,80}}),   iconTransformation(extent={{-140,40},{-100,80}})));
+      Interfaces.ComplexInput divisor if useDivisor "Divisor" annotation (Placement(transformation(extent={{-140,-80},{-100,-40}}), iconTransformation(extent={{-140,-80},{-100,-40}})));
+      Blocks.Interfaces.RealOutput abs_y "Absolute value of ratio u / divisor" annotation (Placement(transformation(extent={{-10,-10},{10,10}},
+            rotation=270,
+            origin={-60,-110}),                                                                              iconTransformation(
+            extent={{-10,-10},{10,10}},
+            rotation=270,
+            origin={-60,-110})));
+      Blocks.Interfaces.RealOutput arg_y "Angle of ratio u / divisor" annotation (Placement(transformation(extent={{-10,-10},{10,10}},
+            rotation=270,
+            origin={60,-110}),                                                                                iconTransformation(
+            extent={{-10,-10},{10,10}},
+            rotation=270,
+            origin={60,-110})));
+      Interfaces.ComplexOutput y "Quotient y = u / divisor" annotation (Placement(transformation(extent={{100,-10},{120,10}}), iconTransformation(extent={{100,-10},{120,10}})));
+      Sources.ComplexConstant complexOne(final k=Complex(1, 0)) if not useDivisor "Complex(1,0)" annotation (Placement(transformation(extent={{-100,-50},{-80,-30}})));
+      Division division(final useConjugateInput1=false, final useConjugateInput2=false)
+                        annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
+      ComplexToPolar complexToPolar(final useConjugateInput=false) annotation (Placement(transformation(
+            extent={{-10,10},{10,-10}},
+            rotation=270,
+            origin={0,-20})));
+      Blocks.Interfaces.RealOutput dB_y(unit="dB") "Log10 of absolute value of ratio u / divisor in dB" annotation (Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=270,
+            origin={0,-110}), iconTransformation(
+            extent={{-10,-10},{10,10}},
+            rotation=270,
+            origin={0,-110})));
+      Blocks.Math.Log10 log10_y annotation (Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=0,
+            origin={-10,-70})));
+      Blocks.Math.Gain gain(final k=dB) annotation (Placement(transformation(extent={{10,-80},{30,-60}})));
+      Blocks.Nonlinear.Limiter limiter(final uMax=Modelica.Constants.inf, final uMin=Modelica.Constants.eps) annotation (Placement(transformation(extent={{-50,-80},{-30,-60}})));
+    equation
+
+      connect(complexOne.y, division.u2) annotation (Line(points={{-79,-40},{-70,-40},{-70,-6},{-62,-6}}, color={85,170,255}));
+      connect(divisor, division.u2) annotation (Line(points={{-120,-60},{-70,-60},{-70,-6},{-62,-6}}, color={85,170,255}));
+      connect(division.u1, u) annotation (Line(points={{-62,6},{-70,6},{-70,60},{-120,60}}, color={85,170,255}));
+      connect(division.y, y) annotation (Line(points={{-39,0},{110,0},{110,0}}, color={85,170,255}));
+      connect(complexToPolar.u, y) annotation (Line(points={{0,-8},{0,0},{110,0}},  color={85,170,255}));
+      connect(complexToPolar.phi, arg_y) annotation (Line(points={{6,-32},{6,-40},{60,-40},{60,-110}}, color={0,0,127}));
+      connect(complexToPolar.len, abs_y) annotation (Line(points={{-6,-32},{-6,-40},{-60,-40},{-60,-110}}, color={0,0,127}));
+      connect(log10_y.y, gain.u) annotation (Line(points={{1,-70},{8,-70}},     color={0,0,127}));
+      connect(gain.y, dB_y) annotation (Line(points={{31,-70},{40,-70},{40,-90},{0,-90},{0,-110}},color={0,0,127}));
+      connect(limiter.y, log10_y.u) annotation (Line(points={{-29,-70},{-22,-70}}, color={0,0,127}));
+      connect(complexToPolar.len, limiter.u) annotation (Line(points={{-6,-32},{-6,-40},{-60,-40},{-60,-70},{-52,-70}}, color={0,0,127}));
+      annotation (Icon(graphics={Rectangle(
+            extent={{-100,-100},{100,100}},
+            lineColor={0,0,127},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
+            Line(points={{-78,44},{80,44}}, color={135,135,135}),
+            Line(points={{-78,34},{80,34}}, color={135,135,135}),
+            Line(points={{-78,20},{80,20}}, color={135,135,135}),
+            Line(points={{-78,-2},{80,-2}}, color={135,135,135}),
+            Line(points={{-78,-48},{80,-48}}, color={135,135,135}),
+            Line(points={{-50,-48},{-50,44}}, color={135,135,135}),
+            Line(points={{50,-48},{50,44}}, color={135,135,135}),
+            Line(points={{-78,40},{80,40}}, color={135,135,135}),
+                                   Polygon(
+                  points={{90,-48},{68,-40},{68,-56},{90,-48}},
+                  lineColor={192,192,192},
+                  fillColor={192,192,192},
+                  fillPattern=FillPattern.Solid),
+                            Polygon(
+                  points={{-70,90},{-78,68},{-62,68},{-70,90}},
+                  lineColor={192,192,192},
+                  fillColor={192,192,192},
+                  fillPattern=FillPattern.Solid),
+            Line(points={{-70,-56},{-70,68}}, color={135,135,135}),
+            Line(
+              points={{-78,44},{-50,44},{70,-66}},
+              color={0,0,255},
+              thickness=0.5),               Text(
+            extent={{-150,150},{150,110}},
+            textString="%name",
+            lineColor={0,0,255}),
+            Text(
+              extent={{-80,-90},{-40,-70}},
+              lineThickness=0.5,
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid,
+              textString="|y|"),
+            Text(
+              extent={{-20,-90},{20,-70}},
+              lineThickness=0.5,
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid,
+              textString="dB"),             Text(
+            extent={{-150,150},{150,110}},
+            textString="%name",
+            lineColor={0,0,255}),
+            Text(
+              extent={{40,-90},{80,-70}},
+              lineThickness=0.5,
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid,
+              textString="∠")}),
+        Documentation(info="<html>
+<p>This complex block is used to determine variables of a Bode diagram for the output <code>y</code>.
+The output <code>y</code> is calculated by <code>u / divisor</code> if <code>useDivisor == true</code>.
+Otherwise the output <code>y = u</code>.</p>
+<ul>
+<li><code>abs_y</code> Absolute value of <code>y</code></li>
+<li><code>arg_y</code> Angle of <code>y</code></li>
+<li><code>dB_y</code> Logarithm to the base 10 of the absolute value of <code>y</code> in dB</li>
+</ul>
+</html>"));
+    end Bode;
+
     block TransferFunction "Complex Transfer Function"
       extends Modelica.ComplexBlocks.Interfaces.ComplexSISO;
       import Modelica.ComplexMath.j;
@@ -1953,6 +2068,361 @@ connected with continuous blocks or with sampled-data blocks.
             color={95,95,95},
             smooth=Smooth.Bezier)}));
   end ComplexMath;
+
+  package Routing "Library of blocks to combine and extract signals"
+    extends Modelica.Icons.Package;
+
+    block Replicator "Signal replicator"
+      extends Modelica.ComplexBlocks.Interfaces.ComplexSIMO;
+    equation
+      y = fill(u, nout);
+      annotation (
+        Icon(coordinateSystem(
+            preserveAspectRatio=false,
+            extent={{-100,-100},{100,100}}), graphics={
+            Line(points={{-100,0},{-6,0}}, color={0,0,127}),
+            Line(points={{100,0},{10,0}}, color={0,0,127}),
+            Line(points={{0,0},{100,10}}, color={0,0,127}),
+            Line(points={{0,0},{100,-10}}, color={0,0,127}),
+            Ellipse(
+              extent={{-14,16},{16,-14}},
+              fillColor={85,170,255},
+              fillPattern=FillPattern.Solid)}),
+        Documentation(info="<html>
+<p>
+This block replicates the input signal to an array of <code>nout</code> identical output signals.
+</p>
+</html>"));
+    end Replicator;
+
+  block ExtractSignal "Extract signals from an input signal vector"
+    extends Modelica.ComplexBlocks.Interfaces.ComplexMIMO;
+    parameter Integer extract[nout]=1:nout "Extracting vector";
+
+  equation
+    for i in 1:nout loop
+      y[i] = u[extract[i]];
+
+    end for;
+    annotation (
+      Icon(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}}), graphics={
+            Rectangle(
+              extent={{-90,51},{-50,-49}},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid,
+              lineColor={0,0,127}),
+            Rectangle(
+              extent={{50,50},{90,-50}},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid,
+              lineColor={0,0,127}),
+            Polygon(
+              points={{-94.4104,1.90792},{-94.4104,-2.09208},{-90.4104,-0.0920762},
+                  {-94.4104,1.90792}},
+              fillColor={0,0,127},
+              fillPattern=FillPattern.Solid,
+              lineColor={0,0,127}),
+            Line(points={{-72,2},{-60.1395,12.907},{-49.1395,12.907}}, color={0,0,127}),
+            Line(points={{-73,4},{-59,40},{-49,40}}, color={0,0,127}),
+            Line(points={{-113,0},{-76.0373,-0.0180176}}, color={0,0,127}),
+            Line(points={{-73,-5},{-60,-40},{-49,-40}}, color={0,0,127}),
+            Line(points={{-72,-2},{-60.0698,-12.907},{-49.0698,-12.907}}, color={
+                  0,0,127}),
+            Polygon(
+              points={{-48.8808,-11},{-48.8808,-15},{-44.8808,-13},{-48.8808,-11}},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid,
+              lineColor={0,0,127}),
+            Line(points={{-46,13},{-35,13},{35,-30},{45,-30}}, color={0,0,127}),
+            Line(points={{-45,40},{-35,40},{35,0},{44,0}}, color={0,0,127}),
+            Line(points={{-45,-40},{-34,-40},{35,30},{44,30}}, color={0,0,127}),
+            Polygon(
+              points={{-49,42},{-49,38},{-45,40},{-49,42}},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid,
+              lineColor={0,0,127}),
+            Polygon(
+              points={{-48.8728,-38.0295},{-48.8728,-42.0295},{-44.8728,-40.0295},
+                  {-48.8728,-38.0295}},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid,
+              lineColor={0,0,127}),
+            Polygon(
+              points={{-48.9983,14.8801},{-48.9983,10.8801},{-44.9983,12.8801},{-48.9983,
+                  14.8801}},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid,
+              lineColor={0,0,127}),
+            Line(points={{80,0},{100,0}}, color={0,0,127}),
+            Polygon(
+              points={{43.1618,32.3085},{43.1618,28.3085},{47.1618,30.3085},{
+                  43.1618,32.3085}},
+              fillColor={0,0,127},
+              fillPattern=FillPattern.Solid,
+              lineColor={0,0,127}),
+            Polygon(
+              points={{43.2575,1.80443},{43.2575,-2.19557},{47.2575,-0.195573},{
+                  43.2575,1.80443}},
+              fillColor={0,0,127},
+              fillPattern=FillPattern.Solid,
+              lineColor={0,0,127}),
+            Polygon(
+              points={{43.8805,-28.1745},{43.8805,-32.1745},{47.8805,-30.1745},{
+                  43.8805,-28.1745}},
+              fillColor={0,0,127},
+              fillPattern=FillPattern.Solid,
+              lineColor={0,0,127}),
+            Line(points={{48,0},{70,0}}, color={0,0,127}),
+            Line(points={{47,30},{60,30},{73,3}}, color={0,0,127}),
+            Line(points={{49,-30},{60,-30},{74,-4}}, color={0,0,127}),
+            Text(
+              extent={{-150,-150},{150,-110}},
+              textString="extract=%extract"),
+            Ellipse(
+              extent={{-81.0437,4.59255},{-71.0437,-4.90745}},
+              fillColor={85,170,255},
+              fillPattern=FillPattern.Solid,
+              lineColor={0,0,127}),
+            Ellipse(
+              extent={{69.3052,4.12743},{79.3052,-5.37257}},
+              fillColor={85,170,255},
+              fillPattern=FillPattern.Solid,
+              lineColor={0,0,127})}),
+      Diagram(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}}), graphics={
+            Rectangle(
+              extent={{-90,50},{-50,-50}},
+              lineColor={0,0,255},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Rectangle(
+              extent={{50,50},{90,-50}},
+              lineColor={0,0,255},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Polygon(
+              points={{-94.4104,1.90792},{-94.4104,-2.09208},{-90.4104,-0.0920762},
+                  {-94.4104,1.90792}},
+              lineColor={0,0,255},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-72,2},{-60.1395,12.907},{-49.1395,12.907}}, color={0,0,255}),
+            Line(points={{-73,4},{-59,40},{-49,40}}, color={0,0,255}),
+            Line(points={{-112,0},{-75.0373,-0.0180176}}, color={0,0,255}),
+            Ellipse(
+              extent={{-80.0437,4.59255},{-70.0437,-4.90745}},
+              lineColor={0,0,255},
+              fillColor={85,170,255},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-73,-5},{-60,-40},{-49,-40}}, color={0,0,255}),
+            Line(points={{-72,-2},{-60.0698,-12.907},{-49.0698,-12.907}}, color={
+                  0,0,255}),
+            Polygon(
+              points={{-48.8808,-11},{-48.8808,-15},{-44.8808,-13},{-48.8808,-11}},
+              lineColor={0,0,255},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-46,13},{-35,13},{35,-30},{45,-30}}, color={0,0,255}),
+            Line(points={{-45,40},{-35,40},{35,0},{44,0}}, color={0,0,255}),
+            Line(points={{-45,-40},{-34,-40},{35,30},{44,30}}, color={0,0,255}),
+            Polygon(
+              points={{-49,42},{-49,38},{-45,40},{-49,42}},
+              lineColor={0,0,255},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Polygon(
+              points={{-48.8728,-38.0295},{-48.8728,-42.0295},{-44.8728,-40.0295},
+                  {-48.8728,-38.0295}},
+              lineColor={0,0,255},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Polygon(
+              points={{-48.9983,14.8801},{-48.9983,10.8801},{-44.9983,12.8801},{-48.9983,
+                  14.8801}},
+              lineColor={0,0,255},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Ellipse(
+              extent={{70.3052,4.12743},{80.3052,-5.37257}},
+              lineColor={0,0,255},
+              fillColor={85,170,255},
+              fillPattern=FillPattern.Solid),
+            Line(points={{80,0},{105,0}}, color={0,0,255}),
+            Polygon(
+              points={{44.1618,32.3085},{44.1618,28.3085},{48.1618,30.3085},{
+                  44.1618,32.3085}},
+              lineColor={0,0,255},
+              fillColor={0,0,255},
+              fillPattern=FillPattern.Solid),
+            Polygon(
+              points={{44.2575,1.80443},{44.2575,-2.19557},{48.2575,-0.195573},{
+                  44.2575,1.80443}},
+              lineColor={0,0,255},
+              fillColor={0,0,255},
+              fillPattern=FillPattern.Solid),
+            Polygon(
+              points={{44.8805,-28.1745},{44.8805,-32.1745},{48.8805,-30.1745},{
+                  44.8805,-28.1745}},
+              lineColor={0,0,255},
+              fillColor={0,0,255},
+              fillPattern=FillPattern.Solid),
+            Line(points={{48,0},{70,0}}, color={0,0,255}),
+            Line(points={{47,30},{60,30},{73,3}}, color={0,0,255}),
+            Line(points={{49,-30},{60,-30},{74,-4}}, color={0,0,255}),
+            Rectangle(extent={{-100,80},{100,-81}}, lineColor={0,0,255})}),
+      Documentation(info="<html>
+<p>Extract signals from the input connector and transfer them
+to the output connector.</p>
+<p>The extracting scheme is given by the integer vector 'extract'.
+This vector specifies, which input signals are taken and in which
+order they are transferred to the output vector. Note, that the
+dimension of 'extract' has to match the number of outputs.
+Additionally, the dimensions of the input connector signals and
+the output connector signals have to be explicitly defined via the
+parameters 'nin' and 'nout'.</p>
+<p>Example:</p>
+<pre>     nin = 7 \"Number of inputs\";
+     nout = 4 \"Number of outputs\";
+     extract[nout] = {6,3,3,2} \"Extracting vector\";
+</pre>
+<p>extracts four output signals (nout=4) from the seven elements of the
+input vector (nin=7):</p>
+<pre>   output no. 1 is set equal to input no. 6
+   output no. 2 is set equal to input no. 3
+   output no. 3 is set equal to input no. 3
+   output no. 4 is set equal to input no. 2
+</pre>
+</html>"));
+  end ExtractSignal;
+
+  block Extractor
+    "Extract scalar signal out of signal vector dependent on IntegerRealInput index"
+
+    extends Modelica.ComplexBlocks.Interfaces.ComplexMISO;
+
+    parameter Boolean allowOutOfRange=false "Index may be out of range";
+    parameter Complex outOfRangeValue=Complex(1e10,0) "Output signal if index is out of range";
+
+    Modelica.Blocks.Interfaces.IntegerInput index annotation (Placement(
+            transformation(
+            origin={0,-120},
+            extent={{-20,-20},{20,20}},
+            rotation=90)));
+    protected
+    Complex k[nin];
+  equation
+
+    when {initial(),change(index)} then
+
+      for i in 1:nin loop
+        k[i] = if index == i then Complex(1,0) else Complex(0,0);
+
+      end for;
+
+    end when;
+
+    y = if not allowOutOfRange or index > 0 and index <= nin then
+                k*u else outOfRangeValue;
+    annotation (Icon(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}}), graphics={
+            Rectangle(
+              extent={{-80,50},{-40,-50}},
+              lineColor={0,0,127},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Polygon(
+              points={{-84.4104,1.9079},{-84.4104,-2.09208},{-80.4104,-0.09208},{
+                  -84.4104,1.9079}},
+              lineColor={0,0,127},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-62,2},{-50.1395,12.907},{-39.1395,12.907}}, color={0,0,127}),
+            Line(points={{-63,4},{-49,40},{-39,40}}, color={0,0,127}),
+            Line(points={{-102,0},{-65.0373,-0.01802}}, color={0,0,127}),
+            Ellipse(
+              extent={{-70.0437,4.5925},{-60.0437,-4.90745}},
+              lineColor={0,0,127},
+              fillColor={0,0,127},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-63,-5},{-50,-40},{-39,-40}}, color={0,0,127}),
+            Line(points={{-62,-2},{-50.0698,-12.907},{-39.0698,-12.907}}, color={
+                  0,0,127}),
+            Polygon(
+              points={{-38.8808,-11},{-38.8808,-15},{-34.8808,-13},{-38.8808,-11}},
+              lineColor={0,0,127},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Polygon(
+              points={{-39,42},{-39,38},{-35,40},{-39,42}},
+              lineColor={0,0,127},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Polygon(
+              points={{-38.8728,-38.0295},{-38.8728,-42.0295},{-34.8728,-40.0295},
+                  {-38.8728,-38.0295}},
+              lineColor={0,0,127},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Polygon(
+              points={{-38.9983,14.8801},{-38.9983,10.8801},{-34.9983,12.8801},{-38.9983,
+                  14.8801}},
+              lineColor={0,0,127},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Rectangle(
+              extent={{-30,50},{30,-50}},
+              fillColor={235,235,235},
+              fillPattern=FillPattern.Solid,
+              lineColor={0,0,127}),
+            Line(points={{100,0},{0,0}}, color={0,0,127}),
+            Line(points={{0,2},{0,-104}}, color={255,128,0}),
+            Line(points={{-35,40},{-20,40}}, color={0,0,127}),
+            Line(points={{-35,13},{-20,13}}, color={0,0,127}),
+            Line(points={{-35,-13},{-20,-13}}, color={0,0,127}),
+            Line(points={{-35,-40},{-20,-40}}, color={0,0,127}),
+            Polygon(points={{0,0},{-20,13},{-20,13},{0,0},{0,0}}, lineColor={0,0,
+                  127}),
+            Ellipse(
+              extent={{-6,6},{6,-6}},
+              lineColor={255,128,0},
+              fillColor={255,128,0},
+              fillPattern=FillPattern.Solid)}),
+                              Documentation(info="<html>
+<p>This block extracts a scalar output signal out the
+vector of input signals dependent on the Integer
+value of the additional u index:</p>
+<pre>    y = u [ index ] ;
+</pre>
+<p>where index is an additional Integer input signal.</p>
+</html>"));
+  end Extractor;
+
+    model ComplexPassThrough
+      "Pass a Complex signal through without modification"
+      extends Modelica.Blocks.Interfaces.SISO;
+    equation
+      y = u;
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+                -100},{100,100}}), graphics={Line(points={{-100,0},{100,0}},
+                color={0,0,127})}),
+                        Documentation(info="<html>
+<p>
+Passes a Complex signal through without modification.  Enables signals to be read out of one bus, have their name changed and be sent back to a bus.
+</p>
+</html>"));
+    end ComplexPassThrough;
+    annotation (Documentation(info="<html>
+<p>
+This package contains blocks to combine and extract signals.
+</p>
+</html>"),   Icon(graphics={
+          Line(points={{-90,0},{4,0}}, color={95,95,95}),
+          Line(points={{88,65},{48,65},{-8,0}}, color={95,95,95}),
+          Line(points={{-8,0},{93,0}}, color={95,95,95}),
+          Line(points={{87,-65},{48,-65},{-8,0}}, color={95,95,95})}));
+  end Routing;
 
   package Sources "Library of signal source blocks generating Complex signals"
     extends Modelica.Icons.SourcesPackage;
@@ -2184,7 +2654,7 @@ The output y is a complex phasor with constant magnitude, spinning with constant
       parameter Modelica.SIunits.Angle phi(start=0) "Angle of complex phasor";
       parameter Modelica.SIunits.Time startTime=0 "Start time of frequency sweep";
       parameter Modelica.SIunits.Time duration(min=0.0, start=1) "Duration of ramp (= 0.0 gives a Step)";
-      Real magnitude "Actual magntiude of complex phasor";
+      Real magnitude "Actual magnitude of complex phasor";
     equation
 
       magnitude = if not useLogRamp then
@@ -2288,8 +2758,7 @@ The output is the decimal power of this logarithmic ramp.
             Line(points={{-78,-2},{80,-2}}, color={135,135,135}),
             Line(points={{-78,-48},{80,-48}}, color={135,135,135}),
             Line(
-              points={{-70,-48},{-50,-48},{50,44},{70,44}},
-              color={0,0,0}),
+              points={{-70,-48},{-50,-48},{50,44},{70,44}}),
             Line(points={{-50,-48},{-50,44}}, color={135,135,135}),
             Line(points={{50,-48},{50,44}}, color={135,135,135}),
             Line(points={{-78,40},{80,40}}, color={135,135,135}),

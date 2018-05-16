@@ -198,7 +198,7 @@ package Tanks "Library demonstrating the usage of the tank model"
             "modelica://Modelica/Resources/Scripts/Dymola/Fluid/TanksWithOverflow/plot level and port.m_flow.mos"
           "plot level and port.m_flow"),
       Documentation(info="<html>
-<p align=justify>The mass flow rate to the upper tank is controlled by the static pressure at its bottom.
+<p>The mass flow rate to the upper tank is controlled by the static pressure at its bottom.
 The fluid flows through a pipe and forced by different heights from the upper tank to the lower tank.
 </p>
 <p>

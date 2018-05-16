@@ -410,7 +410,7 @@ of the modeller. Increase nPorts to add an additional port.
 This base class extends PartialLumpedVolume with a vector of fluid ports and a replaceable wall HeatTransfer model.
 </p>
 <p>
-The following modeling assumption are made:
+The following modeling assumption are made:</p>
 <ul>
 <li>homogeneous medium, i.e., phase separation is not taken into account,</li>
 <li>no kinetic energy in the fluid, i.e., kinetic energy dissipates into the internal energy,</li>

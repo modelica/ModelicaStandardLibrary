@@ -601,12 +601,6 @@ void* ModelicaStandardTables_CombiTimeTable_init2(_In_z_ const char* fileName,
             }
             MUTEX_UNLOCK();
         }
-        else {
-            /* Should not be possible to get here */
-            if (NULL != tableFile) {
-                free(tableFile);
-            }
-        }
 #else
         if (NULL != tableFile) {
             free(tableFile);
@@ -1773,12 +1767,6 @@ void* ModelicaStandardTables_CombiTable1D_init2(_In_z_ const char* fileName,
             }
             MUTEX_UNLOCK();
         }
-        else {
-            /* Should not be possible to get here */
-            if (NULL != tableFile) {
-                free(tableFile);
-            }
-        }
 #else
         if (NULL != tableFile) {
             free(tableFile);
@@ -2411,12 +2399,6 @@ void* ModelicaStandardTables_CombiTable2D_init2(_In_z_ const char* fileName,
                 free(file);
             }
             MUTEX_UNLOCK();
-        }
-        else {
-            /* Should not be possible to get here */
-            if (NULL != tableFile) {
-                free(tableFile);
-            }
         }
 #else
         if (NULL != tableFile) {
@@ -4656,7 +4638,7 @@ static int isValidCombiTimeTable(CombiTimeTable* tableID,
                         ModelicaStandardTables_CombiTimeTable_close(tableID);
                     }
                     ModelicaFormatError(
-                        "Table matrix \"%s\" does not have a positive period/cylce "
+                        "Table matrix \"%s\" does not have a positive period/cycle "
                         "time for time interpolation with periodic "
                         "extrapolation.\n", tableName);
                     isValid = 0;
@@ -5712,11 +5694,3 @@ static READ_RESULT readTable(_In_z_ const char* fileName, _In_z_ const char* tab
     return NULL;
 #endif /* #if !defined(NO_FILE_SYSTEM) */
 }
-
-#if defined(DUMMY_FUNCTION_USERTAB)
-int usertab(char* tableName, int nipo, int dim[], int* colWise,
-            double** table) {
-    ModelicaError("Function \"usertab\" is not implemented\n");
-    return 1; /* Error */
-}
-#endif /* #if defined(DUMMY_FUNCTION_USERTAB) */

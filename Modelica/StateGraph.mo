@@ -404,10 +404,10 @@ to fill and to empty the two tanks is processed:
 <ol>
 <li> Valve 1 is opened and tank 1 is filled.</li>
 <li> When tank 1 reaches its fill level limit,
-     valve 1 is closed. </li>
+     valve 1 is closed.</li>
 <li> After a waiting time, valve 2 is
      opened and the fluid flows from tank 1 into tank 2.</li>
-<li> When tank 1 is empty, valve 2 is closed. </li>
+<li> When tank 1 is empty, valve 2 is closed.</li>
 <li> After a waiting time, valve 3 is opened and
      the fluid flows out of tank 2</li>
 <li> When tank 2 is empty, valve 3 is closed</li>
@@ -521,7 +521,7 @@ library:
      component). Contrary to StateGraph2, in StateGraph1 such wrong graphs do not lead to an
      error but to unexpected simulation results. Still, other desirable properties
      of a state machine,  such as \"no deadlock\" or \"lifeliness\" or \"every step reachable\",
-     are not (yet) guaranteed with the current StateGraph2. <br>&nbsp;</li>
+     are not (yet) guaranteed with the current StateGraph2.<br>&nbsp;</li>
 
 <li> <strong>Composite, autonomous, synchronized, preempted subgraphs</strong><br>
      Composite steps and parallel steps are described in a much better and more powerful
@@ -532,9 +532,9 @@ library:
      has the advantage that it introduces a Modelica hierarchy (useful for large subgraphs).
      In both cases, various options are possible, such as
      <ol>
-     <li> autonomous subgraphs (branches are executed in parallel autonomously),  </li>
+     <li> autonomous subgraphs (branches are executed in parallel autonomously),</li>
      <li> synchronized subgraphs (branches are executed in parallel and are synchronized
-           before leaving the subgraph via the outPort), </li>
+           before leaving the subgraph via the outPort),</li>
      <li> subgraphs with preemption and exception (a parallel step can be interrupted via
           the suspend ports and can continue execution via the resume ports).</li>
      </ol>
@@ -1236,10 +1236,10 @@ The basic operation is to fill and empty the two tanks:
 <ol>
 <li> Valve 1 is opened and tank 1 is filled.</li>
 <li> When tank 1 reaches its fill level limit,
-     valve 1 is closed. </li>
+     valve 1 is closed.</li>
 <li> After a waiting time, valve 2 is
      opened and the fluid flows from tank 1 into tank 2.</li>
-<li> When tank 1 is empty, valve 2 is closed. </li>
+<li> When tank 1 is empty, valve 2 is closed.</li>
 <li> After a waiting time, valve 3 is opened and
      the fluid flows out of tank 2</li>
 <li> When tank 3 is empty, valve 3 is closed</li>
@@ -3020,7 +3020,7 @@ are nearly always needed).
 Copyright &copy; 1998-2018, Modelica Association and DLR
 </p>
 <p>
-<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\"> https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em>
+<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em>
 </p>
 </html>"), Icon(coordinateSystem(extent={{-100.0,-100.0},{100.0,100.0}}), graphics={
       Rectangle(

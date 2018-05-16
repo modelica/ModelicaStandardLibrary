@@ -1373,7 +1373,8 @@ It is much more convenient and more powerful to use \"expandable connectors\"
 for signal buses, see example
 <a href=\"modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a>.
 </p>
-</html>"));
+</html>"),
+      obsolete = "Obsolete block - use expandable connectors instead");
     end SendReal;
 
     block SendBoolean "Obsolete block to send Boolean signal to bus"
@@ -1406,7 +1407,8 @@ It is much more convenient and more powerful to use \"expandable connectors\"
 for signal buses, see example
 <a href=\"modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a>.
 </p>
-</html>"));
+</html>"),
+      obsolete = "Obsolete block - use expandable connectors instead");
     end SendBoolean;
 
     block SendInteger "Obsolete block to send Integer signal to bus"
@@ -1439,7 +1441,8 @@ It is much more convenient and more powerful to use \"expandable connectors\"
 for signal buses, see example
 <a href=\"modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a>.
 </p>
-</html>"));
+</html>"),
+      obsolete = "Obsolete block - use expandable connectors instead");
     end SendInteger;
 
     block ReceiveReal "Obsolete block to receive Real signal from bus"
@@ -1472,7 +1475,8 @@ It is much more convenient and more powerful to use \"expandable connectors\"
 for signal buses, see example
 <a href=\"modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a>.
 </p>
-</html>"));
+</html>"),
+      obsolete = "Obsolete block - use expandable connectors instead");
     end ReceiveReal;
 
     block ReceiveBoolean "Obsolete block to receive Boolean signal from bus"
@@ -1505,7 +1509,8 @@ It is much more convenient and more powerful to use \"expandable connectors\"
 for signal buses, see example
 <a href=\"modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a>.
 </p>
-</html>"));
+</html>"),
+      obsolete = "Obsolete block - use expandable connectors instead");
     end ReceiveBoolean;
 
     block ReceiveInteger "Obsolete block to receive Integer signal from bus"
@@ -1538,7 +1543,8 @@ It is much more convenient and more powerful to use \"expandable connectors\"
 for signal buses, see example
 <a href=\"modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a>.
 </p>
-</html>"));
+</html>"),
+      obsolete = "Obsolete block - use expandable connectors instead");
     end ReceiveInteger;
 
     annotation (Documentation(info="<html>
@@ -1549,7 +1555,8 @@ It is much more convenient and more powerful to use \"expandable connectors\"
 for signal buses, see example
 <a href=\"modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a>.
 </p>
-</html>"));
+</html>"),
+      obsolete = "Obsolete package - use expandable connectors instead");
   end Adaptors;
 
   partial block PartialConversionBlock
@@ -1608,8 +1615,8 @@ converts from one unit into another one.
 This icon will be removed in future versions of the Modelica Standard Library.
 Instead the icon <a href=\"modelica://Modelica.Blocks.Icons.Block\">Modelica.Blocks.Icons.Block</a> shall be used.
 </p>
-</html>"));
-
+</html>"),
+    obsolete = "Obsolete block - use Modelica.Blocks.Icons.Block instead");
   end BlockIcon;
 
   partial block BooleanBlockIcon
@@ -1629,8 +1636,8 @@ Instead the icon <a href=\"modelica://Modelica.Blocks.Icons.Block\">Modelica.Blo
 This icon will be removed in future versions of the Modelica Standard Library.
 Instead the icon <a href=\"modelica://Modelica.Blocks.Icons.BooleanBlock\">Modelica.Blocks.Icons.BooleanBlock</a> shall be used.
 </p>
-</html>"));
-
+</html>"),
+    obsolete = "Obsolete block - use Modelica.Blocks.Icons.BooleanBlock instead");
   end BooleanBlockIcon;
 
   partial block DiscreteBlockIcon
@@ -1651,7 +1658,8 @@ Instead the icon <a href=\"modelica://Modelica.Blocks.Icons.BooleanBlock\">Model
 This icon will be removed in future versions of the Modelica Standard Library.
 Instead the icon <a href=\"modelica://Modelica.Blocks.Icons.DiscreteBlock\">Modelica.Blocks.Icons.DiscreteBlock</a> shall be used.
 </p>
-</html>"));
+</html>"),
+    obsolete = "Obsolete block - use Modelica.Blocks.Icons.DiscreteBlock instead");
   end DiscreteBlockIcon;
 
   partial block IntegerBlockIcon
@@ -1671,7 +1679,8 @@ Instead the icon <a href=\"modelica://Modelica.Blocks.Icons.DiscreteBlock\">Mode
 This icon will be removed in future versions of the Modelica Standard Library.
 Instead the icon <a href=\"modelica://Modelica.Blocks.Icons.IntegerBlock\">Modelica.Blocks.Icons.IntegerBlock</a> shall be used.
 </p>
-</html>"));
+</html>"),
+    obsolete = "Obsolete block - use Modelica.Blocks.Icons.IntegerBlock instead");
   end IntegerBlockIcon;
 
   partial block partialBooleanBlockIcon
@@ -1691,7 +1700,8 @@ Instead the icon <a href=\"modelica://Modelica.Blocks.Icons.IntegerBlock\">Model
 This icon will be removed in future versions of the Modelica Standard Library.
 Instead the icon <a href=\"modelica://Modelica.Blocks.Icons.PartialBooleanBlock\">Modelica.Blocks.Icons.PartialBooleanBlock</a> shall be used.
 </p>
-</html>"));
+</html>"),
+    obsolete = "Obsolete block - use Modelica.Blocks.Icons.PartialBooleanBlock instead");
   end partialBooleanBlockIcon;
 
   partial block PartialNoise "Partial noise generator"
@@ -1729,7 +1739,7 @@ Instead the icon <a href=\"modelica://Modelica.Blocks.Icons.PartialBooleanBlock\
     outer Modelica.Blocks.Noise.GlobalSeed globalSeed
       "Definition of global seed via inner/outer";
     parameter Integer actualGlobalSeed = if useGlobalSeed then globalSeed.seed else 0
-      "The global seed, which is atually used";
+      "The global seed, which is actually used";
     parameter Boolean generateNoise = enableNoise and globalSeed.enableNoise
       "= true if noise shall be generated, otherwise no noise";
 
@@ -1794,11 +1804,11 @@ of noise blocks.
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -1921,7 +1931,7 @@ especially as FMU (<a href=\"https://www.fmi-standard.org\">Functional Mock-up U
 This adaptor has flow, optional 1st derivative of flow, and optional 2nd derivative of flow as input and
 potential, optional 1st derivative of potential, and optional 2nd derivative of potential as output signals.
 </p>
-</p>
+<p>
 Note, the input signals must be consistent to each other
 (fder=der(f), fder2=der(fder)).
 </p>
@@ -2035,7 +2045,7 @@ especially as FMU (<a href=\"https://www.fmi-standard.org\">Functional Mock-up U
 This adaptor has potential, optional 1st derivative of potential, and optional 2nd derivative of potential as input and
 flow, optional 1st derivative of flow, and optional 2nd derivative of flow as output signals.
 </p>
-</p>
+<p>
 Note, the input signals must be consistent to each other
 (pder=der(p), pder2=der(pder)).
 </p>

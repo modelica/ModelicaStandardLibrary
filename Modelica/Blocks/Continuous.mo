@@ -825,30 +825,30 @@ blocks inside the PID controller are initialized according to the following tabl
 </p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td valign=\"top\"><strong>initType</strong></td>
-      <td valign=\"top\"><strong>I.initType</strong></td>
-      <td valign=\"top\"><strong>D.initType</strong></td></tr>
+  <tr><td><strong>initType</strong></td>
+      <td><strong>I.initType</strong></td>
+      <td><strong>D.initType</strong></td></tr>
 
-  <tr><td valign=\"top\"><strong>NoInit</strong></td>
-      <td valign=\"top\">NoInit</td>
-      <td valign=\"top\">NoInit</td></tr>
+  <tr><td><strong>NoInit</strong></td>
+      <td>NoInit</td>
+      <td>NoInit</td></tr>
 
-  <tr><td valign=\"top\"><strong>SteadyState</strong></td>
-      <td valign=\"top\">SteadyState</td>
-      <td valign=\"top\">SteadyState</td></tr>
+  <tr><td><strong>SteadyState</strong></td>
+      <td>SteadyState</td>
+      <td>SteadyState</td></tr>
 
-  <tr><td valign=\"top\"><strong>InitialState</strong></td>
-      <td valign=\"top\">InitialState</td>
-      <td valign=\"top\">InitialState</td></tr>
+  <tr><td><strong>InitialState</strong></td>
+      <td>InitialState</td>
+      <td>InitialState</td></tr>
 
-  <tr><td valign=\"top\"><strong>InitialOutput</strong><br>
+  <tr><td><strong>InitialOutput</strong><br>
           and initial equation: y = y_start</td>
-      <td valign=\"top\">NoInit</td>
-      <td valign=\"top\">SteadyState</td></tr>
+      <td>NoInit</td>
+      <td>SteadyState</td></tr>
 
-  <tr><td valign=\"top\"><strong>DoNotUse_InitialIntegratorState</strong></td>
-      <td valign=\"top\">InitialState</td>
-      <td valign=\"top\">NoInit</td></tr>
+  <tr><td><strong>DoNotUse_InitialIntegratorState</strong></td>
+      <td>InitialState</td>
+      <td>NoInit</td></tr>
 </table>
 
 <p>
@@ -879,30 +879,30 @@ to compute u by an algebraic equation.
   end PID;
 
   block LimPID
-    "P, PI, PD, and PID controller with limited output, anti-windup compensation and setpoint weighting"
+    "P, PI, PD, and PID controller with limited output, anti-windup compensation, setpoint weighting and optional feed-forward"
     import Modelica.Blocks.Types.InitPID;
     import Modelica.Blocks.Types.Init;
     import Modelica.Blocks.Types.SimpleController;
-    extends Interfaces.SVcontrol;
+    extends Modelica.Blocks.Interfaces.SVcontrol;
     output Real controlError = u_s - u_m
       "Control error (set point - measurement)";
-
     parameter .Modelica.Blocks.Types.SimpleController controllerType=
            .Modelica.Blocks.Types.SimpleController.PID "Type of controller";
     parameter Real k(min=0, unit="1") = 1 "Gain of controller";
-    parameter SIunits.Time Ti(min=Modelica.Constants.small)=0.5
-      "Time constant of Integrator block"
-       annotation(Dialog(enable=controllerType==.Modelica.Blocks.Types.SimpleController.PI or
-                                controllerType==.Modelica.Blocks.Types.SimpleController.PID));
-    parameter SIunits.Time Td(min=0)= 0.1 "Time constant of Derivative block"
-         annotation(Dialog(enable=controllerType==.Modelica.Blocks.Types.SimpleController.PD or
-                                  controllerType==.Modelica.Blocks.Types.SimpleController.PID));
+    parameter Modelica.SIunits.Time Ti(min=Modelica.Constants.small)=0.5
+      "Time constant of Integrator block" annotation (Dialog(enable=
+            controllerType == .Modelica.Blocks.Types.SimpleController.PI or
+            controllerType == .Modelica.Blocks.Types.SimpleController.PID));
+    parameter Modelica.SIunits.Time Td(min=0)=0.1
+      "Time constant of Derivative block" annotation (Dialog(enable=
+            controllerType == .Modelica.Blocks.Types.SimpleController.PD or
+            controllerType == .Modelica.Blocks.Types.SimpleController.PID));
     parameter Real yMax(start=1) "Upper limit of output";
     parameter Real yMin=-yMax "Lower limit of output";
     parameter Real wp(min=0) = 1
       "Set-point weight for Proportional block (0..1)";
     parameter Real wd(min=0) = 0 "Set-point weight for Derivative block (0..1)"
-         annotation(Dialog(enable=controllerType==.Modelica.Blocks.Types.SimpleController.PD or
+       annotation(Dialog(enable=controllerType==.Modelica.Blocks.Types.SimpleController.PD or
                                   controllerType==.Modelica.Blocks.Types.SimpleController.PID));
     parameter Real Ni(min=100*Modelica.Constants.eps) = 0.9
       "Ni*Ti is time constant of anti-windup compensation"
@@ -910,11 +910,15 @@ to compute u by an algebraic equation.
                                 controllerType==.Modelica.Blocks.Types.SimpleController.PID));
     parameter Real Nd(min=100*Modelica.Constants.eps) = 10
       "The higher Nd, the more ideal the derivative block"
-         annotation(Dialog(enable=controllerType==.Modelica.Blocks.Types.SimpleController.PD or
+       annotation(Dialog(enable=controllerType==.Modelica.Blocks.Types.SimpleController.PD or
                                   controllerType==.Modelica.Blocks.Types.SimpleController.PID));
+    parameter Boolean withFeedForward=false "Use feed-forward input?"
+      annotation(Evaluate=true, choices(checkBox=true));
+    parameter Real kFF=1 "Gain of feed-forward input"
+      annotation(Dialog(enable=withFeedForward));
     parameter .Modelica.Blocks.Types.InitPID initType= .Modelica.Blocks.Types.InitPID.DoNotUse_InitialIntegratorState
       "Type of initialization (1: no init, 2: steady state, 3: initial state, 4: initial output)"
-                                       annotation(Evaluate=true,
+       annotation(Evaluate=true,
         Dialog(group="Initialization"));
     parameter Boolean limitsAtInit = true
       "= false, if limits are ignored during initialization"
@@ -934,42 +938,53 @@ to compute u by an algebraic equation.
             "Initialization"));
     parameter Boolean strict=false "= true, if strict limits with noEvent(..)"
       annotation (Evaluate=true, choices(checkBox=true), Dialog(tab="Advanced"));
-    constant SI.Time unitTime=1 annotation(HideResult=true);
-    Blocks.Math.Add addP(k1=wp, k2=-1)
+    constant Modelica.SIunits.Time unitTime=1 annotation (HideResult=true);
+    Modelica.Blocks.Interfaces.RealInput u_ff if withFeedForward
+      "Optional connector of feed-forward input signal"
+     annotation (Placement(
+          transformation(
+          origin={60,-120},
+          extent={{20,-20},{-20,20}},
+          rotation=270)));
+    Modelica.Blocks.Math.Add addP(k1=wp, k2=-1)
       annotation (Placement(transformation(extent={{-80,40},{-60,60}})));
-    Blocks.Math.Add addD(k1=wd, k2=-1) if with_D
+    Modelica.Blocks.Math.Add addD(k1=wd, k2=-1) if with_D
       annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));
-    Blocks.Math.Gain P(k=1)
-                       annotation (Placement(transformation(extent={{-40,40},{
-              -20,60}})));
-    Blocks.Continuous.Integrator I(k=unitTime/Ti, y_start=xi_start,
-      initType=if initType==InitPID.SteadyState then
-                  Init.SteadyState else
-               if initType==InitPID.InitialState or
-                  initType==InitPID.DoNotUse_InitialIntegratorState then
-                  Init.InitialState else Init.NoInit) if with_I
-      annotation (Placement(transformation(extent={{-40,-60},{-20,-40}})));
-    Blocks.Continuous.Derivative D(k=Td/unitTime, T=max([Td/Nd, 1.e-14]), x_start=xd_start,
-      initType=if initType==InitPID.SteadyState or
-                  initType==InitPID.InitialOutput then Init.SteadyState else
-               if initType==InitPID.InitialState then Init.InitialState else
-                  Init.NoInit) if with_D
-      annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
-    Blocks.Math.Gain gainPID(k=k) annotation (Placement(transformation(extent={
-              {30,-10},{50,10}})));
-    Blocks.Math.Add3 addPID annotation (Placement(transformation(
-            extent={{0,-10},{20,10}})));
-    Blocks.Math.Add3 addI(k2=-1) if with_I annotation (Placement(
-          transformation(extent={{-80,-60},{-60,-40}})));
-    Blocks.Math.Add addSat(k1=+1, k2=-1) if
-                                     with_I
-      annotation (Placement(transformation(
+    Modelica.Blocks.Math.Gain P(k=1)
+      annotation (Placement(transformation(extent={{-50,40},{-30,60}})));
+    Modelica.Blocks.Continuous.Integrator I(
+      k=unitTime/Ti,
+      y_start=xi_start,
+      initType=if initType == InitPID.SteadyState then Init.SteadyState else if
+          initType == InitPID.InitialState or initType == InitPID.DoNotUse_InitialIntegratorState
+           then Init.InitialState else Init.NoInit) if with_I
+      annotation (Placement(transformation(extent={{-50,-60},{-30,-40}})));
+    Modelica.Blocks.Continuous.Derivative D(
+      k=Td/unitTime,
+      T=max([Td/Nd,1.e-14]),
+      x_start=xd_start,
+      initType=if initType == InitPID.SteadyState or initType == InitPID.InitialOutput
+           then Init.SteadyState else if initType == InitPID.InitialState then
+          Init.InitialState else Init.NoInit) if with_D
+      annotation (Placement(transformation(extent={{-50,-10},{-30,10}})));
+    Modelica.Blocks.Math.Gain gainPID(k=k)
+      annotation (Placement(transformation(extent={{20,-10},{40,10}})));
+    Modelica.Blocks.Math.Add3 addPID
+      annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
+    Modelica.Blocks.Math.Add3 addI(k2=-1) if with_I
+      annotation (Placement(transformation(extent={{-80,-60},{-60,-40}})));
+    Modelica.Blocks.Math.Add addSat(k1=+1, k2=-1) if with_I annotation (Placement(
+          transformation(
           origin={80,-50},
           extent={{-10,-10},{10,10}},
           rotation=270)));
-    Blocks.Math.Gain gainTrack(k=1/(k*Ni)) if with_I
-      annotation (Placement(transformation(extent={{40,-80},{20,-60}})));
-    Blocks.Nonlinear.Limiter limiter(uMax=yMax, uMin=yMin, strict=strict, limitsAtInit=limitsAtInit)
+    Modelica.Blocks.Math.Gain gainTrack(k=1/(k*Ni)) if with_I
+      annotation (Placement(transformation(extent={{0,-80},{-20,-60}})));
+    Modelica.Blocks.Nonlinear.Limiter limiter(
+      uMax=yMax,
+      uMin=yMin,
+      strict=strict,
+      limitsAtInit=limitsAtInit)
       annotation (Placement(transformation(extent={{70,-10},{90,10}})));
   protected
     parameter Boolean with_I = controllerType==SimpleController.PI or
@@ -977,13 +992,17 @@ to compute u by an algebraic equation.
     parameter Boolean with_D = controllerType==SimpleController.PD or
                                controllerType==SimpleController.PID annotation(Evaluate=true, HideResult=true);
   public
-    Sources.Constant Dzero(k=0) if not with_D
-      annotation (Placement(transformation(extent={{-30,20},{-20,30}})));
-    Sources.Constant Izero(k=0) if not with_I
-      annotation (Placement(transformation(extent={{10,-55},{0,-45}})));
+    Modelica.Blocks.Sources.Constant Dzero(k=0) if not with_D
+      annotation (Placement(transformation(extent={{-40,20},{-30,30}})));
+    Modelica.Blocks.Sources.Constant Izero(k=0) if not with_I
+      annotation (Placement(transformation(extent={{0,-55},{-10,-45}})));
+    Modelica.Blocks.Sources.Constant FFzero(k=0) if not withFeedForward
+      annotation (Placement(transformation(extent={{30,-35},{40,-25}})));
+    Modelica.Blocks.Math.Add addFF(k1=1, k2=kFF)
+      annotation (Placement(transformation(extent={{48,-6},{60,6}})));
   initial equation
     if initType==InitPID.InitialOutput then
-       gainPID.y = y_start;
+      gainPID.y = y_start;
     end if;
   equation
     if initType == InitPID.InitialOutput and (y_start < yMin or y_start > yMax) then
@@ -997,32 +1016,26 @@ to compute u by an algebraic equation.
             -82,6}}, color={0,0,127}));
     connect(u_s, addI.u1) annotation (Line(points={{-120,0},{-96,0},{-96,-42},{
             -82,-42}}, color={0,0,127}));
-    connect(addP.y, P.u) annotation (Line(points={{-59,50},{-42,50}}, color={0,
+    connect(addP.y, P.u) annotation (Line(points={{-59,50},{-52,50}}, color={0,
             0,127}));
     connect(addD.y, D.u)
-      annotation (Line(points={{-59,0},{-42,0}}, color={0,0,127}));
-    connect(addI.y, I.u) annotation (Line(points={{-59,-50},{-42,-50}}, color={
+      annotation (Line(points={{-59,0},{-52,0}}, color={0,0,127}));
+    connect(addI.y, I.u) annotation (Line(points={{-59,-50},{-52,-50}}, color={
             0,0,127}));
-    connect(P.y, addPID.u1) annotation (Line(points={{-19,50},{-10,50},{-10,8},
-            {-2,8}}, color={0,0,127}));
+    connect(P.y, addPID.u1) annotation (Line(points={{-29,50},{-20,50},{-20,8},{-12,
+            8}},     color={0,0,127}));
     connect(D.y, addPID.u2)
-      annotation (Line(points={{-19,0},{-2,0}}, color={0,0,127}));
-    connect(I.y, addPID.u3) annotation (Line(points={{-19,-50},{-10,-50},{-10,
-            -8},{-2,-8}}, color={0,0,127}));
-    connect(addPID.y, gainPID.u)
-      annotation (Line(points={{21,0},{28,0}}, color={0,0,127}));
-    connect(gainPID.y, addSat.u2) annotation (Line(points={{51,0},{60,0},{60,
-            -20},{74,-20},{74,-38}}, color={0,0,127}));
-    connect(gainPID.y, limiter.u)
-      annotation (Line(points={{51,0},{68,0}}, color={0,0,127}));
+      annotation (Line(points={{-29,0},{-12,0}},color={0,0,127}));
+    connect(I.y, addPID.u3) annotation (Line(points={{-29,-50},{-20,-50},{-20,-8},
+            {-12,-8}},    color={0,0,127}));
     connect(limiter.y, addSat.u1) annotation (Line(points={{91,0},{94,0},{94,
             -20},{86,-20},{86,-38}}, color={0,0,127}));
     connect(limiter.y, y)
       annotation (Line(points={{91,0},{110,0}}, color={0,0,127}));
-    connect(addSat.y, gainTrack.u) annotation (Line(points={{80,-61},{80,-70},{
-            42,-70}}, color={0,0,127}));
-    connect(gainTrack.y, addI.u3) annotation (Line(points={{19,-70},{-88,-70},{
-            -88,-58},{-82,-58}}, color={0,0,127}));
+    connect(addSat.y, gainTrack.u) annotation (Line(points={{80,-61},{80,-70},{2,-70}},
+                      color={0,0,127}));
+    connect(gainTrack.y, addI.u3) annotation (Line(points={{-21,-70},{-88,-70},{-88,
+            -58},{-82,-58}},     color={0,0,127}));
     connect(u_m, addP.u2) annotation (Line(
         points={{0,-120},{0,-92},{-92,-92},{-92,44},{-82,44}},
         color={0,0,127},
@@ -1035,10 +1048,24 @@ to compute u by an algebraic equation.
         points={{0,-120},{0,-92},{-92,-92},{-92,-50},{-82,-50}},
         color={0,0,127},
         thickness=0.5));
-    connect(Dzero.y, addPID.u2) annotation (Line(points={{-19.5,25},{-14,25},{
-            -14,0},{-2,0}}, color={0,0,127}));
-    connect(Izero.y, addPID.u3) annotation (Line(points={{-0.5,-50},{-10,-50},{
-            -10,-8},{-2,-8}}, color={0,0,127}));
+    connect(Dzero.y, addPID.u2) annotation (Line(points={{-29.5,25},{-24,25},{-24,
+            0},{-12,0}},    color={0,0,127}));
+    connect(Izero.y, addPID.u3) annotation (Line(points={{-10.5,-50},{-20,-50},{-20,
+            -8},{-12,-8}},    color={0,0,127}));
+    connect(addPID.y, gainPID.u)
+      annotation (Line(points={{11,0},{18,0}}, color={0,0,127}));
+    connect(addFF.y, limiter.u)
+      annotation (Line(points={{60.6,0},{68,0}}, color={0,0,127}));
+    connect(gainPID.y, addFF.u1) annotation (Line(points={{41,0},{44,0},{44,3.6},
+            {46.8,3.6}},color={0,0,127}));
+    connect(FFzero.y, addFF.u2) annotation (Line(points={{40.5,-30},{44,-30},{44,
+            -3.6},{46.8,-3.6}},
+                          color={0,0,127}));
+    connect(addFF.u2, u_ff) annotation (Line(points={{46.8,-3.6},{44,-3.6},{44,
+            -92},{60,-92},{60,-120}},
+                                 color={0,0,127}));
+    connect(addFF.y, addSat.u2) annotation (Line(points={{60.6,0},{64,0},{64,-20},
+            {74,-20},{74,-38}}, color={0,0,127}));
     annotation (defaultComponentName="PID",
       Icon(coordinateSystem(
           preserveAspectRatio=true,
@@ -1064,6 +1091,10 @@ to compute u by an algebraic equation.
             visible=strict,
             points={{30,60},{81,60}},
             color={255,0,0})}),
+      Diagram(graphics={Text(
+              extent={{79,-112},{129,-102}},
+              lineColor={0,0,255},
+            textString=" (feed-forward)")}),
       Documentation(info="<html>
 <p>
 Via parameter <strong>controllerType</strong> either <strong>P</strong>, <strong>PI</strong>, <strong>PD</strong>,
@@ -1090,7 +1121,7 @@ part of this controller, the following features are present:
 <ul>
 <li> The output of this controller is limited. If the controller is
      in its limits, anti-windup compensation is activated to drive
-     the integrator state to zero. </li>
+     the integrator state to zero.</li>
 <li> The high-frequency gain of the derivative part is limited
      to avoid excessive amplification of measurement noise.</li>
 <li> Setpoint weighting is present, which allows to weight
@@ -1101,6 +1132,8 @@ part of this controller, the following features are present:
      setting. For example, it is useful to set the setpoint weight wd
      for the derivative part to zero, if steps may occur in the
      setpoint signal.</li>
+<li> Optional feed-forward. It is possible to add a feed-forward signal.
+     The feed-forward signal is added before limitation.</li>
 </ul>
 
 <p>
@@ -1158,30 +1191,30 @@ blocks inside the PID controller are initialized according to the following tabl
 </p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td valign=\"top\"><strong>initType</strong></td>
-      <td valign=\"top\"><strong>I.initType</strong></td>
-      <td valign=\"top\"><strong>D.initType</strong></td></tr>
+  <tr><td><strong>initType</strong></td>
+      <td><strong>I.initType</strong></td>
+      <td><strong>D.initType</strong></td></tr>
 
-  <tr><td valign=\"top\"><strong>NoInit</strong></td>
-      <td valign=\"top\">NoInit</td>
-      <td valign=\"top\">NoInit</td></tr>
+  <tr><td><strong>NoInit</strong></td>
+      <td>NoInit</td>
+      <td>NoInit</td></tr>
 
-  <tr><td valign=\"top\"><strong>SteadyState</strong></td>
-      <td valign=\"top\">SteadyState</td>
-      <td valign=\"top\">SteadyState</td></tr>
+  <tr><td><strong>SteadyState</strong></td>
+      <td>SteadyState</td>
+      <td>SteadyState</td></tr>
 
-  <tr><td valign=\"top\"><strong>InitialState</strong></td>
-      <td valign=\"top\">InitialState</td>
-      <td valign=\"top\">InitialState</td></tr>
+  <tr><td><strong>InitialState</strong></td>
+      <td>InitialState</td>
+      <td>InitialState</td></tr>
 
-  <tr><td valign=\"top\"><strong>InitialOutput</strong><br>
+  <tr><td><strong>InitialOutput</strong><br>
           and initial equation: y = y_start</td>
-      <td valign=\"top\">NoInit</td>
-      <td valign=\"top\">SteadyState</td></tr>
+      <td>NoInit</td>
+      <td>SteadyState</td></tr>
 
-  <tr><td valign=\"top\"><strong>DoNotUse_InitialIntegratorState</strong></td>
-      <td valign=\"top\">InitialState</td>
-      <td valign=\"top\">NoInit</td></tr>
+  <tr><td><strong>DoNotUse_InitialIntegratorState</strong></td>
+      <td>InitialState</td>
+      <td>NoInit</td></tr>
 </table>
 
 <p>
@@ -4620,20 +4653,20 @@ values of initType are defined in
 </p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td valign=\"top\"><strong>Name</strong></td>
-      <td valign=\"top\"><strong>Description</strong></td></tr>
+  <tr><td><strong>Name</strong></td>
+      <td><strong>Description</strong></td></tr>
 
-  <tr><td valign=\"top\"><strong>Init.NoInit</strong></td>
-      <td valign=\"top\">no initialization (start values are used as guess values with fixed=false)</td></tr>
+  <tr><td><strong>Init.NoInit</strong></td>
+      <td>no initialization (start values are used as guess values with fixed=false)</td></tr>
 
-  <tr><td valign=\"top\"><strong>Init.SteadyState</strong></td>
-      <td valign=\"top\">steady state initialization (derivatives of states are zero)</td></tr>
+  <tr><td><strong>Init.SteadyState</strong></td>
+      <td>steady state initialization (derivatives of states are zero)</td></tr>
 
-  <tr><td valign=\"top\"><strong>Init.InitialState</strong></td>
-      <td valign=\"top\">Initialization with initial states</td></tr>
+  <tr><td><strong>Init.InitialState</strong></td>
+      <td>Initialization with initial states</td></tr>
 
-  <tr><td valign=\"top\"><strong>Init.InitialOutput</strong></td>
-      <td valign=\"top\">Initialization with initial outputs (and steady state of the states if possible)</td></tr>
+  <tr><td><strong>Init.InitialOutput</strong></td>
+      <td>Initialization with initial outputs (and steady state of the states if possible)</td></tr>
 </table>
 
 <p>

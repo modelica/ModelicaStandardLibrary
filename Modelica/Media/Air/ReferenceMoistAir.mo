@@ -318,7 +318,7 @@ package ReferenceMoistAir
   algorithm
     xw := X[1]/max(100*Modelica.Constants.eps, (1 - X[1]));
     annotation (Documentation(revisions="<html>
-2017-04-13 Stefan Wischhusen: Guard introduced against divsion by zero.
+2017-04-13 Stefan Wischhusen: Guard introduced against division by zero.
 </html>"));
   end waterContent_X;
 
@@ -4516,19 +4516,19 @@ The package MoistAir can be used as any other medium model (see <a href=\"modeli
 </p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr>
-<td valign=\"top\"><strong>Constant</strong></td>
-<td valign=\"top\"><strong>Default Value</strong></td>
-<td valign=\"top\"><strong>Meaning</strong></td>
+<td><strong>Constant</strong></td>
+<td><strong>Default Value</strong></td>
+<td><strong>Meaning</strong></td>
 </tr>
 <tr>
-<td valign=\"top\">useEnhancementFactor</td>
-<td valign=\"top\">false</td>
-<td valign=\"top\">The enhancement factor is used in the calculation of the saturation partial pressure of water in moist air. It is always very close to 1 except for high pressures (&gt;2 MPa) and low temperatures (&lt;233.15 K). For pressures less than 1 MPa this factor can be safely set to 1. Its calculation is very expensive, since it can only be calculated by an iterative method.</td>
+<td>useEnhancementFactor</td>
+<td>false</td>
+<td>The enhancement factor is used in the calculation of the saturation partial pressure of water in moist air. It is always very close to 1 except for high pressures (&gt;2 MPa) and low temperatures (&lt;233.15 K). For pressures less than 1 MPa this factor can be safely set to 1. Its calculation is very expensive, since it can only be calculated by an iterative method.</td>
 </tr>
 <tr>
-<td valign=\"top\">useDissociation</td>
-<td valign=\"top\">true</td>
-<td valign=\"top\">The effect of dissociation is taken into account for temperatures greater than 773.15 K.</td>
+<td>useDissociation</td>
+<td>true</td>
+<td>The effect of dissociation is taken into account for temperatures greater than 773.15 K.</td>
 </tr>
 </table>
 

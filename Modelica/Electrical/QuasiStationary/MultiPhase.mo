@@ -431,7 +431,7 @@ P.Vaske, Berechnung von Drehstromschaltungen (German, Calculation of polyphase c
               {-50,-21},{-50,-29.5},{-50,-38}}, color={85,170,255}));
       annotation (Documentation(info="<html>
 <p>
-This example shows an unsymmetrical load, in the upper with neutral connection (the singlephase current sensor measures the neutral current) and in the lower without neutral connection (the singlephase voltage sensormeasures the neutral displacement).
+This example shows an unsymmetrical load, in the upper with neutral connection (the singlephase current sensor measures the neutral current) and in the lower without neutral connection (the singlephase voltage sensor measures the neutral displacement).
 </p>
 </html>"),
       experiment(StopTime=1.0, Interval=0.001));
@@ -634,7 +634,7 @@ Examples to demonstrate the usage of quasistationary electric components.
                   points={{0,0},{-38,-69}},
                   color={85,170,255},
                   thickness=0.5), Line(points={{-90,0},{-40,0}}, color={85,170,255}),
-              Line(points={{80,0},{90,0}}, color={0,0,255}),
+              Line(points={{80,0},{90,0}}, color={85,170,255}),
             Text(
               extent={{-150,70},{150,110}},
               textString="%name",
@@ -743,7 +743,8 @@ Delta (polygon) connection of a multi phase circuit.
                   points={{6,4},{-32,-65}},
                   color={85,170,255},
                   thickness=0.5), Line(points={{-90,0},{-40,0}}, color={85,170,255}),
-              Line(points={{80,0},{90,0}}, color={0,0,255}),Line(
+              Line(points={{80,0},{90,0}}, color={85,170,255}),
+                                                            Line(
                   points={{-6,-4},{-45,64}},
                   color={85,170,255},
                   thickness=0.5),Line(
@@ -1339,7 +1340,7 @@ using <code>m</code> <a href=\"modelica://Modelica.Electrical.QuasiStationary.Si
 <p>
 Model of a multi phase inductor providing a mutual inductance matrix model.
 </p>
-<H4>Implementation</H4>
+<h4>Implementation</h4>
 <pre>
   v[1] = j*omega*L[1,1]*i[1] + j*omega*L[1,2]*i[2] + ... + j*omega*L[1,m]*i[m]
   v[2] = j*omega*L[2,1]*i[1] + j*omega*L[2,2]*i[2] + ... + j*omega*L[2,m]*i[m]
@@ -2408,7 +2409,9 @@ Quasi stationary theory can be found in the
     protected
       Integer m=size(u, 1) "Number of phases";
     algorithm
-      y := sum({'abs'(u[k]) for k in 1:m})/m;
+      // y := sum({'abs'(u[k]) for k in 1:m})/m;
+      // Alternative implementation due to https://trac.openmodelica.org/OpenModelica/ticket/4496
+      y :=sum({sqrt(u[k].re^2 + u[k].im^2) for k in 1:m})/m;
       annotation (Inline=true, Documentation(info="<html>
   This function determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.Math.RootMeanSquare\">RMS</a> value of a multi phase system,
   represented by m quasi static time domain phasors.
@@ -2959,16 +2962,17 @@ This sensor can be used to measure <em>m</em> complex voltages, using <em>m</em>
             Line(points={{0,-70},{0,-100}}, color={85,170,255}),
             Line(points={{70,0},{90,0}}, color={0,0,255}),
             Text(
-              textColor={0,0,255},
+              lineColor={0,0,255},
               extent={{-150,80},{150,120}},
               textString="%name")}),
         Documentation(revisions="<html>
 </html>", info="<html>
 <p>
-This sensor determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.Math.RootMeanSquare\">RMS</a> value of a multi phase voltage system, representing an equivalent RMS voltage vector <code>I</code> or phasor.
+This sensor determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.Math.RootMeanSquare\">RMS</a>
+value of a multi phase voltage system, by averaging the phase RMS voltage phasors <code>v</code>.
 </p>
 <pre>
- V = sqrt(sum(v[k]^2 for k in 1:m)/m)
+  V = sum({'abs'(v[k]) for k in 1:m})/m
 </pre>
 
 <h4>See also</h4>
@@ -3071,16 +3075,17 @@ This sensor can be used to measure <em>m</em> complex currents, using <em>m</em>
               extent={{150,-100},{-150,-70}},
               textString="m=%m"),
             Text(
-              textColor={0,0,255},
+              lineColor={0,0,255},
               extent={{-150,80},{150,120}},
               textString="%name")}),
         Documentation(revisions="<html>
 </html>", info="<html>
 <p>
-This sensor determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.Math.RootMeanSquare\">RMS</a> value of a multi phase current system, representing an equivalent RMS current vector <code>I</code> or phasor.
+This sensor determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.Math.RootMeanSquare\">RMS</a>
+value of a multi phase current system, by averaging the phase RMS current phasors <code>i</code>.
 </p>
 <pre>
- I = sqrt(sum(i[k]^2 for k in 1:m)/m)
+  I = sum({'abs'(i[k]) for k in 1:m})/m
 </pre>
 
 <h4>See also</h4>
@@ -3172,7 +3177,7 @@ This sensor determines the continuous quasi <a href=\"Modelica://Modelica.Blocks
             Line(points={{0,-70},{0,-100}}, color={85,170,255}),
             Text(extent={{-29,-70},{30,-11}}, textString="P"),
             Text(
-              textColor={0,0,255},
+              lineColor={0,0,255},
               extent={{-150,110},{150,150}},
               textString="%name"),
             Line(points={{-100,0},{100,0}}, color={85,170,255}),
@@ -3244,14 +3249,14 @@ This sensor can be used to measure <em>m</em> complex apparent power values, usi
           origin={110,-60},
           extent={{10,10},{-10,-10}},
           rotation=180)));
-    output Modelica.SIunits.Current i_abs[m]='abs'(i) "Absolute of complex currents";
-    output Modelica.SIunits.Angle i_arg[m]=arg(i) "Argument of complex currents";
-    output Modelica.SIunits.Voltage v_abs[m]='abs'(v) "Absolute of complex voltages";
-    output Modelica.SIunits.Angle v_arg[m]=arg(v) "Argument of complex voltages";
-    output Modelica.SIunits.ApparentPower apparentPower_abs[m]='abs'(apparentPower) "Absolute of complex apparent power signals";
-    output Modelica.SIunits.Angle apparentPower_arg[m]=arg(apparentPower) "Argument of complex apparent power signals";
-    output Modelica.SIunits.ApparentPower apparentPowerTotal_abs='abs'(apparentPowerTotal) "Absolute of sum complex apparent power";
-    output Modelica.SIunits.Angle apparentPowerTotal_arg=arg(apparentPowerTotal) "Argument of sum complex apparent power";
+    output Modelica.SIunits.Current abs_i[m]='abs'(i) "Absolute of complex currents";
+    output Modelica.SIunits.Angle arg_i[m]=arg(i) "Argument of complex currents";
+    output Modelica.SIunits.Voltage abs_v[m]='abs'(v) "Absolute of complex voltages";
+    output Modelica.SIunits.Angle arg_v[m]=arg(v) "Argument of complex voltages";
+    output Modelica.SIunits.ApparentPower abs_apparentPower[m]='abs'(apparentPower) "Absolute of complex apparent power signals";
+    output Modelica.SIunits.Angle arg_apparentPower[m]=arg(apparentPower) "Argument of complex apparent power signals";
+    output Modelica.SIunits.ApparentPower abs_apparentPowerTotal='abs'(apparentPowerTotal) "Absolute of sum complex apparent power";
+    output Modelica.SIunits.Angle arg_apparentPowerTotal=arg(apparentPowerTotal) "Argument of sum complex apparent power";
   equation
     Connections.branch(pc.reference, nc.reference);
     pc.reference.gamma = nc.reference.gamma;
@@ -3274,11 +3279,11 @@ This sensor can be used to measure <em>m</em> complex apparent power values, usi
         Line(points = {{-100,0},{100,0}}, color={85,170,255}),
         Line(points = {{0,70},{0,40}}),
           Line(points={{-100,-60},{-80,-60},{-56,-42}},
-                                                     color={28,108,200}),
+                                                     color={85,170,255}),
           Line(points={{-60,-100},{-60,-80},{-42,-56}},
-                                                     color={28,108,200}),
+                                                     color={85,170,255}),
           Line(points={{60,-100},{60,-80},{42,-56}},
-                                                  color={28,108,200}),
+                                                  color={85,170,255}),
           Text(
             extent={{-100,-40},{-60,-80}},
             textString="s"),
@@ -3288,7 +3293,7 @@ This sensor can be used to measure <em>m</em> complex apparent power values, usi
           Text(
             extent={{40,-60},{80,-100}},
             textString="v"),
-          Line(points={{100,-60},{80,-60},{56,-42}}, color={28,108,200}),
+          Line(points={{100,-60},{80,-60},{56,-42}}, color={85,170,255}),
           Text(
             extent={{-150,110},{150,150}},
             textString="%name",
@@ -3712,8 +3717,8 @@ Additionally, the frequency of the current source is defined by a real signal in
               extent={{160,-100},{-160,-60}},
               textString="m=%m")}),
         Documentation(info="<html>
-<p>This source provides polyphase constant RMS phase voltages <code>V</code> and phase angles <code>phi</code>, 
-whereas the frequency sweeps from 
+<p>This source provides polyphase constant RMS phase voltages <code>V</code> and phase angles <code>phi</code>,
+whereas the frequency sweeps from
 <code>fStart</code> to <code>fStop</code> with <code>duration</code>. The frequency sweeps such
 way that on a logarithmic frequency scale, the frequency curve appears linear.</p>
 
@@ -3911,8 +3916,8 @@ Additionally, the frequency of the current source is defined by a real signal in
               extent={{160,-100},{-160,-60}},
               textString="m=%m")}),
         Documentation(info="<html>
-<p>This source provides polyphase constant RMS phase currents <code>I</code> and phase angles <code>phi</code>, 
-whereas the frequency sweeps from 
+<p>This source provides polyphase constant RMS phase currents <code>I</code> and phase angles <code>phi</code>,
+whereas the frequency sweeps from
 <code>fStart</code> to <code>fStop</code> with <code>duration</code>. The frequency sweeps such
 way that on a logarithmic frequency scale, the frequency curve appears linear.</p>
 
@@ -4164,7 +4169,7 @@ a <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Plug
               extent={{150,-100},{-150,-70}},
               textString="m=%m"),
             Text(
-              textColor={0,0,255},
+              lineColor={0,0,255},
               extent={{-150,80},{150,120}},
               textString="%name")}), Documentation(info="<html>
 
@@ -4200,7 +4205,7 @@ The absolute sensor partial model relies on the a
               extent={{150,-100},{-150,-70}},
               textString="m=%m"),
             Text(
-              textColor={0,0,255},
+              lineColor={0,0,255},
               extent={{-150,80},{150,120}},
               textString="%name")}), Documentation(info="<html>
 <p>

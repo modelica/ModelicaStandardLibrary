@@ -15,7 +15,7 @@ package FluidHeatFlow
 <strong>Anton Haumer</strong><br>
 <a href=\"http://www.haumer.at\">Technical Consulting &amp; Electrical Engineering</a><br>
 A-3423 St. Andrae-Woerdern, Austria<br>
-email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
+email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
 </p>
 
 <p>
@@ -82,7 +82,7 @@ Copyright &copy; 1998-2018, Modelica Association, Anton Haumer, Christian Kral a
 
   <h5>1.60, 2007-01-23 (Anton Haumer)</h5>
   <ul>
-  <li> New parameter tapT defining Temperature of heatPort </li>
+  <li> New parameter tapT defining Temperature of heatPort</li>
   </ul>
 
   <h5>1.50 2005-09-07 (Anton Haumer)</h5>
@@ -242,28 +242,28 @@ A prescribed heat source dissipates its heat through a thermal conductor to a co
 <strong>Results</strong>:<br>
 <table>
 <tr>
-<td valign=\"top\"><strong>output</strong></td>
-<td valign=\"top\"><strong>explanation</strong></td>
-<td valign=\"top\"><strong>formula</strong></td>
-<td valign=\"top\"><strong>actual steady-state value</strong></td>
+<td><strong>output</strong></td>
+<td><strong>explanation</strong></td>
+<td><strong>formula</strong></td>
+<td><strong>actual steady-state value</strong></td>
 </tr>
 <tr>
-<td valign=\"top\">dTSource</td>
-<td valign=\"top\">Source over Ambient</td>
-<td valign=\"top\">dtCoolant + dtToPipe</td>
-<td valign=\"top\">20 K</td>
+<td>dTSource</td>
+<td>Source over Ambient</td>
+<td>dtCoolant + dtToPipe</td>
+<td>20 K</td>
 </tr>
 <tr>
-<td valign=\"top\">dTtoPipe</td>
-<td valign=\"top\">Source over Coolant</td>
-<td valign=\"top\">Losses / ThermalConductor.G</td>
-<td valign=\"top\">10 K</td>
+<td>dTtoPipe</td>
+<td>Source over Coolant</td>
+<td>Losses / ThermalConductor.G</td>
+<td>10 K</td>
 </tr>
 <tr>
-<td valign=\"top\">dTCoolant</td>
-<td valign=\"top\">Coolant's temperature increase</td>
-<td valign=\"top\">Losses * cp * massFlow</td>
-<td valign=\"top\">10 K</td>
+<td>dTCoolant</td>
+<td>Coolant's temperature increase</td>
+<td>Losses * cp * massFlow</td>
+<td>10 K</td>
 </tr>
 </table>
 </html>"),        experiment(StopTime=1.0, Interval=0.001));
@@ -427,52 +427,52 @@ Two prescribed heat sources dissipate their heat through thermal conductors to c
 <strong>Results</strong>:<br>
 <table>
 <tr>
-<td valign=\"top\"><strong>output</strong></td>
-<td valign=\"top\"><strong>explanation</strong></td>
-<td valign=\"top\"><strong>formula</strong></td>
-<td valign=\"top\"><strong>actual steady-state value</strong></td>
+<td><strong>output</strong></td>
+<td><strong>explanation</strong></td>
+<td><strong>formula</strong></td>
+<td><strong>actual steady-state value</strong></td>
 </tr>
 <tr>
-<td valign=\"top\">dTSource1</td>
-<td valign=\"top\">Source1 over Ambient</td>
-<td valign=\"top\">dTCoolant1 + dTtoPipe1</td>
-<td valign=\"top\">15 K</td>
+<td>dTSource1</td>
+<td>Source1 over Ambient</td>
+<td>dTCoolant1 + dTtoPipe1</td>
+<td>15 K</td>
 </tr>
 <tr>
-<td valign=\"top\">dTtoPipe1</td>
-<td valign=\"top\">Source1 over Coolant1</td>
-<td valign=\"top\">Losses1 / ThermalConductor1.G</td>
-<td valign=\"top\"> 5 K</td>
+<td>dTtoPipe1</td>
+<td>Source1 over Coolant1</td>
+<td>Losses1 / ThermalConductor1.G</td>
+<td> 5 K</td>
 </tr>
 <tr>
-<td valign=\"top\">dTCoolant1</td>
-<td valign=\"top\">Coolant's temperature increase</td>
-<td valign=\"top\">Losses * cp * totalMassFlow/2</td>
-<td valign=\"top\">10 K</td>
+<td>dTCoolant1</td>
+<td>Coolant's temperature increase</td>
+<td>Losses * cp * totalMassFlow/2</td>
+<td>10 K</td>
 </tr>
 <tr>
-<td valign=\"top\">dTSource2</td>
-<td valign=\"top\">Source2 over Ambient</td>
-<td valign=\"top\">dTCoolant2 + dTtoPipe2</td>
-<td valign=\"top\">30 K</td>
+<td>dTSource2</td>
+<td>Source2 over Ambient</td>
+<td>dTCoolant2 + dTtoPipe2</td>
+<td>30 K</td>
 </tr>
 <tr>
-<td valign=\"top\">dTtoPipe2</td>
-<td valign=\"top\">Source2 over Coolant2</td>
-<td valign=\"top\">Losses2 / ThermalConductor2.G</td>
-<td valign=\"top\">10 K</td>
+<td>dTtoPipe2</td>
+<td>Source2 over Coolant2</td>
+<td>Losses2 / ThermalConductor2.G</td>
+<td>10 K</td>
 </tr>
 <tr>
-<td valign=\"top\">dTCoolant2</td>
-<td valign=\"top\">Coolant's temperature increase</td>
-<td valign=\"top\">Losses * cp * totalMassFlow/2</td>
-<td valign=\"top\">20 K</td>
+<td>dTCoolant2</td>
+<td>Coolant's temperature increase</td>
+<td>Losses * cp * totalMassFlow/2</td>
+<td>20 K</td>
 </tr>
 <tr>
-<td valign=\"top\">dTmixedCoolant</td>
-<td valign=\"top\">mixed Coolant's temperature increase</td>
-<td valign=\"top\">(dTCoolant1+dTCoolant2)/2</td>
-<td valign=\"top\">15 K</td>
+<td>dTmixedCoolant</td>
+<td>mixed Coolant's temperature increase</td>
+<td>(dTCoolant1+dTCoolant2)/2</td>
+<td>15 K</td>
 </tr>
 </table>
 </html>"),        experiment(StopTime=1.0, Interval=0.001));
@@ -646,40 +646,40 @@ Inner coolant's temperature rise near the source is the same as temperature drop
 <strong>Results</strong>:<br>
 <table>
 <tr>
-<td valign=\"top\"><strong>output</strong></td>
-<td valign=\"top\"><strong>explanation</strong></td>
-<td valign=\"top\"><strong>formula</strong></td>
-<td valign=\"top\"><strong>actual steady-state value</strong></td>
+<td><strong>output</strong></td>
+<td><strong>explanation</strong></td>
+<td><strong>formula</strong></td>
+<td><strong>actual steady-state value</strong></td>
 </tr>
 <tr>
-<td valign=\"top\">dTSource</td>
-<td valign=\"top\">Source over Ambient</td>
-<td valign=\"top\">dtouterCoolant + dtCooler + dTinnerCoolant + dtToPipe</td>
-<td valign=\"top\">40 K</td>
+<td>dTSource</td>
+<td>Source over Ambient</td>
+<td>dtouterCoolant + dtCooler + dTinnerCoolant + dtToPipe</td>
+<td>40 K</td>
 </tr>
 <tr>
-<td valign=\"top\">dTtoPipe</td>
-<td valign=\"top\">Source over inner Coolant</td>
-<td valign=\"top\">Losses / ThermalConductor.G</td>
-<td valign=\"top\">10 K</td>
+<td>dTtoPipe</td>
+<td>Source over inner Coolant</td>
+<td>Losses / ThermalConductor.G</td>
+<td>10 K</td>
 </tr>
 <tr>
-<td valign=\"top\">dTinnerColant</td>
-<td valign=\"top\">inner Coolant's temperature increase</td>
-<td valign=\"top\">Losses * cp * innerMassFlow</td>
-<td valign=\"top\">10 K</td>
+<td>dTinnerColant</td>
+<td>inner Coolant's temperature increase</td>
+<td>Losses * cp * innerMassFlow</td>
+<td>10 K</td>
 </tr>
 <tr>
-<td valign=\"top\">dTCooler</td>
-<td valign=\"top\">Cooler's temperature rise between inner and outer pipes</td>
-<td valign=\"top\">Losses * (innerGc + outerGc)</td>
-<td valign=\"top\">10 K</td>
+<td>dTCooler</td>
+<td>Cooler's temperature rise between inner and outer pipes</td>
+<td>Losses * (innerGc + outerGc)</td>
+<td>10 K</td>
 </tr>
 <tr>
-<td valign=\"top\">dTouterColant</td>
-<td valign=\"top\">outer Coolant's temperature increase</td>
-<td valign=\"top\">Losses * cp * outerMassFlow</td>
-<td valign=\"top\">10 K</td>
+<td>dTouterColant</td>
+<td>outer Coolant's temperature increase</td>
+<td>Losses * cp * outerMassFlow</td>
+<td>10 K</td>
 </tr>
 </table>
 </html>"),        experiment(StopTime=1.5, Interval=0.001));
@@ -1364,7 +1364,7 @@ Copyright &copy; 1998-2018, Modelica Association, Anton Haumer and Austrian Inst
 </p>
 
 <p>
-<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\"> https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em>
+<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em>
 </p>
 </html>", revisions="<html>
   <ul>
@@ -1423,7 +1423,7 @@ Copyright &copy; 1998-2018, Modelica Association, Anton Haumer and Austrian Inst
 Pipe without heat exchange.<br>
 Thermodynamic equations are defined by Partials.TwoPortMass(Q_flow = 0).<br>
 <strong>Note:</strong> Setting parameter m (mass of medium within pipe) to zero
-leads to neglection of temperature transient cv*m*der(T).
+leads to neglect of temperature transient cv*m*der(T).
 </html>"),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
                 100}}), graphics={Rectangle(
@@ -1456,7 +1456,7 @@ Pipe with heat exchange.<br>
 Thermodynamic equations are defined by Partials.TwoPort.<br>
 Q_flow is defined by heatPort.Q_flow.<br>
 <strong>Note:</strong> Setting parameter m (mass of medium within pipe) to zero
-leads to neglection of temperature transient cv*m*der(T).<br>
+leads to neglect of temperature transient cv*m*der(T).<br>
 <strong>Note:</strong> Injecting heat into a pipe with zero mass flow causes
 temperature rise defined by storing heat in medium's mass.
 </html>"),
@@ -1917,7 +1917,7 @@ Coolant's mass flow, temperature and enthalpy flow are not affected.<br>
 Fan resp. pump with constant volume flow rate. Pressure increase is the response of the whole system.
 Coolant's temperature and enthalpy flow are not affected.<br>
 Setting parameter m (mass of medium within fan/pump) to zero
-leads to neglection of temperature transient cv*m*der(T).<br>
+leads to neglect of temperature transient cv*m*der(T).<br>
 Thermodynamic equations are defined by Partials.TwoPort.
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
@@ -1966,7 +1966,7 @@ Thermodynamic equations are defined by Partials.TwoPort.
 Fan resp. pump with constant pressure increase. Mass resp. volume flow is the response of the whole system.
 Coolant's temperature and enthalpy flow are not affected.<br>
 Setting parameter m (mass of medium within fan/pump) to zero
-leads to neglection of temperature transient cv*m*der(T).<br>
+leads to neglect of temperature transient cv*m*der(T).<br>
 Thermodynamic equations are defined by Partials.TwoPort.
 </html>"),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
@@ -2023,7 +2023,7 @@ Thermodynamic equations are defined by Partials.TwoPort.
       Q_flow = 0;
       annotation (
         Documentation(info="<html>
-Simple fan resp. pump where characteristic is dependent on shaft's speed, <br>
+Simple fan resp. pump where characteristic is dependent on shaft's speed,<br>
 torque * speed = pressure increase * volume flow (without losses)<br>
 Pressure increase versus volume flow is defined by a linear function,
 from dp0(V_flow=0) to V_flow0(dp=0).<br>
@@ -2034,7 +2034,7 @@ The axis intersections vary with speed as follows:
 </ul>
 Coolant's temperature and enthalpy flow are not affected.<br>
 Setting parameter m (mass of medium within fan/pump) to zero
-leads to neglection of temperature transient cv*m*der(T).<br>
+leads to neglect of temperature transient cv*m*der(T).<br>
 Thermodynamic equations are defined by Partials.TwoPort.
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
@@ -2304,7 +2304,7 @@ See also sketch at diagram layer.
 Partial model with two flowPorts.<br>
 Possible heat exchange with the ambient is defined by Q_flow; setting this = 0 means no energy exchange.<br>
 Setting parameter m (mass of medium within pipe) to zero
-leads to neglection of temperature transient cv*m*der(T).<br>
+leads to neglect of temperature transient cv*m*der(T).<br>
 Mixing rule is applied.<br>
 Parameter 0 &lt; tapT &lt; 1 defines temperature of heatPort between medium's inlet and outlet temperature.
 </html>"));
@@ -2529,7 +2529,7 @@ Outlet temperature is defined by variable T of the corresponding component.</li>
 Copyright &copy; 1998-2018, Modelica Association, Anton Haumer, Christian Kral and AIT.
 </p>
 <p>
-<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\"> https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em>
+<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em>
 </p>
 </html>", revisions="<html>
 

@@ -516,8 +516,8 @@ on the model behaviour.
     Real s(start=0, final unit="1")
       "Auxiliary variable for actual position on the ideal diode characteristic";
     /* s = 0: knee point
-     s < 0: below knee point, conducting
-     s > 0: above knee point, locking */
+     s < 0: below knee point, blocking
+     s > 0: above knee point, conducting */
     constant Modelica.SIunits.Voltage unitVoltage=1 annotation (HideResult=true);
     constant Modelica.SIunits.Current unitCurrent=1 annotation (HideResult=true);
   equation
@@ -526,7 +526,7 @@ on the model behaviour.
     LossPower = v*i;
     annotation (
       Documentation(info="<html>
-<P>
+<p>
 This is an ideal semiconductor which is<br><br>
 <strong>open </strong>(off), if it is reversed biased (voltage drop less than 0)<br>
 <strong>closed</strong> (on), if it is conducting (current > 0).<br>
@@ -537,11 +537,11 @@ with zero resistance and zero conductance is not possible.
 In order to prevent singularities during switching, the opened
 semiconductor has a small conductance <em>Gon</em>
 and the closed semiconductor has a low resistance <em>Roff</em> which is default.
-</P>
-<P>
+</p>
+<p>
 The parameter <em>Vknee</em> which is the forward threshold voltage, allows to displace
-the knee point <br> along  the <em>Gon</em>-characteristic until <em>v = Vknee</em>.
-<br> <br>
+the knee point<br> along  the <em>Gon</em>-characteristic until <em>v = Vknee</em>.
+<br><br>
 <strong>Please note:</strong>
 In case of useHeatPort=true the temperature dependence of the electrical
 behavior is <strong>not</strong> modelled.
@@ -633,7 +633,7 @@ behavior is <strong>not</strong> modelled.
     LossPower = v*i;
     annotation (
       Documentation(info="<html>
-<P>
+<p>
 The ideal switch has a positive pin p and a negative pin n.
 The switching behaviour is controlled by the boolean signal off.
 If off is true, pin p is not connected with negative pin n.
@@ -645,11 +645,11 @@ The limiting case is also allowed, i.e., the resistance Ron of the
 closed switch could be exactly zero and the conductance Goff of the
 open switch could be also exactly zero. Note, there are circuits,
 where a description with zero Ron or zero Goff is not possible.
-<br> <br>
+<br><br>
 <strong>Please note:</strong>
 In case of useHeatPort=true the temperature dependence of the electrical
 behavior is <strong>not</strong> modelled. The parameters are not temperature dependent.
-</P>
+</p>
 </html>", revisions="<html>
 <ul>
 <li><em> March 11, 2009   </em>
@@ -770,7 +770,7 @@ i.e., the equation for the on-state is activated <code>v=Ron*i</code>.
 <p>
 Please note: In an AC circuit, at least the arc quenches when the next natural zero-crossing of the current occurs.
 In a DC circuit, the arc will not quench if the arc voltage is not sufficient that a zero-crossing of the current occurs.
-<br> <br>
+<br><br>
 <strong>Please note:</strong>
 In case of useHeatPort=true the temperature dependence of the electrical
 behavior is <strong>not</strong> modelled. The parameters are not temperature dependent.

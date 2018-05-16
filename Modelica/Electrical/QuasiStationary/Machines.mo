@@ -5,7 +5,7 @@ package Machines "Quasistationary machine models"
   package Examples "Test examples"
     extends Modelica.Icons.ExamplesPackage;
 
-    model TransformerTestbench "Transformer Testbench"
+    model TransformerTestbench "Transformer test bench"
       extends Modelica.Icons.Example;
       parameter Integer m=3 "Number of phases";
       parameter Modelica.SIunits.Resistance RL[m]=fill(1/3, m)
@@ -208,7 +208,7 @@ package Machines "Quasistationary machine models"
       connect(electricalPowerSensorS.currentP, source.plug_p) annotation (Line(
             points={{-80,20},{-90,20},{-90,10}}, color={85,170,255}));
       annotation (Documentation(info="<html>
-Transformer testbench:<br>
+Transformer test bench:<br>
 You may choose different connections as well as vary the load (even not symmetrical).<br>
 <strong>Please pay attention</strong> to proper grounding of the primary and secondary part of the whole circuit.<br>
 The primary and secondary starpoint are available as connectors, if the connection is not delta (D or d).<br>
@@ -1921,7 +1921,7 @@ even though the source's and/or load's starpoint are grounded; you may use a rea
 Copyright &copy; 1998-2018, Modelica Association and Anton Haumer.
 </p>
 <p>
-<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\"> https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em>
+<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em>
 </p>
 </html>", revisions="<html>
   <ul>
@@ -2383,76 +2383,76 @@ Circuit layout (vector group) of primary and secondary windings have to be defin
 <br><strong>Default values for transformer's parameters (a realistic example) are:</strong><br>
 <table>
 <tr>
-<td valign=\"top\">turns ratio n</td>
-<td valign=\"top\">1</td><td valign=\"top\"> </td>
+<td>turns ratio n</td>
+<td>1</td><td> </td>
 </tr>
 <tr>
-<td valign=\"top\">nominal frequency fNominal</td>
-<td valign=\"top\">50</td><td valign=\"top\">Hz</td>
+<td>nominal frequency fNominal</td>
+<td>50</td><td>Hz</td>
 </tr>
 <tr>
-<td valign=\"top\">nominal voltage per phase</td>
-<td valign=\"top\">100</td><td valign=\"top\">V RMS</td>
+<td>nominal voltage per phase</td>
+<td>100</td><td>V RMS</td>
 </tr>
 <tr>
-<td valign=\"top\">nominal current per phase</td>
-<td valign=\"top\">100</td><td valign=\"top\">A RMS</td>
+<td>nominal current per phase</td>
+<td>100</td><td>A RMS</td>
 </tr>
 <tr>
-<td valign=\"top\">nominal apparent power</td>
-<td valign=\"top\">30</td><td valign=\"top\">kVA</td>
+<td>nominal apparent power</td>
+<td>30</td><td>kVA</td>
 </tr>
 <tr>
-<td valign=\"top\">primary resistance R1</td>
-<td valign=\"top\">0.005</td><td valign=\"top\">Ohm per phase at reference temperature</td>
+<td>primary resistance R1</td>
+<td>0.005</td><td>Ohm per phase at reference temperature</td>
 </tr>
 <tr>
-<td valign=\"top\">reference temperature T1Ref</td>
-<td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
+<td>reference temperature T1Ref</td>
+<td>20</td><td>&deg;C</td>
 </tr>
 <tr>
-<td valign=\"top\">temperature coefficient alpha20_1 </td>
-<td valign=\"top\">0</td><td valign=\"top\">1/K</td>
+<td>temperature coefficient alpha20_1 </td>
+<td>0</td><td>1/K</td>
 </tr>
 <tr>
-<td valign=\"top\">primary stray inductance L1sigma</td>
-<td valign=\"top\">78E-6</td><td valign=\"top\">H per phase</td>
+<td>primary stray inductance L1sigma</td>
+<td>78E-6</td><td>H per phase</td>
 </tr>
 <tr>
-<td valign=\"top\">secondary resistance R2</td>
-<td valign=\"top\">0.005</td><td valign=\"top\">Ohm per phase at reference temperature</td>
+<td>secondary resistance R2</td>
+<td>0.005</td><td>Ohm per phase at reference temperature</td>
 </tr>
 <tr>
-<td valign=\"top\">reference temperature T2Ref</td>
-<td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
+<td>reference temperature T2Ref</td>
+<td>20</td><td>&deg;C</td>
 </tr>
 <tr>
-<td valign=\"top\">temperature coefficient alpha20_2 </td>
-<td valign=\"top\">0</td><td valign=\"top\">1/K</td>
+<td>temperature coefficient alpha20_2 </td>
+<td>0</td><td>1/K</td>
 </tr>
 <tr>
-<td valign=\"top\">secondary stray inductance L2sigma</td>
-<td valign=\"top\">78E-6</td><td valign=\"top\">H per phase</td>
+<td>secondary stray inductance L2sigma</td>
+<td>78E-6</td><td>H per phase</td>
 </tr>
 <tr>
-<td valign=\"top\">operational temperature T1Operational</td>
-<td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
+<td>operational temperature T1Operational</td>
+<td>20</td><td>&deg;C</td>
 </tr>
 <tr>
-<td valign=\"top\">operational temperature T2Operational</td>
-<td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
+<td>operational temperature T2Operational</td>
+<td>20</td><td>&deg;C</td>
 </tr>
 <tr>
-<td valign=\"top\">These values give the operational parameters:</td>
-<td valign=\"top\"> </td><td valign=\"top\"> </td>
+<td>These values give the operational parameters:</td>
+<td> </td><td> </td>
 </tr>
 <tr>
-<td valign=\"top\">nominal voltage drop</td>
-<td valign=\"top\">0.05</td><td valign=\"top\">p.u.</td>
+<td>nominal voltage drop</td>
+<td>0.05</td><td>p.u.</td>
 </tr>
 <tr>
-<td valign=\"top\">nominal copper losses</td>
-<td valign=\"top\">300</td><td valign=\"top\">W</td>
+<td>nominal copper losses</td>
+<td>300</td><td>W</td>
 </tr>
 </table>
 </html>"));

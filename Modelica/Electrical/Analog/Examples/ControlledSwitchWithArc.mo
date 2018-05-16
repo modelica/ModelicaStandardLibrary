@@ -87,8 +87,8 @@ equation
     Documentation(info="<html>
 <p>This example is to compare the behaviour of switch models with and without an electric arc taking into consideration.</p>
 <ul>
-<li>Simulate until T=2 s. </li>
-<li>Plot in one window: <code>switch1.i</code> and <code>switch2.i</code> </li>
+<li>Simulate until T=2 s.</li>
+<li>Plot in one window: <code>switch1.i</code> and <code>switch2.i</code></li>
 </ul>
 <p>The difference in the closing area shows that the simple arc model avoids the suddenly switching.</p>
 </html>",

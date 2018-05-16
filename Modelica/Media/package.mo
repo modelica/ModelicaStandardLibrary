@@ -40,30 +40,30 @@ the medium model (nXi is the number of independent mass fractions, see
 explanation below):
 </p>
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td valign=\"top\"><strong>Variable</strong></td>
-      <td valign=\"top\"><strong>Unit</strong></td>
-      <td valign=\"top\"><strong>Description</strong></td></tr>
-  <tr><td valign=\"top\">T</td>
-      <td valign=\"top\">K</td>
-      <td valign=\"top\">temperature</td></tr>
-  <tr><td valign=\"top\">p</td>
-      <td valign=\"top\">Pa</td>
-      <td valign=\"top\">absolute pressure</td></tr>
-  <tr><td valign=\"top\">d</td>
-      <td valign=\"top\">kg/m3</td>
-      <td valign=\"top\">density</td></tr>
-  <tr><td valign=\"top\">u</td>
-      <td valign=\"top\">J/kg</td>
-      <td valign=\"top\">specific internal energy</td></tr>
-  <tr><td valign=\"top\">h</td>
-      <td valign=\"top\">J/kg</td>
-      <td valign=\"top\">specific enthalpy (h = u + p/d)</td></tr>
-  <tr><td valign=\"top\">Xi[nXi]</td>
-      <td valign=\"top\">kg/kg</td>
-      <td valign=\"top\">independent mass fractions m_i/m</td></tr>
-  <tr><td valign=\"top\">X[nX]</td>
-      <td valign=\"top\">kg/kg</td>
-      <td valign=\"top\">All mass fractions m_i/m. X is defined in BaseProperties by:<br>
+  <tr><td><strong>Variable</strong></td>
+      <td><strong>Unit</strong></td>
+      <td><strong>Description</strong></td></tr>
+  <tr><td>T</td>
+      <td>K</td>
+      <td>temperature</td></tr>
+  <tr><td>p</td>
+      <td>Pa</td>
+      <td>absolute pressure</td></tr>
+  <tr><td>d</td>
+      <td>kg/m3</td>
+      <td>density</td></tr>
+  <tr><td>u</td>
+      <td>J/kg</td>
+      <td>specific internal energy</td></tr>
+  <tr><td>h</td>
+      <td>J/kg</td>
+      <td>specific enthalpy (h = u + p/d)</td></tr>
+  <tr><td>Xi[nXi]</td>
+      <td>kg/kg</td>
+      <td>independent mass fractions m_i/m</td></tr>
+  <tr><td>X[nX]</td>
+      <td>kg/kg</td>
+      <td>All mass fractions m_i/m. X is defined in BaseProperties by:<br>
           X = <strong>if</strong> reducedX <strong>then</strong> vector([Xi; 1-<strong>sum</strong>(Xi)])
           <strong>else</strong> Xi </td></tr>
 </table>
@@ -95,24 +95,25 @@ accept either X or Xi (see explanation below) and will decide internally which o
 is provided by the user. The four fundamental setState_XXX functions are provided in PartialMedium
 </p>
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td valign=\"top\"><strong>Function</strong></td>
-      <td valign=\"top\"><strong>Description</strong></td>
-      <td valign=\"top\"><strong>Short-form for<br>single component medium</strong></td></tr>
-  <tr><td valign=\"top\">setState_dTX</td>
-      <td valign=\"top\">computes ThermodynamicState from density, temperature, and composition X or Xi</td>
-      <td valign=\"top\">setState_dT</td></tr>
-  <tr><td valign=\"top\">setState_phX</td>
-      <td valign=\"top\">computes ThermodynamicState from pressure, specific enthalpy, and composition X or Xi</td>
-      <td valign=\"top\">setState_ph</td></tr>
-  <tr><td valign=\"top\">setState_psX</td>
-      <td valign=\"top\">computes ThermodynamicState from pressure, specific entropy, and composition X or Xi</td>
-      <td valign=\"top\">setState_ps</td></tr>
-  <tr><td valign=\"top\">setState_pTX</td>
-      <td valign=\"top\">computes ThermodynamicState from pressure, temperature, and composition X or Xi</td>
-      <td valign=\"top\">setState_pT</td></tr>
+  <tr><td><strong>Function</strong></td>
+      <td><strong>Description</strong></td>
+      <td><strong>Short-form for<br>single component medium</strong></td></tr>
+  <tr><td>setState_dTX</td>
+      <td>computes ThermodynamicState from density, temperature, and composition X or Xi</td>
+      <td>setState_dT</td></tr>
+  <tr><td>setState_phX</td>
+      <td>computes ThermodynamicState from pressure, specific enthalpy, and composition X or Xi</td>
+      <td>setState_ph</td></tr>
+  <tr><td>setState_psX</td>
+      <td>computes ThermodynamicState from pressure, specific entropy, and composition X or Xi</td>
+      <td>setState_ps</td></tr>
+  <tr><td>setState_pTX</td>
+      <td>computes ThermodynamicState from pressure, temperature, and composition X or Xi</td>
+      <td>setState_pT</td></tr>
 </table>
 <p>
 The simple example that explained the basic usage of BaseProperties would then become
+</p>
 <pre>
   <strong>model</strong> Pump
     <strong>replaceable package</strong> Medium = Modelica.Media.Interfaces.PartialMedium
@@ -134,7 +135,7 @@ is given in the next figure:
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Media/UsersGuide/mediumMenu.png\" ALT=\"medium selection menu\">
+<img src=\"modelica://Modelica/Resources/Images/Media/UsersGuide/mediumMenu.png\" alt=\"medium selection menu\">
 </p>
 
 <p>
@@ -480,60 +481,60 @@ form:
 </pre>
 
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td valign=\"top\"><strong>Function call</strong></td>
-      <td valign=\"top\"><strong>Unit</strong></td>
-      <td valign=\"top\"><strong>Description</strong></td></tr>
-  <tr><td valign=\"top\">Medium.dynamicViscosity(state)</td>
-      <td valign=\"top\">Pa.s</td>
-      <td valign=\"top\">dynamic viscosity</td></tr>
-  <tr><td valign=\"top\">Medium.thermalConductivity(state)</td>
-      <td valign=\"top\">W/(m.K)</td>
-      <td valign=\"top\">thermal conductivity</td></tr>
-  <tr><td valign=\"top\">Medium.prandtlNumber(state)</td>
-      <td valign=\"top\">1</td>
-      <td valign=\"top\">Prandtl number</td></tr>
-  <tr><td valign=\"top\">Medium.specificEntropy(state)</td>
-      <td valign=\"top\">J/(kg.K)</td>
-      <td valign=\"top\">specific entropy</td></tr>
-  <tr><td valign=\"top\">Medium.specificHeatCapacityCp(state)</td>
-      <td valign=\"top\">J/(kg.K)</td>
-      <td valign=\"top\">specific heat capacity at constant pressure</td></tr>
-  <tr><td valign=\"top\">Medium.specificHeatCapacityCv(state)</td>
-      <td valign=\"top\">J/(kg.K)</td>
-      <td valign=\"top\">specific heat capacity at constant density</td></tr>
-  <tr><td valign=\"top\">Medium.isentropicExponent(state)</td>
-      <td valign=\"top\">1</td>
-      <td valign=\"top\">isentropic exponent</td></tr>
-  <tr><td valign=\"top\">Medium.isentropicEnthatlpy(pressure, state)</td>
-      <td valign=\"top\">J/kg</td>
-      <td valign=\"top\">isentropic enthalpy</td></tr>
-  <tr><td valign=\"top\">Medium.velocityOfSound(state)</td>
-      <td valign=\"top\">m/s</td>
-      <td valign=\"top\">velocity of sound</td></tr>
-  <tr><td valign=\"top\">Medium.isobaricExpansionCoefficient(state)</td>
-      <td valign=\"top\">1/K</td>
-      <td valign=\"top\">isobaric expansion coefficient</td></tr>
-  <tr><td valign=\"top\">Medium.isothermalCompressibility(state)</td>
-      <td valign=\"top\">1/Pa</td>
-      <td valign=\"top\">isothermal compressibility</td></tr>
-  <tr><td valign=\"top\">Medium.density_derp_h(state)</td>
-      <td valign=\"top\">kg/(m3.Pa)</td>
-      <td valign=\"top\">derivative of density by pressure at constant enthalpy</td></tr>
-  <tr><td valign=\"top\">Medium.density_derh_p(state)</td>
-      <td valign=\"top\">kg2/(m3.J)</td>
-      <td valign=\"top\">derivative of density by enthalpy at constant pressure</td></tr>
-  <tr><td valign=\"top\">Medium.density_derp_T(state)</td>
-      <td valign=\"top\">kg/(m3.Pa)</td>
-      <td valign=\"top\">derivative of density by pressure at constant temperature</td></tr>
-  <tr><td valign=\"top\">Medium.density_derT_p(state)</td>
-      <td valign=\"top\">kg/(m3.K)</td>
-      <td valign=\"top\">derivative of density by temperature at constant pressure</td></tr>
-  <tr><td valign=\"top\">Medium.density_derX(state)</td>
-      <td valign=\"top\">kg/m3</td>
-      <td valign=\"top\">derivative of density by mass fraction</td></tr>
-  <tr><td valign=\"top\">Medium.molarMass(state)</td>
-      <td valign=\"top\">kg/mol</td>
-      <td valign=\"top\">molar mass</td></tr>
+  <tr><td><strong>Function call</strong></td>
+      <td><strong>Unit</strong></td>
+      <td><strong>Description</strong></td></tr>
+  <tr><td>Medium.dynamicViscosity(state)</td>
+      <td>Pa.s</td>
+      <td>dynamic viscosity</td></tr>
+  <tr><td>Medium.thermalConductivity(state)</td>
+      <td>W/(m.K)</td>
+      <td>thermal conductivity</td></tr>
+  <tr><td>Medium.prandtlNumber(state)</td>
+      <td>1</td>
+      <td>Prandtl number</td></tr>
+  <tr><td>Medium.specificEntropy(state)</td>
+      <td>J/(kg.K)</td>
+      <td>specific entropy</td></tr>
+  <tr><td>Medium.specificHeatCapacityCp(state)</td>
+      <td>J/(kg.K)</td>
+      <td>specific heat capacity at constant pressure</td></tr>
+  <tr><td>Medium.specificHeatCapacityCv(state)</td>
+      <td>J/(kg.K)</td>
+      <td>specific heat capacity at constant density</td></tr>
+  <tr><td>Medium.isentropicExponent(state)</td>
+      <td>1</td>
+      <td>isentropic exponent</td></tr>
+  <tr><td>Medium.isentropicEnthatlpy(pressure, state)</td>
+      <td>J/kg</td>
+      <td>isentropic enthalpy</td></tr>
+  <tr><td>Medium.velocityOfSound(state)</td>
+      <td>m/s</td>
+      <td>velocity of sound</td></tr>
+  <tr><td>Medium.isobaricExpansionCoefficient(state)</td>
+      <td>1/K</td>
+      <td>isobaric expansion coefficient</td></tr>
+  <tr><td>Medium.isothermalCompressibility(state)</td>
+      <td>1/Pa</td>
+      <td>isothermal compressibility</td></tr>
+  <tr><td>Medium.density_derp_h(state)</td>
+      <td>kg/(m3.Pa)</td>
+      <td>derivative of density by pressure at constant enthalpy</td></tr>
+  <tr><td>Medium.density_derh_p(state)</td>
+      <td>kg2/(m3.J)</td>
+      <td>derivative of density by enthalpy at constant pressure</td></tr>
+  <tr><td>Medium.density_derp_T(state)</td>
+      <td>kg/(m3.Pa)</td>
+      <td>derivative of density by pressure at constant temperature</td></tr>
+  <tr><td>Medium.density_derT_p(state)</td>
+      <td>kg/(m3.K)</td>
+      <td>derivative of density by temperature at constant pressure</td></tr>
+  <tr><td>Medium.density_derX(state)</td>
+      <td>kg/m3</td>
+      <td>derivative of density by mass fraction</td></tr>
+  <tr><td>Medium.molarMass(state)</td>
+      <td>kg/mol</td>
+      <td>molar mass</td></tr>
 </table>
 <p>
 There are also some short forms provided for user convenience that allow the computation of certain
@@ -550,21 +551,21 @@ The following functions are predefined in PartialMedium (other functions can be 
 medium implementation package if they are useful)
 </p>
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td valign=\"top\">Medium.specificEnthalpy_pTX(p,T,X)</td>
-      <td valign=\"top\">J/kg</td>
-      <td valign=\"top\">Specific enthalpy at p, T, X </td></tr>
-  <tr><td valign=\"top\">Medium.temperature_phX(p,h,X)</td>
-      <td valign=\"top\">K</td>
-      <td valign=\"top\">Temperature at p, h, X</td></tr>
-  <tr><td valign=\"top\">Medium.density_phX(p,h,X)</td>
-      <td valign=\"top\">kg/m3</td>
-      <td valign=\"top\">Density at p, h, X</td></tr>
-  <tr><td valign=\"top\">Medium.temperature_psX(p,s,X)</td>
-      <td valign=\"top\">K</td>
-      <td valign=\"top\">Temperature at p, s, X</td></tr>
-  <tr><td valign=\"top\">Medium.specificEnthalpy_psX(p,s,X)</td>
-      <td valign=\"top\">J/(kg.K)</td>
-      <td valign=\"top\">Specific entropy at p, s, X</td></tr>
+  <tr><td>Medium.specificEnthalpy_pTX(p,T,X)</td>
+      <td>J/kg</td>
+      <td>Specific enthalpy at p, T, X </td></tr>
+  <tr><td>Medium.temperature_phX(p,h,X)</td>
+      <td>K</td>
+      <td>Temperature at p, h, X</td></tr>
+  <tr><td>Medium.density_phX(p,h,X)</td>
+      <td>kg/m3</td>
+      <td>Density at p, h, X</td></tr>
+  <tr><td>Medium.temperature_psX(p,s,X)</td>
+      <td>K</td>
+      <td>Temperature at p, s, X</td></tr>
+  <tr><td>Medium.specificEnthalpy_psX(p,s,X)</td>
+      <td>J/(kg.K)</td>
+      <td>Specific entropy at p, s, X</td></tr>
 </table>
 <p>
 Assume for example that the dynamic viscosity eta is needed in
@@ -627,61 +628,61 @@ if a medium is declared as:
 then constants \"Medium.mediumName\", \"Medium.nX\", etc. are defined:
 </p>
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td valign=\"top\"><strong>Type</strong></td>
-      <td valign=\"top\"><strong>Name</strong></td>
-      <td valign=\"top\"><strong>Description</strong></td></tr>
-  <tr><td valign=\"top\">String</td><td valign=\"top\">mediumName</td>
-      <td valign=\"top\">Unique name of the medium (is usually used to check whether
+  <tr><td><strong>Type</strong></td>
+      <td><strong>Name</strong></td>
+      <td><strong>Description</strong></td></tr>
+  <tr><td>String</td><td>mediumName</td>
+      <td>Unique name of the medium (is usually used to check whether
           the media in different components connected together
           are the same, by providing Medium.mediumName as quantity
           attribute of the mass flow rate in the connector)</td></tr>
-  <tr><td valign=\"top\">String</td><td valign=\"top\">substanceNames[nS]</td>
-      <td valign=\"top\">Names of the substances that make up the medium.
+  <tr><td>String</td><td>substanceNames[nS]</td>
+      <td>Names of the substances that make up the medium.
           If only one substance is present, substanceNames = {mediumName}.</td></tr>
-  <tr><td valign=\"top\">String</td><td valign=\"top\">extraPropertiesNames[nC]</td>
-      <td valign=\"top\">Names of the extra transported substances, outside of mass and
+  <tr><td>String</td><td>extraPropertiesNames[nC]</td>
+      <td>Names of the extra transported substances, outside of mass and
           energy balances.</td></tr>
-  <tr><td valign=\"top\">Boolean</td><td valign=\"top\">singleState</td>
-      <td valign=\"top\">= <strong>true</strong>, if u and d are not a function of pressure, and thus only
+  <tr><td>Boolean</td><td>singleState</td>
+      <td>= <strong>true</strong>, if u and d are not a function of pressure, and thus only
           a function of a single thermal variable (temperature or enthalpy) and
           of Xi for a multiple substance medium. Usually, this flag is
           <strong>true</strong> for incompressible media. It is used in a model to determine
           whether 1+nXi (singleState=<strong>true</strong>) or 2+nXi (singleState=<strong>false</strong>)
           initial conditions have to be provided for a volume element that
           contains mass and energy balance.</td></tr>
-  <tr><td valign=\"top\">AbsolutePressure</td><td valign=\"top\">reference_p</td>
-      <td valign=\"top\">Reference pressure for the medium</td></tr>
-  <tr><td valign=\"top\">MassFraction</td><td valign=\"top\">reference_X[nX]</td>
-      <td valign=\"top\">Reference composition for the medium</td></tr>
-  <tr><td valign=\"top\">AbsolutePressure</td><td valign=\"top\">p_default</td>
-      <td valign=\"top\">Default value for pressure of medium (for initialization)</td></tr>
-  <tr><td valign=\"top\">Temperature</td><td valign=\"top\">T_default</td>
-      <td valign=\"top\">Default value for temperature of medium (for initialization)</td></tr>
-  <tr><td valign=\"top\">SpecificEnthalpy</td><td valign=\"top\">h_default</td>
-      <td valign=\"top\">Default value for specific enthalpy of medium (for initialization)</td></tr>
-  <tr><td valign=\"top\">MassFraction</td><td valign=\"top\">X_default[nX]</td>
-      <td valign=\"top\">Default value for mass fractions of medium (for initialization)</td></tr>
-  <tr><td valign=\"top\">Integer</td><td valign=\"top\">nS</td>
-      <td valign=\"top\">number of substances contained in the medium.</td></tr>
-  <tr><td valign=\"top\">Integer</td><td valign=\"top\">nX</td>
-      <td valign=\"top\">Size of the full mass fraction vector X nX=nS.</td></tr>
-  <tr><td valign=\"top\">Integer</td><td valign=\"top\">nXi</td>
-      <td valign=\"top\">Number of independent mass fractions. If there is a single substance,
+  <tr><td>AbsolutePressure</td><td>reference_p</td>
+      <td>Reference pressure for the medium</td></tr>
+  <tr><td>MassFraction</td><td>reference_X[nX]</td>
+      <td>Reference composition for the medium</td></tr>
+  <tr><td>AbsolutePressure</td><td>p_default</td>
+      <td>Default value for pressure of medium (for initialization)</td></tr>
+  <tr><td>Temperature</td><td>T_default</td>
+      <td>Default value for temperature of medium (for initialization)</td></tr>
+  <tr><td>SpecificEnthalpy</td><td>h_default</td>
+      <td>Default value for specific enthalpy of medium (for initialization)</td></tr>
+  <tr><td>MassFraction</td><td>X_default[nX]</td>
+      <td>Default value for mass fractions of medium (for initialization)</td></tr>
+  <tr><td>Integer</td><td>nS</td>
+      <td>number of substances contained in the medium.</td></tr>
+  <tr><td>Integer</td><td>nX</td>
+      <td>Size of the full mass fraction vector X nX=nS.</td></tr>
+  <tr><td>Integer</td><td>nXi</td>
+      <td>Number of independent mass fractions. If there is a single substance,
           then nXi = 0. </td></tr>
-  <tr><td valign=\"top\">Boolean</td><td valign=\"top\">reducedX</td>
-      <td valign=\"top\">= <strong>true</strong>, if the medium has a single substance, or if the medium model
+  <tr><td>Boolean</td><td>reducedX</td>
+      <td>= <strong>true</strong>, if the medium has a single substance, or if the medium model
           has multiple substances and contains the equation sum(X) = 1.
           In both cases, nXi = nS - 1 (unless fixedX = true).<br>
           = <strong>false</strong>, if the medium has multiple substances and does not contain the
           equation sum(X)=1, i.e., nXi = nX = nS (unless fixedX = true).
        </td></tr>
-  <tr><td valign=\"top\">Boolean</td><td valign=\"top\">fixedX</td>
-      <td valign=\"top\">= <strong>false</strong>: the composition of the medium can vary, and is
+  <tr><td>Boolean</td><td>fixedX</td>
+      <td>= <strong>false</strong>: the composition of the medium can vary, and is
           determined by nXi independent mass fractions (see reducedX above).<br>
           = <strong>true</strong>: the composition of the medium is always reference_X,
           and nXi = 0.</td></tr>
-  <tr><td valign=\"top\">FluidConstants</td><td valign=\"top\">fluidConstants[nS]</td>
-      <td valign=\"top\">Critical, triple, molecular and other
+  <tr><td>FluidConstants</td><td>fluidConstants[nS]</td>
+      <td>Critical, triple, molecular and other
           standard data that are provided for
           every substance of a medium.</td></tr>
 </table>
@@ -691,29 +692,29 @@ The record FluidConstants that is defined in PartialMedium contains the followin
 </p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td valign=\"top\"><strong>Type</strong></td>
-      <td valign=\"top\"><strong>Name</strong></td>
-      <td valign=\"top\"><strong>Description</strong></td></tr>
+  <tr><td><strong>Type</strong></td>
+      <td><strong>Name</strong></td>
+      <td><strong>Description</strong></td></tr>
 
-  <tr><td valign=\"top\">String</td>
-      <td valign=\"top\">iupacName</td>
-      <td valign=\"top\">complete IUPAC name</td></tr>
+  <tr><td>String</td>
+      <td>iupacName</td>
+      <td>complete IUPAC name</td></tr>
 
-  <tr><td valign=\"top\">String</td>
-      <td valign=\"top\">casRegistryNumber</td>
-      <td valign=\"top\">chemical abstracts sequencing number</td></tr>
+  <tr><td>String</td>
+      <td>casRegistryNumber</td>
+      <td>chemical abstracts sequencing number</td></tr>
 
-  <tr><td valign=\"top\">String</td>
-      <td valign=\"top\">chemicalFormula</td>
-      <td valign=\"top\">Chemical formula, (brutto, nomenclature according to Hill)</td></tr>
+  <tr><td>String</td>
+      <td>chemicalFormula</td>
+      <td>Chemical formula, (brutto, nomenclature according to Hill)</td></tr>
 
-  <tr><td valign=\"top\">String</td>
-      <td valign=\"top\">structureFormula</td>
-      <td valign=\"top\">Chemical structure formula</td></tr>
+  <tr><td>String</td>
+      <td>structureFormula</td>
+      <td>Chemical structure formula</td></tr>
 
-  <tr><td valign=\"top\">MolarMass</td>
-      <td valign=\"top\">molarMass</td>
-      <td valign=\"top\">molar mass</td></tr>
+  <tr><td>MolarMass</td>
+      <td>molarMass</td>
+      <td>molar mass</td></tr>
 </table>
 
 <p> This record is extended in the partial packages further down the hierarchy (such as
@@ -721,98 +722,98 @@ PartialTwoPhaseMedium or PartialMixtureMedium) and may contain some or all of th
 elements</p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td valign=\"top\">Temperature</td>
-      <td valign=\"top\">criticalTemperature</td>
-      <td valign=\"top\">critical temperature</td></tr>
+  <tr><td>Temperature</td>
+      <td>criticalTemperature</td>
+      <td>critical temperature</td></tr>
 
-  <tr><td valign=\"top\">AbsolutePressure</td>
-      <td valign=\"top\">criticalPressure</td>
-      <td valign=\"top\">critical pressure</td></tr>
+  <tr><td>AbsolutePressure</td>
+      <td>criticalPressure</td>
+      <td>critical pressure</td></tr>
 
-  <tr><td valign=\"top\">MolarVolume</td>
-      <td valign=\"top\">criticalMolarVolume</td>
-      <td valign=\"top\">critical molar Volume</td></tr>
+  <tr><td>MolarVolume</td>
+      <td>criticalMolarVolume</td>
+      <td>critical molar Volume</td></tr>
 
-  <tr><td valign=\"top\">Real</td>
-      <td valign=\"top\">acentricFactor</td>
-      <td valign=\"top\">Pitzer acentric factor</td></tr>
+  <tr><td>Real</td>
+      <td>acentricFactor</td>
+      <td>Pitzer acentric factor</td></tr>
 
-  <tr><td valign=\"top\">Temperature</td>
-      <td valign=\"top\">triplePointTemperature</td>
-      <td valign=\"top\">triple point temperature</td></tr>
+  <tr><td>Temperature</td>
+      <td>triplePointTemperature</td>
+      <td>triple point temperature</td></tr>
 
-  <tr><td valign=\"top\">AbsolutePressure</td>
-      <td valign=\"top\">triplePointPressure</td>
-      <td valign=\"top\">triple point pressure</td></tr>
+  <tr><td>AbsolutePressure</td>
+      <td>triplePointPressure</td>
+      <td>triple point pressure</td></tr>
 
-  <tr><td valign=\"top\">Temperature</td>
-      <td valign=\"top\">meltingPoint</td>
-      <td valign=\"top\">melting point at 101325 Pa</td></tr>
+  <tr><td>Temperature</td>
+      <td>meltingPoint</td>
+      <td>melting point at 101325 Pa</td></tr>
 
-  <tr><td valign=\"top\">Temperature</td>
-      <td valign=\"top\">normalBoilingPoint</td>
-      <td valign=\"top\">normal boiling point (at 101325 Pa)</td></tr>
+  <tr><td>Temperature</td>
+      <td>normalBoilingPoint</td>
+      <td>normal boiling point (at 101325 Pa)</td></tr>
 
-  <tr><td valign=\"top\">DipoleMoment</td>
-      <td valign=\"top\">dipoleMoment</td>
-      <td valign=\"top\">dipole moment of molecule in Debye (1 debye = 3.33564e10-30 C.m)</td></tr>
+  <tr><td>DipoleMoment</td>
+      <td>dipoleMoment</td>
+      <td>dipole moment of molecule in Debye (1 debye = 3.33564e10-30 C.m)</td></tr>
 
-  <tr><td valign=\"top\">Boolean</td>
-      <td valign=\"top\">hasIdealGasHeatCapacity</td>
-      <td valign=\"top\">true if ideal gas heat capacity is available</td></tr>
+  <tr><td>Boolean</td>
+      <td>hasIdealGasHeatCapacity</td>
+      <td>true if ideal gas heat capacity is available</td></tr>
 
-  <tr><td valign=\"top\">Boolean</td>
-      <td valign=\"top\">hasCriticalData</td>
-      <td valign=\"top\">true if critical data are known</td></tr>
+  <tr><td>Boolean</td>
+      <td>hasCriticalData</td>
+      <td>true if critical data are known</td></tr>
 
-  <tr><td valign=\"top\">Boolean</td>
-      <td valign=\"top\">hasDipoleMoment</td>
-      <td valign=\"top\">true if a dipole moment known</td></tr>
+  <tr><td>Boolean</td>
+      <td>hasDipoleMoment</td>
+      <td>true if a dipole moment known</td></tr>
 
-  <tr><td valign=\"top\">Boolean</td>
-      <td valign=\"top\">hasFundamentalEquation</td>
-      <td valign=\"top\">true if a fundamental equation</td></tr>
+  <tr><td>Boolean</td>
+      <td>hasFundamentalEquation</td>
+      <td>true if a fundamental equation</td></tr>
 
-  <tr><td valign=\"top\">Boolean</td>
-      <td valign=\"top\">hasLiquidHeatCapacity</td>
-      <td valign=\"top\">true if liquid heat capacity is available</td></tr>
+  <tr><td>Boolean</td>
+      <td>hasLiquidHeatCapacity</td>
+      <td>true if liquid heat capacity is available</td></tr>
 
-  <tr><td valign=\"top\">Boolean</td>
-      <td valign=\"top\">hasSolidHeatCapacity</td>
-      <td valign=\"top\">true if solid heat capacity is available</td></tr>
+  <tr><td>Boolean</td>
+      <td>hasSolidHeatCapacity</td>
+      <td>true if solid heat capacity is available</td></tr>
 
-  <tr><td valign=\"top\">Boolean</td>
-      <td valign=\"top\">hasAccurateViscosityData</td>
-      <td valign=\"top\">true if accurate data for a viscosity function is available</td></tr>
+  <tr><td>Boolean</td>
+      <td>hasAccurateViscosityData</td>
+      <td>true if accurate data for a viscosity function is available</td></tr>
 
-  <tr><td valign=\"top\">Boolean</td>
-      <td valign=\"top\">hasAccurateConductivityData</td>
-      <td valign=\"top\">true if accurate data for thermal conductivity is available</td></tr>
+  <tr><td>Boolean</td>
+      <td>hasAccurateConductivityData</td>
+      <td>true if accurate data for thermal conductivity is available</td></tr>
 
-  <tr><td valign=\"top\">Boolean</td>
-      <td valign=\"top\">hasVapourPressureCurve</td>
-      <td valign=\"top\">true if vapour pressure data, e.g., Antoine coefficients are known</td></tr>
+  <tr><td>Boolean</td>
+      <td>hasVapourPressureCurve</td>
+      <td>true if vapour pressure data, e.g., Antoine coefficients are known</td></tr>
 
-  <tr><td valign=\"top\">Boolean</td>
-      <td valign=\"top\">hasAcentricFactor</td>
-      <td valign=\"top\">true if Pitzer accentric factor is known</td></tr>
+  <tr><td>Boolean</td>
+      <td>hasAcentricFactor</td>
+      <td>true if Pitzer accentric factor is known</td></tr>
 
-  <tr><td valign=\"top\">SpecificEnthalpy</td>
-      <td valign=\"top\">HCRIT0</td>
-      <td valign=\"top\">Critical specific enthalpy of the fundamental equation</td></tr>
+  <tr><td>SpecificEnthalpy</td>
+      <td>HCRIT0</td>
+      <td>Critical specific enthalpy of the fundamental equation</td></tr>
 
-  <tr><td valign=\"top\">SpecificEntropy</td>
-      <td valign=\"top\">SCRIT0</td>
-      <td valign=\"top\">Critical specific entropy of the fundamental equation</td></tr>
+  <tr><td>SpecificEntropy</td>
+      <td>SCRIT0</td>
+      <td>Critical specific entropy of the fundamental equation</td></tr>
 
-  <tr><td valign=\"top\">SpecificEnthalpy</td>
-      <td valign=\"top\">deltah</td>
-      <td valign=\"top\">Difference between specific enthalpy model
+  <tr><td>SpecificEnthalpy</td>
+      <td>deltah</td>
+      <td>Difference between specific enthalpy model
           (h_m) and f.eq. (h_f) (h_m - h_f)</td></tr>
 
-  <tr><td valign=\"top\">SpecificEntropy</td>
-      <td valign=\"top\">deltas</td>
-      <td valign=\"top\">Difference between specific enthalpy model (s_m) and f.eq.
+  <tr><td>SpecificEntropy</td>
+      <td>deltas</td>
+      <td>Difference between specific enthalpy model (s_m) and f.eq.
           (s_f) (s_m - s_f)</td></tr>
 
 </table>
@@ -836,17 +837,17 @@ functionalities are provided, which apply only to potentially two-phase media.
 The following additional medium <strong>constants</strong> are provided:
 </p>
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td valign=\"top\"><strong>Type</strong></td>
-      <td valign=\"top\"><strong>Name</strong></td>
-      <td valign=\"top\"><strong>Description</strong></td></tr>
-  <tr><td valign=\"top\">Boolean</td>
-      <td valign=\"top\">smoothModel</td>
-      <td valign=\"top\">If this flag is false (default value), then events are triggered
+  <tr><td><strong>Type</strong></td>
+      <td><strong>Name</strong></td>
+      <td><strong>Description</strong></td></tr>
+  <tr><td>Boolean</td>
+      <td>smoothModel</td>
+      <td>If this flag is false (default value), then events are triggered
           whenever the saturation boundary is crossed; otherwise, no events
       are generated.</td></tr>
-  <tr><td valign=\"top\">Boolean</td>
-      <td valign=\"top\">onePhase</td>
-      <td valign=\"top\">If this flag is true, then the medium model assumes it will be never
+  <tr><td>Boolean</td>
+      <td>onePhase</td>
+      <td>If this flag is true, then the medium model assumes it will be never
           called in the two-phase region. This can be useful to speed up
       the computations in a two-phase medium, when the user is sure it will
       always work in the one-phase region. Default value: false.</td></tr>
@@ -882,9 +883,9 @@ to a two-phase state, as shown in the following example;
 This feature can be used for the following purposes:
 </p>
 <ul>
-<li> saving computational time, if one knows in advance the phase of the medium;
-<li> unambiguously determine the phase, when the two inputs correspond to a point on the saturation boundary (the derivative functions have substantially different values on either side);
-<li> get the properties of metastable states, like superheated water or subcooled vapour.
+<li> saving computational time, if one knows in advance the phase of the medium;</li>
+<li> unambiguously determine the phase, when the two inputs correspond to a point on the saturation boundary (the derivative functions have substantially different values on either side);</li>
+<li> get the properties of metastable states, like superheated water or subcooled vapour.</li>
 </ul>
 <p>
 Many additional optional functions are defined to compute properties of
@@ -918,60 +919,60 @@ as shown in the following example.
 SaturationProperties record sat, the following functions are provided:
 </p>
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td valign=\"top\"><strong>Function call</strong></td>
-      <td valign=\"top\"><strong>Unit</strong></td>
-      <td valign=\"top\"><strong>Description</strong></td></tr>
-  <tr><td valign=\"top\">Medium.saturationPressure(T)</td>
-      <td valign=\"top\">Pa</td>
-      <td valign=\"top\">Saturation pressure at temperature T</td></tr>
-  <tr><td valign=\"top\">Medium.saturationTemperature(p)</td>
-      <td valign=\"top\">K</td>
-      <td valign=\"top\">Saturation temperature at pressure p</td></tr>
-  <tr><td valign=\"top\">Medium.saturationTemperature_derp(p)</td>
-      <td valign=\"top\">K/Pa</td>
-      <td valign=\"top\">Derivative of saturation temperature with respect to pressure</td></tr>
-  <tr><td valign=\"top\">Medium.saturationTemperature_sat(sat)</td>
-      <td valign=\"top\">K</td>
-      <td valign=\"top\">Saturation temperature</td></tr>
-  <tr><td valign=\"top\">Medium.saturationPressure_sat(sat)</td>
-      <td valign=\"top\">Pa</td>
-      <td valign=\"top\">Saturation pressure</td></tr>
-  <tr><td valign=\"top\">Medium.bubbleEnthalpy(sat)</td>
-      <td valign=\"top\">J/kg</td>
-      <td valign=\"top\">Specific enthalpy at bubble point</td></tr>
-  <tr><td valign=\"top\">Medium.dewEnthalpy(sat)</td>
-      <td valign=\"top\">J/kg</td>
-      <td valign=\"top\">Specific enthalpy at dew point</td></tr>
-  <tr><td valign=\"top\">Medium.bubbleEntropy(sat)</td>
-      <td valign=\"top\">J/(kg.K)</td>
-      <td valign=\"top\">Specific entropy at bubble point</td></tr>
-  <tr><td valign=\"top\">Medium.dewEntropy(sat)</td>
-      <td valign=\"top\">J/(kg.K)</td>
-      <td valign=\"top\">Specific entropy at dew point</td></tr>
-  <tr><td valign=\"top\">Medium.bubbleDensity(sat)</td>
-      <td valign=\"top\">kg/m3</td>
-      <td valign=\"top\">Density at bubble point</td></tr>
-  <tr><td valign=\"top\">Medium.dewDensity(sat)</td>
-      <td valign=\"top\">kg/m3</td>
-      <td valign=\"top\">Density at dew point</td></tr>
-  <tr><td valign=\"top\">Medium.saturationTemperature_derp_sat(sat)</td>
-      <td valign=\"top\">K/Pa</td>
-      <td valign=\"top\">Derivative of saturation temperature with respect to pressure</td></tr>
-  <tr><td valign=\"top\">Medium.dBubbleDensity_dPressure(sat)</td>
-      <td valign=\"top\">kg/(m3.Pa)</td>
-      <td valign=\"top\">Derivative of density at bubble point with respect to pressure</td></tr>
-  <tr><td valign=\"top\">Medium.dDewDensity_dPressure(sat)</td>
-      <td valign=\"top\">kg/(m3.Pa)</td>
-      <td valign=\"top\">Derivative of density at dew point with respect to pressure</td></tr>
-  <tr><td valign=\"top\">Medium.dBubbleEnthalpy_dPressure(sat)</td>
-      <td valign=\"top\">J/(kg.Pa)</td>
-      <td valign=\"top\">Derivative of specific enthalpy at bubble point with respect to pressure</td></tr>
-  <tr><td valign=\"top\">Medium.dDewEnthalpy_dPressure(sat)</td>
-      <td valign=\"top\">J/(kg.Pa)</td>
-      <td valign=\"top\">Derivative of specific enthalpy at dew point with respect to pressure</td></tr>
-  <tr><td valign=\"top\">Medium.surfaceTension(sat)</td>
-      <td valign=\"top\">N/m</td>
-      <td valign=\"top\">Surface tension between liquid and vapour phase</td></tr>
+  <tr><td><strong>Function call</strong></td>
+      <td><strong>Unit</strong></td>
+      <td><strong>Description</strong></td></tr>
+  <tr><td>Medium.saturationPressure(T)</td>
+      <td>Pa</td>
+      <td>Saturation pressure at temperature T</td></tr>
+  <tr><td>Medium.saturationTemperature(p)</td>
+      <td>K</td>
+      <td>Saturation temperature at pressure p</td></tr>
+  <tr><td>Medium.saturationTemperature_derp(p)</td>
+      <td>K/Pa</td>
+      <td>Derivative of saturation temperature with respect to pressure</td></tr>
+  <tr><td>Medium.saturationTemperature_sat(sat)</td>
+      <td>K</td>
+      <td>Saturation temperature</td></tr>
+  <tr><td>Medium.saturationPressure_sat(sat)</td>
+      <td>Pa</td>
+      <td>Saturation pressure</td></tr>
+  <tr><td>Medium.bubbleEnthalpy(sat)</td>
+      <td>J/kg</td>
+      <td>Specific enthalpy at bubble point</td></tr>
+  <tr><td>Medium.dewEnthalpy(sat)</td>
+      <td>J/kg</td>
+      <td>Specific enthalpy at dew point</td></tr>
+  <tr><td>Medium.bubbleEntropy(sat)</td>
+      <td>J/(kg.K)</td>
+      <td>Specific entropy at bubble point</td></tr>
+  <tr><td>Medium.dewEntropy(sat)</td>
+      <td>J/(kg.K)</td>
+      <td>Specific entropy at dew point</td></tr>
+  <tr><td>Medium.bubbleDensity(sat)</td>
+      <td>kg/m3</td>
+      <td>Density at bubble point</td></tr>
+  <tr><td>Medium.dewDensity(sat)</td>
+      <td>kg/m3</td>
+      <td>Density at dew point</td></tr>
+  <tr><td>Medium.saturationTemperature_derp_sat(sat)</td>
+      <td>K/Pa</td>
+      <td>Derivative of saturation temperature with respect to pressure</td></tr>
+  <tr><td>Medium.dBubbleDensity_dPressure(sat)</td>
+      <td>kg/(m3.Pa)</td>
+      <td>Derivative of density at bubble point with respect to pressure</td></tr>
+  <tr><td>Medium.dDewDensity_dPressure(sat)</td>
+      <td>kg/(m3.Pa)</td>
+      <td>Derivative of density at dew point with respect to pressure</td></tr>
+  <tr><td>Medium.dBubbleEnthalpy_dPressure(sat)</td>
+      <td>J/(kg.Pa)</td>
+      <td>Derivative of specific enthalpy at bubble point with respect to pressure</td></tr>
+  <tr><td>Medium.dDewEnthalpy_dPressure(sat)</td>
+      <td>J/(kg.Pa)</td>
+      <td>Derivative of specific enthalpy at dew point with respect to pressure</td></tr>
+  <tr><td>Medium.surfaceTension(sat)</td>
+      <td>N/m</td>
+      <td>Surface tension between liquid and vapour phase</td></tr>
 </table>
 <p>
 Sometimes it can be necessary to compute fluid properties in the thermodynamic
@@ -980,15 +981,15 @@ to obtain an instance of a ThermodynamicState state vector, and then use it
 to call the additional functions already defined for one-phase media.
 </p>
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td valign=\"top\"><strong>Function call</strong></td>
-      <td valign=\"top\"><strong>Description</strong></td></tr>
-  <tr><td valign=\"top\">Medium.setBubbleState(sat, phase)</td>
-      <td valign=\"top\">Obtain the thermodynamic state vector
+  <tr><td><strong>Function call</strong></td>
+      <td><strong>Description</strong></td></tr>
+  <tr><td>Medium.setBubbleState(sat, phase)</td>
+      <td>Obtain the thermodynamic state vector
           corresponding to the bubble point. If phase==1 (default), the state is
       on the one-phase side; if phase==2, the state is on the two-phase
       side </td></tr>
-  <tr><td valign=\"top\">Medium.setDewState(sat, phase)</td>
-      <td valign=\"top\">Obtain the thermodynamic state vector
+  <tr><td>Medium.setDewState(sat, phase)</td>
+      <td>Obtain the thermodynamic state vector
           corresponding to the dew point. If phase==1 (default), the state is
       on the one-phase side; if phase==2, the state is on the two-phase
       side </td></tr>
@@ -1392,7 +1393,7 @@ The new medium model is obtained by extending Modelica.Media.Interfaces.PartialM
 setting the following package constants:
 </p>
 <ul>
-<li>mediumName is a String containing the name of the medium.
+<li>mediumName is a String containing the name of the medium.</li>
 <li>substanceNames is a vector of strings containing the names of the substances
     that make up the medium. In this case, it will contain only mediumName.</li>
 <li>singleState can be set to true if u and d in BaseProperties do not depend
@@ -1561,7 +1562,7 @@ flow direction of a pipe:
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Media/UsersGuide/BalanceEquations1.png\">
+<img src=\"modelica://Modelica/Resources/Images/Media/UsersGuide/BalanceEquations1.png\">
 </p>
 
 <p>
@@ -1571,7 +1572,7 @@ Usually, it is given as:
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Media/UsersGuide/EnergyBalance1.png\">
+<img src=\"modelica://Modelica/Resources/Images/Media/UsersGuide/EnergyBalance1.png\">
 </p>
 
 <p>
@@ -1584,7 +1585,7 @@ of the energy balance:
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Media/UsersGuide/EnergyBalance2.png\">
+<img src=\"modelica://Modelica/Resources/Images/Media/UsersGuide/EnergyBalance2.png\">
 </p>
 
 <p>
@@ -1993,7 +1994,7 @@ updated User's Guide.
      in Modelica 2.1.</li>
 <li> Re-introduced package \"Water.SaltWater\" in order to test
      substance mixtures (this medium model does not describe
-     real mixing of water and salt). </li>
+     real mixing of water and salt).</li>
 <li> Started to improve the documentation in
      Modelica.Media.UsersGuide.MediumDefinition.BasicStructure</li>
 </ul>
@@ -2029,7 +2030,7 @@ and many have contributed:
      in the ThermoFluid library by Hubertus Tummescheit with
      help from Jonas Eborn and Falko Jens Wagner. These media models
      have been converted to the Modelica.Media interface definition
-     and have been improved by Hubertus Tummescheit. </li>
+     and have been improved by Hubertus Tummescheit.</li>
 <li> The effort for the development of the Modelica.Media library has been
      organized by Martin Otter who also contributed to the design,
      implemented part of the generic models, contributed to the User's Guide
@@ -2530,7 +2531,7 @@ It must be noted that the relationship of both axis variables is not right-angle
 <li><strong>y_T</strong>: constant temperature</li>
 <li><strong>y_phi</strong>: constant relative humidity</li>
 </ul>
-</html>"));
+</html>"), experiment(StopTime=1.0, Interval=0.001));
   end PsychrometricData;
 
   package TwoPhaseWater "Extension of the StandardWater package"
@@ -2631,7 +2632,7 @@ properties are not well defined in the two phase region and the
 functions might return undesired values if called there. It is the
 user's responsibility&nbsp; to take care of such situations. The example
 uses one of several possible models to compute an averaged viscosity
-for two-phase flows. </li>
+for two-phase flows.</li>
 </ol>
 In two phase models, properties are often needed on the phase boundary
 just outside the two phase dome, right on the border.. To compute the
@@ -2641,13 +2642,13 @@ one-phase, but with the optional phase argument set to 2, the output is
 forced to be just inside the phase boundary. This is only needed when
 derivatives like cv are computed with are different on both sides of
 the boundaries. The usual steps to compute properties on the phase
-boundary are: <br>
+boundary are:<br>
 <ol>
 <li>Declare an instance of ThermodynamicState, e.g., \"ThermodynamicState&nbsp; dew\".</li>
 <li>Compute the state, using an instance of SaturationProperties,
 e.g., dew = setDewState(sat)</li>
 <li>Compute properties on the phase boundary to your full desire,
-e.g., \"cp_d = specificHeatCapacityCp(dew)\". <br>
+e.g., \"cp_d = specificHeatCapacityCp(dew)\".<br>
 </li>
 </ol>
 <p>The sample model TestTwoPhaseStates test the extended properties</p>
@@ -4508,33 +4509,33 @@ The BaseProperties model contains the following <strong>7+nXi variables</strong>
 PartialMedium):
 </p>
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td valign=\"top\"><strong>Variable</strong></td>
-      <td valign=\"top\"><strong>Unit</strong></td>
-      <td valign=\"top\"><strong>Description</strong></td></tr>
-  <tr><td valign=\"top\">T</td>
-      <td valign=\"top\">K</td>
-      <td valign=\"top\">temperature</td></tr>
-  <tr><td valign=\"top\">p</td>
-      <td valign=\"top\">Pa</td>
-      <td valign=\"top\">absolute pressure</td></tr>
-  <tr><td valign=\"top\">d</td>
-      <td valign=\"top\">kg/m3</td>
-      <td valign=\"top\">density</td></tr>
-  <tr><td valign=\"top\">h</td>
-      <td valign=\"top\">J/kg</td>
-      <td valign=\"top\">specific enthalpy</td></tr>
-  <tr><td valign=\"top\">u</td>
-      <td valign=\"top\">J/kg</td>
-      <td valign=\"top\">specific internal energy</td></tr>
-  <tr><td valign=\"top\">Xi[nXi]</td>
-      <td valign=\"top\">kg/kg</td>
-      <td valign=\"top\">independent mass fractions m_i/m</td></tr>
-  <tr><td valign=\"top\">R</td>
-      <td valign=\"top\">J/kg.K</td>
-      <td valign=\"top\">gas constant</td></tr>
-  <tr><td valign=\"top\">M</td>
-      <td valign=\"top\">kg/mol</td>
-      <td valign=\"top\">molar mass</td></tr>
+  <tr><td><strong>Variable</strong></td>
+      <td><strong>Unit</strong></td>
+      <td><strong>Description</strong></td></tr>
+  <tr><td>T</td>
+      <td>K</td>
+      <td>temperature</td></tr>
+  <tr><td>p</td>
+      <td>Pa</td>
+      <td>absolute pressure</td></tr>
+  <tr><td>d</td>
+      <td>kg/m3</td>
+      <td>density</td></tr>
+  <tr><td>h</td>
+      <td>J/kg</td>
+      <td>specific enthalpy</td></tr>
+  <tr><td>u</td>
+      <td>J/kg</td>
+      <td>specific internal energy</td></tr>
+  <tr><td>Xi[nXi]</td>
+      <td>kg/kg</td>
+      <td>independent mass fractions m_i/m</td></tr>
+  <tr><td>R</td>
+      <td>J/kg.K</td>
+      <td>gas constant</td></tr>
+  <tr><td>M</td>
+      <td>kg/mol</td>
+      <td>molar mass</td></tr>
 </table>
 <p>
 In order to implement an actual medium model, one can extend from this
@@ -5482,7 +5483,7 @@ one, which would require a numeric solution.
 <li>The isobaric expansion coefficient (beta) is constant</li>
 <li>The isothermal compressibility (kappa) is constant</li>
 <li>Pressure and temperature are used as states</li>
-<li>The influence of density on specific enthalpy (h), entropy (s), inner energy (u) and heat capacity (cv) at constant volume is neglected.
+<li>The influence of density on specific enthalpy (h), entropy (s), inner energy (u) and heat capacity (cv) at constant volume is neglected.</li>
 </ul>
 <p>
 That means that the density is a linear function in temperature and in pressure.
@@ -5532,13 +5533,13 @@ to the above list of assumptions</li>
     Politecnico di Milano<br>
     Via Ponzio 34/5<br>
     I-20133 Milano, Italy<br>
-    email: <A HREF=\"mailto:casella@elet.polimi.it\">casella@elet.polimi.it</A><br>
-    and <br>
+    email: <a href=\"mailto:casella@elet.polimi.it\">casella@elet.polimi.it</a><br>
+    and<br>
     Hubertus Tummescheit<br>
     Modelon AB<br>
     Ideon Science Park<br>
     SE-22730 Lund, Sweden<br>
-    email: <A HREF=\"mailto:Hubertus.Tummescheit@Modelon.se\">Hubertus.Tummescheit@Modelon.se</A>
+    email: <a href=\"mailto:Hubertus.Tummescheit@Modelon.se\">Hubertus.Tummescheit@Modelon.se</a>
 </dd>
 </dl>
 </html>"));
@@ -5687,7 +5688,7 @@ to the above list of assumptions</li>
       output MassFraction[:] X "Mass fractions";
     end massFraction_pTphi;
 
-    replaceable partial function relativeHumidity "Return relativ humidity"
+    replaceable partial function relativeHumidity "Return relative humidity"
       extends Modelica.Icons.Function;
       input ThermodynamicState state "Thermodynamic state record";
       output Real phi "Relative humidity";
@@ -5729,7 +5730,7 @@ to the above list of assumptions</li>
     end enthalpyOfNonCondensingGas;
 
     replaceable partial function specificEntropy_phX
-      "Return specific entropy as a functio of pressure, specific enthalpy and mass fractions"
+      "Return specific entropy as a function of pressure, specific enthalpy and mass fractions"
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input SpecificEnthalpy h "Specific enthalpy";
@@ -9126,10 +9127,10 @@ provide a package in the following way:
       <li>Code reorganization, enhanced documentation, additional functions: <em>December, 2002</em>
       by Hubertus Tummescheit and move to Modelica
                             properties library.</li>
-      <li>Inclusion into Modelica.Media: September 2003 </li>
+      <li>Inclusion into Modelica.Media: September 2003</li>
       </ul>
 
-      <address>Author: Hubertus Tummescheit, <br>
+      <address>Author: Hubertus Tummescheit,<br>
       Lund University<br>
       Department of Automatic Control<br>
       Box 118, 22100 Lund, Sweden<br>
@@ -9165,7 +9166,7 @@ single and multiple substance fluids with one and multiple phases:
 <li> <a href=\"modelica://Modelica.Media.R134a\">Refrigerant Tetrafluoroethane (R134a)</a>.</li>
 </ul>
 <p>
-The following parts are useful, when newly starting with this library:
+The following parts are useful, when newly starting with this library:</p>
 <ul>
 <li> <a href=\"modelica://Modelica.Media.UsersGuide\">Modelica.Media.UsersGuide</a>.</li>
 <li> <a href=\"modelica://Modelica.Media.UsersGuide.MediumUsage\">Modelica.Media.UsersGuide.MediumUsage</a>
@@ -9182,10 +9183,12 @@ The following parts are useful, when newly starting with this library:
 Copyright &copy; 1998-2018, Modelica Association.
 </p>
 <p>
-<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\"> https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em>
+<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em>
 </p>
 </html>", revisions="<html>
 <ul>
+<li><em>February 01, 2017</em> by Thomas Beutlich:<br/>
+    Fixed data errors of the NASA Glenn coefficients in some ideal gases (CH2, CH3, CH3OOH, C2CL2, C2CL4, C2CL6, C2HCL, C2HCL3, CH2CO_ketene, O_CH_2O, HO_CO_2OH, CH2BrminusCOOH, C2H3CL, CH2CLminusCOOH, HO2, HO2minus, OD, ODminus), see <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/1922\">#1922</a></li>
 <li><em>May 16, 2013</em> by Stefan Wischhusen (XRG Simulation):<br/>
     Added new media models Air.ReferenceMoistAir, Air.ReferenceAir, R134a.</li>
 <li><em>May 25, 2011</em> by Francesco Casella:<br/>Added min/max attributes to Water, TableBased, MixtureGasNasa, SimpleAir and MoistAir local types.</li>

@@ -80,12 +80,8 @@ package Sources "Time-dependent and controlled voltage and current sources"
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
-          Line(points={{-90,0},{-10,0}}, color={0,0,255}),
-          Line(points={{-10,60},{-10,-60}}, color={0,0,255}),
-          Line(points={{0,30},{0,-30}}, color={0,0,255}),
-          Line(points={{0,0},{90,0}}, color={0,0,255}),
           Text(
-            extent={{-152,70},{148,110}},
+            extent={{-150,70},{150,110}},
             lineColor={0,0,255},
             textString="%name"),
           Line(points={{-70,30},{-70,10}}, color={0,0,255}),
@@ -93,7 +89,15 @@ package Sources "Time-dependent and controlled voltage and current sources"
           Line(points={{60,20},{80,20}}, color={0,0,255}),
           Text(
             extent={{-150,-110},{150,-70}},
-            textString="V=%V")}),
+            textString="V=%V"),
+          Ellipse(
+            extent={{-50,50},{50,-50}},
+            lineColor={0,0,255},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-50,0},{50,0}}, color={0,0,255}),
+          Line(points={{-90,0},{-50,0}}, color={0,0,255}),
+          Line(points={{50,0},{90,0}}, color={0,0,255})}),
       Documentation(revisions="<html>
 <ul>
 <li><em> 1998   </em>
@@ -1069,11 +1073,11 @@ package Sources "Time-dependent and controlled voltage and current sources"
 <p>This voltage source uses the corresponding signal source of the Modelica.Blocks.Sources package.  Furthermore, an offset parameter is introduced, which is added to the value calculated by the blocks source. The startTime parameter allows to shift the blocks source behavior on the time axis.</p>
 <p><br>This block generates a voltage source by <strong>linear interpolation</strong> in a table. The time points and voltage values are stored in a matrix <strong>table[i,j]</strong>, where the first column table[:,1] contains the time points and the second column contains the voltage to be interpolated. The table interpolation has the following properties:</p>
 <ul>
-<li>The time points need to be <strong>monotonically increasing</strong>. </li>
-<li><strong>Discontinuities</strong> are allowed, by providing the same time point twice in the table. </li>
+<li>The time points need to be <strong>monotonically increasing</strong>.</li>
+<li><strong>Discontinuities</strong> are allowed, by providing the same time point twice in the table.</li>
 <li>Values <strong>outside</strong> of the table range, are computed by <strong>extrapolation</strong> through the last or first two points of the table.</li>
 <li>If the table has only <strong>one row</strong>, no interpolation is performed and the voltage value is just returned independently of the actual time instant, i.e., this is a constant voltage source.</li>
-<li>Via parameters <strong>startTime</strong> and <strong>offset</strong> the curve defined by the table can be shifted both in time and in the voltage. </li>
+<li>Via parameters <strong>startTime</strong> and <strong>offset</strong> the curve defined by the table can be shifted both in time and in the voltage.</li>
 <li>The table is implemented in a numerically sound way by generating <strong>time events</strong> at interval boundaries.
     This generates continuously differentiable values for the integrator.</li>
 </ul>
@@ -1169,7 +1173,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
             fillColor={0,0,255},
             fillPattern=FillPattern.Solid),
           Text(
-            extent={{-152,60},{148,100}},
+            extent={{-150,60},{150,100}},
             lineColor={0,0,255},
             textString="%name"),
           Text(
@@ -2140,11 +2144,11 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
 <p>This current source uses the corresponding signal source of the Modelica.Blocks.Sources package. Furthermore, an offset parameter is introduced, which is added to the value calculated by the blocks source. The startTime parameter allows to shift the blocks source behavior on the time axis.</p>
 <p><br>This block generates a current source by <strong>linear interpolation</strong> in a table. The time points and current values are stored in a matrix <strong>table[i,j]</strong>, where the first column table[:,1] contains the time points and the second column contains the current to be interpolated. The table interpolation has the following properties:</p>
 <ul>
-<li>The time points need to be <strong>monotonically increasing</strong>. </li>
-<li><strong>Discontinuities</strong> are allowed, by providing the same time point twice in the table. </li>
+<li>The time points need to be <strong>monotonically increasing</strong>.</li>
+<li><strong>Discontinuities</strong> are allowed, by providing the same time point twice in the table.</li>
 <li>Values <strong>outside</strong> of the table range, are computed by <strong>extrapolation</strong> through the last or first two points of the table.</li>
 <li>If the table has only <strong>one row</strong>, no interpolation is performed and the current value is just returned independently of the actual time instant, i.e., this is a constant current source.</li>
-<li>Via parameters <strong>startTime</strong> and <strong>offset</strong> the curve defined by the table can be shifted both in time and in the current. </li>
+<li>Via parameters <strong>startTime</strong> and <strong>offset</strong> the curve defined by the table can be shifted both in time and in the current.</li>
 <li>The table is implemented in a numerically sound way by generating <strong>time events</strong> at interval boundaries.
     This generates continuously differentiable values for the integrator.</li>
 </ul>

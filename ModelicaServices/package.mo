@@ -14,7 +14,7 @@ package ModelicaServices "ModelicaServices (Default implementation) - Models and
 <ul>
 <li> New function
      <a href=\"modelica://ModelicaServices.System.exit\">exit</a>
-     to terminate the Modelica environment, see <a href=\"https://github.com/modelica/Modelica/issues/2211\">#2211</a>.
+     to terminate the Modelica environment, see <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2211\">#2211</a>.
      </li>
 </ul>
 
@@ -86,14 +86,14 @@ First version of the ModelicaServices library.
     Postfach 1116<br>
     D-82230 Wessling<br>
     Germany<br>
-    email: <A HREF=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</A></td>
+    email: <a href=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</a></td>
 </tr>
 </table>
 
 <p><strong>Acknowledgements:</strong></p>
 
 <p>
-The design of the Animation.Shape component is from Hilding Elmqvist, Dassault Syst&egrave;mes AB.
+The design of the Animation.Shape component is from Hilding Elmqvist, previously at Dassault Syst&egrave;mes AB.
 </p>
 </html>"));
     end Contact;
@@ -210,19 +210,19 @@ Specification (version &ge; 3.3).
   end Types;
 
   annotation (
-    Protection(access=Access.hide),
     preferredView="info",
-    version="3.2.2",
-    versionBuild=0,
-    versionDate="2016-01-15",
-    dateModified = "2016-01-15 08:44:41Z",
-    revisionId="$Id::                                       $",
-    uses(Modelica(version="3.x.x")),
+    version="3.2.3",
+    versionBuild=1,
+    versionDate="2018-08-01",
+    dateModified = "2018-04-20 12:00:00Z",
+    revisionId="$Format:%h %s %ci$",
+    uses(Modelica(version="3.2.3")),
     conversion(
       noneFromVersion="1.0",
       noneFromVersion="1.1",
       noneFromVersion="1.2",
-      noneFromVersion="3.2.1"),
+      noneFromVersion="3.2.1",
+      noneFromVersion="3.2.2"),
     Documentation(info="<html>
 <p>
 This package contains a set of functions and models to be used in the
@@ -272,7 +272,7 @@ Copyright &copy; 2009-2018, DLR and Dassault Syst&egrave;mes AB.
 </p>
 
 <p>
-<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\"> https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em>
+<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em>
 </p>
 
 </html>"));

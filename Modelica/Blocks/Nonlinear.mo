@@ -261,10 +261,10 @@ with derivative time constant <code>Td</code>. Smaller time constant <code>Td</c
 <th>Comment</th>
 </tr>
 <tr>
-<td valign=\"top\">4954</td>
-<td valign=\"top\">2012-03-02</td>
-<td valign=\"top\">A. Haumer &amp; D. Winkler</td>
-<td valign=\"top\"><p>Initial version based on discussion in ticket <a href=\"https://trac.modelica.org/Modelica/ticket/529\">#529</a></p></td>
+<td>4954</td>
+<td>2012-03-02</td>
+<td>A. Haumer &amp; D. Winkler</td>
+<td><p>Initial version based on discussion in ticket <a href=\"https://trac.modelica.org/Modelica/ticket/529\">#529</a></p></td>
 </tr>
 </table>
 </html>"));
@@ -451,7 +451,7 @@ The Input signal is delayed by a given time instant, or more precisely:
     parameter Integer m(min=1,max=n) = n
       "Order of numerator (usually m=n, or m=n-1)";
     parameter Boolean balance=false
-      "= true, if state space system is balanced (highly recommeded), otherwise textbook version"
+      "= true, if state space system is balanced (highly recommended), otherwise textbook version"
       annotation(choices(checkBox=true));
     final output Real x[n]
       "State of transfer function from controller canonical form (balance=false), or balanced controller canonical form (balance=true)";
@@ -612,9 +612,9 @@ chapter 11.9, page 412-414, Huethig Verlag Heidelberg, 1994
 <th>Comment</th>
 </tr>
 <tr>
-<td valign=\"top\">2015-01-05</td>
-<td valign=\"top\">Martin Otter (DLR-SR)</td>
-<td valign=\"top\">Introduced parameter balance=true and a new implementation
+<td>2015-01-05</td>
+<td>Martin Otter (DLR-SR)</td>
+<td>Introduced parameter balance=true and a new implementation
  of the PadeDelay block with an optional, more reliable numerics</td>
 </tr>
 </table>

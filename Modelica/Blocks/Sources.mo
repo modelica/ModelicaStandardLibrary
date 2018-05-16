@@ -1933,6 +1933,9 @@ a flange according to a given acceleration.
         end if;
 
         // Determine interpolation coefficients
+        if next == 1 then
+          next := 2;
+        end if;
         next0 := next - 1;
         dt := table[next, 1] - table[next0, 1];
         if dt <= TimeEps*abs(table[next, 1]) then
@@ -1949,7 +1952,7 @@ a flange according to a given acceleration.
     end getInterpolationCoefficients;
   algorithm
     if noEvent(size(table, 1) > 1) then
-      assert(table[1, 1] == 0, "The first point in time has to be set to 0, but is table[1,1] = " + String(table[1, 1]));
+      assert(not (table[1, 1] > 0.0 or table[1, 1] < 0.0), "The first point in time has to be set to 0, but is table[1,1] = " + String(table[1, 1]));
     end if;
     when {time >= pre(nextEvent),initial()} then
       (a,b,nextEventScaled,last) := getInterpolationCoefficients(
@@ -2796,12 +2799,12 @@ at sample times (defined by parameter <strong>period</strong>) and is otherwise
     extends Interfaces.partialBooleanSO;
 
     CombiTimeTable combiTimeTable(
-      table=if n > 0 then if startValue then [table[1], 1.0; table, {mod(i + 1, 2.0) for i in 1:n}] else [table[1], 0.0; table, {mod(i, 2.0) for i in 1:n}] else if startValue then [0.0, 1.0] else [0.0, 0.0],
+      final table=if n > 0 then if startValue then [table[1], 1.0; table, {mod(i + 1, 2.0) for i in 1:n}] else [table[1], 0.0; table, {mod(i, 2.0) for i in 1:n}] else if startValue then [0.0, 1.0] else [0.0, 0.0],
       final smoothness=Modelica.Blocks.Types.Smoothness.ConstantSegments,
       final columns={2},
-      extrapolation=extrapolation,
-      startTime=startTime,
-      shiftTime=shiftTime) annotation(Placement(transformation(extent={{-30,-10},{-10,10}})));
+      final extrapolation=extrapolation,
+      final startTime=startTime,
+      final shiftTime=shiftTime) annotation(Placement(transformation(extent={{-30,-10},{-10,10}})));
     Modelica.Blocks.Math.RealToBoolean realToBoolean annotation(Placement(transformation(extent={{10,-10},{30,10}})));
 
     protected
@@ -3131,12 +3134,12 @@ The Integer output y is a step signal:
     extends Interfaces.IntegerSO;
 
     CombiTimeTable combiTimeTable(
-      table=table,
+      final table=table,
       final smoothness=Modelica.Blocks.Types.Smoothness.ConstantSegments,
       final columns={2},
-      extrapolation=extrapolation,
-      startTime=startTime,
-      shiftTime=shiftTime) annotation(Placement(transformation(extent={{-30,-10},{-10,10}})));
+      final extrapolation=extrapolation,
+      final startTime=startTime,
+      final shiftTime=shiftTime) annotation(Placement(transformation(extent={{-30,-10},{-10,10}})));
     Modelica.Blocks.Math.RealToInteger realToInteger annotation(Placement(transformation(extent={{10,-10},{30,10}})));
 
     protected
@@ -3265,11 +3268,11 @@ have at least the following two parameters:
 </p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td valign=\"top\"><strong>offset</strong></td>
-      <td valign=\"top\">Value which is added to the signal</td>
+  <tr><td><strong>offset</strong></td>
+      <td>Value which is added to the signal</td>
   </tr>
-  <tr><td valign=\"top\"><strong>startTime</strong></td>
-      <td valign=\"top\">Start time of signal. For time &lt; startTime,
+  <tr><td><strong>startTime</strong></td>
+      <td>Start time of signal. For time &lt; startTime,
                 the output y is set to offset.</td>
   </tr>
 </table>
@@ -3287,14 +3290,14 @@ usually requires a trimming calculation.
        and Christian Schweiger:<br>
        Integer sources added. Step, TimeTable and BooleanStep slightly changed.</li>
 <li><em>Nov. 8, 1999</em>
-       by <a href=\"mailto:clauss@eas.iis.fhg.de\">Christoph Clau&szlig;</a>,
+       by <a href=\"mailto:christoph@clauss-it.com\">Christoph Clau&szlig;</a>,
        <a href=\"mailto:Andre.Schneider@eas.iis.fraunhofer.de\">Andre.Schneider@eas.iis.fraunhofer.de</a>,
        <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
        New sources: Exponentials, TimeTable. Trapezoid slightly enhanced
        (nperiod=-1 is an infinite number of periods).</li>
 <li><em>Oct. 31, 1999</em>
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-       <a href=\"mailto:clauss@eas.iis.fhg.de\">Christoph Clau&szlig;</a>,
+       <a href=\"mailto:christoph@clauss-it.com\">Christoph Clau&szlig;</a>,
        <a href=\"mailto:Andre.Schneider@eas.iis.fraunhofer.de\">Andre.Schneider@eas.iis.fraunhofer.de</a>,
        All sources vectorized. New sources: ExpSine, Trapezoid,
        BooleanConstant, BooleanStep, BooleanPulse, SampleTrigger.

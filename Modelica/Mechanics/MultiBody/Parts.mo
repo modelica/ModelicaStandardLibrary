@@ -126,7 +126,7 @@ component animation and that the animation may be switched off via parameter
 animation = <strong>false</strong>.
 </p>
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Fixed.png\" ALT=\"Parts.Fixed\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Fixed.png\" alt=\"Parts.Fixed\">
 </p>
 
 </html>"),
@@ -321,7 +321,7 @@ the animation may be switched off via parameter animation = <strong>false</stron
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/FixedTranslation.png\" ALT=\"Parts.FixedTranslation\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/FixedTranslation.png\" alt=\"Parts.FixedTranslation\">
 </p>
 </html>"));
   end FixedTranslation;
@@ -532,7 +532,7 @@ the animation may be switched off via parameter animation = <strong>false</stron
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/FixedRotation.png\" ALT=\"Parts.FixedRotation\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/FixedRotation.png\" alt=\"Parts.FixedRotation\">
 </p>
 </html>", revisions="<html><p><strong>Release Notes:</strong></p>
 <ul>
@@ -926,7 +926,7 @@ center of mass, the cylinder is not displayed. Note, that
 the animation may be switched off via parameter animation = <strong>false</strong>.
 </p>
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Body.png\" ALT=\"Parts.Body\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Body.png\" alt=\"Parts.Body\">
 </p>
 
 <p>
@@ -1247,7 +1247,7 @@ Note, that
 the animation may be switched off via parameter animation = <strong>false</strong>.
 </p>
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/BodyShape.png\" ALT=\"Parts.BodyShape\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/BodyShape.png\" alt=\"Parts.BodyShape\">
 </p>
 
 <p>
@@ -1256,7 +1256,7 @@ e.g., shapeType=\"cone\":
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/FixedShape.png\" ALT=\"Visualizers.FixedShape\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/FixedShape.png\" alt=\"Visualizers.FixedShape\">
 </p>
 
 <p>
@@ -1512,7 +1512,7 @@ the animation may be switched off via parameter animation = <strong>false</stron
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/BodyBox.png\" ALT=\"Parts.BodyBox\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/BodyBox.png\" alt=\"Parts.BodyBox\">
 </p>
 
 <p>
@@ -1740,7 +1740,7 @@ the animation may be switched off via parameter animation = <strong>false</stron
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/BodyCylinder.png\" ALT=\"Parts.BodyCylinder\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/BodyCylinder.png\" alt=\"Parts.BodyCylinder\">
 </p>
 
 <p>
@@ -2185,7 +2185,7 @@ of <code>frame_a</code>. The default animation of this component is
 shown in the figure below.</p>
 
 <p>
-      <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Parts/Rotor1D.png\" ALT=\"model Parts.Rotor1D\">
+      <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Parts/Rotor1D.png\" alt=\"model Parts.Rotor1D\">
 </p>
 
 <p>This component is a replacement for
@@ -2303,7 +2303,7 @@ the parameter <code>n</code>, which has to be given in the local coordinate syst
 of <code>frame_a</code>. The default animation of this component is
 shown in the figure below.</p>
 <p>
-      <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Parts/Rotor1D.png\" ALT=\"model Parts.Rotor1D\">
+      <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Parts/Rotor1D.png\" alt=\"model Parts.Rotor1D\">
 </p>
 <p>This component is a replacement for
 <a href=\"modelica://Modelica.Mechanics.Rotational.Components.Inertia\">Modelica.Mechanics.Rotational.Components.Inertia</a>
@@ -2999,79 +2999,79 @@ a \"Body\" and of several \"FixedTranslation\" components.
 <h4>Content</h4>
 <table border=1 cellspacing=0 cellpadding=2>
   <tr><th><strong><em>Model</em></strong></th><th><strong><em>Description</em></strong></th></tr>
-  <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Parts.Fixed\">Fixed</a></td>
-      <td valign=\"top\">Frame fixed in world frame at a given position.
+  <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Parts.Fixed\">Fixed</a></td>
+      <td>Frame fixed in world frame at a given position.
           It is visualized with a shape, see <strong>shapeType</strong> below
          (the frames on the two
           sides do not belong to the component):<br>&nbsp;<br>
-      <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Fixed.png\" ALT=\"model Parts.Fixed\">
+      <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Fixed.png\" alt=\"model Parts.Fixed\">
       </td>
   </tr>
-  <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Parts.FixedTranslation\">FixedTranslation</a></td>
-      <td valign=\"top\">Fixed translation of frame_b with respect to frame_a.
+  <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Parts.FixedTranslation\">FixedTranslation</a></td>
+      <td>Fixed translation of frame_b with respect to frame_a.
           It is visualized with a shape, see <strong>shapeType</strong> below
           (the frames on the two sides do not belong to the component):<br>&nbsp;<br>
-      <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/FixedTranslation.png\" ALT=\"model Parts.FixedTranslation\">
+      <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/FixedTranslation.png\" alt=\"model Parts.FixedTranslation\">
       </td>
   </tr>
-  <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Parts.FixedRotation\">FixedRotation</a></td>
-      <td valign=\"top\">Fixed translation and fixed rotation of frame_b with respect to frame_a
+  <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Parts.FixedRotation\">FixedRotation</a></td>
+      <td>Fixed translation and fixed rotation of frame_b with respect to frame_a
           It is visualized with a shape, see <strong>shapeType</strong>  below
           (the frames on the two sides do not belong to the component):<br>&nbsp;<br>
-      <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/FixedRotation.png\" ALT=\"model Parts.FixedRotation\">
+      <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/FixedRotation.png\" alt=\"model Parts.FixedRotation\">
       </td>
   </tr>
-  <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Parts.Body\">Body</a></td>
-      <td valign=\"top\">Rigid body with mass, inertia tensor and one frame connector.
+  <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Parts.Body\">Body</a></td>
+      <td>Rigid body with mass, inertia tensor and one frame connector.
           It is visualized with a cylinder and a sphere at the
           center of mass:<br>&nbsp;<br>
-      <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Body.png\" ALT=\"model Parts.Body\">
+      <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Body.png\" alt=\"model Parts.Body\">
       </td>
   </tr>
-  <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Parts.BodyShape\">BodyShape</a></td>
-      <td valign=\"top\">Rigid body with mass, inertia tensor, different shapes
+  <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Parts.BodyShape\">BodyShape</a></td>
+      <td>Rigid body with mass, inertia tensor, different shapes
           (see <strong>shapeType</strong> below)
           for animation, and two frame connectors:<br>&nbsp;<br>
-      <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/BodyShape.png\" ALT=\"model Parts.BodyShape\">
+      <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/BodyShape.png\" alt=\"model Parts.BodyShape\">
       </td>
   </tr>
-  <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Parts.Fixed\">Fixed BodyBox</a></td>
-      <td valign=\"top\">Rigid body with box shape (mass and animation properties are computed
+  <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Parts.Fixed\">Fixed BodyBox</a></td>
+      <td>Rigid body with box shape (mass and animation properties are computed
           from box data and from density):<br>&nbsp;<br>
-      <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/BodyBox.png\" ALT=\"model Parts.BodyBox\">
+      <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/BodyBox.png\" alt=\"model Parts.BodyBox\">
       </td>
   </tr>
-  <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Parts.BodyCylinder\">BodyCylinder</a></td>
-      <td valign=\"top\">Rigid body with cylinder shape (mass and animation properties
+  <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Parts.BodyCylinder\">BodyCylinder</a></td>
+      <td>Rigid body with cylinder shape (mass and animation properties
           are computed from cylinder data and from density):<br>&nbsp;<br>
-      <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/BodyCylinder.png\" ALT=\"model Parts.BodyCylinder\">
+      <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/BodyCylinder.png\" alt=\"model Parts.BodyCylinder\">
       </td>
   </tr>
-  <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Parts.PointMass\">PointMass</a></td>
-      <td valign=\"top\">Rigid body where inertia tensor and rotation is neglected:<br>&nbsp;<br>
-      <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Parts/PointMass.png\" ALT=\"model Parts.PointMass\">
+  <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Parts.PointMass\">PointMass</a></td>
+      <td>Rigid body where inertia tensor and rotation is neglected:<br>&nbsp;<br>
+      <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Parts/PointMass.png\" alt=\"model Parts.PointMass\">
       </td>
   </tr>
-  <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Parts.Mounting1D\">Mounting1D</a></td>
-      <td valign=\"top\"> Propagate 1-dim. support torque to 3-dim. system
+  <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Parts.Mounting1D\">Mounting1D</a></td>
+      <td> Propagate 1-dim. support torque to 3-dim. system
       </td>
   </tr>
-  <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Parts.Rotor1D\">Rotor1D</a></td>
-      <td valign=\"top\">1D inertia attachable on 3-dim. bodies (without neglecting dynamic effects)<br>
-      <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Parts/Rotor1D.png\" ALT=\"model Parts.Rotor1D\">
+  <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Parts.Rotor1D\">Rotor1D</a></td>
+      <td>1D inertia attachable on 3-dim. bodies (without neglecting dynamic effects)<br>
+      <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Parts/Rotor1D.png\" alt=\"model Parts.Rotor1D\">
       </td>
   </tr>
-  <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Parts.BevelGear1D\">BevelGear1D</a></td>
-      <td valign=\"top\">1D gearbox with arbitrary shaft directions (3D bearing frame)
+  <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Parts.BevelGear1D\">BevelGear1D</a></td>
+      <td>1D gearbox with arbitrary shaft directions (3D bearing frame)
       </td>
   </tr>
 </table>
 <p>
 Components <strong>Fixed</strong>, <strong>FixedTranslation</strong>, <strong>FixedRotation</strong>
 and <strong>BodyShape</strong> are visualized according to parameter
-<strong>shapeType</strong>, that may have the following values (e.g., shapeType = \"box\"): <br>&nbsp;<br>
+<strong>shapeType</strong>, that may have the following values (e.g., shapeType = \"box\"):<br>&nbsp;<br>
 </p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/FixedShape.png\" ALT=\"model Visualizers.FixedShape\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/FixedShape.png\" alt=\"model Visualizers.FixedShape\">
 <p>
 All the details of the visualization shape parameters are
 given in
