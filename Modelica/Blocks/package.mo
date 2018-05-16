@@ -384,7 +384,7 @@ reached with different precisions. This is summarized in the following table:
     "Demonstrate usage of Nonlinear.SlewRateLimiter"
     extends Modelica.Icons.Example;
     parameter Modelica.SIunits.Velocity vMax=2 "Max. velocity";
-    parameter Modelica.SIunits.Acceleration aMax=20 "Max. accelereation";
+    parameter Modelica.SIunits.Acceleration aMax=20 "Max. acceleration";
     Modelica.SIunits.Position s=positionStep.y "Reference position";
     Modelica.SIunits.Position sSmoothed=positionSmoothed.y "Smoothed position";
     Modelica.SIunits.Velocity vLimited=limit_a.y "Limited velocity";
@@ -433,7 +433,7 @@ This example demonstrates how to use the Nonlinear.SlewRateLimiter block to limi
 <li> The first SlewRateLimiter block  <code>limit_v</code> limits velocity.</li>
 <li> The first Der block <code>v</code> calculates velocity from the smoothed position signal.</li>
 <li> The second SlewRateLimiter block <code>limit_a</code> limits acceleration of the smoothed velocity signal.</li>
-<li> The second Der block <code>a</code> calculates acceleraton from the smoothed velocity signal.</li>
+<li> The second Der block <code>a</code> calculates acceleration from the smoothed velocity signal.</li>
 <li> The Integrator block <code>positionSmoothed</code> calculates smoothed position from the smoothed velocity signal.</li>
 </ul>
 <p>

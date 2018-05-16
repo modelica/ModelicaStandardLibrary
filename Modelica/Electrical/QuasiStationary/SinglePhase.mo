@@ -5,7 +5,7 @@ package SinglePhase "Single phase AC components"
   package Examples "Test examples"
     extends Modelica.Icons.ExamplesPackage;
 
-    model SeriesBode "Series circuit with Bodel analysis"
+    model SeriesBode "Series circuit with Bode analysis"
       extends Modelica.Icons.Example;
       output Real abs_y = bode.abs_y "Magnitude of voltage ratio";
       output Modelica.SIunits.AmplitudeLevelDifference dB_y = bode.dB_y "Log10 of magnitude of voltage ratio in dB";
@@ -50,7 +50,7 @@ package SinglePhase "Single phase AC components"
       connect(currentSensor.pin_n, resistor.pin_p) annotation (Line(points={{0,0},{20,0}}, color={85,170,255}));
       annotation (Documentation(info="<html>
 <p>
-The frequency of the voltage source is varied by a logaithmic ramp, the supply voltage magnitude is constant.</p>
+The frequency of the voltage source is varied by a logarithmic ramp, the supply voltage magnitude is constant.</p>
 <p>Plot versus <code>voltageSource.f</code> on a logarithmic scale in order to determine the Bode diagrams of the ratio of
 the voltage of the resistor divided by the supply voltage:</p>
 <ul>

@@ -1300,7 +1300,7 @@ Calculation of the mean convective heat transfer coefficient <strong> kc </stron
         SI.ReynoldsNumber Re_Dc=max(MIN, (abs(IN_var.m_flow)*IN_con.D_c/(IN_var.eta*
             A_c))) "Reynolds number based on fin collar diameter";
 
-        SI.ReynoldsNumber Re_i "Reynolds number at transition to linerized calculation for wavy fins";
+        SI.ReynoldsNumber Re_i "Reynolds number at transition to linearized calculation for wavy fins";
 
         SI.PrandtlNumber Pr=IN_var.eta*IN_var.cp/IN_var.lambda "Prandtl number";
         Real j "Colburn j factor";
@@ -1409,7 +1409,7 @@ Calculation of the mean convective heat transfer coefficient <strong> kc </stron
 Calculation of the mean convective heat transfer coefficient <strong> kc </strong> for the air-side heat transfer of heat exchangers with round tubes and several fin geometries.<a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.HeatExchanger.kc_roundTube\">See more information</a> .
 </p>
 </html>", revisions="<html>
-<p>2016-04-11 Sven Rutkowski: Removed singularity for Re at zero mass flow rate thorugh linerized function in wavy fin correlation.</p>
+<p>2016-04-11 Sven Rutkowski: Removed singularity for Re at zero mass flow rate through linearized function in wavy fin correlation.</p>
 </html>"),                 smoothOrder(normallyConstant=IN_con) = 2);
       end kc_roundTube_KC;
 

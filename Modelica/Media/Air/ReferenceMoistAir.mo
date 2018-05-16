@@ -318,7 +318,7 @@ package ReferenceMoistAir
   algorithm
     xw := X[1]/max(100*Modelica.Constants.eps, (1 - X[1]));
     annotation (Documentation(revisions="<html>
-2017-04-13 Stefan Wischhusen: Guard introduced against divsion by zero.
+2017-04-13 Stefan Wischhusen: Guard introduced against division by zero.
 </html>"));
   end waterContent_X;
 

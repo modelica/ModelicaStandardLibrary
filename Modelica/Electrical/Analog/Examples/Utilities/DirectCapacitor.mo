@@ -19,7 +19,7 @@ model DirectCapacitor "Input/output block of a direct capacitor model"
       use_pder=true, use_fder=false)
     annotation (Placement(transformation(extent={{12,-10},{28,10}})));
   Modelica.Blocks.Interfaces.RealOutput v(unit="V")
-    "Capacitor changes volatge due to current"
+    "Capacitor changes voltage due to current"
     annotation (Placement(transformation(extent={{100,70},{120,90}})));
   Modelica.Blocks.Interfaces.RealOutput dv(unit="V/s")
     "Capacitor changes voltage due to current"

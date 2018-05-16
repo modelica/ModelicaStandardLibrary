@@ -431,7 +431,7 @@ P.Vaske, Berechnung von Drehstromschaltungen (German, Calculation of polyphase c
               {-50,-21},{-50,-29.5},{-50,-38}}, color={85,170,255}));
       annotation (Documentation(info="<html>
 <p>
-This example shows an unsymmetrical load, in the upper with neutral connection (the singlephase current sensor measures the neutral current) and in the lower without neutral connection (the singlephase voltage sensormeasures the neutral displacement).
+This example shows an unsymmetrical load, in the upper with neutral connection (the singlephase current sensor measures the neutral current) and in the lower without neutral connection (the singlephase voltage sensor measures the neutral displacement).
 </p>
 </html>"),
       experiment(StopTime=1.0, Interval=0.001));

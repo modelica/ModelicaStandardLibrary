@@ -451,7 +451,7 @@ The Input signal is delayed by a given time instant, or more precisely:
     parameter Integer m(min=1,max=n) = n
       "Order of numerator (usually m=n, or m=n-1)";
     parameter Boolean balance=false
-      "= true, if state space system is balanced (highly recommeded), otherwise textbook version"
+      "= true, if state space system is balanced (highly recommended), otherwise textbook version"
       annotation(choices(checkBox=true));
     final output Real x[n]
       "State of transfer function from controller canonical form (balance=false), or balanced controller canonical form (balance=true)";

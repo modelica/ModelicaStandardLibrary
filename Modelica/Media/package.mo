@@ -5688,7 +5688,7 @@ to the above list of assumptions</li>
       output MassFraction[:] X "Mass fractions";
     end massFraction_pTphi;
 
-    replaceable partial function relativeHumidity "Return relativ humidity"
+    replaceable partial function relativeHumidity "Return relative humidity"
       extends Modelica.Icons.Function;
       input ThermodynamicState state "Thermodynamic state record";
       output Real phi "Relative humidity";
@@ -5730,7 +5730,7 @@ to the above list of assumptions</li>
     end enthalpyOfNonCondensingGas;
 
     replaceable partial function specificEntropy_phX
-      "Return specific entropy as a functio of pressure, specific enthalpy and mass fractions"
+      "Return specific entropy as a function of pressure, specific enthalpy and mass fractions"
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input SpecificEnthalpy h "Specific enthalpy";

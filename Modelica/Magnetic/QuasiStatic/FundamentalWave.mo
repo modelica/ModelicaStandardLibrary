@@ -2946,7 +2946,7 @@ Simulate for 1 second and plot (versus time):
           parameter Modelica.SIunits.Time tStep=1.2 "Time of load torque step";
           parameter Modelica.SIunits.Inertia JLoad=0.29
             "Load's moment of inertia";
-          Modelica.SIunits.Angle thetaQS=rotorAngleQS.rotorDisplacementAngle "Rotor displacement angle, quasi stastic";
+          Modelica.SIunits.Angle thetaQS=rotorAngleQS.rotorDisplacementAngle "Rotor displacement angle, quasi static";
           Modelica.SIunits.Angle theta=rotorAngle.rotorDisplacementAngle "Rotor displacement angle, transient";
 
           Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet
@@ -3268,7 +3268,7 @@ to numerically stabilize the simulation.</p>
           parameter Modelica.SIunits.Inertia JLoad=0.29 "Load's moment of inertia";
           parameter Modelica.SIunits.AngularVelocity wNominal = 2*pi*fNominal/smpmData.p "Nominal angular velocity";
           parameter Boolean positiveRange = false "Use positive range of angles, if true";
-          output Modelica.SIunits.Angle theta=rotorAngleQS.rotorDisplacementAngle "Rotor displacement angle, quasi stastic";
+          output Modelica.SIunits.Angle theta=rotorAngleQS.rotorDisplacementAngle "Rotor displacement angle, quasi static";
           output Modelica.SIunits.Angle phi_i = Modelica.Math.wrapAngle(smpmQS.arg_is[1],positiveRange) "Angle of current";
           output Modelica.SIunits.Angle phi_v = Modelica.Math.wrapAngle(smpmQS.arg_vs[1],positiveRange) "Angle of voltage";
           output Modelica.SIunits.Angle phi = Modelica.Math.wrapAngle(phi_v-phi_i,positiveRange) "Angle between voltage and current";
@@ -3471,7 +3471,7 @@ to numerically stabilize the simulation.</p>
             "Initial excitation current";
           parameter Modelica.SIunits.Angle gamma0(displayUnit="deg") = 0
             "Initial rotor displacement angle";
-          Modelica.SIunits.Angle thetaQS=rotorAngleQS.rotorDisplacementAngle "Rotor displacement angle, quasi stastic";
+          Modelica.SIunits.Angle thetaQS=rotorAngleQS.rotorDisplacementAngle "Rotor displacement angle, quasi static";
           Modelica.SIunits.Angle theta=rotorAngle.rotorDisplacementAngle "Rotor displacement angle, transient";
 
           output Modelica.SIunits.Power Ptr=powerSensor.power "Transient power";
@@ -3816,7 +3816,7 @@ Simulate for 30 seconds and plot versus <code>rotorAngle|rotorAngleQS.rotorDispl
           parameter Modelica.SIunits.Time tStep=1.2 "Time of load torque step";
           parameter Modelica.SIunits.Inertia JLoad=0.29
             "Load's moment of inertia";
-          Modelica.SIunits.Angle thetaQS=rotorAngleQS.rotorDisplacementAngle "Rotor displacement angle, quasi stastic";
+          Modelica.SIunits.Angle thetaQS=rotorAngleQS.rotorDisplacementAngle "Rotor displacement angle, quasi static";
           Modelica.SIunits.Angle theta=rotorDisplacementAngle.rotorDisplacementAngle "Rotor displacement angle, transient";
 
           Modelica.Electrical.MultiPhase.Sources.SignalCurrent signalCurrent(
@@ -5995,7 +5995,7 @@ Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding</a>
         Modelica.SIunits.Angle gammas=port_sp.reference.gamma
           "Angle electrical quantities in stator fixed frame";
         Modelica.SIunits.Angle gammar=port_rp.reference.gamma
-          "Angle electrical quantities in rotor fixedframe";
+          "Angle electrical quantities in rotor fixed frame";
       equation
         port_sp.Phi = Phi_s "Stator flux into positive stator port";
         port_sp.Phi + port_sn.Phi = Complex(0, 0) "Balance of stator flux";
