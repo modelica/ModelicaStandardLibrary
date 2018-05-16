@@ -189,7 +189,7 @@ annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
    revisions="<html>
 <h4>Release Notes:</h4>
 <ul>
-<li><i>May 02, 2018 </i>by Kristin Majetta and Christoph Clauss<br>realized<br></li>
+<li><em>May 02, 2018</em> by Kristin Majetta and Christoph Clauss<br>realized<br></li>
 </ul>
 </html>"), experiment(StopTime=200));
 end HeatingPNP_NORGate;
