@@ -62,13 +62,8 @@ def main(dir, milestone, version):
                 issueType = IssueType.Enhancements
             elif 'documentation' in labels:
                 issueType = IssueType.Documentation
-            foundLabel = False
-            for l in labels:
-                if l.startswith('L: '):
-                    foundLabel = True
-                    break
-            # Introduce generic label if there was not any
-            if not foundLabel:
+            # Introduce generic label if there was not any library related label
+            if not any(l.startswith('L: ') for l in labels):
                 labels.append('L: --MSL-general--')
             for l in labels:
                 if l.startswith('L: '):
