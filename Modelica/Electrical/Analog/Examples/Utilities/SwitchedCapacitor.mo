@@ -4,7 +4,7 @@ model SwitchedCapacitor "Switched capacitor which can represent a positive or ne
   parameter Modelica.SIunits.Time clock=1 "Clock";
   parameter Modelica.SIunits.Resistance R=1 "Resistance";
   Modelica.Blocks.Sources.BooleanPulse BooleanPulse(period=clock) annotation (Placement(transformation(extent={{-8,70},{12,90}})));
-  Modelica.Electrical.Analog.Basic.Capacitor Capacitor(C=clock/max(Modelica.Constants.eps,abs(R)))
+  Modelica.Electrical.Analog.Basic.Capacitor Capacitor(C=clock/max(Modelica.Constants.eps*oneOhm,abs(R)))
                                                                   annotation (Placement(transformation(extent={{-20,-20},{20,20}})));
   Modelica.Electrical.Analog.Ideal.IdealCommutingSwitch IdealCommutingSwitch1
     annotation (Placement(transformation(
@@ -26,6 +26,8 @@ model SwitchedCapacitor "Switched capacitor which can represent a positive or ne
   Modelica.Blocks.Sources.RealExpression Resistance(y=R) annotation (Placement(transformation(extent={{-100,50},{-80,70}})));
   Modelica.Blocks.Logical.Not not1 annotation (Placement(transformation(extent={{4,34},{-4,42}})));
   Modelica.Blocks.Logical.LogicalSwitch logicalSwitch annotation (Placement(transformation(extent={{-20,20},{-40,40}})));
+protected
+  constant Modelica.SIunits.Resistance oneOhm=1 "Helping constant to satisfy unit check";
 equation
   connect(IdealCommutingSwitch1.p, Capacitor.p) annotation (Line(points={{-40,0},{-40,0},{-44,0},{-20,0}}, color={0,0,255}));
   connect(Capacitor.n, IdealCommutingSwitch2.p) annotation (Line(points={{20,0},{25,0},{30,0},{40,0}}, color={0,0,255}));
