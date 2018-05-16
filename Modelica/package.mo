@@ -1494,91 +1494,96 @@ This class summarizes general information about the implementation which is not 
 This class summarizes contact information of the contributing persons.
 </p>
 
-<h5>Example</h5>
+<h4>Example</h4>
 
 <pre>
-&lt;p&gt;This package is developed and maintained by the following contributors&lt;/p&gt;
-  &lt;table border=\"1\" cellspacing=\"0\" cellpadding=\"2\"&gt;
-    &lt;tr&gt;
-      &lt;th&gt;&lt;/th&gt;
-      &lt;th&gt;Name&lt;/th&gt;
-      &lt;th&gt;Affiliation&lt;/th&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Library officers and main contributors&lt;/td&gt;
-      &lt;td&gt;
-      &lt;a href=\"mailto:a.haumer@haumer.at\"&gt;A. Haumer&lt;/a&gt;
-      &lt;/td&gt;
-      &lt;td&gt;
-        &lt;a href=\"http://www.haumer.at\"&gt;Technical Consulting &amp;amp; Electrical Engineering&lt;/a&gt;&lt;br&gt;
-        3423 St.Andrae-Woerdern&lt;br&gt;
-        Austria
-      &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Contributor&lt;/td&gt;
-      &lt;td&gt;
-        &lt;a href=\"mailto:dr.christian.kral@gmail.com\"&gt;C. Kral&lt;/a&gt;
-      &lt;/td&gt;
-      &lt;td&gt;
-        &lt;a href=\"https://christiankral.net\"&gt;Electric Machines, Drives and Systems&lt;/a&gt;&lt;br&gt;
-        1060 Vienna&lt;br&gt;
-        Austria
-      &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Contributor&lt;/td&gt;
-      &lt;td&gt;
-        &lt;a href=\"https://github.com/dietmarw\"&gt;D. Winkler&lt;/a&gt;
-      &lt;/td&gt;
-      &lt;td&gt;
-        DWE, Norway
-      &lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/table&gt;</pre>
+&lt;p&gt;
+Library officers responsible for the maintenance and for the
+organization of the development of this library are listed in
+&lt;a href=\"modelica://Modelica.UsersGuide.Contact\"&gt;Modelica.UsersGuide.Contact&lt;/a&gt;.
+&lt;/p&gt;
 
+&lt;h4&gt;Main authors&lt;/h4&gt;
+
+&lt;p&gt;
+&lt;strong&gt;First author's name&lt;/strong&gt;&lt;br&gt;
+First author's address&lt;br&gt;
+next address line&lt;br&gt;
+email: &lt;a href=\"mailto:author1@example.org\"&gt;author1@example.org&lt;/a&gt;&lt;br&gt;
+web: &lt;a href=&quot;https://www.example.org&quot;&gt;https://www.example.org&lt;/a&gt;
+&lt;/p&gt;
+
+&lt;p&gt;
+&lt;strong&gt;Second author's name&lt;/strong&gt;&lt;br&gt;
+Second author's address&lt;br&gt;
+next address line&lt;br&gt;
+email: &lt;a href=\"mailto:author2@example.org\"&gt;author2@example.org&lt;/a&gt;
+&lt;/p&gt;
+
+&lt;h4&gt;Contributors to this library&lt;/h4&gt;
+
+&lt;ul&gt;
+&nbsp; &lt;li&gt;Person one&lt;/li&gt;
+&nbsp; &lt;li&gt;...&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4&gt;Acknowledgements&lt;/h4&gt;
+
+&lt;p&gt;
+The authors would like to thank following persons for their support ...
+&lt;/p&gt;
+
+OR
+
+&lt;p&gt;
+We are thankful to our colleagues [names] who provided expertise to develop this library...
+&lt;/p&gt;
+
+OR
+
+&lt;p&gt;
+The [partial] financial support for the development of this library by [organization]
+is highly appreciated.
+&lt;/p&gt;
+
+OR whatever
+</pre>
 <p>appears as</p>
+<p>
+Library officers responsible for the maintenance and for the
+organization of the development of this library are listed in
+<a href=\"modelica://Modelica.UsersGuide.Contact\">Modelica.UsersGuide.Contact</a>.
+</p>
 
-<p>This package is developed and maintained by the following contributors</p>
-  <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-    <tr>
-      <th></th>
-      <th>Name</th>
-      <th>Affiliation</th>
-    </tr>
-    <tr>
-      <td>Library officer</td>
-      <td>
-      <a href=\"mailto:a.haumer@haumer.at\">A. Haumer</a>
-      </td>
-      <td>
-        <a href=\"http://www.haumer.at\">Technical Consulting &amp; Electrical Engineering</a><br>
-        3423 St.Andrae-Woerdern<br>
-        Austria
-      </td>
-    </tr>
-    <tr>
-      <td>Contributor</td>
-      <td>
-        <a href=\"mailto:dr.christian.kral@gmail.com\">C. Kral</a>
-      </td>
-      <td>
-        <a href=\"https://christiankral.net\">Electric Machines, Drives and Systems</a><br>
-        1060 Vienna<br>
-        Austria
-      </td>
-    </tr>
-    <tr>
-      <td>Contributor</td>
-      <td>
-        <a href=\"https://github.com/dietmarw\">D. Winkler</a>
-      </td>
-      <td>
-        DWE, Norway
-      </td>
-    </tr>
-  </table>
+<h4>Main authors</h4>
 
+<p>
+<strong>First author's name</strong><br>
+First author's address<br>
+next address line<br>
+email: <a href=\"mailto:author1@example.org\">author1@example.org</a><br>
+web: <a href=\"https://www.example.org\">https://www.example.org</a>
+</p>
+
+<p>
+<strong>Second author's name</strong><br>
+Second author's address<br>
+next address line<br>
+email: <a href=\"mailto:author2@example.org\">author2@example.org</a><br>
+</p>
+
+<h4>Contributors to this library</h4>
+
+<ul>
+  <li>Person one</li>
+  <li>...</li>
+</ul>
+
+<h4>Acknowledgements</h4>
+
+<p>
+The authors would like to thank following persons for their support ...
+</p>
 </html>"));
       end Contact;
 
