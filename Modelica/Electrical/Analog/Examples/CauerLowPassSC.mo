@@ -125,19 +125,26 @@ public
   Modelica.Electrical.Analog.Examples.Utilities.SwitchedCapacitor R8(clock=0.1, R=-1, Capacitor(v(start=0, fixed=true))) annotation (Placement(transformation(extent={{60,10},{80,30}})));
   Modelica.Electrical.Analog.Examples.Utilities.SwitchedCapacitor R9(clock=0.1, R=-1, Capacitor(v(start=0, fixed=true))) annotation (Placement(transformation(extent={{60,-40},{80,
             -20}})));
-  Modelica.Electrical.Analog.Examples.Utilities.SwitchedCapacitor R1(clock=0.1, Capacitor(v(start=0, fixed=true))) annotation (Placement(transformation(extent={{-240,-30},{
+  Modelica.Electrical.Analog.Examples.Utilities.SwitchedCapacitor R1(clock=0.1,
+    R=1,                                                                        Capacitor(v(start=0, fixed=true))) annotation (Placement(transformation(extent={{-240,-30},{
             -220,-10}})));
-  Modelica.Electrical.Analog.Examples.Utilities.SwitchedCapacitor R2(clock=0.1, Capacitor(v(start=0, fixed=true))) annotation (Placement(transformation(extent={{-240,10},{-220,
+  Modelica.Electrical.Analog.Examples.Utilities.SwitchedCapacitor R2(clock=0.1,
+    R=1,                                                                        Capacitor(v(start=0, fixed=true))) annotation (Placement(transformation(extent={{-240,10},{-220,
             30}})));
-  Modelica.Electrical.Analog.Examples.Utilities.SwitchedCapacitor R3(clock=0.1, Capacitor(v(start=0, fixed=true))) annotation (Placement(transformation(extent={{-200,70},{-180,
+  Modelica.Electrical.Analog.Examples.Utilities.SwitchedCapacitor R3(clock=0.1,
+    R=1,                                                                        Capacitor(v(start=0, fixed=true))) annotation (Placement(transformation(extent={{-200,70},{-180,
             90}})));
-  Modelica.Electrical.Analog.Examples.Utilities.SwitchedCapacitor Rp1(clock=0.1, Capacitor(v(start=0, fixed=true))) annotation (Placement(transformation(extent={{-32,10},{-12,
+  Modelica.Electrical.Analog.Examples.Utilities.SwitchedCapacitor Rp1(clock=0.1,
+    R=1,                                                                         Capacitor(v(start=0, fixed=true))) annotation (Placement(transformation(extent={{-32,10},{-12,
             30}})));
-  Modelica.Electrical.Analog.Examples.Utilities.SwitchedCapacitor R7(clock=0.1, Capacitor(v(start=0, fixed=true))) annotation (Placement(transformation(extent={{-32,-40},{-12,
+  Modelica.Electrical.Analog.Examples.Utilities.SwitchedCapacitor R7(clock=0.1,
+    R=1,                                                                        Capacitor(v(start=0, fixed=true))) annotation (Placement(transformation(extent={{-32,-40},{-12,
             -20}})));
-  Modelica.Electrical.Analog.Examples.Utilities.SwitchedCapacitor R10(clock=0.1, Capacitor(v(start=0, fixed=true))) annotation (Placement(transformation(extent={{160,-40},{180,
+  Modelica.Electrical.Analog.Examples.Utilities.SwitchedCapacitor R10(clock=0.1,
+    R=1,                                                                         Capacitor(v(start=0, fixed=true))) annotation (Placement(transformation(extent={{160,-40},{180,
             -20}})));
-  Modelica.Electrical.Analog.Examples.Utilities.SwitchedCapacitor R11(clock=0.1, Capacitor(v(start=0, fixed=true))) annotation (Placement(transformation(extent={{208,50},{228,
+  Modelica.Electrical.Analog.Examples.Utilities.SwitchedCapacitor R11(clock=0.1,
+    R=1,                                                                         Capacitor(v(start=0, fixed=true))) annotation (Placement(transformation(extent={{208,50},{228,
             70}})));
 equation
   connect(Op1.in_p,G. p) annotation (Line(points={{-201,-42},{-201,-50},{-181,-50},{-181,-60},{-182,-60}},

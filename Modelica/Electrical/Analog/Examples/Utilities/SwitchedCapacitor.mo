@@ -1,8 +1,8 @@
 within Modelica.Electrical.Analog.Examples.Utilities;
 model SwitchedCapacitor "Switched capacitor which can represent a positive or negative resistance"
 
-  parameter Modelica.SIunits.Time clock=1 "Clock";
-  parameter Modelica.SIunits.Resistance R=1 "Resistance";
+  parameter Modelica.SIunits.Time clock(start=1) "Clock";
+  parameter Modelica.SIunits.Resistance R(start=1) "Resistance";
   Modelica.Blocks.Sources.BooleanPulse BooleanPulse(period=clock) annotation (Placement(transformation(extent={{-8,70},{12,90}})));
   Modelica.Electrical.Analog.Basic.Capacitor Capacitor(C=clock/max(Modelica.Constants.eps*oneOhm,abs(R)))
                                                                   annotation (Placement(transformation(extent={{-20,-20},{20,20}})));
