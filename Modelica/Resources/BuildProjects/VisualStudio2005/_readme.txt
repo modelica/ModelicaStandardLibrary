@@ -4,6 +4,7 @@ libraries from the C-code under Resources/C-Sources
 - ModelicaStandardTables.lib
   This library contains
   ../../C-Sources/ModelicaStandardTables.c
+  ../../C-Sources/ModelicaStandardTablesUsertab.c
 
 - ModelicaIO.lib
   This library contains
