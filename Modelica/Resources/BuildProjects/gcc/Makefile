@@ -1,7 +1,7 @@
 AR = ar -ru
 RM = rm -f
 
-CFLAGS = -O3
+CFLAGS = -O3 -Wno-attributes
 CPPFLAGS = -DNDEBUG -DHAVE_UNISTD_H -DHAVE_STDARG_H -DHAVE_HIDDEN -DHAVE_MEMCPY
 INC = -I"../../C-Sources/zlib"
 
@@ -55,7 +55,10 @@ libzlib.a: $(ZLIB_OBJS)
 	cp $@ ../../Library/$(TARGETDIR)/$@
 
 ModelicaStandardTables.o: ../../C-Sources/ModelicaStandardTables.c
-	$(CC) $(CPPFLAGS) -DTABLE_SHARE=1 -DDUMMY_FUNCTION_USERTAB $(CFLAGS) $(INC) -c -o $@ $<
+	$(CC) $(CPPFLAGS) -DTABLE_SHARE=1 $(CFLAGS) $(INC) -c -o $@ $<
+
+ModelicaStandardTablesUsertab.o: ../../C-Sources/ModelicaStandardTablesUsertab.c
+	$(CC) $(CPPFLAGS) -DDUMMY_FUNCTION_USERTAB $(CFLAGS) $(INC) -c -o $@ $<
 
 ModelicaMatIO.o: ../../C-Sources/ModelicaMatIO.c
 	$(CC) $(CPPFLAGS) -DHAVE_ZLIB=1 $(CFLAGS) $(INC) -c -o $@ $<
