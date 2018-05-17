@@ -29,7 +29,7 @@
    OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-/* The usertab function needs to be in a separate object or gcc/clang
+/* The usertab function needs to be in a separate object or clang/gcc
    optimize the code in such a way that the user-defined usertab gets
    sent the wrong input.
 
@@ -48,7 +48,7 @@
 #include "ModelicaUtilities.h"
 
 #if defined(DUMMY_FUNCTION_USERTAB)
-#if (defined(__clang__) || defined(__GNUC__)) && !(defined(__MINGW32__) || defined(__MINGW64__) || defined(__CYGWIN__))
+#if (defined(__clang__) || defined(__GNUC__)) && !(defined(__apple_build_version__) || defined(__MINGW32__) || defined(__MINGW64__) || defined(__CYGWIN__))
 int usertab(char* tableName, int nipo, int dim[], int* colWise,
             double** table) __attribute__ ((weak, alias ("dummy_usertab")));
 #define USERTAB_NAME dummy_usertab
