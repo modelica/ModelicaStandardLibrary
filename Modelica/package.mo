@@ -1701,7 +1701,7 @@ The authors would like to thank following persons for their support ...
       extends Modelica.Icons.Information;
       annotation (Documentation(info="<html>
 
-<p>The icon of a Modelica class shall consider the following the guidelines:</p>
+<p>The icon of a Modelica class shall consider the following guidelines:</p>
 
 <h4>Color and Shapes</h4>
 
@@ -1718,7 +1718,7 @@ In the Modelica Standard Library the following color schemes apply:</p>
   <tr>
     <td>Modelica.Blocks</td>
     <td>{0,0,127}</td>
-    <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleBlocks.png\"></td>                 
+    <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleBlocks.png\"></td>
   </tr>
   <tr>
     <td>Modelica.ComplexBlocks</td>
