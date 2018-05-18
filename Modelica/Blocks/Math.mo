@@ -3364,7 +3364,40 @@ The user has to take care that enough points can be sampled before the simulatio
 The result file is written as mat, first column = frequency, second column = amplitudes, third column = phases. The frequency points are separated by rows with amplitude and phase = 0,
 so one can plot the result directly as frequency lines.
 </p>
-</html>"));
+</html>"), Icon(graphics={    Polygon(
+              points={{-80,96},{-86,80},{-74,80},{-80,96}},
+              lineColor={135,135,135},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid),                    Line(
+            points={{-80,-92},{-80,80}},
+                                     color={135,135,135}),
+                                             Line(points={{-92,-80},{80,
+                -80.3976}},
+            color={135,135,135}),Polygon(
+              points={{96,-80.3976},{80,-74.3976},{80,-86.3976},{96,-80.3976}},
+              lineColor={135,135,135},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid),
+          Line(
+            points={{-70,60},{-70,-80}},
+            color={0,0,0},
+            thickness=0.5),
+          Line(
+            points={{-30,-52},{-30,-80}},
+            color={0,0,0},
+            thickness=0.5),
+          Line(
+            points={{-10,-60},{-10,-80}},
+            color={0,0,0},
+            thickness=0.5),
+          Line(
+            points={{30,-68},{30,-80}},
+            color={0,0,0},
+            thickness=0.5),
+          Line(
+            points={{50,-70},{50,-80}},
+            color={0,0,0},
+            thickness=0.5)}));
   end RealFFT;
 
   block Max "Pass through the largest signal"
