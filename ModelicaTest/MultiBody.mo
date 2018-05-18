@@ -4413,7 +4413,7 @@ Simple model to test gasForce element used in some multi-body examples,
 see <a href=\"modelica://Modelica.Mechanics.MultiBody.Examples.Loops\">MultiBody.Examples.Loops</a>.
 </p>
 <p>
-To gengerate the pressure-stroke diagram, simulate the example for 1&nbsp;s
+To generate the pressure-stroke diagram, simulate the example for 1&nbsp;s
 and plot gasForce.press over gasForce.s_rel.
 </p>
 </html>"));
@@ -8687,8 +8687,8 @@ often possible to use the FreeMotion joint such that the singularity
                 lineColor={255,85,85},
                 lineThickness=0.5,
                 fillPattern=FillPattern.Solid,
-                textString="Compare angles and position vector r
-",              fontSize=11),
+                textString="Compare angles and position vector r",
+                fontSize=11),
               Line(
                 points={{-112,-72},{-88,-28}},
                 color={255,85,85},
