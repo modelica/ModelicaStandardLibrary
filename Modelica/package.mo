@@ -8098,8 +8098,8 @@ For an introduction, have especially a look at:
 This version of the Modelica Standard Library consists of
 </p>
 <ul>
-<li><strong>1700</strong> models and blocks, and</li>
-<li><strong>1377</strong> functions</li>
+<li><strong>1669</strong> models and blocks, and</li>
+<li><strong>1224</strong> functions</li>
 </ul>
 <p>
 that are directly usable (= number of public, non-partial classes). It is fully compliant
