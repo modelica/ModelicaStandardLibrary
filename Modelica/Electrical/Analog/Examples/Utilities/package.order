@@ -4,6 +4,7 @@ RealSwitch
 Transistor
 DirectCapacitor
 InverseCapacitor
+SwitchedCapacitor
 Resistor
 DirectInductor
 InverseInductor
