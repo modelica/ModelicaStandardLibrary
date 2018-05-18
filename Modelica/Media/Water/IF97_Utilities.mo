@@ -55,7 +55,7 @@ package IF97_Utilities
       constant SI.Pressure PLIMIT1=100.0e6
         "Upper pressure limit for regions 1, 2 and 3";
       constant SI.Pressure PLIMIT4A=16.5292e6
-        "Pressure limit between regions 1 and 2, important for for two-phase (region 4)";
+        "Pressure limit between regions 1 and 2, important for two-phase (region 4)";
       constant SI.Pressure PLIMIT5=10.0e6
         "Upper limit of valid pressure in region 5";
       constant SI.Pressure PCRIT=22064000.0 "The critical pressure";

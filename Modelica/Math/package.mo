@@ -5936,7 +5936,7 @@ Lapack documentation
 
     This routine is basically identical to the original xGELSX except
     three differences:
-      o The call to the subroutine xGEQPF has been substituted by the
+      o The call to the subroutine xGEQPF has been substituted by
         the call to the subroutine xGEQP3. This subroutine is a Blas-3
         version of the QR factorization with column pivoting.
       o Matrix B (the right hand side) is updated with Blas-3.
@@ -6086,7 +6086,7 @@ Lapack documentation
 
     This routine is basically identical to the original xGELSX except
     three differences:
-      o The call to the subroutine xGEQPF has been substituted by the
+      o The call to the subroutine xGEQPF has been substituted by
         the call to the subroutine xGEQP3. This subroutine is a Blas-3
         version of the QR factorization with column pivoting.
       o Matrix B (the right hand side) is updated with Blas-3.
@@ -10872,7 +10872,7 @@ This package contains a direct interface to the LAPACK subroutines
 <h4>Description</h4>
 <p>
 This function provides a Newton-like method for solving continuous algebraic Riccati equations (care). It utilizes Exact Line Search to improve the sometimes erratic
-convergence of Newton's method. Exact line search in this case means means, that at each iteration <code>i</code> a Newton step <code><strong>delta</strong>_i</code>
+convergence of Newton's method. Exact line search in this case means, that at each iteration <code>i</code> a Newton step <code><strong>delta</strong>_i</code>
 </p>
 <blockquote><pre>
   <strong>X</strong>_i+1 = <strong>X</strong>_i + <strong>delta</strong>_i
@@ -11036,7 +11036,7 @@ The algorithm is taken from [1] and [2].
 <h4>Description</h4>
 <p>
 This function provides a Newton-like method for solving discrete-time algebraic Riccati equations. It uses Exact Line Search to improve the sometimes erratic
-convergence of Newton's method. Exact line search in this case means means, that at each iteration <code>i</code> a Newton step <code><strong>delta</strong>_i</code>
+convergence of Newton's method. Exact line search in this case means, that at each iteration <code>i</code> a Newton step <code><strong>delta</strong>_i</code>
 </p>
 <blockquote><pre>
   <strong>X</strong>_i+1 = <strong>X</strong>_i + <strong>delta</strong>_i
@@ -13117,7 +13117,7 @@ partial function baseIcon1
 Instead the icon <a href=\"modelica://Modelica.Math.Icons.AxisLeft\">Modelica.Math.Icons.AxisLeft</a> shall be used.
 </p>
 </html>"),
-  obsolete = "Obsolete function - use use Modelica.Math.Icons.AxisLeft instead");
+  obsolete = "Obsolete function - use Modelica.Math.Icons.AxisLeft instead");
 end baseIcon1;
 
 
@@ -13157,7 +13157,7 @@ partial function baseIcon2
 Instead the icon <a href=\"modelica://Modelica.Math.Icons.AxisCenter\">Modelica.Math.Icons.AxisCenter</a> shall be used.
 </p>
 </html>"),
-  obsolete = "Obsolete function - use use Modelica.Math.Icons.AxisCenter instead");
+  obsolete = "Obsolete function - use Modelica.Math.Icons.AxisCenter instead");
 end baseIcon2;
 
 

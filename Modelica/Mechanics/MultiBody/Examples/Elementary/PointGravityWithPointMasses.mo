@@ -52,7 +52,7 @@ equation
 <p>
 This model demonstrates the usage of model Parts.PointMass in a
 point gravity field. The PointMass model has the feature that
-that rotation is not taken into account and can therefore also not be
+the rotation is not taken into account and can therefore also not be
 calculated. This example demonstrates two cases where this does not matter:
 If a PointMass is not connected (body1, body2), the orientation object in
 these point masses is set to a unit rotation.

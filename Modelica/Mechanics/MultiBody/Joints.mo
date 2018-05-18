@@ -10,7 +10,7 @@ package Joints "Components that constrain the motion between two frames"
       "1-dim. translational flange that drives the joint"
       annotation (Placement(transformation(extent={{90,50},{70,70}})));
     Modelica.Mechanics.Translational.Interfaces.Flange_b support if useAxisFlange
-      "1-dim. translational flange of the drive drive support (assumed to be fixed in the world frame, NOT in the joint)"
+      "1-dim. translational flange of the drive support (assumed to be fixed in the world frame, NOT in the joint)"
       annotation (Placement(transformation(extent={{-30,50},{-50,70}})));
 
     parameter Boolean useAxisFlange=false "= true, if axis flange is enabled"

@@ -4318,7 +4318,7 @@ Due to the additional inductive voltage drops, output of the motor is lower, com
     parameter Modelica.SIunits.AngularVelocity w0=Modelica.SIunits.Conversions.from_rpm(1500)
       "No-load speed";
     parameter Modelica.SIunits.Torque TLoad=63.66 "Nominal load torque";
-    parameter Modelica.SIunits.Time tStart=0.5 "Start of load torque ramp ramp";
+    parameter Modelica.SIunits.Time tStart=0.5 "Start of load torque ramp";
     parameter Modelica.SIunits.Time tRamp=2.0 "Load torque ramp";
     parameter Modelica.SIunits.Inertia JLoad=0.15 "Load's moment of inertia";
 
@@ -8925,7 +8925,7 @@ the only difference is that electrical transients are neglected.
         annotation (defaultComponentName="dcse", Documentation(info="<html>
 <strong>Quasistationary model of a DC Machine with Series excitation.</strong><br>
 This model is fully compatible with the
-<a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_SeriesExcited\">transient machine model of a DC machine with with series excitation</a>;
+<a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_SeriesExcited\">transient machine model of a DC machine with series excitation</a>;
 the only difference is that electrical transients are neglected.
 </html>"));
       end DC_SeriesExcited;
@@ -10564,10 +10564,10 @@ This package contains transformers primary D connected / secondary d connected i
 This package contains components to model technical three-phase transformers:
 <ul>
 <li>Transformer: transformer model to choose connection / vector group</li>
-<li>Yy: Transformers with primary primary Y / secondary y</li>
-<li>Yd: Transformers with primary primary Y / secondary d</li>
-<li>Yz: Transformers with primary primary Y / secondary zig-zag</li>
-<li>Dy: Transformers with primary primary D / secondary y</li>
+<li>Yy: Transformers with primary Y / secondary y</li>
+<li>Yd: Transformers with primary Y / secondary d</li>
+<li>Yz: Transformers with primary Y / secondary zig-zag</li>
+<li>Dy: Transformers with primary D / secondary y</li>
 <li>Dd: Transformers with primary D / secondary d</li>
 <li>Dz: Transformers with primary D / secondary zig-zag</li>
 </ul>

@@ -984,7 +984,7 @@ clarity this is not shown in the animation):
       package Interfaces
         "Connectors and partial models for 3-dim. mechanical components"
         partial model PartialCutForceSensor
-          "Obsolete model. Use instead instead a model from Modelica.Mechanics.MultiBody.Sensors"
+          "Obsolete model. Use instead a model from Modelica.Mechanics.MultiBody.Sensors"
 
           extends Modelica.Icons.RotationalSensor;
           extends ObsoleteModelica3.Icons.ObsoleteModel;

@@ -111,7 +111,7 @@ The term <strong>fundamental wave</strong> refers to spatial waves of the electr
 
 <p>
 Symmetrical three phases systems of currents (or voltages) consists of three sinusoidal
-sine waves with with an angular displacement of
+sine waves with an angular displacement of
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/2pi_3.png\"/>.
 </p>
 
@@ -136,7 +136,7 @@ The associated three phase winding is depicted in Fig. 2(a). The winding axis ar
 </p>
 
 <p>
-So there is is a strong coherence between angular displacement in the time and
+So there is a strong coherence between angular displacement in the time and
 spatial domain which also applies to multi phase systems.
 </p>
 
@@ -644,7 +644,7 @@ model from R to G</li>
     annotation (DocumentationClass=true, Documentation(info="<html>
 <p>
 This library contains components for modelling of electromagnetic fundamental wave
-models for the application in multi phase phase
+models for the application in multi phase
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines\">electric machines</a>.
 The number of phases is not restricted to three. DC machines are (currently) not included
 in this library. The FundamentalWave library is an alternative approach to the

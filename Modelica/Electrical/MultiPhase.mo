@@ -16,7 +16,7 @@ package MultiPhase "Library for electrical components of one or more phases"
 </p>
 <h4>Symmetrical three phase system</h4>
 <p>
-A symmetrical three phases system consists of three sinusoidal sine waves with with an angular displacement of 2 &pi; / 3.
+A symmetrical three phases system consists of three sinusoidal sine waves with an angular displacement of 2 &pi; / 3.
 </p>
 <h4>Symmetrical multi phase system</h4>
 <p>

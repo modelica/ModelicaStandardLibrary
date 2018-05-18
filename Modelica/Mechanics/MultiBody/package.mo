@@ -260,7 +260,7 @@ MultiBody.Examples.Loops.Fourbar1</a>
 <p>
 This mechanism consists of&nbsp;6 revolute joints and&nbsp;1 prismatic joint and forms a
 kinematical loop.
-It has has one degree of freedom. In the next figure the default animation
+It has one degree of freedom. In the next figure the default animation
 is shown. Note, that the axes of the revolute joints are represented by the
 red cylinders and that the axis of the prismatic joint is represented by the
 red box on the lower right side.

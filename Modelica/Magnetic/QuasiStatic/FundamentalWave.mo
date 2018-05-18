@@ -5971,23 +5971,23 @@ Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding</a>
           "Complex magnetic potential difference of stator w.r.t. stator fixed frame";
         Modelica.SIunits.ComplexMagneticPotentialDifference V_msr=V_ms*
             Modelica.ComplexMath.fromPolar(1, gammar)
-          "Complex magnetic potential difference of stator w.r.t. rotor fixed fixed frame";
+          "Complex magnetic potential difference of stator w.r.t. rotor fixed frame";
         Modelica.SIunits.ComplexMagneticPotentialDifference V_mr
           "Complex magnetic potential difference of rotor w.r.t. rotor fixed frame";
         Modelica.SIunits.ComplexMagneticPotentialDifference V_mrr=V_mr*
             Modelica.ComplexMath.fromPolar(1, gammar)
-          "Complex magnetic potential difference of rotor w.r.t. rotor fixed fixed frame";
+          "Complex magnetic potential difference of rotor w.r.t. rotor fixed frame";
         // Complex phasors of magnetic fluxes
         Modelica.SIunits.ComplexMagneticFlux Phi_s
           "Complex magnetic flux of stator w.r.t. stator fixed frame";
         Modelica.SIunits.ComplexMagneticFlux Phi_sr=Phi_s*
             Modelica.ComplexMath.fromPolar(1, gammar)
-          "Complex magnetic flux of stator w.r.t. rotor fixed fixed frame";
+          "Complex magnetic flux of stator w.r.t. rotor fixed frame";
         Modelica.SIunits.ComplexMagneticFlux Phi_r
           "Complex magnetic flux of rotor w.r.t. rotor fixed frame";
         Modelica.SIunits.ComplexMagneticFlux Phi_rr=Phi_r*
             Modelica.ComplexMath.fromPolar(1, gammar)
-          "Complex magnetic flux of rotor w.r.t. rotor fixed fixed frame";
+          "Complex magnetic flux of rotor w.r.t. rotor fixed frame";
         // Electrical torque and mechanical angle
         Modelica.SIunits.Torque tauElectrical "Electrical torque";
         Modelica.SIunits.Angle gamma=p*(flange_a.phi - support.phi)

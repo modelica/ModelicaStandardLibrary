@@ -2056,7 +2056,7 @@ The characteristic current drop during pull-in is due to both armature motion an
             final l=l_yoke - (t_poleBot + t_yokeBot)/2,
             final r_i=r_yokeIn,
             final r_o=r_yokeOut)
-            "Permeance of of hollow cylindric section of ferromagnetic yoke"
+            "Permeance of hollow cylindric section of ferromagnetic yoke"
             annotation (Placement(transformation(extent={{-10,80},{10,100}})));
 
           FluxTubes.Shapes.FixedShape.HollowCylinderAxialFlux g_mFeArm(
@@ -2371,7 +2371,7 @@ During model-based actuator design, the radii and lengths of the flux tube eleme
             final r_o=r_yokeOut,
             final nonLinearPermeability=true,
             final material=material)
-            "Permeance of of first half of yoke's hollow cylindric section"
+            "Permeance of first half of yoke's hollow cylindric section"
             annotation (Placement(transformation(extent={{-50,70},{-30,90}})));
 
           FluxTubes.Shapes.FixedShape.HollowCylinderAxialFlux g_mFeArm(
@@ -2495,7 +2495,7 @@ During model-based actuator design, the radii and lengths of the flux tube eleme
             r_o=r_yokeOut,
             final nonLinearPermeability=true,
             final material=material)
-            "Permeance of of second half of yoke's hollow cylindric section"
+            "Permeance of second half of yoke's hollow cylindric section"
             annotation (Placement(transformation(extent={{20,70},{40,90}})));
 
           Modelica.Electrical.Analog.Basic.Capacitor c_par2(final C=C_par, v(

@@ -723,7 +723,7 @@ This is discussed in the description of package
                                        annotation(Evaluate=true,
         Dialog(group="Initialization"));
     parameter Real xi_start=0
-      "Initial or guess value value for integrator output (= integrator state)"
+      "Initial or guess value for integrator output (= integrator state)"
       annotation (Dialog(group="Initialization"));
     parameter Real xd_start=0
       "Initial or guess value for state of derivative block"
@@ -924,7 +924,7 @@ to compute u by an algebraic equation.
       "= false, if limits are ignored during initialization"
       annotation(Evaluate=true, Dialog(group="Initialization"));
     parameter Real xi_start=0
-      "Initial or guess value value for integrator output (= integrator state)"
+      "Initial or guess value for integrator output (= integrator state)"
       annotation (Dialog(group="Initialization",
                   enable=controllerType==.Modelica.Blocks.Types.SimpleController.PI or
                          controllerType==.Modelica.Blocks.Types.SimpleController.PID));

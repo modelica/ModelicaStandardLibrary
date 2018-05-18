@@ -10601,10 +10601,10 @@ The heterogeneous approaches are analytically derived by minimising the momentum
                 IN_var.rho_l))^0.5*(IN_var.eta_l/max(MIN, IN_var.eta_g))^0.1)
               "Martinelli parameter";
 
-            //SOURCE_1: p.675, eq. 9.105: Considering of convection enhancement factor w.r.t. equation of of Gungor-Winterton
+            //SOURCE_1: p.675, eq. 9.105: Considering of convection enhancement factor w.r.t. equation of Gungor-Winterton
             Real E_fc=1 + 24000*Bo^1.16 + 1.37*(1/max(MIN, X_tt))^0.86
               "Enhancement factor for forced convection";
-            //SOURCE_1: p.675, eq. 9.105: Considering of boiling suppression factor w.r.t. equation of of Gungor-Winterton
+            //SOURCE_1: p.675, eq. 9.105: Considering of boiling suppression factor w.r.t. equation of Gungor-Winterton
             Real S_nb=1/max(MIN, 1 + 1.15e-6*E_fc^2*Re_l^1.17)
               "Suppression factor for nucleate boiling";
 

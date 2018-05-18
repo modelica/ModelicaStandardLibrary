@@ -149,7 +149,7 @@ w = Frames.<strong>angularVelocity1</strong>(R);
 
 <h4>Description</h4>
 <p>
-The function call <code>Frames.<strong>angularVelocity1</strong>(R12)</code> returns the
+The function call <code>Frames.<strong>angularVelocity1</strong>(R12)</code> returns
 the angular velocity&nbsp;w of frame&nbsp;2 with respect to frame&nbsp;1, <strong>resolved in frame&nbsp;1</strong>,
 from the orientation object R12 that describes the orientation to rotate frame&nbsp;1 into frame&nbsp;2.
 </p>
@@ -179,7 +179,7 @@ w = Frames.<strong>angularVelocity2</strong>(R);
 
 <h4>Description</h4>
 <p>
-The function call <code>Frames.<strong>angularVelocity1</strong>(R12)</code> returns the
+The function call <code>Frames.<strong>angularVelocity1</strong>(R12)</code> returns
 the angular velocity&nbsp;w of frame&nbsp;2 with respect to frame&nbsp;1, <strong>resolved in frame&nbsp;2</strong>,
 from the orientation object R12 that describes the orientation to rotate frame&nbsp;1 into frame&nbsp;2.
 </p>
@@ -514,7 +514,7 @@ return a wrong result, if length(e) is not one.
             v1*v2 = (e*v1)*(e*v2) + (v1*v1 - (e*v1)*(e*v1))*cos(angle)
        and therefore:
         (2) cos(angle) = ( v1*v2 - (e*v1)*(e*v2)) / (v1*v1 - (e*v1)*(e*v1))
-       Similarly, equation (1) is multiplied with cross(e,v1), i.e., a
+       Similarly, equation (1) is multiplied with cross(e,v1), i.e.,
        a vector that is orthogonal to e and to v1:
               cross(e,v1)*v2 = - cross(e,v1)*cross(e,v1)*sin(angle)
        and therefore:
@@ -1411,7 +1411,7 @@ w = Quaternions.<strong>angularVelocity1</strong>(Q, der_Q);
 
 <h4>Description</h4>
 <p>
-This function returns the the angular velocity&nbsp;w of frame&nbsp;2 with
+This function returns the angular velocity&nbsp;w of frame&nbsp;2 with
 respect to frame&nbsp;1, <strong>resolved in frame&nbsp;1</strong>, from the
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Quaternions.Orientation\">quaternions orientation</a>&nbsp;Q
 that describes the orientation to rotate frame&nbsp;1 into frame&nbsp;2
@@ -1446,7 +1446,7 @@ w = Quaternions.<strong>angularVelocity2</strong>(Q, der_Q);
 
 <h4>Description</h4>
 <p>
-This function returns the the angular velocity&nbsp;w of frame&nbsp;2 with
+This function returns the angular velocity&nbsp;w of frame&nbsp;2 with
 respect to frame&nbsp;1, <strong>resolved in frame&nbsp;2</strong>, from the
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Quaternions.Orientation\">quaternions orientation</a>&nbsp;Q
 that describes the orientation to rotate frame&nbsp;1 into frame&nbsp;2
@@ -2266,7 +2266,7 @@ w = TransformationMatrices.<strong>angularVelocity1</strong>(T, der_T);
 
 <h4>Description</h4>
 <p>
-This function returns the the angular velocity&nbsp;w of frame&nbsp;2 with
+This function returns the angular velocity&nbsp;w of frame&nbsp;2 with
 respect to frame&nbsp;1, <strong>resolved in frame&nbsp;1</strong>, from the
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation\">transformation matrix</a>&nbsp;T
 that describes the orientation to rotate frame&nbsp;1 into frame&nbsp;2
@@ -2321,7 +2321,7 @@ w = TransformationMatrices.<strong>angularVelocity2</strong>(T, der_T);
 
 <h4>Description</h4>
 <p>
-This function returns the the angular velocity&nbsp;w of frame&nbsp;2 with
+This function returns the angular velocity&nbsp;w of frame&nbsp;2 with
 respect to frame&nbsp;1, <strong>resolved in frame&nbsp;2</strong>, from the
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation\">transformation matrix</a>&nbsp;T
 that describes the orientation to rotate frame&nbsp;1 into frame&nbsp;2

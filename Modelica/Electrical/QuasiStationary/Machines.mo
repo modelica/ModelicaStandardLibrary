@@ -1861,10 +1861,10 @@ This package contains transformers primary D connected / secondary d connected i
 This package contains components to model technical three-phase transformers:
 <ul>
 <li>Transformer: transformer model to choose connection / vector group</li>
-<li>Yy: Transformers with primary primary Y / secondary y</li>
-<li>Yd: Transformers with primary primary Y / secondary d</li>
-<li>Yz: Transformers with primary primary Y / secondary zig-zag</li>
-<li>Dy: Transformers with primary primary D / secondary y</li>
+<li>Yy: Transformers with primary Y / secondary y</li>
+<li>Yd: Transformers with primary Y / secondary d</li>
+<li>Yz: Transformers with primary Y / secondary zig-zag</li>
+<li>Dy: Transformers with primary D / secondary y</li>
 <li>Dd: Transformers with primary D / secondary d</li>
 <li>Dz: Transformers with primary D / secondary zig-zag</li>
 </ul>
@@ -2217,7 +2217,7 @@ This package contains components for modeling electrical machines, specially thr
             fillPattern=FillPattern.Solid,
             points={{-70,-90},{-60,-90},{-30,-20},{20,-20},{50,-90},{60,-90},{
                 60,-100},{-70,-100},{-70,-90}})}), Documentation(info="<html>
-This package contains components for modeling quasi stationary electrical induction machines machines, based on space phasor theory:
+This package contains components for modeling quasi stationary electrical induction machines, based on space phasor theory:
 <ul>
 <li>package AsynchronousInductionMachines: quasi stationary models of three phase asynchronous induction machines</li>
 <li>package SynchronousInductionMachines: quasi stationary models of three phase synchronous induction machines</li>

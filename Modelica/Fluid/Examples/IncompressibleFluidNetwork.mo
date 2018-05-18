@@ -247,7 +247,7 @@ equation
 This example demonstrates two aspects: the treatment of multi-way connections
 and the usage of an incompressible medium model.
 </p><p>
-Eleven pipe models with nNodes=2 each introduce 22 temperature states and and 22 pressure states.
+Eleven pipe models with nNodes=2 each introduce 22 temperature states and 22 pressure states.
 When configuring <strong>pipeModelStructure=a_v_b</strong>, the flow models at the pipe ports constitute algebraic loops for the pressures.
 A common work-around is to introduce \"mixing volumes\" in critical connections.
 </p><p>

@@ -121,17 +121,17 @@ The model contains the following functions that have annotation
 <ol>
 <li> MultiBody.Frames.resolve1/resolve2(..) functions are used to transform the coordinates
      of a vector in another coordinate system. When these functions need to be differentiated
-     in the Pantelides algorithm, then Eulers differentiation rule is applied with the angular velocity
-     that is usually a factor of 2-3 more efficient as if direct differentation
+     in the Pantelides algorithm, then Euler's differentiation rule is applied with the angular velocity
+     that is usually a factor of 2-3 more efficient as if direct differentiation
      is applied. The drawback is that the sparsity structure is more \"coarse\" and
      this lets the Pantelides algorithm fail in this example (this happens usually only
      in systems with kinematic loops). This means that the differentiated equation system
      is structurally singular, after the functions with annotation \"InineAfterIndexReduction = true\"
      are inlined.</li>
 <li> The Rotational.Sources.Move block is using internally functions to express that
-     an input u[2] is the derivative of of input u[1]. In order that this is possible, the functions
+     an input u[2] is the derivative of input u[1]. In order that this is possible, the functions
      have the annotation \"InineAfterIndexReduction = true\" so that the differentiation takes place
-     with the not inlined functions. After the Pantelides algorithm and the differentation
+     with the not inlined functions. After the Pantelides algorithm and the differentiation
      is applied, the functions are inlined to enhance efficiency.</li>
 </ol>
 
@@ -140,7 +140,7 @@ The problem with (1) is that after inlining the functions with
 annotation \"InineAfterIndexReduction = true\", the equations are structurally singular, but the
 source of the singularity is now known. One remedy is to restart symbolic processing and to
 inline all functions with \"InineAfterIndexReduction = true\" before the Pantelides algorithm
-is applied. In the model, this approach is in principal succeessful and the model would
+is applied. In the model, this approach is in principal successful and the model would
 be structurally regular. However, the Move block is no longer working correctly if the Pantelides
 algorithm is applied with inlining. For this reason in MSL 3.2.1 build 3, the annotation
 \"InineAfterIndexReduction = true\" in the Move block has been replaced by
