@@ -263,7 +263,7 @@ equation
        by Christoph Clauss<br>
        included into Modelica Standard Library</li>
 <li><em>September 15, 2005</em>
-       by by Peter Trappe designed and by Teresa Schlegel<br>
+       by Peter Trappe designed and by Teresa Schlegel<br>
        initially modelled.</li>
 </ul>
 </html>", info="<html>
