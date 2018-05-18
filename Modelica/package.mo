@@ -2,7 +2,6 @@ within ;
 package Modelica "Modelica Standard Library - Version 3.2.3"
 extends Modelica.Icons.Package;
 
-
 package UsersGuide "User's Guide"
   extends Modelica.Icons.Information;
 
@@ -8099,7 +8098,7 @@ For an introduction, have especially a look at:
 This version of the Modelica Standard Library consists of
 </p>
 <ul>
-<li><strong>1699</strong> models and blocks, and</li>
+<li><strong>1700</strong> models and blocks, and</li>
 <li><strong>1377</strong> functions</li>
 </ul>
 <p>
