@@ -3083,6 +3083,127 @@ center tap <code>2*m</code> pulse rectifiers</a>, where <code>m</code> is the nu
 <p>Plot current <code>currentSensor.i[:]</code>, harmonic current magnitude <code>fundamentalWaveCurrent[:].y_RMS</code>, harmonic voltage magnitude <code>fundamentalWaveVoltage[:].y_RMS</code>. The instantaneous voltages <code>voltageSensor.i[:]</code> directly show the switching pattern of the inverter.</p>
 </html>"));
         end MultiPhaseTwoLevel_RL;
+
+        model ThreePhaseTwoLevel_PWM "Test of pulse width modulation methods"
+          extends Modelica.Icons.Example;
+          import Modelica.Electrical.MultiPhase.Functions.factorY2DC;
+          import Modelica.Constants.pi;
+          parameter Real RMS=1 "Reference RMS Y";
+          Modelica.Blocks.Sources.Cosine cosine(freqHz=2,
+            phase=0,
+            amplitude=RMS*sqrt(2))
+            annotation (Placement(transformation(extent={{-90,10},{-70,30}})));
+          Modelica.Blocks.Sources.Sine sine(
+            amplitude=cosine.amplitude,
+            freqHz=cosine.freqHz,
+            phase=cosine.phase)
+            annotation (Placement(transformation(extent={{-90,-30},{-70,-10}})));
+          Modelica.Electrical.PowerConverters.DCAC.Control.PWM pwm(uMax=sqrt(2*
+                3), samplePeriod=1/100)
+            annotation (Placement(transformation(extent={{-50,-10},{-30,10}})));
+          Modelica.Electrical.PowerConverters.DCAC.MultiPhase2Level multiPhase2Level
+            annotation (Placement(transformation(extent={{-10,40},{10,60}})));
+          Modelica.Electrical.Analog.Sources.ConstantVoltage dcPos(V=pwm.uMax/2)
+            annotation (Placement(transformation(
+                extent={{-10,-10},{10,10}},
+                rotation=270,
+                origin={-40,70})));
+          Modelica.Electrical.Analog.Sources.ConstantVoltage dcNeg(V=pwm.uMax/2)
+            annotation (Placement(transformation(
+                extent={{-10,-10},{10,10}},
+                rotation=270,
+                origin={-40,30})));
+          Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
+                transformation(
+                extent={{-10,-10},{10,10}},
+                rotation=270,
+                origin={-50,50})));
+          Modelica.Electrical.MultiPhase.Sensors.PotentialSensor potentialSensor
+            annotation (Placement(transformation(extent={{20,40},{40,60}})));
+          Modelica.Blocks.Math.Harmonic harmonic(f=cosine.freqHz, k=1)
+            annotation (Placement(transformation(extent={{60,40},{80,60}})));
+          Modelica.Electrical.Machines.SpacePhasors.Blocks.ToSpacePhasor toSpacePhasor
+            annotation (Placement(transformation(extent={{-30,-50},{-10,-30}})));
+          Modelica.Electrical.Machines.SpacePhasors.Blocks.Rotator rotator
+            annotation (Placement(transformation(extent={{0,-50},{20,-30}})));
+          Modelica.Blocks.Sources.Constant const(k=cosine.freqHz)
+            annotation (Placement(transformation(extent={{-60,-80},{-40,-60}})));
+          Modelica.Blocks.Continuous.Integrator integrator(k=2*pi)
+            annotation (Placement(transformation(extent={{-30,-80},{-10,-60}})));
+          Modelica.Blocks.Continuous.Filter filter[2](
+            each init=Modelica.Blocks.Types.Init.InitialOutput,
+            each analogFilter=Modelica.Blocks.Types.AnalogFilter.CriticalDamping,
+            y_start={cosine.amplitude,cosine.phase},
+            each order=2,
+            each f_cut=0.5*cosine.freqHz)
+            annotation (Placement(transformation(extent={{30,-50},{50,-30}})));
+          Modelica.Electrical.Machines.SpacePhasors.Blocks.ToPolar toPolar
+            annotation (Placement(transformation(extent={{60,-50},{80,-30}})));
+        equation
+          connect(pwm.fire_p, multiPhase2Level.fire_p)
+            annotation (Line(points={{-29,6},{-6,6},{-6,38}}, color={255,0,255}));
+          connect(pwm.fire_n, multiPhase2Level.fire_n)
+            annotation (Line(points={{-29,-6},{6,-6},{6,38}}, color={255,0,255}));
+          connect(dcNeg.n, multiPhase2Level.dc_n) annotation (Line(points={{-40,20},
+                  {-20,20},{-20,44},{-10,44}},
+                                   color={0,0,255}));
+          connect(dcPos.p, multiPhase2Level.dc_p) annotation (Line(points={{-40,80},
+                  {-20,80},{-20,56},{-10,56}},
+                                   color={0,0,255}));
+          connect(dcPos.n, ground.p)
+            annotation (Line(points={{-40,60},{-40,50}}, color={0,0,255}));
+          connect(ground.p, dcNeg.p)
+            annotation (Line(points={{-40,50},{-40,40}}, color={0,0,255}));
+          connect(cosine.y, pwm.u[1]) annotation (Line(points={{-69,20},{-60,20},{-60,
+                  -1},{-52,-1}}, color={0,0,127}));
+          connect(sine.y, pwm.u[2]) annotation (Line(points={{-69,-20},{-60,-20},{-60,
+                  1},{-52,1}}, color={0,0,127}));
+          connect(multiPhase2Level.ac, potentialSensor.plug_p)
+            annotation (Line(points={{10,50},{20,50}}, color={0,0,255}));
+          connect(toSpacePhasor.y, rotator.u)
+            annotation (Line(points={{-9,-40},{-2,-40}},   color={0,0,127}));
+          connect(potentialSensor.phi, toSpacePhasor.u) annotation (Line(points={{41,50},
+                  {50,50},{50,-20},{-40,-20},{-40,-40},{-32,-40}}, color={0,0,127}));
+          connect(const.y, integrator.u)
+            annotation (Line(points={{-39,-70},{-32,-70}}, color={0,0,127}));
+          connect(integrator.y, rotator.angle)
+            annotation (Line(points={{-9,-70},{10,-70},{10,-52}},color={0,0,127}));
+          connect(potentialSensor.phi[1], harmonic.u)
+            annotation (Line(points={{41,50},{58,50}}, color={0,0,127}));
+          connect(rotator.y, filter.u)
+            annotation (Line(points={{21,-40},{28,-40}}, color={0,0,127}));
+          connect(filter.y, toPolar.u)
+            annotation (Line(points={{51,-40},{58,-40}}, color={0,0,127}));
+          annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(
+                coordinateSystem(preserveAspectRatio=false)),
+            experiment(
+              StopTime=2,
+              Interval=0.001,
+              Tolerance=1e-05),
+            Documentation(info="<html>
+<p>
+A reference space vector (formed by real part = cosine and imaginary part = sine) of length &radic;2*RMS and frequency 2 Hz is applied. 
+The resulting switching patterns are applied to a threephase twolevel bridge with switching frequency 100 Hz, fed by DC voltage = &radic;2*&radic;3*1 
+where 1 is the theoretical maximum voltage from terminal to neutral. 
+The resulting voltages with reference to midpoint of the DC voltage are measured.
+</p>
+<p>
+The RMS of the first harmonic of the first of these voltages is calculated. 
+Please note that the value of the first harmonic is vaild after the first period (i.e. 0.5 s).
+</p>
+<p>
+Furthermore, these three voltages are transformed to the corresponding space phasor. 
+Note that the zero component is not zero, indicating the shift of the neutral with respect to the midpoint of the DC voltage. 
+<p>
+</p>
+The space phasor is rotated to the coordinate system rotating with 2*&pi;*2 Hz. 
+To suppress the influence of switching, real and imaginary part of the rotated phasor are filtered. 
+The polar representation of this rotated and filtered phasor are calculated. 
+
+Please note that the filter has a settle time depending on the filter parameters.
+</p>
+</html>"));
+        end ThreePhaseTwoLevel_PWM;
       end MultiPhaseTwoLevel;
 
       package ExampleTemplates "Templates of examples"
@@ -5622,6 +5743,324 @@ General information about AC/DC converters can be found at the
 
   package DCAC "DC to AC converters"
     extends Modelica.Icons.Package;
+    package Control "Control components for DC to AC converters"
+      extends Modelica.Icons.Package;
+
+      block PWM "PulseWidthModulation"
+        extends Modelica.Blocks.Icons.Block;
+        constant Integer m=3 "Number of phases";
+        parameter Modelica.Electrical.PowerConverters.Types.PWMType pwmType=
+            Modelica.Electrical.PowerConverters.Types.PWMType.SVPWM "PWM Type"
+          annotation (Evaluate=true);
+        parameter Modelica.SIunits.Time samplePeriod(min=100*Modelica.Constants.eps, start=0.1)
+          "Sample period = 1 / fSwitch";
+        parameter Modelica.SIunits.Time startTime=0 "Start time of PWM";
+        parameter Real uMax "Maximum amplitude of signal";
+        parameter Modelica.Electrical.PowerConverters.Types.ReferenceType
+          refType=Modelica.Electrical.PowerConverters.Types.ReferenceType.Triangle3
+          "Type of reference signal" annotation (Evaluate=true, Dialog(enable=
+                pwmType == Modelica.Electrical.PowerConverters.Types.PWMType.Intersective));
+        Modelica.Blocks.Interfaces.RealInput u[2] "Reference space phasor"
+          annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
+        Modelica.Blocks.Interfaces.BooleanOutput fire_p[m] "positive fire signal"
+          annotation (Placement(transformation(extent={{100,50},{120,70}})));
+        Modelica.Blocks.Interfaces.BooleanOutput fire_n[m] "negative fire signal"
+          annotation (Placement(transformation(extent={{100,-70},{120,-50}})));
+        Modelica.Electrical.PowerConverters.DCAC.Control.SVPWM svPWM(
+          samplePeriod=samplePeriod,
+          startTime=startTime,
+          uMax=uMax) if pwmType == Modelica.Electrical.PowerConverters.Types.PWMType.SVPWM
+          annotation (Placement(transformation(extent={{-10,30},{10,50}})));
+        Modelica.Electrical.PowerConverters.DCAC.Control.IntersectivePWM
+          intersectivePWM(
+          samplePeriod=samplePeriod,
+          startTime=startTime,
+          uMax=uMax,
+          refType=refType) if pwmType == Modelica.Electrical.PowerConverters.Types.PWMType.Intersective
+          annotation (Placement(transformation(extent={{-10,-50},{10,-30}})));
+      equation
+        connect(u, svPWM.u) annotation (Line(points={{-120,0},{-60,0},{-60,40},{-12,40}},
+              color={0,0,127}));
+        connect(u, intersectivePWM.u) annotation (Line(points={{-120,0},{-60,0},{-60,-40},
+                {-12,-40}}, color={0,0,127}));
+        connect(svPWM.fire_p, fire_p) annotation (Line(points={{11,46},{40,46},{40,60},
+                {110,60}}, color={255,0,255}));
+        connect(intersectivePWM.fire_p, fire_p) annotation (Line(points={{11,-34},{40,
+                -34},{40,60},{110,60}}, color={255,0,255}));
+        connect(svPWM.fire_n, fire_n) annotation (Line(points={{11,34},{60,34},{60,-60},
+                {110,-60}}, color={255,0,255}));
+        connect(intersectivePWM.fire_n, fire_n) annotation (Line(points={{11,-46},{60,
+                -46},{60,-60},{110,-60}}, color={255,0,255}));
+        annotation (defaultComponentName="pwm", Icon(coordinateSystem(preserveAspectRatio=false), graphics={Text(
+                extent={{-80,80},{60,40}},
+                lineColor={0,0,0},
+                textString="P W M"), Text(
+                extent={{-80,-40},{60,-80}},
+                lineColor={0,0,0},
+                textString="1/f=%samplePeriod"),                                Text(
+                extent={{-80,20},{60,-20}},
+                lineColor={0,0,0},
+                textString="%pwmType")}),                              Diagram(
+              coordinateSystem(preserveAspectRatio=false)),
+          Documentation(info="<html>
+<p>
+Let the user choose the PWM type from:
+<ul>
+<li><a href=\"modelica://Modelica.Electrical.PowerConverters.DCAC.Control.SVPWM\">Space Vector pulse width modulation</a></li>
+<li><a href=\"modelica://Modelica.Electrical.PowerConverters.DCAC.Control.IntersectivePWM\">Intersective pulse width modulation</a></li>
+</ul>
+</p>
+</html>"));
+      end PWM;
+
+      block SVPWM "SpaceVector Pulse Width Modulation"
+        extends Modelica.Blocks.Interfaces.DiscreteBlock;
+        import Modelica.Constants.small;
+        import Modelica.Constants.eps;
+        import Modelica.Constants.pi;
+        import Modelica.Math.atan2;
+        constant Integer m=3 "Number of phases";
+        parameter Real uMax "Maximum length of space vector = half diagonal of hexagon";
+        constant Boolean fire[6,m]=[true, false,false;
+                                    true, true, false;
+                                    false,true, false;
+                                    false,true, true;
+                                    false,false,true;
+                                    true, false,true] "Switching patterns";
+        Modelica.Blocks.Interfaces.RealInput u[2] "Reference space phasor"
+          annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
+        Modelica.Blocks.Interfaces.BooleanOutput fire_p[m] "positive fire signal"
+          annotation (Placement(transformation(extent={{100,50},{120,70}})));
+        Modelica.Blocks.Interfaces.BooleanOutput fire_n[m] "negative fire signal"
+          annotation (Placement(transformation(extent={{100,-70},{120,-50}})));
+      protected
+        discrete Real uRef(start=0, fixed=true) "length of reference vector";
+        discrete Modelica.SIunits.Angle phiRef(start=0, fixed=true) "Angle of reference vector within (-pi, +pi]";
+        discrete Modelica.SIunits.Angle phiPos(start=0, fixed=true) "Angle of reference vector within [0, 2*pi)";
+        Integer ka(start=0, fixed=true), kb(start=0, fixed=true) "Switching patterns limiting the sector";
+        discrete Modelica.SIunits.Angle phiSec(start=0, fixed=true) "Angle of reference vector within sector within [0, pi/m)";
+        discrete Real ta(start=0, fixed=true), tb(start=0, fixed=true), t0(start=samplePeriod, fixed=true) "Relative time spans of vectors a, b, and 0";
+        discrete Modelica.SIunits.Time T0(start=startTime, fixed=true) "Start time of switching interval";
+      algorithm
+        when sampleTrigger then
+          //Limited relative reference signal
+          uRef:=min(sqrt(u[1]^2 + u[2]^2)/(2/3*uMax), cos(pi/6));
+          //Determine angle of reference signal within (-pi, +pi]
+          phiRef:=if noEvent(uRef < small) then 0 else atan2(u[2], u[1]);
+          //Shift angle to [0, 2*pi)
+          phiPos:=max(phiRef + (if phiRef < -eps then 2*pi else 0), 0);
+          //Determine sector and neighbour sector
+          ka:=integer(phiPos/(pi/m));
+          kb:=if noEvent(ka >= 5) then 0 else ka + 1;
+          //Determine angle within sector in the range of [0, pi/m)
+          phiSec:=phiPos - ka*pi/m;
+          //Determine limited relative time spans
+          //uRef*cos(phiSec)=tb*cos(pi/m) + ta;
+          //uRef*sin(phiSec)=tb*sin(pi/m);
+          tb:=min(uRef*sin(phiSec)/sin(pi/m), 1);
+          ta:=min(uRef*cos(phiSec) - tb*cos(pi/m), 1);
+          t0:=max(1 - ta - tb, 0);
+          //Remember start time of switching interval
+          T0:=time;
+        end when;
+      equation
+        //Distribute switching patterns t0/4 + ta/2 + tb/2 + t0/2 + tb/2 + t2/2 + t0/4
+        if time<startTime then
+          fire_p= fill(true, m);
+        elseif (time - T0)/samplePeriod < (t0/4) then
+          fire_p= fill(false, m);
+        elseif (time - T0)/samplePeriod < (t0/4 + ta/2) then
+          fire_p= fire[ka + 1, :];
+        elseif (time - T0)/samplePeriod < (t0/4 + ta/2 + tb/2) then
+          fire_p= fire[kb + 1, :];
+        elseif (time - T0)/samplePeriod < (t0/4 + ta/2 + tb/2 + t0/4) then
+          fire_p= fill(true, m);
+        elseif (time - T0)/samplePeriod < (t0/4 + ta/2 + tb/2 + t0/4 + tb/2) then
+          fire_p= fire[kb + 1, :];
+        elseif (time - T0)/samplePeriod < (t0/4 + ta/2 + tb/2 + t0/4 + tb/2 + ta/2) then
+          fire_p= fire[ka + 1, :];
+        else
+          fire_p= fill(false, m);
+        end if;
+        fire_n= not fire_p;
+        annotation (defaultComponentName="svPWM", Icon(coordinateSystem(preserveAspectRatio=false), graphics={
+              Line(points={{-80,30},{-36,30},{-36,50},{-10,50},{-10,30},{10,30},{10,50},
+                    {36,50},{36,30},{80,30}}, color={255,0,0}),
+              Line(points={{-80,-10},{-70,-10},{-70,10},{-36,10},{-36,-10},{36,-10},{36,
+                    10},{70,10},{70,-10},{80,-10}}, color={0,0,255}),
+              Line(points={{-80,-50},{-80,-30},{-70,-30},{-70,-50},{-10,-50},{-10,-30},
+                    {10,-30},{10,-50},{70,-50},{70,-30},{80,-30},{80,-50}}, color={0,0,
+                    0})}),                                             Diagram(
+              coordinateSystem(preserveAspectRatio=false)),
+          Documentation(info="<html>
+<p>
+For a threephase system, 8 space vectors are available according to the following switching patterns:
+<ul>
+<li>0 [0,0,0] length 0</li>
+<li>1 [1,0,0] 000&deg;</li>
+<li>2 [1,1,0] 060&deg;</li>
+<li>3 [0,1,0] 120&deg;</li>
+<li>4 [0,1,1] 180&deg;</li>
+<li>5 [0,0,1] 240&deg;</li>
+<li>6 [1,0,1] 300&deg;</li>
+<li>7 [1,1,1] length 0</li>
+</ul>
+Vector 1..6 form a hexagon, vector 0 and 7 are of length 0.
+</p>
+<p>
+First, the space vector is limited, 
+and the sector of the hexagon is determined where the input space vector <u>u</u> is located; 
+then the angle of the space vector within this sector 0&le;&phi;&lt;60&deg; is calculated.
+</p>
+<p>
+The input space vector is averaged by <u>u</u> = t<sub>a</sub>*<u>u</u><sub>a</sub> + t<sub>b</sub>*<u>u</u><sub>b</sub> + t<sub>0</sub>*0, 
+where <u>u</u><sub>a</sub> is the space vector at the left border of the sector 
+and <u>u</u><sub>b</sub> is the space vector at the right border of the sector. 
+If necessary, a zero length vector is applied additionally.
+</p>
+<p>
+The relative time spans for averaging over one switching period are determined by the following equations:
+<ul>
+<li>Real part: <u>u</u>*cos(&phi;) = <u>u</u><sub>b</sub>*t<sub>b</sub>*cos(60&deg;) + <u>u</u><sub>a</sub>*t<sub>a</sub>*1</li>
+<li>Imag.part: <u>u</u>*sin(&phi;) = <u>u</u><sub>b</sub>*t<sub>b</sub>*sin(60&deg;)</li>
+<li>t<sub>a</sub> + t<sub>b</sub> + t<sub>0</sub> = 1</li>
+</ul>
+</p>
+<p>
+To obtain the positive fire signal, the switching time spans are distributed symmetrically: 
+t<sub>0</sub>/4 + t<sub>a</sub>/2 + t<sub>b</sub>/2 +t<sub>0</sub>/2 + t<sub>b</sub>/2 + t<sub>a</sub>/2 + t<sub>0</sub>/4
+</p>
+<p>
+The switching pattern of the negative fire signal is just the inverse of the positive fire signal.
+</p>
+</html>"));
+      end SVPWM;
+
+      block IntersectivePWM "Intersective PWM"
+        extends Modelica.Blocks.Icons.Block;
+        import Modelica.Electrical.PowerConverters.Types.ReferenceType;
+        constant Integer m=3 "Number of phases";
+        parameter Modelica.SIunits.Time samplePeriod(min=100*Modelica.Constants.eps, start=0.1)
+          "Sample period = 1 / fSwitch";
+        parameter Modelica.SIunits.Time startTime=0 "Start time of PWM";
+        parameter Real uMax "Maximum amplitude of signal";
+        parameter Modelica.Electrical.PowerConverters.Types.ReferenceType
+          refType=Modelica.Electrical.PowerConverters.Types.ReferenceType.Triangle3
+          "Type of reference signal" annotation (Evaluate=true);
+        Modelica.Blocks.Interfaces.RealInput u[2] "Reference space phasor"
+          annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
+        Modelica.Blocks.Interfaces.BooleanOutput fire_p[m] "positive fire signal"
+          annotation (Placement(transformation(extent={{100,50},{120,70}})));
+        Modelica.Blocks.Interfaces.BooleanOutput fire_n[m] "negative fire signal"
+          annotation (Placement(transformation(extent={{100,-70},{120,-50}})));
+        Modelica.Electrical.Machines.SpacePhasors.Blocks.FromSpacePhasor
+          fromSpacePhasor
+          annotation (Placement(transformation(extent={{-60,50},{-40,70}})));
+        Modelica.Blocks.Sources.Constant zero(k=0) annotation (Placement(
+              transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=90,
+              origin={-70,30})));
+        Modelica.Blocks.Sources.SawTooth sawTooth[m](
+          each nperiod=-1,
+          each period=samplePeriod,
+          each amplitude=uMax,
+          each offset=-uMax/2,
+          startTime={startTime - 1.5 + (if refType == ReferenceType.Sawtooth1 then 0
+               else k)/m for k in 0:m - 1}*samplePeriod) if
+             (refType==ReferenceType.Sawtooth1 or refType==ReferenceType.Sawtooth3)
+          annotation (Placement(transformation(extent={{-80,-30},{-60,-10}})));
+        Modelica.Blocks.Sources.Trapezoid trapezoid[3](
+          each amplitude=uMax,
+          each rising=0.5*samplePeriod,
+          each width=0,
+          each falling=0.5*samplePeriod,
+          each period=samplePeriod,
+          each nperiod=-1,
+          each offset=-uMax/2,
+          startTime={startTime - 1.25 + (if refType == ReferenceType.Triangle1 then 0
+               else k)/m for k in 0:m - 1}*samplePeriod) if
+             (refType==ReferenceType.Triangle1 or refType==ReferenceType.Triangle3)
+           annotation (Placement(transformation(extent={{-80,-60},{-60,-40}})));
+        Modelica.Blocks.Logical.GreaterEqual greaterEqual[m]
+          annotation (Placement(transformation(extent={{30,50},{50,70}})));
+        Modelica.Blocks.Logical.Not negation[m]
+          annotation (Placement(transformation(extent={{72,-70},{92,-50}})));
+        Modelica.Blocks.Logical.Switch switch1[m]
+          annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
+        Modelica.Blocks.Sources.Constant const[m](each k=-uMax) annotation (Placement(
+              transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=90,
+              origin={-20,-30})));
+        Modelica.Blocks.Sources.BooleanExpression booleanExpression(y=time >=
+              startTime)
+          annotation (Placement(transformation(extent={{-100,-90},{-80,-70}})));
+        Modelica.Blocks.Routing.BooleanReplicator booleanReplicator(nout=m)
+          annotation (Placement(transformation(extent={{-70,-90},{-50,-70}})));
+      equation
+        connect(u, fromSpacePhasor.u) annotation (Line(points={{-120,0},{-90,0},{-90,60},
+                {-62,60}}, color={0,0,127}));
+        connect(zero.y, fromSpacePhasor.zero)
+          annotation (Line(points={{-70,41},{-70,52},{-62,52}}, color={0,0,127}));
+        connect(fromSpacePhasor.y, greaterEqual.u1)
+          annotation (Line(points={{-39,60},{28,60}}, color={0,0,127}));
+        connect(greaterEqual.y, fire_p)
+          annotation (Line(points={{51,60},{110,60}}, color={255,0,255}));
+        connect(negation.y, fire_n)
+          annotation (Line(points={{93,-60},{110,-60}}, color={255,0,255}));
+        connect(greaterEqual.y, negation.u) annotation (Line(points={{51,60},{60,60},{
+                60,-60},{70,-60}}, color={255,0,255}));
+        connect(switch1.y, greaterEqual.u2)
+          annotation (Line(points={{11,0},{20,0},{20,52},{28,52}}, color={0,0,127}));
+        connect(sawTooth.y, switch1.u1) annotation (Line(points={{-59,-20},{-50,-20},{
+                -50,8},{-12,8}}, color={0,0,127}));
+        connect(trapezoid.y, switch1.u1) annotation (Line(points={{-59,-50},{-50,-50},
+                {-50,8},{-12,8}}, color={0,0,127}));
+        connect(const.y, switch1.u3)
+          annotation (Line(points={{-20,-19},{-20,-8},{-12,-8}}, color={0,0,127}));
+        connect(booleanReplicator.y, switch1.u2) annotation (Line(points={{-49,-80},{-40,
+                -80},{-40,0},{-12,0}}, color={255,0,255}));
+        connect(booleanExpression.y, booleanReplicator.u)
+          annotation (Line(points={{-79,-80},{-72,-80}}, color={255,0,255}));
+        annotation (Icon(coordinateSystem(preserveAspectRatio=false), graphics={
+              Line(
+                points={{-60,0},{-51.6,34.2},{-46.1,53.1},{-41.3,66.4},{-37.1,74.6},{-32.9,
+                    79.1},{-28.64,79.8},{-24.42,76.6},{-20.201,69.7},{-15.98,59.4},{-11.16,
+                    44.1},{-5.1,21.2},{7.5,-30.8},{13,-50.2},{17.8,-64.2},{22,-73.1},{
+                    26.2,-78.4},{30.5,-80},{34.7,-77.6},{38.9,-71.5},{43.1,-61.9},{47.9,
+                    -47.2},{54,-24.8},{60,0}},
+                color={0,0,255},
+                thickness=0.5,
+                smooth=Smooth.Bezier), Line(points={{-60,-80},{-48,80},{-40,-80},{-30,
+                    80},{-20,-80},{-10,80},{0,-80},{10,80},{20,-78},{30,80},{40,-80},{
+                    50,80},{60,-80}}, color={238,46,47})}),            Diagram(
+              coordinateSystem(preserveAspectRatio=false)),
+          Documentation(info="<html>
+<p>
+The intersective PWM transforms the input space phasor <u>u</u> to the three phase voltages, 
+and compares them with the reference signals. 
+As long as the phase voltage is greater than the corresponding reference signal, the corresponding fire signal is true. 
+The switching pattern of the negative fire signal is just the inverse of the positive fire signal.
+</p>
+<p>
+The user can choose from 4 different reference signals:
+<ul>
+<li>Sawtooth1: sawtooth signal, same phase in all 3 phases</li>
+<li>Sawtooth3: sawtooth signal, phase shift between the 3 phases = period/3</li>
+<li>Triangle1: triangle signal, same phase in all 3 phases</li>
+<li>Triangle3: triangle signal, phase shift between the 3 phases = period/3</li>
+</ul>
+</p>
+</html>"));
+      end IntersectivePWM;
+      annotation (Documentation(info="<html>
+<p>
+Currently there are only threephase PWM implemented (not multiphase).
+</p>
+</html>"));
+    end Control;
+
     model SinglePhase2Level "Single phase DC to AC converter"
       extends Modelica.Blocks.Icons.Block;
       parameter Modelica.SIunits.Resistance RonTransistor=1e-05
@@ -6903,6 +7342,22 @@ This partial model provides parameters and the conditional input signal for the 
                   lineColor={0,0,255})}));
     end Control;
   end Icons;
+
+  package Types "Type definitions for PowerConverters"
+    extends Modelica.Icons.TypesPackage;
+  type PWMType = enumeration(
+        SVPWM
+            "SpaceVector PWM",
+        Intersective
+                   "Intersective PWM")
+    "Enumeration defining the PWM type";
+    type ReferenceType = enumeration(
+        Sawtooth1 "Sawtooth signal single phase",
+        Sawtooth3 "Sawtooth signal three phase",
+        Triangle1 "Triangle signal single phase",
+        Triangle3 "Triangle signal three phase")
+      "Enumeration defining the type of reference signal";
+  end Types;
   annotation (
     preferredView="info",
     Documentation(info="<html>
