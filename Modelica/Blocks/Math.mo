@@ -3316,6 +3316,109 @@ The harmonic is defined by <code>&radic;2 rms cos(k 2 &pi; f t + arg)</code> if 
             textString="arg")}));
   end Harmonic;
 
+  block TotalHarmonicDistortion "Output the total harmonic distortion (THD)"
+    extends Interfaces.SISO;
+    parameter Modelica.SIunits.Frequency f(start=50) "Base frequency";
+    parameter Boolean useFirstHarmonic = true "THD with respect to first harominc, if true; otherwise with respect to total RMS";
+
+    Harmonic harmonic(
+      final f=f,
+      final k=1,
+      final x0Cos=0,
+      final x0Sin=0) annotation (Placement(transformation(extent={{-70,-62},{-50,-42}})));
+    RootMeanSquare rootMeanSquare(final f=f, final x0=0) annotation (Placement(transformation(extent={{-70,20},{-50,40}})));
+    Logical.GreaterThreshold greaterThreshold annotation (Placement(transformation(extent={{10,-70},{30,-50}})));
+    Interfaces.BooleanOutput valid "True, if output y is valid" annotation (Placement(transformation(extent={{100,-70},{120,-50}})));
+    Division division annotation (Placement(transformation(extent={{60,-10},{80,10}})));
+    Nonlinear.Limiter limiter(uMin=Modelica.Constants.eps, uMax=Modelica.Constants.inf) annotation (Placement(transformation(extent={{10,-30},{30,-10}})));
+    Pythagoras pythagoras(u1IsHypotenuse=true) annotation (Placement(transformation(extent={{10,0},{30,20}})));
+    Logical.And andValid annotation (Placement(transformation(extent={{60,-50},{80,-30}})));
+    Sources.BooleanExpression booleanExpression(final y=not useFirstHarmonic) annotation (Placement(transformation(extent={{-70,-30},{-50,-10}})));
+    Logical.Switch switch1 annotation (Placement(transformation(extent={{-20,-30},{0,-10}})));
+  equation
+    connect(u, rootMeanSquare.u) annotation (Line(points={{-120,0},{-90,0},{-90,30},{-72,30}}, color={0,0,127}));
+    connect(u, harmonic.u) annotation (Line(points={{-120,0},{-90,0},{-90,-52},{-72,-52}}, color={0,0,127}));
+    connect(harmonic.y_rms, greaterThreshold.u) annotation (Line(points={{-49,-46},{-40,-46},{-40,-60},{8,-60}},  color={0,0,127}));
+    connect(division.y, y) annotation (Line(points={{81,0},{110,0}}, color={0,0,127}));
+    connect(pythagoras.u1, rootMeanSquare.y) annotation (Line(points={{8,16},{-30,16},{-30,30},{-49,30}},  color={0,0,127}));
+    connect(pythagoras.y, division.u1) annotation (Line(points={{31,10},{50,10},{50,6},{58,6}}, color={0,0,127}));
+    connect(pythagoras.valid, andValid.u1) annotation (Line(points={{31,4},{40,4},{40,-40},{58,-40}}, color={255,0,255}));
+    connect(greaterThreshold.y, andValid.u2) annotation (Line(points={{31,-60},{40,-60},{40,-48},{58,-48}}, color={255,0,255}));
+    connect(andValid.y, valid) annotation (Line(points={{81,-40},{90,-40},{90,-60},{110,-60}}, color={255,0,255}));
+    connect(limiter.y, division.u2) annotation (Line(points={{31,-20},{50,-20},{50,-6},{58,-6}}, color={0,0,127}));
+    connect(harmonic.y_rms, pythagoras.u2) annotation (Line(points={{-49,-46},{-40,-46},{-40,4},{8,4}},  color={0,0,127}));
+    connect(switch1.u1, rootMeanSquare.y) annotation (Line(points={{-22,-12},{-30,-12},{-30,30},{-49,30}}, color={0,0,127}));
+    connect(harmonic.y_rms, switch1.u3) annotation (Line(points={{-49,-46},{-40,-46},{-40,-28},{-22,-28}}, color={0,0,127}));
+    connect(booleanExpression.y, switch1.u2) annotation (Line(points={{-49,-20},{-22,-20}}, color={255,0,255}));
+    connect(switch1.y, limiter.u) annotation (Line(points={{1,-20},{8,-20}}, color={0,0,127}));
+    annotation (defaultComponentName="thd",
+      Icon(coordinateSystem(grid={2,2}, initialScale=0.1), graphics={
+          Line(points={{-80,-80},{-80,68}}, color={192,192,192}),
+          Polygon(
+            points={{-80,90},{-88,68},{-72,68},{-80,90}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-90,0},{68,0}}, color={192,192,192}),
+          Polygon(
+            points={{90,0},{68,8},{68,-8},{90,0}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
+          Polygon(
+            points={{-80,0},{-69,34},{-62,53},{-55,68},{-50,75},{-44,79},{-38,80},{-32,76},{-27,70},{-21,59},{-15,44},{-7,21},{10,-31},{17,-50},{24,-64},{29,-73},{35,-78},{41,-81},{46,-78},{52,-71},{57,-62},{64,-47},{72,-25},{80,0},{72,-53},{59,-37},{46,-95},{34,-53},{22,-81},{10,-10},{-3,-27},{-13,63},{-26,46},{-26,48},{-38,94},{-51,49},{-59,80},{-65,18},{-75,38},{-80,0}},
+            lineColor={0,0,0},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
+          Text(
+            extent={{2,80},{82,20}},
+            lineColor={0,0,0},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid,
+            textString="1",
+            visible=useFirstHarmonic),
+          Text(
+            extent={{2,80},{82,20}},
+            lineColor={0,0,0},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid,
+            textString="rms",
+            visible=not useFirstHarmonic),
+          Text(
+            extent={{-150,-110},{150,-150}},
+            textString="f=%f")}), Diagram(coordinateSystem(grid={2,2}, initialScale=0.1)),
+      Documentation(info="<html>
+<p>This block determines the total harmonic distorion (THD) over the given period <code>1/f</code>. 
+Consider that the input <code>u</code> consists of harmonic RMS components 
+<code>U<sub>1</sub></code>, <code>U<sub>2</sub></code>, <code>U<sub>3</sub></code>, etc. 
+The total RMS component is then determined by:</p>
+
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Math/Urms.png\">
+</p>
+
+<p>
+The calculation of the total harmonic distortion is based on the parameter <code>useFirstHarmonic</code>:
+</p>
+
+<p>
+If <code>useFirstHarmonic = true</code>, the total higher harmonic content (harmonic order numbers &gt; 1) refers to the fundamental wave:<br>
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Math/THD1.png\">
+</p>
+
+<p>
+If <code>useFirstHarmonic = false</code>, the total higher harmonic content (harmonic order numbers &gt; 1) refers to the total root mean square:<br><br>
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Math/THDrms.png\">
+</p>
+
+<p>
+In case of a zero input signal or within the first period of calculation, the boolean output signal
+<code>valid</code> becomes <code>false</code> to indicate that the calculation result is not valid. Valid
+calculations are indicated by <code>valid = true</code>.
+</p>
+</html>"));
+  end TotalHarmonicDistortion;
+
   block RealFFT "Sampling and FFT of input u"
     extends Modelica.Blocks.Interfaces.DiscreteBlock(final samplePeriod=1/(2*f_res*div(ns, 2)));
     parameter Modelica.SIunits.Frequency f_max "Maximum frequency of interest";
@@ -3399,6 +3502,72 @@ so one can plot the result directly as frequency lines.
             color={0,0,0},
             thickness=0.5)}));
   end RealFFT;
+
+  block Pythagoras "Determines the hypotenuse or leg of a right triangle"
+    extends Interfaces.SI2SO;
+    parameter Boolean u1IsHypotenuse = false "If true, u1 is the hypotenuse and y is one leg";
+    Interfaces.BooleanOutput valid  "Is true, if y is a valid result" annotation (Placement(transformation(extent={{100,-70},{120,-50}})));
+  protected
+    Real y2 "Square of y";
+  equation
+    if not u1IsHypotenuse then
+      y2 = u1^2+u2^2;
+      y = sqrt(y2);
+      valid = true;
+    else
+      y2 = u1^2-u2^2;
+      if y2>=0 then
+        y=sqrt(y2);
+        valid = true;
+      else
+        y=0;
+        valid = false;
+      end if;
+    end if;
+
+    annotation (Icon(graphics={
+          Polygon(
+            points={{34,-80},{34,80},{-36,-40},{34,-80}},
+            lineColor={0,0,0},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
+          Line(
+            points={{-100,60},{22,60}},
+            color={0,0,0},
+            pattern=LinePattern.Dash),
+          Line(
+            points={{34,0},{100,0}},
+            color={0,0,0},
+            pattern=LinePattern.Dash),
+          Line(
+            points={{-100,-60},{0,-60}},
+            color={0,0,0},
+            pattern=LinePattern.Dash),
+          Line(
+            visible=u1IsHypotenuse,
+            points={{22,60},{34,60}},
+            color={0,0,0},
+            pattern=LinePattern.Dash),
+          Line(
+            visible=u1IsHypotenuse,
+            points={{-12,0},{34,0}},
+            color={0,0,0},
+            pattern=LinePattern.Dash)}), Documentation(info="<html>
+<p>This block determines the hypotenuse <code>y = sqrt(u1^2 + u2^2)</code> 
+if the boolean parameter <code>u1IsHyotenuse = false</code>. 
+In this case the two inputs <code>u1</code> and 
+<code>u2</code> are interpreted as the legs of a right triangle
+and the boolean output <code>valid</code> is always equal to 
+<code>true</code>. </p>
+
+<p>If <code>u1IsHyotenuse = true</code>, input <code>u1</code> is interpreted as hypotenuse and <code>u2</code>
+is one of the two legs of a right triangle. 
+Then, the other of the two legs of the right triangle is the output, determined by
+ <code>y = sqrt(u1^2 - u2^2)</code>, if <code>u1^2 - u2^2 &ge; 0</code>; in this case the
+boolean output <code>valid</code> is equal to <code>true</code>. In case of <code>u1^2 - u2^2 &lt; 0</code>, the 
+output <code>y = 0</code> and <code>valid</code> is set to <code>false</code>.</p>
+</html>"));
+  end Pythagoras;
 
   block Max "Pass through the largest signal"
     extends Interfaces.SI2SO;
