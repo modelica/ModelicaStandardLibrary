@@ -1893,9 +1893,9 @@ of noise blocks.
               textString="%name"),
                 Rectangle(
                   extent={{-20,100},{20,-100}},
-                  lineColor={64,64,64},
+                  lineColor={0,0,127},
                   fillColor={255,255,255},
-                  fillPattern=FillPattern.HorizontalCylinder,
+                  fillPattern=FillPattern.VerticalCylinder,
                   radius=10),
             Text(
               extent={{-18,90},{18,70}},
@@ -2007,9 +2007,9 @@ Note, the input signals must be consistent to each other
               textString="%name"),
                 Rectangle(
                   extent={{-20,100},{20,-100}},
-                  lineColor={64,64,64},
+                  lineColor={0,0,127},
                   fillColor={255,255,255},
-                  fillPattern=FillPattern.HorizontalCylinder,
+                  fillPattern=FillPattern.Sphere,
                   radius=10),
             Text(
               extent={{-18,90},{18,70}},
