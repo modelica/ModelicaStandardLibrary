@@ -112,7 +112,7 @@ package Tanks "Library demonstrating the usage of the tank model"
       portsData={Modelica.Fluid.Vessels.BaseClasses.VesselPortsData(diameter=0.1),
           Modelica.Fluid.Vessels.BaseClasses.VesselPortsData(diameter=0.1),
           Modelica.Fluid.Vessels.BaseClasses.VesselPortsData(diameter=0.1, height=
-           10)})
+           6)})
       annotation (Placement(transformation(extent={{-40,20},{0,60}})));
     Modelica.Fluid.Sources.MassFlowSource_T massFlowRate(nPorts=1,
       redeclare package Medium =
@@ -130,7 +130,7 @@ package Tanks "Library demonstrating the usage of the tank model"
       redeclare package Medium =
           Modelica.Media.CompressibleLiquids.LinearColdWater,
       diameter=0.02,
-      height_ab=-20,
+      height_ab=-5,
       length=200) annotation (Placement(transformation(
           origin={0,-30},
           extent={{10,-10},{-10,10}},
@@ -145,7 +145,7 @@ package Tanks "Library demonstrating the usage of the tank model"
       nPorts=2,
       portsData={Modelica.Fluid.Vessels.BaseClasses.VesselPortsData(diameter=
           0.1),Modelica.Fluid.Vessels.BaseClasses.VesselPortsData(diameter=0.1,
-          height=10)})
+          height=6)})
       annotation (Placement(transformation(extent={{40,-60},{80,-20}})));
     Modelica.Blocks.Logical.Hysteresis hysteresis(
       uLow=1.1e5,
@@ -163,7 +163,7 @@ package Tanks "Library demonstrating the usage of the tank model"
           Modelica.Media.CompressibleLiquids.LinearColdWater,
       diameter=0.02,
       length=200,
-      height_ab=-20)
+      height_ab=-5)
                   annotation (Placement(transformation(
           origin={20,-10},
           extent={{10,-10},{-10,10}},
@@ -202,7 +202,7 @@ package Tanks "Library demonstrating the usage of the tank model"
 The fluid flows through a pipe and forced by different heights from the upper tank to the lower tank.
 </p>
 <p>
-Additional fluid flows through an overflow pipe if the level of the upper tank exceeds 10m.
+Additional fluid flows through an overflow pipe if the level of the upper tank exceeds 6m.
 Initially the overflow enters the lower tank above its fluid level; later on the fluid level exceeds the overflow port.
 </p>
 <p>
