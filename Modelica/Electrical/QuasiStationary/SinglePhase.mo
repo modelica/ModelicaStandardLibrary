@@ -403,10 +403,10 @@ whereas the transient model may have only one ground since AC side and DC side a
       Sensors.CurrentSensor i1 annotation (Placement(transformation(extent={{-60,-20},{-40,0}})));
     equation
       connect(voltageSource.pin_p, sensor0.currentP) annotation (Line(points={{-90,-20},{-90,-20},{-90,-10},{-80,-10}}, color={85,170,255}));
-      connect(zk.pin_n, idealTransformer.pin_p1) annotation (Line(points={{-10,-10},{-10,-25}}, color={85,170,255}));
+      connect(zk.pin_n, idealTransformer.pin_p1) annotation (Line(points={{-10,-10},{-10,-20}}, color={85,170,255}));
       connect(sensorL.voltageP, sensorL.currentP) annotation (Line(points={{60,0},{50,0},{50,-10}}, color={85,170,255}));
       connect(voltageSource.pin_n, ground1.pin) annotation (Line(points={{-90,-40},{-90,-40},{-90,-50}}, color={85,170,255}));
-      connect(ground1.pin, idealTransformer.pin_n1) annotation (Line(points={{-90,-50},{-10,-50},{-10,-35}}, color={85,170,255}));
+      connect(ground1.pin, idealTransformer.pin_n1) annotation (Line(points={{-90,-50},{-10,-50},{-10,-40}}, color={85,170,255}));
       connect(sensor0.currentP, sensor0.voltageP) annotation (Line(points={{-80,-10},{-80,-10},{-80,0},{-70,0}}, color={85,170,255}));
       connect(sensor0.voltageN, ground1.pin) annotation (Line(points={{-70,-20},{-70,-50},{-90,-50}}, color={85,170,255}));
       connect(v2.pin_n, ground2.pin) annotation (Line(points={{40,-42},{40,-42},{40,-50}}, color={85,170,255}));
@@ -415,14 +415,15 @@ whereas the transient model may have only one ground since AC side and DC side a
       connect(load.pin_p, sensorL.currentN) annotation (Line(points={{80,-20},{80,-20},{80,-12},{80,-10},{70,-10}}, color={85,170,255}));
       connect(sensorL.voltageN, ground2.pin) annotation (Line(points={{60,-20},{60,-20},{60,-44},{60,-50},{40,-50}}, color={85,170,255}));
       connect(load.pin_n, ground2.pin) annotation (Line(points={{80,-40},{80,-40},{80,-50},{40,-50}}, color={85,170,255}));
-      connect(ground2.pin, idealTransformer.pin_n2) annotation (Line(points={{40,-50},{10,-50},{10,-35}}, color={85,170,255}));
-      connect(load.I, polarToComplex.y) annotation (Line(points={{90,-26},{100,-26},{100,62},{81,62}}, color={85,170,255}));
-      connect(load.f, constFrequency.y) annotation (Line(points={{90,-34},{100,-34},{100,-80},{81,-80}}, color={0,0,127}));
+      connect(ground2.pin, idealTransformer.pin_n2) annotation (Line(points={{40,-50},{10,-50},{10,-39.8}},
+                                                                                                          color={85,170,255}));
+      connect(load.I, polarToComplex.y) annotation (Line(points={{92,-24},{100,-24},{100,62},{81,62}}, color={85,170,255}));
+      connect(load.f, constFrequency.y) annotation (Line(points={{92,-36},{100,-36},{100,-80},{81,-80}}, color={0,0,127}));
       connect(sensorL.currentP, v2.pin_p) annotation (Line(points={{50,-10},{40,-10},{40,-22}}, color={85,170,255}));
       connect(i2.pin_n, sensorL.currentP) annotation (Line(points={{40,-10},{40,-10},{50,-10}}, color={85,170,255}));
       connect(sensor0.currentN, i1.pin_p) annotation (Line(points={{-60,-10},{-60,-10}}, color={85,170,255}));
       connect(i1.pin_n, zk.pin_p) annotation (Line(points={{-40,-10},{-35,-10},{-30,-10}}, color={85,170,255}));
-      connect(idealTransformer.pin_p2, i2.pin_p) annotation (Line(points={{10,-25},{12,-25},{12,-10},{20,-10}}, color={85,170,255}));
+      connect(idealTransformer.pin_p2, i2.pin_p) annotation (Line(points={{10,-20},{12,-20},{12,-10},{20,-10}}, color={85,170,255}));
       annotation (experiment(StopTime=1),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={Rectangle(
               extent={{50,10},{96,-60}},
               pattern=LinePattern.Dash,
@@ -721,14 +722,21 @@ The Inductance <code>L</code> is allowed to be positive, zero, or negative.
       parameter Modelica.SIunits.Temperature T_ref=293.15 "Reference temperature";
       parameter Modelica.SIunits.LinearTemperatureCoefficient alpha_ref=0 "Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
       extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=T_ref);
+      parameter Boolean frequencyDependent = false "Consider frequency dependency, if true"
+        annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
+      parameter Modelica.SIunits.Frequency f_ref = 1 "Reference frequency, if frequency dependency is considered"
+        annotation(Dialog(enable=frequencyDependent));
       Modelica.SIunits.Resistance R_actual "Resistance = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
-      final parameter Modelica.SIunits.Resistance R_ref=real(Z_ref) "Resistive component of impedance";
-      final parameter Modelica.SIunits.Reactance X_ref=imag(Z_ref) "Reactive component of impedance";
+      Modelica.SIunits.Reactance X_actual "Reactance considering possible frequency dependency";
+      final parameter Modelica.SIunits.Resistance R_ref=real(Z_ref) "Resistive component of impedance, resistance";
+      final parameter Modelica.SIunits.Reactance X_ref=imag(Z_ref) "Reactive component of impedance, reactance";
     equation
       assert((1 + alpha_ref*(T_heatPort - T_ref)) >= Modelica.Constants.eps,
         "Temperature outside scope of model!");
       R_actual = R_ref*(1 + alpha_ref*(T_heatPort - T_ref));
-      v = Complex(R_actual, X_ref)*i;
+      X_actual = X_ref * (if not frequencyDependent then 1 else
+        (if X_ref>=0 then omega/(2*Modelica.Constants.pi*f_ref) else 2*Modelica.Constants.pi*f_ref/omega));
+      v = Complex(R_actual, X_actual) * i;
       LossPower = real(v*conj(i));
 
       annotation (Icon(graphics={
@@ -750,11 +758,25 @@ The Inductance <code>L</code> is allowed to be positive, zero, or negative.
               lineColor={0,0,255})}),
           Documentation(info="<html>
 
+<p>The impedance model represents a <strong>series</strong> connection of a resitsor and either an inductor or capacitor.<br>
+<img src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/SinglePhase/Basic/RX_impedance.png\"></p> 
+
 <p>
 The linear impedance connects the voltage <code><u>v</u></code> with the
 current <code><u>i</u></code> by  <code><u>v</u> = <u>Z</u>*<u>i</u></code>. The resistive
-component is modeled temperature dependent, so the real part <code>R = real(<u>Z</u>)</code> is determined from
-the actual operating temperature and the reference input resistance <code>real(<u>Z</u>_ref)</code>.
+component is modeled temperature dependent, so the real part <code>R_actual = real(<u>Z</u>)</code> is determined from
+the actual operating temperature and the reference input resistance <code>real(Z_ref)</code>. 
+A <a href=\"modelica://Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort\">conditional heat port</a> is considered.
+The reactive component <code>X_actual = imag(<u>Z</u>)</code> 
+is equal to <code>imag(Z_ref)</code> if <code>frequencyDependent = false</code>. 
+Frequency dependency is considered by <code>frequencyDependent = true</code>, distinguishing two cases:
+
+<dl>
+<dt>(a) <code>imag(Z_ref) &gt; 0</code>: inductive case</dt>
+<dd>The actual reactance <code>X_actual</code> is proportional to <code>f/f_ref</code></dd>
+<dt>(b) <code>imag(Z_ref) &lt; 0</code>: capacitive case</dt>
+<dd>The actual reactance <code>X_actual</code> is proportional to <code>f_ref/f</code></dd>
+</dl> 
 </p>
 
 <h4>See also</h4>
@@ -783,14 +805,21 @@ the actual operating temperature and the reference input resistance <code>real(<
       parameter Modelica.SIunits.Temperature T_ref=293.15 "Reference temperature";
       parameter Modelica.SIunits.LinearTemperatureCoefficient alpha_ref=0 "Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
       extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=T_ref);
+      parameter Boolean frequencyDependent = false "Consider frequency dependency, if true"
+        annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
+      parameter Modelica.SIunits.Frequency f_ref = 1 "Reference frequency, if frequency dependency is considered"
+        annotation(Dialog(enable=frequencyDependent));
       Modelica.SIunits.Conductance G_actual "Resistance = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
+      Modelica.SIunits.Susceptance B_actual "Susceptance considering possible frequency dependency";
       final parameter Modelica.SIunits.Conductance G_ref=real(Y_ref) "Resistive component of conductance";
       final parameter Modelica.SIunits.Susceptance B_ref=imag(Y_ref) "Reactive component of susceptance";
     equation
       assert((1 + alpha_ref*(T_heatPort - T_ref)) >= Modelica.Constants.eps,
         "Temperature outside scope of model!");
       G_actual = G_ref/(1 + alpha_ref*(T_heatPort - T_ref));
-      i = Complex(G_actual, B_ref)*v;
+      B_actual = B_ref * (if not frequencyDependent then 1 else
+        (if B_ref>=0 then omega/(2*Modelica.Constants.pi*f_ref) else 2*Modelica.Constants.pi*f_ref/omega));
+      i = Complex(G_actual, B_actual) * v;
       LossPower = real(v*conj(i));
       annotation (Icon(graphics={
             Line(points={{60,0},{90,0}}, color={85,170,255}),
@@ -811,11 +840,25 @@ the actual operating temperature and the reference input resistance <code>real(<
               lineColor={0,0,255})}),
           Documentation(info="<html>
 
+<p>The admittance model represents a <strong>parallel</strong> connection of a conductor and either a capacitor or inductor.<br>
+<img src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/SinglePhase/Basic/GB_admittance.png\"></p> 
+
 <p>
 The linear admittance connects the voltage <code><u>v</u></code> with the
 current <code><u>i</u></code> by  <code><u>i</u> = <u>Y</u>*<u>v</u></code>. The resistive
-component is modeled temperature dependent, so the real part <code>G = real(<u>Y</u>)</code> is determined from
-the actual operating temperature and the reference input conductance <code>real(<u>Y</u>_ref)</code>.
+component is modeled temperature dependent, so the real part <code>G_actual = real(<u>Y</u>)</code> is determined from
+the actual operating temperature and the reference input conductance <code>real(Y_ref)</code>. 
+A <a href=\"modelica://Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort\">conditional heat port</a> is considered.
+The reactive component <code>B_actual = imag(<u>Y</u>)</code> 
+is equal to <code>imag(Y_ref)</code> if <code>frequencyDependent = false</code>. 
+Frequency dependency is considered by <code>frequencyDependent = true</code>, distinguishing two cases:
+
+<dl>
+<dt>(a) <code>imag(Y_ref) &gt; 0</code>: capacitive case</dt>
+<dd>The actual susceptance <code>B_actual</code> is proportional to <code>f/f_ref</code></dd>
+<dt>(b) <code>imag(Y_ref) &lt; 0</code>: inductive case</dt>
+<dd>The actual susceptance <code>B_actual</code> is proportional to <code>f_ref/f</code></dd>
+</dl> 
 </p>
 
 <h4>See also</h4>
@@ -1112,22 +1155,29 @@ The abstraction of a variable inductor at quasi stationary operation assumes:
       parameter Modelica.SIunits.Temperature T_ref=293.15 "Reference temperature";
       parameter Modelica.SIunits.LinearTemperatureCoefficient alpha_ref=0 "Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
       extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=T_ref);
-      Modelica.SIunits.Resistance R_actual "Resistance = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
       Modelica.ComplexBlocks.Interfaces.ComplexInput Z_ref "Variable complex impedance"
-                                      annotation (Placement(transformation(
+        annotation (Placement(transformation(
             origin={0,120},
             extent={{-20,-20},{20,20}},
             rotation=270), iconTransformation(
             extent={{-20,-20},{20,20}},
             rotation=270,
             origin={0,120})));
-      Modelica.SIunits.Resistance R_ref=real(Z_ref) "Resistive component of impedance";
-      Modelica.SIunits.Reactance X_ref=imag(Z_ref) "Reactive component of impedance";
+      parameter Boolean frequencyDependent = false "Consider frequency dependency, if true"
+        annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
+      parameter Modelica.SIunits.Frequency f_ref = 1 "Reference frequency, if frequency dependency is considered"
+        annotation(Dialog(enable=frequencyDependent));
+      Modelica.SIunits.Resistance R_actual "Resistance = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
+      Modelica.SIunits.Reactance X_actual "Reactance considering possible frequency dependency";
+      Modelica.SIunits.Resistance R_ref=real(Z_ref) "Resistive component of impedance, resistance";
+      Modelica.SIunits.Reactance X_ref=imag(Z_ref) "Reactive component of impedance, reactance";
     equation
       assert((1 + alpha_ref*(T_heatPort - T_ref)) >= Modelica.Constants.eps,
         "Temperature outside scope of model!");
       R_actual = R_ref*(1 + alpha_ref*(T_heatPort - T_ref));
-      v = Complex(R_actual, X_ref)*i;
+      X_actual = X_ref * (if not frequencyDependent then 1 else
+        (if X_ref>=0 then omega/(2*Modelica.Constants.pi*f_ref) else 2*Modelica.Constants.pi*f_ref/omega));
+      v = Complex(R_actual, X_actual) * i;
       LossPower = real(v*conj(i));
       annotation (defaultComponentName="impedance",
         Icon(graphics={
@@ -1149,24 +1199,31 @@ The abstraction of a variable inductor at quasi stationary operation assumes:
               lineColor={0,0,255})}),
         Documentation(info="<html>
 
+<p>The impedance model represents a <strong>series</strong> connection of a resitsor and either an inductor or capacitor.<br>
+<img src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/SinglePhase/Basic/RX_impedance.png\"></p> 
+
 <p>
 The linear impedance connects the complex voltage <code><u>v</u></code> with the
 complex current <code><u>i</u></code> by <code><u>i</u>*<u>Z</u> = <u>v</u></code>.
-The impedance <code>Z_ref</code> is given as complex input signal, representing the
+The impedance <code>Z_ref = R_ref + j*X_ref</code> is given as complex input signal, representing the
 resistive and reactive component of the input impedance. The resistive
-component is modeled temperature dependent, so the real part <code>R = real(<u>Z</u>)</code> is determined from
-the actual operating temperature and the reference input resistance <code>real(<u>Z</u>_ref)</code>.
-</p>
+component is modeled temperature dependent, so the real part <code>R_actual = real(<u>Z</u>)</code> is determined from
+the actual operating temperature and the reference input resistance <code>real(Z_ref)</code>.
+The reactive component <code>X_actual = imag(<u>Z</u>)</code> 
+is equal to <code>imag(Z_ref)</code> if <code>frequencyDependent = false</code>. 
+Frequency dependency is considered by <code>frequencyDependent = true</code>, distinguishing two cases:
 
-<p>
-The variable impedance model has a
-<a href=\"modelica://Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort\">conditional heat port</a>.
-A linear temperature dependency of the resistance is taken into account.
+<dl>
+<dt>(a) <code>imag(Z_ref) &gt; 0</code>: inductive case</dt>
+<dd>The actual reactance <code>X_actual</code> is proportional to <code>f/f_ref</code></dd>
+<dt>(b) <code>imag(Z_ref) &lt; 0</code>: capacitive case</dt>
+<dd>The actual reactance <code>X_actual</code> is proportional to <code>f_ref/f</code></dd>
+</dl> 
 </p>
 
 <h4>Note</h4>
 <p>
-A zero crossing of the either the real or imaginary part of the <code>Z_ref</code> signal could cause
+A zero crossing of the real or imaginary part of the impedance signal <code>Z_ref</code> could cause
 singularities due to the actual structure of the connected network.
 </p>
 
@@ -1195,22 +1252,29 @@ singularities due to the actual structure of the connected network.
       parameter Modelica.SIunits.Temperature T_ref=293.15 "Reference temperature";
       parameter Modelica.SIunits.LinearTemperatureCoefficient alpha_ref=0 "Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
       extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=T_ref);
-      Modelica.SIunits.Conductance G_actual "Resistance = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
       Modelica.ComplexBlocks.Interfaces.ComplexInput Y_ref "Variable complex admittance"
-                                      annotation (Placement(transformation(
+        annotation (Placement(transformation(
             origin={0,120},
             extent={{-20,-20},{20,20}},
             rotation=270), iconTransformation(
             extent={{-20,-20},{20,20}},
             rotation=270,
             origin={0,120})));
+      parameter Boolean frequencyDependent = false "Consider frequency dependency, if true"
+        annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
+      parameter Modelica.SIunits.Frequency f_ref = 1 "Reference frequency, if frequency dependency is considered"
+        annotation(Dialog(enable=frequencyDependent));
+      Modelica.SIunits.Conductance G_actual "Resistance = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
+      Modelica.SIunits.Susceptance B_actual "Susceptance considering possible frequency dependency";
       Modelica.SIunits.Conductance G_ref=real(Y_ref) "Resistive component of conductance";
       Modelica.SIunits.Susceptance B_ref=imag(Y_ref) "Reactive component of susceptance";
     equation
       assert((1 + alpha_ref*(T_heatPort - T_ref)) >= Modelica.Constants.eps,
         "Temperature outside scope of model!");
       G_actual = G_ref/(1 + alpha_ref*(T_heatPort - T_ref));
-      i = Complex(G_actual, B_ref)*v;
+      B_actual = B_ref * (if not frequencyDependent then 1 else
+        (if B_ref>=0 then omega/(2*Modelica.Constants.pi*f_ref) else 2*Modelica.Constants.pi*f_ref/omega));
+      i = Complex(G_actual, B_actual) * v;
       LossPower = real(v*conj(i));
       annotation (defaultComponentName="admittance",
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
@@ -1233,24 +1297,32 @@ singularities due to the actual structure of the connected network.
               lineColor={0,0,255})}),
         Documentation(info="<html>
 
-<p>
-The linear admittance connects the complex voltage <code><u>v</u></code> with the
-complex current <code><u>i</u></code> by <code><u>v</u>*<u>G</u> = <u>i</u></code>.
-The impedance <code>G_ref</code> is given as complex input signal, representing the
-resistive and reactive component of the input admittance. The resistive
-component is modeled temperature dependent, so the real part <code>G = real(<u>Y</u>)</code> is determined from
-the actual operating temperature and the reference input conductance <code>real(<u>Y</u>_ref)</code>.
-</p>
+<p>The admittance model represents a <strong>parallel</strong> connection of a conductor and either a capacitor or inductor.<br>
+<img src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/SinglePhase/Basic/GB_admittance.png\"></p> 
 
 <p>
-The variable admittance model has a
-<a href=\"modelica://Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort\">conditional heat port</a>.
-A linear temperature dependency of the conductance is taken into account.
+The linear admittance connects the complex voltage <code><u>v</u></code> with the
+complex current <code><u>i</u></code> by <code><u>v</u>*<u>Y</u> = <u>i</u></code>.
+The admittance <code>Y_ref = G_ref + j*B_ref</code> is given as complex input signal, representing the
+resistive and reactive component of the input admittance. The resistive
+component is modeled temperature dependent, so the real part <code>G_actual = real(<u>Y</u>)</code> is determined from
+the actual operating temperature and the reference input conductance <code>real(Y_ref)</code>.
+The reactive component <code>B_actual = imag(<u>Y</u>)</code> 
+is equal to <code>imag(Y_ref)</code> if <code>frequencyDependent = false</code>. 
+Frequency dependency is considered by <code>frequencyDependent = true</code>, distinguishing two cases:
+
+
+<dl>
+<dt>(a) <code>imag(Y_ref) &gt; 0</code>: capacitive case</dt>
+<dd>The actual susceptance <code>B_actual</code> is proportional to <code>f/f_ref</code></dd>
+<dt>(b) <code>imag(Y_ref) &lt; 0</code>: inductive case</dt>
+<dd>The actual susceptance <code>B_actual</code> is proportional to <code>f_ref/f</code></dd>
+</dl> 
 </p>
 
 <h4>Note</h4>
 <p>
-A zero crossing of the either the real or imaginary part of the <code>Y_ref</code> signal could cause
+A zero crossing of the real or imaginary part of the admittance signal <code>Y_ref</code> could cause
 singularities due to the actual structure of the connected network.
 </p>
 
