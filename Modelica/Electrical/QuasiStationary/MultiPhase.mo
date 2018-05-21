@@ -1402,16 +1402,20 @@ Model of a multi phase inductor providing a mutual inductance matrix model.
         "Complex impedances R_ref + j*X_ref";
       parameter Modelica.SIunits.Temperature T_ref[m]=fill(293.15, m)
         "Reference temperatures";
-      parameter Modelica.SIunits.LinearTemperatureCoefficient alpha_ref[m]=
-          zeros(m)
+      parameter Modelica.SIunits.LinearTemperatureCoefficient alpha_ref[m]=zeros(m)
         "Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
-      extends Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort(
-          final mh=m, T=T_ref);
+      extends Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort(final mh=m, T=T_ref);
+      parameter Boolean frequencyDependent = false "Consider frequency dependency, if true"
+        annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
+      parameter Modelica.SIunits.Frequency f_ref = 1 "Reference frequency, if frequency dependency is considered"
+        annotation(Dialog(enable=frequencyDependent));
       Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Impedance impedance[m](
         final Z_ref=Z_ref,
         final T_ref=T_ref,
         final alpha_ref=alpha_ref,
         final useHeatPort=fill(useHeatPort,m),
+        final frequencyDependent=fill(frequencyDependent, m),
+        final f_ref=fill(f_ref, m),
         final T=T_ref) annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
     equation
 
@@ -1437,13 +1441,28 @@ Model of a multi phase inductor providing a mutual inductance matrix model.
               extent={{-150,90},{150,50}},
               textString="%name",
               lineColor={0,0,255})}), Documentation(info="<html>
+<p>The impedance model represents a <strong>series</strong> connection of a resitsor and either an inductor or capacitor 
+in each phase.<br>
+<img src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/SinglePhase/Basic/RX_impedance.png\"></p> 
+
 <p>
-The linear impedance connects the complex voltages <code><u>v</u></code> with the complex
-currents <code><u>i</u></code> by <code><u>v</u> = <u>Z</u>*<u>i</u></code>,
-using <code>m</code> <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Impedance\">single phase impedances</a>. The resistive
-components are modeled temperature dependent, so the real parts <code>R = real(<u>Z</u>)</code>
-are determined from
-the actual operating temperature and the reference input resistances <code>real(<u>Z</u>_ref)</code>.
+The linear impedance connects the voltage <code><u>v</u></code> with the
+current <code><u>i</u></code> by  <code><u>v</u> = <u>Z</u>*<u>i</u></code> in each phase, using <code>m</code>
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Impedance\">singlephase impedances</a>. 
+The resistive
+components are modeled temperature dependent, so the real parts <code>R_actual = real(<u>Z</u>)</code> are determined from
+the actual operating temperatures and the reference input resistances <code>real(Z_ref)</code>. 
+<a href=\"modelica://Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort\">Conditional heat ports</a> are considered.
+The reactive components <code>X_actual = imag(<u>Z</u>)</code> 
+are equal to <code>imag(Z_ref)</code> if <code>frequencyDependent = false</code>. 
+Frequency dependency is considered by <code>frequencyDependent = true</code>, distinguishing two cases:
+
+<dl>
+<dt>(a) <code>imag(Z_ref) &gt; 0</code>: inductive case</dt>
+<dd>The actual reactances <code>X_actual</code> are proportional to <code>f/f_ref</code></dd>
+<dt>(b) <code>imag(Z_ref) &lt; 0</code>: capacitive case</dt>
+<dd>The actual reactances <code>X_actual</code> are proportional to <code>f_ref/f</code></dd>
+</dl> 
 </p>
 
 <h4>See also</h4>
@@ -1470,17 +1489,21 @@ the actual operating temperature and the reference input resistances <code>real(
         "Complex admittances G_ref + j*B_ref";
       parameter Modelica.SIunits.Temperature T_ref[m]=fill(293.15, m)
         "Reference temperatures";
-      parameter Modelica.SIunits.LinearTemperatureCoefficient alpha_ref[m]=
-          zeros(m)
+      parameter Modelica.SIunits.LinearTemperatureCoefficient alpha_ref[m]=zeros(m)
         "Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
-      extends Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort(
-          final mh=m, T=T_ref);
+      extends Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort(final mh=m, T=T_ref);
+      parameter Boolean frequencyDependent = false "Consider frequency dependency, if true"
+        annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
+      parameter Modelica.SIunits.Frequency f_ref = 1 "Reference frequency, if frequency dependency is considered"
+        annotation(Dialog(enable=frequencyDependent));
       Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Admittance admittance[m](
         final Y_ref=Y_ref,
         final T_ref=T_ref,
         final alpha_ref=alpha_ref,
         final useHeatPort=fill(useHeatPort,m),
-        final T=T) annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
+        final T=T,
+        final frequencyDependent=fill(frequencyDependent, m),
+        final f_ref=fill(f_ref, m)) annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
 
     equation
       connect(plugToPins_p.pin_p, admittance.pin_p) annotation (Line(points={{-68,0},{-53.5,0},{-39,0},{-10,0}}, color={85,170,255}));
@@ -1505,13 +1528,31 @@ the actual operating temperature and the reference input resistances <code>real(
               extent={{-150,90},{150,50}},
               textString="%name",
               lineColor={0,0,255})}), Documentation(info="<html>
+
+<p>The admittance model represents a <strong>parallel</strong> connection of a resitsor and either a capacitor or inductor 
+in each phase.<br>
+<img src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/SinglePhase/Basic/GB_admittance.png\"></p> 
+
 <p>
-The linear admittance connects the complex voltages <code><u>v</u></code> with the complex
-currents <code><u>i</u></code> by <code><u>i</u>*<u>Y</u> = <u>v</u></code>,
-using <code>m</code> <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Inductor\">single phase admittances</a>. The resistive
-components are modeled temperature dependent, so the real parts <code>G = real(<u>Y</u>)</code>
-are determined from
-the actual operating temperature and the reference input conductances <code>real(<u>Y</u>_ref)</code>.
+The linear admittance connects the voltage <code><u>v</u></code> with the
+current <code><u>i</u></code> by  <code><u>i</u> = <u>Y</u>*<u>v</u></code> in each phase, using <code>m</code>
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Admittance\">singlephase admittances</a>. 
+The resistive
+components are modeled temperature dependent, so the real parts <code>G_actual = real(<u>Y</u>)</code> are determined from
+the actual operating temperatures and the reference input conductances <code>real(Y_ref)</code>. 
+<a href=\"modelica://Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort\">Conditional heat ports</a> are considered.
+The reactive components
+<code>B_actual = imag(<u>Y</u>)</code> 
+are equal to <code>imag(Y_ref)</code> if <code>frequencyDependent = false</code>. 
+Frequency dependency is considered by <code>frequencyDependent = true</code>, distinguishing two cases:
+
+
+<dl>
+<dt>(a) <code>imag(Y_ref) &gt; 0</code>: capacitive case</dt>
+<dd>The actual susceptances <code>B_actual</code> are proportional to <code>f/f_ref</code></dd>
+<dt>(b) <code>imag(Y_ref) &lt; 0</code>: inductive case</dt>
+<dd>The actual susceptances <code>B_actual</code> are proportional to <code>f_ref/f</code></dd>
+</dl> 
 </p>
 
 <h4>See also</h4>
@@ -1824,11 +1865,13 @@ The inductances <code>L</code> are given as <code>m</code> input signals.
       extends Interfaces.TwoPlug;
       parameter Modelica.SIunits.Temperature T_ref[m]=fill(293.15, m)
         "Reference temperatures";
-      parameter Modelica.SIunits.LinearTemperatureCoefficient alpha_ref[m]=
-          zeros(m)
+      parameter Modelica.SIunits.LinearTemperatureCoefficient alpha_ref[m]=zeros(m)
         "Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
-      extends Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort(
-          final mh=m, T=T_ref);
+      extends Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort(final mh=m, T=T_ref);
+      parameter Boolean frequencyDependent = false "Consider frequency dependency, if true"
+        annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
+      parameter Modelica.SIunits.Frequency f_ref = 1 "Reference frequency, if frequency dependency is considered"
+        annotation(Dialog(enable=frequencyDependent));
       ComplexBlocks.Interfaces.ComplexInput Z_ref[m]
         "Variable complex impedances" annotation (Placement(transformation(
             origin={0,120},
@@ -1841,10 +1884,11 @@ The inductances <code>L</code> are given as <code>m</code> input signals.
         final T_ref=T_ref,
         final alpha_ref=alpha_ref,
         each final useHeatPort=useHeatPort,
-        final T=T) annotation (Placement(transformation(extent={{-10,-10},{10,
-                10}})));
+        final T=T,
+        final frequencyDependent=fill(frequencyDependent, m),
+        final f_ref=fill(f_ref, m))
+        annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
     equation
-
       connect(variableImpedance.pin_p, plugToPins_p.pin_p) annotation (Line(
             points={{-10,0},{-24.5,0},{-39,0},{-68,0}}, color={85,170,255}));
       connect(variableImpedance.pin_n, plugToPins_n.pin_n)
@@ -1875,23 +1919,37 @@ The inductances <code>L</code> are given as <code>m</code> input signals.
                   extent={{150,-80},{-150,-40}},
                   textString="m=%m")}),
         Documentation(info="<html>
-<p>
-The linear impedances connect the complex voltages <code><u>v</u></code> with the complex
-currents <code><u>i</u></code> by <code><u>i</u>*Z = <u>v</u></code>,
-using <code>m</code>
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableImpedance\">
-single phase variable impedance</a>.
-The impedances <code>Z_ref</code> are given as complex input signals, representing the
-resistive and reactive components of the input impedances. The resistive
-components are modeled temperature dependent, so the real parts <code>R = real(<u>Z</u>)</code>
-are determined from
-the actual operating temperature and the reference input resistances <code>real(<u>Z</u>_ref)</code>.
-</p>
+<p>The impedance model represents a <strong>series</strong> connection of a resitsor and either an inductor or capacitor
+in each phase.<br>
+<img src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/SinglePhase/Basic/RX_impedance.png\"></p> 
 
 <p>
-The impedance model also has <code>m</code> optional
-<a href=\"modelica://Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort\">conditional heat ports</a>.
-A linear temperature dependency of the resistances is also taken into account.
+The linear impedance connects the complex voltage <code><u>v</u></code> with the
+complex current <code><u>i</u></code> by <code><u>i</u>*<u>Z</u> = <u>v</u></code> in each phase, 
+using <code>m</code>
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableImpedance\">
+variable singlephase impedances</a>.
+The impedances <code>Z_ref = R_ref + j*X_ref</code> are given as complex input signals, representing the
+resistive and reactive components of the input impedances. The resistive
+components are modeled temperature dependent, so the real part <code>R_actual = real(<u>Z</u>)</code> are determined from
+the actual operating temperatures and the reference input resistances <code>real(Z_ref)</code>.
+<a href=\"modelica://Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort\">Conditional heat ports</a> are considered.
+The reactive components <code>X_actual = imag(<u>Z</u>)</code> 
+are equal to <code>imag(Z_ref)</code> if <code>frequencyDependent = false</code>. 
+Frequency dependency is considered by <code>frequencyDependent = true</code>, distinguishing two cases:
+
+<dl>
+<dt>(a) <code>imag(Z_ref) &gt; 0</code>: inductive case</dt>
+<dd>The actual reactances <code>X_actual</code> are proportional to <code>f/f_ref</code></dd>
+<dt>(b) <code>imag(Z_ref) &lt; 0</code>: capacitive case</dt>
+<dd>The actual reactances <code>X_actual</code> are proportional to <code>f_ref/f</code></dd>
+</dl> 
+</p>
+
+<h4>Note</h4>
+<p>
+Zero crossings of the real or imaginary parts of the impedance signals <code>Z_ref</code> could cause
+singularities due to the actual structure of the connected network.
 </p>
 
 <h4>See also</h4>
@@ -1915,11 +1973,13 @@ A linear temperature dependency of the resistances is also taken into account.
       extends Interfaces.TwoPlug;
       parameter Modelica.SIunits.Temperature T_ref[m]=fill(293.15, m)
         "Reference temperatures";
-      parameter Modelica.SIunits.LinearTemperatureCoefficient alpha_ref[m]=
-          zeros(m)
+      parameter Modelica.SIunits.LinearTemperatureCoefficient alpha_ref[m]=zeros(m)
         "Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
-      extends Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort(
-          final mh=m, T=T_ref);
+      extends Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort(final mh=m, T=T_ref);
+      parameter Boolean frequencyDependent = false "Consider frequency dependency, if true"
+        annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
+      parameter Modelica.SIunits.Frequency f_ref = 1 "Reference frequency, if frequency dependency is considered"
+        annotation(Dialog(enable=frequencyDependent));
       ComplexBlocks.Interfaces.ComplexInput Y_ref[m]
         "Variable complex admittances" annotation (Placement(transformation(
             origin={0,120},
@@ -1932,18 +1992,19 @@ A linear temperature dependency of the resistances is also taken into account.
         final T_ref=T_ref,
         final alpha_ref=alpha_ref,
         each final useHeatPort=useHeatPort,
-        final T=T) annotation (Placement(transformation(extent={{-10,-10},{10,
-                10}})));
+        final T=T,
+        final frequencyDependent=fill(frequencyDependent, m),
+        final f_ref=fill(f_ref, m))
+        annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
     equation
-
       connect(variableImpedance.pin_p, plugToPins_p.pin_p) annotation (Line(
-            points={{-10,0},{-24.5,0},{-39,0},{-68,0}}, color={85,170,255}));
+            points={{-10,0},{-68,0}}, color={85,170,255}));
       connect(variableImpedance.pin_n, plugToPins_n.pin_n)
-        annotation (Line(points={{10,0},{39,0},{68,0}}, color={85,170,255}));
+        annotation (Line(points={{10,0},{68,0}}, color={85,170,255}));
       connect(variableImpedance.heatPort, heatPort) annotation (Line(
           points={{0,-10},{0,-100}}, color={191,0,0}));
       connect(Y_ref, variableImpedance.Y_ref) annotation (Line(
-          points={{0,120},{0,120},{0,12}}, color={85,170,255}));
+          points={{0,120},{0,12}}, color={85,170,255}));
       annotation (defaultComponentName="admittance",
         Icon(graphics={Line(points={{60,0},{90,0}}, color={85,170,255}),
               Line(points={{-90,0},{-60,0}}, color={85,170,255}),
@@ -1964,23 +2025,37 @@ A linear temperature dependency of the resistances is also taken into account.
                   extent={{150,-80},{-150,-40}},
                   textString="m=%m")}),
         Documentation(info="<html>
-<p>
-The linear admittances connect the complex voltages <code><u>v</u></code> with the complex
-currents <code><u>i</u></code> by <code><u>v</u>*Z = <u>i</u></code>,
-using <code>m</code>
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableAdmittance\">
-single phase variable admittances</a>.
-The admittances <code>Y_ref</code> are given as complex input signals, representing the
-resistive and reactive components of the input admittance. The resistive
-components are modeled temperature dependent, so the real parts <code>G = real(<u>Y</u>)</code>
-are determined from
-the actual operating temperature and the reference input conductances <code>real(<u>Y</u>_ref)</code>.
-</p>
+<p>The admittance model represents a <strong>parallel</strong> connection of a resitsor and either a capacitor or inductor
+in each phase.<br>
+<img src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/SinglePhase/Basic/GB_admittance.png\"></p> 
 
 <p>
-The admittance model also has <code>m</code> optional
-<a href=\"modelica://Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort\">conditional heat ports</a>.
-A linear temperature dependency of the conductances is also taken into account.
+The linear admittance connects the complex voltage <code><u>v</u></code> with the
+complex current <code><u>i</u></code> by <code><u>v</u>*<u>Y</u> = <u>i</u></code> in each phase, 
+using <code>m</code>
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableAdmittance\">
+variable singlephase admittances</a>.
+The admittances <code>Y_ref = G_ref + j*B_ref</code> are given as complex input signals, representing the
+resistive and reactive components of the input admittances. The resistive
+components are modeled temperature dependent, so the real part <code>G_actual = real(<u>Y</u>)</code> are determined from
+the actual operating temperatures and the reference input conductances <code>real(Y_ref)</code>.
+<a href=\"modelica://Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort\">Conditional heat ports</a> are considered.
+The reactive components <code>B_actual = imag(<u>Y</u>)</code> 
+are equal to <code>imag(Y_ref)</code> if <code>frequencyDependent = false</code>. 
+Frequency dependency is considered by <code>frequencyDependent = true</code>, distinguishing two cases:
+
+<dl>
+<dt>(a) <code>imag(Y_ref) &gt; 0</code>: capacitive case</dt>
+<dd>The actual susceptances <code>B_actual</code> are proportional to <code>f/f_ref</code></dd>
+<dt>(b) <code>imag(Y_ref) &lt; 0</code>: inductive case</dt>
+<dd>The actual susceptances <code>B_actual</code> are proportional to <code>f_ref/f</code></dd>
+</dl> 
+</p>
+
+<h4>Note</h4>
+<p>
+Zero crossings of the real or imaginary parts of the admittance signals <code>Y_ref</code> could cause
+singularities due to the actual structure of the connected network.
 </p>
 
 <h4>See also</h4>
