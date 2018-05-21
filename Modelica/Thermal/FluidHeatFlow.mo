@@ -1279,6 +1279,121 @@ the time behaviour depending on coolant flow.
 </html>"),        experiment(StopTime=1.0, Interval=0.001));
     end TwoMass;
 
+    model WaterPump "Water pump station"
+      import Modelica.Thermal.FluidHeatFlow.Examples.WaterPump;
+      extends Modelica.Icons.Example;
+      import Modelica.Constants.pi;
+      Modelica.Thermal.FluidHeatFlow.Sources.Ambient ambient1(
+        medium=Modelica.Thermal.FluidHeatFlow.Media.Water(),
+        constantAmbientPressure=100000,
+        constantAmbientTemperature=293.15)
+        annotation (Placement(transformation(
+            extent={{-10,10},{10,-10}},
+            rotation=270,
+            origin={50,-70})));
+      Modelica.Blocks.Sources.Ramp rampSpeed(
+        startTime=0,
+        height=1500*pi/30,
+        duration=1)        annotation (Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=0,
+            origin={-40,-40})));
+      Modelica.Mechanics.Rotational.Sources.Speed speed(exact=true)
+        annotation (Placement(transformation(extent={{-20,-50},{0,-30}})));
+      Modelica.Mechanics.Rotational.Sensors.MultiSensor multiSensor
+        annotation (Placement(transformation(extent={{10,-50},{30,-30}})));
+      Modelica.Thermal.FluidHeatFlow.Sources.IdealPump idealPump(
+        medium=Modelica.Thermal.FluidHeatFlow.Media.Water(),
+        m=0,
+        V_flow(start=0.01),
+        T0=293.15,
+        wNominal=157.07963267949,
+        dp0=500000,
+        V_flow0=0.2) annotation (Placement(transformation(
+            extent={{-10,10},{10,-10}},
+            rotation=90,
+            origin={50,-40})));
+      Modelica.Thermal.FluidHeatFlow.Sensors.VolumeFlowSensor volumeFlowSensor(medium=
+            Modelica.Thermal.FluidHeatFlow.Media.Water())
+        annotation (Placement(transformation(
+            extent={{10,-10},{-10,10}},
+            rotation=270,
+            origin={50,-10})));
+        Modelica.Thermal.FluidHeatFlow.Components.Valve valve(
+        medium=Modelica.Thermal.FluidHeatFlow.Media.Water(),
+        m=0,
+        frictionLoss=0,
+        LinearCharacteristic=true,
+        y1=1,
+        rho0(displayUnit="kg/m3") = 995.6,
+        kv0=1e-6,
+        T0=293.15,
+        Kv1=0.2,
+        dp0=10000)                                          annotation (Placement(
+            transformation(
+            extent={{10,10},{-10,-10}},
+            rotation=270,
+            origin={50,20})));
+      Modelica.Blocks.Sources.Ramp rampValve(
+        offset=0,
+        duration=0.5,
+        startTime=1)
+        annotation (Placement(transformation(extent={{10,10},{30,30}})));
+      Modelica.Thermal.FluidHeatFlow.Components.IsolatedPipe isolatedPipe(
+        m=0,
+        medium=Modelica.Thermal.FluidHeatFlow.Media.Water(),
+        V_flowLaminar=0.1,
+        V_flowNominal=0.2,
+        T0=293.15,
+        dpLaminar=0.1,
+        dpNominal=0.3,
+        h_g=25.35)
+                annotation (Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=90,
+            origin={50,50})));
+      Modelica.Thermal.FluidHeatFlow.Sources.Ambient ambient2(
+        medium=Modelica.Thermal.FluidHeatFlow.Media.Water(),
+        constantAmbientPressure=100000,
+        constantAmbientTemperature=293.15)
+        annotation (Placement(transformation(
+            extent={{10,10},{-10,-10}},
+            rotation=270,
+            origin={50,84})));
+    equation
+      connect(idealPump.flowPort_a, ambient1.flowPort)
+        annotation (Line(points={{50,-50},{50,-60}}, color={255,0,0}));
+      connect(rampValve.y, valve.y)
+        annotation (Line(points={{31,20},{41,20}}, color={0,0,127}));
+      connect(rampSpeed.y, speed.w_ref)
+        annotation (Line(points={{-29,-40},{-22,-40}}, color={0,0,127}));
+      connect(speed.flange, multiSensor.flange_a)
+        annotation (Line(points={{0,-40},{10,-40}},    color={0,0,0}));
+      connect(valve.flowPort_a, volumeFlowSensor.flowPort_b)
+        annotation (Line(points={{50,10},{50,0}}, color={255,0,0}));
+      connect(volumeFlowSensor.flowPort_a, idealPump.flowPort_b)
+        annotation (Line(points={{50,-20},{50,-30}}, color={255,0,0}));
+      connect(ambient2.flowPort, isolatedPipe.flowPort_b)
+        annotation (Line(points={{50,74},{50,60}}, color={255,0,0}));
+      connect(isolatedPipe.flowPort_a, valve.flowPort_b)
+        annotation (Line(points={{50,40},{50,30}}, color={255,0,0}));
+      connect(multiSensor.flange_b, idealPump.flange_a)
+        annotation (Line(points={{30,-40},{40,-40}}, color={0,0,0}));
+      annotation (experiment(
+          StopTime=2,
+          Interval=0.001,
+          Tolerance=1e-06),                                                 Documentation(
+            info="<html>
+<p>
+Water is pumped from one reservoir at ambient pressure to a second reservoir at ambient pressure that is 25 m higher.
+Pump speed is increased from 0 to nominal speed by a ramp. 
+To avoid backflow of water, the valve is opened when the pump is at full speed.
+</p>
+</html>"),
+        Diagram(coordinateSystem(                                initialScale=0.1)),
+        Icon(coordinateSystem(                                initialScale=0.1)));
+    end WaterPump;
+
     package Utilities "Utility models for examples"
       extends Modelica.Icons.UtilitiesPackage;
 
