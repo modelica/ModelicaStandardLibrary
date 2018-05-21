@@ -2647,16 +2647,17 @@ The output y is a complex phasor with constant magnitude, spinning with constant
     block ComplexRampPhasor "Generate a phasor with ramped magnitude and constant angle"
       extends Modelica.ComplexBlocks.Interfaces.ComplexSO;
       import Modelica.Constants.eps;
-      parameter Real magnitude1(final min=eps,start=1) "Magnitude of complex phasor at startTime"
+      parameter Real magnitude1(final min=0,start=1) "Magnitude of complex phasor at startTime"
         annotation(Dialog(groupImage="modelica://Modelica/Resources/Images/ComplexBlocks/Sources/ComplexRampPhasor.png"));
-      parameter Real magnitude2(final min=eps,start=1) "Magnitude of complex phasor at startTime+duration";
+      parameter Real magnitude2(final min=0,start=1) "Magnitude of complex phasor at startTime+duration";
       parameter Boolean useLogRamp = false "Ramp appears linear on a logarithmic scale, if true";
       parameter Modelica.SIunits.Angle phi(start=0) "Angle of complex phasor";
       parameter Modelica.SIunits.Time startTime=0 "Start time of frequency sweep";
       parameter Modelica.SIunits.Time duration(min=0.0, start=1) "Duration of ramp (= 0.0 gives a Step)";
       Real magnitude "Actual magnitude of complex phasor";
     equation
-
+      assert(not useLogRamp or (magnitude1>eps and magnitude2>eps),
+        "ComplexRampPhasor: magnitude1 and magnitude2 have to be greater than eps, if useLogRamp = true");
       magnitude = if not useLogRamp then
         magnitude1 + (if time < startTime then
           0 else
