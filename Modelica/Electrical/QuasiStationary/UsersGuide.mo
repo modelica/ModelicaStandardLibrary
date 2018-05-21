@@ -429,7 +429,7 @@ ideal AC DC converter</a>, which is used in the
 <ul>
     <li>Added frequency dependent behavior im impedance and admittance models, see 
         <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2451\">#2451</a></li>
-    <li>Added frequency speed voltage and current sources, see
+    <li>Added frequency sweep voltage and current sources, see
         <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2442\">#2442</a></li>
     <ul>
         <li>Single-phase <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sources.FrequencySweepVoltageSource\">FrequencySweepVoltageSource</a></li>
