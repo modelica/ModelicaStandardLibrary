@@ -3413,7 +3413,7 @@ refers to the RMS value of the fundamental wave:<br>
 
 <p>
 If <code>useFirstHarmonic = false</code>, the total higher harmonic content (harmonic order numbers &gt; 1) 
-refers to the total RMS:<br><br>
+refers to the total RMS:<br>
 <img src=\"modelica://Modelica/Resources/Images/Blocks/Math/THDrms.png\">
 </p>
 
