@@ -425,8 +425,10 @@ ideal AC DC converter</a>, which is used in the
     extends Modelica.Icons.ReleaseNotes;
 
     annotation (Documentation(info="<html>
-<h5>Version 3.2.2, 2018-01-28</h5>
+<h5>Version 3.2.3, 2018-05-21</h5>
 <ul>
+    <li>Added frequency dependent behavior im impedance and admittance models, see 
+        <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2451\">#2451</a></li>
     <li>Added frequency speed voltage and current sources, see
         <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2442\">#2442</a></li>
     <ul>
