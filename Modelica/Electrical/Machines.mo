@@ -16763,7 +16763,7 @@ The icons can be utilized by inheriting them in the desired class using \"extend
 
     block VfController "Voltage-Frequency-Controller"
       import Modelica.Constants.pi;
-      extends Modelica.Blocks.Interfaces.SIMO(final nout=m);
+      extends Modelica.Blocks.Interfaces.SIMO(u(unit="Hz"), final nout=m);
       parameter Integer m=3 "Number of phases";
       parameter Modelica.SIunits.Angle orientation[m]=-
           Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m)

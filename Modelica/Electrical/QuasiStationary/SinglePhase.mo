@@ -1969,7 +1969,7 @@ Quasi stationary theory for single phase circuits can be found in the
 
     model ReferenceSensor "Sensor of reference angle gamma"
       extends Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.AbsoluteSensor;
-      Modelica.Blocks.Interfaces.RealOutput y "Reference angle" annotation (
+      Modelica.Blocks.Interfaces.RealOutput y(unit="rad") "Reference angle" annotation (
           Placement(transformation(extent={{100,-10},{120,10}})));
     equation
       y = pin.reference.gamma;
@@ -1999,7 +1999,7 @@ This sensor can be used to measure the reference angle.
     model FrequencySensor "Frequency sensor"
       extends Interfaces.AbsoluteSensor;
       import Modelica.Constants.pi;
-      Blocks.Interfaces.RealOutput y annotation (Placement(transformation(
+      Blocks.Interfaces.RealOutput y(unit="Hz") annotation (Placement(transformation(
               extent={{100,-10},{120,10}})));
     equation
       2*pi*y = omega;
@@ -2343,7 +2343,7 @@ This is a constant voltage source, specifying the complex voltage by the RMS vol
 
     model VariableVoltageSource "Variable AC voltage"
       extends Interfaces.Source;
-      Modelica.Blocks.Interfaces.RealInput f annotation (Placement(
+      Modelica.Blocks.Interfaces.RealInput f(unit="Hz") annotation (Placement(
             transformation(
             origin={60,120},
             extent={{-20,-20},{20,20}},
@@ -2470,7 +2470,7 @@ This is a constant current source, specifying the complex current by the RMS cur
 
     model VariableCurrentSource "Variable AC current"
       extends Interfaces.Source;
-      Modelica.Blocks.Interfaces.RealInput f annotation (Placement(
+      Modelica.Blocks.Interfaces.RealInput f(unit="Hz") annotation (Placement(
             transformation(
             origin={60,120},
             extent={{-20,-20},{20,20}},

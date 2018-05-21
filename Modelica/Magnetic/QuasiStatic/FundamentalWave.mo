@@ -7550,7 +7550,7 @@ The partial two port elementary model extends from the partial two port model an
         "Complex quasi static voltages (RMS)" annotation (Placement(
             transformation(extent={{100,-10},{120,10}}), iconTransformation(
               extent={{100,-10},{120,10}})));
-      Modelica.Blocks.Interfaces.RealInput u "Frequency input (Hz)"
+      Modelica.Blocks.Interfaces.RealInput u(unit="Hz") "Frequency input (Hz)"
         annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
     equation
       //amplitude = VNominal*min(abs(u)/fNominal, 1);
@@ -7827,7 +7827,7 @@ choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
       Modelica.ComplexBlocks.Interfaces.ComplexOutput I[m]
         "Multi phase current phasors"
         annotation (Placement(transformation(extent={{100,30},{120,50}})));
-      Modelica.Blocks.Interfaces.RealOutput gamma "Reference angle of source"
+      Modelica.Blocks.Interfaces.RealOutput gamma(unit="rad") "Reference angle of source"
         annotation (Placement(transformation(extent={{100,-50},{120,-30}})));
       Electrical.QuasiStationary.MultiPhase.Blocks.SingleToMultiPhase
         singleToMultiPhase(final m=m)
