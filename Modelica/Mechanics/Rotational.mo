@@ -1760,16 +1760,16 @@ A rotating inertia gets decelerated by an eddy current brake. The loss power is 
         annotation (Placement(transformation(extent={{-30,-20},{-10,0}})));
       Modelica.Mechanics.Rotational.Sources.Torque torque2
         annotation (Placement(transformation(extent={{-60,-20},{-40,0}})));
-      Modelica.Mechanics.Rotational.Components.GeneralTorqueToAngleAdaptor
-        torqueToAngle2a(use_pder2=false)
+      Components.TorqueToAngleAdaptor
+        torqueToAngle2a(use_a=false)
         annotation (Placement(transformation(extent={{-10,-20},{10,0}})));
       Modelica.Mechanics.Rotational.Components.Inertia inertia2b(
         J=2.2,
         phi(fixed=true, start=0),
         w(fixed=true, start=0))
         annotation (Placement(transformation(extent={{70,-20},{90,0}})));
-      Modelica.Mechanics.Rotational.Components.GeneralTorqueToAngleAdaptor
-        torqueToAngle2b(use_pder2=false)
+      Components.TorqueToAngleAdaptor
+        torqueToAngle2b(use_a=false)
         annotation (Placement(transformation(extent={{70,-20},{50,0}})));
       Modelica.Mechanics.Rotational.Examples.Utilities.Spring spring(c=1e4)
         annotation (Placement(transformation(extent={{20,-80},{40,-60}})));
@@ -1780,16 +1780,16 @@ A rotating inertia gets decelerated by an eddy current brake. The loss power is 
                {{-30,-80},{-10,-60}})));
       Modelica.Mechanics.Rotational.Sources.Torque   force3
         annotation (Placement(transformation(extent={{-60,-80},{-40,-60}})));
-      Modelica.Mechanics.Rotational.Components.GeneralTorqueToAngleAdaptor
-        torqueToAngle3a(use_pder=false, use_pder2=false)
+      Components.TorqueToAngleAdaptor
+        torqueToAngle3a(use_w=false, use_a=false)
         annotation (Placement(transformation(extent={{-10,-80},{10,-60}})));
       Modelica.Mechanics.Rotational.Components.Inertia inertia3b(
         J=2.2,
         phi(fixed=true, start=0),
         w(fixed=true, start=0))
         annotation (Placement(transformation(extent={{70,-80},{90,-60}})));
-      Modelica.Mechanics.Rotational.Components.GeneralTorqueToAngleAdaptor
-        torqueToAngle3b(use_pder=false, use_pder2=false)
+      Components.TorqueToAngleAdaptor
+        torqueToAngle3b(use_w=false, use_a=false)
         annotation (Placement(transformation(extent={{70,-80},{50,-60}})));
     equation
       connect(sine1.y, directInertia.tauDrive)
@@ -1818,26 +1818,26 @@ A rotating inertia gets decelerated by an eddy current brake. The loss power is 
         annotation (Line(points={{-40,-70},{-30,-70}}));
       connect(torqueToAngle3b.flange, inertia3b.flange_a)
         annotation (Line(points={{62,-70},{70,-70}}));
-      connect(torqueToAngle2a.p, springDamper.phi1)
+      connect(torqueToAngle2a.phi, springDamper.phi1)
         annotation (Line(points={{3,-2},{18,-2}}, color={0,0,127}));
-      connect(torqueToAngle2a.pder, springDamper.w1) annotation (Line(
-            points={{3,-5},{9.5,-5},{9.5,-7},{18,-7}}, color={0,0,127}));
-      connect(torqueToAngle2a.f, springDamper.tau1)
-        annotation (Line(points={{3,-18},{19,-18}}, color={0,0,127}));
-      connect(torqueToAngle2b.p, springDamper.phi2)
-        annotation (Line(points={{57,-2},{42,-2}}, color={0,0,127}));
-      connect(torqueToAngle2b.pder, springDamper.w2) annotation (Line(
-            points={{57,-5},{50.5,-5},{50.5,-7},{42,-7}}, color={0,0,127}));
-      connect(torqueToAngle2b.f, springDamper.tau2)
-        annotation (Line(points={{57,-18},{41,-18}}, color={0,0,127}));
-      connect(torqueToAngle3a.p, spring.phi1)
+      connect(torqueToAngle2a.w, springDamper.w1) annotation (Line(points={{3,
+              -7},{10.5,-7},{10.5,-7},{18,-7}}, color={0,0,127}));
+      connect(torqueToAngle2a.tau, springDamper.tau1)
+        annotation (Line(points={{4,-18},{19,-18}}, color={0,0,127}));
+      connect(springDamper.tau2, torqueToAngle2b.tau)
+        annotation (Line(points={{41,-18},{56,-18}}, color={0,0,127}));
+      connect(springDamper.phi2, torqueToAngle2b.phi)
+        annotation (Line(points={{42,-2},{57,-2}}, color={0,0,127}));
+      connect(springDamper.w2, torqueToAngle2b.w) annotation (Line(points={{42,
+              -7},{50,-7},{50,-7},{57,-7}}, color={0,0,127}));
+      connect(torqueToAngle3a.phi, spring.phi1)
         annotation (Line(points={{3,-62},{18,-62}}, color={0,0,127}));
-      connect(torqueToAngle3a.f, spring.tau1)
-        annotation (Line(points={{3,-78},{19,-78}}, color={0,0,127}));
-      connect(spring.phi2, torqueToAngle3b.p)
+      connect(torqueToAngle3a.tau, spring.tau1)
+        annotation (Line(points={{4,-78},{19,-78}}, color={0,0,127}));
+      connect(spring.phi2, torqueToAngle3b.phi)
         annotation (Line(points={{42,-62},{57,-62}}, color={0,0,127}));
-      connect(spring.tau2, torqueToAngle3b.f)
-        annotation (Line(points={{41,-78},{57,-78}}, color={0,0,127}));
+      connect(spring.tau2, torqueToAngle3b.tau)
+        annotation (Line(points={{41,-78},{56,-78}}, color={0,0,127}));
       annotation (experiment(StopTime=1, Interval=0.001), Documentation(info="<html>
 <p>
 This example demonstrates how to generate an input/output block (e.g. in form of an
@@ -5348,109 +5348,244 @@ in the User's Guide of the Rotational library.
                   pattern=LinePattern.Dash)}));
     end RelativeStates;
 
-    model TorqueToAngleAdaptor
-      "Signal adaptor for a Rotational flange with angle, speed, and acceleration as outputs and torque as input (especially useful for FMUs)"
-      parameter Boolean use_w=true "use output for velocity = 1st derivative of angle"
-        annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
-      parameter Boolean use_a=true "use output for acceleration = 2nd derivative of angle"
-      annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
-      Modelica.Mechanics.Rotational.Interfaces.Flange_a flange
-        annotation (Placement(transformation(extent={{-30,-10},{-10,10}})));
-      Modelica.Blocks.Interfaces.RealOutput phi(unit="rad") "output for phi"
-        annotation (Placement(transformation(extent={{20,70},{40,90}})));
-      Modelica.Blocks.Interfaces.RealOutput w(unit="rad/s") if use_w "optional output for w"
-        annotation (Placement(transformation(extent={{20,40},{40,60}})));
-      Modelica.Blocks.Interfaces.RealOutput a(unit="rad/s2") if (use_w and use_a) "optional output for a"
-        annotation (Placement(transformation(extent={{20,10},{40,30}})));
-      Modelica.Blocks.Interfaces.RealInput tau(unit="N.m") "input for tau"
-        annotation (Placement(transformation(extent={{40,-90},{20,-70}})));
-      Modelica.Mechanics.Rotational.Components.GeneralTorqueToAngleAdaptor
-        torqueToAngleAdaptorNew(final use_pder=use_w, final use_pder2=use_a)
+    model AngleToTorqueAdaptor
+      "Signal adaptor for a Rotational flange with torque as output and angle, speed, and optionally acceleration as inputs (especially useful for FMUs)"
+      parameter Boolean use_w=true
+        "= true, enable the input connector w (angular velocity)" annotation (
+        Evaluate=true,
+        HideResult=true,
+        choices(checkBox=true));
+      parameter Boolean use_a=true
+        "= true, enable the input connector a (angular acceleration)"
+        annotation (
+        Evaluate=true,
+        HideResult=true,
+        choices(checkBox=true));
+      Modelica.Mechanics.Rotational.Interfaces.Flange_b flange annotation (
+          Placement(transformation(extent={{56,-10},{76,10}}),
+            iconTransformation(extent={{10,-10},{30,10}})));
+      Modelica.Blocks.Interfaces.RealInput phi(unit="rad")
+        "Angle to drive the flange" annotation (Placement(transformation(extent=
+               {{-80,60},{-40,100}}), iconTransformation(extent={{-60,60},{-20,
+                100}})));
+      Modelica.Blocks.Interfaces.RealInput w(unit="rad/s") if use_w or use_a
+        "Speed to drive the flange (w=der(phi) required)" annotation (
+          Placement(transformation(extent={{-80,10},{-40,50}}),
+            iconTransformation(extent={{-60,8},{-20,48}})));
+      Modelica.Blocks.Interfaces.RealInput a(unit="rad/s2") if use_a
+        "Angular acceleration to drive the flange (a = der(w) required)"
+        annotation (Placement(transformation(extent={{-80,-50},{-40,-10}}),
+            iconTransformation(extent={{-60,-52},{-20,-12}})));
+      Modelica.Blocks.Interfaces.RealOutput tau(unit="N.m")
+        "Torque needed to drive the flange according to phi, w, a" annotation (
+          Placement(transformation(extent={{-40,-90},{-60,-70}}),
+            iconTransformation(extent={{-20,-90},{-40,-70}})));
+
+    protected
+      Modelica.Mechanics.Rotational.Sources.Move move if use_a
+        annotation (Placement(transformation(extent={{10,-10},{30,10}})));
+      Modelica.Blocks.Routing.Multiplex3 multiplex3 if use_a
         annotation (Placement(transformation(extent={{-20,-10},{0,10}})));
+      Modelica.Mechanics.Rotational.Sensors.TorqueSensor torqueSensor
+        annotation (Placement(transformation(extent={{36,-10},{56,10}})));
+
+      Modelica.Blocks.Routing.Multiplex2 multiplex2 if use_w and not use_a
+        annotation (Placement(transformation(extent={{-20,40},{0,60}})));
+      Move_phi move_phi if not use_w and not use_a
+        annotation (Placement(transformation(extent={{10,70},{30,90}})));
+      Move_w move_w if use_w and not use_a
+        annotation (Placement(transformation(extent={{10,40},{30,60}})));
+
+      model Move_phi "Forced movement of a flange according to an angle signal"
+        extends
+          Modelica.Mechanics.Rotational.Interfaces.PartialElementaryOneFlangeAndSupport2;
+
+        Modelica.Blocks.Interfaces.RealInput phi(
+          final quantity="Angle",
+          final unit="rad",
+          displayUnit="deg") "Rotation angle of flange with respect to support"
+          annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
+      equation
+        phi = flange.phi - phi_support;
+        annotation (Documentation(info="<html>
+<p>
+Flange <b>flange</b> is <b>forced</b> to move relative to flange support with a predefined motion
+according to the input signal u
+</p>
+<pre>
+    u[1]: angle of flange
+    u[2]: angular velocity of flange
+</pre>
+<p>
+The user has to guarantee that the input signals are consistent to each other,
+i.e., that u[2] is the derivative of u[1].
+</p>
+<p>
+The input signals can be provided from one of the signal generator
+blocks of the block library Modelica.Blocks.Sources.
+</p>
+</html>"), Icon(coordinateSystem(
+              preserveAspectRatio=true,
+              extent={{-100,-100},{100,100}}), graphics={Text(
+                      extent={{-80,-60},{-80,-100}},
+                      lineColor={0,0,0},
+                      textString="phi"),Rectangle(
+                      extent={{-100,20},{100,-20}},
+                      lineColor={64,64,64},
+                      fillPattern=FillPattern.HorizontalCylinder,
+                      fillColor={192,192,192}),Line(points={{-30,-32},{30,-32}}),Line(points={{0,52},{0,32}}),Line(
+                points={{-29,32},{30,32}}),Line(points={{0,-32},
+                {0,-100}}),Line(points={{30,-42},{20,-52}}),Line(points={{30,-32},{10,-52}}),
+                Line(points={{20,-32},{0,-52}}),Line(points={{10,
+                -32},{-10,-52}}),Line(points={{0,-32},{-20,-52}}),Line(points={{-10,-32},{-30,-52}}),
+                Line(points={{-20,-32},{-30,-42}}),Text(
+                      extent={{-150,100},{150,60}},
+                      textString="%name",
+                      lineColor={0,0,255})}));
+      end Move_phi;
+
+      model Move_w
+        "Forced movement of a flange according to an angle and speed signal"
+        extends
+          Modelica.Mechanics.Rotational.Interfaces.PartialElementaryOneFlangeAndSupport2;
+
+        Modelica.SIunits.Angle phi
+          "Rotation angle of flange with respect to support";
+        Modelica.Blocks.Interfaces.RealInput u[2]
+          "Angle and angular velocity of flange with respect to support as input signals"
+          annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
+      protected
+        function position
+          extends Modelica.Icons.Function;
+          input Real q_qd[2] "Required values for position and speed";
+          input Real dummy
+            "Just to have one input signal that should be differentiated to avoid possible problems in the Modelica tool (is not used)";
+          output Real q;
+        algorithm
+          q := q_qd[1];
+          annotation (derivative(noDerivative=q_qd) = position_der,
+              InlineAfterIndexReduction=true);
+        end position;
+
+        function position_der
+          extends Modelica.Icons.Function;
+          input Real q_qd[2] "Required values for position and speed";
+          input Real dummy
+            "Just to have one input signal that should be differentiated to avoid possible problems in the Modelica tool (is not used)";
+          input Real dummy_der;
+          output Real qd;
+        algorithm
+          qd := q_qd[2];
+        end position_der;
+      equation
+        phi = flange.phi - phi_support;
+        phi = position(u, time);
+        annotation (Documentation(info="<html>
+<p>
+Flange <b>flange</b> is <b>forced</b> to move relative to flange support with a predefined motion
+according to the input signals:
+</p>
+<pre>
+    u[1]: angle of flange
+    u[2]: angular velocity of flange
+</pre>
+<p>
+The user has to guarantee that the input signals are consistent to each other,
+i.e., that u[2] is the derivative of u[1].
+</p>
+<p>
+The input signals can be provided from one of the signal generator
+blocks of the block library Modelica.Blocks.Sources.
+</p>
+</html>"), Icon(coordinateSystem(
+              preserveAspectRatio=true,
+              extent={{-100,-100},{100,100}}), graphics={Text(
+                      extent={{-80,-60},{-80,-100}},
+                      lineColor={0,0,0},
+                      textString="phi,w"),Rectangle(
+                      extent={{-100,20},{100,-20}},
+                      lineColor={64,64,64},
+                      fillPattern=FillPattern.HorizontalCylinder,
+                      fillColor={192,192,192}),Line(points={{-30,-32},{30,-32}}),Line(points={{0,52},{0,32}}),Line(
+                points={{-29,32},{30,32}}),Line(points={{0,-32},
+                {0,-100}}),Line(points={{30,-42},{20,-52}}),Line(points={{30,-32},{10,-52}}),
+                Line(points={{20,-32},{0,-52}}),Line(points={{10,
+                -32},{-10,-52}}),Line(points={{0,-32},{-20,-52}}),Line(points={{-10,-32},{-30,-52}}),
+                Line(points={{-20,-32},{-30,-42}}),Text(
+                      extent={{-150,100},{150,60}},
+                      textString="%name",
+                      lineColor={0,0,255})}));
+      end Move_w;
     equation
-      connect(flange, torqueToAngleAdaptorNew.flange)
-        annotation (Line(points={{-20,0},{-12,0}}));
-      connect(torqueToAngleAdaptorNew.p, phi)
-        annotation (Line(points={{-7,8},{0,8},{0,80},{30,80}}, color={0,0,127}));
-      connect(torqueToAngleAdaptorNew.pder, w)
-        annotation (Line(points={{-7,5},{6,5},{6,50},{30,50}}, color={0,0,127}));
-      connect(torqueToAngleAdaptorNew.pder2, a)
-        annotation (Line(points={{-7,2},{12,2},{12,20},{30,20}}, color={0,0,127}));
-      connect(torqueToAngleAdaptorNew.f, tau) annotation (Line(points={{-7,-8},{0,-8},
-              {0,-80},{30,-80}}, color={0,0,127}));
+      connect(multiplex3.y, move.u) annotation (Line(
+          points={{1,0},{8,0}},
+          color={0,0,127}));
+      connect(phi, multiplex3.u1[1]) annotation (Line(
+          points={{-60,80},{-32,80},{-32,7},{-22,7}},
+          color={0,0,127}));
+      connect(w, multiplex3.u2[1]) annotation (Line(
+          points={{-60,30},{-36,30},{-36,0},{-22,0}},
+          color={0,0,127}));
+      connect(a, multiplex3.u3[1]) annotation (Line(
+          points={{-60,-30},{-32,-30},{-32,-7},{-22,-7}},
+          color={0,0,127}));
+      connect(flange, torqueSensor.flange_b) annotation (Line(
+          points={{66,0},{56,0}}));
+      connect(move.flange, torqueSensor.flange_a) annotation (Line(
+          points={{30,0},{36,0}}));
+      connect(torqueSensor.tau, tau) annotation (Line(
+          points={{38,-11},{38,-80},{-50,-80}},
+          color={0,0,127}));
+      connect(multiplex2.y, move_w.u) annotation (Line(
+          points={{1,50},{8,50}},
+          color={0,0,127}));
+      connect(phi, multiplex2.u1[1]) annotation (Line(
+          points={{-60,80},{-46,80},{-46,80},{-32,80},{-32,56},{-22,56}},
+          color={0,0,127}));
+      connect(w, multiplex2.u2[1]) annotation (Line(
+          points={{-60,30},{-28,30},{-28,44},{-22,44}},
+          color={0,0,127}));
+      connect(move_w.flange, torqueSensor.flange_a) annotation (Line(
+          points={{30,50},{36,50},{36,0}}));
+      connect(phi, move_phi.phi) annotation (Line(
+          points={{-60,80},{8,80}},
+          color={0,0,127}));
+      connect(move_phi.flange, torqueSensor.flange_a) annotation (Line(
+          points={{30,80},{36,80},{36,0}}));
       annotation (
-        Documentation(info="<html>
-<p>
-Adaptor between a flange connector and a signal representation of the flange.
-This component is used to provide a pure signal interface around a Rotational model
-and export this model in form of an input/output block,
-especially as FMU (<a href=\"https://www.fmi-standard.org\">Functional Mock-up Unit</a>).
-Examples of the usage of this adaptor are provided in
-<a href=\"modelica://Modelica.Mechanics.Rotational.Examples.GenerationOfFMUs\">Rotational.Examples.GenerationOfFMUs</a>.
-This adaptor has torque as input and angle, angular velocity and angular acceleration as output signals.
-</p>
-<p>
-This is just a wrapper model around
-<a href=\"modelica://Modelica.Mechanics.Rotational.Components.GeneralTorqueToAngleAdaptor\">GeneralTorqueToAngleAdaptor</a>,
-provided for backwards compatibility reasons.
-</p>
-</html>"),     Icon(graphics={
-            Text(
-              extent={{-100,120},{100,100}},
-              lineColor={0,0,255},
-              textString="%name"),
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
                 Rectangle(
                   extent={{-20,100},{20,-100}},
                   lineColor={64,64,64},
                   fillColor={255,255,255},
                   fillPattern=FillPattern.HorizontalCylinder,
                   radius=10),
-            Text(
-              extent={{-18,90},{18,70}},
-              textString="phi"),
-            Text(
-              extent={{-18,60},{18,40}},
-              textString="w", visible=use_w),
-            Text(
-              extent={{-18,30},{18,10}},
-              textString="a", visible=(use_w and use_a)),
-            Text(
-              extent={{-18,-70},{18,-90}},
-              textString="tau")}));
-    end TorqueToAngleAdaptor;
-
-    model AngleToTorqueAdaptor
-      "Signal adaptor for a Rotational flange with torque as output and angle, speed and acceleration as input (especially useful for FMUs)"
-      parameter Boolean use_w=true "use input for velocity = 1st derivative of angle"
-        annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
-      parameter Boolean use_a=true "use input for acceleration = 2nd derivative of angle"
-      annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
-      Modelica.Mechanics.Rotational.Interfaces.Flange_b    flange
-        annotation (Placement(transformation(extent={{10,-10},{30,10}}),
-            iconTransformation(extent={{10,-10},{30,10}})));
-      Modelica.Blocks.Interfaces.RealInput phi(unit="rad") "input for phi"
-        annotation (Placement(transformation(extent={{-40,70},{-20,90}})));
-      Modelica.Blocks.Interfaces.RealInput w(unit="rad/s") if use_w "optional input for w"
-        annotation (Placement(transformation(extent={{-40,40},{-20,60}})));
-      Modelica.Blocks.Interfaces.RealInput a(unit="rad/s2") if (use_w and use_a) "optional input for a"
-        annotation (Placement(transformation(extent={{-40,10},{-20,30}})));
-      Modelica.Blocks.Interfaces.RealOutput tau(unit="N.m") "output for tau"
-        annotation (Placement(transformation(extent={{-20,-90},{-40,-70}})));
-      Modelica.Mechanics.Rotational.Components.GeneralAngleToTorqueAdaptor
-        angleToTorqueAdaptorNew(final use_pder=use_w, final use_pder2=use_a)
-        annotation (Placement(transformation(extent={{0,-10},{20,10}})));
-    equation
-      connect(flange, angleToTorqueAdaptorNew.flange)
-        annotation (Line(points={{20,0},{12,0}}));
-      connect(phi, angleToTorqueAdaptorNew.p)
-        annotation (Line(points={{-30,80},{0,80},{0,8},{7,8}}, color={0,0,127}));
-      connect(w, angleToTorqueAdaptorNew.pder)
-        annotation (Line(points={{-30,50},{-6,50},{-6,5},{7,5}}, color={0,0,127}));
-      connect(a, angleToTorqueAdaptorNew.pder2) annotation (Line(points={{-30,20},{-12,
-              20},{-12,2},{7,2}}, color={0,0,127}));
-      connect(tau, angleToTorqueAdaptorNew.f) annotation (Line(points={{-30,-80},{0,
-              -80},{0,-8},{7,-8}}, color={0,0,127}));
-      annotation (
+                Rectangle(
+                  extent={{-20,100},{20,-100}},
+                  lineColor={64,64,64},
+                  radius=10),
+                Text(
+                  extent={{-20,90},{20,68}},
+                  lineColor={0,0,0},
+                  fillPattern=FillPattern.Solid,
+                  textString="phi"),Text(
+                  visible=use_w or use_a,
+                  extent={{-20,40},{20,18}},
+                  lineColor={0,0,0},
+                  fillPattern=FillPattern.Solid,
+                  textString="w"),Text(
+                  visible=use_a,
+                  extent={{-20,-20},{20,-42}},
+                  lineColor={0,0,0},
+                  fillPattern=FillPattern.Solid,
+                  textString="a"),Text(
+                  extent={{-20,-70},{20,-92}},
+                  lineColor={0,0,0},
+                  fillPattern=FillPattern.Solid,
+                  textString="tau"),Text(
+                  extent={{-150,150},{150,110}},
+                  textString="%name",
+                  lineColor={0,0,255})}),
         Documentation(info="<html>
 <p>
 Adaptor between a flange connector and a signal representation of the flange.
@@ -5460,66 +5595,95 @@ especially as FMU (<a href=\"https://www.fmi-standard.org\">Functional Mock-up U
 Examples of the usage of this adaptor are provided in
 <a href=\"modelica://Modelica.Mechanics.Rotational.Examples.GenerationOfFMUs\">Rotational.Examples.GenerationOfFMUs</a>.
 This adaptor has angle, angular velocity and angular acceleration as input signals and
-torque as output signal.
-</p>
-<p>
-Note, the input signals must be consistent to each other
+torque as output signal. Note, the input signals must be consistent to each other
 (w=der(phi), a=der(w)).
 </p>
-<p>
-This is just a wrapper model around
-<a href=\"modelica://Modelica.Mechanics.Rotational.Components.GeneralAngleToTorqueAdaptor\">GeneralAngleToTorqueAdaptor</a>,
-provided for backwards compatibility reasons.
-</p>
-</html>"),     Icon(graphics={
-            Text(
-              extent={{-100,120},{100,100}},
-              lineColor={0,0,255},
-              textString="%name"),
+</html>"));
+    end AngleToTorqueAdaptor;
+
+    model TorqueToAngleAdaptor
+      "Signal adaptor for a Rotational flange with angle, speed, and acceleration as outputs and torque as input (especially useful for FMUs)"
+      parameter Boolean use_w=true
+        "= true, enable the output connector w (angular velocity)" annotation (
+        Evaluate=true,
+        HideResult=true,
+        choices(checkBox=true));
+      parameter Boolean use_a=true
+        "= true, enable the output connector a (angular acceleration)"
+        annotation (
+        Evaluate=true,
+        HideResult=true,
+        choices(checkBox=true));
+
+      Modelica.Mechanics.Rotational.Interfaces.Flange_a flange
+        annotation (Placement(transformation(extent={{-30,-10},{-10,10}})));
+      Modelica.Blocks.Interfaces.RealOutput phi(unit="rad")
+        "Flange moves with angle phi due to torque tau"
+        annotation (Placement(transformation(extent={{20,70},{40,90}})));
+      Modelica.Blocks.Interfaces.RealOutput w(unit="rad/s") if use_w
+        "Flange moves with speed w due to torque tau"
+        annotation (Placement(transformation(extent={{20,20},{40,40}})));
+      Modelica.Blocks.Interfaces.RealOutput a(unit="rad/s2") if use_a
+        "Flange moves with angular acceleration a due to torque tau"
+        annotation (Placement(transformation(extent={{20,-40},{40,-20}})));
+      Modelica.Blocks.Interfaces.RealInput tau(unit="N.m")
+        "Torque to drive the flange"
+        annotation (Placement(transformation(extent={{60,-100},{20,-60}})));
+    protected
+      Modelica.Blocks.Interfaces.RealInput w_internal
+        "Needed to connect to conditional connector w";
+      Modelica.Blocks.Interfaces.RealInput a_internal
+        "Needed to connect to conditional connector a";
+    equation
+      connect(w, w_internal);
+      connect(a, a_internal);
+      phi = flange.phi;
+      if use_w then
+        w_internal = der(phi);
+      else
+        w_internal = 0.0;
+      end if;
+      if use_a then
+        a_internal = der(w_internal);
+      else
+        a_internal = 0.0;
+      end if;
+      flange.tau = tau;
+
+      annotation (
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
                 Rectangle(
                   extent={{-20,100},{20,-100}},
                   lineColor={64,64,64},
                   fillColor={255,255,255},
                   fillPattern=FillPattern.HorizontalCylinder,
                   radius=10),
-            Text(
-              extent={{-18,90},{18,70}},
-              textString="phi"),
-            Text(
-              extent={{-18,60},{18,40}},
-              textString="w", visible=use_w),
-            Text(
-              extent={{-18,30},{18,10}},
-              textString="a", visible=(use_w and use_a)),
-            Text(
-              extent={{-18,-70},{18,-90}},
-              textString="tau")}));
-    end AngleToTorqueAdaptor;
-
-    model GeneralTorqueToAngleAdaptor
-      "Signal adaptor for a rotational flange with angle, speed, and acceleration as outputs and torque as input (especially useful for FMUs)"
-      extends
-        Modelica.Blocks.Interfaces.PartialFMUadaptors.FlowToPotentialAdaptor(
-        final Name_p="phi",
-        final Name_pder="w",
-        final Name_pder2="a",
-        final Name_f="tau",
-        final Name_fder="der(tau)",
-        final Name_fder2="der2(tau)",
-        final use_fder=false,
-        final use_fder2=false,
-        final p(unit="rad"),
-        final pder(unit="rad/s"),
-        final pder2(unit="rad/s2"),
-        final f(unit="N.m"),
-        final fder(unit="N.m/s"),
-        final fder2(unit="N.m/s2"));
-      Modelica.Mechanics.Rotational.Interfaces.Flange_a flange
-        annotation (Placement(transformation(extent={{-30,-10},{-10,10}})));
-    equation
-      y = flange.phi "output = potential = angle";
-      u = flange.tau "input = flow = torque";
-      annotation (defaultComponentName="torqueToAngleAdaptor",
+                Rectangle(
+                  extent={{-20,100},{20,-100}},
+                  lineColor={64,64,64},
+                  radius=10),
+                Text(
+                  extent={{-20,92},{20,70}},
+                  lineColor={0,0,0},
+                  fillPattern=FillPattern.Solid,
+                  textString="phi"),Text(
+                  visible=use_w,
+                  extent={{-20,42},{20,20}},
+                  lineColor={0,0,0},
+                  fillPattern=FillPattern.Solid,
+                  textString="w"),Text(
+                  visible=use_a,
+                  extent={{-20,-18},{20,-40}},
+                  lineColor={0,0,0},
+                  fillPattern=FillPattern.Solid,
+                  textString="a"),Text(
+                  extent={{-20,-68},{20,-90}},
+                  lineColor={0,0,0},
+                  fillPattern=FillPattern.Solid,
+                  textString="tau"),Text(
+                  extent={{-150,150},{150,110}},
+                  textString="%name",
+                  lineColor={0,0,255})}),
         Documentation(info="<html>
 <p>
 Adaptor between a flange connector and a signal representation of the flange.
@@ -5531,7 +5695,7 @@ Examples of the usage of this adaptor are provided in
 This adaptor has torque as input and angle, angular velocity and angular acceleration as output signals.
 </p>
 </html>"));
-    end GeneralTorqueToAngleAdaptor;
+    end TorqueToAngleAdaptor;
 
     model GeneralAngleToTorqueAdaptor
       "Signal adaptor for a rotational flange with torque as output and angle, speed and acceleration as input (especially useful for FMUs)"
@@ -5575,6 +5739,44 @@ Note, the input signals must be consistent to each other
 </p>
 </html>"));
     end GeneralAngleToTorqueAdaptor;
+
+    model GeneralTorqueToAngleAdaptor
+      "Signal adaptor for a rotational flange with angle, speed, and acceleration as outputs and torque as input (especially useful for FMUs)"
+      extends
+        Modelica.Blocks.Interfaces.PartialFMUadaptors.FlowToPotentialAdaptor(
+        final Name_p="phi",
+        final Name_pder="w",
+        final Name_pder2="a",
+        final Name_f="tau",
+        final Name_fder="der(tau)",
+        final Name_fder2="der2(tau)",
+        final use_fder=false,
+        final use_fder2=false,
+        final p(unit="rad"),
+        final pder(unit="rad/s"),
+        final pder2(unit="rad/s2"),
+        final f(unit="N.m"),
+        final fder(unit="N.m/s"),
+        final fder2(unit="N.m/s2"));
+      Modelica.Mechanics.Rotational.Interfaces.Flange_a flange
+        annotation (Placement(transformation(extent={{-30,-10},{-10,10}})));
+    equation
+      y = flange.phi "output = potential = angle";
+      u = flange.tau "input = flow = torque";
+      annotation (defaultComponentName="torqueToAngleAdaptor",
+        Documentation(info="<html>
+<p>
+Adaptor between a flange connector and a signal representation of the flange.
+This component is used to provide a pure signal interface around a Rotational model
+and export this model in form of an input/output block,
+especially as FMU (<a href=\"https://www.fmi-standard.org\">Functional Mock-up Unit</a>).
+Examples of the usage of this adaptor are provided in
+<a href=\"modelica://Modelica.Mechanics.Rotational.Examples.GenerationOfFMUs\">Rotational.Examples.GenerationOfFMUs</a>.
+This adaptor has torque as input and angle, angular velocity and angular acceleration as output signals.
+</p>
+</html>"));
+    end GeneralTorqueToAngleAdaptor;
+
     annotation (Icon(
         coordinateSystem(preserveAspectRatio=true,
           extent={{-100.0,-100.0},{100.0,100.0}}),
