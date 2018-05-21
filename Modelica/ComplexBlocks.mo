@@ -1,4 +1,4 @@
-within Modelica;
+﻿within Modelica;
 package ComplexBlocks
   "Library of basic input/output control blocks with Complex signals"
   extends Modelica.Icons.Package;
@@ -1795,7 +1795,7 @@ An error occurs if the elements of the input <code>u</code> is zero.
       Blocks.Interfaces.RealInput len annotation (Placement(transformation(
               extent={{-130,40},{-90,80}}), iconTransformation(extent={{-140,40},
                 {-100,80}})));
-      Blocks.Interfaces.RealInput phi annotation (Placement(transformation(
+      Blocks.Interfaces.RealInput phi(unit="rad") annotation (Placement(transformation(
               extent={{-130,-80},{-90,-40}}), iconTransformation(extent={{-140,
                 -80},{-100,-40}})));
     equation
@@ -1860,7 +1860,7 @@ An error occurs if the elements of the input <code>u</code> is zero.
       Blocks.Interfaces.RealOutput len annotation (Placement(transformation(
               extent={{100,40},{140,80}}), iconTransformation(extent={{100,40},
                 {140,80}})));
-      Blocks.Interfaces.RealOutput phi annotation (Placement(transformation(
+      Blocks.Interfaces.RealOutput phi(unit="rad") annotation (Placement(transformation(
               extent={{100,-80},{140,-40}}), iconTransformation(extent={{100,-80},
                 {140,-40}})));
       Interfaces.ComplexInput u
@@ -1902,7 +1902,7 @@ An error occurs if the elements of the input <code>u</code> is zero.
             extent={{-10,-10},{10,10}},
             rotation=270,
             origin={-60,-110})));
-      Blocks.Interfaces.RealOutput arg_y "Angle of ratio u / divisor" annotation (Placement(transformation(extent={{-10,-10},{10,10}},
+      Blocks.Interfaces.RealOutput arg_y(unit="rad") "Angle of ratio u / divisor" annotation (Placement(transformation(extent={{-10,-10},{10,10}},
             rotation=270,
             origin={60,-110}),                                                                                iconTransformation(
             extent={{-10,-10},{10,10}},

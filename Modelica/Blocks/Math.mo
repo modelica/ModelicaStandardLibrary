@@ -1350,7 +1350,7 @@ Otherwise an error occurs.
   end Sqrt;
 
   block Sin "Output the sine of the input"
-    extends Interfaces.SISO;
+    extends Interfaces.SISO(u(unit="rad"));
   equation
     y = Modelica.Math.sin(u);
     annotation (
@@ -1429,7 +1429,7 @@ as <strong>sine</strong> of the input <strong>u</strong>:
   end Sin;
 
   block Cos "Output the cosine of the input"
-    extends Interfaces.SISO;
+    extends Interfaces.SISO(u(unit="rad"));
 
   equation
     y = Modelica.Math.cos(u);
@@ -1510,7 +1510,7 @@ as <strong>cos</strong> of the input <strong>u</strong>:
   end Cos;
 
   block Tan "Output the tangent of the input"
-    extends Interfaces.SISO;
+    extends Interfaces.SISO(u(unit="rad"));
 
   equation
     y = Modelica.Math.tan(u);
@@ -1589,7 +1589,7 @@ as <strong>tan</strong> of the input <strong>u</strong>:
   end Tan;
 
   block Asin "Output the arc sine of the input"
-    extends Interfaces.SISO;
+    extends Interfaces.SISO(y(unit="rad"));
 
   equation
     y = Modelica.Math.asin(u);
@@ -1673,7 +1673,7 @@ Otherwise an error occurs.
   end Asin;
 
   block Acos "Output the arc cosine of the input"
-    extends Interfaces.SISO;
+    extends Interfaces.SISO(y(unit="rad"));
   equation
     y = Modelica.Math.acos(u);
     annotation (
@@ -1754,7 +1754,7 @@ Otherwise an error occurs.
   end Acos;
 
   block Atan "Output the arc tangent of the input"
-    extends Interfaces.SISO;
+    extends Interfaces.SISO(y(unit="rad"));
   equation
     y = Modelica.Math.atan(u);
     annotation (
@@ -1834,7 +1834,7 @@ This blocks computes the output <strong>y</strong> as the
   end Atan;
 
   block Atan2 "Output atan(u1/u2) of the inputs u1 and u2"
-    extends Interfaces.SI2SO;
+    extends Interfaces.SI2SO(y(unit="rad"));
   equation
     y = Modelica.Math.atan2(u1, u2);
     annotation (
@@ -2493,7 +2493,7 @@ zero or negative.
 
   block WrapAngle "Wrap angle to interval ]-pi,pi] or [0,2*pi["
 
-    extends Interfaces.SISO;
+    extends Interfaces.SISO(u(unit="rad"), y(unit="rad"));
     parameter Boolean positiveRange=false "Use only positive output range, if true";
 
   equation
@@ -2765,7 +2765,7 @@ where <strong>threshold</strong> is a parameter.
     Modelica.Blocks.Interfaces.RealOutput y_abs
       "Length of polar representation" annotation (Placement(transformation(
             extent={{100,50},{120,70}})));
-    Modelica.Blocks.Interfaces.RealOutput y_arg "Angle of polar representation"
+    Modelica.Blocks.Interfaces.RealOutput y_arg(unit="rad") "Angle of polar representation"
       annotation (Placement(transformation(extent={{100,-70},{120,-50}})));
 
   equation
@@ -2803,7 +2803,7 @@ the angle <code>y_arg</code> of the polar representation of this phasor.
     extends Modelica.Blocks.Icons.Block;
     Modelica.Blocks.Interfaces.RealInput u_abs "Length of polar representation"
       annotation (Placement(transformation(extent={{-140,40},{-100,80}})));
-    Modelica.Blocks.Interfaces.RealInput u_arg "Angle of polar representation"
+    Modelica.Blocks.Interfaces.RealInput u_arg(unit="rad") "Angle of polar representation"
       annotation (Placement(transformation(extent={{-140,-80},{-100,-40}})));
     Modelica.Blocks.Interfaces.RealOutput y_re
       "Real part of rectangular representation" annotation (Placement(
@@ -3255,12 +3255,11 @@ This block is demonstrated in the examples
     Blocks.Interfaces.RealOutput y_rms
       "Root mean square of polar representation" annotation (Placement(
           transformation(extent={{100,50},{120,70}})));
-    Blocks.Interfaces.RealOutput y_arg "Angle of polar representation"
+    Blocks.Interfaces.RealOutput y_arg(unit="rad") "Angle of polar representation"
       annotation (Placement(transformation(extent={{100,-70},{120,-50}})));
     Blocks.Math.RectangularToPolar rectangularToPolar
       annotation (Placement(transformation(extent={{40,-12},{60,8}})));
-    Gain                      gain(final k=if useConjugateComplex then -1
-           else 1) annotation (Placement(transformation(
+    Gain gain(final k=if useConjugateComplex then -1 else 1) annotation (Placement(transformation(
           extent={{-10,-10},{10,10}},
           rotation=270,
           origin={80,-30})));

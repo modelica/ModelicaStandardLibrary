@@ -12472,7 +12472,7 @@ a ground has to be used where necessary for currents flowing back.
             cos(-angle)}};
         //Real InverseRotator[2,2] = {{+cos(+angle),-sin(+angle)},{+sin(+angle),+cos(+angle)}};
       public
-        Modelica.Blocks.Interfaces.RealInput angle annotation (Placement(
+        Modelica.Blocks.Interfaces.RealInput angle(unit="rad") annotation (Placement(
               transformation(
               origin={0,-120},
               extent={{-20,-20},{20,20}},
@@ -16834,7 +16834,7 @@ Phase shifts between sine-waves may be chosen by the user; default values are <e
             rotation=270)));
       Modelica.Electrical.Machines.SpacePhasors.Blocks.Rotator rotator
         annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
-      Modelica.Blocks.Interfaces.RealInput phi annotation (Placement(
+      Modelica.Blocks.Interfaces.RealInput phi(unit="rad") annotation (Placement(
             transformation(
             origin={0,-120},
             extent={{20,-20},{-20,20}},
@@ -16883,7 +16883,7 @@ using the provided mechanical rotor angle phi. The output are the resulting d an
       Modelica.Electrical.Machines.SpacePhasors.Blocks.FromSpacePhasor
         fromSpacePhasor(final m=m) annotation (Placement(transformation(extent=
                 {{60,-10},{80,10}})));
-      Modelica.Blocks.Interfaces.RealInput phi annotation (Placement(
+      Modelica.Blocks.Interfaces.RealInput phi(unit="rad") annotation (Placement(
             transformation(
             origin={0,-120},
             extent={{20,-20},{-20,20}},
@@ -16922,7 +16922,7 @@ using the provided mechanical rotor angle phi. The output are the instantaneous 
             transformation(extent={{-140,40},{-100,80}})));
       Modelica.Blocks.Interfaces.RealInput iq_rms annotation (Placement(
             transformation(extent={{-140,-80},{-100,-40}})));
-      Modelica.Blocks.Interfaces.RealInput phi annotation (Placement(
+      Modelica.Blocks.Interfaces.RealInput phi(unit="rad") annotation (Placement(
             transformation(
             origin={0,-120},
             extent={{20,-20},{-20,20}},
@@ -17005,7 +17005,7 @@ They can be used to feed a current source which in turn feeds an induction machi
             transformation(extent={{-140,40},{-100,80}})));
       Modelica.Blocks.Interfaces.RealInput iq_rms annotation (Placement(
             transformation(extent={{-140,-80},{-100,-40}})));
-      Modelica.Blocks.Interfaces.RealInput phi annotation (Placement(
+      Modelica.Blocks.Interfaces.RealInput phi(unit="rad") annotation (Placement(
             transformation(
             origin={60,-120},
             extent={{20,-20},{-20,20}},
