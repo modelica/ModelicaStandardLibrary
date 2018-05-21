@@ -3317,7 +3317,7 @@ The harmonic is defined by <code>&radic;2 rms cos(k 2 &pi; f t + arg)</code> if 
 
   block TotalHarmonicDistortion "Output the total harmonic distortion (THD)"
     extends Interfaces.SISO;
-    parameter Modelica.SIunits.Frequency f(start=50) "Base frequency";
+    parameter Modelica.SIunits.Frequency f(start=1) "Base frequency";
     parameter Boolean useFirstHarmonic = true "THD with respect to first harominc, if true; otherwise with respect to total RMS";
 
     Harmonic harmonic(
@@ -3397,16 +3397,22 @@ The total RMS component is then determined by:</p>
 </p>
 
 <p>
-The calculation of the total harmonic distortion is based on the parameter <code>useFirstHarmonic</code>:
+The calculation of the total harmonic distortion is based on the parameter <code>useFirstHarmonic</code>. 
+The default value <code>useFirstHarmonic = true</code> represents the <strong>standard</strong> THD calculation used in 
+<a href=\"http://www.electropedia.org/iev/iev.nsf/display?openform&ievref=551-20-13\">electrical engineering</a>. 
+The non-default value <code>useFirstHarmonic = false</code> 
+calculates the THD typically used for the assessment of audio signals. 
 </p>
 
 <p>
-If <code>useFirstHarmonic = true</code>, the total higher harmonic content (harmonic order numbers &gt; 1) refers to the fundamental wave:<br>
+If <code>useFirstHarmonic = true</code>, the total higher harmonic content (harmonic order numbers &gt; 1) 
+refers to the RMS value of the fundamental wave:<br>
 <img src=\"modelica://Modelica/Resources/Images/Blocks/Math/THD1.png\">
 </p>
 
 <p>
-If <code>useFirstHarmonic = false</code>, the total higher harmonic content (harmonic order numbers &gt; 1) refers to the total root mean square:<br><br>
+If <code>useFirstHarmonic = false</code>, the total higher harmonic content (harmonic order numbers &gt; 1) 
+refers to the total RMS:<br>
 <img src=\"modelica://Modelica/Resources/Images/Blocks/Math/THDrms.png\">
 </p>
 
