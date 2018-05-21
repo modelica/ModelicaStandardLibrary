@@ -934,7 +934,7 @@ where the signal sizes of the input and output vector are identical.
                   minimumLength=1,
                   significantDigits=0))),
           Text(
-            extent={{-250,170},{250,110}},
+            extent={{-150,150},{150,110}},
             textString="%name",
             lineColor={0,0,255}),
           Rectangle(
@@ -965,7 +965,7 @@ where the signal sizes of the input and output vector are identical.
                   minimumLength=1,
                   significantDigits=0))),
           Text(
-            extent={{-250,170},{250,110}},
+            extent={{-150,150},{150,110}},
             textString="%name",
             lineColor={0,0,255}),
           Rectangle(
@@ -1289,7 +1289,7 @@ has a 3D icon (e.g., used in Blocks.Logical library).
           extent={{-100,-100},{100,100}},
           initialScale=0.04), graphics={
           Text(
-            extent={{-250,170},{250,110}},
+            extent={{-300,200},{300,120}},
             textString="%name",
             lineColor={0,0,255}),
           Rectangle(
@@ -1357,8 +1357,9 @@ has a 3D icon (e.g., used in Blocks.Logical library).
                   lineColor={0,0,127},
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid),Text(
-                  extent={{-144,96},{144,46}},
-                  textString="%name"),Text(
+                  extent={{-150,90},{150,50}},
+              textString="%name",
+              lineColor={0,0,255}),   Text(
                   extent={{-100,30},{100,-30}},
                   lineColor={0,0,127},
                   textString="send")}), Documentation(info="<html>
@@ -1391,8 +1392,9 @@ for signal buses, see example
                   lineColor={255,0,255},
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid),Text(
-                  extent={{-144,96},{144,46}},
-                  textString="%name"),Text(
+                  extent={{-150,90},{150,50}},
+              textString="%name",
+              lineColor={0,0,255}),   Text(
                   extent={{-100,30},{100,-30}},
                   lineColor={255,0,255},
                   textString="send")}), Documentation(info="<html>
@@ -1425,8 +1427,9 @@ for signal buses, see example
                   lineColor={255,127,0},
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid),Text(
-                  extent={{-144,96},{144,46}},
-                  textString="%name"),Text(
+                  extent={{-150,90},{150,50}},
+              textString="%name",
+              lineColor={0,0,255}),   Text(
                   extent={{-100,30},{100,-30}},
                   lineColor={255,127,0},
                   textString="send")}), Documentation(info="<html>
@@ -1462,8 +1465,9 @@ for signal buses, see example
                   extent={{-100,30},{100,-30}},
                   lineColor={0,0,127},
                   textString="receive"),Text(
-                  extent={{-144,96},{144,46}},
-                  textString="%name")}), Documentation(info="<html>
+                  extent={{-150,90},{150,50}},
+              textString="%name",
+              lineColor={0,0,255})}),    Documentation(info="<html>
 <p>
 Obsolete block that was previously used to connect a Real signal
 in a connector to an input of a block. This block is only provided for
@@ -1496,8 +1500,9 @@ for signal buses, see example
                   extent={{-100,30},{100,-30}},
                   lineColor={255,0,255},
                   textString="receive"),Text(
-                  extent={{-144,96},{144,46}},
-                  textString="%name")}), Documentation(info="<html>
+                  extent={{-150,90},{150,50}},
+              textString="%name",
+              lineColor={0,0,255})}),    Documentation(info="<html>
 <p>
 Obsolete block that was previously used to connect a Boolean signal
 in a connector to an input of a block. This block is only provided for
@@ -1530,8 +1535,9 @@ for signal buses, see example
                   extent={{-100,30},{100,-30}},
                   lineColor={255,127,0},
                   textString="receive"),Text(
-                  extent={{-144,96},{144,46}},
-                  textString="%name")}), Documentation(info="<html>
+                  extent={{-150,90},{150,50}},
+              textString="%name",
+              lineColor={0,0,255})}),    Documentation(info="<html>
 <p>
 Obsolete block that was previously used to connect an Integer signal
 in a connector to an input of a block. This block is only provided for
@@ -1587,7 +1593,7 @@ for signal buses, see example
           points={{90.0,0.0},{30.0,20.0},{30.0,-20.0},{90.0,0.0}}),
         Text(
           lineColor={0,0,255},
-          extent={{-115.0,105.0},{115.0,155.0}},
+          extent={{-150,110},{150,150}},
           textString="%name")}), Documentation(info="<html>
 <p>
 This block defines the interface of a conversion block that
@@ -1888,7 +1894,7 @@ of noise blocks.
       end if;
       annotation (Icon(coordinateSystem(preserveAspectRatio=false), graphics={
             Text(
-              extent={{-100,120},{100,100}},
+              extent={{-150,150},{150,110}},
               lineColor={0,0,255},
               textString="%name"),
                 Rectangle(
@@ -2002,7 +2008,7 @@ Note, the input signals must be consistent to each other
       end if;
       annotation (Icon(coordinateSystem(preserveAspectRatio=false), graphics={
             Text(
-              extent={{-100,120},{100,100}},
+              extent={{-150,150},{150,110}},
               lineColor={0,0,255},
               textString="%name"),
                 Rectangle(
