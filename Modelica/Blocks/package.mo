@@ -2759,7 +2759,7 @@ As expected, one can see the 11<sup>th</sup>, 13<sup>th</sup>, 23<sup>th</sup>, 
     connect(voltageSensor.v, thdRMS.u) annotation (Line(points={{11,0},{20,0},{20,-20},{28,-20}}, color={0,0,127}));
     annotation (experiment(
         StopTime=0.1,
-        __Dymola_NumberOfIntervals=1000,
+        Interval=0.0001,
         Tolerance=1e-06), Documentation(info="<html>
 <p>This example compares the result of the
 <a href=\"modelica://Modelica.Blocks.Math.TotalHarmonicDistortionFundamental\">total harmonic distortion (THD)</a>
