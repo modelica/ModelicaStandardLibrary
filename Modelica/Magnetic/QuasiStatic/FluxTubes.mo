@@ -167,9 +167,6 @@ Additional reference on magnetic flux tubes are listed in
 email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
 </p>
 
-<p>
-Copyright &copy; 1998-2014, Modelica Association, Christian Kral and Anton Haumer.
-</p>
 </html>"));
     end Contact;
     annotation (DocumentationClass=true, Documentation(info="<html>
