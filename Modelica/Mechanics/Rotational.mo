@@ -5409,7 +5409,7 @@ in the User's Guide of the Rotational library.
         phi = flange.phi - phi_support;
         annotation (Documentation(info="<html>
 <p>
-Flange <b>flange</b> is <b>forced</b> to move relative to flange support with a predefined motion
+Flange <strong>flange</strong> is <strong>forced</strong> to move relative to flange support with a predefined motion
 according to the input signal u
 </p>
 <pre>
@@ -5482,7 +5482,7 @@ blocks of the block library Modelica.Blocks.Sources.
         phi = position(u, time);
         annotation (Documentation(info="<html>
 <p>
-Flange <b>flange</b> is <b>forced</b> to move relative to flange support with a predefined motion
+Flange <strong>flange</strong> is <strong>forced</strong> to move relative to flange support with a predefined motion
 according to the input signals:
 </p>
 <pre>

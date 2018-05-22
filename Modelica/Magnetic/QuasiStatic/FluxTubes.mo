@@ -22,9 +22,9 @@ Following below, the concept of magnetic flux tubes is outlined in short. For a 
 </p>
 
 <ul>
-<li>Normal component of magnetic flux density, 
+<li>Normal component of magnetic flux density,
     <img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/B_n.png\"> </li>
-<li>Normal component of magnetic field strength, 
+<li>Normal component of magnetic field strength,
     <img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/H_n.png\"> </li>
 <li>Magnetic flux,
     <img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/Phi.png\"> </li>
@@ -44,11 +44,11 @@ Following below, the concept of magnetic flux tubes is outlined in short. For a 
 <IMG src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/magnetic_flux_tube_schematic_qs.png\" ALT=\"Magnetic flux tube\">
 </p>
 
-<p>A <b>flux tube</b> confines the magnetic flux. Flied lines, and flux tubes, respectively are always closed. So there is no flux entering or leaving a flux tube. The total flux of a configuration can be represented by parallel flux tubes, representing different flux paths. This is considered by connecting the elements of a lumped circuit model, such that the sum of all fluxes of a connection is equivalent to zero. </p>
+<p>A <strong>flux tube</strong> confines the magnetic flux. Flied lines, and flux tubes, respectively are always closed. So there is no flux entering or leaving a flux tube. The total flux of a configuration can be represented by parallel flux tubes, representing different flux paths. This is considered by connecting the elements of a lumped circuit model, such that the sum of all fluxes of a connection is equivalent to zero. </p>
 
 <p>
-For a section of a flux tube with length 
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/l.png\"> 
+For a section of a flux tube with length
+<img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/l.png\">
 the magnetic potential difference is determined by the length integral over the magnetic field strength:</p>
 
 <dl>
@@ -70,10 +70,10 @@ of the magnetic field strength: </p>
 </dd></dl>
 
 <p>
-For a 
-<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape.GenericFluxTube\">generic flux tube</a> reluctance with constant 
-area of cross section, 
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/A.png\">, 
+For a
+<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape.GenericFluxTube\">generic flux tube</a> reluctance with constant
+area of cross section,
+<img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/A.png\">,
 and length,
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/l.png\">,
 the magnetic reluctance is:</p>
@@ -84,20 +84,20 @@ the magnetic reluctance is:</p>
 <h4>Assumptions</h4>
 
 <ul>
-<li><b>Force</b> interaction is not considered</li>
-<li>Reluctance models are <b>linear</b>; so non-linearities can only be taken into account by adapting the constant relative permability; 
-see example 
+<li><strong>Force</strong> interaction is not considered</li>
+<li>Reluctance models are <strong>linear</strong>; so non-linearities can only be taken into account by adapting the constant relative permability;
+see example
 <a href=\"modelica://Modelica.Magnetic.QuasiStatic.FluxTubes.Examples.NonLinearInductor\">NonLinearInductor</a></li>
 </ul>
 
 <h4>Notes</h4>
 
-<p>The parameter and variable names are chosen as close as possible to the transient 
+<p>The parameter and variable names are chosen as close as possible to the transient
 <a href=\"modelica://Modelica.Magnetic.FluxTubes\">FluxTubes</a> library, to avoid additional effort when converting transient into quasi static flux tubes models.</p>
 
 <h4>Reference Note</h4>
 
-<p>A similar approach on quasi static flux tube models is published in 
+<p>A similar approach on quasi static flux tube models is published in
 [<a href=\"Modelica.Magnetic.QuasiStatic.FluxTubes.UsersGuide.Literature\">Raabe2012</a>].</p>
 </html>"));
     end FluxTubeConcept;
@@ -114,7 +114,7 @@ see example
       <td valign=\"top\">N. Raabe,
         &quot;<a href=\"http://www.ep.liu.se/ecp/076/016/ecp12076016.pdf\">
         An approach for modelling quasi-stationary magnetic circuits</a>,&quot;
-        <i>Modelica Conference</i>,
+        <em>Modelica Conference</em>,
         pp. 167-172, 2012.</td>
     </tr>
 </table>
@@ -122,7 +122,7 @@ see example
 <h4>Additional References</h4>
 <p>
 Additional reference on magnetic flux tubes are listed in
-<a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Literature\">Modelica.Magnetic.FluxTubes</a>. 
+<a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Literature\">Modelica.Magnetic.FluxTubes</a>.
 </p>
 </html>"));
     end Literature;
@@ -134,12 +134,12 @@ Additional reference on magnetic flux tubes are listed in
 <h5>Version 3.2.3, 2018-05-21</h5>
 <ul>
 <li>Included in the MSL 3.2.3</li>
-<li>Added some more examples according to 
+<li>Added some more examples according to
     <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/1515\">#1515</a></li>
 <li>Added magnitudes and angles of complex quantities for better result interpretation</li>
 </ul>
 
- 
+
 <h5>Version 1.0.0, 2013-12-18</h5>
 <ul>
 <li>Initial version before inclusion in MSL</li>
@@ -173,19 +173,19 @@ Copyright &copy; 1998-2014, Modelica Association, Christian Kral and Anton Haume
 </html>"));
     end Contact;
     annotation (DocumentationClass=true, Documentation(info="<html>
-<p>The quasi static flux tubes libray is based on the transient library 
+<p>The quasi static flux tubes libray is based on the transient library
 <a href=\"modelica://Modelica.Magnetic.FluxTubes\">Magnetic.FluxTubes</a>. The main principles of confined flux and flux tubes apply, too. The quasi static flux tubes library contains components for modelling of electromagnetic devices with lumped magnetic networks based on quasi static theory. Models based on this library are suited for quasi static simulation of transformers at component and system level.</p>
-<p>The quasi static components of this library do not consider saturation since <b>linearity</b> is strictly assumed. In case that the permeability of a saturated circuit needs to be considered, a 
-<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FluxTubes.Sensors.Transient.FundamentalWavePermabilitySensor\">transient permeability estimation sensor</a> is provided do determine the effective permeability from a transient simulation. 
+<p>The quasi static components of this library do not consider saturation since <strong>linearity</strong> is strictly assumed. In case that the permeability of a saturated circuit needs to be considered, a
+<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FluxTubes.Sensors.Transient.FundamentalWavePermabilitySensor\">transient permeability estimation sensor</a> is provided do determine the effective permeability from a transient simulation.
 </p>
 
 <p>
-A general introduction into <b>quasi static</b> (quasi stationary) phasor can be found in 
+A general introduction into <strong>quasi static</strong> (quasi stationary) phasor can be found in
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.UsersGuide.Overview\">Modelica.Electrical.QuasiStationary</a>.
 </p>
 
 <p>
-This user's guide gives a short introduction to the underlying 
+This user's guide gives a short introduction to the underlying
 <a href=\"modelica://Modelica.Magnetic.QuasiStatic.FluxTubes.UsersGuide.FluxTubeConcept\">concept</a> of quasi static magnetic flux tubes, summarizes basic relationships and equations.
 </p>
 </html>"));
@@ -385,7 +385,7 @@ This user's guide gives a short introduction to the underlying
           Tolerance=1e-07),                                   Documentation(
             info="<html>
 <p>
-This model compares a transientlinear magnetic circuit with a quasi static magnetic circuit. A sinusoidal voltage is applied to an inductor with a closed ferromagnetic core of rectangular shape. 
+This model compares a transientlinear magnetic circuit with a quasi static magnetic circuit. A sinusoidal voltage is applied to an inductor with a closed ferromagnetic core of rectangular shape.
 </p>
 
 <p>Compare the following quantities</p>
@@ -637,7 +637,7 @@ This model compares a transientlinear magnetic circuit with a quasi static magne
           Tolerance=1e-07),                                   Documentation(
             info="<html>
 <p>
-This model compares a transient non-linear magnetic circuit with a linearized quasi static magnetic circuit. A sinusoidal voltage is applied to an inductor with a closed ferromagnetic core of rectangular shape. 
+This model compares a transient non-linear magnetic circuit with a linearized quasi static magnetic circuit. A sinusoidal voltage is applied to an inductor with a closed ferromagnetic core of rectangular shape.
 </p>
 
 <p>Compare the following quantities</p>
@@ -1274,7 +1274,7 @@ The magnetic potential at the magnetic ground node is zero. Every magnetic netwo
               fillPattern=FillPattern.Solid)}),
         Documentation(info="<html>
 <p>
-The electro magnetic energy conversion is given by <b>Ampere</b>'s law and <b>Faraday</b>'s law respectively:
+The electro magnetic energy conversion is given by <strong>Ampere</strong>'s law and <strong>Faraday</strong>'s law respectively:
 </p>
 
 <dl>
@@ -1284,16 +1284,16 @@ The electro magnetic energy conversion is given by <b>Ampere</b>'s law and <b>Fa
 </dl>
 
 <p>
-In this equation 
+In this equation
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/V_m.png\">
-is the magnetomotive force that is supplied to the connected magnetic circuit, 
+is the magnetomotive force that is supplied to the connected magnetic circuit,
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/Phi.png\">
-is the magnetic flux through the associated branch of this magnetic circuit. The negative sign of the induced voltage 
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/v.png\"> is due to <b>Lenz</b>'s law.
+is the magnetic flux through the associated branch of this magnetic circuit. The negative sign of the induced voltage
+<img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/v.png\"> is due to <strong>Lenz</strong>'s law.
 </p>
 
 <p>
-The static inductance is calculated from the flux linkage 
+The static inductance is calculated from the flux linkage
 </p>
 <dl>
 <dd>
@@ -1312,16 +1312,16 @@ The static inductance is calculated from the flux linkage
 This quantity is calculated for information only. </p>
 
 <h5>Note</h5>
- 
+
 <p><img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/L_stat.png\">
 is set to</p>
 <dl>
 <dd>
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/L_stat-Psi-eps.png\"> 
+<img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/L_stat-Psi-eps.png\">
 </dd>
 </dl>
 <p>
-if 
+if
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/i-lt-eps.png\">.
 </p></html>"));
     end ElectroMagneticConverter;
@@ -1606,7 +1606,7 @@ This is a simple crossing of two branches. The ports <code>port_p1</code> and <c
 
         annotation (Documentation(info="<html>
 <p>
-The generic flux tube models the reluctance with constant 
+The generic flux tube models the reluctance with constant
 <code>area</code> of cross section, and length, <code>l</code>
 the magnetic reluctance by:</p>
 <p>
@@ -1752,9 +1752,9 @@ This package provides different reluctance models, based on different geometric 
 <p>
 In
 <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Literature\">[Ro41]</a>
-the equations for determining the reluctance 
+the equations for determining the reluctance
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/R_m.png\">
-are summarized. As an alternative to the geomatry based data a 
+are summarized. As an alternative to the geomatry based data a
 <a href=\"modelica://Modelica.Magnetic.QuasiStatic.FluxTubes.Basic.LeakageWithCoefficient\">generic leakage</a> model is provided in this library.
 </p></html>"));
       end QuarterCylinder;
@@ -1777,9 +1777,9 @@ are summarized. As an alternative to the geomatry based data a
 <p>
 In
 <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Literature\">[Ro41]</a>
-the equations for determining the reluctance 
+the equations for determining the reluctance
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/R_m.png\">
-are summarized. As an alternative to the geomatry based data a 
+are summarized. As an alternative to the geomatry based data a
 <a href=\"modelica://Modelica.Magnetic.QuasiStatic.FluxTubes.Basic.LeakageWithCoefficient\">generic leakage</a> model is provided in this library.
 </p></html>"));
       end QuarterHollowCylinder;
@@ -1800,9 +1800,9 @@ are summarized. As an alternative to the geomatry based data a
 <p>
 In
 <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Literature\">[Ro41]</a>
-the equations for determining the reluctance 
+the equations for determining the reluctance
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/R_m.png\">
-are summarized. As an alternative to the geomatry based data a 
+are summarized. As an alternative to the geomatry based data a
 <a href=\"modelica://Modelica.Magnetic.QuasiStatic.FluxTubes.Basic.LeakageWithCoefficient\">generic leakage</a> model is provided in this library.
 </p></html>"));
       end HalfCylinder;
@@ -1825,9 +1825,9 @@ are summarized. As an alternative to the geomatry based data a
 <p>
 In
 <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Literature\">[Ro41]</a>
-the equations for determining the reluctance 
+the equations for determining the reluctance
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/R_m.png\">
-are summarized. As an alternative to the geomatry based data a 
+are summarized. As an alternative to the geomatry based data a
 <a href=\"modelica://Modelica.Magnetic.QuasiStatic.FluxTubes.Basic.LeakageWithCoefficient\">generic leakage</a> model is provided in this library.
 </p></html>"));
       end HalfHollowCylinder;
@@ -1848,9 +1848,9 @@ are summarized. As an alternative to the geomatry based data a
 <p>
 In
 <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Literature\">[Ro41]</a>
-the equations for determining the reluctance 
+the equations for determining the reluctance
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/R_m.png\">
-are summarized. As an alternative to the geomatry based data a 
+are summarized. As an alternative to the geomatry based data a
 <a href=\"modelica://Modelica.Magnetic.QuasiStatic.FluxTubes.Basic.LeakageWithCoefficient\">generic leakage</a> model is provided in this library.
 </p></html>"));
       end QuarterSphere;
@@ -1871,9 +1871,9 @@ are summarized. As an alternative to the geomatry based data a
 <p>
 In
 <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Literature\">[Ro41]</a>
-the equations for determining the reluctance 
+the equations for determining the reluctance
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/R_m.png\">
-are summarized. As an alternative to the geomatry based data a 
+are summarized. As an alternative to the geomatry based data a
 <a href=\"modelica://Modelica.Magnetic.QuasiStatic.FluxTubes.Basic.LeakageWithCoefficient\">generic leakage</a> model is provided in this library.
 </p></html>"));
       end QuarterHollowSphere;
@@ -1894,9 +1894,9 @@ are summarized. As an alternative to the geomatry based data a
 <p>
 In
 <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Literature\">[Ro41]</a>
-the equations for determining the reluctance 
+the equations for determining the reluctance
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/R_m.png\">
-are summarized. As an alternative to the geomatry based data a 
+are summarized. As an alternative to the geomatry based data a
 <a href=\"modelica://Modelica.Magnetic.QuasiStatic.FluxTubes.Basic.LeakageWithCoefficient\">generic leakage</a> model is provided in this library.
 </p></html>"));
       end EighthOfSphere;
@@ -1917,9 +1917,9 @@ are summarized. As an alternative to the geomatry based data a
 <p>
 In
 <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Literature\">[Ro41]</a>
-the equations for determining the reluctance 
+the equations for determining the reluctance
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/R_m.png\">
-are summarized. As an alternative to the geomatry based data a 
+are summarized. As an alternative to the geomatry based data a
 <a href=\"modelica://Modelica.Magnetic.QuasiStatic.FluxTubes.Basic.LeakageWithCoefficient\">generic leakage</a> model is provided in this library.
 </p></html>"));
       end EighthOfHollowSphere;
@@ -1949,9 +1949,9 @@ are summarized. As an alternative to the geomatry based data a
 <p>
 In
 <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Literature\">[Ro41]</a>
-the equations for determining the reluctance 
+the equations for determining the reluctance
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/R_m.png\">
-are summarized. As an alternative to the geomatry based data a 
+are summarized. As an alternative to the geomatry based data a
 <a href=\"modelica://Modelica.Magnetic.QuasiStatic.FluxTubes.Basic.LeakageWithCoefficient\">generic leakage</a> model is provided in this library.
 </p></html>"));
       end CoaxCylindersEndFaces;
@@ -1974,7 +1974,7 @@ The permeances of all elements of this package are calculated from their geometr
       flow Modelica.SIunits.ComplexMagneticFlux Phi
       "Complex magnetic flux flowing into the pin";
       annotation (Documentation(info="<html>
-<p>Base definition of complex quasi static magnetic port. The potential variable is the complex magnetic potential difference <code>V_m</code> and the flow variable is the complex magnetic flux <code>Phi</code>.</p> 
+<p>Base definition of complex quasi static magnetic port. The potential variable is the complex magnetic potential difference <code>V_m</code> and the flow variable is the complex magnetic flux <code>Phi</code>.</p>
 </p>
 
 <h4>See also</h4>
@@ -2054,9 +2054,9 @@ Additionally the reference angle is specified in the connector. The time derivat
         Documentation(info="<html>
 
 <p>
-The positive port is based on 
+The positive port is based on
 <a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Interfaces.MagneticPort\">MagneticPort</a>.
-Additionally the reference angle is specified in the connector. The time derivative of the reference angle is the actual angluar velocity of the quasi static voltage and current. The symbol is also designed such way to look different than the 
+Additionally the reference angle is specified in the connector. The time derivative of the reference angle is the actual angluar velocity of the quasi static voltage and current. The symbol is also designed such way to look different than the
 <a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Interfaces.NegativeMagneticPort\">NegativeMagneticPort</a>.
 </p>
 
@@ -2099,8 +2099,8 @@ Additionally the reference angle is specified in the connector. The time derivat
 <p>
 Partial model of a flux tube component with two magnetic ports:
 the positive port connector <code>port_p</code>, and the negative port
-connector <code>port_n</code>. The total magnetic potential difference 
-<code>V_m</code> and the flux flowing into the positive port, 
+connector <code>port_n</code>. The total magnetic potential difference
+<code>V_m</code> and the flux flowing into the positive port,
 <code>Phi</code> are also defined in this model.
 </p></html>"));
     end PartialTwoPortsElementary;
@@ -2406,7 +2406,7 @@ at fixed frequency, <code>f</code>.
 This source provides a quasi static magnetic potential difference or magnetomotive force (mmf) with signal inputs for:
 </p>
 <ul>
-<li>Complex magnetic potential difference, <code>V_m</code></li> 
+<li>Complex magnetic potential difference, <code>V_m</code></li>
 <li>Frequency <code>f</code></li>
 </ul>
 </html>"));
@@ -2505,7 +2505,7 @@ This source provides a constant quasi static magnetic flux <code>Phi</code> at f
 This source provides a quasi static magnetic flux with inputs for:
 </p>
 <ul>
-<li>Complex magnetic flux, <code>Phi</code></li> 
+<li>Complex magnetic flux, <code>Phi</code></li>
 <li>Frequency <code>f</code></li>
 </ul>
 </html>"));
@@ -2829,7 +2829,7 @@ of the flux path have to be take into account<p>
 <dl><dd>
 <IMG src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/permeabilities.png\" ALT=\"Permeabilities\">
 </dd></dl>
-<p>In case that the magnetic potential difference is close to zero, permeabilities yield:</p> 
+<p>In case that the magnetic potential difference is close to zero, permeabilities yield:</p>
 <dl><dd>
 <IMG src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/permeabilities-0.png\" ALT=\"Permeabilities=0\">
 </dd></dl>
@@ -2847,12 +2847,12 @@ For analysis of magnetic networks, only magnetic potential differences and magne
   end Sensors;
   annotation (Documentation(info="<html>
 <p>
-This libary is intended to provide models for the investigation of 
+This libary is intended to provide models for the investigation of
 quasi static electromagnetic devices with lumped magnetic networks.
 </p>
 </html>", revisions="<html></html>"),
            Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-          {100,100}}),                                                                               graphics={
+          {100,100}}), graphics={
     Polygon(
         origin={-3.75,0.0},
         fillColor={255,170,85},
