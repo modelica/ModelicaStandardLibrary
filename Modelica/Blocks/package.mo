@@ -1339,7 +1339,7 @@ Simulation results are shown in the next diagram:
 
 <p>
 As can be seen, uniform noise is distributed evenly between -1 and 3, and
-truncated normal distriution has more values centered around the mean value 1.
+truncated normal distribution has more values centered around the mean value 1.
 </p>
 </html>",     revisions="<html>
 <table border=1 cellspacing=0 cellpadding=2>
@@ -2728,7 +2728,7 @@ As expected, one can see the 11<sup>th</sup>, 13<sup>th</sup>, 23<sup>th</sup>, 
     extends Modelica.Icons.Example;
     parameter Modelica.SIunits.Frequency f1 = 50 "Fundamental wave frequency";
     parameter Modelica.SIunits.Voltage V1 = 100 "Fundamental wave RMS voltage";
-    parameter Modelica.SIunits.Voltage V3 = 20 "Third haromic wave RMS voltage";
+    parameter Modelica.SIunits.Voltage V3 = 20 "Third harmonic wave RMS voltage";
     parameter Real THD1 = V3/V1 "Theoretically obtained THD with respect to fundamental wave";
     parameter Real THDrms = V3/sqrt(V1^2+V3^2) "Theoretically obtained THD with respect to RMS";
     Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(transformation(extent={{-50,-60},{-30,-40}})));
@@ -2764,7 +2764,7 @@ As expected, one can see the 11<sup>th</sup>, 13<sup>th</sup>, 23<sup>th</sup>, 
 <p>This example compares the result of the
 <a href=\"modelica://Modelica.Blocks.Math.TotalHarmonicDistortionFundamental\">total harmonic distortion (THD)</a>
 with respect to the fundamental wave and with respect to the total root mean square (RMS).
-In this simlation model a non-sinusoidal voltage
+In this simulation model a non-sinusoidal voltage
 wave form is created by the superposition two voltage waves:</p>
 
 <ul>
