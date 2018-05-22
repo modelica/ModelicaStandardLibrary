@@ -3098,8 +3098,7 @@ center tap <code>2*m</code> pulse rectifiers</a>, where <code>m</code> is the nu
             freqHz=cosine.freqHz,
             phase=cosine.phase)
             annotation (Placement(transformation(extent={{-90,-30},{-70,-10}})));
-          Modelica.Electrical.PowerConverters.DCAC.Control.PWM pwm(uMax=sqrt(2*
-                3), samplePeriod=1/100)
+          Modelica.Electrical.PowerConverters.DCAC.Control.PWM pwm(uMax=sqrt(2*3), f=100)
             annotation (Placement(transformation(extent={{-50,-10},{-30,10}})));
           Modelica.Electrical.PowerConverters.DCAC.MultiPhase2Level multiPhase2Level
             annotation (Placement(transformation(extent={{-10,40},{10,60}})));
@@ -5752,8 +5751,7 @@ General information about AC/DC converters can be found at the
         parameter Modelica.Electrical.PowerConverters.Types.PWMType pwmType=
             Modelica.Electrical.PowerConverters.Types.PWMType.SVPWM "PWM Type"
           annotation (Evaluate=true);
-        parameter Modelica.SIunits.Time samplePeriod(min=100*Modelica.Constants.eps, start=0.1)
-          "Sample period = 1 / fSwitch";
+        parameter Modelica.SIunits.Frequency f "Switching frequency";
         parameter Modelica.SIunits.Time startTime=0 "Start time of PWM";
         parameter Real uMax "Maximum amplitude of signal";
         parameter Modelica.Electrical.PowerConverters.Types.ReferenceType
@@ -5767,13 +5765,13 @@ General information about AC/DC converters can be found at the
         Modelica.Blocks.Interfaces.BooleanOutput fire_n[m] "negative fire signal"
           annotation (Placement(transformation(extent={{100,-70},{120,-50}})));
         Modelica.Electrical.PowerConverters.DCAC.Control.SVPWM svPWM(
-          samplePeriod=samplePeriod,
+          f=f,
           startTime=startTime,
           uMax=uMax) if pwmType == Modelica.Electrical.PowerConverters.Types.PWMType.SVPWM
           annotation (Placement(transformation(extent={{-10,30},{10,50}})));
         Modelica.Electrical.PowerConverters.DCAC.Control.IntersectivePWM
           intersectivePWM(
-          samplePeriod=samplePeriod,
+          f=f,
           startTime=startTime,
           uMax=uMax,
           refType=refType) if pwmType == Modelica.Electrical.PowerConverters.Types.PWMType.Intersective
@@ -5795,7 +5793,8 @@ General information about AC/DC converters can be found at the
                 extent={{-80,80},{60,40}},
                 textString="P W M"), Text(
                 extent={{-80,-40},{60,-80}},
-                textString="1/f=%samplePeriod"),                                Text(
+                textString="f=%f",
+                lineColor={0,0,0}),                                             Text(
                 extent={{-80,20},{60,-20}},
                 textString="%pwmType")}),                              Diagram(
               coordinateSystem(preserveAspectRatio=false)),
@@ -5811,7 +5810,8 @@ Let the user choose the PWM type from:
       end PWM;
 
       block SVPWM "SpaceVector Pulse Width Modulation"
-        extends Modelica.Blocks.Interfaces.DiscreteBlock;
+        parameter Modelica.SIunits.Frequency f "Switching frequency";
+        extends Modelica.Blocks.Interfaces.DiscreteBlock(final samplePeriod=1/f);
         import Modelica.Constants.small;
         import Modelica.Constants.eps;
         import Modelica.Constants.pi;
@@ -5937,8 +5937,7 @@ The switching pattern of the negative fire signal is just the inverse of the pos
         extends Modelica.Blocks.Icons.Block;
         import Modelica.Electrical.PowerConverters.Types.ReferenceType;
         constant Integer m=3 "Number of phases";
-        parameter Modelica.SIunits.Time samplePeriod(min=100*Modelica.Constants.eps, start=0.1)
-          "Sample period = 1 / fSwitch";
+        parameter Modelica.SIunits.Frequency f "Switching frequency";
         parameter Modelica.SIunits.Time startTime=0 "Start time of PWM";
         parameter Real uMax "Maximum amplitude of signal";
         parameter Modelica.Electrical.PowerConverters.Types.ReferenceType
@@ -5960,23 +5959,23 @@ The switching pattern of the negative fire signal is just the inverse of the pos
               origin={-70,30})));
         Modelica.Blocks.Sources.SawTooth sawTooth[m](
           each nperiod=-1,
-          each period=samplePeriod,
           each amplitude=uMax,
           each offset=-uMax/2,
-          startTime={startTime - 1.5 + (if refType == ReferenceType.Sawtooth1 then 0
-               else k)/m for k in 0:m - 1}*samplePeriod) if
+          each period=1/f,
+          startTime={startTime - 1.5 + (if refType == ReferenceType.Sawtooth1
+               then 0 else k)/m for k in 0:m - 1}/f) if
              (refType==ReferenceType.Sawtooth1 or refType==ReferenceType.Sawtooth3)
           annotation (Placement(transformation(extent={{-80,-30},{-60,-10}})));
         Modelica.Blocks.Sources.Trapezoid trapezoid[3](
           each amplitude=uMax,
-          each rising=0.5*samplePeriod,
           each width=0,
-          each falling=0.5*samplePeriod,
-          each period=samplePeriod,
           each nperiod=-1,
           each offset=-uMax/2,
-          startTime={startTime - 1.25 + (if refType == ReferenceType.Triangle1 then 0
-               else k)/m for k in 0:m - 1}*samplePeriod) if
+          each rising=0.5/f,
+          each falling=0.5/f,
+          each period=1/f,
+          startTime={startTime - 1.25 + (if refType == ReferenceType.Triangle1
+               then 0 else k)/m for k in 0:m - 1}/f) if
              (refType==ReferenceType.Triangle1 or refType==ReferenceType.Triangle3)
            annotation (Placement(transformation(extent={{-80,-60},{-60,-40}})));
         Modelica.Blocks.Logical.GreaterEqual greaterEqual[m]

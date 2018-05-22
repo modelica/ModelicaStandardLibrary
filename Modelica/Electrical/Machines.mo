@@ -1383,7 +1383,7 @@ The mechanical load is a constant torque like a conveyor (with regularization ar
           annotation (Placement(transformation(extent={{-10,-10},{10,10}},
               rotation=90,
               origin={0,10})));
-        PowerConverters.DCAC.Control.PWM pwm(uMax=VDC, samplePeriod=1/2000)
+        PowerConverters.DCAC.Control.PWM pwm(uMax=VDC, f=2000)
           annotation (Placement(transformation(extent={{-10,-10},{10,10}},
               rotation=90,
               origin={0,40})));
@@ -5378,7 +5378,8 @@ Further reading:
         partial model PartialControlledDCPM
           "Partial controlled DC PM drive with H-bridge from battery"
           extends Modelica.Icons.Example;
-          replaceable parameter DriveDataDCPM driveData constrainedby ControlledDCDrives.Utilities.DriveDataDCPM
+          replaceable parameter DriveDataDCPM driveData constrainedby
+            ControlledDCDrives.Utilities.DriveDataDCPM
             annotation (Placement(transformation(extent={{20,-80},{40,-60}})));
           Modelica.Mechanics.Rotational.Components.Inertia loadInertia(J=driveData.JL)
             annotation (Placement(transformation(extent={{50,-50},{70,-30}})));
