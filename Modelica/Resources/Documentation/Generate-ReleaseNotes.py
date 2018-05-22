@@ -50,6 +50,8 @@ def main(dir, milestone, version):
                     labels[i] = 'L: Complex\*'
                     break
             t = issue['title']
+            t = t.replace('<', '&lt;')
+            t = t.replace('>', '&gt;')
             n = issue['number']
             url = issue['html_url']
             # Mark pull requests
