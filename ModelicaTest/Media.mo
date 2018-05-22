@@ -929,7 +929,7 @@ is given to compare the approximation.
     package Components
       "Functions, connectors and models needed for the media model tests"
 
-      extends Modelica.Icons.Library;
+      extends Modelica.Icons.Package;
 
       connector FluidPort
         "Interface for quasi one-dimensional fluid flow in a piping network (incompressible or compressible, one or more phases, one or more substances)"

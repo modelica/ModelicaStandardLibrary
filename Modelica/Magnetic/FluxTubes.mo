@@ -113,9 +113,9 @@ The sub-package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.Leakage\
     end ReluctanceForceCalculation;
 
     package Hysteresis "Hysteresis"
-      extends Modelica.Icons.Info;
+      extends Modelica.Icons.Information;
       package StaticHysteresis "Static Hysteresis"
-        extends Modelica.Icons.Info;
+        extends Modelica.Icons.Information;
         class Tellinen "Tellinen Hysteresis Model"
           extends Modelica.Icons.Information;
 
