@@ -384,9 +384,7 @@ This model compares a transientlinear magnetic circuit with a quasi static magne
     <code>r_mFe.mu_rConst | r_mFeQS.mu_rConst</code></li>
 </ul>
 </html>"),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-              {100,100}}),
-                        graphics));
+        Diagram(coordinateSystem(preserveAspectRatio=false)));
     end LinearInductor;
 
     model NonLinearInductor "Non linear inductor with ferromagnetic core"
@@ -616,9 +614,7 @@ This model compares a transient non-linear magnetic circuit with a linearized qu
     <code>fundamentalWavePermabilitySensor.mur | r_mFeQS.mu_rConst</code></li>
 </ul>
 </html>"),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-              {100,100}}),
-                        graphics));
+        Diagram(coordinateSystem(preserveAspectRatio=false)));
     end NonLinearInductor;
 
     package FixedShapes "Examples of fixed shape magnetic circuits"
@@ -709,8 +705,7 @@ This model compares a transient non-linear magnetic circuit with a linearized qu
             points={{-50,20},{-60,20},{-60,-10}},
             color={255,170,85}));
         connect(complexRamp.y, source.Phi) annotation (Line(points={{-21,-70},{-36,-70},{-36,-20}}, color={85,170,255}));
-      annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                  {100,100}})),
+      annotation (Diagram(coordinateSystem(preserveAspectRatio=false)),
           Documentation(info="<html>
 <p>This model tests different types of cylinder sections in one example. The circuit is operated at 50Hz and variable magnetic flux. </p>
 </html>"),experiment(StopTime=1,Interval=0.001));
@@ -799,8 +794,7 @@ This model compares a transient non-linear magnetic circuit with a linearized qu
             points={{80,30},{80,20},{32,20}},
             color={255,170,85}));
         connect(complexRamp.y, source.V_m) annotation (Line(points={{-21,-60},{-36,-60},{-36,10}}, color={85,170,255}));
-      annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                  {100,100}}),          graphics={Text(
+      annotation (Diagram(coordinateSystem(preserveAspectRatio=false),          graphics={Text(
                 extent={{-100,100},{100,80}},
                 lineColor={0,0,255},
                 pattern=LinePattern.Dash,
@@ -926,8 +920,7 @@ This model compares a transient non-linear magnetic circuit with a linearized qu
         annotation (Line(
           points={{-20,-60},{-40,-60},{-40,0}},
           color={255,170,85}));
-        annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}),   graphics),
+        annotation (Diagram(coordinateSystem(preserveAspectRatio=false)),
           experiment(StopTime=1,Interval=0.001),
         Documentation(info="<html>
 <p>Test of cylindrical compoents with leakage and sensors.</p>
@@ -970,8 +963,7 @@ This model compares a transient non-linear magnetic circuit with a linearized qu
             points={{-20,0},{-20,30}},
             color={255,170,85}));
         annotation (
-          Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
-                  100}}), graphics),
+          Diagram(coordinateSystem(preserveAspectRatio=false)),
           experiment(StartTime=1,Interval=0.001),
         Documentation(info="<html>
 <p>Magnetic circuit with two reluctances, leakage reluctance,  and eddy current loss.</p>
@@ -1399,8 +1391,7 @@ Partitioning of a solid conductive cylinder or prism into several hollow cylinde
 </p>
 </html>",     revisions="<html>
 </html>"),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
-                100}}), graphics));
+        Diagram(coordinateSystem(preserveAspectRatio=false)));
     end EddyCurrent;
 
     model Idle "Idle running branch"
@@ -1496,8 +1487,7 @@ This is a simple crossing of two branches. The ports <code>port_p1</code> and <c
 </p></html>",
           revisions="<html>
 </html>"),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
-                100}}), graphics));
+        Diagram(coordinateSystem(preserveAspectRatio=false)));
     end Crossing;
   end Basic;
 
@@ -1543,8 +1533,7 @@ the magnetic reluctance by:</p>
 <li>Added GenericFluxTube</li>
 </ul>
 
-</html>"),       Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                  {100,100}}), graphics));
+</html>"),       Icon(coordinateSystem(preserveAspectRatio=false)));
       end GenericFluxTube;
 
       model Cuboid
@@ -2090,9 +2079,7 @@ It is assumed that the magnetic flux flowing into <code>port_p</code> is identic
 Please refer to the description of  the sub-package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.FixedShape\">Shapes.FixedShape</a> for utilisation of this partial model.
 </p>
 </html>"),
-        Diagram(coordinateSystem(preserveAspectRatio=false,
-              extent={{-100,-100},{100,100}}),
-            graphics));
+        Diagram(coordinateSystem(preserveAspectRatio=false)));
     end PartialFixedShape;
 
     partial model PartialLeakage
@@ -2445,8 +2432,7 @@ This package contains sources of a magnetic potential difference or a magnetic f
       annotation (Icon(graphics={Text(
               extent={{60,-60},{-60,-30}},
               fillPattern=FillPattern.Solid,
-              textString="ref")}), Diagram(coordinateSystem(preserveAspectRatio=false,
-                      extent={{-100,-100},{100,100}}), graphics));
+              textString="ref")}), Diagram(coordinateSystem(preserveAspectRatio=false)));
     end ReferenceSensor;
 
     model FrequencySensor "Frequency sensor"
@@ -2519,8 +2505,7 @@ This sensor can be used to measure the complex potential.
             Line(points={{70,0},{90,0}}),
             Line(points={{0,-90},{0,-70}})}),
                                       Diagram(coordinateSystem(
-            preserveAspectRatio=false,
-            extent={{-100,-100},{100,100}}), graphics));
+            preserveAspectRatio=false)));
     end MagneticPotentialDifferenceSensor;
 
     model MagneticFluxSensor "Sensor to measure magnetic flux"
@@ -2534,8 +2519,7 @@ This sensor can be used to measure the complex potential.
                 -100},{100,100}}), graphics={Line(points={{0,-100},{0,-70}}),Line(points={{-70,0},{-90,0}}),Line(
               points={{70,0},{90,0}}),Text(extent={{-29,-11},{30,
               -70}}, textString="Phi"),Line(points={{0,-90},{0,-70}})}),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-              {100,100}}), graphics));
+        Diagram(coordinateSystem(preserveAspectRatio=false)));
     end MagneticFluxSensor;
 
     package Transient "Transient fundamental wave sensors"
@@ -2657,11 +2641,8 @@ This sensor can be used to measure the complex potential.
             points={{-31,-6},{-40,-6},{-40,-110}},
             color={0,0,127}));
         annotation (Icon(coordinateSystem(
-                preserveAspectRatio=false, extent={{-100,
-                  -100},{100,100}}), graphics), Diagram(
-              coordinateSystem(preserveAspectRatio=false,
-                extent={{-100,-100},{100,100}}),
-              graphics),
+                preserveAspectRatio=false)), Diagram(
+              coordinateSystem(preserveAspectRatio=false)),
         Documentation(info="<html>
 <p>
 This sensor is used to determined the effective fundamental wave permeability of a saturated lumped circuit reluctance. For this purpose the sensor is placed such way that the magnetic flux and the magnetic potential difference of the investigated reluctance are sensed. The area of cross section and the effective lenght of the investigated magnetic path have to be provided as paramters.
@@ -2703,10 +2684,8 @@ This sensor is used to determined the effective fundamental wave permeability of
         end if;
 
         annotation (Diagram(coordinateSystem(
-                preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
-                                     graphics), Icon(
-              coordinateSystem(preserveAspectRatio=false,
-                extent={{-100,-100},{100,100}}),
+                preserveAspectRatio=false)), Icon(
+              coordinateSystem(preserveAspectRatio=false),
               graphics={Rectangle(
                 extent={{-100,100},{100,-100}},
                 lineColor={0,0,127},
@@ -2750,8 +2729,7 @@ This libary is intended to provide models for the investigation of
 quasi static electromagnetic devices with lumped magnetic networks.
 </p>
 </html>", revisions="<html></html>"),
-           Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-          {100,100}}), graphics={
+           Icon(coordinateSystem(preserveAspectRatio=false), graphics={
     Polygon(
         origin={-3.75,0.0},
         fillColor={255,170,85},
