@@ -2749,12 +2749,10 @@ As expected, one can see the 11<sup>th</sup>, 13<sup>th</sup>, 23<sup>th</sup>, 
     Modelica.Blocks.Math.TotalHarmonicDistortion thd1(f=f1) annotation (Placement(transformation(extent={{30,10},{50,30}})));
     Modelica.Blocks.Math.TotalHarmonicDistortion thdRMS(f=f1, useFirstHarmonic=false) annotation (Placement(transformation(extent={{30,-30},{50,-10}})));
   equation
-    connect(voltageSensor.p, sineVoltage3.p) annotation (Line(points={{1.77636e-15,10},{1.77636e-15,30},{-40,30},{-40,20}},
-                                                                                                        color={0,0,255}));
+    connect(voltageSensor.p, sineVoltage3.p) annotation (Line(points={{0,10},{0,30},{-40,30},{-40,20}}, color={0,0,255}));
     connect(sineVoltage3.n, sineVoltage1.p) annotation (Line(points={{-40,0},{-40,-10}}, color={0,0,255}));
     connect(sineVoltage1.n, ground.p) annotation (Line(points={{-40,-30},{-40,-40}}, color={0,0,255}));
-    connect(ground.p, voltageSensor.n) annotation (Line(points={{-40,-40},{-40,-30},{-1.77636e-15,-30},{-1.77636e-15,-10}},
-                                                                                                      color={0,0,255}));
+    connect(ground.p, voltageSensor.n) annotation (Line(points={{-40,-40},{-40,-30},{0,-30},{0,-10}}, color={0,0,255}));
     connect(thd1.u, voltageSensor.v) annotation (Line(points={{28,20},{20,20},{20,0},{11,0}}, color={0,0,127}));
     connect(voltageSensor.v, thdRMS.u) annotation (Line(points={{11,0},{20,0},{20,-20},{28,-20}}, color={0,0,127}));
     annotation (experiment(
