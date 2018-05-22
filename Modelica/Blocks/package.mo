@@ -2729,8 +2729,8 @@ As expected, one can see the 11<sup>th</sup>, 13<sup>th</sup>, 23<sup>th</sup>, 
     parameter Modelica.SIunits.Frequency f1 = 50 "Fundamental wave frequency";
     parameter Modelica.SIunits.Voltage V1 = 100 "Fundamental wave RMS voltage";
     parameter Modelica.SIunits.Voltage V3 = 20 "Third harmonic wave RMS voltage";
-    parameter Real THD1 = V3/V1 "Theoretically obtained THD with respect to fundamental wave";
-    parameter Real THDrms = V3/sqrt(V1^2+V3^2) "Theoretically obtained THD with respect to RMS";
+    final parameter Real THD1 = V3/V1 "Theoretically obtained THD with respect to fundamental wave";
+    final parameter Real THDrms = V3/sqrt(V1^2+V3^2) "Theoretically obtained THD with respect to RMS";
     Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(transformation(extent={{-50,-60},{-30,-40}})));
     Modelica.Electrical.Analog.Sources.SineVoltage sineVoltage3(V=sqrt(2)*V3, freqHz=3*f1,
       startTime=0.02)                                           annotation (Placement(transformation(
