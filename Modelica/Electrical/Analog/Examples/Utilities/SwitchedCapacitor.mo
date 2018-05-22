@@ -70,7 +70,7 @@ equation
             textString="%name")}),
       Documentation(info="<html>
 <p>This model is a switched capacitor model without thermal behavior which can represent positive and negative resistances.</p>
-<p>The clock source is inside the model, its frequency can be chosen by a parameter. 
+<p>The clock source is inside the model, its frequency can be chosen by a parameter.
 Also the resistance is a parameter which can be positive and negative.
 The internal (switched) capacitor is parametrized in such a way that the total resistance is independently from the frequency equal to the resistance parameter.</p>
 </html>"));

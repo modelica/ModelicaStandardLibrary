@@ -1506,8 +1506,7 @@ Simulate for 1.5 seconds and plot (versus time):
           freqHz=fill(fNominal, m),
           V=fill(sqrt(2/3)*VNominal, m)) annotation (Placement(transformation(
               origin={-30,90},
-              extent={{10,10},{-10,-10}},
-              rotation=0)));
+              extent={{10,10},{-10,-10}})));
         Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) annotation (
             Placement(transformation(extent={{-50,80},{-70,100}})));
         Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
@@ -1522,8 +1521,7 @@ Simulate for 1.5 seconds and plot (versus time):
           Ron=fill(1e-5, m),
           Goff=fill(1e-5, m)) annotation (Placement(transformation(
               origin={0,90},
-              extent={{-10,10},{10,-10}},
-              rotation=0)));
+              extent={{-10,10},{10,-10}})));
         Electrical.Machines.Utilities.SwitchYD switchYD(m=m) annotation (Placement(transformation(extent={{20,30},{40,50}})));
         Modelica.Blocks.Sources.BooleanStep booleanStepYD[m](each startTime=
               tStart2) annotation (Placement(transformation(extent={{-40,30},{-20,50}})));
@@ -1626,8 +1624,7 @@ accelerating inertias against load torque quadratic dependent on speed, finally 
           TrOperational=293.15) annotation (Placement(transformation(extent={{80,10},{60,30}})));
         Electrical.Machines.Sensors.CurrentQuasiRMSSensor currentQuasiRMSSensor annotation (Placement(transformation(
               origin={-40,80},
-              extent={{-10,10},{10,-10}},
-              rotation=0)));
+              extent={{-10,10},{10,-10}})));
         Modelica.Electrical.MultiPhase.Sources.SineVoltage sineVoltage(
           final m=m,
           freqHz=fill(fNominal, m),
@@ -1641,8 +1638,7 @@ accelerating inertias against load torque quadratic dependent on speed, finally 
         Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
               transformation(
               origin={-80,20},
-              extent={{-10,-10},{10,10}},
-              rotation=0)));
+              extent={{-10,-10},{10,10}})));
         Modelica.Blocks.Sources.BooleanStep booleanStep1[m](each startTime=
               tStart1) annotation (Placement(transformation(extent={{-60,40},{-40,
                   60}})));
@@ -1651,8 +1647,7 @@ accelerating inertias against load torque quadratic dependent on speed, finally 
           Ron=fill(1e-5, m),
           Goff=fill(1e-5, m)) annotation (Placement(transformation(
               origin={-10,80},
-              extent={{-10,10},{10,-10}},
-              rotation=0)));
+              extent={{-10,10},{10,-10}})));
         Electrical.Machines.BasicMachines.Transformers.Yy.Yy00 transformer(
           n=transformerData.n,
           R1=transformerData.R1,
@@ -1666,14 +1661,12 @@ accelerating inertias against load torque quadratic dependent on speed, finally 
           T1Operational=293.15,
           T2Operational=293.15) annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
-              rotation=0,
               origin={20,80})));
 
         Modelica.Electrical.Analog.Basic.Ground ground2 annotation (Placement(
               transformation(
               origin={20,50},
-              extent={{-10,-10},{10,10}},
-              rotation=0)));
+              extent={{-10,-10},{10,10}})));
         parameter Electrical.Machines.Utilities.TransformerData transformerData(
           f=fNominal,
           V1=VNominal,
@@ -1696,8 +1689,7 @@ accelerating inertias against load torque quadratic dependent on speed, finally 
           final m=m,
           Ron=fill(1e-5, m),
           Goff=fill(50E-5, m)) annotation (Placement(transformation(
-              extent={{60,90},{40,70}},
-              rotation=0)));
+              extent={{60,90},{40,70}})));
         Modelica.Mechanics.Rotational.Components.Inertia loadInertia(J=JLoad)
           annotation (Placement(transformation(extent={{50,10},{30,30}})));
         Modelica.Mechanics.Rotational.Sources.QuadraticSpeedDependentTorque
@@ -1920,7 +1912,7 @@ Default machine parameters are used.
           effectiveStatorTurns=aimcData.effectiveStatorTurns,
           alpha20r=aimcData.alpha20r,
           TrOperational=293.15) annotation (Placement(transformation(extent={{60,10},{40,30}})));
-        Electrical.Machines.Sensors.CurrentQuasiRMSSensor currentQuasiRMSSensor annotation (Placement(transformation(extent={{20,100},{40,80}},  rotation=0)));
+        Electrical.Machines.Sensors.CurrentQuasiRMSSensor currentQuasiRMSSensor annotation (Placement(transformation(extent={{20,100},{40,80}})));
         Blocks.Sources.CombiTimeTable
                                  dutyCycle(table=[0,0; 1,1; 4,1; 5,0; 10,0; 11,
               -1; 14,-1; 15,0; 20,0], extrapolation=Modelica.Blocks.Types.Extrapolation.Periodic)
@@ -1932,15 +1924,13 @@ Default machine parameters are used.
         Modelica.Electrical.MultiPhase.Sources.SignalVoltage signalVoltage(
             final m=m) annotation (Placement(transformation(
               origin={0,90},
-              extent={{10,10},{-10,-10}},
-              rotation=0)));
+              extent={{10,10},{-10,-10}})));
         Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) annotation (
             Placement(transformation(extent={{-40,80},{-60,100}})));
         Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
               transformation(
               origin={-70,70},
-              extent={{-10,-10},{10,10}},
-              rotation=0)));
+              extent={{-10,-10},{10,10}})));
         Electrical.Machines.Utilities.TerminalBox terminalBox(terminalConnection="Y") annotation (Placement(transformation(extent={{60,26},{40,46}})));
         parameter Electrical.Machines.Utilities.ParameterRecords.AIM_SquirrelCageData aimcData annotation (Placement(transformation(extent={{70,72},{90,92}})));
         Blocks.Math.Gain gain(k=fNominal/unitFrequency)
@@ -2249,12 +2239,10 @@ finally reaching nominal speed.</p>
         Electrical.Machines.Utilities.TerminalBox terminalBox(terminalConnection="D") annotation (Placement(transformation(extent={{-20,76},{0,96}})));
         Electrical.Machines.Sensors.ElectricalPowerSensor electricalPowerSensor annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
-              rotation=0,
               origin={-40,90})));
         Electrical.Machines.Sensors.CurrentQuasiRMSSensor currentQuasiRMSSensor annotation (Placement(transformation(
               origin={-70,90},
-              extent={{-10,10},{10,-10}},
-              rotation=0)));
+              extent={{-10,10},{10,-10}})));
         Modelica.Electrical.MultiPhase.Sources.SineVoltage sineVoltage(
           final m=m,
           freqHz=fill(fNominal, m),
@@ -2450,8 +2438,7 @@ Modelica 2009, 7<sup>th</sup> International Modelica Conference</p>
           TrOperational=293.15) annotation (Placement(transformation(extent={{-20,40},{0,60}})));
         Electrical.Machines.Sensors.CurrentQuasiRMSSensor currentQuasiRMSSensor annotation (Placement(transformation(
               origin={-40,80},
-              extent={{-10,10},{10,-10}},
-              rotation=0)));
+              extent={{-10,10},{10,-10}})));
         Modelica.Electrical.MultiPhase.Sources.SineVoltage sineVoltage(
           final m=m,
           freqHz=fill(fNominal, m),
@@ -4110,8 +4097,7 @@ to speed to achieve constant current and torque.</p>
         Modelica.Electrical.Analog.Basic.Ground groundExcitation annotation (
             Placement(transformation(
               origin={-40,-70},
-              extent={{-10,-10},{10,10}},
-              rotation=0)));
+              extent={{-10,-10},{10,10}})));
         Modelica.Mechanics.Rotational.Sensors.MultiSensor mechanicalSensor annotation (Placement(transformation(extent={{40,-50},{60,-30}})));
         Modelica.Electrical.MultiPhase.Sensors.MultiSensor electricalSensor(m=m) annotation (Placement(transformation(
               origin={40,30},
@@ -4131,8 +4117,7 @@ to speed to achieve constant current and torque.</p>
         Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
               transformation(
               origin={-60,30},
-              extent={{-10,-10},{10,10}},
-              rotation=0)));
+              extent={{-10,-10},{10,10}})));
         Modelica.Electrical.Analog.Sources.RampVoltage rampVoltage(
           duration=0.1,
           V=Ve,
@@ -4172,8 +4157,7 @@ to speed to achieve constant current and torque.</p>
           Ron=fill(1e-5*m/3, m),
           Goff=fill(1e-5*m/3, m)) annotation (Placement(transformation(
               origin={10,50},
-              extent={{-10,10},{10,-10}},
-              rotation=0)));
+              extent={{-10,10},{10,-10}})));
         Modelica.Blocks.Sources.BooleanStep booleanStep(startTime=0) annotation (Placement(transformation(extent={{-50,0},{-30,20}})));
         Modelica.Blocks.Routing.BooleanReplicator booleanReplicator(nout=m) annotation (Placement(transformation(extent={{-20,20},{0,0}})));
         Modelica.Mechanics.Rotational.Sources.TorqueStep torqueStep(

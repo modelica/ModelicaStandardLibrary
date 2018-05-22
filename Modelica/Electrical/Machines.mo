@@ -1286,8 +1286,7 @@ The mechanical load is a constant torque like a conveyor (with regularization ar
               origin={-80,-60})));
         Analog.Basic.Ground ground annotation (Placement(transformation(
               origin={-80,-90},
-              extent={{-10,-10},{10,10}},
-              rotation=0)));
+              extent={{-10,-10},{10,10}})));
         Sensors.CurrentQuasiRMSSensor gridCurrent
          annotation (Placement(
               transformation(
@@ -1319,7 +1318,6 @@ The mechanical load is a constant torque like a conveyor (with regularization ar
         PowerConverters.DCAC.MultiPhase2Level inverter annotation (Placement(
               transformation(
               extent={{-10,-10},{10,10}},
-              rotation=0,
               origin={0,70})));
         Machines.Sensors.CurrentQuasiRMSSensor machineCurrent annotation (Placement(
               transformation(
@@ -1371,7 +1369,6 @@ The mechanical load is a constant torque like a conveyor (with regularization ar
           duration=1.2)
           annotation (
            Placement(transformation(extent={{-10,-10},{10,10}},
-              rotation=0,
               origin={-20,-50})));
         Machines.Utilities.VfController vfController(
           final m=m,
@@ -1463,8 +1460,7 @@ This is a model of a complete inverter drive comprising:
 <p>Please note: Be patient, two switching devices cause many event iteratons which cost performance.</p>
 <p>Note that due to the voltage drop the voltage at the machine can't reach the full voltage which means torque reduction.</p>
 <p>Default machine parameters are adapted to nominal phase voltage 400 V and nominal phase current 25 A.</p>
-</html>"),Diagram(coordinateSystem(                                initialScale=0.1)),
-          Icon(coordinateSystem(                                initialScale=0.1)));
+</html>"));
       end AIMC_InverterDrive;
 
       model AIMC_Steinmetz
@@ -2362,7 +2358,6 @@ and accelerating inertias. At time tStep a load step is applied.</p>
         Sensors.HallSensor hallSensor(p=smpmData.p) annotation (Placement(
               transformation(
               extent={{10,-10},{-10,10}},
-              rotation=0,
               origin={40,-30})));
         Modelica.Mechanics.Rotational.Sources.ConstantSpeed constantSpeed(w_fixed=2*
               pi*smpmData.fsNominal/smpmData.p)
@@ -3159,8 +3154,7 @@ achieve constant current and torque.</p>
         Modelica.Electrical.Analog.Basic.Ground groundExcitation annotation (
             Placement(transformation(
               origin={-40,-70},
-              extent={{-10,-10},{10,10}},
-              rotation=0)));
+              extent={{-10,-10},{10,10}})));
         Mechanics.Rotational.Sensors.MultiSensor
                                                mechanicalMultiSensor
           annotation (Placement(transformation(extent={{40,-50},{60,-30}})));
@@ -4191,7 +4185,7 @@ Default machine parameters of model <em>DC_PermanentMagnet</em> are used.
         connect(currentSensor.n, dcpm.pin_ap)
           annotation (Line(points={{20,0},{16,0},{16,-10}}, color={0,0,255}));
         connect(dcpm.flange, speedSensor.flange)
-          annotation (Line(points={{20,-20},{30,-20},{30,-28}}, color={0,0,0}));
+          annotation (Line(points={{20,-20},{30,-20},{30,-28}}));
         connect(firstOrder.y, signalVoltage.v)
           annotation (Line(points={{1,60},{10,60},{10,42}}, color={0,0,127}));
         connect(PID.y, firstOrder.u)
@@ -5217,7 +5211,6 @@ This package contains test examples of DC machines.
           startTime=0.2,
           height=driveData.tauNominal) annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
-              rotation=0,
               origin={-110,-10})));
       equation
         connect(loadInertia.flange_b, loadTorque.flange)
@@ -5601,13 +5594,11 @@ Current controller according to absolute optimum, speed controller according to 
           Modelica.Blocks.Interfaces.RealInput yMaxVar if not constantLimits
             "Connector of yMax input signal" annotation (Placement(transformation(
                 origin={120,60},
-                extent={{20,-20},{-20,20}},
-                rotation=0)));
+                extent={{20,-20},{-20,20}})));
           Modelica.Blocks.Interfaces.RealInput yMinVar if not constantLimits and not symmetricLimits
             "Connector of yMin input signal" annotation (Placement(transformation(
                 origin={120,-60},
-                extent={{20,-20},{-20,20}},
-                rotation=0)));
+                extent={{20,-20},{-20,20}})));
           output Real controlError = u - u_m
             "Control error (set point - measurement)";
           parameter Real k(unit="1")=1 "Gain";
@@ -5639,7 +5630,6 @@ Current controller according to absolute optimum, speed controller according to 
                   "Initialization"));
           Modelica.Blocks.Math.Feedback feedback annotation (Placement(transformation(
                 extent={{-10,-10},{10,10}},
-                rotation=0,
                 origin={-80,0})));
 
           Modelica.Blocks.Math.Add addAntiWindup(k1=1, k2=-1/k)
@@ -16150,8 +16140,7 @@ This package contains the space phasor connector and partial models for machine 
             Rectangle(
               extent={{-40,60},{80,-60}},
               fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={215,215,215},
-              lineColor={0,0,0}),
+              fillColor={215,215,215}),
             Rectangle(
               extent={{-40,60},{-60,-60}},
               fillPattern=FillPattern.HorizontalCylinder,
@@ -16181,8 +16170,7 @@ This icon represents a generic electric machine model.
             Rectangle(
               extent={{-40,60},{80,-60}},
               fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={215,215,215},
-              lineColor={0,0,0}),
+              fillColor={215,215,215}),
             Rectangle(
               extent={{-40,60},{-60,-60}},
               fillPattern=FillPattern.HorizontalCylinder,

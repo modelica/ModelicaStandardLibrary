@@ -2761,9 +2761,9 @@ As expected, one can see the 11<sup>th</sup>, 13<sup>th</sup>, 23<sup>th</sup>, 
         StopTime=0.1,
         __Dymola_NumberOfIntervals=1000,
         Tolerance=1e-06), Documentation(info="<html>
-<p>This example compares the result of the 
-<a href=\"modelica://Modelica.Blocks.Math.TotalHarmonicDistortionFundamental\">total harmonic distortion (THD)</a> 
-with respect to the fundamental wave and with respect to the total root mean square (RMS). 
+<p>This example compares the result of the
+<a href=\"modelica://Modelica.Blocks.Math.TotalHarmonicDistortionFundamental\">total harmonic distortion (THD)</a>
+with respect to the fundamental wave and with respect to the total root mean square (RMS).
 In this simlation model a non-sinusoidal voltage
 wave form is created by the superposition two voltage waves:</p>
 
@@ -2776,9 +2776,9 @@ wave form is created by the superposition two voltage waves:</p>
 theoretical calculations:</p>
 
 <ul>
-<li>Compare the numerically determined THD value <code>thd1.y</code> and the theoretical value <code>THD1</code>, 
+<li>Compare the numerically determined THD value <code>thd1.y</code> and the theoretical value <code>THD1</code>,
     both with respect to the fundamental wave; also plot <code>thd1.valid</code></li>
-<li>Compare the numerically determined THD value <code>thdRMS.y</code> and the theoretical value <code>THDrms</code>, 
+<li>Compare the numerically determined THD value <code>thdRMS.y</code> and the theoretical value <code>THDrms</code>,
     both with respect to the RMS value; also plot <code>thdRMS.valid</code></li>
 </ul>
 </html>"));

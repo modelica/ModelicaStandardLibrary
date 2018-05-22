@@ -52,7 +52,6 @@ model GenerationOfFMUs
       Placement(transformation(extent={{-40,-90},{-20,-70}})));
   Modelica.Electrical.Analog.Basic.Inductor inductor4a(i(fixed=true, start=0), L=1e-3) annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
-        rotation=0,
         origin={-30,-50})));
   Modelica.Electrical.Analog.Basic.VoltageToCurrentAdaptor voltageToCurrent4a(
       use_pder=false, use_fder=false)

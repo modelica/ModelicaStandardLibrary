@@ -198,7 +198,7 @@ This user's guide gives a short introduction to the underlying
     model LinearInductor "Linear inductor with ferromagnetic core"
       extends Modelica.Icons.Example;
       output Modelica.SIunits.Current deviation = feedback.y "Deviation of transient and quasi static current";
-      FluxTubes.Basic.Ground ground_mQS annotation (Placement(transformation(extent={{70,-90},{90,-70}}, rotation=0)));
+      FluxTubes.Basic.Ground ground_mQS annotation (Placement(transformation(extent={{70,-90},{90,-70}})));
       Modelica.Electrical.QuasiStationary.SinglePhase.Sources.VoltageSource
         sourceQS(
         f=50,
@@ -212,8 +212,8 @@ This user's guide gives a short introduction to the underlying
       Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Resistor
         rQS(R_ref=7.5) "Inductor coil resistance"
                                    annotation (Placement(transformation(extent={{-40,-50},
-                {-20,-30}},      rotation=0)));
-      FluxTubes.Basic.ElectroMagneticConverter coilQS(N=600) "Inductor coil" annotation (Placement(transformation(extent={{-10,-60},{10,-40}}, rotation=0)));
+                {-20,-30}})));
+      FluxTubes.Basic.ElectroMagneticConverter coilQS(N=600) "Inductor coil" annotation (Placement(transformation(extent={{-10,-60},{10,-40}})));
       Basic.ConstantReluctance r_mLeakQS(R_m=1.2e6)
       "Constant leakage reluctance"
         annotation (Placement(transformation(
@@ -226,7 +226,7 @@ This user's guide gives a short introduction to the underlying
         l=0.0001,
         area=0.025^2)
       "Reluctance of small parasitic air gap (ferromagnetic core packeted from single sheets)"
-        annotation (Placement(transformation(extent={{46,-50},{66,-30}}, rotation=0)));
+        annotation (Placement(transformation(extent={{46,-50},{66,-30}})));
       Shapes.FixedShape.GenericFluxTube
                                r_mFeQS(
         mu_rConst=1000,
@@ -238,11 +238,10 @@ This user's guide gives a short introduction to the underlying
             rotation=270)));
 
       Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Ground groundQS
-        annotation (Placement(transformation(extent={{-90,-90},{-70,-70}}, rotation=
-               0)));
+        annotation (Placement(transformation(extent={{-90,-90},{-70,-70}})));
 
       Modelica.Magnetic.FluxTubes.Basic.Ground ground_m
-        annotation (Placement(transformation(extent={{70,10},{90,30}},rotation=0)));
+        annotation (Placement(transformation(extent={{70,10},{90,30}})));
       Modelica.Electrical.Analog.Sources.SineVoltage source(
         freqHz=50,
         phase=pi/2,
@@ -253,10 +252,10 @@ This user's guide gives a short introduction to the underlying
             rotation=270)));
       Modelica.Electrical.Analog.Basic.Resistor r(R=7.5)
       "Inductor coil resistance"
-        annotation (Placement(transformation(extent={{-40,50},{-20,70}}, rotation=0)));
+        annotation (Placement(transformation(extent={{-40,50},{-20,70}})));
       Modelica.Magnetic.FluxTubes.Basic.ElectroMagneticConverter coil(N=600, i(fixed=
             true)) "Inductor coil"                                                           annotation (Placement(transformation(
-              extent={{-10,40},{10,60}},  rotation=0)));
+              extent={{-10,40},{10,60}})));
       Modelica.Magnetic.FluxTubes.Basic.ConstantReluctance r_mLeak(R_m=1.2e6)
       "Constant leakage reluctance"   annotation (Placement(transformation(
             origin={30,50},
@@ -269,7 +268,7 @@ This user's guide gives a short introduction to the underlying
         l=0.0001,
         area=0.025^2)
       "Reluctance of small parasitic air gap (ferromagnetic core packeted from single sheets)"
-        annotation (Placement(transformation(extent={{46,50},{66,70}}, rotation=0)));
+        annotation (Placement(transformation(extent={{46,50},{66,70}})));
       Modelica.Magnetic.FluxTubes.Shapes.FixedShape.GenericFluxTube
                                                            r_mFe(
         mu_rConst=1000,
@@ -284,14 +283,13 @@ This user's guide gives a short introduction to the underlying
             extent={{-10,-10},{10,10}},
             rotation=270)));
       Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
-            transformation(extent={{-90,10},{-70,30}},rotation=0)));
+            transformation(extent={{-90,10},{-70,30}})));
       Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.CurrentSensor
         currentSensorQS
         annotation (Placement(transformation(extent={{-70,-30},{-50,-50}})));
       Modelica.ComplexBlocks.ComplexMath.ComplexToPolar complexToPolar annotation (
           Placement(transformation(
             extent={{-10,-10},{10,10}},
-            rotation=0,
             origin={-40,-10})));
       Modelica.Electrical.Analog.Sensors.CurrentSensor currentSensor
         annotation (Placement(transformation(extent={{-70,50},{-50,70}})));
@@ -312,20 +310,16 @@ This user's guide gives a short introduction to the underlying
               {10,-56}},       color={255,127,0}));
       connect(ground_mQS.port, r_mFeQS.port_n) annotation (Line(
           points={{80,-70},{80,-60}},
-          color={255,127,0},
-          smooth=Smooth.None));
+          color={255,127,0}));
       connect(rQS.pin_n, coilQS.pin_p) annotation (Line(
           points={{-20,-40},{-10,-40},{-10,-44}},
-          color={85,170,255},
-          smooth=Smooth.None));
+          color={85,170,255}));
       connect(sourceQS.pin_n, coilQS.pin_n) annotation (Line(
           points={{-80,-60},{-10,-60},{-10,-56}},
-          color={85,170,255},
-          smooth=Smooth.None));
+          color={85,170,255}));
       connect(sourceQS.pin_n, groundQS.pin) annotation (Line(
           points={{-80,-60},{-80,-70}},
-          color={85,170,255},
-          smooth=Smooth.None));
+          color={85,170,255}));
       connect(r.n, coil.p)
         annotation (Line(points={{-20,60},{-10,60},{-10,60}}, color={0,0,255}));
       connect(source.n, coil.n)
@@ -342,44 +336,34 @@ This user's guide gives a short introduction to the underlying
         annotation (Line(points={{80,40},{10,40},{10,40}},   color={255,127,0}));
       connect(ground.p, source.n) annotation (Line(
           points={{-80,30},{-80,40}},
-          color={0,0,255},
-          smooth=Smooth.None));
+          color={0,0,255}));
       connect(ground_m.port, r_mFe.port_n) annotation (Line(
           points={{80,30},{80,40}},
-          color={255,127,0},
-          smooth=Smooth.None));
+          color={255,127,0}));
       connect(sourceQS.pin_p, currentSensorQS.pin_p) annotation (Line(
           points={{-80,-40},{-70,-40}},
-          color={85,170,255},
-          smooth=Smooth.None));
+          color={85,170,255}));
       connect(currentSensorQS.pin_n, rQS.pin_p) annotation (Line(
           points={{-50,-40},{-40,-40}},
-          color={85,170,255},
-          smooth=Smooth.None));
+          color={85,170,255}));
       connect(currentSensorQS.y, complexToPolar.u) annotation (Line(
           points={{-60,-29},{-60,-10},{-52,-10}},
-          color={85,170,255},
-          smooth=Smooth.None));
+          color={85,170,255}));
       connect(source.p, currentSensor.p) annotation (Line(
           points={{-80,60},{-70,60}},
-          color={0,0,255},
-          smooth=Smooth.None));
+          color={0,0,255}));
       connect(currentSensor.n, r.p) annotation (Line(
           points={{-50,60},{-40,60}},
-          color={0,0,255},
-          smooth=Smooth.None));
+          color={0,0,255}));
     connect(currentSensor.i, rootMeanSquare.u) annotation (Line(
         points={{-60,49},{-60,20},{-52,20}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(rootMeanSquare.y, feedback.u1) annotation (Line(
         points={{-29,20},{2,20}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(complexToPolar.len, feedback.u2) annotation (Line(
         points={{-28,-4},{10,-4},{10,12}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
       annotation (experiment(
           StopTime=0.2,
           Tolerance=1e-07),                                   Documentation(
@@ -408,7 +392,7 @@ This model compares a transientlinear magnetic circuit with a quasi static magne
     model NonLinearInductor "Non linear inductor with ferromagnetic core"
       extends Modelica.Icons.Example;
       output Modelica.SIunits.Current deviation = feedback.y "Deviation of transient and quasi static current";
-      FluxTubes.Basic.Ground ground_mQS annotation (Placement(transformation(extent={{80,-90},{100,-70}}, rotation=0)));
+      FluxTubes.Basic.Ground ground_mQS annotation (Placement(transformation(extent={{80,-90},{100,-70}})));
       Modelica.Electrical.QuasiStationary.SinglePhase.Sources.VoltageSource
         sourceQS(
         f=50,
@@ -422,8 +406,8 @@ This model compares a transientlinear magnetic circuit with a quasi static magne
       Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Resistor
         rQS(R_ref=7.5) "Inductor coil resistance"
                                    annotation (Placement(transformation(extent={{-50,-50},
-                {-30,-30}},      rotation=0)));
-      FluxTubes.Basic.ElectroMagneticConverter coilQS(N=600) "Inductor coil" annotation (Placement(transformation(extent={{-20,-60},{0,-40}}, rotation=0)));
+                {-30,-30}})));
+      FluxTubes.Basic.ElectroMagneticConverter coilQS(N=600) "Inductor coil" annotation (Placement(transformation(extent={{-20,-60},{0,-40}})));
       Basic.ConstantReluctance r_mLeakQS(R_m=1.2e6)
       "Constant leakage reluctance"
         annotation (Placement(transformation(
@@ -437,7 +421,7 @@ This model compares a transientlinear magnetic circuit with a quasi static magne
         area=0.025^2)
       "Reluctance of small parasitic air gap (ferromagnetic core packeted from single sheets)"
         annotation (Placement(transformation(extent={{30,-50},
-                {50,-30}},                                               rotation=0)));
+                {50,-30}})));
       Shapes.FixedShape.GenericFluxTube
                                r_mFeQS(
         l=4*0.065,
@@ -451,12 +435,11 @@ This model compares a transientlinear magnetic circuit with a quasi static magne
       Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Ground
         groundQS
         annotation (Placement(transformation(extent={{-100,
-                -90},{-80,-70}},                                           rotation=
-               0)));
+                -90},{-80,-70}})));
 
       Modelica.Magnetic.FluxTubes.Basic.Ground ground_m
         annotation (Placement(transformation(extent={{80,10},
-                {100,30}},                                            rotation=0)));
+                {100,30}})));
       Modelica.Electrical.Analog.Sources.SineVoltage source(
         freqHz=50,
         phase=pi/2,
@@ -468,10 +451,10 @@ This model compares a transientlinear magnetic circuit with a quasi static magne
       Modelica.Electrical.Analog.Basic.Resistor r(R=7.5)
       "Inductor coil resistance"
         annotation (Placement(transformation(extent={{-50,50},
-                {-30,70}},                                               rotation=0)));
+                {-30,70}})));
       Modelica.Magnetic.FluxTubes.Basic.ElectroMagneticConverter
         coil(N=600, i(fixed=true)) "Inductor coil"                                           annotation (Placement(transformation(
-              extent={{-20,40},{0,60}},   rotation=0)));
+              extent={{-20,40},{0,60}})));
       Modelica.Magnetic.FluxTubes.Basic.ConstantReluctance
         r_mLeak(R_m=1.2e6) "Constant leakage reluctance"
                                       annotation (Placement(transformation(
@@ -486,7 +469,7 @@ This model compares a transientlinear magnetic circuit with a quasi static magne
         area=0.025^2)
       "Reluctance of small parasitic air gap (ferromagnetic core packeted from single sheets)"
         annotation (Placement(transformation(extent={{30,50},
-                {50,70}},                                              rotation=0)));
+                {50,70}})));
       Modelica.Magnetic.FluxTubes.Shapes.FixedShape.GenericFluxTube
                                                            r_mFe(
         l=4*0.065,
@@ -502,7 +485,7 @@ This model compares a transientlinear magnetic circuit with a quasi static magne
             rotation=270)));
       Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
             transformation(extent={{-100,10},{-80,
-                30}},                                 rotation=0)));
+                30}})));
       Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.CurrentSensor
         currentSensorQS
         annotation (Placement(transformation(extent={{-80,-30},
@@ -510,7 +493,6 @@ This model compares a transientlinear magnetic circuit with a quasi static magne
       Modelica.ComplexBlocks.ComplexMath.ComplexToPolar complexToPolar annotation (
           Placement(transformation(
             extent={{-10,-10},{10,10}},
-            rotation=0,
             origin={-50,-10})));
       Modelica.Electrical.Analog.Sensors.CurrentSensor currentSensor
         annotation (Placement(transformation(extent={{-80,50},
@@ -543,20 +525,16 @@ This model compares a transientlinear magnetic circuit with a quasi static magne
                                color={255,127,0}));
       connect(ground_mQS.port, r_mFeQS.port_n) annotation (Line(
           points={{90,-70},{90,-60}},
-          color={255,127,0},
-          smooth=Smooth.None));
+          color={255,127,0}));
       connect(rQS.pin_n, coilQS.pin_p) annotation (Line(
           points={{-30,-40},{-20,-40},{-20,-44}},
-          color={85,170,255},
-          smooth=Smooth.None));
+          color={85,170,255}));
       connect(sourceQS.pin_n, coilQS.pin_n) annotation (Line(
           points={{-90,-60},{-20,-60},{-20,-56}},
-          color={85,170,255},
-          smooth=Smooth.None));
+          color={85,170,255}));
       connect(sourceQS.pin_n, groundQS.pin) annotation (Line(
           points={{-90,-60},{-90,-70}},
-          color={85,170,255},
-          smooth=Smooth.None));
+          color={85,170,255}));
       connect(r.n, coil.p)
         annotation (Line(points={{-30,60},{-20,60},{-20,60}}, color={0,0,255}));
       connect(source.n, coil.n)
@@ -572,66 +550,52 @@ This model compares a transientlinear magnetic circuit with a quasi static magne
                                                              color={255,127,0}));
       connect(ground.p, source.n) annotation (Line(
           points={{-90,30},{-90,40}},
-          color={0,0,255},
-          smooth=Smooth.None));
+          color={0,0,255}));
       connect(ground_m.port, r_mFe.port_n) annotation (Line(
           points={{90,30},{90,40}},
-          color={255,127,0},
-          smooth=Smooth.None));
+          color={255,127,0}));
       connect(sourceQS.pin_p, currentSensorQS.pin_p) annotation (Line(
           points={{-90,-40},{-80,-40}},
-          color={85,170,255},
-          smooth=Smooth.None));
+          color={85,170,255}));
       connect(currentSensorQS.pin_n, rQS.pin_p) annotation (Line(
           points={{-60,-40},{-50,-40}},
-          color={85,170,255},
-          smooth=Smooth.None));
+          color={85,170,255}));
       connect(currentSensorQS.y, complexToPolar.u) annotation (Line(
           points={{-70,-29},{-70,-10},{-62,-10}},
-          color={85,170,255},
-          smooth=Smooth.None));
+          color={85,170,255}));
       connect(source.p, currentSensor.p) annotation (Line(
           points={{-90,60},{-80,60}},
-          color={0,0,255},
-          smooth=Smooth.None));
+          color={0,0,255}));
       connect(currentSensor.n, r.p) annotation (Line(
           points={{-60,60},{-50,60}},
-          color={0,0,255},
-          smooth=Smooth.None));
+          color={0,0,255}));
       connect(r_mAirPar.port_n,
         fundamentalWavePermabilitySensor.fluxP)
         annotation (Line(
           points={{50,60},{60,60}},
-          color={255,127,0},
-          smooth=Smooth.None));
+          color={255,127,0}));
       connect(fundamentalWavePermabilitySensor.fluxN,
         r_mFe.port_p) annotation (Line(
           points={{80,60},{90,60}},
-          color={255,127,0},
-          smooth=Smooth.None));
+          color={255,127,0}));
       connect(fundamentalWavePermabilitySensor.fluxP,
         fundamentalWavePermabilitySensor.potentialP)
         annotation (Line(
           points={{60,60},{60,70},{70,70}},
-          color={255,127,0},
-          smooth=Smooth.None));
+          color={255,127,0}));
       connect(fundamentalWavePermabilitySensor.potentialN,
         r_mFe.port_n) annotation (Line(
           points={{70,50},{70,40},{90,40}},
-          color={255,127,0},
-          smooth=Smooth.None));
+          color={255,127,0}));
     connect(complexToPolar.len, feedback.u2) annotation (Line(
         points={{-38,-4},{0,-4},{0,12}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(currentSensor.i, rootMeanSquare.u) annotation (Line(
         points={{-70,49},{-70,20},{-62,20}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(rootMeanSquare.y_rms, feedback.u1) annotation (Line(
         points={{-39,26},{-20,26},{-20,20},{-8,20}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
       annotation (experiment(
           StopTime=0.2,
           Tolerance=1e-07),                                   Documentation(
@@ -717,42 +681,33 @@ This model compares a transient non-linear magnetic circuit with a linearized qu
       connect(hollowCylinderAxialInner.port_n, hollowCylinderRadiaLRight.port_p)
         annotation (Line(
           points={{4.44089e-16,20},{40,20},{40,28}},
-          color={255,170,85},
-          smooth=Smooth.None));
+          color={255,170,85}));
       connect(hollowCylinderRadiaLRight.port_n, hollowCylinderAxialOuter.port_p)
         annotation (Line(
           points={{40,48},{40,60},{4.44089e-16,60}},
-          color={255,170,85},
-          smooth=Smooth.None));
+          color={255,170,85}));
       connect(hollowCylinderAxialOuter.port_n, hollowCylinderRadialLeft.port_p)
         annotation (Line(
           points={{-20,60},{-60,60},{-60,50}},
-          color={255,170,85},
-          smooth=Smooth.None));
+          color={255,170,85}));
         connect(constFrequency.y, source.f) annotation (Line(
             points={{-59,-70},{-44,-70},{-44,-20}},
-            color={0,0,127},
-            smooth=Smooth.None));
+            color={0,0,127}));
         connect(hollowCylinderRadialLeft.port_n, ground.port) annotation (Line(
             points={{-60,30},{-60,-10}},
-            color={255,170,85},
-            smooth=Smooth.None));
+            color={255,170,85}));
         connect(source.port_p, crossing.port_p2) annotation (Line(
             points={{-30,-10},{-30,0}},
-            color={255,170,85},
-            smooth=Smooth.None));
+            color={255,170,85}));
         connect(source.port_n, crossing.port_n1) annotation (Line(
             points={{-50,-10},{-50,-10},{-50,0}},
-            color={255,170,85},
-            smooth=Smooth.None));
+            color={255,170,85}));
         connect(crossing.port_n2, hollowCylinderAxialInner.port_p) annotation (Line(
             points={{-30,20},{-20,20}},
-            color={255,170,85},
-            smooth=Smooth.None));
+            color={255,170,85}));
         connect(crossing.port_p1, ground.port) annotation (Line(
             points={{-50,20},{-60,20},{-60,-10}},
-            color={255,170,85},
-            smooth=Smooth.None));
+            color={255,170,85}));
         connect(complexRamp.y, source.Phi) annotation (Line(points={{-21,-70},{-36,-70},{-36,-20}}, color={85,170,255}));
       annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                   {100,100}})),
@@ -815,44 +770,34 @@ This model compares a transient non-linear magnetic circuit with a linearized qu
       equation
         connect(source.port_n, ground.port) annotation (Line(
             points={{-50,20},{-60,20},{-60,-10}},
-            color={255,170,85},
-            smooth=Smooth.None));
+            color={255,170,85}));
         connect(cuboidLeft.port_p, cuboidTop.port_p) annotation (Line(
             points={{-60,50},{-60,60},{-20,60}},
-            color={255,170,85},
-            smooth=Smooth.None));
+            color={255,170,85}));
         connect(cuboidTop.port_n, cuboidRight.port_n) annotation (Line(
             points={{4.44089e-16,60},{40,60},{40,50}},
-            color={255,170,85},
-            smooth=Smooth.None));
+            color={255,170,85}));
         connect(cuboidBottom.port_p, source.port_p) annotation (Line(
             points={{-20,20},{-30,20}},
-            color={255,170,85},
-            smooth=Smooth.None));
+            color={255,170,85}));
         connect(source.port_n, cuboidLeft.port_n) annotation (Line(
             points={{-50,20},{-60,20},{-60,30}},
-            color={255,170,85},
-            smooth=Smooth.None));
+            color={255,170,85}));
         connect(constFrequency.y, source.f) annotation (Line(
             points={{-59,-60},{-44,-60},{-44,10}},
-            color={0,0,127},
-            smooth=Smooth.None));
+            color={0,0,127}));
         connect(cuboidBottom.port_n, short.port_p) annotation (Line(
             points={{4.44089e-16,20},{12,20}},
-            color={255,170,85},
-            smooth=Smooth.None));
+            color={255,170,85}));
         connect(short.port_n, cuboidRight.port_p) annotation (Line(
             points={{32,20},{40,20},{40,30}},
-            color={255,170,85},
-            smooth=Smooth.None));
+            color={255,170,85}));
         connect(idle.port_p, cuboidTop.port_n) annotation (Line(
             points={{80,50},{80,60},{0,60}},
-            color={255,170,85},
-            smooth=Smooth.None));
+            color={255,170,85}));
         connect(idle.port_n, short.port_n) annotation (Line(
             points={{80,30},{80,20},{32,20}},
-            color={255,170,85},
-            smooth=Smooth.None));
+            color={255,170,85}));
         connect(complexRamp.y, source.V_m) annotation (Line(points={{-21,-60},{-36,-60},{-36,10}}, color={85,170,255}));
       annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                   {100,100}}),          graphics={Text(
@@ -922,81 +867,65 @@ This model compares a transient non-linear magnetic circuit with a linearized qu
         connect(quarterCylinder2.port_p, hollowCylinderAxialFlux2.port_n) annotation (
            Line(
             points={{50,0},{40,0}},
-            color={255,170,85},
-            smooth=Smooth.None));
+            color={255,170,85}));
         connect(hollowCylinderAxialFlux2.port_p, quarterCylinder1.port_n) annotation (
            Line(
             points={{20,0},{10,0}},
-            color={255,170,85},
-            smooth=Smooth.None));
+            color={255,170,85}));
         connect(quarterCylinder1.port_p, hollowCylinderAxialFlux1.port_n) annotation (
            Line(
             points={{-10,0},{-20,0}},
-            color={255,170,85},
-            smooth=Smooth.None));
+            color={255,170,85}));
         connect(hollowCylinderAxialAir2.port_n, quarterCylinder2.port_n) annotation (
             Line(
             points={{70,-20},{80,-20},{80,0},{70,0}},
-            color={255,170,85},
-            smooth=Smooth.None));
+            color={255,170,85}));
         connect(hollowCylinderAxialAir2.port_p, hollowCylinderAxialFlux2.port_n)
           annotation (Line(
             points={{50,-20},{40,-20},{40,0}},
-            color={255,170,85},
-            smooth=Smooth.None));
+            color={255,170,85}));
         connect(hollowCylinderAxialAir1.port_n, hollowCylinderAxialFlux2.port_p)
           annotation (Line(
             points={{10,-20},{20,-20},{20,0}},
-            color={255,170,85},
-            smooth=Smooth.None));
+            color={255,170,85}));
         connect(hollowCylinderAxialAir1.port_p, hollowCylinderAxialFlux1.port_n)
           annotation (Line(
             points={{-10,-20},{-20,-20},{-20,0}},
-            color={255,170,85},
-            smooth=Smooth.None));
+            color={255,170,85}));
       connect(ground1.port, constantSource.port_n) annotation (Line(
           points={{-80,-1.33227e-15},{-76,-1.33227e-15},{-76,0},{-70,0}},
-          color={255,170,85},
-          smooth=Smooth.None));
+          color={255,170,85}));
       connect(constantSource.port_p, hollowCylinderAxialFlux1.port_p)
         annotation (Line(
           points={{-50,0},{-40,0}},
-          color={255,170,85},
-          smooth=Smooth.None));
+          color={255,170,85}));
       connect(ground1.port, magneticPotentialDifferenceSensor.port_n)
         annotation (Line(
           points={{-80,-1.33227e-15},{-80,-30},{-70,-30}},
-          color={255,170,85},
-          smooth=Smooth.None));
+          color={255,170,85}));
       connect(magneticPotentialDifferenceSensor.port_p,
         hollowCylinderAxialFlux1.port_p) annotation (Line(
           points={{-50,-30},{-40,-30},{-40,0}},
-          color={255,170,85},
-          smooth=Smooth.None));
+          color={255,170,85}));
       connect(hollowCylinderAxialFlux1.port_p, magneticPotentialSensor.port)
         annotation (Line(
           points={{-40,0},{-40,-70}},
-          color={255,170,85},
-          smooth=Smooth.None));
+          color={255,170,85}));
       connect(magneticFluxSensor.port_n, ground1.port) annotation (Line(
           points={{-70,30},{-80,30},{-80,0}},
-          color={255,170,85},
-          smooth=Smooth.None));
+          color={255,170,85}));
       connect(magneticFluxSensor.port_p, quarterCylinder2.port_n) annotation (
           Line(
           points={{-50,30},{80,30},{80,0},{70,0}},
-          color={255,170,85},
-          smooth=Smooth.None));
+          color={255,170,85}));
       connect(frequencySensor.port, hollowCylinderAxialFlux1.port_p)
         annotation (Line(
           points={{-60,-60},{-40,-60},{-40,0}},
-          color={255,170,85},
-          smooth=Smooth.None));
+          color={255,170,85}));
       connect(referenceSensor.port, hollowCylinderAxialFlux1.port_p)
         annotation (Line(
           points={{-20,-60},{-40,-60},{-40,0}},
-          color={255,170,85},
-          smooth=Smooth.None));
+          color={255,170,85}));
         annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}),   graphics),
           experiment(StopTime=1,Interval=0.001),
@@ -1026,25 +955,20 @@ This model compares a transient non-linear magnetic circuit with a linearized qu
       equation
         connect(constantReluctance.port_p, constantSource.port_p) annotation (Line(
             points={{-4.44089e-16,60},{-20,60},{-20,50}},
-            color={255,170,85},
-            smooth=Smooth.None));
+            color={255,170,85}));
         connect(constantReluctance.port_n, eddyCurrent.port_p) annotation (Line(
             points={{20,60},{40,60},{40,50}},
-            color={255,170,85},
-            smooth=Smooth.None));
+            color={255,170,85}));
         connect(eddyCurrent.port_n, leakageWithCoefficient.port_p) annotation (Line(
             points={{40,30},{40,20},{20,20}},
-            color={255,170,85},
-            smooth=Smooth.None));
+            color={255,170,85}));
         connect(leakageWithCoefficient.port_n, constantSource.port_n) annotation (
             Line(
             points={{0,20},{-20,20},{-20,30}},
-            color={255,170,85},
-            smooth=Smooth.None));
+            color={255,170,85}));
         connect(ground.port, constantSource.port_n) annotation (Line(
             points={{-20,0},{-20,30}},
-            color={255,170,85},
-            smooth=Smooth.None));
+            color={255,170,85}));
         annotation (
           Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
                   100}}), graphics),
@@ -1109,14 +1033,14 @@ The magnetic potential at the magnetic ground node is zero. Every magnetic netwo
     model ElectroMagneticConverter "Electro-magnetic energy conversion"
 
       constant Complex j=Complex(0, 1);
-      FluxTubes.Interfaces.PositiveMagneticPort port_p "Positive magnetic port" annotation (Placement(transformation(extent={{90,50},{110,70}}, rotation=0)));
-      FluxTubes.Interfaces.NegativeMagneticPort port_n "Negative magnetic port" annotation (Placement(transformation(extent={{110,-70},{90,-50}}, rotation=0)));
+      FluxTubes.Interfaces.PositiveMagneticPort port_p "Positive magnetic port" annotation (Placement(transformation(extent={{90,50},{110,70}})));
+      FluxTubes.Interfaces.NegativeMagneticPort port_n "Negative magnetic port" annotation (Placement(transformation(extent={{110,-70},{90,-50}})));
       Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.PositivePin pin_p
       "Positive electric pin"   annotation (Placement(transformation(extent={{-90,
-                50},{-110,70}}, rotation=0)));
+                50},{-110,70}})));
       Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.NegativePin pin_n
       "Negative electric pin"   annotation (Placement(transformation(extent={{-110,
-                -70},{-90,-50}}, rotation=0)));
+                -70},{-90,-50}})));
       Modelica.SIunits.ComplexVoltage v "Voltage";
       Modelica.SIunits.ComplexCurrent i(re(start=0, stateSelect=StateSelect.prefer),
                                         im(start=0, stateSelect=StateSelect.prefer))
@@ -1184,7 +1108,6 @@ The magnetic potential at the magnetic ground node is zero. Every magnetic netwo
                   lineColor={160,160,164},
                   textString="Phi"),Text(
                   extent={{128,64},{145,79}},
-                  lineColor={0,0,0},
                   textString="Phi"),Line(points={{-150,-59},{-125,-59}}, color=
               {160,160,164}),Polygon(
                   points={{-140,-56},{-150,-59},{-140,-62},{-140,-56}},
@@ -1546,12 +1469,10 @@ This is a simple short cut branch.
     equation
       connect(port_p1, port_p2) annotation (Line(
           points={{-100,100},{-100,20},{0,20},{0,-20},{100,-20},{100,-100}},
-          color={255,128,0},
-          smooth=Smooth.None));
+          color={255,128,0}));
       connect(port_n1, port_n2) annotation (Line(
           points={{-100,-100},{-100,0},{100,0},{100,100}},
-          color={255,128,0},
-          smooth=Smooth.None));
+          color={255,128,0}));
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
             Text(
@@ -1565,12 +1486,10 @@ This is a simple short cut branch.
               fillPattern=FillPattern.Solid),
           Line(
               points={{100,100},{100,40},{-100,-40},{-100,-100}},
-              color={255,170,85},
-              smooth=Smooth.None),
+              color={255,170,85}),
           Line(
               points={{-100,100},{-100,40},{100,-40},{100,-100}},
-              color={255,170,85},
-              smooth=Smooth.None)}),                              Documentation(
+              color={255,170,85})}),                              Documentation(
             info="<html>
 <p>
 This is a simple crossing of two branches. The ports <code>port_p1</code> and <code>port_p2</code> are connected, as well as <code>port_n1</code> and <code>port_n2</code>.
@@ -2072,8 +1991,8 @@ Additionally the reference angle is specified in the connector. The time derivat
     partial model PartialTwoPortsElementary
     "Partial component with two magnetic ports p and n for textual programming"
 
-      FluxTubes.Interfaces.PositiveMagneticPort port_p "Positive magnetic port" annotation (Placement(transformation(extent={{-110,-10},{-90,10}}, rotation=0)));
-      FluxTubes.Interfaces.NegativeMagneticPort port_n "Negative magnetic port" annotation (Placement(transformation(extent={{90,-10},{110,10}}, rotation=0)));
+      FluxTubes.Interfaces.PositiveMagneticPort port_p "Positive magnetic port" annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
+      FluxTubes.Interfaces.NegativeMagneticPort port_n "Negative magnetic port" annotation (Placement(transformation(extent={{90,-10},{110,10}})));
       Modelica.SIunits.ComplexMagneticPotentialDifference V_m
       "Magnetic potential difference between both ports";
       Modelica.SIunits.MagneticPotentialDifference abs_V_m = Modelica.ComplexMath.'abs'(V_m)
@@ -2211,12 +2130,12 @@ Please refer to the description of the sub-package <a href=\"modelica://Modelica
     partial model AbsoluteSensor "Partial potential sensor"
       extends Modelica.Icons.RotationalSensor;
       Modelica.SIunits.AngularVelocity omega;
-      FluxTubes.Interfaces.PositiveMagneticPort port "Port" annotation (Placement(transformation(extent={{-110,-10},{-90,10}}, rotation=0)));
+      FluxTubes.Interfaces.PositiveMagneticPort port "Port" annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
     equation
       omega = der(port.reference.gamma);
       port.Phi = Complex(0);
       annotation (Icon(graphics={
-            Line(points={{-70,0},{-94,0}}, color={0,0,0}),
+            Line(points={{-70,0},{-94,0}}),
             Text(
               extent={{-100,100},{100,70}},
               lineColor={0,0,255},
@@ -2241,8 +2160,8 @@ The absolute sensor partial model provides a single
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{
                 -100,-100},{100,100}}),
                        graphics={
-            Line(points={{-70,0},{-94,0}}, color={0,0,0}),
-            Line(points={{70,0},{90,0}}, color={0,0,0}),
+            Line(points={{-70,0},{-94,0}}),
+            Line(points={{70,0},{90,0}}),
             Text(
               extent={{-100,100},{100,70}},
               lineColor={0,0,255},
@@ -2252,8 +2171,7 @@ The absolute sensor partial model provides a single
               textString="%name"),
             Line(
               points={{0,-70},{0,-100}},
-              color={255,170,85},
-              smooth=Smooth.None)}),
+              color={255,170,85})}),
           Documentation(info="<html>
 <p>
 The relative sensor partial model relies on the
@@ -2262,8 +2180,8 @@ The relative sensor partial model relies on the
     end RelativeSensor;
 
     partial model Source "Partial voltage / current source"
-      FluxTubes.Interfaces.PositiveMagneticPort port_p "Positive magnetic port" annotation (Placement(transformation(extent={{-110,-10},{-90,10}}, rotation=0)));
-      FluxTubes.Interfaces.NegativeMagneticPort port_n "Negative magnetic port" annotation (Placement(transformation(extent={{90,-10},{110,10}}, rotation=0)));
+      FluxTubes.Interfaces.PositiveMagneticPort port_p "Positive magnetic port" annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
+      FluxTubes.Interfaces.NegativeMagneticPort port_n "Negative magnetic port" annotation (Placement(transformation(extent={{90,-10},{110,10}})));
 
       Modelica.SIunits.AngularVelocity omega;
       Modelica.SIunits.Angle gamma(start=0) = port_p.reference.gamma;
@@ -2282,12 +2200,10 @@ The relative sensor partial model relies on the
               lineColor={0,0,255}),
             Line(
               points={{-90,0},{-50,0}},
-              color={255,170,85},
-              smooth=Smooth.None),
+              color={255,170,85}),
             Line(
               points={{50,0},{90,0}},
-              color={255,170,85},
-              smooth=Smooth.None),
+              color={255,170,85}),
             Ellipse(
               extent={{-50,50},{50,-50}},
               lineColor={255,170,85},
@@ -2523,13 +2439,11 @@ This package contains sources of a magnetic potential difference or a magnetic f
     model ReferenceSensor "Sensor of reference angle gamma"
       extends FluxTubes.Interfaces.AbsoluteSensor;
       Modelica.Blocks.Interfaces.RealOutput y "Reference angle" annotation (
-          Placement(transformation(extent={{100,-10},{120,10}}, rotation=0)));
+          Placement(transformation(extent={{100,-10},{120,10}})));
     equation
       y = port.reference.gamma;
       annotation (Icon(graphics={Text(
               extent={{60,-60},{-60,-30}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
               fillPattern=FillPattern.Solid,
               textString="ref")}), Diagram(coordinateSystem(preserveAspectRatio=false,
                       extent={{-100,-100},{100,100}}), graphics));
@@ -2539,12 +2453,11 @@ This package contains sources of a magnetic potential difference or a magnetic f
       extends FluxTubes.Interfaces.AbsoluteSensor;
       import Modelica.Constants.pi;
       Modelica.Blocks.Interfaces.RealOutput y annotation (Placement(transformation(
-              extent={{100,-10},{120,10}}, rotation=0)));
+              extent={{100,-10},{120,10}})));
     equation
       2*pi*y = omega;
       annotation (Icon(graphics={Text(
               extent={{-29,-11},{30,-70}},
-              lineColor={0,0,0},
               textString="f")}), Documentation(info="<html>
 
 <p>
@@ -2566,12 +2479,11 @@ This sensor can be used to measure the frequency of the reference system.
     model MagneticPotentialSensor "Potential sensor"
       extends FluxTubes.Interfaces.AbsoluteSensor;
       Modelica.ComplexBlocks.Interfaces.ComplexOutput y annotation (Placement(
-            transformation(extent={{100,-10},{120,10}}, rotation=0)));
+            transformation(extent={{100,-10},{120,10}})));
     equation
       y = port.V_m;
       annotation (Icon(graphics={Text(
               extent={{-29,-11},{30,-70}},
-              lineColor={0,0,0},
               textString="V")}), Documentation(info="<html>
 
 <p>
@@ -2602,11 +2514,10 @@ This sensor can be used to measure the complex potential.
           extent={{-100,-100},{100,100}}), graphics={
             Text(
               extent={{-52,1},{48,-57}},
-              lineColor={0,0,0},
               textString="V_m"),
-            Line(points={{-70,0},{-90,0}}, color={0,0,0}),
-            Line(points={{70,0},{90,0}}, color={0,0,0}),
-            Line(points={{0,-90},{0,-70}}, color={0,0,0})}),
+            Line(points={{-70,0},{-90,0}}),
+            Line(points={{70,0},{90,0}}),
+            Line(points={{0,-90},{0,-70}})}),
                                       Diagram(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}}), graphics));
@@ -2620,9 +2531,8 @@ This sensor can be used to measure the complex potential.
       y = Phi;
 
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}), graphics={Line(points={{0,-100},{0,-70}},
-              color={0,0,0}),Line(points={{-70,0},{-90,0}}, color={0,0,0}),Line(
-              points={{70,0},{90,0}}, color={0,0,0}),Text(extent={{-29,-11},{30,
+                -100},{100,100}}), graphics={Line(points={{0,-100},{0,-70}}),Line(points={{-70,0},{-90,0}}),Line(
+              points={{70,0},{90,0}}),Text(extent={{-29,-11},{30,
               -70}}, textString="Phi"),Line(points={{0,-90},{0,-70}})}),
         Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
               {100,100}}), graphics));
@@ -2683,7 +2593,6 @@ This sensor can be used to measure the complex potential.
                          annotation (Placement(
               transformation(
               extent={{10,-10},{-10,10}},
-              rotation=0,
               origin={30,-10})));
         Modelica.Blocks.Interfaces.RealOutput mu "Absolute permeability"
                          annotation (Placement(
@@ -2708,55 +2617,45 @@ This sensor can be used to measure the complex potential.
         connect(magneticPotentialDifferenceSensor.port_n,
           potentialN) annotation (Line(
             points={{70,20},{70,-100},{4.44089e-16,-100}},
-            color={255,127,0},
-            smooth=Smooth.None));
+            color={255,127,0}));
 
         connect(magneticPotentialDifferenceSensor.port_p,
           potentialP) annotation (Line(
             points={{70,40},{70,100},{4.44089e-16,100}},
-            color={255,127,0},
-            smooth=Smooth.None));
+            color={255,127,0}));
 
         connect(magneticFluxSensor.port_p, fluxP)
           annotation (Line(
             points={{40,-80},{-100,-80},{-100,4.44089e-16}},
-            color={255,127,0},
-            smooth=Smooth.None));
+            color={255,127,0}));
 
         connect(magneticFluxSensor.port_n, fluxN)
           annotation (Line(
             points={{60,-80},{100,-80},{100,4.44089e-16}},
-            color={255,127,0},
-            smooth=Smooth.None));
+            color={255,127,0}));
 
         connect(harmonicFlux.u, magneticFluxSensor.Phi)
           annotation (Line(
             points={{42,-10},{50,-10},{50,-70}},
-            color={0,0,127},
-            smooth=Smooth.None));
+            color={0,0,127}));
         connect(magneticPotentialDifferenceSensor.V_m,
           harmonicPotential.u) annotation (Line(
             points={{60,30},{42,30}},
-            color={0,0,127},
-            smooth=Smooth.None));
+            color={0,0,127}));
         connect(permeability.v_m, harmonicPotential.y_rms)
           annotation (Line(
             points={{-8,6},{0,6},{0,36},{19,36}},
-            color={0,0,127},
-            smooth=Smooth.None));
+            color={0,0,127}));
         connect(permeability.phi, harmonicFlux.y_rms)
           annotation (Line(
             points={{-8,-6},{0,-6},{0,-4},{19,-4}},
-            color={0,0,127},
-            smooth=Smooth.None));
+            color={0,0,127}));
         connect(permeability.mur, mur) annotation (Line(
             points={{-31,6},{-80,6},{-80,-110}},
-            color={0,0,127},
-            smooth=Smooth.None));
+            color={0,0,127}));
         connect(permeability.mu, mu) annotation (Line(
             points={{-31,-6},{-40,-6},{-40,-110}},
-            color={0,0,127},
-            smooth=Smooth.None));
+            color={0,0,127}));
         annotation (Icon(coordinateSystem(
                 preserveAspectRatio=false, extent={{-100,
                   -100},{100,100}}), graphics), Diagram(
@@ -2890,6 +2789,5 @@ quasi static electromagnetic devices with lumped magnetic networks.
         extent={{-12.5,-50.0},{12.5,50.0}}),
       Line(
         points={{-86,4},{-84,8},{-80,10},{-76,8},{-72,2},{-68,0},{-64,2},{-62,6}},
-        color={85,170,255},
-        smooth=Smooth.None)}));
+        color={85,170,255})}));
 end FluxTubes;

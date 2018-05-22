@@ -1296,7 +1296,6 @@ the time behaviour depending on coolant flow.
         height=1500*pi/30,
         duration=1)        annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
-            rotation=0,
             origin={-40,-40})));
       Modelica.Mechanics.Rotational.Sources.Speed speed(exact=true)
         annotation (Placement(transformation(extent={{-20,-50},{0,-30}})));
@@ -1368,7 +1367,7 @@ the time behaviour depending on coolant flow.
       connect(rampSpeed.y, speed.w_ref)
         annotation (Line(points={{-29,-40},{-22,-40}}, color={0,0,127}));
       connect(speed.flange, multiSensor.flange_a)
-        annotation (Line(points={{0,-40},{10,-40}},    color={0,0,0}));
+        annotation (Line(points={{0,-40},{10,-40}}));
       connect(valve.flowPort_a, volumeFlowSensor.flowPort_b)
         annotation (Line(points={{50,10},{50,0}}, color={255,0,0}));
       connect(volumeFlowSensor.flowPort_a, idealPump.flowPort_b)
@@ -1378,7 +1377,7 @@ the time behaviour depending on coolant flow.
       connect(isolatedPipe.flowPort_a, valve.flowPort_b)
         annotation (Line(points={{50,40},{50,30}}, color={255,0,0}));
       connect(multiSensor.flange_b, idealPump.flange_a)
-        annotation (Line(points={{30,-40},{40,-40}}, color={0,0,0}));
+        annotation (Line(points={{30,-40},{40,-40}}));
       annotation (experiment(
           StopTime=2,
           Interval=0.001,
@@ -1386,12 +1385,10 @@ the time behaviour depending on coolant flow.
             info="<html>
 <p>
 Water is pumped from one reservoir at ambient pressure to a second reservoir at ambient pressure that is 25 m higher.
-Pump speed is increased from 0 to nominal speed by a ramp. 
+Pump speed is increased from 0 to nominal speed by a ramp.
 To avoid backflow of water, the valve is opened when the pump is at full speed.
 </p>
-</html>"),
-        Diagram(coordinateSystem(                                initialScale=0.1)),
-        Icon(coordinateSystem(                                initialScale=0.1)));
+</html>"));
     end WaterPump;
 
     package Utilities "Utility models for examples"

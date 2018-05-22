@@ -2397,7 +2397,6 @@ A negative force at flange flange_a moves the sliding mass to the negative direc
             Text(
               extent={{-150,-45},{150,-75}},
               textString="m=%m",
-              lineColor={0,0,0},
               fillColor={110,221,110},
               fillPattern=FillPattern.Solid,
               fontSize=0)}),
@@ -5067,8 +5066,7 @@ f: Cut-force in direction of the flange axis in [N].
                   extent={{-60,60},{60,-60}},
                   fillColor={175,190,175},
                   fillPattern=FillPattern.Solid,
-                  pattern=LinePattern.None,
-              lineColor={0,0,0}),           Text(
+                  pattern=LinePattern.None),           Text(
                   extent={{-160,110},{40,50}},
                   lineColor={0,127,0},
                   textString="%name"),Rectangle(

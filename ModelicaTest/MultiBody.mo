@@ -1533,8 +1533,7 @@ menu (this sets \"fixed=false\" on parameter \"length\").
         width=0.01,
         animation=false) annotation (Placement(transformation(
             origin={-30,40},
-            extent={{-10,-10},{10,10}},
-            rotation=0)));
+            extent={{-10,-10},{10,10}})));
       Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUPS jointUPS(nAxis_ia=
            {0.7,1.2,0}, animation=true) annotation (Placement(transformation(
               extent={{-2,52},{22,28}})));
@@ -1572,8 +1571,7 @@ menu (this sets \"fixed=false\" on parameter \"length\").
         r={0,-0.9,0.3},
         animation=false) annotation (Placement(transformation(
             origin={-30,-60},
-            extent={{-10,-10},{10,10}},
-            rotation=0)));
+            extent={{-10,-10},{10,10}})));
       Modelica.Mechanics.MultiBody.Parts.FixedTranslation rod4(
         width=0.01,
         r={0,0.3,0.3},
@@ -3614,7 +3612,6 @@ a linear damper is connected here.
       Modelica.Mechanics.MultiBody.Parts.FixedTranslation fixedTranslation1(r={
             0,0.1,0}) annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
-            rotation=0,
             origin={0,-100})));
     equation
       assert(body.r_0[1] - body1.r_0[1] < tol and body1.r_0[1] - body2.r_0[1]
@@ -4075,7 +4072,6 @@ a linear damper is connected here.
       Modelica.Mechanics.MultiBody.Parts.FixedTranslation fixedTranslation1(r={
             0,0.1,0}) annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
-            rotation=0,
             origin={0,-100})));
     equation
       assert(body.r_0[1] - body1.r_0[1] < tol and body1.r_0[1] - body2.r_0[1]
@@ -6256,7 +6252,7 @@ and plot gasForce.press over gasForce.s_rel.
           points={{143,30},{124,30}}, color={0,0,127}));
       annotation (experiment(StopTime=2, Tolerance=1e-006), Diagram(
             coordinateSystem(extent={{-120,-100},{200,100}},
-              preserveAspectRatio=false), graphics));
+              preserveAspectRatio=false)));
     end SphericalSpherical2;
 
     model UniversalSpherical
@@ -6444,7 +6440,7 @@ and plot gasForce.press over gasForce.s_rel.
           points={{93,-2},{74,-2}}, color={0,0,127}));
       annotation (experiment(StopTime=2, Tolerance=1e-006), Diagram(
             coordinateSystem(extent={{-120,-100},{200,100}},
-              preserveAspectRatio=false), graphics));
+              preserveAspectRatio=false)));
     end UniversalSpherical;
 
     model PrismaticInit

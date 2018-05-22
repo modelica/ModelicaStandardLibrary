@@ -6865,25 +6865,18 @@ package Icons "Library of icons"
               -100},{100,100}}), graphics={
           Rectangle(
             extent={{-100,70},{100,-72}},
-            lineColor={0,0,0},
             fillColor={235,235,235},
             fillPattern=FillPattern.Solid),
           Polygon(
             points={{-100,-72},{100,-72},{0,20},{-100,-72}},
-            lineColor={0,0,0},
-            smooth=Smooth.None,
             fillColor={215,215,215},
             fillPattern=FillPattern.Solid),
           Polygon(
             points={{22,0},{100,70},{100,-72},{22,0}},
-            lineColor={0,0,0},
-            smooth=Smooth.None,
             fillColor={235,235,235},
             fillPattern=FillPattern.Solid),
           Polygon(
             points={{-100,70},{100,70},{0,-20},{-100,70}},
-            lineColor={0,0,0},
-            smooth=Smooth.None,
             fillColor={241,241,241},
             fillPattern=FillPattern.Solid)}), Documentation(info="<html>
 <p>This icon shall be used for the contact information of the library developers.</p>
@@ -6901,14 +6894,12 @@ package Icons "Library of icons"
             points={{-15.833,20.0},{-15.833,30.0},{14.167,40.0},{24.167,20.0},{
                 4.167,-30.0},{14.167,-30.0},{24.167,-30.0},{24.167,-40.0},{-5.833,
                 -50.0},{-15.833,-30.0},{4.167,20.0},{-5.833,20.0}},
-            smooth=Smooth.Bezier,
-            lineColor={0,0,0}), Ellipse(
+            smooth=Smooth.Bezier), Ellipse(
             origin={-0.5,56.5},
             fillColor={128,128,128},
             pattern=LinePattern.None,
             fillPattern=FillPattern.Solid,
-            extent={{-12.5,-12.5},{12.5,12.5}},
-            lineColor={0,0,0})}));
+            extent={{-12.5,-12.5},{12.5,12.5}})}));
   end IconsPackage;
 
   partial class Package "Icon for standard packages"
@@ -6922,7 +6913,6 @@ package Icons "Library of icons"
             radius=25.0),
           Rectangle(
             lineColor={128,128,128},
-            fillPattern=FillPattern.None,
             extent={{-100.0,-100.0},{100.0,100.0}},
             radius=25.0)}),   Documentation(info="<html>
 <p>Standard package icon.</p>

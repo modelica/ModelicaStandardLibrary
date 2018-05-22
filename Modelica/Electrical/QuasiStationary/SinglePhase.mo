@@ -12,8 +12,7 @@ package SinglePhase "Single phase AC components"
       output Modelica.SIunits.Angle arg_y = bode.arg_y "Angle of voltage ratio";
       ComplexBlocks.Sources.LogFrequencySweep frequencySweep(duration=1,wMin=0.01,wMax=100) annotation (Placement(transformation(
             origin={-70,-40},
-            extent={{-10,-10},{10,10}},
-            rotation=0)));
+            extent={{-10,-10},{10,10}})));
       QuasiStationary.SinglePhase.Sources.VariableVoltageSource voltageSource(gamma(fixed=true, start=0)) annotation (Placement(transformation(
             origin={-30,-20},
             extent={{-10,10},{10,-10}},
@@ -28,7 +27,6 @@ package SinglePhase "Single phase AC components"
             origin={-10,0})));
       Sensors.VoltageSensor voltageSensor annotation (Placement(transformation(
             extent={{-10,10},{10,-10}},
-            rotation=0,
             origin={30,20})));
       ComplexBlocks.ComplexMath.Bode bode annotation (Placement(transformation(extent={{-10,10},{10,-10}},
             rotation=180,
@@ -759,16 +757,16 @@ The Inductance <code>L</code> is allowed to be positive, zero, or negative.
           Documentation(info="<html>
 
 <p>The impedance model represents a <strong>series</strong> connection of a resitsor and either an inductor or capacitor.<br>
-<img src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/SinglePhase/Basic/RX_impedance.png\"></p> 
+<img src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/SinglePhase/Basic/RX_impedance.png\"></p>
 
 <p>
 The linear impedance connects the voltage <code><u>v</u></code> with the
 current <code><u>i</u></code> by  <code><u>v</u> = <u>Z</u>*<u>i</u></code>. The resistive
 component is modeled temperature dependent, so the real part <code>R_actual = real(<u>Z</u>)</code> is determined from
-the actual operating temperature and the reference input resistance <code>real(Z_ref)</code>. 
+the actual operating temperature and the reference input resistance <code>real(Z_ref)</code>.
 A <a href=\"modelica://Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort\">conditional heat port</a> is considered.
-The reactive component <code>X_actual = imag(<u>Z</u>)</code> 
-is equal to <code>imag(Z_ref)</code> if <code>frequencyDependent = false</code>. 
+The reactive component <code>X_actual = imag(<u>Z</u>)</code>
+is equal to <code>imag(Z_ref)</code> if <code>frequencyDependent = false</code>.
 Frequency dependency is considered by <code>frequencyDependent = true</code>, distinguishing two cases:
 
 <dl>
@@ -776,7 +774,7 @@ Frequency dependency is considered by <code>frequencyDependent = true</code>, di
 <dd>The actual reactance <code>X_actual</code> is proportional to <code>f/f_ref</code></dd>
 <dt>(b) <code>imag(Z_ref) &lt; 0</code>: capacitive case</dt>
 <dd>The actual reactance <code>X_actual</code> is proportional to <code>f_ref/f</code></dd>
-</dl> 
+</dl>
 </p>
 
 <h4>See also</h4>
@@ -841,16 +839,16 @@ Frequency dependency is considered by <code>frequencyDependent = true</code>, di
           Documentation(info="<html>
 
 <p>The admittance model represents a <strong>parallel</strong> connection of a conductor and either a capacitor or inductor.<br>
-<img src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/SinglePhase/Basic/GB_admittance.png\"></p> 
+<img src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/SinglePhase/Basic/GB_admittance.png\"></p>
 
 <p>
 The linear admittance connects the voltage <code><u>v</u></code> with the
 current <code><u>i</u></code> by  <code><u>i</u> = <u>Y</u>*<u>v</u></code>. The resistive
 component is modeled temperature dependent, so the real part <code>G_actual = real(<u>Y</u>)</code> is determined from
-the actual operating temperature and the reference input conductance <code>real(Y_ref)</code>. 
+the actual operating temperature and the reference input conductance <code>real(Y_ref)</code>.
 A <a href=\"modelica://Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort\">conditional heat port</a> is considered.
-The reactive component <code>B_actual = imag(<u>Y</u>)</code> 
-is equal to <code>imag(Y_ref)</code> if <code>frequencyDependent = false</code>. 
+The reactive component <code>B_actual = imag(<u>Y</u>)</code>
+is equal to <code>imag(Y_ref)</code> if <code>frequencyDependent = false</code>.
 Frequency dependency is considered by <code>frequencyDependent = true</code>, distinguishing two cases:
 
 <dl>
@@ -858,7 +856,7 @@ Frequency dependency is considered by <code>frequencyDependent = true</code>, di
 <dd>The actual susceptance <code>B_actual</code> is proportional to <code>f/f_ref</code></dd>
 <dt>(b) <code>imag(Y_ref) &lt; 0</code>: inductive case</dt>
 <dd>The actual susceptance <code>B_actual</code> is proportional to <code>f_ref/f</code></dd>
-</dl> 
+</dl>
 </p>
 
 <h4>See also</h4>
@@ -1200,7 +1198,7 @@ The abstraction of a variable inductor at quasi stationary operation assumes:
         Documentation(info="<html>
 
 <p>The impedance model represents a <strong>series</strong> connection of a resitsor and either an inductor or capacitor.<br>
-<img src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/SinglePhase/Basic/RX_impedance.png\"></p> 
+<img src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/SinglePhase/Basic/RX_impedance.png\"></p>
 
 <p>
 The linear impedance connects the complex voltage <code><u>v</u></code> with the
@@ -1209,8 +1207,8 @@ The impedance <code>Z_ref = R_ref + j*X_ref</code> is given as complex input sig
 resistive and reactive component of the input impedance. The resistive
 component is modeled temperature dependent, so the real part <code>R_actual = real(<u>Z</u>)</code> is determined from
 the actual operating temperature and the reference input resistance <code>real(Z_ref)</code>.
-The reactive component <code>X_actual = imag(<u>Z</u>)</code> 
-is equal to <code>imag(Z_ref)</code> if <code>frequencyDependent = false</code>. 
+The reactive component <code>X_actual = imag(<u>Z</u>)</code>
+is equal to <code>imag(Z_ref)</code> if <code>frequencyDependent = false</code>.
 Frequency dependency is considered by <code>frequencyDependent = true</code>, distinguishing two cases:
 
 <dl>
@@ -1218,7 +1216,7 @@ Frequency dependency is considered by <code>frequencyDependent = true</code>, di
 <dd>The actual reactance <code>X_actual</code> is proportional to <code>f/f_ref</code></dd>
 <dt>(b) <code>imag(Z_ref) &lt; 0</code>: capacitive case</dt>
 <dd>The actual reactance <code>X_actual</code> is proportional to <code>f_ref/f</code></dd>
-</dl> 
+</dl>
 </p>
 
 <h4>Note</h4>
@@ -1298,7 +1296,7 @@ singularities due to the actual structure of the connected network.
         Documentation(info="<html>
 
 <p>The admittance model represents a <strong>parallel</strong> connection of a conductor and either a capacitor or inductor.<br>
-<img src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/SinglePhase/Basic/GB_admittance.png\"></p> 
+<img src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/SinglePhase/Basic/GB_admittance.png\"></p>
 
 <p>
 The linear admittance connects the complex voltage <code><u>v</u></code> with the
@@ -1307,8 +1305,8 @@ The admittance <code>Y_ref = G_ref + j*B_ref</code> is given as complex input si
 resistive and reactive component of the input admittance. The resistive
 component is modeled temperature dependent, so the real part <code>G_actual = real(<u>Y</u>)</code> is determined from
 the actual operating temperature and the reference input conductance <code>real(Y_ref)</code>.
-The reactive component <code>B_actual = imag(<u>Y</u>)</code> 
-is equal to <code>imag(Y_ref)</code> if <code>frequencyDependent = false</code>. 
+The reactive component <code>B_actual = imag(<u>Y</u>)</code>
+is equal to <code>imag(Y_ref)</code> if <code>frequencyDependent = false</code>.
 Frequency dependency is considered by <code>frequencyDependent = true</code>, distinguishing two cases:
 
 
@@ -1317,7 +1315,7 @@ Frequency dependency is considered by <code>frequencyDependent = true</code>, di
 <dd>The actual susceptance <code>B_actual</code> is proportional to <code>f/f_ref</code></dd>
 <dt>(b) <code>imag(Y_ref) &lt; 0</code>: inductive case</dt>
 <dd>The actual susceptance <code>B_actual</code> is proportional to <code>f_ref/f</code></dd>
-</dl> 
+</dl>
 </p>
 
 <h4>Note</h4>

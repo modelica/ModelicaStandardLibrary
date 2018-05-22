@@ -45,13 +45,11 @@ model ResonanceCircuits
   Modelica.Electrical.Analog.Basic.Inductor inductor2(i(fixed=true, start=0), L=L)
     annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
-        rotation=0,
         origin={-30,-40})));
   Modelica.Electrical.Analog.Basic.Resistor resistor2(R=1)
     annotation (
       Placement(transformation(
         extent={{-10,-10},{10,10}},
-        rotation=0,
         origin={30,-40})));
   Modelica.Electrical.Analog.Basic.Capacitor capacitor2(v(start=0, fixed=true), C=C)
     annotation (Placement(transformation(

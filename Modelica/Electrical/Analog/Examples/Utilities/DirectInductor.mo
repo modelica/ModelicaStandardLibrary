@@ -5,7 +5,6 @@ model DirectInductor "Input/output block of a direct inductor model"
   Modelica.Electrical.Analog.Basic.Inductor inductor(i(fixed=true, start=0), L=
         L) annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
-        rotation=0,
         origin={-20,10})));
   Modelica.Electrical.Analog.Sources.SignalVoltage voltageSource annotation (
       Placement(transformation(

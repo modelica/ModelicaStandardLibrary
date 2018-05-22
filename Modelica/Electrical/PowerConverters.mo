@@ -3182,23 +3182,23 @@ center tap <code>2*m</code> pulse rectifiers</a>, where <code>m</code> is the nu
               Tolerance=1e-05),
             Documentation(info="<html>
 <p>
-A reference space vector (formed by real part = cosine and imaginary part = sine) of length &radic;2*RMS and frequency 2 Hz is applied. 
-The resulting switching patterns are applied to a threephase twolevel bridge with switching frequency 100 Hz, fed by DC voltage = &radic;2*&radic;3*1 
-where 1 is the theoretical maximum voltage from terminal to neutral. 
+A reference space vector (formed by real part = cosine and imaginary part = sine) of length &radic;2*RMS and frequency 2 Hz is applied.
+The resulting switching patterns are applied to a threephase twolevel bridge with switching frequency 100 Hz, fed by DC voltage = &radic;2*&radic;3*1
+where 1 is the theoretical maximum voltage from terminal to neutral.
 The resulting voltages with reference to midpoint of the DC voltage are measured.
 </p>
 <p>
-The RMS of the first harmonic of the first of these voltages is calculated. 
+The RMS of the first harmonic of the first of these voltages is calculated.
 Please note that the value of the first harmonic is vaild after the first period (i.e. 0.5 s).
 </p>
 <p>
-Furthermore, these three voltages are transformed to the corresponding space phasor. 
-Note that the zero component is not zero, indicating the shift of the neutral with respect to the midpoint of the DC voltage. 
+Furthermore, these three voltages are transformed to the corresponding space phasor.
+Note that the zero component is not zero, indicating the shift of the neutral with respect to the midpoint of the DC voltage.
 <p>
 </p>
-The space phasor is rotated to the coordinate system rotating with 2*&pi;*2 Hz. 
-To suppress the influence of switching, real and imaginary part of the rotated phasor are filtered. 
-The polar representation of this rotated and filtered phasor are calculated. 
+The space phasor is rotated to the coordinate system rotating with 2*&pi;*2 Hz.
+To suppress the influence of switching, real and imaginary part of the rotated phasor are filtered.
+The polar representation of this rotated and filtered phasor are calculated.
 
 Please note that the filter has a settle time depending on the filter parameters.
 </p>
@@ -5793,13 +5793,10 @@ General information about AC/DC converters can be found at the
                 -46},{60,-60},{110,-60}}, color={255,0,255}));
         annotation (defaultComponentName="pwm", Icon(coordinateSystem(preserveAspectRatio=false), graphics={Text(
                 extent={{-80,80},{60,40}},
-                lineColor={0,0,0},
                 textString="P W M"), Text(
                 extent={{-80,-40},{60,-80}},
-                lineColor={0,0,0},
                 textString="1/f=%samplePeriod"),                                Text(
                 extent={{-80,20},{60,-20}},
-                lineColor={0,0,0},
                 textString="%pwmType")}),                              Diagram(
               coordinateSystem(preserveAspectRatio=false)),
           Documentation(info="<html>
@@ -5908,14 +5905,14 @@ For a threephase system, 8 space vectors are available according to the followin
 Vector 1..6 form a hexagon, vector 0 and 7 are of length 0.
 </p>
 <p>
-First, the space vector is limited, 
-and the sector of the hexagon is determined where the input space vector <u>u</u> is located; 
+First, the space vector is limited,
+and the sector of the hexagon is determined where the input space vector <u>u</u> is located;
 then the angle of the space vector within this sector 0&le;&phi;&lt;60&deg; is calculated.
 </p>
 <p>
-The input space vector is averaged by <u>u</u> = t<sub>a</sub>*<u>u</u><sub>a</sub> + t<sub>b</sub>*<u>u</u><sub>b</sub> + t<sub>0</sub>*0, 
-where <u>u</u><sub>a</sub> is the space vector at the left border of the sector 
-and <u>u</u><sub>b</sub> is the space vector at the right border of the sector. 
+The input space vector is averaged by <u>u</u> = t<sub>a</sub>*<u>u</u><sub>a</sub> + t<sub>b</sub>*<u>u</u><sub>b</sub> + t<sub>0</sub>*0,
+where <u>u</u><sub>a</sub> is the space vector at the left border of the sector
+and <u>u</u><sub>b</sub> is the space vector at the right border of the sector.
 If necessary, a zero length vector is applied additionally.
 </p>
 <p>
@@ -5927,7 +5924,7 @@ The relative time spans for averaging over one switching period are determined b
 </ul>
 </p>
 <p>
-To obtain the positive fire signal, the switching time spans are distributed symmetrically: 
+To obtain the positive fire signal, the switching time spans are distributed symmetrically:
 t<sub>0</sub>/4 + t<sub>a</sub>/2 + t<sub>b</sub>/2 +t<sub>0</sub>/2 + t<sub>b</sub>/2 + t<sub>a</sub>/2 + t<sub>0</sub>/4
 </p>
 <p>
@@ -6038,9 +6035,9 @@ The switching pattern of the negative fire signal is just the inverse of the pos
               coordinateSystem(preserveAspectRatio=false)),
           Documentation(info="<html>
 <p>
-The intersective PWM transforms the input space phasor <u>u</u> to the three phase voltages, 
-and compares them with the reference signals. 
-As long as the phase voltage is greater than the corresponding reference signal, the corresponding fire signal is true. 
+The intersective PWM transforms the input space phasor <u>u</u> to the three phase voltages,
+and compares them with the reference signals.
+As long as the phase voltage is greater than the corresponding reference signal, the corresponding fire signal is true.
 The switching pattern of the negative fire signal is just the inverse of the positive fire signal.
 </p>
 <p>
@@ -6717,8 +6714,7 @@ This is a conventional step down chopper (buck converter) model. It consists of 
         useHeatPort=useHeatPort) "Free wheeling diode" annotation (Placement(
             transformation(
             origin={0,60},
-            extent={{-10,-10},{10,10}},
-            rotation=0)));
+            extent={{-10,-10},{10,10}})));
     equation
       if not useHeatPort then
         LossPower = diode.LossPower + transistor.LossPower;

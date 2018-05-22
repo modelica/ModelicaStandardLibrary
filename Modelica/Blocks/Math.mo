@@ -3351,7 +3351,7 @@ The harmonic is defined by <code>&radic;2 rms cos(k 2 &pi; f t + arg)</code> if 
     connect(booleanExpression.y, switch1.u2) annotation (Line(points={{-49,-20},{-22,-20}}, color={255,0,255}));
     connect(switch1.y, limiter.u) annotation (Line(points={{1,-20},{8,-20}}, color={0,0,127}));
     annotation (defaultComponentName="thd",
-      Icon(coordinateSystem(grid={2,2}, initialScale=0.1), graphics={
+      Icon(coordinateSystem(grid={2,2}), graphics={
           Line(points={{-80,-80},{-80,68}}, color={192,192,192}),
           Polygon(
             points={{-80,90},{-88,68},{-72,68},{-80,90}},
@@ -3366,30 +3366,27 @@ The harmonic is defined by <code>&radic;2 rms cos(k 2 &pi; f t + arg)</code> if 
             fillPattern=FillPattern.Solid),
           Polygon(
             points={{-80,0},{-69,34},{-62,53},{-55,68},{-50,75},{-44,79},{-38,80},{-32,76},{-27,70},{-21,59},{-15,44},{-7,21},{10,-31},{17,-50},{24,-64},{29,-73},{35,-78},{41,-81},{46,-78},{52,-71},{57,-62},{64,-47},{72,-25},{80,0},{72,-53},{59,-37},{46,-95},{34,-53},{22,-81},{10,-10},{-3,-27},{-13,63},{-26,46},{-26,48},{-38,94},{-51,49},{-59,80},{-65,18},{-75,38},{-80,0}},
-            lineColor={0,0,0},
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid),
           Text(
             extent={{2,80},{82,20}},
-            lineColor={0,0,0},
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid,
             textString="1",
             visible=useFirstHarmonic),
           Text(
             extent={{2,80},{82,20}},
-            lineColor={0,0,0},
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid,
             textString="rms",
             visible=not useFirstHarmonic),
           Text(
             extent={{-150,-110},{150,-150}},
-            textString="f=%f")}), Diagram(coordinateSystem(grid={2,2}, initialScale=0.1)),
+            textString="f=%f")}), Diagram(coordinateSystem(grid={2,2})),
       Documentation(info="<html>
-<p>This block determines the total harmonic distorion (THD) over the given period <code>1/f</code>. 
-Consider that the input <code>u</code> consists of harmonic RMS components 
-<code>U<sub>1</sub></code>, <code>U<sub>2</sub></code>, <code>U<sub>3</sub></code>, etc. 
+<p>This block determines the total harmonic distorion (THD) over the given period <code>1/f</code>.
+Consider that the input <code>u</code> consists of harmonic RMS components
+<code>U<sub>1</sub></code>, <code>U<sub>2</sub></code>, <code>U<sub>3</sub></code>, etc.
 The total RMS component is then determined by:</p>
 
 <p>
@@ -3397,21 +3394,21 @@ The total RMS component is then determined by:</p>
 </p>
 
 <p>
-The calculation of the total harmonic distortion is based on the parameter <code>useFirstHarmonic</code>. 
-The default value <code>useFirstHarmonic = true</code> represents the <strong>standard</strong> THD calculation used in 
-<a href=\"http://www.electropedia.org/iev/iev.nsf/display?openform&ievref=551-20-13\">electrical engineering</a>. 
-The non-default value <code>useFirstHarmonic = false</code> 
-calculates the THD typically used for the assessment of audio signals. 
+The calculation of the total harmonic distortion is based on the parameter <code>useFirstHarmonic</code>.
+The default value <code>useFirstHarmonic = true</code> represents the <strong>standard</strong> THD calculation used in
+<a href=\"http://www.electropedia.org/iev/iev.nsf/display?openform&ievref=551-20-13\">electrical engineering</a>.
+The non-default value <code>useFirstHarmonic = false</code>
+calculates the THD typically used for the assessment of audio signals.
 </p>
 
 <p>
-If <code>useFirstHarmonic = true</code>, the total higher harmonic content (harmonic order numbers &gt; 1) 
+If <code>useFirstHarmonic = true</code>, the total higher harmonic content (harmonic order numbers &gt; 1)
 refers to the RMS value of the fundamental wave:<br>
 <img src=\"modelica://Modelica/Resources/Images/Blocks/Math/THD1.png\">
 </p>
 
 <p>
-If <code>useFirstHarmonic = false</code>, the total higher harmonic content (harmonic order numbers &gt; 1) 
+If <code>useFirstHarmonic = false</code>, the total higher harmonic content (harmonic order numbers &gt; 1)
 refers to the total RMS:<br>
 <img src=\"modelica://Modelica/Resources/Images/Blocks/Math/THDrms.png\">
 </p>
@@ -3488,23 +3485,18 @@ so one can plot the result directly as frequency lines.
               fillPattern=FillPattern.Solid),
           Line(
             points={{-70,60},{-70,-80}},
-            color={0,0,0},
             thickness=0.5),
           Line(
             points={{-30,-52},{-30,-80}},
-            color={0,0,0},
             thickness=0.5),
           Line(
             points={{-10,-60},{-10,-80}},
-            color={0,0,0},
             thickness=0.5),
           Line(
             points={{30,-68},{30,-80}},
-            color={0,0,0},
             thickness=0.5),
           Line(
             points={{50,-70},{50,-80}},
-            color={0,0,0},
             thickness=0.5)}));
   end RealFFT;
 
@@ -3533,43 +3525,37 @@ so one can plot the result directly as frequency lines.
     annotation (Icon(graphics={
           Polygon(
             points={{34,-80},{34,80},{-36,-40},{34,-80}},
-            lineColor={0,0,0},
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid),
           Line(
             points={{-100,60},{22,60}},
-            color={0,0,0},
             pattern=LinePattern.Dash),
           Line(
             points={{34,0},{100,0}},
-            color={0,0,0},
             pattern=LinePattern.Dash),
           Line(
             points={{-100,-60},{0,-60}},
-            color={0,0,0},
             pattern=LinePattern.Dash),
           Line(
             visible=u1IsHypotenuse,
             points={{22,60},{34,60}},
-            color={0,0,0},
             pattern=LinePattern.Dash),
           Line(
             visible=u1IsHypotenuse,
             points={{-12,0},{34,0}},
-            color={0,0,0},
             pattern=LinePattern.Dash)}), Documentation(info="<html>
-<p>This block determines the hypotenuse <code>y = sqrt(u1^2 + u2^2)</code> 
-if the boolean parameter <code>u1IsHyotenuse = false</code>. 
-In this case the two inputs <code>u1</code> and 
+<p>This block determines the hypotenuse <code>y = sqrt(u1^2 + u2^2)</code>
+if the boolean parameter <code>u1IsHyotenuse = false</code>.
+In this case the two inputs <code>u1</code> and
 <code>u2</code> are interpreted as the legs of a right triangle
-and the boolean output <code>valid</code> is always equal to 
+and the boolean output <code>valid</code> is always equal to
 <code>true</code>. </p>
 
 <p>If <code>u1IsHyotenuse = true</code>, input <code>u1</code> is interpreted as hypotenuse and <code>u2</code>
-is one of the two legs of a right triangle. 
+is one of the two legs of a right triangle.
 Then, the other of the two legs of the right triangle is the output, determined by
  <code>y = sqrt(u1^2 - u2^2)</code>, if <code>u1^2 - u2^2 &ge; 0</code>; in this case the
-boolean output <code>valid</code> is equal to <code>true</code>. In case of <code>u1^2 - u2^2 &lt; 0</code>, the 
+boolean output <code>valid</code> is equal to <code>true</code>. In case of <code>u1^2 - u2^2 &lt; 0</code>, the
 output <code>y = 0</code> and <code>valid</code> is set to <code>false</code>.</p>
 </html>"));
   end Pythagoras;

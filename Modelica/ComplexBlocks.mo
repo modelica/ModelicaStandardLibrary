@@ -1925,7 +1925,6 @@ An error occurs if the elements of the input <code>u</code> is zero.
             origin={0,-110})));
       Blocks.Math.Log10 log10_y annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
-            rotation=0,
             origin={-10,-70})));
       Blocks.Math.Gain gain(final k=dB) annotation (Placement(transformation(extent={{10,-80},{30,-60}})));
       Blocks.Nonlinear.Limiter limiter(final uMax=Modelica.Constants.inf, final uMin=Modelica.Constants.eps) annotation (Placement(transformation(extent={{-50,-80},{-30,-60}})));

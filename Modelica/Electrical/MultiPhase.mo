@@ -452,7 +452,6 @@ Simulate for 1 second (2 periods) and compare voltages and currents of source, t
       Machines.Sensors.ElectricalPowerSensor powerSensorSpacePhasor annotation (
           Placement(transformation(
             extent={{-10,-10},{10,10}},
-            rotation=0,
             origin={-40,0})));
       Sensors.AronSensor aronSensor annotation (Placement(transformation(
             extent={{10,10},{-10,-10}},
@@ -460,7 +459,6 @@ Simulate for 1 second (2 periods) and compare voltages and currents of source, t
             origin={-12,0})));
       Sensors.PowerSensor powerSensor(m=m) annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
-            rotation=0,
             origin={-70,0})));
       Sensors.ReactivePowerSensor reactivePowerSensor annotation (Placement(
             transformation(

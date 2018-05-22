@@ -5428,7 +5428,6 @@ blocks of the block library Modelica.Blocks.Sources.
               preserveAspectRatio=true,
               extent={{-100,-100},{100,100}}), graphics={Text(
                       extent={{-80,-60},{-80,-100}},
-                      lineColor={0,0,0},
                       textString="phi"),Rectangle(
                       extent={{-100,20},{100,-20}},
                       lineColor={64,64,64},
@@ -5501,7 +5500,6 @@ blocks of the block library Modelica.Blocks.Sources.
               preserveAspectRatio=true,
               extent={{-100,-100},{100,100}}), graphics={Text(
                       extent={{-80,-60},{-80,-100}},
-                      lineColor={0,0,0},
                       textString="phi,w"),Rectangle(
                       extent={{-100,20},{100,-20}},
                       lineColor={64,64,64},
@@ -5566,21 +5564,17 @@ blocks of the block library Modelica.Blocks.Sources.
                   radius=10),
                 Text(
                   extent={{-20,90},{20,68}},
-                  lineColor={0,0,0},
                   fillPattern=FillPattern.Solid,
                   textString="phi"),Text(
                   visible=use_w or use_a,
                   extent={{-20,40},{20,18}},
-                  lineColor={0,0,0},
                   fillPattern=FillPattern.Solid,
                   textString="w"),Text(
                   visible=use_a,
                   extent={{-20,-20},{20,-42}},
-                  lineColor={0,0,0},
                   fillPattern=FillPattern.Solid,
                   textString="a"),Text(
                   extent={{-20,-70},{20,-92}},
-                  lineColor={0,0,0},
                   fillPattern=FillPattern.Solid,
                   textString="tau"),Text(
                   extent={{-150,150},{150,110}},
@@ -5664,21 +5658,17 @@ torque as output signal. Note, the input signals must be consistent to each othe
                   radius=10),
                 Text(
                   extent={{-20,92},{20,70}},
-                  lineColor={0,0,0},
                   fillPattern=FillPattern.Solid,
                   textString="phi"),Text(
                   visible=use_w,
                   extent={{-20,42},{20,20}},
-                  lineColor={0,0,0},
                   fillPattern=FillPattern.Solid,
                   textString="w"),Text(
                   visible=use_a,
                   extent={{-20,-18},{20,-40}},
-                  lineColor={0,0,0},
                   fillPattern=FillPattern.Solid,
                   textString="a"),Text(
                   extent={{-20,-68},{20,-90}},
-                  lineColor={0,0,0},
                   fillPattern=FillPattern.Solid,
                   textString="tau"),Text(
                   extent={{-150,150},{150,110}},
