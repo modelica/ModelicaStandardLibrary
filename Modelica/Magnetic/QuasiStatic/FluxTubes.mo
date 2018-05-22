@@ -41,7 +41,7 @@ Following below, the concept of magnetic flux tubes is outlined in short. For a 
 
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/magnetic_flux_tube_schematic_qs.png\" ALT=\"Magnetic flux tube\">
+<img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/magnetic_flux_tube_schematic_qs.png\" alt=\"Magnetic flux tube\">
 </p>
 
 <p>A <strong>flux tube</strong> confines the magnetic flux. Flied lines, and flux tubes, respectively are always closed. So there is no flux entering or leaving a flux tube. The total flux of a configuration can be represented by parallel flux tubes, representing different flux paths. This is considered by connecting the elements of a lumped circuit model, such that the sum of all fluxes of a connection is equivalent to zero. </p>
@@ -164,7 +164,7 @@ Additional reference on magnetic flux tubes are listed in
 <strong>Anton Haumer</strong><br>
 <a href=\"http://www.haumer.at\">Technical Consulting &amp; Electrical Engineering</a><br>
 3423 St. Andrae-Woerdern, Austria<br>
-email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
+email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
 </p>
 
 <p>
@@ -395,9 +395,9 @@ This model compares a transientlinear magnetic circuit with a quasi static magne
 <li>Non-linear transient current due to saturation and equivalent quasi static current<br>
     <code>currentSensor.i | currentSensorQS.i.re|im</code></li>
 <li>Differente between RMS fundamental wave of transient current and the RMS quasi static current<br>
-    <code>feedback.y</code>
+    <code>feedback.y</code></li>
 <li>Relative permeability of iron core of transient and quasi static circuit<br>
-    <code>r_mFe.mu_rConst | r_mFeQS.mu_rConst</code>
+    <code>r_mFe.mu_rConst | r_mFeQS.mu_rConst</code></li>
 </ul>
 </html>"),
         Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
@@ -647,9 +647,9 @@ This model compares a transient non-linear magnetic circuit with a linearized qu
 <li>Non-linear transient current due to saturation and equivalent quasi static current<br>
     <code>currentSensor.i | currentSensorQS.i.re|im</code></li>
 <li>Differente between RMS fundamental wave of transient current and the RMS quasi static current<br>
-    <code>feedback.y</code>
+    <code>feedback.y</code></li>
 <li>Effective fundamental wave relative permeability of iron core of transient and quasi static circuit<br>
-    <code>fundamentalWavePermabilitySensor.mur | r_mFeQS.mu_rConst</code>
+    <code>fundamentalWavePermabilitySensor.mur | r_mFeQS.mu_rConst</code></li>
 </ul>
 </html>"),
         Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
@@ -2817,21 +2817,21 @@ This sensor is used to determined the effective fundamental wave permeability of
 <p>This model determines the absolute and relative permeability from two real inputs:</p>
 <ul>
 <li>RMS magnetic potential difference,
-<IMG src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/realV_m.png\" ALT=\"V_m\"></li>
+<img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/realV_m.png\" alt=\"V_m\"></li>
 <li>RMS magnetic flux,
-<IMG src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/realPhi.png\" ALT=\"Phi\"></li>
+<img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/realPhi.png\" alt=\"Phi\"></li>
 </ul>
 <p>In order to calculate the permeabilities, the area of cross section,
-<IMG src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/A.png\" ALT=\"l\">,
+<img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/A.png\" alt=\"l\">,
 and the geometric length,
-<IMG src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/l.png\" ALT=\"l\">,
+<img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/l.png\" alt=\"l\">,
 of the flux path have to be take into account<p>
 <dl><dd>
-<IMG src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/permeabilities.png\" ALT=\"Permeabilities\">
+<img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/permeabilities.png\" alt=\"Permeabilities\">
 </dd></dl>
 <p>In case that the magnetic potential difference is close to zero, permeabilities yield:</p>
 <dl><dd>
-<IMG src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/permeabilities-0.png\" ALT=\"Permeabilities=0\">
+<img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/permeabilities-0.png\" alt=\"Permeabilities=0\">
 </dd></dl>
 </html>"));
       end Permeability;
