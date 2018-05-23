@@ -1,4 +1,4 @@
-within Modelica.Magnetic.QuasiStatic;
+﻿within Modelica.Magnetic.QuasiStatic;
 package FluxTubes "Library for modelling of quasi static electromagnetic devices with lumped magnetic networks"
 
   import SI = Modelica.SIunits;
@@ -295,24 +295,24 @@ This user's guide gives a short introduction to the underlying
     Modelica.Blocks.Math.RootMeanSquare rootMeanSquare(f=50)
       annotation (Placement(transformation(extent={{-50,10},{-30,30}})));
     equation
-      connect(coilQS.port_p, r_mLeakQS.port_p) annotation (Line(points={{10,-44},{10,
-              -40},{30,-40}}, color={255,127,0}));
+      connect(coilQS.port_p, r_mLeakQS.port_p) annotation (Line(points={{10,-40},{10,-40},{30,-40}},
+                              color={255,170,85}));
       connect(r_mLeakQS.port_p, r_mAirParQS.port_p)
-        annotation (Line(points={{30,-40},{46,-40}}, color={255,127,0}));
+        annotation (Line(points={{30,-40},{46,-40}}, color={255,170,85}));
       connect(r_mAirParQS.port_n, r_mFeQS.port_p)
-        annotation (Line(points={{66,-40},{74,-40},{80,-40}}, color={255,127,0}));
+        annotation (Line(points={{66,-40},{74,-40},{80,-40}}, color={255,170,85}));
       connect(r_mFeQS.port_n, r_mLeakQS.port_n) annotation (Line(points={{80,-60},{67.5,
-              -60},{55,-60},{30,-60}}, color={255,127,0}));
-      connect(r_mFeQS.port_n, coilQS.port_n) annotation (Line(points={{80,-60},{10,-60},
-              {10,-56}},       color={255,127,0}));
+              -60},{55,-60},{30,-60}}, color={255,170,85}));
+      connect(r_mFeQS.port_n, coilQS.port_n) annotation (Line(points={{80,-60},{10,-60},{10,-60}},
+                               color={255,170,85}));
       connect(ground_mQS.port, r_mFeQS.port_n) annotation (Line(
           points={{80,-70},{80,-60}},
-          color={255,127,0}));
+          color={255,170,85}));
       connect(rQS.pin_n, coilQS.pin_p) annotation (Line(
-          points={{-20,-40},{-10,-40},{-10,-44}},
+          points={{-20,-40},{-10,-40},{-10,-40}},
           color={85,170,255}));
       connect(sourceQS.pin_n, coilQS.pin_n) annotation (Line(
-          points={{-80,-60},{-10,-60},{-10,-56}},
+          points={{-80,-60},{-9.8,-60},{-9.8,-60}},
           color={85,170,255}));
       connect(sourceQS.pin_n, groundQS.pin) annotation (Line(
           points={{-80,-60},{-80,-70}},
@@ -322,21 +322,21 @@ This user's guide gives a short introduction to the underlying
       connect(source.n, coil.n)
         annotation (Line(points={{-80,40},{-10,40},{-10,40}}, color={0,0,255}));
       connect(coil.port_p, r_mLeak.port_p)
-        annotation (Line(points={{10,60},{10,60},{30,60}},   color={255,127,0}));
+        annotation (Line(points={{10,60},{10,60},{30,60}},   color={255,170,85}));
       connect(r_mLeak.port_p, r_mAirPar.port_p)
-        annotation (Line(points={{30,60},{46,60}}, color={255,127,0}));
+        annotation (Line(points={{30,60},{46,60}}, color={255,170,85}));
       connect(r_mAirPar.port_n, r_mFe.port_p)
-        annotation (Line(points={{66,60},{74,60},{80,60}}, color={255,127,0}));
+        annotation (Line(points={{66,60},{74,60},{80,60}}, color={255,170,85}));
       connect(r_mFe.port_n, r_mLeak.port_n) annotation (Line(points={{80,40},{67.5,40},
-              {55,40},{30,40}}, color={255,127,0}));
+              {55,40},{30,40}}, color={255,170,85}));
       connect(r_mFe.port_n, coil.port_n)
-        annotation (Line(points={{80,40},{10,40},{10,40}},   color={255,127,0}));
+        annotation (Line(points={{80,40},{10,40},{10,40}},   color={255,170,85}));
       connect(ground.p, source.n) annotation (Line(
           points={{-80,30},{-80,40}},
           color={0,0,255}));
       connect(ground_m.port, r_mFe.port_n) annotation (Line(
           points={{80,30},{80,40}},
-          color={255,127,0}));
+          color={255,170,85}));
       connect(sourceQS.pin_p, currentSensorQS.pin_p) annotation (Line(
           points={{-80,-40},{-70,-40}},
           color={85,170,255}));
@@ -504,28 +504,26 @@ This model compares a transientlinear magnetic circuit with a quasi static magne
     Modelica.Blocks.Math.Harmonic rootMeanSquare(f=50, k=1)
       annotation (Placement(transformation(extent={{-60,10},{-40,30}})));
     equation
-      connect(coilQS.port_p, r_mLeakQS.port_p) annotation (Line(points={{0,-44},
-              {0,-40},{20,-40}},
-                              color={255,127,0}));
+      connect(coilQS.port_p, r_mLeakQS.port_p) annotation (Line(points={{0,-40},{0,-40},{20,-40}},
+                              color={255,170,85}));
       connect(r_mLeakQS.port_p, r_mAirParQS.port_p)
         annotation (Line(points={{20,-40},{22,-40},
-              {30,-40}},                             color={255,127,0}));
+              {30,-40}},                             color={255,170,85}));
       connect(r_mAirParQS.port_n, r_mFeQS.port_p)
         annotation (Line(points={{50,-40},{50,-40},
-              {90,-40}},                                      color={255,127,0}));
+              {90,-40}},                                      color={255,170,85}));
       connect(r_mFeQS.port_n, r_mLeakQS.port_n) annotation (Line(points={{90,-60},
-              {20,-60}},               color={255,127,0}));
-      connect(r_mFeQS.port_n, coilQS.port_n) annotation (Line(points={{90,-60},
-              {4.44089e-16,-60},{4.44089e-16,-56}},
-                               color={255,127,0}));
+              {20,-60}},               color={255,170,85}));
+      connect(r_mFeQS.port_n, coilQS.port_n) annotation (Line(points={{90,-60},{4.44089e-16,-60},{4.44089e-16,-60}},
+                               color={255,170,85}));
       connect(ground_mQS.port, r_mFeQS.port_n) annotation (Line(
           points={{90,-70},{90,-60}},
-          color={255,127,0}));
+          color={255,170,85}));
       connect(rQS.pin_n, coilQS.pin_p) annotation (Line(
-          points={{-30,-40},{-20,-40},{-20,-44}},
+          points={{-30,-40},{-20,-40},{-20,-40}},
           color={85,170,255}));
       connect(sourceQS.pin_n, coilQS.pin_n) annotation (Line(
-          points={{-90,-60},{-20,-60},{-20,-56}},
+          points={{-90,-60},{-19.8,-60},{-19.8,-60}},
           color={85,170,255}));
       connect(sourceQS.pin_n, groundQS.pin) annotation (Line(
           points={{-90,-60},{-90,-70}},
@@ -535,20 +533,20 @@ This model compares a transientlinear magnetic circuit with a quasi static magne
       connect(source.n, coil.n)
         annotation (Line(points={{-90,40},{-20,40},{-20,40}}, color={0,0,255}));
       connect(coil.port_p, r_mLeak.port_p)
-        annotation (Line(points={{0,60},{0,60},{20,60}},     color={255,127,0}));
+        annotation (Line(points={{0,60},{0,60},{20,60}},     color={255,170,85}));
       connect(r_mLeak.port_p, r_mAirPar.port_p)
-        annotation (Line(points={{20,60},{30,60}}, color={255,127,0}));
+        annotation (Line(points={{20,60},{30,60}}, color={255,170,85}));
       connect(r_mFe.port_n, r_mLeak.port_n) annotation (Line(points={{90,40},
-              {20,40}},         color={255,127,0}));
+              {20,40}},         color={255,170,85}));
       connect(r_mFe.port_n, coil.port_n)
         annotation (Line(points={{90,40},{4.44089e-16,40},{4.44089e-16,40}},
-                                                             color={255,127,0}));
+                                                             color={255,170,85}));
       connect(ground.p, source.n) annotation (Line(
           points={{-90,30},{-90,40}},
           color={0,0,255}));
       connect(ground_m.port, r_mFe.port_n) annotation (Line(
           points={{90,30},{90,40}},
-          color={255,127,0}));
+          color={255,170,85}));
       connect(sourceQS.pin_p, currentSensorQS.pin_p) annotation (Line(
           points={{-90,-40},{-80,-40}},
           color={85,170,255}));
@@ -568,20 +566,20 @@ This model compares a transientlinear magnetic circuit with a quasi static magne
         fundamentalWavePermabilitySensor.fluxP)
         annotation (Line(
           points={{50,60},{60,60}},
-          color={255,127,0}));
+          color={255,170,85}));
       connect(fundamentalWavePermabilitySensor.fluxN,
         r_mFe.port_p) annotation (Line(
           points={{80,60},{90,60}},
-          color={255,127,0}));
+          color={255,170,85}));
       connect(fundamentalWavePermabilitySensor.fluxP,
         fundamentalWavePermabilitySensor.potentialP)
         annotation (Line(
           points={{60,60},{60,70},{70,70}},
-          color={255,127,0}));
+          color={255,170,85}));
       connect(fundamentalWavePermabilitySensor.potentialN,
         r_mFe.port_n) annotation (Line(
           points={{70,50},{70,40},{90,40}},
-          color={255,127,0}));
+          color={255,170,85}));
     connect(complexToPolar.len, feedback.u2) annotation (Line(
         points={{-38,-4},{0,-4},{0,12}},
         color={0,0,127}));
@@ -684,7 +682,7 @@ This model compares a transient non-linear magnetic circuit with a linearized qu
           points={{-20,60},{-60,60},{-60,50}},
           color={255,170,85}));
         connect(constFrequency.y, source.f) annotation (Line(
-            points={{-59,-70},{-44,-70},{-44,-20}},
+            points={{-59,-70},{-46,-70},{-46,-22}},
             color={0,0,127}));
         connect(hollowCylinderRadialLeft.port_n, ground.port) annotation (Line(
             points={{-60,30},{-60,-10}},
@@ -701,7 +699,7 @@ This model compares a transient non-linear magnetic circuit with a linearized qu
         connect(crossing.port_p1, ground.port) annotation (Line(
             points={{-50,20},{-60,20},{-60,-10}},
             color={255,170,85}));
-        connect(complexRamp.y, source.Phi) annotation (Line(points={{-21,-70},{-36,-70},{-36,-20}}, color={85,170,255}));
+        connect(complexRamp.y, source.Phi) annotation (Line(points={{-21,-70},{-34,-70},{-34,-22}}, color={85,170,255}));
       annotation (Diagram(coordinateSystem(preserveAspectRatio=false)),
           Documentation(info="<html>
 <p>This model tests different types of cylinder sections in one example. The circuit is operated at 50Hz and variable magnetic flux. </p>
@@ -776,7 +774,7 @@ This model compares a transient non-linear magnetic circuit with a linearized qu
             points={{-50,20},{-60,20},{-60,30}},
             color={255,170,85}));
         connect(constFrequency.y, source.f) annotation (Line(
-            points={{-59,-60},{-44,-60},{-44,10}},
+            points={{-59,-60},{-46,-60},{-46,8}},
             color={0,0,127}));
         connect(cuboidBottom.port_n, short.port_p) annotation (Line(
             points={{4.44089e-16,20},{12,20}},
@@ -790,7 +788,7 @@ This model compares a transient non-linear magnetic circuit with a linearized qu
         connect(idle.port_n, short.port_n) annotation (Line(
             points={{80,30},{80,20},{32,20}},
             color={255,170,85}));
-        connect(complexRamp.y, source.V_m) annotation (Line(points={{-21,-60},{-36,-60},{-36,10}}, color={85,170,255}));
+        connect(complexRamp.y, source.V_m) annotation (Line(points={{-21,-60},{-34,-60},{-34,8}},  color={85,170,255}));
       annotation (Diagram(coordinateSystem(preserveAspectRatio=false),          graphics={Text(
                 extent={{-100,100},{100,80}},
                 lineColor={0,0,255},
@@ -996,7 +994,7 @@ The magnetic potential at the magnetic ground node is zero. Every magnetic netwo
           Line(points={{-20,10},{20,10}}, color={255,170,85}),
           Line(points={{0,90},{0,50}}, color={255,170,85}),
           Text(
-            extent={{-150,-40},{150,0}},
+            extent={{-150,-50},{150,-10}},
             lineColor={0,0,255},
             textString="%name")}),
         Diagram(coordinateSystem(
@@ -1022,14 +1020,12 @@ The magnetic potential at the magnetic ground node is zero. Every magnetic netwo
     model ElectroMagneticConverter "Electro-magnetic energy conversion"
 
       constant Complex j=Complex(0, 1);
-      FluxTubes.Interfaces.PositiveMagneticPort port_p "Positive magnetic port" annotation (Placement(transformation(extent={{90,50},{110,70}})));
-      FluxTubes.Interfaces.NegativeMagneticPort port_n "Negative magnetic port" annotation (Placement(transformation(extent={{110,-70},{90,-50}})));
+      FluxTubes.Interfaces.PositiveMagneticPort port_p "Positive magnetic port" annotation (Placement(transformation(extent={{90,90},{110,110}}), iconTransformation(extent={{90,90},{110,110}})));
+      FluxTubes.Interfaces.NegativeMagneticPort port_n "Negative magnetic port" annotation (Placement(transformation(extent={{110,-110},{90,-90}}), iconTransformation(extent={{110,-110},{90,-90}})));
       Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.PositivePin pin_p
-      "Positive electric pin"   annotation (Placement(transformation(extent={{-90,
-                50},{-110,70}})));
+      "Positive electric pin"   annotation (Placement(transformation(extent={{-90,90},{-110,110}}), iconTransformation(extent={{-90,90},{-110,110}})));
       Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.NegativePin pin_n
-      "Negative electric pin"   annotation (Placement(transformation(extent={{-110,
-                -70},{-90,-50}})));
+      "Negative electric pin"   annotation (Placement(transformation(extent={{-108,-110},{-88,-90}}), iconTransformation(extent={{-108,-110},{-88,-90}})));
       Modelica.SIunits.ComplexVoltage v "Voltage";
       Modelica.SIunits.ComplexCurrent i(re(start=0, stateSelect=StateSelect.prefer),
                                         im(start=0, stateSelect=StateSelect.prefer))
@@ -1117,73 +1113,88 @@ The magnetic potential at the magnetic ground node is zero. Every magnetic netwo
         Icon(coordinateSystem(
           preserveAspectRatio=false,
           extent={{-100,-100},{100,100}}), graphics={
-          Rectangle(
-            extent={{-70,100},{70,-100}},
-            lineColor={85,170,255},
-            pattern=LinePattern.None,
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Ellipse(extent={{-50,0},{-30,20}}, lineColor={85,170,255}),
-          Line(points={{-40,60},{-40,40}}, color={85,170,255}),
-          Ellipse(extent={{-50,20},{-30,40}}, lineColor={85,170,255}),
-          Ellipse(extent={{-50,-20},{-30,0}}, lineColor={85,170,255}),
-          Ellipse(extent={{-50,-40},{-30,-20}}, lineColor={85,170,255}),
-          Line(points={{-40,-40},{-40,-60}}, color={85,170,255}),
-          Rectangle(
-            extent={{-54,40},{-40,-40}},
-            lineColor={255,255,255},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Line(points={{-40,60},{-92,60}}, color={85,170,255}),
-          Line(points={{-40,-60},{-90,-60}}, color={85,170,255}),
+          Line(points={{-30,100},{-30,60}},color={85,170,255}),
+          Line(points={{-30,-60},{-30,-100}},color={85,170,255}),
+          Line(points={{-30,100},{-90,100}},
+                                           color={85,170,255}),
+          Line(points={{-30,-100},{-88,-100}},
+                                             color={85,170,255}),
           Line(
-            points={{0,100},{-70,100}},
+            points={{0,80},{-100,80}},
             color={85,170,255},
             pattern=LinePattern.Dash),
           Line(
-            points={{-70,100},{-70,-100}},
+            points={{-100,80},{-100,-80}},
             color={85,170,255},
             pattern=LinePattern.Dash),
           Line(
-            points={{0,-100},{-70,-100}},
+            points={{0,-80},{-100,-80}},
             color={85,170,255},
             pattern=LinePattern.Dash),
           Line(
-            points={{70,100},{0,100}},
+            points={{100,80},{0,80}},
             color={255,170,85},
             pattern=LinePattern.Dash),
           Line(
-            points={{70,-100},{0,-100}},
+            points={{100,-80},{0,-80}},
             color={255,170,85},
             pattern=LinePattern.Dash),
           Line(
-            points={{70,100},{70,-100}},
+            points={{100,80},{100,-80}},
             color={255,170,85},
             pattern=LinePattern.Dash),
           Ellipse(extent={{-4,-34},{64,34}}, lineColor={255,170,85}),
-          Line(points={{30,-60},{30,-34}}, color={255,170,85}),
+          Line(points={{30,-100},{30,-34}},color={255,170,85}),
           Line(points={{18,0},{42,0}}, color={255,170,85}),
           Line(points={{42,10},{42,-12}}, color={255,170,85}),
-          Line(points={{30,34},{30,60}}, color={255,170,85}),
-          Line(points={{30,60},{100,60}}, color={255,170,85}),
-          Line(points={{30,-60},{90,-60}}, color={255,170,85}),
+          Line(points={{30,34},{30,100}},color={255,170,85}),
+          Line(points={{30,100},{90,100}},color={255,170,85}),
+          Line(points={{30,-100},{90,-100}},
+                                           color={255,170,85}),
           Text(
             extent={{-150,150},{150,110}},
-            lineColor={85,170,255},
-            textString="%name"),
+            textString="%name",
+              pattern=LinePattern.None,
+              lineColor={0,0,255}),
           Line(points={{18,10},{18,-12}}, color={255,170,85}),
-          Line(points={{-90,30},{-90,-30}}, color={85,170,255}),
+          Line(points={{-110,30},{-110,-30}},
+                                            color={85,170,255}),
           Polygon(
-            points={{-90,-30},{-84,-10},{-96,-10},{-90,-30}},
+            points={{-110,-30},{-104,-10},{-116,-10},{-110,-30}},
             lineColor={85,170,255},
             fillColor={85,170,255},
             fillPattern=FillPattern.Solid),
-          Line(points={{90,30},{90,-30}}, color={255,128,0}),
+          Line(points={{110,30},{110,-30}},
+                                          color={255,128,0}),
           Polygon(
-              points={{90,-30},{96,-10},{84,-10},{90,-30}},
+              points={{110,-30},{116,-10},{104,-10},{110,-30}},
               lineColor={255,170,85},
               fillColor={255,170,85},
-              fillPattern=FillPattern.Solid)}),
+              fillPattern=FillPattern.Solid),
+            Line(
+              points={{-15,-7},{-14,-1},{-7,7},{7,7},{14,-1},{15,-7}},
+              color={85,170,255},
+              smooth=Smooth.Bezier,
+              origin={-23,45},
+              rotation=270),
+            Line(
+              points={{-15,-7},{-14,-1},{-7,7},{7,7},{14,-1},{15,-7}},
+              color={85,170,255},
+              smooth=Smooth.Bezier,
+              origin={-23,15},
+              rotation=270),
+            Line(
+              points={{-15,-7},{-14,-1},{-7,7},{7,7},{14,-1},{15,-7}},
+              color={85,170,255},
+              smooth=Smooth.Bezier,
+              origin={-23,-15},
+              rotation=270),
+            Line(
+              points={{-15,-7},{-14,-1},{-7,7},{7,7},{14,-1},{15,-7}},
+              color={85,170,255},
+              smooth=Smooth.Bezier,
+              origin={-23,-45},
+              rotation=270)}),
         Documentation(info="<html>
 <p>
 The electro magnetic energy conversion is given by <strong>Ampere</strong>'s law and <strong>Faraday</strong>'s law respectively:
@@ -1258,7 +1269,7 @@ if
           Line(points={{-70,0},{-90,0}}, color={255,128,0}),
           Line(points={{70,0},{90,0}}, color={255,128,0}),
           Text(
-            extent={{-100,-100},{100,-62}},
+            extent={{-150,50},{150,90}},
             textString="%name",
             lineColor={0,0,255})}), Documentation(info="<html>
 <p>
@@ -1287,7 +1298,7 @@ This constant reluctance is provided for test purposes and simple magnetic netwo
           Line(points={{-70,0},{-90,0}}, color={255,170,85}),
           Line(points={{70,0},{90,0}}, color={255,170,85}),
           Text(
-            extent={{-100,-100},{100,-62}},
+            extent={{-150,50},{150,90}},
             textString="%name",
             lineColor={0,0,255})}), Documentation(info="<html>
 <p>
@@ -1376,7 +1387,7 @@ that are calculated from their geometry, this leakage reluctance is calculated w
               fillColor={255,170,85},
               fillPattern=FillPattern.Solid),
           Text(
-            extent={{-100,-98},{100,-60}},
+            extent={{-150,50},{150,90}},
             textString="%name",
             lineColor={0,0,255})}), Documentation(info="<html>
 <p>
@@ -1398,17 +1409,12 @@ Partitioning of a solid conductive cylinder or prism into several hollow cylinde
       annotation (
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
-            Text(
-              extent={{0,60},{0,100}},
-              lineColor={0,0,255},
-              textString="%name"),
-            Rectangle(
-              extent={{-100,40},{100,-40}},
-              lineColor={255,255,255},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
             Line(points={{-100,0},{-40,0}}, color={255,170,85}),
-            Line(points={{40,0},{100,0}}, color={255,170,85})}),
+            Line(points={{40,0},{100,0}}, color={255,170,85}),
+          Text(
+            extent={{-150,50},{150,90}},
+            textString="%name",
+            lineColor={0,0,255})}),
         Documentation(info="<html>
 <p>
 This is a simple idle running branch.
@@ -1430,16 +1436,11 @@ This is a simple idle running branch.
               100,0}}, color={255,128,0}));
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
-            Text(
-              extent={{0,60},{0,100}},
-              lineColor={0,0,255},
-              textString="%name"),
-            Rectangle(
-              extent={{-100,40},{100,-40}},
-              lineColor={255,255,255},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Line(points={{-100,0},{100,0}}, color={255,170,85})}),Documentation(
+            Line(points={{-100,0},{100,0}}, color={255,170,85}),
+          Text(
+            extent={{-150,50},{150,90}},
+            textString="%name",
+            lineColor={0,0,255})}),                               Documentation(
             info="<html>
 <p>
 This is a simple short cut branch.
@@ -1463,21 +1464,16 @@ This is a simple short cut branch.
           color={255,128,0}));
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
-            Text(
-              extent={{0,60},{0,100}},
-              lineColor={0,0,255},
-              textString="%name"),
-            Rectangle(
-              extent={{-100,40},{100,-40}},
-              lineColor={255,255,255},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
           Line(
-              points={{100,100},{100,40},{-100,-40},{-100,-100}},
+              points={{100,100},{40,100},{-40,-100},{-100,-100}},
               color={255,170,85}),
           Line(
-              points={{-100,100},{-100,40},{100,-40},{100,-100}},
-              color={255,170,85})}),                              Documentation(
+              points={{-100,100},{-40,100},{40,-98},{100,-100}},
+              color={255,170,85}),
+            Text(
+              extent={{-150,110},{150,150}},
+              lineColor={0,0,255},
+              textString="%name")}),                              Documentation(
             info="<html>
 <p>
 This is a simple crossing of two branches. The ports <code>port_p1</code> and <code>port_p2</code> are connected, as well as <code>port_n1</code> and <code>port_n2</code>.
@@ -2069,7 +2065,7 @@ It is assumed that the magnetic flux flowing into <code>port_p</code> is identic
           Line(points={{-70,0},{-90,0}}, color={255,170,85}),
           Line(points={{70,0},{90,0}}, color={255,170,85}),
           Text(
-            extent={{-150,-100},{150,-60}},
+            extent={{-150,50},{150,90}},
             textString="%name",
             lineColor={0,0,255})}), Documentation(info="<html>
 <p>
@@ -2102,7 +2098,7 @@ Please refer to the description of  the sub-package <a href=\"modelica://Modelic
           Line(points={{-70,0},{-90,0}}, color={255,170,85}),
           Line(points={{70,0},{90,0}}, color={255,170,85}),
           Text(
-            extent={{-150,-100},{150,-60}},
+            extent={{-150,50},{150,90}},
             textString="%name",
             lineColor={0,0,255})}), Documentation(info="<html>
 <p>
@@ -2119,9 +2115,9 @@ Please refer to the description of the sub-package <a href=\"modelica://Modelica
       omega = der(port.reference.gamma);
       port.Phi = Complex(0);
       annotation (Icon(graphics={
-            Line(points={{-70,0},{-94,0}}),
+            Line(points={{-70,0},{-90,0}}, color={255,170,85}),
             Text(
-              extent={{-100,100},{100,70}},
+              extent={{-150,120},{150,80}},
               lineColor={0,0,255},
               pattern=LinePattern.None,
               fillColor={170,85,255},
@@ -2144,10 +2140,10 @@ The absolute sensor partial model provides a single
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{
                 -100,-100},{100,100}}),
                        graphics={
-            Line(points={{-70,0},{-94,0}}),
-            Line(points={{70,0},{90,0}}),
+            Line(points={{-70,0},{-90,0}}, color={255,170,85}),
+            Line(points={{70,0},{90,0}}, color={255,170,85}),
             Text(
-              extent={{-100,100},{100,70}},
+              extent={{-150,120},{150,80}},
               lineColor={0,0,255},
               pattern=LinePattern.None,
               fillColor={170,85,255},
@@ -2155,7 +2151,7 @@ The absolute sensor partial model provides a single
               textString="%name"),
             Line(
               points={{0,-70},{0,-100}},
-              color={255,170,85})}),
+              color={0,0,0})}),
           Documentation(info="<html>
 <p>
 The relative sensor partial model relies on the
@@ -2179,7 +2175,7 @@ The relative sensor partial model relies on the
                 {100,100}}),
                        graphics={
             Text(
-              extent={{100,-100},{-100,-60}},
+              extent={{150,60},{-150,100}},
               textString="%name",
               lineColor={0,0,255}),
             Line(
@@ -2225,26 +2221,16 @@ This package contains connectors for the magnetic domain and partial models for 
       Phi = port_p.Phi;
 
       annotation (
-        defaultComponentName="constantSource",
+        defaultComponentName="magVoltageSource",
         Icon(coordinateSystem(
           preserveAspectRatio=false,
           extent={{-100,-100},{100,100}}), graphics={
-          Ellipse(
-            extent={{-50,-50},{50,50}},
-            lineColor={255,127,0},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Line(points={{100,0},{50,0}}, color={255,127,0}),
-          Line(points={{-50,0},{-100,0}}, color={255,127,0}),
-          Text(
-            extent={{-80,-20},{-80,-40}},
-            lineColor={255,128,0},
-            textString="+"),
-          Text(
-            extent={{80,-20},{80,-40}},
-            lineColor={255,128,0},
-            textString="-"),
-          Line(points={{-50,0},{50,0}}, color={255,127,0})}),
+          Line(points={{90,0},{50,0}},  color={255,170,85}),
+          Line(points={{-50,0},{-90,0}},  color={255,170,85}),
+          Line(points={{-50,0},{50,0}}, color={255,170,85}),
+            Line(points={{-80,20},{-60,20}}, color={255,170,85}),
+            Line(points={{-70,30},{-70,10}}, color={255,170,85}),
+            Line(points={{60,20},{80,20}}, color={255,170,85})}),
         Documentation(info="<html>
 <p>
 This source provides a constant quasi static magnetic potential difference <code>V_m</code> or magnetomotive force (mmf),
@@ -2259,14 +2245,20 @@ at fixed frequency, <code>f</code>.
       extends FluxTubes.Interfaces.Source;
       Modelica.Blocks.Interfaces.RealInput f annotation (Placement(
             transformation(
-            origin={40,100},
+            origin={60,120},
             extent={{-20,-20},{20,20}},
-            rotation=270)));
+            rotation=270), iconTransformation(
+            extent={{-20,-20},{20,20}},
+            rotation=270,
+            origin={60,120})));
       Modelica.ComplexBlocks.Interfaces.ComplexInput V_m annotation (Placement(
             transformation(
-            origin={-40,100},
+            origin={-60,120},
             extent={{-20,-20},{20,20}},
-            rotation=270)));
+            rotation=270), iconTransformation(
+            extent={{-20,-20},{20,20}},
+            rotation=270,
+            origin={-60,120})));
       Modelica.SIunits.ComplexMagneticFlux Phi(re(start=0),im(start=0))
       "Magnetic flux from port_p to port_n";
     equation
@@ -2276,31 +2268,21 @@ at fixed frequency, <code>f</code>.
       Phi = port_p.Phi;
 
       annotation (
-        defaultComponentName="signalSource",
+        defaultComponentName="magVoltageSource",
         Icon(coordinateSystem(
           preserveAspectRatio=false,
           extent={{-100,-100},{100,100}}), graphics={
-          Line(points={{-100,0},{-50,0}}, color={255,127,0}),
-          Line(points={{50,0},{100,0}}, color={255,127,0}),
-          Text(
-            extent={{-80,-20},{-80,-40}},
-            lineColor={255,128,0},
-            textString="+"),
-          Text(
-            extent={{80,-20},{80,-40}},
-            lineColor={255,128,0},
-            textString="-"),
-          Line(points={{40,80},{40,30}},color={255,127,0},
-            pattern=LinePattern.Dash),
+          Line(points={{-90,0},{-50,0}},  color={255,170,85}),
+          Line(points={{50,0},{90,0}},  color={255,170,85}),
           Ellipse(
             extent={{-50,-50},{50,50}},
-            lineColor={255,127,0},
+            lineColor={255,170,85},
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid),
-          Line(points={{-50,0},{50,0}}, color={255,127,0}),
-          Line(points={{-40,80},{-40,30}},
-                                        color={255,127,0},
-            pattern=LinePattern.Dash)}),
+          Line(points={{-50,0},{50,0}}, color={255,170,85}),
+            Line(points={{-80,20},{-60,20}}, color={255,170,85}),
+            Line(points={{-70,30},{-70,10}}, color={255,170,85}),
+            Line(points={{60,20},{80,20}}, color={255,170,85})}),
         Documentation(info="<html>
 <p>
 This source provides a quasi static magnetic potential difference or magnetomotive force (mmf) with signal inputs for:
@@ -2327,28 +2309,26 @@ This source provides a quasi static magnetic potential difference or magnetomoti
       Complex(0) = port_p.Phi + port_n.Phi;
       Phi = port_p.Phi;
       annotation (
-        defaultComponentName="constantSource",
+        defaultComponentName="magFluxSource",
         Icon(coordinateSystem(
           preserveAspectRatio=false,
           extent={{-100,-100},{100,100}}), graphics={
           Polygon(
             points={{80,0},{60,6},{60,-6},{80,0}},
-            lineColor={255,128,0},
-            fillColor={255,128,0},
+            lineColor={255,170,85},
+            fillColor={255,170,85},
             fillPattern=FillPattern.Solid),
-          Line(points={{-100,0},{-50,0}}, color={255,127,0}),
-          Line(points={{50,0},{100,0}}, color={255,127,0}),
+          Line(points={{-90,0},{-50,0}},  color={255,170,85}),
+          Line(points={{50,0},{90,0}},  color={255,170,85}),
           Ellipse(
             extent={{-50,-50},{50,50}},
-            lineColor={255,127,0},
+            lineColor={255,170,85},
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid),
-          Line(points={{0,50},{0,-50}}, color={255,127,0})}),
+          Line(points={{0,50},{0,-50}}, color={255,170,85})}),
         Diagram(coordinateSystem(
             preserveAspectRatio=false,
-            extent={{-100,-100},{100,100}}), graphics={Line(points={{-125,0},{-115,0}}, color={160,
-              160,164}),Line(points={{-120,-5},{-120,5}}, color={160,160,164}),
-              Line(points={{115,0},{125,0}}, color={160,160,164})}),
+            extent={{-100,-100},{100,100}})),
         Documentation(info="<html>
 <p>
 This source provides a constant quasi static magnetic flux <code>Phi</code> at fixed frequency, <code>f</code>.
@@ -2361,14 +2341,14 @@ This source provides a constant quasi static magnetic flux <code>Phi</code> at f
       extends FluxTubes.Interfaces.Source;
       Modelica.Blocks.Interfaces.RealInput f annotation (Placement(
             transformation(
-            origin={40,100},
+            origin={60,120},
             extent={{-20,-20},{20,20}},
             rotation=270)));
       Modelica.SIunits.ComplexMagneticPotentialDifference V_m
       "Magnetic potential difference between both ports";
       Modelica.ComplexBlocks.Interfaces.ComplexInput Phi annotation (Placement(
             transformation(
-            origin={-40,100},
+            origin={-60,120},
             extent={{-20,-20},{20,20}},
             rotation=270)));
 
@@ -2378,28 +2358,23 @@ This source provides a constant quasi static magnetic flux <code>Phi</code> at f
       Complex(0) = port_p.Phi + port_n.Phi;
       Phi = port_p.Phi;
       annotation (
-        defaultComponentName="signalSource",
+        defaultComponentName="magFluxSource",
         Icon(coordinateSystem(
           preserveAspectRatio=false,
           extent={{-100,-100},{100,100}}), graphics={
           Polygon(
             points={{80,0},{60,6},{60,-6},{80,0}},
-            lineColor={255,128,0},
-            fillColor={255,128,0},
+            lineColor={255,170,85},
+            fillColor={255,170,85},
             fillPattern=FillPattern.Solid),
-          Line(points={{-100,0},{-50,0}}, color={255,127,0}),
-          Line(points={{50,0},{100,0}}, color={255,127,0}),
+          Line(points={{-90,0},{-50,0}},  color={255,170,85}),
+          Line(points={{50,0},{90,0}},  color={255,170,85}),
           Ellipse(
             extent={{-50,-50},{50,50}},
-            lineColor={255,127,0},
+            lineColor={255,170,85},
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid),
-          Line(points={{0,50},{0,-50}}, color={255,127,0}),
-          Line(points={{40,80},{40,30}},color={255,127,0},
-            pattern=LinePattern.Dash),
-          Line(points={{-40,80},{-40,30}},
-                                        color={255,127,0},
-            pattern=LinePattern.Dash)}),
+          Line(points={{0,50},{0,-50}}, color={255,170,85})}),
         Documentation(info="<html>
 <p>
 This source provides a quasi static magnetic flux with inputs for:
@@ -2465,9 +2440,7 @@ This sensor can be used to measure the frequency of the reference system.
             transformation(extent={{100,-10},{120,10}})));
     equation
       y = port.V_m;
-      annotation (Icon(graphics={Text(
-              extent={{-29,-11},{30,-70}},
-              textString="V")}), Documentation(info="<html>
+      annotation (               Documentation(info="<html>
 
 <p>
 This sensor can be used to measure the complex potential.
@@ -2498,8 +2471,8 @@ This sensor can be used to measure the complex potential.
             Text(
               extent={{-52,1},{48,-57}},
               textString="V_m"),
-            Line(points={{-70,0},{-90,0}}),
-            Line(points={{70,0},{90,0}}),
+            Line(points={{-70,0},{-90,0}}, color={255,170,85}),
+            Line(points={{70,0},{90,0}}, color={255,170,85}),
             Line(points={{0,-90},{0,-70}})}),
                                       Diagram(coordinateSystem(
             preserveAspectRatio=false)));
@@ -2598,22 +2571,22 @@ This sensor can be used to measure the complex potential.
         connect(magneticPotentialDifferenceSensor.port_n,
           potentialN) annotation (Line(
             points={{70,20},{70,-100},{4.44089e-16,-100}},
-            color={255,127,0}));
+            color={255,170,85}));
 
         connect(magneticPotentialDifferenceSensor.port_p,
           potentialP) annotation (Line(
             points={{70,40},{70,100},{4.44089e-16,100}},
-            color={255,127,0}));
+            color={255,170,85}));
 
         connect(magneticFluxSensor.port_p, fluxP)
           annotation (Line(
             points={{40,-80},{-100,-80},{-100,4.44089e-16}},
-            color={255,127,0}));
+            color={255,170,85}));
 
         connect(magneticFluxSensor.port_n, fluxN)
           annotation (Line(
             points={{60,-80},{100,-80},{100,4.44089e-16}},
-            color={255,127,0}));
+            color={255,170,85}));
 
         connect(harmonicFlux.u, magneticFluxSensor.Phi)
           annotation (Line(
@@ -2623,11 +2596,11 @@ This sensor can be used to measure the complex potential.
           harmonicPotential.u) annotation (Line(
             points={{60,30},{42,30}},
             color={0,0,127}));
-        connect(permeability.v_m, harmonicPotential.y_rms)
+        connect(permeability.V_m, harmonicPotential.y_rms)
           annotation (Line(
             points={{-8,6},{0,6},{0,36},{19,36}},
             color={0,0,127}));
-        connect(permeability.phi, harmonicFlux.y_rms)
+        connect(permeability.Phi, harmonicFlux.y_rms)
           annotation (Line(
             points={{-8,-6},{0,-6},{0,-4},{19,-4}},
             color={0,0,127}));
@@ -2638,7 +2611,10 @@ This sensor can be used to measure the complex potential.
             points={{-31,-6},{-40,-6},{-40,-110}},
             color={0,0,127}));
         annotation (Icon(coordinateSystem(
-                preserveAspectRatio=false)), Diagram(
+                preserveAspectRatio=false), graphics={
+                                        Text(extent={{-29,-11},{30,-70}},
+                textString="μ",
+                lineColor={0,0,0})}),        Diagram(
               coordinateSystem(preserveAspectRatio=false)),
         Documentation(info="<html>
 <p>
@@ -2657,10 +2633,10 @@ This sensor is used to determined the effective fundamental wave permeability of
         parameter Modelica.SIunits.Length l
         "Length associated with magnetic potential difference";
 
-        Modelica.Blocks.Interfaces.RealInput phi "Magnetic flux"
+        Modelica.Blocks.Interfaces.RealInput Phi "Magnetic flux"
                           annotation (Placement(
               transformation(extent={{-140,40},{-100,80}})));
-        Modelica.Blocks.Interfaces.RealInput v_m
+        Modelica.Blocks.Interfaces.RealInput V_m
         "Magnetic potential difference"   annotation (
             Placement(transformation(extent={{-140,-80},
                   {-100,-40}})));
@@ -2672,11 +2648,11 @@ This sensor is used to determined the effective fundamental wave permeability of
               transformation(extent={{100,-70},{120,-50}})));
 
       equation
-        if noEvent(abs(v_m) < Modelica.Constants.eps) then
+        if noEvent(abs(V_m) < Modelica.Constants.eps) then
            mu = 0;
            mur = 0;
         else
-           mu = phi/v_m*l/A;
+           mu =Phi /V_m*l/A;
            mur = mu/Modelica.Constants.mue_0;
         end if;
 
@@ -2687,7 +2663,12 @@ This sensor is used to determined the effective fundamental wave permeability of
                 extent={{-100,100},{100,-100}},
                 lineColor={0,0,127},
                 fillColor={255,255,255},
-                fillPattern=FillPattern.Solid)}),
+                fillPattern=FillPattern.Solid), Text(
+                extent={{60,-60},{-60,60}},
+                lineColor={0,0,0},
+                fillColor={255,170,85},
+                fillPattern=FillPattern.Solid,
+                textString="μ")}),
         Documentation(info="<html>
 <p>This model determines the absolute and relative permeability from two real inputs:</p>
 <ul>
