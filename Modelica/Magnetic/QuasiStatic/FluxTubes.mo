@@ -907,7 +907,7 @@ This model compares a transient non-linear magnetic circuit with a linearized qu
         annotation (Diagram(coordinateSystem(preserveAspectRatio=false)),
           experiment(StopTime=1,Interval=0.001),
         Documentation(info="<html>
-<p>Test of one source and cylindrical compoents with leakage and various sensors.</p>
+<p>Test of one source and cylindrical components with leakage and various sensors.</p>
 </html>"));
       end CylinderLeakage;
 
@@ -1865,7 +1865,7 @@ is the complex magnetic flux <code>Phi</code>.</p>
 The positive magnetic port is based on the
 <a href=\"modelica://Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.MagneticPort\">MagneticPort</a>.
 Additionally the reference angle is specified in the connector. The time derivative of the 
-reference angle is the actual angluar frequency of the quasi static magnetic potential and flux.
+reference angle is the actual angular frequency of the quasi static magnetic potential and flux.
 The symbol is also designed such way to look different than the
 <a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Interfaces.NegativeMagneticPort\">NegativeMagneticPort</a>.
 </p>
@@ -1909,7 +1909,7 @@ The symbol is also designed such way to look different than the
 The negative magnetic port is based on the
 <a href=\"modelica://Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.MagneticPort\">MagneticPort</a>.
 Additionally the reference angle is specified in the connector. The time derivative of the 
-reference angle is the actual angluar frequency of the quasi static magnetic potential and flux.
+reference angle is the actual angular frequency of the quasi static magnetic potential and flux.
 The symbol is also designed such way to look different than the 
 <a href=\"modelica://Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.PositiveMagneticPort\">PositiveMagneticPort</a>.
 </p>
@@ -2373,8 +2373,8 @@ This package contains sources of a magnetic potential difference or a magnetic f
               fillPattern=FillPattern.Solid,
               textString="ref")}), Diagram(coordinateSystem(preserveAspectRatio=false)),
         Documentation(info="<html>
-<p>This sensor determines the reference angle of the connected quasi stastic magnetic system. 
-The integral of the angular frequency of the quasi stastic magnetic system is equal to the reference angle.</p>
+<p>This sensor determines the reference angle of the connected quasi static magnetic system. 
+The integral of the angular frequency of the quasi static magnetic system is equal to the reference angle.</p>
 </html>"));
     end ReferenceSensor;
 
@@ -2390,7 +2390,7 @@ The integral of the angular frequency of the quasi stastic magnetic system is eq
               textString="f")}), Documentation(info="<html>
 <p>
 This sensor can be used to measure the frequency of the reference system.
-The integral of the angular frequency of the quasi stastic magnetic system is equal to the reference angle.</p>
+The integral of the angular frequency of the quasi static magnetic system is equal to the reference angle.</p>
 </p>
 </html>"));
     end FrequencySensor;
@@ -2649,7 +2649,7 @@ of the flux path have to be take into account<p>
       end Permeability;
     annotation (Documentation(info="<html>
 <p>This package contains sensors to be used with transient flux tubes models in order to provide information 
-for quasi static paramters.</p>
+for quasi static parameters.</p>
 </html>"));
     end Transient;
     annotation (Documentation(info="<html>
