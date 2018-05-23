@@ -117,7 +117,7 @@ email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
 <li>Removed redundant (and not identical) parameter m from
     <a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.MutualInductor\">MutualInductor</a>,
     see #2202</li>
-<li>Changed epsiolon from constant to parameter in
+<li>Changed epsilon from constant to parameter in
     <a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.MutualInductor\">MutualInductor</a>,
     see #2200</li>
 <li>Added User's Guide</li>
