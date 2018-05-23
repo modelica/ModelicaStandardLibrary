@@ -110,20 +110,19 @@ email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
       annotation (preferredView="info",
         DocumentationClass=true, Documentation(info="<html>
 
-<h5>Version 3.2.2, 2018-01-02 (Anton Haumer, Christian Kral)</h5>
+<h5>Version 3.x.x, 2018-01-02 (Anton Haumer, Christian Kral)</h5>
 <ul>
   <li>Shortened default component names, see
       <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2301\">#2301</a></li>
 <li>Removed redundant (and not identical) parameter m from
     <a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.MutualInductor\">MutualInductor</a>,
-    see #2202</li>
+    see <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2202\">#2202</a></li>
 <li>Changed epsilon from constant to parameter in
     <a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.MutualInductor\">MutualInductor</a>,
-    see #2200</li>
+    see <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2200\">#2200</a></li>
 <li>Added User's Guide</li>
 <li>Added blocks and functions for multiple base systems</li>
 </ul>
-
 
 <h5>Version 1.4.0, 2009-08-26 (Anton Haumer)</h5>
 <ul>

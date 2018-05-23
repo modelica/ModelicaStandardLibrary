@@ -112,7 +112,7 @@ email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
       extends Modelica.Icons.ReleaseNotes;
       annotation (preferredView="info",Documentation(info="<html>
 
-<h5>Version 3.2.2, 2017-12-10 (Anton Haumer, Christian Kral)</h5>
+<h5>Version 3.x.x, 2017-12-10 (Anton Haumer, Christian Kral)</h5>
 <ul>
   <li>Shortened default component names, see
       <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2301\">#2301</a></li>
@@ -126,13 +126,13 @@ email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
       <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2279\">#2279</a></li>
   <li>Unified simulation tolerances, see
       <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2278\">#2278</a></li>
-  <li>Fixed icons of Modelica.Electrical.Machines.BasicMachines.Components, see #2031</li>
+  <li>Fixed icons of Modelica.Electrical.Machines.BasicMachines.Components, see <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2031\">#2031</a></li>
   <li>Updated blocks and functions towards multi phase systems greater or equal to three</li>
   <li>Added standard blocks and functions</li>
   <li>Improved documentation</li>
   <li>Added alias for rotor current in squirrel cage model</li>
-  <li>Changed icon and location of terminal box according to #1706</li>
-  <li>Updated documentation according to #1753, #1754 and #1755</li>
+  <li>Changed icon and location of terminal box according to <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/1706\">#1706</a></li>
+  <li>Updated documentation according to <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/1753\">#1753</a>, <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/1754\">#1754</a> and <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/1755\">#1755</a></li>
 </ul>
 
 <h5>Version 3.2.1, 2014-10-05 (Anton Haumer, Christian Kral)</h5>

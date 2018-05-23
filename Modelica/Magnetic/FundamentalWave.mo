@@ -347,7 +347,7 @@ no. 829420.
       extends Modelica.Icons.ReleaseNotes;
       annotation (Documentation(info="<html>
 
-<h5>Version 3.2.2, 2017-12-10</h5>
+<h5>Version 3.x.x, 2017-12-10</h5>
 
 <ul>
   <li>Fixed propagation of excitation leakage factor, see

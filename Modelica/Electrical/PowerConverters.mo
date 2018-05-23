@@ -114,13 +114,13 @@ email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
     class ReleaseNotes "Release Notes"
       extends Modelica.Icons.ReleaseNotes;
       annotation (Documentation(info="<html>
-<h5>Version 3.2.2, 2017-03-05</h5>
+<h5>Version 3.x.x, 2017-03-05</h5>
 <ul>
-<li>Added instantaneous power calculations of DC and AC interface partial models, see #2198</li>
-<li>Replaced Modelica_Electrical_PowerConverters by Modelica.Electrical.PowerConverter, see #2196</li>
-<li>Unified location of PowerConverter connectors in diagram layer, see #2185</li>
+<li>Added instantaneous power calculations of DC and AC interface partial models, see <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2198\">#2198</a></li>
+<li>Replaced Modelica_Electrical_PowerConverters by Modelica.Electrical.PowerConverter, see <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2196\">#2196</a></li>
+<li>Unified location of PowerConverter connectors in diagram layer, see <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2185\">#2185</a></li>
 <li>Fixed broken hyper links</li>
-<li>Replaced pin declaration by <code>extends</code> according to #2065</li>
+<li>Replaced pin declaration by <code>extends</code> according to <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2065\">#2065</a></li>
 </ul>
 
 <h5>Version 1.2.0, 2014-04-06</h5>
