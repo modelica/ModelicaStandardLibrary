@@ -1,7 +1,6 @@
 within ;
-package ModelicaTest "Library to test components of package Modelica - Version 3.2.2"
+package ModelicaTest "Library to test components of package Modelica - Version 3.2.3"
 extends Modelica.Icons.Package;
-
 
 function testAllFunctions "Runs all test cases for functions"
   extends Modelica.Icons.Function;
@@ -48,7 +47,6 @@ algorithm
 
   ok := true;
 end testAllFunctions;
-
 
   annotation (preferredView="info",
        version="3.2.3",

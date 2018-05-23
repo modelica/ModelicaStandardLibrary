@@ -109,7 +109,7 @@ email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
       extends Modelica.Icons.ReleaseNotes;
       annotation (Documentation(info="<html>
 
-<h5>Version 3.x.x, 2017-12-10</h5>
+<h5>Version 3.x.x, 20xx-xx-xx</h5>
 <ul>
   <li>Fixed propagation of excitation leakage factor, see
       <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2403\">#2403</a></li>
