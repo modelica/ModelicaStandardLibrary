@@ -798,6 +798,9 @@ This model compares a transient non-linear magnetic circuit with a linearized qu
 <p>This model investigates a magnetic circuit consisting of four different cuboid sections. The circuit is operated at 50Hz and variable magnetic potential difference. </p>
 </html>"),experiment(StopTime=1,Interval=0.001));
       end CuboidSections;
+      annotation (Documentation(info="<html>
+<p>This package contains examples of components with fixed shape.</p>
+</html>"));
     end FixedShapes;
 
     package Leakage "Examples of magnetic circuits with leakage"
@@ -918,7 +921,7 @@ This model compares a transient non-linear magnetic circuit with a linearized qu
         annotation (Diagram(coordinateSystem(preserveAspectRatio=false)),
           experiment(StopTime=1,Interval=0.001),
         Documentation(info="<html>
-<p>Test of cylindrical compoents with leakage and sensors.</p>
+<p>Test of one source and cylindrical compoents with leakage and various sensors.</p>
 </html>"));
       end CylinderLeakage;
 
@@ -964,6 +967,9 @@ This model compares a transient non-linear magnetic circuit with a linearized qu
 <p>Magnetic circuit with two reluctances, leakage reluctance,  and eddy current loss.</p>
 </html>"));
       end GeneralLeakage;
+      annotation (Documentation(info="<html>
+<p>This package contains examples of components with leakage field.</p>
+</html>"));
     end Leakage;
     annotation (Documentation(info="<html>
 <p>
@@ -1025,7 +1031,7 @@ The magnetic potential at the magnetic ground node is zero. Every magnetic netwo
       Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.PositivePin pin_p
       "Positive electric pin"   annotation (Placement(transformation(extent={{-90,90},{-110,110}}), iconTransformation(extent={{-90,90},{-110,110}})));
       Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.NegativePin pin_n
-      "Negative electric pin"   annotation (Placement(transformation(extent={{-108,-110},{-88,-90}}), iconTransformation(extent={{-108,-110},{-88,-90}})));
+      "Negative electric pin"   annotation (Placement(transformation(extent={{-110,-110},{-90,-90}}), iconTransformation(extent={{-110,-110},{-90,-90}})));
       Modelica.SIunits.ComplexVoltage v "Voltage";
       Modelica.SIunits.ComplexCurrent i(re(start=0, stateSelect=StateSelect.prefer),
                                         im(start=0, stateSelect=StateSelect.prefer))
@@ -1078,38 +1084,7 @@ The magnetic potential at the magnetic ground node is zero. Every magnetic netwo
         defaultComponentName="converter",
         Diagram(coordinateSystem(
             preserveAspectRatio=false,
-            extent={{-100,-100},{100,100}}), graphics={Polygon(
-                  points={{-134,63},{-124,60},{-134,57},{-134,63}},
-                  lineColor={160,160,164},
-                  fillColor={160,160,164},
-                  fillPattern=FillPattern.Solid),Line(points={{-150,60},{-125,
-              60}}, color={160,160,164}),Polygon(
-                  points={{141,-57},{151,-60},{141,-63},{141,-57}},
-                  lineColor={160,160,164},
-                  fillColor={160,160,164},
-                  fillPattern=FillPattern.Solid),Line(points={{125,-60},{150,-60}},
-              color={160,160,164}),Text(
-                  extent={{128,-56},{144,-41}},
-                  lineColor={160,160,164},
-                  textString="Phi"),Text(
-                  extent={{128,64},{145,79}},
-                  textString="Phi"),Line(points={{-150,-59},{-125,-59}}, color=
-              {160,160,164}),Polygon(
-                  points={{-140,-56},{-150,-59},{-140,-62},{-140,-56}},
-                  lineColor={160,160,164},
-                  fillColor={160,160,164},
-                  fillPattern=FillPattern.Solid),Text(
-                  extent={{-141,-56},{-124,-41}},
-                  lineColor={160,160,164},
-                  textString="i"),Text(
-                  extent={{-150,63},{-133,78}},
-                  lineColor={160,160,164},
-                  textString="i"),Line(points={{124,61},{149,61}}, color={160,
-              160,164}),Polygon(
-                  points={{134,64},{124,61},{134,58},{134,64}},
-                  lineColor={160,160,164},
-                  fillColor={160,160,164},
-                  fillPattern=FillPattern.Solid)}),
+            extent={{-100,-100},{100,100}})),
         Icon(coordinateSystem(
           preserveAspectRatio=false,
           extent={{-100,-100},{100,100}}), graphics={
@@ -1165,7 +1140,7 @@ The magnetic potential at the magnetic ground node is zero. Every magnetic netwo
             fillColor={85,170,255},
             fillPattern=FillPattern.Solid),
           Line(points={{110,30},{110,-30}},
-                                          color={255,128,0}),
+                                          color={255,170,85}),
           Polygon(
               points={{110,-30},{116,-10},{104,-10},{110,-30}},
               lineColor={255,170,85},
@@ -1263,11 +1238,11 @@ if
           extent={{-100,-100},{100,100}}), graphics={
           Rectangle(
             extent={{-70,30},{70,-30}},
-            lineColor={255,128,0},
+            lineColor={255,170,85},
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid),
-          Line(points={{-70,0},{-90,0}}, color={255,128,0}),
-          Line(points={{70,0},{90,0}}, color={255,128,0}),
+          Line(points={{-70,0},{-90,0}}, color={255,170,85}),
+          Line(points={{70,0},{90,0}}, color={255,170,85}),
           Text(
             extent={{-150,50},{150,90}},
             textString="%name",
@@ -1374,11 +1349,6 @@ that are calculated from their geometry, this leakage reluctance is calculated w
       annotation (Icon(coordinateSystem(
           preserveAspectRatio=false,
           extent={{-100,-100},{100,100}}), graphics={
-          Rectangle(
-            extent={{-70,30},{70,-30}},
-            lineColor={255,128,0},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
           Line(points={{-70,0},{-90,0}}, color={255,170,85}),
           Line(points={{70,0},{90,0}}, color={255,170,85}),
           Rectangle(
@@ -1417,23 +1387,16 @@ Partitioning of a solid conductive cylinder or prism into several hollow cylinde
             lineColor={0,0,255})}),
         Documentation(info="<html>
 <p>
-This is a simple idle running branch.
+This is a simple idle running branch. The magnetic flux through this component is equal to zero.
 </p></html>",
           revisions="<html>
 </html>"),
         Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}), graphics={Line(points={{-100,0},{-60,0}}, color={
-              255,128,0}),Line(points={{60,0},{100,0}}, color={255,128,0}),Line(
-              points={{-60,0},{-40,2},{-18,6},{0,14},{12,26}}, color={255,128,0}),
-              Line(points={{60,0},{40,-2},{18,-6},{0,-14},{-12,-26}}, color={
-              255,128,0})}));
+                {100,100}})));
     end Idle;
 
     model Short "Short cut branch"
       extends FluxTubes.Interfaces.PartialTwoPortsElementary;
-    equation
-      connect(port_p, port_n) annotation (Line(points={{-100,0},{-1,0},{-1,0},{
-              100,0}}, color={255,128,0}));
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
             Line(points={{-100,0},{100,0}}, color={255,170,85}),
@@ -1443,7 +1406,7 @@ This is a simple idle running branch.
             lineColor={0,0,255})}),                               Documentation(
             info="<html>
 <p>
-This is a simple short cut branch.
+This is a simple short cut branch. The magnetic voltage of this component is equal to zero.
 </p></html>", revisions="<html>
 </html>"));
     end Short;
@@ -1455,13 +1418,6 @@ This is a simple short cut branch.
       FluxTubes.Interfaces.NegativeMagneticPort port_n1 "Negative port_n1 connected with port_n2" annotation (Placement(transformation(extent={{-110,-110},{-90,-90}})));
       FluxTubes.Interfaces.NegativeMagneticPort port_n2 "Negative port_n2 connected with port_n1" annotation (Placement(transformation(extent={{90,90},{110,110}})));
 
-    equation
-      connect(port_p1, port_p2) annotation (Line(
-          points={{-100,100},{-100,20},{0,20},{0,-20},{100,-20},{100,-100}},
-          color={255,128,0}));
-      connect(port_n1, port_n2) annotation (Line(
-          points={{-100,-100},{-100,0},{100,0},{100,100}},
-          color={255,128,0}));
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
           Line(
@@ -1864,6 +1820,9 @@ The permeances of all elements of this package are calculated from their geometr
 <a href=\"modelica://Modelica.Magnetic.FluxTubes.Basic.LeakageWithCoefficient\">Basic.LeakageWithCoefficient</a> accounts for leakage not by the geometry of flux tubes, but by a coupling coefficient <code>c_usefulFlux</code>.
 </p></html>"));
     end Leakage;
+    annotation (Documentation(info="<html>
+<p>This packages contains components which are parameterized based on geometric data.</p>
+</html>"));
   end Shapes;
 
   package Interfaces "Interfaces of magnetic network components"
@@ -1875,58 +1834,21 @@ The permeances of all elements of this package are calculated from their geometr
       flow Modelica.SIunits.ComplexMagneticFlux Phi
       "Complex magnetic flux flowing into the pin";
       annotation (Documentation(info="<html>
-<p>Base definition of complex quasi static magnetic port. The potential variable is the complex magnetic potential difference <code>V_m</code> and the flow variable is the complex magnetic flux <code>Phi</code>.</p>
+<p>Base definition of complex quasi static magnetic port. 
+The potential variable is the complex magnetic potential difference <code>V_m</code> and the flow variable 
+is the complex magnetic flux <code>Phi</code>.</p>
 </p>
 
 <h4>See also</h4>
 
 <p>
-<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Interfaces.PositiveMagneticPort\">PositiveMagneticPort</a>,
-<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Interfaces.NegativeMagneticPort\">NegativeMagneticPort</a>
+<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.PositiveMagneticPort\">PositiveMagneticPort</a>,
+<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.NegativeMagneticPort\">NegativeMagneticPort</a>,
+<a href=\"modelica://Modelica.Magnetic.FluxTubes.Interfaces.MagneticPort\">Magnetic.FluxTubes.Interfaces.MagneticPort</a>
 </p>
 
 </html>"));
     end MagneticPort;
-
-    connector NegativeMagneticPort "Negative quasi static magnetic port"
-      extends Modelica.Magnetic.QuasiStatic.FundamentalWave.Interfaces.MagneticPort;
-      Modelica.Electrical.QuasiStationary.Types.Reference reference "Reference";
-      annotation (
-        defaultComponentName="port_n",
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}),
-                graphics={Text(
-                  extent={{-100,100},{100,60}},
-                  lineColor={255,170,85},
-                  fillColor={0,0,255},
-                  fillPattern=FillPattern.Solid,
-                  textString="%name"), Rectangle(
-              extent={{-40,40},{40,-40}},
-              lineColor={255,170,85},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid)}),
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-                100,100}}),
-             graphics={Rectangle(
-              extent={{-100,100},{100,-100}},
-              lineColor={255,170,85},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid)}),
-        Documentation(info="<html>
-
-<p>
-The negative pin is based on <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.Pin\">Pin</a>.
-Additionally the reference angle is specified in the connector. The time derivative of the reference angle is the actual angluar velocity of the quasi static voltage and current. The symbol is also designed such way to look different than the <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.PositivePin\">positive pin</a>.
-</p>
-
-<h4>See also</h4>
-
-<p>
-<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Interfaces.MagneticPort\">MagneticPort</a>,
-<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Interfaces.PositiveMagneticPort\">PositiveMagneticPort</a>
-</p>
-</html>"));
-    end NegativeMagneticPort;
 
     connector PositiveMagneticPort "Positive quasi static magnetic port"
       extends Modelica.Magnetic.QuasiStatic.FundamentalWave.Interfaces.MagneticPort;
@@ -1955,20 +1877,70 @@ Additionally the reference angle is specified in the connector. The time derivat
         Documentation(info="<html>
 
 <p>
-The positive port is based on
-<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Interfaces.MagneticPort\">MagneticPort</a>.
-Additionally the reference angle is specified in the connector. The time derivative of the reference angle is the actual angluar velocity of the quasi static voltage and current. The symbol is also designed such way to look different than the
+The positive magnetic port is based on the
+<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.MagneticPort\">MagneticPort</a>.
+Additionally the reference angle is specified in the connector. The time derivative of the 
+reference angle is the actual angluar frequency of the quasi static magnetic potential and flux.
+The symbol is also designed such way to look different than the
 <a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Interfaces.NegativeMagneticPort\">NegativeMagneticPort</a>.
 </p>
 
 <h4>See also</h4>
 
 <p>
-<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Interfaces.MagneticPort\">MagneticPort</a>,
-<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Interfaces.NegativeMagneticPort\">NegativeMagneticPort</a>
+<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.MagneticPort\">MagneticPort</a>,
+<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.NegativeMagneticPort\">NegativeMagneticPort</a>,
+<a href=\"modelica://Modelica.Magnetic.FluxTubes.Interfaces.PositiveMagneticPort\">Magnetic.FluxTubes.Interfaces.PositiveMagneticPort</a>
 </p>
 </html>"));
     end PositiveMagneticPort;
+
+    connector NegativeMagneticPort "Negative quasi static magnetic port"
+      extends Modelica.Magnetic.QuasiStatic.FundamentalWave.Interfaces.MagneticPort;
+      Modelica.Electrical.QuasiStationary.Types.Reference reference "Reference";
+      annotation (
+        defaultComponentName="port_n",
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                -100},{100,100}}),
+                graphics={Text(
+                  extent={{-100,100},{100,60}},
+                  lineColor={255,170,85},
+                  fillColor={0,0,255},
+                  fillPattern=FillPattern.Solid,
+                  textString="%name"), Rectangle(
+              extent={{-40,40},{40,-40}},
+              lineColor={255,170,85},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid)}),
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}),
+             graphics={Rectangle(
+              extent={{-100,100},{100,-100}},
+              lineColor={255,170,85},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid)}),
+        Documentation(info="<html>
+
+<p>
+The negative magnetic port is based on the
+<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.MagneticPort\">MagneticPort</a>.
+Additionally the reference angle is specified in the connector. The time derivative of the 
+reference angle is the actual angluar frequency of the quasi static magnetic potential and flux.
+The symbol is also designed such way to look different than the 
+<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.PositiveMagneticPort\">PositiveMagneticPort</a>.
+</p>
+
+<p>
+
+<h4>See also</h4>
+
+<p>
+<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.MagneticPort\">MagneticPort</a>,
+<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.PositiveMagneticPort\">PositiveMagneticPort</a>,
+<a href=\"modelica://Modelica.Magnetic.FluxTubes.Interfaces.NegativeMagneticPort\">Magnetic.FluxTubes.Interfaces.NegativeMagneticPort</a>
+</p>
+</html>"));
+    end NegativeMagneticPort;
 
     partial model PartialTwoPortsElementary
     "Partial component with two magnetic ports p and n for textual programming"
@@ -2016,7 +1988,8 @@ connector <code>port_n</code>. The total magnetic potential difference
 
       annotation (Documentation(info="<html>
 <p>
-It is assumed that the magnetic flux flowing into <code>port_p</code> is identical to the flux flowing out of <code>port_n</code>.
+It is assumed that the magnetic flux flowing into <code>port_p</code>
+is identical to the flux flowing out of <code>port_n</code>.
 </p>
 </html>"));
     end PartialTwoPorts;
@@ -2069,7 +2042,9 @@ It is assumed that the magnetic flux flowing into <code>port_p</code> is identic
             textString="%name",
             lineColor={0,0,255})}), Documentation(info="<html>
 <p>
-Please refer to the description of  the sub-package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.FixedShape\">Shapes.FixedShape</a> for utilisation of this partial model.
+Please refer to the description of  the subpackage 
+<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape\">Shapes.FixedShape</a> 
+for utilisation of this partial model.
 </p>
 </html>"),
         Diagram(coordinateSystem(preserveAspectRatio=false)));
@@ -2102,7 +2077,9 @@ Please refer to the description of  the sub-package <a href=\"modelica://Modelic
             textString="%name",
             lineColor={0,0,255})}), Documentation(info="<html>
 <p>
-Please refer to the description of the sub-package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.Leakage\">Shapes.Leakage</a> for utilisation of this partial model.
+Please refer to the description of the subpackage 
+<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.Leakage\">Shapes.Leakage</a> 
+for utilisation of this partial model.
 </p>
 </html>"));
     end PartialLeakage;
@@ -2125,11 +2102,13 @@ Please refer to the description of the sub-package <a href=\"modelica://Modelica
               textString="%name")}),                        Documentation(info="<html>
 <p>
 The absolute sensor partial model provides a single
-<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.PositiveMagneticPort\">PositiveMagneticPort</a> to measure the complex magnetic potential. Additionally this model contains a proper icon and a definition of the angular velocity.
+<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.PositiveMagneticPort\">PositiveMagneticPort</a> 
+to measure the complex magnetic potential. Additionally this model contains a base icon and a definition 
+of the angular frequency.
 </p></html>"));
     end AbsoluteSensor;
 
-    partial model RelativeSensor "Partial voltage / current sensor"
+    partial model RelativeSensor "Partial magnetic voltage or flux sensor"
       extends Modelica.Icons.RotationalSensor;
       extends FluxTubes.Interfaces.PartialTwoPorts;
       Modelica.ComplexBlocks.Interfaces.ComplexOutput y annotation (Placement(
@@ -2155,11 +2134,13 @@ The absolute sensor partial model provides a single
           Documentation(info="<html>
 <p>
 The relative sensor partial model relies on the
-<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.PartialTwoPorts\">PartialTwoPorts</a> to measure the complex voltage, current or power. Additionally this model contains a proper icon and a definition of the angular velocity.
+<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.PartialTwoPorts\">PartialTwoPorts</a> 
+to measure the complex magnetic voltage, flux or power. Additionally this model contains a base icon and a definition 
+of the angular frequency.
 </p></html>"));
     end RelativeSensor;
 
-    partial model Source "Partial voltage / current source"
+    partial model Source "Partial magnetic voltage or flux source"
       FluxTubes.Interfaces.PositiveMagneticPort port_p "Positive magnetic port" annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
       FluxTubes.Interfaces.NegativeMagneticPort port_n "Negative magnetic port" annotation (Placement(transformation(extent={{90,-10},{110,10}})));
 
@@ -2190,7 +2171,8 @@ The relative sensor partial model relies on the
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid)}),            Documentation(info="<html>
 <p>
-The source model provides a positive and negative magnetic port. Additionally this model contains a proper icon and a definition of the angular velocity.
+The source model provides a positive and negative magnetic port. Additionally this model contains a base icon 
+and a definition of the angular frequency.
 </p></html>"));
     end Source;
     annotation (Documentation(info="<html>
@@ -2233,7 +2215,7 @@ This package contains connectors for the magnetic domain and partial models for 
             Line(points={{60,20},{80,20}}, color={255,170,85})}),
         Documentation(info="<html>
 <p>
-This source provides a constant quasi static magnetic potential difference <code>V_m</code> or magnetomotive force (mmf),
+This source provides a constant quasi static magnetic potential difference <code>V_m</code> (or magnetomotive force, mmf),
 at fixed frequency, <code>f</code>.
 </p>
 </html>"));
@@ -2285,7 +2267,8 @@ at fixed frequency, <code>f</code>.
             Line(points={{60,20},{80,20}}, color={255,170,85})}),
         Documentation(info="<html>
 <p>
-This source provides a quasi static magnetic potential difference or magnetomotive force (mmf) with signal inputs for:
+This source provides a quasi static magnetic potential difference <code>V_m</code> (or magnetomotive force, mmf) 
+with signal inputs for:
 </p>
 <ul>
 <li>Complex magnetic potential difference, <code>V_m</code></li>
@@ -2404,7 +2387,11 @@ This package contains sources of a magnetic potential difference or a magnetic f
       annotation (Icon(graphics={Text(
               extent={{60,-60},{-60,-30}},
               fillPattern=FillPattern.Solid,
-              textString="ref")}), Diagram(coordinateSystem(preserveAspectRatio=false)));
+              textString="ref")}), Diagram(coordinateSystem(preserveAspectRatio=false)),
+        Documentation(info="<html>
+<p>This sensor determines the reference angle of the connected quasi stastic magnetic system. 
+The integral of the angular frequency of the quasi stastic magnetic system is equal to the reference angle.</p>
+</html>"));
     end ReferenceSensor;
 
     model FrequencySensor "Frequency sensor"
@@ -2417,20 +2404,10 @@ This package contains sources of a magnetic potential difference or a magnetic f
       annotation (Icon(graphics={Text(
               extent={{-29,-11},{30,-70}},
               textString="f")}), Documentation(info="<html>
-
 <p>
 This sensor can be used to measure the frequency of the reference system.
+The integral of the angular frequency of the quasi stastic magnetic system is equal to the reference angle.</p>
 </p>
-
-<h4>See also</h4>
-
-<p>
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.PotentialSensor\">PotentialSensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.VoltageSensor\">VoltageSensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.CurrentSensor\">CurrentSensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.PowerSensor\">PowerSensor</a>
-</p>
-
 </html>"));
     end FrequencySensor;
 
@@ -2441,19 +2418,9 @@ This sensor can be used to measure the frequency of the reference system.
     equation
       y = port.V_m;
       annotation (               Documentation(info="<html>
-
 <p>
-This sensor can be used to measure the complex potential.
+This sensor can be used to measure the complex magnetic potential <code>V_m</code> in a quasi static magnetic system.
 </p>
-
-<h4>See also</h4>
-
-<p>
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.VoltageSensor\">VoltageSensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.CurrentSensor\">CurrentSensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.PowerSensor\">PowerSensor</a>
-</p>
-
 </html>"));
     end MagneticPotentialSensor;
 
@@ -2475,7 +2442,13 @@ This sensor can be used to measure the complex potential.
             Line(points={{70,0},{90,0}}, color={255,170,85}),
             Line(points={{0,-90},{0,-70}})}),
                                       Diagram(coordinateSystem(
-            preserveAspectRatio=false)));
+            preserveAspectRatio=false)),
+        Documentation(info="<html>
+<p>
+This sensor can be used to measure the complex magnetic potential difference <code>V_m</code> 
+in a quasi static magnetic system.
+</p>
+</html>"));
     end MagneticPotentialDifferenceSensor;
 
     model MagneticFluxSensor "Sensor to measure magnetic flux"
@@ -2489,7 +2462,12 @@ This sensor can be used to measure the complex potential.
                 -100},{100,100}}), graphics={Line(points={{0,-100},{0,-70}}),Line(points={{-70,0},{-90,0}}),Line(
               points={{70,0},{90,0}}),Text(extent={{-29,-11},{30,
               -70}}, textString="Phi"),Line(points={{0,-90},{0,-70}})}),
-        Diagram(coordinateSystem(preserveAspectRatio=false)));
+        Diagram(coordinateSystem(preserveAspectRatio=false)),
+        Documentation(info="<html>
+<p>
+This sensor can be used to measure the complex magnetic flux <code>Phi</code> of a quasi static magnetic system.
+</p>
+</html>"));
     end MagneticFluxSensor;
 
     package Transient "Transient fundamental wave sensors"
@@ -2692,7 +2670,8 @@ of the flux path have to be take into account<p>
 </html>"));
       end Permeability;
     annotation (Documentation(info="<html>
-<p>This package contains sensors to be used with transient flux tubes models in order to provide information for quasi static paramters.</p>
+<p>This package contains sensors to be used with transient flux tubes models in order to provide information 
+for quasi static paramters.</p>
 </html>"));
     end Transient;
     annotation (Documentation(info="<html>
