@@ -756,7 +756,7 @@ The Inductance <code>L</code> is allowed to be positive, zero, or negative.
               lineColor={0,0,255})}),
           Documentation(info="<html>
 
-<p>The impedance model represents a <strong>series</strong> connection of a resitsor and either an inductor or capacitor.<br>
+<p>The impedance model represents a <strong>series</strong> connection of a resistor and either an inductor or capacitor.<br>
 <img src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/SinglePhase/Basic/RX_impedance.png\"></p>
 
 <p>
@@ -1197,7 +1197,7 @@ The abstraction of a variable inductor at quasi stationary operation assumes:
               lineColor={0,0,255})}),
         Documentation(info="<html>
 
-<p>The impedance model represents a <strong>series</strong> connection of a resitsor and either an inductor or capacitor.<br>
+<p>The impedance model represents a <strong>series</strong> connection of a resistor and either an inductor or capacitor.<br>
 <img src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/SinglePhase/Basic/RX_impedance.png\"></p>
 
 <p>

@@ -1441,7 +1441,7 @@ Model of a multi phase inductor providing a mutual inductance matrix model.
               extent={{-150,90},{150,50}},
               textString="%name",
               lineColor={0,0,255})}), Documentation(info="<html>
-<p>The impedance model represents a <strong>series</strong> connection of a resitsor and either an inductor or capacitor
+<p>The impedance model represents a <strong>series</strong> connection of a resistor and either an inductor or capacitor
 in each phase.<br>
 <img src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/SinglePhase/Basic/RX_impedance.png\"></p>
 
@@ -1529,7 +1529,7 @@ Frequency dependency is considered by <code>frequencyDependent = true</code>, di
               textString="%name",
               lineColor={0,0,255})}), Documentation(info="<html>
 
-<p>The admittance model represents a <strong>parallel</strong> connection of a resitsor and either a capacitor or inductor
+<p>The admittance model represents a <strong>parallel</strong> connection of a resistor and either a capacitor or inductor
 in each phase.<br>
 <img src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/SinglePhase/Basic/GB_admittance.png\"></p>
 
@@ -1919,7 +1919,7 @@ The inductances <code>L</code> are given as <code>m</code> input signals.
                   extent={{150,-80},{-150,-40}},
                   textString="m=%m")}),
         Documentation(info="<html>
-<p>The impedance model represents a <strong>series</strong> connection of a resitsor and either an inductor or capacitor
+<p>The impedance model represents a <strong>series</strong> connection of a resistor and either an inductor or capacitor
 in each phase.<br>
 <img src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/SinglePhase/Basic/RX_impedance.png\"></p>
 
@@ -2025,7 +2025,7 @@ singularities due to the actual structure of the connected network.
                   extent={{150,-80},{-150,-40}},
                   textString="m=%m")}),
         Documentation(info="<html>
-<p>The admittance model represents a <strong>parallel</strong> connection of a resitsor and either a capacitor or inductor
+<p>The admittance model represents a <strong>parallel</strong> connection of a resistor and either a capacitor or inductor
 in each phase.<br>
 <img src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/SinglePhase/Basic/GB_admittance.png\"></p>
 
