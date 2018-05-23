@@ -2312,9 +2312,9 @@ Quasi stationary theory for single phase circuits can be found in the
 
     model VoltageSource "Constant AC voltage"
       extends Interfaces.Source;
-      parameter Modelica.SIunits.Frequency f(start=1) "frequency of the source";
+      parameter Modelica.SIunits.Frequency f(start=1) "Frequency of the source";
       parameter Modelica.SIunits.Voltage V(start=1) "RMS voltage of the source";
-      parameter Modelica.SIunits.Angle phi(start=0) "phase shift of the source";
+      parameter Modelica.SIunits.Angle phi(start=0) "Phase shift of the source";
     equation
       omega = 2*Modelica.Constants.pi*f;
       v = Complex(V*cos(phi), V*sin(phi));
@@ -2437,9 +2437,9 @@ way that on a logarithmic frequency scale, the frequency curve appears linear.</
 
     model CurrentSource "Constant AC current"
       extends Interfaces.Source;
-      parameter Modelica.SIunits.Frequency f(start=1) "frequency of the source";
+      parameter Modelica.SIunits.Frequency f(start=1) "Frequency of the source";
       parameter Modelica.SIunits.Current I(start=1) "RMS current of the source";
-      parameter Modelica.SIunits.Angle phi(start=0) "phase shift of the source";
+      parameter Modelica.SIunits.Angle phi(start=0) "Phase shift of the source";
     equation
       omega = 2*Modelica.Constants.pi*f;
       i = Complex(I*cos(phi), I*sin(phi));
