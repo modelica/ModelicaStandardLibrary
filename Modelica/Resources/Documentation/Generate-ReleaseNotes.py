@@ -16,6 +16,7 @@ import os
 import os.path
 import sys
 from enum import IntEnum
+from collections import defaultdict
 
 IssueType = IntEnum(
     value='IssueType',
@@ -37,7 +38,7 @@ def main(dir, milestone, version):
     url = 'https://api.github.com/repos/{0}/{1}/issues'.format(owner, repo)
     r = requests.get(url, params=p)
     data = json.loads(r.text or r.content)
-    issues = {}
+    issues = defaultdict(lambda: defaultdict(list))
     cnt = 0
 
     while True:
@@ -67,15 +68,9 @@ def main(dir, milestone, version):
             # Introduce generic label if there was not any library related label
             if not any(l.startswith('L: ') for l in labels):
                 labels.append('L: --MSL-general--')
+            labels = (l for l in labels if l.startswith('L: '))
             for l in labels:
-                if l.startswith('L: '):
-                    if l in issues:
-                        if issueType in issues[l]:
-                            issues[l][issueType].append((t, n, url))
-                        else:
-                            issues[l][issueType] = [(t, n, url)]
-                    else:
-                        issues[l] = {issueType: [(t, n, url)]}
+                issues[l][issueType].append((t, n, url))
         if 'next' in r.links:
             r = requests.get(r.links['next']['url'])
             data = json.loads(r.text or r.content)
