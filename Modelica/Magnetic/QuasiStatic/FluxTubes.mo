@@ -2212,7 +2212,7 @@ This package contains connectors for the magnetic domain and partial models for 
     model ConstantMagneticPotentialDifference "Constant magnetomotive force"
 
       extends FluxTubes.Interfaces.Source;
-      parameter Modelica.SIunits.Frequency f(start=1) "frequency of the source";
+      parameter Modelica.SIunits.Frequency f(start=1) "Frequency of the source";
       parameter Modelica.SIunits.ComplexMagneticPotentialDifference V_m
       "Magnetic potential difference";
       Modelica.SIunits.ComplexMagneticFlux Phi(re(start=0),im(start=0))
