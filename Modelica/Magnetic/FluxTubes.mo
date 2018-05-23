@@ -123,7 +123,7 @@ The sub-package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.Leakage\
 <h4>The Tellinen hysteresis model</h4>
 
 <p>
-The Tellinen hysteresis model is described in more detail in <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Literature\">[Te98, ZB12]</a>. It is a simple model to describe the static magnetic hysteresis behavior of ferromagnetic materials. It only requires the Upper B<sub>U</sub>(H) and lower B<sub>L</sub>(H) branches of the linmiting hysteresis loop for the adaption to a material specific hysteresis shape. Coming from negative magnetic saturation with increasing magnetic field strength H(t) the flux density B(T) travels along the B<sub>L</sub>(H). Coming from positiv saturation with a decreasing H(t), B(t) travels along B<sub>U</sub>(H). The Tellinen model is defined by the following equation, which gives a calculation rule for time derivative of the magnetic flux density B(t) with respect to the current value of B(t), H(t) and its slope dH(t)/dt.
+The Tellinen hysteresis model is described in more detail in <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Literature\">[Te98, ZB12]</a>. It is a simple model to describe the static magnetic hysteresis behavior of ferromagnetic materials. It only requires the Upper B<sub>U</sub>(H) and lower B<sub>L</sub>(H) branches of the limiting hysteresis loop for the adaption to a material specific hysteresis shape. Coming from negative magnetic saturation with increasing magnetic field strength H(t) the flux density B(T) travels along the B<sub>L</sub>(H). Coming from positive saturation with a decreasing H(t), B(t) travels along B<sub>U</sub>(H). The Tellinen model is defined by the following equation, which gives a calculation rule for time derivative of the magnetic flux density B(t) with respect to the current value of B(t), H(t) and its slope dH(t)/dt.
 </p>
 
 <table cellspacing=\"0\" cellpadding=\"2\" border=\"0\"><tr>
@@ -151,7 +151,7 @@ Therein, S<sub>U</sub>(H) and S<sub>L</sub>(H) are the derivatives of limiting b
 <h4>The Preisach hysteresis model</h4>
 
 <p>
-This section gives an very brief overview of the Preisach hysteresis model, which is explained in more detail in <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Literature\">[Pr35, Ma03, Zi12]</a>. The classical Preisach hysteresis model describes the course of magnetic flux density B(t) of a ferromagnetic core material as a function of the course of the mangetic field strength H(t) and its history. The model assumes an infinite set of elementary hysteresis operators &gamma;&alpha;&beta;. The simple rectangular pattern of the output &gamma;&alpha;&beta;H(t) of such an operator with its upper and lower switching limits &alpha; and &beta; is shown Fig. 1.
+This section gives an very brief overview of the Preisach hysteresis model, which is explained in more detail in <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Literature\">[Pr35, Ma03, Zi12]</a>. The classical Preisach hysteresis model describes the course of magnetic flux density B(t) of a ferromagnetic core material as a function of the course of the magnetic field strength H(t) and its history. The model assumes an infinite set of elementary hysteresis operators &gamma;&alpha;&beta;. The simple rectangular pattern of the output &gamma;&alpha;&beta;H(t) of such an operator with its upper and lower switching limits &alpha; and &beta; is shown Fig. 1.
 </p>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
@@ -164,7 +164,7 @@ This section gives an very brief overview of the Preisach hysteresis model, whic
 </table>
 
 <p>
-Due to &alpha;&ge;&beta;, the switching limits &alpha; and &beta; span a right triangular region, oftern referred to as Preisach plane (see Fig. 2a). For each single point (&alpha;,&beta;) on this plane exactly one elementary hysteresis operator is defined with exactly the switching limits of &alpha; and &beta;.
+Due to &alpha;&ge;&beta;, the switching limits &alpha; and &beta; span a right triangular region, often referred to as Preisach plane (see Fig. 2a). For each single point (&alpha;,&beta;) on this plane exactly one elementary hysteresis operator is defined with exactly the switching limits of &alpha; and &beta;.
 </p>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
@@ -203,7 +203,7 @@ The equation above shows, that the double integral of P(&alpha;,&beta;) have to 
 </table>
 
 <p>
-The Everett function returns the change in magnetization which results whenn all elementary hysteresis operators of the region R switch from \"-1\" to the \"+1\" state (see Fig 3.). The entire Region S+ can be now be decomposed into several smaller triangular regions similar to R. This way the magnetization B(t) can be efficiently evaluated without the need of the numerical integration of the Preisach distribution function.
+The Everett function returns the change in magnetization which results when all elementary hysteresis operators of the region R switch from \"-1\" to the \"+1\" state (see Fig 3.). The entire Region S+ can be now be decomposed into several smaller triangular regions similar to R. This way the magnetization B(t) can be efficiently evaluated without the need of the numerical integration of the Preisach distribution function.
 </p>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
@@ -223,7 +223,7 @@ According to <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Literat
         end Preisach;
         annotation (Documentation(info="<html>
 <p>
-Two different types of hyteresis models are supported:</p>
+Two different types of hysteresis models are supported:</p>
 <ul>
 <li> Tellinen model (a simple model to describe the static magnetic hysteresis behavior of ferromagnetic materials).</li>
 <li> Preisach model (a more detailed, but also computationally more involved hysteresis model).</li>
@@ -305,7 +305,7 @@ The following two figures show a comparison between measured and simulated dynam
         extends Modelica.Icons.Information;
         annotation (Documentation(info="<html>
 <h4>Hysteresis power losses</h4>
-<p>The total power loss (<code>LossPower</code>) of an hysteresis flux tube element is the sum of the power loss due to the static ferromagnetic hsysteresis (<code>LossPowerStat</code>) and the power loss due to eddy currents (<code>LossPowerEddy</code>).</p>
+<p>The total power loss (<code>LossPower</code>) of an hysteresis flux tube element is the sum of the power loss due to the static ferromagnetic hysteresis (<code>LossPowerStat</code>) and the power loss due to eddy currents (<code>LossPowerEddy</code>).</p>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
   <tr>
@@ -316,7 +316,7 @@ The following two figures show a comparison between measured and simulated dynam
 </table>
 
 <p>
-The two componenets <code>LossPowerStat</code> and <code>LossPowerEddy</code> can be calculated as follows.
+The two components <code>LossPowerStat</code> and <code>LossPowerEddy</code> can be calculated as follows.
 </p>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
@@ -336,10 +336,8 @@ The two componenets <code>LossPowerStat</code> and <code>LossPowerEddy</code> ca
 </table>
 
 <p>
-Where <code>&sigma;<sub>cl</sub></code> is the classical eddy current factor (see <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Hysteresis.DynamicHysteresis\">UsersGuide.Hysteresis.DynamicHysteresis</a>) and V the volume of the core material. The equations show that <code>LossPowerStat</code> acts as power sink and power source (magnetic energy storage) whereas <code>LossPowerEddy</code> is always positive (Power sink). By means of an simple example the following figures show the time course of the magntix flux density,  the magnetic field strength and the hysteresis losses. The pulsuating course of the power loss (see Fig. 3c) makes it difficult to estimate an average loss. For this reason, the hysteresis flux tube elements are capable of dircetly computing the moving average of the power losses. Therefore, <code>t_avg</code> of the \"LossesAndHeat\" tab of the elements parameter dialog may be adjusted to set an adequate time interval (see Fig. 3d).
+Where <code>&sigma;<sub>cl</sub></code> is the classical eddy current factor (see <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Hysteresis.DynamicHysteresis\">UsersGuide.Hysteresis.DynamicHysteresis</a>) and V the volume of the core material. The equations show that <code>LossPowerStat</code> acts as power sink and power source (magnetic energy storage) whereas <code>LossPowerEddy</code> is always positive (Power sink). By means of an simple example the following figures show the time course of the magnetic flux density,  the magnetic field strength and the hysteresis losses. The pulsating course of the power loss (see Fig. 3c) makes it difficult to estimate an average loss. For this reason, the hysteresis flux tube elements are capable of directly computing the moving average of the power losses. Therefore, <code>t_avg</code> of the \"LossesAndHeat\" tab of the elements parameter dialog may be adjusted to set an adequate time interval (see Fig. 3d).
 </p>
-
-
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
   <caption align=\"bottom\"><strong>Fig. 1:</strong> Diagram of a simple transformer with ferromagnetic core (model available at <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.Hysteresis.SinglePhaseTransformerWithHysteresis1\">Examples.Hysteresis.SinglePhaseTransformerWithHysteresis1</a>)</caption>
@@ -351,7 +349,7 @@ Where <code>&sigma;<sub>cl</sub></code> is the classical eddy current factor (se
 </table>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
-  <caption align=\"bottom\"><strong>Fig. 2:</strong> Simulated total dynamic hysteres loop with its static and eddy current fractions</caption>
+  <caption align=\"bottom\"><strong>Fig. 2:</strong> Simulated total dynamic hysteresis loop with its static and eddy current fractions</caption>
   <tr>
     <td>
       <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/HysteresisLosses/PowerLoss_Hysteresis02.png\">
@@ -375,11 +373,11 @@ Where <code>&sigma;<sub>cl</sub></code> is the classical eddy current factor (se
 <h4>Introduction</h4>
 
 <p>
-The elements provided in the package Shapes.HysteresisAndMagnets allow for consideration of ferromagnetic and dynamic hysteresis during the simulation of electromagnetic networks. The ferromagnetic hysteresis is a material property of the core material and frequency independent. Due to eddy currents the static ferromagnetic hysteresis is superposed by a frequency dependent hysteresis when the ferromagnetic material is exposed to an alternating magnetic field. Fig 1 exemplarily shows the simulated hysteresis characteristics of a simple inductor with an iron core for three different excitation frequencies. Thereby, the 0 Hz hysteresis loop represents the static ferromagnetic hysteresis of the core material. The widening of the loops for higher frequencies is due to eddy currents induced in the core material.
+The elements provided in the package Shapes.HysteresisAndMagnets allow for consideration of ferromagnetic and dynamic hysteresis during the simulation of electromagnetic networks. The ferromagnetic hysteresis is a material property of the core material and frequency independent. Due to eddy currents the static ferromagnetic hysteresis is superposed by a frequency dependent hysteresis when the ferromagnetic material is exposed to an alternating magnetic field. Fig 1 exemplary shows the simulated hysteresis characteristics of a simple inductor with an iron core for three different excitation frequencies. Thereby, the 0 Hz hysteresis loop represents the static ferromagnetic hysteresis of the core material. The widening of the loops for higher frequencies is due to eddy currents induced in the core material.
 </p>
 
 <table cellspacing=\"0\" cellpadding=\"2\" border=\"0\">
-  <caption align=\"bottom\"><strong>Fig. 1:</strong> Inductor with ferromagnetic core and hysteresis effects; (a) diagram of the network model; (b) simulated hysteresis characteristics of the core for different excitation frequencies of 0, 10 and 100 Hz (the example model can be found at: <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.Hysteresis.InductorWithHysteresis\">Examples.Hystersis.InductorWithHysteresis</a>)</caption>
+  <caption align=\"bottom\"><strong>Fig. 1:</strong> Inductor with ferromagnetic core and hysteresis effects; (a) diagram of the network model; (b) simulated hysteresis characteristics of the core for different excitation frequencies of 0, 10 and 100 Hz (the example model can be found at: <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.Hysteresis.InductorWithHysteresis\">Examples.Hysteresis.InductorWithHysteresis</a>)</caption>
   <tr>
     <td>
       <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/InductorWithHysteresis_DiagramAndSim.png\">
@@ -387,13 +385,11 @@ The elements provided in the package Shapes.HysteresisAndMagnets allow for consi
   </tr>
 </table>
 
-
 <p>
-Several models to describe the static hysteresis behavior of ferromagnetic materials are known. In this library two of them are implemented. The simple but fast <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Hysteresis.StaticHysteresis.Tellinen\">Tellinen hysteresis model</a> and the more accurate but complex <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Hysteresis.StaticHysteresis.Preisach\">Preisach hysteresis model</a>. Click the links for a short descripten of both models.
+Several models to describe the static hysteresis behavior of ferromagnetic materials are known. In this library two of them are implemented. The simple but fast <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Hysteresis.StaticHysteresis.Tellinen\">Tellinen hysteresis model</a> and the more accurate but complex <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Hysteresis.StaticHysteresis.Preisach\">Preisach hysteresis model</a>. Click the links for a short description of both models.
 </p>
 
 <h4>Flux tube elements of the Package HysteresisAndMagnets</h4>
-
 
 <table border=1 cellspacing=0 cellpadding=2>
  <tr>
@@ -591,7 +587,7 @@ Several models to describe the static hysteresis behavior of ferromagnetic mater
 
 <ul>
 <li>Added package <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Hysteresis\">FluxTubes.UsersGuide.Hysteresis</a></li>
-<li>Added package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.Hysteresis\">Fluxtubes.Examples.Hysteresis</a></li>
+<li>Added package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.Hysteresis\">FluxTubes.Examples.Hysteresis</a></li>
 <li>Added package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets\">FluxTubes.Shapes.HysteresisAndMagnets</a></li>
 <li>Added package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Material.HysteresisEverettParameter\">FluxTubes.Material.HysteresisEverettParameter</a></li>
 <li>Added package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Material.HysteresisTableData\">FluxTubes.Material.HysteresisTableData</a></li>
@@ -1252,7 +1248,7 @@ In the <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.MovingCoilActua
 </pre>
 
 <p>
-Both force components are properly considered with a simple permeance model as shown in the figures below. Figure (a) illustrates the dimensions of the axisymmetric moving coil actuator that are needed in the permeance model. Figure (b) shows partitioning into flux tubes and the permanent magnetic field without current. G_ma and G_mb both are the permeances resulting from a series connection of the permanent magnet and air gap sections. The field plot of the coil-imposed mmf is shown in figure (c) without the permanent magnetic mmf (H_cB=0). The placement of the magnetic network components in figure (d) retains the geometric structure of the actuator. In figure (e), the permeance model is restructured and thus simplified.
+Both force components are properly considered with a simple permeance model as shown in the figures below. Figure (a) illustrates the dimensions of the axis-symmetric moving coil actuator that are needed in the permeance model. Figure (b) shows partitioning into flux tubes and the permanent magnetic field without current. G_ma and G_mb both are the permeances resulting from a series connection of the permanent magnet and air gap sections. The field plot of the coil-imposed mmf is shown in figure (c) without the permanent magnetic mmf (H_cB=0). The placement of the magnetic network components in figure (d) retains the geometric structure of the actuator. In figure (e), the permeance model is restructured and thus simplified.
 </p>
 
 <p>
@@ -1557,7 +1553,7 @@ As mentioned in the description of both magnetic network models, one can tell th
                 true)) annotation (Placement(transformation(extent={{-20,20},{0,
                   40}})));
         Modelica.Mechanics.Translational.Components.Mass advancedLoad(m=0.01)
-          "translatory load to be pulled horizontally" annotation (Placement(
+          "Translatory load to be pulled horizontally" annotation (Placement(
               transformation(extent={{20,20},{40,40}})));
         Modelica.Electrical.Analog.Basic.Ground simpleGround annotation (
             Placement(transformation(extent={{-70,-90},{-50,-70}})));
@@ -1570,7 +1566,7 @@ As mentioned in the description of both magnetic network models, one can tell th
                 true)) annotation (Placement(transformation(extent={{-20,-60},{0,
                   -40}})));
         Modelica.Mechanics.Translational.Components.Mass simpleLoad(m=0.01)
-          "translatory load to be pulled horizontally" annotation (Placement(
+          "Translatory load to be pulled horizontally" annotation (Placement(
               transformation(extent={{20,-60},{40,-40}})));
         Modelica.Blocks.Sources.CombiTimeTable comparisonWithFEA(
           table=[0, 0, 0, 0.005; 2.61165e-007, 7.93537e-005, -1.97914e-005,
@@ -2275,7 +2271,7 @@ The characteristic current drop during pull-in is due to both armature motion an
                 lineColor={0,0,255},
                 textString="%name")}), Documentation(info="<html>
 <p>
-Please refer to the <strong>Parameters</strong> section for a schematic drawing of this axisymmetric lifting magnet.
+Please refer to the <strong>Parameters</strong> section for a schematic drawing of this axis-symmetric lifting magnet.
 In the half-section below, the flux tube elements of the actuator's magnetic circuit are superimposed on a field plot obtained with FEA. The magnetomotive force imposed by the coil is modelled as one lumped element. As a result, the radial leakage flux between armature and yoke that occurs especially at large working air gaps can not be considered properly. This leads to a a higher total reluctance and lower inductance respectively compared to FEA for large working air gaps (i.e., armature close to x_max). Please have a look at the comments associated with the individual model components for a short explanation of their purpose in the model.
 </p>
 
@@ -2694,7 +2690,7 @@ In electromagnetic or reluctance actuators, a thrust or reluctance force is gene
 </p>
 
 <p>
-As an example of a reluctance actuator, a simple axisymmetric lifting magnet with planar end planes of armature and pole is shown. Often, a <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.SimpleSolenoid\">SimpleSolenoid</a> model is sufficient for initial rough design of such an actuator's magnetic subsystem. Higher accuracy can be gained from an <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.AdvancedSolenoid\">AdvancedSolenoid</a> model where the coil-imposed magnetomotive force is split and the leakage flux between armature and yoke is accounted for more precisely.
+As an example of a reluctance actuator, a simple axis-symmetric lifting magnet with planar end planes of armature and pole is shown. Often, a <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.SimpleSolenoid\">SimpleSolenoid</a> model is sufficient for initial rough design of such an actuator's magnetic subsystem. Higher accuracy can be gained from an <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.AdvancedSolenoid\">AdvancedSolenoid</a> model where the coil-imposed magnetomotive force is split and the leakage flux between armature and yoke is accounted for more precisely.
 </p>
 
 <p>
@@ -2787,7 +2783,7 @@ The differences between these two models in static behaviour can be analysed and
         connect(tellinenTable.port_n, magGnd2.port) annotation (Line(
             points={{80,10},{90,10},{90,-10},{70,-10}},
                                                     color={255,127,0}));
-        connect(vSource2.v, vSource1.v) annotation (Line(points={{-22,8.88178e-16},{-30,8.88178e-16},{-30,60},{-22,60}}, color={0,0,127}));
+        connect(vSource2.v, vSource1.v) annotation (Line(points={{-22,0},{-30,0},{-30,60},{-22,60}}, color={0,0,127}));
         connect(winding3.port_n, magGnd3.port) annotation (Line(points={{50,-70},{70,-70}}, color={255,127,0}));
         connect(winding3.port_p, preisachEverett.port_p) annotation (Line(points={{50,-50},{60,-50}}, color={255,127,0}));
         connect(resistor3.n, winding3.p) annotation (Line(points={{20,-50},{30,-50}}, color={0,0,255}));
@@ -2813,7 +2809,7 @@ Use the following simulation settings:
   <li>Tolerance: 1e-5</li>
 </ul>
 <p>
-This example compares the behavior of three different hysteresis mdoels due to the exact same input magnetic field strength. The three different models are:
+This example compares the behavior of three different hysteresis models due to the exact same input magnetic field strength. The three different models are:
 </p>
 <ol>
   <li>Model=GenericHystTellinenSoft, Tellinen hysteresis model, the upper and lower branch of the limiting hysteresis loop is roughly approximated with simple hyperbolic tangent functions (Fig1. c)</li>
@@ -3181,7 +3177,7 @@ An example simulation shows the transformer inrush currents due to an initially 
         model Transformer1PhaseWithHysteresis
           "Single Phase transformer with ferromagnetic core and hysteresis"
 
-          Modelica.Electrical.Analog.Interfaces.NegativePin n1 "Negativ pin of primary winding" annotation (Placement(transformation(extent={{-110,-110},{-90,-90}}), iconTransformation(extent={{-110,-110},{-90,-90}})));
+          Modelica.Electrical.Analog.Interfaces.NegativePin n1 "Negative pin of primary winding" annotation (Placement(transformation(extent={{-110,-110},{-90,-90}}), iconTransformation(extent={{-110,-110},{-90,-90}})));
           Modelica.Electrical.Analog.Interfaces.PositivePin p1 "Positive pin of primary winding" annotation (Placement(transformation(extent={{-110,90},{-90,110}}), iconTransformation(extent={{-110,90},{-90,110}})));
           Modelica.Electrical.Analog.Interfaces.NegativePin n2 "Negative pin of secondary winding" annotation (Placement(transformation(extent={{90,-110},{110,-90}}), iconTransformation(extent={{90,-110},{110,-90}})));
           Modelica.Electrical.Analog.Interfaces.PositivePin p2 "Positive pin of secondary winding" annotation (Placement(transformation(extent={{90,90},{110,110}}), iconTransformation(extent={{90,90},{110,110}})));
@@ -3264,7 +3260,7 @@ An example simulation shows the transformer inrush currents due to an initially 
             "Initial primary current through winding" annotation (Dialog(tab="Core", group="Initialization"));
           parameter Boolean I1Fixed = false "Fixed" annotation (Dialog(tab="Core", group="Initialization"),choices(checkBox=true));
 
-          output SI.Power LossPowerWinding "Winding lossses";
+          output SI.Power LossPowerWinding "Winding losses";
           output SI.Power LossPowerStat "Ferromagnetic hysteresis losses";
           output SI.Power LossPowerEddy "Eddy current losses";
 
@@ -3359,7 +3355,7 @@ An example simulation shows the transformer inrush currents due to an initially 
           connect(n2, winding2.p) annotation (Line(points={{100,-100},{94,-100},{94,20},{60,20},{60,0}}, color={0,0,255}));
           connect(core.port_p, winding1.port_p) annotation (Line(points={{-10,10},{-40,10},{-40,0}}, color={255,127,0}));
           connect(core.port_n, winding2.port_p) annotation (Line(points={{10,10},{40,10},{40,0}}, color={255,127,0}));
-          annotation (defaultComponentName="tansformer", Icon(graphics={
+          annotation (defaultComponentName="transformer", Icon(graphics={
                 Polygon(
                   points={{50,60},{30,40},{30,-40},{50,-60},{50,60}},
                   fillColor={255,128,0},
@@ -3416,7 +3412,7 @@ Simple model of a single phase transformer with a primary and a secondary windin
         end Transformer1PhaseWithHysteresis;
 
         model Transformer3PhaseYyWithHysteresis
-          "Three phase transfomer in Yy configuration"
+          "Three phase transformer in Yy configuration"
 
           Modelica.Thermal.HeatTransfer.Sources.PrescribedTemperature Temp
             annotation (Placement(transformation(extent={{-166,14},{-154,26}})));
@@ -3503,7 +3499,7 @@ Simple model of a single phase transformer with a primary and a secondary windin
             "Initial current of secondary Windings" annotation (Dialog(tab="Core", group="Initialization"));
           parameter Boolean I2Fixed[3] = {false,false,false} "Fixed" annotation (Dialog(tab="Core", group="Initialization"),choices(checkBox=true));
 
-          output SI.Power LossPowerWinding "Winding lossses";
+          output SI.Power LossPowerWinding "Winding losses";
           output SI.Power LossPowerStat "Ferromagnetic hysteresis losses";
           output SI.Power LossPowerEddy "Eddy current losses";
 
@@ -3753,7 +3749,7 @@ Simple model of a single phase transformer with a primary and a secondary windin
           connect(starPoint2, winding22.n) annotation (Line(points={{-110,-34},{-10,-34},{-10,-19.8}}, color={0,0,255}));
           connect(winding23.n, starPoint2) annotation (Line(points={{110,-19.8},{110,-34},{-110,-34}}, color={0,0,255}));
 
-          annotation (defaultComponentName="tansformer", Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-200,
+          annotation (defaultComponentName="transformer", Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-200,
                     -200},{200,200}})),     Icon(graphics={
                 Polygon(
                   points={{70,60},{50,40},{50,-40},{70,-60},{70,60}},
@@ -5432,7 +5428,7 @@ An overview of all available hysteresis and permanent magnet elements of the pac
       end GenericHystTellinenHard;
 
       model GenericHystTellinenEverett
-        "Generic flux tube with ferromagnetic hysteresis based on the Tellinen model and the Everett fucntion [Ya89])"
+        "Generic flux tube with ferromagnetic hysteresis based on the Tellinen model and the Everett function [Ya89])"
 
         parameter FluxTubes.Material.HysteresisEverettParameter.BaseData mat=
             FluxTubes.Material.HysteresisEverettParameter.BaseData()
@@ -8025,7 +8021,7 @@ For analysis of magnetic networks, only magnetic potential differences and magne
       input FluxTubes.Material.HysteresisEverettParameter.BaseData p;
       input Boolean mirror "If true then J(a,b)=-J(b,a) else J(a,b)=0 for a<b";
 
-      output SI.MagneticFluxDensity J "Magnetic plarisation";
+      output SI.MagneticFluxDensity J "Magnetic polarisation";
 
     protected
       SI.MagneticFieldStrength a;
