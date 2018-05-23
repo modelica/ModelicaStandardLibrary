@@ -110,7 +110,7 @@ email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
       annotation (preferredView="info",
         DocumentationClass=true, Documentation(info="<html>
 
-<h5>Version 3.x.x, 2018-01-02 (Anton Haumer, Christian Kral)</h5>
+<h5>Version 3.x.x, 20xx-xx-xx (Anton Haumer, Christian Kral)</h5>
 <ul>
   <li>Shortened default component names, see
       <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2301\">#2301</a></li>
