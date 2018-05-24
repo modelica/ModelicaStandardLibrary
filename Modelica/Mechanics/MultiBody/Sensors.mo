@@ -340,14 +340,14 @@ a vector is resolved:
 
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameA.</strong></th><th><strong>Meaning</strong></th></tr>
-<tr><td>world</td>
-    <td>Resolve vectors in world frame</td></tr>
+<tr><td valign=\"top\">world</td>
+    <td valign=\"top\">Resolve vectors in world frame</td></tr>
 
-<tr><td>frame_a</td>
-    <td>Resolve vectors in frame_a</td></tr>
+<tr><td valign=\"top\">frame_a</td>
+    <td valign=\"top\">Resolve vectors in frame_a</td></tr>
 
-<tr><td>frame_resolve</td>
-    <td>Resolve vectors in frame_resolve</td></tr>
+<tr><td valign=\"top\">frame_resolve</td>
+    <td valign=\"top\">Resolve vectors in frame_resolve</td></tr>
 </table>
 
 <p>
@@ -777,17 +777,17 @@ a vector is resolved (before differentiation):
 
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameAB.</strong></th><th><strong>Meaning</strong></th></tr>
-<tr><td>world</td>
-    <td>Resolve vectors in world frame</td></tr>
+<tr><td valign=\"top\">world</td>
+    <td valign=\"top\">Resolve vectors in world frame</td></tr>
 
-<tr><td>frame_a</td>
-    <td>Resolve vectors in frame_a</td></tr>
+<tr><td valign=\"top\">frame_a</td>
+    <td valign=\"top\">Resolve vectors in frame_a</td></tr>
 
-<tr><td>frame_b</td>
-    <td>Resolve vectors in frame_b</td></tr>
+<tr><td valign=\"top\">frame_b</td>
+    <td valign=\"top\">Resolve vectors in frame_b</td></tr>
 
-<tr><td>frame_resolve</td>
-    <td>Resolve vectors in frame_resolve</td></tr>
+<tr><td valign=\"top\">frame_resolve</td>
+    <td valign=\"top\">Resolve vectors in frame_resolve</td></tr>
 </table>
 
 <p>
@@ -957,14 +957,14 @@ the position vector is resolved:
 
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameA.</strong></th><th><strong>Meaning</strong></th></tr>
-<tr><td>world</td>
-    <td>Resolve vector in world frame</td></tr>
+<tr><td valign=\"top\">world</td>
+    <td valign=\"top\">Resolve vector in world frame</td></tr>
 
-<tr><td>frame_a</td>
-    <td>Resolve vector in frame_a</td></tr>
+<tr><td valign=\"top\">frame_a</td>
+    <td valign=\"top\">Resolve vector in frame_a</td></tr>
 
-<tr><td>frame_resolve</td>
-    <td>Resolve vector in frame_resolve</td></tr>
+<tr><td valign=\"top\">frame_resolve</td>
+    <td valign=\"top\">Resolve vector in frame_resolve</td></tr>
 </table>
 
 <p>
@@ -1087,14 +1087,14 @@ the velocity vector is resolved:
 
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameA.</strong></th><th><strong>Meaning</strong></th></tr>
-<tr><td>world</td>
-    <td>Resolve vector in world frame</td></tr>
+<tr><td valign=\"top\">world</td>
+    <td valign=\"top\">Resolve vector in world frame</td></tr>
 
-<tr><td>frame_a</td>
-    <td>Resolve vector in frame_a</td></tr>
+<tr><td valign=\"top\">frame_a</td>
+    <td valign=\"top\">Resolve vector in frame_a</td></tr>
 
-<tr><td>frame_resolve</td>
-    <td>Resolve vector in frame_resolve</td></tr>
+<tr><td valign=\"top\">frame_resolve</td>
+    <td valign=\"top\">Resolve vector in frame_resolve</td></tr>
 </table>
 
 <p>
@@ -1273,14 +1273,14 @@ the angular velocity is resolved:
 
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameA.</strong></th><th><strong>Meaning</strong></th></tr>
-<tr><td>world</td>
-    <td>Resolve vector in world frame</td></tr>
+<tr><td valign=\"top\">world</td>
+    <td valign=\"top\">Resolve vector in world frame</td></tr>
 
-<tr><td>frame_a</td>
-    <td>Resolve vector in frame_a</td></tr>
+<tr><td valign=\"top\">frame_a</td>
+    <td valign=\"top\">Resolve vector in frame_a</td></tr>
 
-<tr><td>frame_resolve</td>
-    <td>Resolve vector in frame_resolve</td></tr>
+<tr><td valign=\"top\">frame_resolve</td>
+    <td valign=\"top\">Resolve vector in frame_resolve</td></tr>
 </table>
 
 <p>
@@ -1374,17 +1374,17 @@ the position vector is resolved:
 
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameAB.</strong></th><th><strong>Meaning</strong></th></tr>
-<tr><td>world</td>
-    <td>Resolve vector in world frame</td></tr>
+<tr><td valign=\"top\">world</td>
+    <td valign=\"top\">Resolve vector in world frame</td></tr>
 
-<tr><td>frame_a</td>
-    <td>Resolve vector in frame_a</td></tr>
+<tr><td valign=\"top\">frame_a</td>
+    <td valign=\"top\">Resolve vector in frame_a</td></tr>
 
-<tr><td>frame_b</td>
-    <td>Resolve vector in frame_b</td></tr>
+<tr><td valign=\"top\">frame_b</td>
+    <td valign=\"top\">Resolve vector in frame_b</td></tr>
 
-<tr><td>frame_resolve</td>
-    <td>Resolve vector in frame_resolve</td></tr>
+<tr><td valign=\"top\">frame_resolve</td>
+    <td valign=\"top\">Resolve vector in frame_resolve</td></tr>
 </table>
 
 <p>
@@ -1506,17 +1506,17 @@ the velocity vector is resolved:
 
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameAB.</strong></th><th><strong>Meaning</strong></th></tr>
-<tr><td>world</td>
-    <td>Resolve vector in world frame</td></tr>
+<tr><td valign=\"top\">world</td>
+    <td valign=\"top\">Resolve vector in world frame</td></tr>
 
-<tr><td>frame_a</td>
-    <td>Resolve vector in frame_a</td></tr>
+<tr><td valign=\"top\">frame_a</td>
+    <td valign=\"top\">Resolve vector in frame_a</td></tr>
 
-<tr><td>frame_b</td>
-    <td>Resolve vector in frame_b</td></tr>
+<tr><td valign=\"top\">frame_b</td>
+    <td valign=\"top\">Resolve vector in frame_b</td></tr>
 
-<tr><td>frame_resolve</td>
-    <td>Resolve vector in frame_resolve</td></tr>
+<tr><td valign=\"top\">frame_resolve</td>
+    <td valign=\"top\">Resolve vector in frame_resolve</td></tr>
 </table>
 
 <p>
@@ -1695,17 +1695,17 @@ the angular velocity is resolved:
 
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameAB.</strong></th><th><strong>Meaning</strong></th></tr>
-<tr><td>world</td>
-    <td>Resolve vector in world frame</td></tr>
+<tr><td valign=\"top\">world</td>
+    <td valign=\"top\">Resolve vector in world frame</td></tr>
 
-<tr><td>frame_a</td>
-    <td>Resolve vector in frame_a</td></tr>
+<tr><td valign=\"top\">frame_a</td>
+    <td valign=\"top\">Resolve vector in frame_a</td></tr>
 
-<tr><td>frame_b</td>
-    <td>Resolve vector in frame_b</td></tr>
+<tr><td valign=\"top\">frame_b</td>
+    <td valign=\"top\">Resolve vector in frame_b</td></tr>
 
-<tr><td>frame_resolve</td>
-    <td>Resolve vector in frame_resolve</td></tr>
+<tr><td valign=\"top\">frame_resolve</td>
+    <td valign=\"top\">Resolve vector in frame_resolve</td></tr>
 </table>
 
 <p>
@@ -1931,14 +1931,14 @@ the force vector is resolved:
 
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameA.</strong></th><th><strong>Meaning</strong></th></tr>
-<tr><td>world</td>
-    <td>Resolve vector in world frame</td></tr>
+<tr><td valign=\"top\">world</td>
+    <td valign=\"top\">Resolve vector in world frame</td></tr>
 
-<tr><td>frame_a</td>
-    <td>Resolve vector in frame_a</td></tr>
+<tr><td valign=\"top\">frame_a</td>
+    <td valign=\"top\">Resolve vector in frame_a</td></tr>
 
-<tr><td>frame_resolve</td>
-    <td>Resolve vector in frame_resolve</td></tr>
+<tr><td valign=\"top\">frame_resolve</td>
+    <td valign=\"top\">Resolve vector in frame_resolve</td></tr>
 </table>
 
 <p>
@@ -2045,14 +2045,14 @@ the torque vector is resolved:
 
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameA.</strong></th><th><strong>Meaning</strong></th></tr>
-<tr><td>world</td>
-    <td>Resolve vector in world frame</td></tr>
+<tr><td valign=\"top\">world</td>
+    <td valign=\"top\">Resolve vector in world frame</td></tr>
 
-<tr><td>frame_a</td>
-    <td>Resolve vector in frame_a</td></tr>
+<tr><td valign=\"top\">frame_a</td>
+    <td valign=\"top\">Resolve vector in frame_a</td></tr>
 
-<tr><td>frame_resolve</td>
-    <td>Resolve vector in frame_resolve</td></tr>
+<tr><td valign=\"top\">frame_resolve</td>
+    <td valign=\"top\">Resolve vector in frame_resolve</td></tr>
 </table>
 
 <p>
@@ -2209,14 +2209,14 @@ the two vectors are resolved:
 
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameA.</strong></th><th><strong>Meaning</strong></th></tr>
-<tr><td>world</td>
-    <td>Resolve vector in world frame</td></tr>
+<tr><td valign=\"top\">world</td>
+    <td valign=\"top\">Resolve vector in world frame</td></tr>
 
-<tr><td>frame_a</td>
-    <td>Resolve vector in frame_a</td></tr>
+<tr><td valign=\"top\">frame_a</td>
+    <td valign=\"top\">Resolve vector in frame_a</td></tr>
 
-<tr><td>frame_resolve</td>
-    <td>Resolve vector in frame_resolve</td></tr>
+<tr><td valign=\"top\">frame_resolve</td>
+    <td valign=\"top\">Resolve vector in frame_resolve</td></tr>
 </table>
 
 <p>
@@ -2683,14 +2683,14 @@ the position vector is resolved:
 
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameA.</strong></th><th><strong>Meaning</strong></th></tr>
-<tr><td>world</td>
-    <td>Resolve vector in world frame</td></tr>
+<tr><td valign=\"top\">world</td>
+    <td valign=\"top\">Resolve vector in world frame</td></tr>
 
-<tr><td>frame_a</td>
-    <td>Resolve vector in frame_a</td></tr>
+<tr><td valign=\"top\">frame_a</td>
+    <td valign=\"top\">Resolve vector in frame_a</td></tr>
 
-<tr><td>frame_resolve</td>
-    <td>Resolve vector in frame_resolve</td></tr>
+<tr><td valign=\"top\">frame_resolve</td>
+    <td valign=\"top\">Resolve vector in frame_resolve</td></tr>
 </table>
 
 <p>
@@ -2759,14 +2759,14 @@ the angular velocity is resolved:
 
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameA.</strong></th><th><strong>Meaning</strong></th></tr>
-<tr><td>world</td>
-    <td>Resolve vector in world frame</td></tr>
+<tr><td valign=\"top\">world</td>
+    <td valign=\"top\">Resolve vector in world frame</td></tr>
 
-<tr><td>frame_a</td>
-    <td>Resolve vector in frame_a</td></tr>
+<tr><td valign=\"top\">frame_a</td>
+    <td valign=\"top\">Resolve vector in frame_a</td></tr>
 
-<tr><td>frame_resolve</td>
-    <td>Resolve vector in frame_resolve</td></tr>
+<tr><td valign=\"top\">frame_resolve</td>
+    <td valign=\"top\">Resolve vector in frame_resolve</td></tr>
 </table>
 
 <p>
@@ -2839,17 +2839,17 @@ the position vector is resolved:
 
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameAB.</strong></th><th><strong>Meaning</strong></th></tr>
-<tr><td>world</td>
-    <td>Resolve vector in world frame</td></tr>
+<tr><td valign=\"top\">world</td>
+    <td valign=\"top\">Resolve vector in world frame</td></tr>
 
-<tr><td>frame_a</td>
-    <td>Resolve vector in frame_a</td></tr>
+<tr><td valign=\"top\">frame_a</td>
+    <td valign=\"top\">Resolve vector in frame_a</td></tr>
 
-<tr><td>frame_b</td>
-    <td>Resolve vector in frame_b</td></tr>
+<tr><td valign=\"top\">frame_b</td>
+    <td valign=\"top\">Resolve vector in frame_b</td></tr>
 
-<tr><td>frame_resolve</td>
-    <td>Resolve vector in frame_resolve</td></tr>
+<tr><td valign=\"top\">frame_resolve</td>
+    <td valign=\"top\">Resolve vector in frame_resolve</td></tr>
 </table>
 
 <p>
@@ -2925,17 +2925,17 @@ the angular velocity is resolved:
 
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameAB.</strong></th><th><strong>Meaning</strong></th></tr>
-<tr><td>world</td>
-    <td>Resolve vector in world frame</td></tr>
+<tr><td valign=\"top\">world</td>
+    <td valign=\"top\">Resolve vector in world frame</td></tr>
 
-<tr><td>frame_a</td>
-    <td>Resolve vector in frame_a</td></tr>
+<tr><td valign=\"top\">frame_a</td>
+    <td valign=\"top\">Resolve vector in frame_a</td></tr>
 
-<tr><td>frame_b</td>
-    <td>Resolve vector in frame_b</td></tr>
+<tr><td valign=\"top\">frame_b</td>
+    <td valign=\"top\">Resolve vector in frame_b</td></tr>
 
-<tr><td>frame_resolve</td>
-    <td>Resolve vector in frame_resolve</td></tr>
+<tr><td valign=\"top\">frame_resolve</td>
+    <td valign=\"top\">Resolve vector in frame_resolve</td></tr>
 </table>
 
 <p>
@@ -3075,14 +3075,14 @@ defined in which frame the position vector is resolved:
 
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameA.</strong></th><th><strong>Meaning</strong></th></tr>
-<tr><td>world</td>
-    <td>Resolve vector in world frame</td></tr>
+<tr><td valign=\"top\">world</td>
+    <td valign=\"top\">Resolve vector in world frame</td></tr>
 
-<tr><td>frame_a</td>
-    <td>Resolve vector in frame_a</td></tr>
+<tr><td valign=\"top\">frame_a</td>
+    <td valign=\"top\">Resolve vector in frame_a</td></tr>
 
-<tr><td>frame_resolve</td>
-    <td>Resolve vector in frame_resolve</td></tr>
+<tr><td valign=\"top\">frame_resolve</td>
+    <td valign=\"top\">Resolve vector in frame_resolve</td></tr>
 </table>
 
 <p>
@@ -3169,17 +3169,17 @@ defined in which frame the position vector is resolved:
 
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameAB.</strong></th><th><strong>Meaning</strong></th></tr>
-<tr><td>world</td>
-    <td>Resolve vector in world frame</td></tr>
+<tr><td valign=\"top\">world</td>
+    <td valign=\"top\">Resolve vector in world frame</td></tr>
 
-<tr><td>frame_a</td>
-    <td>Resolve vector in frame_a</td></tr>
+<tr><td valign=\"top\">frame_a</td>
+    <td valign=\"top\">Resolve vector in frame_a</td></tr>
 
-<tr><td>frame_b</td>
-    <td>Resolve vector in frame_b</td></tr>
+<tr><td valign=\"top\">frame_b</td>
+    <td valign=\"top\">Resolve vector in frame_b</td></tr>
 
-<tr><td>frame_resolve</td>
-    <td>Resolve vector in frame_resolve</td></tr>
+<tr><td valign=\"top\">frame_resolve</td>
+    <td valign=\"top\">Resolve vector in frame_resolve</td></tr>
 </table>
 
 <p>
@@ -3395,14 +3395,14 @@ the force vector is resolved:
 
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameA.</strong></th><th><strong>Meaning</strong></th></tr>
-<tr><td>world</td>
-    <td>Resolve vector in world frame</td></tr>
+<tr><td valign=\"top\">world</td>
+    <td valign=\"top\">Resolve vector in world frame</td></tr>
 
-<tr><td>frame_a</td>
-    <td>Resolve vector in frame_a</td></tr>
+<tr><td valign=\"top\">frame_a</td>
+    <td valign=\"top\">Resolve vector in frame_a</td></tr>
 
-<tr><td>frame_resolve</td>
-    <td>Resolve vector in frame_resolve</td></tr>
+<tr><td valign=\"top\">frame_resolve</td>
+    <td valign=\"top\">Resolve vector in frame_resolve</td></tr>
 </table>
 
 <p>
@@ -3477,14 +3477,14 @@ the torque vector is resolved:
 
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameA.</strong></th><th><strong>Meaning</strong></th></tr>
-<tr><td>world</td>
-    <td>Resolve vector in world frame</td></tr>
+<tr><td valign=\"top\">world</td>
+    <td valign=\"top\">Resolve vector in world frame</td></tr>
 
-<tr><td>frame_a</td>
-    <td>Resolve vector in frame_a</td></tr>
+<tr><td valign=\"top\">frame_a</td>
+    <td valign=\"top\">Resolve vector in frame_a</td></tr>
 
-<tr><td>frame_resolve</td>
-    <td>Resolve vector in frame_resolve</td></tr>
+<tr><td valign=\"top\">frame_resolve</td>
+    <td valign=\"top\">Resolve vector in frame_resolve</td></tr>
 </table>
 
 <p>

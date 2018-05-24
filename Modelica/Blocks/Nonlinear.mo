@@ -261,10 +261,10 @@ with derivative time constant <code>Td</code>. Smaller time constant <code>Td</c
 <th>Comment</th>
 </tr>
 <tr>
-<td>4954</td>
-<td>2012-03-02</td>
-<td>A. Haumer &amp; D. Winkler</td>
-<td><p>Initial version based on discussion in ticket <a href=\"https://trac.modelica.org/Modelica/ticket/529\">#529</a></p></td>
+<td valign=\"top\">4954</td>
+<td valign=\"top\">2012-03-02</td>
+<td valign=\"top\">A. Haumer &amp; D. Winkler</td>
+<td valign=\"top\"><p>Initial version based on discussion in ticket <a href=\"https://trac.modelica.org/Modelica/ticket/529\">#529</a></p></td>
 </tr>
 </table>
 </html>"));
@@ -612,9 +612,9 @@ chapter 11.9, page 412-414, Huethig Verlag Heidelberg, 1994
 <th>Comment</th>
 </tr>
 <tr>
-<td>2015-01-05</td>
-<td>Martin Otter (DLR-SR)</td>
-<td>Introduced parameter balance=true and a new implementation
+<td valign=\"top\">2015-01-05</td>
+<td valign=\"top\">Martin Otter (DLR-SR)</td>
+<td valign=\"top\">Introduced parameter balance=true and a new implementation
  of the PadeDelay block with an optional, more reliable numerics</td>
 </tr>
 </table>

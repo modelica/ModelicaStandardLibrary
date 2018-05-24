@@ -4516,19 +4516,19 @@ The package MoistAir can be used as any other medium model (see <a href=\"modeli
 </p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr>
-<td><strong>Constant</strong></td>
-<td><strong>Default Value</strong></td>
-<td><strong>Meaning</strong></td>
+<td valign=\"top\"><strong>Constant</strong></td>
+<td valign=\"top\"><strong>Default Value</strong></td>
+<td valign=\"top\"><strong>Meaning</strong></td>
 </tr>
 <tr>
-<td>useEnhancementFactor</td>
-<td>false</td>
-<td>The enhancement factor is used in the calculation of the saturation partial pressure of water in moist air. It is always very close to 1 except for high pressures (&gt;2 MPa) and low temperatures (&lt;233.15 K). For pressures less than 1 MPa this factor can be safely set to 1. Its calculation is very expensive, since it can only be calculated by an iterative method.</td>
+<td valign=\"top\">useEnhancementFactor</td>
+<td valign=\"top\">false</td>
+<td valign=\"top\">The enhancement factor is used in the calculation of the saturation partial pressure of water in moist air. It is always very close to 1 except for high pressures (&gt;2 MPa) and low temperatures (&lt;233.15 K). For pressures less than 1 MPa this factor can be safely set to 1. Its calculation is very expensive, since it can only be calculated by an iterative method.</td>
 </tr>
 <tr>
-<td>useDissociation</td>
-<td>true</td>
-<td>The effect of dissociation is taken into account for temperatures greater than 773.15 K.</td>
+<td valign=\"top\">useDissociation</td>
+<td valign=\"top\">true</td>
+<td valign=\"top\">The effect of dissociation is taken into account for temperatures greater than 773.15 K.</td>
 </tr>
 </table>
 

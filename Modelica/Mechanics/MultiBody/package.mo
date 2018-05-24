@@ -534,35 +534,35 @@ combinations are listed in the table below.
         <td colspan=\"2\"> <strong>3-dimensional Loops:</strong></td>
       </tr>
       <tr>
-        <td>JointSSR</td>
-        <td>Spherical - Spherical - Revolute</td>
+        <td valign=\"top\">JointSSR</td>
+        <td valign=\"top\">Spherical - Spherical - Revolute</td>
       </tr>
       <tr>
-        <td>JointSSP</td>
-        <td>Spherical - Spherical - Prismatic</td>
+        <td valign=\"top\">JointSSP</td>
+        <td valign=\"top\">Spherical - Spherical - Prismatic</td>
       </tr>
       <tr>
-        <td>JointUSR</td>
-        <td>Universal - Spherical - Revolute</td>
+        <td valign=\"top\">JointUSR</td>
+        <td valign=\"top\">Universal - Spherical - Revolute</td>
       </tr>
       <tr>
-        <td>JointUSP</td>
-        <td>Universal - Spherical - Prismatic</td>
+        <td valign=\"top\">JointUSP</td>
+        <td valign=\"top\">Universal - Spherical - Prismatic</td>
       </tr>
       <tr>
-        <td>JointUPS</td>
-        <td>Universal - Prismatic - Spherical</td>
+        <td valign=\"top\">JointUPS</td>
+        <td valign=\"top\">Universal - Prismatic - Spherical</td>
       </tr>
       <tr>
         <td colspan=\"2\"><strong>Planar Loops:</strong></td>
       </tr>
       <tr>
-        <td>JointRRR</td>
-        <td>Revolute - Revolute - Revolute</td>
+        <td valign=\"top\">JointRRR</td>
+        <td valign=\"top\">Revolute - Revolute - Revolute</td>
       </tr>
       <tr>
-        <td>JointRRP</td>
-        <td>Revolute - Revolute - Prismatic</td>
+        <td valign=\"top\">JointRRP</td>
+        <td valign=\"top\">Revolute - Revolute - Prismatic</td>
       </tr>
 </table>
 </div>
@@ -862,36 +862,36 @@ functions from library Modelica.Mechanics.MultiBody.Frames):
            Interfaces.Frame_a</strong></th>
     <th><strong>MultiBody.Interfaces.Frame_a</strong></th></tr>
 <tr>
-  <td>frame_a.<strong>r0</strong></td>
-  <td>= frame_a.r_0 (is converted)</td>
+  <td valign=\"top\">frame_a.<strong>r0</strong></td>
+  <td valign=\"top\">= frame_a.r_0 (is converted)</td>
 </tr>
 <tr>
-  <td>frame_a.<strong>S</strong></td>
-  <td>= transpose(frame_a.R)</td>
+  <td valign=\"top\">frame_a.<strong>S</strong></td>
+  <td valign=\"top\">= transpose(frame_a.R)</td>
 </tr>
 <tr>
-  <td>frame_a.<strong>v</strong></td>
-  <td>= resolve2(frame_a.R, <strong>der</strong>(frame_a.r_0))</td>
+  <td valign=\"top\">frame_a.<strong>v</strong></td>
+  <td valign=\"top\">= resolve2(frame_a.R, <strong>der</strong>(frame_a.r_0))</td>
 </tr>
 <tr>
-  <td>frame_a.<strong>w</strong></td>
-  <td>= angularVelocity2(frame_a.R)</td>
+  <td valign=\"top\">frame_a.<strong>w</strong></td>
+  <td valign=\"top\">= angularVelocity2(frame_a.R)</td>
 </tr>
 <tr>
-  <td>frame_a.<strong>a</strong></td>
-  <td>= resolve2(frame_a.R, <strong>der</strong>(v_0)); v_0 = der(r_0)</td>
+  <td valign=\"top\">frame_a.<strong>a</strong></td>
+  <td valign=\"top\">= resolve2(frame_a.R, <strong>der</strong>(v_0)); v_0 = der(r_0)</td>
 </tr>
 <tr>
-  <td>frame_a.<strong>z</strong></td>
-  <td>= <strong>der</strong>(w);  w = angulaVelocity2(frame_a.R)</td>
+  <td valign=\"top\">frame_a.<strong>z</strong></td>
+  <td valign=\"top\">= <strong>der</strong>(w);  w = angulaVelocity2(frame_a.R)</td>
 </tr>
 <tr>
-  <td>frame_a.<strong>f</strong></td>
-  <td>= frame_a.f (no conversion needed)</td>
+  <td valign=\"top\">frame_a.<strong>f</strong></td>
+  <td valign=\"top\">= frame_a.f (no conversion needed)</td>
 </tr>
 <tr>
-  <td>frame_a.<strong>t</strong></td>
-  <td>= frame_a.t (no conversion needed)</td>
+  <td valign=\"top\">frame_a.<strong>t</strong></td>
+  <td valign=\"top\">= frame_a.t (no conversion needed)</td>
 </tr>
 </table>
 <p>

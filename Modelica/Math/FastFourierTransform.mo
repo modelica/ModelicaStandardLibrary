@@ -67,8 +67,8 @@ package FastFourierTransform
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td> Nov. 29, 2015 </td>
-    <td>
+<tr><td valign=\"top\"> Nov. 29, 2015 </td>
+    <td valign=\"top\">
      Initial version implemented by
      Martin R. Kuhn and Martin Otter
      (<a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>.</td></tr>
@@ -168,8 +168,8 @@ Furthermore, note that the FFT phases are with respect to a cos(..) signal.
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td> Nov. 29, 2015 </td>
-    <td>
+<tr><td valign=\"top\"> Nov. 29, 2015 </td>
+    <td valign=\"top\">
      Initial version implemented by
      Martin R. Kuhn and Martin Otter
      (<a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>.</td></tr>
@@ -186,8 +186,8 @@ with the only difference that just the amplitudes of the FFT are stored on file 
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td> Nov. 29, 2015 </td>
-    <td>
+<tr><td valign=\"top\"> Nov. 29, 2015 </td>
+    <td valign=\"top\">
      Initial version implemented by
      Martin R. Kuhn and Martin Otter
      (<a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>.</td></tr>
@@ -234,8 +234,8 @@ with the only difference that just the amplitudes of the FFT are stored on file 
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td> Nov. 29, 2015 </td>
-    <td>
+<tr><td valign=\"top\"> Nov. 29, 2015 </td>
+    <td valign=\"top\">
      Initial version implemented by
      Martin R. Kuhn and Martin Otter
      (<a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>.</td></tr>
@@ -323,8 +323,8 @@ results in the following output:
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td> Nov. 29, 2015 </td>
-    <td>
+<tr><td valign=\"top\"> Nov. 29, 2015 </td>
+    <td valign=\"top\">
      Initial version implemented by
      Martin R. Kuhn and Martin Otter
      (<a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>.</td></tr>
@@ -447,8 +447,8 @@ results in the following output:
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td> Nov. 29, 2015 </td>
-    <td>
+<tr><td valign=\"top\"> Nov. 29, 2015 </td>
+    <td valign=\"top\">
      Initial version implemented by
      Martin R. Kuhn and Martin Otter
      (<a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>.</td></tr>
@@ -645,8 +645,8 @@ See detailed example model:
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td> Nov. 29, 2015 </td>
-    <td>
+<tr><td valign=\"top\"> Nov. 29, 2015 </td>
+    <td valign=\"top\">
      Initial version implemented by
      Martin R. Kuhn and Martin Otter
      (<a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>.</td></tr>
@@ -747,8 +747,8 @@ used in this function.
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td> Nov. 29, 2015 </td>
-    <td>
+<tr><td valign=\"top\"> Nov. 29, 2015 </td>
+    <td valign=\"top\">
      Initial version implemented by
      Martin R. Kuhn and Martin Otter
      (<a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>.</td></tr>
@@ -778,8 +778,8 @@ If this is not possible, success = false, and e2, e3, e5 are dummy values.
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td> Nov. 29, 2015 </td>
-    <td>
+<tr><td valign=\"top\"> Nov. 29, 2015 </td>
+    <td valign=\"top\">
      Initial version implemented by
      Martin R. Kuhn and Martin Otter
      (<a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>.</td></tr>
@@ -837,8 +837,8 @@ resulting in:
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td> Nov. 29, 2015 </td>
-    <td>
+<tr><td valign=\"top\"> Nov. 29, 2015 </td>
+    <td valign=\"top\">
      Initial version implemented by
      Martin R. Kuhn and Martin Otter
      (<a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>.</td></tr>

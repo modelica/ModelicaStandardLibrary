@@ -2383,76 +2383,76 @@ Circuit layout (vector group) of primary and secondary windings have to be defin
 <br><strong>Default values for transformer's parameters (a realistic example) are:</strong><br>
 <table>
 <tr>
-<td>turns ratio n</td>
-<td>1</td><td> </td>
+<td valign=\"top\">turns ratio n</td>
+<td valign=\"top\">1</td><td valign=\"top\"> </td>
 </tr>
 <tr>
-<td>nominal frequency fNominal</td>
-<td>50</td><td>Hz</td>
+<td valign=\"top\">nominal frequency fNominal</td>
+<td valign=\"top\">50</td><td valign=\"top\">Hz</td>
 </tr>
 <tr>
-<td>nominal voltage per phase</td>
-<td>100</td><td>V RMS</td>
+<td valign=\"top\">nominal voltage per phase</td>
+<td valign=\"top\">100</td><td valign=\"top\">V RMS</td>
 </tr>
 <tr>
-<td>nominal current per phase</td>
-<td>100</td><td>A RMS</td>
+<td valign=\"top\">nominal current per phase</td>
+<td valign=\"top\">100</td><td valign=\"top\">A RMS</td>
 </tr>
 <tr>
-<td>nominal apparent power</td>
-<td>30</td><td>kVA</td>
+<td valign=\"top\">nominal apparent power</td>
+<td valign=\"top\">30</td><td valign=\"top\">kVA</td>
 </tr>
 <tr>
-<td>primary resistance R1</td>
-<td>0.005</td><td>Ohm per phase at reference temperature</td>
+<td valign=\"top\">primary resistance R1</td>
+<td valign=\"top\">0.005</td><td valign=\"top\">Ohm per phase at reference temperature</td>
 </tr>
 <tr>
-<td>reference temperature T1Ref</td>
-<td>20</td><td>&deg;C</td>
+<td valign=\"top\">reference temperature T1Ref</td>
+<td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
 </tr>
 <tr>
-<td>temperature coefficient alpha20_1 </td>
-<td>0</td><td>1/K</td>
+<td valign=\"top\">temperature coefficient alpha20_1 </td>
+<td valign=\"top\">0</td><td valign=\"top\">1/K</td>
 </tr>
 <tr>
-<td>primary stray inductance L1sigma</td>
-<td>78E-6</td><td>H per phase</td>
+<td valign=\"top\">primary stray inductance L1sigma</td>
+<td valign=\"top\">78E-6</td><td valign=\"top\">H per phase</td>
 </tr>
 <tr>
-<td>secondary resistance R2</td>
-<td>0.005</td><td>Ohm per phase at reference temperature</td>
+<td valign=\"top\">secondary resistance R2</td>
+<td valign=\"top\">0.005</td><td valign=\"top\">Ohm per phase at reference temperature</td>
 </tr>
 <tr>
-<td>reference temperature T2Ref</td>
-<td>20</td><td>&deg;C</td>
+<td valign=\"top\">reference temperature T2Ref</td>
+<td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
 </tr>
 <tr>
-<td>temperature coefficient alpha20_2 </td>
-<td>0</td><td>1/K</td>
+<td valign=\"top\">temperature coefficient alpha20_2 </td>
+<td valign=\"top\">0</td><td valign=\"top\">1/K</td>
 </tr>
 <tr>
-<td>secondary stray inductance L2sigma</td>
-<td>78E-6</td><td>H per phase</td>
+<td valign=\"top\">secondary stray inductance L2sigma</td>
+<td valign=\"top\">78E-6</td><td valign=\"top\">H per phase</td>
 </tr>
 <tr>
-<td>operational temperature T1Operational</td>
-<td>20</td><td>&deg;C</td>
+<td valign=\"top\">operational temperature T1Operational</td>
+<td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
 </tr>
 <tr>
-<td>operational temperature T2Operational</td>
-<td>20</td><td>&deg;C</td>
+<td valign=\"top\">operational temperature T2Operational</td>
+<td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
 </tr>
 <tr>
-<td>These values give the operational parameters:</td>
-<td> </td><td> </td>
+<td valign=\"top\">These values give the operational parameters:</td>
+<td valign=\"top\"> </td><td valign=\"top\"> </td>
 </tr>
 <tr>
-<td>nominal voltage drop</td>
-<td>0.05</td><td>p.u.</td>
+<td valign=\"top\">nominal voltage drop</td>
+<td valign=\"top\">0.05</td><td valign=\"top\">p.u.</td>
 </tr>
 <tr>
-<td>nominal copper losses</td>
-<td>300</td><td>W</td>
+<td valign=\"top\">nominal copper losses</td>
+<td valign=\"top\">300</td><td valign=\"top\">W</td>
 </tr>
 </table>
 </html>"));

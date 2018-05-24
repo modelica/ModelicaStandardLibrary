@@ -116,38 +116,38 @@ Via variable <strong>extra</strong> additional data can be defined:
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th><strong>shapeType</strong></th><th>Meaning of parameter <strong>extra</strong></th></tr>
 <tr>
-  <td>\"cylinder\"</td>
-  <td>if extra&nbsp;&gt;&nbsp;0, a black line is included in the
+  <td valign=\"top\">\"cylinder\"</td>
+  <td valign=\"top\">if extra&nbsp;&gt;&nbsp;0, a black line is included in the
       cylinder to show the rotation of it.</td>
 </tr>
 <tr>
-  <td>\"cone\"</td>
-  <td>extra = diameter-left-side / diameter-right-side, i.e.,<br>
+  <td valign=\"top\">\"cone\"</td>
+  <td valign=\"top\">extra = diameter-left-side / diameter-right-side, i.e.,<br>
       extra = 1: cylinder<br>
       extra = 0: \"real\" cone.</td>
 </tr>
 <tr>
-  <td>\"pipe\"</td>
-  <td>extra = outer-diameter / inner-diameter, i.e,<br>
+  <td valign=\"top\">\"pipe\"</td>
+  <td valign=\"top\">extra = outer-diameter / inner-diameter, i.e,<br>
       extra = 1: cylinder that is completely hollow<br>
       extra = 0: cylinder without a hole.</td>
 </tr>
 <tr>
-  <td>\"gearwheel\"</td>
-  <td>extra is the number of teeth of the (external) gear.
+  <td valign=\"top\">\"gearwheel\"</td>
+  <td valign=\"top\">extra is the number of teeth of the (external) gear.
 If extra&nbsp;&lt;&nbsp;0, an internal gear is visualized with |extra| teeth.
 The axis of the gearwheel is along \"lengthDirection\", and usually:
 width = height = 2*radiusOfGearWheel.</td>
 </tr>
 <tr>
-  <td>\"spring\"</td>
-  <td>extra is the number of windings of the spring.
+  <td valign=\"top\">\"spring\"</td>
+  <td valign=\"top\">extra is the number of windings of the spring.
       Additionally, \"height\" is <strong>not</strong> the \"height\" but
       2*coil-width.</td>
 </tr>
 <tr>
-  <td>external shape</td>
-  <td>extra = 0: Visualization from file is not scaled.<br>
+  <td valign=\"top\">external shape</td>
+  <td valign=\"top\">extra = 0: Visualization from file is not scaled.<br>
                      extra = 1: Visualization from file is scaled with \"length\", \"width\" and \"height\"
                                 of the shape</td>
 </tr>
@@ -356,38 +356,38 @@ Via variable <strong>extra</strong> additional data can be defined:
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th><strong>shapeType</strong></th><th>Meaning of parameter <strong>extra</strong></th></tr>
 <tr>
-  <td>\"cylinder\"</td>
-  <td>if extra&nbsp;&gt;&nbsp;0, a black line is included in the
+  <td valign=\"top\">\"cylinder\"</td>
+  <td valign=\"top\">if extra&nbsp;&gt;&nbsp;0, a black line is included in the
       cylinder to show the rotation of it.</td>
 </tr>
 <tr>
-  <td>\"cone\"</td>
-  <td>extra = diameter-left-side / diameter-right-side, i.e.,<br>
+  <td valign=\"top\">\"cone\"</td>
+  <td valign=\"top\">extra = diameter-left-side / diameter-right-side, i.e.,<br>
       extra = 1: cylinder<br>
       extra = 0: \"real\" cone.</td>
 </tr>
 <tr>
-  <td>\"pipe\"</td>
-  <td>extra = outer-diameter / inner-diameter, i.e,<br>
+  <td valign=\"top\">\"pipe\"</td>
+  <td valign=\"top\">extra = outer-diameter / inner-diameter, i.e,<br>
       extra = 1: cylinder that is completely hollow<br>
       extra = 0: cylinder without a hole.</td>
 </tr>
 <tr>
-  <td>\"gearwheel\"</td>
-  <td>extra is the number of teeth of the (external) gear.
+  <td valign=\"top\">\"gearwheel\"</td>
+  <td valign=\"top\">extra is the number of teeth of the (external) gear.
 If extra&nbsp;&lt;&nbsp;0, an internal gear is visualized with |extra| teeth.
 The axis of the gearwheel is along \"lengthDirection\", and usually:
 width = height = 2*radiusOfGearWheel.</td>
 </tr>
 <tr>
-  <td>\"spring\"</td>
-  <td>extra is the number of windings of the spring.
+  <td valign=\"top\">\"spring\"</td>
+  <td valign=\"top\">extra is the number of windings of the spring.
       Additionally, \"height\" is <strong>not</strong> the \"height\" but
       2*coil-width.</td>
 </tr>
 <tr>
-  <td>external shape</td>
-  <td>extra = 0: Visualization from file is not scaled.<br>
+  <td valign=\"top\">external shape</td>
+  <td valign=\"top\">extra = 0: Visualization from file is not scaled.<br>
                      extra = 1: Visualization from file is scaled with \"length\", \"width\" and \"height\"
                                 of the shape</td>
 </tr>
@@ -2156,38 +2156,38 @@ Via variable <strong>extra</strong> additional data can be defined:
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th><strong>shapeType</strong></th><th>Meaning of parameter <strong>extra</strong></th></tr>
 <tr>
-  <td>\"cylinder\"</td>
-  <td>if extra&nbsp;&gt;&nbsp;0, a black line is included in the
+  <td valign=\"top\">\"cylinder\"</td>
+  <td valign=\"top\">if extra&nbsp;&gt;&nbsp;0, a black line is included in the
       cylinder to show the rotation of it.</td>
 </tr>
 <tr>
-  <td>\"cone\"</td>
-  <td>extra = diameter-left-side / diameter-right-side, i.e.,<br>
+  <td valign=\"top\">\"cone\"</td>
+  <td valign=\"top\">extra = diameter-left-side / diameter-right-side, i.e.,<br>
       extra = 1: cylinder<br>
       extra = 0: \"real\" cone.</td>
 </tr>
 <tr>
-  <td>\"pipe\"</td>
-  <td>extra = outer-diameter / inner-diameter, i.e,<br>
+  <td valign=\"top\">\"pipe\"</td>
+  <td valign=\"top\">extra = outer-diameter / inner-diameter, i.e,<br>
       extra = 1: cylinder that is completely hollow<br>
       extra = 0: cylinder without a hole.</td>
 </tr>
 <tr>
-  <td>\"gearwheel\"</td>
-  <td>extra is the number of teeth of the (external) gear.
+  <td valign=\"top\">\"gearwheel\"</td>
+  <td valign=\"top\">extra is the number of teeth of the (external) gear.
 If extra &lt; 0, an internal gear is visualized with |extra| teeth.
 The axis of the gearwheel is along \"lengthDirection\", and usually:
 width = height = 2*radiusOfGearWheel.</td>
 </tr>
 <tr>
-  <td>\"spring\"</td>
-  <td>extra is the number of windings of the spring.
+  <td valign=\"top\">\"spring\"</td>
+  <td valign=\"top\">extra is the number of windings of the spring.
       Additionally, \"height\" is <strong>not</strong> the \"height\" but
       2*coil-width.</td>
 </tr>
 <tr>
-  <td>external shape</td>
-  <td>extra = 0: Visualization from file is not scaled.<br>
+  <td valign=\"top\">external shape</td>
+  <td valign=\"top\">extra = 0: Visualization from file is not scaled.<br>
                    extra = 1: Visualization from file is scaled with \"length\", \"width\" and \"height\"
                               of the shape</td>
 </tr>
@@ -2570,31 +2570,31 @@ since they all have frame connectors).
 </p>
 <h4>Content</h4>
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.Arrow\">Arrow</a></td>
-      <td>Visualizing an arrow where all parts of the arrow can vary dynamically:<br>
+  <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.Arrow\">Arrow</a></td>
+      <td valign=\"top\">Visualizing an arrow where all parts of the arrow can vary dynamically:<br>
       <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Arrow.png\" alt=\"model Visualizers.Advanced.Arrow\">
       </td>
   </tr>
-  <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.DoubleArrow\">DoubleArrow</a></td>
-      <td>Visualizing a double arrow where all parts of the arrow can vary dynamically:<br>
+  <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.DoubleArrow\">DoubleArrow</a></td>
+      <td valign=\"top\">Visualizing a double arrow where all parts of the arrow can vary dynamically:<br>
       <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/DoubleArrow.png\" alt=\"model Visualizers.Advanced.DoubleArrow\">
       </td>
   </tr>
-  <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape\">Shape</a></td>
-      <td>Visualizing an elementary object with variable size.
+  <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape\">Shape</a></td>
+      <td valign=\"top\">Visualizing an elementary object with variable size.
       The following shape types are supported:<br>&nbsp;<br>
       <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/FixedShape.png\" alt=\"model Visualizers.Advanced.Shape\">
       </td>
   </tr>
 
-  <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.Surface\">Surface</a></td>
-      <td>Visualizing a moveable parameterized surface:<br>
+  <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.Surface\">Surface</a></td>
+      <td valign=\"top\">Visualizing a moveable parameterized surface:<br>
       <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Surface_small.png\">
       </td>
   </tr>
 
-  <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.PipeWithScalarField\">PipeWithScalarField</a></td>
-      <td>Visualizing a pipe with a scalar field represented by a color coding:<br>
+  <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.PipeWithScalarField\">PipeWithScalarField</a></td>
+      <td valign=\"top\">Visualizing a pipe with a scalar field represented by a color coding:<br>
       <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/PipeWithScalarFieldIcon.png\">
       </td>
   </tr>
@@ -2844,24 +2844,24 @@ animation features of the MultiBody library.
 </p>
 <h4>Content</h4>
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.FixedShape\">FixedShape</a><br>
+  <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.FixedShape\">FixedShape</a><br>
              <a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.FixedShape2\">FixedShape2</a></td>
-      <td>Visualizing an elementary shape with dynamically varying shape attributes.
+      <td valign=\"top\">Visualizing an elementary shape with dynamically varying shape attributes.
       FixedShape has one connector frame_a, whereas FixedShape2 has additionally
           a frame_b for easier connection to further visual objects.
           The following shape types are supported:<br>&nbsp;<br>
       <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/FixedShape.png\" alt=\"model Visualizers.FixedShape\">
       </td>
   </tr>
-  <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.FixedFrame\">FixedFrame</a></td>
-      <td>Visualizing a coordinate system including axes labels with fixed sizes:<br>
+  <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.FixedFrame\">FixedFrame</a></td>
+      <td valign=\"top\">Visualizing a coordinate system including axes labels with fixed sizes:<br>
       <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/FixedFrame2.png\"
        alt=\"model Visualizers.FixedFrame\">
       </td>
   </tr>
-  <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.FixedArrow\">FixedArrow</a>,<br>
+  <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.FixedArrow\">FixedArrow</a>,<br>
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.SignalArrow\">SignalArrow</a></td>
-      <td>Visualizing an arrow. Model \"FixedArrow\" provides
+      <td valign=\"top\">Visualizing an arrow. Model \"FixedArrow\" provides
       a fixed sized arrow, model \"SignalArrow\" provides
       an arrow with dynamically varying length that is defined
       by an input signal vector:<br>
@@ -2869,32 +2869,32 @@ animation features of the MultiBody library.
       </td>
   </tr>
 
-  <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Ground\">Ground</a></td>
-      <td>Visualizing the ground by a plane:<br>
+  <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Ground\">Ground</a></td>
+      <td valign=\"top\">Visualizing the ground by a plane:<br>
       <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/GroundSmall.png\">
       </td>
   </tr>
 
-  <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Torus\">Torus</a></td>
-      <td>Visualizing a torus:<br>
+  <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Torus\">Torus</a></td>
+      <td valign=\"top\">Visualizing a torus:<br>
       <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/TorusIcon.png\">
       </td>
   </tr>
 
-  <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.VoluminousWheel\">VoluminousWheel</a></td>
-      <td>Visualizing a wheel:<br>
+  <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.VoluminousWheel\">VoluminousWheel</a></td>
+      <td valign=\"top\">Visualizing a wheel:<br>
       <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/VoluminousWheelIcon.png\">
       </td>
   </tr>
 
-  <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.PipeWithScalarField\">PipeWithScalarField</a></td>
-      <td>Visualizing a pipe with a scalar field represented by a color coding:<br>
+  <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.PipeWithScalarField\">PipeWithScalarField</a></td>
+      <td valign=\"top\">Visualizing a pipe with a scalar field represented by a color coding:<br>
       <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/PipeWithScalarFieldIcon.png\">
       </td>
   </tr>
 
-<tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced\">Advanced</a></td>
-      <td> <strong>Package</strong> that contains components to visualize
+<tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced\">Advanced</a></td>
+      <td valign=\"top\"> <strong>Package</strong> that contains components to visualize
           3-dimensional shapes where all parts of the shape
           can vary dynamically. Basic knowledge of Modelica is
           needed in order to utilize the components of this package.

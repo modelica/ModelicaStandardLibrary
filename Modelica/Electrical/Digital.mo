@@ -1681,34 +1681,34 @@ The result can be seen in the output signals of the FullAdders according to:</p>
 <p>Its logic behavior is like this:</p>
 <p><strong>HalfAdder behavior</strong></p>
 <table cellspacing=\"0\" cellpadding=\"2\" border=\"1\"><tr>
-<td><h4>input a</h4></td>
-<td><h4>input b</h4></td>
-<td><h4>sum s</h4></td>
-<td><h4>carry c</h4></td>
+<td valign=\"top\"><h4>input a</h4></td>
+<td valign=\"top\"><h4>input b</h4></td>
+<td valign=\"top\"><h4>sum s</h4></td>
+<td valign=\"top\"><h4>carry c</h4></td>
 </tr>
 <tr>
-<td><p>0</p></td>
-<td><p>0</p></td>
-<td><p>0</p></td>
-<td><p>0</p></td>
+<td valign=\"top\"><p>0</p></td>
+<td valign=\"top\"><p>0</p></td>
+<td valign=\"top\"><p>0</p></td>
+<td valign=\"top\"><p>0</p></td>
 </tr>
 <tr>
-<td><p>1</p></td>
-<td><p>0</p></td>
-<td><p>1</p></td>
-<td><p>0</p></td>
+<td valign=\"top\"><p>1</p></td>
+<td valign=\"top\"><p>0</p></td>
+<td valign=\"top\"><p>1</p></td>
+<td valign=\"top\"><p>0</p></td>
 </tr>
 <tr>
-<td><p>0</p></td>
-<td><p>1</p></td>
-<td><p>1</p></td>
-<td><p>0</p></td>
+<td valign=\"top\"><p>0</p></td>
+<td valign=\"top\"><p>1</p></td>
+<td valign=\"top\"><p>1</p></td>
+<td valign=\"top\"><p>0</p></td>
 </tr>
 <tr>
-<td><p>1</p></td>
-<td><p>1</p></td>
-<td><p>0</p></td>
-<td><p>1</p></td>
+<td valign=\"top\"><p>1</p></td>
+<td valign=\"top\"><p>1</p></td>
+<td valign=\"top\"><p>0</p></td>
+<td valign=\"top\"><p>1</p></td>
 </tr>
 </table>
 <p>The parameter delayTime is the delay time (tLH=tHL) of both the components.</p>
@@ -1775,67 +1775,67 @@ The result can be seen in the output signals of the FullAdders according to:</p>
 <p>Its logic behavior is like this:</p>
 <p><strong>FullAdder behavior</strong></p>
 <table cellspacing=\"0\" cellpadding=\"2\" border=\"1\"><tr>
-<td><h4>input a</h4></td>
-<td><h4>input b</h4></td>
-<td><h4>input carry c_in</h4></td>
-<td><h4>sum s</h4></td>
-<td><h4>output carry c_out</h4></td>
+<td valign=\"top\"><h4>input a</h4></td>
+<td valign=\"top\"><h4>input b</h4></td>
+<td valign=\"top\"><h4>input carry c_in</h4></td>
+<td valign=\"top\"><h4>sum s</h4></td>
+<td valign=\"top\"><h4>output carry c_out</h4></td>
 </tr>
 <tr>
-<td><p>0</p></td>
-<td><p>0</p></td>
-<td><p>0</p></td>
-<td><p>0</p></td>
-<td><p>0</p></td>
+<td valign=\"top\"><p>0</p></td>
+<td valign=\"top\"><p>0</p></td>
+<td valign=\"top\"><p>0</p></td>
+<td valign=\"top\"><p>0</p></td>
+<td valign=\"top\"><p>0</p></td>
 </tr>
 <tr>
-<td><p>1</p></td>
-<td><p>0</p></td>
-<td><p>0</p></td>
-<td><p>1</p></td>
-<td><p>0</p></td>
+<td valign=\"top\"><p>1</p></td>
+<td valign=\"top\"><p>0</p></td>
+<td valign=\"top\"><p>0</p></td>
+<td valign=\"top\"><p>1</p></td>
+<td valign=\"top\"><p>0</p></td>
 </tr>
 <tr>
-<td><p>0</p></td>
-<td><p>1</p></td>
-<td><p>0</p></td>
-<td><p>1</p></td>
-<td><p>0</p></td>
+<td valign=\"top\"><p>0</p></td>
+<td valign=\"top\"><p>1</p></td>
+<td valign=\"top\"><p>0</p></td>
+<td valign=\"top\"><p>1</p></td>
+<td valign=\"top\"><p>0</p></td>
 </tr>
 <tr>
-<td><p>1</p></td>
-<td><p>1</p></td>
-<td><p>0</p></td>
-<td><p>0</p></td>
-<td><p>1</p></td>
+<td valign=\"top\"><p>1</p></td>
+<td valign=\"top\"><p>1</p></td>
+<td valign=\"top\"><p>0</p></td>
+<td valign=\"top\"><p>0</p></td>
+<td valign=\"top\"><p>1</p></td>
 </tr>
 <tr>
-<td><p>0</p></td>
-<td><p>0</p></td>
-<td><p>1</p></td>
-<td><p>0</p></td>
-<td><p>1</p></td>
+<td valign=\"top\"><p>0</p></td>
+<td valign=\"top\"><p>0</p></td>
+<td valign=\"top\"><p>1</p></td>
+<td valign=\"top\"><p>0</p></td>
+<td valign=\"top\"><p>1</p></td>
 </tr>
 <tr>
-<td><p>1</p></td>
-<td><p>0</p></td>
-<td><p>1</p></td>
-<td><p>0</p></td>
-<td><p>1</p></td>
+<td valign=\"top\"><p>1</p></td>
+<td valign=\"top\"><p>0</p></td>
+<td valign=\"top\"><p>1</p></td>
+<td valign=\"top\"><p>0</p></td>
+<td valign=\"top\"><p>1</p></td>
 </tr>
 <tr>
-<td><p>0</p></td>
-<td><p>1</p></td>
-<td><p>1</p></td>
-<td><p>0</p></td>
-<td><p>1</p></td>
+<td valign=\"top\"><p>0</p></td>
+<td valign=\"top\"><p>1</p></td>
+<td valign=\"top\"><p>1</p></td>
+<td valign=\"top\"><p>0</p></td>
+<td valign=\"top\"><p>1</p></td>
 </tr>
 <tr>
-<td><p>1</p></td>
-<td><p>1</p></td>
-<td><p>1</p></td>
-<td><p>1</p></td>
-<td><p>1</p></td>
+<td valign=\"top\"><p>1</p></td>
+<td valign=\"top\"><p>1</p></td>
+<td valign=\"top\"><p>1</p></td>
+<td valign=\"top\"><p>1</p></td>
+<td valign=\"top\"><p>1</p></td>
 </tr>
 </table>
 </html>"), Icon(coordinateSystem(
@@ -2119,19 +2119,19 @@ The result can be seen in the output signals of the FullAdders according to:</p>
 <p><strong>Code Table:</strong></p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td><strong>Logic value</strong></td>
-      <td><strong>Meaning</strong></td>
+  <tr><td valign=\"top\"><strong>Logic value</strong></td>
+      <td valign=\"top\"><strong>Meaning</strong></td>
   </tr>
 
-  <tr><td>'U'</td> <td>Uninitialized</td></tr>
-  <tr><td>'X'</td> <td>Forcing Unknown</td></tr>
-  <tr><td>'0'</td> <td>Forcing 0</td></tr>
-  <tr><td>'1'</td> <td>Forcing 1</td></tr>
-  <tr><td>'Z'</td> <td>High Impedance</td></tr>
-  <tr><td>'W'</td> <td>Weak Unknown</td></tr>
-  <tr><td>'L'</td> <td>Weak 0</td></tr>
-  <tr><td>'H'</td> <td>Weak 1</td></tr>
-  <tr><td>'-'</td> <td>Do not care</td></tr>
+  <tr><td valign=\"top\">'U'</td> <td valign=\"top\">Uninitialized</td></tr>
+  <tr><td valign=\"top\">'X'</td> <td valign=\"top\">Forcing Unknown</td></tr>
+  <tr><td valign=\"top\">'0'</td> <td valign=\"top\">Forcing 0</td></tr>
+  <tr><td valign=\"top\">'1'</td> <td valign=\"top\">Forcing 1</td></tr>
+  <tr><td valign=\"top\">'Z'</td> <td valign=\"top\">High Impedance</td></tr>
+  <tr><td valign=\"top\">'W'</td> <td valign=\"top\">Weak Unknown</td></tr>
+  <tr><td valign=\"top\">'L'</td> <td valign=\"top\">Weak 0</td></tr>
+  <tr><td valign=\"top\">'H'</td> <td valign=\"top\">Weak 1</td></tr>
+  <tr><td valign=\"top\">'-'</td> <td valign=\"top\">Do not care</td></tr>
 </table>
 
 </html>"));
@@ -2145,14 +2145,14 @@ The result can be seen in the output signals of the FullAdders according to:</p>
 <p><strong>Code Table:</strong></p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td><strong>Logic value</strong></td>
-      <td><strong>Meaning</strong></td>
+  <tr><td valign=\"top\"><strong>Logic value</strong></td>
+      <td valign=\"top\"><strong>Meaning</strong></td>
   </tr>
 
-  <tr><td>'U'</td> <td>Uninitialized</td></tr>
-  <tr><td>'X'</td> <td>Forcing Unknown</td></tr>
-  <tr><td>'0'</td> <td>Forcing 0</td></tr>
-  <tr><td>'1'</td> <td>Forcing 1</td></tr>
+  <tr><td valign=\"top\">'U'</td> <td valign=\"top\">Uninitialized</td></tr>
+  <tr><td valign=\"top\">'X'</td> <td valign=\"top\">Forcing Unknown</td></tr>
+  <tr><td valign=\"top\">'0'</td> <td valign=\"top\">Forcing 0</td></tr>
+  <tr><td valign=\"top\">'1'</td> <td valign=\"top\">Forcing 1</td></tr>
 
 </table>
 </html>"));
@@ -2171,20 +2171,20 @@ The result can be seen in the output signals of the FullAdders according to:</p>
 <p><strong>Strength Table:</strong></p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td><strong>Strength</strong></td>
-      <td><strong>Output conversion to</strong></td>
+  <tr><td valign=\"top\"><strong>Strength</strong></td>
+      <td valign=\"top\"><strong>Output conversion to</strong></td>
   </tr>
 
-  <tr><td>'S_X01'</td> <td>Forcing X, 0, 1</td></tr>
-  <tr><td>'S_X0H'</td> <td>Forcing X, 0 and Weak 1</td></tr>
-  <tr><td>'S_XL1'</td> <td>Forcing X, 1 and Weak 0</td></tr>
-  <tr><td>'S_X0Z'</td> <td>Forcing X, 0 and High Impedance</td></tr>
-  <tr><td>'S_XZ1'</td> <td>Forcing X, 1 and High Impedance</td></tr>
-  <tr><td>'S_WLH'</td> <td>Weak X, 0, 1</td></tr>
-  <tr><td>'S_WLZ'</td> <td>Weak X, 0 and High Impedance</td></tr>
-  <tr><td>'S_WZH'</td> <td>Weak X, 1 and High Impedance</td></tr>
-  <tr><td>'S_W0H'</td> <td>Weak X, 1 and Forcing 0</td></tr>
-  <tr><td>'S_WL1'</td> <td>Weak X, 0 and Forcing 1</td></tr>
+  <tr><td valign=\"top\">'S_X01'</td> <td valign=\"top\">Forcing X, 0, 1</td></tr>
+  <tr><td valign=\"top\">'S_X0H'</td> <td valign=\"top\">Forcing X, 0 and Weak 1</td></tr>
+  <tr><td valign=\"top\">'S_XL1'</td> <td valign=\"top\">Forcing X, 1 and Weak 0</td></tr>
+  <tr><td valign=\"top\">'S_X0Z'</td> <td valign=\"top\">Forcing X, 0 and High Impedance</td></tr>
+  <tr><td valign=\"top\">'S_XZ1'</td> <td valign=\"top\">Forcing X, 1 and High Impedance</td></tr>
+  <tr><td valign=\"top\">'S_WLH'</td> <td valign=\"top\">Weak X, 0, 1</td></tr>
+  <tr><td valign=\"top\">'S_WLZ'</td> <td valign=\"top\">Weak X, 0 and High Impedance</td></tr>
+  <tr><td valign=\"top\">'S_WZH'</td> <td valign=\"top\">Weak X, 1 and High Impedance</td></tr>
+  <tr><td valign=\"top\">'S_W0H'</td> <td valign=\"top\">Weak X, 1 and Forcing 0</td></tr>
+  <tr><td valign=\"top\">'S_WL1'</td> <td valign=\"top\">Weak X, 0 and Forcing 1</td></tr>
 </table>
 </html>"));
 
@@ -3588,20 +3588,20 @@ To specify <em>setval</em>, the integer code has to be used.
 <p><strong>Code Table</strong></p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td><strong>Logic value</strong></td>
-      <td><strong>Integer code</strong></td>
-      <td><strong>Meaning</strong></td>
+  <tr><td valign=\"top\"><strong>Logic value</strong></td>
+      <td valign=\"top\"><strong>Integer code</strong></td>
+      <td valign=\"top\"><strong>Meaning</strong></td>
   </tr>
 
-  <tr><td>'U'</td> <td>1</td> <td>Uninitialized</td></tr>
-  <tr><td>'X'</td> <td>2</td> <td>Forcing Unknown</td></tr>
-  <tr><td>'0'</td> <td>3</td> <td>Forcing 0</td></tr>
-  <tr><td>'1'</td> <td>4</td> <td>Forcing 1</td></tr>
-  <tr><td>'Z'</td> <td>5</td> <td>High Impedance</td></tr>
-  <tr><td>'W'</td> <td>6</td> <td>Weak Unknown</td></tr>
-  <tr><td>'L'</td> <td>7</td> <td>Weak 0</td></tr>
-  <tr><td>'H'</td> <td>8</td> <td>Weak 1</td></tr>
-  <tr><td>'-'</td> <td>9</td> <td>Do not care</td></tr>
+  <tr><td valign=\"top\">'U'</td> <td valign=\"top\">1</td> <td valign=\"top\">Uninitialized</td></tr>
+  <tr><td valign=\"top\">'X'</td> <td valign=\"top\">2</td> <td valign=\"top\">Forcing Unknown</td></tr>
+  <tr><td valign=\"top\">'0'</td> <td valign=\"top\">3</td> <td valign=\"top\">Forcing 0</td></tr>
+  <tr><td valign=\"top\">'1'</td> <td valign=\"top\">4</td> <td valign=\"top\">Forcing 1</td></tr>
+  <tr><td valign=\"top\">'Z'</td> <td valign=\"top\">5</td> <td valign=\"top\">High Impedance</td></tr>
+  <tr><td valign=\"top\">'W'</td> <td valign=\"top\">6</td> <td valign=\"top\">Weak Unknown</td></tr>
+  <tr><td valign=\"top\">'L'</td> <td valign=\"top\">7</td> <td valign=\"top\">Weak 0</td></tr>
+  <tr><td valign=\"top\">'H'</td> <td valign=\"top\">8</td> <td valign=\"top\">Weak 1</td></tr>
+  <tr><td valign=\"top\">'-'</td> <td valign=\"top\">9</td> <td valign=\"top\">Do not care</td></tr>
 </table>
 
 <p>
@@ -3661,20 +3661,20 @@ To specify the logic value parameters, the integer code has to be used.
 </p>
 <p><strong>Code Table</strong></p>
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td><strong>Logic value</strong></td>
-      <td><strong>Integer code</strong></td>
-      <td><strong>Meaning</strong></td>
+  <tr><td valign=\"top\"><strong>Logic value</strong></td>
+      <td valign=\"top\"><strong>Integer code</strong></td>
+      <td valign=\"top\"><strong>Meaning</strong></td>
   </tr>
 
-  <tr><td>'U'</td> <td>1</td> <td>Uninitialized</td></tr>
-  <tr><td>'X'</td> <td>2</td> <td>Forcing Unknown</td></tr>
-  <tr><td>'0'</td> <td>3</td> <td>Forcing 0</td></tr>
-  <tr><td>'1'</td> <td>4</td> <td>Forcing 1</td></tr>
-  <tr><td>'Z'</td> <td>5</td> <td>High Impedance</td></tr>
-  <tr><td>'W'</td> <td>6</td> <td>Weak Unknown</td></tr>
-  <tr><td>'L'</td> <td>7</td> <td>Weak 0</td></tr>
-  <tr><td>'H'</td> <td>8</td> <td>Weak 1</td></tr>
-  <tr><td>'-'</td> <td>9</td> <td>Do not care</td></tr>
+  <tr><td valign=\"top\">'U'</td> <td valign=\"top\">1</td> <td valign=\"top\">Uninitialized</td></tr>
+  <tr><td valign=\"top\">'X'</td> <td valign=\"top\">2</td> <td valign=\"top\">Forcing Unknown</td></tr>
+  <tr><td valign=\"top\">'0'</td> <td valign=\"top\">3</td> <td valign=\"top\">Forcing 0</td></tr>
+  <tr><td valign=\"top\">'1'</td> <td valign=\"top\">4</td> <td valign=\"top\">Forcing 1</td></tr>
+  <tr><td valign=\"top\">'Z'</td> <td valign=\"top\">5</td> <td valign=\"top\">High Impedance</td></tr>
+  <tr><td valign=\"top\">'W'</td> <td valign=\"top\">6</td> <td valign=\"top\">Weak Unknown</td></tr>
+  <tr><td valign=\"top\">'L'</td> <td valign=\"top\">7</td> <td valign=\"top\">Weak 0</td></tr>
+  <tr><td valign=\"top\">'H'</td> <td valign=\"top\">8</td> <td valign=\"top\">Weak 1</td></tr>
+  <tr><td valign=\"top\">'-'</td> <td valign=\"top\">9</td> <td valign=\"top\">Do not care</td></tr>
 </table>
 <p>
 If the logic values are imported by<br><strong>import L = Digital.Interfaces.Logic;</strong><br>
@@ -3736,20 +3736,20 @@ To specify the logic value parameters, the integer code has to be used.
 </p>
 <p><strong>Code Table</strong></p>
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td><strong>Logic value</strong></td>
-      <td><strong>Integer code</strong></td>
-      <td><strong>Meaning</strong></td>
+  <tr><td valign=\"top\"><strong>Logic value</strong></td>
+      <td valign=\"top\"><strong>Integer code</strong></td>
+      <td valign=\"top\"><strong>Meaning</strong></td>
   </tr>
 
-  <tr><td>'U'</td> <td>1</td> <td>Uninitialized</td></tr>
-  <tr><td>'X'</td> <td>2</td> <td>Forcing Unknown</td></tr>
-  <tr><td>'0'</td> <td>3</td> <td>Forcing 0</td></tr>
-  <tr><td>'1'</td> <td>4</td> <td>Forcing 1</td></tr>
-  <tr><td>'Z'</td> <td>5</td> <td>High Impedance</td></tr>
-  <tr><td>'W'</td> <td>6</td> <td>Weak Unknown</td></tr>
-  <tr><td>'L'</td> <td>7</td> <td>Weak 0</td></tr>
-  <tr><td>'H'</td> <td>8</td> <td>Weak 1</td></tr>
-  <tr><td>'-'</td> <td>9</td> <td>Do not care</td></tr>
+  <tr><td valign=\"top\">'U'</td> <td valign=\"top\">1</td> <td valign=\"top\">Uninitialized</td></tr>
+  <tr><td valign=\"top\">'X'</td> <td valign=\"top\">2</td> <td valign=\"top\">Forcing Unknown</td></tr>
+  <tr><td valign=\"top\">'0'</td> <td valign=\"top\">3</td> <td valign=\"top\">Forcing 0</td></tr>
+  <tr><td valign=\"top\">'1'</td> <td valign=\"top\">4</td> <td valign=\"top\">Forcing 1</td></tr>
+  <tr><td valign=\"top\">'Z'</td> <td valign=\"top\">5</td> <td valign=\"top\">High Impedance</td></tr>
+  <tr><td valign=\"top\">'W'</td> <td valign=\"top\">6</td> <td valign=\"top\">Weak Unknown</td></tr>
+  <tr><td valign=\"top\">'L'</td> <td valign=\"top\">7</td> <td valign=\"top\">Weak 0</td></tr>
+  <tr><td valign=\"top\">'H'</td> <td valign=\"top\">8</td> <td valign=\"top\">Weak 1</td></tr>
+  <tr><td valign=\"top\">'-'</td> <td valign=\"top\">9</td> <td valign=\"top\">Do not care</td></tr>
 </table>
 <p>
 If the logic values are imported by<br><strong>import L = Digital.Interfaces.Logic;</strong><br>
@@ -3833,20 +3833,20 @@ To specify the logic value parameters, the integer code has to be used.
 </p>
 <p><strong>Code Table</strong></p>
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td><strong>Logic value</strong></td>
-      <td><strong>Integer code</strong></td>
-      <td><strong>Meaning</strong></td>
+  <tr><td valign=\"top\"><strong>Logic value</strong></td>
+      <td valign=\"top\"><strong>Integer code</strong></td>
+      <td valign=\"top\"><strong>Meaning</strong></td>
   </tr>
 
-  <tr><td>'U'</td> <td>1</td> <td>Uninitialized</td></tr>
-  <tr><td>'X'</td> <td>2</td> <td>Forcing Unknown</td></tr>
-  <tr><td>'0'</td> <td>3</td> <td>Forcing 0</td></tr>
-  <tr><td>'1'</td> <td>4</td> <td>Forcing 1</td></tr>
-  <tr><td>'Z'</td> <td>5</td> <td>High Impedance</td></tr>
-  <tr><td>'W'</td> <td>6</td> <td>Weak Unknown</td></tr>
-  <tr><td>'L'</td> <td>7</td> <td>Weak 0</td></tr>
-  <tr><td>'H'</td> <td>8</td> <td>Weak 1</td></tr>
-  <tr><td>'-'</td> <td>9</td> <td>Do not care</td></tr>
+  <tr><td valign=\"top\">'U'</td> <td valign=\"top\">1</td> <td valign=\"top\">Uninitialized</td></tr>
+  <tr><td valign=\"top\">'X'</td> <td valign=\"top\">2</td> <td valign=\"top\">Forcing Unknown</td></tr>
+  <tr><td valign=\"top\">'0'</td> <td valign=\"top\">3</td> <td valign=\"top\">Forcing 0</td></tr>
+  <tr><td valign=\"top\">'1'</td> <td valign=\"top\">4</td> <td valign=\"top\">Forcing 1</td></tr>
+  <tr><td valign=\"top\">'Z'</td> <td valign=\"top\">5</td> <td valign=\"top\">High Impedance</td></tr>
+  <tr><td valign=\"top\">'W'</td> <td valign=\"top\">6</td> <td valign=\"top\">Weak Unknown</td></tr>
+  <tr><td valign=\"top\">'L'</td> <td valign=\"top\">7</td> <td valign=\"top\">Weak 0</td></tr>
+  <tr><td valign=\"top\">'H'</td> <td valign=\"top\">8</td> <td valign=\"top\">Weak 1</td></tr>
+  <tr><td valign=\"top\">'-'</td> <td valign=\"top\">9</td> <td valign=\"top\">Do not care</td></tr>
 </table>
 <p>
 If the logic values are imported by<br><strong>import L = Digital.Interfaces.Logic;</strong><br>
@@ -4682,37 +4682,37 @@ If the signal width is greater than 1 this conversion is done for each signal.
 <p><strong>Truth Table for high active reset:</strong></p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td><strong>DataIn</strong></td>
-      <td><strong>Clock</strong></td>
-      <td><strong>Reset</strong></td>
-      <td><strong>DataOut</strong></td>
-      <td>Map</td>
+  <tr><td valign=\"top\"><strong>DataIn</strong></td>
+      <td valign=\"top\"><strong>Clock</strong></td>
+      <td valign=\"top\"><strong>Reset</strong></td>
+      <td valign=\"top\"><strong>DataOut</strong></td>
+      <td valign=\"top\">Map</td>
   </tr>
 
-  <tr><td>*</td> <td>*</td> <td>U</td > <td>U</td> <td>1</td> </tr>
-  <tr><td>*</td> <td>*</td> <td>1</td>  <td>0</td> <td>2</td> </tr>
-  <tr><td>*</td> <td>0-Trns</td> <td>0</td>  <td>NC</td> <td>3</td> </tr>
-  <tr><td>*</td> <td>1-Trns</td> <td>0</td>  <td>DataIn</td> <td>3</td> </tr>
-  <tr><td>*</td> <td>X-Trns</td> <td>0</td>  <td>X or U or NC</td> <td>3</td> </tr>
-  <tr><td>*</td> <td>*</td> <td>X</td> <td>X or U or 0 or NC</td> <td>4</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">*</td> <td valign=\"top\">U</td > <td valign=\"top\">U</td> <td valign=\"top\">1</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">*</td> <td valign=\"top\">1</td>  <td valign=\"top\">0</td> <td valign=\"top\">2</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">0-Trns</td> <td valign=\"top\">0</td>  <td valign=\"top\">NC</td> <td valign=\"top\">3</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">1-Trns</td> <td valign=\"top\">0</td>  <td valign=\"top\">DataIn</td> <td valign=\"top\">3</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">X-Trns</td> <td valign=\"top\">0</td>  <td valign=\"top\">X or U or NC</td> <td valign=\"top\">3</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">*</td> <td valign=\"top\">X</td> <td valign=\"top\">X or U or 0 or NC</td> <td valign=\"top\">4</td> </tr>
 </table>
 
 <p><strong>Truth Table for low active reset:</strong></p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td><strong>DataIn</strong></td>
-      <td><strong>Clock</strong></td>
-      <td><strong>Reset</strong></td>
-      <td><strong>DataOut</strong></td>
-      <td>Map</td>
+  <tr><td valign=\"top\"><strong>DataIn</strong></td>
+      <td valign=\"top\"><strong>Clock</strong></td>
+      <td valign=\"top\"><strong>Reset</strong></td>
+      <td valign=\"top\"><strong>DataOut</strong></td>
+      <td valign=\"top\">Map</td>
   </tr>
 
-  <tr><td>*</td> <td>*</td> <td>U</td > <td>U</td> <td>1</td> </tr>
-  <tr><td>*</td> <td>*</td> <td>0</td>  <td>0</td> <td>2</td> </tr>
-  <tr><td>*</td> <td>0-Trns</td> <td>1</td>  <td>NC</td> <td>3</td> </tr>
-  <tr><td>*</td> <td>1-Trns</td> <td>1</td>  <td>DataIn</td> <td>3</td> </tr>
-  <tr><td>*</td> <td>X-Trns</td> <td>1</td>  <td>X or U or NC</td> <td>3</td> </tr>
-  <tr><td>*</td> <td>*</td> <td>X</td> <td>X or U or 0 or NC</td> <td>4</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">*</td> <td valign=\"top\">U</td > <td valign=\"top\">U</td> <td valign=\"top\">1</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">*</td> <td valign=\"top\">0</td>  <td valign=\"top\">0</td> <td valign=\"top\">2</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">0-Trns</td> <td valign=\"top\">1</td>  <td valign=\"top\">NC</td> <td valign=\"top\">3</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">1-Trns</td> <td valign=\"top\">1</td>  <td valign=\"top\">DataIn</td> <td valign=\"top\">3</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">X-Trns</td> <td valign=\"top\">1</td>  <td valign=\"top\">X or U or NC</td> <td valign=\"top\">3</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">*</td> <td valign=\"top\">X</td> <td valign=\"top\">X or U or 0 or NC</td> <td valign=\"top\">4</td> </tr>
 </table>
 
 <pre>
@@ -4840,18 +4840,18 @@ Clock transition definitions:
 <p><strong>Truth Table</strong></p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td><strong>DataIn</strong></td>
-      <td><strong>Clock</strong></td>
-      <td><strong>Reset</strong></td>
-      <td><strong>DataOut</strong></td>
+  <tr><td valign=\"top\"><strong>DataIn</strong></td>
+      <td valign=\"top\"><strong>Clock</strong></td>
+      <td valign=\"top\"><strong>Reset</strong></td>
+      <td valign=\"top\"><strong>DataOut</strong></td>
   </tr>
 
-  <tr><td>*</td> <td>*</td> <td>U</td > <td>U</td> </tr>
-  <tr><td>*</td> <td>*</td> <td>1</td>  <td>0</td> </tr>
-  <tr><td>*</td> <td>0-Trns</td> <td>0</td>  <td>NC</td> </tr>
-  <tr><td>*</td> <td>1-Trns</td> <td>0</td>  <td>DataIn</td> </tr>
-  <tr><td>*</td> <td>X-Trns</td> <td>0</td>  <td>X or U or NC</td> </tr>
-  <tr><td>*</td> <td>*</td> <td>X</td> <td>X or U or 0 or NC</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">*</td> <td valign=\"top\">U</td > <td valign=\"top\">U</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">*</td> <td valign=\"top\">1</td>  <td valign=\"top\">0</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">0-Trns</td> <td valign=\"top\">0</td>  <td valign=\"top\">NC</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">1-Trns</td> <td valign=\"top\">0</td>  <td valign=\"top\">DataIn</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">X-Trns</td> <td valign=\"top\">0</td>  <td valign=\"top\">X or U or NC</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">*</td> <td valign=\"top\">X</td> <td valign=\"top\">X or U or 0 or NC</td> </tr>
 </table>
 
 <pre>
@@ -4887,18 +4887,18 @@ Clock transition definitions:
 <p><strong>Truth Table</strong></p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td><strong>DataIn</strong></td>
-      <td><strong>Clock</strong></td>
-      <td><strong>Reset</strong></td>
-      <td><strong>DataOut</strong></td>
+  <tr><td valign=\"top\"><strong>DataIn</strong></td>
+      <td valign=\"top\"><strong>Clock</strong></td>
+      <td valign=\"top\"><strong>Reset</strong></td>
+      <td valign=\"top\"><strong>DataOut</strong></td>
   </tr>
 
-  <tr><td>*</td> <td>*</td> <td>U</td > <td>U</td> </tr>
-  <tr><td>*</td> <td>*</td> <td>0</td>  <td>0</td> </tr>
-  <tr><td>*</td> <td>0-Trns</td> <td>1</td>  <td>NC</td> </tr>
-  <tr><td>*</td> <td>1-Trns</td> <td>1</td>  <td>DataIn</td> </tr>
-  <tr><td>*</td> <td>X-Trns</td> <td>1</td>  <td>X or U or NC</td> </tr>
-  <tr><td>*</td> <td>*</td> <td>X</td> <td>X or U or 0 or NC</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">*</td> <td valign=\"top\">U</td > <td valign=\"top\">U</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">*</td> <td valign=\"top\">0</td>  <td valign=\"top\">0</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">0-Trns</td> <td valign=\"top\">1</td>  <td valign=\"top\">NC</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">1-Trns</td> <td valign=\"top\">1</td>  <td valign=\"top\">DataIn</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">X-Trns</td> <td valign=\"top\">1</td>  <td valign=\"top\">X or U or NC</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">*</td> <td valign=\"top\">X</td> <td valign=\"top\">X or U or 0 or NC</td> </tr>
 </table>
 
 <pre>
@@ -5107,50 +5107,50 @@ Clock transition definitions:
 <p><strong>Truth Table for high active set and reset</strong></p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td><strong>DataIn</strong></td>
-      <td><strong>Clock</strong></td>
-      <td><strong>Reset</strong></td>
-      <td><strong>Set</strong></td>
-      <td><strong>DataOut</strong></td>
-      <td>Map</td>
+  <tr><td valign=\"top\"><strong>DataIn</strong></td>
+      <td valign=\"top\"><strong>Clock</strong></td>
+      <td valign=\"top\"><strong>Reset</strong></td>
+      <td valign=\"top\"><strong>Set</strong></td>
+      <td valign=\"top\"><strong>DataOut</strong></td>
+      <td valign=\"top\">Map</td>
   </tr>
 
-  <tr><td>*</td> <td>*</td> <td>*</td>  <td>U</td> <td>U</td> <td>1</td> </tr>
-  <tr><td>*</td> <td>*</td> <td>U</td>  <td>*</td> <td>U</td> <td>1</td> </tr>
-  <tr><td>*</td> <td>*</td> <td>*</td>  <td>1</td> <td>1</td> <td>2</td> </tr>
-  <tr><td>*</td> <td>*</td> <td>1</td>  <td>0</td> <td>0</td> <td>3</td> </tr>
-  <tr><td>*</td> <td>*</td> <td>1</td>  <td>X</td> <td>X</td> <td>6</td> </tr>
-  <tr><td>*</td> <td>*</td> <td>X</td> <td>X</td> <td>X or U</td> <td>4</td> </tr>
-  <tr><td>*</td> <td>*</td> <td>0</td> <td>X</td> <td>X or U or 1 or NC</td> <td>5</td> </tr>
-  <tr><td>*</td> <td>*</td> <td>X</td> <td>0</td> <td>X or U or 0 or NC</td> <td>7</td> </tr>
-  <tr><td>*</td> <td>X-Trns</td> <td>0</td>  <td>0</td> <td>X or U or NC</td> <td>8</td> </tr>
-  <tr><td>*</td> <td>1-Trns</td> <td>0</td>  <td>0</td> <td>DataIn</td> <td>8</td> </tr>
-  <tr><td>*</td> <td>0-Trns</td> <td>0</td>  <td>0</td> <td>NC</td> <td>8</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">*</td> <td valign=\"top\">*</td>  <td valign=\"top\">U</td> <td valign=\"top\">U</td> <td valign=\"top\">1</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">*</td> <td valign=\"top\">U</td>  <td valign=\"top\">*</td> <td valign=\"top\">U</td> <td valign=\"top\">1</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">*</td> <td valign=\"top\">*</td>  <td valign=\"top\">1</td> <td valign=\"top\">1</td> <td valign=\"top\">2</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">*</td> <td valign=\"top\">1</td>  <td valign=\"top\">0</td> <td valign=\"top\">0</td> <td valign=\"top\">3</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">*</td> <td valign=\"top\">1</td>  <td valign=\"top\">X</td> <td valign=\"top\">X</td> <td valign=\"top\">6</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">*</td> <td valign=\"top\">X</td> <td valign=\"top\">X</td> <td valign=\"top\">X or U</td> <td valign=\"top\">4</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">*</td> <td valign=\"top\">0</td> <td valign=\"top\">X</td> <td valign=\"top\">X or U or 1 or NC</td> <td valign=\"top\">5</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">*</td> <td valign=\"top\">X</td> <td valign=\"top\">0</td> <td valign=\"top\">X or U or 0 or NC</td> <td valign=\"top\">7</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">X-Trns</td> <td valign=\"top\">0</td>  <td valign=\"top\">0</td> <td valign=\"top\">X or U or NC</td> <td valign=\"top\">8</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">1-Trns</td> <td valign=\"top\">0</td>  <td valign=\"top\">0</td> <td valign=\"top\">DataIn</td> <td valign=\"top\">8</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">0-Trns</td> <td valign=\"top\">0</td>  <td valign=\"top\">0</td> <td valign=\"top\">NC</td> <td valign=\"top\">8</td> </tr>
 
 </table>
 
 <p><strong>Truth Table for low active set and reset </strong></p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td><strong>DataIn</strong></td>
-      <td><strong>Clock</strong></td>
-      <td><strong>Reset</strong></td>
-      <td><strong>Set</strong></td>
-      <td><strong>DataOut</strong></td>
-      <td>Map</td>
+  <tr><td valign=\"top\"><strong>DataIn</strong></td>
+      <td valign=\"top\"><strong>Clock</strong></td>
+      <td valign=\"top\"><strong>Reset</strong></td>
+      <td valign=\"top\"><strong>Set</strong></td>
+      <td valign=\"top\"><strong>DataOut</strong></td>
+      <td valign=\"top\">Map</td>
   </tr>
 
-  <tr><td>*</td> <td>*</td> <td>*</td>  <td>U</td> <td>U</td> <td>1</td> </tr>
-  <tr><td>*</td> <td>*</td> <td>U</td>  <td>*</td> <td>U</td> <td>1</td> </tr>
-  <tr><td>*</td> <td>*</td> <td>*</td>  <td>0</td> <td>1</td> <td>2</td> </tr>
-  <tr><td>*</td> <td>*</td> <td>0</td>  <td>1</td> <td>0</td> <td>3</td> </tr>
-  <tr><td>*</td> <td>*</td> <td>0</td>  <td>X</td> <td>X</td> <td>6</td> </tr>
-  <tr><td>*</td> <td>*</td> <td>X</td> <td>X</td> <td>X or U</td> <td>4</td> </tr>
-  <tr><td>*</td> <td>*</td> <td>1</td> <td>X</td> <td>X or U or 1 or NC</td> <td>5</td> </tr>
-  <tr><td>*</td> <td>*</td> <td>X</td> <td>1</td> <td>X or U or 0 or NC</td> <td>7</td> </tr>
-  <tr><td>*</td> <td>X-Trns</td> <td>1</td>  <td>1</td> <td>X or U or NC</td> <td>8</td> </tr>
-  <tr><td>*</td> <td>1-Trns</td> <td>1</td>  <td>1</td> <td>DataIn</td> <td>8</td> </tr>
-  <tr><td>*</td> <td>0-Trns</td> <td>1</td>  <td>1</td> <td>NC</td> <td>8</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">*</td> <td valign=\"top\">*</td>  <td valign=\"top\">U</td> <td valign=\"top\">U</td> <td valign=\"top\">1</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">*</td> <td valign=\"top\">U</td>  <td valign=\"top\">*</td> <td valign=\"top\">U</td> <td valign=\"top\">1</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">*</td> <td valign=\"top\">*</td>  <td valign=\"top\">0</td> <td valign=\"top\">1</td> <td valign=\"top\">2</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">*</td> <td valign=\"top\">0</td>  <td valign=\"top\">1</td> <td valign=\"top\">0</td> <td valign=\"top\">3</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">*</td> <td valign=\"top\">0</td>  <td valign=\"top\">X</td> <td valign=\"top\">X</td> <td valign=\"top\">6</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">*</td> <td valign=\"top\">X</td> <td valign=\"top\">X</td> <td valign=\"top\">X or U</td> <td valign=\"top\">4</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">*</td> <td valign=\"top\">1</td> <td valign=\"top\">X</td> <td valign=\"top\">X or U or 1 or NC</td> <td valign=\"top\">5</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">*</td> <td valign=\"top\">X</td> <td valign=\"top\">1</td> <td valign=\"top\">X or U or 0 or NC</td> <td valign=\"top\">7</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">X-Trns</td> <td valign=\"top\">1</td>  <td valign=\"top\">1</td> <td valign=\"top\">X or U or NC</td> <td valign=\"top\">8</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">1-Trns</td> <td valign=\"top\">1</td>  <td valign=\"top\">1</td> <td valign=\"top\">DataIn</td> <td valign=\"top\">8</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">0-Trns</td> <td valign=\"top\">1</td>  <td valign=\"top\">1</td> <td valign=\"top\">NC</td> <td valign=\"top\">8</td> </tr>
 </table>
 
 <pre>
@@ -5295,24 +5295,24 @@ Clock transition definitions:
 <p><strong>Truth Table</strong></p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td><strong>DataIn</strong></td>
-      <td><strong>Clock</strong></td>
-      <td><strong>Reset</strong></td>
-      <td><strong>Set</strong></td>
-      <td><strong>DataOut</strong></td>
+  <tr><td valign=\"top\"><strong>DataIn</strong></td>
+      <td valign=\"top\"><strong>Clock</strong></td>
+      <td valign=\"top\"><strong>Reset</strong></td>
+      <td valign=\"top\"><strong>Set</strong></td>
+      <td valign=\"top\"><strong>DataOut</strong></td>
   </tr>
 
-  <tr><td>*</td> <td>*</td> <td>*</td>  <td>U</td> <td>U</td> </tr>
-  <tr><td>*</td> <td>*</td> <td>U</td>  <td>*</td> <td>U</td> </tr>
-  <tr><td>*</td> <td>*</td> <td>*</td>  <td>1</td> <td>1</td> </tr>
-  <tr><td>*</td> <td>*</td> <td>1</td>  <td>0</td> <td>0</td> </tr>
-  <tr><td>*</td> <td>*</td> <td>1</td>  <td>X</td> <td>X</td> </tr>
-  <tr><td>*</td> <td>*</td> <td>X</td> <td>X</td> <td>X or U</td> </tr>
-  <tr><td>*</td> <td>*</td> <td>0</td> <td>X</td> <td>X or U or 1 or NC</td> </tr>
-  <tr><td>*</td> <td>*</td> <td>X</td> <td>0</td> <td>X or U or 0 or NC</td> </tr>
-  <tr><td>*</td> <td>X-Trns</td> <td>0</td>  <td>0</td> <td>X or U or NC</td> </tr>
-  <tr><td>*</td> <td>1-Trns</td> <td>0</td>  <td>0</td> <td>DataIn</td> </tr>
-  <tr><td>*</td> <td>0-Trns</td> <td>0</td>  <td>0</td> <td>NC</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">*</td> <td valign=\"top\">*</td>  <td valign=\"top\">U</td> <td valign=\"top\">U</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">*</td> <td valign=\"top\">U</td>  <td valign=\"top\">*</td> <td valign=\"top\">U</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">*</td> <td valign=\"top\">*</td>  <td valign=\"top\">1</td> <td valign=\"top\">1</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">*</td> <td valign=\"top\">1</td>  <td valign=\"top\">0</td> <td valign=\"top\">0</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">*</td> <td valign=\"top\">1</td>  <td valign=\"top\">X</td> <td valign=\"top\">X</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">*</td> <td valign=\"top\">X</td> <td valign=\"top\">X</td> <td valign=\"top\">X or U</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">*</td> <td valign=\"top\">0</td> <td valign=\"top\">X</td> <td valign=\"top\">X or U or 1 or NC</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">*</td> <td valign=\"top\">X</td> <td valign=\"top\">0</td> <td valign=\"top\">X or U or 0 or NC</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">X-Trns</td> <td valign=\"top\">0</td>  <td valign=\"top\">0</td> <td valign=\"top\">X or U or NC</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">1-Trns</td> <td valign=\"top\">0</td>  <td valign=\"top\">0</td> <td valign=\"top\">DataIn</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">0-Trns</td> <td valign=\"top\">0</td>  <td valign=\"top\">0</td> <td valign=\"top\">NC</td> </tr>
 </table>
 
 <pre>
@@ -5356,24 +5356,24 @@ Clock transition definitions:
 <p><strong>Truth Table</strong></p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td><strong>DataIn</strong></td>
-      <td><strong>Clock</strong></td>
-      <td><strong>Reset</strong></td>
-      <td><strong>Set</strong></td>
-      <td><strong>DataOut</strong></td>
+  <tr><td valign=\"top\"><strong>DataIn</strong></td>
+      <td valign=\"top\"><strong>Clock</strong></td>
+      <td valign=\"top\"><strong>Reset</strong></td>
+      <td valign=\"top\"><strong>Set</strong></td>
+      <td valign=\"top\"><strong>DataOut</strong></td>
   </tr>
 
-  <tr><td>*</td> <td>*</td> <td>*</td>  <td>U</td> <td>U</td> </tr>
-  <tr><td>*</td> <td>*</td> <td>U</td>  <td>*</td> <td>U</td> </tr>
-  <tr><td>*</td> <td>*</td> <td>*</td>  <td>0</td> <td>1</td> </tr>
-  <tr><td>*</td> <td>*</td> <td>0</td>  <td>1</td> <td>0</td> </tr>
-  <tr><td>*</td> <td>*</td> <td>0</td>  <td>X</td> <td>X</td> </tr>
-  <tr><td>*</td> <td>*</td> <td>X</td> <td>X</td> <td>X or U</td> </tr>
-  <tr><td>*</td> <td>*</td> <td>1</td> <td>X</td> <td>X or U or 1 or NC</td> </tr>
-  <tr><td>*</td> <td>*</td> <td>X</td> <td>1</td> <td>X or U or 0 or NC</td> </tr>
-  <tr><td>*</td> <td>X-Trns</td> <td>1</td>  <td>1</td> <td>X or U or NC</td> </tr>
-  <tr><td>*</td> <td>1-Trns</td> <td>1</td>  <td>1</td> <td>DataIn</td> </tr>
-  <tr><td>*</td> <td>0-Trns</td> <td>1</td>  <td>1</td> <td>NC</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">*</td> <td valign=\"top\">*</td>  <td valign=\"top\">U</td> <td valign=\"top\">U</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">*</td> <td valign=\"top\">U</td>  <td valign=\"top\">*</td> <td valign=\"top\">U</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">*</td> <td valign=\"top\">*</td>  <td valign=\"top\">0</td> <td valign=\"top\">1</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">*</td> <td valign=\"top\">0</td>  <td valign=\"top\">1</td> <td valign=\"top\">0</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">*</td> <td valign=\"top\">0</td>  <td valign=\"top\">X</td> <td valign=\"top\">X</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">*</td> <td valign=\"top\">X</td> <td valign=\"top\">X</td> <td valign=\"top\">X or U</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">*</td> <td valign=\"top\">1</td> <td valign=\"top\">X</td> <td valign=\"top\">X or U or 1 or NC</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">*</td> <td valign=\"top\">X</td> <td valign=\"top\">1</td> <td valign=\"top\">X or U or 0 or NC</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">X-Trns</td> <td valign=\"top\">1</td>  <td valign=\"top\">1</td> <td valign=\"top\">X or U or NC</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">1-Trns</td> <td valign=\"top\">1</td>  <td valign=\"top\">1</td> <td valign=\"top\">DataIn</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">0-Trns</td> <td valign=\"top\">1</td>  <td valign=\"top\">1</td> <td valign=\"top\">NC</td> </tr>
 </table>
 
 <pre>
@@ -5497,39 +5497,39 @@ Clock transition definitions:
 <p><strong>Truth Table for high active reset:</strong></p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td><strong>DataIn</strong></td>
-      <td><strong>Enable</strong></td>
-      <td><strong>Reset</strong></td>
-      <td><strong>DataOut</strong></td>
-      <td>Map</td>
+  <tr><td valign=\"top\"><strong>DataIn</strong></td>
+      <td valign=\"top\"><strong>Enable</strong></td>
+      <td valign=\"top\"><strong>Reset</strong></td>
+      <td valign=\"top\"><strong>DataOut</strong></td>
+      <td valign=\"top\">Map</td>
   </tr>
 
-  <tr><td>*</td> <td>*</td> <td>U</td > <td>U</td> <td>1</td> </tr>
-  <tr><td>*</td> <td>*</td> <td>1</td>  <td>0</td> <td>2</td> </tr>
-  <tr><td>*</td> <td>0</td> <td>0</td>  <td>NC</td> <td>3</td> </tr>
-  <tr><td>*</td> <td>1</td> <td>0</td>  <td>DataIn</td> <td>3</td> </tr>
-  <tr><td>*</td> <td>X</td> <td>0</td>  <td>X or U or NC</td> <td>3</td> </tr>
-  <tr><td>*</td> <td>U</td> <td>~1</td> <td>U</td> <td>4</td> </tr>
-  <tr><td>*</td> <td>~U</td> <td>X</td> <td>X or U or 0 or NC</td> <td>4</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">*</td> <td valign=\"top\">U</td > <td valign=\"top\">U</td> <td valign=\"top\">1</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">*</td> <td valign=\"top\">1</td>  <td valign=\"top\">0</td> <td valign=\"top\">2</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">0</td> <td valign=\"top\">0</td>  <td valign=\"top\">NC</td> <td valign=\"top\">3</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">1</td> <td valign=\"top\">0</td>  <td valign=\"top\">DataIn</td> <td valign=\"top\">3</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">X</td> <td valign=\"top\">0</td>  <td valign=\"top\">X or U or NC</td> <td valign=\"top\">3</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">U</td> <td valign=\"top\">~1</td> <td valign=\"top\">U</td> <td valign=\"top\">4</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">~U</td> <td valign=\"top\">X</td> <td valign=\"top\">X or U or 0 or NC</td> <td valign=\"top\">4</td> </tr>
 </table>
 
 <p><strong>Truth Table for low active reset:</strong></p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td><strong>DataIn</strong></td>
-      <td><strong>Enable</strong></td>
-      <td><strong>Reset</strong></td>
-      <td><strong>DataOut</strong></td>
-      <td>Map</td>
+  <tr><td valign=\"top\"><strong>DataIn</strong></td>
+      <td valign=\"top\"><strong>Enable</strong></td>
+      <td valign=\"top\"><strong>Reset</strong></td>
+      <td valign=\"top\"><strong>DataOut</strong></td>
+      <td valign=\"top\">Map</td>
   </tr>
 
-  <tr><td>*</td> <td>*</td> <td>U</td> <td>U</td> <td>1</td> </tr>
-  <tr><td>*</td> <td>*</td> <td>0</td> <td>0</td> <td>2</td> </tr>
-  <tr><td>*</td> <td>0</td> <td>1</td> <td>NC</td> <td>3</td> </tr>
-  <tr><td>*</td> <td>1</td> <td>1</td> <td>DataIn</td> <td>3</td> </tr>
-  <tr><td>*</td> <td>X</td> <td>1</td> <td>X or U or NC</td> <td>3</td> </tr>
-  <tr><td>*</td> <td>U</td> <td>~0</td> <td>U</td> <td>4</td> </tr>
-  <tr><td>*</td> <td>~U</td> <td>X</td> <td>X or U or 0 or NC</td> <td>4</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">*</td> <td valign=\"top\">U</td> <td valign=\"top\">U</td> <td valign=\"top\">1</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">*</td> <td valign=\"top\">0</td> <td valign=\"top\">0</td> <td valign=\"top\">2</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">0</td> <td valign=\"top\">1</td> <td valign=\"top\">NC</td> <td valign=\"top\">3</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">1</td> <td valign=\"top\">1</td> <td valign=\"top\">DataIn</td> <td valign=\"top\">3</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">X</td> <td valign=\"top\">1</td> <td valign=\"top\">X or U or NC</td> <td valign=\"top\">3</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">U</td> <td valign=\"top\">~0</td> <td valign=\"top\">U</td> <td valign=\"top\">4</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">~U</td> <td valign=\"top\">X</td> <td valign=\"top\">X or U or 0 or NC</td> <td valign=\"top\">4</td> </tr>
 </table>
 
 <pre>
@@ -5650,19 +5650,19 @@ Clock transition definitions:
 <p><strong>Truth Table</strong></p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td><strong>DataIn</strong></td>
-      <td><strong>Enable</strong></td>
-      <td><strong>Reset</strong></td>
-      <td><strong>DataOut</strong></td>
+  <tr><td valign=\"top\"><strong>DataIn</strong></td>
+      <td valign=\"top\"><strong>Enable</strong></td>
+      <td valign=\"top\"><strong>Reset</strong></td>
+      <td valign=\"top\"><strong>DataOut</strong></td>
   </tr>
 
-  <tr><td>*</td> <td>*</td> <td>U</td > <td>U</td> </tr>
-  <tr><td>*</td> <td>*</td> <td>1</td>  <td>0</td> </tr>
-  <tr><td>*</td> <td>0</td> <td>0</td>  <td>NC</td> </tr>
-  <tr><td>*</td> <td>1</td> <td>0</td>  <td>DataIn</td> </tr>
-  <tr><td>*</td> <td>X</td> <td>0</td>  <td>X or U or NC</td> </tr>
-  <tr><td>*</td> <td>U</td> <td>~1</td> <td>U</td> </tr>
-  <tr><td>*</td> <td>~U</td> <td>X</td> <td>X or U or 0 or NC</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">*</td> <td valign=\"top\">U</td > <td valign=\"top\">U</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">*</td> <td valign=\"top\">1</td>  <td valign=\"top\">0</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">0</td> <td valign=\"top\">0</td>  <td valign=\"top\">NC</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">1</td> <td valign=\"top\">0</td>  <td valign=\"top\">DataIn</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">X</td> <td valign=\"top\">0</td>  <td valign=\"top\">X or U or NC</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">U</td> <td valign=\"top\">~1</td> <td valign=\"top\">U</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">~U</td> <td valign=\"top\">X</td> <td valign=\"top\">X or U or 0 or NC</td> </tr>
 </table>
 
 <pre>
@@ -5738,19 +5738,19 @@ Clock transition definitions:
 <p><strong>Truth Table</strong></p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td><strong>DataIn</strong></td>
-      <td><strong>Enable</strong></td>
-      <td><strong>Reset</strong></td>
-      <td><strong>DataOut</strong></td>
+  <tr><td valign=\"top\"><strong>DataIn</strong></td>
+      <td valign=\"top\"><strong>Enable</strong></td>
+      <td valign=\"top\"><strong>Reset</strong></td>
+      <td valign=\"top\"><strong>DataOut</strong></td>
   </tr>
 
-  <tr><td>*</td> <td>*</td> <td>U</td> <td>U</td> </tr>
-  <tr><td>*</td> <td>*</td> <td>0</td> <td>0</td> </tr>
-  <tr><td>*</td> <td>0</td> <td>1</td> <td>NC</td> </tr>
-  <tr><td>*</td> <td>1</td> <td>1</td> <td>DataIn</td> </tr>
-  <tr><td>*</td> <td>X</td> <td>1</td> <td>X or U or NC</td> </tr>
-  <tr><td>*</td> <td>U</td> <td>~0</td> <td>U</td> </tr>
-  <tr><td>*</td> <td>~U</td> <td>X</td> <td>X or U or 0 or NC</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">*</td> <td valign=\"top\">U</td> <td valign=\"top\">U</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">*</td> <td valign=\"top\">0</td> <td valign=\"top\">0</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">0</td> <td valign=\"top\">1</td> <td valign=\"top\">NC</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">1</td> <td valign=\"top\">1</td> <td valign=\"top\">DataIn</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">X</td> <td valign=\"top\">1</td> <td valign=\"top\">X or U or NC</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">U</td> <td valign=\"top\">~0</td> <td valign=\"top\">U</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">~U</td> <td valign=\"top\">X</td> <td valign=\"top\">X or U or 0 or NC</td> </tr>
 </table>
 
 <pre>
@@ -5917,52 +5917,52 @@ Clock transition definitions:
 <p><strong>Truth Table for high active set and reset</strong></p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td><strong>DataIn</strong></td>
-      <td><strong>Enable</strong></td>
-      <td><strong>Reset</strong></td>
-      <td><strong>Set</strong></td>
-      <td><strong>DataOut</strong></td>
-      <td>Map</td>
+  <tr><td valign=\"top\"><strong>DataIn</strong></td>
+      <td valign=\"top\"><strong>Enable</strong></td>
+      <td valign=\"top\"><strong>Reset</strong></td>
+      <td valign=\"top\"><strong>Set</strong></td>
+      <td valign=\"top\"><strong>DataOut</strong></td>
+      <td valign=\"top\">Map</td>
   </tr>
 
-  <tr><td>*</td> <td>*</td> <td>*</td>  <td>U</td> <td>U</td> <td>1</td> </tr>
-  <tr><td>*</td> <td>*</td> <td>U</td>  <td>~1</td> <td>U</td> <td>1</td> </tr>
-  <tr><td>*</td> <td>*</td> <td>*</td>  <td>1</td> <td>1</td> <td>2</td> </tr>
-  <tr><td>*</td> <td>*</td> <td>1</td>  <td>0</td> <td>0</td> <td>3</td> </tr>
-  <tr><td>*</td> <td>*</td> <td>1</td>  <td>X</td> <td>X</td> <td>6</td> </tr>
-  <tr><td>*</td> <td>U</td> <td>~1</td> <td>~1</td> <td>U</td> <td>4,5,7,8</td> </tr>
-  <tr><td>*</td> <td>~U</td> <td>X</td> <td>X</td> <td>X or U</td> <td>4</td> </tr>
-  <tr><td>*</td> <td>~U</td> <td>0</td> <td>X</td> <td>X or U or 1 or NC</td> <td>5</td> </tr>
-  <tr><td>*</td> <td>~U</td> <td>X</td> <td>0</td> <td>X or U or 0 or NC</td> <td>7</td> </tr>
-  <tr><td>*</td> <td>X</td> <td>0</td>  <td>0</td> <td>X or U or NC</td> <td>8</td> </tr>
-  <tr><td>*</td> <td>1</td> <td>0</td>  <td>0</td> <td>DataIn</td> <td>8</td> </tr>
-  <tr><td>*</td> <td>0</td> <td>0</td>  <td>0</td> <td>NC</td> <td>8</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">*</td> <td valign=\"top\">*</td>  <td valign=\"top\">U</td> <td valign=\"top\">U</td> <td valign=\"top\">1</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">*</td> <td valign=\"top\">U</td>  <td valign=\"top\">~1</td> <td valign=\"top\">U</td> <td valign=\"top\">1</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">*</td> <td valign=\"top\">*</td>  <td valign=\"top\">1</td> <td valign=\"top\">1</td> <td valign=\"top\">2</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">*</td> <td valign=\"top\">1</td>  <td valign=\"top\">0</td> <td valign=\"top\">0</td> <td valign=\"top\">3</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">*</td> <td valign=\"top\">1</td>  <td valign=\"top\">X</td> <td valign=\"top\">X</td> <td valign=\"top\">6</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">U</td> <td valign=\"top\">~1</td> <td valign=\"top\">~1</td> <td valign=\"top\">U</td> <td valign=\"top\">4,5,7,8</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">~U</td> <td valign=\"top\">X</td> <td valign=\"top\">X</td> <td valign=\"top\">X or U</td> <td valign=\"top\">4</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">~U</td> <td valign=\"top\">0</td> <td valign=\"top\">X</td> <td valign=\"top\">X or U or 1 or NC</td> <td valign=\"top\">5</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">~U</td> <td valign=\"top\">X</td> <td valign=\"top\">0</td> <td valign=\"top\">X or U or 0 or NC</td> <td valign=\"top\">7</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">X</td> <td valign=\"top\">0</td>  <td valign=\"top\">0</td> <td valign=\"top\">X or U or NC</td> <td valign=\"top\">8</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">1</td> <td valign=\"top\">0</td>  <td valign=\"top\">0</td> <td valign=\"top\">DataIn</td> <td valign=\"top\">8</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">0</td> <td valign=\"top\">0</td>  <td valign=\"top\">0</td> <td valign=\"top\">NC</td> <td valign=\"top\">8</td> </tr>
 
 </table>
 
 <p><strong>Truth Table for low active set and reset </strong></p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td><strong>DataIn</strong></td>
-      <td><strong>Enable</strong></td>
-      <td><strong>Reset</strong></td>
-      <td><strong>Set</strong></td>
-      <td><strong>DataOut</strong></td>
-      <td>Map</td>
+  <tr><td valign=\"top\"><strong>DataIn</strong></td>
+      <td valign=\"top\"><strong>Enable</strong></td>
+      <td valign=\"top\"><strong>Reset</strong></td>
+      <td valign=\"top\"><strong>Set</strong></td>
+      <td valign=\"top\"><strong>DataOut</strong></td>
+      <td valign=\"top\">Map</td>
   </tr>
 
-  <tr><td>*</td> <td>*</td> <td>*</td>  <td>U</td> <td>U</td> <td>1</td> </tr>
-  <tr><td>*</td> <td>*</td> <td>U</td>  <td>~0</td> <td>U</td> <td>1</td> </tr>
-  <tr><td>*</td> <td>*</td> <td>*</td>  <td>0</td> <td>1</td> <td>2</td> </tr>
-  <tr><td>*</td> <td>*</td> <td>0</td>  <td>1</td> <td>0</td> <td>3</td> </tr>
-  <tr><td>*</td> <td>*</td> <td>0</td>  <td>X</td> <td>X</td> <td>6</td> </tr>
-  <tr><td>*</td> <td>U</td> <td>~0</td> <td>~0</td> <td>U</td> <td>4,5,7,8</td> </tr>
-  <tr><td>*</td> <td>~U</td> <td>X</td> <td>X</td> <td>X or U</td> <td>4</td> </tr>
-  <tr><td>*</td> <td>~U</td> <td>1</td> <td>X</td> <td>X or U or 1 or NC</td> <td>5</td> </tr>
-  <tr><td>*</td> <td>~U</td> <td>X</td> <td>1</td> <td>X or U or 0 or NC</td> <td>7</td> </tr>
-  <tr><td>*</td> <td>X</td> <td>1</td>  <td>1</td> <td>X or U or NC</td> <td>8</td> </tr>
-  <tr><td>*</td> <td>1</td> <td>1</td>  <td>1</td> <td>DataIn</td> <td>8</td> </tr>
-  <tr><td>*</td> <td>0</td> <td>1</td>  <td>1</td> <td>NC</td> <td>8</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">*</td> <td valign=\"top\">*</td>  <td valign=\"top\">U</td> <td valign=\"top\">U</td> <td valign=\"top\">1</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">*</td> <td valign=\"top\">U</td>  <td valign=\"top\">~0</td> <td valign=\"top\">U</td> <td valign=\"top\">1</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">*</td> <td valign=\"top\">*</td>  <td valign=\"top\">0</td> <td valign=\"top\">1</td> <td valign=\"top\">2</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">*</td> <td valign=\"top\">0</td>  <td valign=\"top\">1</td> <td valign=\"top\">0</td> <td valign=\"top\">3</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">*</td> <td valign=\"top\">0</td>  <td valign=\"top\">X</td> <td valign=\"top\">X</td> <td valign=\"top\">6</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">U</td> <td valign=\"top\">~0</td> <td valign=\"top\">~0</td> <td valign=\"top\">U</td> <td valign=\"top\">4,5,7,8</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">~U</td> <td valign=\"top\">X</td> <td valign=\"top\">X</td> <td valign=\"top\">X or U</td> <td valign=\"top\">4</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">~U</td> <td valign=\"top\">1</td> <td valign=\"top\">X</td> <td valign=\"top\">X or U or 1 or NC</td> <td valign=\"top\">5</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">~U</td> <td valign=\"top\">X</td> <td valign=\"top\">1</td> <td valign=\"top\">X or U or 0 or NC</td> <td valign=\"top\">7</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">X</td> <td valign=\"top\">1</td>  <td valign=\"top\">1</td> <td valign=\"top\">X or U or NC</td> <td valign=\"top\">8</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">1</td> <td valign=\"top\">1</td>  <td valign=\"top\">1</td> <td valign=\"top\">DataIn</td> <td valign=\"top\">8</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">0</td> <td valign=\"top\">1</td>  <td valign=\"top\">1</td> <td valign=\"top\">NC</td> <td valign=\"top\">8</td> </tr>
 
 </table>
 
@@ -6099,25 +6099,25 @@ Clock transition definitions:
 <p><strong>Truth Table:</strong></p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td><strong>DataIn</strong></td>
-      <td><strong>Enable</strong></td>
-      <td><strong>Reset</strong></td>
-      <td><strong>Set</strong></td>
-      <td><strong>DataOut</strong></td>
+  <tr><td valign=\"top\"><strong>DataIn</strong></td>
+      <td valign=\"top\"><strong>Enable</strong></td>
+      <td valign=\"top\"><strong>Reset</strong></td>
+      <td valign=\"top\"><strong>Set</strong></td>
+      <td valign=\"top\"><strong>DataOut</strong></td>
   </tr>
 
-  <tr><td>*</td> <td>*</td> <td>*</td>  <td>U</td> <td>U</td> </tr>
-  <tr><td>*</td> <td>*</td> <td>U</td>  <td>~1</td> <td>U</td> </tr>
-  <tr><td>*</td> <td>*</td> <td>*</td>  <td>1</td> <td>1</td> </tr>
-  <tr><td>*</td> <td>*</td> <td>1</td>  <td>0</td> <td>0</td> </tr>
-  <tr><td>*</td> <td>*</td> <td>1</td>  <td>X</td> <td>X</td> </tr>
-  <tr><td>*</td> <td>U</td> <td>~1</td> <td>~1</td> <td>U</td> </tr>
-  <tr><td>*</td> <td>~U</td> <td>X</td> <td>X</td> <td>X or U</td> </tr>
-  <tr><td>*</td> <td>~U</td> <td>0</td> <td>X</td> <td>X or U or 1 or NC</td> </tr>
-  <tr><td>*</td> <td>~U</td> <td>X</td> <td>0</td> <td>X or U or 0 or NC</td> </tr>
-  <tr><td>*</td> <td>X</td> <td>0</td>  <td>0</td> <td>X or U or NC</td> </tr>
-  <tr><td>*</td> <td>1</td> <td>0</td>  <td>0</td> <td>DataIn</td> </tr>
-  <tr><td>*</td> <td>0</td> <td>0</td>  <td>0</td> <td>NC</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">*</td> <td valign=\"top\">*</td>  <td valign=\"top\">U</td> <td valign=\"top\">U</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">*</td> <td valign=\"top\">U</td>  <td valign=\"top\">~1</td> <td valign=\"top\">U</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">*</td> <td valign=\"top\">*</td>  <td valign=\"top\">1</td> <td valign=\"top\">1</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">*</td> <td valign=\"top\">1</td>  <td valign=\"top\">0</td> <td valign=\"top\">0</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">*</td> <td valign=\"top\">1</td>  <td valign=\"top\">X</td> <td valign=\"top\">X</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">U</td> <td valign=\"top\">~1</td> <td valign=\"top\">~1</td> <td valign=\"top\">U</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">~U</td> <td valign=\"top\">X</td> <td valign=\"top\">X</td> <td valign=\"top\">X or U</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">~U</td> <td valign=\"top\">0</td> <td valign=\"top\">X</td> <td valign=\"top\">X or U or 1 or NC</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">~U</td> <td valign=\"top\">X</td> <td valign=\"top\">0</td> <td valign=\"top\">X or U or 0 or NC</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">X</td> <td valign=\"top\">0</td>  <td valign=\"top\">0</td> <td valign=\"top\">X or U or NC</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">1</td> <td valign=\"top\">0</td>  <td valign=\"top\">0</td> <td valign=\"top\">DataIn</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">0</td> <td valign=\"top\">0</td>  <td valign=\"top\">0</td> <td valign=\"top\">NC</td> </tr>
 
 </table>
 
@@ -6199,25 +6199,25 @@ Clock transition definitions:
 <p><strong>Truth Table</strong></p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td><strong>DataIn</strong></td>
-      <td><strong>Enable</strong></td>
-      <td><strong>Reset</strong></td>
-      <td><strong>Set</strong></td>
-      <td><strong>DataOut</strong></td>
+  <tr><td valign=\"top\"><strong>DataIn</strong></td>
+      <td valign=\"top\"><strong>Enable</strong></td>
+      <td valign=\"top\"><strong>Reset</strong></td>
+      <td valign=\"top\"><strong>Set</strong></td>
+      <td valign=\"top\"><strong>DataOut</strong></td>
   </tr>
 
-  <tr><td>*</td> <td>*</td> <td>*</td>  <td>U</td> <td>U</td> </tr>
-  <tr><td>*</td> <td>*</td> <td>U</td>  <td>~0</td> <td>U</td> </tr>
-  <tr><td>*</td> <td>*</td> <td>*</td>  <td>0</td> <td>1</td> </tr>
-  <tr><td>*</td> <td>*</td> <td>0</td>  <td>1</td> <td>0</td> </tr>
-  <tr><td>*</td> <td>*</td> <td>0</td>  <td>X</td> <td>X</td> </tr>
-  <tr><td>*</td> <td>U</td> <td>~0</td> <td>~0</td> <td>U</td> </tr>
-  <tr><td>*</td> <td>~U</td> <td>X</td> <td>X</td> <td>X or U</td> </tr>
-  <tr><td>*</td> <td>~U</td> <td>1</td> <td>X</td> <td>X or U or 1 or NC</td> </tr>
-  <tr><td>*</td> <td>~U</td> <td>X</td> <td>1</td> <td>X or U or 0 or NC</td> </tr>
-  <tr><td>*</td> <td>X</td> <td>1</td>  <td>1</td> <td>X or U or NC</td> </tr>
-  <tr><td>*</td> <td>1</td> <td>1</td>  <td>1</td> <td>DataIn</td> </tr>
-  <tr><td>*</td> <td>0</td> <td>1</td>  <td>1</td> <td>NC</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">*</td> <td valign=\"top\">*</td>  <td valign=\"top\">U</td> <td valign=\"top\">U</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">*</td> <td valign=\"top\">U</td>  <td valign=\"top\">~0</td> <td valign=\"top\">U</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">*</td> <td valign=\"top\">*</td>  <td valign=\"top\">0</td> <td valign=\"top\">1</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">*</td> <td valign=\"top\">0</td>  <td valign=\"top\">1</td> <td valign=\"top\">0</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">*</td> <td valign=\"top\">0</td>  <td valign=\"top\">X</td> <td valign=\"top\">X</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">U</td> <td valign=\"top\">~0</td> <td valign=\"top\">~0</td> <td valign=\"top\">U</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">~U</td> <td valign=\"top\">X</td> <td valign=\"top\">X</td> <td valign=\"top\">X or U</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">~U</td> <td valign=\"top\">1</td> <td valign=\"top\">X</td> <td valign=\"top\">X or U or 1 or NC</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">~U</td> <td valign=\"top\">X</td> <td valign=\"top\">1</td> <td valign=\"top\">X or U or 0 or NC</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">X</td> <td valign=\"top\">1</td>  <td valign=\"top\">1</td> <td valign=\"top\">X or U or NC</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">1</td> <td valign=\"top\">1</td>  <td valign=\"top\">1</td> <td valign=\"top\">DataIn</td> </tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">0</td> <td valign=\"top\">1</td>  <td valign=\"top\">1</td> <td valign=\"top\">NC</td> </tr>
 </table>
 
 <pre>
@@ -6316,20 +6316,20 @@ Clock transition definitions:
 <p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</p>
 <p><strong>Truth Table</strong></p>
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td><strong>DataIn</strong></td>
-      <td><strong>Enable</strong></td>
-      <td><strong>DataOut</strong></td>
+  <tr><td valign=\"top\"><strong>DataIn</strong></td>
+      <td valign=\"top\"><strong>Enable</strong></td>
+      <td valign=\"top\"><strong>DataOut</strong></td>
   </tr>
 
-  <tr><td>*</td> <td>U</td> <td>U</td></tr>
-  <tr><td>*</td> <td>X</td> <td>UX</td></tr>
-  <tr><td>*</td> <td>0</td> <td>Z</td></tr>
-  <tr><td>*</td> <td>1</td> <td>DataIn</td></tr>
-  <tr><td>*</td> <td>Z</td> <td>UX</td></tr>
-  <tr><td>*</td> <td>W</td> <td>UX</td></tr>
-  <tr><td>*</td> <td>L</td> <td>Z</td></tr>
-  <tr><td>*</td> <td>H</td> <td>DataIn</td></tr>
-  <tr><td>*</td> <td>-</td> <td>UX</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">U</td> <td valign=\"top\">U</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">X</td> <td valign=\"top\">UX</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">0</td> <td valign=\"top\">Z</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">1</td> <td valign=\"top\">DataIn</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">Z</td> <td valign=\"top\">UX</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">W</td> <td valign=\"top\">UX</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">L</td> <td valign=\"top\">Z</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">H</td> <td valign=\"top\">DataIn</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">-</td> <td valign=\"top\">UX</td></tr>
 </table>
 
 <pre>
@@ -6398,20 +6398,20 @@ Clock transition definitions:
 <p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</p>
 <p><strong>Truth Table</strong></p>
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td><strong>DataIn</strong></td>
-      <td><strong>Enable</strong></td>
-      <td><strong>DataOut</strong></td>
+  <tr><td valign=\"top\"><strong>DataIn</strong></td>
+      <td valign=\"top\"><strong>Enable</strong></td>
+      <td valign=\"top\"><strong>DataOut</strong></td>
   </tr>
 
-  <tr><td>*</td> <td>U</td> <td>U</td></tr>
-  <tr><td>*</td> <td>X</td> <td>UW</td></tr>
-  <tr><td>*</td> <td>0</td> <td>Z</td></tr>
-  <tr><td>*</td> <td>1</td> <td>DataIn, Strength Reduced</td></tr>
-  <tr><td>*</td> <td>Z</td> <td>UW</td></tr>
-  <tr><td>*</td> <td>W</td> <td>UW</td></tr>
-  <tr><td>*</td> <td>L</td> <td>Z</td></tr>
-  <tr><td>*</td> <td>H</td> <td>DataIn, Strength Reduced</td></tr>
-  <tr><td>*</td> <td>-</td> <td>UW</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">U</td> <td valign=\"top\">U</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">X</td> <td valign=\"top\">UW</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">0</td> <td valign=\"top\">Z</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">1</td> <td valign=\"top\">DataIn, Strength Reduced</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">Z</td> <td valign=\"top\">UW</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">W</td> <td valign=\"top\">UW</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">L</td> <td valign=\"top\">Z</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">H</td> <td valign=\"top\">DataIn, Strength Reduced</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">-</td> <td valign=\"top\">UW</td></tr>
 </table>
 
 <pre>
@@ -6480,20 +6480,20 @@ Clock transition definitions:
 <p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</p>
 <p><strong>Truth Table</strong></p>
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td><strong>DataIn</strong></td>
-      <td><strong>Enable</strong></td>
-      <td><strong>DataOut</strong></td>
+  <tr><td valign=\"top\"><strong>DataIn</strong></td>
+      <td valign=\"top\"><strong>Enable</strong></td>
+      <td valign=\"top\"><strong>DataOut</strong></td>
   </tr>
 
-  <tr><td>*</td> <td>U</td> <td>U</td></tr>
-  <tr><td>*</td> <td>X</td> <td>UX</td></tr>
-  <tr><td>*</td> <td>0</td> <td>DataIn</td></tr>
-  <tr><td>*</td> <td>1</td> <td>Z</td></tr>
-  <tr><td>*</td> <td>Z</td> <td>UX</td></tr>
-  <tr><td>*</td> <td>W</td> <td>UX</td></tr>
-  <tr><td>*</td> <td>L</td> <td>DataIn</td></tr>
-  <tr><td>*</td> <td>H</td> <td>Z</td></tr>
-  <tr><td>*</td> <td>-</td> <td>UX</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">U</td> <td valign=\"top\">U</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">X</td> <td valign=\"top\">UX</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">0</td> <td valign=\"top\">DataIn</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">1</td> <td valign=\"top\">Z</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">Z</td> <td valign=\"top\">UX</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">W</td> <td valign=\"top\">UX</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">L</td> <td valign=\"top\">DataIn</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">H</td> <td valign=\"top\">Z</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">-</td> <td valign=\"top\">UX</td></tr>
 </table>
 
 <pre>
@@ -6562,20 +6562,20 @@ Clock transition definitions:
 <p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</p>
 <p><strong>Truth Table</strong></p>
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td><strong>DataIn</strong></td>
-      <td><strong>Enable</strong></td>
-      <td><strong>DataOut</strong></td>
+  <tr><td valign=\"top\"><strong>DataIn</strong></td>
+      <td valign=\"top\"><strong>Enable</strong></td>
+      <td valign=\"top\"><strong>DataOut</strong></td>
   </tr>
 
-  <tr><td>*</td> <td>U</td> <td>U</td></tr>
-  <tr><td>*</td> <td>X</td> <td>UW</td></tr>
-  <tr><td>*</td> <td>0</td> <td>DataIn, Strength Reduced</td></tr>
-  <tr><td>*</td> <td>1</td> <td>Z</td></tr>
-  <tr><td>*</td> <td>Z</td> <td>UW</td></tr>
-  <tr><td>*</td> <td>W</td> <td>UW</td></tr>
-  <tr><td>*</td> <td>L</td> <td>DataIn, Strength Reduced</td></tr>
-  <tr><td>*</td> <td>H</td> <td>Z</td></tr>
-  <tr><td>*</td> <td>-</td> <td>UW</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">U</td> <td valign=\"top\">U</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">X</td> <td valign=\"top\">UW</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">0</td> <td valign=\"top\">DataIn, Strength Reduced</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">1</td> <td valign=\"top\">Z</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">Z</td> <td valign=\"top\">UW</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">W</td> <td valign=\"top\">UW</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">L</td> <td valign=\"top\">DataIn, Strength Reduced</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">H</td> <td valign=\"top\">Z</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">-</td> <td valign=\"top\">UW</td></tr>
 </table>
 <p>
   UW: if dataIn == U then U else W
@@ -6640,20 +6640,20 @@ Clock transition definitions:
 <p>and for tristate table http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_misc.vhd</p>
 <p><strong>Truth Table</strong></p>
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td><strong>DataIn</strong></td>
-      <td><strong>Enable</strong></td>
-      <td><strong>DataOut*</strong></td>
+  <tr><td valign=\"top\"><strong>DataIn</strong></td>
+      <td valign=\"top\"><strong>Enable</strong></td>
+      <td valign=\"top\"><strong>DataOut*</strong></td>
   </tr>
 
-  <tr><td>*</td> <td>U</td> <td>U</td></tr>
-  <tr><td>*</td> <td>X</td> <td>UX</td></tr>
-  <tr><td>*</td> <td>0</td> <td>Z</td></tr>
-  <tr><td>*</td> <td>1</td> <td>DataIn</td></tr>
-  <tr><td>*</td> <td>Z</td> <td>UX</td></tr>
-  <tr><td>*</td> <td>W</td> <td>UX</td></tr>
-  <tr><td>*</td> <td>L</td> <td>Z</td></tr>
-  <tr><td>*</td> <td>H</td> <td>DataIn</td></tr>
-  <tr><td>*</td> <td>-</td> <td>UX</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">U</td> <td valign=\"top\">U</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">X</td> <td valign=\"top\">UX</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">0</td> <td valign=\"top\">Z</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">1</td> <td valign=\"top\">DataIn</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">Z</td> <td valign=\"top\">UX</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">W</td> <td valign=\"top\">UX</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">L</td> <td valign=\"top\">Z</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">H</td> <td valign=\"top\">DataIn</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">-</td> <td valign=\"top\">UX</td></tr>
 </table>
 
 <pre>
@@ -6719,20 +6719,20 @@ Clock transition definitions:
 <p>and for tristate table http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_misc.vhd</p>
 <p><strong>Truth Table</strong></p>
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td><strong>DataIn</strong></td>
-      <td><strong>Enable</strong></td>
-      <td><strong>DataOut*</strong></td>
+  <tr><td valign=\"top\"><strong>DataIn</strong></td>
+      <td valign=\"top\"><strong>Enable</strong></td>
+      <td valign=\"top\"><strong>DataOut*</strong></td>
   </tr>
 
-  <tr><td>*</td> <td>U</td> <td>U</td></tr>
-  <tr><td>*</td> <td>X</td> <td>UX</td></tr>
-  <tr><td>*</td> <td>0</td> <td>DataIn</td></tr>
-  <tr><td>*</td> <td>1</td> <td>Z</td></tr>
-  <tr><td>*</td> <td>Z</td> <td>UX</td></tr>
-  <tr><td>*</td> <td>W</td> <td>UX</td></tr>
-  <tr><td>*</td> <td>L</td> <td>DataIn</td></tr>
-  <tr><td>*</td> <td>H</td> <td>Z</td></tr>
-  <tr><td>*</td> <td>-</td> <td>UX</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">U</td> <td valign=\"top\">U</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">X</td> <td valign=\"top\">UX</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">0</td> <td valign=\"top\">DataIn</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">1</td> <td valign=\"top\">Z</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">Z</td> <td valign=\"top\">UX</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">W</td> <td valign=\"top\">UX</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">L</td> <td valign=\"top\">DataIn</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">H</td> <td valign=\"top\">Z</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">-</td> <td valign=\"top\">UX</td></tr>
 </table>
 
 <pre>
@@ -6803,20 +6803,20 @@ Clock transition definitions:
 <p>and for tristate table http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_misc.vhd</p>
 <p><strong>Truth Table</strong></p>
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td><strong>DataIn</strong></td>
-      <td><strong>Enable</strong></td>
-      <td><strong>DataOut*</strong></td>
+  <tr><td valign=\"top\"><strong>DataIn</strong></td>
+      <td valign=\"top\"><strong>Enable</strong></td>
+      <td valign=\"top\"><strong>DataOut*</strong></td>
   </tr>
 
-  <tr><td>*</td> <td>U</td> <td>U</td></tr>
-  <tr><td>*</td> <td>X</td> <td>UX</td></tr>
-  <tr><td>*</td> <td>0</td> <td>Z</td></tr>
-  <tr><td>*</td> <td>1</td> <td>Not DataIn</td></tr>
-  <tr><td>*</td> <td>Z</td> <td>UX</td></tr>
-  <tr><td>*</td> <td>W</td> <td>UX</td></tr>
-  <tr><td>*</td> <td>L</td> <td>Z</td></tr>
-  <tr><td>*</td> <td>H</td> <td>Not DataIn</td></tr>
-  <tr><td>*</td> <td>-</td> <td>UX</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">U</td> <td valign=\"top\">U</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">X</td> <td valign=\"top\">UX</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">0</td> <td valign=\"top\">Z</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">1</td> <td valign=\"top\">Not DataIn</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">Z</td> <td valign=\"top\">UX</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">W</td> <td valign=\"top\">UX</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">L</td> <td valign=\"top\">Z</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">H</td> <td valign=\"top\">Not DataIn</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">-</td> <td valign=\"top\">UX</td></tr>
 </table>
 
 <pre>
@@ -6887,20 +6887,20 @@ Clock transition definitions:
 <p>and for tristate table http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_misc.vhd</p>
 <p><strong>Truth Table</strong></p>
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td><strong>DataIn</strong></td>
-      <td><strong>Enable</strong></td>
-      <td><strong>DataOut*</strong></td>
+  <tr><td valign=\"top\"><strong>DataIn</strong></td>
+      <td valign=\"top\"><strong>Enable</strong></td>
+      <td valign=\"top\"><strong>DataOut*</strong></td>
   </tr>
 
-  <tr><td>*</td> <td>U</td> <td>U</td></tr>
-  <tr><td>*</td> <td>X</td> <td>UX</td></tr>
-  <tr><td>*</td> <td>0</td> <td>Not DataIn</td></tr>
-  <tr><td>*</td> <td>1</td> <td>Z</td></tr>
-  <tr><td>*</td> <td>Z</td> <td>UX</td></tr>
-  <tr><td>*</td> <td>W</td> <td>UX</td></tr>
-  <tr><td>*</td> <td>L</td> <td>Not DataIn</td></tr>
-  <tr><td>*</td> <td>H</td> <td>Z</td></tr>
-  <tr><td>*</td> <td>-</td> <td>UX</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">U</td> <td valign=\"top\">U</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">X</td> <td valign=\"top\">UX</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">0</td> <td valign=\"top\">Not DataIn</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">1</td> <td valign=\"top\">Z</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">Z</td> <td valign=\"top\">UX</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">W</td> <td valign=\"top\">UX</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">L</td> <td valign=\"top\">Not DataIn</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">H</td> <td valign=\"top\">Z</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">-</td> <td valign=\"top\">UX</td></tr>
 </table>
 
 <pre>
@@ -7007,26 +7007,26 @@ Description in VHDL is given by <a href=\"http://www.cs.sfu.ca/~ggbaker/referenc
 </p>
 <p><strong>Truth Table for high active read enable RE:</strong></p>
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td><strong>RE</strong></td>
-      <td><strong>Addr</strong></td>
-      <td><strong>DataOut</strong></td>
+  <tr><td valign=\"top\"><strong>RE</strong></td>
+      <td valign=\"top\"><strong>Addr</strong></td>
+      <td valign=\"top\"><strong>DataOut</strong></td>
   </tr>
-  <tr><td>0</td>  <td>*</td>              <td>Z over all</td>  </tr>
-  <tr><td>1</td>  <td>  no X in Addr</td> <td>DataOut=m(Addr)</td>     </tr>
-  <tr><td>1</td>  <td>X in Addr</td>      <td>X over all</td>  </tr>
-  <tr><td>X</td>  <td>*</td>              <td>X over all</td>  </tr>
+  <tr><td valign=\"top\">0</td>  <td valign=\"top\">*</td>              <td valign=\"top\">Z over all</td>  </tr>
+  <tr><td valign=\"top\">1</td>  <td valign=\"top\">  no X in Addr</td> <td valign=\"top\">DataOut=m(Addr)</td>     </tr>
+  <tr><td valign=\"top\">1</td>  <td valign=\"top\">X in Addr</td>      <td valign=\"top\">X over all</td>  </tr>
+  <tr><td valign=\"top\">X</td>  <td valign=\"top\">*</td>              <td valign=\"top\">X over all</td>  </tr>
 </table>
 <p><strong>Truth Table for high active write enable WE:</strong></p>
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td><strong>WE</strong></td>
-      <td><strong>Addr</strong></td>
-      <td><strong>Memory</strong></td>
+  <tr><td valign=\"top\"><strong>WE</strong></td>
+      <td valign=\"top\"><strong>Addr</strong></td>
+      <td valign=\"top\"><strong>Memory</strong></td>
   </tr>
-  <tr><td>0</td>  <td>*</td>              <td>no write</td>           </tr>
-  <tr><td>1</td>  <td>no X in Addr</td>   <td>m(Addr)=DataIn</td>     </tr>
-  <tr><td>1</td>  <td>X in Addr</td>      <td>no write</td>  </tr>
-  <tr><td>X</td>  <td>no X in Addr</td>   <td>m(Addr)=X over all</td> </tr>
-  <tr><td>X</td>  <td>X in Addr</td>      <td>no write</td>  </tr>
+  <tr><td valign=\"top\">0</td>  <td valign=\"top\">*</td>              <td valign=\"top\">no write</td>           </tr>
+  <tr><td valign=\"top\">1</td>  <td valign=\"top\">no X in Addr</td>   <td valign=\"top\">m(Addr)=DataIn</td>     </tr>
+  <tr><td valign=\"top\">1</td>  <td valign=\"top\">X in Addr</td>      <td valign=\"top\">no write</td>  </tr>
+  <tr><td valign=\"top\">X</td>  <td valign=\"top\">no X in Addr</td>   <td valign=\"top\">m(Addr)=X over all</td> </tr>
+  <tr><td valign=\"top\">X</td>  <td valign=\"top\">X in Addr</td>      <td valign=\"top\">no write</td>  </tr>
 </table>
 
 <pre>
@@ -7105,14 +7105,14 @@ Description in VHDL is given by <a href=\"http://www.cs.sfu.ca/~ggbaker/referenc
 </p>
 <p><strong>Truth Table for high active read enable RE:</strong></p>
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td><strong>RE</strong></td>
-      <td><strong>Addr</strong></td>
-      <td><strong>DataOut</strong></td>
+  <tr><td valign=\"top\"><strong>RE</strong></td>
+      <td valign=\"top\"><strong>Addr</strong></td>
+      <td valign=\"top\"><strong>DataOut</strong></td>
   </tr>
-  <tr><td>0</td> <td>*</td> <td>Z over all</td>  </tr>
-  <tr><td>1</td> <td>  no X in Addr</td> <td>DataOut=m(Addr)</td>  </tr>
-  <tr><td>1</td> <td>X in Addr</td> <td>X over all</td> </tr>
-  <tr><td>X</td> <td>*</td> <td>X over all</td> </tr>
+  <tr><td valign=\"top\">0</td> <td valign=\"top\">*</td> <td valign=\"top\">Z over all</td>  </tr>
+  <tr><td valign=\"top\">1</td> <td valign=\"top\">  no X in Addr</td> <td valign=\"top\">DataOut=m(Addr)</td>  </tr>
+  <tr><td valign=\"top\">1</td> <td valign=\"top\">X in Addr</td> <td valign=\"top\">X over all</td> </tr>
+  <tr><td valign=\"top\">X</td> <td valign=\"top\">*</td> <td valign=\"top\">X over all</td> </tr>
 </table>
 
 <pre>
@@ -7218,44 +7218,44 @@ Description in VHDL is given by <a href=\"http://www.cs.sfu.ca/~ggbaker/referenc
 <p>and for Multiplexer table <a href=\"http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_misc.vhd\">http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_misc.vhd</a></p>
 <h4>Truth Table</h4>
 <table cellspacing=\"0\" cellpadding=\"2\" border=\"1\"><tr>
-<td><h4>DataIn</h4></td>
-<td><h4>Select</h4></td>
-<td><h4>DataOut</h4></td>
+<td valign=\"top\"><h4>DataIn</h4></td>
+<td valign=\"top\"><h4>Select</h4></td>
+<td valign=\"top\"><h4>DataOut</h4></td>
 </tr>
 <tr>
-<td><p>*</p></td>
-<td><p>0</p></td>
-<td><p>Input0</p></td>
+<td valign=\"top\"><p>*</p></td>
+<td valign=\"top\"><p>0</p></td>
+<td valign=\"top\"><p>Input0</p></td>
 </tr>
 <tr>
-<td><p>*</p></td>
-<td><p>1</p></td>
-<td><p>Input1</p></td>
+<td valign=\"top\"><p>*</p></td>
+<td valign=\"top\"><p>1</p></td>
+<td valign=\"top\"><p>Input1</p></td>
 </tr>
 <tr>
-<td><p>Inputs equal</p></td>
-<td><p>U</p></td>
-<td><p>Input</p></td>
+<td valign=\"top\"><p>Inputs equal</p></td>
+<td valign=\"top\"><p>U</p></td>
+<td valign=\"top\"><p>Input</p></td>
 </tr>
 <tr>
-<td><p>Inputs not equal</p></td>
-<td><p>U</p></td>
-<td><p>U</p></td>
+<td valign=\"top\"><p>Inputs not equal</p></td>
+<td valign=\"top\"><p>U</p></td>
+<td valign=\"top\"><p>U</p></td>
 </tr>
 <tr>
-<td><p>U in Input</p></td>
-<td><p>X</p></td>
-<td><p>U</p></td>
+<td valign=\"top\"><p>U in Input</p></td>
+<td valign=\"top\"><p>X</p></td>
+<td valign=\"top\"><p>U</p></td>
 </tr>
 <tr>
-<td><p>Inputs equal</p></td>
-<td><p>X</p></td>
-<td><p>Input</p></td>
+<td valign=\"top\"><p>Inputs equal</p></td>
+<td valign=\"top\"><p>X</p></td>
+<td valign=\"top\"><p>Input</p></td>
 </tr>
 <tr>
-<td><p>no U in Input and Inputs not equal</p></td>
-<td><p>X</p></td>
-<td><p>X</p></td>
+<td valign=\"top\"><p>no U in Input and Inputs not equal</p></td>
+<td valign=\"top\"><p>X</p></td>
+<td valign=\"top\"><p>X</p></td>
 </tr>
 </table>
 <pre>
@@ -7306,20 +7306,20 @@ for both setting of input and interpreting the output values.
 <p><strong>Code Table:</strong></p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td><strong>Logic value</strong></td>
-      <td><strong>Integer code</strong></td>
-      <td><strong>Meaning</strong></td>
+  <tr><td valign=\"top\"><strong>Logic value</strong></td>
+      <td valign=\"top\"><strong>Integer code</strong></td>
+      <td valign=\"top\"><strong>Meaning</strong></td>
   </tr>
 
-  <tr><td>'U'</td> <td>1</td> <td>Uninitialized</td></tr>
-  <tr><td>'X'</td> <td>2</td> <td>Forcing Unknown</td></tr>
-  <tr><td>'0'</td> <td>3</td> <td>Forcing 0</td></tr>
-  <tr><td>'1'</td> <td>4</td> <td>Forcing 1</td></tr>
-  <tr><td>'Z'</td> <td>5</td> <td>High Impedance</td></tr>
-  <tr><td>'W'</td> <td>6</td> <td>Weak Unknown</td></tr>
-  <tr><td>'L'</td> <td>7</td> <td>Weak 0</td></tr>
-  <tr><td>'H'</td> <td>8</td> <td>Weak 1</td></tr>
-  <tr><td>'-'</td> <td>9</td> <td>Do not care</td></tr>
+  <tr><td valign=\"top\">'U'</td> <td valign=\"top\">1</td> <td valign=\"top\">Uninitialized</td></tr>
+  <tr><td valign=\"top\">'X'</td> <td valign=\"top\">2</td> <td valign=\"top\">Forcing Unknown</td></tr>
+  <tr><td valign=\"top\">'0'</td> <td valign=\"top\">3</td> <td valign=\"top\">Forcing 0</td></tr>
+  <tr><td valign=\"top\">'1'</td> <td valign=\"top\">4</td> <td valign=\"top\">Forcing 1</td></tr>
+  <tr><td valign=\"top\">'Z'</td> <td valign=\"top\">5</td> <td valign=\"top\">High Impedance</td></tr>
+  <tr><td valign=\"top\">'W'</td> <td valign=\"top\">6</td> <td valign=\"top\">Weak Unknown</td></tr>
+  <tr><td valign=\"top\">'L'</td> <td valign=\"top\">7</td> <td valign=\"top\">Weak 0</td></tr>
+  <tr><td valign=\"top\">'H'</td> <td valign=\"top\">8</td> <td valign=\"top\">Weak 1</td></tr>
+  <tr><td valign=\"top\">'-'</td> <td valign=\"top\">9</td> <td valign=\"top\">Do not care</td></tr>
 </table>
 
 <p>
