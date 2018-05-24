@@ -6612,7 +6612,7 @@ Additional user-specific materials can be defined as needed.
 
     package HysteresisTableData
       extends Modelica.Icons.MaterialPropertiesPackage;
-      record BaseData "hysteresis table data"
+      record BaseData "Hysteresis table data"
 
         extends Modelica.Icons.Record;
 
@@ -6663,7 +6663,7 @@ Additional user-specific materials can be defined as needed.
           300, 0.8000;
           1000, 0.8000;
           10000000, 0.8000]
-          "table data of the rising (lower) branch of the hysteresis envelope curve (H, B)";
+          "Table data of the rising (lower) branch of the hysteresis envelope curve (H, B)";
 
         parameter Real[:,:] tabfal=[
           -10000000, -0.8000;
@@ -6712,7 +6712,7 @@ Additional user-specific materials can be defined as needed.
           300, 0.8000;
           1000, 0.8000;
           10000000, 0.8000]
-          "table data of the falling (upper) branch of the hysteresis envelope curve (H, B)";
+          "Table data of the falling (upper) branch of the hysteresis envelope curve (H, B)";
         parameter SI.Conductivity sigma = 1;
         annotation (Documentation(info="<html>
 <table cellspacing=\"0\" cellpadding=\"2\" border=\"0\">
