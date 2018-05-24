@@ -55,7 +55,7 @@ extends Modelica.Icons.Package;
 <table cellspacing=\"0\" cellpadding=\"0\" border=\"1\">
 <caption>Table 1: Translation of the SPICE3 netlist (left side) to Modelica (right side)</caption>
 <tr>
-<td><pre>
+<td valign=\"top\"><pre>
 inverter
 
 Mp1 11 1 13 11 MPmos
@@ -83,7 +83,7 @@ Vdrain 11 0 PULSE(0 5 0s 1s)
 
 .tran 0.01 5
 .end</pre></td>
-<td><pre>
+<td valign=\"top\"><pre>
 model inverter
   Spice3.Basic.Ground g;
   Spice3&hellip;M Mp1(mtype=true, M(GAMMA=0.37));
@@ -182,28 +182,28 @@ connect(p_out, n2);
 
     annotation (Documentation(info="<html>
 <table cellspacing=\"0\" cellpadding=\"2\" border=\"0\"><tr>
-<td><p>[B&ouml;hme2009]</p></td>
-<td><p>S. B&ouml;hme, K. Majetta, C. Clauss, P. Schneider, &quot;Spice3 Modelica Library,&quot; <em>7th Modelica Conference</em>, Como, Italy (2009)</p></td>
+<td valign=\"top\"><p>[B&ouml;hme2009]</p></td>
+<td valign=\"top\"><p>S. B&ouml;hme, K. Majetta, C. Clauss, P. Schneider, &quot;Spice3 Modelica Library,&quot; <em>7th Modelica Conference</em>, Como, Italy (2009)</p></td>
 <td></td>
 </tr>
 <tr>
-<td><p>[Antognetti1988]</p></td>
-<td><p>P. Antognetti, G. Massobrio, <em>Semiconductor Device Modeling with SPICE.</em>, McGraw-Hill Book Company, USA, 1988</p></td>
+<td valign=\"top\"><p>[Antognetti1988]</p></td>
+<td valign=\"top\"><p>P. Antognetti, G. Massobrio, <em>Semiconductor Device Modeling with SPICE.</em>, McGraw-Hill Book Company, USA, 1988</p></td>
 <td></td>
 </tr>
 <tr>
-<td><p>[Connelly1992]</p></td>
-<td><p>A. Connelly, A, P. Choi, <em>Macromodeling with SPICE.</em>, Prentice-Hall, New Jersey, USA (1992)</p></td>
+<td valign=\"top\"><p>[Connelly1992]</p></td>
+<td valign=\"top\"><p>A. Connelly, A, P. Choi, <em>Macromodeling with SPICE.</em>, Prentice-Hall, New Jersey, USA (1992)</p></td>
 <td></td>
 </tr>
 <tr>
-<td><p>[Johnson1991]</p></td>
-<td><p>B. Johnson, T. Quarles, A.R. Newton, D. O. Pederson, A. Sangiovanni-Vincentelli, <em>SPICE3 Version 3f User's Manual.</em>, University of Berkeley, Department of Electrical Engineering and Computer Sciences, USA (1991): <a href=\"modelica://Modelica/Resources/Documentation/Electrical/Spice3/Spice_3f3_Users_Manual.pdf\">SPICE3 user's manual</a> (&copy; Regents of the University of California)</p></td>
+<td valign=\"top\"><p>[Johnson1991]</p></td>
+<td valign=\"top\"><p>B. Johnson, T. Quarles, A.R. Newton, D. O. Pederson, A. Sangiovanni-Vincentelli, <em>SPICE3 Version 3f User's Manual.</em>, University of Berkeley, Department of Electrical Engineering and Computer Sciences, USA (1991): <a href=\"modelica://Modelica/Resources/Documentation/Electrical/Spice3/Spice_3f3_Users_Manual.pdf\">SPICE3 user's manual</a> (&copy; Regents of the University of California)</p></td>
 <td></td>
 </tr>
 <tr>
-<td><p>[Kielkowski1994]</p></td>
-<td><p>R. Kielkowski, <em>Inside SPICE - Overcoming the obstacles of circuit simulation.</em>, McGraw-Hill, USA (1994)</p></td>
+<td valign=\"top\"><p>[Kielkowski1994]</p></td>
+<td valign=\"top\"><p>R. Kielkowski, <em>Inside SPICE - Overcoming the obstacles of circuit simulation.</em>, McGraw-Hill, USA (1994)</p></td>
 </tr>
 </table>
 </html>"));

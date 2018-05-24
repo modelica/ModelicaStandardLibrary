@@ -1171,11 +1171,11 @@ The result of a simulation is shown in the next diagram:
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td> June 22, 2015 </td>
-    <td>
+<tr><td valign=\"top\"> June 22, 2015 </td>
+    <td valign=\"top\">
 
 <table border=0>
-<tr><td>
+<tr><td valign=\"top\">
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -1277,11 +1277,11 @@ manualSeed2 will produce exactly the same noise.
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td> June 22, 2015 </td>
-    <td>
+<tr><td valign=\"top\"> June 22, 2015 </td>
+    <td valign=\"top\">
 
 <table border=0>
-<tr><td>
+<tr><td valign=\"top\">
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -1345,11 +1345,11 @@ truncated normal distribution has more values centered around the mean value 1.
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td> June 22, 2015 </td>
-    <td>
+<tr><td valign=\"top\"> June 22, 2015 </td>
+    <td valign=\"top\">
 
 <table border=0>
-<tr><td>
+<tr><td valign=\"top\">
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -1450,11 +1450,11 @@ distribution have good statistical properties.
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td> June 22, 2015 </td>
-    <td>
+<tr><td valign=\"top\"> June 22, 2015 </td>
+    <td valign=\"top\">
 
 <table border=0>
-<tr><td>
+<tr><td valign=\"top\">
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -1554,11 +1554,11 @@ distribution have good statistical properties.
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td> June 22, 2015 </td>
-    <td>
+<tr><td valign=\"top\"> June 22, 2015 </td>
+    <td valign=\"top\">
 
 <table border=0>
-<tr><td>
+<tr><td valign=\"top\">
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -1621,11 +1621,11 @@ inputs:
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td> June 22, 2015 </td>
-    <td>
+<tr><td valign=\"top\"> June 22, 2015 </td>
+    <td valign=\"top\">
 
 <table border=0>
-<tr><td>
+<tr><td valign=\"top\">
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -1664,11 +1664,11 @@ generator. Simulation results are shown in the next figure:
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td> June 22, 2015 </td>
-    <td>
+<tr><td valign=\"top\"> June 22, 2015 </td>
+    <td valign=\"top\">
 
 <table border=0>
-<tr><td>
+<tr><td valign=\"top\">
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -1781,11 +1781,11 @@ enableNoise = false in the globalSeed component.
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td> June 22, 2015 </td>
-    <td>
+<tr><td valign=\"top\"> June 22, 2015 </td>
+    <td valign=\"top\">
 
 <table border=0>
-<tr><td>
+<tr><td valign=\"top\">
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -1963,11 +1963,11 @@ This block is demonstrated in the example
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td> June 22, 2015 </td>
-    <td>
+<tr><td valign=\"top\"> June 22, 2015 </td>
+    <td valign=\"top\">
 
 <table border=0>
-<tr><td>
+<tr><td valign=\"top\">
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -2034,11 +2034,11 @@ This block is demonstrated in the example
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td> June 22, 2015 </td>
-    <td>
+<tr><td valign=\"top\"> June 22, 2015 </td>
+    <td valign=\"top\">
 
 <table border=0>
-<tr><td>
+<tr><td valign=\"top\">
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -2106,11 +2106,11 @@ This block is demonstrated in the example
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td> June 22, 2015 </td>
-    <td>
+<tr><td valign=\"top\"> June 22, 2015 </td>
+    <td valign=\"top\">
 
 <table border=0>
-<tr><td>
+<tr><td valign=\"top\">
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -2147,11 +2147,11 @@ random number generator. This block is used in the example
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td> June 22, 2015 </td>
-    <td>
+<tr><td valign=\"top\"> June 22, 2015 </td>
+    <td valign=\"top\">
 
 <table border=0>
-<tr><td>
+<tr><td valign=\"top\">
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -2379,11 +2379,11 @@ actuator example
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td> June 22, 2015 </td>
-    <td>
+<tr><td valign=\"top\"> June 22, 2015 </td>
+    <td valign=\"top\">
 
 <table border=0>
-<tr><td>
+<tr><td valign=\"top\">
          <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -2460,11 +2460,11 @@ actuator example
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td> June 22, 2015 </td>
-    <td>
+<tr><td valign=\"top\"> June 22, 2015 </td>
+    <td valign=\"top\">
 
 <table border=0>
-<tr><td>
+<tr><td valign=\"top\">
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -2487,11 +2487,11 @@ actuator example
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td> June 22, 2015 </td>
-    <td>
+<tr><td valign=\"top\"> June 22, 2015 </td>
+    <td valign=\"top\">
 
 <table border=0>
-<tr><td>
+<tr><td valign=\"top\">
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -2517,11 +2517,11 @@ This package contains utility models that are used for the examples.
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td> June 22, 2015 </td>
-    <td>
+<tr><td valign=\"top\"> June 22, 2015 </td>
+    <td valign=\"top\">
 
 <table border=0>
-<tr><td>
+<tr><td valign=\"top\">
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -2543,11 +2543,11 @@ to utilize the blocks from sublibrary
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td> June 22, 2015 </td>
-    <td>
+<tr><td valign=\"top\"> June 22, 2015 </td>
+    <td valign=\"top\">
 
 <table border=0>
-<tr><td>
+<tr><td valign=\"top\">
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by

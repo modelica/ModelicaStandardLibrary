@@ -479,50 +479,50 @@ ideal AC DC converter</a>, which is used in the
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
     <tr>
-      <td>[Dorf1993]</td>
-      <td>R. C. Dorf
+      <td valign=\"top\">[Dorf1993]</td>
+      <td valign=\"top\">R. C. Dorf
         <em>The Electrical Engineering</em>,
         VDE, 1993.</td>
     </tr>
 
     <tr>
-      <td>[Boas1966]</td>
-      <td>M. L. Boas
+      <td valign=\"top\">[Boas1966]</td>
+      <td valign=\"top\">M. L. Boas
         <em>Mathematical Methods in the Physical Sciences</em>,
         J. Wiley &amp; Sons, New York, 1966.</td>
     </tr>
 
     <tr>
-      <td>[Burton1994]</td>
-      <td>T. Burton
+      <td valign=\"top\">[Burton1994]</td>
+      <td valign=\"top\">T. Burton
         <em>Introduction to Dynamic Systems Analysis</em>,
         McGraw Hill, New York, 1994.</td>
     </tr>
 
     <tr>
-      <td>[Landolt1936]</td>
-      <td>M. Landolt
+      <td valign=\"top\">[Landolt1936]</td>
+      <td valign=\"top\">M. Landolt
         <em>Komplexe Zahlen und Zeiger in der Wechselstromlehre</em>,
         Springer Verlag, Berlin, 1936</td>
     </tr>
 
     <tr>
-      <td>[Philippow1967]</td>
-      <td>E. Philippow
+      <td valign=\"top\">[Philippow1967]</td>
+      <td valign=\"top\">E. Philippow
         <em>Grundlagen der Elektrotechnik</em>,
        Akademischer Verlag, Leipzig, 1967.</td>
     </tr>
 
     <tr>
-      <td>[Weyh1967]</td>
-      <td>Weyh and Benzinger
+      <td valign=\"top\">[Weyh1967]</td>
+      <td valign=\"top\">Weyh and Benzinger
         <em>Die Grundlagen der Wechselstromlehre</em>,
        R. Oldenbourg Verlag, 1967.</td>
     </tr>
 
     <tr>
-      <td>[Vaske1973]</td>
-      <td>P. Vaske
+      <td valign=\"top\">[Vaske1973]</td>
+      <td valign=\"top\">P. Vaske
         <em>Berechnung von Drehstromschaltungen</em>,
        B.G. Teubner Verlag, 1973.</td>
     </tr>

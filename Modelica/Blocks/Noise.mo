@@ -60,11 +60,11 @@ into your model and specify the seed.
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td> June 22, 2015 </td>
-    <td>
+<tr><td valign=\"top\"> June 22, 2015 </td>
+    <td valign=\"top\">
 
 <table border=0>
-<tr><td>
+<tr><td valign=\"top\">
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -200,11 +200,11 @@ is dragged to provide global settings for all instances.
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td> June 22, 2015 </td>
-    <td>
+<tr><td valign=\"top\"> June 22, 2015 </td>
+    <td valign=\"top\">
 
 <table border=0>
-<tr><td>
+<tr><td valign=\"top\">
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -261,11 +261,11 @@ is dragged to provide global settings for all instances.
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td> June 22, 2015 </td>
-    <td>
+<tr><td valign=\"top\"> June 22, 2015 </td>
+    <td valign=\"top\">
 
 <table border=0>
-<tr><td>
+<tr><td valign=\"top\">
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -349,11 +349,11 @@ is dragged to provide global settings for all instances.
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td> June 22, 2015 </td>
-    <td>
+<tr><td valign=\"top\"> June 22, 2015 </td>
+    <td valign=\"top\">
 
 <table border=0>
-<tr><td>
+<tr><td valign=\"top\">
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -686,11 +686,11 @@ distributions are given in the documentation of package
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td> June 22, 2015 </td>
-    <td>
+<tr><td valign=\"top\"> June 22, 2015 </td>
+    <td valign=\"top\">
 
 <table border=0>
-<tr><td>
+<tr><td valign=\"top\">
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by

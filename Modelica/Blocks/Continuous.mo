@@ -825,30 +825,30 @@ blocks inside the PID controller are initialized according to the following tabl
 </p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td><strong>initType</strong></td>
-      <td><strong>I.initType</strong></td>
-      <td><strong>D.initType</strong></td></tr>
+  <tr><td valign=\"top\"><strong>initType</strong></td>
+      <td valign=\"top\"><strong>I.initType</strong></td>
+      <td valign=\"top\"><strong>D.initType</strong></td></tr>
 
-  <tr><td><strong>NoInit</strong></td>
-      <td>NoInit</td>
-      <td>NoInit</td></tr>
+  <tr><td valign=\"top\"><strong>NoInit</strong></td>
+      <td valign=\"top\">NoInit</td>
+      <td valign=\"top\">NoInit</td></tr>
 
-  <tr><td><strong>SteadyState</strong></td>
-      <td>SteadyState</td>
-      <td>SteadyState</td></tr>
+  <tr><td valign=\"top\"><strong>SteadyState</strong></td>
+      <td valign=\"top\">SteadyState</td>
+      <td valign=\"top\">SteadyState</td></tr>
 
-  <tr><td><strong>InitialState</strong></td>
-      <td>InitialState</td>
-      <td>InitialState</td></tr>
+  <tr><td valign=\"top\"><strong>InitialState</strong></td>
+      <td valign=\"top\">InitialState</td>
+      <td valign=\"top\">InitialState</td></tr>
 
-  <tr><td><strong>InitialOutput</strong><br>
+  <tr><td valign=\"top\"><strong>InitialOutput</strong><br>
           and initial equation: y = y_start</td>
-      <td>NoInit</td>
-      <td>SteadyState</td></tr>
+      <td valign=\"top\">NoInit</td>
+      <td valign=\"top\">SteadyState</td></tr>
 
-  <tr><td><strong>DoNotUse_InitialIntegratorState</strong></td>
-      <td>InitialState</td>
-      <td>NoInit</td></tr>
+  <tr><td valign=\"top\"><strong>DoNotUse_InitialIntegratorState</strong></td>
+      <td valign=\"top\">InitialState</td>
+      <td valign=\"top\">NoInit</td></tr>
 </table>
 
 <p>
@@ -1191,30 +1191,30 @@ blocks inside the PID controller are initialized according to the following tabl
 </p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td><strong>initType</strong></td>
-      <td><strong>I.initType</strong></td>
-      <td><strong>D.initType</strong></td></tr>
+  <tr><td valign=\"top\"><strong>initType</strong></td>
+      <td valign=\"top\"><strong>I.initType</strong></td>
+      <td valign=\"top\"><strong>D.initType</strong></td></tr>
 
-  <tr><td><strong>NoInit</strong></td>
-      <td>NoInit</td>
-      <td>NoInit</td></tr>
+  <tr><td valign=\"top\"><strong>NoInit</strong></td>
+      <td valign=\"top\">NoInit</td>
+      <td valign=\"top\">NoInit</td></tr>
 
-  <tr><td><strong>SteadyState</strong></td>
-      <td>SteadyState</td>
-      <td>SteadyState</td></tr>
+  <tr><td valign=\"top\"><strong>SteadyState</strong></td>
+      <td valign=\"top\">SteadyState</td>
+      <td valign=\"top\">SteadyState</td></tr>
 
-  <tr><td><strong>InitialState</strong></td>
-      <td>InitialState</td>
-      <td>InitialState</td></tr>
+  <tr><td valign=\"top\"><strong>InitialState</strong></td>
+      <td valign=\"top\">InitialState</td>
+      <td valign=\"top\">InitialState</td></tr>
 
-  <tr><td><strong>InitialOutput</strong><br>
+  <tr><td valign=\"top\"><strong>InitialOutput</strong><br>
           and initial equation: y = y_start</td>
-      <td>NoInit</td>
-      <td>SteadyState</td></tr>
+      <td valign=\"top\">NoInit</td>
+      <td valign=\"top\">SteadyState</td></tr>
 
-  <tr><td><strong>DoNotUse_InitialIntegratorState</strong></td>
-      <td>InitialState</td>
-      <td>NoInit</td></tr>
+  <tr><td valign=\"top\"><strong>DoNotUse_InitialIntegratorState</strong></td>
+      <td valign=\"top\">InitialState</td>
+      <td valign=\"top\">NoInit</td></tr>
 </table>
 
 <p>
@@ -4653,20 +4653,20 @@ values of initType are defined in
 </p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td><strong>Name</strong></td>
-      <td><strong>Description</strong></td></tr>
+  <tr><td valign=\"top\"><strong>Name</strong></td>
+      <td valign=\"top\"><strong>Description</strong></td></tr>
 
-  <tr><td><strong>Init.NoInit</strong></td>
-      <td>no initialization (start values are used as guess values with fixed=false)</td></tr>
+  <tr><td valign=\"top\"><strong>Init.NoInit</strong></td>
+      <td valign=\"top\">no initialization (start values are used as guess values with fixed=false)</td></tr>
 
-  <tr><td><strong>Init.SteadyState</strong></td>
-      <td>steady state initialization (derivatives of states are zero)</td></tr>
+  <tr><td valign=\"top\"><strong>Init.SteadyState</strong></td>
+      <td valign=\"top\">steady state initialization (derivatives of states are zero)</td></tr>
 
-  <tr><td><strong>Init.InitialState</strong></td>
-      <td>Initialization with initial states</td></tr>
+  <tr><td valign=\"top\"><strong>Init.InitialState</strong></td>
+      <td valign=\"top\">Initialization with initial states</td></tr>
 
-  <tr><td><strong>Init.InitialOutput</strong></td>
-      <td>Initialization with initial outputs (and steady state of the states if possible)</td></tr>
+  <tr><td valign=\"top\"><strong>Init.InitialOutput</strong></td>
+      <td valign=\"top\">Initialization with initial outputs (and steady state of the states if possible)</td></tr>
 </table>
 
 <p>

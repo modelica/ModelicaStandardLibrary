@@ -183,17 +183,17 @@ Besides the Euclidean norm (p=2), also the 1-norm and the
 infinity-norm are sometimes used:
 </p>
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td><strong>1-norm</strong></td>
-      <td>= sum(abs(v))</td>
-      <td><strong>norm</strong>(v,1)</td>
+  <tr><td valign=\"top\"><strong>1-norm</strong></td>
+      <td valign=\"top\">= sum(abs(v))</td>
+      <td valign=\"top\"><strong>norm</strong>(v,1)</td>
   </tr>
-  <tr><td><strong>2-norm</strong></td>
-      <td>= sqrt(v*v)</td>
-      <td><strong>norm</strong>(v) or <strong>norm</strong>(v,2)</td>
+  <tr><td valign=\"top\"><strong>2-norm</strong></td>
+      <td valign=\"top\">= sqrt(v*v)</td>
+      <td valign=\"top\"><strong>norm</strong>(v) or <strong>norm</strong>(v,2)</td>
   </tr>
-  <tr><td><strong>infinity-norm</strong></td>
-      <td>= max(abs(v))</td>
-      <td><strong>norm</strong>(v,Modelica.Constants.<strong>inf</strong>)</td>
+  <tr><td valign=\"top\"><strong>infinity-norm</strong></td>
+      <td valign=\"top\">= max(abs(v))</td>
+      <td valign=\"top\"><strong>norm</strong>(v,Modelica.Constants.<strong>inf</strong>)</td>
   </tr>
 </table>
 <p>
@@ -1670,10 +1670,10 @@ more convenient to just use the function
 <p>
 The optional third (Integer) output argument has the following meaning:</p>
 <table border=0 cellspacing=0 cellpadding=2>
-  <tr><td>info = 0:</td>
-      <td>successful exit</td></tr>
-  <tr><td>info &gt; 0:</td>
-      <td>if info = i, U[i,i] is exactly zero. The factorization
+  <tr><td valign=\"top\">info = 0:</td>
+      <td valign=\"top\">successful exit</td></tr>
+  <tr><td valign=\"top\">info &gt; 0:</td>
+      <td valign=\"top\">if info = i, U[i,i] is exactly zero. The factorization
           has been completed,<br>
           but the factor U is exactly
           singular, and division by zero will occur<br> if it is used

@@ -490,25 +490,25 @@ package Lines
       <th>Comment</th>
     </tr>
    <tr>
-      <td></td>
-      <td>4163</td>
-      <td>2010-09-11</td>
-      <td>Dietmar Winkler</td>
-      <td>Documentation corrected according to documentation guidelines.</td>
+      <td valign=\"top\"></td>
+      <td valign=\"top\">4163</td>
+      <td valign=\"top\">2010-09-11</td>
+      <td valign=\"top\">Dietmar Winkler</td>
+      <td valign=\"top\">Documentation corrected according to documentation guidelines.</td>
     </tr>
     <tr>
-      <td></td>
-      <td></td>
-      <td>2008-11-24</td>
-      <td>Kristin Majetta</td>
-      <td>Documentation added.</td>
+      <td valign=\"top\"></td>
+      <td valign=\"top\"></td>
+      <td valign=\"top\">2008-11-24</td>
+      <td valign=\"top\">Kristin Majetta</td>
+      <td valign=\"top\">Documentation added.</td>
     </tr>
     <tr>
-      <td></td>
-      <td></td>
-      <td>2007-02-26</td>
-      <td>Kristin Majetta</td>
-      <td>Initially implemented</td>
+      <td valign=\"top\"></td>
+      <td valign=\"top\"></td>
+      <td valign=\"top\">2007-02-26</td>
+      <td valign=\"top\">Kristin Majetta</td>
+      <td valign=\"top\">Initially implemented</td>
     </tr>
 </table>
 </html>"));
