@@ -4872,7 +4872,7 @@ static CubicHermite1D* akimaSpline1DInit(_In_ const double* table, size_t nRow,
 
      Hiroshi Akima. A new method of interpolation and smooth curve fitting
      based on local procedures. Journal of the ACM, 17(4), 589-602, Oct. 1970.
-     (http://dx.doi.org/10.1145/321607.321609)
+     (https://dx.doi.org/10.1145/321607.321609)
   */
 
     CubicHermite1D* spline = NULL;
@@ -4952,7 +4952,7 @@ static CubicHermite1D* fritschButlandSpline1DInit(_In_ const double* table,
      Frederick N. Fritsch and Judy Butland. A method for constructing local
      monotone piecewise cubic interpolants. SIAM Journal on Scientific and
      Statistical Computing, 5(2), 300-304, June 1984.
-     (http://dx.doi.org/10.1137/0905021)
+     (https://dx.doi.org/10.1137/0905021)
   */
 
     CubicHermite1D* spline = NULL;
@@ -5020,8 +5020,8 @@ static CubicHermite1D* steffenSpline1DInit(_In_ const double* table,
   /* Reference:
 
      Matthias Steffen. A simple method for monotonic interpolation in one
-     dimension. Astronomy and Astrophysic, 239, 443-450, August 1990.
-     (https://trac.modelica.org/Modelica/attachment/ticket/1814/1990_Astronomy_and_Astrophysic_239_443S.pdf)
+     dimension. Astronomy and Astrophysics, 239, 443-450, Nov. 1990.
+     (https://ui.adsabs.harvard.edu/#abs/1990A&A...239..443S)
   */
 
     CubicHermite1D* spline = NULL;
