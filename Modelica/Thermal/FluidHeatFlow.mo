@@ -1109,7 +1109,7 @@ then started again (using a ramp of 0.2 s).
             extent={{10,-10},{-10,10}},
             rotation=180)));
       Modelica.Thermal.HeatTransfer.Components.ThermalConductor
-        thermalConductor(                                                        G=1)
+        thermalConductor(G=1)
         annotation (Placement(transformation(
             origin={10,-30},
             extent={{-10,-10},{10,10}},
@@ -1222,7 +1222,7 @@ the time behaviour depending on coolant flow.
             extent={{10,-10},{-10,10}},
             rotation=180)));
       Modelica.Thermal.HeatTransfer.Components.ThermalConductor
-        thermalConductor1(                                                        G=1)
+        thermalConductor1(G=1)
         annotation (Placement(transformation(
             origin={10,-40},
             extent={{-10,-10},{10,10}},
@@ -1234,7 +1234,7 @@ the time behaviour depending on coolant flow.
             extent={{10,10},{-10,-10}},
             rotation=180)));
       Modelica.Thermal.HeatTransfer.Components.ThermalConductor
-        thermalConductor2(                                                        G=1)
+        thermalConductor2(G=1)
         annotation (Placement(transformation(
             origin={10,40},
             extent={{10,-10},{-10,10}},
@@ -1411,23 +1411,23 @@ the time behaviour depending on coolant flow.
       annotation (experiment(
           StopTime=2,
           Interval=0.001,
-          Tolerance=1e-06),                                                 Documentation(
+          Tolerance=1e-06), Documentation(
             info="<html>
 <p>
 There are two reservoirs at ambient pressure, the second one 25 m higher than the first one. 
 The ideal pump is driven by a speed source, starting from zero and going up to 1.2 times nominal speed. 
 To avoid water flowing back, the valve is initially closed. 
-It gets openend when the pump provides sufficient pressure, allowing water flow to start. 
+It gets opened when the pump provides sufficient pressure, allowing water flow to start. 
 Subsequently the speed of the pump is reduced to zero again, reducing the water flow. 
 Again, to avoid water flowing back, the valve gets closed when the pressure provided by the pump gets too low.  
 It is possible to investigate the dependencies of volume flow, pressure, torque and power demand on pump speed.
 </p>
 </html>"),
-        Diagram(coordinateSystem(                                initialScale=0.1)),
-        Icon(coordinateSystem(                                initialScale=0.1)));
+        Diagram(coordinateSystem(initialScale=0.1)),
+        Icon(coordinateSystem(initialScale=0.1)));
     end WaterPump;
 
-    model TestOpenTank "Test the openZank model"
+    model TestOpenTank "Test the OpenTank model"
       extends Modelica.Icons.Example;
       Modelica.Thermal.FluidHeatFlow.Components.OpenTank openTank(
         A=1,
@@ -1452,9 +1452,8 @@ It is possible to investigate the dependencies of volume flow, pressure, torque 
         annotation (Placement(transformation(extent={{-10,-10},{10,10}},
             rotation=90,
             origin={0,0})));
-      Modelica.Blocks.Sources.CombiTimeTable
-                                   combiTimeTable(table=[0,0; 0.5,0; 0.5,-1; 0.75,
-            -1; 0.75,1; 1,1; 1,0; 1.5,0])
+      Modelica.Blocks.Sources.CombiTimeTable combiTimeTable(
+	    table=[0,0; 0.5,0; 0.5,-1; 0.75, -1; 0.75,1; 1,1; 1,0; 1.5,0])
         annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
     equation
       connect(combiTimeTable.y[1], volumeFlow.volumeFlow)
