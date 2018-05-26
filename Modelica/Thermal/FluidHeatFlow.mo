@@ -1282,6 +1282,25 @@ the time behaviour depending on coolant flow.
     model WaterPump "Water pumping station"
       extends Modelica.Icons.Example;
       import Modelica.Constants.pi;
+      Modelica.Blocks.Sources.Trapezoid trapezoid(
+        period=2,
+        nperiod=1,
+        offset=0,
+        rising=0.6,
+        width=0.6,
+        falling=0.6,
+        startTime=0.1,
+        amplitude=1.2)     annotation (Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=0,
+            origin={-70,-50})));
+      Modelica.Blocks.Math.Gain gain(k=idealPump.wNominal)
+        annotation (Placement(transformation(extent={{-50,-60},{-30,-40}})));
+      Modelica.Mechanics.Rotational.Sources.Speed speed(exact=true)
+        annotation (Placement(transformation(extent={{-20,-60},{0,-40}})));
+      Modelica.Mechanics.Rotational.Sensors.MultiSensor multiSensor(w(displayUnit=
+             "1/min"))
+        annotation (Placement(transformation(extent={{10,-60},{30,-40}})));
       Modelica.Thermal.FluidHeatFlow.Sources.Ambient ambient1(
         medium=Modelica.Thermal.FluidHeatFlow.Media.Water(),
         constantAmbientPressure=100000,
@@ -1289,59 +1308,46 @@ the time behaviour depending on coolant flow.
         annotation (Placement(transformation(
             extent={{-10,10},{10,-10}},
             rotation=270,
-            origin={50,-70})));
-      Modelica.Blocks.Sources.CombiTimeTable combiTimeTable(
-        startTime=0,
-        extrapolation=Modelica.Blocks.Types.Extrapolation.HoldLastPoint,
-        table=[0,0; 0.5,1.5; 1,1.5; 1.5,0.7; 2,0.7])
-                           annotation (Placement(transformation(
-            extent={{-10,-10},{10,10}},
-            rotation=0,
-            origin={-70,-40})));
-      Modelica.Blocks.Math.Gain gain(k=idealPump.wNominal)
-        annotation (Placement(transformation(extent={{-50,-50},{-30,-30}})));
-      Modelica.Mechanics.Rotational.Sources.Speed speed(exact=true)
-        annotation (Placement(transformation(extent={{-20,-50},{0,-30}})));
-      Modelica.Mechanics.Rotational.Sensors.MultiSensor multiSensor(w(displayUnit=
-             "1/min"))
-        annotation (Placement(transformation(extent={{10,-50},{30,-30}})));
-      Modelica.Thermal.FluidHeatFlow.Sources.IdealPump idealPump(
+            origin={50,-80})));
+      Sources.IdealPump idealPump(
         medium=Modelica.Thermal.FluidHeatFlow.Media.Water(),
         m=0,
         V_flow0=0.18,
         V_flow(start=1e-6),
         T0=293.15,
         wNominal=104.71975511966,
-        dp0=500000)   annotation (Placement(transformation(
+        dp0=500000) annotation (Placement(transformation(
             extent={{-10,10},{10,-10}},
             rotation=90,
-            origin={50,-40})));
-      Modelica.Thermal.FluidHeatFlow.Sensors.VolumeFlowSensor volumeFlowSensor(medium=
-            Modelica.Thermal.FluidHeatFlow.Media.Water())
+            origin={50,-50})));
+      Modelica.Thermal.FluidHeatFlow.Sensors.VolumeFlowSensor volumeFlowSensor(
+        medium=Modelica.Thermal.FluidHeatFlow.Media.Water())
         annotation (Placement(transformation(
             extent={{10,-10},{-10,10}},
             rotation=270,
-            origin={50,-10})));
-        Modelica.Thermal.FluidHeatFlow.Components.Valve valve(
+            origin={50,-20})));
+      Modelica.Thermal.FluidHeatFlow.Sensors.PressureSensor pressureSensor(
+        medium=Modelica.Thermal.FluidHeatFlow.Media.Water())
+        annotation (Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=180,
+            origin={20,0})));
+      Modelica.Thermal.FluidHeatFlow.Components.Valve valve(
         medium=Modelica.Thermal.FluidHeatFlow.Media.Water(),
         m=0,
         frictionLoss=0,
-        LinearCharacteristic=true,
         y1=1,
         Kv1=0.18,
         rho0(displayUnit="kg/m3") = 995.6,
         kv0=1e-6,
         T0=293.15,
-        dp0=10000)                                          annotation (Placement(
+        LinearCharacteristic=true,
+        dp0=10000)
+        annotation (Placement(
             transformation(
             extent={{10,10},{-10,-10}},
             rotation=270,
             origin={50,20})));
-      Modelica.Blocks.Sources.Ramp rampValve(
-        offset=0,
-        duration=0.25,
-        startTime=0.5)
-        annotation (Placement(transformation(extent={{10,10},{30,30}})));
       Modelica.Thermal.FluidHeatFlow.Components.IsolatedPipe isolatedPipe(
         m=0,
         V_flowLaminar=0.09,
@@ -1362,28 +1368,46 @@ the time behaviour depending on coolant flow.
         annotation (Placement(transformation(
             extent={{10,10},{-10,-10}},
             rotation=270,
-            origin={50,84})));
+            origin={50,82})));
+      Modelica.Blocks.Logical.Hysteresis hysteresis(uLow=3.5e5, uHigh=4.0e5)
+        annotation (Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=180,
+            origin={-10,0})));
+      Modelica.Blocks.Logical.Pre pre1
+        annotation (Placement(transformation(extent={{-20,10},{0,30}})));
+      Modelica.Blocks.Logical.TriggeredTrapezoid triggeredTrapezoid(rising=0.1)
+        annotation (Placement(transformation(extent={{10,10},{30,30}})));
     equation
       connect(idealPump.flowPort_a, ambient1.flowPort)
-        annotation (Line(points={{50,-50},{50,-60}}, color={255,0,0}));
-      connect(rampValve.y, valve.y)
-        annotation (Line(points={{31,20},{41,20}}, color={0,0,127}));
+        annotation (Line(points={{50,-60},{50,-70}}, color={255,0,0}));
       connect(speed.flange, multiSensor.flange_a)
-        annotation (Line(points={{0,-40},{10,-40}},    color={0,0,0}));
+        annotation (Line(points={{0,-50},{10,-50}},    color={0,0,0}));
       connect(valve.flowPort_a, volumeFlowSensor.flowPort_b)
-        annotation (Line(points={{50,10},{50,0}}, color={255,0,0}));
+        annotation (Line(points={{50,10},{50,-10}},
+                                                  color={255,0,0}));
       connect(volumeFlowSensor.flowPort_a, idealPump.flowPort_b)
-        annotation (Line(points={{50,-20},{50,-30}}, color={255,0,0}));
+        annotation (Line(points={{50,-30},{50,-40}}, color={255,0,0}));
       connect(ambient2.flowPort, isolatedPipe.flowPort_b)
-        annotation (Line(points={{50,74},{50,60}}, color={255,0,0}));
+        annotation (Line(points={{50,72},{50,60}}, color={255,0,0}));
       connect(isolatedPipe.flowPort_a, valve.flowPort_b)
         annotation (Line(points={{50,40},{50,30}}, color={255,0,0}));
       connect(multiSensor.flange_b, idealPump.flange_a)
-        annotation (Line(points={{30,-40},{40,-40}}, color={0,0,0}));
-      connect(combiTimeTable.y[1], gain.u)
-        annotation (Line(points={{-59,-40},{-52,-40}}, color={0,0,127}));
+        annotation (Line(points={{30,-50},{40,-50}}, color={0,0,0}));
+      connect(valve.flowPort_a, pressureSensor.flowPort)
+        annotation (Line(points={{50,10},{50,0},{30,0}}, color={255,0,0}));
+      connect(pre1.y, triggeredTrapezoid.u)
+        annotation (Line(points={{1,20},{8,20}}, color={255,0,255}));
+      connect(triggeredTrapezoid.y, valve.y)
+        annotation (Line(points={{31,20},{41,20}}, color={0,0,127}));
+      connect(hysteresis.y, pre1.u) annotation (Line(points={{-21,0},{-30,0},{-30,20},
+              {-22,20}}, color={255,0,255}));
+      connect(pressureSensor.y, hysteresis.u)
+        annotation (Line(points={{9,0},{2,0}}, color={0,0,127}));
       connect(gain.y, speed.w_ref)
-        annotation (Line(points={{-29,-40},{-22,-40}}, color={0,0,127}));
+        annotation (Line(points={{-29,-50},{-22,-50}}, color={0,0,127}));
+      connect(trapezoid.y, gain.u)
+        annotation (Line(points={{-59,-50},{-52,-50}}, color={0,0,127}));
       annotation (experiment(
           StopTime=2,
           Interval=0.001,
@@ -1391,10 +1415,11 @@ the time behaviour depending on coolant flow.
             info="<html>
 <p>
 There are two reservoirs at ambient pressure, the second one 25 m higher than the first one. 
-The ideal pump is driven by a speed source, starting from zero and going up to 1.5 times nominal speed. 
+The ideal pump is driven by a speed source, starting from zero and going up to 1.2 times nominal speed. 
 To avoid water flowing back, the valve is initially closed. 
-It is openend when the pump provides sufficient pressure, allowing water flow to start. 
-Subsequently the speed of the pump is reduced to 0.7 times nomnal speed, reducing the water flow nearly to zero. 
+It gets openend when the pump provides sufficient pressure, allowing water flow to start. 
+Subsequently the speed of the pump is reduced to zero again, reducing the water flow. 
+Again, to avoid water flowing back, the valve gets closed when the pressure provided by the pump gets too low.  
 It is possible to investigate the dependencies of volume flow, pressure, torque and power demand on pump speed.
 </p>
 </html>"),
@@ -2133,13 +2158,13 @@ Thermodynamic equations are defined by Partials.TwoPort.
         annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
     equation
       // pump characteristic
-      dp1 = dp0*sign(w/wNominal)*(w/wNominal)^2;
+      dp1 = dp0*(w/wNominal)*abs(w/wNominal);
       V_flow1 = V_flow0*(w/wNominal);
       if noEvent(abs(w)<Modelica.Constants.small) then
         dp = 0;
         flange_a.tau = 0;
       else
-        dp = -dp1*(1-noEvent(abs(V_flow/V_flow1)));
+        dp = -dp1*(1-V_flow/V_flow1);
         flange_a.tau*w = -dp*V_flow;
       end if;
       // no energy exchange with medium
