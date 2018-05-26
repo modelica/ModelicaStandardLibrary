@@ -796,7 +796,7 @@ Inner coolant's temperature rise near the source is the same as temperature drop
               {-50,42}}, color={0,0,127}));
       connect(valveRamp.y, valve.y)
                                  annotation (Line(points={{-9,50},{-20,50},{-20,
-              9}}, color={0,0,127}));
+              10}},color={0,0,127}));
       connect(speed.flange, idealPump.flange_a) annotation (Line(
           points={{-50,20},{-50,10}}));
     annotation (Documentation(info="<html>
@@ -1399,7 +1399,7 @@ the time behaviour depending on coolant flow.
       connect(pre1.y, triggeredTrapezoid.u)
         annotation (Line(points={{1,20},{8,20}}, color={255,0,255}));
       connect(triggeredTrapezoid.y, valve.y)
-        annotation (Line(points={{31,20},{41,20}}, color={0,0,127}));
+        annotation (Line(points={{31,20},{40,20}}, color={0,0,127}));
       connect(hysteresis.y, pre1.u) annotation (Line(points={{-21,0},{-30,0},{-30,20},
               {-22,20}}, color={255,0,255}));
       connect(pressureSensor.y, hysteresis.u)
@@ -1652,11 +1652,10 @@ temperature rise defined by storing heat in medium's mass.
       Real yLim = max(min(y,y1),0) "Limited valve opening";
       Modelica.SIunits.VolumeFlowRate Kv "Standard flow rate";
     public
-      Modelica.Blocks.Interfaces.RealInput y
-        annotation (Placement(transformation(
-            origin={0,90},
-            extent={{-10,-10},{10,10}},
-            rotation=270)));
+      Blocks.Interfaces.RealInput y annotation (Placement(transformation(
+            extent={{-20,-20},{20,20}},
+            rotation=270,
+            origin={0,100})));
     initial algorithm
       assert(y1>small, "Valve characteristic: y1 has to be > 0 !");
       assert(Kv1>smallVolumeFlowRate, "Valve characteristic: Kv1 has to be > 0 !");
@@ -1982,13 +1981,28 @@ All sensors are considered massless, they do not change mass flow or enthalpy fl
       parameter Modelica.SIunits.Temperature constantAmbientTemperature(start=293.15, displayUnit="degC")
         "Ambient temperature"
         annotation(Dialog(enable=not useTemperatureInput));
-      Modelica.Blocks.Interfaces.RealInput ambientPressure=pAmbient if usePressureInput
-        annotation (Placement(transformation(extent={{110,60},{90,80}})));
-      Modelica.Blocks.Interfaces.RealInput ambientTemperature=TAmbient if useTemperatureInput
-        annotation (Placement(transformation(extent={{110,-60},{90,-80}})));
+      Blocks.Interfaces.RealInput ambientPressure if usePressureInput
+        annotation (Placement(
+            transformation(
+            extent={{-20,-20},{20,20}},
+            rotation=180,
+            origin={100,60}), iconTransformation(
+            extent={{-20,-20},{20,20}},
+            rotation=180,
+            origin={100,60})));
+      Blocks.Interfaces.RealInput ambientTemperature if useTemperatureInput
+        annotation (Placement(
+            transformation(
+            extent={{-20,-20},{20,20}},
+            rotation=180,
+            origin={100,-60}), iconTransformation(
+            extent={{-20,-20},{20,20}},
+            rotation=180,
+            origin={100,-60})));
     protected
       Modelica.SIunits.Pressure pAmbient;
       Modelica.SIunits.Temperature TAmbient;
+
     equation
       if not usePressureInput then
         pAmbient = constantAmbientPressure;
@@ -2047,11 +2061,10 @@ Coolant's mass flow, temperature and enthalpy flow are not affected.<br>
       parameter Modelica.SIunits.VolumeFlowRate constantVolumeFlow(start=1)
         "Volume flow rate"
         annotation(Dialog(enable=not useVolumeFlowInput));
-      Modelica.Blocks.Interfaces.RealInput volumeFlow=internalVolumeFlow if useVolumeFlowInput
-        annotation (Placement(transformation(
-            origin={0,100},
-            extent={{-10,-10},{10,10}},
-            rotation=270)));
+      Blocks.Interfaces.RealInput volumeFlow annotation (Placement(transformation(
+            extent={{-20,-20},{20,20}},
+            rotation=270,
+            origin={0,100})));
     protected
       Modelica.SIunits.VolumeFlowRate internalVolumeFlow;
     equation
@@ -2096,11 +2109,11 @@ Thermodynamic equations are defined by Partials.TwoPort.
       parameter Modelica.SIunits.Pressure constantPressureIncrease(start=1)
         "Pressure increase"
         annotation(Dialog(enable=not usePressureIncreaseInput));
-      Modelica.Blocks.Interfaces.RealInput pressureIncrease=internalPressureIncrease if usePressureIncreaseInput
-        annotation (Placement(transformation(
-            origin={0,100},
-            extent={{-10,-10},{10,10}},
-            rotation=270)));
+      Blocks.Interfaces.RealInput pressureIncrease annotation (Placement(
+            transformation(
+            extent={{-20,-20},{20,20}},
+            rotation=270,
+            origin={0,100})));
     protected
       Modelica.SIunits.Pressure internalPressureIncrease;
     equation
