@@ -2010,7 +2010,7 @@ Thermodynamic equations are defined in partial models (package Partials).</p>
         "Thermal conductivity";
       parameter Modelica.SIunits.KinematicViscosity nue = 1
         "Kinematic viscosity";
-      annotation (Documentation(info="<html>
+      annotation (defaultComponentPrefixes="parameter", Documentation(info="<html>
 Record containing (constant) medium properties.
 </html>"));
     end Medium;
@@ -2022,7 +2022,7 @@ Record containing (constant) medium properties.
       cv= 720,
       lamda=0.0264,
       nue=16.3E-6);
-      annotation (Documentation(info="<html>
+      annotation (defaultComponentPrefixes="parameter", Documentation(info="<html>
 Medium: properties of air at 30 degC
 </html>"));
     end Air_30degC;
@@ -2034,22 +2034,58 @@ Medium: properties of air at 30 degC
       cv= 723,
       lamda=0.0293,
       nue=20.3E-6);
-      annotation (Documentation(info="<html>
+      annotation (defaultComponentPrefixes="parameter", Documentation(info="<html>
 Medium: properties of air at 70 degC
 </html>"));
     end Air_70degC;
 
-    record Water "Medium: properties of water"
+    record Water "Medium: properties of water at 20degC"
     extends Medium(
       rho=995.6,
       cp=4177,
       cv=4177,
       lamda=0.615,
       nue=0.8E-6);
-      annotation (Documentation(info="<html>
-Medium: properties of water
+      annotation (defaultComponentPrefixes="parameter", Documentation(info="<html>
+Medium: properties of water at 20degC
 </html>"));
     end Water;
+
+    record Gylcol20_20degC "Medium: properties of glycol:water 20:80 at 20degC"
+    extends Modelica.Thermal.FluidHeatFlow.Media.Medium(
+        rho=1028,
+        cp=3910,
+        cv=3910,
+        lamda=0.523,
+        nue=1.69E-6);
+      annotation (defaultComponentPrefixes="parameter", Documentation(info="<html>
+  Medium: properties of glycol:water 20:80 at 20degC
+</html>"));
+    end Gylcol20_20degC;
+
+    record Gylcol50_20degC "Medium: properties of glycol:water 50:50 at 20degC"
+    extends Modelica.Thermal.FluidHeatFlow.Media.Medium(
+        rho=1078,
+        cp=3300,
+        cv=3300,
+        lamda=0.405,
+        nue=3.98E-6);
+      annotation (defaultComponentPrefixes="parameter", Documentation(info="<html>
+  Medium: properties of glycol:water 50:50 at 20degC
+</html>"));
+    end Gylcol50_20degC;
+
+    record MineralOil "Medium: properties of mineral oil at 60degC"
+    extends Modelica.Thermal.FluidHeatFlow.Media.Medium(
+        rho=868,
+        cp=2010,
+        cv=2010,
+        lamda=0.14,
+        nue=81.8E-6);
+      annotation (defaultComponentPrefixes="parameter", Documentation(info="<html>
+  Medium: properties of mineral oil at 60 degC
+</html>"));
+    end MineralOil;
   annotation (Documentation(info="<html>
 <p>This package contains definitions of medium properties.</p>
 
