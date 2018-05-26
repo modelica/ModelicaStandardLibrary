@@ -1973,17 +1973,17 @@ All sensors are considered massless, they do not change mass flow or enthalpy fl
       extends Interfaces.Partials.Ambient;
       parameter Boolean usePressureInput=false
         "Enable / disable pressure input"
-        annotation(Evaluate=true);
+        annotation(Evaluate=true, choices(checkBox=true));
       parameter Modelica.SIunits.Pressure constantAmbientPressure(start=0)
         "Ambient pressure"
         annotation(Dialog(enable=not usePressureInput));
       parameter Boolean useTemperatureInput=false
         "Enable / disable temperature input"
-        annotation(Evaluate=true);
+        annotation(Evaluate=true, choices(checkBox=true));
       parameter Modelica.SIunits.Temperature constantAmbientTemperature(start=293.15, displayUnit="degC")
         "Ambient temperature"
         annotation(Dialog(enable=not useTemperatureInput));
-      Blocks.Interfaces.RealInput ambientPressure if usePressureInput
+      Blocks.Interfaces.RealInput ambientPressure=pAmbient if usePressureInput
         annotation (Placement(
             transformation(
             extent={{-20,-20},{20,20}},
@@ -1992,7 +1992,7 @@ All sensors are considered massless, they do not change mass flow or enthalpy fl
             extent={{-20,-20},{20,20}},
             rotation=180,
             origin={100,60})));
-      Blocks.Interfaces.RealInput ambientTemperature if useTemperatureInput
+      Blocks.Interfaces.RealInput ambientTemperature=TAmbient if useTemperatureInput
         annotation (Placement(
             transformation(
             extent={{-20,-20},{20,20}},
@@ -2059,11 +2059,12 @@ Coolant's mass flow, temperature and enthalpy flow are not affected.<br>
       extends Interfaces.Partials.TwoPort(final tapT=1);
       parameter Boolean useVolumeFlowInput=false
         "Enable / disable volume flow input"
-        annotation(Evaluate=true);
+        annotation(Evaluate=true, choices(checkBox=true));
       parameter Modelica.SIunits.VolumeFlowRate constantVolumeFlow(start=1)
         "Volume flow rate"
         annotation(Dialog(enable=not useVolumeFlowInput));
-      Blocks.Interfaces.RealInput volumeFlow annotation (Placement(transformation(
+      Blocks.Interfaces.RealInput volumeFlow=internalVolumeFlow if useVolumeFlowInput
+        annotation (Placement(transformation(
             extent={{-20,-20},{20,20}},
             rotation=270,
             origin={0,100})));
@@ -2107,11 +2108,12 @@ Thermodynamic equations are defined by Partials.TwoPort.
       extends Interfaces.Partials.TwoPort(final tapT=1);
       parameter Boolean usePressureIncreaseInput=false
         "Enable / disable pressure increase input"
-        annotation(Evaluate=true);
+        annotation(Evaluate=true, choices(checkBox=true));
       parameter Modelica.SIunits.Pressure constantPressureIncrease(start=1)
         "Pressure increase"
         annotation(Dialog(enable=not usePressureIncreaseInput));
-      Blocks.Interfaces.RealInput pressureIncrease annotation (Placement(
+      Blocks.Interfaces.RealInput pressureIncrease=internalPressureIncrease if usePressureIncreaseInput
+        annotation (Placement(
             transformation(
             extent={{-20,-20},{20,20}},
             rotation=270,
