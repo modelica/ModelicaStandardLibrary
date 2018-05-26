@@ -1427,6 +1427,114 @@ It is possible to investigate the dependencies of volume flow, pressure, torque 
         Icon(coordinateSystem(                                initialScale=0.1)));
     end WaterPump;
 
+    model TestOpenTank "Test the openZank model"
+      extends Modelica.Icons.Example;
+      Modelica.Thermal.FluidHeatFlow.Components.OpenTank openTank(
+        A=1,
+        h=1,
+        level(fixed=true),
+        useHeatPort=false,
+        pAmbient=0,
+        g=10,
+        T(fixed=true, start=313.15))
+        annotation (Placement(transformation(extent={{-10,50},{10,70}})));
+      Modelica.Thermal.FluidHeatFlow.Sources.Ambient ambient(
+          constantAmbientPressure=0, constantAmbientTemperature=293.15)
+        annotation (Placement(transformation(
+            extent={{-10,10},{10,-10}},
+            rotation=270,
+            origin={0,-60})));
+      Modelica.Thermal.FluidHeatFlow.Sources.VolumeFlow volumeFlow(
+        m=0,
+        useVolumeFlowInput=true,
+        constantVolumeFlow=1,
+        T0=293.15)
+        annotation (Placement(transformation(extent={{-10,-10},{10,10}},
+            rotation=90,
+            origin={0,0})));
+      Modelica.Blocks.Sources.CombiTimeTable
+                                   combiTimeTable(table=[0,0; 0.5,0; 0.5,-1; 0.75,
+            -1; 0.75,1; 1,1; 1,0; 1.5,0])
+        annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
+    equation
+      connect(combiTimeTable.y[1], volumeFlow.volumeFlow)
+        annotation (Line(points={{-19,0},{-10,0}}, color={0,0,127}));
+      connect(openTank.flowPort, volumeFlow.flowPort_b)
+        annotation (Line(points={{0,50},{0,10}}, color={255,0,0}));
+      connect(volumeFlow.flowPort_a, ambient.flowPort)
+        annotation (Line(points={{0,-10},{0,-50}}, color={255,0,0}));
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(
+            coordinateSystem(preserveAspectRatio=false)),
+        experiment(StopTime=1.5),
+        Documentation(info="<html>
+<p>
+First, the medium is pumped out of the tank (initial level = 0.5 m, T = 40&deg;C) to an (infinite) ambient (T = 20&deg;C):
+<ul>
+<li>The level of the medium in the tank decreases.</li>
+<li>The temperature of the medium in the tank remains unchanged.</li>
+</ul>
+</p>
+<p>
+Subsequently the medium is pumped into the tank from an (infinite) ambient:
+<ul>
+<li>The level of the medium in the tank increases again.</li>
+<li>The temperature of the medium in the tank decreases (mixing temperature).</li>
+</ul>
+</p>
+</html>"));
+    end TestOpenTank;
+
+    model TwoTanks "Two connected open tanks"
+      extends Modelica.Icons.Example;
+      Modelica.Thermal.FluidHeatFlow.Components.OpenTank openTank1(
+        A=1,
+        h=1,
+        useHeatPort=false,
+        g=10,
+        pAmbient=100000,
+        level(fixed=true, start=0.9),
+        T(fixed=true, start=313.15))
+        annotation (Placement(transformation(extent={{-60,12},{-40,32}})));
+      Modelica.Thermal.FluidHeatFlow.Components.OpenTank openTank2(
+        A=1,
+        h=1,
+        useHeatPort=false,
+        g=10,
+        pAmbient=100000,
+        level(fixed=true, start=0.1),
+        T(fixed=true, start=293.15))
+        annotation (Placement(transformation(extent={{60,10},{40,30}})));
+      Modelica.Thermal.FluidHeatFlow.Components.IsolatedPipe isolatedPipe(
+        m=0,
+        h_g=0,
+        V_flow(start=1e-6),
+        T0=293.15,
+        V_flowLaminar=2,
+        dpLaminar=10,
+        V_flowNominal=4,
+        dpNominal=30)
+        annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
+    equation
+      connect(openTank1.flowPort, isolatedPipe.flowPort_a)
+        annotation (Line(points={{-50,12},{-50,0},{-10,0}}, color={255,0,0}));
+      connect(isolatedPipe.flowPort_b, openTank2.flowPort)
+        annotation (Line(points={{10,0},{50,0},{50,10}}, color={255,0,0}));
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(
+            coordinateSystem(preserveAspectRatio=false)),
+        experiment(StopTime=1.5),
+        Documentation(info="<html>
+<p>
+Two tanks are connected with a pipe:
+<ul>
+<li>Tank 1: initial level = 0.9 m, T = 40&deg;C</li>
+<li>Tank 2: initial level = 0.1 m, T = 20&deg;C</li>
+</ul>
+Within 1.5 s (dependent on the flow resistance of the pipe) the level = 0.5 m in both tanks is the same, medium flows from tank 1 to tank 2.
+The temperature of tank 1 remains unchanged, the temperature of tank 2 is increased.
+</p>
+</html>"));
+    end TwoTanks;
+
     package Utilities "Utility models for examples"
       extends Modelica.Icons.UtilitiesPackage;
 
@@ -1708,6 +1816,146 @@ V_flow**2 * rho / dp = Kv(y)**2 * rho0 / dp0
               textString="%name",
               lineColor={0,0,255})}));
     end Valve;
+
+    model OpenTank "Model of a tank under ambient pressure"
+      parameter Modelica.Thermal.FluidHeatFlow.Media.Medium medium=
+        Modelica.Thermal.FluidHeatFlow.Media.Medium() "Medium in tank"
+        annotation(choicesAllMatching=true);
+      parameter Modelica.SIunits.Area A(start=1) "Cross section of tank";
+      parameter Modelica.SIunits.Length h(start=1) "Height of tank";
+      parameter Modelica.SIunits.Pressure pAmbient(start=0) "Ambient pressure";
+      parameter Modelica.SIunits.Acceleration g(final min=0)=Modelica.Constants.g_n "Gravitation";
+      parameter Boolean useHeatPort = true "=true, if HeatPort is enabled"
+        annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
+      output Modelica.SIunits.Temperature T_port "Temperature at flowPort";
+      Modelica.SIunits.Mass m "Mass of medium in tank";
+    protected
+      Modelica.SIunits.SpecificEnthalpy hTank "Specific enthalpy of medium";
+      Modelica.SIunits.Enthalpy HTank "Enthalpy of medium";
+      Modelica.SIunits.HeatFlowRate Q_flow "Heat flow at the optional heatPort";
+    public
+      Modelica.Thermal.FluidHeatFlow.Interfaces.FlowPort_a flowPort(final medium=medium)
+        annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
+      Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort(final T=T, final Q_flow=Q_flow) if useHeatPort
+        "Optional port for cooling or heating the medium in the tank"
+        annotation (Placement(transformation(extent={{-110,-110},{-90,-90}}),
+            iconTransformation(extent={{-110,-110},{-90,-90}})));
+      Modelica.Blocks.Interfaces.RealOutput level(quantity="Length", unit="m", start=h/2)
+        "Level of medium in tank" annotation (Placement(transformation(
+            extent={{10,-10},{-10,10}},
+            rotation=180,
+            origin={110,0})));
+      Modelica.Blocks.Interfaces.RealOutput T(quantity="Temperature", unit="K", displayUnit="degC", start=293.15)
+        "Temperature of medium in tank" annotation (Placement(transformation(
+            extent={{10,-10},{-10,10}},
+            rotation=180,
+            origin={110,-60})));
+    equation
+      if not useHeatPort then
+        Q_flow = 0;
+      end if;
+      T_port = flowPort.h/medium.cp;
+      hTank = medium.cp*T;
+      assert(level>0, "Tank got empty!");
+      assert(level<h, "Tank got full!");
+      //mass balance
+      m = medium.rho*A*level;
+      der(m) = flowPort.m_flow;
+      //energy balance
+      HTank = m*hTank;
+      der(HTank) = flowPort.H_flow + Q_flow;
+      //pressure at bottom
+      flowPort.p = pAmbient + m*g/A;
+      //flow in or out
+      flowPort.H_flow = semiLinear(flowPort.m_flow,flowPort.h,hTank);
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false), graphics={
+                                              Text(
+              extent={{-160,160},{140,100}},
+              lineColor={0,0,255},
+              textString="%name"),
+            Ellipse(
+              extent={{-80,-60},{80,-100}},
+              lineColor={0,0,0},
+              fillColor={170,170,255},
+              fillPattern=FillPattern.Sphere),
+            Rectangle(
+              extent={{-80,0},{80,-80}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.VerticalCylinder,
+              fillColor={170,170,255}),
+            Rectangle(
+              extent={{-80,80},{80,0}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.VerticalCylinder,
+              fillColor={255,255,255}),
+            Ellipse(
+              extent={{-80,100},{80,60}},
+              lineColor={0,0,0},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Sphere),
+            Ellipse(
+              extent={{-80,20},{80,-20}},
+              lineColor={0,0,0},
+              fillColor={170,170,255},
+              fillPattern=FillPattern.Sphere),
+            Line(points={{100,0},{80,0}},   color={0,0,0},
+              thickness=0.5),
+            Line(points={{100,-60},{80,-60}},
+                                            color={238,46,47},
+              thickness=0.5),
+            Ellipse(
+              extent={{72,-56},{80,-64}},
+              lineColor={238,46,47},
+              lineThickness=0.5,
+              fillColor={238,46,47},
+              fillPattern=FillPattern.Solid),
+            Ellipse(visible=useHeatPort,
+              extent={{-80,-74},{-68,-86}},
+              lineColor={238,46,47},
+              lineThickness=0.5,
+              fillColor={170,170,255},
+              fillPattern=FillPattern.Solid),
+            Ellipse(visible=useHeatPort,
+              extent={{-68,-78},{-56,-90}},
+              lineColor={238,46,47},
+              lineThickness=0.5,
+              fillColor={170,170,255},
+              fillPattern=FillPattern.Solid),
+            Ellipse(visible=useHeatPort,
+              extent={{-56,-82},{-44,-94}},
+              lineColor={238,46,47},
+              lineThickness=0.5,
+              fillColor={170,170,255},
+              fillPattern=FillPattern.Solid),
+            Ellipse(visible=useHeatPort,
+              extent={{-44,-84},{-32,-96}},
+              lineColor={238,46,47},
+              lineThickness=0.5,
+              fillColor={170,170,255},
+              fillPattern=FillPattern.Solid),
+            Line(visible=useHeatPort,
+              points={{-90,-100},{-56,-100},{-56,-88}},
+              color={238,46,47},
+              thickness=0.5)}),                  Diagram(coordinateSystem(
+              preserveAspectRatio=false)),
+        Documentation(info="<html>
+<p>This is a simple model of an open tank with volume A*h. The level and the temperature of the medium are measured and provided as output.</p>
+<p>Note: If the level of the medium reaches 0 (minimum) or h (maximum), an assertion is triggered.</p>
+<p>Note: The flowPort is assumed to be at the bottom. Therefore the pressure at the flowPort is ambient pressure + level*rho*g.</p>
+<p>
+<ul>
+<li>If the mass flow rate at the port goes into the tank the level increases and the mixing rule is applied to obtain the temperature change of the medium in the tank.</li>
+<li>If the mass flow rate at the port goes out of the tank the level decreases, 
+the temperature of the outflowing medium is defined by the the temperature of the medium in the tank.</li>
+</p>
+<p>
+It is assumed that the medium in the tank has the same temperature over the whole volume, i.e. mixed thoroughly.
+</p>
+<p>
+Via the optional heatPort the medium in the tank can be cooled or heated.
+</p>
+</html>"));
+    end OpenTank;
   annotation (Documentation(info="<html>
 <p>This package contains components:</p>
 <ul>
@@ -2181,7 +2429,7 @@ Thermodynamic equations are defined by Partials.TwoPort.
         dp = 0;
         flange_a.tau = 0;
       else
-        dp = -dp1*(1-V_flow/V_flow1);
+        dp = -dp1*(1 - V_flow/V_flow1);
         flange_a.tau*w = -dp*V_flow;
       end if;
       // no energy exchange with medium
