@@ -1561,10 +1561,11 @@ Copyright &copy; 1998-2018, Modelica Association, Anton Haumer and Austrian Inst
       extends Interfaces.Partials.SimpleFriction;
       parameter Modelica.SIunits.Length h_g(start=0)
         "Geodetic height (height difference from flowPort_a to flowPort_b)";
+      parameter Modelica.SIunits.Acceleration g(final min=0)=Modelica.Constants.g_n "Gravitation";
     equation
       // coupling with FrictionModel
       volumeFlow = V_flow;
-      dp = pressureDrop + medium.rho*Modelica.Constants.g_n*h_g;
+      dp = pressureDrop + medium.rho*g*h_g;
       // no energy exchange with medium
       Q_flow = Q_friction;
     annotation (Documentation(info="<html>
@@ -1589,12 +1590,13 @@ leads to neglect of temperature transient cv*m*der(T).
       extends Interfaces.Partials.SimpleFriction;
       parameter Modelica.SIunits.Length h_g(start=0)
         "Geodetic height (height difference from flowPort_a to flowPort_b)";
+      parameter Modelica.SIunits.Acceleration g(final min=0)=Modelica.Constants.g_n "Gravitation";
       Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort
         annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
     equation
       // coupling with FrictionModel
       volumeFlow = V_flow;
-      dp = pressureDrop + medium.rho*Modelica.Constants.g_n*h_g;
+      dp = pressureDrop + medium.rho*g*h_g;
       // energy exchange with medium
       Q_flow = heatPort.Q_flow + Q_friction;
       // defines heatPort's temperature
