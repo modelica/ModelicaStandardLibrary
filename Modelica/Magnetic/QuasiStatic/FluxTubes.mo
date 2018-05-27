@@ -785,7 +785,7 @@ This model compares a transient non-linear magnetic circuit with a linearized qu
 </html>"),experiment(StopTime=1,Interval=0.001));
       end CuboidSections;
       annotation (Documentation(info="<html>
-<p>This package contains examples of components with fixed shape.</p>
+<p>This package contains examples of quasi statsic magnetic circuits with fixed shape components.</p>
 </html>"));
     end FixedShapes;
 
@@ -954,7 +954,7 @@ This model compares a transient non-linear magnetic circuit with a linearized qu
 </html>"));
       end GeneralLeakage;
       annotation (Documentation(info="<html>
-<p>This package contains examples of components with leakage field.</p>
+<p>This package contains examples of quasi statsic magnetic circuits with leakage field components.</p>
 </html>"));
     end Leakage;
     annotation (Documentation(info="<html>
