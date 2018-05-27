@@ -2404,7 +2404,8 @@ The integral of the angular frequency of the quasi static magnetic system is equ
             transformation(extent={{100,-10},{120,10}})));
     equation
       y = port.V_m;
-      annotation (Documentation(info="<html>
+      annotation (defaultComponentName="magPotentialSensor",
+      Documentation(info="<html>
 <p>
 This sensor can be used to measure the complex magnetic potential <code>V_m</code> in a quasi static magnetic system.
 </p>
@@ -2419,7 +2420,8 @@ This sensor can be used to measure the complex magnetic potential <code>V_m</cod
       Phi = Complex(0);
       y = V_m;
 
-      annotation (Icon(coordinateSystem(
+      annotation (defaultComponentName="magVoltageSensor",
+        Icon(coordinateSystem(
           preserveAspectRatio=false,
           extent={{-100,-100},{100,100}}), graphics={
             Text(
@@ -2445,7 +2447,8 @@ in a quasi static magnetic system.
       V_m = Complex(0);
       y = Phi;
 
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (defaultComponentName="magFluxSensor",
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={Line(points={{0,-100},{0,-70}}),Line(points={{-70,0},{-90,0}}),Line(
               points={{70,0},{90,0}}),Text(extent={{-29,-11},{30,
               -70}}, textString="Phi"),Line(points={{0,-90},{0,-70}})}),
