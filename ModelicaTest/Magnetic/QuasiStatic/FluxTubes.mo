@@ -85,6 +85,6 @@ package FluxTubes "Test examples of Modelica.Magnetic.QuasiStatic.FluxTubes"
     connect(magFluxSensor2.port_n, coaxCylindersEndFaces.port_n) annotation (Line(points={{-40,-10},{90,-10},{90,-40}}, color={255,170,85}));
     annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
               -100},{100,100}})),
-      experiment(Interval=0,     Tolerance=1e-06));
+      experiment(Interval=0.001, StartTime=0, StopTime=1, Tolerance=1e-06));
   end NoPhysicalTestLeakage;
 end FluxTubes;
