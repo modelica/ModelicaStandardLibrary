@@ -1427,7 +1427,7 @@ It is possible to investigate the dependencies of volume flow, pressure, torque 
         useHeatPort=false,
         pAmbient=0,
         g=10,
-        level(fixed=true),
+        level(fixed=true, start=0.5),
         T(fixed=true, start=313.15))
         annotation (Placement(transformation(extent={{-10,50},{10,70}})));
       Modelica.Thermal.FluidHeatFlow.Sources.Ambient ambient(
