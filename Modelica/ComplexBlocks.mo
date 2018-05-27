@@ -1,4 +1,4 @@
-within Modelica;
+﻿within Modelica;
 package ComplexBlocks
   "Library of basic input/output control blocks with Complex signals"
   extends Modelica.Icons.Package;
@@ -869,7 +869,11 @@ the two inputs <code>u1</code> and <code>u2</code>. Optionally, either input <co
                   textString="%name",
                   lineColor={0,0,255}),Line(points={{-100,60},{-66,60},{-40,30}},
               color={0,0,127}),Line(points={{-100,-60},{0,-60},{0,-50}}, color=
-              {0,0,127})}),
+              {0,0,127}),
+            Text(
+              extent={{-60,94},{90,54}},
+              lineColor={128,128,128},
+              textString="u1 / u2")}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={Rectangle(
                   extent={{-100,-100},{100,100}},
@@ -1892,7 +1896,7 @@ An error occurs if the elements of the input <code>u</code> is zero.
     end ComplexToPolar;
 
     block Bode "Calculate quantities to plot Bode diagram"
-      parameter Boolean useDivisor = true "Use divisor input, if true";
+      parameter Boolean useDivisor = true "Use divisor input, if true" annotation(Evaluate = true, HideResult = true, choices(  checkBox = true));
       constant Modelica.SIunits.AmplitudeLevelDifference dB = 20 "Amplitude level difference";
       Interfaces.ComplexInput u "Dividend if useDivisor == true" annotation (Placement(transformation(extent={{-140,40},{-100,80}}),   iconTransformation(extent={{-140,40},{-100,80}})));
       Interfaces.ComplexInput divisor if useDivisor "Divisor" annotation (Placement(transformation(extent={{-140,-80},{-100,-40}}), iconTransformation(extent={{-140,-80},{-100,-40}})));
@@ -1977,13 +1981,15 @@ An error occurs if the elements of the input <code>u</code> is zero.
               lineThickness=0.5,
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid,
-              textString="|y|"),
+              textString="|y|",
+              lineColor={128,128,128}),
             Text(
               extent={{-20,-90},{20,-70}},
               lineThickness=0.5,
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid,
-              textString="dB"),             Text(
+              textString="dB",
+              lineColor={128,128,128}),     Text(
             extent={{-150,150},{150,110}},
             textString="%name",
             lineColor={0,0,255}),
@@ -1992,7 +1998,13 @@ An error occurs if the elements of the input <code>u</code> is zero.
               lineThickness=0.5,
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid,
-              textString="∠")}),
+              textString="∠",
+              lineColor={128,128,128}),
+            Text(
+              visible = useDivisor,
+              extent={{-56,94},{94,54}},
+              lineColor={128,128,128},
+              textString="u1 / divisor")}),
         Documentation(info="<html>
 <p>This complex block is used to determine variables of a Bode diagram for the output <code>y</code>.
 The output <code>y</code> is calculated by <code>u / divisor</code> if <code>useDivisor == true</code>.
