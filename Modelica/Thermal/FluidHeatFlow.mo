@@ -1525,6 +1525,75 @@ The temperature of tank 1 remains unchanged, the temperature of tank 2 is increa
 </html>"));
     end TwoTanks;
 
+    model TestPiston "Two piston system"
+      extends Modelica.Icons.Example;
+      Modelica.Blocks.Sources.CombiTimeTable combiTimeTable(
+        table=[0,0; 0.25,0; 0.25,-1; 0.5,-1; 0.5,0; 0.75,0])
+        annotation (Placement(transformation(extent={{-90,-10},{-70,10}})));
+      Modelica.Mechanics.Translational.Sources.Force force
+        annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
+      Modelica.Thermal.FluidHeatFlow.Components.Piston piston1(
+        T(fixed=true),
+        A=0.1,
+        L=10,
+        s(fixed=true, start=piston1.L/2)) annotation (Placement(transformation(
+            extent={{-10,10},{10,-10}},
+            rotation=180,
+            origin={-20,0})));
+      Modelica.Thermal.FluidHeatFlow.Components.Piston piston2(
+        T(fixed=true),
+        A=1,
+        L=1) annotation (Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=0,
+            origin={10,0})));
+      Modelica.Mechanics.Translational.Components.Mass mass(m=1)
+        annotation (Placement(transformation(extent={{30,-10},{50,10}})));
+      Modelica.Mechanics.Translational.Components.SpringDamper springDamper(
+        s_rel0=piston2.L/2,
+        c=100,
+        d=5,
+        s_rel(fixed=true, start=piston2.L/2),
+        v_rel(fixed=true, start=0))
+        annotation (Placement(transformation(extent={{80,-10},{60,10}})));
+      Modelica.Mechanics.Translational.Components.Fixed fixed
+        annotation (Placement(transformation(extent={{80,-10},{100,10}})));
+    equation
+      connect(piston1.flowPort, piston2.flowPort)
+        annotation (Line(points={{-10,0},{0,0}}, color={255,0,0}));
+      connect(force.flange, piston1.flange)
+        annotation (Line(points={{-40,0},{-30,0}}, color={0,127,0}));
+      connect(combiTimeTable.y[1], force.f)
+        annotation (Line(points={{-69,0},{-62,0}}, color={0,0,127}));
+      connect(piston2.flange, mass.flange_a)
+        annotation (Line(points={{20,0},{30,0}}, color={0,127,0}));
+      connect(springDamper.flange_b, mass.flange_b)
+        annotation (Line(points={{60,0},{50,0}}, color={0,127,0}));
+      connect(springDamper.flange_a, fixed.flange)
+        annotation (Line(points={{80,0},{90,0}}, color={0,127,0}));
+      annotation (Documentation(info="<html>
+<p>
+Test of a system with 2 pistons (with same volume):
+<ul>
+<li>piston1: A = 0.1 m2, L=10. m, initial position at s=L/2</li>
+<li>piston2: A = 1.0 m2, L=1.0 m, initial position at s=L/2</li>
+</ul>
+A force is applied that presses from 0.25 s to 0.50 s with 1 Nm on piston1. 
+Due to the ratio of areas 10:1
+<ul>
+<li>the force at piston2 is ten times the force at piston1</li>
+<li>movement of piston1 is ten times the movement of piston2</li>
+</ul>
+At piston2 a mass is mounted wich is moved and presses the springDamper. 
+When the force at piston1 is removed, the springDamper pushes back the mass and a damped oscillation occurs.
+</p>
+<p>
+Note: Take care of the initial conditions. The unstrechted spring length is piston2.L/2, 
+i.e. when piston2 is the middle of its cylinder the spring applies no force to the mass (and piston2).
+</p>
+</html>"),     experiment(StopTime=2, Interval=0.001));
+    end TestPiston;
+
     package Utilities "Utility models for examples"
       extends Modelica.Icons.UtilitiesPackage;
 
@@ -1634,6 +1703,7 @@ Copyright &copy; 1998-2018, Modelica Association, Anton Haumer and Austrian Inst
 <li>WaterPump: Water pumping station</li>
 <li>TestOpenTank: Test the <a href=\"modelica://Modelica.Thermal.FluidHeatFlow.Components.OpenTank\">OpenTank</a> model</li>
 <li>TwoTanks: Two connected open tanks</li>
+<li>TestPiston: Test the <a href=\"modelica://Modelica.Thermal.FluidHeatFlow.Components.Piston\">Piston</a> model</li>
 </ol>
 
 </html>", revisions="<html>
@@ -1949,6 +2019,88 @@ Via the optional heatPort the medium in the tank can be cooled or heated.
 </p>
 </html>"));
     end OpenTank;
+
+    model Piston "Simple model of a piston in a cylinder"
+      import Modelica.Constants.small;
+      parameter Modelica.Thermal.FluidHeatFlow.Media.Medium medium=Modelica.Thermal.FluidHeatFlow.Media.Medium()
+        "Medium" annotation (choicesAllMatching=true);
+      parameter Modelica.SIunits.Area A "Cross section of cylinder/piston";
+      parameter Modelica.SIunits.Length L "Length of cylinder";
+      extends
+        Modelica.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupport2(
+         s(start=small));
+      Modelica.SIunits.Force f=flange.f "Force at piston";
+      Modelica.SIunits.Temperature T(start=293.15) "Temperature of medium";
+      FluidHeatFlow.Interfaces.FlowPort_a flowPort
+        annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
+    protected
+      Modelica.SIunits.Mass m "Mass of medium";
+      Modelica.SIunits.SpecificEnthalpy h "Specific enthalpy of medium";
+      Modelica.SIunits.Enthalpy H "Enthalpy of medium";
+    equation
+      assert(s>=small, "Piston hit bottom of cylinder!");
+      assert(s<=L, "Piston hit top of cylinder!");
+      flowPort.p*A = -f;
+      m = medium.rho*A*s;
+      der(m) = flowPort.m_flow;
+      flowPort.H_flow = semiLinear(flowPort.m_flow,flowPort.h,h);
+      T = h/medium.cp;
+      H = m*h;
+      der(H)=flowPort.H_flow;
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false), graphics={
+            Polygon(
+              points={{-90,10},{-70,10},{-70,60},{70,60},{70,-60},{-70,-60},{-70,-10},
+                  {-90,-10},{-90,10}},
+              lineColor={255,0,0},
+              fillColor={0,0,255},
+              fillPattern=FillPattern.Solid,
+              lineThickness=0.5),
+            Rectangle(
+              extent={{-14,58},{68,-58}},
+              lineColor={28,108,200},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Rectangle(
+              extent={{-24,58},{-14,-58}},
+              lineColor={0,0,0},
+              lineThickness=0.5,
+              fillColor={192,192,192},
+              fillPattern=FillPattern.HorizontalCylinder),
+            Rectangle(
+              extent={{-14,10},{90,-10}},
+              lineColor={0,0,0},
+              lineThickness=0.5,
+              fillColor={0,127,0},
+              fillPattern=FillPattern.HorizontalCylinder),
+                                              Text(
+              extent={{-160,160},{140,100}},
+              lineColor={0,0,255},
+              textString="%name"),
+            Line(points={{-10,-72},{70,-72}}),
+            Polygon(
+              points={{-40,-72},{-10,-62},{-10,-82},{-40,-72}},
+              lineColor={128,128,128},
+              fillColor={128,128,128},
+              fillPattern=FillPattern.Solid)}),              Diagram(
+            coordinateSystem(preserveAspectRatio=false)),
+        Documentation(info="<html>
+<p>This is a simple model of a piston in a cylinder:</p>
+<p>The translational flange is connected to the piston, the cylinder has a flowPort at the bottom.</p> 
+<p>
+The position of the piston within the cylinder goes from 0 at the bottom to L (length of the cylinder) at the top of the cylinder. 
+If the piston leaves the cylinder, an asserton is triggerd.
+<ul>
+<li>A movement of the piston is coupled with volume flow through the flowPort.</li>
+<li>The force at the piston is equal to pressure of the fluid times A (cross section of the piston).</li>
+</ul>
+The piston is considered without mass. 
+</p>
+<p>
+Note: Take care of the initial conditions. The position of the piston (relative to the support) should be in the range (0, L). 
+The position of the flange (as well as of the support, if useSupport=true) is influenced by connected components.
+</p>
+</html>"));
+    end Piston;
   annotation (Documentation(info="<html>
 <p>This package contains components:</p>
 <ul>
