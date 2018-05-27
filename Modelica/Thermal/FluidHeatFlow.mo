@@ -1818,7 +1818,7 @@ V_flow**2 * rho / dp = Kv(y)**2 * rho0 / dp0
       parameter Modelica.SIunits.Length h(start=1) "Height of tank";
       parameter Modelica.SIunits.Pressure pAmbient(start=0) "Ambient pressure";
       parameter Modelica.SIunits.Acceleration g(final min=0)=Modelica.Constants.g_n "Gravitation";
-      parameter Boolean useHeatPort = true "=true, if HeatPort is enabled"
+      parameter Boolean useHeatPort = false "=true, if HeatPort is enabled"
         annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
       output Modelica.SIunits.Temperature T_port "Temperature at flowPort";
       Modelica.SIunits.Mass m "Mass of medium in tank";
