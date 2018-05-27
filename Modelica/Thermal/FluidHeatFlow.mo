@@ -1453,7 +1453,7 @@ It is possible to investigate the dependencies of volume flow, pressure, torque 
             rotation=90,
             origin={0,0})));
       Modelica.Blocks.Sources.CombiTimeTable combiTimeTable(
-	    table=[0,0; 0.5,0; 0.5,-1; 0.75, -1; 0.75,1; 1,1; 1,0; 1.5,0])
+     table=[0,0; 0.5,0; 0.5,-1; 0.75, -1; 0.75,1; 1,1; 1,0; 1.5,0])
         annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
     equation
       connect(combiTimeTable.y[1], volumeFlow.volumeFlow)
@@ -1872,7 +1872,7 @@ V_flow**2 * rho / dp = Kv(y)**2 * rho0 / dp0
       flowPort.H_flow = semiLinear(flowPort.m_flow,flowPort.h,hTank);
       annotation (Icon(coordinateSystem(preserveAspectRatio=false), graphics={
                                               Text(
-              extent={{-160,160},{140,100}},
+              extent={{-150,150},{150,110}},
               lineColor={0,0,255},
               textString="%name"),
             Ellipse(
