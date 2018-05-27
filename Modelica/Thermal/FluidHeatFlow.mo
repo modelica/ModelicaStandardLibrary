@@ -2017,7 +2017,7 @@ Record containing (constant) medium properties.
 </html>"));
     end Medium;
 
-    record Air_30degC "Medium: properties of air at 30 degC"
+    record Air_30degC "Medium: properties of air at 30 degC and 1 bar"
     extends Medium(
       rho=1.149,
       cp=1007,
@@ -2025,11 +2025,11 @@ Record containing (constant) medium properties.
       lamda=0.0264,
       nue=16.3E-6);
       annotation (defaultComponentPrefixes="parameter", Documentation(info="<html>
-Medium: properties of air at 30 degC
+  Medium: properties of air at 30&deg;C and 1 bar
 </html>"));
     end Air_30degC;
 
-    record Air_70degC "Medium: properties of air at 70 degC"
+    record Air_70degC "Medium: properties of air at 70 degC and 1 bar"
     extends Medium(
       rho=1.015,
       cp=1010,
@@ -2037,11 +2037,23 @@ Medium: properties of air at 30 degC
       lamda=0.0293,
       nue=20.3E-6);
       annotation (defaultComponentPrefixes="parameter", Documentation(info="<html>
-Medium: properties of air at 70 degC
+  Medium: properties of air at 70&deg;C and 1 bar
 </html>"));
     end Air_70degC;
 
-    record Water "Medium: properties of water at 20degC"
+    record Water_10degC "Medium: properties of water at 10 degC and 1 bar"
+    extends Medium(
+      rho=999.7,
+      cp=4192,
+      cv=4192,
+      lamda=0.588,
+      nue=1.307E-6);
+      annotation (defaultComponentPrefixes="parameter", Documentation(info="<html>
+  Medium: properties of water at 10&deg;C and 1 bar
+</html>"));
+    end Water_10degC;
+
+    record Water "Medium: properties of water at 30 degC and 1 bar"
     extends Medium(
       rho=995.6,
       cp=4177,
@@ -2049,11 +2061,23 @@ Medium: properties of air at 70 degC
       lamda=0.615,
       nue=0.8E-6);
       annotation (defaultComponentPrefixes="parameter", Documentation(info="<html>
-Medium: properties of water at 20degC
+  Medium: properties of water at 30&deg;C and 1 bar
 </html>"));
     end Water;
 
-    record Gylcol20_20degC "Medium: properties of glycol:water 20:80 at 20degC"
+    record Water_90degC "Medium: properties of water at 90 degC and 1 bar"
+    extends Medium(
+      rho=965.3,
+      cp=4205,
+      cv=4205,
+      lamda=0.676,
+      nue=0.347E-6);
+      annotation (defaultComponentPrefixes="parameter", Documentation(info="<html>
+  Medium: properties of water at 90&deg;C and 1 bar
+</html>"));
+    end Water_90degC;
+
+    record Gylcol20_20degC "Medium: properties of glycol:water 20:80 at 20 degC and 1 bar"
     extends Modelica.Thermal.FluidHeatFlow.Media.Medium(
         rho=1028,
         cp=3910,
@@ -2061,11 +2085,11 @@ Medium: properties of water at 20degC
         lamda=0.523,
         nue=1.69E-6);
       annotation (defaultComponentPrefixes="parameter", Documentation(info="<html>
-  Medium: properties of glycol:water 20:80 at 20degC
+  Medium: properties of glycol:water 20:80 (anti-freeze -8&deg;C) at 20&deg; and 1 bar
 </html>"));
     end Gylcol20_20degC;
 
-    record Gylcol50_20degC "Medium: properties of glycol:water 50:50 at 20degC"
+    record Gylcol50_20degC "Medium: properties of glycol:water 50:50 at 20 degC and 1 bar"
     extends Modelica.Thermal.FluidHeatFlow.Media.Medium(
         rho=1078,
         cp=3300,
@@ -2073,11 +2097,11 @@ Medium: properties of water at 20degC
         lamda=0.405,
         nue=3.98E-6);
       annotation (defaultComponentPrefixes="parameter", Documentation(info="<html>
-  Medium: properties of glycol:water 50:50 at 20degC
+  Medium: properties of glycol:water 50:50 (anti-freeze -40&deg;C) at 20&deg;C and 1 bar
 </html>"));
     end Gylcol50_20degC;
 
-    record MineralOil "Medium: properties of mineral oil at 60degC"
+    record MineralOil "Medium: properties of mineral oil at 60 degC and 1 bar"
     extends Modelica.Thermal.FluidHeatFlow.Media.Medium(
         rho=868,
         cp=2010,
@@ -2085,7 +2109,7 @@ Medium: properties of water at 20degC
         lamda=0.14,
         nue=81.8E-6);
       annotation (defaultComponentPrefixes="parameter", Documentation(info="<html>
-  Medium: properties of mineral oil at 60 degC
+  Medium: properties of mineral oil at 60&deg;C and 1 bar
 </html>"));
     end MineralOil;
   annotation (Documentation(info="<html>
