@@ -1,4 +1,4 @@
-within Modelica.Magnetic.QuasiStatic;
+﻿within Modelica.Magnetic.QuasiStatic;
 package FluxTubes "Library for modelling of quasi static electromagnetic devices with lumped magnetic networks"
 
   import SI = Modelica.SIunits;
@@ -305,7 +305,7 @@ This user's guide gives a short introduction to the underlying
           points={{-20,-40},{-10,-40},{-10,-40}},
           color={85,170,255}));
       connect(sourceQS.pin_n, coilQS.pin_n) annotation (Line(
-          points={{-80,-60},{-9.8,-60},{-9.8,-60}},
+          points={{-80,-60},{-10,-60},{-10,-60}},
           color={85,170,255}));
       connect(sourceQS.pin_n, groundQS.pin) annotation (Line(
           points={{-80,-60},{-80,-70}},
@@ -512,7 +512,7 @@ This model compares a transient-linear magnetic circuit with a quasi static magn
           points={{-30,-40},{-20,-40},{-20,-40}},
           color={85,170,255}));
       connect(sourceQS.pin_n, coilQS.pin_n) annotation (Line(
-          points={{-90,-60},{-19.8,-60},{-19.8,-60}},
+          points={{-90,-60},{-20,-60},{-20,-60}},
           color={85,170,255}));
       connect(sourceQS.pin_n, groundQS.pin) annotation (Line(
           points={{-90,-60},{-90,-70}},
@@ -1424,6 +1424,9 @@ This is a simple crossing of two branches. The ports <code>port_p1</code> and <c
 </html>"),
         Diagram(coordinateSystem(preserveAspectRatio=false)));
     end Crossing;
+    annotation (Documentation(info="<html>
+<p>This package contains the basic components of quasi static flux tubes package.</p>
+</html>"));
   end Basic;
 
   package Shapes
