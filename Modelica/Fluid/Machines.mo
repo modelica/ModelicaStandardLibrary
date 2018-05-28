@@ -428,13 +428,13 @@ Then the model can be replaced with a Pump with rotational shaft or with a Presc
     if not checkValve then
       // Regular flow characteristics without check valve
       head = homotopy((N/N_nominal)^2*flowCharacteristic(V_flow_single*N_nominal/N),
-                       N/N_nominal*(flowCharacteristic(0)+delta_head_init*V_flow_single/V_flow_single_init));
+                       N/N_nominal*(flowCharacteristic(0)+V_flow_single*noEvent(if abs(V_flow_single_init)>0 then delta_head_init/V_flow_single_init else 0)));
       s = 0;
     else
       // Flow characteristics when check valve is open
       head = homotopy(if s > 0 then (N/N_nominal)^2*flowCharacteristic(V_flow_single*N_nominal/N)
                                else (N/N_nominal)^2*flowCharacteristic(0) - s*unitHead,
-                      N/N_nominal*(flowCharacteristic(0)+delta_head_init*V_flow_single/V_flow_single_init));
+                      N/N_nominal*(flowCharacteristic(0)+V_flow_single*noEvent(if abs(V_flow_single_init)>0 then delta_head_init/V_flow_single_init else 0)));
       V_flow_single = homotopy(if s > 0 then s*unitMassFlowRate/rho else 0,
                                s*unitMassFlowRate/rho_nominal);
     end if;
