@@ -918,7 +918,8 @@ Default values for all parameters are given for joint 4.
     end GearType2;
 
     model Motor "Motor model including current controller of r3 motors"
-      extends Modelica.Mechanics.MultiBody.Icons.MotorIcon;
+      extends Electrical.Machines.Icons.Machine;
+    //  extends Modelica.Mechanics.MultiBody.Icons.MotorIcon;
       parameter SI.Inertia J(min=0)=0.0013 "Moment of inertia of motor";
       parameter Real k=1.1616 "Gain of motor";
       parameter Real w=4590 "Time constant of motor";
@@ -1107,12 +1108,9 @@ produced by the motor).
 </html>"), Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}}), graphics={Text(
-              extent={{-150,100},{150,60}},
+              extent={{-150,110},{150,70}},
               textString="%name",
-              lineColor={0,0,255}), Line(
-              points={{0,-100},{70,-100},{70,-10}},
-              color={255,204,51},
-              thickness=0.5)}));
+              lineColor={0,0,255})}));
     end Motor;
 
     model Controller "P-PI cascade controller for one axis"
