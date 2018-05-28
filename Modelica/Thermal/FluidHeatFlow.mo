@@ -1584,11 +1584,11 @@ Due to the ratio of areas 10:1
 <li>the force at piston2 is ten times the force at piston1</li>
 <li>movement of piston1 is ten times the movement of piston2</li>
 </ul>
-At piston2 a mass is mounted wich is moved and presses the springDamper. 
+At piston2 a mass is mounted which is moved and presses the springDamper. 
 When the force at piston1 is removed, the springDamper pushes back the mass and a damped oscillation occurs.
 </p>
 <p>
-Note: Take care of the initial conditions. The unstrechted spring length is piston2.L/2, 
+Note: Take care of the initial conditions. The unstretched spring length is piston2.L/2, 
 i.e. when piston2 is the middle of its cylinder the spring applies no force to the mass (and piston2).
 </p>
 </html>"),     experiment(StopTime=2, Interval=0.001));
@@ -2088,7 +2088,7 @@ Via the optional heatPort the medium in the tank can be cooled or heated.
 <p>The translational flange is connected to the piston, the cylinder has a flowPort at the bottom.</p> 
 <p>
 The position of the piston within the cylinder goes from 0 at the bottom to L (length of the cylinder) at the top of the cylinder. 
-If the piston leaves the cylinder, an asserton is triggerd.
+If the piston leaves the cylinder, an assertion is triggered.
 <ul>
 <li>A movement of the piston is coupled with volume flow through the flowPort.</li>
 <li>The force at the piston is equal to pressure of the fluid times A (cross section of the piston).</li>
