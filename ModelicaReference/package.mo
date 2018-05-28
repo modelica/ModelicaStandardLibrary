@@ -1136,7 +1136,7 @@ It indicates that the class ideally should not be used anymore and gives a messa
 </html>"));
   end obsolete;
 
-  class PreferredView "preferredView"
+  class preferredView "preferredView"
     extends ModelicaReference.Icons.Information;
 
     annotation (Documentation(info="<html>
@@ -1157,7 +1157,7 @@ The preferredView annotation defines the default view when selecting the class. 
 </p>
 
 </html>"));
-  end PreferredView;
+  end preferredView;
 
   class revisionId "revisionId"
     extends ModelicaReference.Icons.Information;
