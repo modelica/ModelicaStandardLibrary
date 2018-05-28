@@ -18,7 +18,7 @@ model HeatingSystem "Simple model of a heating system"
         0.01)},
     redeclare model HeatTransfer =
         Modelica.Fluid.Vessels.BaseClasses.HeatTransfer.IdealHeatTransfer (k=10),
-    ports(each p(start=1e5)),
+    ports(each p(start=1.1e5)),
     T_start=Modelica.SIunits.Conversions.from_degC(20))
               annotation (Placement(transformation(extent={{-80,30},{-60,50}})));
   Machines.ControlledPump pump(
