@@ -37,7 +37,15 @@ Copyright &copy; 1998-2018, Modelica Association, Anton Haumer, Christian Kral a
     class ReleaseNotes "Release Notes"
       extends Modelica.Icons.ReleaseNotes;
       annotation (Documentation(info="<html>
-
+  
+  <h5>3.2.3, 2018-05-28</h5>
+  <ul>
+  <li> Fixed a bug in the IdealPump model</li>
+  <li> Added a simple piston/cylinder model</li>
+  <li> Added some more media</li>
+  <li> Added some more examples</li>
+  </ul>
+  
   <h5>3.2.2, 2010-06-25</h5>
   <ul>
   <li> Added users guide package including contact and release notes</li>
@@ -2101,6 +2109,94 @@ The position of the flange (as well as of the support, if useSupport=true) is in
 </p>
 </html>"));
     end Piston;
+
+    model PumpTurbine "Model of an ideal pump/turbine"
+
+      extends Interfaces.Partials.TwoPort(final tapT=1);
+      parameter Modelica.SIunits.AngularVelocity wNominal(start=1, displayUnit="rev/min")
+        "Nominal speed"
+          annotation(Dialog(group="Pump characteristic"));
+      parameter Modelica.SIunits.Pressure dp0(start=2)
+        "Max. pressure increase @ V_flow=0"
+          annotation(Dialog(group="Pump characteristic"));
+      parameter Modelica.SIunits.VolumeFlowRate V_flow0(start=2)
+        "Max. volume flow rate @ dp=0"
+          annotation(Dialog(group="Pump characteristic"));
+      Modelica.SIunits.AngularVelocity w=der(flange_a.phi - phi_support) "Speed";
+      parameter Boolean useSupport=false
+        "= true, if support flange enabled, otherwise implicitly grounded"
+        annotation (
+        Evaluate=true,
+        HideResult=true,
+        choices(checkBox=true));
+    protected
+      Modelica.SIunits.Pressure dp1;
+      Modelica.SIunits.VolumeFlowRate V_flow1;
+      Modelica.SIunits.Angle phi_support "Absolute angle of support flange";
+    public
+      Modelica.Mechanics.Rotational.Interfaces.Flange_a flange_a
+        annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
+      Modelica.Mechanics.Rotational.Interfaces.Support support(phi=phi_support, tau=-flange_a.tau) if useSupport
+        "Support/housing of component"
+        annotation (Placement(transformation(extent={{90,-110},{110,-90}})));
+    equation
+      // conditional support
+      if not useSupport then
+        phi_support = 0;
+      end if;
+      // intersection of pump characteristic with axes dependent on speed
+      dp1 = dp0*(w/wNominal)*abs(w/wNominal);
+      V_flow1 = V_flow0*(w/wNominal);
+      // pump characteristic (Euler) and torque calculation
+      if noEvent(abs(w)<Modelica.Constants.small) then
+        dp = 0;
+        flange_a.tau = 0;
+      else
+        dp = -dp1*(1 - V_flow/V_flow1);
+        flange_a.tau*w = -dp*V_flow;
+      end if;
+      // no energy exchange with medium
+      Q_flow = 0;
+      annotation (
+        Documentation(info="<html>
+<p>Simple fan resp. pump where characteristic is dependent on shaft's speed</p>
+<p>torque * speed = pressure increase * volume flow (without losses)</p>
+<p>Pressure increase versus volume flow is defined by a linear function,
+from dp0(V_flow=0) to V_flow0(dp=0).</p>
+<p>
+The axis intersections vary with speed as follows:
+<ul>
+<li>dp prop. speed^2</li>
+<li>V_flow prop. speed</li>
+</ul>
+Note: Increasing the pressure difference above dp0 leads to an inversion of volumeFlow, 
+which means inversion of power flow, i.e. the machien is acting as a turbine.
+</p>
+<p>
+Coolant's temperature and enthalpy flow are not affected. 
+Setting parameter m (mass of medium within fan/pump) to zero
+leads to neglect of temperature transient cv*m*der(T). 
+Thermodynamic equations are defined by Partials.TwoPort.
+</p>
+</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+                {100,100}}), graphics={
+            Ellipse(
+              extent={{-90,90},{90,-90}},
+              lineColor={255,0,0},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Rectangle(
+              extent={{-10,-40},{10,-100}},
+              fillPattern=FillPattern.VerticalCylinder,
+              fillColor={175,175,175}),
+            Polygon(
+              points={{-60,68},{90,10},{90,-10},{-60,-68},{-60,68}},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={0,0,255}),           Text(
+              extent={{-150,140},{150,100}},
+              lineColor={0,0,255},
+              textString="%name")}));
+    end PumpTurbine;
   annotation (Documentation(info="<html>
 <p>This package contains components:</p>
 <ul>
@@ -2608,52 +2704,13 @@ Thermodynamic equations are defined by Partials.TwoPort.
     end PressureIncrease;
 
     model IdealPump "Model of an ideal pump"
-
-      extends Interfaces.Partials.TwoPort(final tapT=1);
-      parameter Modelica.SIunits.AngularVelocity wNominal(start=1, displayUnit="rev/min")
-        "Nominal speed"
-          annotation(Dialog(group="Pump characteristic"));
-      parameter Modelica.SIunits.Pressure dp0(start=2)
-        "Max. pressure increase @ V_flow=0"
-          annotation(Dialog(group="Pump characteristic"));
-      parameter Modelica.SIunits.VolumeFlowRate V_flow0(start=2)
-        "Max. volume flow rate @ dp=0"
-          annotation(Dialog(group="Pump characteristic"));
-      Modelica.SIunits.AngularVelocity w=der(flange_a.phi) "Speed";
-    protected
-      Modelica.SIunits.Pressure dp1;
-      Modelica.SIunits.VolumeFlowRate V_flow1;
-    public
-      Modelica.Mechanics.Rotational.Interfaces.Flange_a flange_a
-        annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
-    equation
-      // pump characteristic
-      dp1 = dp0*(w/wNominal)*abs(w/wNominal);
-      V_flow1 = V_flow0*(w/wNominal);
-      if noEvent(abs(w)<Modelica.Constants.small) then
-        dp = 0;
-        flange_a.tau = 0;
-      else
-        dp = -dp1*(1 - V_flow/V_flow1);
-        flange_a.tau*w = -dp*V_flow;
-      end if;
-      // no energy exchange with medium
-      Q_flow = 0;
+      extends FluidHeatFlow.Components.PumpTurbine;
       annotation (
         Documentation(info="<html>
-Simple fan resp. pump where characteristic is dependent on shaft's speed,<br>
-torque * speed = pressure increase * volume flow (without losses)<br>
-Pressure increase versus volume flow is defined by a linear function,
-from dp0(V_flow=0) to V_flow0(dp=0).<br>
-The axis intersections vary with speed as follows:
-<ul>
-<li>dp prop. speed^2</li>
-<li>V_flow prop. speed</li>
-</ul>
-Coolant's temperature and enthalpy flow are not affected.<br>
-Setting parameter m (mass of medium within fan/pump) to zero
-leads to neglect of temperature transient cv*m*der(T).<br>
-Thermodynamic equations are defined by Partials.TwoPort.
+<p>
+This model simply extends from the <a href=\"modelica://Modelica.Thermal.FluidHeatFlow.Components.PumpTurbine\">PumpTurbine</a> model</li> 
+and is kept for compatibility reasons. In the future, it will be marked as obsolete and removed.
+</p>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
             Ellipse(
