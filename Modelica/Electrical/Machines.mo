@@ -2066,7 +2066,7 @@ This package contains test examples of asynchronous induction machines.
           TrRef=smrData.TrRef,
           TsOperational=293.15,
           alpha20s=smrData.alpha20s,
-          ir(fixed=true),
+          ir(each fixed=true),
           TrOperational=293.15,
           alpha20r=smrData.alpha20r)
           annotation (Placement(transformation(extent={{-20,-50},{0,-30}})));
@@ -3137,7 +3137,7 @@ achieve constant current and torque.</p>
           statorCoreParameters(VRef=100),
           strayLoadParameters(IRef=100),
           brushParameters(ILinear=0.01),
-          ir(fixed=true),
+          ir(each fixed=true),
           wMechanical(fixed=true),
           TsOperational=293.15,
           alpha20s=smeeData.alpha20s,
