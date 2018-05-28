@@ -2004,7 +2004,7 @@ An error occurs if the elements of the input <code>u</code> is zero.
               visible = useDivisor,
               extent={{-56,94},{94,54}},
               lineColor={128,128,128},
-              textString="u1 / divisor")}),
+              textString="u / divisor")}),
         Documentation(info="<html>
 <p>This complex block is used to determine variables of a Bode diagram for the output <code>y</code>.
 The output <code>y</code> is calculated by <code>u / divisor</code> if <code>useDivisor == true</code>.
