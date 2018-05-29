@@ -4,7 +4,7 @@ package Interfaces
   extends Modelica.Icons.InterfacesPackage;
 
   connector Pin "Pin of an electrical component"
-    SI.Voltage v "Potential at the pin" annotation (
+    SI.ElectricPotential v "Potential at the pin" annotation (
         unassignedMessage="An electrical potential cannot be uniquely calculated.
 The reason could be that
 - a ground object is missing (Modelica.Electrical.Analog.Basic.Ground)
@@ -44,7 +44,7 @@ The reason could be that
   end Pin;
 
   connector PositivePin "Positive pin of an electric component"
-    SI.Voltage v "Potential at the pin" annotation (
+    SI.ElectricPotential v "Potential at the pin" annotation (
         unassignedMessage="An electrical potential cannot be uniquely calculated.
 The reason could be that
 - a ground object is missing (Modelica.Electrical.Analog.Basic.Ground)
@@ -84,7 +84,7 @@ The reason could be that
   end PositivePin;
 
   connector NegativePin "Negative pin of an electric component"
-    SI.Voltage v "Potential at the pin" annotation (
+    SI.ElectricPotential v "Potential at the pin" annotation (
         unassignedMessage="An electrical potential cannot be uniquely calculated.
 The reason could be that
 - a ground object is missing (Modelica.Electrical.Analog.Basic.Ground)

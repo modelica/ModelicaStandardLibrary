@@ -7328,13 +7328,14 @@ This package provides sensors for the magnetic potential difference and the magn
 
   package Interfaces "Interfaces"
     extends Modelica.Icons.InterfacesPackage;
-    connector MagneticPort "Basic quasi static magnet connector"
+    connector MagneticPort "Quasi static magnetic port of fundamental wave machines"
       Modelica.SIunits.ComplexMagneticPotential V_m
-        "Complex magnetic potential at the node";
+        "Complex magnetic potential of the port";
       flow Modelica.SIunits.ComplexMagneticFlux Phi
-        "Complex magnetic flux flowing into the pin";
+        "Complex magnetic flux flowing into the port";
       annotation (Documentation(info="<html>
-<p>Base definition of complex quasi static magnetic port. The potential variable is the complex magnetic potential difference <code>V_m</code> and the flow variable is the complex magnetic flux <code>Phi</code>.</p>
+<p>Base definition of complex quasi static magnetic port. The potential variable is the complex magnetic potential 
+<code>V_m</code> and the flow variable is the complex magnetic flux <code>Phi</code>.</p>
 
 <h4>See also</h4>
 
