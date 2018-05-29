@@ -86,14 +86,14 @@ package Semiconductors
     Vt_applied = if useHeatPort then Modelica.Constants.R * T_heatPort/Modelica.Constants.F else Vt;
     id = smooth(1,
       if vd < -Bv / 2 then
-        //Lower half of reverse biased region including breakdown.
         -Ids * (exp(-(vd+Bv)/(N*Vt_applied)) + 1 - 2*exp(-Bv/(2*N*Vt_applied)))
       elseif vd < VdMax then
-        //Upper half of reverse biased region, and forward biased region before conduction.
         Ids * (exp(vd/(N*Vt_applied)) - 1)
       else
-        //Forward biased region after conduction
         iVdMax + (vd - VdMax) * diVdMax);
+        //Lower half of reverse biased region including breakdown.
+        //Upper half of reverse biased region, and forward biased region before conduction.
+        //Forward biased region after conduction
 
     v = vd + id * Rs;
     i = id + v*Gp;
@@ -1032,26 +1032,27 @@ end HeatingDiode;
           parameter SI.Temperature Tnom=300.15 "Parameter measurement temperature";
           parameter Real XTI=3 "Temperature exponent for effect on Is";
           parameter Real XTB=0 "Forward and reverse beta temperature exponent";
-          parameter Real EG=1.11 "Energy gap for temperature effect on Is";
+          parameter SI.Voltage EG=1.11 "Energy gap for temperature effect on Is";
           parameter Real NF=1.0 "Forward current emission coefficient";
           parameter Real NR=1.0 "Reverse current emission coefficient";
           extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(
              useHeatPort=true);
-          Real vbc;
-          Real vbe;
-          Real qbk;
-          Real ibc;
-          Real ibe;
-          Real cbc;
-          Real cbe;
-          Real Capcje;
-          Real Capcjc;
-          Real is_t;
-          Real br_t;
-          Real bf_t;
-          Real vt_t;
-          Real hexp;
-          Real htempexp;
+
+          SI.Voltage vbc "Base-collector voltage";
+          SI.Voltage vbe "Base-emitter voltage";
+          Real qbk "Relative majority carrier charge, inverse";
+          SI.Current ibc "Base-collector diode current";
+          SI.Current ibe "Base-emitter diode current";
+          SI.Capacitance cbc "Total base-collector capacitance";
+          SI.Capacitance cbe "Total base-emitter capacitance";
+          SI.Capacitance Capcje "Effective base-emitter depletion capacitance";
+          SI.Capacitance Capcjc "Effective base-collector depletion capacitance";
+          SI.Current is_t "Temperature dependent transport saturation current";
+          Real br_t "Temperature dependent forward beta";
+          Real bf_t "Temperature dependent reverse beta";
+          SI.Voltage vt_t "Voltage equivalent of effective temperature";
+          Real hexp "Auxiliary quantity temperature dependent exponent";
+          Real htempexp "Auxiliary quantity exp(hexp)";
 
           Modelica.Electrical.Analog.Interfaces.Pin C "Collector"
             annotation (Placement(transformation(extent={{90,50},{110,70}}), iconTransformation(extent={{90,50},{110,70}})));
@@ -1060,7 +1061,7 @@ end HeatingDiode;
           Modelica.Electrical.Analog.Interfaces.Pin E "Emitter"
             annotation (Placement(transformation(extent={{90,-50},{110,-70}}), iconTransformation(extent={{90,-50},{110,-70}})));
         equation
-          assert(T_heatPort > 0,"Temperature must be positive");
+         assert(T_heatPort > 0,"Temperature must be positive");
           vbc = B.v - C.v;
           vbe = B.v - E.v;
           qbk = 1 - vbc*Vak;
