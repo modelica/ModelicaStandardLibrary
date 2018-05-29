@@ -1713,19 +1713,7 @@ Copyright &copy; 1998-2018, Modelica Association, Anton Haumer and Austrian Inst
 </ol>
 
 </html>", revisions="<html>
-  <ul>
-  <li> v1.00 2005/02/01 Anton Haumer<br>
-       first stable official release</li>
-  <li> v1.31 Beta 2005/06/04 Anton Haumer<br>
-       <em>new example: PumpAndValve</em><br>
-       <em>new example: PumpDropOut</em></li>
-  <li> v1.42 Beta 2005/06/18 Anton Haumer<br>
-       <em>new test example: ParallelPumpDropOut</em></li>
-  <li> v1.43 Beta 2005/06/20 Anton Haumer<br>
-       Test of mixing / semiLinear<br>
-       <em>new test example: OneMass</em><br>
-       <em>new test example: TwoMass</em></li>
-  </ul>
+
 </html>"));
   end Examples;
 
@@ -2029,8 +2017,8 @@ Via the optional heatPort the medium in the tank can be cooled or heated.
       Modelica.SIunits.SpecificEnthalpy h "Specific enthalpy of medium";
       Modelica.SIunits.Enthalpy H "Enthalpy of medium";
     equation
-      assert(s>=small, "Piston hit bottom of cylinder!");
-      assert(s<=L, "Piston hit top of cylinder!");
+      assert(s>=small, getInstanceName()+": Piston hit bottom of cylinder!");
+      assert(s<=L, getInstanceName()+":Piston hit top of cylinder!");
       flowPort.p*A = -f;
       m = medium.rho*A*s;
       der(m) = flowPort.m_flow;
@@ -2180,26 +2168,13 @@ Thermodynamic equations are defined by Partials.TwoPort.
               textString="%name")}));
     end PumpTurbine;
   annotation (Documentation(info="<html>
-<p>This package contains components:</p>
-<ul>
-<li>pipe without heat exchange</li>
-<li>pipe with heat exchange</li>
-<li>valve (simple controlled valve)</li>
-</ul>
+<p>This package contains components.</p>
 <p>
 Pressure drop is taken from partial model SimpleFriction.
-Thermodynamic equations are defined in partial models (package Partials).</p>
-
+Thermodynamic equations are defined in partial models (package Partials).
+</p>
 </html>", revisions="<html>
-  <ul>
-  <li> v1.00 2005/02/01 Anton Haumer<br>
-       first stable official release</li>
-  <li> v1.20 Beta 2005/02/18 Anton Haumer<br>
-       introduced geodetic height in Components.Pipes<br>
-       <em>new models: Components.Valve</em></li>
-  <li> v1.30 Beta 2005/06/02 Anton Haumer<br>
-       friction losses are fed to medium</li>
-  </ul>
+
 </html>"), Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics={
       Polygon(
         origin = {6,40},
@@ -2337,12 +2312,7 @@ Record containing (constant) medium properties.
 <p>This package contains definitions of medium properties.</p>
 
 </html>", revisions="<html>
-  <ul>
-  <li> v1.00 2005/02/01 Anton Haumer<br>
-       first stable official release</li>
-  <li> v1.11 2005/02/18 Anton Haumer<br>
-       corrected usage of cv and cp</li>
-  </ul>
+
 </html>"));
   end Media;
 
@@ -2489,10 +2459,7 @@ Thermodynamic equations are defined in partial models (package Interfaces.Partia
 All sensors are considered massless, they do not change mass flow or enthalpy flow.</p>
 
 </html>", revisions="<html>
-  <ul>
-  <li> v1.00 2005/02/01 Anton Haumer<br>
-       first stable official release</li>
-  </ul>
+
 </html>"));
   end Sensors;
 
@@ -2720,12 +2687,7 @@ This package contains different types of sources:
 All fans / pumps are considered without losses, they do not change enthalpy flow.</p>
 
 </html>", revisions="<html>
-  <ul>
-  <li> v1.00 2005/02/01 Anton Haumer<br>
-       first stable official release</li>
-  <li> v1.20 Beta 2005/02/18 Anton Haumer<br>
-       <em>new model: IdealPump</em></li>
-  </ul>
+
 </html>"));
   end Sources;
 
@@ -2965,8 +2927,7 @@ Parameter 0 &lt; tapT &lt; 1 defines temperature of heatPort between medium's in
       partial model SinglePortLeft
         "Partial model of a single port at the left"
 
-        parameter FluidHeatFlow.Media.Medium medium=FluidHeatFlow.Media.Medium()
-          "Ambient medium"
+        parameter FluidHeatFlow.Media.Medium medium=FluidHeatFlow.Media.Medium() "Medium"
           annotation(choicesAllMatching=true);
         output Modelica.SIunits.Temperature T_port "Temperature at flowPort_a";
         Interfaces.FlowPort_a flowPort(final medium=medium)
@@ -2984,8 +2945,7 @@ Partial model of single port at the left, defining the medium and the temperatur
       partial model SinglePortBottom
         "Partial model of a single port at the bottom"
 
-        parameter FluidHeatFlow.Media.Medium medium=FluidHeatFlow.Media.Medium()
-          "Ambient medium"
+        parameter FluidHeatFlow.Media.Medium medium=FluidHeatFlow.Media.Medium() "Medium"
           annotation(choicesAllMatching=true);
         output Modelica.SIunits.Temperature T_port "Temperature at flowPort_a";
         Interfaces.FlowPort_a flowPort(final medium=medium)
@@ -3118,27 +3078,7 @@ Pressure, mass flow, temperature and enthalpy flow of medium are not affected, b
     annotation (Documentation(info="<html>
 
 </html>",revisions="<html>
-  <ul>
-  <li> v1.00 2005/02/01 Anton Haumer<br>
-       first stable official release</li>
-  <li> v1.10 2005/02/15 Anton Haumer<br>
-       moved Partials into Interfaces</li>
-  <li> v1.11 2005/02/18 Anton Haumer<br>
-       corrected usage of cv and cp</li>
-  <li> v1.30 Beta 2005/06/02 Anton Haumer<br>
-       friction losses are fed to medium</li>
-  <li> v1.31 Beta 2005/06/04 Anton Haumer<br>
-       searching solution for problems @ m_flow=0</li>
-  <li> v1.33 Beta 2005/06/07 Anton Haumer<br>
-       corrected usage of simpleFlow</li>
-  <li> v1.43 Beta 2005/06/20 Anton Haumer<br>
-       Test of mixing / semiLinear</li>
-  <li> v1.50 2005/09/07 Anton Haumer<br>
-       semiLinear works fine<br>
-       removed test-version of semiLinear</li>
-  <li> v1.60 2007/01/23 Anton Haumer<br>
-       new parameter tapT defining Temperature of heatPort</li>
-  </ul>
+
 </html>"));
     end Partials;
   annotation (Documentation(info="<html>
@@ -3150,22 +3090,7 @@ Pressure, mass flow, temperature and enthalpy flow of medium are not affected, b
 </ul>
 
 </html>", revisions="<html>
-  <ul>
-  <li> v1.00 2005/02/01 Anton Haumer<br>
-       first stable official release</li>
-  <li> v1.10 2005/02/15 Anton Haumer<br>
-       moved Partials into Interfaces</li>
-  <li> v1.11 2005/02/18 Anton Haumer<br>
-       corrected usage of cv and cp</li>
-  <li> v1.30 Beta 2005/06/02 Anton Haumer<br>
-       friction losses are fed to medium</li>
-  <li> v1.33 Beta 2005/06/07 Anton Haumer<br>
-       corrected usage of simpleFlow</li>
-  <li> v1.43 Beta 2005/06/20 Anton Haumer<br>
-       Test of mixing / semiLinear</li>
-  <li> v1.50 2005/09/07 Anton Haumer<br>
-       semiLinear works fine</li>
-  </ul>
+
 </html>"));
   end Interfaces;
   annotation (
