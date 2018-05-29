@@ -585,7 +585,7 @@ on page 317 ff.</dd>
 end NPN;
 
 model PNP "Simple BJT according to Ebers-Moll"
-  parameter Real Bf=50 "Forward beta";
+   parameter Real Bf=50 "Forward beta";
   parameter Real Br=0.1 "Reverse beta";
   parameter SI.Current Is=1e-16 "Transport saturation current";
   parameter SI.InversePotential Vak=0.02 "Early voltage (inverse), 1/Volt";
@@ -606,16 +606,17 @@ model PNP "Simple BJT according to Ebers-Moll"
   parameter Real EMin=-100 "if x < EMin, the exp(x) function is linearized";
   parameter Real EMax=40 "if x > EMax, the exp(x) function is linearized";
   extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=293.15);
-  protected
-  Real vbc;
-  Real vbe;
-  Real qbk;
-  Real ibc;
-  Real ibe;
-  Real cbc;
-  Real cbe;
-  Real Capcje;
-  Real Capcjc;
+
+  SI.Voltage vbc "Base-collector voltage";
+  SI.Voltage vbe "Base-emitter voltage";
+  Real qbk "Relative majority carrier charge, inverse";
+  SI.Current ibc "Base-collector diode current";
+  SI.Current ibe "Base-emitter diode current";
+  SI.Capacitance cbc "Total base-collector capacitance";
+  SI.Capacitance cbe "Total base-emitter capacitance";
+  SI.Capacitance Capcje "Effective base-emitter depletion capacitance";
+  SI.Capacitance Capcjc "Effective base-collector depletion capacitance";
+
   public
   Modelica.Electrical.Analog.Interfaces.Pin C "Collector" annotation (Placement(
         transformation(extent={{90,50},{110,70}}), iconTransformation(extent={{90,50},{110,70}})));
