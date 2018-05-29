@@ -341,7 +341,7 @@ equation
 
   // Design direction of mass flow rate
   m_flow = port_a.m_flow;
-  assert(m_flow > -m_flow_small or allowFlowReversal, "Reverting flow occurs even though allowFlowReversal is false");
+  assert(m_flow > -m_flow_small or allowFlowReversal, "Reversing flow occurs even though allowFlowReversal is false");
 
   // Mass balance (no storage)
   port_a.m_flow + port_b.m_flow = 0;
