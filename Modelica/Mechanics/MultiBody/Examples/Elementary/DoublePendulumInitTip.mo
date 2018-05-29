@@ -56,7 +56,7 @@ equation
     Documentation(info="<html>
 <p>
 This example demonstrates at hand of a double pendulum,
-how no-standard initialization can be defined:
+how non-standard initialization can be defined:
 The absolute position of the pendulum tip, and its absolute speed
 shall be initially defined. This can be performed with the
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Joints.FreeMotionScalarInit\">Joints.FreeMotionScalarInit</a>
@@ -72,6 +72,5 @@ x=0.7, y=0.3.
 <blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/DoublePendulumInitTip.png\">
 </blockquote>
-
 </html>"));
 end DoublePendulumInitTip;
