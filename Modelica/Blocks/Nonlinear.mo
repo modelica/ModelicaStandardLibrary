@@ -10,18 +10,36 @@ package Nonlinear
         parameter Boolean strict=false
       "= true, if strict limits with noEvent(..)"
           annotation (Evaluate=true, choices(checkBox=true), Dialog(tab="Advanced"));
+        parameter Types.LimiterHomotopy homotopyType = Modelica.Blocks.Types.LimiterHomotopy.linear "Simplified model for homotopy-based initialization"
+          annotation (Evaluate=true, Dialog(tab="Advanced"));
         parameter Boolean limitsAtInit=true
       "Has no longer an effect and is only kept for backwards compatibility (the implementation uses now the homotopy operator)"
           annotation (Dialog(tab="Dummy"),Evaluate=true, choices(checkBox=true));
         extends Interfaces.SISO;
+  protected
+        Real simplifiedExpr "Simplified expression for homotopy-based initialization";
 
       equation
         assert(uMax >= uMin, "Limiter: Limits must be consistent. However, uMax (=" + String(uMax) +
                              ") < uMin (=" + String(uMin) + ")");
+        simplifiedExpr = (if homotopyType == Types.LimiterHomotopy.linear then u
+                          else if homotopyType == Types.LimiterHomotopy.uMax then uMax
+                          else if homotopyType == Types.LimiterHomotopy.uMin then uMin
+                          else 0);
         if strict then
-           y = homotopy(actual = smooth(0, noEvent(if u > uMax then uMax else if u < uMin then uMin else u)), simplified=u);
+          if homotopyType == Types.LimiterHomotopy.noHomotopy then
+            y = smooth(0, noEvent(if u > uMax then uMax else if u < uMin then uMin else u));
+          else
+            y = homotopy(actual = smooth(0, noEvent(if u > uMax then uMax else if u < uMin then uMin else u)),
+                         simplified=simplifiedExpr);
+          end if;
         else
-           y = homotopy(actual = smooth(0,if u > uMax then uMax else if u < uMin then uMin else u), simplified=u);
+          if homotopyType == Types.LimiterHomotopy.noHomotopy then
+            y = smooth(0,if u > uMax then uMax else if u < uMin then uMin else u);
+          else
+            y = homotopy(actual = smooth(0,if u > uMax then uMax else if u < uMin then uMin else u),
+                         simplified=simplifiedExpr);
+          end if;
         end if;
         annotation (
           Documentation(info="<html>
@@ -30,6 +48,20 @@ The Limiter block passes its input signal as output signal
 as long as the input is within the specified upper and lower
 limits. If this is not the case, the corresponding limits are passed
 as output.
+</p>
+<p>
+The parameter <code>homotopyType</code> in the Advanced tab specifies the
+simplified behaviour if homotopy-based initialization is used:
+<ul>
+<li><code>noHomotopy</code>: the actual expression with limits is used</li>
+<li><code>linear</code>: a linear behaviour y = u is assumed (default option)</li>
+<li><code>uMax</code>: it is assumed that the output is stuck at the upper limit u = uMax</li>
+<li><code>uMin</code>: it is assumed that the output is stuck at the lower limit u = uMax</li>
+</ul>
+</p>
+<p>
+If it is known a priori in which region the input signal will be located, this option can help 
+a lot by removing one strong nonlinearity from the initialization problem. 
 </p>
 </html>"), Icon(coordinateSystem(
           preserveAspectRatio=true,
@@ -100,6 +132,10 @@ as output.
     extends Interfaces.SISO;
     parameter Boolean strict=false "= true, if strict limits with noEvent(..)"
       annotation (Evaluate=true, choices(checkBox=true));
+    parameter Types.VariableLimiterHomotopy homotopyType = Modelica.Blocks.Types.VariableLimiterHomotopy.linear "Simplified model for homotopy-based initialization"
+      annotation (Evaluate=true, Dialog(tab="Advanced"));
+    parameter Real ySimplified = 0 "Fixed value of output in simplified model"
+      annotation (Dialog(tab="Advanced"));
     parameter Boolean limitsAtInit=true
       "Has no longer an effect and is only kept for backwards compatibility (the implementation uses now the homotopy operator)"
       annotation (Dialog(tab="Dummy"),Evaluate=true, choices(checkBox=true));
@@ -109,13 +145,27 @@ as output.
     Interfaces.RealInput limit2
       "Connector of Real input signal used as minimum of input u"
       annotation (Placement(transformation(extent={{-140,-100},{-100,-60}})));
+  protected
+    Real simplifiedExpr "Simplified expression for homotopy-based initialization";
   equation
     assert(limit1 >= limit2, "Input signals are not consistent: limit1 < limit2");
-
+    simplifiedExpr = (if homotopyType == Types.VariableLimiterHomotopy.linear then u
+                      else if homotopyType == Types.VariableLimiterHomotopy.fixed then ySimplified
+                      else 0);
     if strict then
-       y = homotopy(actual = smooth(0, noEvent(if u > limit1 then limit1 else if u < limit2 then limit2 else u)), simplified=u);
+      if homotopyType == Types.VariableLimiterHomotopy.noHomotopy then
+        y = smooth(0, noEvent(if u > limit1 then limit1 else if u < limit2 then limit2 else u));
+      else
+        y = homotopy(actual = smooth(0, noEvent(if u > limit1 then limit1 else if u < limit2 then limit2 else u)),
+                     simplified=simplifiedExpr);
+      end if;
     else
-       y = homotopy(actual = smooth(0,if u > limit1 then limit1 else if u < limit2 then limit2 else u), simplified=u);
+      if homotopyType == Types.VariableLimiterHomotopy.noHomotopy then
+        y = smooth(0,if u > limit1 then limit1 else if u < limit2 then limit2 else u);
+      else
+        y = homotopy(actual = smooth(0,if u > limit1 then limit1 else if u < limit2 then limit2 else u),
+                     simplified=simplifiedExpr);
+      end if;
     end if;
 
     annotation (
@@ -126,6 +176,19 @@ as long as the input is within the upper and lower
 limits specified by the two additional inputs limit1 and
 limit2. If this is not the case, the corresponding limit
 is passed as output.
+</p>
+<p>
+The parameter <code>homotopyType</code> in the Advanced tab specifies the
+simplified behaviour if homotopy-based initialization is used:
+<ul>
+<li><code>noHomotopy</code>: the actual expression with limits is used</li>
+<li><code>linear</code>: a linear behaviour y = u is assumed (default option)</li>
+<li><code>fixed</code>: it is assumed that the output is fixed at the value <code>ySimplified</code></li>
+</ul>
+</p>
+<p>
+If it is known a priori in which region the input signal will be located, this option can help 
+a lot by removing one strong nonlinearity from the initialization problem. 
 </p>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
