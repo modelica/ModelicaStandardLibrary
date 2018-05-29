@@ -1887,24 +1887,19 @@ V_flow**2 * rho / dp = Kv(y)**2 * rho0 / dp0
     end Valve;
 
     model OpenTank "Model of a tank under ambient pressure"
-      parameter Modelica.Thermal.FluidHeatFlow.Media.Medium medium=
-        Modelica.Thermal.FluidHeatFlow.Media.Medium() "Medium in tank"
-        annotation(choicesAllMatching=true);
+      extends Interfaces.Partials.SinglePortBottom;
       parameter Modelica.SIunits.Area A(start=1) "Cross section of tank";
       parameter Modelica.SIunits.Length h(start=1) "Height of tank";
       parameter Modelica.SIunits.Pressure pAmbient(start=0) "Ambient pressure";
       parameter Modelica.SIunits.Acceleration g(final min=0)=Modelica.Constants.g_n "Gravitation";
       parameter Boolean useHeatPort = false "=true, if HeatPort is enabled"
         annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
-      output Modelica.SIunits.Temperature T_port "Temperature at flowPort";
       Modelica.SIunits.Mass m "Mass of medium in tank";
     protected
       Modelica.SIunits.SpecificEnthalpy hTank "Specific enthalpy of medium";
       Modelica.SIunits.Enthalpy HTank "Enthalpy of medium";
       Modelica.SIunits.HeatFlowRate Q_flow "Heat flow at the optional heatPort";
     public
-      Modelica.Thermal.FluidHeatFlow.Interfaces.FlowPort_a flowPort(final medium=medium)
-        annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
       Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort(final T=T, final Q_flow=Q_flow) if useHeatPort
         "Optional port for cooling or heating the medium in the tank"
         annotation (Placement(transformation(extent={{-110,-110},{-90,-90}}),
@@ -1923,7 +1918,6 @@ V_flow**2 * rho / dp = Kv(y)**2 * rho0 / dp0
       if not useHeatPort then
         Q_flow = 0;
       end if;
-      T_port = flowPort.h/medium.cp;
       hTank = medium.cp*T;
       assert(level>=0, "Tank got empty!");
       assert(level<=h, "Tank got full!");
@@ -2022,8 +2016,7 @@ Via the optional heatPort the medium in the tank can be cooled or heated.
 
     model Piston "Simple model of a piston in a cylinder"
       import Modelica.Constants.small;
-      parameter Modelica.Thermal.FluidHeatFlow.Media.Medium medium=Modelica.Thermal.FluidHeatFlow.Media.Medium()
-        "Medium" annotation (choicesAllMatching=true);
+      extends Interfaces.Partials.SinglePortLeft;
       parameter Modelica.SIunits.Area A "Cross section of cylinder/piston";
       parameter Modelica.SIunits.Length L "Length of cylinder";
       extends
@@ -2031,8 +2024,6 @@ Via the optional heatPort the medium in the tank can be cooled or heated.
          s(start=small));
       Modelica.SIunits.Force f=flange.f "Force at piston";
       Modelica.SIunits.Temperature T(start=293.15) "Temperature of medium";
-      FluidHeatFlow.Interfaces.FlowPort_a flowPort
-        annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
     protected
       Modelica.SIunits.Mass m "Mass of medium";
       Modelica.SIunits.SpecificEnthalpy h "Specific enthalpy of medium";
@@ -2068,7 +2059,8 @@ Via the optional heatPort the medium in the tank can be cooled or heated.
             Rectangle(
               extent={{-14,10},{90,-10}},
               lineThickness=0.5,
-              fillColor={0,127,0},
+              lineColor={0,127,0},
+              fillColor={160,215,160},
               fillPattern=FillPattern.HorizontalCylinder),
                                               Text(
               extent={{-160,160},{140,100}},
@@ -2565,13 +2557,8 @@ Thermodynamic equations are defined by Partials.Ambient.
     end Ambient;
 
     model AbsolutePressure "Defines absolute pressure level"
-
-      parameter FluidHeatFlow.Media.Medium medium=FluidHeatFlow.Media.Medium()
-        "medium"
-        annotation(choicesAllMatching=true);
+      extends Interfaces.Partials.SinglePortLeft;
       parameter Modelica.SIunits.Pressure p(start=0) "Pressure ground";
-      Interfaces.FlowPort_a flowPort(final medium=medium)
-        annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
     equation
       // defining pressure
       flowPort.p = p;
@@ -2975,20 +2962,50 @@ Parameter 0 &lt; tapT &lt; 1 defines temperature of heatPort between medium's in
 </html>"));
       end TwoPort;
 
-      partial model Ambient "Partial model of ambient"
+      partial model SinglePortLeft
+        "Partial model of a single port at the left"
 
         parameter FluidHeatFlow.Media.Medium medium=FluidHeatFlow.Media.Medium()
           "Ambient medium"
           annotation(choicesAllMatching=true);
-        output Modelica.SIunits.Temperature T "Outlet temperature of medium";
         output Modelica.SIunits.Temperature T_port "Temperature at flowPort_a";
-      protected
-        Modelica.SIunits.SpecificEnthalpy h;
-      public
         Interfaces.FlowPort_a flowPort(final medium=medium)
           annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
       equation
         T_port=flowPort.h/medium.cp;
+      annotation (Documentation(info="<html>
+<p>
+Partial model of single port at the left, defining the medium and the temperature at the port.
+</p>
+</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+                  {100,100}})));
+      end SinglePortLeft;
+
+      partial model SinglePortBottom
+        "Partial model of a single port at the bottom"
+
+        parameter FluidHeatFlow.Media.Medium medium=FluidHeatFlow.Media.Medium()
+          "Ambient medium"
+          annotation(choicesAllMatching=true);
+        output Modelica.SIunits.Temperature T_port "Temperature at flowPort_a";
+        Interfaces.FlowPort_a flowPort(final medium=medium)
+          annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
+      equation
+        T_port=flowPort.h/medium.cp;
+      annotation (Documentation(info="<html>
+<p>
+Partial model of single port at the left, defining the medium and the temperature at the port.
+</p>
+</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+                  {100,100}})));
+      end SinglePortBottom;
+
+      partial model Ambient "Partial model of ambient"
+        extends SinglePortLeft;
+        output Modelica.SIunits.Temperature T "Outlet temperature of medium";
+      protected
+        Modelica.SIunits.SpecificEnthalpy h;
+      equation
         h = medium.cp*T;
         // mass flow -> ambient: mixing rule
         // mass flow <- ambient: energy flow defined by ambient's temperature
