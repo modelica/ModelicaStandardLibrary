@@ -794,6 +794,7 @@ features are:
         "Allowed flow direction" annotation(Evaluate=true, Dialog(tab="Advanced"));
   equation
     assert(abs(sum(abs(ports.m_flow)) - max(abs(ports.m_flow))) <= Modelica.Constants.small, "FlowSource only supports one connection with flow");
+    assert(nPorts > 0, "At least one port needs to be present (nPorts > 0), otherwise the model is singular");
     // Only one connection allowed to a port to avoid unwanted ideal mixing
     for i in 1:nPorts loop
       assert(cardinality(ports[i]) <= 1,"
