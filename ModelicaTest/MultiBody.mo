@@ -46,8 +46,8 @@ package MultiBody "Test models for Modelica.Mechanics.MultiBody"
       annotation (Placement(transformation(extent={{-70,-20},{-50,0}})));
     Modelica.Blocks.Sources.CombiTimeTable combiTimeTable(
       smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative,
-      extrapolation=Modelica.Blocks.Types.Extrapolation.Periodic,
-      table=[0,0,10,0; 1,10,10,0; 2,20,10,0; 3,30,10,0])
+      table=[0,0,10,0; 1,10,10,0; 2,20,10,0; 3,30,10,0],
+      extrapolation=Modelica.Blocks.Types.Extrapolation.LastTwoPoints)
       annotation (Placement(transformation(extent={{-100,-20},{-80,0}})));
     Modelica.Mechanics.Rotational.Sources.Move move
       annotation (Placement(transformation(extent={{-38,-20},{-18,0}})));
