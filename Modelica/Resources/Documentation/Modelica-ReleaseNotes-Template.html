@@ -16,6 +16,7 @@ $if(keywords)$
 $endif$
   <title>$if(title-prefix)$$title-prefix$$endif$</title>
   <style type="text/css">
+      h1, h2, h3, li, p{font-family: sans-serif;}
       code{white-space: pre-wrap;}
       span.smallcaps{font-variant: small-caps;}
       span.underline{text-decoration: underline;}
@@ -39,7 +40,7 @@ $for(header-includes)$
   $header-includes$
 $endfor$
 </head>
-<body style="font-family: sans-serif;">
+<body>
 $for(include-before)$
 $include-before$
 $endfor$
