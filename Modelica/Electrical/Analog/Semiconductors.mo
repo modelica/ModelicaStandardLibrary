@@ -86,14 +86,14 @@ package Semiconductors
     Vt_applied = if useHeatPort then Modelica.Constants.R * T_heatPort/Modelica.Constants.F else Vt;
     id = smooth(1,
       if vd < -Bv / 2 then
+        //Lower half of reverse biased region including breakdown.
         -Ids * (exp(-(vd+Bv)/(N*Vt_applied)) + 1 - 2*exp(-Bv/(2*N*Vt_applied)))
       elseif vd < VdMax then
+        //Upper half of reverse biased region, and forward biased region before conduction.
         Ids * (exp(vd/(N*Vt_applied)) - 1)
       else
-        iVdMax + (vd - VdMax) * diVdMax);
-        //Lower half of reverse biased region including breakdown.
-        //Upper half of reverse biased region, and forward biased region before conduction.
         //Forward biased region after conduction
+        iVdMax + (vd - VdMax) * diVdMax);
 
     v = vd + id * Rs;
     i = id + v*Gp;
@@ -483,18 +483,16 @@ model NPN "Simple BJT according to Ebers-Moll"
   parameter Boolean UIC = false "Decision if initial value should be used";
 
   extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=293.15);
-
-  SI.Voltage vbc "Base-collector voltage";
-  SI.Voltage vbe "Base-emitter voltage";
-  Real qbk "Relative majority carrier charge, inverse";
-  SI.Current ibc "Base-collector diode current";
-  SI.Current ibe "Base-emitter diode current";
-  SI.Capacitance cbc "Total base-collector capacitance";
-  SI.Capacitance cbe "Total base-emitter capacitance";
-  SI.Capacitance Capcje "Effective base-emitter depletion capacitance";
-  SI.Capacitance Capcjc "Effective base-collector depletion capacitance";
-
-
+  protected
+  Real vbc;
+  Real vbe;
+  Real qbk;
+  Real ibc;
+  Real ibe;
+  Real cbc;
+  Real cbe;
+  Real Capcje;
+  Real Capcjc;
   public
   Modelica.Electrical.Analog.Interfaces.Pin C "Collector" annotation (Placement(
         transformation(extent={{90,50},{110,70}}), iconTransformation(extent={{90,50},{110,70}})));
@@ -585,7 +583,7 @@ on page 317 ff.</dd>
 end NPN;
 
 model PNP "Simple BJT according to Ebers-Moll"
-   parameter Real Bf=50 "Forward beta";
+  parameter Real Bf=50 "Forward beta";
   parameter Real Br=0.1 "Reverse beta";
   parameter SI.Current Is=1e-16 "Transport saturation current";
   parameter SI.InversePotential Vak=0.02 "Early voltage (inverse), 1/Volt";
@@ -606,17 +604,16 @@ model PNP "Simple BJT according to Ebers-Moll"
   parameter Real EMin=-100 "if x < EMin, the exp(x) function is linearized";
   parameter Real EMax=40 "if x > EMax, the exp(x) function is linearized";
   extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=293.15);
-
-  SI.Voltage vbc "Base-collector voltage";
-  SI.Voltage vbe "Base-emitter voltage";
-  Real qbk "Relative majority carrier charge, inverse";
-  SI.Current ibc "Base-collector diode current";
-  SI.Current ibe "Base-emitter diode current";
-  SI.Capacitance cbc "Total base-collector capacitance";
-  SI.Capacitance cbe "Total base-emitter capacitance";
-  SI.Capacitance Capcje "Effective base-emitter depletion capacitance";
-  SI.Capacitance Capcjc "Effective base-collector depletion capacitance";
-
+  protected
+  Real vbc;
+  Real vbe;
+  Real qbk;
+  Real ibc;
+  Real ibe;
+  Real cbc;
+  Real cbe;
+  Real Capcje;
+  Real Capcjc;
   public
   Modelica.Electrical.Analog.Interfaces.Pin C "Collector" annotation (Placement(
         transformation(extent={{90,50},{110,70}}), iconTransformation(extent={{90,50},{110,70}})));
@@ -1064,7 +1061,7 @@ end HeatingDiode;
           Modelica.Electrical.Analog.Interfaces.Pin E "Emitter"
             annotation (Placement(transformation(extent={{90,-50},{110,-70}}), iconTransformation(extent={{90,-50},{110,-70}})));
         equation
-         assert(T_heatPort > 0,"Temperature must be positive");
+          assert(T_heatPort > 0,"Temperature must be positive");
           vbc = B.v - C.v;
           vbe = B.v - E.v;
           qbk = 1 - vbc*Vak;
@@ -1127,7 +1124,7 @@ end HeatingDiode;
         end HeatingNPN;
 
         model HeatingPNP "Simple PNP BJT according to Ebers-Moll with heating port"
-           parameter Real Bf=50 "Forward beta";
+          parameter Real Bf=50 "Forward beta";
           parameter Real Br=0.1 "Reverse beta";
           parameter SI.Current Is=1e-16 "Transport saturation current";
           parameter SI.InversePotential Vak=0.02 "Early voltage (inverse), 1/Volt";
@@ -1147,27 +1144,28 @@ end HeatingDiode;
           parameter SI.Temperature Tnom=300.15 "Parameter measurement temperature";
           parameter Real XTI=3 "Temperature exponent for effect on Is";
           parameter Real XTB=0 "Forward and reverse beta temperature exponent";
-          parameter SI.Voltage EG=1.11 "Energy gap for temperature effect on Is";
+          parameter Real EG=1.11 "Energy gap for temperature effect on Is";
           parameter Real NF=1.0 "Forward current emission coefficient";
           parameter Real NR=1.0 "Reverse current emission coefficient";
           extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(
              useHeatPort=true);
-          SI.Voltage vcb "Collector-base voltage";
-          SI.Voltage veb "Emitter-base voltage";
-          Real qbk "Relative majority carrier charge, inverse";
-          SI.Current icb "Collector-base diode current";
-          SI.Current ieb "Emitter-base diode current";
-          SI.Capacitance ccb "Total collector-base capacitance";
-          SI.Capacitance ceb "Total emitter-base capacitance";
-          SI.Capacitance Capcje "Effective emitter-base depletion capacitance";
-          SI.Capacitance Capcjc "Effective collector-base depletion capacitance";
-          SI.Current is_t "Temperature dependent transport saturation current";
-          Real br_t "Temperature dependent forward beta";
-          Real bf_t "Temperature dependent reverse beta";
-          SI.Voltage vt_t "Voltage equivalent of effective temperature";
-          Real hexp "Auxiliary quantity temperature dependent exponent";
-          Real htempexp "Auxiliary quantity exp(hexp)";
-
+  protected
+          Real vcb;
+          Real veb;
+          Real qbk;
+          Real icb;
+          Real ieb;
+          Real ccb;
+          Real ceb;
+          Real Capcje;
+          Real Capcjc;
+          Real is_t;
+          Real br_t;
+          Real bf_t;
+          Real vt_t;
+          Real hexp;
+          Real htempexp;
+  public
           Modelica.Electrical.Analog.Interfaces.Pin C "Collector"
             annotation (Placement(transformation(extent={{90,50},{110,70}}), iconTransformation(extent={{90,50},{110,70}})));
           Modelica.Electrical.Analog.Interfaces.Pin B "Base"
