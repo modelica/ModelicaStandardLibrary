@@ -1823,8 +1823,8 @@ The permeances of all elements of this package are calculated from their geometr
       flow Modelica.SIunits.ComplexMagneticFlux Phi
       "Complex magnetic flux flowing into the pin";
       annotation (Documentation(info="<html>
-<p>Base definition of complex quasi static magnetic port. 
-The potential variable is the complex magnetic potential difference <code>V_m</code> and the flow variable 
+<p>Base definition of complex quasi static magnetic port.
+The potential variable is the complex magnetic potential difference <code>V_m</code> and the flow variable
 is the complex magnetic flux <code>Phi</code>.</p>
 </p>
 
@@ -1867,7 +1867,7 @@ is the complex magnetic flux <code>Phi</code>.</p>
 <p>
 The positive magnetic port is based on the
 <a href=\"modelica://Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.MagneticPort\">MagneticPort</a>.
-Additionally the reference angle is specified in the connector. The time derivative of the 
+Additionally the reference angle is specified in the connector. The time derivative of the
 reference angle is the actual angular frequency of the quasi static magnetic potential and flux.
 The symbol is also designed such way to look different than the
 <a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Interfaces.NegativeMagneticPort\">NegativeMagneticPort</a>.
@@ -1911,9 +1911,9 @@ The symbol is also designed such way to look different than the
 <p>
 The negative magnetic port is based on the
 <a href=\"modelica://Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.MagneticPort\">MagneticPort</a>.
-Additionally the reference angle is specified in the connector. The time derivative of the 
+Additionally the reference angle is specified in the connector. The time derivative of the
 reference angle is the actual angular frequency of the quasi static magnetic potential and flux.
-The symbol is also designed such way to look different than the 
+The symbol is also designed such way to look different than the
 <a href=\"modelica://Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.PositiveMagneticPort\">PositiveMagneticPort</a>.
 </p>
 
@@ -2029,8 +2029,8 @@ is identical to the flux flowing out of <code>port_n</code>.
             textString="%name",
             lineColor={0,0,255})}), Documentation(info="<html>
 <p>
-Please refer to the description of  the subpackage 
-<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape\">Shapes.FixedShape</a> 
+Please refer to the description of  the subpackage
+<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape\">Shapes.FixedShape</a>
 for utilisation of this partial model.
 </p>
 </html>"),
@@ -2064,8 +2064,8 @@ for utilisation of this partial model.
             textString="%name",
             lineColor={0,0,255})}), Documentation(info="<html>
 <p>
-Please refer to the description of the subpackage 
-<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.Leakage\">Shapes.Leakage</a> 
+Please refer to the description of the subpackage
+<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.Leakage\">Shapes.Leakage</a>
 for utilisation of this partial model.
 </p>
 </html>"));
@@ -2089,8 +2089,8 @@ for utilisation of this partial model.
               textString="%name")}), Documentation(info="<html>
 <p>
 The absolute sensor partial model provides a single
-<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.PositiveMagneticPort\">PositiveMagneticPort</a> 
-to measure the complex magnetic potential. Additionally this model contains a base icon and a definition 
+<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.PositiveMagneticPort\">PositiveMagneticPort</a>
+to measure the complex magnetic potential. Additionally this model contains a base icon and a definition
 of the angular frequency.
 </p></html>"));
     end AbsoluteSensor;
@@ -2116,13 +2116,12 @@ of the angular frequency.
               fillPattern=FillPattern.Solid,
               textString="%name"),
             Line(
-              points={{0,-70},{0,-100}},
-              color={0,0,0})}),
+              points={{0,-70},{0,-100}})}),
           Documentation(info="<html>
 <p>
 The relative sensor partial model relies on the
-<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.PartialTwoPorts\">PartialTwoPorts</a> 
-to measure the complex magnetic voltage, flux or power. Additionally this model contains a base icon and a definition 
+<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.PartialTwoPorts\">PartialTwoPorts</a>
+to measure the complex magnetic voltage, flux or power. Additionally this model contains a base icon and a definition
 of the angular frequency.
 </p></html>"));
     end RelativeSensor;
@@ -2158,7 +2157,7 @@ of the angular frequency.
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid)}),            Documentation(info="<html>
 <p>
-The source model provides a positive and negative magnetic port. Additionally this model contains a base icon 
+The source model provides a positive and negative magnetic port. Additionally this model contains a base icon
 and a definition of the angular frequency.
 </p></html>"));
     end Source;
@@ -2254,7 +2253,7 @@ at fixed frequency, <code>f</code>.
             Line(points={{60,20},{80,20}}, color={255,170,85})}),
         Documentation(info="<html>
 <p>
-This source provides a quasi static magnetic potential difference <code>V_m</code> (or magnetomotive force, mmf) 
+This source provides a quasi static magnetic potential difference <code>V_m</code> (or magnetomotive force, mmf)
 with signal inputs for:
 </p>
 <ul>
@@ -2376,7 +2375,7 @@ This package contains sources of a magnetic potential difference or a magnetic f
               fillPattern=FillPattern.Solid,
               textString="ref")}), Diagram(coordinateSystem(preserveAspectRatio=false)),
         Documentation(info="<html>
-<p>This sensor determines the reference angle of the connected quasi static magnetic system. 
+<p>This sensor determines the reference angle of the connected quasi static magnetic system.
 The integral of the angular frequency of the quasi static magnetic system is equal to the reference angle.</p>
 </html>"));
     end ReferenceSensor;
@@ -2434,7 +2433,7 @@ This sensor can be used to measure the complex magnetic potential <code>V_m</cod
             preserveAspectRatio=false)),
         Documentation(info="<html>
 <p>
-This sensor can be used to measure the complex magnetic potential difference <code>V_m</code> 
+This sensor can be used to measure the complex magnetic potential difference <code>V_m</code>
 in a quasi static magnetic system.
 </p>
 </html>"));
@@ -2575,8 +2574,7 @@ This sensor can be used to measure the complex magnetic flux <code>Phi</code> of
         annotation (Icon(coordinateSystem(
                 preserveAspectRatio=false), graphics={
                                         Text(extent={{-29,-11},{30,-70}},
-                textString="μ",
-                lineColor={0,0,0})}),        Diagram(
+                textString="μ")}), Diagram(
               coordinateSystem(preserveAspectRatio=false)),
         Documentation(info="<html>
 <p>
@@ -2627,7 +2625,6 @@ This sensor is used to determined the effective fundamental wave permeability of
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid), Text(
                 extent={{60,-60},{-60,60}},
-                lineColor={0,0,0},
                 fillColor={255,170,85},
                 fillPattern=FillPattern.Solid,
                 textString="μ")}),
@@ -2654,7 +2651,7 @@ of the flux path have to be take into account<p>
 </html>"));
       end Permeability;
     annotation (Documentation(info="<html>
-<p>This package contains sensors to be used with transient flux tubes models in order to provide information 
+<p>This package contains sensors to be used with transient flux tubes models in order to provide information
 for quasi static parameters.</p>
 </html>"));
     end Transient;

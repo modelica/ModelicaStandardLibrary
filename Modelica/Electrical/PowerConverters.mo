@@ -5793,10 +5793,9 @@ General information about AC/DC converters can be found at the
                 extent={{-80,80},{60,40}},
                 textString="P W M"), Text(
                 extent={{-80,-40},{60,-80}},
-                textString="f=%f",
-                lineColor={0,0,0}),                                             Text(
+                textString="f=%f"), Text(
                 extent={{-80,20},{60,-20}},
-                textString="%pwmType")}),                              Diagram(
+                textString="%pwmType")}), Diagram(
               coordinateSystem(preserveAspectRatio=false)),
           Documentation(info="<html>
 <p>

@@ -37,7 +37,7 @@ Copyright &copy; 1998-2018, Modelica Association, Anton Haumer, Christian Kral a
     class ReleaseNotes "Release Notes"
       extends Modelica.Icons.ReleaseNotes;
       annotation (Documentation(info="<html>
-  
+
   <h5>3.2.3, 2018-05-28</h5>
   <ul>
   <li> Fixed a bug in the IdealPump model</li>
@@ -45,7 +45,7 @@ Copyright &copy; 1998-2018, Modelica Association, Anton Haumer, Christian Kral a
   <li> Added some more media</li>
   <li> Added some more examples</li>
   </ul>
-  
+
   <h5>3.2.2, 2010-06-25</h5>
   <ul>
   <li> Added users guide package including contact and release notes</li>
@@ -1382,7 +1382,7 @@ the time behaviour depending on coolant flow.
       connect(idealPump.flowPort_a, ambient1.flowPort)
         annotation (Line(points={{50,-60},{50,-70}}, color={255,0,0}));
       connect(speed.flange, multiSensor.flange_a)
-        annotation (Line(points={{0,-50},{10,-50}},    color={0,0,0}));
+        annotation (Line(points={{0,-50},{10,-50}}));
       connect(valve.flowPort_a, volumeFlowSensor.flowPort_b)
         annotation (Line(points={{50,10},{50,-10}},
                                                   color={255,0,0}));
@@ -1393,7 +1393,7 @@ the time behaviour depending on coolant flow.
       connect(isolatedPipe.flowPort_a, valve.flowPort_b)
         annotation (Line(points={{50,40},{50,30}}, color={255,0,0}));
       connect(multiSensor.flange_b, idealPump.flange_a)
-        annotation (Line(points={{30,-50},{40,-50}}, color={0,0,0}));
+        annotation (Line(points={{30,-50},{40,-50}}));
       connect(valve.flowPort_a, pressureSensor.flowPort)
         annotation (Line(points={{50,10},{50,0},{30,0}}, color={255,0,0}));
       connect(pre1.y, triggeredTrapezoid.u)
@@ -1414,17 +1414,15 @@ the time behaviour depending on coolant flow.
           Tolerance=1e-06), Documentation(
             info="<html>
 <p>
-There are two reservoirs at ambient pressure, the second one 25 m higher than the first one. 
-The ideal pump is driven by a speed source, starting from zero and going up to 1.2 times nominal speed. 
-To avoid water flowing back, the valve is initially closed. 
-It gets opened when the pump provides sufficient pressure, allowing water flow to start. 
-Subsequently the speed of the pump is reduced to zero again, reducing the water flow. 
-Again, to avoid water flowing back, the valve gets closed when the pressure provided by the pump gets too low.  
+There are two reservoirs at ambient pressure, the second one 25 m higher than the first one.
+The ideal pump is driven by a speed source, starting from zero and going up to 1.2 times nominal speed.
+To avoid water flowing back, the valve is initially closed.
+It gets opened when the pump provides sufficient pressure, allowing water flow to start.
+Subsequently the speed of the pump is reduced to zero again, reducing the water flow.
+Again, to avoid water flowing back, the valve gets closed when the pressure provided by the pump gets too low.
 It is possible to investigate the dependencies of volume flow, pressure, torque and power demand on pump speed.
 </p>
-</html>"),
-        Diagram(coordinateSystem(initialScale=0.1)),
-        Icon(coordinateSystem(initialScale=0.1)));
+</html>"));
     end WaterPump;
 
     model TestOpenTank "Test the OpenTank model"
@@ -1586,17 +1584,17 @@ Test of a system with 2 pistons (with same volume):
 <li>piston1: A = 0.1 m2, L=10. m, initial position at s=L/2</li>
 <li>piston2: A = 1.0 m2, L=1.0 m, initial position at s=L/2</li>
 </ul>
-A force is applied that presses from 0.25 s to 0.50 s with 1 Nm on piston1. 
+A force is applied that presses from 0.25 s to 0.50 s with 1 Nm on piston1.
 Due to the ratio of areas 10:1
 <ul>
 <li>the force at piston2 is ten times the force at piston1</li>
 <li>movement of piston1 is ten times the movement of piston2</li>
 </ul>
-At piston2 a mass is mounted which is moved and presses the springDamper. 
+At piston2 a mass is mounted which is moved and presses the springDamper.
 When the force at piston1 is removed, the springDamper pushes back the mass and a damped oscillation occurs.
 </p>
 <p>
-Note: Take care of the initial conditions. The unstretched spring length is piston2.L/2, 
+Note: Take care of the initial conditions. The unstretched spring length is piston2.L/2,
 i.e. when piston2 is the middle of its cylinder the spring applies no force to the mass (and piston2).
 </p>
 </html>"),     experiment(StopTime=2, Interval=0.001));
@@ -1946,31 +1944,25 @@ V_flow**2 * rho / dp = Kv(y)**2 * rho0 / dp0
               textString="%name"),
             Ellipse(
               extent={{-80,-60},{80,-100}},
-              lineColor={0,0,0},
               fillColor={170,170,255},
               fillPattern=FillPattern.Sphere),
             Rectangle(
               extent={{-80,0},{80,-80}},
-              lineColor={0,0,0},
               fillPattern=FillPattern.VerticalCylinder,
               fillColor={170,170,255}),
             Rectangle(
               extent={{-80,80},{80,0}},
-              lineColor={0,0,0},
               fillPattern=FillPattern.VerticalCylinder,
               fillColor={255,255,255}),
             Ellipse(
               extent={{-80,100},{80,60}},
-              lineColor={0,0,0},
               fillColor={255,255,255},
               fillPattern=FillPattern.Sphere),
             Ellipse(
               extent={{-80,20},{80,-20}},
-              lineColor={0,0,0},
               fillColor={170,170,255},
               fillPattern=FillPattern.Sphere),
-            Line(points={{100,0},{80,0}},   color={0,0,0},
-              thickness=0.5),
+            Line(points={{100,0},{80,0}}, thickness=0.5),
             Line(points={{100,-60},{80,-60}},
                                             color={238,46,47},
               thickness=0.5),
@@ -2016,7 +2008,7 @@ V_flow**2 * rho / dp = Kv(y)**2 * rho0 / dp0
 <p>
 <ul>
 <li>If the mass flow rate at the port goes into the tank the level increases and the mixing rule is applied to obtain the temperature change of the medium in the tank.</li>
-<li>If the mass flow rate at the port goes out of the tank the level decreases, 
+<li>If the mass flow rate at the port goes out of the tank the level decreases,
 the temperature of the outflowing medium is defined by the the temperature of the medium in the tank.</li>
 </p>
 <p>
@@ -2070,13 +2062,11 @@ Via the optional heatPort the medium in the tank can be cooled or heated.
               fillPattern=FillPattern.Solid),
             Rectangle(
               extent={{-24,58},{-14,-58}},
-              lineColor={0,0,0},
               lineThickness=0.5,
               fillColor={192,192,192},
               fillPattern=FillPattern.HorizontalCylinder),
             Rectangle(
               extent={{-14,10},{90,-10}},
-              lineColor={0,0,0},
               lineThickness=0.5,
               fillColor={0,127,0},
               fillPattern=FillPattern.HorizontalCylinder),
@@ -2093,18 +2083,18 @@ Via the optional heatPort the medium in the tank can be cooled or heated.
             coordinateSystem(preserveAspectRatio=false)),
         Documentation(info="<html>
 <p>This is a simple model of a piston in a cylinder:</p>
-<p>The translational flange is connected to the piston, the cylinder has a flowPort at the bottom.</p> 
+<p>The translational flange is connected to the piston, the cylinder has a flowPort at the bottom.</p>
 <p>
-The position of the piston within the cylinder goes from 0 at the bottom to L (length of the cylinder) at the top of the cylinder. 
+The position of the piston within the cylinder goes from 0 at the bottom to L (length of the cylinder) at the top of the cylinder.
 If the piston leaves the cylinder, an assertion is triggered.
 <ul>
 <li>A movement of the piston is coupled with volume flow through the flowPort.</li>
 <li>The force at the piston is equal to pressure of the fluid times A (cross section of the piston).</li>
 </ul>
-The piston is considered without mass. 
+The piston is considered without mass.
 </p>
 <p>
-Note: Take care of the initial conditions. The position of the piston (relative to the support) should be in the range (0, L). 
+Note: Take care of the initial conditions. The position of the piston (relative to the support) should be in the range (0, L).
 The position of the flange (as well as of the support, if useSupport=true) is influenced by connected components.
 </p>
 </html>"));
@@ -2169,13 +2159,13 @@ The axis intersections vary with speed as follows:
 <li>dp prop. speed^2</li>
 <li>V_flow prop. speed</li>
 </ul>
-Note: Increasing the pressure difference above dp0 leads to an inversion of volumeFlow, 
+Note: Increasing the pressure difference above dp0 leads to an inversion of volumeFlow,
 which means inversion of power flow, i.e. the machien is acting as a turbine.
 </p>
 <p>
-Coolant's temperature and enthalpy flow are not affected. 
+Coolant's temperature and enthalpy flow are not affected.
 Setting parameter m (mass of medium within fan/pump) to zero
-leads to neglect of temperature transient cv*m*der(T). 
+leads to neglect of temperature transient cv*m*der(T).
 Thermodynamic equations are defined by Partials.TwoPort.
 </p>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
@@ -2708,7 +2698,7 @@ Thermodynamic equations are defined by Partials.TwoPort.
       annotation (
         Documentation(info="<html>
 <p>
-This model simply extends from the <a href=\"modelica://Modelica.Thermal.FluidHeatFlow.Components.PumpTurbine\">PumpTurbine</a> model</li> 
+This model simply extends from the <a href=\"modelica://Modelica.Thermal.FluidHeatFlow.Components.PumpTurbine\">PumpTurbine</a> model</li>
 and is kept for compatibility reasons. In the future, it will be marked as obsolete and removed.
 </p>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
