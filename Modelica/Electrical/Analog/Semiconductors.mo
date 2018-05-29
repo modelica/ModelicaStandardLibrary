@@ -483,16 +483,18 @@ model NPN "Simple BJT according to Ebers-Moll"
   parameter Boolean UIC = false "Decision if initial value should be used";
 
   extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=293.15);
-  protected
-  Real vbc;
-  Real vbe;
-  Real qbk;
-  Real ibc;
-  Real ibe;
-  Real cbc;
-  Real cbe;
-  Real Capcje;
-  Real Capcjc;
+
+  SI.Voltage vbc "Base-collector voltage";
+  SI.Voltage vbe "Base-emitter voltage";
+  Real qbk "Relative majority carrier charge, inverse";
+  SI.Current ibc "Base-collector diode current";
+  SI.Current ibe "Base-emitter diode current";
+  SI.Capacitance cbc "Total base-collector capacitance";
+  SI.Capacitance cbe "Total base-emitter capacitance";
+  SI.Capacitance Capcje "Effective base-emitter depletion capacitance";
+  SI.Capacitance Capcjc "Effective base-collector depletion capacitance";
+
+
   public
   Modelica.Electrical.Analog.Interfaces.Pin C "Collector" annotation (Placement(
         transformation(extent={{90,50},{110,70}}), iconTransformation(extent={{90,50},{110,70}})));
