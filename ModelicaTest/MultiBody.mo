@@ -10,39 +10,40 @@ package MultiBody "Test models for Modelica.Mechanics.MultiBody"
     final parameter SI.Length rh2[3]=rv2 + rh1 - rv1
       "Position vector from r2 to r3";
 
-    inner Modelica.Mechanics.MultiBody.World world(axisDiameter=0.6/40,
-        axisLength=0.8) annotation (Placement(transformation(extent={{-28,-60},{-8,
-              -40}})));
+    inner Modelica.Mechanics.MultiBody.World world(
+      axisDiameter=0.6/40,
+      axisLength=0.8) annotation (Placement(transformation(extent={{-40,-60},{-20,-40}})));
     Modelica.Mechanics.MultiBody.Joints.Revolute r1(useAxisFlange=true)
       annotation (Placement(transformation(
           origin={0,-10},
           extent={{-10,-10},{10,10}},
           rotation=90)));
+    Modelica.Mechanics.MultiBody.Joints.Revolute r2 annotation (Placement(
+          transformation(extent={{20,30},{40,50}})));
+    Modelica.Mechanics.MultiBody.Joints.Revolute r3 annotation (Placement(
+          transformation(extent={{-10,-10},{10,10}},
+          rotation=-90,
+          origin={90,10})));
+    Modelica.Mechanics.MultiBody.Joints.RevolutePlanarLoopConstraint r4
+      annotation (Placement(transformation(extent={{50,-60},{70,-40}})));
     Modelica.Mechanics.MultiBody.Parts.FixedTranslation rod1(r=rv1) annotation (
        Placement(transformation(
           origin={0,20},
           extent={{-10,-10},{10,10}},
           rotation=90)));
     Modelica.Mechanics.MultiBody.Parts.FixedTranslation rod2(r=rh1) annotation (
-       Placement(transformation(extent={{16,-60},{36,-40}})));
-    Modelica.Mechanics.MultiBody.Joints.Revolute r2 annotation (Placement(
-          transformation(extent={{10,30},{30,50}})));
+       Placement(transformation(extent={{20,-60},{40,-40}})));
     Modelica.Mechanics.MultiBody.Parts.BodyShape bodyShape(
       m=1,
       r=rh2,
-      r_CM=rh2/2) annotation (Placement(transformation(extent={{38,30},{58,50}})));
-    Modelica.Mechanics.MultiBody.Joints.Revolute r3 annotation (Placement(
-          transformation(extent={{64,30},{84,50}})));
-    Modelica.Mechanics.MultiBody.Joints.RevolutePlanarLoopConstraint r4
-      annotation (Placement(transformation(extent={{64,-60},{84,-40}})));
+      r_CM=rh2/2) annotation (Placement(transformation(extent={{50,30},{70,50}})));
     Modelica.Mechanics.MultiBody.Parts.FixedTranslation rod3(r=rv2) annotation (
        Placement(transformation(
-          origin={90,-10},
+          origin={90,-20},
           extent={{-10,-10},{10,10}},
           rotation=90)));
     Modelica.Blocks.Math.MatrixGain deg2rad1(
-                                            K=[2*Modelica.Math.asin(1)/180,0,0;
-          0,2*Modelica.Math.asin(1)/180,0; 0,0,2*Modelica.Math.asin(1)/180])
+      K=[2*Modelica.Math.asin(1)/180,0,0;0,2*Modelica.Math.asin(1)/180,0; 0,0,2*Modelica.Math.asin(1)/180])
       annotation (Placement(transformation(extent={{-70,-20},{-50,0}})));
     Modelica.Blocks.Sources.CombiTimeTable combiTimeTable(
       smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative,
@@ -50,48 +51,48 @@ package MultiBody "Test models for Modelica.Mechanics.MultiBody"
       extrapolation=Modelica.Blocks.Types.Extrapolation.LastTwoPoints)
       annotation (Placement(transformation(extent={{-100,-20},{-80,0}})));
     Modelica.Mechanics.Rotational.Sources.Move move
-      annotation (Placement(transformation(extent={{-38,-20},{-18,0}})));
+      annotation (Placement(transformation(extent={{-40,-20},{-20,0}})));
   equation
-    connect(world.frame_b,r1. frame_a) annotation (Line(
-        points={{-8,-50},{-6.66134e-016,-50},{-6.66134e-016,-20}},
+    connect(world.frame_b, r1.frame_a) annotation (Line(
+        points={{-20,-50},{-6.66134e-16,-50},{-6.66134e-16,-20}},
         color={95,95,95},
         thickness=0.5));
-    connect(rod1.frame_a,r1. frame_b) annotation (Line(
+    connect(rod1.frame_a, r1.frame_b) annotation (Line(
         points={{-6.66134e-016,10},{-6.66134e-016,6},{-6.66134e-016,0},{4.44089e-016,
             0}},
         thickness=0.5));
-    connect(rod2.frame_a,world. frame_b) annotation (Line(
-        points={{16,-50},{-8,-50}},
+    connect(rod2.frame_a, world.frame_b) annotation (Line(
+        points={{20,-50},{-20,-50}},
         color={95,95,95},
         thickness=0.5));
-    connect(rod1.frame_b,r2. frame_a) annotation (Line(
-        points={{4.44089e-016,30},{4.44089e-016,40},{10,40}},
+    connect(rod1.frame_b, r2.frame_a) annotation (Line(
+        points={{4.44089e-16,30},{4.44089e-16,40},{20,40}},
         color={95,95,95},
         thickness=0.5));
-    connect(bodyShape.frame_b,r3. frame_a) annotation (Line(
-        points={{58,40},{58,40},{64,40}},
+    connect(bodyShape.frame_b, r3.frame_a) annotation (Line(
+        points={{70,40},{90,40},{90,20}},
         color={95,95,95},
         thickness=0.5));
-    connect(rod2.frame_b,r4. frame_a) annotation (Line(
-        points={{36,-50},{36,-50},{64,-50}},
+    connect(rod2.frame_b, r4.frame_a) annotation (Line(
+        points={{40,-50},{50,-50}},
         color={95,95,95},
         thickness=0.5));
-    connect(r4.frame_b,rod3. frame_a) annotation (Line(
-        points={{84,-50},{90,-50},{90,-20}},
+    connect(r4.frame_b, rod3.frame_a) annotation (Line(
+        points={{70,-50},{90,-50},{90,-30}},
         color={95,95,95},
         thickness=0.5));
-    connect(rod3.frame_b,r3. frame_b) annotation (Line(
-        points={{90,0},{90,40},{84,40}},
+    connect(rod3.frame_b, r3.frame_b) annotation (Line(
+        points={{90,-10},{90,0}},
         color={95,95,95},
         thickness=0.5));
-    connect(combiTimeTable.y,deg2rad1. u) annotation (Line(
+    connect(combiTimeTable.y, deg2rad1.u) annotation (Line(
         points={{-79,-10},{-72,-10}}, color={0,0,127}));
     connect(move.flange, r1.axis) annotation (Line(
-        points={{-18,-10},{-10,-10}}));
+        points={{-20,-10},{-10,-10}}));
     connect(deg2rad1.y, move.u) annotation (Line(
-        points={{-49,-10},{-40,-10}}, color={0,0,127}));
+        points={{-49,-10},{-42,-10}}, color={0,0,127}));
     connect(r2.frame_b, bodyShape.frame_a) annotation (Line(
-        points={{30,40},{38,40}},
+        points={{40,40},{50,40}},
         color={95,95,95},
         thickness=0.5));
     annotation (experiment(StopTime=3), Documentation(info="<html>
@@ -147,7 +148,6 @@ algorithm is applied with inlining. For this reason in MSL 3.2.1 build 3, the an
 annotation \"Inline = false\". This results in slightly less efficient code, but is more robust
 in the situation at hand.
 </p>
-
 </html>"));
   end PlanarLoopWithMove;
   extends Modelica.Icons.ExamplesPackage;
