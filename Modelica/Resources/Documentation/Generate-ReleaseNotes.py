@@ -23,8 +23,9 @@ IssueType = IntEnum(
     names=[
         ('Bugs', 1),
         ('Enhancements', 2),
-        ('Documentation', 3),
-        ('Miscellaneous', 4)
+        ('Examples', 3),
+        ('Documentation', 4),
+        ('Miscellaneous', 5)
     ]
 )
 
@@ -58,13 +59,16 @@ def main(dir, milestone, version):
             # Mark pull requests
             if 'pull_request' in issue:
                 t = '(PR) ' + t
-            issueType = IssueType.Miscellaneous
-            if 'bug' in labels:
+            if 'example' in labels:
+                issueType = IssueType.Examples
+            elif 'documentation' in labels:
+                issueType = IssueType.Documentation
+            elif 'bug' in labels:
                 issueType = IssueType.Bugs
             elif 'enhancement' in labels:
                 issueType = IssueType.Enhancements
-            elif 'documentation' in labels:
-                issueType = IssueType.Documentation
+            else:
+                issueType = IssueType.Miscellaneous
             # Introduce generic label if there was not any library related label
             if not any(l.startswith('L: ') for l in labels):
                 labels.append('L: --MSL-general--')
