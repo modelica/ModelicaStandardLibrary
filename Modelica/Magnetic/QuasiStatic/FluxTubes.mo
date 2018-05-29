@@ -1817,11 +1817,11 @@ The permeances of all elements of this package are calculated from their geometr
   package Interfaces "Interfaces of magnetic network components"
     extends Modelica.Icons.InterfacesPackage;
 
-    connector MagneticPort "Basic quasi static magnet connector"
+    connector MagneticPort "Quasi static magnetic port"
       Modelica.SIunits.ComplexMagneticPotential V_m
-      "Complex magnetic potential at the node";
+      "Complex magnetic potential of the port";
       flow Modelica.SIunits.ComplexMagneticFlux Phi
-      "Complex magnetic flux flowing into the pin";
+      "Complex magnetic flux flowing into the port";
       annotation (Documentation(info="<html>
 <p>Base definition of complex quasi static magnetic port.
 The potential variable is the complex magnetic potential difference <code>V_m</code> and the flow variable

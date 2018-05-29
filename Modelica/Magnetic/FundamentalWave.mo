@@ -8697,10 +8697,10 @@ This package provides sensors for the magnetic potential difference and the magn
 
   package Interfaces "Interfaces and partial models"
     extends Modelica.Icons.InterfacesPackage;
-    connector MagneticPort "Complex magnetic port"
-      Modelica.SIunits.ComplexMagneticPotentialDifference V_m
-        "Complex magnetic potential difference";
-      flow Modelica.SIunits.ComplexMagneticFlux Phi "Complex magnetic flux";
+    connector MagneticPort "Complex magnetic port of fundamental wave machines"
+      Modelica.SIunits.ComplexMagneticPotential V_m
+        "Complex magnetic potential of port";
+      flow Modelica.SIunits.ComplexMagneticFlux Phi "Complex magnetic flux into port";
       annotation (Documentation(info="<html>
 <p>
 The potential quantity of the magnetic port is the complex magnetic potential difference <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/V_m.png\">. The corresponding flow quantity is the magnetic flux <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/Phi.png\">.
