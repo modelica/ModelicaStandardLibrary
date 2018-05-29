@@ -8,11 +8,6 @@ package AST_BatchPlant
     replaceable package BatchMedium = Modelica.Media.Water.StandardWater constrainedby
       Modelica.Media.Interfaces.PartialTwoPhaseMedium "Component media";
 
-  /*
-  replaceable package BatchMedium =Modelica.Media.Electrolytes.WaterNaCl extends
-    Modelica.Media.Interfaces.PartialTwoPhaseMedium "Component media";
-*/
-
     parameter Modelica.SIunits.Length pipeDiameter = 0.01;
 
     BaseClasses.TankWith3InletOutletArraysWithEvaporatorCondensor B5(
@@ -1385,7 +1380,6 @@ Full steady state initialization is not supported, because the corresponding ini
         SteadyStateMomentum "SteadyStateMomentum: Steady state momentum",
         SteadyStateHydraulic
           "SteadyStateHydraulic -- Hydraulic steady state (der(p)=0), guess value for p, initial values for T or h, X, C",
-
         SteadyState
           "SteadyState -- Steady state (guess values for p, T or h, X, C)")
       "Enumeration to define initialization options"
