@@ -1803,7 +1803,7 @@ It is required that L &ge; 0, otherwise an assertion is raised. To avoid a varia
                        </html>"));
   end Potentiometer;
 
-  model CurrentToVoltageAdaptor
+  model GeneralCurrentToVoltageAdaptor
     "Signal adaptor for an Electrical OnePort with voltage and derivative of voltage as outputs and current and derivative of current as inputs (especially useful for FMUs)"
     extends Modelica.Blocks.Interfaces.PartialFMUadaptors.FlowToPotentialAdaptor(
       final Name_p="v",
@@ -1851,10 +1851,15 @@ Note, the adaptor contains <strong>no ground</strong>.
 Bear in mind that separating physical components and connecting them via adaptor signals requires to place appropriate
 <a href=\"modelica://Modelica.Electrical.Analog.Basic.Ground\">ground components</a> to define electric potential within the subcircuits.
 </p>
-</html>"));
-  end CurrentToVoltageAdaptor;
+</html>"),   Icon(graphics={
+              Rectangle(
+                extent={{-20,100},{20,-100}},
+                lineColor={0,0,255},
+                radius=10,
+            lineThickness=0.5)}));
+  end GeneralCurrentToVoltageAdaptor;
 
-  model VoltageToCurrentAdaptor
+  model GeneralVoltageToCurrentAdaptor
     "Signal adaptor for an Electrical OnePort with current and derivative of current as output and voltage and derivative of voltage as input (especially useful for FMUs)"
     extends Modelica.Blocks.Interfaces.PartialFMUadaptors.PotentialToFlowAdaptor(
       final Name_p="v",
@@ -1902,8 +1907,13 @@ Note, the adaptor contains <strong>no ground</strong>.
 Bear in mind that separating physical components and connecting them via adaptor signals requires to place appropriate
 <a href=\"modelica://Modelica.Electrical.Analog.Basic.Ground\">ground components</a> to define electric potential within the subcircuits.
 </p>
-</html>"));
-  end VoltageToCurrentAdaptor;
+</html>"), Icon(graphics={
+              Rectangle(
+                extent={{-20,100},{20,-100}},
+                lineColor={0,0,255},
+                radius=10,
+            lineThickness=0.5)}));
+  end GeneralVoltageToCurrentAdaptor;
   annotation (Documentation(info="<html>
 <p>This package contains very basic analog electrical components such as resistor, conductor, capacitor, inductor, and the ground (which is needed in each electrical circuit description. Furthermore, controlled sources, coupling components, and some improved (but nevertheless basic) are in this package.</p>
 </html>", revisions="<html>
