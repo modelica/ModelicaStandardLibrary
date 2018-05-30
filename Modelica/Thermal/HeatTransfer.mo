@@ -1279,7 +1279,14 @@ Examples of the usage of this adaptor are provided in
 <a href=\"modelica://Modelica.Thermal.HeatTransfer.Examples.GenerationOfFMUs\">HeatTransfer.Examples.GenerationOfFMUs</a>.
 This adaptor has heatflow as input and temperature and derivative of temperature as output signals.
 </p>
-</html>"));
+</html>"),
+        Icon(
+          graphics={
+            Rectangle(
+              extent={{-20,100},{20,-100}},
+              lineColor={191,0,0},
+              radius=10,
+              lineThickness=0.5)}));
     end HeatflowToTemperatureAdaptor;
 
     model TemperatureToHeatflowAdaptor
@@ -1322,7 +1329,14 @@ This adaptor has temperature and derivative of temperature as input signals and 
 Note, the input signals must be consistent to each other
 (derT=der(T)).
 </p>
-</html>"));
+</html>"),
+        Icon(
+          graphics={
+            Rectangle(
+              extent={{-20,100},{20,-100}},
+              lineColor={191,0,0},
+              radius=10,
+              lineThickness=0.5)}));
     end TemperatureToHeatflowAdaptor;
     annotation (Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics={
       Rectangle(
