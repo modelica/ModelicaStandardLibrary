@@ -4,16 +4,12 @@ model DoublePendulumInitTip
   extends Modelica.Icons.Example;
   inner World world annotation (Placement(
         transformation(extent={{-100,-10},{-80,10}})));
-  Joints.Revolute revolute1(
-    useAxisFlange=true,
-    phi(start=-0.34906585039887))
-    annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
+  Joints.Revolute revolute1(useAxisFlange=true) annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
   Rotational.Components.Damper damper(d=0.1)
     annotation (Placement(transformation(extent={{-60,30},{-40,50}})));
   Parts.BodyBox boxBody1(r={0.5,0,0}, width=0.06)
     annotation (Placement(transformation(extent={{-20,-10},{0,10}})));
-  Joints.Revolute revolute2(phi(start=1.5707963267949))
-    annotation (Placement(transformation(extent={{20,-10},{40,10}})));
+  Joints.Revolute revolute2 annotation (Placement(transformation(extent={{20,-10},{40,10}})));
   Parts.BodyBox boxBody2(r={0.5,0,0}, width=0.06)
     annotation (Placement(transformation(extent={{60,-10},{80,10}})));
   Modelica.Mechanics.MultiBody.Joints.FreeMotionScalarInit freeMotionScalarInit(
