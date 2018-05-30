@@ -2185,6 +2185,9 @@ The exact difference between package Modelica version 3.2.3 and version 3.2.2 is
 summarized in a <a href=\"modelica://Modelica/Resources/Documentation/Version-3.2.3/DifferencesTo322.html\">comparison table</a>.
 </p>
 
+<p>
+The license has been changed to BSD 3-clause, visit: <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.
+</p>
 
 <p><br>
 The following <font color=\"blue\"><strong>new libraries</strong></font> have been added:
@@ -2197,7 +2200,7 @@ The following <font color=\"blue\"><strong>new libraries</strong></font> have be
     in a comparable way as <a href=\"modelica://Modelica.Magnetic.FluxTubes\">Modelica.Magnetic.FluxTubes</a>.<br>
     (This library was developed by Christian Kral).
     </td></tr>
-<tr><td><a href=\"modelica://Modelica.Electrical.Machines.Examples.ConrolledDCDrives\">Modelica.Electrical.Machines.Examples.ConrolledDCDrives</a></td>
+<tr><td><a href=\"modelica://Modelica.Electrical.Machines.Examples.ControlledDCDrives\">Modelica.Electrical.Machines.Examples.ControlledDCDrives</a></td>
     <td>
     This library demonstrates the control of a permanent magnet dc machine: current control, speed control and position control 
     along with the necessary components in sublibrary Utilities.<br>
@@ -2212,8 +2215,14 @@ to <font color=\"blue\"><strong>existing</strong></font> libraries:<br>
 
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
 <tr><td colspan=\"2\"><strong>Modelica.Blocks.Math</strong></td></tr>
+<tr><td width=\"150\">WrapAngle</td>
+    <td> Wraps the angle signal at the input to the interval ]-&pi;, &pi;] or [0, 2&pi;[.</td></tr>
+<tr><td width=\"150\">Pythagoras</td>
+    <td> This block determines the hypotenuse from the legs or one leg from the hypotenuse and the other leg.</td></tr>
 <tr><td width=\"150\">TotalHarmonicDistortion</td>
     <td> This block calculates THD of the signal at the input.</td></tr>
+<tr><td width=\"150\">RealFFT</td>
+    <td> This block samples the input and calculates the FFT, writing the result to a mat file when the simulation terminates.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Blocks.Interfaces.PartialFMUAdaptors</strong></td></tr>
 <tr><td width=\"150\">FlowToPotentialAdaptor<br>PotentialToFlowAdaptor</td>
     <td> Partial adaptors for generation of FMUs, optionally taking first and second derivative into account,
@@ -2221,12 +2230,25 @@ to <font color=\"blue\"><strong>existing</strong></font> libraries:<br>
 <tr><td colspan=\"2\"><strong>Modelica.ComplexBlocks.Routing</strong></td></tr>
 <tr><td width=\"150\">Replicator<br>ExtractSignal<br>Extractor<br>ComplexPassThrough</td>
     <td> Complex implementations analogous to the real implementations.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.ComplexBlocks.ComplexMath</strong></td></tr>
+<tr><td width=\"150\">Bode</td>
+    <td> Determine variables of a Bode diagram.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.ComplexBlocks.Sources</strong></td></tr>
 <tr><td width=\"150\">RampPhasor</td>
     <td> A source of a phasor with constant angle and rampled amplitude.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Electrical.Analog.Basic</strong></td></tr>
 <tr><td width=\"150\">GeneralCurrentToVoltageAdaptor<b>GeneralVoltageToCurrentAdaptor</td>
     <td> Adaptors for the generation of FMUs, optionally taking first and second derivative into account.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Analog.Sensors</strong></td></tr>
+<tr><td width=\"150\">MultiSensor</td>
+    <td> Measures voltage, current and power simultaneously.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.MultiPhase.Sensors</strong></td></tr>
+<tr><td width=\"150\">MultiSensor</td>
+    <td> Measures voltage, current and active power for each phase as well as total power simultaneously.</td></tr>
+<tr><td width=\"150\">AronSensor</td>
+    <td> Measures active power for a threephase system by two singlephase power sensors in an Aron circuit.</td></tr>
+<tr><td width=\"150\">ReactivePowerSensor</td>
+    <td> Measures reactive power for a threephase system.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Electrical.Machines.Examples</strong></td></tr>
 <tr><td width=\"150\">SMEE_DOL</td>
     <td> Electrically excited synchronous machine, starting direct on line via the damper cage, 
@@ -2243,9 +2265,19 @@ to <font color=\"blue\"><strong>existing</strong></font> libraries:<br>
 <tr><td colspan=\"2\"><strong>Modelica.Electrical.PowerConverters.DCDC</strong></td></tr>
 <tr><td width=\"150\">ChopperStepUp</td>
     <td> Step up chopper (boost converter) model.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.QuasiStationary.SinglePhase.Sensors</strong></td></tr>
+<tr><td width=\"150\">MultiSensor</td>
+    <td> Measures voltage, current and apparent power simultaneously.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.QuasiStationary.MultiPhase.Sensors</strong></td></tr>
+<tr><td width=\"150\">MultiSensor</td>
+    <td> Measures voltage, current and apparent power for m phases as well as total apparent power simultaneously.</td></tr>
+<tr><td width=\"150\">AronSensor</td>
+    <td> Measures active power for a threephase system by two singlephase power sensors in an Aron circuit.</td></tr>
+<tr><td width=\"150\">ReactivePowerSensor</td>
+    <td> Measures reactive power for a threephase system.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Electrical.QuasiStationary.{SinglePhase, MultiPhase}.Sources</strong></td></tr>
-<tr><td width=\"150\">FrquencySweepVoltageSource<br>FrquencySweepCurrentSource</td>
-    <td> Volatge source and surrent source with integrated frequency sweep.</td></tr>
+<tr><td width=\"150\">FrequencySweepVoltageSource<br>FrquencySweepCurrentSource</td>
+    <td> Voltage source and surrent source with integrated frequency sweep.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Mechanics.Rotational.Components</strong></td></tr>
 <tr><td width=\"150\">GeneralTorqueToAngleAdaptor<br>GeneralAngleToTorqueAdaptor</td>
     <td> Adaptors for the generation of FMUs, optionally taking first and second derivative into account.<br>
@@ -2266,6 +2298,9 @@ to <font color=\"blue\"><strong>existing</strong></font> libraries:<br>
 <tr><td width=\"150\"> </td>
     <td> A lot of new test examples for fundamentalwave machines.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Thermal.HeatTransfer.Components</strong></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.QuasiStatic.Magnetic.FundamentalWave.Sensors</strong></td></tr>
+<tr><td width=\"150\">RotorDisplacementAngle</td>
+    <td> Measures the rotor displacemnt angle of a quasistatic machine.</td></tr>
 <tr><td width=\"150\">HeatFlowToTemperatureAdaptor<br>TemperatureToHeatFlowAdaptor</td>
     <td> Adaptors for the generation of FMUs, optionally taking first derivative into account.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Thermal.FluidHeatFlow.Examples</strong></td></tr>
