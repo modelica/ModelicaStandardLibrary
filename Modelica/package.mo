@@ -2166,7 +2166,24 @@ class Version_3_2_3 "Version 3.2.3 (August 1, 2018)"
   extends Modelica.Icons.ReleaseNotes;
 
  annotation (Documentation(info="<html>
+<p>
+Version 3.2.3 is backward compatible to version 3.2.2, that is models developed with
+versions 3.0, 3.0.1, 3.1, 3.2, 3.2.1 or 3.2.2 will work without any changes also with version 3.2.3.
+This version is a \"clean-up\" with major emphasis on quality improvement and
+tool compatibility. The goal is that all
+<a href=\"https://www.modelica.org/tools\">Modelica tools</a> will support this package
+and will interpret it in the same way. Short Overview:
+</p>
 
+<ul>
+<li> About <a href=\"modelica://Modelica/Resources/Documentation/Version-3.2.3/ResolvedGitHubIssues.html\">394 issues (including pull requests)</a>
+     have been addressed for this release.</li>
+</ul>
+
+<p>
+The exact difference between package Modelica version 3.2.3 and version 3.2.2 is
+summarized in a <a href=\"modelica://Modelica/Resources/Documentation/Version-3.2.3/DifferencesTo322.html\">comparison table</a>.
+</p>
 </html>"));
 end Version_3_2_3;
 
@@ -4764,7 +4781,7 @@ The following changes are present for the whole library:
 
 <li> All non-standard annotations removed by:<br>
          (1) Removing the annotation since without effect
-                 (e.g., \"__Dymola_experimentSetupOutput\", \"Window\", \"Terminal\" removed).<br>
+                 (e.g., \"\", \"Window\", \"Terminal\" removed).<br>
          (2) Renaming the annotation to a standard name (e.g., \"Hide\" renamed to \"HideResult\").<br>
          (3) Renaming the annotation to a vendor specific name
                  (e.g., \"checkBox\" renamed to \"__Dymola_checkBox\").<br>&nbsp;</li>
