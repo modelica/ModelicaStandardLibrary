@@ -2301,7 +2301,7 @@ to <font color=\"blue\"><strong>existing</strong></font> libraries:<br>
 <tr><td colspan=\"2\"><strong>Modelica.QuasiStatic.Magnetic.FundamentalWave.Sensors</strong></td></tr>
 <tr><td width=\"150\">RotorDisplacementAngle</td>
     <td> Measures the rotor displacemnt angle of a quasistatic machine.</td></tr>
-<tr><td width=\"150\">HeatFlowToTemperatureAdaptor<br>TemperatureToHeatFlowAdaptor</td>
+<tr><td width=\"150\">GeneralHeatFlowToTemperatureAdaptor<br>GeneralTemperatureToHeatFlowAdaptor</td>
     <td> Adaptors for the generation of FMUs, optionally taking first derivative into account.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Thermal.FluidHeatFlow.Examples</strong></td></tr>
 <tr><td width=\"150\">WaterPump<br>TestOpenTank<br>TwoTanks<br>TestPiston</td>
