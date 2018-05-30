@@ -2727,7 +2727,6 @@ About <strong>400</strong> trac tickets have been fixed for this release. An ove
 Clicking on a ticket gives all information about it.
 </p>
 
-
 <p><br>
 The following <font color=\"blue\"><strong>new components</strong></font> have been added
 to <font color=\"blue\"><strong>existing</strong></font> libraries:
@@ -8098,11 +8097,11 @@ For an introduction, have especially a look at:
 This version of the Modelica Standard Library consists of
 </p>
 <ul>
-<li><strong>1711</strong> models and blocks, and</li>
-<li><strong>1224</strong> functions</li>
+<li><strong>1689</strong> models and blocks, and</li>
+<li><strong>1222</strong> functions</li>
 </ul>
 <p>
-that are directly usable (= number of public, non-partial classes). It is fully compliant
+that are directly usable (= number of public, non-partial, non-internal and non-obsolete classes). It is fully compliant
 to <a href=\"https://www.modelica.org/documents/ModelicaSpec32Revision2.pdf\">Modelica Specification Version 3.2 Revision 2</a>
 and it has been tested with Modelica tools from different vendors.
 </p>
