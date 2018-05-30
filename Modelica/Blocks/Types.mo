@@ -122,16 +122,16 @@ initialization definition.
     "Enumeration defining the regularization around zero";
 
   type LimiterHomotopy = enumeration(
-      noHomotopy "Simplified model = actual model",
-      linear "Simplified model: y = u",
-      uMax "Simplified model: y = uMax",
-      uMin "Simplified model: y = uMin")
+      NoHomotopy "Simplified model = actual model",
+      Linear "Simplified model: y = u",
+      UMax "Simplified model: y = uMax",
+      UMin "Simplified model: y = uMin")
     "Enumeration defining use of homotopy in limiter components" annotation (Evaluate=true);
 
   type VariableLimiterHomotopy = enumeration(
-      noHomotopy "Simplified model = actual model",
-      linear "Simplified model: y = u",
-      fixed "Simplified model: y = ySimplified")
+      NoHomotopy "Simplified model = actual model",
+      Linear "Simplified model: y = u",
+      Fixed "Simplified model: y = ySimplified")
     "Enumeration defining use of homotopy in variable limiter components" annotation (Evaluate=true);
 
   class ExternalCombiTimeTable
