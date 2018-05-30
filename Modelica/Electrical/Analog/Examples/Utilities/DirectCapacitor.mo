@@ -15,7 +15,7 @@ model DirectCapacitor "Input/output block of a direct capacitor model"
         origin={-40,0})));
   Modelica.Blocks.Interfaces.RealInput iDrive(unit="A")
     annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
-  Modelica.Electrical.Analog.Basic.CurrentToVoltageAdaptor currentToVoltage(
+  Modelica.Electrical.Analog.Basic.GeneralCurrentToVoltageAdaptor currentToVoltage(
       use_pder=true, use_fder=false)
     annotation (Placement(transformation(extent={{12,-10},{28,10}})));
   Modelica.Blocks.Interfaces.RealOutput v(unit="V")

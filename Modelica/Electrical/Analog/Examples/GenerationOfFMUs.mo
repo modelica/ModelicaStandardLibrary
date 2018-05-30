@@ -22,14 +22,14 @@ model GenerationOfFMUs
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-50,40})));
-  Modelica.Electrical.Analog.Basic.CurrentToVoltageAdaptor currentToVoltage2a(
+  Modelica.Electrical.Analog.Basic.GeneralCurrentToVoltageAdaptor currentToVoltage2a(
       use_pder=false, use_fder=false)
     annotation (Placement(transformation(extent={{-10,30},{10,50}})));
   Modelica.Electrical.Analog.Basic.Capacitor capacitor2b(v(fixed=true, start=0), C=2e-3)
     annotation (Placement(transformation(extent={{-10,-10},{10,10}},
         rotation=270,
         origin={80,40})));
-  Modelica.Electrical.Analog.Basic.CurrentToVoltageAdaptor currentToVoltage2b(
+  Modelica.Electrical.Analog.Basic.GeneralCurrentToVoltageAdaptor currentToVoltage2b(
       use_pder=false, use_fder=false)
     annotation (Placement(transformation(extent={{70,30},{50,50}})));
   Modelica.Electrical.Analog.Basic.Ground ground2a
@@ -53,12 +53,12 @@ model GenerationOfFMUs
   Modelica.Electrical.Analog.Basic.Inductor inductor4a(i(fixed=true, start=0), L=1e-3) annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         origin={-30,-50})));
-  Modelica.Electrical.Analog.Basic.VoltageToCurrentAdaptor voltageToCurrent4a(
+  Modelica.Electrical.Analog.Basic.GeneralVoltageToCurrentAdaptor voltageToCurrent4a(
       use_pder=false, use_fder=false)
     annotation (Placement(transformation(extent={{10,-70},{-10,-50}})));
   Modelica.Electrical.Analog.Examples.Utilities.Conductor conductor4(G=10)
     annotation (Placement(transformation(extent={{20,-70},{40,-50}})));
-  Modelica.Electrical.Analog.Basic.VoltageToCurrentAdaptor voltageToCurrent4b(
+  Modelica.Electrical.Analog.Basic.GeneralVoltageToCurrentAdaptor voltageToCurrent4b(
       use_pder=false, use_fder=false)
     annotation (Placement(transformation(extent={{50,-70},{70,-50}})));
   Modelica.Electrical.Analog.Basic.Inductor inductor4b(i(fixed=true, start=0), L=2e-3) annotation (Placement(transformation(

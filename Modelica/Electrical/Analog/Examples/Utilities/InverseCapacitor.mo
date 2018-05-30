@@ -7,7 +7,7 @@ model InverseCapacitor "Input/output block of an inverse capacitor model"
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={20,0})));
-  Modelica.Electrical.Analog.Basic.VoltageToCurrentAdaptor voltageToCurrent(
+  Modelica.Electrical.Analog.Basic.GeneralVoltageToCurrentAdaptor voltageToCurrent(
       use_fder=false)
     annotation (Placement(transformation(extent={{-30,-10},{-10,10}})));
   Modelica.Blocks.Interfaces.RealInput v(unit="V")

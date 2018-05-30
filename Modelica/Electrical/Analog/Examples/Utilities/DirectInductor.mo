@@ -13,7 +13,7 @@ model DirectInductor "Input/output block of a direct inductor model"
         origin={-40,0})));
   Modelica.Blocks.Interfaces.RealInput vDrive(unit="V")
     annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
-  Modelica.Electrical.Analog.Basic.VoltageToCurrentAdaptor currentToVoltage(
+  Modelica.Electrical.Analog.Basic.GeneralVoltageToCurrentAdaptor currentToVoltage(
       use_pder=false, use_fder=true)
     annotation (Placement(transformation(extent={{28,-10},{12,10}})));
   Modelica.Blocks.Interfaces.RealOutput i(unit="A")
