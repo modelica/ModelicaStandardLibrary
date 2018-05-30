@@ -2184,6 +2184,123 @@ and will interpret it in the same way. Short Overview:
 The exact difference between package Modelica version 3.2.3 and version 3.2.2 is
 summarized in a <a href=\"modelica://Modelica/Resources/Documentation/Version-3.2.3/DifferencesTo322.html\">comparison table</a>.
 </p>
+
+
+<p><br>
+The following <font color=\"blue\"><strong>new libraries</strong></font> have been added:
+</p>
+
+<table border=\"1\" cellspacing=0 cellpadding=2>
+<tr><td><a href=\"modelica://Modelica.Magnetic.Quasistatic.FluxTubes\">Modelica.Magnetic.Quasistatic.FluxTubes</a></td>
+    <td>
+    This library provide models for the investigation of quasi static electromagnetic devices with lumped magnetic networks
+    in a comparable way as <a href=\"modelica://Modelica.Magnetic.FluxTubes\">Modelica.Magnetic.FluxTubes</a>.<br>
+    (This library was developed by Christian Kral).
+    </td></tr>
+<tr><td><a href=\"modelica://Modelica.Electrical.Machines.Examples.ConrolledDCDrives\">Modelica.Electrical.Machines.Examples.ConrolledDCDrives</a></td>
+    <td>
+    This library demonstrates the control of a permanent magnet dc machine: current control, speed control and position control 
+    along with the necessary components in sublibrary Utilities.<br>
+    (This library was developed by Anton Haumer).
+    </td></tr>
+</table>
+
+<p><br>
+The following <font color=\"blue\"><strong>new components</strong></font> have been added
+to <font color=\"blue\"><strong>existing</strong></font> libraries:<br>
+</p>
+
+<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<tr><td colspan=\"2\"><strong>Modelica.Blocks.Math</strong></td></tr>
+<tr><td width=\"150\">TotalHarmonicDistortion</td>
+    <td> This block calculates THD of the signal at the input.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Blocks.Interfaces.PartialFMUAdaptors</strong></td></tr>
+<tr><td width=\"150\">FlowToPotentialAdaptor<br>PotentialToFlowAdaptor</td>
+    <td> Partial adaptors for generation of FMUs, optionally taking first and second derivative into account,
+         for consistent components in various domains.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.ComplexBlocks.Routing</strong></td></tr>
+<tr><td width=\"150\">Replicator<br>ExtractSignal<br>Extractor<br>ComplexPassThrough</td>
+    <td> Complex implementations analogous to the real implementations.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.ComplexBlocks.Sources</strong></td></tr>
+<tr><td width=\"150\">RampPhasor</td>
+    <td> A source of a phasor with constant angle and rampled amplitude.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Analog.Basic</strong></td></tr>
+<tr><td width=\"150\">GeneralCurrentToVoltageAdaptor<b>GeneralVoltageToCurrentAdaptor</td>
+    <td> Adaptors for the generation of FMUs, optionally taking first and second derivative into account.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Machines.Examples</strong></td></tr>
+<tr><td width=\"150\">SMEE_DOL</td>
+    <td> Electrically excited synchronous machine, starting direct on line via the damper cage, 
+         synchronised by increasing excitation voltage.</td></tr>
+<tr><td width=\"150\">SMR_DOL</td>
+    <td> Synchronous relcutance machine, starting direct on line via the damper cage, 
+         synchronised when reaching synchronous speed.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Machines.Sensors</strong></td></tr>
+<tr><td width=\"150\">HallSensor</td>
+    <td> Simple model of a hall sensor, measuring the angle aligned with the orientation of phase 1.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.PowerConverters.DCAC.Control</strong></td></tr>
+<tr><td width=\"150\">PWM<br>SVPWM<br>IntersectivePWM</td>
+    <td> Standard three-phase pwm algorithms: space vector and intersective.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.PowerConverters.DCDC</strong></td></tr>
+<tr><td width=\"150\">ChopperStepUp</td>
+    <td> Step up chopper (boost converter) model.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.QuasiStationary.{SinglePhase, MultiPhase}.Sources</strong></td></tr>
+<tr><td width=\"150\">FrquencySweepVoltageSource<br>FrquencySweepCurrentSource</td>
+    <td> Volatge source and surrent source with integrated frequency sweep.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Mechanics.Rotational.Components</strong></td></tr>
+<tr><td width=\"150\">GeneralTorqueToAngleAdaptor<br>GeneralAngleToTorqueAdaptor</td>
+    <td> Adaptors for the generation of FMUs, optionally taking first and second derivative into account.<br>
+         Note: These adaptors give the same results as:<br>
+         GeneralTorqueToAngleAdaptor<br>GeneralAngleToTorqueAdaptor<br>
+         but extend from <a href=\"modelica://Modelica.Blocks.Interfaces.PartialFMUadaptors\">Modelica.Blocks.Interfaces.PartialFMUadaptors</a>  
+         like adaptors in other domains.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Mechanics.Rotational.Sources</strong></td></tr>
+<tr><td width=\"150\">EddyCurrentTorque</td>
+    <td> Rotational eddy current brake.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Mechanics.Translational.Components</strong></td></tr>
+<tr><td width=\"150\">GeneralForceToPositionAdaptor<b>GeneralPositionToForceAdaptor</td>
+    <td> Adaptors for the generation of FMUs, optionally taking first and second derivative into account.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Mechanics.Translational.Sources</strong></td></tr>
+<tr><td width=\"150\">EddyCurrentForce</td>
+    <td> Translational eddy current brake.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Magnetic.FundamentalWave.Examples</strong></td></tr>
+<tr><td width=\"150\"> </td>
+    <td> A lot of new test examples for fundamentalwave machines.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Thermal.HeatTransfer.Components</strong></td></tr>
+<tr><td width=\"150\">HeatFlowToTemperatureAdaptor<br>TemperatureToHeatFlowAdaptor</td>
+    <td> Adaptors for the generation of FMUs, optionally taking first derivative into account.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Thermal.FluidHeatFlow.Examples</strong></td></tr>
+<tr><td width=\"150\">WaterPump<br>TestOpenTank<br>TwoTanks<br>TestPiston</td>
+    <td> New examples testing and demonstrating the new resp. enhanced components.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Thermal.FluidHeatFlow.Components</strong></td></tr>
+<tr><td width=\"150\">OpenTank</td>
+    <td> A simple model of an open tank.</td></tr>
+<tr><td width=\"150\">Piston</td>
+    <td> A simple model of a piston/cylinder with translational flange.</td></tr>
+<tr><td width=\"150\">PumpTurbine</td>
+    <td> An improved version of the Sources.IdealPump model (which extends from the PumpTurbine model now)</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Thermal.FluidHeatFlow.Media</strong></td></tr>
+<tr><td width=\"150\">Water_10degC<br>Water_90degC<br>Glycol20_20degC<br>Glycol50_20degC<br>MineralOil</td>
+    <td> Several new records defining media properties.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Constants</strong></td></tr>
+<tr><td width=\"150\">q</td>
+    <td> The elementary charge of an electron.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Icons</strong></td></tr>
+<tr><td width=\"150\">RecordPackage</td>
+    <td> This icon indicates a package that contains records.</td></tr>
+</table>
+
+<p><br>
+The following <font color=\"blue\"><strong>existing components</strong></font>
+have been <font color=\"blue\"><strong>improved</strong></font> in a
+<font color=\"blue\"><strong>backward compatible</strong></font> way:
+</p>
+
+<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<tr><td colspan=\"2\"><strong>Modelica.Blocks.Continuous</strong></td></tr>
+<tr><td>LimPID</td>
+    <td> Added an optional feedforward-input.</td></tr>
+</table>
+
 </html>"));
 end Version_3_2_3;
 
