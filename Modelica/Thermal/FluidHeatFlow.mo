@@ -1540,10 +1540,10 @@ The temperature of tank 1 remains unchanged, the temperature of tank 2 is increa
       Modelica.Mechanics.Translational.Sources.Force force
         annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
       Modelica.Thermal.FluidHeatFlow.Components.Cylinder cylinder1(
-        T(fixed=true),
         A=0.1,
         L=10,
-        s(fixed=true, start=cylinder1.L/2)) annotation (Placement(
+        s(fixed=true, start=cylinder1.L/2),
+        T(fixed=true, start=313.15))        annotation (Placement(
             transformation(
             extent={{-10,10},{10,-10}},
             rotation=180,
@@ -1857,7 +1857,7 @@ V_flow**2 * rho / dp = Kv(y)**2 * rho0 / dp0
     end Valve;
 
     model OpenTank "Model of a tank under ambient pressure"
-      extends Interfaces.Partials.SinglePortBottom;
+      extends Interfaces.Partials.SinglePortBottom(final Exchange=true, T(start=293.15));
       parameter Modelica.SIunits.Area ATank(start=1) "Cross section of tank";
       parameter Modelica.SIunits.Length hTank(start=1) "Height of tank";
       parameter Modelica.SIunits.Pressure pAmbient(start=0) "Ambient pressure";
@@ -1902,10 +1902,6 @@ V_flow**2 * rho / dp = Kv(y)**2 * rho0 / dp0
       //pressure at bottom
       flowPort.p = pAmbient + m*g/ATank;
       annotation (Icon(coordinateSystem(preserveAspectRatio=false), graphics={
-                                              Text(
-              extent={{-150,150},{150,110}},
-              lineColor={0,0,255},
-              textString="%name"),
             Ellipse(
               extent={{-80,-60},{80,-100}},
               fillColor={170,170,255},
@@ -1986,14 +1982,13 @@ Via the optional heatPort the medium in the tank can be cooled or heated.
 
     model Cylinder "Simple model of a piston in a cylinder"
       import Modelica.Constants.small;
-      extends Interfaces.Partials.Cylinder;
+      extends Interfaces.Partials.SinglePortLeft(final Exchange=true, T(start=293.15));
       parameter Modelica.SIunits.Area A "Cross section of cylinder/piston";
       parameter Modelica.SIunits.Length L "Length of cylinder";
       extends
-        Modelica.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupport2
-        (s(start=small));
+        Modelica.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupport2(
+         s(start=small));
       Modelica.SIunits.Force f=flange.f "Force at piston";
-      Modelica.SIunits.Temperature T(start=293.15) "Temperature of medium";
     protected
       Modelica.SIunits.Mass m "Mass of medium";
       Modelica.SIunits.Enthalpy H "Enthalpy of medium";
@@ -2005,10 +2000,7 @@ Via the optional heatPort the medium in the tank can be cooled or heated.
       der(m) = flowPort.m_flow;
       H = m*h;
       der(H)=flowPort.H_flow;
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false)),
-                                                             Diagram(
-            coordinateSystem(preserveAspectRatio=false)),
-        Documentation(info="<html>
+      annotation (Documentation(info="<html>
 <p>This is a simple model of a piston in a cylinder:</p>
 <p>The translational flange is connected to the piston, the cylinder has a flowPort at the bottom.</p>
 <p>
@@ -2024,7 +2016,41 @@ The piston is considered without mass.
 Note: Take care of the initial conditions. The position of the piston (relative to the support) should be in the range (0, L).
 The position of the flange (as well as of the support, if useSupport=true) is influenced by connected components.
 </p>
-</html>"));
+</html>"),
+         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+                {100,100}}), graphics={       Text(
+              extent={{-150,140},{150,100}},
+              lineColor={0,0,255},
+              textString="%name"),
+            Polygon(
+              points={{-90,10},{-70,10},{-70,60},{70,60},{70,-60},{-70,-60},{-70,-10},
+                  {-90,-10},{-90,10}},
+              lineColor={255,0,0},
+              fillColor={0,0,255},
+              fillPattern=FillPattern.Solid,
+              lineThickness=0.5),
+            Rectangle(
+              extent={{-14,58},{68,-58}},
+              lineColor={28,108,200},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Rectangle(
+              extent={{-24,58},{-14,-58}},
+              lineThickness=0.5,
+              fillColor={192,192,192},
+              fillPattern=FillPattern.HorizontalCylinder),
+            Rectangle(
+              extent={{-14,10},{90,-10}},
+              lineThickness=0.5,
+              lineColor={0,127,0},
+              fillColor={160,215,160},
+              fillPattern=FillPattern.HorizontalCylinder),
+            Line(points={{-10,-72},{70,-72}}),
+            Polygon(
+              points={{-40,-72},{-10,-62},{-10,-82},{-40,-72}},
+              lineColor={128,128,128},
+              fillColor={128,128,128},
+              fillPattern=FillPattern.Solid)}));
     end Cylinder;
 
     model PumpTurbine "Model of an ideal pump/turbine"
@@ -2416,7 +2442,7 @@ All sensors are considered massless, they do not change mass flow or enthalpy fl
 
     model Ambient "Ambient with constant properties"
 
-      extends Interfaces.Partials.Ambient;
+      extends Interfaces.Partials.SinglePortLeft(final Exchange=true);
       parameter Boolean usePressureInput=false
         "Enable / disable pressure input"
         annotation(Evaluate=true, choices(checkBox=true));
@@ -2468,16 +2494,20 @@ All sensors are considered massless, they do not change mass flow or enthalpy fl
               extent={{20,80},{80,20}},
               textString="p"), Text(
               extent={{20,-20},{80,-80}},
-              textString="T")}));
+              textString="T"),         Ellipse(
+              extent={{-90,90},{90,-90}},
+              lineColor={255,0,0},
+              fillColor={0,0,255},
+              fillPattern=FillPattern.Solid)}));
     end Ambient;
 
     model AbsolutePressure "Defines absolute pressure level"
-      extends Interfaces.Partials.SinglePortLeft;
+      extends Interfaces.Partials.SinglePortLeft(final Exchange=false);
       parameter Modelica.SIunits.Pressure p(start=0) "Pressure ground";
     equation
       // defining pressure
       flowPort.p = p;
-      // no energy exchange; no mass flow by default
+      // no no mass flow means no energy flow
       flowPort.H_flow = 0;
       annotation (
         Documentation(info="<html>
@@ -2489,10 +2519,7 @@ All sensors are considered massless, they do not change mass flow or enthalpy fl
            Ellipse(extent={{-90,90},{90,-90}},
               lineColor={255,0,0},
               fillColor={255,255,255},
-              fillPattern=FillPattern.Solid), Text(
-              extent={{-150,140},{150,100}},
-              lineColor={0,0,255},
-              textString="%name")}));
+              fillPattern=FillPattern.Solid)}));
     end AbsolutePressure;
 
     model VolumeFlow "Enforces constant volume flow"
@@ -2883,118 +2910,82 @@ leads to neglect of temperature transient cv*m*der(T).</p>
 
       partial model SinglePortLeft
         "Partial model of a single port at the left"
-
         parameter FluidHeatFlow.Media.Medium medium=FluidHeatFlow.Media.Medium() "Medium"
           annotation(choicesAllMatching=true);
         output Modelica.SIunits.Temperature T_port "Temperature at flowPort_a";
+        output Modelica.SIunits.Temperature T "Outlet temperature of medium";
         Interfaces.FlowPort_a flowPort(final medium=medium)
           annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
+      protected
+        constant Boolean Exchange=true "Exchange of medium via flowport"
+          annotation(HideResult=true);
+        Modelica.SIunits.SpecificEnthalpy h "Specific enthalpy in the volume";
       equation
         T_port=flowPort.h/medium.cp;
+        T=h/medium.cp;
+        // mass flow -> ambient: mixing rule
+        // mass flow <- ambient: energy flow defined by ambient's temperature
+        if Exchange then
+          flowPort.H_flow = semiLinear(flowPort.m_flow,flowPort.h,h);
+        else
+          h=flowPort.h;
+        end if;
       annotation (Documentation(info="<html>
 <p>
 Partial model of single port at the left, defining the medium and the temperature at the port.
 </p>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                  {100,100}})));
+                  {100,100}}), graphics={       Text(
+                extent={{-150,140},{150,100}},
+                lineColor={0,0,255},
+                textString="%name")}));
       end SinglePortLeft;
 
       partial model Ambient "Partial model of ambient"
         extends SinglePortLeft;
-        output Modelica.SIunits.Temperature T "Outlet temperature of medium";
-      protected
-        Modelica.SIunits.SpecificEnthalpy h;
-      equation
-        h = medium.cp*T;
-        // mass flow -> ambient: mixing rule
-        // mass flow <- ambient: energy flow defined by ambient's temperature
-        flowPort.H_flow = semiLinear(flowPort.m_flow,flowPort.h,h);
       annotation (Documentation(info="<html>
 <p>
-Partial model of (Infinite) ambient, defines pressure and temperature.
+This model simply extends from the <a href=\"modelica://Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.SinglePortLeft\">SinglePortLeft</a> model</li>,
+onyl adding an icon, and is kept for compatibility reasons. In the future, it will be marked as obsolete and removed.
 </p>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                   {100,100}}), graphics={Ellipse(
                 extent={{-90,90},{90,-90}},
                 lineColor={255,0,0},
                 fillColor={0,0,255},
-                fillPattern=FillPattern.Solid), Text(
-                extent={{-150,140},{150,100}},
-                lineColor={0,0,255},
-                textString="%name")}));
+                fillPattern=FillPattern.Solid)}));
       end Ambient;
 
-      partial model Cylinder "Partial model of cylinder"
-        extends SinglePortLeft;
-        output Modelica.SIunits.Temperature T(start=293.15) "Outlet temperature of medium";
+      partial model SinglePortBottom
+
+        parameter FluidHeatFlow.Media.Medium medium=FluidHeatFlow.Media.Medium() "Medium"
+          annotation(choicesAllMatching=true);
+        output Modelica.SIunits.Temperature T_port "Temperature at flowPort_a";
+        output Modelica.SIunits.Temperature T "Outlet temperature of medium";
+        Interfaces.FlowPort_a flowPort(final medium=medium)
+          annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
       protected
-        Modelica.SIunits.SpecificEnthalpy h;
+        constant Boolean Exchange=true "Exchange of medium via flowport";
+        Modelica.SIunits.SpecificEnthalpy h "Specific enthalpy in the volume";
       equation
-        h = medium.cp*T;
+        T_port=flowPort.h/medium.cp;
+        T=h/medium.cp;
         // mass flow -> ambient: mixing rule
         // mass flow <- ambient: energy flow defined by ambient's temperature
-        flowPort.H_flow = semiLinear(flowPort.m_flow,flowPort.h,h);
+        if Exchange then
+          flowPort.H_flow = semiLinear(flowPort.m_flow,flowPort.h,h);
+        else
+          h=flowPort.h;
+        end if;
       annotation (Documentation(info="<html>
-<p>Partial model of a cylinder (and piston). </p>
+<p>
+Partial model of single port at the bottom, defining the medium and the temperature at the port.
+</p>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                   {100,100}}), graphics={       Text(
                 extent={{-150,140},{150,100}},
                 lineColor={0,0,255},
-                textString="%name"),
-              Polygon(
-                points={{-90,10},{-70,10},{-70,60},{70,60},{70,-60},{-70,-60},{-70,-10},
-                    {-90,-10},{-90,10}},
-                lineColor={255,0,0},
-                fillColor={0,0,255},
-                fillPattern=FillPattern.Solid,
-                lineThickness=0.5),
-              Rectangle(
-                extent={{-14,58},{68,-58}},
-                lineColor={28,108,200},
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid),
-              Rectangle(
-                extent={{-24,58},{-14,-58}},
-                lineThickness=0.5,
-                fillColor={192,192,192},
-                fillPattern=FillPattern.HorizontalCylinder),
-              Rectangle(
-                extent={{-14,10},{90,-10}},
-                lineThickness=0.5,
-                lineColor={0,127,0},
-                fillColor={160,215,160},
-                fillPattern=FillPattern.HorizontalCylinder),
-              Line(points={{-10,-72},{70,-72}}),
-              Polygon(
-                points={{-40,-72},{-10,-62},{-10,-82},{-40,-72}},
-                lineColor={128,128,128},
-                fillColor={128,128,128},
-                fillPattern=FillPattern.Solid)}));
-      end Cylinder;
-
-      partial model SinglePortBottom
-        "Partial model of a single port at the bottom"
-
-        parameter FluidHeatFlow.Media.Medium medium=FluidHeatFlow.Media.Medium() "Medium"
-          annotation(choicesAllMatching=true);
-        output Modelica.SIunits.Temperature T_port "Temperature at flowPort";
-        output Modelica.SIunits.Temperature T(start=293.15) "Temperature in volume";
-        Interfaces.FlowPort_a flowPort(final medium=medium)
-          annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
-      protected
-        Modelica.SIunits.SpecificEnthalpy h;
-      equation
-        flowPort.h = medium.cp*T_port;
-        h = medium.cp*T;
-        // mass flow -> ambient: mixing rule
-        // mass flow <- ambient: energy flow defined by ambient's temperature
-        flowPort.H_flow = semiLinear(flowPort.m_flow,flowPort.h,h);
-      annotation (Documentation(info="<html>
-<p>
-Partial model of single port at the left, defining the medium and the temperature at the port.
-</p>
-</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                  {100,100}})));
+                textString="%name")}));
       end SinglePortBottom;
 
       partial model AbsoluteSensor "Partial model of absolute sensor"
