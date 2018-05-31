@@ -14,7 +14,7 @@ package FluidHeatFlow
 <p>
 <strong>Anton Haumer</strong><br>
 <a href=\"http://www.haumer.at\">Technical Consulting &amp; Electrical Engineering</a><br>
-A-3423 St. Andrae-Woerdern, Austria<br>
+93049 Regensburg, Germany<br>
 email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
 </p>
 
@@ -38,15 +38,16 @@ Copyright &copy; 1998-2018, Modelica Association, Anton Haumer, Christian Kral a
       extends Modelica.Icons.ReleaseNotes;
       annotation (Documentation(info="<html>
 
-  <h5>3.2.3, 2018-05-28</h5>
+  <h5>3.2.3, 2018-05-28 (Anton Haumer)</h5>
   <ul>
   <li> Fixed a bug in the IdealPump model</li>
+  <li> Added a simple open tank model</li>
   <li> Added a simple piston/cylinder model</li>
   <li> Added some more media</li>
   <li> Added some more examples</li>
   </ul>
 
-  <h5>3.2.2, 2010-06-25</h5>
+  <h5>3.2.2, 2010-06-25 (Christian Kral)</h5>
   <ul>
   <li> Added users guide package including contact and release notes</li>
   </ul>
@@ -93,61 +94,61 @@ Copyright &copy; 1998-2018, Modelica Association, Anton Haumer, Christian Kral a
   <li> New parameter tapT defining Temperature of heatPort</li>
   </ul>
 
-  <h5>1.50 2005-09-07 (Anton Haumer)</h5>
+  <h5>1.5.0 2005-09-07 (Anton Haumer)</h5>
   <ul>
   <li> SemiLinear works fine</li>
   </ul>
 
-  <h5>1.43 Beta 2005-06-20 (Anton Haumer)</h5>
+  <h5>1.4.3 Beta 2005-06-20 (Anton Haumer)</h5>
   <ul>
   <li> Test of mixing / semiLinear</li>
   <li>New test example: OneMass</li>
   <li>New test example: TwoMass</li>
   </ul>
 
-  <h5>1.42 Beta, 2005-06-18 (Anton Haumer)</h5>
+  <h5>1.4.2 Beta, 2005-06-18 (Anton Haumer)</h5>
   <ul>
   <li> New test example: ParallelPumpDropOut</li>
   </ul>
 
-  <h5>1.40, 2005-06-13 (Anton Haumer)</h5>
+  <h5>1.4.0, 2005-06-13 (Anton Haumer)</h5>
   <ul>
   <li> Stable release</li>
   </ul>
 
-  <h5>1.33 Beta, 2005-06-07 (Anton Haumer)</h5>
+  <h5>1.3.3 Beta, 2005-06-07 (Anton Haumer)</h5>
   <ul>
   <li> Corrected usage of simpleFlow</li>
   </ul>
 
-  <h5>1.31 Beta, 2005/06/04 Anton Haumer</h5>
+  <h5>1.3.1 Beta, 2005/06/04 Anton Haumer</h5>
   <ul>
   <li>New example: PumpAndValve</li>
   <li>New example: PumpDropOut</li>
   </ul>
 
-  <h5>1.30 Beta, 2005-06-02 (Anton Haumer)</h5>
+  <h5>1.3.0 Beta, 2005-06-02 (Anton Haumer)</h5>
   <ul>
   <li> Friction losses are fed to medium</li>
   </ul>
 
-  <h5>1.20 Beta, 2005-02-18 (Anton Haumer)</h5>
+  <h5>1.2.0 Beta, 2005-02-18 (Anton Haumer)</h5>
   <ul>
   <li>Introduced geodetic height in Components.Pipes</li>
   <li>New models: Components.Valve, Sources.IdealPump</li>
   </ul>
 
-  <h5>1.11, 2005-02-18 (Anton Haumer)</h5>
+  <h5>1.1.1, 2005-02-18 (Anton Haumer)</h5>
   <ul>
   <li>Corrected usage of cv and cp</li>
   </ul>
 
-  <h5>1.10, 2005-02-15 (Anton Haumer)</h5>
+  <h5>1.1.0, 2005-02-15 (Anton Haumer)</h5>
   <ul>
   <li>Reorganisation of the package</li>
   </ul>
 
-  <h5>1.00, 2005-02-01 (Anton Haumer)</h5>
+  <h5>1.0.0, 2005-02-01 (Anton Haumer)</h5>
   <ul>
   <li>First stable official release</li>
   </ul>
@@ -1428,8 +1429,8 @@ It is possible to investigate the dependencies of volume flow, pressure, torque 
     model TestOpenTank "Test the OpenTank model"
       extends Modelica.Icons.Example;
       Modelica.Thermal.FluidHeatFlow.Components.OpenTank openTank(
-        A=1,
-        h=1,
+        ATank=1,
+        hTank=1,
         useHeatPort=false,
         pAmbient=0,
         g=10,
@@ -1484,8 +1485,8 @@ Subsequently the medium is pumped into the tank from an (infinite) ambient:
     model TwoTanks "Two connected open tanks"
       extends Modelica.Icons.Example;
       Modelica.Thermal.FluidHeatFlow.Components.OpenTank openTank1(
-        A=1,
-        h=1,
+        ATank=1,
+        hTank=1,
         useHeatPort=false,
         g=10,
         pAmbient=100000,
@@ -1493,8 +1494,8 @@ Subsequently the medium is pumped into the tank from an (infinite) ambient:
         T(fixed=true, start=313.15))
         annotation (Placement(transformation(extent={{-60,12},{-40,32}})));
       Modelica.Thermal.FluidHeatFlow.Components.OpenTank openTank2(
-        A=1,
-        h=1,
+        ATank=1,
+        hTank=1,
         useHeatPort=false,
         g=10,
         pAmbient=100000,
@@ -1531,22 +1532,23 @@ The temperature of tank 1 remains unchanged, the temperature of tank 2 is increa
 </html>"));
     end TwoTanks;
 
-    model TestPiston "Two piston system"
+    model TestCylinder "Two cylinder system"
       extends Modelica.Icons.Example;
       Modelica.Blocks.Sources.CombiTimeTable combiTimeTable(
         table=[0,0; 0.25,0; 0.25,-1; 0.5,-1; 0.5,0; 0.75,0])
         annotation (Placement(transformation(extent={{-90,-10},{-70,10}})));
       Modelica.Mechanics.Translational.Sources.Force force
         annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
-      Modelica.Thermal.FluidHeatFlow.Components.Piston piston1(
+      Modelica.Thermal.FluidHeatFlow.Components.Cylinder cylinder1(
         T(fixed=true),
         A=0.1,
         L=10,
-        s(fixed=true, start=piston1.L/2)) annotation (Placement(transformation(
+        s(fixed=true, start=cylinder1.L/2)) annotation (Placement(
+            transformation(
             extent={{-10,10},{10,-10}},
             rotation=180,
             origin={-20,0})));
-      Modelica.Thermal.FluidHeatFlow.Components.Piston piston2(
+      Modelica.Thermal.FluidHeatFlow.Components.Cylinder cylinder2(
         T(fixed=true),
         A=1,
         L=1) annotation (Placement(transformation(
@@ -1556,22 +1558,22 @@ The temperature of tank 1 remains unchanged, the temperature of tank 2 is increa
       Modelica.Mechanics.Translational.Components.Mass mass(m=1)
         annotation (Placement(transformation(extent={{30,-10},{50,10}})));
       Modelica.Mechanics.Translational.Components.SpringDamper springDamper(
-        s_rel0=piston2.L/2,
+        s_rel0=cylinder2.L/2,
         c=100,
-        d=5,
-        s_rel(fixed=true, start=piston2.L/2),
-        v_rel(fixed=true, start=0))
-        annotation (Placement(transformation(extent={{80,-10},{60,10}})));
+        s_rel(fixed=true, start=cylinder2.L/2),
+        v_rel(fixed=true, start=0),
+        d=10) annotation (Placement(transformation(extent={{80,-10},{60,10}})));
       Modelica.Mechanics.Translational.Components.Fixed fixed
         annotation (Placement(transformation(extent={{80,-10},{100,10}})));
     equation
-      connect(piston1.flowPort, piston2.flowPort)
-        annotation (Line(points={{-10,0},{0,0}}, color={255,0,0}));
-      connect(force.flange, piston1.flange)
-        annotation (Line(points={{-40,0},{-30,0}}, color={0,127,0}));
+      connect(cylinder1.flowPort, cylinder2.flowPort) annotation (Line(points={
+              {-10,-1.33227e-15},{-4,-1.33227e-15},{-4,0},{0,0}}, color={255,0,
+              0}));
+      connect(force.flange, cylinder1.flange) annotation (Line(points={{-40,0},
+              {-34,0},{-34,1.33227e-15},{-30,1.33227e-15}}, color={0,127,0}));
       connect(combiTimeTable.y[1], force.f)
         annotation (Line(points={{-69,0},{-62,0}}, color={0,0,127}));
-      connect(piston2.flange, mass.flange_a)
+      connect(cylinder2.flange, mass.flange_a)
         annotation (Line(points={{20,0},{30,0}}, color={0,127,0}));
       connect(springDamper.flange_b, mass.flange_b)
         annotation (Line(points={{60,0},{50,0}}, color={0,127,0}));
@@ -1579,10 +1581,10 @@ The temperature of tank 1 remains unchanged, the temperature of tank 2 is increa
         annotation (Line(points={{80,0},{90,0}}, color={0,127,0}));
       annotation (Documentation(info="<html>
 <p>
-Test of a system with 2 pistons (with same volume):
+Test of a system with 2 cylinders (with same volume):
 <ul>
-<li>piston1: A = 0.1 m2, L=10. m, initial position at s=L/2</li>
-<li>piston2: A = 1.0 m2, L=1.0 m, initial position at s=L/2</li>
+<li>cylinder1: A = 0.1 m2, L=10. m, initial position of piston at s=L/2</li>
+<li>cylinder2: A = 1.0 m2, L=1.0 m, initial position of piston at s=L/2</li>
 </ul>
 A force is applied that presses from 0.25 s to 0.50 s with 1 Nm on piston1.
 Due to the ratio of areas 10:1
@@ -1594,11 +1596,11 @@ At piston2 a mass is mounted which is moved and presses the springDamper.
 When the force at piston1 is removed, the springDamper pushes back the mass and a damped oscillation occurs.
 </p>
 <p>
-Note: Take care of the initial conditions. The unstretched spring length is piston2.L/2,
+Note: Take care of the initial conditions. The unstretched spring length is cylinder2.L/2,
 i.e. when piston2 is the middle of its cylinder the spring applies no force to the mass (and piston2).
 </p>
 </html>"),     experiment(StopTime=2, Interval=0.001));
-    end TestPiston;
+    end TestCylinder;
 
     package Utilities "Utility models for examples"
       extends Modelica.Icons.UtilitiesPackage;
@@ -1662,36 +1664,9 @@ Block generating the sum of two ramps.
                 points={{-80,-60},{-50,-60},{-30,60},{10,60},{30,-20},{70,-20}})}));
       end DoubleRamp;
       annotation (Documentation(info="<html>
-This package contains utility components used for the test examples.<br>
-<dl>
-  <dt><strong>Main Authors:</strong></dt>
-  <dd>
-  <p>
-  <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
-  Technical Consulting &amp; Electrical Engineering<br>
-  A-3423 St.Andrae-Woerdern, Austria<br>
-  email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
-</p>
-  <p>
-  Dr. Christian Kral<br>
-  <a href=\"http://www.ait.ac.at/\">Austrian Institute of Technology, AIT</a><br>
-  Giefinggasse 2<br>
-  A-1210 Vienna, Austria
-</p>
-  </dd>
-</dl>
-<p>
-Copyright &copy; 1998-2018, Modelica Association, Anton Haumer and Austrian Institute of Technology, AIT.
-</p>
-
-<p>
-<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em>
-</p>
+<p>This package contains utility components used for the test examples.</p>
 </html>", revisions="<html>
-  <ul>
-  <li> v1.41 Beta 2005/06/17 Anton Haumer<br>
-       first used</li>
-  </ul>
+
 </html>"));
     end Utilities;
   annotation (Documentation(info="<html>
@@ -1709,7 +1684,7 @@ Copyright &copy; 1998-2018, Modelica Association, Anton Haumer and Austrian Inst
 <li>WaterPump: Water pumping station</li>
 <li>TestOpenTank: Test the <a href=\"modelica://Modelica.Thermal.FluidHeatFlow.Components.OpenTank\">OpenTank</a> model</li>
 <li>TwoTanks: Two connected open tanks</li>
-<li>TestPiston: Test the <a href=\"modelica://Modelica.Thermal.FluidHeatFlow.Components.Piston\">Piston</a> model</li>
+<li>TestCylinder: Test the <a href=\"modelica://Modelica.Thermal.FluidHeatFlow.Components.Cylinder\">Cylinder</a> model</li>
 </ol>
 
 </html>", revisions="<html>
@@ -1734,10 +1709,12 @@ Copyright &copy; 1998-2018, Modelica Association, Anton Haumer and Austrian Inst
       // no energy exchange with medium
       Q_flow = Q_friction;
     annotation (Documentation(info="<html>
-Pipe without heat exchange.<br>
-Thermodynamic equations are defined by Partials.TwoPortMass(Q_flow = 0).<br>
+<p>Pipe without heat exchange.</o>>
+<p>Thermodynamic equations are defined by Partials.TwoPortMass(Q_flow = 0).</p>
+<p>
 <strong>Note:</strong> Setting parameter m (mass of medium within pipe) to zero
 leads to neglect of temperature transient cv*m*der(T).
+</p>
 </html>"),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
                 100}}), graphics={Rectangle(
@@ -1767,13 +1744,18 @@ leads to neglect of temperature transient cv*m*der(T).
       // defines heatPort's temperature
       heatPort.T = T_q;
     annotation (Documentation(info="<html>
-Pipe with heat exchange.<br>
-Thermodynamic equations are defined by Partials.TwoPort.<br>
-Q_flow is defined by heatPort.Q_flow.<br>
+<p>Pipe with heat exchange.</p>
+<p>
+Thermodynamic equations are defined by Partials.TwoPort. 
+Q_flow is defined by heatPort.Q_flow.</p>
+<p>
 <strong>Note:</strong> Setting parameter m (mass of medium within pipe) to zero
-leads to neglect of temperature transient cv*m*der(T).<br>
+leads to neglect of temperature transient cv*m*der(T).
+</p>
+<p>
 <strong>Note:</strong> Injecting heat into a pipe with zero mass flow causes
 temperature rise defined by storing heat in medium's mass.
+</p>
 </html>"),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
                 100}}), graphics={
@@ -1876,16 +1858,15 @@ V_flow**2 * rho / dp = Kv(y)**2 * rho0 / dp0
 
     model OpenTank "Model of a tank under ambient pressure"
       extends Interfaces.Partials.SinglePortBottom;
-      parameter Modelica.SIunits.Area A(start=1) "Cross section of tank";
-      parameter Modelica.SIunits.Length h(start=1) "Height of tank";
+      parameter Modelica.SIunits.Area ATank(start=1) "Cross section of tank";
+      parameter Modelica.SIunits.Length hTank(start=1) "Height of tank";
       parameter Modelica.SIunits.Pressure pAmbient(start=0) "Ambient pressure";
       parameter Modelica.SIunits.Acceleration g(final min=0)=Modelica.Constants.g_n "Gravitation";
       parameter Boolean useHeatPort = false "=true, if HeatPort is enabled"
         annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
       Modelica.SIunits.Mass m "Mass of medium in tank";
     protected
-      Modelica.SIunits.SpecificEnthalpy hTank "Specific enthalpy of medium";
-      Modelica.SIunits.Enthalpy HTank "Enthalpy of medium";
+      Modelica.SIunits.Enthalpy H "Enthalpy of medium";
       Modelica.SIunits.HeatFlowRate Q_flow "Heat flow at the optional heatPort";
     public
       Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort(final T=T, final Q_flow=Q_flow) if useHeatPort
@@ -1897,28 +1878,29 @@ V_flow**2 * rho / dp = Kv(y)**2 * rho0 / dp0
             extent={{10,-10},{-10,10}},
             rotation=180,
             origin={110,0})));
-      Modelica.Blocks.Interfaces.RealOutput T(quantity="Temperature", unit="K", displayUnit="degC", start=293.15)
+      Modelica.Blocks.Interfaces.RealOutput TTank(quantity="Temperature", unit="K", displayUnit="degC")
         "Temperature of medium in tank" annotation (Placement(transformation(
             extent={{10,-10},{-10,10}},
             rotation=180,
             origin={110,-60})));
     equation
+      //output medium temperature
+      TTank = T;
+      //optional heating/cooling
       if not useHeatPort then
         Q_flow = 0;
       end if;
-      hTank = medium.cp*T;
+      //check level
       assert(level>=0, "Tank got empty!");
-      assert(level<=h, "Tank got full!");
+      assert(level<=hTank, "Tank got full!");
       //mass balance
-      m = medium.rho*A*level;
+      m = medium.rho*ATank*level;
       der(m) = flowPort.m_flow;
       //energy balance
-      HTank = m*hTank;
-      der(HTank) = flowPort.H_flow + Q_flow;
+      H = m*h;
+      der(H) = flowPort.H_flow + Q_flow;
       //pressure at bottom
-      flowPort.p = pAmbient + m*g/A;
-      //flow in or out
-      flowPort.H_flow = semiLinear(flowPort.m_flow,flowPort.h,hTank);
+      flowPort.p = pAmbient + m*g/ATank;
       annotation (Icon(coordinateSystem(preserveAspectRatio=false), graphics={
                                               Text(
               extent={{-150,150},{150,110}},
@@ -2002,19 +1984,18 @@ Via the optional heatPort the medium in the tank can be cooled or heated.
 </html>"));
     end OpenTank;
 
-    model Piston "Simple model of a piston in a cylinder"
+    model Cylinder "Simple model of a piston in a cylinder"
       import Modelica.Constants.small;
-      extends Interfaces.Partials.SinglePortLeft;
+      extends Interfaces.Partials.Cylinder;
       parameter Modelica.SIunits.Area A "Cross section of cylinder/piston";
       parameter Modelica.SIunits.Length L "Length of cylinder";
       extends
-        Modelica.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupport2(
-         s(start=small));
+        Modelica.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupport2
+        (s(start=small));
       Modelica.SIunits.Force f=flange.f "Force at piston";
       Modelica.SIunits.Temperature T(start=293.15) "Temperature of medium";
     protected
       Modelica.SIunits.Mass m "Mass of medium";
-      Modelica.SIunits.SpecificEnthalpy h "Specific enthalpy of medium";
       Modelica.SIunits.Enthalpy H "Enthalpy of medium";
     equation
       assert(s>=small, getInstanceName()+": Piston hit bottom of cylinder!");
@@ -2022,44 +2003,10 @@ Via the optional heatPort the medium in the tank can be cooled or heated.
       flowPort.p*A = -f;
       m = medium.rho*A*s;
       der(m) = flowPort.m_flow;
-      flowPort.H_flow = semiLinear(flowPort.m_flow,flowPort.h,h);
-      T = h/medium.cp;
       H = m*h;
       der(H)=flowPort.H_flow;
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false), graphics={
-            Polygon(
-              points={{-90,10},{-70,10},{-70,60},{70,60},{70,-60},{-70,-60},{-70,-10},
-                  {-90,-10},{-90,10}},
-              lineColor={255,0,0},
-              fillColor={0,0,255},
-              fillPattern=FillPattern.Solid,
-              lineThickness=0.5),
-            Rectangle(
-              extent={{-14,58},{68,-58}},
-              lineColor={28,108,200},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Rectangle(
-              extent={{-24,58},{-14,-58}},
-              lineThickness=0.5,
-              fillColor={192,192,192},
-              fillPattern=FillPattern.HorizontalCylinder),
-            Rectangle(
-              extent={{-14,10},{90,-10}},
-              lineThickness=0.5,
-              lineColor={0,127,0},
-              fillColor={160,215,160},
-              fillPattern=FillPattern.HorizontalCylinder),
-                                              Text(
-              extent={{-160,160},{140,100}},
-              lineColor={0,0,255},
-              textString="%name"),
-            Line(points={{-10,-72},{70,-72}}),
-            Polygon(
-              points={{-40,-72},{-10,-62},{-10,-82},{-40,-72}},
-              lineColor={128,128,128},
-              fillColor={128,128,128},
-              fillPattern=FillPattern.Solid)}),              Diagram(
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false)),
+                                                             Diagram(
             coordinateSystem(preserveAspectRatio=false)),
         Documentation(info="<html>
 <p>This is a simple model of a piston in a cylinder:</p>
@@ -2078,7 +2025,7 @@ Note: Take care of the initial conditions. The position of the piston (relative 
 The position of the flange (as well as of the support, if useSupport=true) is influenced by connected components.
 </p>
 </html>"));
-    end Piston;
+    end Cylinder;
 
     model PumpTurbine "Model of an ideal pump/turbine"
 
@@ -2310,7 +2257,6 @@ Record containing (constant) medium properties.
     end MineralOil;
   annotation (Documentation(info="<html>
 <p>This package contains definitions of medium properties.</p>
-
 </html>", revisions="<html>
 
 </html>"));
@@ -2327,8 +2273,8 @@ Record containing (constant) medium properties.
       y = flowPort.p;
       annotation (
         Documentation(info="<html>
-pSensor measures the absolute pressure.<br>
-Thermodynamic equations are defined by Partials.AbsoluteSensor.
+<p>The PressureSensor measures the absolute pressure.</p>
+<p>Thermodynamic equations are defined by Partials.AbsoluteSensor.</p>
 </html>"),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
           graphics={Text(
@@ -2345,8 +2291,8 @@ Thermodynamic equations are defined by Partials.AbsoluteSensor.
       medium.cp*y = flowPort.h;
     annotation (
         Documentation(info="<html>
-TSensor measures the absolute temperature (Kelvin).<br>
-Thermodynamic equations are defined by Partials.AbsoluteSensor.
+<p>The TempreatureSensor measures the absolute temperature (Kelvin).</p>
+<p>Thermodynamic equations are defined by Partials.AbsoluteSensor.</p>
 </html>"),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
         graphics={Text(extent={{-22,-20},{20,-60}},
@@ -2362,8 +2308,8 @@ Thermodynamic equations are defined by Partials.AbsoluteSensor.
       y = flowPort_a.p - flowPort_b.p;
     annotation (
         Documentation(info="<html>
-dpSensor measures the pressure drop between flowPort_a and flowPort_b.<br>
-Thermodynamic equations are defined by Partials.RelativeSensor.
+<p>The RelPressureSensor measures the pressure drop between flowPort_a and flowPort_b.</p>
+<p>Thermodynamic equations are defined by Partials.RelativeSensor.</p>
 </html>"),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
         graphics={Text(extent={{-22,-20},{20,-60}},
@@ -2379,11 +2325,13 @@ Thermodynamic equations are defined by Partials.RelativeSensor.
       medium.cp*y = flowPort_a.h - flowPort_b.h;
       annotation (
         Documentation(info="<html>
-dTSensor measures the temperature difference between flowPort_a and flowPort_b.<br>
-Thermodynamic equations are defined by Partials.RelativeSensor.<br>
-<strong>Note:</strong> Connected flowPorts have the same temperature (mixing temperature)!<br>
-Since mixing my occur, the outlet temperature of a component may be different from the connector's temperature.<br>
+<p>The RelTemperatureSensor measures the temperature difference between flowPort_a and flowPort_b.</p>
+<p>Thermodynamic equations are defined by Partials.RelativeSensor.</p>
+<p>
+<strong>Note:</strong> Connected flowPorts have the same temperature (mixing temperature)! 
+Since mixing my occur, the outlet temperature of a component may be different from the connector's temperature. 
 Outlet temperature is defined by variable T of the corresponding component.
+</p>
 </html>"),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
         graphics={Text(extent={{-22,-20},{20,-60}},
@@ -2399,8 +2347,8 @@ Outlet temperature is defined by variable T of the corresponding component.
       y = V_flow*medium.rho;
       annotation (
         Documentation(info="<html>
-m_flowSensor measures the mass flow rate.<br>
-Thermodynamic equations are defined by Partials.FlowSensor.
+<p>The MassFlowSensor measures the mass flow rate.</p>
+<p>Thermodynamic equations are defined by Partials.FlowSensor.</p>
 </html>"),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
         graphics={Text(extent={{-22,-20},{20,-60}},
@@ -2416,8 +2364,8 @@ Thermodynamic equations are defined by Partials.FlowSensor.
       y = V_flow;
       annotation (
         Documentation(info="<html>
-V_flowSensor measures the volume flow rate.<br>
-Thermodynamic equations are defined by Partials.FlowSensor.
+<p>The VolumeFlowSensor measures the volume flow rate.</p>
+<p>Thermodynamic equations are defined by Partials.FlowSensor.</p>
 </html>"),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
         graphics={Text(extent={{-22,-20},{20,-60}},
@@ -2433,8 +2381,8 @@ Thermodynamic equations are defined by Partials.FlowSensor.
       y = flowPort_a.H_flow;
       annotation (
         Documentation(info="<html>
-H_flowSensor measures the enthalpy flow rate.<br>
-Thermodynamic equations are defined by Partials.FlowSensor.
+<p>The EnthalpyFlowSensor measures the enthalpy flow rate.</p>
+<p>Thermodynamic equations are defined by Partials.FlowSensor.</p>
 </html>"),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
         graphics={Text(extent={{-22,-20},{20,-60}},
@@ -2444,13 +2392,13 @@ Thermodynamic equations are defined by Partials.FlowSensor.
   annotation (Documentation(info="<html>
 <p>This package contains sensors:</p>
 <ul>
-<li>pSensor: absolute pressure</li>
-<li>TSensor: absolute temperature (Kelvin)</li>
-<li>dpSensor: pressure drop between flowPort_a and flowPort_b</li>
-<li>dTSensor: temperature difference between flowPort_a and flowPort_b</li>
-<li>m_flowSensor: measures mass flow rate</li>
-<li>V_flowSensor: measures volume flow rate</li>
-<li>H_flowSensor: measures enthalpy flow rate</li>
+<li>PressureSensor: absolute pressure</li>
+<li>TemperatureSensor: absolute temperature (Kelvin)</li>
+<li>RelPressureSensor: pressure drop between flowPort_a and flowPort_b</li>
+<li>RelTemperatureSensor: temperature difference between flowPort_a and flowPort_b</li>
+<li>MassFlowSensor: measures mass flow rate</li>
+<li>VolumeFlowSensor: measures volume flow rate</li>
+<li>EnthalpyFlowSensor: measures enthalpy flow rate</li>
 </ul>
 
 <p>Some of the sensors do not need access to medium properties for measuring,
@@ -2513,8 +2461,8 @@ All sensors are considered massless, they do not change mass flow or enthalpy fl
       flowPort.p = pAmbient;
       T = TAmbient;
     annotation (Documentation(info="<html>
-(Infinite) ambient with constant pressure and temperature.<br>
-Thermodynamic equations are defined by Partials.Ambient.
+<p>(Infinite) ambient with constant pressure and temperature.</p>
+<p>Thermodynamic equations are defined by Partials.Ambient.</p>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Text(
               extent={{20,80},{80,20}},
@@ -2533,8 +2481,8 @@ Thermodynamic equations are defined by Partials.Ambient.
       flowPort.H_flow = 0;
       annotation (
         Documentation(info="<html>
-AbsolutePressure to define pressure level of a closed cooling cycle.
-Coolant's mass flow, temperature and enthalpy flow are not affected.<br>
+<p>AbsolutePressure to define pressure level of a closed cooling cycle.</p>
+<p>Coolant's mass flow, temperature and enthalpy flow are not affected.</p>
 </html>"),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
         graphics={
@@ -2571,11 +2519,13 @@ Coolant's mass flow, temperature and enthalpy flow are not affected.<br>
       V_flow = internalVolumeFlow;
       annotation (
         Documentation(info="<html>
-Fan resp. pump with constant volume flow rate. Pressure increase is the response of the whole system.
-Coolant's temperature and enthalpy flow are not affected.<br>
+<p>Fan resp. pump with constant volume flow rate. Pressure increase is the response of the whole system.</p>
+<p>Coolant's temperature and enthalpy flow are not affected.</p>
+<p>
 Setting parameter m (mass of medium within fan/pump) to zero
-leads to neglect of temperature transient cv*m*der(T).<br>
-Thermodynamic equations are defined by Partials.TwoPort.
+leads to neglect of temperature transient cv*m*der(T).
+</p>
+<p>Thermodynamic equations are defined by Partials.TwoPort.</p>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
             Ellipse(
@@ -2621,11 +2571,13 @@ Thermodynamic equations are defined by Partials.TwoPort.
       dp = -internalPressureIncrease;
       annotation (
         Documentation(info="<html>
-Fan resp. pump with constant pressure increase. Mass resp. volume flow is the response of the whole system.
-Coolant's temperature and enthalpy flow are not affected.<br>
+<p>Fan resp. pump with constant pressure increase. Mass resp. volume flow is the response of the whole system.</p>
+<p>Coolant's temperature and enthalpy flow are not affected.</p>
+<p>
 Setting parameter m (mass of medium within fan/pump) to zero
-leads to neglect of temperature transient cv*m*der(T).<br>
-Thermodynamic equations are defined by Partials.TwoPort.
+leads to neglect of temperature transient cv*m*der(T).
+</p>
+<p>Thermodynamic equations are defined by Partials.TwoPort.</p>
 </html>"),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
                 100}}), graphics={
@@ -2675,6 +2627,7 @@ and is kept for compatibility reasons. In the future, it will be marked as obsol
               textString="%name")}));
     end IdealPump;
   annotation (Documentation(info="<html>
+<p>
 This package contains different types of sources:
 <ul>
 <li>Ambient with constant or prescribed pressure and temperature</li>
@@ -2683,9 +2636,9 @@ This package contains different types of sources:
 <li>Constant and prescribed pressure increase</li>
 <li>Simple pump with mechanical flange</li>
 </ul>
-<p>Thermodynamic equations are defined in partial models (package Interfaces.Partials).
-All fans / pumps are considered without losses, they do not change enthalpy flow.</p>
-
+Thermodynamic equations are defined in partial models (package Interfaces.Partials). 
+All fans / pumps are considered without losses, they do not change enthalpy flow.
+</p>
 </html>", revisions="<html>
 
 </html>"));
@@ -2777,7 +2730,7 @@ Same as FlowPort, but icon allows to differentiate direction of flow.
     end FlowPort_b;
 
     package Partials "Partial models"
-      extends Modelica.Icons.Package;
+      extends Modelica.Icons.BasesPackage;
 
       partial model SimpleFriction "Simple friction model"
 
@@ -2818,12 +2771,15 @@ Same as FlowPort, but icon allows to differentiate direction of flow.
         end if;
         Q_friction = frictionLoss*volumeFlow*pressureDrop;
       annotation (Documentation(info="<html>
-Definition of relationship between pressure drop and volume flow rate:<br>
--V_flowLaminar &lt; VolumeFlow &lt; +V_flowLaminar: laminar i.e., linear dependency of pressure drop on volume flow.<br>
--V_flowLaminar &gt; VolumeFlow or VolumeFlow &lt; +V_flowLaminar: turbulent i.e., quadratic dependency of pressure drop on volume flow.<br>
-Linear and quadratic dependency are coupled smoothly at V_flowLaminar / dpLaminar.<br>
-Quadratic dependency is defined by nominal volume flow and pressure drop (V_flowNominal / dpNominal).<br>
+<p>
+Definition of relationship between pressure drop and volume flow rate:
+<ul>
+<li>-V_flowLaminar &lt; VolumeFlow &lt; +V_flowLaminar: laminar i.e., linear dependency of pressure drop on volume flow.</li>
+<li>-V_flowLaminar &gt; VolumeFlow or VolumeFlow &lt; +V_flowLaminar: turbulent i.e., quadratic dependency of pressure drop on volume flow.</li>
+Linear and quadratic dependency are coupled smoothly at V_flowLaminar / dpLaminar. 
+Quadratic dependency is defined by nominal volume flow and pressure drop (V_flowNominal / dpNominal). 
 See also sketch at diagram layer.
+</p>
 </html>"),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                   {100,100}}), graphics={
@@ -2915,12 +2871,13 @@ See also sketch at diagram layer.
         flowPort_a.H_flow = semiLinear(flowPort_a.m_flow,flowPort_a.h,h);
         flowPort_b.H_flow = semiLinear(flowPort_b.m_flow,flowPort_b.h,h);
       annotation (Documentation(info="<html>
-Partial model with two flowPorts.<br>
-Possible heat exchange with the ambient is defined by Q_flow; setting this = 0 means no energy exchange.<br>
+<p>Partial model with two flowPorts.</p>
+<p>Possible heat exchange with the ambient is defined by Q_flow; setting this = 0 means no energy exchange.</p>
+<p>
 Setting parameter m (mass of medium within pipe) to zero
-leads to neglect of temperature transient cv*m*der(T).<br>
-Mixing rule is applied.<br>
-Parameter 0 &lt; tapT &lt; 1 defines temperature of heatPort between medium's inlet and outlet temperature.
+leads to neglect of temperature transient cv*m*der(T).</p>
+<p>Mixing rule is applied.</p>
+<p>Parameter 0 &lt; tapT &lt; 1 defines temperature of heatPort between medium's inlet and outlet temperature.</p>
 </html>"));
       end TwoPort;
 
@@ -2941,24 +2898,6 @@ Partial model of single port at the left, defining the medium and the temperatur
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                   {100,100}})));
       end SinglePortLeft;
-
-      partial model SinglePortBottom
-        "Partial model of a single port at the bottom"
-
-        parameter FluidHeatFlow.Media.Medium medium=FluidHeatFlow.Media.Medium() "Medium"
-          annotation(choicesAllMatching=true);
-        output Modelica.SIunits.Temperature T_port "Temperature at flowPort_a";
-        Interfaces.FlowPort_a flowPort(final medium=medium)
-          annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
-      equation
-        T_port=flowPort.h/medium.cp;
-      annotation (Documentation(info="<html>
-<p>
-Partial model of single port at the left, defining the medium and the temperature at the port.
-</p>
-</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                  {100,100}})));
-      end SinglePortBottom;
 
       partial model Ambient "Partial model of ambient"
         extends SinglePortLeft;
@@ -2985,6 +2924,79 @@ Partial model of (Infinite) ambient, defines pressure and temperature.
                 textString="%name")}));
       end Ambient;
 
+      partial model Cylinder "Partial model of cylinder"
+        extends SinglePortLeft;
+        output Modelica.SIunits.Temperature T(start=293.15) "Outlet temperature of medium";
+      protected
+        Modelica.SIunits.SpecificEnthalpy h;
+      equation
+        h = medium.cp*T;
+        // mass flow -> ambient: mixing rule
+        // mass flow <- ambient: energy flow defined by ambient's temperature
+        flowPort.H_flow = semiLinear(flowPort.m_flow,flowPort.h,h);
+      annotation (Documentation(info="<html>
+<p>Partial model of a cylinder (and piston). </p>
+</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+                  {100,100}}), graphics={       Text(
+                extent={{-150,140},{150,100}},
+                lineColor={0,0,255},
+                textString="%name"),
+              Polygon(
+                points={{-90,10},{-70,10},{-70,60},{70,60},{70,-60},{-70,-60},{-70,-10},
+                    {-90,-10},{-90,10}},
+                lineColor={255,0,0},
+                fillColor={0,0,255},
+                fillPattern=FillPattern.Solid,
+                lineThickness=0.5),
+              Rectangle(
+                extent={{-14,58},{68,-58}},
+                lineColor={28,108,200},
+                fillColor={255,255,255},
+                fillPattern=FillPattern.Solid),
+              Rectangle(
+                extent={{-24,58},{-14,-58}},
+                lineThickness=0.5,
+                fillColor={192,192,192},
+                fillPattern=FillPattern.HorizontalCylinder),
+              Rectangle(
+                extent={{-14,10},{90,-10}},
+                lineThickness=0.5,
+                lineColor={0,127,0},
+                fillColor={160,215,160},
+                fillPattern=FillPattern.HorizontalCylinder),
+              Line(points={{-10,-72},{70,-72}}),
+              Polygon(
+                points={{-40,-72},{-10,-62},{-10,-82},{-40,-72}},
+                lineColor={128,128,128},
+                fillColor={128,128,128},
+                fillPattern=FillPattern.Solid)}));
+      end Cylinder;
+
+      partial model SinglePortBottom
+        "Partial model of a single port at the bottom"
+
+        parameter FluidHeatFlow.Media.Medium medium=FluidHeatFlow.Media.Medium() "Medium"
+          annotation(choicesAllMatching=true);
+        output Modelica.SIunits.Temperature T_port "Temperature at flowPort";
+        output Modelica.SIunits.Temperature T(start=293.15) "Temperature in volume";
+        Interfaces.FlowPort_a flowPort(final medium=medium)
+          annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
+      protected
+        Modelica.SIunits.SpecificEnthalpy h;
+      equation
+        flowPort.h = medium.cp*T_port;
+        h = medium.cp*T;
+        // mass flow -> ambient: mixing rule
+        // mass flow <- ambient: energy flow defined by ambient's temperature
+        flowPort.H_flow = semiLinear(flowPort.m_flow,flowPort.h,h);
+      annotation (Documentation(info="<html>
+<p>
+Partial model of single port at the left, defining the medium and the temperature at the port.
+</p>
+</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+                  {100,100}})));
+      end SinglePortBottom;
+
       partial model AbsoluteSensor "Partial model of absolute sensor"
         extends Modelica.Icons.RotationalSensor;
 
@@ -3001,8 +3013,8 @@ Partial model of (Infinite) ambient, defines pressure and temperature.
         // no energy exchange
         flowPort.H_flow = 0;
       annotation (Documentation(info="<html>
-Partial model for an absolute sensor (pressure/temperature).<br>
-Pressure, mass flow, temperature and enthalpy flow of medium are not affected.
+<p>Partial model for an absolute sensor (pressure/temperature).</p>
+<p>Pressure, mass flow, temperature and enthalpy flow of medium are not affected.</p>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                   -100},{100,100}}), graphics={
               Line(points={{-70,0},{-90,0}}),
@@ -3036,8 +3048,8 @@ Pressure, mass flow, temperature and enthalpy flow of medium are not affected.
         flowPort_a.H_flow = 0;
         flowPort_b.H_flow = 0;
       annotation (Documentation(info="<html>
-Partial model for a relative sensor (pressure drop/temperature difference).<br>
-Pressure, mass flow, temperature and enthalpy flow of medium are not affected.
+<p>Partial model for a relative sensor (pressure drop/temperature difference).</p>
+<p>Pressure, mass flow, temperature and enthalpy flow of medium are not affected.</p>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                   -100},{100,100}}), graphics={
               Line(points={{-70,0},{-90,0}}),
@@ -3063,8 +3075,8 @@ Pressure, mass flow, temperature and enthalpy flow of medium are not affected.
         // no energy exchange
         Q_flow = 0;
       annotation (Documentation(info="<html>
-Partial model for a flow sensor (mass flow/heat flow).<br>
-Pressure, mass flow, temperature and enthalpy flow of medium are not affected, but mixing rule is applied.
+<p>Partial model for a flow sensor (mass flow/heat flow).</p>
+<p>Pressure, mass flow, temperature and enthalpy flow of medium are not affected, but mixing rule is applied.</p>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                   -100},{100,100}}), graphics={
               Line(points={{-70,0},{-90,0}}),
@@ -3076,7 +3088,10 @@ Pressure, mass flow, temperature and enthalpy flow of medium are not affected, b
                 lineColor={0,0,255})}));
       end FlowSensor;
     annotation (Documentation(info="<html>
-
+<p>
+Package containg partial models from which all components (except Sources.AbsolutePressure) extend 
+instantiating the medium and containing the thermodynamic equation(s) with semiLinear.
+</p>
 </html>",revisions="<html>
 
 </html>"));
@@ -3127,11 +3142,6 @@ Pressure, mass flow, temperature and enthalpy flow of medium are not affected, b
 Since mixing may occur, the outlet temperature may be different from the connector's temperature.<br>
 Outlet temperature is defined by variable T of the corresponding component.</li>
 </ul>
-<strong>Further development:</strong>
-<ul>
-<li>Additional components like tanks (if needed)</li>
-</ul>
-
 <p>
 Copyright &copy; 1998-2018, Modelica Association, Anton Haumer, Christian Kral and AIT.
 </p>
