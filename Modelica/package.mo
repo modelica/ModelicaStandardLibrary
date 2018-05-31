@@ -2196,7 +2196,7 @@ The following <font color=\"blue\"><strong>new libraries</strong></font> have be
 <table border=\"1\" cellspacing=0 cellpadding=2>
 <tr><td><a href=\"modelica://Modelica.Magnetic.Quasistatic.FluxTubes\">Modelica.Magnetic.Quasistatic.FluxTubes</a></td>
     <td>
-    This library provide models for the investigation of quasi static electromagnetic devices with lumped magnetic networks
+    This library provides models for the investigation of quasi static electromagnetic devices with lumped magnetic networks
     in a comparable way as <a href=\"modelica://Modelica.Magnetic.FluxTubes\">Modelica.Magnetic.FluxTubes</a>.<br>
     (This library was developed by Christian Kral).
     </td></tr>
