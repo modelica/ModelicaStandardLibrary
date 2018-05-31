@@ -708,7 +708,7 @@ Inner coolant's temperature rise near the source is the same as temperature drop
       FluidHeatFlow.Sources.Ambient ambient1(constantAmbientTemperature=TAmb, medium=medium,
         constantAmbientPressure=0)
         annotation (Placement(transformation(extent={{-70,-10},{-90,10}})));
-      FluidHeatFlow.Sources.IdealPump idealPump(
+      Components.PumpTurbine          pumpTurbine(
         medium=medium,
         m=0,
         T0=TAmb,
@@ -791,9 +791,9 @@ Inner coolant's temperature rise near the source is the same as temperature drop
               -10},{10,-20}}, color={191,0,0}));
       connect(thermalConductance.y, convection.Gc)
                                    annotation (Line(points={{-9,-30},{0,-30}}, color={0,0,127}));
-      connect(ambient1.flowPort, idealPump.flowPort_a)
+      connect(ambient1.flowPort, pumpTurbine.flowPort_a)
         annotation (Line(points={{-70,0},{-60,0}}, color={255,0,0}));
-      connect(idealPump.flowPort_b, valve.flowPort_a)
+      connect(pumpTurbine.flowPort_b, valve.flowPort_a)
         annotation (Line(points={{-40,0},{-30,0}}, color={255,0,0}));
       connect(valve.flowPort_b, pipe.flowPort_a)
         annotation (Line(points={{-10,0},{0,0}}, color={255,0,0}));
@@ -803,8 +803,8 @@ Inner coolant's temperature rise near the source is the same as temperature drop
       connect(valveRamp.y, valve.y)
                                  annotation (Line(points={{-9,50},{-20,50},{-20,
               10}},color={0,0,127}));
-      connect(speed.flange, idealPump.flange_a) annotation (Line(
-          points={{-50,20},{-50,10}}));
+      connect(speed.flange, pumpTurbine.flange_a)
+        annotation (Line(points={{-50,20},{-50,10}}));
     annotation (Documentation(info="<html>
 <p>
 4th test example: PumpAndValve
@@ -1296,7 +1296,7 @@ the time behaviour depending on coolant flow.
             extent={{-10,-10},{10,10}},
             rotation=0,
             origin={-70,-50})));
-      Modelica.Blocks.Math.Gain gain(k=idealPump.wNominal)
+      Modelica.Blocks.Math.Gain gain(k=pumpTurbine.wNominal)
         annotation (Placement(transformation(extent={{-50,-60},{-30,-40}})));
       Modelica.Mechanics.Rotational.Sources.Speed speed(exact=true)
         annotation (Placement(transformation(extent={{-20,-60},{0,-40}})));
@@ -1311,7 +1311,8 @@ the time behaviour depending on coolant flow.
             extent={{-10,10},{10,-10}},
             rotation=270,
             origin={50,-80})));
-      Sources.IdealPump idealPump(
+      Components.PumpTurbine
+                        pumpTurbine(
         medium=Modelica.Thermal.FluidHeatFlow.Media.Water(),
         m=0,
         V_flow0=0.18,
@@ -1380,20 +1381,20 @@ the time behaviour depending on coolant flow.
       Modelica.Blocks.Logical.TriggeredTrapezoid triggeredTrapezoid(rising=0.1)
         annotation (Placement(transformation(extent={{10,10},{30,30}})));
     equation
-      connect(idealPump.flowPort_a, ambient1.flowPort)
+      connect(pumpTurbine.flowPort_a, ambient1.flowPort)
         annotation (Line(points={{50,-60},{50,-70}}, color={255,0,0}));
       connect(speed.flange, multiSensor.flange_a)
         annotation (Line(points={{0,-50},{10,-50}}));
       connect(valve.flowPort_a, volumeFlowSensor.flowPort_b)
         annotation (Line(points={{50,10},{50,-10}},
                                                   color={255,0,0}));
-      connect(volumeFlowSensor.flowPort_a, idealPump.flowPort_b)
+      connect(volumeFlowSensor.flowPort_a, pumpTurbine.flowPort_b)
         annotation (Line(points={{50,-30},{50,-40}}, color={255,0,0}));
       connect(ambient2.flowPort, isolatedPipe.flowPort_b)
         annotation (Line(points={{50,72},{50,60}}, color={255,0,0}));
       connect(isolatedPipe.flowPort_a, valve.flowPort_b)
         annotation (Line(points={{50,40},{50,30}}, color={255,0,0}));
-      connect(multiSensor.flange_b, idealPump.flange_a)
+      connect(multiSensor.flange_b, pumpTurbine.flange_a)
         annotation (Line(points={{30,-50},{40,-50}}));
       connect(valve.flowPort_a, pressureSensor.flowPort)
         annotation (Line(points={{50,10},{50,0},{30,0}}, color={255,0,0}));
