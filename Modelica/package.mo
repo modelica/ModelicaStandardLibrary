@@ -2304,12 +2304,15 @@ to <font color=\"blue\"><strong>existing</strong></font> libraries:<br>
 <tr><td width=\"150\">GeneralHeatFlowToTemperatureAdaptor<br>GeneralTemperatureToHeatFlowAdaptor</td>
     <td> Adaptors for the generation of FMUs, optionally taking first derivative into account.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Thermal.FluidHeatFlow.Examples</strong></td></tr>
-<tr><td width=\"150\">WaterPump<br>TestOpenTank<br>TwoTanks<br>TestPiston</td>
+<tr><td width=\"150\">WaterPump<br>TestOpenTank<br>TwoTanks<br>TestCylinder<html><body>
+<!--StartFragment--><h1 class=\"gh-header-title\"><span class=\"gh-header-number\">#2570</span></h1><!--EndFragment-->
+</body>
+</html></td>
     <td> New examples testing and demonstrating the new resp. enhanced components.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Thermal.FluidHeatFlow.Components</strong></td></tr>
 <tr><td width=\"150\">OpenTank</td>
     <td> A simple model of an open tank.</td></tr>
-<tr><td width=\"150\">Piston</td>
+<tr><td width=\"150\">Cylinder</td>
     <td> A simple model of a piston/cylinder with translational flange.</td></tr>
 <tr><td width=\"150\">PumpTurbine</td>
     <td> An improved version of the Sources.IdealPump model (which extends from the PumpTurbine model now)</td></tr>
