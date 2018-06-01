@@ -1,0 +1,18 @@
+setModelicaPath(".");
+loadModel(ModelicaTest);
+loadModel(ModelicaTestOverdetermined);
+loadModel(ObsoleteModelica3);
+
+(numMessages,numError,numWarning):=countMessages();
+print(getErrorString());
+if numError<>0 or numWarning<>0 then
+  exit(1);
+end if;
+
+names := {typeNameString(cl) for cl in getClassNames(sort=true)};
+b := sum(names) == "ComplexModelicaModelicaServicesModelicaTestModelicaTestOverdeterminedObsoleteModelica3";
+
+if b and numError==0 and numWarning==0 then
+  exit(0);
+end if;
+exit(1);
