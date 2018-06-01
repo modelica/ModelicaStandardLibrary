@@ -2130,13 +2130,13 @@ There are some special guidelines for changes to the maintenance branch.
              versionDate  = \"2018-08-01\",
              versionBuild = 2,
              dateModified = \"2018-12-12 07:40:19Z\",
-             revisionId   = \"$F&#8203;ormat:%h %s %ci$\")</pre>
+             revisionId   = \"$F&#8203;ormat:%h %ci$\")</pre>
      The \"revisionId\" field is a special annotation to mark a properly released (maintenance) version from unreleased commits.<br>
      Example:
      <blockquote>
         Running the export command \"<code>git archive -o msl.zip v3.2.3</code>\" will
         expand the above \"revisionId\" place holder to something like:
-        <pre>revisionId = \"c04e23a0d v3.2.3+build.1 2018-08-01 12:00:00 +0200$\"</pre>
+        <pre>revisionId = \"c04e23a0d 2018-08-01 12:00:00 +0200$\"</pre>
      </blockquote>
      </li>
 </ul>
@@ -8053,7 +8053,7 @@ version="3.2.3",
 versionBuild=1,
 versionDate="2018-08-01",
 dateModified = "2018-08-01 12:00:00Z",
-revisionId="$Format:%h %s %ci$",
+revisionId="$Format:%h %ci$",
 uses(Complex(version="3.2.3"), ModelicaServices(version="3.2.3")),
 conversion(
  noneFromVersion="3.2.2",

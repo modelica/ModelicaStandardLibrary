@@ -3424,7 +3424,7 @@ to the left and/or the right flange.
               versionBuild=1,
               versionDate="2018-08-01",
               dateModified = "2018-08-01 12:00:00Z",
-              revisionId="$Format:%h %s %ci$",
+              revisionId="$Format:%h %ci$",
 Documentation(info="<html>
 <p>
 This package contains models and blocks from the Modelica Standard Library
