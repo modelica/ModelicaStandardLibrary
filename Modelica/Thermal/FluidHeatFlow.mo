@@ -1468,18 +1468,18 @@ It is possible to investigate the dependencies of volume flow, pressure, torque 
         Documentation(info="<html>
 <p>
 First, the medium is pumped out of the tank (initial level = 0.5 m, T = 40&deg;C) to an (infinite) ambient (T = 20&deg;C):
+</p>
 <ul>
 <li>The level of the medium in the tank decreases.</li>
 <li>The temperature of the medium in the tank remains unchanged.</li>
 </ul>
-</p>
 <p>
 Subsequently the medium is pumped into the tank from an (infinite) ambient:
+</p>
 <ul>
 <li>The level of the medium in the tank increases again.</li>
 <li>The temperature of the medium in the tank decreases (mixing temperature).</li>
 </ul>
-</p>
 </html>"));
     end TestOpenTank;
 
@@ -1523,10 +1523,12 @@ Subsequently the medium is pumped into the tank from an (infinite) ambient:
         Documentation(info="<html>
 <p>
 Two tanks are connected with a pipe:
+</p>
 <ul>
 <li>Tank 1: initial level = 0.9 m, T = 40&deg;C</li>
 <li>Tank 2: initial level = 0.1 m, T = 20&deg;C</li>
 </ul>
+<p>
 Within 1.5 s (dependent on the flow resistance of the pipe) the level = 0.5 m in both tanks is the same, medium flows from tank 1 to tank 2.
 The temperature of tank 1 remains unchanged, the temperature of tank 2 is increased.
 </p>
@@ -1583,16 +1585,20 @@ The temperature of tank 1 remains unchanged, the temperature of tank 2 is increa
       annotation (Documentation(info="<html>
 <p>
 Test of a system with 2 cylinders (with same volume):
+</p>
 <ul>
 <li>cylinder1: A = 0.1 m2, L=10. m, initial position of piston at s=L/2</li>
 <li>cylinder2: A = 1.0 m2, L=1.0 m, initial position of piston at s=L/2</li>
 </ul>
+<p>
 A force is applied that presses from 0.25 s to 0.50 s with 1 Nm on piston1.
 Due to the ratio of areas 10:1
+</p>
 <ul>
 <li>the force at piston2 is ten times the force at piston1</li>
 <li>movement of piston1 is ten times the movement of piston2</li>
 </ul>
+<p>
 At piston2 a mass is mounted which is moved and presses the springDamper.
 When the force at piston1 is removed, the springDamper pushes back the mass and a damped oscillation occurs.
 </p>
@@ -1710,7 +1716,7 @@ Block generating the sum of two ramps.
       // no energy exchange with medium
       Q_flow = Q_friction;
     annotation (Documentation(info="<html>
-<p>Pipe without heat exchange.</o>>
+<p>Pipe without heat exchange.</p>>
 <p>Thermodynamic equations are defined by Partials.TwoPortMass(Q_flow = 0).</p>
 <p>
 <strong>Note:</strong> Setting parameter m (mass of medium within pipe) to zero
@@ -1966,12 +1972,11 @@ V_flow**2 * rho / dp = Kv(y)**2 * rho0 / dp0
 <p>This is a simple model of an open tank with volume A*h. The level and the temperature of the medium are measured and provided as output.</p>
 <p>Note: If the level of the medium reaches 0 (minimum) or h (maximum), an assertion is triggered.</p>
 <p>Note: The flowPort is assumed to be at the bottom. Therefore the pressure at the flowPort is ambient pressure + level*rho*g.</p>
-<p>
 <ul>
 <li>If the mass flow rate at the port goes into the tank the level increases and the mixing rule is applied to obtain the temperature change of the medium in the tank.</li>
 <li>If the mass flow rate at the port goes out of the tank the level decreases,
 the temperature of the outflowing medium is defined by the the temperature of the medium in the tank.</li>
-</p>
+</ul>
 <p>
 It is assumed that the medium in the tank has the same temperature over the whole volume, i.e. mixed thoroughly.
 </p>
@@ -2007,10 +2012,12 @@ Via the optional heatPort the medium in the tank can be cooled or heated.
 <p>
 The position of the piston within the cylinder goes from 0 at the bottom to L (length of the cylinder) at the top of the cylinder.
 If the piston leaves the cylinder, an assertion is triggered.
+</p>
 <ul>
 <li>A movement of the piston is coupled with volume flow through the flowPort.</li>
 <li>The force at the piston is equal to pressure of the fluid times A (cross section of the piston).</li>
 </ul>
+<p>
 The piston is considered without mass.
 </p>
 <p>
@@ -2109,10 +2116,12 @@ The position of the flange (as well as of the support, if useSupport=true) is in
 from dp0(V_flow=0) to V_flow0(dp=0).</p>
 <p>
 The axis intersections vary with speed as follows:
+</p>
 <ul>
 <li>dp prop. speed^2</li>
 <li>V_flow prop. speed</li>
 </ul>
+<p>
 Note: Increasing the pressure difference above dp0 leads to an inversion of volumeFlow,
 which means inversion of power flow, i.e. the machien is acting as a turbine.
 </p>
@@ -2632,7 +2641,7 @@ leads to neglect of temperature transient cv*m*der(T).
       annotation (
         Documentation(info="<html>
 <p>
-This model simply extends from the <a href=\"modelica://Modelica.Thermal.FluidHeatFlow.Components.PumpTurbine\">PumpTurbine</a> model</li>
+This model simply extends from the <a href=\"modelica://Modelica.Thermal.FluidHeatFlow.Components.PumpTurbine\">PumpTurbine</a> model
 and is kept for compatibility reasons. In the future, it will be marked as obsolete and removed.
 </p>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
@@ -2657,6 +2666,7 @@ and is kept for compatibility reasons. In the future, it will be marked as obsol
   annotation (Documentation(info="<html>
 <p>
 This package contains different types of sources:
+</p>
 <ul>
 <li>Ambient with constant or prescribed pressure and temperature</li>
 <li>AbsolutePressure to define pressure level of a closed cooling cycle.</li>
@@ -2664,6 +2674,7 @@ This package contains different types of sources:
 <li>Constant and prescribed pressure increase</li>
 <li>Simple pump with mechanical flange</li>
 </ul>
+<p>
 Thermodynamic equations are defined in partial models (package Interfaces.Partials). 
 All fans / pumps are considered without losses, they do not change enthalpy flow.
 </p>
@@ -2801,9 +2812,12 @@ Same as FlowPort, but icon allows to differentiate direction of flow.
       annotation (Documentation(info="<html>
 <p>
 Definition of relationship between pressure drop and volume flow rate:
+</p>
 <ul>
-<li>-V_flowLaminar &lt; VolumeFlow &lt; +V_flowLaminar: laminar i.e., linear dependency of pressure drop on volume flow.</li>
-<li>-V_flowLaminar &gt; VolumeFlow or VolumeFlow &lt; +V_flowLaminar: turbulent i.e., quadratic dependency of pressure drop on volume flow.</li>
+<li>-V_flowLaminar &lt; VolumeFlow &lt; +V_flowLaminar: laminar, i.e., linear dependency of pressure drop on volume flow.</li>
+<li>-V_flowLaminar &gt; VolumeFlow or VolumeFlow &lt; +V_flowLaminar: turbulent, i.e., quadratic dependency of pressure drop on volume flow.</li>
+</ul>
+<p>
 Linear and quadratic dependency are coupled smoothly at V_flowLaminar / dpLaminar. 
 Quadratic dependency is defined by nominal volume flow and pressure drop (V_flowNominal / dpNominal). 
 See also sketch at diagram layer.
@@ -2946,8 +2960,8 @@ Partial model of single port at the left, defining the medium and the temperatur
         extends SinglePortLeft(final Exchange=true);
       annotation (Documentation(info="<html>
 <p>
-This model simply extends from the <a href=\"modelica://Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.SinglePortLeft\">SinglePortLeft</a> model</li>,
-onyl adding an icon, and is kept for compatibility reasons. In the future, it will be marked as obsolete and removed.
+This model simply extends from the <a href=\"modelica://Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.SinglePortLeft\">SinglePortLeft</a> model,
+only adding an icon, and is kept for compatibility reasons. In the future, it will be marked as obsolete and removed.
 </p>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                   {100,100}}), graphics={Ellipse(
