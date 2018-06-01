@@ -2943,7 +2943,7 @@ Partial model of single port at the left, defining the medium and the temperatur
       end SinglePortLeft;
 
       partial model Ambient "Partial model of ambient"
-        extends SinglePortLeft;
+        extends SinglePortLeft(final Exchange=true);
       annotation (Documentation(info="<html>
 <p>
 This model simply extends from the <a href=\"modelica://Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.SinglePortLeft\">SinglePortLeft</a> model</li>,
@@ -2991,12 +2991,7 @@ Partial model of single port at the bottom, defining the medium and the temperat
 
       partial model AbsoluteSensor "Partial model of absolute sensor"
         extends Modelica.Icons.RotationalSensor;
-
-        parameter FluidHeatFlow.Media.Medium medium=FluidHeatFlow.Media.Medium()
-          "Sensor's medium"
-          annotation(choicesAllMatching=true);
-        Interfaces.FlowPort_a flowPort(final medium=medium)
-          annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
+        extends SinglePortLeft(final Exchange=false);
         Modelica.Blocks.Interfaces.RealOutput y
           annotation (Placement(transformation(extent={{100,-10},{120,10}})));
       equation
@@ -3010,35 +3005,22 @@ Partial model of single port at the bottom, defining the medium and the temperat
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                   -100},{100,100}}), graphics={
               Line(points={{-70,0},{-90,0}}),
-              Line(points={{70,0},{100,0}}),
-              Text(
-                extent={{-150,80},{150,120}},
-                textString="%name",
-                lineColor={0,0,255})}));
+              Line(points={{70,0},{100,0}})}));
       end AbsoluteSensor;
 
       partial model RelativeSensor "Partial model of relative sensor"
         extends Modelica.Icons.RotationalSensor;
-
-        parameter FluidHeatFlow.Media.Medium medium=FluidHeatFlow.Media.Medium()
-          "Sensor's medium"
-          annotation(choicesAllMatching=true);
-        Interfaces.FlowPort_a flowPort_a(final medium=medium)
-          annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
-        Interfaces.FlowPort_b flowPort_b(final medium=medium)
-          annotation (Placement(transformation(extent={{90,-10},{110,10}})));
+        extends TwoPort(final m=0, final T0=0, final tapT=0.5);
         Modelica.Blocks.Interfaces.RealOutput y
           annotation (Placement(transformation(
               origin={0,-110},
               extent={{10,-10},{-10,10}},
               rotation=90)));
       equation
-        // no mass exchange
-        flowPort_a.m_flow = 0;
-        flowPort_b.m_flow = 0;
+        // no mass flow
+        V_flow = 0;
         // no energy exchange
-        flowPort_a.H_flow = 0;
-        flowPort_b.H_flow = 0;
+        Q_flow = 0;
       annotation (Documentation(info="<html>
 <p>Partial model for a relative sensor (pressure drop/temperature difference).</p>
 <p>Pressure, mass flow, temperature and enthalpy flow of medium are not affected.</p>
@@ -3048,7 +3030,7 @@ Partial model of single port at the bottom, defining the medium and the temperat
               Line(points={{70,0},{90,0}}),
               Line(points={{0,-100},{0,-70}}),
               Text(
-                extent={{-150,80},{150,120}},
+                extent={{-150,100},{150,140}},
                 textString="%name",
                 lineColor={0,0,255})}));
       end RelativeSensor;
@@ -3075,7 +3057,7 @@ Partial model of single port at the bottom, defining the medium and the temperat
               Line(points={{70,0},{90,0}}),
               Line(points={{0,-100},{0,-70}}),
               Text(
-                extent={{-150,80},{150,120}},
+                extent={{-150,100},{150,140}},
                 textString="%name",
                 lineColor={0,0,255})}));
       end FlowSensor;
