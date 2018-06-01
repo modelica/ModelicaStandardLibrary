@@ -2638,11 +2638,13 @@ leads to neglect of temperature transient cv*m*der(T).
 
     model IdealPump "Model of an ideal pump"
       extends FluidHeatFlow.Components.PumpTurbine;
+      extends Icons.ObsoleteModel;
       annotation (
+        obsolete = "Obsolete model - use Components.PumpTurbine instead",
         Documentation(info="<html>
 <p>
 This model simply extends from the <a href=\"modelica://Modelica.Thermal.FluidHeatFlow.Components.PumpTurbine\">PumpTurbine</a> model
-and is kept for compatibility reasons. In the future, it will be marked as obsolete and removed.
+and is kept for compatibility reasons. In the future, it will be removed.
 </p>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
@@ -2958,10 +2960,12 @@ Partial model of single port at the left, defining the medium and the temperatur
 
       partial model Ambient "Partial model of ambient"
         extends SinglePortLeft(final Exchange=true);
-      annotation (Documentation(info="<html>
+        extends Icons.ObsoleteModel;
+        annotation (obsolete = "Obsolete model - use SinglePortLeft instead",
+        Documentation(info="<html>
 <p>
 This model simply extends from the <a href=\"modelica://Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.SinglePortLeft\">SinglePortLeft</a> model,
-only adding an icon, and is kept for compatibility reasons. In the future, it will be marked as obsolete and removed.
+only adding an icon, and is kept for compatibility reasons. In the future, it will be removed.
 </p>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                   {100,100}}), graphics={Ellipse(
