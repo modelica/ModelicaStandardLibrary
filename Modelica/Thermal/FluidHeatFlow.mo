@@ -2919,7 +2919,7 @@ leads to neglect of temperature transient cv*m*der(T).</p>
           annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
       protected
         constant Boolean Exchange=true "Exchange of medium via flowport"
-          annotation(HideResult=true);
+          annotation(Evaluate=true, HideResult=true);
         Modelica.SIunits.SpecificEnthalpy h "Specific enthalpy in the volume";
       equation
         T_port=flowPort.h/medium.cp;
@@ -2958,7 +2958,7 @@ onyl adding an icon, and is kept for compatibility reasons. In the future, it wi
       end Ambient;
 
       partial model SinglePortBottom
-
+        "Partial model of a single port at the bottom"
         parameter FluidHeatFlow.Media.Medium medium=FluidHeatFlow.Media.Medium() "Medium"
           annotation(choicesAllMatching=true);
         output Modelica.SIunits.Temperature T_port "Temperature at flowPort_a";
@@ -2966,7 +2966,8 @@ onyl adding an icon, and is kept for compatibility reasons. In the future, it wi
         Interfaces.FlowPort_a flowPort(final medium=medium)
           annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
       protected
-        constant Boolean Exchange=true "Exchange of medium via flowport";
+        constant Boolean Exchange=true "Exchange of medium via flowport"
+          annotation(Evaluate=true, HideResult=true);
         Modelica.SIunits.SpecificEnthalpy h "Specific enthalpy in the volume";
       equation
         T_port=flowPort.h/medium.cp;
