@@ -98,7 +98,7 @@ see example
 <h4>Reference Note</h4>
 
 <p>A similar approach on quasi static flux tube models is published in
-[<a href=\"Modelica.Magnetic.QuasiStatic.FluxTubes.UsersGuide.Literature\">Raabe2012</a>].</p>
+[<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FluxTubes.UsersGuide.Literature\">Raabe2012</a>].</p>
 </html>"));
     end FluxTubeConcept;
 
@@ -1551,7 +1551,7 @@ the magnetic reluctance by:</p>
 <p><img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/A_axial.png\"/></p>
 <p><img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/HollowCylinderAxialFlux_qs.png\"/></p>
 <p>A hollow cylinder is depicted in the above figure left for <img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/alpha2pi.png\"/>. A solid cylindric flux tube an be considered by setting the inner radius, <img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/r_i.png\"/>, equal to zero.</p>
-<p>A circular sector of the area of cross section with central angle <img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/alpha\"/> is depicted in the above figure right.</p>
+<p>A circular sector of the area of cross section with central angle <img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/alpha.png\"/> is depicted in the above figure right.</p>
 </html>"));
       end HollowCylinderAxialFlux;
 

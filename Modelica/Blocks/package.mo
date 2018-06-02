@@ -2760,7 +2760,7 @@ As expected, one can see the 11<sup>th</sup>, 13<sup>th</sup>, 23<sup>th</sup>, 
         Interval=0.0001,
         Tolerance=1e-06), Documentation(info="<html>
 <p>This example compares the result of the
-<a href=\"modelica://Modelica.Blocks.Math.TotalHarmonicDistortionFundamental\">total harmonic distortion (THD)</a>
+<a href=\"modelica://Modelica.Blocks.Math.TotalHarmonicDistortion\">total harmonic distortion (THD)</a>
 with respect to the fundamental wave and with respect to the total root mean square (RMS).
 In this simulation model a non-sinusoidal voltage
 wave form is created by the superposition two voltage waves:</p>
