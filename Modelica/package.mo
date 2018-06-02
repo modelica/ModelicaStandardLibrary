@@ -2214,6 +2214,10 @@ to <font color=\"blue\"><strong>existing</strong></font> libraries:<br>
 </p>
 
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<tr><td colspan=\"2\"><strong>Modelica.Blocks.Interfaces.PartialFMUAdaptors</strong></td></tr>
+<tr><td width=\"150\">FlowToPotentialAdaptor<br>PotentialToFlowAdaptor</td>
+    <td> Partial adaptors for generation of FMUs, optionally taking first and second derivative into account,
+         for consistent components in various domains.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Blocks.Math</strong></td></tr>
 <tr><td width=\"150\">WrapAngle</td>
     <td> Wraps the angle signal at the input to the interval ]-&pi;, &pi;] or [0, 2&pi;[.</td></tr>
@@ -2223,10 +2227,9 @@ to <font color=\"blue\"><strong>existing</strong></font> libraries:<br>
     <td> This block calculates THD of the signal at the input.</td></tr>
 <tr><td width=\"150\">RealFFT</td>
     <td> This block samples the input and calculates the FFT, writing the result to a mat file when the simulation terminates.</td></tr>
-<tr><td colspan=\"2\"><strong>Modelica.Blocks.Interfaces.PartialFMUAdaptors</strong></td></tr>
-<tr><td width=\"150\">FlowToPotentialAdaptor<br>PotentialToFlowAdaptor</td>
-    <td> Partial adaptors for generation of FMUs, optionally taking first and second derivative into account,
-         for consistent components in various domains.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Blocks.Tables</strong></td></tr>
+<tr><td width=\"150\">CombiTable2Dv</td>
+    <td>Variant of CombiTable2D (table look-up in two dimensions) with vector inputs and vector output</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.ComplexBlocks.Routing</strong></td></tr>
 <tr><td width=\"150\">Replicator<br>ExtractSignal<br>Extractor<br>ComplexPassThrough</td>
     <td> Complex implementations analogous to the real implementations.</td></tr>
