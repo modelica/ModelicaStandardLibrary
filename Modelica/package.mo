@@ -2304,10 +2304,7 @@ to <font color=\"blue\"><strong>existing</strong></font> libraries:<br>
 <tr><td width=\"150\">GeneralHeatFlowToTemperatureAdaptor<br>GeneralTemperatureToHeatFlowAdaptor</td>
     <td> Adaptors for the generation of FMUs, optionally taking first derivative into account.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Thermal.FluidHeatFlow.Examples</strong></td></tr>
-<tr><td width=\"150\">WaterPump<br>TestOpenTank<br>TwoTanks<br>TestCylinder<html><body>
-<!--StartFragment--><h1 class=\"gh-header-title\"><span class=\"gh-header-number\">#2570</span></h1><!--EndFragment-->
-</body>
-</html></td>
+<tr><td width=\"150\">WaterPump<br>TestOpenTank<br>TwoTanks<br>TestCylinder</td>
     <td> New examples testing and demonstrating the new resp. enhanced components.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Thermal.FluidHeatFlow.Components</strong></td></tr>
 <tr><td width=\"150\">OpenTank</td>
