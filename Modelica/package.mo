@@ -2194,7 +2194,7 @@ The following <font color=\"blue\"><strong>new libraries</strong></font> have be
 </p>
 
 <table border=\"1\" cellspacing=0 cellpadding=2>
-<tr><td><a href=\"modelica://Modelica.Magnetic.Quasistatic.FluxTubes\">Modelica.Magnetic.Quasistatic.FluxTubes</a></td>
+<tr><td><a href=\"modelica://Modelica.Magnetic.QuasiStatic.FluxTubes\">Modelica.Magnetic.QuasiStatic.FluxTubes</a></td>
     <td>
     This library provides models for the investigation of quasi static electromagnetic devices with lumped magnetic networks
     in a comparable way as <a href=\"modelica://Modelica.Magnetic.FluxTubes\">Modelica.Magnetic.FluxTubes</a>.<br>
@@ -2235,9 +2235,9 @@ to <font color=\"blue\"><strong>existing</strong></font> libraries:<br>
     <td> Determine variables of a Bode diagram.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.ComplexBlocks.Sources</strong></td></tr>
 <tr><td width=\"150\">RampPhasor</td>
-    <td> A source of a phasor with constant angle and rampled amplitude.</td></tr>
+    <td> A source of a phasor with constant angle and ramped amplitude.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Electrical.Analog.Basic</strong></td></tr>
-<tr><td width=\"150\">GeneralCurrentToVoltageAdaptor<b>GeneralVoltageToCurrentAdaptor</td>
+<tr><td width=\"150\">GeneralCurrentToVoltageAdaptor<br>GeneralVoltageToCurrentAdaptor</td>
     <td> Adaptors for the generation of FMUs, optionally taking first and second derivative into account.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Electrical.Analog.Sensors</strong></td></tr>
 <tr><td width=\"150\">MultiSensor</td>
@@ -2254,7 +2254,7 @@ to <font color=\"blue\"><strong>existing</strong></font> libraries:<br>
     <td> Electrically excited synchronous machine, starting direct on line via the damper cage, 
          synchronised by increasing excitation voltage.</td></tr>
 <tr><td width=\"150\">SMR_DOL</td>
-    <td> Synchronous relcutance machine, starting direct on line via the damper cage, 
+    <td> Synchronous reluctance machine, starting direct on line via the damper cage, 
          synchronised when reaching synchronous speed.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Electrical.Machines.Sensors</strong></td></tr>
 <tr><td width=\"150\">HallSensor</td>
@@ -2277,7 +2277,7 @@ to <font color=\"blue\"><strong>existing</strong></font> libraries:<br>
     <td> Measures reactive power for a threephase system.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Electrical.QuasiStationary.{SinglePhase, MultiPhase}.Sources</strong></td></tr>
 <tr><td width=\"150\">FrequencySweepVoltageSource<br>FrquencySweepCurrentSource</td>
-    <td> Voltage source and surrent source with integrated frequency sweep.</td></tr>
+    <td> Voltage source and current source with integrated frequency sweep.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Mechanics.Rotational.Components</strong></td></tr>
 <tr><td width=\"150\">GeneralTorqueToAngleAdaptor<br>GeneralAngleToTorqueAdaptor</td>
     <td> Adaptors for the generation of FMUs, optionally taking first and second derivative into account.<br>
@@ -2289,7 +2289,7 @@ to <font color=\"blue\"><strong>existing</strong></font> libraries:<br>
 <tr><td width=\"150\">EddyCurrentTorque</td>
     <td> Rotational eddy current brake.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Mechanics.Translational.Components</strong></td></tr>
-<tr><td width=\"150\">GeneralForceToPositionAdaptor<b>GeneralPositionToForceAdaptor</td>
+<tr><td width=\"150\">GeneralForceToPositionAdaptor<br>GeneralPositionToForceAdaptor</td>
     <td> Adaptors for the generation of FMUs, optionally taking first and second derivative into account.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Mechanics.Translational.Sources</strong></td></tr>
 <tr><td width=\"150\">EddyCurrentForce</td>
@@ -2300,14 +2300,11 @@ to <font color=\"blue\"><strong>existing</strong></font> libraries:<br>
 <tr><td colspan=\"2\"><strong>Modelica.Thermal.HeatTransfer.Components</strong></td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.QuasiStatic.Magnetic.FundamentalWave.Sensors</strong></td></tr>
 <tr><td width=\"150\">RotorDisplacementAngle</td>
-    <td> Measures the rotor displacemnt angle of a quasistatic machine.</td></tr>
+    <td> Measures the rotor displacement angle of a quasistatic machine.</td></tr>
 <tr><td width=\"150\">GeneralHeatFlowToTemperatureAdaptor<br>GeneralTemperatureToHeatFlowAdaptor</td>
     <td> Adaptors for the generation of FMUs, optionally taking first derivative into account.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Thermal.FluidHeatFlow.Examples</strong></td></tr>
-<tr><td width=\"150\">WaterPump<br>TestOpenTank<br>TwoTanks<br>TestCylinder<html><body>
-<!--StartFragment--><h1 class=\"gh-header-title\"><span class=\"gh-header-number\">#2570</span></h1><!--EndFragment-->
-</body>
-</html></td>
+<tr><td width=\"150\">WaterPump<br>TestOpenTank<br>TwoTanks<br>TestCylinder</td>
     <td> New examples testing and demonstrating the new resp. enhanced components.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Thermal.FluidHeatFlow.Components</strong></td></tr>
 <tr><td width=\"150\">OpenTank</td>
@@ -2336,7 +2333,7 @@ have been <font color=\"blue\"><strong>improved</strong></font> in a
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
 <tr><td colspan=\"2\"><strong>Modelica.Blocks.Continuous</strong></td></tr>
 <tr><td>LimPID</td>
-    <td> Added an optional feedforward-input.</td></tr>
+    <td> Added an optional feed-forward input.</td></tr>
 </table>
 
 </html>"));
@@ -8208,7 +8205,7 @@ version="3.2.3",
 versionBuild=1,
 versionDate="2018-08-01",
 dateModified = "2018-08-01 12:00:00Z",
-revisionId="$Format:%h %s %ci$",
+revisionId="c072366c1 Fix spelling 2018-06-02 17:35:43 +0200",
 uses(Complex(version="3.2.3"), ModelicaServices(version="3.2.3")),
 conversion(
  noneFromVersion="3.2.2",
