@@ -2237,7 +2237,7 @@ to <font color=\"blue\"><strong>existing</strong></font> libraries:<br>
 <tr><td width=\"150\">RampPhasor</td>
     <td> A source of a phasor with constant angle and ramped amplitude.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Electrical.Analog.Basic</strong></td></tr>
-<tr><td width=\"150\">GeneralCurrentToVoltageAdaptor<b>GeneralVoltageToCurrentAdaptor</td>
+<tr><td width=\"150\">GeneralCurrentToVoltageAdaptor<br>GeneralVoltageToCurrentAdaptor</td>
     <td> Adaptors for the generation of FMUs, optionally taking first and second derivative into account.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Electrical.Analog.Sensors</strong></td></tr>
 <tr><td width=\"150\">MultiSensor</td>
@@ -2289,7 +2289,7 @@ to <font color=\"blue\"><strong>existing</strong></font> libraries:<br>
 <tr><td width=\"150\">EddyCurrentTorque</td>
     <td> Rotational eddy current brake.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Mechanics.Translational.Components</strong></td></tr>
-<tr><td width=\"150\">GeneralForceToPositionAdaptor<b>GeneralPositionToForceAdaptor</td>
+<tr><td width=\"150\">GeneralForceToPositionAdaptor<br>GeneralPositionToForceAdaptor</td>
     <td> Adaptors for the generation of FMUs, optionally taking first and second derivative into account.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Mechanics.Translational.Sources</strong></td></tr>
 <tr><td width=\"150\">EddyCurrentForce</td>
