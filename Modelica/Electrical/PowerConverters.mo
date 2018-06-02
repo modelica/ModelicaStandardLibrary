@@ -3193,12 +3193,13 @@ Please note that the value of the first harmonic is vaild after the first period
 <p>
 Furthermore, these three voltages are transformed to the corresponding space phasor.
 Note that the zero component is not zero, indicating the shift of the neutral with respect to the midpoint of the DC voltage.
-<p>
 </p>
+<p>
 The space phasor is rotated to the coordinate system rotating with 2*&pi;*2 Hz.
 To suppress the influence of switching, real and imaginary part of the rotated phasor are filtered.
 The polar representation of this rotated and filtered phasor are calculated.
-
+</p>
+<p>
 Please note that the filter has a settle time depending on the filter parameters.
 </p>
 </html>"));
@@ -5800,11 +5801,11 @@ General information about AC/DC converters can be found at the
           Documentation(info="<html>
 <p>
 Let the user choose the PWM type from:
+</p>
 <ul>
 <li><a href=\"modelica://Modelica.Electrical.PowerConverters.DCAC.Control.SVPWM\">Space Vector pulse width modulation</a></li>
 <li><a href=\"modelica://Modelica.Electrical.PowerConverters.DCAC.Control.IntersectivePWM\">Intersective pulse width modulation</a></li>
 </ul>
-</p>
 </html>"));
       end PWM;
 
@@ -5891,6 +5892,7 @@ Let the user choose the PWM type from:
           Documentation(info="<html>
 <p>
 For a threephase system, 8 space vectors are available according to the following switching patterns:
+</p>
 <ul>
 <li>0 [0,0,0] length 0</li>
 <li>1 [1,0,0] 000&deg;</li>
@@ -5901,6 +5903,7 @@ For a threephase system, 8 space vectors are available according to the followin
 <li>6 [1,0,1] 300&deg;</li>
 <li>7 [1,1,1] length 0</li>
 </ul>
+<p>
 Vector 1..6 form a hexagon, vector 0 and 7 are of length 0.
 </p>
 <p>
@@ -5916,12 +5919,12 @@ If necessary, a zero length vector is applied additionally.
 </p>
 <p>
 The relative time spans for averaging over one switching period are determined by the following equations:
+</p>
 <ul>
 <li>Real part: <u>u</u>*cos(&phi;) = <u>u</u><sub>b</sub>*t<sub>b</sub>*cos(60&deg;) + <u>u</u><sub>a</sub>*t<sub>a</sub>*1</li>
 <li>Imag.part: <u>u</u>*sin(&phi;) = <u>u</u><sub>b</sub>*t<sub>b</sub>*sin(60&deg;)</li>
 <li>t<sub>a</sub> + t<sub>b</sub> + t<sub>0</sub> = 1</li>
 </ul>
-</p>
 <p>
 To obtain the positive fire signal, the switching time spans are distributed symmetrically:
 t<sub>0</sub>/4 + t<sub>a</sub>/2 + t<sub>b</sub>/2 +t<sub>0</sub>/2 + t<sub>b</sub>/2 + t<sub>a</sub>/2 + t<sub>0</sub>/4
@@ -6040,13 +6043,13 @@ The switching pattern of the negative fire signal is just the inverse of the pos
 </p>
 <p>
 The user can choose from 4 different reference signals:
+</p>
 <ul>
 <li>Sawtooth1: sawtooth signal, same phase in all 3 phases</li>
 <li>Sawtooth3: sawtooth signal, phase shift between the 3 phases = period/3</li>
 <li>Triangle1: triangle signal, same phase in all 3 phases</li>
 <li>Triangle3: triangle signal, phase shift between the 3 phases = period/3</li>
 </ul>
-</p>
 </html>"));
       end IntersectivePWM;
       annotation (Documentation(info="<html>

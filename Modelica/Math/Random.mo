@@ -712,12 +712,7 @@ Sebastiano Vigna:
 Summary of the properties of the random number generators:
 </p>
 
-<p>
-
-</p>
-
 <blockquote>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Property</th>
     <th>xorshift64*</th>
@@ -761,7 +756,6 @@ Summary of the properties of the random number generators:
     <td> 0.33 </td>
     <td> 1.0  </td></tr>
 </table>
-</p>
 </blockquote>
 
 <p>

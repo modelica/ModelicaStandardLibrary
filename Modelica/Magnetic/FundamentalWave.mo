@@ -372,11 +372,11 @@ no. 829420.
     <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.Idle\">Idle</a> and
     <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.PermanentMagnet\">PermanentMagnet</a>
     </li>
-<li>Added new components:</li>
+<li>Added new components:
 <ul>
     <li><a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.Crossing\">Crossing</a></li>
     <li><a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.Permeance\">Permeance</a></li>
-</ul>
+</ul></li>
 <li>Removed parameter text from icon layer for reluctance and permeance model</li>
 <li>Restructured cage models with reluctance instead of inductance model according to ticket
     <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/1536\">#1536</a>;
@@ -5991,12 +5991,8 @@ The salient permeance models the relationship between the complex magnetic poten
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/Components/permeance.png\"
-      alt=\"permeance.png\">
+<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/Components/permeance.png\" alt=\"permeance.png\">
 </blockquote>
-<p></p>
-
-
 </html>"));
     end Permeance;
 

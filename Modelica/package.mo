@@ -1082,7 +1082,7 @@ For parameters, connectors, as well as inputs and outputs of function automatic 
 
 <p>The terms listed in this package shall be in accordance with <a href=\"http://www.electropedia.org/\">Electropedia</a>.</p>
 
-<p><table border=\"1\" cellpadding=\"2\" cellspacing=\"0\" >
+<table border=\"1\" cellpadding=\"2\" cellspacing=\"0\" >
    <tr>
       <th>To be used</th>
       <th>Not to be used</th>
@@ -1099,7 +1099,7 @@ For parameters, connectors, as well as inputs and outputs of function automatic 
       <td><a href=\"http://www.electropedia.org/iev/iev.nsf/display?openform&amp;ievref=811-12-22\">three-phase</a></td>
       <td>three phase, threephase, 3 phase, 3-phase</td>
     </tr>
-</table></p>
+</table>
 
 </html>"));
       end Electrical;
@@ -1111,7 +1111,7 @@ For parameters, connectors, as well as inputs and outputs of function automatic 
 
 <p>The terms listed in this package shall be in accordance with <a href=\"http://www.electropedia.org/\">Electropedia</a>.</p>
 
-<p><table border=\"1\" cellpadding=\"2\" cellspacing=\"0\" >
+<table border=\"1\" cellpadding=\"2\" cellspacing=\"0\" >
    <tr>
       <th>To be used</th>
       <th>Not to be used</th>
@@ -1124,7 +1124,7 @@ For parameters, connectors, as well as inputs and outputs of function automatic 
       <td><a href=\"http://www.electropedia.org/iev/iev.nsf/display?openform&amp;ievref=121-11-60\">magnetomotive force</a></td>
       <td>magneto motive force</td>
     </tr>
-</table></p>
+</table>
 
 </html>"));
       end Magnetic;

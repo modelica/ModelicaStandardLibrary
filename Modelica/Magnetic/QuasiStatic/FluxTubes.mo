@@ -1469,11 +1469,9 @@ This is a simple crossing of two branches. The ports <code>port_p1</code> and <c
 The generic flux tube models the reluctance with constant
 <code>area</code> of cross section, and length, <code>l</code>
 the magnetic reluctance by:</p>
-<p>
-<dd>
+<dl><dd>
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/R_m_generic.png\">,
-</dd>
-</p>
+</dd></dl>
 
 <p>
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/GenericFluxTube_qs.png\">
@@ -1508,17 +1506,14 @@ the magnetic reluctance by:</p>
 <p>
 The cuboid models the reluctance with rectangular dimensions <code>a</code> and <code>b</code>, and length, <code>l</code>
 the magnetic reluctance by:</p>
-<p>
-<dd>
+<dl><dd>
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/R_m_cuboid.png\">
-</dd>
-</p>
+</dd></dl>
 
-<p>The area of cross section is determined by:
-<dd>
+<p>The area of cross section is determined by:</p>
+<dl><dd>
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/A_cuboid.png\">
-</dd>
-</p>
+</dd></dl>
 
 <p>
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/CuboidParallelFlux_qs.png\">
@@ -1839,7 +1834,6 @@ The permeances of all elements of this package are calculated from their geometr
 <p>Base definition of complex quasi static magnetic port.
 The potential variable is the complex magnetic potential difference <code>V_m</code> and the flow variable
 is the complex magnetic flux <code>Phi</code>.</p>
-</p>
 
 <h4>See also</h4>
 
@@ -1929,8 +1923,6 @@ reference angle is the actual angular frequency of the quasi static magnetic pot
 The symbol is also designed such way to look different than the
 <a href=\"modelica://Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.PositiveMagneticPort\">PositiveMagneticPort</a>.
 </p>
-
-<p>
 
 <h4>See also</h4>
 
@@ -2389,7 +2381,8 @@ This package contains sources of a magnetic potential difference or a magnetic f
               textString="ref")}), Diagram(coordinateSystem(preserveAspectRatio=false)),
         Documentation(info="<html>
 <p>This sensor determines the reference angle of the connected quasi static magnetic system.
-The integral of the angular frequency of the quasi static magnetic system is equal to the reference angle.</p>
+The integral of the angular frequency of the quasi static magnetic system is equal to the reference angle.
+</p>
 </html>"));
     end ReferenceSensor;
 
@@ -2405,7 +2398,7 @@ The integral of the angular frequency of the quasi static magnetic system is equ
               textString="f")}), Documentation(info="<html>
 <p>
 This sensor can be used to measure the frequency of the reference system.
-The integral of the angular frequency of the quasi static magnetic system is equal to the reference angle.</p>
+The integral of the angular frequency of the quasi static magnetic system is equal to the reference angle.
 </p>
 </html>"));
     end FrequencySensor;
@@ -2653,7 +2646,7 @@ This sensor is used to determined the effective fundamental wave permeability of
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/A.png\" alt=\"l\">,
 and the geometric length,
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/l.png\" alt=\"l\">,
-of the flux path have to be take into account<p>
+of the flux path have to be take into account</p>
 <dl><dd>
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/permeabilities.png\" alt=\"Permeabilities\">
 </dd></dl>
