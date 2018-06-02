@@ -1717,7 +1717,7 @@ Block generating the sum of two ramps.
       // no energy exchange with medium
       Q_flow = Q_friction;
     annotation (Documentation(info="<html>
-<p>Pipe without heat exchange.</p>>
+<p>Pipe without heat exchange.</p>
 <p>Thermodynamic equations are defined by Partials.TwoPortMass(Q_flow = 0).</p>
 <p>
 <strong>Note:</strong> Setting parameter m (mass of medium within pipe) to zero
