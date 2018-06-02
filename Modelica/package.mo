@@ -8205,7 +8205,7 @@ version="3.2.3",
 versionBuild=1,
 versionDate="2018-08-01",
 dateModified = "2018-08-01 12:00:00Z",
-revisionId="c072366c1 Fix spelling 2018-06-02 17:35:43 +0200",
+revisionId="$Format:%h %s %ci$",
 uses(Complex(version="3.2.3"), ModelicaServices(version="3.2.3")),
 conversion(
  noneFromVersion="3.2.2",
