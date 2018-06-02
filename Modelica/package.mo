@@ -1088,15 +1088,15 @@ For parameters, connectors, as well as inputs and outputs of function automatic 
       <th>Not to be used</th>
     </tr>
     <tr>
-      <td><a href=\"http://www.electropedia.org/iev/iev.nsf/display?openform&ievref=141-01-03\">polyphase</a></td>
+      <td><a href=\"http://www.electropedia.org/iev/iev.nsf/display?openform&amp;ievref=141-01-03\">polyphase</a></td>
       <td>multi phase, multi-phase, multiphase</td>
     </tr>
      <tr>
-      <td><a href=\"http://www.electropedia.org/iev/iev.nsf/display?openform&ievref=411-31-13\">single-phase</a></td>
+      <td><a href=\"http://www.electropedia.org/iev/iev.nsf/display?openform&amp;ievref=411-31-13\">single-phase</a></td>
       <td>single phase, singlephase, one phase, one-phase, onephase, 1 phase, 1-phase</td>
     </tr>
      <tr>
-      <td><a href=\"http://www.electropedia.org/iev/iev.nsf/display?openform&ievref=811-12-22\">three-phase</a></td>
+      <td><a href=\"http://www.electropedia.org/iev/iev.nsf/display?openform&amp;ievref=811-12-22\">three-phase</a></td>
       <td>three phase, threephase, 3 phase, 3-phase</td>
     </tr>
 </table></p>
@@ -1117,11 +1117,11 @@ For parameters, connectors, as well as inputs and outputs of function automatic 
       <th>Not to be used</th>
     </tr>
      <tr>
-      <td><a href=\"http://www.electropedia.org/iev/iev.nsf/display?openform&ievref=151-11-09\">electromagnetic</a></td>
+      <td><a href=\"http://www.electropedia.org/iev/iev.nsf/display?openform&amp;ievref=151-11-09\">electromagnetic</a></td>
       <td>electro magnetic</td>
     </tr>
     <tr>
-      <td><a href=\"http://www.electropedia.org/iev/iev.nsf/display?openform&ievref=121-11-60\">magnetomotive force</a></td>
+      <td><a href=\"http://www.electropedia.org/iev/iev.nsf/display?openform&amp;ievref=121-11-60\">magnetomotive force</a></td>
       <td>magneto motive force</td>
     </tr>
 </table></p>

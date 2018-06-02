@@ -3396,7 +3396,7 @@ The total RMS component is then determined by:</p>
 <p>
 The calculation of the total harmonic distortion is based on the parameter <code>useFirstHarmonic</code>.
 The default value <code>useFirstHarmonic = true</code> represents the <strong>standard</strong> THD calculation used in
-<a href=\"http://www.electropedia.org/iev/iev.nsf/display?openform&ievref=551-20-13\">electrical engineering</a>.
+<a href=\"http://www.electropedia.org/iev/iev.nsf/display?openform&amp;ievref=551-20-13\">electrical engineering</a>.
 The non-default value <code>useFirstHarmonic = false</code>
 calculates the THD typically used for the assessment of audio signals.
 </p>
