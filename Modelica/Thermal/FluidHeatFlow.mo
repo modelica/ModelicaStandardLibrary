@@ -156,7 +156,8 @@ Copyright &copy; 1998-2018, Modelica Association, Anton Haumer, Christian Kral a
 </html>"));
     end ReleaseNotes;
 
-    annotation (Documentation(info="<html>
+    annotation (DocumentationClass=true,
+    Documentation(info="<html>
 <p>
 This library provides simple components for 1-dimensional incompressible thermo-fluid flow models.
 </p>
