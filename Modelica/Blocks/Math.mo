@@ -3384,7 +3384,7 @@ The harmonic is defined by <code>&radic;2 rms cos(k 2 &pi; f t + arg)</code> if 
             extent={{-150,-110},{150,-150}},
             textString="f=%f")}), Diagram(coordinateSystem(grid={2,2})),
       Documentation(info="<html>
-<p>This block determines the total harmonic distorion (THD) over the given period <code>1/f</code>.
+<p>This block determines the total harmonic distortion (THD) over the given period <code>1/f</code>.
 Consider that the input <code>u</code> consists of harmonic RMS components
 <code>U<sub>1</sub></code>, <code>U<sub>2</sub></code>, <code>U<sub>3</sub></code>, etc.
 The total RMS component is then determined by:</p>
