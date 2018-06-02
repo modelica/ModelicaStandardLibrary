@@ -1441,7 +1441,7 @@ This allows a tool to access multiple versions of the same package.
 <p>Defines the optional build number of the library.</p>
 
 <blockquote>
-<em>This is a <strong>deprecated</strong> annotation. It should no longer be used, since it will be removed in one of the next Modelica releases. Use instead <a href=\"https://semver.org/\">Semantic Versioning</a> which provides a better mechanism for maintaining releases and bugfixes in a well defined way.</emp>
+<em>This is a <strong>deprecated</strong> annotation. It should no longer be used, since it will be removed in one of the next Modelica releases. Use instead <a href=\"https://semver.org/\">Semantic Versioning</a> which provides a better mechanism for maintaining releases and bugfixes in a well defined way.</em>
 </blockquote>
 
 <h4>Syntax</h4>
@@ -5542,7 +5542,7 @@ another kind of specialized class:</p>
 
 <table border=\"1\" cellpadding=\"1\" cellspacing=\"1\" >
 <tr>
-  <td></td><td colspan=7 align=center><strong>Base Class</strong></td>
+  <td></td><td colspan=7 style=\"text-align:center\"><strong>Base Class</strong></td>
 </tr>
 <tr>
   <td><strong>Derived Class</strong></td>
