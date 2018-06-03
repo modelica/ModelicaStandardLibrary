@@ -1354,17 +1354,15 @@ the time behaviour depending on coolant flow.
             extent={{-10,-10},{10,10}},
             rotation=180,
             origin={20,0})));
-      Modelica.Thermal.FluidHeatFlow.Components.Valve valve(
+      Components.OneWayValve                          oneWayValve(
         medium=Modelica.Thermal.FluidHeatFlow.Media.Water(),
         m=0,
         frictionLoss=0,
-        y1=1,
-        Kv1=0.18,
-        rho0(displayUnit="kg/m3") = 995.6,
-        kv0=1e-6,
         T0=293.15,
-        LinearCharacteristic=true,
-        dp0=10000)
+        V_flowNominal=0.18,
+        dpForward=10000,
+        dpNominal=500000,
+        V_flowBackward=1e-6)
         annotation (Placement(
             transformation(
             extent={{10,10},{-10,-10}},
@@ -1391,41 +1389,23 @@ the time behaviour depending on coolant flow.
             extent={{10,10},{-10,-10}},
             rotation=270,
             origin={50,82})));
-      Modelica.Blocks.Logical.Hysteresis hysteresis(uLow=3.5e5, uHigh=4.0e5)
-        annotation (Placement(transformation(
-            extent={{-10,-10},{10,10}},
-            rotation=180,
-            origin={-10,0})));
-      Modelica.Blocks.Logical.Pre pre1
-        annotation (Placement(transformation(extent={{-20,10},{0,30}})));
-      Modelica.Blocks.Logical.TriggeredTrapezoid triggeredTrapezoid(rising=0.1)
-        annotation (Placement(transformation(extent={{10,10},{30,30}})));
     equation
       connect(pumpTurbine.flowPort_a, ambient1.flowPort)
         annotation (Line(points={{50,-60},{50,-70}}, color={255,0,0}));
       connect(speed.flange, multiSensor.flange_a)
         annotation (Line(points={{0,-50},{10,-50}}));
-      connect(valve.flowPort_a, volumeFlowSensor.flowPort_b)
-        annotation (Line(points={{50,10},{50,-10}},
-                                                  color={255,0,0}));
+      connect(oneWayValve.flowPort_a, volumeFlowSensor.flowPort_b)
+        annotation (Line(points={{50,10},{50,-10}}, color={255,0,0}));
       connect(volumeFlowSensor.flowPort_a, pumpTurbine.flowPort_b)
         annotation (Line(points={{50,-30},{50,-40}}, color={255,0,0}));
       connect(ambient2.flowPort, pipe.flowPort_b)
         annotation (Line(points={{50,72},{50,60}}, color={255,0,0}));
-      connect(pipe.flowPort_a, valve.flowPort_b)
+      connect(pipe.flowPort_a, oneWayValve.flowPort_b)
         annotation (Line(points={{50,40},{50,30}}, color={255,0,0}));
       connect(multiSensor.flange_b, pumpTurbine.flange_a)
         annotation (Line(points={{30,-50},{40,-50}}));
-      connect(valve.flowPort_a, pressureSensor.flowPort)
+      connect(oneWayValve.flowPort_a, pressureSensor.flowPort)
         annotation (Line(points={{50,10},{50,0},{30,0}}, color={255,0,0}));
-      connect(pre1.y, triggeredTrapezoid.u)
-        annotation (Line(points={{1,20},{8,20}}, color={255,0,255}));
-      connect(triggeredTrapezoid.y, valve.y)
-        annotation (Line(points={{31,20},{40,20}}, color={0,0,127}));
-      connect(hysteresis.y, pre1.u) annotation (Line(points={{-21,0},{-30,0},{-30,20},
-              {-22,20}}, color={255,0,255}));
-      connect(pressureSensor.y, hysteresis.u)
-        annotation (Line(points={{9,0},{2,0}}, color={0,0,127}));
       connect(gain.y, speed.w_ref)
         annotation (Line(points={{-29,-50},{-22,-50}}, color={0,0,127}));
       connect(trapezoid.y, gain.u)
@@ -1438,11 +1418,7 @@ the time behaviour depending on coolant flow.
 <p>
 There are two reservoirs at ambient pressure, the second one 25 m higher than the first one.
 The ideal pump is driven by a speed source, starting from zero and going up to 1.2 times nominal speed.
-To avoid water flowing back, the valve is initially closed.
-It gets opened when the pump provides sufficient pressure, allowing water flow to start.
-Subsequently the speed of the pump is reduced to zero again, reducing the water flow.
-Again, to avoid water flowing back, the valve gets closed when the pressure provided by the pump gets too low.
-It is possible to investigate the dependencies of volume flow, pressure, torque and power demand on pump speed.
+To avoid water flowing back, the one way valve is used.
 </p>
 </html>"));
     end WaterPump;
@@ -2189,6 +2165,56 @@ Thermodynamic equations are defined by Partials.TwoPort.
               lineColor={0,0,255},
               textString="%name")}));
     end PumpTurbine;
+
+    model OneWayValve "Simple one-way valve"
+
+      extends Interfaces.Partials.TwoPort(m(start=0), final tapT=1);
+      parameter Modelica.SIunits.VolumeFlowRate V_flowNominal(start=1) "Nominal volume flow rate (forward)";
+      parameter Modelica.SIunits.Pressure dpForward(displayUnit="bar")=1e-6 "Pressure drop at nominal flow (forward)";
+      parameter Modelica.SIunits.Pressure dpNominal(displayUnit="bar", start=1e5) "Nominal pressure (backward)";
+      parameter Modelica.SIunits.VolumeFlowRate V_flowBackward(start=1E-6) "Leakage volume flow rate (backwardward)";
+      parameter Real frictionLoss(min=0, max=1, start=0)
+        "Part of friction losses fed to medium";
+      Boolean backward(start=true) "State forward=false / backward=true";
+    protected
+      Real s(start=0, final unit="1")
+        "Auxiliary variable for actual position on the valve characteristic";
+      /* s < 0: backward, leakage flow
+  s > 0: forward, small pressure drop */
+      constant Modelica.SIunits.VolumeFlowRate unitVolumeFlowRate = 1;
+      constant Modelica.SIunits.Pressure unitPressureDrop = 1;
+    equation
+      backward = s<0;
+      dp     = (s*unitVolumeFlowRate)*(if backward then 1 else dpForward/V_flowNominal);
+      V_flow = (s*unitPressureDrop)  *(if backward then V_flowBackward/dpNominal else 1);
+      Q_flow = frictionLoss*V_flow*dp;
+    annotation (Documentation(info="<html>
+<p>Simple one-way valve, comparable to the electrical <a href=\"modelica://Modelica.Electrical.Analog.Ideal.IdealDiode\">ideal diode</a> model.</p>
+<ul>
+<li>from flowPort_a to flowPort_b: small pressure drop, linearly dependent on volumeFlow</li>
+<li>from flowPort_b to flowPort_a: small leakage flow, linearly dependent on presssure drop</li>
+</ul>
+</html>"),
+      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
+                100}}), graphics={
+            Polygon(
+              points={{-90,10},{-60,10},{-60,60},{0,0},{60,60},{60,10},{90,10},{90,-10},
+                  {60,-10},{60,-60},{0,0},{-60,-60},{-60,-10},{-90,-10},{-90,10}},
+              lineColor={255,0,0},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid), Text(extent={{-150,-70},{150,-110}},
+              textString="%name",
+              lineColor={0,0,255}),
+            Line(
+              points={{-60,60},{60,-60},{50,-40},{40,-50},{60,-60}},
+              color={0,0,0},
+              thickness=0.5),
+            Polygon(
+              points={{50,-40},{60,-60},{40,-50},{50,-40}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid)}));
+    end OneWayValve;
   annotation (Documentation(info="<html>
 <p>This package contains components.</p>
 <p>
