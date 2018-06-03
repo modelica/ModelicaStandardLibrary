@@ -2318,6 +2318,8 @@ to <font color=\"blue\"><strong>existing</strong></font> libraries:<br>
     <td> A simple model of a piston/cylinder with translational flange.</td></tr>
 <tr><td width=\"150\">PumpTurbine</td>
     <td> An improved version of the Sources.IdealPump model (which extends from the PumpTurbine model now)</td></tr>
+<tr><td width=\"150\">OneWayValve</td>
+    <td> A simple one way valve model (comparable to an electrical ideal diode)</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Thermal.FluidHeatFlow.Media</strong></td></tr>
 <tr><td width=\"150\">Water_10degC<br>Water_90degC<br>Glycol20_20degC<br>Glycol50_20degC<br>MineralOil</td>
     <td> Several new records defining media properties.</td></tr>
