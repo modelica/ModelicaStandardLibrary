@@ -1735,7 +1735,7 @@ Block generating the sum of two ramps.
   package Components "Basic components (pipes, valves)"
     extends Modelica.Icons.Package;
 
-    model Pipe "Pipe with/withoutheat exchange"
+    model Pipe "Pipe with/without heat exchange"
 
       extends Interfaces.Partials.TwoPort;
       parameter Boolean useHeatPort = false "=true, if HeatPort is enabled"
@@ -1760,7 +1760,7 @@ Block generating the sum of two ramps.
     annotation (Documentation(info="<html>
 <p>Pipe with/without heat exchange.</p>
 <p>
-Thermodynamic equations are defined by Partials.TwoPort. 
+Thermodynamic equations are defined by Partials.TwoPort.
 Q_flow is defined by heatPort.Q_flow (useHeatPort=true) or zero (useHeatPort=false).</p>
 <p>
 <strong>Note:</strong> Setting parameter m (mass of medium within pipe) to zero
@@ -2397,8 +2397,8 @@ Record containing (constant) medium properties.
 <p>The RelTemperatureSensor measures the temperature difference between flowPort_a and flowPort_b.</p>
 <p>Thermodynamic equations are defined by Partials.RelativeSensor.</p>
 <p>
-<strong>Note:</strong> Connected flowPorts have the same temperature (mixing temperature)! 
-Since mixing my occur, the outlet temperature of a component may be different from the connector's temperature. 
+<strong>Note:</strong> Connected flowPorts have the same temperature (mixing temperature)!
+Since mixing my occur, the outlet temperature of a component may be different from the connector's temperature.
 Outlet temperature is defined by variable T of the corresponding component.
 </p>
 </html>"),
@@ -2710,7 +2710,7 @@ This package contains different types of sources:
 <li>Simple pump with mechanical flange</li>
 </ul>
 <p>
-Thermodynamic equations are defined in partial models (package Interfaces.Partials). 
+Thermodynamic equations are defined in partial models (package Interfaces.Partials).
 All fans / pumps are considered without losses, they do not change enthalpy flow.
 </p>
 </html>", revisions="<html>
@@ -2853,8 +2853,8 @@ Definition of relationship between pressure drop and volume flow rate:
 <li>-V_flowLaminar &gt; VolumeFlow or VolumeFlow &lt; +V_flowLaminar: turbulent, i.e., quadratic dependency of pressure drop on volume flow.</li>
 </ul>
 <p>
-Linear and quadratic dependency are coupled smoothly at V_flowLaminar / dpLaminar. 
-Quadratic dependency is defined by nominal volume flow and pressure drop (V_flowNominal / dpNominal). 
+Linear and quadratic dependency are coupled smoothly at V_flowLaminar / dpLaminar.
+Quadratic dependency is defined by nominal volume flow and pressure drop (V_flowNominal / dpNominal).
 See also sketch at diagram layer.
 </p>
 </html>"),
@@ -3115,7 +3115,7 @@ Partial model of single port at the bottom, defining the medium and the temperat
       end FlowSensor;
     annotation (Documentation(info="<html>
 <p>
-Package containg partial models from which all components (except Sources.AbsolutePressure) extend 
+Package containing partial models from which all components (except Sources.AbsolutePressure) extend
 instantiating the medium and containing the thermodynamic equation(s) with semiLinear.
 </p>
 </html>",revisions="<html>
