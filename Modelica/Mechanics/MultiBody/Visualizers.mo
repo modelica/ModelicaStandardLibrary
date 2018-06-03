@@ -828,7 +828,7 @@ with respect to frame_a (vector from the origin of frame_a to the arrow tail).
           color={95,95,95},
           thickness=0.5));
       annotation (
-       obsolete = "Obsolete model - use ground visualization possibility in Modelica.Mechanics.MultiBody.World, or use model Modelica.Mechanics.MultiBody.Visualizers.Plane instead",
+       obsolete = "Obsolete model - use ground visualization feature in Modelica.Mechanics.MultiBody.World, or use model Modelica.Mechanics.MultiBody.Visualizers.Rectangle instead",
        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={
             Polygon(
@@ -1256,7 +1256,7 @@ so that the rectangle is rotated about the z-axis of frame_a.
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Plane.png\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Rectangle.png\">
 </blockquote>
 </html>"));
   end Rectangle;
@@ -2531,7 +2531,7 @@ colorMapToSvg(Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.jet(),
         annotation (Documentation(info="<html>
 <p>
 Function <strong>rectangle</strong> computes the X, Y and Z arrays to visualize a rectangle
-with model <a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Plane\">Plane</a>.
+with model <a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Rectangle\">Rectangle</a>.
 The image below shows two rectangles of
 </p>
 <blockquote><pre>
@@ -2542,7 +2542,7 @@ lv = 2.
 </pre></blockquote>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Plane.png\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Rectangle.png\">
 </blockquote>
 </html>"));
       end rectangle;
