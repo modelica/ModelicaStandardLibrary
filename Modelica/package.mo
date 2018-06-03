@@ -2300,10 +2300,10 @@ to <font color=\"blue\"><strong>existing</strong></font> libraries:<br>
 <tr><td colspan=\"2\"><strong>Modelica.Magnetic.FundamentalWave.Examples</strong></td></tr>
 <tr><td width=\"150\"> </td>
     <td> A lot of new test examples for fundamentalwave machines.</td></tr>
-<tr><td colspan=\"2\"><strong>Modelica.Thermal.HeatTransfer.Components</strong></td></tr>
-<tr><td colspan=\"2\"><strong>Modelica.QuasiStatic.Magnetic.FundamentalWave.Sensors</strong></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Magnetic.QuasiStatic.FundamentalWave.Sensors</strong></td></tr>
 <tr><td width=\"150\">RotorDisplacementAngle</td>
     <td> Measures the rotor displacement angle of a quasistatic machine.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Thermal.HeatTransfer.Components</strong></td></tr>
 <tr><td width=\"150\">GeneralHeatFlowToTemperatureAdaptor<br>GeneralTemperatureToHeatFlowAdaptor</td>
     <td> Adaptors for the generation of FMUs, optionally taking first derivative into account.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Thermal.FluidHeatFlow.Examples</strong></td></tr>
