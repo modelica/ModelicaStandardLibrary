@@ -2323,6 +2323,8 @@ to <font color=\"blue\"><strong>existing</strong></font> libraries:<br>
 <tr><td width=\"150\">q</td>
     <td> The elementary charge of an electron.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Icons</strong></td></tr>
+<tr><td width=\"150\">FunctionsPackage</td>
+    <td> This icon indicates a package that contains functions.</td></tr>
 <tr><td width=\"150\">RecordPackage</td>
     <td> This icon indicates a package that contains records.</td></tr>
 </table>
