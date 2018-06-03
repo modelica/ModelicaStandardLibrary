@@ -1735,8 +1735,7 @@ Block generating the sum of two ramps.
   package Components "Basic components (pipes, valves)"
     extends Modelica.Icons.Package;
 
-    model Pipe "Pipe with/without heat exchange"
-
+    model Pipe "Pipe with optional heat exchange"
       extends Interfaces.Partials.TwoPort;
       parameter Boolean useHeatPort = false "=true, if HeatPort is enabled"
         annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
@@ -1758,7 +1757,7 @@ Block generating the sum of two ramps.
       // energy exchange with medium
       Q_flow = Q_flowHeatPort + Q_friction;
     annotation (Documentation(info="<html>
-<p>Pipe with/without heat exchange.</p>
+<p>Pipe with optional heat exchange.</p>
 <p>
 Thermodynamic equations are defined by Partials.TwoPort.
 Q_flow is defined by heatPort.Q_flow (useHeatPort=true) or zero (useHeatPort=false).</p>
