@@ -1459,7 +1459,8 @@ It is possible to investigate the dependencies of volume flow, pressure, torque 
         pAmbient=0,
         g=10,
         level(fixed=true, start=0.5),
-        T(fixed=true, start=313.15))
+        T0=313.15,
+        T0fixed=true)
         annotation (Placement(transformation(extent={{-10,50},{10,70}})));
       Modelica.Thermal.FluidHeatFlow.Sources.Ambient ambient(
           constantAmbientPressure=0, constantAmbientTemperature=293.15)
@@ -1518,20 +1519,22 @@ Subsequently the medium is pumped into the tank from an (infinite) ambient:
         hTank=1,
         useHeatPort=false,
         g=10,
-        pAmbient=100000,
         level(fixed=true, start=0.9),
-        T(fixed=true, start=313.15))
+        T0=313.15,
+        T0fixed=true,
+        pAmbient=100000)
         annotation (Placement(transformation(extent={{-60,12},{-40,32}})));
       Modelica.Thermal.FluidHeatFlow.Components.OpenTank openTank2(
         ATank=1,
         hTank=1,
         useHeatPort=false,
         g=10,
-        pAmbient=100000,
         level(fixed=true, start=0.1),
-        T(fixed=true, start=293.15))
+        T0=293.15,
+        T0fixed=true,
+        pAmbient=100000)
         annotation (Placement(transformation(extent={{60,10},{40,30}})));
-      Components.Pipe                                        pipe(
+      Components.Pipe pipe(
         m=0,
         h_g=0,
         T0=293.15,
@@ -1579,7 +1582,8 @@ The temperature of tank 1 remains unchanged, the temperature of tank 2 is increa
         A=0.1,
         L=10,
         s(fixed=true, start=cylinder1.L/2),
-        T(fixed=true, start=313.15))        annotation (Placement(
+        T0=313.15,
+        T0fixed=true)                       annotation (Placement(
             transformation(
             extent={{-10,10},{10,-10}},
             rotation=180,
@@ -1587,7 +1591,10 @@ The temperature of tank 1 remains unchanged, the temperature of tank 2 is increa
       Modelica.Thermal.FluidHeatFlow.Components.Cylinder cylinder2(
         T(fixed=true),
         A=1,
-        L=1) annotation (Placement(transformation(
+        L=1,
+        T0=313.15,
+        T0fixed=true)
+             annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=0,
             origin={10,0})));
@@ -1896,7 +1903,7 @@ V_flow**2 * rho / dp = Kv(y)**2 * rho0 / dp0
     end Valve;
 
     model OpenTank "Model of a tank under ambient pressure"
-      extends Interfaces.Partials.SinglePortBottom(final Exchange=true, T(start=293.15));
+      extends Interfaces.Partials.SinglePortBottom(final Exchange=true);
       parameter Modelica.SIunits.Area ATank(start=1) "Cross section of tank";
       parameter Modelica.SIunits.Length hTank(start=1) "Height of tank";
       parameter Modelica.SIunits.Pressure pAmbient(start=0) "Ambient pressure";
@@ -2020,7 +2027,7 @@ Via the optional heatPort the medium in the tank can be cooled or heated.
 
     model Cylinder "Simple model of a piston in a cylinder"
       import Modelica.Constants.small;
-      extends Interfaces.Partials.SinglePortLeft(final Exchange=true, T(start=293.15));
+      extends Interfaces.Partials.SinglePortLeft(final Exchange=true);
       parameter Modelica.SIunits.Area A "Cross section of cylinder/piston";
       parameter Modelica.SIunits.Length L "Length of cylinder";
       extends
@@ -2484,7 +2491,7 @@ All sensors are considered massless, they do not change mass flow or enthalpy fl
 
     model Ambient "Ambient with constant properties"
 
-      extends Interfaces.Partials.SinglePortLeft(final Exchange=true);
+      extends Interfaces.Partials.SinglePortLeft(final Exchange=true, final T0=293.15, final T0fixed=false);
       parameter Boolean usePressureInput=false
         "Enable / disable pressure input"
         annotation(Evaluate=true, choices(checkBox=true));
@@ -2544,7 +2551,7 @@ All sensors are considered massless, they do not change mass flow or enthalpy fl
     end Ambient;
 
     model AbsolutePressure "Defines absolute pressure level"
-      extends Interfaces.Partials.SinglePortLeft(final Exchange=false);
+      extends Interfaces.Partials.SinglePortLeft(final Exchange=false, final T0=293.15, final T0fixed=false);
       parameter Modelica.SIunits.Pressure p(start=0) "Pressure ground";
     equation
       // defining pressure
@@ -2961,8 +2968,13 @@ leads to neglect of temperature transient cv*m*der(T).</p>
         "Partial model of a single port at the left"
         parameter FluidHeatFlow.Media.Medium medium=FluidHeatFlow.Media.Medium() "Medium"
           annotation(choicesAllMatching=true);
+        parameter Modelica.SIunits.Temperature T0(start=293.15, displayUnit="degC")
+          "Initial temperature of medium";
+        parameter Boolean T0fixed=false
+          "Initial temperature guess value or fixed"
+        annotation(choices(checkBox=true));
         output Modelica.SIunits.Temperature T_port "Temperature at flowPort_a";
-        output Modelica.SIunits.Temperature T "Outlet temperature of medium";
+        output Modelica.SIunits.Temperature T(start=T0, fixed=T0fixed) "Outlet temperature of medium";
         Interfaces.FlowPort_a flowPort(final medium=medium)
           annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
       protected
@@ -2991,7 +3003,7 @@ Partial model of single port at the left, defining the medium and the temperatur
       end SinglePortLeft;
 
       partial model Ambient "Partial model of ambient"
-        extends SinglePortLeft(final Exchange=true);
+        extends SinglePortLeft(final Exchange=true, final T0=293.15);
         extends Icons.ObsoleteModel;
         annotation (obsolete = "Obsolete model - use SinglePortLeft instead",
         Documentation(info="<html>
@@ -3011,8 +3023,13 @@ only adding an icon, and is kept for compatibility reasons. In the future, it wi
         "Partial model of a single port at the bottom"
         parameter FluidHeatFlow.Media.Medium medium=FluidHeatFlow.Media.Medium() "Medium"
           annotation(choicesAllMatching=true);
+        parameter Modelica.SIunits.Temperature T0(start=293.15, displayUnit="degC")
+          "Initial temperature of medium";
+        parameter Boolean T0fixed=false
+          "Initial temperature guess value or fixed"
+        annotation(choices(checkBox=true));
         output Modelica.SIunits.Temperature T_port "Temperature at flowPort_a";
-        output Modelica.SIunits.Temperature T "Outlet temperature of medium";
+        output Modelica.SIunits.Temperature T(start=T0, fixed=T0fixed) "Outlet temperature of medium";
         Interfaces.FlowPort_a flowPort(final medium=medium)
           annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
       protected
@@ -3042,7 +3059,7 @@ Partial model of single port at the bottom, defining the medium and the temperat
 
       partial model AbsoluteSensor "Partial model of absolute sensor"
         extends Modelica.Icons.RotationalSensor;
-        extends SinglePortLeft(final Exchange=false);
+        extends SinglePortLeft(final Exchange=false, final T0=293.15, final T0fixed=false);
         Modelica.Blocks.Interfaces.RealOutput y
           annotation (Placement(transformation(extent={{100,-10},{120,10}})));
       equation
@@ -3061,7 +3078,7 @@ Partial model of single port at the bottom, defining the medium and the temperat
 
       partial model RelativeSensor "Partial model of relative sensor"
         extends Modelica.Icons.RotationalSensor;
-        extends TwoPort(final m=0, final T0=0, final tapT=0.5);
+        extends TwoPort(final m=0, final T0=293.15, final T0fixed=false, final tapT=0.5);
         Modelica.Blocks.Interfaces.RealOutput y
           annotation (Placement(transformation(
               origin={0,-110},
@@ -3088,7 +3105,7 @@ Partial model of single port at the bottom, defining the medium and the temperat
 
       partial model FlowSensor "Partial model of flow sensor"
         extends Modelica.Icons.RotationalSensor;
-        extends TwoPort(final m=0, final T0=0, final tapT=1);
+        extends TwoPort(final m=0, final T0=293.15, final T0fixed=false, final tapT=1);
         Modelica.Blocks.Interfaces.RealOutput y
           annotation (Placement(transformation(
               origin={0,-110},
