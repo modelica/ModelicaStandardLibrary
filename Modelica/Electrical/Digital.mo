@@ -109,7 +109,6 @@ The Electrical.Digital library is based on the following references:
         annotation (Documentation(info="<html>
 <h4>Main authors</h4>
 
-<p>
 <dl>
 <dt><strong>Christoph Clau&szlig;</strong></dt>
 <dd>email: <a href=\"mailto:christoph@clauss-it.com\">christoph@clauss-it.com</a></dd>
@@ -118,8 +117,7 @@ The Electrical.Digital library is based on the following references:
 <dt><strong>Ulrich Donath</strong></dt>
 <dd>email: <a href=\"mailto:Ulrich.Donath@eas.iis.fraunhofer.de\">Ulrich.Donath@eas.iis.fraunhofer.de</a></dd>
 </dl>
-</p>
-<p>
+
 <dl>
 <dt>Address</dt>
 <dd>Fraunhofer Institute for Integrated Circuits (IIS)<br>
@@ -128,7 +126,6 @@ Zeunerstra&szlig;e 38<br>
 D-01069 Dresden<br>
 Germany</dd>
 </dl>
-</p>
 
 <h4>Acknowledgements</h4>
 

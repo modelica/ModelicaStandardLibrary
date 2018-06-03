@@ -1441,10 +1441,11 @@ The mechanical load is a constant torque like a conveyor (with regularization ar
         annotation (experiment(
             StopTime=1.5,
             Interval=5e-05,
-            Tolerance=1e-06),                                                 Documentation(
+            Tolerance=1e-06), Documentation(
               info="<html>
 <p>
 This is a model of a complete inverter drive comprising:
+</p>
 <ul>
 <li>a grid model and a line choke</li>
 <li><a href=\"modelica://Modelica.Electrical.PowerConverters.ACDC.DiodeBridge2mPulse\">a diode rectifier</a></li>
@@ -1456,7 +1457,6 @@ This is a model of a complete inverter drive comprising:
 <li>an induction machine with squirrel cage</li>
 <li>a load inertia and quadratic speed dependent load torque (like a fan or pump)</li>
 </ul>
-</p>
 <p>Please note: Be patient, two switching devices cause many event iteratons which cost performance.</p>
 <p>Note that due to the voltage drop the voltage at the machine can't reach the full voltage which means torque reduction.</p>
 <p>Default machine parameters are adapted to nominal phase voltage 400 V and nominal phase current 25 A.</p>
@@ -2382,7 +2382,7 @@ and accelerating inertias. At time tStep a load step is applied.</p>
           annotation (Line(points={{31,50},{38,50}}, color={0,0,127}));
         connect(toPolar.y[2], toDeg.u)
           annotation (Line(points={{61,50},{68,50}}, color={0,0,127}));
-        annotation (                                 experiment(StopTime=0.04,
+        annotation (experiment(StopTime=0.04,
               Interval=0.0001),
           Documentation(info="<html>
 <p>
@@ -2393,12 +2393,13 @@ You may check the terminal voltage = VsOpenCircuit (shown by the length of the s
 </p>
 <p>
 Additionally, you may check the phase shift of the stator voltages with respect to the mechanical shaft angle:
+</p>
 <ul>
 <li>If the shaft angle starts at (pi + 0*pi/3)/p, the flux linkage through phase 1 is at the maximum and therefore this phase voltage starts at 0.</li>
 <li>If the shaft angle starts at (pi + 2*pi/3)/p, the flux linkage through phase 2 is at the maximum and therefore this phase voltage starts at 0.</li>
 <li>If the shaft angle starts at (pi + 4*pi/3)/p, the flux linkage through phase 3 is at the maximum and therefore this phase voltage starts at 0.</li>
 </ul>
-Note that the angle of the voltage space phasor is pi/2 behind the angle of the hall sensor,
+<p>Note that the angle of the voltage space phasor is pi/2 behind the angle of the hall sensor,
 i.e. after a rotation of the shaft by pi/2/p the flux linkage of phase 1 is zero and the induced voltage a maximum.
 </p>
 </html>"));

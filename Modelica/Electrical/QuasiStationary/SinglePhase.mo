@@ -768,6 +768,7 @@ A <a href=\"modelica://Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort
 The reactive component <code>X_actual = imag(<u>Z</u>)</code>
 is equal to <code>imag(Z_ref)</code> if <code>frequencyDependent = false</code>.
 Frequency dependency is considered by <code>frequencyDependent = true</code>, distinguishing two cases:
+</p>
 
 <dl>
 <dt>(a) <code>imag(Z_ref) &gt; 0</code>: inductive case</dt>
@@ -775,7 +776,6 @@ Frequency dependency is considered by <code>frequencyDependent = true</code>, di
 <dt>(b) <code>imag(Z_ref) &lt; 0</code>: capacitive case</dt>
 <dd>The actual reactance <code>X_actual</code> is proportional to <code>f_ref/f</code></dd>
 </dl>
-</p>
 
 <h4>See also</h4>
 <p>
@@ -850,6 +850,7 @@ A <a href=\"modelica://Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort
 The reactive component <code>B_actual = imag(<u>Y</u>)</code>
 is equal to <code>imag(Y_ref)</code> if <code>frequencyDependent = false</code>.
 Frequency dependency is considered by <code>frequencyDependent = true</code>, distinguishing two cases:
+</p>
 
 <dl>
 <dt>(a) <code>imag(Y_ref) &gt; 0</code>: capacitive case</dt>
@@ -857,7 +858,6 @@ Frequency dependency is considered by <code>frequencyDependent = true</code>, di
 <dt>(b) <code>imag(Y_ref) &lt; 0</code>: inductive case</dt>
 <dd>The actual susceptance <code>B_actual</code> is proportional to <code>f_ref/f</code></dd>
 </dl>
-</p>
 
 <h4>See also</h4>
 <p>
@@ -1210,6 +1210,7 @@ the actual operating temperature and the reference input resistance <code>real(Z
 The reactive component <code>X_actual = imag(<u>Z</u>)</code>
 is equal to <code>imag(Z_ref)</code> if <code>frequencyDependent = false</code>.
 Frequency dependency is considered by <code>frequencyDependent = true</code>, distinguishing two cases:
+</p>
 
 <dl>
 <dt>(a) <code>imag(Z_ref) &gt; 0</code>: inductive case</dt>
@@ -1217,7 +1218,6 @@ Frequency dependency is considered by <code>frequencyDependent = true</code>, di
 <dt>(b) <code>imag(Z_ref) &lt; 0</code>: capacitive case</dt>
 <dd>The actual reactance <code>X_actual</code> is proportional to <code>f_ref/f</code></dd>
 </dl>
-</p>
 
 <h4>Note</h4>
 <p>
@@ -1308,7 +1308,7 @@ the actual operating temperature and the reference input conductance <code>real(
 The reactive component <code>B_actual = imag(<u>Y</u>)</code>
 is equal to <code>imag(Y_ref)</code> if <code>frequencyDependent = false</code>.
 Frequency dependency is considered by <code>frequencyDependent = true</code>, distinguishing two cases:
-
+</p>
 
 <dl>
 <dt>(a) <code>imag(Y_ref) &gt; 0</code>: capacitive case</dt>
@@ -1316,7 +1316,6 @@ Frequency dependency is considered by <code>frequencyDependent = true</code>, di
 <dt>(b) <code>imag(Y_ref) &lt; 0</code>: inductive case</dt>
 <dd>The actual susceptance <code>B_actual</code> is proportional to <code>f_ref/f</code></dd>
 </dl>
-</p>
 
 <h4>Note</h4>
 <p>

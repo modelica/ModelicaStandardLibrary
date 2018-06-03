@@ -91,7 +91,6 @@ hierarchical level. The following options can be selected:
 </p>
 
 <blockquote>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Icon</th>
     <th>Description</th></tr>
@@ -125,7 +124,7 @@ hierarchical level. The following options can be selected:
          signal all the time (usually zero). This option is useful, if a model shall be
          tested without noise and the noise shall be quickly turned off or on.</td></tr>
 </table>
-</p></blockquote>
+</blockquote>
 
 <p>
 Additionally, the globalSeed instance calls function
@@ -507,7 +506,6 @@ When using a noise block of this package, at a minimum the following parameters 
 </p>
 
 <blockquote>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Parameter</th>
     <th>Description</th></tr>
@@ -523,7 +521,7 @@ When using a noise block of this package, at a minimum the following parameters 
          from the range 0.0 ... 1.0, to the desired range and distribution.
          </td></tr>
 </table>
-</p></blockquote>
+</blockquote>
 
 <p>
 As a simple demonstration, see example <a href=\"modelica://Modelica.Blocks.Examples.NoiseExamples.UniformNoise\">Blocks.Examples.NoiseExamples.UniformNoise</a>.
@@ -541,7 +539,6 @@ as shown in the next table:
 </p>
 
 <blockquote>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Parameter</th>
     <th>Description</th></tr>
@@ -556,9 +553,7 @@ as shown in the next table:
          Furthermore, if enableNoise = true and time&lt;startTime, the output of the block is also
          y_off (see description of parameter startTime below).</td></tr>
 </table>
-</p></blockquote>
-
-
+</blockquote>
 
 <h4>Advanced tab: Initialization</h4>
 
@@ -569,7 +564,6 @@ the desired situation. For this purpose the following parameters can be defined:
 </p>
 
 <blockquote>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Parameter</th>
     <th>Description</th></tr>
@@ -622,8 +616,7 @@ the desired situation. For this purpose the following parameters can be defined:
          a certain duration until an approximate steady-state is reached. In such a case
          startTime should be set to a time instant after this duration.</td></tr>
 </table>
-</p></blockquote>
-
+</blockquote>
 
 <h4>Random Number Generators</h4>
 

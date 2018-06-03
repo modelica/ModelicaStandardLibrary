@@ -3384,7 +3384,7 @@ The harmonic is defined by <code>&radic;2 rms cos(k 2 &pi; f t + arg)</code> if 
             extent={{-150,-110},{150,-150}},
             textString="f=%f")}), Diagram(coordinateSystem(grid={2,2})),
       Documentation(info="<html>
-<p>This block determines the total harmonic distorion (THD) over the given period <code>1/f</code>.
+<p>This block determines the total harmonic distortion (THD) over the given period <code>1/f</code>.
 Consider that the input <code>u</code> consists of harmonic RMS components
 <code>U<sub>1</sub></code>, <code>U<sub>2</sub></code>, <code>U<sub>3</sub></code>, etc.
 The total RMS component is then determined by:</p>
@@ -3396,7 +3396,7 @@ The total RMS component is then determined by:</p>
 <p>
 The calculation of the total harmonic distortion is based on the parameter <code>useFirstHarmonic</code>.
 The default value <code>useFirstHarmonic = true</code> represents the <strong>standard</strong> THD calculation used in
-<a href=\"http://www.electropedia.org/iev/iev.nsf/display?openform&ievref=551-20-13\">electrical engineering</a>.
+<a href=\"http://www.electropedia.org/iev/iev.nsf/display?openform&amp;ievref=551-20-13\">electrical engineering</a>.
 The non-default value <code>useFirstHarmonic = false</code>
 calculates the THD typically used for the assessment of audio signals.
 </p>

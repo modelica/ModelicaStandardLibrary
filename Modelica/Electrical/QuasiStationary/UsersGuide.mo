@@ -430,21 +430,21 @@ ideal AC DC converter</a>, which is used in the
     <li>Added frequency dependent behavior im impedance and admittance models, see
         <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2451\">#2451</a></li>
     <li>Added frequency sweep voltage and current sources, see
-        <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2442\">#2442</a></li>
+        <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2442\">#2442</a>
     <ul>
         <li>Single-phase <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sources.FrequencySweepVoltageSource\">FrequencySweepVoltageSource</a></li>
         <li>Single-phase <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sources.FrequencySweepCurrentSource\">FrequencySweepCurrentSource</a></li>
         <li>Polyphase <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sources.FrequencySweepVoltageSource\">FrequencySweepVoltageSource</a></li>
         <li>Polyphase <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sources.FrequencySweepCurrentSource\">FrequencySweepCurrentSource</a></li>
-    </ul>
+    </ul></li>
     <li>Shortened default component names, see
       <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2301\">#2301</a></li>
-    <li>Fixed missing <code>final useConjugateInput = false</code> reported in
-    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2251\">#2251</a>:
+    <li>Fixed missing <code>final useConjugateInput = false</code>, see
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2251\">#2251</a>
     <ul>
-    <li><a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Blocks.SymmetricalComponents\">MultiPhase.Blocks.SymmetricalComponents</a></li>
-    <li><a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Blocks.FromSymmetricalComponents\">MultiPhase.Blocks.FromSymmetricalComponents</a></li>
-    <li><a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Blocks.SingleToMultiPhase\">MultiPhase.Blocks.SingleToMultiPhase</a></li>
+      <li><a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Blocks.SymmetricalComponents\">MultiPhase.Blocks.SymmetricalComponents</a></li>
+      <li><a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Blocks.FromSymmetricalComponents\">MultiPhase.Blocks.FromSymmetricalComponents</a></li>
+      <li><a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Blocks.SingleToMultiPhase\">MultiPhase.Blocks.SingleToMultiPhase</a></li>
     </ul></li>
 <li>Updated icons of inductors and transformer models, see <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2210\">#2210</a></li>
 <li>Added polar and power quantities in ideal quasi stationary transformer model, see <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2173\">#2173</a></li>

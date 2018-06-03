@@ -917,8 +917,6 @@ extends Modelica.Icons.ExamplesPackage;
 
       ok :=true;
       annotation (Documentation(info="<html>
-<p>
-</p>
 </html>", revisions="<html>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
