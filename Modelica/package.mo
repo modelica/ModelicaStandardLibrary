@@ -2337,6 +2337,8 @@ have been <font color=\"blue\"><strong>improved</strong></font> in a
 
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
 <tr><td colspan=\"2\"><strong>Modelica.Blocks.Continuous</strong></td></tr>
+<tr><td>Integrator<br>LimIntegrator</td>
+    <td>Added optional reset and set value inputs.</td></tr>
 <tr><td>LimPID</td>
     <td> Added an optional feed-forward input.</td></tr>
 </table>
