@@ -177,7 +177,7 @@ This library provides simple components for 1-dimensional incompressible thermo-
         "Ambient temperature";
       output Modelica.SIunits.TemperatureDifference dTSource=
         prescribedHeatFlow.port.T-TAmb "Source over Ambient";
-      output Modelica.SIunits.TemperatureDifference dTtoPipe=prescribedHeatFlow.port.T-pipe.heatPort.T
+      output Modelica.SIunits.TemperatureDifference dTtoPipe=prescribedHeatFlow.port.T-pipe.T_q
         "Source over Coolant";
       output Modelica.SIunits.TemperatureDifference dTCoolant=pipe.dT
         "Coolant's temperature increase";
@@ -191,7 +191,7 @@ This library provides simple components for 1-dimensional incompressible thermo-
         useVolumeFlowInput=true,
         constantVolumeFlow=1)
         annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
-      FluidHeatFlow.Components.HeatedPipe pipe(
+      Components.Pipe                     pipe(
         medium=medium,
         m=0.1,
         T0=TAmb,
@@ -200,7 +200,8 @@ This library provides simple components for 1-dimensional incompressible thermo-
         V_flowNominal=1,
         dpNominal(displayUnit="Pa") = 1,
         h_g=0,
-        T0fixed=true)
+        T0fixed=true,
+        useHeatPort=true)
         annotation (Placement(transformation(extent={{0,-10},{20,10}})));
       FluidHeatFlow.Sources.Ambient ambient2(constantAmbientTemperature=TAmb, medium=medium,
         constantAmbientPressure=0)
@@ -288,13 +289,13 @@ A prescribed heat source dissipates its heat through a thermal conductor to a co
         "Ambient temperature";
       output Modelica.SIunits.TemperatureDifference dTSource1=
         prescribedHeatFlow1.port.T-TAmb "Source1 over Ambient";
-      output Modelica.SIunits.TemperatureDifference dTtoPipe1=prescribedHeatFlow1.port.T-pipe1.heatPort.T
+      output Modelica.SIunits.TemperatureDifference dTtoPipe1=prescribedHeatFlow1.port.T-pipe1.T_q
         "Source1 over Coolant1";
       output Modelica.SIunits.TemperatureDifference dTCoolant1=pipe1.dT
         "Coolant1's temperature increase";
       output Modelica.SIunits.TemperatureDifference dTSource2=
         prescribedHeatFlow2.port.T-TAmb "Source2 over Ambient";
-      output Modelica.SIunits.TemperatureDifference dTtoPipe2=prescribedHeatFlow2.port.T-pipe2.heatPort.T
+      output Modelica.SIunits.TemperatureDifference dTtoPipe2=prescribedHeatFlow2.port.T-pipe2.T_q
         "Source2 over Coolant2";
       output Modelica.SIunits.TemperatureDifference dTCoolant2=pipe2.dT
         "Coolant2's temperature increase";
@@ -310,7 +311,7 @@ A prescribed heat source dissipates its heat through a thermal conductor to a co
         useVolumeFlowInput=true,
         constantVolumeFlow=1)
         annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
-      FluidHeatFlow.Components.HeatedPipe pipe1(
+      Components.Pipe                     pipe1(
         medium=medium,
         m=0.1,
         T0=TAmb,
@@ -319,9 +320,10 @@ A prescribed heat source dissipates its heat through a thermal conductor to a co
         V_flowNominal=1,
         dpNominal(displayUnit="Pa") = 1,
         h_g=0,
-        T0fixed=true)
+        T0fixed=true,
+        useHeatPort=true)
         annotation (Placement(transformation(extent={{0,-20},{20,0}})));
-      FluidHeatFlow.Components.HeatedPipe pipe2(
+      Components.Pipe                     pipe2(
         medium=medium,
         m=0.1,
         T0=TAmb,
@@ -330,9 +332,10 @@ A prescribed heat source dissipates its heat through a thermal conductor to a co
         V_flowNominal=1,
         dpNominal(displayUnit="Pa") = 1,
         h_g=0,
-        T0fixed=true)
+        T0fixed=true,
+        useHeatPort=true)
         annotation (Placement(transformation(extent={{0,20},{20,0}})));
-      FluidHeatFlow.Components.IsolatedPipe pipe3(
+      Components.Pipe                       pipe3(
         medium=medium,
         m=0.1,
         T0=TAmb,
@@ -341,7 +344,8 @@ A prescribed heat source dissipates its heat through a thermal conductor to a co
         V_flowNominal=1,
         dpNominal(displayUnit="Pa") = 1,
         h_g=0,
-        T0fixed=true)
+        T0fixed=true,
+        useHeatPort=false)
         annotation (Placement(transformation(extent={{40,-10},{60,10}})));
       FluidHeatFlow.Sources.Ambient ambient2(constantAmbientTemperature=TAmb, medium=medium,
         constantAmbientPressure=0)
@@ -498,11 +502,11 @@ Two prescribed heat sources dissipate their heat through thermal conductors to c
         "Ambient temperature";
       output Modelica.SIunits.TemperatureDifference dTSource=
         prescribedHeatFlow.port.T-TAmb "Source over Ambient";
-      output Modelica.SIunits.TemperatureDifference dTtoPipe=prescribedHeatFlow.port.T-pipe1.heatPort.T
+      output Modelica.SIunits.TemperatureDifference dTtoPipe=prescribedHeatFlow.port.T-pipe1.T_q
         "Source over inner Coolant";
       output Modelica.SIunits.TemperatureDifference dTinnerCoolant=pipe1.dT
         "inner Coolant's temperature increase";
-      output Modelica.SIunits.TemperatureDifference dTCooler=innerPipe.heatPort.T-outerPipe.heatPort.T
+      output Modelica.SIunits.TemperatureDifference dTCooler=innerPipe.T_q-outerPipe.T_q
         "Cooler's temperature increase between inner and outer pipes";
       output Modelica.SIunits.TemperatureDifference dTouterCoolant=outerPipe.dT
         "outer Coolant's temperature increase";
@@ -539,7 +543,7 @@ Two prescribed heat sources dissipate their heat through thermal conductors to c
             origin={-20,-90},
             extent={{10,-10},{-10,10}},
             rotation=180)));
-      FluidHeatFlow.Components.HeatedPipe pipe1(
+      Components.Pipe                     pipe1(
         medium=innerMedium,
         m=0.1,
         T0=TAmb,
@@ -547,6 +551,7 @@ Two prescribed heat sources dissipate their heat through thermal conductors to c
         V_flowNominal=2,
         h_g=0,
         T0fixed=true,
+        useHeatPort=true,
         dpLaminar=1000,
         dpNominal=2000)
         annotation (Placement(transformation(extent={{20,-50},{0,-30}})));
@@ -573,7 +578,7 @@ Two prescribed heat sources dissipate their heat through thermal conductors to c
         annotation (Placement(transformation(extent={{-40,30},{-20,50}})));
       Modelica.Blocks.Sources.Constant innerGc(k=2)
         annotation (Placement(transformation(extent={{-40,20},{-20,0}})));
-      FluidHeatFlow.Components.HeatedPipe outerPipe(
+      Components.Pipe                     outerPipe(
         medium=outerMedium,
         m=0.1,
         T0=TAmb,
@@ -582,9 +587,10 @@ Two prescribed heat sources dissipate their heat through thermal conductors to c
         V_flowNominal=1,
         dpNominal(displayUnit="Pa") = 1,
         h_g=0,
-        T0fixed=true)
+        T0fixed=true,
+        useHeatPort=true)
         annotation (Placement(transformation(extent={{0,60},{20,80}})));
-      FluidHeatFlow.Components.HeatedPipe innerPipe(
+      Components.Pipe                     innerPipe(
         medium=innerMedium,
         m=0.1,
         T0=TAmb,
@@ -593,7 +599,8 @@ Two prescribed heat sources dissipate their heat through thermal conductors to c
         V_flowNominal=1,
         dpNominal(displayUnit="Pa") = 1,
         h_g=0,
-        T0fixed=true)
+        T0fixed=true,
+        useHeatPort=true)
         annotation (Placement(transformation(extent={{0,-10},{20,-30}})));
       Modelica.Thermal.HeatTransfer.Components.Convection innerConvection
         annotation (Placement(transformation(
@@ -702,7 +709,7 @@ Inner coolant's temperature rise near the source is the same as temperature drop
         "Ambient temperature";
       output Modelica.SIunits.TemperatureDifference dTSource=
         prescribedHeatFlow.port.T-TAmb "Source over Ambient";
-      output Modelica.SIunits.TemperatureDifference dTtoPipe=prescribedHeatFlow.port.T-pipe.heatPort.T
+      output Modelica.SIunits.TemperatureDifference dTtoPipe=prescribedHeatFlow.port.T-pipe.T_q
         "Source over Coolant";
       output Modelica.SIunits.TemperatureDifference dTCoolant=pipe.dT
         "Coolant's temperature increase";
@@ -729,7 +736,7 @@ Inner coolant's temperature rise near the source is the same as temperature drop
         rho0=10,
         frictionLoss=0)
         annotation (Placement(transformation(extent={{-30,-10},{-10,10}})));
-      FluidHeatFlow.Components.HeatedPipe pipe(
+      Components.Pipe                     pipe(
         medium=medium,
         T0=TAmb,
         m=0.1,
@@ -738,7 +745,8 @@ Inner coolant's temperature rise near the source is the same as temperature drop
         V_flowNominal=1,
         dpNominal(displayUnit="Pa") = 1,
         h_g=0,
-        T0fixed=true)
+        T0fixed=true,
+        useHeatPort=true)
         annotation (Placement(transformation(extent={{0,-10},{20,10}})));
       FluidHeatFlow.Sources.Ambient ambient2(constantAmbientTemperature=TAmb, medium=medium,
         constantAmbientPressure=0)
@@ -832,7 +840,7 @@ You may try to:
         "Ambient temperature";
       output Modelica.SIunits.TemperatureDifference dTSource=
         prescribedHeatFlow.port.T-TAmb "Source over Ambient";
-      output Modelica.SIunits.TemperatureDifference dTtoPipe=prescribedHeatFlow.port.T-pipe.heatPort.T
+      output Modelica.SIunits.TemperatureDifference dTtoPipe=prescribedHeatFlow.port.T-pipe.T_q
         "Source over Coolant";
       output Modelica.SIunits.TemperatureDifference dTCoolant=pipe.dT
         "Coolant's temperature increase";
@@ -846,7 +854,7 @@ You may try to:
         useVolumeFlowInput=true,
         constantVolumeFlow=1)
         annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
-      FluidHeatFlow.Components.HeatedPipe pipe(
+      Components.Pipe                     pipe(
         medium=medium,
         T0=TAmb,
         m=0.1,
@@ -855,7 +863,8 @@ You may try to:
         V_flowNominal=1,
         dpNominal(displayUnit="Pa") = 1,
         h_g=0,
-        T0fixed=true)
+        T0fixed=true,
+        useHeatPort=true)
         annotation (Placement(transformation(extent={{0,-10},{20,10}})));
       FluidHeatFlow.Sources.Ambient ambient2(constantAmbientTemperature=TAmb, medium=medium,
         constantAmbientPressure=0)
@@ -919,13 +928,13 @@ then started again (using a ramp of 0.2 s).
         "Ambient temperature";
       output Modelica.SIunits.TemperatureDifference dTSource1=
         prescribedHeatFlow1.port.T-TAmb "Source1 over Ambient";
-      output Modelica.SIunits.TemperatureDifference dTtoPipe1=prescribedHeatFlow1.port.T-pipe1.heatPort.T
+      output Modelica.SIunits.TemperatureDifference dTtoPipe1=prescribedHeatFlow1.port.T-pipe1.T_q
         "Source1 over Coolant1";
       output Modelica.SIunits.TemperatureDifference dTCoolant1=pipe1.dT
         "Coolant1's temperature increase";
       output Modelica.SIunits.TemperatureDifference dTSource2=
         prescribedHeatFlow2.port.T-TAmb "Source2 over Ambient";
-      output Modelica.SIunits.TemperatureDifference dTtoPipe2=prescribedHeatFlow2.port.T-pipe2.heatPort.T
+      output Modelica.SIunits.TemperatureDifference dTtoPipe2=prescribedHeatFlow2.port.T-pipe2.T_q
         "Source2 over Coolant2";
       output Modelica.SIunits.TemperatureDifference dTCoolant2=pipe2.dT
         "Coolant2's temperature increase";
@@ -941,7 +950,7 @@ then started again (using a ramp of 0.2 s).
         useVolumeFlowInput=true,
         constantVolumeFlow=1)
         annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
-      FluidHeatFlow.Components.HeatedPipe pipe1(
+      Components.Pipe                     pipe1(
         medium=medium,
         m=0.1,
         T0=TAmb,
@@ -950,9 +959,10 @@ then started again (using a ramp of 0.2 s).
         V_flowNominal=1,
         dpNominal(displayUnit="Pa") = 1,
         h_g=0,
-        T0fixed=true)
+        T0fixed=true,
+        useHeatPort=true)
         annotation (Placement(transformation(extent={{0,-20},{20,0}})));
-      FluidHeatFlow.Components.HeatedPipe pipe2(
+      Components.Pipe                     pipe2(
         medium=medium,
         m=0.1,
         T0=TAmb,
@@ -961,9 +971,10 @@ then started again (using a ramp of 0.2 s).
         V_flowNominal=1,
         dpNominal(displayUnit="Pa") = 1,
         h_g=0,
-        T0fixed=true)
+        T0fixed=true,
+        useHeatPort=true)
         annotation (Placement(transformation(extent={{0,20},{20,0}})));
-      FluidHeatFlow.Components.IsolatedPipe pipe3(
+      Components.Pipe                       pipe3(
         medium=medium,
         T0=TAmb,
         m=0.1,
@@ -1040,8 +1051,8 @@ then started again (using a ramp of 0.2 s).
                                     annotation (Line(points={{-9,-40},{0,-40}}, color={0,0,127}));
       connect(pipe1.heatPort, Convection1.fluid) annotation (Line(points={{10,-20},{
               10,-25},{10,-30}}, color={191,0,0}));
-      connect(convection2.fluid,pipe2. heatPort) annotation (Line(points={{10,
-              30},{10,20}}, color={191,0,0}));
+      connect(convection2.fluid,pipe2. heatPort) annotation (Line(points={{10,30},{10,
+              20}},         color={191,0,0}));
       connect(convection2.solid,prescribedHeatFlow2. port) annotation (Line(
             points={{10,50},{10,60},{-10,60}}, color={191,0,0}));
       connect(convection2.solid,heatCapacitor2. port) annotation (Line(points={{10,50},
@@ -1050,8 +1061,8 @@ then started again (using a ramp of 0.2 s).
             points={{10,-50},{10,-60},{-10,-60}}, color={191,0,0}));
       connect(Convection1.solid,heatCapacitor1. port) annotation (Line(points={{10,-50},
               {10,-60},{30,-60}}, color={191,0,0}));
-      connect(pipe2.flowPort_b,pipe3. flowPort_a) annotation (Line(points={{20,
-              10},{30,10},{30,0},{40,0}}, color={255,0,0}));
+      connect(pipe2.flowPort_b,pipe3. flowPort_a) annotation (Line(points={{20,10},{
+              30,10},{30,0},{40,0}},      color={255,0,0}));
       connect(pipe1.flowPort_b,pipe3. flowPort_a) annotation (Line(points={{20,
               -10},{30,-10},{30,0},{40,0}}, color={255,0,0}));
       connect(pipe3.flowPort_b,ambient2. flowPort)
@@ -1079,7 +1090,7 @@ then started again (using a ramp of 0.2 s).
         "Initial temperature of mass";
       output Modelica.SIunits.TemperatureDifference dTMass=
         heatCapacitor.port.T-TAmb "Mass over Ambient";
-      output Modelica.SIunits.TemperatureDifference dTtoPipe=heatCapacitor.port.T-pipe.heatPort.T
+      output Modelica.SIunits.TemperatureDifference dTtoPipe=heatCapacitor.port.T-pipe.T_q
         "Mass over Coolant";
       output Modelica.SIunits.TemperatureDifference dTCoolant=pipe.dT
         "Coolant's temperature increase";
@@ -1093,7 +1104,7 @@ then started again (using a ramp of 0.2 s).
         useVolumeFlowInput=true,
         constantVolumeFlow=1)
         annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
-      FluidHeatFlow.Components.HeatedPipe pipe(
+      Components.Pipe                     pipe(
         medium=medium,
         m=0.1,
         T0=TAmb,
@@ -1102,7 +1113,8 @@ then started again (using a ramp of 0.2 s).
         V_flowNominal=1,
         dpNominal(displayUnit="Pa") = 1,
         h_g=0,
-        T0fixed=true)
+        T0fixed=true,
+        useHeatPort=true)
         annotation (Placement(transformation(extent={{0,-10},{20,10}})));
       FluidHeatFlow.Sources.Ambient ambient2(constantAmbientTemperature=TAmb, medium=medium,
         constantAmbientPressure=0)
@@ -1160,13 +1172,13 @@ the time behaviour depending on coolant flow.
         "Initial temperature of mass2";
       output Modelica.SIunits.TemperatureDifference dTMass1=
         heatCapacitor1.port.T-TAmb "Mass1 over Ambient";
-      output Modelica.SIunits.TemperatureDifference dTtoPipe1=heatCapacitor1.port.T-pipe1.heatPort.T
+      output Modelica.SIunits.TemperatureDifference dTtoPipe1=heatCapacitor1.port.T-pipe1.T_q
         "Mass1 over Coolant1";
       output Modelica.SIunits.TemperatureDifference dTCoolant1=pipe1.dT
         "Coolant1's temperature increase";
       output Modelica.SIunits.TemperatureDifference dTMass2=
         heatCapacitor2.port.T-TAmb "Mass2 over Ambient";
-      output Modelica.SIunits.TemperatureDifference dTtoPipe2=heatCapacitor2.port.T-pipe2.heatPort.T
+      output Modelica.SIunits.TemperatureDifference dTtoPipe2=heatCapacitor2.port.T-pipe2.T_q
         "Mass2 over Coolant2";
       output Modelica.SIunits.TemperatureDifference dTCoolant2=pipe2.dT
         "Coolant2's temperature increase";
@@ -1182,7 +1194,7 @@ the time behaviour depending on coolant flow.
         useVolumeFlowInput=true,
         constantVolumeFlow=1)
         annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
-      FluidHeatFlow.Components.HeatedPipe pipe1(
+      Components.Pipe                     pipe1(
         medium=medium,
         m=0.1,
         T0=TAmb,
@@ -1191,9 +1203,10 @@ the time behaviour depending on coolant flow.
         V_flowNominal=1,
         dpNominal(displayUnit="Pa") = 1,
         h_g=0,
-        T0fixed=true)
+        T0fixed=true,
+        useHeatPort=true)
         annotation (Placement(transformation(extent={{0,-20},{20,0}})));
-      FluidHeatFlow.Components.HeatedPipe pipe2(
+      Components.Pipe                     pipe2(
         medium=medium,
         m=0.1,
         T0=TAmb,
@@ -1202,9 +1215,10 @@ the time behaviour depending on coolant flow.
         V_flowNominal=1,
         dpNominal(displayUnit="Pa") = 1,
         h_g=0,
-        T0fixed=true)
+        T0fixed=true,
+        useHeatPort=true)
         annotation (Placement(transformation(extent={{0,20},{20,0}})));
-      FluidHeatFlow.Components.IsolatedPipe pipe3(
+      Components.Pipe                       pipe3(
         medium=medium,
         m=0.1,
         T0=TAmb,
@@ -1285,6 +1299,11 @@ the time behaviour depending on coolant flow.
     model WaterPump "Water pumping station"
       extends Modelica.Icons.Example;
       import Modelica.Constants.pi;
+      output Modelica.SIunits.VolumeFlowRate V_flow=volumeFlowSensor.y "Volume flow rate";
+      output Modelica.SIunits.Pressure p(displayUnit="bar")=pressureSensor.y "Pressure at pump outlet";
+      output Modelica.SIunits.AngularVelocity w(displayUnit="1/min")=multiSensor.w "Pump speed";
+      output Modelica.SIunits.Torque tau=multiSensor.tau "Pump torque";
+      output Modelica.SIunits.Power power=multiSensor.power "Pump power";
       Modelica.Blocks.Sources.Trapezoid trapezoid(
         period=2,
         nperiod=1,
@@ -1351,7 +1370,7 @@ the time behaviour depending on coolant flow.
             extent={{10,10},{-10,-10}},
             rotation=270,
             origin={50,20})));
-      Modelica.Thermal.FluidHeatFlow.Components.IsolatedPipe isolatedPipe(
+      Components.Pipe                                        pipe(
         m=0,
         V_flowLaminar=0.09,
         V_flowNominal=0.18,
@@ -1391,9 +1410,9 @@ the time behaviour depending on coolant flow.
                                                   color={255,0,0}));
       connect(volumeFlowSensor.flowPort_a, pumpTurbine.flowPort_b)
         annotation (Line(points={{50,-30},{50,-40}}, color={255,0,0}));
-      connect(ambient2.flowPort, isolatedPipe.flowPort_b)
+      connect(ambient2.flowPort, pipe.flowPort_b)
         annotation (Line(points={{50,72},{50,60}}, color={255,0,0}));
-      connect(isolatedPipe.flowPort_a, valve.flowPort_b)
+      connect(pipe.flowPort_a, valve.flowPort_b)
         annotation (Line(points={{50,40},{50,30}}, color={255,0,0}));
       connect(multiSensor.flange_b, pumpTurbine.flange_a)
         annotation (Line(points={{30,-50},{40,-50}}));
@@ -1430,6 +1449,9 @@ It is possible to investigate the dependencies of volume flow, pressure, torque 
 
     model TestOpenTank "Test the OpenTank model"
       extends Modelica.Icons.Example;
+      output Modelica.SIunits.VolumeFlowRate V_flow=volumeFlow.V_flow "Volume flow rate to tank";
+      output Modelica.SIunits.Length level=openTank.level "Level in tank";
+      output Modelica.SIunits.Temperature T(displayUnit="degC")=openTank.TTank "Temperature in tank";
       Modelica.Thermal.FluidHeatFlow.Components.OpenTank openTank(
         ATank=1,
         hTank=1,
@@ -1486,6 +1508,11 @@ Subsequently the medium is pumped into the tank from an (infinite) ambient:
 
     model TwoTanks "Two connected open tanks"
       extends Modelica.Icons.Example;
+      output Modelica.SIunits.VolumeFlowRate V_flow=pipe.V_flow "Volume flow rate tank 1 -> tank 2";
+      output Modelica.SIunits.Length level1=openTank1.level "Level in tank 1";
+      output Modelica.SIunits.Temperature T1(displayUnit="degC")=openTank1.TTank "Temperature in tank 1";
+      output Modelica.SIunits.Length level2=openTank2.level "Level in tank 2";
+      output Modelica.SIunits.Temperature T2(displayUnit="degC")=openTank2.TTank "Temperature in tank 2";
       Modelica.Thermal.FluidHeatFlow.Components.OpenTank openTank1(
         ATank=1,
         hTank=1,
@@ -1504,7 +1531,7 @@ Subsequently the medium is pumped into the tank from an (infinite) ambient:
         level(fixed=true, start=0.1),
         T(fixed=true, start=293.15))
         annotation (Placement(transformation(extent={{60,10},{40,30}})));
-      Modelica.Thermal.FluidHeatFlow.Components.IsolatedPipe isolatedPipe(
+      Components.Pipe                                        pipe(
         m=0,
         h_g=0,
         T0=293.15,
@@ -1514,9 +1541,9 @@ Subsequently the medium is pumped into the tank from an (infinite) ambient:
         dpNominal=30)
         annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
     equation
-      connect(openTank1.flowPort, isolatedPipe.flowPort_a)
+      connect(openTank1.flowPort, pipe.flowPort_a)
         annotation (Line(points={{-50,12},{-50,0},{-10,0}}, color={255,0,0}));
-      connect(isolatedPipe.flowPort_b, openTank2.flowPort)
+      connect(pipe.flowPort_b, openTank2.flowPort)
         annotation (Line(points={{10,0},{50,0},{50,10}}, color={255,0,0}));
       annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(
             coordinateSystem(preserveAspectRatio=false)),
@@ -1538,6 +1565,11 @@ The temperature of tank 1 remains unchanged, the temperature of tank 2 is increa
 
     model TestCylinder "Two cylinder system"
       extends Modelica.Icons.Example;
+      output Modelica.SIunits.Force f1=-10*cylinder1.f "10 x Force on piston 1";
+      output Modelica.SIunits.Position s1=0.1*cylinder1.s "0.1 x Position of piston 1";
+      output Modelica.SIunits.Position s2=cylinder2.s "Position of piston 2";
+      output Modelica.SIunits.Force f2=-cylinder2.f "Force on piston 2";
+      output Modelica.SIunits.Force f=springDamper.f "Force of springDamper";
       Modelica.Blocks.Sources.CombiTimeTable combiTimeTable(
         table=[0,0; 0.25,0; 0.25,-1; 0.5,-1; 0.5,0; 0.75,0])
         annotation (Placement(transformation(extent={{-90,-10},{-70,10}})));
@@ -1703,59 +1735,33 @@ Block generating the sum of two ramps.
   package Components "Basic components (pipes, valves)"
     extends Modelica.Icons.Package;
 
-    model IsolatedPipe "Pipe without heat exchange"
-
-      extends Interfaces.Partials.TwoPort(final tapT=1);
-      extends Interfaces.Partials.SimpleFriction;
-      parameter Modelica.SIunits.Length h_g(start=0)
-        "Geodetic height (height difference from flowPort_a to flowPort_b)";
-      parameter Modelica.SIunits.Acceleration g(final min=0)=Modelica.Constants.g_n "Gravitation";
-    equation
-      // coupling with FrictionModel
-      volumeFlow = V_flow;
-      dp = pressureDrop + medium.rho*g*h_g;
-      // no energy exchange with medium
-      Q_flow = Q_friction;
-    annotation (Documentation(info="<html>
-<p>Pipe without heat exchange.</p>
-<p>Thermodynamic equations are defined by Partials.TwoPortMass(Q_flow = 0).</p>
-<p>
-<strong>Note:</strong> Setting parameter m (mass of medium within pipe) to zero
-leads to neglect of temperature transient cv*m*der(T).
-</p>
-</html>"),
-      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-                100}}), graphics={Rectangle(
-              extent={{-90,20},{90,-20}},
-              lineColor={255,0,0},
-              fillColor={0,0,255},
-              fillPattern=FillPattern.Solid), Text(extent={{-150,80},{150,40}},
-              textString="%name",
-              lineColor={0,0,255})}));
-    end IsolatedPipe;
-
-    model HeatedPipe "Pipe with heat exchange"
+    model Pipe "Pipe with/withoutheat exchange"
 
       extends Interfaces.Partials.TwoPort;
+      parameter Boolean useHeatPort = false "=true, if HeatPort is enabled"
+        annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
       extends Interfaces.Partials.SimpleFriction;
       parameter Modelica.SIunits.Length h_g(start=0)
         "Geodetic height (height difference from flowPort_a to flowPort_b)";
       parameter Modelica.SIunits.Acceleration g(final min=0)=Modelica.Constants.g_n "Gravitation";
-      Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort
+      Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort(T=T_q, Q_flow=Q_flowHeatPort) if useHeatPort
         annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
+    protected
+      Modelica.SIunits.HeatFlowRate Q_flowHeatPort "Heat flow at conditional heatPort";
     equation
+      if not useHeatPort then
+        Q_flowHeatPort=0;
+      end if;
       // coupling with FrictionModel
       volumeFlow = V_flow;
       dp = pressureDrop + medium.rho*g*h_g;
       // energy exchange with medium
-      Q_flow = heatPort.Q_flow + Q_friction;
-      // defines heatPort's temperature
-      heatPort.T = T_q;
+      Q_flow = Q_flowHeatPort + Q_friction;
     annotation (Documentation(info="<html>
-<p>Pipe with heat exchange.</p>
+<p>Pipe with/without heat exchange.</p>
 <p>
 Thermodynamic equations are defined by Partials.TwoPort. 
-Q_flow is defined by heatPort.Q_flow.</p>
+Q_flow is defined by heatPort.Q_flow (useHeatPort=true) or zero (useHeatPort=false).</p>
 <p>
 <strong>Note:</strong> Setting parameter m (mass of medium within pipe) to zero
 leads to neglect of temperature transient cv*m*der(T).
@@ -1772,11 +1778,37 @@ temperature rise defined by storing heat in medium's mass.
               lineColor={255,0,0},
               fillColor={0,0,255},
               fillPattern=FillPattern.Solid),
-            Polygon(
+            Polygon(visible=useHeatPort,
               points={{-10,-90},{-10,-40},{0,-20},{10,-40},{10,-90},{-10,-90}},
               lineColor={255,0,0}),           Text(extent={{-150,80},{150,40}},
               textString="%name",
               lineColor={0,0,255})}));
+    end Pipe;
+
+    model IsolatedPipe "Pipe without heat exchange"
+      extends Pipe(final useHeatPort=false);
+      extends Modelica.Icons.ObsoleteModel;
+    annotation (
+        obsolete = "Obsolete model - use Components.Pipe(useHeatPort=false) instead",
+        Documentation(info="<html>
+<p>
+This model simply extends from the <a href=\"modelica://Modelica.Thermal.FluidHeatFlow.Components.Pipe\">Pipe</a> model
+with parameter useHeatPort = false and is kept for compatibility reasons. In the future, it will be removed.
+</p>
+</html>"));
+    end IsolatedPipe;
+
+    model HeatedPipe "Pipe with heat exchange"
+      extends Pipe(final useHeatPort=true);
+      extends Modelica.Icons.ObsoleteModel;
+    annotation (
+        obsolete = "Obsolete model - use Components.Pipe(useHeatPort=true) instead",
+        Documentation(info="<html>
+<p>
+This model simply extends from the <a href=\"modelica://Modelica.Thermal.FluidHeatFlow.Components.Pipe\">Pipe</a> model
+with parameter useHeatPort = true and is kept for compatibility reasons. In the future, it will be removed.
+</p>
+</html>"));
     end HeatedPipe;
 
     model Valve "Simple valve"
@@ -2886,10 +2918,10 @@ See also sketch at diagram layer.
         output Modelica.SIunits.Temperature T_b "Temperature at flowPort_b";
         output Modelica.SIunits.TemperatureDifference dT
           "Temperature increase of coolant in flow direction";
-      protected
-        Modelica.SIunits.SpecificEnthalpy h(start=medium.cp*T0) "Medium's specific enthalpy";
         Modelica.SIunits.Temperature T_q
           "Temperature relevant for heat exchange with ambient";
+      protected
+        Modelica.SIunits.SpecificEnthalpy h(start=medium.cp*T0) "Medium's specific enthalpy";
       public
         Interfaces.FlowPort_a flowPort_a(final medium=medium)
           annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
