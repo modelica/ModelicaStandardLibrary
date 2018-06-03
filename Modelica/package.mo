@@ -2343,6 +2343,23 @@ have been <font color=\"blue\"><strong>improved</strong></font> in a
     <td> Added an optional feed-forward input.</td></tr>
 </table>
 
+<p><br>
+The following <font color=\"red\"><strong>critical errors</strong></font> have been fixed (i.e., errors
+that can lead to wrong simulation results):
+</p>
+
+<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<tr><td colspan=\"2\"><strong>Modelica.Blocks.Sources</strong></td></tr>
+<tr><td>TimeTable</td>
+    <td>The derivative of the TimeTable output could no longer be symbolically. This has been corrected.</td></tr>
+<tr><td>CombiTimeTable</td>
+    <td>The time events were not considered at the interval boundaries (in case of linear interpolation and non-replicated sample points). This has been generalized by introduction of the new parameter <code>timeEvents</code> with the default option to always generate time events at the interval boundaries.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Media.IdealGases.Common.SingleGasesData</strong></td></tr>
+<tr><td>CH2<br>CH3<br>CH3OOH<br>C2CL2<br>C2CL4<br>C2CL6<br>C2HCL<br>C2HCL3<br>CH2CO_ketene<br>O_CH_2O<br>HO_CO_2OH<br>CH2BrminusCOOH<br>C2H3CL<br>CH2CLminusCOOH<br>HO2<br>HO2minus<br>OD<br>ODminus</td>
+    <td>The coefficients for <code>blow</code>, <code>ahigh</code> and <code>bhigh</code> were wrong. This has been corrected.</td></tr>
+
+</table>
+
 </html>"));
 end Version_3_2_3;
 
