@@ -2310,6 +2310,8 @@ to <font color=\"blue\"><strong>existing</strong></font> libraries:<br>
 <tr><td width=\"150\">WaterPump<br>TestOpenTank<br>TwoTanks<br>TestCylinder</td>
     <td> New examples testing and demonstrating the new resp. enhanced components.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Thermal.FluidHeatFlow.Components</strong></td></tr>
+<tr><td width=\"150\">Pipe</td>
+    <td> A pipe model with optional heatPort which replaces the isolatedPipe and the heatedPipe.</td></tr>
 <tr><td width=\"150\">OpenTank</td>
     <td> A simple model of an open tank.</td></tr>
 <tr><td width=\"150\">Cylinder</td>
@@ -2319,6 +2321,11 @@ to <font color=\"blue\"><strong>existing</strong></font> libraries:<br>
 <tr><td colspan=\"2\"><strong>Modelica.Thermal.FluidHeatFlow.Media</strong></td></tr>
 <tr><td width=\"150\">Water_10degC<br>Water_90degC<br>Glycol20_20degC<br>Glycol50_20degC<br>MineralOil</td>
     <td> Several new records defining media properties.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Thermal.FluidHeatFlow.Interfaces.Partials</strong></td></tr>
+<tr><td width=\"150\">SinglePortLeft</td>
+    <td> Replaces the (now obsolete) partial model Ambient and is also used for Sources.AbsolutePressure.</td></tr>
+<tr><td width=\"150\">SinglePortBottom</td>
+    <td> Same as SinglePortLeft but with the flowPort at the bottom; used for the new Components.OpenTank model.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Constants</strong></td></tr>
 <tr><td width=\"150\">q</td>
     <td> The elementary charge of an electron.</td></tr>
@@ -2328,6 +2335,23 @@ to <font color=\"blue\"><strong>existing</strong></font> libraries:<br>
 <tr><td width=\"150\">RecordPackage</td>
     <td> This icon indicates a package that contains records.</td></tr>
 </table>
+
+<p><br>
+The following <font color=\"blue\"><strong>existing components</strong></font>
+have been marked as <font color=\"blue\"><strong>obsolete</strong></font> and will be 
+<font color=\"blue\"><strong>removed</strong></font> in a future release:
+</p>
+
+<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<tr><td colspan=\"2\"><strong>Modelica.Thermal.FluidHeatFlow</strong></td></tr>
+<tr><td>Components.IsolatedPipe<br>Components.HeatedPipe</td>
+    <td> Extend from the new pipe model with optional heatPort.</td></tr>
+<tr><td>Sources.IdealPump</td>
+    <td> Extends from Components.PumpTurbine.</td></tr>
+<tr><td>Interfaces.Partials.Ambient</td>
+    <td> Extends from SinglePortLeft.</td></tr>
+</table>
+
 
 <p><br>
 The following <font color=\"blue\"><strong>existing components</strong></font>
