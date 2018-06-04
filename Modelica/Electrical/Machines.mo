@@ -95,7 +95,7 @@ You may have a look at a short summary of space phasor theory at <a href=\"https
 <p>
 <strong>Anton Haumer</strong><br>
 <a href=\"https://www.haumer.at\">Technical Consulting &amp; Electrical Engineering</a><br>
-3423 Regensburg, Germany<br>
+D-93049 Regensburg, Germany<br>
 email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
 </p>
 

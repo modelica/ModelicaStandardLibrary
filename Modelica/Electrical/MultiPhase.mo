@@ -99,7 +99,7 @@ email: <a href=\"mailto:dr.christian.kral@gmail.com\">dr.christian.kral@gmail.co
 <strong>Anton Haumer</strong><br>
 <a href=\"https://www.haumer.at\">Technical Consulting &amp; Electrical Engineering</a><br>
 93049 Regensburg, Germany<br>
-3423 Regensburg, Austria<br>
+D-93049 Regensburg, Austria<br>
 email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
 </p>
 </html>"));
