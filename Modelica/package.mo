@@ -2375,7 +2375,7 @@ that can lead to wrong simulation results):
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
 <tr><td colspan=\"2\"><strong>Modelica.Blocks.Sources</strong></td></tr>
 <tr><td>TimeTable</td>
-    <td>The derivative of the TimeTable output could no longer be symbolically. This has been corrected.</td></tr>
+    <td>The derivative of the TimeTable output could no longer be determined. This has been corrected.</td></tr>
 <tr><td>CombiTimeTable</td>
     <td>The time events were not considered at the interval boundaries (in case of linear interpolation and non-replicated sample points). This has been generalized by introduction of the new parameter <code>timeEvents</code> with the default option to always generate time events at the interval boundaries.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Media.IdealGases.Common.SingleGasesData</strong></td></tr>
