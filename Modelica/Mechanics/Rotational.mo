@@ -5559,7 +5559,8 @@ blocks of the block library Modelica.Blocks.Sources.
             Rectangle(
               extent={{-20,100},{20,-100}},
               lineColor={95,95,95},
-              radius=10),
+              radius=10,
+              lineThickness=0.5),
             Text(
               extent={{-20,90},{20,68}},
               fillPattern=FillPattern.Solid,
@@ -5580,12 +5581,7 @@ blocks of the block library Modelica.Blocks.Sources.
             Text(
               extent={{-150,150},{150,110}},
               textString="%name",
-              lineColor={0,0,255}),
-                Rectangle(
-                  extent={{-20,100},{20,-100}},
-                  lineColor={95,95,95},
-                  radius=10,
-              lineThickness=0.5)}),
+              lineColor={0,0,255})}),
         Documentation(info="<html>
 <p>
 Adaptor between a flange connector and a signal representation of the flange.
@@ -5662,7 +5658,8 @@ torque as output signal. Note, the input signals must be consistent to each othe
             Rectangle(
               extent={{-20,100},{20,-100}},
               lineColor={95,95,95},
-              radius=10),
+              radius=10,
+              lineThickness=0.5),
             Text(
               extent={{-20,92},{20,70}},
               fillPattern=FillPattern.Solid,
@@ -5684,12 +5681,7 @@ torque as output signal. Note, the input signals must be consistent to each othe
             Text(
               extent={{-150,150},{150,110}},
               textString="%name",
-              lineColor={0,0,255}),
-                Rectangle(
-                  extent={{-20,100},{20,-100}},
-                  lineColor={95,95,95},
-                  radius=10,
-              lineThickness=0.5)}),
+              lineColor={0,0,255})}),
         Documentation(info="<html>
 <p>
 Adaptor between a flange connector and a signal representation of the flange.
