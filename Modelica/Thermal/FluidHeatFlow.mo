@@ -168,7 +168,7 @@ This library provides simple components for 1-dimensional incompressible thermo-
     "Examples that demonstrate the usage of the FluidHeatFlow components"
     extends Modelica.Icons.ExamplesPackage;
 
-    model SimpleCooling "Example: simple cooling circuit"
+    model SimpleCooling "Simple cooling circuit"
       extends Modelica.Icons.Example;
 
       parameter Modelica.Thermal.FluidHeatFlow.Media.Medium medium=Modelica.Thermal.FluidHeatFlow.Media.Medium()
@@ -281,7 +281,7 @@ A prescribed heat source dissipates its heat through a thermal conductor to a co
 </html>"),        experiment(StopTime=1.0, Interval=0.001));
     end SimpleCooling;
 
-    model ParallelCooling "Example: cooling circuit with parallel branches"
+    model ParallelCooling "Cooling circuit with parallel branches"
       extends Modelica.Icons.Example;
 
       parameter Modelica.Thermal.FluidHeatFlow.Media.Medium medium=Modelica.Thermal.FluidHeatFlow.Media.Medium()
@@ -492,7 +492,7 @@ Two prescribed heat sources dissipate their heat through thermal conductors to c
 </html>"),        experiment(StopTime=1.0, Interval=0.001));
     end ParallelCooling;
 
-    model IndirectCooling "Example: indirect cooling circuit"
+    model IndirectCooling "Indirect cooling circuit"
       extends Modelica.Icons.Example;
       parameter Modelica.Thermal.FluidHeatFlow.Media.Medium outerMedium=Modelica.Thermal.FluidHeatFlow.Media.Medium()
         "Outer medium"
@@ -696,7 +696,7 @@ Inner coolant's temperature rise near the source is the same as temperature drop
 </html>"),        experiment(StopTime=1.5, Interval=0.001));
     end IndirectCooling;
 
-    model PumpAndValve "Example: cooling circuit with pump and valve"
+    model PumpAndValve "Cooling circuit with pump and valve"
       extends Modelica.Icons.Example;
       parameter Modelica.Thermal.FluidHeatFlow.Media.Medium medium=Modelica.Thermal.FluidHeatFlow.Media.Medium()
         "Cooling medium"
@@ -822,7 +822,7 @@ You may try to:
 </html>"),        experiment(StopTime=2.0, Interval=0.001));
     end PumpAndValve;
 
-    model PumpDropOut "Example: cooling circuit with drop out of pump"
+    model PumpDropOut "Cooling circuit with drop out of pump"
       extends Modelica.Icons.Example;
       parameter Modelica.Thermal.FluidHeatFlow.Media.Medium medium=Modelica.Thermal.FluidHeatFlow.Media.Medium()
         "Cooling medium"
@@ -909,7 +909,7 @@ then started again (using a ramp of 0.2 s).
     end PumpDropOut;
 
     model ParallelPumpDropOut
-      "Example: cooling circuit with parallel branches and drop out of pump"
+      "Cooling circuit with parallel branches and drop out of pump"
       extends Modelica.Icons.Example;
       parameter Modelica.Thermal.FluidHeatFlow.Media.Medium medium=Modelica.Thermal.FluidHeatFlow.Media.Medium()
         "Cooling medium"
@@ -1066,7 +1066,7 @@ then started again (using a ramp of 0.2 s).
 </html>"),        experiment(StopTime=2.0, Interval=0.001));
     end ParallelPumpDropOut;
 
-    model OneMass "Example: cooling of one hot mass"
+    model OneMass "Cooling of one hot mass"
       extends Modelica.Icons.Example;
       parameter Modelica.Thermal.FluidHeatFlow.Media.Medium medium=Modelica.Thermal.FluidHeatFlow.Media.Medium()
         "Cooling medium"
@@ -1144,7 +1144,7 @@ the time behaviour depending on coolant flow.
 </html>"),        experiment(StopTime=1.0, Interval=0.001));
     end OneMass;
 
-    model TwoMass "Example: cooling of two hot masses"
+    model TwoMass "Cooling of two hot masses"
       extends Modelica.Icons.Example;
       parameter Modelica.Thermal.FluidHeatFlow.Media.Medium medium=Modelica.Thermal.FluidHeatFlow.Media.Medium()
         "Cooling medium"
