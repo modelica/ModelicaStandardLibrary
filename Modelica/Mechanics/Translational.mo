@@ -432,7 +432,7 @@ email: <a href=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</a>
 <li> Christian Schweiger (DLR-RM, until 2006).</li>
 <li> <a href=\"https://www.haumer.at/\">Anton Haumer</a><br>
      Technical Consulting &amp; Electrical Engineering<br>
-     A-3423 St.Andrae-Woerdern, Austria<br>
+     D-93049 Regensburg, Germany<br>
      email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a></li>
 </ul>
 </html>"));
@@ -5912,7 +5912,6 @@ only be used as basic building elements for models.
 </p>
 </html>"));
   end Interfaces;
-
   annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
             {100,100}}), graphics={
         Line(origin={14,53}, points={{-84,-73},{66,-73}}),

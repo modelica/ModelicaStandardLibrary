@@ -643,7 +643,6 @@ end Vectors;
 <p>This function returns the Complex product of the Complex input vector</p>
 </html>"));
   end 'product';
-
   annotation (Documentation(info="<html>
 <p>
 This package contains <strong>basic mathematical functions</strong>

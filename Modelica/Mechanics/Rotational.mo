@@ -665,7 +665,7 @@ Germany
 <li> Christian Schweiger (DLR-RM, until 2006).</li>
 <li> <a href=\"https://www.haumer.at/\">Anton Haumer</a><br>
      Technical Consulting &amp; Electrical Engineering<br>
-     A-3423 St.Andrae-Woerdern, Austria<br>
+     D-93049 Regensburg, Germany<br>
      email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a></li>
 </ul>
 </html>"));

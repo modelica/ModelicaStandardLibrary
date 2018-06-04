@@ -43,7 +43,6 @@ gases also differentiable at Tlimit.
 </html>"));
 end DataRecord;
 
-
 partial package SingleGasNasa
   "Medium model of an ideal gas based on NASA source"
 
@@ -65,7 +64,6 @@ partial package SingleGasNasa
     AbsolutePressure p "Absolute pressure of medium";
     Temperature T "Temperature of medium";
   end ThermodynamicState;
-
   import Modelica.Math;
   import Modelica.Media.Interfaces.Choices.ReferenceEnthalpy;
 
@@ -149,7 +147,7 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
     end setState_dTX;
 
       redeclare function extends setSmoothState
-    "Return thermodynamic state so that it smoothly approximates: if x > 0 then state_a else state_b"
+      "Return thermodynamic state so that it smoothly approximates: if x > 0 then state_a else state_b"
       algorithm
         state := ThermodynamicState(p=Media.Common.smoothStep(x, state_a.p, state_b.p, x_small),
                                     T=Media.Common.smoothStep(x, state_a.T, state_b.T, x_small));
@@ -408,7 +406,6 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
   algorithm
     T := Internal.solve(s, 200, 6000, p, {1}, data);
   end T_ps;
-
 // the functions below are not strictly necessary, there are just here for compatibility reasons
 
   function dynamicViscosityLowPressure
@@ -494,7 +491,6 @@ thermal conductivity (lambda) at low temperatures.
 </p>
 </html>"));
   end thermalConductivityEstimate;
-
   annotation (
     Documentation(info="<html>
 <p>
@@ -593,7 +589,6 @@ and adapted to the Modelica.Media package.
 </html>"));
 end SingleGasNasa;
 
-
 partial package MixtureGasNasa
   "Medium model of a mixture of ideal gases based on NASA source"
 
@@ -614,7 +609,6 @@ partial package MixtureGasNasa
 
     redeclare record extends ThermodynamicState "Thermodynamic state variables"
     end ThermodynamicState;
-
 //   redeclare record extends FluidConstants "Fluid constants"
 //   end FluidConstants;
 
@@ -709,7 +703,7 @@ required from medium model \"" + mediumName + "\".");
     end setState_dTX;
 
       redeclare function extends setSmoothState
-    "Return thermodynamic state so that it smoothly approximates: if x > 0 then state_a else state_b"
+      "Return thermodynamic state so that it smoothly approximates: if x > 0 then state_a else state_b"
       algorithm
         state := ThermodynamicState(p=Media.Common.smoothStep(x, state_a.p, state_b.p, x_small),
                                     T=Media.Common.smoothStep(x, state_a.T, state_b.T, x_small),
@@ -1384,7 +1378,6 @@ end lowPressureThermalConductivity;
   algorithm
     T := Internal.solve(s, 200, 6000, p, Xfull, data[1]);
   end T_psX;
-
 //   redeclare function extends specificEnthalpy_psX
 //   protected
 //     Temperature T "Temperature";
@@ -1432,7 +1425,6 @@ It has been developed by Hubertus Tummescheit.
 </p>
 </html>"));
 end MixtureGasNasa;
-
 
 annotation (Documentation(info="<html>
 

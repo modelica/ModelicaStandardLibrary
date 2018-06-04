@@ -162,7 +162,7 @@ Additional reference on magnetic flux tubes are listed in
 <p>
 <strong>Anton Haumer</strong><br>
 <a href=\"https://www.haumer.at\">Technical Consulting &amp; Electrical Engineering</a><br>
-3423 St. Andrae-Woerdern, Austria<br>
+3423 Regensburg, Germany<br>
 email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
 </p>
 

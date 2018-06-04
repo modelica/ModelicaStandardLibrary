@@ -541,7 +541,7 @@ ideal AC DC converter</a>, which is used in the
 <p>
 <strong>Anton Haumer</strong><br>
 <a href=\"https://www.haumer.at\">Technical Consulting &amp; Electrical Engineering</a><br>
-A-3423 St. Andrae-Woerdern, Austria<br>
+D-93049 Regensburg, Germany<br>
 email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
 </p>
 

@@ -8,7 +8,6 @@ package Types "Common types for fluid models"
   type HydraulicResistance = Modelica.Icons.TypeReal (
       final quantity="HydraulicResistance",
       final unit="Pa.s/kg") "Real type for hydraulic resistance";
-
   type Roughness = Modelica.Icons.TypeReal (final quantity="Length", final unit="m", displayUnit="mm")
     "Real type for roughness of a pipe"
     annotation (Documentation(info="<html>
@@ -69,7 +68,6 @@ As a short summary:
       FixedInitial "FixedInitial -- Dynamic balance, Initial value fixed",
       SteadyStateInitial
         "SteadyStateInitial -- Dynamic balance, Steady state initial with guess value",
-
       SteadyState "SteadyState -- Steady state balance, Initial guess value")
     "Enumeration to define definition of balance equations"
   annotation (Documentation(info="<html>
@@ -185,7 +183,6 @@ media have Medium.singleState = <strong>true</strong>.
 </p>
 
 </html>"));
-
   type CvTypes = enumeration(
       Av "Av (metric) flow coefficient",
       Kv "Kv (metric) flow coefficient",
@@ -224,7 +221,6 @@ The details of the coefficients are explained in the
 </p>
 
 </html>"));
-
   type PortFlowDirection = enumeration(
       Entering "Fluid flow is only entering",
       Leaving "Fluid flow is only leaving",
@@ -258,7 +254,6 @@ make the simulation of your model faster.
 </p>
 
 </html>"));
-
   type ModelStructure = enumeration(
       av_vb "av_vb: port_a - volume - flow model - volume - port_b",
       a_v_b "a_v_b: port_a - flow model - volume - flow model - port_b",
@@ -317,7 +312,6 @@ ModelStructure.a_vb).
 </p>
 
 </html>"));
-
   annotation (preferredView="info",
               Documentation(info="<html>
 

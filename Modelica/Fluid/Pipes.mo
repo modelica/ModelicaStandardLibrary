@@ -1200,7 +1200,7 @@ specified nominal values for given geometry parameters <code>crossAreas</code>, 
               // simple regularization
               if from_dp and not WallFriction.dp_is_zero then
                 m_flows = homotopy(
-                  actual=  WallFriction.massFlowRate_dp(
+                  actual = WallFriction.massFlowRate_dp(
                              dps_fg - {g*dheights[i]*rhos_act[i] for i in 1:n-1},
                              rhos_act,
                              rhos_act,
@@ -1212,10 +1212,10 @@ specified nominal values for given geometry parameters <code>crossAreas</code>, 
                              (roughnesses[1:n-1]+roughnesses[2:n])/2,
                              dp_small/(n-1),
                              Res_turbulent_internal)*nParallel,
-                  simplified=  m_flow_nominal/dp_nominal*(dps_fg - g*dheights*rho_nominal));
+                  simplified = m_flow_nominal/dp_nominal*(dps_fg - g*dheights*rho_nominal));
               else
                 dps_fg = homotopy(
-                  actual=  WallFriction.pressureLoss_m_flow(
+                  actual = WallFriction.pressureLoss_m_flow(
                              m_flows/nParallel,
                              rhos_act,
                              rhos_act,
@@ -1227,13 +1227,13 @@ specified nominal values for given geometry parameters <code>crossAreas</code>, 
                              (roughnesses[1:n-1]+roughnesses[2:n])/2,
                              m_flow_small/nParallel,
                              Res_turbulent_internal) + {g*dheights[i]*rhos_act[i] for i in 1:n-1},
-                  simplified=  dp_nominal/m_flow_nominal*m_flows + g*dheights*rho_nominal);
+                  simplified = dp_nominal/m_flow_nominal*m_flows + g*dheights*rho_nominal);
               end if;
             else
               // regularization for discontinuous flow reversal and static head
               if from_dp and not WallFriction.dp_is_zero then
                 m_flows = homotopy(
-                  actual=  WallFriction.massFlowRate_dp_staticHead(
+                  actual = WallFriction.massFlowRate_dp_staticHead(
                              dps_fg,
                              rhos[1:n-1],
                              rhos[2:n],
@@ -1246,10 +1246,10 @@ specified nominal values for given geometry parameters <code>crossAreas</code>, 
                              (roughnesses[1:n-1]+roughnesses[2:n])/2,
                              dp_small/(n-1),
                              Res_turbulent_internal)*nParallel,
-                  simplified=  m_flow_nominal/dp_nominal*(dps_fg - g*dheights*rho_nominal));
+                  simplified = m_flow_nominal/dp_nominal*(dps_fg - g*dheights*rho_nominal));
               else
                 dps_fg = homotopy(
-                  actual=  WallFriction.pressureLoss_m_flow_staticHead(
+                  actual = WallFriction.pressureLoss_m_flow_staticHead(
                              m_flows/nParallel,
                              rhos[1:n-1],
                              rhos[2:n],
@@ -1262,7 +1262,7 @@ specified nominal values for given geometry parameters <code>crossAreas</code>, 
                              (roughnesses[1:n-1]+roughnesses[2:n])/2,
                              m_flow_small/nParallel,
                              Res_turbulent_internal),
-                  simplified=  dp_nominal/m_flow_nominal*m_flows + g*dheights*rho_nominal);
+                  simplified = dp_nominal/m_flow_nominal*m_flows + g*dheights*rho_nominal);
               end if;
             end if;
 
@@ -3449,8 +3449,7 @@ b has the same sign of the change of density.</p>
           annotation(Dialog(group="Nominal operating point"));
 
         parameter Boolean use_nominal = false
-          "= true, if mu_nominal and rho_nominal are used, otherwise computed from medium"
-                                                                                                        annotation(Evaluate=true);
+          "= true, if mu_nominal and rho_nominal are used, otherwise computed from medium"              annotation(Evaluate=true);
         parameter SI.DynamicViscosity mu_nominal = Medium.dynamicViscosity(
                                                        Medium.setState_pTX(
                                                            Medium.p_default, Medium.T_default, Medium.X_default))
@@ -3502,8 +3501,7 @@ b has the same sign of the change of density.</p>
 
         // Currently not in use (means to widen the regularization domain in case of large difference in static head)
         final parameter Boolean use_x_small_staticHead = false
-          "Use dp_/m_flow_small_staticHead only if static head actually exists"
-                                                                                annotation(Evaluate=true);
+          "Use dp_/m_flow_small_staticHead only if static head actually exists" annotation(Evaluate=true);
                                                                /*abs(height_ab)>0*/
         SI.AbsolutePressure dp_small_staticHead = noEvent(max(dp_small, 0.015*abs(g_times_height_ab*(rho_a-rho_b))))
           "Heuristic for large discontinuities in static head";
@@ -3628,7 +3626,6 @@ in the next figure:
 </html>"));
     end WallFriction;
   end BaseClasses;
-
   annotation (Documentation(info="<html>
 
 </html>"));

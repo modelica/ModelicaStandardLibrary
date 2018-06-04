@@ -443,7 +443,6 @@ The usage is demonstrated, e.g., in example
 
 </html>"));
   end OnDelay;
-
   annotation (Documentation(info="<html>
 <p>
 This package contains basic <strong>mathematical operations</strong>

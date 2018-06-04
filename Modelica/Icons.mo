@@ -576,7 +576,6 @@ to Complex and is therefore superfluous.
 </p>
 </html>"),
     obsolete = "Obsolete operator record - use Complex instead");
-
   type TypeReal "Icon for Real types"
       extends Real;
       annotation(Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={

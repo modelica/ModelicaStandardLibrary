@@ -34,7 +34,6 @@ package Interfaces
 Connector with one input signal of type Real.
 </p>
 </html>"));
-
   connector RealOutput = output Real "'output Real' as connector" annotation (
     defaultComponentName="y",
     Icon(
@@ -64,7 +63,6 @@ Connector with one input signal of type Real.
 Connector with one output signal of type Real.
 </p>
 </html>"));
-
   connector BooleanInput = input Boolean "'input Boolean' as connector"
     annotation (
     defaultComponentName="u",
@@ -92,7 +90,6 @@ Connector with one output signal of type Real.
 Connector with one input signal of type Boolean.
 </p>
 </html>"));
-
   connector BooleanOutput = output Boolean "'output Boolean' as connector"
     annotation (
     defaultComponentName="y",
@@ -118,7 +115,6 @@ Connector with one input signal of type Boolean.
 Connector with one output signal of type Boolean.
 </p>
 </html>"));
-
   connector IntegerInput = input Integer "'input Integer' as connector"
     annotation (
     defaultComponentName="u",
@@ -146,7 +142,6 @@ Connector with one output signal of type Boolean.
 Connector with one input signal of type Integer.
 </p>
 </html>"));
-
   connector IntegerOutput = output Integer "'output Integer' as connector"
     annotation (
     defaultComponentName="y",
@@ -172,7 +167,6 @@ Connector with one input signal of type Integer.
 Connector with one output signal of type Integer.
 </p>
 </html>"));
-
   connector RealVectorInput = input Real
     "Real input connector used for vector of connectors" annotation (
     defaultComponentName="u",
@@ -202,7 +196,6 @@ for example <a href=\"modelica://Modelica.Blocks.Interfaces.PartialRealMISO\">Pa
 and has therefore a different icon as RealInput connector.
 </p>
 </html>"));
-
   connector IntegerVectorInput = input Integer
     "Integer input connector used for vector of connectors" annotation (
     defaultComponentName="u",
@@ -233,7 +226,6 @@ for example <a href=\"modelica://Modelica.Blocks.Interfaces.PartialIntegerMISO\"
 and has therefore a different icon as IntegerInput connector.
 </p>
 </html>"));
-
   connector BooleanVectorInput = input Boolean
     "Boolean input connector used for vector of connectors" annotation (
     defaultComponentName="u",
@@ -263,7 +255,6 @@ for example <a href=\"modelica://Modelica.Blocks.Interfaces.PartialBooleanMISO\"
 and has therefore a different icon as BooleanInput connector.
 </p>
 </html>"));
-
   connector RealVectorOutput = output Real
     "Real output connector used for vector of connectors" annotation (
     defaultComponentName="y",
@@ -293,7 +284,6 @@ for example <a href=\"modelica://Modelica.Blocks.Routing.DeMultiplex\">DeMultipl
 and has therefore a different icon as RealOutput connector.
 </p>
 </html>"));
-
   partial block SO "Single Output continuous control block"
     extends Modelica.Blocks.Icons.Block;
 

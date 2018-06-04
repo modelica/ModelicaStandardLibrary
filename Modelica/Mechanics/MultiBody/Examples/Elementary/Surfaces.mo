@@ -11,8 +11,8 @@ model Surfaces
   Real wz = time;
   Modelica.Mechanics.MultiBody.Visualizers.Advanced.Surface surface(
     redeclare function surfaceCharacteristic =
-        Modelica.Mechanics.MultiBody.Examples.Elementary.Utilities.sineSurface (
-           x_min=x_min,
+        Modelica.Mechanics.MultiBody.Examples.Elementary.Utilities.sineSurface
+        (  x_min=x_min,
            x_max=x_max,
            y_min=y_min,
            y_max=y_max,

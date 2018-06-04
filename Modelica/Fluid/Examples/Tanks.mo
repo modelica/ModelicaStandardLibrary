@@ -269,5 +269,4 @@ simulation accuracy could be increased in order to avoid errors.
      alt=\"EmptyTanks.png\">
 </html>"));
   end EmptyTanks;
-
 end Tanks;

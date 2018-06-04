@@ -21,14 +21,12 @@ For an example see parameter \"n\" in model
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Joints.Revolute\">Joints.Revolute</a>.
 </p>
 </html>"));
-
   type AxisLabel = Modelica.Icons.TypeString
     "Label of axis with choices" annotation (
       preferredView="text", choices(
       choice="x" "\"x\"",
       choice="y" "\"y\"",
       choice="z" "\"z\""));
-
   type RotationSequence = Modelica.Icons.TypeInteger[3] (min={1,1,1}, max={3,3,3})
     "Sequence of planar frame rotations with choices" annotation (
     preferredView="text",
@@ -37,7 +35,6 @@ For an example see parameter \"n\" in model
       choice={1,2,3} "{1,2,3} \"Cardan/Tait-Bryan angles\"",
       choice={3,1,3} "{3,1,3} \"Euler angles\"",
       choice={3,2,1} "{3,2,1}"));
-
   type Color = Modelica.Icons.TypeInteger[3] (each min=0, each max=255)
     "RGB representation of color"
     annotation (
@@ -228,7 +225,6 @@ width = height = 2*radiusOfGearWheel.</td>
 </tr>
 </table>
 </html>"));
-
   type ResolveInFrameA = enumeration(
       world "Resolve in world frame",
       frame_a "Resolve in frame_a",
@@ -290,7 +286,6 @@ width = height = 2*radiusOfGearWheel.</td>
     <td>Resolve vector in frame_resolve (frame_resolve must be connected)</td></tr>
 </table>
 </html>"));
-
   type RotationTypes = enumeration(
       RotationAxis "Rotating frame_a around an angle with a fixed axis",
       TwoAxesVectors "Resolve two vectors of frame_b in frame_a",
@@ -313,7 +308,6 @@ width = height = 2*radiusOfGearWheel.</td>
         (e.g., Cardan or Euler angle sequence rotation).</td></tr>
 </table>
 </html>"));
-
   type GravityTypes = enumeration(
       NoGravity "No gravity field",
       UniformGravity "Uniform gravity field",
@@ -334,7 +328,6 @@ width = height = 2*radiusOfGearWheel.</td>
         r is the distance to the field center.</td></tr>
 </table>
 </html>"));
-
 type Init = enumeration(
       Free,
       PositionVelocity,
@@ -343,7 +336,6 @@ type Init = enumeration(
       Velocity,
       VelocityAcceleration,
       PositionVelocityAcceleration);
-
   package Defaults "Default settings of the MultiBody library via constants"
     extends Modelica.Icons.Package;
 
@@ -398,7 +390,6 @@ in the MultiBody library.
 </p>
 </html>"));
   end Defaults;
-
   annotation (Documentation(info="<html>
 <p>
 In this package <strong>types</strong> and <strong>constants</strong> are defined that are used in the

@@ -66,7 +66,6 @@ package CompressibleLiquids "Compressible liquid models"
 <h4>Water model with linear compressibility at ambient conditions</h4>
 </html>"));
   end LinearWater_pT_Ambient;
-
   annotation (Documentation(info="<html>
 
 <h4>Fluid models with linear compressibility, using PartialLinearFluid as base class.</h4>

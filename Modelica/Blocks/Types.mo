@@ -14,7 +14,6 @@ package Types
       MonotoneContinuousDerivative2
         "Table points are interpolated (by Steffen splines) such that the monotonicity is preserved and the first derivative is continuous")
     "Enumeration defining the smoothness of table interpolation";
-
   type Extrapolation = enumeration(
       HoldLastPoint
         "Hold the first/last table point outside of the table scope",
@@ -23,13 +22,11 @@ package Types
       Periodic "Repeat the table scope periodically",
       NoExtrapolation "Extrapolation triggers an error")
     "Enumeration defining the extrapolation of table interpolation";
-
   type TimeEvents = enumeration(
       Always "Always generate time events at interval boundaries",
       AtDiscontinuities "Generate time events at discontinuities (defined by duplicated sample points)",
       NoTimeEvents "No time events at interval boundaries")
     "Enumeration defining the time event handling of time table interpolation";
-
   type Init = enumeration(
       NoInit
         "No initialization (start values are used as guess values with fixed=false)",
@@ -52,7 +49,6 @@ package Types
       <dd>Initialization with initial outputs (and steady state of the states if possible)</dd>
   </dl>
 </html>"));
-
   type InitPID = enumeration(
       NoInit
         "No initialization (start values are used as guess values with fixed=false)",
@@ -90,7 +86,6 @@ initialization definition.
       <dd>Do not use, only for backward compatibility (initialize only integrator state)</dd>
   </dl>
 </html>"));
-
   type SimpleController = enumeration(
       P "P controller",
       PI "PI controller",
@@ -98,14 +93,12 @@ initialization definition.
       PID "PID controller")
     "Enumeration defining P, PI, PD, or PID simple controller type" annotation (
      Evaluate=true);
-
   type AnalogFilter = enumeration(
       CriticalDamping "Filter with critical damping",
       Bessel "Bessel filter",
       Butterworth "Butterworth filter",
       ChebyshevI "Chebyshev I filter")
     "Enumeration defining the method of filtering" annotation (Evaluate=true);
-
   type FilterType = enumeration(
       LowPass "Low pass filter",
       HighPass "High pass filter",
@@ -113,14 +106,12 @@ initialization definition.
       BandStop "Band stop / notch filter")
     "Enumeration of analog filter types (low, high, band pass or band stop filter)"
     annotation (Evaluate=true);
-
   type Regularization = enumeration(
       Exp "Exponential regularization (smooth)",
       Sine "Sinusoidal regularization (smooth 1st derivative)",
       Linear "Linear regularization",
       Cosine "Cosine regularization")
     "Enumeration defining the regularization around zero";
-
   class ExternalCombiTimeTable
     "External object of 1-dim. table where first column is time"
     extends ExternalObject;

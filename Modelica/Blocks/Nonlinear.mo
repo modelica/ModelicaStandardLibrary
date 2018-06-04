@@ -797,7 +797,6 @@ the following relationship:
         color={0,0,127}),
       Line(points={{-64,-30},{-64,0}}, color={192,192,192})}));
   end VariableDelay;
-
       annotation (
         Documentation(info="<html>
 <p>

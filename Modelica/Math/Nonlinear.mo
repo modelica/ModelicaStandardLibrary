@@ -795,7 +795,6 @@ See the examples in <a href=\"modelica://Modelica.Math.Nonlinear.Examples\">Mode
 </p>
 </html>"));
   end solveOneNonlinearEquation;
-
   annotation (Documentation(info="<html>
 <p>
 This package contains functions to perform tasks such as numerically integrating

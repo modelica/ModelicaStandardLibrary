@@ -64,8 +64,8 @@ end setEnvironmentVariable;
     output Integer year "Year";
     external "C" ModelicaInternal_getTime(ms,sec,min,hour,day,mon,year)
       annotation(Library="ModelicaExternalC");
-    annotation (__ModelicaAssociation_Impure=true,
-Documentation(info="<html>
+    annotation (__ModelicaAssociation_Impure=true, Documentation(info=
+                   "<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 (ms, sec, min, hour, day, mon, year) = System.<strong>getTime</strong>();
@@ -136,9 +136,9 @@ All returned values are of type Integer and have the following meaning:
   function getPid "Retrieve the current process id"
     extends Modelica.Icons.Function;
     output Integer pid "Process ID";
-    external "C" pid=  ModelicaInternal_getpid() annotation(Library="ModelicaExternalC");
-    annotation (__ModelicaAssociation_Impure=true,
-Documentation(info="<html>
+    external "C" pid = ModelicaInternal_getpid() annotation(Library="ModelicaExternalC");
+    annotation (__ModelicaAssociation_Impure=true, Documentation(info=
+                   "<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 pid = System.<strong>getPid</strong>();

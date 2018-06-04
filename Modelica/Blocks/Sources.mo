@@ -2203,8 +2203,9 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
     discrete Real nextTimeEventScaled(start=0, fixed=true)
       "Next scaled time event instant";
     Real timeScaled "Scaled time";
-    function readTableData = // No longer used, but kept for backward compatibility
+    function readTableData =
       Modelica.Blocks.Tables.Internal.readTimeTableData "Read table data from text or MATLAB MAT-file";
+                             // No longer used, but kept for backward compatibility
   equation
     if tableOnFile then
       assert(tableName <> "NoName",
@@ -2807,11 +2808,11 @@ at sample times (defined by parameter <strong>period</strong>) and is otherwise
       final shiftTime=shiftTime) annotation(Placement(transformation(extent={{-30,-10},{-10,10}})));
     Modelica.Blocks.Math.RealToBoolean realToBoolean annotation(Placement(transformation(extent={{10,-10},{30,10}})));
 
-    protected
+  protected
       function isValidTable "Check if table is valid"
         extends Modelica.Icons.Function;
         input Real table[:] "Vector of time instants";
-      protected
+    protected
         Integer n=size(table, 1) "Number of table points";
       algorithm
         if n > 0 then
@@ -2826,9 +2827,9 @@ at sample times (defined by parameter <strong>period</strong>) and is otherwise
       end isValidTable;
 
       parameter Integer n=size(table, 1) "Number of table points";
-    initial algorithm
+  initial algorithm
       isValidTable(table);
-    equation
+  equation
       assert(extrapolation <> Modelica.Blocks.Types.Extrapolation.LastTwoPoints, "Unsuitable extrapolation setting.");
       connect(combiTimeTable.y[1], realToBoolean.u) annotation(Line(points={{-9,0},{8,0}}, color={0,0,127}));
       connect(realToBoolean.y, y) annotation(Line(points={{31,0},{110,0},{110,0}}, color={255,127,0}));
@@ -3142,11 +3143,11 @@ The Integer output y is a step signal:
       final shiftTime=shiftTime) annotation(Placement(transformation(extent={{-30,-10},{-10,10}})));
     Modelica.Blocks.Math.RealToInteger realToInteger annotation(Placement(transformation(extent={{10,-10},{30,10}})));
 
-    protected
+  protected
       function isValidTable "Check if table is valid"
         extends Modelica.Icons.Function;
         input Real table[:, 2] "Table matrix";
-      protected
+    protected
         Modelica.SIunits.Time t_last;
         Integer n=size(table, 1) "Number of table points";
       algorithm
@@ -3170,9 +3171,9 @@ The Integer output y is a step signal:
       end isValidTable;
 
       parameter Integer n=size(table, 1) "Number of table points";
-    initial algorithm
+  initial algorithm
       isValidTable(table);
-    equation
+  equation
       assert(n > 0, "No table values defined.");
       assert(extrapolation <> Modelica.Blocks.Types.Extrapolation.LastTwoPoints, "Unsuitable extrapolation setting.");
       connect(combiTimeTable.y[1], realToInteger.u) annotation(Line(points={{-9,0},{8,0}}, color={0,0,127}));

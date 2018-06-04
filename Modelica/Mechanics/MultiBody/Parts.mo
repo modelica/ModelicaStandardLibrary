@@ -2988,7 +2988,6 @@ To work properly, the gravity acceleration vector g of the world must point in t
 </pre></blockquote>
 </html>"));
   end RollingWheelSet;
-
   annotation (Documentation(info="<html>
 <p>
 Package <strong>Parts</strong> contains <strong>rigid components</strong> of a

@@ -3731,7 +3731,6 @@ The classes in this package should not be directly used by a user.
 </p>
 </html>"));
   end Internal;
-
   annotation (Documentation(info="<html>
 <p>
 Package <strong>Frames</strong> contains type definitions and

@@ -11,8 +11,8 @@ package Streams "Read from files and write to files"
                         caption="Text file to store the output of print(..)")));
   external "C" ModelicaInternal_print(string, fileName) annotation(Library="ModelicaExternalC");
 
-    annotation (__ModelicaAssociation_Impure=true,
-Documentation(info="<html>
+    annotation (__ModelicaAssociation_Impure=true, Documentation(info=
+                   "<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 Streams.<strong>print</strong>(string);
@@ -76,9 +76,9 @@ Note, a fileName can be defined as URI by using the helper function
     output String string "Line of text";
     output Boolean endOfFile
       "If true, end-of-file was reached when trying to read line";
-   external "C" string=  ModelicaInternal_readLine(fileName,lineNumber,endOfFile) annotation(Library="ModelicaExternalC");
-    annotation (__ModelicaAssociation_Impure=true,
-Documentation(info="<html>
+   external "C" string = ModelicaInternal_readLine(fileName,lineNumber,endOfFile) annotation(Library="ModelicaExternalC");
+    annotation (__ModelicaAssociation_Impure=true, Documentation(info=
+                   "<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 (string, endOfFile) = Streams.<strong>readLine</strong>(fileName, lineNumber)
@@ -105,9 +105,9 @@ and endOfFile=true. Otherwise endOfFile=false.
                         caption="Open text file for counting lines")));
 
     output Integer numberOfLines "Number of lines in file";
-  external "C" numberOfLines=  ModelicaInternal_countLines(fileName) annotation(Library="ModelicaExternalC");
-    annotation (__ModelicaAssociation_Impure=true,
-Documentation(info="<html>
+  external "C" numberOfLines = ModelicaInternal_countLines(fileName) annotation(Library="ModelicaExternalC");
+    annotation (__ModelicaAssociation_Impure=true, Documentation(info=
+                   "<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 numberOfLines = Streams.<strong>countLines</strong>(fileName)
@@ -157,8 +157,8 @@ Line breaks are characterized by \"\\n\" in the string.
                  annotation(Dialog(loadSelector(filter="Text files (*.txt)",
                         caption="Close text file")));
     external "C" ModelicaStreams_closeFile(fileName) annotation(Library="ModelicaExternalC");
-    annotation (__ModelicaAssociation_Impure=true,
-Documentation(info="<html>
+    annotation (__ModelicaAssociation_Impure=true, Documentation(info=
+                   "<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 Streams.<strong>close</strong>(fileName)
@@ -216,8 +216,8 @@ See <a href=\"modelica://Modelica.Utilities.Examples.ReadRealMatrixFromFile\">Ex
     output Real matrix[nrow, ncol] "2D Real array";
     external "C" ModelicaIO_readRealMatrix(fileName, matrixName, matrix, size(matrix, 1), size(matrix, 2), verboseRead)
     annotation(Library={"ModelicaIO", "ModelicaMatIO", "zlib"});
-    annotation(
-Documentation(info="<html>
+    annotation (Documentation(info=
+                   "<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 matrix = Streams.<strong>readRealMatrix</strong>(fileName, matrixName, nrow, ncol, verboseRead)
@@ -260,8 +260,8 @@ See <a href=\"modelica://Modelica.Utilities.Examples.ReadRealMatrixFromFile\">Ex
     external "C" success = ModelicaIO_writeRealMatrix(fileName, matrixName, matrix, size(matrix, 1), size(matrix, 2), append, format)
     annotation(Library={"ModelicaIO", "ModelicaMatIO", "zlib"});
 
-    annotation(__ModelicaAssociation_Impure=true,
-Documentation(info="<html>
+    annotation(__ModelicaAssociation_Impure=true, Documentation(info=
+                   "<html>
 
 <h4>Syntax</h4>
 <blockquote><pre>

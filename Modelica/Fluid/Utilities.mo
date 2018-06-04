@@ -891,7 +891,6 @@ The second graph shows the continuous derivative of this regularization function
 </ul>
 </html>"));
   end cubicHermite_withDerivative;
-
   annotation (Documentation(info="<html>
 
 </html>"));

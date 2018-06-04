@@ -3531,7 +3531,6 @@ The classes in this package should not be directly used by a user.
 <!--a placeholder to fulfill minimum documentation length-->
 </html>"));
   end TansformRelativeVector;
-
   annotation (Documentation(info="<html>
 <p>
 Package <strong>Sensors</strong> contains <strong>ideal measurement</strong>

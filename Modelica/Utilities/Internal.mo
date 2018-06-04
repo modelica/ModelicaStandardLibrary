@@ -160,7 +160,7 @@ package FileSystem
     extends Modelica.Icons.Function;
     input String name "Name of file, directory, pipe etc.";
     output Types.FileType fileType "Type of file";
-  external "C" fileType=  ModelicaInternal_stat(name) annotation(Library="ModelicaExternalC");
+  external "C" fileType = ModelicaInternal_stat(name) annotation(Library="ModelicaExternalC");
   annotation(__ModelicaAssociation_Impure=true);
   end stat;
 

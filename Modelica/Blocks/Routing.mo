@@ -399,9 +399,9 @@ end Extractor;
     Modelica.Blocks.Interfaces.RealOutput y[n+0]
       "Connector of Real output signals" annotation(Placement(transformation(extent={{100,-10},{120,10}})));
 
-    equation
+  equation
       y = u;
-    annotation(
+    annotation (
       defaultComponentName="mux",
       Documentation(info="<html>
 <p>
@@ -741,11 +741,12 @@ explicitly defined via parameters n1, n2, n3, n4, n5 and n6.
     Modelica.Blocks.Interfaces.RealInput u[n+0]
       "Connector of Real input signals" annotation(Placement(transformation(extent={{-140,-20},{-100,20}})));
     Modelica.Blocks.Interfaces.RealVectorOutput y[n]
-      "Connector of Real output signals"annotation(Placement(transformation(extent={{80,70},{120,-70}})));
+      "Connector of Real output signals"
+                                        annotation(Placement(transformation(extent={{80,70},{120,-70}})));
 
-    equation
+  equation
       y = u;
-    annotation(
+    annotation (
       defaultComponentName="demux",
       Documentation(info="<html>
 <p>

@@ -7512,8 +7512,8 @@ class Contact "Contact"
 <dt>The development of this Modelica package of version 3.2.2 was organized by:</dt>
 <dd><a href=\"https://www.haumer.at/eindex.htm\">Anton Haumer</a></dd>
 <dd>Technical Consulting &amp; Electrical Engineering</dd>
-<dd>A-3423 St.Andrae-Woerdern, Hadersfelderweg 21</dd>
-<dd>Austria</dd>
+<dd>D-93049 Regensburg</dd>
+<dd>Germany</dd>
 <dd>email: <a href=\"mailto:A.Haumer@Haumer.at\">A.Haumer@Haumer.at</a></dd>
 <dd><br /></dd>
 
@@ -7758,7 +7758,7 @@ of the Modelica package (many more people have contributed to the design):
 </tr>
 
 <tr><td><strong>Anton Haumer</strong></td>
-   <td>Consultant, St.Andrae-Woerdern,<br>Austria</td>
+   <td>Consultant, Regensburg,<br>Germany</td>
    <td>Modelica.ComplexBlocks<br>
                       Modelica.Electrical.Machines<br>
                       Modelica.Electrical.Multiphase<br>
@@ -7925,7 +7925,6 @@ of the Modelica package (many more people have contributed to the design):
 </html>"));
 
 end Contact;
-
 annotation (DocumentationClass=true, Documentation(info="<html>
 <p>
 Package <strong>Modelica</strong> is a <strong>standardized</strong> and <strong>pre-defined</strong> package
@@ -8045,7 +8044,6 @@ User's Guides that can be accessed by the following links:
 
 </html>"));
 end UsersGuide;
-
 
 annotation (
 preferredView="info",

@@ -105,8 +105,7 @@ The details of the model are described in the
       extends Modelica.Fluid.Interfaces.PartialPressureLoss;
 
       parameter
-        Modelica.Fluid.Fittings.BaseClasses.Orifices.ThickEdgedOrifice.Geometry
-                                                                                geometry
+        Modelica.Fluid.Fittings.BaseClasses.Orifices.ThickEdgedOrifice.Geometry geometry
         "Geometry of thick edged orifice"
           annotation (Placement(transformation(extent={{-20,0},{0,20}})),
           choices(
@@ -271,7 +270,6 @@ such approximations.
 </p>
 </html>"));
   end GenericResistances;
-
      extends Modelica.Icons.VariantsPackage;
 
 model SimpleGenericOrifice
@@ -798,8 +796,7 @@ of the modeller.
       Boolean zetaLaminarKnown = false
           "= true, if zeta = c0/Re in laminar region" annotation(Dialog);
       Real c0 = 1
-          "zeta = c0/Re; dp = zeta*rho_Re*v_Re^2/2, Re=v_Re*D_Re*rho_Re/mu_Re)"
-                                                                                        annotation(Dialog(enable=zetaLaminarKnown));
+          "zeta = c0/Re; dp = zeta*rho_Re*v_Re^2/2, Re=v_Re*D_Re*rho_Re/mu_Re)"         annotation(Dialog(enable=zetaLaminarKnown));
 
        encapsulated function wallFriction
           "Return pressure loss data due to friction in a straight pipe with walls of nonuniform roughness (not useful for smooth pipes, since zeta is no function of Re)"

@@ -95,7 +95,7 @@ You may have a look at a short summary of space phasor theory at <a href=\"https
 <p>
 <strong>Anton Haumer</strong><br>
 <a href=\"https://www.haumer.at\">Technical Consulting &amp; Electrical Engineering</a><br>
-3423 St. Andrae-Woerdern, Austria<br>
+3423 Regensburg, Germany<br>
 email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
 </p>
 
@@ -6798,7 +6798,7 @@ This package contains test examples of electric machines.
   <dd>
   <a href=\"https://www.haumer.at/\">Anton Haumer</a><br>
   Technical Consulting &amp; Electrical Engineering<br>
-  A-3423 St.Andrae-Woerdern<br>Austria<br>
+  D-93049 Regensburg<br>Germany<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><strong>Copyright:</strong></dt>
@@ -7330,7 +7330,7 @@ These models use package SpacePhasors.
   <dd>
   <a href=\"https://www.haumer.at/\">Anton Haumer</a><br>
   Technical Consulting &amp; Electrical Engineering<br>
-  A-3423 St.Andrae-Woerdern<br>Austria<br>
+  D-93049 Regensburg<br>Germany<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><strong>Copyright:</strong></dt>
@@ -8388,7 +8388,7 @@ These models use package SpacePhasors.
   <dd>
   <a href=\"https://www.haumer.at/\">Anton Haumer</a><br>
   Technical Consulting &amp; Electrical Engineering<br>
-  A-3423 St.Andrae-Woerdern<br>Austria<br>
+  D-93049 Regensburg<br>Germany<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><strong>Copyright:</strong></dt>
@@ -9073,7 +9073,7 @@ This package contains models of DC machines:
   <dd>
   <a href=\"https://www.haumer.at/\">Anton Haumer</a><br>
   Technical Consulting &amp; Electrical Engineering<br>
-  A-3423 St.Andrae-Woerdern<br>Austria<br>
+  D-93049 Regensburg<br>Germany<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><strong>Copyright:</strong></dt>
@@ -9160,7 +9160,7 @@ where e.g., <code>L*der(i)</code> is replaced by <code>j*omega*L*(I_re+j*I_im)</
   <dd>
   <a href=\"https://www.haumer.at/\">Anton Haumer</a><br>
   Technical Consulting &amp; Electrical Engineering<br>
-  A-3423 St.Andrae-Woerdern<br>Austria<br>
+  D-93049 Regensburg<br>Germany<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><strong>Copyright:</strong></dt>
@@ -9438,7 +9438,7 @@ This package contains transformers primary Y connected / secondary y connected i
   <dd>
   <a href=\"https://www.haumer.at/\">Anton Haumer</a><br>
   Technical Consulting &amp; Electrical Engineering<br>
-  A-3423 St.Andrae-Woerdern<br>Austria<br>
+  D-93049 Regensburg<br>Germany<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><strong>Copyright:</strong></dt>
@@ -9675,7 +9675,7 @@ This package contains transformers primary Y connected / secondary d connected i
   <dd>
   <a href=\"https://www.haumer.at/\">Anton Haumer</a><br>
   Technical Consulting &amp; Electrical Engineering<br>
-  A-3423 St.Andrae-Woerdern<br>Austria<br>
+  D-93049 Regensburg<br>Germany<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><strong>Copyright:</strong></dt>
@@ -10004,7 +10004,7 @@ This package contains transformers primary Y connected / secondary zig-zag conne
   <dd>
   <a href=\"https://www.haumer.at/\">Anton Haumer</a><br>
   Technical Consulting &amp; Electrical Engineering<br>
-  A-3423 St.Andrae-Woerdern<br>Austria<br>
+  D-93049 Regensburg<br>Germany<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><strong>Copyright:</strong></dt>
@@ -10249,7 +10249,7 @@ This package contains transformers primary D connected / secondary y connected i
   <dd>
   <a href=\"https://www.haumer.at/\">Anton Haumer</a><br>
   Technical Consulting &amp; Electrical Engineering<br>
-  A-3423 St.Andrae-Woerdern<br>Austria<br>
+  D-93049 Regensburg<br>Germany<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><strong>Copyright:</strong></dt>
@@ -10456,7 +10456,7 @@ This package contains transformers primary D connected / secondary d connected i
   <dd>
   <a href=\"https://www.haumer.at/\">Anton Haumer</a><br>
   Technical Consulting &amp; Electrical Engineering<br>
-  A-3423 St.Andrae-Woerdern<br>Austria<br>
+  D-93049 Regensburg<br>Germany<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><strong>Copyright:</strong></dt>
@@ -10755,7 +10755,7 @@ This package contains transformers primary D connected / secondary d connected i
   <dd>
   <a href=\"https://www.haumer.at/\">Anton Haumer</a><br>
   Technical Consulting &amp; Electrical Engineering<br>
-  A-3423 St.Andrae-Woerdern<br>Austria<br>
+  D-93049 Regensburg<br>Germany<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><strong>Copyright:</strong></dt>
@@ -10826,7 +10826,7 @@ even though the source's and/or load's starpoint are grounded; you may use a rea
   <dd>
   <a href=\"https://www.haumer.at/\">Anton Haumer</a><br>
   Technical Consulting &amp; Electrical Engineering<br>
-  A-3423 St.Andrae-Woerdern<br>Austria<br>
+  D-93049 Regensburg<br>Germany<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
 </dl>
@@ -11727,7 +11727,7 @@ These models use package SpacePhasors.
   <dd>
   <a href=\"https://www.haumer.at/\">Anton Haumer</a><br>
   Technical Consulting &amp; Electrical Engineering<br>
-  A-3423 St.Andrae-Woerdern<br>Austria<br>
+  D-93049 Regensburg<br>Germany<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><strong>Copyright:</strong></dt>
@@ -11770,7 +11770,7 @@ The induction machine models use package SpacePhasors.
   <dd>
   <a href=\"https://www.haumer.at/\">Anton Haumer</a><br>
   Technical Consulting &amp; Electrical Engineering<br>
-  A-3423 St.Andrae-Woerdern<br>Austria<br>
+  D-93049 Regensburg<br>Germany<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><strong>Copyright:</strong></dt>
@@ -12280,7 +12280,7 @@ This package contains sensors that are useful when modelling machines.
   <dd>
   <a href=\"https://www.haumer.at/\">Anton Haumer</a><br>
   Technical Consulting &amp; Electrical Engineering<br>
-  A-3423 St.Andrae-Woerdern<br>Austria<br>
+  D-93049 Regensburg<br>Germany<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><strong>Copyright:</strong></dt>
@@ -12433,7 +12433,7 @@ a ground has to be used where necessary for currents flowing back.
   <dd>
   <a href=\"https://www.haumer.at/\">Anton Haumer</a><br>
   Technical Consulting &amp; Electrical Engineering<br>
-  A-3423 St.Andrae-Woerdern<br>Austria<br>
+  D-93049 Regensburg<br>Germany<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><strong>Copyright:</strong></dt>
@@ -12697,7 +12697,7 @@ the first element representing the real part and the second element representing
   <dd>
   <a href=\"https://www.haumer.at/\">Anton Haumer</a><br>
   Technical Consulting &amp; Electrical Engineering<br>
-  A-3423 St.Andrae-Woerdern<br>Austria<br>
+  D-93049 Regensburg<br>Germany<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><strong>Copyright:</strong></dt>
@@ -12888,7 +12888,7 @@ the first element representing the real part and the second element representing
   <dd>
   <a href=\"https://www.haumer.at/\">Anton Haumer</a><br>
   Technical Consulting &amp; Electrical Engineering<br>
-  A-3423 St.Andrae-Woerdern<br>Austria<br>
+  D-93049 Regensburg<br>Germany<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
 
@@ -12927,7 +12927,7 @@ You may have a look at a short summary of space phasor theory at <a href=\"https
   <dd>
   <a href=\"https://www.haumer.at/\">Anton Haumer</a><br>
   Technical Consulting &amp; Electrical Engineering<br>
-  A-3423 St.Andrae-Woerdern<br>Austria<br>
+  D-93049 Regensburg<br>Germany<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><strong>Copyright:</strong></dt>
@@ -13458,7 +13458,7 @@ This package contains loss models used for induction machine models.
   <dd>
   <a href=\"https://www.haumer.at/\">Anton Haumer</a><br>
   Technical Consulting &amp; Electrical Engineering<br>
-  A-3423 St.Andrae-Woerdern<br>Austria<br>
+  D-93049 Regensburg<br>Germany<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><strong>Copyright:</strong></dt>
@@ -13694,7 +13694,7 @@ This package contains loss models used for DC machine models.
   <dd>
   <a href=\"https://www.haumer.at/\">Anton Haumer</a><br>
   Technical Consulting &amp; Electrical Engineering<br>
-  A-3423 St.Andrae-Woerdern<br>Austria<br>
+  D-93049 Regensburg<br>Germany<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><strong>Copyright:</strong></dt>
@@ -13718,7 +13718,7 @@ This package contains loss models and their parameter records used for machine m
   <dd>
   <a href=\"https://www.haumer.at/\">Anton Haumer</a><br>
   Technical Consulting &amp; Electrical Engineering<br>
-  A-3423 St.Andrae-Woerdern<br>Austria<br>
+  D-93049 Regensburg<br>Germany<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><strong>Copyright:</strong></dt>
@@ -16105,7 +16105,7 @@ This package contains the space phasor connector and partial models for machine 
   <dd>
   <a href=\"https://www.haumer.at/\">Anton Haumer</a><br>
   Technical Consulting &amp; Electrical Engineering<br>
-  A-3423 St.Andrae-Woerdern<br>Austria<br>
+  D-93049 Regensburg<br>Germany<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><strong>Copyright:</strong></dt>
@@ -17713,7 +17713,7 @@ This package contains utility components for testing examples.
   <dd>
   <a href=\"https://www.haumer.at/\">Anton Haumer</a><br>
   Technical Consulting &amp; Electrical Engineering<br>
-  A-3423 St.Andrae-Woerdern<br>Austria<br>
+  D-93049 Regensburg<br>Germany<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><strong>Copyright:</strong></dt>

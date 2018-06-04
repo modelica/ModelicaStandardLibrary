@@ -289,7 +289,6 @@ Relative humidity is computed from pressure, temperature and composition with 1.
 Relative humidity is computed from the thermodynamic state record with 1.0 as the upper limit at saturation.
 </html>"));
   end relativeHumidity;
-
   /*
     redeclare function setState_psX "Return thermodynamic state as function of p, s and composition X"
       extends Modelica.Icons.Function;
@@ -1196,7 +1195,6 @@ algorithm
 </html>"));
 end thermalConductivity;
 
-
   redeclare function extends velocityOfSound
   algorithm
     a := sqrt(isentropicExponent(state)*gasConstant(state)*temperature(state));
@@ -1577,7 +1575,6 @@ Specific entropy of moist air is computed from pressure, temperature and composi
 </html>"));
     end smoothMax_der;
   end Utilities;
-
   annotation (Documentation(info="<html>
 <h4>Thermodynamic Model</h4>
 <p>This package provides a full thermodynamic model of moist air including the fog region and temperatures below zero degC.

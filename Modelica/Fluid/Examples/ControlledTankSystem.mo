@@ -52,16 +52,16 @@ package ControlledTankSystem
               {50,70}})));
     Modelica.Blocks.Sources.RealExpression level1(y=tank1.level)
       annotation (Placement(transformation(extent={{-90,-60},{-55,-40}})));
-    Modelica.Fluid.Valves.ValveDiscrete valve2(        redeclare package Medium
-        = Medium,
+    Modelica.Fluid.Valves.ValveDiscrete valve2(        redeclare package Medium =
+          Medium,
       dp_nominal(displayUnit="Pa") = 1,
       m_flow_nominal=100)
       annotation (Placement(transformation(
           origin={34,0},
           extent={{10,-10},{-10,10}},
           rotation=90)));
-    Modelica.Fluid.Valves.ValveDiscrete valve3(        redeclare package Medium
-        = Medium,
+    Modelica.Fluid.Valves.ValveDiscrete valve3(        redeclare package Medium =
+          Medium,
       dp_nominal(displayUnit="Pa") = 1,
       m_flow_nominal=10)
       annotation (Placement(transformation(
