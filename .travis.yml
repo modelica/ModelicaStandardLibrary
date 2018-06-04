@@ -1,9 +1,18 @@
 language: generic
+
+git:
+  depth: 5
+
 services:
   - docker
+
 before_install:
   - time docker pull openmodelica/openmodelica:v1.12.0-minimal
   - time docker pull openmodelica/moparser:xenial
+
 script:
   - docker run -v "$PWD:/repo" -w "/repo" openmodelica/openmodelica:v1.12.0-minimal omc .travis.mos
   - docker run -v "$PWD:/repo" -w "/repo" openmodelica/moparser:xenial moparser -r Complex.mo Modelica ModelicaReference ModelicaServices ModelicaTest ModelicaTestOverdetermined.mo ObsoleteModelica3.mo
+
+notifications:
+  email: false
