@@ -3923,7 +3923,8 @@ velocity of model mass1 or of model mass2 as state variables.
       y = flange.s "output = potential = position";
       u = flange.f "input = flow = force";
       annotation (
-        Documentation(defaultComponentName="forceToPositionAdaptor", info="<html>
+        defaultComponentName="forceToPositionAdaptor",
+        Documentation(info="<html>
 <p>
 Adaptor between a flange connector and a signal representation of the flange.
 This component is used to provide a pure signal interface around a Translational model
@@ -3965,7 +3966,8 @@ This adaptor has force as input and position, velocity and acceleration as outpu
       y = flange.f "output = flow = force";
       u = flange.s "input = potential = position";
       annotation (
-        Documentation(defaultComponentName="positionToForceAdaptor", info="<html>
+        defaultComponentName="positionToForceAdaptor",
+        Documentation(info="<html>
 <p>
 Adaptor between a flange connector and a signal representation of the flange.
 This component is used to provide a pure signal interface around a Translational model
