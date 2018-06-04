@@ -2317,7 +2317,7 @@ to <font color=\"blue\"><strong>existing</strong></font> libraries:<br>
 <tr><td width=\"150\">Cylinder</td>
     <td> A simple model of a piston/cylinder with translational flange.</td></tr>
 <tr><td width=\"150\">PumpTurbine</td>
-    <td> An improved version of the Sources.IdealPump model (which extends from the PumpTurbine model now)</td></tr>
+    <td> An improved version of the Sources.IdealPump model (might replace the idealPump in a future version)</td></tr>
 <tr><td width=\"150\">OneWayValve</td>
     <td> A simple one way valve model (comparable to an electrical ideal diode)</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Thermal.FluidHeatFlow.Media</strong></td></tr>
@@ -2348,8 +2348,6 @@ have been marked as <font color=\"blue\"><strong>obsolete</strong></font> and wi
 <tr><td colspan=\"2\"><strong>Modelica.Thermal.FluidHeatFlow</strong></td></tr>
 <tr><td>Components.IsolatedPipe<br>Components.HeatedPipe</td>
     <td> Extend from the new pipe model with optional heatPort.</td></tr>
-<tr><td>Sources.IdealPump</td>
-    <td> Extends from Components.PumpTurbine.</td></tr>
 <tr><td>Interfaces.Partials.Ambient</td>
     <td> Extends from SinglePortLeft.</td></tr>
 </table>
