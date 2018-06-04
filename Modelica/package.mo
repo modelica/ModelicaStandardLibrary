@@ -2348,7 +2348,7 @@ have been marked as <font color=\"blue\"><strong>obsolete</strong></font> and wi
     <td>Use expandable connectors instead.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Electrical.Digital.Converters</strong></td></tr>
 <tr><td>LogicToXO1<br>LogicToXO1Z</td>
-    <td>Use LogicToX01 or LogicToXO1Z instead.</td></tr>
+    <td>Use LogicToX01 or LogicToX01Z instead.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Mechanics.MultiBody</strong></td></tr>
 <tr><td>Examples.Loops.Utilities.GasForce</td>
     <td>Use Examples.Loops.Utilities.GasForce2 instead.</td></tr>
