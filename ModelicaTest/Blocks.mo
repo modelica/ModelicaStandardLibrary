@@ -187,7 +187,7 @@ package Blocks "Test models for Modelica.Blocks"
       use_reset=true) annotation(Placement(transformation(extent={{-20,60},{0,80}})));
     Modelica.Blocks.Sources.Constant const(k=1.0) annotation(Placement(transformation(extent={{-60,60},{-40,80}})));
     Modelica.Blocks.Logical.GreaterEqualThreshold greaterEqualThreshold(threshold=1.0) annotation(Placement(transformation(extent={{20,60},{40,80}})));
-    equation
+  equation
       connect(const.y, integrator.u) annotation(Line(
         points={{-39,70},{-34,70},{-27,70},{-22,70}},
         color={0,0,127}));
@@ -211,7 +211,7 @@ package Blocks "Test models for Modelica.Blocks"
     Modelica.Blocks.Sources.BooleanPulse booleanPulse(
       period=1.0) annotation(Placement(transformation(extent={{-80,20},{-60,40}})));
     Modelica.Blocks.Logical.FallingEdge fallingEdge annotation(Placement(transformation(extent={{0,-20},{20,0}})));
-    equation
+  equation
       connect(switch.y, integrator.u) annotation(Line(
         points={{21,30},{38,30}},
         color={0,0,127}));
@@ -245,7 +245,7 @@ package Blocks "Test models for Modelica.Blocks"
     Modelica.Blocks.Sources.BooleanPulse booleanPulse(
       period=1.0) annotation(Placement(transformation(extent={{-80,20},{-60,40}})));
     Modelica.Blocks.Logical.Change change annotation(Placement(transformation(extent={{0,-20},{20,0}})));
-    equation
+  equation
       connect(switch.y, integrator.u) annotation(Line(
         points={{21,30},{38,30}},
         color={0,0,127}));
@@ -400,6 +400,315 @@ package Blocks "Test models for Modelica.Blocks"
         points={{50,-102},{50,-110},{16,-110},{16,-70},{48,-70},{48,-62}}, color={0,0,127}));
     annotation (experiment(StopTime=1.1));
   end StrictLimiters;
+
+  model LimitersHomotopy
+    "Tests the homotopy-based initialization options of the limiter blocks"
+    extends Modelica.Icons.Example;
+
+    encapsulated model MustUseHomotopy "Only works with homotopy-based initialization"
+      Real x(start = 0);
+    equation
+      0 = homotopy(sin(x)*(x - 100),
+                    x - 100);
+      assert(abs(x - 100) < 1e-6, "Wrong solution selected");
+    end MustUseHomotopy;
+
+
+    MustUseHomotopy mustUseHomotopy
+      annotation (Placement(transformation(extent={{320,180},{340,200}})));
+    Modelica.Blocks.Continuous.FirstOrder controllerFeedbackPart1(
+      T=1,
+      initType=Modelica.Blocks.Types.Init.SteadyState,
+      k=-1) annotation (Placement(transformation(extent={{-140,100},{-160,120}})));
+    Modelica.Blocks.Nonlinear.Limiter limiter1(
+                                              uMax=0.99, uMin=-0.99,
+      homotopyType=Modelica.Blocks.Types.LimiterHomotopy.UMax)
+      annotation (Placement(transformation(extent={{-160,140},{-140,160}})));
+    Modelica.Blocks.Math.Feedback internalFeedback1
+      annotation (Placement(transformation(extent={{-200,140},{-180,160}})));
+    Modelica.Blocks.Math.Asin asin1
+      annotation (Placement(transformation(extent={{-100,140},{-80,160}})));
+    Modelica.Blocks.Sources.Ramp ramp1(
+      duration=100,
+      startTime=1,
+      height=-9.5,
+      offset=10)
+      annotation (Placement(transformation(extent={{-280,140},{-260,160}})));
+    Modelica.Blocks.Continuous.FirstOrder firstOrder1(
+      T=1,
+      initType=Modelica.Blocks.Types.Init.SteadyState,
+      k=2/Modelica.Constants.pi)
+      annotation (Placement(transformation(extent={{-60,140},{-40,160}})));
+    Modelica.Blocks.Math.Feedback feedback1
+      annotation (Placement(transformation(extent={{-240,140},{-220,160}})));
+    Modelica.Blocks.Continuous.FirstOrder controllerFeedbackPart2(
+      T=1,
+      initType=Modelica.Blocks.Types.Init.SteadyState,
+      k=-1) annotation (Placement(transformation(extent={{-140,-50},{-160,-30}})));
+    Modelica.Blocks.Nonlinear.Limiter limiter2(
+                                              uMax=0.99, uMin=-0.99,
+      homotopyType=Modelica.Blocks.Types.LimiterHomotopy.UMin)
+      annotation (Placement(transformation(extent={{-160,-10},{-140,10}})));
+    Modelica.Blocks.Math.Feedback internalFeedback2
+      annotation (Placement(transformation(extent={{-200,-10},{-180,10}})));
+    Modelica.Blocks.Math.Asin asin2
+      annotation (Placement(transformation(extent={{-100,-10},{-80,10}})));
+    Modelica.Blocks.Sources.Ramp ramp2(
+      duration=100,
+      startTime=1,
+      height=9.5,
+      offset=-10)
+      annotation (Placement(transformation(extent={{-280,-10},{-260,10}})));
+    Modelica.Blocks.Continuous.FirstOrder firstOrder2(
+      T=1,
+      initType=Modelica.Blocks.Types.Init.SteadyState,
+      k=2/Modelica.Constants.pi)
+      annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
+    Modelica.Blocks.Math.Feedback feedback2
+      annotation (Placement(transformation(extent={{-240,-10},{-220,10}})));
+    Modelica.Blocks.Continuous.FirstOrder controllerFeedbackPart3(
+      T=1,
+      initType=Modelica.Blocks.Types.Init.SteadyState,
+      k=-1) annotation (Placement(transformation(extent={{-140,-160},{-160,-140}})));
+    Modelica.Blocks.Nonlinear.Limiter limiter3(
+                                              uMax=0.99, uMin=-0.99,
+      homotopyType=Modelica.Blocks.Types.LimiterHomotopy.NoHomotopy)
+      annotation (Placement(transformation(extent={{-160,-120},{-140,-100}})));
+    Modelica.Blocks.Math.Feedback internalFeedback3
+      annotation (Placement(transformation(extent={{-200,-120},{-180,-100}})));
+    Modelica.Blocks.Math.Asin asin3
+      annotation (Placement(transformation(extent={{-100,-120},{-80,-100}})));
+    Modelica.Blocks.Sources.Ramp ramp3(
+      duration=100,
+      startTime=1,
+      height=-9.5,
+      offset=10)
+      annotation (Placement(transformation(extent={{-280,-120},{-260,-100}})));
+    Modelica.Blocks.Continuous.FirstOrder firstOrder3(
+      T=1,
+      initType=Modelica.Blocks.Types.Init.SteadyState,
+      k=2/Modelica.Constants.pi)
+      annotation (Placement(transformation(extent={{-60,-120},{-40,-100}})));
+    Modelica.Blocks.Math.Feedback feedback3
+      annotation (Placement(transformation(extent={{-240,-120},{-220,-100}})));
+    Modelica.Blocks.Continuous.FirstOrder controllerFeedbackPart4(
+      T=1,
+      initType=Modelica.Blocks.Types.Init.SteadyState,
+      k=-1) annotation (Placement(transformation(extent={{160,100},{140,120}})));
+    Modelica.Blocks.Nonlinear.VariableLimiter
+                                      limiter4(homotopyType=Modelica.Blocks.Types.VariableLimiterHomotopy.Fixed,
+        ySimplified=0.99)
+      annotation (Placement(transformation(extent={{180,140},{200,160}})));
+    Modelica.Blocks.Math.Feedback internalFeedback4
+      annotation (Placement(transformation(extent={{100,140},{120,160}})));
+    Modelica.Blocks.Math.Asin asin4
+      annotation (Placement(transformation(extent={{240,140},{260,160}})));
+    Modelica.Blocks.Sources.Ramp ramp4(
+      duration=100,
+      startTime=1,
+      height=-9.5,
+      offset=10)
+      annotation (Placement(transformation(extent={{20,140},{40,160}})));
+    Modelica.Blocks.Continuous.FirstOrder firstOrder4(
+      T=1,
+      initType=Modelica.Blocks.Types.Init.SteadyState,
+      k=2/Modelica.Constants.pi)
+      annotation (Placement(transformation(extent={{280,140},{300,160}})));
+    Modelica.Blocks.Math.Feedback feedback4
+      annotation (Placement(transformation(extent={{60,140},{80,160}})));
+    Modelica.Blocks.Continuous.FirstOrder controllerFeedbackPart5(
+      T=1,
+      initType=Modelica.Blocks.Types.Init.SteadyState,
+      k=-1) annotation (Placement(transformation(extent={{160,-50},{140,-30}})));
+    Modelica.Blocks.Nonlinear.VariableLimiter
+                                      limiter5(homotopyType=Modelica.Blocks.Types.VariableLimiterHomotopy.Fixed,
+        ySimplified=-0.99)
+      annotation (Placement(transformation(extent={{180,-10},{200,10}})));
+    Modelica.Blocks.Math.Feedback internalFeedback5
+      annotation (Placement(transformation(extent={{100,-10},{120,10}})));
+    Modelica.Blocks.Math.Asin asin5
+      annotation (Placement(transformation(extent={{240,-10},{260,10}})));
+    Modelica.Blocks.Sources.Ramp ramp5(
+      duration=100,
+      startTime=1,
+      height=9.5,
+      offset=-10)
+      annotation (Placement(transformation(extent={{20,-10},{40,10}})));
+    Modelica.Blocks.Continuous.FirstOrder firstOrder5(
+      T=1,
+      initType=Modelica.Blocks.Types.Init.SteadyState,
+      k=2/Modelica.Constants.pi)
+      annotation (Placement(transformation(extent={{280,-10},{300,10}})));
+    Modelica.Blocks.Math.Feedback feedback5
+      annotation (Placement(transformation(extent={{60,-10},{80,10}})));
+    Modelica.Blocks.Continuous.FirstOrder controllerFeedbackPart6(
+      T=1,
+      initType=Modelica.Blocks.Types.Init.SteadyState,
+      k=-1) annotation (Placement(transformation(extent={{160,-160},{140,-140}})));
+    Modelica.Blocks.Nonlinear.VariableLimiter
+                                      limiter6(homotopyType=Modelica.Blocks.Types.VariableLimiterHomotopy.NoHomotopy)
+      annotation (Placement(transformation(extent={{180,-120},{200,-100}})));
+    Modelica.Blocks.Math.Feedback internalFeedback6
+      annotation (Placement(transformation(extent={{100,-120},{120,-100}})));
+    Modelica.Blocks.Math.Asin asin6
+      annotation (Placement(transformation(extent={{240,-120},{260,-100}})));
+    Modelica.Blocks.Sources.Ramp ramp6(
+      duration=100,
+      startTime=1,
+      height=-9.5,
+      offset=10)
+      annotation (Placement(transformation(extent={{20,-120},{40,-100}})));
+    Modelica.Blocks.Continuous.FirstOrder firstOrder6(
+      T=1,
+      initType=Modelica.Blocks.Types.Init.SteadyState,
+      k=2/Modelica.Constants.pi)
+      annotation (Placement(transformation(extent={{280,-120},{300,-100}})));
+    Modelica.Blocks.Math.Feedback feedback6
+      annotation (Placement(transformation(extent={{60,-120},{80,-100}})));
+    Modelica.Blocks.Sources.RealExpression uMax1(y=0.99)
+      annotation (Placement(transformation(extent={{146,148},{166,168}})));
+    Modelica.Blocks.Sources.RealExpression uMax2(y=0.99)
+      annotation (Placement(transformation(extent={{148,-2},{168,18}})));
+    Modelica.Blocks.Sources.RealExpression uMax3(y=0.99)
+      annotation (Placement(transformation(extent={{146,-112},{166,-92}})));
+    Modelica.Blocks.Sources.RealExpression uMin1(y=-0.99)
+      annotation (Placement(transformation(extent={{146,130},{166,150}})));
+    Modelica.Blocks.Sources.RealExpression uMin2(y=-0.99)
+      annotation (Placement(transformation(extent={{148,-22},{168,-2}})));
+    Modelica.Blocks.Sources.RealExpression uMin3(y=-0.99)
+      annotation (Placement(transformation(extent={{146,-134},{166,-114}})));
+  equation
+    connect(limiter1.u, internalFeedback1.y)
+      annotation (Line(points={{-162,150},{-181,150}}, color={0,0,127}));
+    connect(controllerFeedbackPart1.y, internalFeedback1.u2) annotation (Line(
+          points={{-161,110},{-190,110},{-190,142}}, color={0,0,127}));
+    connect(limiter1.y, asin1.u)
+      annotation (Line(points={{-139,150},{-102,150}}, color={0,0,127}));
+    connect(asin1.y, firstOrder1.u)
+      annotation (Line(points={{-79,150},{-62,150}}, color={0,0,127}));
+    connect(limiter1.y, controllerFeedbackPart1.u) annotation (Line(points={{-139,
+            150},{-120,150},{-120,110},{-138,110}}, color={0,0,127}));
+    connect(feedback1.y, internalFeedback1.u1)
+      annotation (Line(points={{-221,150},{-198,150}}, color={0,0,127}));
+    connect(ramp1.y, feedback1.u1)
+      annotation (Line(points={{-259,150},{-238,150}}, color={0,0,127}));
+    connect(firstOrder1.y, feedback1.u2) annotation (Line(points={{-39,150},{-20,150},
+            {-20,90},{-230,90},{-230,142}}, color={0,0,127}));
+    connect(limiter2.u, internalFeedback2.y)
+      annotation (Line(points={{-162,0},{-181,0}}, color={0,0,127}));
+    connect(controllerFeedbackPart2.y, internalFeedback2.u2) annotation (Line(
+          points={{-161,-40},{-190,-40},{-190,-8}}, color={0,0,127}));
+    connect(limiter2.y, asin2.u)
+      annotation (Line(points={{-139,0},{-102,0}}, color={0,0,127}));
+    connect(asin2.y, firstOrder2.u)
+      annotation (Line(points={{-79,0},{-62,0}}, color={0,0,127}));
+    connect(limiter2.y, controllerFeedbackPart2.u) annotation (Line(points={{-139,
+            0},{-120,0},{-120,-40},{-138,-40}}, color={0,0,127}));
+    connect(feedback2.y, internalFeedback2.u1)
+      annotation (Line(points={{-221,0},{-198,0}}, color={0,0,127}));
+    connect(ramp2.y, feedback2.u1)
+      annotation (Line(points={{-259,0},{-238,0}}, color={0,0,127}));
+    connect(firstOrder2.y, feedback2.u2) annotation (Line(points={{-39,0},{-16,0},
+            {-16,-60},{-230,-60},{-230,-8}}, color={0,0,127}));
+    connect(limiter3.u, internalFeedback3.y)
+      annotation (Line(points={{-162,-110},{-181,-110}}, color={0,0,127}));
+    connect(controllerFeedbackPart3.y, internalFeedback3.u2) annotation (Line(
+          points={{-161,-150},{-190,-150},{-190,-118}}, color={0,0,127}));
+    connect(limiter3.y, asin3.u)
+      annotation (Line(points={{-139,-110},{-102,-110}}, color={0,0,127}));
+    connect(asin3.y, firstOrder3.u)
+      annotation (Line(points={{-79,-110},{-62,-110}}, color={0,0,127}));
+    connect(limiter3.y, controllerFeedbackPart3.u) annotation (Line(points={{-139,
+            -110},{-120,-110},{-120,-150},{-138,-150}}, color={0,0,127}));
+    connect(feedback3.y, internalFeedback3.u1)
+      annotation (Line(points={{-221,-110},{-198,-110}}, color={0,0,127}));
+    connect(ramp3.y, feedback3.u1)
+      annotation (Line(points={{-259,-110},{-238,-110}}, color={0,0,127}));
+    connect(firstOrder3.y, feedback3.u2) annotation (Line(points={{-39,-110},{-20,
+            -110},{-20,-170},{-230,-170},{-230,-118}}, color={0,0,127}));
+    connect(limiter4.u, internalFeedback4.y)
+      annotation (Line(points={{178,150},{119,150}}, color={0,0,127}));
+    connect(controllerFeedbackPart4.y, internalFeedback4.u2)
+      annotation (Line(points={{139,110},{110,110},{110,142}}, color={0,0,127}));
+    connect(limiter4.y, asin4.u)
+      annotation (Line(points={{201,150},{238,150}}, color={0,0,127}));
+    connect(asin4.y, firstOrder4.u)
+      annotation (Line(points={{261,150},{278,150}}, color={0,0,127}));
+    connect(limiter4.y, controllerFeedbackPart4.u) annotation (Line(points={{201,150},
+            {220,150},{220,110},{162,110}}, color={0,0,127}));
+    connect(feedback4.y, internalFeedback4.u1)
+      annotation (Line(points={{79,150},{102,150}}, color={0,0,127}));
+    connect(ramp4.y, feedback4.u1) annotation (Line(points={{41,150},{54,150},{54,
+            150},{54,150},{54,150},{62,150}}, color={0,0,127}));
+    connect(firstOrder4.y, feedback4.u2) annotation (Line(points={{301,150},{320,150},
+            {320,90},{70,90},{70,142}}, color={0,0,127}));
+    connect(limiter5.u, internalFeedback5.y)
+      annotation (Line(points={{178,0},{119,0}}, color={0,0,127}));
+    connect(controllerFeedbackPart5.y, internalFeedback5.u2)
+      annotation (Line(points={{139,-40},{110,-40},{110,-8}}, color={0,0,127}));
+    connect(limiter5.y, asin5.u)
+      annotation (Line(points={{201,0},{238,0}}, color={0,0,127}));
+    connect(asin5.y, firstOrder5.u)
+      annotation (Line(points={{261,0},{278,0}}, color={0,0,127}));
+    connect(limiter5.y, controllerFeedbackPart5.u) annotation (Line(points={{201,0},
+            {220,0},{220,-40},{162,-40}}, color={0,0,127}));
+    connect(feedback5.y, internalFeedback5.u1)
+      annotation (Line(points={{79,0},{102,0}}, color={0,0,127}));
+    connect(ramp5.y, feedback5.u1)
+      annotation (Line(points={{41,0},{62,0}}, color={0,0,127}));
+    connect(firstOrder5.y, feedback5.u2) annotation (Line(points={{301,0},{320,0},
+            {320,-60},{70,-60},{70,-8}}, color={0,0,127}));
+    connect(limiter6.u, internalFeedback6.y)
+      annotation (Line(points={{178,-110},{119,-110}}, color={0,0,127}));
+    connect(controllerFeedbackPart6.y, internalFeedback6.u2) annotation (Line(
+          points={{139,-150},{110,-150},{110,-118}}, color={0,0,127}));
+    connect(limiter6.y, asin6.u)
+      annotation (Line(points={{201,-110},{238,-110}}, color={0,0,127}));
+    connect(asin6.y, firstOrder6.u)
+      annotation (Line(points={{261,-110},{278,-110}}, color={0,0,127}));
+    connect(limiter6.y, controllerFeedbackPart6.u) annotation (Line(points={{201,-110},
+            {220,-110},{220,-150},{162,-150}}, color={0,0,127}));
+    connect(feedback6.y, internalFeedback6.u1)
+      annotation (Line(points={{79,-110},{102,-110}}, color={0,0,127}));
+    connect(ramp6.y, feedback6.u1)
+      annotation (Line(points={{41,-110},{62,-110}}, color={0,0,127}));
+    connect(firstOrder6.y, feedback6.u2) annotation (Line(points={{301,-110},{320,
+            -110},{320,-170},{70,-170},{70,-118}}, color={0,0,127}));
+    connect(uMax1.y, limiter4.limit1)
+      annotation (Line(points={{167,158},{178,158}}, color={0,0,127}));
+    connect(uMin1.y, limiter4.limit2) annotation (Line(points={{167,140},{172,140},
+            {172,142},{178,142}}, color={0,0,127}));
+    connect(uMax2.y, limiter5.limit1)
+      annotation (Line(points={{169,8},{178,8}}, color={0,0,127}));
+    connect(uMin2.y, limiter5.limit2) annotation (Line(points={{169,-12},{172,-12},
+            {172,-8},{178,-8}}, color={0,0,127}));
+    connect(uMax3.y, limiter6.limit1)
+      annotation (Line(points={{167,-102},{178,-102}}, color={0,0,127}));
+    connect(uMin3.y, limiter6.limit2) annotation (Line(points={{167,-124},{172,-124},
+            {172,-118},{178,-118}}, color={0,0,127}));
+    annotation (
+      Icon(coordinateSystem(preserveAspectRatio=false,
+           extent={{-100,-100},{100,100}},
+           initialScale=0.1)),
+      Diagram(coordinateSystem(preserveAspectRatio=false,
+              extent={{-300,-200},{340,200}},
+              initialScale=0.1)),
+      experiment(StopTime=100),
+      Documentation(info="<html>
+<p>These test models demonstrate the use of the advanced homotopy options <code>homotopyType</code>
+of the <code>Limiter</code> and <code>VariableLimiter blocks</code>.</p>
+<p>The models represent a basic control system using a PI with anti-windup in three different configurations:
+<ol>
+<li>The loop is initialized in steady-state with the upper saturation active and <code>homotopyType=UMax</code></li>
+<li>The loop is initialized in steady-state with the lower saturation active and <code>homotopyType=UMin</code></li>
+<li>The loop is initialized in steady-state with the upper saturation active and <code>homotopyType=NoHomotopy</code></li>
+</ol>
+</p>
+<p>The <code>mustUseHomotopy</code>block forces the tool to use homotopy-based initialization; in order to do so,
+a system with two solutions x = 0 and x = 100 is provided. The start value leads to the convergence to x = 0; only
+if homotopy is active, the solution accepted by the assert statement (x = 100) is obtained.</p>
+</html>"));
+  end LimitersHomotopy;
 
   model KinematicPTP
     extends Modelica.Icons.Example;
