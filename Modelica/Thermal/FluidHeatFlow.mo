@@ -712,7 +712,7 @@ Inner coolant's temperature rise near the source is the same as temperature drop
       Modelica.Thermal.FluidHeatFlow.Sources.Ambient ambient1(constantAmbientTemperature=TAmb, medium=medium,
         constantAmbientPressure=0)
         annotation (Placement(transformation(extent={{-70,-10},{-90,10}})));
-      Modelica.Thermal.FluidHeatFlow.Components.PumpTurbine pumpTurbine(
+      Sources.IdealPump                                     idealPump(
         medium=medium,
         m=0,
         T0=TAmb,
@@ -793,9 +793,9 @@ Inner coolant's temperature rise near the source is the same as temperature drop
               -10},{10,-20}}, color={191,0,0}));
       connect(thermalConductance.y, convection.Gc)
         annotation (Line(points={{-9,-30},{0,-30}}, color={0,0,127}));
-      connect(ambient1.flowPort, pumpTurbine.flowPort_a)
+      connect(ambient1.flowPort, idealPump.flowPort_a)
         annotation (Line(points={{-70,0},{-60,0}}, color={255,0,0}));
-      connect(pumpTurbine.flowPort_b, valve.flowPort_a)
+      connect(idealPump.flowPort_b, valve.flowPort_a)
         annotation (Line(points={{-40,0},{-30,0}}, color={255,0,0}));
       connect(valve.flowPort_b, pipe.flowPort_a)
         annotation (Line(points={{-10,0},{0,0}}, color={255,0,0}));
@@ -803,7 +803,7 @@ Inner coolant's temperature rise near the source is the same as temperature drop
         annotation (Line(points={{-59,50},{-50,50},{-50,42}}, color={0,0,127}));
       connect(valveRamp.y, valve.y)
         annotation (Line(points={{-9,50},{-20,50},{-20,10}},color={0,0,127}));
-      connect(speed.flange, pumpTurbine.flange_a)
+      connect(speed.flange, idealPump.flange_a)
         annotation (Line(points={{-50,20},{-50,10}}));
     annotation (Documentation(info="<html>
 <p>
@@ -2127,6 +2127,11 @@ Thermodynamic equations are defined by Partials.TwoPort.
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
             Ellipse(
+              extent={{-92,92},{92,-92}},
+              lineColor={0,0,255},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Ellipse(
               extent={{-90,90},{90,-90}},
               lineColor={255,0,0},
               fillColor={255,255,255},
@@ -2680,14 +2685,55 @@ leads to neglect of temperature transient cv*m*der(T).
     end PressureIncrease;
 
     model IdealPump "Model of an ideal pump"
-      extends FluidHeatFlow.Components.PumpTurbine;
-      extends Icons.ObsoleteModel;
-      annotation (
-        obsolete = "Obsolete model - use Components.PumpTurbine instead",
-        Documentation(info="<html>
+
+      extends Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.TwoPort(final tapT=
+           1);
+      parameter Modelica.SIunits.AngularVelocity wNominal(start=1, displayUnit="rev/min")
+        "Nominal speed"
+          annotation(Dialog(group="Pump characteristic"));
+      parameter Modelica.SIunits.Pressure dp0(start=2)
+        "Max. pressure increase @ V_flow=0"
+          annotation(Dialog(group="Pump characteristic"));
+      parameter Modelica.SIunits.VolumeFlowRate V_flow0(start=2)
+        "Max. volume flow rate @ dp=0"
+          annotation(Dialog(group="Pump characteristic"));
+      Modelica.SIunits.AngularVelocity w=der(flange_a.phi) "Speed";
+    protected
+      Modelica.SIunits.Pressure dp1;
+      Modelica.SIunits.VolumeFlowRate V_flow1;
+    public
+      Modelica.Mechanics.Rotational.Interfaces.Flange_a flange_a
+        annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
+    equation
+      // pump characteristic
+      dp1 = dp0*sign(w/wNominal)*(w/wNominal)^2;
+      V_flow1 = V_flow0*(w/wNominal);
+      if noEvent(abs(w)<Modelica.Constants.small) then
+        dp = 0;
+        flange_a.tau = 0;
+      else
+        dp = -dp1*(1-noEvent(abs(V_flow/V_flow1)));
+        flange_a.tau*w = -dp*V_flow;
+      end if;
+      // no energy exchange with medium
+      Q_flow = 0;
+    annotation (Documentation(info="<html>
 <p>
-This model simply extends from the <a href=\"modelica://Modelica.Thermal.FluidHeatFlow.Components.PumpTurbine\">PumpTurbine</a> model
-and is kept for compatibility reasons. In the future, it will be removed.
+Simple fan resp. pump where characteristic is dependent on shaft's speed, <br>
+torque * speed = pressure increase * volume flow (without losses)<br>
+Pressure increase versus volume flow is defined by a linear function,
+from dp0(V_flow=0) to V_flow0(dp=0).<br>
+The axis intersections vary with speed as follows:
+</p>
+<ul>
+<li>dp prop. speed^2</li>
+<li>V_flow prop. speed</li>
+</ul>
+<p>
+Coolant's temperature and enthalpy flow are not affected.<br>
+Setting parameter m (mass of medium within fan/pump) to zero
+leads to neglection of temperature transient cv*m*der(T).<br>
+Thermodynamic equations are defined by Partials.TwoPort.
 </p>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
@@ -2696,17 +2742,20 @@ and is kept for compatibility reasons. In the future, it will be removed.
               lineColor={255,0,0},
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
+            Text(
+              extent={{-150,150},{150,90}},
+              lineColor={0,0,255},
+              textString="%name"),
             Rectangle(
               extent={{-10,-40},{10,-100}},
+              lineColor={0,0,0},
               fillPattern=FillPattern.VerticalCylinder,
               fillColor={175,175,175}),
             Polygon(
               points={{-60,68},{90,10},{90,-10},{-60,-68},{-60,68}},
+              lineColor={0,0,0},
               fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={0,0,255}),           Text(
-              extent={{-150,140},{150,100}},
-              lineColor={0,0,255},
-              textString="%name")}));
+              fillColor={0,0,255})}));
     end IdealPump;
   annotation (Documentation(info="<html>
 <p>
