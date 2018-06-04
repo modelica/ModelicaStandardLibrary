@@ -17,7 +17,7 @@ package Machines "Library for electric machines"
 <li>constant parameters, i.e., no saturation, no skin effect</li>
 </ul>
 <p>
-You may have a look at a short summary of space phasor theory at <a href=\"http://www.haumer.at/refimg/SpacePhasors.pdf\">http://www.haumer.at/refimg/SpacePhasors.pdf</a>
+You may have a look at a short summary of space phasor theory at <a href=\"https://www.haumer.at/refimg/SpacePhasors.pdf\">https://www.haumer.at/refimg/SpacePhasors.pdf</a>
 </p>
 <strong>Further development:</strong>
 <ul>
@@ -94,7 +94,7 @@ You may have a look at a short summary of space phasor theory at <a href=\"http:
 
 <p>
 <strong>Anton Haumer</strong><br>
-<a href=\"http://www.haumer.at\">Technical Consulting &amp; Electrical Engineering</a><br>
+<a href=\"https://www.haumer.at\">Technical Consulting &amp; Electrical Engineering</a><br>
 3423 St. Andrae-Woerdern, Austria<br>
 email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
 </p>
@@ -6796,7 +6796,7 @@ This package contains test examples of electric machines.
 <dl>
   <dt><strong>Main Authors:</strong></dt>
   <dd>
-  <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
+  <a href=\"https://www.haumer.at/\">Anton Haumer</a><br>
   Technical Consulting &amp; Electrical Engineering<br>
   A-3423 St.Andrae-Woerdern<br>Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
@@ -7328,7 +7328,7 @@ These models use package SpacePhasors.
 <dl>
   <dt><strong>Main Authors:</strong></dt>
   <dd>
-  <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
+  <a href=\"https://www.haumer.at/\">Anton Haumer</a><br>
   Technical Consulting &amp; Electrical Engineering<br>
   A-3423 St.Andrae-Woerdern<br>Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
@@ -8386,7 +8386,7 @@ These models use package SpacePhasors.
 <dl>
   <dt><strong>Main Authors:</strong></dt>
   <dd>
-  <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
+  <a href=\"https://www.haumer.at/\">Anton Haumer</a><br>
   Technical Consulting &amp; Electrical Engineering<br>
   A-3423 St.Andrae-Woerdern<br>Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
@@ -9071,7 +9071,7 @@ This package contains models of DC machines:
 <dl>
   <dt><strong>Main Authors:</strong></dt>
   <dd>
-  <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
+  <a href=\"https://www.haumer.at/\">Anton Haumer</a><br>
   Technical Consulting &amp; Electrical Engineering<br>
   A-3423 St.Andrae-Woerdern<br>Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
@@ -9158,7 +9158,7 @@ where e.g., <code>L*der(i)</code> is replaced by <code>j*omega*L*(I_re+j*I_im)</
 <dl>
   <dt><strong>Main Authors:</strong></dt>
   <dd>
-  <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
+  <a href=\"https://www.haumer.at/\">Anton Haumer</a><br>
   Technical Consulting &amp; Electrical Engineering<br>
   A-3423 St.Andrae-Woerdern<br>Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
@@ -9436,7 +9436,7 @@ This package contains transformers primary Y connected / secondary y connected i
 <dl>
   <dt><strong>Main Authors:</strong></dt>
   <dd>
-  <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
+  <a href=\"https://www.haumer.at/\">Anton Haumer</a><br>
   Technical Consulting &amp; Electrical Engineering<br>
   A-3423 St.Andrae-Woerdern<br>Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
@@ -9673,7 +9673,7 @@ This package contains transformers primary Y connected / secondary d connected i
 <dl>
   <dt><strong>Main Authors:</strong></dt>
   <dd>
-  <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
+  <a href=\"https://www.haumer.at/\">Anton Haumer</a><br>
   Technical Consulting &amp; Electrical Engineering<br>
   A-3423 St.Andrae-Woerdern<br>Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
@@ -10002,7 +10002,7 @@ This package contains transformers primary Y connected / secondary zig-zag conne
 <dl>
   <dt><strong>Main Authors:</strong></dt>
   <dd>
-  <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
+  <a href=\"https://www.haumer.at/\">Anton Haumer</a><br>
   Technical Consulting &amp; Electrical Engineering<br>
   A-3423 St.Andrae-Woerdern<br>Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
@@ -10247,7 +10247,7 @@ This package contains transformers primary D connected / secondary y connected i
 <dl>
   <dt><strong>Main Authors:</strong></dt>
   <dd>
-  <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
+  <a href=\"https://www.haumer.at/\">Anton Haumer</a><br>
   Technical Consulting &amp; Electrical Engineering<br>
   A-3423 St.Andrae-Woerdern<br>Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
@@ -10454,7 +10454,7 @@ This package contains transformers primary D connected / secondary d connected i
 <dl>
   <dt><strong>Main Authors:</strong></dt>
   <dd>
-  <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
+  <a href=\"https://www.haumer.at/\">Anton Haumer</a><br>
   Technical Consulting &amp; Electrical Engineering<br>
   A-3423 St.Andrae-Woerdern<br>Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
@@ -10753,7 +10753,7 @@ This package contains transformers primary D connected / secondary d connected i
 <dl>
   <dt><strong>Main Authors:</strong></dt>
   <dd>
-  <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
+  <a href=\"https://www.haumer.at/\">Anton Haumer</a><br>
   Technical Consulting &amp; Electrical Engineering<br>
   A-3423 St.Andrae-Woerdern<br>Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
@@ -10824,7 +10824,7 @@ even though the source's and/or load's starpoint are grounded; you may use a rea
 <dl>
   <dt><strong>Main Authors:</strong></dt>
   <dd>
-  <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
+  <a href=\"https://www.haumer.at/\">Anton Haumer</a><br>
   Technical Consulting &amp; Electrical Engineering<br>
   A-3423 St.Andrae-Woerdern<br>Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
@@ -11725,7 +11725,7 @@ These models use package SpacePhasors.
 <dl>
   <dt><strong>Main Authors:</strong></dt>
   <dd>
-  <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
+  <a href=\"https://www.haumer.at/\">Anton Haumer</a><br>
   Technical Consulting &amp; Electrical Engineering<br>
   A-3423 St.Andrae-Woerdern<br>Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
@@ -11768,7 +11768,7 @@ The induction machine models use package SpacePhasors.
 <dl>
   <dt><strong>Main Authors:</strong></dt>
   <dd>
-  <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
+  <a href=\"https://www.haumer.at/\">Anton Haumer</a><br>
   Technical Consulting &amp; Electrical Engineering<br>
   A-3423 St.Andrae-Woerdern<br>Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
@@ -12278,7 +12278,7 @@ This package contains sensors that are useful when modelling machines.
 <dl>
   <dt><strong>Main Authors:</strong></dt>
   <dd>
-  <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
+  <a href=\"https://www.haumer.at/\">Anton Haumer</a><br>
   Technical Consulting &amp; Electrical Engineering<br>
   A-3423 St.Andrae-Woerdern<br>Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
@@ -12431,7 +12431,7 @@ a ground has to be used where necessary for currents flowing back.
 <dl>
   <dt><strong>Main Authors:</strong></dt>
   <dd>
-  <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
+  <a href=\"https://www.haumer.at/\">Anton Haumer</a><br>
   Technical Consulting &amp; Electrical Engineering<br>
   A-3423 St.Andrae-Woerdern<br>Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
@@ -12695,7 +12695,7 @@ the first element representing the real part and the second element representing
   <dl>
   <dt><strong>Main Authors:</strong></dt>
   <dd>
-  <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
+  <a href=\"https://www.haumer.at/\">Anton Haumer</a><br>
   Technical Consulting &amp; Electrical Engineering<br>
   A-3423 St.Andrae-Woerdern<br>Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
@@ -12886,7 +12886,7 @@ the first element representing the real part and the second element representing
 <dl>
   <dt><strong>Main Authors:</strong></dt>
   <dd>
-  <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
+  <a href=\"https://www.haumer.at/\">Anton Haumer</a><br>
   Technical Consulting &amp; Electrical Engineering<br>
   A-3423 St.Andrae-Woerdern<br>Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
@@ -12919,13 +12919,13 @@ Space phasors are defined as vectors of length = 2,
 the first element representing the real part and the second element representing the imaginary part of the space phasor.
 </p>
 <p>
-You may have a look at a short summary of space phasor theory at <a href=\"http://www.haumer.at/refimg/SpacePhasors.pdf\">http://www.haumer.at/refimg/SpacePhasors.pdf</a>
+You may have a look at a short summary of space phasor theory at <a href=\"https://www.haumer.at/refimg/SpacePhasors.pdf\">https://www.haumer.at/refimg/SpacePhasors.pdf</a>
 </p>
 </html>", revisions="<html>
 <dl>
   <dt><strong>Main Authors:</strong></dt>
   <dd>
-  <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
+  <a href=\"https://www.haumer.at/\">Anton Haumer</a><br>
   Technical Consulting &amp; Electrical Engineering<br>
   A-3423 St.Andrae-Woerdern<br>Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
@@ -13456,7 +13456,7 @@ This package contains loss models used for induction machine models.
 <dl>
   <dt><strong>Main Authors:</strong></dt>
   <dd>
-  <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
+  <a href=\"https://www.haumer.at/\">Anton Haumer</a><br>
   Technical Consulting &amp; Electrical Engineering<br>
   A-3423 St.Andrae-Woerdern<br>Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
@@ -13692,7 +13692,7 @@ This package contains loss models used for DC machine models.
 <dl>
   <dt><strong>Main Authors:</strong></dt>
   <dd>
-  <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
+  <a href=\"https://www.haumer.at/\">Anton Haumer</a><br>
   Technical Consulting &amp; Electrical Engineering<br>
   A-3423 St.Andrae-Woerdern<br>Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
@@ -13716,7 +13716,7 @@ This package contains loss models and their parameter records used for machine m
 <dl>
   <dt><strong>Main Authors:</strong></dt>
   <dd>
-  <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
+  <a href=\"https://www.haumer.at/\">Anton Haumer</a><br>
   Technical Consulting &amp; Electrical Engineering<br>
   A-3423 St.Andrae-Woerdern<br>Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
@@ -16103,7 +16103,7 @@ This package contains the space phasor connector and partial models for machine 
 <dl>
   <dt><strong>Main Authors:</strong></dt>
   <dd>
-  <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
+  <a href=\"https://www.haumer.at/\">Anton Haumer</a><br>
   Technical Consulting &amp; Electrical Engineering<br>
   A-3423 St.Andrae-Woerdern<br>Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
@@ -17711,7 +17711,7 @@ This package contains utility components for testing examples.
 <dl>
   <dt><strong>Main Authors:</strong></dt>
   <dd>
-  <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
+  <a href=\"https://www.haumer.at/\">Anton Haumer</a><br>
   Technical Consulting &amp; Electrical Engineering<br>
   A-3423 St.Andrae-Woerdern<br>Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>

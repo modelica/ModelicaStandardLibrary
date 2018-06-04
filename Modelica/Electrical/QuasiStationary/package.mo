@@ -13,7 +13,7 @@ annotation (
   <dd>
 <p>
   Anton Haumer<br>
-  <a href=\"http://www.haumer.at/\">Technical Consulting &amp; Electrical Engineering</a><br>
+  <a href=\"https://www.haumer.at/\">Technical Consulting &amp; Electrical Engineering</a><br>
   A-3423 St.Andrae-Woerdern, Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
 </p>

@@ -491,7 +491,7 @@ This package contains transformers primary Y connected / secondary y connected i
 <dl>
   <dt><strong>Main Authors:</strong></dt>
   <dd>
-  <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
+  <a href=\"https://www.haumer.at/\">Anton Haumer</a><br>
   Technical Consulting &amp; Electrical Engineering<br>
   A-3423 St.Andrae-Woerdern<br>Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
@@ -735,7 +735,7 @@ This package contains transformers primary Y connected / secondary d connected i
 <dl>
   <dt><strong>Main Authors:</strong></dt>
   <dd>
-  <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
+  <a href=\"https://www.haumer.at/\">Anton Haumer</a><br>
   Technical Consulting &amp; Electrical Engineering<br>
   A-3423 St.Andrae-Woerdern<br>Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
@@ -1071,7 +1071,7 @@ This package contains transformers primary Y connected / secondary zig-zag conne
 <dl>
   <dt><strong>Main Authors:</strong></dt>
   <dd>
-  <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
+  <a href=\"https://www.haumer.at/\">Anton Haumer</a><br>
   Technical Consulting &amp; Electrical Engineering<br>
   A-3423 St.Andrae-Woerdern<br>Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
@@ -1323,7 +1323,7 @@ This package contains transformers primary D connected / secondary y connected i
 <dl>
   <dt><strong>Main Authors:</strong></dt>
   <dd>
-  <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
+  <a href=\"https://www.haumer.at/\">Anton Haumer</a><br>
   Technical Consulting &amp; Electrical Engineering<br>
   A-3423 St.Andrae-Woerdern<br>Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
@@ -1537,7 +1537,7 @@ This package contains transformers primary D connected / secondary d connected i
 <dl>
   <dt><strong>Main Authors:</strong></dt>
   <dd>
-  <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
+  <a href=\"https://www.haumer.at/\">Anton Haumer</a><br>
   Technical Consulting &amp; Electrical Engineering<br>
   A-3423 St.Andrae-Woerdern<br>Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
@@ -1839,7 +1839,7 @@ This package contains transformers primary D connected / secondary d connected i
 <dl>
   <dt><strong>Main Authors:</strong></dt>
   <dd>
-  <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
+  <a href=\"https://www.haumer.at/\">Anton Haumer</a><br>
   Technical Consulting &amp; Electrical Engineering<br>
   A-3423 St.Andrae-Woerdern<br>Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
@@ -1911,7 +1911,7 @@ even though the source's and/or load's starpoint are grounded; you may use a rea
 <dl>
   <dt><strong>Main Authors:</strong></dt>
   <dd>
-  <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
+  <a href=\"https://www.haumer.at/\">Anton Haumer</a><br>
   Technical Consulting &amp; Electrical Engineering<br>
   A-3423 St.Andrae-Woerdern<br>Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
