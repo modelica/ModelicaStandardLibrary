@@ -2348,7 +2348,6 @@ The following Modelica packages have been tested that they work together with th
 <li>Vehicle Dynamics Library 2.3 (Modelon)</li>
 </ul>
 
-
 <p><br>
 The following <font color=\"blue\"><strong>new libraries</strong></font> have been added:
 </p>
@@ -2374,11 +2373,11 @@ The following <font color=\"blue\"><strong>new libraries</strong></font> have be
     <td>
    New elements for modeling ferromagnetic (static) and eddy current (dynamic) hysteresis effects and permanent magnets have been added.
    The FluxTubes.Material package is also extended to provide hysteresis data for several magnetic materials. These data is partly based on own measurements.
-   For modeling of ferromagnetic hysteresis, two different hystereses models have been implemented: The simple Tellinen model and the considerably
+   For modeling of ferromagnetic hysteresis, two different hysteresis models have been implemented: The simple Tellinen model and the considerably
    more detailed Preisach hysteresis model. The following packages have been added:
   <ul>
   <li><a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Hysteresis\">FluxTubes.UsersGuide.Hysteresis</a></li>
-  <li><a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.Hysteresis\">Fluxtubes.Examples.Hysteresis</a></li>
+  <li><a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.Hysteresis\">FluxTubes.Examples.Hysteresis</a></li>
   <li><a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets\">FluxTubes.Shapes.HysteresisAndMagnets</a></li>
   <li><a href=\"modelica://Modelica.Magnetic.FluxTubes.Material.HysteresisEverettParameter\">FluxTubes.Material.HysteresisEverettParameter</a></li>
   <li><a href=\"modelica://Modelica.Magnetic.FluxTubes.Material.HysteresisTableData\">FluxTubes.Material.HysteresisTableData</a></li>
