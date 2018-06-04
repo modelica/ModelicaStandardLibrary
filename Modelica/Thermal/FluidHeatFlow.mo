@@ -2116,7 +2116,7 @@ The axis intersections vary with speed as follows:
 </ul>
 <p>
 Note: Increasing the pressure difference above dp0 leads to an inversion of volumeFlow,
-which means inversion of power flow, i.e. the machien is acting as a turbine.
+which means inversion of power flow, i.e., the machine is acting as a turbine.
 </p>
 <p>
 Coolant's temperature and enthalpy flow are not affected.
@@ -2150,7 +2150,7 @@ Thermodynamic equations are defined by Partials.TwoPort.
       parameter Modelica.SIunits.VolumeFlowRate V_flowNominal(start=1) "Nominal volume flow rate (forward)";
       parameter Modelica.SIunits.Pressure dpForward(displayUnit="bar")=1e-6 "Pressure drop at nominal flow (forward)";
       parameter Modelica.SIunits.Pressure dpNominal(displayUnit="bar", start=1e5) "Nominal pressure (backward)";
-      parameter Modelica.SIunits.VolumeFlowRate V_flowBackward(start=1E-6) "Leakage volume flow rate (backwardward)";
+      parameter Modelica.SIunits.VolumeFlowRate V_flowBackward(start=1E-6) "Leakage volume flow rate (backward)";
       parameter Real frictionLoss(min=0, max=1, start=0)
         "Part of friction losses fed to medium";
       Boolean backward(start=true) "State forward=false / backward=true";
@@ -2158,7 +2158,7 @@ Thermodynamic equations are defined by Partials.TwoPort.
       Real s(start=0, final unit="1")
         "Auxiliary variable for actual position on the valve characteristic";
       /* s < 0: backward, leakage flow
-  s > 0: forward, small pressure drop */
+         s > 0: forward, small pressure drop */
       constant Modelica.SIunits.VolumeFlowRate unitVolumeFlowRate = 1;
       constant Modelica.SIunits.Pressure unitPressureDrop = 1;
     equation
@@ -2170,7 +2170,7 @@ Thermodynamic equations are defined by Partials.TwoPort.
 <p>Simple one-way valve, comparable to the electrical <a href=\"modelica://Modelica.Electrical.Analog.Ideal.IdealDiode\">ideal diode</a> model.</p>
 <ul>
 <li>from flowPort_a to flowPort_b: small pressure drop, linearly dependent on volumeFlow</li>
-<li>from flowPort_b to flowPort_a: small leakage flow, linearly dependent on presssure drop</li>
+<li>from flowPort_b to flowPort_a: small leakage flow, linearly dependent on pressure drop</li>
 </ul>
 </html>"),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
