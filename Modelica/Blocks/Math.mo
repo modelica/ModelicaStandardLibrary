@@ -3704,6 +3704,7 @@ Integer input <strong>u</strong> changes:
 </pre>
 </html>"));
   end IntegerChange;
+
   annotation (Documentation(info="<html>
 <p>
 This package contains basic <strong>mathematical operations</strong>,

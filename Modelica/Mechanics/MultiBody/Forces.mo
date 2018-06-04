@@ -1932,6 +1932,7 @@ in the other flange connector.
     r_rel_0 = lineForce.r_rel_0;
     e_rel_0 = lineForce.e_rel_0;
 
+  equation
     connect(lineForce.frame_a, frame_a)
       annotation (Line(
         points={{-20,0},{-100,0}},
@@ -2929,7 +2930,8 @@ values from the outside in order that the model remains balanced
       import Modelica.Mechanics.MultiBody.Types.GravityTypes;
       input GravityTypes gravityType "Type of gravity field" annotation(Dialog);
       input Modelica.SIunits.Acceleration g[3]
-        "Constant gravity acceleration, resolved in world frame, if gravityType=UniformGravity" annotation(Dialog);
+        "Constant gravity acceleration, resolved in world frame, if gravityType=UniformGravity"
+                                                                                                annotation(Dialog);
       input Real mue(unit="m3/s2")
         "Field constant of point gravity field, if gravityType=PointGravity" annotation(Dialog);
     algorithm

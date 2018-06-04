@@ -4375,6 +4375,7 @@ The source partial model relies on the
 </html>"));
     end ReferenceSource;
   end Interfaces;
+
   annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
             {100,100}}), graphics={
         Ellipse(

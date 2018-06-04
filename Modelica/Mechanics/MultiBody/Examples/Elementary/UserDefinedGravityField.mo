@@ -11,8 +11,8 @@ model UserDefinedGravityField
   inner Modelica.Mechanics.MultiBody.World world(
     gravityType=Modelica.Mechanics.MultiBody.Types.GravityTypes.NoGravity,
       redeclare function gravityAcceleration =
-        Modelica.Mechanics.MultiBody.Examples.Elementary.Utilities.theoreticalNormalGravityWGS84
-        (phi=geodeticLatitude),
+        Modelica.Mechanics.MultiBody.Examples.Elementary.Utilities.theoreticalNormalGravityWGS84 (
+         phi=geodeticLatitude),
     axisLength=10,
     nominalLength=10) annotation (Placement(transformation(extent={{-80,-50},{-60,-30}})));
   Joints.Revolute rev(n={0,0,1},useAxisFlange=true,

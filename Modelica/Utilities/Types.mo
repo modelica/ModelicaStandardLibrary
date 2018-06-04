@@ -6,12 +6,14 @@ package Types "Type definitions used in package Modelica.Utilities"
       Equal "String 1 is identical to string 2",
       Greater "String 1 is lexicographically greater than string 2")
     "Enumeration defining comparison of two strings";
+
   type FileType = enumeration(
       NoFile "No file exists",
       RegularFile "Regular file",
       Directory "Directory",
       SpecialFile "Special file (pipe, FIFO, device, etc.)")
     "Enumeration defining the type of a file";
+
   type TokenType = enumeration(
       RealToken,
       IntegerToken,
@@ -20,6 +22,7 @@ package Types "Type definitions used in package Modelica.Utilities"
       IdentifierToken,
       DelimiterToken,
       NoToken) "Enumeration defining the token type";
+
   record TokenValue "Value of token"
      extends Modelica.Icons.Record;
      TokenType tokenType "Type of token";

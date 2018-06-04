@@ -713,8 +713,8 @@ package AST_BatchPlant
         pipeArea={bottom_pipeArea[i] for i in 1:n_BottomPorts},
         redeclare package Medium = Medium)
           annotation (Placement(transformation(extent={{-80,-80},{-60,-60}})));
-      Modelica.Fluid.Interfaces.FluidPort_b Condensed(redeclare package Medium =
-                   Medium)
+      Modelica.Fluid.Interfaces.FluidPort_b Condensed(redeclare package Medium
+          =        Medium)
         annotation (Placement(transformation(extent={{192,50},{212,70}})));
 
       // Heat transfer through boundary

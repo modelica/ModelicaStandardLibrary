@@ -754,8 +754,8 @@ Slider-crank mechanism with analytic handling of kinematic loop to model one cyl
 
   model EngineV6_analytic "V6 engine with analytic loop handling"
     parameter Boolean animation=true "= true, if animation shall be enabled";
-    replaceable model Cylinder = Cylinder_analytic_CAD constrainedby
-      CylinderBase "Cylinder type"
+    replaceable model Cylinder = Cylinder_analytic_CAD constrainedby CylinderBase
+                   "Cylinder type"
          annotation(Documentation(info="<html>
 <p>
 Model of one cylinder of an engine with analytic loop handling of the slider crank mechanism.

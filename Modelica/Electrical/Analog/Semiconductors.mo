@@ -86,14 +86,14 @@ package Semiconductors
     Vt_applied = if useHeatPort then Modelica.Constants.R * T_heatPort/Modelica.Constants.F else Vt;
     id = smooth(1,
       if vd < -Bv / 2 then
+        //Lower half of reverse biased region including breakdown.
         -Ids * (exp(-(vd+Bv)/(N*Vt_applied)) + 1 - 2*exp(-Bv/(2*N*Vt_applied)))
       elseif vd < VdMax then
+        //Upper half of reverse biased region, and forward biased region before conduction.
         Ids * (exp(vd/(N*Vt_applied)) - 1)
       else
-        iVdMax + (vd - VdMax) * diVdMax);
-        //Lower half of reverse biased region including breakdown.
-        //Upper half of reverse biased region, and forward biased region before conduction.
         //Forward biased region after conduction
+        iVdMax + (vd - VdMax) * diVdMax);
 
     v = vd + id * Rs;
     i = id + v*Gp;
@@ -1236,8 +1236,8 @@ end HeatingDiode;
             textString="%name",
                     lineColor={0,0,255})}));
         end HeatingPNP;
-protected
 
+protected
         function pow "Just a helper function for x^y in order that a symbolic engine can apply some transformations more easily"
           extends Modelica.Icons.Function;
           input Real x;
@@ -1274,8 +1274,8 @@ protected
         algorithm
           z := if x < Minexp then exp(Minexp)*(1 + x - Minexp) else exlin(x, Maxexp);
         end exlin2;
-public
 
+public
   model Thyristor "Simple Thyristor Model"
     parameter SI.Voltage VDRM(final min=0) = 100
       "Forward breakthrough voltage";
@@ -1558,6 +1558,7 @@ public
 </ul>
 </html>"));
   end SimpleTriac;
+
   annotation (
     Documentation(info="<html>
 <p>This package contains semiconductor devices:</p>

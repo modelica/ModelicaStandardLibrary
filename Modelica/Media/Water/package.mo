@@ -33,6 +33,7 @@ package IdealSteam "Water: Steam as ideal gas from NASA source"
 </html>"));
 end IdealSteam;
 
+
 package ConstantPropertyLiquidWater
   "Water: Simple liquid water medium (incompressible, constant data)"
 
@@ -66,11 +67,14 @@ package ConstantPropertyLiquidWater
 </html>"));
 end ConstantPropertyLiquidWater;
 
+
 package StandardWater = WaterIF97_ph
   "Water using the IF97 standard, explicit in p and h. Recommended for most applications";
 
+
 package StandardWaterOnePhase = WaterIF97_pT
   "Water using the IF97 standard, explicit in p and T. Recommended for one-phase applications";
+
 
 package WaterIF97OnePhase_ph
   "Water using the IF97 standard, explicit in p and h, and only valid outside the two-phase dome"
@@ -86,6 +90,7 @@ package WaterIF97OnePhase_ph
 </html>"));
 end WaterIF97OnePhase_ph;
 
+
 package WaterIF97_pT "Water using the IF97 standard, explicit in p and T"
   extends WaterIF97_base(
     ThermoStates=Modelica.Media.Interfaces.Choices.IndependentVariables.pT,
@@ -95,6 +100,7 @@ package WaterIF97_pT "Water using the IF97 standard, explicit in p and T"
     final smoothModel=true,
     final onePhase=true);
 end WaterIF97_pT;
+
 
 package WaterIF97_ph "Water using the IF97 standard, explicit in p and h"
   extends WaterIF97_base(
@@ -108,6 +114,7 @@ package WaterIF97_ph "Water using the IF97 standard, explicit in p and h"
 
 </html>"));
 end WaterIF97_ph;
+
 
 partial package WaterIF97_base
   "Water: Steam properties as defined by IAPWS/IF97 standard"
@@ -138,6 +145,7 @@ partial package WaterIF97_base
     Temperature T "Temperature";
     AbsolutePressure p "Pressure";
   end ThermodynamicState;
+
   constant Integer Region = 0 "Region of IF97, if known, zero otherwise";
   constant Boolean ph_explicit
     "True if explicit in pressure and specific enthalpy";
@@ -654,6 +662,7 @@ partial package WaterIF97_base
           Region);
     annotation (Inline=true);
   end density_derp_h;
+
   //   redeclare function extends density_derT_p
   //     "Density derivative by temperature"
   //   algorithm
@@ -929,10 +938,12 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
 </html>"));
 end WaterIF97_base;
 
+
 partial package WaterIF97_fixedregion
   "Water: Steam properties as defined by IAPWS/IF97 standard, fixed region"
   extends WaterIF97_base(Region(min=1)=1);
 end WaterIF97_fixedregion;
+
 
 package WaterIF97_R4ph "Region 4 water according to IF97 standard"
   extends WaterIF97_fixedregion(
@@ -948,6 +959,7 @@ package WaterIF97_R4ph "Region 4 water according to IF97 standard"
 </html>"));
 end WaterIF97_R4ph;
 
+
 package WaterIF97_R5ph "Region 5 water according to IF97 standard"
   extends WaterIF97_fixedregion(
     ThermoStates=Modelica.Media.Interfaces.Choices.IndependentVariables.ph,
@@ -961,6 +973,7 @@ package WaterIF97_R5ph "Region 5 water according to IF97 standard"
 
 </html>"));
 end WaterIF97_R5ph;
+
 
 package WaterIF97_R1pT "Region 1 (liquid) water according to IF97 standard"
   extends WaterIF97_fixedregion(
@@ -976,6 +989,7 @@ package WaterIF97_R1pT "Region 1 (liquid) water according to IF97 standard"
 </html>"));
 end WaterIF97_R1pT;
 
+
 package WaterIF97_R2pT "Region 2 (steam) water according to IF97 standard"
   extends WaterIF97_fixedregion(
     ThermoStates=Modelica.Media.Interfaces.Choices.IndependentVariables.pT,
@@ -989,6 +1003,7 @@ package WaterIF97_R2pT "Region 2 (steam) water according to IF97 standard"
 
 </html>"));
 end WaterIF97_R2pT;
+
 
 package WaterIF97_R1ph "Region 1 (liquid) water according to IF97 standard"
   extends WaterIF97_fixedregion(
@@ -1004,6 +1019,7 @@ package WaterIF97_R1ph "Region 1 (liquid) water according to IF97 standard"
 </html>"));
 end WaterIF97_R1ph;
 
+
 package WaterIF97_R2ph "Region 2 (steam) water according to IF97 standard"
   extends WaterIF97_fixedregion(
     ThermoStates=Modelica.Media.Interfaces.Choices.IndependentVariables.ph,
@@ -1018,6 +1034,7 @@ package WaterIF97_R2ph "Region 2 (steam) water according to IF97 standard"
 </html>"));
 end WaterIF97_R2ph;
 
+
 package WaterIF97_R3ph "Region 3 water according to IF97 standard"
   extends WaterIF97_fixedregion(
     final Region=3,
@@ -1031,6 +1048,7 @@ package WaterIF97_R3ph "Region 3 water according to IF97 standard"
 
 </html>"));
 end WaterIF97_R3ph;
+
 
 annotation (Documentation(info="<html>
 <p>This package contains different medium models for water:</p>

@@ -1,4 +1,4 @@
-﻿within Modelica.Fluid.Examples;
+within Modelica.Fluid.Examples;
 package DrumBoiler
   "Drum boiler example, see Franke, Rode, Krüger: On-line Optimization of Drum Boiler Startup, 3rd International Modelica Conference, Linköping, 2003"
 
@@ -27,8 +27,7 @@ package DrumBoiler
           extent={{-10,-10},{10,10}},
           rotation=90)));
     Modelica.Fluid.Sources.FixedBoundary sink(nPorts=1, p=Cv.from_bar(0.5),
-      redeclare package Medium =
-          Modelica.Media.Water.StandardWaterOnePhase,
+      redeclare package Medium = Modelica.Media.Water.StandardWaterOnePhase,
       T=500)
       annotation (Placement(transformation(
           origin={90,-20},
@@ -41,8 +40,8 @@ package DrumBoiler
           origin={30,-20},
           extent={{10,10},{-10,-10}},
           rotation=180)));
-    Modelica.Fluid.Sensors.Temperature temperature(    redeclare package Medium =
-          Modelica.Media.Water.StandardWater)
+    Modelica.Fluid.Sensors.Temperature temperature(    redeclare package Medium
+        = Modelica.Media.Water.StandardWater)
       annotation (Placement(transformation(
           origin={-3,-1},
           extent={{10,10},{-10,-10}},

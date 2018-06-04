@@ -6,7 +6,7 @@ package Strings "Operations on strings"
     extends Modelica.Icons.Function;
     input String string;
     output Integer result "Number of characters of string";
-  external "C" result = ModelicaStrings_length(string) annotation(Library="ModelicaExternalC");
+  external "C" result=  ModelicaStrings_length(string) annotation(Library="ModelicaExternalC");
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -28,7 +28,8 @@ Returns the number of characters of \"string\".
     input Integer endIndex(min=1) "Character position of substring end";
     output String result
       "String containing substring string[startIndex:endIndex]";
-  external "C" result=ModelicaStrings_substring(string,startIndex,endIndex) annotation(Library="ModelicaExternalC");
+  external "C" result =
+                      ModelicaStrings_substring(string,startIndex,endIndex) annotation(Library="ModelicaExternalC");
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -86,7 +87,7 @@ defined by the optional argument \"string\".
     input String string2;
     input Boolean caseSensitive=true "= false, if case of letters is ignored";
     output Modelica.Utilities.Types.Compare result "Result of comparison";
-  external "C" result = ModelicaStrings_compare(string1, string2, caseSensitive) annotation(Library="ModelicaExternalC");
+  external "C" result=  ModelicaStrings_compare(string1, string2, caseSensitive) annotation(Library="ModelicaExternalC");
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -454,7 +455,7 @@ and upper case letters are not distinguished.
     extends Modelica.Icons.Function;
     input String string "The string to create a hash from";
     output Integer hash "The hash value of string";
-    external "C" hash = ModelicaStrings_hashString(string)
+    external "C" hash=  ModelicaStrings_hashString(string)
        annotation(Library="ModelicaExternalC");
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>

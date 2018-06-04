@@ -865,6 +865,7 @@ and matrix functions. These functions are usually not useful for an end-user.
 
 </html>"));
   end Utilities;
+
   annotation (preferredView="info", Documentation(info="<html>
 <h4>Library content</h4>
 <p>
@@ -918,6 +919,7 @@ This library provides functions operating on vectors:
           fillColor={175,175,175},
           fillPattern=FillPattern.Solid)}));
 end Vectors;
+
 
 package Matrices "Library of functions operating on matrices"
   package Examples
@@ -1052,6 +1054,7 @@ prefix \"&lt;name&gt; =\" is left out.
 </html>", revisions="<html>
 </html>"));
   end toString;
+
   extends Modelica.Icons.Package;
 
   function isEqual "Compare whether two Real matrices are identical"
@@ -3680,6 +3683,7 @@ is, e.g., described in
 </ul>
 </html>"));
   end integralExpT;
+
   //
   // protected
 
@@ -11810,6 +11814,7 @@ Note: A' is a short hand notation of transpose(A):
           fillPattern=FillPattern.Solid)}));
 end Matrices;
 
+
 package Icons "Icons for Math"
   extends Modelica.Icons.IconsPackage;
 
@@ -11889,7 +11894,9 @@ It is expected, that an x-axis is added and a plot of the function.
 </p>
 </html>"));
   end AxisCenter;
+
 end Icons;
+
 
 function isEqual "Determine if two Real scalars are numerically identical"
   extends Modelica.Icons.Function;
@@ -11933,6 +11940,7 @@ can be provided as third argument of the function. Default is \"eps = 0\".
 </p>
 </html>"));
 end isEqual;
+
 
 function sin "Sine"
   extends Modelica.Math.Icons.AxisLeft;
@@ -12001,6 +12009,7 @@ This function returns y = sin(u), with -&infin; &lt; u &lt; &infin;:
 </html>"));
 end sin;
 
+
 function cos "Cosine"
   extends Modelica.Math.Icons.AxisLeft;
   input SI.Angle u;
@@ -12065,6 +12074,7 @@ This function returns y = cos(u), with -&infin; &lt; u &lt; &infin;:
 </p>
 </html>"));
 end cos;
+
 
 function tan "Tangent (u shall not be -pi/2, pi/2, 3*pi/2, ...)"
   extends Modelica.Math.Icons.AxisCenter;
@@ -12132,6 +12142,7 @@ This function returns y = tan(u), with -&infin; &lt; u &lt; &infin;
 </html>"));
 end tan;
 
+
 function asin "Inverse sine (-1 <= u <= 1)"
   extends Modelica.Math.Icons.AxisCenter;
   input Real u;
@@ -12198,6 +12209,7 @@ This function returns y = asin(u), with -1 &le; u &le; +1:
 </html>"));
 end asin;
 
+
 function acos "Inverse cosine (-1 <= u <= 1)"
   extends Modelica.Math.Icons.AxisCenter;
   input Real u;
@@ -12261,6 +12273,7 @@ This function returns y = acos(u), with -1 &le; u &le; +1:
 </html>"));
 end acos;
 
+
 function atan "Inverse tangent"
   extends Modelica.Math.Icons.AxisCenter;
   input Real u;
@@ -12320,6 +12333,7 @@ This function returns y = atan(u), with -&infin; &lt; u &lt; &infin;:
 </p>
 </html>"));
 end atan;
+
 
 function atan2 "Four quadrant inverse tangent"
   extends Modelica.Math.Icons.AxisCenter;
@@ -12404,6 +12418,7 @@ u1 = sin(y) and u2 = cos(y):
 
 </html>"));
 end atan2;
+
 
 function atan3
   "Four quadrant inverse tangent (select solution that is closest to given angle y0)"
@@ -12509,6 +12524,7 @@ is returned.
 </html>"));
 end atan3;
 
+
 function sinh "Hyperbolic sine"
   extends Modelica.Math.Icons.AxisCenter;
   input Real u;
@@ -12576,6 +12592,7 @@ This function returns y = sinh(u), with -&infin; &lt; u &lt; &infin;:
 </p>
 </html>"));
 end sinh;
+
 
 function cosh "Hyperbolic cosine"
   extends Modelica.Math.Icons.AxisCenter;
@@ -12645,6 +12662,7 @@ This function returns y = cosh(u), with -&infin; &lt; u &lt; &infin;:
 </html>"));
 end cosh;
 
+
 function tanh "Hyperbolic tangent"
   extends Modelica.Math.Icons.AxisCenter;
   input Real u;
@@ -12704,6 +12722,7 @@ This function returns y = tanh(u), with -&infin; &lt; u &lt; &infin;:
 </p>
 </html>"));
 end tanh;
+
 
 function asinh "Inverse of sinh (area hyperbolic sine)"
   extends Modelica.Math.Icons.AxisCenter;
@@ -12774,6 +12793,7 @@ asinh(u) (-&infin; &lt; u &lt; &infin;):
 </p>
 </html>"));
 end asinh;
+
 
 function acosh "Inverse of cosh (area hyperbolic cosine)"
   extends Modelica.Math.Icons.AxisLeft;
@@ -12856,6 +12876,7 @@ can become close to 1:
 </html>"));
 end acosh;
 
+
 function exp "Exponential, base e"
   extends Modelica.Math.Icons.AxisCenter;
   input Real u;
@@ -12921,6 +12942,7 @@ This function returns y = exp(u), with -&infin; &lt; u &lt; &infin;:
 </p>
 </html>"));
 end exp;
+
 
 function log "Natural (base e) logarithm (u shall be > 0)"
   extends Modelica.Math.Icons.AxisLeft;
@@ -12989,6 +13011,7 @@ with u &gt; 0:
 </html>"));
 end log;
 
+
 function log10 "Base 10 logarithm (u shall be > 0)"
   extends Modelica.Math.Icons.AxisLeft;
   input Real u;
@@ -13056,6 +13079,7 @@ with u &gt; 0:
 </html>"));
 end log10;
 
+
 partial function baseIcon1
   "This icon will be removed in future Modelica versions, use Modelica.Math.Icons.AxisLeft instead."
   extends Modelica.Icons.ObsoleteModel;
@@ -13096,6 +13120,7 @@ Instead the icon <a href=\"modelica://Modelica.Math.Icons.AxisLeft\">Modelica.Ma
   obsolete = "Obsolete function - use Modelica.Math.Icons.AxisLeft instead");
 end baseIcon1;
 
+
 partial function baseIcon2
   "This icon will be removed in future Modelica versions, use Modelica.Math.Icons.AxisCenter instead."
   extends Modelica.Icons.ObsoleteModel;
@@ -13134,6 +13159,7 @@ Instead the icon <a href=\"modelica://Modelica.Math.Icons.AxisCenter\">Modelica.
 </html>"),
   obsolete = "Obsolete function - use Modelica.Math.Icons.AxisCenter instead");
 end baseIcon2;
+
 
 function tempInterpol1
   "Temporary function for linear interpolation (will be removed)"
@@ -13196,6 +13222,7 @@ algorithm
   obsolete = "Obsolete function");
 end tempInterpol1;
 
+
 function tempInterpol2
   "Temporary function for vectorized linear interpolation (will be removed)"
   extends Modelica.Icons.Function;
@@ -13257,6 +13284,7 @@ algorithm
 </html>"),
   obsolete = "Obsolete function");
 end tempInterpol2;
+
 
 annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
           {100,100}}), graphics={Line(points={{-80,0},{-68.7,34.2},{-61.5,53.1},

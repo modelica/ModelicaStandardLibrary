@@ -5878,8 +5878,7 @@ Calculation of pressure loss for <strong>two phase flow</strong> in a horizontal
       protected
         type TYP1 =
             Modelica.Fluid.Dissipation.Utilities.Types.ValveCoefficient;
-        type TYP2 =
-            Modelica.Fluid.Dissipation.Utilities.Types.ValveGeometry;
+        type TYP2 = Modelica.Fluid.Dissipation.Utilities.Types.ValveGeometry;
 
         Real MIN=Modelica.Constants.eps;
 
@@ -5988,8 +5987,7 @@ Generally this function is numerically best used for the <strong> incompressible
       protected
         type TYP1 =
             Modelica.Fluid.Dissipation.Utilities.Types.ValveCoefficient;
-        type TYP2 =
-            Modelica.Fluid.Dissipation.Utilities.Types.ValveGeometry;
+        type TYP2 = Modelica.Fluid.Dissipation.Utilities.Types.ValveGeometry;
 
         Real MIN=Modelica.Constants.eps;
 

@@ -49,9 +49,8 @@ package Tables
           smoothness,
           extrapolation,
           if tableOnFile then verboseRead else false) "External table object";
-    function readTableData =
+    function readTableData = // No longer used, but kept for backward compatibility
       Modelica.Blocks.Tables.Internal.readTable1DData "Read table data from text or MATLAB MAT-file";
-                             // No longer used, but kept for backward compatibility
   equation
     if tableOnFile then
       assert(tableName <> "NoName",
@@ -341,9 +340,8 @@ MATLAB is a registered trademark of The MathWorks, Inc.
           smoothness,
           extrapolation,
           if tableOnFile then verboseRead else false) "External table object";
-    function readTableData =
+    function readTableData = // No longer used, but kept for backward compatibility
       Modelica.Blocks.Tables.Internal.readTable1DData "Read table data from text or MATLAB MAT-file";
-                             // No longer used, but kept for backward compatibility
   equation
     if tableOnFile then
       assert(tableName <> "NoName",
@@ -587,9 +585,8 @@ MATLAB is a registered trademark of The MathWorks, Inc.
   block CombiTable2D "Table look-up in two dimensions (matrix/file)"
     extends Modelica.Blocks.Interfaces.SI2SO;
     extends Internal.CombiTable2DBase;
-    function readTableData =
+    function readTableData = // No longer used, but kept for backward compatibility
       Modelica.Blocks.Tables.Internal.readTable2DData "Read table data from text or MATLAB MAT-file";
-                             // No longer used, but kept for backward compatibility
   equation
     if verboseExtrapolation and (
       extrapolation == Modelica.Blocks.Types.Extrapolation.LastTwoPoints or
@@ -982,7 +979,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
         "Minimum abscissa value defined in table";
       final parameter Real u_max[2]=getTable2DAbscissaUmax(tableID)
         "Maximum abscissa value defined in table";
-    protected
+      protected
         parameter Modelica.Blocks.Types.ExternalCombiTable2D tableID=
           Modelica.Blocks.Types.ExternalCombiTable2D(
             if tableOnFile then tableName else "NoName",
@@ -991,7 +988,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
             smoothness,
             extrapolation,
             if tableOnFile then verboseRead else false) "External table object";
-    equation
+      equation
         if tableOnFile then
           assert(tableName <> "NoName",
             "tableOnFile = true and no table name given");

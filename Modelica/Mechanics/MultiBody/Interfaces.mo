@@ -811,6 +811,7 @@ a color map. Predefined color map functions are defined in package
 </p>
 </html>"));
   end partialColorMap;
+
   annotation (Documentation(info="<html>
 <p>
 This package contains connectors and partial models (i.e., models

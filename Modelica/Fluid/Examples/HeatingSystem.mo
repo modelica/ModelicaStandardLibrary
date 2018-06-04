@@ -106,11 +106,11 @@ protected
   Modelica.Blocks.Interfaces.RealOutput T_return
     annotation (Placement(transformation(extent={{-46,-56},{-58,-44}})));
 public
-  Modelica.Fluid.Sensors.Temperature sensor_T_forward(redeclare package Medium =
-        Medium)
+  Modelica.Fluid.Sensors.Temperature sensor_T_forward(redeclare package Medium
+      = Medium)
     annotation (Placement(transformation(extent={{50,30},{70,50}})));
-  Modelica.Fluid.Sensors.Temperature sensor_T_return(redeclare package Medium =
-        Medium)
+  Modelica.Fluid.Sensors.Temperature sensor_T_return(redeclare package Medium
+      = Medium)
     annotation (Placement(transformation(extent={{-20,-60},{-40,-40}})));
 protected
   Modelica.Blocks.Interfaces.RealOutput tankLevel

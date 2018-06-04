@@ -7925,6 +7925,7 @@ of the Modelica package (many more people have contributed to the design):
 </html>"));
 
 end Contact;
+
 annotation (DocumentationClass=true, Documentation(info="<html>
 <p>
 Package <strong>Modelica</strong> is a <strong>standardized</strong> and <strong>pre-defined</strong> package
@@ -8044,6 +8045,7 @@ User's Guides that can be accessed by the following links:
 
 </html>"));
 end UsersGuide;
+
 
 annotation (
 preferredView="info",

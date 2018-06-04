@@ -143,6 +143,7 @@ email: <a href=\"mailto:Dag.Bruck@3ds.com\">Dag.Bruck@3ds.com</a>
 </ul>
 </html>"));
   end Contact;
+
   annotation (DocumentationClass=true, Documentation(info="<html>
 <p>
 Library <strong>Modelica.Utilities</strong> contains Modelica <strong>functions</strong> that are
@@ -176,6 +177,7 @@ in Modelica that will allow to catch errors at a defined place.
 </p>
 </html>"));
 end UsersGuide;
+
 
     annotation (
 Documentation(info="<html>

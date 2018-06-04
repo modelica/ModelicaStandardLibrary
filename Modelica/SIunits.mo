@@ -905,6 +905,7 @@ argument):</p>
 
 </html>"));
   end Conversions;
+
   // Space and Time (chapter 1 of ISO 31-1992)
 
   type Angle = Real (
@@ -932,6 +933,7 @@ argument):</p>
              "rad/s2");
   type Velocity = Real (final quantity="Velocity", final unit="m/s");
   type Acceleration = Real (final quantity="Acceleration", final unit="m/s2");
+
   // Periodic and related phenomens (chapter 2 of ISO 31-1992)
   type Period = Real (final quantity="Time", final unit="s");
   type Frequency = Real (final quantity="Frequency", final unit="Hz");
@@ -959,6 +961,7 @@ argument):</p>
         final unit="m-1");
   // added to ISO-chapter
   type Damping = DampingCoefficient;
+
   // Mechanics (chapter 3 of ISO 31-1992)
   type Mass = Real (
       quantity="Mass",
@@ -1057,6 +1060,7 @@ argument):</p>
   type MomentumFlux = Real (final quantity="MomentumFlux", final unit="N");
   type AngularMomentumFlux = Real (final quantity="AngularMomentumFlux", final unit=
              "N.m");
+
   // Heat (chapter 4 of ISO 31-1992)
   type ThermodynamicTemperature = Real (
       final quantity="ThermodynamicTemperature",
@@ -1142,6 +1146,7 @@ argument):</p>
   type DerEnergyByPressure = Real (final unit="J.m.s2/kg");
   type DerPressureByDensity = Real (final unit="Pa.m3/kg");
   type DerPressureByTemperature = Real (final unit="Pa/K");
+
   // Electricity and Magnetism (chapter 5 of ISO 31-1992)
   type ElectricCurrent = Real (final quantity="ElectricCurrent", final unit="A");
   type Current = ElectricCurrent;
@@ -1269,6 +1274,7 @@ argument):</p>
   type QuadraticTemperatureCoefficientResistance = Real (
     final quantity="QuadraticTemperatureCoefficientResistance",
     final unit="Ohm/K2") "Second Order Temperature Coefficient";
+
   // added to ISO-chapter 5
   type Transconductance = Real (final quantity="Transconductance", final unit=
           "A/V2");
@@ -1277,6 +1283,7 @@ argument):</p>
   type ElectricalForceConstant = Real (
        final quantity="ElectricalForceConstant",
        final unit = "N/A");
+
   // Light and Related Electromagnetic Radiations (chapter 6 of ISO 31-1992)
   type RadiantEnergy = Real (final quantity="Energy", final unit="J");
   type RadiantEnergyDensity = Real (final quantity="EnergyDensity", final unit=
@@ -1334,6 +1341,7 @@ argument):</p>
   type MolarAbsorptionCoefficient = Real (final quantity=
           "MolarAbsorptionCoefficient", final unit="m2/mol");
   type RefractiveIndex = Real (final quantity="RefractiveIndex", final unit="1");
+
   // Acoustics (chapter 7 of ISO 31-1992)
   type StaticPressure = AbsolutePressure;
   type SoundPressure = StaticPressure;
@@ -1375,11 +1383,12 @@ argument):</p>
           "phon");
   type Loudness = Real (final quantity="Loudness", final unit="sone");
   type LoundnessLevel = Real (final quantity="LoundnessLevel", final unit=
-          "phon") "Obsolete type, use LoudnessLevel instead!" annotation (
+          "phon") "Obsolete type, use LoudnessLevel instead!" annotation(
     obsolete = "Obsolete type - use Modelica.SIunits.LoudnessLevel instead");
   type Loundness = Real (final quantity="Loundness", final unit="sone")
-    "Obsolete type, use Loudness instead!" annotation (
+    "Obsolete type, use Loudness instead!" annotation(
     obsolete = "Obsolete type - use Modelica.SIunits.Loudness instead");
+
   // Physical chemistry and molecular physics (chapter 8 of ISO 31-1992)
   type RelativeAtomicMass = Real (final quantity="RelativeAtomicMass", final unit=
              "1");
@@ -1486,6 +1495,7 @@ argument):</p>
          "S.m2/mol");
   type TransportNumberOfIonic = Real (final quantity="TransportNumberOfIonic",
         final unit="1");
+
   // Atomic and Nuclear Physics (chapter 9 of ISO 31-1992)
   type ProtonNumber = Real (final quantity="ProtonNumber", final unit="1");
   type NeutronNumber = Real (final quantity="NeutronNumber", final unit="1");
@@ -1535,6 +1545,7 @@ argument):</p>
   type MaximumBetaParticleEnergy = Real (final quantity="Energy", final unit=
           "J");
   type BetaDisintegrationEnergy = Real (final quantity="Energy", final unit="J");
+
   // Nuclear Reactions and Ionizing Radiations (chapter 10 of ISO 31-1992)
   type ReactionEnergy = Real (final quantity="Energy", final unit="J");
   type ResonanceEnergy = Real (final quantity="Energy", final unit="J");
@@ -1629,6 +1640,7 @@ argument):</p>
   type Exposure = Real (final quantity="Exposure", final unit="C/kg");
   type ExposureRate = Real (final quantity="ExposureRate", final unit=
           "C/(kg.s)");
+
   // chapter 11 is not defined in ISO 31-1992
 
   // Characteristic Numbers (chapter 12 of ISO 31-1992)
@@ -1667,6 +1679,7 @@ argument):</p>
   type AlfvenNumber = Real (final quantity="AlfvenNumber", final unit="1");
   type HartmannNumber = Real (final quantity="HartmannNumber", final unit="1");
   type CowlingNumber = Real (final quantity="CowlingNumber", final unit="1");
+
   // Solid State Physics (chapter 13 of ISO 31-1992)
   type BraggAngle = Angle;
   type OrderOfReflexion = Real (final quantity="OrderOfReflexion", final unit=
@@ -1739,11 +1752,14 @@ argument):</p>
   type LandauGinzburgParameter = Real (final quantity="LandauGinzburgParameter",
           final unit="1");
   type FluxiodQuantum = Real (final quantity="FluxiodQuantum", final unit="Wb");
+
   type TimeAging = Real (final quantity="1/Modelica.SIunits.Time",final unit="1/s");
   type ChargeAging = Real (final quantity="1/Modelica.SIunits.ElectricCharge",final unit="1/(A.s)");
+
  // Other types not defined in ISO 31-1992
   type PerUnit = Real(unit = "1");
   type DimensionlessRatio = Real(unit = "1");
+
  // Complex types for electrical systems (not defined in ISO 31-1992)
   operator record ComplexCurrent =
     Complex(redeclare Modelica.SIunits.Current re "Real part of complex current",

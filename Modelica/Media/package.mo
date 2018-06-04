@@ -2061,6 +2061,7 @@ and many have contributed:
 </ul>
 </html>"));
   end Contact;
+
   annotation (DocumentationClass=true, Documentation(info="<html>
 <p>
 Library <strong>Modelica.Media</strong> is a <strong>free</strong> Modelica package providing
@@ -2136,6 +2137,7 @@ This User's Guide has the following main parts:
 </ul>
 </html>"));
 end UsersGuide;
+
 
 package Examples
   "Demonstrate usage of property models (currently: simple tests)"
@@ -2985,8 +2987,7 @@ output window.
       "Solve h = h_T(T), s = s_T(T) for T, if h or s is given for ideal gas NASA"
       extends Modelica.Icons.Example;
 
-      replaceable package Medium = Modelica.Media.Air.DryAirNasa constrainedby
-        Modelica.Media.IdealGases.Common.SingleGasNasa
+      replaceable package Medium = Modelica.Media.Air.DryAirNasa constrainedby Modelica.Media.IdealGases.Common.SingleGasNasa
         "Medium model"
         annotation (choicesAllMatching=true);
 
@@ -4780,6 +4781,7 @@ Modelica.Media.Examples.Tests.MediaTestModels.
 </p>
 </html>"));
 end Examples;
+
 
 package Interfaces "Interfaces for media models"
   extends Modelica.Icons.InterfacesPackage;
@@ -7831,6 +7833,7 @@ kind of media.
 </html>"));
 end Interfaces;
 
+
 package Common "Data structures and fundamental functions for fluid properties"
 
   extends Modelica.Icons.Package;
@@ -8658,8 +8661,8 @@ critical pressure.
     end TwoPhaseToProps_dT;
 
   end ThermoFluidSpecial;
-public
 
+public
   record SaturationProperties "Properties in the two phase region"
     extends Modelica.Icons.Record;
     SI.Temp_K T "Temperature";
@@ -9715,6 +9718,7 @@ provide a package in the following way:
       </address>
 </html>"));
 end Common;
+
 
 annotation (preferredView="info",Documentation(info="<html>
 <p>

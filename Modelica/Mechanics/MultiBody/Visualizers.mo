@@ -898,8 +898,7 @@ This shape visualizes the x-y plane by a box.
   protected
     Advanced.Surface surface(
       redeclare function surfaceCharacteristic =
-        Modelica.Mechanics.MultiBody.Visualizers.Advanced.SurfaceCharacteristics.torus
-          (
+        Modelica.Mechanics.MultiBody.Visualizers.Advanced.SurfaceCharacteristics.torus (
           ri=ri,
           ro=ro,
           opening=opening,
@@ -1001,8 +1000,8 @@ the last point of the parametrization coincide in this case.
 
       Visualizers.Advanced.Surface torus(
         redeclare function surfaceCharacteristic =
-          Modelica.Mechanics.MultiBody.Visualizers.Advanced.SurfaceCharacteristics.torus
-          ( ri=ri,
+          Modelica.Mechanics.MultiBody.Visualizers.Advanced.SurfaceCharacteristics.torus (
+            ri=ri,
             ro=rCurvature2,
             opening=Modelica.Constants.pi - Modelica.Math.asin(rw/rCurvature2)),
             nu=n_rTire,
@@ -1205,8 +1204,7 @@ colorMapToSvg(Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.jet(),
       final r_0=frame_a.r_0,
       final nu=nu,
       final nv=nv,
-      redeclare function surfaceCharacteristic =
-          Advanced.SurfaceCharacteristics.rectangle (
+      redeclare function surfaceCharacteristic = Advanced.SurfaceCharacteristics.rectangle (
         lu=length_u, lv=length_v)) if world.enableAnimation and animation
       annotation (Placement(transformation(extent={{-20,-10},{0,10}})));
     Sensors.Internal.ZeroForceAndTorque zeroForceAndTorque annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));
@@ -2329,8 +2327,8 @@ The direct usage of the Surface model, as well as of the Torus and the Voluminou
         specularCoefficient=specularCoefficient,
         transparency=transparency,
         redeclare function surfaceCharacteristic =
-            Modelica.Mechanics.MultiBody.Visualizers.Advanced.SurfaceCharacteristics.pipeWithScalarField
-            (rOuter=rOuter,
+            Modelica.Mechanics.MultiBody.Visualizers.Advanced.SurfaceCharacteristics.pipeWithScalarField (
+             rOuter=rOuter,
              length=length,
              xsi=xsi,
              T=T,

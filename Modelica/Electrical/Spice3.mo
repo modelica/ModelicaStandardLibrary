@@ -12943,6 +12943,7 @@ to the internal parameters (e.g. m_drainResistance). It also does the analysis o
 <p>The package Internal contains functions and auxiliary models that are necessary for the Spice3 models. The package should not be used by the users of the Spice3-library.</p>
 </html>"));
   end Internal;
+
     annotation (Documentation(info="<html>
 <p>The Spice3 package contains models of the electronic simulator SPICE3. The models were translated into Modelica by rewriting the SPICE3 model code. </p>
 </html>"), Icon(graphics={

@@ -8611,6 +8611,7 @@ Don't use the models of this package.
 </p>
 </html>"));
   end Internal;
+
   annotation (Documentation(info="<html>
 <p>
 This package contains <strong>joint components</strong>,

@@ -1118,6 +1118,7 @@ The lengths along the flow path <code><strong>pathLengths[m]</strong></code> are
     end if;
 
   end PartialPressureLoss;
+
   annotation (Documentation(info="<html>
 
 </html>", revisions="<html>
