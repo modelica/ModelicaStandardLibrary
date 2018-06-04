@@ -2176,17 +2176,15 @@ and will interpret it in the same way. Short Overview:
 </p>
 
 <ul>
-<li> About <a href=\"modelica://Modelica/Resources/Documentation/Version-3.2.3/ResolvedGitHubIssues.html\">394 issues (including pull requests)</a>
-     have been addressed for this release.</li>
+<li>About <a href=\"modelica://Modelica/Resources/Documentation/Version-3.2.3/ResolvedGitHubIssues.html\">394 issues (including pull requests)</a>
+    have been addressed for this release.</li>
+<li><strong>127</strong> models and blocks and <strong>4</strong> functions are newly included.</li>
+<li>The license has been changed to BSD 3-clause, visit: <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</li>
 </ul>
 
 <p>
 The exact difference between package Modelica version 3.2.3 and version 3.2.2 is
 summarized in a <a href=\"modelica://Modelica/Resources/Documentation/Version-3.2.3/DifferencesTo322.html\">comparison table</a>.
-</p>
-
-<p>
-The license has been changed to BSD 3-clause, visit: <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.
 </p>
 
 <p><br>
@@ -2210,7 +2208,7 @@ The following <font color=\"blue\"><strong>new libraries</strong></font> have be
 
 <p><br>
 The following <font color=\"blue\"><strong>new components</strong></font> have been added
-to <font color=\"blue\"><strong>existing</strong></font> libraries:<br>
+to <font color=\"blue\"><strong>existing</strong></font> libraries:
 </p>
 
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
@@ -2345,13 +2343,30 @@ have been marked as <font color=\"blue\"><strong>obsolete</strong></font> and wi
 </p>
 
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<tr><td colspan=\"2\"><strong>Modelica.Blocks.Interfaces</strong></td></tr>
+<tr><td>Adaptors.*</td>
+    <td>Use expandable connectors instead.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Digital.Converters</strong></td></tr>
+<tr><td>LogicToXO1<br>LogicToXO1Z</td>
+    <td>Use LogicToX01 or LogicToXO1Z instead.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Mechanics.MultiBody</strong></td></tr>
+<tr><td>Examples.Loops.Utilities.GasForce</td>
+    <td>Use Examples.Loops.Utilities.GasForce2 instead.</td></tr>
+<tr><td>Sensors.TansformAbsoluteVector<br>Sensors.TansformRelativeVector</td>
+    <td>Use Sensors.TransformAbsoluteVector or Sensors.TransformRelativeVector instead.</td></tr>
+<tr><td>Visualizers.Ground</td>
+    <td>Use ground plane visualization of World or Visualizers.Rectangle instead.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Media.Examples</strong></td></tr>
+<tr><td>Tests.Components.*</td>
+    <td>Use classes from Utilities instead.</td></tr>
+<tr><td>TestOnly.*<br>Tests.MediaTestModels.*</td>
+    <td>Use test models from ModelicaTest.Media instead.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Thermal.FluidHeatFlow</strong></td></tr>
 <tr><td>Components.IsolatedPipe<br>Components.HeatedPipe</td>
-    <td> Extend from the new pipe model with optional heatPort.</td></tr>
+    <td>Extend from the new pipe model with optional heatPort.</td></tr>
 <tr><td>Interfaces.Partials.Ambient</td>
-    <td> Extends from SinglePortLeft.</td></tr>
+    <td>Extends from SinglePortLeft.</td></tr>
 </table>
-
 
 <p><br>
 The following <font color=\"blue\"><strong>existing components</strong></font>
@@ -2548,7 +2563,6 @@ The following Modelica packages have been tested that they work together with th
 <li>Vehicle Dynamics Library 2.3 (Modelon)</li>
 </ul>
 
-
 <p><br>
 The following <font color=\"blue\"><strong>new libraries</strong></font> have been added:
 </p>
@@ -2628,7 +2642,7 @@ The following <font color=\"blue\"><strong>new libraries</strong></font> have be
 
 <p><br>
 The following <font color=\"blue\"><strong>new components</strong></font> have been added
-to <font color=\"blue\"><strong>existing</strong></font> libraries:<br>
+to <font color=\"blue\"><strong>existing</strong></font> libraries:
 </p>
 
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
