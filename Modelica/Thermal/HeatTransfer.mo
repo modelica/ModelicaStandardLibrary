@@ -1311,7 +1311,7 @@ This adaptor has heatflow as input and temperature and derivative of temperature
     equation
       y = heatPort.Q_flow "output = flow = heat flow";
       u = heatPort.T "input = potential = temperature";
-      annotation (defaultComponentName="temperatureToHeatflowAdaptor ",
+      annotation (defaultComponentName="temperatureToHeatflowAdaptor",
         Documentation(info="<html>
 <p>
 Adaptor between a heatport connector and a signal representation of the flange.
