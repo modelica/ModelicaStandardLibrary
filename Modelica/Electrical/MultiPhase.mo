@@ -91,7 +91,7 @@ This set of symmetrical components is repeated for each of the n<sub>Base</sub> 
 <p>
 <strong>Dr. Christian Kral</strong><br>
 Electric Machines, Drives and Systems<br>
-1060 Vienna, Germany<br>
+1060 Vienna, Austria<br>
 email: <a href=\"mailto:dr.christian.kral@gmail.com\">dr.christian.kral@gmail.com</a><br>
 </p>
 
