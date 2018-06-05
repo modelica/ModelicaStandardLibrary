@@ -1172,7 +1172,7 @@ Modelica_Fluid was refactored and finalized for the release:
      See <a href=\"modelica://Modelica.Fluid.Machines.BaseClasses.PartialPump\">Machines.BaseClasses.PartialPump</a></li>
 
 <li> Refinement of valves for flow reversal<br>
-     All valves now use upstream discretization for reverting flow conditions.</li>
+     All valves now use upstream discretization for reversing flow conditions.</li>
 
 <li> Finalization of trace substances<br>
      Modelica.Fluid now provides a sound implementation for trace substances,

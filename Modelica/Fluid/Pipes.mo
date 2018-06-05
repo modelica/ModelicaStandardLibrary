@@ -1193,7 +1193,7 @@ specified nominal values for given geometry parameters <code>crossAreas</code>, 
 
           equation
             for i in 1:n-1 loop
-              assert(m_flows[i] > -m_flow_small or allowFlowReversal, "Reverting flow occurs even though allowFlowReversal is false");
+              assert(m_flows[i] > -m_flow_small or allowFlowReversal, "Reversing flow occurs even though allowFlowReversal is false");
             end for;
 
             if continuousFlowReversal then
