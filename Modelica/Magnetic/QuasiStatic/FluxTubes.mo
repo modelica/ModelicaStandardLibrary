@@ -1,4 +1,4 @@
-﻿within Modelica.Magnetic.QuasiStatic;
+within Modelica.Magnetic.QuasiStatic;
 package FluxTubes "Library for modelling of quasi static electromagnetic devices with lumped magnetic networks"
 
   import SI = Modelica.SIunits;
