@@ -287,13 +287,13 @@ Simulate for 7200 s; plot Twinding.T and Tcore.T.
         annotation (Placement(transformation(extent={{-30,-70},{-10,-50}})));
       Modelica.Thermal.HeatTransfer.Sources.PrescribedHeatFlow heatFlow3
         annotation (Placement(transformation(extent={{-60,-80},{-40,-60}})));
-      Modelica.Thermal.HeatTransfer.Components.GeneralHeatflowToTemperatureAdaptor
-        heatflowToTemperature3a(use_pder=false)
+      Modelica.Thermal.HeatTransfer.Components.GeneralHeatFlowToTemperatureAdaptor
+        heatFlowToTemperature3a(use_pder=false)
         annotation (Placement(transformation(extent={{-10,-80},{10,-60}})));
       Modelica.Thermal.HeatTransfer.Components.HeatCapacitor capacitor3b(C=2.2, T(fixed=true, start=293.15))
         annotation (Placement(transformation(extent={{70,-70},{90,-50}})));
-      Modelica.Thermal.HeatTransfer.Components.GeneralHeatflowToTemperatureAdaptor
-        heatflowToTemperature3b(use_pder=false)
+      Modelica.Thermal.HeatTransfer.Components.GeneralHeatFlowToTemperatureAdaptor
+        heatFlowToTemperature3b(use_pder=false)
         annotation (Placement(transformation(extent={{70,-80},{50,-60}})));
     equation
       connect(sine1.y, directCapacity.Q_flowDrive)
@@ -302,21 +302,21 @@ Simulate for 7200 s; plot Twinding.T and Tcore.T.
         annotation (Line(points={{21,58},{38,58}}, color={0,0,127}));
       connect(inverseCapacity.Q_flow, directCapacity.Q_flow)
         annotation (Line(points={{39,42},{22,42}}, color={0,0,127}));
-      connect(heatflowToTemperature3a.f, conductor.Q_flow1)
+      connect(heatFlowToTemperature3a.f, conductor.Q_flow1)
         annotation (Line(points={{3,-78},{19,-78}}, color={0,0,127}));
-      connect(conductor.Q_flow2, heatflowToTemperature3b.f)
+      connect(conductor.Q_flow2,heatFlowToTemperature3b. f)
         annotation (Line(points={{41,-78},{57,-78}}, color={0,0,127}));
-      connect(heatflowToTemperature3a.p, conductor.T1)
+      connect(heatFlowToTemperature3a.p, conductor.T1)
         annotation (Line(points={{3,-62},{18,-62}}, color={0,0,127}));
-      connect(conductor.T2, heatflowToTemperature3b.p)
+      connect(conductor.T2,heatFlowToTemperature3b. p)
         annotation (Line(points={{42,-62},{57,-62}}, color={0,0,127}));
       connect(sine1.y, heatFlow3.Q_flow) annotation (Line(points={{-79,50},{-70,50},
               {-70,-70},{-60,-70}}, color={0,0,127}));
       connect(heatFlow3.port, capacitor3a.port)
         annotation (Line(points={{-40,-70},{-20,-70}}, color={191,0,0}));
-      connect(capacitor3a.port, heatflowToTemperature3a.heatPort)
+      connect(capacitor3a.port,heatFlowToTemperature3a. heatPort)
         annotation (Line(points={{-20,-70},{-2,-70}}, color={191,0,0}));
-      connect(heatflowToTemperature3b.heatPort, capacitor3b.port)
+      connect(heatFlowToTemperature3b.heatPort, capacitor3b.port)
         annotation (Line(points={{62,-70},{80,-70}}, color={191,0,0}));
       connect(directCapacity.derT, inverseCapacity.derT) annotation (Line(points={{21,
               53},{28.5,53},{28.5,53},{38,53}}, color={0,0,127}));
@@ -370,8 +370,8 @@ conduction law in a target system between two capacitors.
           annotation (Placement(transformation(extent={{-50,-10},{-30,10}})));
         Modelica.Blocks.Interfaces.RealInput Q_flowDrive(unit="W")
           annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
-        Modelica.Thermal.HeatTransfer.Components.GeneralHeatflowToTemperatureAdaptor
-          heatflowToTemperature(use_pder=true)
+        Modelica.Thermal.HeatTransfer.Components.GeneralHeatFlowToTemperatureAdaptor
+          heatFlowToTemperature(use_pder=true)
           annotation (Placement(transformation(extent={{12,-10},{28,10}})));
         Modelica.Blocks.Interfaces.RealOutput T(unit="K", displayUnit="degC")
           "Heat capacity changes temperature T due to heat flow Q_flow"
@@ -383,13 +383,13 @@ conduction law in a target system between two capacitors.
           "Heat flow to the heat capacity"
           annotation (Placement(transformation(extent={{140,-100},{100,-60}})));
       equation
-        connect(heatflowToTemperature.f, Q_flow) annotation (Line(points={{22.4,-8},{60,
+        connect(heatFlowToTemperature.f, Q_flow) annotation (Line(points={{22.4,-8},{60,
                 -8},{60,-80},{120,-80}}, color={0,0,127}));
-        connect(heatflowToTemperature.p, T) annotation (Line(points={{22.4,8},{60,8},{
+        connect(heatFlowToTemperature.p, T) annotation (Line(points={{22.4,8},{60,8},{
                 60,80},{110,80}}, color={0,0,127}));
-        connect(heatflowToTemperature.pder, derT) annotation (Line(points={{22.4,5},{80,
+        connect(heatFlowToTemperature.pder, derT) annotation (Line(points={{22.4,5},{80,
                 5},{80,30},{110,30}}, color={0,0,127}));
-        connect(heatCapacitor.port, heatflowToTemperature.heatPort)
+        connect(heatCapacitor.port,heatFlowToTemperature. heatPort)
           annotation (Line(points={{-10,0},{18.4,0}}, color={191,0,0}));
         connect(Q_flowDrive, forceSource.Q_flow)
           annotation (Line(points={{-120,0},{-50,0}}, color={0,0,127}));
@@ -421,8 +421,8 @@ conduction law in a target system between two capacitors.
         parameter Modelica.SIunits.HeatCapacity C(min=0)=1 "HeatCapacity";
         Modelica.Thermal.HeatTransfer.Components.HeatCapacitor mass(C=C, T(fixed=true, start=293.15))
                          annotation (Placement(transformation(extent={{-10,0},{10,20}})));
-        Modelica.Thermal.HeatTransfer.Components.GeneralTemperatureToHeatflowAdaptor
-          temperatureToHeatflow
+        Modelica.Thermal.HeatTransfer.Components.GeneralTemperatureToHeatFlowAdaptor
+          temperatureToHeatFlow
           annotation (Placement(transformation(extent={{-30,-10},{-10,10}})));
         Modelica.Blocks.Interfaces.RealInput T(unit="K", displayUnit="degC")
           "Temperature to drive the heatCapacity"
@@ -435,13 +435,13 @@ conduction law in a target system between two capacitors.
           annotation (Placement(transformation(extent={{-100,-90},{-120,-70}})));
       equation
 
-        connect(temperatureToHeatflow.f, Q_flow) annotation (Line(points={{-23,-8},{-60,
+        connect(temperatureToHeatFlow.f, Q_flow) annotation (Line(points={{-23,-8},{-60,
                 -8},{-60,-80},{-110,-80}}, color={0,0,127}));
-        connect(temperatureToHeatflow.p, T) annotation (Line(points={{-23,8},{-60,8},{
+        connect(temperatureToHeatFlow.p, T) annotation (Line(points={{-23,8},{-60,8},{
                 -60,80},{-120,80}}, color={0,0,127}));
-        connect(temperatureToHeatflow.pder, derT) annotation (Line(points={{-23,5},{-80,
+        connect(temperatureToHeatFlow.pder, derT) annotation (Line(points={{-23,5},{-80,
                 5},{-80,30},{-120,30}}, color={0,0,127}));
-        connect(temperatureToHeatflow.heatPort, mass.port)
+        connect(temperatureToHeatFlow.heatPort, mass.port)
           annotation (Line(points={{-18,0},{0,0}}, color={191,0,0}));
         annotation (Icon(coordinateSystem(
                 preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
@@ -466,8 +466,8 @@ conduction law in a target system between two capacitors.
       model Conduction "Input/output block of a conduction model"
         extends Modelica.Blocks.Icons.Block;
         parameter Modelica.SIunits.ThermalConductance G=1 "Thermal conductance";
-        Modelica.Thermal.HeatTransfer.Components.GeneralTemperatureToHeatflowAdaptor
-          temperatureToHeatflow1(use_pder=false)
+        Modelica.Thermal.HeatTransfer.Components.GeneralTemperatureToHeatFlowAdaptor
+          temperatureToHeatFlow1(use_pder=false)
           annotation (Placement(transformation(extent={{-30,-10},{-10,10}})));
         Modelica.Blocks.Interfaces.RealInput T1(unit="K", displayUnit="degC")
           "Temperature of left heatPort of conduction element"
@@ -483,22 +483,22 @@ conduction law in a target system between two capacitors.
         Modelica.Blocks.Interfaces.RealOutput Q_flow2(unit="W")
           "Heat flow generated by the conduction element"
           annotation (Placement(transformation(extent={{100,-90},{120,-70}})));
-        Modelica.Thermal.HeatTransfer.Components.GeneralTemperatureToHeatflowAdaptor
-          temperatureToHeatflow2(use_pder=false)
+        Modelica.Thermal.HeatTransfer.Components.GeneralTemperatureToHeatFlowAdaptor
+          temperatureToHeatFlow2(use_pder=false)
           annotation (Placement(transformation(extent={{30,-10},{10,10}})));
       equation
 
-        connect(Q_flow1, temperatureToHeatflow1.f) annotation (Line(points={{-110,-80},
+        connect(Q_flow1,temperatureToHeatFlow1. f) annotation (Line(points={{-110,-80},
                 {-60,-80},{-60,-8},{-23,-8}}, color={0,0,127}));
-        connect(temperatureToHeatflow2.f, Q_flow2) annotation (Line(points={{23,-8},{60,
+        connect(temperatureToHeatFlow2.f, Q_flow2) annotation (Line(points={{23,-8},{60,
                 -8},{60,-80},{110,-80}}, color={0,0,127}));
-        connect(temperatureToHeatflow1.p, T1) annotation (Line(points={{-23,8},{-60,8},
+        connect(temperatureToHeatFlow1.p, T1) annotation (Line(points={{-23,8},{-60,8},
                 {-60,80},{-120,80}}, color={0,0,127}));
-        connect(temperatureToHeatflow2.p, T2) annotation (Line(points={{23,8},{60,8},{
+        connect(temperatureToHeatFlow2.p, T2) annotation (Line(points={{23,8},{60,8},{
                 60,80},{120,80}}, color={0,0,127}));
-        connect(temperatureToHeatflow1.heatPort, thermalConductor.port_a)
+        connect(temperatureToHeatFlow1.heatPort, thermalConductor.port_a)
           annotation (Line(points={{-18,0},{-10,0}}, color={191,0,0}));
-        connect(thermalConductor.port_b, temperatureToHeatflow2.heatPort)
+        connect(thermalConductor.port_b,temperatureToHeatFlow2. heatPort)
           annotation (Line(points={{10,0},{18,0}}, color={191,0,0}));
         annotation (Icon(coordinateSystem(
                 preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
@@ -1244,7 +1244,7 @@ This is a model to collect the heat flows from <em>m</em> heatports to one singl
 </html>"));
     end ThermalCollector;
 
-    model GeneralHeatflowToTemperatureAdaptor
+    model GeneralHeatFlowToTemperatureAdaptor
       "Signal adaptor for a HeatTransfer port with temperature and derivative of temperature as outputs and heat flow as input (especially useful for FMUs)"
       extends Modelica.Blocks.Interfaces.PartialFMUadaptors.FlowToPotentialAdaptor(
         final Name_p="T",
@@ -1267,7 +1267,7 @@ This is a model to collect the heat flows from <em>m</em> heatports to one singl
     equation
       y = heatPort.T "output = potential = temperature";
       u = heatPort.Q_flow "input = flow = heat flow";
-      annotation (defaultComponentName="heatflowToTemperatureAdaptor",
+      annotation (defaultComponentName="heatFlowToTemperatureAdaptor",
         Documentation(info="<html>
 <p>
 Adaptor between a heatport connector and a signal representation of the flange.
@@ -1285,9 +1285,9 @@ This adaptor has heatflow as input and temperature and derivative of temperature
               lineColor={191,0,0},
               radius=10,
               lineThickness=0.5)}));
-    end GeneralHeatflowToTemperatureAdaptor;
+    end GeneralHeatFlowToTemperatureAdaptor;
 
-    model GeneralTemperatureToHeatflowAdaptor
+    model GeneralTemperatureToHeatFlowAdaptor
       "Signal adaptor for a HeatTransfer port with heat flow as output and temperature and derivative of temperature as input (especially useful for FMUs)"
       extends Modelica.Blocks.Interfaces.PartialFMUadaptors.PotentialToFlowAdaptor(
         final Name_p="T",
@@ -1311,7 +1311,7 @@ This adaptor has heatflow as input and temperature and derivative of temperature
     equation
       y = heatPort.Q_flow "output = flow = heat flow";
       u = heatPort.T "input = potential = temperature";
-      annotation (defaultComponentName="temperatureToHeatflowAdaptor",
+      annotation (defaultComponentName="temperatureToHeatFlowAdaptor",
         Documentation(info="<html>
 <p>
 Adaptor between a heatport connector and a signal representation of the flange.
@@ -1333,7 +1333,7 @@ Note, the input signals must be consistent to each other
               lineColor={191,0,0},
               radius=10,
               lineThickness=0.5)}));
-    end GeneralTemperatureToHeatflowAdaptor;
+    end GeneralTemperatureToHeatFlowAdaptor;
     annotation (Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics={
       Rectangle(
         origin = {12,40},
