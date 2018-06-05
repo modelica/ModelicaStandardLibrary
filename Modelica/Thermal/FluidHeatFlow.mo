@@ -1663,8 +1663,6 @@ Block generating the sum of two ramps.
       end DoubleRamp;
       annotation (Documentation(info="<html>
 <p>This package contains utility components used for the test examples.</p>
-</html>", revisions="<html>
-
 </html>"));
     end Utilities;
   annotation (Documentation(info="<html>
@@ -1684,8 +1682,6 @@ Block generating the sum of two ramps.
 <li>TwoTanks: Two connected open tanks</li>
 <li>TestCylinder: Test the <a href=\"modelica://Modelica.Thermal.FluidHeatFlow.Components.Cylinder\">Cylinder</a> model</li>
 </ol>
-
-</html>", revisions="<html>
 
 </html>"));
   end Examples;
@@ -2204,8 +2200,6 @@ Thermodynamic equations are defined by Partials.TwoPort.
 Pressure drop is taken from partial model SimpleFriction.
 Thermodynamic equations are defined in partial models (package Partials).
 </p>
-</html>", revisions="<html>
-
 </html>"), Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics={
       Polygon(
         origin = {6,40},
@@ -2341,8 +2335,6 @@ Record containing (constant) medium properties.
     end MineralOil;
   annotation (Documentation(info="<html>
 <p>This package contains definitions of medium properties.</p>
-</html>", revisions="<html>
-
 </html>"));
   end Media;
 
@@ -2489,8 +2481,6 @@ Outlet temperature is defined by variable T of the corresponding component.
 but it is necessary to define the medium in the connector (check of connections).
 Thermodynamic equations are defined in partial models (package Interfaces.Partials).
 All sensors are considered massless, they do not change mass flow or enthalpy flow.</p>
-
-</html>", revisions="<html>
 
 </html>"));
   end Sensors;
@@ -2772,8 +2762,6 @@ This package contains different types of sources:
 Thermodynamic equations are defined in partial models (package Interfaces.Partials).
 All fans / pumps are considered without losses, they do not change enthalpy flow.
 </p>
-</html>", revisions="<html>
-
 </html>"));
   end Sources;
 
@@ -3185,8 +3173,6 @@ Partial model of single port at the bottom, defining the medium and the temperat
 Package containing partial models from which all components (except Sources.AbsolutePressure) extend
 instantiating the medium and containing the thermodynamic equation(s) with semiLinear.
 </p>
-</html>",revisions="<html>
-
 </html>"));
     end Partials;
   annotation (Documentation(info="<html>
@@ -3196,8 +3182,6 @@ instantiating the medium and containing the thermodynamic equation(s) with semiL
 <li>FlowPort_a &amp; FlowPort_b: same as FlowPort with different icons to differentiate direction of flow</li>
 <li>package Partials (defining basic thermodynamic equations)</li>
 </ul>
-
-</html>", revisions="<html>
 
 </html>"));
   end Interfaces;
@@ -3241,8 +3225,6 @@ Copyright &copy; 1998-2018, Modelica Association, Anton Haumer, Christian Kral a
 <p>
 <em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em>
 </p>
-</html>", revisions="<html>
-
 </html>"), Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics={
       Polygon(
         origin = {11.533,37.938},
