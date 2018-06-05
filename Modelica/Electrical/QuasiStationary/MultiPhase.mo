@@ -4015,9 +4015,9 @@ Quasi stationary theory can be found in the
   package Interfaces "Interfaces for AC multiphase models"
     extends Modelica.Icons.InterfacesPackage;
 
-    connector Plug "Basic multiphase plug"
-      parameter Integer m=3 "number of phases";
-      QuasiStationary.SinglePhase.Interfaces.Pin pin[m];
+    connector Plug "Quasi static polyphase plug"
+      parameter Integer m=3 "Number of phases";
+      QuasiStationary.SinglePhase.Interfaces.Pin pin[m] "Pins of the plug";
       annotation (Documentation(info="<html>
 
 <p>
@@ -4039,7 +4039,7 @@ derived from this base connector.
 </html>"));
     end Plug;
 
-    connector PositivePlug "Positive multiphase connector"
+    connector PositivePlug "Positive quasi static polyphase plug"
       extends Plug;
       QuasiStationary.Types.Reference reference;
       annotation (
@@ -4075,7 +4075,7 @@ Additionally the reference angle is specified in the connector. The time derivat
 </html>"));
     end PositivePlug;
 
-    connector NegativePlug "Negative multiphase connector"
+    connector NegativePlug "Negative quasi static polyphase plug"
       extends Plug;
       QuasiStationary.Types.Reference reference;
       annotation (
@@ -4144,10 +4144,10 @@ Additionally the reference angle is specified in the connector. The time derivat
         "Angular velocity of reference frame";
 
       PositivePlug plug_p(final m=m)
-        "Positive quasi stationary multi phase plug" annotation (Placement(
+        "Positive quasi static polyphase plug" annotation (Placement(
             transformation(extent={{-110,-10},{-90,10}})));
       NegativePlug plug_n(final m=m)
-        "Negative quasi stationary multi phase plug" annotation (Placement(
+        "Negative quasi static polyphase plug" annotation (Placement(
             transformation(extent={{90,-10},{110,10}})));
       Basic.PlugToPins_p plugToPins_p(final m=m) annotation (Placement(
             transformation(extent={{-80,-10},{-60,10}})));
@@ -4213,10 +4213,10 @@ a <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Plug
         "Angular velocity of reference frame";
 
       PositivePlug plug_p(final m=m)
-        "Positive quasi stationary multi phase plug" annotation (Placement(
+        "Positive quasi static polyphase plug" annotation (Placement(
             transformation(extent={{-110,-10},{-90,10}})));
       NegativePlug plug_n(final m=m)
-        "Negative quasi stationary multi phase plug" annotation (Placement(
+        "Negative quasi static polyphase plug" annotation (Placement(
             transformation(extent={{90,-10},{110,10}})));
     equation
       Connections.branch(plug_p.reference, plug_n.reference);
@@ -4232,7 +4232,7 @@ a <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Plug
       parameter Integer m(min=1) = 3 "number of phases";
       Modelica.SIunits.AngularVelocity omega;
       PositivePlug plug_p(final m=m)
-        "Positive quasi stationary multi phase plug" annotation (Placement(
+        "Positive quasi static polyphase plug" annotation (Placement(
             transformation(extent={{-110,-10},{-90,10}})));
     equation
       omega = der(plug_p.reference.gamma);

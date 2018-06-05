@@ -4,7 +4,7 @@ package Interfaces
   extends Modelica.Icons.InterfacesPackage;
 
   connector Pin "Pin of an electrical component"
-    SI.ElectricPotential v "Potential at the pin" annotation (
+    SI.ElectricPotential v "Potential of the pin" annotation (
         unassignedMessage="An electrical potential cannot be uniquely calculated.
 The reason could be that
 - a ground object is missing (Modelica.Electrical.Analog.Basic.Ground)
@@ -44,7 +44,7 @@ The reason could be that
   end Pin;
 
   connector PositivePin "Positive pin of an electric component"
-    SI.ElectricPotential v "Potential at the pin" annotation (
+    SI.ElectricPotential v "Potential of the pin" annotation (
         unassignedMessage="An electrical potential cannot be uniquely calculated.
 The reason could be that
 - a ground object is missing (Modelica.Electrical.Analog.Basic.Ground)
@@ -84,7 +84,7 @@ The reason could be that
   end PositivePin;
 
   connector NegativePin "Negative pin of an electric component"
-    SI.ElectricPotential v "Potential at the pin" annotation (
+    SI.ElectricPotential v "Potential of the pin" annotation (
         unassignedMessage="An electrical potential cannot be uniquely calculated.
 The reason could be that
 - a ground object is missing (Modelica.Electrical.Analog.Basic.Ground)
@@ -124,11 +124,10 @@ The reason could be that
   end NegativePin;
 
   partial model TwoPin "Component with two electrical pins"
-    SI.Voltage v "Voltage drop between the two pins (= p.v - n.v)";
-    PositivePin p
-      "Positive pin (potential p.v > n.v for positive voltage drop v)" annotation (Placement(
+    SI.Voltage v "Voltage drop of the two pins (= p.v - n.v)";
+    PositivePin p "Positive electrical pin" annotation (Placement(
           transformation(extent={{-110,-10},{-90,10}})));
-    NegativePin n "Negative pin" annotation (Placement(transformation(extent={{
+    NegativePin n "Negative electrical pin" annotation (Placement(transformation(extent={{
               90,-10},{110,10}})));
   equation
     v = p.v - n.v;
@@ -170,12 +169,11 @@ The reason could be that
   partial model OnePort
     "Component with two electrical pins p and n and current i from p to n"
 
-    SI.Voltage v "Voltage drop between the two pins (= p.v - n.v)";
+    SI.Voltage v "Voltage drop of the two pins (= p.v - n.v)";
     SI.Current i "Current flowing from pin p to pin n";
-    PositivePin p
-      "Positive pin (potential p.v > n.v for positive voltage drop v)" annotation (Placement(
+    PositivePin p "Positive electrical pin" annotation (Placement(
           transformation(extent={{-110,-10},{-90,10}})));
-    NegativePin n "Negative pin" annotation (Placement(transformation(extent={{
+    NegativePin n "Negative electrical pin" annotation (Placement(transformation(extent={{
               110,-10},{90,10}})));
   equation
     v = p.v - n.v;
@@ -222,19 +220,17 @@ The reason could be that
 
   partial model TwoPort
     "Component with two electrical ports, including current"
-    SI.Voltage v1 "Voltage drop over port 1";
-    SI.Voltage v2 "Voltage drop over port 2";
+    SI.Voltage v1 "Voltage drop of port 1 (= p1.v - n1.v)";
+    SI.Voltage v2 "Voltage drop of port 2 (= p2.v - n2.v)";
     SI.Current i1 "Current flowing from pos. to neg. pin of port 1";
     SI.Current i2 "Current flowing from pos. to neg. pin of port 2";
-    PositivePin p1
-      "Positive pin of port 1 (potential p1.v > n1.v for positive voltage drop v1)" annotation (Placement(
+    PositivePin p1 "Positive electrical pin of port 1" annotation (Placement(
           transformation(extent={{-110,90},{-90,110}}), iconTransformation(extent={{-110,90},{-90,110}})));
-    NegativePin n1 "Negative pin of port 1" annotation (Placement(
+    NegativePin n1 "Negative electrical pin of port 1" annotation (Placement(
           transformation(extent={{-90,-110},{-110,-90}}), iconTransformation(extent={{-90,-110},{-110,-90}})));
-    PositivePin p2
-      "Positive pin of port 2 (potential p2.v > n2.v for positive voltage drop v2)" annotation (Placement(
+    PositivePin p2 "Positive electrical pin of port 2" annotation (Placement(
           transformation(extent={{110,90},{90,110}}), iconTransformation(extent={{110,90},{90,110}})));
-    NegativePin n2 "Negative pin of port 2" annotation (Placement(
+    NegativePin n2 "Negative electrical pin of port 2" annotation (Placement(
           transformation(extent={{90,-110},{110,-90}}), iconTransformation(extent={{90,-110},{110,-90}})));
   equation
     v1 = p1.v - n1.v;
@@ -350,7 +346,7 @@ on the model behaviour.
     "Base class to measure the absolute value of a pin variable"
     extends Modelica.Icons.RotationalSensor;
 
-    Interfaces.PositivePin p "Pin to be measured" annotation (Placement(
+    Interfaces.PositivePin p "Positive electrical pin" annotation (Placement(
           transformation(extent={{-110,-10},{-90,10}})));
     Modelica.Blocks.Interfaces.RealOutput y
       "Measured quantity as Real output signal" annotation (Placement(
@@ -385,9 +381,9 @@ on the model behaviour.
     "Base class to measure a relative variable between two pins"
     extends Modelica.Icons.RotationalSensor;
 
-    Interfaces.PositivePin p "Positive pin" annotation (Placement(
+    Interfaces.PositivePin p "Positive electrical pin" annotation (Placement(
           transformation(extent={{-110,-10},{-90,10}})));
-    Interfaces.NegativePin n "Negative pin" annotation (Placement(
+    Interfaces.NegativePin n "Negative electrical pin" annotation (Placement(
           transformation(extent={{90,-10},{110,10}})));
     Modelica.Blocks.Interfaces.RealOutput y
       "Measured quantity as Real output signal" annotation (Placement(

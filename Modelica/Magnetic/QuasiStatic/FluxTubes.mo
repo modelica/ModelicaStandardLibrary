@@ -1937,10 +1937,10 @@ The symbol is also designed such way to look different than the
     partial model PartialTwoPortsElementary
     "Partial component with two magnetic ports p and n for textual programming"
 
-      FluxTubes.Interfaces.PositiveMagneticPort port_p "Positive magnetic port" annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
-      FluxTubes.Interfaces.NegativeMagneticPort port_n "Negative magnetic port" annotation (Placement(transformation(extent={{90,-10},{110,10}})));
+      FluxTubes.Interfaces.PositiveMagneticPort port_p "Positive quasi static magnetic port" annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
+      FluxTubes.Interfaces.NegativeMagneticPort port_n "Negative quasi static magnetic port" annotation (Placement(transformation(extent={{90,-10},{110,10}})));
       Modelica.SIunits.ComplexMagneticPotentialDifference V_m
-      "Magnetic potential difference between both ports";
+      "Magnetic potential difference of both ports";
       Modelica.SIunits.MagneticPotentialDifference abs_V_m = Modelica.ComplexMath.'abs'(V_m)
       "Magnitude of complex magnetic potential difference";
       Modelica.SIunits.Angle arg_V_m=Modelica.ComplexMath.arg(V_m)
@@ -2079,7 +2079,7 @@ for utilisation of this partial model.
     partial model AbsoluteSensor "Partial potential sensor"
       extends Modelica.Icons.RotationalSensor;
       Modelica.SIunits.AngularVelocity omega;
-      FluxTubes.Interfaces.PositiveMagneticPort port "Port" annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
+      FluxTubes.Interfaces.PositiveMagneticPort port "Quasi static magnetic port" annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
     equation
       omega = der(port.reference.gamma);
       port.Phi = Complex(0);

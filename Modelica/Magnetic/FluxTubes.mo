@@ -7274,7 +7274,7 @@ Fig. 3 shows the static hysteresis loop library entries for soft magnetic cobalt
     extends Modelica.Icons.InterfacesPackage;
 
     connector MagneticPort "Generic magnetic port"
-      SI.MagneticPotential V_m "Magnetic potential at the port";
+      SI.MagneticPotential V_m "Magnetic potential of the port";
       flow SI.MagneticFlux Phi "Magnetic flux flowing into the port";
 
       annotation (defaultComponentName="mag");
@@ -7344,11 +7344,11 @@ connector port_n.
     end PartialTwoPortsElementary;
 
     partial model PartialTwoPorts
-      "Partial component with magnetic potential difference between two magnetic ports p and n and magnetic flux Phi from p to n"
+      "Partial component with magnetic potential difference of the two magnetic ports p and n and magnetic flux Phi from p to n"
 
       extends FluxTubes.Interfaces.PartialTwoPortsElementary;
       SI.MagneticPotentialDifference V_m
-        "Magnetic potential difference between both ports";
+        "Magnetic potential difference of the ports";
       SI.MagneticFlux Phi(start=0) "Magnetic flux from port_p to port_n";
 
     equation

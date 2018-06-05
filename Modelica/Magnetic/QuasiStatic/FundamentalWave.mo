@@ -7347,7 +7347,7 @@ This package provides sensors for the magnetic potential difference and the magn
 </html>"));
     end MagneticPort;
 
-    connector PositiveMagneticPort "Positive quasi static magnetic port"
+    connector PositiveMagneticPort "Positive quasi static magnetic port of fundamental wave machines"
       extends FundamentalWave.Interfaces.MagneticPort;
       Modelica.Electrical.QuasiStationary.Types.Reference reference "Reference";
       annotation (
@@ -7383,7 +7383,7 @@ Additionally the reference angle is specified in the connector. The time derivat
 </html>"));
     end PositiveMagneticPort;
 
-    connector NegativeMagneticPort "Negative quasi static magnetic port"
+    connector NegativeMagneticPort "Negative quasi static magnetic port of fundamental wave machines"
       extends FundamentalWave.Interfaces.MagneticPort;
       Modelica.Electrical.QuasiStationary.Types.Reference reference "Reference";
       annotation (
@@ -7421,10 +7421,10 @@ Additionally the reference angle is specified in the connector. The time derivat
       Modelica.SIunits.AngularVelocity omega=der(port_p.reference.gamma)
         "Reference angular velocity (= der(port_p.reference.gamma))";
       FundamentalWave.Interfaces.PositiveMagneticPort port_p
-        "Positive quasi static magnetic port" annotation (Placement(
+        "Positive quasi static magnetic port of fundamental wave machines" annotation (Placement(
             transformation(extent={{-110,-10},{-90,10}})));
       FundamentalWave.Interfaces.NegativeMagneticPort port_n
-        "Negative quasi static magnetic port" annotation (Placement(
+        "Negative quasi static magnetic port of fundamental wave machines" annotation (Placement(
             transformation(extent={{90,-10},{110,10}})));
     equation
       Connections.branch(port_p.reference, port_n.reference);
