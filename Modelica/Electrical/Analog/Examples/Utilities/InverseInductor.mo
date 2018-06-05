@@ -7,7 +7,7 @@ model InverseInductor "Input/output block of an inverse inductor model"
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={20,0})));
-  Modelica.Electrical.Analog.Basic.CurrentToVoltageAdaptor currentToVoltage(
+  Modelica.Electrical.Analog.Basic.GeneralCurrentToVoltageAdaptor currentToVoltage(
       use_pder=false, use_fder=true)
     annotation (Placement(transformation(extent={{-10,-10},{-30,10}})));
   Modelica.Blocks.Interfaces.RealInput i(unit="A")

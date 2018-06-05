@@ -56,51 +56,51 @@ model ResonanceCircuits
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={90,-50})));
-  Modelica.Electrical.Analog.Basic.VoltageToCurrentAdaptor
+  Modelica.Electrical.Analog.Basic.GeneralVoltageToCurrentAdaptor
     voltageToCurrentAdaptor1a(use_pder=false)
     annotation (Placement(transformation(extent={{-60,40},{-80,60}})));
-  Modelica.Electrical.Analog.Basic.CurrentToVoltageAdaptor
+  Modelica.Electrical.Analog.Basic.GeneralCurrentToVoltageAdaptor
     currentToVoltageAdaptor1a(use_pder=false)
     annotation (Placement(transformation(extent={{-40,40},{-60,60}})));
   Modelica.Electrical.Analog.Basic.Ground ground1a
     annotation (Placement(transformation(extent={{-40,10},{-20,30}})));
-  Modelica.Electrical.Analog.Basic.CurrentToVoltageAdaptor
+  Modelica.Electrical.Analog.Basic.GeneralCurrentToVoltageAdaptor
     currentToVoltageAdaptor1b(use_pder=false)
     annotation (Placement(transformation(extent={{-20,40},{0,60}})));
-  Modelica.Electrical.Analog.Basic.VoltageToCurrentAdaptor
+  Modelica.Electrical.Analog.Basic.GeneralVoltageToCurrentAdaptor
     voltageToCurrentAdaptor1b(use_pder=false)
     annotation (Placement(transformation(extent={{0,40},{20,60}})));
 
   Modelica.Electrical.Analog.Basic.Ground ground1b
     annotation (Placement(transformation(extent={{20,10},{40,30}})));
-  Modelica.Electrical.Analog.Basic.VoltageToCurrentAdaptor
+  Modelica.Electrical.Analog.Basic.GeneralVoltageToCurrentAdaptor
     voltageToCurrentAdaptor1c(use_pder=false)
     annotation (Placement(transformation(extent={{60,40},{40,60}})));
-  Modelica.Electrical.Analog.Basic.CurrentToVoltageAdaptor
+  Modelica.Electrical.Analog.Basic.GeneralCurrentToVoltageAdaptor
     currentToVoltageAdaptor1c(use_pder=false)
     annotation (Placement(transformation(extent={{80,40},{60,60}})));
   Modelica.Electrical.Analog.Basic.Ground ground1c
     annotation (Placement(transformation(extent={{80,10},{100,30}})));
-  Modelica.Electrical.Analog.Basic.CurrentToVoltageAdaptor
+  Modelica.Electrical.Analog.Basic.GeneralCurrentToVoltageAdaptor
     currentToVoltageAdaptor2a(use_fder=false)
     annotation (Placement(transformation(extent={{-80,-60},{-60,-40}})));
-  Modelica.Electrical.Analog.Basic.VoltageToCurrentAdaptor
+  Modelica.Electrical.Analog.Basic.GeneralVoltageToCurrentAdaptor
     voltageToCurrentAdaptor2a(use_fder=false)
     annotation (Placement(transformation(extent={{-60,-60},{-40,-40}})));
   Modelica.Electrical.Analog.Basic.Ground ground2a
     annotation (Placement(transformation(extent={{-40,-90},{-20,-70}})));
-  Modelica.Electrical.Analog.Basic.VoltageToCurrentAdaptor
+  Modelica.Electrical.Analog.Basic.GeneralVoltageToCurrentAdaptor
     voltageToCurrentAdaptor2b(use_fder=false)
     annotation (Placement(transformation(extent={{0,-60},{-20,-40}})));
-  Modelica.Electrical.Analog.Basic.CurrentToVoltageAdaptor
+  Modelica.Electrical.Analog.Basic.GeneralCurrentToVoltageAdaptor
     currentToVoltageAdaptor2b(use_fder=false)
     annotation (Placement(transformation(extent={{20,-60},{0,-40}})));
   Modelica.Electrical.Analog.Basic.Ground ground2b
     annotation (Placement(transformation(extent={{20,-90},{40,-70}})));
-  Modelica.Electrical.Analog.Basic.CurrentToVoltageAdaptor
+  Modelica.Electrical.Analog.Basic.GeneralCurrentToVoltageAdaptor
     currentToVoltageAdaptor2c(use_fder=false)
     annotation (Placement(transformation(extent={{40,-60},{60,-40}})));
-  Modelica.Electrical.Analog.Basic.VoltageToCurrentAdaptor
+  Modelica.Electrical.Analog.Basic.GeneralVoltageToCurrentAdaptor
     voltageToCurrentAdaptor2c(use_fder=false)
     annotation (Placement(transformation(extent={{60,-60},{80,-40}})));
   Modelica.Electrical.Analog.Basic.Ground ground2c

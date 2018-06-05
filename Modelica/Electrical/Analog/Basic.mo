@@ -1832,7 +1832,7 @@ It is required that L &ge; 0, otherwise an assertion is raised. To avoid a varia
     pin_p.i + pin_n.i = 0;
     y = v "output = potential = voltage";
     u = i "input = flow = current";
-    annotation (Documentation(info="<html>
+    annotation (defaultComponentName="currentToVoltageAdaptor", Documentation(info="<html>
 <p>
 Adaptor between an electrical oneport and a signal representation of the oneport.
 This component is used to provide a pure signal interface around an Electrical model
@@ -1888,7 +1888,7 @@ Bear in mind that separating physical components and connecting them via adaptor
     pin_p.i + pin_n.i = 0;
     y = i "output = flow = current";
     u = v "input = potential = voltage";
-    annotation (Documentation(info="<html>
+    annotation (defaultComponentName="voltageToCurrentAdaptor", Documentation(info="<html>
 <p>
 Adaptor between an electrical openport and a signal representation of the oneport.
 This component is used to provide a pure signal interface around an Electrical model
