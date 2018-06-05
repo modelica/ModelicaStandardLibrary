@@ -1926,4 +1926,109 @@ This shows the improvements in the numerics when balance=true is set.
                                           color={0,0,127}));
     annotation (experiment(StopTime=2));
   end MuxDemux;
+
+  model LimPID "Test cases for the LimPID block"
+    extends Modelica.Icons.Example;
+    Modelica.Blocks.Continuous.LimPID PID1(
+      Ti=1,
+      yMax=1,
+      yMin=0,
+      initType=Modelica.Blocks.Types.InitPID.SteadyState,
+      controllerType=Modelica.Blocks.Types.SimpleController.PI)
+      annotation (Placement(transformation(extent={{-40,80},{-20,100}})));
+    Modelica.Blocks.Sources.Step step1(
+      height=0.4,
+      offset=0.5,
+      startTime=1)
+      annotation (Placement(transformation(extent={{-80,80},{-60,100}})));
+    Modelica.Blocks.Continuous.FirstOrder firstOrder1(T=1, initType=Modelica.Blocks.Types.Init.SteadyState)
+      annotation (Placement(transformation(extent={{0,80},{20,100}})));
+    Modelica.Blocks.Continuous.LimPID PID2(
+      Ti=1,
+      yMax=1,
+      yMin=0,
+      initType=Modelica.Blocks.Types.InitPID.SteadyState,
+      controllerType=Modelica.Blocks.Types.SimpleController.PI,
+      homotopyType=Modelica.Blocks.Types.InitPIDHomotopy.YMax)
+      annotation (Placement(transformation(extent={{-40,20},{-20,40}})));
+    Modelica.Blocks.Sources.Step step2(
+      startTime=1,
+      height=-1.5,
+      offset=2)
+      annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
+    Modelica.Blocks.Continuous.FirstOrder firstOrder2(T=1, initType=Modelica.Blocks.Types.Init.SteadyState)
+      annotation (Placement(transformation(extent={{0,20},{20,40}})));
+    Modelica.Blocks.Continuous.LimPID PID3(
+      Ti=1,
+      yMax=1,
+      yMin=0,
+      initType=Modelica.Blocks.Types.InitPID.SteadyState,
+      controllerType=Modelica.Blocks.Types.SimpleController.PI,
+      homotopyType=Modelica.Blocks.Types.InitPIDHomotopy.YMin)
+      annotation (Placement(transformation(extent={{-40,-40},{-20,-20}})));
+    Modelica.Blocks.Sources.Step step3(
+      startTime=1,
+      height=1.5,
+      offset=-1)
+      annotation (Placement(transformation(extent={{-80,-40},{-60,-20}})));
+    Modelica.Blocks.Continuous.FirstOrder firstOrder3(T=1, initType=Modelica.Blocks.Types.Init.SteadyState)
+      annotation (Placement(transformation(extent={{0,-40},{20,-20}})));
+    Modelica.Blocks.Continuous.LimPID PID4(
+      Ti=1,
+      yMax=1,
+      yMin=0,
+      initType=Modelica.Blocks.Types.InitPID.SteadyState,
+      controllerType=Modelica.Blocks.Types.SimpleController.PI,
+      homotopyType=Modelica.Blocks.Types.InitPIDHomotopy.NoHomotopy)
+      annotation (Placement(transformation(extent={{-40,-100},{-20,-80}})));
+    Modelica.Blocks.Sources.Step step4(
+      startTime=1,
+      height=0.4,
+      offset=0.5)
+      annotation (Placement(transformation(extent={{-80,-100},{-60,-80}})));
+    Modelica.Blocks.Continuous.FirstOrder firstOrder4(T=1, initType=Modelica.Blocks.Types.Init.SteadyState)
+      annotation (Placement(transformation(extent={{0,-100},{20,-80}})));
+  equation
+    connect(firstOrder1.y, PID1.u_m) annotation (Line(points={{21,90},{40,90},{
+            40,60},{-30,60},{-30,78}}, color={0,0,127}));
+    connect(PID1.y, firstOrder1.u)
+      annotation (Line(points={{-19,90},{-2,90}}, color={0,0,127}));
+    connect(step1.y, PID1.u_s)
+      annotation (Line(points={{-59,90},{-42,90}}, color={0,0,127}));
+    connect(firstOrder2.y, PID2.u_m) annotation (Line(points={{21,30},{40,30},{
+            40,0},{-30,0},{-30,18}}, color={0,0,127}));
+    connect(PID2.y, firstOrder2.u)
+      annotation (Line(points={{-19,30},{-2,30}}, color={0,0,127}));
+    connect(step2.y, PID2.u_s)
+      annotation (Line(points={{-59,30},{-42,30}}, color={0,0,127}));
+    connect(firstOrder3.y, PID3.u_m) annotation (Line(points={{21,-30},{40,-30},
+            {40,-60},{-30,-60},{-30,-42}}, color={0,0,127}));
+    connect(PID3.y, firstOrder3.u)
+      annotation (Line(points={{-19,-30},{-2,-30}}, color={0,0,127}));
+    connect(step3.y, PID3.u_s)
+      annotation (Line(points={{-59,-30},{-42,-30}}, color={0,0,127}));
+    connect(firstOrder4.y, PID4.u_m) annotation (Line(points={{21,-90},{40,-90},
+            {40,-120},{-30,-120},{-30,-102}}, color={0,0,127}));
+    connect(PID4.y, firstOrder4.u)
+      annotation (Line(points={{-19,-90},{-2,-90}}, color={0,0,127}));
+    connect(step4.y, PID4.u_s) annotation (Line(points={{-59,-90},{-52,-90},{
+            -52,-90},{-48,-90},{-48,-90},{-42,-90}}, color={0,0,127}));
+    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+              -140},{100,120}})),                                  Diagram(
+          coordinateSystem(preserveAspectRatio=false, extent={{-100,-140},{100,
+              120}})),
+      experiment(StopTime=10),
+      Documentation(info="<html>
+<p>This test models demonstrates the use of the <code>homotopyType</code> parameter of the <code>LimPID</code> model in different situations.</p>
+<p>The first control loop is initialized in steady state with a value of the set point which is compatible with the control variable limitations.
+In this case, the default option can be used, which removes the limitations in the simplified model, making it linear and thus easier to solve</p>
+<p>The second control loop is initialized in steady state with a value of the set point that causes the control output to hit
+the upper saturation limit. If this is known a priori, then by setting <code>homotopyType = YMax</code> the simplified model just
+assumes the PID output to be yMax, thus making the simplified initialization problem linear.</p>
+<p>The third control looop is similar to the second, except that the lower saturation limit is now engaged.</p>
+<p>The fourth loop does not use any simplified model of the limiter during homotopy - this can be used when it is not
+known a priori if the controller is saturated or not, and it is important to enforce the PID output limitations throughout
+the whole homotopy transformation.</p>
+</html>"));
+  end LimPID;
 end Blocks;

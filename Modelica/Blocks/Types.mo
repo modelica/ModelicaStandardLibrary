@@ -15,7 +15,7 @@ package Types
         "Table points are interpolated (by Steffen splines) such that the monotonicity is preserved and the first derivative is continuous")
     "Enumeration defining the smoothness of table interpolation";
 
-  type Extrapolation = enumeration(
+    type Extrapolation = enumeration(
       HoldLastPoint
         "Hold the first/last table point outside of the table scope",
       LastTwoPoints
@@ -24,13 +24,13 @@ package Types
       NoExtrapolation "Extrapolation triggers an error")
     "Enumeration defining the extrapolation of table interpolation";
 
-  type TimeEvents = enumeration(
+    type TimeEvents = enumeration(
       Always "Always generate time events at interval boundaries",
       AtDiscontinuities "Generate time events at discontinuities (defined by duplicated sample points)",
       NoTimeEvents "No time events at interval boundaries")
     "Enumeration defining the time event handling of time table interpolation";
 
-  type Init = enumeration(
+    type Init = enumeration(
       NoInit
         "No initialization (start values are used as guess values with fixed=false)",
       SteadyState
@@ -53,7 +53,7 @@ package Types
   </dl>
 </html>"));
 
-  type InitPID = enumeration(
+    type InitPID = enumeration(
       NoInit
         "No initialization (start values are used as guess values with fixed=false)",
       SteadyState
@@ -91,7 +91,15 @@ initialization definition.
   </dl>
 </html>"));
 
-  type SimpleController = enumeration(
+  type InitPIDHomotopy = enumeration(
+      NoHomotopy "Full model used for initialization",
+      Linear "No output limitations during simplified initialization",
+      YMax "y = yMax during simplified initialization",
+      YMin "y = yMin during simplified initialization")
+    "Enumeration defining type of homotopy-based initialization for LimPID model" annotation (
+     Evaluate = true);
+
+   type SimpleController = enumeration(
       P "P controller",
       PI "PI controller",
       PD "PD controller",

@@ -882,6 +882,8 @@ to compute u by an algebraic equation.
     "P, PI, PD, and PID controller with limited output, anti-windup compensation, setpoint weighting and optional feed-forward"
     import Modelica.Blocks.Types.InitPID;
     import Modelica.Blocks.Types.Init;
+    import Modelica.Blocks.Types.InitPIDHomotopy;
+    import Modelica.Blocks.Types.LimiterHomotopy;
     import Modelica.Blocks.Types.SimpleController;
     extends Modelica.Blocks.Interfaces.SVcontrol;
     output Real controlError = u_s - u_m
@@ -920,9 +922,9 @@ to compute u by an algebraic equation.
       "Type of initialization (1: no init, 2: steady state, 3: initial state, 4: initial output)"
        annotation(Evaluate=true,
         Dialog(group="Initialization"));
-    parameter Boolean limitsAtInit = true
-      "= false, if limits are ignored during initialization"
-      annotation(Evaluate=true, Dialog(group="Initialization"));
+    parameter Boolean limitsAtInit=true
+  "Has no longer an effect and is only kept for backwards compatibility (the implementation uses now the homotopy operator)"
+      annotation (Dialog(tab="Dummy"),Evaluate=true, choices(checkBox=true));
     parameter Real xi_start=0
       "Initial or guess value for integrator output (= integrator state)"
       annotation (Dialog(group="Initialization",
@@ -938,6 +940,9 @@ to compute u by an algebraic equation.
             "Initialization"));
     parameter Boolean strict=false "= true, if strict limits with noEvent(..)"
       annotation (Evaluate=true, choices(checkBox=true), Dialog(tab="Advanced"));
+    parameter Modelica.Blocks.Types.InitPIDHomotopy homotopyType = Modelica.Blocks.Types.InitPIDHomotopy.Linear
+      "Simplified model for homotopy-based initialization"
+      annotation (Evaluate=true, Dialog(group="Initialization"));
     constant Modelica.SIunits.Time unitTime=1 annotation (HideResult=true);
     Modelica.Blocks.Interfaces.RealInput u_ff if withFeedForward
       "Optional connector of feed-forward input signal"
@@ -984,7 +989,11 @@ to compute u by an algebraic equation.
       uMax=yMax,
       uMin=yMin,
       strict=strict,
-      limitsAtInit=limitsAtInit)
+      limitsAtInit=limitsAtInit,
+      homotopyType = (if homotopyType==InitPIDHomotopy.NoHomotopy then LimiterHomotopy.NoHomotopy
+                 else if homotopyType==InitPIDHomotopy.YMax then LimiterHomotopy.UMax
+                 else if homotopyType==InitPIDHomotopy.YMin then LimiterHomotopy.UMin
+                 else LimiterHomotopy.Linear))
       annotation (Placement(transformation(extent={{70,-10},{90,10}})));
   protected
     parameter Boolean with_I = controllerType==SimpleController.PI or
@@ -1242,13 +1251,23 @@ to compute u_m by an algebraic equation.
 </p>
 
 <p>
-If parameter <strong>limitAtInit</strong> = <strong>false</strong>, the limits at the
-output of this controller block are removed from the initialization problem which
-leads to a much simpler equation system. After initialization has been
-performed, it is checked via an assert whether the output is in the
-defined limits. For backward compatibility reasons
-<strong>limitAtInit</strong> = <strong>true</strong>. In most cases it is best
-to use <strong>limitAtInit</strong> = <strong>false</strong>.
+When initializing in steady-state, homotopy-based initialization can help the convergence of the solver,
+by using a simplified model a the beginning of the solution process. Different options are available. 
+<ul>
+<li><strong>homotopyType=Linear</strong> (default): the limitations are removed from the simplified model,
+making it linear. Use this if you know that the controller will not be saturated at steady state.</li>
+<li><strong>homotopyType=YMax</strong>: if it is known a priori the controller will be stuck at the upper
+limit yMax, this option assumes y = yMax as a simplified model.</li>
+<li><strong>homotopyType=YMin</strong>: if it is known a priori the controller will be stuck at the lower
+limit yMin, this option assumes y = yMin as a simplified model.</li>
+<li><strong>homotopyType=NoHomotopy</strong>: this option does not apply any simplification and keeps the
+limiter active throughout the homotopy transformation. Use this if it it unknown whether the controller
+is saturated or not at initialization and if the limitations on the output must be enforced throughout 
+the entire homotopy transformation.</li>
+</ul>
+</p>
+<p>
+The parameter <strong>limitAtInit</strong> is obsolete since MSL 3.2.2 and only kept for backwards compatibility.
 </p>
 </html>"));
   end LimPID;
