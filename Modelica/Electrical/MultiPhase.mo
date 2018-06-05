@@ -3933,7 +3933,7 @@ This package contains time-dependent and controlled multiphase voltage and curre
   package Interfaces "Interfaces for electrical multiphase models"
     extends Modelica.Icons.InterfacesPackage;
 
-    connector Plug "Polyphase electric plug with m pins"
+    connector Plug "Polyphase electrical plug with m pins"
       parameter Integer m(final min=1) = 3 "Number of phases";
       Modelica.Electrical.Analog.Interfaces.Pin pin[m] "Pins of the plug";
 
@@ -3953,7 +3953,7 @@ Connector Plug is a composite connector containing m Pins (Modelica.Electrical.A
               textString="%name")}));
     end Plug;
 
-    connector PositivePlug "Positive polyphase electric plug with m pins"
+    connector PositivePlug "Positive polyphase electrical plug with m pins"
       extends Plug;
       annotation (
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
@@ -3980,7 +3980,7 @@ Connector Plug is a composite connector containing m Pins (Modelica.Electrical.A
 </html>"));
     end PositivePlug;
 
-    connector NegativePlug "Negative polyphase electric plug with m pins"
+    connector NegativePlug "Negative polyphase electrical plug with m pins"
       extends Plug;
       annotation (
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
@@ -4039,13 +4039,13 @@ This partial model provides conditional heat ports for the connection to a therm
 </html>"));
     end ConditionalHeatPort;
 
-    partial model TwoPlug "Component with one m-phase electric port"
+    partial model TwoPlug "Component with one polyphase electrical port"
       parameter Integer m(min=1) = 3 "Number of phases";
       Modelica.SIunits.Voltage v[m] "Voltage drops of the two polyphase plugs";
       Modelica.SIunits.Current i[m] "Currents flowing into positive polyphase plugs";
-      PositivePlug plug_p(final m=m) "Positive polyphase electric plug with m pins" annotation (Placement(transformation(
+      PositivePlug plug_p(final m=m) "Positive polyphase electrical plug with m pins" annotation (Placement(transformation(
               extent={{-110,-10},{-90,10}})));
-      NegativePlug plug_n(final m=m) "Negative polyphase electric plug with m pins" annotation (Placement(transformation(
+      NegativePlug plug_n(final m=m) "Negative polyphase electrical plug with m pins" annotation (Placement(transformation(
               extent={{90,-10},{110,10}})));
     equation
       v = plug_p.pin.v - plug_n.pin.v;
@@ -4075,7 +4075,7 @@ It is assumed that the currents flowing into plug_p are identical to the current
 </html>"));
     end OnePort;
 
-    partial model FourPlug "Component with two polyphase electric ports"
+    partial model FourPlug "Component with two polyphase electrical ports"
       parameter Integer m(final min=1) = 3 "Number of phases";
       Modelica.SIunits.Voltage v1[m] "Voltage drops of port 1";
       Modelica.SIunits.Voltage v2[m] "Voltage drops of port 2";
@@ -4104,7 +4104,7 @@ Superclass of elements which have <strong>four</strong> electrical plugs.
     end FourPlug;
 
     partial model TwoPort
-      "Component with two m-phase electric ports, including currents"
+      "Component with two polyphase electrical ports, including currents"
       extends FourPlug;
     equation
       plug_p1.pin.i + plug_n1.pin.i = zeros(m);

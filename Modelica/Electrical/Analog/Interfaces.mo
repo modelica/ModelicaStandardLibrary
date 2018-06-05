@@ -43,7 +43,7 @@ The reason could be that
 </html>"));
   end Pin;
 
-  connector PositivePin "Positive pin of an electric component"
+  connector PositivePin "Positive pin of an electrical component"
     SI.ElectricPotential v "Potential at the pin" annotation (
         unassignedMessage="An electrical potential cannot be uniquely calculated.
 The reason could be that
@@ -83,7 +83,7 @@ The reason could be that
             textString="%name")}));
   end PositivePin;
 
-  connector NegativePin "Negative pin of an electric component"
+  connector NegativePin "Negative pin of an electrical component"
     SI.ElectricPotential v "Potential at the pin" annotation (
         unassignedMessage="An electrical potential cannot be uniquely calculated.
 The reason could be that
