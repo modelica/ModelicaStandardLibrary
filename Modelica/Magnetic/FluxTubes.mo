@@ -7274,7 +7274,7 @@ Fig. 3 shows the static hysteresis loop library entries for soft magnetic cobalt
     extends Modelica.Icons.InterfacesPackage;
 
     connector MagneticPort "Generic magnetic port"
-      SI.MagneticPotential V_m "Magnetic potential of the port";
+      SI.MagneticPotential V_m "Magnetic potential at the port";
       flow SI.MagneticFlux Phi "Magnetic flux flowing into the port";
 
       annotation (defaultComponentName="mag");

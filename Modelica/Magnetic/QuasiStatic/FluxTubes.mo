@@ -1827,7 +1827,7 @@ The permeances of all elements of this package are calculated from their geometr
 
     connector MagneticPort "Quasi static magnetic port"
       Modelica.SIunits.ComplexMagneticPotential V_m
-      "Complex magnetic potential of the port";
+      "Complex magnetic potential at the port";
       flow Modelica.SIunits.ComplexMagneticFlux Phi
       "Complex magnetic flux flowing into the port";
       annotation (Documentation(info="<html>

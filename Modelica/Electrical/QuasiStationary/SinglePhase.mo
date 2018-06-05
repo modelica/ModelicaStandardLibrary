@@ -2578,7 +2578,7 @@ Quasi stationary theory for single phase circuits can be found in the
     extends Modelica.Icons.InterfacesPackage;
 
     connector Pin "Quasi static single-phase pin"
-      Modelica.SIunits.ComplexElectricPotential v "Complex potential of the quasi static single-phase pin";
+      Modelica.SIunits.ComplexElectricPotential v "Complex potential at the quasi static single-phase pin";
       flow Modelica.SIunits.ComplexCurrent i "Complex current flowing into the quasi static single-phase pin";
       annotation (Documentation(info="<html>
 <p>
