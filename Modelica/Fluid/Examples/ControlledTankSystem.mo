@@ -429,6 +429,8 @@ This example is based on
     protected
       Modelica.Blocks.Sources.BooleanTable table(table=buttonTimeTable);
     initial equation
+      // These pre-values are used for the algorithm during initialization
+      pre(table.y) = false;
       pre(reset) = fill(false, size(reset, 1));
     algorithm
       when pre(reset) then
