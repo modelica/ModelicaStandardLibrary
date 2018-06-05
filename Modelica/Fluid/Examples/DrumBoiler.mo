@@ -1,6 +1,6 @@
 within Modelica.Fluid.Examples;
 package DrumBoiler
-  "Drum boiler example, see Franke, Rode, Krüger: On-line Optimization of Drum Boiler Startup, 3rd International Modelica Conference, Linköping, 2003"
+  "Drum boiler example, see Franke, Rode, Krueger: On-line Optimization of Drum Boiler Startup, 3rd International Modelica Conference, Linkoeping, 2003"
 
   extends Modelica.Icons.ExamplesPackage;
   model DrumBoiler
@@ -171,7 +171,7 @@ package DrumBoiler
     extends Modelica.Icons.BasesPackage;
 
     model EquilibriumDrumBoiler
-      "Simple Evaporator with two states, see Åström, Bell: Drum-boiler dynamics, Automatica 36, 2000, pp.363-378"
+      "Simple Evaporator with two states, see Astrom, Bell: Drum-boiler dynamics, Automatica 36, 2000, pp.363-378"
       extends Modelica.Fluid.Interfaces.PartialTwoPort(
         final port_a_exposesState=true,
         final port_b_exposesState=true,
