@@ -5548,36 +5548,41 @@ blocks of the block library Modelica.Blocks.Sources.
       connect(move_phi.flange, torqueSensor.flange_a) annotation (Line(
           points={{30,80},{36,80},{36,0}}));
       annotation (
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
-                Rectangle(
-                  extent={{-20,100},{20,-100}},
-                  radius=10,
-              pattern=LinePattern.None,
-              lineColor={0,0,0},
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
+          graphics={
+            Rectangle(
+              extent={{-20,100},{20,-100}},
+              lineColor={95,95,95},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.HorizontalCylinder,
+              radius=10),
+            Rectangle(
+              extent={{-20,100},{20,-100}},
+              lineColor={95,95,95},
+              radius=10,
               lineThickness=0.5),
-                Rectangle(
-                  extent={{-20,100},{20,-100}},
-                  lineColor={135,135,135},
-                  radius=10,
-              lineThickness=0.5),
-                Text(
-                  extent={{-20,90},{20,68}},
-                  fillPattern=FillPattern.Solid,
-                  textString="phi"),Text(
-                  visible=use_w or use_a,
-                  extent={{-20,40},{20,18}},
-                  fillPattern=FillPattern.Solid,
-                  textString="w"),Text(
-                  visible=use_a,
-                  extent={{-20,-20},{20,-42}},
-                  fillPattern=FillPattern.Solid,
-                  textString="a"),Text(
-                  extent={{-20,-70},{20,-92}},
-                  fillPattern=FillPattern.Solid,
-                  textString="tau"),Text(
-                  extent={{-150,150},{150,110}},
-                  textString="%name",
-                  lineColor={0,0,255})}),
+            Text(
+              extent={{-20,92},{20,70}},
+              fillPattern=FillPattern.Solid,
+              textString="phi"),
+            Text(
+              visible=use_w or use_a,
+              extent={{-20,62},{20,40}},
+              fillPattern=FillPattern.Solid,
+              textString="w"),
+            Text(
+              visible=use_a,
+              extent={{-20,32},{20,10}},
+              fillPattern=FillPattern.Solid,
+              textString="a"),
+            Text(
+              extent={{-20,-68},{20,-90}},
+              fillPattern=FillPattern.Solid,
+              textString="tau"),
+            Text(
+              extent={{-150,150},{150,110}},
+              textString="%name",
+              lineColor={0,0,255})}),
         Documentation(info="<html>
 <p>
 Adaptor between a flange connector and a signal representation of the flange.
@@ -5643,38 +5648,41 @@ torque as output signal. Note, the input signals must be consistent to each othe
       flange.tau = tau;
 
       annotation (
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
-                Rectangle(
-                  extent={{-20,100},{20,-100}},
-                  lineColor={64,64,64},
-                  radius=10),
-                Rectangle(
-                  extent={{-20,100},{20,-100}},
-                  lineColor={64,64,64},
-                  radius=10),
-                Text(
-                  extent={{-20,92},{20,70}},
-                  fillPattern=FillPattern.Solid,
-                  textString="phi"),Text(
-                  visible=use_w,
-                  extent={{-20,42},{20,20}},
-                  fillPattern=FillPattern.Solid,
-                  textString="w"),Text(
-                  visible=use_a,
-                  extent={{-20,-18},{20,-40}},
-                  fillPattern=FillPattern.Solid,
-                  textString="a"),Text(
-                  extent={{-20,-68},{20,-90}},
-                  fillPattern=FillPattern.Solid,
-                  textString="tau"),Text(
-                  extent={{-150,150},{150,110}},
-                  textString="%name",
-                  lineColor={0,0,255}),
-                Rectangle(
-                  extent={{-20,100},{20,-100}},
-                  lineColor={135,135,135},
-                  radius=10,
-              lineThickness=0.5)}),
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
+          graphics={
+            Rectangle(
+              extent={{-20,100},{20,-100}},
+              lineColor={95,95,95},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.HorizontalCylinder,
+              radius=10),
+            Rectangle(
+              extent={{-20,100},{20,-100}},
+              lineColor={95,95,95},
+              radius=10,
+              lineThickness=0.5),
+            Text(
+              extent={{-20,92},{20,70}},
+              fillPattern=FillPattern.Solid,
+              textString="phi"),
+            Text(
+              visible=use_w,
+              extent={{-20,62},{20,40}},
+              fillPattern=FillPattern.Solid,
+              textString="w"),
+            Text(
+              visible=use_a,
+              extent={{-20,32},{20,10}},
+              fillPattern=FillPattern.Solid,
+              textString="a"),
+            Text(
+              extent={{-20,-68},{20,-90}},
+              fillPattern=FillPattern.Solid,
+              textString="tau"),
+            Text(
+              extent={{-150,150},{150,110}},
+              textString="%name",
+              lineColor={0,0,255})}),
         Documentation(info="<html>
 <p>
 Adaptor between a flange connector and a signal representation of the flange.
