@@ -430,9 +430,9 @@ email: <a href=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</a>
      </li>
 <li> <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a> (DLR-RM)</li>
 <li> Christian Schweiger (DLR-RM, until 2006).</li>
-<li> <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
+<li> <a href=\"https://www.haumer.at/\">Anton Haumer</a><br>
      Technical Consulting &amp; Electrical Engineering<br>
-     A-3423 St.Andrae-Woerdern, Austria<br>
+     D-93049 Regensburg, Germany<br>
      email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a></li>
 </ul>
 </html>"));

@@ -365,9 +365,9 @@ package Basic "Basic electrical components"
 <dl>
   <dt><strong>Main Author:</strong></dt>
   <dd>
-  <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
+  <a href=\"https://www.haumer.at/\">Anton Haumer</a><br>
   Technical Consulting &amp; Electrical Engineering<br>
-  A-3423 St.Andrae-Woerdern<br>Austria<br>
+  D-93049 Regensburg<br>Germany<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><strong>Release Notes:</strong></dt>

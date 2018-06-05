@@ -13,7 +13,7 @@ package FluidHeatFlow
 
 <p>
 <strong>Anton Haumer</strong><br>
-<a href=\"http://www.haumer.at\">Technical Consulting &amp; Electrical Engineering</a><br>
+<a href=\"https://www.haumer.at\">Technical Consulting &amp; Electrical Engineering</a><br>
 93049 Regensburg, Germany<br>
 email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
 </p>

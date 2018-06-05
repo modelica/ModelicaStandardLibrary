@@ -3307,7 +3307,7 @@ Kluwer Academic Publishers Boston.
 <strong>Acknowledgements:</strong><br>
 Several helpful remarks from the following persons are acknowledged:
 John Batteh, Ford Motors, Dearborn, U.S.A;
-<a href=\"http://www.haumer.at/\">Anton Haumer</a>, Technical Consulting &amp; Electrical Engineering, Austria;
+<a href=\"https://www.haumer.at/\">Anton Haumer</a>, Technical Consulting &amp; Electrical Engineering, Germany;
 Ludwig Marvan, VA TECH ELIN EBG Elektronik GmbH, Wien, Austria;
 Hans Olsson, Dassault Syst&egrave;mes AB, Sweden;
 Hubertus Tummescheit, Lund Institute of Technology, Lund, Sweden.
@@ -3316,9 +3316,9 @@ Hubertus Tummescheit, Lund Institute of Technology, Lund, Sweden.
   <dt><strong>Main Authors:</strong></dt>
   <dd>
   <p>
-  <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
+  <a href=\"https://www.haumer.at/\">Anton Haumer</a><br>
   Technical Consulting &amp; Electrical Engineering<br>
-  A-3423 St.Andrae-Woerdern, Austria<br>
+  D-93049 Regensburg, Germany<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
 </p>
   </dd>
@@ -3336,7 +3336,7 @@ Hubertus Tummescheit, Lund Institute of Technology, Lund, Sweden.
        Implemented.
 </li>
 <li><em>June 13, 2005</em>
-       by <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
+       by <a href=\"https://www.haumer.at/\">Anton Haumer</a><br>
        Refined placing of connectors (cosmetic).<br>
        Refined all Examples; removed Examples.FrequencyInverter, introducing Examples.Motor<br>
        Introduced temperature dependent correction (1 + alpha*(T - T_ref)) in Fixed/PrescribedHeatFlow<br>
