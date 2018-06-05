@@ -7348,7 +7348,7 @@ connector port_n.
 
       extends FluxTubes.Interfaces.PartialTwoPortsElementary;
       SI.MagneticPotentialDifference V_m
-        "Magnetic potential difference of the ports";
+        "Magnetic potential difference of ports";
       SI.MagneticFlux Phi(start=0) "Magnetic flux from port_p to port_n";
 
     equation

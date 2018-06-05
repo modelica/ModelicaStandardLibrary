@@ -4017,7 +4017,7 @@ Quasi stationary theory can be found in the
 
     connector Plug "Quasi-static polyphase plug"
       parameter Integer m=3 "Number of phases";
-      QuasiStationary.SinglePhase.Interfaces.Pin pin[m] "Pins of the plug";
+      QuasiStationary.SinglePhase.Interfaces.Pin pin[m] "Pins of plug";
       annotation (Documentation(info="<html>
 
 <p>

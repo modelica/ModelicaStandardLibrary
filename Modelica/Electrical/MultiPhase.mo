@@ -3980,7 +3980,7 @@ Connector Plug is a composite connector containing m Pins (Modelica.Electrical.A
 </html>"));
     end PositivePlug;
 
-    connector NegativePlug "Negative electric polyphase plug with m pins"
+    connector NegativePlug "Negative polyphase electric plug with m pins"
       extends Plug;
       annotation (
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
@@ -4043,9 +4043,9 @@ This partial model provides conditional heat ports for the connection to a therm
       parameter Integer m(min=1) = 3 "Number of phases";
       Modelica.SIunits.Voltage v[m] "Voltage drops of the two polyphase plugs";
       Modelica.SIunits.Current i[m] "Currents flowing into positive polyphase plugs";
-      PositivePlug plug_p(final m=m) "Positive electric polyphase plug with m pins" annotation (Placement(transformation(
+      PositivePlug plug_p(final m=m) "Positive polyphase electric plug with m pins" annotation (Placement(transformation(
               extent={{-110,-10},{-90,10}})));
-      NegativePlug plug_n(final m=m) "Negative electric polyphase plug with m pins" annotation (Placement(transformation(
+      NegativePlug plug_n(final m=m) "Negative polyphase electric plug with m pins" annotation (Placement(transformation(
               extent={{90,-10},{110,10}})));
     equation
       v = plug_p.pin.v - plug_n.pin.v;
