@@ -378,7 +378,7 @@ This can be recommended by having  <code><strong>annotation</strong> choicesAllM
   <strong>annotation</strong>(version      = &quot;3.0.1&quot;,
              versionDate  = &quot;2008-04-10&quot;,
              <em>dateModified = &quot;2009-02-15 16:33:14Z&quot;</em>,
-             revisionId   = &quot;c04e23a0d v3.2.3+build.1 2018-08-01 12:00:00 +0200&quot;);
+             revisionId   = &quot;c04e23a0d 2018-08-01 12:00:00 +0200&quot;);
   ...
   <strong>end</strong> Modelica;
 </pre>
@@ -1178,7 +1178,7 @@ The preferredView annotation defines the default view when selecting the class. 
              versionDate  = &quot;2018-08-01&quot;,
              versionBuild = 1,
              dateModified = &quot;2018-12-12 07:40:19Z&quot;,
-             <em>revisionId   = &quot;c04e23a0d v3.2.3+build.1 2018-08-01 12:00:00 +0200&quot;</em>);
+             <em>revisionId   = &quot;c04e23a0d 2018-08-01 12:00:00 +0200&quot;</em>);
   ...
   <strong>end</strong> Modelica;</pre>
 <h5>Related annotations:</h5>
@@ -1441,7 +1441,7 @@ This allows a tool to access multiple versions of the same package.
 <p>Defines the optional build number of the library.</p>
 
 <blockquote>
-<em>This is a <strong>deprecated</strong> annotation. It should no longer be used, since it will be removed in one of the next Modelica releases. Use instead <a href=\"https://semver.org/\">Semantic Versioning</a> which provides a better mechanism for maintaining releases and bugfixes in a well defined way.</em>
+<em>This is a <strong>deprecated</strong> annotation. It should no longer be used, since it will be removed in one of the next Modelica releases. Use instead <a href=\"https://semver.org/\">Semantic Versioning</a> which provides a better mechanism for maintaining releases and bug-fixes in a well defined way.</em>
 </blockquote>
 
 <h4>Syntax</h4>
@@ -1463,7 +1463,7 @@ A &ldquo;<code>versionBuild</code>&rdquo; number A that is higher as &ldquo;<cod
              versionDate  = &quot;2008-04-10&quot;,
              <em>versionBuild = 4</em>,
              dateModified = &quot;2009-02-15 16:33:14Z&quot;,
-             revisionId   = &quot;c04e23a0d v3.2.3+build.1 2018-08-01 12:00:00 +0200&quot;);
+             revisionId   = &quot;c04e23a0d 2018-08-01 12:00:00 +0200&quot;);
   ...
   <strong>end</strong> Modelica;
 </pre>
@@ -1495,7 +1495,7 @@ A &ldquo;<code>versionBuild</code>&rdquo; number A that is higher as &ldquo;<cod
   <strong>annotation</strong>(version      = &quot;3.0.1&quot;,
              <em>versionDate  = &quot;2008-04-10&quot;</em>,
              dateModified = &quot;2009-02-15 16:33:14Z&quot;,
-             revisionId   = &quot;c04e23a0d v3.2.3+build.1 2018-08-01 12:00:00 +0200&quot;);
+             revisionId   = &quot;c04e23a0d 2018-08-01 12:00:00 +0200&quot;);
   ...
   <strong>end</strong> Modelica;</pre>
 <h5>Related annotations:</h5>
@@ -6927,7 +6927,7 @@ annotation (
   versionBuild=1,
   versionDate="2016-01-15",
   dateModified = "2016-01-15 08:44:41Z",
-  revisionId="$Format:%h %s %ci$",
+  revisionId="$Format:%h %ci$",
   Documentation(info="<html>
 <p>
 This package is a reference to Modelica keywords,

@@ -53,7 +53,7 @@ end testAllFunctions;
        versionBuild=1,
        versionDate="2018-08-01",
        dateModified = "2018-04-20 12:00:00Z",
-       revisionId="$Format:%h %s %ci$",
+       revisionId="$Format:%h %ci$",
        uses(Modelica(version="3.2.3")),
     Documentation(info="<html>
 <p>
