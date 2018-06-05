@@ -1096,6 +1096,10 @@ For parameters, connectors, as well as inputs and outputs of function automatic 
       <td>single phase, singlephase, one phase, one-phase, onephase, 1 phase, 1-phase</td>
     </tr>
      <tr>
+      <td><a href=\"http://www.electropedia.org/iev/iev.nsf/display?openform&amp;ievref=113-04-08\">quasi-static</a></td>
+      <td>quasistatic, quasi static</td>
+    </tr>
+     <tr>
       <td><a href=\"http://www.electropedia.org/iev/iev.nsf/display?openform&amp;ievref=811-12-22\">three-phase</a></td>
       <td>three phase, threephase, 3 phase, 3-phase</td>
     </tr>
@@ -1123,6 +1127,10 @@ For parameters, connectors, as well as inputs and outputs of function automatic 
     <tr>
       <td><a href=\"http://www.electropedia.org/iev/iev.nsf/display?openform&amp;ievref=121-11-60\">magnetomotive force</a></td>
       <td>magneto motive force</td>
+    </tr>
+     <tr>
+      <td><a href=\"http://www.electropedia.org/iev/iev.nsf/display?openform&amp;ievref=113-04-08\">quasi-static</a></td>
+      <td>quasistatic, quasi static</td>
     </tr>
 </table>
 

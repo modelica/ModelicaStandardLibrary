@@ -7328,13 +7328,13 @@ This package provides sensors for the magnetic potential difference and the magn
 
   package Interfaces "Interfaces"
     extends Modelica.Icons.InterfacesPackage;
-    connector MagneticPort "Quasi static magnetic port of fundamental wave machines"
+    connector MagneticPort "Quasi-static magnetic port of fundamental wave machines"
       Modelica.SIunits.ComplexMagneticPotential V_m
         "Complex magnetic potential at the port";
       flow Modelica.SIunits.ComplexMagneticFlux Phi
         "Complex magnetic flux flowing into the port";
       annotation (Documentation(info="<html>
-<p>Base definition of complex quasi static magnetic port. The potential variable is the complex magnetic potential 
+<p>Base definition of complex quasi-static magnetic port. The potential variable is the complex magnetic potential 
 <code>V_m</code> and the flow variable is the complex magnetic flux <code>Phi</code>.</p>
 
 <h4>See also</h4>
@@ -7347,7 +7347,7 @@ This package provides sensors for the magnetic potential difference and the magn
 </html>"));
     end MagneticPort;
 
-    connector PositiveMagneticPort "Positive quasi static magnetic port of fundamental wave machines"
+    connector PositiveMagneticPort "Positive quasi-static magnetic port of fundamental wave machines"
       extends FundamentalWave.Interfaces.MagneticPort;
       Modelica.Electrical.QuasiStationary.Types.Reference reference "Reference";
       annotation (
@@ -7370,7 +7370,7 @@ This package provides sensors for the magnetic potential difference and the magn
 <p>
 The positive port is based on
 <a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Interfaces.MagneticPort\">MagneticPort</a>.
-Additionally the reference angle is specified in the connector. The time derivative of the reference angle is the actual angular velocity of the quasi static voltage and current. The symbol is also designed such way to look different than the
+Additionally the reference angle is specified in the connector. The time derivative of the reference angle is the actual angular velocity of the quasi-static voltage and current. The symbol is also designed such way to look different than the
 <a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Interfaces.NegativeMagneticPort\">NegativeMagneticPort</a>.
 </p>
 
@@ -7383,7 +7383,7 @@ Additionally the reference angle is specified in the connector. The time derivat
 </html>"));
     end PositiveMagneticPort;
 
-    connector NegativeMagneticPort "Negative quasi static magnetic port of fundamental wave machines"
+    connector NegativeMagneticPort "Negative quasi-static magnetic port of fundamental wave machines"
       extends FundamentalWave.Interfaces.MagneticPort;
       Modelica.Electrical.QuasiStationary.Types.Reference reference "Reference";
       annotation (
@@ -7405,7 +7405,7 @@ Additionally the reference angle is specified in the connector. The time derivat
 
 <p>
 The negative pin is based on <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.Pin\">Pin</a>.
-Additionally the reference angle is specified in the connector. The time derivative of the reference angle is the actual angular velocity of the quasi static voltage and current. The symbol is also designed such way to look different than the <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.PositivePin\">positive pin</a>.
+Additionally the reference angle is specified in the connector. The time derivative of the reference angle is the actual angular velocity of the quasi-static voltage and current. The symbol is also designed such way to look different than the <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.PositivePin\">positive pin</a>.
 </p>
 
 <h4>See also</h4>
@@ -7421,10 +7421,10 @@ Additionally the reference angle is specified in the connector. The time derivat
       Modelica.SIunits.AngularVelocity omega=der(port_p.reference.gamma)
         "Reference angular velocity (= der(port_p.reference.gamma))";
       FundamentalWave.Interfaces.PositiveMagneticPort port_p
-        "Positive quasi static magnetic port of fundamental wave machines" annotation (Placement(
+        "Positive quasi-static magnetic port of fundamental wave machines" annotation (Placement(
             transformation(extent={{-110,-10},{-90,10}})));
       FundamentalWave.Interfaces.NegativeMagneticPort port_n
-        "Negative quasi static magnetic port of fundamental wave machines" annotation (Placement(
+        "Negative quasi-static magnetic port of fundamental wave machines" annotation (Placement(
             transformation(extent={{90,-10},{110,10}})));
     equation
       Connections.branch(port_p.reference, port_n.reference);
