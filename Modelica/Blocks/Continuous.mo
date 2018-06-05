@@ -1256,7 +1256,7 @@ limit yMax, this option assumes y = yMax as a simplified model.</li>
 <li><strong>homotopyType=LowerLimit</strong>: if it is known a priori the controller will be stuck at the lower
 limit yMin, this option assumes y = yMin as a simplified model.</li>
 <li><strong>homotopyType=NoHomotopy</strong>: this option does not apply any simplification and keeps the
-limiter active throughout the homotopy transformation. Use this if it it unknown whether the controller
+limiter active throughout the homotopy transformation. Use this if it is unknown whether the controller
 is saturated or not at initialization and if the limitations on the output must be enforced throughout 
 the entire homotopy transformation.</li>
 </ul>
