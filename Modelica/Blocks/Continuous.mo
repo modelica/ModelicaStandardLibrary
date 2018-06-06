@@ -918,11 +918,7 @@ to compute u by an algebraic equation.
       annotation(Dialog(enable=withFeedForward));
     parameter .Modelica.Blocks.Types.InitPID initType= .Modelica.Blocks.Types.InitPID.DoNotUse_InitialIntegratorState
       "Type of initialization (1: no init, 2: steady state, 3: initial state, 4: initial output)"
-       annotation(Evaluate=true,
-        Dialog(group="Initialization"));
-    parameter Boolean limitsAtInit=true
-  "Has no longer an effect and is only kept for backwards compatibility (the implementation uses now the homotopy operator)"
-      annotation (Dialog(tab="Dummy"),Evaluate=true, choices(checkBox=true));
+      annotation(Evaluate=true, Dialog(group="Initialization"));
     parameter Real xi_start=0
       "Initial or guess value for integrator output (= integrator state)"
       annotation (Dialog(group="Initialization",
@@ -936,11 +932,14 @@ to compute u by an algebraic equation.
     parameter Real y_start=0 "Initial value of output"
       annotation(Dialog(enable=initType == .Modelica.Blocks.Types.InitPID.InitialOutput, group=
             "Initialization"));
-    parameter Boolean strict=false "= true, if strict limits with noEvent(..)"
-      annotation (Evaluate=true, choices(checkBox=true), Dialog(tab="Advanced"));
     parameter Modelica.Blocks.Types.LimiterHomotopy homotopyType = Modelica.Blocks.Types.LimiterHomotopy.Linear
       "Simplified model for homotopy-based initialization"
       annotation (Evaluate=true, Dialog(group="Initialization"));
+    parameter Boolean strict=false "= true, if strict limits with noEvent(..)"
+      annotation (Evaluate=true, choices(checkBox=true), Dialog(tab="Advanced"));
+    parameter Boolean limitsAtInit=true
+      "Has no longer an effect and is only kept for backwards compatibility (the implementation uses now the homotopy operator)"
+      annotation (Dialog(tab="Dummy"),Evaluate=true, choices(checkBox=true));
     constant Modelica.SIunits.Time unitTime=1 annotation (HideResult=true);
     Modelica.Blocks.Interfaces.RealInput u_ff if withFeedForward
       "Optional connector of feed-forward input signal"

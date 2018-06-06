@@ -11,7 +11,7 @@ package Nonlinear
       "= true, if strict limits with noEvent(..)"
           annotation (Evaluate=true, choices(checkBox=true), Dialog(tab="Advanced"));
         parameter Types.LimiterHomotopy homotopyType = Modelica.Blocks.Types.LimiterHomotopy.Linear "Simplified model for homotopy-based initialization"
-          annotation (Evaluate=true, Dialog(tab="Advanced"));
+          annotation (Evaluate=true, Dialog(group="Initialization"));
         parameter Boolean limitsAtInit=true
       "Has no longer an effect and is only kept for backwards compatibility (the implementation uses now the homotopy operator)"
           annotation (Dialog(tab="Dummy"),Evaluate=true, choices(checkBox=true));
@@ -133,7 +133,7 @@ a lot by removing one strong nonlinearity from the initialization problem.
     parameter Boolean strict=false "= true, if strict limits with noEvent(..)"
       annotation (Evaluate=true, choices(checkBox=true));
     parameter Types.VariableLimiterHomotopy homotopyType = Modelica.Blocks.Types.VariableLimiterHomotopy.Linear "Simplified model for homotopy-based initialization"
-      annotation (Evaluate=true, Dialog(tab="Advanced"));
+      annotation (Evaluate=true, Dialog(group="Initialization"));
     parameter Real ySimplified = 0 "Fixed value of output in simplified model"
       annotation (Dialog(tab="Advanced"));
     parameter Boolean limitsAtInit=true
