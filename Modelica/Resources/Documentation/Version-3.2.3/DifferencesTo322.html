@@ -11136,6 +11136,36 @@ style="font-weight: bold;">Modelica 3.2.2</span><br>
 </table>
 
 <br><hr style="width: 100%; height: 6px;"><br>
+<big style="font-family: Arial;">model Fluid.Pipes.BaseClasses.FlowModels.PartialGenericPipeFlow</big><br><br>
+<br><table style="border-collapse: collapse;text-align: left; width: 100%;" 
+ cellpadding="5">
+<colgroup span="3"><col width="50%"><col width="50%"></colgroup><tbody>
+<tr>
+<td style="vertical-align: middle; text-align: center;"><b>Equations in Modelica 3.2.3</b>
+</td>
+<td style="vertical-align: middle; text-align: center;"><b> Equations in Modelica 3.2.2</b>
+</td>
+</tr>
+<tr>
+<td colspan="2"
+style="vertical-align: middle; text-align: left;"><br> ... <br>equation<br>&nbsp&nbspfor i in 1:n-1 loop
+</td>
+</tr>
+<tr>
+<td style="vertical-align: middle; text-align: left;">      assert(m_flows[i] &gt; -m_flow_small or allowFlowReversal, <span style="color: rgb(0, 153, 0); font-weight: bold;">"Reversing </span>flow occurs even though allowFlowReversal is false");
+</td>
+<td style="vertical-align: middle; text-align: left;">      assert(m_flows[i] &gt; -m_flow_small or allowFlowReversal, <span style="color: rgb(102, 0, 204); font-weight: bold;">"Reverting </span>flow occurs even though allowFlowReversal is false");
+</td>
+</tr>
+<tr>
+<td colspan="2"
+style="vertical-align: middle; text-align: left;">  end for;<br> ... <br>
+</td>
+</tr>
+<br></tbody>
+</table>
+
+<br><hr style="width: 100%; height: 6px;"><br>
 <big style="font-family: Arial;">model Fluid.Pipes.BaseClasses.WallFriction.TestWallFrictionAndGravity</big><br><br>
 <table style="border-collapse: collapse;text-align: left; width: 100%;height: 66px;" 
  cellpadding="5">
@@ -11361,6 +11391,36 @@ style="vertical-align: middle; text-align: left;"><br> ... <br>  ind:= -1;
 <tr>
 <td colspan="2"
 style="vertical-align: middle; text-align: left;">if (Modelica323.Utilities.Strings.isEqual(Medium.substanceNames[i],<br>&nbsp&nbspsubstanceName)) then<br> ... <br>
+</td>
+</tr>
+<br></tbody>
+</table>
+
+<br><hr style="width: 100%; height: 6px;"><br>
+<big style="font-family: Arial;">model Fluid.Interfaces.PartialTwoPortTransport</big><br><br>
+<br><table style="border-collapse: collapse;text-align: left; width: 100%;" 
+ cellpadding="5">
+<colgroup span="3"><col width="50%"><col width="50%"></colgroup><tbody>
+<tr>
+<td style="vertical-align: middle; text-align: center;"><b>Equations in Modelica 3.2.3</b>
+</td>
+<td style="vertical-align: middle; text-align: center;"><b> Equations in Modelica 3.2.2</b>
+</td>
+</tr>
+<tr>
+<td colspan="2"
+style="vertical-align: middle; text-align: left;"><br> ... <br>  m_flow = port_a.m_flow;
+</td>
+</tr>
+<tr>
+<td style="vertical-align: middle; text-align: left;">  assert(m_flow &gt; -m_flow_small or allowFlowReversal, <span style="color: rgb(0, 153, 0); font-weight: bold;">"Reversing </span>flow occurs even though allowFlowReversal is false");
+</td>
+<td style="vertical-align: middle; text-align: left;">  assert(m_flow &gt; -m_flow_small or allowFlowReversal, <span style="color: rgb(102, 0, 204); font-weight: bold;">"Reverting </span>flow occurs even though allowFlowReversal is false");
+</td>
+</tr>
+<tr>
+<td colspan="2"
+style="vertical-align: middle; text-align: left;">  port_a.m_flow + port_b.m_flow = 0;<br> ... <br>
 </td>
 </tr>
 <br></tbody>
@@ -12774,8 +12834,8 @@ style="vertical-align: middle; text-align: left;">  o[1] =  -650.17534844798 + T
 </table>
 
 <br><hr style="width: 100%; height: 6px;"><br>
-<big style="font-family: Arial;">model Thermal.FluidHeatFlow.Examples.ParallelCooling</big><br><br>
-<table style="border-collapse: collapse;text-align: left; width: 100%;height: 66px;" 
+<big style="font-family: Arial;">model Thermal.FluidHeatFlow.Examples.SimpleCooling</big><br><br>
+<table style="border-collapse: collapse;text-align: left; width: 100%;height: 88px;" 
  cellpadding="5">
 <colgroup span="3"><col width="10%"><col width="45%"><col width="45%"></colgroup><tbody>
 <tr>
@@ -12788,12 +12848,48 @@ style="font-weight: bold;">Modelica 3.2.3</span><br>
 <td style="text-align: left; vertical-align: middle;"><span
 style="font-weight: bold;">Modelica 3.2.2</span><br>
 </td>
-</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">pipe1<br></td><td style="text-align: left; vertical-align: middle;">  <br></td><td style="text-align: left; vertical-align: middle;">V_flow(start=0)<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">pipe2<br></td><td style="text-align: left; vertical-align: middle;">  <br></td><td style="text-align: left; vertical-align: middle;">V_flow(start=0)<br></td></tr></tbody>
+</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">medium<br></td><td style="text-align: left; vertical-align: middle;">=Modelica323.Thermal.FluidHeatFlow.Media.Medium()<br></td><td style="text-align: left; vertical-align: middle;">=FluidHeatFlow.Media.Medium()<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">dTtoPipe<br></td><td style="text-align: left; vertical-align: middle;">=prescribedHeatFlow.port.T - pipe.T_q<br></td><td style="text-align: left; vertical-align: middle;">=prescribedHeatFlow.port.T - pipe.heatPort.T<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">pipe<br></td><td style="text-align: left; vertical-align: middle;"><b>Thermal.FluidHeatFlow.Components.Pipe</b><br></td><td style="text-align: left; vertical-align: middle;"><b>Thermal.FluidHeatFlow.Components.HeatedPipe</b><br></td></tr></tbody>
+</table>
+
+<br><hr style="width: 100%; height: 6px;"><br>
+<big style="font-family: Arial;">model Thermal.FluidHeatFlow.Examples.ParallelCooling</big><br><br>
+<table style="border-collapse: collapse;text-align: left; width: 100%;height: 154px;" 
+ cellpadding="5">
+<colgroup span="3"><col width="10%"><col width="45%"><col width="45%"></colgroup><tbody>
+<tr>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Component</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.3</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.2</span><br>
+</td>
+</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">medium<br></td><td style="text-align: left; vertical-align: middle;">=Modelica323.Thermal.FluidHeatFlow.Media.Medium()<br></td><td style="text-align: left; vertical-align: middle;">=FluidHeatFlow.Media.Medium()<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">dTtoPipe1<br></td><td style="text-align: left; vertical-align: middle;">=prescribedHeatFlow1.port.T - pipe1.T_q<br></td><td style="text-align: left; vertical-align: middle;">=prescribedHeatFlow1.port.T - pipe1.heatPort.T<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">dTtoPipe2<br></td><td style="text-align: left; vertical-align: middle;">=prescribedHeatFlow2.port.T - pipe2.T_q<br></td><td style="text-align: left; vertical-align: middle;">=prescribedHeatFlow2.port.T - pipe2.heatPort.T<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">pipe1<br></td><td style="text-align: left; vertical-align: middle;"><b>Thermal.FluidHeatFlow.Components.Pipe</b><br></td><td style="text-align: left; vertical-align: middle;"><b>Thermal.FluidHeatFlow.Components.HeatedPipe</b><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">pipe2<br></td><td style="text-align: left; vertical-align: middle;"><b>Thermal.FluidHeatFlow.Components.Pipe</b><br></td><td style="text-align: left; vertical-align: middle;"><b>Thermal.FluidHeatFlow.Components.HeatedPipe</b><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">pipe3<br></td><td style="text-align: left; vertical-align: middle;"><b>Thermal.FluidHeatFlow.Components.Pipe</b><br></td><td style="text-align: left; vertical-align: middle;"><b>Thermal.FluidHeatFlow.Components.IsolatedPipe</b><br></td></tr></tbody>
+</table>
+
+<br><hr style="width: 100%; height: 6px;"><br>
+<big style="font-family: Arial;">model Thermal.FluidHeatFlow.Examples.IndirectCooling</big><br><br>
+<table style="border-collapse: collapse;text-align: left; width: 100%;height: 176px;" 
+ cellpadding="5">
+<colgroup span="3"><col width="10%"><col width="45%"><col width="45%"></colgroup><tbody>
+<tr>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Component</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.3</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.2</span><br>
+</td>
+</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">outerMedium<br></td><td style="text-align: left; vertical-align: middle;">=Modelica323.Thermal.FluidHeatFlow.Media.Medium()<br></td><td style="text-align: left; vertical-align: middle;">=FluidHeatFlow.Media.Medium()<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">innerMedium<br></td><td style="text-align: left; vertical-align: middle;">=Modelica323.Thermal.FluidHeatFlow.Media.Medium()<br></td><td style="text-align: left; vertical-align: middle;">=FluidHeatFlow.Media.Medium()<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">dTtoPipe<br></td><td style="text-align: left; vertical-align: middle;">=prescribedHeatFlow.port.T - pipe1.T_q<br></td><td style="text-align: left; vertical-align: middle;">=prescribedHeatFlow.port.T - pipe1.heatPort.T<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">dTCooler<br></td><td style="text-align: left; vertical-align: middle;">=innerPipe.T_q - outerPipe.T_q<br></td><td style="text-align: left; vertical-align: middle;">=innerPipe.heatPort.T - outerPipe.heatPort.T<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">pipe1<br></td><td style="text-align: left; vertical-align: middle;"><b>Thermal.FluidHeatFlow.Components.Pipe</b><br></td><td style="text-align: left; vertical-align: middle;"><b>Thermal.FluidHeatFlow.Components.HeatedPipe</b><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">outerPipe<br></td><td style="text-align: left; vertical-align: middle;"><b>Thermal.FluidHeatFlow.Components.Pipe</b><br></td><td style="text-align: left; vertical-align: middle;"><b>Thermal.FluidHeatFlow.Components.HeatedPipe</b><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">innerPipe<br></td><td style="text-align: left; vertical-align: middle;"><b>Thermal.FluidHeatFlow.Components.Pipe</b><br></td><td style="text-align: left; vertical-align: middle;"><b>Thermal.FluidHeatFlow.Components.HeatedPipe</b><br></td></tr></tbody>
 </table>
 
 <br><hr style="width: 100%; height: 6px;"><br>
 <big style="font-family: Arial;">model Thermal.FluidHeatFlow.Examples.PumpAndValve</big><br><br>
-<table style="border-collapse: collapse;text-align: left; width: 100%;height: 44px;" 
+<table style="border-collapse: collapse;text-align: left; width: 100%;height: 110px;" 
  cellpadding="5">
 <colgroup span="3"><col width="10%"><col width="45%"><col width="45%"></colgroup><tbody>
 <tr>
@@ -12806,12 +12902,30 @@ style="font-weight: bold;">Modelica 3.2.3</span><br>
 <td style="text-align: left; vertical-align: middle;"><span
 style="font-weight: bold;">Modelica 3.2.2</span><br>
 </td>
-</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">idealPump<br></td><td style="text-align: left; vertical-align: middle;">  <br></td><td style="text-align: left; vertical-align: middle;">V_flow(start=0)<br></td></tr></tbody>
+</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">medium<br></td><td style="text-align: left; vertical-align: middle;">=Modelica323.Thermal.FluidHeatFlow.Media.Medium()<br></td><td style="text-align: left; vertical-align: middle;">=FluidHeatFlow.Media.Medium()<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">dTtoPipe<br></td><td style="text-align: left; vertical-align: middle;">=prescribedHeatFlow.port.T - pipe.T_q<br></td><td style="text-align: left; vertical-align: middle;">=prescribedHeatFlow.port.T - pipe.heatPort.T<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">idealPump<br></td><td style="text-align: left; vertical-align: middle;">  <br></td><td style="text-align: left; vertical-align: middle;">V_flow(start=0)<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">pipe<br></td><td style="text-align: left; vertical-align: middle;"><b>Thermal.FluidHeatFlow.Components.Pipe</b><br></td><td style="text-align: left; vertical-align: middle;"><b>Thermal.FluidHeatFlow.Components.HeatedPipe</b><br></td></tr></tbody>
+</table>
+
+<br><hr style="width: 100%; height: 6px;"><br>
+<big style="font-family: Arial;">model Thermal.FluidHeatFlow.Examples.PumpDropOut</big><br><br>
+<table style="border-collapse: collapse;text-align: left; width: 100%;height: 88px;" 
+ cellpadding="5">
+<colgroup span="3"><col width="10%"><col width="45%"><col width="45%"></colgroup><tbody>
+<tr>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Component</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.3</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.2</span><br>
+</td>
+</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">medium<br></td><td style="text-align: left; vertical-align: middle;">=Modelica323.Thermal.FluidHeatFlow.Media.Medium()<br></td><td style="text-align: left; vertical-align: middle;">=FluidHeatFlow.Media.Medium()<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">dTtoPipe<br></td><td style="text-align: left; vertical-align: middle;">=prescribedHeatFlow.port.T - pipe.T_q<br></td><td style="text-align: left; vertical-align: middle;">=prescribedHeatFlow.port.T - pipe.heatPort.T<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">pipe<br></td><td style="text-align: left; vertical-align: middle;"><b>Thermal.FluidHeatFlow.Components.Pipe</b><br></td><td style="text-align: left; vertical-align: middle;"><b>Thermal.FluidHeatFlow.Components.HeatedPipe</b><br></td></tr></tbody>
 </table>
 
 <br><hr style="width: 100%; height: 6px;"><br>
 <big style="font-family: Arial;">model Thermal.FluidHeatFlow.Examples.ParallelPumpDropOut</big><br><br>
-<table style="border-collapse: collapse;text-align: left; width: 100%;height: 66px;" 
+<table style="border-collapse: collapse;text-align: left; width: 100%;height: 154px;" 
  cellpadding="5">
 <colgroup span="3"><col width="10%"><col width="45%"><col width="45%"></colgroup><tbody>
 <tr>
@@ -12824,12 +12938,30 @@ style="font-weight: bold;">Modelica 3.2.3</span><br>
 <td style="text-align: left; vertical-align: middle;"><span
 style="font-weight: bold;">Modelica 3.2.2</span><br>
 </td>
-</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">pipe1<br></td><td style="text-align: left; vertical-align: middle;">  <br></td><td style="text-align: left; vertical-align: middle;">V_flow(start=0)<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">pipe2<br></td><td style="text-align: left; vertical-align: middle;">  <br></td><td style="text-align: left; vertical-align: middle;">V_flow(start=0)<br></td></tr></tbody>
+</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">medium<br></td><td style="text-align: left; vertical-align: middle;">=Modelica323.Thermal.FluidHeatFlow.Media.Medium()<br></td><td style="text-align: left; vertical-align: middle;">=FluidHeatFlow.Media.Medium()<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">dTtoPipe1<br></td><td style="text-align: left; vertical-align: middle;">=prescribedHeatFlow1.port.T - pipe1.T_q<br></td><td style="text-align: left; vertical-align: middle;">=prescribedHeatFlow1.port.T - pipe1.heatPort.T<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">dTtoPipe2<br></td><td style="text-align: left; vertical-align: middle;">=prescribedHeatFlow2.port.T - pipe2.T_q<br></td><td style="text-align: left; vertical-align: middle;">=prescribedHeatFlow2.port.T - pipe2.heatPort.T<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">pipe1<br></td><td style="text-align: left; vertical-align: middle;"><b>Thermal.FluidHeatFlow.Components.Pipe</b><br></td><td style="text-align: left; vertical-align: middle;"><b>Thermal.FluidHeatFlow.Components.HeatedPipe</b><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">pipe2<br></td><td style="text-align: left; vertical-align: middle;"><b>Thermal.FluidHeatFlow.Components.Pipe</b><br></td><td style="text-align: left; vertical-align: middle;"><b>Thermal.FluidHeatFlow.Components.HeatedPipe</b><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">pipe3<br></td><td style="text-align: left; vertical-align: middle;"><b>Thermal.FluidHeatFlow.Components.Pipe</b><br></td><td style="text-align: left; vertical-align: middle;"><b>Thermal.FluidHeatFlow.Components.IsolatedPipe</b><br></td></tr></tbody>
+</table>
+
+<br><hr style="width: 100%; height: 6px;"><br>
+<big style="font-family: Arial;">model Thermal.FluidHeatFlow.Examples.OneMass</big><br><br>
+<table style="border-collapse: collapse;text-align: left; width: 100%;height: 88px;" 
+ cellpadding="5">
+<colgroup span="3"><col width="10%"><col width="45%"><col width="45%"></colgroup><tbody>
+<tr>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Component</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.3</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.2</span><br>
+</td>
+</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">medium<br></td><td style="text-align: left; vertical-align: middle;">=Modelica323.Thermal.FluidHeatFlow.Media.Medium()<br></td><td style="text-align: left; vertical-align: middle;">=FluidHeatFlow.Media.Medium()<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">dTtoPipe<br></td><td style="text-align: left; vertical-align: middle;">=heatCapacitor.port.T - pipe.T_q<br></td><td style="text-align: left; vertical-align: middle;">=heatCapacitor.port.T - pipe.heatPort.T<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">pipe<br></td><td style="text-align: left; vertical-align: middle;"><b>Thermal.FluidHeatFlow.Components.Pipe</b><br></td><td style="text-align: left; vertical-align: middle;"><b>Thermal.FluidHeatFlow.Components.HeatedPipe</b><br></td></tr></tbody>
 </table>
 
 <br><hr style="width: 100%; height: 6px;"><br>
 <big style="font-family: Arial;">model Thermal.FluidHeatFlow.Examples.TwoMass</big><br><br>
-<table style="border-collapse: collapse;text-align: left; width: 100%;height: 66px;" 
+<table style="border-collapse: collapse;text-align: left; width: 100%;height: 154px;" 
  cellpadding="5">
 <colgroup span="3"><col width="10%"><col width="45%"><col width="45%"></colgroup><tbody>
 <tr>
@@ -12842,7 +12974,7 @@ style="font-weight: bold;">Modelica 3.2.3</span><br>
 <td style="text-align: left; vertical-align: middle;"><span
 style="font-weight: bold;">Modelica 3.2.2</span><br>
 </td>
-</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">pipe1<br></td><td style="text-align: left; vertical-align: middle;">  <br></td><td style="text-align: left; vertical-align: middle;">V_flow(start=0)<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">pipe2<br></td><td style="text-align: left; vertical-align: middle;">  <br></td><td style="text-align: left; vertical-align: middle;">V_flow(start=0)<br></td></tr></tbody>
+</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">medium<br></td><td style="text-align: left; vertical-align: middle;">=Modelica323.Thermal.FluidHeatFlow.Media.Medium()<br></td><td style="text-align: left; vertical-align: middle;">=FluidHeatFlow.Media.Medium()<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">dTtoPipe1<br></td><td style="text-align: left; vertical-align: middle;">=heatCapacitor1.port.T - pipe1.T_q<br></td><td style="text-align: left; vertical-align: middle;">=heatCapacitor1.port.T - pipe1.heatPort.T<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">dTtoPipe2<br></td><td style="text-align: left; vertical-align: middle;">=heatCapacitor2.port.T - pipe2.T_q<br></td><td style="text-align: left; vertical-align: middle;">=heatCapacitor2.port.T - pipe2.heatPort.T<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">pipe1<br></td><td style="text-align: left; vertical-align: middle;"><b>Thermal.FluidHeatFlow.Components.Pipe</b><br></td><td style="text-align: left; vertical-align: middle;"><b>Thermal.FluidHeatFlow.Components.HeatedPipe</b><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">pipe2<br></td><td style="text-align: left; vertical-align: middle;"><b>Thermal.FluidHeatFlow.Components.Pipe</b><br></td><td style="text-align: left; vertical-align: middle;"><b>Thermal.FluidHeatFlow.Components.HeatedPipe</b><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">pipe3<br></td><td style="text-align: left; vertical-align: middle;"><b>Thermal.FluidHeatFlow.Components.Pipe</b><br></td><td style="text-align: left; vertical-align: middle;"><b>Thermal.FluidHeatFlow.Components.IsolatedPipe</b><br></td></tr></tbody>
 </table>
 
 <br><hr style="width: 100%; height: 6px;"><br>
@@ -12860,7 +12992,7 @@ style="font-weight: bold;">Modelica 3.2.3</span><br>
 <td style="text-align: left; vertical-align: middle;"><span
 style="font-weight: bold;">Modelica 3.2.2</span><br>
 </td>
-</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">g<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr></tbody>
+</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">h_g<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr></tbody>
 </table>
 
 <br><table style="border-collapse: collapse;text-align: left; width: 100%;" 
@@ -12873,19 +13005,8 @@ style="font-weight: bold;">Modelica 3.2.2</span><br>
 </td>
 </tr>
 <tr>
-<td colspan="2"
-style="vertical-align: middle; text-align: left;">  volumeFlow = V_flow;
-</td>
-</tr>
-<tr>
-<td style="vertical-align: middle; text-align: left;"><span style="color: rgb(0, 153, 0); font-weight: bold;">  </span>dp = pressureDrop + medium.<span style="color: rgb(0, 153, 0); font-weight: bold;">rho*g*h_g;</span>
-</td>
-<td style="vertical-align: middle; text-align: left;">dp = pressureDrop + medium.<span style="color: rgb(102, 0, 204); font-weight: bold;">rho*Modelica322.</span><span style="color: rgb(102, 0, 204); font-weight: bold;">Constants.g_n*h_g;</span>
-</td>
-</tr>
-<tr>
-<td colspan="2"
-style="vertical-align: middle; text-align: left;">  Q_flow = Q_friction;
+<td><br></td>
+<td style="vertical-align: middle; text-align: left;">  volumeFlow = V_flow;<br>dp = pressureDrop + medium.rho*Modelica322.Constants.g_n*h_g;<br>  Q_flow = Q_friction;<br>
 </td>
 </tr>
 <br></tbody>
@@ -12893,7 +13014,7 @@ style="vertical-align: middle; text-align: left;">  Q_flow = Q_friction;
 
 <br><hr style="width: 100%; height: 6px;"><br>
 <big style="font-family: Arial;">model Thermal.FluidHeatFlow.Components.HeatedPipe</big><br><br>
-<table style="border-collapse: collapse;text-align: left; width: 100%;height: 44px;" 
+<table style="border-collapse: collapse;text-align: left; width: 100%;height: 66px;" 
  cellpadding="5">
 <colgroup span="3"><col width="10%"><col width="45%"><col width="45%"></colgroup><tbody>
 <tr>
@@ -12906,7 +13027,7 @@ style="font-weight: bold;">Modelica 3.2.3</span><br>
 <td style="text-align: left; vertical-align: middle;"><span
 style="font-weight: bold;">Modelica 3.2.2</span><br>
 </td>
-</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">g<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr></tbody>
+</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">h_g<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">heatPort<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr></tbody>
 </table>
 
 <br><table style="border-collapse: collapse;text-align: left; width: 100%;" 
@@ -12919,19 +13040,8 @@ style="font-weight: bold;">Modelica 3.2.2</span><br>
 </td>
 </tr>
 <tr>
-<td colspan="2"
-style="vertical-align: middle; text-align: left;">  volumeFlow = V_flow;
-</td>
-</tr>
-<tr>
-<td style="vertical-align: middle; text-align: left;"><span style="color: rgb(0, 153, 0); font-weight: bold;">  </span>dp = pressureDrop + medium.<span style="color: rgb(0, 153, 0); font-weight: bold;">rho*g*h_g;</span>
-</td>
-<td style="vertical-align: middle; text-align: left;">dp = pressureDrop + medium.<span style="color: rgb(102, 0, 204); font-weight: bold;">rho*Modelica322.</span><span style="color: rgb(102, 0, 204); font-weight: bold;">Constants.g_n*h_g;</span>
-</td>
-</tr>
-<tr>
-<td colspan="2"
-style="vertical-align: middle; text-align: left;">  Q_flow = heatPort.Q_flow + Q_friction;<br> ... <br>
+<td><br></td>
+<td style="vertical-align: middle; text-align: left;">  volumeFlow = V_flow;<br>dp = pressureDrop + medium.rho*Modelica322.Constants.g_n*h_g;<br>  Q_flow = heatPort.Q_flow + Q_friction;<br>  heatPort.T = T_q;<br>
 </td>
 </tr>
 <br></tbody>
@@ -12956,8 +13066,8 @@ style="font-weight: bold;">Modelica 3.2.2</span><br>
 </table>
 
 <br><hr style="width: 100%; height: 6px;"><br>
-<big style="font-family: Arial;">model Thermal.FluidHeatFlow.Sources.IdealPump</big><br><br>
-<table style="border-collapse: collapse;text-align: left; width: 100%;height: 176px;" 
+<big style="font-family: Arial;">model Thermal.FluidHeatFlow.Interfaces.Partials.TwoPort</big><br><br>
+<table style="border-collapse: collapse;text-align: left; width: 100%;height: 110px;" 
  cellpadding="5">
 <colgroup span="3"><col width="10%"><col width="45%"><col width="45%"></colgroup><tbody>
 <tr>
@@ -12970,7 +13080,25 @@ style="font-weight: bold;">Modelica 3.2.3</span><br>
 <td style="text-align: left; vertical-align: middle;"><span
 style="font-weight: bold;">Modelica 3.2.2</span><br>
 </td>
-</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">wNominal<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">dp0<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">V_flow0<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">w<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">dp1<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">V_flow1<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">flange_a<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr></tbody>
+</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">medium<br></td><td style="text-align: left; vertical-align: middle;">=Modelica323.Thermal.FluidHeatFlow.Media.Medium()<br></td><td style="text-align: left; vertical-align: middle;">=FluidHeatFlow.Media.Medium()<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">V_flow<br></td><td style="text-align: left; vertical-align: middle;">start=0<br></td><td style="text-align: left; vertical-align: middle;">  <br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">T_q<br></td><td style="text-align: left; vertical-align: middle;">  <br></td><td style="text-align: left; vertical-align: middle;"><b>protected</b><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">h<br></td><td style="text-align: left; vertical-align: middle;">start=medium.cp*T0<br></td><td style="text-align: left; vertical-align: middle;">  <br></td></tr></tbody>
+</table>
+
+<br><hr style="width: 100%; height: 6px;"><br>
+<big style="font-family: Arial;">model Thermal.FluidHeatFlow.Interfaces.Partials.Ambient</big><br><br>
+<table style="border-collapse: collapse;text-align: left; width: 100%;height: 132px;" 
+ cellpadding="5">
+<colgroup span="3"><col width="10%"><col width="45%"><col width="45%"></colgroup><tbody>
+<tr>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Component</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.3</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.2</span><br>
+</td>
+</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">medium<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">T<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">T_port<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">h<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">flowPort<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr></tbody>
 </table>
 
 <br><table style="border-collapse: collapse;text-align: left; width: 100%;" 
@@ -12984,14 +13112,14 @@ style="font-weight: bold;">Modelica 3.2.2</span><br>
 </tr>
 <tr>
 <td><br></td>
-<td style="vertical-align: middle; text-align: left;">  dp1 = dp0*sign(w/wNominal)*(w/wNominal)^2;<br>  V_flow1 = V_flow0*(w/wNominal);<br>if noEvent(abs(w) &lt; Modelica322.Constants.small) then<br>      dp = 0;<br>      flange_a.tau = 0;<br>  else<br>      dp = -dp1*(1-noEvent(abs(V_flow/V_flow1)));<br>      flange_a.tau*w = -dp*V_flow;<br>  end if;<br>  Q_flow = 0;<br>
+<td style="vertical-align: middle; text-align: left;">  T_port=flowPort.h/medium.cp;<br>  h = medium.cp*T;<br>  flowPort.H_flow = semiLinear(flowPort.m_flow,flowPort.h,h);<br>
 </td>
 </tr>
 <br></tbody>
 </table>
 
 <br><hr style="width: 100%; height: 6px;"><br>
-<big style="font-family: Arial;">model Thermal.FluidHeatFlow.Interfaces.Partials.TwoPort</big><br><br>
+<big style="font-family: Arial;">model Thermal.FluidHeatFlow.Interfaces.Partials.AbsoluteSensor</big><br><br>
 <table style="border-collapse: collapse;text-align: left; width: 100%;height: 66px;" 
  cellpadding="5">
 <colgroup span="3"><col width="10%"><col width="45%"><col width="45%"></colgroup><tbody>
@@ -13005,11 +13133,11 @@ style="font-weight: bold;">Modelica 3.2.3</span><br>
 <td style="text-align: left; vertical-align: middle;"><span
 style="font-weight: bold;">Modelica 3.2.2</span><br>
 </td>
-</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">V_flow<br></td><td style="text-align: left; vertical-align: middle;">start=0<br></td><td style="text-align: left; vertical-align: middle;">  <br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">h<br></td><td style="text-align: left; vertical-align: middle;">start=medium.cp*T0<br></td><td style="text-align: left; vertical-align: middle;">  <br></td></tr></tbody>
+</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">medium<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">flowPort<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr></tbody>
 </table>
 
 <br><hr style="width: 100%; height: 6px;"><br>
-<big style="font-family: Arial;">model Thermal.FluidHeatFlow.Interfaces.Partials.Ambient</big><br><br>
+<big style="font-family: Arial;">model Thermal.FluidHeatFlow.Interfaces.Partials.RelativeSensor</big><br><br>
 <table style="border-collapse: collapse;text-align: left; width: 100%;height: 88px;" 
  cellpadding="5">
 <colgroup span="3"><col width="10%"><col width="45%"><col width="45%"></colgroup><tbody>
@@ -13023,7 +13151,7 @@ style="font-weight: bold;">Modelica 3.2.3</span><br>
 <td style="text-align: left; vertical-align: middle;"><span
 style="font-weight: bold;">Modelica 3.2.2</span><br>
 </td>
-</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">medium<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">T_port<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">flowPort<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr></tbody>
+</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">medium<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">flowPort_a<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">flowPort_b<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr></tbody>
 </table>
 
 <br><table style="border-collapse: collapse;text-align: left; width: 100%;" 
@@ -13036,13 +13164,20 @@ style="font-weight: bold;">Modelica 3.2.2</span><br>
 </td>
 </tr>
 <tr>
-<td><br></td>
-<td style="vertical-align: middle; text-align: left;">  T_port=flowPort.h/medium.cp;<br>
+<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(0, 153, 0); font-weight: bold;">V_flow </span>= 0;
+</td>
+<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(102, 0, 204); font-weight: bold;">flowPort_a.</span><span style="color: rgb(102, 0, 204); font-weight: bold;">m_flow </span>= 0;
 </td>
 </tr>
 <tr>
-<td colspan="2"
-style="vertical-align: middle; text-align: left;">  h = medium.cp*T;<br> ... <br>
+<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(0, 153, 0); font-weight: bold;">Q_flow </span>= 0;
+</td>
+<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(102, 0, 204); font-weight: bold;">flowPort_b.</span><span style="color: rgb(102, 0, 204); font-weight: bold;">m_flow </span>= 0;
+</td>
+</tr>
+<tr>
+<td><br></td>
+<td style="vertical-align: middle; text-align: left;">  flowPort_a.H_flow = 0;<br>  flowPort_b.H_flow = 0;<br>
 </td>
 </tr>
 <br></tbody>
@@ -14510,16 +14645,22 @@ style="font-weight: bold;">Modelica 3.2.2</span><br>
 <tr><td style="vertical-align: middle; text-align: left;">model Modelica323.Thermal.FluidHeatFlow.Examples.TwoTanks</td>
 <td style="vertical-align: middle; text-align: left;">Present</td><td style="vertical-align: middle; text-align: left;"><br></td>
 </tr><tr>
-<tr><td style="vertical-align: middle; text-align: left;">model Modelica323.Thermal.FluidHeatFlow.Examples.TestPiston</td>
+<tr><td style="vertical-align: middle; text-align: left;">model Modelica323.Thermal.FluidHeatFlow.Examples.TestCylinder</td>
+<td style="vertical-align: middle; text-align: left;">Present</td><td style="vertical-align: middle; text-align: left;"><br></td>
+</tr><tr>
+<tr><td style="vertical-align: middle; text-align: left;">model Modelica323.Thermal.FluidHeatFlow.Components.Pipe</td>
 <td style="vertical-align: middle; text-align: left;">Present</td><td style="vertical-align: middle; text-align: left;"><br></td>
 </tr><tr>
 <tr><td style="vertical-align: middle; text-align: left;">model Modelica323.Thermal.FluidHeatFlow.Components.OpenTank</td>
 <td style="vertical-align: middle; text-align: left;">Present</td><td style="vertical-align: middle; text-align: left;"><br></td>
 </tr><tr>
-<tr><td style="vertical-align: middle; text-align: left;">model Modelica323.Thermal.FluidHeatFlow.Components.Piston</td>
+<tr><td style="vertical-align: middle; text-align: left;">model Modelica323.Thermal.FluidHeatFlow.Components.Cylinder</td>
 <td style="vertical-align: middle; text-align: left;">Present</td><td style="vertical-align: middle; text-align: left;"><br></td>
 </tr><tr>
 <tr><td style="vertical-align: middle; text-align: left;">model Modelica323.Thermal.FluidHeatFlow.Components.PumpTurbine</td>
+<td style="vertical-align: middle; text-align: left;">Present</td><td style="vertical-align: middle; text-align: left;"><br></td>
+</tr><tr>
+<tr><td style="vertical-align: middle; text-align: left;">model Modelica323.Thermal.FluidHeatFlow.Components.OneWayValve</td>
 <td style="vertical-align: middle; text-align: left;">Present</td><td style="vertical-align: middle; text-align: left;"><br></td>
 </tr><tr>
 <tr><td style="vertical-align: middle; text-align: left;">record Modelica323.Thermal.FluidHeatFlow.Media.Water_10degC</td>
@@ -14549,10 +14690,10 @@ style="font-weight: bold;">Modelica 3.2.2</span><br>
 <tr><td style="vertical-align: middle; text-align: left;">package Modelica323.Thermal.HeatTransfer.Examples.Utilities</td>
 <td style="vertical-align: middle; text-align: left;">Present</td><td style="vertical-align: middle; text-align: left;"><br></td>
 </tr><tr>
-<tr><td style="vertical-align: middle; text-align: left;">model Modelica323.Thermal.HeatTransfer.Components.HeatflowToTemperatureAdaptor</td>
+<tr><td style="vertical-align: middle; text-align: left;">model Modelica323.Thermal.HeatTransfer.Components.GeneralHeatFlowToTemperatureAdaptor</td>
 <td style="vertical-align: middle; text-align: left;">Present</td><td style="vertical-align: middle; text-align: left;"><br></td>
 </tr><tr>
-<tr><td style="vertical-align: middle; text-align: left;">model Modelica323.Thermal.HeatTransfer.Components.TemperatureToHeatflowAdaptor</td>
+<tr><td style="vertical-align: middle; text-align: left;">model Modelica323.Thermal.HeatTransfer.Components.GeneralTemperatureToHeatFlowAdaptor</td>
 <td style="vertical-align: middle; text-align: left;">Present</td><td style="vertical-align: middle; text-align: left;"><br></td>
 </tr><tr>
 <tr><td style="vertical-align: middle; text-align: left;">function Modelica323.Math.wrapAngle</td>
