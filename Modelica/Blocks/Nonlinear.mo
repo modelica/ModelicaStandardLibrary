@@ -23,8 +23,8 @@ package Nonlinear
         assert(uMax >= uMin, "Limiter: Limits must be consistent. However, uMax (=" + String(uMax) +
                              ") < uMin (=" + String(uMin) + ")");
         simplifiedExpr = (if homotopyType == Types.LimiterHomotopy.Linear then u
-                          else if homotopyType == Types.LimiterHomotopy.UMax then uMax
-                          else if homotopyType == Types.LimiterHomotopy.UMin then uMin
+                          else if homotopyType == Types.LimiterHomotopy.UpperLimit then uMax
+                          else if homotopyType == Types.LimiterHomotopy.LowerLimit then uMin
                           else 0);
         if strict then
           if homotopyType == Types.LimiterHomotopy.NoHomotopy then
@@ -55,8 +55,8 @@ simplified behaviour if homotopy-based initialization is used:
 <ul>
 <li><code>NoHomotopy</code>: the actual expression with limits is used</li>
 <li><code>Linear</code>: a linear behaviour y = u is assumed (default option)</li>
-<li><code>UMax</code>: it is assumed that the output is stuck at the upper limit u = uMax</li>
-<li><code>UMin</code>: it is assumed that the output is stuck at the lower limit u = uMin</li>
+<li><code>UpperLimit</code>: it is assumed that the output is stuck at the upper limit u = uMax</li>
+<li><code>LowerLimit</code>: it is assumed that the output is stuck at the lower limit u = uMin</li>
 </ul>
 </p>
 <p>

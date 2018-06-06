@@ -91,14 +91,6 @@ initialization definition.
   </dl>
 </html>"));
 
-  type InitPIDHomotopy = enumeration(
-      NoHomotopy "Full model used for initialization",
-      Linear "No output limitations during simplified initialization",
-      YMax "y = yMax during simplified initialization",
-      YMin "y = yMin during simplified initialization")
-    "Enumeration defining type of homotopy-based initialization for LimPID model" annotation (
-     Evaluate = true);
-
    type SimpleController = enumeration(
       P "P controller",
       PI "PI controller",
@@ -130,10 +122,10 @@ initialization definition.
     "Enumeration defining the regularization around zero";
 
   type LimiterHomotopy = enumeration(
-      NoHomotopy "Simplified model = actual model",
-      Linear "Simplified model: y = u",
-      UMax "Simplified model: y = uMax",
-      UMin "Simplified model: y = uMin")
+      NoHomotopy "Homotopy is not used",
+      Linear "Simplified model without limits",
+      UpperLimit "Simplified model fixed at upper limit",
+      LowerLimit "Simplified model fixed at lower limit")
     "Enumeration defining use of homotopy in limiter components" annotation (Evaluate=true);
 
   type VariableLimiterHomotopy = enumeration(

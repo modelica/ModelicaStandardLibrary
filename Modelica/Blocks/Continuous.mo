@@ -882,8 +882,6 @@ to compute u by an algebraic equation.
     "P, PI, PD, and PID controller with limited output, anti-windup compensation, setpoint weighting and optional feed-forward"
     import Modelica.Blocks.Types.InitPID;
     import Modelica.Blocks.Types.Init;
-    import Modelica.Blocks.Types.InitPIDHomotopy;
-    import Modelica.Blocks.Types.LimiterHomotopy;
     import Modelica.Blocks.Types.SimpleController;
     extends Modelica.Blocks.Interfaces.SVcontrol;
     output Real controlError = u_s - u_m
@@ -940,7 +938,7 @@ to compute u by an algebraic equation.
             "Initialization"));
     parameter Boolean strict=false "= true, if strict limits with noEvent(..)"
       annotation (Evaluate=true, choices(checkBox=true), Dialog(tab="Advanced"));
-    parameter Modelica.Blocks.Types.InitPIDHomotopy homotopyType = Modelica.Blocks.Types.InitPIDHomotopy.Linear
+    parameter Modelica.Blocks.Types.LimiterHomotopy homotopyType = Modelica.Blocks.Types.LimiterHomotopy.Linear
       "Simplified model for homotopy-based initialization"
       annotation (Evaluate=true, Dialog(group="Initialization"));
     constant Modelica.SIunits.Time unitTime=1 annotation (HideResult=true);
@@ -990,10 +988,7 @@ to compute u by an algebraic equation.
       uMin=yMin,
       strict=strict,
       limitsAtInit=limitsAtInit,
-      homotopyType = (if homotopyType==InitPIDHomotopy.NoHomotopy then LimiterHomotopy.NoHomotopy
-                 else if homotopyType==InitPIDHomotopy.YMax then LimiterHomotopy.UMax
-                 else if homotopyType==InitPIDHomotopy.YMin then LimiterHomotopy.UMin
-                 else LimiterHomotopy.Linear))
+      homotopyType=homotopyType)
       annotation (Placement(transformation(extent={{70,-10},{90,10}})));
   protected
     parameter Boolean with_I = controllerType==SimpleController.PI or
@@ -1256,9 +1251,9 @@ by using a simplified model a the beginning of the solution process. Different o
 <ul>
 <li><strong>homotopyType=Linear</strong> (default): the limitations are removed from the simplified model,
 making it linear. Use this if you know that the controller will not be saturated at steady state.</li>
-<li><strong>homotopyType=YMax</strong>: if it is known a priori the controller will be stuck at the upper
+<li><strong>homotopyType=UpperLimit</strong>: if it is known a priori the controller will be stuck at the upper
 limit yMax, this option assumes y = yMax as a simplified model.</li>
-<li><strong>homotopyType=YMin</strong>: if it is known a priori the controller will be stuck at the lower
+<li><strong>homotopyType=LowerLimit</strong>: if it is known a priori the controller will be stuck at the lower
 limit yMin, this option assumes y = yMin as a simplified model.</li>
 <li><strong>homotopyType=NoHomotopy</strong>: this option does not apply any simplification and keeps the
 limiter active throughout the homotopy transformation. Use this if it it unknown whether the controller

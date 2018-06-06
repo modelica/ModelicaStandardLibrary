@@ -422,7 +422,7 @@ package Blocks "Test models for Modelica.Blocks"
       k=-1) annotation (Placement(transformation(extent={{-140,100},{-160,120}})));
     Modelica.Blocks.Nonlinear.Limiter limiter1(
                                               uMax=0.99, uMin=-0.99,
-      homotopyType=Modelica.Blocks.Types.LimiterHomotopy.UMax)
+      homotopyType=Modelica.Blocks.Types.LimiterHomotopy.UpperLimit)
       annotation (Placement(transformation(extent={{-160,140},{-140,160}})));
     Modelica.Blocks.Math.Feedback internalFeedback1
       annotation (Placement(transformation(extent={{-200,140},{-180,160}})));
@@ -447,7 +447,7 @@ package Blocks "Test models for Modelica.Blocks"
       k=-1) annotation (Placement(transformation(extent={{-140,-50},{-160,-30}})));
     Modelica.Blocks.Nonlinear.Limiter limiter2(
                                               uMax=0.99, uMin=-0.99,
-      homotopyType=Modelica.Blocks.Types.LimiterHomotopy.UMin)
+      homotopyType=Modelica.Blocks.Types.LimiterHomotopy.LowerLimit)
       annotation (Placement(transformation(extent={{-160,-10},{-140,10}})));
     Modelica.Blocks.Math.Feedback internalFeedback2
       annotation (Placement(transformation(extent={{-200,-10},{-180,10}})));
@@ -699,8 +699,8 @@ package Blocks "Test models for Modelica.Blocks"
 of the <code>Limiter</code> and <code>VariableLimiter blocks</code>.</p>
 <p>The models represent a basic control system using a PI with anti-windup in three different configurations:
 <ol>
-<li>The loop is initialized in steady-state with the upper saturation active and <code>homotopyType=UMax</code></li>
-<li>The loop is initialized in steady-state with the lower saturation active and <code>homotopyType=UMin</code></li>
+<li>The loop is initialized in steady-state with the upper saturation active and <code>homotopyType=UpperLimit</code></li>
+<li>The loop is initialized in steady-state with the lower saturation active and <code>homotopyType=LowerLimit</code></li>
 <li>The loop is initialized in steady-state with the upper saturation active and <code>homotopyType=NoHomotopy</code></li>
 </ol>
 </p>
@@ -1949,7 +1949,7 @@ This shows the improvements in the numerics when balance=true is set.
       yMin=0,
       initType=Modelica.Blocks.Types.InitPID.SteadyState,
       controllerType=Modelica.Blocks.Types.SimpleController.PI,
-      homotopyType=Modelica.Blocks.Types.InitPIDHomotopy.YMax)
+      homotopyType=Modelica.Blocks.Types.LimiterHomotopy.UpperLimit)
       annotation (Placement(transformation(extent={{-40,20},{-20,40}})));
     Modelica.Blocks.Sources.Step step2(
       startTime=1,
@@ -1964,7 +1964,7 @@ This shows the improvements in the numerics when balance=true is set.
       yMin=0,
       initType=Modelica.Blocks.Types.InitPID.SteadyState,
       controllerType=Modelica.Blocks.Types.SimpleController.PI,
-      homotopyType=Modelica.Blocks.Types.InitPIDHomotopy.YMin)
+      homotopyType=Modelica.Blocks.Types.LimiterHomotopy.LowerLimit)
       annotation (Placement(transformation(extent={{-40,-40},{-20,-20}})));
     Modelica.Blocks.Sources.Step step3(
       startTime=1,
@@ -1979,7 +1979,7 @@ This shows the improvements in the numerics when balance=true is set.
       yMin=0,
       initType=Modelica.Blocks.Types.InitPID.SteadyState,
       controllerType=Modelica.Blocks.Types.SimpleController.PI,
-      homotopyType=Modelica.Blocks.Types.InitPIDHomotopy.NoHomotopy)
+      homotopyType=Modelica.Blocks.Types.LimiterHomotopy.NoHomotopy)
       annotation (Placement(transformation(extent={{-40,-100},{-20,-80}})));
     Modelica.Blocks.Sources.Step step4(
       startTime=1,
@@ -2023,7 +2023,7 @@ This shows the improvements in the numerics when balance=true is set.
 <p>The first control loop is initialized in steady state with a value of the set point which is compatible with the control variable limitations.
 In this case, the default option can be used, which removes the limitations in the simplified model, making it linear and thus easier to solve</p>
 <p>The second control loop is initialized in steady state with a value of the set point that causes the control output to hit
-the upper saturation limit. If this is known a priori, then by setting <code>homotopyType = YMax</code> the simplified model just
+the upper saturation limit. If this is known a priori, then by setting <code>homotopyType = UpperLimit</code> the simplified model just
 assumes the PID output to be yMax, thus making the simplified initialization problem linear.</p>
 <p>The third control looop is similar to the second, except that the lower saturation limit is now engaged.</p>
 <p>The fourth loop does not use any simplified model of the limiter during homotopy - this can be used when it is not
