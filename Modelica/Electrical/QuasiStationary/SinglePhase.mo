@@ -2577,9 +2577,9 @@ Quasi stationary theory for single phase circuits can be found in the
   package Interfaces "Interfaces for AC singlephase models"
     extends Modelica.Icons.InterfacesPackage;
 
-    connector Pin "Basic connector"
-      Modelica.SIunits.ComplexElectricPotential v "Complex potential of the pin";
-      flow Modelica.SIunits.ComplexCurrent i "Complex current flowing into the pin";
+    connector Pin "Quasi-static single-phase pin"
+      Modelica.SIunits.ComplexElectricPotential v "Complex potential at the quasi-static single-phase pin";
+      flow Modelica.SIunits.ComplexCurrent i "Complex current flowing into the quasi-static single-phase pin";
       annotation (Documentation(info="<html>
 <p>
 The potential of this connector is the complex voltage and the flow variable is the complex current.
@@ -2601,7 +2601,7 @@ derived from this base connector.
 </html>"));
     end Pin;
 
-    connector PositivePin "Positive connector"
+    connector PositivePin "Positive quasi-static single-phase pin"
       extends Pin;
       QuasiStationary.Types.Reference reference "Reference";
       annotation (
@@ -2637,7 +2637,7 @@ Additionally the reference angle is specified in the connector. The time derivat
 </html>"));
     end PositivePin;
 
-    connector NegativePin "Negative Connector"
+    connector NegativePin "Negative quasi-static single-phase pin"
       extends Pin;
       QuasiStationary.Types.Reference reference "Reference";
       annotation (
@@ -2690,9 +2690,9 @@ Additionally the reference angle is specified in the connector. The time derivat
       Real pf=cos(Modelica.ComplexMath.arg(Complex(P, Q))) "Power factor";
       Modelica.SIunits.AngularVelocity omega "Angular velocity of reference frame";
 
-      PositivePin pin_p "Positive pin" annotation (Placement(transformation(
+      PositivePin pin_p "Positive quasi-static single-phase pin" annotation (Placement(transformation(
               extent={{-110,-10},{-90,10}})));
-      NegativePin pin_n "Negative pin" annotation (Placement(transformation(
+      NegativePin pin_n "Negative quasi-static single-phase pin" annotation (Placement(transformation(
               extent={{90,-10},{110,10}})));
     equation
       Connections.branch(pin_p.reference, pin_n.reference);
@@ -2742,7 +2742,7 @@ This model is intended to be used with textual representation of user models.
     partial model AbsoluteSensor "Partial potential sensor"
       extends Modelica.Icons.RotationalSensor;
       Modelica.SIunits.AngularVelocity omega;
-      PositivePin pin "Pin" annotation (Placement(transformation(extent={{-110,
+      PositivePin pin "Postivite quasi-static single-phase pin" annotation (Placement(transformation(extent={{-110,
                 -10},{-90,10}})));
     equation
       omega = der(pin.reference.gamma);

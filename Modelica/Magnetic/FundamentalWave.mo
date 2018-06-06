@@ -8693,10 +8693,11 @@ This package provides sensors for the magnetic potential difference and the magn
 
   package Interfaces "Interfaces and partial models"
     extends Modelica.Icons.InterfacesPackage;
-    connector MagneticPort "Complex magnetic port of fundamental wave machines"
+    connector MagneticPort "Magnetic port of fundamental wave machines"
       Modelica.SIunits.ComplexMagneticPotential V_m
-        "Complex magnetic potential of port";
-      flow Modelica.SIunits.ComplexMagneticFlux Phi "Complex magnetic flux into port";
+        "Complex magnetic potential at the port";
+      flow Modelica.SIunits.ComplexMagneticFlux Phi
+        "Complex magnetic flux into the port";
       annotation (Documentation(info="<html>
 <p>
 The potential quantity of the magnetic port is the complex magnetic potential difference <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/V_m.png\">. The corresponding flow quantity is the magnetic flux <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/Phi.png\">.
@@ -8711,7 +8712,7 @@ The potential quantity of the magnetic port is the complex magnetic potential di
 </html>"));
     end MagneticPort;
 
-    connector NegativeMagneticPort "Negative complex magnetic port"
+    connector NegativeMagneticPort "Negative magnetic port of fundamental wave machines"
       extends Modelica.Magnetic.FundamentalWave.Interfaces.MagneticPort;
       annotation (
         defaultComponentName="port_n",
@@ -8743,7 +8744,7 @@ Negative magnetic <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfa
 </html>"));
     end NegativeMagneticPort;
 
-    connector PositiveMagneticPort "Positive complex magnetic port"
+    connector PositiveMagneticPort "Positive magnetic port of fundamental wave machines"
       extends Modelica.Magnetic.FundamentalWave.Interfaces.MagneticPort;
       annotation (
         defaultComponentName="port_p",
@@ -8777,9 +8778,9 @@ Positive magnetic <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfa
     end PositiveMagneticPort;
 
     partial model PartialTwoPort "Two magnetic ports for graphical modeling"
-      PositiveMagneticPort port_p "Positive complex magnetic port" annotation (
+      PositiveMagneticPort port_p "Positive magnetic port of fundamental wave machines" annotation (
           Placement(transformation(extent={{-110,-10},{-90,10}})));
-      NegativeMagneticPort port_n "Negative complex magnetic port" annotation (
+      NegativeMagneticPort port_n "Negative magnetic port of fundamental wave machines" annotation (
           Placement(transformation(extent={{90,-10},{110,10}})));
       annotation (Documentation(info="<html>
 <p>
@@ -9173,13 +9174,13 @@ i.e., with small derivatives.
     model PositivePortInterface "Positive port interface to FluxTubes"
 
       Modelica.Magnetic.FundamentalWave.Interfaces.PositiveMagneticPort port
-        "FundamentalWave port"
+        "Magnetic port of fundamental wave machines"
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
       Modelica.Magnetic.FluxTubes.Interfaces.PositiveMagneticPort port_re
-        "Flux tubes port, real part"
+        "Magnetic port, real part"
         annotation (Placement(transformation(extent={{90,90},{110,110}})));
       Modelica.Magnetic.FluxTubes.Interfaces.PositiveMagneticPort port_im
-        "Flux tubes port, imag part"
+        "Magnetic port, imaginary part"
         annotation (Placement(transformation(extent={{90,-108},{110,-88}})));
     equation
       port.V_m.re = port_re.V_m;
@@ -9208,13 +9209,13 @@ i.e., with small derivatives.
     model NegativePortInterface "Negative port interface to FluxTubes"
 
       Modelica.Magnetic.FundamentalWave.Interfaces.NegativeMagneticPort port
-        "FundamentalWave port"
+        "Magnetic port of fundamental wave machines"
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
       Modelica.Magnetic.FluxTubes.Interfaces.NegativeMagneticPort port_re
-        "Flux tubes port, real part"
+        "Magnetic port, real part"
         annotation (Placement(transformation(extent={{90,90},{110,110}})));
       Modelica.Magnetic.FluxTubes.Interfaces.NegativeMagneticPort port_im
-        "Flux tubes port, imag part"
+        "Magnetic port, imaginary part"
         annotation (Placement(transformation(extent={{90,-108},{110,-88}})));
     equation
       port.V_m.re = port_re.V_m;
