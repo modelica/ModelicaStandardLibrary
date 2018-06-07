@@ -1,9 +1,9 @@
 within Modelica.Fluid;
 package Icons
   extends Modelica.Icons.IconsPackage;
+  extends Modelica.Icons.ObsoleteModel;
   partial class VariantLibrary
     "This icon will be removed in future Modelica versions, use Modelica.Icons.VariantsPackage instead."
-    // extends Modelica.Icons.VariantsPackage;
     extends Modelica.Icons.ObsoleteModel;
     annotation (Documentation(info="<html>
 <p>
@@ -59,4 +59,5 @@ Instead the icon <a href=\"modelica://Modelica.Icons.BasesPackage\">Modelica.Ico
 </html>"),
     obsolete = "Obsolete package - use Modelica.Icons.BasePackage instead");
   end BaseClassLibrary;
+  annotation(obsolete = "Obsolete package - use icons from Modelica.Icons instead");
 end Icons;
