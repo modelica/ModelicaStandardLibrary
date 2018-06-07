@@ -424,13 +424,11 @@ This example is based on
         "Reset button to false, if an element of reset becomes true"
         annotation (Dialog(group="Time varying expressions"));
 
-      Modelica.Blocks.Interfaces.BooleanOutput on
+      Modelica.Blocks.Interfaces.BooleanOutput on(start=false, fixed=true)
         annotation (Placement(transformation(extent={{100,-10},{120,10}})));
     protected
-      Modelica.Blocks.Sources.BooleanTable table(table=buttonTimeTable);
+      Modelica.Blocks.Sources.BooleanTable table(table=buttonTimeTable, y(fixed=true));
     initial equation
-      // These pre-values are used for the algorithm during initialization
-      pre(table.y) = false;
       pre(reset) = fill(false, size(reset, 1));
     algorithm
       when pre(reset) then
