@@ -2349,6 +2349,9 @@ have been marked as <font color=\"blue\"><strong>obsolete</strong></font> and wi
 <tr><td colspan=\"2\"><strong>Modelica.Electrical.Digital.Converters</strong></td></tr>
 <tr><td>LogicToXO1<br>LogicToXO1Z</td>
     <td>Use LogicToX01 or LogicToX01Z instead.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Machines</strong></td></tr>
+<tr><td>BasicMachines.Components.BasicTransformer</td>
+    <td>Use Interfaces.PartialBasicTransformer instead.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Mechanics.MultiBody</strong></td></tr>
 <tr><td>Examples.Loops.Utilities.GasForce</td>
     <td>Use Examples.Loops.Utilities.GasForce2 instead.</td></tr>
@@ -2356,6 +2359,9 @@ have been marked as <font color=\"blue\"><strong>obsolete</strong></font> and wi
     <td>Use Sensors.TransformAbsoluteVector or Sensors.TransformRelativeVector instead.</td></tr>
 <tr><td>Visualizers.Ground</td>
     <td>Use ground plane visualization of World or Visualizers.Rectangle instead.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Fluid</strong></td></tr>
+<tr><td>Icons.*</td>
+    <td>Use icons from Modelica.Icons instead.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Media.Examples</strong></td></tr>
 <tr><td>Tests.Components.*</td>
     <td>Use classes from Utilities instead.</td></tr>
@@ -2366,6 +2372,12 @@ have been marked as <font color=\"blue\"><strong>obsolete</strong></font> and wi
     <td>Extend from the new pipe model with optional heatPort.</td></tr>
 <tr><td>Interfaces.Partials.Ambient</td>
     <td>Extends from SinglePortLeft.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Math</strong></td></tr>
+<tr><td>baseIcon1<br>baseIcon2</td>
+    <td>Use icons from Modelica.Math.Icons instead.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Icons</strong></td></tr>
+<tr><td>Library<br>Library2<br>GearIcon<br>MotorIcon<br>Info</td>
+    <td>Use (substitute) icons from Modelica.Icons or Modelica.Mechanics.Rotational.Icons instead.</td></tr>
 </table>
 
 <p><br>
