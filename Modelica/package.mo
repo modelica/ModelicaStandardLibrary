@@ -2359,8 +2359,8 @@ have been marked as <font color=\"blue\"><strong>obsolete</strong></font> and wi
     <td>Use Sensors.TransformAbsoluteVector or Sensors.TransformRelativeVector instead.</td></tr>
 <tr><td>Visualizers.Ground</td>
     <td>Use ground plane visualization of World or Visualizers.Rectangle instead.</td></tr>
-<tr><td colspan=\"2\"><strong>Modelica.Fluid</strong></td></tr>
-<tr><td>Icons.*</td>
+<tr><td colspan=\"2\"><strong>Modelica.Fluid.Icons</strong></td></tr>
+<tr><td>VariantLibrary<br>BaseClassLibrary</td>
     <td>Use icons from Modelica.Icons instead.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Media.Examples</strong></td></tr>
 <tr><td>Tests.Components.*</td>
