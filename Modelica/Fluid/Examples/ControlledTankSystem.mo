@@ -427,7 +427,7 @@ This example is based on
       Modelica.Blocks.Interfaces.BooleanOutput on(start=false, fixed=true)
         annotation (Placement(transformation(extent={{100,-10},{120,10}})));
     protected
-      Modelica.Blocks.Sources.BooleanTable table(table=buttonTimeTable, y(fixed=true));
+      Modelica.Blocks.Sources.BooleanTable table(table=buttonTimeTable, y(start=false, fixed=true));
     initial equation
       pre(reset) = fill(false, size(reset, 1));
     algorithm
