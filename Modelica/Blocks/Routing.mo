@@ -15,7 +15,7 @@ package Routing "Library of blocks to combine and extract signals"
           Line(points={{0,0},{100,10}}, color={0,0,127}),
           Line(points={{0,0},{100,-10}}, color={0,0,127}),
           Ellipse(
-            extent={{-14,16},{16,-14}},
+            extent={{-15,15},{15,-15}},
             fillColor={0,0,127},
             fillPattern=FillPattern.Solid)}),
       Documentation(info="<html>
@@ -46,7 +46,7 @@ This block replicates the input signal to an array of <code>nout</code> identica
           Line(points={{0,0},{100,10}}, color={255,127,0}),
           Line(points={{0,0},{100,-10}}, color={255,127,0}),
           Ellipse(
-            extent={{-14,16},{16,-14}},
+            extent={{-15,15},{15,-15}},
             fillColor={255,127,0},
             fillPattern=FillPattern.Solid)}),
       Documentation(info="<html>
@@ -77,7 +77,7 @@ This block replicates the Integer input signal to an array of <code>nout</code> 
           Line(points={{0,0},{100,10}}, color={255,0,255}),
           Line(points={{0,0},{100,-10}}, color={255,0,255}),
           Ellipse(
-            extent={{-14,16},{16,-14}},
+            extent={{-15,15},{15,-15}},
             fillColor={255,0,255},
             fillPattern=FillPattern.Solid)}),
       Documentation(info="<html>
@@ -418,7 +418,7 @@ The output connector is the <strong>concatenation</strong> of the input connecto
           Line(points={{-100,0},{-12,0}}, color={0,0,127}),
           Line(points={{-100,-70},{-62,-70},{-4,-4}}, color={0,0,127}),
           Ellipse(
-            extent={{-14,16},{16,-14}},
+            extent={{-15,15},{15,-15}},
             fillColor={0,0,127},
             fillPattern=FillPattern.Solid,
             lineColor={0,0,127}),
@@ -433,7 +433,7 @@ The output connector is the <strong>concatenation</strong> of the input connecto
         graphics={
           Line(points={{8,0},{102,0}}, color={0,0,127}),
           Ellipse(
-            extent={{-14,16},{16,-14}},
+            extent={{-15,15},{15,-15}},
             fillColor={0,0,127},
             fillPattern=FillPattern.Solid,
             lineColor={0,0,127}),
@@ -468,7 +468,7 @@ explicitly defined via parameters n1 and n2.
           extent={{-100,-100},{100,100}}), graphics={
           Line(points={{8,0},{102,0}}, color={0,0,127}),
           Ellipse(
-            extent={{-14,16},{16,-14}},
+            extent={{-15,15},{15,-15}},
             fillColor={0,0,127},
             fillPattern=FillPattern.Solid,
             lineColor={0,0,127}),
@@ -481,7 +481,7 @@ explicitly defined via parameters n1 and n2.
           Line(points={{-100,-60},{-60,-60},{-4,-4}}, color={0,0,127}),
           Line(points={{8,0},{102,0}}, color={0,0,127}),
           Ellipse(
-            extent={{-14,16},{16,-14}},
+            extent={{-15,15},{15,-15}},
             fillColor={0,0,127},
             fillPattern=FillPattern.Solid,
             lineColor={0,0,127})}));
@@ -521,7 +521,7 @@ explicitly defined via parameters n1, n2 and n3.</p>
           Line(points={{-100,0},{-12,0}}, color={0,0,127}),
           Line(points={{-100,-70},{-62,-70},{-4,-4}}, color={0,0,127}),
           Ellipse(
-            extent={{-14,16},{16,-14}},
+            extent={{-15,15},{15,-15}},
             fillColor={0,0,127},
             fillPattern=FillPattern.Solid,
             lineColor={0,0,127})}),
@@ -532,7 +532,7 @@ explicitly defined via parameters n1, n2 and n3.</p>
           Line(points={{-100,-70},{-62,-70},{-4,-4}}, color={0,0,127}),
           Line(points={{8,0},{102,0}}, color={0,0,127}),
           Ellipse(
-            extent={{-14,16},{16,-14}},
+            extent={{-15,15},{15,-15}},
             fillColor={0,0,127},
             fillPattern=FillPattern.Solid,
             lineColor={0,0,127}),
@@ -759,7 +759,7 @@ The input connector is <strong>split</strong> up into output connectors.
         graphics={
           Line(points={{8,0},{102,0}}, color={0,0,127}),
           Ellipse(
-            extent={{-14,16},{16,-14}},
+            extent={{-15,15},{15,-15}},
             fillColor={0,0,127},
             fillPattern=FillPattern.Solid,
             lineColor={0,0,127}),
@@ -777,7 +777,7 @@ The input connector is <strong>split</strong> up into output connectors.
         graphics={
           Line(points={{8,0},{102,0}}, color={0,0,127}),
           Ellipse(
-            extent={{-14,16},{16,-14}},
+            extent={{-15,15},{15,-15}},
             fillColor={0,0,127},
             fillPattern=FillPattern.Solid,
             lineColor={0,0,127}),
@@ -813,7 +813,7 @@ explicitly defined via parameters n1 and n2.
         graphics={
           Line(points={{100,60},{60,60},{10,8}}, color={0,0,127}),
           Ellipse(
-            extent={{-14,16},{16,-14}},
+            extent={{-15,15},{15,-15}},
             fillColor={0,0,127},
             fillPattern=FillPattern.Solid,
             lineColor={0,0,127}),
@@ -826,7 +826,7 @@ explicitly defined via parameters n1 and n2.
           Line(points={{100,-60},{60,-60},{8,-8}}, color={0,0,127}),
           Line(points={{-100,0},{-6,0}}, color={0,0,127}),
           Ellipse(
-            extent={{-14,16},{16,-14}},
+            extent={{-15,15},{15,-15}},
             fillColor={0,0,127},
             fillPattern=FillPattern.Solid,
             lineColor={0,0,127})}));
@@ -863,7 +863,7 @@ explicitly defined via parameters n1, n2 and n3.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
           Ellipse(
-            extent={{-14,16},{16,-14}},
+            extent={{-15,15},{15,-15}},
             fillColor={0,0,127},
             fillPattern=FillPattern.Solid,
             lineColor={0,0,127}),
@@ -878,7 +878,7 @@ explicitly defined via parameters n1, n2 and n3.
           Line(points={{100,-70},{61,-70},{5,-5}}, color={0,0,127}),
           Line(points={{-100,0},{-6,0}}, color={0,0,127}),
           Ellipse(
-            extent={{-16,15},{14,-15}},
+            extent={{-15,15},{15,-15}},
             fillColor={0,0,127},
             fillPattern=FillPattern.Solid,
             lineColor={0,0,127}),
@@ -920,7 +920,7 @@ explicitly defined via parameters n1, n2, n3 and n4.</p>
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
           Ellipse(
-            extent={{-14,16},{16,-14}},
+            extent={{-15,15},{15,-15}},
             fillColor={0,0,127},
             fillPattern=FillPattern.Solid,
             lineColor={0,0,127}),
@@ -938,7 +938,7 @@ explicitly defined via parameters n1, n2, n3 and n4.</p>
           Line(points={{100,30},{60,30},{9,2}}, color={0,0,127}),
           Line(points={{100,-30},{60,-30},{8,-4}}, color={0,0,127}),
           Ellipse(
-            extent={{-16,15},{14,-15}},
+            extent={{-15,15},{15,-15}},
             fillColor={0,0,127},
             fillPattern=FillPattern.Solid,
             lineColor={0,0,127})}));
@@ -983,7 +983,7 @@ explicitly defined via parameters n1, n2, n3, n4 and n5.</p>
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
           Ellipse(
-            extent={{-14,16},{16,-14}},
+            extent={{-15,15},{15,-15}},
             fillColor={0,0,127},
             fillPattern=FillPattern.Solid,
             lineColor={0,0,127}),
@@ -1000,7 +1000,7 @@ explicitly defined via parameters n1, n2, n3, n4 and n5.</p>
           Line(points={{100,-80},{60,-80},{7,-5}}, color={0,0,127}),
           Line(points={{-100,0},{-6,0}}, color={0,0,127}),
           Ellipse(
-            extent={{-14,15},{16,-15}},
+            extent={{-15,15},{15,-15}},
             fillColor={0,0,127},
             fillPattern=FillPattern.Solid,
             lineColor={0,0,127}),
@@ -1051,7 +1051,7 @@ explicitly defined via parameters n1, n2, n3, n4, n5 and n6.</p>
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
           Ellipse(
-            extent={{-14,16},{16,-14}},
+            extent={{-15,15},{15,-15}},
             fillColor={0,0,127},
             fillPattern=FillPattern.Solid,
             lineColor={0,0,127}),
@@ -1069,7 +1069,7 @@ explicitly defined via parameters n1, n2, n3, n4, n5 and n6.</p>
           Line(points={{100,-91},{60,-91},{3,-7}}, color={0,0,127}),
           Line(points={{-100,0},{-6,0}}, color={0,0,127}),
           Ellipse(
-            extent={{-14,15},{16,-15}},
+            extent={{-15,15},{15,-15}},
             fillColor={0,0,127},
             fillPattern=FillPattern.Solid,
             lineColor={0,0,127}),
