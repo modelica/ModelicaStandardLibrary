@@ -7,13 +7,12 @@ package Nonlinear
       block Limiter "Limit the range of a signal"
         parameter Real uMax(start=1) "Upper limits of input signals";
         parameter Real uMin= -uMax "Lower limits of input signals";
-        parameter Boolean strict=false
-      "= true, if strict limits with noEvent(..)"
+        parameter Boolean strict=false "= true, if strict limits with noEvent(..)"
           annotation (Evaluate=true, choices(checkBox=true), Dialog(tab="Advanced"));
         parameter Types.LimiterHomotopy homotopyType = Modelica.Blocks.Types.LimiterHomotopy.Linear "Simplified model for homotopy-based initialization"
           annotation (Evaluate=true, Dialog(group="Initialization"));
         parameter Boolean limitsAtInit=true
-      "Has no longer an effect and is only kept for backwards compatibility (the implementation uses now the homotopy operator)"
+          "Has no longer an effect and is only kept for backwards compatibility (the implementation uses now the homotopy operator)"
           annotation (Dialog(tab="Dummy"),Evaluate=true, choices(checkBox=true));
         extends Interfaces.SISO;
   protected
@@ -131,7 +130,7 @@ a lot by removing one strong nonlinearity from the initialization problem.
   block VariableLimiter "Limit the range of a signal with variable limits"
     extends Interfaces.SISO;
     parameter Boolean strict=false "= true, if strict limits with noEvent(..)"
-      annotation (Evaluate=true, choices(checkBox=true));
+      annotation (Evaluate=true, choices(checkBox=true), Dialog(tab="Advanced"));
     parameter Types.VariableLimiterHomotopy homotopyType = Modelica.Blocks.Types.VariableLimiterHomotopy.Linear "Simplified model for homotopy-based initialization"
       annotation (Evaluate=true, Dialog(group="Initialization"));
     parameter Real ySimplified = 0 "Fixed value of output in simplified model"
