@@ -51,6 +51,9 @@ def main(dir, milestone, version):
                 if l == 'L: Complex*':
                     labels[i] = 'L: Complex\*'
                     break
+            # Exclude regression issues
+            if any(l.startswith('V: {0}'.format(version)) for l in labels):
+                continue
             t = issue['title']
             t = t.replace('<', '&lt;')
             t = t.replace('>', '&gt;')
