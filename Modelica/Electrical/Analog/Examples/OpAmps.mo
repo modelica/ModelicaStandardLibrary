@@ -566,7 +566,8 @@ package OpAmps "Examples with operational amplifiers"
     Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimted opAmp(
       Vps=Vps,
       Vns=Vns,
-      out(i(start=0)))
+      out(i(start=0)),
+      homotopyType=Modelica.Blocks.Types.LimiterHomotopy.LowerLimit)
       annotation (Placement(transformation(extent={{0,-10},{20,10}})));
     Modelica.Electrical.Analog.Basic.Ground ground
       annotation (Placement(transformation(extent={{-20,-100},{0,-80}})));
@@ -639,7 +640,8 @@ package OpAmps "Examples with operational amplifiers"
     Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimted opAmp(
       Vps=Vps,
       Vns=Vns,
-      out(i(start=0)))
+      out(i(start=0)),
+      homotopyType=Modelica.Blocks.Types.LimiterHomotopy.UpperLimit)
       annotation (Placement(transformation(extent={{0,10},{20,-10}})));
     Modelica.Electrical.Analog.Basic.Ground ground
       annotation (Placement(transformation(extent={{-20,-100},{0,-80}})));
@@ -707,8 +709,10 @@ package OpAmps "Examples with operational amplifiers"
     parameter SI.Resistance R2=1000 "Resistance 2 for adjusting the Schmitt trigger voltage level";
     parameter SI.Resistance R=1000 "Arbitrary resistance";
     parameter SI.Capacitance C=1/f/(2*R*log(1 + 2*R1/R2)) "Calculated capacitance to reach the desired frequency f";
-    Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimted opAmp(Vps=Vps, Vns=
-          Vns) annotation (Placement(transformation(extent={{0,-10},{20,10}})));
+    Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimted opAmp(
+      Vps=Vps,
+      Vns=Vns,
+      strict=true) annotation (Placement(transformation(extent={{0,-10},{20,10}})));
     Modelica.Electrical.Analog.Basic.Ground ground
       annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
     Modelica.Electrical.Analog.Sensors.VoltageSensor vOut annotation (Placement(
@@ -776,8 +780,10 @@ package OpAmps "Examples with operational amplifiers"
     parameter SI.Frequency f=10 "Desired frequency";
     parameter SI.Resistance R=1000 "Arbitrary resistance of integrator part";
     parameter SI.Capacitance C=Vps/VAmp/(4*f*R) "Calculated capacitance of integrator part to reach f";
-    Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimted opAmp1(Vps=Vps, Vns=
-          Vns)
+    Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimted opAmp1(
+      Vps=Vps,
+      Vns=Vns,
+      homotopyType=Modelica.Blocks.Types.LimiterHomotopy.UpperLimit)
       annotation (Placement(transformation(extent={{-60,10},{-40,-10}})));
     Modelica.Electrical.Analog.Basic.Resistor r2(R=R2, i(start=Vps/R2))
       annotation (Placement(transformation(
