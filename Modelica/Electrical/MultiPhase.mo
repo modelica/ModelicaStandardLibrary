@@ -2693,7 +2693,7 @@ This function determines the orientation angles of the symmetrical winding with 
       Integer nBase=numberOfSymmetricBaseSystems(m);
       Integer mBase=integer(m/nBase);
       Modelica.SIunits.Angle o[m]=symmetricOrientation(m);
-      Modelica.SIunits.Angle oBase[nBase]=o[1:mBase:m];
+      Modelica.SIunits.Angle oBase[numberOfSymmetricBaseSystems(m)]=o[1:mBase:m];
     algorithm
       // Init transformation matrix with zeros
       oM := zeros(m, m);
