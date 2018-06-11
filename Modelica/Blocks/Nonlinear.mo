@@ -135,7 +135,7 @@ a lot by removing one strong nonlinearity from the initialization problem.
     parameter Types.VariableLimiterHomotopy homotopyType = Modelica.Blocks.Types.VariableLimiterHomotopy.Linear "Simplified model for homotopy-based initialization"
       annotation (Evaluate=true, Dialog(group="Initialization"));
     parameter Real ySimplified = 0 "Fixed value of output in simplified model"
-      annotation (Dialog(tab="Advanced"));
+      annotation (Dialog(tab="Advanced", enable=homotopyType == Modelica.Blocks.Types.VariableLimiterHomotopy.Fixed));
     parameter Boolean limitsAtInit=true
       "Has no longer an effect and is only kept for backwards compatibility (the implementation uses now the homotopy operator)"
       annotation (Dialog(tab="Dummy"),Evaluate=true, choices(checkBox=true));
