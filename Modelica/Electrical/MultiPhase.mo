@@ -2635,8 +2635,8 @@ This function determines the continuous quasi <a href=\"Modelica://Modelica.Bloc
 
     function activePower "Calculate active power of voltage and current input"
       extends Modelica.Icons.Function;
-      input Modelica.SIunits.Voltage v[:] "phase voltages";
-      input Modelica.SIunits.Current i[size(v, 1)] "phase currents";
+      input Modelica.SIunits.Voltage v[:] "Phase voltages";
+      input Modelica.SIunits.Current i[size(v, 1)] "Phase currents";
       output Modelica.SIunits.Power p "Active power";
     algorithm
       p := sum(v .* i);
