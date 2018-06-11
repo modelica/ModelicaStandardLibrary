@@ -4,10 +4,12 @@ model RollingWheelSetPulling "Rolling wheel set that is pulled by a force"
 
   Modelica.Mechanics.MultiBody.Forces.WorldForce force(animation=false)
     annotation (Placement(transformation(extent={{20,30},{40,50}})));
-  Modelica.Mechanics.MultiBody.Visualizers.Ground ground(
-                length=3)
-    annotation (Placement(transformation(extent={{-20,-60},{0,-40}})));
-  inner Modelica.Mechanics.MultiBody.World world(label2="z", n={0,0,-1})
+  inner Modelica.Mechanics.MultiBody.World world(
+    label2="z",
+    n={0,0,-1},
+    animateGround=true,
+    groundLength_u=3,
+    groundColor={130,200,130})
     annotation (Placement(transformation(extent={{-80,-60},{-60,-40}})));
   Modelica.Mechanics.MultiBody.Parts.RollingWheelSet wheelSet(
     wheelRadius=0.1,
