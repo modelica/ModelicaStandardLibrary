@@ -4041,7 +4041,7 @@ derived from this base connector.
 
     connector PositivePlug "Positive quasi-static polyphase plug"
       extends Plug;
-      QuasiStationary.Types.Reference reference;
+      QuasiStationary.Types.Reference reference "Reference";
       annotation (
         Icon(graphics={Ellipse(
               extent={{-100,100},{100,-100}},
