@@ -6923,10 +6923,10 @@ end Icons;
 
 annotation (
   DocumentationClass=true,
-  version="3.2.2",
+  version="3.2.3",
   versionBuild=1,
-  versionDate="2016-01-15",
-  dateModified = "2016-01-15 08:44:41Z",
+  versionDate="2018-08-01",
+  dateModified = "2018-08-01 12:00:00Z",
   revisionId="$Format:%h %ci$",
   Documentation(info="<html>
 <p>
