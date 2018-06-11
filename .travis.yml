@@ -8,12 +8,12 @@ services:
 
 before_install:
   - time docker pull openmodelica/openmodelica:v1.12.0-minimal
-  - time docker pull openmodelica/moparser:xenial
+  - time docker pull openmodelica/moparser:3.4
 
 script:
   - docker run -v "$PWD:/repo" -w "/repo" openmodelica/openmodelica:v1.12.0-minimal omc .travis.mos
   - "! find . -name '*.mo' -exec bash -c 'iconv -o /dev/null -f ascii -t ascii \"{}\" |& sed \"s,^,{}: ,\"' ';' | grep '.'"
-  - docker run -v "$PWD:/repo" -w "/repo" openmodelica/moparser:xenial moparser -v 3.2 -r Complex.mo Modelica ModelicaReference ModelicaServices ModelicaTest ModelicaTestOverdetermined.mo ObsoleteModelica3.mo
+  - docker run -v "$PWD:/repo" -w "/repo" openmodelica/moparser:3.4 moparser -v 3.2 -r Complex.mo Modelica ModelicaReference ModelicaServices ModelicaTest ModelicaTestOverdetermined.mo ObsoleteModelica3.mo
 
 notifications:
   email: false
