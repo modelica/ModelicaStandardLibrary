@@ -81,7 +81,7 @@ can be a multiple of expected solution <code>phi1</code> and <code>phi2</code>,
 <li>revolute2.phi(k2) = phi2 + 2 &pi; k2.</li>
 </ul>
 <p>
-To clearly indicate the prefered solution, guess initial angles can be additionally given.
+To clearly indicate the preferred solution, guess initial angles can be additionally given.
 In this example, it is simply done by <code>revolute2.phi.start&nbsp;=&nbsp;Modelica.Constants.pi/2</code>.
 </p>
 <blockquote>
