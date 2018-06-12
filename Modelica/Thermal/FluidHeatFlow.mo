@@ -2614,7 +2614,7 @@ leads to neglect of temperature transient cv*m*der(T).
               fillColor={0,0,255},
               fillPattern=FillPattern.Solid),
             Text(
-              extent={{-40,20},{0,-20}},
+              extent={{-40,30},{20,-30}},
               textString="V"),                Text(
               extent={{-150,-140},{150,-100}},
               lineColor={0,0,255},
@@ -2667,7 +2667,7 @@ leads to neglect of temperature transient cv*m*der(T).
               fillColor={255,0,0},
               fillPattern=FillPattern.Solid),
             Text(
-              extent={{-40,20},{0,-20}},
+              extent={{-40,30},{20,-30}},
               textString="dp"),               Text(
               extent={{-150,-100},{150,-140}},
               lineColor={0,0,255},
