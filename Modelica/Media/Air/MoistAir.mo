@@ -1399,7 +1399,7 @@ Specific entropy of moist air is computed from pressure, temperature and composi
     input SI.MassFraction X[:] "Mass fractions of moist air";
     input Real dp(unit="Pa/s") "Derivative of pressure";
     input Real dT(unit="K/s") "Derivative of temperature";
-    input Real dX[nX](unit="1/s") "Derivative of mass fractions";
+    input Real dX[nX](each unit="1/s") "Derivative of mass fractions";
     output Real ds(unit="J/(kg.K.s)") "Specific entropy at p, T, X";
   protected
     MoleFraction[2] Y=massToMoleFractions(X, {steam.MM,dryair.MM})
