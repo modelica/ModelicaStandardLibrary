@@ -5736,18 +5736,23 @@ on the model behaviour.
         output SI.Voltage ret "Output voltage";
 
       protected
-        SI.Voltage phibtemp;
-        SI.Voltage phibtnom;
+        SI.GapEnergy phibtemp;
+        SI.GapEnergy phibtnom;
         SI.Voltage vt;
+        SI.GapEnergy eV;
+        SI.Voltage v;
 
       algorithm
+        eV :=1;
+        v :=1;
         phibtemp :=
           Modelica.Electrical.Spice3.Internal.Functions.energyGapDepTemp(temp);
         phibtnom :=
           Modelica.Electrical.Spice3.Internal.Functions.energyGapDepTemp(tnom);
         vt := Spice3.Internal.SpiceConstants.CONSTKoverQ*
           temp;
-        ret := (phi0 - phibtnom) * temp / tnom + phibtemp + vt * 3 * Modelica.Math.log( tnom / temp);
+        //ret := (phi0 - phibtnom/q) * temp / tnom + phibtemp/q + vt * 3 * Modelica.Math.log( tnom / temp);
+        ret := (phi0 - phibtnom/eV*v)  * temp / tnom + phibtemp/eV*v + vt * 3 * Modelica.Math.log( tnom / temp);
 
         annotation (Documentation(info="<html>
 <p>This internal function calculates the temperature dependent junction potential based on the actual and the nominal temperature.</p>
@@ -5766,10 +5771,14 @@ on the model behaviour.
       protected
         SI.Voltage vt;
         SI.Voltage vtnom;
-        SI.Voltage energygaptnom;
-        SI.Voltage energygaptemp;
+        SI.GapEnergy energygaptnom;
+        SI.GapEnergy energygaptemp;
+        SI.GapEnergy eV;
+        SI.Voltage v;
 
       algorithm
+        eV :=1;
+        v :=1;
         vt := Spice3.Internal.SpiceConstants.CONSTKoverQ*
           temp;
         vtnom := Spice3.Internal.SpiceConstants.CONSTKoverQ*
@@ -5778,7 +5787,7 @@ on the model behaviour.
           Modelica.Electrical.Spice3.Internal.Functions.energyGapDepTemp(tnom);
         energygaptemp :=
           Modelica.Electrical.Spice3.Internal.Functions.energyGapDepTemp(temp);
-        ret           := satcur0  * exp( energygaptnom / vtnom - energygaptemp / vt);
+        ret           := satcur0  * exp( energygaptnom*(v/eV) / vtnom - energygaptemp*(v/eV) / vt);
 
         annotation (Documentation(info="<html>
 <p>This internal function calculates the temperature dependent saturation current based on the actual and the nominal temperature.</p>
@@ -5820,8 +5829,8 @@ on the model behaviour.
         output Real jucntioncap "Junction capacitance";
 
       protected
-        SI.Voltage phibtemp;
-        SI.Voltage phibtnom;
+        SI.GapEnergy phibtemp;
+        SI.GapEnergy phibtnom;
         SI.Voltage vt;
         SI.Voltage vtnom;
         Real arg;
