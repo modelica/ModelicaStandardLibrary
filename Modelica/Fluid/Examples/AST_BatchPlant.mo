@@ -1073,8 +1073,7 @@ Full steady state initialization is not supported, because the corresponding ini
             origin={-2,-150},
             extent={{-10,-10},{10,10}},
             rotation=180)));
-      Modelica.Blocks.Sources.BooleanExpression BooleanExpression1(y=time >
-            2500)
+      Modelica.Blocks.Sources.BooleanExpression BooleanExpression1(y=time >= 2500)
         annotation (Placement(transformation(extent={{-104,-148},{-18,-116}})));
       inner Modelica.StateGraph.StateGraphRoot stateGraphRoot
         annotation (Placement(transformation(extent={{-180,140},{-160,160}})));
