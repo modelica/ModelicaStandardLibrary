@@ -2538,15 +2538,15 @@ All sensors are considered massless, they do not change mass flow or enthalpy fl
 <p>(Infinite) ambient with constant pressure and temperature.</p>
 <p>Thermodynamic equations are defined by Partials.Ambient.</p>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-                100,100}}), graphics={Text(
-              extent={{20,80},{80,20}},
-              textString="p"), Text(
-              extent={{20,-20},{80,-80}},
-              textString="T"),         Ellipse(
+                100,100}}), graphics={Ellipse(
               extent={{-90,90},{90,-90}},
               lineColor={255,0,0},
               fillColor={0,0,255},
-              fillPattern=FillPattern.Solid)}));
+              fillPattern=FillPattern.Solid), Text(
+              extent={{20,80},{80,20}},
+              textString="p"), Text(
+              extent={{20,-20},{80,-80}},
+              textString="T")}));
     end Ambient;
 
     model AbsolutePressure "Defines absolute pressure level"
