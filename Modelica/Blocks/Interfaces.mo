@@ -2098,7 +2098,7 @@ Note, the input signals must be consistent to each other
         output Real sder1;
       algorithm
         sder1 := u[2];
-        annotation (derivative(noDerivative=u) = state2der2,
+        annotation (derivative(noDerivative=u, order=2) = state2der2,
             InlineAfterIndexReduction=true);
       end state2der1;
 
