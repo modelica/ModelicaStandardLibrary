@@ -1246,7 +1246,7 @@ This is a model to collect the heat flows from <em>m</em> heatports to one singl
 
     model GeneralHeatFlowToTemperatureAdaptor
       "Signal adaptor for a HeatTransfer port with temperature and derivative of temperature as outputs and heat flow as input (especially useful for FMUs)"
-      extends Modelica.Blocks.Interfaces.PartialFMUadaptors.FlowToPotentialAdaptor(
+      extends Modelica.Blocks.Interfaces.PartialAdaptors.FlowToPotentialAdaptor(
         final Name_p="T",
         final Name_pder="dT",
         final Name_pder2="d2T",
@@ -1289,7 +1289,7 @@ This adaptor has heatflow as input and temperature and derivative of temperature
 
     model GeneralTemperatureToHeatFlowAdaptor
       "Signal adaptor for a HeatTransfer port with heat flow as output and temperature and derivative of temperature as input (especially useful for FMUs)"
-      extends Modelica.Blocks.Interfaces.PartialFMUadaptors.PotentialToFlowAdaptor(
+      extends Modelica.Blocks.Interfaces.PartialAdaptors.PotentialToFlowAdaptor(
         final Name_p="T",
         final Name_pder="dT",
         final Name_pder2="d2T",

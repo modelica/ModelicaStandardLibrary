@@ -1805,7 +1805,7 @@ It is required that L &ge; 0, otherwise an assertion is raised. To avoid a varia
 
   model GeneralCurrentToVoltageAdaptor
     "Signal adaptor for an Electrical OnePort with voltage and derivative of voltage as outputs and current and derivative of current as inputs (especially useful for FMUs)"
-    extends Modelica.Blocks.Interfaces.PartialFMUadaptors.FlowToPotentialAdaptor(
+    extends Modelica.Blocks.Interfaces.PartialAdaptors.FlowToPotentialAdaptor(
       final Name_p="v",
       final Name_pder="dv",
       final Name_pder2="d2v",
@@ -1861,7 +1861,7 @@ Bear in mind that separating physical components and connecting them via adaptor
 
   model GeneralVoltageToCurrentAdaptor
     "Signal adaptor for an Electrical OnePort with current and derivative of current as output and voltage and derivative of voltage as input (especially useful for FMUs)"
-    extends Modelica.Blocks.Interfaces.PartialFMUadaptors.PotentialToFlowAdaptor(
+    extends Modelica.Blocks.Interfaces.PartialAdaptors.PotentialToFlowAdaptor(
       final Name_p="v",
       final Name_pder="dv",
       final Name_pder2="d2v",

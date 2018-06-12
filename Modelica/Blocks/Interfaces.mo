@@ -1827,7 +1827,7 @@ of noise blocks.
 </html>"));
   end PartialNoise;
 
-  package PartialFMUadaptors "Partial FMU adaptors"
+  package PartialAdaptors "Partial adaptors (especially useful for FMUs)"
     extends Modelica.Icons.InterfacesPackage;
 
     partial model FlowToPotentialAdaptor "Signal adaptor for a connector with flow, 1st derivative of flow, and 2nd derivative of flow as inputs and
@@ -2054,8 +2054,8 @@ Note, the input signals must be consistent to each other
 </html>"));
     end PotentialToFlowAdaptor;
 
-    package Functions "Functions for FMU adapters"
-      extends Modelica.Icons.InternalPackage;
+    package Functions "Functions for adapters"
+      extends Modelica.Icons.FunctionsPackage;
 
       function state1 "Return state (with one derivative)"
         input Real u[2] "Required values for state and der(s)";
@@ -2123,7 +2123,7 @@ and export this model in form of an input/output block,
 especially as FMU (<a href=\"https://www.fmi-standard.org\">Functional Mock-up Unit</a>).
 </p>
 </html>"));
-  end PartialFMUadaptors;
+  end PartialAdaptors;
   annotation (Documentation(info="<html>
 <p>
 This package contains interface definitions for
