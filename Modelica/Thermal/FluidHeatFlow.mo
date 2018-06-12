@@ -2354,7 +2354,7 @@ Record containing (constant) medium properties.
 </html>"),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
           graphics={Text(
-              extent={{-22,-20},{20,-60}},
+              extent={{-30,-20},{30,-60}},
               lineColor={0,0,255},
               textString="p")}));
     end PressureSensor;
@@ -2371,7 +2371,7 @@ Record containing (constant) medium properties.
 <p>Thermodynamic equations are defined by Partials.AbsoluteSensor.</p>
 </html>"),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
-        graphics={Text(extent={{-22,-20},{20,-60}},
+        graphics={Text(extent={{-30,-20},{30,-60}},
               lineColor={0,0,255},
               textString="T")}));
     end TemperatureSensor;
@@ -2388,7 +2388,7 @@ Record containing (constant) medium properties.
 <p>Thermodynamic equations are defined by Partials.RelativeSensor.</p>
 </html>"),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
-        graphics={Text(extent={{-22,-20},{20,-60}},
+        graphics={Text(extent={{-30,-20},{30,-60}},
               lineColor={0,0,255},
               textString="dp")}));
     end RelPressureSensor;
@@ -2410,7 +2410,7 @@ Outlet temperature is defined by variable T of the corresponding component.
 </p>
 </html>"),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
-        graphics={Text(extent={{-22,-20},{20,-60}},
+        graphics={Text(extent={{-30,-20},{30,-60}},
               lineColor={0,0,255},
               textString="dT")}));
     end RelTemperatureSensor;
@@ -2427,7 +2427,7 @@ Outlet temperature is defined by variable T of the corresponding component.
 <p>Thermodynamic equations are defined by Partials.FlowSensor.</p>
 </html>"),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
-        graphics={Text(extent={{-22,-20},{20,-60}},
+        graphics={Text(extent={{-30,-20},{30,-60}},
               lineColor={0,0,255},
               textString="m")}));
     end MassFlowSensor;
@@ -2444,7 +2444,7 @@ Outlet temperature is defined by variable T of the corresponding component.
 <p>Thermodynamic equations are defined by Partials.FlowSensor.</p>
 </html>"),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
-        graphics={Text(extent={{-22,-20},{20,-60}},
+        graphics={Text(extent={{-30,-20},{30,-60}},
               lineColor={0,0,255},
               textString="V")}));
     end VolumeFlowSensor;
@@ -2461,7 +2461,7 @@ Outlet temperature is defined by variable T of the corresponding component.
 <p>Thermodynamic equations are defined by Partials.FlowSensor.</p>
 </html>"),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
-        graphics={Text(extent={{-22,-20},{20,-60}},
+        graphics={Text(extent={{-30,-20},{30,-60}},
               lineColor={0,0,255},
               textString="H")}));
     end EnthalpyFlowSensor;
