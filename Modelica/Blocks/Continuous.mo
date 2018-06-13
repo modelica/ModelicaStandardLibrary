@@ -1247,6 +1247,8 @@ to compute u_m by an algebraic equation.
 <p>
 When initializing in steady-state, homotopy-based initialization can help the convergence of the solver,
 by using a simplified model a the beginning of the solution process. Different options are available. 
+</p>
+
 <ul>
 <li><strong>homotopyType=Linear</strong> (default): the limitations are removed from the simplified model,
 making it linear. Use this if you know that the controller will not be saturated at steady state.</li>
@@ -1259,7 +1261,7 @@ limiter active throughout the homotopy transformation. Use this if it is unknown
 is saturated or not at initialization and if the limitations on the output must be enforced throughout 
 the entire homotopy transformation.</li>
 </ul>
-</p>
+
 <p>
 The parameter <strong>limitAtInit</strong> is obsolete since MSL 3.2.2 and only kept for backwards compatibility.
 </p>
