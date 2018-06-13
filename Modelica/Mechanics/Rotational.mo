@@ -5699,7 +5699,7 @@ This adaptor has torque as input and angle, angular velocity and angular acceler
     model GeneralAngleToTorqueAdaptor
       "Signal adaptor for a rotational flange with torque as output and angle, speed and acceleration as input (especially useful for FMUs)"
       extends
-        Modelica.Blocks.Interfaces.PartialAdaptors.PotentialToFlowAdaptor(
+        Modelica.Blocks.Interfaces.Adaptors.PotentialToFlowAdaptor(
         final Name_p="phi",
         final Name_pder="w",
         final Name_pder2="a",
@@ -5748,7 +5748,7 @@ Note, the input signals must be consistent to each other
     model GeneralTorqueToAngleAdaptor
       "Signal adaptor for a rotational flange with angle, speed, and acceleration as outputs and torque as input (especially useful for FMUs)"
       extends
-        Modelica.Blocks.Interfaces.PartialAdaptors.FlowToPotentialAdaptor(
+        Modelica.Blocks.Interfaces.Adaptors.FlowToPotentialAdaptor(
         final Name_p="phi",
         final Name_pder="w",
         final Name_pder2="a",

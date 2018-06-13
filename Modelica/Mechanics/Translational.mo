@@ -3902,7 +3902,7 @@ velocity of model mass1 or of model mass2 as state variables.
 
     model GeneralForceToPositionAdaptor
       "Signal adaptor for a Translational flange with position, speed, and acceleration as outputs and force as input (especially useful for FMUs)"
-      extends Modelica.Blocks.Interfaces.PartialAdaptors.FlowToPotentialAdaptor(
+      extends Modelica.Blocks.Interfaces.Adaptors.FlowToPotentialAdaptor(
         final Name_p="s",
         final Name_pder="v",
         final Name_pder2="a",
@@ -3944,7 +3944,7 @@ This adaptor has force as input and position, velocity and acceleration as outpu
 
     model GeneralPositionToForceAdaptor
       "Signal adaptor for a Translational flange with force as output and position, speed and acceleration as input (especially useful for FMUs)"
-      extends Modelica.Blocks.Interfaces.PartialAdaptors.PotentialToFlowAdaptor(
+      extends Modelica.Blocks.Interfaces.Adaptors.PotentialToFlowAdaptor(
         final Name_p="s",
         final Name_pder="v",
         final Name_pder2="a",
