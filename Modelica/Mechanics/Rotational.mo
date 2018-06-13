@@ -5547,7 +5547,7 @@ blocks of the block library Modelica.Blocks.Sources.
           color={0,0,127}));
       connect(move_phi.flange, torqueSensor.flange_a) annotation (Line(
           points={{30,80},{36,80},{36,0}}));
-      annotation (
+      annotation (defaultComponentName="angleToTorqueAdaptor",
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
           graphics={
             Rectangle(
@@ -5647,7 +5647,7 @@ torque as output signal. Note, the input signals must be consistent to each othe
       end if;
       flange.tau = tau;
 
-      annotation (
+      annotation (defaultComponentName="torqueToAngleAdaptor",
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
           graphics={
             Rectangle(
