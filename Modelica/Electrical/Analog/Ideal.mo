@@ -675,7 +675,7 @@ If the input voltage is vin larger than 0, the output voltage is out.v = VMax.
       annotation (Dialog(enable=not useSupply));
     parameter SI.Voltage Vns=-15 "Negative supply voltage"
       annotation (Dialog(enable=not useSupply));
-    parameter Boolean strict=false "= true, if strict limits with noEvent(..)"
+    parameter Boolean strict=true "= true, if strict limits with noEvent(..)"
       annotation (Evaluate=true, choices(checkBox=true), Dialog(tab="Advanced"));
     parameter Modelica.Blocks.Types.LimiterHomotopy homotopyType = Modelica.Blocks.Types.LimiterHomotopy.Linear "Simplified model for homotopy-based initialization"
       annotation (Evaluate=true, Dialog(group="Initialization"));
