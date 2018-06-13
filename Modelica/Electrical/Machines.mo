@@ -4803,7 +4803,7 @@ So the machine is at the beginning in cold condition, ending in warm condition
           T0=TAmbient,
           constantVolumeFlow=CoolantFlow,
           m=0) annotation (Placement(transformation(extent={{0,-80},{20,-60}})));
-        Modelica.Thermal.FluidHeatFlow.Components.HeatedPipe cooling(
+        Modelica.Thermal.FluidHeatFlow.Components.Pipe cooling(
           tapT=0.5,
           T0=TAmbient,
           m=0,
@@ -4812,7 +4812,8 @@ So the machine is at the beginning in cold condition, ending in warm condition
           dpLaminar(displayUnit="Pa") = 0.1,
           V_flowNominal=1,
           dpNominal(displayUnit="Pa") = 1,
-          T0fixed=false)
+          T0fixed=false,
+          useHeatPort=true)
           annotation (Placement(transformation(extent={{30,-60},{50,-80}})));
         Modelica.Thermal.FluidHeatFlow.Sources.Ambient outlet(
             constantAmbientTemperature=TAmbient, constantAmbientPressure=0)
