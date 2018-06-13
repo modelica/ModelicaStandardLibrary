@@ -2355,7 +2355,6 @@ Record containing (constant) medium properties.
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
           graphics={Text(
               extent={{-30,-20},{30,-60}},
-              lineColor={0,0,255},
               textString="p")}));
     end PressureSensor;
 
@@ -2372,7 +2371,6 @@ Record containing (constant) medium properties.
 </html>"),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
         graphics={Text(extent={{-30,-20},{30,-60}},
-              lineColor={0,0,255},
               textString="T")}));
     end TemperatureSensor;
 
@@ -2389,7 +2387,6 @@ Record containing (constant) medium properties.
 </html>"),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
         graphics={Text(extent={{-30,-20},{30,-60}},
-              lineColor={0,0,255},
               textString="dp")}));
     end RelPressureSensor;
 
@@ -2411,7 +2408,6 @@ Outlet temperature is defined by variable T of the corresponding component.
 </html>"),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
         graphics={Text(extent={{-30,-20},{30,-60}},
-              lineColor={0,0,255},
               textString="dT")}));
     end RelTemperatureSensor;
 
@@ -2428,7 +2424,6 @@ Outlet temperature is defined by variable T of the corresponding component.
 </html>"),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
         graphics={Text(extent={{-30,-20},{30,-60}},
-              lineColor={0,0,255},
               textString="m")}));
     end MassFlowSensor;
 
@@ -2445,7 +2440,6 @@ Outlet temperature is defined by variable T of the corresponding component.
 </html>"),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
         graphics={Text(extent={{-30,-20},{30,-60}},
-              lineColor={0,0,255},
               textString="V")}));
     end VolumeFlowSensor;
 
@@ -2462,7 +2456,6 @@ Outlet temperature is defined by variable T of the corresponding component.
 </html>"),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
         graphics={Text(extent={{-30,-20},{30,-60}},
-              lineColor={0,0,255},
               textString="H")}));
     end EnthalpyFlowSensor;
   annotation (Documentation(info="<html>
