@@ -5749,7 +5749,7 @@ on the model behaviour.
           Modelica.Electrical.Spice3.Internal.Functions.energyGapDepTemp(tnom);
         vt := Spice3.Internal.SpiceConstants.CONSTKoverQ*
           temp;
-        ret := (phi0 - phibtnom/unitGapEnergy*unitVoltage) * temp / tnom + phibtemp/unitGapEnergy*unitVoltage + vt * 3 * Modelica.Math.log( tnom / temp);
+        ret := (phi0 - phibtnom*(unitVoltage/unitGapEnergy)) * temp / tnom + phibtemp*(unitVoltage/unitGapEnergy) + vt * 3 * Modelica.Math.log( tnom / temp);
 
         annotation (Documentation(info="<html>
 <p>This internal function calculates the temperature dependent junction potential based on the actual and the nominal temperature.</p>
