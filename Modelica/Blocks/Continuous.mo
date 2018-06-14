@@ -27,7 +27,7 @@ package Continuous "Library of continuous control blocks with internal states"
         extent={{-20,-20},{20,20}},
         rotation=90,
         origin={60,-120})));
-    Modelica.Blocks.Interfaces.RealInput set if use_set annotation(Placement(
+    Modelica.Blocks.Interfaces.RealInput set if use_reset and use_set annotation(Placement(
       transformation(
         extent={{-20,-20},{20,20}},
         rotation=270,
@@ -163,7 +163,7 @@ port has a rising edge.
         extent={{-20,-20},{20,20}},
         rotation=90,
         origin={60,-120})));
-    Modelica.Blocks.Interfaces.RealInput set if use_set annotation(Placement(
+    Modelica.Blocks.Interfaces.RealInput set if use_reset and use_set annotation(Placement(
       transformation(
         extent={{-20,-20},{20,20}},
         rotation=270,
