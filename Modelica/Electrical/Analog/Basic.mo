@@ -1216,6 +1216,7 @@ the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N
 
   model OpAmpDetailed "Detailed model of an operational amplifier"
     // literature: Conelly, J.A.; Choi, P.: Macromodelling with SPICE. Englewood Cliffs: Prentice-Hall, 1992
+    import Modelica.Constants.pi;
     parameter SI.Resistance Rdm=2.0e6
       "Input resistance (differential input mode)";
     parameter SI.Resistance Rcm=2.0e9 "Input resistance (common mode)";
@@ -1240,10 +1241,10 @@ the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N
     parameter SI.Current Imaxsi=25.0e-3 "Maximal output current (sink current)";
 
     // number of intervals: 2500, stop time: 0.003
-    parameter SI.Time Ts=0.0000012 "sampling time";
+    parameter SI.Time Ts=0.0000012 "Sampling time";
 
     // constant expressions
-    constant Real Pi=3.141592654;
+    constant Real Pi=3.141592654 "Obsolete constant pi; will be removed in future release";
 
     // power supply
     final parameter SI.Voltage vcp_abs=abs(vcp)
@@ -1258,9 +1259,9 @@ the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N
     final parameter SI.Current I2=Ib - Ios/2.0 "Current of internal source I2";
 
     // gain stage (difference and common mode)
-    final parameter Real Avd0_val=10.0^(Avd0/20.0) "differential mode gain";
+    final parameter Real Avd0_val=10.0^(Avd0/20.0) "Differential mode gain";
     final parameter Real Avcm_val=(Avd0_val/(10.0^(CMRR/20.0)))/2.0
-      "common mode gain";
+      "Common mode gain";
 
     // slew rate stage
     final parameter SI.VoltageSlope sr_p_val=abs(sr_p)
@@ -1316,7 +1317,7 @@ the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N
     // slew rate stage
     SI.Voltage v_source;
 
-    SI.Voltage x "auxiliary variable for slew rate";
+    SI.Voltage x "Auxiliary variable for slew rate";
 
     // output stage
     SI.Voltage v_out;
@@ -1396,9 +1397,9 @@ the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N
 
     // frequency response
     // Laplace transformation
-    der(q_fr1) = 2.0*Pi*fp2*(v_in - q_fr1);
-    q_fr2 + (1.0/(2.0*Pi*fp3))*der(q_fr2) = q_fr1 + (1.0/(2.0*Pi*fz))*der(q_fr1);
-    der(q_fr3) = 2.0*Pi*fp4*(q_fr2 - q_fr3);
+    der(q_fr1) = 2.0*pi*fp2*(v_in - q_fr1);
+    q_fr2 + (1.0/(2.0*pi*fp3))*der(q_fr2) = q_fr1 + (1.0/(2.0*pi*fz))*der(q_fr1);
+    der(q_fr3) = 2.0*pi*fp4*(q_fr2 - q_fr3);
 
     // gain stage
     // Laplace transformation
@@ -1410,7 +1411,7 @@ the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N
         v_neg,
         vcp_abs,
         vcm_abs);
-    der(q_fp1) = 2.0*Pi*fp1*(q_sum_help - q_fp1);
+    der(q_fp1) = 2.0*pi*fp1*(q_sum_help - q_fp1);
 
     // slew rate stage
     der(x) = (q_fp1 - v_source)/Ts;
