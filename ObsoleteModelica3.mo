@@ -777,13 +777,13 @@ An example how to use this model is given in the
 following figure:
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/FrameForceAndTorque1.png\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/obsoleteFrameForceAndTorque1.png\">
 
 <p>
 This leads to the following animation
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/FrameForceAndTorque2.png\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/obsoleteFrameForceAndTorque2.png\">
 </html>"));
         end FrameForceAndTorque;
 
