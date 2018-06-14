@@ -51,13 +51,13 @@ as output.
 <p>
 The parameter <code>homotopyType</code> in the Advanced tab specifies the
 simplified behaviour if homotopy-based initialization is used:
+</p>
 <ul>
 <li><code>NoHomotopy</code>: the actual expression with limits is used</li>
 <li><code>Linear</code>: a linear behaviour y = u is assumed (default option)</li>
 <li><code>UpperLimit</code>: it is assumed that the output is stuck at the upper limit u = uMax</li>
 <li><code>LowerLimit</code>: it is assumed that the output is stuck at the lower limit u = uMin</li>
 </ul>
-</p>
 <p>
 If it is known a priori in which region the input signal will be located, this option can help 
 a lot by removing one strong nonlinearity from the initialization problem. 
@@ -179,12 +179,12 @@ is passed as output.
 <p>
 The parameter <code>homotopyType</code> in the Advanced tab specifies the
 simplified behaviour if homotopy-based initialization is used:
+</p>
 <ul>
 <li><code>NoHomotopy</code>: the actual expression with limits is used</li>
 <li><code>Linear</code>: a linear behaviour y = u is assumed (default option)</li>
 <li><code>Fixed</code>: it is assumed that the output is fixed at the value <code>ySimplified</code></li>
 </ul>
-</p>
 <p>
 If it is known a priori in which region the input signal will be located, this option can help 
 a lot by removing one strong nonlinearity from the initialization problem. 
