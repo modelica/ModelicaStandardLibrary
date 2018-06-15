@@ -331,7 +331,7 @@ double mydummyfunc(double dummy_in) {
 ");
     end getUsertab;
   public
-    Modelica.Blocks.Sources.RealExpression realExpression(y=getUsertab(t_new.y))
+    Modelica.Blocks.Sources.RealExpression realExpression(y=getUsertab(t_new.y[1]))
       annotation (Placement(transformation(extent={{-20,-40},{10,-20}})));
   equation
     connect(ramp1.y, t_new.u2[1]) annotation (Line(
