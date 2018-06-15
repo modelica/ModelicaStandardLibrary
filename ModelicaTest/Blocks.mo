@@ -268,6 +268,7 @@ package Blocks "Test models for Modelica.Blocks"
   end LimResetIntegrator;
 
   model IntegratorForceState "Force state (Ticket #2640)"
+    extends Modelica.Icons.Example;
     Modelica.Blocks.Continuous.Integrator integrator
       annotation (Placement(transformation(extent={{-40,0},{-20,20}})));
     Modelica.Blocks.Sources.Clock clock
@@ -279,6 +280,7 @@ package Blocks "Test models for Modelica.Blocks"
       annotation (Line(points={{-42,10},{-59,10}}, color={0,0,127}));
     connect(integrator.y, gain.u)
       annotation (Line(points={{-19,10},{-2,10}}, color={0,0,127}));
+    annotation(experiment(StopTime=1));
   end IntegratorForceState;
 
   model Limiters
