@@ -271,12 +271,12 @@ alt=\"model Examples.Elementary.DoublePendulum\">
   model WorldGroundVisualization "Demonstrate visualization of world's ground plane"
     extends Modelica.Icons.Example;
 
-    Modelica.Mechanics.MultiBody.Visualizers.FixedArrow visGroundAxis_x(
+    Modelica.Mechanics.MultiBody.Visualizers.FixedArrow visGroundAxis(
       animation=true,
       r_tail={0,0,0},
       n=world.groundAxis_u,
       length=world.nominalLength/4,
-      diameter=world.axisDiameter) "Visualize arrow in direction of world.groundAxis_x" annotation (Placement(transformation(extent={{0,-10},{20,10}})));
+      diameter=world.axisDiameter) "Visualize arrow in direction of world.groundAxis_u" annotation (Placement(transformation(extent={{0,-10},{20,10}})));
 
     inner Modelica.Mechanics.MultiBody.World world(
       groundLength_v=0.2,
@@ -289,7 +289,7 @@ alt=\"model Examples.Elementary.DoublePendulum\">
       gravityType=Modelica.Mechanics.MultiBody.Types.GravityTypes.UniformGravity)
                         annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
   equation
-    connect(visGroundAxis_x.frame_a, world.frame_b) annotation (Line(
+    connect(visGroundAxis.frame_a, world.frame_b) annotation (Line(
         points={{0,0},{-20,0}},
         color={95,95,95},
         thickness=0.5));
