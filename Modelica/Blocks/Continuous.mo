@@ -22,12 +22,12 @@ package Continuous "Library of continuous control blocks with internal states"
     parameter Real y_start=0 "Initial or guess value of output (= state)"
       annotation (Dialog(group="Initialization"));
     extends Interfaces.SISO(y(start=y_start));
-    Modelica.Blocks.Interfaces.BooleanInput reset if use_reset annotation(Placement(
+    Modelica.Blocks.Interfaces.BooleanInput reset if use_reset "Optional connector of reset signal" annotation(Placement(
       transformation(
         extent={{-20,-20},{20,20}},
         rotation=90,
         origin={60,-120})));
-    Modelica.Blocks.Interfaces.RealInput set if use_reset and use_set annotation(Placement(
+    Modelica.Blocks.Interfaces.RealInput set if use_reset and use_set "Optional connector of set signal" annotation(Placement(
       transformation(
         extent={{-20,-20},{20,20}},
         rotation=270,
@@ -158,12 +158,12 @@ port has a rising edge.
     parameter Boolean strict=false "= true, if strict limits with noEvent(..)"
       annotation (Evaluate=true, choices(checkBox=true), Dialog(tab="Advanced"));
     extends Interfaces.SISO(y(start=y_start));
-    Modelica.Blocks.Interfaces.BooleanInput reset if use_reset annotation(Placement(
+    Modelica.Blocks.Interfaces.BooleanInput reset if use_reset "Optional connector of reset signal" annotation(Placement(
       transformation(
         extent={{-20,-20},{20,20}},
         rotation=90,
         origin={60,-120})));
-    Modelica.Blocks.Interfaces.RealInput set if use_reset and use_set annotation(Placement(
+    Modelica.Blocks.Interfaces.RealInput set if use_reset and use_set "Optional connector of set signal" annotation(Placement(
       transformation(
         extent={{-20,-20},{20,20}},
         rotation=270,
