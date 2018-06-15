@@ -51,13 +51,13 @@ package Continuous "Library of continuous control blocks with internal states"
       else
         local_set = y_start;
       end if;
+      when local_reset then
+        reinit(y, local_set);
+      end when;
     else
       local_reset = false;
       local_set = 0;
     end if;
-    when local_reset then
-      reinit(y, local_set);
-    end when;
     der(y) = k*u;
     annotation (
       Documentation(info="<html>
@@ -187,13 +187,13 @@ port has a rising edge.
       else
         local_set = y_start;
       end if;
+      when local_reset then
+        reinit(y, if local_set < outMin then outMin elseif local_set > outMax then outMax else local_set);
+      end when;
     else
       local_reset = false;
       local_set = 0;
     end if;
-    when local_reset then
-      reinit(y, if local_set < outMin then outMin elseif local_set > outMax then outMax else local_set);
-    end when;
     if initial() and not limitsAtInit then
        der(y) = k*u;
        assert(y >= outMin - 0.001*abs(outMax-outMin) and y <= outMax + 0.001*abs(outMax-outMin),
