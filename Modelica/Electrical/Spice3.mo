@@ -5736,9 +5736,11 @@ on the model behaviour.
         output SI.Voltage ret "Output voltage";
 
       protected
-        SI.Voltage phibtemp;
-        SI.Voltage phibtnom;
+        SI.GapEnergy phibtemp;
+        SI.GapEnergy phibtnom;
         SI.Voltage vt;
+        constant SI.GapEnergy unitGapEnergy = 1;
+        constant SI.Voltage unitVoltage = 1;
 
       algorithm
         phibtemp :=
@@ -5747,7 +5749,7 @@ on the model behaviour.
           Modelica.Electrical.Spice3.Internal.Functions.energyGapDepTemp(tnom);
         vt := Spice3.Internal.SpiceConstants.CONSTKoverQ*
           temp;
-        ret := (phi0 - phibtnom) * temp / tnom + phibtemp + vt * 3 * Modelica.Math.log( tnom / temp);
+        ret := (phi0 - phibtnom*(unitVoltage/unitGapEnergy)) * temp / tnom + phibtemp*(unitVoltage/unitGapEnergy) + vt * 3 * Modelica.Math.log( tnom / temp);
 
         annotation (Documentation(info="<html>
 <p>This internal function calculates the temperature dependent junction potential based on the actual and the nominal temperature.</p>
@@ -5766,8 +5768,10 @@ on the model behaviour.
       protected
         SI.Voltage vt;
         SI.Voltage vtnom;
-        SI.Voltage energygaptnom;
-        SI.Voltage energygaptemp;
+        SI.GapEnergy energygaptnom;
+        SI.GapEnergy energygaptemp;
+        constant SI.GapEnergy unitGapEnergy = 1;
+        constant SI.Voltage unitVoltage = 1;
 
       algorithm
         vt := Spice3.Internal.SpiceConstants.CONSTKoverQ*
@@ -5778,7 +5782,7 @@ on the model behaviour.
           Modelica.Electrical.Spice3.Internal.Functions.energyGapDepTemp(tnom);
         energygaptemp :=
           Modelica.Electrical.Spice3.Internal.Functions.energyGapDepTemp(temp);
-        ret           := satcur0  * exp( energygaptnom / vtnom - energygaptemp / vt);
+        ret           := satcur0 * exp( energygaptnom*(unitVoltage/unitGapEnergy) / vtnom - energygaptemp*(unitVoltage/unitGapEnergy) / vt);
 
         annotation (Documentation(info="<html>
 <p>This internal function calculates the temperature dependent saturation current based on the actual and the nominal temperature.</p>
@@ -5820,8 +5824,8 @@ on the model behaviour.
         output Real jucntioncap "Junction capacitance";
 
       protected
-        SI.Voltage phibtemp;
-        SI.Voltage phibtnom;
+        SI.GapEnergy phibtemp;
+        SI.GapEnergy phibtnom;
         SI.Voltage vt;
         SI.Voltage vtnom;
         Real arg;
