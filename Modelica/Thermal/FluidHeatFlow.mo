@@ -2354,8 +2354,7 @@ Record containing (constant) medium properties.
 </html>"),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
           graphics={Text(
-              extent={{-22,-20},{20,-60}},
-              lineColor={0,0,255},
+              extent={{-30,-20},{30,-60}},
               textString="p")}));
     end PressureSensor;
 
@@ -2371,8 +2370,7 @@ Record containing (constant) medium properties.
 <p>Thermodynamic equations are defined by Partials.AbsoluteSensor.</p>
 </html>"),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
-        graphics={Text(extent={{-22,-20},{20,-60}},
-              lineColor={0,0,255},
+        graphics={Text(extent={{-30,-20},{30,-60}},
               textString="T")}));
     end TemperatureSensor;
 
@@ -2388,8 +2386,7 @@ Record containing (constant) medium properties.
 <p>Thermodynamic equations are defined by Partials.RelativeSensor.</p>
 </html>"),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
-        graphics={Text(extent={{-22,-20},{20,-60}},
-              lineColor={0,0,255},
+        graphics={Text(extent={{-30,-20},{30,-60}},
               textString="dp")}));
     end RelPressureSensor;
 
@@ -2410,8 +2407,7 @@ Outlet temperature is defined by variable T of the corresponding component.
 </p>
 </html>"),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
-        graphics={Text(extent={{-22,-20},{20,-60}},
-              lineColor={0,0,255},
+        graphics={Text(extent={{-30,-20},{30,-60}},
               textString="dT")}));
     end RelTemperatureSensor;
 
@@ -2427,8 +2423,7 @@ Outlet temperature is defined by variable T of the corresponding component.
 <p>Thermodynamic equations are defined by Partials.FlowSensor.</p>
 </html>"),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
-        graphics={Text(extent={{-22,-20},{20,-60}},
-              lineColor={0,0,255},
+        graphics={Text(extent={{-30,-20},{30,-60}},
               textString="m")}));
     end MassFlowSensor;
 
@@ -2444,8 +2439,7 @@ Outlet temperature is defined by variable T of the corresponding component.
 <p>Thermodynamic equations are defined by Partials.FlowSensor.</p>
 </html>"),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
-        graphics={Text(extent={{-22,-20},{20,-60}},
-              lineColor={0,0,255},
+        graphics={Text(extent={{-30,-20},{30,-60}},
               textString="V")}));
     end VolumeFlowSensor;
 
@@ -2461,8 +2455,7 @@ Outlet temperature is defined by variable T of the corresponding component.
 <p>Thermodynamic equations are defined by Partials.FlowSensor.</p>
 </html>"),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
-        graphics={Text(extent={{-22,-20},{20,-60}},
-              lineColor={0,0,255},
+        graphics={Text(extent={{-30,-20},{30,-60}},
               textString="H")}));
     end EnthalpyFlowSensor;
   annotation (Documentation(info="<html>
@@ -2538,15 +2531,15 @@ All sensors are considered massless, they do not change mass flow or enthalpy fl
 <p>(Infinite) ambient with constant pressure and temperature.</p>
 <p>Thermodynamic equations are defined by Partials.Ambient.</p>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-                100,100}}), graphics={Text(
-              extent={{20,80},{80,20}},
-              textString="p"), Text(
-              extent={{20,-20},{80,-80}},
-              textString="T"),         Ellipse(
+                100,100}}), graphics={Ellipse(
               extent={{-90,90},{90,-90}},
               lineColor={255,0,0},
               fillColor={0,0,255},
-              fillPattern=FillPattern.Solid)}));
+              fillPattern=FillPattern.Solid), Text(
+              extent={{20,80},{80,20}},
+              textString="p"), Text(
+              extent={{20,-20},{80,-80}},
+              textString="T")}));
     end Ambient;
 
     model AbsolutePressure "Defines absolute pressure level"
@@ -2614,7 +2607,7 @@ leads to neglect of temperature transient cv*m*der(T).
               fillColor={0,0,255},
               fillPattern=FillPattern.Solid),
             Text(
-              extent={{-40,20},{0,-20}},
+              extent={{-40,30},{20,-30}},
               textString="V"),                Text(
               extent={{-150,-140},{150,-100}},
               lineColor={0,0,255},
@@ -2667,7 +2660,7 @@ leads to neglect of temperature transient cv*m*der(T).
               fillColor={255,0,0},
               fillPattern=FillPattern.Solid),
             Text(
-              extent={{-40,20},{0,-20}},
+              extent={{-40,30},{20,-30}},
               textString="dp"),               Text(
               extent={{-150,-100},{150,-140}},
               lineColor={0,0,255},
