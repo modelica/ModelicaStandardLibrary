@@ -918,7 +918,7 @@ argument):</p>
   type Position = Length;
   type Distance = Length (min=0);
   type Breadth = Length(min=0);
-  type Height = Length(min=0);
+  type Height = Length;
   type Thickness = Length(min=0);
   type Radius = Length(min=0);
   type Diameter = Length(min=0);
