@@ -8,7 +8,7 @@ model InvertingAmp "Inverting amplifier"
   parameter Real k=2 "Desired amplification";
   parameter SI.Resistance R1=1000 "Arbitrary resistance";
   parameter SI.Resistance R2=k*R1 "Calculated resistance to reach desired amplification k";
-  Ideal.IdealOpAmpLimited                               opAmp(
+  Modelica.Electrical.Analog.Ideal.IdealOpAmpLimited opAmp(
     out(i(start=0, fixed=false)))
     annotation (Placement(transformation(extent={{0,-10},{20,10}})));
   Modelica.Electrical.Analog.Basic.Ground ground
@@ -35,16 +35,16 @@ model InvertingAmp "Inverting amplifier"
     annotation (Placement(transformation(extent={{-40,50},{-20,70}})));
   Modelica.Electrical.Analog.Basic.Resistor r2(R=R2)
     annotation (Placement(transformation(extent={{20,50},{0,70}})));
-  Basic.Ground                            ground1
+  Modelica.Electrical.Analog.Basic.Ground ground1
     annotation (Placement(transformation(extent={{-10,-10},{10,10}},
         rotation=270,
         origin={-60,0})));
-  Sources.ConstantVoltage vSourcePos(V=Vps) annotation (Placement(
+  Modelica.Electrical.Analog.Sources.ConstantVoltage vSourcePos(V=Vps) annotation (Placement(
         transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={-40,20})));
-  Sources.ConstantVoltage vSourceNeg(V=Vns) annotation (Placement(
+  Modelica.Electrical.Analog.Sources.ConstantVoltage vSourceNeg(V=Vns) annotation (Placement(
         transformation(
         extent={{10,-10},{-10,10}},
         rotation=270,
@@ -76,8 +76,8 @@ equation
     annotation (Line(points={{-40,-30},{10,-30},{10,-10}}, color={0,0,255}));
   annotation (
     Documentation(info="<html>
-                        <p>This is an inverting amplifier. Resistance R1 can be chosen, R2 is defined by the desired amplification k.</p>
-                        </html>"),
+<p>This is an inverting amplifier. Resistance R1 can be chosen, R2 is defined by the desired amplification k.</p>
+</html>"),
     experiment(
       StartTime=0,
       StopTime=1,
