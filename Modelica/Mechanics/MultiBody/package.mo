@@ -1143,7 +1143,7 @@ model World
       tab="Animation", group="if animateGround = true and gravityType = UniformGravity",
       enable=enableAnimation and animateGround and gravityType == GravityTypes.UniformGravity));
 
-  parameter SI.Length nominalLength=1 "\"Nominal\" length of multi-body system"
+  parameter SI.Length nominalLength=1 "Nominal length of multi-body system"
     annotation (Dialog(tab="Defaults"));
   parameter SI.Length defaultAxisLength=nominalLength/5
     "Default for length of a frame axis (but not world frame)"
