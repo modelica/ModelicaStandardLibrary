@@ -526,6 +526,7 @@ The Input signal is delayed by a given time instant, or more precisely:
     parameter Real s[n-1](each fixed=false) "State scaling";
 
   function padeCoefficients2
+    extends Modelica.Icons.Function;
     input Real T "delay time";
     input Integer n "order of denominator";
     input Integer m "order of numerator";
