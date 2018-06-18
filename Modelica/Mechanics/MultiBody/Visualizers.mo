@@ -15,10 +15,10 @@ package Visualizers "3-dimensional visual objects used for animation"
       annotation (Dialog(group="if animation = true", enable=animation));
     input Types.Axis lengthDirection={1,0,0}
       "Vector in length direction of shape, resolved in frame_a"
-      annotation (Evaluate=true, Dialog(group="if animation = true", enable=animation));
+      annotation (Dialog(group="if animation = true", enable=animation));
     input Types.Axis widthDirection={0,1,0}
       "Vector in width direction of shape, resolved in frame_a"
-      annotation (Evaluate=true, Dialog(group="if animation = true", enable=animation));
+      annotation (Dialog(group="if animation = true", enable=animation));
     input SI.Distance length(start=1) "Length of shape"
       annotation (Dialog(group="if animation = true", enable=animation));
     input SI.Distance width(start=0.1) "Width of shape"
@@ -211,10 +211,10 @@ definition of the colors used in the MultiBody library together with a color edi
       annotation (Dialog(group="if animation = true", enable=animation));
     input Types.Axis lengthDirection = to_unit1(r - r_shape)
       "Vector in length direction of shape, resolved in frame_a"
-      annotation (Evaluate=true, Dialog(group="if animation = true", enable=animation));
+      annotation (Dialog(group="if animation = true", enable=animation));
     input Types.Axis widthDirection={0,1,0}
       "Vector in width direction of shape, resolved in frame_a"
-      annotation (Evaluate=true, Dialog(group="if animation = true", enable=animation));
+      annotation (Dialog(group="if animation = true", enable=animation));
     input SI.Length length=Modelica.Math.Vectors.length(
                                          r - r_shape) "Length of shape"
       annotation (Dialog(group="if animation = true", enable=animation));
