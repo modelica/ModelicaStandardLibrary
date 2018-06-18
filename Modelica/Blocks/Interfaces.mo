@@ -1338,233 +1338,6 @@ has a 3D icon (e.g., used in Blocks.Logical library).
             fillPattern=FillPattern.Solid)}));
   end PartialBooleanMISO;
 
-  package Adaptors
-    "Obsolete package with components to send signals to a bus or receive signals from a bus (only for backward compatibility)"
-    extends Modelica.Icons.Package;
-    extends Modelica.Icons.ObsoleteModel;
-
-    block SendReal "Obsolete block to send Real signal to bus"
-      extends Modelica.Icons.ObsoleteModel;
-      RealOutput toBus "Output signal to be connected to bus" annotation (
-          Placement(transformation(extent={{100,-10},{120,10}})));
-      RealInput u "Input signal to be send to bus" annotation (Placement(
-            transformation(extent={{-140,-20},{-100,20}})));
-    equation
-      toBus = u;
-      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}), graphics={Rectangle(
-                  extent={{-100,40},{100,-40}},
-                  lineColor={0,0,127},
-                  fillColor={255,255,255},
-                  fillPattern=FillPattern.Solid),Text(
-                  extent={{-150,90},{150,50}},
-              textString="%name",
-              lineColor={0,0,255}),   Text(
-                  extent={{-100,30},{100,-30}},
-                  lineColor={0,0,127},
-                  textString="send")}), Documentation(info="<html>
-<p>
-Obsolete block that was previously used to connect a Real signal
-to a signal in a connector. This block is only provided for
-backward compatibility.
-</p>
-
-<p>
-It is much more convenient and more powerful to use \"expandable connectors\"
-for signal buses, see example
-<a href=\"modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a>.
-</p>
-</html>"),
-      obsolete = "Obsolete block - use expandable connectors instead");
-    end SendReal;
-
-    block SendBoolean "Obsolete block to send Boolean signal to bus"
-      extends Modelica.Icons.ObsoleteModel;
-      BooleanOutput toBus "Output signal to be connected to bus" annotation (
-          Placement(transformation(extent={{100,-10},{120,10}})));
-      BooleanInput u "Input signal to be send to bus" annotation (Placement(
-            transformation(extent={{-140,-20},{-100,20}})));
-    equation
-      toBus = u;
-      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}), graphics={Rectangle(
-                  extent={{-100,40},{100,-40}},
-                  lineColor={255,0,255},
-                  fillColor={255,255,255},
-                  fillPattern=FillPattern.Solid),Text(
-                  extent={{-150,90},{150,50}},
-              textString="%name",
-              lineColor={0,0,255}),   Text(
-                  extent={{-100,30},{100,-30}},
-                  lineColor={255,0,255},
-                  textString="send")}), Documentation(info="<html>
-<p>
-Obsolete block that was previously used to connect a Boolean signal
-to a signal in a connector. This block is only provided for
-backward compatibility.
-</p>
-
-<p>
-It is much more convenient and more powerful to use \"expandable connectors\"
-for signal buses, see example
-<a href=\"modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a>.
-</p>
-</html>"),
-      obsolete = "Obsolete block - use expandable connectors instead");
-    end SendBoolean;
-
-    block SendInteger "Obsolete block to send Integer signal to bus"
-      extends Modelica.Icons.ObsoleteModel;
-      IntegerOutput toBus "Output signal to be connected to bus" annotation (
-          Placement(transformation(extent={{100,-10},{120,10}})));
-      IntegerInput u "Input signal to be send to bus" annotation (Placement(
-            transformation(extent={{-140,-20},{-100,20}})));
-    equation
-      toBus = u;
-      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}), graphics={Rectangle(
-                  extent={{-100,40},{100,-40}},
-                  lineColor={255,127,0},
-                  fillColor={255,255,255},
-                  fillPattern=FillPattern.Solid),Text(
-                  extent={{-150,90},{150,50}},
-              textString="%name",
-              lineColor={0,0,255}),   Text(
-                  extent={{-100,30},{100,-30}},
-                  lineColor={255,127,0},
-                  textString="send")}), Documentation(info="<html>
-<p>
-Obsolete block that was previously used to connect an Integer signal
-to a signal in a connector. This block is only provided for
-backward compatibility.
-</p>
-
-<p>
-It is much more convenient and more powerful to use \"expandable connectors\"
-for signal buses, see example
-<a href=\"modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a>.
-</p>
-</html>"),
-      obsolete = "Obsolete block - use expandable connectors instead");
-    end SendInteger;
-
-    block ReceiveReal "Obsolete block to receive Real signal from bus"
-      extends Modelica.Icons.ObsoleteModel;
-      RealInput fromBus "To be connected with signal on bus" annotation (
-          Placement(transformation(extent={{-120,-10},{-100,10}})));
-      RealOutput y "Output signal to be received from bus" annotation (
-          Placement(transformation(extent={{100,-10},{120,10}})));
-    equation
-      y = fromBus;
-      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}), graphics={Rectangle(
-                  extent={{-100,40},{100,-40}},
-                  lineColor={0,0,127},
-                  fillColor={255,255,255},
-                  fillPattern=FillPattern.Solid),Text(
-                  extent={{-100,30},{100,-30}},
-                  lineColor={0,0,127},
-                  textString="receive"),Text(
-                  extent={{-150,90},{150,50}},
-              textString="%name",
-              lineColor={0,0,255})}),    Documentation(info="<html>
-<p>
-Obsolete block that was previously used to connect a Real signal
-in a connector to an input of a block. This block is only provided for
-backward compatibility.
-</p>
-
-<p>
-It is much more convenient and more powerful to use \"expandable connectors\"
-for signal buses, see example
-<a href=\"modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a>.
-</p>
-</html>"),
-      obsolete = "Obsolete block - use expandable connectors instead");
-    end ReceiveReal;
-
-    block ReceiveBoolean "Obsolete block to receive Boolean signal from bus"
-      extends Modelica.Icons.ObsoleteModel;
-      BooleanInput fromBus "To be connected with signal on bus" annotation (
-          Placement(transformation(extent={{-120,-10},{-100,10}})));
-      BooleanOutput y "Output signal to be received from bus" annotation (
-          Placement(transformation(extent={{100,-10},{120,10}})));
-    equation
-      y = fromBus;
-      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}), graphics={Rectangle(
-                  extent={{-100,40},{100,-40}},
-                  lineColor={255,0,255},
-                  fillColor={255,255,255},
-                  fillPattern=FillPattern.Solid),Text(
-                  extent={{-100,30},{100,-30}},
-                  lineColor={255,0,255},
-                  textString="receive"),Text(
-                  extent={{-150,90},{150,50}},
-              textString="%name",
-              lineColor={0,0,255})}),    Documentation(info="<html>
-<p>
-Obsolete block that was previously used to connect a Boolean signal
-in a connector to an input of a block. This block is only provided for
-backward compatibility.
-</p>
-
-<p>
-It is much more convenient and more powerful to use \"expandable connectors\"
-for signal buses, see example
-<a href=\"modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a>.
-</p>
-</html>"),
-      obsolete = "Obsolete block - use expandable connectors instead");
-    end ReceiveBoolean;
-
-    block ReceiveInteger "Obsolete block to receive Integer signal from bus"
-      extends Modelica.Icons.ObsoleteModel;
-      IntegerInput fromBus "To be connected with signal on bus" annotation (
-          Placement(transformation(extent={{-120,-10},{-100,10}})));
-      IntegerOutput y "Output signal to be received from bus" annotation (
-          Placement(transformation(extent={{100,-10},{120,10}})));
-    equation
-      y = fromBus;
-      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}), graphics={Rectangle(
-                  extent={{-100,40},{100,-40}},
-                  lineColor={255,127,0},
-                  fillColor={255,255,255},
-                  fillPattern=FillPattern.Solid),Text(
-                  extent={{-100,30},{100,-30}},
-                  lineColor={255,127,0},
-                  textString="receive"),Text(
-                  extent={{-150,90},{150,50}},
-              textString="%name",
-              lineColor={0,0,255})}),    Documentation(info="<html>
-<p>
-Obsolete block that was previously used to connect an Integer signal
-in a connector to an input of a block. This block is only provided for
-backward compatibility.
-</p>
-
-<p>
-It is much more convenient and more powerful to use \"expandable connectors\"
-for signal buses, see example
-<a href=\"modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a>.
-</p>
-</html>"),
-      obsolete = "Obsolete block - use expandable connectors instead");
-    end ReceiveInteger;
-
-    annotation (Documentation(info="<html>
-<p>
-The components of this package should no longer be used.
-They are only provided for backward compatibility.
-It is much more convenient and more powerful to use \"expandable connectors\"
-for signal buses, see example
-<a href=\"modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a>.
-</p>
-</html>"),
-      obsolete = "Obsolete package - use expandable connectors instead");
-  end Adaptors;
-
   partial block PartialConversionBlock
     "Partial block defining the interface for conversion blocks"
 
@@ -1827,7 +1600,7 @@ of noise blocks.
 </html>"));
   end PartialNoise;
 
-  package PartialFMUadaptors "Partial FMU adaptors"
+  package Adaptors "Package with adaptors (especially useful for FMUs)"
     extends Modelica.Icons.InterfacesPackage;
 
     partial model FlowToPotentialAdaptor "Signal adaptor for a connector with flow, 1st derivative of flow, and 2nd derivative of flow as inputs and
@@ -2054,10 +1827,11 @@ Note, the input signals must be consistent to each other
 </html>"));
     end PotentialToFlowAdaptor;
 
-    package Functions "Functions for FMU adapters"
-      extends Modelica.Icons.InternalPackage;
+    package Functions "Functions for adaptors"
+      extends Modelica.Icons.FunctionsPackage;
 
       function state1 "Return state (with one derivative)"
+        extends Modelica.Icons.Function;
         input Real u[2] "Required values for state and der(s)";
         input Real dummy
           "Just to have one input signal that should be differentiated to avoid possible problems in the Modelica tool (is not used)";
@@ -2069,6 +1843,7 @@ Note, the input signals must be consistent to each other
       end state1;
 
       function state1der1 "Return 1st derivative (der of state1)"
+        extends Modelica.Icons.Function;
         input Real u[2] "Required values for state and der(s)";
         input Real dummy
           "Just to have one input signal that should be differentiated to avoid possible problems in the Modelica tool (is not used)";
@@ -2080,6 +1855,7 @@ Note, the input signals must be consistent to each other
       end state1der1;
 
       function state2 "Return state (with two derivatives)"
+        extends Modelica.Icons.Function;
         input Real u[3] "Required values for state and der(s)";
         input Real dummy
           "Just to have one input signal that should be differentiated to avoid possible problems in the Modelica tool (is not used)";
@@ -2091,6 +1867,7 @@ Note, the input signals must be consistent to each other
       end state2;
 
       function state2der1 "Return 1st derivative (der of state2)"
+        extends Modelica.Icons.Function;
         input Real u[3] "Required values for state and der(s)";
         input Real dummy
           "Just to have one input signal that should be differentiated to avoid possible problems in the Modelica tool (is not used)";
@@ -2103,6 +1880,7 @@ Note, the input signals must be consistent to each other
       end state2der1;
 
       function state2der2 "Return 2nd derivative (der of state2der1)"
+        extends Modelica.Icons.Function;
         input Real u[3] "Required values for state and der(s)";
         input Real dummy
           "Just to have one input signal that should be differentiated to avoid possible problems in the Modelica tool (is not used)";
@@ -2114,6 +1892,217 @@ Note, the input signals must be consistent to each other
         annotation (InlineAfterIndexReduction=true);
       end state2der2;
     end Functions;
+
+    block SendReal "Obsolete block to send Real signal to bus"
+      extends Modelica.Icons.ObsoleteModel;
+      RealOutput toBus "Output signal to be connected to bus" annotation (
+          Placement(transformation(extent={{100,-10},{120,10}})));
+      RealInput u "Input signal to be send to bus" annotation (Placement(
+            transformation(extent={{-140,-20},{-100,20}})));
+    equation
+      toBus = u;
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+                -100},{100,100}}), graphics={Rectangle(
+                  extent={{-100,40},{100,-40}},
+                  lineColor={0,0,127},
+                  fillColor={255,255,255},
+                  fillPattern=FillPattern.Solid),Text(
+                  extent={{-150,90},{150,50}},
+              textString="%name",
+              lineColor={0,0,255}),   Text(
+                  extent={{-100,30},{100,-30}},
+                  lineColor={0,0,127},
+                  textString="send")}), Documentation(info="<html>
+<p>
+Obsolete block that was previously used to connect a Real signal
+to a signal in a connector. This block is only provided for
+backward compatibility.
+</p>
+
+<p>
+It is much more convenient and more powerful to use \"expandable connectors\"
+for signal buses, see example
+<a href=\"modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a>.
+</p>
+</html>"),
+      obsolete = "Obsolete block - use expandable connectors instead");
+    end SendReal;
+
+    block SendBoolean "Obsolete block to send Boolean signal to bus"
+      extends Modelica.Icons.ObsoleteModel;
+      BooleanOutput toBus "Output signal to be connected to bus" annotation (
+          Placement(transformation(extent={{100,-10},{120,10}})));
+      BooleanInput u "Input signal to be send to bus" annotation (Placement(
+            transformation(extent={{-140,-20},{-100,20}})));
+    equation
+      toBus = u;
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+                -100},{100,100}}), graphics={Rectangle(
+                  extent={{-100,40},{100,-40}},
+                  lineColor={255,0,255},
+                  fillColor={255,255,255},
+                  fillPattern=FillPattern.Solid),Text(
+                  extent={{-150,90},{150,50}},
+              textString="%name",
+              lineColor={0,0,255}),   Text(
+                  extent={{-100,30},{100,-30}},
+                  lineColor={255,0,255},
+                  textString="send")}), Documentation(info="<html>
+<p>
+Obsolete block that was previously used to connect a Boolean signal
+to a signal in a connector. This block is only provided for
+backward compatibility.
+</p>
+
+<p>
+It is much more convenient and more powerful to use \"expandable connectors\"
+for signal buses, see example
+<a href=\"modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a>.
+</p>
+</html>"),
+      obsolete = "Obsolete block - use expandable connectors instead");
+    end SendBoolean;
+
+    block SendInteger "Obsolete block to send Integer signal to bus"
+      extends Modelica.Icons.ObsoleteModel;
+      IntegerOutput toBus "Output signal to be connected to bus" annotation (
+          Placement(transformation(extent={{100,-10},{120,10}})));
+      IntegerInput u "Input signal to be send to bus" annotation (Placement(
+            transformation(extent={{-140,-20},{-100,20}})));
+    equation
+      toBus = u;
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+                -100},{100,100}}), graphics={Rectangle(
+                  extent={{-100,40},{100,-40}},
+                  lineColor={255,127,0},
+                  fillColor={255,255,255},
+                  fillPattern=FillPattern.Solid),Text(
+                  extent={{-150,90},{150,50}},
+              textString="%name",
+              lineColor={0,0,255}),   Text(
+                  extent={{-100,30},{100,-30}},
+                  lineColor={255,127,0},
+                  textString="send")}), Documentation(info="<html>
+<p>
+Obsolete block that was previously used to connect an Integer signal
+to a signal in a connector. This block is only provided for
+backward compatibility.
+</p>
+
+<p>
+It is much more convenient and more powerful to use \"expandable connectors\"
+for signal buses, see example
+<a href=\"modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a>.
+</p>
+</html>"),
+      obsolete = "Obsolete block - use expandable connectors instead");
+    end SendInteger;
+
+    block ReceiveReal "Obsolete block to receive Real signal from bus"
+      extends Modelica.Icons.ObsoleteModel;
+      RealInput fromBus "To be connected with signal on bus" annotation (
+          Placement(transformation(extent={{-120,-10},{-100,10}})));
+      RealOutput y "Output signal to be received from bus" annotation (
+          Placement(transformation(extent={{100,-10},{120,10}})));
+    equation
+      y = fromBus;
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+                -100},{100,100}}), graphics={Rectangle(
+                  extent={{-100,40},{100,-40}},
+                  lineColor={0,0,127},
+                  fillColor={255,255,255},
+                  fillPattern=FillPattern.Solid),Text(
+                  extent={{-100,30},{100,-30}},
+                  lineColor={0,0,127},
+                  textString="receive"),Text(
+                  extent={{-150,90},{150,50}},
+              textString="%name",
+              lineColor={0,0,255})}),    Documentation(info="<html>
+<p>
+Obsolete block that was previously used to connect a Real signal
+in a connector to an input of a block. This block is only provided for
+backward compatibility.
+</p>
+
+<p>
+It is much more convenient and more powerful to use \"expandable connectors\"
+for signal buses, see example
+<a href=\"modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a>.
+</p>
+</html>"),
+      obsolete = "Obsolete block - use expandable connectors instead");
+    end ReceiveReal;
+
+    block ReceiveBoolean "Obsolete block to receive Boolean signal from bus"
+      extends Modelica.Icons.ObsoleteModel;
+      BooleanInput fromBus "To be connected with signal on bus" annotation (
+          Placement(transformation(extent={{-120,-10},{-100,10}})));
+      BooleanOutput y "Output signal to be received from bus" annotation (
+          Placement(transformation(extent={{100,-10},{120,10}})));
+    equation
+      y = fromBus;
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+                -100},{100,100}}), graphics={Rectangle(
+                  extent={{-100,40},{100,-40}},
+                  lineColor={255,0,255},
+                  fillColor={255,255,255},
+                  fillPattern=FillPattern.Solid),Text(
+                  extent={{-100,30},{100,-30}},
+                  lineColor={255,0,255},
+                  textString="receive"),Text(
+                  extent={{-150,90},{150,50}},
+              textString="%name",
+              lineColor={0,0,255})}),    Documentation(info="<html>
+<p>
+Obsolete block that was previously used to connect a Boolean signal
+in a connector to an input of a block. This block is only provided for
+backward compatibility.
+</p>
+
+<p>
+It is much more convenient and more powerful to use \"expandable connectors\"
+for signal buses, see example
+<a href=\"modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a>.
+</p>
+</html>"),
+      obsolete = "Obsolete block - use expandable connectors instead");
+    end ReceiveBoolean;
+
+    block ReceiveInteger "Obsolete block to receive Integer signal from bus"
+      extends Modelica.Icons.ObsoleteModel;
+      IntegerInput fromBus "To be connected with signal on bus" annotation (
+          Placement(transformation(extent={{-120,-10},{-100,10}})));
+      IntegerOutput y "Output signal to be received from bus" annotation (
+          Placement(transformation(extent={{100,-10},{120,10}})));
+    equation
+      y = fromBus;
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+                -100},{100,100}}), graphics={Rectangle(
+                  extent={{-100,40},{100,-40}},
+                  lineColor={255,127,0},
+                  fillColor={255,255,255},
+                  fillPattern=FillPattern.Solid),Text(
+                  extent={{-100,30},{100,-30}},
+                  lineColor={255,127,0},
+                  textString="receive"),Text(
+                  extent={{-150,90},{150,50}},
+              textString="%name",
+              lineColor={0,0,255})}),    Documentation(info="<html>
+<p>
+Obsolete block that was previously used to connect an Integer signal
+in a connector to an input of a block. This block is only provided for
+backward compatibility.
+</p>
+
+<p>
+It is much more convenient and more powerful to use \"expandable connectors\"
+for signal buses, see example
+<a href=\"modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a>.
+</p>
+</html>"),
+      obsolete = "Obsolete block - use expandable connectors instead");
+    end ReceiveInteger;
+
     annotation (Documentation(info="<html>
 <p>
 This package contains partial adaptors to implement adaptors in various domains
@@ -2123,7 +2112,7 @@ and export this model in form of an input/output block,
 especially as FMU (<a href=\"https://www.fmi-standard.org\">Functional Mock-up Unit</a>).
 </p>
 </html>"));
-  end PartialFMUadaptors;
+  end Adaptors;
   annotation (Documentation(info="<html>
 <p>
 This package contains interface definitions for
