@@ -3518,7 +3518,7 @@ The classes in this package should not be directly used by a user.
     "Obsolete model will be removed in future versions, use TransformAbsoluteVector instead!"
     extends Modelica.Icons.ObsoleteModel;
     extends TransformAbsoluteVector;
-    annotation(obsolete = "Obsolete model due to false class name - use Modelica.Mechanics.MultiBody.Sensors.TransformAbsoluteVector instead", Documentation(info="<html>
+    annotation(obsolete = "Obsolete model due to misspelled class name - use Modelica.Mechanics.MultiBody.Sensors.TransformAbsoluteVector instead", Documentation(info="<html>
 <!--a placeholder to fulfill minimum documentation length-->
 </html>"));
   end TansformAbsoluteVector;
@@ -3527,7 +3527,7 @@ The classes in this package should not be directly used by a user.
     "Obsolete model will be removed in future versions, use TransformRelativeVector instead!"
     extends Modelica.Icons.ObsoleteModel;
     extends TransformRelativeVector;
-    annotation(obsolete = "Obsolete model due to false class name - use Modelica.Mechanics.MultiBody.Sensors.TransformRelativeVector instead", Documentation(info="<html>
+    annotation(obsolete = "Obsolete model due to misspelled class name - use Modelica.Mechanics.MultiBody.Sensors.TransformRelativeVector instead", Documentation(info="<html>
 <!--a placeholder to fulfill minimum documentation length-->
 </html>"));
   end TansformRelativeVector;
