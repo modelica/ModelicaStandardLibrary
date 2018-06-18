@@ -635,24 +635,18 @@ the animation may be switched off via parameter animation = <strong>false</stron
     parameter SI.Position r_CM[3](start={0,0,0})
       "Vector from frame_a to center of mass, resolved in frame_a";
     parameter SI.Mass m(min=0, start=1) "Mass of rigid body";
-    parameter SI.Inertia I_11(min=0) = 0.001 "(1,1) element of inertia tensor"
-      annotation (Dialog(group=
-            "Inertia tensor (resolved in center of mass, parallel to frame_a)"));
-    parameter SI.Inertia I_22(min=0) = 0.001 "(2,2) element of inertia tensor"
-      annotation (Dialog(group=
-            "Inertia tensor (resolved in center of mass, parallel to frame_a)"));
-    parameter SI.Inertia I_33(min=0) = 0.001 "(3,3) element of inertia tensor"
-      annotation (Dialog(group=
-            "Inertia tensor (resolved in center of mass, parallel to frame_a)"));
-    parameter SI.Inertia I_21(min=-C.inf) = 0 "(2,1) element of inertia tensor"
-                                        annotation (Dialog(group=
-            "Inertia tensor (resolved in center of mass, parallel to frame_a)"));
-    parameter SI.Inertia I_31(min=-C.inf) = 0 "(3,1) element of inertia tensor"
-                                        annotation (Dialog(group=
-            "Inertia tensor (resolved in center of mass, parallel to frame_a)"));
-    parameter SI.Inertia I_32(min=-C.inf) = 0 "(3,2) element of inertia tensor"
-                                        annotation (Dialog(group=
-            "Inertia tensor (resolved in center of mass, parallel to frame_a)"));
+    parameter SI.Inertia I_11(min=0) = 0.001 "Element (1,1) of inertia tensor"
+      annotation (Dialog(group="Inertia tensor (resolved in center of mass, parallel to frame_a)"));
+    parameter SI.Inertia I_22(min=0) = 0.001 "Element (2,2) of inertia tensor"
+      annotation (Dialog(group="Inertia tensor (resolved in center of mass, parallel to frame_a)"));
+    parameter SI.Inertia I_33(min=0) = 0.001 "Element (3,3) of inertia tensor"
+      annotation (Dialog(group="Inertia tensor (resolved in center of mass, parallel to frame_a)"));
+    parameter SI.Inertia I_21(min=-C.inf) = 0 "Element (2,1) of inertia tensor"
+      annotation (Dialog(group="Inertia tensor (resolved in center of mass, parallel to frame_a)"));
+    parameter SI.Inertia I_31(min=-C.inf) = 0 "Element (3,1) of inertia tensor"
+      annotation (Dialog(group="Inertia tensor (resolved in center of mass, parallel to frame_a)"));
+    parameter SI.Inertia I_32(min=-C.inf) = 0 "Element (3,2) of inertia tensor"
+      annotation (Dialog(group="Inertia tensor (resolved in center of mass, parallel to frame_a)"));
 
     SI.Position r_0[3](start={0,0,0}, each stateSelect=if enforceStates then
           StateSelect.always else StateSelect.avoid)
@@ -1017,24 +1011,18 @@ to the setting of parameters \"useQuaternions\" and
     parameter SI.Position r_CM[3](start={0,0,0})
       "Vector from frame_a to center of mass, resolved in frame_a";
     parameter SI.Mass m(min=0, start=1) "Mass of rigid body";
-    parameter SI.Inertia I_11(min=0) = 0.001 "(1,1) element of inertia tensor"
-      annotation (Dialog(group=
-            "Inertia tensor (resolved in center of mass, parallel to frame_a)"));
-    parameter SI.Inertia I_22(min=0) = 0.001 "(2,2) element of inertia tensor"
-      annotation (Dialog(group=
-            "Inertia tensor (resolved in center of mass, parallel to frame_a)"));
-    parameter SI.Inertia I_33(min=0) = 0.001 "(3,3) element of inertia tensor"
-      annotation (Dialog(group=
-            "Inertia tensor (resolved in center of mass, parallel to frame_a)"));
-    parameter SI.Inertia I_21(min=-C.inf) = 0 "(2,1) element of inertia tensor"
-                                        annotation (Dialog(group=
-            "Inertia tensor (resolved in center of mass, parallel to frame_a)"));
-    parameter SI.Inertia I_31(min=-C.inf) = 0 "(3,1) element of inertia tensor"
-                                        annotation (Dialog(group=
-            "Inertia tensor (resolved in center of mass, parallel to frame_a)"));
-    parameter SI.Inertia I_32(min=-C.inf) = 0 "(3,2) element of inertia tensor"
-                                        annotation (Dialog(group=
-            "Inertia tensor (resolved in center of mass, parallel to frame_a)"));
+    parameter SI.Inertia I_11(min=0) = 0.001 "Element (1,1) of inertia tensor"
+      annotation (Dialog(group="Inertia tensor (resolved in center of mass, parallel to frame_a)"));
+    parameter SI.Inertia I_22(min=0) = 0.001 "Element (2,2) of inertia tensor"
+      annotation (Dialog(group="Inertia tensor (resolved in center of mass, parallel to frame_a)"));
+    parameter SI.Inertia I_33(min=0) = 0.001 "Element (3,3) of inertia tensor"
+      annotation (Dialog(group="Inertia tensor (resolved in center of mass, parallel to frame_a)"));
+    parameter SI.Inertia I_21(min=-C.inf) = 0 "Element (2,1) of inertia tensor"
+      annotation (Dialog(group="Inertia tensor (resolved in center of mass, parallel to frame_a)"));
+    parameter SI.Inertia I_31(min=-C.inf) = 0 "Element (3,1) of inertia tensor"
+      annotation (Dialog(group="Inertia tensor (resolved in center of mass, parallel to frame_a)"));
+    parameter SI.Inertia I_32(min=-C.inf) = 0 "Element (3,2) of inertia tensor"
+      annotation (Dialog(group="Inertia tensor (resolved in center of mass, parallel to frame_a)"));
 
     SI.Position r_0[3](start={0,0,0}, each stateSelect=if enforceStates then
           StateSelect.always else StateSelect.avoid)
