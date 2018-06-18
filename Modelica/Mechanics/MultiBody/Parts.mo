@@ -2598,7 +2598,7 @@ November 3-4, 2003, pp. 149-158
         group="if animation = true",
         enable=animation));
     parameter Real hollowFraction=0.8
-      "1.0: Completely hollow, 0.0: rigid cylinder" annotation (Dialog(
+      "Outer radius / inner radius, i.e. 1.0: completely hollow, 0.0: rigid cylinder" annotation (Dialog(
         tab="Animation",
         group="if animation = true",
         enable=animation));
@@ -2756,7 +2756,7 @@ To work properly, the gravity acceleration vector g of the world must point in t
         group="if animation = true",
         enable=animation));
     parameter Real hollowFraction=0.8
-      "1.0: Completely hollow, 0.0: rigid cylinder" annotation (Dialog(
+      "Outer radius / inner radius, i.e. 1.0: completely hollow, 0.0: rigid cylinder" annotation (Dialog(
         tab="Animation",
         group="if animation = true",
         enable=animation));
