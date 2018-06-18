@@ -23,7 +23,12 @@ model Surfaces
     nu=50,
     nv=50)
     annotation (Placement(transformation(extent={{60,-60},{80,-40}})));
-  inner World world(axisLength=1, n={0,0,-1})
+  inner World world(
+    axisLength=1,
+    n={0,0,-1},
+    animateGround=true,
+    groundLength_u=4,
+    groundColor={215,215,215})
     annotation (Placement(transformation(extent={{-100,-10},{-80,10}})));
   Visualizers.Torus torus
     annotation (Placement(transformation(extent={{30,10},{50,30}})));
@@ -34,8 +39,6 @@ model Surfaces
     annotation (Placement(transformation(extent={{-50,50},{-30,70}})));
   Blocks.Sources.Sine sine(amplitude=2, freqHz=0.5)
     annotation (Placement(transformation(extent={{-80,50},{-60,70}})));
-  Visualizers.Ground ground(          groundColor={215,215,215}, length=4)
-    annotation (Placement(transformation(extent={{60,-20},{80,0}})));
   Parts.FixedTranslation fixedTranslation1(r={0,-1.3,torus.ro + torus.ri},
       animation=false)
     annotation (Placement(transformation(extent={{0,10},{20,30}})));
