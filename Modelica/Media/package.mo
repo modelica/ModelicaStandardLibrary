@@ -4992,16 +4992,13 @@ Modelica source.
     constant ExtraProperty C_default[nC]=fill(0, nC)
       "Default value for trace substances of medium (for initialization)";
 
-    final constant Integer nS=size(substanceNames, 1) "Number of substances"
-      annotation (Evaluate=true);
-    constant Integer nX=nS "Number of mass fractions" annotation (Evaluate=true);
+    final constant Integer nS=size(substanceNames, 1) "Number of substances";
+    constant Integer nX=nS "Number of mass fractions";
     constant Integer nXi=if fixedX then 0 else if reducedX then nS - 1 else nS
-      "Number of structurally independent mass fractions (see docu for details)"
-      annotation (Evaluate=true);
+      "Number of structurally independent mass fractions (see docu for details)";
 
     final constant Integer nC=size(extraPropertiesNames, 1)
-      "Number of extra (outside of standard mass-balance) transported properties"
-      annotation (Evaluate=true);
+      "Number of extra (outside of standard mass-balance) transported properties";
     constant Real C_nominal[nC](min=fill(Modelica.Constants.eps, nC)) = 1.0e-6*
       ones(nC) "Default for the nominal values for the extra properties";
     replaceable record FluidConstants =
