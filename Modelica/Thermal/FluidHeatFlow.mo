@@ -3011,7 +3011,7 @@ leads to neglect of temperature transient cv*m*der(T).</p>
           annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
       protected
         constant Boolean Exchange=true "Exchange of medium via flowport"
-          annotation(Evaluate=true, HideResult=true);
+          annotation(HideResult=true);
         Modelica.SIunits.SpecificEnthalpy h "Specific enthalpy in the volume";
       equation
         T_port=flowPort.h/medium.cp;
@@ -3066,7 +3066,7 @@ only adding an icon, and is kept for compatibility reasons. In the future, it wi
           annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
       protected
         constant Boolean Exchange=true "Exchange of medium via flowport"
-          annotation(Evaluate=true, HideResult=true);
+          annotation(HideResult=true);
         Modelica.SIunits.SpecificEnthalpy h "Specific enthalpy in the volume";
       equation
         T_port=flowPort.h/medium.cp;
