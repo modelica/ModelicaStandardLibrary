@@ -13,6 +13,7 @@ libraries from the C-code under Resources/C-Sources
 - ModelicaMatIO.lib
   This library contains
   ../../C-Sources/ModelicaMatIO.c
+  ../../C-Sources/snprintf.c
 
 - zlib.lib
   This library contains

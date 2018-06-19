@@ -13,6 +13,7 @@ to the following object libraries
 
 - ModelicaMatIO (.lib, .dll, .a, .so, depending on tool and OS) containing:
   ModelicaMatIO.c
+  snprintf.c
 
 - ModelicaStandardTables (.lib, .dll, .a, .so, depending on tool and OS) containing:
   ModelicaStandardTables.c
