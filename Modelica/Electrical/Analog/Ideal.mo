@@ -615,7 +615,7 @@ are possible.
       annotation (Placement(transformation(extent={{-10,-110},{10,-90}}), iconTransformation(extent={{-10,-110},{10,-90}})));
     SI.Voltage vin "input voltage";
   protected
-    Real s(final unit="1") "Auxiliary variable";
+    Real s(start=0, final unit="1") "Auxiliary variable";
     constant SI.Voltage unitVoltage=1 annotation (HideResult=true);
 
   equation
@@ -751,8 +751,8 @@ If the input voltage is vin larger than 0, the output voltage is out.v = VMax.
           Line(points={{-60,50},{-40,50}}, color={0,0,255}),
           Line(points={{-50,-40},{-50,-60}}, color={0,0,255}),
           Line(points={{-60,-50},{-40,-50}}, color={0,0,255}),
-          Line(points={{0,40},{0,100}}, color={0,0,255}),
-          Line(points={{0,-100},{0,-40}}, color={0,0,255})}),
+          Line(points={{0,40},{0,100}}, color={0,0,255}, visible=useSupply),
+          Line(points={{0,-100},{0,-40}}, color={0,0,255}, visible=useSupply)}),
       Documentation(info="<html>
 <p>Idealized operational amplifier with saturation:</p>
 <ul>

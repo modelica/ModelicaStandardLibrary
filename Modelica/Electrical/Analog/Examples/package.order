@@ -25,5 +25,6 @@ IdealTriacCircuit
 AD_DA_conversion
 GenerationOfFMUs
 ResonanceCircuits
+InvertingAmp
 OpAmps
 Utilities
