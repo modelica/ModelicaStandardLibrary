@@ -2595,18 +2595,18 @@ November 3-4, 2003, pp. 149-158
 
     parameter SI.Distance width=0.035 "Width of wheel" annotation (Dialog(
         tab="Animation",
-        group="if animation = true",
+        group="If animation = true",
         enable=animation));
     parameter Real hollowFraction=0.8
-      "Outer radius / inner radius, i.e. 1.0: completely hollow, 0.0: rigid cylinder" annotation (Dialog(
+      "For ring-like visualization: wheel radius / inner hole radius; i.e. 1.0: completely hollow, 0.0: full disc" annotation (Dialog(
         tab="Animation",
-        group="if animation = true",
+        group="If animation = true",
         enable=animation));
     parameter Modelica.Mechanics.MultiBody.Types.Color wheelColor={30,30,30}
       "Color of wheel" annotation (Dialog(
         colorSelector=true,
         tab="Animation",
-        group="if animation = true",
+        group="If animation = true",
         enable=animation));
 
     Modelica.Mechanics.MultiBody.Parts.Body body(
@@ -2753,18 +2753,19 @@ To work properly, the gravity acceleration vector g of the world must point in t
     parameter SI.Distance wheelWidth=0.01 "Width of one wheel" annotation (
         Dialog(
         tab="Animation",
-        group="if animation = true",
+        group="If animation = true",
         enable=animation));
     parameter Real hollowFraction=0.8
-      "Outer radius / inner radius, i.e. 1.0: completely hollow, 0.0: rigid cylinder" annotation (Dialog(
+      "For ring-like wheel visualization: wheel radius / inner hole radius; i.e. 1.0: completely hollow, 0.0: full disc"
+      annotation (Dialog(
         tab="Animation",
-        group="if animation = true",
+        group="If animation = true",
         enable=animation));
     parameter Modelica.Mechanics.MultiBody.Types.Color wheelColor={30,30,30}
       "Color of wheels" annotation (Dialog(
         colorSelector=true,
         tab="Animation",
-        group="if animation = true",
+        group="If animation = true",
         enable=animation));
 
     Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame1
