@@ -1542,8 +1542,7 @@ v_rel   = MultiBody.Frames.resolveRelative(frame_a.R, frame_b.R, v_rel_a);
 
   model RelativeAngles "Measure relative angles between two frame connectors"
     extends Internal.PartialRelativeSensor
-      annotation (
-        IconMap(extent={{-100,-100}, {100,100}},primitivesVisible=false));
+      annotation(IconMap(primitivesVisible=false));
     extends Modelica.Icons.RotationalSensor;
 
     Modelica.Blocks.Interfaces.RealOutput angles[3](
