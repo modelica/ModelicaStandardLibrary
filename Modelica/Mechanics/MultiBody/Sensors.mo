@@ -202,7 +202,7 @@ package Sensors "Sensors to measure variables"
         color={95,95,95},
         thickness=0.5));
     connect(transformVector_a.frame_resolve, frame_resolve) annotation (Line(
-        points={{-30,-59.9},{-40,-59.9},{-40,-90},{114,-90},{114,0},{100,0}},
+        points={{-30,-60},{-40,-60},{-40,-90},{114,-90},{114,0},{100,0}},
         color={95,95,95},
         pattern=LinePattern.Dot));
     connect(transformVector_a.r_out, a) annotation (Line(
@@ -216,7 +216,7 @@ package Sensors "Sensors to measure variables"
         color={95,95,95},
         thickness=0.5));
     connect(transformVector_z.frame_resolve, frame_resolve) annotation (Line(
-        points={{110,-69.9},{110,-70},{114,-70},{114,0},{100,0}},
+        points={{110,-70},{110,-70},{114,-70},{114,0},{100,0}},
         color={95,95,95},
         pattern=LinePattern.Dot));
     connect(frame_a, position.frame_a) annotation (Line(
@@ -1541,7 +1541,8 @@ v_rel   = MultiBody.Frames.resolveRelative(frame_a.R, frame_b.R, v_rel_a);
   end RelativeVelocity;
 
   model RelativeAngles "Measure relative angles between two frame connectors"
-    extends Internal.PartialRelativeSensor;
+    extends Internal.PartialRelativeSensor
+      annotation(IconMap(primitivesVisible=false));
     extends Modelica.Icons.RotationalSensor;
 
     Modelica.Blocks.Interfaces.RealOutput angles[3](
@@ -1573,18 +1574,31 @@ v_rel   = MultiBody.Frames.resolveRelative(frame_a.R, frame_b.R, v_rel_a);
       R_rel,
       sequence,
       guessAngle1);
-    annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-              -100},{100,100}}), graphics={
+    annotation (
+      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
+        graphics={
+          Line(
+            points={{0,-70},{0,-100}},
+            color={0,0,127}),
+          Line(
+            points={{-70,0},{-96,0},{-96,0}}),
+          Line(
+            points={{96,0},{70,0},{70,0}}),
           Text(
             extent={{-132,90},{129,138}},
             textString="%name",
             lineColor={0,0,255}),
-          Line(
-            points={{0,-70},{0,-100}},
-            color={0,0,127}),
           Text(
             extent={{0,-76},{110,-98}},
-            textString="angles")}), Documentation(info="<html>
+            textString="angles"),
+          Text(
+            extent={{-108,43},{-72,18}},
+            lineColor={128,128,128},
+            textString="a"),
+          Text(
+            extent={{72,43},{108,18}},
+            lineColor={128,128,128},
+            textString="b")}),      Documentation(info="<html>
 <p>
 This model determines the 3 angles to rotate frame_a
 into frame_b along the axes defined by parameter <strong>sequence</strong>.
@@ -2556,8 +2570,8 @@ The connector frame_resolve is always enabled and must be connected exactly once
             transformation(extent={{84,-16},{116,16}})));
 
     equation
-       assert(cardinality(frame_a) > 0, "Connector frame_a must be connected at least once");
-       assert(cardinality(frame_b) > 0, "Connector frame_b must be connected at least once");
+      assert(cardinality(frame_a) > 0, "Connector frame_a must be connected at least once");
+      assert(cardinality(frame_b) > 0, "Connector frame_b must be connected at least once");
       annotation (Icon(coordinateSystem(preserveAspectRatio=true,
               extent={{-100,-100},{100,100}}), graphics={
             Text(
@@ -2565,7 +2579,7 @@ The connector frame_resolve is always enabled and must be connected exactly once
               lineColor={128,128,128},
               textString="a"),
             Text(
-              extent={{72,41},{108,16}},
+              extent={{72,43},{108,18}},
               lineColor={128,128,128},
               textString="b"),
             Line(
