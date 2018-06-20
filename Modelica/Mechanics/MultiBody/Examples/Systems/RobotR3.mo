@@ -248,13 +248,13 @@ load inertia.
           extent={{-20,-20},{20,20}},
           rotation=90)));
   equation
-    connect(axis2.flange, mechanics.axis2) annotation (Line(points={{0,-30},{20,-30},{20,-18.3333},{38.5,-18.3333}}));
-    connect(axis1.flange, mechanics.axis1) annotation (Line(points={{0,-50},{30,-50},{30,-28.3333},{38.5,-28.3333}}));
-    connect(axis3.flange, mechanics.axis3) annotation (Line(points={{0,-10},{10,-10},{10,-8.33333},{38.5,-8.33333}}));
-    connect(axis4.flange, mechanics.axis4) annotation (Line(points={{0,10},{10,10},{10,1.66667},{38.5,1.66667}}));
+    connect(axis2.flange, mechanics.axis2) annotation (Line(points={{0,-30},{20,-30},{20,-13.5},{40,-13.5}}));
+    connect(axis1.flange, mechanics.axis1) annotation (Line(points={{0,-50},{30,-50},{30,-22.5},{40,-22.5}}));
+    connect(axis3.flange, mechanics.axis3) annotation (Line(points={{0,-10},{10,-10},{10,-4.5},{40,-4.5}}));
+    connect(axis4.flange, mechanics.axis4) annotation (Line(points={{0,10},{10,10},{10,4.5},{40,4.5}}));
     connect(axis5.flange, mechanics.axis5)
-      annotation (Line(points={{0,30},{20,30},{20,11.6667},{38.5,11.6667}}));
-    connect(axis6.flange, mechanics.axis6) annotation (Line(points={{0,50},{30,50},{30,21.6667},{38.5,21.6667}}));
+      annotation (Line(points={{0,30},{20,30},{20,13.5},{40,13.5}}));
+    connect(axis6.flange, mechanics.axis6) annotation (Line(points={{0,50},{30,50},{30,22.5},{40,22.5}}));
     connect(controlBus, pathPlanning.controlBus)
                                          annotation (Line(
         points={{-80,0},{-80,80},{-20,80}},
@@ -1379,51 +1379,62 @@ Default values of the parameters are given for the axis of joint 1.
       //r0={0,0.351,0},
 
       Modelica.Mechanics.Rotational.Interfaces.Flange_a axis1
-        annotation (Placement(transformation(extent={{-220,-180},{-200,-160}})));
+        annotation (Placement(transformation(extent={{-210,-160},{-190,-140}}), iconTransformation(extent={{-210,-160},{-190,-140}})));
       Modelica.Mechanics.Rotational.Interfaces.Flange_a axis2
-        annotation (Placement(transformation(extent={{-220,-120},{-200,-100}})));
+        annotation (Placement(transformation(extent={{-210,-100},{-190,-80}}), iconTransformation(extent={{-210,-100},{-190,-80}})));
       Modelica.Mechanics.Rotational.Interfaces.Flange_a axis3
-        annotation (Placement(transformation(extent={{-220,-60},{-200,-40}})));
+        annotation (Placement(transformation(extent={{-210,-40},{-190,-20}}), iconTransformation(extent={{-210,-40},{-190,-20}})));
       Modelica.Mechanics.Rotational.Interfaces.Flange_a axis4
-        annotation (Placement(transformation(extent={{-220,0},{-200,20}})));
+        annotation (Placement(transformation(extent={{-210,20},{-190,40}}), iconTransformation(extent={{-210,20},{-190,40}})));
       Modelica.Mechanics.Rotational.Interfaces.Flange_a axis5
-        annotation (Placement(transformation(extent={{-220,60},{-200,80}})));
+        annotation (Placement(transformation(extent={{-210,80},{-190,100}}), iconTransformation(extent={{-210,80},{-190,100}})));
       Modelica.Mechanics.Rotational.Interfaces.Flange_a axis6
-        annotation (Placement(transformation(extent={{-220,120},{-200,140}})));
+        annotation (Placement(transformation(extent={{-210,140},{-190,160}}), iconTransformation(extent={{-210,140},{-190,160}})));
       inner Modelica.Mechanics.MultiBody.World world(
-        g=(g)*Modelica.Math.Vectors.length(
-                                      ({0,-1,0})),
+        g=(g)*Modelica.Math.Vectors.length(({0,-1,0})),
         n={0,-1,0},
         animateWorld=false,
         animateGravity=false,
         enableAnimation=animation)
-                              annotation (Placement(transformation(extent={{40,-170},{20,-150}})));
-      Modelica.Mechanics.MultiBody.Joints.Revolute r1(n={0,1,0},useAxisFlange=true,
-          animation=animation)
+        annotation (Placement(transformation(extent={{40,-170},{20,-150}})));
+      Modelica.Mechanics.MultiBody.Joints.Revolute r1(
+        n={0,1,0},
+        useAxisFlange=true,
+        animation=animation)
         annotation (Placement(transformation(
             origin={-80,-140},
             extent={{-10,-10},{10,10}},
             rotation=90)));
-      Modelica.Mechanics.MultiBody.Joints.Revolute r2(n={1,0,0},useAxisFlange=true,
-          animation=animation)
+      Modelica.Mechanics.MultiBody.Joints.Revolute r2(
+        n={1,0,0},
+        useAxisFlange=true,
+        animation=animation)
         annotation (Placement(transformation(extent={{-60,-100},{-40,-80}})));
-      Modelica.Mechanics.MultiBody.Joints.Revolute r3(n={1,0,0},useAxisFlange=true,
-          animation=animation)
+      Modelica.Mechanics.MultiBody.Joints.Revolute r3(
+        n={1,0,0},
+        useAxisFlange=true,
+        animation=animation)
         annotation (Placement(transformation(
             origin={-50,-50},
             extent={{-10,-10},{10,10}},
             rotation=180)));
-      Modelica.Mechanics.MultiBody.Joints.Revolute r4(n={0,1,0},useAxisFlange=true,
-          animation=animation)
+      Modelica.Mechanics.MultiBody.Joints.Revolute r4(
+        n={0,1,0},
+        useAxisFlange=true,
+        animation=animation)
         annotation (Placement(transformation(
             origin={-80,0},
             extent={{-10,-10},{10,10}},
             rotation=90)));
-      Modelica.Mechanics.MultiBody.Joints.Revolute r5(n={1,0,0},useAxisFlange=true,
-          animation=animation)
+      Modelica.Mechanics.MultiBody.Joints.Revolute r5(
+        n={1,0,0},
+        useAxisFlange=true,
+        animation=animation)
         annotation (Placement(transformation(extent={{-60,40},{-40,60}})));
-      Modelica.Mechanics.MultiBody.Joints.Revolute r6(n={0,1,0},useAxisFlange=true,
-          animation=animation)
+      Modelica.Mechanics.MultiBody.Joints.Revolute r6(
+        n={0,1,0},
+        useAxisFlange=true,
+        animation=animation)
         annotation (Placement(transformation(
             origin={-20,100},
             extent={{-10,-10},{10,10}},
@@ -1567,22 +1578,18 @@ Default values of the parameters are given for the axis of joint 1.
         height=0.05,
         color={255,0,0},
         lengthDirection = to_unit1(rLoad),
-        length=Modelica.Math.Vectors.length(              rLoad),
+        length=Modelica.Math.Vectors.length(rLoad),
         animation=animation)
         annotation (Placement(transformation(
             origin={-20,160},
             extent={{-10,-10},{10,10}},
             rotation=90)));
     equation
-      connect(r6.frame_b, b6.frame_a)
-        annotation (Line(
-          points={{-20,110},{-20,120}},
-          color={95,95,95},
-          thickness=0.5));
       q = {r1.phi,r2.phi,r3.phi,r4.phi,r5.phi,r6.phi};
       qd = der(q);
       qdd = der(qd);
       tau = {r1.tau, r2.tau, r3.tau, r4.tau, r5.tau, r6.tau};
+
       connect(load.frame_a, b6.frame_b)
         annotation (Line(
           points={{-20,150},{-20,140}},
@@ -1612,8 +1619,8 @@ Default values of the parameters are given for the axis of joint 1.
           points={{-20,-60},{-20,-50},{-40,-50}},
           color={95,95,95},
           thickness=0.5));
-      connect(r2.axis, axis2) annotation (Line(points={{-50,-80},{-50,-76},{-180,-76},{-180,-110},{-210,-110}}));
-      connect(r1.axis, axis1) annotation (Line(points={{-90,-140},{-180,-140},{-180,-170},{-210,-170}}));
+      connect(r2.axis, axis2) annotation (Line(points={{-50,-80},{-50,-76},{-180,-76},{-180,-90},{-200,-90}}));
+      connect(r1.axis, axis1) annotation (Line(points={{-90,-140},{-180,-140},{-180,-150},{-200,-150}}));
       connect(r3.frame_b, b3.frame_a) annotation (Line(
           points={{-60,-50},{-80,-50},{-80,-40}},
           color={95,95,95},
@@ -1623,9 +1630,9 @@ Default values of the parameters are given for the axis of joint 1.
           color={95,95,95},
           thickness=0.5));
       connect(r3.axis, axis3)
-        annotation (Line(points={{-50,-60},{-50,-64},{-180,-64},{-180,-50},{-210,-50}}));
+        annotation (Line(points={{-50,-60},{-50,-64},{-180,-64},{-180,-30},{-200,-30}}));
       connect(r4.axis, axis4)
-        annotation (Line(points={{-90,0},{-180,0},{-180,10},{-210,10}}));
+        annotation (Line(points={{-90,0},{-180,0},{-180,30},{-200,30}}));
       connect(r4.frame_b, b4.frame_a)
         annotation (Line(
           points={{-80,10},{-80,20}},
@@ -1635,7 +1642,7 @@ Default values of the parameters are given for the axis of joint 1.
           points={{-80,40},{-80,50},{-60,50}},
           color={95,95,95},
           thickness=0.5));
-      connect(r5.axis, axis5) annotation (Line(points={{-50,60},{-50,70},{-210,70}}));
+      connect(r5.axis, axis5) annotation (Line(points={{-50,60},{-50,90},{-200,90}}));
       connect(r5.frame_b, b5.frame_a) annotation (Line(
           points={{-40,50},{-20,50},{-20,60}},
           color={95,95,95},
@@ -1645,16 +1652,22 @@ Default values of the parameters are given for the axis of joint 1.
           color={95,95,95},
           thickness=0.5));
       connect(r6.axis, axis6)
-        annotation (Line(points={{-30,100},{-180,100},{-180,130},{-210,130}}));
+        annotation (Line(points={{-30,100},{-180,100},{-180,150},{-200,150}}));
+      connect(r6.frame_b, b6.frame_a)
+        annotation (Line(
+          points={{-20,110},{-20,120}},
+          color={95,95,95},
+          thickness=0.5));
       annotation (
         Documentation(info="<html>
 <p>
 This model contains the mechanical components of the r3 robot
 (multibody system).
 </p>
-</html>"), Icon(coordinateSystem(
+</html>"),
+        Icon(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-200,-180},{200,180}}), graphics={
+            extent={{-200,-200},{200,200}}), graphics={
             Rectangle(
               extent={{-200,200},{200,-200}},
               fillColor={192,192,192},
@@ -1663,35 +1676,35 @@ This model contains the mechanical components of the r3 robot
               extent={{-200,250},{200,210}},
               textString="%name",
               lineColor={0,0,255}),
+            Bitmap(extent={{-130,-195},{195,195}},
+              fileName="modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Systems/robot_kr15.png"),
             Text(
-              extent={{-200,-150},{-140,-190}},
+              extent={{-190,-130},{-130,-170}},
               textString="1",
-              lineColor={0,0,255}),
+              lineColor={0,0,0}),
             Text(
-              extent={{-200,-30},{-140,-70}},
-              textString="3",
-              lineColor={0,0,255}),
-            Text(
-              extent={{-200,-90},{-140,-130}},
+              extent={{-190,-70},{-130,-110}},
               textString="2",
-              lineColor={0,0,255}),
+              lineColor={0,0,0}),
             Text(
-              extent={{-200,90},{-140,50}},
-              textString="5",
-              lineColor={0,0,255}),
+              extent={{-190,-10},{-130,-50}},
+              textString="3",
+              lineColor={0,0,0}),
             Text(
-              extent={{-200,28},{-140,-12}},
+              extent={{-190,48},{-130,8}},
               textString="4",
-              lineColor={0,0,255}),
+              lineColor={0,0,0}),
             Text(
-              extent={{-198,150},{-138,110}},
+              extent={{-190,110},{-130,70}},
+              textString="5",
+              lineColor={0,0,0}),
+            Text(
+              extent={{-188,170},{-128,130}},
               textString="6",
-              lineColor={0,0,255}),
-            Bitmap(extent={{-130,-195},{195,195}}, fileName=
-                  "modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Systems/robot_kr15.png")}),
+              lineColor={0,0,0})}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-200,-180},{200,180}})));
+            extent={{-200,-200},{200,200}})));
     end MechanicalStructure;
 
     annotation (Documentation(info="<html>
