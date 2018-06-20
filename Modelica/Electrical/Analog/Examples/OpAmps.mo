@@ -36,20 +36,20 @@ package OpAmps "Examples with operational amplifiers"
           rotation=270,
           origin={50,-20})));
     Modelica.Electrical.Analog.Basic.Resistor r1(R=R1)
-      annotation (Placement(transformation(extent={{-40,10},{-20,30}})));
+      annotation (Placement(transformation(extent={{-40,20},{-20,40}})));
     Modelica.Electrical.Analog.Basic.Resistor r2(R=R2)
-      annotation (Placement(transformation(extent={{20,10},{0,30}})));
+      annotation (Placement(transformation(extent={{20,20},{0,40}})));
   equation
     connect(r1.n, r2.n) annotation (Line(
-        points={{-20,20},{0,20}}, color={0,0,255}));
+        points={{-20,30},{0,30}}, color={0,0,255}));
     connect(r2.n, opAmp.in_n) annotation (Line(
-        points={{0,20},{-10,20},{-10,6},{0,6}}, color={0,0,255}));
+        points={{0,30},{-10,30},{-10,6},{0,6}}, color={0,0,255}));
     connect(r2.p, opAmp.out) annotation (Line(
-        points={{20,20},{30,20},{30,0},{20,0}}, color={0,0,255}));
+        points={{20,30},{30,30},{30,0},{20,0}}, color={0,0,255}));
     connect(ground.p, opAmp.in_p) annotation (Line(
         points={{-10,-80},{-10,-6},{0,-6}}, color={0,0,255}));
     connect(vIn.p, r1.p) annotation (Line(
-        points={{-80,10},{-80,20},{-40,20}}, color={0,0,255}));
+        points={{-80,10},{-80,30},{-40,30}}, color={0,0,255}));
     connect(ground.p, vIn.n) annotation (Line(
         points={{-10,-80},{-80,-80},{-80,-10}}, color={0,0,255}));
     connect(ground.p, vOut.n) annotation (Line(
@@ -105,23 +105,23 @@ package OpAmps "Examples with operational amplifiers"
           transformation(
           extent={{10,-10},{-10,10}},
           rotation=180,
-          origin={10,40})));
+          origin={10,50})));
     Modelica.Electrical.Analog.Basic.Resistor r2(R=R2) annotation (Placement(
           transformation(
           extent={{-10,10},{10,-10}},
           rotation=180,
-          origin={10,20})));
+          origin={10,30})));
   equation
     connect(opAmp.out, r2.p) annotation (Line(
-        points={{20,0},{30,0},{30,20},{20,20}}, color={0,0,255}));
+        points={{20,0},{30,0},{30,30},{20,30}}, color={0,0,255}));
     connect(r1.n, ground.p) annotation (Line(
-        points={{20,40},{20,40},{80,40},{80,-80},{-10,-80}}, color={0,0,255}));
+        points={{20,50},{80,50},{80,-80},{-10,-80}},         color={0,0,255}));
     connect(vIn.p, opAmp.in_p) annotation (Line(
         points={{-80,10},{-20,10},{-20,-6},{0,-6}}, color={0,0,255}));
     connect(r2.n, opAmp.in_n) annotation (Line(
-        points={{0,20},{-10,20},{-10,6},{0,6}}, color={0,0,255}));
+        points={{0,30},{-10,30},{-10,6},{0,6}}, color={0,0,255}));
     connect(r2.n, r1.p) annotation (Line(
-        points={{0,20},{-10,20},{-10,40},{0,40}}, color={0,0,255}));
+        points={{0,30},{-10,30},{-10,50},{0,50}}, color={0,0,255}));
     connect(ground.p, vIn.n) annotation (Line(
         points={{-10,-80},{-80,-80},{-80,-10}}, color={0,0,255}));
     connect(opAmp.out, vOut.p) annotation (Line(
@@ -172,7 +172,7 @@ package OpAmps "Examples with operational amplifiers"
           transformation(
           extent={{-10,10},{10,-10}},
           rotation=270,
-          origin={50,-20})));
+          origin={60,-20})));
     Modelica.Electrical.Analog.Basic.Resistor ri(R=Ri)
       annotation (Placement(transformation(extent={{-60,0},{-40,20}})));
     Modelica.Electrical.Analog.Basic.Resistor rl(R=Rl) annotation (Placement(
@@ -184,9 +184,9 @@ package OpAmps "Examples with operational amplifiers"
     connect(ground.p, vIn.n) annotation (Line(
         points={{-10,-80},{-80,-80},{-80,-10}}, color={0,0,255}));
     connect(opAmp.out, vOut.p) annotation (Line(
-        points={{20,0},{50,0},{50,-10}}, color={0,0,255}));
+        points={{20,0},{60,0},{60,-10}}, color={0,0,255}));
     connect(ground.p, vOut.n) annotation (Line(
-        points={{-10,-80},{50,-80},{50,-30}}, color={0,0,255}));
+        points={{-10,-80},{60,-80},{60,-30}}, color={0,0,255}));
     connect(opAmp.out, opAmp.in_n) annotation (Line(
         points={{20,0},{30,0},{30,20},{-10,20},{-10,6},{0,6}}, color={0,0,255}));
     connect(vIn.p, ri.p) annotation (Line(
@@ -241,22 +241,22 @@ package OpAmps "Examples with operational amplifiers"
           rotation=270,
           origin={50,-20})));
     Modelica.Electrical.Analog.Basic.Resistor r(R=R)
-      annotation (Placement(transformation(extent={{20,10},{0,30}})));
+      annotation (Placement(transformation(extent={{20,20},{0,40}})));
     Modelica.Electrical.Analog.Basic.Capacitor c(C=C, v(fixed=true, start=0))
-      annotation (Placement(transformation(extent={{-40,10},{-20,30}})));
+      annotation (Placement(transformation(extent={{-40,20},{-20,40}})));
   equation
     connect(r.n, c.n) annotation (Line(
-        points={{0,20},{-20,20}}, color={0,0,255}));
+        points={{0,30},{-20,30}}, color={0,0,255}));
     connect(vIn.p, c.p) annotation (Line(
-        points={{-80,10},{-80,20},{-40,20}}, color={0,0,255}));
+        points={{-80,10},{-80,30},{-40,30}}, color={0,0,255}));
     connect(vIn.n, ground.p) annotation (Line(
         points={{-80,-10},{-80,-80},{-10,-80}}, color={0,0,255}));
     connect(ground.p, opAmp.in_p) annotation (Line(
         points={{-10,-80},{-10,-6},{0,-6}}, color={0,0,255}));
     connect(opAmp.in_n, r.n) annotation (Line(
-        points={{0,6},{-10,6},{-10,20},{0,20}}, color={0,0,255}));
+        points={{0,6},{-10,6},{-10,30},{0,30}}, color={0,0,255}));
     connect(r.p, opAmp.out) annotation (Line(
-        points={{20,20},{30,20},{30,0},{20,0}}, color={0,0,255}));
+        points={{20,30},{30,30},{30,0},{20,0}}, color={0,0,255}));
     connect(opAmp.out, vOut.p) annotation (Line(
         points={{20,0},{50,0},{50,-10}}, color={0,0,255}));
     connect(vOut.n, ground.p) annotation (Line(
@@ -308,20 +308,20 @@ package OpAmps "Examples with operational amplifiers"
           rotation=270,
           origin={50,-20})));
     Modelica.Electrical.Analog.Basic.Resistor r(R=R)
-      annotation (Placement(transformation(extent={{-40,10},{-20,30}})));
+      annotation (Placement(transformation(extent={{-40,20},{-20,40}})));
     Modelica.Electrical.Analog.Basic.Capacitor c(C=C, v(fixed=true, start=0))
-      annotation (Placement(transformation(extent={{20,10},{0,30}})));
+      annotation (Placement(transformation(extent={{20,20},{0,40}})));
   equation
     connect(c.n, r.n) annotation (Line(
-        points={{0,20},{-20,20}}, color={0,0,255}));
+        points={{0,30},{-20,30}}, color={0,0,255}));
     connect(c.p, opAmp.out) annotation (Line(
-        points={{20,20},{30,20},{30,0},{20,0}}, color={0,0,255}));
+        points={{20,30},{30,30},{30,0},{20,0}}, color={0,0,255}));
     connect(c.n, opAmp.in_n) annotation (Line(
-        points={{0,20},{-10,20},{-10,6},{0,6}}, color={0,0,255}));
+        points={{0,30},{-10,30},{-10,6},{0,6}}, color={0,0,255}));
     connect(ground.p, opAmp.in_p) annotation (Line(
         points={{-10,-80},{-10,-6},{0,-6}}, color={0,0,255}));
     connect(vIn.p, r.p) annotation (Line(
-        points={{-80,10},{-80,20},{-40,20}}, color={0,0,255}));
+        points={{-80,10},{-80,30},{-40,30}}, color={0,0,255}));
     connect(ground.p, vIn.n) annotation (Line(
         points={{-10,-80},{-80,-80},{-80,-10}}, color={0,0,255}));
     connect(opAmp.out, vOut.p) annotation (Line(
@@ -376,26 +376,26 @@ package OpAmps "Examples with operational amplifiers"
           rotation=270,
           origin={50,-20})));
     Modelica.Electrical.Analog.Basic.Resistor r1(R=R1)
-      annotation (Placement(transformation(extent={{-40,10},{-20,30}})));
+      annotation (Placement(transformation(extent={{-40,20},{-20,40}})));
     Modelica.Electrical.Analog.Basic.Resistor r2(R=R2)
-      annotation (Placement(transformation(extent={{20,10},{0,30}})));
+      annotation (Placement(transformation(extent={{20,20},{0,40}})));
     Modelica.Electrical.Analog.Basic.Capacitor c(C=C, v(fixed=true, start=0))
-      annotation (Placement(transformation(extent={{20,30},{0,50}})));
+      annotation (Placement(transformation(extent={{20,40},{0,60}})));
   equation
     connect(r1.n, r2.n) annotation (Line(
-        points={{-20,20},{0,20}}, color={0,0,255}));
+        points={{-20,30},{0,30}}, color={0,0,255}));
     connect(r2.n, opAmp.in_n) annotation (Line(
-        points={{0,20},{-10,20},{-10,6},{0,6}}, color={0,0,255}));
+        points={{0,30},{-10,30},{-10,6},{0,6}}, color={0,0,255}));
     connect(r2.p, opAmp.out) annotation (Line(
-        points={{20,20},{30,20},{30,0},{20,0}}, color={0,0,255}));
+        points={{20,30},{30,30},{30,0},{20,0}}, color={0,0,255}));
     connect(r2.p, c.p) annotation (Line(
-        points={{20,20},{30,20},{30,40},{20,40}}, color={0,0,255}));
+        points={{20,30},{30,30},{30,50},{20,50}}, color={0,0,255}));
     connect(c.n, r2.n) annotation (Line(
-        points={{0,40},{-10,40},{-10,20},{0,20}}, color={0,0,255}));
+        points={{0,50},{-10,50},{-10,30},{0,30}}, color={0,0,255}));
     connect(ground.p, opAmp.in_p) annotation (Line(
         points={{-10,-80},{-10,-6},{0,-6}}, color={0,0,255}));
     connect(vIn.p, r1.p) annotation (Line(
-        points={{-80,10},{-80,20},{-40,20}}, color={0,0,255}));
+        points={{-80,10},{-80,30},{-40,30}}, color={0,0,255}));
     connect(ground.p, vIn.n) annotation (Line(
         points={{-10,-80},{-80,-80},{-80,-10}}, color={0,0,255}));
     connect(opAmp.out, vOut.p) annotation (Line(
@@ -451,24 +451,24 @@ package OpAmps "Examples with operational amplifiers"
           rotation=270,
           origin={50,-20})));
     Modelica.Electrical.Analog.Basic.Resistor r1(R=R1)
-      annotation (Placement(transformation(extent={{-40,10},{-20,30}})));
+      annotation (Placement(transformation(extent={{-40,20},{-20,40}})));
     Modelica.Electrical.Analog.Basic.Resistor r2(R=R2)
-      annotation (Placement(transformation(extent={{20,10},{0,30}})));
+      annotation (Placement(transformation(extent={{20,20},{0,40}})));
     Modelica.Electrical.Analog.Basic.Capacitor c(C=C, v(fixed=true, start=0))
-      annotation (Placement(transformation(extent={{-70,10},{-50,30}})));
+      annotation (Placement(transformation(extent={{-70,20},{-50,40}})));
   equation
     connect(r1.n, r2.n) annotation (Line(
-        points={{-20,20},{0,20}}, color={0,0,255}));
+        points={{-20,30},{0,30}}, color={0,0,255}));
     connect(r2.n, opAmp.in_n) annotation (Line(
-        points={{0,20},{-10,20},{-10,6},{0,6}}, color={0,0,255}));
+        points={{0,30},{-10,30},{-10,6},{0,6}}, color={0,0,255}));
     connect(r2.p, opAmp.out) annotation (Line(
-        points={{20,20},{30,20},{30,0},{20,0}}, color={0,0,255}));
+        points={{20,30},{30,30},{30,0},{20,0}}, color={0,0,255}));
     connect(c.n, r1.p) annotation (Line(
-        points={{-50,20},{-40,20}}, color={0,0,255}));
+        points={{-50,30},{-40,30}}, color={0,0,255}));
     connect(ground.p, opAmp.in_p) annotation (Line(
         points={{-10,-80},{-10,-6},{0,-6}}, color={0,0,255}));
     connect(vIn.p, c.p) annotation (Line(
-        points={{-80,10},{-80,20},{-70,20}}, color={0,0,255}));
+        points={{-80,10},{-80,30},{-70,30}}, color={0,0,255}));
     connect(ground.p, vIn.n) annotation (Line(
         points={{-10,-80},{-80,-80},{-80,-10}}, color={0,0,255}));
     connect(opAmp.out, vOut.p) annotation (Line(
@@ -729,7 +729,7 @@ package OpAmps "Examples with operational amplifiers"
           extent={{10,10},{-10,-10}},
           origin={10,-20})));
     Modelica.Electrical.Analog.Basic.Resistor r(R=R)
-      annotation (Placement(transformation(extent={{20,10},{0,30}})));
+      annotation (Placement(transformation(extent={{20,20},{0,40}})));
     Modelica.Electrical.Analog.Basic.Capacitor c(C=C, v(start=1, fixed=true))
       annotation (Placement(transformation(
           extent={{10,-10},{-10,10}},
@@ -745,9 +745,9 @@ package OpAmps "Examples with operational amplifiers"
     connect(ground.p, c.n) annotation (Line(
         points={{-10,-60},{-30,-60},{-30,-50}}, color={0,0,255}));
     connect(opAmp.out, r.p) annotation (Line(
-        points={{20,0},{30,0},{30,20},{20,20}}, color={0,0,255}));
+        points={{20,0},{30,0},{30,30},{20,30}}, color={0,0,255}));
     connect(r.n, opAmp.in_n) annotation (Line(
-        points={{0,20},{-10,20},{-10,6},{0,6}}, color={0,0,255}));
+        points={{0,30},{-10,30},{-10,6},{0,6}}, color={0,0,255}));
     connect(opAmp.out, r2.p) annotation (Line(
         points={{20,0},{30,0},{30,-20},{20,-20}}, color={0,0,255}));
     connect(r2.n, opAmp.in_p) annotation (Line(
@@ -755,7 +755,7 @@ package OpAmps "Examples with operational amplifiers"
     connect(opAmp.in_p, r1.p) annotation (Line(
         points={{0,-6},{-10,-6},{-10,-30}}, color={0,0,255}));
     connect(r.n, c.p) annotation (Line(
-        points={{0,20},{-30,20},{-30,-30}}, color={0,0,255}));
+        points={{0,30},{-30,30},{-30,-30}}, color={0,0,255}));
     annotation (Documentation(info=
                    "<html>
                         <p>This is a Multivibrator with Schmitt trigger according to:</p>
@@ -789,11 +789,11 @@ package OpAmps "Examples with operational amplifiers"
       annotation (Placement(transformation(
           extent={{10,10},{-10,-10}},
           rotation=180,
-          origin={-50,20})));
+          origin={-50,30})));
     Modelica.Electrical.Analog.Basic.Resistor r1(R=R1) annotation (Placement(
           transformation(
           extent={{-10,-10},{10,10}},
-          origin={-50,40})));
+          origin={-50,50})));
     Modelica.Electrical.Analog.Basic.Ground ground
       annotation (Placement(transformation(extent={{-10,-60},{10,-40}})));
     Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimted opAmp2(
@@ -803,9 +803,9 @@ package OpAmps "Examples with operational amplifiers"
       strict=false)
       annotation (Placement(transformation(extent={{30,-10},{50,10}})));
     Modelica.Electrical.Analog.Basic.Capacitor c(C=C, v(fixed=true, start=0))
-      annotation (Placement(transformation(extent={{50,10},{30,30}})));
+      annotation (Placement(transformation(extent={{50,20},{30,40}})));
     Modelica.Electrical.Analog.Basic.Resistor r(R=R)
-      annotation (Placement(transformation(extent={{-10,10},{10,30}})));
+      annotation (Placement(transformation(extent={{-10,20},{10,40}})));
     Modelica.Electrical.Analog.Sensors.VoltageSensor vOutRectangle annotation (
         Placement(transformation(
           extent={{-10,10},{10,-10}},
@@ -818,25 +818,25 @@ package OpAmps "Examples with operational amplifiers"
           origin={60,-18})));
   equation
     connect(opAmp1.out, r2.n) annotation (Line(
-        points={{-40,0},{-30,0},{-30,20},{-40,20}}, color={0,0,255}));
+        points={{-40,0},{-30,0},{-30,30},{-40,30}}, color={0,0,255}));
     connect(opAmp1.in_p, r2.p) annotation (Line(
-        points={{-60,6},{-70,6},{-70,20},{-60,20}}, color={0,0,255}));
+        points={{-60,6},{-70,6},{-70,30},{-60,30}}, color={0,0,255}));
     connect(opAmp1.in_n, ground.p) annotation (Line(
         points={{-60,-6},{-70,-6},{-70,-40},{0,-40}}, color={0,0,255}));
     connect(opAmp1.out, r.p) annotation (Line(
-        points={{-40,0},{-30,0},{-30,20},{-10,20}}, color={0,0,255}));
+        points={{-40,0},{-30,0},{-30,30},{-10,30}}, color={0,0,255}));
     connect(r.n, c.n) annotation (Line(
-        points={{10,20},{30,20}}, color={0,0,255}));
+        points={{10,30},{30,30}}, color={0,0,255}));
     connect(c.p, opAmp2.out) annotation (Line(
-        points={{50,20},{60,20},{60,0},{50,0}}, color={0,0,255}));
+        points={{50,30},{60,30},{60,0},{50,0}}, color={0,0,255}));
     connect(ground.p, opAmp2.in_p) annotation (Line(
         points={{0,-40},{20,-40},{20,-6},{30,-6}}, color={0,0,255}));
     connect(c.n, opAmp2.in_n) annotation (Line(
-        points={{30,20},{20,20},{20,6},{30,6}}, color={0,0,255}));
+        points={{30,30},{20,30},{20,6},{30,6}}, color={0,0,255}));
     connect(r2.p, r1.p) annotation (Line(
-        points={{-60,20},{-70,20},{-70,40},{-60,40}}, color={0,0,255}));
+        points={{-60,30},{-70,30},{-70,50},{-60,50}}, color={0,0,255}));
     connect(opAmp2.out, r1.n) annotation (Line(
-        points={{50,0},{60,0},{60,40},{-40,40}}, color={0,0,255}));
+        points={{50,0},{60,0},{60,50},{-40,50}}, color={0,0,255}));
     connect(opAmp1.out, vOutRectangle.p) annotation (Line(
         points={{-40,0},{-30,0},{-30,-10}}, color={0,0,255}));
     connect(ground.p, vOutRectangle.n) annotation (Line(
