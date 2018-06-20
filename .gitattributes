@@ -30,5 +30,3 @@ CONTRIBUTING.md export-ignore
 .mailmap export-ignore
 .travis.mos export-ignore
 .travis.yml export-ignore
-ModelicaTest export-ignore
-ModelicaTestOverdetermined.mo export-ignore
