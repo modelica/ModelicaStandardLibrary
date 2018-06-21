@@ -2,7 +2,7 @@ within Modelica.Electrical.Analog.Examples;
 model HeatingNPN_OrGate "Heating NPN Or Gate"
   extends Modelica.Icons.Example;
   parameter SI.Capacitance CapVal=0 "Value for capacitances" annotation(Evaluate=true);
-  parameter SI.Time tauVal=0 "Value for ideal forward and revers transit time of semicunductors"  annotation(Evaluate=true);
+  parameter SI.Time tauVal=0 "Value for ideal forward and reverse transit time of semiconductors"  annotation(Evaluate=true);
 
   Modelica.Thermal.HeatTransfer.Components.HeatCapacitor HeatCapacitor1(C=0.1)
   annotation (Placement(transformation(
