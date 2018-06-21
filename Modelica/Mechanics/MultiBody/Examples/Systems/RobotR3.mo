@@ -1699,7 +1699,7 @@ This model contains the mechanical components of the r3 robot
               textString="5",
               lineColor={0,0,0}),
             Text(
-              extent={{-188,170},{-128,130}},
+              extent={{-190,170},{-130,130}},
               textString="6",
               lineColor={0,0,0})}),
         Diagram(coordinateSystem(
