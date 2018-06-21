@@ -50,7 +50,7 @@ The diode is locking if current &lt; Vknee/Goff.
 <p>
 This is an ideal thyristor, for details see partial model <a href=\"modelica://Modelica.Electrical.Analog.Interfaces.IdealSemiconductor\">IdealSemiconductor</a><br>
 The thyristor is conducting if voltage &gt; Vknee AND fire = true.<br>
-If fire gets false, the current has to fall below Vknee*Goff, then the tyhristor gets locking.</p>
+If fire gets false, the current has to fall below Vknee*Goff, then the thyristor gets locking.</p>
 </html>", revisions="<html>
 <ul>
 <li><em>February 7, 2016   </em>
