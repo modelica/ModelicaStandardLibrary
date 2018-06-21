@@ -320,9 +320,16 @@ load inertia.
 <p>
 This example animates a motion of a detailed model of the robot
 with predefined axes' angles over time.
-For animation CAD data is used.
+For animation, CAD data is used.
 Translate and simulate with the default settings
-(default simulation time = 3 s).
+(default simulation stop time = 2&nbsp;s).
+<p>
+</p>
+In the path planning block, there is incorporated a simulation termination condition.
+Thus, the simulation can be terminated before reaching the stop time.
+The condition depends on the joints' start and end positions, reference speeds
+and reference accelerations.
+For current settings, the simulation should be terminated at about 1.85&nbsp;s.
 </p>
 
 <p>
