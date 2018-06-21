@@ -323,8 +323,8 @@ with predefined axes' angles over time.
 For animation, CAD data is used.
 Translate and simulate with the default settings
 (default simulation stop time = 2&nbsp;s).
-<p>
 </p>
+<p>
 The path planning block incorporates a simulation termination condition.
 Thus, the simulation can be terminated before reaching the stop time.
 The condition depends on the start and end positions of the joints, and on their
