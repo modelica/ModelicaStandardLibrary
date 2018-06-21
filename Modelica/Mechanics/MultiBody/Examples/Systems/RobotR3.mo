@@ -325,11 +325,11 @@ Translate and simulate with the default settings
 (default simulation stop time = 2&nbsp;s).
 <p>
 </p>
-In the path planning block, there is incorporated a simulation termination condition.
+The path planning block incorporates a simulation termination condition.
 Thus, the simulation can be terminated before reaching the stop time.
-The condition depends on the joints' start and end positions, reference speeds
-and reference accelerations.
-For current settings, the simulation should be terminated at about 1.85&nbsp;s.
+The condition depends on the start and end positions of the joints, and on their
+reference speeds and reference accelerations.
+For current settings, the termination condition should indeed be fulfilled right before the simulation stops.
 </p>
 
 <p>
