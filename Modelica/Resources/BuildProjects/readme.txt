@@ -13,6 +13,7 @@ from the C-code under ../C-Sources
 - ModelicaMatIO (.lib, .dll, .a, .so, depending on tool and OS)
   This library contains
   ../C-Sources/ModelicaMatIO.c
+  ../C-Sources/snprintf.c
 
 - zlib (.lib, .dll, .a, .so, depending on tool and OS):
   This library contains
