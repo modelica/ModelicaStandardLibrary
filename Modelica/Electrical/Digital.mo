@@ -2633,15 +2633,15 @@ The result can be seen in the output signals of the FullAdders according to:</p>
           import D = Modelica.Electrical.Digital;
           import L = Modelica.Electrical.Digital.Interfaces.Logic;
           extends D.Interfaces.SISO(x(start=L.'U',fixed=true));
-          parameter SI.Time delayTime(start=0) "delay time";
-          parameter D.Interfaces.Logic y0=L.'U' "initial value of output";
+          parameter SI.Time delayTime(start=0) "Delay time";
+          parameter D.Interfaces.Logic y0=L.'U' "Initial value of output";
           constant D.Interfaces.Logic LogicValues[:]=L.'U':L.'-';
     protected
           D.Interfaces.Logic x_delayed;
-      Real xr "Auxiliary variable of type Real to use in delay()";
+          Real xr "Auxiliary variable of type Real to use in delay()";
 
         equation
-      xr = Integer(pre(x));
+          xr = Integer(pre(x));
           x_delayed = LogicValues[integer(delay(xr, delayTime))];
           y = if delayTime > 0 then
                    (if time >= delayTime then x_delayed else y0) else
@@ -2739,12 +2739,12 @@ If time is less than <em>delayTime</em> the initial value <em>y0</em> holds.
           import D = Modelica.Electrical.Digital;
           import L = Modelica.Electrical.Digital.Interfaces.Logic;
           extends D.Interfaces.SISO(x(start=L.'U',fixed=true),y(start=y0, fixed=true));
-          parameter SI.Time tLH(start=0) "rise inertial delay";
-          parameter SI.Time tHL(start=0) "fall inertial delay";
-          parameter D.Interfaces.Logic y0=L.'U' "initial value of output";
+          parameter SI.Time tLH(start=0) "Rise inertial delay";
+          parameter SI.Time tHL(start=0) "Fall inertial delay";
+          parameter D.Interfaces.Logic y0=L.'U' "Initial value of output";
     protected
           constant Integer delayTable[L,L]=Modelica.Electrical.Digital.Tables.DelayTable
-        "specification of delay according to signal change";
+        "Specification of delay according to signal change";
           SI.Time delayTime;
           D.Interfaces.Logic y_auxiliary(start=y0, fixed=true);
           D.Interfaces.Logic y_old(start=y0, fixed=true);
@@ -3629,13 +3629,13 @@ they can be used to specify the parameter, e.g., <strong>L.'0'</strong> for forc
         end Set;
 
         block Step "Digital Step Source"
-      import D = Modelica.Electrical.Digital;
-      import L = Modelica.Electrical.Digital.Interfaces.Logic;
+          import D = Modelica.Electrical.Digital;
+          import L = Modelica.Electrical.Digital.Interfaces.Logic;
           parameter D.Interfaces.Logic before(start=L.'0')
         "Logic value before step";
           parameter D.Interfaces.Logic after(start=L.'1')
         "Logic value after step";
-          parameter Real stepTime(start=1) "step time";
+          parameter Real stepTime(start=1) "Step time";
           D.Interfaces.DigitalOutput y
                         annotation (Placement(transformation(extent={{90,-10},{110,
                     10}})));
@@ -3698,13 +3698,13 @@ they can be used to specify the parameter, e.g., <strong>L.'0'</strong> for forc
         end Step;
 
         block Table "Digital Tabular Source"
-      import D = Modelica.Electrical.Digital;
-      import L = Modelica.Electrical.Digital.Interfaces.Logic;
-          parameter D.Interfaces.Logic x[:]={L.'1'} "vector of values";
+          import D = Modelica.Electrical.Digital;
+          import L = Modelica.Electrical.Digital.Interfaces.Logic;
+          parameter D.Interfaces.Logic x[:]={L.'1'} "Vector of values";
           parameter Real t[size(x, 1)]={1}
-        "vector of corresponding time points";
-          parameter D.Interfaces.Logic y0=L.'U' "initial output value";
-          final parameter Integer n=size(x, 1) "table size";
+        "Vector of corresponding time points";
+          parameter D.Interfaces.Logic y0=L.'U' "Initial output value";
+          final parameter Integer n=size(x, 1) "Table size";
           D.Interfaces.DigitalOutput y
                         annotation (Placement(transformation(extent={{90,-10},{110,
                     10}})));
@@ -3792,8 +3792,8 @@ they can be used to specify the parameter, e.g., <strong>L.'0'</strong> for forc
         "Time for one period";
           parameter SI.Time startTime(start=0)
         "Output = quiet for time < startTime";
-          parameter D.Interfaces.Logic pulse(start=L.'0') "pulsed value";
-          parameter D.Interfaces.Logic quiet(start=L.'1') "quiet value";
+          parameter D.Interfaces.Logic pulse(start=L.'0') "Pulsed value";
+          parameter D.Interfaces.Logic quiet(start=L.'1') "Quiet value";
           SI.Time T0(final start=startTime, fixed=true)
         "Start time of current period";
           parameter Integer nperiod(start=-1)
@@ -3932,15 +3932,15 @@ The number of periods is unlimited. The first pulse starts at startTime.
         extends Modelica.Icons.Package;
 
         block LogicToX01 "Conversion to X01"
-      import D = Modelica.Electrical.Digital;
-      import T = Modelica.Electrical.Digital.Tables;
+          import D = Modelica.Electrical.Digital;
+          import T = Modelica.Electrical.Digital.Tables;
           D.Interfaces.DigitalInput x[n]
                             annotation (Placement(transformation(extent={{-60,-10},
                     {-40,10}})));
           D.Interfaces.DigitalOutput y[n]
                              annotation (Placement(transformation(extent={{40,-10},
                     {60,10}})));
-          parameter Integer n(final min=1, start=1) "signal width";
+          parameter Integer n(final min=1, start=1) "Signal width";
         algorithm
           for i in 1:n loop
             y[i] := T.X01Table[x[i]];
@@ -4002,15 +4002,15 @@ If the signal width is greater than 1 this conversion is done for each signal.
         end LogicToX01;
 
         block LogicToX01Z "Conversion to X01Z"
-      import D = Modelica.Electrical.Digital;
-      import T = Modelica.Electrical.Digital.Tables;
+          import D = Modelica.Electrical.Digital;
+          import T = Modelica.Electrical.Digital.Tables;
           D.Interfaces.DigitalInput x[n]
                             annotation (Placement(transformation(extent={{-60,-10},
                     {-40,10}})));
           D.Interfaces.DigitalOutput y[n]
                              annotation (Placement(transformation(extent={{40,-10},
                     {60,10}})));
-          parameter Integer n(final min=1, start=1) "signal width";
+          parameter Integer n(final min=1, start=1) "Signal width";
         algorithm
           for i in 1:n loop
             y[i] := T.X01ZTable[x[i]];
@@ -4080,7 +4080,7 @@ If the signal width is greater than 1 this conversion is done for each signal.
           D.Interfaces.DigitalOutput y[n]
                              annotation (Placement(transformation(extent={{40,-10},
                     {60,10}})));
-          parameter Integer n(final min=1, start=1) "signal width";
+          parameter Integer n(final min=1, start=1) "Signal width";
         algorithm
           for i in 1:n loop
             y[i] := T.UX01Table[x[i]];
@@ -4142,10 +4142,10 @@ If the signal width is greater than 1 this conversion is done for each signal.
         end LogicToUX01;
 
         block BooleanToLogic "Boolean to Logic converter"
-      import L = Modelica.Electrical.Digital.Interfaces.Logic;
+          import L = Modelica.Electrical.Digital.Interfaces.Logic;
           Modelica.Blocks.Interfaces.BooleanInput x[n]
             annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
-          parameter Integer n(final min=1, start=1) "signal width";
+          parameter Integer n(final min=1, start=1) "Signal width";
           Modelica.Electrical.Digital.Interfaces.DigitalOutput y[n]
             annotation (Placement(transformation(extent={{40,-10},{60,10}})));
         equation
@@ -4196,12 +4196,12 @@ If the signal width is greater than 1 this conversion is done for each signal.
         end BooleanToLogic;
 
         block LogicToBoolean "Logic to Boolean converter"
-      import L = Modelica.Electrical.Digital.Interfaces.Logic;
+          import L = Modelica.Electrical.Digital.Interfaces.Logic;
           Modelica.Electrical.Digital.Interfaces.DigitalInput x[n]
             annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
           Modelica.Blocks.Interfaces.BooleanOutput y[n]
             annotation (Placement(transformation(extent={{40,-10},{60,10}})));
-          parameter Integer n(final min=1, start=2) "signal width";
+          parameter Integer n(final min=1, start=2) "Signal width";
         equation
           for i in 1:n loop
             y[i] = (x[i] == L.'1' or x[i] == L.'H');
@@ -4257,17 +4257,17 @@ If the signal width is greater than 1 this conversion is done for each signal.
         end LogicToBoolean;
 
         block RealToLogic "Real to Logic converter"
-      import L = Modelica.Electrical.Digital.Interfaces.Logic;
+          import L = Modelica.Electrical.Digital.Interfaces.Logic;
           Modelica.Blocks.Interfaces.RealInput x[n]
             annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
           Digital.Interfaces.DigitalOutput y[n]
             annotation (Placement(transformation(extent={{40,-10},{60,10}})));
-          parameter Integer n(final min=1, start=1) "signal width";
-          parameter Real upper_limit(start=1) "upper limit";
-          parameter Real lower_limit(start=0) "lower limit";
-          parameter L upper_value(start=L.'1') "output if input > upper_limit";
-          parameter L lower_value(start=L.'0') "output if input < lower_limit";
-          parameter L middle_value(start=L.'X') "output else";
+          parameter Integer n(final min=1, start=1) "Signal width";
+          parameter Real upper_limit(start=1) "Upper limit";
+          parameter Real lower_limit(start=0) "Lower limit";
+          parameter L upper_value(start=L.'1') "Output if input > upper_limit";
+          parameter L lower_value(start=L.'0') "Output if input < lower_limit";
+          parameter L middle_value(start=L.'X') "Output else";
         equation
           for i in 1:n loop
             y[i] = if x[i] > upper_limit then upper_value else
@@ -4315,25 +4315,25 @@ If the signal width is greater than 1 this conversion is done for each signal.
         end RealToLogic;
 
         block LogicToReal "Logic to Real converter"
-      import L = Modelica.Electrical.Digital.Interfaces.Logic;
+          import L = Modelica.Electrical.Digital.Interfaces.Logic;
           Modelica.Electrical.Digital.Interfaces.DigitalInput x[n]
             annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
           Modelica.Blocks.Interfaces.RealOutput y[n]
             annotation (Placement(transformation(extent={{40,-10},{60,10}})));
-          parameter Integer n(final min=1, start=1) "signal width";
+          parameter Integer n(final min=1, start=1) "Signal width";
           parameter Real value_U(start=0.5)
-        "value for digital U (uninitialized)";
+        "Value for digital U (uninitialized)";
           parameter Real value_X(start=0.5)
-        "value for digital X (Forcing Unknown)";
-          parameter Real value_0(start=0) "value for digital 0 (Forcing 0)";
-          parameter Real value_1(start=1) "value for digital 1 (Forcing 1)";
+        "Value for digital X (Forcing Unknown)";
+          parameter Real value_0(start=0) "Value for digital 0 (Forcing 0)";
+          parameter Real value_1(start=1) "Value for digital 1 (Forcing 1)";
           parameter Real value_Z(start=0.5)
-        "value for digital Z (High Impedance)";
+        "Value for digital Z (High Impedance)";
           parameter Real value_W(start=0.5)
-        "value for digital W (Weak    Unknown)";
-          parameter Real value_L(start=0) "value for digital L (Weak 0)";
-          parameter Real value_H(start=1) "value for digital H (Weak 1)";
-          parameter Real value_m(start=0.5) "value for digital m (Do not care)";
+        "Value for digital W (Weak    Unknown)";
+          parameter Real value_L(start=0) "Value for digital L (Weak 0)";
+          parameter Real value_H(start=1) "Value for digital H (Weak 1)";
+          parameter Real value_m(start=0.5) "Value for digital m (Do not care)";
         equation
           for i in 1:n loop
            y[i]= if x[i] == L.'U' then value_U else
@@ -4402,7 +4402,7 @@ The values val... are given by parameters.</p>
           D.Interfaces.DigitalOutput y[n]
                              annotation (Placement(transformation(extent={{40,-10},
                     {60,10}})));
-          parameter Integer n(final min=1, start=1) "signal width";
+          parameter Integer n(final min=1, start=1) "Signal width";
         algorithm
           for i in 1:n loop
             y[i] := T.X01Table[x[i]];
@@ -4477,7 +4477,7 @@ If the signal width is greater than 1 this conversion is done for each signal.
           D.Interfaces.DigitalOutput y[n]
                              annotation (Placement(transformation(extent={{40,-10},
                     {60,10}})));
-          parameter Integer n(final min=1, start=1) "signal width";
+          parameter Integer n(final min=1, start=1) "Signal width";
         algorithm
           for i in 1:n loop
             y[i] := T.X01ZTable[x[i]];
@@ -4550,15 +4550,15 @@ If the signal width is greater than 1 this conversion is done for each signal.
         extends Modelica.Icons.Package;
 
         model DFFR "Edge triggered register bank with reset"
-      import D = Modelica.Electrical.Digital;
-      import L = Modelica.Electrical.Digital.Interfaces.Logic;
-      import S = Modelica.Electrical.Digital.Interfaces.Strength;
-      import T = Modelica.Electrical.Digital.Tables;
+          import D = Modelica.Electrical.Digital;
+          import L = Modelica.Electrical.Digital.Interfaces.Logic;
+          import S = Modelica.Electrical.Digital.Interfaces.Strength;
+          import T = Modelica.Electrical.Digital.Tables;
           parameter Integer ResetMap[L] = {1, 4, 3, 2, 4, 4, 3, 2, 4}
-        "function selection, defaults for high active reset";
+        "Function selection, defaults for high active reset";
           parameter D.Interfaces.Strength strength = S.'S_X01'
-        "output strength";
-          parameter Integer n(min=1) = 1 "data width";
+        "Output strength";
+          parameter Integer n(min=1) = 1 "Data width";
 
           D.Interfaces.DigitalInput reset
             annotation (Placement(transformation(extent={{-10,-100},{10,-80}}),
@@ -4735,15 +4735,15 @@ Clock transition definitions:
         end DFFR;
 
         model DFFREG "Edge triggered register bank with high active reset"
-      import D = Modelica.Electrical.Digital;
-      import L = Modelica.Electrical.Digital.Interfaces.Logic;
-      import S = Modelica.Electrical.Digital.Interfaces.Strength;
-      import T = Modelica.Electrical.Digital.Tables;
+          import D = Modelica.Electrical.Digital;
+          import L = Modelica.Electrical.Digital.Interfaces.Logic;
+          import S = Modelica.Electrical.Digital.Interfaces.Strength;
+          import T = Modelica.Electrical.Digital.Tables;
           parameter SI.Time tHL=0 "High->Low delay";
           parameter SI.Time tLH=0 "Low->High delay";
           parameter D.Interfaces.Strength strength = S.'S_X01'
-        "output strength";
-          parameter Integer n(min=1) = 1 "data width";
+        "Output strength";
+          parameter Integer n(min=1) = 1 "Data width";
     protected
           constant Integer ResetMap[L] = {1, 4, 3, 2, 4, 4, 3, 2, 4};
               // Function selection by [reset] reading
@@ -4927,10 +4927,10 @@ Clock transition definitions:
         end DFFREGL;
 
         model DFFSR "Edge triggered register bank with set and reset"
-      import D = Modelica.Electrical.Digital;
-      import L = Modelica.Electrical.Digital.Interfaces.Logic;
-      import S = Modelica.Electrical.Digital.Interfaces.Strength;
-      import T = Modelica.Electrical.Digital.Tables;
+          import D = Modelica.Electrical.Digital;
+          import L = Modelica.Electrical.Digital.Interfaces.Logic;
+          import S = Modelica.Electrical.Digital.Interfaces.Strength;
+          import T = Modelica.Electrical.Digital.Tables;
           parameter Integer ResetSetMap[L, L]=[
                      1,  1,  1,  1,  1,  1,  1,  1,  1;
                      1,  4,  7,  2,  4,  4,  7,  2,  4;
@@ -4941,11 +4941,11 @@ Clock transition definitions:
                      1,  5,  8,  2,  5,  5,  8,  2,  5;
                      1,  6,  3,  2,  6,  6,  3,  2,  6;
                      1,  4,  7,  2,  4,  4,  7,  2,  4]
-        "function selection by [reset, set] reading";
+        "Function selection by [reset, set] reading";
             /* Defaults for set and reset are active high */
           parameter D.Interfaces.Strength strength = S.'S_X01'
-        "output strength";
-          parameter Integer n(min=1) = 1 "data width";
+        "Output strength";
+          parameter Integer n(min=1) = 1 "Data width";
 
           D.Interfaces.DigitalInput set
             annotation (Placement(transformation(extent={{-10,100},{10,80}})));
@@ -5180,8 +5180,8 @@ Clock transition definitions:
           parameter SI.Time tHL=0 "High->Low delay";
           parameter SI.Time tLH=0 "Low->High delay";
           parameter D.Interfaces.Strength strength = S.'S_X01'
-        "output strength";
-          parameter Integer n(min=1) = 1 "data width";
+        "Output strength";
+          parameter Integer n(min=1) = 1 "Data width";
 
     protected
           constant Integer ResetSetMap[L, L]=[
@@ -5397,15 +5397,15 @@ Clock transition definitions:
 
         model DLATR "Level sensitive register bank with reset"
 
-      import D = Modelica.Electrical.Digital;
-      import L = Modelica.Electrical.Digital.Interfaces.Logic;
-      import S = Modelica.Electrical.Digital.Interfaces.Strength;
-      import T = Modelica.Electrical.Digital.Tables;
+          import D = Modelica.Electrical.Digital;
+          import L = Modelica.Electrical.Digital.Interfaces.Logic;
+          import S = Modelica.Electrical.Digital.Interfaces.Strength;
+          import T = Modelica.Electrical.Digital.Tables;
           parameter Integer ResetMap[L] = {1, 4, 3, 2, 4, 4, 3, 2, 4}
-        "function selection, defaults for high active reset";
+        "Function selection, defaults for high active reset";
           parameter D.Interfaces.Strength strength = S.'S_X01'
-        "output strength";
-          parameter Integer n(min=1) = 1 "data width";
+        "Output strength";
+          parameter Integer n(min=1) = 1 "Data width";
 
           D.Interfaces.DigitalInput reset
             annotation (Placement(transformation(extent={{-10,-100},{10,-80}}),
@@ -5586,15 +5586,15 @@ Clock transition definitions:
 
         model DLATREG "Level sensitive register bank with reset active high"
 
-      import D = Modelica.Electrical.Digital;
-      import L = Modelica.Electrical.Digital.Interfaces.Logic;
-      import S = Modelica.Electrical.Digital.Interfaces.Strength;
-      import T = Modelica.Electrical.Digital.Tables;
+          import D = Modelica.Electrical.Digital;
+          import L = Modelica.Electrical.Digital.Interfaces.Logic;
+          import S = Modelica.Electrical.Digital.Interfaces.Strength;
+          import T = Modelica.Electrical.Digital.Tables;
           parameter SI.Time tHL=0 "High->Low delay";
           parameter SI.Time tLH=0 "Low->High delay";
           parameter D.Interfaces.Strength strength = S.'S_X01'
-        "output strength";
-          parameter Integer n(min=1) = 1 "data width";
+        "Output strength";
+          parameter Integer n(min=1) = 1 "Data width";
 
     protected
           constant Integer ResetMap[L] = {1, 4, 3, 2, 4, 4, 3, 2, 4};
@@ -5776,10 +5776,10 @@ Clock transition definitions:
 
         model DLATSR "Level sensitive register bank with set and reset"
 
-      import D = Modelica.Electrical.Digital;
-      import L = Modelica.Electrical.Digital.Interfaces.Logic;
-      import S = Modelica.Electrical.Digital.Interfaces.Strength;
-      import T = Modelica.Electrical.Digital.Tables;
+          import D = Modelica.Electrical.Digital;
+          import L = Modelica.Electrical.Digital.Interfaces.Logic;
+          import S = Modelica.Electrical.Digital.Interfaces.Strength;
+          import T = Modelica.Electrical.Digital.Tables;
           parameter Integer ResetSetMap[L, L]=[
                      1,  1,  1,  1,  1,  1,  1,  1,  1;
                      1,  4,  7,  2,  4,  4,  7,  2,  4;
@@ -5790,11 +5790,11 @@ Clock transition definitions:
                      1,  5,  8,  2,  5,  5,  8,  2,  5;
                      1,  6,  3,  2,  6,  6,  3,  2,  6;
                      1,  4,  7,  2,  4,  4,  7,  2,  4]
-        "function selection by [reset, set] reading";
+        "Function selection by [reset, set] reading";
             /* Defaults for set and reset are active high */
           parameter D.Interfaces.Strength strength = S.'S_X01'
-        "output strength";
-          parameter Integer n(min=1) = 1 "data width";
+        "Output strength";
+          parameter Integer n(min=1) = 1 "Data width";
 
           D.Interfaces.DigitalInput set
             annotation (Placement(transformation(extent={{-10,100},{10,80}})));
@@ -6026,15 +6026,15 @@ Clock transition definitions:
 
         model DLATREGSRH "Level sensitive register bank with set and reset, active high"
 
-      import D = Modelica.Electrical.Digital;
-      import L = Modelica.Electrical.Digital.Interfaces.Logic;
-      import S = Modelica.Electrical.Digital.Interfaces.Strength;
-      import T = Modelica.Electrical.Digital.Tables;
+          import D = Modelica.Electrical.Digital;
+          import L = Modelica.Electrical.Digital.Interfaces.Logic;
+          import S = Modelica.Electrical.Digital.Interfaces.Strength;
+          import T = Modelica.Electrical.Digital.Tables;
           parameter SI.Time tHL=0 "High->Low delay";
           parameter SI.Time tLH=0 "Low->High delay";
           parameter D.Interfaces.Strength strength = S.'S_X01'
-        "output strength";
-          parameter Integer n(min=1) = 1 "data width";
+        "Output strength";
+          parameter Integer n(min=1) = 1 "Data width";
 
     protected
           constant Integer ResetSetMap[L, L]=[
@@ -6584,7 +6584,7 @@ Clock transition definitions:
     model BUF3S "Tristate buffer with enable active high"
       parameter SI.Time tHL=0 "High->Low delay";
       parameter SI.Time tLH=0 "Low->High delay";
-      parameter D.Interfaces.Strength strength = S.'S_X01' "output strength";
+      parameter D.Interfaces.Strength strength = S.'S_X01' "Output strength";
       D.Interfaces.DigitalInput enable
         annotation (Placement(transformation(extent={{-100,60},{-80,80}}),
             iconTransformation(extent={{-100,60},{-80,80}})));
@@ -6663,7 +6663,7 @@ Clock transition definitions:
     model BUF3SL "Tristate buffer with enable active low"
       parameter SI.Time tHL=0 "High->Low delay";
       parameter SI.Time tLH=0 "Low->High delay";
-      parameter D.Interfaces.Strength strength = S.'S_X01' "output strength";
+      parameter D.Interfaces.Strength strength = S.'S_X01' "Output strength";
       D.Interfaces.DigitalInput enable
         annotation (Placement(transformation(extent={{-100,60},{-80,80}}),
             iconTransformation(extent={{-100,60},{-80,80}})));
@@ -6742,7 +6742,7 @@ Clock transition definitions:
     model INV3S "Tristate Inverter with enable active high"
       parameter SI.Time tHL=0 "High->Low delay";
       parameter SI.Time tLH=0 "Low->High delay";
-      parameter D.Interfaces.Strength strength = S.'S_X01' "output strength";
+      parameter D.Interfaces.Strength strength = S.'S_X01' "Output strength";
       D.Interfaces.DigitalInput enable
         annotation (Placement(transformation(extent={{-100,60},{-80,80}}),
             iconTransformation(extent={{-100,60},{-80,80}})));
@@ -6826,7 +6826,7 @@ Clock transition definitions:
     model INV3SL "Tristate inverter with enable active low"
       parameter SI.Time tHL=0 "High->Low delay";
       parameter SI.Time tLH=0 "Low->High delay";
-      parameter D.Interfaces.Strength strength = S.'S_X01' "output strength";
+      parameter D.Interfaces.Strength strength = S.'S_X01' "Output strength";
       D.Interfaces.DigitalInput enable
         annotation (Placement(transformation(extent={{-100,60},{-80,80}}),
             iconTransformation(extent={{-100,60},{-80,80}})));
@@ -7146,7 +7146,7 @@ Description in VHDL is given by <a href=\"http://www.cs.sfu.ca/~ggbaker/referenc
       import T = Modelica.Electrical.Digital.Tables;
       parameter SI.Time tHL=0 "High->Low delay";
       parameter SI.Time tLH=0 "Low->High delay";
-      parameter D.Interfaces.Strength strength = S.'S_X01' "output strength";
+      parameter D.Interfaces.Strength strength = S.'S_X01' "Output strength";
       D.Interfaces.DigitalInput in1 "data input 1"
         annotation (Placement(transformation(extent={{-100,40},{-80,60}}),
             iconTransformation(extent={{-100,40},{-80,60}})));

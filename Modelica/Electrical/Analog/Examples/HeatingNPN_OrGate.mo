@@ -1,8 +1,8 @@
 within Modelica.Electrical.Analog.Examples;
 model HeatingNPN_OrGate "Heating NPN Or Gate"
   extends Modelica.Icons.Example;
-  parameter SI.Capacitance CapVal=0 annotation(Evaluate=true);
-  parameter SI.Time tauVal=0 annotation(Evaluate=true);
+  parameter SI.Capacitance CapVal=0 "Value for capacitances" annotation(Evaluate=true);
+  parameter SI.Time tauVal=0 "Value for ideal forward and revers transit time of semicunductors"  annotation(Evaluate=true);
 
   Modelica.Thermal.HeatTransfer.Components.HeatCapacitor HeatCapacitor1(C=0.1)
   annotation (Placement(transformation(
@@ -159,15 +159,15 @@ equation
   connect(T1.B, R1.n)
   annotation (Line(points={{-20,58},{-70,58}}, color={0,0,255}));
   connect(T1.E, Gnd3.p)
-  annotation (Line(points={{0,53},{0,48.75},{0,44.5},{0,36}}, color={0,0,255}));
+  annotation (Line(points={{0,52},{0,52},{0,44.5},{0,36}},    color={0,0,255}));
   connect(RI.p, T1.C)
-                    annotation (Line(points={{60,68},{30,68},{30,63},{0,63}}, color={0,0,255}));
+                    annotation (Line(points={{60,68},{30,68},{30,64},{0,64}}, color={0,0,255}));
   connect(T2.B, R2.n)
   annotation (Line(points={{20,-12},{-16,-12}}, color={0,0,255}));
   connect(T2.E, Gnd4.p)
-  annotation (Line(points={{40,-17},{40,-32}}, color={0,0,255}));
+  annotation (Line(points={{40,-18},{40,-32}}, color={0,0,255}));
   connect(T2.C, RI.p)
-  annotation (Line(points={{40,-7},{40,68},{60,68}}, color={0,0,255}));
+  annotation (Line(points={{40,-6},{40,68},{60,68}}, color={0,0,255}));
   connect(TC1.port_b, HeatCapacitor1.port)
                                          annotation (Line(points={{90,-60},{84,
           -60},{84,-74},{76,-74}}, color={191,0,0}));
