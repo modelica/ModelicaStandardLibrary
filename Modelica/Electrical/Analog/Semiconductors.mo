@@ -1484,7 +1484,7 @@ public
           rotation=90,
           origin={-20,-72})));
 
-  parameter Boolean useHeatPort = false "Set =true, if HeatPort is enabled"
+  parameter Boolean useHeatPort = false "=true, if HeatPort is enabled"
     annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
   parameter SI.Temperature T=293.15
       "Fixed device temperature if useHeatPort = false" annotation(Dialog(enable=not useHeatPort));
