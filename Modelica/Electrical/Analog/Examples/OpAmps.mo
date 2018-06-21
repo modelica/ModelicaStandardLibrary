@@ -559,7 +559,7 @@ package OpAmps "Examples with operational amplifiers"
     parameter SI.Voltage Vns=-15 "Negative supply";
     parameter SI.Voltage Vin=5 "Amplitude of input voltage";
     parameter SI.Frequency f=10 "Frequency of input voltage";
-    parameter SI.Voltage vHys=1 "(positive) hysteresis voltage";
+    parameter SI.Voltage vHys=1 "(Positive) hysteresis voltage";
     parameter Real k=vHys/Vps "Auxiliary calculated parameter to be used in R2 calculation";
     parameter SI.Resistance R1=1000 "Arbitrary resistance";
     parameter SI.Resistance R2=(1 - k)/k*R1 "Calculated resistance to reach hysteresis voltage";
@@ -633,7 +633,7 @@ package OpAmps "Examples with operational amplifiers"
     parameter SI.Voltage Vns=-15 "Negative supply";
     parameter SI.Voltage Vin=5 "Amplitude of input voltage";
     parameter SI.Frequency f=10 "Frequency of input voltage";
-    parameter SI.Voltage vHys=1 "(positive) hysteresis voltage";
+    parameter SI.Voltage vHys=1 "(Positive) hysteresis voltage";
     parameter Real k=vHys/Vps "Auxiliary calculated parameter to be used in R2 calculation";
     parameter SI.Resistance R1=1000 "Arbitrary resistance";
     parameter SI.Resistance R2=R1/k "Calculated resistance to reach hysteresis voltage";

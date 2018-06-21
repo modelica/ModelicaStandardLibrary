@@ -38,7 +38,7 @@ package Lines
       "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(T_heatPort - T_ref))";
     parameter SI.LinearTemperatureCoefficient alpha_G=0
       "Temperature coefficient of conductance (G_actual = G/(1 + alpha*(T_heatPort - T_ref))";
-    parameter Boolean useHeatPort=false "=true, if HeatPort is enabled"
+    parameter Boolean useHeatPort=false "Set =true, if HeatPort is enabled"
       annotation (
       Evaluate=true,
       HideResult=true,
@@ -46,7 +46,7 @@ package Lines
     parameter SI.Temperature T=293.15
       "Fixed device temperature if useHeatPort = false"
       annotation (Dialog(enable=not useHeatPort));
-    parameter SI.Temperature T_ref=300.15;
+    parameter SI.Temperature T_ref=300.15 "Reference temperature";
     Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort if useHeatPort
       annotation (Placement(transformation(extent={{-10,-110},{10,-90}}),
           iconTransformation(extent={{-110,-110},{-90,-90}})));
@@ -174,7 +174,7 @@ package Lines
       "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(T_heatPort - T_ref))";
     parameter SI.LinearTemperatureCoefficient alpha_G=0
       "Temperature coefficient of conductance (G_actual = G/(1 + alpha*(T_heatPort - T_ref))";
-    parameter Boolean useHeatPort=false "=true, if HeatPort is enabled"
+    parameter Boolean useHeatPort=false "Set =true, if HeatPort is enabled"
       annotation (
       Evaluate=true,
       HideResult=true,
@@ -182,7 +182,7 @@ package Lines
     parameter SI.Temperature T=293.15
       "Fixed device temperature if useHeatPort = false"
       annotation (Dialog(enable=not useHeatPort));
-    parameter SI.Temperature T_ref=300.15;
+    parameter SI.Temperature T_ref=300.15 "Reference temperature";
     Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort if useHeatPort
       annotation (Placement(transformation(extent={{-110,-110},{-90,-90}}),
           iconTransformation(extent={{-110,-110},{-90,-90}})));
@@ -540,7 +540,7 @@ package Lines
     parameter Integer N(final min=1, start=1) "Number of lumped segments";
     parameter SI.LinearTemperatureCoefficient alpha=0
       "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(T_heatPort - T_ref))";
-    parameter Boolean useHeatPort=false "=true, if HeatPort is enabled"
+    parameter Boolean useHeatPort=false "Set =true, if HeatPort is enabled"
       annotation (
       Evaluate=true,
       HideResult=true,
@@ -548,7 +548,7 @@ package Lines
     parameter SI.Temperature T=293.15
       "Fixed device temperature if useHeatPort = false"
       annotation (Dialog(enable=not useHeatPort));
-    parameter SI.Temperature T_ref=300.15;
+    parameter SI.Temperature T_ref=300.15 "Reference temperature";
     Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort if useHeatPort
       annotation (Placement(transformation(extent={{-10,-110},{10,-90}}),
           iconTransformation(extent={{-108,-110},{-88,-90}})));

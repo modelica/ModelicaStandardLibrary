@@ -1320,7 +1320,7 @@ Zeunerstra&szlig;e 38<br />
       Basic.R_Resistor RC2(R=10000);
       Basic.R_Resistor RE(R=10000);
       Sources.V_constant VIE(V=0);
-      parameter Semiconductors.ModelcardBJT MOD1(BF=50, VAF=50, IS=1e-012, RB=100, CJC=5e-09, TF=6e-010);
+      parameter Semiconductors.ModelcardBJT MOD1(BF=50, VAF=50, IS=1e-012, RB=100, CJC=5e-09, TF=6e-010) "Modelcard for transistors Q1 and Q2";
       Basic.Ground g;
 
       Real OutputVoltage;
@@ -1406,7 +1406,7 @@ CJC=.5PF.</p>
       Semiconductors.M_NMOS M1(modelcard=MOD1, L=4e-006, W=6e-006, AD=1e-011, AS=1e-011, IC=-1e40);
       // * VIDS MEASURES ID, WE COULD HAVE USED VDS, BUT ID WOULD BE NEGATIVE
       Sources.V_constant VIDS(V=0);
-      parameter Semiconductors.ModelcardMOS MOD1(VTO=-2, NSUB=1e+015, UO=550, CBD=0, CBS=0);
+      parameter Semiconductors.ModelcardMOS MOD1(VTO=-2, NSUB=1e+015, UO=550, CBD=0, CBS=0) "Modelcard for transistor M1";
 
     record SpiceConstants
       // NODE
@@ -1462,7 +1462,7 @@ M1 1 2 0 0 MOD1 L=4U W=6U AD=10P AS=10P<br/>
       Basic.R_Resistor RB(R=10000);
       Semiconductors.Q_NPNBJT Q1(modelcard=Q11, vbc(start=0, fixed=true), vbe(start=0, fixed=true));
       Basic.R_Resistor RC(R=1000);
-      parameter Semiconductors.ModelcardBJT Q11(BF=20, RB=100, TF=1e-010, CJC=2e-012);
+      parameter Semiconductors.ModelcardBJT Q11(BF=20, RB=100, TF=1e-010, CJC=2e-012) "Modelcard for transistor Q1";
       Basic.Ground g;
 
     protected
@@ -1826,8 +1826,8 @@ RC 3 4 1K<br/>
     end FOURBIT;
 
       // *** DEFINE NOMINAL CIRCUIT
-      parameter Modelica.Electrical.Spice3.Semiconductors.ModelcardDIODE DMOD;
-      parameter Modelica.Electrical.Spice3.Semiconductors.ModelcardBJT QMOD(BF=75, RB=100, CJE=1e-012, CJC=3e-012);
+      parameter Modelica.Electrical.Spice3.Semiconductors.ModelcardDIODE DMOD "Modelcard for diods";
+      parameter Modelica.Electrical.Spice3.Semiconductors.ModelcardBJT QMOD(BF=75, RB=100, CJE=1e-012, CJC=3e-012) "Modelcard for transistors";
       Modelica.Electrical.Spice3.Sources.V_constant VCC(V=5);
       Modelica.Electrical.Spice3.Sources.V_pulse VIN1A( V1=0, V2=3, TD=0, TR=1e-008, TF=1e-008, PW=1e-008, PER=5e-008);
       Modelica.Electrical.Spice3.Sources.V_pulse VIN1B( V1=0, V2=3, TD=0, TR=1e-008, TF=1e-008, PW=2e-008, PER=1e-007);

@@ -86,14 +86,14 @@ package Semiconductors
     Vt_applied = if useHeatPort then Modelica.Constants.R * T_heatPort/Modelica.Constants.F else Vt;
     id = smooth(1,
       if vd < -Bv / 2 then
-        //Lower half of reverse biased region including breakdown.
         -Ids * (exp(-(vd+Bv)/(N*Vt_applied)) + 1 - 2*exp(-Bv/(2*N*Vt_applied)))
       elseif vd < VdMax then
-        //Upper half of reverse biased region, and forward biased region before conduction.
         Ids * (exp(vd/(N*Vt_applied)) - 1)
       else
-        //Forward biased region after conduction
         iVdMax + (vd - VdMax) * diVdMax);
+        //Lower half of reverse biased region including breakdown.
+        //Upper half of reverse biased region, and forward biased region before conduction.
+        //Forward biased region after conduction
 
     v = vd + id * Rs;
     i = id + v*Gp;
@@ -477,8 +477,8 @@ model NPN "Simple BJT according to Ebers-Moll"
   parameter SI.Conductance Gbc=1e-15 "Base-collector conductance";
   parameter SI.Conductance Gbe=1e-15 "Base-emitter conductance";
   parameter SI.Voltage Vt=0.02585 "Voltage equivalent of temperature";
-  parameter Real EMin=-100 "if x < EMin, the exp(x) function is linearized";
-  parameter Real EMax=40 "if x > EMax, the exp(x) function is linearized";
+  parameter Real EMin=-100 "If x < EMin, the exp(x) function is linearized";
+  parameter Real EMax=40 "If x > EMax, the exp(x) function is linearized";
   parameter SI.Voltage IC=0 "Initial value" annotation(Dialog(enable=UIC));
   parameter Boolean UIC = false "Decision if initial value should be used";
 
@@ -603,8 +603,8 @@ model PNP "Simple BJT according to Ebers-Moll"
   parameter SI.Conductance Gbc=1e-15 "Base-collector conductance";
   parameter SI.Conductance Gbe=1e-15 "Base-emitter conductance";
   parameter SI.Voltage Vt=0.02585 "Voltage equivalent of temperature";
-  parameter Real EMin=-100 "if x < EMin, the exp(x) function is linearized";
-  parameter Real EMax=40 "if x > EMax, the exp(x) function is linearized";
+  parameter Real EMin=-100 "If x < EMin, the exp(x) function is linearized";
+  parameter Real EMax=40 "If x > EMax, the exp(x) function is linearized";
   extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=293.15);
 
   SI.Voltage vbc "Base-collector voltage";
@@ -1030,8 +1030,8 @@ end HeatingDiode;
           parameter Real Mc=0.333 "Base-collector gradation exponent";
           parameter SI.Conductance Gbc=1e-15 "Base-collector conductance";
           parameter SI.Conductance Gbe=1e-15 "Base-emitter conductance";
-          parameter Real EMin=-100 "if x < EMin, the exp(x) function is linearized";
-          parameter Real EMax=40 "if x > EMax, the exp(x) function is linearized";
+          parameter Real EMin=-100 "If x < EMin, the exp(x) function is linearized";
+          parameter Real EMax=40 "If x > EMax, the exp(x) function is linearized";
           parameter SI.Temperature Tnom=300.15 "Parameter measurement temperature";
           parameter Real XTI=3 "Temperature exponent for effect on Is";
           parameter Real XTB=0 "Forward and reverse beta temperature exponent";
@@ -1142,8 +1142,8 @@ end HeatingDiode;
           parameter Real Mc=0.333 "Base-collector gradation exponent";
           parameter SI.Conductance Gbc=1e-15 "Base-collector conductance";
           parameter SI.Conductance Gbe=1e-15 "Base-emitter conductance";
-          parameter Real EMin=-100 "if x < EMin, the exp(x) function is linearized";
-          parameter Real EMax=40 "if x > EMax, the exp(x) function is linearized";
+          parameter Real EMin=-100 "If x < EMin, the exp(x) function is linearized";
+          parameter Real EMax=40 "If x > EMax, the exp(x) function is linearized";
           parameter SI.Temperature Tnom=300.15 "Parameter measurement temperature";
           parameter Real XTI=3 "Temperature exponent for effect on Is";
           parameter Real XTB=0 "Forward and reverse beta temperature exponent";
@@ -1484,7 +1484,7 @@ public
           rotation=90,
           origin={-20,-72})));
 
-  parameter Boolean useHeatPort = false "=true, if HeatPort is enabled"
+  parameter Boolean useHeatPort = false "Set =true, if HeatPort is enabled"
     annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
   parameter SI.Temperature T=293.15
       "Fixed device temperature if useHeatPort = false" annotation(Dialog(enable=not useHeatPort));

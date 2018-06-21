@@ -2,15 +2,15 @@ within Modelica.Electrical.Analog.Examples;
 model CauerLowPassAnalog "Cauer low pass filter with analog components"
   extends Modelica.Icons.Example;
 
-  parameter SI.Inductance l1=1.304 "filter coefficient I1";
-  parameter SI.Inductance l2=0.8586 "filter coefficient I2";
-  parameter SI.Capacitance c1=1.072 "filter coefficient c1";
+  parameter SI.Inductance l1=1.304 "Filter coefficient I1";
+  parameter SI.Inductance l2=0.8586 "Filter coefficient I2";
+  parameter SI.Capacitance c1=1.072 "Filter coefficient c1";
   parameter SI.Capacitance c2=1/(1.704992^2*l1)
-    "filter coefficient c2";
-  parameter SI.Capacitance c3=1.682 "filter coefficient c3";
+    "Filter coefficient c2";
+  parameter SI.Capacitance c3=1.682 "Filter coefficient c3";
   parameter SI.Capacitance c4=1/(1.179945^2*l2)
-    "filter coefficient c4";
-  parameter SI.Capacitance c5=0.7262 "filter coefficient c5";
+    "Filter coefficient c4";
+  parameter SI.Capacitance c5=0.7262 "Filter coefficient c5";
   Modelica.Electrical.Analog.Basic.Ground G
     annotation (Placement(transformation(extent={{-10,-90},{10,-70}})));
   Modelica.Electrical.Analog.Basic.Capacitor C1(C=c1, v(start=0, fixed=true))
