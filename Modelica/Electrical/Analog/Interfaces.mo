@@ -301,7 +301,7 @@ The reason could be that
   partial model ConditionalHeatPort
     "Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network"
 
-    parameter Boolean useHeatPort = false "=true, if heatPort is enabled"
+    parameter Boolean useHeatPort = false "Set =true, if heatPort is enabled"
     annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
     parameter SI.Temperature T=293.15
       "Fixed device temperature if useHeatPort = false" annotation(Dialog(enable=not useHeatPort));
