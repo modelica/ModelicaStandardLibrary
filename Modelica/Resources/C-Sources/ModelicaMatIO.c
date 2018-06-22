@@ -677,6 +677,13 @@ Mat_doubleSwap( double *a )
     return *a;
 }
 
+static char* mat_strdup(const char *s)
+{
+    size_t len = strlen(s) + 1;
+    char *d = (char*)malloc(len);
+    return d ? (char*)memcpy(d, s, len) : NULL;
+}
+
 /* -------------------------------
  * ---------- inflate.c
  * -------------------------------
