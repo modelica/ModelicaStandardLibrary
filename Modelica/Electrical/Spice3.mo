@@ -1826,7 +1826,7 @@ RC 3 4 1K<br/>
     end FOURBIT;
 
       // *** DEFINE NOMINAL CIRCUIT
-      parameter Modelica.Electrical.Spice3.Semiconductors.ModelcardDIODE DMOD "Modelcard for diods";
+      parameter Modelica.Electrical.Spice3.Semiconductors.ModelcardDIODE DMOD "Modelcard for diodes";
       parameter Modelica.Electrical.Spice3.Semiconductors.ModelcardBJT QMOD(BF=75, RB=100, CJE=1e-012, CJC=3e-012) "Modelcard for transistors";
       Modelica.Electrical.Spice3.Sources.V_constant VCC(V=5);
       Modelica.Electrical.Spice3.Sources.V_pulse VIN1A( V1=0, V2=3, TD=0, TR=1e-008, TF=1e-008, PW=1e-008, PER=5e-008);
