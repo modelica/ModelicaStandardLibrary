@@ -1687,28 +1687,22 @@ This model contains the mechanical components of the r3 robot
               fileName="modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Systems/robot_kr15.png"),
             Text(
               extent={{-190,-130},{-130,-170}},
-              textString="1",
-              lineColor={0,0,0}),
+              textString="1"),
             Text(
               extent={{-190,-70},{-130,-110}},
-              textString="2",
-              lineColor={0,0,0}),
+              textString="2"),
             Text(
               extent={{-190,-10},{-130,-50}},
-              textString="3",
-              lineColor={0,0,0}),
+              textString="3"),
             Text(
               extent={{-190,48},{-130,8}},
-              textString="4",
-              lineColor={0,0,0}),
+              textString="4"),
             Text(
               extent={{-190,110},{-130,70}},
-              textString="5",
-              lineColor={0,0,0}),
+              textString="5"),
             Text(
               extent={{-190,170},{-130,130}},
-              textString="6",
-              lineColor={0,0,0})}),
+              textString="6")}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-200,-200},{200,200}})));

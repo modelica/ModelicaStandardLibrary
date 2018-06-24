@@ -7334,7 +7334,7 @@ This package provides sensors for the magnetic potential difference and the magn
       flow Modelica.SIunits.ComplexMagneticFlux Phi
         "Complex magnetic flux flowing into the port";
       annotation (Documentation(info="<html>
-<p>Base definition of complex quasi-static magnetic port. The potential variable is the complex magnetic potential 
+<p>Base definition of complex quasi-static magnetic port. The potential variable is the complex magnetic potential
 <code>V_m</code> and the flow variable is the complex magnetic flux <code>Phi</code>.</p>
 
 <h4>See also</h4>

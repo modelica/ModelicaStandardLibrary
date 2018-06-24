@@ -39,46 +39,36 @@ package FluxTubes "Test examples of Modelica.Magnetic.QuasiStatic.FluxTubes"
   equation
     connect(ground1.port, constantSource1.port_p) annotation (Line(
         points={{-90,20},{-90,40},{-80,40}},
-        color={255,170,85},
-        smooth=Smooth.None));
+        color={255,170,85}));
     connect(constantSource1.port_n, quarterHollowCylinder.port_p) annotation (
         Line(
         points={{-60,40},{-50,40}},
-        color={255,170,85},
-        smooth=Smooth.None));
+        color={255,170,85}));
     connect(quarterHollowCylinder.port_n, halfCylinder.port_p) annotation (Line(
         points={{-30,40},{-20,40}},
-        color={255,170,85},
-        smooth=Smooth.None));
+        color={255,170,85}));
     connect(halfCylinder.port_n, halfHollowCylinder.port_p) annotation (Line(
         points={{0,40},{10,40}},
-        color={255,170,85},
-        smooth=Smooth.None));
+        color={255,170,85}));
     connect(ground2.port, constantSource2.port_p) annotation (Line(
         points={{-90,-60},{-90,-40},{-80,-40}},
-        color={255,170,85},
-        smooth=Smooth.None));
+        color={255,170,85}));
     connect(constantSource2.port_n, quarterSphere.port_p) annotation (Line(
         points={{-60,-40},{-50,-40}},
-        color={255,170,85},
-        smooth=Smooth.None));
+        color={255,170,85}));
     connect(quarterSphere.port_n, quarterHollowSphere.port_p) annotation (Line(
         points={{-30,-40},{-20,-40}},
-        color={255,170,85},
-        smooth=Smooth.None));
+        color={255,170,85}));
     connect(quarterHollowSphere.port_n, eighthOfSphere.port_p) annotation (Line(
         points={{0,-40},{10,-40}},
-        color={255,170,85},
-        smooth=Smooth.None));
+        color={255,170,85}));
     connect(eighthOfSphere.port_n, eighthOfHollowSphere.port_p) annotation (Line(
         points={{30,-40},{40,-40}},
-        color={255,170,85},
-        smooth=Smooth.None));
+        color={255,170,85}));
     connect(eighthOfHollowSphere.port_n, coaxCylindersEndFaces.port_p)
       annotation (Line(
         points={{60,-40},{70,-40}},
-        color={255,170,85},
-        smooth=Smooth.None));
+        color={255,170,85}));
     connect(magFluxSensor1.port_p, constantSource1.port_p) annotation (Line(points={{-60,70},{-90,70},{-90,40},{-80,40}}, color={255,170,85}));
     connect(magFluxSensor1.port_n, halfHollowCylinder.port_n) annotation (Line(points={{-40,70},{40,70},{40,40},{30,40}}, color={255,170,85}));
     connect(magFluxSensor2.port_p, constantSource2.port_p) annotation (Line(points={{-60,-10},{-90,-10},{-90,-40},{-80,-40}}, color={255,170,85}));

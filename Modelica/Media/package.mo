@@ -1120,8 +1120,8 @@ A good demonstration how to use the media from Modelica.Media is
 given in package ModelicaTest.Media.TestsWithFluid. Under
 <a href=\"modelica://Modelica.Media.Examples.Utilities\">
 Modelica.Media.Examples.Utilities</a> the most basic components of a Fluid library
-are defined. Additional media models with some very simple piping networks can be found in the 
-<a href=\"https://github.com/modelica/ModelicaStandardLibrary/tree/master/ModelicaTest\">ModelicaTest library</a> under 
+are defined. Additional media models with some very simple piping networks can be found in the
+<a href=\"https://github.com/modelica/ModelicaStandardLibrary/tree/master/ModelicaTest\">ModelicaTest library</a> under
 <code>ModelicaTest.Media.TestsWithFluid.MediaTestModels</code>.
 </p>
 

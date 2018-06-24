@@ -704,11 +704,9 @@ package Blocks "Test models for Modelica.Blocks"
             {172,-118},{178,-118}}, color={0,0,127}));
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=false,
-           extent={{-100,-100},{100,100}},
-           initialScale=0.1)),
+           extent={{-100,-100},{100,100}})),
       Diagram(coordinateSystem(preserveAspectRatio=false,
-              extent={{-300,-200},{340,200}},
-              initialScale=0.1)),
+              extent={{-300,-200},{340,200}})),
       experiment(StopTime=100),
       Documentation(info="<html>
 <p>These test models demonstrate the use of the advanced homotopy options <code>homotopyType</code>

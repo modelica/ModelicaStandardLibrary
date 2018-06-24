@@ -2186,12 +2186,9 @@ Thermodynamic equations are defined by Partials.TwoPort.
               lineColor={0,0,255}),
             Line(
               points={{-60,60},{60,-60},{50,-40},{40,-50},{60,-60}},
-              color={0,0,0},
               thickness=0.5),
             Polygon(
               points={{50,-40},{60,-60},{40,-50},{50,-40}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
               fillPattern=FillPattern.Solid)}));
     end OneWayValve;
   annotation (Documentation(info="<html>
@@ -2731,12 +2728,10 @@ Thermodynamic equations are defined by Partials.TwoPort.
               textString="%name"),
             Rectangle(
               extent={{-10,-40},{10,-100}},
-              lineColor={0,0,0},
               fillPattern=FillPattern.VerticalCylinder,
               fillColor={175,175,175}),
             Polygon(
               points={{-60,68},{90,10},{90,-10},{-60,-68},{-60,68}},
-              lineColor={0,0,0},
               fillPattern=FillPattern.HorizontalCylinder,
               fillColor={0,0,255})}));
     end IdealPump;

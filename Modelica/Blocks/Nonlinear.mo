@@ -59,8 +59,8 @@ simplified behaviour if homotopy-based initialization is used:
 <li><code>LowerLimit</code>: it is assumed that the output is stuck at the lower limit u = uMin</li>
 </ul>
 <p>
-If it is known a priori in which region the input signal will be located, this option can help 
-a lot by removing one strong nonlinearity from the initialization problem. 
+If it is known a priori in which region the input signal will be located, this option can help
+a lot by removing one strong nonlinearity from the initialization problem.
 </p>
 </html>"), Icon(coordinateSystem(
           preserveAspectRatio=true,
@@ -186,8 +186,8 @@ simplified behaviour if homotopy-based initialization is used:
 <li><code>Fixed</code>: it is assumed that the output is fixed at the value <code>ySimplified</code></li>
 </ul>
 <p>
-If it is known a priori in which region the input signal will be located, this option can help 
-a lot by removing one strong nonlinearity from the initialization problem. 
+If it is known a priori in which region the input signal will be located, this option can help
+a lot by removing one strong nonlinearity from the initialization problem.
 </p>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={

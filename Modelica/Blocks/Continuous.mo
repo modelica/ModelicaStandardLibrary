@@ -1246,7 +1246,7 @@ to compute u_m by an algebraic equation.
 
 <p>
 When initializing in steady-state, homotopy-based initialization can help the convergence of the solver,
-by using a simplified model a the beginning of the solution process. Different options are available. 
+by using a simplified model a the beginning of the solution process. Different options are available.
 </p>
 
 <ul>
@@ -1258,7 +1258,7 @@ limit yMax, this option assumes y = yMax as a simplified model.</li>
 limit yMin, this option assumes y = yMin as a simplified model.</li>
 <li><strong>homotopyType=NoHomotopy</strong>: this option does not apply any simplification and keeps the
 limiter active throughout the homotopy transformation. Use this if it is unknown whether the controller
-is saturated or not at initialization and if the limitations on the output must be enforced throughout 
+is saturated or not at initialization and if the limitations on the output must be enforced throughout
 the entire homotopy transformation.</li>
 </ul>
 
