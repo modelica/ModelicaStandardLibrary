@@ -2280,11 +2280,11 @@ to <font color=\"blue\"><strong>existing</strong></font> libraries:
 <tr><td width=\"150\">FrequencySweepVoltageSource<br>FrquencySweepCurrentSource</td>
     <td> Voltage source and current source with integrated frequency sweep.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Mechanics.Rotational.Components</strong></td></tr>
-<tr><td width=\"150\">GeneralTorqueToAngleAdaptor<br>GeneralAngleToTorqueAdaptor</td>
+<tr><td width=\"150\">GeneralAngleToTorqueAdaptor<br>GeneralTorqueToAngleAdaptor</td>
     <td> Adaptors for the generation of FMUs, optionally taking first and second derivative into account.<br>
          Note: These adaptors give the same results as:<br>
-         GeneralTorqueToAngleAdaptor<br>GeneralAngleToTorqueAdaptor<br>
-         but extend from <a href=\"modelica://Modelica.Blocks.Interfaces.PartialFMUadaptors\">Modelica.Blocks.Interfaces.PartialFMUadaptors</a>  
+         AngleToTorqueAdaptor<br>TorqueToAngleAdaptor<br>
+         but extend from <a href=\"modelica://Modelica.Blocks.Interfaces.Adaptors\">Modelica.Blocks.Interfaces.Adaptors</a>  
          like adaptors in other domains.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Mechanics.Rotational.Sources</strong></td></tr>
 <tr><td width=\"150\">EddyCurrentTorque</td>
