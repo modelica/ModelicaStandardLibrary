@@ -2723,7 +2723,7 @@ As expected, one can see the 11<sup>th</sup>, 13<sup>th</sup>, 23<sup>th</sup>, 
 </html>"));
   end Rectifier12pulseFFT;
 
-  model TotalHarmonicDistrortion "Calculation of total harmonic distortion of voltage"
+  model TotalHarmonicDistortion "Calculation of total harmonic distortion of voltage"
     import Modelica;
     extends Modelica.Icons.Example;
     parameter Modelica.SIunits.Frequency f1 = 50 "Fundamental wave frequency";
@@ -2780,7 +2780,7 @@ theoretical calculations:</p>
     both with respect to the RMS value; also plot <code>thdRMS.valid</code></li>
 </ul>
 </html>"));
-  end TotalHarmonicDistrortion;
+  end TotalHarmonicDistortion;
   annotation (Documentation(info="<html>
 <p>
 This package contains example models to demonstrate the
