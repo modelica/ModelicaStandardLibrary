@@ -2212,7 +2212,7 @@ to <font color=\"blue\"><strong>existing</strong></font> libraries:
 </p>
 
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
-<tr><td colspan=\"2\"><strong>Modelica.Blocks.Interfaces.PartialFMUAdaptors</strong></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Blocks.Interfaces.Adaptors</strong></td></tr>
 <tr><td width=\"150\">FlowToPotentialAdaptor<br>PotentialToFlowAdaptor</td>
     <td> Partial adaptors for generation of FMUs, optionally taking first and second derivative into account,
          for consistent components in various domains.</td></tr>
