@@ -2377,7 +2377,7 @@ have been marked as <font color=\"blue\"><strong>obsolete</strong></font> and wi
     <td>Use icons from Modelica.Math.Icons instead.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Icons</strong></td></tr>
 <tr><td>Library<br>Library2<br>GearIcon<br>MotorIcon<br>Info</td>
-    <td>Use (substitute) icons from Modelica.Icons or Modelica.Mechanics.Rotational.Icons instead.</td></tr>
+    <td>Use (substitute) icons from Modelica.Icons, Modelica.Mechanics.Rotational.Icons or Modelica.Electrical.Machines.Icons instead.</td></tr>
 </table>
 
 <p><br>
