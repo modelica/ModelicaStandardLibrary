@@ -2343,8 +2343,8 @@ have been marked as <font color=\"blue\"><strong>obsolete</strong></font> and wi
 </p>
 
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
-<tr><td colspan=\"2\"><strong>Modelica.Blocks.Interfaces</strong></td></tr>
-<tr><td>Adaptors.*</td>
+<tr><td colspan=\"2\"><strong>Modelica.Blocks.Interfaces.Adaptors</strong></td></tr>
+<tr><td>SendReal<br>SendBoolean<br>SendInteger<br>ReceiveReal<br>ReceiveBoolean<br>ReceiveInteger</td>
     <td>Use expandable connectors instead.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Electrical.Digital.Converters</strong></td></tr>
 <tr><td>LogicToXO1<br>LogicToXO1Z</td>
