@@ -16,14 +16,14 @@
 </head>
 <body>
 <h1 id="github-issues-resolved-for-v3.2.3">GitHub issues resolved for v3.2.3</h1>
-<p>As part of this release 408 <a href="https://github.com/modelica/ModelicaStandardLibrary/milestone/12">issues</a> were closed.</p>
+<p>As part of this release 472 <a href="https://github.com/modelica/ModelicaStandardLibrary/milestone/12">issues</a> were closed.</p>
 <h2 id="msl-general--">--MSL-general--</h2>
 <h3 id="documentation">Documentation</h3>
 <ul>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/1747">#1747</a> HTML conventions are not followed for strong/emphasis</li>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/1991">#1991</a> Lots of new HTML errors in MSL v3.2.2 release</li>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/2513">#2513</a> (PR) Fixed documentation links</li>
-<li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/2517">#2517</a> (PR) Remove all occurences of valign=&quot;top&quot; from Documentation</li>
+<li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/2517">#2517</a> (PR) Remove all occurrences of valign=&quot;top&quot; from Documentation</li>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/2580">#2580</a> (PR) Fix HTML tags and typo</li>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/2584">#2584</a> (PR) Switch to secure website for haumer.at</li>
 </ul>
@@ -34,9 +34,7 @@
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2320">#2320</a> Implement License change decision to change to BSD-3-Clause</li>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/2373">#2373</a> (PR) Merge <a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2320">#2320</a> license aka Change to 3-Clause BSD License</li>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/2525">#2525</a> (PR) Fixing typos and unwanted changes in several packages</li>
-<li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/2532">#2532</a> (PR) Extend obsolete classes from ObsoleteModel</li>
-<li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/2576">#2576</a> (PR) Improve revisionId format to skip subject</li>
-<li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/2585">#2585</a> (PR) Fix rotational adaptor icons</li>
+<li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/2587">#2587</a> (PR) Check file encoding and language standard</li>
 </ul>
 <h2 id="blocks">Blocks</h2>
 <h3 id="bugs">Bugs</h3>
@@ -46,7 +44,6 @@
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2100">#2100</a> Missing obsolete annotation</li>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2102">#2102</a> Modelica.Blocks.Sources.Exponentials should be a block</li>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2140">#2140</a> Initial condition of SlewRateLimiter</li>
-<li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/2353">#2353</a> (PR) Add missing <code>each</code> in Modelica/Blocks/Math.mo</li>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2508">#2508</a> Minimum value of t_eps in blocks ContinuousMean, Variance and StandardDeviation</li>
 </ul>
 <h3 id="enhancements">Enhancements</h3>
@@ -115,8 +112,14 @@
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2209">#2209</a> TimeTable does not assert that first time value is 0</li>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2237">#2237</a> %name field missing in Modelica.Blocks.Logical</li>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/2271">#2271</a> (PR) Discrete blocks should not have continuous connectors</li>
+<li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/2353">#2353</a> (PR) Add missing <code>each</code> in Modelica/Blocks/Math.mo</li>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2435">#2435</a> Literal double value output by omc exceeds DBL_MAX</li>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2502">#2502</a> Unclear parameter description in Add and Add3</li>
+<li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/2532">#2532</a> (PR) Extend obsolete classes from ObsoleteModel</li>
+<li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/2561">#2561</a> (PR) Added more options for homotopy-based initialization of limiters</li>
+<li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2611">#2611</a> Diagram elements of Multiplex / DeMultiplex should be empty</li>
+<li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/2613">#2613</a> (PR) Fix icon / diagram graphics of Mux / Demux blocks</li>
+<li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/2643">#2643</a> (PR) Extend function icon for padeCoefficients2</li>
 </ul>
 <h2 id="c-sources">C-Sources</h2>
 <h3 id="bugs-1">Bugs</h3>
@@ -148,6 +151,7 @@
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/1771">#1771</a> Wrong CombiTimeTable output when startTime &lt; first table point</li>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/1839">#1839</a> CombiTable1D/CombiTable2D extrapolate linearly when setting ConstantSegments</li>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2092">#2092</a> Tables/Matrices: Update Matio Library to v1.5.12</li>
+<li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2095">#2095</a> Update zlib to v1.2.11</li>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2105">#2105</a> Improve error message for reading MATLAB structure variables</li>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2106">#2106</a> Support single-precision arrays from MAT-file for ModelicaMatIO</li>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2120">#2120</a> Blocks.Tables lack of functionality / functions</li>
@@ -167,11 +171,11 @@
 </ul>
 <h3 id="miscellaneous-2">Miscellaneous</h3>
 <ul>
-<li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2095">#2095</a> Update zlib to v1.2.11</li>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/2216">#2216</a> (PR) Restructure ModelicaExternalC sources</li>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2250">#2250</a> Use of CPL1.0 license in ModelicaStrings.c without proper declaration</li>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/2369">#2369</a> (PR) Workaround for dummy usertab function</li>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/2531">#2531</a> (PR) Avoid MSVC compiler warnings C4267 in ModelicaFFT.c</li>
+<li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/2656">#2656</a> (PR) Keep snprintf.c as stand-alone module</li>
 </ul>
 <h2 id="complex">Complex*</h2>
 <h3 id="bugs-2">Bugs</h3>
@@ -224,7 +228,7 @@
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2360">#2360</a> Missing test or example model for Modelica.Electrical.Analog.Semiconductors.HeatingPNP</li>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/2375">#2375</a> (PR) FixUnits</li>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2402">#2402</a> Zener Diode Symbol incorrect</li>
-<li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/2570">#2570</a> (PR) Add default component name for adaptors (<a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2569">#2569</a>)</li>
+<li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2608">#2608</a> Missing test or example model for Modelica.Electrical.Analog.Ideal.IdealOpAmpLimited</li>
 </ul>
 <h3 id="enhancements-4">Enhancements</h3>
 <ul>
@@ -234,8 +238,10 @@
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2301">#2301</a> Use defaultComponentName to shorten instance names in Diagram layer</li>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2309">#2309</a> Add variable for representing torque/force in electromechanic converters</li>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2399">#2399</a> Add adaptor components to Modelica.Electrical.Analog</li>
-<li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2560">#2560</a> Change units of potential quanities in connectors to potential units</li>
+<li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2560">#2560</a> Change units of potential quantities in connectors to potential units</li>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/2563">#2563</a> (PR) Change units of potential variables of connectors (<a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2560">#2560</a>)</li>
+<li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2569">#2569</a> Default component name for adaptors</li>
+<li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/2570">#2570</a> (PR) Add default component name for adaptors (<a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2569">#2569</a>)</li>
 </ul>
 <h3 id="examples-1">Examples</h3>
 <ul>
@@ -244,6 +250,7 @@
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2224">#2224</a> Missing parameter comments in Modelica.Electrical.Analog.Examples.OpAmps models</li>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2268">#2268</a> Illegal modifiers in Modelica.Electrical.Analog.Examples.HeatingNPN_OrGate</li>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/2533">#2533</a> (PR) Fixes <a href="https://github.com/modelica/ModelicaStandardLibrary/issues/576">#576</a> by replacing internal models by one utility model</li>
+<li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/2644">#2644</a> (PR) Add example model for Modelica.Electrical.Analog.Ideal.IdealOpAmpLimited</li>
 </ul>
 <h3 id="documentation-4">Documentation</h3>
 <ul>
@@ -260,8 +267,9 @@
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2307">#2307</a> Final modifier inheritance in Electrical.Analog sources</li>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2343">#2343</a> Internal variables of Modelica.Electrical.Analog.Semiconductors.HeatingNPN are public</li>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2493">#2493</a> Modelica.Electrical.Analog.Ideal.AD_Converter internal error check fails w/ OpenModelica (v1.11.0 Win64)</li>
-<li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2569">#2569</a> Default component name for adaptors</li>
+<li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/2561">#2561</a> (PR) Added more options for homotopy-based initialization of limiters</li>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/2588">#2588</a> (PR) Improve wording of electrical and magnetic connector descriptions</li>
+<li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/2634">#2634</a> (PR) Use constant pi</li>
 </ul>
 <h2 id="electrical.digital">Electrical.Digital</h2>
 <h3 id="bugs-4">Bugs</h3>
@@ -287,6 +295,7 @@
 <ul>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2082">#2082</a> Missing comment for String parameter Modelica.Electrical.Digital.Memories.DLATRAM.fileName</li>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/2163">#2163</a> (PR) Fix icon for Electrical.Digital</li>
+<li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/2532">#2532</a> (PR) Extend obsolete classes from ObsoleteModel</li>
 </ul>
 <h2 id="electrical.machines">Electrical.Machines</h2>
 <h3 id="bugs-5">Bugs</h3>
@@ -317,11 +326,12 @@
 </ul>
 <h3 id="documentation-6">Documentation</h3>
 <ul>
-<li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2219">#2219</a> Improve ReleaseNotes</li>
+<li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2219">#2219</a> Improve ReleaseNotes in UsersGuide</li>
 </ul>
 <h3 id="miscellaneous-6">Miscellaneous</h3>
 <ul>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2307">#2307</a> Final modifier inheritance in Electrical.Analog sources</li>
+<li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/2532">#2532</a> (PR) Extend obsolete classes from ObsoleteModel</li>
 </ul>
 <h2 id="electrical.multiphase">Electrical.MultiPhase</h2>
 <h3 id="bugs-6">Bugs</h3>
@@ -342,13 +352,14 @@
 </ul>
 <h3 id="documentation-7">Documentation</h3>
 <ul>
-<li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2219">#2219</a> Improve ReleaseNotes</li>
+<li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2219">#2219</a> Improve ReleaseNotes in UsersGuide</li>
 </ul>
 <h3 id="miscellaneous-7">Miscellaneous</h3>
 <ul>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2217">#2217</a> Wrong comment on Modelica.Electrical.MultiPhase.Sources.SignalCurrent</li>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/2362">#2362</a> (PR) Fix line color of Diode</li>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/2588">#2588</a> (PR) Improve wording of electrical and magnetic connector descriptions</li>
+<li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/2614">#2614</a> (PR) Fix spelling of description of electrical components</li>
 </ul>
 <h2 id="electrical.powerconverters">Electrical.PowerConverters</h2>
 <h3 id="bugs-7">Bugs</h3>
@@ -372,7 +383,7 @@
 </ul>
 <h3 id="documentation-8">Documentation</h3>
 <ul>
-<li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2219">#2219</a> Improve ReleaseNotes</li>
+<li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2219">#2219</a> Improve ReleaseNotes in UsersGuide</li>
 </ul>
 <h3 id="miscellaneous-8">Miscellaneous</h3>
 <ul>
@@ -387,7 +398,6 @@
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2251">#2251</a> Modelica.Electrical.QuasiStationary.MultiPhase.Blocks.SingleToMultiPhase does not conjugate inputs</li>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2280">#2280</a> Problem with potentialRoot in Modelica.Electrical.QuasiStationary.Machines.BasicMachines.Components.PartialCore</li>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2318">#2318</a> Problem with final qualifier in MultiPhase models</li>
-<li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/2354">#2354</a> (PR) Add missing <code>each</code> in Electrical/QuasiStationary/MultiPhase.mo</li>
 </ul>
 <h3 id="enhancements-9">Enhancements</h3>
 <ul>
@@ -401,19 +411,21 @@
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2442">#2442</a> Add quasi static voltage and current source models with integrated frequency sweep</li>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2451">#2451</a> Improve single-phase and polyphase impedance models</li>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2453">#2453</a> Change parameter names of frequency sweep sources from fMin and fMax to fStart and fStop</li>
-<li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2560">#2560</a> Change units of potential quanities in connectors to potential units</li>
+<li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2560">#2560</a> Change units of potential quantities in connectors to potential units</li>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/2563">#2563</a> (PR) Change units of potential variables of connectors (<a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2560">#2560</a>)</li>
 </ul>
 <h3 id="documentation-9">Documentation</h3>
 <ul>
-<li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2219">#2219</a> Improve ReleaseNotes</li>
+<li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2219">#2219</a> Improve ReleaseNotes in UsersGuide</li>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2314">#2314</a> Missing documentation of ReferenceSensor</li>
 </ul>
 <h3 id="miscellaneous-9">Miscellaneous</h3>
 <ul>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2293">#2293</a> Irregular colors used in QuasiStationary packages</li>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2307">#2307</a> Final modifier inheritance in Electrical.Analog sources</li>
+<li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/2354">#2354</a> (PR) Add missing <code>each</code> in Electrical/QuasiStationary/MultiPhase.mo</li>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/2588">#2588</a> (PR) Improve wording of electrical and magnetic connector descriptions</li>
+<li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/2614">#2614</a> (PR) Fix spelling of description of electrical components</li>
 </ul>
 <h2 id="electrical.spice3">Electrical.Spice3</h2>
 <h3 id="bugs-9">Bugs</h3>
@@ -437,7 +449,7 @@
 <h3 id="documentation-10">Documentation</h3>
 <ul>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2287">#2287</a> Update contributor's affiliations</li>
-<li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2523">#2523</a> Missleading documentation in Spice3 package</li>
+<li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2523">#2523</a> Misleading documentation in Spice3 package</li>
 </ul>
 <h3 id="miscellaneous-10">Miscellaneous</h3>
 <ul>
@@ -464,11 +476,14 @@
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2060">#2060</a> Modelica.Fluid.Examples.Tanks.TanksWithOverflow does not respect variable bounds</li>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2063">#2063</a> Update start value in Modelica.Fluid.Examples.InverseParameterization</li>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/2197">#2197</a> (PR) Fix unit of Real output signal p_S</li>
+<li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2243">#2243</a> Missing initial assignments in Modelica.Fluid.Examples.ControlledTankSystem.ControlledTanks</li>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/2355">#2355</a> (PR) Add <code>each</code> element of Xi array in Fluid.Examples.TraceSubstances.RoomCO2WithControls</li>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2374">#2374</a> Modelica.Fluid.Examples.AST_BatchPlant: Medium model to water/ sodium chloride missing</li>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2515">#2515</a> Modelica.Fluid.Examples.HeatingSystem generating Warnings in Dymola</li>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/2530">#2530</a> (PR) Consistent simple guess-values for Modelica.Fluid.Examples.HeatingSystem</li>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/2539">#2539</a> (PR) Decrease height in Modelica.Fluid.Examples.Tanks.TanksWithOverflow</li>
+<li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/2591">#2591</a> (PR) Add start value for RadioButton</li>
+<li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/2606">#2606</a> (PR) Change state event into time event to avoid warning in Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.Controller</li>
 </ul>
 <h3 id="documentation-11">Documentation</h3>
 <ul>
@@ -481,6 +496,7 @@
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/2359">#2359</a> (PR) Avoid default Real parameter evaluation</li>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/2420">#2420</a> (PR) Pull request for Issue <a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2406">#2406</a></li>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/2528">#2528</a> (PR) Avoid division by zero in default homotopy-code for Modelica.Fluid.Machines.BaseClasses.PartialPump</li>
+<li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/2532">#2532</a> (PR) Extend obsolete classes from ObsoleteModel</li>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2558">#2558</a> Reverting flow should be reversing?</li>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/2564">#2564</a> (PR) Fix wording: reverting -&gt; reversing</li>
 </ul>
@@ -514,6 +530,10 @@
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2115">#2115</a> Add Modelica.Icons.FunctionsPackage</li>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2300">#2300</a> Add RecordsPackage</li>
 </ul>
+<h3 id="miscellaneous-12">Miscellaneous</h3>
+<ul>
+<li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/2532">#2532</a> (PR) Extend obsolete classes from ObsoleteModel</li>
+</ul>
 <h2 id="magnetic.fluxtubes">Magnetic.FluxTubes</h2>
 <h3 id="bugs-13">Bugs</h3>
 <ul>
@@ -538,7 +558,7 @@
 <ul>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2445">#2445</a> Inconsistent 'Contact' section of User's Guides of packages</li>
 </ul>
-<h3 id="miscellaneous-12">Miscellaneous</h3>
+<h3 id="miscellaneous-13">Miscellaneous</h3>
 <ul>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2155">#2155</a> Magnetic Hysteresis Records should extend from Modelica.Icons.Record</li>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2254">#2254</a> Typo, Tickness, in doc strings</li>
@@ -566,7 +586,7 @@
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2301">#2301</a> Use defaultComponentName to shorten instance names in Diagram layer</li>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2311">#2311</a> Remove <code>import Modelica;</code></li>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2448">#2448</a> Change term &quot;magneto motive&quot; to &quot;magnetomotive&quot;</li>
-<li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2560">#2560</a> Change units of potential quanities in connectors to potential units</li>
+<li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2560">#2560</a> Change units of potential quantities in connectors to potential units</li>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/2563">#2563</a> (PR) Change units of potential variables of connectors (<a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2560">#2560</a>)</li>
 </ul>
 <h3 id="examples-7">Examples</h3>
@@ -577,9 +597,9 @@
 </ul>
 <h3 id="documentation-14">Documentation</h3>
 <ul>
-<li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2219">#2219</a> Improve ReleaseNotes</li>
+<li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2219">#2219</a> Improve ReleaseNotes in UsersGuide</li>
 </ul>
-<h3 id="miscellaneous-13">Miscellaneous</h3>
+<h3 id="miscellaneous-14">Miscellaneous</h3>
 <ul>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2049">#2049</a> Incorrect doc strings in RotorSaliencyAirGap</li>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2293">#2293</a> Irregular colors used in QuasiStationary packages</li>
@@ -596,7 +616,7 @@
 </ul>
 <h3 id="enhancements-16">Enhancements</h3>
 <ul>
-<li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/1515">#1515</a> New quasistatic flux tubes library to be integrated in MSL</li>
+<li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/1515">#1515</a> New quasi-static flux tubes library to be integrated in MSL</li>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2050">#2050</a> Add RotorDisplacementAngle to Modelica.Magnetic.QuasiStatic.FundamentalWave</li>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2279">#2279</a> Unify communication intervals of electric machine models</li>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2301">#2301</a> Use defaultComponentName to shorten instance names in Diagram layer</li>
@@ -615,10 +635,10 @@
 </ul>
 <h3 id="documentation-15">Documentation</h3>
 <ul>
-<li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2219">#2219</a> Improve ReleaseNotes</li>
+<li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2219">#2219</a> Improve ReleaseNotes in UsersGuide</li>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/2579">#2579</a> (PR) Fix image and class links</li>
 </ul>
-<h3 id="miscellaneous-14">Miscellaneous</h3>
+<h3 id="miscellaneous-15">Miscellaneous</h3>
 <ul>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2049">#2049</a> Incorrect doc strings in RotorSaliencyAirGap</li>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2218">#2218</a> Update icon of Modelica.Magnetic.QuasiStatic.FundamentalWave.Utilities</li>
@@ -650,9 +670,10 @@
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2249">#2249</a> Invalid ftp link in Math/Nonlinear.mo</li>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2436">#2436</a> Bug in documentation of Modelica.Math.Matrices.eigenValues</li>
 </ul>
-<h3 id="miscellaneous-15">Miscellaneous</h3>
+<h3 id="miscellaneous-16">Miscellaneous</h3>
 <ul>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/2260">#2260</a> (PR) ImpureRandomInteger-probabilities</li>
+<li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/2532">#2532</a> (PR) Extend obsolete classes from ObsoleteModel</li>
 </ul>
 <h2 id="mechanics.multibody">Mechanics.MultiBody</h2>
 <h3 id="bugs-17">Bugs</h3>
@@ -688,10 +709,12 @@
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/2421">#2421</a> (PR) Mechanics.MultiBody: Improved Diagram layout of examples to better fit the grid</li>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2439">#2439</a> Two similar GasForce models for MultiBody loops examples</li>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/2529">#2529</a> (PR) Remove incorrect stateSelect in constraint examples</li>
+<li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2663">#2663</a> Stop time of Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.fullRobot</li>
+<li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/2664">#2664</a> (PR) Improve documentation of fullRobot example</li>
 </ul>
 <h3 id="documentation-17">Documentation</h3>
 <ul>
-<li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/285">#285</a> Improve/fix documentation of Modelica.Mechanics.Multibody</li>
+<li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/285">#285</a> Improve/fix documentation of Modelica.Mechanics.MultiBody</li>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2227">#2227</a> Incorrect argument order in Modelica.Mechanics.MultiBody.Frames.resolveRelative document</li>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/2228">#2228</a> (PR) Fix argument order in Modelica.Mechanics.MultiBody.Frames.resolveRelative document</li>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2322">#2322</a> Reference to very old Dymola versions in MSL documentation: remove all tool specific documentation from MSL</li>
@@ -701,7 +724,7 @@
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2503">#2503</a> Documentation for Frames.absoluteRotation references Frames.relativeRotation</li>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2545">#2545</a> Missing DoublePendulumInitTip in package documentation</li>
 </ul>
-<h3 id="miscellaneous-16">Miscellaneous</h3>
+<h3 id="miscellaneous-17">Miscellaneous</h3>
 <ul>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2090">#2090</a> Calling Modelica.Math functions in functions of Modelica.Mechanics.MultiBody.Frames</li>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2194">#2194</a> Duplicated convertElement (with same arguments) in conversion scripts</li>
@@ -709,6 +732,7 @@
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/2368">#2368</a> (PR) Remove choices annotation for Cylinder model</li>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2426">#2426</a> Redundancy in Modelica.Mechanics.MultiBody.Sensors.Internal</li>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/2433">#2433</a> (PR) Remove the superfluous &quot;for menus&quot; in comments</li>
+<li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/2651">#2651</a> (PR) Remove ineffective Evaluate annotation from inputs in FixedShape / FixedShape2</li>
 </ul>
 <h2 id="mechanics.rotational">Mechanics.Rotational</h2>
 <h3 id="bugs-18">Bugs</h3>
@@ -722,6 +746,7 @@
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2466">#2466</a> Question on behavior of OneWayClutch</li>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2469">#2469</a> Remove superfluous representation of 'ground' in icons of Torque and Force</li>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2480">#2480</a> Improve icons of sources</li>
+<li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/2622">#2622</a> (PR) Add default component name to old rotational adaptors</li>
 </ul>
 <h3 id="examples-11">Examples</h3>
 <ul>
@@ -733,11 +758,12 @@
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2445">#2445</a> Inconsistent 'Contact' section of User's Guides of packages</li>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2467">#2467</a> Documentation error in OneWayClutch</li>
 </ul>
-<h3 id="miscellaneous-17">Miscellaneous</h3>
+<h3 id="miscellaneous-18">Miscellaneous</h3>
 <ul>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2371">#2371</a> Missing inheritance in Mechanics.Rotational.Components.Inertia</li>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2430">#2430</a> Obsolete adaptors in Mechanics.Rotational.Component</li>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/2520">#2520</a> (PR) Using green toned colors in Mechanics.Translational</li>
+<li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/2585">#2585</a> (PR) Fix rotational adaptor icons</li>
 </ul>
 <h2 id="mechanics.rotational3d">Mechanics.Rotational3D</h2>
 <h3 id="examples-12">Examples</h3>
@@ -749,7 +775,6 @@
 <ul>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2059">#2059</a> Incorrect variables in description of stateSelect parameter in translational components</li>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2100">#2100</a> Missing obsolete annotation</li>
-<li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/2570">#2570</a> (PR) Add default component name for adaptors (<a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2569">#2569</a>)</li>
 </ul>
 <h3 id="enhancements-20">Enhancements</h3>
 <ul>
@@ -758,17 +783,18 @@
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2423">#2423</a> Add parameter &quot;radius&quot; to icon of IdealRollingWheel</li>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2469">#2469</a> Remove superfluous representation of 'ground' in icons of Torque and Force</li>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2480">#2480</a> Improve icons of sources</li>
+<li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2569">#2569</a> Default component name for adaptors</li>
+<li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/2570">#2570</a> (PR) Add default component name for adaptors (<a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2569">#2569</a>)</li>
 </ul>
 <h3 id="documentation-19">Documentation</h3>
 <ul>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2445">#2445</a> Inconsistent 'Contact' section of User's Guides of packages</li>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2487">#2487</a> Copy/paste error in documentation of Mechanics.Translational.Interfaces.Support</li>
 </ul>
-<h3 id="miscellaneous-18">Miscellaneous</h3>
+<h3 id="miscellaneous-19">Miscellaneous</h3>
 <ul>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2486">#2486</a> Use dark green color in icons of Modelica.Mechanics.Translational</li>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/2520">#2520</a> (PR) Using green toned colors in Mechanics.Translational</li>
-<li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2569">#2569</a> Default component name for adaptors</li>
 </ul>
 <h2 id="media">Media</h2>
 <h3 id="bugs-20">Bugs</h3>
@@ -798,7 +824,7 @@
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/2345">#2345</a> (PR) Remove outdated tool references for issue <a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2322">#2322</a></li>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2445">#2445</a> Inconsistent 'Contact' section of User's Guides of packages</li>
 </ul>
-<h3 id="miscellaneous-19">Miscellaneous</h3>
+<h3 id="miscellaneous-20">Miscellaneous</h3>
 <ul>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/2238">#2238</a> (PR) Resolved issue <a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2236">#2236</a> for high saturation pressures and temperatures</li>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/2296">#2296</a> (PR) make FluidConstants in PartialTwoPhaseMedium replaceable</li>
@@ -806,7 +832,10 @@
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/2437">#2437</a> (PR) Bug fix for ticket <a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2377">#2377</a></li>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2490">#2490</a> Typo over0stochiometric</li>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2499">#2499</a> Wrong description for triple.ptriple</li>
+<li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/2532">#2532</a> (PR) Extend obsolete classes from ObsoleteModel</li>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/2559">#2559</a> (PR) Removed commented reference to non-existing medium</li>
+<li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/2617">#2617</a> (PR) Add missing <code>each</code> in Media.Air.MoistAir.s_pTX_der</li>
+<li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/2648">#2648</a> (PR) Remove ineffective Evaluate annotation from constants in PartialMedium</li>
 </ul>
 <h2 id="modelicareference">ModelicaReference</h2>
 <h3 id="bugs-21">Bugs</h3>
@@ -821,7 +850,7 @@
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/2505">#2505</a> (PR) update versionBuild and point to semver as alternative for usage in ModelicaReference</li>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/2577">#2577</a> (PR) Fixes closing HTML tag and table attribute</li>
 </ul>
-<h3 id="miscellaneous-20">Miscellaneous</h3>
+<h3 id="miscellaneous-21">Miscellaneous</h3>
 <ul>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/2325">#2325</a> (PR) Several minor updates of Modelica Reference</li>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/2380">#2380</a> (PR) ClarifyBreakable in ModelicaReference</li>
@@ -831,7 +860,7 @@
 <ul>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2133">#2133</a> Fix the license info for the ModelicaServices library on the MA server</li>
 </ul>
-<h3 id="miscellaneous-21">Miscellaneous</h3>
+<h3 id="miscellaneous-22">Miscellaneous</h3>
 <ul>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2211">#2211</a> Tool-neutral Modelica.Utilities.System.exit</li>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/2504">#2504</a> (PR) Fixes <a href="https://github.com/modelica/ModelicaStandardLibrary/issues/1822">#1822</a> by removing the Protection annotation and bump version</li>
@@ -852,11 +881,12 @@
 <ul>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/2542">#2542</a> (PR) Cleanup Media test models (<a href="https://github.com/modelica/ModelicaStandardLibrary/issues/1053">#1053</a>)</li>
 </ul>
-<h3 id="miscellaneous-22">Miscellaneous</h3>
+<h3 id="miscellaneous-23">Miscellaneous</h3>
 <ul>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/1604">#1604</a> Identifier typo in ModelicaTest.MultiBody.Parts.Rotor1D.Beveal1d</li>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2149">#2149</a> Naming of ModelicaTest.MultiBody.Forces.Worldtorque</li>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/2392">#2392</a> (PR) Added call of file() to ModelicaTest, resolves <a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2391">#2391</a></li>
+<li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/2561">#2561</a> (PR) Added more options for homotopy-based initialization of limiters</li>
 </ul>
 <h2 id="resources">Resources</h2>
 <h3 id="enhancements-23">Enhancements</h3>
@@ -884,7 +914,7 @@
 <ul>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2445">#2445</a> Inconsistent 'Contact' section of User's Guides of packages</li>
 </ul>
-<h3 id="miscellaneous-23">Miscellaneous</h3>
+<h3 id="miscellaneous-24">Miscellaneous</h3>
 <ul>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/2288">#2288</a> (PR) Introduce correctly spelled types and declare existing ones as obsolete</li>
 </ul>
@@ -912,23 +942,17 @@
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2553">#2553</a> FluidHeatFlow - add a cylinder model</li>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/2582">#2582</a> (PR) FluidHeatFlowEnhancements</li>
 </ul>
-<h3 id="miscellaneous-24">Miscellaneous</h3>
+<h3 id="miscellaneous-25">Miscellaneous</h3>
 <ul>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2148">#2148</a> Simplify Initialization of Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.TwoPort</li>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/2154">#2154</a> (PR) close <a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2148">#2148</a></li>
 </ul>
 <h2 id="thermal.heattransfer">Thermal.HeatTransfer</h2>
-<h3 id="bugs-25">Bugs</h3>
-<ul>
-<li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/2570">#2570</a> (PR) Add default component name for adaptors (<a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2569">#2569</a>)</li>
-</ul>
 <h3 id="enhancements-27">Enhancements</h3>
 <ul>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2400">#2400</a> Add adaptor components to Modelica.Thermal.HeatTransfer</li>
-</ul>
-<h3 id="miscellaneous-25">Miscellaneous</h3>
-<ul>
 <li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2569">#2569</a> Default component name for adaptors</li>
+<li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/2570">#2570</a> (PR) Add default component name for adaptors (<a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2569">#2569</a>)</li>
 </ul>
 <h2 id="usersguide">UsersGuide</h2>
 <h3 id="documentation-26">Documentation</h3>
