@@ -8283,7 +8283,7 @@ versionBuild=1,
 versionDate="2018-08-01",
 dateModified = "2018-08-01 12:00:00Z",
 revisionId="$Format:%h %s %ci$",
-uses(                          ModelicaServices(version="3.2.3"), Complex(version="3.2.2")),
+uses(Complex(version="3.2.3"), ModelicaServices(version="3.2.3")),
 conversion(
  noneFromVersion="3.2.2",
  noneFromVersion="3.2.1",
