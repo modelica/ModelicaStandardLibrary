@@ -2279,6 +2279,9 @@ to <font color=\"blue\"><strong>existing</strong></font> libraries:
 <tr><td colspan=\"2\"><strong>Modelica.Electrical.QuasiStationary.{SinglePhase, MultiPhase}.Sources</strong></td></tr>
 <tr><td width=\"150\">FrequencySweepVoltageSource<br>FrquencySweepCurrentSource</td>
     <td> Voltage source and current source with integrated frequency sweep.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Mechanics.MultiBody</strong></td></tr>
+<tr><td width=\"150\">Visualizers.Rectangle</td>
+    <td>A planar rectangular surface.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Mechanics.Rotational.Components</strong></td></tr>
 <tr><td width=\"150\">GeneralAngleToTorqueAdaptor<br>GeneralTorqueToAngleAdaptor</td>
     <td> Adaptors for the generation of FMUs, optionally taking first and second derivative into account.<br>
@@ -8280,7 +8283,7 @@ versionBuild=1,
 versionDate="2018-08-01",
 dateModified = "2018-08-01 12:00:00Z",
 revisionId="$Format:%h %s %ci$",
-uses(Complex(version="3.2.3"), ModelicaServices(version="3.2.3")),
+uses(                          ModelicaServices(version="3.2.3"), Complex(version="3.2.2")),
 conversion(
  noneFromVersion="3.2.2",
  noneFromVersion="3.2.1",
