@@ -8121,8 +8121,9 @@ For an introduction, have especially a look at:
 This version of the Modelica Standard Library consists of
 </p>
 <ul>
-<li><strong>1689</strong> models and blocks, and</li>
-<li><strong>1222</strong> functions</li>
+<li><strong>1288</strong> component models and blocks,</li>
+<li><strong>402</strong> example models, and</li>
+<li><strong>1227</strong> functions</li>
 </ul>
 <p>
 that are directly usable (= number of public, non-partial, non-internal and non-obsolete classes). It is fully compliant
