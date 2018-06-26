@@ -89,7 +89,7 @@ style="vertical-align: middle; text-align: left;"><br> ... <br>
 </td>
 </tr>
 <tr>
-<td style="vertical-align: middle; text-align: left;">      connect(reset, local_reset);<br>      if use_set then<br>          connect(set, local_set);<br>      else<br>          local_set = y_start;<br>      end if;<br>  else<br>      local_reset = false;<br>      local_set = 0;<br>  end if;<br>  when local_reset then<br>      reinit(y, local_set);<br>  end when;<br>  der(y) = k*u;<br>
+<td style="vertical-align: middle; text-align: left;">      connect(reset, local_reset);<br>      if use_set then<br>          connect(set, local_set);<br>      else<br>          local_set = y_start;<br>      end if;<br>      when local_reset then<br>          reinit(y, local_set);<br>      end when;<br>  else<br>      local_reset = false;<br>      local_set = 0;<br>  end if;<br>  der(y) = k*u;<br>
 </td>
 <td><br></td>
 </tr>
@@ -174,7 +174,7 @@ style="vertical-align: middle; text-align: left;">      end if;
 </td>
 </tr>
 <tr>
-<td style="vertical-align: middle; text-align: left;">  else<br>      local_reset = false;<br>      local_set = 0;<br>  end if;<br>  when local_reset then<br>      reinit(y, if local_set &lt; outMin then outMin elseif local_set &gt; outMax then outMax else local_set);<br>  end when;<br>  if initial() and not limitsAtInit then<br>       der(y) = k*u;<br>       assert(y &gt;= outMin - 0.001*abs(outMax-outMin) and y &lt;= outMax + 0.001*abs(outMax-outMin),<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp"LimIntegrator: During initialization the limits have been ignored.\n"<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp+ "However, the result is that the output y is not within the required limits:\n"<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp+ "  y = " + String(y) + ", outMin = " + String(outMin) + ", outMax = " + String(outMax));<br>  elseif strict then<br>       der(y) = noEvent(if y &lt; outMin and k*u &lt; 0 or y &gt; outMax and k*u &gt; 0 then 0 else k*u);<br>  else<br>       der(y) = if y &lt; outMin and k*u &lt; 0 or y &gt; outMax and k*u &gt; 0 then 0 else k*u;<br>  end if;<br>
+<td style="vertical-align: middle; text-align: left;">      when local_reset then<br>          reinit(y, if local_set &lt; outMin then outMin elseif local_set &gt; outMax then outMax else local_set);<br>      end when;<br>  else<br>      local_reset = false;<br>      local_set = 0;<br>  end if;<br>  if initial() and not limitsAtInit then<br>       der(y) = k*u;<br>       assert(y &gt;= outMin - 0.001*abs(outMax-outMin) and y &lt;= outMax + 0.001*abs(outMax-outMin),<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp"LimIntegrator: During initialization the limits have been ignored.\n"<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp+ "However, the result is that the output y is not within the required limits:\n"<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp+ "  y = " + String(y) + ", outMin = " + String(outMin) + ", outMax = " + String(outMax));<br>  elseif strict then<br>       der(y) = noEvent(if y &lt; outMin and k*u &lt; 0 or y &gt; outMax and k*u &gt; 0 then 0 else k*u);<br>  else<br>       der(y) = if y &lt; outMin and k*u &lt; 0 or y &gt; outMax and k*u &gt; 0 then 0 else k*u;<br>  end if;<br>
 </td>
 <td><br></td>
 </tr>
@@ -183,7 +183,7 @@ style="vertical-align: middle; text-align: left;">      end if;
 
 <br><hr style="width: 100%; height: 6px;"><br>
 <big style="font-family: Arial;">block Blocks.Continuous.LimPID</big><br><br>
-<table style="border-collapse: collapse;text-align: left; width: 100%;height: 132px;" 
+<table style="border-collapse: collapse;text-align: left; width: 100%;height: 176px;" 
  cellpadding="5">
 <colgroup span="3"><col width="10%"><col width="45%"><col width="45%"></colgroup><tbody>
 <tr>
@@ -196,7 +196,7 @@ style="font-weight: bold;">Modelica 3.2.3</span><br>
 <td style="text-align: left; vertical-align: middle;"><span
 style="font-weight: bold;">Modelica 3.2.2</span><br>
 </td>
-</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">withFeedForward<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">kFF<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">u_ff<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">FFzero<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">addFF<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr></tbody>
+</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">limiter<br></td><td style="text-align: left; vertical-align: middle;">homotopyType=homotopyType<br></td><td style="text-align: left; vertical-align: middle;">  <br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">withFeedForward<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">kFF<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">homotopyType<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">u_ff<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">FFzero<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">addFF<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr></tbody>
 </table>
 
 <br><table style="border-collapse: collapse;text-align: left; width: 100%;" 
@@ -455,6 +455,160 @@ style="vertical-align: middle; text-align: left;">  connect(sin1.y, product1.u[1
 </tr>
 <tr>
 <td style="vertical-align: middle; text-align: left;">  connect(rectangularToPolar.y_arg, gain.u);<br>  connect(gain.y, y_arg);<br>
+</td>
+<td><br></td>
+</tr>
+<br></tbody>
+</table>
+
+<br><hr style="width: 100%; height: 6px;"><br>
+<big style="font-family: Arial;">block Blocks.Nonlinear.Limiter</big><br><br>
+<table style="border-collapse: collapse;text-align: left; width: 100%;height: 66px;" 
+ cellpadding="5">
+<colgroup span="3"><col width="10%"><col width="45%"><col width="45%"></colgroup><tbody>
+<tr>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Component</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.3</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.2</span><br>
+</td>
+</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">homotopyType<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">simplifiedExpr<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr></tbody>
+</table>
+
+<br><table style="border-collapse: collapse;text-align: left; width: 100%;" 
+ cellpadding="5">
+<colgroup span="3"><col width="50%"><col width="50%"></colgroup><tbody>
+<tr>
+<td style="vertical-align: middle; text-align: center;"><b>Equations in Modelica 3.2.3</b>
+</td>
+<td style="vertical-align: middle; text-align: center;"><b> Equations in Modelica 3.2.2</b>
+</td>
+</tr>
+<tr>
+<td colspan="2"
+style="vertical-align: middle; text-align: left;">  assert(uMax &gt;= uMin, "Limiter: Limits must be consistent. However, uMax (=" + String(uMax) +<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp") &lt; uMin (=" + String(uMin) + ")");
+</td>
+</tr>
+<tr>
+<td style="vertical-align: middle; text-align: left;">  simplifiedExpr = (if homotopyType == Types.LimiterHomotopy.Linear then u<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspelse if homotopyType == Types.LimiterHomotopy.UpperLimit then uMax<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspelse if homotopyType == Types.LimiterHomotopy.LowerLimit then uMin<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspelse 0);<br>
+</td>
+<td><br></td>
+</tr>
+<tr>
+<td colspan="2"
+style="vertical-align: middle; text-align: left;">  if strict then
+</td>
+</tr>
+<tr>
+<td style="vertical-align: middle; text-align: left;">      <span style="color: rgb(0, 153, 0); font-weight: bold;">if homotopyType == Types.LimiterHomotopy.NoHomotopy then</span>
+</td>
+<td style="vertical-align: middle; text-align: left;">      <span style="color: rgb(102, 0, 204); font-weight: bold;"> y = homotopy(actual = smooth(0, </span><span style="color: rgb(102, 0, 204); font-weight: bold;">noEvent(if u &gt; uMax then uMax else if u &lt; uMin then uMin else u)), simplified=u);</span>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: middle; text-align: left;">          y = smooth(0, noEvent(if u &gt; uMax then uMax else if u &lt; uMin then uMin else u));<br>
+</td>
+<td><br></td>
+</tr>
+<tr>
+<td colspan="2"
+style="vertical-align: middle; text-align: left;">      else
+</td>
+</tr>
+<tr>
+<td style="vertical-align: middle; text-align: left;">       <span style="color: rgb(0, 153, 0); font-weight: bold;">   </span>y = homotopy(actual = smooth(0,<span style="color: rgb(0, 153, 0); font-weight: bold;"> noEvent(if u &gt; uMax then uMax else </span>if u &lt; uMin then uMin else <span style="color: rgb(0, 153, 0); font-weight: bold;">u)),</span><br> <span style="color: rgb(0, 153, 0); font-weight: bold;"> </span><span style="color: rgb(0, 153, 0); font-weight: bold;">                     simplified=simplifiedExpr);</span>
+</td>
+<td style="vertical-align: middle; text-align: left;">       y = homotopy(actual = smooth(0,if u <span style="color: rgb(102, 0, 204); font-weight: bold;">&gt; uMax then uMax else if u </span>&lt; uMin then uMin else <span style="color: rgb(102, 0, 204); font-weight: bold;">u),</span> <span style="color: rgb(102, 0, 204); font-weight: bold;">simplified=u);</span>
+</td>
+</tr>
+<tr>
+<td colspan="2"
+style="vertical-align: middle; text-align: left;">      end if;
+</td>
+</tr>
+<tr>
+<td style="vertical-align: middle; text-align: left;">  else<br>      if homotopyType == Types.LimiterHomotopy.NoHomotopy then<br>          y = smooth(0,if u &gt; uMax then uMax else if u &lt; uMin then uMin else u);<br>      else<br>          y = homotopy(actual = smooth(0,if u &gt; uMax then uMax else if u &lt; uMin then uMin else u),<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspsimplified=simplifiedExpr);<br>      end if;<br>  end if;<br>
+</td>
+<td><br></td>
+</tr>
+<br></tbody>
+</table>
+
+<br><hr style="width: 100%; height: 6px;"><br>
+<big style="font-family: Arial;">block Blocks.Nonlinear.VariableLimiter</big><br><br>
+<table style="border-collapse: collapse;text-align: left; width: 100%;height: 88px;" 
+ cellpadding="5">
+<colgroup span="3"><col width="10%"><col width="45%"><col width="45%"></colgroup><tbody>
+<tr>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Component</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.3</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.2</span><br>
+</td>
+</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">homotopyType<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">ySimplified<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">simplifiedExpr<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr></tbody>
+</table>
+
+<br><table style="border-collapse: collapse;text-align: left; width: 100%;" 
+ cellpadding="5">
+<colgroup span="3"><col width="50%"><col width="50%"></colgroup><tbody>
+<tr>
+<td style="vertical-align: middle; text-align: center;"><b>Equations in Modelica 3.2.3</b>
+</td>
+<td style="vertical-align: middle; text-align: center;"><b> Equations in Modelica 3.2.2</b>
+</td>
+</tr>
+<tr>
+<td colspan="2"
+style="vertical-align: middle; text-align: left;">  assert(limit1 &gt;= limit2, "Input signals are not consistent: limit1 &lt; limit2");
+</td>
+</tr>
+<tr>
+<td style="vertical-align: middle; text-align: left;">  simplifiedExpr = (if homotopyType == Types.VariableLimiterHomotopy.Linear then u<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspelse if homotopyType == Types.VariableLimiterHomotopy.Fixed then ySimplified<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspelse 0);<br>
+</td>
+<td><br></td>
+</tr>
+<tr>
+<td colspan="2"
+style="vertical-align: middle; text-align: left;">  if strict then
+</td>
+</tr>
+<tr>
+<td style="vertical-align: middle; text-align: left;">      <span style="color: rgb(0, 153, 0); font-weight: bold;">if homotopyType == Types.VariableLimiterHomotopy.NoHomotopy then</span>
+</td>
+<td style="vertical-align: middle; text-align: left;">      <span style="color: rgb(102, 0, 204); font-weight: bold;"> y = homotopy(actual = smooth(0, </span><span style="color: rgb(102, 0, 204); font-weight: bold;">noEvent(if u &gt; limit1 then limit1 else if u &lt; limit2 then limit2 else u)), simplified=u);</span>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: middle; text-align: left;">          y = smooth(0, noEvent(if u &gt; limit1 then limit1 else if u &lt; limit2 then limit2 else u));<br>
+</td>
+<td><br></td>
+</tr>
+<tr>
+<td colspan="2"
+style="vertical-align: middle; text-align: left;">      else
+</td>
+</tr>
+<tr>
+<td style="vertical-align: middle; text-align: left;">       <span style="color: rgb(0, 153, 0); font-weight: bold;">   </span>y = homotopy(actual = smooth(0,<span style="color: rgb(0, 153, 0); font-weight: bold;"> noEvent(if u &gt; limit1 then limit1 else </span>if u &lt; limit2 then limit2 else <span style="color: rgb(0, 153, 0); font-weight: bold;">u)),</span><br> <span style="color: rgb(0, 153, 0); font-weight: bold;"> </span><span style="color: rgb(0, 153, 0); font-weight: bold;">                     simplified=simplifiedExpr);</span>
+</td>
+<td style="vertical-align: middle; text-align: left;">       y = homotopy(actual = smooth(0,if u <span style="color: rgb(102, 0, 204); font-weight: bold;">&gt; limit1 then limit1 else if u </span>&lt; limit2 then limit2 else <span style="color: rgb(102, 0, 204); font-weight: bold;">u),</span> <span style="color: rgb(102, 0, 204); font-weight: bold;">simplified=u);</span>
+</td>
+</tr>
+<tr>
+<td colspan="2"
+style="vertical-align: middle; text-align: left;">      end if;
+</td>
+</tr>
+<tr>
+<td style="vertical-align: middle; text-align: left;">  else<br>      if homotopyType == Types.VariableLimiterHomotopy.NoHomotopy then<br>          y = smooth(0,if u &gt; limit1 then limit1 else if u &lt; limit2 then limit2 else u);<br>      else<br>          y = homotopy(actual = smooth(0,if u &gt; limit1 then limit1 else if u &lt; limit2 then limit2 else u),<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspsimplified=simplifiedExpr);<br>      end if;<br>  end if;<br>
 </td>
 <td><br></td>
 </tr>
@@ -1829,7 +1983,7 @@ style="font-weight: bold;">Modelica 3.2.2</span><br>
 </table>
 
 <br><hr style="width: 100%; height: 6px;"><br>
-<big style="font-family: Arial;">model Electrical.Analog.Examples.OpAmps.SignalGenerator</big><br><br>
+<big style="font-family: Arial;">model Electrical.Analog.Examples.OpAmps.InvertingSchmittTrigger</big><br><br>
 <table style="border-collapse: collapse;text-align: left; width: 100%;height: 44px;" 
  cellpadding="5">
 <colgroup span="3"><col width="10%"><col width="45%"><col width="45%"></colgroup><tbody>
@@ -1843,7 +1997,43 @@ style="font-weight: bold;">Modelica 3.2.3</span><br>
 <td style="text-align: left; vertical-align: middle;"><span
 style="font-weight: bold;">Modelica 3.2.2</span><br>
 </td>
-</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">Vns<br></td><td style="text-align: left; vertical-align: middle;">=-Vps<br></td><td style="text-align: left; vertical-align: middle;">=-15<br></td></tr></tbody>
+</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">opAmp<br></td><td style="text-align: left; vertical-align: middle;">homotopyType=Modelica323.Blocks.Types.LimiterHomotopy.LowerLimit<br></td><td style="text-align: left; vertical-align: middle;">  <br></td></tr></tbody>
+</table>
+
+<br><hr style="width: 100%; height: 6px;"><br>
+<big style="font-family: Arial;">model Electrical.Analog.Examples.OpAmps.SchmittTrigger</big><br><br>
+<table style="border-collapse: collapse;text-align: left; width: 100%;height: 44px;" 
+ cellpadding="5">
+<colgroup span="3"><col width="10%"><col width="45%"><col width="45%"></colgroup><tbody>
+<tr>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Component</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.3</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.2</span><br>
+</td>
+</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">opAmp<br></td><td style="text-align: left; vertical-align: middle;">homotopyType=Modelica323.Blocks.Types.LimiterHomotopy.UpperLimit<br></td><td style="text-align: left; vertical-align: middle;">  <br></td></tr></tbody>
+</table>
+
+<br><hr style="width: 100%; height: 6px;"><br>
+<big style="font-family: Arial;">model Electrical.Analog.Examples.OpAmps.SignalGenerator</big><br><br>
+<table style="border-collapse: collapse;text-align: left; width: 100%;height: 88px;" 
+ cellpadding="5">
+<colgroup span="3"><col width="10%"><col width="45%"><col width="45%"></colgroup><tbody>
+<tr>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Component</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.3</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.2</span><br>
+</td>
+</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">Vns<br></td><td style="text-align: left; vertical-align: middle;">=-Vps<br></td><td style="text-align: left; vertical-align: middle;">=-15<br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">opAmp1<br></td><td style="text-align: left; vertical-align: middle;">strict=false<br></td><td style="text-align: left; vertical-align: middle;">  <br></td></tr><tr><td style="text-align: left; vertical-align: middle;">homotopyType=Modelica323.Blocks.Types.LimiterHomotopy.UpperLimit<br></td><td style="text-align: left; vertical-align: middle;">  <br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">opAmp2<br></td><td style="text-align: left; vertical-align: middle;">strict=false<br></td><td style="text-align: left; vertical-align: middle;">  <br></td></tr></tbody>
 </table>
 
 <br><hr style="width: 100%; height: 6px;"><br>
@@ -1949,6 +2139,64 @@ style="vertical-align: middle; text-align: left;">  connect(internalSupport.flan
 </table>
 
 <br><hr style="width: 100%; height: 6px;"><br>
+<big style="font-family: Arial;">model Electrical.Analog.Basic.OpAmpDetailed</big><br><br>
+<br><table style="border-collapse: collapse;text-align: left; width: 100%;" 
+ cellpadding="5">
+<colgroup span="3"><col width="50%"><col width="50%"></colgroup><tbody>
+<tr>
+<td style="vertical-align: middle; text-align: center;"><b>Equations in Modelica 3.2.3</b>
+</td>
+<td style="vertical-align: middle; text-align: center;"><b> Equations in Modelica 3.2.2</b>
+</td>
+</tr>
+<tr>
+<td colspan="2"
+style="vertical-align: middle; text-align: left;"><br> ... <br>  i_4 = I2 + v_4/Rcm;
+</td>
+</tr>
+<tr>
+<td style="vertical-align: middle; text-align: left;">  der(q_fr1) = 2.<span style="color: rgb(0, 153, 0); font-weight: bold;">0*pi*fp2*(v_in </span>- q_fr1);
+</td>
+<td style="vertical-align: middle; text-align: left;">  der(q_fr1) = 2.<span style="color: rgb(102, 0, 204); font-weight: bold;">0*Pi*fp2*(v_in </span>- q_fr1);
+</td>
+</tr>
+<tr>
+<td style="vertical-align: middle; text-align: left;">  q_fr2 + (1.0/(2.<span style="color: rgb(0, 153, 0); font-weight: bold;">0*pi*fp3))*der(q_fr2) </span>= q_fr1 + (1.0/(2.<span style="color: rgb(0, 153, 0); font-weight: bold;">0*pi*fz))*der(q_fr1);</span>
+</td>
+<td style="vertical-align: middle; text-align: left;">  q_fr2 + (1.0/(2.<span style="color: rgb(102, 0, 204); font-weight: bold;">0*Pi*fp3))*der(q_fr2) </span>= q_fr1 + (1.0/(2.<span style="color: rgb(102, 0, 204); font-weight: bold;">0*Pi*fz))*der(q_fr1);</span>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: middle; text-align: left;">  der(q_fr3) = 2.<span style="color: rgb(0, 153, 0); font-weight: bold;">0*pi*fp4*(q_fr2 </span>- q_fr3);
+</td>
+<td style="vertical-align: middle; text-align: left;">  der(q_fr3) = 2.<span style="color: rgb(102, 0, 204); font-weight: bold;">0*Pi*fp4*(q_fr2 </span>- q_fr3);
+</td>
+</tr>
+<tr>
+<td colspan="2"
+style="vertical-align: middle; text-align: left;">  q_sum = Avd0_val*q_fr3 + Avcm_val*(v_3 + v_4);
+</td>
+</tr>
+<tr>
+<td colspan="2"
+style="vertical-align: middle; text-align: left;">  q_sum_help = FCNq_sum_limit(<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbspq_sum,<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbspq_fp1,<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbspv_pos,<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbspv_neg,<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbspvcp_abs,<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbspvcm_abs);
+</td>
+</tr>
+<tr>
+<td style="vertical-align: middle; text-align: left;">  der(q_fp1) = 2.<span style="color: rgb(0, 153, 0); font-weight: bold;">0*pi*fp1*(q_sum_help </span>- q_fp1);
+</td>
+<td style="vertical-align: middle; text-align: left;">  der(q_fp1) = 2.<span style="color: rgb(102, 0, 204); font-weight: bold;">0*Pi*fp1*(q_sum_help </span>- q_fp1);
+</td>
+</tr>
+<tr>
+<td colspan="2"
+style="vertical-align: middle; text-align: left;">  der(x) = (q_fp1 - v_source)/Ts;<br> ... <br>
+</td>
+</tr>
+<br></tbody>
+</table>
+
+<br><hr style="width: 100%; height: 6px;"><br>
 <big style="font-family: Arial;">model Electrical.Analog.Ideal.IdealCommutingSwitch</big><br><br>
 <table style="border-collapse: collapse;text-align: left; width: 100%;height: 66px;" 
  cellpadding="5">
@@ -2021,7 +2269,41 @@ style="font-weight: bold;">Modelica 3.2.2</span><br>
 </table>
 
 <br><hr style="width: 100%; height: 6px;"><br>
+<big style="font-family: Arial;">model Electrical.Analog.Ideal.IdealOpAmpLimited</big><br><br>
+<table style="border-collapse: collapse;text-align: left; width: 100%;height: 44px;" 
+ cellpadding="5">
+<colgroup span="3"><col width="10%"><col width="45%"><col width="45%"></colgroup><tbody>
+<tr>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Component</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.3</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.2</span><br>
+</td>
+</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">s<br></td><td style="text-align: left; vertical-align: middle;">start=0<br></td><td style="text-align: left; vertical-align: middle;">  <br></td></tr></tbody>
+</table>
+
+<br><hr style="width: 100%; height: 6px;"><br>
 <big style="font-family: Arial;">model Electrical.Analog.Ideal.IdealizedOpAmpLimted</big><br><br>
+<table style="border-collapse: collapse;text-align: left; width: 100%;height: 88px;" 
+ cellpadding="5">
+<colgroup span="3"><col width="10%"><col width="45%"><col width="45%"></colgroup><tbody>
+<tr>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Component</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.3</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.2</span><br>
+</td>
+</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">strict<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">homotopyType<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">simplifiedExpr<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr></tbody>
+</table>
+
 <br><table style="border-collapse: collapse;text-align: left; width: 100%;" 
  cellpadding="5">
 <colgroup span="3"><col width="50%"><col width="50%"></colgroup><tbody>
@@ -2037,10 +2319,15 @@ style="vertical-align: middle; text-align: left;"><br> ... <br>  in_n.i = 0;
 </td>
 </tr>
 <tr>
-<td style="vertical-align: middle; text-align: left;">  v_out = <span style="color: rgb(0, 153, 0); font-weight: bold;">homotopy(actual = </span>smooth(0, <span style="color: rgb(0, 153, 0); font-weight: bold;">if V0*v_in&lt;vns then vns else </span><span style="color: rgb(0, 153, 0); font-weight: bold;">if V0*v_in&gt;vps then vps else V0*v_in), simplified=V0*v_in);</span>
+<td style="vertical-align: middle; text-align: left;"><span style="color: rgb(0, 153, 0); font-weight: bold;">simplifiedExpr = (if homotopyType == Modelica323.Blocks.Types.LimiterHomotopy.Linear<br> </span>  <span style="color: rgb(0, 153, 0); font-weight: bold;">then V0*v_in else if homotopyType == Modelica323.Blocks.Types.</span><span style="color: rgb(0, 153, 0); font-weight: bold;">LimiterHomotopy.UpperLimit<br>   then vps else if homotopyType == Modelica323.Blocks.Types.LimiterHomotopy.LowerLimit<br>   then vns else 0);</span>
 </td>
-<td style="vertical-align: middle; text-align: left;">  v_out = smooth(0, <span style="color: rgb(102, 0, 204); font-weight: bold;">min(Vps, max(Vns, V0*v_in)));</span>
+<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(102, 0, 204); font-weight: bold;">v_out = smooth(0, min(Vps, max(Vns, V0*v_in)));</span>
 </td>
+</tr>
+<tr>
+<td style="vertical-align: middle; text-align: left;">  if strict then<br>if homotopyType == Modelica323.Blocks.Types.LimiterHomotopy.NoHomotopy then<br>          v_out = smooth(0, noEvent(if V0*v_in&gt;vps then vps else if V0*v_in&lt;vns then vns else V0*v_in));<br>      else<br>          v_out = homotopy(actual = smooth(0, noEvent(if V0*v_in&gt;vps then vps else if V0*v_in&lt;vns then vns else V0*v_in)),<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspsimplified=simplifiedExpr);<br>      end if;<br>  else<br>if homotopyType == Modelica323.Blocks.Types.LimiterHomotopy.NoHomotopy then<br>          v_out = smooth(0, if V0*v_in&gt;vps then vps else if V0*v_in&lt;vns then vns else V0*v_in);<br>      else<br>          v_out = homotopy(actual = smooth(0, if V0*v_in&gt;vps then vps else if V0*v_in&lt;vns then vns else V0*v_in),<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspsimplified=simplifiedExpr);<br>      end if;<br>  end if;<br>
+</td>
+<td><br></td>
 </tr>
 <br></tbody>
 </table>
@@ -3169,6 +3456,24 @@ style="font-weight: bold;">Modelica 3.2.3</span><br>
 style="font-weight: bold;">Modelica 3.2.2</span><br>
 </td>
 </tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">w_meas<br></td><td style="text-align: left; vertical-align: middle;">displayUnit="rev/min"<br></td><td style="text-align: left; vertical-align: middle;">  <br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">combiTable1Ds<br></td><td style="text-align: left; vertical-align: middle;">table={{Ptable[j],Itable[j],wtable[j],ctable[j],etable[j]} for j in 1:size(Ptable, 1)}<br></td><td style="text-align: left; vertical-align: middle;">table={{Ptable[j],Itable[j],ntable[j],ctable[j],etable[j]} for j in 1:size(Ptable, 1)}<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">PsNominal<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">lossNominal<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">etaNominal<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">wtable<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">Ps_sim<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">Ps_meas<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">loss_sim<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">loss_meas<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">ntable<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr></tbody>
+</table>
+
+<br><hr style="width: 100%; height: 6px;"><br>
+<big style="font-family: Arial;">model Electrical.Machines.Examples.DCMachines.DCPM_Cooling</big><br><br>
+<table style="border-collapse: collapse;text-align: left; width: 100%;height: 44px;" 
+ cellpadding="5">
+<colgroup span="3"><col width="10%"><col width="45%"><col width="45%"></colgroup><tbody>
+<tr>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Component</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.3</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.2</span><br>
+</td>
+</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">cooling<br></td><td style="text-align: left; vertical-align: middle;"><b>Thermal.FluidHeatFlow.Components.Pipe</b><br></td><td style="text-align: left; vertical-align: middle;"><b>Thermal.FluidHeatFlow.Components.HeatedPipe</b><br></td></tr></tbody>
 </table>
 
 <br><hr style="width: 100%; height: 6px;"><br>
@@ -5703,6 +6008,116 @@ style="font-weight: bold;">Modelica 3.2.3</span><br>
 style="font-weight: bold;">Modelica 3.2.2</span><br>
 </td>
 </tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">CONSTvt0<br></td><td style="text-align: left; vertical-align: middle;">final unit="(J)/(A.s)"<br></td><td style="text-align: left; vertical-align: middle;">final unit="(J/K)/(A.s)"<br></td></tr></tbody>
+</table>
+
+<br><hr style="width: 100%; height: 6px;"><br>
+<big style="font-family: Arial;">function Electrical.Spice3.Internal.Functions.junctionPotDepTemp</big><br><br>
+<table style="border-collapse: collapse;text-align: left; width: 100%;height: 110px;" 
+ cellpadding="5">
+<colgroup span="3"><col width="10%"><col width="45%"><col width="45%"></colgroup><tbody>
+<tr>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Component</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.3</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.2</span><br>
+</td>
+</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">phibtemp<br></td><td style="text-align: left; vertical-align: middle;"><b>SIunits.GapEnergy</b><br></td><td style="text-align: left; vertical-align: middle;"><b>SIunits.Voltage</b><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">phibtnom<br></td><td style="text-align: left; vertical-align: middle;"><b>SIunits.GapEnergy</b><br></td><td style="text-align: left; vertical-align: middle;"><b>SIunits.Voltage</b><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">unitGapEnergy<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">unitVoltage<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr></tbody>
+</table>
+
+<br><table style="border-collapse: collapse;text-align: left; width: 100%;" 
+ cellpadding="5">
+<colgroup span="3"><col width="50%"><col width="50%"></colgroup><tbody>
+<tr>
+<td style="vertical-align: middle; text-align: center;"><b>Equations in Modelica 3.2.3</b>
+</td>
+<td style="vertical-align: middle; text-align: center;"><b> Equations in Modelica 3.2.2</b>
+</td>
+</tr>
+<tr>
+<td colspan="2"
+style="vertical-align: middle; text-align: left;"><br> ... <br>  vt =  Spice3.Internal.SpiceConstants.CONSTKoverQ*<br>&nbsp&nbsp&nbsp&nbsptemp;
+</td>
+</tr>
+<tr>
+<td style="vertical-align: middle; text-align: left;">ret = (phi0 - <span style="color: rgb(0, 153, 0); font-weight: bold;">phibtnom*(unitVoltage/unitGapEnergy))*temp/tnom </span>+ <span style="color: rgb(0, 153, 0); font-weight: bold;">phibtemp*(<br> </span><span style="color: rgb(0, 153, 0); font-weight: bold;"> unitVoltage/unitGapEnergy) </span>+ <span style="color: rgb(0, 153, 0); font-weight: bold;">vt*3*Modelica323.</span>Math.<span style="color: rgb(0, 153, 0); font-weight: bold;">log(tnom/temp);</span>
+</td>
+<td style="vertical-align: middle; text-align: left;">ret = (phi0 - <span style="color: rgb(102, 0, 204); font-weight: bold;">phibtnom)*temp/tnom </span>+ <span style="color: rgb(102, 0, 204); font-weight: bold;">phibtemp </span>+ <span style="color: rgb(102, 0, 204); font-weight: bold;">vt*3*Modelica322.</span>Math.<span style="color: rgb(102, 0, 204); font-weight: bold;">log(tnom/<br> </span><span style="color: rgb(102, 0, 204); font-weight: bold;"> temp);</span>
+</td>
+</tr>
+<tr>
+<td colspan="2"
+style="vertical-align: middle; text-align: left;">
+</td>
+</tr>
+<br></tbody>
+</table>
+
+<br><hr style="width: 100%; height: 6px;"><br>
+<big style="font-family: Arial;">function Electrical.Spice3.Internal.Functions.saturationCurDepTempSPICE3MOSFET</big><br><br>
+<table style="border-collapse: collapse;text-align: left; width: 100%;height: 110px;" 
+ cellpadding="5">
+<colgroup span="3"><col width="10%"><col width="45%"><col width="45%"></colgroup><tbody>
+<tr>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Component</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.3</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.2</span><br>
+</td>
+</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">energygaptnom<br></td><td style="text-align: left; vertical-align: middle;"><b>SIunits.GapEnergy</b><br></td><td style="text-align: left; vertical-align: middle;"><b>SIunits.Voltage</b><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">energygaptemp<br></td><td style="text-align: left; vertical-align: middle;"><b>SIunits.GapEnergy</b><br></td><td style="text-align: left; vertical-align: middle;"><b>SIunits.Voltage</b><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">unitGapEnergy<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">unitVoltage<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr></tbody>
+</table>
+
+<br><table style="border-collapse: collapse;text-align: left; width: 100%;" 
+ cellpadding="5">
+<colgroup span="3"><col width="50%"><col width="50%"></colgroup><tbody>
+<tr>
+<td style="vertical-align: middle; text-align: center;"><b>Equations in Modelica 3.2.3</b>
+</td>
+<td style="vertical-align: middle; text-align: center;"><b> Equations in Modelica 3.2.2</b>
+</td>
+</tr>
+<tr>
+<td colspan="2"
+style="vertical-align: middle; text-align: left;"><br> ... <br>energygaptemp =<br>&nbsp&nbspModelica323.Electrical.Spice3.Internal.Functions.energyGapDepTemp(temp);
+</td>
+</tr>
+<tr>
+<td style="vertical-align: middle; text-align: left;">  ret           =  satcur0 * exp( <span style="color: rgb(0, 153, 0); font-weight: bold;">energygaptnom*(unitVoltage/unitGapEnergy) </span>/ vtnom - <span style="color: rgb(0, 153, 0); font-weight: bold;">energygaptemp*(unitVoltage/unitGapEnergy) </span>/ vt);
+</td>
+<td style="vertical-align: middle; text-align: left;">  ret           =  satcur0 <span style="color: rgb(102, 0, 204); font-weight: bold;"> </span>* exp( <span style="color: rgb(102, 0, 204); font-weight: bold;">energygaptnom </span>/ vtnom - <span style="color: rgb(102, 0, 204); font-weight: bold;">energygaptemp </span>/ vt);
+</td>
+</tr>
+<tr>
+<td colspan="2"
+style="vertical-align: middle; text-align: left;">
+</td>
+</tr>
+<br></tbody>
+</table>
+
+<br><hr style="width: 100%; height: 6px;"><br>
+<big style="font-family: Arial;">function Electrical.Spice3.Internal.Functions.junctionParamDepTempSPICE3</big><br><br>
+<table style="border-collapse: collapse;text-align: left; width: 100%;height: 66px;" 
+ cellpadding="5">
+<colgroup span="3"><col width="10%"><col width="45%"><col width="45%"></colgroup><tbody>
+<tr>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Component</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.3</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.2</span><br>
+</td>
+</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">phibtemp<br></td><td style="text-align: left; vertical-align: middle;"><b>SIunits.GapEnergy</b><br></td><td style="text-align: left; vertical-align: middle;"><b>SIunits.Voltage</b><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">phibtnom<br></td><td style="text-align: left; vertical-align: middle;"><b>SIunits.GapEnergy</b><br></td><td style="text-align: left; vertical-align: middle;"><b>SIunits.Voltage</b><br></td></tr></tbody>
 </table>
 
 <br><hr style="width: 100%; height: 6px;"><br>
@@ -8802,7 +9217,7 @@ style="vertical-align: middle; text-align: left;">  frame_b.r_0 = zeros(3);<br> 
 
 <br><hr style="width: 100%; height: 6px;"><br>
 <big style="font-family: Arial;">model Mechanics.MultiBody.Examples.Elementary.DoublePendulumInitTip</big><br><br>
-<table style="border-collapse: collapse;text-align: left; width: 100%;height: 66px;" 
+<table style="border-collapse: collapse;text-align: left; width: 100%;height: 44px;" 
  cellpadding="5">
 <colgroup span="3"><col width="10%"><col width="45%"><col width="45%"></colgroup><tbody>
 <tr>
@@ -8815,7 +9230,7 @@ style="font-weight: bold;">Modelica 3.2.3</span><br>
 <td style="text-align: left; vertical-align: middle;"><span
 style="font-weight: bold;">Modelica 3.2.2</span><br>
 </td>
-</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">revolute1<br></td><td style="text-align: left; vertical-align: middle;">phi(start=-0.34906585039887)<br></td><td style="text-align: left; vertical-align: middle;">  <br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">revolute2<br></td><td style="text-align: left; vertical-align: middle;">phi(start=1.5707963267949)<br></td><td style="text-align: left; vertical-align: middle;">  <br></td></tr></tbody>
+</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">revolute2<br></td><td style="text-align: left; vertical-align: middle;">phi(start=Modelica323.Constants.pi/2)<br></td><td style="text-align: left; vertical-align: middle;">  <br></td></tr></tbody>
 </table>
 
 <br><hr style="width: 100%; height: 6px;"><br>
@@ -8837,8 +9252,8 @@ style="font-weight: bold;">Modelica 3.2.2</span><br>
 </table>
 
 <br><hr style="width: 100%; height: 6px;"><br>
-<big style="font-family: Arial;">model Mechanics.MultiBody.Examples.Elementary.Surfaces</big><br><br>
-<table style="border-collapse: collapse;text-align: left; width: 100%;height: 44px;" 
+<big style="font-family: Arial;">model Mechanics.MultiBody.Examples.Elementary.RollingWheel</big><br><br>
+<table style="border-collapse: collapse;text-align: left; width: 100%;height: 66px;" 
  cellpadding="5">
 <colgroup span="3"><col width="10%"><col width="45%"><col width="45%"></colgroup><tbody>
 <tr>
@@ -8851,7 +9266,61 @@ style="font-weight: bold;">Modelica 3.2.3</span><br>
 <td style="text-align: left; vertical-align: middle;"><span
 style="font-weight: bold;">Modelica 3.2.2</span><br>
 </td>
-</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">pipeWithScalarField<br></td><td style="text-align: left; vertical-align: middle;">T=Modelica323.Math.sin(Modelica323.Constants.pi*pipeWithScalarField.xsi)*Modelica323.Math.cos(Modelica323.Constants.pi*time) .+ 1<br></td><td style="text-align: left; vertical-align: middle;">T=sin(Modelica322.Constants.pi*pipeWithScalarField.xsi)*cos(Modelica322.Constants.pi*time) .+ 1<br></td></tr></tbody>
+</tr><tr><td colspan="1" rowspan="3" style="vertical-align: middle;">world<br></td><td style="text-align: left; vertical-align: middle;">animateGround=true<br></td><td style="text-align: left; vertical-align: middle;">  <br></td></tr><tr><td style="text-align: left; vertical-align: middle;">groundLength_u=4<br></td><td style="text-align: left; vertical-align: middle;">  <br></td></tr><tr><td style="text-align: left; vertical-align: middle;">groundColor={130,200,130}<br></td><td style="text-align: left; vertical-align: middle;">  <br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">ground<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr></tbody>
+</table>
+
+<br><hr style="width: 100%; height: 6px;"><br>
+<big style="font-family: Arial;">model Mechanics.MultiBody.Examples.Elementary.RollingWheelSetDriving</big><br><br>
+<table style="border-collapse: collapse;text-align: left; width: 100%;height: 66px;" 
+ cellpadding="5">
+<colgroup span="3"><col width="10%"><col width="45%"><col width="45%"></colgroup><tbody>
+<tr>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Component</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.3</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.2</span><br>
+</td>
+</tr><tr><td colspan="1" rowspan="3" style="vertical-align: middle;">world<br></td><td style="text-align: left; vertical-align: middle;">animateGround=true<br></td><td style="text-align: left; vertical-align: middle;">  <br></td></tr><tr><td style="text-align: left; vertical-align: middle;">groundLength_u=3<br></td><td style="text-align: left; vertical-align: middle;">  <br></td></tr><tr><td style="text-align: left; vertical-align: middle;">groundColor={130,200,130}<br></td><td style="text-align: left; vertical-align: middle;">  <br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">ground<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr></tbody>
+</table>
+
+<br><hr style="width: 100%; height: 6px;"><br>
+<big style="font-family: Arial;">model Mechanics.MultiBody.Examples.Elementary.RollingWheelSetPulling</big><br><br>
+<table style="border-collapse: collapse;text-align: left; width: 100%;height: 66px;" 
+ cellpadding="5">
+<colgroup span="3"><col width="10%"><col width="45%"><col width="45%"></colgroup><tbody>
+<tr>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Component</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.3</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.2</span><br>
+</td>
+</tr><tr><td colspan="1" rowspan="3" style="vertical-align: middle;">world<br></td><td style="text-align: left; vertical-align: middle;">animateGround=true<br></td><td style="text-align: left; vertical-align: middle;">  <br></td></tr><tr><td style="text-align: left; vertical-align: middle;">groundLength_u=3<br></td><td style="text-align: left; vertical-align: middle;">  <br></td></tr><tr><td style="text-align: left; vertical-align: middle;">groundColor={130,200,130}<br></td><td style="text-align: left; vertical-align: middle;">  <br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">ground<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr></tbody>
+</table>
+
+<br><hr style="width: 100%; height: 6px;"><br>
+<big style="font-family: Arial;">model Mechanics.MultiBody.Examples.Elementary.Surfaces</big><br><br>
+<table style="border-collapse: collapse;text-align: left; width: 100%;height: 88px;" 
+ cellpadding="5">
+<colgroup span="3"><col width="10%"><col width="45%"><col width="45%"></colgroup><tbody>
+<tr>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Component</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.3</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.2</span><br>
+</td>
+</tr><tr><td colspan="1" rowspan="3" style="vertical-align: middle;">world<br></td><td style="text-align: left; vertical-align: middle;">animateGround=true<br></td><td style="text-align: left; vertical-align: middle;">  <br></td></tr><tr><td style="text-align: left; vertical-align: middle;">groundLength_u=4<br></td><td style="text-align: left; vertical-align: middle;">  <br></td></tr><tr><td style="text-align: left; vertical-align: middle;">groundColor={215,215,215}<br></td><td style="text-align: left; vertical-align: middle;">  <br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">pipeWithScalarField<br></td><td style="text-align: left; vertical-align: middle;">T=Modelica323.Math.sin(Modelica323.Constants.pi*pipeWithScalarField.xsi)*Modelica323.Math.cos(Modelica323.Constants.pi*time) .+ 1<br></td><td style="text-align: left; vertical-align: middle;">T=sin(Modelica322.Constants.pi*pipeWithScalarField.xsi)*cos(Modelica322.Constants.pi*time) .+ 1<br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">ground<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr></tbody>
 </table>
 
 <br><hr style="width: 100%; height: 6px;"><br>
@@ -9274,6 +9743,35 @@ style="vertical-align: middle; text-align: left;">  connect(motor.axisControlBus
 </tr>
 <tr>
 <td style="vertical-align: middle; text-align: left;">  connect(controller.axisControlBus, axisControlBus);<br>
+</td>
+<td><br></td>
+</tr>
+<br></tbody>
+</table>
+
+<br><hr style="width: 100%; height: 6px;"><br>
+<big style="font-family: Arial;">model Mechanics.MultiBody.Examples.Systems.RobotR3.Components.MechanicalStructure</big><br><br>
+<br><table style="border-collapse: collapse;text-align: left; width: 100%;" 
+ cellpadding="5">
+<colgroup span="3"><col width="50%"><col width="50%"></colgroup><tbody>
+<tr>
+<td style="vertical-align: middle; text-align: center;"><b>Equations in Modelica 3.2.3</b>
+</td>
+<td style="vertical-align: middle; text-align: center;"><b> Equations in Modelica 3.2.2</b>
+</td>
+</tr>
+<tr>
+<td><br></td>
+<td style="vertical-align: middle; text-align: left;">  connect(r6.frame_b, b6.frame_a);<br>
+</td>
+</tr>
+<tr>
+<td colspan="2"
+style="vertical-align: middle; text-align: left;">  q = {r1.phi,r2.phi,r3.phi,r4.phi,r5.phi,r6.phi};<br> ... <br>  connect(r6.axis, axis6);
+</td>
+</tr>
+<tr>
+<td style="vertical-align: middle; text-align: left;">  connect(r6.frame_b, b6.frame_a);<br>
 </td>
 <td><br></td>
 </tr>
@@ -11100,6 +11598,42 @@ style="font-weight: bold;">Modelica 3.2.2</span><br>
 </table>
 
 <br><hr style="width: 100%; height: 6px;"><br>
+<big style="font-family: Arial;">block Fluid.Examples.ControlledTankSystem.Utilities.RadioButton</big><br><br>
+<table style="border-collapse: collapse;text-align: left; width: 100%;height: 66px;" 
+ cellpadding="5">
+<colgroup span="3"><col width="10%"><col width="45%"><col width="45%"></colgroup><tbody>
+<tr>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Component</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.3</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.2</span><br>
+</td>
+</tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">on<br></td><td style="text-align: left; vertical-align: middle;">start=false<br></td><td style="text-align: left; vertical-align: middle;">  <br></td></tr><tr><td style="text-align: left; vertical-align: middle;">fixed=true<br></td><td style="text-align: left; vertical-align: middle;">  <br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">table<br></td><td style="text-align: left; vertical-align: middle;">y(start=false, fixed=true)<br></td><td style="text-align: left; vertical-align: middle;">  <br></td></tr></tbody>
+</table>
+
+<br><hr style="width: 100%; height: 6px;"><br>
+<big style="font-family: Arial;">model Fluid.Examples.AST_BatchPlant.BaseClasses.Controller</big><br><br>
+<table style="border-collapse: collapse;text-align: left; width: 100%;height: 44px;" 
+ cellpadding="5">
+<colgroup span="3"><col width="10%"><col width="45%"><col width="45%"></colgroup><tbody>
+<tr>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Component</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.3</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.2</span><br>
+</td>
+</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">BooleanExpression1<br></td><td style="text-align: left; vertical-align: middle;">y=time >= 2500<br></td><td style="text-align: left; vertical-align: middle;">y=time > 2500<br></td></tr></tbody>
+</table>
+
+<br><hr style="width: 100%; height: 6px;"><br>
 <big style="font-family: Arial;">model Fluid.Examples.TraceSubstances.RoomCO2WithControls</big><br><br>
 <table style="border-collapse: collapse;text-align: left; width: 100%;height: 88px;" 
  cellpadding="5">
@@ -12372,6 +12906,24 @@ style="vertical-align: middle; text-align: left;">
 </td>
 </tr>
 <br></tbody>
+</table>
+
+<br><hr style="width: 100%; height: 6px;"><br>
+<big style="font-family: Arial;">function Media.Air.MoistAir.s_pTX_der</big><br><br>
+<table style="border-collapse: collapse;text-align: left; width: 100%;height: 44px;" 
+ cellpadding="5">
+<colgroup span="3"><col width="10%"><col width="45%"><col width="45%"></colgroup><tbody>
+<tr>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Component</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.3</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.2</span><br>
+</td>
+</tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">dX<br></td><td style="text-align: left; vertical-align: middle;">each unit="1/s"<br></td><td style="text-align: left; vertical-align: middle;">  <br></td></tr><tr><td style="text-align: left; vertical-align: middle;">  <br></td><td style="text-align: left; vertical-align: middle;">unit="1/s"<br></td></tr></tbody>
 </table>
 
 <br><hr style="width: 100%; height: 6px;"><br>
@@ -14294,13 +14846,19 @@ style="font-weight: bold;">Modelica 3.2.2</span><br>
 <tr><td style="vertical-align: middle; text-align: left;">model Modelica323.Blocks.Examples.Rectifier12pulseFFT</td>
 <td style="vertical-align: middle; text-align: left;">Present</td><td style="vertical-align: middle; text-align: left;"><br></td>
 </tr><tr>
-<tr><td style="vertical-align: middle; text-align: left;">model Modelica323.Blocks.Examples.TotalHarmonicDistrortion</td>
+<tr><td style="vertical-align: middle; text-align: left;">model Modelica323.Blocks.Examples.TotalHarmonicDistortion</td>
+<td style="vertical-align: middle; text-align: left;">Present</td><td style="vertical-align: middle; text-align: left;"><br></td>
+</tr><tr>
+<tr><td style="vertical-align: middle; text-align: left;">model Modelica323.Blocks.Interfaces.Adaptors.FlowToPotentialAdaptor</td>
+<td style="vertical-align: middle; text-align: left;">Present</td><td style="vertical-align: middle; text-align: left;"><br></td>
+</tr><tr>
+<tr><td style="vertical-align: middle; text-align: left;">model Modelica323.Blocks.Interfaces.Adaptors.PotentialToFlowAdaptor</td>
+<td style="vertical-align: middle; text-align: left;">Present</td><td style="vertical-align: middle; text-align: left;"><br></td>
+</tr><tr>
+<tr><td style="vertical-align: middle; text-align: left;">package Modelica323.Blocks.Interfaces.Adaptors.Functions</td>
 <td style="vertical-align: middle; text-align: left;">Present</td><td style="vertical-align: middle; text-align: left;"><br></td>
 </tr><tr>
 <tr><td style="vertical-align: middle; text-align: left;">connector Modelica323.Blocks.Interfaces.RealVectorOutput</td>
-<td style="vertical-align: middle; text-align: left;">Present</td><td style="vertical-align: middle; text-align: left;"><br></td>
-</tr><tr>
-<tr><td style="vertical-align: middle; text-align: left;">package Modelica323.Blocks.Interfaces.PartialFMUadaptors</td>
 <td style="vertical-align: middle; text-align: left;">Present</td><td style="vertical-align: middle; text-align: left;"><br></td>
 </tr><tr>
 <tr><td style="vertical-align: middle; text-align: left;">block Modelica323.Blocks.Math.Power</td>
@@ -14331,6 +14889,12 @@ style="font-weight: bold;">Modelica 3.2.2</span><br>
 <td style="vertical-align: middle; text-align: left;">Present</td><td style="vertical-align: middle; text-align: left;"><br></td>
 </tr><tr>
 <tr><td style="vertical-align: middle; text-align: left;">type Modelica323.Blocks.Types.TimeEvents</td>
+<td style="vertical-align: middle; text-align: left;">Present</td><td style="vertical-align: middle; text-align: left;"><br></td>
+</tr><tr>
+<tr><td style="vertical-align: middle; text-align: left;">type Modelica323.Blocks.Types.LimiterHomotopy</td>
+<td style="vertical-align: middle; text-align: left;">Present</td><td style="vertical-align: middle; text-align: left;"><br></td>
+</tr><tr>
+<tr><td style="vertical-align: middle; text-align: left;">type Modelica323.Blocks.Types.VariableLimiterHomotopy</td>
 <td style="vertical-align: middle; text-align: left;">Present</td><td style="vertical-align: middle; text-align: left;"><br></td>
 </tr><tr>
 <tr><td style="vertical-align: middle; text-align: left;">block Modelica323.ComplexBlocks.ComplexMath.Bode</td>
@@ -14370,6 +14934,9 @@ style="font-weight: bold;">Modelica 3.2.2</span><br>
 <td style="vertical-align: middle; text-align: left;">Present</td><td style="vertical-align: middle; text-align: left;"><br></td>
 </tr><tr>
 <tr><td style="vertical-align: middle; text-align: left;">model Modelica323.Electrical.Analog.Examples.ResonanceCircuits</td>
+<td style="vertical-align: middle; text-align: left;">Present</td><td style="vertical-align: middle; text-align: left;"><br></td>
+</tr><tr>
+<tr><td style="vertical-align: middle; text-align: left;">model Modelica323.Electrical.Analog.Examples.InvertingAmp</td>
 <td style="vertical-align: middle; text-align: left;">Present</td><td style="vertical-align: middle; text-align: left;"><br></td>
 </tr><tr>
 <tr><td style="vertical-align: middle; text-align: left;">model Modelica323.Electrical.Analog.Basic.GeneralCurrentToVoltageAdaptor</td>
