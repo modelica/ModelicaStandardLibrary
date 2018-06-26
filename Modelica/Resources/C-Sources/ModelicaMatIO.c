@@ -677,13 +677,6 @@ Mat_doubleSwap( double *a )
     return *a;
 }
 
-static char* mat_strdup(const char *s)
-{
-    size_t len = strlen(s) + 1;
-    char *d = (char*)malloc(len);
-    return d ? (char*)memcpy(d, s, len) : NULL;
-}
-
 /* -------------------------------
  * ---------- inflate.c
  * -------------------------------
@@ -3905,6 +3898,13 @@ static int       Mat_VarWriteAppend73(mat_t *mat,matvar_t *matvar,int compress,
  *                 Private Functions
  *===================================================================
  */
+
+static char* mat_strdup(const char *s)
+{
+    size_t len = strlen(s) + 1;
+    char *d = (char*)malloc(len);
+    return d ? (char*)memcpy(d, s, len) : NULL;
+}
 
 static void
 ReadData(mat_t *mat, matvar_t *matvar)
