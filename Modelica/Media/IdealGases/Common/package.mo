@@ -752,7 +752,7 @@ required from medium model \"" + mediumName + "\".");
 
   redeclare function extends specificEntropy "Return specific entropy"
   protected
-    Real[nX] Y(unit="mol/mol")=massToMoleFractions(state.X, data.MM)
+    Real[nX] Y(each unit="mol/mol")=massToMoleFractions(state.X, data.MM)
       "Molar fractions";
   algorithm
   s :=  s_TX(state.T, state.X) - sum(state.X[i]*Modelica.Constants.R/MMX[i]*
