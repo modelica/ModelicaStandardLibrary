@@ -30,6 +30,10 @@
 */
 
 /* Release Notes:
+      Jun. 28, 2018: by Hans Olsson, Dassault Systemes
+                     Proper error message when out of string memory 
+                     in ModelicaInternal_readLine (ticket #2676)
+  
       Oct. 23, 2017: by Thomas Beutlich, ESI ITI GmbH
                      Utilized non-fatal hash insertion, called by HASH_ADD_KEYPTR in
                      function CacheFileForReading (ticket #2097)
