@@ -1459,8 +1459,7 @@ The Real output y is a trapezoid signal:
       "Maximum accelerations der(qd)";
     parameter SIunits.Time startTime=0 "Time instant at which movement starts";
 
-    extends Interfaces.MO(final nout=max([size(deltaq, 1); size(qd_max, 1);
-          size(qdd_max, 1)]));
+    extends Interfaces.MO(final nout=max([size(deltaq, 1); size(qd_max, 1); size(qdd_max, 1)]));
 
   protected
     parameter Real p_deltaq[nout]=(if size(deltaq, 1) == 1 then ones(nout)*
@@ -1621,8 +1620,7 @@ a flange according to a given acceleration.
       "Time instant at which movement starts";
 
     extends Modelica.Blocks.Icons.Block;
-    final parameter Integer nout=max([size(q_begin, 1); size(q_end, 1); size(
-        qd_max, 1); size(qdd_max, 1)])
+    final parameter Integer nout=max([size(q_begin, 1); size(q_end, 1); size(qd_max, 1); size(qdd_max, 1)])
       "Number of output signals (= dimension of q, qd, qdd, moving)";
     output Modelica.SIunits.Time endTime "Time instant at which movement stops";
 
@@ -2128,8 +2126,7 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
   block CombiTimeTable
     "Table look-up with respect to time and linear/periodic extrapolation methods (data from matrix/file)"
     import Modelica.Blocks.Tables.Internal;
-    extends Modelica.Blocks.Interfaces.MO(final nout=max([size(columns, 1);
-          size(offset, 1)]));
+    extends Modelica.Blocks.Interfaces.MO(final nout=max([size(columns, 1); size(offset, 1)]));
     parameter Boolean tableOnFile=false
       "= true, if table is defined on file or in function usertab"
       annotation (Dialog(group="Table data definition"));
