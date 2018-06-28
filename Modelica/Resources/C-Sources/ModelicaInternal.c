@@ -969,6 +969,7 @@ _Ret_z_ const char* ModelicaInternal_readLine(_In_z_ const char* fileName,
     }
     line = ModelicaAllocateStringWithErrorReturn(lineLen);
     if ( line == NULL ) {
+        errno = 0; /* Erase previous error code, treated specially below */
         goto Modelica_ERROR3;
     }
 
@@ -1001,7 +1002,7 @@ Modelica_ERROR3:
     fclose(fp);
     CloseCachedFile(fileName);
     ModelicaFormatError("Error when reading line %i from file\n\"%s\":\n%s",
-        lineNumber, fileName, strerror(errno));
+        lineNumber, fileName, (errno == 0) ? "Not enough memory to allocate string for reading line." : strerror(errno));
     return "";
 }
 
