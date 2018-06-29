@@ -182,17 +182,17 @@ This library provides simple components for 1-dimensional incompressible thermo-
         "Source over Coolant";
       output Modelica.SIunits.TemperatureDifference dTCoolant=pipe.dT
         "Coolant's temperature increase";
-      FluidHeatFlow.Sources.Ambient ambient1(constantAmbientTemperature=TAmb, medium=medium,
+      Modelica.Thermal.FluidHeatFlow.Sources.Ambient ambient1(constantAmbientTemperature=TAmb, medium=medium,
         constantAmbientPressure=0)
         annotation (Placement(transformation(extent={{-60,-10},{-80,10}})));
-      Sources.VolumeFlow pump(
+      Modelica.Thermal.FluidHeatFlow.Sources.VolumeFlow pump(
         medium=medium,
         m=0,
         T0=TAmb,
         useVolumeFlowInput=true,
         constantVolumeFlow=1)
         annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
-      Components.Pipe                     pipe(
+      Modelica.Thermal.FluidHeatFlow.Components.Pipe pipe(
         medium=medium,
         m=0.1,
         T0=TAmb,
@@ -204,7 +204,7 @@ This library provides simple components for 1-dimensional incompressible thermo-
         T0fixed=true,
         useHeatPort=true)
         annotation (Placement(transformation(extent={{0,-10},{20,10}})));
-      FluidHeatFlow.Sources.Ambient ambient2(constantAmbientTemperature=TAmb, medium=medium,
+      Modelica.Thermal.FluidHeatFlow.Sources.Ambient ambient2(constantAmbientTemperature=TAmb, medium=medium,
         constantAmbientPressure=0)
         annotation (Placement(transformation(extent={{40,-10},{60,10}})));
       Modelica.Thermal.HeatTransfer.Components.HeatCapacitor heatCapacitor(
@@ -303,17 +303,17 @@ A prescribed heat source dissipates its heat through a thermal conductor to a co
         "Coolant2's temperature increase";
       output Modelica.SIunits.TemperatureDifference dTmixedCoolant=ambient2.T_port-ambient1.T_port
         "mixed Coolant's temperature increase";
-      FluidHeatFlow.Sources.Ambient ambient1(constantAmbientTemperature=TAmb, medium=medium,
+      Modelica.Thermal.FluidHeatFlow.Sources.Ambient ambient1(constantAmbientTemperature=TAmb, medium=medium,
         constantAmbientPressure=0)
         annotation (Placement(transformation(extent={{-60,-10},{-80,10}})));
-      Sources.VolumeFlow pump(
+      Modelica.Thermal.FluidHeatFlow.Sources.VolumeFlow pump(
         medium=medium,
         m=0,
         T0=TAmb,
         useVolumeFlowInput=true,
         constantVolumeFlow=1)
         annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
-      Components.Pipe                     pipe1(
+      Modelica.Thermal.FluidHeatFlow.Components.Pipe pipe1(
         medium=medium,
         m=0.1,
         T0=TAmb,
@@ -325,7 +325,7 @@ A prescribed heat source dissipates its heat through a thermal conductor to a co
         T0fixed=true,
         useHeatPort=true)
         annotation (Placement(transformation(extent={{0,-20},{20,0}})));
-      Components.Pipe                     pipe2(
+      Modelica.Thermal.FluidHeatFlow.Components.Pipe pipe2(
         medium=medium,
         m=0.1,
         T0=TAmb,
@@ -337,7 +337,7 @@ A prescribed heat source dissipates its heat through a thermal conductor to a co
         T0fixed=true,
         useHeatPort=true)
         annotation (Placement(transformation(extent={{0,20},{20,0}})));
-      Components.Pipe                       pipe3(
+      Modelica.Thermal.FluidHeatFlow.Components.Pipe pipe3(
         medium=medium,
         m=0.1,
         T0=TAmb,
@@ -349,7 +349,7 @@ A prescribed heat source dissipates its heat through a thermal conductor to a co
         T0fixed=true,
         useHeatPort=false)
         annotation (Placement(transformation(extent={{40,-10},{60,10}})));
-      FluidHeatFlow.Sources.Ambient ambient2(constantAmbientTemperature=TAmb, medium=medium,
+      Modelica.Thermal.FluidHeatFlow.Sources.Ambient ambient2(constantAmbientTemperature=TAmb, medium=medium,
         constantAmbientPressure=0)
         annotation (Placement(transformation(extent={{80,-10},{100,10}})));
       Modelica.Thermal.HeatTransfer.Components.HeatCapacitor heatCapacitor1(
@@ -1690,8 +1690,8 @@ Block generating the sum of two ramps.
     extends Modelica.Icons.Package;
 
     model Pipe "Pipe with optional heat exchange"
-      extends Interfaces.Partials.TwoPort;
-      extends Interfaces.Partials.SimpleFriction;
+      extends Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.TwoPort;
+      extends Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.SimpleFriction;
 
       parameter Boolean useHeatPort = false "=true, if HeatPort is enabled"
         annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
@@ -1740,7 +1740,7 @@ temperature rise defined by storing heat in medium's mass.
     end Pipe;
 
     model IsolatedPipe "Pipe without heat exchange"
-      extends Pipe(final useHeatPort=false);
+      extends Modelica.Thermal.FluidHeatFlow.Components.Pipe(final useHeatPort=false);
       extends Modelica.Icons.ObsoleteModel;
     annotation (
         obsolete = "Obsolete model - use Modelica.Thermal.FluidHeatFlow.Components.Pipe(useHeatPort=false) instead",
@@ -1753,7 +1753,7 @@ with parameter useHeatPort = false and is kept for compatibility reasons. In the
     end IsolatedPipe;
 
     model HeatedPipe "Pipe with heat exchange"
-      extends Pipe(final useHeatPort=true);
+      extends Modelica.Thermal.FluidHeatFlow.Components.Pipe(final useHeatPort=true);
       extends Modelica.Icons.ObsoleteModel;
     annotation (
         obsolete = "Obsolete model - use Modelica.Thermal.FluidHeatFlow.Components.Pipe(useHeatPort=true) instead",
@@ -1766,7 +1766,7 @@ with parameter useHeatPort = true and is kept for compatibility reasons. In the 
     end HeatedPipe;
 
     model Valve "Simple valve"
-      extends Interfaces.Partials.TwoPort(m(start=0), final tapT=1);
+      extends Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.TwoPort(m(start=0), final tapT=1);
 
       parameter Boolean LinearCharacteristic(start=true)
         "Type of characteristic"
@@ -1795,7 +1795,7 @@ with parameter useHeatPort = true and is kept for compatibility reasons. In the 
       Real yLim = max(min(y,y1),0) "Limited valve opening";
       Modelica.SIunits.VolumeFlowRate Kv "Standard flow rate";
     public
-      Blocks.Interfaces.RealInput y annotation (Placement(transformation(
+      Modelica.Blocks.Interfaces.RealInput y annotation (Placement(transformation(
             extent={{-20,-20},{20,20}},
             rotation=270,
             origin={0,100})));
@@ -1851,7 +1851,7 @@ V_flow**2 * rho / dp = Kv(y)**2 * rho0 / dp0
     end Valve;
 
     model OpenTank "Model of a tank under ambient pressure"
-      extends Interfaces.Partials.SinglePortBottom(final Exchange=true);
+      extends Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.SinglePortBottom(final Exchange=true);
 
       parameter Modelica.SIunits.Area ATank(start=1) "Cross section of tank";
       parameter Modelica.SIunits.Length hTank(start=1) "Height of tank";
@@ -1976,7 +1976,7 @@ Via the optional heatPort the medium in the tank can be cooled or heated.
 
     model Cylinder "Simple model of a piston in a cylinder"
       import Modelica.Constants.small;
-      extends Interfaces.Partials.SinglePortLeft(final Exchange=true);
+      extends Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.SinglePortLeft(final Exchange=true);
 
       parameter Modelica.SIunits.Area A "Cross section of cylinder/piston";
       parameter Modelica.SIunits.Length L "Length of cylinder";
@@ -2051,7 +2051,7 @@ The position of the flange (as well as of the support, if useSupport=true) is in
     end Cylinder;
 
     model PumpTurbine "Model of an ideal pump/turbine"
-      extends Interfaces.Partials.TwoPort(final tapT=1);
+      extends Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.TwoPort(final tapT=1);
 
       parameter Modelica.SIunits.AngularVelocity wNominal(start=1, displayUnit="rev/min")
         "Nominal speed"
@@ -2146,7 +2146,7 @@ Thermodynamic equations are defined by Partials.TwoPort.
     end PumpTurbine;
 
     model OneWayValve "Simple one-way valve"
-      extends Interfaces.Partials.TwoPort(m(start=0), final tapT=1);
+      extends Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.TwoPort(m(start=0), final tapT=1);
 
       parameter Modelica.SIunits.VolumeFlowRate V_flowNominal(start=1) "Nominal volume flow rate (forward)";
       parameter Modelica.SIunits.Pressure dpForward(displayUnit="bar")=1e-6 "Pressure drop at nominal flow (forward)";
@@ -2236,7 +2236,7 @@ Record containing (constant) medium properties.
     end Medium;
 
     record Air_30degC "Medium: properties of air at 30 degC and 1 bar"
-    extends Medium(
+    extends Modelica.Thermal.FluidHeatFlow.Media.Medium(
       rho=1.149,
       cp=1007,
       cv= 720,
@@ -2248,7 +2248,7 @@ Record containing (constant) medium properties.
     end Air_30degC;
 
     record Air_70degC "Medium: properties of air at 70 degC and 1 bar"
-    extends Medium(
+    extends Modelica.Thermal.FluidHeatFlow.Media.Medium(
       rho=1.015,
       cp=1010,
       cv= 723,
@@ -2260,7 +2260,7 @@ Record containing (constant) medium properties.
     end Air_70degC;
 
     record Water_10degC "Medium: properties of water at 10 degC and 1 bar"
-    extends Medium(
+    extends Modelica.Thermal.FluidHeatFlow.Media.Medium(
       rho=999.7,
       cp=4192,
       cv=4192,
@@ -2272,7 +2272,7 @@ Record containing (constant) medium properties.
     end Water_10degC;
 
     record Water "Medium: properties of water at 30 degC and 1 bar"
-    extends Medium(
+    extends Modelica.Thermal.FluidHeatFlow.Media.Medium(
       rho=995.6,
       cp=4177,
       cv=4177,
@@ -2284,7 +2284,7 @@ Record containing (constant) medium properties.
     end Water;
 
     record Water_90degC "Medium: properties of water at 90 degC and 1 bar"
-    extends Medium(
+    extends Modelica.Thermal.FluidHeatFlow.Media.Medium(
       rho=965.3,
       cp=4205,
       cv=4205,
@@ -2340,7 +2340,7 @@ Record containing (constant) medium properties.
 
     model PressureSensor "Absolute pressure sensor"
 
-      extends Interfaces.Partials.AbsoluteSensor(y(unit="Pa", displayUnit="bar")
+      extends Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.AbsoluteSensor(y(unit="Pa", displayUnit="bar")
           "Absolute pressure as output signal");
     equation
       y = flowPort.p;
@@ -2357,7 +2357,7 @@ Record containing (constant) medium properties.
 
     model TemperatureSensor "Absolute temperature sensor"
 
-      extends Interfaces.Partials.AbsoluteSensor(y(unit="K")
+      extends Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.AbsoluteSensor(y(unit="K")
           "Absolute temperature as output signal");
     equation
       medium.cp*y = flowPort.h;
@@ -2373,7 +2373,7 @@ Record containing (constant) medium properties.
 
     model RelPressureSensor "Pressure difference sensor"
 
-      extends Interfaces.Partials.RelativeSensor(y(unit="Pa", displayUnit="bar")
+      extends Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.RelativeSensor(y(unit="Pa", displayUnit="bar")
           "Pressure difference as output signal");
     equation
       y = flowPort_a.p - flowPort_b.p;
@@ -2389,7 +2389,7 @@ Record containing (constant) medium properties.
 
     model RelTemperatureSensor "Temperature difference sensor"
 
-      extends Interfaces.Partials.RelativeSensor(y(unit="K")
+      extends Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.RelativeSensor(y(unit="K")
           "Temperature difference as output signal");
     equation
       medium.cp*y = flowPort_a.h - flowPort_b.h;
@@ -2410,7 +2410,7 @@ Outlet temperature is defined by variable T of the corresponding component.
 
     model MassFlowSensor "Mass flow sensor"
 
-      extends Interfaces.Partials.FlowSensor(y(unit="kg/s")
+      extends Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.FlowSensor(y(unit="kg/s")
           "Mass flow as output signal");
     equation
       y = V_flow*medium.rho;
@@ -2426,7 +2426,7 @@ Outlet temperature is defined by variable T of the corresponding component.
 
     model VolumeFlowSensor "Volume flow sensor"
 
-      extends Interfaces.Partials.FlowSensor(y(unit="m3/s")
+      extends Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.FlowSensor(y(unit="m3/s")
           "Volume flow as output signal");
     equation
       y = V_flow;
@@ -2442,7 +2442,7 @@ Outlet temperature is defined by variable T of the corresponding component.
 
     model EnthalpyFlowSensor "Enthalpy flow sensor"
 
-      extends Interfaces.Partials.FlowSensor(y(unit="W")
+      extends Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.FlowSensor(y(unit="W")
           "Enthalpy flow as output signal");
     equation
       y = flowPort_a.H_flow;
@@ -2480,7 +2480,7 @@ All sensors are considered massless, they do not change mass flow or enthalpy fl
 
     model Ambient "Ambient with constant properties"
 
-      extends Interfaces.Partials.SinglePortLeft(final Exchange=true, final T0=293.15, final T0fixed=false);
+      extends Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.SinglePortLeft(final Exchange=true, final T0=293.15, final T0fixed=false);
       parameter Boolean usePressureInput=false
         "Enable / disable pressure input"
         annotation(Evaluate=true, choices(checkBox=true));
@@ -2493,7 +2493,7 @@ All sensors are considered massless, they do not change mass flow or enthalpy fl
       parameter Modelica.SIunits.Temperature constantAmbientTemperature(start=293.15, displayUnit="degC")
         "Ambient temperature"
         annotation(Dialog(enable=not useTemperatureInput));
-      Blocks.Interfaces.RealInput ambientPressure=pAmbient if usePressureInput
+      Modelica.Blocks.Interfaces.RealInput ambientPressure=pAmbient if usePressureInput
         annotation (Placement(
             transformation(
             extent={{-20,-20},{20,20}},
@@ -2502,7 +2502,7 @@ All sensors are considered massless, they do not change mass flow or enthalpy fl
             extent={{-20,-20},{20,20}},
             rotation=180,
             origin={100,60})));
-      Blocks.Interfaces.RealInput ambientTemperature=TAmbient if useTemperatureInput
+      Modelica.Blocks.Interfaces.RealInput ambientTemperature=TAmbient if useTemperatureInput
         annotation (Placement(
             transformation(
             extent={{-20,-20},{20,20}},
@@ -2540,7 +2540,7 @@ All sensors are considered massless, they do not change mass flow or enthalpy fl
     end Ambient;
 
     model AbsolutePressure "Defines absolute pressure level"
-      extends Interfaces.Partials.SinglePortLeft(final Exchange=false, final T0=293.15, final T0fixed=false);
+      extends Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.SinglePortLeft(final Exchange=false, final T0=293.15, final T0fixed=false);
       parameter Modelica.SIunits.Pressure p(start=0) "Pressure ground";
     equation
       // defining pressure
@@ -2562,14 +2562,14 @@ All sensors are considered massless, they do not change mass flow or enthalpy fl
 
     model VolumeFlow "Enforces constant volume flow"
 
-      extends Interfaces.Partials.TwoPort(final tapT=1);
+      extends Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.TwoPort(final tapT=1);
       parameter Boolean useVolumeFlowInput=false
         "Enable / disable volume flow input"
         annotation(Evaluate=true, choices(checkBox=true));
       parameter Modelica.SIunits.VolumeFlowRate constantVolumeFlow(start=1)
         "Volume flow rate"
         annotation(Dialog(enable=not useVolumeFlowInput));
-      Blocks.Interfaces.RealInput volumeFlow=internalVolumeFlow if useVolumeFlowInput
+      Modelica.Blocks.Interfaces.RealInput volumeFlow=internalVolumeFlow if useVolumeFlowInput
         annotation (Placement(transformation(
             extent={{-20,-20},{20,20}},
             rotation=270,
@@ -2613,14 +2613,14 @@ leads to neglect of temperature transient cv*m*der(T).
 
     model PressureIncrease "Enforces constant pressure increase"
 
-      extends Interfaces.Partials.TwoPort(final tapT=1);
+      extends Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.TwoPort(final tapT=1);
       parameter Boolean usePressureIncreaseInput=false
         "Enable / disable pressure increase input"
         annotation(Evaluate=true, choices(checkBox=true));
       parameter Modelica.SIunits.Pressure constantPressureIncrease(start=1)
         "Pressure increase"
         annotation(Dialog(enable=not usePressureIncreaseInput));
-      Blocks.Interfaces.RealInput pressureIncrease=internalPressureIncrease if usePressureIncreaseInput
+      Modelica.Blocks.Interfaces.RealInput pressureIncrease=internalPressureIncrease if usePressureIncreaseInput
         annotation (Placement(
             transformation(
             extent={{-20,-20},{20,20}},
@@ -2666,8 +2666,7 @@ leads to neglect of temperature transient cv*m*der(T).
 
     model IdealPump "Model of an ideal pump"
 
-      extends Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.TwoPort(final tapT=
-           1);
+      extends Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.TwoPort(final tapT=1);
       parameter Modelica.SIunits.AngularVelocity wNominal(start=1, displayUnit="rev/min")
         "Nominal speed"
           annotation(Dialog(group="Pump characteristic"));
@@ -2692,7 +2691,7 @@ leads to neglect of temperature transient cv*m*der(T).
         dp = 0;
         flange_a.tau = 0;
       else
-        dp = -dp1*(1-noEvent(abs(V_flow/V_flow1)));
+        dp = -dp1*(1-V_flow/V_flow1);
         flange_a.tau*w = -dp*V_flow;
       end if;
       // no energy exchange with medium
@@ -2758,7 +2757,7 @@ All fans / pumps are considered without losses, they do not change enthalpy flow
 
     connector FlowPort "Connector flow port"
 
-      parameter FluidHeatFlow.Media.Medium medium "Medium in the connector";
+      parameter Modelica.Thermal.FluidHeatFlow.Media.Medium medium "Medium in the connector";
       Modelica.SIunits.Pressure p;
       flow Modelica.SIunits.MassFlowRate m_flow;
       Modelica.SIunits.SpecificEnthalpy h;
@@ -2778,7 +2777,7 @@ If ports with different media are connected, the simulation is asserted due to t
 
     connector FlowPort_a "Filled flow port (used upstream)"
 
-      extends FlowPort;
+      extends Modelica.Thermal.FluidHeatFlow.Interfaces.FlowPort;
     annotation (Documentation(info="<html>
 Same as FlowPort, but icon allows to differentiate direction of flow.
 </html>"),
@@ -2813,7 +2812,7 @@ Same as FlowPort, but icon allows to differentiate direction of flow.
 
     connector FlowPort_b "Hollow flow port (used downstream)"
 
-      extends FlowPort;
+      extends Modelica.Thermal.FluidHeatFlow.Interfaces.FlowPort;
     annotation (Documentation(info="<html>
 Same as FlowPort, but icon allows to differentiate direction of flow.
 </html>"),
@@ -2956,9 +2955,9 @@ See also sketch at diagram layer.
       protected
         Modelica.SIunits.SpecificEnthalpy h(start=medium.cp*T0) "Medium's specific enthalpy";
       public
-        Interfaces.FlowPort_a flowPort_a(final medium=medium)
+        Modelica.Thermal.FluidHeatFlow.Interfaces.FlowPort_a flowPort_a(final medium=medium)
           annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
-        Interfaces.FlowPort_b flowPort_b(final medium=medium)
+        Modelica.Thermal.FluidHeatFlow.Interfaces.FlowPort_b flowPort_b(final medium=medium)
           annotation (Placement(transformation(extent={{90,-10},{110,10}})));
       equation
         dp=flowPort_a.p - flowPort_b.p;
@@ -3030,7 +3029,7 @@ Partial model of single port at the left, defining the medium and the temperatur
       end SinglePortLeft;
 
       partial model Ambient "Partial model of ambient"
-        extends SinglePortLeft(final Exchange=true, final T0=293.15);
+        extends Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.SinglePortLeft(final Exchange=true, final T0=293.15);
         extends Icons.ObsoleteModel;
         annotation (obsolete = "Obsolete model - use SinglePortLeft instead",
         Documentation(info="<html>
@@ -3057,7 +3056,7 @@ only adding an icon, and is kept for compatibility reasons. In the future, it wi
         annotation(choices(checkBox=true));
         output Modelica.SIunits.Temperature T_port "Temperature at flowPort_a";
         output Modelica.SIunits.Temperature T(start=T0, fixed=T0fixed) "Outlet temperature of medium";
-        Interfaces.FlowPort_a flowPort(final medium=medium)
+        Modelica.Thermal.FluidHeatFlow.Interfaces.FlowPort_a flowPort(final medium=medium)
           annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
       protected
         constant Boolean Exchange=true "Exchange of medium via flowport"
@@ -3086,7 +3085,11 @@ Partial model of single port at the bottom, defining the medium and the temperat
 
       partial model AbsoluteSensor "Partial model of absolute sensor"
         extends Modelica.Icons.RotationalSensor;
-        extends SinglePortLeft(final Exchange=false, final T0=293.15, final T0fixed=false);
+        parameter Modelica.Thermal.FluidHeatFlow.Media.Medium medium=FluidHeatFlow.Media.Medium()
+          "Sensor's medium"
+          annotation(choicesAllMatching=true);
+        Modelica.Thermal.FluidHeatFlow.Interfaces.FlowPort_a flowPort(final medium=medium)
+          annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
         Modelica.Blocks.Interfaces.RealOutput y
           annotation (Placement(transformation(extent={{100,-10},{120,10}})));
       equation
@@ -3105,17 +3108,25 @@ Partial model of single port at the bottom, defining the medium and the temperat
 
       partial model RelativeSensor "Partial model of relative sensor"
         extends Modelica.Icons.RotationalSensor;
-        extends TwoPort(final m=0, final T0=293.15, final T0fixed=false, final tapT=0.5);
+        parameter Modelica.Thermal.FluidHeatFlow.Media.Medium medium=FluidHeatFlow.Media.Medium()
+          "Sensor's medium"
+          annotation(choicesAllMatching=true);
+        Modelica.Thermal.FluidHeatFlow.Interfaces.FlowPort_a flowPort_a(final medium=medium)
+          annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
+        Modelica.Thermal.FluidHeatFlow.Interfaces.FlowPort_b flowPort_b(final medium=medium)
+          annotation (Placement(transformation(extent={{90,-10},{110,10}})));
         Modelica.Blocks.Interfaces.RealOutput y
           annotation (Placement(transformation(
               origin={0,-110},
               extent={{10,-10},{-10,10}},
               rotation=90)));
       equation
-        // no mass flow
-        V_flow = 0;
+        // no mass exchange
+        flowPort_a.m_flow = 0;
+        flowPort_b.m_flow = 0;
         // no energy exchange
-        Q_flow = 0;
+        flowPort_a.H_flow = 0;
+        flowPort_b.H_flow = 0;
       annotation (Documentation(info="<html>
 <p>Partial model for a relative sensor (pressure drop/temperature difference).</p>
 <p>Pressure, mass flow, temperature and enthalpy flow of medium are not affected.</p>
@@ -3132,7 +3143,7 @@ Partial model of single port at the bottom, defining the medium and the temperat
 
       partial model FlowSensor "Partial model of flow sensor"
         extends Modelica.Icons.RotationalSensor;
-        extends TwoPort(final m=0, final T0=293.15, final T0fixed=false, final tapT=1);
+        extends Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.TwoPort(final m=0, final T0=293.15, final T0fixed=false, final tapT=1);
         Modelica.Blocks.Interfaces.RealOutput y
           annotation (Placement(transformation(
               origin={0,-110},
