@@ -4244,7 +4244,7 @@ General information about controllers is summarized in
         final parameter Integer na(final min=2) = 2
           "Count of 1st order all-pass";
         final parameter Modelica.SIunits.Frequency fa=f/tan(pi/na - atan(f/fCut)
-            /(2*na));
+            /(2*na)) "Characteristic frequency of all-pass filter";
         parameter Real yStart=0 "Start value of output";
         Modelica.Blocks.Continuous.FirstOrder firstOrder(
           final k=1,
@@ -6948,7 +6948,7 @@ General information about DC/DC converters can be found at the
     model EnableLogic
       "Partial model providing enable parameter and optional enable input"
       parameter Boolean useConstantEnable=true
-        "true = disabled boolean input, use constantEnable";
+        "Disable boolean input and use constantEnable, if true";
       parameter Boolean constantEnable=true
         "Constant enabling of firing signals"
         annotation (Dialog(enable=useConstantEnable));
@@ -7133,7 +7133,7 @@ For <code>useConstantEnable = false</code> the internal signal
       partial model Enable
         "Partial model providing enable parameter and optional enable input"
         parameter Boolean useConstantEnable=true
-          "true = disabled boolean input, use constantEnable"
+          "Disable boolean input and use constantEnable, if true"
           annotation (Dialog(tab="Enable"));
         parameter Boolean constantEnable=true
           "Constant enabling of firing signals"
@@ -7197,7 +7197,7 @@ This partial model provides parameters and the conditional input signal for the 
       partial model Enable1m
         "Partial model providing enable parameter and optional enable input for m firing signals"
         parameter Boolean useConstantEnable=true
-          "true = disabled boolean input, use constantEnable"
+          "Disable boolean input and use constantEnable, if true"
           annotation (Dialog(tab="Enable"));
         parameter Boolean constantEnable=true
           "Constant enabling of firing signals"
