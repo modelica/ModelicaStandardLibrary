@@ -4172,15 +4172,13 @@ Default machine parameters of model <em>DC_PermanentMagnet</em> are used.
           annotation (Placement(transformation(extent={{-50,50},{-30,70}})));
       equation
         connect(signalVoltage.n, ground.p)
-          annotation (Line(points={{0,30},{0,-1.77636e-15}},
-                                                       color={0,0,255}));
+          annotation (Line(points={{0,30},{0,0}}, color={0,0,255}));
         connect(loadInertia.flange_b, loadTorque.flange)
           annotation (Line(points={{60,-20},{70,-20}}));
         connect(dcpm.flange, loadInertia.flange_a) annotation (Line(
             points={{20,-20},{40,-20}}));
         connect(dcpm.pin_an, ground.p)
-          annotation (Line(points={{4,-10},{4,-1.77636e-15},{0,-1.77636e-15}},
-                                                         color={0,0,255}));
+          annotation (Line(points={{4,-10},{4,0},{0,0}}, color={0,0,255}));
         connect(signalVoltage.p, currentSensor.p)
           annotation (Line(points={{20,30},{20,20}}, color={0,0,255}));
         connect(currentSensor.n, dcpm.pin_ap)
