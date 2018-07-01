@@ -5485,7 +5485,7 @@ An overview of all available hysteresis and permanent magnet elements of the pac
         "Generic flux tube with ferromagnetic hysteresis based on the Tellinen model and table data"
 
         parameter FluxTubes.Material.HysteresisTableData.BaseData mat=
-            FluxTubes.Material.HysteresisTableData.BaseData()
+          FluxTubes.Material.HysteresisTableData.BaseData() "Material properties"
           annotation (choicesAllMatching=true, Dialog(group="Hysteresis"));
         parameter Real K = 1
           "Slope of hysteresis in the saturation region (K*mu_0)" annotation(Dialog(group="Hysteresis"));
@@ -6713,7 +6713,7 @@ Additional user-specific materials can be defined as needed.
           1000, 0.8000;
           10000000, 0.8000]
           "Table data of the falling (upper) branch of the hysteresis envelope curve (H, B)";
-        parameter SI.Conductivity sigma = 1;
+        parameter SI.Conductivity sigma = 1 "Electric conductivity";
         annotation (Documentation(info="<html>
 <table cellspacing=\"0\" cellpadding=\"2\" border=\"0\">
   <tr>
