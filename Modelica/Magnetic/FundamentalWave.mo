@@ -1128,7 +1128,7 @@ In this example the eddy current losses are implemented in two different ways. C
                   {80,-70}})));
         parameter
           Electrical.Machines.Utilities.ParameterRecords.AIM_SquirrelCageData
-          aimcData
+          aimcData "Induction machine data"
           annotation (Placement(transformation(extent={{-40,-100},{-20,-80}})));
         Electrical.MultiPhase.Sensors.CurrentQuasiRMSSensor
           currentQuasiRMSSensor annotation (Placement(transformation(
@@ -1289,7 +1289,7 @@ Simulate for 1.5 seconds and plot (versus time):
                   40},{80,60}})));
         parameter
           Electrical.Machines.Utilities.ParameterRecords.AIM_SquirrelCageData
-          aimcData annotation (Placement(transformation(extent={{-100,-100},{-80,
+          aimcData "Induction machine data" annotation (Placement(transformation(extent={{-100,-100},{-80,
                   -80}})));
         Modelica.Electrical.Analog.Basic.Ground ground3 annotation (Placement(
               transformation(
@@ -1533,7 +1533,7 @@ Simulate for 1.5 seconds and plot (versus time):
           TorqueDirection=false,
           tau_nominal=-TLoad,
           useSupport=false) annotation (Placement(transformation(extent={{100,10},{80,30}})));
-        parameter Electrical.Machines.Utilities.ParameterRecords.AIM_SquirrelCageData aimcData annotation (Placement(transformation(extent={{70,72},{90,92}})));
+        parameter Electrical.Machines.Utilities.ParameterRecords.AIM_SquirrelCageData aimcData "Induction machine data" annotation (Placement(transformation(extent={{70,72},{90,92}})));
       initial equation
         aimc.is = zeros(3);
         aimc.rotorCage.electroMagneticConverter.V_m = Complex(0, 0);
@@ -1681,7 +1681,7 @@ accelerating inertias against load torque quadratic dependent on speed, finally 
               2),
           SNominal=50E3,
           v_sc=0.06,
-          P_sc=500) annotation (Placement(transformation(extent={{80,80},{100,100}})));
+          P_sc=500) "Transformer data" annotation (Placement(transformation(extent={{80,80},{100,100}})));
         Modelica.Blocks.Sources.BooleanStep booleanStep2[m](each startTime=
               tStart2) annotation (Placement(transformation(extent={{-60,10},{-40,30}})));
         Modelica.Electrical.MultiPhase.Ideal.IdealCommutingSwitch
@@ -1699,7 +1699,7 @@ accelerating inertias against load torque quadratic dependent on speed, finally 
           tau_nominal=-TLoad,
           useSupport=false) annotation (Placement(transformation(extent={{0,10},{20,30}})));
         Electrical.Machines.Utilities.TerminalBox terminalBox(terminalConnection="D") annotation (Placement(transformation(extent={{80,26},{60,46}})));
-        parameter Electrical.Machines.Utilities.ParameterRecords.AIM_SquirrelCageData aimcData annotation (Placement(transformation(extent={{80,52},{100,72}})));
+        parameter Electrical.Machines.Utilities.ParameterRecords.AIM_SquirrelCageData aimcData "Induction machine data" annotation (Placement(transformation(extent={{80,52},{100,72}})));
       initial equation
         aimc.is = zeros(3);
         aimc.rotorCage.electroMagneticConverter.V_m = Complex(0, 0);
@@ -1830,7 +1830,7 @@ at start time tStart2 the machine is fed directly from the voltage source, final
           offsetTorque=0) annotation (Placement(transformation(extent={{90,-50},
                   {70,-30}})));
         Electrical.Machines.Utilities.TerminalBox terminalBox(terminalConnection="Y") annotation (Placement(transformation(extent={{-20,-34},{0,-14}})));
-        parameter Electrical.Machines.Utilities.ParameterRecords.AIM_SquirrelCageData aimcData annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
+        parameter Electrical.Machines.Utilities.ParameterRecords.AIM_SquirrelCageData aimcData "Induction machine data" annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
       initial equation
         aimc.is[1:2] = zeros(2);
         aimc.rotorCage.electroMagneticConverter.V_m = Complex(0, 0);
@@ -1889,7 +1889,7 @@ Default machine parameters are used.
           "Load's moment of inertia";
         parameter Modelica.SIunits.Length r=0.05 "Transmission radius";
         Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage
-                                                                                         aimc(
+          aimc(
           p=aimcData.p,
           fsNominal=aimcData.fsNominal,
           TsRef=aimcData.TsRef,
@@ -1914,7 +1914,7 @@ Default machine parameters are used.
           TrOperational=293.15) annotation (Placement(transformation(extent={{60,10},{40,30}})));
         Electrical.Machines.Sensors.CurrentQuasiRMSSensor currentQuasiRMSSensor annotation (Placement(transformation(extent={{20,100},{40,80}})));
         Blocks.Sources.CombiTimeTable
-                                 dutyCycle(table=[0,0; 1,1; 4,1; 5,0; 10,0; 11,
+           dutyCycle(table=[0,0; 1,1; 4,1; 5,0; 10,0; 11,
               -1; 14,-1; 15,0; 20,0], extrapolation=Modelica.Blocks.Types.Extrapolation.Periodic)
           annotation (Placement(transformation(extent={{-100,40},{-80,60}})));
         Electrical.Machines.Utilities.VfController vfController(
@@ -1932,15 +1932,15 @@ Default machine parameters are used.
               origin={-70,70},
               extent={{-10,-10},{10,10}})));
         Electrical.Machines.Utilities.TerminalBox terminalBox(terminalConnection="Y") annotation (Placement(transformation(extent={{60,26},{40,46}})));
-        parameter Electrical.Machines.Utilities.ParameterRecords.AIM_SquirrelCageData aimcData annotation (Placement(transformation(extent={{70,72},{90,92}})));
+        parameter Electrical.Machines.Utilities.ParameterRecords.AIM_SquirrelCageData aimcData "Induction machine data" annotation (Placement(transformation(extent={{70,72},{90,92}})));
         Blocks.Math.Gain gain(k=fNominal/unitFrequency)
           annotation (Placement(transformation(extent={{-60,40},{-40,60}})));
         Mechanics.Translational.Components.IdealGearR2T idealGearR2T(ratio=1/r)
           annotation (Placement(transformation(extent={{32,10},{12,30}})));
         Mechanics.Translational.Components.Mass mass(m=JLoad/r^2)
           annotation (Placement(transformation(extent={{0,10},{-20,30}})));
-        Mechanics.Translational.Sources.SignForce signForce(                           v0(
-              displayUnit="m/s") = 0.01*wNominal*r, f_nominal=-TLoad/r)
+        Mechanics.Translational.Sources.SignForce signForce(
+          v0(displayUnit="m/s") = 0.01*wNominal*r, f_nominal=-TLoad/r)
           annotation (Placement(transformation(extent={{-50,10},{-30,30}})));
       initial equation
         aimc.is[1:2] = zeros(2);
@@ -2097,7 +2097,7 @@ The mechanical load is a constant torque like a conveyor (with regularization ar
             Placement(transformation(
               extent={{-10,-10},{10,10}},
               origin={30,-20})));
-        parameter Electrical.Machines.Utilities.ParameterRecords.AIM_SquirrelCageData aimcData annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
+        parameter Electrical.Machines.Utilities.ParameterRecords.AIM_SquirrelCageData aimcData "Induction machine data" annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
         Electrical.Machines.Sensors.CurrentQuasiRMSSensor currentQuasiRMSSensor annotation (Placement(transformation(
               origin={-10,-10},
               extent={{-10,10},{10,-10}},
@@ -2190,15 +2190,15 @@ finally reaching nominal speed.</p>
         Modelica.SIunits.ReactivePower Qel=electricalPowerSensor.Q;
         Modelica.SIunits.ApparentPower Sel=sqrt(Pel^2 + Qel^2);
         parameter Real Ptable[:]={1E-6,1845,3549,5325,7521,9372,11010,12930,
-            14950,16360,18500,18560,20180,22170};
+            14950,16360,18500,18560,20180,22170} "Table of measured power data";
         parameter Real Itable[:]={11.0,11.20,12.27,13.87,16.41,18.78,21.07,
-            23.92,27.05,29.40,32.85,32.95,35.92,39.35};
+            23.92,27.05,29.40,32.85,32.95,35.92,39.35} "Table of measured current data";
         parameter Real wtable[:]=from_rpm({1500,1496,1493,1490,1486,1482,1479,1475,1471,
-            1467,1462,1462,1458,1453});
+            1467,1462,1462,1458,1453}) "Table of measured speed data";
         parameter Real ctable[:]={0.085,0.327,0.506,0.636,0.741,0.797,0.831,
-            0.857,0.875,0.887,0.896,0.896,0.902,0.906};
+            0.857,0.875,0.887,0.896,0.896,0.902,0.906} "Table of measured power factor data";
         parameter Real etable[:]={0,0.7250,0.8268,0.8698,0.8929,0.9028,0.9064,
-            0.9088,0.9089,0.9070,0.9044,0.9043,0.9008,0.8972};
+            0.9088,0.9089,0.9070,0.9044,0.9043,0.9008,0.8972} "Table of measured efficiency data";
       public
         output Modelica.SIunits.Power Pmech=powerSensor.power "Mechanical output";
         output Modelica.SIunits.Power Ps_sim=sqrt(3)*VNominal*I_sim*pf_sim "Simulated stator power";
@@ -2298,7 +2298,8 @@ finally reaching nominal speed.</p>
           Lm=66.4/(2*pi*fNominal),
           Lrsigma=2.31/(2*pi*fNominal),
           Rr=0.42,
-          alpha20r(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Aluminium) annotation (Placement(transformation(extent={{-60,12},{-40,32}})));
+          alpha20r(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Aluminium)
+            "Induction machine data" annotation (Placement(transformation(extent={{-60,12},{-40,32}})));
 
       initial equation
         sum(aimc.is) = 0;
@@ -2407,7 +2408,7 @@ Modelica 2009, 7<sup>th</sup> International Modelica Conference</p>
         parameter Modelica.SIunits.Voltage VNominal=100
           "Nominal RMS voltage per phase";
         parameter Modelica.SIunits.Frequency fNominal=aimcData.fsNominal "Nominal frequency";
-        parameter Modelica.SIunits.AngularVelocity wSync=2*pi*fNominal/aimc.p;
+        parameter Modelica.SIunits.AngularVelocity wSync=2*pi*fNominal/aimc.p "Synchronous speed";
         parameter Modelica.SIunits.Time tStart=0.5 "Start time";
         parameter Modelica.SIunits.Torque TLoad=161.4 "Nominal load torque";
         parameter Modelica.SIunits.AngularVelocity wLoad(displayUnit="rev/min")=
@@ -2463,7 +2464,7 @@ Modelica 2009, 7<sup>th</sup> International Modelica Conference</p>
           stepTorque=-TLoad,
           offsetTorque=0) annotation (Placement(transformation(extent={{60,40},{40,60}})));
         Electrical.Machines.Utilities.TerminalBox terminalBox(terminalConnection="D") annotation (Placement(transformation(extent={{-20,56},{0,76}})));
-        parameter Electrical.Machines.Utilities.ParameterRecords.AIM_SquirrelCageData aimcData annotation (Placement(transformation(extent={{70,72},{90,92}})));
+        parameter Electrical.Machines.Utilities.ParameterRecords.AIM_SquirrelCageData aimcData "Induction machine data" annotation (Placement(transformation(extent={{70,72},{90,92}})));
       initial equation
         aimc.wMechanical = wSync;
         sum(aimc.is) = 0;
@@ -2653,7 +2654,7 @@ at time tStart a load torque step is applied.</p>
                   {80,-70}})));
         parameter
           Electrical.Machines.Utilities.ParameterRecords.AIM_SlipRingData
-          aimsData
+          aimsData "Induction machine data"
           annotation (Placement(transformation(extent={{70,72},{90,92}})));
       initial equation
         aimsE.is = zeros(3);
@@ -2853,7 +2854,7 @@ Simulate for 1.5 seconds and plot (versus time):
                   {80,-50}})));
         parameter
           Electrical.Machines.Utilities.ParameterRecords.AIM_SlipRingData
-          aimsData annotation (Placement(transformation(extent={{-100,-100},{-80,
+          aimsData "Induction machine data" annotation (Placement(transformation(extent={{-100,-100},{-80,
                   -80}})));
         Electrical.Analog.Basic.Ground groundM annotation (Placement(
               transformation(
@@ -3170,7 +3171,7 @@ Simulate for 1.5 seconds and plot (versus time):
                   {80,-70}})));
         parameter
           Electrical.Machines.Utilities.ParameterRecords.SM_PermanentMagnetData
-          smpmData
+          smpmData "Synchronous machine data"
           annotation (Placement(transformation(extent={{-40,-100},{-20,-80}})));
         Modelica.SIunits.Angle thetaM=rotorAngleM.rotorDisplacementAngle "Rotor displacement angle, FundamentalWave machine";
         Modelica.SIunits.Angle thetaE=rotorAngleE.rotorDisplacementAngle "Rotor displacement angle, Electrical machine";
@@ -3397,7 +3398,7 @@ and accelerate the inertias.</p>
                   {80,-70}})));
         parameter
           Electrical.Machines.Utilities.ParameterRecords.SM_PermanentMagnetData
-          smpmData annotation (Placement(transformation(extent={{-100,-100},{-80,
+          smpmData "Synchronous machine data" annotation (Placement(transformation(extent={{-100,-100},{-80,
                   -80}})));
         Modelica.Electrical.MultiPhase.Sources.SignalVoltage signalVoltageM(
             final m=m) annotation (Placement(transformation(
@@ -3645,7 +3646,7 @@ and accelerate the inertias. Two equivalent machines with different numbers of p
           quadraticSpeedDependentTorque(            tau_nominal=-TLoad,
             w_nominal(displayUnit="rad/s") = wNominal)
           annotation (Placement(transformation(extent={{100,-50},{80,-30}})));
-        parameter Electrical.Machines.Utilities.ParameterRecords.SM_PermanentMagnetData smpmData(useDamperCage=false) annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
+        parameter Electrical.Machines.Utilities.ParameterRecords.SM_PermanentMagnetData smpmData(useDamperCage=false) "Synchronous machine data" annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
         Electrical.Machines.Sensors.CurrentQuasiRMSSensor currentQuasiRMSSensor annotation (Placement(transformation(
               origin={-10,0},
               extent={{-10,-10},{10,10}},
@@ -3827,7 +3828,7 @@ whereas the stator voltage is influenced by the d-current.</p>
               extent={{-10,10},{10,-10}},
               rotation=180,
               origin={-30,-10})));
-        parameter Electrical.Machines.Utilities.ParameterRecords.SM_PermanentMagnetData smpmData(useDamperCage=false) annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
+        parameter Electrical.Machines.Utilities.ParameterRecords.SM_PermanentMagnetData smpmData(useDamperCage=false) "Synchronous machine data" annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
         Electrical.Machines.Sensors.CurrentQuasiRMSSensor currentQuasiRMSSensor annotation (Placement(transformation(
               origin={-10,20},
               extent={{-10,-10},{10,10}},
@@ -3955,7 +3956,7 @@ whereas the stator voltage is influenced by the d-current.</p>
               extent={{-10,-10},{10,10}},
               rotation=90,
               origin={40,0})));
-        parameter Electrical.Machines.Utilities.ParameterRecords.SM_PermanentMagnetData smpmData(useDamperCage=false) annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
+        parameter Electrical.Machines.Utilities.ParameterRecords.SM_PermanentMagnetData smpmData(useDamperCage=false) "Synchronous machine data" annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
         Electrical.Machines.Sensors.CurrentQuasiRMSSensor currentQuasiRMSSensor annotation (Placement(transformation(
               origin={-10,0},
               extent={{-10,-10},{10,10}},
@@ -4150,7 +4151,7 @@ to speed to achieve constant current and torque.</p>
           TrSpecification=293.15,
           TrRef=293.15,
           TeSpecification=293.15,
-          TeRef=293.15) annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
+          TeRef=293.15) "Synchronous machine data" annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
 
         Modelica.Electrical.MultiPhase.Ideal.IdealClosingSwitch switch(
           final m=m,
@@ -4379,8 +4380,7 @@ This noise is caused by the interaction of the high resistance of the switch and
           TsOperational=293.15,
           effectiveStatorTurns=smeeData.effectiveStatorTurns,
           TrOperational=293.15,
-          TeOperational=293.15)
-                               annotation (Placement(transformation(extent={{-10,-90},
+          TeOperational=293.15) annotation (Placement(transformation(extent={{-10,-90},
                   {10,-70}})));
 
         Modelica.Electrical.Analog.Basic.Ground groundRM annotation (Placement(
@@ -4445,7 +4445,7 @@ This noise is caused by the interaction of the high resistance of the switch and
           TrSpecification=293.15,
           TrRef=293.15,
           TeSpecification=293.15,
-          TeRef=293.15) annotation (Placement(transformation(extent={{-100,-100},
+          TeRef=293.15) "Synchronous machine data" annotation (Placement(transformation(extent={{-100,-100},
                   {-80,-80}})));
 
         Modelica.Electrical.MultiPhase.Sensors.CurrentQuasiRMSSensor
@@ -4819,7 +4819,7 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM3.rotorDisplacementAng
           TrSpecification=293.15,
           TrRef=293.15,
           TeSpecification=293.15,
-          TeRef=293.15)
+          TeRef=293.15) "Synchronous machine data"
           annotation (Placement(transformation(extent={{-80,-80},{-60,-60}})));
         Modelica.SIunits.Angle thetaM=rotorAngleM.rotorDisplacementAngle "Rotor displacement angle, FundamentalWave machine";
         Modelica.SIunits.Angle thetaE=rotorAngleE.rotorDisplacementAngle "Rotor displacement angle, Electrical machine";
@@ -5000,7 +5000,7 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM.rotorDisplacementAngl
           alpha20r(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
           TeSpecification=293.15,
           TeRef=293.15,
-          alpha20e(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero) annotation (Placement(transformation(extent={{0,-70},{20,-50}})));
+          alpha20e(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero) "Synchronous machine data" annotation (Placement(transformation(extent={{0,-70},{20,-50}})));
 
         Electrical.Machines.Utilities.TerminalBox terminalBox(terminalConnection="Y") annotation (Placement(transformation(extent={{0,-24},{20,-4}})));
         Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
@@ -5211,7 +5211,7 @@ Voltage is controlled, the set point depends on speed. After start-up the genera
           alpha20r(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
           TeSpecification=293.15,
           TeRef=293.15,
-          alpha20e(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero) annotation (Placement(transformation(extent={{0,-70},{20,-50}})));
+          alpha20e(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero) "Synchronous machine data" annotation (Placement(transformation(extent={{0,-70},{20,-50}})));
 
         Electrical.Machines.Utilities.TerminalBox terminalBox(terminalConnection="Y") annotation (Placement(transformation(extent={{0,-24},{20,-4}})));
         Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
@@ -5512,7 +5512,7 @@ Voltage is controlled, the set point depends on speed. The generator is loaded w
                   {80,-70}})));
         parameter
           Electrical.Machines.Utilities.ParameterRecords.SM_ReluctanceRotorData
-          smrData
+          smrData "Synchronous machine data"
           annotation (Placement(transformation(extent={{-40,-100},{-20,-80}})));
       initial equation
         smrE.is[1:2] = zeros(2);
@@ -5700,7 +5700,7 @@ Simulate for 1.5 seconds and plot (versus time):
                   {80,-70}})));
         parameter
           Electrical.Machines.Utilities.ParameterRecords.SM_ReluctanceRotorData
-          smrData annotation (Placement(transformation(extent={{-100,-100},{-80,
+          smrData "Synchronous machine data" annotation (Placement(transformation(extent={{-100,-100},{-80,
                   -80}})));
         Modelica.Electrical.Analog.Basic.Ground ground3 annotation (Placement(
               transformation(
@@ -7349,7 +7349,7 @@ The symmetry of the stator is assumed. For rotor asymmetries can be taken into a
             Modelica.Electrical.Machines.Thermal.convertAlpha(
                   alpha20,
                   TRef,
-                  293.15);
+                  293.15) "Temperature coefficient at reference temperature";
         parameter Modelica.SIunits.Temperature TOperational(start=293.15)
           "Operational temperature of winding"
           annotation (Dialog(enable=not useHeatPort));
@@ -7482,7 +7482,7 @@ The single phase winding consists of a winding
             Modelica.Electrical.Machines.Thermal.convertAlpha(
                   alpha20,
                   TRef,
-                  293.15);
+                  293.15) "Temperature coefficient at reference temperature";
         parameter Modelica.SIunits.Temperature TOperational(start=293.15)
           "Operational temperature of winding"
           annotation (Dialog(enable=not useHeatPort));
@@ -7773,7 +7773,7 @@ according to the following figure.
             Modelica.Electrical.Machines.Thermal.convertAlpha(
                   alpha20,
                   TRef,
-                  293.15);
+                  293.15) "Temperature coefficient at reference temperature";
         parameter Modelica.SIunits.Temperature TOperational(start=293.15)
           "Operational temperature of winding"
           annotation (Dialog(enable=not useHeatPort));
@@ -7924,7 +7924,7 @@ The symmetric rotor cage model of this library does not consist of rotor bars an
             Modelica.Electrical.Machines.Thermal.convertAlpha(
                   alpha20,
                   TRef,
-                  293.15);
+                  293.15) "Temperature coefficient at reference temperature";
         parameter Modelica.SIunits.Temperature TOperational(start=293.15)
           "Operational temperature of winding"
           annotation (Dialog(enable=not useHeatPort));
@@ -8086,7 +8086,7 @@ The permanent magnet is modeled by a magnetic potential difference. The internal
             Modelica.Electrical.Machines.Thermal.convertAlpha(
                   alpha20,
                   TRef,
-                  293.15);
+                  293.15) "Temperature coefficient at reference temperature";
         parameter Modelica.SIunits.Temperature TOperational(start=293.15)
           "Operational temperature of winding"
           annotation (Dialog(enable=not useHeatPort));
@@ -8220,7 +8220,7 @@ The symmetric rotor cage model of this library does not consist of rotor bars an
             Modelica.Electrical.Machines.Thermal.convertAlpha(
                   alpha20,
                   TRef,
-                  293.15);
+                  293.15) "Temperature coefficient at reference temperature";
         parameter Modelica.SIunits.Temperature TOperational(start=293.15)
           "Operational temperature of winding"
           annotation (Dialog(enable=not useHeatPort));
