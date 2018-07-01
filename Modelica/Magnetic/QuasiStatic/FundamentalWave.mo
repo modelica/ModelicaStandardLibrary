@@ -560,7 +560,7 @@ In this example the eddy current losses are implemented in two different ways. C
           Electrical.QuasiStationary.MultiPhase.Sensors.CurrentQuasiRMSSensor iSensorQS(m=m) annotation (Placement(transformation(extent={{-10,70},{10,90}})));
           parameter
             Modelica.Electrical.Machines.Utilities.ParameterRecords.AIM_SquirrelCageData
-            imcData "Machine data"
+            imcData "Induction machine data"
             annotation (Placement(transformation(extent={{70,72},{90,92}})));
           FundamentalWave.BasicMachines.InductionMachines.IM_SquirrelCage imcQS(
             Js=imcData.Js,
@@ -781,7 +781,7 @@ Simulate for 1 second and plot (versus imcQS.wMechanical or perUnitSpeed):
             useSupport=false) annotation (Placement(transformation(extent={{100,30},{80,50}})));
           parameter
             Modelica.Electrical.Machines.Utilities.ParameterRecords.AIM_SquirrelCageData
-            imcData "Machine data"
+            imcData "Induction machine data"
             annotation (Placement(transformation(extent={{70,72},{90,92}})));
           FundamentalWave.BasicMachines.InductionMachines.IM_SquirrelCage imcQS(
             Jr=imcData.Jr,
@@ -999,7 +999,7 @@ Simulate for 1 second and plot (versus time):
             TorqueDirection=false,
             tau_nominal=-TLoad,
             useSupport=false) annotation (Placement(transformation(extent={{100,10},{80,30}})));
-          parameter Electrical.Machines.Utilities.ParameterRecords.AIM_SquirrelCageData imcData annotation (Placement(transformation(extent={{70,72},{90,92}})));
+          parameter Electrical.Machines.Utilities.ParameterRecords.AIM_SquirrelCageData imcData "Induction machine data" annotation (Placement(transformation(extent={{70,72},{90,92}})));
 
           Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage imc(
             p=imcData.p,
@@ -1216,7 +1216,7 @@ Default machine parameters are used.</p>
                 2),
             SNominal=50E3,
             v_sc=0.06,
-            P_sc=500) annotation (Placement(transformation(extent={{80,80},{100,100}})));
+            P_sc=500) "Transformer data" annotation (Placement(transformation(extent={{80,80},{100,100}})));
           Modelica.Blocks.Sources.BooleanStep booleanStep2QS[m](each startTime=tStart2) annotation (Placement(transformation(extent={{-60,10},{-40,30}})));
           Modelica.Electrical.QuasiStationary.MultiPhase.Ideal.IdealCommutingSwitch idealCommutingSwitchQS(
             final m=m,
@@ -1232,7 +1232,7 @@ Default machine parameters are used.</p>
             useSupport=false) annotation (Placement(transformation(extent={{0,10},{20,30}})));
           Modelica.Magnetic.QuasiStatic.FundamentalWave.Utilities.TerminalBox terminalBoxQS(terminalConnection="D", m=m)
                                                                                                                     annotation (Placement(transformation(extent={{80,26},{60,46}})));
-          parameter Modelica.Electrical.Machines.Utilities.ParameterRecords.AIM_SquirrelCageData imcData annotation (Placement(transformation(extent={{80,52},{100,72}})));
+          parameter Modelica.Electrical.Machines.Utilities.ParameterRecords.AIM_SquirrelCageData imcData "Induction machine data" annotation (Placement(transformation(extent={{80,52},{100,72}})));
           Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage imc(
             p=imcData.p,
             fsNominal=imcData.fsNominal,
@@ -1451,7 +1451,7 @@ Simulate for 2.5 seconds and plot (versus time):</p>
                 origin={-70,70},
                 extent={{-10,-10},{10,10}})));
           Utilities.MultiTerminalBox terminalBoxQS(terminalConnection="Y", m=m) annotation (Placement(transformation(extent={{60,26},{40,46}})));
-          parameter Electrical.Machines.Utilities.ParameterRecords.AIM_SquirrelCageData imcData annotation (Placement(transformation(extent={{70,72},{90,92}})));
+          parameter Electrical.Machines.Utilities.ParameterRecords.AIM_SquirrelCageData imcData "Induction machine data" annotation (Placement(transformation(extent={{70,72},{90,92}})));
           Blocks.Math.Gain gainQS(k=fNominal/unitFrequency) annotation (Placement(transformation(extent={{-60,40},{-40,60}})));
           Mechanics.Translational.Components.IdealGearR2T idealGearR2TQS(ratio=1/r) annotation (Placement(transformation(extent={{32,10},{12,30}})));
           Mechanics.Translational.Components.Mass massQS(m=JLoad/r^2) annotation (Placement(transformation(extent={{0,10},{-20,30}})));
@@ -1631,15 +1631,15 @@ The mechanical load is a constant torque like a conveyor (with regularization ar
           Modelica.SIunits.ApparentPower SelQS=sqrt(PelQS^2 + QelQS^2);
         protected
           parameter Real Ptable[:]={1E-6,1845,3549,5325,7521,9372,11010,12930,
-              14950,16360,18500,18560,20180,22170};
+              14950,16360,18500,18560,20180,22170} "Table of measured power data";
           parameter Real Itable[:]={11.0,11.20,12.27,13.87,16.41,18.78,21.07,
-              23.92,27.05,29.40,32.85,32.95,35.92,39.35};
+              23.92,27.05,29.40,32.85,32.95,35.92,39.35} "Table of measured current data";
           parameter Real wtable[:]=from_rpm({1500,1496,1493,1490,1486,1482,1479,1475,1471,
-              1467,1462,1462,1458,1453});
+              1467,1462,1462,1458,1453}) "Table of measured speed data";
           parameter Real ctable[:]={0.085,0.327,0.506,0.636,0.741,0.797,0.831,
-              0.857,0.875,0.887,0.896,0.896,0.902,0.906};
+              0.857,0.875,0.887,0.896,0.896,0.902,0.906} "Table of measured power factor data";
           parameter Real etable[:]={0,0.7250,0.8268,0.8698,0.8929,0.9028,0.9064,
-              0.9088,0.9089,0.9070,0.9044,0.9043,0.9008,0.8972};
+              0.9088,0.9089,0.9070,0.9044,0.9043,0.9008,0.8972} "Table of measured efficiency data";
         public
           output Modelica.SIunits.Power PmechQS=powerSensorQS.power "Mechanical output";
           output Modelica.SIunits.Power Ps_simQS=sqrt(3)*VNominal*I_simQS*pf_simQS "Simulated stator power";
@@ -1730,7 +1730,7 @@ The mechanical load is a constant torque like a conveyor (with regularization ar
             Lm=66.4/(2*pi*fNominal),
             Lrsigma=2.31/(2*pi*fNominal),
             Rr=0.42,
-            alpha20r(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Aluminium) annotation (Placement(transformation(extent={{-60,12},{-40,32}})));
+            alpha20r(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Aluminium) "Induction machine data" annotation (Placement(transformation(extent={{-60,12},{-40,32}})));
         equation
           connect(starQS.pin_n, groundQS.pin) annotation (Line(points={{-90,30},{-90,20}}, color={85,170,255}));
           connect(sineVoltageQS.plug_n, starQS.plug_p) annotation (Line(points={{-90,60},{-90,50}}, color={85,170,255}));
@@ -1816,7 +1816,7 @@ Modelica 2009, 7<sup>th</sup> International Modelica Conference</p>
           parameter Modelica.SIunits.Voltage VNominal=100
             "Nominal RMS voltage per phase";
           parameter Modelica.SIunits.Frequency fNominal=imc.fsNominal "Nominal frequency";
-          parameter Modelica.SIunits.AngularVelocity wSync=2*pi*fNominal/imcData.p;
+          parameter Modelica.SIunits.AngularVelocity wSync=2*pi*fNominal/imcData.p "Synchronous speed";
           parameter Modelica.SIunits.Time tStart=0.5 "Start time";
           parameter Modelica.SIunits.Torque TLoad=161.4 "Nominal load torque";
           parameter Modelica.SIunits.AngularVelocity wLoad(displayUnit="rev/min")=
@@ -1872,7 +1872,7 @@ Modelica 2009, 7<sup>th</sup> International Modelica Conference</p>
           Utilities.MultiTerminalBox
                                 terminalBoxQS(m=m, terminalConnection="Y")
                                                                       annotation (Placement(transformation(extent={{-20,56},{0,76}})));
-          parameter Electrical.Machines.Utilities.ParameterRecords.AIM_SquirrelCageData imcData annotation (Placement(transformation(extent={{70,72},{90,92}})));
+          parameter Electrical.Machines.Utilities.ParameterRecords.AIM_SquirrelCageData imcData "Induction machine data" annotation (Placement(transformation(extent={{70,72},{90,92}})));
 
           Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage imc(
             p=imcData.p,
@@ -2045,7 +2045,7 @@ Default machine parameters of model <em>AIM_SquirrelCage</em> are used.
             TrOperational=566.3) annotation (Placement(transformation(extent={{20,30},{40,50}})));
           parameter
             Modelica.Electrical.Machines.Utilities.ParameterRecords.AIM_SlipRingData
-            imsData "Machine data"
+            imsData "Induction machine data"
             annotation (Placement(transformation(extent={{70,72},{90,92}})));
           Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VoltageSource vSourceQS(
             m=m,
@@ -2292,7 +2292,7 @@ Simulate for 1 second and plot (versus imsQS.wMechanical or perUnitSpeed):
             w_nominal=w_Load) annotation (Placement(transformation(extent={{100,30},{80,50}})));
           parameter
             Modelica.Electrical.Machines.Utilities.ParameterRecords.AIM_SlipRingData
-            imsData "Machine data"
+            imsData "Induction machine data"
             annotation (Placement(transformation(extent={{70,72},{90,92}})));
           Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VoltageSource
             voltageSourceQS(
@@ -2516,7 +2516,7 @@ Simulate for 1.5 seconds and plot (versus time):
                   extent={{80,-10},{60,10}})));
           parameter
             Modelica.Electrical.Machines.Utilities.ParameterRecords.SM_PermanentMagnetData
-            smpmData(useDamperCage=false) "Machine data"
+            smpmData(useDamperCage=false) "Synchronous machine data"
             annotation (Placement(transformation(extent={{70,72},{90,92}})));
           Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Star starQS(m=m)
             annotation (Placement(transformation(
@@ -2717,7 +2717,7 @@ Simulate for 0.1 second and plot (versus time):
             offsetTorque=0) annotation (Placement(transformation(extent={{100,30},{80,50}})));
           parameter
             Modelica.Electrical.Machines.Utilities.ParameterRecords.SM_PermanentMagnetData
-            smpmData(useDamperCage=true) "Machine data"
+            smpmData(useDamperCage=true) "Synchronous machine data"
             annotation (Placement(transformation(extent={{70,72},{90,92}})));
           Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Ground
             groundMachineQS annotation (Placement(transformation(
@@ -3008,7 +3008,7 @@ Simulate for 1 second and plot (versus time):
             annotation (Placement(transformation(extent={{100,-90},{80,-70}})));
           parameter
             Modelica.Electrical.Machines.Utilities.ParameterRecords.SM_PermanentMagnetData
-            smpmData(useDamperCage=false) "Machine data"
+            smpmData(useDamperCage=false) "Synchronous machine data"
             annotation (Placement(transformation(extent={{70,72},{90,92}})));
           Modelica.Electrical.MultiPhase.Sensors.CurrentQuasiRMSSensor currentRMSsensor(m=m)
             annotation (Placement(transformation(
@@ -3247,7 +3247,7 @@ to numerically stabilize the simulation.</p>
             fsNominal=fNominal,
             Lmd=0.1/(2*pi*fNominal),
             Lmq=0.3/(2*pi*fNominal),
-            TsRef=373.15)                 "Machine data"
+            TsRef=373.15) "Synchronous machine data"
             annotation (Placement(transformation(extent={{60,40},{80,60}})));
           Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.SynchronousMachines.SM_PermanentMagnet
             smpmQS(
@@ -3596,7 +3596,7 @@ to numerically stabilize the simulation.</p>
             TrSpecification=293.15,
             TrRef=293.15,
             TeSpecification=293.15,
-            TeRef=293.15) "Machine data"
+            TeRef=293.15) "Synchronous machine data"
             annotation (Placement(transformation(extent={{70,70},{90,90}})));
 
           Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VoltageSource
@@ -3898,7 +3898,7 @@ Simulate for 30 seconds and plot versus <code>rotorAngle|rotorAngleQS.rotorDispl
                 origin={20,90})));
           parameter
             Modelica.Electrical.Machines.Utilities.ParameterRecords.SM_ReluctanceRotorData
-            smrData(useDamperCage=false)
+            smrData(useDamperCage=false) "Synchronous machine data"
             annotation (Placement(transformation(extent={{70,72},{90,92}})));
           FundamentalWave.BasicMachines.SynchronousMachines.SM_ReluctanceRotor
             smrQS(
@@ -5643,7 +5643,7 @@ Magnetic.FundamentalWave.BasicMachines.SM_ReluctanceRotor</a>,
             Modelica.Electrical.Machines.Thermal.convertAlpha(
                   alpha20,
                   TRef,
-                  293.15);
+                  293.15) "Temperature coefficient of winding at reference temperature";
         parameter Modelica.SIunits.Temperature TOperational(start=293.15)
           "Operational temperature of winding"
           annotation (Dialog(enable=not useHeatPort));
@@ -5818,7 +5818,7 @@ Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding</a>
             Modelica.Electrical.Machines.Thermal.convertAlpha(
                   alpha20,
                   TRef,
-                  293.15);
+                  293.15) "Temperature coefficient of winding at reference temperature";
         parameter Modelica.SIunits.Temperature TOperational(start=293.15)
           "Operational temperature of winding"
           annotation (Dialog(enable=not useHeatPort));
@@ -6070,7 +6070,7 @@ Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap</a>
             Modelica.Electrical.Machines.Thermal.convertAlpha(
                   alpha20,
                   TRef,
-                  293.15);
+                  293.15) "Temperature coefficient of winding at reference temperature";
         parameter Modelica.SIunits.Temperature TOperational(start=293.15)
           "Operational temperature of winding"
           annotation (Dialog(enable=not useHeatPort));
@@ -6215,7 +6215,7 @@ Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap</a>
             Modelica.Electrical.Machines.Thermal.convertAlpha(
                   alpha20,
                   TRef,
-                  293.15);
+                  293.15) "Temperature coefficient of winding at reference temperature";
         parameter Modelica.SIunits.Temperature TOperational(start=293.15)
           "Operational temperature of winding"
           annotation (Dialog(enable=not useHeatPort));
@@ -7573,15 +7573,15 @@ The output voltages may serve as inputs for complex voltage sources with phase i
 
     model TerminalBox "Terminal box Y/D-connection"
       parameter Integer m(min=1) = 3 "Number of phases";
-      parameter String terminalConnection(start="Y") "Choose Y=star/D=delta"
+      parameter String terminalConnection(start="Y") "Choose \"Y\" for star or \"D\" for delta connection"
         annotation (choices(choice="Y" "Star connection", choice="D"
             "Delta connection"));
       Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug
-        plug_sp(final m=m) "To positive stator plug" annotation (Placement(
+        plug_sp(final m=m) "To be connected with positive stator plug" annotation (Placement(
             transformation(extent={{50,-50},{70,-70}}),
             iconTransformation(extent={{50,-50},{70,-70}})));
       Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.NegativePlug
-        plug_sn(final m=m) "To negative stator plug" annotation (Placement(
+        plug_sn(final m=m) "To be connected with negative stator plug" annotation (Placement(
             transformation(extent={{-70,-50},{-50,-70}}),
             iconTransformation(extent={{-70,-50},{-50,-70}})));
       Electrical.QuasiStationary.MultiPhase.Basic.Star star(final m=m) if (
@@ -7593,11 +7593,11 @@ The output voltages may serve as inputs for complex voltage sources with phase i
         terminalConnection == "D") annotation (Placement(transformation(extent=
                 {{-20,-70},{-40,-50}})));
       Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug
-        plugSupply(final m=m) "To grid" annotation (Placement(transformation(
+        plugSupply(final m=m) "To be connected with grid" annotation (Placement(transformation(
               extent={{-10,-30},{10,-50}}), iconTransformation(
               extent={{-10,-30},{10,-50}})));
       Electrical.QuasiStationary.SinglePhase.Interfaces.NegativePin starpoint if
-           (terminalConnection <> "D") annotation (Placement(transformation(
+           (terminalConnection <> "D") "Star point" annotation (Placement(transformation(
               extent={{-110,-50},{-90,-30}}), iconTransformation(
               extent={{-110,-50},{-90,-30}})));
     equation
@@ -7622,25 +7622,29 @@ The output voltages may serve as inputs for complex voltage sources with phase i
                   fillColor={135,135,135},
                   fillPattern=FillPattern.Solid)}),
         Documentation(info="<html>
-TerminalBox: at the bottom connected to both machine plugs, connect at the top to the grid as usual,<br>
-choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
+<p>
+This model represents the internal connections of the terminal box of an electric machine. 
+The parameter <code>terminalConnection</code> is used to switch between star 
+(<code>terminalConnection = \"Y\"</code>) and delta (<code>terminalConnection = \"D\"</code>) connection. 
+The (single phase) connector <code>starPoint</code> is only availabile if star connection is selected. 
+</p>
 </html>"));
     end TerminalBox;
 
     model MultiTerminalBox "Terminal box Y/D-connection"
       parameter Integer m(min=1) = 3 "Number of phases";
       final parameter Integer mSystems=
-          Electrical.MultiPhase.Functions.numberOfSymmetricBaseSystems(m);
-      final parameter Integer mBasic=integer(m/mSystems);
-      parameter String terminalConnection(start="Y") "Choose Y=star/D=delta"
+          Electrical.MultiPhase.Functions.numberOfSymmetricBaseSystems(m) "Number of symmetric base systems";
+      final parameter Integer mBasic=integer(m/mSystems) "Number of phases of basic system";
+      parameter String terminalConnection(start="Y") "Choose \"Y\" for star or \"D\" for delta connection"
         annotation (choices(choice="Y" "Star connection", choice="D"
             "Delta connection"));
       Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug
-        plug_sp(final m=m) "To positive stator plug" annotation (Placement(
+        plug_sp(final m=m) "To be connected with positive stator plug" annotation (Placement(
             transformation(extent={{50,-50},{70,-70}}),
             iconTransformation(extent={{50,-50},{70,-70}})));
       Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.NegativePlug
-        plug_sn(final m=m) "To negative stator plug" annotation (Placement(
+        plug_sn(final m=m) "To be connected with negative stator plug" annotation (Placement(
             transformation(extent={{-70,-50},{-50,-70}}),
             iconTransformation(extent={{-70,-50},{-50,-70}})));
       Electrical.QuasiStationary.MultiPhase.Basic.MultiStar multiStar(final m=m) if
@@ -7652,11 +7656,11 @@ choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
            m) if (terminalConnection == "D") annotation (Placement(
             transformation(extent={{-20,-70},{-40,-50}})));
       Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug
-        plugSupply(final m=m) "To grid" annotation (Placement(transformation(
+        plugSupply(final m=m) "To be connected with grid" annotation (Placement(transformation(
               extent={{-10,-30},{10,-50}}), iconTransformation(
               extent={{-10,-30},{10,-50}})));
       Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.NegativePlug
-        starpoint(final m=mSystems) if (terminalConnection <> "D") annotation (
+        starpoint(final m=mSystems) if (terminalConnection <> "D") "Star point" annotation (
           Placement(transformation(extent={{-110,-50},{-90,-30}}),
             iconTransformation(extent={{-110,-50},{-90,-30}})));
     equation
@@ -7681,8 +7685,18 @@ choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
                   extent={{-40,-50},{40,-90}},
                   textString="%terminalConnection")}),
         Documentation(info="<html>
-TerminalBox: at the bottom connected to both machine plugs, connect at the top to the grid as usual,<br>
-choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
+<p>
+This model represents the internal connections of the terminal box of an electric machine. 
+The parameter <code>terminalConnection</code> is used to switch between star 
+(<code>terminalConnection = \"Y\"</code>) and delta (<code>terminalConnection = \"D\"</code>) connection.
+</p>
+
+<p>The connector <code>starPoint</code> is only availabile if star connection is selected. 
+This connector is a plug with 
+<code>mSystem = Electrical.MultiPhase.Functions.numberOfSymmetricBaseSystems(m)</code> phases, 
+representing the star points of each base system; see 
+<a href=\"Modelica.Magnetic.FundamentalWave.UsersGuide.MultiPhase\">Modelica.Magnetic.FundamentalWave.UsersGuide.MultiPhase</a>.
+</p>
 </html>"));
     end MultiTerminalBox;
 
