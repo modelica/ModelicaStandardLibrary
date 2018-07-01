@@ -985,7 +985,7 @@ Connects the single phase (negative) pin <code>k</code> of the multi phase (nega
     end PlugToPin_n;
 
     model PlugToPins_p "Connect all (positive) pins"
-      parameter Integer m(final min=1) = 3 "number of phases";
+      parameter Integer m(final min=1) = 3 "Number of phases";
       Interfaces.PositivePlug plug_p(final m=m) annotation (Placement(
             transformation(extent={{-30,-10},{-10,10}})));
       QuasiStationary.SinglePhase.Interfaces.PositivePin pin_p[m] annotation (
@@ -1029,7 +1029,7 @@ Connects all <code>m</code> single phase (positive) pins of the multi phase (pos
     end PlugToPins_p;
 
     model PlugToPins_n "Connect all (negative) pins"
-      parameter Integer m(final min=1) = 3 "number of phases";
+      parameter Integer m(final min=1) = 3 "Number of phases";
       Interfaces.NegativePlug plug_n(final m=m) annotation (Placement(
             transformation(extent={{-30,-10},{-10,10}})));
       QuasiStationary.SinglePhase.Interfaces.NegativePin pin_n[m] annotation (
@@ -3179,7 +3179,7 @@ value of a multi phase current system, by averaging the phase RMS current phasor
 
     model PowerSensor "Power sensor"
       extends Modelica.Icons.RotationalSensor;
-      parameter Integer m(min=1) = 3 "number of phases";
+      parameter Integer m(min=1) = 3 "Number of phases";
       Modelica.SIunits.AngularVelocity omega=der(currentP.reference.gamma);
       Interfaces.PositivePlug currentP(final m=m) annotation (Placement(
             transformation(extent={{-110,-10},{-90,10}})));
@@ -4229,7 +4229,7 @@ a <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Plug
 
     partial model AbsoluteSensor "Partial potential sensor"
       extends Modelica.Icons.RotationalSensor;
-      parameter Integer m(min=1) = 3 "number of phases";
+      parameter Integer m(min=1) = 3 "Number of phases";
       Modelica.SIunits.AngularVelocity omega;
       PositivePlug plug_p(final m=m)
         "Positive quasi-static polyphase plug" annotation (Placement(
