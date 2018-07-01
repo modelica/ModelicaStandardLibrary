@@ -4134,7 +4134,7 @@ Default machine parameters of model <em>DC_PermanentMagnet</em> are used.
           annotation (Placement(transformation(extent={{20,20},{0,40}})));
         Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
               transformation(
-              origin={-10,0},
+              origin={-18,0},
               extent={{-10,-10},{10,10}},
               rotation=270)));
         Modelica.Mechanics.Rotational.Components.Inertia loadInertia(J=JLoad)
@@ -4172,15 +4172,15 @@ Default machine parameters of model <em>DC_PermanentMagnet</em> are used.
           annotation (Placement(transformation(extent={{-50,50},{-30,70}})));
       equation
         connect(signalVoltage.n, ground.p)
-          annotation (Line(points={{0,30},{0,0}},      color={0,0,255}));
-        connect(dcpm.pin_an, signalVoltage.n) annotation (Line(points={{4,-10},{4,0},{
-                0,0},{0,30}},                  color={0,0,255}));
+          annotation (Line(points={{0,30},{0,-1.77636e-15},{-8,-1.77636e-15}},
+                                                       color={0,0,255}));
         connect(loadInertia.flange_b, loadTorque.flange)
           annotation (Line(points={{60,-20},{70,-20}}));
         connect(dcpm.flange, loadInertia.flange_a) annotation (Line(
             points={{20,-20},{40,-20}}));
         connect(dcpm.pin_an, ground.p)
-          annotation (Line(points={{4,-10},{4,0},{0,0}}, color={0,0,255}));
+          annotation (Line(points={{4,-10},{4,-1.77636e-15},{-8,-1.77636e-15}},
+                                                         color={0,0,255}));
         connect(signalVoltage.p, currentSensor.p)
           annotation (Line(points={{20,30},{20,20}}, color={0,0,255}));
         connect(currentSensor.n, dcpm.pin_ap)
@@ -17250,15 +17250,15 @@ If <em>control</em> is true, plug_sp and plug_sn are delta connected and they ar
 
     model TerminalBox "Terminal box Y/D-connection"
       parameter Integer m=3 "Number of phases";
-      parameter String terminalConnection(start="Y") "Choose Y=star/D=delta"
+      parameter String terminalConnection(start="Y") "Choose \"Y\" for star or \"D\" for delta connection"
         annotation (choices(choice="Y" "Star connection", choice="D"
             "Delta connection"));
       Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_sp(final m=m)
-        "To positive stator plug" annotation (Placement(transformation(extent={{50,-50},
+        "To be connected with positive stator plug" annotation (Placement(transformation(extent={{50,-50},
                 {70,-70}}), iconTransformation(extent={{
                 50,-50},{70,-70}})));
       Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug_sn(final m=m)
-        "To negative stator plug" annotation (Placement(transformation(extent={{-70,-50},
+        "To be connected with negative stator plug" annotation (Placement(transformation(extent={{-70,-50},
                 {-50,-70}}), iconTransformation(extent={
                 {-70,-50},{-50,-70}})));
       Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) if (
@@ -17270,12 +17270,12 @@ If <em>control</em> is true, plug_sp and plug_sn are delta connected and they ar
         terminalConnection == "D") annotation (Placement(transformation(extent=
                 {{-20,-70},{-40,-50}})));
       Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plugSupply(final m=
-           m) "To grid" annotation (Placement(transformation(extent={{-10,-30},
+           m) "To be connected with grid" annotation (Placement(transformation(extent={{-10,-30},
                 {10,-50}}), iconTransformation(extent={{-10,-30},{
                 10,-50}})));
       Modelica.Electrical.Analog.Interfaces.NegativePin starpoint if (
-        terminalConnection <> "D") annotation (Placement(transformation(extent={{-110,-50},{-90,-30}}),
-                                  iconTransformation(extent={{-110,-50},{-90,-30}})));
+        terminalConnection <> "D") "Star point" annotation (Placement(transformation(extent={{-110,-50},{-90,-30}}),
+          iconTransformation(extent={{-110,-50},{-90,-30}})));
     equation
       connect(plug_sn, star.plug_p)
         annotation (Line(points={{-60,-60},{-60,-80}}, color={0,0,255}));
@@ -17295,8 +17295,12 @@ If <em>control</em> is true, plug_sp and plug_sn are delta connected and they ar
               fillPattern=FillPattern.Solid), Text(
               extent={{-40,-50},{40,-90}},
               textString="%terminalConnection")}), Documentation(info="<html>
-TerminalBox: at the bottom connected to both machine plugs, connect at the top to the grid as usual,<br>
-choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
+<p>
+This model represents the internal connections of the terminal box of an electric machine. 
+The parameter <code>terminalConnection</code> is used to switch between star 
+(<code>terminalConnection = \"Y\"</code>) and delta (<code>terminalConnection = \"D\"</code>) connection. 
+The (single phase) connector <code>starPoint</code> is only availabile if star connection is selected. 
+</p>
 </html>"));
     end TerminalBox;
 
@@ -17304,17 +17308,17 @@ choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
       parameter Integer m(min=1) = 3 "Number of phases";
       final parameter Integer mSystems=
           Modelica.Electrical.MultiPhase.Functions.numberOfSymmetricBaseSystems(
-          m) "Number of symmetrical base systems";
+          m) "Number of symmetric base systems";
       final parameter Integer mBasic=integer(m/mSystems) "Number of phases of basic system";
-      parameter String terminalConnection(start="Y") "Choose Y=star/D=delta"
+      parameter String terminalConnection(start="Y") "Choose \"Y\" for star or \"D\" for delta connection"
         annotation (choices(choice="Y" "Star connection", choice="D"
             "Delta connection"));
       Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_sp(final m=m)
-        "To positive stator plug" annotation (Placement(transformation(extent={{50,-50},
+        "To be connected with positive stator plug" annotation (Placement(transformation(extent={{50,-50},
                 {70,-70}}), iconTransformation(extent={{
                 50,-50},{70,-70}})));
       Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug_sn(final m=m)
-        "To negative stator plug" annotation (Placement(transformation(extent={{-70,-50},
+        "To be connected with negative stator plug" annotation (Placement(transformation(extent={{-70,-50},
                 {-50,-70}}), iconTransformation(extent={
                 {-70,-50},{-50,-70}})));
       MultiPhase.Basic.MultiStar multiStar(final m=m) if (terminalConnection
@@ -17325,11 +17329,11 @@ choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
       MultiPhase.Basic.MultiDelta multiDelta(final m=m) if (terminalConnection
          == "D") annotation (Placement(transformation(extent={{-20,-70},{-40,-50}})));
       Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plugSupply(final m=
-           m) "To grid" annotation (Placement(transformation(extent={{-10,-30},
+           m) "To be connected with grid" annotation (Placement(transformation(extent={{-10,-30},
                 {10,-50}}), iconTransformation(extent={{-10,-30},{
                 10,-50}})));
       Modelica.Electrical.MultiPhase.Interfaces.NegativePlug starpoint(final m=
-            mSystems) if (terminalConnection <> "D") annotation (Placement(
+            mSystems) if (terminalConnection <> "D") "Star point" annotation (Placement(
             transformation(extent={{-110,-50},{-90,-30}}),
             iconTransformation(extent={{-110,-50},{-90,-30}})));
     equation
@@ -17353,8 +17357,15 @@ choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
               extent={{-40,-50},{40,-90}},
               textString="%terminalConnection")}),
         Documentation(info="<html>
-TerminalBox: at the bottom connected to both machine plugs, connect at the top to the grid as usual,<br>
-choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
+<p>
+This model represents the internal connections of the terminal box of an electric machine. 
+The parameter <code>terminalConnection</code> is used to switch between star 
+(<code>terminalConnection = \"Y\"</code>) and delta (<code>terminalConnection = \"D\"</code>) connection.
+The star point is a plug with 
+<code>mSystem = Electrical.MultiPhase.Functions.numberOfSymmetricBaseSystems(m)</code> phases, 
+representing the star points of each base system; see 
+<a href=\"Modelica.Magnetic.FundamentalWave.UsersGuide.MultiPhase\">Modelica.Magnetic.FundamentalWave.UsersGuide.MultiPhase</a>.
+</p>
 </html>"));
     end MultiTerminalBox;
 
