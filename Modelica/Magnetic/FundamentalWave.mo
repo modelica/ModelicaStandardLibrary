@@ -7349,7 +7349,7 @@ The symmetry of the stator is assumed. For rotor asymmetries can be taken into a
             Modelica.Electrical.Machines.Thermal.convertAlpha(
                   alpha20,
                   TRef,
-                  293.15) "Temperature coefficient at reference temperature";
+                  293.15) "Temperature coefficient of winding at reference temperature";
         parameter Modelica.SIunits.Temperature TOperational(start=293.15)
           "Operational temperature of winding"
           annotation (Dialog(enable=not useHeatPort));
@@ -7482,7 +7482,7 @@ The single phase winding consists of a winding
             Modelica.Electrical.Machines.Thermal.convertAlpha(
                   alpha20,
                   TRef,
-                  293.15) "Temperature coefficient at reference temperature";
+                  293.15) "Temperature coefficient of winding at reference temperature";
         parameter Modelica.SIunits.Temperature TOperational(start=293.15)
           "Operational temperature of winding"
           annotation (Dialog(enable=not useHeatPort));
@@ -7773,7 +7773,7 @@ according to the following figure.
             Modelica.Electrical.Machines.Thermal.convertAlpha(
                   alpha20,
                   TRef,
-                  293.15) "Temperature coefficient at reference temperature";
+                  293.15) "Temperature coefficient of winding at reference temperature";
         parameter Modelica.SIunits.Temperature TOperational(start=293.15)
           "Operational temperature of winding"
           annotation (Dialog(enable=not useHeatPort));
@@ -7924,7 +7924,7 @@ The symmetric rotor cage model of this library does not consist of rotor bars an
             Modelica.Electrical.Machines.Thermal.convertAlpha(
                   alpha20,
                   TRef,
-                  293.15) "Temperature coefficient at reference temperature";
+                  293.15) "Temperature coefficient of winding at reference temperature";
         parameter Modelica.SIunits.Temperature TOperational(start=293.15)
           "Operational temperature of winding"
           annotation (Dialog(enable=not useHeatPort));
@@ -8086,7 +8086,7 @@ The permanent magnet is modeled by a magnetic potential difference. The internal
             Modelica.Electrical.Machines.Thermal.convertAlpha(
                   alpha20,
                   TRef,
-                  293.15) "Temperature coefficient at reference temperature";
+                  293.15) "Temperature coefficient of winding at reference temperature";
         parameter Modelica.SIunits.Temperature TOperational(start=293.15)
           "Operational temperature of winding"
           annotation (Dialog(enable=not useHeatPort));
@@ -8220,7 +8220,7 @@ The symmetric rotor cage model of this library does not consist of rotor bars an
             Modelica.Electrical.Machines.Thermal.convertAlpha(
                   alpha20,
                   TRef,
-                  293.15) "Temperature coefficient at reference temperature";
+                  293.15) "Temperature coefficient of winding at reference temperature";
         parameter Modelica.SIunits.Temperature TOperational(start=293.15)
           "Operational temperature of winding"
           annotation (Dialog(enable=not useHeatPort));
