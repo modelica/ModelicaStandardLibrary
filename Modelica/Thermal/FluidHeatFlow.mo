@@ -2691,7 +2691,7 @@ leads to neglect of temperature transient cv*m*der(T).
         dp = 0;
         flange_a.tau = 0;
       else
-        dp = -dp1*(1-V_flow/V_flow1);
+        dp = -dp1*(1-noEvent(abs(V_flow/V_flow1)));
         flange_a.tau*w = -dp*V_flow;
       end if;
       // no energy exchange with medium
