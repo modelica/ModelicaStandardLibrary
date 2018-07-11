@@ -291,7 +291,7 @@ A declaration can have an annotation <code>choices</code> containing modifiers o
 This is a hint for users of the model, and can also be used by the user interface to suggest reasonable redeclaration, where the string comments on the choice declaration can be used as textual explanations of the choices.  The annotation is not restricted to replaceable elements but can also be applied to non-replaceable elements, enumeration types, and simple variables.
 </p>
 <p>
-For a Boolean variable, a <code>choices</code> annotation may contain the definition <code>checkbox = true</code>, meaning to display a checkbox to input the values <code>false</code> or <code>true</code> in the graphical user interface.
+For a Boolean variable, a <code>choices</code> annotation may contain the definition <code>checkBox = true</code>, meaning to display a checkbox to input the values <code>false</code> or <code>true</code> in the graphical user interface.
 </p>
 
 <h4>Examples</h4>
