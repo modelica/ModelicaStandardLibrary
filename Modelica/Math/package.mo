@@ -11313,8 +11313,8 @@ This transformation is widely used for transforming non-symmetric matrices to a 
     if n > 0 then
       if n == 1 then
         H := A;
-        V := {{1}};
-        tau := {1.0};
+        V := {{0.0}};
+        tau := zeros(0);
         info := 0;
       else
         (Aout, tau, info) := LAPACK.dgehrd(A, ilo, ihi);
