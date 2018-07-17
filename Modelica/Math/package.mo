@@ -11311,17 +11311,25 @@ This transformation is widely used for transforming non-symmetric matrices to a 
 
     algorithm
     if n > 0 then
-      (Aout, tau, info) := LAPACK.dgehrd(A, ilo, ihi);
-      H[1:2, 1:n] := Aout[1:2, 1:n];
-      for i in 3:n loop
-        H[i, (i - 1):n] := Aout[i, (i - 1):n];
-        H[i, 1:(i - 2)] := zeros(i - 2);
-      end for;
-      for i in 1:min(n - 2, ihi) loop
-        V[i + 1, i] := 1.0;
-        V[i + 2:n, i] := Aout[i + 2:n, i];
-      end for;
-      V[n, n - 1] := 1;
+      if n == 1 then
+        H := A;
+        V := {{1}};
+        tau := {1.0};
+        info := 0;
+      else
+        (Aout, tau, info) := LAPACK.dgehrd(A, ilo, ihi);
+        H := zeros(size(H, 1), size(H, 2));
+        H[1:2, 1:n] := Aout[1:2, 1:n];
+        for i in 3:n loop
+          H[i, (i - 1):n] := Aout[i, (i - 1):n];
+        end for;
+        V := zeros(size(V, 1), size(V, 2));
+        for i in ilo:min(n - 2, ihi) loop
+          V[i + 1, i] := 1.0;
+          V[(i + 2):n, i] := Aout[(i + 2):n, i];
+        end for;
+        V[n, n - 1] := 1;
+      end if;
     end if;
     annotation (Documentation(info="<html>
    <h4>Syntax</h4>
