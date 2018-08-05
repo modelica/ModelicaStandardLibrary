@@ -2395,6 +2395,14 @@ have been <font color=\"blue\"><strong>improved</strong></font> in a
     <td>Added optional reset and set value inputs.</td></tr>
 <tr><td>LimPID</td>
     <td>Added an optional feed-forward input.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Blocks.Sources</strong></td></tr>
+<tr><td>CombiTimeTable</td>
+    <td>The time events were not considered at the interval boundaries in case of linear interpolation and non-replicated sample points. This has been generalized by introduction of the new parameter <code>timeEvents</code> with the default option to always generate time events at the interval boundaries, which might lead to slower, but more accurate simulations.</td></tr>
+<tr><td>BooleanTable<br>IntegerTable</td>
+    <td>Added options to set start time, shift time and extrapolation kind, especially to set periodic extrapolation.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Blocks.Tables</strong></td></tr>
+<tr><td>CombiTable1D<br>CombiTable1Ds<br>CombiTable2D</td>
+    <td>Added option to set the extrapolation kind and to optionally print a warning in case of extrapolated table input.</td></tr>
 </table>
 
 <p><br>
@@ -2404,12 +2412,12 @@ The following <font color=\"blue\"><strong>existing components</strong></font> h
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
 <tr><td colspan=\"2\"><strong>Modelica.Mechanics.MultiBody</strong></td></tr>
 <tr><td>World</td>
-    <td>Added new parameter animateGround for optional ground plane visualization.<br>
+    <td>Added new parameter <code>animateGround</code> for optional ground plane visualization.<br>
 	Users that have copied the World model (of MSL 3.0, 3.0.1, 3.1, 3.2, 3.2.1, or 3.2.2) as an own World model and used it as inner world component, might have broken their models. 
     Generally, for MSL models with sub-typing (due to inner/outer), it is strongly suggested to extend from this MSL model, instead of copying it.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Media.Interfaces</strong></td></tr>
 <tr><td>PartialMedium</td>
-    <td>Added new constant C_default as default value for the trace substances of medium.<br>
+    <td>Added new constant <code>C_default</code> as default value for the trace substances of medium.<br>
     Users that have created an own medium by inheritance from the PartialMedium package and already added the C_default constant, might have broken their models.<br>
     Users that have copied the PartialMedium package (of MSL 3.0, 3.0.1, 3.1, 3.2, 3.2.1, or 3.2.2) as an own Medium package, might have broken their models.
     Generally, for MSL classes with sub-typing (due to a replaceable declaration), it is strongly suggested to extend from this MSL class, instead of copying it.</td></tr>
@@ -2424,8 +2432,6 @@ that can lead to wrong simulation results):
 <tr><td colspan=\"2\"><strong>Modelica.Blocks.Sources</strong></td></tr>
 <tr><td>TimeTable</td>
     <td>The derivative of the TimeTable output could no longer be determined. This has been corrected.</td></tr>
-<tr><td>CombiTimeTable</td>
-    <td>The time events were not considered at the interval boundaries (in case of linear interpolation and non-replicated sample points). This has been generalized by introduction of the new parameter <code>timeEvents</code> with the default option to always generate time events at the interval boundaries.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Media.IdealGases.Common.SingleGasesData</strong></td></tr>
 <tr><td>CH2<br>CH3<br>CH3OOH<br>C2CL2<br>C2CL4<br>C2CL6<br>C2HCL<br>C2HCL3<br>CH2CO_ketene<br>O_CH_2O<br>HO_CO_2OH<br>CH2BrminusCOOH<br>C2H3CL<br>CH2CLminusCOOH<br>HO2<br>HO2minus<br>OD<br>ODminus</td>
     <td>The coefficients for <code>blow</code>, <code>ahigh</code> and <code>bhigh</code> were wrong. This has been corrected.</td></tr>
