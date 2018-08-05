@@ -2407,6 +2407,12 @@ The following <font color=\"blue\"><strong>existing components</strong></font> h
     <td>Added new parameter animateGround for optional ground plane visualization.<br>
 	Users that have copied the World model (of MSL 3.0, 3.0.1, 3.1, 3.2, 3.2.1, or 3.2.2) as an own World model and used it as inner world component, might have broken their models. 
     Generally, for MSL models with sub-typing (due to inner/outer), it is strongly suggested to extend from this MSL model, instead of copying it.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Media.Interfaces</strong></td></tr>
+<tr><td>PartialMedium</td>
+    <td>Added new constant C_default as default value for the trace substances of medium.<br>
+    Users that have created an own medium by inheritance from the PartialMedium package and already added the C_default constant, might have broken their models.<br>
+    Users that have copied the PartialMedium package (of MSL 3.0, 3.0.1, 3.1, 3.2, 3.2.1, or 3.2.2) as an own Medium package, might have broken their models.
+    Generally, for MSL classes with sub-typing (due to a replaceable declaration), it is strongly suggested to extend from this MSL class, instead of copying it.</td></tr>
 </table>
 
 <p><br>
