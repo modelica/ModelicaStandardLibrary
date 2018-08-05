@@ -2394,7 +2394,19 @@ have been <font color=\"blue\"><strong>improved</strong></font> in a
 <tr><td>Integrator<br>LimIntegrator</td>
     <td>Added optional reset and set value inputs.</td></tr>
 <tr><td>LimPID</td>
-    <td> Added an optional feed-forward input.</td></tr>
+    <td>Added an optional feed-forward input.</td></tr>
+</table>
+
+<p><br>
+The following <font color=\"blue\"><strong>existing components</strong></font> have been <font color=\"blue\"><strong>changed</strong></font> in a <font color=\"blue\"><strong>non-backward compatible</strong></font> way:
+</p>
+
+<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<tr><td colspan=\"2\"><strong>Modelica.Mechanics.MultiBody</strong></td></tr>
+<tr><td>World</td>
+    <td>Added new parameter animateGround for optional ground plane visualization.<br>
+	Users that have copied the World model (of MSL 3.0, 3.0.1, 3.1, 3.2, 3.2.1, or 3.2.2) as an own World model and used it as inner world component, might have broken their models. 
+    Generally, for MSL models with sub-typing (due to inner/outer), it is strongly suggested to extend from this MSL model, instead of copying it.</td></tr>
 </table>
 
 <p><br>
