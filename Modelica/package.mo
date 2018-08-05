@@ -2413,7 +2413,7 @@ The following <font color=\"blue\"><strong>existing components</strong></font> h
 <tr><td colspan=\"2\"><strong>Modelica.Mechanics.MultiBody</strong></td></tr>
 <tr><td>World</td>
     <td>Added new parameter <code>animateGround</code> for optional ground plane visualization.<br>
-	Users that have copied the World model (of MSL 3.0, 3.0.1, 3.1, 3.2, 3.2.1, or 3.2.2) as an own World model and used it as inner world component, might have broken their models. 
+    Users that have copied the World model (of MSL 3.0, 3.0.1, 3.1, 3.2, 3.2.1, or 3.2.2) as an own World model and used it as inner world component, might have broken their models. 
     Generally, for MSL models with sub-typing (due to inner/outer), it is strongly suggested to extend from this MSL model, instead of copying it.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Media.Interfaces</strong></td></tr>
 <tr><td>PartialMedium</td>
