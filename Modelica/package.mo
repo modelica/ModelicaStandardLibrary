@@ -2325,8 +2325,6 @@ to <font color=\"blue\"><strong>existing</strong></font> libraries:
     <td> A simple model of an open tank.</td></tr>
 <tr><td width=\"150\">Cylinder</td>
     <td> A simple model of a piston/cylinder with translational flange.</td></tr>
-<tr><td width=\"150\">PumpTurbine</td>
-    <td> An improved version of the Sources.IdealPump model (might replace the idealPump in a future version)</td></tr>
 <tr><td width=\"150\">OneWayValve</td>
     <td> A simple one way valve model (comparable to an electrical ideal diode)</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Thermal.FluidHeatFlow.Media</strong></td></tr>
