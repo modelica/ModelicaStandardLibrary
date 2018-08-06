@@ -2208,7 +2208,7 @@ The following <font color=\"blue\"><strong>new libraries</strong></font> have be
     </td></tr>
 <tr><td><a href=\"modelica://Modelica.Electrical.Machines.Examples.ControlledDCDrives\">Modelica.Electrical.Machines.Examples.ControlledDCDrives</a></td>
     <td>
-    This library demonstrates the control of a permanent magnet dc machine: current control, speed control and position control 
+    This library demonstrates the control of a permanent magnet dc machine: current control, speed control and position control
     along with the necessary components in sublibrary Utilities.<br>
     (This library was developed by Anton Haumer).
     </td></tr>
@@ -2260,10 +2260,10 @@ to <font color=\"blue\"><strong>existing</strong></font> libraries:
     <td> Measures reactive power for a threephase system.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Electrical.Machines.Examples</strong></td></tr>
 <tr><td width=\"150\">SMEE_DOL</td>
-    <td> Electrically excited synchronous machine, starting direct on line via the damper cage, 
+    <td> Electrically excited synchronous machine, starting direct on line via the damper cage,
          synchronised by increasing excitation voltage.</td></tr>
 <tr><td width=\"150\">SMR_DOL</td>
-    <td> Synchronous reluctance machine, starting direct on line via the damper cage, 
+    <td> Synchronous reluctance machine, starting direct on line via the damper cage,
          synchronised when reaching synchronous speed.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Electrical.Machines.Sensors</strong></td></tr>
 <tr><td width=\"150\">HallSensor</td>
@@ -2295,7 +2295,7 @@ to <font color=\"blue\"><strong>existing</strong></font> libraries:
     <td> Adaptors for the generation of FMUs, optionally taking first and second derivative into account.<br>
          Note: These adaptors give the same results as:<br>
          AngleToTorqueAdaptor<br>TorqueToAngleAdaptor<br>
-         but extend from <a href=\"modelica://Modelica.Blocks.Interfaces.Adaptors\">Modelica.Blocks.Interfaces.Adaptors</a>  
+         but extend from <a href=\"modelica://Modelica.Blocks.Interfaces.Adaptors\">Modelica.Blocks.Interfaces.Adaptors</a>
          like adaptors in other domains.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Mechanics.Rotational.Sources</strong></td></tr>
 <tr><td width=\"150\">EddyCurrentTorque</td>
@@ -2347,7 +2347,7 @@ to <font color=\"blue\"><strong>existing</strong></font> libraries:
 
 <p><br>
 The following <font color=\"blue\"><strong>existing components</strong></font>
-have been marked as <font color=\"blue\"><strong>obsolete</strong></font> and will be 
+have been marked as <font color=\"blue\"><strong>obsolete</strong></font> and will be
 <font color=\"blue\"><strong>removed</strong></font> in a future release:
 </p>
 
@@ -2419,7 +2419,7 @@ The following <font color=\"blue\"><strong>existing components</strong></font> h
 <tr><td colspan=\"2\"><strong>Modelica.Mechanics.MultiBody</strong></td></tr>
 <tr><td>World</td>
     <td>Added new parameter <code>animateGround</code> for optional ground plane visualization.<br>
-    Users that have copied the World model (of MSL 3.0, 3.0.1, 3.1, 3.2, 3.2.1, or 3.2.2) as an own World model and used it as inner world component, might have broken their models. 
+    Users that have copied the World model (of MSL 3.0, 3.0.1, 3.1, 3.2, 3.2.1, or 3.2.2) as an own World model and used it as inner world component, might have broken their models.
     Generally, for MSL models with sub-typing (due to inner/outer), it is strongly suggested to extend from this MSL model, instead of copying it.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Media.Interfaces</strong></td></tr>
 <tr><td>PartialMedium</td>
