@@ -712,7 +712,7 @@ Inner coolant's temperature rise near the source is the same as temperature drop
       Modelica.Thermal.FluidHeatFlow.Sources.Ambient ambient1(constantAmbientTemperature=TAmb, medium=medium,
         constantAmbientPressure=0)
         annotation (Placement(transformation(extent={{-70,-10},{-90,10}})));
-      Sources.IdealPump                                     idealPump(
+      Modelica.Thermal.FluidHeatFlow.Sources.IdealPump idealPump(
         medium=medium,
         m=0,
         T0=TAmb,
@@ -1300,7 +1300,7 @@ the time behaviour depending on coolant flow.
             extent={{-10,-10},{10,10}},
             rotation=0,
             origin={-70,-50})));
-      Modelica.Blocks.Math.Gain gain(k=pumpTurbine.wNominal)
+      Modelica.Blocks.Math.Gain gain(k=idealPump.wNominal)
         annotation (Placement(transformation(extent={{-50,-60},{-30,-40}})));
       Modelica.Mechanics.Rotational.Sources.Speed speed(exact=true)
         annotation (Placement(transformation(extent={{-20,-60},{0,-40}})));
@@ -1314,7 +1314,7 @@ the time behaviour depending on coolant flow.
             extent={{-10,10},{10,-10}},
             rotation=270,
             origin={50,-80})));
-      Modelica.Thermal.FluidHeatFlow.Components.PumpTurbine pumpTurbine(
+      Modelica.Thermal.FluidHeatFlow.Sources.IdealPump idealPump(
         medium=Modelica.Thermal.FluidHeatFlow.Media.Water(),
         m=0,
         V_flow0=0.18,
@@ -1372,19 +1372,19 @@ the time behaviour depending on coolant flow.
             rotation=270,
             origin={50,82})));
     equation
-      connect(pumpTurbine.flowPort_a, ambient1.flowPort)
+      connect(idealPump.flowPort_a, ambient1.flowPort)
         annotation (Line(points={{50,-60},{50,-70}}, color={255,0,0}));
       connect(speed.flange, multiSensor.flange_a)
         annotation (Line(points={{0,-50},{10,-50}}));
       connect(oneWayValve.flowPort_a, volumeFlowSensor.flowPort_b)
         annotation (Line(points={{50,10},{50,-10}}, color={255,0,0}));
-      connect(volumeFlowSensor.flowPort_a, pumpTurbine.flowPort_b)
+      connect(volumeFlowSensor.flowPort_a, idealPump.flowPort_b)
         annotation (Line(points={{50,-30},{50,-40}}, color={255,0,0}));
       connect(ambient2.flowPort, pipe.flowPort_b)
         annotation (Line(points={{50,72},{50,60}}, color={255,0,0}));
       connect(pipe.flowPort_a, oneWayValve.flowPort_b)
         annotation (Line(points={{50,40},{50,30}}, color={255,0,0}));
-      connect(multiSensor.flange_b, pumpTurbine.flange_a)
+      connect(multiSensor.flange_b, idealPump.flange_a)
         annotation (Line(points={{30,-50},{40,-50}}));
       connect(oneWayValve.flowPort_a, pressureSensor.flowPort)
         annotation (Line(points={{50,10},{50,0},{30,0}}, color={255,0,0}));
@@ -2049,101 +2049,6 @@ The position of the flange (as well as of the support, if useSupport=true) is in
               fillColor={128,128,128},
               fillPattern=FillPattern.Solid)}));
     end Cylinder;
-
-    model PumpTurbine "Model of an ideal pump/turbine"
-      extends Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.TwoPort(final tapT=1);
-
-      parameter Modelica.SIunits.AngularVelocity wNominal(start=1, displayUnit="rev/min")
-        "Nominal speed"
-          annotation(Dialog(group="Pump characteristic"));
-      parameter Modelica.SIunits.Pressure dp0(start=2)
-        "Max. pressure increase @ V_flow=0"
-          annotation(Dialog(group="Pump characteristic"));
-      parameter Modelica.SIunits.VolumeFlowRate V_flow0(start=2)
-        "Max. volume flow rate @ dp=0"
-          annotation(Dialog(group="Pump characteristic"));
-      Modelica.SIunits.AngularVelocity w=der(flange_a.phi - phi_support) "Speed";
-      parameter Boolean useSupport=false
-        "= true, if support flange enabled, otherwise implicitly grounded"
-        annotation (
-        Evaluate=true,
-        HideResult=true,
-        choices(checkBox=true));
-    protected
-      Modelica.SIunits.Pressure dp1;
-      Modelica.SIunits.VolumeFlowRate V_flow1;
-      Modelica.SIunits.Angle phi_support "Absolute angle of support flange";
-    public
-      Modelica.Mechanics.Rotational.Interfaces.Flange_a flange_a
-        annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
-      Modelica.Mechanics.Rotational.Interfaces.Support support(phi=phi_support, tau=-flange_a.tau) if useSupport
-        "Support/housing of component"
-        annotation (Placement(transformation(extent={{90,-110},{110,-90}})));
-    equation
-      // conditional support
-      if not useSupport then
-        phi_support = 0;
-      end if;
-      // intersection of pump characteristic with axes dependent on speed
-      dp1 = dp0*(w/wNominal)*abs(w/wNominal);
-      V_flow1 = V_flow0*(w/wNominal);
-      // pump characteristic (Euler) and torque calculation
-      if noEvent(abs(w)<Modelica.Constants.small) then
-        dp = 0;
-        flange_a.tau = 0;
-      else
-        dp = -dp1*(1 - V_flow/V_flow1);
-        flange_a.tau*w = -dp*V_flow;
-      end if;
-      // no energy exchange with medium
-      Q_flow = 0;
-      annotation (
-        Documentation(info="<html>
-<p>Simple fan resp. pump where characteristic is dependent on shaft's speed</p>
-<p>torque * speed = pressure increase * volume flow (without losses)</p>
-<p>Pressure increase versus volume flow is defined by a linear function,
-from dp0(V_flow=0) to V_flow0(dp=0).</p>
-<p>
-The axis intersections vary with speed as follows:
-</p>
-<ul>
-<li>dp prop. speed^2</li>
-<li>V_flow prop. speed</li>
-</ul>
-<p>
-Note: Increasing the pressure difference above dp0 leads to an inversion of volumeFlow,
-which means inversion of power flow, i.e., the machine is acting as a turbine.
-</p>
-<p>
-Coolant's temperature and enthalpy flow are not affected.
-Setting parameter m (mass of medium within fan/pump) to zero
-leads to neglect of temperature transient cv*m*der(T).
-Thermodynamic equations are defined by Partials.TwoPort.
-</p>
-</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}), graphics={
-            Ellipse(
-              extent={{-92,92},{92,-92}},
-              lineColor={0,0,255},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Ellipse(
-              extent={{-90,90},{90,-90}},
-              lineColor={255,0,0},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Rectangle(
-              extent={{-10,-40},{10,-100}},
-              fillPattern=FillPattern.VerticalCylinder,
-              fillColor={175,175,175}),
-            Polygon(
-              points={{-60,68},{90,10},{90,-10},{-60,-68},{-60,68}},
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={0,0,255}),           Text(
-              extent={{-150,140},{150,100}},
-              lineColor={0,0,255},
-              textString="%name")}));
-    end PumpTurbine;
 
     model OneWayValve "Simple one-way valve"
       extends Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.TwoPort(m(start=0), final tapT=1);
