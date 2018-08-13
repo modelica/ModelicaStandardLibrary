@@ -229,13 +229,6 @@ void ModelicaInternal_setenv(_In_z_ const char* name,
 #define BUFFER_LENGTH 1024
 #endif
 
-typedef enum {
-    FileType_NoFile = 1,
-    FileType_RegularFile,
-    FileType_Directory,
-    FileType_SpecialFile   /* pipe, FIFO, device, etc. */
-} ModelicaFileType;
-
 /* Convert to Unix directory separators: */
 #if defined(_WIN32)
 static void ModelicaConvertToUnixDirectorySeparator(char* string) {
