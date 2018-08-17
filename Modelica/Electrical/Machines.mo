@@ -198,7 +198,7 @@ RampedRheostat</a></li>
 
 <h5>Version 2.0.0, 2007-11-13 (Anton Haumer)</h5>
 <ul>
-  <li>Removed replaceable from airgaps</li>
+  <li>Removed replaceable from air gaps</li>
   <li>Removed cardinality from support, using a Boolean parameter</li>
   <li>Removed all nonSIunits</li>
 </ul>
@@ -210,7 +210,7 @@ RampedRheostat</a></li>
 
 <h5>Version 1.9.1, 2007-10-15 (Anton Haumer)</h5>
 <ul>
-  <li>Solved a bug with replaceable airgap / partial machines</li>
+  <li>Solved a bug with replaceable air gap / partial machines</li>
 </ul>
 
 <h5>Version 1.9.0, 2007-08-24 (Anton Haumer)</h5>
@@ -14865,7 +14865,7 @@ Base partial model DC machines:
 </ul>
 Besides the mechanical connector <em>flange</em> (i.e., the shaft) the machines have a second mechanical connector <em>support</em>.<br>
 If <em>useSupport</em> = false, it is assumed that the stator is fixed.<br>
-Otherwise reaction torque (i.e., airGap torque, minus acceleration torque for stator's moment of inertia) can be measured at <em>support</em>.<br>
+Otherwise reaction torque (i.e., air gap torque, minus acceleration torque for stator's moment of inertia) can be measured at <em>support</em>.<br>
 One may also fix the shaft and let rotate the stator; parameter Js is only of importance when the stator is rotating.
 </html>"));
     end PartialBasicMachine;

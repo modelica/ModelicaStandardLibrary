@@ -670,7 +670,7 @@ where
      \"<font face=\"Symbol\">d</font>\" is
      the absolute \"roughness\", i.e., the averaged height of asperities in the pipe
      (<font face=\"Symbol\">d</font> may change over time due to growth of surface asperities during
-      service, see <em>[Idelchick 1994, p. 85, Tables 2-1, 2-2])</em>.</li>
+      service, see <em>[Idelchik 1994, p. 85, Tables 2-1, 2-2])</em>.</li>
 <li> &rho; is the upstream density.</li>
 <li> &mu; is the upstream dynamic viscosity.</li>
 <li> v is the mean velocity.</li>
@@ -797,7 +797,7 @@ They can also be applied for <strong>compressible</strong> flow up to about <str
 (Ma is the Mach number) with a maximum error in &lambda; of about 3 %.
 The effect of gas compressibility in a wide region can be taken into
 account by the following formula derived by Voronin
-<em>[Voronin 1959; Idelchick 1994, p. 97, sect. 2.1.81]</em>:
+<em>[Voronin 1959; Idelchik 1994, p. 97, sect. 2.1.81]</em>:
 </p>
 <pre>
   &lambda;_comp = &lambda;*(1 + (&kappa;-1)/2 * Ma^2)^(-0.47)
@@ -807,7 +807,7 @@ where &kappa; is the isentropic coefficient
 (for ideal gases, &kappa; is the ratio of specific heat capacities cp/cv).
 An appreciable decrease in the coefficient \"&lambda;_comp\" is observed
 only in a narrow transonic region and also at supersonic flow velocities
-by about 15% <em>[Idelchick 1994, p. 97, sect. 2.1.81]</em>.
+by about 15% <em>[Idelchik 1994, p. 97, sect. 2.1.81]</em>.
 This effect is not yet included in Modelica.Fluid.
 Another restriction is that the pressure drop model is valid
 only for steady state or slowly changing mass flow rate.

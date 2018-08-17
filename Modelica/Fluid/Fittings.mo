@@ -879,7 +879,7 @@ port_a to port_b as:
      Reynolds number. For Re &ge; 4000, the flow is turbulent,
      but depends both on &Delta; and slightly on Re.
 &nbsp;
-  laminar flow (Idelchick 1994, diagram 2-1, p. 110):
+  laminar flow (Idelchik 1994, diagram 2-1, p. 110):
      zeta = 64*(L/D)/Re
 </pre>
 <p>
@@ -891,7 +891,7 @@ where
 <li> &Delta; = &delta;/D is the relative roughness where &delta; is
      the absolute \"roughness\", i.e., the averaged height of asperities in the pipe.
      (&delta; may change over time due to growth of surface asperities during
-      service, see [Idelchick 1994, p. 85, Tables 2-1, 2-2]).</li>
+      service, see [Idelchik 1994, p. 85, Tables 2-1, 2-2]).</li>
 </ul>
 
 <p>

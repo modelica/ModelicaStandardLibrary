@@ -1012,7 +1012,7 @@ end gasMixtureViscosity;
   Real edivk[size(y,1),size(y,1)];
   Real Mm;
   Real Mij[size(y,1),size(y,1)];
-  Real wm "Accentric factor";
+  Real wm "Acentric factor";
   Real wij[size(y,1),size(y,1)];
   Real kappam
       "Correlation for highly polar substances such as alcohols and acids";
