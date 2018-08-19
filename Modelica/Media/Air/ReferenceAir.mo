@@ -747,7 +747,7 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
           Real dp "Pressure difference";
           SI.Density deld "Density step";
           Modelica.Media.Common.HelmholtzDerivs f
-            "Dimensionless Helmholtz function and dervatives w.r.t. delta and tau";
+            "Dimensionless Helmholtz function and derivatives w.r.t. delta and tau";
           Modelica.Media.Common.NewtonDerivatives_pT nDerivs
             "Derivatives needed in Newton iteration";
           Boolean found=false "Flag for iteration success";
@@ -787,7 +787,7 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
           Real deld "Newton-step in d-direction";
           Real delt "Newton-step in T-direction";
           Modelica.Media.Common.HelmholtzDerivs f
-            "Dimensionless Helmholtz function and dervatives w.r.t. delta and tau";
+            "Dimensionless Helmholtz function and derivatives w.r.t. delta and tau";
           Modelica.Media.Common.NewtonDerivatives_ph nDerivs
             "Derivatives needed in Newton iteration";
           Boolean found=false "Flag for iteration success";
@@ -835,7 +835,7 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
           Real deld "Newton-step in d-direction";
           Real delt "Newton-step in T-direction";
           Modelica.Media.Common.HelmholtzDerivs f
-            "Dimensionless Helmholtz function and dervatives w.r.t. delta and tau";
+            "Dimensionless Helmholtz function and derivatives w.r.t. delta and tau";
           Modelica.Media.Common.NewtonDerivatives_ps nDerivs
             "Derivatives needed in Newton iteration";
           Boolean found=false "Flag for iteration success";
@@ -911,7 +911,7 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
 
         protected
           Modelica.Media.Common.HelmholtzDerivs f
-            "Dimensionless Helmholtz function and dervatives w.r.t. delta and tau";
+            "Dimensionless Helmholtz function and derivatives w.r.t. delta and tau";
           SI.ThermalConductivity lambda_0=0 "Dilute gas thermal conductivity";
           SI.ThermalConductivity lambda_r=0
             "Residual fluid thermal conductivity";
@@ -1000,7 +1000,7 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
         output Common.AuxiliaryProperties aux "Auxiliary record";
       protected
         Modelica.Media.Common.HelmholtzDerivs f
-          "Dimensionless Helmholtz function and dervatives w.r.t. delta and tau";
+          "Dimensionless Helmholtz function and derivatives w.r.t. delta and tau";
       algorithm
         aux.p := p;
         aux.s := s;
@@ -1099,7 +1099,7 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
         output Common.AuxiliaryProperties aux "Auxiliary record";
       protected
         Modelica.Media.Common.HelmholtzDerivs f
-          "Dimensionless Helmholtz function and dervatives w.r.t. delta and tau";
+          "Dimensionless Helmholtz function and derivatives w.r.t. delta and tau";
         Integer error "Error flag for inverse iterations";
       algorithm
         aux.p := p;
@@ -1462,7 +1462,7 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
         output Common.AuxiliaryProperties aux "Auxiliary record";
       protected
         Modelica.Media.Common.HelmholtzDerivs f
-          "Dimensionless Helmholtz function and dervatives w.r.t. delta and tau";
+          "Dimensionless Helmholtz function and derivatives w.r.t. delta and tau";
       algorithm
         aux.p := p;
         aux.T := T;
@@ -1755,7 +1755,7 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
         output Common.AuxiliaryProperties aux "Auxiliary record";
       protected
         Modelica.Media.Common.HelmholtzDerivs f
-          "Dimensionless Helmholtz function and dervatives w.r.t. delta and tau";
+          "Dimensionless Helmholtz function and derivatives w.r.t. delta and tau";
       algorithm
         aux.rho := d;
         aux.T := T;
@@ -2046,7 +2046,7 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
             pro "Property record for dynamic simulation";
         protected
           Modelica.Media.Common.HelmholtzDerivs f
-            "Dimensionless Helmholtz function and dervatives w.r.t. delta and tau";
+            "Dimensionless Helmholtz function and derivatives w.r.t. delta and tau";
           Modelica.SIunits.Temperature T "Temperature";
           Modelica.SIunits.Density d "Density";
         algorithm
@@ -2069,7 +2069,7 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
         protected
           Modelica.SIunits.Pressure p "Pressure";
           Modelica.Media.Common.HelmholtzDerivs f
-            "Dimensionless Helmholtz function and dervatives w.r.t. delta and tau";
+            "Dimensionless Helmholtz function and derivatives w.r.t. delta and tau";
         algorithm
           f := Air_Utilities.Basic.Helmholtz(d, T);
           pro := Modelica.Media.Common.ThermoFluidSpecial.helmholtzToProps_dT(f);
@@ -2086,7 +2086,7 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
         protected
           Modelica.SIunits.Density d "Density";
           Modelica.Media.Common.HelmholtzDerivs f
-            "Dimensionless Helmholtz function and dervatives w.r.t. delta and tau";
+            "Dimensionless Helmholtz function and derivatives w.r.t. delta and tau";
         algorithm
           d := Modelica.Media.Air.ReferenceAir.Air_Utilities.Inverses.dofpT(
                     p=p,

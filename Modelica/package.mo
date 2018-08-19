@@ -2504,7 +2504,7 @@ Modelica.Fluid.Pipes.BaseClasses.WallFriction.PartialWallFriction, see details b
             <li> In ticket <a href=\"https://trac.modelica.org/Modelica/ticket/1757\">1757</a> it is (correctly) stated
                  that the example model <a href=\"modelica://Modelica.Media.Examples.PsychrometricData\">PsychrometricData</a>
                  was moved from Modelica.Media.Air.MoistAir.PsychrometricData and that this is a non-backwards compatible change.
-                 This non-backwards compatible change is accepted, because it fixes a circular depedency (a model references
+                 This non-backwards compatible change is accepted, because it fixes a circular dependency (a model references
                  a package in which it resides), for details see ticket
                  <a href=\"https://trac.modelica.org/Modelica/ticket/1679\">1679</a>.
                  Fixing this ticket is seen as of much higher priority, as the small drawback that
@@ -5837,13 +5837,13 @@ to <font color=\"blue\"><strong>existing</strong></font> libraries:
           <td> Partial model for synchronous induction machine
           </td></tr>
 <tr><td> PartialAirGap </td>
-          <td> Partial airgap model
+          <td> Partial air gap model
           </td></tr>
 <tr><td> BasicDCMachine </td>
           <td> Partial model for DC machine
           </td></tr>
 <tr><td> PartialAirGapDC </td>
-          <td> Partial airgap model of a DC machine
+          <td> Partial air gap model of a DC machine
           </td></tr>
 <tr><td> BasicTransformer </td>
           <td> Partial model of threephase transformer

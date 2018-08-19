@@ -7794,7 +7794,7 @@ For details of the arguments, see documentation of dgbsv.
 
     T must be in Schur canonical form (as returned by DHSEQR), that is,
     block upper triangular with 1-by-1 and 2-by-2 diagonal blocks; each
-    2-by-2 diagonal block has its diagonal elemnts equal and its
+    2-by-2 diagonal block has its diagonal elements equal and its
     off-diagonal elements of opposite sign.
 
     Arguments
@@ -8509,7 +8509,7 @@ For details of the arguments, see documentation of dgbsv.
 
     LDZ   (input) INTEGER
           The leading dimension of the array Z.  if COMPZ = 'I' or
-          COMPZ = 'V', then LDZ>=MAX(1,N).  Otherwize, LDZ>=1.
+          COMPZ = 'V', then LDZ>=MAX(1,N).  Otherwise, LDZ>=1.
 
     WORK  (workspace/output) DOUBLE PRECISION array, dimension (LWORK)
           On exit, if INFO = 0, WORK(1) returns an estimate of

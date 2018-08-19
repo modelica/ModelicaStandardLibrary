@@ -3318,7 +3318,7 @@ The harmonic is defined by <code>&radic;2 rms cos(k 2 &pi; f t + arg)</code> if 
   block TotalHarmonicDistortion "Output the total harmonic distortion (THD)"
     extends Interfaces.SISO;
     parameter Modelica.SIunits.Frequency f(start=1) "Base frequency";
-    parameter Boolean useFirstHarmonic = true "THD with respect to first harominc, if true; otherwise with respect to total RMS";
+    parameter Boolean useFirstHarmonic = true "THD with respect to first harmonic, if true; otherwise with respect to total RMS";
 
     Harmonic harmonic(
       final f=f,

@@ -602,7 +602,7 @@ by the fundamental equation of state of Tillner-Roth and Baehr (1994).
     algorithm
       p := state.p;
       annotation (Inline=true, Documentation(info="<html>
-<p>This function is included for the sake of completness.</p>
+<p>This function is included for the sake of completeness.</p>
 <p><img src=\"modelica://Modelica/Resources/Images/Media/R134a/log(p)h-Diagram-R134a.png\"/></p>
 </html>"));
     end pressure;
@@ -626,7 +626,7 @@ by the fundamental equation of state of Tillner-Roth and Baehr (1994).
       h := state.h;
 
       annotation (Inline=true, Documentation(info="<html>
-<p>This function is included for the sake of completness.</p>
+<p>This function is included for the sake of completeness.</p>
 <p><img src=\"modelica://Modelica/Resources/Images/Media/R134a/log(p)h-Diagram-R134a.png\"/></p>
 </html>"));
     end specificEnthalpy;
@@ -2495,7 +2495,7 @@ This function integrates the derivative of temperature w.r.t. time in order to a
       Real dp "Pressure difference";
       SI.Density deld "Density step";
       Modelica.Media.Common.HelmholtzDerivs f
-        "Dimensionless Helmholtz function and dervatives w.r.t. delta and tau";
+        "Dimensionless Helmholtz function and derivatives w.r.t. delta and tau";
       Modelica.Media.Common.NewtonDerivatives_pT nDerivs
         "Derivatives needed in Newton iteration";
       Boolean found "Flag for iteration success";
