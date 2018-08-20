@@ -80,6 +80,13 @@
 #define _Ret_z_
 #endif
 
+typedef enum {
+    FileType_NoFile = 1,
+    FileType_RegularFile,
+    FileType_Directory,
+    FileType_SpecialFile   /* pipe, FIFO, device, etc. */
+} ModelicaFileType;
+
 MODELICA_EXPORT void ModelicaInternal_mkdir(_In_z_ const char* directoryName) MODELICA_NONNULLATTR;
 MODELICA_EXPORT void ModelicaInternal_rmdir(_In_z_ const char* directoryName) MODELICA_NONNULLATTR;
 MODELICA_EXPORT int ModelicaInternal_stat(_In_z_ const char* name) MODELICA_NONNULLATTR;
