@@ -917,6 +917,7 @@ static double* readTxtTable(_In_z_ const char* fileName, _In_z_ const char* tabl
                     unsigned long lineNoPartial = lineNo;
                     int tableReadPartial = 0;
                     while (readLine(&buf, &bufLen, fp) == 0) {
+                        k = 0;
                         lineNoPartial++;
                         /* Ignore leading white space */
                         while (k < bufLen - 1) {
