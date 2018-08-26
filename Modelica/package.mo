@@ -7202,7 +7202,7 @@ class Version_2_1 "Version 2.1 (Nov. 11, 2004)"
          the understanding and usage especially for beginners.<br>
          If a vector of blocks is needed, this can be easily
          accomplished by adding a dimension to the instance. For example
-         \"Constant const[3](k={1,2,3}\" defines three Constant blocks.
+         \"Constant const[3](k={1,2,3})\" defines three Constant blocks.
          An additional advantage of the new approach is that
          the implementation of Modelica.Blocks is much simpler and is easier to
          understand.
